@@ -4,31 +4,6 @@ target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:
 target triple = "x86_64-unknown-linux-gnu"
 
 %"struct.std::nothrow_t" = type { i8 }
-%"class.zmq::epoll_t" = type { %"class.zmq::worker_poller_base_t", i32, %"class.std::vector" }
-%"class.zmq::worker_poller_base_t" = type { %"class.zmq::poller_base_t", ptr, %"class.zmq::thread_t" }
-%"class.zmq::poller_base_t" = type { ptr, %"class.zmq::clock_t", %"class.std::multimap", %"class.zmq::atomic_counter_t" }
-%"class.zmq::clock_t" = type { i64, i64 }
-%"class.std::multimap" = type { %"class.std::_Rb_tree" }
-%"class.std::_Rb_tree" = type { %"struct.std::_Rb_tree<unsigned long, std::pair<const unsigned long, zmq::poller_base_t::timer_info_t>, std::_Select1st<std::pair<const unsigned long, zmq::poller_base_t::timer_info_t>>, std::less<unsigned long>>::_Rb_tree_impl" }
-%"struct.std::_Rb_tree<unsigned long, std::pair<const unsigned long, zmq::poller_base_t::timer_info_t>, std::_Select1st<std::pair<const unsigned long, zmq::poller_base_t::timer_info_t>>, std::less<unsigned long>>::_Rb_tree_impl" = type { %"struct.std::_Rb_tree_key_compare", %"struct.std::_Rb_tree_header" }
-%"struct.std::_Rb_tree_key_compare" = type { %"struct.std::less" }
-%"struct.std::less" = type { i8 }
-%"struct.std::_Rb_tree_header" = type { %"struct.std::_Rb_tree_node_base", i64 }
-%"struct.std::_Rb_tree_node_base" = type { i32, ptr, ptr, ptr }
-%"class.zmq::atomic_counter_t" = type { %"struct.std::atomic", [4 x i8] }
-%"struct.std::atomic" = type { %"struct.std::__atomic_base" }
-%"struct.std::__atomic_base" = type { i32 }
-%"class.zmq::thread_t" = type { ptr, ptr, [16 x i8], i8, i64, i32, i32, %"class.std::set" }
-%"class.std::set" = type { %"class.std::_Rb_tree.0" }
-%"class.std::_Rb_tree.0" = type { %"struct.std::_Rb_tree<int, int, std::_Identity<int>, std::less<int>>::_Rb_tree_impl" }
-%"struct.std::_Rb_tree<int, int, std::_Identity<int>, std::less<int>>::_Rb_tree_impl" = type { %"struct.std::_Rb_tree_key_compare.4", %"struct.std::_Rb_tree_header" }
-%"struct.std::_Rb_tree_key_compare.4" = type { %"struct.std::less.5" }
-%"struct.std::less.5" = type { i8 }
-%"class.std::vector" = type { %"struct.std::_Vector_base" }
-%"struct.std::_Vector_base" = type { %"struct.std::_Vector_base<zmq::epoll_t::poll_entry_t *, std::allocator<zmq::epoll_t::poll_entry_t *>>::_Vector_impl" }
-%"struct.std::_Vector_base<zmq::epoll_t::poll_entry_t *, std::allocator<zmq::epoll_t::poll_entry_t *>>::_Vector_impl" = type { %"struct.std::_Vector_base<zmq::epoll_t::poll_entry_t *, std::allocator<zmq::epoll_t::poll_entry_t *>>::_Vector_impl_data" }
-%"struct.std::_Vector_base<zmq::epoll_t::poll_entry_t *, std::allocator<zmq::epoll_t::poll_entry_t *>>::_Vector_impl_data" = type { ptr, ptr, ptr }
-%"struct.zmq::epoll_t::poll_entry_t" = type { i32, %struct.epoll_event, ptr }
 %struct.epoll_event = type <{ i32, %union.epoll_data }>
 %union.epoll_data = type { ptr }
 
@@ -70,10 +45,10 @@ define void @_ZN3zmq7epoll_tC2ERKNS_12thread_ctx_tE(ptr noundef nonnull align 8 
 entry:
   tail call void @_ZN3zmq20worker_poller_base_tC2ERKNS_12thread_ctx_tE(ptr noundef nonnull align 8 dereferenceable(192) %this, ptr noundef nonnull align 8 dereferenceable(136) %ctx_)
   store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN3zmq7epoll_tE, i64 0, inrange i32 0, i64 2), ptr %this, align 8
-  %_retired = getelementptr inbounds %"class.zmq::epoll_t", ptr %this, i64 0, i32 2
+  %_retired = getelementptr inbounds i8, ptr %this, i64 200
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %_retired, i8 0, i64 24, i1 false)
   %call = tail call i32 @epoll_create1(i32 noundef 524288) #16
-  %_epoll_fd = getelementptr inbounds %"class.zmq::epoll_t", ptr %this, i64 0, i32 1
+  %_epoll_fd = getelementptr inbounds i8, ptr %this, i64 192
   store i32 %call, ptr %_epoll_fd, align 8
   %cmp.not = icmp eq i32 %call, -1
   br i1 %cmp.not, label %if.then, label %do.end
@@ -136,15 +111,15 @@ entry:
           to label %invoke.cont unwind label %terminate.lpad
 
 invoke.cont:                                      ; preds = %entry
-  %_epoll_fd = getelementptr inbounds %"class.zmq::epoll_t", ptr %this, i64 0, i32 1
+  %_epoll_fd = getelementptr inbounds i8, ptr %this, i64 192
   %0 = load i32, ptr %_epoll_fd, align 8
   %call = invoke i32 @close(i32 noundef %0)
           to label %invoke.cont2 unwind label %terminate.lpad
 
 invoke.cont2:                                     ; preds = %invoke.cont
-  %_retired = getelementptr inbounds %"class.zmq::epoll_t", ptr %this, i64 0, i32 2
+  %_retired = getelementptr inbounds i8, ptr %this, i64 200
   %1 = load ptr, ptr %_retired, align 8
-  %_M_finish.i = getelementptr inbounds %"class.zmq::epoll_t", ptr %this, i64 0, i32 2, i32 0, i32 0, i32 0, i32 1
+  %_M_finish.i = getelementptr inbounds i8, ptr %this, i64 208
   %2 = load ptr, ptr %_M_finish.i, align 8
   %cmp.i.not4 = icmp eq ptr %1, %2
   br i1 %cmp.i.not4, label %for.end, label %for.body
@@ -161,7 +136,7 @@ delete.notnull:                                   ; preds = %for.body
 
 delete.end:                                       ; preds = %delete.notnull, %for.body
   store ptr null, ptr %it.sroa.0.05, align 8
-  %incdec.ptr.i = getelementptr inbounds ptr, ptr %it.sroa.0.05, i64 1
+  %incdec.ptr.i = getelementptr inbounds i8, ptr %it.sroa.0.05, i64 8
   %cmp.i.not = icmp eq ptr %incdec.ptr.i, %2
   br i1 %cmp.i.not, label %for.end.loopexit, label %for.body, !llvm.loop !4
 
@@ -180,8 +155,8 @@ if.then.i.i.i:                                    ; preds = %for.end
 
 _ZNSt6vectorIPN3zmq7epoll_t12poll_entry_tESaIS3_EED2Ev.exit: ; preds = %for.end, %if.then.i.i.i
   store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN3zmq20worker_poller_base_tE, i64 0, inrange i32 0, i64 2), ptr %this, align 8
-  %_thread_affinity_cpus.i.i = getelementptr inbounds %"class.zmq::worker_poller_base_t", ptr %this, i64 0, i32 2, i32 7
-  %_M_parent.i.i.i.i.i.i = getelementptr inbounds %"class.zmq::worker_poller_base_t", ptr %this, i64 0, i32 2, i32 7, i32 0, i32 0, i32 1, i32 0, i32 1
+  %_thread_affinity_cpus.i.i = getelementptr inbounds i8, ptr %this, i64 144
+  %_M_parent.i.i.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 160
   %5 = load ptr, ptr %_M_parent.i.i.i.i.i.i, align 8
   invoke void @_ZNSt8_Rb_treeIiiSt9_IdentityIiESt4lessIiESaIiEE8_M_eraseEPSt13_Rb_tree_nodeIiE(ptr noundef nonnull align 8 dereferenceable(48) %_thread_affinity_cpus.i.i, ptr noundef %5)
           to label %_ZN3zmq20worker_poller_base_tD2Ev.exit unwind label %terminate.lpad.i.i.i.i
@@ -249,13 +224,13 @@ if.then:                                          ; preds = %entry
 
 do.end:                                           ; preds = %entry, %if.then
   store i32 %fd_, ptr %call, align 8
-  %ev = getelementptr inbounds %"struct.zmq::epoll_t::poll_entry_t", ptr %call, i64 0, i32 1
+  %ev = getelementptr inbounds i8, ptr %call, i64 4
   store i32 0, ptr %ev, align 4
-  %data = getelementptr inbounds %"struct.zmq::epoll_t::poll_entry_t", ptr %call, i64 0, i32 1, i32 1
+  %data = getelementptr inbounds i8, ptr %call, i64 8
   store ptr %call, ptr %data, align 4
-  %events5 = getelementptr inbounds %"struct.zmq::epoll_t::poll_entry_t", ptr %call, i64 0, i32 2
+  %events5 = getelementptr inbounds i8, ptr %call, i64 16
   store ptr %events_, ptr %events5, align 8
-  %_epoll_fd = getelementptr inbounds %"class.zmq::epoll_t", ptr %this, i64 0, i32 1
+  %_epoll_fd = getelementptr inbounds i8, ptr %this, i64 192
   %2 = load i32, ptr %_epoll_fd, align 8
   %call7 = tail call i32 @epoll_ctl(i32 noundef %2, i32 noundef 1, i32 noundef %fd_, ptr noundef nonnull %ev) #16
   %cmp.not = icmp eq i32 %call7, -1
@@ -294,10 +269,10 @@ declare void @_ZN3zmq13poller_base_t11adjust_loadEi(ptr noundef nonnull align 8 
 define void @_ZN3zmq7epoll_t5rm_fdEPv(ptr noundef nonnull align 8 dereferenceable(224) %this, ptr noundef %handle_) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   tail call void @_ZNK3zmq20worker_poller_base_t12check_threadEv(ptr noundef nonnull align 8 dereferenceable(192) %this)
-  %_epoll_fd = getelementptr inbounds %"class.zmq::epoll_t", ptr %this, i64 0, i32 1
+  %_epoll_fd = getelementptr inbounds i8, ptr %this, i64 192
   %0 = load i32, ptr %_epoll_fd, align 8
   %1 = load i32, ptr %handle_, align 8
-  %ev = getelementptr inbounds %"struct.zmq::epoll_t::poll_entry_t", ptr %handle_, i64 0, i32 1
+  %ev = getelementptr inbounds i8, ptr %handle_, i64 4
   %call = tail call i32 @epoll_ctl(i32 noundef %0, i32 noundef 2, i32 noundef %1, ptr noundef nonnull %ev) #16
   %cmp.not = icmp eq i32 %call, -1
   br i1 %cmp.not, label %if.then, label %do.end
@@ -315,10 +290,10 @@ if.then:                                          ; preds = %entry
 
 do.end:                                           ; preds = %entry, %if.then
   store i32 -1, ptr %handle_, align 8
-  %_retired = getelementptr inbounds %"class.zmq::epoll_t", ptr %this, i64 0, i32 2
-  %_M_finish.i = getelementptr inbounds %"class.zmq::epoll_t", ptr %this, i64 0, i32 2, i32 0, i32 0, i32 0, i32 1
+  %_retired = getelementptr inbounds i8, ptr %this, i64 200
+  %_M_finish.i = getelementptr inbounds i8, ptr %this, i64 208
   %5 = load ptr, ptr %_M_finish.i, align 8
-  %_M_end_of_storage.i = getelementptr inbounds %"class.zmq::epoll_t", ptr %this, i64 0, i32 2, i32 0, i32 0, i32 0, i32 2
+  %_M_end_of_storage.i = getelementptr inbounds i8, ptr %this, i64 216
   %6 = load ptr, ptr %_M_end_of_storage.i, align 8
   %cmp.not.i = icmp eq ptr %5, %6
   br i1 %cmp.not.i, label %if.else.i, label %if.then.i
@@ -326,7 +301,7 @@ do.end:                                           ; preds = %entry, %if.then
 if.then.i:                                        ; preds = %do.end
   store ptr %handle_, ptr %5, align 8
   %7 = load ptr, ptr %_M_finish.i, align 8
-  %incdec.ptr.i = getelementptr inbounds ptr, ptr %7, i64 1
+  %incdec.ptr.i = getelementptr inbounds i8, ptr %7, i64 8
   store ptr %incdec.ptr.i, ptr %_M_finish.i, align 8
   br label %_ZNSt6vectorIPN3zmq7epoll_t12poll_entry_tESaIS3_EE9push_backERKS3_.exit
 
@@ -370,7 +345,7 @@ if.then.i.i.i.i.i.i:                              ; preds = %_ZNSt12_Vector_base
 
 _ZNSt6vectorIPN3zmq7epoll_t12poll_entry_tESaIS3_EE11_S_relocateEPS3_S6_S6_RS4_.exit17.i.i: ; preds = %if.then.i.i.i.i.i.i, %_ZNSt12_Vector_baseIPN3zmq7epoll_t12poll_entry_tESaIS3_EE11_M_allocateEm.exit.i.i
   %add.ptr.i.i.i.i.i.i = getelementptr inbounds i8, ptr %cond.i10.i.i, i64 %sub.ptr.sub.i.i.i.i
-  %incdec.ptr.i.i = getelementptr inbounds ptr, ptr %add.ptr.i.i.i.i.i.i, i64 1
+  %incdec.ptr.i.i = getelementptr inbounds i8, ptr %add.ptr.i.i.i.i.i.i, i64 8
   %tobool.not.i.i.i = icmp eq ptr %8, null
   br i1 %tobool.not.i.i.i, label %_ZNSt6vectorIPN3zmq7epoll_t12poll_entry_tESaIS3_EE17_M_realloc_insertIJRKS3_EEEvN9__gnu_cxx17__normal_iteratorIPS3_S5_EEDpOT_.exit.i, label %if.then.i18.i.i
 
@@ -394,11 +369,11 @@ _ZNSt6vectorIPN3zmq7epoll_t12poll_entry_tESaIS3_EE9push_backERKS3_.exit: ; preds
 define void @_ZN3zmq7epoll_t10set_pollinEPv(ptr noundef nonnull align 8 dereferenceable(224) %this, ptr noundef %handle_) local_unnamed_addr #0 align 2 {
 entry:
   tail call void @_ZNK3zmq20worker_poller_base_t12check_threadEv(ptr noundef nonnull align 8 dereferenceable(192) %this)
-  %ev = getelementptr inbounds %"struct.zmq::epoll_t::poll_entry_t", ptr %handle_, i64 0, i32 1
+  %ev = getelementptr inbounds i8, ptr %handle_, i64 4
   %0 = load i32, ptr %ev, align 4
   %or = or i32 %0, 1
   store i32 %or, ptr %ev, align 4
-  %_epoll_fd = getelementptr inbounds %"class.zmq::epoll_t", ptr %this, i64 0, i32 1
+  %_epoll_fd = getelementptr inbounds i8, ptr %this, i64 192
   %1 = load i32, ptr %_epoll_fd, align 8
   %2 = load i32, ptr %handle_, align 8
   %call = tail call i32 @epoll_ctl(i32 noundef %1, i32 noundef 3, i32 noundef %2, ptr noundef nonnull %ev) #16
@@ -424,11 +399,11 @@ do.end:                                           ; preds = %entry, %if.then
 define void @_ZN3zmq7epoll_t12reset_pollinEPv(ptr noundef nonnull align 8 dereferenceable(224) %this, ptr noundef %handle_) local_unnamed_addr #0 align 2 {
 entry:
   tail call void @_ZNK3zmq20worker_poller_base_t12check_threadEv(ptr noundef nonnull align 8 dereferenceable(192) %this)
-  %ev = getelementptr inbounds %"struct.zmq::epoll_t::poll_entry_t", ptr %handle_, i64 0, i32 1
+  %ev = getelementptr inbounds i8, ptr %handle_, i64 4
   %0 = load i32, ptr %ev, align 4
   %and = and i32 %0, -2
   store i32 %and, ptr %ev, align 4
-  %_epoll_fd = getelementptr inbounds %"class.zmq::epoll_t", ptr %this, i64 0, i32 1
+  %_epoll_fd = getelementptr inbounds i8, ptr %this, i64 192
   %1 = load i32, ptr %_epoll_fd, align 8
   %2 = load i32, ptr %handle_, align 8
   %call = tail call i32 @epoll_ctl(i32 noundef %1, i32 noundef 3, i32 noundef %2, ptr noundef nonnull %ev) #16
@@ -454,11 +429,11 @@ do.end:                                           ; preds = %entry, %if.then
 define void @_ZN3zmq7epoll_t11set_polloutEPv(ptr noundef nonnull align 8 dereferenceable(224) %this, ptr noundef %handle_) local_unnamed_addr #0 align 2 {
 entry:
   tail call void @_ZNK3zmq20worker_poller_base_t12check_threadEv(ptr noundef nonnull align 8 dereferenceable(192) %this)
-  %ev = getelementptr inbounds %"struct.zmq::epoll_t::poll_entry_t", ptr %handle_, i64 0, i32 1
+  %ev = getelementptr inbounds i8, ptr %handle_, i64 4
   %0 = load i32, ptr %ev, align 4
   %or = or i32 %0, 4
   store i32 %or, ptr %ev, align 4
-  %_epoll_fd = getelementptr inbounds %"class.zmq::epoll_t", ptr %this, i64 0, i32 1
+  %_epoll_fd = getelementptr inbounds i8, ptr %this, i64 192
   %1 = load i32, ptr %_epoll_fd, align 8
   %2 = load i32, ptr %handle_, align 8
   %call = tail call i32 @epoll_ctl(i32 noundef %1, i32 noundef 3, i32 noundef %2, ptr noundef nonnull %ev) #16
@@ -484,11 +459,11 @@ do.end:                                           ; preds = %entry, %if.then
 define void @_ZN3zmq7epoll_t13reset_polloutEPv(ptr noundef nonnull align 8 dereferenceable(224) %this, ptr noundef %handle_) local_unnamed_addr #0 align 2 {
 entry:
   tail call void @_ZNK3zmq20worker_poller_base_t12check_threadEv(ptr noundef nonnull align 8 dereferenceable(192) %this)
-  %ev = getelementptr inbounds %"struct.zmq::epoll_t::poll_entry_t", ptr %handle_, i64 0, i32 1
+  %ev = getelementptr inbounds i8, ptr %handle_, i64 4
   %0 = load i32, ptr %ev, align 4
   %and = and i32 %0, -5
   store i32 %and, ptr %ev, align 4
-  %_epoll_fd = getelementptr inbounds %"class.zmq::epoll_t", ptr %this, i64 0, i32 1
+  %_epoll_fd = getelementptr inbounds i8, ptr %this, i64 192
   %1 = load i32, ptr %_epoll_fd, align 8
   %2 = load i32, ptr %handle_, align 8
   %call = tail call i32 @epoll_ctl(i32 noundef %1, i32 noundef 3, i32 noundef %2, ptr noundef nonnull %ev) #16
@@ -527,9 +502,9 @@ entry:
 define void @_ZN3zmq7epoll_t4loopEv(ptr noundef nonnull align 8 dereferenceable(224) %this) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %ev_buf = alloca [256 x %struct.epoll_event], align 16
-  %_epoll_fd = getelementptr inbounds %"class.zmq::epoll_t", ptr %this, i64 0, i32 1
-  %_retired = getelementptr inbounds %"class.zmq::epoll_t", ptr %this, i64 0, i32 2
-  %_M_finish.i = getelementptr inbounds %"class.zmq::epoll_t", ptr %this, i64 0, i32 2, i32 0, i32 0, i32 0, i32 1
+  %_epoll_fd = getelementptr inbounds i8, ptr %this, i64 192
+  %_retired = getelementptr inbounds i8, ptr %this, i64 200
+  %_M_finish.i = getelementptr inbounds i8, ptr %this, i64 208
   br label %while.body
 
 while.body:                                       ; preds = %while.body.backedge, %entry
@@ -577,13 +552,13 @@ if.then12:                                        ; preds = %do.body
 for.body:                                         ; preds = %for.body.preheader, %for.inc
   %indvars.iv = phi i64 [ 0, %for.body.preheader ], [ %indvars.iv.next, %for.inc ]
   %arrayidx20 = getelementptr inbounds [256 x %struct.epoll_event], ptr %ev_buf, i64 0, i64 %indvars.iv
-  %data = getelementptr inbounds [256 x %struct.epoll_event], ptr %ev_buf, i64 0, i64 %indvars.iv, i32 1
+  %data = getelementptr inbounds i8, ptr %arrayidx20, i64 4
   %4 = load ptr, ptr %data, align 4
   %cmp21 = icmp eq ptr %4, null
   br i1 %cmp21, label %for.inc, label %if.end23
 
 if.end23:                                         ; preds = %for.body
-  %events = getelementptr inbounds %"struct.zmq::epoll_t::poll_entry_t", ptr %4, i64 0, i32 2
+  %events = getelementptr inbounds i8, ptr %4, i64 16
   %5 = load ptr, ptr %events, align 8
   %cmp24 = icmp eq ptr %5, null
   br i1 %cmp24, label %for.inc, label %if.end26
@@ -601,7 +576,7 @@ if.end29:                                         ; preds = %if.end26
 
 if.end36:                                         ; preds = %if.end29
   %vtable = load ptr, ptr %5, align 8
-  %vfn = getelementptr inbounds ptr, ptr %vtable, i64 2
+  %vfn = getelementptr inbounds i8, ptr %vtable, i64 16
   %8 = load ptr, ptr %vfn, align 8
   call void %8(ptr noundef nonnull align 8 dereferenceable(8) %5)
   %.pre = load i32, ptr %4, align 8
@@ -617,7 +592,7 @@ if.end40:                                         ; preds = %if.end29, %if.end36
 if.end50:                                         ; preds = %if.end40
   %10 = load ptr, ptr %events, align 8
   %vtable48 = load ptr, ptr %10, align 8
-  %vfn49 = getelementptr inbounds ptr, ptr %vtable48, i64 3
+  %vfn49 = getelementptr inbounds i8, ptr %vtable48, i64 24
   %11 = load ptr, ptr %vfn49, align 8
   call void %11(ptr noundef nonnull align 8 dereferenceable(8) %10)
   %.pre27 = load i32, ptr %4, align 8
@@ -633,7 +608,7 @@ if.end54:                                         ; preds = %if.end40, %if.end50
 if.then60:                                        ; preds = %if.end54
   %13 = load ptr, ptr %events, align 8
   %vtable62 = load ptr, ptr %13, align 8
-  %vfn63 = getelementptr inbounds ptr, ptr %vtable62, i64 2
+  %vfn63 = getelementptr inbounds i8, ptr %vtable62, i64 16
   %14 = load ptr, ptr %vfn63, align 8
   call void %14(ptr noundef nonnull align 8 dereferenceable(8) %13)
   br label %for.inc
@@ -664,7 +639,7 @@ delete.notnull:                                   ; preds = %for.body71
 
 delete.end:                                       ; preds = %delete.notnull, %for.body71
   store ptr null, ptr %it.sroa.0.025, align 8
-  %incdec.ptr.i = getelementptr inbounds ptr, ptr %it.sroa.0.025, i64 1
+  %incdec.ptr.i = getelementptr inbounds i8, ptr %it.sroa.0.025, i64 8
   %cmp.i.not = icmp eq ptr %incdec.ptr.i, %16
   br i1 %cmp.i.not, label %for.end76, label %for.body71, !llvm.loop !8
 
@@ -695,8 +670,8 @@ declare void @_ZN3zmq13poller_base_tD2Ev(ptr noundef nonnull align 8 dereference
 define linkonce_odr void @_ZN3zmq20worker_poller_base_tD2Ev(ptr noundef nonnull align 8 dereferenceable(192) %this) unnamed_addr #5 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN3zmq20worker_poller_base_tE, i64 0, inrange i32 0, i64 2), ptr %this, align 8
-  %_thread_affinity_cpus.i = getelementptr inbounds %"class.zmq::worker_poller_base_t", ptr %this, i64 0, i32 2, i32 7
-  %_M_parent.i.i.i.i.i = getelementptr inbounds %"class.zmq::worker_poller_base_t", ptr %this, i64 0, i32 2, i32 7, i32 0, i32 0, i32 1, i32 0, i32 1
+  %_thread_affinity_cpus.i = getelementptr inbounds i8, ptr %this, i64 144
+  %_M_parent.i.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 160
   %0 = load ptr, ptr %_M_parent.i.i.i.i.i, align 8
   invoke void @_ZNSt8_Rb_treeIiiSt9_IdentityIiESt4lessIiESaIiEE8_M_eraseEPSt13_Rb_tree_nodeIiE(ptr noundef nonnull align 8 dereferenceable(48) %_thread_affinity_cpus.i, ptr noundef %0)
           to label %_ZN3zmq8thread_tD2Ev.exit unwind label %terminate.lpad.i.i.i
@@ -730,10 +705,10 @@ entry:
 
 while.body:                                       ; preds = %entry, %while.body
   %__x.addr.05 = phi ptr [ %1, %while.body ], [ %__x, %entry ]
-  %_M_right.i = getelementptr inbounds %"struct.std::_Rb_tree_node_base", ptr %__x.addr.05, i64 0, i32 3
+  %_M_right.i = getelementptr inbounds i8, ptr %__x.addr.05, i64 24
   %0 = load ptr, ptr %_M_right.i, align 8
   tail call void @_ZNSt8_Rb_treeIiiSt9_IdentityIiESt4lessIiESaIiEE8_M_eraseEPSt13_Rb_tree_nodeIiE(ptr noundef nonnull align 8 dereferenceable(48) %this, ptr noundef %0)
-  %_M_left.i = getelementptr inbounds %"struct.std::_Rb_tree_node_base", ptr %__x.addr.05, i64 0, i32 2
+  %_M_left.i = getelementptr inbounds i8, ptr %__x.addr.05, i64 16
   %1 = load ptr, ptr %_M_left.i, align 8
   tail call void @_ZdlPv(ptr noundef nonnull %__x.addr.05) #19
   %cmp.not = icmp eq ptr %1, null

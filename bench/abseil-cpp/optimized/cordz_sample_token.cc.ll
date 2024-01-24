@@ -3,14 +3,12 @@ source_filename = "bench/abseil-cpp/original/cordz_sample_token.cc.ll"
 target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:128-n8:16:32:64-S128"
 target triple = "x86_64-unknown-linux-gnu"
 
-%"class.absl::cord_internal::CordzSampleToken::Iterator" = type { ptr, ptr }
-
 @_ZN4absl13cord_internal16CordzSampleToken8IteratorC1EPKS1_ = dso_local unnamed_addr alias void (ptr, ptr), ptr @_ZN4absl13cord_internal16CordzSampleToken8IteratorC2EPKS1_
 
 ; Function Attrs: mustprogress uwtable
 define dso_local noundef nonnull align 8 dereferenceable(16) ptr @_ZN4absl13cord_internal16CordzSampleToken8IteratorppEv(ptr noundef nonnull returned align 8 dereferenceable(16) %this) local_unnamed_addr #0 align 2 {
 entry:
-  %current_ = getelementptr inbounds %"class.absl::cord_internal::CordzSampleToken::Iterator", ptr %this, i64 0, i32 1
+  %current_ = getelementptr inbounds i8, ptr %this, i64 8
   %0 = load ptr, ptr %current_, align 8
   %tobool.not = icmp eq ptr %0, null
   br i1 %tobool.not, label %if.end, label %if.then
@@ -50,9 +48,9 @@ _ZN4absl13cord_internal16CordzSampleToken8IteratorppEv.exit: ; preds = %entry, %
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
 define dso_local noundef zeroext i1 @_ZN4absl13cord_internaleqERKNS0_16CordzSampleToken8IteratorES4_(ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %lhs, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %rhs) local_unnamed_addr #2 {
 entry:
-  %current_ = getelementptr inbounds %"class.absl::cord_internal::CordzSampleToken::Iterator", ptr %lhs, i64 0, i32 1
+  %current_ = getelementptr inbounds i8, ptr %lhs, i64 8
   %0 = load ptr, ptr %current_, align 8
-  %current_1 = getelementptr inbounds %"class.absl::cord_internal::CordzSampleToken::Iterator", ptr %rhs, i64 0, i32 1
+  %current_1 = getelementptr inbounds i8, ptr %rhs, i64 8
   %1 = load ptr, ptr %current_1, align 8
   %cmp = icmp eq ptr %0, %1
   br i1 %cmp, label %land.rhs, label %land.end
@@ -75,9 +73,9 @@ land.end:                                         ; preds = %land.rhs, %lor.rhs,
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
 define dso_local noundef zeroext i1 @_ZN4absl13cord_internalneERKNS0_16CordzSampleToken8IteratorES4_(ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %lhs, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %rhs) local_unnamed_addr #2 {
 entry:
-  %current_.i = getelementptr inbounds %"class.absl::cord_internal::CordzSampleToken::Iterator", ptr %lhs, i64 0, i32 1
+  %current_.i = getelementptr inbounds i8, ptr %lhs, i64 8
   %0 = load ptr, ptr %current_.i, align 8
-  %current_1.i = getelementptr inbounds %"class.absl::cord_internal::CordzSampleToken::Iterator", ptr %rhs, i64 0, i32 1
+  %current_1.i = getelementptr inbounds i8, ptr %rhs, i64 8
   %1 = load ptr, ptr %current_1.i, align 8
   %cmp.i = icmp eq ptr %0, %1
   br i1 %cmp.i, label %land.rhs.i, label %_ZN4absl13cord_internaleqERKNS0_16CordzSampleToken8IteratorES4_.exit
@@ -100,7 +98,7 @@ _ZN4absl13cord_internaleqERKNS0_16CordzSampleToken8IteratorES4_.exit: ; preds = 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
 define dso_local noundef nonnull align 8 dereferenceable(1332) ptr @_ZNK4absl13cord_internal16CordzSampleToken8IteratordeEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %this) local_unnamed_addr #2 align 2 {
 entry:
-  %current_ = getelementptr inbounds %"class.absl::cord_internal::CordzSampleToken::Iterator", ptr %this, i64 0, i32 1
+  %current_ = getelementptr inbounds i8, ptr %this, i64 8
   %0 = load ptr, ptr %current_, align 8
   ret ptr %0
 }
@@ -108,7 +106,7 @@ entry:
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
 define dso_local noundef ptr @_ZNK4absl13cord_internal16CordzSampleToken8IteratorptEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %this) local_unnamed_addr #2 align 2 {
 entry:
-  %current_ = getelementptr inbounds %"class.absl::cord_internal::CordzSampleToken::Iterator", ptr %this, i64 0, i32 1
+  %current_ = getelementptr inbounds i8, ptr %this, i64 8
   %0 = load ptr, ptr %current_, align 8
   ret ptr %0
 }
@@ -117,7 +115,7 @@ entry:
 define dso_local void @_ZN4absl13cord_internal16CordzSampleToken8IteratorC2EPKS1_(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(16) %this, ptr noundef nonnull %token) unnamed_addr #0 align 2 {
 entry:
   store ptr %token, ptr %this, align 8
-  %current_ = getelementptr inbounds %"class.absl::cord_internal::CordzSampleToken::Iterator", ptr %this, i64 0, i32 1
+  %current_ = getelementptr inbounds i8, ptr %this, i64 8
   %call = tail call noundef ptr @_ZN4absl13cord_internal9CordzInfo4HeadERKNS0_13CordzSnapshotE(ptr noundef nonnull align 8 dereferenceable(32) %token)
   store ptr %call, ptr %current_, align 8
   ret void

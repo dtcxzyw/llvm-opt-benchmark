@@ -8,10 +8,6 @@ target triple = "x86_64-unknown-linux-gnu"
 %struct.ASN1_AUX_st = type { ptr, i32, i32, i32, ptr, i32, ptr }
 %struct.ASN1_ADB_st = type { i64, i64, ptr, ptr, i64, ptr, ptr }
 %struct.ASN1_ADB_TABLE_st = type { i64, %struct.ASN1_TEMPLATE_st }
-%struct.ossl_cmp_itav_st = type { ptr, %union.anon }
-%union.anon = type { ptr }
-%struct.ossl_cmp_rootcakeyupdate_st = type { ptr, ptr, ptr }
-%struct.ossl_cmp_msg_st = type { ptr, ptr, ptr, ptr, ptr, ptr }
 
 @OSSL_CMP_REVANNCONTENT_it.local_it = internal constant %struct.ASN1_ITEM_st { i8 1, i64 16, ptr @OSSL_CMP_REVANNCONTENT_seq_tt, i64 5, ptr null, i64 40, ptr @.str }, align 8
 @OSSL_CMP_REVANNCONTENT_seq_tt = internal constant [5 x %struct.ASN1_TEMPLATE_st] [%struct.ASN1_TEMPLATE_st { i64 0, i64 0, i64 0, ptr @.str.33, ptr @ASN1_INTEGER_it }, %struct.ASN1_TEMPLATE_st { i64 0, i64 0, i64 8, ptr @.str.34, ptr @OSSL_CRMF_CERTID_it }, %struct.ASN1_TEMPLATE_st { i64 0, i64 0, i64 16, ptr @.str.35, ptr @ASN1_GENERALIZEDTIME_it }, %struct.ASN1_TEMPLATE_st { i64 0, i64 0, i64 24, ptr @.str.36, ptr @ASN1_GENERALIZEDTIME_it }, %struct.ASN1_TEMPLATE_st { i64 1, i64 0, i64 32, ptr @.str.37, ptr @X509_EXTENSIONS_it }], align 16
@@ -221,7 +217,7 @@ target triple = "x86_64-unknown-linux-gnu"
 @.str.132 = private unnamed_addr constant [11 x i8] c"extraCerts\00", align 1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define nonnull ptr @OSSL_CMP_REVANNCONTENT_it() #0 {
+define noundef nonnull ptr @OSSL_CMP_REVANNCONTENT_it() #0 {
 entry:
   ret ptr @OSSL_CMP_REVANNCONTENT_it.local_it
 }
@@ -263,7 +259,7 @@ entry:
 declare void @ASN1_item_free(ptr noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define nonnull ptr @OSSL_CMP_CHALLENGE_it() #0 {
+define noundef nonnull ptr @OSSL_CMP_CHALLENGE_it() #0 {
 entry:
   ret ptr @OSSL_CMP_CHALLENGE_it.local_it
 }
@@ -297,19 +293,19 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define nonnull ptr @OSSL_CMP_POPODECKEYCHALLCONTENT_it() #0 {
+define noundef nonnull ptr @OSSL_CMP_POPODECKEYCHALLCONTENT_it() #0 {
 entry:
   ret ptr @OSSL_CMP_POPODECKEYCHALLCONTENT_it.local_it
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define nonnull ptr @OSSL_CMP_POPODECKEYRESPCONTENT_it() #0 {
+define noundef nonnull ptr @OSSL_CMP_POPODECKEYRESPCONTENT_it() #0 {
 entry:
   ret ptr @OSSL_CMP_POPODECKEYRESPCONTENT_it.local_it
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define nonnull ptr @OSSL_CMP_CAKEYUPDANNCONTENT_it() #0 {
+define noundef nonnull ptr @OSSL_CMP_CAKEYUPDANNCONTENT_it() #0 {
 entry:
   ret ptr @OSSL_CMP_CAKEYUPDANNCONTENT_it.local_it
 }
@@ -343,7 +339,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define nonnull ptr @OSSL_CMP_ERRORMSGCONTENT_it() #0 {
+define noundef nonnull ptr @OSSL_CMP_ERRORMSGCONTENT_it() #0 {
 entry:
   ret ptr @OSSL_CMP_ERRORMSGCONTENT_it.local_it
 }
@@ -377,7 +373,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define nonnull ptr @OSSL_CMP_ITAV_it() #0 {
+define noundef nonnull ptr @OSSL_CMP_ITAV_it() #0 {
 entry:
   ret ptr @OSSL_CMP_ITAV_it.local_it
 }
@@ -420,7 +416,7 @@ entry:
 declare ptr @ASN1_item_dup(ptr noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define nonnull ptr @OSSL_CMP_ROOTCAKEYUPDATE_it() #0 {
+define noundef nonnull ptr @OSSL_CMP_ROOTCAKEYUPDATE_it() #0 {
 entry:
   ret ptr @OSSL_CMP_ROOTCAKEYUPDATE_it.local_it
 }
@@ -466,7 +462,7 @@ lor.lhs.false:                                    ; preds = %entry
 
 if.end:                                           ; preds = %lor.lhs.false
   store ptr %type, ptr %call1.i, align 8
-  %infoValue.i = getelementptr inbounds %struct.ossl_cmp_itav_st, ptr %call1.i, i64 0, i32 1
+  %infoValue.i = getelementptr inbounds i8, ptr %call1.i, i64 8
   store ptr %value, ptr %infoValue.i, align 8
   br label %return
 
@@ -479,7 +475,7 @@ return:                                           ; preds = %entry, %lor.lhs.fal
 define void @OSSL_CMP_ITAV_set0(ptr nocapture noundef writeonly %itav, ptr noundef %type, ptr noundef %value) local_unnamed_addr #3 {
 entry:
   store ptr %type, ptr %itav, align 8
-  %infoValue = getelementptr inbounds %struct.ossl_cmp_itav_st, ptr %itav, i64 0, i32 1
+  %infoValue = getelementptr inbounds i8, ptr %itav, i64 8
   store ptr %value, ptr %infoValue, align 8
   ret void
 }
@@ -506,7 +502,7 @@ entry:
   br i1 %cmp, label %return, label %if.end
 
 if.end:                                           ; preds = %entry
-  %infoValue = getelementptr inbounds %struct.ossl_cmp_itav_st, ptr %itav, i64 0, i32 1
+  %infoValue = getelementptr inbounds i8, ptr %itav, i64 8
   %0 = load ptr, ptr %infoValue, align 8
   br label %return
 
@@ -585,7 +581,7 @@ if.end:                                           ; preds = %entry
 
 land.lhs.true:                                    ; preds = %if.end
   %call7 = tail call ptr @OPENSSL_sk_deep_copy(ptr noundef %caCerts, ptr noundef nonnull @X509_dup, ptr noundef nonnull @X509_free) #5
-  %infoValue = getelementptr inbounds %struct.ossl_cmp_itav_st, ptr %call1.i, i64 0, i32 1
+  %infoValue = getelementptr inbounds i8, ptr %call1.i, i64 8
   store ptr %call7, ptr %infoValue, align 8
   %cmp8 = icmp eq ptr %call7, null
   br i1 %cmp8, label %if.then9, label %if.end10
@@ -615,7 +611,7 @@ declare void @X509_free(ptr noundef) #2
 declare ptr @OBJ_nid2obj(i32 noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define i32 @OSSL_CMP_ITAV_get0_caCerts(ptr noundef readonly %itav, ptr noundef writeonly %out) local_unnamed_addr #1 {
+define noundef i32 @OSSL_CMP_ITAV_get0_caCerts(ptr noundef readonly %itav, ptr noundef writeonly %out) local_unnamed_addr #1 {
 entry:
   %cmp = icmp eq ptr %itav, null
   %cmp1 = icmp eq ptr %out, null
@@ -641,7 +637,7 @@ if.then3:                                         ; preds = %if.end
   br label %return
 
 if.end4:                                          ; preds = %if.end
-  %infoValue = getelementptr inbounds %struct.ossl_cmp_itav_st, ptr %itav, i64 0, i32 1
+  %infoValue = getelementptr inbounds i8, ptr %itav, i64 8
   %1 = load ptr, ptr %infoValue, align 8
   %call6 = tail call i32 @OPENSSL_sk_num(ptr noundef %1) #5
   %cmp7 = icmp sgt i32 %call6, 0
@@ -676,7 +672,7 @@ if.end:                                           ; preds = %entry
 
 land.lhs.true:                                    ; preds = %if.end
   %call2 = tail call ptr @X509_dup(ptr noundef nonnull %rootCaCert) #5
-  %infoValue = getelementptr inbounds %struct.ossl_cmp_itav_st, ptr %call1.i, i64 0, i32 1
+  %infoValue = getelementptr inbounds i8, ptr %call1.i, i64 8
   store ptr %call2, ptr %infoValue, align 8
   %cmp3 = icmp eq ptr %call2, null
   br i1 %cmp3, label %if.then4, label %if.end5
@@ -696,7 +692,7 @@ return:                                           ; preds = %entry, %if.end5, %i
 }
 
 ; Function Attrs: nounwind uwtable
-define i32 @OSSL_CMP_ITAV_get0_rootCaCert(ptr noundef readonly %itav, ptr noundef writeonly %out) local_unnamed_addr #1 {
+define noundef i32 @OSSL_CMP_ITAV_get0_rootCaCert(ptr noundef readonly %itav, ptr noundef writeonly %out) local_unnamed_addr #1 {
 entry:
   %cmp = icmp eq ptr %itav, null
   %cmp1 = icmp eq ptr %out, null
@@ -722,7 +718,7 @@ if.then3:                                         ; preds = %if.end
   br label %return
 
 if.end4:                                          ; preds = %if.end
-  %infoValue = getelementptr inbounds %struct.ossl_cmp_itav_st, ptr %itav, i64 0, i32 1
+  %infoValue = getelementptr inbounds i8, ptr %itav, i64 8
   %1 = load ptr, ptr %infoValue, align 8
   store ptr %1, ptr %out, align 8
   br label %return
@@ -755,7 +751,7 @@ if.end6:                                          ; preds = %land.lhs.true, %if.
 
 land.lhs.true8:                                   ; preds = %if.end6
   %call9 = tail call ptr @X509_dup(ptr noundef nonnull %newWithOld) #5
-  %newWithOld10 = getelementptr inbounds %struct.ossl_cmp_rootcakeyupdate_st, ptr %call1.i, i64 0, i32 1
+  %newWithOld10 = getelementptr inbounds i8, ptr %call1.i, i64 8
   store ptr %call9, ptr %newWithOld10, align 8
   %cmp11 = icmp eq ptr %call9, null
   br i1 %cmp11, label %err, label %if.end13
@@ -766,7 +762,7 @@ if.end13:                                         ; preds = %land.lhs.true8, %if
 
 land.lhs.true15:                                  ; preds = %if.end13
   %call16 = tail call ptr @X509_dup(ptr noundef nonnull %oldWithNew) #5
-  %oldWithNew17 = getelementptr inbounds %struct.ossl_cmp_rootcakeyupdate_st, ptr %call1.i, i64 0, i32 2
+  %oldWithNew17 = getelementptr inbounds i8, ptr %call1.i, i64 16
   store ptr %call16, ptr %oldWithNew17, align 8
   %cmp18 = icmp eq ptr %call16, null
   br i1 %cmp18, label %err, label %if.end20
@@ -779,7 +775,7 @@ if.end20:                                         ; preds = %land.lhs.true15, %i
 if.end24:                                         ; preds = %if.end20
   %call25 = tail call ptr @OBJ_nid2obj(i32 noundef 1224) #5
   store ptr %call25, ptr %call1.i11, align 8
-  %infoValue = getelementptr inbounds %struct.ossl_cmp_itav_st, ptr %call1.i11, i64 0, i32 1
+  %infoValue = getelementptr inbounds i8, ptr %call1.i11, i64 8
   store ptr %call1.i, ptr %infoValue, align 8
   br label %return
 
@@ -793,7 +789,7 @@ return:                                           ; preds = %entry, %err, %if.en
 }
 
 ; Function Attrs: nounwind uwtable
-define i32 @OSSL_CMP_ITAV_get0_rootCaKeyUpdate(ptr noundef readonly %itav, ptr noundef writeonly %newWithNew, ptr noundef writeonly %newWithOld, ptr noundef writeonly %oldWithNew) local_unnamed_addr #1 {
+define noundef i32 @OSSL_CMP_ITAV_get0_rootCaKeyUpdate(ptr noundef readonly %itav, ptr noundef writeonly %newWithNew, ptr noundef writeonly %newWithOld, ptr noundef writeonly %oldWithNew) local_unnamed_addr #1 {
 entry:
   %cmp = icmp eq ptr %itav, null
   %cmp1 = icmp eq ptr %newWithNew, null
@@ -819,7 +815,7 @@ if.then3:                                         ; preds = %if.end
   br label %return
 
 if.end4:                                          ; preds = %if.end
-  %infoValue = getelementptr inbounds %struct.ossl_cmp_itav_st, ptr %itav, i64 0, i32 1
+  %infoValue = getelementptr inbounds i8, ptr %itav, i64 8
   %1 = load ptr, ptr %infoValue, align 8
   %2 = load ptr, ptr %1, align 8
   store ptr %2, ptr %newWithNew, align 8
@@ -827,7 +823,7 @@ if.end4:                                          ; preds = %if.end
   br i1 %cmp6.not, label %if.end9, label %if.then7
 
 if.then7:                                         ; preds = %if.end4
-  %newWithOld8 = getelementptr inbounds %struct.ossl_cmp_rootcakeyupdate_st, ptr %1, i64 0, i32 1
+  %newWithOld8 = getelementptr inbounds i8, ptr %1, i64 8
   %3 = load ptr, ptr %newWithOld8, align 8
   store ptr %3, ptr %newWithOld, align 8
   br label %if.end9
@@ -837,7 +833,7 @@ if.end9:                                          ; preds = %if.then7, %if.end4
   br i1 %cmp10.not, label %return, label %if.then11
 
 if.then11:                                        ; preds = %if.end9
-  %oldWithNew12 = getelementptr inbounds %struct.ossl_cmp_rootcakeyupdate_st, ptr %1, i64 0, i32 2
+  %oldWithNew12 = getelementptr inbounds i8, ptr %1, i64 16
   %4 = load ptr, ptr %oldWithNew12, align 8
   store ptr %4, ptr %oldWithNew, align 8
   br label %return
@@ -894,7 +890,7 @@ return:                                           ; preds = %if.end5, %if.then4,
 declare i32 @ASN1_INTEGER_get_int64(ptr noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define nonnull ptr @OSSL_CMP_CERTORENCCERT_it() #0 {
+define noundef nonnull ptr @OSSL_CMP_CERTORENCCERT_it() #0 {
 entry:
   ret ptr @OSSL_CMP_CERTORENCCERT_it.local_it
 }
@@ -928,7 +924,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define nonnull ptr @OSSL_CMP_CERTIFIEDKEYPAIR_it() #0 {
+define noundef nonnull ptr @OSSL_CMP_CERTIFIEDKEYPAIR_it() #0 {
 entry:
   ret ptr @OSSL_CMP_CERTIFIEDKEYPAIR_it.local_it
 }
@@ -962,7 +958,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define nonnull ptr @OSSL_CMP_REVDETAILS_it() #0 {
+define noundef nonnull ptr @OSSL_CMP_REVDETAILS_it() #0 {
 entry:
   ret ptr @OSSL_CMP_REVDETAILS_it.local_it
 }
@@ -996,13 +992,13 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define nonnull ptr @OSSL_CMP_REVREQCONTENT_it() #0 {
+define noundef nonnull ptr @OSSL_CMP_REVREQCONTENT_it() #0 {
 entry:
   ret ptr @OSSL_CMP_REVREQCONTENT_it.local_it
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define nonnull ptr @OSSL_CMP_REVREPCONTENT_it() #0 {
+define noundef nonnull ptr @OSSL_CMP_REVREPCONTENT_it() #0 {
 entry:
   ret ptr @OSSL_CMP_REVREPCONTENT_it.local_it
 }
@@ -1036,7 +1032,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define nonnull ptr @OSSL_CMP_KEYRECREPCONTENT_it() #0 {
+define noundef nonnull ptr @OSSL_CMP_KEYRECREPCONTENT_it() #0 {
 entry:
   ret ptr @OSSL_CMP_KEYRECREPCONTENT_it.local_it
 }
@@ -1070,13 +1066,13 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define nonnull ptr @OSSL_CMP_PKISTATUS_it() #0 {
+define noundef nonnull ptr @OSSL_CMP_PKISTATUS_it() #0 {
 entry:
   ret ptr @OSSL_CMP_PKISTATUS_it.local_it
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define nonnull ptr @OSSL_CMP_PKISI_it() #0 {
+define noundef nonnull ptr @OSSL_CMP_PKISI_it() #0 {
 entry:
   ret ptr @OSSL_CMP_PKISI_it.local_it
 }
@@ -1117,7 +1113,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define nonnull ptr @OSSL_CMP_CERTSTATUS_it() #0 {
+define noundef nonnull ptr @OSSL_CMP_CERTSTATUS_it() #0 {
 entry:
   ret ptr @OSSL_CMP_CERTSTATUS_it.local_it
 }
@@ -1151,13 +1147,13 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define nonnull ptr @OSSL_CMP_CERTCONFIRMCONTENT_it() #0 {
+define noundef nonnull ptr @OSSL_CMP_CERTCONFIRMCONTENT_it() #0 {
 entry:
   ret ptr @OSSL_CMP_CERTCONFIRMCONTENT_it.local_it
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define nonnull ptr @OSSL_CMP_CERTRESPONSE_it() #0 {
+define noundef nonnull ptr @OSSL_CMP_CERTRESPONSE_it() #0 {
 entry:
   ret ptr @OSSL_CMP_CERTRESPONSE_it.local_it
 }
@@ -1191,7 +1187,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define nonnull ptr @OSSL_CMP_POLLREQ_it() #0 {
+define noundef nonnull ptr @OSSL_CMP_POLLREQ_it() #0 {
 entry:
   ret ptr @OSSL_CMP_POLLREQ_it.local_it
 }
@@ -1225,13 +1221,13 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define nonnull ptr @OSSL_CMP_POLLREQCONTENT_it() #0 {
+define noundef nonnull ptr @OSSL_CMP_POLLREQCONTENT_it() #0 {
 entry:
   ret ptr @OSSL_CMP_POLLREQCONTENT_it.local_it
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define nonnull ptr @OSSL_CMP_POLLREP_it() #0 {
+define noundef nonnull ptr @OSSL_CMP_POLLREP_it() #0 {
 entry:
   ret ptr @OSSL_CMP_POLLREP_it.local_it
 }
@@ -1265,13 +1261,13 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define nonnull ptr @OSSL_CMP_POLLREPCONTENT_it() #0 {
+define noundef nonnull ptr @OSSL_CMP_POLLREPCONTENT_it() #0 {
 entry:
   ret ptr @OSSL_CMP_POLLREPCONTENT_it.local_it
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define nonnull ptr @OSSL_CMP_CERTREPMESSAGE_it() #0 {
+define noundef nonnull ptr @OSSL_CMP_CERTREPMESSAGE_it() #0 {
 entry:
   ret ptr @OSSL_CMP_CERTREPMESSAGE_it.local_it
 }
@@ -1305,25 +1301,25 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define nonnull ptr @OSSL_CMP_GENMSGCONTENT_it() #0 {
+define noundef nonnull ptr @OSSL_CMP_GENMSGCONTENT_it() #0 {
 entry:
   ret ptr @OSSL_CMP_GENMSGCONTENT_it.local_it
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define nonnull ptr @OSSL_CMP_GENREPCONTENT_it() #0 {
+define noundef nonnull ptr @OSSL_CMP_GENREPCONTENT_it() #0 {
 entry:
   ret ptr @OSSL_CMP_GENREPCONTENT_it.local_it
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define nonnull ptr @OSSL_CMP_CRLANNCONTENT_it() #0 {
+define noundef nonnull ptr @OSSL_CMP_CRLANNCONTENT_it() #0 {
 entry:
   ret ptr @OSSL_CMP_CRLANNCONTENT_it.local_it
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define nonnull ptr @OSSL_CMP_PKIBODY_it() #0 {
+define noundef nonnull ptr @OSSL_CMP_PKIBODY_it() #0 {
 entry:
   ret ptr @OSSL_CMP_PKIBODY_it.local_it
 }
@@ -1357,7 +1353,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define nonnull ptr @OSSL_CMP_PKIHEADER_it() #0 {
+define noundef nonnull ptr @OSSL_CMP_PKIHEADER_it() #0 {
 entry:
   ret ptr @OSSL_CMP_PKIHEADER_it.local_it
 }
@@ -1391,7 +1387,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define nonnull ptr @OSSL_CMP_PROTECTEDPART_it() local_unnamed_addr #0 {
+define noundef nonnull ptr @OSSL_CMP_PROTECTEDPART_it() local_unnamed_addr #0 {
 entry:
   ret ptr @OSSL_CMP_PROTECTEDPART_it.local_it
 }
@@ -1425,7 +1421,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define nonnull ptr @OSSL_CMP_MSG_it() #0 {
+define noundef nonnull ptr @OSSL_CMP_MSG_it() #0 {
 entry:
   ret ptr @OSSL_CMP_MSG_it.local_it
 }
@@ -1438,7 +1434,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define nonnull ptr @OSSL_CMP_MSGS_it() #0 {
+define noundef nonnull ptr @OSSL_CMP_MSGS_it() #0 {
 entry:
   ret ptr @OSSL_CMP_MSGS_it.local_it
 }
@@ -1462,7 +1458,7 @@ declare ptr @ASN1_UTF8STRING_it() #2
 declare ptr @ASN1_OBJECT_it() #2
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define internal nonnull ptr @OSSL_CMP_ITAV_adb() #0 {
+define internal noundef nonnull ptr @OSSL_CMP_ITAV_adb() #0 {
 entry:
   ret ptr @OSSL_CMP_ITAV_adb.internal_adb
 }
@@ -1488,7 +1484,7 @@ declare ptr @X509_REQ_it() #2
 declare ptr @GENERAL_NAME_it() #2
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @ossl_cmp_msg_cb(i32 noundef %operation, ptr nocapture noundef readonly %pval, ptr nocapture readnone %it, ptr nocapture noundef %exarg) #1 {
+define internal noundef i32 @ossl_cmp_msg_cb(i32 noundef %operation, ptr nocapture noundef readonly %pval, ptr nocapture readnone %it, ptr nocapture noundef %exarg) #1 {
 entry:
   %0 = load ptr, ptr %pval, align 8
   switch i32 %operation, label %sw.epilog [
@@ -1499,28 +1495,28 @@ entry:
   ]
 
 sw.bb:                                            ; preds = %entry
-  %propq = getelementptr inbounds %struct.ossl_cmp_msg_st, ptr %0, i64 0, i32 5
+  %propq = getelementptr inbounds i8, ptr %0, i64 40
   %1 = load ptr, ptr %propq, align 8
   tail call void @CRYPTO_free(ptr noundef %1, ptr noundef nonnull @.str.8, i32 noundef 336) #5
   br label %sw.epilog
 
 sw.bb1:                                           ; preds = %entry
-  %libctx = getelementptr inbounds %struct.ossl_cmp_msg_st, ptr %exarg, i64 0, i32 4
+  %libctx = getelementptr inbounds i8, ptr %exarg, i64 32
   %2 = load ptr, ptr %libctx, align 8
-  %propq2 = getelementptr inbounds %struct.ossl_cmp_msg_st, ptr %exarg, i64 0, i32 5
+  %propq2 = getelementptr inbounds i8, ptr %exarg, i64 40
   %3 = load ptr, ptr %propq2, align 8
   %call = tail call i32 @ossl_cmp_msg_set0_libctx(ptr noundef %0, ptr noundef %2, ptr noundef %3) #5
   %tobool.not = icmp eq i32 %call, 0
   br i1 %tobool.not, label %return, label %sw.epilog
 
 sw.bb3:                                           ; preds = %entry
-  %libctx5 = getelementptr inbounds %struct.ossl_cmp_msg_st, ptr %0, i64 0, i32 4
+  %libctx5 = getelementptr inbounds i8, ptr %0, i64 32
   %4 = load ptr, ptr %libctx5, align 8
   store ptr %4, ptr %exarg, align 8
   br label %sw.epilog
 
 sw.bb6:                                           ; preds = %entry
-  %propq8 = getelementptr inbounds %struct.ossl_cmp_msg_st, ptr %0, i64 0, i32 5
+  %propq8 = getelementptr inbounds i8, ptr %0, i64 40
   %5 = load ptr, ptr %propq8, align 8
   store ptr %5, ptr %exarg, align 8
   br label %sw.epilog

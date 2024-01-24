@@ -4,10 +4,6 @@ target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:
 target triple = "x86_64-unknown-linux-gnu"
 
 %struct.ssl_ecdh_method_st = type { i32, i16, [8 x i8], ptr, ptr, ptr }
-%struct.ssl_ecdh_ctx_st = type { ptr, ptr }
-%struct.dh_st = type { ptr, ptr, ptr, ptr, i32, %union.crypto_mutex_st, ptr, ptr, ptr, ptr, i32, ptr, i32, i32, %struct.crypto_ex_data_st }
-%union.crypto_mutex_st = type { double, [48 x i8] }
-%struct.crypto_ex_data_st = type { ptr }
 
 @.str = private unnamed_addr constant [118 x i8] c"generated/home/dtcxzyw/WorkSpace/Projects/compilers/llvm-opt-benchmark/bench/libquic/libquic/boringssl/ssl/ssl_ecdh.c\00", align 1
 @kDHEMethod = internal constant %struct.ssl_ecdh_method_st { i32 0, i16 0, [8 x i8] zeroinitializer, ptr @ssl_dhe_cleanup, ptr @ssl_dhe_generate_keypair, ptr @ssl_dhe_compute_secret }, align 8
@@ -18,26 +14,23 @@ define hidden ptr @SSL_get_curve_name(i16 noundef zeroext %curve_id) local_unnam
 entry:
   br label %for.body.i
 
-for.body.i:                                       ; preds = %for.inc.i, %entry
-  %i.05.i = phi i64 [ 0, %entry ], [ %inc.i, %for.inc.i ]
-  %curve_id1.i = getelementptr inbounds [4 x %struct.ssl_ecdh_method_st], ptr @kMethods, i64 0, i64 %i.05.i, i32 1
-  %0 = load i16, ptr %curve_id1.i, align 4
-  %cmp3.i = icmp eq i16 %0, %curve_id
-  br i1 %cmp3.i, label %if.then.i, label %for.inc.i
-
-if.then.i:                                        ; preds = %for.body.i
-  %arrayidx.i = getelementptr inbounds [4 x %struct.ssl_ecdh_method_st], ptr @kMethods, i64 0, i64 %i.05.i
-  br label %method_from_curve_id.exit
-
-for.inc.i:                                        ; preds = %for.body.i
-  %inc.i = add nuw nsw i64 %i.05.i, 1
+for.cond.i:                                       ; preds = %for.body.i
+  %inc.i = add nuw nsw i64 %i.04.i, 1
   %exitcond.not.i = icmp eq i64 %inc.i, 4
   br i1 %exitcond.not.i, label %method_from_curve_id.exit, label %for.body.i, !llvm.loop !7
 
-method_from_curve_id.exit:                        ; preds = %for.inc.i, %if.then.i
-  %retval.0.i = phi ptr [ %arrayidx.i, %if.then.i ], [ null, %for.inc.i ]
+for.body.i:                                       ; preds = %for.cond.i, %entry
+  %i.04.i = phi i64 [ 0, %entry ], [ %inc.i, %for.cond.i ]
+  %arrayidx.i = getelementptr inbounds [4 x %struct.ssl_ecdh_method_st], ptr @kMethods, i64 0, i64 %i.04.i
+  %curve_id1.i = getelementptr inbounds i8, ptr %arrayidx.i, i64 4
+  %0 = load i16, ptr %curve_id1.i, align 4
+  %cmp3.i = icmp eq i16 %0, %curve_id
+  br i1 %cmp3.i, label %method_from_curve_id.exit, label %for.cond.i
+
+method_from_curve_id.exit:                        ; preds = %for.cond.i, %for.body.i
+  %retval.0.i = phi ptr [ %arrayidx.i, %for.body.i ], [ null, %for.cond.i ]
   %cmp = icmp eq ptr %retval.0.i, null
-  %name = getelementptr inbounds %struct.ssl_ecdh_method_st, ptr %retval.0.i, i64 0, i32 2
+  %name = getelementptr inbounds i8, ptr %retval.0.i, i64 6
   %retval.0 = select i1 %cmp, ptr null, ptr %name
   ret ptr %retval.0
 }
@@ -60,7 +53,7 @@ for.body.i:                                       ; preds = %for.cond.i, %entry
   br i1 %cmp2.i, label %if.end, label %for.cond.i
 
 if.end:                                           ; preds = %for.body.i
-  %curve_id = getelementptr inbounds [4 x %struct.ssl_ecdh_method_st], ptr @kMethods, i64 0, i64 %i.04.i, i32 1
+  %curve_id = getelementptr inbounds i8, ptr %arrayidx.i, i64 4
   %1 = load i16, ptr %curve_id, align 4
   store i16 %1, ptr %out_curve_id, align 2
   br label %return
@@ -78,7 +71,7 @@ entry:
   br i1 %cmp.i, label %for.body.i.preheader, label %if.end.i
 
 if.end.i:                                         ; preds = %entry
-  %cleanup.i = getelementptr inbounds %struct.ssl_ecdh_method_st, ptr %0, i64 0, i32 3
+  %cleanup.i = getelementptr inbounds i8, ptr %0, i64 16
   %1 = load ptr, ptr %cleanup.i, align 8
   tail call void %1(ptr noundef nonnull %ctx) #7
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %ctx, i8 0, i64 16, i1 false)
@@ -87,24 +80,24 @@ if.end.i:                                         ; preds = %entry
 for.body.i.preheader:                             ; preds = %entry, %if.end.i
   br label %for.body.i
 
-for.body.i:                                       ; preds = %for.body.i.preheader, %for.inc.i
-  %i.05.i = phi i64 [ %inc.i, %for.inc.i ], [ 0, %for.body.i.preheader ]
-  %curve_id1.i = getelementptr inbounds [4 x %struct.ssl_ecdh_method_st], ptr @kMethods, i64 0, i64 %i.05.i, i32 1
-  %2 = load i16, ptr %curve_id1.i, align 4
-  %cmp3.i = icmp eq i16 %2, %curve_id
-  br i1 %cmp3.i, label %if.end, label %for.inc.i
-
-for.inc.i:                                        ; preds = %for.body.i
-  %inc.i = add nuw nsw i64 %i.05.i, 1
+for.cond.i:                                       ; preds = %for.body.i
+  %inc.i = add nuw nsw i64 %i.04.i, 1
   %exitcond.not.i = icmp eq i64 %inc.i, 4
   br i1 %exitcond.not.i, label %if.then, label %for.body.i, !llvm.loop !7
 
-if.then:                                          ; preds = %for.inc.i
+for.body.i:                                       ; preds = %for.body.i.preheader, %for.cond.i
+  %i.04.i = phi i64 [ %inc.i, %for.cond.i ], [ 0, %for.body.i.preheader ]
+  %arrayidx.i = getelementptr inbounds [4 x %struct.ssl_ecdh_method_st], ptr @kMethods, i64 0, i64 %i.04.i
+  %curve_id1.i = getelementptr inbounds i8, ptr %arrayidx.i, i64 4
+  %2 = load i16, ptr %curve_id1.i, align 4
+  %cmp3.i = icmp eq i16 %2, %curve_id
+  br i1 %cmp3.i, label %if.end, label %for.cond.i
+
+if.then:                                          ; preds = %for.cond.i
   tail call void @ERR_put_error(i32 noundef 16, i32 noundef 0, i32 noundef 239, ptr noundef nonnull @.str, i32 noundef 345) #7
   br label %return
 
 if.end:                                           ; preds = %for.body.i
-  %arrayidx.i = getelementptr inbounds [4 x %struct.ssl_ecdh_method_st], ptr @kMethods, i64 0, i64 %i.05.i
   store ptr %arrayidx.i, ptr %ctx, align 8
   br label %return
 
@@ -121,7 +114,7 @@ entry:
   br i1 %cmp, label %return, label %if.end
 
 if.end:                                           ; preds = %entry
-  %cleanup = getelementptr inbounds %struct.ssl_ecdh_method_st, ptr %0, i64 0, i32 3
+  %cleanup = getelementptr inbounds i8, ptr %0, i64 16
   %1 = load ptr, ptr %cleanup, align 8
   tail call void %1(ptr noundef nonnull %ctx) #7
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %ctx, i8 0, i64 16, i1 false)
@@ -141,14 +134,14 @@ entry:
   br i1 %cmp.i, label %SSL_ECDH_CTX_cleanup.exit, label %if.end.i
 
 if.end.i:                                         ; preds = %entry
-  %cleanup.i = getelementptr inbounds %struct.ssl_ecdh_method_st, ptr %0, i64 0, i32 3
+  %cleanup.i = getelementptr inbounds i8, ptr %0, i64 16
   %1 = load ptr, ptr %cleanup.i, align 8
   tail call void %1(ptr noundef nonnull %ctx) #7
   br label %SSL_ECDH_CTX_cleanup.exit
 
 SSL_ECDH_CTX_cleanup.exit:                        ; preds = %entry, %if.end.i
   store ptr @kDHEMethod, ptr %ctx, align 8
-  %data = getelementptr inbounds %struct.ssl_ecdh_ctx_st, ptr %ctx, i64 0, i32 1
+  %data = getelementptr inbounds i8, ptr %ctx, i64 8
   store ptr %params, ptr %data, align 8
   ret void
 }
@@ -157,7 +150,7 @@ SSL_ECDH_CTX_cleanup.exit:                        ; preds = %entry, %if.end.i
 define hidden i32 @SSL_ECDH_CTX_generate_keypair(ptr noundef %ctx, ptr noundef %out_public_key) local_unnamed_addr #2 {
 entry:
   %0 = load ptr, ptr %ctx, align 8
-  %generate_keypair = getelementptr inbounds %struct.ssl_ecdh_method_st, ptr %0, i64 0, i32 4
+  %generate_keypair = getelementptr inbounds i8, ptr %0, i64 24
   %1 = load ptr, ptr %generate_keypair, align 8
   %call = tail call i32 %1(ptr noundef nonnull %ctx, ptr noundef %out_public_key) #7
   ret i32 %call
@@ -167,7 +160,7 @@ entry:
 define hidden i32 @SSL_ECDH_CTX_compute_secret(ptr noundef %ctx, ptr noundef %out_secret, ptr noundef %out_secret_len, ptr noundef %out_alert, ptr noundef %peer_key, i64 noundef %peer_key_len) local_unnamed_addr #2 {
 entry:
   %0 = load ptr, ptr %ctx, align 8
-  %compute_secret = getelementptr inbounds %struct.ssl_ecdh_method_st, ptr %0, i64 0, i32 5
+  %compute_secret = getelementptr inbounds i8, ptr %0, i64 32
   %1 = load ptr, ptr %compute_secret, align 8
   %call = tail call i32 %1(ptr noundef nonnull %ctx, ptr noundef %out_secret, ptr noundef %out_secret_len, ptr noundef %out_alert, ptr noundef %peer_key, i64 noundef %peer_key_len) #7
   ret i32 %call
@@ -176,7 +169,7 @@ entry:
 ; Function Attrs: nounwind uwtable
 define internal void @ssl_ec_point_cleanup(ptr nocapture noundef readonly %ctx) #2 {
 entry:
-  %data = getelementptr inbounds %struct.ssl_ecdh_ctx_st, ptr %ctx, i64 0, i32 1
+  %data = getelementptr inbounds i8, ptr %ctx, i64 8
   %0 = load ptr, ptr %data, align 8
   tail call void @BN_clear_free(ptr noundef %0) #7
   ret void
@@ -190,7 +183,7 @@ entry:
   br i1 %cmp, label %return, label %if.end
 
 if.end:                                           ; preds = %entry
-  %data = getelementptr inbounds %struct.ssl_ecdh_ctx_st, ptr %ctx, i64 0, i32 1
+  %data = getelementptr inbounds i8, ptr %ctx, i64 8
   store ptr %call, ptr %data, align 8
   %call1 = tail call ptr @BN_CTX_new() #7
   %cmp2 = icmp eq ptr %call1, null
@@ -251,7 +244,7 @@ return:                                           ; preds = %if.end, %entry, %er
 ; Function Attrs: nounwind uwtable
 define internal noundef i32 @ssl_ec_point_compute_secret(ptr nocapture noundef readonly %ctx, ptr nocapture noundef writeonly %out_secret, ptr nocapture noundef writeonly %out_secret_len, ptr nocapture noundef writeonly %out_alert, ptr noundef %peer_key, i64 noundef %peer_key_len) #2 {
 entry:
-  %data = getelementptr inbounds %struct.ssl_ecdh_ctx_st, ptr %ctx, i64 0, i32 1
+  %data = getelementptr inbounds i8, ptr %ctx, i64 8
   %0 = load ptr, ptr %data, align 8
   store i8 80, ptr %out_alert, align 1
   %call = tail call ptr @BN_CTX_new() #7
@@ -338,7 +331,7 @@ return:                                           ; preds = %entry, %err
 ; Function Attrs: nounwind uwtable
 define internal void @ssl_x25519_cleanup(ptr nocapture noundef readonly %ctx) #2 {
 entry:
-  %data = getelementptr inbounds %struct.ssl_ecdh_ctx_st, ptr %ctx, i64 0, i32 1
+  %data = getelementptr inbounds i8, ptr %ctx, i64 8
   %0 = load ptr, ptr %data, align 8
   %cmp = icmp eq ptr %0, null
   br i1 %cmp, label %return, label %if.end
@@ -358,7 +351,7 @@ define internal i32 @ssl_x25519_generate_keypair(ptr nocapture noundef writeonly
 entry:
   %public_key = alloca [32 x i8], align 16
   %call = tail call noalias dereferenceable_or_null(32) ptr @malloc(i64 noundef 32) #8
-  %data = getelementptr inbounds %struct.ssl_ecdh_ctx_st, ptr %ctx, i64 0, i32 1
+  %data = getelementptr inbounds i8, ptr %ctx, i64 8
   store ptr %call, ptr %data, align 8
   %cmp = icmp eq ptr %call, null
   br i1 %cmp, label %if.then, label %if.end
@@ -390,7 +383,7 @@ if.end:                                           ; preds = %entry
   br i1 %cmp1.not, label %lor.lhs.false, label %if.then3
 
 lor.lhs.false:                                    ; preds = %if.end
-  %data = getelementptr inbounds %struct.ssl_ecdh_ctx_st, ptr %ctx, i64 0, i32 1
+  %data = getelementptr inbounds i8, ptr %ctx, i64 8
   %0 = load ptr, ptr %data, align 8
   %call2 = tail call i32 @X25519(ptr noundef nonnull %call, ptr noundef %0, ptr noundef %peer_key) #7
   %tobool.not = icmp eq i32 %call2, 0
@@ -469,7 +462,7 @@ declare i32 @X25519(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #3
 ; Function Attrs: nounwind uwtable
 define internal void @ssl_dhe_cleanup(ptr nocapture noundef readonly %ctx) #2 {
 entry:
-  %data = getelementptr inbounds %struct.ssl_ecdh_ctx_st, ptr %ctx, i64 0, i32 1
+  %data = getelementptr inbounds i8, ptr %ctx, i64 8
   %0 = load ptr, ptr %data, align 8
   tail call void @DH_free(ptr noundef %0) #7
   ret void
@@ -478,7 +471,7 @@ entry:
 ; Function Attrs: nounwind uwtable
 define internal i32 @ssl_dhe_generate_keypair(ptr nocapture noundef readonly %ctx, ptr noundef %out) #2 {
 entry:
-  %data = getelementptr inbounds %struct.ssl_ecdh_ctx_st, ptr %ctx, i64 0, i32 1
+  %data = getelementptr inbounds i8, ptr %ctx, i64 8
   %0 = load ptr, ptr %data, align 8
   %call = tail call i32 @DH_generate_key(ptr noundef %0) #7
   %tobool.not = icmp eq i32 %call, 0
@@ -488,7 +481,7 @@ land.rhs:                                         ; preds = %entry
   %1 = load ptr, ptr %0, align 8
   %call1 = tail call i32 @BN_num_bytes(ptr noundef %1) #7
   %conv = zext i32 %call1 to i64
-  %pub_key = getelementptr inbounds %struct.dh_st, ptr %0, i64 0, i32 2
+  %pub_key = getelementptr inbounds i8, ptr %0, i64 16
   %2 = load ptr, ptr %pub_key, align 8
   %call2 = tail call i32 @BN_bn2cbb_padded(ptr noundef %out, i64 noundef %conv, ptr noundef %2) #7
   %tobool3 = icmp ne i32 %call2, 0
@@ -503,7 +496,7 @@ land.end:                                         ; preds = %land.rhs, %entry
 ; Function Attrs: nounwind uwtable
 define internal noundef i32 @ssl_dhe_compute_secret(ptr nocapture noundef readonly %ctx, ptr nocapture noundef writeonly %out_secret, ptr nocapture noundef writeonly %out_secret_len, ptr nocapture noundef writeonly %out_alert, ptr noundef %peer_key, i64 noundef %peer_key_len) #2 {
 entry:
-  %data = getelementptr inbounds %struct.ssl_ecdh_ctx_st, ptr %ctx, i64 0, i32 1
+  %data = getelementptr inbounds i8, ptr %ctx, i64 8
   %0 = load ptr, ptr %data, align 8
   store i8 80, ptr %out_alert, align 1
   %call = tail call ptr @BN_bin2bn(ptr noundef %peer_key, i64 noundef %peer_key_len, ptr noundef null) #7

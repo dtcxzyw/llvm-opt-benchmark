@@ -3,27 +3,12 @@ source_filename = "bench/libquic/original/tcp_cubic_sender_base.cc.ll"
 target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:128-n8:16:32:64-S128"
 target triple = "x86_64-unknown-linux-gnu"
 
-%"class.net::TcpCubicSenderBase" = type <{ %"class.net::SendAlgorithmInterface", %"class.net::HybridSlowStart", %"class.net::PrrSender", ptr, ptr, i8, [3 x i8], i32, i64, i64, i64, i8, i8, i8, i8, i8, [3 x i8] }>
-%"class.net::SendAlgorithmInterface" = type { ptr }
-%"class.net::HybridSlowStart" = type { i8, i32, i64, i64, i32, %"class.net::QuicTime::Delta" }
-%"class.net::QuicTime::Delta" = type { %"class.base::TimeDelta", i64 }
-%"class.base::TimeDelta" = type { i64 }
-%"class.net::PrrSender" = type { i64, i64, i64, i64 }
 %"class.std::vector" = type { %"struct.std::_Vector_base" }
 %"struct.std::_Vector_base" = type { %"struct.std::_Vector_base<unsigned int, std::allocator<unsigned int>>::_Vector_impl" }
 %"struct.std::_Vector_base<unsigned int, std::allocator<unsigned int>>::_Vector_impl" = type { %"struct.std::_Vector_base<unsigned int, std::allocator<unsigned int>>::_Vector_impl_data" }
 %"struct.std::_Vector_base<unsigned int, std::allocator<unsigned int>>::_Vector_impl_data" = type { ptr, ptr, ptr }
-%"class.net::CachedNetworkParameters" = type { %"class.google::protobuf::MessageLite", %"struct.google::protobuf::internal::ArenaStringPtr", ptr, [1 x i32], i32, %"struct.google::protobuf::internal::ArenaStringPtr", i32, i32, i64, i32, i32, i64 }
-%"class.google::protobuf::MessageLite" = type { ptr }
-%"struct.google::protobuf::internal::ArenaStringPtr" = type { ptr }
-%"class.net::RttStats" = type { %"class.net::QuicTime::Delta", %"class.net::QuicTime::Delta", %"class.net::QuicTime::Delta", %"class.net::QuicTime::Delta", %"class.net::QuicTime::Delta", i64, %"class.net::QuicTime::Delta", %"class.net::QuicTime", i32, %"class.net::WindowedFilter" }
-%"class.net::QuicTime" = type { i64 }
-%"class.net::WindowedFilter" = type { %"class.net::QuicTime::Delta", %"class.net::QuicTime::Delta", [3 x %"struct.net::WindowedFilter<net::QuicTime::Delta, net::MinFilter<net::QuicTime::Delta>, net::QuicTime, net::QuicTime::Delta>::Sample"] }
-%"struct.net::WindowedFilter<net::QuicTime::Delta, net::MinFilter<net::QuicTime::Delta>, net::QuicTime, net::QuicTime::Delta>::Sample" = type { %"class.net::QuicTime::Delta", %"class.net::QuicTime" }
-%"struct.std::_Vector_base<std::pair<unsigned long, unsigned short>, std::allocator<std::pair<unsigned long, unsigned short>>>::_Vector_impl_data" = type { ptr, ptr, ptr }
-%"struct.std::pair" = type <{ i64, i16, [6 x i8] }>
-%"struct.net::QuicConnectionStats" = type { i64, i64, i64, i64, i64, i64, i64, i64, i64, i64, i64, i64, i64, i64, i64, i64, i64, i64, i64, i64, i64, i64, i64, i64, i64, %"class.net::QuicBandwidth", i64, i64, i64, i32, %"class.net::QuicTime" }
 %"class.net::QuicBandwidth" = type { i64 }
+%"class.net::PrrSender" = type { i64, i64, i64, i64 }
 %"class.std::__cxx11::basic_string" = type { %"struct.std::__cxx11::basic_string<char>::_Alloc_hider", i64, %union.anon }
 %"struct.std::__cxx11::basic_string<char>::_Alloc_hider" = type { ptr }
 %union.anon = type { i64, [8 x i8] }
@@ -55,20 +40,20 @@ $_ZTIN3net22SendAlgorithmInterfaceE = comdat any
 define dso_local void @_ZN3net18TcpCubicSenderBaseC2EPKNS_9QuicClockEPKNS_8RttStatsEbPNS_19QuicConnectionStatsE(ptr noundef nonnull align 8 dereferenceable(141) %this, ptr nocapture noundef readnone %clock, ptr noundef %rtt_stats, i1 noundef zeroext %reno, ptr noundef %stats) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store ptr getelementptr inbounds ({ [29 x ptr] }, ptr @_ZTVN3net18TcpCubicSenderBaseE, i64 0, inrange i32 0, i64 2), ptr %this, align 8
-  %hybrid_slow_start_ = getelementptr inbounds %"class.net::TcpCubicSenderBase", ptr %this, i64 0, i32 1
+  %hybrid_slow_start_ = getelementptr inbounds i8, ptr %this, i64 8
   tail call void @_ZN3net15HybridSlowStartC1Ev(ptr noundef nonnull align 8 dereferenceable(48) %hybrid_slow_start_)
-  %prr_ = getelementptr inbounds %"class.net::TcpCubicSenderBase", ptr %this, i64 0, i32 2
+  %prr_ = getelementptr inbounds i8, ptr %this, i64 56
   tail call void @_ZN3net9PrrSenderC1Ev(ptr noundef nonnull align 8 dereferenceable(32) %prr_)
   %frombool = zext i1 %reno to i8
-  %rtt_stats_ = getelementptr inbounds %"class.net::TcpCubicSenderBase", ptr %this, i64 0, i32 3
+  %rtt_stats_ = getelementptr inbounds i8, ptr %this, i64 88
   store ptr %rtt_stats, ptr %rtt_stats_, align 8
-  %stats_ = getelementptr inbounds %"class.net::TcpCubicSenderBase", ptr %this, i64 0, i32 4
+  %stats_ = getelementptr inbounds i8, ptr %this, i64 96
   store ptr %stats, ptr %stats_, align 8
-  %reno_ = getelementptr inbounds %"class.net::TcpCubicSenderBase", ptr %this, i64 0, i32 5
+  %reno_ = getelementptr inbounds i8, ptr %this, i64 104
   store i8 %frombool, ptr %reno_, align 8
-  %num_connections_ = getelementptr inbounds %"class.net::TcpCubicSenderBase", ptr %this, i64 0, i32 7
+  %num_connections_ = getelementptr inbounds i8, ptr %this, i64 108
   store i32 2, ptr %num_connections_, align 4
-  %largest_sent_packet_number_ = getelementptr inbounds %"class.net::TcpCubicSenderBase", ptr %this, i64 0, i32 8
+  %largest_sent_packet_number_ = getelementptr inbounds i8, ptr %this, i64 112
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(29) %largest_sent_packet_number_, i8 0, i64 29, i1 false)
   ret void
 }
@@ -133,7 +118,7 @@ cleanup.done:                                     ; preds = %cleanup.action
 
 if.then6:                                         ; preds = %if.then.i.i.i, %cleanup.done
   %vtable = load ptr, ptr %this, align 8
-  %vfn = getelementptr inbounds ptr, ptr %vtable, i64 21
+  %vfn = getelementptr inbounds i8, ptr %vtable, i64 168
   %1 = load ptr, ptr %vfn, align 8
   call void %1(ptr noundef nonnull align 8 dereferenceable(141) %this, i64 noundef 3)
   br label %if.end
@@ -168,7 +153,7 @@ cleanup.done17:                                   ; preds = %cleanup.action16
 
 if.then21:                                        ; preds = %if.then.i.i.i23, %cleanup.done17
   %vtable22 = load ptr, ptr %this, align 8
-  %vfn23 = getelementptr inbounds ptr, ptr %vtable22, i64 21
+  %vfn23 = getelementptr inbounds i8, ptr %vtable22, i64 168
   %5 = load ptr, ptr %vfn23, align 8
   call void %5(ptr noundef nonnull align 8 dereferenceable(141) %this, i64 noundef 10)
   br label %if.end24
@@ -203,7 +188,7 @@ cleanup.done35:                                   ; preds = %cleanup.action34
 
 if.then39:                                        ; preds = %if.then.i.i.i29, %cleanup.done35
   %vtable40 = load ptr, ptr %this, align 8
-  %vfn41 = getelementptr inbounds ptr, ptr %vtable40, i64 21
+  %vfn41 = getelementptr inbounds i8, ptr %vtable40, i64 168
   %9 = load ptr, ptr %vfn41, align 8
   call void %9(ptr noundef nonnull align 8 dereferenceable(141) %this, i64 noundef 20)
   br label %if.end42
@@ -238,7 +223,7 @@ cleanup.done53:                                   ; preds = %cleanup.action52
 
 if.then57:                                        ; preds = %if.then.i.i.i35, %cleanup.done53
   %vtable58 = load ptr, ptr %this, align 8
-  %vfn59 = getelementptr inbounds ptr, ptr %vtable58, i64 21
+  %vfn59 = getelementptr inbounds i8, ptr %vtable58, i64 168
   %13 = load ptr, ptr %vfn59, align 8
   call void %13(ptr noundef nonnull align 8 dereferenceable(141) %this, i64 noundef 50)
   br label %if.end60
@@ -273,7 +258,7 @@ cleanup.done71:                                   ; preds = %cleanup.action70
 
 if.then75:                                        ; preds = %if.then.i.i.i41, %cleanup.done71
   %vtable76 = load ptr, ptr %this, align 8
-  %vfn77 = getelementptr inbounds ptr, ptr %vtable76, i64 22
+  %vfn77 = getelementptr inbounds i8, ptr %vtable76, i64 176
   %17 = load ptr, ptr %vfn77, align 8
   call void %17(ptr noundef nonnull align 8 dereferenceable(141) %this, i64 noundef 1)
   br label %if.end78
@@ -307,10 +292,10 @@ cleanup.done89:                                   ; preds = %cleanup.action88
   br i1 %call85, label %if.then93, label %if.end96
 
 if.then93:                                        ; preds = %if.then.i.i.i47, %cleanup.done89
-  %min4_mode_ = getelementptr inbounds %"class.net::TcpCubicSenderBase", ptr %this, i64 0, i32 11
+  %min4_mode_ = getelementptr inbounds i8, ptr %this, i64 136
   store i8 1, ptr %min4_mode_, align 8
   %vtable94 = load ptr, ptr %this, align 8
-  %vfn95 = getelementptr inbounds ptr, ptr %vtable94, i64 22
+  %vfn95 = getelementptr inbounds i8, ptr %vtable94, i64 176
   %21 = load ptr, ptr %vfn95, align 8
   call void %21(ptr noundef nonnull align 8 dereferenceable(141) %this, i64 noundef 1)
   br label %if.end96
@@ -344,7 +329,7 @@ cleanup.done107:                                  ; preds = %cleanup.action106
   br i1 %call103, label %if.then111, label %if.end112
 
 if.then111:                                       ; preds = %if.then.i.i.i53, %cleanup.done107
-  %slow_start_large_reduction_ = getelementptr inbounds %"class.net::TcpCubicSenderBase", ptr %this, i64 0, i32 13
+  %slow_start_large_reduction_ = getelementptr inbounds i8, ptr %this, i64 138
   store i8 1, ptr %slow_start_large_reduction_, align 2
   br label %if.end112
 
@@ -377,7 +362,7 @@ cleanup.done123:                                  ; preds = %cleanup.action122
   br i1 %call119, label %if.then127, label %if.end128
 
 if.then127:                                       ; preds = %if.then.i.i.i59, %cleanup.done123
-  %no_prr_ = getelementptr inbounds %"class.net::TcpCubicSenderBase", ptr %this, i64 0, i32 15
+  %no_prr_ = getelementptr inbounds i8, ptr %this, i64 140
   store i8 1, ptr %no_prr_, align 4
   br label %if.end128
 
@@ -410,7 +395,7 @@ cleanup.done139:                                  ; preds = %cleanup.action138
   br i1 %call135, label %if.then143, label %if.end145
 
 if.then143:                                       ; preds = %if.then.i.i.i65, %cleanup.done139
-  %rate_based_sending_ = getelementptr inbounds %"class.net::TcpCubicSenderBase", ptr %this, i64 0, i32 14
+  %rate_based_sending_ = getelementptr inbounds i8, ptr %this, i64 139
   store i8 1, ptr %rate_based_sending_, align 1
   br label %if.end145
 
@@ -444,19 +429,19 @@ declare void @_ZNK3net10QuicConfig25ReceivedConnectionOptionsEv(ptr sret(%"class
 ; Function Attrs: mustprogress uwtable
 define dso_local void @_ZN3net18TcpCubicSenderBase21ResumeConnectionStateERKNS_23CachedNetworkParametersEb(ptr noundef nonnull align 8 dereferenceable(141) %this, ptr nocapture noundef nonnull readonly align 8 dereferenceable(72) %cached_network_params, i1 noundef zeroext %max_bandwidth_resumption) unnamed_addr #0 align 2 {
 entry:
-  %max_bandwidth_estimate_bytes_per_second_.i = getelementptr inbounds %"class.net::CachedNetworkParameters", ptr %cached_network_params, i64 0, i32 7
+  %max_bandwidth_estimate_bytes_per_second_.i = getelementptr inbounds i8, ptr %cached_network_params, i64 44
   %0 = load i32, ptr %max_bandwidth_estimate_bytes_per_second_.i, align 4
-  %bandwidth_estimate_bytes_per_second_.i = getelementptr inbounds %"class.net::CachedNetworkParameters", ptr %cached_network_params, i64 0, i32 6
+  %bandwidth_estimate_bytes_per_second_.i = getelementptr inbounds i8, ptr %cached_network_params, i64 40
   %1 = load i32, ptr %bandwidth_estimate_bytes_per_second_.i, align 8
   %cond = select i1 %max_bandwidth_resumption, i32 %0, i32 %1
   %conv = sext i32 %cond to i64
   %call3 = tail call i64 @_ZN3net13QuicBandwidth18FromBytesPerSecondEl(i64 noundef %conv)
-  %min_rtt_ms_.i = getelementptr inbounds %"class.net::CachedNetworkParameters", ptr %cached_network_params, i64 0, i32 9
+  %min_rtt_ms_.i = getelementptr inbounds i8, ptr %cached_network_params, i64 56
   %2 = load i32, ptr %min_rtt_ms_.i, align 8
   %conv5 = sext i32 %2 to i64
   %mul.i = mul nsw i64 %conv5, 1000
   %vtable = load ptr, ptr %this, align 8
-  %vfn = getelementptr inbounds ptr, ptr %vtable, i64 20
+  %vfn = getelementptr inbounds i8, ptr %vtable, i64 160
   %3 = load ptr, ptr %vfn, align 8
   tail call void %3(ptr noundef nonnull align 8 dereferenceable(141) %this, i64 %call3, i64 0, i64 %mul.i)
   ret void
@@ -471,7 +456,7 @@ declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias
 define dso_local void @_ZN3net18TcpCubicSenderBase25SetNumEmulatedConnectionsEi(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(141) %this, i32 noundef %num_connections) unnamed_addr #6 align 2 {
 entry:
   %.sroa.speculated = tail call i32 @llvm.smax.i32(i32 %num_connections, i32 1)
-  %num_connections_ = getelementptr inbounds %"class.net::TcpCubicSenderBase", ptr %this, i64 0, i32 7
+  %num_connections_ = getelementptr inbounds i8, ptr %this, i64 108
   store i32 %.sroa.speculated, ptr %num_connections_, align 4
   ret void
 }
@@ -479,7 +464,7 @@ entry:
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
 define dso_local noundef float @_ZNK3net18TcpCubicSenderBase8RenoBetaEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(141) %this) local_unnamed_addr #7 align 2 {
 entry:
-  %num_connections_ = getelementptr inbounds %"class.net::TcpCubicSenderBase", ptr %this, i64 0, i32 7
+  %num_connections_ = getelementptr inbounds i8, ptr %this, i64 108
   %0 = load i32, ptr %num_connections_, align 4
   %sub = add i32 %0, -1
   %conv = uitofp i32 %sub to float
@@ -496,24 +481,24 @@ entry:
 
 land.lhs.true:                                    ; preds = %entry
   %vtable = load ptr, ptr %this, align 8
-  %vfn = getelementptr inbounds ptr, ptr %vtable, i64 13
+  %vfn = getelementptr inbounds i8, ptr %vtable, i64 104
   %0 = load ptr, ptr %vfn, align 8
   %call = tail call noundef zeroext i1 %0(ptr noundef nonnull align 8 dereferenceable(141) %this)
   br i1 %call, label %land.lhs.true2, label %if.end
 
 land.lhs.true2:                                   ; preds = %land.lhs.true
-  %hybrid_slow_start_ = getelementptr inbounds %"class.net::TcpCubicSenderBase", ptr %this, i64 0, i32 1
-  %rtt_stats_ = getelementptr inbounds %"class.net::TcpCubicSenderBase", ptr %this, i64 0, i32 3
+  %hybrid_slow_start_ = getelementptr inbounds i8, ptr %this, i64 8
+  %rtt_stats_ = getelementptr inbounds i8, ptr %this, i64 88
   %1 = load ptr, ptr %rtt_stats_, align 8
   %retval.sroa.0.0.copyload.i = load i64, ptr %1, align 8
   %retval.sroa.2.0.latest_rtt_.sroa_idx.i = getelementptr inbounds i8, ptr %1, i64 8
   %retval.sroa.2.0.copyload.i = load i64, ptr %retval.sroa.2.0.latest_rtt_.sroa_idx.i, align 8
-  %min_rtt_.i = getelementptr inbounds %"class.net::RttStats", ptr %1, i64 0, i32 1
+  %min_rtt_.i = getelementptr inbounds i8, ptr %1, i64 16
   %retval.sroa.0.0.copyload.i4 = load i64, ptr %min_rtt_.i, align 8
-  %retval.sroa.2.0.min_rtt_.sroa_idx.i = getelementptr inbounds %"class.net::RttStats", ptr %1, i64 0, i32 1, i32 1
+  %retval.sroa.2.0.min_rtt_.sroa_idx.i = getelementptr inbounds i8, ptr %1, i64 24
   %retval.sroa.2.0.copyload.i5 = load i64, ptr %retval.sroa.2.0.min_rtt_.sroa_idx.i, align 8
   %vtable7 = load ptr, ptr %this, align 8
-  %vfn8 = getelementptr inbounds ptr, ptr %vtable7, i64 12
+  %vfn8 = getelementptr inbounds i8, ptr %vtable7, i64 96
   %2 = load ptr, ptr %vfn8, align 8
   %call9 = tail call noundef i64 %2(ptr noundef nonnull align 8 dereferenceable(8) %this)
   %div = udiv i64 %call9, 1460
@@ -522,14 +507,14 @@ land.lhs.true2:                                   ; preds = %land.lhs.true
 
 if.then:                                          ; preds = %land.lhs.true2
   %vtable11 = load ptr, ptr %this, align 8
-  %vfn12 = getelementptr inbounds ptr, ptr %vtable11, i64 23
+  %vfn12 = getelementptr inbounds i8, ptr %vtable11, i64 184
   %3 = load ptr, ptr %vfn12, align 8
   tail call void %3(ptr noundef nonnull align 8 dereferenceable(141) %this)
   br label %if.end
 
 if.end:                                           ; preds = %if.then, %land.lhs.true2, %land.lhs.true, %entry
   %4 = load ptr, ptr %lost_packets, align 8
-  %_M_finish.i = getelementptr inbounds %"struct.std::_Vector_base<std::pair<unsigned long, unsigned short>, std::allocator<std::pair<unsigned long, unsigned short>>>::_Vector_impl_data", ptr %lost_packets, i64 0, i32 1
+  %_M_finish.i = getelementptr inbounds i8, ptr %lost_packets, i64 8
   %5 = load ptr, ptr %_M_finish.i, align 8
   %cmp.i.not17 = icmp eq ptr %4, %5
   br i1 %cmp.i.not17, label %for.end, label %for.body
@@ -537,43 +522,43 @@ if.end:                                           ; preds = %if.then, %land.lhs.
 for.body:                                         ; preds = %if.end, %for.body
   %it.sroa.0.018 = phi ptr [ %incdec.ptr.i, %for.body ], [ %4, %if.end ]
   %6 = load i64, ptr %it.sroa.0.018, align 8
-  %second = getelementptr inbounds %"struct.std::pair", ptr %it.sroa.0.018, i64 0, i32 1
+  %second = getelementptr inbounds i8, ptr %it.sroa.0.018, i64 8
   %7 = load i16, ptr %second, align 8
   %conv = zext i16 %7 to i64
   %vtable19 = load ptr, ptr %this, align 8
-  %vfn20 = getelementptr inbounds ptr, ptr %vtable19, i64 24
+  %vfn20 = getelementptr inbounds i8, ptr %vtable19, i64 192
   %8 = load ptr, ptr %vfn20, align 8
   tail call void %8(ptr noundef nonnull align 8 dereferenceable(141) %this, i64 noundef %6, i64 noundef %conv, i64 noundef %bytes_in_flight)
-  %incdec.ptr.i = getelementptr inbounds %"struct.std::pair", ptr %it.sroa.0.018, i64 1
+  %incdec.ptr.i = getelementptr inbounds i8, ptr %it.sroa.0.018, i64 16
   %9 = load ptr, ptr %_M_finish.i, align 8
   %cmp.i.not = icmp eq ptr %incdec.ptr.i, %9
   br i1 %cmp.i.not, label %for.end, label %for.body, !llvm.loop !5
 
 for.end:                                          ; preds = %for.body, %if.end
   %10 = load ptr, ptr %acked_packets, align 8
-  %_M_finish.i8 = getelementptr inbounds %"struct.std::_Vector_base<std::pair<unsigned long, unsigned short>, std::allocator<std::pair<unsigned long, unsigned short>>>::_Vector_impl_data", ptr %acked_packets, i64 0, i32 1
+  %_M_finish.i8 = getelementptr inbounds i8, ptr %acked_packets, i64 8
   %11 = load ptr, ptr %_M_finish.i8, align 8
   %cmp.i9.not19 = icmp eq ptr %10, %11
   br i1 %cmp.i9.not19, label %for.end38, label %for.body30.lr.ph
 
 for.body30.lr.ph:                                 ; preds = %for.end
-  %largest_acked_packet_number_.i = getelementptr inbounds %"class.net::TcpCubicSenderBase", ptr %this, i64 0, i32 9
-  %hybrid_slow_start_.i = getelementptr inbounds %"class.net::TcpCubicSenderBase", ptr %this, i64 0, i32 1
-  %no_prr_.i = getelementptr inbounds %"class.net::TcpCubicSenderBase", ptr %this, i64 0, i32 15
-  %prr_.i = getelementptr inbounds %"class.net::TcpCubicSenderBase", ptr %this, i64 0, i32 2
+  %largest_acked_packet_number_.i = getelementptr inbounds i8, ptr %this, i64 120
+  %hybrid_slow_start_.i = getelementptr inbounds i8, ptr %this, i64 8
+  %no_prr_.i = getelementptr inbounds i8, ptr %this, i64 140
+  %prr_.i = getelementptr inbounds i8, ptr %this, i64 56
   br label %for.body30
 
 for.body30:                                       ; preds = %for.body30.lr.ph, %_ZN3net18TcpCubicSenderBase13OnPacketAckedEmmm.exit
   %it22.sroa.0.020 = phi ptr [ %10, %for.body30.lr.ph ], [ %incdec.ptr.i10, %_ZN3net18TcpCubicSenderBase13OnPacketAckedEmmm.exit ]
   %12 = load i64, ptr %it22.sroa.0.020, align 8
-  %second34 = getelementptr inbounds %"struct.std::pair", ptr %it22.sroa.0.020, i64 0, i32 1
+  %second34 = getelementptr inbounds i8, ptr %it22.sroa.0.020, i64 8
   %13 = load i16, ptr %second34, align 8
   %conv35 = zext i16 %13 to i64
   %14 = load i64, ptr %largest_acked_packet_number_.i, align 8
   %.sroa.speculated.i = tail call i64 @llvm.umax.i64(i64 %14, i64 %12)
   store i64 %.sroa.speculated.i, ptr %largest_acked_packet_number_.i, align 8
   %vtable.i = load ptr, ptr %this, align 8
-  %vfn.i = getelementptr inbounds ptr, ptr %vtable.i, i64 14
+  %vfn.i = getelementptr inbounds i8, ptr %vtable.i, i64 112
   %15 = load ptr, ptr %vfn.i, align 8
   %call3.i = tail call noundef zeroext i1 %15(ptr noundef nonnull align 8 dereferenceable(141) %this)
   br i1 %call3.i, label %if.then.i, label %if.end5.i
@@ -590,11 +575,11 @@ if.then4.i:                                       ; preds = %if.then.i
 
 if.end5.i:                                        ; preds = %for.body30
   %vtable6.i = load ptr, ptr %this, align 8
-  %vfn7.i = getelementptr inbounds ptr, ptr %vtable6.i, i64 25
+  %vfn7.i = getelementptr inbounds i8, ptr %vtable6.i, i64 200
   %18 = load ptr, ptr %vfn7.i, align 8
   tail call void %18(ptr noundef nonnull align 8 dereferenceable(141) %this, i64 noundef %12, i64 noundef %conv35, i64 noundef %bytes_in_flight)
   %vtable8.i = load ptr, ptr %this, align 8
-  %vfn9.i = getelementptr inbounds ptr, ptr %vtable8.i, i64 13
+  %vfn9.i = getelementptr inbounds i8, ptr %vtable8.i, i64 104
   %19 = load ptr, ptr %vfn9.i, align 8
   %call10.i = tail call noundef zeroext i1 %19(ptr noundef nonnull align 8 dereferenceable(141) %this)
   br i1 %call10.i, label %if.then11.i, label %_ZN3net18TcpCubicSenderBase13OnPacketAckedEmmm.exit
@@ -604,7 +589,7 @@ if.then11.i:                                      ; preds = %if.end5.i
   br label %_ZN3net18TcpCubicSenderBase13OnPacketAckedEmmm.exit
 
 _ZN3net18TcpCubicSenderBase13OnPacketAckedEmmm.exit: ; preds = %if.then.i, %if.then4.i, %if.end5.i, %if.then11.i
-  %incdec.ptr.i10 = getelementptr inbounds %"struct.std::pair", ptr %it22.sroa.0.020, i64 1
+  %incdec.ptr.i10 = getelementptr inbounds i8, ptr %it22.sroa.0.020, i64 16
   %20 = load ptr, ptr %_M_finish.i8, align 8
   %cmp.i9.not = icmp eq ptr %incdec.ptr.i10, %20
   br i1 %cmp.i9.not, label %for.end38, label %for.body30, !llvm.loop !7
@@ -618,41 +603,41 @@ declare noundef zeroext i1 @_ZN3net15HybridSlowStart19ShouldExitSlowStartENS_8Qu
 ; Function Attrs: mustprogress uwtable
 define dso_local void @_ZN3net18TcpCubicSenderBase13OnPacketAckedEmmm(ptr noundef nonnull align 8 dereferenceable(141) %this, i64 noundef %acked_packet_number, i64 noundef %acked_bytes, i64 noundef %bytes_in_flight) local_unnamed_addr #0 align 2 {
 entry:
-  %largest_acked_packet_number_ = getelementptr inbounds %"class.net::TcpCubicSenderBase", ptr %this, i64 0, i32 9
+  %largest_acked_packet_number_ = getelementptr inbounds i8, ptr %this, i64 120
   %0 = load i64, ptr %largest_acked_packet_number_, align 8
   %.sroa.speculated = tail call i64 @llvm.umax.i64(i64 %0, i64 %acked_packet_number)
   store i64 %.sroa.speculated, ptr %largest_acked_packet_number_, align 8
   %vtable = load ptr, ptr %this, align 8
-  %vfn = getelementptr inbounds ptr, ptr %vtable, i64 14
+  %vfn = getelementptr inbounds i8, ptr %vtable, i64 112
   %1 = load ptr, ptr %vfn, align 8
   %call3 = tail call noundef zeroext i1 %1(ptr noundef nonnull align 8 dereferenceable(141) %this)
   br i1 %call3, label %if.then, label %if.end5
 
 if.then:                                          ; preds = %entry
-  %no_prr_ = getelementptr inbounds %"class.net::TcpCubicSenderBase", ptr %this, i64 0, i32 15
+  %no_prr_ = getelementptr inbounds i8, ptr %this, i64 140
   %2 = load i8, ptr %no_prr_, align 4
   %3 = and i8 %2, 1
   %tobool.not = icmp eq i8 %3, 0
   br i1 %tobool.not, label %if.then4, label %if.end12
 
 if.then4:                                         ; preds = %if.then
-  %prr_ = getelementptr inbounds %"class.net::TcpCubicSenderBase", ptr %this, i64 0, i32 2
+  %prr_ = getelementptr inbounds i8, ptr %this, i64 56
   tail call void @_ZN3net9PrrSender13OnPacketAckedEm(ptr noundef nonnull align 8 dereferenceable(32) %prr_, i64 noundef %acked_bytes)
   br label %if.end12
 
 if.end5:                                          ; preds = %entry
   %vtable6 = load ptr, ptr %this, align 8
-  %vfn7 = getelementptr inbounds ptr, ptr %vtable6, i64 25
+  %vfn7 = getelementptr inbounds i8, ptr %vtable6, i64 200
   %4 = load ptr, ptr %vfn7, align 8
   tail call void %4(ptr noundef nonnull align 8 dereferenceable(141) %this, i64 noundef %acked_packet_number, i64 noundef %acked_bytes, i64 noundef %bytes_in_flight)
   %vtable8 = load ptr, ptr %this, align 8
-  %vfn9 = getelementptr inbounds ptr, ptr %vtable8, i64 13
+  %vfn9 = getelementptr inbounds i8, ptr %vtable8, i64 104
   %5 = load ptr, ptr %vfn9, align 8
   %call10 = tail call noundef zeroext i1 %5(ptr noundef nonnull align 8 dereferenceable(141) %this)
   br i1 %call10, label %if.then11, label %if.end12
 
 if.then11:                                        ; preds = %if.end5
-  %hybrid_slow_start_ = getelementptr inbounds %"class.net::TcpCubicSenderBase", ptr %this, i64 0, i32 1
+  %hybrid_slow_start_ = getelementptr inbounds i8, ptr %this, i64 8
   tail call void @_ZN3net15HybridSlowStart13OnPacketAckedEm(ptr noundef nonnull align 8 dereferenceable(48) %hybrid_slow_start_, i64 noundef %acked_packet_number)
   br label %if.end12
 
@@ -668,15 +653,15 @@ declare void @_ZN3net15HybridSlowStart13OnPacketAckedEm(ptr noundef nonnull alig
 define dso_local noundef zeroext i1 @_ZN3net18TcpCubicSenderBase12OnPacketSentENS_8QuicTimeEmmmNS_22HasRetransmittableDataE(ptr noundef nonnull align 8 dereferenceable(141) %this, i64 %.coerce, i64 %0, i64 noundef %packet_number, i64 noundef %bytes, i8 noundef signext %is_retransmittable) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %vtable = load ptr, ptr %this, align 8
-  %vfn = getelementptr inbounds ptr, ptr %vtable, i64 13
+  %vfn = getelementptr inbounds i8, ptr %vtable, i64 104
   %1 = load ptr, ptr %vfn, align 8
   %call = tail call noundef zeroext i1 %1(ptr noundef nonnull align 8 dereferenceable(141) %this)
   br i1 %call, label %if.then, label %if.end
 
 if.then:                                          ; preds = %entry
-  %stats_ = getelementptr inbounds %"class.net::TcpCubicSenderBase", ptr %this, i64 0, i32 4
+  %stats_ = getelementptr inbounds i8, ptr %this, i64 96
   %2 = load ptr, ptr %stats_, align 8
-  %slowstart_packets_sent = getelementptr inbounds %"struct.net::QuicConnectionStats", ptr %2, i64 0, i32 13
+  %slowstart_packets_sent = getelementptr inbounds i8, ptr %2, i64 104
   %3 = load i64, ptr %slowstart_packets_sent, align 8
   %inc = add i64 %3, 1
   store i64 %inc, ptr %slowstart_packets_sent, align 8
@@ -688,20 +673,20 @@ if.end:                                           ; preds = %if.then, %entry
 
 if.end3:                                          ; preds = %if.end
   %vtable4 = load ptr, ptr %this, align 8
-  %vfn5 = getelementptr inbounds ptr, ptr %vtable4, i64 14
+  %vfn5 = getelementptr inbounds i8, ptr %vtable4, i64 112
   %4 = load ptr, ptr %vfn5, align 8
   %call6 = tail call noundef zeroext i1 %4(ptr noundef nonnull align 8 dereferenceable(141) %this)
   br i1 %call6, label %if.then7, label %if.end13
 
 if.then7:                                         ; preds = %if.end3
-  %prr_ = getelementptr inbounds %"class.net::TcpCubicSenderBase", ptr %this, i64 0, i32 2
+  %prr_ = getelementptr inbounds i8, ptr %this, i64 56
   tail call void @_ZN3net9PrrSender12OnPacketSentEm(ptr noundef nonnull align 8 dereferenceable(32) %prr_, i64 noundef %bytes)
   br label %if.end13
 
 if.end13:                                         ; preds = %if.end3, %if.then7
-  %largest_sent_packet_number_ = getelementptr inbounds %"class.net::TcpCubicSenderBase", ptr %this, i64 0, i32 8
+  %largest_sent_packet_number_ = getelementptr inbounds i8, ptr %this, i64 112
   store i64 %packet_number, ptr %largest_sent_packet_number_, align 8
-  %hybrid_slow_start_ = getelementptr inbounds %"class.net::TcpCubicSenderBase", ptr %this, i64 0, i32 1
+  %hybrid_slow_start_ = getelementptr inbounds i8, ptr %this, i64 8
   tail call void @_ZN3net15HybridSlowStart12OnPacketSentEm(ptr noundef nonnull align 8 dereferenceable(48) %hybrid_slow_start_, i64 noundef %packet_number)
   br label %return
 
@@ -716,7 +701,7 @@ declare void @_ZN3net15HybridSlowStart12OnPacketSentEm(ptr noundef nonnull align
 ; Function Attrs: mustprogress uwtable
 define dso_local { i64, i64 } @_ZNK3net18TcpCubicSenderBase13TimeUntilSendENS_8QuicTimeEm(ptr noundef nonnull align 8 dereferenceable(141) %this, i64 %.coerce, i64 noundef %bytes_in_flight) unnamed_addr #0 align 2 {
 entry:
-  %no_prr_ = getelementptr inbounds %"class.net::TcpCubicSenderBase", ptr %this, i64 0, i32 15
+  %no_prr_ = getelementptr inbounds i8, ptr %this, i64 140
   %0 = load i8, ptr %no_prr_, align 4
   %1 = and i8 %0, 1
   %tobool.not = icmp eq i8 %1, 0
@@ -724,19 +709,19 @@ entry:
 
 land.lhs.true:                                    ; preds = %entry
   %vtable = load ptr, ptr %this, align 8
-  %vfn = getelementptr inbounds ptr, ptr %vtable, i64 14
+  %vfn = getelementptr inbounds i8, ptr %vtable, i64 112
   %2 = load ptr, ptr %vfn, align 8
   %call = tail call noundef zeroext i1 %2(ptr noundef nonnull align 8 dereferenceable(141) %this)
   br i1 %call, label %if.then, label %if.end
 
 if.then:                                          ; preds = %land.lhs.true
-  %prr_ = getelementptr inbounds %"class.net::TcpCubicSenderBase", ptr %this, i64 0, i32 2
+  %prr_ = getelementptr inbounds i8, ptr %this, i64 56
   %vtable2 = load ptr, ptr %this, align 8
-  %vfn3 = getelementptr inbounds ptr, ptr %vtable2, i64 12
+  %vfn3 = getelementptr inbounds i8, ptr %vtable2, i64 96
   %3 = load ptr, ptr %vfn3, align 8
   %call4 = tail call noundef i64 %3(ptr noundef nonnull align 8 dereferenceable(8) %this)
   %vtable5 = load ptr, ptr %this, align 8
-  %vfn6 = getelementptr inbounds ptr, ptr %vtable5, i64 15
+  %vfn6 = getelementptr inbounds i8, ptr %vtable5, i64 120
   %4 = load ptr, ptr %vfn6, align 8
   %call7 = tail call noundef i64 %4(ptr noundef nonnull align 8 dereferenceable(8) %this)
   %call8 = tail call { i64, i64 } @_ZNK3net9PrrSender13TimeUntilSendEmmm(ptr noundef nonnull align 8 dereferenceable(32) %prr_, i64 noundef %call4, i64 noundef %bytes_in_flight, i64 noundef %call7)
@@ -744,14 +729,14 @@ if.then:                                          ; preds = %land.lhs.true
 
 if.end:                                           ; preds = %land.lhs.true, %entry
   %vtable9 = load ptr, ptr %this, align 8
-  %vfn10 = getelementptr inbounds ptr, ptr %vtable9, i64 12
+  %vfn10 = getelementptr inbounds i8, ptr %vtable9, i64 96
   %5 = load ptr, ptr %vfn10, align 8
   %call11 = tail call noundef i64 %5(ptr noundef nonnull align 8 dereferenceable(8) %this)
   %cmp = icmp ugt i64 %call11, %bytes_in_flight
   br i1 %cmp, label %return, label %if.end14
 
 if.end14:                                         ; preds = %if.end
-  %min4_mode_ = getelementptr inbounds %"class.net::TcpCubicSenderBase", ptr %this, i64 0, i32 11
+  %min4_mode_ = getelementptr inbounds i8, ptr %this, i64 136
   %6 = load i8, ptr %min4_mode_, align 8
   %7 = and i8 %6, 1
   %tobool15 = icmp ne i8 %7, 0
@@ -760,7 +745,7 @@ if.end14:                                         ; preds = %if.end
   br i1 %or.cond, label %return, label %if.end20
 
 if.end20:                                         ; preds = %if.end14
-  %rate_based_sending_ = getelementptr inbounds %"class.net::TcpCubicSenderBase", ptr %this, i64 0, i32 14
+  %rate_based_sending_ = getelementptr inbounds i8, ptr %this, i64 139
   %8 = load i8, ptr %rate_based_sending_, align 1
   %9 = and i8 %8, 1
   %tobool21.not = icmp eq i8 %9, 0
@@ -768,7 +753,7 @@ if.end20:                                         ; preds = %if.end14
 
 land.lhs.true22:                                  ; preds = %if.end20
   %vtable23 = load ptr, ptr %this, align 8
-  %vfn24 = getelementptr inbounds ptr, ptr %vtable23, i64 12
+  %vfn24 = getelementptr inbounds i8, ptr %vtable23, i64 96
   %10 = load ptr, ptr %vfn24, align 8
   %call25 = tail call noundef i64 %10(ptr noundef nonnull align 8 dereferenceable(8) %this)
   %conv = uitofp i64 %call25 to float
@@ -792,17 +777,17 @@ define dso_local i64 @_ZNK3net18TcpCubicSenderBase10PacingRateEm(ptr noundef non
 entry:
   %retval.i = alloca %"class.net::QuicBandwidth", align 8
   %retval.i.i = alloca %"class.net::QuicBandwidth", align 8
-  %rtt_stats_ = getelementptr inbounds %"class.net::TcpCubicSenderBase", ptr %this, i64 0, i32 3
+  %rtt_stats_ = getelementptr inbounds i8, ptr %this, i64 88
   %0 = load ptr, ptr %rtt_stats_, align 8
-  %smoothed_rtt_.i = getelementptr inbounds %"class.net::RttStats", ptr %0, i64 0, i32 2
+  %smoothed_rtt_.i = getelementptr inbounds i8, ptr %0, i64 32
   %retval.sroa.0.0.copyload.i = load i64, ptr %smoothed_rtt_.i, align 8
-  %retval.sroa.2.0.smoothed_rtt_.sroa_idx.i = getelementptr inbounds %"class.net::RttStats", ptr %0, i64 0, i32 2, i32 1
+  %retval.sroa.2.0.smoothed_rtt_.sroa_idx.i = getelementptr inbounds i8, ptr %0, i64 40
   %retval.sroa.2.0.copyload.i = load i64, ptr %retval.sroa.2.0.smoothed_rtt_.sroa_idx.i, align 8
   %cmp.i = icmp eq i64 %retval.sroa.2.0.copyload.i, 0
   br i1 %cmp.i, label %if.then, label %if.end
 
 if.then:                                          ; preds = %entry
-  %initial_rtt_us_.i = getelementptr inbounds %"class.net::RttStats", ptr %0, i64 0, i32 5
+  %initial_rtt_us_.i = getelementptr inbounds i8, ptr %0, i64 80
   %1 = load i64, ptr %initial_rtt_us_.i, align 8
   br label %if.end
 
@@ -810,11 +795,11 @@ if.end:                                           ; preds = %if.then, %entry
   %srtt.sroa.0.0 = phi i64 [ 0, %if.then ], [ %retval.sroa.0.0.copyload.i, %entry ]
   %srtt.sroa.3.0 = phi i64 [ %1, %if.then ], [ %retval.sroa.2.0.copyload.i, %entry ]
   %vtable = load ptr, ptr %this, align 8
-  %vfn = getelementptr inbounds ptr, ptr %vtable, i64 12
+  %vfn = getelementptr inbounds i8, ptr %vtable, i64 96
   %2 = load ptr, ptr %vfn, align 8
   %call7 = tail call noundef i64 %2(ptr noundef nonnull align 8 dereferenceable(8) %this)
   %call8 = tail call i64 @_ZN3net13QuicBandwidth21FromBytesAndTimeDeltaEmNS_8QuicTime5DeltaE(i64 noundef %call7, i64 %srtt.sroa.0.0, i64 %srtt.sroa.3.0)
-  %rate_based_sending_ = getelementptr inbounds %"class.net::TcpCubicSenderBase", ptr %this, i64 0, i32 14
+  %rate_based_sending_ = getelementptr inbounds i8, ptr %this, i64 139
   %3 = load i8, ptr %rate_based_sending_, align 1
   %4 = and i8 %3, 1
   %tobool.not = icmp eq i8 %4, 0
@@ -822,7 +807,7 @@ if.end:                                           ; preds = %if.then, %entry
 
 land.lhs.true:                                    ; preds = %if.end
   %vtable9 = load ptr, ptr %this, align 8
-  %vfn10 = getelementptr inbounds ptr, ptr %vtable9, i64 12
+  %vfn10 = getelementptr inbounds i8, ptr %vtable9, i64 96
   %5 = load ptr, ptr %vfn10, align 8
   %call11 = tail call noundef i64 %5(ptr noundef nonnull align 8 dereferenceable(8) %this)
   %cmp = icmp ult i64 %call11, %bytes_in_flight
@@ -840,13 +825,13 @@ if.then12:                                        ; preds = %land.lhs.true
 
 if.end17:                                         ; preds = %land.lhs.true, %if.end
   %vtable19 = load ptr, ptr %this, align 8
-  %vfn20 = getelementptr inbounds ptr, ptr %vtable19, i64 13
+  %vfn20 = getelementptr inbounds i8, ptr %vtable19, i64 104
   %7 = load ptr, ptr %vfn20, align 8
   %call21 = tail call noundef zeroext i1 %7(ptr noundef nonnull align 8 dereferenceable(141) %this)
   br i1 %call21, label %cond.end, label %cond.false
 
 cond.false:                                       ; preds = %if.end17
-  %no_prr_ = getelementptr inbounds %"class.net::TcpCubicSenderBase", ptr %this, i64 0, i32 15
+  %no_prr_ = getelementptr inbounds i8, ptr %this, i64 140
   %8 = load i8, ptr %no_prr_, align 4
   %9 = and i8 %8, 1
   %tobool22.not = icmp eq i8 %9, 0
@@ -854,7 +839,7 @@ cond.false:                                       ; preds = %if.end17
 
 land.rhs:                                         ; preds = %cond.false
   %vtable23 = load ptr, ptr %this, align 8
-  %vfn24 = getelementptr inbounds ptr, ptr %vtable23, i64 14
+  %vfn24 = getelementptr inbounds i8, ptr %vtable23, i64 112
   %10 = load ptr, ptr %vfn24, align 8
   %call25 = tail call noundef zeroext i1 %10(ptr noundef nonnull align 8 dereferenceable(141) %this)
   %11 = select i1 %call25, float 1.000000e+00, float 1.250000e+00
@@ -881,9 +866,9 @@ declare i64 @_ZN3net13QuicBandwidth21FromBytesAndTimeDeltaEmNS_8QuicTime5DeltaE(
 ; Function Attrs: mustprogress uwtable
 define dso_local i64 @_ZNK3net18TcpCubicSenderBase17BandwidthEstimateEv(ptr noundef nonnull align 8 dereferenceable(141) %this) unnamed_addr #0 align 2 {
 entry:
-  %rtt_stats_ = getelementptr inbounds %"class.net::TcpCubicSenderBase", ptr %this, i64 0, i32 3
+  %rtt_stats_ = getelementptr inbounds i8, ptr %this, i64 88
   %0 = load ptr, ptr %rtt_stats_, align 8
-  %retval.sroa.2.0.smoothed_rtt_.sroa_idx.i = getelementptr inbounds %"class.net::RttStats", ptr %0, i64 0, i32 2, i32 1
+  %retval.sroa.2.0.smoothed_rtt_.sroa_idx.i = getelementptr inbounds i8, ptr %0, i64 40
   %retval.sroa.2.0.copyload.i = load i64, ptr %retval.sroa.2.0.smoothed_rtt_.sroa_idx.i, align 8
   %cmp.i = icmp eq i64 %retval.sroa.2.0.copyload.i, 0
   br i1 %cmp.i, label %if.then, label %if.end
@@ -893,10 +878,10 @@ if.then:                                          ; preds = %entry
   br label %return
 
 if.end:                                           ; preds = %entry
-  %smoothed_rtt_.i = getelementptr inbounds %"class.net::RttStats", ptr %0, i64 0, i32 2
+  %smoothed_rtt_.i = getelementptr inbounds i8, ptr %0, i64 32
   %retval.sroa.0.0.copyload.i = load i64, ptr %smoothed_rtt_.i, align 8
   %vtable = load ptr, ptr %this, align 8
-  %vfn = getelementptr inbounds ptr, ptr %vtable, i64 12
+  %vfn = getelementptr inbounds i8, ptr %vtable, i64 96
   %1 = load ptr, ptr %vfn, align 8
   %call4 = tail call noundef i64 %1(ptr noundef nonnull align 8 dereferenceable(8) %this)
   %call5 = tail call i64 @_ZN3net13QuicBandwidth21FromBytesAndTimeDeltaEmNS_8QuicTime5DeltaE(i64 noundef %call4, i64 %retval.sroa.0.0.copyload.i, i64 %retval.sroa.2.0.copyload.i)
@@ -912,15 +897,15 @@ declare i64 @_ZN3net13QuicBandwidth4ZeroEv() local_unnamed_addr #1
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
 define dso_local { i64, i64 } @_ZNK3net18TcpCubicSenderBase19RetransmissionDelayEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(141) %this) unnamed_addr #8 align 2 {
 entry:
-  %rtt_stats_ = getelementptr inbounds %"class.net::TcpCubicSenderBase", ptr %this, i64 0, i32 3
+  %rtt_stats_ = getelementptr inbounds i8, ptr %this, i64 88
   %0 = load ptr, ptr %rtt_stats_, align 8
-  %retval.sroa.2.0.smoothed_rtt_.sroa_idx.i = getelementptr inbounds %"class.net::RttStats", ptr %0, i64 0, i32 2, i32 1
+  %retval.sroa.2.0.smoothed_rtt_.sroa_idx.i = getelementptr inbounds i8, ptr %0, i64 40
   %retval.sroa.2.0.copyload.i = load i64, ptr %retval.sroa.2.0.smoothed_rtt_.sroa_idx.i, align 8
   %cmp.i = icmp eq i64 %retval.sroa.2.0.copyload.i, 0
   br i1 %cmp.i, label %return, label %if.end
 
 if.end:                                           ; preds = %entry
-  %retval.sroa.2.0.mean_deviation_.sroa_idx.i = getelementptr inbounds %"class.net::RttStats", ptr %0, i64 0, i32 4, i32 1
+  %retval.sroa.2.0.mean_deviation_.sroa_idx.i = getelementptr inbounds i8, ptr %0, i64 72
   %retval.sroa.2.0.copyload.i9 = load i64, ptr %retval.sroa.2.0.mean_deviation_.sroa_idx.i, align 8
   %mul.i.i = shl nsw i64 %retval.sroa.2.0.copyload.i9, 2
   %add.i = add nsw i64 %mul.i.i, %retval.sroa.2.0.copyload.i
@@ -936,11 +921,11 @@ return:                                           ; preds = %entry, %if.end
 define dso_local noundef zeroext i1 @_ZNK3net18TcpCubicSenderBase11InSlowStartEv(ptr noundef nonnull align 8 dereferenceable(141) %this) unnamed_addr #0 align 2 {
 entry:
   %vtable = load ptr, ptr %this, align 8
-  %vfn = getelementptr inbounds ptr, ptr %vtable, i64 12
+  %vfn = getelementptr inbounds i8, ptr %vtable, i64 96
   %0 = load ptr, ptr %vfn, align 8
   %call = tail call noundef i64 %0(ptr noundef nonnull align 8 dereferenceable(8) %this)
   %vtable2 = load ptr, ptr %this, align 8
-  %vfn3 = getelementptr inbounds ptr, ptr %vtable2, i64 15
+  %vfn3 = getelementptr inbounds i8, ptr %vtable2, i64 120
   %1 = load ptr, ptr %vfn3, align 8
   %call4 = tail call noundef i64 %1(ptr noundef nonnull align 8 dereferenceable(8) %this)
   %cmp = icmp ult i64 %call, %call4
@@ -951,7 +936,7 @@ entry:
 define dso_local noundef zeroext i1 @_ZNK3net18TcpCubicSenderBase13IsCwndLimitedEm(ptr noundef nonnull align 8 dereferenceable(141) %this, i64 noundef %bytes_in_flight) local_unnamed_addr #0 align 2 {
 entry:
   %vtable = load ptr, ptr %this, align 8
-  %vfn = getelementptr inbounds ptr, ptr %vtable, i64 12
+  %vfn = getelementptr inbounds i8, ptr %vtable, i64 96
   %0 = load ptr, ptr %vfn, align 8
   %call = tail call noundef i64 %0(ptr noundef nonnull align 8 dereferenceable(8) %this)
   %cmp.not = icmp ugt i64 %call, %bytes_in_flight
@@ -960,7 +945,7 @@ entry:
 if.end:                                           ; preds = %entry
   %sub = sub i64 %call, %bytes_in_flight
   %vtable2 = load ptr, ptr %this, align 8
-  %vfn3 = getelementptr inbounds ptr, ptr %vtable2, i64 13
+  %vfn3 = getelementptr inbounds i8, ptr %vtable2, i64 104
   %1 = load ptr, ptr %vfn3, align 8
   %call4 = tail call noundef zeroext i1 %1(ptr noundef nonnull align 8 dereferenceable(141) %this)
   %div5 = lshr i64 %call, 1
@@ -978,9 +963,9 @@ return:                                           ; preds = %entry, %if.end
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
 define dso_local noundef zeroext i1 @_ZNK3net18TcpCubicSenderBase10InRecoveryEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(141) %this) unnamed_addr #7 align 2 {
 entry:
-  %largest_acked_packet_number_ = getelementptr inbounds %"class.net::TcpCubicSenderBase", ptr %this, i64 0, i32 9
+  %largest_acked_packet_number_ = getelementptr inbounds i8, ptr %this, i64 120
   %0 = load i64, ptr %largest_acked_packet_number_, align 8
-  %largest_sent_at_last_cutback_ = getelementptr inbounds %"class.net::TcpCubicSenderBase", ptr %this, i64 0, i32 10
+  %largest_sent_at_last_cutback_ = getelementptr inbounds i8, ptr %this, i64 128
   %1 = load i64, ptr %largest_sent_at_last_cutback_, align 8
   %2 = add i64 %0, -1
   %spec.select = icmp ult i64 %2, %1
@@ -990,15 +975,15 @@ entry:
 ; Function Attrs: mustprogress uwtable
 define dso_local void @_ZN3net18TcpCubicSenderBase23OnRetransmissionTimeoutEb(ptr noundef nonnull align 8 dereferenceable(141) %this, i1 noundef zeroext %packets_retransmitted) unnamed_addr #0 align 2 {
 entry:
-  %largest_sent_at_last_cutback_ = getelementptr inbounds %"class.net::TcpCubicSenderBase", ptr %this, i64 0, i32 10
+  %largest_sent_at_last_cutback_ = getelementptr inbounds i8, ptr %this, i64 128
   store i64 0, ptr %largest_sent_at_last_cutback_, align 8
   br i1 %packets_retransmitted, label %if.end, label %return
 
 if.end:                                           ; preds = %entry
-  %hybrid_slow_start_ = getelementptr inbounds %"class.net::TcpCubicSenderBase", ptr %this, i64 0, i32 1
+  %hybrid_slow_start_ = getelementptr inbounds i8, ptr %this, i64 8
   tail call void @_ZN3net15HybridSlowStart7RestartEv(ptr noundef nonnull align 8 dereferenceable(48) %hybrid_slow_start_)
   %vtable = load ptr, ptr %this, align 8
-  %vfn = getelementptr inbounds ptr, ptr %vtable, i64 26
+  %vfn = getelementptr inbounds i8, ptr %vtable, i64 208
   %0 = load ptr, ptr %vfn, align 8
   tail call void %0(ptr noundef nonnull align 8 dereferenceable(141) %this)
   br label %return
@@ -1013,13 +998,13 @@ declare void @_ZN3net15HybridSlowStart7RestartEv(ptr noundef nonnull align 8 der
 define dso_local void @_ZN3net18TcpCubicSenderBase21OnConnectionMigrationEv(ptr noundef nonnull align 8 dereferenceable(141) %this) unnamed_addr #0 align 2 {
 entry:
   %ref.tmp = alloca %"class.net::PrrSender", align 8
-  %hybrid_slow_start_ = getelementptr inbounds %"class.net::TcpCubicSenderBase", ptr %this, i64 0, i32 1
+  %hybrid_slow_start_ = getelementptr inbounds i8, ptr %this, i64 8
   tail call void @_ZN3net15HybridSlowStart7RestartEv(ptr noundef nonnull align 8 dereferenceable(48) %hybrid_slow_start_)
   call void @_ZN3net9PrrSenderC1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp)
-  %prr_ = getelementptr inbounds %"class.net::TcpCubicSenderBase", ptr %this, i64 0, i32 2
+  %prr_ = getelementptr inbounds i8, ptr %this, i64 56
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %prr_, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp, i64 32, i1 false)
-  %largest_sent_packet_number_ = getelementptr inbounds %"class.net::TcpCubicSenderBase", ptr %this, i64 0, i32 8
-  %last_cutback_exited_slowstart_ = getelementptr inbounds %"class.net::TcpCubicSenderBase", ptr %this, i64 0, i32 12
+  %largest_sent_packet_number_ = getelementptr inbounds i8, ptr %this, i64 112
+  %last_cutback_exited_slowstart_ = getelementptr inbounds i8, ptr %this, i64 137
   store i8 0, ptr %last_cutback_exited_slowstart_, align 1
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %largest_sent_packet_number_, i8 0, i64 24, i1 false)
   ret void

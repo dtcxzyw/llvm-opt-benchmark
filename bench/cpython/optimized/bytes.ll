@@ -8,7 +8,6 @@ target triple = "x86_64-unknown-linux-gnu"
 %union.anon = type { i64 }
 %struct._typeobject = type { %struct.PyVarObject, ptr, i64, i64, ptr, i64, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, i64, ptr, ptr, ptr, ptr, i64, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, i64, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, i32, ptr, ptr, i8 }
 %struct.PyVarObject = type { %struct._object, i64 }
-%struct.PyBytesObject = type { %struct.PyVarObject, i64, [1 x i8] }
 
 @test_methods = internal global [14 x %struct.PyMethodDef] [%struct.PyMethodDef { ptr @.str, ptr @bytes_check, i32 8, ptr null }, %struct.PyMethodDef { ptr @.str.1, ptr @bytes_checkexact, i32 8, ptr null }, %struct.PyMethodDef { ptr @.str.2, ptr @bytes_fromstringandsize, i32 1, ptr null }, %struct.PyMethodDef { ptr @.str.3, ptr @bytes_fromstring, i32 8, ptr null }, %struct.PyMethodDef { ptr @.str.4, ptr @bytes_fromobject, i32 8, ptr null }, %struct.PyMethodDef { ptr @.str.5, ptr @bytes_size, i32 8, ptr null }, %struct.PyMethodDef { ptr @.str.6, ptr @bytes_asstring, i32 1, ptr null }, %struct.PyMethodDef { ptr @.str.7, ptr @bytes_asstringandsize, i32 1, ptr null }, %struct.PyMethodDef { ptr @.str.8, ptr @bytes_asstringandsize_null, i32 1, ptr null }, %struct.PyMethodDef { ptr @.str.9, ptr @bytes_repr, i32 1, ptr null }, %struct.PyMethodDef { ptr @.str.10, ptr @bytes_concat, i32 1, ptr null }, %struct.PyMethodDef { ptr @.str.11, ptr @bytes_concatanddel, i32 1, ptr null }, %struct.PyMethodDef { ptr @.str.12, ptr @bytes_decodeescape, i32 1, ptr null }, %struct.PyMethodDef zeroinitializer], align 16
 @.str = private unnamed_addr constant [12 x i8] c"bytes_check\00", align 1
@@ -396,8 +395,8 @@ cond.false.i:                                     ; preds = %cond.end15
   unreachable
 
 PyBytes_GET_SIZE.exit:                            ; preds = %cond.end15
-  %ob_sval.i = getelementptr inbounds %struct.PyBytesObject, ptr %1, i64 0, i32 2
-  %ob_size.i.i = getelementptr inbounds %struct.PyVarObject, ptr %1, i64 0, i32 1
+  %ob_sval.i = getelementptr inbounds i8, ptr %1, i64 32
+  %ob_size.i.i = getelementptr inbounds i8, ptr %1, i64 16
   %6 = load i64, ptr %ob_size.i.i, align 8
   %call18 = call ptr @PyBytes_FromStringAndSize(ptr noundef nonnull %ob_sval.i, i64 noundef %6) #3
   store ptr %call18, ptr %left, align 8
@@ -500,8 +499,8 @@ cond.false.i:                                     ; preds = %cond.end15
   unreachable
 
 PyBytes_GET_SIZE.exit:                            ; preds = %cond.end15
-  %ob_sval.i = getelementptr inbounds %struct.PyBytesObject, ptr %1, i64 0, i32 2
-  %ob_size.i.i = getelementptr inbounds %struct.PyVarObject, ptr %1, i64 0, i32 1
+  %ob_sval.i = getelementptr inbounds i8, ptr %1, i64 32
+  %ob_size.i.i = getelementptr inbounds i8, ptr %1, i64 16
   %6 = load i64, ptr %ob_size.i.i, align 8
   %call18 = call ptr @PyBytes_FromStringAndSize(ptr noundef nonnull %ob_sval.i, i64 noundef %6) #3
   store ptr %call18, ptr %left, align 8

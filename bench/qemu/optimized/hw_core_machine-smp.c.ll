@@ -3,15 +3,6 @@ source_filename = "bench/qemu/original/hw_core_machine-smp.c.ll"
 target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:128-n8:16:32:64-S128"
 target triple = "x86_64-unknown-linux-gnu"
 
-%struct.SMPConfiguration = type { i8, i64, i8, i64, i8, i64, i8, i64, i8, i64, i8, i64, i8, i64, i8, i64, i8, i64 }
-%struct.MachineClass = type { %struct.ObjectClass, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, i32, i32, i32, i32, i32, i8, i8, ptr, ptr, ptr, ptr, ptr, ptr, i64, ptr, i8, i8, i8, i32, i8, i8, i32, ptr, ptr, i8, i8, i8, i8, i8, i8, i8, i8, %struct.SMPCompatProps, ptr, ptr, ptr, ptr, ptr, ptr, ptr }
-%struct.ObjectClass = type { ptr, ptr, [4 x ptr], [4 x ptr], ptr, ptr }
-%struct.SMPCompatProps = type { i8, i8, i8, i8, i8, i8 }
-%struct.MachineState = type { %struct.Object, ptr, ptr, ptr, i32, ptr, i8, i8, i8, i8, ptr, i8, i8, i8, ptr, ptr, ptr, ptr, ptr, i64, i64, i64, %struct.BootConfiguration, ptr, ptr, ptr, ptr, ptr, ptr, %struct.CpuTopology, ptr, ptr }
-%struct.Object = type { ptr, ptr, ptr, i32, ptr }
-%struct.BootConfiguration = type { ptr, ptr, i8, i8, ptr, i8, i64, i8, i64, i8, i8 }
-%struct.CpuTopology = type { i32, i32, i32, i32, i32, i32, i32, i32, i32 }
-
 @.str = private unnamed_addr constant [96 x i8] c"Deprecated CPU topology (considered invalid): CPU topology parameters must be greater than zero\00", align 1
 @.str.1 = private unnamed_addr constant [30 x i8] c"../qemu/hw/core/machine-smp.c\00", align 1
 @__func__.machine_parse_smp_config = private unnamed_addr constant [25 x i8] c"machine_parse_smp_config\00", align 1
@@ -45,119 +36,119 @@ entry:
   br i1 %tobool.not, label %cond.end, label %cond.true
 
 cond.true:                                        ; preds = %entry
-  %cpus1 = getelementptr inbounds %struct.SMPConfiguration, ptr %config, i64 0, i32 1
+  %cpus1 = getelementptr inbounds i8, ptr %config, i64 8
   %2 = load i64, ptr %cpus1, align 8
   br label %cond.end
 
 cond.end:                                         ; preds = %entry, %cond.true
   %cond = phi i64 [ %2, %cond.true ], [ 0, %entry ]
   %conv = trunc i64 %cond to i32
-  %has_drawers = getelementptr inbounds %struct.SMPConfiguration, ptr %config, i64 0, i32 2
+  %has_drawers = getelementptr inbounds i8, ptr %config, i64 16
   %3 = load i8, ptr %has_drawers, align 8
   %4 = and i8 %3, 1
   %tobool2.not = icmp eq i8 %4, 0
   br i1 %tobool2.not, label %cond.end7, label %cond.true4
 
 cond.true4:                                       ; preds = %cond.end
-  %drawers5 = getelementptr inbounds %struct.SMPConfiguration, ptr %config, i64 0, i32 3
+  %drawers5 = getelementptr inbounds i8, ptr %config, i64 24
   %5 = load i64, ptr %drawers5, align 8
   br label %cond.end7
 
 cond.end7:                                        ; preds = %cond.end, %cond.true4
   %cond8 = phi i64 [ %5, %cond.true4 ], [ 0, %cond.end ]
   %conv9 = trunc i64 %cond8 to i32
-  %has_books = getelementptr inbounds %struct.SMPConfiguration, ptr %config, i64 0, i32 4
+  %has_books = getelementptr inbounds i8, ptr %config, i64 32
   %6 = load i8, ptr %has_books, align 8
   %7 = and i8 %6, 1
   %tobool10.not = icmp eq i8 %7, 0
   br i1 %tobool10.not, label %cond.end15, label %cond.true12
 
 cond.true12:                                      ; preds = %cond.end7
-  %books13 = getelementptr inbounds %struct.SMPConfiguration, ptr %config, i64 0, i32 5
+  %books13 = getelementptr inbounds i8, ptr %config, i64 40
   %8 = load i64, ptr %books13, align 8
   br label %cond.end15
 
 cond.end15:                                       ; preds = %cond.end7, %cond.true12
   %cond16 = phi i64 [ %8, %cond.true12 ], [ 0, %cond.end7 ]
   %conv17 = trunc i64 %cond16 to i32
-  %has_sockets = getelementptr inbounds %struct.SMPConfiguration, ptr %config, i64 0, i32 6
+  %has_sockets = getelementptr inbounds i8, ptr %config, i64 48
   %9 = load i8, ptr %has_sockets, align 8
   %10 = and i8 %9, 1
   %tobool18.not = icmp eq i8 %10, 0
   br i1 %tobool18.not, label %cond.end23, label %cond.true20
 
 cond.true20:                                      ; preds = %cond.end15
-  %sockets21 = getelementptr inbounds %struct.SMPConfiguration, ptr %config, i64 0, i32 7
+  %sockets21 = getelementptr inbounds i8, ptr %config, i64 56
   %11 = load i64, ptr %sockets21, align 8
   br label %cond.end23
 
 cond.end23:                                       ; preds = %cond.end15, %cond.true20
   %cond24 = phi i64 [ %11, %cond.true20 ], [ 0, %cond.end15 ]
   %conv25 = trunc i64 %cond24 to i32
-  %has_dies = getelementptr inbounds %struct.SMPConfiguration, ptr %config, i64 0, i32 8
+  %has_dies = getelementptr inbounds i8, ptr %config, i64 64
   %12 = load i8, ptr %has_dies, align 8
   %13 = and i8 %12, 1
   %tobool26.not = icmp eq i8 %13, 0
   br i1 %tobool26.not, label %cond.end31, label %cond.true28
 
 cond.true28:                                      ; preds = %cond.end23
-  %dies29 = getelementptr inbounds %struct.SMPConfiguration, ptr %config, i64 0, i32 9
+  %dies29 = getelementptr inbounds i8, ptr %config, i64 72
   %14 = load i64, ptr %dies29, align 8
   br label %cond.end31
 
 cond.end31:                                       ; preds = %cond.end23, %cond.true28
   %cond32 = phi i64 [ %14, %cond.true28 ], [ 0, %cond.end23 ]
   %conv33 = trunc i64 %cond32 to i32
-  %has_clusters = getelementptr inbounds %struct.SMPConfiguration, ptr %config, i64 0, i32 10
+  %has_clusters = getelementptr inbounds i8, ptr %config, i64 80
   %15 = load i8, ptr %has_clusters, align 8
   %16 = and i8 %15, 1
   %tobool34.not = icmp eq i8 %16, 0
   br i1 %tobool34.not, label %cond.end39, label %cond.true36
 
 cond.true36:                                      ; preds = %cond.end31
-  %clusters37 = getelementptr inbounds %struct.SMPConfiguration, ptr %config, i64 0, i32 11
+  %clusters37 = getelementptr inbounds i8, ptr %config, i64 88
   %17 = load i64, ptr %clusters37, align 8
   br label %cond.end39
 
 cond.end39:                                       ; preds = %cond.end31, %cond.true36
   %cond40 = phi i64 [ %17, %cond.true36 ], [ 0, %cond.end31 ]
   %conv41 = trunc i64 %cond40 to i32
-  %has_cores = getelementptr inbounds %struct.SMPConfiguration, ptr %config, i64 0, i32 12
+  %has_cores = getelementptr inbounds i8, ptr %config, i64 96
   %18 = load i8, ptr %has_cores, align 8
   %19 = and i8 %18, 1
   %tobool42.not = icmp eq i8 %19, 0
   br i1 %tobool42.not, label %cond.end47, label %cond.true44
 
 cond.true44:                                      ; preds = %cond.end39
-  %cores45 = getelementptr inbounds %struct.SMPConfiguration, ptr %config, i64 0, i32 13
+  %cores45 = getelementptr inbounds i8, ptr %config, i64 104
   %20 = load i64, ptr %cores45, align 8
   br label %cond.end47
 
 cond.end47:                                       ; preds = %cond.end39, %cond.true44
   %cond48 = phi i64 [ %20, %cond.true44 ], [ 0, %cond.end39 ]
   %conv49 = trunc i64 %cond48 to i32
-  %has_threads = getelementptr inbounds %struct.SMPConfiguration, ptr %config, i64 0, i32 14
+  %has_threads = getelementptr inbounds i8, ptr %config, i64 112
   %21 = load i8, ptr %has_threads, align 8
   %22 = and i8 %21, 1
   %tobool50.not = icmp eq i8 %22, 0
   br i1 %tobool50.not, label %cond.end55, label %cond.true52
 
 cond.true52:                                      ; preds = %cond.end47
-  %threads53 = getelementptr inbounds %struct.SMPConfiguration, ptr %config, i64 0, i32 15
+  %threads53 = getelementptr inbounds i8, ptr %config, i64 120
   %23 = load i64, ptr %threads53, align 8
   br label %cond.end55
 
 cond.end55:                                       ; preds = %cond.end47, %cond.true52
   %cond56 = phi i64 [ %23, %cond.true52 ], [ 0, %cond.end47 ]
   %conv57 = trunc i64 %cond56 to i32
-  %has_maxcpus = getelementptr inbounds %struct.SMPConfiguration, ptr %config, i64 0, i32 16
+  %has_maxcpus = getelementptr inbounds i8, ptr %config, i64 128
   %24 = load i8, ptr %has_maxcpus, align 8
   %25 = and i8 %24, 1
   %tobool58.not = icmp eq i8 %25, 0
   br i1 %tobool58.not, label %cond.end63, label %cond.true60
 
 cond.true60:                                      ; preds = %cond.end55
-  %maxcpus61 = getelementptr inbounds %struct.SMPConfiguration, ptr %config, i64 0, i32 17
+  %maxcpus61 = getelementptr inbounds i8, ptr %config, i64 136
   %26 = load i64, ptr %maxcpus61, align 8
   br label %cond.end63
 
@@ -167,7 +158,7 @@ cond.end63:                                       ; preds = %cond.end55, %cond.t
   br i1 %tobool.not, label %lor.lhs.false, label %land.lhs.true
 
 land.lhs.true:                                    ; preds = %cond.end63
-  %cpus69 = getelementptr inbounds %struct.SMPConfiguration, ptr %config, i64 0, i32 1
+  %cpus69 = getelementptr inbounds i8, ptr %config, i64 8
   %27 = load i64, ptr %cpus69, align 8
   %cmp = icmp eq i64 %27, 0
   br i1 %cmp, label %if.then, label %lor.lhs.false
@@ -176,7 +167,7 @@ lor.lhs.false:                                    ; preds = %land.lhs.true, %con
   br i1 %tobool2.not, label %lor.lhs.false78, label %land.lhs.true74
 
 land.lhs.true74:                                  ; preds = %lor.lhs.false
-  %drawers75 = getelementptr inbounds %struct.SMPConfiguration, ptr %config, i64 0, i32 3
+  %drawers75 = getelementptr inbounds i8, ptr %config, i64 24
   %28 = load i64, ptr %drawers75, align 8
   %cmp76 = icmp eq i64 %28, 0
   br i1 %cmp76, label %if.then, label %lor.lhs.false78
@@ -185,7 +176,7 @@ lor.lhs.false78:                                  ; preds = %land.lhs.true74, %l
   br i1 %tobool10.not, label %lor.lhs.false86, label %land.lhs.true82
 
 land.lhs.true82:                                  ; preds = %lor.lhs.false78
-  %books83 = getelementptr inbounds %struct.SMPConfiguration, ptr %config, i64 0, i32 5
+  %books83 = getelementptr inbounds i8, ptr %config, i64 40
   %29 = load i64, ptr %books83, align 8
   %cmp84 = icmp eq i64 %29, 0
   br i1 %cmp84, label %if.then, label %lor.lhs.false86
@@ -194,7 +185,7 @@ lor.lhs.false86:                                  ; preds = %land.lhs.true82, %l
   br i1 %tobool18.not, label %lor.lhs.false94, label %land.lhs.true90
 
 land.lhs.true90:                                  ; preds = %lor.lhs.false86
-  %sockets91 = getelementptr inbounds %struct.SMPConfiguration, ptr %config, i64 0, i32 7
+  %sockets91 = getelementptr inbounds i8, ptr %config, i64 56
   %30 = load i64, ptr %sockets91, align 8
   %cmp92 = icmp eq i64 %30, 0
   br i1 %cmp92, label %if.then, label %lor.lhs.false94
@@ -203,7 +194,7 @@ lor.lhs.false94:                                  ; preds = %land.lhs.true90, %l
   br i1 %tobool26.not, label %lor.lhs.false102, label %land.lhs.true98
 
 land.lhs.true98:                                  ; preds = %lor.lhs.false94
-  %dies99 = getelementptr inbounds %struct.SMPConfiguration, ptr %config, i64 0, i32 9
+  %dies99 = getelementptr inbounds i8, ptr %config, i64 72
   %31 = load i64, ptr %dies99, align 8
   %cmp100 = icmp eq i64 %31, 0
   br i1 %cmp100, label %if.then, label %lor.lhs.false102
@@ -212,7 +203,7 @@ lor.lhs.false102:                                 ; preds = %land.lhs.true98, %l
   br i1 %tobool34.not, label %lor.lhs.false110, label %land.lhs.true106
 
 land.lhs.true106:                                 ; preds = %lor.lhs.false102
-  %clusters107 = getelementptr inbounds %struct.SMPConfiguration, ptr %config, i64 0, i32 11
+  %clusters107 = getelementptr inbounds i8, ptr %config, i64 88
   %32 = load i64, ptr %clusters107, align 8
   %cmp108 = icmp eq i64 %32, 0
   br i1 %cmp108, label %if.then, label %lor.lhs.false110
@@ -221,7 +212,7 @@ lor.lhs.false110:                                 ; preds = %land.lhs.true106, %
   br i1 %tobool42.not, label %lor.lhs.false118, label %land.lhs.true114
 
 land.lhs.true114:                                 ; preds = %lor.lhs.false110
-  %cores115 = getelementptr inbounds %struct.SMPConfiguration, ptr %config, i64 0, i32 13
+  %cores115 = getelementptr inbounds i8, ptr %config, i64 104
   %33 = load i64, ptr %cores115, align 8
   %cmp116 = icmp eq i64 %33, 0
   br i1 %cmp116, label %if.then, label %lor.lhs.false118
@@ -230,7 +221,7 @@ lor.lhs.false118:                                 ; preds = %land.lhs.true114, %
   br i1 %tobool50.not, label %lor.lhs.false126, label %land.lhs.true122
 
 land.lhs.true122:                                 ; preds = %lor.lhs.false118
-  %threads123 = getelementptr inbounds %struct.SMPConfiguration, ptr %config, i64 0, i32 15
+  %threads123 = getelementptr inbounds i8, ptr %config, i64 120
   %34 = load i64, ptr %threads123, align 8
   %cmp124 = icmp eq i64 %34, 0
   br i1 %cmp124, label %if.then, label %lor.lhs.false126
@@ -239,7 +230,7 @@ lor.lhs.false126:                                 ; preds = %land.lhs.true122, %
   br i1 %tobool58.not, label %if.end, label %land.lhs.true130
 
 land.lhs.true130:                                 ; preds = %lor.lhs.false126
-  %maxcpus131 = getelementptr inbounds %struct.SMPConfiguration, ptr %config, i64 0, i32 17
+  %maxcpus131 = getelementptr inbounds i8, ptr %config, i64 136
   %35 = load i64, ptr %maxcpus131, align 8
   %cmp132 = icmp eq i64 %35, 0
   br i1 %cmp132, label %if.then, label %if.end
@@ -249,8 +240,8 @@ if.then:                                          ; preds = %land.lhs.true130, %
   br label %if.end
 
 if.end:                                           ; preds = %if.then, %land.lhs.true130, %lor.lhs.false126
-  %smp_props = getelementptr inbounds %struct.MachineClass, ptr %call1.i, i64 0, i32 42
-  %dies_supported = getelementptr inbounds %struct.MachineClass, ptr %call1.i, i64 0, i32 42, i32 1
+  %smp_props = getelementptr inbounds i8, ptr %call1.i, i64 296
+  %dies_supported = getelementptr inbounds i8, ptr %call1.i, i64 297
   %36 = load i8, ptr %dies_supported, align 1
   %37 = and i8 %36, 1
   %tobool134.not177 = icmp eq i8 %37, 0
@@ -263,7 +254,7 @@ if.then138:                                       ; preds = %if.end
   br label %if.end381
 
 if.end139:                                        ; preds = %if.end
-  %clusters_supported = getelementptr inbounds %struct.MachineClass, ptr %call1.i, i64 0, i32 42, i32 2
+  %clusters_supported = getelementptr inbounds i8, ptr %call1.i, i64 298
   %38 = load i8, ptr %clusters_supported, align 2
   %39 = and i8 %38, 1
   %tobool141.not178 = icmp eq i8 %39, 0
@@ -278,7 +269,7 @@ if.then145:                                       ; preds = %if.end139
 if.end146:                                        ; preds = %if.end139
   %cond152 = tail call i32 @llvm.umax.i32(i32 %conv33, i32 1)
   %cond158 = tail call i32 @llvm.umax.i32(i32 %conv41, i32 1)
-  %books_supported = getelementptr inbounds %struct.MachineClass, ptr %call1.i, i64 0, i32 42, i32 4
+  %books_supported = getelementptr inbounds i8, ptr %call1.i, i64 300
   %40 = load i8, ptr %books_supported, align 4
   %41 = and i8 %40, 1
   %tobool160.not179 = icmp eq i8 %41, 0
@@ -292,7 +283,7 @@ if.then164:                                       ; preds = %if.end146
 
 if.end165:                                        ; preds = %if.end146
   %cond171 = tail call i32 @llvm.umax.i32(i32 %conv17, i32 1)
-  %drawers_supported = getelementptr inbounds %struct.MachineClass, ptr %call1.i, i64 0, i32 42, i32 5
+  %drawers_supported = getelementptr inbounds i8, ptr %call1.i, i64 301
   %42 = load i8, ptr %drawers_supported, align 1
   %43 = and i8 %42, 1
   %tobool173.not180 = icmp eq i8 %43, 0
@@ -430,27 +421,27 @@ cond.end317:                                      ; preds = %if.end306.cond.end3
   %sockets.1190 = phi i32 [ %sockets.1, %if.end306.cond.end317_crit_edge ], [ %sockets.1191, %cond.false310 ]
   %cond318 = phi i32 [ %cond214, %if.end306.cond.end317_crit_edge ], [ %mul316, %cond.false310 ]
   %cond324 = select i1 %cmp185, i32 %cond318, i32 %conv
-  %smp = getelementptr inbounds %struct.MachineState, ptr %ms, i64 0, i32 29
+  %smp = getelementptr inbounds i8, ptr %ms, i64 288
   store i32 %cond324, ptr %smp, align 8
-  %drawers327 = getelementptr inbounds %struct.MachineState, ptr %ms, i64 0, i32 29, i32 1
+  %drawers327 = getelementptr inbounds i8, ptr %ms, i64 292
   store i32 %cond184, ptr %drawers327, align 4
-  %books329 = getelementptr inbounds %struct.MachineState, ptr %ms, i64 0, i32 29, i32 2
+  %books329 = getelementptr inbounds i8, ptr %ms, i64 296
   store i32 %cond171, ptr %books329, align 8
-  %sockets331 = getelementptr inbounds %struct.MachineState, ptr %ms, i64 0, i32 29, i32 3
+  %sockets331 = getelementptr inbounds i8, ptr %ms, i64 300
   store i32 %sockets.1190, ptr %sockets331, align 4
-  %dies333 = getelementptr inbounds %struct.MachineState, ptr %ms, i64 0, i32 29, i32 4
+  %dies333 = getelementptr inbounds i8, ptr %ms, i64 304
   store i32 %cond152, ptr %dies333, align 8
-  %clusters335 = getelementptr inbounds %struct.MachineState, ptr %ms, i64 0, i32 29, i32 5
+  %clusters335 = getelementptr inbounds i8, ptr %ms, i64 308
   store i32 %cond158, ptr %clusters335, align 4
-  %cores337 = getelementptr inbounds %struct.MachineState, ptr %ms, i64 0, i32 29, i32 6
+  %cores337 = getelementptr inbounds i8, ptr %ms, i64 312
   store i32 %cores.1192, ptr %cores337, align 8
-  %threads339 = getelementptr inbounds %struct.MachineState, ptr %ms, i64 0, i32 29, i32 7
+  %threads339 = getelementptr inbounds i8, ptr %ms, i64 316
   store i32 %threads.1194, ptr %threads339, align 4
-  %max_cpus = getelementptr inbounds %struct.MachineState, ptr %ms, i64 0, i32 29, i32 8
+  %max_cpus = getelementptr inbounds i8, ptr %ms, i64 320
   store i32 %cond318, ptr %max_cpus, align 8
   %46 = load i8, ptr %has_clusters, align 8
   %47 = and i8 %46, 1
-  %has_clusters344 = getelementptr inbounds %struct.MachineClass, ptr %call1.i, i64 0, i32 42, i32 3
+  %has_clusters344 = getelementptr inbounds i8, ptr %call1.i, i64 299
   store i8 %47, ptr %has_clusters344, align 1
   %cmp351.not = icmp eq i32 %mul350.pre-phi, %cond318
   br i1 %cmp351.not, label %if.end355, label %if.then353
@@ -473,26 +464,26 @@ if.then358:                                       ; preds = %if.end355
 
 if.end361:                                        ; preds = %if.end355
   %48 = load i32, ptr %smp, align 8
-  %min_cpus = getelementptr inbounds %struct.MachineClass, ptr %call1.i, i64 0, i32 13
+  %min_cpus = getelementptr inbounds i8, ptr %call1.i, i64 180
   %49 = load i32, ptr %min_cpus, align 4
   %cmp364 = icmp ult i32 %48, %49
   br i1 %cmp364, label %if.then366, label %if.end370
 
 if.then366:                                       ; preds = %if.end361
-  %name = getelementptr inbounds %struct.MachineClass, ptr %call1.i, i64 0, i32 2
+  %name = getelementptr inbounds i8, ptr %call1.i, i64 104
   %50 = load ptr, ptr %name, align 8
   tail call void (ptr, ptr, i32, ptr, ptr, ...) @error_setg_internal(ptr noundef %errp, ptr noundef nonnull @.str.1, i32 noundef 222, ptr noundef nonnull @__func__.machine_parse_smp_config, ptr noundef nonnull @.str.8, i32 noundef %48, ptr noundef %50, i32 noundef %49) #4
   br label %if.end381
 
 if.end370:                                        ; preds = %if.end361
   %51 = load i32, ptr %max_cpus, align 8
-  %max_cpus373 = getelementptr inbounds %struct.MachineClass, ptr %call1.i, i64 0, i32 12
+  %max_cpus373 = getelementptr inbounds i8, ptr %call1.i, i64 176
   %52 = load i32, ptr %max_cpus373, align 8
   %cmp374 = icmp ugt i32 %51, %52
   br i1 %cmp374, label %if.then376, label %if.end381
 
 if.then376:                                       ; preds = %if.end370
-  %name379 = getelementptr inbounds %struct.MachineClass, ptr %call1.i, i64 0, i32 2
+  %name379 = getelementptr inbounds i8, ptr %call1.i, i64 104
   %53 = load ptr, ptr %name379, align 8
   tail call void (ptr, ptr, i32, ptr, ptr, ...) @error_setg_internal(ptr noundef %errp, ptr noundef nonnull @.str.1, i32 noundef 230, ptr noundef nonnull @__func__.machine_parse_smp_config, ptr noundef nonnull @.str.9, i32 noundef %51, ptr noundef %53, i32 noundef %52) #4
   br label %if.end381
@@ -511,65 +502,65 @@ entry:
   %call.i = tail call ptr @object_get_class(ptr noundef %ms) #4
   %call1.i = tail call ptr @object_class_dynamic_cast_assert(ptr noundef %call.i, ptr noundef nonnull @.str.10, ptr noundef nonnull @.str.11, i32 noundef 23, ptr noundef nonnull @__func__.MACHINE_GET_CLASS) #4
   %call1 = tail call ptr @g_string_new(ptr noundef null) #4
-  %drawers_supported = getelementptr inbounds %struct.MachineClass, ptr %call1.i, i64 0, i32 42, i32 5
+  %drawers_supported = getelementptr inbounds i8, ptr %call1.i, i64 301
   %0 = load i8, ptr %drawers_supported, align 1
   %1 = and i8 %0, 1
   %tobool.not = icmp eq i8 %1, 0
   br i1 %tobool.not, label %if.end, label %if.then
 
 if.then:                                          ; preds = %entry
-  %drawers = getelementptr inbounds %struct.MachineState, ptr %ms, i64 0, i32 29, i32 1
+  %drawers = getelementptr inbounds i8, ptr %ms, i64 292
   %2 = load i32, ptr %drawers, align 4
   tail call void (ptr, ptr, ...) @g_string_append_printf(ptr noundef %call1, ptr noundef nonnull @.str.12, i32 noundef %2) #4
   br label %if.end
 
 if.end:                                           ; preds = %if.then, %entry
-  %books_supported = getelementptr inbounds %struct.MachineClass, ptr %call1.i, i64 0, i32 42, i32 4
+  %books_supported = getelementptr inbounds i8, ptr %call1.i, i64 300
   %3 = load i8, ptr %books_supported, align 4
   %4 = and i8 %3, 1
   %tobool3.not = icmp eq i8 %4, 0
   br i1 %tobool3.not, label %if.end6, label %if.then4
 
 if.then4:                                         ; preds = %if.end
-  %books = getelementptr inbounds %struct.MachineState, ptr %ms, i64 0, i32 29, i32 2
+  %books = getelementptr inbounds i8, ptr %ms, i64 296
   %5 = load i32, ptr %books, align 8
   tail call void (ptr, ptr, ...) @g_string_append_printf(ptr noundef %call1, ptr noundef nonnull @.str.13, i32 noundef %5) #4
   br label %if.end6
 
 if.end6:                                          ; preds = %if.then4, %if.end
-  %sockets = getelementptr inbounds %struct.MachineState, ptr %ms, i64 0, i32 29, i32 3
+  %sockets = getelementptr inbounds i8, ptr %ms, i64 300
   %6 = load i32, ptr %sockets, align 4
   tail call void (ptr, ptr, ...) @g_string_append_printf(ptr noundef %call1, ptr noundef nonnull @.str.14, i32 noundef %6) #4
-  %dies_supported = getelementptr inbounds %struct.MachineClass, ptr %call1.i, i64 0, i32 42, i32 1
+  %dies_supported = getelementptr inbounds i8, ptr %call1.i, i64 297
   %7 = load i8, ptr %dies_supported, align 1
   %8 = and i8 %7, 1
   %tobool9.not = icmp eq i8 %8, 0
   br i1 %tobool9.not, label %if.end12, label %if.then10
 
 if.then10:                                        ; preds = %if.end6
-  %dies = getelementptr inbounds %struct.MachineState, ptr %ms, i64 0, i32 29, i32 4
+  %dies = getelementptr inbounds i8, ptr %ms, i64 304
   %9 = load i32, ptr %dies, align 8
   tail call void (ptr, ptr, ...) @g_string_append_printf(ptr noundef %call1, ptr noundef nonnull @.str.15, i32 noundef %9) #4
   br label %if.end12
 
 if.end12:                                         ; preds = %if.then10, %if.end6
-  %clusters_supported = getelementptr inbounds %struct.MachineClass, ptr %call1.i, i64 0, i32 42, i32 2
+  %clusters_supported = getelementptr inbounds i8, ptr %call1.i, i64 298
   %10 = load i8, ptr %clusters_supported, align 2
   %11 = and i8 %10, 1
   %tobool14.not = icmp eq i8 %11, 0
   br i1 %tobool14.not, label %if.end17, label %if.then15
 
 if.then15:                                        ; preds = %if.end12
-  %clusters = getelementptr inbounds %struct.MachineState, ptr %ms, i64 0, i32 29, i32 5
+  %clusters = getelementptr inbounds i8, ptr %ms, i64 308
   %12 = load i32, ptr %clusters, align 4
   tail call void (ptr, ptr, ...) @g_string_append_printf(ptr noundef %call1, ptr noundef nonnull @.str.16, i32 noundef %12) #4
   br label %if.end17
 
 if.end17:                                         ; preds = %if.then15, %if.end12
-  %cores = getelementptr inbounds %struct.MachineState, ptr %ms, i64 0, i32 29, i32 6
+  %cores = getelementptr inbounds i8, ptr %ms, i64 312
   %13 = load i32, ptr %cores, align 8
   tail call void (ptr, ptr, ...) @g_string_append_printf(ptr noundef %call1, ptr noundef nonnull @.str.17, i32 noundef %13) #4
-  %threads = getelementptr inbounds %struct.MachineState, ptr %ms, i64 0, i32 29, i32 7
+  %threads = getelementptr inbounds i8, ptr %ms, i64 316
   %14 = load i32, ptr %threads, align 4
   tail call void (ptr, ptr, ...) @g_string_append_printf(ptr noundef %call1, ptr noundef nonnull @.str.18, i32 noundef %14) #4
   %call20 = tail call ptr @g_string_free(ptr noundef %call1, i32 noundef 0) #4
@@ -579,12 +570,12 @@ if.end17:                                         ; preds = %if.then15, %if.end1
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(argmem: read) uwtable
 define dso_local i32 @machine_topo_get_cores_per_socket(ptr nocapture noundef readonly %ms) local_unnamed_addr #2 {
 entry:
-  %cores = getelementptr inbounds %struct.MachineState, ptr %ms, i64 0, i32 29, i32 6
+  %cores = getelementptr inbounds i8, ptr %ms, i64 312
   %0 = load i32, ptr %cores, align 8
-  %clusters = getelementptr inbounds %struct.MachineState, ptr %ms, i64 0, i32 29, i32 5
+  %clusters = getelementptr inbounds i8, ptr %ms, i64 308
   %1 = load i32, ptr %clusters, align 4
   %mul = mul i32 %1, %0
-  %dies = getelementptr inbounds %struct.MachineState, ptr %ms, i64 0, i32 29, i32 4
+  %dies = getelementptr inbounds i8, ptr %ms, i64 304
   %2 = load i32, ptr %dies, align 8
   %mul3 = mul i32 %mul, %2
   ret i32 %mul3
@@ -593,13 +584,13 @@ entry:
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(argmem: read) uwtable
 define dso_local i32 @machine_topo_get_threads_per_socket(ptr nocapture noundef readonly %ms) local_unnamed_addr #2 {
 entry:
-  %threads = getelementptr inbounds %struct.MachineState, ptr %ms, i64 0, i32 29, i32 7
+  %threads = getelementptr inbounds i8, ptr %ms, i64 316
   %0 = load i32, ptr %threads, align 4
-  %cores.i = getelementptr inbounds %struct.MachineState, ptr %ms, i64 0, i32 29, i32 6
+  %cores.i = getelementptr inbounds i8, ptr %ms, i64 312
   %1 = load i32, ptr %cores.i, align 8
-  %clusters.i = getelementptr inbounds %struct.MachineState, ptr %ms, i64 0, i32 29, i32 5
+  %clusters.i = getelementptr inbounds i8, ptr %ms, i64 308
   %2 = load i32, ptr %clusters.i, align 4
-  %dies.i = getelementptr inbounds %struct.MachineState, ptr %ms, i64 0, i32 29, i32 4
+  %dies.i = getelementptr inbounds i8, ptr %ms, i64 304
   %3 = load i32, ptr %dies.i, align 8
   %mul.i = mul i32 %1, %0
   %mul3.i = mul i32 %mul.i, %2

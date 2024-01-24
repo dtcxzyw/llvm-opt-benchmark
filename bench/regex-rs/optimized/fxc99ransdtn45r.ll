@@ -10,7 +10,7 @@ define void @"_ZN100_$LT$core..iter..adapters..take..Take$LT$I$GT$$u20$as$u20$co
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %4)
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %5)
   store i64 %0, ptr %5, align 8
-  %6 = getelementptr inbounds { i64, i32 }, ptr %5, i64 0, i32 1
+  %6 = getelementptr inbounds i8, ptr %5, i64 8
   store i32 %1, ptr %6, align 8
   %.not.i = icmp eq i64 %0, 0
   br i1 %.not.i, label %.critedge.i, label %7
@@ -38,7 +38,7 @@ define void @"_ZN100_$LT$core..iter..adapters..take..Take$LT$I$GT$$u20$as$u20$co
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %4)
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %5)
   store i64 %0, ptr %5, align 8
-  %6 = getelementptr inbounds { i64, i64 }, ptr %5, i64 0, i32 1
+  %6 = getelementptr inbounds i8, ptr %5, i64 8
   store i64 %1, ptr %6, align 8
   %.not.i = icmp eq i64 %1, 0
   br i1 %.not.i, label %.critedge.i, label %7
@@ -66,7 +66,7 @@ define void @"_ZN100_$LT$core..iter..adapters..take..Take$LT$I$GT$$u20$as$u20$co
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %4)
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %5)
   store i64 %0, ptr %5, align 8
-  %6 = getelementptr inbounds { i64, i8 }, ptr %5, i64 0, i32 1
+  %6 = getelementptr inbounds i8, ptr %5, i64 8
   store i8 %1, ptr %6, align 8
   %.not.i = icmp eq i64 %0, 0
   br i1 %.not.i, label %.critedge.i, label %7
@@ -95,12 +95,12 @@ define void @"_ZN100_$LT$core..iter..adapters..take..Take$LT$I$GT$$u20$as$u20$co
   br i1 %5, label %16, label %6
 
 6:                                                ; preds = %2
-  %7 = getelementptr inbounds { i64, i8 }, ptr %1, i64 0, i32 1
+  %7 = getelementptr inbounds i8, ptr %1, i64 8
   call void @"_ZN103_$LT$core..iter..sources..repeat..Repeat$LT$A$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$9size_hint17hd51d407a9480b4a3E"(ptr nonnull sret({ i64, { i64, i64 } }) align 8 %3, ptr nonnull align 1 %7)
   %8 = load i64, ptr %3, align 8, !noundef !5
-  %9 = getelementptr inbounds { i64, { i64, i64 } }, ptr %3, i64 0, i32 1
+  %9 = getelementptr inbounds i8, ptr %3, i64 8
   %10 = load i64, ptr %9, align 8, !range !6, !noundef !5
-  %11 = getelementptr inbounds { i64, { i64, i64 } }, ptr %3, i64 0, i32 1, i32 1
+  %11 = getelementptr inbounds i8, ptr %3, i64 16
   %12 = load i64, ptr %11, align 8
   %13 = load i64, ptr %1, align 8, !noundef !5
   %14 = call i64 @_ZN4core3cmp6min_by17hfe48a8baa11852f0E(i64 %8, i64 %13)
@@ -114,9 +114,9 @@ define void @"_ZN100_$LT$core..iter..adapters..take..Take$LT$I$GT$$u20$as$u20$co
   %.sink = phi i64 [ %14, %6 ], [ 0, %2 ]
   %.sroa.3.0.sink = phi i64 [ %.sroa.3.0, %6 ], [ 0, %2 ]
   store i64 %.sink, ptr %0, align 8
-  %17 = getelementptr inbounds { i64, { i64, i64 } }, ptr %0, i64 0, i32 1
+  %17 = getelementptr inbounds i8, ptr %0, i64 8
   store i64 1, ptr %17, align 8
-  %18 = getelementptr inbounds { i64, { i64, i64 } }, ptr %0, i64 0, i32 1, i32 1
+  %18 = getelementptr inbounds i8, ptr %0, i64 16
   store i64 %.sroa.3.0.sink, ptr %18, align 8
   ret void
 }
@@ -124,7 +124,7 @@ define void @"_ZN100_$LT$core..iter..adapters..take..Take$LT$I$GT$$u20$as$u20$co
 ; Function Attrs: inlinehint nonlazybind uwtable
 define void @"_ZN100_$LT$core..iter..adapters..take..Take$LT$I$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$9size_hint17h53a8930f41480b86E"(ptr nocapture writeonly sret({ i64, { i64, i64 } }) align 8 %0, ptr align 8 %1) unnamed_addr #0 {
   %3 = alloca { i64, { i64, i64 } }, align 8
-  %4 = getelementptr inbounds { i64, i64 }, ptr %1, i64 0, i32 1
+  %4 = getelementptr inbounds i8, ptr %1, i64 8
   %5 = load i64, ptr %4, align 8, !noundef !5
   %6 = icmp eq i64 %5, 0
   br i1 %6, label %16, label %7
@@ -132,9 +132,9 @@ define void @"_ZN100_$LT$core..iter..adapters..take..Take$LT$I$GT$$u20$as$u20$co
 7:                                                ; preds = %2
   call void @"_ZN103_$LT$core..iter..sources..repeat..Repeat$LT$A$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$9size_hint17h186daac79e6340afE"(ptr nonnull sret({ i64, { i64, i64 } }) align 8 %3, ptr nonnull align 8 %1)
   %8 = load i64, ptr %3, align 8, !noundef !5
-  %9 = getelementptr inbounds { i64, { i64, i64 } }, ptr %3, i64 0, i32 1
+  %9 = getelementptr inbounds i8, ptr %3, i64 8
   %10 = load i64, ptr %9, align 8, !range !6, !noundef !5
-  %11 = getelementptr inbounds { i64, { i64, i64 } }, ptr %3, i64 0, i32 1, i32 1
+  %11 = getelementptr inbounds i8, ptr %3, i64 16
   %12 = load i64, ptr %11, align 8
   %13 = load i64, ptr %4, align 8, !noundef !5
   %14 = call i64 @_ZN4core3cmp6min_by17hfe48a8baa11852f0E(i64 %8, i64 %13)
@@ -148,9 +148,9 @@ define void @"_ZN100_$LT$core..iter..adapters..take..Take$LT$I$GT$$u20$as$u20$co
   %.sink = phi i64 [ %14, %7 ], [ 0, %2 ]
   %.sroa.3.0.sink = phi i64 [ %.sroa.3.0, %7 ], [ 0, %2 ]
   store i64 %.sink, ptr %0, align 8
-  %17 = getelementptr inbounds { i64, { i64, i64 } }, ptr %0, i64 0, i32 1
+  %17 = getelementptr inbounds i8, ptr %0, i64 8
   store i64 1, ptr %17, align 8
-  %18 = getelementptr inbounds { i64, { i64, i64 } }, ptr %0, i64 0, i32 1, i32 1
+  %18 = getelementptr inbounds i8, ptr %0, i64 16
   store i64 %.sroa.3.0.sink, ptr %18, align 8
   ret void
 }
@@ -163,12 +163,12 @@ define void @"_ZN100_$LT$core..iter..adapters..take..Take$LT$I$GT$$u20$as$u20$co
   br i1 %5, label %16, label %6
 
 6:                                                ; preds = %2
-  %7 = getelementptr inbounds { i64, i32 }, ptr %1, i64 0, i32 1
+  %7 = getelementptr inbounds i8, ptr %1, i64 8
   call void @"_ZN103_$LT$core..iter..sources..repeat..Repeat$LT$A$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$9size_hint17hbc05d458bb26e1ebE"(ptr nonnull sret({ i64, { i64, i64 } }) align 8 %3, ptr nonnull align 4 %7)
   %8 = load i64, ptr %3, align 8, !noundef !5
-  %9 = getelementptr inbounds { i64, { i64, i64 } }, ptr %3, i64 0, i32 1
+  %9 = getelementptr inbounds i8, ptr %3, i64 8
   %10 = load i64, ptr %9, align 8, !range !6, !noundef !5
-  %11 = getelementptr inbounds { i64, { i64, i64 } }, ptr %3, i64 0, i32 1, i32 1
+  %11 = getelementptr inbounds i8, ptr %3, i64 16
   %12 = load i64, ptr %11, align 8
   %13 = load i64, ptr %1, align 8, !noundef !5
   %14 = call i64 @_ZN4core3cmp6min_by17hfe48a8baa11852f0E(i64 %8, i64 %13)
@@ -182,9 +182,9 @@ define void @"_ZN100_$LT$core..iter..adapters..take..Take$LT$I$GT$$u20$as$u20$co
   %.sink = phi i64 [ %14, %6 ], [ 0, %2 ]
   %.sroa.3.0.sink = phi i64 [ %.sroa.3.0, %6 ], [ 0, %2 ]
   store i64 %.sink, ptr %0, align 8
-  %17 = getelementptr inbounds { i64, { i64, i64 } }, ptr %0, i64 0, i32 1
+  %17 = getelementptr inbounds i8, ptr %0, i64 8
   store i64 1, ptr %17, align 8
-  %18 = getelementptr inbounds { i64, { i64, i64 } }, ptr %0, i64 0, i32 1, i32 1
+  %18 = getelementptr inbounds i8, ptr %0, i64 16
   store i64 %.sroa.3.0.sink, ptr %18, align 8
   ret void
 }
@@ -215,7 +215,7 @@ define void @"_ZN98_$LT$core..iter..adapters..take..Take$LT$I$GT$$u20$as$u20$cor
   %4 = alloca { { { ptr, i64 }, ptr } }, align 8
   %5 = alloca { i64, i32 }, align 8
   store i64 %0, ptr %5, align 8
-  %6 = getelementptr inbounds { i64, i32 }, ptr %5, i64 0, i32 1
+  %6 = getelementptr inbounds i8, ptr %5, i64 8
   store i32 %1, ptr %6, align 8
   %.not = icmp eq i64 %0, 0
   br i1 %.not, label %.critedge, label %7
@@ -239,7 +239,7 @@ define void @"_ZN98_$LT$core..iter..adapters..take..Take$LT$I$GT$$u20$as$u20$cor
   %4 = alloca { { { ptr, i64 }, ptr } }, align 8
   %5 = alloca { i64, i8 }, align 8
   store i64 %0, ptr %5, align 8
-  %6 = getelementptr inbounds { i64, i8 }, ptr %5, i64 0, i32 1
+  %6 = getelementptr inbounds i8, ptr %5, i64 8
   store i8 %1, ptr %6, align 8
   %.not = icmp eq i64 %0, 0
   br i1 %.not, label %.critedge, label %7
@@ -263,7 +263,7 @@ define void @"_ZN98_$LT$core..iter..adapters..take..Take$LT$I$GT$$u20$as$u20$cor
   %4 = alloca { { { ptr, i64 }, ptr } }, align 8
   %5 = alloca { i64, i64 }, align 8
   store i64 %0, ptr %5, align 8
-  %6 = getelementptr inbounds { i64, i64 }, ptr %5, i64 0, i32 1
+  %6 = getelementptr inbounds i8, ptr %5, i64 8
   store i64 %1, ptr %6, align 8
   %.not = icmp eq i64 %1, 0
   br i1 %.not, label %.critedge, label %7

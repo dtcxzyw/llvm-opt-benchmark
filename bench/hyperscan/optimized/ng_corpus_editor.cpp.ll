@@ -3,14 +3,6 @@ source_filename = "bench/hyperscan/original/ng_corpus_editor.cpp.ll"
 target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:128-n8:16:32:64-S128"
 target triple = "x86_64-unknown-linux-gnu"
 
-%class.CorpusProperties = type <{ i32, i32, i32, %struct.min_max, %struct.min_max, i32, i32, i32, i32, i32, %"class.boost::random::mersenne_twister_engine", i32, [4 x i8] }>
-%struct.min_max = type { i32, i32 }
-%"class.boost::random::mersenne_twister_engine" = type { [624 x i32], i64 }
-%"class.std::__cxx11::basic_string" = type { %"struct.std::__cxx11::basic_string<char>::_Alloc_hider", i64, %union.anon }
-%"struct.std::__cxx11::basic_string<char>::_Alloc_hider" = type { ptr }
-%union.anon = type { i64, [8 x i8] }
-%"struct.std::_Vector_base<unsigned int, std::allocator<unsigned int>>::_Vector_impl_data" = type { ptr, ptr, ptr }
-
 $_ZNSt6vectorIjSaIjEE14_M_insert_rvalEN9__gnu_cxx17__normal_iteratorIPKjS1_EEOj = comdat any
 
 @.str = private unnamed_addr constant [21 x i8] c"basic_string::insert\00", align 1
@@ -21,13 +13,13 @@ $_ZNSt6vectorIjSaIjEE14_M_insert_rvalEN9__gnu_cxx17__normal_iteratorIPKjS1_EEOj 
 ; Function Attrs: mustprogress uwtable
 define hidden void @_Z10editCorpusPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEER16CorpusProperties(ptr noundef %corpus, ptr noundef nonnull align 8 dereferenceable(2556) %props) local_unnamed_addr #0 {
 entry:
-  %editDistance42.i = getelementptr inbounds %class.CorpusProperties, ptr %props, i64 0, i32 8
+  %editDistance42.i = getelementptr inbounds i8, ptr %props, i64 40
   %0 = load i32, ptr %editDistance42.i, align 8
   %cmp.not44.i = icmp eq i32 %0, 0
   br i1 %cmp.not44.i, label %_ZN12_GLOBAL__N_112CorpusEditor10applyEditsERNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit, label %for.body.lr.ph.i
 
 for.body.lr.ph.i:                                 ; preds = %entry
-  %_M_string_length.i.i.i28.i = getelementptr inbounds %"class.std::__cxx11::basic_string", ptr %corpus, i64 0, i32 1
+  %_M_string_length.i.i.i28.i = getelementptr inbounds i8, ptr %corpus, i64 8
   br label %for.body.i
 
 for.body.i:                                       ; preds = %sw.epilog.i, %for.body.lr.ph.i
@@ -188,13 +180,13 @@ declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #1
 define hidden void @_Z10editCorpusPSt6vectorIjSaIjEER16CorpusProperties(ptr noundef %corpus, ptr noundef nonnull align 8 dereferenceable(2556) %props) local_unnamed_addr #0 {
 entry:
   %ref.tmp8.i.i = alloca i32, align 4
-  %editDistance50.i = getelementptr inbounds %class.CorpusProperties, ptr %props, i64 0, i32 8
+  %editDistance50.i = getelementptr inbounds i8, ptr %props, i64 40
   %0 = load i32, ptr %editDistance50.i, align 8
   %cmp.not52.i = icmp eq i32 %0, 0
   br i1 %cmp.not52.i, label %_ZN12_GLOBAL__N_116CorpusEditorUtf810applyEditsERSt6vectorIjSaIjEE.exit, label %for.body.lr.ph.i
 
 for.body.lr.ph.i:                                 ; preds = %entry
-  %_M_finish.i.i.i38.i = getelementptr inbounds %"struct.std::_Vector_base<unsigned int, std::allocator<unsigned int>>::_Vector_impl_data", ptr %corpus, i64 0, i32 1
+  %_M_finish.i.i.i38.i = getelementptr inbounds i8, ptr %corpus, i64 8
   br label %for.body.i
 
 for.body.i:                                       ; preds = %sw.epilog.i, %for.body.lr.ph.i
@@ -247,7 +239,7 @@ if.end.i.i:                                       ; preds = %sw.bb2.i
   %conv2.i.i.i = zext i32 %call1.i.i.i to i64
   %7 = load ptr, ptr %corpus, align 8
   %add.ptr.i.i11.i = getelementptr inbounds i32, ptr %7, i64 %conv2.i.i.i
-  %add.ptr.i.i.i.i.i = getelementptr inbounds i32, ptr %add.ptr.i.i11.i, i64 1
+  %add.ptr.i.i.i.i.i = getelementptr inbounds i8, ptr %add.ptr.i.i11.i, i64 4
   %8 = load ptr, ptr %_M_finish.i.i.i38.i, align 8
   %cmp.i.not.i.i.i.i = icmp eq ptr %add.ptr.i.i.i.i.i, %8
   br i1 %cmp.i.not.i.i.i.i, label %_ZNSt6vectorIjSaIjEE5eraseEN9__gnu_cxx17__normal_iteratorIPKjS1_EE.exit.i.i, label %_ZSt4moveIN9__gnu_cxx17__normal_iteratorIPjSt6vectorIjSaIjEEEES6_ET0_T_S8_S7_.exit.i.i.i.i
@@ -262,7 +254,7 @@ _ZSt4moveIN9__gnu_cxx17__normal_iteratorIPjSt6vectorIjSaIjEEEES6_ET0_T_S8_S7_.ex
 
 _ZNSt6vectorIjSaIjEE5eraseEN9__gnu_cxx17__normal_iteratorIPKjS1_EE.exit.i.i: ; preds = %_ZSt4moveIN9__gnu_cxx17__normal_iteratorIPjSt6vectorIjSaIjEEEES6_ET0_T_S8_S7_.exit.i.i.i.i, %if.end.i.i
   %9 = phi ptr [ %.pre.i.i.i.i, %_ZSt4moveIN9__gnu_cxx17__normal_iteratorIPjSt6vectorIjSaIjEEEES6_ET0_T_S8_S7_.exit.i.i.i.i ], [ %add.ptr.i.i.i.i.i, %if.end.i.i ]
-  %incdec.ptr.i.i.i.i = getelementptr inbounds i32, ptr %9, i64 -1
+  %incdec.ptr.i.i.i.i = getelementptr inbounds i8, ptr %9, i64 -4
   store ptr %incdec.ptr.i.i.i.i, ptr %_M_finish.i.i.i38.i, align 8
   br label %sw.epilog.i
 
@@ -386,9 +378,9 @@ entry:
   %sub.ptr.rhs.cast.i = ptrtoint ptr %0 to i64
   %sub.ptr.sub.i = sub i64 %sub.ptr.lhs.cast.i, %sub.ptr.rhs.cast.i
   %sub.ptr.div.i = ashr exact i64 %sub.ptr.sub.i, 2
-  %_M_finish = getelementptr inbounds %"struct.std::_Vector_base<unsigned int, std::allocator<unsigned int>>::_Vector_impl_data", ptr %this, i64 0, i32 1
+  %_M_finish = getelementptr inbounds i8, ptr %this, i64 8
   %1 = load ptr, ptr %_M_finish, align 8
-  %_M_end_of_storage = getelementptr inbounds %"struct.std::_Vector_base<unsigned int, std::allocator<unsigned int>>::_Vector_impl_data", ptr %this, i64 0, i32 2
+  %_M_end_of_storage = getelementptr inbounds i8, ptr %this, i64 16
   %2 = load ptr, ptr %_M_end_of_storage, align 8
   %cmp.not = icmp eq ptr %1, %2
   br i1 %cmp.not, label %if.else21, label %if.then
@@ -401,19 +393,19 @@ if.then9:                                         ; preds = %if.then
   %3 = load i32, ptr %__v, align 4
   store i32 %3, ptr %__position.coerce, align 4
   %4 = load ptr, ptr %_M_finish, align 8
-  %incdec.ptr = getelementptr inbounds i32, ptr %4, i64 1
+  %incdec.ptr = getelementptr inbounds i8, ptr %4, i64 4
   store ptr %incdec.ptr, ptr %_M_finish, align 8
   br label %if.end29
 
 if.else:                                          ; preds = %if.then
   %add.ptr.i = getelementptr inbounds i8, ptr %0, i64 %sub.ptr.sub.i
-  %add.ptr.i38 = getelementptr inbounds i32, ptr %1, i64 -1
+  %add.ptr.i38 = getelementptr inbounds i8, ptr %1, i64 -4
   %5 = load i32, ptr %add.ptr.i38, align 4
   store i32 %5, ptr %1, align 4
   %6 = load ptr, ptr %_M_finish, align 8
-  %incdec.ptr.i = getelementptr inbounds i32, ptr %6, i64 1
+  %incdec.ptr.i = getelementptr inbounds i8, ptr %6, i64 4
   store ptr %incdec.ptr.i, ptr %_M_finish, align 8
-  %add.ptr9.i = getelementptr inbounds i32, ptr %6, i64 -1
+  %add.ptr9.i = getelementptr inbounds i8, ptr %6, i64 -4
   %tobool.not.i.i.i.i.i.i = icmp eq ptr %add.ptr9.i, %__position.coerce
   br i1 %tobool.not.i.i.i.i.i.i, label %_ZNSt6vectorIjSaIjEE13_M_insert_auxIjEEvN9__gnu_cxx17__normal_iteratorIPjS1_EEOT_.exit, label %if.then.i.i.i.i.i.i
 
@@ -470,7 +462,7 @@ if.then.i.i.i.i.i:                                ; preds = %_ZNSt12_Vector_base
   br label %_ZNSt6vectorIjSaIjEE11_S_relocateEPjS2_S2_RS0_.exit.i
 
 _ZNSt6vectorIjSaIjEE11_S_relocateEPjS2_S2_RS0_.exit.i: ; preds = %if.then.i.i.i.i.i, %_ZNSt12_Vector_baseIjSaIjEE11_M_allocateEm.exit.i
-  %incdec.ptr.i41 = getelementptr inbounds i32, ptr %add.ptr.i40, i64 1
+  %incdec.ptr.i41 = getelementptr inbounds i8, ptr %add.ptr.i40, i64 4
   %sub.ptr.sub.i.i.i.i34.i = sub i64 %sub.ptr.lhs.cast.i.i.i, %sub.ptr.lhs.cast.i
   %cmp.i.i.i.i36.i = icmp sgt i64 %sub.ptr.sub.i.i.i.i34.i, 0
   br i1 %cmp.i.i.i.i36.i, label %if.then.i.i.i.i38.i, label %_ZNSt6vectorIjSaIjEE11_S_relocateEPjS2_S2_RS0_.exit39.i

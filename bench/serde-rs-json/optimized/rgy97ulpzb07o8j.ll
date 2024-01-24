@@ -34,7 +34,7 @@ define hidden zeroext i1 @_ZN10serde_json5value10partial_eq6eq_f3217h8a55f140932
   br i1 %5, label %6, label %12
 
 6:                                                ; preds = %2
-  %7 = getelementptr inbounds { [1 x i64], { { i64, [1 x i64] } } }, ptr %0, i64 0, i32 1
+  %7 = getelementptr inbounds i8, ptr %0, i64 8
   %8 = tail call { i32, float } @_ZN10serde_json6number6Number6as_f3217h5e4033c4a30ab62aE(ptr nonnull align 8 %7)
   %9 = extractvalue { i32, float } %8, 0
   %10 = extractvalue { i32, float } %8, 1
@@ -71,7 +71,7 @@ define hidden zeroext i1 @_ZN10serde_json5value10partial_eq7eq_bool17h857eeeb61a
 define hidden zeroext i1 @_ZN10serde_json5value10partial_eq6eq_str17h99dcc555392e53a7E(ptr align 8 %0, ptr align 1 %1, i64 %2) unnamed_addr #0 {
   %4 = alloca { ptr, i64 }, align 8
   store ptr %1, ptr %4, align 8
-  %5 = getelementptr inbounds { ptr, i64 }, ptr %4, i64 0, i32 1
+  %5 = getelementptr inbounds i8, ptr %4, i64 8
   store i64 %2, ptr %5, align 8
   %6 = tail call { ptr, i64 } @_ZN10serde_json5value5Value6as_str17h824433f0d0467987E(ptr align 8 %0)
   %7 = extractvalue { ptr, i64 } %6, 0
@@ -85,7 +85,7 @@ define zeroext i1 @"_ZN10serde_json5value10partial_eq86_$LT$impl$u20$core..cmp..
   %4 = alloca { ptr, i64 }, align 8
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %4)
   store ptr %0, ptr %4, align 8
-  %5 = getelementptr inbounds { ptr, i64 }, ptr %4, i64 0, i32 1
+  %5 = getelementptr inbounds i8, ptr %4, i64 8
   store i64 %1, ptr %5, align 8
   %6 = tail call { ptr, i64 } @_ZN10serde_json5value5Value6as_str17h824433f0d0467987E(ptr align 8 %2)
   %7 = extractvalue { ptr, i64 } %6, 0
@@ -99,11 +99,11 @@ define zeroext i1 @"_ZN10serde_json5value10partial_eq86_$LT$impl$u20$core..cmp..
 define zeroext i1 @"_ZN10serde_json5value10partial_eq90_$LT$impl$u20$core..cmp..PartialEq$LT$serde_json..value..Value$GT$$u20$for$u20$$RF$str$GT$2eq17ha56a828060b0cb2aE"(ptr nocapture readonly align 8 %0, ptr align 8 %1) unnamed_addr #0 {
   %3 = alloca { ptr, i64 }, align 8
   %4 = load ptr, ptr %0, align 8, !nonnull !6, !align !8, !noundef !6
-  %5 = getelementptr inbounds { ptr, i64 }, ptr %0, i64 0, i32 1
+  %5 = getelementptr inbounds i8, ptr %0, i64 8
   %6 = load i64, ptr %5, align 8, !noundef !6
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %3)
   store ptr %4, ptr %3, align 8
-  %7 = getelementptr inbounds { ptr, i64 }, ptr %3, i64 0, i32 1
+  %7 = getelementptr inbounds i8, ptr %3, i64 8
   store i64 %6, ptr %7, align 8
   %8 = tail call { ptr, i64 } @_ZN10serde_json5value5Value6as_str17h824433f0d0467987E(ptr align 8 %1)
   %9 = extractvalue { ptr, i64 } %8, 0
@@ -270,7 +270,7 @@ define zeroext i1 @"_ZN10serde_json5value10partial_eq86_$LT$impl$u20$core..cmp..
   br i1 %6, label %7, label %_ZN10serde_json5value10partial_eq6eq_f3217h8a55f140932507fbE.exit
 
 7:                                                ; preds = %2
-  %8 = getelementptr inbounds { [1 x i64], { { i64, [1 x i64] } } }, ptr %1, i64 0, i32 1
+  %8 = getelementptr inbounds i8, ptr %1, i64 8
   %9 = tail call { i32, float } @_ZN10serde_json6number6Number6as_f3217h5e4033c4a30ab62aE(ptr nonnull align 8 %8)
   %10 = extractvalue { i32, float } %9, 0
   %11 = extractvalue { i32, float } %9, 1

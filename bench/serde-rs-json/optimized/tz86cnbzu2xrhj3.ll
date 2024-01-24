@@ -73,36 +73,36 @@ define hidden { i8, i8 } @_ZN10serde_json3ser10CharEscape17from_escape_table17h1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: write) uwtable
 define void @_ZN10serde_json3ser15PrettyFormatter3new17h9ccf6ccba1b78847E(ptr nocapture writeonly sret({ { ptr, i64 }, i64, i8, [7 x i8] }) align 8 %0) unnamed_addr #2 {
-  %2 = getelementptr inbounds { { ptr, i64 }, i64, i8, [7 x i8] }, ptr %0, i64 0, i32 1
+  %2 = getelementptr inbounds i8, ptr %0, i64 16
   store i64 0, ptr %2, align 8
-  %3 = getelementptr inbounds { { ptr, i64 }, i64, i8, [7 x i8] }, ptr %0, i64 0, i32 2
+  %3 = getelementptr inbounds i8, ptr %0, i64 24
   store i8 0, ptr %3, align 8
   store ptr @anon.cc13f0b89404f4b6f82b9693241929dc.3, ptr %0, align 8
-  %4 = getelementptr inbounds { ptr, i64 }, ptr %0, i64 0, i32 1
+  %4 = getelementptr inbounds i8, ptr %0, i64 8
   store i64 2, ptr %4, align 8
   ret void
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: write) uwtable
 define void @_ZN10serde_json3ser15PrettyFormatter11with_indent17h893a6564b99258c2E(ptr nocapture writeonly sret({ { ptr, i64 }, i64, i8, [7 x i8] }) align 8 %0, ptr align 1 %1, i64 %2) unnamed_addr #2 {
-  %4 = getelementptr inbounds { { ptr, i64 }, i64, i8, [7 x i8] }, ptr %0, i64 0, i32 1
+  %4 = getelementptr inbounds i8, ptr %0, i64 16
   store i64 0, ptr %4, align 8
-  %5 = getelementptr inbounds { { ptr, i64 }, i64, i8, [7 x i8] }, ptr %0, i64 0, i32 2
+  %5 = getelementptr inbounds i8, ptr %0, i64 24
   store i8 0, ptr %5, align 8
   store ptr %1, ptr %0, align 8
-  %6 = getelementptr inbounds { ptr, i64 }, ptr %0, i64 0, i32 1
+  %6 = getelementptr inbounds i8, ptr %0, i64 8
   store i64 %2, ptr %6, align 8
   ret void
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: write) uwtable
 define void @"_ZN75_$LT$serde_json..ser..PrettyFormatter$u20$as$u20$core..default..Default$GT$7default17heef94a89e8b9bebbE"(ptr nocapture writeonly sret({ { ptr, i64 }, i64, i8, [7 x i8] }) align 8 %0) unnamed_addr #2 {
-  %2 = getelementptr inbounds { { ptr, i64 }, i64, i8, [7 x i8] }, ptr %0, i64 0, i32 1
+  %2 = getelementptr inbounds i8, ptr %0, i64 16
   store i64 0, ptr %2, align 8
-  %3 = getelementptr inbounds { { ptr, i64 }, i64, i8, [7 x i8] }, ptr %0, i64 0, i32 2
+  %3 = getelementptr inbounds i8, ptr %0, i64 24
   store i8 0, ptr %3, align 8
   store ptr @anon.cc13f0b89404f4b6f82b9693241929dc.3, ptr %0, align 8
-  %4 = getelementptr inbounds { ptr, i64 }, ptr %0, i64 0, i32 1
+  %4 = getelementptr inbounds i8, ptr %0, i64 8
   store i64 2, ptr %4, align 8
   ret void
 }

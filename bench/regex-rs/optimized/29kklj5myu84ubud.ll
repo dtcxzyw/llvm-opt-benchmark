@@ -63,7 +63,7 @@ define i32 @_ZN14regex_automata4util8alphabet4Unit3eoi17h1eaddda6a7b1149fE(i64 %
 
 6:                                                ; preds = %1
   store ptr %4, ptr %2, align 8
-  %7 = getelementptr inbounds { ptr, ptr }, ptr %2, i64 0, i32 1
+  %7 = getelementptr inbounds i8, ptr %2, i64 8
   store ptr @"_ZN4core3fmt3num3imp54_$LT$impl$u20$core..fmt..Display$u20$for$u20$usize$GT$3fmt17ha1a895f323c363e4E", ptr %7, align 8
   call void @_ZN4core3fmt9Arguments6new_v117h051e31f362cb8353E(ptr nonnull sret({ { ptr, i64 }, { ptr, i64 }, { ptr, i64 } }) align 8 %3, ptr nonnull align 8 @anon.831c9de860c7ea195f6e7729403fe476.1, i64 1, ptr nonnull align 8 %2, i64 1)
   call void @_ZN4core9panicking9panic_fmt17hbf0e066aabfa482cE(ptr nonnull align 8 %3, ptr nonnull align 8 @anon.831c9de860c7ea195f6e7729403fe476.3) #16
@@ -135,7 +135,7 @@ define zeroext i1 @_ZN14regex_automata4util8alphabet4Unit6is_eoi17h69b54e823dd73
   %.sroa.3.0.extract.shift.i = lshr i32 %0, 16
   %.sroa.3.0.extract.trunc.i = trunc i32 %.sroa.3.0.extract.shift.i to i16
   store i16 %..i, ptr %2, align 2
-  %.fca.1.gep = getelementptr inbounds { i16, i16 }, ptr %2, i64 0, i32 1
+  %.fca.1.gep = getelementptr inbounds i8, ptr %2, i64 2
   store i16 %.sroa.3.0.extract.trunc.i, ptr %.fca.1.gep, align 2
   %4 = call zeroext i1 @"_ZN4core6option15Option$LT$T$GT$7is_some17hcd4b12279c434843E"(ptr nonnull align 2 %2)
   ret i1 %4
@@ -162,11 +162,11 @@ define zeroext i1 @"_ZN73_$LT$regex_automata..util..alphabet..Unit$u20$as$u20$co
   br i1 %8, label %9, label %13
 
 9:                                                ; preds = %2
-  %10 = getelementptr inbounds { [1 x i8], i8 }, ptr %0, i64 0, i32 1
+  %10 = getelementptr inbounds i8, ptr %0, i64 1
   %11 = load i8, ptr %10, align 1, !noundef !6
   store i8 %11, ptr %4, align 1
   store ptr %4, ptr %5, align 8
-  %12 = getelementptr inbounds { ptr, ptr }, ptr %5, i64 0, i32 1
+  %12 = getelementptr inbounds i8, ptr %5, i64 8
   store ptr @"_ZN76_$LT$regex_automata..util..escape..DebugByte$u20$as$u20$core..fmt..Debug$GT$3fmt17h0b90769ebe42ba87E", ptr %12, align 8
   call void @_ZN4core3fmt9Arguments6new_v117h051e31f362cb8353E(ptr nonnull sret({ { ptr, i64 }, { ptr, i64 }, { ptr, i64 } }) align 8 %6, ptr nonnull align 8 @anon.831c9de860c7ea195f6e7729403fe476.6, i64 1, ptr nonnull align 8 %5, i64 1)
   br label %14
@@ -250,7 +250,7 @@ define hidden i32 @_ZN14regex_automata4util8alphabet11ByteClasses3eoi17hc7a5dceb
   %2 = alloca [1 x { ptr, ptr }], align 8
   %3 = alloca { { ptr, i64 }, { ptr, i64 }, { ptr, i64 } }, align 8
   %4 = alloca i64, align 8
-  %5 = getelementptr inbounds [256 x i8], ptr %0, i64 0, i64 255
+  %5 = getelementptr inbounds i8, ptr %0, i64 255
   %6 = load i8, ptr %5, align 1, !noundef !6
   %7 = zext i8 %6 to i64
   %8 = add nuw nsw i64 %7, 2
@@ -267,7 +267,7 @@ define hidden i32 @_ZN14regex_automata4util8alphabet11ByteClasses3eoi17hc7a5dceb
 
 14:                                               ; preds = %1
   store ptr %4, ptr %2, align 8
-  %15 = getelementptr inbounds { ptr, ptr }, ptr %2, i64 0, i32 1
+  %15 = getelementptr inbounds i8, ptr %2, i64 8
   store ptr @"_ZN4core3fmt3num3imp54_$LT$impl$u20$core..fmt..Display$u20$for$u20$usize$GT$3fmt17ha1a895f323c363e4E", ptr %15, align 8
   call void @_ZN4core3fmt9Arguments6new_v117h051e31f362cb8353E(ptr nonnull sret({ { ptr, i64 }, { ptr, i64 }, { ptr, i64 } }) align 8 %3, ptr nonnull align 8 @anon.831c9de860c7ea195f6e7729403fe476.1, i64 1, ptr nonnull align 8 %2, i64 1)
   call void @_ZN4core9panicking9panic_fmt17hbf0e066aabfa482cE(ptr nonnull align 8 %3, ptr nonnull align 8 @anon.831c9de860c7ea195f6e7729403fe476.3) #16
@@ -289,7 +289,7 @@ _ZN14regex_automata4util8alphabet4Unit3eoi17h1eaddda6a7b1149fE.exit: ; preds = %
 
 ; Function Attrs: inlinehint mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: read) uwtable
 define hidden i64 @_ZN14regex_automata4util8alphabet11ByteClasses12alphabet_len17h94cfbdc560be3da8E(ptr nocapture readonly align 1 %0) unnamed_addr #3 {
-  %2 = getelementptr inbounds [256 x i8], ptr %0, i64 0, i64 255
+  %2 = getelementptr inbounds i8, ptr %0, i64 255
   %3 = load i8, ptr %2, align 1, !noundef !6
   %4 = zext i8 %3 to i64
   %5 = add nuw nsw i64 %4, 2
@@ -298,7 +298,7 @@ define hidden i64 @_ZN14regex_automata4util8alphabet11ByteClasses12alphabet_len1
 
 ; Function Attrs: inlinehint nonlazybind uwtable
 define hidden i64 @_ZN14regex_automata4util8alphabet11ByteClasses7stride217hdfad146500e184bfE(ptr nocapture readonly align 1 %0) unnamed_addr #2 {
-  %2 = getelementptr inbounds [256 x i8], ptr %0, i64 0, i64 255
+  %2 = getelementptr inbounds i8, ptr %0, i64 255
   %3 = load i8, ptr %2, align 1, !noundef !6
   %4 = zext i8 %3 to i64
   %5 = add nuw nsw i64 %4, 2
@@ -390,16 +390,16 @@ define zeroext i1 @"_ZN80_$LT$regex_automata..util..alphabet..ByteClasses$u20$as
   call void @_ZN4core4iter6traits8iterator8Iterator9enumerate17h34c7ba0a7a1f50bbE(ptr nonnull sret({ { ptr, i64 }, i64 }) align 8 %20, ptr nonnull align 1 %0, i64 0)
   call void @"_ZN63_$LT$I$u20$as$u20$core..iter..traits..collect..IntoIterator$GT$9into_iter17h1adb1171a1732322E"(ptr nonnull sret({ { ptr, i64 }, i64 }) align 8 %21, ptr nonnull align 8 %20)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %19, ptr noundef nonnull align 8 dereferenceable(24) %21, i64 24, i1 false)
-  %32 = getelementptr inbounds { [8 x i8], i8, [7 x i8] }, ptr %18, i64 0, i32 1
-  %33 = getelementptr inbounds { ptr, ptr }, ptr %15, i64 0, i32 1
-  %34 = getelementptr inbounds { { i8, [7 x i8] }, { ptr, i64, { { i8, [3 x i8] } }, [2 x i16] } }, ptr %12, i64 0, i32 1
-  %.sroa.2.0..sroa_idx.i = getelementptr inbounds { { i8, [7 x i8] }, { ptr, i64, { { i8, [3 x i8] } }, [2 x i16] } }, ptr %12, i64 0, i32 1, i32 1
-  %.sroa.3.0..sroa_idx.i = getelementptr inbounds { { i8, [7 x i8] }, { ptr, i64, { { i8, [3 x i8] } }, [2 x i16] } }, ptr %12, i64 0, i32 1, i32 2
+  %32 = getelementptr inbounds i8, ptr %18, i64 8
+  %33 = getelementptr inbounds i8, ptr %15, i64 8
+  %34 = getelementptr inbounds i8, ptr %12, i64 8
+  %.sroa.2.0..sroa_idx.i = getelementptr inbounds i8, ptr %12, i64 16
+  %.sroa.3.0..sroa_idx.i = getelementptr inbounds i8, ptr %12, i64 24
   %.sroa.3.0..sroa_idx6 = getelementptr inbounds i8, ptr %10, i64 1
-  %35 = getelementptr inbounds { ptr, ptr }, ptr %5, i64 0, i32 1
-  %36 = getelementptr inbounds [2 x { ptr, ptr }], ptr %5, i64 0, i64 1
-  %37 = getelementptr inbounds [2 x { ptr, ptr }], ptr %5, i64 0, i64 1, i32 1
-  %38 = getelementptr inbounds { ptr, ptr }, ptr %7, i64 0, i32 1
+  %35 = getelementptr inbounds i8, ptr %5, i64 8
+  %36 = getelementptr inbounds i8, ptr %5, i64 16
+  %37 = getelementptr inbounds i8, ptr %5, i64 24
+  %38 = getelementptr inbounds i8, ptr %7, i64 8
   br label %41
 
 39:                                               ; preds = %26
@@ -552,11 +552,11 @@ define i32 @"_ZN104_$LT$regex_automata..util..alphabet..ByteClassIter$u20$as$u20
   %2 = alloca [1 x { ptr, ptr }], align 8
   %3 = alloca { { ptr, i64 }, { ptr, i64 }, { ptr, i64 } }, align 8
   %4 = alloca i64, align 8
-  %5 = getelementptr inbounds { ptr, i64 }, ptr %0, i64 0, i32 1
+  %5 = getelementptr inbounds i8, ptr %0, i64 8
   %6 = load i64, ptr %5, align 8, !noundef !6
   %7 = add i64 %6, 1
   %8 = load ptr, ptr %0, align 8, !nonnull !6, !align !18, !noundef !6
-  %9 = getelementptr inbounds [256 x i8], ptr %8, i64 0, i64 255
+  %9 = getelementptr inbounds i8, ptr %8, i64 255
   %10 = load i8, ptr %9, align 1, !noundef !6
   %11 = zext i8 %10 to i64
   %12 = add nuw nsw i64 %11, 2
@@ -585,7 +585,7 @@ define i32 @"_ZN104_$LT$regex_automata..util..alphabet..ByteClassIter$u20$as$u20
 
 25:                                               ; preds = %16
   store ptr %4, ptr %2, align 8
-  %26 = getelementptr inbounds { ptr, ptr }, ptr %2, i64 0, i32 1
+  %26 = getelementptr inbounds i8, ptr %2, i64 8
   store ptr @"_ZN4core3fmt3num3imp54_$LT$impl$u20$core..fmt..Display$u20$for$u20$usize$GT$3fmt17ha1a895f323c363e4E", ptr %26, align 8
   call void @_ZN4core3fmt9Arguments6new_v117h051e31f362cb8353E(ptr nonnull sret({ { ptr, i64 }, { ptr, i64 }, { ptr, i64 } }) align 8 %3, ptr nonnull align 8 @anon.831c9de860c7ea195f6e7729403fe476.1, i64 1, ptr nonnull align 8 %2, i64 1)
   call void @_ZN4core9panicking9panic_fmt17hbf0e066aabfa482cE(ptr nonnull align 8 %3, ptr nonnull align 8 @anon.831c9de860c7ea195f6e7729403fe476.3) #16
@@ -630,11 +630,11 @@ define i32 @"_ZN115_$LT$regex_automata..util..alphabet..ByteClassRepresentatives
   %3 = alloca { { ptr, i64 }, { ptr, i64 }, { ptr, i64 } }, align 8
   %4 = alloca i64, align 8
   %5 = alloca { i8, i8 }, align 1
-  %6 = getelementptr inbounds { { i64, i64 }, ptr, i64, { i8, i8 }, [6 x i8] }, ptr %0, i64 0, i32 2
-  %7 = getelementptr inbounds { i64, i64 }, ptr %0, i64 0, i32 1
-  %8 = getelementptr inbounds { { i64, i64 }, ptr, i64, { i8, i8 }, [6 x i8] }, ptr %0, i64 0, i32 1
-  %9 = getelementptr inbounds { { i64, i64 }, ptr, i64, { i8, i8 }, [6 x i8] }, ptr %0, i64 0, i32 3
-  %10 = getelementptr inbounds { i8, i8 }, ptr %5, i64 0, i32 1
+  %6 = getelementptr inbounds i8, ptr %0, i64 24
+  %7 = getelementptr inbounds i8, ptr %0, i64 8
+  %8 = getelementptr inbounds i8, ptr %0, i64 16
+  %9 = getelementptr inbounds i8, ptr %0, i64 32
+  %10 = getelementptr inbounds i8, ptr %5, i64 1
   br label %11
 
 11:                                               ; preds = %19, %1
@@ -676,7 +676,7 @@ define i32 @"_ZN115_$LT$regex_automata..util..alphabet..ByteClassRepresentatives
 35:                                               ; preds = %33
   store i64 -1, ptr %6, align 8
   %36 = load ptr, ptr %8, align 8, !nonnull !6, !align !18, !noundef !6
-  %37 = getelementptr inbounds [256 x i8], ptr %36, i64 0, i64 255
+  %37 = getelementptr inbounds i8, ptr %36, i64 255
   %38 = load i8, ptr %37, align 1, !noundef !6
   %39 = zext i8 %38 to i64
   %40 = add nuw nsw i64 %39, 2
@@ -693,7 +693,7 @@ define i32 @"_ZN115_$LT$regex_automata..util..alphabet..ByteClassRepresentatives
 
 46:                                               ; preds = %35
   store ptr %4, ptr %2, align 8
-  %47 = getelementptr inbounds { ptr, ptr }, ptr %2, i64 0, i32 1
+  %47 = getelementptr inbounds i8, ptr %2, i64 8
   store ptr @"_ZN4core3fmt3num3imp54_$LT$impl$u20$core..fmt..Display$u20$for$u20$usize$GT$3fmt17ha1a895f323c363e4E", ptr %47, align 8
   call void @_ZN4core3fmt9Arguments6new_v117h051e31f362cb8353E(ptr nonnull sret({ { ptr, i64 }, { ptr, i64 }, { ptr, i64 } }) align 8 %3, ptr nonnull align 8 @anon.831c9de860c7ea195f6e7729403fe476.1, i64 1, ptr nonnull align 8 %2, i64 1)
   call void @_ZN4core9panicking9panic_fmt17hbf0e066aabfa482cE(ptr nonnull align 8 %3, ptr nonnull align 8 @anon.831c9de860c7ea195f6e7729403fe476.3) #16
@@ -719,7 +719,7 @@ _ZN14regex_automata4util8alphabet11ByteClasses3eoi17hc7a5dceb3637ba5fE.exit: ; p
 
 53:                                               ; preds = %19
   store i8 1, ptr %9, align 8
-  %54 = getelementptr inbounds { { i64, i64 }, ptr, i64, { i8, i8 }, [6 x i8] }, ptr %0, i64 0, i32 3, i32 1
+  %54 = getelementptr inbounds i8, ptr %0, i64 33
   store i8 %29, ptr %54, align 1
   %.sroa.2.0.insert.ext.i = zext i8 %25 to i32
   %.sroa.2.0.insert.shift.i = shl nuw nsw i32 %.sroa.2.0.insert.ext.i, 8
@@ -730,8 +730,8 @@ _ZN14regex_automata4util8alphabet11ByteClasses3eoi17hc7a5dceb3637ba5fE.exit: ; p
 define i32 @"_ZN108_$LT$regex_automata..util..alphabet..ByteClassElements$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h6477396e3a517d76E"(ptr nocapture align 8 %0) unnamed_addr #1 {
   %2 = alloca { i16, i16 }, align 2
   %3 = alloca i8, align 1
-  %4 = getelementptr inbounds { ptr, i64, { { i8, [3 x i8] } }, [2 x i16] }, ptr %0, i64 0, i32 1
-  %5 = getelementptr inbounds { ptr, i64, { { i8, [3 x i8] } }, [2 x i16] }, ptr %0, i64 0, i32 2
+  %4 = getelementptr inbounds i8, ptr %0, i64 8
+  %5 = getelementptr inbounds i8, ptr %0, i64 16
   br label %6
 
 6:                                                ; preds = %11, %1
@@ -777,7 +777,7 @@ define i32 @"_ZN108_$LT$regex_automata..util..alphabet..ByteClassElements$u20$as
   %.sroa.3.0.extract.shift.i.i = lshr i32 %.sroa.06.0.copyload, 16
   %.sroa.3.0.extract.trunc.i.i = trunc i32 %.sroa.3.0.extract.shift.i.i to i16
   store i16 %..i.i, ptr %2, align 2
-  %.fca.1.gep.i = getelementptr inbounds { i16, i16 }, ptr %2, i64 0, i32 1
+  %.fca.1.gep.i = getelementptr inbounds i8, ptr %2, i64 2
   store i16 %.sroa.3.0.extract.trunc.i.i, ptr %.fca.1.gep.i, align 2
   %29 = call zeroext i1 @"_ZN4core6option15Option$LT$T$GT$7is_some17hcd4b12279c434843E"(ptr nonnull align 2 %2)
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %2)
@@ -807,14 +807,14 @@ define i32 @"_ZN108_$LT$regex_automata..util..alphabet..ByteClassElements$u20$as
 ; Function Attrs: nonlazybind uwtable
 define i64 @"_ZN113_$LT$regex_automata..util..alphabet..ByteClassElementRanges$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hab69df0eb1b5d313E"(ptr align 8 %0) unnamed_addr #1 {
   %2 = alloca { i16, i16 }, align 2
-  %3 = getelementptr inbounds { { i8, [7 x i8] }, { ptr, i64, { { i8, [3 x i8] } }, [2 x i16] } }, ptr %0, i64 0, i32 1
+  %3 = getelementptr inbounds i8, ptr %0, i64 8
   %4 = tail call i32 @"_ZN108_$LT$regex_automata..util..alphabet..ByteClassElements$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h6477396e3a517d76E"(ptr nonnull align 8 %3)
   %.sroa.054.0.extract.trunc74 = trunc i32 %4 to i8
   %5 = icmp eq i8 %.sroa.054.0.extract.trunc74, 2
   br i1 %5, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %1
-  %.fca.1.gep.i = getelementptr inbounds { i16, i16 }, ptr %2, i64 0, i32 1
+  %.fca.1.gep.i = getelementptr inbounds i8, ptr %2, i64 2
   %.sroa.251.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 1
   %.sroa.352.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 4
   %.sroa.453.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 5
@@ -935,7 +935,7 @@ define hidden void @_ZN14regex_automata4util8alphabet12ByteClassSet7add_set17h15
   %6 = extractvalue { ptr, i64 } %5, 0
   %7 = extractvalue { ptr, i64 } %5, 1
   store ptr %6, ptr %3, align 8
-  %8 = getelementptr inbounds { ptr, i64 }, ptr %3, i64 0, i32 1
+  %8 = getelementptr inbounds i8, ptr %3, i64 8
   store i64 %7, ptr %8, align 8
   %9 = call i24 @"_ZN107_$LT$regex_automata..util..alphabet..ByteSetRangeIter$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hb7bfa72e81c7ad45E"(ptr nonnull align 8 %3)
   %10 = and i24 %9, 1
@@ -1158,7 +1158,7 @@ define zeroext i1 @"_ZN75_$LT$regex_automata..util..alphabet..BitSet$u20$as$u20$
 
 ; Function Attrs: nonlazybind uwtable
 define { i8, i8 } @"_ZN102_$LT$regex_automata..util..alphabet..ByteSetIter$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h5e82ad926c4c54c9E"(ptr nocapture align 8 %0) unnamed_addr #1 {
-  %2 = getelementptr inbounds { ptr, i64 }, ptr %0, i64 0, i32 1
+  %2 = getelementptr inbounds i8, ptr %0, i64 8
   %.pre = load i64, ptr %2, align 8
   br label %3
 
@@ -1200,7 +1200,7 @@ define { i8, i8 } @"_ZN102_$LT$regex_automata..util..alphabet..ByteSetIter$u20$a
 ; Function Attrs: nonlazybind uwtable
 define i24 @"_ZN107_$LT$regex_automata..util..alphabet..ByteSetRangeIter$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hb7bfa72e81c7ad45E"(ptr nocapture align 8 %0) unnamed_addr #1 {
   %2 = alloca {}, align 1
-  %3 = getelementptr inbounds { ptr, i64 }, ptr %0, i64 0, i32 1
+  %3 = getelementptr inbounds i8, ptr %0, i64 8
   %.pre = load i64, ptr %3, align 8
   br label %4
 

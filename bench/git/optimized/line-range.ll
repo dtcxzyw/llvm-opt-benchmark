@@ -5,9 +5,6 @@ target triple = "x86_64-unknown-linux-gnu"
 
 %struct.regmatch_t = type { i32, i32 }
 %struct.re_pattern_buffer = type { ptr, i64, i64, i64, ptr, ptr, i64, i8 }
-%struct.userdiff_driver = type { ptr, ptr, ptr, i32, %struct.userdiff_funcname, ptr, ptr, ptr, ptr, i32 }
-%struct.userdiff_funcname = type { ptr, i32 }
-%struct.s_xdemitconf = type { i64, i64, i64, ptr, ptr, ptr }
 
 @.str = private unnamed_addr constant [22 x i8] c"-L parameter '%s': %s\00", align 1
 @.str.1 = private unnamed_addr constant [49 x i8] c"-L parameter '%s' starting at line %ld: no match\00", align 1
@@ -151,7 +148,7 @@ if.end23:                                         ; preds = %if.end20
   br i1 %tobool28.not, label %if.end36, label %land.lhs.true29
 
 land.lhs.true29:                                  ; preds = %if.end23
-  %funcname = getelementptr inbounds %struct.userdiff_driver, ptr %call27, i64 0, i32 4
+  %funcname = getelementptr inbounds i8, ptr %call27, i64 32
   %3 = load ptr, ptr %funcname, align 8
   %tobool31.not = icmp eq ptr %3, null
   br i1 %tobool31.not, label %if.end36, label %if.then32
@@ -159,7 +156,7 @@ land.lhs.true29:                                  ; preds = %if.end23
 if.then32:                                        ; preds = %land.lhs.true29
   %call34 = tail call ptr @xcalloc(i64 noundef 1, i64 noundef 48) #8
   %4 = load ptr, ptr %funcname, align 8
-  %cflags = getelementptr inbounds %struct.userdiff_driver, ptr %call27, i64 0, i32 4, i32 1
+  %cflags = getelementptr inbounds i8, ptr %call27, i64 40
   %5 = load i32, ptr %cflags, align 8
   tail call void @xdiff_set_find_func(ptr noundef %call34, ptr noundef %4, i32 noundef %5) #8
   br label %if.end36
@@ -183,10 +180,10 @@ if.end42:                                         ; preds = %if.end36
   br i1 %tobool.not24.i, label %find_funcname_matching_regexp.exit.thread, label %while.body.lr.ph.i
 
 while.body.lr.ph.i:                               ; preds = %if.end42
-  %rm_eo.i = getelementptr inbounds %struct.regmatch_t, ptr %match.i, i64 0, i32 1
+  %rm_eo.i = getelementptr inbounds i8, ptr %match.i, i64 4
   %tobool.not.i.i = icmp eq ptr %xecfg.0, null
-  %find_func.i.i = getelementptr inbounds %struct.s_xdemitconf, ptr %xecfg.0, i64 0, i32 3
-  %find_func_priv.i.i = getelementptr inbounds %struct.s_xdemitconf, ptr %xecfg.0, i64 0, i32 4
+  %find_func.i.i = getelementptr inbounds i8, ptr %xecfg.0, i64 24
+  %find_func_priv.i.i = getelementptr inbounds i8, ptr %xecfg.0, i64 32
   br i1 %tobool.not.i.i, label %while.body.us.i, label %while.body.i
 
 while.body.us.i:                                  ; preds = %while.body.lr.ph.i, %while.cond.backedge.us.i

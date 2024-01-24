@@ -47,7 +47,7 @@ do.end:                                           ; preds = %entry, %land.lhs.tr
 invoke.cont:                                      ; preds = %do.end
   %call6 = call noundef i32 @_ZN7logging22GetLastSystemErrorCodeEv()
   call void @_ZN7logging15ErrnoLogMessageC1EPKciii(ptr noundef nonnull align 8 dereferenceable(416) %ref.tmp5, ptr noundef nonnull @.str, i32 noundef 40, i32 noundef 3, i32 noundef %call6)
-  %stream_.i.i = getelementptr inbounds %"class.logging::ErrnoLogMessage", ptr %ref.tmp5, i64 0, i32 2, i32 2
+  %stream_.i.i = getelementptr inbounds i8, ptr %ref.tmp5, i64 16
   %call9 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc(ptr noundef nonnull align 8 dereferenceable(8) %stream_.i.i, ptr noundef nonnull @.str.1)
           to label %cleanup.action unwind label %lpad
 

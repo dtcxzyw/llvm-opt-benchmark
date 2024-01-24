@@ -3,10 +3,6 @@ source_filename = "bench/libquic/original/gzread.c.ll"
 target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:128-n8:16:32:64-S128"
 target triple = "x86_64-unknown-linux-gnu"
 
-%struct.gz_state = type { %struct.gzFile_s, i32, i32, ptr, i32, i32, ptr, ptr, i32, i32, i64, i32, i32, i32, i32, i64, i32, i32, ptr, %struct.z_stream_s }
-%struct.gzFile_s = type { i32, ptr, i64 }
-%struct.z_stream_s = type { ptr, i32, i64, ptr, i32, i64, ptr, ptr, ptr, ptr, ptr, i32, i64, i64, i32 }
-
 @.str = private unnamed_addr constant [37 x i8] c"requested length does not fit in int\00", align 1
 @.str.1 = private unnamed_addr constant [31 x i8] c"out of room to push characters\00", align 1
 @.str.2 = private unnamed_addr constant [23 x i8] c"unexpected end of file\00", align 1
@@ -22,13 +18,13 @@ entry:
   br i1 %cmp, label %return, label %if.end
 
 if.end:                                           ; preds = %entry
-  %mode = getelementptr inbounds %struct.gz_state, ptr %file, i64 0, i32 1
+  %mode = getelementptr inbounds i8, ptr %file, i64 24
   %0 = load i32, ptr %mode, align 8
   %cmp2.not = icmp eq i32 %0, 7247
   br i1 %cmp2.not, label %lor.lhs.false, label %return
 
 lor.lhs.false:                                    ; preds = %if.end
-  %err = getelementptr inbounds %struct.gz_state, ptr %file, i64 0, i32 17
+  %err = getelementptr inbounds i8, ptr %file, i64 108
   %1 = load i32, ptr %err, align 4
   switch i32 %1, label %return [
     i32 0, label %if.end7
@@ -48,23 +44,23 @@ if.end10:                                         ; preds = %if.end7
   br i1 %cmp11, label %return, label %if.end13
 
 if.end13:                                         ; preds = %if.end10
-  %seek = getelementptr inbounds %struct.gz_state, ptr %file, i64 0, i32 16
+  %seek = getelementptr inbounds i8, ptr %file, i64 104
   %2 = load i32, ptr %seek, align 8
   %tobool.not = icmp eq i32 %2, 0
   br i1 %tobool.not, label %if.end19, label %if.then14
 
 if.then14:                                        ; preds = %if.end13
   store i32 0, ptr %seek, align 8
-  %skip = getelementptr inbounds %struct.gz_state, ptr %file, i64 0, i32 15
+  %skip = getelementptr inbounds i8, ptr %file, i64 96
   %3 = load i64, ptr %skip, align 8
-  %avail_in.i = getelementptr inbounds %struct.gz_state, ptr %file, i64 0, i32 19, i32 1
+  %avail_in.i = getelementptr inbounds i8, ptr %file, i64 128
   %tobool.not15.i = icmp eq i64 %3, 0
   br i1 %tobool.not15.i, label %if.end19, label %while.body.lr.ph.i
 
 while.body.lr.ph.i:                               ; preds = %if.then14
-  %next.i = getelementptr inbounds %struct.gzFile_s, ptr %file, i64 0, i32 1
-  %pos.i = getelementptr inbounds %struct.gzFile_s, ptr %file, i64 0, i32 2
-  %eof.i = getelementptr inbounds %struct.gz_state, ptr %file, i64 0, i32 11
+  %next.i = getelementptr inbounds i8, ptr %file, i64 8
+  %pos.i = getelementptr inbounds i8, ptr %file, i64 16
+  %eof.i = getelementptr inbounds i8, ptr %file, i64 80
   br label %while.body.i
 
 while.body.i:                                     ; preds = %if.end24.i, %while.body.lr.ph.i
@@ -111,15 +107,15 @@ if.end24.i:                                       ; preds = %if.else19.i, %if.th
   br i1 %tobool.not.i, label %if.end19, label %while.body.i, !llvm.loop !6
 
 if.end19:                                         ; preds = %land.lhs.true.i, %if.end24.i, %if.then14, %if.end13
-  %next = getelementptr inbounds %struct.gzFile_s, ptr %file, i64 0, i32 1
-  %eof = getelementptr inbounds %struct.gz_state, ptr %file, i64 0, i32 11
-  %avail_in = getelementptr inbounds %struct.gz_state, ptr %file, i64 0, i32 19, i32 1
-  %how = getelementptr inbounds %struct.gz_state, ptr %file, i64 0, i32 9
-  %size = getelementptr inbounds %struct.gz_state, ptr %file, i64 0, i32 4
-  %avail_out = getelementptr inbounds %struct.gz_state, ptr %file, i64 0, i32 19, i32 4
-  %next_out = getelementptr inbounds %struct.gz_state, ptr %file, i64 0, i32 19, i32 3
-  %fd.i = getelementptr inbounds %struct.gz_state, ptr %file, i64 0, i32 2
-  %pos = getelementptr inbounds %struct.gzFile_s, ptr %file, i64 0, i32 2
+  %next = getelementptr inbounds i8, ptr %file, i64 8
+  %eof = getelementptr inbounds i8, ptr %file, i64 80
+  %avail_in = getelementptr inbounds i8, ptr %file, i64 128
+  %how = getelementptr inbounds i8, ptr %file, i64 68
+  %size = getelementptr inbounds i8, ptr %file, i64 40
+  %avail_out = getelementptr inbounds i8, ptr %file, i64 152
+  %next_out = getelementptr inbounds i8, ptr %file, i64 144
+  %fd.i = getelementptr inbounds i8, ptr %file, i64 28
+  %pos = getelementptr inbounds i8, ptr %file, i64 16
   br label %do.body
 
 do.body:                                          ; preds = %do.cond, %if.end19
@@ -154,7 +150,7 @@ land.lhs.true33:                                  ; preds = %if.else
   br i1 %cmp34, label %if.then36, label %if.else37
 
 if.then36:                                        ; preds = %land.lhs.true33
-  %past = getelementptr inbounds %struct.gz_state, ptr %file, i64 0, i32 12
+  %past = getelementptr inbounds i8, ptr %file, i64 84
   store i32 1, ptr %past, align 4
   br label %return
 
@@ -253,13 +249,13 @@ declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias
 ; Function Attrs: nounwind uwtable
 define internal fastcc noundef i32 @gz_fetch(ptr noundef %state) unnamed_addr #0 {
 entry:
-  %how = getelementptr inbounds %struct.gz_state, ptr %state, i64 0, i32 9
-  %size14 = getelementptr inbounds %struct.gz_state, ptr %state, i64 0, i32 4
-  %avail_out = getelementptr inbounds %struct.gz_state, ptr %state, i64 0, i32 19, i32 4
-  %out16 = getelementptr inbounds %struct.gz_state, ptr %state, i64 0, i32 7
-  %next_out = getelementptr inbounds %struct.gz_state, ptr %state, i64 0, i32 19, i32 3
-  %eof = getelementptr inbounds %struct.gz_state, ptr %state, i64 0, i32 11
-  %avail_in = getelementptr inbounds %struct.gz_state, ptr %state, i64 0, i32 19, i32 1
+  %how = getelementptr inbounds i8, ptr %state, i64 68
+  %size14 = getelementptr inbounds i8, ptr %state, i64 40
+  %avail_out = getelementptr inbounds i8, ptr %state, i64 152
+  %out16 = getelementptr inbounds i8, ptr %state, i64 56
+  %next_out = getelementptr inbounds i8, ptr %state, i64 144
+  %eof = getelementptr inbounds i8, ptr %state, i64 80
+  %avail_in = getelementptr inbounds i8, ptr %state, i64 128
   br label %do.body
 
 do.body:                                          ; preds = %do.body.backedge, %entry
@@ -285,7 +281,7 @@ sw.bb6:                                           ; preds = %do.body
   %3 = load i32, ptr %size14, align 8
   %shl = shl i32 %3, 1
   store i32 0, ptr %state, align 4
-  %fd.i = getelementptr inbounds %struct.gz_state, ptr %state, i64 0, i32 2
+  %fd.i = getelementptr inbounds i8, ptr %state, i64 28
   br label %do.body.i
 
 do.body.i:                                        ; preds = %if.end.i, %sw.bb6
@@ -324,7 +320,7 @@ gz_load.exit:                                     ; preds = %do.end.i
 
 if.end10:                                         ; preds = %if.end.i, %if.then13.i
   %8 = load ptr, ptr %out16, align 8
-  %next = getelementptr inbounds %struct.gzFile_s, ptr %state, i64 0, i32 1
+  %next = getelementptr inbounds i8, ptr %state, i64 8
   store ptr %8, ptr %next, align 8
   br label %return
 
@@ -364,10 +360,10 @@ return:                                           ; preds = %lor.rhs, %do.cond, 
 ; Function Attrs: nounwind uwtable
 define internal fastcc noundef i32 @gz_decomp(ptr noundef %state) unnamed_addr #0 {
 entry:
-  %strm1 = getelementptr inbounds %struct.gz_state, ptr %state, i64 0, i32 19
-  %avail_out = getelementptr inbounds %struct.gz_state, ptr %state, i64 0, i32 19, i32 4
+  %strm1 = getelementptr inbounds i8, ptr %state, i64 120
+  %avail_out = getelementptr inbounds i8, ptr %state, i64 152
   %0 = load i32, ptr %avail_out, align 8
-  %avail_in = getelementptr inbounds %struct.gz_state, ptr %state, i64 0, i32 19, i32 1
+  %avail_in = getelementptr inbounds i8, ptr %state, i64 128
   br label %do.body
 
 do.body:                                          ; preds = %do.cond, %entry
@@ -409,7 +405,7 @@ if.then13:                                        ; preds = %if.end6
   br label %return
 
 if.then16:                                        ; preds = %if.end6
-  %msg = getelementptr inbounds %struct.gz_state, ptr %state, i64 0, i32 19, i32 6
+  %msg = getelementptr inbounds i8, ptr %state, i64 168
   %2 = load ptr, ptr %msg, align 8
   %cmp17 = icmp eq ptr %2, null
   %spec.select = select i1 %cmp17, ptr @.str.5, ptr %2
@@ -428,18 +424,18 @@ do.end:                                           ; preds = %do.cond, %if.then5
   %ret.1 = phi i32 [ %ret.0, %if.then5 ], [ %call7, %do.cond ]
   %sub = sub i32 %0, %5
   store i32 %sub, ptr %state, align 8
-  %next_out = getelementptr inbounds %struct.gz_state, ptr %state, i64 0, i32 19, i32 3
+  %next_out = getelementptr inbounds i8, ptr %state, i64 144
   %6 = load ptr, ptr %next_out, align 8
   %idx.ext = zext i32 %sub to i64
   %idx.neg = sub nsw i64 0, %idx.ext
   %add.ptr = getelementptr inbounds i8, ptr %6, i64 %idx.neg
-  %next = getelementptr inbounds %struct.gzFile_s, ptr %state, i64 0, i32 1
+  %next = getelementptr inbounds i8, ptr %state, i64 8
   store ptr %add.ptr, ptr %next, align 8
   %cmp26 = icmp eq i32 %ret.1, 1
   br i1 %cmp26, label %if.then27, label %return
 
 if.then27:                                        ; preds = %do.end
-  %how = getelementptr inbounds %struct.gz_state, ptr %state, i64 0, i32 9
+  %how = getelementptr inbounds i8, ptr %state, i64 68
   store i32 0, ptr %how, align 4
   br label %return
 
@@ -456,13 +452,13 @@ entry:
   br i1 %cmp, label %return, label %if.end
 
 if.end:                                           ; preds = %entry
-  %mode = getelementptr inbounds %struct.gz_state, ptr %file, i64 0, i32 1
+  %mode = getelementptr inbounds i8, ptr %file, i64 24
   %0 = load i32, ptr %mode, align 8
   %cmp1.not = icmp eq i32 %0, 7247
   br i1 %cmp1.not, label %lor.lhs.false, label %return
 
 lor.lhs.false:                                    ; preds = %if.end
-  %err = getelementptr inbounds %struct.gz_state, ptr %file, i64 0, i32 17
+  %err = getelementptr inbounds i8, ptr %file, i64 108
   %1 = load i32, ptr %err, align 4
   switch i32 %1, label %return [
     i32 0, label %if.end6
@@ -477,11 +473,11 @@ if.end6:                                          ; preds = %lor.lhs.false, %lor
 if.then7:                                         ; preds = %if.end6
   %dec = add i32 %2, -1
   store i32 %dec, ptr %file, align 8
-  %pos = getelementptr inbounds %struct.gzFile_s, ptr %file, i64 0, i32 2
+  %pos = getelementptr inbounds i8, ptr %file, i64 16
   %3 = load i64, ptr %pos, align 8
   %inc = add nsw i64 %3, 1
   store i64 %inc, ptr %pos, align 8
-  %next = getelementptr inbounds %struct.gzFile_s, ptr %file, i64 0, i32 1
+  %next = getelementptr inbounds i8, ptr %file, i64 8
   %4 = load ptr, ptr %next, align 8
   %incdec.ptr = getelementptr inbounds i8, ptr %4, i64 1
   store ptr %incdec.ptr, ptr %next, align 8
@@ -511,13 +507,13 @@ entry:
   br i1 %cmp.i, label %MOZ_Z_gzgetc.exit, label %if.end.i
 
 if.end.i:                                         ; preds = %entry
-  %mode.i = getelementptr inbounds %struct.gz_state, ptr %file, i64 0, i32 1
+  %mode.i = getelementptr inbounds i8, ptr %file, i64 24
   %0 = load i32, ptr %mode.i, align 8
   %cmp1.not.i = icmp eq i32 %0, 7247
   br i1 %cmp1.not.i, label %lor.lhs.false.i, label %MOZ_Z_gzgetc.exit
 
 lor.lhs.false.i:                                  ; preds = %if.end.i
-  %err.i = getelementptr inbounds %struct.gz_state, ptr %file, i64 0, i32 17
+  %err.i = getelementptr inbounds i8, ptr %file, i64 108
   %1 = load i32, ptr %err.i, align 4
   switch i32 %1, label %MOZ_Z_gzgetc.exit [
     i32 0, label %if.end6.i
@@ -532,11 +528,11 @@ if.end6.i:                                        ; preds = %lor.lhs.false.i, %l
 if.then7.i:                                       ; preds = %if.end6.i
   %dec.i = add i32 %2, -1
   store i32 %dec.i, ptr %file, align 8
-  %pos.i = getelementptr inbounds %struct.gzFile_s, ptr %file, i64 0, i32 2
+  %pos.i = getelementptr inbounds i8, ptr %file, i64 16
   %3 = load i64, ptr %pos.i, align 8
   %inc.i = add nsw i64 %3, 1
   store i64 %inc.i, ptr %pos.i, align 8
-  %next.i = getelementptr inbounds %struct.gzFile_s, ptr %file, i64 0, i32 1
+  %next.i = getelementptr inbounds i8, ptr %file, i64 8
   %4 = load ptr, ptr %next.i, align 8
   %incdec.ptr.i = getelementptr inbounds i8, ptr %4, i64 1
   store ptr %incdec.ptr.i, ptr %next.i, align 8
@@ -565,13 +561,13 @@ entry:
   br i1 %cmp, label %return, label %if.end
 
 if.end:                                           ; preds = %entry
-  %mode = getelementptr inbounds %struct.gz_state, ptr %file, i64 0, i32 1
+  %mode = getelementptr inbounds i8, ptr %file, i64 24
   %0 = load i32, ptr %mode, align 8
   %cmp1.not = icmp eq i32 %0, 7247
   br i1 %cmp1.not, label %lor.lhs.false, label %return
 
 lor.lhs.false:                                    ; preds = %if.end
-  %err = getelementptr inbounds %struct.gz_state, ptr %file, i64 0, i32 17
+  %err = getelementptr inbounds i8, ptr %file, i64 108
   %1 = load i32, ptr %err, align 4
   switch i32 %1, label %return [
     i32 0, label %if.end6
@@ -579,23 +575,23 @@ lor.lhs.false:                                    ; preds = %if.end
   ]
 
 if.end6:                                          ; preds = %lor.lhs.false, %lor.lhs.false
-  %seek = getelementptr inbounds %struct.gz_state, ptr %file, i64 0, i32 16
+  %seek = getelementptr inbounds i8, ptr %file, i64 104
   %2 = load i32, ptr %seek, align 8
   %tobool.not = icmp eq i32 %2, 0
   br i1 %tobool.not, label %if.end12, label %if.then7
 
 if.then7:                                         ; preds = %if.end6
   store i32 0, ptr %seek, align 8
-  %skip = getelementptr inbounds %struct.gz_state, ptr %file, i64 0, i32 15
+  %skip = getelementptr inbounds i8, ptr %file, i64 96
   %3 = load i64, ptr %skip, align 8
-  %avail_in.i = getelementptr inbounds %struct.gz_state, ptr %file, i64 0, i32 19, i32 1
+  %avail_in.i = getelementptr inbounds i8, ptr %file, i64 128
   %tobool.not15.i = icmp eq i64 %3, 0
   br i1 %tobool.not15.i, label %gz_skip.exit, label %while.body.lr.ph.i
 
 while.body.lr.ph.i:                               ; preds = %if.then7
-  %next.i = getelementptr inbounds %struct.gzFile_s, ptr %file, i64 0, i32 1
-  %pos.i = getelementptr inbounds %struct.gzFile_s, ptr %file, i64 0, i32 2
-  %eof.i = getelementptr inbounds %struct.gz_state, ptr %file, i64 0, i32 11
+  %next.i = getelementptr inbounds i8, ptr %file, i64 8
+  %pos.i = getelementptr inbounds i8, ptr %file, i64 16
+  %eof.i = getelementptr inbounds i8, ptr %file, i64 80
   br label %while.body.i
 
 while.body.i:                                     ; preds = %if.end24.i, %while.body.lr.ph.i
@@ -656,28 +652,28 @@ if.end15:                                         ; preds = %gz_skip.exit, %if.e
 
 if.then17:                                        ; preds = %if.end15
   store i32 1, ptr %file, align 8
-  %out = getelementptr inbounds %struct.gz_state, ptr %file, i64 0, i32 7
+  %out = getelementptr inbounds i8, ptr %file, i64 56
   %10 = load ptr, ptr %out, align 8
-  %size = getelementptr inbounds %struct.gz_state, ptr %file, i64 0, i32 4
+  %size = getelementptr inbounds i8, ptr %file, i64 40
   %11 = load i32, ptr %size, align 8
   %shl = shl i32 %11, 1
   %idx.ext = zext i32 %shl to i64
   %add.ptr = getelementptr inbounds i8, ptr %10, i64 %idx.ext
   %add.ptr20 = getelementptr inbounds i8, ptr %add.ptr, i64 -1
-  %next = getelementptr inbounds %struct.gzFile_s, ptr %file, i64 0, i32 1
+  %next = getelementptr inbounds i8, ptr %file, i64 8
   store ptr %add.ptr20, ptr %next, align 8
   %conv = trunc i32 %c to i8
   store i8 %conv, ptr %add.ptr20, align 1
-  %pos = getelementptr inbounds %struct.gzFile_s, ptr %file, i64 0, i32 2
+  %pos = getelementptr inbounds i8, ptr %file, i64 16
   %12 = load i64, ptr %pos, align 8
   %dec = add nsw i64 %12, -1
   store i64 %dec, ptr %pos, align 8
-  %past = getelementptr inbounds %struct.gz_state, ptr %file, i64 0, i32 12
+  %past = getelementptr inbounds i8, ptr %file, i64 84
   store i32 0, ptr %past, align 4
   br label %return
 
 if.end25:                                         ; preds = %if.end15
-  %size28 = getelementptr inbounds %struct.gz_state, ptr %file, i64 0, i32 4
+  %size28 = getelementptr inbounds i8, ptr %file, i64 40
   %13 = load i32, ptr %size28, align 8
   %shl29 = shl i32 %13, 1
   %cmp30 = icmp eq i32 %9, %shl29
@@ -688,9 +684,9 @@ if.then32:                                        ; preds = %if.end25
   br label %return
 
 if.end33:                                         ; preds = %if.end25
-  %next35 = getelementptr inbounds %struct.gzFile_s, ptr %file, i64 0, i32 1
+  %next35 = getelementptr inbounds i8, ptr %file, i64 8
   %14 = load ptr, ptr %next35, align 8
-  %out36 = getelementptr inbounds %struct.gz_state, ptr %file, i64 0, i32 7
+  %out36 = getelementptr inbounds i8, ptr %file, i64 56
   %15 = load ptr, ptr %out36, align 8
   %cmp37 = icmp eq ptr %14, %15
   br i1 %cmp37, label %while.body.preheader, label %if.end56
@@ -726,11 +722,11 @@ if.end56:                                         ; preds = %while.end, %if.end3
   store ptr %incdec.ptr61, ptr %next35, align 8
   %conv62 = trunc i32 %c to i8
   store i8 %conv62, ptr %incdec.ptr61, align 1
-  %pos67 = getelementptr inbounds %struct.gzFile_s, ptr %file, i64 0, i32 2
+  %pos67 = getelementptr inbounds i8, ptr %file, i64 16
   %20 = load i64, ptr %pos67, align 8
   %dec68 = add nsw i64 %20, -1
   store i64 %dec68, ptr %pos67, align 8
-  %past69 = getelementptr inbounds %struct.gz_state, ptr %file, i64 0, i32 12
+  %past69 = getelementptr inbounds i8, ptr %file, i64 84
   store i32 0, ptr %past69, align 4
   br label %return
 
@@ -750,13 +746,13 @@ entry:
   br i1 %or.cond1, label %return, label %if.end
 
 if.end:                                           ; preds = %entry
-  %mode = getelementptr inbounds %struct.gz_state, ptr %file, i64 0, i32 1
+  %mode = getelementptr inbounds i8, ptr %file, i64 24
   %0 = load i32, ptr %mode, align 8
   %cmp4.not = icmp eq i32 %0, 7247
   br i1 %cmp4.not, label %lor.lhs.false5, label %return
 
 lor.lhs.false5:                                   ; preds = %if.end
-  %err = getelementptr inbounds %struct.gz_state, ptr %file, i64 0, i32 17
+  %err = getelementptr inbounds i8, ptr %file, i64 108
   %1 = load i32, ptr %err, align 4
   switch i32 %1, label %return [
     i32 0, label %if.end10
@@ -764,23 +760,23 @@ lor.lhs.false5:                                   ; preds = %if.end
   ]
 
 if.end10:                                         ; preds = %lor.lhs.false5, %lor.lhs.false5
-  %seek = getelementptr inbounds %struct.gz_state, ptr %file, i64 0, i32 16
+  %seek = getelementptr inbounds i8, ptr %file, i64 104
   %2 = load i32, ptr %seek, align 8
   %tobool.not = icmp eq i32 %2, 0
   br i1 %tobool.not, label %if.end16, label %if.then11
 
 if.then11:                                        ; preds = %if.end10
   store i32 0, ptr %seek, align 8
-  %skip = getelementptr inbounds %struct.gz_state, ptr %file, i64 0, i32 15
+  %skip = getelementptr inbounds i8, ptr %file, i64 96
   %3 = load i64, ptr %skip, align 8
-  %avail_in.i = getelementptr inbounds %struct.gz_state, ptr %file, i64 0, i32 19, i32 1
+  %avail_in.i = getelementptr inbounds i8, ptr %file, i64 128
   %tobool.not15.i = icmp eq i64 %3, 0
   br i1 %tobool.not15.i, label %if.end16, label %while.body.lr.ph.i
 
 while.body.lr.ph.i:                               ; preds = %if.then11
-  %next.i = getelementptr inbounds %struct.gzFile_s, ptr %file, i64 0, i32 1
-  %pos.i = getelementptr inbounds %struct.gzFile_s, ptr %file, i64 0, i32 2
-  %eof.i = getelementptr inbounds %struct.gz_state, ptr %file, i64 0, i32 11
+  %next.i = getelementptr inbounds i8, ptr %file, i64 8
+  %pos.i = getelementptr inbounds i8, ptr %file, i64 16
+  %eof.i = getelementptr inbounds i8, ptr %file, i64 80
   br label %while.body.i
 
 while.body.i:                                     ; preds = %if.end24.i, %while.body.lr.ph.i
@@ -832,8 +828,8 @@ if.end16:                                         ; preds = %land.lhs.true.i, %i
   br i1 %tobool17.not, label %return, label %do.body.preheader
 
 do.body.preheader:                                ; preds = %if.end16
-  %next = getelementptr inbounds %struct.gzFile_s, ptr %file, i64 0, i32 1
-  %pos = getelementptr inbounds %struct.gzFile_s, ptr %file, i64 0, i32 2
+  %next = getelementptr inbounds i8, ptr %file, i64 8
+  %pos = getelementptr inbounds i8, ptr %file, i64 16
   %.pre = load i32, ptr %file, align 8
   br label %do.body
 
@@ -855,7 +851,7 @@ if.end24:                                         ; preds = %land.lhs.true20
   br i1 %cmp27, label %if.then28, label %if.end29
 
 if.then28:                                        ; preds = %if.end24
-  %past = getelementptr inbounds %struct.gz_state, ptr %file, i64 0, i32 12
+  %past = getelementptr inbounds i8, ptr %file, i64 84
   store i32 1, ptr %past, align 4
   br label %if.end61
 
@@ -913,13 +909,13 @@ entry:
   br i1 %cmp, label %return, label %if.end
 
 if.end:                                           ; preds = %entry
-  %mode = getelementptr inbounds %struct.gz_state, ptr %file, i64 0, i32 1
+  %mode = getelementptr inbounds i8, ptr %file, i64 24
   %0 = load i32, ptr %mode, align 8
   %cmp1 = icmp eq i32 %0, 7247
   br i1 %cmp1, label %land.lhs.true, label %if.end6
 
 land.lhs.true:                                    ; preds = %if.end
-  %how = getelementptr inbounds %struct.gz_state, ptr %file, i64 0, i32 9
+  %how = getelementptr inbounds i8, ptr %file, i64 68
   %1 = load i32, ptr %how, align 4
   %cmp2 = icmp eq i32 %1, 0
   br i1 %cmp2, label %land.lhs.true3, label %if.end6
@@ -934,7 +930,7 @@ if.then5:                                         ; preds = %land.lhs.true3
   br label %if.end6
 
 if.end6:                                          ; preds = %if.then5, %land.lhs.true3, %land.lhs.true, %if.end
-  %direct = getelementptr inbounds %struct.gz_state, ptr %file, i64 0, i32 8
+  %direct = getelementptr inbounds i8, ptr %file, i64 64
   %3 = load i32, ptr %direct, align 8
   br label %return
 
@@ -946,23 +942,23 @@ return:                                           ; preds = %entry, %if.end6
 ; Function Attrs: nounwind uwtable
 define internal fastcc noundef i32 @gz_look(ptr noundef %state) unnamed_addr #0 {
 entry:
-  %strm1 = getelementptr inbounds %struct.gz_state, ptr %state, i64 0, i32 19
-  %size = getelementptr inbounds %struct.gz_state, ptr %state, i64 0, i32 4
+  %strm1 = getelementptr inbounds i8, ptr %state, i64 120
+  %size = getelementptr inbounds i8, ptr %state, i64 40
   %0 = load i32, ptr %size, align 8
   %cmp = icmp eq i32 %0, 0
   br i1 %cmp, label %if.then, label %if.end40
 
 if.then:                                          ; preds = %entry
-  %want = getelementptr inbounds %struct.gz_state, ptr %state, i64 0, i32 5
+  %want = getelementptr inbounds i8, ptr %state, i64 44
   %1 = load i32, ptr %want, align 4
   %conv = zext i32 %1 to i64
   %call = tail call noalias ptr @malloc(i64 noundef %conv) #15
-  %in = getelementptr inbounds %struct.gz_state, ptr %state, i64 0, i32 6
+  %in = getelementptr inbounds i8, ptr %state, i64 48
   store ptr %call, ptr %in, align 8
   %shl = shl i32 %1, 1
   %conv3 = zext i32 %shl to i64
   %call4 = tail call noalias ptr @malloc(i64 noundef %conv3) #15
-  %out = getelementptr inbounds %struct.gz_state, ptr %state, i64 0, i32 7
+  %out = getelementptr inbounds i8, ptr %state, i64 56
   store ptr %call4, ptr %out, align 8
   %cmp6 = icmp eq ptr %call, null
   %cmp9 = icmp eq ptr %call4, null
@@ -989,8 +985,8 @@ if.end22:                                         ; preds = %if.then20, %if.end
 
 if.end23:                                         ; preds = %if.then
   store i32 %1, ptr %size, align 8
-  %zalloc = getelementptr inbounds %struct.gz_state, ptr %state, i64 0, i32 19, i32 8
-  %avail_in = getelementptr inbounds %struct.gz_state, ptr %state, i64 0, i32 19, i32 1
+  %zalloc = getelementptr inbounds i8, ptr %state, i64 184
+  %avail_in = getelementptr inbounds i8, ptr %state, i64 128
   store i32 0, ptr %avail_in, align 8
   store ptr null, ptr %strm1, align 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %zalloc, i8 0, i64 24, i1 false)
@@ -1008,7 +1004,7 @@ if.then35:                                        ; preds = %if.end23
   br label %return
 
 if.end40:                                         ; preds = %if.end23, %entry
-  %avail_in41 = getelementptr inbounds %struct.gz_state, ptr %state, i64 0, i32 19, i32 1
+  %avail_in41 = getelementptr inbounds i8, ptr %state, i64 128
   %4 = load i32, ptr %avail_in41, align 8
   %cmp42 = icmp ult i32 %4, 2
   br i1 %cmp42, label %if.then44, label %land.lhs.true
@@ -1040,30 +1036,30 @@ land.lhs.true63:                                  ; preds = %land.lhs.true
 
 if.then69:                                        ; preds = %land.lhs.true63
   %call70 = tail call i32 @MOZ_Z_inflateReset(ptr noundef nonnull %strm1) #12
-  %how = getelementptr inbounds %struct.gz_state, ptr %state, i64 0, i32 9
+  %how = getelementptr inbounds i8, ptr %state, i64 68
   store i32 2, ptr %how, align 4
-  %direct = getelementptr inbounds %struct.gz_state, ptr %state, i64 0, i32 8
+  %direct = getelementptr inbounds i8, ptr %state, i64 64
   store i32 0, ptr %direct, align 8
   br label %return
 
 if.end71:                                         ; preds = %if.end49, %land.lhs.true63, %land.lhs.true
   %10 = phi i32 [ %6, %land.lhs.true63 ], [ %6, %land.lhs.true ], [ %5, %if.end49 ]
-  %direct72 = getelementptr inbounds %struct.gz_state, ptr %state, i64 0, i32 8
+  %direct72 = getelementptr inbounds i8, ptr %state, i64 64
   %11 = load i32, ptr %direct72, align 8
   %cmp73 = icmp eq i32 %11, 0
   br i1 %cmp73, label %if.then75, label %if.end91
 
 if.then75:                                        ; preds = %if.end71
   store i32 0, ptr %avail_in41, align 8
-  %eof = getelementptr inbounds %struct.gz_state, ptr %state, i64 0, i32 11
+  %eof = getelementptr inbounds i8, ptr %state, i64 80
   store i32 1, ptr %eof, align 8
   store i32 0, ptr %state, align 8
   br label %return
 
 if.end91:                                         ; preds = %if.end71
-  %out78 = getelementptr inbounds %struct.gz_state, ptr %state, i64 0, i32 7
+  %out78 = getelementptr inbounds i8, ptr %state, i64 56
   %12 = load ptr, ptr %out78, align 8
-  %next = getelementptr inbounds %struct.gzFile_s, ptr %state, i64 0, i32 1
+  %next = getelementptr inbounds i8, ptr %state, i64 8
   store ptr %12, ptr %next, align 8
   %13 = load ptr, ptr %strm1, align 8
   %conv86 = zext i32 %10 to i64
@@ -1071,7 +1067,7 @@ if.end91:                                         ; preds = %if.end71
   %14 = load i32, ptr %avail_in41, align 8
   store i32 %14, ptr %state, align 8
   store i32 0, ptr %avail_in41, align 8
-  %how92 = getelementptr inbounds %struct.gz_state, ptr %state, i64 0, i32 9
+  %how92 = getelementptr inbounds i8, ptr %state, i64 68
   store i32 1, ptr %how92, align 4
   store i32 1, ptr %direct72, align 8
   br label %return
@@ -1088,38 +1084,38 @@ entry:
   br i1 %cmp, label %return, label %if.end
 
 if.end:                                           ; preds = %entry
-  %mode = getelementptr inbounds %struct.gz_state, ptr %file, i64 0, i32 1
+  %mode = getelementptr inbounds i8, ptr %file, i64 24
   %0 = load i32, ptr %mode, align 8
   %cmp1.not = icmp eq i32 %0, 7247
   br i1 %cmp1.not, label %if.end3, label %return
 
 if.end3:                                          ; preds = %if.end
-  %size = getelementptr inbounds %struct.gz_state, ptr %file, i64 0, i32 4
+  %size = getelementptr inbounds i8, ptr %file, i64 40
   %1 = load i32, ptr %size, align 8
   %tobool.not = icmp eq i32 %1, 0
   br i1 %tobool.not, label %if.end5, label %if.then4
 
 if.then4:                                         ; preds = %if.end3
-  %strm = getelementptr inbounds %struct.gz_state, ptr %file, i64 0, i32 19
+  %strm = getelementptr inbounds i8, ptr %file, i64 120
   %call = tail call i32 @MOZ_Z_inflateEnd(ptr noundef nonnull %strm) #12
-  %out = getelementptr inbounds %struct.gz_state, ptr %file, i64 0, i32 7
+  %out = getelementptr inbounds i8, ptr %file, i64 56
   %2 = load ptr, ptr %out, align 8
   tail call void @free(ptr noundef %2) #12
-  %in = getelementptr inbounds %struct.gz_state, ptr %file, i64 0, i32 6
+  %in = getelementptr inbounds i8, ptr %file, i64 48
   %3 = load ptr, ptr %in, align 8
   tail call void @free(ptr noundef %3) #12
   br label %if.end5
 
 if.end5:                                          ; preds = %if.then4, %if.end3
-  %err6 = getelementptr inbounds %struct.gz_state, ptr %file, i64 0, i32 17
+  %err6 = getelementptr inbounds i8, ptr %file, i64 108
   %4 = load i32, ptr %err6, align 4
   %cmp7 = icmp eq i32 %4, -5
   %cond = select i1 %cmp7, i32 -5, i32 0
   tail call void @MOZ_Z_gz_error(ptr noundef nonnull %file, i32 noundef 0, ptr noundef null) #12
-  %path = getelementptr inbounds %struct.gz_state, ptr %file, i64 0, i32 3
+  %path = getelementptr inbounds i8, ptr %file, i64 32
   %5 = load ptr, ptr %path, align 8
   tail call void @free(ptr noundef %5) #12
-  %fd = getelementptr inbounds %struct.gz_state, ptr %file, i64 0, i32 2
+  %fd = getelementptr inbounds i8, ptr %file, i64 28
   %6 = load i32, ptr %fd, align 4
   %call8 = tail call i32 @close(i32 noundef %6) #12
   tail call void @free(ptr noundef nonnull %file) #12
@@ -1151,8 +1147,8 @@ declare ptr @__errno_location() local_unnamed_addr #7
 ; Function Attrs: nounwind uwtable
 define internal fastcc noundef i32 @gz_avail(ptr noundef %state) unnamed_addr #0 {
 entry:
-  %strm1 = getelementptr inbounds %struct.gz_state, ptr %state, i64 0, i32 19
-  %err = getelementptr inbounds %struct.gz_state, ptr %state, i64 0, i32 17
+  %strm1 = getelementptr inbounds i8, ptr %state, i64 120
+  %err = getelementptr inbounds i8, ptr %state, i64 108
   %0 = load i32, ptr %err, align 4
   switch i32 %0, label %return [
     i32 0, label %if.end
@@ -1160,19 +1156,19 @@ entry:
   ]
 
 if.end:                                           ; preds = %entry, %entry
-  %eof = getelementptr inbounds %struct.gz_state, ptr %state, i64 0, i32 11
+  %eof = getelementptr inbounds i8, ptr %state, i64 80
   %1 = load i32, ptr %eof, align 8
   %cmp4 = icmp eq i32 %1, 0
   br i1 %cmp4, label %if.then5, label %return
 
 if.then5:                                         ; preds = %if.end
-  %avail_in = getelementptr inbounds %struct.gz_state, ptr %state, i64 0, i32 19, i32 1
+  %avail_in = getelementptr inbounds i8, ptr %state, i64 128
   %2 = load i32, ptr %avail_in, align 8
   %tobool.not = icmp eq i32 %2, 0
   br i1 %tobool.not, label %if.end10, label %if.then6
 
 if.then6:                                         ; preds = %if.then5
-  %in = getelementptr inbounds %struct.gz_state, ptr %state, i64 0, i32 6
+  %in = getelementptr inbounds i8, ptr %state, i64 48
   %3 = load ptr, ptr %in, align 8
   %4 = load ptr, ptr %strm1, align 8
   br label %do.body
@@ -1195,14 +1191,14 @@ if.end10.loopexit:                                ; preds = %do.body
 
 if.end10:                                         ; preds = %if.end10.loopexit, %if.then5
   %6 = phi i32 [ %.pre, %if.end10.loopexit ], [ 0, %if.then5 ]
-  %in11 = getelementptr inbounds %struct.gz_state, ptr %state, i64 0, i32 6
+  %in11 = getelementptr inbounds i8, ptr %state, i64 48
   %7 = load ptr, ptr %in11, align 8
   %idx.ext = zext i32 %6 to i64
   %add.ptr = getelementptr inbounds i8, ptr %7, i64 %idx.ext
-  %size = getelementptr inbounds %struct.gz_state, ptr %state, i64 0, i32 4
+  %size = getelementptr inbounds i8, ptr %state, i64 40
   %8 = load i32, ptr %size, align 8
   %sub = sub i32 %8, %6
-  %fd.i = getelementptr inbounds %struct.gz_state, ptr %state, i64 0, i32 2
+  %fd.i = getelementptr inbounds i8, ptr %state, i64 28
   br label %do.body.i
 
 do.body.i:                                        ; preds = %if.end.i, %if.end10

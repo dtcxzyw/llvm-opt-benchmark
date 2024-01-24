@@ -3,11 +3,6 @@ source_filename = "bench/icu/original/ucnvdisp.ll"
 target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:128-n8:16:32:64-S128"
 target triple = "x86_64-unknown-linux-gnu"
 
-%struct.UConverter = type { ptr, ptr, ptr, ptr, ptr, ptr, ptr, i32, i8, i8, i8, i8, i8, [7 x i8], i32, i32, i32, i32, i8, i8, i8, i8, i8, i8, i8, i8, [8 x i8], [32 x i8], [2 x i16], [2 x i16], [32 x i16], i32, [19 x i16], [31 x i8], i8, i8, i8, i32 }
-%struct.UConverterSharedData = type { i32, i32, ptr, ptr, i8, i8, ptr, i32, %struct.UConverterMBCSTable }
-%struct.UConverterMBCSTable = type { i8, i8, i8, i32, ptr, ptr, ptr, ptr, ptr, ptr, [64 x i16], ptr, ptr, i32, i8, i8, i8, i16, i32, ptr, ptr, ptr, ptr }
-%struct.UConverterStaticData = type { i32, [60 x i8], i32, i8, i8, i8, i8, [4 x i8], i8, i8, i8, i8, i8, [19 x i8] }
-
 ; Function Attrs: mustprogress uwtable
 define i32 @ucnv_getDisplayName_75(ptr noundef readonly %cnv, ptr noundef %displayLocale, ptr noundef %displayName, i32 noundef %displayNameCapacity, ptr noundef %pErrorCode) local_unnamed_addr #0 {
 entry:
@@ -45,11 +40,11 @@ if.end8:                                          ; preds = %lor.lhs.false4
   br i1 %cmp.i20, label %if.end13, label %return
 
 if.end13:                                         ; preds = %if.end8
-  %sharedData = getelementptr inbounds %struct.UConverter, ptr %cnv, i64 0, i32 6
+  %sharedData = getelementptr inbounds i8, ptr %cnv, i64 48
   %2 = load ptr, ptr %sharedData, align 8
-  %staticData = getelementptr inbounds %struct.UConverterSharedData, ptr %2, i64 0, i32 3
+  %staticData = getelementptr inbounds i8, ptr %2, i64 16
   %3 = load ptr, ptr %staticData, align 8
-  %name14 = getelementptr inbounds %struct.UConverterStaticData, ptr %3, i64 0, i32 1
+  %name14 = getelementptr inbounds i8, ptr %3, i64 4
   %call15 = call ptr @ures_getStringByKey_75(ptr noundef %call9, ptr noundef nonnull %name14, ptr noundef nonnull %length, ptr noundef nonnull %localStatus)
   call void @ures_close_75(ptr noundef %call9)
   %4 = load i32, ptr %localStatus, align 4
@@ -74,9 +69,9 @@ if.end21:                                         ; preds = %if.then20, %if.then
 
 if.else:                                          ; preds = %if.end13
   %7 = load ptr, ptr %sharedData, align 8
-  %staticData25 = getelementptr inbounds %struct.UConverterSharedData, ptr %7, i64 0, i32 3
+  %staticData25 = getelementptr inbounds i8, ptr %7, i64 16
   %8 = load ptr, ptr %staticData25, align 8
-  %name26 = getelementptr inbounds %struct.UConverterStaticData, ptr %8, i64 0, i32 1
+  %name26 = getelementptr inbounds i8, ptr %8, i64 4
   %call28 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %name26) #3
   %conv = trunc i64 %call28 to i32
   store i32 %conv, ptr %length, align 4

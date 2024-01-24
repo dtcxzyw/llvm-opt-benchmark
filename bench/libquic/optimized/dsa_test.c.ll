@@ -4,9 +4,6 @@ target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:
 target triple = "x86_64-unknown-linux-gnu"
 
 %struct.bn_gencb_st = type { ptr, ptr }
-%struct.dsa_st = type { i64, ptr, ptr, ptr, ptr, ptr, ptr, ptr, i32, %union.crypto_mutex_st, ptr, i32, %struct.crypto_ex_data_st }
-%union.crypto_mutex_st = type { double, [48 x i8] }
-%struct.crypto_ex_data_st = type { ptr }
 
 @stdout = external local_unnamed_addr global ptr, align 8
 @fips_sig = internal constant [47 x i8] c"0-\02\15\00\8B\AC\1A\B6d\10C\\\B7\18\1F\95\B1j\B9|\92\B3A\C0\02\14A\E24_\1FV\DF$X\F4&\D1U\B4\BA-\B6\DC\D8\C8", align 16
@@ -116,7 +113,7 @@ if.then26.i:                                      ; preds = %if.end23.i
   br label %test_generate.exit.thread
 
 if.end28.i:                                       ; preds = %if.end23.i
-  %q.i = getelementptr inbounds %struct.dsa_st, ptr %call1.i, i64 0, i32 2
+  %q.i = getelementptr inbounds i8, ptr %call1.i, i64 16
   %18 = load ptr, ptr %q.i, align 8
   %call29.i = call i64 @BN_bn2bin(ptr noundef %18, ptr noundef nonnull %buf.i) #7
   %19 = and i64 %call29.i, 4294967295
@@ -134,7 +131,7 @@ if.then39.i:                                      ; preds = %lor.lhs.false33.i, 
   br label %test_generate.exit.thread
 
 if.end41.i:                                       ; preds = %lor.lhs.false33.i
-  %p.i = getelementptr inbounds %struct.dsa_st, ptr %call1.i, i64 0, i32 1
+  %p.i = getelementptr inbounds i8, ptr %call1.i, i64 8
   %22 = load ptr, ptr %p.i, align 8
   %call43.i = call i64 @BN_bn2bin(ptr noundef %22, ptr noundef nonnull %buf.i) #7
   %23 = and i64 %call43.i, 4294967295
@@ -152,7 +149,7 @@ if.then53.i:                                      ; preds = %lor.lhs.false47.i, 
   br label %test_generate.exit.thread
 
 if.end55.i:                                       ; preds = %lor.lhs.false47.i
-  %g.i = getelementptr inbounds %struct.dsa_st, ptr %call1.i, i64 0, i32 3
+  %g.i = getelementptr inbounds i8, ptr %call1.i, i64 24
   %26 = load ptr, ptr %g.i, align 8
   %call57.i = call i64 @BN_bn2bin(ptr noundef %26, ptr noundef nonnull %buf.i) #7
   %27 = and i64 %call57.i, 4294967295
@@ -258,19 +255,19 @@ entry:
 
 if.end.i:                                         ; preds = %entry
   %call1.i = tail call ptr @BN_bin2bn(ptr noundef nonnull @fips_p, i64 noundef 64, ptr noundef null) #7
-  %p.i = getelementptr inbounds %struct.dsa_st, ptr %call.i, i64 0, i32 1
+  %p.i = getelementptr inbounds i8, ptr %call.i, i64 8
   store ptr %call1.i, ptr %p.i, align 8
   %call2.i = tail call ptr @BN_bin2bn(ptr noundef nonnull @fips_q, i64 noundef 20, ptr noundef null) #7
-  %q.i = getelementptr inbounds %struct.dsa_st, ptr %call.i, i64 0, i32 2
+  %q.i = getelementptr inbounds i8, ptr %call.i, i64 16
   store ptr %call2.i, ptr %q.i, align 8
   %call3.i = tail call ptr @BN_bin2bn(ptr noundef nonnull @fips_g, i64 noundef 64, ptr noundef null) #7
-  %g.i = getelementptr inbounds %struct.dsa_st, ptr %call.i, i64 0, i32 3
+  %g.i = getelementptr inbounds i8, ptr %call.i, i64 24
   store ptr %call3.i, ptr %g.i, align 8
   %call4.i = tail call ptr @BN_bin2bn(ptr noundef nonnull @fips_y, i64 noundef 64, ptr noundef null) #7
-  %pub_key.i = getelementptr inbounds %struct.dsa_st, ptr %call.i, i64 0, i32 4
+  %pub_key.i = getelementptr inbounds i8, ptr %call.i, i64 32
   store ptr %call4.i, ptr %pub_key.i, align 8
   %call5.i = tail call ptr @BN_bin2bn(ptr noundef nonnull @fips_x, i64 noundef 20, ptr noundef null) #7
-  %priv_key.i = getelementptr inbounds %struct.dsa_st, ptr %call.i, i64 0, i32 5
+  %priv_key.i = getelementptr inbounds i8, ptr %call.i, i64 40
   store ptr %call5.i, ptr %priv_key.i, align 8
   %0 = load ptr, ptr %p.i, align 8
   %cmp.i = icmp eq ptr %0, null

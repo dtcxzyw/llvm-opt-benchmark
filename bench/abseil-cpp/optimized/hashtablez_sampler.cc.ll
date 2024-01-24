@@ -3,23 +3,6 @@ source_filename = "bench/abseil-cpp/original/hashtablez_sampler.cc.ll"
 target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:128-n8:16:32:64-S128"
 target triple = "x86_64-unknown-linux-gnu"
 
-%"class.absl::profiling_internal::SampleRecorder" = type { %"struct.std::atomic", %"struct.std::atomic", %"struct.std::atomic", %"struct.std::atomic.0", %"struct.absl::container_internal::HashtablezInfo", %"struct.std::atomic.4" }
-%"struct.std::atomic" = type { %"struct.std::__atomic_base" }
-%"struct.std::__atomic_base" = type { i64 }
-%"struct.std::atomic.0" = type { %"struct.std::__atomic_base.1" }
-%"struct.std::__atomic_base.1" = type { ptr }
-%"struct.absl::container_internal::HashtablezInfo" = type { %"struct.absl::profiling_internal::Sample", %"struct.std::atomic", %"struct.std::atomic", %"struct.std::atomic", %"struct.std::atomic", %"struct.std::atomic", %"struct.std::atomic", %"struct.std::atomic", %"struct.std::atomic", %"struct.std::atomic", %"struct.std::atomic", %"class.absl::Time", i32, [64 x ptr], i64 }
-%"struct.absl::profiling_internal::Sample" = type { %"class.absl::Mutex", ptr, ptr, i64 }
-%"class.absl::Mutex" = type { %"struct.std::atomic.2" }
-%"struct.std::atomic.2" = type { %"struct.std::__atomic_base.3" }
-%"struct.std::__atomic_base.3" = type { i64 }
-%"class.absl::Time" = type { %"class.absl::Duration" }
-%"class.absl::Duration" = type { %"class.absl::Duration::HiRep", i32 }
-%"class.absl::Duration::HiRep" = type { i32, i32 }
-%"struct.std::atomic.4" = type { %"struct.std::__atomic_base.5" }
-%"struct.std::__atomic_base.5" = type { ptr }
-%"struct.absl::container_internal::SamplingState" = type { i64, i64 }
-
 $_ZN4absl18profiling_internal14SampleRecorderINS_18container_internal14HashtablezInfoEEC2Ev = comdat any
 
 $_ZN4absl18profiling_internal14SampleRecorderINS_18container_internal14HashtablezInfoEE8RegisterIJRKlRmEEEPS3_DpOT_ = comdat any
@@ -51,12 +34,12 @@ entry:
   br i1 %guard.uninitialized, label %init.check, label %init.end, !prof !5
 
 init.check:                                       ; preds = %entry
-  %1 = tail call i32 @__cxa_guard_acquire(ptr nonnull @_ZGVZN4absl18container_internal23GlobalHashtablezSamplerEvE7sampler) #13
+  %1 = tail call i32 @__cxa_guard_acquire(ptr nonnull @_ZGVZN4absl18container_internal23GlobalHashtablezSamplerEvE7sampler) #12
   %tobool.not = icmp eq i32 %1, 0
   br i1 %tobool.not, label %init.end, label %init
 
 init:                                             ; preds = %init.check
-  %call = invoke noalias noundef nonnull dereferenceable(688) ptr @_Znwm(i64 noundef 688) #14
+  %call = invoke noalias noundef nonnull dereferenceable(688) ptr @_Znwm(i64 noundef 688) #13
           to label %invoke.cont unwind label %lpad
 
 invoke.cont:                                      ; preds = %init
@@ -65,7 +48,7 @@ invoke.cont:                                      ; preds = %init
 
 invoke.cont2:                                     ; preds = %invoke.cont
   store ptr %call, ptr @_ZZN4absl18container_internal23GlobalHashtablezSamplerEvE7sampler, align 8
-  tail call void @__cxa_guard_release(ptr nonnull @_ZGVZN4absl18container_internal23GlobalHashtablezSamplerEvE7sampler) #13
+  tail call void @__cxa_guard_release(ptr nonnull @_ZGVZN4absl18container_internal23GlobalHashtablezSamplerEvE7sampler) #12
   br label %init.end
 
 init.end:                                         ; preds = %invoke.cont2, %init.check, %entry
@@ -80,12 +63,12 @@ lpad:                                             ; preds = %init
 lpad1:                                            ; preds = %invoke.cont
   %4 = landingpad { ptr, i32 }
           cleanup
-  tail call void @_ZdlPv(ptr noundef nonnull %call) #15
+  tail call void @_ZdlPv(ptr noundef nonnull %call) #14
   br label %ehcleanup
 
 ehcleanup:                                        ; preds = %lpad1, %lpad
   %.pn = phi { ptr, i32 } [ %4, %lpad1 ], [ %3, %lpad ]
-  tail call void @__cxa_guard_abort(ptr nonnull @_ZGVZN4absl18container_internal23GlobalHashtablezSamplerEvE7sampler) #13
+  tail call void @__cxa_guard_abort(ptr nonnull @_ZGVZN4absl18container_internal23GlobalHashtablezSamplerEvE7sampler) #12
   resume { ptr, i32 } %.pn
 }
 
@@ -100,22 +83,22 @@ declare i32 @__gxx_personality_v0(...)
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr dso_local void @_ZN4absl18profiling_internal14SampleRecorderINS_18container_internal14HashtablezInfoEEC2Ev(ptr noundef nonnull align 8 dereferenceable(688) %this) unnamed_addr #0 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  %max_samples_ = getelementptr inbounds %"class.absl::profiling_internal::SampleRecorder", ptr %this, i64 0, i32 2
+  %max_samples_ = getelementptr inbounds i8, ptr %this, i64 16
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %this, i8 0, i64 16, i1 false)
   store i64 1048576, ptr %max_samples_, align 8
-  %all_ = getelementptr inbounds %"class.absl::profiling_internal::SampleRecorder", ptr %this, i64 0, i32 3
-  %graveyard_ = getelementptr inbounds %"class.absl::profiling_internal::SampleRecorder", ptr %this, i64 0, i32 4
-  %create_time.i = getelementptr inbounds %"class.absl::profiling_internal::SampleRecorder", ptr %this, i64 0, i32 4, i32 11
-  %hi_.i.i.i.i = getelementptr inbounds %"class.absl::profiling_internal::SampleRecorder", ptr %this, i64 0, i32 4, i32 11, i32 0, i32 0, i32 1
+  %all_ = getelementptr inbounds i8, ptr %this, i64 24
+  %graveyard_ = getelementptr inbounds i8, ptr %this, i64 32
+  %create_time.i = getelementptr inbounds i8, ptr %this, i64 144
+  %hi_.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 148
   store i32 0, ptr %hi_.i.i.i.i, align 4
   store i32 0, ptr %create_time.i, align 8
-  %rep_lo_.i.i.i = getelementptr inbounds %"class.absl::profiling_internal::SampleRecorder", ptr %this, i64 0, i32 4, i32 11, i32 0, i32 1
+  %rep_lo_.i.i.i = getelementptr inbounds i8, ptr %this, i64 152
   store i32 0, ptr %rep_lo_.i.i.i, align 8
-  %dispose_ = getelementptr inbounds %"class.absl::profiling_internal::SampleRecorder", ptr %this, i64 0, i32 5
+  %dispose_ = getelementptr inbounds i8, ptr %this, i64 680
   store ptr null, ptr %dispose_, align 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %all_, i8 0, i64 32, i1 false)
   tail call void @_ZN4absl5Mutex4LockEv(ptr noundef nonnull align 8 dereferenceable(8) %graveyard_)
-  %dead = getelementptr inbounds %"class.absl::profiling_internal::SampleRecorder", ptr %this, i64 0, i32 4, i32 0, i32 2
+  %dead = getelementptr inbounds i8, ptr %this, i64 48
   store ptr %graveyard_, ptr %dead, align 8
   invoke void @_ZN4absl5Mutex6UnlockEv(ptr noundef nonnull align 8 dereferenceable(8) %graveyard_)
           to label %_ZN4absl9MutexLockD2Ev.exit unwind label %terminate.lpad.i
@@ -124,7 +107,7 @@ terminate.lpad.i:                                 ; preds = %entry
   %0 = landingpad { ptr, i32 }
           catch ptr null
   %1 = extractvalue { ptr, i32 } %0, 0
-  tail call void @__clang_call_terminate(ptr %1) #16
+  tail call void @__clang_call_terminate(ptr %1) #15
   unreachable
 
 _ZN4absl9MutexLockD2Ev.exit:                      ; preds = %entry
@@ -140,15 +123,15 @@ declare void @__cxa_guard_abort(ptr) local_unnamed_addr #1
 ; Function Attrs: nofree nounwind
 declare void @__cxa_guard_release(ptr) local_unnamed_addr #1
 
-; Function Attrs: mustprogress nofree nosync nounwind willreturn memory(argmem: write) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
 define dso_local void @_ZN4absl18container_internal14HashtablezInfoC2Ev(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(648) %this) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
 invoke.cont:
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %this, i8 0, i64 24, i1 false)
-  %create_time = getelementptr inbounds %"struct.absl::container_internal::HashtablezInfo", ptr %this, i64 0, i32 11
-  %hi_.i.i.i = getelementptr inbounds %"struct.absl::container_internal::HashtablezInfo", ptr %this, i64 0, i32 11, i32 0, i32 0, i32 1
+  %create_time = getelementptr inbounds i8, ptr %this, i64 112
+  %hi_.i.i.i = getelementptr inbounds i8, ptr %this, i64 116
   store i32 0, ptr %hi_.i.i.i, align 4
   store i32 0, ptr %create_time, align 8
-  %rep_lo_.i.i = getelementptr inbounds %"struct.absl::container_internal::HashtablezInfo", ptr %this, i64 0, i32 11, i32 0, i32 1
+  %rep_lo_.i.i = getelementptr inbounds i8, ptr %this, i64 120
   store i32 0, ptr %rep_lo_.i.i, align 8
   ret void
 }
@@ -162,40 +145,40 @@ entry:
 ; Function Attrs: mustprogress uwtable
 define dso_local void @_ZN4absl18container_internal14HashtablezInfo18PrepareForSamplingElm(ptr noundef nonnull align 8 dereferenceable(648) %this, i64 noundef %stride, i64 noundef %inline_element_size_value) local_unnamed_addr #0 align 2 {
 entry:
-  %capacity = getelementptr inbounds %"struct.absl::container_internal::HashtablezInfo", ptr %this, i64 0, i32 1
+  %capacity = getelementptr inbounds i8, ptr %this, i64 32
   store atomic i64 0, ptr %capacity monotonic, align 8
-  %size = getelementptr inbounds %"struct.absl::container_internal::HashtablezInfo", ptr %this, i64 0, i32 2
+  %size = getelementptr inbounds i8, ptr %this, i64 40
   store atomic i64 0, ptr %size monotonic, align 8
-  %num_erases = getelementptr inbounds %"struct.absl::container_internal::HashtablezInfo", ptr %this, i64 0, i32 3
+  %num_erases = getelementptr inbounds i8, ptr %this, i64 48
   store atomic i64 0, ptr %num_erases monotonic, align 8
-  %num_rehashes = getelementptr inbounds %"struct.absl::container_internal::HashtablezInfo", ptr %this, i64 0, i32 4
+  %num_rehashes = getelementptr inbounds i8, ptr %this, i64 56
   store atomic i64 0, ptr %num_rehashes monotonic, align 8
-  %max_probe_length = getelementptr inbounds %"struct.absl::container_internal::HashtablezInfo", ptr %this, i64 0, i32 5
+  %max_probe_length = getelementptr inbounds i8, ptr %this, i64 64
   store atomic i64 0, ptr %max_probe_length monotonic, align 8
-  %total_probe_length = getelementptr inbounds %"struct.absl::container_internal::HashtablezInfo", ptr %this, i64 0, i32 6
+  %total_probe_length = getelementptr inbounds i8, ptr %this, i64 72
   store atomic i64 0, ptr %total_probe_length monotonic, align 8
-  %hashes_bitwise_or = getelementptr inbounds %"struct.absl::container_internal::HashtablezInfo", ptr %this, i64 0, i32 7
+  %hashes_bitwise_or = getelementptr inbounds i8, ptr %this, i64 80
   store atomic i64 0, ptr %hashes_bitwise_or monotonic, align 8
-  %hashes_bitwise_and = getelementptr inbounds %"struct.absl::container_internal::HashtablezInfo", ptr %this, i64 0, i32 8
+  %hashes_bitwise_and = getelementptr inbounds i8, ptr %this, i64 88
   store atomic i64 -1, ptr %hashes_bitwise_and monotonic, align 8
-  %hashes_bitwise_xor = getelementptr inbounds %"struct.absl::container_internal::HashtablezInfo", ptr %this, i64 0, i32 9
+  %hashes_bitwise_xor = getelementptr inbounds i8, ptr %this, i64 96
   store atomic i64 0, ptr %hashes_bitwise_xor monotonic, align 8
-  %max_reserve = getelementptr inbounds %"struct.absl::container_internal::HashtablezInfo", ptr %this, i64 0, i32 10
+  %max_reserve = getelementptr inbounds i8, ptr %this, i64 104
   store atomic i64 0, ptr %max_reserve monotonic, align 8
   %call = tail call { i64, i32 } @_ZN4absl3NowEv()
   %call.fca.0.extract = extractvalue { i64, i32 } %call, 0
   %call.fca.1.extract = extractvalue { i64, i32 } %call, 1
-  %create_time = getelementptr inbounds %"struct.absl::container_internal::HashtablezInfo", ptr %this, i64 0, i32 11
+  %create_time = getelementptr inbounds i8, ptr %this, i64 112
   store i64 %call.fca.0.extract, ptr %create_time, align 8
-  %ref.tmp.sroa.2.0.create_time.sroa_idx = getelementptr inbounds %"struct.absl::container_internal::HashtablezInfo", ptr %this, i64 0, i32 11, i32 0, i32 1
+  %ref.tmp.sroa.2.0.create_time.sroa_idx = getelementptr inbounds i8, ptr %this, i64 120
   store i32 %call.fca.1.extract, ptr %ref.tmp.sroa.2.0.create_time.sroa_idx, align 8
-  %weight = getelementptr inbounds %"struct.absl::profiling_internal::Sample", ptr %this, i64 0, i32 3
+  %weight = getelementptr inbounds i8, ptr %this, i64 24
   store i64 %stride, ptr %weight, align 8
-  %stack = getelementptr inbounds %"struct.absl::container_internal::HashtablezInfo", ptr %this, i64 0, i32 13
+  %stack = getelementptr inbounds i8, ptr %this, i64 128
   %call2 = tail call noundef i32 @_ZN4absl13GetStackTraceEPPvii(ptr noundef nonnull %stack, i32 noundef 64, i32 noundef 0)
-  %depth = getelementptr inbounds %"struct.absl::container_internal::HashtablezInfo", ptr %this, i64 0, i32 12
+  %depth = getelementptr inbounds i8, ptr %this, i64 124
   store i32 %call2, ptr %depth, align 4
-  %inline_element_size = getelementptr inbounds %"struct.absl::container_internal::HashtablezInfo", ptr %this, i64 0, i32 14
+  %inline_element_size = getelementptr inbounds i8, ptr %this, i64 640
   store i64 %inline_element_size_value, ptr %inline_element_size, align 8
   ret void
 }
@@ -229,7 +212,7 @@ _ZN4absl18container_internalL19ShouldForceSamplingEv.exit: ; preds = %entry, %if
 
 if.then:                                          ; preds = %_ZN4absl18container_internalL19ShouldForceSamplingEv.exit
   store i64 1, ptr %next_sample, align 8
-  %sample_stride = getelementptr inbounds %"struct.absl::container_internal::SamplingState", ptr %next_sample, i64 0, i32 1
+  %sample_stride = getelementptr inbounds i8, ptr %next_sample, i64 8
   %1 = load i64, ptr %sample_stride, align 8
   store i64 1, ptr %sample_stride, align 8
   store i64 %1, ptr %old_stride, align 8
@@ -238,12 +221,12 @@ if.then:                                          ; preds = %_ZN4absl18container
   br i1 %guard.uninitialized.i, label %init.check.i, label %_ZN4absl18container_internal23GlobalHashtablezSamplerEv.exit, !prof !5
 
 init.check.i:                                     ; preds = %if.then
-  %3 = tail call i32 @__cxa_guard_acquire(ptr nonnull @_ZGVZN4absl18container_internal23GlobalHashtablezSamplerEvE7sampler) #13
+  %3 = tail call i32 @__cxa_guard_acquire(ptr nonnull @_ZGVZN4absl18container_internal23GlobalHashtablezSamplerEvE7sampler) #12
   %tobool.not.i = icmp eq i32 %3, 0
   br i1 %tobool.not.i, label %_ZN4absl18container_internal23GlobalHashtablezSamplerEv.exit, label %init.i
 
 init.i:                                           ; preds = %init.check.i
-  %call.i = invoke noalias noundef nonnull dereferenceable(688) ptr @_Znwm(i64 noundef 688) #14
+  %call.i = invoke noalias noundef nonnull dereferenceable(688) ptr @_Znwm(i64 noundef 688) #13
           to label %invoke.cont.i unwind label %lpad.i
 
 invoke.cont.i:                                    ; preds = %init.i
@@ -252,7 +235,7 @@ invoke.cont.i:                                    ; preds = %init.i
 
 invoke.cont2.i:                                   ; preds = %invoke.cont.i
   store ptr %call.i, ptr @_ZZN4absl18container_internal23GlobalHashtablezSamplerEvE7sampler, align 8
-  tail call void @__cxa_guard_release(ptr nonnull @_ZGVZN4absl18container_internal23GlobalHashtablezSamplerEvE7sampler) #13
+  tail call void @__cxa_guard_release(ptr nonnull @_ZGVZN4absl18container_internal23GlobalHashtablezSamplerEvE7sampler) #12
   br label %_ZN4absl18container_internal23GlobalHashtablezSamplerEv.exit
 
 lpad.i:                                           ; preds = %init.i
@@ -263,12 +246,12 @@ lpad.i:                                           ; preds = %init.i
 lpad1.i:                                          ; preds = %invoke.cont.i
   %5 = landingpad { ptr, i32 }
           cleanup
-  tail call void @_ZdlPv(ptr noundef nonnull %call.i) #15
+  tail call void @_ZdlPv(ptr noundef nonnull %call.i) #14
   br label %ehcleanup.i
 
 ehcleanup.i:                                      ; preds = %lpad1.i, %lpad.i
   %.pn.i = phi { ptr, i32 } [ %5, %lpad1.i ], [ %4, %lpad.i ]
-  tail call void @__cxa_guard_abort(ptr nonnull @_ZGVZN4absl18container_internal23GlobalHashtablezSamplerEvE7sampler) #13
+  tail call void @__cxa_guard_abort(ptr nonnull @_ZGVZN4absl18container_internal23GlobalHashtablezSamplerEvE7sampler) #12
   resume { ptr, i32 } %.pn.i
 
 _ZN4absl18container_internal23GlobalHashtablezSamplerEv.exit: ; preds = %if.then, %init.check.i, %invoke.cont2.i
@@ -290,9 +273,9 @@ return:                                           ; preds = %if.end, %_ZN4absl18
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr dso_local noundef ptr @_ZN4absl18profiling_internal14SampleRecorderINS_18container_internal14HashtablezInfoEE8RegisterIJRKlRmEEEPS3_DpOT_(ptr noundef nonnull align 8 dereferenceable(688) %this, ptr noundef nonnull align 8 dereferenceable(8) %args, ptr noundef nonnull align 8 dereferenceable(8) %args1) local_unnamed_addr #0 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  %size_estimate_ = getelementptr inbounds %"class.absl::profiling_internal::SampleRecorder", ptr %this, i64 0, i32 1
+  %size_estimate_ = getelementptr inbounds i8, ptr %this, i64 8
   %0 = atomicrmw add ptr %size_estimate_, i64 1 monotonic, align 8
-  %max_samples_ = getelementptr inbounds %"class.absl::profiling_internal::SampleRecorder", ptr %this, i64 0, i32 2
+  %max_samples_ = getelementptr inbounds i8, ptr %this, i64 16
   %1 = load atomic i64, ptr %max_samples_ monotonic, align 8
   %cmp = icmp ugt i64 %0, %1
   br i1 %cmp, label %monotonic.i47, label %if.end
@@ -310,13 +293,13 @@ if.end:                                           ; preds = %entry
   br i1 %cmp9, label %invoke.cont, label %return
 
 invoke.cont:                                      ; preds = %if.end
-  %call11 = tail call noalias noundef nonnull dereferenceable(648) ptr @_Znwm(i64 noundef 648) #14
+  %call11 = tail call noalias noundef nonnull dereferenceable(648) ptr @_Znwm(i64 noundef 648) #13
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %call11, i8 0, i64 24, i1 false)
-  %create_time.i = getelementptr inbounds %"struct.absl::container_internal::HashtablezInfo", ptr %call11, i64 0, i32 11
-  %hi_.i.i.i.i = getelementptr inbounds %"struct.absl::container_internal::HashtablezInfo", ptr %call11, i64 0, i32 11, i32 0, i32 0, i32 1
+  %create_time.i = getelementptr inbounds i8, ptr %call11, i64 112
+  %hi_.i.i.i.i = getelementptr inbounds i8, ptr %call11, i64 116
   store i32 0, ptr %hi_.i.i.i.i, align 4
   store i32 0, ptr %create_time.i, align 4
-  %rep_lo_.i.i.i = getelementptr inbounds %"struct.absl::container_internal::HashtablezInfo", ptr %call11, i64 0, i32 11, i32 0, i32 1
+  %rep_lo_.i.i.i = getelementptr inbounds i8, ptr %call11, i64 120
   store i32 0, ptr %rep_lo_.i.i.i, align 4
   tail call void @_ZN4absl5Mutex4LockEv(ptr noundef nonnull align 8 dereferenceable(8) %call11)
   invoke void @_ZN4absl5Mutex18ForgetDeadlockInfoEv(ptr noundef nonnull align 8 dereferenceable(8) %call11)
@@ -325,25 +308,25 @@ invoke.cont:                                      ; preds = %if.end
 invoke.cont14:                                    ; preds = %invoke.cont
   %6 = load i64, ptr %args, align 8
   %7 = load i64, ptr %args1, align 8
-  %capacity.i = getelementptr inbounds %"struct.absl::container_internal::HashtablezInfo", ptr %call11, i64 0, i32 1
+  %capacity.i = getelementptr inbounds i8, ptr %call11, i64 32
   store atomic i64 0, ptr %capacity.i monotonic, align 8
-  %size.i = getelementptr inbounds %"struct.absl::container_internal::HashtablezInfo", ptr %call11, i64 0, i32 2
+  %size.i = getelementptr inbounds i8, ptr %call11, i64 40
   store atomic i64 0, ptr %size.i monotonic, align 8
-  %num_erases.i = getelementptr inbounds %"struct.absl::container_internal::HashtablezInfo", ptr %call11, i64 0, i32 3
+  %num_erases.i = getelementptr inbounds i8, ptr %call11, i64 48
   store atomic i64 0, ptr %num_erases.i monotonic, align 8
-  %num_rehashes.i = getelementptr inbounds %"struct.absl::container_internal::HashtablezInfo", ptr %call11, i64 0, i32 4
+  %num_rehashes.i = getelementptr inbounds i8, ptr %call11, i64 56
   store atomic i64 0, ptr %num_rehashes.i monotonic, align 8
-  %max_probe_length.i = getelementptr inbounds %"struct.absl::container_internal::HashtablezInfo", ptr %call11, i64 0, i32 5
+  %max_probe_length.i = getelementptr inbounds i8, ptr %call11, i64 64
   store atomic i64 0, ptr %max_probe_length.i monotonic, align 8
-  %total_probe_length.i = getelementptr inbounds %"struct.absl::container_internal::HashtablezInfo", ptr %call11, i64 0, i32 6
+  %total_probe_length.i = getelementptr inbounds i8, ptr %call11, i64 72
   store atomic i64 0, ptr %total_probe_length.i monotonic, align 8
-  %hashes_bitwise_or.i = getelementptr inbounds %"struct.absl::container_internal::HashtablezInfo", ptr %call11, i64 0, i32 7
+  %hashes_bitwise_or.i = getelementptr inbounds i8, ptr %call11, i64 80
   store atomic i64 0, ptr %hashes_bitwise_or.i monotonic, align 8
-  %hashes_bitwise_and.i = getelementptr inbounds %"struct.absl::container_internal::HashtablezInfo", ptr %call11, i64 0, i32 8
+  %hashes_bitwise_and.i = getelementptr inbounds i8, ptr %call11, i64 88
   store atomic i64 -1, ptr %hashes_bitwise_and.i monotonic, align 8
-  %hashes_bitwise_xor.i = getelementptr inbounds %"struct.absl::container_internal::HashtablezInfo", ptr %call11, i64 0, i32 9
+  %hashes_bitwise_xor.i = getelementptr inbounds i8, ptr %call11, i64 96
   store atomic i64 0, ptr %hashes_bitwise_xor.i monotonic, align 8
-  %max_reserve.i = getelementptr inbounds %"struct.absl::container_internal::HashtablezInfo", ptr %call11, i64 0, i32 10
+  %max_reserve.i = getelementptr inbounds i8, ptr %call11, i64 104
   store atomic i64 0, ptr %max_reserve.i monotonic, align 8
   %call.i23 = invoke { i64, i32 } @_ZN4absl3NowEv()
           to label %call.i.noexc unwind label %lpad13
@@ -353,16 +336,16 @@ call.i.noexc:                                     ; preds = %invoke.cont14
   %call.fca.1.extract.i = extractvalue { i64, i32 } %call.i23, 1
   store i64 %call.fca.0.extract.i, ptr %create_time.i, align 8
   store i32 %call.fca.1.extract.i, ptr %rep_lo_.i.i.i, align 8
-  %weight.i = getelementptr inbounds %"struct.absl::profiling_internal::Sample", ptr %call11, i64 0, i32 3
+  %weight.i = getelementptr inbounds i8, ptr %call11, i64 24
   store i64 %6, ptr %weight.i, align 8
-  %stack.i = getelementptr inbounds %"struct.absl::container_internal::HashtablezInfo", ptr %call11, i64 0, i32 13
+  %stack.i = getelementptr inbounds i8, ptr %call11, i64 128
   %call2.i24 = invoke noundef i32 @_ZN4absl13GetStackTraceEPPvii(ptr noundef nonnull %stack.i, i32 noundef 64, i32 noundef 0)
           to label %invoke.cont15 unwind label %lpad13
 
 invoke.cont15:                                    ; preds = %call.i.noexc
-  %depth.i = getelementptr inbounds %"struct.absl::container_internal::HashtablezInfo", ptr %call11, i64 0, i32 12
+  %depth.i = getelementptr inbounds i8, ptr %call11, i64 124
   store i32 %call2.i24, ptr %depth.i, align 4
-  %inline_element_size.i = getelementptr inbounds %"struct.absl::container_internal::HashtablezInfo", ptr %call11, i64 0, i32 14
+  %inline_element_size.i = getelementptr inbounds i8, ptr %call11, i64 640
   store i64 %7, ptr %inline_element_size.i, align 8
   invoke void @_ZN4absl5Mutex6UnlockEv(ptr noundef nonnull align 8 dereferenceable(8) %call11)
           to label %_ZN4absl9MutexLockD2Ev.exit unwind label %terminate.lpad.i
@@ -371,13 +354,13 @@ terminate.lpad.i:                                 ; preds = %invoke.cont15
   %8 = landingpad { ptr, i32 }
           catch ptr null
   %9 = extractvalue { ptr, i32 } %8, 0
-  tail call void @__clang_call_terminate(ptr %9) #16
+  tail call void @__clang_call_terminate(ptr %9) #15
   unreachable
 
 _ZN4absl9MutexLockD2Ev.exit:                      ; preds = %invoke.cont15
-  %all_.i = getelementptr inbounds %"class.absl::profiling_internal::SampleRecorder", ptr %this, i64 0, i32 3
+  %all_.i = getelementptr inbounds i8, ptr %this, i64 24
   %10 = load atomic i64, ptr %all_.i monotonic, align 8
-  %next.i = getelementptr inbounds %"struct.absl::profiling_internal::Sample", ptr %call11, i64 0, i32 1
+  %next.i = getelementptr inbounds i8, ptr %call11, i64 8
   %11 = ptrtoint ptr %call11 to i64
   %storemerge4.i = inttoptr i64 %10 to ptr
   store ptr %storemerge4.i, ptr %next.i, align 8
@@ -404,7 +387,7 @@ terminate.lpad.i25:                               ; preds = %lpad13
   %19 = landingpad { ptr, i32 }
           catch ptr null
   %20 = extractvalue { ptr, i32 } %19, 0
-  tail call void @__clang_call_terminate(ptr %20) #16
+  tail call void @__clang_call_terminate(ptr %20) #15
   unreachable
 
 return:                                           ; preds = %_ZNSt6atomicIPN4absl18container_internal14HashtablezInfoEE21compare_exchange_weakERS3_S3_St12memory_orderS6_.exit.i, %_ZN4absl9MutexLockD2Ev.exit, %if.end, %monotonic.i47
@@ -423,12 +406,12 @@ entry:
   br i1 %guard.uninitialized.i, label %init.check.i, label %_ZN4absl18container_internal23GlobalHashtablezSamplerEv.exit, !prof !5
 
 init.check.i:                                     ; preds = %entry
-  %1 = tail call i32 @__cxa_guard_acquire(ptr nonnull @_ZGVZN4absl18container_internal23GlobalHashtablezSamplerEvE7sampler) #13
+  %1 = tail call i32 @__cxa_guard_acquire(ptr nonnull @_ZGVZN4absl18container_internal23GlobalHashtablezSamplerEvE7sampler) #12
   %tobool.not.i = icmp eq i32 %1, 0
   br i1 %tobool.not.i, label %_ZN4absl18container_internal23GlobalHashtablezSamplerEv.exit, label %init.i
 
 init.i:                                           ; preds = %init.check.i
-  %call.i = invoke noalias noundef nonnull dereferenceable(688) ptr @_Znwm(i64 noundef 688) #14
+  %call.i = invoke noalias noundef nonnull dereferenceable(688) ptr @_Znwm(i64 noundef 688) #13
           to label %invoke.cont.i unwind label %lpad.i
 
 invoke.cont.i:                                    ; preds = %init.i
@@ -437,7 +420,7 @@ invoke.cont.i:                                    ; preds = %init.i
 
 invoke.cont2.i:                                   ; preds = %invoke.cont.i
   store ptr %call.i, ptr @_ZZN4absl18container_internal23GlobalHashtablezSamplerEvE7sampler, align 8
-  tail call void @__cxa_guard_release(ptr nonnull @_ZGVZN4absl18container_internal23GlobalHashtablezSamplerEvE7sampler) #13
+  tail call void @__cxa_guard_release(ptr nonnull @_ZGVZN4absl18container_internal23GlobalHashtablezSamplerEvE7sampler) #12
   br label %_ZN4absl18container_internal23GlobalHashtablezSamplerEv.exit
 
 lpad.i:                                           ; preds = %init.i
@@ -448,18 +431,18 @@ lpad.i:                                           ; preds = %init.i
 lpad1.i:                                          ; preds = %invoke.cont.i
   %3 = landingpad { ptr, i32 }
           cleanup
-  tail call void @_ZdlPv(ptr noundef nonnull %call.i) #15
+  tail call void @_ZdlPv(ptr noundef nonnull %call.i) #14
   br label %ehcleanup.i
 
 ehcleanup.i:                                      ; preds = %lpad1.i, %lpad.i
   %.pn.i = phi { ptr, i32 } [ %3, %lpad1.i ], [ %2, %lpad.i ]
-  tail call void @__cxa_guard_abort(ptr nonnull @_ZGVZN4absl18container_internal23GlobalHashtablezSamplerEvE7sampler) #13
+  tail call void @__cxa_guard_abort(ptr nonnull @_ZGVZN4absl18container_internal23GlobalHashtablezSamplerEvE7sampler) #12
   resume { ptr, i32 } %.pn.i
 
 _ZN4absl18container_internal23GlobalHashtablezSamplerEv.exit: ; preds = %entry, %init.check.i, %invoke.cont2.i
   %4 = load ptr, ptr @_ZZN4absl18container_internal23GlobalHashtablezSamplerEvE7sampler, align 8
   tail call void @_ZN4absl18profiling_internal14SampleRecorderINS_18container_internal14HashtablezInfoEE8PushDeadEPS3_(ptr noundef nonnull align 8 dereferenceable(688) %4, ptr noundef %info)
-  %size_estimate_.i = getelementptr inbounds %"class.absl::profiling_internal::SampleRecorder", ptr %4, i64 0, i32 1
+  %size_estimate_.i = getelementptr inbounds i8, ptr %4, i64 8
   %5 = atomicrmw sub ptr %size_estimate_.i, i64 1 monotonic, align 8
   ret void
 }
@@ -467,22 +450,22 @@ _ZN4absl18container_internal23GlobalHashtablezSamplerEv.exit: ; preds = %entry, 
 ; Function Attrs: mustprogress nofree norecurse nounwind willreturn memory(argmem: readwrite) uwtable
 define dso_local void @_ZN4absl18container_internal16RecordRehashSlowEPNS0_14HashtablezInfoEm(ptr nocapture noundef %info, i64 noundef %total_probe_length) local_unnamed_addr #7 {
 entry:
-  %total_probe_length1 = getelementptr inbounds %"struct.absl::container_internal::HashtablezInfo", ptr %info, i64 0, i32 6
+  %total_probe_length1 = getelementptr inbounds i8, ptr %info, i64 72
   %div15 = lshr i64 %total_probe_length, 4
   store atomic i64 %div15, ptr %total_probe_length1 monotonic, align 8
-  %num_erases = getelementptr inbounds %"struct.absl::container_internal::HashtablezInfo", ptr %info, i64 0, i32 3
+  %num_erases = getelementptr inbounds i8, ptr %info, i64 48
   store atomic i64 0, ptr %num_erases monotonic, align 8
-  %num_rehashes = getelementptr inbounds %"struct.absl::container_internal::HashtablezInfo", ptr %info, i64 0, i32 4
+  %num_rehashes = getelementptr inbounds i8, ptr %info, i64 56
   %0 = load atomic i64, ptr %num_rehashes monotonic, align 8
   %add = add i64 %0, 1
   store atomic i64 %add, ptr %num_rehashes monotonic, align 8
   ret void
 }
 
-; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: readwrite) uwtable
-define dso_local void @_ZN4absl18container_internal21RecordReservationSlowEPNS0_14HashtablezInfoEm(ptr nocapture noundef %info, i64 noundef %target_capacity) local_unnamed_addr #8 {
+; Function Attrs: mustprogress nofree norecurse nounwind willreturn memory(argmem: readwrite) uwtable
+define dso_local void @_ZN4absl18container_internal21RecordReservationSlowEPNS0_14HashtablezInfoEm(ptr nocapture noundef %info, i64 noundef %target_capacity) local_unnamed_addr #7 {
 entry:
-  %max_reserve = getelementptr inbounds %"struct.absl::container_internal::HashtablezInfo", ptr %info, i64 0, i32 10
+  %max_reserve = getelementptr inbounds i8, ptr %info, i64 104
   %0 = load atomic i64, ptr %max_reserve monotonic, align 8
   %.sroa.speculated = tail call i64 @llvm.umax.i64(i64 %0, i64 %target_capacity)
   store atomic i64 %.sroa.speculated, ptr %max_reserve monotonic, align 8
@@ -492,7 +475,7 @@ entry:
 ; Function Attrs: mustprogress nofree norecurse nounwind willreturn memory(argmem: readwrite) uwtable
 define dso_local void @_ZN4absl18container_internal28RecordClearedReservationSlowEPNS0_14HashtablezInfoE(ptr nocapture noundef writeonly %info) local_unnamed_addr #7 {
 entry:
-  %max_reserve = getelementptr inbounds %"struct.absl::container_internal::HashtablezInfo", ptr %info, i64 0, i32 10
+  %max_reserve = getelementptr inbounds i8, ptr %info, i64 104
   store atomic i64 0, ptr %max_reserve monotonic, align 8
   ret void
 }
@@ -500,17 +483,17 @@ entry:
 ; Function Attrs: mustprogress nofree norecurse nounwind willreturn memory(argmem: readwrite) uwtable
 define dso_local void @_ZN4absl18container_internal24RecordStorageChangedSlowEPNS0_14HashtablezInfoEmm(ptr nocapture noundef writeonly %info, i64 noundef %size, i64 noundef %capacity) local_unnamed_addr #7 {
 entry:
-  %size1 = getelementptr inbounds %"struct.absl::container_internal::HashtablezInfo", ptr %info, i64 0, i32 2
+  %size1 = getelementptr inbounds i8, ptr %info, i64 40
   store atomic i64 %size, ptr %size1 monotonic, align 8
-  %capacity2 = getelementptr inbounds %"struct.absl::container_internal::HashtablezInfo", ptr %info, i64 0, i32 1
+  %capacity2 = getelementptr inbounds i8, ptr %info, i64 32
   store atomic i64 %capacity, ptr %capacity2 monotonic, align 8
   %cmp = icmp eq i64 %size, 0
   br i1 %cmp, label %if.then, label %if.end
 
 if.then:                                          ; preds = %entry
-  %total_probe_length = getelementptr inbounds %"struct.absl::container_internal::HashtablezInfo", ptr %info, i64 0, i32 6
+  %total_probe_length = getelementptr inbounds i8, ptr %info, i64 72
   store atomic i64 0, ptr %total_probe_length monotonic, align 8
-  %num_erases = getelementptr inbounds %"struct.absl::container_internal::HashtablezInfo", ptr %info, i64 0, i32 3
+  %num_erases = getelementptr inbounds i8, ptr %info, i64 48
   store atomic i64 0, ptr %num_erases monotonic, align 8
   br label %if.end
 
@@ -518,23 +501,23 @@ if.end:                                           ; preds = %if.then, %entry
   ret void
 }
 
-; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: readwrite) uwtable
-define dso_local void @_ZN4absl18container_internal16RecordInsertSlowEPNS0_14HashtablezInfoEmm(ptr nocapture noundef %info, i64 noundef %hash, i64 noundef %distance_from_desired) local_unnamed_addr #8 {
+; Function Attrs: mustprogress nofree norecurse nounwind willreturn memory(argmem: readwrite) uwtable
+define dso_local void @_ZN4absl18container_internal16RecordInsertSlowEPNS0_14HashtablezInfoEmm(ptr nocapture noundef %info, i64 noundef %hash, i64 noundef %distance_from_desired) local_unnamed_addr #7 {
 entry:
   %div33 = lshr i64 %distance_from_desired, 4
-  %hashes_bitwise_and = getelementptr inbounds %"struct.absl::container_internal::HashtablezInfo", ptr %info, i64 0, i32 8
+  %hashes_bitwise_and = getelementptr inbounds i8, ptr %info, i64 88
   %0 = atomicrmw and ptr %hashes_bitwise_and, i64 %hash monotonic, align 8
-  %hashes_bitwise_or = getelementptr inbounds %"struct.absl::container_internal::HashtablezInfo", ptr %info, i64 0, i32 7
+  %hashes_bitwise_or = getelementptr inbounds i8, ptr %info, i64 80
   %1 = atomicrmw or ptr %hashes_bitwise_or, i64 %hash monotonic, align 8
-  %hashes_bitwise_xor = getelementptr inbounds %"struct.absl::container_internal::HashtablezInfo", ptr %info, i64 0, i32 9
+  %hashes_bitwise_xor = getelementptr inbounds i8, ptr %info, i64 96
   %2 = atomicrmw xor ptr %hashes_bitwise_xor, i64 %hash monotonic, align 8
-  %max_probe_length = getelementptr inbounds %"struct.absl::container_internal::HashtablezInfo", ptr %info, i64 0, i32 5
+  %max_probe_length = getelementptr inbounds i8, ptr %info, i64 64
   %3 = load atomic i64, ptr %max_probe_length monotonic, align 8
   %.sroa.speculated = tail call i64 @llvm.umax.i64(i64 %3, i64 %div33)
   store atomic i64 %.sroa.speculated, ptr %max_probe_length monotonic, align 8
-  %total_probe_length = getelementptr inbounds %"struct.absl::container_internal::HashtablezInfo", ptr %info, i64 0, i32 6
+  %total_probe_length = getelementptr inbounds i8, ptr %info, i64 72
   %4 = atomicrmw add ptr %total_probe_length, i64 %div33 monotonic, align 8
-  %size = getelementptr inbounds %"struct.absl::container_internal::HashtablezInfo", ptr %info, i64 0, i32 2
+  %size = getelementptr inbounds i8, ptr %info, i64 40
   %5 = atomicrmw add ptr %size, i64 1 monotonic, align 8
   ret void
 }
@@ -542,9 +525,9 @@ entry:
 ; Function Attrs: mustprogress nofree norecurse nounwind willreturn memory(argmem: readwrite) uwtable
 define dso_local void @_ZN4absl18container_internal15RecordEraseSlowEPNS0_14HashtablezInfoE(ptr nocapture noundef %info) local_unnamed_addr #7 {
 entry:
-  %size = getelementptr inbounds %"struct.absl::container_internal::HashtablezInfo", ptr %info, i64 0, i32 2
+  %size = getelementptr inbounds i8, ptr %info, i64 40
   %0 = atomicrmw sub ptr %size, i64 1 monotonic, align 8
-  %num_erases = getelementptr inbounds %"struct.absl::container_internal::HashtablezInfo", ptr %info, i64 0, i32 3
+  %num_erases = getelementptr inbounds i8, ptr %info, i64 48
   %1 = load atomic i64, ptr %num_erases monotonic, align 8
   %add = add i64 %1, 1
   store atomic i64 %add, ptr %num_erases monotonic, align 8
@@ -552,7 +535,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nounwind willreturn memory(readwrite, argmem: none, inaccessiblemem: none) uwtable
-define dso_local void @_ZN4absl18container_internal27SetHashtablezConfigListenerEPFvvE(ptr noundef %l) local_unnamed_addr #9 {
+define dso_local void @_ZN4absl18container_internal27SetHashtablezConfigListenerEPFvvE(ptr noundef %l) local_unnamed_addr #8 {
 entry:
   %0 = ptrtoint ptr %l to i64
   store atomic i64 %0, ptr @_ZN4absl18container_internal12_GLOBAL__N_128g_hashtablez_config_listenerE.0 release, align 8
@@ -560,7 +543,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nounwind willreturn memory(readwrite, argmem: none, inaccessiblemem: none) uwtable
-define dso_local noundef zeroext i1 @_ZN4absl18container_internal19IsHashtablezEnabledEv() local_unnamed_addr #9 personality ptr @__gxx_personality_v0 {
+define dso_local noundef zeroext i1 @_ZN4absl18container_internal19IsHashtablezEnabledEv() local_unnamed_addr #8 personality ptr @__gxx_personality_v0 {
 entry:
   %0 = load atomic i8, ptr @_ZN4absl18container_internal12_GLOBAL__N_120g_hashtablez_enabledE.0 acquire, align 1
   %1 = and i8 %0, 1
@@ -587,7 +570,7 @@ _ZN4absl18container_internal12_GLOBAL__N_131TriggerHashtablezConfigListenerEv.ex
 }
 
 ; Function Attrs: mustprogress nofree norecurse nounwind willreturn memory(readwrite, argmem: none, inaccessiblemem: none) uwtable
-define dso_local void @_ZN4absl18container_internal28SetHashtablezEnabledInternalEb(i1 noundef zeroext %enabled) local_unnamed_addr #9 {
+define dso_local void @_ZN4absl18container_internal28SetHashtablezEnabledInternalEb(i1 noundef zeroext %enabled) local_unnamed_addr #8 {
 entry:
   %frombool.i = zext i1 %enabled to i8
   store atomic i8 %frombool.i, ptr @_ZN4absl18container_internal12_GLOBAL__N_120g_hashtablez_enabledE.0 release, align 1
@@ -595,7 +578,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nounwind willreturn memory(readwrite, argmem: none, inaccessiblemem: none) uwtable
-define dso_local noundef i32 @_ZN4absl18container_internal28GetHashtablezSampleParameterEv() local_unnamed_addr #9 {
+define dso_local noundef i32 @_ZN4absl18container_internal28GetHashtablezSampleParameterEv() local_unnamed_addr #8 {
 entry:
   %0 = load atomic i32, ptr @_ZN4absl18container_internal12_GLOBAL__N_129g_hashtablez_sample_parameterE.0 acquire, align 4
   ret i32 %0
@@ -659,12 +642,12 @@ entry:
   br i1 %guard.uninitialized.i, label %init.check.i, label %_ZN4absl18container_internal23GlobalHashtablezSamplerEv.exit, !prof !5
 
 init.check.i:                                     ; preds = %entry
-  %1 = tail call i32 @__cxa_guard_acquire(ptr nonnull @_ZGVZN4absl18container_internal23GlobalHashtablezSamplerEvE7sampler) #13
+  %1 = tail call i32 @__cxa_guard_acquire(ptr nonnull @_ZGVZN4absl18container_internal23GlobalHashtablezSamplerEvE7sampler) #12
   %tobool.not.i = icmp eq i32 %1, 0
   br i1 %tobool.not.i, label %_ZN4absl18container_internal23GlobalHashtablezSamplerEv.exit, label %init.i
 
 init.i:                                           ; preds = %init.check.i
-  %call.i = invoke noalias noundef nonnull dereferenceable(688) ptr @_Znwm(i64 noundef 688) #14
+  %call.i = invoke noalias noundef nonnull dereferenceable(688) ptr @_Znwm(i64 noundef 688) #13
           to label %invoke.cont.i unwind label %lpad.i
 
 invoke.cont.i:                                    ; preds = %init.i
@@ -673,7 +656,7 @@ invoke.cont.i:                                    ; preds = %init.i
 
 invoke.cont2.i:                                   ; preds = %invoke.cont.i
   store ptr %call.i, ptr @_ZZN4absl18container_internal23GlobalHashtablezSamplerEvE7sampler, align 8
-  tail call void @__cxa_guard_release(ptr nonnull @_ZGVZN4absl18container_internal23GlobalHashtablezSamplerEvE7sampler) #13
+  tail call void @__cxa_guard_release(ptr nonnull @_ZGVZN4absl18container_internal23GlobalHashtablezSamplerEvE7sampler) #12
   br label %_ZN4absl18container_internal23GlobalHashtablezSamplerEv.exit
 
 lpad.i:                                           ; preds = %init.i
@@ -684,17 +667,17 @@ lpad.i:                                           ; preds = %init.i
 lpad1.i:                                          ; preds = %invoke.cont.i
   %3 = landingpad { ptr, i32 }
           cleanup
-  tail call void @_ZdlPv(ptr noundef nonnull %call.i) #15
+  tail call void @_ZdlPv(ptr noundef nonnull %call.i) #14
   br label %ehcleanup.i
 
 ehcleanup.i:                                      ; preds = %lpad1.i, %lpad.i
   %.pn.i = phi { ptr, i32 } [ %3, %lpad1.i ], [ %2, %lpad.i ]
-  tail call void @__cxa_guard_abort(ptr nonnull @_ZGVZN4absl18container_internal23GlobalHashtablezSamplerEvE7sampler) #13
+  tail call void @__cxa_guard_abort(ptr nonnull @_ZGVZN4absl18container_internal23GlobalHashtablezSamplerEvE7sampler) #12
   resume { ptr, i32 } %.pn.i
 
 _ZN4absl18container_internal23GlobalHashtablezSamplerEv.exit: ; preds = %entry, %init.check.i, %invoke.cont2.i
   %4 = load ptr, ptr @_ZZN4absl18container_internal23GlobalHashtablezSamplerEvE7sampler, align 8
-  %max_samples_.i = getelementptr inbounds %"class.absl::profiling_internal::SampleRecorder", ptr %4, i64 0, i32 2
+  %max_samples_.i = getelementptr inbounds i8, ptr %4, i64 16
   %5 = load atomic i64, ptr %max_samples_.i acquire, align 8
   ret i64 %5
 }
@@ -728,12 +711,12 @@ if.then:                                          ; preds = %entry
   br i1 %guard.uninitialized.i, label %init.check.i, label %_ZN4absl18container_internal23GlobalHashtablezSamplerEv.exit, !prof !5
 
 init.check.i:                                     ; preds = %if.then
-  %1 = tail call i32 @__cxa_guard_acquire(ptr nonnull @_ZGVZN4absl18container_internal23GlobalHashtablezSamplerEvE7sampler) #13
+  %1 = tail call i32 @__cxa_guard_acquire(ptr nonnull @_ZGVZN4absl18container_internal23GlobalHashtablezSamplerEvE7sampler) #12
   %tobool.not.i = icmp eq i32 %1, 0
   br i1 %tobool.not.i, label %_ZN4absl18container_internal23GlobalHashtablezSamplerEv.exit, label %init.i
 
 init.i:                                           ; preds = %init.check.i
-  %call.i = invoke noalias noundef nonnull dereferenceable(688) ptr @_Znwm(i64 noundef 688) #14
+  %call.i = invoke noalias noundef nonnull dereferenceable(688) ptr @_Znwm(i64 noundef 688) #13
           to label %invoke.cont.i unwind label %lpad.i
 
 invoke.cont.i:                                    ; preds = %init.i
@@ -742,7 +725,7 @@ invoke.cont.i:                                    ; preds = %init.i
 
 invoke.cont2.i:                                   ; preds = %invoke.cont.i
   store ptr %call.i, ptr @_ZZN4absl18container_internal23GlobalHashtablezSamplerEvE7sampler, align 8
-  tail call void @__cxa_guard_release(ptr nonnull @_ZGVZN4absl18container_internal23GlobalHashtablezSamplerEvE7sampler) #13
+  tail call void @__cxa_guard_release(ptr nonnull @_ZGVZN4absl18container_internal23GlobalHashtablezSamplerEvE7sampler) #12
   br label %_ZN4absl18container_internal23GlobalHashtablezSamplerEv.exit
 
 lpad.i:                                           ; preds = %init.i
@@ -753,17 +736,17 @@ lpad.i:                                           ; preds = %init.i
 lpad1.i:                                          ; preds = %invoke.cont.i
   %3 = landingpad { ptr, i32 }
           cleanup
-  tail call void @_ZdlPv(ptr noundef nonnull %call.i) #15
+  tail call void @_ZdlPv(ptr noundef nonnull %call.i) #14
   br label %ehcleanup.i
 
 ehcleanup.i:                                      ; preds = %lpad1.i, %lpad.i
   %.pn.i = phi { ptr, i32 } [ %3, %lpad1.i ], [ %2, %lpad.i ]
-  tail call void @__cxa_guard_abort(ptr nonnull @_ZGVZN4absl18container_internal23GlobalHashtablezSamplerEvE7sampler) #13
+  tail call void @__cxa_guard_abort(ptr nonnull @_ZGVZN4absl18container_internal23GlobalHashtablezSamplerEvE7sampler) #12
   resume { ptr, i32 } %.pn.i
 
 _ZN4absl18container_internal23GlobalHashtablezSamplerEv.exit: ; preds = %if.then, %init.check.i, %invoke.cont2.i
   %4 = load ptr, ptr @_ZZN4absl18container_internal23GlobalHashtablezSamplerEvE7sampler, align 8
-  %max_samples_.i = getelementptr inbounds %"class.absl::profiling_internal::SampleRecorder", ptr %4, i64 0, i32 2
+  %max_samples_.i = getelementptr inbounds i8, ptr %4, i64 16
   store atomic i64 %max, ptr %max_samples_.i release, align 8
   br label %if.end
 
@@ -776,9 +759,9 @@ if.end:                                           ; preds = %do.body, %_ZN4absl1
 }
 
 ; Function Attrs: noreturn nounwind uwtable
-define linkonce_odr hidden void @__clang_call_terminate(ptr noundef %0) local_unnamed_addr #10 comdat {
-  %2 = tail call ptr @__cxa_begin_catch(ptr %0) #13
-  tail call void @_ZSt9terminatev() #16
+define linkonce_odr hidden void @__clang_call_terminate(ptr noundef %0) local_unnamed_addr #9 comdat {
+  %2 = tail call ptr @__cxa_begin_catch(ptr %0) #12
+  tail call void @_ZSt9terminatev() #15
   unreachable
 }
 
@@ -795,9 +778,9 @@ declare void @_ZN4absl5Mutex6UnlockEv(ptr noundef nonnull align 8 dereferenceabl
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr dso_local noundef ptr @_ZN4absl18profiling_internal14SampleRecorderINS_18container_internal14HashtablezInfoEE7PopDeadIJlmEEEPS3_DpT_(ptr noundef nonnull align 8 dereferenceable(688) %this, i64 noundef %args, i64 noundef %args1) local_unnamed_addr #0 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  %graveyard_ = getelementptr inbounds %"class.absl::profiling_internal::SampleRecorder", ptr %this, i64 0, i32 4
+  %graveyard_ = getelementptr inbounds i8, ptr %this, i64 32
   tail call void @_ZN4absl5Mutex4LockEv(ptr noundef nonnull align 8 dereferenceable(8) %graveyard_)
-  %dead = getelementptr inbounds %"class.absl::profiling_internal::SampleRecorder", ptr %this, i64 0, i32 4, i32 0, i32 2
+  %dead = getelementptr inbounds i8, ptr %this, i64 48
   %0 = load ptr, ptr %dead, align 8
   %cmp = icmp eq ptr %0, %graveyard_
   br i1 %cmp, label %cleanup, label %if.end
@@ -807,29 +790,29 @@ if.end:                                           ; preds = %entry
           to label %invoke.cont unwind label %lpad
 
 invoke.cont:                                      ; preds = %if.end
-  %dead7 = getelementptr inbounds %"struct.absl::profiling_internal::Sample", ptr %0, i64 0, i32 2
+  %dead7 = getelementptr inbounds i8, ptr %0, i64 16
   %1 = load ptr, ptr %dead7, align 8
   store ptr %1, ptr %dead, align 8
   store ptr null, ptr %dead7, align 8
-  %capacity.i = getelementptr inbounds %"struct.absl::container_internal::HashtablezInfo", ptr %0, i64 0, i32 1
+  %capacity.i = getelementptr inbounds i8, ptr %0, i64 32
   store atomic i64 0, ptr %capacity.i monotonic, align 8
-  %size.i = getelementptr inbounds %"struct.absl::container_internal::HashtablezInfo", ptr %0, i64 0, i32 2
+  %size.i = getelementptr inbounds i8, ptr %0, i64 40
   store atomic i64 0, ptr %size.i monotonic, align 8
-  %num_erases.i = getelementptr inbounds %"struct.absl::container_internal::HashtablezInfo", ptr %0, i64 0, i32 3
+  %num_erases.i = getelementptr inbounds i8, ptr %0, i64 48
   store atomic i64 0, ptr %num_erases.i monotonic, align 8
-  %num_rehashes.i = getelementptr inbounds %"struct.absl::container_internal::HashtablezInfo", ptr %0, i64 0, i32 4
+  %num_rehashes.i = getelementptr inbounds i8, ptr %0, i64 56
   store atomic i64 0, ptr %num_rehashes.i monotonic, align 8
-  %max_probe_length.i = getelementptr inbounds %"struct.absl::container_internal::HashtablezInfo", ptr %0, i64 0, i32 5
+  %max_probe_length.i = getelementptr inbounds i8, ptr %0, i64 64
   store atomic i64 0, ptr %max_probe_length.i monotonic, align 8
-  %total_probe_length.i = getelementptr inbounds %"struct.absl::container_internal::HashtablezInfo", ptr %0, i64 0, i32 6
+  %total_probe_length.i = getelementptr inbounds i8, ptr %0, i64 72
   store atomic i64 0, ptr %total_probe_length.i monotonic, align 8
-  %hashes_bitwise_or.i = getelementptr inbounds %"struct.absl::container_internal::HashtablezInfo", ptr %0, i64 0, i32 7
+  %hashes_bitwise_or.i = getelementptr inbounds i8, ptr %0, i64 80
   store atomic i64 0, ptr %hashes_bitwise_or.i monotonic, align 8
-  %hashes_bitwise_and.i = getelementptr inbounds %"struct.absl::container_internal::HashtablezInfo", ptr %0, i64 0, i32 8
+  %hashes_bitwise_and.i = getelementptr inbounds i8, ptr %0, i64 88
   store atomic i64 -1, ptr %hashes_bitwise_and.i monotonic, align 8
-  %hashes_bitwise_xor.i = getelementptr inbounds %"struct.absl::container_internal::HashtablezInfo", ptr %0, i64 0, i32 9
+  %hashes_bitwise_xor.i = getelementptr inbounds i8, ptr %0, i64 96
   store atomic i64 0, ptr %hashes_bitwise_xor.i monotonic, align 8
-  %max_reserve.i = getelementptr inbounds %"struct.absl::container_internal::HashtablezInfo", ptr %0, i64 0, i32 10
+  %max_reserve.i = getelementptr inbounds i8, ptr %0, i64 104
   store atomic i64 0, ptr %max_reserve.i monotonic, align 8
   %call.i7 = invoke { i64, i32 } @_ZN4absl3NowEv()
           to label %call.i.noexc unwind label %lpad11
@@ -837,20 +820,20 @@ invoke.cont:                                      ; preds = %if.end
 call.i.noexc:                                     ; preds = %invoke.cont
   %call.fca.0.extract.i = extractvalue { i64, i32 } %call.i7, 0
   %call.fca.1.extract.i = extractvalue { i64, i32 } %call.i7, 1
-  %create_time.i = getelementptr inbounds %"struct.absl::container_internal::HashtablezInfo", ptr %0, i64 0, i32 11
+  %create_time.i = getelementptr inbounds i8, ptr %0, i64 112
   store i64 %call.fca.0.extract.i, ptr %create_time.i, align 8
-  %ref.tmp.sroa.2.0.create_time.sroa_idx.i = getelementptr inbounds %"struct.absl::container_internal::HashtablezInfo", ptr %0, i64 0, i32 11, i32 0, i32 1
+  %ref.tmp.sroa.2.0.create_time.sroa_idx.i = getelementptr inbounds i8, ptr %0, i64 120
   store i32 %call.fca.1.extract.i, ptr %ref.tmp.sroa.2.0.create_time.sroa_idx.i, align 8
-  %weight.i = getelementptr inbounds %"struct.absl::profiling_internal::Sample", ptr %0, i64 0, i32 3
+  %weight.i = getelementptr inbounds i8, ptr %0, i64 24
   store i64 %args, ptr %weight.i, align 8
-  %stack.i = getelementptr inbounds %"struct.absl::container_internal::HashtablezInfo", ptr %0, i64 0, i32 13
+  %stack.i = getelementptr inbounds i8, ptr %0, i64 128
   %call2.i8 = invoke noundef i32 @_ZN4absl13GetStackTraceEPPvii(ptr noundef nonnull %stack.i, i32 noundef 64, i32 noundef 0)
           to label %invoke.cont12 unwind label %lpad11
 
 invoke.cont12:                                    ; preds = %call.i.noexc
-  %depth.i = getelementptr inbounds %"struct.absl::container_internal::HashtablezInfo", ptr %0, i64 0, i32 12
+  %depth.i = getelementptr inbounds i8, ptr %0, i64 124
   store i32 %call2.i8, ptr %depth.i, align 4
-  %inline_element_size.i = getelementptr inbounds %"struct.absl::container_internal::HashtablezInfo", ptr %0, i64 0, i32 14
+  %inline_element_size.i = getelementptr inbounds i8, ptr %0, i64 640
   store i64 %args1, ptr %inline_element_size.i, align 8
   invoke void @_ZN4absl5Mutex6UnlockEv(ptr noundef nonnull align 8 dereferenceable(8) %0)
           to label %cleanup unwind label %terminate.lpad.i
@@ -859,7 +842,7 @@ terminate.lpad.i:                                 ; preds = %invoke.cont12
   %2 = landingpad { ptr, i32 }
           catch ptr null
   %3 = extractvalue { ptr, i32 } %2, 0
-  tail call void @__clang_call_terminate(ptr %3) #16
+  tail call void @__clang_call_terminate(ptr %3) #15
   unreachable
 
 lpad:                                             ; preds = %if.end
@@ -877,7 +860,7 @@ terminate.lpad.i9:                                ; preds = %lpad11
   %6 = landingpad { ptr, i32 }
           catch ptr null
   %7 = extractvalue { ptr, i32 } %6, 0
-  tail call void @__clang_call_terminate(ptr %7) #16
+  tail call void @__clang_call_terminate(ptr %7) #15
   unreachable
 
 cleanup:                                          ; preds = %invoke.cont12, %entry
@@ -889,7 +872,7 @@ terminate.lpad.i11:                               ; preds = %cleanup
   %8 = landingpad { ptr, i32 }
           catch ptr null
   %9 = extractvalue { ptr, i32 } %8, 0
-  tail call void @__clang_call_terminate(ptr %9) #16
+  tail call void @__clang_call_terminate(ptr %9) #15
   unreachable
 
 _ZN4absl9MutexLockD2Ev.exit12:                    ; preds = %cleanup
@@ -904,7 +887,7 @@ terminate.lpad.i13:                               ; preds = %ehcleanup
   %10 = landingpad { ptr, i32 }
           catch ptr null
   %11 = extractvalue { ptr, i32 } %10, 0
-  tail call void @__clang_call_terminate(ptr %11) #16
+  tail call void @__clang_call_terminate(ptr %11) #15
   unreachable
 
 _ZN4absl9MutexLockD2Ev.exit14:                    ; preds = %ehcleanup
@@ -916,7 +899,7 @@ declare void @_ZN4absl5Mutex18ForgetDeadlockInfoEv(ptr noundef nonnull align 8 d
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr dso_local void @_ZN4absl18profiling_internal14SampleRecorderINS_18container_internal14HashtablezInfoEE8PushDeadEPS3_(ptr noundef nonnull align 8 dereferenceable(688) %this, ptr noundef %sample) local_unnamed_addr #0 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  %dispose_ = getelementptr inbounds %"class.absl::profiling_internal::SampleRecorder", ptr %this, i64 0, i32 5
+  %dispose_ = getelementptr inbounds i8, ptr %this, i64 680
   %0 = load atomic i64, ptr %dispose_ monotonic, align 8
   %tobool.not = icmp eq i64 %0, 0
   br i1 %tobool.not, label %if.end, label %if.then
@@ -927,15 +910,15 @@ if.then:                                          ; preds = %entry
   br label %if.end
 
 if.end:                                           ; preds = %if.then, %entry
-  %graveyard_ = getelementptr inbounds %"class.absl::profiling_internal::SampleRecorder", ptr %this, i64 0, i32 4
+  %graveyard_ = getelementptr inbounds i8, ptr %this, i64 32
   tail call void @_ZN4absl5Mutex4LockEv(ptr noundef nonnull align 8 dereferenceable(8) %graveyard_)
   invoke void @_ZN4absl5Mutex4LockEv(ptr noundef nonnull align 8 dereferenceable(8) %sample)
           to label %invoke.cont unwind label %lpad
 
 invoke.cont:                                      ; preds = %if.end
-  %dead = getelementptr inbounds %"class.absl::profiling_internal::SampleRecorder", ptr %this, i64 0, i32 4, i32 0, i32 2
+  %dead = getelementptr inbounds i8, ptr %this, i64 48
   %1 = load ptr, ptr %dead, align 8
-  %dead4 = getelementptr inbounds %"struct.absl::profiling_internal::Sample", ptr %sample, i64 0, i32 2
+  %dead4 = getelementptr inbounds i8, ptr %sample, i64 16
   store ptr %1, ptr %dead4, align 8
   store ptr %sample, ptr %dead, align 8
   invoke void @_ZN4absl5Mutex6UnlockEv(ptr noundef nonnull align 8 dereferenceable(8) %sample)
@@ -945,7 +928,7 @@ terminate.lpad.i:                                 ; preds = %invoke.cont
   %2 = landingpad { ptr, i32 }
           catch ptr null
   %3 = extractvalue { ptr, i32 } %2, 0
-  tail call void @__clang_call_terminate(ptr %3) #16
+  tail call void @__clang_call_terminate(ptr %3) #15
   unreachable
 
 _ZN4absl9MutexLockD2Ev.exit:                      ; preds = %invoke.cont
@@ -956,7 +939,7 @@ terminate.lpad.i5:                                ; preds = %_ZN4absl9MutexLockD
   %4 = landingpad { ptr, i32 }
           catch ptr null
   %5 = extractvalue { ptr, i32 } %4, 0
-  tail call void @__clang_call_terminate(ptr %5) #16
+  tail call void @__clang_call_terminate(ptr %5) #15
   unreachable
 
 _ZN4absl9MutexLockD2Ev.exit6:                     ; preds = %_ZN4absl9MutexLockD2Ev.exit
@@ -972,7 +955,7 @@ terminate.lpad.i7:                                ; preds = %lpad
   %7 = landingpad { ptr, i32 }
           catch ptr null
   %8 = extractvalue { ptr, i32 } %7, 0
-  tail call void @__clang_call_terminate(ptr %8) #16
+  tail call void @__clang_call_terminate(ptr %8) #15
   unreachable
 
 _ZN4absl9MutexLockD2Ev.exit8:                     ; preds = %lpad
@@ -980,28 +963,27 @@ _ZN4absl9MutexLockD2Ev.exit8:                     ; preds = %lpad
 }
 
 ; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #11
+declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #10
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i64 @llvm.umax.i64(i64, i64) #12
+declare i64 @llvm.umax.i64(i64, i64) #11
 
 attributes #0 = { mustprogress uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { nofree nounwind }
 attributes #2 = { nobuiltin allocsize(0) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #3 = { nobuiltin nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #4 = { mustprogress nofree nosync nounwind willreturn memory(argmem: write) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #4 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #5 = { mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #6 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #7 = { mustprogress nofree norecurse nounwind willreturn memory(argmem: readwrite) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #8 = { mustprogress nofree nounwind willreturn memory(argmem: readwrite) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #9 = { mustprogress nofree norecurse nounwind willreturn memory(readwrite, argmem: none, inaccessiblemem: none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #10 = { noreturn nounwind uwtable "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #11 = { nocallback nofree nounwind willreturn memory(argmem: write) }
-attributes #12 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
-attributes #13 = { nounwind }
-attributes #14 = { builtin allocsize(0) }
-attributes #15 = { builtin nounwind }
-attributes #16 = { noreturn nounwind }
+attributes #8 = { mustprogress nofree norecurse nounwind willreturn memory(readwrite, argmem: none, inaccessiblemem: none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #9 = { noreturn nounwind uwtable "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #10 = { nocallback nofree nounwind willreturn memory(argmem: write) }
+attributes #11 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
+attributes #12 = { nounwind }
+attributes #13 = { builtin allocsize(0) }
+attributes #14 = { builtin nounwind }
+attributes #15 = { noreturn nounwind }
 
 !llvm.module.flags = !{!0, !1, !2, !3, !4}
 

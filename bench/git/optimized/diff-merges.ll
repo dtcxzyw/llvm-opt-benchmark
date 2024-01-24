@@ -3,25 +3,6 @@ source_filename = "bench/git/original/diff-merges.ll"
 target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:128-n8:16:32:64-S128"
 target triple = "x86_64-unknown-linux-gnu"
 
-%struct.rev_info = type { ptr, %struct.object_array, ptr, %struct.object_array, %struct.rev_cmdline_info, %struct.list_objects_filter_options, %struct.ref_exclusions, ptr, ptr, %struct.pathspec, i32, i32, i32, i32, i64, i32, i24, %struct.date_mode, i32, i32, i32, i32, ptr, i32, i32, ptr, ptr, i32, ptr, ptr, %struct.ident_split, ptr, i32, ptr, ptr, ptr, i32, i32, i32, ptr, %struct.grep_opt, ptr, i32, i32, i64, i64, i64, i32, i32, ptr, ptr, ptr, %struct.diff_options, %struct.diff_options, ptr, %struct.decoration, %struct.decoration, %struct.decoration, %struct.display_notes_opt, ptr, ptr, ptr, ptr, ptr, i32, ptr, i32, i32, i32, %struct.decoration, ptr, ptr, ptr, ptr, ptr, ptr, ptr, i32, ptr, i32, ptr, %struct.oidset }
-%struct.object_array = type { i32, i32, ptr }
-%struct.rev_cmdline_info = type { i32, i32, ptr }
-%struct.list_objects_filter_options = type { %struct.strbuf, i32, i8, ptr, i64, i64, i32, i64, i64, ptr }
-%struct.strbuf = type { i64, i64, ptr }
-%struct.ref_exclusions = type { %struct.string_list, %struct.strvec, i8 }
-%struct.string_list = type { ptr, i64, i64, i8, ptr }
-%struct.strvec = type { ptr, i64, i64 }
-%struct.pathspec = type { i32, i8, i32, i32, ptr }
-%struct.date_mode = type { i32, ptr, i32 }
-%struct.ident_split = type { ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr }
-%struct.grep_opt = type { ptr, ptr, ptr, ptr, ptr, ptr, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, [9 x [75 x i8]], i32, i32, i32, i32, i32, i32, i32, ptr, ptr, ptr }
-%struct.diff_options = type { ptr, ptr, i32, i32, ptr, i32, ptr, i64, i64, ptr, ptr, ptr, ptr, i64, %struct.diff_flags, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, ptr, i32, ptr, i32, i32, ptr, i64, i64, i32, i32, i32, i32, ptr, i32, i32, ptr, i32, i32, ptr, ptr, i32, [3 x i8], %struct.pathspec, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, i32, ptr, i32, i32, ptr, ptr, i32 }
-%struct.diff_flags = type { i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32 }
-%struct.display_notes_opt = type { i32, %struct.string_list }
-%struct.decoration = type { ptr, i32, i32, ptr }
-%struct.oidset = type { %struct.kh_oid_set }
-%struct.kh_oid_set = type { i32, i32, i32, i32, ptr, ptr, ptr }
-
 @set_to_default = internal unnamed_addr global ptr @set_separate, align 8
 @suppress_m_parsing = internal unnamed_addr global i1 false, align 4
 @.str = private unnamed_addr constant [3 x i8] c"-m\00", align 1
@@ -165,7 +146,7 @@ land.lhs.true:                                    ; preds = %entry
 if.then:                                          ; preds = %land.lhs.true
   %1 = load ptr, ptr @set_to_default, align 8
   tail call void %1(ptr noundef %revs) #10
-  %merges_need_diff = getelementptr inbounds %struct.rev_info, ptr %revs, i64 0, i32 14
+  %merges_need_diff = getelementptr inbounds i8, ptr %revs, i64 280
   %bf.load = load i64, ptr %merges_need_diff, align 8
   %bf.clear = and i64 %bf.load, -4503599627370497
   br label %if.end54
@@ -176,7 +157,7 @@ if.else:                                          ; preds = %land.lhs.true, %ent
   br i1 %tobool3.not, label %if.then4, label %if.else8
 
 if.then4:                                         ; preds = %if.else
-  %separate_merges.i.i.i = getelementptr inbounds %struct.rev_info, ptr %revs, i64 0, i32 14
+  %separate_merges.i.i.i = getelementptr inbounds i8, ptr %revs, i64 280
   %bf.load.i.i.i = load i64, ptr %separate_merges.i.i.i, align 8
   %bf.clear20.i.i.i = and i64 %bf.load.i.i.i, -1148417904979476481
   %bf.set7 = or disjoint i64 %bf.clear20.i.i.i, 49539595901075456
@@ -188,7 +169,7 @@ if.else8:                                         ; preds = %if.else
   br i1 %tobool10.not, label %if.then11, label %if.else16
 
 if.then11:                                        ; preds = %if.else8
-  %separate_merges.i.i.i21 = getelementptr inbounds %struct.rev_info, ptr %revs, i64 0, i32 14
+  %separate_merges.i.i.i21 = getelementptr inbounds i8, ptr %revs, i64 280
   %bf.load.i.i.i22 = load i64, ptr %separate_merges.i.i.i21, align 8
   %bf.clear20.i.i.i23 = and i64 %bf.load.i.i.i22, -1148417904979476481
   %bf.set15 = or disjoint i64 %bf.clear20.i.i.i23, 193654783976931328
@@ -200,7 +181,7 @@ if.else16:                                        ; preds = %if.else8
   br i1 %tobool18.not, label %if.then19, label %if.else24
 
 if.then19:                                        ; preds = %if.else16
-  %separate_merges.i.i.i.i = getelementptr inbounds %struct.rev_info, ptr %revs, i64 0, i32 14
+  %separate_merges.i.i.i.i = getelementptr inbounds i8, ptr %revs, i64 280
   %bf.load.i.i.i.i = load i64, ptr %separate_merges.i.i.i.i, align 8
   %bf.clear20.i.i.i.i = and i64 %bf.load.i.i.i.i, -1148417904979476609
   %bf.set23 = or disjoint i64 %bf.clear20.i.i.i.i, 319755573543305216
@@ -212,7 +193,7 @@ if.else24:                                        ; preds = %if.else16
   br i1 %tobool26.not, label %if.then27, label %if.else32
 
 if.then27:                                        ; preds = %if.else24
-  %separate_merges.i.i.i24 = getelementptr inbounds %struct.rev_info, ptr %revs, i64 0, i32 14
+  %separate_merges.i.i.i24 = getelementptr inbounds i8, ptr %revs, i64 280
   %bf.load.i.i.i25 = load i64, ptr %separate_merges.i.i.i24, align 8
   %bf.clear20.i.i.i26 = and i64 %bf.load.i.i.i25, -1148417904979476609
   %bf.set31 = or disjoint i64 %bf.clear20.i.i.i26, 589971551185534976
@@ -224,7 +205,7 @@ if.else32:                                        ; preds = %if.else24
   br i1 %tobool34.not, label %if.then35, label %if.else36
 
 if.then35:                                        ; preds = %if.else32
-  %separate_merges.i.i = getelementptr inbounds %struct.rev_info, ptr %revs, i64 0, i32 14
+  %separate_merges.i.i = getelementptr inbounds i8, ptr %revs, i64 280
   %bf.load.i.i = load i64, ptr %separate_merges.i.i, align 8
   %bf.clear20.i.i = and i64 %bf.load.i.i, -1148417904979476481
   br label %if.end54
@@ -235,7 +216,7 @@ if.else36:                                        ; preds = %if.else32
   br i1 %tobool38.not, label %if.then39, label %if.else43
 
 if.then39:                                        ; preds = %if.else36
-  %combined_all_paths = getelementptr inbounds %struct.rev_info, ptr %revs, i64 0, i32 14
+  %combined_all_paths = getelementptr inbounds i8, ptr %revs, i64 280
   %bf.load40 = load i64, ptr %combined_all_paths, align 8
   %bf.set42 = or i64 %bf.load40, 72057594037927936
   br label %if.end54
@@ -258,14 +239,14 @@ if.then.i:                                        ; preds = %if.then46
 
 set_diff_merges.exit:                             ; preds = %if.then46
   call void %call.i(ptr noundef %revs) #10
-  %explicit_diff_merges.phi.trans.insert = getelementptr inbounds %struct.rev_info, ptr %revs, i64 0, i32 14
+  %explicit_diff_merges.phi.trans.insert = getelementptr inbounds i8, ptr %revs, i64 280
   %bf.load55.pre = load i64, ptr %explicit_diff_merges.phi.trans.insert, align 8
   br label %if.end54
 
 if.end54:                                         ; preds = %if.then4, %if.then19, %if.then35, %set_diff_merges.exit, %if.then39, %if.then27, %if.then11, %if.then
   %bf.load55 = phi i64 [ %bf.load55.pre, %set_diff_merges.exit ], [ %bf.set42, %if.then39 ], [ %bf.clear20.i.i, %if.then35 ], [ %bf.set31, %if.then27 ], [ %bf.set23, %if.then19 ], [ %bf.set15, %if.then11 ], [ %bf.set7, %if.then4 ], [ %bf.clear, %if.then ]
   %argcount.0 = phi i32 [ %call44, %set_diff_merges.exit ], [ 1, %if.then39 ], [ 1, %if.then35 ], [ 1, %if.then27 ], [ 1, %if.then19 ], [ 1, %if.then11 ], [ 1, %if.then4 ], [ 1, %if.then ]
-  %explicit_diff_merges = getelementptr inbounds %struct.rev_info, ptr %revs, i64 0, i32 14
+  %explicit_diff_merges = getelementptr inbounds i8, ptr %revs, i64 280
   %bf.set57 = or i64 %bf.load55, 2251799813685248
   store i64 %bf.set57, ptr %explicit_diff_merges, align 8
   br label %return
@@ -281,7 +262,7 @@ declare i32 @strcmp(ptr nocapture noundef, ptr nocapture noundef) local_unnamed_
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
 define internal void @set_combined(ptr nocapture noundef %revs) #5 {
 entry:
-  %separate_merges.i.i = getelementptr inbounds %struct.rev_info, ptr %revs, i64 0, i32 14
+  %separate_merges.i.i = getelementptr inbounds i8, ptr %revs, i64 280
   %bf.load.i.i = load i64, ptr %separate_merges.i.i, align 8
   %bf.clear20.i.i = and i64 %bf.load.i.i, -1148417904979476481
   %bf.clear2 = or disjoint i64 %bf.clear20.i.i, 40532396646334464
@@ -292,7 +273,7 @@ entry:
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
 define internal void @set_dense_combined(ptr nocapture noundef %revs) #5 {
 entry:
-  %separate_merges.i.i = getelementptr inbounds %struct.rev_info, ptr %revs, i64 0, i32 14
+  %separate_merges.i.i = getelementptr inbounds i8, ptr %revs, i64 280
   %bf.load.i.i = load i64, ptr %separate_merges.i.i, align 8
   %bf.clear20.i.i = and i64 %bf.load.i.i, -1148417904979476481
   %bf.set3 = or disjoint i64 %bf.clear20.i.i, 184647584722190336
@@ -303,7 +284,7 @@ entry:
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
 define internal void @set_first_parent(ptr nocapture noundef %revs) #5 {
 entry:
-  %separate_merges.i.i.i = getelementptr inbounds %struct.rev_info, ptr %revs, i64 0, i32 14
+  %separate_merges.i.i.i = getelementptr inbounds i8, ptr %revs, i64 280
   %bf.load.i.i.i = load i64, ptr %separate_merges.i.i.i, align 8
   %bf.clear20.i.i.i = and i64 %bf.load.i.i.i, -1148417904979476609
   %bf.set = or disjoint i64 %bf.clear20.i.i.i, 310748374288564224
@@ -314,7 +295,7 @@ entry:
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
 define internal void @set_remerge_diff(ptr nocapture noundef %revs) #5 {
 entry:
-  %separate_merges.i.i = getelementptr inbounds %struct.rev_info, ptr %revs, i64 0, i32 14
+  %separate_merges.i.i = getelementptr inbounds i8, ptr %revs, i64 280
   %bf.load.i.i = load i64, ptr %separate_merges.i.i, align 8
   %bf.clear20.i.i = and i64 %bf.load.i.i, -1148417904979476609
   %bf.clear2 = or disjoint i64 %bf.clear20.i.i, 580964351930793984
@@ -325,7 +306,7 @@ entry:
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
 define internal void @set_none(ptr nocapture noundef %revs) #5 {
 entry:
-  %separate_merges.i = getelementptr inbounds %struct.rev_info, ptr %revs, i64 0, i32 14
+  %separate_merges.i = getelementptr inbounds i8, ptr %revs, i64 280
   %bf.load.i = load i64, ptr %separate_merges.i, align 8
   %bf.clear20.i = and i64 %bf.load.i, -1148417904979476481
   store i64 %bf.clear20.i, ptr %separate_merges.i, align 8
@@ -337,7 +318,7 @@ declare i32 @parse_long_opt(ptr noundef, ptr noundef, ptr noundef) local_unnamed
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
 define dso_local void @diff_merges_suppress(ptr nocapture noundef %revs) local_unnamed_addr #5 {
 entry:
-  %separate_merges.i.i = getelementptr inbounds %struct.rev_info, ptr %revs, i64 0, i32 14
+  %separate_merges.i.i = getelementptr inbounds i8, ptr %revs, i64 280
   %bf.load.i.i = load i64, ptr %separate_merges.i.i, align 8
   %bf.clear20.i.i = and i64 %bf.load.i.i, -1148417904979476481
   store i64 %bf.clear20.i.i, ptr %separate_merges.i.i, align 8
@@ -347,7 +328,7 @@ entry:
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
 define dso_local void @diff_merges_default_to_first_parent(ptr nocapture noundef %revs) local_unnamed_addr #5 {
 entry:
-  %explicit_diff_merges = getelementptr inbounds %struct.rev_info, ptr %revs, i64 0, i32 14
+  %explicit_diff_merges = getelementptr inbounds i8, ptr %revs, i64 280
   %bf.load = load i64, ptr %explicit_diff_merges, align 8
   %0 = and i64 %bf.load, 2251799813685248
   %tobool.not.not = icmp eq i64 %0, 0
@@ -371,7 +352,7 @@ entry:
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
 define dso_local void @diff_merges_default_to_dense_combined(ptr nocapture noundef %revs) local_unnamed_addr #5 {
 entry:
-  %explicit_diff_merges = getelementptr inbounds %struct.rev_info, ptr %revs, i64 0, i32 14
+  %explicit_diff_merges = getelementptr inbounds i8, ptr %revs, i64 280
   %bf.load = load i64, ptr %explicit_diff_merges, align 8
   %0 = and i64 %bf.load, 2251799813685248
   %tobool.not = icmp eq i64 %0, 0
@@ -390,7 +371,7 @@ if.end:                                           ; preds = %if.then, %entry
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
 define dso_local void @diff_merges_set_dense_combined_if_unset(ptr nocapture noundef %revs) local_unnamed_addr #5 {
 entry:
-  %combine_merges = getelementptr inbounds %struct.rev_info, ptr %revs, i64 0, i32 14
+  %combine_merges = getelementptr inbounds i8, ptr %revs, i64 280
   %bf.load = load i64, ptr %combine_merges, align 8
   %0 = and i64 %bf.load, 36028797018963968
   %tobool.not = icmp eq i64 %0, 0
@@ -409,7 +390,7 @@ if.end:                                           ; preds = %if.then, %entry
 ; Function Attrs: nounwind uwtable
 define dso_local void @diff_merges_setup_revs(ptr nocapture noundef %revs) local_unnamed_addr #3 {
 entry:
-  %combine_merges = getelementptr inbounds %struct.rev_info, ptr %revs, i64 0, i32 14
+  %combine_merges = getelementptr inbounds i8, ptr %revs, i64 280
   %bf.load = load i64, ptr %combine_merges, align 8
   %0 = and i64 %bf.load, 36028797018963968
   %cmp.not = icmp eq i64 %0, 0
@@ -452,7 +433,7 @@ if.end34:                                         ; preds = %if.then30, %if.end2
   br i1 %or.cond19, label %if.end52, label %if.then46
 
 if.then46:                                        ; preds = %if.end34
-  %output_format = getelementptr inbounds %struct.rev_info, ptr %revs, i64 0, i32 52, i32 25
+  %output_format = getelementptr inbounds i8, ptr %revs, i64 1756
   %8 = load i32, ptr %output_format, align 4
   %tobool47.not = icmp eq i32 %8, 0
   br i1 %tobool47.not, label %if.then48, label %if.end52
@@ -471,7 +452,7 @@ declare void @die(ptr noundef, ...) local_unnamed_addr #7
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
 define internal void @set_separate(ptr nocapture noundef %revs) #5 {
 entry:
-  %separate_merges.i.i = getelementptr inbounds %struct.rev_info, ptr %revs, i64 0, i32 14
+  %separate_merges.i.i = getelementptr inbounds i8, ptr %revs, i64 280
   %bf.load.i.i = load i64, ptr %separate_merges.i.i, align 8
   %bf.clear20.i.i = and i64 %bf.load.i.i, -1148417904979476609
   %bf.clear2 = or disjoint i64 %bf.clear20.i.i, 22517998136852480

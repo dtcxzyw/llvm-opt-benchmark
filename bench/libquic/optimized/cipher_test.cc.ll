@@ -72,7 +72,7 @@ if.then:                                          ; preds = %entry
   br label %return
 
 if.end:                                           ; preds = %entry
-  %arrayidx1 = getelementptr inbounds ptr, ptr %argv, i64 1
+  %arrayidx1 = getelementptr inbounds i8, ptr %argv, i64 8
   %2 = load ptr, ptr %arrayidx1, align 8
   %call2 = tail call noundef i32 @_Z12FileTestMainPFbP8FileTestPvES1_PKc(ptr noundef nonnull @_ZL10TestCipherP8FileTestPv, ptr noundef null, ptr noundef %2)
   br label %return
@@ -928,7 +928,7 @@ invoke.cont13:                                    ; preds = %invoke.cont11
   br i1 %call14, label %if.then15, label %if.end38
 
 if.then15:                                        ; preds = %invoke.cont13
-  %_M_finish.i53 = getelementptr inbounds %"struct.std::_Vector_base<unsigned char, std::allocator<unsigned char>>::_Vector_impl_data", ptr %iv, i64 0, i32 1
+  %_M_finish.i53 = getelementptr inbounds i8, ptr %iv, i64 8
   %1 = load ptr, ptr %_M_finish.i53, align 8
   %2 = load ptr, ptr %iv, align 8
   br i1 %cmp, label %if.else26, label %if.then17
@@ -982,7 +982,7 @@ if.end38:                                         ; preds = %invoke.cont21, %inv
   br i1 %brmerge, label %if.end51, label %land.lhs.true41
 
 land.lhs.true41:                                  ; preds = %if.end38
-  %_M_finish.i57 = getelementptr inbounds %"struct.std::_Vector_base<unsigned char, std::allocator<unsigned char>>::_Vector_impl_data", ptr %tag, i64 0, i32 1
+  %_M_finish.i57 = getelementptr inbounds i8, ptr %tag, i64 8
   %5 = load ptr, ptr %_M_finish.i57, align 8
   %6 = load ptr, ptr %tag, align 8
   %sub.ptr.lhs.cast.i58 = ptrtoint ptr %5 to i64
@@ -998,7 +998,7 @@ invoke.cont47:                                    ; preds = %land.lhs.true41
 
 if.end51:                                         ; preds = %invoke.cont30, %if.end38, %invoke.cont47
   %cmp.not141 = phi i1 [ %cmp, %if.end38 ], [ false, %invoke.cont47 ], [ true, %invoke.cont30 ]
-  %_M_finish.i61 = getelementptr inbounds %"struct.std::_Vector_base<unsigned char, std::allocator<unsigned char>>::_Vector_impl_data", ptr %plaintext.ciphertext, i64 0, i32 1
+  %_M_finish.i61 = getelementptr inbounds i8, ptr %plaintext.ciphertext, i64 8
   %7 = load ptr, ptr %_M_finish.i61, align 8
   %8 = load ptr, ptr %plaintext.ciphertext, align 8
   %sub.ptr.lhs.cast.i62 = ptrtoint ptr %7 to i64
@@ -1026,7 +1026,7 @@ if.then.i.i.i.i.i:                                ; preds = %_ZNSt6vectorIhSaIhE
 call5.i.i.i.i1.i.i.noexc:                         ; preds = %if.then.i.i.i.i.i
   store ptr %call5.i.i.i.i1.i.i65, ptr %result, align 8
   %add.ptr.i.i.i = getelementptr inbounds i8, ptr %call5.i.i.i.i1.i.i65, i64 %sub.ptr.sub.i64
-  %_M_end_of_storage.i.i.i = getelementptr inbounds %"struct.std::_Vector_base<unsigned char, std::allocator<unsigned char>>::_Vector_impl_data", ptr %result, i64 0, i32 2
+  %_M_end_of_storage.i.i.i = getelementptr inbounds i8, ptr %result, i64 16
   store ptr %add.ptr.i.i.i, ptr %_M_end_of_storage.i.i.i, align 8
   store i8 0, ptr %call5.i.i.i.i1.i.i65, align 1
   %incdec.ptr.i.i.i.i.i = getelementptr inbounds i8, ptr %call5.i.i.i.i1.i.i65, i64 1
@@ -1041,12 +1041,12 @@ if.then.i.i.i.i.i.i.i.i.i:                        ; preds = %call5.i.i.i.i1.i.i.
 invoke.cont55:                                    ; preds = %_ZNSt6vectorIhSaIhEE17_S_check_init_lenEmRKS0_.exit.i, %if.then.i.i.i.i.i.i.i.i.i, %call5.i.i.i.i1.i.i.noexc
   %9 = phi ptr [ %call5.i.i.i.i1.i.i65, %call5.i.i.i.i1.i.i.noexc ], [ %call5.i.i.i.i1.i.i65, %if.then.i.i.i.i.i.i.i.i.i ], [ null, %_ZNSt6vectorIhSaIhEE17_S_check_init_lenEmRKS0_.exit.i ]
   %__first.addr.0.i.i.i.i.i = phi ptr [ %incdec.ptr.i.i.i.i.i, %call5.i.i.i.i1.i.i.noexc ], [ %add.ptr.i.i.i, %if.then.i.i.i.i.i.i.i.i.i ], [ null, %_ZNSt6vectorIhSaIhEE17_S_check_init_lenEmRKS0_.exit.i ]
-  %_M_finish.i.i7.i = getelementptr inbounds %"struct.std::_Vector_base<unsigned char, std::allocator<unsigned char>>::_Vector_impl_data", ptr %result, i64 0, i32 1
+  %_M_finish.i.i7.i = getelementptr inbounds i8, ptr %result, i64 8
   store ptr %__first.addr.0.i.i.i.i.i, ptr %_M_finish.i.i7.i, align 8
   %10 = load ptr, ptr %_M_finish.i61, align 8
   %sub.ptr.lhs.cast.i67 = ptrtoint ptr %10 to i64
   %sub.ptr.sub.i69 = sub i64 %sub.ptr.lhs.cast.i67, %sub.ptr.rhs.cast.i63
-  %_M_finish.i70 = getelementptr inbounds %"struct.std::_Vector_base<unsigned char, std::allocator<unsigned char>>::_Vector_impl_data", ptr %ciphertext.plaintext, i64 0, i32 1
+  %_M_finish.i70 = getelementptr inbounds i8, ptr %ciphertext.plaintext, i64 8
   %11 = load ptr, ptr %_M_finish.i70, align 8
   %12 = load ptr, ptr %ciphertext.plaintext, align 8
   %sub.ptr.lhs.cast.i71 = ptrtoint ptr %11 to i64
@@ -1088,7 +1088,7 @@ if.then.i.i.i:                                    ; preds = %lpad65
 
 if.end67:                                         ; preds = %invoke.cont55
   store i32 0, ptr %result_len1, align 4
-  %_M_finish.i82 = getelementptr inbounds %"struct.std::_Vector_base<unsigned char, std::allocator<unsigned char>>::_Vector_impl_data", ptr %key, i64 0, i32 1
+  %_M_finish.i82 = getelementptr inbounds i8, ptr %key, i64 8
   %15 = load ptr, ptr %_M_finish.i82, align 8
   %16 = load ptr, ptr %key, align 8
   %sub.ptr.lhs.cast.i83 = ptrtoint ptr %15 to i64
@@ -1114,7 +1114,7 @@ invoke.cont79:                                    ; preds = %lor.lhs.false
 
 lor.lhs.false82:                                  ; preds = %invoke.cont79
   %19 = load ptr, ptr %aad, align 8
-  %_M_finish.i.i = getelementptr inbounds %"struct.std::_Vector_base<unsigned char, std::allocator<unsigned char>>::_Vector_impl_data", ptr %aad, i64 0, i32 1
+  %_M_finish.i.i = getelementptr inbounds i8, ptr %aad, i64 8
   %20 = load ptr, ptr %_M_finish.i.i, align 8
   %cmp.i.i86 = icmp eq ptr %19, %20
   br i1 %cmp.i.i86, label %lor.lhs.false93, label %land.lhs.true84
@@ -1261,7 +1261,7 @@ if.end162:                                        ; preds = %invoke.cont159
   br i1 %brmerge52, label %if.end188, label %if.then166
 
 if.then166:                                       ; preds = %if.end162
-  %_M_finish.i117 = getelementptr inbounds %"struct.std::_Vector_base<unsigned char, std::allocator<unsigned char>>::_Vector_impl_data", ptr %tag, i64 0, i32 1
+  %_M_finish.i117 = getelementptr inbounds i8, ptr %tag, i64 8
   %41 = load ptr, ptr %_M_finish.i117, align 8
   %42 = load ptr, ptr %tag, align 8
   %sub.ptr.lhs.cast.i118 = ptrtoint ptr %41 to i64
@@ -1414,7 +1414,7 @@ declare i32 @EVP_CipherFinal_ex(ptr noundef, ptr noundef, ptr noundef) local_unn
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr dso_local void @_ZNSt6vectorIhSaIhEE6resizeEm(ptr noundef nonnull align 8 dereferenceable(24) %this, i64 noundef %__new_size) local_unnamed_addr #3 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  %_M_finish.i = getelementptr inbounds %"struct.std::_Vector_base<unsigned char, std::allocator<unsigned char>>::_Vector_impl_data", ptr %this, i64 0, i32 1
+  %_M_finish.i = getelementptr inbounds i8, ptr %this, i64 8
   %0 = load ptr, ptr %_M_finish.i, align 8
   %1 = load ptr, ptr %this, align 8
   %sub.ptr.lhs.cast.i = ptrtoint ptr %0 to i64
@@ -1425,7 +1425,7 @@ entry:
 
 if.then:                                          ; preds = %entry
   %sub = sub i64 %__new_size, %sub.ptr.sub.i
-  %_M_end_of_storage.i = getelementptr inbounds %"struct.std::_Vector_base<unsigned char, std::allocator<unsigned char>>::_Vector_impl_data", ptr %this, i64 0, i32 2
+  %_M_end_of_storage.i = getelementptr inbounds i8, ptr %this, i64 16
   %2 = load ptr, ptr %_M_end_of_storage.i, align 8
   %sub.ptr.lhs.cast.i8 = ptrtoint ptr %2 to i64
   %sub.ptr.sub.i9 = sub i64 %sub.ptr.lhs.cast.i8, %sub.ptr.lhs.cast.i

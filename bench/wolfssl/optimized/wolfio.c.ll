@@ -3,32 +3,11 @@ source_filename = "bench/wolfssl/original/wolfio.c.ll"
 target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:128-n8:16:32:64-S128"
 target triple = "x86_64-unknown-linux-gnu"
 
-%struct.WOLFSSL = type <{ ptr, ptr, ptr, [48 x i8], [48 x i8], ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, i32, [4 x i8], %struct.WOLFSSL_CIPHER, ptr, %struct.Ciphers, %struct.Ciphers, %struct.Buffers, ptr, ptr, %struct.WOLFSSL_ALERT_HISTORY, %struct.WOLFSSL_ALERT, i32, i32, i32, i32, i32, i32, i32, i16, [2 x i8], i32, i8, %struct.RecordLayerHeader, %struct.MsgsReceived, %struct.ProtocolVersion, %struct.ProtocolVersion, %struct.CipherSpecs, [2 x i8], %struct.Keys, %struct.Options, ptr, i8, i8, i16, [10 x i16], i8, i8, i16, i16, [38 x i8], i32, i32, [4 x i8], ptr, i8, i8, [6 x i8], ptr, ptr, i16, i8, i8, i32, i8, [3 x i8], i32, %struct.OneTimeAuth, ptr, [8 x i8] }>
-%struct.WOLFSSL_CIPHER = type { i8, i8, ptr }
-%struct.Ciphers = type { ptr, ptr, ptr, ptr, i8, i8 }
-%struct.Buffers = type { %struct.bufferStatic, %struct.bufferStatic, %struct.WOLFSSL_BUFFER_INFO, %struct.WOLFSSL_BUFFER_INFO, %struct.WOLFSSL_BUFFER_INFO, %struct.WOLFSSL_BUFFER_INFO, i32, i32, i8, i8, i8, i8, %struct.WOLFSSL_BUFFER_INFO, %struct.WOLFSSL_BUFFER_INFO, %struct.WOLFSSL_BUFFER_INFO, %struct.WOLFSSL_BUFFER_INFO, ptr, ptr, ptr, i8, i32, i32, ptr, i32, ptr }
-%struct.bufferStatic = type { [5 x i8], ptr, i32, i32, i32, i8, i8 }
-%struct.WOLFSSL_BUFFER_INFO = type { ptr, i32 }
-%struct.WOLFSSL_ALERT_HISTORY = type { %struct.WOLFSSL_ALERT, %struct.WOLFSSL_ALERT }
-%struct.WOLFSSL_ALERT = type { i32, i32 }
-%struct.RecordLayerHeader = type { i8, i8, i8, [2 x i8] }
-%struct.MsgsReceived = type { i24 }
-%struct.ProtocolVersion = type { i8, i8 }
-%struct.CipherSpecs = type { i16, i16, i16, i16, i8, i8, i8, i8, i8, i8, i8, i8 }
-%struct.Keys = type { [64 x i8], [64 x i8], [32 x i8], [32 x i8], [16 x i8], [16 x i8], [8 x i8], [12 x i8], [12 x i8], i32, i32, i32, i32, i32, i32, i8, i8, i8 }
-%struct.Options = type { i64, i64, i8, i8, i8, i8, i8, i8, i8, i8, i8, i8, i8, i8, i8, i8, i8, i16, i16, i16, i16, i16, i8 }
-%struct.OneTimeAuth = type { ptr, i8 }
-%struct.WOLFSSL_CTX = type { ptr, %struct.wolfSSL_Ref, i32, %struct.WOLFSSL_BUFFER_INFO, %struct.WOLFSSL_BUFFER_INFO, ptr, ptr, i32, ptr, i8, i32, i32, ptr, ptr, ptr, i8, [3 x i8], i8, i8, i16, i16, i16, i16, i64, ptr, ptr, ptr, ptr, i32, i32, i16, i32, [10 x i16], i8, ptr, ptr, i32, ptr, i8 }
-%struct.wolfSSL_Ref = type { %union.pthread_mutex_t, i32 }
-%union.pthread_mutex_t = type { %struct.__pthread_mutex_s }
-%struct.__pthread_mutex_s = type { i32, i32, i32, i32, i32, i16, i16, %struct.__pthread_internal_list }
-%struct.__pthread_internal_list = type { ptr, ptr }
-
 ; Function Attrs: nounwind uwtable
 define i32 @EmbedReceive(ptr nocapture noundef readonly %ssl, ptr noundef %buf, i32 noundef %sz, ptr nocapture noundef readonly %ctx) local_unnamed_addr #0 {
 entry:
   %0 = load i32, ptr %ctx, align 4
-  %rflags = getelementptr inbounds %struct.WOLFSSL, ptr %ssl, i64 0, i32 32
+  %rflags = getelementptr inbounds i8, ptr %ssl, i64 660
   %1 = load i32, ptr %rflags, align 4
   %conv.i = sext i32 %sz to i64
   %call.i = tail call i64 @recv(i32 noundef %0, ptr noundef %buf, i64 noundef %conv.i, i32 noundef %1) #5
@@ -85,7 +64,7 @@ entry:
 define i32 @EmbedSend(ptr nocapture noundef readonly %ssl, ptr noundef %buf, i32 noundef %sz, ptr nocapture noundef readonly %ctx) local_unnamed_addr #0 {
 entry:
   %0 = load i32, ptr %ctx, align 4
-  %wflags = getelementptr inbounds %struct.WOLFSSL, ptr %ssl, i64 0, i32 33
+  %wflags = getelementptr inbounds i8, ptr %ssl, i64 664
   %1 = load i32, ptr %wflags, align 8
   %conv.i = sext i32 %sz to i64
   %call.i = tail call i64 @send(i32 noundef %0, ptr noundef %buf, i64 noundef %conv.i, i32 noundef %1) #5
@@ -144,7 +123,7 @@ entry:
   br i1 %tobool.not, label %if.end, label %if.then
 
 if.then:                                          ; preds = %entry
-  %CBIORecv1 = getelementptr inbounds %struct.WOLFSSL_CTX, ptr %ctx, i64 0, i32 24
+  %CBIORecv1 = getelementptr inbounds i8, ptr %ctx, i64 192
   store ptr %CBIORecv, ptr %CBIORecv1, align 8
   br label %if.end
 
@@ -159,7 +138,7 @@ entry:
   br i1 %tobool.not, label %if.end, label %if.then
 
 if.then:                                          ; preds = %entry
-  %CBIOSend1 = getelementptr inbounds %struct.WOLFSSL_CTX, ptr %ctx, i64 0, i32 25
+  %CBIOSend1 = getelementptr inbounds i8, ptr %ctx, i64 200
   store ptr %CBIOSend, ptr %CBIOSend1, align 8
   br label %if.end
 
@@ -174,7 +153,7 @@ entry:
   br i1 %tobool.not, label %if.end, label %if.then
 
 if.then:                                          ; preds = %entry
-  %CBIORecv1 = getelementptr inbounds %struct.WOLFSSL, ptr %ssl, i64 0, i32 12
+  %CBIORecv1 = getelementptr inbounds i8, ptr %ssl, i64 176
   store ptr %CBIORecv, ptr %CBIORecv1, align 16
   br label %if.end
 
@@ -189,7 +168,7 @@ entry:
   br i1 %tobool.not, label %if.end, label %if.then
 
 if.then:                                          ; preds = %entry
-  %CBIOSend1 = getelementptr inbounds %struct.WOLFSSL, ptr %ssl, i64 0, i32 13
+  %CBIOSend1 = getelementptr inbounds i8, ptr %ssl, i64 184
   store ptr %CBIOSend, ptr %CBIOSend1, align 8
   br label %if.end
 
@@ -204,7 +183,7 @@ entry:
   br i1 %tobool.not, label %if.end, label %if.then
 
 if.then:                                          ; preds = %entry
-  %IOCB_ReadCtx = getelementptr inbounds %struct.WOLFSSL, ptr %ssl, i64 0, i32 6
+  %IOCB_ReadCtx = getelementptr inbounds i8, ptr %ssl, i64 128
   store ptr %rctx, ptr %IOCB_ReadCtx, align 16
   br label %if.end
 
@@ -219,7 +198,7 @@ entry:
   br i1 %tobool.not, label %if.end, label %if.then
 
 if.then:                                          ; preds = %entry
-  %IOCB_WriteCtx = getelementptr inbounds %struct.WOLFSSL, ptr %ssl, i64 0, i32 7
+  %IOCB_WriteCtx = getelementptr inbounds i8, ptr %ssl, i64 136
   store ptr %wctx, ptr %IOCB_WriteCtx, align 8
   br label %if.end
 
@@ -234,7 +213,7 @@ entry:
   br i1 %tobool.not, label %return, label %if.then
 
 if.then:                                          ; preds = %entry
-  %IOCB_ReadCtx = getelementptr inbounds %struct.WOLFSSL, ptr %ssl, i64 0, i32 6
+  %IOCB_ReadCtx = getelementptr inbounds i8, ptr %ssl, i64 128
   %0 = load ptr, ptr %IOCB_ReadCtx, align 16
   br label %return
 
@@ -250,7 +229,7 @@ entry:
   br i1 %tobool.not, label %return, label %if.then
 
 if.then:                                          ; preds = %entry
-  %IOCB_WriteCtx = getelementptr inbounds %struct.WOLFSSL, ptr %ssl, i64 0, i32 7
+  %IOCB_WriteCtx = getelementptr inbounds i8, ptr %ssl, i64 136
   %0 = load ptr, ptr %IOCB_WriteCtx, align 8
   br label %return
 
@@ -266,7 +245,7 @@ entry:
   br i1 %tobool.not, label %if.end, label %if.then
 
 if.then:                                          ; preds = %entry
-  %rflags = getelementptr inbounds %struct.WOLFSSL, ptr %ssl, i64 0, i32 32
+  %rflags = getelementptr inbounds i8, ptr %ssl, i64 660
   store i32 %flags, ptr %rflags, align 4
   br label %if.end
 
@@ -281,7 +260,7 @@ entry:
   br i1 %tobool.not, label %if.end, label %if.then
 
 if.then:                                          ; preds = %entry
-  %wflags = getelementptr inbounds %struct.WOLFSSL, ptr %ssl, i64 0, i32 33
+  %wflags = getelementptr inbounds i8, ptr %ssl, i64 664
   store i32 %flags, ptr %wflags, align 8
   br label %if.end
 

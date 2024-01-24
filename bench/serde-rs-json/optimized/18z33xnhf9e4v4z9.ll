@@ -143,7 +143,7 @@ define void @"_ZN4core3ptr100drop_in_place$LT$core..result..Result$LT$serde_json
   br label %6
 
 4:                                                ; preds = %1
-  %5 = getelementptr inbounds { [1 x i64], ptr }, ptr %0, i64 0, i32 1
+  %5 = getelementptr inbounds i8, ptr %0, i64 8
   tail call void @"_ZN4core3ptr74drop_in_place$LT$alloc..boxed..Box$LT$serde_json..error..ErrorImpl$GT$$GT$17h0f1bae09ea3f62f6E"(ptr nonnull align 8 %5)
   br label %6
 
@@ -158,7 +158,7 @@ define void @"_ZN4core3ptr101drop_in_place$LT$std..io..error..ErrorData$LT$alloc
   br i1 %switch.not, label %3, label %5
 
 3:                                                ; preds = %1
-  %4 = getelementptr inbounds { [1 x i64], ptr }, ptr %0, i64 0, i32 1
+  %4 = getelementptr inbounds i8, ptr %0, i64 8
   tail call void @"_ZN4core3ptr68drop_in_place$LT$alloc..boxed..Box$LT$std..io..error..Custom$GT$$GT$17h03a393a7628a142bE"(ptr nonnull align 8 %4)
   br label %5
 
@@ -176,7 +176,7 @@ define void @"_ZN4core3ptr104drop_in_place$LT$core..result..Result$LT$serde_json
   ret void
 
 4:                                                ; preds = %1
-  %5 = getelementptr inbounds { [1 x i64], ptr }, ptr %0, i64 0, i32 1
+  %5 = getelementptr inbounds i8, ptr %0, i64 8
   tail call void @"_ZN4core3ptr74drop_in_place$LT$alloc..boxed..Box$LT$serde_json..error..ErrorImpl$GT$$GT$17h0f1bae09ea3f62f6E"(ptr nonnull align 8 %5)
   br label %3
 }
@@ -184,7 +184,7 @@ define void @"_ZN4core3ptr104drop_in_place$LT$core..result..Result$LT$serde_json
 ; Function Attrs: nonlazybind uwtable
 define void @"_ZN4core3ptr105drop_in_place$LT$core..option..Option$LT$$LP$alloc..string..String$C$serde_json..value..Value$RP$$GT$$GT$17h7cff6e1ff4450b61E"(ptr align 8 %0) unnamed_addr #0 personality ptr @rust_eh_personality {
   %2 = alloca { [1 x i64], i64, [1 x i64] }, align 8
-  %3 = getelementptr inbounds { [24 x i8], i8, [31 x i8] }, ptr %0, i64 0, i32 1
+  %3 = getelementptr inbounds i8, ptr %0, i64 24
   %4 = load i8, ptr %3, align 8, !range !8, !noundef !5
   %5 = icmp eq i8 %4, 6
   br i1 %5, label %6, label %7
@@ -198,14 +198,14 @@ define void @"_ZN4core3ptr105drop_in_place$LT$core..option..Option$LT$$LP$alloc.
           to label %.noexc.i unwind label %15
 
 .noexc.i:                                         ; preds = %7
-  %8 = getelementptr inbounds { [1 x i64], i64, [1 x i64] }, ptr %2, i64 0, i32 1
+  %8 = getelementptr inbounds i8, ptr %2, i64 8
   %9 = load i64, ptr %8, align 8, !range !11, !noundef !5
   %.not.i.i.i.i.i = icmp eq i64 %9, 0
   br i1 %.not.i.i.i.i.i, label %"_ZN4core3ptr77drop_in_place$LT$$LP$alloc..string..String$C$serde_json..value..Value$RP$$GT$17hdfe2a1f42b4b66cbE.exit", label %10
 
 10:                                               ; preds = %.noexc.i
   %11 = load ptr, ptr %2, align 8, !nonnull !5, !noundef !5
-  %12 = getelementptr inbounds { [1 x i64], i64, [1 x i64] }, ptr %2, i64 0, i32 2
+  %12 = getelementptr inbounds i8, ptr %2, i64 16
   %13 = load i64, ptr %12, align 8, !noundef !5
   %14 = getelementptr i8, ptr %0, i64 16
   invoke void @"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17h7d34365db2738f05E"(ptr align 1 %14, ptr nonnull %11, i64 %9, i64 %13)
@@ -242,7 +242,7 @@ define void @"_ZN4core3ptr106drop_in_place$LT$core..result..Result$LT$core..opti
   ret void
 
 5:                                                ; preds = %1
-  %6 = getelementptr inbounds { [1 x i64], ptr }, ptr %0, i64 0, i32 1
+  %6 = getelementptr inbounds i8, ptr %0, i64 8
   tail call void @"_ZN4core3ptr74drop_in_place$LT$alloc..boxed..Box$LT$serde_json..error..ErrorImpl$GT$$GT$17h0f1bae09ea3f62f6E"(ptr nonnull align 8 %6)
   br label %4
 }
@@ -303,7 +303,7 @@ define void @"_ZN4core3ptr117drop_in_place$LT$alloc..collections..btree..map..In
 ; Function Attrs: nonlazybind uwtable
 define void @"_ZN4core3ptr118drop_in_place$LT$alloc..boxed..Box$LT$dyn$u20$core..error..Error$u2b$core..marker..Send$u2b$core..marker..Sync$GT$$GT$17h6be0d312146e48d9E"(ptr align 8 %0) unnamed_addr #0 personality ptr @rust_eh_personality {
   %2 = load ptr, ptr %0, align 8, !noundef !5
-  %3 = getelementptr inbounds { ptr, ptr }, ptr %0, i64 0, i32 1
+  %3 = getelementptr inbounds i8, ptr %0, i64 8
   %4 = load ptr, ptr %3, align 8, !nonnull !5, !align !6, !noundef !5
   %5 = load ptr, ptr %4, align 8, !invariant.load !5, !nonnull !5
   invoke void %5(ptr align 1 %2)
@@ -317,13 +317,13 @@ define void @"_ZN4core3ptr118drop_in_place$LT$alloc..boxed..Box$LT$dyn$u20$core.
 
 8:                                                ; preds = %1
   %9 = load ptr, ptr %3, align 8, !nonnull !5, !align !6, !noundef !5
-  %10 = getelementptr inbounds i64, ptr %9, i64 1
+  %10 = getelementptr inbounds i8, ptr %9, i64 8
   %11 = load i64, ptr %10, align 8, !range !13, !invariant.load !5
   %12 = icmp eq i64 %11, 0
   br i1 %12, label %"_ZN72_$LT$alloc..boxed..Box$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17hcb8d5bcab9dd191cE.exit", label %13
 
 13:                                               ; preds = %8
-  %14 = getelementptr inbounds i64, ptr %9, i64 2
+  %14 = getelementptr inbounds i8, ptr %9, i64 16
   %15 = load i64, ptr %14, align 8, !range !14, !invariant.load !5
   %16 = load ptr, ptr %0, align 8, !nonnull !5, !noundef !5
   %17 = getelementptr i8, ptr %0, i64 16
@@ -367,14 +367,14 @@ define void @"_ZN4core3ptr169drop_in_place$LT$alloc..collections..btree..node..S
           to label %.noexc.i unwind label %10
 
 .noexc.i:                                         ; preds = %1
-  %3 = getelementptr inbounds { [1 x i64], i64, [1 x i64] }, ptr %2, i64 0, i32 1
+  %3 = getelementptr inbounds i8, ptr %2, i64 8
   %4 = load i64, ptr %3, align 8, !range !11, !noundef !5
   %.not.i.i.i.i.i = icmp eq i64 %4, 0
   br i1 %.not.i.i.i.i.i, label %"_ZN4core3ptr77drop_in_place$LT$$LP$alloc..string..String$C$serde_json..value..Value$RP$$GT$17hdfe2a1f42b4b66cbE.exit", label %5
 
 5:                                                ; preds = %.noexc.i
   %6 = load ptr, ptr %2, align 8, !nonnull !5, !noundef !5
-  %7 = getelementptr inbounds { [1 x i64], i64, [1 x i64] }, ptr %2, i64 0, i32 2
+  %7 = getelementptr inbounds i8, ptr %2, i64 16
   %8 = load i64, ptr %7, align 8, !noundef !5
   %9 = getelementptr i8, ptr %0, i64 16
   invoke void @"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17h7d34365db2738f05E"(ptr align 1 %9, ptr nonnull %6, i64 %4, i64 %8)
@@ -383,7 +383,7 @@ define void @"_ZN4core3ptr169drop_in_place$LT$alloc..collections..btree..node..S
 10:                                               ; preds = %5, %1
   %11 = landingpad { ptr, i32 }
           cleanup
-  %12 = getelementptr inbounds { { { { ptr, i64 }, i64 } }, { i8, [31 x i8] } }, ptr %0, i64 0, i32 1
+  %12 = getelementptr inbounds i8, ptr %0, i64 24
   invoke void @"_ZN4core3ptr45drop_in_place$LT$serde_json..value..Value$GT$17h4e7830de5bafa218E"(ptr nonnull align 8 %12) #10
           to label %15 unwind label %13
 
@@ -398,7 +398,7 @@ define void @"_ZN4core3ptr169drop_in_place$LT$alloc..collections..btree..node..S
 
 "_ZN4core3ptr77drop_in_place$LT$$LP$alloc..string..String$C$serde_json..value..Value$RP$$GT$17hdfe2a1f42b4b66cbE.exit": ; preds = %.noexc.i, %5
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %2)
-  %16 = getelementptr inbounds { { { { ptr, i64 }, i64 } }, { i8, [31 x i8] } }, ptr %0, i64 0, i32 1
+  %16 = getelementptr inbounds i8, ptr %0, i64 24
   call void @"_ZN4core3ptr45drop_in_place$LT$serde_json..value..Value$GT$17h4e7830de5bafa218E"(ptr nonnull align 8 %16)
   ret void
 }
@@ -411,14 +411,14 @@ define void @"_ZN4core3ptr173drop_in_place$LT$alloc..collections..btree..node..S
           to label %.noexc.i unwind label %10
 
 .noexc.i:                                         ; preds = %1
-  %3 = getelementptr inbounds { [1 x i64], i64, [1 x i64] }, ptr %2, i64 0, i32 1
+  %3 = getelementptr inbounds i8, ptr %2, i64 8
   %4 = load i64, ptr %3, align 8, !range !11, !noundef !5
   %.not.i.i.i.i.i = icmp eq i64 %4, 0
   br i1 %.not.i.i.i.i.i, label %"_ZN4core3ptr77drop_in_place$LT$$LP$alloc..string..String$C$serde_json..value..Value$RP$$GT$17hdfe2a1f42b4b66cbE.exit", label %5
 
 5:                                                ; preds = %.noexc.i
   %6 = load ptr, ptr %2, align 8, !nonnull !5, !noundef !5
-  %7 = getelementptr inbounds { [1 x i64], i64, [1 x i64] }, ptr %2, i64 0, i32 2
+  %7 = getelementptr inbounds i8, ptr %2, i64 16
   %8 = load i64, ptr %7, align 8, !noundef !5
   %9 = getelementptr i8, ptr %0, i64 16
   invoke void @"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17h7d34365db2738f05E"(ptr align 1 %9, ptr nonnull %6, i64 %4, i64 %8)
@@ -427,7 +427,7 @@ define void @"_ZN4core3ptr173drop_in_place$LT$alloc..collections..btree..node..S
 10:                                               ; preds = %5, %1
   %11 = landingpad { ptr, i32 }
           cleanup
-  %12 = getelementptr inbounds { { { { ptr, i64 }, i64 } }, { i8, [31 x i8] } }, ptr %0, i64 0, i32 1
+  %12 = getelementptr inbounds i8, ptr %0, i64 24
   invoke void @"_ZN4core3ptr45drop_in_place$LT$serde_json..value..Value$GT$17h4e7830de5bafa218E"(ptr nonnull align 8 %12) #10
           to label %15 unwind label %13
 
@@ -442,7 +442,7 @@ define void @"_ZN4core3ptr173drop_in_place$LT$alloc..collections..btree..node..S
 
 "_ZN4core3ptr77drop_in_place$LT$$LP$alloc..string..String$C$serde_json..value..Value$RP$$GT$17hdfe2a1f42b4b66cbE.exit": ; preds = %.noexc.i, %5
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %2)
-  %16 = getelementptr inbounds { { { { ptr, i64 }, i64 } }, { i8, [31 x i8] } }, ptr %0, i64 0, i32 1
+  %16 = getelementptr inbounds i8, ptr %0, i64 24
   call void @"_ZN4core3ptr45drop_in_place$LT$serde_json..value..Value$GT$17h4e7830de5bafa218E"(ptr nonnull align 8 %16)
   ret void
 }
@@ -452,14 +452,14 @@ define void @"_ZN4core3ptr205drop_in_place$LT$$LT$alloc..boxed..Box$LT$dyn$u20$c
   %2 = alloca { [1 x i64], i64, [1 x i64] }, align 8
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %2)
   call void @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14current_memory17ha93971af4ddf908cE"(ptr nonnull sret({ [1 x i64], i64, [1 x i64] }) align 8 %2, ptr align 8 %0)
-  %3 = getelementptr inbounds { [1 x i64], i64, [1 x i64] }, ptr %2, i64 0, i32 1
+  %3 = getelementptr inbounds i8, ptr %2, i64 8
   %4 = load i64, ptr %3, align 8, !range !11, !noundef !5
   %.not.i.i.i.i = icmp eq i64 %4, 0
   br i1 %.not.i.i.i.i, label %"_ZN4core3ptr42drop_in_place$LT$alloc..string..String$GT$17hd821f552b349cfc4E.exit", label %5
 
 5:                                                ; preds = %1
   %6 = load ptr, ptr %2, align 8, !nonnull !5, !noundef !5
-  %7 = getelementptr inbounds { [1 x i64], i64, [1 x i64] }, ptr %2, i64 0, i32 2
+  %7 = getelementptr inbounds i8, ptr %2, i64 16
   %8 = load i64, ptr %7, align 8, !noundef !5
   %9 = getelementptr i8, ptr %0, i64 16
   call void @"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17h7d34365db2738f05E"(ptr align 1 %9, ptr nonnull %6, i64 %4, i64 %8)
@@ -516,14 +516,14 @@ define void @"_ZN4core3ptr42drop_in_place$LT$alloc..string..String$GT$17hd821f55
   %2 = alloca { [1 x i64], i64, [1 x i64] }, align 8
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %2)
   call void @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14current_memory17ha93971af4ddf908cE"(ptr nonnull sret({ [1 x i64], i64, [1 x i64] }) align 8 %2, ptr align 8 %0)
-  %3 = getelementptr inbounds { [1 x i64], i64, [1 x i64] }, ptr %2, i64 0, i32 1
+  %3 = getelementptr inbounds i8, ptr %2, i64 8
   %4 = load i64, ptr %3, align 8, !range !11, !noundef !5
   %.not.i.i.i = icmp eq i64 %4, 0
   br i1 %.not.i.i.i, label %"_ZN4core3ptr46drop_in_place$LT$alloc..vec..Vec$LT$u8$GT$$GT$17h0abce9a21070398aE.exit", label %5
 
 5:                                                ; preds = %1
   %6 = load ptr, ptr %2, align 8, !nonnull !5, !noundef !5
-  %7 = getelementptr inbounds { [1 x i64], i64, [1 x i64] }, ptr %2, i64 0, i32 2
+  %7 = getelementptr inbounds i8, ptr %2, i64 16
   %8 = load i64, ptr %7, align 8, !noundef !5
   %9 = getelementptr i8, ptr %0, i64 16
   call void @"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17h7d34365db2738f05E"(ptr align 1 %9, ptr nonnull %6, i64 %4, i64 %8)
@@ -545,7 +545,7 @@ define void @"_ZN4core3ptr42drop_in_place$LT$std..io..error..Error$GT$17h6d431e2
   br i1 %switch.not.i.i.i, label %4, label %"_ZN4core3ptr57drop_in_place$LT$std..io..error..repr_bitpacked..Repr$GT$17hc23acbcc42a47a11E.exit"
 
 4:                                                ; preds = %1
-  %5 = getelementptr inbounds { [1 x i64], ptr }, ptr %2, i64 0, i32 1
+  %5 = getelementptr inbounds i8, ptr %2, i64 8
   call void @"_ZN4core3ptr68drop_in_place$LT$alloc..boxed..Box$LT$std..io..error..Custom$GT$$GT$17h03a393a7628a142bE"(ptr nonnull align 8 %5)
   br label %"_ZN4core3ptr57drop_in_place$LT$std..io..error..repr_bitpacked..Repr$GT$17hc23acbcc42a47a11E.exit"
 
@@ -566,7 +566,7 @@ define void @"_ZN4core3ptr435drop_in_place$LT$core..iter..traits..iterator..Iter
 ; Function Attrs: nonlazybind uwtable
 define void @"_ZN4core3ptr43drop_in_place$LT$std..io..error..Custom$GT$17hfd60b00c5054df6bE"(ptr align 8 %0) unnamed_addr #0 personality ptr @rust_eh_personality {
   %2 = load ptr, ptr %0, align 8, !noundef !5
-  %3 = getelementptr inbounds { ptr, ptr }, ptr %0, i64 0, i32 1
+  %3 = getelementptr inbounds i8, ptr %0, i64 8
   %4 = load ptr, ptr %3, align 8, !nonnull !5, !align !6, !noundef !5
   %5 = load ptr, ptr %4, align 8, !invariant.load !5, !nonnull !5
   invoke void %5(ptr align 1 %2)
@@ -580,13 +580,13 @@ define void @"_ZN4core3ptr43drop_in_place$LT$std..io..error..Custom$GT$17hfd60b0
 
 8:                                                ; preds = %1
   %9 = load ptr, ptr %3, align 8, !nonnull !5, !align !6, !noundef !5
-  %10 = getelementptr inbounds i64, ptr %9, i64 1
+  %10 = getelementptr inbounds i8, ptr %9, i64 8
   %11 = load i64, ptr %10, align 8, !range !13, !invariant.load !5
   %12 = icmp eq i64 %11, 0
   br i1 %12, label %"_ZN4core3ptr118drop_in_place$LT$alloc..boxed..Box$LT$dyn$u20$core..error..Error$u2b$core..marker..Send$u2b$core..marker..Sync$GT$$GT$17h6be0d312146e48d9E.exit", label %13
 
 13:                                               ; preds = %8
-  %14 = getelementptr inbounds i64, ptr %9, i64 2
+  %14 = getelementptr inbounds i8, ptr %9, i64 16
   %15 = load i64, ptr %14, align 8, !range !14, !invariant.load !5
   %16 = load ptr, ptr %0, align 8, !nonnull !5, !noundef !5
   %17 = getelementptr i8, ptr %0, i64 16
@@ -626,7 +626,7 @@ define void @"_ZN4core3ptr45drop_in_place$LT$serde_json..value..Value$GT$17h4e78
   ]
 
 5:                                                ; preds = %1
-  %6 = getelementptr inbounds { [1 x i64], { { { ptr, i64 }, i64, { {} }, {} } } }, ptr %0, i64 0, i32 1
+  %6 = getelementptr inbounds i8, ptr %0, i64 8
   tail call void @"_ZN99_$LT$alloc..collections..btree..map..BTreeMap$LT$K$C$V$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17h0f4eb6d3a510a965E"(ptr nonnull align 8 %6)
   br label %7
 
@@ -634,19 +634,19 @@ define void @"_ZN4core3ptr45drop_in_place$LT$serde_json..value..Value$GT$17h4e78
   ret void
 
 8:                                                ; preds = %1
-  %9 = getelementptr inbounds { [1 x i64], { { { ptr, i64 }, i64 } } }, ptr %0, i64 0, i32 1
+  %9 = getelementptr inbounds i8, ptr %0, i64 8
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %3)
   call void @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14current_memory17ha93971af4ddf908cE"(ptr nonnull sret({ [1 x i64], i64, [1 x i64] }) align 8 %3, ptr nonnull align 8 %9)
-  %10 = getelementptr inbounds { [1 x i64], i64, [1 x i64] }, ptr %3, i64 0, i32 1
+  %10 = getelementptr inbounds i8, ptr %3, i64 8
   %11 = load i64, ptr %10, align 8, !range !11, !noundef !5
   %.not.i.i.i.i = icmp eq i64 %11, 0
   br i1 %.not.i.i.i.i, label %"_ZN4core3ptr42drop_in_place$LT$alloc..string..String$GT$17hd821f552b349cfc4E.exit", label %12
 
 12:                                               ; preds = %8
   %13 = load ptr, ptr %3, align 8, !nonnull !5, !noundef !5
-  %14 = getelementptr inbounds { [1 x i64], i64, [1 x i64] }, ptr %3, i64 0, i32 2
+  %14 = getelementptr inbounds i8, ptr %3, i64 16
   %15 = load i64, ptr %14, align 8, !noundef !5
-  %16 = getelementptr { [1 x i64], { { { ptr, i64 }, i64 } } }, ptr %0, i64 0, i32 1, i32 0, i32 1
+  %16 = getelementptr i8, ptr %0, i64 24
   call void @"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17h7d34365db2738f05E"(ptr align 1 %16, ptr nonnull %13, i64 %11, i64 %15)
   br label %"_ZN4core3ptr42drop_in_place$LT$alloc..string..String$GT$17hd821f552b349cfc4E.exit"
 
@@ -655,9 +655,9 @@ define void @"_ZN4core3ptr45drop_in_place$LT$serde_json..value..Value$GT$17h4e78
   br label %7
 
 17:                                               ; preds = %1
-  %18 = getelementptr inbounds { [1 x i64], { { ptr, i64 }, i64 } }, ptr %0, i64 0, i32 1
+  %18 = getelementptr inbounds i8, ptr %0, i64 8
   %19 = load ptr, ptr %18, align 8, !nonnull !5, !noundef !5
-  %20 = getelementptr inbounds { [1 x i64], { { ptr, i64 }, i64 } }, ptr %0, i64 0, i32 1, i32 1
+  %20 = getelementptr inbounds i8, ptr %0, i64 24
   %21 = load i64, ptr %20, align 8, !noundef !5
   br label %22
 
@@ -710,14 +710,14 @@ define void @"_ZN4core3ptr45drop_in_place$LT$serde_json..value..Value$GT$17h4e78
 "_ZN4core3ptr68drop_in_place$LT$alloc..vec..Vec$LT$serde_json..value..Value$GT$$GT$17h5286e55957b853a8E.exit": ; preds = %22
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %2)
   call void @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14current_memory17h03876fef7eebb2aeE"(ptr nonnull sret({ [1 x i64], i64, [1 x i64] }) align 8 %2, ptr nonnull align 8 %18)
-  %39 = getelementptr inbounds { [1 x i64], i64, [1 x i64] }, ptr %2, i64 0, i32 1
+  %39 = getelementptr inbounds i8, ptr %2, i64 8
   %40 = load i64, ptr %39, align 8, !range !11, !noundef !5
   %.not.i.i = icmp eq i64 %40, 0
   br i1 %.not.i.i, label %"_ZN4core3ptr75drop_in_place$LT$alloc..raw_vec..RawVec$LT$serde_json..value..Value$GT$$GT$17h87a280f0155f6f92E.exit", label %41
 
 41:                                               ; preds = %"_ZN4core3ptr68drop_in_place$LT$alloc..vec..Vec$LT$serde_json..value..Value$GT$$GT$17h5286e55957b853a8E.exit"
   %42 = load ptr, ptr %2, align 8, !nonnull !5, !noundef !5
-  %43 = getelementptr inbounds { [1 x i64], i64, [1 x i64] }, ptr %2, i64 0, i32 2
+  %43 = getelementptr inbounds i8, ptr %2, i64 16
   %44 = load i64, ptr %43, align 8, !noundef !5
   call void @"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17h7d34365db2738f05E"(ptr nonnull align 1 %20, ptr nonnull %42, i64 %40, i64 %44)
   br label %"_ZN4core3ptr75drop_in_place$LT$alloc..raw_vec..RawVec$LT$serde_json..value..Value$GT$$GT$17h87a280f0155f6f92E.exit"
@@ -737,14 +737,14 @@ define void @"_ZN4core3ptr46drop_in_place$LT$alloc..vec..Vec$LT$u8$GT$$GT$17h0ab
   %2 = alloca { [1 x i64], i64, [1 x i64] }, align 8
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %2)
   call void @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14current_memory17ha93971af4ddf908cE"(ptr nonnull sret({ [1 x i64], i64, [1 x i64] }) align 8 %2, ptr align 8 %0)
-  %3 = getelementptr inbounds { [1 x i64], i64, [1 x i64] }, ptr %2, i64 0, i32 1
+  %3 = getelementptr inbounds i8, ptr %2, i64 8
   %4 = load i64, ptr %3, align 8, !range !11, !noundef !5
   %.not.i.i = icmp eq i64 %4, 0
   br i1 %.not.i.i, label %"_ZN4core3ptr53drop_in_place$LT$alloc..raw_vec..RawVec$LT$u8$GT$$GT$17h3b3b28dee8d23cecE.exit", label %5
 
 5:                                                ; preds = %1
   %6 = load ptr, ptr %2, align 8, !nonnull !5, !noundef !5
-  %7 = getelementptr inbounds { [1 x i64], i64, [1 x i64] }, ptr %2, i64 0, i32 2
+  %7 = getelementptr inbounds i8, ptr %2, i64 16
   %8 = load i64, ptr %7, align 8, !noundef !5
   %9 = getelementptr i8, ptr %0, i64 16
   call void @"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17h7d34365db2738f05E"(ptr align 1 %9, ptr nonnull %6, i64 %4, i64 %8)
@@ -773,12 +773,12 @@ define void @"_ZN4core3ptr49drop_in_place$LT$serde_json..error..ErrorCode$GT$17h
   ret void
 
 5:                                                ; preds = %1
-  %6 = getelementptr inbounds { [1 x i64], { ptr, i64 } }, ptr %0, i64 0, i32 1
+  %6 = getelementptr inbounds i8, ptr %0, i64 8
   tail call void @"_ZN4core3ptr49drop_in_place$LT$alloc..boxed..Box$LT$str$GT$$GT$17h77d759aecbfd65fbE"(ptr nonnull align 8 %6)
   br label %4
 
 7:                                                ; preds = %1
-  %8 = getelementptr inbounds { [1 x i64], ptr }, ptr %0, i64 0, i32 1
+  %8 = getelementptr inbounds i8, ptr %0, i64 8
   %.val.i.i = load ptr, ptr %8, align 8, !nonnull !5, !noundef !5
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %2)
   call void @_ZN3std2io5error14repr_bitpacked11decode_repr17h51ed40f0ae434f3fE(ptr nonnull sret({ i8, [15 x i8] }) align 8 %2, ptr nonnull %.val.i.i)
@@ -787,7 +787,7 @@ define void @"_ZN4core3ptr49drop_in_place$LT$serde_json..error..ErrorCode$GT$17h
   br i1 %switch.not.i.i.i.i, label %10, label %"_ZN4core3ptr42drop_in_place$LT$std..io..error..Error$GT$17h6d431e2594f6c0faE.exit"
 
 10:                                               ; preds = %7
-  %11 = getelementptr inbounds { [1 x i64], ptr }, ptr %2, i64 0, i32 1
+  %11 = getelementptr inbounds i8, ptr %2, i64 8
   call void @"_ZN4core3ptr68drop_in_place$LT$alloc..boxed..Box$LT$std..io..error..Custom$GT$$GT$17h03a393a7628a142bE"(ptr nonnull align 8 %11)
   br label %"_ZN4core3ptr42drop_in_place$LT$std..io..error..Error$GT$17h6d431e2594f6c0faE.exit"
 
@@ -806,12 +806,12 @@ define void @"_ZN4core3ptr49drop_in_place$LT$serde_json..error..ErrorImpl$GT$17h
   ]
 
 4:                                                ; preds = %1
-  %5 = getelementptr inbounds { [1 x i64], { ptr, i64 } }, ptr %0, i64 0, i32 1
+  %5 = getelementptr inbounds i8, ptr %0, i64 8
   tail call void @"_ZN4core3ptr49drop_in_place$LT$alloc..boxed..Box$LT$str$GT$$GT$17h77d759aecbfd65fbE"(ptr nonnull align 8 %5)
   br label %"_ZN4core3ptr49drop_in_place$LT$serde_json..error..ErrorCode$GT$17hc78b95e0fd26d38bE.exit"
 
 6:                                                ; preds = %1
-  %7 = getelementptr inbounds { [1 x i64], ptr }, ptr %0, i64 0, i32 1
+  %7 = getelementptr inbounds i8, ptr %0, i64 8
   %.val.i.i.i = load ptr, ptr %7, align 8, !nonnull !5, !noundef !5
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %2)
   call void @_ZN3std2io5error14repr_bitpacked11decode_repr17h51ed40f0ae434f3fE(ptr nonnull sret({ i8, [15 x i8] }) align 8 %2, ptr nonnull %.val.i.i.i)
@@ -820,7 +820,7 @@ define void @"_ZN4core3ptr49drop_in_place$LT$serde_json..error..ErrorImpl$GT$17h
   br i1 %switch.not.i.i.i.i.i, label %9, label %"_ZN4core3ptr42drop_in_place$LT$std..io..error..Error$GT$17h6d431e2594f6c0faE.exit.i"
 
 9:                                                ; preds = %6
-  %10 = getelementptr inbounds { [1 x i64], ptr }, ptr %2, i64 0, i32 1
+  %10 = getelementptr inbounds i8, ptr %2, i64 8
   call void @"_ZN4core3ptr68drop_in_place$LT$alloc..boxed..Box$LT$std..io..error..Custom$GT$$GT$17h03a393a7628a142bE"(ptr nonnull align 8 %10)
   br label %"_ZN4core3ptr42drop_in_place$LT$std..io..error..Error$GT$17h6d431e2594f6c0faE.exit.i"
 
@@ -842,14 +842,14 @@ define void @"_ZN4core3ptr53drop_in_place$LT$alloc..raw_vec..RawVec$LT$u8$GT$$GT
   %2 = alloca { [1 x i64], i64, [1 x i64] }, align 8
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %2)
   call void @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14current_memory17ha93971af4ddf908cE"(ptr nonnull sret({ [1 x i64], i64, [1 x i64] }) align 8 %2, ptr align 8 %0)
-  %3 = getelementptr inbounds { [1 x i64], i64, [1 x i64] }, ptr %2, i64 0, i32 1
+  %3 = getelementptr inbounds i8, ptr %2, i64 8
   %4 = load i64, ptr %3, align 8, !range !11, !noundef !5
   %.not.i = icmp eq i64 %4, 0
   br i1 %.not.i, label %"_ZN77_$LT$alloc..raw_vec..RawVec$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17hdf26918dabc8b56cE.exit", label %5
 
 5:                                                ; preds = %1
   %6 = load ptr, ptr %2, align 8, !nonnull !5, !noundef !5
-  %7 = getelementptr inbounds { [1 x i64], i64, [1 x i64] }, ptr %2, i64 0, i32 2
+  %7 = getelementptr inbounds i8, ptr %2, i64 16
   %8 = load i64, ptr %7, align 8, !noundef !5
   %9 = getelementptr i8, ptr %0, i64 16
   call void @"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17h7d34365db2738f05E"(ptr align 1 %9, ptr nonnull %6, i64 %4, i64 %8)
@@ -915,7 +915,7 @@ define void @"_ZN4core3ptr57drop_in_place$LT$std..io..error..repr_bitpacked..Rep
   br i1 %switch.not.i.i, label %4, label %"_ZN78_$LT$std..io..error..repr_bitpacked..Repr$u20$as$u20$core..ops..drop..Drop$GT$4drop17h9475b52367e54183E.exit"
 
 4:                                                ; preds = %1
-  %5 = getelementptr inbounds { [1 x i64], ptr }, ptr %2, i64 0, i32 1
+  %5 = getelementptr inbounds i8, ptr %2, i64 8
   call void @"_ZN4core3ptr68drop_in_place$LT$alloc..boxed..Box$LT$std..io..error..Custom$GT$$GT$17h03a393a7628a142bE"(ptr nonnull align 8 %5)
   br label %"_ZN78_$LT$std..io..error..repr_bitpacked..Repr$u20$as$u20$core..ops..drop..Drop$GT$4drop17h9475b52367e54183E.exit"
 
@@ -946,7 +946,7 @@ define void @"_ZN4core3ptr679drop_in_place$LT$core..iter..adapters..map..map_fol
 define void @"_ZN4core3ptr68drop_in_place$LT$alloc..boxed..Box$LT$std..io..error..Custom$GT$$GT$17h03a393a7628a142bE"(ptr align 8 %0) unnamed_addr #0 personality ptr @rust_eh_personality {
   %2 = load ptr, ptr %0, align 8, !noundef !5
   %3 = load ptr, ptr %2, align 8, !noundef !5
-  %4 = getelementptr inbounds { ptr, ptr }, ptr %2, i64 0, i32 1
+  %4 = getelementptr inbounds i8, ptr %2, i64 8
   %5 = load ptr, ptr %4, align 8, !nonnull !5, !align !6, !noundef !5
   %6 = load ptr, ptr %5, align 8, !invariant.load !5, !nonnull !5
   invoke void %6(ptr align 1 %3)
@@ -960,13 +960,13 @@ define void @"_ZN4core3ptr68drop_in_place$LT$alloc..boxed..Box$LT$std..io..error
 
 9:                                                ; preds = %1
   %10 = load ptr, ptr %4, align 8, !nonnull !5, !align !6, !noundef !5
-  %11 = getelementptr inbounds i64, ptr %10, i64 1
+  %11 = getelementptr inbounds i8, ptr %10, i64 8
   %12 = load i64, ptr %11, align 8, !range !13, !invariant.load !5
   %13 = icmp eq i64 %12, 0
   br i1 %13, label %"_ZN4core3ptr43drop_in_place$LT$std..io..error..Custom$GT$17hfd60b00c5054df6bE.exit", label %14
 
 14:                                               ; preds = %9
-  %15 = getelementptr inbounds i64, ptr %10, i64 2
+  %15 = getelementptr inbounds i8, ptr %10, i64 16
   %16 = load i64, ptr %15, align 8, !range !14, !invariant.load !5
   %17 = load ptr, ptr %2, align 8, !nonnull !5, !noundef !5
   %18 = getelementptr i8, ptr %2, i64 16
@@ -1011,7 +1011,7 @@ define void @"_ZN4core3ptr68drop_in_place$LT$alloc..boxed..Box$LT$std..io..error
 define void @"_ZN4core3ptr68drop_in_place$LT$alloc..vec..Vec$LT$serde_json..value..Value$GT$$GT$17h5286e55957b853a8E"(ptr align 8 %0) unnamed_addr #0 personality ptr @rust_eh_personality {
   %2 = alloca { [1 x i64], i64, [1 x i64] }, align 8
   %3 = load ptr, ptr %0, align 8, !nonnull !5, !noundef !5
-  %4 = getelementptr inbounds { { ptr, i64 }, i64 }, ptr %0, i64 0, i32 1
+  %4 = getelementptr inbounds i8, ptr %0, i64 16
   %5 = load i64, ptr %4, align 8, !noundef !5
   br label %6
 
@@ -1055,14 +1055,14 @@ define void @"_ZN4core3ptr68drop_in_place$LT$alloc..vec..Vec$LT$serde_json..valu
 "_ZN70_$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17h50dfe9b52e80cc62E.exit": ; preds = %6
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %2)
   call void @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14current_memory17h03876fef7eebb2aeE"(ptr nonnull sret({ [1 x i64], i64, [1 x i64] }) align 8 %2, ptr nonnull align 8 %0)
-  %20 = getelementptr inbounds { [1 x i64], i64, [1 x i64] }, ptr %2, i64 0, i32 1
+  %20 = getelementptr inbounds i8, ptr %2, i64 8
   %21 = load i64, ptr %20, align 8, !range !11, !noundef !5
   %.not.i.i = icmp eq i64 %21, 0
   br i1 %.not.i.i, label %"_ZN4core3ptr75drop_in_place$LT$alloc..raw_vec..RawVec$LT$serde_json..value..Value$GT$$GT$17h87a280f0155f6f92E.exit", label %22
 
 22:                                               ; preds = %"_ZN70_$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17h50dfe9b52e80cc62E.exit"
   %23 = load ptr, ptr %2, align 8, !nonnull !5, !noundef !5
-  %24 = getelementptr inbounds { [1 x i64], i64, [1 x i64] }, ptr %2, i64 0, i32 2
+  %24 = getelementptr inbounds i8, ptr %2, i64 16
   %25 = load i64, ptr %24, align 8, !noundef !5
   call void @"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17h7d34365db2738f05E"(ptr nonnull align 1 %4, ptr nonnull %23, i64 %21, i64 %25)
   br label %"_ZN4core3ptr75drop_in_place$LT$alloc..raw_vec..RawVec$LT$serde_json..value..Value$GT$$GT$17h87a280f0155f6f92E.exit"
@@ -1094,14 +1094,14 @@ define void @"_ZN4core3ptr70drop_in_place$LT$core..option..Option$LT$alloc..stri
 6:                                                ; preds = %1
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %2)
   call void @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14current_memory17ha93971af4ddf908cE"(ptr nonnull sret({ [1 x i64], i64, [1 x i64] }) align 8 %2, ptr nonnull align 8 %0)
-  %7 = getelementptr inbounds { [1 x i64], i64, [1 x i64] }, ptr %2, i64 0, i32 1
+  %7 = getelementptr inbounds i8, ptr %2, i64 8
   %8 = load i64, ptr %7, align 8, !range !11, !noundef !5
   %.not.i.i.i.i = icmp eq i64 %8, 0
   br i1 %.not.i.i.i.i, label %"_ZN4core3ptr42drop_in_place$LT$alloc..string..String$GT$17hd821f552b349cfc4E.exit", label %9
 
 9:                                                ; preds = %6
   %10 = load ptr, ptr %2, align 8, !nonnull !5, !noundef !5
-  %11 = getelementptr inbounds { [1 x i64], i64, [1 x i64] }, ptr %2, i64 0, i32 2
+  %11 = getelementptr inbounds i8, ptr %2, i64 16
   %12 = load i64, ptr %11, align 8, !noundef !5
   %13 = getelementptr i8, ptr %0, i64 16
   call void @"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17h7d34365db2738f05E"(ptr align 1 %13, ptr nonnull %10, i64 %8, i64 %12)
@@ -1143,12 +1143,12 @@ define void @"_ZN4core3ptr74drop_in_place$LT$alloc..boxed..Box$LT$serde_json..er
   ]
 
 5:                                                ; preds = %1
-  %6 = getelementptr inbounds { [1 x i64], { ptr, i64 } }, ptr %3, i64 0, i32 1
+  %6 = getelementptr inbounds i8, ptr %3, i64 8
   invoke void @"_ZN4core3ptr49drop_in_place$LT$alloc..boxed..Box$LT$str$GT$$GT$17h77d759aecbfd65fbE"(ptr nonnull align 8 %6)
           to label %"_ZN4core3ptr49drop_in_place$LT$serde_json..error..ErrorImpl$GT$17h0ea96ee95f7f4a2fE.exit" unwind label %12
 
 7:                                                ; preds = %1
-  %8 = getelementptr inbounds { [1 x i64], ptr }, ptr %3, i64 0, i32 1
+  %8 = getelementptr inbounds i8, ptr %3, i64 8
   %.val.i.i.i.i = load ptr, ptr %8, align 8, !nonnull !5, !noundef !5
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %2)
   invoke void @_ZN3std2io5error14repr_bitpacked11decode_repr17h51ed40f0ae434f3fE(ptr nonnull sret({ i8, [15 x i8] }) align 8 %2, ptr nonnull %.val.i.i.i.i)
@@ -1160,7 +1160,7 @@ define void @"_ZN4core3ptr74drop_in_place$LT$alloc..boxed..Box$LT$serde_json..er
   br i1 %switch.not.i.i.i.i.i.i, label %10, label %"_ZN4core3ptr42drop_in_place$LT$std..io..error..Error$GT$17h6d431e2594f6c0faE.exit.i.i"
 
 10:                                               ; preds = %.noexc1
-  %11 = getelementptr inbounds { [1 x i64], ptr }, ptr %2, i64 0, i32 1
+  %11 = getelementptr inbounds i8, ptr %2, i64 8
   invoke void @"_ZN4core3ptr68drop_in_place$LT$alloc..boxed..Box$LT$std..io..error..Custom$GT$$GT$17h03a393a7628a142bE"(ptr nonnull align 8 %11)
           to label %"_ZN4core3ptr42drop_in_place$LT$std..io..error..Error$GT$17h6d431e2594f6c0faE.exit.i.i" unwind label %12
 
@@ -1197,14 +1197,14 @@ define void @"_ZN4core3ptr75drop_in_place$LT$alloc..raw_vec..RawVec$LT$serde_jso
   %2 = alloca { [1 x i64], i64, [1 x i64] }, align 8
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %2)
   call void @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14current_memory17h03876fef7eebb2aeE"(ptr nonnull sret({ [1 x i64], i64, [1 x i64] }) align 8 %2, ptr align 8 %0)
-  %3 = getelementptr inbounds { [1 x i64], i64, [1 x i64] }, ptr %2, i64 0, i32 1
+  %3 = getelementptr inbounds i8, ptr %2, i64 8
   %4 = load i64, ptr %3, align 8, !range !11, !noundef !5
   %.not.i = icmp eq i64 %4, 0
   br i1 %.not.i, label %"_ZN77_$LT$alloc..raw_vec..RawVec$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17h1794d9055b005096E.exit", label %5
 
 5:                                                ; preds = %1
   %6 = load ptr, ptr %2, align 8, !nonnull !5, !noundef !5
-  %7 = getelementptr inbounds { [1 x i64], i64, [1 x i64] }, ptr %2, i64 0, i32 2
+  %7 = getelementptr inbounds i8, ptr %2, i64 16
   %8 = load i64, ptr %7, align 8, !noundef !5
   %9 = getelementptr i8, ptr %0, i64 16
   call void @"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17h7d34365db2738f05E"(ptr align 1 %9, ptr nonnull %6, i64 %4, i64 %8)
@@ -1223,14 +1223,14 @@ define void @"_ZN4core3ptr77drop_in_place$LT$$LP$alloc..string..String$C$serde_j
           to label %.noexc unwind label %10
 
 .noexc:                                           ; preds = %1
-  %3 = getelementptr inbounds { [1 x i64], i64, [1 x i64] }, ptr %2, i64 0, i32 1
+  %3 = getelementptr inbounds i8, ptr %2, i64 8
   %4 = load i64, ptr %3, align 8, !range !11, !noundef !5
   %.not.i.i.i.i = icmp eq i64 %4, 0
   br i1 %.not.i.i.i.i, label %13, label %5
 
 5:                                                ; preds = %.noexc
   %6 = load ptr, ptr %2, align 8, !nonnull !5, !noundef !5
-  %7 = getelementptr inbounds { [1 x i64], i64, [1 x i64] }, ptr %2, i64 0, i32 2
+  %7 = getelementptr inbounds i8, ptr %2, i64 16
   %8 = load i64, ptr %7, align 8, !noundef !5
   %9 = getelementptr i8, ptr %0, i64 16
   invoke void @"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17h7d34365db2738f05E"(ptr align 1 %9, ptr nonnull %6, i64 %4, i64 %8)
@@ -1239,13 +1239,13 @@ define void @"_ZN4core3ptr77drop_in_place$LT$$LP$alloc..string..String$C$serde_j
 10:                                               ; preds = %5, %1
   %11 = landingpad { ptr, i32 }
           cleanup
-  %12 = getelementptr inbounds { { { { ptr, i64 }, i64 } }, { i8, [31 x i8] } }, ptr %0, i64 0, i32 1
+  %12 = getelementptr inbounds i8, ptr %0, i64 24
   invoke void @"_ZN4core3ptr45drop_in_place$LT$serde_json..value..Value$GT$17h4e7830de5bafa218E"(ptr nonnull align 8 %12) #10
           to label %17 unwind label %15
 
 13:                                               ; preds = %.noexc, %5
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %2)
-  %14 = getelementptr inbounds { { { { ptr, i64 }, i64 } }, { i8, [31 x i8] } }, ptr %0, i64 0, i32 1
+  %14 = getelementptr inbounds i8, ptr %0, i64 24
   call void @"_ZN4core3ptr45drop_in_place$LT$serde_json..value..Value$GT$17h4e7830de5bafa218E"(ptr nonnull align 8 %14)
   ret void
 
@@ -1262,19 +1262,19 @@ define void @"_ZN4core3ptr77drop_in_place$LT$$LP$alloc..string..String$C$serde_j
 ; Function Attrs: nonlazybind uwtable
 define void @"_ZN4core3ptr82drop_in_place$LT$serde_json..de..Deserializer$LT$serde_json..read..StrRead$GT$$GT$17h554fb350b211ac1cE"(ptr align 8 %0) unnamed_addr #0 personality ptr @rust_eh_personality {
   %2 = alloca { [1 x i64], i64, [1 x i64] }, align 8
-  %3 = getelementptr inbounds { { { { ptr, i64 }, i64 } }, { { ptr, i64 }, i64 }, i8, [7 x i8] }, ptr %0, i64 0, i32 1
+  %3 = getelementptr inbounds i8, ptr %0, i64 24
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %2)
   call void @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14current_memory17ha93971af4ddf908cE"(ptr nonnull sret({ [1 x i64], i64, [1 x i64] }) align 8 %2, ptr nonnull align 8 %3)
-  %4 = getelementptr inbounds { [1 x i64], i64, [1 x i64] }, ptr %2, i64 0, i32 1
+  %4 = getelementptr inbounds i8, ptr %2, i64 8
   %5 = load i64, ptr %4, align 8, !range !11, !noundef !5
   %.not.i.i.i = icmp eq i64 %5, 0
   br i1 %.not.i.i.i, label %"_ZN4core3ptr46drop_in_place$LT$alloc..vec..Vec$LT$u8$GT$$GT$17h0abce9a21070398aE.exit", label %6
 
 6:                                                ; preds = %1
   %7 = load ptr, ptr %2, align 8, !nonnull !5, !noundef !5
-  %8 = getelementptr inbounds { [1 x i64], i64, [1 x i64] }, ptr %2, i64 0, i32 2
+  %8 = getelementptr inbounds i8, ptr %2, i64 16
   %9 = load i64, ptr %8, align 8, !noundef !5
-  %10 = getelementptr { { { { ptr, i64 }, i64 } }, { { ptr, i64 }, i64 }, i8, [7 x i8] }, ptr %0, i64 0, i32 1, i32 1
+  %10 = getelementptr i8, ptr %0, i64 40
   call void @"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17h7d34365db2738f05E"(ptr align 1 %10, ptr nonnull %7, i64 %5, i64 %9)
   br label %"_ZN4core3ptr46drop_in_place$LT$alloc..vec..Vec$LT$u8$GT$$GT$17h0abce9a21070398aE.exit"
 
@@ -1299,7 +1299,7 @@ define void @"_ZN4core3ptr97drop_in_place$LT$serde_json..map..Map$LT$alloc..stri
 ; Function Attrs: nonlazybind uwtable
 define void @"_ZN70_$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17h50dfe9b52e80cc62E"(ptr nocapture readonly align 8 %0) unnamed_addr #0 personality ptr @rust_eh_personality {
   %2 = load ptr, ptr %0, align 8, !nonnull !5, !noundef !5
-  %3 = getelementptr inbounds { { ptr, i64 }, i64 }, ptr %0, i64 0, i32 1
+  %3 = getelementptr inbounds i8, ptr %0, i64 16
   %4 = load i64, ptr %3, align 8, !noundef !5
   br label %5
 
@@ -1382,15 +1382,15 @@ define void @"_ZN72_$LT$alloc..boxed..Box$LT$T$C$A$GT$$u20$as$u20$core..ops..dro
 
 ; Function Attrs: inlinehint nonlazybind uwtable
 define void @"_ZN72_$LT$alloc..boxed..Box$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17hcb8d5bcab9dd191cE"(ptr align 8 %0) unnamed_addr #1 {
-  %2 = getelementptr inbounds { ptr, ptr }, ptr %0, i64 0, i32 1
+  %2 = getelementptr inbounds i8, ptr %0, i64 8
   %3 = load ptr, ptr %2, align 8, !nonnull !5, !align !6, !noundef !5
-  %4 = getelementptr inbounds i64, ptr %3, i64 1
+  %4 = getelementptr inbounds i8, ptr %3, i64 8
   %5 = load i64, ptr %4, align 8, !range !13, !invariant.load !5
   %6 = icmp eq i64 %5, 0
   br i1 %6, label %12, label %7
 
 7:                                                ; preds = %1
-  %8 = getelementptr inbounds i64, ptr %3, i64 2
+  %8 = getelementptr inbounds i8, ptr %3, i64 16
   %9 = load i64, ptr %8, align 8, !range !14, !invariant.load !5
   %10 = load ptr, ptr %0, align 8, !nonnull !5, !noundef !5
   %11 = getelementptr i8, ptr %0, i64 16
@@ -1405,14 +1405,14 @@ define void @"_ZN72_$LT$alloc..boxed..Box$LT$T$C$A$GT$$u20$as$u20$core..ops..dro
 define void @"_ZN77_$LT$alloc..raw_vec..RawVec$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17h1794d9055b005096E"(ptr align 8 %0) unnamed_addr #0 {
   %2 = alloca { [1 x i64], i64, [1 x i64] }, align 8
   call void @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14current_memory17h03876fef7eebb2aeE"(ptr nonnull sret({ [1 x i64], i64, [1 x i64] }) align 8 %2, ptr align 8 %0)
-  %3 = getelementptr inbounds { [1 x i64], i64, [1 x i64] }, ptr %2, i64 0, i32 1
+  %3 = getelementptr inbounds i8, ptr %2, i64 8
   %4 = load i64, ptr %3, align 8, !range !11, !noundef !5
   %.not = icmp eq i64 %4, 0
   br i1 %.not, label %10, label %5
 
 5:                                                ; preds = %1
   %6 = load ptr, ptr %2, align 8, !nonnull !5, !noundef !5
-  %7 = getelementptr inbounds { [1 x i64], i64, [1 x i64] }, ptr %2, i64 0, i32 2
+  %7 = getelementptr inbounds i8, ptr %2, i64 16
   %8 = load i64, ptr %7, align 8, !noundef !5
   %9 = getelementptr i8, ptr %0, i64 16
   call void @"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17h7d34365db2738f05E"(ptr align 1 %9, ptr nonnull %6, i64 %4, i64 %8)
@@ -1426,14 +1426,14 @@ define void @"_ZN77_$LT$alloc..raw_vec..RawVec$LT$T$C$A$GT$$u20$as$u20$core..ops
 define void @"_ZN77_$LT$alloc..raw_vec..RawVec$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17hdf26918dabc8b56cE"(ptr align 8 %0) unnamed_addr #0 {
   %2 = alloca { [1 x i64], i64, [1 x i64] }, align 8
   call void @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14current_memory17ha93971af4ddf908cE"(ptr nonnull sret({ [1 x i64], i64, [1 x i64] }) align 8 %2, ptr align 8 %0)
-  %3 = getelementptr inbounds { [1 x i64], i64, [1 x i64] }, ptr %2, i64 0, i32 1
+  %3 = getelementptr inbounds i8, ptr %2, i64 8
   %4 = load i64, ptr %3, align 8, !range !11, !noundef !5
   %.not = icmp eq i64 %4, 0
   br i1 %.not, label %10, label %5
 
 5:                                                ; preds = %1
   %6 = load ptr, ptr %2, align 8, !nonnull !5, !noundef !5
-  %7 = getelementptr inbounds { [1 x i64], i64, [1 x i64] }, ptr %2, i64 0, i32 2
+  %7 = getelementptr inbounds i8, ptr %2, i64 16
   %8 = load i64, ptr %7, align 8, !noundef !5
   %9 = getelementptr i8, ptr %0, i64 16
   call void @"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17h7d34365db2738f05E"(ptr align 1 %9, ptr nonnull %6, i64 %4, i64 %8)

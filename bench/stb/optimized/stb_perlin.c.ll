@@ -7,8 +7,8 @@ target triple = "x86_64-unknown-linux-gnu"
 @stb__perlin_randtab_grad_idx = local_unnamed_addr global [512 x i8] c"\07\09\05\00\0B\01\06\09\03\09\0B\01\08\0A\04\07\08\06\01\05\03\0A\09\0A\00\08\04\01\05\02\07\08\07\0B\09\0A\01\00\04\07\05\00\0B\06\01\04\02\08\08\0A\04\09\09\02\05\07\09\01\07\02\02\06\0B\05\05\04\06\09\00\01\01\00\07\06\09\08\04\0A\03\01\02\08\08\09\0A\0B\05\0B\0B\02\06\0A\03\04\02\04\09\0A\03\02\06\03\06\0A\05\03\04\0A\0B\02\09\0B\01\0B\0A\04\09\04\0B\00\04\0B\04\00\00\00\07\06\0A\04\01\03\0B\05\03\04\02\09\01\03\00\01\08\00\06\07\08\07\00\04\06\0A\08\02\03\0B\0B\08\00\02\04\08\03\00\00\0A\06\01\02\02\04\05\06\00\01\03\0B\09\05\05\09\06\09\08\03\08\01\08\09\06\09\0B\0A\07\05\06\05\09\01\03\07\00\02\0A\0B\02\06\01\03\0B\07\07\02\01\07\03\00\08\01\01\05\00\06\0A\0B\0B\00\02\07\00\0A\08\03\05\07\01\0B\01\00\07\09\00\0B\05\0A\03\02\03\05\09\07\09\08\04\06\05\07\09\05\00\0B\01\06\09\03\09\0B\01\08\0A\04\07\08\06\01\05\03\0A\09\0A\00\08\04\01\05\02\07\08\07\0B\09\0A\01\00\04\07\05\00\0B\06\01\04\02\08\08\0A\04\09\09\02\05\07\09\01\07\02\02\06\0B\05\05\04\06\09\00\01\01\00\07\06\09\08\04\0A\03\01\02\08\08\09\0A\0B\05\0B\0B\02\06\0A\03\04\02\04\09\0A\03\02\06\03\06\0A\05\03\04\0A\0B\02\09\0B\01\0B\0A\04\09\04\0B\00\04\0B\04\00\00\00\07\06\0A\04\01\03\0B\05\03\04\02\09\01\03\00\01\08\00\06\07\08\07\00\04\06\0A\08\02\03\0B\0B\08\00\02\04\08\03\00\00\0A\06\01\02\02\04\05\06\00\01\03\0B\09\05\05\09\06\09\08\03\08\01\08\09\06\09\0B\0A\07\05\06\05\09\01\03\07\00\02\0A\0B\02\06\01\03\0B\07\07\02\01\07\03\00\08\01\01\05\00\06\0A\0B\0B\00\02\07\00\0A\08\03\05\07\01\0B\01\00\07\09\00\0B\05\0A\03\02\03\05\09\07\09\08\04\06\05", align 16
 @__const.stb__perlin_grad.basis = private unnamed_addr constant [12 x [4 x float]] [[4 x float] [float 1.000000e+00, float 1.000000e+00, float 0.000000e+00, float 0.000000e+00], [4 x float] [float -1.000000e+00, float 1.000000e+00, float 0.000000e+00, float 0.000000e+00], [4 x float] [float 1.000000e+00, float -1.000000e+00, float 0.000000e+00, float 0.000000e+00], [4 x float] [float -1.000000e+00, float -1.000000e+00, float 0.000000e+00, float 0.000000e+00], [4 x float] [float 1.000000e+00, float 0.000000e+00, float 1.000000e+00, float 0.000000e+00], [4 x float] [float -1.000000e+00, float 0.000000e+00, float 1.000000e+00, float 0.000000e+00], [4 x float] [float 1.000000e+00, float 0.000000e+00, float -1.000000e+00, float 0.000000e+00], [4 x float] [float -1.000000e+00, float 0.000000e+00, float -1.000000e+00, float 0.000000e+00], [4 x float] [float 0.000000e+00, float 1.000000e+00, float 1.000000e+00, float 0.000000e+00], [4 x float] [float 0.000000e+00, float -1.000000e+00, float 1.000000e+00, float 0.000000e+00], [4 x float] [float 0.000000e+00, float 1.000000e+00, float -1.000000e+00, float 0.000000e+00], [4 x float] [float 0.000000e+00, float -1.000000e+00, float -1.000000e+00, float 0.000000e+00]], align 16
 
-; Function Attrs: mustprogress nofree nosync nounwind willreturn memory(none) uwtable
-define float @stb__perlin_lerp(float noundef %a, float noundef %b, float noundef %t) local_unnamed_addr #0 {
+; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
+define noundef float @stb__perlin_lerp(float noundef %a, float noundef %b, float noundef %t) local_unnamed_addr #0 {
 entry:
   %sub = fsub float %b, %a
   %0 = tail call float @llvm.fmuladd.f32(float %sub, float %t, float %a)
@@ -19,7 +19,7 @@ entry:
 declare float @llvm.fmuladd.f32(float, float, float) #1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define i32 @stb__perlin_fastfloor(float noundef %a) local_unnamed_addr #2 {
+define i32 @stb__perlin_fastfloor(float noundef %a) local_unnamed_addr #0 {
 entry:
   %conv = fptosi float %a to i32
   %conv1 = sitofp i32 %conv to float
@@ -29,24 +29,24 @@ entry:
   ret i32 %cond
 }
 
-; Function Attrs: mustprogress nofree nosync nounwind willreturn memory(none) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
 define float @stb__perlin_grad(i32 noundef %grad_idx, float noundef %x, float noundef %y, float noundef %z) local_unnamed_addr #0 {
 entry:
   %idxprom = sext i32 %grad_idx to i64
   %arrayidx = getelementptr inbounds [12 x [4 x float]], ptr @__const.stb__perlin_grad.basis, i64 0, i64 %idxprom
   %0 = load float, ptr %arrayidx, align 16
-  %arrayidx2 = getelementptr inbounds float, ptr %arrayidx, i64 1
+  %arrayidx2 = getelementptr inbounds i8, ptr %arrayidx, i64 4
   %1 = load float, ptr %arrayidx2, align 4
   %mul3 = fmul float %1, %y
   %2 = tail call float @llvm.fmuladd.f32(float %0, float %x, float %mul3)
-  %arrayidx4 = getelementptr inbounds float, ptr %arrayidx, i64 2
+  %arrayidx4 = getelementptr inbounds i8, ptr %arrayidx, i64 8
   %3 = load float, ptr %arrayidx4, align 8
   %4 = tail call float @llvm.fmuladd.f32(float %3, float %z, float %2)
   ret float %4
 }
 
-; Function Attrs: mustprogress nofree nosync nounwind willreturn memory(read, argmem: none, inaccessiblemem: none) uwtable
-define float @stb_perlin_noise3_internal(float noundef %x, float noundef %y, float noundef %z, i32 noundef %x_wrap, i32 noundef %y_wrap, i32 noundef %z_wrap, i8 noundef zeroext %seed) local_unnamed_addr #3 {
+; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: none, inaccessiblemem: none) uwtable
+define noundef float @stb_perlin_noise3_internal(float noundef %x, float noundef %y, float noundef %z, i32 noundef %x_wrap, i32 noundef %y_wrap, i32 noundef %z_wrap, i8 noundef zeroext %seed) local_unnamed_addr #2 {
 entry:
   %sub = add i32 %x_wrap, 255
   %and = and i32 %sub, 255
@@ -140,9 +140,9 @@ entry:
   %idxprom.i = zext i8 %21 to i64
   %arrayidx.i = getelementptr inbounds [12 x [4 x float]], ptr @__const.stb__perlin_grad.basis, i64 0, i64 %idxprom.i
   %22 = load float, ptr %arrayidx.i, align 16
-  %arrayidx2.i = getelementptr inbounds float, ptr %arrayidx.i, i64 1
+  %arrayidx2.i = getelementptr inbounds i8, ptr %arrayidx.i, i64 4
   %23 = load float, ptr %arrayidx2.i, align 4
-  %arrayidx4.i = getelementptr inbounds float, ptr %arrayidx.i, i64 2
+  %arrayidx4.i = getelementptr inbounds i8, ptr %arrayidx.i, i64 8
   %24 = load float, ptr %arrayidx4.i, align 8
   %add61 = add nuw nsw i32 %and14, %conv43
   %idxprom62 = zext nneg i32 %add61 to i64
@@ -152,9 +152,9 @@ entry:
   %idxprom.i81 = zext i8 %25 to i64
   %arrayidx.i82 = getelementptr inbounds [12 x [4 x float]], ptr @__const.stb__perlin_grad.basis, i64 0, i64 %idxprom.i81
   %26 = load float, ptr %arrayidx.i82, align 16
-  %arrayidx2.i83 = getelementptr inbounds float, ptr %arrayidx.i82, i64 1
+  %arrayidx2.i83 = getelementptr inbounds i8, ptr %arrayidx.i82, i64 4
   %27 = load float, ptr %arrayidx2.i83, align 4
-  %arrayidx4.i85 = getelementptr inbounds float, ptr %arrayidx.i82, i64 2
+  %arrayidx4.i85 = getelementptr inbounds i8, ptr %arrayidx.i82, i64 8
   %28 = load float, ptr %arrayidx4.i85, align 8
   %add67 = add nuw nsw i32 %and12, %conv47
   %idxprom68 = zext nneg i32 %add67 to i64
@@ -164,9 +164,9 @@ entry:
   %idxprom.i86 = zext i8 %29 to i64
   %arrayidx.i87 = getelementptr inbounds [12 x [4 x float]], ptr @__const.stb__perlin_grad.basis, i64 0, i64 %idxprom.i86
   %30 = load float, ptr %arrayidx.i87, align 16
-  %arrayidx2.i88 = getelementptr inbounds float, ptr %arrayidx.i87, i64 1
+  %arrayidx2.i88 = getelementptr inbounds i8, ptr %arrayidx.i87, i64 4
   %31 = load float, ptr %arrayidx2.i88, align 4
-  %arrayidx4.i90 = getelementptr inbounds float, ptr %arrayidx.i87, i64 2
+  %arrayidx4.i90 = getelementptr inbounds i8, ptr %arrayidx.i87, i64 8
   %32 = load float, ptr %arrayidx4.i90, align 8
   %add73 = add nuw nsw i32 %and14, %conv47
   %idxprom74 = zext nneg i32 %add73 to i64
@@ -175,9 +175,9 @@ entry:
   %idxprom.i91 = zext i8 %33 to i64
   %arrayidx.i92 = getelementptr inbounds [12 x [4 x float]], ptr @__const.stb__perlin_grad.basis, i64 0, i64 %idxprom.i91
   %34 = load float, ptr %arrayidx.i92, align 16
-  %arrayidx2.i93 = getelementptr inbounds float, ptr %arrayidx.i92, i64 1
+  %arrayidx2.i93 = getelementptr inbounds i8, ptr %arrayidx.i92, i64 4
   %35 = load float, ptr %arrayidx2.i93, align 4
-  %arrayidx4.i95 = getelementptr inbounds float, ptr %arrayidx.i92, i64 2
+  %arrayidx4.i95 = getelementptr inbounds i8, ptr %arrayidx.i92, i64 8
   %36 = load float, ptr %arrayidx4.i95, align 8
   %add80 = add nuw nsw i32 %and12, %conv51
   %idxprom81 = zext nneg i32 %add80 to i64
@@ -187,9 +187,9 @@ entry:
   %idxprom.i96 = zext i8 %37 to i64
   %arrayidx.i97 = getelementptr inbounds [12 x [4 x float]], ptr @__const.stb__perlin_grad.basis, i64 0, i64 %idxprom.i96
   %38 = load float, ptr %arrayidx.i97, align 16
-  %arrayidx2.i98 = getelementptr inbounds float, ptr %arrayidx.i97, i64 1
+  %arrayidx2.i98 = getelementptr inbounds i8, ptr %arrayidx.i97, i64 4
   %39 = load float, ptr %arrayidx2.i98, align 4
-  %arrayidx4.i100 = getelementptr inbounds float, ptr %arrayidx.i97, i64 2
+  %arrayidx4.i100 = getelementptr inbounds i8, ptr %arrayidx.i97, i64 8
   %40 = load float, ptr %arrayidx4.i100, align 8
   %add86 = add nuw nsw i32 %and14, %conv51
   %idxprom87 = zext nneg i32 %add86 to i64
@@ -198,9 +198,9 @@ entry:
   %idxprom.i101 = zext i8 %41 to i64
   %arrayidx.i102 = getelementptr inbounds [12 x [4 x float]], ptr @__const.stb__perlin_grad.basis, i64 0, i64 %idxprom.i101
   %42 = load float, ptr %arrayidx.i102, align 16
-  %arrayidx2.i103 = getelementptr inbounds float, ptr %arrayidx.i102, i64 1
+  %arrayidx2.i103 = getelementptr inbounds i8, ptr %arrayidx.i102, i64 4
   %43 = load float, ptr %arrayidx2.i103, align 4
-  %arrayidx4.i105 = getelementptr inbounds float, ptr %arrayidx.i102, i64 2
+  %arrayidx4.i105 = getelementptr inbounds i8, ptr %arrayidx.i102, i64 8
   %44 = load float, ptr %arrayidx4.i105, align 8
   %add93 = add nuw nsw i32 %and12, %conv55
   %idxprom94 = zext nneg i32 %add93 to i64
@@ -209,9 +209,9 @@ entry:
   %idxprom.i106 = zext i8 %45 to i64
   %arrayidx.i107 = getelementptr inbounds [12 x [4 x float]], ptr @__const.stb__perlin_grad.basis, i64 0, i64 %idxprom.i106
   %46 = load float, ptr %arrayidx.i107, align 16
-  %arrayidx2.i108 = getelementptr inbounds float, ptr %arrayidx.i107, i64 1
+  %arrayidx2.i108 = getelementptr inbounds i8, ptr %arrayidx.i107, i64 4
   %47 = load float, ptr %arrayidx2.i108, align 4
-  %arrayidx4.i110 = getelementptr inbounds float, ptr %arrayidx.i107, i64 2
+  %arrayidx4.i110 = getelementptr inbounds i8, ptr %arrayidx.i107, i64 8
   %48 = load float, ptr %arrayidx4.i110, align 8
   %add100 = add nuw nsw i32 %and14, %conv55
   %idxprom101 = zext nneg i32 %add100 to i64
@@ -220,9 +220,9 @@ entry:
   %idxprom.i111 = zext i8 %49 to i64
   %arrayidx.i112 = getelementptr inbounds [12 x [4 x float]], ptr @__const.stb__perlin_grad.basis, i64 0, i64 %idxprom.i111
   %50 = load float, ptr %arrayidx.i112, align 16
-  %arrayidx2.i113 = getelementptr inbounds float, ptr %arrayidx.i112, i64 1
+  %arrayidx2.i113 = getelementptr inbounds i8, ptr %arrayidx.i112, i64 4
   %51 = load float, ptr %arrayidx2.i113, align 4
-  %arrayidx4.i115 = getelementptr inbounds float, ptr %arrayidx.i112, i64 2
+  %arrayidx4.i115 = getelementptr inbounds i8, ptr %arrayidx.i112, i64 8
   %52 = load float, ptr %arrayidx4.i115, align 8
   %53 = insertelement <2 x float> poison, float %sub19, i64 0
   %54 = shufflevector <2 x float> %53, <2 x float> poison, <2 x i32> zeroinitializer
@@ -283,27 +283,27 @@ entry:
   %109 = extractelement <2 x float> %108, i64 0
   %110 = extractelement <2 x float> %108, i64 1
   %sub.i122 = fsub float %109, %110
-  %111 = tail call float @llvm.fmuladd.f32(float %sub.i122, float %mul17, float %110)
+  %111 = tail call noundef float @llvm.fmuladd.f32(float %sub.i122, float %mul17, float %110)
   ret float %111
 }
 
-; Function Attrs: mustprogress nofree nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define float @stb_perlin_noise3(float noundef %x, float noundef %y, float noundef %z, i32 noundef %x_wrap, i32 noundef %y_wrap, i32 noundef %z_wrap) local_unnamed_addr #4 {
+; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
+define noundef float @stb_perlin_noise3(float noundef %x, float noundef %y, float noundef %z, i32 noundef %x_wrap, i32 noundef %y_wrap, i32 noundef %z_wrap) local_unnamed_addr #3 {
 entry:
   %call = tail call float @stb_perlin_noise3_internal(float noundef %x, float noundef %y, float noundef %z, i32 noundef %x_wrap, i32 noundef %y_wrap, i32 noundef %z_wrap, i8 noundef zeroext 0)
   ret float %call
 }
 
-; Function Attrs: mustprogress nofree nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define float @stb_perlin_noise3_seed(float noundef %x, float noundef %y, float noundef %z, i32 noundef %x_wrap, i32 noundef %y_wrap, i32 noundef %z_wrap, i32 noundef %seed) local_unnamed_addr #4 {
+; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
+define noundef float @stb_perlin_noise3_seed(float noundef %x, float noundef %y, float noundef %z, i32 noundef %x_wrap, i32 noundef %y_wrap, i32 noundef %z_wrap, i32 noundef %seed) local_unnamed_addr #3 {
 entry:
   %conv = trunc i32 %seed to i8
   %call = tail call float @stb_perlin_noise3_internal(float noundef %x, float noundef %y, float noundef %z, i32 noundef %x_wrap, i32 noundef %y_wrap, i32 noundef %z_wrap, i8 noundef zeroext %conv)
   ret float %call
 }
 
-; Function Attrs: nofree nosync nounwind memory(read, inaccessiblemem: none) uwtable
-define float @stb_perlin_ridge_noise3(float noundef %x, float noundef %y, float noundef %z, float noundef %lacunarity, float noundef %gain, float noundef %offset, i32 noundef %octaves) local_unnamed_addr #5 {
+; Function Attrs: nofree norecurse nosync nounwind memory(read, inaccessiblemem: none) uwtable
+define float @stb_perlin_ridge_noise3(float noundef %x, float noundef %y, float noundef %z, float noundef %lacunarity, float noundef %gain, float noundef %offset, i32 noundef %octaves) local_unnamed_addr #4 {
 entry:
   %cmp12 = icmp sgt i32 %octaves, 0
   br i1 %cmp12, label %for.body, label %for.end
@@ -335,8 +335,8 @@ for.end:                                          ; preds = %for.body, %entry
   ret float %sum.0.lcssa
 }
 
-; Function Attrs: nofree nosync nounwind memory(read, inaccessiblemem: none) uwtable
-define float @stb_perlin_fbm_noise3(float noundef %x, float noundef %y, float noundef %z, float noundef %lacunarity, float noundef %gain, i32 noundef %octaves) local_unnamed_addr #5 {
+; Function Attrs: nofree norecurse nosync nounwind memory(read, inaccessiblemem: none) uwtable
+define float @stb_perlin_fbm_noise3(float noundef %x, float noundef %y, float noundef %z, float noundef %lacunarity, float noundef %gain, i32 noundef %octaves) local_unnamed_addr #4 {
 entry:
   %cmp8 = icmp sgt i32 %octaves, 0
   br i1 %cmp8, label %for.body, label %for.end
@@ -363,8 +363,8 @@ for.end:                                          ; preds = %for.body, %entry
   ret float %sum.0.lcssa
 }
 
-; Function Attrs: nofree nosync nounwind memory(read, inaccessiblemem: none) uwtable
-define float @stb_perlin_turbulence_noise3(float noundef %x, float noundef %y, float noundef %z, float noundef %lacunarity, float noundef %gain, i32 noundef %octaves) local_unnamed_addr #5 {
+; Function Attrs: nofree norecurse nosync nounwind memory(read, inaccessiblemem: none) uwtable
+define float @stb_perlin_turbulence_noise3(float noundef %x, float noundef %y, float noundef %z, float noundef %lacunarity, float noundef %gain, i32 noundef %octaves) local_unnamed_addr #4 {
 entry:
   %cmp8 = icmp sgt i32 %octaves, 0
   br i1 %cmp8, label %for.body, label %for.end
@@ -393,8 +393,8 @@ for.end:                                          ; preds = %for.body, %entry
   ret float %sum.0.lcssa
 }
 
-; Function Attrs: mustprogress nofree nosync nounwind willreturn memory(read, argmem: none, inaccessiblemem: none) uwtable
-define float @stb_perlin_noise3_wrap_nonpow2(float noundef %x, float noundef %y, float noundef %z, i32 noundef %x_wrap, i32 noundef %y_wrap, i32 noundef %z_wrap, i8 noundef zeroext %seed) local_unnamed_addr #3 {
+; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: none, inaccessiblemem: none) uwtable
+define noundef float @stb_perlin_noise3_wrap_nonpow2(float noundef %x, float noundef %y, float noundef %z, i32 noundef %x_wrap, i32 noundef %y_wrap, i32 noundef %z_wrap, i8 noundef zeroext %seed) local_unnamed_addr #2 {
 entry:
   %0 = insertelement <2 x float> poison, float %y, i64 0
   %1 = insertelement <2 x float> %0, float %x, i64 1
@@ -505,9 +505,9 @@ entry:
   %idxprom.i = zext i8 %23 to i64
   %arrayidx.i = getelementptr inbounds [12 x [4 x float]], ptr @__const.stb__perlin_grad.basis, i64 0, i64 %idxprom.i
   %24 = load float, ptr %arrayidx.i, align 16
-  %arrayidx2.i = getelementptr inbounds float, ptr %arrayidx.i, i64 1
+  %arrayidx2.i = getelementptr inbounds i8, ptr %arrayidx.i, i64 4
   %25 = load float, ptr %arrayidx2.i, align 4
-  %arrayidx4.i = getelementptr inbounds float, ptr %arrayidx.i, i64 2
+  %arrayidx4.i = getelementptr inbounds i8, ptr %arrayidx.i, i64 8
   %26 = load float, ptr %arrayidx4.i, align 8
   %add80 = add nsw i32 %rem28, %conv62
   %idxprom81 = sext i32 %add80 to i64
@@ -517,9 +517,9 @@ entry:
   %idxprom.i95 = zext i8 %27 to i64
   %arrayidx.i96 = getelementptr inbounds [12 x [4 x float]], ptr @__const.stb__perlin_grad.basis, i64 0, i64 %idxprom.i95
   %28 = load float, ptr %arrayidx.i96, align 16
-  %arrayidx2.i97 = getelementptr inbounds float, ptr %arrayidx.i96, i64 1
+  %arrayidx2.i97 = getelementptr inbounds i8, ptr %arrayidx.i96, i64 4
   %29 = load float, ptr %arrayidx2.i97, align 4
-  %arrayidx4.i99 = getelementptr inbounds float, ptr %arrayidx.i96, i64 2
+  %arrayidx4.i99 = getelementptr inbounds i8, ptr %arrayidx.i96, i64 8
   %30 = load float, ptr %arrayidx4.i99, align 8
   %add86 = add nsw i32 %z0.0, %conv66
   %idxprom87 = sext i32 %add86 to i64
@@ -529,9 +529,9 @@ entry:
   %idxprom.i100 = zext i8 %31 to i64
   %arrayidx.i101 = getelementptr inbounds [12 x [4 x float]], ptr @__const.stb__perlin_grad.basis, i64 0, i64 %idxprom.i100
   %32 = load float, ptr %arrayidx.i101, align 16
-  %arrayidx2.i102 = getelementptr inbounds float, ptr %arrayidx.i101, i64 1
+  %arrayidx2.i102 = getelementptr inbounds i8, ptr %arrayidx.i101, i64 4
   %33 = load float, ptr %arrayidx2.i102, align 4
-  %arrayidx4.i104 = getelementptr inbounds float, ptr %arrayidx.i101, i64 2
+  %arrayidx4.i104 = getelementptr inbounds i8, ptr %arrayidx.i101, i64 8
   %34 = load float, ptr %arrayidx4.i104, align 8
   %add92 = add nsw i32 %rem28, %conv66
   %idxprom93 = sext i32 %add92 to i64
@@ -540,9 +540,9 @@ entry:
   %idxprom.i105 = zext i8 %35 to i64
   %arrayidx.i106 = getelementptr inbounds [12 x [4 x float]], ptr @__const.stb__perlin_grad.basis, i64 0, i64 %idxprom.i105
   %36 = load float, ptr %arrayidx.i106, align 16
-  %arrayidx2.i107 = getelementptr inbounds float, ptr %arrayidx.i106, i64 1
+  %arrayidx2.i107 = getelementptr inbounds i8, ptr %arrayidx.i106, i64 4
   %37 = load float, ptr %arrayidx2.i107, align 4
-  %arrayidx4.i109 = getelementptr inbounds float, ptr %arrayidx.i106, i64 2
+  %arrayidx4.i109 = getelementptr inbounds i8, ptr %arrayidx.i106, i64 8
   %38 = load float, ptr %arrayidx4.i109, align 8
   %add99 = add nsw i32 %z0.0, %conv70
   %idxprom100 = sext i32 %add99 to i64
@@ -552,9 +552,9 @@ entry:
   %idxprom.i110 = zext i8 %39 to i64
   %arrayidx.i111 = getelementptr inbounds [12 x [4 x float]], ptr @__const.stb__perlin_grad.basis, i64 0, i64 %idxprom.i110
   %40 = load float, ptr %arrayidx.i111, align 16
-  %arrayidx2.i112 = getelementptr inbounds float, ptr %arrayidx.i111, i64 1
+  %arrayidx2.i112 = getelementptr inbounds i8, ptr %arrayidx.i111, i64 4
   %41 = load float, ptr %arrayidx2.i112, align 4
-  %arrayidx4.i114 = getelementptr inbounds float, ptr %arrayidx.i111, i64 2
+  %arrayidx4.i114 = getelementptr inbounds i8, ptr %arrayidx.i111, i64 8
   %42 = load float, ptr %arrayidx4.i114, align 8
   %add105 = add nsw i32 %rem28, %conv70
   %idxprom106 = sext i32 %add105 to i64
@@ -563,9 +563,9 @@ entry:
   %idxprom.i115 = zext i8 %43 to i64
   %arrayidx.i116 = getelementptr inbounds [12 x [4 x float]], ptr @__const.stb__perlin_grad.basis, i64 0, i64 %idxprom.i115
   %44 = load float, ptr %arrayidx.i116, align 16
-  %arrayidx2.i117 = getelementptr inbounds float, ptr %arrayidx.i116, i64 1
+  %arrayidx2.i117 = getelementptr inbounds i8, ptr %arrayidx.i116, i64 4
   %45 = load float, ptr %arrayidx2.i117, align 4
-  %arrayidx4.i119 = getelementptr inbounds float, ptr %arrayidx.i116, i64 2
+  %arrayidx4.i119 = getelementptr inbounds i8, ptr %arrayidx.i116, i64 8
   %46 = load float, ptr %arrayidx4.i119, align 8
   %add112 = add nsw i32 %z0.0, %conv74
   %idxprom113 = sext i32 %add112 to i64
@@ -574,9 +574,9 @@ entry:
   %idxprom.i120 = zext i8 %47 to i64
   %arrayidx.i121 = getelementptr inbounds [12 x [4 x float]], ptr @__const.stb__perlin_grad.basis, i64 0, i64 %idxprom.i120
   %48 = load float, ptr %arrayidx.i121, align 16
-  %arrayidx2.i122 = getelementptr inbounds float, ptr %arrayidx.i121, i64 1
+  %arrayidx2.i122 = getelementptr inbounds i8, ptr %arrayidx.i121, i64 4
   %49 = load float, ptr %arrayidx2.i122, align 4
-  %arrayidx4.i124 = getelementptr inbounds float, ptr %arrayidx.i121, i64 2
+  %arrayidx4.i124 = getelementptr inbounds i8, ptr %arrayidx.i121, i64 8
   %50 = load float, ptr %arrayidx4.i124, align 8
   %add119 = add nsw i32 %rem28, %conv74
   %idxprom120 = sext i32 %add119 to i64
@@ -585,9 +585,9 @@ entry:
   %idxprom.i125 = zext i8 %51 to i64
   %arrayidx.i126 = getelementptr inbounds [12 x [4 x float]], ptr @__const.stb__perlin_grad.basis, i64 0, i64 %idxprom.i125
   %52 = load float, ptr %arrayidx.i126, align 16
-  %arrayidx2.i127 = getelementptr inbounds float, ptr %arrayidx.i126, i64 1
+  %arrayidx2.i127 = getelementptr inbounds i8, ptr %arrayidx.i126, i64 4
   %53 = load float, ptr %arrayidx2.i127, align 4
-  %arrayidx4.i129 = getelementptr inbounds float, ptr %arrayidx.i126, i64 2
+  %arrayidx4.i129 = getelementptr inbounds i8, ptr %arrayidx.i126, i64 8
   %54 = load float, ptr %arrayidx4.i129, align 8
   %55 = insertelement <2 x float> poison, float %sub32, i64 0
   %56 = shufflevector <2 x float> %55, <2 x float> poison, <2 x i32> zeroinitializer
@@ -648,23 +648,22 @@ entry:
   %111 = extractelement <2 x float> %110, i64 0
   %112 = extractelement <2 x float> %110, i64 1
   %sub.i136 = fsub float %111, %112
-  %113 = tail call float @llvm.fmuladd.f32(float %sub.i136, float %mul30, float %112)
+  %113 = tail call noundef float @llvm.fmuladd.f32(float %sub.i136, float %mul30, float %112)
   ret float %113
 }
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare float @llvm.fabs.f32(float) #6
+declare float @llvm.fabs.f32(float) #5
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare <2 x float> @llvm.fmuladd.v2f32(<2 x float>, <2 x float>, <2 x float>) #6
+declare <2 x float> @llvm.fmuladd.v2f32(<2 x float>, <2 x float>, <2 x float>) #5
 
-attributes #0 = { mustprogress nofree nosync nounwind willreturn memory(none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #0 = { mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none) }
-attributes #2 = { mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #3 = { mustprogress nofree nosync nounwind willreturn memory(read, argmem: none, inaccessiblemem: none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #4 = { mustprogress nofree nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #5 = { nofree nosync nounwind memory(read, inaccessiblemem: none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #6 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
+attributes #2 = { mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: none, inaccessiblemem: none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #3 = { mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #4 = { nofree norecurse nosync nounwind memory(read, inaccessiblemem: none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #5 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
 
 !llvm.module.flags = !{!0, !1, !2, !3}
 

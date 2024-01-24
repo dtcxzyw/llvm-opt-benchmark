@@ -5,7 +5,6 @@ target triple = "x86_64-unknown-linux-gnu"
 
 %"class.toku::keyrange" = type <{ %struct.__toku_dbt, %struct.__toku_dbt, ptr, ptr, i8, [7 x i8] }>
 %struct.__toku_dbt = type { ptr, i64, i64, i32 }
-%"class.toku::concurrent_tree::locked_keyrange" = type { ptr, %"class.toku::keyrange", ptr }
 
 ; Function Attrs: mustprogress uwtable
 define void @_ZN4toku15concurrent_tree6createEPKNS_10comparatorE(ptr noundef nonnull align 8 dereferenceable(208) %this, ptr noundef %cmp) local_unnamed_addr #0 align 2 {
@@ -45,10 +44,10 @@ define void @_ZN4toku15concurrent_tree15locked_keyrange7prepareEPS0_(ptr nocaptu
 entry:
   %ref.tmp = alloca %"class.toku::keyrange", align 8
   store ptr %tree, ptr %this, align 8
-  %m_subtree = getelementptr inbounds %"class.toku::concurrent_tree::locked_keyrange", ptr %this, i64 0, i32 2
+  %m_subtree = getelementptr inbounds i8, ptr %this, i64 96
   store ptr %tree, ptr %m_subtree, align 8
   call void @_ZN4toku8keyrange18get_infinite_rangeEv(ptr nonnull sret(%"class.toku::keyrange") align 8 %ref.tmp)
-  %m_range = getelementptr inbounds %"class.toku::concurrent_tree::locked_keyrange", ptr %this, i64 0, i32 1
+  %m_range = getelementptr inbounds i8, ptr %this, i64 8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(81) %m_range, ptr noundef nonnull align 8 dereferenceable(81) %ref.tmp, i64 81, i1 false)
   call void @_ZN4toku8treenode10mutex_lockEv(ptr noundef nonnull align 8 dereferenceable(202) %tree)
   ret void
@@ -78,9 +77,9 @@ if.else:                                          ; preds = %lor.lhs.false
 
 if.end:                                           ; preds = %entry, %lor.lhs.false, %if.else
   %subtree.0 = phi ptr [ %call3, %if.else ], [ %0, %lor.lhs.false ], [ %0, %entry ]
-  %m_range = getelementptr inbounds %"class.toku::concurrent_tree::locked_keyrange", ptr %this, i64 0, i32 1
+  %m_range = getelementptr inbounds i8, ptr %this, i64 8
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(81) %m_range, ptr noundef nonnull align 8 dereferenceable(81) %range, i64 81, i1 false)
-  %m_subtree = getelementptr inbounds %"class.toku::concurrent_tree::locked_keyrange", ptr %this, i64 0, i32 2
+  %m_subtree = getelementptr inbounds i8, ptr %this, i64 96
   store ptr %subtree.0, ptr %m_subtree, align 8
   ret void
 }
@@ -92,7 +91,7 @@ declare noundef ptr @_ZN4toku8treenode32find_node_with_overlapping_childERKNS_8k
 ; Function Attrs: mustprogress uwtable
 define noundef zeroext i1 @_ZN4toku15concurrent_tree15locked_keyrange16add_shared_ownerERKNS_8keyrangeEm(ptr nocapture noundef nonnull readonly align 8 dereferenceable(104) %this, ptr noundef nonnull align 8 dereferenceable(81) %range, i64 noundef %new_owner) local_unnamed_addr #0 align 2 {
 entry:
-  %m_subtree = getelementptr inbounds %"class.toku::concurrent_tree::locked_keyrange", ptr %this, i64 0, i32 2
+  %m_subtree = getelementptr inbounds i8, ptr %this, i64 96
   %0 = load ptr, ptr %m_subtree, align 8
   %call = tail call noundef zeroext i1 @_ZN4toku8treenode6insertERKNS_8keyrangeEmb(ptr noundef nonnull align 8 dereferenceable(202) %0, ptr noundef nonnull align 8 dereferenceable(81) %range, i64 noundef %new_owner, i1 noundef zeroext true)
   ret i1 %call
@@ -103,7 +102,7 @@ declare noundef zeroext i1 @_ZN4toku8treenode6insertERKNS_8keyrangeEmb(ptr nound
 ; Function Attrs: mustprogress uwtable
 define void @_ZN4toku15concurrent_tree15locked_keyrange7releaseEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(104) %this) local_unnamed_addr #0 align 2 {
 entry:
-  %m_subtree = getelementptr inbounds %"class.toku::concurrent_tree::locked_keyrange", ptr %this, i64 0, i32 2
+  %m_subtree = getelementptr inbounds i8, ptr %this, i64 96
   %0 = load ptr, ptr %m_subtree, align 8
   tail call void @_ZN4toku8treenode12mutex_unlockEv(ptr noundef nonnull align 8 dereferenceable(202) %0)
   ret void
@@ -114,7 +113,7 @@ declare void @_ZN4toku8treenode12mutex_unlockEv(ptr noundef nonnull align 8 dere
 ; Function Attrs: mustprogress uwtable
 define void @_ZN4toku15concurrent_tree15locked_keyrange6insertERKNS_8keyrangeEmb(ptr nocapture noundef nonnull readonly align 8 dereferenceable(104) %this, ptr noundef nonnull align 8 dereferenceable(81) %range, i64 noundef %txnid, i1 noundef zeroext %is_shared) local_unnamed_addr #0 align 2 {
 entry:
-  %m_subtree = getelementptr inbounds %"class.toku::concurrent_tree::locked_keyrange", ptr %this, i64 0, i32 2
+  %m_subtree = getelementptr inbounds i8, ptr %this, i64 96
   %0 = load ptr, ptr %m_subtree, align 8
   %call = tail call noundef zeroext i1 @_ZN4toku8treenode8is_emptyEv(ptr noundef nonnull align 8 dereferenceable(202) %0)
   %1 = load ptr, ptr %m_subtree, align 8
@@ -137,7 +136,7 @@ declare void @_ZN4toku8treenode19set_range_and_txnidERKNS_8keyrangeEmb(ptr nound
 ; Function Attrs: mustprogress uwtable
 define void @_ZN4toku15concurrent_tree15locked_keyrange6removeERKNS_8keyrangeEm(ptr nocapture noundef nonnull readonly align 8 dereferenceable(104) %this, ptr noundef nonnull align 8 dereferenceable(81) %range, i64 noundef %txnid) local_unnamed_addr #0 align 2 {
 entry:
-  %m_subtree = getelementptr inbounds %"class.toku::concurrent_tree::locked_keyrange", ptr %this, i64 0, i32 2
+  %m_subtree = getelementptr inbounds i8, ptr %this, i64 96
   %0 = load ptr, ptr %m_subtree, align 8
   %call = tail call noundef zeroext i1 @_ZN4toku8treenode8is_emptyEv(ptr noundef nonnull align 8 dereferenceable(202) %0)
   %1 = load ptr, ptr %m_subtree, align 8
@@ -163,7 +162,7 @@ declare noundef zeroext i1 @_ZN4toku8treenode7is_rootEv(ptr noundef nonnull alig
 ; Function Attrs: mustprogress uwtable
 define void @_ZN4toku15concurrent_tree15locked_keyrange10remove_allEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(104) %this) local_unnamed_addr #0 align 2 {
 entry:
-  %m_subtree = getelementptr inbounds %"class.toku::concurrent_tree::locked_keyrange", ptr %this, i64 0, i32 2
+  %m_subtree = getelementptr inbounds i8, ptr %this, i64 96
   %0 = load ptr, ptr %m_subtree, align 8
   tail call void @_ZN4toku8treenode16recursive_removeEv(ptr noundef nonnull align 8 dereferenceable(202) %0)
   ret void

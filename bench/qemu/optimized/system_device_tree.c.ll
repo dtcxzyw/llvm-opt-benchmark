@@ -5,14 +5,6 @@ target triple = "x86_64-unknown-linux-gnu"
 
 %struct.stat = type { i64, i64, i64, i32, i32, i32, i32, i64, i64, i64, i64, %struct.timespec, %struct.timespec, %struct.timespec, [3 x i64] }
 %struct.timespec = type { i64, i64 }
-%struct.dirent = type { i64, i64, i16, i8, [256 x i8] }
-%struct._GSList = type { ptr, ptr }
-%struct.MachineState = type { %struct.Object, ptr, ptr, ptr, i32, ptr, i8, i8, i8, i8, ptr, i8, i8, i8, ptr, ptr, ptr, ptr, ptr, i64, i64, i64, %struct.BootConfiguration, ptr, ptr, ptr, ptr, ptr, ptr, %struct.CpuTopology, ptr, ptr }
-%struct.Object = type { ptr, ptr, ptr, i32, ptr }
-%struct.BootConfiguration = type { ptr, ptr, i8, i8, ptr, i8, i64, i8, i64, i8, i8 }
-%struct.CpuTopology = type { i32, i32, i32, i32, i32, i32, i32, i32, i32 }
-%struct.fdt_header = type { i32, i32, i32, i32, i32, i32, i32, i32, i32, i32 }
-%struct._GError = type { i32, i32, ptr }
 
 @.str = private unnamed_addr constant [1 x i8] zeroinitializer, align 1
 @.str.1 = private unnamed_addr constant [47 x i8] c"%s: Unable to copy device tree into memory: %s\00", align 1
@@ -76,7 +68,7 @@ target triple = "x86_64-unknown-linux-gnu"
 @__func__.findnode_nofail = private unnamed_addr constant [16 x i8] c"findnode_nofail\00", align 1
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local ptr @create_device_tree(ptr nocapture noundef %sizep) local_unnamed_addr #0 {
+define dso_local noundef ptr @create_device_tree(ptr nocapture noundef %sizep) local_unnamed_addr #0 {
 entry:
   store i32 1048576, ptr %sizep, align 4
   %call = tail call noalias dereferenceable_or_null(1048576) ptr @g_malloc0(i64 noundef 1048576) #11
@@ -150,7 +142,7 @@ declare ptr @fdt_strerror(i32 noundef) local_unnamed_addr #2
 declare void @exit(i32 noundef) local_unnamed_addr #3
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local ptr @load_device_tree(ptr noundef %filename_path, ptr nocapture noundef writeonly %sizep) local_unnamed_addr #0 {
+define dso_local noundef ptr @load_device_tree(ptr noundef %filename_path, ptr nocapture noundef writeonly %sizep) local_unnamed_addr #0 {
 entry:
   store i32 0, ptr %sizep, align 4
   %call = tail call i64 @get_image_size(ptr noundef %filename_path) #12
@@ -226,7 +218,7 @@ declare i32 @fdt_check_header(ptr noundef) local_unnamed_addr #2
 declare void @g_free(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local ptr @load_device_tree_from_sysfs() local_unnamed_addr #0 {
+define dso_local noundef ptr @load_device_tree_from_sysfs() local_unnamed_addr #0 {
 entry:
   %host_fdt_size = alloca i32, align 4
   %call = call ptr @create_device_tree(ptr noundef nonnull %host_fdt_size)
@@ -271,7 +263,7 @@ while.cond.preheader:                             ; preds = %if.end
   br i1 %cmp5.not29, label %while.end, label %while.body.lr.ph
 
 while.body.lr.ph:                                 ; preds = %while.cond.preheader
-  %st_mode = getelementptr inbounds %struct.stat, ptr %st, i64 0, i32 3
+  %st_mode = getelementptr inbounds i8, ptr %st, i64 24
   br label %while.body
 
 if.then2:                                         ; preds = %if.end
@@ -281,7 +273,7 @@ if.then2:                                         ; preds = %if.end
 
 while.body:                                       ; preds = %while.body.lr.ph, %while.cond.backedge
   %call430 = phi ptr [ %call428, %while.body.lr.ph ], [ %call4, %while.cond.backedge ]
-  %d_name = getelementptr inbounds %struct.dirent, ptr %call430, i64 0, i32 4
+  %d_name = getelementptr inbounds i8, ptr %call430, i64 19
   %call6 = call i32 @g_strcmp0(ptr noundef nonnull %d_name, ptr noundef nonnull @.str.33) #12
   %tobool7.not = icmp eq i32 %call6, 0
   br i1 %tobool7.not, label %while.cond.backedge, label %lor.lhs.false
@@ -436,7 +428,7 @@ for.body:                                         ; preds = %if.then24, %for.bod
   %iter.057 = phi ptr [ %2, %for.body ], [ %path_list.038, %if.then24 ]
   %1 = load ptr, ptr %iter.057, align 8
   call void @g_free(ptr noundef %1) #12
-  %next = getelementptr inbounds %struct._GSList, ptr %iter.057, i64 0, i32 1
+  %next = getelementptr inbounds i8, ptr %iter.057, i64 8
   %2 = load ptr, ptr %next, align 8
   %tobool26.not = icmp eq ptr %2, null
   br i1 %tobool26.not, label %return, label %for.body, !llvm.loop !11
@@ -459,7 +451,7 @@ for.body33:                                       ; preds = %if.end27, %for.body
   %idxprom36 = zext i32 %n.2 to i64
   %arrayidx37 = getelementptr ptr, ptr %call30, i64 %idxprom36
   store ptr %3, ptr %arrayidx37, align 8
-  %next39 = getelementptr inbounds %struct._GSList, ptr %iter.154, i64 0, i32 1
+  %next39 = getelementptr inbounds i8, ptr %iter.154, i64 8
   %4 = load ptr, ptr %next39, align 8
   %tobool32.not = icmp eq ptr %4, null
   br i1 %tobool32.not, label %return, label %for.body33, !llvm.loop !12
@@ -613,7 +605,7 @@ for.body:                                         ; preds = %if.then22, %for.bod
   %iter.060 = phi ptr [ %2, %for.body ], [ %path_list.035, %if.then22 ]
   %1 = load ptr, ptr %iter.060, align 8
   call void @g_free(ptr noundef %1) #12
-  %next = getelementptr inbounds %struct._GSList, ptr %iter.060, i64 0, i32 1
+  %next = getelementptr inbounds i8, ptr %iter.060, i64 8
   %2 = load ptr, ptr %next, align 8
   %tobool24.not = icmp eq ptr %2, null
   br i1 %tobool24.not, label %return, label %for.body, !llvm.loop !15
@@ -636,7 +628,7 @@ for.body31:                                       ; preds = %if.end25, %for.body
   %idxprom34 = zext i32 %n.2 to i64
   %arrayidx35 = getelementptr ptr, ptr %call28, i64 %idxprom34
   store ptr %3, ptr %arrayidx35, align 8
-  %next37 = getelementptr inbounds %struct._GSList, ptr %iter.158, i64 0, i32 1
+  %next37 = getelementptr inbounds i8, ptr %iter.158, i64 8
   %4 = load ptr, ptr %next37, align 8
   %tobool30.not = icmp eq ptr %4, null
   br i1 %tobool30.not, label %return, label %for.body31, !llvm.loop !16
@@ -695,7 +687,7 @@ if.then.i:                                        ; preds = %entry
 
 findnode_nofail.exit:                             ; preds = %entry
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %tmp.i.i)
-  %rev.i.i.i = tail call i32 @llvm.bswap.i32(i32 %val)
+  %rev.i.i.i = tail call noundef i32 @llvm.bswap.i32(i32 %val)
   store i32 %rev.i.i.i, ptr %tmp.i.i, align 4
   %call1.i.i = call i32 @fdt_setprop(ptr noundef %fdt, i32 noundef %call.i, ptr noundef %property, ptr noundef nonnull %tmp.i.i, i32 noundef 4) #12
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %tmp.i.i)
@@ -716,7 +708,7 @@ if.end:                                           ; preds = %findnode_nofail.exi
 define dso_local i32 @qemu_fdt_setprop_u64(ptr noundef %fdt, ptr noundef %node_path, ptr noundef %property, i64 noundef %val) local_unnamed_addr #0 {
 entry:
   %val.addr = alloca i64, align 8
-  %0 = tail call i64 @llvm.bswap.i64(i64 %val)
+  %0 = tail call noundef i64 @llvm.bswap.i64(i64 %val)
   store i64 %0, ptr %val.addr, align 8
   %call1 = call i32 @qemu_fdt_setprop(ptr noundef %fdt, ptr noundef %node_path, ptr noundef %property, ptr noundef nonnull %val.addr, i32 noundef 8), !range !7
   ret i32 %call1
@@ -851,7 +843,7 @@ if.end5:                                          ; preds = %if.then3, %findnode
 declare ptr @fdt_getprop(ptr noundef, i32 noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local i32 @qemu_fdt_getprop_cell(ptr noundef %fdt, ptr noundef %node_path, ptr noundef %property, ptr noundef %lenp, ptr noundef %errp) local_unnamed_addr #0 {
+define dso_local noundef i32 @qemu_fdt_getprop_cell(ptr noundef %fdt, ptr noundef %node_path, ptr noundef %property, ptr noundef %lenp, ptr noundef %errp) local_unnamed_addr #0 {
 entry:
   %len = alloca i32, align 4
   %tobool.not = icmp eq ptr %lenp, null
@@ -872,7 +864,7 @@ if.then3:                                         ; preds = %if.else
 
 if.end5:                                          ; preds = %if.else
   %1 = load i32, ptr %call, align 4
-  %2 = call i32 @llvm.bswap.i32(i32 %1)
+  %2 = call noundef i32 @llvm.bswap.i32(i32 %1)
   br label %return
 
 return:                                           ; preds = %entry, %if.end5, %if.then3
@@ -1102,7 +1094,7 @@ declare i32 @fdt_add_subnode_namelen(ptr noundef, i32 noundef, ptr noundef, i32 
 define dso_local void @qemu_fdt_dumpdtb(ptr noundef %fdt, i32 noundef %size) local_unnamed_addr #0 {
 entry:
   %0 = load ptr, ptr @current_machine, align 8
-  %dumpdtb1 = getelementptr inbounds %struct.MachineState, ptr %0, i64 0, i32 3
+  %dumpdtb1 = getelementptr inbounds i8, ptr %0, i64 56
   %1 = load ptr, ptr %dumpdtb1, align 8
   %tobool.not = icmp eq ptr %1, null
   br i1 %tobool.not, label %if.end4, label %if.then
@@ -1169,7 +1161,7 @@ if.end:                                           ; preds = %for.body
   br i1 %cmp13, label %if.then15, label %if.else
 
 if.then15:                                        ; preds = %if.end
-  %5 = tail call i32 @llvm.bswap.i32(i32 %conv11)
+  %5 = tail call noundef i32 @llvm.bswap.i32(i32 %conv11)
   %inc = add i32 %cellnum.018, 1
   %idxprom16 = sext i32 %cellnum.018 to i64
   %arrayidx17 = getelementptr i32, ptr %call, i64 %idxprom16
@@ -1183,7 +1175,7 @@ if.else:                                          ; preds = %if.end
 if.end22:                                         ; preds = %if.else, %if.then15
   %cellnum.1 = phi i32 [ %inc, %if.then15 ], [ %cellnum.018, %if.else ]
   %conv23 = trunc i64 %4 to i32
-  %6 = tail call i32 @llvm.bswap.i32(i32 %conv23)
+  %6 = tail call noundef i32 @llvm.bswap.i32(i32 %conv23)
   %inc25 = add i32 %cellnum.1, 1
   %idxprom26 = sext i32 %cellnum.1 to i64
   %arrayidx27 = getelementptr i32, ptr %call, i64 %idxprom26
@@ -1216,7 +1208,7 @@ entry:
   %err = alloca ptr, align 8
   store ptr null, ptr %err, align 8
   %0 = load ptr, ptr @current_machine, align 8
-  %fdt = getelementptr inbounds %struct.MachineState, ptr %0, i64 0, i32 1
+  %fdt = getelementptr inbounds i8, ptr %0, i64 40
   %1 = load ptr, ptr %fdt, align 8
   %tobool.not = icmp eq ptr %1, null
   br i1 %tobool.not, label %cleanup.thread, label %if.end
@@ -1226,7 +1218,7 @@ cleanup.thread:                                   ; preds = %entry
   br label %glib_autoptr_cleanup_GError.exit
 
 if.end:                                           ; preds = %entry
-  %totalsize = getelementptr inbounds %struct.fdt_header, ptr %1, i64 0, i32 1
+  %totalsize = getelementptr inbounds i8, ptr %1, i64 4
   %2 = load i8, ptr %totalsize, align 1
   %conv.i = zext i8 %2 to i32
   %shl.i = shl nuw i32 %conv.i, 24
@@ -1259,7 +1251,7 @@ do.end:                                           ; preds = %if.end
   br i1 %tobool6.not, label %if.then7, label %cleanup
 
 if.then7:                                         ; preds = %do.end
-  %message = getelementptr inbounds %struct._GError, ptr %err.val.pre4, i64 0, i32 2
+  %message = getelementptr inbounds i8, ptr %err.val.pre4, i64 8
   %6 = load ptr, ptr %message, align 8
   call void (ptr, ptr, i32, ptr, ptr, ...) @error_setg_internal(ptr noundef %errp, ptr noundef nonnull @.str.10, i32 noundef 667, ptr noundef nonnull @__func__.qmp_dumpdtb, ptr noundef nonnull @.str.27, ptr noundef %filename, ptr noundef %6) #12
   %err.val.pre = load ptr, ptr %err, align 8

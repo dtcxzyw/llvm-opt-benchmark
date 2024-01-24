@@ -30,11 +30,11 @@ define void @_ZN14regex_automata4util4iter8Searcher7advance17h305f2ab1bef235d6E(
   ret void
 
 11:                                               ; preds = %4
-  %12 = getelementptr inbounds { [1 x i64], ptr }, ptr %8, i64 0, i32 1
+  %12 = getelementptr inbounds i8, ptr %8, i64 8
   %13 = load ptr, ptr %12, align 8, !nonnull !6, !align !7, !noundef !6
   store ptr %13, ptr %7, align 8
   store ptr %7, ptr %5, align 8
-  %14 = getelementptr inbounds { ptr, ptr }, ptr %5, i64 0, i32 1
+  %14 = getelementptr inbounds i8, ptr %5, i64 8
   store ptr @"_ZN79_$LT$regex_automata..util..search..MatchError$u20$as$u20$core..fmt..Display$GT$3fmt17h54302e8c2d18b22bE", ptr %14, align 8
   invoke void @_ZN4core3fmt9Arguments6new_v117h051e31f362cb8353E(ptr nonnull sret({ { ptr, i64 }, { ptr, i64 }, { ptr, i64 } }) align 8 %6, ptr nonnull align 8 @anon.e15888e4cb896bcd0670ae139d482676.2, i64 2, ptr nonnull align 8 %5, i64 1)
           to label %17 unwind label %15
@@ -73,20 +73,20 @@ define void @_ZN14regex_automata4util4iter8Searcher11try_advance17h4287cd23be101
   %11 = alloca { { i64, i64 }, i32, [1 x i32] }, align 8
   %12 = alloca { ptr, ptr }, align 8
   store ptr %2, ptr %12, align 8
-  %13 = getelementptr inbounds { ptr, ptr }, ptr %12, i64 0, i32 1
+  %13 = getelementptr inbounds i8, ptr %12, i64 8
   store ptr %3, ptr %13, align 8
-  %14 = getelementptr inbounds { { i64, i64 }, { { i32, i32 }, { ptr, i64 }, { i64, i64 }, i8, [7 x i8] } }, ptr %1, i64 0, i32 1
+  %14 = getelementptr inbounds i8, ptr %1, i64 16
   call void @"_ZN99_$LT$regex_automata..meta..regex..FindMatches$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next28_$u7b$$u7b$closure$u7d$$u7d$17h9b00249ea0ee3299E"(ptr nonnull sret({ i64, [3 x i64] }) align 8 %9, ptr nonnull align 8 %12, ptr nonnull align 8 %14)
   call void @"_ZN79_$LT$core..result..Result$LT$T$C$E$GT$$u20$as$u20$core..ops..try_trait..Try$GT$6branch17h3803062b6184f3dbE"(ptr nonnull sret({ i64, [3 x i64] }) align 8 %10, ptr nonnull align 8 %9)
   %15 = load i64, ptr %10, align 8, !range !5, !noundef !6
+  %16 = getelementptr inbounds i8, ptr %10, i64 8
   switch i64 %15, label %20 [
-    i64 2, label %16
+    i64 2, label %17
     i64 0, label %19
   ]
 
-16:                                               ; preds = %4
-  %17 = getelementptr inbounds { [1 x i64], ptr }, ptr %10, i64 0, i32 1
-  %18 = load ptr, ptr %17, align 8, !nonnull !6, !align !7, !noundef !6
+17:                                               ; preds = %4
+  %18 = load ptr, ptr %16, align 8, !nonnull !6, !align !7, !noundef !6
   call void @"_ZN153_$LT$core..result..Result$LT$T$C$F$GT$$u20$as$u20$core..ops..try_trait..FromResidual$LT$core..result..Result$LT$core..convert..Infallible$C$E$GT$$GT$$GT$13from_residual17hd499a4905c224fa6E"(ptr sret({ i64, [3 x i64] }) align 8 %0, ptr nonnull align 8 %18, ptr nonnull align 8 @anon.e15888e4cb896bcd0670ae139d482676.6)
   br label %39
 
@@ -95,8 +95,7 @@ define void @_ZN14regex_automata4util4iter8Searcher11try_advance17h4287cd23be101
   br label %39
 
 20:                                               ; preds = %4
-  %.sroa.2.0..sroa_idx = getelementptr inbounds i8, ptr %10, i64 8
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %11, ptr noundef nonnull align 8 dereferenceable(24) %.sroa.2.0..sroa_idx, i64 24, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %11, ptr noundef nonnull align 8 dereferenceable(24) %16, i64 24, i1 false)
   %21 = call zeroext i1 @_ZN14regex_automata4util6search5Match8is_empty17h2067f34a8a753eebE(ptr nonnull align 8 %11)
   br i1 %21, label %26, label %22
 
@@ -105,7 +104,7 @@ define void @_ZN14regex_automata4util4iter8Searcher11try_advance17h4287cd23be101
   call void @_ZN14regex_automata4util6search5Input9set_start17h5de524dbad118258E(ptr nonnull align 8 %14, i64 %23)
   %24 = call i64 @_ZN14regex_automata4util6search5Match3end17ha986f590d418d9f8E(ptr nonnull align 8 %11)
   store i64 1, ptr %1, align 8
-  %25 = getelementptr inbounds { i64, i64 }, ptr %1, i64 0, i32 1
+  %25 = getelementptr inbounds i8, ptr %1, i64 8
   store i64 %24, ptr %25, align 8
   store i64 1, ptr %0, align 8
   %.sroa.210.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 8
@@ -114,7 +113,7 @@ define void @_ZN14regex_automata4util4iter8Searcher11try_advance17h4287cd23be101
 
 26:                                               ; preds = %20
   %27 = call i64 @_ZN14regex_automata4util6search5Match3end17ha986f590d418d9f8E(ptr nonnull align 8 %11)
-  %28 = getelementptr inbounds { i64, i64 }, ptr %8, i64 0, i32 1
+  %28 = getelementptr inbounds i8, ptr %8, i64 8
   store i64 %27, ptr %28, align 8
   store i64 1, ptr %8, align 8
   %29 = call zeroext i1 @"_ZN70_$LT$core..option..Option$LT$T$GT$$u20$as$u20$core..cmp..PartialEq$GT$2eq17h82bb5157b86ad1d4E"(ptr nonnull align 8 %8, ptr align 8 %1)
@@ -127,14 +126,14 @@ define void @_ZN14regex_automata4util4iter8Searcher11try_advance17h4287cd23be101
   call void @_ZN14regex_automata4util4iter8Searcher30handle_overlapping_empty_match17hc590deb8c3e1c842E(ptr nonnull sret({ i64, [3 x i64] }) align 8 %6, ptr align 8 %1, ptr nonnull align 8 %5, ptr nonnull align 8 %31, ptr nonnull align 8 %32)
   call void @"_ZN79_$LT$core..result..Result$LT$T$C$E$GT$$u20$as$u20$core..ops..try_trait..Try$GT$6branch17h3803062b6184f3dbE"(ptr nonnull sret({ i64, [3 x i64] }) align 8 %7, ptr nonnull align 8 %6)
   %33 = load i64, ptr %7, align 8, !range !5, !noundef !6
+  %34 = getelementptr inbounds i8, ptr %7, i64 8
   switch i64 %33, label %38 [
-    i64 2, label %34
+    i64 2, label %35
     i64 0, label %37
   ]
 
-34:                                               ; preds = %30
-  %35 = getelementptr inbounds { [1 x i64], ptr }, ptr %7, i64 0, i32 1
-  %36 = load ptr, ptr %35, align 8, !nonnull !6, !align !7, !noundef !6
+35:                                               ; preds = %30
+  %36 = load ptr, ptr %34, align 8, !nonnull !6, !align !7, !noundef !6
   call void @"_ZN153_$LT$core..result..Result$LT$T$C$F$GT$$u20$as$u20$core..ops..try_trait..FromResidual$LT$core..result..Result$LT$core..convert..Infallible$C$E$GT$$GT$$GT$13from_residual17hd499a4905c224fa6E"(ptr sret({ i64, [3 x i64] }) align 8 %0, ptr nonnull align 8 %36, ptr nonnull align 8 @anon.e15888e4cb896bcd0670ae139d482676.5)
   br label %39
 
@@ -143,11 +142,10 @@ define void @_ZN14regex_automata4util4iter8Searcher11try_advance17h4287cd23be101
   br label %39
 
 38:                                               ; preds = %30
-  %.sroa.24.0..sroa_idx = getelementptr inbounds i8, ptr %7, i64 8
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %11, ptr noundef nonnull align 8 dereferenceable(24) %.sroa.24.0..sroa_idx, i64 24, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %11, ptr noundef nonnull align 8 dereferenceable(24) %34, i64 24, i1 false)
   br label %22
 
-39:                                               ; preds = %16, %34, %22, %19, %37
+39:                                               ; preds = %17, %35, %22, %19, %37
   ret void
 }
 
@@ -155,7 +153,7 @@ define void @_ZN14regex_automata4util4iter8Searcher11try_advance17h4287cd23be101
 define void @_ZN14regex_automata4util4iter8Searcher30handle_overlapping_empty_match17hc590deb8c3e1c842E(ptr sret({ i64, [3 x i64] }) align 8 %0, ptr align 8 %1, ptr align 8 %2, ptr align 8 %3, ptr align 8 %4) unnamed_addr #1 personality ptr @rust_eh_personality {
   %6 = alloca { ptr, ptr }, align 8
   store ptr %3, ptr %6, align 8
-  %7 = getelementptr inbounds { ptr, ptr }, ptr %6, i64 0, i32 1
+  %7 = getelementptr inbounds i8, ptr %6, i64 8
   store ptr %4, ptr %7, align 8
   %8 = tail call zeroext i1 @_ZN14regex_automata4util6search5Match8is_empty17h2067f34a8a753eebE(ptr align 8 %2)
   br i1 %8, label %10, label %9
@@ -165,7 +163,7 @@ define void @_ZN14regex_automata4util4iter8Searcher30handle_overlapping_empty_ma
   unreachable
 
 10:                                               ; preds = %5
-  %11 = getelementptr inbounds { { i64, i64 }, { { i32, i32 }, { ptr, i64 }, { i64, i64 }, i8, [7 x i8] } }, ptr %1, i64 0, i32 1
+  %11 = getelementptr inbounds i8, ptr %1, i64 16
   %12 = tail call i64 @_ZN14regex_automata4util6search5Input5start17h51900e9e0de9a3ecE(ptr nonnull align 8 %11)
   %13 = tail call { i64, i64 } @"_ZN4core3num23_$LT$impl$u20$usize$GT$11checked_add17h4358845324fc3218E"(i64 %12, i64 1)
   %14 = extractvalue { i64, i64 } %13, 0

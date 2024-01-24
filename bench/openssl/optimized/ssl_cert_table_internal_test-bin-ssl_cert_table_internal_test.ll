@@ -23,7 +23,7 @@ target triple = "x86_64-unknown-linux-gnu"
 @.str.14 = private unnamed_addr constant [35 x i8] c"Expected auth mask 0x%x, got 0x%x\0A\00", align 1
 
 ; Function Attrs: nounwind uwtable
-define dso_local i32 @setup_tests() local_unnamed_addr #0 {
+define dso_local noundef i32 @setup_tests() local_unnamed_addr #0 {
 entry:
   tail call void @add_test(ptr noundef nonnull @.str, ptr noundef nonnull @test_ssl_cert_table) #2
   ret i32 1
@@ -32,7 +32,7 @@ entry:
 declare void @add_test(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @test_ssl_cert_table() #0 {
+define internal noundef i32 @test_ssl_cert_table() #0 {
 entry:
   %call = tail call i32 @test_size_t_eq(ptr noundef nonnull @.str.1, i32 noundef 47, ptr noundef nonnull @.str.2, ptr noundef nonnull @.str.3, i64 noundef 9, i64 noundef 9) #2
   %tobool.not = icmp eq i32 %call, 0
@@ -85,7 +85,7 @@ land.end:                                         ; preds = %land.rhs, %land.lhs
 declare i32 @test_size_t_eq(ptr noundef, i32 noundef, ptr noundef, ptr noundef, i64 noundef, i64 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @do_test_cert_table(i32 noundef %nid, i32 noundef %amask, i64 noundef %idx, ptr noundef %idxname) unnamed_addr #0 {
+define internal fastcc noundef i32 @do_test_cert_table(i32 noundef %nid, i32 noundef %amask, i64 noundef %idx, ptr noundef %idxname) unnamed_addr #0 {
 entry:
   %arrayidx = getelementptr inbounds [9 x %struct.SSL_CERT_LOOKUP], ptr @ssl_cert_info, i64 0, i64 %idx
   %0 = load i32, ptr %arrayidx, align 8
@@ -93,7 +93,7 @@ entry:
   br i1 %cmp, label %land.lhs.true, label %if.then6
 
 land.lhs.true:                                    ; preds = %entry
-  %amask2 = getelementptr inbounds [9 x %struct.SSL_CERT_LOOKUP], ptr @ssl_cert_info, i64 0, i64 %idx, i32 1
+  %amask2 = getelementptr inbounds i8, ptr %arrayidx, i64 4
   %1 = load i32, ptr %amask2, align 4
   %cmp3 = icmp eq i32 %1, %amask
   br i1 %cmp3, label %return, label %if.end.thread
@@ -107,7 +107,7 @@ if.then6:                                         ; preds = %entry
   %call = tail call ptr @OBJ_nid2sn(i32 noundef %nid) #2
   %call8 = tail call ptr @OBJ_nid2sn(i32 noundef %0) #2
   tail call void (ptr, ...) @test_note(ptr noundef nonnull @.str.13, ptr noundef %call, ptr noundef %call8) #2
-  %amask10.phi.trans.insert = getelementptr inbounds [9 x %struct.SSL_CERT_LOOKUP], ptr @ssl_cert_info, i64 0, i64 %idx, i32 1
+  %amask10.phi.trans.insert = getelementptr inbounds i8, ptr %arrayidx, i64 4
   %.pre = load i32, ptr %amask10.phi.trans.insert, align 4
   br label %if.end9
 

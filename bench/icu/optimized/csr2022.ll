@@ -3,8 +3,6 @@ source_filename = "bench/icu/original/csr2022.ll"
 target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:128-n8:16:32:64-S128"
 target triple = "x86_64-unknown-linux-gnu"
 
-%"class.icu_75::InputText" = type <{ ptr, i32, [4 x i8], ptr, i8, [7 x i8], ptr, ptr, i32, [4 x i8] }>
-
 $_ZTSN6icu_7517CharsetRecog_2022E = comdat any
 
 $_ZTIN6icu_7517CharsetRecog_2022E = comdat any
@@ -185,7 +183,7 @@ entry:
 define noundef signext i8 @_ZNK6icu_7519CharsetRecog_2022JP5matchEPNS_9InputTextEPNS_12CharsetMatchE(ptr noundef nonnull align 8 dereferenceable(8) %this, ptr noundef %textIn, ptr noundef %results) unnamed_addr #5 align 2 {
 entry:
   %0 = load ptr, ptr %textIn, align 8
-  %fInputLen = getelementptr inbounds %"class.icu_75::InputText", ptr %textIn, i64 0, i32 1
+  %fInputLen = getelementptr inbounds i8, ptr %textIn, i64 8
   %1 = load i32, ptr %fInputLen, align 8
   %cmp36.i = icmp sgt i32 %1, 0
   br i1 %cmp36.i, label %while.body.us.i, label %_ZNK6icu_7517CharsetRecog_202210match_2022EPKhiPA5_S1_i.exit
@@ -320,7 +318,7 @@ entry:
 define noundef signext i8 @_ZNK6icu_7519CharsetRecog_2022KR5matchEPNS_9InputTextEPNS_12CharsetMatchE(ptr noundef nonnull align 8 dereferenceable(8) %this, ptr noundef %textIn, ptr noundef %results) unnamed_addr #5 align 2 {
 entry:
   %0 = load ptr, ptr %textIn, align 8
-  %fInputLen = getelementptr inbounds %"class.icu_75::InputText", ptr %textIn, i64 0, i32 1
+  %fInputLen = getelementptr inbounds i8, ptr %textIn, i64 8
   %1 = load i32, ptr %fInputLen, align 8
   %cmp36.i = icmp sgt i32 %1, 0
   br i1 %cmp36.i, label %while.body.us.i, label %_ZNK6icu_7517CharsetRecog_202210match_2022EPKhiPA5_S1_i.exit
@@ -432,7 +430,7 @@ entry:
 define noundef signext i8 @_ZNK6icu_7519CharsetRecog_2022CN5matchEPNS_9InputTextEPNS_12CharsetMatchE(ptr noundef nonnull align 8 dereferenceable(8) %this, ptr noundef %textIn, ptr noundef %results) unnamed_addr #5 align 2 {
 entry:
   %0 = load ptr, ptr %textIn, align 8
-  %fInputLen = getelementptr inbounds %"class.icu_75::InputText", ptr %textIn, i64 0, i32 1
+  %fInputLen = getelementptr inbounds i8, ptr %textIn, i64 8
   %1 = load i32, ptr %fInputLen, align 8
   %cmp36.i = icmp sgt i32 %1, 0
   br i1 %cmp36.i, label %while.body.us.i, label %_ZNK6icu_7517CharsetRecog_202210match_2022EPKhiPA5_S1_i.exit

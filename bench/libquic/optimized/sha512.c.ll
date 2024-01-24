@@ -13,24 +13,24 @@ target triple = "x86_64-unknown-linux-gnu"
 define hidden noundef i32 @SHA384_Init(ptr nocapture noundef writeonly %sha) local_unnamed_addr #0 {
 entry:
   store i64 -3766243637369397544, ptr %sha, align 8
-  %arrayidx2 = getelementptr inbounds [8 x i64], ptr %sha, i64 0, i64 1
+  %arrayidx2 = getelementptr inbounds i8, ptr %sha, i64 8
   store i64 7105036623409894663, ptr %arrayidx2, align 8
-  %arrayidx4 = getelementptr inbounds [8 x i64], ptr %sha, i64 0, i64 2
+  %arrayidx4 = getelementptr inbounds i8, ptr %sha, i64 16
   store i64 -7973340178411365097, ptr %arrayidx4, align 8
-  %arrayidx6 = getelementptr inbounds [8 x i64], ptr %sha, i64 0, i64 3
+  %arrayidx6 = getelementptr inbounds i8, ptr %sha, i64 24
   store i64 1526699215303891257, ptr %arrayidx6, align 8
-  %arrayidx8 = getelementptr inbounds [8 x i64], ptr %sha, i64 0, i64 4
+  %arrayidx8 = getelementptr inbounds i8, ptr %sha, i64 32
   store i64 7436329637833083697, ptr %arrayidx8, align 8
-  %arrayidx10 = getelementptr inbounds [8 x i64], ptr %sha, i64 0, i64 5
+  %arrayidx10 = getelementptr inbounds i8, ptr %sha, i64 40
   store i64 -8163818279084223215, ptr %arrayidx10, align 8
-  %arrayidx12 = getelementptr inbounds [8 x i64], ptr %sha, i64 0, i64 6
+  %arrayidx12 = getelementptr inbounds i8, ptr %sha, i64 48
   store i64 -2662702644619276377, ptr %arrayidx12, align 8
-  %arrayidx14 = getelementptr inbounds [8 x i64], ptr %sha, i64 0, i64 7
+  %arrayidx14 = getelementptr inbounds i8, ptr %sha, i64 56
   store i64 5167115440072839076, ptr %arrayidx14, align 8
-  %Nl = getelementptr inbounds %struct.sha512_state_st, ptr %sha, i64 0, i32 1
-  %num = getelementptr inbounds %struct.sha512_state_st, ptr %sha, i64 0, i32 4
+  %Nl = getelementptr inbounds i8, ptr %sha, i64 64
+  %num = getelementptr inbounds i8, ptr %sha, i64 208
   store i32 0, ptr %num, align 8
-  %md_len = getelementptr inbounds %struct.sha512_state_st, ptr %sha, i64 0, i32 5
+  %md_len = getelementptr inbounds i8, ptr %sha, i64 212
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %Nl, i8 0, i64 16, i1 false)
   store i32 48, ptr %md_len, align 4
   ret i32 1
@@ -40,24 +40,24 @@ entry:
 define hidden noundef i32 @SHA512_Init(ptr nocapture noundef writeonly %sha) local_unnamed_addr #0 {
 entry:
   store i64 7640891576956012808, ptr %sha, align 8
-  %arrayidx2 = getelementptr inbounds [8 x i64], ptr %sha, i64 0, i64 1
+  %arrayidx2 = getelementptr inbounds i8, ptr %sha, i64 8
   store i64 -4942790177534073029, ptr %arrayidx2, align 8
-  %arrayidx4 = getelementptr inbounds [8 x i64], ptr %sha, i64 0, i64 2
+  %arrayidx4 = getelementptr inbounds i8, ptr %sha, i64 16
   store i64 4354685564936845355, ptr %arrayidx4, align 8
-  %arrayidx6 = getelementptr inbounds [8 x i64], ptr %sha, i64 0, i64 3
+  %arrayidx6 = getelementptr inbounds i8, ptr %sha, i64 24
   store i64 -6534734903238641935, ptr %arrayidx6, align 8
-  %arrayidx8 = getelementptr inbounds [8 x i64], ptr %sha, i64 0, i64 4
+  %arrayidx8 = getelementptr inbounds i8, ptr %sha, i64 32
   store i64 5840696475078001361, ptr %arrayidx8, align 8
-  %arrayidx10 = getelementptr inbounds [8 x i64], ptr %sha, i64 0, i64 5
+  %arrayidx10 = getelementptr inbounds i8, ptr %sha, i64 40
   store i64 -7276294671716946913, ptr %arrayidx10, align 8
-  %arrayidx12 = getelementptr inbounds [8 x i64], ptr %sha, i64 0, i64 6
+  %arrayidx12 = getelementptr inbounds i8, ptr %sha, i64 48
   store i64 2270897969802886507, ptr %arrayidx12, align 8
-  %arrayidx14 = getelementptr inbounds [8 x i64], ptr %sha, i64 0, i64 7
+  %arrayidx14 = getelementptr inbounds i8, ptr %sha, i64 56
   store i64 6620516959819538809, ptr %arrayidx14, align 8
-  %Nl = getelementptr inbounds %struct.sha512_state_st, ptr %sha, i64 0, i32 1
-  %num = getelementptr inbounds %struct.sha512_state_st, ptr %sha, i64 0, i32 4
+  %Nl = getelementptr inbounds i8, ptr %sha, i64 64
+  %num = getelementptr inbounds i8, ptr %sha, i64 208
   store i32 0, ptr %num, align 8
-  %md_len = getelementptr inbounds %struct.sha512_state_st, ptr %sha, i64 0, i32 5
+  %md_len = getelementptr inbounds i8, ptr %sha, i64 212
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %Nl, i8 0, i64 16, i1 false)
   store i32 64, ptr %md_len, align 4
   ret i32 1
@@ -68,33 +68,33 @@ define hidden noundef nonnull ptr @SHA384(ptr noundef %data, i64 noundef %len, p
 entry:
   %ctx = alloca %struct.sha512_state_st, align 8
   store i64 -3766243637369397544, ptr %ctx, align 8
-  %arrayidx2.i = getelementptr inbounds [8 x i64], ptr %ctx, i64 0, i64 1
+  %arrayidx2.i = getelementptr inbounds i8, ptr %ctx, i64 8
   store i64 7105036623409894663, ptr %arrayidx2.i, align 8
-  %arrayidx4.i = getelementptr inbounds [8 x i64], ptr %ctx, i64 0, i64 2
+  %arrayidx4.i = getelementptr inbounds i8, ptr %ctx, i64 16
   store i64 -7973340178411365097, ptr %arrayidx4.i, align 8
-  %arrayidx6.i = getelementptr inbounds [8 x i64], ptr %ctx, i64 0, i64 3
+  %arrayidx6.i = getelementptr inbounds i8, ptr %ctx, i64 24
   store i64 1526699215303891257, ptr %arrayidx6.i, align 8
-  %arrayidx8.i = getelementptr inbounds [8 x i64], ptr %ctx, i64 0, i64 4
+  %arrayidx8.i = getelementptr inbounds i8, ptr %ctx, i64 32
   store i64 7436329637833083697, ptr %arrayidx8.i, align 8
-  %arrayidx10.i = getelementptr inbounds [8 x i64], ptr %ctx, i64 0, i64 5
+  %arrayidx10.i = getelementptr inbounds i8, ptr %ctx, i64 40
   store i64 -8163818279084223215, ptr %arrayidx10.i, align 8
-  %arrayidx12.i = getelementptr inbounds [8 x i64], ptr %ctx, i64 0, i64 6
+  %arrayidx12.i = getelementptr inbounds i8, ptr %ctx, i64 48
   store i64 -2662702644619276377, ptr %arrayidx12.i, align 8
-  %arrayidx14.i = getelementptr inbounds [8 x i64], ptr %ctx, i64 0, i64 7
+  %arrayidx14.i = getelementptr inbounds i8, ptr %ctx, i64 56
   store i64 5167115440072839076, ptr %arrayidx14.i, align 8
-  %Nl.i = getelementptr inbounds %struct.sha512_state_st, ptr %ctx, i64 0, i32 1
-  %num.i = getelementptr inbounds %struct.sha512_state_st, ptr %ctx, i64 0, i32 4
+  %Nl.i = getelementptr inbounds i8, ptr %ctx, i64 64
+  %num.i = getelementptr inbounds i8, ptr %ctx, i64 208
   store i32 0, ptr %num.i, align 8
-  %md_len.i = getelementptr inbounds %struct.sha512_state_st, ptr %ctx, i64 0, i32 5
+  %md_len.i = getelementptr inbounds i8, ptr %ctx, i64 212
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %Nl.i, i8 0, i64 16, i1 false)
   store i32 48, ptr %md_len.i, align 4
-  %u.i.i = getelementptr inbounds %struct.sha512_state_st, ptr %ctx, i64 0, i32 3
+  %u.i.i = getelementptr inbounds i8, ptr %ctx, i64 80
   %cmp.i.i = icmp eq i64 %len, 0
   br i1 %cmp.i.i, label %SHA384_Update.exit, label %if.end26.i.i
 
 if.end26.i.i:                                     ; preds = %entry
   %shl.i.i = shl i64 %len, 3
-  %Nh.i.i = getelementptr inbounds %struct.sha512_state_st, ptr %ctx, i64 0, i32 2
+  %Nh.i.i = getelementptr inbounds i8, ptr %ctx, i64 72
   %shr.i.i = lshr i64 %len, 61
   store i64 %shr.i.i, ptr %Nh.i.i, align 8
   store i64 %shl.i.i, ptr %Nl.i, align 8
@@ -130,17 +130,17 @@ SHA384_Update.exit:                               ; preds = %entry, %if.end34.i.
 ; Function Attrs: nounwind uwtable
 define hidden noundef i32 @SHA384_Update(ptr noundef %sha, ptr noundef %data, i64 noundef %len) local_unnamed_addr #1 {
 entry:
-  %u.i = getelementptr inbounds %struct.sha512_state_st, ptr %sha, i64 0, i32 3
+  %u.i = getelementptr inbounds i8, ptr %sha, i64 80
   %cmp.i = icmp eq i64 %len, 0
   br i1 %cmp.i, label %SHA512_Update.exit, label %if.end.i
 
 if.end.i:                                         ; preds = %entry
-  %Nl.i = getelementptr inbounds %struct.sha512_state_st, ptr %sha, i64 0, i32 1
+  %Nl.i = getelementptr inbounds i8, ptr %sha, i64 64
   %0 = load i64, ptr %Nl.i, align 8
   %shl.i = shl i64 %len, 3
   %add.i = add i64 %0, %shl.i
   %cmp2.i = icmp ult i64 %add.i, %0
-  %Nh.i = getelementptr inbounds %struct.sha512_state_st, ptr %sha, i64 0, i32 2
+  %Nh.i = getelementptr inbounds i8, ptr %sha, i64 72
   %1 = load i64, ptr %Nh.i, align 8
   %inc.i = zext i1 %cmp2.i to i64
   %shr.i = lshr i64 %len, 61
@@ -148,7 +148,7 @@ if.end.i:                                         ; preds = %entry
   %add6.i = add i64 %2, %inc.i
   store i64 %add6.i, ptr %Nh.i, align 8
   store i64 %add.i, ptr %Nl.i, align 8
-  %num.i = getelementptr inbounds %struct.sha512_state_st, ptr %sha, i64 0, i32 4
+  %num.i = getelementptr inbounds i8, ptr %sha, i64 208
   %3 = load i32, ptr %num.i, align 8
   %cmp8.not.i = icmp eq i32 %3, 0
   br i1 %cmp8.not.i, label %if.end26.i, label %if.then9.i
@@ -224,33 +224,33 @@ define hidden noundef nonnull ptr @SHA512(ptr noundef %data, i64 noundef %len, p
 entry:
   %ctx = alloca %struct.sha512_state_st, align 8
   store i64 7640891576956012808, ptr %ctx, align 8
-  %arrayidx2.i = getelementptr inbounds [8 x i64], ptr %ctx, i64 0, i64 1
+  %arrayidx2.i = getelementptr inbounds i8, ptr %ctx, i64 8
   store i64 -4942790177534073029, ptr %arrayidx2.i, align 8
-  %arrayidx4.i = getelementptr inbounds [8 x i64], ptr %ctx, i64 0, i64 2
+  %arrayidx4.i = getelementptr inbounds i8, ptr %ctx, i64 16
   store i64 4354685564936845355, ptr %arrayidx4.i, align 8
-  %arrayidx6.i = getelementptr inbounds [8 x i64], ptr %ctx, i64 0, i64 3
+  %arrayidx6.i = getelementptr inbounds i8, ptr %ctx, i64 24
   store i64 -6534734903238641935, ptr %arrayidx6.i, align 8
-  %arrayidx8.i = getelementptr inbounds [8 x i64], ptr %ctx, i64 0, i64 4
+  %arrayidx8.i = getelementptr inbounds i8, ptr %ctx, i64 32
   store i64 5840696475078001361, ptr %arrayidx8.i, align 8
-  %arrayidx10.i = getelementptr inbounds [8 x i64], ptr %ctx, i64 0, i64 5
+  %arrayidx10.i = getelementptr inbounds i8, ptr %ctx, i64 40
   store i64 -7276294671716946913, ptr %arrayidx10.i, align 8
-  %arrayidx12.i = getelementptr inbounds [8 x i64], ptr %ctx, i64 0, i64 6
+  %arrayidx12.i = getelementptr inbounds i8, ptr %ctx, i64 48
   store i64 2270897969802886507, ptr %arrayidx12.i, align 8
-  %arrayidx14.i = getelementptr inbounds [8 x i64], ptr %ctx, i64 0, i64 7
+  %arrayidx14.i = getelementptr inbounds i8, ptr %ctx, i64 56
   store i64 6620516959819538809, ptr %arrayidx14.i, align 8
-  %Nl.i = getelementptr inbounds %struct.sha512_state_st, ptr %ctx, i64 0, i32 1
-  %num.i = getelementptr inbounds %struct.sha512_state_st, ptr %ctx, i64 0, i32 4
+  %Nl.i = getelementptr inbounds i8, ptr %ctx, i64 64
+  %num.i = getelementptr inbounds i8, ptr %ctx, i64 208
   store i32 0, ptr %num.i, align 8
-  %md_len.i = getelementptr inbounds %struct.sha512_state_st, ptr %ctx, i64 0, i32 5
+  %md_len.i = getelementptr inbounds i8, ptr %ctx, i64 212
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %Nl.i, i8 0, i64 16, i1 false)
   store i32 64, ptr %md_len.i, align 4
-  %u.i = getelementptr inbounds %struct.sha512_state_st, ptr %ctx, i64 0, i32 3
+  %u.i = getelementptr inbounds i8, ptr %ctx, i64 80
   %cmp.i = icmp eq i64 %len, 0
   br i1 %cmp.i, label %SHA512_Update.exit, label %if.end26.i
 
 if.end26.i:                                       ; preds = %entry
   %shl.i = shl i64 %len, 3
-  %Nh.i = getelementptr inbounds %struct.sha512_state_st, ptr %ctx, i64 0, i32 2
+  %Nh.i = getelementptr inbounds i8, ptr %ctx, i64 72
   %shr.i = lshr i64 %len, 61
   store i64 %shr.i, ptr %Nh.i, align 8
   store i64 %shl.i, ptr %Nl.i, align 8
@@ -286,26 +286,26 @@ SHA512_Update.exit:                               ; preds = %entry, %if.end34.i,
 ; Function Attrs: nounwind uwtable
 define hidden noundef i32 @SHA512_Update(ptr noundef %c, ptr noundef %in_data, i64 noundef %len) local_unnamed_addr #1 {
 entry:
-  %u = getelementptr inbounds %struct.sha512_state_st, ptr %c, i64 0, i32 3
+  %u = getelementptr inbounds i8, ptr %c, i64 80
   %cmp = icmp eq i64 %len, 0
   br i1 %cmp, label %return, label %if.end
 
 if.end:                                           ; preds = %entry
-  %Nl = getelementptr inbounds %struct.sha512_state_st, ptr %c, i64 0, i32 1
+  %Nl = getelementptr inbounds i8, ptr %c, i64 64
   %0 = load i64, ptr %Nl, align 8
   %shl = shl i64 %len, 3
   %add = add i64 %0, %shl
   %cmp2 = icmp ult i64 %add, %0
-  %Nh = getelementptr inbounds %struct.sha512_state_st, ptr %c, i64 0, i32 2
+  %Nh = getelementptr inbounds i8, ptr %c, i64 72
   %1 = load i64, ptr %Nh, align 8
   %inc = zext i1 %cmp2 to i64
   %2 = add i64 %1, %inc
   %shr = lshr i64 %len, 61
-  %Nh5 = getelementptr inbounds %struct.sha512_state_st, ptr %c, i64 0, i32 2
+  %Nh5 = getelementptr inbounds i8, ptr %c, i64 72
   %add6 = add i64 %2, %shr
   store i64 %add6, ptr %Nh5, align 8
   store i64 %add, ptr %Nl, align 8
-  %num = getelementptr inbounds %struct.sha512_state_st, ptr %c, i64 0, i32 4
+  %num = getelementptr inbounds i8, ptr %c, i64 208
   %3 = load i32, ptr %num, align 8
   %cmp8.not = icmp eq i32 %3, 0
   br i1 %cmp8.not, label %if.end26, label %if.then9
@@ -370,8 +370,8 @@ return:                                           ; preds = %return.sink.split, 
 ; Function Attrs: nounwind uwtable
 define hidden noundef i32 @SHA512_Final(ptr noundef writeonly %md, ptr noundef %sha) local_unnamed_addr #1 {
 entry:
-  %u = getelementptr inbounds %struct.sha512_state_st, ptr %sha, i64 0, i32 3
-  %num = getelementptr inbounds %struct.sha512_state_st, ptr %sha, i64 0, i32 4
+  %u = getelementptr inbounds i8, ptr %sha, i64 80
+  %num = getelementptr inbounds i8, ptr %sha, i64 208
   %0 = load i32, ptr %num, align 8
   %conv = zext i32 %0 to i64
   %arrayidx = getelementptr inbounds i8, ptr %u, i64 %conv
@@ -392,7 +392,7 @@ if.end:                                           ; preds = %if.then, %entry
   %add.ptr3 = getelementptr inbounds i8, ptr %u, i64 %n.0
   %sub4 = sub nuw nsw i64 112, %n.0
   tail call void @llvm.memset.p0.i64(ptr nonnull align 1 %add.ptr3, i8 0, i64 %sub4, i1 false)
-  %Nl = getelementptr inbounds %struct.sha512_state_st, ptr %sha, i64 0, i32 1
+  %Nl = getelementptr inbounds i8, ptr %sha, i64 64
   %1 = load i64, ptr %Nl, align 8
   %conv5 = trunc i64 %1 to i8
   %arrayidx6 = getelementptr inbounds i8, ptr %sha, i64 207
@@ -423,9 +423,9 @@ if.end:                                           ; preds = %if.then, %entry
   store i8 %conv28, ptr %arrayidx29, align 1
   %shr31 = lshr i64 %1, 56
   %conv32 = trunc i64 %shr31 to i8
-  %arrayidx33 = getelementptr inbounds %struct.sha512_state_st, ptr %sha, i64 0, i32 3, i32 0, i64 15
+  %arrayidx33 = getelementptr inbounds i8, ptr %sha, i64 200
   store i8 %conv32, ptr %arrayidx33, align 1
-  %Nh = getelementptr inbounds %struct.sha512_state_st, ptr %sha, i64 0, i32 2
+  %Nh = getelementptr inbounds i8, ptr %sha, i64 72
   %2 = load i64, ptr %Nh, align 8
   %conv34 = trunc i64 %2 to i8
   %arrayidx35 = getelementptr inbounds i8, ptr %sha, i64 199
@@ -456,14 +456,14 @@ if.end:                                           ; preds = %if.then, %entry
   store i8 %conv58, ptr %arrayidx59, align 1
   %shr61 = lshr i64 %2, 56
   %conv62 = trunc i64 %shr61 to i8
-  %arrayidx63 = getelementptr inbounds %struct.sha512_state_st, ptr %sha, i64 0, i32 3, i32 0, i64 14
+  %arrayidx63 = getelementptr inbounds i8, ptr %sha, i64 192
   store i8 %conv62, ptr %arrayidx63, align 1
   tail call void @sha512_block_data_order(ptr noundef nonnull %sha, ptr noundef nonnull %u, i64 noundef 1) #5
   %cmp66 = icmp eq ptr %md, null
   br i1 %cmp66, label %return, label %if.end69
 
 if.end69:                                         ; preds = %if.end
-  %md_len = getelementptr inbounds %struct.sha512_state_st, ptr %sha, i64 0, i32 5
+  %md_len = getelementptr inbounds i8, ptr %sha, i64 212
   %3 = load i32, ptr %md_len, align 4
   switch i32 %3, label %return [
     i32 48, label %for.body

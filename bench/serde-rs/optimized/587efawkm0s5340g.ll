@@ -6,7 +6,7 @@ target triple = "x86_64-unknown-linux-gnu"
 ; Function Attrs: inlinehint mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: readwrite) uwtable
 define void @_ZN4core4iter6traits8iterator8Iterator3map17h243b4d115f7431aeE(ptr nocapture writeonly sret({ { { i64, [4 x i64] }, {} }, ptr }) align 8 %0, ptr nocapture readonly align 8 %1, ptr align 4 %2) unnamed_addr #0 {
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %0, ptr noundef nonnull align 8 dereferenceable(40) %1, i64 40, i1 false)
-  %4 = getelementptr inbounds { { { i64, [4 x i64] }, {} }, ptr }, ptr %0, i64 0, i32 1
+  %4 = getelementptr inbounds i8, ptr %0, i64 40
   store ptr %2, ptr %4, align 8
   ret void
 }
@@ -17,9 +17,9 @@ define void @_ZN4core4iter6traits8iterator8Iterator4fold17h43c9ab28d77fe8f9E(ptr
   %5 = alloca { [24 x i8], i8, [7 x i8] }, align 8
   %6 = alloca { ptr, ptr }, align 8
   store ptr %1, ptr %6, align 8
-  %7 = getelementptr inbounds { ptr, ptr }, ptr %6, i64 0, i32 1
+  %7 = getelementptr inbounds i8, ptr %6, i64 8
   store ptr %2, ptr %7, align 8
-  %8 = getelementptr inbounds { [24 x i8], i8, [7 x i8] }, ptr %5, i64 0, i32 1
+  %8 = getelementptr inbounds i8, ptr %5, i64 24
   br label %9
 
 9:                                                ; preds = %13, %3
@@ -75,9 +75,9 @@ define void @_ZN4core4iter6traits8iterator8Iterator4fold17h96536bccfbbd6ca8E(ptr
   %5 = alloca { [24 x i8], i8, [7 x i8] }, align 8
   %6 = alloca { ptr, ptr }, align 8
   store ptr %1, ptr %6, align 8
-  %7 = getelementptr inbounds { ptr, ptr }, ptr %6, i64 0, i32 1
+  %7 = getelementptr inbounds i8, ptr %6, i64 8
   store ptr %2, ptr %7, align 8
-  %8 = getelementptr inbounds { [24 x i8], i8, [7 x i8] }, ptr %5, i64 0, i32 1
+  %8 = getelementptr inbounds i8, ptr %5, i64 24
   br label %9
 
 9:                                                ; preds = %13, %3

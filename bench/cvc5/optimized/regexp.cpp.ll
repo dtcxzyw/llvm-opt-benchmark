@@ -3,8 +3,6 @@ source_filename = "bench/cvc5/original/regexp.cpp.ll"
 target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:128-n8:16:32:64-S128"
 target triple = "x86_64-unknown-linux-gnu"
 
-%"struct.cvc5::internal::RegExpLoop" = type { i32, i32 }
-
 @.str = private unnamed_addr constant [2 x i8] c"[\00", align 1
 @.str.1 = private unnamed_addr constant [3 x i8] c"..\00", align 1
 @.str.2 = private unnamed_addr constant [2 x i8] c"]\00", align 1
@@ -32,7 +30,7 @@ entry:
 define hidden void @_ZN4cvc58internal10RegExpLoopC2Ejj(ptr nocapture noundef nonnull writeonly align 4 dereferenceable(8) %this, i32 noundef %l, i32 noundef %h) unnamed_addr #0 align 2 {
 entry:
   store i32 %l, ptr %this, align 4
-  %d_loopMaxOcc = getelementptr inbounds %"struct.cvc5::internal::RegExpLoop", ptr %this, i64 0, i32 1
+  %d_loopMaxOcc = getelementptr inbounds i8, ptr %this, i64 4
   store i32 %h, ptr %d_loopMaxOcc, align 4
   ret void
 }
@@ -61,7 +59,7 @@ entry:
 define hidden noundef i64 @_ZNK4cvc58internal22RegExpLoopHashFunctionclERKNS0_10RegExpLoopE(ptr nocapture noundef nonnull readnone align 1 dereferenceable(1) %this, ptr nocapture noundef nonnull readonly align 4 dereferenceable(8) %r) local_unnamed_addr #1 align 2 {
 entry:
   %0 = load i32, ptr %r, align 4
-  %d_loopMaxOcc = getelementptr inbounds %"struct.cvc5::internal::RegExpLoop", ptr %r, i64 0, i32 1
+  %d_loopMaxOcc = getelementptr inbounds i8, ptr %r, i64 4
   %1 = load i32, ptr %d_loopMaxOcc, align 4
   %add = add i32 %1, %0
   %conv = zext i32 %add to i64
@@ -85,7 +83,7 @@ entry:
   %0 = load i32, ptr %r, align 4
   %call1 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSolsEj(ptr noundef nonnull align 8 dereferenceable(8) %call, i32 noundef %0)
   %call2 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc(ptr noundef nonnull align 8 dereferenceable(8) %call1, ptr noundef nonnull @.str.1)
-  %d_loopMaxOcc = getelementptr inbounds %"struct.cvc5::internal::RegExpLoop", ptr %r, i64 0, i32 1
+  %d_loopMaxOcc = getelementptr inbounds i8, ptr %r, i64 4
   %1 = load i32, ptr %d_loopMaxOcc, align 4
   %call3 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSolsEj(ptr noundef nonnull align 8 dereferenceable(8) %call2, i32 noundef %1)
   %call4 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc(ptr noundef nonnull align 8 dereferenceable(8) %call3, ptr noundef nonnull @.str.2)

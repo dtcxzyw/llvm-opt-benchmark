@@ -126,7 +126,7 @@ if.end6:                                          ; preds = %entry, %if.end3.thr
 }
 
 ; Function Attrs: mustprogress uwtable
-define ptr @u_uastrncpy_75(ptr noundef returned %ucs1, ptr noundef %s2, i32 noundef %n) local_unnamed_addr #0 {
+define noundef ptr @u_uastrncpy_75(ptr noundef returned %ucs1, ptr noundef %s2, i32 noundef %n) local_unnamed_addr #0 {
 entry:
   %s2.addr = alloca ptr, align 8
   %target = alloca ptr, align 8
@@ -260,7 +260,7 @@ if.end15:                                         ; preds = %if.end15.sink.split
 declare void @ucnv_toUnicode_75(ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef, i8 noundef signext, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress uwtable
-define ptr @u_uastrcpy_75(ptr noundef returned %ucs1, ptr noundef %s2) local_unnamed_addr #0 {
+define noundef ptr @u_uastrcpy_75(ptr noundef returned %ucs1, ptr noundef %s2) local_unnamed_addr #0 {
 entry:
   %err = alloca i32, align 4
   store i32 0, ptr %err, align 4
@@ -346,7 +346,7 @@ declare i32 @ucnv_toUChars_75(ptr noundef, ptr noundef, i32 noundef, ptr noundef
 declare i64 @strlen(ptr nocapture noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress uwtable
-define ptr @u_austrncpy_75(ptr noundef returned %s1, ptr noundef %ucs2, i32 noundef %n) local_unnamed_addr #0 {
+define noundef ptr @u_austrncpy_75(ptr noundef returned %s1, ptr noundef %ucs2, i32 noundef %n) local_unnamed_addr #0 {
 entry:
   %ucs2.addr = alloca ptr, align 8
   %target = alloca ptr, align 8
@@ -407,7 +407,7 @@ land.rhs.i:                                       ; preds = %if.then, %while.bod
 
 while.body.i:                                     ; preds = %land.rhs.i
   %dec7.i = add nsw i32 %dec7.in.i, -1
-  %incdec.ptr.i = getelementptr inbounds i16, ptr %ucs1.addr.05.i, i64 1
+  %incdec.ptr.i = getelementptr inbounds i8, ptr %ucs1.addr.05.i, i64 2
   %inc.i = add nuw nsw i32 %len.06.i, 1
   %tobool1.not.i = icmp eq i32 %dec7.i, 0
   br i1 %tobool1.not.i, label %_ZL10u_ustrnlenPKDsi.exit.loopexit, label %land.rhs.i, !llvm.loop !6
@@ -480,7 +480,7 @@ if.end15:                                         ; preds = %if.end15.sink.split
 declare void @ucnv_fromUnicode_75(ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef, i8 noundef signext, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress uwtable
-define ptr @u_austrcpy_75(ptr noundef returned %s1, ptr noundef %ucs2) local_unnamed_addr #0 {
+define noundef ptr @u_austrcpy_75(ptr noundef returned %s1, ptr noundef %ucs2) local_unnamed_addr #0 {
 entry:
   %err = alloca i32, align 4
   store i32 0, ptr %err, align 4

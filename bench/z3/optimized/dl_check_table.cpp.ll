@@ -4,43 +4,10 @@ target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:
 target triple = "x86_64-unknown-linux-gnu"
 
 %"class.std::ios_base::Init" = type { i8 }
-%"class.datalog::check_table_plugin" = type <{ %"class.datalog::table_plugin", ptr, ptr, i32, [4 x i8] }>
-%"class.datalog::table_plugin" = type { %"class.datalog::tr_infrastructure<datalog::table_traits>::plugin_object" }
-%"class.datalog::tr_infrastructure<datalog::table_traits>::plugin_object" = type { ptr, i32, %class.symbol, ptr }
-%class.symbol = type { ptr }
-%"class.datalog::check_table" = type { %"class.datalog::table_base.base", ptr, ptr }
-%"class.datalog::table_base.base" = type { %"class.datalog::tr_infrastructure<datalog::table_traits>::base_ancestor.base" }
-%"class.datalog::tr_infrastructure<datalog::table_traits>::base_ancestor.base" = type <{ ptr, ptr, %"class.datalog::table_signature", i32 }>
-%"class.datalog::table_signature" = type <{ %"class.datalog::tr_infrastructure<datalog::table_traits>::signature_base", i32, [4 x i8] }>
-%"class.datalog::tr_infrastructure<datalog::table_traits>::signature_base" = type { %class.svector }
-%class.svector = type { %class.vector }
-%class.vector = type { ptr }
-%"class.datalog::tr_infrastructure<datalog::table_traits>::base_ancestor" = type <{ ptr, ptr, %"class.datalog::table_signature", i32, [4 x i8] }>
-%"class.datalog::check_table_plugin::join_fn" = type { %"class.datalog::tr_infrastructure<datalog::table_traits>::join_fn", %class.scoped_ptr, %class.scoped_ptr }
-%"class.datalog::tr_infrastructure<datalog::table_traits>::join_fn" = type { %"class.datalog::tr_infrastructure<datalog::table_traits>::base_fn" }
-%"class.datalog::tr_infrastructure<datalog::table_traits>::base_fn" = type { ptr }
-%class.scoped_ptr = type { ptr }
-%"class.datalog::check_table_plugin::join_project_fn" = type { %"class.datalog::tr_infrastructure<datalog::table_traits>::join_fn", %class.scoped_ptr, %class.scoped_ptr }
-%"class.datalog::check_table_plugin::union_fn" = type { %"class.datalog::tr_infrastructure<datalog::table_traits>::union_fn", %class.scoped_ptr.0, %class.scoped_ptr.0 }
-%"class.datalog::tr_infrastructure<datalog::table_traits>::union_fn" = type { %"class.datalog::tr_infrastructure<datalog::table_traits>::base_fn" }
-%class.scoped_ptr.0 = type { ptr }
-%"class.datalog::check_table_plugin::project_fn" = type { %"class.datalog::tr_infrastructure<datalog::table_traits>::transformer_fn", %class.scoped_ptr.1, %class.scoped_ptr.1 }
-%"class.datalog::tr_infrastructure<datalog::table_traits>::transformer_fn" = type { %"class.datalog::tr_infrastructure<datalog::table_traits>::base_fn" }
-%class.scoped_ptr.1 = type { ptr }
-%"class.datalog::check_table_plugin::select_equal_and_project_fn" = type { %"class.datalog::tr_infrastructure<datalog::table_traits>::transformer_fn", %class.scoped_ptr.1, %class.scoped_ptr.1 }
-%"class.datalog::check_table_plugin::rename_fn" = type { %"class.datalog::tr_infrastructure<datalog::table_traits>::transformer_fn", %class.scoped_ptr.1, %class.scoped_ptr.1 }
-%"class.datalog::check_table_plugin::filter_identical_fn" = type { %"class.datalog::tr_infrastructure<datalog::table_traits>::mutator_fn", %class.scoped_ptr.2, %class.scoped_ptr.2 }
-%"class.datalog::tr_infrastructure<datalog::table_traits>::mutator_fn" = type { %"class.datalog::tr_infrastructure<datalog::table_traits>::base_fn" }
-%class.scoped_ptr.2 = type { ptr }
-%"class.datalog::check_table_plugin::filter_equal_fn" = type { %"class.datalog::tr_infrastructure<datalog::table_traits>::mutator_fn", %class.scoped_ptr.2, %class.scoped_ptr.2 }
-%"class.datalog::check_table_plugin::filter_interpreted_fn" = type { %"class.datalog::tr_infrastructure<datalog::table_traits>::mutator_fn", %class.scoped_ptr.2, %class.scoped_ptr.2 }
-%"class.datalog::check_table_plugin::filter_interpreted_and_project_fn" = type { %"class.datalog::tr_infrastructure<datalog::table_traits>::transformer_fn", %class.scoped_ptr.1, %class.scoped_ptr.1 }
-%"class.datalog::check_table_plugin::filter_by_negation_fn" = type { %"class.datalog::tr_infrastructure<datalog::table_traits>::intersection_filter_fn", %class.scoped_ptr.3, %class.scoped_ptr.3 }
-%"class.datalog::tr_infrastructure<datalog::table_traits>::intersection_filter_fn" = type { %"class.datalog::tr_infrastructure<datalog::table_traits>::base_fn" }
-%class.scoped_ptr.3 = type { ptr }
 %"class.datalog::table_base::iterator" = type { %class.ref }
 %class.ref = type { ptr }
-%"class.datalog::table_base::iterator_core" = type <{ ptr, i32, [4 x i8] }>
+%class.svector = type { %class.vector }
+%class.vector = type { ptr }
 
 $_ZN7datalog18check_table_plugin7join_fnC2ERS0_RKNS_10table_baseES5_jPKjS7_ = comdat any
 
@@ -403,19 +370,19 @@ declare i32 @__cxa_atexit(ptr, ptr, ptr) local_unnamed_addr #2
 ; Function Attrs: mustprogress uwtable
 define hidden noundef zeroext i1 @_ZN7datalog18check_table_plugin20can_handle_signatureERKNS_15table_signatureE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(52) %this, ptr noundef nonnull align 8 dereferenceable(12) %s) unnamed_addr #3 align 2 {
 entry:
-  %m_tocheck = getelementptr inbounds %"class.datalog::check_table_plugin", ptr %this, i64 0, i32 2
+  %m_tocheck = getelementptr inbounds i8, ptr %this, i64 40
   %0 = load ptr, ptr %m_tocheck, align 8
   %vtable = load ptr, ptr %0, align 8
-  %vfn = getelementptr inbounds ptr, ptr %vtable, i64 3
+  %vfn = getelementptr inbounds i8, ptr %vtable, i64 24
   %1 = load ptr, ptr %vfn, align 8
   %call = tail call noundef zeroext i1 %1(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef nonnull align 8 dereferenceable(12) %s)
   br i1 %call, label %land.rhs, label %land.end
 
 land.rhs:                                         ; preds = %entry
-  %m_checker = getelementptr inbounds %"class.datalog::check_table_plugin", ptr %this, i64 0, i32 1
+  %m_checker = getelementptr inbounds i8, ptr %this, i64 32
   %2 = load ptr, ptr %m_checker, align 8
   %vtable2 = load ptr, ptr %2, align 8
-  %vfn3 = getelementptr inbounds ptr, ptr %vtable2, i64 3
+  %vfn3 = getelementptr inbounds i8, ptr %vtable2, i64 24
   %3 = load ptr, ptr %vfn3, align 8
   %call4 = tail call noundef zeroext i1 %3(ptr noundef nonnull align 8 dereferenceable(32) %2, ptr noundef nonnull align 8 dereferenceable(12) %s)
   br label %land.end
@@ -440,7 +407,7 @@ entry:
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
 define hidden noundef nonnull align 8 dereferenceable(36) ptr @_ZN7datalog18check_table_plugin7checkerERNS_10table_baseE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(36) %r) local_unnamed_addr #5 align 2 {
 entry:
-  %m_checker = getelementptr inbounds %"class.datalog::check_table", ptr %r, i64 0, i32 1
+  %m_checker = getelementptr inbounds i8, ptr %r, i64 40
   %0 = load ptr, ptr %m_checker, align 8
   ret ptr %0
 }
@@ -448,7 +415,7 @@ entry:
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
 define hidden noundef nonnull align 8 dereferenceable(36) ptr @_ZN7datalog18check_table_plugin7checkerERKNS_10table_baseE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(36) %r) local_unnamed_addr #5 align 2 {
 entry:
-  %m_checker = getelementptr inbounds %"class.datalog::check_table", ptr %r, i64 0, i32 1
+  %m_checker = getelementptr inbounds i8, ptr %r, i64 40
   %0 = load ptr, ptr %m_checker, align 8
   ret ptr %0
 }
@@ -460,7 +427,7 @@ entry:
   br i1 %tobool.not, label %cond.end, label %cond.true
 
 cond.true:                                        ; preds = %entry
-  %m_checker = getelementptr inbounds %"class.datalog::check_table", ptr %r, i64 0, i32 1
+  %m_checker = getelementptr inbounds i8, ptr %r, i64 40
   %0 = load ptr, ptr %m_checker, align 8
   br label %cond.end
 
@@ -476,7 +443,7 @@ entry:
   br i1 %tobool.not, label %cond.end, label %cond.true
 
 cond.true:                                        ; preds = %entry
-  %m_checker = getelementptr inbounds %"class.datalog::check_table", ptr %r, i64 0, i32 1
+  %m_checker = getelementptr inbounds i8, ptr %r, i64 40
   %0 = load ptr, ptr %m_checker, align 8
   br label %cond.end
 
@@ -488,7 +455,7 @@ cond.end:                                         ; preds = %entry, %cond.true
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
 define hidden noundef nonnull align 8 dereferenceable(36) ptr @_ZN7datalog18check_table_plugin7tocheckERNS_10table_baseE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(36) %r) local_unnamed_addr #5 align 2 {
 entry:
-  %m_tocheck = getelementptr inbounds %"class.datalog::check_table", ptr %r, i64 0, i32 2
+  %m_tocheck = getelementptr inbounds i8, ptr %r, i64 48
   %0 = load ptr, ptr %m_tocheck, align 8
   ret ptr %0
 }
@@ -496,7 +463,7 @@ entry:
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
 define hidden noundef nonnull align 8 dereferenceable(36) ptr @_ZN7datalog18check_table_plugin7tocheckERKNS_10table_baseE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(36) %r) local_unnamed_addr #5 align 2 {
 entry:
-  %m_tocheck = getelementptr inbounds %"class.datalog::check_table", ptr %r, i64 0, i32 2
+  %m_tocheck = getelementptr inbounds i8, ptr %r, i64 48
   %0 = load ptr, ptr %m_tocheck, align 8
   ret ptr %0
 }
@@ -508,7 +475,7 @@ entry:
   br i1 %tobool.not, label %cond.end, label %cond.true
 
 cond.true:                                        ; preds = %entry
-  %m_tocheck = getelementptr inbounds %"class.datalog::check_table", ptr %r, i64 0, i32 2
+  %m_tocheck = getelementptr inbounds i8, ptr %r, i64 48
   %0 = load ptr, ptr %m_tocheck, align 8
   br label %cond.end
 
@@ -524,7 +491,7 @@ entry:
   br i1 %tobool.not, label %cond.end, label %cond.true
 
 cond.true:                                        ; preds = %entry
-  %m_tocheck = getelementptr inbounds %"class.datalog::check_table", ptr %r, i64 0, i32 2
+  %m_tocheck = getelementptr inbounds i8, ptr %r, i64 48
   %0 = load ptr, ptr %m_tocheck, align 8
   br label %cond.end
 
@@ -559,30 +526,30 @@ if.else:                                          ; preds = %if.then
   br label %if.end10
 
 if.end10:                                         ; preds = %if.then3, %if.else, %entry
-  %m_checker = getelementptr inbounds %"class.datalog::check_table_plugin", ptr %this, i64 0, i32 1
+  %m_checker = getelementptr inbounds i8, ptr %this, i64 32
   %0 = load ptr, ptr %m_checker, align 8
   %vtable = load ptr, ptr %0, align 8
-  %vfn = getelementptr inbounds ptr, ptr %vtable, i64 5
+  %vfn = getelementptr inbounds i8, ptr %vtable, i64 40
   %1 = load ptr, ptr %vfn, align 8
   %call11 = tail call noundef ptr %1(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef nonnull align 8 dereferenceable(12) %s)
-  %m_tocheck = getelementptr inbounds %"class.datalog::check_table_plugin", ptr %this, i64 0, i32 2
+  %m_tocheck = getelementptr inbounds i8, ptr %this, i64 40
   %2 = load ptr, ptr %m_tocheck, align 8
   %vtable12 = load ptr, ptr %2, align 8
-  %vfn13 = getelementptr inbounds ptr, ptr %vtable12, i64 5
+  %vfn13 = getelementptr inbounds i8, ptr %vtable12, i64 40
   %3 = load ptr, ptr %vfn13, align 8
   %call14 = tail call noundef ptr %3(ptr noundef nonnull align 8 dereferenceable(32) %2, ptr noundef nonnull align 8 dereferenceable(12) %s)
   %call15 = tail call noalias noundef ptr @_ZN6memory8allocateEm(i64 noundef 56)
   store ptr getelementptr inbounds ({ [18 x ptr] }, ptr @_ZTVN7datalog17tr_infrastructureINS_12table_traitsEE13base_ancestorE, i64 0, inrange i32 0, i64 2), ptr %call15, align 8
-  %m_plugin.i.i.i = getelementptr inbounds %"class.datalog::tr_infrastructure<datalog::table_traits>::base_ancestor", ptr %call15, i64 0, i32 1
+  %m_plugin.i.i.i = getelementptr inbounds i8, ptr %call15, i64 8
   store ptr %this, ptr %m_plugin.i.i.i, align 8
-  %m_signature.i.i.i = getelementptr inbounds %"class.datalog::tr_infrastructure<datalog::table_traits>::base_ancestor", ptr %call15, i64 0, i32 2
+  %m_signature.i.i.i = getelementptr inbounds i8, ptr %call15, i64 16
   store ptr null, ptr %m_signature.i.i.i, align 8
   %4 = load ptr, ptr %s, align 8
   %tobool.not.i.i.i.i.i.i.i = icmp eq ptr %4, null
   br i1 %tobool.not.i.i.i.i.i.i.i, label %_ZN7datalog10table_baseC2ERNS_12table_pluginERKNS_15table_signatureE.exit.i, label %_ZNK6vectorImLb0EjE8capacityEv.exit.i.i.i.i.i.i.i.i
 
 _ZNK6vectorImLb0EjE8capacityEv.exit.i.i.i.i.i.i.i.i: ; preds = %if.end10
-  %arrayidx.i11.i.i.i.i.i.i.i.i = getelementptr inbounds i32, ptr %4, i64 -2
+  %arrayidx.i11.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %4, i64 -8
   %5 = load <2 x i32>, ptr %arrayidx.i11.i.i.i.i.i.i.i.i, align 4
   %6 = extractelement <2 x i32> %5, i64 0
   %conv.i.i.i.i.i.i.i.i = zext i32 %6 to i64
@@ -590,14 +557,14 @@ _ZNK6vectorImLb0EjE8capacityEv.exit.i.i.i.i.i.i.i.i: ; preds = %if.end10
   %add.i.i.i.i.i.i.i.i = add nuw nsw i64 %mul.i.i.i.i.i.i.i.i, 8
   %call3.i.i.i.i.i.i.i.i = tail call noalias noundef ptr @_ZN6memory8allocateEm(i64 noundef %add.i.i.i.i.i.i.i.i)
   store <2 x i32> %5, ptr %call3.i.i.i.i.i.i.i.i, align 4
-  %incdec.ptr4.i.i.i.i.i.i.i.i = getelementptr inbounds i32, ptr %call3.i.i.i.i.i.i.i.i, i64 2
+  %incdec.ptr4.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %call3.i.i.i.i.i.i.i.i, i64 8
   store ptr %incdec.ptr4.i.i.i.i.i.i.i.i, ptr %m_signature.i.i.i, align 8
   %7 = load ptr, ptr %s, align 8
   %cmp.i.i.i.i.i.i.i.i.i.i = icmp eq ptr %7, null
   br i1 %cmp.i.i.i.i.i.i.i.i.i.i, label %_ZN7datalog10table_baseC2ERNS_12table_pluginERKNS_15table_signatureE.exit.i, label %_ZNK6vectorImLb0EjE3endEv.exit.i.i.i.i.i.i.i.i
 
 _ZNK6vectorImLb0EjE3endEv.exit.i.i.i.i.i.i.i.i:   ; preds = %_ZNK6vectorImLb0EjE8capacityEv.exit.i.i.i.i.i.i.i.i
-  %arrayidx.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds i32, ptr %7, i64 -1
+  %arrayidx.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %7, i64 -4
   %8 = load i32, ptr %arrayidx.i.i.i.i.i.i.i.i.i.i, align 4
   %tobool.not.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i = icmp eq i32 %8, 0
   br i1 %tobool.not.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i, label %_ZN7datalog10table_baseC2ERNS_12table_pluginERKNS_15table_signatureE.exit.i, label %if.then.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i
@@ -609,18 +576,18 @@ if.then.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i:            ; preds = %_ZNK6vectorImLb0EjE
   br label %_ZN7datalog10table_baseC2ERNS_12table_pluginERKNS_15table_signatureE.exit.i
 
 _ZN7datalog10table_baseC2ERNS_12table_pluginERKNS_15table_signatureE.exit.i: ; preds = %if.then.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i, %_ZNK6vectorImLb0EjE3endEv.exit.i.i.i.i.i.i.i.i, %_ZNK6vectorImLb0EjE8capacityEv.exit.i.i.i.i.i.i.i.i, %if.end10
-  %m_functional_columns.i.i.i.i = getelementptr inbounds %"class.datalog::tr_infrastructure<datalog::table_traits>::base_ancestor", ptr %call15, i64 0, i32 2, i32 1
-  %m_functional_columns2.i.i.i.i = getelementptr inbounds %"class.datalog::table_signature", ptr %s, i64 0, i32 1
+  %m_functional_columns.i.i.i.i = getelementptr inbounds i8, ptr %call15, i64 24
+  %m_functional_columns2.i.i.i.i = getelementptr inbounds i8, ptr %s, i64 8
   %11 = load i32, ptr %m_functional_columns2.i.i.i.i, align 8
   store i32 %11, ptr %m_functional_columns.i.i.i.i, align 8
-  %m_kind.i.i.i = getelementptr inbounds %"class.datalog::tr_infrastructure<datalog::table_traits>::base_ancestor", ptr %call15, i64 0, i32 3
-  %m_kind.i.i.i.i = getelementptr inbounds %"class.datalog::tr_infrastructure<datalog::table_traits>::plugin_object", ptr %this, i64 0, i32 1
+  %m_kind.i.i.i = getelementptr inbounds i8, ptr %call15, i64 32
+  %m_kind.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 8
   %12 = load i32, ptr %m_kind.i.i.i.i, align 8
   store i32 %12, ptr %m_kind.i.i.i, align 8
   store ptr getelementptr inbounds ({ [29 x ptr] }, ptr @_ZTVN7datalog11check_tableE, i64 0, inrange i32 0, i64 2), ptr %call15, align 8
-  %m_checker.i = getelementptr inbounds %"class.datalog::check_table", ptr %call15, i64 0, i32 1
+  %m_checker.i = getelementptr inbounds i8, ptr %call15, i64 40
   store ptr %call11, ptr %m_checker.i, align 8
-  %m_tocheck.i = getelementptr inbounds %"class.datalog::check_table", ptr %call15, i64 0, i32 2
+  %m_tocheck.i = getelementptr inbounds i8, ptr %call15, i64 48
   store ptr %call14, ptr %m_tocheck.i, align 8
   %call.i = invoke noundef zeroext i1 @_ZNK7datalog11check_table11well_formedEv(ptr noundef nonnull align 8 dereferenceable(56) %call15)
           to label %_ZN7datalog11check_tableC2ERNS_18check_table_pluginERKNS_15table_signatureEPNS_10table_baseES7_.exit unwind label %lpad.i
@@ -652,10 +619,10 @@ declare noalias noundef ptr @_ZN6memory8allocateEm(i64 noundef) local_unnamed_ad
 ; Function Attrs: mustprogress uwtable
 define hidden noundef ptr @_ZN7datalog18check_table_plugin10mk_join_fnERKNS_10table_baseES3_jPKjS5_(ptr noundef nonnull align 8 dereferenceable(52) %this, ptr noundef nonnull align 8 dereferenceable(36) %t1, ptr noundef nonnull align 8 dereferenceable(36) %t2, i32 noundef %col_cnt, ptr noundef %cols1, ptr noundef %cols2) unnamed_addr #3 align 2 {
 entry:
-  %m_plugin.i.i = getelementptr inbounds %"class.datalog::tr_infrastructure<datalog::table_traits>::base_ancestor", ptr %t1, i64 0, i32 1
+  %m_plugin.i.i = getelementptr inbounds i8, ptr %t1, i64 8
   %0 = load ptr, ptr %m_plugin.i.i, align 8
   %cmp.i = icmp eq ptr %0, %this
-  %m_plugin.i.i3 = getelementptr inbounds %"class.datalog::tr_infrastructure<datalog::table_traits>::base_ancestor", ptr %t2, i64 0, i32 1
+  %m_plugin.i.i3 = getelementptr inbounds i8, ptr %t2, i64 8
   %1 = load ptr, ptr %m_plugin.i.i3, align 8
   %cmp.i4 = icmp eq ptr %1, %this
   %or.cond = select i1 %cmp.i, i1 %cmp.i4, i1 false
@@ -675,14 +642,14 @@ return:                                           ; preds = %entry, %if.end
 define linkonce_odr hidden void @_ZN7datalog18check_table_plugin7join_fnC2ERS0_RKNS_10table_baseES5_jPKjS7_(ptr noundef nonnull align 8 dereferenceable(24) %this, ptr noundef nonnull align 8 dereferenceable(52) %p, ptr noundef nonnull align 8 dereferenceable(36) %t1, ptr noundef nonnull align 8 dereferenceable(36) %t2, i32 noundef %col_cnt, ptr noundef %cols1, ptr noundef %cols2) unnamed_addr #3 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7datalog18check_table_plugin7join_fnE, i64 0, inrange i32 0, i64 2), ptr %this, align 8
-  %m_tocheck = getelementptr inbounds %"class.datalog::check_table_plugin::join_fn", ptr %this, i64 0, i32 1
-  %m_checker = getelementptr inbounds %"class.datalog::check_table_plugin::join_fn", ptr %this, i64 0, i32 2
-  %m_manager.i = getelementptr inbounds %"class.datalog::tr_infrastructure<datalog::table_traits>::plugin_object", ptr %p, i64 0, i32 3
+  %m_tocheck = getelementptr inbounds i8, ptr %this, i64 8
+  %m_checker = getelementptr inbounds i8, ptr %this, i64 16
+  %m_manager.i = getelementptr inbounds i8, ptr %p, i64 24
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %m_tocheck, i8 0, i64 16, i1 false)
   %0 = load ptr, ptr %m_manager.i, align 8
-  %m_tocheck.i = getelementptr inbounds %"class.datalog::check_table", ptr %t1, i64 0, i32 2
+  %m_tocheck.i = getelementptr inbounds i8, ptr %t1, i64 48
   %1 = load ptr, ptr %m_tocheck.i, align 8
-  %m_tocheck.i7 = getelementptr inbounds %"class.datalog::check_table", ptr %t2, i64 0, i32 2
+  %m_tocheck.i7 = getelementptr inbounds i8, ptr %t2, i64 48
   %2 = load ptr, ptr %m_tocheck.i7, align 8
   %call9 = invoke noundef ptr @_ZN7datalog16relation_manager10mk_join_fnERKNS_10table_baseES3_jPKjS5_(ptr noundef nonnull align 8 dereferenceable(200) %0, ptr noundef nonnull align 8 dereferenceable(36) %1, ptr noundef nonnull align 8 dereferenceable(36) %2, i32 noundef %col_cnt, ptr noundef %cols1, ptr noundef %cols2)
           to label %invoke.cont8 unwind label %lpad4
@@ -709,9 +676,9 @@ _Z7deallocIN7datalog17tr_infrastructureINS0_12table_traitsEE7join_fnEEvPT_.exit.
 
 invoke.cont11:                                    ; preds = %_Z7deallocIN7datalog17tr_infrastructureINS0_12table_traitsEE7join_fnEEvPT_.exit.i, %invoke.cont8
   %5 = load ptr, ptr %m_manager.i, align 8
-  %m_checker.i = getelementptr inbounds %"class.datalog::check_table", ptr %t1, i64 0, i32 1
+  %m_checker.i = getelementptr inbounds i8, ptr %t1, i64 40
   %6 = load ptr, ptr %m_checker.i, align 8
-  %m_checker.i9 = getelementptr inbounds %"class.datalog::check_table", ptr %t2, i64 0, i32 1
+  %m_checker.i9 = getelementptr inbounds i8, ptr %t2, i64 40
   %7 = load ptr, ptr %m_checker.i9, align 8
   %call18 = invoke noundef ptr @_ZN7datalog16relation_manager10mk_join_fnERKNS_10table_baseES3_jPKjS5_(ptr noundef nonnull align 8 dereferenceable(200) %5, ptr noundef nonnull align 8 dereferenceable(36) %6, ptr noundef nonnull align 8 dereferenceable(36) %7, i32 noundef %col_cnt, ptr noundef %cols1, ptr noundef %cols2)
           to label %invoke.cont17 unwind label %lpad4
@@ -750,10 +717,10 @@ lpad4:                                            ; preds = %if.end.i.i13, %if.e
 ; Function Attrs: mustprogress uwtable
 define hidden noundef ptr @_ZN7datalog18check_table_plugin18mk_join_project_fnERKNS_10table_baseES3_jPKjS5_jS5_(ptr noundef nonnull align 8 dereferenceable(52) %this, ptr noundef nonnull align 8 dereferenceable(36) %t1, ptr noundef nonnull align 8 dereferenceable(36) %t2, i32 noundef %col_cnt, ptr noundef %cols1, ptr noundef %cols2, i32 noundef %removed_col_cnt, ptr noundef %removed_cols) unnamed_addr #3 align 2 {
 entry:
-  %m_plugin.i.i = getelementptr inbounds %"class.datalog::tr_infrastructure<datalog::table_traits>::base_ancestor", ptr %t1, i64 0, i32 1
+  %m_plugin.i.i = getelementptr inbounds i8, ptr %t1, i64 8
   %0 = load ptr, ptr %m_plugin.i.i, align 8
   %cmp.i = icmp eq ptr %0, %this
-  %m_plugin.i.i3 = getelementptr inbounds %"class.datalog::tr_infrastructure<datalog::table_traits>::base_ancestor", ptr %t2, i64 0, i32 1
+  %m_plugin.i.i3 = getelementptr inbounds i8, ptr %t2, i64 8
   %1 = load ptr, ptr %m_plugin.i.i3, align 8
   %cmp.i4 = icmp eq ptr %1, %this
   %or.cond = select i1 %cmp.i, i1 %cmp.i4, i1 false
@@ -773,14 +740,14 @@ return:                                           ; preds = %entry, %if.end
 define linkonce_odr hidden void @_ZN7datalog18check_table_plugin15join_project_fnC2ERS0_RKNS_10table_baseES5_jPKjS7_jS7_(ptr noundef nonnull align 8 dereferenceable(24) %this, ptr noundef nonnull align 8 dereferenceable(52) %p, ptr noundef nonnull align 8 dereferenceable(36) %t1, ptr noundef nonnull align 8 dereferenceable(36) %t2, i32 noundef %col_cnt, ptr noundef %cols1, ptr noundef %cols2, i32 noundef %removed_col_cnt, ptr noundef %removed_cols) unnamed_addr #3 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7datalog18check_table_plugin15join_project_fnE, i64 0, inrange i32 0, i64 2), ptr %this, align 8
-  %m_tocheck = getelementptr inbounds %"class.datalog::check_table_plugin::join_project_fn", ptr %this, i64 0, i32 1
-  %m_checker = getelementptr inbounds %"class.datalog::check_table_plugin::join_project_fn", ptr %this, i64 0, i32 2
-  %m_manager.i = getelementptr inbounds %"class.datalog::tr_infrastructure<datalog::table_traits>::plugin_object", ptr %p, i64 0, i32 3
+  %m_tocheck = getelementptr inbounds i8, ptr %this, i64 8
+  %m_checker = getelementptr inbounds i8, ptr %this, i64 16
+  %m_manager.i = getelementptr inbounds i8, ptr %p, i64 24
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %m_tocheck, i8 0, i64 16, i1 false)
   %0 = load ptr, ptr %m_manager.i, align 8
-  %m_tocheck.i = getelementptr inbounds %"class.datalog::check_table", ptr %t1, i64 0, i32 2
+  %m_tocheck.i = getelementptr inbounds i8, ptr %t1, i64 48
   %1 = load ptr, ptr %m_tocheck.i, align 8
-  %m_tocheck.i9 = getelementptr inbounds %"class.datalog::check_table", ptr %t2, i64 0, i32 2
+  %m_tocheck.i9 = getelementptr inbounds i8, ptr %t2, i64 48
   %2 = load ptr, ptr %m_tocheck.i9, align 8
   %call8 = invoke noundef ptr @_ZN7datalog16relation_manager18mk_join_project_fnERKNS_10table_baseES3_jPKjS5_jS5_(ptr noundef nonnull align 8 dereferenceable(200) %0, ptr noundef nonnull align 8 dereferenceable(36) %1, ptr noundef nonnull align 8 dereferenceable(36) %2, i32 noundef %col_cnt, ptr noundef %cols1, ptr noundef %cols2, i32 noundef %removed_col_cnt, ptr noundef %removed_cols)
           to label %invoke.cont7 unwind label %lpad6
@@ -807,9 +774,9 @@ _Z7deallocIN7datalog17tr_infrastructureINS0_12table_traitsEE7join_fnEEvPT_.exit.
 
 invoke.cont10:                                    ; preds = %_Z7deallocIN7datalog17tr_infrastructureINS0_12table_traitsEE7join_fnEEvPT_.exit.i, %invoke.cont7
   %5 = load ptr, ptr %m_manager.i, align 8
-  %m_checker.i = getelementptr inbounds %"class.datalog::check_table", ptr %t1, i64 0, i32 1
+  %m_checker.i = getelementptr inbounds i8, ptr %t1, i64 40
   %6 = load ptr, ptr %m_checker.i, align 8
-  %m_checker.i11 = getelementptr inbounds %"class.datalog::check_table", ptr %t2, i64 0, i32 1
+  %m_checker.i11 = getelementptr inbounds i8, ptr %t2, i64 40
   %7 = load ptr, ptr %m_checker.i11, align 8
   %call16 = invoke noundef ptr @_ZN7datalog16relation_manager18mk_join_project_fnERKNS_10table_baseES3_jPKjS5_jS5_(ptr noundef nonnull align 8 dereferenceable(200) %5, ptr noundef nonnull align 8 dereferenceable(36) %6, ptr noundef nonnull align 8 dereferenceable(36) %7, i32 noundef %col_cnt, ptr noundef %cols1, ptr noundef %cols2, i32 noundef %removed_col_cnt, ptr noundef %removed_cols)
           to label %invoke.cont15 unwind label %lpad6
@@ -848,10 +815,10 @@ lpad6:                                            ; preds = %if.end.i.i15, %if.e
 ; Function Attrs: mustprogress uwtable
 define hidden noundef ptr @_ZN7datalog18check_table_plugin11mk_union_fnERKNS_10table_baseES3_PS2_(ptr noundef nonnull align 8 dereferenceable(52) %this, ptr noundef nonnull align 8 dereferenceable(36) %tgt, ptr noundef nonnull align 8 dereferenceable(36) %src, ptr noundef %delta) unnamed_addr #3 align 2 {
 entry:
-  %m_plugin.i.i = getelementptr inbounds %"class.datalog::tr_infrastructure<datalog::table_traits>::base_ancestor", ptr %tgt, i64 0, i32 1
+  %m_plugin.i.i = getelementptr inbounds i8, ptr %tgt, i64 8
   %0 = load ptr, ptr %m_plugin.i.i, align 8
   %cmp.i = icmp eq ptr %0, %this
-  %m_plugin.i.i7 = getelementptr inbounds %"class.datalog::tr_infrastructure<datalog::table_traits>::base_ancestor", ptr %src, i64 0, i32 1
+  %m_plugin.i.i7 = getelementptr inbounds i8, ptr %src, i64 8
   %1 = load ptr, ptr %m_plugin.i.i7, align 8
   %cmp.i8 = icmp eq ptr %1, %this
   %or.cond = select i1 %cmp.i, i1 %cmp.i8, i1 false
@@ -867,7 +834,7 @@ lor.lhs.false3.split:                             ; preds = %lor.lhs.false3
   br label %return
 
 land.lhs.true:                                    ; preds = %lor.lhs.false3
-  %m_plugin.i.i9 = getelementptr inbounds %"class.datalog::tr_infrastructure<datalog::table_traits>::base_ancestor", ptr %delta, i64 0, i32 1
+  %m_plugin.i.i9 = getelementptr inbounds i8, ptr %delta, i64 8
   %2 = load ptr, ptr %m_plugin.i.i9, align 8
   %cmp.i10 = icmp eq ptr %2, %this
   br i1 %cmp.i10, label %land.lhs.true.split, label %return
@@ -886,20 +853,20 @@ return:                                           ; preds = %lor.lhs.false3.spli
 define linkonce_odr hidden void @_ZN7datalog18check_table_plugin8union_fnC2ERS0_RKNS_10table_baseES5_PS4_(ptr noundef nonnull align 8 dereferenceable(24) %this, ptr noundef nonnull align 8 dereferenceable(52) %p, ptr noundef nonnull align 8 dereferenceable(36) %tgt, ptr noundef nonnull align 8 dereferenceable(36) %src, ptr noundef %delta) unnamed_addr #3 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7datalog18check_table_plugin8union_fnE, i64 0, inrange i32 0, i64 2), ptr %this, align 8
-  %m_tocheck = getelementptr inbounds %"class.datalog::check_table_plugin::union_fn", ptr %this, i64 0, i32 1
-  %m_checker = getelementptr inbounds %"class.datalog::check_table_plugin::union_fn", ptr %this, i64 0, i32 2
-  %m_manager.i = getelementptr inbounds %"class.datalog::tr_infrastructure<datalog::table_traits>::plugin_object", ptr %p, i64 0, i32 3
+  %m_tocheck = getelementptr inbounds i8, ptr %this, i64 8
+  %m_checker = getelementptr inbounds i8, ptr %this, i64 16
+  %m_manager.i = getelementptr inbounds i8, ptr %p, i64 24
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %m_tocheck, i8 0, i64 16, i1 false)
   %0 = load ptr, ptr %m_manager.i, align 8
-  %m_tocheck.i = getelementptr inbounds %"class.datalog::check_table", ptr %tgt, i64 0, i32 2
+  %m_tocheck.i = getelementptr inbounds i8, ptr %tgt, i64 48
   %1 = load ptr, ptr %m_tocheck.i, align 8
-  %m_tocheck.i5 = getelementptr inbounds %"class.datalog::check_table", ptr %src, i64 0, i32 2
+  %m_tocheck.i5 = getelementptr inbounds i8, ptr %src, i64 48
   %2 = load ptr, ptr %m_tocheck.i5, align 8
   %tobool.not.i = icmp eq ptr %delta, null
   br i1 %tobool.not.i, label %_ZN7datalog18check_table_plugin7tocheckEPKNS_10table_baseE.exit, label %cond.true.i
 
 cond.true.i:                                      ; preds = %entry
-  %m_tocheck.i6 = getelementptr inbounds %"class.datalog::check_table", ptr %delta, i64 0, i32 2
+  %m_tocheck.i6 = getelementptr inbounds i8, ptr %delta, i64 48
   %3 = load ptr, ptr %m_tocheck.i6, align 8
   br label %_ZN7datalog18check_table_plugin7tocheckEPKNS_10table_baseE.exit
 
@@ -930,14 +897,14 @@ _Z7deallocIN7datalog17tr_infrastructureINS0_12table_traitsEE8union_fnEEvPT_.exit
 
 invoke.cont11:                                    ; preds = %_Z7deallocIN7datalog17tr_infrastructureINS0_12table_traitsEE8union_fnEEvPT_.exit.i, %invoke.cont8
   %6 = load ptr, ptr %m_manager.i, align 8
-  %m_checker.i = getelementptr inbounds %"class.datalog::check_table", ptr %tgt, i64 0, i32 1
+  %m_checker.i = getelementptr inbounds i8, ptr %tgt, i64 40
   %7 = load ptr, ptr %m_checker.i, align 8
-  %m_checker.i8 = getelementptr inbounds %"class.datalog::check_table", ptr %src, i64 0, i32 1
+  %m_checker.i8 = getelementptr inbounds i8, ptr %src, i64 40
   %8 = load ptr, ptr %m_checker.i8, align 8
   br i1 %tobool.not.i, label %_ZN7datalog18check_table_plugin7checkerEPKNS_10table_baseE.exit, label %cond.true.i10
 
 cond.true.i10:                                    ; preds = %invoke.cont11
-  %m_checker.i11 = getelementptr inbounds %"class.datalog::check_table", ptr %delta, i64 0, i32 1
+  %m_checker.i11 = getelementptr inbounds i8, ptr %delta, i64 40
   %9 = load ptr, ptr %m_checker.i11, align 8
   br label %_ZN7datalog18check_table_plugin7checkerEPKNS_10table_baseE.exit
 
@@ -980,7 +947,7 @@ lpad7:                                            ; preds = %if.end.i.i16, %if.e
 ; Function Attrs: mustprogress uwtable
 define hidden noundef ptr @_ZN7datalog18check_table_plugin13mk_project_fnERKNS_10table_baseEjPKj(ptr noundef nonnull align 8 dereferenceable(52) %this, ptr noundef nonnull align 8 dereferenceable(36) %t, i32 noundef %col_cnt, ptr noundef %removed_cols) unnamed_addr #3 align 2 {
 entry:
-  %m_plugin.i.i = getelementptr inbounds %"class.datalog::tr_infrastructure<datalog::table_traits>::base_ancestor", ptr %t, i64 0, i32 1
+  %m_plugin.i.i = getelementptr inbounds i8, ptr %t, i64 8
   %0 = load ptr, ptr %m_plugin.i.i, align 8
   %cmp.i = icmp eq ptr %0, %this
   br i1 %cmp.i, label %if.end, label %return
@@ -999,12 +966,12 @@ return:                                           ; preds = %entry, %if.end
 define linkonce_odr hidden void @_ZN7datalog18check_table_plugin10project_fnC2ERS0_RKNS_10table_baseEjPKj(ptr noundef nonnull align 8 dereferenceable(24) %this, ptr noundef nonnull align 8 dereferenceable(52) %p, ptr noundef nonnull align 8 dereferenceable(36) %t, i32 noundef %col_cnt, ptr noundef %removed_cols) unnamed_addr #3 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7datalog18check_table_plugin10project_fnE, i64 0, inrange i32 0, i64 2), ptr %this, align 8
-  %m_checker = getelementptr inbounds %"class.datalog::check_table_plugin::project_fn", ptr %this, i64 0, i32 1
-  %m_tocheck = getelementptr inbounds %"class.datalog::check_table_plugin::project_fn", ptr %this, i64 0, i32 2
-  %m_manager.i = getelementptr inbounds %"class.datalog::tr_infrastructure<datalog::table_traits>::plugin_object", ptr %p, i64 0, i32 3
+  %m_checker = getelementptr inbounds i8, ptr %this, i64 8
+  %m_tocheck = getelementptr inbounds i8, ptr %this, i64 16
+  %m_manager.i = getelementptr inbounds i8, ptr %p, i64 24
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %m_checker, i8 0, i64 16, i1 false)
   %0 = load ptr, ptr %m_manager.i, align 8
-  %m_checker.i = getelementptr inbounds %"class.datalog::check_table", ptr %t, i64 0, i32 1
+  %m_checker.i = getelementptr inbounds i8, ptr %t, i64 40
   %1 = load ptr, ptr %m_checker.i, align 8
   %call7 = invoke noundef ptr @_ZN7datalog16relation_manager13mk_project_fnERKNS_10table_baseEjPKj(ptr noundef nonnull align 8 dereferenceable(200) %0, ptr noundef nonnull align 8 dereferenceable(36) %1, i32 noundef %col_cnt, ptr noundef %removed_cols)
           to label %invoke.cont6 unwind label %lpad5
@@ -1031,7 +998,7 @@ _Z7deallocIN7datalog17tr_infrastructureINS0_12table_traitsEE14transformer_fnEEvP
 
 invoke.cont9:                                     ; preds = %_Z7deallocIN7datalog17tr_infrastructureINS0_12table_traitsEE14transformer_fnEEvPT_.exit.i, %invoke.cont6
   %4 = load ptr, ptr %m_manager.i, align 8
-  %m_tocheck.i = getelementptr inbounds %"class.datalog::check_table", ptr %t, i64 0, i32 2
+  %m_tocheck.i = getelementptr inbounds i8, ptr %t, i64 48
   %5 = load ptr, ptr %m_tocheck.i, align 8
   %call14 = invoke noundef ptr @_ZN7datalog16relation_manager13mk_project_fnERKNS_10table_baseEjPKj(ptr noundef nonnull align 8 dereferenceable(200) %4, ptr noundef nonnull align 8 dereferenceable(36) %5, i32 noundef %col_cnt, ptr noundef %removed_cols)
           to label %invoke.cont13 unwind label %lpad5
@@ -1070,7 +1037,7 @@ lpad5:                                            ; preds = %if.end.i.i9, %if.en
 ; Function Attrs: mustprogress uwtable
 define hidden noundef ptr @_ZN7datalog18check_table_plugin30mk_select_equal_and_project_fnERKNS_10table_baseERKmj(ptr noundef nonnull align 8 dereferenceable(52) %this, ptr noundef nonnull align 8 dereferenceable(36) %t, ptr noundef nonnull align 8 dereferenceable(8) %value, i32 noundef %col) unnamed_addr #3 align 2 {
 entry:
-  %m_plugin.i.i = getelementptr inbounds %"class.datalog::tr_infrastructure<datalog::table_traits>::base_ancestor", ptr %t, i64 0, i32 1
+  %m_plugin.i.i = getelementptr inbounds i8, ptr %t, i64 8
   %0 = load ptr, ptr %m_plugin.i.i, align 8
   %cmp.i = icmp eq ptr %0, %this
   br i1 %cmp.i, label %if.end, label %return
@@ -1089,12 +1056,12 @@ return:                                           ; preds = %entry, %if.end
 define linkonce_odr hidden void @_ZN7datalog18check_table_plugin27select_equal_and_project_fnC2ERS0_RKNS_10table_baseERKmj(ptr noundef nonnull align 8 dereferenceable(24) %this, ptr noundef nonnull align 8 dereferenceable(52) %p, ptr noundef nonnull align 8 dereferenceable(36) %t, ptr noundef nonnull align 8 dereferenceable(8) %value, i32 noundef %col) unnamed_addr #3 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7datalog18check_table_plugin27select_equal_and_project_fnE, i64 0, inrange i32 0, i64 2), ptr %this, align 8
-  %m_checker = getelementptr inbounds %"class.datalog::check_table_plugin::select_equal_and_project_fn", ptr %this, i64 0, i32 1
-  %m_tocheck = getelementptr inbounds %"class.datalog::check_table_plugin::select_equal_and_project_fn", ptr %this, i64 0, i32 2
-  %m_manager.i = getelementptr inbounds %"class.datalog::tr_infrastructure<datalog::table_traits>::plugin_object", ptr %p, i64 0, i32 3
+  %m_checker = getelementptr inbounds i8, ptr %this, i64 8
+  %m_tocheck = getelementptr inbounds i8, ptr %this, i64 16
+  %m_manager.i = getelementptr inbounds i8, ptr %p, i64 24
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %m_checker, i8 0, i64 16, i1 false)
   %0 = load ptr, ptr %m_manager.i, align 8
-  %m_checker.i = getelementptr inbounds %"class.datalog::check_table", ptr %t, i64 0, i32 1
+  %m_checker.i = getelementptr inbounds i8, ptr %t, i64 40
   %1 = load ptr, ptr %m_checker.i, align 8
   %call7 = invoke noundef ptr @_ZN7datalog16relation_manager30mk_select_equal_and_project_fnERKNS_10table_baseERKmj(ptr noundef nonnull align 8 dereferenceable(200) %0, ptr noundef nonnull align 8 dereferenceable(36) %1, ptr noundef nonnull align 8 dereferenceable(8) %value, i32 noundef %col)
           to label %invoke.cont6 unwind label %lpad5
@@ -1121,7 +1088,7 @@ _Z7deallocIN7datalog17tr_infrastructureINS0_12table_traitsEE14transformer_fnEEvP
 
 invoke.cont9:                                     ; preds = %_Z7deallocIN7datalog17tr_infrastructureINS0_12table_traitsEE14transformer_fnEEvPT_.exit.i, %invoke.cont6
   %4 = load ptr, ptr %m_manager.i, align 8
-  %m_tocheck.i = getelementptr inbounds %"class.datalog::check_table", ptr %t, i64 0, i32 2
+  %m_tocheck.i = getelementptr inbounds i8, ptr %t, i64 48
   %5 = load ptr, ptr %m_tocheck.i, align 8
   %call14 = invoke noundef ptr @_ZN7datalog16relation_manager30mk_select_equal_and_project_fnERKNS_10table_baseERKmj(ptr noundef nonnull align 8 dereferenceable(200) %4, ptr noundef nonnull align 8 dereferenceable(36) %5, ptr noundef nonnull align 8 dereferenceable(8) %value, i32 noundef %col)
           to label %invoke.cont13 unwind label %lpad5
@@ -1160,7 +1127,7 @@ lpad5:                                            ; preds = %if.end.i.i9, %if.en
 ; Function Attrs: mustprogress uwtable
 define hidden noundef ptr @_ZN7datalog18check_table_plugin12mk_rename_fnERKNS_10table_baseEjPKj(ptr noundef nonnull align 8 dereferenceable(52) %this, ptr noundef nonnull align 8 dereferenceable(36) %t, i32 noundef %len, ptr noundef %cycle) unnamed_addr #3 align 2 {
 entry:
-  %m_plugin.i.i = getelementptr inbounds %"class.datalog::tr_infrastructure<datalog::table_traits>::base_ancestor", ptr %t, i64 0, i32 1
+  %m_plugin.i.i = getelementptr inbounds i8, ptr %t, i64 8
   %0 = load ptr, ptr %m_plugin.i.i, align 8
   %cmp.i = icmp eq ptr %0, %this
   br i1 %cmp.i, label %if.end, label %return
@@ -1179,12 +1146,12 @@ return:                                           ; preds = %entry, %if.end
 define linkonce_odr hidden void @_ZN7datalog18check_table_plugin9rename_fnC2ERS0_RKNS_10table_baseEjPKj(ptr noundef nonnull align 8 dereferenceable(24) %this, ptr noundef nonnull align 8 dereferenceable(52) %p, ptr noundef nonnull align 8 dereferenceable(36) %t, i32 noundef %cycle_len, ptr noundef %cycle) unnamed_addr #3 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7datalog18check_table_plugin9rename_fnE, i64 0, inrange i32 0, i64 2), ptr %this, align 8
-  %m_checker = getelementptr inbounds %"class.datalog::check_table_plugin::rename_fn", ptr %this, i64 0, i32 1
-  %m_tocheck = getelementptr inbounds %"class.datalog::check_table_plugin::rename_fn", ptr %this, i64 0, i32 2
-  %m_manager.i = getelementptr inbounds %"class.datalog::tr_infrastructure<datalog::table_traits>::plugin_object", ptr %p, i64 0, i32 3
+  %m_checker = getelementptr inbounds i8, ptr %this, i64 8
+  %m_tocheck = getelementptr inbounds i8, ptr %this, i64 16
+  %m_manager.i = getelementptr inbounds i8, ptr %p, i64 24
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %m_checker, i8 0, i64 16, i1 false)
   %0 = load ptr, ptr %m_manager.i, align 8
-  %m_checker.i = getelementptr inbounds %"class.datalog::check_table", ptr %t, i64 0, i32 1
+  %m_checker.i = getelementptr inbounds i8, ptr %t, i64 40
   %1 = load ptr, ptr %m_checker.i, align 8
   %call7 = invoke noundef ptr @_ZN7datalog16relation_manager12mk_rename_fnERKNS_10table_baseEjPKj(ptr noundef nonnull align 8 dereferenceable(200) %0, ptr noundef nonnull align 8 dereferenceable(36) %1, i32 noundef %cycle_len, ptr noundef %cycle)
           to label %invoke.cont6 unwind label %lpad5
@@ -1211,7 +1178,7 @@ _Z7deallocIN7datalog17tr_infrastructureINS0_12table_traitsEE14transformer_fnEEvP
 
 invoke.cont9:                                     ; preds = %_Z7deallocIN7datalog17tr_infrastructureINS0_12table_traitsEE14transformer_fnEEvPT_.exit.i, %invoke.cont6
   %4 = load ptr, ptr %m_manager.i, align 8
-  %m_tocheck.i = getelementptr inbounds %"class.datalog::check_table", ptr %t, i64 0, i32 2
+  %m_tocheck.i = getelementptr inbounds i8, ptr %t, i64 48
   %5 = load ptr, ptr %m_tocheck.i, align 8
   %call14 = invoke noundef ptr @_ZN7datalog16relation_manager12mk_rename_fnERKNS_10table_baseEjPKj(ptr noundef nonnull align 8 dereferenceable(200) %4, ptr noundef nonnull align 8 dereferenceable(36) %5, i32 noundef %cycle_len, ptr noundef %cycle)
           to label %invoke.cont13 unwind label %lpad5
@@ -1250,7 +1217,7 @@ lpad5:                                            ; preds = %if.end.i.i9, %if.en
 ; Function Attrs: mustprogress uwtable
 define hidden noundef ptr @_ZN7datalog18check_table_plugin22mk_filter_identical_fnERKNS_10table_baseEjPKj(ptr noundef nonnull align 8 dereferenceable(52) %this, ptr noundef nonnull align 8 dereferenceable(36) %t, i32 noundef %col_cnt, ptr noundef %identical_cols) unnamed_addr #3 align 2 {
 entry:
-  %m_plugin.i.i = getelementptr inbounds %"class.datalog::tr_infrastructure<datalog::table_traits>::base_ancestor", ptr %t, i64 0, i32 1
+  %m_plugin.i.i = getelementptr inbounds i8, ptr %t, i64 8
   %0 = load ptr, ptr %m_plugin.i.i, align 8
   %cmp.i = icmp eq ptr %0, %this
   br i1 %cmp.i, label %if.then, label %return
@@ -1269,12 +1236,12 @@ return:                                           ; preds = %entry, %if.then
 define linkonce_odr hidden void @_ZN7datalog18check_table_plugin19filter_identical_fnC2ERS0_RKNS_10table_baseEjPKj(ptr noundef nonnull align 8 dereferenceable(24) %this, ptr noundef nonnull align 8 dereferenceable(52) %p, ptr noundef nonnull align 8 dereferenceable(36) %t, i32 noundef %cnt, ptr noundef %cols) unnamed_addr #3 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVN7datalog18check_table_plugin19filter_identical_fnE, i64 0, inrange i32 0, i64 2), ptr %this, align 8
-  %m_checker = getelementptr inbounds %"class.datalog::check_table_plugin::filter_identical_fn", ptr %this, i64 0, i32 1
-  %m_tocheck = getelementptr inbounds %"class.datalog::check_table_plugin::filter_identical_fn", ptr %this, i64 0, i32 2
-  %m_manager.i = getelementptr inbounds %"class.datalog::tr_infrastructure<datalog::table_traits>::plugin_object", ptr %p, i64 0, i32 3
+  %m_checker = getelementptr inbounds i8, ptr %this, i64 8
+  %m_tocheck = getelementptr inbounds i8, ptr %this, i64 16
+  %m_manager.i = getelementptr inbounds i8, ptr %p, i64 24
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %m_checker, i8 0, i64 16, i1 false)
   %0 = load ptr, ptr %m_manager.i, align 8
-  %m_checker.i = getelementptr inbounds %"class.datalog::check_table", ptr %t, i64 0, i32 1
+  %m_checker.i = getelementptr inbounds i8, ptr %t, i64 40
   %1 = load ptr, ptr %m_checker.i, align 8
   %call7 = invoke noundef ptr @_ZN7datalog16relation_manager22mk_filter_identical_fnERKNS_10table_baseEjPKj(ptr noundef nonnull align 8 dereferenceable(200) %0, ptr noundef nonnull align 8 dereferenceable(36) %1, i32 noundef %cnt, ptr noundef %cols)
           to label %invoke.cont6 unwind label %lpad5
@@ -1301,7 +1268,7 @@ _Z7deallocIN7datalog17tr_infrastructureINS0_12table_traitsEE10mutator_fnEEvPT_.e
 
 invoke.cont9:                                     ; preds = %_Z7deallocIN7datalog17tr_infrastructureINS0_12table_traitsEE10mutator_fnEEvPT_.exit.i, %invoke.cont6
   %4 = load ptr, ptr %m_manager.i, align 8
-  %m_tocheck.i = getelementptr inbounds %"class.datalog::check_table", ptr %t, i64 0, i32 2
+  %m_tocheck.i = getelementptr inbounds i8, ptr %t, i64 48
   %5 = load ptr, ptr %m_tocheck.i, align 8
   %call14 = invoke noundef ptr @_ZN7datalog16relation_manager22mk_filter_identical_fnERKNS_10table_baseEjPKj(ptr noundef nonnull align 8 dereferenceable(200) %4, ptr noundef nonnull align 8 dereferenceable(36) %5, i32 noundef %cnt, ptr noundef %cols)
           to label %invoke.cont13 unwind label %lpad5
@@ -1340,7 +1307,7 @@ lpad5:                                            ; preds = %if.end.i.i9, %if.en
 ; Function Attrs: mustprogress uwtable
 define hidden noundef ptr @_ZN7datalog18check_table_plugin18mk_filter_equal_fnERKNS_10table_baseERKmj(ptr noundef nonnull align 8 dereferenceable(52) %this, ptr noundef nonnull align 8 dereferenceable(36) %t, ptr noundef nonnull align 8 dereferenceable(8) %value, i32 noundef %col) unnamed_addr #3 align 2 {
 entry:
-  %m_plugin.i.i = getelementptr inbounds %"class.datalog::tr_infrastructure<datalog::table_traits>::base_ancestor", ptr %t, i64 0, i32 1
+  %m_plugin.i.i = getelementptr inbounds i8, ptr %t, i64 8
   %0 = load ptr, ptr %m_plugin.i.i, align 8
   %cmp.i = icmp eq ptr %0, %this
   br i1 %cmp.i, label %if.then, label %return
@@ -1359,12 +1326,12 @@ return:                                           ; preds = %entry, %if.then
 define linkonce_odr hidden void @_ZN7datalog18check_table_plugin15filter_equal_fnC2ERS0_RKNS_10table_baseERKmj(ptr noundef nonnull align 8 dereferenceable(24) %this, ptr noundef nonnull align 8 dereferenceable(52) %p, ptr noundef nonnull align 8 dereferenceable(36) %t, ptr noundef nonnull align 8 dereferenceable(8) %v, i32 noundef %col) unnamed_addr #3 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVN7datalog18check_table_plugin15filter_equal_fnE, i64 0, inrange i32 0, i64 2), ptr %this, align 8
-  %m_checker = getelementptr inbounds %"class.datalog::check_table_plugin::filter_equal_fn", ptr %this, i64 0, i32 1
-  %m_tocheck = getelementptr inbounds %"class.datalog::check_table_plugin::filter_equal_fn", ptr %this, i64 0, i32 2
-  %m_manager.i = getelementptr inbounds %"class.datalog::tr_infrastructure<datalog::table_traits>::plugin_object", ptr %p, i64 0, i32 3
+  %m_checker = getelementptr inbounds i8, ptr %this, i64 8
+  %m_tocheck = getelementptr inbounds i8, ptr %this, i64 16
+  %m_manager.i = getelementptr inbounds i8, ptr %p, i64 24
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %m_checker, i8 0, i64 16, i1 false)
   %0 = load ptr, ptr %m_manager.i, align 8
-  %m_checker.i = getelementptr inbounds %"class.datalog::check_table", ptr %t, i64 0, i32 1
+  %m_checker.i = getelementptr inbounds i8, ptr %t, i64 40
   %1 = load ptr, ptr %m_checker.i, align 8
   %call7 = invoke noundef ptr @_ZN7datalog16relation_manager18mk_filter_equal_fnERKNS_10table_baseERKmj(ptr noundef nonnull align 8 dereferenceable(200) %0, ptr noundef nonnull align 8 dereferenceable(36) %1, ptr noundef nonnull align 8 dereferenceable(8) %v, i32 noundef %col)
           to label %invoke.cont6 unwind label %lpad5
@@ -1391,7 +1358,7 @@ _Z7deallocIN7datalog17tr_infrastructureINS0_12table_traitsEE10mutator_fnEEvPT_.e
 
 invoke.cont9:                                     ; preds = %_Z7deallocIN7datalog17tr_infrastructureINS0_12table_traitsEE10mutator_fnEEvPT_.exit.i, %invoke.cont6
   %4 = load ptr, ptr %m_manager.i, align 8
-  %m_tocheck.i = getelementptr inbounds %"class.datalog::check_table", ptr %t, i64 0, i32 2
+  %m_tocheck.i = getelementptr inbounds i8, ptr %t, i64 48
   %5 = load ptr, ptr %m_tocheck.i, align 8
   %call14 = invoke noundef ptr @_ZN7datalog16relation_manager18mk_filter_equal_fnERKNS_10table_baseERKmj(ptr noundef nonnull align 8 dereferenceable(200) %4, ptr noundef nonnull align 8 dereferenceable(36) %5, ptr noundef nonnull align 8 dereferenceable(8) %v, i32 noundef %col)
           to label %invoke.cont13 unwind label %lpad5
@@ -1430,7 +1397,7 @@ lpad5:                                            ; preds = %if.end.i.i9, %if.en
 ; Function Attrs: mustprogress uwtable
 define hidden noundef ptr @_ZN7datalog18check_table_plugin24mk_filter_interpreted_fnERKNS_10table_baseEP3app(ptr noundef nonnull align 8 dereferenceable(52) %this, ptr noundef nonnull align 8 dereferenceable(36) %t, ptr noundef %condition) unnamed_addr #3 align 2 {
 entry:
-  %m_plugin.i.i = getelementptr inbounds %"class.datalog::tr_infrastructure<datalog::table_traits>::base_ancestor", ptr %t, i64 0, i32 1
+  %m_plugin.i.i = getelementptr inbounds i8, ptr %t, i64 8
   %0 = load ptr, ptr %m_plugin.i.i, align 8
   %cmp.i = icmp eq ptr %0, %this
   br i1 %cmp.i, label %if.then, label %return
@@ -1449,12 +1416,12 @@ return:                                           ; preds = %entry, %if.then
 define linkonce_odr hidden void @_ZN7datalog18check_table_plugin21filter_interpreted_fnC2ERS0_RKNS_10table_baseEP3app(ptr noundef nonnull align 8 dereferenceable(24) %this, ptr noundef nonnull align 8 dereferenceable(52) %p, ptr noundef nonnull align 8 dereferenceable(36) %t, ptr noundef %condition) unnamed_addr #3 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVN7datalog18check_table_plugin21filter_interpreted_fnE, i64 0, inrange i32 0, i64 2), ptr %this, align 8
-  %m_checker = getelementptr inbounds %"class.datalog::check_table_plugin::filter_interpreted_fn", ptr %this, i64 0, i32 1
-  %m_tocheck = getelementptr inbounds %"class.datalog::check_table_plugin::filter_interpreted_fn", ptr %this, i64 0, i32 2
-  %m_manager.i = getelementptr inbounds %"class.datalog::tr_infrastructure<datalog::table_traits>::plugin_object", ptr %p, i64 0, i32 3
+  %m_checker = getelementptr inbounds i8, ptr %this, i64 8
+  %m_tocheck = getelementptr inbounds i8, ptr %this, i64 16
+  %m_manager.i = getelementptr inbounds i8, ptr %p, i64 24
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %m_checker, i8 0, i64 16, i1 false)
   %0 = load ptr, ptr %m_manager.i, align 8
-  %m_checker.i = getelementptr inbounds %"class.datalog::check_table", ptr %t, i64 0, i32 1
+  %m_checker.i = getelementptr inbounds i8, ptr %t, i64 40
   %1 = load ptr, ptr %m_checker.i, align 8
   %call7 = invoke noundef ptr @_ZN7datalog16relation_manager24mk_filter_interpreted_fnERKNS_10table_baseEP3app(ptr noundef nonnull align 8 dereferenceable(200) %0, ptr noundef nonnull align 8 dereferenceable(36) %1, ptr noundef %condition)
           to label %invoke.cont6 unwind label %lpad5
@@ -1481,7 +1448,7 @@ _Z7deallocIN7datalog17tr_infrastructureINS0_12table_traitsEE10mutator_fnEEvPT_.e
 
 invoke.cont9:                                     ; preds = %_Z7deallocIN7datalog17tr_infrastructureINS0_12table_traitsEE10mutator_fnEEvPT_.exit.i, %invoke.cont6
   %4 = load ptr, ptr %m_manager.i, align 8
-  %m_tocheck.i = getelementptr inbounds %"class.datalog::check_table", ptr %t, i64 0, i32 2
+  %m_tocheck.i = getelementptr inbounds i8, ptr %t, i64 48
   %5 = load ptr, ptr %m_tocheck.i, align 8
   %call14 = invoke noundef ptr @_ZN7datalog16relation_manager24mk_filter_interpreted_fnERKNS_10table_baseEP3app(ptr noundef nonnull align 8 dereferenceable(200) %4, ptr noundef nonnull align 8 dereferenceable(36) %5, ptr noundef %condition)
           to label %invoke.cont13 unwind label %lpad5
@@ -1520,7 +1487,7 @@ lpad5:                                            ; preds = %if.end.i.i8, %if.en
 ; Function Attrs: mustprogress uwtable
 define hidden noundef ptr @_ZN7datalog18check_table_plugin36mk_filter_interpreted_and_project_fnERKNS_10table_baseEP3appjPKj(ptr noundef nonnull align 8 dereferenceable(52) %this, ptr noundef nonnull align 8 dereferenceable(36) %t, ptr noundef %condition, i32 noundef %removed_col_cnt, ptr noundef %removed_cols) unnamed_addr #3 align 2 {
 entry:
-  %m_plugin.i.i = getelementptr inbounds %"class.datalog::tr_infrastructure<datalog::table_traits>::base_ancestor", ptr %t, i64 0, i32 1
+  %m_plugin.i.i = getelementptr inbounds i8, ptr %t, i64 8
   %0 = load ptr, ptr %m_plugin.i.i, align 8
   %cmp.i = icmp eq ptr %0, %this
   br i1 %cmp.i, label %if.then, label %return
@@ -1539,12 +1506,12 @@ return:                                           ; preds = %entry, %if.then
 define linkonce_odr hidden void @_ZN7datalog18check_table_plugin33filter_interpreted_and_project_fnC2ERS0_RKNS_10table_baseEP3appjPKj(ptr noundef nonnull align 8 dereferenceable(24) %this, ptr noundef nonnull align 8 dereferenceable(52) %p, ptr noundef nonnull align 8 dereferenceable(36) %t, ptr noundef %condition, i32 noundef %removed_col_cnt, ptr noundef %removed_cols) unnamed_addr #3 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7datalog18check_table_plugin33filter_interpreted_and_project_fnE, i64 0, inrange i32 0, i64 2), ptr %this, align 8
-  %m_checker = getelementptr inbounds %"class.datalog::check_table_plugin::filter_interpreted_and_project_fn", ptr %this, i64 0, i32 1
-  %m_tocheck = getelementptr inbounds %"class.datalog::check_table_plugin::filter_interpreted_and_project_fn", ptr %this, i64 0, i32 2
-  %m_manager.i = getelementptr inbounds %"class.datalog::tr_infrastructure<datalog::table_traits>::plugin_object", ptr %p, i64 0, i32 3
+  %m_checker = getelementptr inbounds i8, ptr %this, i64 8
+  %m_tocheck = getelementptr inbounds i8, ptr %this, i64 16
+  %m_manager.i = getelementptr inbounds i8, ptr %p, i64 24
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %m_checker, i8 0, i64 16, i1 false)
   %0 = load ptr, ptr %m_manager.i, align 8
-  %m_checker.i = getelementptr inbounds %"class.datalog::check_table", ptr %t, i64 0, i32 1
+  %m_checker.i = getelementptr inbounds i8, ptr %t, i64 40
   %1 = load ptr, ptr %m_checker.i, align 8
   %call7 = invoke noundef ptr @_ZN7datalog16relation_manager36mk_filter_interpreted_and_project_fnERKNS_10table_baseEP3appjPKj(ptr noundef nonnull align 8 dereferenceable(200) %0, ptr noundef nonnull align 8 dereferenceable(36) %1, ptr noundef %condition, i32 noundef %removed_col_cnt, ptr noundef %removed_cols)
           to label %invoke.cont6 unwind label %lpad5
@@ -1571,7 +1538,7 @@ _Z7deallocIN7datalog17tr_infrastructureINS0_12table_traitsEE14transformer_fnEEvP
 
 invoke.cont9:                                     ; preds = %_Z7deallocIN7datalog17tr_infrastructureINS0_12table_traitsEE14transformer_fnEEvPT_.exit.i, %invoke.cont6
   %4 = load ptr, ptr %m_manager.i, align 8
-  %m_tocheck.i = getelementptr inbounds %"class.datalog::check_table", ptr %t, i64 0, i32 2
+  %m_tocheck.i = getelementptr inbounds i8, ptr %t, i64 48
   %5 = load ptr, ptr %m_tocheck.i, align 8
   %call14 = invoke noundef ptr @_ZN7datalog16relation_manager36mk_filter_interpreted_and_project_fnERKNS_10table_baseEP3appjPKj(ptr noundef nonnull align 8 dereferenceable(200) %4, ptr noundef nonnull align 8 dereferenceable(36) %5, ptr noundef %condition, i32 noundef %removed_col_cnt, ptr noundef %removed_cols)
           to label %invoke.cont13 unwind label %lpad5
@@ -1610,10 +1577,10 @@ lpad5:                                            ; preds = %if.end.i.i10, %if.e
 ; Function Attrs: mustprogress uwtable
 define hidden noundef ptr @_ZN7datalog18check_table_plugin24mk_filter_by_negation_fnERKNS_10table_baseES3_jPKjS5_(ptr noundef nonnull align 8 dereferenceable(52) %this, ptr noundef nonnull align 8 dereferenceable(36) %t, ptr noundef nonnull align 8 dereferenceable(36) %negated_obj, i32 noundef %joined_col_cnt, ptr noundef %t_cols, ptr noundef %negated_cols) unnamed_addr #3 align 2 {
 entry:
-  %m_plugin.i.i = getelementptr inbounds %"class.datalog::tr_infrastructure<datalog::table_traits>::base_ancestor", ptr %t, i64 0, i32 1
+  %m_plugin.i.i = getelementptr inbounds i8, ptr %t, i64 8
   %0 = load ptr, ptr %m_plugin.i.i, align 8
   %cmp.i = icmp eq ptr %0, %this
-  %m_plugin.i.i3 = getelementptr inbounds %"class.datalog::tr_infrastructure<datalog::table_traits>::base_ancestor", ptr %negated_obj, i64 0, i32 1
+  %m_plugin.i.i3 = getelementptr inbounds i8, ptr %negated_obj, i64 8
   %1 = load ptr, ptr %m_plugin.i.i3, align 8
   %cmp.i4 = icmp eq ptr %1, %this
   %or.cond = select i1 %cmp.i, i1 %cmp.i4, i1 false
@@ -1633,14 +1600,14 @@ return:                                           ; preds = %entry, %if.then
 define linkonce_odr hidden void @_ZN7datalog18check_table_plugin21filter_by_negation_fnC2ERS0_RKNS_10table_baseES5_jPKjS7_(ptr noundef nonnull align 8 dereferenceable(24) %this, ptr noundef nonnull align 8 dereferenceable(52) %p, ptr noundef nonnull align 8 dereferenceable(36) %t, ptr noundef nonnull align 8 dereferenceable(36) %negated_obj, i32 noundef %joined_col_cnt, ptr noundef %t_cols, ptr noundef %negated_cols) unnamed_addr #3 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7datalog18check_table_plugin21filter_by_negation_fnE, i64 0, inrange i32 0, i64 2), ptr %this, align 8
-  %m_checker = getelementptr inbounds %"class.datalog::check_table_plugin::filter_by_negation_fn", ptr %this, i64 0, i32 1
-  %m_tocheck = getelementptr inbounds %"class.datalog::check_table_plugin::filter_by_negation_fn", ptr %this, i64 0, i32 2
-  %m_manager.i = getelementptr inbounds %"class.datalog::tr_infrastructure<datalog::table_traits>::plugin_object", ptr %p, i64 0, i32 3
+  %m_checker = getelementptr inbounds i8, ptr %this, i64 8
+  %m_tocheck = getelementptr inbounds i8, ptr %this, i64 16
+  %m_manager.i = getelementptr inbounds i8, ptr %p, i64 24
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %m_checker, i8 0, i64 16, i1 false)
   %0 = load ptr, ptr %m_manager.i, align 8
-  %m_checker.i = getelementptr inbounds %"class.datalog::check_table", ptr %t, i64 0, i32 1
+  %m_checker.i = getelementptr inbounds i8, ptr %t, i64 40
   %1 = load ptr, ptr %m_checker.i, align 8
-  %m_checker.i7 = getelementptr inbounds %"class.datalog::check_table", ptr %negated_obj, i64 0, i32 1
+  %m_checker.i7 = getelementptr inbounds i8, ptr %negated_obj, i64 40
   %2 = load ptr, ptr %m_checker.i7, align 8
   %call8 = invoke noundef ptr @_ZN7datalog16relation_manager24mk_filter_by_negation_fnERKNS_10table_baseES3_jPKjS5_(ptr noundef nonnull align 8 dereferenceable(200) %0, ptr noundef nonnull align 8 dereferenceable(36) %1, ptr noundef nonnull align 8 dereferenceable(36) %2, i32 noundef %joined_col_cnt, ptr noundef %t_cols, ptr noundef %negated_cols)
           to label %invoke.cont7 unwind label %lpad6
@@ -1667,9 +1634,9 @@ _Z7deallocIN7datalog17tr_infrastructureINS0_12table_traitsEE22intersection_filte
 
 invoke.cont10:                                    ; preds = %_Z7deallocIN7datalog17tr_infrastructureINS0_12table_traitsEE22intersection_filter_fnEEvPT_.exit.i, %invoke.cont7
   %5 = load ptr, ptr %m_manager.i, align 8
-  %m_tocheck.i = getelementptr inbounds %"class.datalog::check_table", ptr %t, i64 0, i32 2
+  %m_tocheck.i = getelementptr inbounds i8, ptr %t, i64 48
   %6 = load ptr, ptr %m_tocheck.i, align 8
-  %m_tocheck.i9 = getelementptr inbounds %"class.datalog::check_table", ptr %negated_obj, i64 0, i32 2
+  %m_tocheck.i9 = getelementptr inbounds i8, ptr %negated_obj, i64 48
   %7 = load ptr, ptr %m_tocheck.i9, align 8
   %call16 = invoke noundef ptr @_ZN7datalog16relation_manager24mk_filter_by_negation_fnERKNS_10table_baseES3_jPKjS5_(ptr noundef nonnull align 8 dereferenceable(200) %5, ptr noundef nonnull align 8 dereferenceable(36) %6, ptr noundef nonnull align 8 dereferenceable(36) %7, i32 noundef %joined_col_cnt, ptr noundef %t_cols, ptr noundef %negated_cols)
           to label %invoke.cont15 unwind label %lpad6
@@ -1709,16 +1676,16 @@ lpad6:                                            ; preds = %if.end.i.i13, %if.e
 define hidden void @_ZN7datalog11check_tableC2ERNS_18check_table_pluginERKNS_15table_signatureE(ptr noundef nonnull align 8 dereferenceable(56) %this, ptr noundef nonnull align 8 dereferenceable(52) %p, ptr nocapture noundef nonnull readonly align 8 dereferenceable(12) %sig) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store ptr getelementptr inbounds ({ [18 x ptr] }, ptr @_ZTVN7datalog17tr_infrastructureINS_12table_traitsEE13base_ancestorE, i64 0, inrange i32 0, i64 2), ptr %this, align 8
-  %m_plugin.i.i = getelementptr inbounds %"class.datalog::tr_infrastructure<datalog::table_traits>::base_ancestor", ptr %this, i64 0, i32 1
+  %m_plugin.i.i = getelementptr inbounds i8, ptr %this, i64 8
   store ptr %p, ptr %m_plugin.i.i, align 8
-  %m_signature.i.i = getelementptr inbounds %"class.datalog::tr_infrastructure<datalog::table_traits>::base_ancestor", ptr %this, i64 0, i32 2
+  %m_signature.i.i = getelementptr inbounds i8, ptr %this, i64 16
   store ptr null, ptr %m_signature.i.i, align 8
   %0 = load ptr, ptr %sig, align 8
   %tobool.not.i.i.i.i.i.i = icmp eq ptr %0, null
   br i1 %tobool.not.i.i.i.i.i.i, label %_ZN7datalog10table_baseC2ERNS_12table_pluginERKNS_15table_signatureE.exit, label %_ZNK6vectorImLb0EjE8capacityEv.exit.i.i.i.i.i.i.i
 
 _ZNK6vectorImLb0EjE8capacityEv.exit.i.i.i.i.i.i.i: ; preds = %entry
-  %arrayidx.i11.i.i.i.i.i.i.i = getelementptr inbounds i32, ptr %0, i64 -2
+  %arrayidx.i11.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %0, i64 -8
   %1 = load <2 x i32>, ptr %arrayidx.i11.i.i.i.i.i.i.i, align 4
   %2 = extractelement <2 x i32> %1, i64 0
   %conv.i.i.i.i.i.i.i = zext i32 %2 to i64
@@ -1726,14 +1693,14 @@ _ZNK6vectorImLb0EjE8capacityEv.exit.i.i.i.i.i.i.i: ; preds = %entry
   %add.i.i.i.i.i.i.i = add nuw nsw i64 %mul.i.i.i.i.i.i.i, 8
   %call3.i.i.i.i.i.i.i = tail call noalias noundef ptr @_ZN6memory8allocateEm(i64 noundef %add.i.i.i.i.i.i.i)
   store <2 x i32> %1, ptr %call3.i.i.i.i.i.i.i, align 4
-  %incdec.ptr4.i.i.i.i.i.i.i = getelementptr inbounds i32, ptr %call3.i.i.i.i.i.i.i, i64 2
+  %incdec.ptr4.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %call3.i.i.i.i.i.i.i, i64 8
   store ptr %incdec.ptr4.i.i.i.i.i.i.i, ptr %m_signature.i.i, align 8
   %3 = load ptr, ptr %sig, align 8
   %cmp.i.i.i.i.i.i.i.i.i = icmp eq ptr %3, null
   br i1 %cmp.i.i.i.i.i.i.i.i.i, label %_ZN7datalog10table_baseC2ERNS_12table_pluginERKNS_15table_signatureE.exit, label %_ZNK6vectorImLb0EjE3endEv.exit.i.i.i.i.i.i.i
 
 _ZNK6vectorImLb0EjE3endEv.exit.i.i.i.i.i.i.i:     ; preds = %_ZNK6vectorImLb0EjE8capacityEv.exit.i.i.i.i.i.i.i
-  %arrayidx.i.i.i.i.i.i.i.i.i = getelementptr inbounds i32, ptr %3, i64 -1
+  %arrayidx.i.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %3, i64 -4
   %4 = load i32, ptr %arrayidx.i.i.i.i.i.i.i.i.i, align 4
   %tobool.not.i.i.i.i.i.i.i.i.i.i.i.i.i.i = icmp eq i32 %4, 0
   br i1 %tobool.not.i.i.i.i.i.i.i.i.i.i.i.i.i.i, label %_ZN7datalog10table_baseC2ERNS_12table_pluginERKNS_15table_signatureE.exit, label %if.then.i.i.i.i.i.i.i.i.i.i.i.i.i.i
@@ -1745,12 +1712,12 @@ if.then.i.i.i.i.i.i.i.i.i.i.i.i.i.i:              ; preds = %_ZNK6vectorImLb0EjE
   br label %_ZN7datalog10table_baseC2ERNS_12table_pluginERKNS_15table_signatureE.exit
 
 _ZN7datalog10table_baseC2ERNS_12table_pluginERKNS_15table_signatureE.exit: ; preds = %entry, %_ZNK6vectorImLb0EjE8capacityEv.exit.i.i.i.i.i.i.i, %_ZNK6vectorImLb0EjE3endEv.exit.i.i.i.i.i.i.i, %if.then.i.i.i.i.i.i.i.i.i.i.i.i.i.i
-  %m_functional_columns.i.i.i = getelementptr inbounds %"class.datalog::tr_infrastructure<datalog::table_traits>::base_ancestor", ptr %this, i64 0, i32 2, i32 1
-  %m_functional_columns2.i.i.i = getelementptr inbounds %"class.datalog::table_signature", ptr %sig, i64 0, i32 1
+  %m_functional_columns.i.i.i = getelementptr inbounds i8, ptr %this, i64 24
+  %m_functional_columns2.i.i.i = getelementptr inbounds i8, ptr %sig, i64 8
   %7 = load i32, ptr %m_functional_columns2.i.i.i, align 8
   store i32 %7, ptr %m_functional_columns.i.i.i, align 8
-  %m_kind.i.i = getelementptr inbounds %"class.datalog::tr_infrastructure<datalog::table_traits>::base_ancestor", ptr %this, i64 0, i32 3
-  %m_kind.i.i.i = getelementptr inbounds %"class.datalog::tr_infrastructure<datalog::table_traits>::plugin_object", ptr %p, i64 0, i32 1
+  %m_kind.i.i = getelementptr inbounds i8, ptr %this, i64 32
+  %m_kind.i.i.i = getelementptr inbounds i8, ptr %p, i64 8
   %8 = load i32, ptr %m_kind.i.i.i, align 8
   store i32 %8, ptr %m_kind.i.i, align 8
   store ptr getelementptr inbounds ({ [29 x ptr] }, ptr @_ZTVN7datalog11check_tableE, i64 0, inrange i32 0, i64 2), ptr %this, align 8
@@ -1776,34 +1743,34 @@ entry:
   %it2 = alloca %"class.datalog::table_base::iterator", align 8
   %end2 = alloca %"class.datalog::table_base::iterator", align 8
   %fact57 = alloca %class.svector, align 8
-  %m_plugin.i.i = getelementptr inbounds %"class.datalog::tr_infrastructure<datalog::table_traits>::base_ancestor", ptr %this, i64 0, i32 1
+  %m_plugin.i.i = getelementptr inbounds i8, ptr %this, i64 8
   %0 = load ptr, ptr %m_plugin.i.i, align 8
-  %m_count = getelementptr inbounds %"class.datalog::check_table_plugin", ptr %0, i64 0, i32 3
+  %m_count = getelementptr inbounds i8, ptr %0, i64 48
   %1 = load i32, ptr %m_count, align 8
   %inc = add i32 %1, 1
   store i32 %inc, ptr %m_count, align 8
-  %m_tocheck = getelementptr inbounds %"class.datalog::check_table", ptr %this, i64 0, i32 2
+  %m_tocheck = getelementptr inbounds i8, ptr %this, i64 48
   %2 = load ptr, ptr %m_tocheck, align 8
   %vtable = load ptr, ptr %2, align 8
-  %vfn = getelementptr inbounds ptr, ptr %vtable, i64 25
+  %vfn = getelementptr inbounds i8, ptr %vtable, i64 200
   %3 = load ptr, ptr %vfn, align 8
   call void %3(ptr nonnull sret(%"class.datalog::table_base::iterator") align 8 %it, ptr noundef nonnull align 8 dereferenceable(36) %2)
   %4 = load ptr, ptr %m_tocheck, align 8
   %vtable3 = load ptr, ptr %4, align 8
-  %vfn4 = getelementptr inbounds ptr, ptr %vtable3, i64 26
+  %vfn4 = getelementptr inbounds i8, ptr %vtable3, i64 208
   %5 = load ptr, ptr %vfn4, align 8
   invoke void %5(ptr nonnull sret(%"class.datalog::table_base::iterator") align 8 %end, ptr noundef nonnull align 8 dereferenceable(36) %4)
           to label %for.cond.preheader unwind label %lpad
 
 for.cond.preheader:                               ; preds = %entry
-  %m_checker = getelementptr inbounds %"class.datalog::check_table", ptr %this, i64 0, i32 1
+  %m_checker = getelementptr inbounds i8, ptr %this, i64 40
   br label %for.cond
 
 for.cond:                                         ; preds = %for.cond.preheader, %_ZN7svectorImjED2Ev.exit
   %6 = load ptr, ptr %it, align 8
   %7 = load ptr, ptr %end, align 8
   %vtable.i.i = load ptr, ptr %6, align 8
-  %vfn.i.i = getelementptr inbounds ptr, ptr %vtable.i.i, i64 5
+  %vfn.i.i = getelementptr inbounds i8, ptr %vtable.i.i, i64 40
   %8 = load ptr, ptr %vfn.i.i, align 8
   %call4.i.i6 = invoke noundef zeroext i1 %8(ptr noundef nonnull align 8 dereferenceable(12) %6, ptr noundef nonnull align 8 dereferenceable(12) %7)
           to label %invoke.cont6 unwind label %lpad5.loopexit
@@ -1815,14 +1782,14 @@ for.body:                                         ; preds = %invoke.cont6
   store ptr null, ptr %fact, align 8
   %9 = load ptr, ptr %it, align 8
   %vtable.i = load ptr, ptr %9, align 8
-  %vfn.i = getelementptr inbounds ptr, ptr %vtable.i, i64 3
+  %vfn.i = getelementptr inbounds i8, ptr %vtable.i, i64 24
   %10 = load ptr, ptr %vfn.i, align 8
   %call2.i7 = invoke noundef nonnull align 8 dereferenceable(16) ptr %10(ptr noundef nonnull align 8 dereferenceable(12) %9)
           to label %invoke.cont10 unwind label %lpad9.loopexit
 
 invoke.cont10:                                    ; preds = %for.body
   %vtable12 = load ptr, ptr %call2.i7, align 8
-  %vfn13 = getelementptr inbounds ptr, ptr %vtable12, i64 3
+  %vfn13 = getelementptr inbounds i8, ptr %vtable12, i64 24
   %11 = load ptr, ptr %vfn13, align 8
   invoke void %11(ptr noundef nonnull align 8 dereferenceable(16) %call2.i7, ptr noundef nonnull align 8 dereferenceable(8) %fact)
           to label %invoke.cont14 unwind label %lpad9.loopexit
@@ -1830,7 +1797,7 @@ invoke.cont10:                                    ; preds = %for.body
 invoke.cont14:                                    ; preds = %invoke.cont10
   %12 = load ptr, ptr %m_checker, align 8
   %vtable15 = load ptr, ptr %12, align 8
-  %vfn16 = getelementptr inbounds ptr, ptr %vtable15, i64 7
+  %vfn16 = getelementptr inbounds i8, ptr %vtable15, i64 56
   %13 = load ptr, ptr %vfn16, align 8
   %call18 = invoke noundef zeroext i1 %13(ptr noundef nonnull align 8 dereferenceable(36) %12, ptr noundef nonnull align 8 dereferenceable(8) %fact)
           to label %invoke.cont17 unwind label %lpad9.loopexit
@@ -1845,7 +1812,7 @@ if.then:                                          ; preds = %invoke.cont17
 
 invoke.cont20:                                    ; preds = %if.then
   %vtable22 = load ptr, ptr %14, align 8
-  %vfn23 = getelementptr inbounds ptr, ptr %vtable22, i64 15
+  %vfn23 = getelementptr inbounds i8, ptr %vtable22, i64 120
   %15 = load ptr, ptr %vfn23, align 8
   invoke void %15(ptr noundef nonnull align 8 dereferenceable(36) %14, ptr noundef nonnull align 8 dereferenceable(8) %call21)
           to label %invoke.cont24 unwind label %lpad9.loopexit.split-lp
@@ -1857,7 +1824,7 @@ invoke.cont24:                                    ; preds = %invoke.cont20
 
 invoke.cont26:                                    ; preds = %invoke.cont24
   %vtable28 = load ptr, ptr %16, align 8
-  %vfn29 = getelementptr inbounds ptr, ptr %vtable28, i64 15
+  %vfn29 = getelementptr inbounds i8, ptr %vtable28, i64 120
   %17 = load ptr, ptr %vfn29, align 8
   invoke void %17(ptr noundef nonnull align 8 dereferenceable(36) %16, ptr noundef nonnull align 8 dereferenceable(8) %call27)
           to label %invoke.cont30 unwind label %lpad9.loopexit.split-lp
@@ -1868,7 +1835,7 @@ invoke.cont30:                                    ; preds = %invoke.cont26
 
 invoke.cont33:                                    ; preds = %invoke.cont30
   %18 = load ptr, ptr %m_plugin.i.i, align 8
-  %m_count35 = getelementptr inbounds %"class.datalog::check_table_plugin", ptr %18, i64 0, i32 3
+  %m_count35 = getelementptr inbounds i8, ptr %18, i64 48
   %19 = load i32, ptr %m_count35, align 8
   %call37 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZNSolsEj(ptr noundef nonnull align 8 dereferenceable(8) %call32, i32 noundef %19)
           to label %invoke.cont36 unwind label %lpad9.loopexit.split-lp
@@ -1921,7 +1888,7 @@ if.end:                                           ; preds = %invoke.cont17
   br i1 %tobool.not.i.i.i, label %_ZN7svectorImjED2Ev.exit, label %if.then.i.i.i
 
 if.then.i.i.i:                                    ; preds = %if.end
-  %add.ptr.i.i.i.i = getelementptr inbounds i32, ptr %21, i64 -2
+  %add.ptr.i.i.i.i = getelementptr inbounds i8, ptr %21, i64 -8
   invoke void @_ZN6memory10deallocateEPv(ptr noundef nonnull %add.ptr.i.i.i.i)
           to label %_ZN7svectorImjED2Ev.exit unwind label %terminate.lpad.i.i
 
@@ -1935,7 +1902,7 @@ terminate.lpad.i.i:                               ; preds = %if.then.i.i.i
 _ZN7svectorImjED2Ev.exit:                         ; preds = %if.end, %if.then.i.i.i
   %24 = load ptr, ptr %it, align 8
   %vtable.i9 = load ptr, ptr %24, align 8
-  %vfn.i10 = getelementptr inbounds ptr, ptr %vtable.i9, i64 4
+  %vfn.i10 = getelementptr inbounds i8, ptr %vtable.i9, i64 32
   %25 = load ptr, ptr %vfn.i10, align 8
   invoke void %25(ptr noundef nonnull align 8 dereferenceable(12) %24)
           to label %for.cond unwind label %lpad5.loopexit
@@ -1943,7 +1910,7 @@ _ZN7svectorImjED2Ev.exit:                         ; preds = %if.end, %if.then.i.
 for.end:                                          ; preds = %invoke.cont6
   %26 = load ptr, ptr %m_checker, align 8
   %vtable44 = load ptr, ptr %26, align 8
-  %vfn45 = getelementptr inbounds ptr, ptr %vtable44, i64 25
+  %vfn45 = getelementptr inbounds i8, ptr %vtable44, i64 200
   %27 = load ptr, ptr %vfn45, align 8
   invoke void %27(ptr nonnull sret(%"class.datalog::table_base::iterator") align 8 %it2, ptr noundef nonnull align 8 dereferenceable(36) %26)
           to label %invoke.cont46 unwind label %lpad5.loopexit.split-lp
@@ -1951,7 +1918,7 @@ for.end:                                          ; preds = %invoke.cont6
 invoke.cont46:                                    ; preds = %for.end
   %28 = load ptr, ptr %m_checker, align 8
   %vtable48 = load ptr, ptr %28, align 8
-  %vfn49 = getelementptr inbounds ptr, ptr %vtable48, i64 26
+  %vfn49 = getelementptr inbounds i8, ptr %vtable48, i64 208
   %29 = load ptr, ptr %vfn49, align 8
   invoke void %29(ptr nonnull sret(%"class.datalog::table_base::iterator") align 8 %end2, ptr noundef nonnull align 8 dereferenceable(36) %28)
           to label %for.cond52 unwind label %lpad50
@@ -1960,7 +1927,7 @@ for.cond52:                                       ; preds = %invoke.cont46, %_ZN
   %30 = load ptr, ptr %it2, align 8
   %31 = load ptr, ptr %end2, align 8
   %vtable.i.i11 = load ptr, ptr %30, align 8
-  %vfn.i.i12 = getelementptr inbounds ptr, ptr %vtable.i.i11, i64 5
+  %vfn.i.i12 = getelementptr inbounds i8, ptr %vtable.i.i11, i64 40
   %32 = load ptr, ptr %vfn.i.i12, align 8
   %call4.i.i14 = invoke noundef zeroext i1 %32(ptr noundef nonnull align 8 dereferenceable(12) %30, ptr noundef nonnull align 8 dereferenceable(12) %31)
           to label %invoke.cont54 unwind label %lpad53
@@ -1972,14 +1939,14 @@ for.body56:                                       ; preds = %invoke.cont54
   store ptr null, ptr %fact57, align 8
   %33 = load ptr, ptr %it2, align 8
   %vtable.i16 = load ptr, ptr %33, align 8
-  %vfn.i17 = getelementptr inbounds ptr, ptr %vtable.i16, i64 3
+  %vfn.i17 = getelementptr inbounds i8, ptr %vtable.i16, i64 24
   %34 = load ptr, ptr %vfn.i17, align 8
   %call2.i18 = invoke noundef nonnull align 8 dereferenceable(16) ptr %34(ptr noundef nonnull align 8 dereferenceable(12) %33)
           to label %invoke.cont60 unwind label %lpad59.loopexit
 
 invoke.cont60:                                    ; preds = %for.body56
   %vtable62 = load ptr, ptr %call2.i18, align 8
-  %vfn63 = getelementptr inbounds ptr, ptr %vtable62, i64 3
+  %vfn63 = getelementptr inbounds i8, ptr %vtable62, i64 24
   %35 = load ptr, ptr %vfn63, align 8
   invoke void %35(ptr noundef nonnull align 8 dereferenceable(16) %call2.i18, ptr noundef nonnull align 8 dereferenceable(8) %fact57)
           to label %invoke.cont64 unwind label %lpad59.loopexit
@@ -1987,7 +1954,7 @@ invoke.cont60:                                    ; preds = %for.body56
 invoke.cont64:                                    ; preds = %invoke.cont60
   %36 = load ptr, ptr %m_tocheck, align 8
   %vtable66 = load ptr, ptr %36, align 8
-  %vfn67 = getelementptr inbounds ptr, ptr %vtable66, i64 7
+  %vfn67 = getelementptr inbounds i8, ptr %vtable66, i64 56
   %37 = load ptr, ptr %vfn67, align 8
   %call69 = invoke noundef zeroext i1 %37(ptr noundef nonnull align 8 dereferenceable(36) %36, ptr noundef nonnull align 8 dereferenceable(8) %fact57)
           to label %invoke.cont68 unwind label %lpad59.loopexit
@@ -2002,7 +1969,7 @@ if.then70:                                        ; preds = %invoke.cont68
 
 invoke.cont72:                                    ; preds = %if.then70
   %vtable74 = load ptr, ptr %38, align 8
-  %vfn75 = getelementptr inbounds ptr, ptr %vtable74, i64 15
+  %vfn75 = getelementptr inbounds i8, ptr %vtable74, i64 120
   %39 = load ptr, ptr %vfn75, align 8
   invoke void %39(ptr noundef nonnull align 8 dereferenceable(36) %38, ptr noundef nonnull align 8 dereferenceable(8) %call73)
           to label %invoke.cont76 unwind label %lpad59.loopexit.split-lp
@@ -2014,7 +1981,7 @@ invoke.cont76:                                    ; preds = %invoke.cont72
 
 invoke.cont78:                                    ; preds = %invoke.cont76
   %vtable80 = load ptr, ptr %40, align 8
-  %vfn81 = getelementptr inbounds ptr, ptr %vtable80, i64 15
+  %vfn81 = getelementptr inbounds i8, ptr %vtable80, i64 120
   %41 = load ptr, ptr %vfn81, align 8
   invoke void %41(ptr noundef nonnull align 8 dereferenceable(36) %40, ptr noundef nonnull align 8 dereferenceable(8) %call79)
           to label %invoke.cont82 unwind label %lpad59.loopexit.split-lp
@@ -2025,7 +1992,7 @@ invoke.cont82:                                    ; preds = %invoke.cont78
 
 invoke.cont85:                                    ; preds = %invoke.cont82
   %42 = load ptr, ptr %m_plugin.i.i, align 8
-  %m_count87 = getelementptr inbounds %"class.datalog::check_table_plugin", ptr %42, i64 0, i32 3
+  %m_count87 = getelementptr inbounds i8, ptr %42, i64 48
   %43 = load i32, ptr %m_count87, align 8
   %call89 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZNSolsEj(ptr noundef nonnull align 8 dereferenceable(8) %call84, i32 noundef %43)
           to label %invoke.cont88 unwind label %lpad59.loopexit.split-lp
@@ -2073,7 +2040,7 @@ if.end93:                                         ; preds = %invoke.cont68
   br i1 %tobool.not.i.i.i21, label %_ZN7svectorImjED2Ev.exit25, label %if.then.i.i.i22
 
 if.then.i.i.i22:                                  ; preds = %if.end93
-  %add.ptr.i.i.i.i23 = getelementptr inbounds i32, ptr %46, i64 -2
+  %add.ptr.i.i.i.i23 = getelementptr inbounds i8, ptr %46, i64 -8
   invoke void @_ZN6memory10deallocateEPv(ptr noundef nonnull %add.ptr.i.i.i.i23)
           to label %_ZN7svectorImjED2Ev.exit25 unwind label %terminate.lpad.i.i24
 
@@ -2087,7 +2054,7 @@ terminate.lpad.i.i24:                             ; preds = %if.then.i.i.i22
 _ZN7svectorImjED2Ev.exit25:                       ; preds = %if.end93, %if.then.i.i.i22
   %49 = load ptr, ptr %it2, align 8
   %vtable.i26 = load ptr, ptr %49, align 8
-  %vfn.i27 = getelementptr inbounds ptr, ptr %vtable.i26, i64 4
+  %vfn.i27 = getelementptr inbounds i8, ptr %vtable.i26, i64 32
   %50 = load ptr, ptr %vfn.i27, align 8
   invoke void %50(ptr noundef nonnull align 8 dereferenceable(12) %49)
           to label %for.cond52 unwind label %lpad53
@@ -2098,7 +2065,7 @@ for.end97:                                        ; preds = %invoke.cont54
   br i1 %tobool.not.i.i.i29, label %_ZN7datalog10table_base8iteratorD2Ev.exit, label %if.then.i.i.i30
 
 if.then.i.i.i30:                                  ; preds = %for.end97
-  %m_ref_cnt.i.i.i.i = getelementptr inbounds %"class.datalog::table_base::iterator_core", ptr %51, i64 0, i32 1
+  %m_ref_cnt.i.i.i.i = getelementptr inbounds i8, ptr %51, i64 8
   %52 = load i32, ptr %m_ref_cnt.i.i.i.i, align 8
   %dec.i.i.i.i = add i32 %52, -1
   store i32 %dec.i.i.i.i, ptr %m_ref_cnt.i.i.i.i, align 8
@@ -2125,7 +2092,7 @@ _ZN7datalog10table_base8iteratorD2Ev.exit:        ; preds = %for.end97, %if.then
   br i1 %tobool.not.i.i.i32, label %_ZN7datalog10table_base8iteratorD2Ev.exit40, label %if.then.i.i.i33
 
 if.then.i.i.i33:                                  ; preds = %_ZN7datalog10table_base8iteratorD2Ev.exit
-  %m_ref_cnt.i.i.i.i34 = getelementptr inbounds %"class.datalog::table_base::iterator_core", ptr %56, i64 0, i32 1
+  %m_ref_cnt.i.i.i.i34 = getelementptr inbounds i8, ptr %56, i64 8
   %57 = load i32, ptr %m_ref_cnt.i.i.i.i34, align 8
   %dec.i.i.i.i35 = add i32 %57, -1
   store i32 %dec.i.i.i.i35, ptr %m_ref_cnt.i.i.i.i34, align 8
@@ -2152,7 +2119,7 @@ _ZN7datalog10table_base8iteratorD2Ev.exit40:      ; preds = %_ZN7datalog10table_
   br i1 %tobool.not.i.i.i41, label %_ZN7datalog10table_base8iteratorD2Ev.exit49, label %if.then.i.i.i42
 
 if.then.i.i.i42:                                  ; preds = %_ZN7datalog10table_base8iteratorD2Ev.exit40
-  %m_ref_cnt.i.i.i.i43 = getelementptr inbounds %"class.datalog::table_base::iterator_core", ptr %61, i64 0, i32 1
+  %m_ref_cnt.i.i.i.i43 = getelementptr inbounds i8, ptr %61, i64 8
   %62 = load i32, ptr %m_ref_cnt.i.i.i.i43, align 8
   %dec.i.i.i.i44 = add i32 %62, -1
   store i32 %dec.i.i.i.i44, ptr %m_ref_cnt.i.i.i.i43, align 8
@@ -2179,7 +2146,7 @@ _ZN7datalog10table_base8iteratorD2Ev.exit49:      ; preds = %_ZN7datalog10table_
   br i1 %tobool.not.i.i.i50, label %_ZN7datalog10table_base8iteratorD2Ev.exit58, label %if.then.i.i.i51
 
 if.then.i.i.i51:                                  ; preds = %_ZN7datalog10table_base8iteratorD2Ev.exit49
-  %m_ref_cnt.i.i.i.i52 = getelementptr inbounds %"class.datalog::table_base::iterator_core", ptr %66, i64 0, i32 1
+  %m_ref_cnt.i.i.i.i52 = getelementptr inbounds i8, ptr %66, i64 8
   %67 = load i32, ptr %m_ref_cnt.i.i.i.i52, align 8
   %dec.i.i.i.i53 = add i32 %67, -1
   store i32 %dec.i.i.i.i53, ptr %m_ref_cnt.i.i.i.i52, align 8
@@ -2230,13 +2197,13 @@ declare i32 @__gxx_personality_v0(...)
 define linkonce_odr hidden void @_ZN7datalog10table_baseD2Ev(ptr noundef nonnull align 8 dereferenceable(36) %this) unnamed_addr #6 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store ptr getelementptr inbounds ({ [18 x ptr] }, ptr @_ZTVN7datalog17tr_infrastructureINS_12table_traitsEE13base_ancestorE, i64 0, inrange i32 0, i64 2), ptr %this, align 8
-  %m_signature.i = getelementptr inbounds %"class.datalog::tr_infrastructure<datalog::table_traits>::base_ancestor", ptr %this, i64 0, i32 2
+  %m_signature.i = getelementptr inbounds i8, ptr %this, i64 16
   %0 = load ptr, ptr %m_signature.i, align 8
   %tobool.not.i.i.i.i.i.i = icmp eq ptr %0, null
   br i1 %tobool.not.i.i.i.i.i.i, label %_ZN7datalog17tr_infrastructureINS_12table_traitsEE13base_ancestorD2Ev.exit, label %if.then.i.i.i.i.i.i
 
 if.then.i.i.i.i.i.i:                              ; preds = %entry
-  %add.ptr.i.i.i.i.i.i.i = getelementptr inbounds i32, ptr %0, i64 -2
+  %add.ptr.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %0, i64 -8
   invoke void @_ZN6memory10deallocateEPv(ptr noundef nonnull %add.ptr.i.i.i.i.i.i.i)
           to label %_ZN7datalog17tr_infrastructureINS_12table_traitsEE13base_ancestorD2Ev.exit unwind label %terminate.lpad.i.i.i.i.i
 
@@ -2255,16 +2222,16 @@ _ZN7datalog17tr_infrastructureINS_12table_traitsEE13base_ancestorD2Ev.exit: ; pr
 define hidden void @_ZN7datalog11check_tableC2ERNS_18check_table_pluginERKNS_15table_signatureEPNS_10table_baseES7_(ptr noundef nonnull align 8 dereferenceable(56) %this, ptr noundef nonnull align 8 dereferenceable(52) %p, ptr nocapture noundef nonnull readonly align 8 dereferenceable(12) %sig, ptr noundef %tocheck, ptr noundef %checker) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store ptr getelementptr inbounds ({ [18 x ptr] }, ptr @_ZTVN7datalog17tr_infrastructureINS_12table_traitsEE13base_ancestorE, i64 0, inrange i32 0, i64 2), ptr %this, align 8
-  %m_plugin.i.i = getelementptr inbounds %"class.datalog::tr_infrastructure<datalog::table_traits>::base_ancestor", ptr %this, i64 0, i32 1
+  %m_plugin.i.i = getelementptr inbounds i8, ptr %this, i64 8
   store ptr %p, ptr %m_plugin.i.i, align 8
-  %m_signature.i.i = getelementptr inbounds %"class.datalog::tr_infrastructure<datalog::table_traits>::base_ancestor", ptr %this, i64 0, i32 2
+  %m_signature.i.i = getelementptr inbounds i8, ptr %this, i64 16
   store ptr null, ptr %m_signature.i.i, align 8
   %0 = load ptr, ptr %sig, align 8
   %tobool.not.i.i.i.i.i.i = icmp eq ptr %0, null
   br i1 %tobool.not.i.i.i.i.i.i, label %_ZN7datalog10table_baseC2ERNS_12table_pluginERKNS_15table_signatureE.exit, label %_ZNK6vectorImLb0EjE8capacityEv.exit.i.i.i.i.i.i.i
 
 _ZNK6vectorImLb0EjE8capacityEv.exit.i.i.i.i.i.i.i: ; preds = %entry
-  %arrayidx.i11.i.i.i.i.i.i.i = getelementptr inbounds i32, ptr %0, i64 -2
+  %arrayidx.i11.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %0, i64 -8
   %1 = load <2 x i32>, ptr %arrayidx.i11.i.i.i.i.i.i.i, align 4
   %2 = extractelement <2 x i32> %1, i64 0
   %conv.i.i.i.i.i.i.i = zext i32 %2 to i64
@@ -2272,14 +2239,14 @@ _ZNK6vectorImLb0EjE8capacityEv.exit.i.i.i.i.i.i.i: ; preds = %entry
   %add.i.i.i.i.i.i.i = add nuw nsw i64 %mul.i.i.i.i.i.i.i, 8
   %call3.i.i.i.i.i.i.i = tail call noalias noundef ptr @_ZN6memory8allocateEm(i64 noundef %add.i.i.i.i.i.i.i)
   store <2 x i32> %1, ptr %call3.i.i.i.i.i.i.i, align 4
-  %incdec.ptr4.i.i.i.i.i.i.i = getelementptr inbounds i32, ptr %call3.i.i.i.i.i.i.i, i64 2
+  %incdec.ptr4.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %call3.i.i.i.i.i.i.i, i64 8
   store ptr %incdec.ptr4.i.i.i.i.i.i.i, ptr %m_signature.i.i, align 8
   %3 = load ptr, ptr %sig, align 8
   %cmp.i.i.i.i.i.i.i.i.i = icmp eq ptr %3, null
   br i1 %cmp.i.i.i.i.i.i.i.i.i, label %_ZN7datalog10table_baseC2ERNS_12table_pluginERKNS_15table_signatureE.exit, label %_ZNK6vectorImLb0EjE3endEv.exit.i.i.i.i.i.i.i
 
 _ZNK6vectorImLb0EjE3endEv.exit.i.i.i.i.i.i.i:     ; preds = %_ZNK6vectorImLb0EjE8capacityEv.exit.i.i.i.i.i.i.i
-  %arrayidx.i.i.i.i.i.i.i.i.i = getelementptr inbounds i32, ptr %3, i64 -1
+  %arrayidx.i.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %3, i64 -4
   %4 = load i32, ptr %arrayidx.i.i.i.i.i.i.i.i.i, align 4
   %tobool.not.i.i.i.i.i.i.i.i.i.i.i.i.i.i = icmp eq i32 %4, 0
   br i1 %tobool.not.i.i.i.i.i.i.i.i.i.i.i.i.i.i, label %_ZN7datalog10table_baseC2ERNS_12table_pluginERKNS_15table_signatureE.exit, label %if.then.i.i.i.i.i.i.i.i.i.i.i.i.i.i
@@ -2291,18 +2258,18 @@ if.then.i.i.i.i.i.i.i.i.i.i.i.i.i.i:              ; preds = %_ZNK6vectorImLb0EjE
   br label %_ZN7datalog10table_baseC2ERNS_12table_pluginERKNS_15table_signatureE.exit
 
 _ZN7datalog10table_baseC2ERNS_12table_pluginERKNS_15table_signatureE.exit: ; preds = %entry, %_ZNK6vectorImLb0EjE8capacityEv.exit.i.i.i.i.i.i.i, %_ZNK6vectorImLb0EjE3endEv.exit.i.i.i.i.i.i.i, %if.then.i.i.i.i.i.i.i.i.i.i.i.i.i.i
-  %m_functional_columns.i.i.i = getelementptr inbounds %"class.datalog::tr_infrastructure<datalog::table_traits>::base_ancestor", ptr %this, i64 0, i32 2, i32 1
-  %m_functional_columns2.i.i.i = getelementptr inbounds %"class.datalog::table_signature", ptr %sig, i64 0, i32 1
+  %m_functional_columns.i.i.i = getelementptr inbounds i8, ptr %this, i64 24
+  %m_functional_columns2.i.i.i = getelementptr inbounds i8, ptr %sig, i64 8
   %7 = load i32, ptr %m_functional_columns2.i.i.i, align 8
   store i32 %7, ptr %m_functional_columns.i.i.i, align 8
-  %m_kind.i.i = getelementptr inbounds %"class.datalog::tr_infrastructure<datalog::table_traits>::base_ancestor", ptr %this, i64 0, i32 3
-  %m_kind.i.i.i = getelementptr inbounds %"class.datalog::tr_infrastructure<datalog::table_traits>::plugin_object", ptr %p, i64 0, i32 1
+  %m_kind.i.i = getelementptr inbounds i8, ptr %this, i64 32
+  %m_kind.i.i.i = getelementptr inbounds i8, ptr %p, i64 8
   %8 = load i32, ptr %m_kind.i.i.i, align 8
   store i32 %8, ptr %m_kind.i.i, align 8
   store ptr getelementptr inbounds ({ [29 x ptr] }, ptr @_ZTVN7datalog11check_tableE, i64 0, inrange i32 0, i64 2), ptr %this, align 8
-  %m_checker = getelementptr inbounds %"class.datalog::check_table", ptr %this, i64 0, i32 1
+  %m_checker = getelementptr inbounds i8, ptr %this, i64 40
   store ptr %checker, ptr %m_checker, align 8
-  %m_tocheck = getelementptr inbounds %"class.datalog::check_table", ptr %this, i64 0, i32 2
+  %m_tocheck = getelementptr inbounds i8, ptr %this, i64 48
   store ptr %tocheck, ptr %m_tocheck, align 8
   %call = invoke noundef zeroext i1 @_ZNK7datalog11check_table11well_formedEv(ptr noundef nonnull align 8 dereferenceable(56) %this)
           to label %invoke.cont unwind label %lpad
@@ -2321,32 +2288,32 @@ lpad:                                             ; preds = %_ZN7datalog10table_
 define hidden void @_ZN7datalog11check_tableD2Ev(ptr nocapture noundef nonnull align 8 dereferenceable(56) %this) unnamed_addr #6 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store ptr getelementptr inbounds ({ [29 x ptr] }, ptr @_ZTVN7datalog11check_tableE, i64 0, inrange i32 0, i64 2), ptr %this, align 8
-  %m_tocheck = getelementptr inbounds %"class.datalog::check_table", ptr %this, i64 0, i32 2
+  %m_tocheck = getelementptr inbounds i8, ptr %this, i64 48
   %0 = load ptr, ptr %m_tocheck, align 8
   %vtable = load ptr, ptr %0, align 8
-  %vfn = getelementptr inbounds ptr, ptr %vtable, i64 2
+  %vfn = getelementptr inbounds i8, ptr %vtable, i64 16
   %1 = load ptr, ptr %vfn, align 8
   invoke void %1(ptr noundef nonnull align 8 dereferenceable(36) %0)
           to label %invoke.cont unwind label %terminate.lpad
 
 invoke.cont:                                      ; preds = %entry
-  %m_checker = getelementptr inbounds %"class.datalog::check_table", ptr %this, i64 0, i32 1
+  %m_checker = getelementptr inbounds i8, ptr %this, i64 40
   %2 = load ptr, ptr %m_checker, align 8
   %vtable2 = load ptr, ptr %2, align 8
-  %vfn3 = getelementptr inbounds ptr, ptr %vtable2, i64 2
+  %vfn3 = getelementptr inbounds i8, ptr %vtable2, i64 16
   %3 = load ptr, ptr %vfn3, align 8
   invoke void %3(ptr noundef nonnull align 8 dereferenceable(36) %2)
           to label %invoke.cont4 unwind label %terminate.lpad
 
 invoke.cont4:                                     ; preds = %invoke.cont
   store ptr getelementptr inbounds ({ [18 x ptr] }, ptr @_ZTVN7datalog17tr_infrastructureINS_12table_traitsEE13base_ancestorE, i64 0, inrange i32 0, i64 2), ptr %this, align 8
-  %m_signature.i.i = getelementptr inbounds %"class.datalog::tr_infrastructure<datalog::table_traits>::base_ancestor", ptr %this, i64 0, i32 2
+  %m_signature.i.i = getelementptr inbounds i8, ptr %this, i64 16
   %4 = load ptr, ptr %m_signature.i.i, align 8
   %tobool.not.i.i.i.i.i.i.i = icmp eq ptr %4, null
   br i1 %tobool.not.i.i.i.i.i.i.i, label %_ZN7datalog10table_baseD2Ev.exit, label %if.then.i.i.i.i.i.i.i
 
 if.then.i.i.i.i.i.i.i:                            ; preds = %invoke.cont4
-  %add.ptr.i.i.i.i.i.i.i.i = getelementptr inbounds i32, ptr %4, i64 -2
+  %add.ptr.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %4, i64 -8
   invoke void @_ZN6memory10deallocateEPv(ptr noundef nonnull %add.ptr.i.i.i.i.i.i.i.i)
           to label %_ZN7datalog10table_baseD2Ev.exit unwind label %terminate.lpad.i.i.i.i.i.i
 
@@ -2383,32 +2350,32 @@ declare void @_ZSt9terminatev() local_unnamed_addr
 define hidden void @_ZN7datalog11check_tableD0Ev(ptr noundef nonnull align 8 dereferenceable(56) %this) unnamed_addr #6 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store ptr getelementptr inbounds ({ [29 x ptr] }, ptr @_ZTVN7datalog11check_tableE, i64 0, inrange i32 0, i64 2), ptr %this, align 8
-  %m_tocheck.i = getelementptr inbounds %"class.datalog::check_table", ptr %this, i64 0, i32 2
+  %m_tocheck.i = getelementptr inbounds i8, ptr %this, i64 48
   %0 = load ptr, ptr %m_tocheck.i, align 8
   %vtable.i = load ptr, ptr %0, align 8
-  %vfn.i = getelementptr inbounds ptr, ptr %vtable.i, i64 2
+  %vfn.i = getelementptr inbounds i8, ptr %vtable.i, i64 16
   %1 = load ptr, ptr %vfn.i, align 8
   invoke void %1(ptr noundef nonnull align 8 dereferenceable(36) %0)
           to label %invoke.cont.i unwind label %terminate.lpad.i
 
 invoke.cont.i:                                    ; preds = %entry
-  %m_checker.i = getelementptr inbounds %"class.datalog::check_table", ptr %this, i64 0, i32 1
+  %m_checker.i = getelementptr inbounds i8, ptr %this, i64 40
   %2 = load ptr, ptr %m_checker.i, align 8
   %vtable2.i = load ptr, ptr %2, align 8
-  %vfn3.i = getelementptr inbounds ptr, ptr %vtable2.i, i64 2
+  %vfn3.i = getelementptr inbounds i8, ptr %vtable2.i, i64 16
   %3 = load ptr, ptr %vfn3.i, align 8
   invoke void %3(ptr noundef nonnull align 8 dereferenceable(36) %2)
           to label %invoke.cont4.i unwind label %terminate.lpad.i
 
 invoke.cont4.i:                                   ; preds = %invoke.cont.i
   store ptr getelementptr inbounds ({ [18 x ptr] }, ptr @_ZTVN7datalog17tr_infrastructureINS_12table_traitsEE13base_ancestorE, i64 0, inrange i32 0, i64 2), ptr %this, align 8
-  %m_signature.i.i.i = getelementptr inbounds %"class.datalog::tr_infrastructure<datalog::table_traits>::base_ancestor", ptr %this, i64 0, i32 2
+  %m_signature.i.i.i = getelementptr inbounds i8, ptr %this, i64 16
   %4 = load ptr, ptr %m_signature.i.i.i, align 8
   %tobool.not.i.i.i.i.i.i.i.i = icmp eq ptr %4, null
   br i1 %tobool.not.i.i.i.i.i.i.i.i, label %_ZN7datalog11check_tableD2Ev.exit, label %if.then.i.i.i.i.i.i.i.i
 
 if.then.i.i.i.i.i.i.i.i:                          ; preds = %invoke.cont4.i
-  %add.ptr.i.i.i.i.i.i.i.i.i = getelementptr inbounds i32, ptr %4, i64 -2
+  %add.ptr.i.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %4, i64 -8
   invoke void @_ZN6memory10deallocateEPv(ptr noundef nonnull %add.ptr.i.i.i.i.i.i.i.i.i)
           to label %_ZN7datalog11check_tableD2Ev.exit unwind label %terminate.lpad.i.i.i.i.i.i.i
 
@@ -2449,7 +2416,7 @@ entry:
   br i1 %tobool.not.i.i, label %_ZN6vectorImLb0EjED2Ev.exit, label %if.then.i.i
 
 if.then.i.i:                                      ; preds = %entry
-  %add.ptr.i.i.i = getelementptr inbounds i32, ptr %0, i64 -2
+  %add.ptr.i.i.i = getelementptr inbounds i8, ptr %0, i64 -8
   invoke void @_ZN6memory10deallocateEPv(ptr noundef nonnull %add.ptr.i.i.i)
           to label %_ZN6vectorImLb0EjED2Ev.exit unwind label %terminate.lpad.i
 
@@ -2472,7 +2439,7 @@ entry:
   br i1 %tobool.not.i.i, label %_ZN3refIN7datalog10table_base13iterator_coreEED2Ev.exit, label %if.then.i.i
 
 if.then.i.i:                                      ; preds = %entry
-  %m_ref_cnt.i.i.i = getelementptr inbounds %"class.datalog::table_base::iterator_core", ptr %0, i64 0, i32 1
+  %m_ref_cnt.i.i.i = getelementptr inbounds i8, ptr %0, i64 8
   %1 = load i32, ptr %m_ref_cnt.i.i.i, align 8
   %dec.i.i.i = add i32 %1, -1
   store i32 %dec.i.i.i, ptr %m_ref_cnt.i.i.i, align 8
@@ -2500,16 +2467,16 @@ _ZN3refIN7datalog10table_base13iterator_coreEED2Ev.exit: ; preds = %entry, %if.t
 ; Function Attrs: mustprogress uwtable
 define hidden noundef zeroext i1 @_ZNK7datalog11check_table5emptyEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(56) %this) unnamed_addr #3 align 2 {
 entry:
-  %m_tocheck = getelementptr inbounds %"class.datalog::check_table", ptr %this, i64 0, i32 2
+  %m_tocheck = getelementptr inbounds i8, ptr %this, i64 48
   %0 = load ptr, ptr %m_tocheck, align 8
   %vtable = load ptr, ptr %0, align 8
-  %vfn = getelementptr inbounds ptr, ptr %vtable, i64 3
+  %vfn = getelementptr inbounds i8, ptr %vtable, i64 24
   %1 = load ptr, ptr %vfn, align 8
   %call = tail call noundef zeroext i1 %1(ptr noundef nonnull align 8 dereferenceable(36) %0)
-  %m_checker = getelementptr inbounds %"class.datalog::check_table", ptr %this, i64 0, i32 1
+  %m_checker = getelementptr inbounds i8, ptr %this, i64 40
   %2 = load ptr, ptr %m_checker, align 8
   %vtable2 = load ptr, ptr %2, align 8
-  %vfn3 = getelementptr inbounds ptr, ptr %vtable2, i64 3
+  %vfn3 = getelementptr inbounds i8, ptr %vtable2, i64 24
   %3 = load ptr, ptr %vfn3, align 8
   %call4 = tail call noundef zeroext i1 %3(ptr noundef nonnull align 8 dereferenceable(36) %2)
   %4 = xor i1 %call, %call4
@@ -2519,19 +2486,19 @@ if.then:                                          ; preds = %entry
   %5 = load ptr, ptr %m_tocheck, align 8
   %call7 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_Z14verbose_streamv()
   %vtable8 = load ptr, ptr %5, align 8
-  %vfn9 = getelementptr inbounds ptr, ptr %vtable8, i64 15
+  %vfn9 = getelementptr inbounds i8, ptr %vtable8, i64 120
   %6 = load ptr, ptr %vfn9, align 8
   tail call void %6(ptr noundef nonnull align 8 dereferenceable(36) %5, ptr noundef nonnull align 8 dereferenceable(8) %call7)
   %7 = load ptr, ptr %m_checker, align 8
   %call11 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_Z14verbose_streamv()
   %vtable12 = load ptr, ptr %7, align 8
-  %vfn13 = getelementptr inbounds ptr, ptr %vtable12, i64 15
+  %vfn13 = getelementptr inbounds i8, ptr %vtable12, i64 120
   %8 = load ptr, ptr %vfn13, align 8
   tail call void %8(ptr noundef nonnull align 8 dereferenceable(36) %7, ptr noundef nonnull align 8 dereferenceable(8) %call11)
   %call14 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_Z14verbose_streamv()
-  %m_plugin.i.i = getelementptr inbounds %"class.datalog::tr_infrastructure<datalog::table_traits>::base_ancestor", ptr %this, i64 0, i32 1
+  %m_plugin.i.i = getelementptr inbounds i8, ptr %this, i64 8
   %9 = load ptr, ptr %m_plugin.i.i, align 8
-  %m_count = getelementptr inbounds %"class.datalog::check_table_plugin", ptr %9, i64 0, i32 3
+  %m_count = getelementptr inbounds i8, ptr %9, i64 48
   %10 = load i32, ptr %m_count, align 8
   %call16 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSolsEj(ptr noundef nonnull align 8 dereferenceable(8) %call14, i32 noundef %10)
   %call17 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc(ptr noundef nonnull align 8 dereferenceable(8) %call16, ptr noundef nonnull @.str)
@@ -2541,7 +2508,7 @@ if.then:                                          ; preds = %entry
 if.end:                                           ; preds = %if.then, %entry
   %11 = load ptr, ptr %m_tocheck, align 8
   %vtable19 = load ptr, ptr %11, align 8
-  %vfn20 = getelementptr inbounds ptr, ptr %vtable19, i64 3
+  %vfn20 = getelementptr inbounds i8, ptr %vtable19, i64 24
   %12 = load ptr, ptr %vfn20, align 8
   %call21 = tail call noundef zeroext i1 %12(ptr noundef nonnull align 8 dereferenceable(36) %11)
   ret i1 %call21
@@ -2575,16 +2542,16 @@ if.else:                                          ; preds = %if.then
   br label %if.end10
 
 if.end10:                                         ; preds = %if.then3, %if.else, %entry
-  %m_tocheck = getelementptr inbounds %"class.datalog::check_table", ptr %this, i64 0, i32 2
+  %m_tocheck = getelementptr inbounds i8, ptr %this, i64 48
   %0 = load ptr, ptr %m_tocheck, align 8
   %vtable = load ptr, ptr %0, align 8
-  %vfn = getelementptr inbounds ptr, ptr %vtable, i64 5
+  %vfn = getelementptr inbounds i8, ptr %vtable, i64 40
   %1 = load ptr, ptr %vfn, align 8
   tail call void %1(ptr noundef nonnull align 8 dereferenceable(36) %0, ptr noundef nonnull align 8 dereferenceable(8) %f)
-  %m_checker = getelementptr inbounds %"class.datalog::check_table", ptr %this, i64 0, i32 1
+  %m_checker = getelementptr inbounds i8, ptr %this, i64 40
   %2 = load ptr, ptr %m_checker, align 8
   %vtable11 = load ptr, ptr %2, align 8
-  %vfn12 = getelementptr inbounds ptr, ptr %vtable11, i64 5
+  %vfn12 = getelementptr inbounds i8, ptr %vtable11, i64 40
   %3 = load ptr, ptr %vfn12, align 8
   tail call void %3(ptr noundef nonnull align 8 dereferenceable(36) %2, ptr noundef nonnull align 8 dereferenceable(8) %f)
   %call13 = tail call noundef zeroext i1 @_ZNK7datalog11check_table11well_formedEv(ptr noundef nonnull align 8 dereferenceable(56) %this)
@@ -2617,16 +2584,16 @@ if.else:                                          ; preds = %if.then
   br label %if.end10
 
 if.end10:                                         ; preds = %if.then3, %if.else, %entry
-  %m_tocheck = getelementptr inbounds %"class.datalog::check_table", ptr %this, i64 0, i32 2
+  %m_tocheck = getelementptr inbounds i8, ptr %this, i64 48
   %0 = load ptr, ptr %m_tocheck, align 8
   %vtable = load ptr, ptr %0, align 8
-  %vfn = getelementptr inbounds ptr, ptr %vtable, i64 21
+  %vfn = getelementptr inbounds i8, ptr %vtable, i64 168
   %1 = load ptr, ptr %vfn, align 8
   tail call void %1(ptr noundef nonnull align 8 dereferenceable(36) %0, ptr noundef %f)
-  %m_checker = getelementptr inbounds %"class.datalog::check_table", ptr %this, i64 0, i32 1
+  %m_checker = getelementptr inbounds i8, ptr %this, i64 40
   %2 = load ptr, ptr %m_checker, align 8
   %vtable11 = load ptr, ptr %2, align 8
-  %vfn12 = getelementptr inbounds ptr, ptr %vtable11, i64 21
+  %vfn12 = getelementptr inbounds i8, ptr %vtable11, i64 168
   %3 = load ptr, ptr %vfn12, align 8
   tail call void %3(ptr noundef nonnull align 8 dereferenceable(36) %2, ptr noundef %f)
   %call13 = tail call noundef zeroext i1 @_ZNK7datalog11check_table11well_formedEv(ptr noundef nonnull align 8 dereferenceable(56) %this)
@@ -2636,10 +2603,10 @@ if.end10:                                         ; preds = %if.then3, %if.else,
 ; Function Attrs: mustprogress uwtable
 define hidden noundef zeroext i1 @_ZNK7datalog11check_table13contains_factERK7svectorImjE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(56) %this, ptr noundef nonnull align 8 dereferenceable(8) %f) unnamed_addr #3 align 2 {
 entry:
-  %m_checker = getelementptr inbounds %"class.datalog::check_table", ptr %this, i64 0, i32 1
+  %m_checker = getelementptr inbounds i8, ptr %this, i64 40
   %0 = load ptr, ptr %m_checker, align 8
   %vtable = load ptr, ptr %0, align 8
-  %vfn = getelementptr inbounds ptr, ptr %vtable, i64 7
+  %vfn = getelementptr inbounds i8, ptr %vtable, i64 56
   %1 = load ptr, ptr %vfn, align 8
   %call = tail call noundef zeroext i1 %1(ptr noundef nonnull align 8 dereferenceable(36) %0, ptr noundef nonnull align 8 dereferenceable(8) %f)
   ret i1 %call
@@ -2672,32 +2639,32 @@ if.else:                                          ; preds = %if.then
 
 if.end10:                                         ; preds = %if.then3, %if.else, %entry
   %call11 = tail call noalias noundef ptr @_ZN6memory8allocateEm(i64 noundef 56)
-  %m_plugin.i.i = getelementptr inbounds %"class.datalog::tr_infrastructure<datalog::table_traits>::base_ancestor", ptr %this, i64 0, i32 1
+  %m_plugin.i.i = getelementptr inbounds i8, ptr %this, i64 8
   %0 = load ptr, ptr %m_plugin.i.i, align 8
-  %m_signature.i = getelementptr inbounds %"class.datalog::tr_infrastructure<datalog::table_traits>::base_ancestor", ptr %this, i64 0, i32 2
-  %m_tocheck = getelementptr inbounds %"class.datalog::check_table", ptr %this, i64 0, i32 2
+  %m_signature.i = getelementptr inbounds i8, ptr %this, i64 16
+  %m_tocheck = getelementptr inbounds i8, ptr %this, i64 48
   %1 = load ptr, ptr %m_tocheck, align 8
   %vtable = load ptr, ptr %1, align 8
-  %vfn = getelementptr inbounds ptr, ptr %vtable, i64 9
+  %vfn = getelementptr inbounds i8, ptr %vtable, i64 72
   %2 = load ptr, ptr %vfn, align 8
   %call14 = tail call noundef ptr %2(ptr noundef nonnull align 8 dereferenceable(36) %1)
-  %m_checker = getelementptr inbounds %"class.datalog::check_table", ptr %this, i64 0, i32 1
+  %m_checker = getelementptr inbounds i8, ptr %this, i64 40
   %3 = load ptr, ptr %m_checker, align 8
   %vtable15 = load ptr, ptr %3, align 8
-  %vfn16 = getelementptr inbounds ptr, ptr %vtable15, i64 9
+  %vfn16 = getelementptr inbounds i8, ptr %vtable15, i64 72
   %4 = load ptr, ptr %vfn16, align 8
   %call17 = tail call noundef ptr %4(ptr noundef nonnull align 8 dereferenceable(36) %3)
   store ptr getelementptr inbounds ({ [18 x ptr] }, ptr @_ZTVN7datalog17tr_infrastructureINS_12table_traitsEE13base_ancestorE, i64 0, inrange i32 0, i64 2), ptr %call11, align 8
-  %m_plugin.i.i.i = getelementptr inbounds %"class.datalog::tr_infrastructure<datalog::table_traits>::base_ancestor", ptr %call11, i64 0, i32 1
+  %m_plugin.i.i.i = getelementptr inbounds i8, ptr %call11, i64 8
   store ptr %0, ptr %m_plugin.i.i.i, align 8
-  %m_signature.i.i.i = getelementptr inbounds %"class.datalog::tr_infrastructure<datalog::table_traits>::base_ancestor", ptr %call11, i64 0, i32 2
+  %m_signature.i.i.i = getelementptr inbounds i8, ptr %call11, i64 16
   store ptr null, ptr %m_signature.i.i.i, align 8
   %5 = load ptr, ptr %m_signature.i, align 8
   %tobool.not.i.i.i.i.i.i.i = icmp eq ptr %5, null
   br i1 %tobool.not.i.i.i.i.i.i.i, label %_ZN7datalog10table_baseC2ERNS_12table_pluginERKNS_15table_signatureE.exit.i, label %_ZNK6vectorImLb0EjE8capacityEv.exit.i.i.i.i.i.i.i.i
 
 _ZNK6vectorImLb0EjE8capacityEv.exit.i.i.i.i.i.i.i.i: ; preds = %if.end10
-  %arrayidx.i11.i.i.i.i.i.i.i.i = getelementptr inbounds i32, ptr %5, i64 -2
+  %arrayidx.i11.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %5, i64 -8
   %6 = load <2 x i32>, ptr %arrayidx.i11.i.i.i.i.i.i.i.i, align 4
   %7 = extractelement <2 x i32> %6, i64 0
   %conv.i.i.i.i.i.i.i.i = zext i32 %7 to i64
@@ -2705,14 +2672,14 @@ _ZNK6vectorImLb0EjE8capacityEv.exit.i.i.i.i.i.i.i.i: ; preds = %if.end10
   %add.i.i.i.i.i.i.i.i = add nuw nsw i64 %mul.i.i.i.i.i.i.i.i, 8
   %call3.i.i.i.i.i.i.i.i = tail call noalias noundef ptr @_ZN6memory8allocateEm(i64 noundef %add.i.i.i.i.i.i.i.i)
   store <2 x i32> %6, ptr %call3.i.i.i.i.i.i.i.i, align 4
-  %incdec.ptr4.i.i.i.i.i.i.i.i = getelementptr inbounds i32, ptr %call3.i.i.i.i.i.i.i.i, i64 2
+  %incdec.ptr4.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %call3.i.i.i.i.i.i.i.i, i64 8
   store ptr %incdec.ptr4.i.i.i.i.i.i.i.i, ptr %m_signature.i.i.i, align 8
   %8 = load ptr, ptr %m_signature.i, align 8
   %cmp.i.i.i.i.i.i.i.i.i.i = icmp eq ptr %8, null
   br i1 %cmp.i.i.i.i.i.i.i.i.i.i, label %_ZN7datalog10table_baseC2ERNS_12table_pluginERKNS_15table_signatureE.exit.i, label %_ZNK6vectorImLb0EjE3endEv.exit.i.i.i.i.i.i.i.i
 
 _ZNK6vectorImLb0EjE3endEv.exit.i.i.i.i.i.i.i.i:   ; preds = %_ZNK6vectorImLb0EjE8capacityEv.exit.i.i.i.i.i.i.i.i
-  %arrayidx.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds i32, ptr %8, i64 -1
+  %arrayidx.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %8, i64 -4
   %9 = load i32, ptr %arrayidx.i.i.i.i.i.i.i.i.i.i, align 4
   %tobool.not.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i = icmp eq i32 %9, 0
   br i1 %tobool.not.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i, label %_ZN7datalog10table_baseC2ERNS_12table_pluginERKNS_15table_signatureE.exit.i, label %if.then.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i
@@ -2724,18 +2691,18 @@ if.then.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i:            ; preds = %_ZNK6vectorImLb0EjE
   br label %_ZN7datalog10table_baseC2ERNS_12table_pluginERKNS_15table_signatureE.exit.i
 
 _ZN7datalog10table_baseC2ERNS_12table_pluginERKNS_15table_signatureE.exit.i: ; preds = %if.then.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i, %_ZNK6vectorImLb0EjE3endEv.exit.i.i.i.i.i.i.i.i, %_ZNK6vectorImLb0EjE8capacityEv.exit.i.i.i.i.i.i.i.i, %if.end10
-  %m_functional_columns.i.i.i.i = getelementptr inbounds %"class.datalog::tr_infrastructure<datalog::table_traits>::base_ancestor", ptr %call11, i64 0, i32 2, i32 1
-  %m_functional_columns2.i.i.i.i = getelementptr inbounds %"class.datalog::tr_infrastructure<datalog::table_traits>::base_ancestor", ptr %this, i64 0, i32 2, i32 1
+  %m_functional_columns.i.i.i.i = getelementptr inbounds i8, ptr %call11, i64 24
+  %m_functional_columns2.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 24
   %12 = load i32, ptr %m_functional_columns2.i.i.i.i, align 8
   store i32 %12, ptr %m_functional_columns.i.i.i.i, align 8
-  %m_kind.i.i.i = getelementptr inbounds %"class.datalog::tr_infrastructure<datalog::table_traits>::base_ancestor", ptr %call11, i64 0, i32 3
-  %m_kind.i.i.i.i = getelementptr inbounds %"class.datalog::tr_infrastructure<datalog::table_traits>::plugin_object", ptr %0, i64 0, i32 1
+  %m_kind.i.i.i = getelementptr inbounds i8, ptr %call11, i64 32
+  %m_kind.i.i.i.i = getelementptr inbounds i8, ptr %0, i64 8
   %13 = load i32, ptr %m_kind.i.i.i.i, align 8
   store i32 %13, ptr %m_kind.i.i.i, align 8
   store ptr getelementptr inbounds ({ [29 x ptr] }, ptr @_ZTVN7datalog11check_tableE, i64 0, inrange i32 0, i64 2), ptr %call11, align 8
-  %m_checker.i = getelementptr inbounds %"class.datalog::check_table", ptr %call11, i64 0, i32 1
+  %m_checker.i = getelementptr inbounds i8, ptr %call11, i64 40
   store ptr %call17, ptr %m_checker.i, align 8
-  %m_tocheck.i = getelementptr inbounds %"class.datalog::check_table", ptr %call11, i64 0, i32 2
+  %m_tocheck.i = getelementptr inbounds i8, ptr %call11, i64 48
   store ptr %call14, ptr %m_tocheck.i, align 8
   %call.i = invoke noundef zeroext i1 @_ZNK7datalog11check_table11well_formedEv(ptr noundef nonnull align 8 dereferenceable(56) %call11)
           to label %_ZN7datalog11check_tableC2ERNS_18check_table_pluginERKNS_15table_signatureEPNS_10table_baseES7_.exit unwind label %lpad.i
@@ -2754,32 +2721,32 @@ _ZN7datalog11check_tableC2ERNS_18check_table_pluginERKNS_15table_signatureEPNS_1
 define hidden noundef ptr @_ZNK7datalog11check_table10complementEP9func_declPKm(ptr nocapture noundef nonnull readonly align 8 dereferenceable(56) %this, ptr noundef %p, ptr noundef %func_columns) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %call = tail call noalias noundef ptr @_ZN6memory8allocateEm(i64 noundef 56)
-  %m_plugin.i.i = getelementptr inbounds %"class.datalog::tr_infrastructure<datalog::table_traits>::base_ancestor", ptr %this, i64 0, i32 1
+  %m_plugin.i.i = getelementptr inbounds i8, ptr %this, i64 8
   %0 = load ptr, ptr %m_plugin.i.i, align 8
-  %m_signature.i = getelementptr inbounds %"class.datalog::tr_infrastructure<datalog::table_traits>::base_ancestor", ptr %this, i64 0, i32 2
-  %m_tocheck = getelementptr inbounds %"class.datalog::check_table", ptr %this, i64 0, i32 2
+  %m_signature.i = getelementptr inbounds i8, ptr %this, i64 16
+  %m_tocheck = getelementptr inbounds i8, ptr %this, i64 48
   %1 = load ptr, ptr %m_tocheck, align 8
   %vtable = load ptr, ptr %1, align 8
-  %vfn = getelementptr inbounds ptr, ptr %vtable, i64 16
+  %vfn = getelementptr inbounds i8, ptr %vtable, i64 128
   %2 = load ptr, ptr %vfn, align 8
   %call4 = tail call noundef ptr %2(ptr noundef nonnull align 8 dereferenceable(36) %1, ptr noundef %p, ptr noundef %func_columns)
-  %m_checker = getelementptr inbounds %"class.datalog::check_table", ptr %this, i64 0, i32 1
+  %m_checker = getelementptr inbounds i8, ptr %this, i64 40
   %3 = load ptr, ptr %m_checker, align 8
   %vtable5 = load ptr, ptr %3, align 8
-  %vfn6 = getelementptr inbounds ptr, ptr %vtable5, i64 16
+  %vfn6 = getelementptr inbounds i8, ptr %vtable5, i64 128
   %4 = load ptr, ptr %vfn6, align 8
   %call7 = tail call noundef ptr %4(ptr noundef nonnull align 8 dereferenceable(36) %3, ptr noundef %p, ptr noundef %func_columns)
   store ptr getelementptr inbounds ({ [18 x ptr] }, ptr @_ZTVN7datalog17tr_infrastructureINS_12table_traitsEE13base_ancestorE, i64 0, inrange i32 0, i64 2), ptr %call, align 8
-  %m_plugin.i.i.i = getelementptr inbounds %"class.datalog::tr_infrastructure<datalog::table_traits>::base_ancestor", ptr %call, i64 0, i32 1
+  %m_plugin.i.i.i = getelementptr inbounds i8, ptr %call, i64 8
   store ptr %0, ptr %m_plugin.i.i.i, align 8
-  %m_signature.i.i.i = getelementptr inbounds %"class.datalog::tr_infrastructure<datalog::table_traits>::base_ancestor", ptr %call, i64 0, i32 2
+  %m_signature.i.i.i = getelementptr inbounds i8, ptr %call, i64 16
   store ptr null, ptr %m_signature.i.i.i, align 8
   %5 = load ptr, ptr %m_signature.i, align 8
   %tobool.not.i.i.i.i.i.i.i = icmp eq ptr %5, null
   br i1 %tobool.not.i.i.i.i.i.i.i, label %_ZN7datalog10table_baseC2ERNS_12table_pluginERKNS_15table_signatureE.exit.i, label %_ZNK6vectorImLb0EjE8capacityEv.exit.i.i.i.i.i.i.i.i
 
 _ZNK6vectorImLb0EjE8capacityEv.exit.i.i.i.i.i.i.i.i: ; preds = %entry
-  %arrayidx.i11.i.i.i.i.i.i.i.i = getelementptr inbounds i32, ptr %5, i64 -2
+  %arrayidx.i11.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %5, i64 -8
   %6 = load <2 x i32>, ptr %arrayidx.i11.i.i.i.i.i.i.i.i, align 4
   %7 = extractelement <2 x i32> %6, i64 0
   %conv.i.i.i.i.i.i.i.i = zext i32 %7 to i64
@@ -2787,14 +2754,14 @@ _ZNK6vectorImLb0EjE8capacityEv.exit.i.i.i.i.i.i.i.i: ; preds = %entry
   %add.i.i.i.i.i.i.i.i = add nuw nsw i64 %mul.i.i.i.i.i.i.i.i, 8
   %call3.i.i.i.i.i.i.i.i = tail call noalias noundef ptr @_ZN6memory8allocateEm(i64 noundef %add.i.i.i.i.i.i.i.i)
   store <2 x i32> %6, ptr %call3.i.i.i.i.i.i.i.i, align 4
-  %incdec.ptr4.i.i.i.i.i.i.i.i = getelementptr inbounds i32, ptr %call3.i.i.i.i.i.i.i.i, i64 2
+  %incdec.ptr4.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %call3.i.i.i.i.i.i.i.i, i64 8
   store ptr %incdec.ptr4.i.i.i.i.i.i.i.i, ptr %m_signature.i.i.i, align 8
   %8 = load ptr, ptr %m_signature.i, align 8
   %cmp.i.i.i.i.i.i.i.i.i.i = icmp eq ptr %8, null
   br i1 %cmp.i.i.i.i.i.i.i.i.i.i, label %_ZN7datalog10table_baseC2ERNS_12table_pluginERKNS_15table_signatureE.exit.i, label %_ZNK6vectorImLb0EjE3endEv.exit.i.i.i.i.i.i.i.i
 
 _ZNK6vectorImLb0EjE3endEv.exit.i.i.i.i.i.i.i.i:   ; preds = %_ZNK6vectorImLb0EjE8capacityEv.exit.i.i.i.i.i.i.i.i
-  %arrayidx.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds i32, ptr %8, i64 -1
+  %arrayidx.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %8, i64 -4
   %9 = load i32, ptr %arrayidx.i.i.i.i.i.i.i.i.i.i, align 4
   %tobool.not.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i = icmp eq i32 %9, 0
   br i1 %tobool.not.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i, label %_ZN7datalog10table_baseC2ERNS_12table_pluginERKNS_15table_signatureE.exit.i, label %if.then.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i
@@ -2806,18 +2773,18 @@ if.then.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i:            ; preds = %_ZNK6vectorImLb0EjE
   br label %_ZN7datalog10table_baseC2ERNS_12table_pluginERKNS_15table_signatureE.exit.i
 
 _ZN7datalog10table_baseC2ERNS_12table_pluginERKNS_15table_signatureE.exit.i: ; preds = %if.then.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i, %_ZNK6vectorImLb0EjE3endEv.exit.i.i.i.i.i.i.i.i, %_ZNK6vectorImLb0EjE8capacityEv.exit.i.i.i.i.i.i.i.i, %entry
-  %m_functional_columns.i.i.i.i = getelementptr inbounds %"class.datalog::tr_infrastructure<datalog::table_traits>::base_ancestor", ptr %call, i64 0, i32 2, i32 1
-  %m_functional_columns2.i.i.i.i = getelementptr inbounds %"class.datalog::tr_infrastructure<datalog::table_traits>::base_ancestor", ptr %this, i64 0, i32 2, i32 1
+  %m_functional_columns.i.i.i.i = getelementptr inbounds i8, ptr %call, i64 24
+  %m_functional_columns2.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 24
   %12 = load i32, ptr %m_functional_columns2.i.i.i.i, align 8
   store i32 %12, ptr %m_functional_columns.i.i.i.i, align 8
-  %m_kind.i.i.i = getelementptr inbounds %"class.datalog::tr_infrastructure<datalog::table_traits>::base_ancestor", ptr %call, i64 0, i32 3
-  %m_kind.i.i.i.i = getelementptr inbounds %"class.datalog::tr_infrastructure<datalog::table_traits>::plugin_object", ptr %0, i64 0, i32 1
+  %m_kind.i.i.i = getelementptr inbounds i8, ptr %call, i64 32
+  %m_kind.i.i.i.i = getelementptr inbounds i8, ptr %0, i64 8
   %13 = load i32, ptr %m_kind.i.i.i.i, align 8
   store i32 %13, ptr %m_kind.i.i.i, align 8
   store ptr getelementptr inbounds ({ [29 x ptr] }, ptr @_ZTVN7datalog11check_tableE, i64 0, inrange i32 0, i64 2), ptr %call, align 8
-  %m_checker.i = getelementptr inbounds %"class.datalog::check_table", ptr %call, i64 0, i32 1
+  %m_checker.i = getelementptr inbounds i8, ptr %call, i64 40
   store ptr %call7, ptr %m_checker.i, align 8
-  %m_tocheck.i = getelementptr inbounds %"class.datalog::check_table", ptr %call, i64 0, i32 2
+  %m_tocheck.i = getelementptr inbounds i8, ptr %call, i64 48
   store ptr %call4, ptr %m_tocheck.i, align 8
   %call.i = invoke noundef zeroext i1 @_ZNK7datalog11check_table11well_formedEv(ptr noundef nonnull align 8 dereferenceable(56) %call)
           to label %_ZN7datalog11check_tableC2ERNS_18check_table_pluginERKNS_15table_signatureEPNS_10table_baseES7_.exit unwind label %lpad.i
@@ -2848,7 +2815,7 @@ entry:
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN7datalog17tr_infrastructureINS_12table_traitsEE13plugin_object10initializeEi(ptr noundef nonnull align 8 dereferenceable(32) %this, i32 noundef %fid) unnamed_addr #6 comdat align 2 {
 entry:
-  %m_kind = getelementptr inbounds %"class.datalog::tr_infrastructure<datalog::table_traits>::plugin_object", ptr %this, i64 0, i32 1
+  %m_kind = getelementptr inbounds i8, ptr %this, i64 8
   store i32 %fid, ptr %m_kind, align 8
   ret void
 }
@@ -2857,7 +2824,7 @@ entry:
 define linkonce_odr hidden noundef zeroext i1 @_ZN7datalog17tr_infrastructureINS_12table_traitsEE13plugin_object20can_handle_signatureERKNS_15table_signatureEi(ptr noundef nonnull align 8 dereferenceable(32) %this, ptr noundef nonnull align 8 dereferenceable(12) %s, i32 noundef %kind) unnamed_addr #3 comdat align 2 {
 entry:
   %vtable = load ptr, ptr %this, align 8
-  %vfn = getelementptr inbounds ptr, ptr %vtable, i64 3
+  %vfn = getelementptr inbounds i8, ptr %vtable, i64 24
   %0 = load ptr, ptr %vfn, align 8
   %call = tail call noundef zeroext i1 %0(ptr noundef nonnull align 8 dereferenceable(32) %this, ptr noundef nonnull align 8 dereferenceable(12) %s)
   ret i1 %call
@@ -2867,7 +2834,7 @@ entry:
 define linkonce_odr hidden noundef ptr @_ZN7datalog17tr_infrastructureINS_12table_traitsEE13plugin_object8mk_emptyERKNS_15table_signatureEi(ptr noundef nonnull align 8 dereferenceable(32) %this, ptr noundef nonnull align 8 dereferenceable(12) %s, i32 noundef %kind) unnamed_addr #3 comdat align 2 {
 entry:
   %vtable = load ptr, ptr %this, align 8
-  %vfn = getelementptr inbounds ptr, ptr %vtable, i64 5
+  %vfn = getelementptr inbounds i8, ptr %vtable, i64 40
   %0 = load ptr, ptr %vfn, align 8
   %call = tail call noundef ptr %0(ptr noundef nonnull align 8 dereferenceable(32) %this, ptr noundef nonnull align 8 dereferenceable(12) %s)
   ret ptr %call
@@ -2876,11 +2843,11 @@ entry:
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr hidden noundef ptr @_ZN7datalog17tr_infrastructureINS_12table_traitsEE13plugin_object8mk_emptyERKNS_10table_baseE(ptr noundef nonnull align 8 dereferenceable(32) %this, ptr noundef nonnull align 8 dereferenceable(36) %orig) unnamed_addr #3 comdat align 2 {
 entry:
-  %m_signature.i = getelementptr inbounds %"class.datalog::tr_infrastructure<datalog::table_traits>::base_ancestor", ptr %orig, i64 0, i32 2
-  %m_kind.i = getelementptr inbounds %"class.datalog::tr_infrastructure<datalog::table_traits>::base_ancestor", ptr %orig, i64 0, i32 3
+  %m_signature.i = getelementptr inbounds i8, ptr %orig, i64 16
+  %m_kind.i = getelementptr inbounds i8, ptr %orig, i64 32
   %0 = load i32, ptr %m_kind.i, align 8
   %vtable = load ptr, ptr %this, align 8
-  %vfn = getelementptr inbounds ptr, ptr %vtable, i64 6
+  %vfn = getelementptr inbounds i8, ptr %vtable, i64 48
   %1 = load ptr, ptr %vfn, align 8
   %call3 = tail call noundef ptr %1(ptr noundef nonnull align 8 dereferenceable(32) %this, ptr noundef nonnull align 8 dereferenceable(12) %m_signature.i, i32 noundef %0)
   ret ptr %call3
@@ -2890,15 +2857,15 @@ entry:
 define linkonce_odr hidden noundef ptr @_ZN7datalog17tr_infrastructureINS_12table_traitsEE13plugin_object7mk_fullEP9func_declRKNS_15table_signatureE(ptr noundef nonnull align 8 dereferenceable(32) %this, ptr noundef %p, ptr noundef nonnull align 8 dereferenceable(12) %s) unnamed_addr #3 comdat align 2 {
 entry:
   %vtable = load ptr, ptr %this, align 8
-  %vfn = getelementptr inbounds ptr, ptr %vtable, i64 5
+  %vfn = getelementptr inbounds i8, ptr %vtable, i64 40
   %0 = load ptr, ptr %vfn, align 8
   %call = tail call noundef ptr %0(ptr noundef nonnull align 8 dereferenceable(32) %this, ptr noundef nonnull align 8 dereferenceable(12) %s)
   %vtable2 = load ptr, ptr %call, align 8
-  %vfn3 = getelementptr inbounds ptr, ptr %vtable2, i64 16
+  %vfn3 = getelementptr inbounds i8, ptr %vtable2, i64 128
   %1 = load ptr, ptr %vfn3, align 8
   %call4 = tail call noundef ptr %1(ptr noundef nonnull align 8 dereferenceable(36) %call, ptr noundef %p, ptr noundef null)
   %vtable5 = load ptr, ptr %call, align 8
-  %vfn6 = getelementptr inbounds ptr, ptr %vtable5, i64 2
+  %vfn6 = getelementptr inbounds i8, ptr %vtable5, i64 16
   %2 = load ptr, ptr %vfn6, align 8
   tail call void %2(ptr noundef nonnull align 8 dereferenceable(36) %call)
   ret ptr %call4
@@ -2907,7 +2874,7 @@ entry:
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr hidden noundef ptr @_ZN7datalog17tr_infrastructureINS_12table_traitsEE13plugin_object7mk_fullEP9func_declRKNS_15table_signatureEi(ptr noundef nonnull align 8 dereferenceable(32) %this, ptr noundef %p, ptr noundef nonnull align 8 dereferenceable(12) %s, i32 noundef %kind) unnamed_addr #3 comdat align 2 {
 entry:
-  %m_kind.i = getelementptr inbounds %"class.datalog::tr_infrastructure<datalog::table_traits>::plugin_object", ptr %this, i64 0, i32 1
+  %m_kind.i = getelementptr inbounds i8, ptr %this, i64 8
   %0 = load i32, ptr %m_kind.i, align 8
   %cmp = icmp eq i32 %0, %kind
   %cmp2 = icmp eq i32 %kind, -1
@@ -2916,21 +2883,21 @@ entry:
   br i1 %or.cond, label %if.then, label %if.end
 
 if.then:                                          ; preds = %entry
-  %vfn = getelementptr inbounds ptr, ptr %vtable, i64 8
+  %vfn = getelementptr inbounds i8, ptr %vtable, i64 64
   %1 = load ptr, ptr %vfn, align 8
   %call3 = tail call noundef ptr %1(ptr noundef nonnull align 8 dereferenceable(32) %this, ptr noundef %p, ptr noundef nonnull align 8 dereferenceable(12) %s)
   br label %return
 
 if.end:                                           ; preds = %entry
-  %vfn5 = getelementptr inbounds ptr, ptr %vtable, i64 6
+  %vfn5 = getelementptr inbounds i8, ptr %vtable, i64 48
   %2 = load ptr, ptr %vfn5, align 8
   %call6 = tail call noundef ptr %2(ptr noundef nonnull align 8 dereferenceable(32) %this, ptr noundef nonnull align 8 dereferenceable(12) %s, i32 noundef %kind)
   %vtable7 = load ptr, ptr %call6, align 8
-  %vfn8 = getelementptr inbounds ptr, ptr %vtable7, i64 16
+  %vfn8 = getelementptr inbounds i8, ptr %vtable7, i64 128
   %3 = load ptr, ptr %vfn8, align 8
   %call9 = tail call noundef ptr %3(ptr noundef nonnull align 8 dereferenceable(36) %call6, ptr noundef %p, ptr noundef null)
   %vtable10 = load ptr, ptr %call6, align 8
-  %vfn11 = getelementptr inbounds ptr, ptr %vtable10, i64 2
+  %vfn11 = getelementptr inbounds i8, ptr %vtable10, i64 16
   %4 = load ptr, ptr %vfn11, align 8
   tail call void %4(ptr noundef nonnull align 8 dereferenceable(36) %call6)
   br label %return
@@ -2990,7 +2957,7 @@ entry:
 define linkonce_odr hidden noundef zeroext i1 @_ZNK7datalog17tr_infrastructureINS_12table_traitsEE13base_ancestor10fast_emptyEv(ptr noundef nonnull align 8 dereferenceable(36) %this) unnamed_addr #3 comdat align 2 {
 entry:
   %vtable = load ptr, ptr %this, align 8
-  %vfn = getelementptr inbounds ptr, ptr %vtable, i64 3
+  %vfn = getelementptr inbounds i8, ptr %vtable, i64 24
   %0 = load ptr, ptr %vfn, align 8
   %call = tail call noundef zeroext i1 %0(ptr noundef nonnull align 8 dereferenceable(36) %this)
   ret i1 %call
@@ -3000,7 +2967,7 @@ entry:
 define linkonce_odr hidden void @_ZN7datalog17tr_infrastructureINS_12table_traitsEE13base_ancestor12add_new_factERK7svectorImjE(ptr noundef nonnull align 8 dereferenceable(36) %this, ptr noundef nonnull align 8 dereferenceable(8) %f) unnamed_addr #3 comdat align 2 {
 entry:
   %vtable = load ptr, ptr %this, align 8
-  %vfn = getelementptr inbounds ptr, ptr %vtable, i64 5
+  %vfn = getelementptr inbounds i8, ptr %vtable, i64 40
   %0 = load ptr, ptr %vfn, align 8
   tail call void %0(ptr noundef nonnull align 8 dereferenceable(36) %this, ptr noundef nonnull align 8 dereferenceable(8) %f)
   ret void
@@ -3017,8 +2984,8 @@ entry:
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN7datalog17tr_infrastructureINS_12table_traitsEE13base_ancestor4swapERNS_10table_baseE(ptr noundef nonnull align 8 dereferenceable(36) %this, ptr noundef nonnull align 8 dereferenceable(36) %o) unnamed_addr #6 comdat align 2 {
 entry:
-  %m_kind = getelementptr inbounds %"class.datalog::tr_infrastructure<datalog::table_traits>::base_ancestor", ptr %this, i64 0, i32 3
-  %m_kind2 = getelementptr inbounds %"class.datalog::tr_infrastructure<datalog::table_traits>::base_ancestor", ptr %o, i64 0, i32 3
+  %m_kind = getelementptr inbounds i8, ptr %this, i64 32
+  %m_kind2 = getelementptr inbounds i8, ptr %o, i64 32
   %0 = load i32, ptr %m_kind, align 8
   %1 = load i32, ptr %m_kind2, align 8
   store i32 %1, ptr %m_kind, align 8
@@ -3029,10 +2996,10 @@ entry:
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr hidden noundef i32 @_ZNK7datalog11check_table22get_size_estimate_rowsEv(ptr noundef nonnull align 8 dereferenceable(56) %this) unnamed_addr #3 comdat align 2 {
 entry:
-  %m_tocheck = getelementptr inbounds %"class.datalog::check_table", ptr %this, i64 0, i32 2
+  %m_tocheck = getelementptr inbounds i8, ptr %this, i64 48
   %0 = load ptr, ptr %m_tocheck, align 8
   %vtable = load ptr, ptr %0, align 8
-  %vfn = getelementptr inbounds ptr, ptr %vtable, i64 12
+  %vfn = getelementptr inbounds i8, ptr %vtable, i64 96
   %1 = load ptr, ptr %vfn, align 8
   %call = tail call noundef i32 %1(ptr noundef nonnull align 8 dereferenceable(36) %0)
   ret i32 %call
@@ -3041,10 +3008,10 @@ entry:
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr hidden noundef i32 @_ZNK7datalog11check_table23get_size_estimate_bytesEv(ptr noundef nonnull align 8 dereferenceable(56) %this) unnamed_addr #3 comdat align 2 {
 entry:
-  %m_tocheck = getelementptr inbounds %"class.datalog::check_table", ptr %this, i64 0, i32 2
+  %m_tocheck = getelementptr inbounds i8, ptr %this, i64 48
   %0 = load ptr, ptr %m_tocheck, align 8
   %vtable = load ptr, ptr %0, align 8
-  %vfn = getelementptr inbounds ptr, ptr %vtable, i64 13
+  %vfn = getelementptr inbounds i8, ptr %vtable, i64 104
   %1 = load ptr, ptr %vfn, align 8
   %call = tail call noundef i32 %1(ptr noundef nonnull align 8 dereferenceable(36) %0)
   ret i32 %call
@@ -3069,7 +3036,7 @@ define linkonce_odr hidden void @_ZN7datalog10table_base11remove_factERK7svector
 entry:
   %0 = load ptr, ptr %fact, align 8
   %vtable = load ptr, ptr %this, align 8
-  %vfn = getelementptr inbounds ptr, ptr %vtable, i64 21
+  %vfn = getelementptr inbounds i8, ptr %vtable, i64 168
   %1 = load ptr, ptr %vfn, align 8
   tail call void %1(ptr noundef nonnull align 8 dereferenceable(36) %this, ptr noundef %0)
   ret void
@@ -3084,10 +3051,10 @@ declare void @_ZNK7datalog10table_base10to_formulaERKNS_18relation_signatureER7o
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr hidden void @_ZNK7datalog11check_table5beginEv(ptr noalias sret(%"class.datalog::table_base::iterator") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(56) %this) unnamed_addr #3 comdat align 2 {
 entry:
-  %m_tocheck = getelementptr inbounds %"class.datalog::check_table", ptr %this, i64 0, i32 2
+  %m_tocheck = getelementptr inbounds i8, ptr %this, i64 48
   %0 = load ptr, ptr %m_tocheck, align 8
   %vtable = load ptr, ptr %0, align 8
-  %vfn = getelementptr inbounds ptr, ptr %vtable, i64 25
+  %vfn = getelementptr inbounds i8, ptr %vtable, i64 200
   %1 = load ptr, ptr %vfn, align 8
   tail call void %1(ptr sret(%"class.datalog::table_base::iterator") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(36) %0)
   ret void
@@ -3096,10 +3063,10 @@ entry:
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr hidden void @_ZNK7datalog11check_table3endEv(ptr noalias sret(%"class.datalog::table_base::iterator") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(56) %this) unnamed_addr #3 comdat align 2 {
 entry:
-  %m_tocheck = getelementptr inbounds %"class.datalog::check_table", ptr %this, i64 0, i32 2
+  %m_tocheck = getelementptr inbounds i8, ptr %this, i64 48
   %0 = load ptr, ptr %m_tocheck, align 8
   %vtable = load ptr, ptr %0, align 8
-  %vfn = getelementptr inbounds ptr, ptr %vtable, i64 26
+  %vfn = getelementptr inbounds i8, ptr %vtable, i64 208
   %1 = load ptr, ptr %vfn, align 8
   tail call void %1(ptr sret(%"class.datalog::table_base::iterator") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(36) %0)
   ret void
@@ -3136,7 +3103,7 @@ terminate.lpad:                                   ; preds = %if.end.i
 define linkonce_odr hidden void @_ZN7datalog18check_table_plugin7join_fnD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %this) unnamed_addr #6 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7datalog18check_table_plugin7join_fnE, i64 0, inrange i32 0, i64 2), ptr %this, align 8
-  %m_checker = getelementptr inbounds %"class.datalog::check_table_plugin::join_fn", ptr %this, i64 0, i32 2
+  %m_checker = getelementptr inbounds i8, ptr %this, i64 16
   %0 = load ptr, ptr %m_checker, align 8
   %cmp.i.i = icmp eq ptr %0, null
   br i1 %cmp.i.i, label %_ZN10scoped_ptrIN7datalog17tr_infrastructureINS0_12table_traitsEE7join_fnEED2Ev.exit, label %if.end.i.i
@@ -3156,7 +3123,7 @@ terminate.lpad.i:                                 ; preds = %if.end.i.i
   unreachable
 
 _ZN10scoped_ptrIN7datalog17tr_infrastructureINS0_12table_traitsEE7join_fnEED2Ev.exit: ; preds = %entry, %if.end.i.i
-  %m_tocheck = getelementptr inbounds %"class.datalog::check_table_plugin::join_fn", ptr %this, i64 0, i32 1
+  %m_tocheck = getelementptr inbounds i8, ptr %this, i64 8
   %4 = load ptr, ptr %m_tocheck, align 8
   %cmp.i.i1 = icmp eq ptr %4, null
   br i1 %cmp.i.i1, label %_ZN10scoped_ptrIN7datalog17tr_infrastructureINS0_12table_traitsEE7join_fnEED2Ev.exit5, label %if.end.i.i2
@@ -3183,7 +3150,7 @@ _ZN10scoped_ptrIN7datalog17tr_infrastructureINS0_12table_traitsEE7join_fnEED2Ev.
 define linkonce_odr hidden void @_ZN7datalog18check_table_plugin7join_fnD0Ev(ptr noundef nonnull align 8 dereferenceable(24) %this) unnamed_addr #6 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7datalog18check_table_plugin7join_fnE, i64 0, inrange i32 0, i64 2), ptr %this, align 8
-  %m_checker.i = getelementptr inbounds %"class.datalog::check_table_plugin::join_fn", ptr %this, i64 0, i32 2
+  %m_checker.i = getelementptr inbounds i8, ptr %this, i64 16
   %0 = load ptr, ptr %m_checker.i, align 8
   %cmp.i.i.i = icmp eq ptr %0, null
   br i1 %cmp.i.i.i, label %_ZN10scoped_ptrIN7datalog17tr_infrastructureINS0_12table_traitsEE7join_fnEED2Ev.exit.i, label %if.end.i.i.i
@@ -3203,7 +3170,7 @@ terminate.lpad.i.i:                               ; preds = %if.end.i.i.i
   unreachable
 
 _ZN10scoped_ptrIN7datalog17tr_infrastructureINS0_12table_traitsEE7join_fnEED2Ev.exit.i: ; preds = %if.end.i.i.i, %entry
-  %m_tocheck.i = getelementptr inbounds %"class.datalog::check_table_plugin::join_fn", ptr %this, i64 0, i32 1
+  %m_tocheck.i = getelementptr inbounds i8, ptr %this, i64 8
   %4 = load ptr, ptr %m_tocheck.i, align 8
   %cmp.i.i1.i = icmp eq ptr %4, null
   br i1 %cmp.i.i1.i, label %_ZN7datalog18check_table_plugin7join_fnD2Ev.exit, label %if.end.i.i2.i
@@ -3253,41 +3220,41 @@ if.else:                                          ; preds = %if.then
   br label %if.end10
 
 if.end10:                                         ; preds = %if.then3, %if.else, %entry
-  %m_tocheck = getelementptr inbounds %"class.datalog::check_table_plugin::join_fn", ptr %this, i64 0, i32 1
+  %m_tocheck = getelementptr inbounds i8, ptr %this, i64 8
   %0 = load ptr, ptr %m_tocheck, align 8
-  %m_tocheck.i = getelementptr inbounds %"class.datalog::check_table", ptr %t1, i64 0, i32 2
+  %m_tocheck.i = getelementptr inbounds i8, ptr %t1, i64 48
   %1 = load ptr, ptr %m_tocheck.i, align 8
-  %m_tocheck.i5 = getelementptr inbounds %"class.datalog::check_table", ptr %t2, i64 0, i32 2
+  %m_tocheck.i5 = getelementptr inbounds i8, ptr %t2, i64 48
   %2 = load ptr, ptr %m_tocheck.i5, align 8
   %vtable = load ptr, ptr %0, align 8
-  %vfn = getelementptr inbounds ptr, ptr %vtable, i64 2
+  %vfn = getelementptr inbounds i8, ptr %vtable, i64 16
   %3 = load ptr, ptr %vfn, align 8
   %call14 = tail call noundef ptr %3(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef nonnull align 8 dereferenceable(36) %1, ptr noundef nonnull align 8 dereferenceable(36) %2)
-  %m_checker = getelementptr inbounds %"class.datalog::check_table_plugin::join_fn", ptr %this, i64 0, i32 2
+  %m_checker = getelementptr inbounds i8, ptr %this, i64 16
   %4 = load ptr, ptr %m_checker, align 8
-  %m_checker.i = getelementptr inbounds %"class.datalog::check_table", ptr %t1, i64 0, i32 1
+  %m_checker.i = getelementptr inbounds i8, ptr %t1, i64 40
   %5 = load ptr, ptr %m_checker.i, align 8
-  %m_checker.i6 = getelementptr inbounds %"class.datalog::check_table", ptr %t2, i64 0, i32 1
+  %m_checker.i6 = getelementptr inbounds i8, ptr %t2, i64 40
   %6 = load ptr, ptr %m_checker.i6, align 8
   %vtable18 = load ptr, ptr %4, align 8
-  %vfn19 = getelementptr inbounds ptr, ptr %vtable18, i64 2
+  %vfn19 = getelementptr inbounds i8, ptr %vtable18, i64 16
   %7 = load ptr, ptr %vfn19, align 8
   %call20 = tail call noundef ptr %7(ptr noundef nonnull align 8 dereferenceable(8) %4, ptr noundef nonnull align 8 dereferenceable(36) %5, ptr noundef nonnull align 8 dereferenceable(36) %6)
   %call21 = tail call noalias noundef ptr @_ZN6memory8allocateEm(i64 noundef 56)
-  %m_plugin.i.i = getelementptr inbounds %"class.datalog::tr_infrastructure<datalog::table_traits>::base_ancestor", ptr %t1, i64 0, i32 1
+  %m_plugin.i.i = getelementptr inbounds i8, ptr %t1, i64 8
   %8 = load ptr, ptr %m_plugin.i.i, align 8
-  %m_signature.i = getelementptr inbounds %"class.datalog::tr_infrastructure<datalog::table_traits>::base_ancestor", ptr %call14, i64 0, i32 2
+  %m_signature.i = getelementptr inbounds i8, ptr %call14, i64 16
   store ptr getelementptr inbounds ({ [18 x ptr] }, ptr @_ZTVN7datalog17tr_infrastructureINS_12table_traitsEE13base_ancestorE, i64 0, inrange i32 0, i64 2), ptr %call21, align 8
-  %m_plugin.i.i.i = getelementptr inbounds %"class.datalog::tr_infrastructure<datalog::table_traits>::base_ancestor", ptr %call21, i64 0, i32 1
+  %m_plugin.i.i.i = getelementptr inbounds i8, ptr %call21, i64 8
   store ptr %8, ptr %m_plugin.i.i.i, align 8
-  %m_signature.i.i.i = getelementptr inbounds %"class.datalog::tr_infrastructure<datalog::table_traits>::base_ancestor", ptr %call21, i64 0, i32 2
+  %m_signature.i.i.i = getelementptr inbounds i8, ptr %call21, i64 16
   store ptr null, ptr %m_signature.i.i.i, align 8
   %9 = load ptr, ptr %m_signature.i, align 8
   %tobool.not.i.i.i.i.i.i.i = icmp eq ptr %9, null
   br i1 %tobool.not.i.i.i.i.i.i.i, label %_ZN7datalog10table_baseC2ERNS_12table_pluginERKNS_15table_signatureE.exit.i, label %_ZNK6vectorImLb0EjE8capacityEv.exit.i.i.i.i.i.i.i.i
 
 _ZNK6vectorImLb0EjE8capacityEv.exit.i.i.i.i.i.i.i.i: ; preds = %if.end10
-  %arrayidx.i11.i.i.i.i.i.i.i.i = getelementptr inbounds i32, ptr %9, i64 -2
+  %arrayidx.i11.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %9, i64 -8
   %10 = load <2 x i32>, ptr %arrayidx.i11.i.i.i.i.i.i.i.i, align 4
   %11 = extractelement <2 x i32> %10, i64 0
   %conv.i.i.i.i.i.i.i.i = zext i32 %11 to i64
@@ -3295,14 +3262,14 @@ _ZNK6vectorImLb0EjE8capacityEv.exit.i.i.i.i.i.i.i.i: ; preds = %if.end10
   %add.i.i.i.i.i.i.i.i = add nuw nsw i64 %mul.i.i.i.i.i.i.i.i, 8
   %call3.i.i.i.i.i.i.i.i = tail call noalias noundef ptr @_ZN6memory8allocateEm(i64 noundef %add.i.i.i.i.i.i.i.i)
   store <2 x i32> %10, ptr %call3.i.i.i.i.i.i.i.i, align 4
-  %incdec.ptr4.i.i.i.i.i.i.i.i = getelementptr inbounds i32, ptr %call3.i.i.i.i.i.i.i.i, i64 2
+  %incdec.ptr4.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %call3.i.i.i.i.i.i.i.i, i64 8
   store ptr %incdec.ptr4.i.i.i.i.i.i.i.i, ptr %m_signature.i.i.i, align 8
   %12 = load ptr, ptr %m_signature.i, align 8
   %cmp.i.i.i.i.i.i.i.i.i.i = icmp eq ptr %12, null
   br i1 %cmp.i.i.i.i.i.i.i.i.i.i, label %_ZN7datalog10table_baseC2ERNS_12table_pluginERKNS_15table_signatureE.exit.i, label %_ZNK6vectorImLb0EjE3endEv.exit.i.i.i.i.i.i.i.i
 
 _ZNK6vectorImLb0EjE3endEv.exit.i.i.i.i.i.i.i.i:   ; preds = %_ZNK6vectorImLb0EjE8capacityEv.exit.i.i.i.i.i.i.i.i
-  %arrayidx.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds i32, ptr %12, i64 -1
+  %arrayidx.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %12, i64 -4
   %13 = load i32, ptr %arrayidx.i.i.i.i.i.i.i.i.i.i, align 4
   %tobool.not.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i = icmp eq i32 %13, 0
   br i1 %tobool.not.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i, label %_ZN7datalog10table_baseC2ERNS_12table_pluginERKNS_15table_signatureE.exit.i, label %if.then.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i
@@ -3314,18 +3281,18 @@ if.then.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i:            ; preds = %_ZNK6vectorImLb0EjE
   br label %_ZN7datalog10table_baseC2ERNS_12table_pluginERKNS_15table_signatureE.exit.i
 
 _ZN7datalog10table_baseC2ERNS_12table_pluginERKNS_15table_signatureE.exit.i: ; preds = %if.then.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i, %_ZNK6vectorImLb0EjE3endEv.exit.i.i.i.i.i.i.i.i, %_ZNK6vectorImLb0EjE8capacityEv.exit.i.i.i.i.i.i.i.i, %if.end10
-  %m_functional_columns.i.i.i.i = getelementptr inbounds %"class.datalog::tr_infrastructure<datalog::table_traits>::base_ancestor", ptr %call21, i64 0, i32 2, i32 1
-  %m_functional_columns2.i.i.i.i = getelementptr inbounds %"class.datalog::tr_infrastructure<datalog::table_traits>::base_ancestor", ptr %call14, i64 0, i32 2, i32 1
+  %m_functional_columns.i.i.i.i = getelementptr inbounds i8, ptr %call21, i64 24
+  %m_functional_columns2.i.i.i.i = getelementptr inbounds i8, ptr %call14, i64 24
   %16 = load i32, ptr %m_functional_columns2.i.i.i.i, align 8
   store i32 %16, ptr %m_functional_columns.i.i.i.i, align 8
-  %m_kind.i.i.i = getelementptr inbounds %"class.datalog::tr_infrastructure<datalog::table_traits>::base_ancestor", ptr %call21, i64 0, i32 3
-  %m_kind.i.i.i.i = getelementptr inbounds %"class.datalog::tr_infrastructure<datalog::table_traits>::plugin_object", ptr %8, i64 0, i32 1
+  %m_kind.i.i.i = getelementptr inbounds i8, ptr %call21, i64 32
+  %m_kind.i.i.i.i = getelementptr inbounds i8, ptr %8, i64 8
   %17 = load i32, ptr %m_kind.i.i.i.i, align 8
   store i32 %17, ptr %m_kind.i.i.i, align 8
   store ptr getelementptr inbounds ({ [29 x ptr] }, ptr @_ZTVN7datalog11check_tableE, i64 0, inrange i32 0, i64 2), ptr %call21, align 8
-  %m_checker.i7 = getelementptr inbounds %"class.datalog::check_table", ptr %call21, i64 0, i32 1
+  %m_checker.i7 = getelementptr inbounds i8, ptr %call21, i64 40
   store ptr %call20, ptr %m_checker.i7, align 8
-  %m_tocheck.i8 = getelementptr inbounds %"class.datalog::check_table", ptr %call21, i64 0, i32 2
+  %m_tocheck.i8 = getelementptr inbounds i8, ptr %call21, i64 48
   store ptr %call14, ptr %m_tocheck.i8, align 8
   %call.i = invoke noundef zeroext i1 @_ZNK7datalog11check_table11well_formedEv(ptr noundef nonnull align 8 dereferenceable(56) %call21)
           to label %_ZN7datalog11check_tableC2ERNS_18check_table_pluginERKNS_15table_signatureEPNS_10table_baseES7_.exit unwind label %lpad.i
@@ -3353,7 +3320,7 @@ declare noundef ptr @_ZN7datalog16relation_manager18mk_join_project_fnERKNS_10ta
 define linkonce_odr hidden void @_ZN7datalog18check_table_plugin15join_project_fnD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %this) unnamed_addr #6 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7datalog18check_table_plugin15join_project_fnE, i64 0, inrange i32 0, i64 2), ptr %this, align 8
-  %m_checker = getelementptr inbounds %"class.datalog::check_table_plugin::join_project_fn", ptr %this, i64 0, i32 2
+  %m_checker = getelementptr inbounds i8, ptr %this, i64 16
   %0 = load ptr, ptr %m_checker, align 8
   %cmp.i.i = icmp eq ptr %0, null
   br i1 %cmp.i.i, label %_ZN10scoped_ptrIN7datalog17tr_infrastructureINS0_12table_traitsEE7join_fnEED2Ev.exit, label %if.end.i.i
@@ -3373,7 +3340,7 @@ terminate.lpad.i:                                 ; preds = %if.end.i.i
   unreachable
 
 _ZN10scoped_ptrIN7datalog17tr_infrastructureINS0_12table_traitsEE7join_fnEED2Ev.exit: ; preds = %entry, %if.end.i.i
-  %m_tocheck = getelementptr inbounds %"class.datalog::check_table_plugin::join_project_fn", ptr %this, i64 0, i32 1
+  %m_tocheck = getelementptr inbounds i8, ptr %this, i64 8
   %4 = load ptr, ptr %m_tocheck, align 8
   %cmp.i.i1 = icmp eq ptr %4, null
   br i1 %cmp.i.i1, label %_ZN10scoped_ptrIN7datalog17tr_infrastructureINS0_12table_traitsEE7join_fnEED2Ev.exit5, label %if.end.i.i2
@@ -3400,7 +3367,7 @@ _ZN10scoped_ptrIN7datalog17tr_infrastructureINS0_12table_traitsEE7join_fnEED2Ev.
 define linkonce_odr hidden void @_ZN7datalog18check_table_plugin15join_project_fnD0Ev(ptr noundef nonnull align 8 dereferenceable(24) %this) unnamed_addr #6 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7datalog18check_table_plugin15join_project_fnE, i64 0, inrange i32 0, i64 2), ptr %this, align 8
-  %m_checker.i = getelementptr inbounds %"class.datalog::check_table_plugin::join_project_fn", ptr %this, i64 0, i32 2
+  %m_checker.i = getelementptr inbounds i8, ptr %this, i64 16
   %0 = load ptr, ptr %m_checker.i, align 8
   %cmp.i.i.i = icmp eq ptr %0, null
   br i1 %cmp.i.i.i, label %_ZN10scoped_ptrIN7datalog17tr_infrastructureINS0_12table_traitsEE7join_fnEED2Ev.exit.i, label %if.end.i.i.i
@@ -3420,7 +3387,7 @@ terminate.lpad.i.i:                               ; preds = %if.end.i.i.i
   unreachable
 
 _ZN10scoped_ptrIN7datalog17tr_infrastructureINS0_12table_traitsEE7join_fnEED2Ev.exit.i: ; preds = %if.end.i.i.i, %entry
-  %m_tocheck.i = getelementptr inbounds %"class.datalog::check_table_plugin::join_project_fn", ptr %this, i64 0, i32 1
+  %m_tocheck.i = getelementptr inbounds i8, ptr %this, i64 8
   %4 = load ptr, ptr %m_tocheck.i, align 8
   %cmp.i.i1.i = icmp eq ptr %4, null
   br i1 %cmp.i.i1.i, label %_ZN7datalog18check_table_plugin15join_project_fnD2Ev.exit, label %if.end.i.i2.i
@@ -3447,41 +3414,41 @@ _ZN7datalog18check_table_plugin15join_project_fnD2Ev.exit: ; preds = %_ZN10scope
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr hidden noundef ptr @_ZN7datalog18check_table_plugin15join_project_fnclERKNS_10table_baseES4_(ptr noundef nonnull align 8 dereferenceable(24) %this, ptr noundef nonnull align 8 dereferenceable(36) %t1, ptr noundef nonnull align 8 dereferenceable(36) %t2) unnamed_addr #3 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  %m_tocheck = getelementptr inbounds %"class.datalog::check_table_plugin::join_project_fn", ptr %this, i64 0, i32 1
+  %m_tocheck = getelementptr inbounds i8, ptr %this, i64 8
   %0 = load ptr, ptr %m_tocheck, align 8
-  %m_tocheck.i = getelementptr inbounds %"class.datalog::check_table", ptr %t1, i64 0, i32 2
+  %m_tocheck.i = getelementptr inbounds i8, ptr %t1, i64 48
   %1 = load ptr, ptr %m_tocheck.i, align 8
-  %m_tocheck.i5 = getelementptr inbounds %"class.datalog::check_table", ptr %t2, i64 0, i32 2
+  %m_tocheck.i5 = getelementptr inbounds i8, ptr %t2, i64 48
   %2 = load ptr, ptr %m_tocheck.i5, align 8
   %vtable = load ptr, ptr %0, align 8
-  %vfn = getelementptr inbounds ptr, ptr %vtable, i64 2
+  %vfn = getelementptr inbounds i8, ptr %vtable, i64 16
   %3 = load ptr, ptr %vfn, align 8
   %call4 = tail call noundef ptr %3(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef nonnull align 8 dereferenceable(36) %1, ptr noundef nonnull align 8 dereferenceable(36) %2)
-  %m_checker = getelementptr inbounds %"class.datalog::check_table_plugin::join_project_fn", ptr %this, i64 0, i32 2
+  %m_checker = getelementptr inbounds i8, ptr %this, i64 16
   %4 = load ptr, ptr %m_checker, align 8
-  %m_checker.i = getelementptr inbounds %"class.datalog::check_table", ptr %t1, i64 0, i32 1
+  %m_checker.i = getelementptr inbounds i8, ptr %t1, i64 40
   %5 = load ptr, ptr %m_checker.i, align 8
-  %m_checker.i6 = getelementptr inbounds %"class.datalog::check_table", ptr %t2, i64 0, i32 1
+  %m_checker.i6 = getelementptr inbounds i8, ptr %t2, i64 40
   %6 = load ptr, ptr %m_checker.i6, align 8
   %vtable8 = load ptr, ptr %4, align 8
-  %vfn9 = getelementptr inbounds ptr, ptr %vtable8, i64 2
+  %vfn9 = getelementptr inbounds i8, ptr %vtable8, i64 16
   %7 = load ptr, ptr %vfn9, align 8
   %call10 = tail call noundef ptr %7(ptr noundef nonnull align 8 dereferenceable(8) %4, ptr noundef nonnull align 8 dereferenceable(36) %5, ptr noundef nonnull align 8 dereferenceable(36) %6)
   %call11 = tail call noalias noundef ptr @_ZN6memory8allocateEm(i64 noundef 56)
-  %m_plugin.i.i = getelementptr inbounds %"class.datalog::tr_infrastructure<datalog::table_traits>::base_ancestor", ptr %t1, i64 0, i32 1
+  %m_plugin.i.i = getelementptr inbounds i8, ptr %t1, i64 8
   %8 = load ptr, ptr %m_plugin.i.i, align 8
-  %m_signature.i = getelementptr inbounds %"class.datalog::tr_infrastructure<datalog::table_traits>::base_ancestor", ptr %call4, i64 0, i32 2
+  %m_signature.i = getelementptr inbounds i8, ptr %call4, i64 16
   store ptr getelementptr inbounds ({ [18 x ptr] }, ptr @_ZTVN7datalog17tr_infrastructureINS_12table_traitsEE13base_ancestorE, i64 0, inrange i32 0, i64 2), ptr %call11, align 8
-  %m_plugin.i.i.i = getelementptr inbounds %"class.datalog::tr_infrastructure<datalog::table_traits>::base_ancestor", ptr %call11, i64 0, i32 1
+  %m_plugin.i.i.i = getelementptr inbounds i8, ptr %call11, i64 8
   store ptr %8, ptr %m_plugin.i.i.i, align 8
-  %m_signature.i.i.i = getelementptr inbounds %"class.datalog::tr_infrastructure<datalog::table_traits>::base_ancestor", ptr %call11, i64 0, i32 2
+  %m_signature.i.i.i = getelementptr inbounds i8, ptr %call11, i64 16
   store ptr null, ptr %m_signature.i.i.i, align 8
   %9 = load ptr, ptr %m_signature.i, align 8
   %tobool.not.i.i.i.i.i.i.i = icmp eq ptr %9, null
   br i1 %tobool.not.i.i.i.i.i.i.i, label %_ZN7datalog10table_baseC2ERNS_12table_pluginERKNS_15table_signatureE.exit.i, label %_ZNK6vectorImLb0EjE8capacityEv.exit.i.i.i.i.i.i.i.i
 
 _ZNK6vectorImLb0EjE8capacityEv.exit.i.i.i.i.i.i.i.i: ; preds = %entry
-  %arrayidx.i11.i.i.i.i.i.i.i.i = getelementptr inbounds i32, ptr %9, i64 -2
+  %arrayidx.i11.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %9, i64 -8
   %10 = load <2 x i32>, ptr %arrayidx.i11.i.i.i.i.i.i.i.i, align 4
   %11 = extractelement <2 x i32> %10, i64 0
   %conv.i.i.i.i.i.i.i.i = zext i32 %11 to i64
@@ -3489,14 +3456,14 @@ _ZNK6vectorImLb0EjE8capacityEv.exit.i.i.i.i.i.i.i.i: ; preds = %entry
   %add.i.i.i.i.i.i.i.i = add nuw nsw i64 %mul.i.i.i.i.i.i.i.i, 8
   %call3.i.i.i.i.i.i.i.i = tail call noalias noundef ptr @_ZN6memory8allocateEm(i64 noundef %add.i.i.i.i.i.i.i.i)
   store <2 x i32> %10, ptr %call3.i.i.i.i.i.i.i.i, align 4
-  %incdec.ptr4.i.i.i.i.i.i.i.i = getelementptr inbounds i32, ptr %call3.i.i.i.i.i.i.i.i, i64 2
+  %incdec.ptr4.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %call3.i.i.i.i.i.i.i.i, i64 8
   store ptr %incdec.ptr4.i.i.i.i.i.i.i.i, ptr %m_signature.i.i.i, align 8
   %12 = load ptr, ptr %m_signature.i, align 8
   %cmp.i.i.i.i.i.i.i.i.i.i = icmp eq ptr %12, null
   br i1 %cmp.i.i.i.i.i.i.i.i.i.i, label %_ZN7datalog10table_baseC2ERNS_12table_pluginERKNS_15table_signatureE.exit.i, label %_ZNK6vectorImLb0EjE3endEv.exit.i.i.i.i.i.i.i.i
 
 _ZNK6vectorImLb0EjE3endEv.exit.i.i.i.i.i.i.i.i:   ; preds = %_ZNK6vectorImLb0EjE8capacityEv.exit.i.i.i.i.i.i.i.i
-  %arrayidx.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds i32, ptr %12, i64 -1
+  %arrayidx.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %12, i64 -4
   %13 = load i32, ptr %arrayidx.i.i.i.i.i.i.i.i.i.i, align 4
   %tobool.not.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i = icmp eq i32 %13, 0
   br i1 %tobool.not.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i, label %_ZN7datalog10table_baseC2ERNS_12table_pluginERKNS_15table_signatureE.exit.i, label %if.then.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i
@@ -3508,18 +3475,18 @@ if.then.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i:            ; preds = %_ZNK6vectorImLb0EjE
   br label %_ZN7datalog10table_baseC2ERNS_12table_pluginERKNS_15table_signatureE.exit.i
 
 _ZN7datalog10table_baseC2ERNS_12table_pluginERKNS_15table_signatureE.exit.i: ; preds = %if.then.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i, %_ZNK6vectorImLb0EjE3endEv.exit.i.i.i.i.i.i.i.i, %_ZNK6vectorImLb0EjE8capacityEv.exit.i.i.i.i.i.i.i.i, %entry
-  %m_functional_columns.i.i.i.i = getelementptr inbounds %"class.datalog::tr_infrastructure<datalog::table_traits>::base_ancestor", ptr %call11, i64 0, i32 2, i32 1
-  %m_functional_columns2.i.i.i.i = getelementptr inbounds %"class.datalog::tr_infrastructure<datalog::table_traits>::base_ancestor", ptr %call4, i64 0, i32 2, i32 1
+  %m_functional_columns.i.i.i.i = getelementptr inbounds i8, ptr %call11, i64 24
+  %m_functional_columns2.i.i.i.i = getelementptr inbounds i8, ptr %call4, i64 24
   %16 = load i32, ptr %m_functional_columns2.i.i.i.i, align 8
   store i32 %16, ptr %m_functional_columns.i.i.i.i, align 8
-  %m_kind.i.i.i = getelementptr inbounds %"class.datalog::tr_infrastructure<datalog::table_traits>::base_ancestor", ptr %call11, i64 0, i32 3
-  %m_kind.i.i.i.i = getelementptr inbounds %"class.datalog::tr_infrastructure<datalog::table_traits>::plugin_object", ptr %8, i64 0, i32 1
+  %m_kind.i.i.i = getelementptr inbounds i8, ptr %call11, i64 32
+  %m_kind.i.i.i.i = getelementptr inbounds i8, ptr %8, i64 8
   %17 = load i32, ptr %m_kind.i.i.i.i, align 8
   store i32 %17, ptr %m_kind.i.i.i, align 8
   store ptr getelementptr inbounds ({ [29 x ptr] }, ptr @_ZTVN7datalog11check_tableE, i64 0, inrange i32 0, i64 2), ptr %call11, align 8
-  %m_checker.i7 = getelementptr inbounds %"class.datalog::check_table", ptr %call11, i64 0, i32 1
+  %m_checker.i7 = getelementptr inbounds i8, ptr %call11, i64 40
   store ptr %call10, ptr %m_checker.i7, align 8
-  %m_tocheck.i8 = getelementptr inbounds %"class.datalog::check_table", ptr %call11, i64 0, i32 2
+  %m_tocheck.i8 = getelementptr inbounds i8, ptr %call11, i64 48
   store ptr %call4, ptr %m_tocheck.i8, align 8
   %call.i = invoke noundef zeroext i1 @_ZNK7datalog11check_table11well_formedEv(ptr noundef nonnull align 8 dereferenceable(56) %call11)
           to label %_ZN7datalog11check_tableC2ERNS_18check_table_pluginERKNS_15table_signatureEPNS_10table_baseES7_.exit unwind label %lpad.i
@@ -3565,7 +3532,7 @@ terminate.lpad:                                   ; preds = %if.end.i
 define linkonce_odr hidden void @_ZN7datalog18check_table_plugin8union_fnD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %this) unnamed_addr #6 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7datalog18check_table_plugin8union_fnE, i64 0, inrange i32 0, i64 2), ptr %this, align 8
-  %m_checker = getelementptr inbounds %"class.datalog::check_table_plugin::union_fn", ptr %this, i64 0, i32 2
+  %m_checker = getelementptr inbounds i8, ptr %this, i64 16
   %0 = load ptr, ptr %m_checker, align 8
   %cmp.i.i = icmp eq ptr %0, null
   br i1 %cmp.i.i, label %_ZN10scoped_ptrIN7datalog17tr_infrastructureINS0_12table_traitsEE8union_fnEED2Ev.exit, label %if.end.i.i
@@ -3585,7 +3552,7 @@ terminate.lpad.i:                                 ; preds = %if.end.i.i
   unreachable
 
 _ZN10scoped_ptrIN7datalog17tr_infrastructureINS0_12table_traitsEE8union_fnEED2Ev.exit: ; preds = %entry, %if.end.i.i
-  %m_tocheck = getelementptr inbounds %"class.datalog::check_table_plugin::union_fn", ptr %this, i64 0, i32 1
+  %m_tocheck = getelementptr inbounds i8, ptr %this, i64 8
   %4 = load ptr, ptr %m_tocheck, align 8
   %cmp.i.i1 = icmp eq ptr %4, null
   br i1 %cmp.i.i1, label %_ZN10scoped_ptrIN7datalog17tr_infrastructureINS0_12table_traitsEE8union_fnEED2Ev.exit5, label %if.end.i.i2
@@ -3612,7 +3579,7 @@ _ZN10scoped_ptrIN7datalog17tr_infrastructureINS0_12table_traitsEE8union_fnEED2Ev
 define linkonce_odr hidden void @_ZN7datalog18check_table_plugin8union_fnD0Ev(ptr noundef nonnull align 8 dereferenceable(24) %this) unnamed_addr #6 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7datalog18check_table_plugin8union_fnE, i64 0, inrange i32 0, i64 2), ptr %this, align 8
-  %m_checker.i = getelementptr inbounds %"class.datalog::check_table_plugin::union_fn", ptr %this, i64 0, i32 2
+  %m_checker.i = getelementptr inbounds i8, ptr %this, i64 16
   %0 = load ptr, ptr %m_checker.i, align 8
   %cmp.i.i.i = icmp eq ptr %0, null
   br i1 %cmp.i.i.i, label %_ZN10scoped_ptrIN7datalog17tr_infrastructureINS0_12table_traitsEE8union_fnEED2Ev.exit.i, label %if.end.i.i.i
@@ -3632,7 +3599,7 @@ terminate.lpad.i.i:                               ; preds = %if.end.i.i.i
   unreachable
 
 _ZN10scoped_ptrIN7datalog17tr_infrastructureINS0_12table_traitsEE8union_fnEED2Ev.exit.i: ; preds = %if.end.i.i.i, %entry
-  %m_tocheck.i = getelementptr inbounds %"class.datalog::check_table_plugin::union_fn", ptr %this, i64 0, i32 1
+  %m_tocheck.i = getelementptr inbounds i8, ptr %this, i64 8
   %4 = load ptr, ptr %m_tocheck.i, align 8
   %cmp.i.i1.i = icmp eq ptr %4, null
   br i1 %cmp.i.i1.i, label %_ZN7datalog18check_table_plugin8union_fnD2Ev.exit, label %if.end.i.i2.i
@@ -3682,39 +3649,39 @@ if.else:                                          ; preds = %if.then
   br label %if.end10
 
 if.end10:                                         ; preds = %if.then3, %if.else, %entry
-  %m_tocheck = getelementptr inbounds %"class.datalog::check_table_plugin::union_fn", ptr %this, i64 0, i32 1
+  %m_tocheck = getelementptr inbounds i8, ptr %this, i64 8
   %0 = load ptr, ptr %m_tocheck, align 8
-  %m_tocheck.i = getelementptr inbounds %"class.datalog::check_table", ptr %tgt, i64 0, i32 2
+  %m_tocheck.i = getelementptr inbounds i8, ptr %tgt, i64 48
   %1 = load ptr, ptr %m_tocheck.i, align 8
-  %m_tocheck.i7 = getelementptr inbounds %"class.datalog::check_table", ptr %src, i64 0, i32 2
+  %m_tocheck.i7 = getelementptr inbounds i8, ptr %src, i64 48
   %2 = load ptr, ptr %m_tocheck.i7, align 8
   %tobool.not.i = icmp eq ptr %delta, null
   br i1 %tobool.not.i, label %_ZN7datalog18check_table_plugin7tocheckEPNS_10table_baseE.exit, label %cond.true.i
 
 cond.true.i:                                      ; preds = %if.end10
-  %m_tocheck.i8 = getelementptr inbounds %"class.datalog::check_table", ptr %delta, i64 0, i32 2
+  %m_tocheck.i8 = getelementptr inbounds i8, ptr %delta, i64 48
   %3 = load ptr, ptr %m_tocheck.i8, align 8
   br label %_ZN7datalog18check_table_plugin7tocheckEPNS_10table_baseE.exit
 
 _ZN7datalog18check_table_plugin7tocheckEPNS_10table_baseE.exit: ; preds = %if.end10, %cond.true.i
   %cond.i = phi ptr [ %3, %cond.true.i ], [ null, %if.end10 ]
   %vtable = load ptr, ptr %0, align 8
-  %vfn = getelementptr inbounds ptr, ptr %vtable, i64 2
+  %vfn = getelementptr inbounds i8, ptr %vtable, i64 16
   %4 = load ptr, ptr %vfn, align 8
   tail call void %4(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef nonnull align 8 dereferenceable(36) %1, ptr noundef nonnull align 8 dereferenceable(36) %2, ptr noundef %cond.i)
-  %m_checker = getelementptr inbounds %"class.datalog::check_table_plugin::union_fn", ptr %this, i64 0, i32 2
+  %m_checker = getelementptr inbounds i8, ptr %this, i64 16
   %5 = load ptr, ptr %m_checker, align 8
-  %m_checker.i = getelementptr inbounds %"class.datalog::check_table", ptr %tgt, i64 0, i32 1
+  %m_checker.i = getelementptr inbounds i8, ptr %tgt, i64 40
   %6 = load ptr, ptr %m_checker.i, align 8
-  %m_checker.i9 = getelementptr inbounds %"class.datalog::check_table", ptr %src, i64 0, i32 1
+  %m_checker.i9 = getelementptr inbounds i8, ptr %src, i64 40
   %7 = load ptr, ptr %m_checker.i9, align 8
   br i1 %tobool.not.i, label %if.end26.critedge, label %cond.true.i11
 
 cond.true.i11:                                    ; preds = %_ZN7datalog18check_table_plugin7tocheckEPNS_10table_baseE.exit
-  %m_checker.i12 = getelementptr inbounds %"class.datalog::check_table", ptr %delta, i64 0, i32 1
+  %m_checker.i12 = getelementptr inbounds i8, ptr %delta, i64 40
   %8 = load ptr, ptr %m_checker.i12, align 8
   %vtable19 = load ptr, ptr %5, align 8
-  %vfn20 = getelementptr inbounds ptr, ptr %vtable19, i64 2
+  %vfn20 = getelementptr inbounds i8, ptr %vtable19, i64 16
   %9 = load ptr, ptr %vfn20, align 8
   tail call void %9(ptr noundef nonnull align 8 dereferenceable(8) %5, ptr noundef nonnull align 8 dereferenceable(36) %6, ptr noundef nonnull align 8 dereferenceable(36) %7, ptr noundef %8)
   %call22 = tail call noundef zeroext i1 @_ZNK7datalog11check_table11well_formedEv(ptr noundef nonnull align 8 dereferenceable(56) %tgt)
@@ -3722,7 +3689,7 @@ cond.true.i11:                                    ; preds = %_ZN7datalog18check_
 
 if.end26.critedge:                                ; preds = %_ZN7datalog18check_table_plugin7tocheckEPNS_10table_baseE.exit
   %vtable19.c = load ptr, ptr %5, align 8
-  %vfn20.c = getelementptr inbounds ptr, ptr %vtable19.c, i64 2
+  %vfn20.c = getelementptr inbounds i8, ptr %vtable19.c, i64 16
   %10 = load ptr, ptr %vfn20.c, align 8
   tail call void %10(ptr noundef nonnull align 8 dereferenceable(8) %5, ptr noundef nonnull align 8 dereferenceable(36) %6, ptr noundef nonnull align 8 dereferenceable(36) %7, ptr noundef null)
   br label %if.end26
@@ -3764,7 +3731,7 @@ terminate.lpad:                                   ; preds = %if.end.i
 define linkonce_odr hidden void @_ZN7datalog18check_table_plugin10project_fnD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %this) unnamed_addr #6 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7datalog18check_table_plugin10project_fnE, i64 0, inrange i32 0, i64 2), ptr %this, align 8
-  %m_tocheck = getelementptr inbounds %"class.datalog::check_table_plugin::project_fn", ptr %this, i64 0, i32 2
+  %m_tocheck = getelementptr inbounds i8, ptr %this, i64 16
   %0 = load ptr, ptr %m_tocheck, align 8
   %cmp.i.i = icmp eq ptr %0, null
   br i1 %cmp.i.i, label %_ZN10scoped_ptrIN7datalog17tr_infrastructureINS0_12table_traitsEE14transformer_fnEED2Ev.exit, label %if.end.i.i
@@ -3784,7 +3751,7 @@ terminate.lpad.i:                                 ; preds = %if.end.i.i
   unreachable
 
 _ZN10scoped_ptrIN7datalog17tr_infrastructureINS0_12table_traitsEE14transformer_fnEED2Ev.exit: ; preds = %entry, %if.end.i.i
-  %m_checker = getelementptr inbounds %"class.datalog::check_table_plugin::project_fn", ptr %this, i64 0, i32 1
+  %m_checker = getelementptr inbounds i8, ptr %this, i64 8
   %4 = load ptr, ptr %m_checker, align 8
   %cmp.i.i1 = icmp eq ptr %4, null
   br i1 %cmp.i.i1, label %_ZN10scoped_ptrIN7datalog17tr_infrastructureINS0_12table_traitsEE14transformer_fnEED2Ev.exit5, label %if.end.i.i2
@@ -3811,7 +3778,7 @@ _ZN10scoped_ptrIN7datalog17tr_infrastructureINS0_12table_traitsEE14transformer_f
 define linkonce_odr hidden void @_ZN7datalog18check_table_plugin10project_fnD0Ev(ptr noundef nonnull align 8 dereferenceable(24) %this) unnamed_addr #6 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7datalog18check_table_plugin10project_fnE, i64 0, inrange i32 0, i64 2), ptr %this, align 8
-  %m_tocheck.i = getelementptr inbounds %"class.datalog::check_table_plugin::project_fn", ptr %this, i64 0, i32 2
+  %m_tocheck.i = getelementptr inbounds i8, ptr %this, i64 16
   %0 = load ptr, ptr %m_tocheck.i, align 8
   %cmp.i.i.i = icmp eq ptr %0, null
   br i1 %cmp.i.i.i, label %_ZN10scoped_ptrIN7datalog17tr_infrastructureINS0_12table_traitsEE14transformer_fnEED2Ev.exit.i, label %if.end.i.i.i
@@ -3831,7 +3798,7 @@ terminate.lpad.i.i:                               ; preds = %if.end.i.i.i
   unreachable
 
 _ZN10scoped_ptrIN7datalog17tr_infrastructureINS0_12table_traitsEE14transformer_fnEED2Ev.exit.i: ; preds = %if.end.i.i.i, %entry
-  %m_checker.i = getelementptr inbounds %"class.datalog::check_table_plugin::project_fn", ptr %this, i64 0, i32 1
+  %m_checker.i = getelementptr inbounds i8, ptr %this, i64 8
   %4 = load ptr, ptr %m_checker.i, align 8
   %cmp.i.i1.i = icmp eq ptr %4, null
   br i1 %cmp.i.i1.i, label %_ZN7datalog18check_table_plugin10project_fnD2Ev.exit, label %if.end.i.i2.i
@@ -3858,37 +3825,37 @@ _ZN7datalog18check_table_plugin10project_fnD2Ev.exit: ; preds = %_ZN10scoped_ptr
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr hidden noundef ptr @_ZN7datalog18check_table_plugin10project_fnclERKNS_10table_baseE(ptr noundef nonnull align 8 dereferenceable(24) %this, ptr noundef nonnull align 8 dereferenceable(36) %src) unnamed_addr #3 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  %m_checker = getelementptr inbounds %"class.datalog::check_table_plugin::project_fn", ptr %this, i64 0, i32 1
+  %m_checker = getelementptr inbounds i8, ptr %this, i64 8
   %0 = load ptr, ptr %m_checker, align 8
-  %m_checker.i = getelementptr inbounds %"class.datalog::check_table", ptr %src, i64 0, i32 1
+  %m_checker.i = getelementptr inbounds i8, ptr %src, i64 40
   %1 = load ptr, ptr %m_checker.i, align 8
   %vtable = load ptr, ptr %0, align 8
-  %vfn = getelementptr inbounds ptr, ptr %vtable, i64 2
+  %vfn = getelementptr inbounds i8, ptr %vtable, i64 16
   %2 = load ptr, ptr %vfn, align 8
   %call3 = tail call noundef ptr %2(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef nonnull align 8 dereferenceable(36) %1)
-  %m_tocheck = getelementptr inbounds %"class.datalog::check_table_plugin::project_fn", ptr %this, i64 0, i32 2
+  %m_tocheck = getelementptr inbounds i8, ptr %this, i64 16
   %3 = load ptr, ptr %m_tocheck, align 8
-  %m_tocheck.i = getelementptr inbounds %"class.datalog::check_table", ptr %src, i64 0, i32 2
+  %m_tocheck.i = getelementptr inbounds i8, ptr %src, i64 48
   %4 = load ptr, ptr %m_tocheck.i, align 8
   %vtable6 = load ptr, ptr %3, align 8
-  %vfn7 = getelementptr inbounds ptr, ptr %vtable6, i64 2
+  %vfn7 = getelementptr inbounds i8, ptr %vtable6, i64 16
   %5 = load ptr, ptr %vfn7, align 8
   %call8 = tail call noundef ptr %5(ptr noundef nonnull align 8 dereferenceable(8) %3, ptr noundef nonnull align 8 dereferenceable(36) %4)
   %call9 = tail call noalias noundef ptr @_ZN6memory8allocateEm(i64 noundef 56)
-  %m_plugin.i.i = getelementptr inbounds %"class.datalog::tr_infrastructure<datalog::table_traits>::base_ancestor", ptr %src, i64 0, i32 1
+  %m_plugin.i.i = getelementptr inbounds i8, ptr %src, i64 8
   %6 = load ptr, ptr %m_plugin.i.i, align 8
-  %m_signature.i = getelementptr inbounds %"class.datalog::tr_infrastructure<datalog::table_traits>::base_ancestor", ptr %call3, i64 0, i32 2
+  %m_signature.i = getelementptr inbounds i8, ptr %call3, i64 16
   store ptr getelementptr inbounds ({ [18 x ptr] }, ptr @_ZTVN7datalog17tr_infrastructureINS_12table_traitsEE13base_ancestorE, i64 0, inrange i32 0, i64 2), ptr %call9, align 8
-  %m_plugin.i.i.i = getelementptr inbounds %"class.datalog::tr_infrastructure<datalog::table_traits>::base_ancestor", ptr %call9, i64 0, i32 1
+  %m_plugin.i.i.i = getelementptr inbounds i8, ptr %call9, i64 8
   store ptr %6, ptr %m_plugin.i.i.i, align 8
-  %m_signature.i.i.i = getelementptr inbounds %"class.datalog::tr_infrastructure<datalog::table_traits>::base_ancestor", ptr %call9, i64 0, i32 2
+  %m_signature.i.i.i = getelementptr inbounds i8, ptr %call9, i64 16
   store ptr null, ptr %m_signature.i.i.i, align 8
   %7 = load ptr, ptr %m_signature.i, align 8
   %tobool.not.i.i.i.i.i.i.i = icmp eq ptr %7, null
   br i1 %tobool.not.i.i.i.i.i.i.i, label %_ZN7datalog10table_baseC2ERNS_12table_pluginERKNS_15table_signatureE.exit.i, label %_ZNK6vectorImLb0EjE8capacityEv.exit.i.i.i.i.i.i.i.i
 
 _ZNK6vectorImLb0EjE8capacityEv.exit.i.i.i.i.i.i.i.i: ; preds = %entry
-  %arrayidx.i11.i.i.i.i.i.i.i.i = getelementptr inbounds i32, ptr %7, i64 -2
+  %arrayidx.i11.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %7, i64 -8
   %8 = load <2 x i32>, ptr %arrayidx.i11.i.i.i.i.i.i.i.i, align 4
   %9 = extractelement <2 x i32> %8, i64 0
   %conv.i.i.i.i.i.i.i.i = zext i32 %9 to i64
@@ -3896,14 +3863,14 @@ _ZNK6vectorImLb0EjE8capacityEv.exit.i.i.i.i.i.i.i.i: ; preds = %entry
   %add.i.i.i.i.i.i.i.i = add nuw nsw i64 %mul.i.i.i.i.i.i.i.i, 8
   %call3.i.i.i.i.i.i.i.i = tail call noalias noundef ptr @_ZN6memory8allocateEm(i64 noundef %add.i.i.i.i.i.i.i.i)
   store <2 x i32> %8, ptr %call3.i.i.i.i.i.i.i.i, align 4
-  %incdec.ptr4.i.i.i.i.i.i.i.i = getelementptr inbounds i32, ptr %call3.i.i.i.i.i.i.i.i, i64 2
+  %incdec.ptr4.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %call3.i.i.i.i.i.i.i.i, i64 8
   store ptr %incdec.ptr4.i.i.i.i.i.i.i.i, ptr %m_signature.i.i.i, align 8
   %10 = load ptr, ptr %m_signature.i, align 8
   %cmp.i.i.i.i.i.i.i.i.i.i = icmp eq ptr %10, null
   br i1 %cmp.i.i.i.i.i.i.i.i.i.i, label %_ZN7datalog10table_baseC2ERNS_12table_pluginERKNS_15table_signatureE.exit.i, label %_ZNK6vectorImLb0EjE3endEv.exit.i.i.i.i.i.i.i.i
 
 _ZNK6vectorImLb0EjE3endEv.exit.i.i.i.i.i.i.i.i:   ; preds = %_ZNK6vectorImLb0EjE8capacityEv.exit.i.i.i.i.i.i.i.i
-  %arrayidx.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds i32, ptr %10, i64 -1
+  %arrayidx.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %10, i64 -4
   %11 = load i32, ptr %arrayidx.i.i.i.i.i.i.i.i.i.i, align 4
   %tobool.not.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i = icmp eq i32 %11, 0
   br i1 %tobool.not.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i, label %_ZN7datalog10table_baseC2ERNS_12table_pluginERKNS_15table_signatureE.exit.i, label %if.then.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i
@@ -3915,18 +3882,18 @@ if.then.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i:            ; preds = %_ZNK6vectorImLb0EjE
   br label %_ZN7datalog10table_baseC2ERNS_12table_pluginERKNS_15table_signatureE.exit.i
 
 _ZN7datalog10table_baseC2ERNS_12table_pluginERKNS_15table_signatureE.exit.i: ; preds = %if.then.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i, %_ZNK6vectorImLb0EjE3endEv.exit.i.i.i.i.i.i.i.i, %_ZNK6vectorImLb0EjE8capacityEv.exit.i.i.i.i.i.i.i.i, %entry
-  %m_functional_columns.i.i.i.i = getelementptr inbounds %"class.datalog::tr_infrastructure<datalog::table_traits>::base_ancestor", ptr %call9, i64 0, i32 2, i32 1
-  %m_functional_columns2.i.i.i.i = getelementptr inbounds %"class.datalog::tr_infrastructure<datalog::table_traits>::base_ancestor", ptr %call3, i64 0, i32 2, i32 1
+  %m_functional_columns.i.i.i.i = getelementptr inbounds i8, ptr %call9, i64 24
+  %m_functional_columns2.i.i.i.i = getelementptr inbounds i8, ptr %call3, i64 24
   %14 = load i32, ptr %m_functional_columns2.i.i.i.i, align 8
   store i32 %14, ptr %m_functional_columns.i.i.i.i, align 8
-  %m_kind.i.i.i = getelementptr inbounds %"class.datalog::tr_infrastructure<datalog::table_traits>::base_ancestor", ptr %call9, i64 0, i32 3
-  %m_kind.i.i.i.i = getelementptr inbounds %"class.datalog::tr_infrastructure<datalog::table_traits>::plugin_object", ptr %6, i64 0, i32 1
+  %m_kind.i.i.i = getelementptr inbounds i8, ptr %call9, i64 32
+  %m_kind.i.i.i.i = getelementptr inbounds i8, ptr %6, i64 8
   %15 = load i32, ptr %m_kind.i.i.i.i, align 8
   store i32 %15, ptr %m_kind.i.i.i, align 8
   store ptr getelementptr inbounds ({ [29 x ptr] }, ptr @_ZTVN7datalog11check_tableE, i64 0, inrange i32 0, i64 2), ptr %call9, align 8
-  %m_checker.i4 = getelementptr inbounds %"class.datalog::check_table", ptr %call9, i64 0, i32 1
+  %m_checker.i4 = getelementptr inbounds i8, ptr %call9, i64 40
   store ptr %call3, ptr %m_checker.i4, align 8
-  %m_tocheck.i5 = getelementptr inbounds %"class.datalog::check_table", ptr %call9, i64 0, i32 2
+  %m_tocheck.i5 = getelementptr inbounds i8, ptr %call9, i64 48
   store ptr %call8, ptr %m_tocheck.i5, align 8
   %call.i = invoke noundef zeroext i1 @_ZNK7datalog11check_table11well_formedEv(ptr noundef nonnull align 8 dereferenceable(56) %call9)
           to label %_ZN7datalog11check_tableC2ERNS_18check_table_pluginERKNS_15table_signatureEPNS_10table_baseES7_.exit unwind label %lpad.i
@@ -3947,7 +3914,7 @@ declare noundef ptr @_ZN7datalog16relation_manager30mk_select_equal_and_project_
 define linkonce_odr hidden void @_ZN7datalog18check_table_plugin27select_equal_and_project_fnD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %this) unnamed_addr #6 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7datalog18check_table_plugin27select_equal_and_project_fnE, i64 0, inrange i32 0, i64 2), ptr %this, align 8
-  %m_tocheck = getelementptr inbounds %"class.datalog::check_table_plugin::select_equal_and_project_fn", ptr %this, i64 0, i32 2
+  %m_tocheck = getelementptr inbounds i8, ptr %this, i64 16
   %0 = load ptr, ptr %m_tocheck, align 8
   %cmp.i.i = icmp eq ptr %0, null
   br i1 %cmp.i.i, label %_ZN10scoped_ptrIN7datalog17tr_infrastructureINS0_12table_traitsEE14transformer_fnEED2Ev.exit, label %if.end.i.i
@@ -3967,7 +3934,7 @@ terminate.lpad.i:                                 ; preds = %if.end.i.i
   unreachable
 
 _ZN10scoped_ptrIN7datalog17tr_infrastructureINS0_12table_traitsEE14transformer_fnEED2Ev.exit: ; preds = %entry, %if.end.i.i
-  %m_checker = getelementptr inbounds %"class.datalog::check_table_plugin::select_equal_and_project_fn", ptr %this, i64 0, i32 1
+  %m_checker = getelementptr inbounds i8, ptr %this, i64 8
   %4 = load ptr, ptr %m_checker, align 8
   %cmp.i.i1 = icmp eq ptr %4, null
   br i1 %cmp.i.i1, label %_ZN10scoped_ptrIN7datalog17tr_infrastructureINS0_12table_traitsEE14transformer_fnEED2Ev.exit5, label %if.end.i.i2
@@ -3994,7 +3961,7 @@ _ZN10scoped_ptrIN7datalog17tr_infrastructureINS0_12table_traitsEE14transformer_f
 define linkonce_odr hidden void @_ZN7datalog18check_table_plugin27select_equal_and_project_fnD0Ev(ptr noundef nonnull align 8 dereferenceable(24) %this) unnamed_addr #6 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7datalog18check_table_plugin27select_equal_and_project_fnE, i64 0, inrange i32 0, i64 2), ptr %this, align 8
-  %m_tocheck.i = getelementptr inbounds %"class.datalog::check_table_plugin::select_equal_and_project_fn", ptr %this, i64 0, i32 2
+  %m_tocheck.i = getelementptr inbounds i8, ptr %this, i64 16
   %0 = load ptr, ptr %m_tocheck.i, align 8
   %cmp.i.i.i = icmp eq ptr %0, null
   br i1 %cmp.i.i.i, label %_ZN10scoped_ptrIN7datalog17tr_infrastructureINS0_12table_traitsEE14transformer_fnEED2Ev.exit.i, label %if.end.i.i.i
@@ -4014,7 +3981,7 @@ terminate.lpad.i.i:                               ; preds = %if.end.i.i.i
   unreachable
 
 _ZN10scoped_ptrIN7datalog17tr_infrastructureINS0_12table_traitsEE14transformer_fnEED2Ev.exit.i: ; preds = %if.end.i.i.i, %entry
-  %m_checker.i = getelementptr inbounds %"class.datalog::check_table_plugin::select_equal_and_project_fn", ptr %this, i64 0, i32 1
+  %m_checker.i = getelementptr inbounds i8, ptr %this, i64 8
   %4 = load ptr, ptr %m_checker.i, align 8
   %cmp.i.i1.i = icmp eq ptr %4, null
   br i1 %cmp.i.i1.i, label %_ZN7datalog18check_table_plugin27select_equal_and_project_fnD2Ev.exit, label %if.end.i.i2.i
@@ -4041,37 +4008,37 @@ _ZN7datalog18check_table_plugin27select_equal_and_project_fnD2Ev.exit: ; preds =
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr hidden noundef ptr @_ZN7datalog18check_table_plugin27select_equal_and_project_fnclERKNS_10table_baseE(ptr noundef nonnull align 8 dereferenceable(24) %this, ptr noundef nonnull align 8 dereferenceable(36) %src) unnamed_addr #3 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  %m_checker = getelementptr inbounds %"class.datalog::check_table_plugin::select_equal_and_project_fn", ptr %this, i64 0, i32 1
+  %m_checker = getelementptr inbounds i8, ptr %this, i64 8
   %0 = load ptr, ptr %m_checker, align 8
-  %m_checker.i = getelementptr inbounds %"class.datalog::check_table", ptr %src, i64 0, i32 1
+  %m_checker.i = getelementptr inbounds i8, ptr %src, i64 40
   %1 = load ptr, ptr %m_checker.i, align 8
   %vtable = load ptr, ptr %0, align 8
-  %vfn = getelementptr inbounds ptr, ptr %vtable, i64 2
+  %vfn = getelementptr inbounds i8, ptr %vtable, i64 16
   %2 = load ptr, ptr %vfn, align 8
   %call3 = tail call noundef ptr %2(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef nonnull align 8 dereferenceable(36) %1)
-  %m_tocheck = getelementptr inbounds %"class.datalog::check_table_plugin::select_equal_and_project_fn", ptr %this, i64 0, i32 2
+  %m_tocheck = getelementptr inbounds i8, ptr %this, i64 16
   %3 = load ptr, ptr %m_tocheck, align 8
-  %m_tocheck.i = getelementptr inbounds %"class.datalog::check_table", ptr %src, i64 0, i32 2
+  %m_tocheck.i = getelementptr inbounds i8, ptr %src, i64 48
   %4 = load ptr, ptr %m_tocheck.i, align 8
   %vtable6 = load ptr, ptr %3, align 8
-  %vfn7 = getelementptr inbounds ptr, ptr %vtable6, i64 2
+  %vfn7 = getelementptr inbounds i8, ptr %vtable6, i64 16
   %5 = load ptr, ptr %vfn7, align 8
   %call8 = tail call noundef ptr %5(ptr noundef nonnull align 8 dereferenceable(8) %3, ptr noundef nonnull align 8 dereferenceable(36) %4)
   %call9 = tail call noalias noundef ptr @_ZN6memory8allocateEm(i64 noundef 56)
-  %m_plugin.i.i = getelementptr inbounds %"class.datalog::tr_infrastructure<datalog::table_traits>::base_ancestor", ptr %src, i64 0, i32 1
+  %m_plugin.i.i = getelementptr inbounds i8, ptr %src, i64 8
   %6 = load ptr, ptr %m_plugin.i.i, align 8
-  %m_signature.i = getelementptr inbounds %"class.datalog::tr_infrastructure<datalog::table_traits>::base_ancestor", ptr %call3, i64 0, i32 2
+  %m_signature.i = getelementptr inbounds i8, ptr %call3, i64 16
   store ptr getelementptr inbounds ({ [18 x ptr] }, ptr @_ZTVN7datalog17tr_infrastructureINS_12table_traitsEE13base_ancestorE, i64 0, inrange i32 0, i64 2), ptr %call9, align 8
-  %m_plugin.i.i.i = getelementptr inbounds %"class.datalog::tr_infrastructure<datalog::table_traits>::base_ancestor", ptr %call9, i64 0, i32 1
+  %m_plugin.i.i.i = getelementptr inbounds i8, ptr %call9, i64 8
   store ptr %6, ptr %m_plugin.i.i.i, align 8
-  %m_signature.i.i.i = getelementptr inbounds %"class.datalog::tr_infrastructure<datalog::table_traits>::base_ancestor", ptr %call9, i64 0, i32 2
+  %m_signature.i.i.i = getelementptr inbounds i8, ptr %call9, i64 16
   store ptr null, ptr %m_signature.i.i.i, align 8
   %7 = load ptr, ptr %m_signature.i, align 8
   %tobool.not.i.i.i.i.i.i.i = icmp eq ptr %7, null
   br i1 %tobool.not.i.i.i.i.i.i.i, label %_ZN7datalog10table_baseC2ERNS_12table_pluginERKNS_15table_signatureE.exit.i, label %_ZNK6vectorImLb0EjE8capacityEv.exit.i.i.i.i.i.i.i.i
 
 _ZNK6vectorImLb0EjE8capacityEv.exit.i.i.i.i.i.i.i.i: ; preds = %entry
-  %arrayidx.i11.i.i.i.i.i.i.i.i = getelementptr inbounds i32, ptr %7, i64 -2
+  %arrayidx.i11.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %7, i64 -8
   %8 = load <2 x i32>, ptr %arrayidx.i11.i.i.i.i.i.i.i.i, align 4
   %9 = extractelement <2 x i32> %8, i64 0
   %conv.i.i.i.i.i.i.i.i = zext i32 %9 to i64
@@ -4079,14 +4046,14 @@ _ZNK6vectorImLb0EjE8capacityEv.exit.i.i.i.i.i.i.i.i: ; preds = %entry
   %add.i.i.i.i.i.i.i.i = add nuw nsw i64 %mul.i.i.i.i.i.i.i.i, 8
   %call3.i.i.i.i.i.i.i.i = tail call noalias noundef ptr @_ZN6memory8allocateEm(i64 noundef %add.i.i.i.i.i.i.i.i)
   store <2 x i32> %8, ptr %call3.i.i.i.i.i.i.i.i, align 4
-  %incdec.ptr4.i.i.i.i.i.i.i.i = getelementptr inbounds i32, ptr %call3.i.i.i.i.i.i.i.i, i64 2
+  %incdec.ptr4.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %call3.i.i.i.i.i.i.i.i, i64 8
   store ptr %incdec.ptr4.i.i.i.i.i.i.i.i, ptr %m_signature.i.i.i, align 8
   %10 = load ptr, ptr %m_signature.i, align 8
   %cmp.i.i.i.i.i.i.i.i.i.i = icmp eq ptr %10, null
   br i1 %cmp.i.i.i.i.i.i.i.i.i.i, label %_ZN7datalog10table_baseC2ERNS_12table_pluginERKNS_15table_signatureE.exit.i, label %_ZNK6vectorImLb0EjE3endEv.exit.i.i.i.i.i.i.i.i
 
 _ZNK6vectorImLb0EjE3endEv.exit.i.i.i.i.i.i.i.i:   ; preds = %_ZNK6vectorImLb0EjE8capacityEv.exit.i.i.i.i.i.i.i.i
-  %arrayidx.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds i32, ptr %10, i64 -1
+  %arrayidx.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %10, i64 -4
   %11 = load i32, ptr %arrayidx.i.i.i.i.i.i.i.i.i.i, align 4
   %tobool.not.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i = icmp eq i32 %11, 0
   br i1 %tobool.not.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i, label %_ZN7datalog10table_baseC2ERNS_12table_pluginERKNS_15table_signatureE.exit.i, label %if.then.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i
@@ -4098,18 +4065,18 @@ if.then.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i:            ; preds = %_ZNK6vectorImLb0EjE
   br label %_ZN7datalog10table_baseC2ERNS_12table_pluginERKNS_15table_signatureE.exit.i
 
 _ZN7datalog10table_baseC2ERNS_12table_pluginERKNS_15table_signatureE.exit.i: ; preds = %if.then.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i, %_ZNK6vectorImLb0EjE3endEv.exit.i.i.i.i.i.i.i.i, %_ZNK6vectorImLb0EjE8capacityEv.exit.i.i.i.i.i.i.i.i, %entry
-  %m_functional_columns.i.i.i.i = getelementptr inbounds %"class.datalog::tr_infrastructure<datalog::table_traits>::base_ancestor", ptr %call9, i64 0, i32 2, i32 1
-  %m_functional_columns2.i.i.i.i = getelementptr inbounds %"class.datalog::tr_infrastructure<datalog::table_traits>::base_ancestor", ptr %call3, i64 0, i32 2, i32 1
+  %m_functional_columns.i.i.i.i = getelementptr inbounds i8, ptr %call9, i64 24
+  %m_functional_columns2.i.i.i.i = getelementptr inbounds i8, ptr %call3, i64 24
   %14 = load i32, ptr %m_functional_columns2.i.i.i.i, align 8
   store i32 %14, ptr %m_functional_columns.i.i.i.i, align 8
-  %m_kind.i.i.i = getelementptr inbounds %"class.datalog::tr_infrastructure<datalog::table_traits>::base_ancestor", ptr %call9, i64 0, i32 3
-  %m_kind.i.i.i.i = getelementptr inbounds %"class.datalog::tr_infrastructure<datalog::table_traits>::plugin_object", ptr %6, i64 0, i32 1
+  %m_kind.i.i.i = getelementptr inbounds i8, ptr %call9, i64 32
+  %m_kind.i.i.i.i = getelementptr inbounds i8, ptr %6, i64 8
   %15 = load i32, ptr %m_kind.i.i.i.i, align 8
   store i32 %15, ptr %m_kind.i.i.i, align 8
   store ptr getelementptr inbounds ({ [29 x ptr] }, ptr @_ZTVN7datalog11check_tableE, i64 0, inrange i32 0, i64 2), ptr %call9, align 8
-  %m_checker.i4 = getelementptr inbounds %"class.datalog::check_table", ptr %call9, i64 0, i32 1
+  %m_checker.i4 = getelementptr inbounds i8, ptr %call9, i64 40
   store ptr %call3, ptr %m_checker.i4, align 8
-  %m_tocheck.i5 = getelementptr inbounds %"class.datalog::check_table", ptr %call9, i64 0, i32 2
+  %m_tocheck.i5 = getelementptr inbounds i8, ptr %call9, i64 48
   store ptr %call8, ptr %m_tocheck.i5, align 8
   %call.i = invoke noundef zeroext i1 @_ZNK7datalog11check_table11well_formedEv(ptr noundef nonnull align 8 dereferenceable(56) %call9)
           to label %_ZN7datalog11check_tableC2ERNS_18check_table_pluginERKNS_15table_signatureEPNS_10table_baseES7_.exit unwind label %lpad.i
@@ -4130,7 +4097,7 @@ declare noundef ptr @_ZN7datalog16relation_manager12mk_rename_fnERKNS_10table_ba
 define linkonce_odr hidden void @_ZN7datalog18check_table_plugin9rename_fnD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %this) unnamed_addr #6 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7datalog18check_table_plugin9rename_fnE, i64 0, inrange i32 0, i64 2), ptr %this, align 8
-  %m_tocheck = getelementptr inbounds %"class.datalog::check_table_plugin::rename_fn", ptr %this, i64 0, i32 2
+  %m_tocheck = getelementptr inbounds i8, ptr %this, i64 16
   %0 = load ptr, ptr %m_tocheck, align 8
   %cmp.i.i = icmp eq ptr %0, null
   br i1 %cmp.i.i, label %_ZN10scoped_ptrIN7datalog17tr_infrastructureINS0_12table_traitsEE14transformer_fnEED2Ev.exit, label %if.end.i.i
@@ -4150,7 +4117,7 @@ terminate.lpad.i:                                 ; preds = %if.end.i.i
   unreachable
 
 _ZN10scoped_ptrIN7datalog17tr_infrastructureINS0_12table_traitsEE14transformer_fnEED2Ev.exit: ; preds = %entry, %if.end.i.i
-  %m_checker = getelementptr inbounds %"class.datalog::check_table_plugin::rename_fn", ptr %this, i64 0, i32 1
+  %m_checker = getelementptr inbounds i8, ptr %this, i64 8
   %4 = load ptr, ptr %m_checker, align 8
   %cmp.i.i1 = icmp eq ptr %4, null
   br i1 %cmp.i.i1, label %_ZN10scoped_ptrIN7datalog17tr_infrastructureINS0_12table_traitsEE14transformer_fnEED2Ev.exit5, label %if.end.i.i2
@@ -4177,7 +4144,7 @@ _ZN10scoped_ptrIN7datalog17tr_infrastructureINS0_12table_traitsEE14transformer_f
 define linkonce_odr hidden void @_ZN7datalog18check_table_plugin9rename_fnD0Ev(ptr noundef nonnull align 8 dereferenceable(24) %this) unnamed_addr #6 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7datalog18check_table_plugin9rename_fnE, i64 0, inrange i32 0, i64 2), ptr %this, align 8
-  %m_tocheck.i = getelementptr inbounds %"class.datalog::check_table_plugin::rename_fn", ptr %this, i64 0, i32 2
+  %m_tocheck.i = getelementptr inbounds i8, ptr %this, i64 16
   %0 = load ptr, ptr %m_tocheck.i, align 8
   %cmp.i.i.i = icmp eq ptr %0, null
   br i1 %cmp.i.i.i, label %_ZN10scoped_ptrIN7datalog17tr_infrastructureINS0_12table_traitsEE14transformer_fnEED2Ev.exit.i, label %if.end.i.i.i
@@ -4197,7 +4164,7 @@ terminate.lpad.i.i:                               ; preds = %if.end.i.i.i
   unreachable
 
 _ZN10scoped_ptrIN7datalog17tr_infrastructureINS0_12table_traitsEE14transformer_fnEED2Ev.exit.i: ; preds = %if.end.i.i.i, %entry
-  %m_checker.i = getelementptr inbounds %"class.datalog::check_table_plugin::rename_fn", ptr %this, i64 0, i32 1
+  %m_checker.i = getelementptr inbounds i8, ptr %this, i64 8
   %4 = load ptr, ptr %m_checker.i, align 8
   %cmp.i.i1.i = icmp eq ptr %4, null
   br i1 %cmp.i.i1.i, label %_ZN7datalog18check_table_plugin9rename_fnD2Ev.exit, label %if.end.i.i2.i
@@ -4247,37 +4214,37 @@ if.else:                                          ; preds = %if.then
   br label %if.end10
 
 if.end10:                                         ; preds = %if.then3, %if.else, %entry
-  %m_checker = getelementptr inbounds %"class.datalog::check_table_plugin::rename_fn", ptr %this, i64 0, i32 1
+  %m_checker = getelementptr inbounds i8, ptr %this, i64 8
   %0 = load ptr, ptr %m_checker, align 8
-  %m_checker.i = getelementptr inbounds %"class.datalog::check_table", ptr %src, i64 0, i32 1
+  %m_checker.i = getelementptr inbounds i8, ptr %src, i64 40
   %1 = load ptr, ptr %m_checker.i, align 8
   %vtable = load ptr, ptr %0, align 8
-  %vfn = getelementptr inbounds ptr, ptr %vtable, i64 2
+  %vfn = getelementptr inbounds i8, ptr %vtable, i64 16
   %2 = load ptr, ptr %vfn, align 8
   %call13 = tail call noundef ptr %2(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef nonnull align 8 dereferenceable(36) %1)
-  %m_tocheck = getelementptr inbounds %"class.datalog::check_table_plugin::rename_fn", ptr %this, i64 0, i32 2
+  %m_tocheck = getelementptr inbounds i8, ptr %this, i64 16
   %3 = load ptr, ptr %m_tocheck, align 8
-  %m_tocheck.i = getelementptr inbounds %"class.datalog::check_table", ptr %src, i64 0, i32 2
+  %m_tocheck.i = getelementptr inbounds i8, ptr %src, i64 48
   %4 = load ptr, ptr %m_tocheck.i, align 8
   %vtable16 = load ptr, ptr %3, align 8
-  %vfn17 = getelementptr inbounds ptr, ptr %vtable16, i64 2
+  %vfn17 = getelementptr inbounds i8, ptr %vtable16, i64 16
   %5 = load ptr, ptr %vfn17, align 8
   %call18 = tail call noundef ptr %5(ptr noundef nonnull align 8 dereferenceable(8) %3, ptr noundef nonnull align 8 dereferenceable(36) %4)
   %call19 = tail call noalias noundef ptr @_ZN6memory8allocateEm(i64 noundef 56)
-  %m_plugin.i.i = getelementptr inbounds %"class.datalog::tr_infrastructure<datalog::table_traits>::base_ancestor", ptr %src, i64 0, i32 1
+  %m_plugin.i.i = getelementptr inbounds i8, ptr %src, i64 8
   %6 = load ptr, ptr %m_plugin.i.i, align 8
-  %m_signature.i = getelementptr inbounds %"class.datalog::tr_infrastructure<datalog::table_traits>::base_ancestor", ptr %call18, i64 0, i32 2
+  %m_signature.i = getelementptr inbounds i8, ptr %call18, i64 16
   store ptr getelementptr inbounds ({ [18 x ptr] }, ptr @_ZTVN7datalog17tr_infrastructureINS_12table_traitsEE13base_ancestorE, i64 0, inrange i32 0, i64 2), ptr %call19, align 8
-  %m_plugin.i.i.i = getelementptr inbounds %"class.datalog::tr_infrastructure<datalog::table_traits>::base_ancestor", ptr %call19, i64 0, i32 1
+  %m_plugin.i.i.i = getelementptr inbounds i8, ptr %call19, i64 8
   store ptr %6, ptr %m_plugin.i.i.i, align 8
-  %m_signature.i.i.i = getelementptr inbounds %"class.datalog::tr_infrastructure<datalog::table_traits>::base_ancestor", ptr %call19, i64 0, i32 2
+  %m_signature.i.i.i = getelementptr inbounds i8, ptr %call19, i64 16
   store ptr null, ptr %m_signature.i.i.i, align 8
   %7 = load ptr, ptr %m_signature.i, align 8
   %tobool.not.i.i.i.i.i.i.i = icmp eq ptr %7, null
   br i1 %tobool.not.i.i.i.i.i.i.i, label %_ZN7datalog10table_baseC2ERNS_12table_pluginERKNS_15table_signatureE.exit.i, label %_ZNK6vectorImLb0EjE8capacityEv.exit.i.i.i.i.i.i.i.i
 
 _ZNK6vectorImLb0EjE8capacityEv.exit.i.i.i.i.i.i.i.i: ; preds = %if.end10
-  %arrayidx.i11.i.i.i.i.i.i.i.i = getelementptr inbounds i32, ptr %7, i64 -2
+  %arrayidx.i11.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %7, i64 -8
   %8 = load <2 x i32>, ptr %arrayidx.i11.i.i.i.i.i.i.i.i, align 4
   %9 = extractelement <2 x i32> %8, i64 0
   %conv.i.i.i.i.i.i.i.i = zext i32 %9 to i64
@@ -4285,14 +4252,14 @@ _ZNK6vectorImLb0EjE8capacityEv.exit.i.i.i.i.i.i.i.i: ; preds = %if.end10
   %add.i.i.i.i.i.i.i.i = add nuw nsw i64 %mul.i.i.i.i.i.i.i.i, 8
   %call3.i.i.i.i.i.i.i.i = tail call noalias noundef ptr @_ZN6memory8allocateEm(i64 noundef %add.i.i.i.i.i.i.i.i)
   store <2 x i32> %8, ptr %call3.i.i.i.i.i.i.i.i, align 4
-  %incdec.ptr4.i.i.i.i.i.i.i.i = getelementptr inbounds i32, ptr %call3.i.i.i.i.i.i.i.i, i64 2
+  %incdec.ptr4.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %call3.i.i.i.i.i.i.i.i, i64 8
   store ptr %incdec.ptr4.i.i.i.i.i.i.i.i, ptr %m_signature.i.i.i, align 8
   %10 = load ptr, ptr %m_signature.i, align 8
   %cmp.i.i.i.i.i.i.i.i.i.i = icmp eq ptr %10, null
   br i1 %cmp.i.i.i.i.i.i.i.i.i.i, label %_ZN7datalog10table_baseC2ERNS_12table_pluginERKNS_15table_signatureE.exit.i, label %_ZNK6vectorImLb0EjE3endEv.exit.i.i.i.i.i.i.i.i
 
 _ZNK6vectorImLb0EjE3endEv.exit.i.i.i.i.i.i.i.i:   ; preds = %_ZNK6vectorImLb0EjE8capacityEv.exit.i.i.i.i.i.i.i.i
-  %arrayidx.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds i32, ptr %10, i64 -1
+  %arrayidx.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %10, i64 -4
   %11 = load i32, ptr %arrayidx.i.i.i.i.i.i.i.i.i.i, align 4
   %tobool.not.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i = icmp eq i32 %11, 0
   br i1 %tobool.not.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i, label %_ZN7datalog10table_baseC2ERNS_12table_pluginERKNS_15table_signatureE.exit.i, label %if.then.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i
@@ -4304,18 +4271,18 @@ if.then.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i:            ; preds = %_ZNK6vectorImLb0EjE
   br label %_ZN7datalog10table_baseC2ERNS_12table_pluginERKNS_15table_signatureE.exit.i
 
 _ZN7datalog10table_baseC2ERNS_12table_pluginERKNS_15table_signatureE.exit.i: ; preds = %if.then.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i, %_ZNK6vectorImLb0EjE3endEv.exit.i.i.i.i.i.i.i.i, %_ZNK6vectorImLb0EjE8capacityEv.exit.i.i.i.i.i.i.i.i, %if.end10
-  %m_functional_columns.i.i.i.i = getelementptr inbounds %"class.datalog::tr_infrastructure<datalog::table_traits>::base_ancestor", ptr %call19, i64 0, i32 2, i32 1
-  %m_functional_columns2.i.i.i.i = getelementptr inbounds %"class.datalog::tr_infrastructure<datalog::table_traits>::base_ancestor", ptr %call18, i64 0, i32 2, i32 1
+  %m_functional_columns.i.i.i.i = getelementptr inbounds i8, ptr %call19, i64 24
+  %m_functional_columns2.i.i.i.i = getelementptr inbounds i8, ptr %call18, i64 24
   %14 = load i32, ptr %m_functional_columns2.i.i.i.i, align 8
   store i32 %14, ptr %m_functional_columns.i.i.i.i, align 8
-  %m_kind.i.i.i = getelementptr inbounds %"class.datalog::tr_infrastructure<datalog::table_traits>::base_ancestor", ptr %call19, i64 0, i32 3
-  %m_kind.i.i.i.i = getelementptr inbounds %"class.datalog::tr_infrastructure<datalog::table_traits>::plugin_object", ptr %6, i64 0, i32 1
+  %m_kind.i.i.i = getelementptr inbounds i8, ptr %call19, i64 32
+  %m_kind.i.i.i.i = getelementptr inbounds i8, ptr %6, i64 8
   %15 = load i32, ptr %m_kind.i.i.i.i, align 8
   store i32 %15, ptr %m_kind.i.i.i, align 8
   store ptr getelementptr inbounds ({ [29 x ptr] }, ptr @_ZTVN7datalog11check_tableE, i64 0, inrange i32 0, i64 2), ptr %call19, align 8
-  %m_checker.i4 = getelementptr inbounds %"class.datalog::check_table", ptr %call19, i64 0, i32 1
+  %m_checker.i4 = getelementptr inbounds i8, ptr %call19, i64 40
   store ptr %call13, ptr %m_checker.i4, align 8
-  %m_tocheck.i5 = getelementptr inbounds %"class.datalog::check_table", ptr %call19, i64 0, i32 2
+  %m_tocheck.i5 = getelementptr inbounds i8, ptr %call19, i64 48
   store ptr %call18, ptr %m_tocheck.i5, align 8
   %call.i = invoke noundef zeroext i1 @_ZNK7datalog11check_table11well_formedEv(ptr noundef nonnull align 8 dereferenceable(56) %call19)
           to label %_ZN7datalog11check_tableC2ERNS_18check_table_pluginERKNS_15table_signatureEPNS_10table_baseES7_.exit unwind label %lpad.i
@@ -4361,7 +4328,7 @@ terminate.lpad:                                   ; preds = %if.end.i
 define linkonce_odr hidden void @_ZN7datalog18check_table_plugin19filter_identical_fnD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %this) unnamed_addr #6 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVN7datalog18check_table_plugin19filter_identical_fnE, i64 0, inrange i32 0, i64 2), ptr %this, align 8
-  %m_tocheck = getelementptr inbounds %"class.datalog::check_table_plugin::filter_identical_fn", ptr %this, i64 0, i32 2
+  %m_tocheck = getelementptr inbounds i8, ptr %this, i64 16
   %0 = load ptr, ptr %m_tocheck, align 8
   %cmp.i.i = icmp eq ptr %0, null
   br i1 %cmp.i.i, label %_ZN10scoped_ptrIN7datalog17tr_infrastructureINS0_12table_traitsEE10mutator_fnEED2Ev.exit, label %if.end.i.i
@@ -4381,7 +4348,7 @@ terminate.lpad.i:                                 ; preds = %if.end.i.i
   unreachable
 
 _ZN10scoped_ptrIN7datalog17tr_infrastructureINS0_12table_traitsEE10mutator_fnEED2Ev.exit: ; preds = %entry, %if.end.i.i
-  %m_checker = getelementptr inbounds %"class.datalog::check_table_plugin::filter_identical_fn", ptr %this, i64 0, i32 1
+  %m_checker = getelementptr inbounds i8, ptr %this, i64 8
   %4 = load ptr, ptr %m_checker, align 8
   %cmp.i.i1 = icmp eq ptr %4, null
   br i1 %cmp.i.i1, label %_ZN10scoped_ptrIN7datalog17tr_infrastructureINS0_12table_traitsEE10mutator_fnEED2Ev.exit5, label %if.end.i.i2
@@ -4408,7 +4375,7 @@ _ZN10scoped_ptrIN7datalog17tr_infrastructureINS0_12table_traitsEE10mutator_fnEED
 define linkonce_odr hidden void @_ZN7datalog18check_table_plugin19filter_identical_fnD0Ev(ptr noundef nonnull align 8 dereferenceable(24) %this) unnamed_addr #6 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVN7datalog18check_table_plugin19filter_identical_fnE, i64 0, inrange i32 0, i64 2), ptr %this, align 8
-  %m_tocheck.i = getelementptr inbounds %"class.datalog::check_table_plugin::filter_identical_fn", ptr %this, i64 0, i32 2
+  %m_tocheck.i = getelementptr inbounds i8, ptr %this, i64 16
   %0 = load ptr, ptr %m_tocheck.i, align 8
   %cmp.i.i.i = icmp eq ptr %0, null
   br i1 %cmp.i.i.i, label %_ZN10scoped_ptrIN7datalog17tr_infrastructureINS0_12table_traitsEE10mutator_fnEED2Ev.exit.i, label %if.end.i.i.i
@@ -4428,7 +4395,7 @@ terminate.lpad.i.i:                               ; preds = %if.end.i.i.i
   unreachable
 
 _ZN10scoped_ptrIN7datalog17tr_infrastructureINS0_12table_traitsEE10mutator_fnEED2Ev.exit.i: ; preds = %if.end.i.i.i, %entry
-  %m_checker.i = getelementptr inbounds %"class.datalog::check_table_plugin::filter_identical_fn", ptr %this, i64 0, i32 1
+  %m_checker.i = getelementptr inbounds i8, ptr %this, i64 8
   %4 = load ptr, ptr %m_checker.i, align 8
   %cmp.i.i1.i = icmp eq ptr %4, null
   br i1 %cmp.i.i1.i, label %_ZN7datalog18check_table_plugin19filter_identical_fnD2Ev.exit, label %if.end.i.i2.i
@@ -4455,20 +4422,20 @@ _ZN7datalog18check_table_plugin19filter_identical_fnD2Ev.exit: ; preds = %_ZN10s
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr hidden void @_ZN7datalog18check_table_plugin19filter_identical_fnclERNS_10table_baseE(ptr noundef nonnull align 8 dereferenceable(24) %this, ptr noundef nonnull align 8 dereferenceable(36) %t) unnamed_addr #3 comdat align 2 {
 entry:
-  %m_checker = getelementptr inbounds %"class.datalog::check_table_plugin::filter_identical_fn", ptr %this, i64 0, i32 1
+  %m_checker = getelementptr inbounds i8, ptr %this, i64 8
   %0 = load ptr, ptr %m_checker, align 8
-  %m_checker.i = getelementptr inbounds %"class.datalog::check_table", ptr %t, i64 0, i32 1
+  %m_checker.i = getelementptr inbounds i8, ptr %t, i64 40
   %1 = load ptr, ptr %m_checker.i, align 8
   %vtable = load ptr, ptr %0, align 8
-  %vfn = getelementptr inbounds ptr, ptr %vtable, i64 2
+  %vfn = getelementptr inbounds i8, ptr %vtable, i64 16
   %2 = load ptr, ptr %vfn, align 8
   tail call void %2(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef nonnull align 8 dereferenceable(36) %1)
-  %m_tocheck = getelementptr inbounds %"class.datalog::check_table_plugin::filter_identical_fn", ptr %this, i64 0, i32 2
+  %m_tocheck = getelementptr inbounds i8, ptr %this, i64 16
   %3 = load ptr, ptr %m_tocheck, align 8
-  %m_tocheck.i = getelementptr inbounds %"class.datalog::check_table", ptr %t, i64 0, i32 2
+  %m_tocheck.i = getelementptr inbounds i8, ptr %t, i64 48
   %4 = load ptr, ptr %m_tocheck.i, align 8
   %vtable5 = load ptr, ptr %3, align 8
-  %vfn6 = getelementptr inbounds ptr, ptr %vtable5, i64 2
+  %vfn6 = getelementptr inbounds i8, ptr %vtable5, i64 16
   %5 = load ptr, ptr %vfn6, align 8
   tail call void %5(ptr noundef nonnull align 8 dereferenceable(8) %3, ptr noundef nonnull align 8 dereferenceable(36) %4)
   %call8 = tail call noundef zeroext i1 @_ZNK7datalog11check_table11well_formedEv(ptr noundef nonnull align 8 dereferenceable(56) %t)
@@ -4495,7 +4462,7 @@ declare noundef ptr @_ZN7datalog16relation_manager18mk_filter_equal_fnERKNS_10ta
 define linkonce_odr hidden void @_ZN7datalog18check_table_plugin15filter_equal_fnD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %this) unnamed_addr #6 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVN7datalog18check_table_plugin15filter_equal_fnE, i64 0, inrange i32 0, i64 2), ptr %this, align 8
-  %m_tocheck = getelementptr inbounds %"class.datalog::check_table_plugin::filter_equal_fn", ptr %this, i64 0, i32 2
+  %m_tocheck = getelementptr inbounds i8, ptr %this, i64 16
   %0 = load ptr, ptr %m_tocheck, align 8
   %cmp.i.i = icmp eq ptr %0, null
   br i1 %cmp.i.i, label %_ZN10scoped_ptrIN7datalog17tr_infrastructureINS0_12table_traitsEE10mutator_fnEED2Ev.exit, label %if.end.i.i
@@ -4515,7 +4482,7 @@ terminate.lpad.i:                                 ; preds = %if.end.i.i
   unreachable
 
 _ZN10scoped_ptrIN7datalog17tr_infrastructureINS0_12table_traitsEE10mutator_fnEED2Ev.exit: ; preds = %entry, %if.end.i.i
-  %m_checker = getelementptr inbounds %"class.datalog::check_table_plugin::filter_equal_fn", ptr %this, i64 0, i32 1
+  %m_checker = getelementptr inbounds i8, ptr %this, i64 8
   %4 = load ptr, ptr %m_checker, align 8
   %cmp.i.i1 = icmp eq ptr %4, null
   br i1 %cmp.i.i1, label %_ZN10scoped_ptrIN7datalog17tr_infrastructureINS0_12table_traitsEE10mutator_fnEED2Ev.exit5, label %if.end.i.i2
@@ -4542,7 +4509,7 @@ _ZN10scoped_ptrIN7datalog17tr_infrastructureINS0_12table_traitsEE10mutator_fnEED
 define linkonce_odr hidden void @_ZN7datalog18check_table_plugin15filter_equal_fnD0Ev(ptr noundef nonnull align 8 dereferenceable(24) %this) unnamed_addr #6 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVN7datalog18check_table_plugin15filter_equal_fnE, i64 0, inrange i32 0, i64 2), ptr %this, align 8
-  %m_tocheck.i = getelementptr inbounds %"class.datalog::check_table_plugin::filter_equal_fn", ptr %this, i64 0, i32 2
+  %m_tocheck.i = getelementptr inbounds i8, ptr %this, i64 16
   %0 = load ptr, ptr %m_tocheck.i, align 8
   %cmp.i.i.i = icmp eq ptr %0, null
   br i1 %cmp.i.i.i, label %_ZN10scoped_ptrIN7datalog17tr_infrastructureINS0_12table_traitsEE10mutator_fnEED2Ev.exit.i, label %if.end.i.i.i
@@ -4562,7 +4529,7 @@ terminate.lpad.i.i:                               ; preds = %if.end.i.i.i
   unreachable
 
 _ZN10scoped_ptrIN7datalog17tr_infrastructureINS0_12table_traitsEE10mutator_fnEED2Ev.exit.i: ; preds = %if.end.i.i.i, %entry
-  %m_checker.i = getelementptr inbounds %"class.datalog::check_table_plugin::filter_equal_fn", ptr %this, i64 0, i32 1
+  %m_checker.i = getelementptr inbounds i8, ptr %this, i64 8
   %4 = load ptr, ptr %m_checker.i, align 8
   %cmp.i.i1.i = icmp eq ptr %4, null
   br i1 %cmp.i.i1.i, label %_ZN7datalog18check_table_plugin15filter_equal_fnD2Ev.exit, label %if.end.i.i2.i
@@ -4589,20 +4556,20 @@ _ZN7datalog18check_table_plugin15filter_equal_fnD2Ev.exit: ; preds = %_ZN10scope
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr hidden void @_ZN7datalog18check_table_plugin15filter_equal_fnclERNS_10table_baseE(ptr noundef nonnull align 8 dereferenceable(24) %this, ptr noundef nonnull align 8 dereferenceable(36) %src) unnamed_addr #3 comdat align 2 {
 entry:
-  %m_checker = getelementptr inbounds %"class.datalog::check_table_plugin::filter_equal_fn", ptr %this, i64 0, i32 1
+  %m_checker = getelementptr inbounds i8, ptr %this, i64 8
   %0 = load ptr, ptr %m_checker, align 8
-  %m_checker.i = getelementptr inbounds %"class.datalog::check_table", ptr %src, i64 0, i32 1
+  %m_checker.i = getelementptr inbounds i8, ptr %src, i64 40
   %1 = load ptr, ptr %m_checker.i, align 8
   %vtable = load ptr, ptr %0, align 8
-  %vfn = getelementptr inbounds ptr, ptr %vtable, i64 2
+  %vfn = getelementptr inbounds i8, ptr %vtable, i64 16
   %2 = load ptr, ptr %vfn, align 8
   tail call void %2(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef nonnull align 8 dereferenceable(36) %1)
-  %m_tocheck = getelementptr inbounds %"class.datalog::check_table_plugin::filter_equal_fn", ptr %this, i64 0, i32 2
+  %m_tocheck = getelementptr inbounds i8, ptr %this, i64 16
   %3 = load ptr, ptr %m_tocheck, align 8
-  %m_tocheck.i = getelementptr inbounds %"class.datalog::check_table", ptr %src, i64 0, i32 2
+  %m_tocheck.i = getelementptr inbounds i8, ptr %src, i64 48
   %4 = load ptr, ptr %m_tocheck.i, align 8
   %vtable5 = load ptr, ptr %3, align 8
-  %vfn6 = getelementptr inbounds ptr, ptr %vtable5, i64 2
+  %vfn6 = getelementptr inbounds i8, ptr %vtable5, i64 16
   %5 = load ptr, ptr %vfn6, align 8
   tail call void %5(ptr noundef nonnull align 8 dereferenceable(8) %3, ptr noundef nonnull align 8 dereferenceable(36) %4)
   %call8 = tail call noundef zeroext i1 @_ZNK7datalog11check_table11well_formedEv(ptr noundef nonnull align 8 dereferenceable(56) %src)
@@ -4615,7 +4582,7 @@ declare noundef ptr @_ZN7datalog16relation_manager24mk_filter_interpreted_fnERKN
 define linkonce_odr hidden void @_ZN7datalog18check_table_plugin21filter_interpreted_fnD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %this) unnamed_addr #6 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVN7datalog18check_table_plugin21filter_interpreted_fnE, i64 0, inrange i32 0, i64 2), ptr %this, align 8
-  %m_tocheck = getelementptr inbounds %"class.datalog::check_table_plugin::filter_interpreted_fn", ptr %this, i64 0, i32 2
+  %m_tocheck = getelementptr inbounds i8, ptr %this, i64 16
   %0 = load ptr, ptr %m_tocheck, align 8
   %cmp.i.i = icmp eq ptr %0, null
   br i1 %cmp.i.i, label %_ZN10scoped_ptrIN7datalog17tr_infrastructureINS0_12table_traitsEE10mutator_fnEED2Ev.exit, label %if.end.i.i
@@ -4635,7 +4602,7 @@ terminate.lpad.i:                                 ; preds = %if.end.i.i
   unreachable
 
 _ZN10scoped_ptrIN7datalog17tr_infrastructureINS0_12table_traitsEE10mutator_fnEED2Ev.exit: ; preds = %entry, %if.end.i.i
-  %m_checker = getelementptr inbounds %"class.datalog::check_table_plugin::filter_interpreted_fn", ptr %this, i64 0, i32 1
+  %m_checker = getelementptr inbounds i8, ptr %this, i64 8
   %4 = load ptr, ptr %m_checker, align 8
   %cmp.i.i1 = icmp eq ptr %4, null
   br i1 %cmp.i.i1, label %_ZN10scoped_ptrIN7datalog17tr_infrastructureINS0_12table_traitsEE10mutator_fnEED2Ev.exit5, label %if.end.i.i2
@@ -4662,7 +4629,7 @@ _ZN10scoped_ptrIN7datalog17tr_infrastructureINS0_12table_traitsEE10mutator_fnEED
 define linkonce_odr hidden void @_ZN7datalog18check_table_plugin21filter_interpreted_fnD0Ev(ptr noundef nonnull align 8 dereferenceable(24) %this) unnamed_addr #6 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVN7datalog18check_table_plugin21filter_interpreted_fnE, i64 0, inrange i32 0, i64 2), ptr %this, align 8
-  %m_tocheck.i = getelementptr inbounds %"class.datalog::check_table_plugin::filter_interpreted_fn", ptr %this, i64 0, i32 2
+  %m_tocheck.i = getelementptr inbounds i8, ptr %this, i64 16
   %0 = load ptr, ptr %m_tocheck.i, align 8
   %cmp.i.i.i = icmp eq ptr %0, null
   br i1 %cmp.i.i.i, label %_ZN10scoped_ptrIN7datalog17tr_infrastructureINS0_12table_traitsEE10mutator_fnEED2Ev.exit.i, label %if.end.i.i.i
@@ -4682,7 +4649,7 @@ terminate.lpad.i.i:                               ; preds = %if.end.i.i.i
   unreachable
 
 _ZN10scoped_ptrIN7datalog17tr_infrastructureINS0_12table_traitsEE10mutator_fnEED2Ev.exit.i: ; preds = %if.end.i.i.i, %entry
-  %m_checker.i = getelementptr inbounds %"class.datalog::check_table_plugin::filter_interpreted_fn", ptr %this, i64 0, i32 1
+  %m_checker.i = getelementptr inbounds i8, ptr %this, i64 8
   %4 = load ptr, ptr %m_checker.i, align 8
   %cmp.i.i1.i = icmp eq ptr %4, null
   br i1 %cmp.i.i1.i, label %_ZN7datalog18check_table_plugin21filter_interpreted_fnD2Ev.exit, label %if.end.i.i2.i
@@ -4709,20 +4676,20 @@ _ZN7datalog18check_table_plugin21filter_interpreted_fnD2Ev.exit: ; preds = %_ZN1
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr hidden void @_ZN7datalog18check_table_plugin21filter_interpreted_fnclERNS_10table_baseE(ptr noundef nonnull align 8 dereferenceable(24) %this, ptr noundef nonnull align 8 dereferenceable(36) %src) unnamed_addr #3 comdat align 2 {
 entry:
-  %m_checker = getelementptr inbounds %"class.datalog::check_table_plugin::filter_interpreted_fn", ptr %this, i64 0, i32 1
+  %m_checker = getelementptr inbounds i8, ptr %this, i64 8
   %0 = load ptr, ptr %m_checker, align 8
-  %m_checker.i = getelementptr inbounds %"class.datalog::check_table", ptr %src, i64 0, i32 1
+  %m_checker.i = getelementptr inbounds i8, ptr %src, i64 40
   %1 = load ptr, ptr %m_checker.i, align 8
   %vtable = load ptr, ptr %0, align 8
-  %vfn = getelementptr inbounds ptr, ptr %vtable, i64 2
+  %vfn = getelementptr inbounds i8, ptr %vtable, i64 16
   %2 = load ptr, ptr %vfn, align 8
   tail call void %2(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef nonnull align 8 dereferenceable(36) %1)
-  %m_tocheck = getelementptr inbounds %"class.datalog::check_table_plugin::filter_interpreted_fn", ptr %this, i64 0, i32 2
+  %m_tocheck = getelementptr inbounds i8, ptr %this, i64 16
   %3 = load ptr, ptr %m_tocheck, align 8
-  %m_tocheck.i = getelementptr inbounds %"class.datalog::check_table", ptr %src, i64 0, i32 2
+  %m_tocheck.i = getelementptr inbounds i8, ptr %src, i64 48
   %4 = load ptr, ptr %m_tocheck.i, align 8
   %vtable5 = load ptr, ptr %3, align 8
-  %vfn6 = getelementptr inbounds ptr, ptr %vtable5, i64 2
+  %vfn6 = getelementptr inbounds i8, ptr %vtable5, i64 16
   %5 = load ptr, ptr %vfn6, align 8
   tail call void %5(ptr noundef nonnull align 8 dereferenceable(8) %3, ptr noundef nonnull align 8 dereferenceable(36) %4)
   %call8 = tail call noundef zeroext i1 @_ZNK7datalog11check_table11well_formedEv(ptr noundef nonnull align 8 dereferenceable(56) %src)
@@ -4735,7 +4702,7 @@ declare noundef ptr @_ZN7datalog16relation_manager36mk_filter_interpreted_and_pr
 define linkonce_odr hidden void @_ZN7datalog18check_table_plugin33filter_interpreted_and_project_fnD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %this) unnamed_addr #6 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7datalog18check_table_plugin33filter_interpreted_and_project_fnE, i64 0, inrange i32 0, i64 2), ptr %this, align 8
-  %m_tocheck = getelementptr inbounds %"class.datalog::check_table_plugin::filter_interpreted_and_project_fn", ptr %this, i64 0, i32 2
+  %m_tocheck = getelementptr inbounds i8, ptr %this, i64 16
   %0 = load ptr, ptr %m_tocheck, align 8
   %cmp.i.i = icmp eq ptr %0, null
   br i1 %cmp.i.i, label %_ZN10scoped_ptrIN7datalog17tr_infrastructureINS0_12table_traitsEE14transformer_fnEED2Ev.exit, label %if.end.i.i
@@ -4755,7 +4722,7 @@ terminate.lpad.i:                                 ; preds = %if.end.i.i
   unreachable
 
 _ZN10scoped_ptrIN7datalog17tr_infrastructureINS0_12table_traitsEE14transformer_fnEED2Ev.exit: ; preds = %entry, %if.end.i.i
-  %m_checker = getelementptr inbounds %"class.datalog::check_table_plugin::filter_interpreted_and_project_fn", ptr %this, i64 0, i32 1
+  %m_checker = getelementptr inbounds i8, ptr %this, i64 8
   %4 = load ptr, ptr %m_checker, align 8
   %cmp.i.i1 = icmp eq ptr %4, null
   br i1 %cmp.i.i1, label %_ZN10scoped_ptrIN7datalog17tr_infrastructureINS0_12table_traitsEE14transformer_fnEED2Ev.exit5, label %if.end.i.i2
@@ -4782,7 +4749,7 @@ _ZN10scoped_ptrIN7datalog17tr_infrastructureINS0_12table_traitsEE14transformer_f
 define linkonce_odr hidden void @_ZN7datalog18check_table_plugin33filter_interpreted_and_project_fnD0Ev(ptr noundef nonnull align 8 dereferenceable(24) %this) unnamed_addr #6 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7datalog18check_table_plugin33filter_interpreted_and_project_fnE, i64 0, inrange i32 0, i64 2), ptr %this, align 8
-  %m_tocheck.i = getelementptr inbounds %"class.datalog::check_table_plugin::filter_interpreted_and_project_fn", ptr %this, i64 0, i32 2
+  %m_tocheck.i = getelementptr inbounds i8, ptr %this, i64 16
   %0 = load ptr, ptr %m_tocheck.i, align 8
   %cmp.i.i.i = icmp eq ptr %0, null
   br i1 %cmp.i.i.i, label %_ZN10scoped_ptrIN7datalog17tr_infrastructureINS0_12table_traitsEE14transformer_fnEED2Ev.exit.i, label %if.end.i.i.i
@@ -4802,7 +4769,7 @@ terminate.lpad.i.i:                               ; preds = %if.end.i.i.i
   unreachable
 
 _ZN10scoped_ptrIN7datalog17tr_infrastructureINS0_12table_traitsEE14transformer_fnEED2Ev.exit.i: ; preds = %if.end.i.i.i, %entry
-  %m_checker.i = getelementptr inbounds %"class.datalog::check_table_plugin::filter_interpreted_and_project_fn", ptr %this, i64 0, i32 1
+  %m_checker.i = getelementptr inbounds i8, ptr %this, i64 8
   %4 = load ptr, ptr %m_checker.i, align 8
   %cmp.i.i1.i = icmp eq ptr %4, null
   br i1 %cmp.i.i1.i, label %_ZN7datalog18check_table_plugin33filter_interpreted_and_project_fnD2Ev.exit, label %if.end.i.i2.i
@@ -4829,37 +4796,37 @@ _ZN7datalog18check_table_plugin33filter_interpreted_and_project_fnD2Ev.exit: ; p
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr hidden noundef ptr @_ZN7datalog18check_table_plugin33filter_interpreted_and_project_fnclERKNS_10table_baseE(ptr noundef nonnull align 8 dereferenceable(24) %this, ptr noundef nonnull align 8 dereferenceable(36) %src) unnamed_addr #3 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  %m_checker = getelementptr inbounds %"class.datalog::check_table_plugin::filter_interpreted_and_project_fn", ptr %this, i64 0, i32 1
+  %m_checker = getelementptr inbounds i8, ptr %this, i64 8
   %0 = load ptr, ptr %m_checker, align 8
-  %m_checker.i = getelementptr inbounds %"class.datalog::check_table", ptr %src, i64 0, i32 1
+  %m_checker.i = getelementptr inbounds i8, ptr %src, i64 40
   %1 = load ptr, ptr %m_checker.i, align 8
   %vtable = load ptr, ptr %0, align 8
-  %vfn = getelementptr inbounds ptr, ptr %vtable, i64 2
+  %vfn = getelementptr inbounds i8, ptr %vtable, i64 16
   %2 = load ptr, ptr %vfn, align 8
   %call3 = tail call noundef ptr %2(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef nonnull align 8 dereferenceable(36) %1)
-  %m_tocheck = getelementptr inbounds %"class.datalog::check_table_plugin::filter_interpreted_and_project_fn", ptr %this, i64 0, i32 2
+  %m_tocheck = getelementptr inbounds i8, ptr %this, i64 16
   %3 = load ptr, ptr %m_tocheck, align 8
-  %m_tocheck.i = getelementptr inbounds %"class.datalog::check_table", ptr %src, i64 0, i32 2
+  %m_tocheck.i = getelementptr inbounds i8, ptr %src, i64 48
   %4 = load ptr, ptr %m_tocheck.i, align 8
   %vtable6 = load ptr, ptr %3, align 8
-  %vfn7 = getelementptr inbounds ptr, ptr %vtable6, i64 2
+  %vfn7 = getelementptr inbounds i8, ptr %vtable6, i64 16
   %5 = load ptr, ptr %vfn7, align 8
   %call8 = tail call noundef ptr %5(ptr noundef nonnull align 8 dereferenceable(8) %3, ptr noundef nonnull align 8 dereferenceable(36) %4)
   %call9 = tail call noalias noundef ptr @_ZN6memory8allocateEm(i64 noundef 56)
-  %m_plugin.i.i = getelementptr inbounds %"class.datalog::tr_infrastructure<datalog::table_traits>::base_ancestor", ptr %src, i64 0, i32 1
+  %m_plugin.i.i = getelementptr inbounds i8, ptr %src, i64 8
   %6 = load ptr, ptr %m_plugin.i.i, align 8
-  %m_signature.i = getelementptr inbounds %"class.datalog::tr_infrastructure<datalog::table_traits>::base_ancestor", ptr %call8, i64 0, i32 2
+  %m_signature.i = getelementptr inbounds i8, ptr %call8, i64 16
   store ptr getelementptr inbounds ({ [18 x ptr] }, ptr @_ZTVN7datalog17tr_infrastructureINS_12table_traitsEE13base_ancestorE, i64 0, inrange i32 0, i64 2), ptr %call9, align 8
-  %m_plugin.i.i.i = getelementptr inbounds %"class.datalog::tr_infrastructure<datalog::table_traits>::base_ancestor", ptr %call9, i64 0, i32 1
+  %m_plugin.i.i.i = getelementptr inbounds i8, ptr %call9, i64 8
   store ptr %6, ptr %m_plugin.i.i.i, align 8
-  %m_signature.i.i.i = getelementptr inbounds %"class.datalog::tr_infrastructure<datalog::table_traits>::base_ancestor", ptr %call9, i64 0, i32 2
+  %m_signature.i.i.i = getelementptr inbounds i8, ptr %call9, i64 16
   store ptr null, ptr %m_signature.i.i.i, align 8
   %7 = load ptr, ptr %m_signature.i, align 8
   %tobool.not.i.i.i.i.i.i.i = icmp eq ptr %7, null
   br i1 %tobool.not.i.i.i.i.i.i.i, label %_ZN7datalog10table_baseC2ERNS_12table_pluginERKNS_15table_signatureE.exit.i, label %_ZNK6vectorImLb0EjE8capacityEv.exit.i.i.i.i.i.i.i.i
 
 _ZNK6vectorImLb0EjE8capacityEv.exit.i.i.i.i.i.i.i.i: ; preds = %entry
-  %arrayidx.i11.i.i.i.i.i.i.i.i = getelementptr inbounds i32, ptr %7, i64 -2
+  %arrayidx.i11.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %7, i64 -8
   %8 = load <2 x i32>, ptr %arrayidx.i11.i.i.i.i.i.i.i.i, align 4
   %9 = extractelement <2 x i32> %8, i64 0
   %conv.i.i.i.i.i.i.i.i = zext i32 %9 to i64
@@ -4867,14 +4834,14 @@ _ZNK6vectorImLb0EjE8capacityEv.exit.i.i.i.i.i.i.i.i: ; preds = %entry
   %add.i.i.i.i.i.i.i.i = add nuw nsw i64 %mul.i.i.i.i.i.i.i.i, 8
   %call3.i.i.i.i.i.i.i.i = tail call noalias noundef ptr @_ZN6memory8allocateEm(i64 noundef %add.i.i.i.i.i.i.i.i)
   store <2 x i32> %8, ptr %call3.i.i.i.i.i.i.i.i, align 4
-  %incdec.ptr4.i.i.i.i.i.i.i.i = getelementptr inbounds i32, ptr %call3.i.i.i.i.i.i.i.i, i64 2
+  %incdec.ptr4.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %call3.i.i.i.i.i.i.i.i, i64 8
   store ptr %incdec.ptr4.i.i.i.i.i.i.i.i, ptr %m_signature.i.i.i, align 8
   %10 = load ptr, ptr %m_signature.i, align 8
   %cmp.i.i.i.i.i.i.i.i.i.i = icmp eq ptr %10, null
   br i1 %cmp.i.i.i.i.i.i.i.i.i.i, label %_ZN7datalog10table_baseC2ERNS_12table_pluginERKNS_15table_signatureE.exit.i, label %_ZNK6vectorImLb0EjE3endEv.exit.i.i.i.i.i.i.i.i
 
 _ZNK6vectorImLb0EjE3endEv.exit.i.i.i.i.i.i.i.i:   ; preds = %_ZNK6vectorImLb0EjE8capacityEv.exit.i.i.i.i.i.i.i.i
-  %arrayidx.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds i32, ptr %10, i64 -1
+  %arrayidx.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %10, i64 -4
   %11 = load i32, ptr %arrayidx.i.i.i.i.i.i.i.i.i.i, align 4
   %tobool.not.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i = icmp eq i32 %11, 0
   br i1 %tobool.not.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i, label %_ZN7datalog10table_baseC2ERNS_12table_pluginERKNS_15table_signatureE.exit.i, label %if.then.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i
@@ -4886,18 +4853,18 @@ if.then.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i:            ; preds = %_ZNK6vectorImLb0EjE
   br label %_ZN7datalog10table_baseC2ERNS_12table_pluginERKNS_15table_signatureE.exit.i
 
 _ZN7datalog10table_baseC2ERNS_12table_pluginERKNS_15table_signatureE.exit.i: ; preds = %if.then.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i, %_ZNK6vectorImLb0EjE3endEv.exit.i.i.i.i.i.i.i.i, %_ZNK6vectorImLb0EjE8capacityEv.exit.i.i.i.i.i.i.i.i, %entry
-  %m_functional_columns.i.i.i.i = getelementptr inbounds %"class.datalog::tr_infrastructure<datalog::table_traits>::base_ancestor", ptr %call9, i64 0, i32 2, i32 1
-  %m_functional_columns2.i.i.i.i = getelementptr inbounds %"class.datalog::tr_infrastructure<datalog::table_traits>::base_ancestor", ptr %call8, i64 0, i32 2, i32 1
+  %m_functional_columns.i.i.i.i = getelementptr inbounds i8, ptr %call9, i64 24
+  %m_functional_columns2.i.i.i.i = getelementptr inbounds i8, ptr %call8, i64 24
   %14 = load i32, ptr %m_functional_columns2.i.i.i.i, align 8
   store i32 %14, ptr %m_functional_columns.i.i.i.i, align 8
-  %m_kind.i.i.i = getelementptr inbounds %"class.datalog::tr_infrastructure<datalog::table_traits>::base_ancestor", ptr %call9, i64 0, i32 3
-  %m_kind.i.i.i.i = getelementptr inbounds %"class.datalog::tr_infrastructure<datalog::table_traits>::plugin_object", ptr %6, i64 0, i32 1
+  %m_kind.i.i.i = getelementptr inbounds i8, ptr %call9, i64 32
+  %m_kind.i.i.i.i = getelementptr inbounds i8, ptr %6, i64 8
   %15 = load i32, ptr %m_kind.i.i.i.i, align 8
   store i32 %15, ptr %m_kind.i.i.i, align 8
   store ptr getelementptr inbounds ({ [29 x ptr] }, ptr @_ZTVN7datalog11check_tableE, i64 0, inrange i32 0, i64 2), ptr %call9, align 8
-  %m_checker.i4 = getelementptr inbounds %"class.datalog::check_table", ptr %call9, i64 0, i32 1
+  %m_checker.i4 = getelementptr inbounds i8, ptr %call9, i64 40
   store ptr %call3, ptr %m_checker.i4, align 8
-  %m_tocheck.i5 = getelementptr inbounds %"class.datalog::check_table", ptr %call9, i64 0, i32 2
+  %m_tocheck.i5 = getelementptr inbounds i8, ptr %call9, i64 48
   store ptr %call8, ptr %m_tocheck.i5, align 8
   %call.i = invoke noundef zeroext i1 @_ZNK7datalog11check_table11well_formedEv(ptr noundef nonnull align 8 dereferenceable(56) %call9)
           to label %_ZN7datalog11check_tableC2ERNS_18check_table_pluginERKNS_15table_signatureEPNS_10table_baseES7_.exit unwind label %lpad.i
@@ -4943,7 +4910,7 @@ terminate.lpad:                                   ; preds = %if.end.i
 define linkonce_odr hidden void @_ZN7datalog18check_table_plugin21filter_by_negation_fnD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %this) unnamed_addr #6 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7datalog18check_table_plugin21filter_by_negation_fnE, i64 0, inrange i32 0, i64 2), ptr %this, align 8
-  %m_tocheck = getelementptr inbounds %"class.datalog::check_table_plugin::filter_by_negation_fn", ptr %this, i64 0, i32 2
+  %m_tocheck = getelementptr inbounds i8, ptr %this, i64 16
   %0 = load ptr, ptr %m_tocheck, align 8
   %cmp.i.i = icmp eq ptr %0, null
   br i1 %cmp.i.i, label %_ZN10scoped_ptrIN7datalog17tr_infrastructureINS0_12table_traitsEE22intersection_filter_fnEED2Ev.exit, label %if.end.i.i
@@ -4963,7 +4930,7 @@ terminate.lpad.i:                                 ; preds = %if.end.i.i
   unreachable
 
 _ZN10scoped_ptrIN7datalog17tr_infrastructureINS0_12table_traitsEE22intersection_filter_fnEED2Ev.exit: ; preds = %entry, %if.end.i.i
-  %m_checker = getelementptr inbounds %"class.datalog::check_table_plugin::filter_by_negation_fn", ptr %this, i64 0, i32 1
+  %m_checker = getelementptr inbounds i8, ptr %this, i64 8
   %4 = load ptr, ptr %m_checker, align 8
   %cmp.i.i1 = icmp eq ptr %4, null
   br i1 %cmp.i.i1, label %_ZN10scoped_ptrIN7datalog17tr_infrastructureINS0_12table_traitsEE22intersection_filter_fnEED2Ev.exit5, label %if.end.i.i2
@@ -4990,7 +4957,7 @@ _ZN10scoped_ptrIN7datalog17tr_infrastructureINS0_12table_traitsEE22intersection_
 define linkonce_odr hidden void @_ZN7datalog18check_table_plugin21filter_by_negation_fnD0Ev(ptr noundef nonnull align 8 dereferenceable(24) %this) unnamed_addr #6 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7datalog18check_table_plugin21filter_by_negation_fnE, i64 0, inrange i32 0, i64 2), ptr %this, align 8
-  %m_tocheck.i = getelementptr inbounds %"class.datalog::check_table_plugin::filter_by_negation_fn", ptr %this, i64 0, i32 2
+  %m_tocheck.i = getelementptr inbounds i8, ptr %this, i64 16
   %0 = load ptr, ptr %m_tocheck.i, align 8
   %cmp.i.i.i = icmp eq ptr %0, null
   br i1 %cmp.i.i.i, label %_ZN10scoped_ptrIN7datalog17tr_infrastructureINS0_12table_traitsEE22intersection_filter_fnEED2Ev.exit.i, label %if.end.i.i.i
@@ -5010,7 +4977,7 @@ terminate.lpad.i.i:                               ; preds = %if.end.i.i.i
   unreachable
 
 _ZN10scoped_ptrIN7datalog17tr_infrastructureINS0_12table_traitsEE22intersection_filter_fnEED2Ev.exit.i: ; preds = %if.end.i.i.i, %entry
-  %m_checker.i = getelementptr inbounds %"class.datalog::check_table_plugin::filter_by_negation_fn", ptr %this, i64 0, i32 1
+  %m_checker.i = getelementptr inbounds i8, ptr %this, i64 8
   %4 = load ptr, ptr %m_checker.i, align 8
   %cmp.i.i1.i = icmp eq ptr %4, null
   br i1 %cmp.i.i1.i, label %_ZN7datalog18check_table_plugin21filter_by_negation_fnD2Ev.exit, label %if.end.i.i2.i
@@ -5060,24 +5027,24 @@ if.else:                                          ; preds = %if.then
   br label %if.end10
 
 if.end10:                                         ; preds = %if.then3, %if.else, %entry
-  %m_checker = getelementptr inbounds %"class.datalog::check_table_plugin::filter_by_negation_fn", ptr %this, i64 0, i32 1
+  %m_checker = getelementptr inbounds i8, ptr %this, i64 8
   %0 = load ptr, ptr %m_checker, align 8
-  %m_checker.i = getelementptr inbounds %"class.datalog::check_table", ptr %src, i64 0, i32 1
+  %m_checker.i = getelementptr inbounds i8, ptr %src, i64 40
   %1 = load ptr, ptr %m_checker.i, align 8
-  %m_checker.i4 = getelementptr inbounds %"class.datalog::check_table", ptr %negated_obj, i64 0, i32 1
+  %m_checker.i4 = getelementptr inbounds i8, ptr %negated_obj, i64 40
   %2 = load ptr, ptr %m_checker.i4, align 8
   %vtable = load ptr, ptr %0, align 8
-  %vfn = getelementptr inbounds ptr, ptr %vtable, i64 2
+  %vfn = getelementptr inbounds i8, ptr %vtable, i64 16
   %3 = load ptr, ptr %vfn, align 8
   tail call void %3(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef nonnull align 8 dereferenceable(36) %1, ptr noundef nonnull align 8 dereferenceable(36) %2)
-  %m_tocheck = getelementptr inbounds %"class.datalog::check_table_plugin::filter_by_negation_fn", ptr %this, i64 0, i32 2
+  %m_tocheck = getelementptr inbounds i8, ptr %this, i64 16
   %4 = load ptr, ptr %m_tocheck, align 8
-  %m_tocheck.i = getelementptr inbounds %"class.datalog::check_table", ptr %src, i64 0, i32 2
+  %m_tocheck.i = getelementptr inbounds i8, ptr %src, i64 48
   %5 = load ptr, ptr %m_tocheck.i, align 8
-  %m_tocheck.i5 = getelementptr inbounds %"class.datalog::check_table", ptr %negated_obj, i64 0, i32 2
+  %m_tocheck.i5 = getelementptr inbounds i8, ptr %negated_obj, i64 48
   %6 = load ptr, ptr %m_tocheck.i5, align 8
   %vtable17 = load ptr, ptr %4, align 8
-  %vfn18 = getelementptr inbounds ptr, ptr %vtable17, i64 2
+  %vfn18 = getelementptr inbounds i8, ptr %vtable17, i64 16
   %7 = load ptr, ptr %vfn18, align 8
   tail call void %7(ptr noundef nonnull align 8 dereferenceable(8) %4, ptr noundef nonnull align 8 dereferenceable(36) %5, ptr noundef nonnull align 8 dereferenceable(36) %6)
   %call20 = tail call noundef zeroext i1 @_ZNK7datalog11check_table11well_formedEv(ptr noundef nonnull align 8 dereferenceable(56) %src)
@@ -5088,13 +5055,13 @@ if.end10:                                         ; preds = %if.then3, %if.else,
 define linkonce_odr hidden void @_ZN7datalog17tr_infrastructureINS_12table_traitsEE13base_ancestorD2Ev(ptr noundef nonnull align 8 dereferenceable(36) %this) unnamed_addr #6 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store ptr getelementptr inbounds ({ [18 x ptr] }, ptr @_ZTVN7datalog17tr_infrastructureINS_12table_traitsEE13base_ancestorE, i64 0, inrange i32 0, i64 2), ptr %this, align 8
-  %m_signature = getelementptr inbounds %"class.datalog::tr_infrastructure<datalog::table_traits>::base_ancestor", ptr %this, i64 0, i32 2
+  %m_signature = getelementptr inbounds i8, ptr %this, i64 16
   %0 = load ptr, ptr %m_signature, align 8
   %tobool.not.i.i.i.i.i = icmp eq ptr %0, null
   br i1 %tobool.not.i.i.i.i.i, label %_ZN7datalog15table_signatureD2Ev.exit, label %if.then.i.i.i.i.i
 
 if.then.i.i.i.i.i:                                ; preds = %entry
-  %add.ptr.i.i.i.i.i.i = getelementptr inbounds i32, ptr %0, i64 -2
+  %add.ptr.i.i.i.i.i.i = getelementptr inbounds i8, ptr %0, i64 -8
   invoke void @_ZN6memory10deallocateEPv(ptr noundef nonnull %add.ptr.i.i.i.i.i.i)
           to label %_ZN7datalog15table_signatureD2Ev.exit unwind label %terminate.lpad.i.i.i.i
 

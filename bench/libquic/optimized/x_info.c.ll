@@ -3,9 +3,6 @@ source_filename = "bench/libquic/original/x_info.c.ll"
 target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:128-n8:16:32:64-S128"
 target triple = "x86_64-unknown-linux-gnu"
 
-%struct.X509_info_st = type { ptr, ptr, ptr, %struct.evp_cipher_info_st, i32, ptr }
-%struct.evp_cipher_info_st = type { ptr, [16 x i8] }
-
 @.str = private unnamed_addr constant [124 x i8] c"generated/home/dtcxzyw/WorkSpace/Projects/compilers/llvm-opt-benchmark/bench/libquic/libquic/boringssl/crypto/x509/x_info.c\00", align 1
 
 ; Function Attrs: nounwind uwtable
@@ -20,9 +17,9 @@ if.then:                                          ; preds = %entry
   br label %return
 
 if.end:                                           ; preds = %entry
-  %enc_len = getelementptr inbounds %struct.X509_info_st, ptr %call, i64 0, i32 4
+  %enc_len = getelementptr inbounds i8, ptr %call, i64 48
   store i32 0, ptr %enc_len, align 8
-  %enc_data = getelementptr inbounds %struct.X509_info_st, ptr %call, i64 0, i32 5
+  %enc_data = getelementptr inbounds i8, ptr %call, i64 56
   store ptr null, ptr %enc_data, align 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %call, i8 0, i64 32, i1 false)
   br label %return
@@ -52,7 +49,7 @@ if.then2:                                         ; preds = %if.end
   br label %if.end4
 
 if.end4:                                          ; preds = %if.then2, %if.end
-  %crl = getelementptr inbounds %struct.X509_info_st, ptr %x, i64 0, i32 1
+  %crl = getelementptr inbounds i8, ptr %x, i64 8
   %1 = load ptr, ptr %crl, align 8
   %cmp5.not = icmp eq ptr %1, null
   br i1 %cmp5.not, label %if.end8, label %if.then6
@@ -62,7 +59,7 @@ if.then6:                                         ; preds = %if.end4
   br label %if.end8
 
 if.end8:                                          ; preds = %if.then6, %if.end4
-  %x_pkey = getelementptr inbounds %struct.X509_info_st, ptr %x, i64 0, i32 2
+  %x_pkey = getelementptr inbounds i8, ptr %x, i64 16
   %2 = load ptr, ptr %x_pkey, align 8
   %cmp9.not = icmp eq ptr %2, null
   br i1 %cmp9.not, label %if.end12, label %if.then10
@@ -72,7 +69,7 @@ if.then10:                                        ; preds = %if.end8
   br label %if.end12
 
 if.end12:                                         ; preds = %if.then10, %if.end8
-  %enc_data = getelementptr inbounds %struct.X509_info_st, ptr %x, i64 0, i32 5
+  %enc_data = getelementptr inbounds i8, ptr %x, i64 56
   %3 = load ptr, ptr %enc_data, align 8
   %cmp13.not = icmp eq ptr %3, null
   br i1 %cmp13.not, label %if.end16, label %if.then14

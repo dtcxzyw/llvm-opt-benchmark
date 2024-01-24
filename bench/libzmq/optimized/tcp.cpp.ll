@@ -3,39 +3,6 @@ source_filename = "bench/libzmq/original/tcp.cpp.ll"
 target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:128-n8:16:32:64-S128"
 target triple = "x86_64-unknown-linux-gnu"
 
-%"struct.zmq::options_t" = type { i32, i32, i64, i8, [256 x i8], i32, i32, i32, i32, i32, i32, i32, i32, i8, %"struct.zmq::atomic_value_t", i32, i32, i32, i32, i32, i32, i64, i32, i32, i8, i32, i8, i8, i8, i8, i8, %"class.std::__cxx11::basic_string", %"class.std::__cxx11::basic_string", %"class.std::__cxx11::basic_string", i32, i32, i32, i32, %"class.std::vector", %"class.std::set", %"class.std::set", %"class.std::set.7", i32, i32, %"class.std::__cxx11::basic_string", %"class.std::__cxx11::basic_string", %"class.std::__cxx11::basic_string", [32 x i8], [32 x i8], [32 x i8], %"class.std::__cxx11::basic_string", %"class.std::__cxx11::basic_string", i32, i32, i8, i32, i8, i32, i8, i16, i32, i32, i32, %"class.std::__cxx11::basic_string", i8, i8, i8, i32, i32, i8, i32, %"class.std::map", i32, %"class.std::__cxx11::basic_string", %"class.std::__cxx11::basic_string", %"class.std::__cxx11::basic_string", %"class.std::__cxx11::basic_string", i8, %"class.std::vector.22", i8, %"class.std::vector.22", i8, %"class.std::vector.22", i8, i32, i8, i32, i32, i32, i32, i32, i8, i32 }
-%"struct.zmq::atomic_value_t" = type { %"struct.std::atomic" }
-%"struct.std::atomic" = type { %"struct.std::__atomic_base" }
-%"struct.std::__atomic_base" = type { i32 }
-%"class.std::vector" = type { %"struct.std::_Vector_base" }
-%"struct.std::_Vector_base" = type { %"struct.std::_Vector_base<zmq::tcp_address_mask_t, std::allocator<zmq::tcp_address_mask_t>>::_Vector_impl" }
-%"struct.std::_Vector_base<zmq::tcp_address_mask_t, std::allocator<zmq::tcp_address_mask_t>>::_Vector_impl" = type { %"struct.std::_Vector_base<zmq::tcp_address_mask_t, std::allocator<zmq::tcp_address_mask_t>>::_Vector_impl_data" }
-%"struct.std::_Vector_base<zmq::tcp_address_mask_t, std::allocator<zmq::tcp_address_mask_t>>::_Vector_impl_data" = type { ptr, ptr, ptr }
-%"class.std::set" = type { %"class.std::_Rb_tree" }
-%"class.std::_Rb_tree" = type { %"struct.std::_Rb_tree<unsigned int, unsigned int, std::_Identity<unsigned int>, std::less<unsigned int>>::_Rb_tree_impl" }
-%"struct.std::_Rb_tree<unsigned int, unsigned int, std::_Identity<unsigned int>, std::less<unsigned int>>::_Rb_tree_impl" = type { %"struct.std::_Rb_tree_key_compare", %"struct.std::_Rb_tree_header" }
-%"struct.std::_Rb_tree_key_compare" = type { %"struct.std::less" }
-%"struct.std::less" = type { i8 }
-%"struct.std::_Rb_tree_header" = type { %"struct.std::_Rb_tree_node_base", i64 }
-%"struct.std::_Rb_tree_node_base" = type { i32, ptr, ptr, ptr }
-%"class.std::set.7" = type { %"class.std::_Rb_tree.8" }
-%"class.std::_Rb_tree.8" = type { %"struct.std::_Rb_tree<int, int, std::_Identity<int>, std::less<int>>::_Rb_tree_impl" }
-%"struct.std::_Rb_tree<int, int, std::_Identity<int>, std::less<int>>::_Rb_tree_impl" = type { %"struct.std::_Rb_tree_key_compare.12", %"struct.std::_Rb_tree_header" }
-%"struct.std::_Rb_tree_key_compare.12" = type { %"struct.std::less.13" }
-%"struct.std::less.13" = type { i8 }
-%"class.std::map" = type { %"class.std::_Rb_tree.15" }
-%"class.std::_Rb_tree.15" = type { %"struct.std::_Rb_tree<std::__cxx11::basic_string<char>, std::pair<const std::__cxx11::basic_string<char>, std::__cxx11::basic_string<char>>, std::_Select1st<std::pair<const std::__cxx11::basic_string<char>, std::__cxx11::basic_string<char>>>, std::less<std::__cxx11::basic_string<char>>>::_Rb_tree_impl" }
-%"struct.std::_Rb_tree<std::__cxx11::basic_string<char>, std::pair<const std::__cxx11::basic_string<char>, std::__cxx11::basic_string<char>>, std::_Select1st<std::pair<const std::__cxx11::basic_string<char>, std::__cxx11::basic_string<char>>>, std::less<std::__cxx11::basic_string<char>>>::_Rb_tree_impl" = type { %"struct.std::_Rb_tree_key_compare.19", %"struct.std::_Rb_tree_header" }
-%"struct.std::_Rb_tree_key_compare.19" = type { %"struct.std::less.20" }
-%"struct.std::less.20" = type { i8 }
-%"class.std::__cxx11::basic_string" = type { %"struct.std::__cxx11::basic_string<char>::_Alloc_hider", i64, %union.anon.0 }
-%"struct.std::__cxx11::basic_string<char>::_Alloc_hider" = type { ptr }
-%union.anon.0 = type { i64, [8 x i8] }
-%"class.std::vector.22" = type { %"struct.std::_Vector_base.23" }
-%"struct.std::_Vector_base.23" = type { %"struct.std::_Vector_base<unsigned char, std::allocator<unsigned char>>::_Vector_impl" }
-%"struct.std::_Vector_base<unsigned char, std::allocator<unsigned char>>::_Vector_impl" = type { %"struct.std::_Vector_base<unsigned char, std::allocator<unsigned char>>::_Vector_impl_data" }
-%"struct.std::_Vector_base<unsigned char, std::allocator<unsigned char>>::_Vector_impl_data" = type { ptr, ptr, ptr }
-
 @stderr = external local_unnamed_addr global ptr, align 8
 @.str = private unnamed_addr constant [12 x i8] c"%s (%s:%d)\0A\00", align 1
 @.str.1 = private unnamed_addr constant [103 x i8] c"generated/home/dtcxzyw/WorkSpace/Projects/compilers/llvm-opt-benchmark/bench/libzmq/libzmq/src/tcp.cpp\00", align 1
@@ -286,7 +253,7 @@ entry:
   %busy_poll_.addr.i = alloca i32, align 4
   %bufsize_.addr.i39 = alloca i32, align 4
   %bufsize_.addr.i = alloca i32, align 4
-  %ipv6 = getelementptr inbounds %"struct.zmq::options_t", ptr %options_, i64 0, i32 24
+  %ipv6 = getelementptr inbounds i8, ptr %options_, i64 360
   %0 = load i8, ptr %ipv6, align 8
   %1 = and i8 %0, 1
   %tobool2 = icmp ne i8 %1, 0
@@ -343,7 +310,7 @@ if.then31:                                        ; preds = %if.end27
   br label %if.end32
 
 if.end32:                                         ; preds = %if.then31, %if.end27
-  %tos = getelementptr inbounds %"struct.zmq::options_t", ptr %options_, i64 0, i32 11
+  %tos = getelementptr inbounds i8, ptr %options_, i64 300
   %5 = load i32, ptr %tos, align 4
   %cmp33.not = icmp eq i32 %5, 0
   br i1 %cmp33.not, label %if.end36, label %if.then34
@@ -353,7 +320,7 @@ if.then34:                                        ; preds = %if.end32
   br label %if.end36
 
 if.end36:                                         ; preds = %if.then34, %if.end32
-  %priority = getelementptr inbounds %"struct.zmq::options_t", ptr %options_, i64 0, i32 12
+  %priority = getelementptr inbounds i8, ptr %options_, i64 304
   %6 = load i32, ptr %priority, align 8
   %cmp37.not = icmp eq i32 %6, 0
   br i1 %cmp37.not, label %if.end43, label %if.then38
@@ -363,7 +330,7 @@ if.then38:                                        ; preds = %if.end36
   br label %if.end43
 
 if.end43:                                         ; preds = %if.end36, %if.then38
-  %bound_device = getelementptr inbounds %"struct.zmq::options_t", ptr %options_, i64 0, i32 63
+  %bound_device = getelementptr inbounds i8, ptr %options_, i64 960
   %call44 = tail call noundef zeroext i1 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5emptyEv(ptr noundef nonnull align 8 dereferenceable(32) %bound_device) #7
   br i1 %call44, label %if.end51, label %if.then45
 
@@ -373,7 +340,7 @@ if.then45:                                        ; preds = %if.end43
   br i1 %cmp48, label %setsockopt_error, label %if.end51
 
 if.end51:                                         ; preds = %if.then45, %if.end43
-  %sndbuf = getelementptr inbounds %"struct.zmq::options_t", ptr %options_, i64 0, i32 9
+  %sndbuf = getelementptr inbounds i8, ptr %options_, i64 292
   %7 = load i32, ptr %sndbuf, align 4
   %cmp52 = icmp sgt i32 %7, -1
   br i1 %cmp52, label %if.then53, label %if.end56
@@ -387,7 +354,7 @@ if.then53:                                        ; preds = %if.end51
   br label %if.end56
 
 if.end56:                                         ; preds = %if.then53, %if.end51
-  %rcvbuf = getelementptr inbounds %"struct.zmq::options_t", ptr %options_, i64 0, i32 10
+  %rcvbuf = getelementptr inbounds i8, ptr %options_, i64 296
   %8 = load i32, ptr %rcvbuf, align 8
   %cmp57 = icmp sgt i32 %8, -1
   br i1 %cmp57, label %if.then58, label %if.end61
@@ -401,7 +368,7 @@ if.then58:                                        ; preds = %if.end56
   br label %if.end61
 
 if.end61:                                         ; preds = %if.then58, %if.end56
-  %busy_poll = getelementptr inbounds %"struct.zmq::options_t", ptr %options_, i64 0, i32 92
+  %busy_poll = getelementptr inbounds i8, ptr %options_, i64 1332
   %9 = load i32, ptr %busy_poll, align 4
   %tobool62.not = icmp eq i32 %9, 0
   br i1 %tobool62.not, label %return, label %if.then63

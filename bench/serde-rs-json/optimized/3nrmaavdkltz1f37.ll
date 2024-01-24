@@ -60,7 +60,7 @@ define void @"_ZN77_$LT$serde_json..value..ser..Serializer$u20$as$u20$serde..ser
 14:                                               ; preds = %9
   store i64 14, ptr %3, align 8
   %15 = call align 8 ptr @_ZN10serde_json5error5Error6syntax17h6e293b122ab5844fE(ptr nonnull align 8 %3, i64 0, i64 0)
-  %16 = getelementptr inbounds { [1 x i64], ptr }, ptr %0, i64 0, i32 1
+  %16 = getelementptr inbounds i8, ptr %0, i64 8
   store ptr %15, ptr %16, align 8
   store i8 6, ptr %0, align 8
   br label %12
@@ -88,7 +88,7 @@ define void @"_ZN77_$LT$serde_json..value..ser..Serializer$u20$as$u20$serde..ser
 8:                                                ; preds = %2
   store i64 14, ptr %3, align 8
   %9 = call align 8 ptr @_ZN10serde_json5error5Error6syntax17h6e293b122ab5844fE(ptr nonnull align 8 %3, i64 0, i64 0)
-  %10 = getelementptr inbounds { [1 x i64], ptr }, ptr %0, i64 0, i32 1
+  %10 = getelementptr inbounds i8, ptr %0, i64 8
   store ptr %9, ptr %10, align 8
   br label %11
 
@@ -165,7 +165,7 @@ define void @"_ZN77_$LT$serde_json..value..ser..Serializer$u20$as$u20$serde..ser
 
 13:                                               ; preds = %7
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %10, ptr noundef nonnull align 8 dereferenceable(24) %9, i64 24, i1 false)
-  %14 = getelementptr inbounds { { { { ptr, i64 }, i64 } }, { { ptr, i64 }, i64 } }, ptr %10, i64 0, i32 1
+  %14 = getelementptr inbounds i8, ptr %10, i64 24
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %14, ptr noundef nonnull align 8 dereferenceable(24) %8, i64 24, i1 false)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %0, ptr noundef nonnull align 8 dereferenceable(48) %10, i64 48, i1 false)
   ret void
@@ -184,9 +184,9 @@ define void @"_ZN77_$LT$serde_json..value..ser..Serializer$u20$as$u20$serde..ser
 define void @"_ZN77_$LT$serde_json..value..ser..Serializer$u20$as$u20$serde..ser..Serializer$GT$13serialize_map17h79e78bd149773dc8E"(ptr nocapture writeonly sret({ i64, [6 x i64] }) align 8 %0, i64 %1, i64 %2) unnamed_addr #0 {
   %.sroa.01 = alloca { { ptr, i64 }, i64, { {} }, {} }, align 8
   call void @"_ZN10serde_json3map59Map$LT$alloc..string..String$C$serde_json..value..Value$GT$3new17h30d5ea1603c45e90E"(ptr nonnull sret({ { { ptr, i64 }, i64, { {} }, {} } }) align 8 %.sroa.01)
-  %4 = getelementptr inbounds { [1 x i64], { { { { ptr, i64 }, i64, { {} }, {} } }, { ptr, [2 x i64] } } }, ptr %0, i64 0, i32 1
+  %4 = getelementptr inbounds i8, ptr %0, i64 8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %4, ptr noundef nonnull align 8 dereferenceable(24) %.sroa.01, i64 24, i1 false)
-  %.sroa.22.0..sroa_idx = getelementptr inbounds { [1 x i64], { { { { ptr, i64 }, i64, { {} }, {} } }, { ptr, [2 x i64] } } }, ptr %0, i64 0, i32 1, i32 1
+  %.sroa.22.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 32
   store ptr null, ptr %.sroa.22.0..sroa_idx, align 8
   store i64 0, ptr %0, align 8
   ret void
@@ -197,9 +197,9 @@ define void @"_ZN77_$LT$serde_json..value..ser..Serializer$u20$as$u20$serde..ser
   %.sroa.01.i = alloca { { ptr, i64 }, i64, { {} }, {} }, align 8
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %.sroa.01.i)
   call void @"_ZN10serde_json3map59Map$LT$alloc..string..String$C$serde_json..value..Value$GT$3new17h30d5ea1603c45e90E"(ptr nonnull sret({ { { ptr, i64 }, i64, { {} }, {} } }) align 8 %.sroa.01.i)
-  %5 = getelementptr inbounds { [1 x i64], { { { { ptr, i64 }, i64, { {} }, {} } }, { ptr, [2 x i64] } } }, ptr %0, i64 0, i32 1
+  %5 = getelementptr inbounds i8, ptr %0, i64 8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %5, ptr noundef nonnull align 8 dereferenceable(24) %.sroa.01.i, i64 24, i1 false)
-  %.sroa.22.0..sroa_idx.i = getelementptr inbounds { [1 x i64], { { { { ptr, i64 }, i64, { {} }, {} } }, { ptr, [2 x i64] } } }, ptr %0, i64 0, i32 1, i32 1
+  %.sroa.22.0..sroa_idx.i = getelementptr inbounds i8, ptr %0, i64 32
   store ptr null, ptr %.sroa.22.0..sroa_idx.i, align 8
   store i64 0, ptr %0, align 8
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %.sroa.01.i)
@@ -223,7 +223,7 @@ define void @"_ZN77_$LT$serde_json..value..ser..Serializer$u20$as$u20$serde..ser
 
 13:                                               ; preds = %7
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %10, ptr noundef nonnull align 8 dereferenceable(24) %9, i64 24, i1 false)
-  %14 = getelementptr inbounds { { { { ptr, i64 }, i64 } }, { { { ptr, i64 }, i64, { {} }, {} } } }, ptr %10, i64 0, i32 1
+  %14 = getelementptr inbounds i8, ptr %10, i64 24
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %14, ptr noundef nonnull align 8 dereferenceable(24) %8, i64 24, i1 false)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %0, ptr noundef nonnull align 8 dereferenceable(48) %10, i64 48, i1 false)
   ret void
@@ -287,8 +287,8 @@ define void @"_ZN99_$LT$serde_json..value..ser..SerializeTupleVariant$u20$as$u20
 
 7:                                                ; preds = %2
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %4, ptr noundef nonnull align 8 dereferenceable(24) %1, i64 24, i1 false)
-  %8 = getelementptr inbounds { { { { ptr, i64 }, i64 } }, { { ptr, i64 }, i64 } }, ptr %1, i64 0, i32 1
-  %9 = getelementptr inbounds { [1 x i64], { { ptr, i64 }, i64 } }, ptr %3, i64 0, i32 1
+  %8 = getelementptr inbounds i8, ptr %1, i64 24
+  %9 = getelementptr inbounds i8, ptr %3, i64 8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %9, ptr noundef nonnull align 8 dereferenceable(24) %8, i64 24, i1 false)
   store i8 4, ptr %3, align 8
   invoke void @"_ZN10serde_json3map59Map$LT$alloc..string..String$C$serde_json..value..Value$GT$6insert17hbd3e1623b83a2fd3E"(ptr nonnull sret({ i8, [31 x i8] }) align 8 %5, ptr nonnull align 8 %6, ptr nonnull align 8 %4, ptr nonnull align 8 %3)
@@ -329,7 +329,7 @@ define void @"_ZN99_$LT$serde_json..value..ser..SerializeTupleVariant$u20$as$u20
   resume { ptr, i32 } %.pn8
 
 18:                                               ; preds = %16
-  %19 = getelementptr inbounds { { { { ptr, i64 }, i64 } }, { { ptr, i64 }, i64 } }, ptr %1, i64 0, i32 1
+  %19 = getelementptr inbounds i8, ptr %1, i64 24
   invoke void @"_ZN4core3ptr68drop_in_place$LT$alloc..vec..Vec$LT$serde_json..value..Value$GT$$GT$17h5286e55957b853a8E"(ptr nonnull align 8 %19) #8
           to label %.critedge unwind label %14
 }
@@ -342,7 +342,7 @@ define void @"_ZN81_$LT$serde_json..value..ser..SerializeMap$u20$as$u20$serde..s
   store i8 5, ptr %0, align 8
   %.sroa.2.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 1
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(31) %.sroa.2.0..sroa_idx, ptr noundef nonnull align 1 dereferenceable(31) %.sroa.2, i64 31, i1 false)
-  %3 = getelementptr inbounds { { { { ptr, i64 }, i64, { {} }, {} } }, { ptr, [2 x i64] } }, ptr %1, i64 0, i32 1
+  %3 = getelementptr inbounds i8, ptr %1, i64 24
   tail call void @"_ZN4core3ptr70drop_in_place$LT$core..option..Option$LT$alloc..string..String$GT$$GT$17h6834c8ae82700051E"(ptr nonnull align 8 %3)
   ret void
 }
@@ -459,7 +459,7 @@ define void @"_ZN83_$LT$serde_json..value..ser..MapKeySerializer$u20$as$u20$serd
   store i64 19, ptr %3, align 8
   %8 = call align 8 ptr @_ZN10serde_json5error5Error6syntax17h6e293b122ab5844fE(ptr nonnull align 8 %3, i64 0, i64 0)
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %3)
-  %9 = getelementptr inbounds { [1 x i64], ptr }, ptr %0, i64 0, i32 1
+  %9 = getelementptr inbounds i8, ptr %0, i64 8
   store ptr %8, ptr %9, align 8
   store ptr null, ptr %0, align 8
   br label %14
@@ -490,7 +490,7 @@ define void @"_ZN83_$LT$serde_json..value..ser..MapKeySerializer$u20$as$u20$serd
   store i64 19, ptr %3, align 8
   %8 = call align 8 ptr @_ZN10serde_json5error5Error6syntax17h6e293b122ab5844fE(ptr nonnull align 8 %3, i64 0, i64 0)
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %3)
-  %9 = getelementptr inbounds { [1 x i64], ptr }, ptr %0, i64 0, i32 1
+  %9 = getelementptr inbounds i8, ptr %0, i64 8
   store ptr %8, ptr %9, align 8
   store ptr null, ptr %0, align 8
   br label %14
@@ -515,7 +515,7 @@ define void @"_ZN83_$LT$serde_json..value..ser..MapKeySerializer$u20$as$u20$serd
   store i64 17, ptr %4, align 8
   %5 = call align 8 ptr @_ZN10serde_json5error5Error6syntax17h6e293b122ab5844fE(ptr nonnull align 8 %4, i64 0, i64 0)
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %4)
-  %6 = getelementptr inbounds { [1 x i64], ptr }, ptr %0, i64 0, i32 1
+  %6 = getelementptr inbounds i8, ptr %0, i64 8
   store ptr %5, ptr %6, align 8
   store ptr null, ptr %0, align 8
   ret void
@@ -528,7 +528,7 @@ define void @"_ZN83_$LT$serde_json..value..ser..MapKeySerializer$u20$as$u20$serd
   store i64 17, ptr %2, align 8
   %3 = call align 8 ptr @_ZN10serde_json5error5Error6syntax17h6e293b122ab5844fE(ptr nonnull align 8 %2, i64 0, i64 0)
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %2)
-  %4 = getelementptr inbounds { [1 x i64], ptr }, ptr %0, i64 0, i32 1
+  %4 = getelementptr inbounds i8, ptr %0, i64 8
   store ptr %3, ptr %4, align 8
   store ptr null, ptr %0, align 8
   ret void
@@ -541,7 +541,7 @@ define void @"_ZN83_$LT$serde_json..value..ser..MapKeySerializer$u20$as$u20$serd
   store i64 17, ptr %4, align 8
   %5 = call align 8 ptr @_ZN10serde_json5error5Error6syntax17h6e293b122ab5844fE(ptr nonnull align 8 %4, i64 0, i64 0)
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %4)
-  %6 = getelementptr inbounds { [1 x i64], ptr }, ptr %0, i64 0, i32 1
+  %6 = getelementptr inbounds i8, ptr %0, i64 8
   store ptr %5, ptr %6, align 8
   store ptr null, ptr %0, align 8
   ret void
@@ -554,7 +554,7 @@ define void @"_ZN83_$LT$serde_json..value..ser..MapKeySerializer$u20$as$u20$serd
   store i64 17, ptr %2, align 8
   %3 = call align 8 ptr @_ZN10serde_json5error5Error6syntax17h6e293b122ab5844fE(ptr nonnull align 8 %2, i64 0, i64 0)
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %2)
-  %4 = getelementptr inbounds { [1 x i64], ptr }, ptr %0, i64 0, i32 1
+  %4 = getelementptr inbounds i8, ptr %0, i64 8
   store ptr %3, ptr %4, align 8
   store ptr null, ptr %0, align 8
   ret void
@@ -653,7 +653,7 @@ define void @"_ZN84_$LT$serde_json..value..ser..SerializeMap$u20$as$u20$serde..s
   store i8 5, ptr %0, align 8
   %.sroa.2.0..sroa_idx.i = getelementptr inbounds i8, ptr %0, i64 1
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(31) %.sroa.2.0..sroa_idx.i, ptr noundef nonnull align 1 dereferenceable(31) %.sroa.2.i, i64 31, i1 false)
-  %3 = getelementptr inbounds { { { { ptr, i64 }, i64, { {} }, {} } }, { ptr, [2 x i64] } }, ptr %1, i64 0, i32 1
+  %3 = getelementptr inbounds i8, ptr %1, i64 24
   tail call void @"_ZN4core3ptr70drop_in_place$LT$core..option..Option$LT$alloc..string..String$GT$$GT$17h6834c8ae82700051E"(ptr nonnull align 8 %3)
   call void @llvm.lifetime.end.p0(i64 31, ptr nonnull %.sroa.2.i)
   ret void
@@ -671,8 +671,8 @@ define void @"_ZN101_$LT$serde_json..value..ser..SerializeStructVariant$u20$as$u
 
 7:                                                ; preds = %2
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %4, ptr noundef nonnull align 8 dereferenceable(24) %1, i64 24, i1 false)
-  %8 = getelementptr inbounds { { { { ptr, i64 }, i64 } }, { { { ptr, i64 }, i64, { {} }, {} } } }, ptr %1, i64 0, i32 1
-  %9 = getelementptr inbounds { [1 x i64], { { { ptr, i64 }, i64, { {} }, {} } } }, ptr %3, i64 0, i32 1
+  %8 = getelementptr inbounds i8, ptr %1, i64 24
+  %9 = getelementptr inbounds i8, ptr %3, i64 8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %9, ptr noundef nonnull align 8 dereferenceable(24) %8, i64 24, i1 false)
   store i8 5, ptr %3, align 8
   invoke void @"_ZN10serde_json3map59Map$LT$alloc..string..String$C$serde_json..value..Value$GT$6insert17hbd3e1623b83a2fd3E"(ptr nonnull sret({ i8, [31 x i8] }) align 8 %5, ptr nonnull align 8 %6, ptr nonnull align 8 %4, ptr nonnull align 8 %3)
@@ -713,7 +713,7 @@ define void @"_ZN101_$LT$serde_json..value..ser..SerializeStructVariant$u20$as$u
   resume { ptr, i32 } %.pn9
 
 18:                                               ; preds = %16
-  %19 = getelementptr inbounds { { { { ptr, i64 }, i64 } }, { { { ptr, i64 }, i64, { {} }, {} } } }, ptr %1, i64 0, i32 1
+  %19 = getelementptr inbounds i8, ptr %1, i64 24
   invoke void @"_ZN4core3ptr97drop_in_place$LT$serde_json..map..Map$LT$alloc..string..String$C$serde_json..value..Value$GT$$GT$17h373038521a40ff63E"(ptr nonnull align 8 %19) #8
           to label %.critedge unwind label %14
 }

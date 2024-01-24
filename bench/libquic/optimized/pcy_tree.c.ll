@@ -3,13 +3,7 @@ source_filename = "bench/libquic/original/pcy_tree.c.ll"
 target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:128-n8:16:32:64-S128"
 target triple = "x86_64-unknown-linux-gnu"
 
-%struct.X509_POLICY_TREE_st = type { ptr, i32, ptr, ptr, ptr, i32 }
 %struct.X509_POLICY_LEVEL_st = type { ptr, ptr, ptr, i32 }
-%struct.x509_st = type { ptr, ptr, ptr, i32, i32, ptr, %struct.crypto_ex_data_st, i64, i64, i64, i64, i64, i64, ptr, ptr, ptr, ptr, ptr, ptr, [20 x i8], ptr }
-%struct.crypto_ex_data_st = type { ptr }
-%struct.X509_POLICY_CACHE_st = type { ptr, ptr, i64, i64, i64 }
-%struct.X509_POLICY_DATA_st = type { i32, ptr, ptr, ptr }
-%struct.X509_POLICY_NODE_st = type { ptr, ptr, i32 }
 
 ; Function Attrs: nounwind uwtable
 define hidden void @X509_policy_tree_free(ptr noundef %tree) local_unnamed_addr #0 {
@@ -18,13 +12,13 @@ entry:
   br i1 %tobool.not, label %return, label %if.end
 
 if.end:                                           ; preds = %entry
-  %auth_policies = getelementptr inbounds %struct.X509_POLICY_TREE_st, ptr %tree, i64 0, i32 3
+  %auth_policies = getelementptr inbounds i8, ptr %tree, i64 24
   %0 = load ptr, ptr %auth_policies, align 8
   tail call void @sk_free(ptr noundef %0) #7
-  %user_policies = getelementptr inbounds %struct.X509_POLICY_TREE_st, ptr %tree, i64 0, i32 4
+  %user_policies = getelementptr inbounds i8, ptr %tree, i64 32
   %1 = load ptr, ptr %user_policies, align 8
   tail call void @sk_pop_free(ptr noundef %1, ptr noundef nonnull @exnode_free) #7
-  %nlevel = getelementptr inbounds %struct.X509_POLICY_TREE_st, ptr %tree, i64 0, i32 1
+  %nlevel = getelementptr inbounds i8, ptr %tree, i64 8
   %2 = load i32, ptr %nlevel, align 8
   %cmp19 = icmp sgt i32 %2, 0
   br i1 %cmp19, label %for.body.preheader, label %for.end
@@ -45,7 +39,7 @@ if.then2:                                         ; preds = %for.body
   br label %if.end4
 
 if.end4:                                          ; preds = %if.then2, %for.body
-  %nodes = getelementptr inbounds %struct.X509_POLICY_LEVEL_st, ptr %curr.020, i64 0, i32 1
+  %nodes = getelementptr inbounds i8, ptr %curr.020, i64 8
   %5 = load ptr, ptr %nodes, align 8
   %tobool5.not = icmp eq ptr %5, null
   br i1 %tobool5.not, label %if.end8, label %if.then6
@@ -55,7 +49,7 @@ if.then6:                                         ; preds = %if.end4
   br label %if.end8
 
 if.end8:                                          ; preds = %if.then6, %if.end4
-  %anyPolicy = getelementptr inbounds %struct.X509_POLICY_LEVEL_st, ptr %curr.020, i64 0, i32 2
+  %anyPolicy = getelementptr inbounds i8, ptr %curr.020, i64 16
   %6 = load ptr, ptr %anyPolicy, align 8
   %tobool9.not = icmp eq ptr %6, null
   br i1 %tobool9.not, label %for.inc, label %if.then10
@@ -66,13 +60,13 @@ if.then10:                                        ; preds = %if.end8
 
 for.inc:                                          ; preds = %if.end8, %if.then10
   %inc = add nuw nsw i32 %i.021, 1
-  %incdec.ptr = getelementptr inbounds %struct.X509_POLICY_LEVEL_st, ptr %curr.020, i64 1
+  %incdec.ptr = getelementptr inbounds i8, ptr %curr.020, i64 32
   %7 = load i32, ptr %nlevel, align 8
   %cmp = icmp slt i32 %inc, %7
   br i1 %cmp, label %for.body, label %for.end, !llvm.loop !7
 
 for.end:                                          ; preds = %for.inc, %if.end
-  %extra_data = getelementptr inbounds %struct.X509_POLICY_TREE_st, ptr %tree, i64 0, i32 2
+  %extra_data = getelementptr inbounds i8, ptr %tree, i64 16
   %8 = load ptr, ptr %extra_data, align 8
   %tobool13.not = icmp eq ptr %8, null
   br i1 %tobool13.not, label %if.end16, label %if.then14
@@ -167,7 +161,7 @@ for.body.i:                                       ; preds = %for.inc.i, %for.bod
   br i1 %cmp22.i, label %sw.bb2, label %if.end25.i
 
 if.end25.i:                                       ; preds = %for.body.i
-  %ex_flags.i = getelementptr inbounds %struct.x509_st, ptr %call19.i, i64 0, i32 9
+  %ex_flags.i = getelementptr inbounds i8, ptr %call19.i, i64 64
   %1 = load i64, ptr %ex_flags.i, align 8
   %and26.i = and i64 %1, 2048
   %tobool27.not.i = icmp eq i64 %and26.i, 0
@@ -178,7 +172,7 @@ if.else29.i:                                      ; preds = %if.end25.i
   br i1 %cmp30.i, label %land.lhs.true.i, label %if.end36.i
 
 land.lhs.true.i:                                  ; preds = %if.else29.i
-  %data32.i = getelementptr inbounds %struct.X509_POLICY_CACHE_st, ptr %call21.i, i64 0, i32 1
+  %data32.i = getelementptr inbounds i8, ptr %call21.i, i64 8
   %2 = load ptr, ptr %data32.i, align 8
   %tobool33.not.i = icmp eq ptr %2, null
   %spec.select.i = select i1 %tobool33.not.i, i32 2, i32 1
@@ -195,7 +189,7 @@ if.then39.i:                                      ; preds = %if.end36.i
   %5 = and i32 %4, 1
   %dec.i = add nsw i32 %explicit_policy.191.i, -1
   %spec.select74.i = add nuw nsw i32 %dec.i, %5
-  %explicit_skip.i = getelementptr inbounds %struct.X509_POLICY_CACHE_st, ptr %call21.i, i64 0, i32 3
+  %explicit_skip.i = getelementptr inbounds i8, ptr %call21.i, i64 24
   %6 = load i64, ptr %explicit_skip.i, align 8
   %cmp45.not.i = icmp ne i64 %6, -1
   %conv49.i = zext nneg i32 %spec.select74.i to i64
@@ -228,15 +222,15 @@ if.end67.i:                                       ; preds = %for.end.i, %if.end1
   br i1 %tobool69.not.i, label %sw.bb2, label %if.end71.i
 
 if.end71.i:                                       ; preds = %if.end67.i
-  %flags72.i = getelementptr inbounds %struct.X509_POLICY_TREE_st, ptr %call68.i, i64 0, i32 5
+  %flags72.i = getelementptr inbounds i8, ptr %call68.i, i64 40
   store i32 0, ptr %flags72.i, align 8
   %sext.i = shl i64 %call.i, 32
   %mul.i = ashr exact i64 %sext.i, 27
   %calloc.i = tail call ptr @calloc(i64 1, i64 %mul.i)
   store ptr %calloc.i, ptr %call68.i, align 8
-  %nlevel.i = getelementptr inbounds %struct.X509_POLICY_TREE_st, ptr %call68.i, i64 0, i32 1
+  %nlevel.i = getelementptr inbounds i8, ptr %call68.i, i64 8
   store i32 0, ptr %nlevel.i, align 8
-  %extra_data.i = getelementptr inbounds %struct.X509_POLICY_TREE_st, ptr %call68.i, i64 0, i32 2
+  %extra_data.i = getelementptr inbounds i8, ptr %call68.i, i64 16
   %tobool76.not.i = icmp eq ptr %calloc.i, null
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %extra_data.i, i8 0, i64 24, i1 false)
   br i1 %tobool76.not.i, label %if.then77.i, label %if.end78.i
@@ -269,7 +263,7 @@ for.body95.i:                                     ; preds = %for.inc162.i, %for.
   %map_skip.197.i = phi i32 [ %map_skip.0.i, %for.body95.preheader.i ], [ %map_skip.3.i, %for.inc162.i ]
   %any_skip.196.i = phi i32 [ %any_skip.0.i, %for.body95.preheader.i ], [ %any_skip.3.i, %for.inc162.i ]
   %level.094.i = phi ptr [ %calloc.i, %for.body95.preheader.i ], [ %incdec.ptr.i, %for.inc162.i ]
-  %incdec.ptr.i = getelementptr inbounds %struct.X509_POLICY_LEVEL_st, ptr %level.094.i, i64 1
+  %incdec.ptr.i = getelementptr inbounds i8, ptr %level.094.i, i64 32
   %call97.i = tail call ptr @sk_value(ptr noundef %certs, i64 noundef %indvars.iv99.i) #7
   %call98.i = tail call ptr @policy_cache_set(ptr noundef %call97.i) #7
   %call99.i = tail call ptr @X509_up_ref(ptr noundef %call97.i) #7
@@ -279,7 +273,7 @@ for.body95.i:                                     ; preds = %for.inc162.i, %for.
   br i1 %tobool100.not.i, label %if.then101.i, label %if.end103.i
 
 if.then101.i:                                     ; preds = %for.body95.i
-  %flags102.i = getelementptr inbounds %struct.X509_POLICY_LEVEL_st, ptr %level.094.i, i64 1, i32 3
+  %flags102.i = getelementptr inbounds i8, ptr %level.094.i, i64 56
   %9 = load i32, ptr %flags102.i, align 8
   %or.i = or i32 %9, 512
   store i32 %or.i, ptr %flags102.i, align 8
@@ -287,7 +281,7 @@ if.then101.i:                                     ; preds = %for.body95.i
 
 if.end103.i:                                      ; preds = %if.then101.i, %for.body95.i
   %cmp104.i = icmp eq i32 %any_skip.196.i, 0
-  %ex_flags107.i = getelementptr inbounds %struct.x509_st, ptr %call97.i, i64 0, i32 9
+  %ex_flags107.i = getelementptr inbounds i8, ptr %call97.i, i64 64
   %10 = load i64, ptr %ex_flags107.i, align 8
   br i1 %cmp104.i, label %if.then106.i, label %if.else117.i
 
@@ -299,7 +293,7 @@ if.then106.i:                                     ; preds = %if.end103.i
   br i1 %or.cond1.i, label %if.then113.i, label %if.end136.i
 
 if.then113.i:                                     ; preds = %if.then106.i
-  %flags114.i = getelementptr inbounds %struct.X509_POLICY_LEVEL_st, ptr %level.094.i, i64 1, i32 3
+  %flags114.i = getelementptr inbounds i8, ptr %level.094.i, i64 56
   %11 = load i32, ptr %flags114.i, align 8
   %or115.i = or i32 %11, 512
   store i32 %or115.i, ptr %flags114.i, align 8
@@ -311,7 +305,7 @@ if.else117.i:                                     ; preds = %if.end103.i
   %14 = and i32 %13, 1
   %dec122.i = add i32 %any_skip.196.i, -1
   %spec.select76.i = add nuw i32 %dec122.i, %14
-  %any_skip124.i = getelementptr inbounds %struct.X509_POLICY_CACHE_st, ptr %call98.i, i64 0, i32 2
+  %any_skip124.i = getelementptr inbounds i8, ptr %call98.i, i64 16
   %15 = load i64, ptr %any_skip124.i, align 8
   %cmp125.i = icmp sgt i64 %15, -1
   %conv129.i = sext i32 %spec.select76.i to i64
@@ -327,7 +321,7 @@ if.end136.i:                                      ; preds = %if.else117.i, %if.t
   br i1 %cmp137.i, label %if.then139.i, label %if.else142.i
 
 if.then139.i:                                     ; preds = %if.end136.i
-  %flags140.i = getelementptr inbounds %struct.X509_POLICY_LEVEL_st, ptr %level.094.i, i64 1, i32 3
+  %flags140.i = getelementptr inbounds i8, ptr %level.094.i, i64 56
   %16 = load i32, ptr %flags140.i, align 8
   %or141.i = or i32 %16, 1024
   store i32 %or141.i, ptr %flags140.i, align 8
@@ -340,7 +334,7 @@ if.else142.i:                                     ; preds = %if.end136.i
   %20 = and i32 %19, 1
   %dec147.i = add i32 %map_skip.197.i, -1
   %spec.select78.i = add nuw i32 %dec147.i, %20
-  %map_skip149.i = getelementptr inbounds %struct.X509_POLICY_CACHE_st, ptr %call98.i, i64 0, i32 4
+  %map_skip149.i = getelementptr inbounds i8, ptr %call98.i, i64 32
   %21 = load i64, ptr %map_skip149.i, align 8
   %cmp150.i = icmp sgt i64 %21, -1
   %conv154.i = sext i32 %spec.select78.i to i64
@@ -394,18 +388,18 @@ if.end8:                                          ; preds = %for.end164.i, %sw.e
 for.body.i15:                                     ; preds = %if.end8, %for.inc.i19
   %.pn52.i = phi ptr [ %curr.053.i, %for.inc.i19 ], [ %.pre, %if.end8 ]
   %i.051.i = phi i32 [ %inc.i, %for.inc.i19 ], [ 1, %if.end8 ]
-  %curr.053.i = getelementptr inbounds %struct.X509_POLICY_LEVEL_st, ptr %.pn52.i, i64 1
+  %curr.053.i = getelementptr inbounds i8, ptr %.pn52.i, i64 32
   %23 = load ptr, ptr %curr.053.i, align 8
   %call.i16 = tail call ptr @policy_cache_set(ptr noundef %23) #7
-  %data1.i.i = getelementptr inbounds %struct.X509_POLICY_CACHE_st, ptr %call.i16, i64 0, i32 1
+  %data1.i.i = getelementptr inbounds i8, ptr %call.i16, i64 8
   %24 = load ptr, ptr %data1.i.i, align 8
   %call7.i.i = tail call i64 @sk_num(ptr noundef %24) #7
   %cmp8.not.i.i = icmp eq i64 %call7.i.i, 0
   br i1 %cmp8.not.i.i, label %if.end.i, label %for.body.lr.ph.i.i
 
 for.body.lr.ph.i.i:                               ; preds = %for.body.i15
-  %nodes.i.i.i = getelementptr %struct.X509_POLICY_LEVEL_st, ptr %.pn52.i, i64 0, i32 1
-  %anyPolicy.i.i.i = getelementptr %struct.X509_POLICY_LEVEL_st, ptr %.pn52.i, i64 0, i32 2
+  %nodes.i.i.i = getelementptr inbounds i8, ptr %.pn52.i, i64 8
+  %anyPolicy.i.i.i = getelementptr inbounds i8, ptr %.pn52.i, i64 16
   br label %for.body.i.i
 
 for.body.i.i:                                     ; preds = %for.inc.i.i, %for.body.lr.ph.i.i
@@ -418,7 +412,7 @@ for.body.i.i:                                     ; preds = %for.inc.i.i, %for.b
   br i1 %cmp14.not.i.i.i, label %land.lhs.true.i.i.i, label %for.body.lr.ph.i.i.i
 
 for.body.lr.ph.i.i.i:                             ; preds = %for.body.i.i
-  %valid_policy.i.i.i = getelementptr inbounds %struct.X509_POLICY_DATA_st, ptr %call3.i.i, i64 0, i32 1
+  %valid_policy.i.i.i = getelementptr inbounds i8, ptr %call3.i.i, i64 8
   br label %for.body.i.i.i
 
 for.body.i.i.i:                                   ; preds = %for.inc.i.i.i, %for.body.lr.ph.i.i.i
@@ -466,21 +460,21 @@ for.inc.i.i:                                      ; preds = %if.then10.i.i.i, %l
   br i1 %cmp.i.i, label %for.body.i.i, label %if.end.i, !llvm.loop !12
 
 if.end.i:                                         ; preds = %for.inc.i.i, %for.body.i15
-  %flags.i = getelementptr inbounds %struct.X509_POLICY_LEVEL_st, ptr %.pn52.i, i64 1, i32 3
+  %flags.i = getelementptr inbounds i8, ptr %.pn52.i, i64 56
   %33 = load i32, ptr %flags.i, align 8
   %and.i17 = and i32 %33, 512
   %tobool2.not.i18 = icmp eq i32 %and.i17, 0
   br i1 %tobool2.not.i18, label %land.lhs.true.i21, label %if.end6.i
 
 land.lhs.true.i21:                                ; preds = %if.end.i
-  %nodes.i.i = getelementptr %struct.X509_POLICY_LEVEL_st, ptr %.pn52.i, i64 0, i32 1
+  %nodes.i.i = getelementptr inbounds i8, ptr %.pn52.i, i64 8
   %34 = load ptr, ptr %nodes.i.i, align 8
   %call15.i.i = tail call i64 @sk_num(ptr noundef %34) #7
   %cmp16.not.i.i = icmp eq i64 %call15.i.i, 0
   br i1 %cmp16.not.i.i, label %for.end.i.i, label %for.body.lr.ph.i12.i
 
 for.body.lr.ph.i12.i:                             ; preds = %land.lhs.true.i21
-  %flags.i.i.i = getelementptr %struct.X509_POLICY_LEVEL_st, ptr %.pn52.i, i64 0, i32 3
+  %flags.i.i.i = getelementptr inbounds i8, ptr %.pn52.i, i64 24
   br label %for.body.i13.i
 
 for.body.i13.i:                                   ; preds = %for.inc.i16.i, %for.body.lr.ph.i12.i
@@ -500,14 +494,14 @@ lor.lhs.false.i.i.i:                              ; preds = %for.body.i13.i
   br i1 %tobool3.not.i.i.i, label %if.then.i.i15.i, label %if.else.i.i.i
 
 if.then.i.i15.i:                                  ; preds = %lor.lhs.false.i.i.i, %for.body.i13.i
-  %nchild.i.i.i = getelementptr inbounds %struct.X509_POLICY_NODE_st, ptr %call2.i.i, i64 0, i32 2
+  %nchild.i.i.i = getelementptr inbounds i8, ptr %call2.i.i, i64 16
   %39 = load i32, ptr %nchild.i.i.i, align 8
   %tobool4.not.i.i.i = icmp eq i32 %39, 0
   br i1 %tobool4.not.i.i.i, label %if.end.i.i.i, label %for.inc.i16.i
 
 if.end.i.i.i:                                     ; preds = %if.then.i.i15.i
   %.pre.i.i.i.i = load ptr, ptr %call2.i.i, align 8
-  %valid_policy.i.i.i.i = getelementptr inbounds %struct.X509_POLICY_DATA_st, ptr %.pre.i.i.i.i, i64 0, i32 1
+  %valid_policy.i.i.i.i = getelementptr inbounds i8, ptr %.pre.i.i.i.i, i64 8
   %40 = load ptr, ptr %valid_policy.i.i.i.i, align 8
   %41 = load i32, ptr %.pre.i.i.i.i, align 8
   %and.i.i.i.i = and i32 %41, 16
@@ -517,9 +511,9 @@ if.end.i.i.i:                                     ; preds = %if.then.i.i15.i
 
 if.end5.i.i.i.i:                                  ; preds = %if.end.i.i.i
   %42 = load ptr, ptr %call.i16, align 8
-  %qualifier_set.i.i.i.i = getelementptr inbounds %struct.X509_POLICY_DATA_st, ptr %42, i64 0, i32 2
+  %qualifier_set.i.i.i.i = getelementptr inbounds i8, ptr %42, i64 16
   %43 = load ptr, ptr %qualifier_set.i.i.i.i, align 8
-  %qualifier_set6.i.i.i.i = getelementptr inbounds %struct.X509_POLICY_DATA_st, ptr %call.i.i.i.i, i64 0, i32 2
+  %qualifier_set6.i.i.i.i = getelementptr inbounds i8, ptr %call.i.i.i.i, i64 16
   store ptr %43, ptr %qualifier_set6.i.i.i.i, align 8
   %44 = load i32, ptr %call.i.i.i.i, align 8
   %or.i.i.i.i = or i32 %44, 4
@@ -529,9 +523,9 @@ if.end5.i.i.i.i:                                  ; preds = %if.end.i.i.i
   br i1 %tobool.not.i.i.i.i, label %return.sink.split.i.i.i, label %for.inc.i16.i
 
 if.else.i.i.i:                                    ; preds = %lor.lhs.false.i.i.i
-  %expected_policy_set.i.i.i = getelementptr inbounds %struct.X509_POLICY_DATA_st, ptr %37, i64 0, i32 3
+  %expected_policy_set.i.i.i = getelementptr inbounds i8, ptr %37, i64 24
   %45 = load ptr, ptr %expected_policy_set.i.i.i, align 8
-  %nchild10.i.i.i = getelementptr inbounds %struct.X509_POLICY_NODE_st, ptr %call2.i.i, i64 0, i32 2
+  %nchild10.i.i.i = getelementptr inbounds i8, ptr %call2.i.i, i64 16
   %46 = load i32, ptr %nchild10.i.i.i, align 8
   %conv.i.i.i = sext i32 %46 to i64
   %call11.i.i.i = tail call i64 @sk_num(ptr noundef %45) #7
@@ -556,7 +550,7 @@ if.end22.i.i.i:                                   ; preds = %for.body.i.i22.i
   br i1 %cmp.i.i.i.i, label %if.then.i.i.i.i, label %if.end.i.i.i.i
 
 if.then.i.i.i.i:                                  ; preds = %if.end22.i.i.i
-  %valid_policy.i29.i.i.i = getelementptr inbounds %struct.X509_POLICY_DATA_st, ptr %.pre.i17.i.i.i, i64 0, i32 1
+  %valid_policy.i29.i.i.i = getelementptr inbounds i8, ptr %.pre.i17.i.i.i, i64 8
   %47 = load ptr, ptr %valid_policy.i29.i.i.i, align 8
   br label %if.end.i.i.i.i
 
@@ -570,9 +564,9 @@ if.end.i.i.i.i:                                   ; preds = %if.then.i.i.i.i, %i
 
 if.end5.i21.i.i.i:                                ; preds = %if.end.i.i.i.i
   %49 = load ptr, ptr %call.i16, align 8
-  %qualifier_set.i22.i.i.i = getelementptr inbounds %struct.X509_POLICY_DATA_st, ptr %49, i64 0, i32 2
+  %qualifier_set.i22.i.i.i = getelementptr inbounds i8, ptr %49, i64 16
   %50 = load ptr, ptr %qualifier_set.i22.i.i.i, align 8
-  %qualifier_set6.i23.i.i.i = getelementptr inbounds %struct.X509_POLICY_DATA_st, ptr %call.i19.i.i.i, i64 0, i32 2
+  %qualifier_set6.i23.i.i.i = getelementptr inbounds i8, ptr %call.i19.i.i.i, i64 16
   store ptr %50, ptr %qualifier_set6.i23.i.i.i, align 8
   %51 = load i32, ptr %call.i19.i.i.i, align 8
   %or.i24.i.i.i = or i32 %51, 4
@@ -600,7 +594,7 @@ for.inc.i16.i:                                    ; preds = %for.inc.i.i23.i, %f
   br i1 %cmp.i19.i, label %for.body.i13.i, label %for.end.i.i, !llvm.loop !14
 
 for.end.i.i:                                      ; preds = %for.inc.i16.i, %land.lhs.true.i21
-  %anyPolicy.i.i = getelementptr %struct.X509_POLICY_LEVEL_st, ptr %.pn52.i, i64 0, i32 2
+  %anyPolicy.i.i = getelementptr inbounds i8, ptr %.pn52.i, i64 16
   %53 = load ptr, ptr %anyPolicy.i.i, align 8
   %tobool4.not.i.i = icmp eq ptr %53, null
   br i1 %tobool4.not.i.i, label %if.end6.i, label %if.then5.i.i
@@ -612,7 +606,7 @@ if.then5.i.i:                                     ; preds = %for.end.i.i
   br i1 %tobool9.not.i.i, label %error, label %if.end6.i
 
 if.end6.i:                                        ; preds = %if.then5.i.i, %for.end.i.i, %if.end.i
-  %nodes1.i.i = getelementptr inbounds %struct.X509_POLICY_LEVEL_st, ptr %.pn52.i, i64 1, i32 1
+  %nodes1.i.i = getelementptr inbounds i8, ptr %.pn52.i, i64 40
   %55 = load ptr, ptr %nodes1.i.i, align 8
   %56 = load i32, ptr %flags.i, align 8
   %and.i.i = and i32 %56, 1024
@@ -640,9 +634,9 @@ for.body.i29.i:                                   ; preds = %for.inc.i30.i, %for
   br i1 %tobool7.not.i.i, label %for.inc.i30.i, label %if.then8.i.i
 
 if.then8.i.i:                                     ; preds = %for.body.i29.i
-  %parent.i.i = getelementptr inbounds %struct.X509_POLICY_NODE_st, ptr %call4.i.i, i64 0, i32 1
+  %parent.i.i = getelementptr inbounds i8, ptr %call4.i.i, i64 8
   %61 = load ptr, ptr %parent.i.i, align 8
-  %nchild.i.i = getelementptr inbounds %struct.X509_POLICY_NODE_st, ptr %61, i64 0, i32 2
+  %nchild.i.i = getelementptr inbounds i8, ptr %61, i64 16
   %62 = load i32, ptr %nchild.i.i, align 8
   %dec.i.i = add nsw i32 %62, -1
   store i32 %dec.i.i, ptr %nchild.i.i, align 8
@@ -660,8 +654,8 @@ for.cond13.i.i.preheader:                         ; preds = %for.inc.i30.i, %if.
 
 for.cond13.i.i:                                   ; preds = %for.cond13.i.i.backedge, %for.cond13.i.i.preheader
   %curr.addr.0.i.i = phi ptr [ %curr.053.i, %for.cond13.i.i.preheader ], [ %incdec.ptr.i.i, %for.cond13.i.i.backedge ]
-  %incdec.ptr.i.i = getelementptr inbounds %struct.X509_POLICY_LEVEL_st, ptr %curr.addr.0.i.i, i64 -1
-  %nodes14.i.i = getelementptr %struct.X509_POLICY_LEVEL_st, ptr %curr.addr.0.i.i, i64 -1, i32 1
+  %incdec.ptr.i.i = getelementptr inbounds i8, ptr %curr.addr.0.i.i, i64 -32
+  %nodes14.i.i = getelementptr inbounds i8, ptr %curr.addr.0.i.i, i64 -24
   %63 = load ptr, ptr %nodes14.i.i, align 8
   %call15.i27.i = tail call i64 @sk_num(ptr noundef %63) #7
   %64 = trunc i64 %call15.i27.i to i32
@@ -676,15 +670,15 @@ for.body21.preheader.i.i:                         ; preds = %for.cond13.i.i
 for.body21.i.i:                                   ; preds = %for.inc34.i.i, %for.body21.preheader.i.i
   %indvars.iv37.i.i = phi i64 [ %65, %for.body21.preheader.i.i ], [ %indvars.iv.next38.i.i, %for.inc34.i.i ]
   %call23.i.i = tail call ptr @sk_value(ptr noundef %63, i64 noundef %indvars.iv37.i.i) #7
-  %nchild24.i.i = getelementptr inbounds %struct.X509_POLICY_NODE_st, ptr %call23.i.i, i64 0, i32 2
+  %nchild24.i.i = getelementptr inbounds i8, ptr %call23.i.i, i64 16
   %66 = load i32, ptr %nchild24.i.i, align 8
   %cmp25.i.i = icmp eq i32 %66, 0
   br i1 %cmp25.i.i, label %if.then27.i.i, label %for.inc34.i.i
 
 if.then27.i.i:                                    ; preds = %for.body21.i.i
-  %parent28.i.i = getelementptr inbounds %struct.X509_POLICY_NODE_st, ptr %call23.i.i, i64 0, i32 1
+  %parent28.i.i = getelementptr inbounds i8, ptr %call23.i.i, i64 8
   %67 = load ptr, ptr %parent28.i.i, align 8
-  %nchild29.i.i = getelementptr inbounds %struct.X509_POLICY_NODE_st, ptr %67, i64 0, i32 2
+  %nchild29.i.i = getelementptr inbounds i8, ptr %67, i64 16
   %68 = load i32, ptr %nchild29.i.i, align 8
   %dec30.i.i = add nsw i32 %68, -1
   store i32 %dec30.i.i, ptr %nchild29.i.i, align 8
@@ -698,25 +692,25 @@ for.inc34.i.i:                                    ; preds = %if.then27.i.i, %for
   br i1 %cmp19.i.i, label %for.body21.i.i, label %for.end36.i.i, !llvm.loop !16
 
 for.end36.i.i:                                    ; preds = %for.inc34.i.i, %for.cond13.i.i
-  %anyPolicy.i28.i = getelementptr %struct.X509_POLICY_LEVEL_st, ptr %curr.addr.0.i.i, i64 -1, i32 2
+  %anyPolicy.i28.i = getelementptr inbounds i8, ptr %curr.addr.0.i.i, i64 -16
   %69 = load ptr, ptr %anyPolicy.i28.i, align 8
   %tobool37.not.i.i = icmp eq ptr %69, null
   br i1 %tobool37.not.i.i, label %if.end53.i.i, label %land.lhs.true.i.i
 
 land.lhs.true.i.i:                                ; preds = %for.end36.i.i
-  %nchild39.i.i = getelementptr inbounds %struct.X509_POLICY_NODE_st, ptr %69, i64 0, i32 2
+  %nchild39.i.i = getelementptr inbounds i8, ptr %69, i64 16
   %70 = load i32, ptr %nchild39.i.i, align 8
   %tobool40.not.i.i = icmp eq i32 %70, 0
   br i1 %tobool40.not.i.i, label %if.then41.i.i, label %if.end53.i.thread.i
 
 if.then41.i.i:                                    ; preds = %land.lhs.true.i.i
-  %parent43.i.i = getelementptr inbounds %struct.X509_POLICY_NODE_st, ptr %69, i64 0, i32 1
+  %parent43.i.i = getelementptr inbounds i8, ptr %69, i64 8
   %71 = load ptr, ptr %parent43.i.i, align 8
   %tobool44.not.i.i = icmp eq ptr %71, null
   br i1 %tobool44.not.i.i, label %if.end50.i.i, label %if.then45.i.i
 
 if.then45.i.i:                                    ; preds = %if.then41.i.i
-  %nchild48.i.i = getelementptr inbounds %struct.X509_POLICY_NODE_st, ptr %71, i64 0, i32 2
+  %nchild48.i.i = getelementptr inbounds i8, ptr %71, i64 16
   %72 = load i32, ptr %nchild48.i.i, align 8
   %dec49.i.i = add nsw i32 %72, -1
   store i32 %dec49.i.i, ptr %nchild48.i.i, align 8
@@ -760,10 +754,10 @@ if.end16:                                         ; preds = %for.inc.i19, %if.en
   %79 = phi ptr [ %.pre, %if.end8 ], [ %incdec.ptr.i.i, %for.inc.i19 ]
   %idx.ext.i = sext i32 %78 to i64
   %add.ptr.i = getelementptr inbounds %struct.X509_POLICY_LEVEL_st, ptr %79, i64 %idx.ext.i
-  %anyPolicy.i = getelementptr %struct.X509_POLICY_LEVEL_st, ptr %add.ptr.i, i64 -1, i32 2
+  %anyPolicy.i = getelementptr inbounds i8, ptr %add.ptr.i, i64 -16
   %80 = load ptr, ptr %anyPolicy.i, align 8
   %tobool.not.i23 = icmp eq ptr %80, null
-  %auth_policies5.i = getelementptr inbounds %struct.X509_POLICY_TREE_st, ptr %call68.i, i64 0, i32 3
+  %auth_policies5.i = getelementptr inbounds i8, ptr %call68.i, i64 24
   br i1 %tobool.not.i23, label %if.end6.i27, label %if.then.i
 
 if.then.i:                                        ; preds = %if.end16
@@ -805,14 +799,14 @@ for.body.preheader.i29:                           ; preds = %if.end6.i27
 for.body.i30:                                     ; preds = %for.inc24.i, %for.body.preheader.i29
   %i.050.i = phi i32 [ %inc25.i, %for.inc24.i ], [ 1, %for.body.preheader.i29 ]
   %curr.049.i = phi ptr [ %incdec.ptr.i31, %for.inc24.i ], [ %84, %for.body.preheader.i29 ]
-  %anyPolicy9.i = getelementptr inbounds %struct.X509_POLICY_LEVEL_st, ptr %curr.049.i, i64 0, i32 2
+  %anyPolicy9.i = getelementptr inbounds i8, ptr %curr.049.i, i64 16
   %85 = load ptr, ptr %anyPolicy9.i, align 8
   %tobool10.not.i = icmp eq ptr %85, null
   br i1 %tobool10.not.i, label %for.end26.i, label %if.end12.i
 
 if.end12.i:                                       ; preds = %for.body.i30
-  %incdec.ptr.i31 = getelementptr inbounds %struct.X509_POLICY_LEVEL_st, ptr %curr.049.i, i64 1
-  %nodes.i = getelementptr inbounds %struct.X509_POLICY_LEVEL_st, ptr %curr.049.i, i64 1, i32 1
+  %incdec.ptr.i31 = getelementptr inbounds i8, ptr %curr.049.i, i64 32
+  %nodes.i = getelementptr inbounds i8, ptr %curr.049.i, i64 40
   %86 = load ptr, ptr %nodes.i, align 8
   %call1445.i = tail call i64 @sk_num(ptr noundef %86) #7
   %cmp1546.not.i = icmp eq i64 %call1445.i, 0
@@ -822,7 +816,7 @@ for.body16.i:                                     ; preds = %if.end12.i, %for.in
   %j.047.i = phi i64 [ %inc.i33, %for.inc.i32 ], [ 0, %if.end12.i ]
   %87 = load ptr, ptr %nodes.i, align 8
   %call18.i = tail call ptr @sk_value(ptr noundef %87, i64 noundef %j.047.i) #7
-  %parent.i = getelementptr inbounds %struct.X509_POLICY_NODE_st, ptr %call18.i, i64 0, i32 1
+  %parent.i = getelementptr inbounds i8, ptr %call18.i, i64 8
   %88 = load ptr, ptr %parent.i, align 8
   %cmp19.i = icmp eq ptr %88, %85
   br i1 %cmp19.i, label %land.lhs.true.i35, label %for.inc.i32
@@ -890,7 +884,7 @@ if.end.i42:                                       ; preds = %if.end20
   %96 = load i32, ptr %nlevel.i, align 8
   %97 = sext i32 %96 to i64
   %98 = getelementptr %struct.X509_POLICY_LEVEL_st, ptr %95, i64 %97
-  %anyPolicy1.i = getelementptr %struct.X509_POLICY_LEVEL_st, ptr %98, i64 -1, i32 2
+  %anyPolicy1.i = getelementptr i8, ptr %98, i64 -16
   %99 = load ptr, ptr %anyPolicy1.i, align 8
   %.fr.i = freeze ptr %99
   %call226.i = call i64 @sk_num(ptr noundef %policy_oids) #7
@@ -910,8 +904,8 @@ for.cond9.preheader.i:                            ; preds = %for.cond.i, %if.end
 
 for.body12.lr.ph.i:                               ; preds = %for.cond9.preheader.i
   %tobool16.not.i = icmp eq ptr %.fr.i, null
-  %parent.i46 = getelementptr inbounds %struct.X509_POLICY_NODE_st, ptr %.fr.i, i64 0, i32 1
-  %user_policies.i = getelementptr inbounds %struct.X509_POLICY_TREE_st, ptr %call68.i, i64 0, i32 4
+  %parent.i46 = getelementptr inbounds i8, ptr %.fr.i, i64 8
+  %user_policies.i = getelementptr inbounds i8, ptr %call68.i, i64 32
   br i1 %tobool16.not.i, label %for.body12.us.i, label %for.body12.i
 
 for.body12.us.i:                                  ; preds = %for.body12.lr.ph.i, %for.inc43.us.i
@@ -974,9 +968,9 @@ if.then15.i:                                      ; preds = %for.body12.i
 
 if.end23.i:                                       ; preds = %if.then15.i
   %105 = load ptr, ptr %.fr.i, align 8
-  %qualifier_set.i = getelementptr inbounds %struct.X509_POLICY_DATA_st, ptr %105, i64 0, i32 2
+  %qualifier_set.i = getelementptr inbounds i8, ptr %105, i64 16
   %106 = load ptr, ptr %qualifier_set.i, align 8
-  %qualifier_set25.i = getelementptr inbounds %struct.X509_POLICY_DATA_st, ptr %call20.i51, i64 0, i32 2
+  %qualifier_set25.i = getelementptr inbounds i8, ptr %call20.i51, i64 16
   store ptr %106, ptr %qualifier_set25.i, align 8
   store i32 12, ptr %call20.i51, align 8
   %107 = load ptr, ptr %parent.i46, align 8

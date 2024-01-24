@@ -5,7 +5,6 @@ target triple = "x86_64-unknown-linux-gnu"
 
 %struct.group_info = type { i16, ptr }
 %struct.timeval = type { i64, i64 }
-%struct.func_args = type { i32, ptr, i32, ptr, ptr }
 %struct.info_t = type { ptr, i16, ptr, i32, i32, i32, i32, i32, i32, i32, %struct.side_t, %struct.side_t, i32, %struct.memBuf_t, %struct.memBuf_t, i32, %struct.stats_t, %struct.stats_t }
 %struct.side_t = type { i32, i32, i32 }
 %struct.memBuf_t = type { [16486 x i8], i32, i32, i32, i32, %struct.COND_TYPE, i32 }
@@ -19,7 +18,7 @@ target triple = "x86_64-unknown-linux-gnu"
 %struct.stats_t = type { double, double, double, i32, i32, i32 }
 %struct.sockaddr_in = type { i16, i16, %struct.in_addr, [8 x i8] }
 %struct.in_addr = type { i32 }
-%struct.hostent = type { ptr, ptr, i32, i32, ptr }
+%struct.func_args = type { i32, ptr, i32, ptr, ptr }
 
 @myoptind = dso_local local_unnamed_addr global i32 0, align 4
 @myoptarg = dso_local local_unnamed_addr global ptr null, align 8
@@ -186,9 +185,9 @@ if.end.thread:                                    ; preds = %entry
 
 if.end:                                           ; preds = %entry
   %0 = load i32, ptr %args, align 8
-  %argv2 = getelementptr inbounds %struct.func_args, ptr %args, i64 0, i32 1
+  %argv2 = getelementptr inbounds i8, ptr %args, i64 8
   %1 = load ptr, ptr %argv2, align 8
-  %return_code = getelementptr inbounds %struct.func_args, ptr %args, i64 0, i32 2
+  %return_code = getelementptr inbounds i8, ptr %args, i64 16
   store i32 -1, ptr %return_code, align 8
   %call = tail call i32 @wolfSSL_Init() #16
   %cmp.i = icmp eq ptr %1, null
@@ -584,7 +583,7 @@ for.inc.us.us.i:                                  ; preds = %if.then28.us.us.i, 
   %ret.3.us.us.i = phi i32 [ 0, %if.then28.us.us.i ], [ -1, %for.body.us.us.i ], [ -1, %if.else.us.us.i ], [ 0, %if.then14.us.us.i ]
   %indvars.iv.next50.i = add nuw i64 %indvars.iv49.i, 1
   %arrayidx.us.us.i = getelementptr inbounds [22 x %struct.group_info], ptr @groups, i64 0, i64 %indvars.iv.next50.i
-  %name.us.us.i = getelementptr inbounds [22 x %struct.group_info], ptr @groups, i64 0, i64 %indvars.iv.next50.i, i32 1
+  %name.us.us.i = getelementptr inbounds i8, ptr %arrayidx.us.us.i, i64 8
   %28 = load ptr, ptr %name.us.us.i, align 8
   %cmp12.not.us.us.i = icmp eq ptr %28, null
   br i1 %cmp12.not.us.us.i, label %for.end.i, label %for.body.us.us.i, !llvm.loop !5
@@ -622,7 +621,7 @@ for.inc.i:                                        ; preds = %for.inc.sink.split.
   %ret.3.i = phi i32 [ -1, %for.body.i ], [ -1, %if.else.i143 ], [ 0, %for.inc.sink.split.i ]
   %indvars.iv.next.i = add nuw i64 %indvars.iv.i, 1
   %arrayidx.i140 = getelementptr inbounds [22 x %struct.group_info], ptr @groups, i64 0, i64 %indvars.iv.next.i
-  %name.i = getelementptr inbounds [22 x %struct.group_info], ptr @groups, i64 0, i64 %indvars.iv.next.i, i32 1
+  %name.i = getelementptr inbounds i8, ptr %arrayidx.i140, i64 8
   %32 = load ptr, ptr %name.i, align 8
   %cmp12.not.i141 = icmp eq ptr %32, null
   br i1 %cmp12.not.i141, label %for.end.i, label %for.body.i, !llvm.loop !5
@@ -674,7 +673,7 @@ if.end63:                                         ; preds = %if.then57, %if.end5
   %33 = load ptr, ptr @stderr, align 8
   %34 = tail call i64 @fwrite(ptr nonnull @.str.3, i64 26, i64 1, ptr %33) #18
   %tobool78.not = icmp eq i32 %argShowVerbose.0322657, 0
-  %group = getelementptr inbounds %struct.info_t, ptr %call48, i64 0, i32 1
+  %group = getelementptr inbounds i8, ptr %call48, i64 8
   %cmp103394 = icmp sgt i32 %spec.select, 0
   %35 = or i32 %argServerOnly.0303662, %argClientOnly.0313660
   %or.cond2.not = icmp eq i32 %35, 0
@@ -748,9 +747,9 @@ for.body105:                                      ; preds = %if.end101, %for.inc
   %arrayidx107 = getelementptr inbounds %struct.info_t, ptr %call48, i64 %indvars.iv
   %43 = getelementptr inbounds i8, ptr %arrayidx107, i64 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(33368) %43, i8 0, i64 33360, i1 false)
-  %host = getelementptr inbounds %struct.info_t, ptr %call48, i64 %indvars.iv, i32 2
+  %host = getelementptr inbounds i8, ptr %arrayidx107, i64 16
   store ptr %argHost.0294664, ptr %host, align 8
-  %port = getelementptr inbounds %struct.info_t, ptr %call48, i64 %indvars.iv, i32 3
+  %port = getelementptr inbounds i8, ptr %arrayidx107, i64 24
   %44 = trunc i64 %indvars.iv to i32
   %45 = add i32 %argPort.0285666, %44
   store i32 %45, ptr %port, align 8
@@ -765,32 +764,31 @@ land.lhs.true110:                                 ; preds = %for.body105
 
 if.then116:                                       ; preds = %land.lhs.true110
   %47 = load i16, ptr %arrayidx82445, align 16
+  %group120 = getelementptr inbounds i8, ptr %arrayidx107, i64 8
+  store i16 %47, ptr %group120, align 8
   br label %if.end123
 
 if.end123:                                        ; preds = %for.body105, %land.lhs.true110, %if.then116
-  %.sink796 = phi i16 [ %47, %if.then116 ], [ 0, %land.lhs.true110 ], [ 0, %for.body105 ]
-  %group122 = getelementptr inbounds %struct.info_t, ptr %call48, i64 %indvars.iv, i32 1
-  store i16 %.sink796, ptr %group122, align 8
-  %packetSize = getelementptr inbounds %struct.info_t, ptr %call48, i64 %indvars.iv, i32 4
+  %packetSize = getelementptr inbounds i8, ptr %arrayidx107, i64 28
   store i32 %argTestPacketSize.0350651, ptr %packetSize, align 4
-  %runTimeSec = getelementptr inbounds %struct.info_t, ptr %call48, i64 %indvars.iv, i32 6
+  %runTimeSec = getelementptr inbounds i8, ptr %arrayidx107, i64 36
   store i32 %argRuntimeSec.0368649, ptr %runTimeSec, align 4
-  %maxSize = getelementptr inbounds %struct.info_t, ptr %call48, i64 %indvars.iv, i32 5
+  %maxSize = getelementptr inbounds i8, ptr %arrayidx107, i64 32
   store i32 %argTestMaxSize.0341653, ptr %maxSize, align 8
-  %showPeerInfo = getelementptr inbounds %struct.info_t, ptr %call48, i64 %indvars.iv, i32 7
+  %showPeerInfo = getelementptr inbounds i8, ptr %arrayidx107, i64 40
   store i32 %argShowPeerInfo.0276668, ptr %showPeerInfo, align 8
-  %showVerbose = getelementptr inbounds %struct.info_t, ptr %call48, i64 %indvars.iv, i32 8
+  %showVerbose = getelementptr inbounds i8, ptr %arrayidx107, i64 44
   store i32 %argShowVerbose.0322657, ptr %showVerbose, align 4
-  %listenFd124 = getelementptr inbounds %struct.info_t, ptr %call48, i64 %indvars.iv, i32 9
+  %listenFd124 = getelementptr inbounds i8, ptr %arrayidx107, i64 48
   store i32 %39, ptr %listenFd124, align 8
-  %sockFd = getelementptr inbounds %struct.info_t, ptr %call48, i64 %indvars.iv, i32 10, i32 1
+  %sockFd = getelementptr inbounds i8, ptr %arrayidx107, i64 56
   store i32 -1, ptr %sockFd, align 4
-  %sockFd125 = getelementptr inbounds %struct.info_t, ptr %call48, i64 %indvars.iv, i32 11, i32 1
+  %sockFd125 = getelementptr inbounds i8, ptr %arrayidx107, i64 68
   store i32 -1, ptr %sockFd125, align 4
   br i1 %tobool45, label %if.then127, label %if.else129
 
 if.then127:                                       ; preds = %if.end123
-  %serverListening = getelementptr inbounds %struct.info_t, ptr %call48, i64 %indvars.iv, i32 15
+  %serverListening = getelementptr inbounds i8, ptr %arrayidx107, i64 33280
   store i32 1, ptr %serverListening, align 8
   %call128 = call fastcc i32 @bench_tls_client(ptr noundef nonnull %arrayidx107)
   br label %for.inc
@@ -803,9 +801,9 @@ if.then131:                                       ; preds = %if.else129
   br label %for.inc
 
 if.else133:                                       ; preds = %if.else129
-  %useLocalMem = getelementptr inbounds %struct.info_t, ptr %call48, i64 %indvars.iv, i32 12
+  %useLocalMem = getelementptr inbounds i8, ptr %arrayidx107, i64 76
   store i32 %argLocalMem.0266670, ptr %useLocalMem, align 4
-  %cond134 = getelementptr inbounds %struct.info_t, ptr %call48, i64 %indvars.iv, i32 13, i32 5
+  %cond134 = getelementptr inbounds i8, ptr %arrayidx107, i64 16584
   %call135 = call i32 @wolfSSL_CondInit(ptr noundef nonnull %cond134) #16
   %cmp136.not = icmp eq i32 %call135, 0
   br i1 %cmp136.not, label %do.body142, label %if.then138
@@ -819,7 +817,7 @@ if.then138:                                       ; preds = %if.else133
   unreachable
 
 do.body142:                                       ; preds = %if.else133
-  %cond144 = getelementptr inbounds %struct.info_t, ptr %call48, i64 %indvars.iv, i32 14, i32 5
+  %cond144 = getelementptr inbounds i8, ptr %arrayidx107, i64 33184
   %call145 = call i32 @wolfSSL_CondInit(ptr noundef nonnull %cond144) #16
   %cmp146.not = icmp eq i32 %call145, 0
   br i1 %cmp146.not, label %do.body153, label %if.then148
@@ -876,13 +874,14 @@ do.body179.preheader:                             ; preds = %for.end
 for.body183.us:                                   ; preds = %do.body179.preheader, %for.body183.us.backedge
   %indvars.iv613 = phi i64 [ %indvars.iv613.be, %for.body183.us.backedge ], [ 0, %do.body179.preheader ]
   %doShutdown.0399.us = phi i32 [ %doShutdown.0399.us.be, %for.body183.us.backedge ], [ 1, %do.body179.preheader ]
-  %done.us = getelementptr inbounds %struct.info_t, ptr %call48, i64 %indvars.iv613, i32 14, i32 6
+  %arrayidx185.us = getelementptr inbounds %struct.info_t, ptr %call48, i64 %indvars.iv613
+  %done.us = getelementptr inbounds i8, ptr %arrayidx185.us, i64 33272
   %52 = load i32, ptr %done.us, align 8
   %tobool187.not.us = icmp eq i32 %52, 0
   br i1 %tobool187.not.us, label %if.then192.us, label %lor.lhs.false188.us
 
 lor.lhs.false188.us:                              ; preds = %for.body183.us
-  %done190.us = getelementptr inbounds %struct.info_t, ptr %call48, i64 %indvars.iv613, i32 13, i32 6
+  %done190.us = getelementptr inbounds i8, ptr %arrayidx185.us, i64 16672
   %53 = load i32, ptr %done190.us, align 8
   %tobool191.not.us = icmp eq i32 %53, 0
   br i1 %tobool191.not.us, label %if.then192.us, label %for.inc205.us
@@ -940,20 +939,20 @@ for.body220:                                      ; preds = %if.end214, %for.inc
   br i1 %tobool45, label %if.end227, label %if.then225
 
 if.then225:                                       ; preds = %for.body220
-  %server_stats = getelementptr inbounds %struct.info_t, ptr %call48, i64 %indvars.iv618, i32 16
+  %server_stats = getelementptr inbounds i8, ptr %arrayidx222, i64 33288
   %59 = load ptr, ptr %arrayidx222, align 8
   %60 = load ptr, ptr @stderr, align 8
-  %txTotal18.i = getelementptr inbounds %struct.info_t, ptr %call48, i64 %indvars.iv618, i32 16, i32 5
+  %txTotal18.i = getelementptr inbounds i8, ptr %arrayidx222, i64 33320
   %61 = load i32, ptr %txTotal18.i, align 8
-  %rxTotal19.i = getelementptr inbounds %struct.info_t, ptr %call48, i64 %indvars.iv618, i32 16, i32 4
+  %rxTotal19.i = getelementptr inbounds i8, ptr %arrayidx222, i64 33316
   %62 = load i32, ptr %rxTotal19.i, align 4
   %add20.i = add nsw i32 %62, %61
-  %connCount21.i = getelementptr inbounds %struct.info_t, ptr %call48, i64 %indvars.iv618, i32 16, i32 3
+  %connCount21.i = getelementptr inbounds i8, ptr %arrayidx222, i64 33312
   %63 = load i32, ptr %connCount21.i, align 8
-  %rxTime22.i = getelementptr inbounds %struct.info_t, ptr %call48, i64 %indvars.iv618, i32 16, i32 1
+  %rxTime22.i = getelementptr inbounds i8, ptr %arrayidx222, i64 33296
   %64 = load double, ptr %rxTime22.i, align 8
   %mul23.i = fmul double %64, 1.000000e+03
-  %txTime24.i = getelementptr inbounds %struct.info_t, ptr %call48, i64 %indvars.iv618, i32 16, i32 2
+  %txTime24.i = getelementptr inbounds i8, ptr %arrayidx222, i64 33304
   %65 = load double, ptr %txTime24.i, align 8
   %mul25.i = fmul double %65, 1.000000e+03
   %conv27.i = sitofp i32 %62 to double
@@ -975,20 +974,20 @@ if.end227:                                        ; preds = %if.then225, %for.bo
   br i1 %tobool44, label %for.inc232, label %if.then229
 
 if.then229:                                       ; preds = %if.end227
-  %client_stats = getelementptr inbounds %struct.info_t, ptr %call48, i64 %indvars.iv618, i32 17
+  %client_stats = getelementptr inbounds i8, ptr %arrayidx222, i64 33328
   %67 = load ptr, ptr %arrayidx222, align 8
   %68 = load ptr, ptr @stderr, align 8
-  %txTotal18.i145 = getelementptr inbounds %struct.info_t, ptr %call48, i64 %indvars.iv618, i32 17, i32 5
+  %txTotal18.i145 = getelementptr inbounds i8, ptr %arrayidx222, i64 33360
   %69 = load i32, ptr %txTotal18.i145, align 8
-  %rxTotal19.i146 = getelementptr inbounds %struct.info_t, ptr %call48, i64 %indvars.iv618, i32 17, i32 4
+  %rxTotal19.i146 = getelementptr inbounds i8, ptr %arrayidx222, i64 33356
   %70 = load i32, ptr %rxTotal19.i146, align 4
   %add20.i147 = add nsw i32 %70, %69
-  %connCount21.i148 = getelementptr inbounds %struct.info_t, ptr %call48, i64 %indvars.iv618, i32 17, i32 3
+  %connCount21.i148 = getelementptr inbounds i8, ptr %arrayidx222, i64 33352
   %71 = load i32, ptr %connCount21.i148, align 8
-  %rxTime22.i149 = getelementptr inbounds %struct.info_t, ptr %call48, i64 %indvars.iv618, i32 17, i32 1
+  %rxTime22.i149 = getelementptr inbounds i8, ptr %arrayidx222, i64 33336
   %72 = load double, ptr %rxTime22.i149, align 8
   %mul23.i150 = fmul double %72, 1.000000e+03
-  %txTime24.i151 = getelementptr inbounds %struct.info_t, ptr %call48, i64 %indvars.iv618, i32 17, i32 2
+  %txTime24.i151 = getelementptr inbounds i8, ptr %arrayidx222, i64 33344
   %73 = load double, ptr %txTime24.i151, align 8
   %mul25.i152 = fmul double %73, 1.000000e+03
   %conv27.i153 = sitofp i32 %70 to double
@@ -1026,33 +1025,34 @@ for.body239:                                      ; preds = %if.end235, %for.bod
   %cli_comb.sroa.10.2406 = phi i32 [ %add244, %for.body239 ], [ 0, %if.end235 ]
   %cli_comb.sroa.7.2405 = phi double [ %add279, %for.body239 ], [ 0.000000e+00, %if.end235 ]
   %75 = phi <4 x double> [ %91, %for.body239 ], [ zeroinitializer, %if.end235 ]
-  %client_stats242 = getelementptr inbounds %struct.info_t, ptr %call48, i64 %indvars.iv623, i32 17
-  %connCount = getelementptr inbounds %struct.info_t, ptr %call48, i64 %indvars.iv623, i32 17, i32 3
+  %arrayidx241 = getelementptr inbounds %struct.info_t, ptr %call48, i64 %indvars.iv623
+  %client_stats242 = getelementptr inbounds i8, ptr %arrayidx241, i64 33328
+  %connCount = getelementptr inbounds i8, ptr %arrayidx241, i64 33352
   %76 = load i32, ptr %connCount, align 8
   %add244 = add nsw i32 %76, %cli_comb.sroa.10.2406
-  %server_stats245 = getelementptr inbounds %struct.info_t, ptr %call48, i64 %indvars.iv623, i32 16
-  %connCount246 = getelementptr inbounds %struct.info_t, ptr %call48, i64 %indvars.iv623, i32 16, i32 3
+  %server_stats245 = getelementptr inbounds i8, ptr %arrayidx241, i64 33288
+  %connCount246 = getelementptr inbounds i8, ptr %arrayidx241, i64 33312
   %77 = load i32, ptr %connCount246, align 8
   %add248 = add nsw i32 %77, %srv_comb.sroa.10.2413
   %78 = load double, ptr %client_stats242, align 8
   %add251 = fadd double %cli_comb.sroa.0.2416, %78
   %79 = load double, ptr %server_stats245, align 8
-  %rxTotal = getelementptr inbounds %struct.info_t, ptr %call48, i64 %indvars.iv623, i32 17, i32 4
+  %rxTotal = getelementptr inbounds i8, ptr %arrayidx241, i64 33356
   %80 = load i32, ptr %rxTotal, align 4
   %add258 = add nsw i32 %80, %cli_comb.sroa.13.2407
-  %rxTotal260 = getelementptr inbounds %struct.info_t, ptr %call48, i64 %indvars.iv623, i32 16, i32 4
+  %rxTotal260 = getelementptr inbounds i8, ptr %arrayidx241, i64 33316
   %81 = load i32, ptr %rxTotal260, align 4
   %add262 = add nsw i32 %81, %srv_comb.sroa.13.2414
-  %rxTime = getelementptr inbounds %struct.info_t, ptr %call48, i64 %indvars.iv623, i32 17, i32 1
+  %rxTime = getelementptr inbounds i8, ptr %arrayidx241, i64 33336
   %82 = load double, ptr %rxTime, align 8
-  %rxTime267 = getelementptr inbounds %struct.info_t, ptr %call48, i64 %indvars.iv623, i32 16, i32 1
-  %txTotal = getelementptr inbounds %struct.info_t, ptr %call48, i64 %indvars.iv623, i32 17, i32 5
+  %rxTime267 = getelementptr inbounds i8, ptr %arrayidx241, i64 33296
+  %txTotal = getelementptr inbounds i8, ptr %arrayidx241, i64 33360
   %83 = load i32, ptr %txTotal, align 8
   %add272 = add nsw i32 %83, %cli_comb.sroa.16.2408
-  %txTotal274 = getelementptr inbounds %struct.info_t, ptr %call48, i64 %indvars.iv623, i32 16, i32 5
+  %txTotal274 = getelementptr inbounds i8, ptr %arrayidx241, i64 33320
   %84 = load i32, ptr %txTotal274, align 8
   %add276 = add nsw i32 %84, %srv_comb.sroa.16.2415
-  %txTime = getelementptr inbounds %struct.info_t, ptr %call48, i64 %indvars.iv623, i32 17, i32 2
+  %txTime = getelementptr inbounds i8, ptr %arrayidx241, i64 33344
   %85 = load double, ptr %txTime, align 8
   %add279 = fadd double %cli_comb.sroa.7.2405, %85
   %86 = load <2 x double>, ptr %rxTime267, align 8
@@ -1147,7 +1147,7 @@ for.inc312:                                       ; preds = %lor.lhs.false304, %
   %ret.5 = phi i32 [ %ret.3.lcssa675683, %lor.lhs.false304 ], [ %ret.2444, %land.lhs.true93 ]
   %indvars.iv.next629 = add nuw i64 %indvars.iv628, 1
   %arrayidx82 = getelementptr inbounds [22 x %struct.group_info], ptr @groups, i64 0, i64 %indvars.iv.next629
-  %name = getelementptr inbounds [22 x %struct.group_info], ptr @groups, i64 0, i64 %indvars.iv.next629, i32 1
+  %name = getelementptr inbounds i8, ptr %arrayidx82, i64 8
   %104 = load ptr, ptr %name, align 8
   %cmp83.not = icmp eq ptr %104, null
   br i1 %cmp83.not, label %for.end314, label %for.body, !llvm.loop !11
@@ -1199,7 +1199,7 @@ if.end334:                                        ; preds = %if.then333, %if.end
   br i1 %cmp.not, label %if.end338, label %if.then336
 
 if.then336:                                       ; preds = %if.end334
-  %return_code337 = getelementptr inbounds %struct.func_args, ptr %args, i64 0, i32 2
+  %return_code337 = getelementptr inbounds i8, ptr %args, i64 16
   store i32 %ret.7, ptr %return_code337, align 8
   br label %if.end338
 
@@ -1271,9 +1271,9 @@ entry:
   store i16 2, ptr %servAddr, align 4
   %conv = trunc i32 %port to i16
   %call = tail call zeroext i16 @htons(i16 noundef zeroext %conv) #19
-  %sin_port = getelementptr inbounds %struct.sockaddr_in, ptr %servAddr, i64 0, i32 1
+  %sin_port = getelementptr inbounds i8, ptr %servAddr, i64 2
   store i16 %call, ptr %sin_port, align 2
-  %sin_addr = getelementptr inbounds %struct.sockaddr_in, ptr %servAddr, i64 0, i32 2
+  %sin_addr = getelementptr inbounds i8, ptr %servAddr, i64 4
   store i32 0, ptr %sin_addr, align 4
   %call1 = tail call i32 @socket(i32 noundef 2, i32 noundef 1, i32 noundef 0) #16
   store i32 %call1, ptr %listenFd, align 4
@@ -1360,7 +1360,7 @@ gettime_secs.exit:                                ; preds = %entry
   %cmp = icmp eq i32 %call, 0
   %3 = load i64, ptr %tv.i, align 8
   %conv.i = sitofp i64 %3 to double
-  %tv_usec.i = getelementptr inbounds %struct.timeval, ptr %tv.i, i64 0, i32 1
+  %tv_usec.i = getelementptr inbounds i8, ptr %tv.i, i64 8
   %4 = load i64, ptr %tv_usec.i, align 8
   %conv3.i = sitofp i64 %4 to double
   %div.i = fdiv double %conv3.i, 1.000000e+06
@@ -1435,7 +1435,7 @@ if.then34:                                        ; preds = %if.end30
   br label %exit
 
 if.end36:                                         ; preds = %if.end30
-  %packetSize = getelementptr inbounds %struct.info_t, ptr %info, i64 0, i32 4
+  %packetSize = getelementptr inbounds i8, ptr %info, i64 28
   %15 = load i32, ptr %packetSize, align 4
   %conv37 = sext i32 %15 to i64
   %call38 = tail call ptr @wolfSSL_Malloc(i64 noundef %conv37) #16
@@ -1455,38 +1455,38 @@ if.end43:                                         ; preds = %if.end36
   br i1 %cmp47, label %if.then49, label %while.cond.preheader
 
 while.cond.preheader:                             ; preds = %if.end43
-  %client = getelementptr inbounds %struct.info_t, ptr %info, i64 0, i32 10
+  %client = getelementptr inbounds i8, ptr %info, i64 52
   %19 = load i32, ptr %client, align 4
   %tobool52.not293 = icmp eq i32 %19, 0
   br i1 %tobool52.not293, label %while.body.lr.ph, label %if.end184
 
 while.body.lr.ph:                                 ; preds = %while.cond.preheader
-  %useLocalMem = getelementptr inbounds %struct.info_t, ptr %info, i64 0, i32 12
-  %host = getelementptr inbounds %struct.info_t, ptr %info, i64 0, i32 2
-  %port = getelementptr inbounds %struct.info_t, ptr %info, i64 0, i32 3
+  %useLocalMem = getelementptr inbounds i8, ptr %info, i64 76
+  %host = getelementptr inbounds i8, ptr %info, i64 16
+  %port = getelementptr inbounds i8, ptr %info, i64 24
   %20 = getelementptr inbounds i8, ptr %servAddr.i, i64 4
-  %sin_port.i = getelementptr inbounds %struct.sockaddr_in, ptr %servAddr.i, i64 0, i32 1
-  %sockFd.i = getelementptr inbounds %struct.info_t, ptr %info, i64 0, i32 10, i32 1
-  %serverListening.i = getelementptr inbounds %struct.info_t, ptr %info, i64 0, i32 15
-  %server.i = getelementptr inbounds %struct.info_t, ptr %info, i64 0, i32 11
-  %showVerbose.i = getelementptr inbounds %struct.info_t, ptr %info, i64 0, i32 8
-  %group = getelementptr inbounds %struct.info_t, ptr %info, i64 0, i32 1
-  %tv_usec.i115 = getelementptr inbounds %struct.timeval, ptr %tv.i110, i64 0, i32 1
-  %tv_usec.i128 = getelementptr inbounds %struct.timeval, ptr %tv.i123, i64 0, i32 1
-  %client_stats = getelementptr inbounds %struct.info_t, ptr %info, i64 0, i32 17
-  %connCount = getelementptr inbounds %struct.info_t, ptr %info, i64 0, i32 17, i32 3
-  %showPeerInfo = getelementptr inbounds %struct.info_t, ptr %info, i64 0, i32 7
-  %tv_usec.i141 = getelementptr inbounds %struct.timeval, ptr %tv.i136, i64 0, i32 1
-  %runTimeSec = getelementptr inbounds %struct.info_t, ptr %info, i64 0, i32 6
-  %maxSize = getelementptr inbounds %struct.info_t, ptr %info, i64 0, i32 5
-  %tv_usec.i154 = getelementptr inbounds %struct.timeval, ptr %tv.i149, i64 0, i32 1
-  %tv_usec.i167 = getelementptr inbounds %struct.timeval, ptr %tv.i162, i64 0, i32 1
-  %txTime = getelementptr inbounds %struct.info_t, ptr %info, i64 0, i32 17, i32 2
-  %txTotal = getelementptr inbounds %struct.info_t, ptr %info, i64 0, i32 17, i32 5
-  %tv_usec.i180 = getelementptr inbounds %struct.timeval, ptr %tv.i175, i64 0, i32 1
-  %tv_usec.i193 = getelementptr inbounds %struct.timeval, ptr %tv.i188, i64 0, i32 1
-  %rxTime = getelementptr inbounds %struct.info_t, ptr %info, i64 0, i32 17, i32 1
-  %rxTotal = getelementptr inbounds %struct.info_t, ptr %info, i64 0, i32 17, i32 4
+  %sin_port.i = getelementptr inbounds i8, ptr %servAddr.i, i64 2
+  %sockFd.i = getelementptr inbounds i8, ptr %info, i64 56
+  %serverListening.i = getelementptr inbounds i8, ptr %info, i64 33280
+  %server.i = getelementptr inbounds i8, ptr %info, i64 64
+  %showVerbose.i = getelementptr inbounds i8, ptr %info, i64 44
+  %group = getelementptr inbounds i8, ptr %info, i64 8
+  %tv_usec.i115 = getelementptr inbounds i8, ptr %tv.i110, i64 8
+  %tv_usec.i128 = getelementptr inbounds i8, ptr %tv.i123, i64 8
+  %client_stats = getelementptr inbounds i8, ptr %info, i64 33328
+  %connCount = getelementptr inbounds i8, ptr %info, i64 33352
+  %showPeerInfo = getelementptr inbounds i8, ptr %info, i64 40
+  %tv_usec.i141 = getelementptr inbounds i8, ptr %tv.i136, i64 8
+  %runTimeSec = getelementptr inbounds i8, ptr %info, i64 36
+  %maxSize = getelementptr inbounds i8, ptr %info, i64 32
+  %tv_usec.i154 = getelementptr inbounds i8, ptr %tv.i149, i64 8
+  %tv_usec.i167 = getelementptr inbounds i8, ptr %tv.i162, i64 8
+  %txTime = getelementptr inbounds i8, ptr %info, i64 33344
+  %txTotal = getelementptr inbounds i8, ptr %info, i64 33360
+  %tv_usec.i180 = getelementptr inbounds i8, ptr %tv.i175, i64 8
+  %tv_usec.i193 = getelementptr inbounds i8, ptr %tv.i188, i64 8
+  %rxTime = getelementptr inbounds i8, ptr %info, i64 33336
+  %rxTotal = getelementptr inbounds i8, ptr %info, i64 33356
   br label %while.body
 
 if.then49:                                        ; preds = %if.end43
@@ -1517,10 +1517,10 @@ if.then55:                                        ; preds = %while.body
   br i1 %tobool.not.i, label %if.else.i, label %if.then.i107
 
 if.then.i107:                                     ; preds = %if.then55
-  %h_addr_list.i = getelementptr inbounds %struct.hostent, ptr %call2.i106, i64 0, i32 4
+  %h_addr_list.i = getelementptr inbounds i8, ptr %call2.i106, i64 24
   %27 = load ptr, ptr %h_addr_list.i, align 8
   %28 = load ptr, ptr %27, align 8
-  %h_length.i = getelementptr inbounds %struct.hostent, ptr %call2.i106, i64 0, i32 3
+  %h_length.i = getelementptr inbounds i8, ptr %call2.i106, i64 20
   %29 = load i32, ptr %h_length.i, align 4
   %conv3.i108 = sext i32 %29 to i64
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 4 %20, ptr align 1 %28, i64 %conv3.i108, i1 false)
@@ -2005,7 +2005,7 @@ if.end184:                                        ; preds = %CloseAndCleanupSock
   %readBuf.0220 = phi ptr [ %readBuf.0221, %if.then180 ], [ %readBuf.0, %exit ], [ %call46, %if.then65 ], [ %call46, %while.cond.preheader ], [ %call46, %CloseAndCleanupSocket.exit ]
   %cli_ssl.1218 = phi ptr [ %cli_ssl.1219, %if.then180 ], [ %cli_ssl.1, %exit ], [ null, %if.then65 ], [ null, %while.cond.preheader ], [ null, %CloseAndCleanupSocket.exit ]
   %ret.4216 = phi i32 [ %ret.4217, %if.then180 ], [ %ret.4, %exit ], [ %ret.2, %if.then65 ], [ 1, %while.cond.preheader ], [ 0, %CloseAndCleanupSocket.exit ]
-  %sockFd186 = getelementptr inbounds %struct.info_t, ptr %info, i64 0, i32 10, i32 1
+  %sockFd186 = getelementptr inbounds i8, ptr %info, i64 56
   %108 = load i32, ptr %sockFd186, align 4
   %cmp.not.i204 = icmp eq i32 %108, -1
   br i1 %cmp.not.i204, label %CloseAndCleanupSocket.exit208, label %if.then.i205
@@ -2047,7 +2047,7 @@ if.then200:                                       ; preds = %if.end197
   br label %if.end201
 
 if.end201:                                        ; preds = %if.then200, %if.end197
-  %ret203 = getelementptr inbounds %struct.info_t, ptr %info, i64 0, i32 10, i32 2
+  %ret203 = getelementptr inbounds i8, ptr %info, i64 60
   store i32 %ret.4216, ptr %ret203, align 4
   ret i32 %ret.4216
 }
@@ -2159,7 +2159,7 @@ if.then46:                                        ; preds = %if.end42
   br label %exit
 
 if.end48:                                         ; preds = %if.end42
-  %packetSize = getelementptr inbounds %struct.info_t, ptr %info, i64 0, i32 4
+  %packetSize = getelementptr inbounds i8, ptr %info, i64 28
   %14 = load i32, ptr %packetSize, align 4
   %conv49 = sext i32 %14 to i64
   %call50 = tail call ptr @wolfSSL_Malloc(i64 noundef %conv49) #16
@@ -2167,31 +2167,31 @@ if.end48:                                         ; preds = %if.end42
   br i1 %cmp51, label %if.then53, label %while.cond.preheader
 
 while.cond.preheader:                             ; preds = %if.end48
-  %server = getelementptr inbounds %struct.info_t, ptr %info, i64 0, i32 11
+  %server = getelementptr inbounds i8, ptr %info, i64 64
   %15 = load i32, ptr %server, align 8
   %tobool56.not212 = icmp eq i32 %15, 0
   br i1 %tobool56.not212, label %while.body.lr.ph, label %if.end162
 
 while.body.lr.ph:                                 ; preds = %while.cond.preheader
-  %useLocalMem = getelementptr inbounds %struct.info_t, ptr %info, i64 0, i32 12
-  %serverListening.i = getelementptr inbounds %struct.info_t, ptr %info, i64 0, i32 15
-  %listenFd.i = getelementptr inbounds %struct.info_t, ptr %info, i64 0, i32 9
-  %sockFd.i = getelementptr inbounds %struct.info_t, ptr %info, i64 0, i32 11, i32 1
-  %showVerbose.i = getelementptr inbounds %struct.info_t, ptr %info, i64 0, i32 8
-  %group = getelementptr inbounds %struct.info_t, ptr %info, i64 0, i32 1
-  %tv_usec.i = getelementptr inbounds %struct.timeval, ptr %tv.i, i64 0, i32 1
-  %tv_usec.i92 = getelementptr inbounds %struct.timeval, ptr %tv.i88, i64 0, i32 1
-  %server_stats = getelementptr inbounds %struct.info_t, ptr %info, i64 0, i32 16
-  %connCount = getelementptr inbounds %struct.info_t, ptr %info, i64 0, i32 16, i32 3
-  %maxSize = getelementptr inbounds %struct.info_t, ptr %info, i64 0, i32 5
-  %tv_usec.i104 = getelementptr inbounds %struct.timeval, ptr %tv.i100, i64 0, i32 1
-  %tv_usec.i116 = getelementptr inbounds %struct.timeval, ptr %tv.i112, i64 0, i32 1
-  %rxTime121 = getelementptr inbounds %struct.info_t, ptr %info, i64 0, i32 16, i32 1
-  %rxTotal = getelementptr inbounds %struct.info_t, ptr %info, i64 0, i32 16, i32 4
-  %tv_usec.i128 = getelementptr inbounds %struct.timeval, ptr %tv.i124, i64 0, i32 1
-  %tv_usec.i140 = getelementptr inbounds %struct.timeval, ptr %tv.i136, i64 0, i32 1
-  %txTime = getelementptr inbounds %struct.info_t, ptr %info, i64 0, i32 16, i32 2
-  %txTotal = getelementptr inbounds %struct.info_t, ptr %info, i64 0, i32 16, i32 5
+  %useLocalMem = getelementptr inbounds i8, ptr %info, i64 76
+  %serverListening.i = getelementptr inbounds i8, ptr %info, i64 33280
+  %listenFd.i = getelementptr inbounds i8, ptr %info, i64 48
+  %sockFd.i = getelementptr inbounds i8, ptr %info, i64 68
+  %showVerbose.i = getelementptr inbounds i8, ptr %info, i64 44
+  %group = getelementptr inbounds i8, ptr %info, i64 8
+  %tv_usec.i = getelementptr inbounds i8, ptr %tv.i, i64 8
+  %tv_usec.i92 = getelementptr inbounds i8, ptr %tv.i88, i64 8
+  %server_stats = getelementptr inbounds i8, ptr %info, i64 33288
+  %connCount = getelementptr inbounds i8, ptr %info, i64 33312
+  %maxSize = getelementptr inbounds i8, ptr %info, i64 32
+  %tv_usec.i104 = getelementptr inbounds i8, ptr %tv.i100, i64 8
+  %tv_usec.i116 = getelementptr inbounds i8, ptr %tv.i112, i64 8
+  %rxTime121 = getelementptr inbounds i8, ptr %info, i64 33296
+  %rxTotal = getelementptr inbounds i8, ptr %info, i64 33316
+  %tv_usec.i128 = getelementptr inbounds i8, ptr %tv.i124, i64 8
+  %tv_usec.i140 = getelementptr inbounds i8, ptr %tv.i136, i64 8
+  %txTime = getelementptr inbounds i8, ptr %info, i64 33304
+  %txTotal = getelementptr inbounds i8, ptr %info, i64 33320
   br label %while.body
 
 if.then53:                                        ; preds = %if.end48
@@ -2319,7 +2319,7 @@ gettime_secs.exit99:                              ; preds = %gettime_secs.exit
   br i1 %cmp87.not, label %if.end96, label %if.then89
 
 if.then89:                                        ; preds = %gettime_secs.exit99
-  %done = getelementptr inbounds %struct.info_t, ptr %info, i64 0, i32 14, i32 6
+  %done = getelementptr inbounds i8, ptr %info, i64 33272
   %38 = load i32, ptr %done, align 8
   %tobool90.not = icmp eq i32 %38, 0
   br i1 %tobool90.not, label %if.else92, label %if.end162
@@ -2416,7 +2416,7 @@ if.end119:                                        ; preds = %gettime_secs.exit12
   br i1 %cmp123, label %if.then125, label %if.end134
 
 if.then125:                                       ; preds = %if.end119
-  %done127 = getelementptr inbounds %struct.info_t, ptr %info, i64 0, i32 14, i32 6
+  %done127 = getelementptr inbounds i8, ptr %info, i64 33272
   %56 = load i32, ptr %done127, align 8
   %tobool128.not = icmp eq i32 %56, 0
   br i1 %tobool128.not, label %if.else130, label %if.end162
@@ -2533,7 +2533,7 @@ if.end162:                                        ; preds = %CloseAndCleanupSock
   %readBuf.0166 = phi ptr [ %readBuf.0167, %if.then158 ], [ %readBuf.0, %exit ], [ %call50, %if.then89 ], [ %call50, %if.then125 ], [ %call50, %while.cond.preheader ], [ %call50, %CloseAndCleanupSocket.exit ]
   %ret.5164 = phi i32 [ %ret.5165, %if.then158 ], [ %ret.5, %exit ], [ 0, %if.then89 ], [ 0, %if.then125 ], [ 1, %while.cond.preheader ], [ 0, %CloseAndCleanupSocket.exit ]
   %srv_ssl.1162 = phi ptr [ %srv_ssl.1163, %if.then158 ], [ %srv_ssl.1, %exit ], [ %call65, %if.then89 ], [ %call65, %if.then125 ], [ null, %while.cond.preheader ], [ null, %CloseAndCleanupSocket.exit ]
-  %sockFd164 = getelementptr inbounds %struct.info_t, ptr %info, i64 0, i32 11, i32 1
+  %sockFd164 = getelementptr inbounds i8, ptr %info, i64 68
   %76 = load i32, ptr %sockFd164, align 4
   %cmp.not.i151 = icmp eq i32 %76, -1
   br i1 %cmp.not.i151, label %CloseAndCleanupSocket.exit155, label %if.then.i152
@@ -2567,7 +2567,7 @@ if.then174:                                       ; preds = %if.end172
   br label %if.end175
 
 if.end175:                                        ; preds = %if.then174, %if.end172
-  %ret177 = getelementptr inbounds %struct.info_t, ptr %info, i64 0, i32 11, i32 2
+  %ret177 = getelementptr inbounds i8, ptr %info, i64 72
   store i32 %ret.5164, ptr %ret177, align 8
   ret i32 %ret.5164
 }
@@ -2591,14 +2591,14 @@ declare i32 @wolfSSL_NewThreadNoJoin(ptr noundef, ptr noundef) local_unnamed_add
 ; Function Attrs: nounwind uwtable
 define internal noalias noundef ptr @server_thread(ptr noundef %args) #0 {
 entry:
-  %useLocalMem = getelementptr inbounds %struct.info_t, ptr %args, i64 0, i32 12
+  %useLocalMem = getelementptr inbounds i8, ptr %args, i64 76
   %0 = load i32, ptr %useLocalMem, align 4
   %tobool.not = icmp eq i32 %0, 0
   br i1 %tobool.not, label %if.then, label %if.then1
 
 if.then:                                          ; preds = %entry
-  %listenFd = getelementptr inbounds %struct.info_t, ptr %args, i64 0, i32 9
-  %port = getelementptr inbounds %struct.info_t, ptr %args, i64 0, i32 3
+  %listenFd = getelementptr inbounds i8, ptr %args, i64 48
+  %port = getelementptr inbounds i8, ptr %args, i64 24
   %1 = load i32, ptr %port, align 8
   %call = tail call fastcc i32 @SetupSocketAndListen(ptr noundef nonnull %listenFd, i32 noundef %1)
   %2 = icmp eq i32 %call, 0
@@ -2611,7 +2611,7 @@ if.then1:                                         ; preds = %entry, %if.then
   br i1 %tobool4.not, label %if.then5, label %do.body
 
 if.then5:                                         ; preds = %if.then1
-  %listenFd6 = getelementptr inbounds %struct.info_t, ptr %args, i64 0, i32 9
+  %listenFd6 = getelementptr inbounds i8, ptr %args, i64 48
   %4 = load i32, ptr %listenFd6, align 4
   %cmp.not.i = icmp eq i32 %4, -1
   br i1 %cmp.not.i, label %do.body, label %if.then.i
@@ -2623,7 +2623,7 @@ if.then.i:                                        ; preds = %if.then5
 
 do.body:                                          ; preds = %if.then.i, %if.then5, %if.then, %if.then1
   %ret.1 = phi i32 [ %call2, %if.then1 ], [ -1, %if.then ], [ %call2, %if.then5 ], [ %call2, %if.then.i ]
-  %cond = getelementptr inbounds %struct.info_t, ptr %args, i64 0, i32 14, i32 5
+  %cond = getelementptr inbounds i8, ptr %args, i64 33184
   %call9 = tail call i32 @wolfSSL_CondStart(ptr noundef nonnull %cond) #16
   %cmp10.not = icmp eq i32 %call9, 0
   br i1 %cmp10.not, label %do.end, label %if.then11
@@ -2637,9 +2637,9 @@ if.then11:                                        ; preds = %do.body
   unreachable
 
 do.end:                                           ; preds = %do.body
-  %done = getelementptr inbounds %struct.info_t, ptr %args, i64 0, i32 13, i32 6
+  %done = getelementptr inbounds i8, ptr %args, i64 16672
   store i32 1, ptr %done, align 8
-  %ret15 = getelementptr inbounds %struct.info_t, ptr %args, i64 0, i32 11, i32 2
+  %ret15 = getelementptr inbounds i8, ptr %args, i64 72
   store i32 %ret.1, ptr %ret15, align 8
   %call20 = tail call i32 @wolfSSL_CondSignal(ptr noundef nonnull %cond) #16
   %cmp21.not = icmp eq i32 %call20, 0
@@ -2674,7 +2674,7 @@ do.end37:                                         ; preds = %do.body27
 define internal noalias noundef ptr @client_thread(ptr noundef %args) #0 {
 entry:
   %call = tail call fastcc i32 @bench_tls_client(ptr noundef %args)
-  %cond = getelementptr inbounds %struct.info_t, ptr %args, i64 0, i32 13, i32 5
+  %cond = getelementptr inbounds i8, ptr %args, i64 16584
   %call1 = tail call i32 @wolfSSL_CondStart(ptr noundef nonnull %cond) #16
   %cmp.not = icmp eq i32 %call1, 0
   br i1 %cmp.not, label %do.end, label %if.then
@@ -2688,9 +2688,9 @@ if.then:                                          ; preds = %entry
   unreachable
 
 do.end:                                           ; preds = %entry
-  %done = getelementptr inbounds %struct.info_t, ptr %args, i64 0, i32 14, i32 6
+  %done = getelementptr inbounds i8, ptr %args, i64 33272
   store i32 1, ptr %done, align 8
-  %ret4 = getelementptr inbounds %struct.info_t, ptr %args, i64 0, i32 10, i32 2
+  %ret4 = getelementptr inbounds i8, ptr %args, i64 60
   store i32 %call, ptr %ret4, align 4
   %call9 = tail call i32 @wolfSSL_CondSignal(ptr noundef nonnull %cond) #16
   %cmp10.not = icmp eq i32 %call9, 0
@@ -2735,9 +2735,9 @@ define dso_local i32 @main(i32 noundef %argc, ptr noundef %argv) local_unnamed_a
 entry:
   %args = alloca %struct.func_args, align 8
   store i32 %argc, ptr %args, align 8
-  %argv2 = getelementptr inbounds %struct.func_args, ptr %args, i64 0, i32 1
+  %argv2 = getelementptr inbounds i8, ptr %args, i64 8
   store ptr %argv, ptr %argv2, align 8
-  %return_code = getelementptr inbounds %struct.func_args, ptr %args, i64 0, i32 2
+  %return_code = getelementptr inbounds i8, ptr %args, i64 16
   store i32 0, ptr %return_code, align 8
   %call = call i32 @bench_tls(ptr noundef nonnull %args)
   %0 = load i32, ptr %return_code, align 8
@@ -2789,14 +2789,14 @@ declare void @wolfSSL_CTX_SetIOSend(ptr noundef, ptr noundef) local_unnamed_addr
 ; Function Attrs: nounwind uwtable
 define internal noundef i32 @ClientSend(ptr nocapture readnone %ssl, ptr noundef %buf, i32 noundef %sz, ptr noundef %ctx) #0 {
 entry:
-  %useLocalMem = getelementptr inbounds %struct.info_t, ptr %ctx, i64 0, i32 12
+  %useLocalMem = getelementptr inbounds i8, ptr %ctx, i64 76
   %0 = load i32, ptr %useLocalMem, align 4
   %tobool.not = icmp eq i32 %0, 0
   br i1 %tobool.not, label %if.end, label %if.then
 
 if.then:                                          ; preds = %entry
-  %to_server.i = getelementptr inbounds %struct.info_t, ptr %ctx, i64 0, i32 13
-  %cond.i = getelementptr inbounds %struct.info_t, ptr %ctx, i64 0, i32 13, i32 5
+  %to_server.i = getelementptr inbounds i8, ptr %ctx, i64 80
+  %cond.i = getelementptr inbounds i8, ptr %ctx, i64 16584
   %call.i = tail call i32 @wolfSSL_CondStart(ptr noundef nonnull %cond.i) #16
   %cmp.not.i = icmp eq i32 %call.i, 0
   br i1 %cmp.not.i, label %do.end.i, label %if.then.i
@@ -2810,7 +2810,7 @@ if.then.i:                                        ; preds = %if.then
   unreachable
 
 do.end.i:                                         ; preds = %if.then
-  %write_idx.i = getelementptr inbounds %struct.info_t, ptr %ctx, i64 0, i32 13, i32 2
+  %write_idx.i = getelementptr inbounds i8, ptr %ctx, i64 16572
   %2 = load i32, ptr %write_idx.i, align 4
   %add.i = add nsw i32 %2, %sz
   %cmp4.i = icmp sgt i32 %add.i, 16486
@@ -2836,7 +2836,7 @@ if.end20.i:                                       ; preds = %do.end.i
   %arrayidx.i = getelementptr inbounds [16486 x i8], ptr %to_server.i, i64 0, i64 %idxprom.i
   %conv.i = sext i32 %sz to i64
   tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %arrayidx.i, ptr align 1 %buf, i64 %conv.i, i1 false)
-  %write_bytes.i = getelementptr inbounds %struct.info_t, ptr %ctx, i64 0, i32 13, i32 1
+  %write_bytes.i = getelementptr inbounds i8, ptr %ctx, i64 16568
   %5 = load <2 x i32>, ptr %write_bytes.i, align 8
   %6 = insertelement <2 x i32> poison, i32 %sz, i64 0
   %7 = shufflevector <2 x i32> %6, <2 x i32> poison, <2 x i32> zeroinitializer
@@ -2868,7 +2868,7 @@ if.then49.i:                                      ; preds = %do.body42.i
   unreachable
 
 if.end:                                           ; preds = %entry
-  %sockFd = getelementptr inbounds %struct.info_t, ptr %ctx, i64 0, i32 10, i32 1
+  %sockFd = getelementptr inbounds i8, ptr %ctx, i64 56
   %11 = load i32, ptr %sockFd, align 4
   %conv.i5 = sext i32 %sz to i64
   %call.i6 = tail call i64 @send(i32 noundef %11, ptr noundef %buf, i64 noundef %conv.i5, i32 noundef 0) #16
@@ -2908,22 +2908,22 @@ declare void @wolfSSL_CTX_SetIORecv(ptr noundef, ptr noundef) local_unnamed_addr
 ; Function Attrs: nounwind uwtable
 define internal i32 @ClientRecv(ptr nocapture readnone %ssl, ptr noundef %buf, i32 noundef %sz, ptr noundef %ctx) #0 {
 entry:
-  %useLocalMem = getelementptr inbounds %struct.info_t, ptr %ctx, i64 0, i32 12
+  %useLocalMem = getelementptr inbounds i8, ptr %ctx, i64 76
   %0 = load i32, ptr %useLocalMem, align 4
   %tobool.not = icmp eq i32 %0, 0
   br i1 %tobool.not, label %if.end, label %if.then
 
 if.then:                                          ; preds = %entry
-  %to_client.i = getelementptr inbounds %struct.info_t, ptr %ctx, i64 0, i32 14
-  %cond.i = getelementptr inbounds %struct.info_t, ptr %ctx, i64 0, i32 14, i32 5
+  %to_client.i = getelementptr inbounds i8, ptr %ctx, i64 16680
+  %cond.i = getelementptr inbounds i8, ptr %ctx, i64 33184
   %call.i = tail call i32 @wolfSSL_CondStart(ptr noundef nonnull %cond.i) #16
   %cmp.not.i = icmp eq i32 %call.i, 0
   br i1 %cmp.not.i, label %while.cond.preheader.i, label %if.then.i
 
 while.cond.preheader.i:                           ; preds = %if.then
-  %write_idx.i = getelementptr inbounds %struct.info_t, ptr %ctx, i64 0, i32 14, i32 2
-  %read_idx.i = getelementptr inbounds %struct.info_t, ptr %ctx, i64 0, i32 14, i32 4
-  %done.i = getelementptr inbounds %struct.info_t, ptr %ctx, i64 0, i32 13, i32 6
+  %write_idx.i = getelementptr inbounds i8, ptr %ctx, i64 33172
+  %read_idx.i = getelementptr inbounds i8, ptr %ctx, i64 33180
+  %done.i = getelementptr inbounds i8, ptr %ctx, i64 16672
   br label %while.cond.i
 
 if.then.i:                                        ; preds = %if.then
@@ -2967,11 +2967,11 @@ while.end.i:                                      ; preds = %land.rhs.i, %while.
   %6 = load i32, ptr %read_idx.i, align 4
   %add.i = add nsw i32 %6, %sz
   store i32 %add.i, ptr %read_idx.i, align 4
-  %read_bytes.i = getelementptr inbounds %struct.info_t, ptr %ctx, i64 0, i32 14, i32 3
+  %read_bytes.i = getelementptr inbounds i8, ptr %ctx, i64 33176
   %7 = load i32, ptr %read_bytes.i, align 8
   %add24.i = add nsw i32 %7, %sz
   store i32 %add24.i, ptr %read_bytes.i, align 8
-  %write_bytes.i = getelementptr inbounds %struct.info_t, ptr %ctx, i64 0, i32 14, i32 1
+  %write_bytes.i = getelementptr inbounds i8, ptr %ctx, i64 33168
   %8 = load i32, ptr %write_bytes.i, align 8
   %cmp28.i = icmp eq i32 %add24.i, %8
   br i1 %cmp28.i, label %if.then30.i, label %do.body40.i
@@ -3000,7 +3000,7 @@ ClientMemRecv.exit:                               ; preds = %do.body40.i
   br label %return
 
 if.end:                                           ; preds = %entry
-  %sockFd = getelementptr inbounds %struct.info_t, ptr %ctx, i64 0, i32 10, i32 1
+  %sockFd = getelementptr inbounds i8, ptr %ctx, i64 56
   %11 = load i32, ptr %sockFd, align 4
   %conv.i5 = sext i32 %sz to i64
   %call.i6 = tail call i64 @recv(i32 noundef %11, ptr noundef %buf, i64 noundef %conv.i5, i32 noundef 0) #16
@@ -3109,14 +3109,14 @@ declare i32 @wolfSSL_CTX_use_certificate_buffer(ptr noundef, ptr noundef, i64 no
 ; Function Attrs: nounwind uwtable
 define internal noundef i32 @ServerSend(ptr nocapture readnone %ssl, ptr noundef %buf, i32 noundef %sz, ptr noundef %ctx) #0 {
 entry:
-  %useLocalMem = getelementptr inbounds %struct.info_t, ptr %ctx, i64 0, i32 12
+  %useLocalMem = getelementptr inbounds i8, ptr %ctx, i64 76
   %0 = load i32, ptr %useLocalMem, align 4
   %tobool.not = icmp eq i32 %0, 0
   br i1 %tobool.not, label %if.end, label %if.then
 
 if.then:                                          ; preds = %entry
-  %to_client.i = getelementptr inbounds %struct.info_t, ptr %ctx, i64 0, i32 14
-  %cond.i = getelementptr inbounds %struct.info_t, ptr %ctx, i64 0, i32 14, i32 5
+  %to_client.i = getelementptr inbounds i8, ptr %ctx, i64 16680
+  %cond.i = getelementptr inbounds i8, ptr %ctx, i64 33184
   %call.i = tail call i32 @wolfSSL_CondStart(ptr noundef nonnull %cond.i) #16
   %cmp.not.i = icmp eq i32 %call.i, 0
   br i1 %cmp.not.i, label %do.end.i, label %if.then.i
@@ -3130,7 +3130,7 @@ if.then.i:                                        ; preds = %if.then
   unreachable
 
 do.end.i:                                         ; preds = %if.then
-  %write_idx.i = getelementptr inbounds %struct.info_t, ptr %ctx, i64 0, i32 14, i32 2
+  %write_idx.i = getelementptr inbounds i8, ptr %ctx, i64 33172
   %2 = load i32, ptr %write_idx.i, align 4
   %add.i = add nsw i32 %2, %sz
   %cmp4.i = icmp sgt i32 %add.i, 16486
@@ -3159,7 +3159,7 @@ if.end18.i:                                       ; preds = %do.end.i
   %arrayidx.i = getelementptr inbounds [16486 x i8], ptr %to_client.i, i64 0, i64 %idxprom.i
   %conv.i = sext i32 %sz to i64
   tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %arrayidx.i, ptr align 1 %buf, i64 %conv.i, i1 false)
-  %write_bytes.i = getelementptr inbounds %struct.info_t, ptr %ctx, i64 0, i32 14, i32 1
+  %write_bytes.i = getelementptr inbounds i8, ptr %ctx, i64 33168
   %6 = load <2 x i32>, ptr %write_bytes.i, align 8
   %7 = insertelement <2 x i32> poison, i32 %sz, i64 0
   %8 = shufflevector <2 x i32> %7, <2 x i32> poison, <2 x i32> zeroinitializer
@@ -3191,7 +3191,7 @@ if.then47.i:                                      ; preds = %do.body40.i
   unreachable
 
 if.end:                                           ; preds = %entry
-  %sockFd = getelementptr inbounds %struct.info_t, ptr %ctx, i64 0, i32 11, i32 1
+  %sockFd = getelementptr inbounds i8, ptr %ctx, i64 68
   %12 = load i32, ptr %sockFd, align 4
   %conv.i5 = sext i32 %sz to i64
   %call.i6 = tail call i64 @send(i32 noundef %12, ptr noundef %buf, i64 noundef %conv.i5, i32 noundef 0) #16
@@ -3229,22 +3229,22 @@ return:                                           ; preds = %if.end, %sw.default
 ; Function Attrs: nounwind uwtable
 define internal i32 @ServerRecv(ptr nocapture readnone %ssl, ptr noundef %buf, i32 noundef %sz, ptr noundef %ctx) #0 {
 entry:
-  %useLocalMem = getelementptr inbounds %struct.info_t, ptr %ctx, i64 0, i32 12
+  %useLocalMem = getelementptr inbounds i8, ptr %ctx, i64 76
   %0 = load i32, ptr %useLocalMem, align 4
   %tobool.not = icmp eq i32 %0, 0
   br i1 %tobool.not, label %if.end, label %if.then
 
 if.then:                                          ; preds = %entry
-  %to_server.i = getelementptr inbounds %struct.info_t, ptr %ctx, i64 0, i32 13
-  %cond.i = getelementptr inbounds %struct.info_t, ptr %ctx, i64 0, i32 13, i32 5
+  %to_server.i = getelementptr inbounds i8, ptr %ctx, i64 80
+  %cond.i = getelementptr inbounds i8, ptr %ctx, i64 16584
   %call.i = tail call i32 @wolfSSL_CondStart(ptr noundef nonnull %cond.i) #16
   %cmp.not.i = icmp eq i32 %call.i, 0
   br i1 %cmp.not.i, label %while.cond.preheader.i, label %if.then.i
 
 while.cond.preheader.i:                           ; preds = %if.then
-  %write_idx.i = getelementptr inbounds %struct.info_t, ptr %ctx, i64 0, i32 13, i32 2
-  %read_idx.i = getelementptr inbounds %struct.info_t, ptr %ctx, i64 0, i32 13, i32 4
-  %done.i = getelementptr inbounds %struct.info_t, ptr %ctx, i64 0, i32 14, i32 6
+  %write_idx.i = getelementptr inbounds i8, ptr %ctx, i64 16572
+  %read_idx.i = getelementptr inbounds i8, ptr %ctx, i64 16580
+  %done.i = getelementptr inbounds i8, ptr %ctx, i64 33272
   br label %while.cond.i
 
 if.then.i:                                        ; preds = %if.then
@@ -3288,11 +3288,11 @@ while.end.i:                                      ; preds = %land.rhs.i, %while.
   %6 = load i32, ptr %read_idx.i, align 4
   %add.i = add nsw i32 %6, %sz
   store i32 %add.i, ptr %read_idx.i, align 4
-  %read_bytes.i = getelementptr inbounds %struct.info_t, ptr %ctx, i64 0, i32 13, i32 3
+  %read_bytes.i = getelementptr inbounds i8, ptr %ctx, i64 16576
   %7 = load i32, ptr %read_bytes.i, align 8
   %add24.i = add nsw i32 %7, %sz
   store i32 %add24.i, ptr %read_bytes.i, align 8
-  %write_bytes.i = getelementptr inbounds %struct.info_t, ptr %ctx, i64 0, i32 13, i32 1
+  %write_bytes.i = getelementptr inbounds i8, ptr %ctx, i64 16568
   %8 = load i32, ptr %write_bytes.i, align 8
   %cmp28.i = icmp eq i32 %add24.i, %8
   br i1 %cmp28.i, label %if.then30.i, label %do.body40.i
@@ -3321,7 +3321,7 @@ ServerMemRecv.exit:                               ; preds = %do.body40.i
   br label %return
 
 if.end:                                           ; preds = %entry
-  %sockFd = getelementptr inbounds %struct.info_t, ptr %ctx, i64 0, i32 11, i32 1
+  %sockFd = getelementptr inbounds i8, ptr %ctx, i64 68
   %11 = load i32, ptr %sockFd, align 4
   %conv.i5 = sext i32 %sz to i64
   %call.i6 = tail call i64 @recv(i32 noundef %11, ptr noundef %buf, i64 noundef %conv.i5, i32 noundef 0) #16

@@ -3,189 +3,21 @@ source_filename = "bench/libquic/original/quic_client_promised_info.cc.ll"
 target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:128-n8:16:32:64-S128"
 target triple = "x86_64-unknown-linux-gnu"
 
-%"class.net::QuicClientPromisedInfo" = type { %"class.net::QuicClientPushPromiseIndex::TryHandle", ptr, i32, %"class.std::__cxx11::basic_string", %"class.std::unique_ptr", %"class.std::unique_ptr", %"class.std::unique_ptr", ptr, %"class.std::unique_ptr.2" }
-%"class.net::QuicClientPushPromiseIndex::TryHandle" = type { ptr }
+%"class.base::BasicStringPiece" = type { ptr, i64 }
 %"class.std::__cxx11::basic_string" = type { %"struct.std::__cxx11::basic_string<char>::_Alloc_hider", i64, %union.anon }
 %"struct.std::__cxx11::basic_string<char>::_Alloc_hider" = type { ptr }
 %union.anon = type { i64, [8 x i8] }
-%"class.std::unique_ptr" = type { %"struct.std::__uniq_ptr_data" }
-%"struct.std::__uniq_ptr_data" = type { %"class.std::__uniq_ptr_impl" }
-%"class.std::__uniq_ptr_impl" = type { %"class.std::tuple" }
-%"class.std::tuple" = type { %"struct.std::_Tuple_impl" }
-%"struct.std::_Tuple_impl" = type { %"struct.std::_Head_base.1" }
-%"struct.std::_Head_base.1" = type { ptr }
-%"class.std::unique_ptr.2" = type { %"struct.std::__uniq_ptr_data.3" }
-%"struct.std::__uniq_ptr_data.3" = type { %"class.std::__uniq_ptr_impl.4" }
-%"class.std::__uniq_ptr_impl.4" = type { %"class.std::tuple.5" }
-%"class.std::tuple.5" = type { %"struct.std::_Tuple_impl.6" }
-%"struct.std::_Tuple_impl.6" = type { %"struct.std::_Head_base.9" }
-%"struct.std::_Head_base.9" = type { ptr }
-%"class.net::QuicClientPromisedInfo::CleanupAlarm" = type { %"class.net::QuicAlarm::Delegate", ptr }
-%"class.net::QuicAlarm::Delegate" = type { ptr }
-%"class.net::QuicSession" = type <{ %"class.net::QuicConnectionVisitorInterface", %"class.std::map", ptr, %"class.std::vector.107", %"class.net::QuicConfig", i64, i64, %"class.base::SmallMap", %"class.base::SmallMap.120", i32, [4 x i8], %"class.std::unordered_set.122", %"class.std::unordered_set.122", %"class.net::QuicWriteBlockedList", i32, [4 x i8], i64, i64, i64, i32, [4 x i8], %"class.net::QuicFlowController", i32, [4 x i8] }>
-%"class.net::QuicConnectionVisitorInterface" = type { ptr }
-%"class.std::map" = type { %"class.std::_Rb_tree.101" }
-%"class.std::_Rb_tree.101" = type { %"struct.std::_Rb_tree<unsigned int, std::pair<const unsigned int, unsigned long>, std::_Select1st<std::pair<const unsigned int, unsigned long>>, std::less<unsigned int>>::_Rb_tree_impl" }
-%"struct.std::_Rb_tree<unsigned int, std::pair<const unsigned int, unsigned long>, std::_Select1st<std::pair<const unsigned int, unsigned long>>, std::less<unsigned int>>::_Rb_tree_impl" = type { %"struct.std::_Rb_tree_key_compare.105", %"struct.std::_Rb_tree_header" }
-%"struct.std::_Rb_tree_key_compare.105" = type { %"struct.std::less" }
-%"struct.std::less" = type { i8 }
-%"struct.std::_Rb_tree_header" = type { %"struct.std::_Rb_tree_node_base", i64 }
-%"struct.std::_Rb_tree_node_base" = type { i32, ptr, ptr, ptr }
-%"class.std::vector.107" = type { %"struct.std::_Vector_base.108" }
-%"struct.std::_Vector_base.108" = type { %"struct.std::_Vector_base<net::ReliableQuicStream *, std::allocator<net::ReliableQuicStream *>>::_Vector_impl" }
-%"struct.std::_Vector_base<net::ReliableQuicStream *, std::allocator<net::ReliableQuicStream *>>::_Vector_impl" = type { %"struct.std::_Vector_base<net::ReliableQuicStream *, std::allocator<net::ReliableQuicStream *>>::_Vector_impl_data" }
-%"struct.std::_Vector_base<net::ReliableQuicStream *, std::allocator<net::ReliableQuicStream *>>::_Vector_impl_data" = type { ptr, ptr, ptr }
-%"class.net::QuicConfig" = type { %"class.net::QuicTime::Delta", %"class.net::QuicTime::Delta", i64, %"class.net::QuicFixedTagVector", %"class.net::QuicNegotiableUint32", %"class.net::QuicNegotiableUint32", %"class.net::QuicNegotiableUint32", %"class.net::QuicFixedUint32", %"class.net::QuicFixedUint32", %"class.net::QuicFixedUint32", %"class.net::QuicFixedUint32", %"class.net::QuicFixedUint32", %"class.net::QuicFixedUint32", %"class.net::QuicNegotiableUint32", %"class.net::QuicFixedUint32", %"class.net::QuicFixedIPEndPoint", %"class.net::QuicFixedUint32" }
-%"class.net::QuicTime::Delta" = type { %"class.base::TimeDelta", i64 }
-%"class.base::TimeDelta" = type { i64 }
-%"class.net::QuicFixedTagVector" = type <{ %"class.net::QuicConfigValue", %"class.std::vector.112", i8, [7 x i8], %"class.std::vector.112", i8, [7 x i8] }>
-%"class.net::QuicConfigValue" = type { ptr, i32, i32 }
-%"class.std::vector.112" = type { %"struct.std::_Vector_base.113" }
-%"struct.std::_Vector_base.113" = type { %"struct.std::_Vector_base<unsigned int, std::allocator<unsigned int>>::_Vector_impl" }
-%"struct.std::_Vector_base<unsigned int, std::allocator<unsigned int>>::_Vector_impl" = type { %"struct.std::_Vector_base<unsigned int, std::allocator<unsigned int>>::_Vector_impl_data" }
-%"struct.std::_Vector_base<unsigned int, std::allocator<unsigned int>>::_Vector_impl_data" = type { ptr, ptr, ptr }
-%"class.net::QuicNegotiableUint32" = type { %"class.net::QuicNegotiableValue.base", i32, i32, i32 }
-%"class.net::QuicNegotiableValue.base" = type <{ %"class.net::QuicConfigValue", i8 }>
-%"class.net::QuicFixedIPEndPoint" = type <{ %"class.net::QuicConfigValue", %"class.net::IPEndPoint", i8, [7 x i8], %"class.net::IPEndPoint", i8, [7 x i8] }>
-%"class.net::IPEndPoint" = type <{ %"class.net::IPAddress", i16, [6 x i8] }>
-%"class.net::IPAddress" = type { %"class.std::vector.47" }
-%"class.std::vector.47" = type { %"struct.std::_Vector_base.48" }
-%"struct.std::_Vector_base.48" = type { %"struct.std::_Vector_base<unsigned char, std::allocator<unsigned char>>::_Vector_impl" }
-%"struct.std::_Vector_base<unsigned char, std::allocator<unsigned char>>::_Vector_impl" = type { %"struct.std::_Vector_base<unsigned char, std::allocator<unsigned char>>::_Vector_impl_data" }
-%"struct.std::_Vector_base<unsigned char, std::allocator<unsigned char>>::_Vector_impl_data" = type { ptr, ptr, ptr }
-%"class.net::QuicFixedUint32" = type <{ %"class.net::QuicConfigValue", i32, i8, [3 x i8], i32, i8, [3 x i8] }>
-%"class.base::SmallMap" = type { i32, %"class.base::internal::SmallMapDefaultInit", [3 x i8], %union.anon.117 }
-%"class.base::internal::SmallMapDefaultInit" = type { i8 }
-%union.anon.117 = type { %"class.base::ManualConstructor.118" }
-%"class.base::ManualConstructor.118" = type { %"class.base::AlignedMemory.119" }
-%"class.base::AlignedMemory.119" = type { [56 x i8] }
-%"class.base::SmallMap.120" = type { i32, %"class.base::internal::SmallMapDefaultInit", [3 x i8], %union.anon.121 }
-%union.anon.121 = type { [10 x %"class.base::ManualConstructor"] }
-%"class.base::ManualConstructor" = type { %"class.base::AlignedMemory" }
-%"class.base::AlignedMemory" = type { [16 x i8] }
-%"class.std::unordered_set.122" = type { %"class.std::_Hashtable.123" }
-%"class.std::_Hashtable.123" = type { ptr, i64, %"struct.std::__detail::_Hash_node_base", i64, %"struct.std::__detail::_Prime_rehash_policy", ptr }
-%"struct.std::__detail::_Hash_node_base" = type { ptr }
-%"struct.std::__detail::_Prime_rehash_policy" = type { float, i64 }
-%"class.net::QuicWriteBlockedList" = type <{ %"class.net::PriorityWriteScheduler", [8 x i32], [8 x i32], i8, i8, i8, [5 x i8] }>
-%"class.net::PriorityWriteScheduler" = type { %"class.net::WriteScheduler", i64, [8 x %"struct.net::PriorityWriteScheduler<unsigned int>::PriorityInfo"], %"class.std::unordered_map.147" }
-%"class.net::WriteScheduler" = type { ptr }
-%"struct.net::PriorityWriteScheduler<unsigned int>::PriorityInfo" = type { %"class.std::deque.141", i64 }
-%"class.std::deque.141" = type { %"class.std::_Deque_base.142" }
-%"class.std::_Deque_base.142" = type { %"struct.std::_Deque_base<net::PriorityWriteScheduler<unsigned int>::StreamInfo *, std::allocator<net::PriorityWriteScheduler<unsigned int>::StreamInfo *>>::_Deque_impl" }
-%"struct.std::_Deque_base<net::PriorityWriteScheduler<unsigned int>::StreamInfo *, std::allocator<net::PriorityWriteScheduler<unsigned int>::StreamInfo *>>::_Deque_impl" = type { %"struct.std::_Deque_base<net::PriorityWriteScheduler<unsigned int>::StreamInfo *, std::allocator<net::PriorityWriteScheduler<unsigned int>::StreamInfo *>>::_Deque_impl_data" }
-%"struct.std::_Deque_base<net::PriorityWriteScheduler<unsigned int>::StreamInfo *, std::allocator<net::PriorityWriteScheduler<unsigned int>::StreamInfo *>>::_Deque_impl_data" = type { ptr, i64, %"struct.std::_Deque_iterator.146", %"struct.std::_Deque_iterator.146" }
-%"struct.std::_Deque_iterator.146" = type { ptr, ptr, ptr, ptr }
-%"class.std::unordered_map.147" = type { %"class.std::_Hashtable.148" }
-%"class.std::_Hashtable.148" = type { ptr, i64, %"struct.std::__detail::_Hash_node_base", i64, %"struct.std::__detail::_Prime_rehash_policy", ptr }
-%"class.net::QuicFlowController" = type { ptr, i32, i32, i64, i64, i64, i64, i64, i64, i64, i8, i64, %"class.net::QuicTime" }
-%"class.net::QuicTime" = type { i64 }
-%"class.net::QuicConnection" = type <{ %"class.net::QuicFramerVisitorInterface", %"class.net::QuicBlockedWriterInterface", %"class.net::QuicPacketGenerator::DelegateInterface", %"class.net::QuicSentPacketManagerInterface::NetworkChangeVisitor", %"class.net::QuicFramer", ptr, ptr, ptr, ptr, i8, i8, [6 x i8], ptr, ptr, i64, %"class.net::IPEndPoint", %"class.net::IPEndPoint", i32, [4 x i8], i64, i8, [7 x i8], i64, ptr, i8, [7 x i8], %"struct.net::QuicPacketHeader", %"struct.net::QuicStopWaitingFrame", i8, [7 x i8], i64, i64, %"class.std::deque", i64, i8, [7 x i8], %"class.std::__cxx11::list", i8, [7 x i8], %"class.std::unique_ptr.58", i32, i8, [3 x i8], %"class.net::QuicReceivedPacketManager", %"class.net::QuicSentEntropyManager", i8, [7 x i8], i64, i8, [7 x i8], i64, i32, i32, float, i8, i8, i8, i8, %"class.net::QuicTime::Delta", %"class.net::QuicOneBlockArena", %"class.net::QuicArenaScopedPtr", %"class.net::QuicArenaScopedPtr", %"class.net::QuicArenaScopedPtr", %"class.net::QuicArenaScopedPtr", %"class.net::QuicArenaScopedPtr", %"class.net::QuicArenaScopedPtr", %"class.net::QuicArenaScopedPtr", ptr, ptr, %"class.net::QuicPacketGenerator", %"class.net::QuicTime::Delta", %"class.net::QuicTime::Delta", %"struct.net::QuicConnectionStats", %"class.net::QuicTime", %"class.net::QuicTime", %"class.net::QuicTime", i64, %"class.std::unique_ptr.93", i32, i32, i8, [7 x i8], %"class.net::IPEndPoint", %"class.net::IPEndPoint", i8, [7 x i8], %"class.std::vector", i64, i64, i64, i64, i64, i64, i64, i8, i8, i8, i8, [4 x i8] }>
-%"class.net::QuicFramerVisitorInterface" = type { ptr }
-%"class.net::QuicBlockedWriterInterface" = type { ptr }
-%"class.net::QuicPacketGenerator::DelegateInterface" = type { %"class.net::QuicPacketCreator::DelegateInterface" }
-%"class.net::QuicPacketCreator::DelegateInterface" = type { %"class.net::QuicConnectionCloseDelegateInterface" }
-%"class.net::QuicConnectionCloseDelegateInterface" = type { ptr }
-%"class.net::QuicSentPacketManagerInterface::NetworkChangeVisitor" = type { ptr }
-%"class.net::QuicFramer" = type { ptr, %"class.std::__cxx11::basic_string", ptr, ptr, i32, %"class.std::unordered_set", %"class.std::unordered_map", i64, %"class.std::unordered_map", i64, i8, i64, i32, i32, %"class.std::vector", %"class.std::unique_ptr.31", %"class.std::unique_ptr.31", i8, i8, i8, [3 x %"class.std::unique_ptr.39"], i32, i8, %"class.net::QuicTime", %"class.net::QuicTime::Delta", %"struct.std::array" }
-%"class.std::unordered_set" = type { %"class.std::_Hashtable" }
-%"class.std::_Hashtable" = type { ptr, i64, %"struct.std::__detail::_Hash_node_base", i64, %"struct.std::__detail::_Prime_rehash_policy", ptr }
-%"class.std::unordered_map" = type { %"class.std::_Hashtable.15" }
-%"class.std::_Hashtable.15" = type { ptr, i64, %"struct.std::__detail::_Hash_node_base", i64, %"struct.std::__detail::_Prime_rehash_policy", ptr }
-%"class.std::unique_ptr.31" = type { %"struct.std::__uniq_ptr_data.32" }
-%"struct.std::__uniq_ptr_data.32" = type { %"class.std::__uniq_ptr_impl.33" }
-%"class.std::__uniq_ptr_impl.33" = type { %"class.std::tuple.34" }
-%"class.std::tuple.34" = type { %"struct.std::_Tuple_impl.35" }
-%"struct.std::_Tuple_impl.35" = type { %"struct.std::_Head_base.38" }
-%"struct.std::_Head_base.38" = type { ptr }
-%"class.std::unique_ptr.39" = type { %"struct.std::__uniq_ptr_data.40" }
-%"struct.std::__uniq_ptr_data.40" = type { %"class.std::__uniq_ptr_impl.41" }
-%"class.std::__uniq_ptr_impl.41" = type { %"class.std::tuple.42" }
-%"class.std::tuple.42" = type { %"struct.std::_Tuple_impl.43" }
-%"struct.std::_Tuple_impl.43" = type { %"struct.std::_Head_base.46" }
-%"struct.std::_Head_base.46" = type { ptr }
-%"struct.std::array" = type { [32 x i8] }
-%"struct.net::QuicPacketHeader" = type <{ %"struct.net::QuicPacketPublicHeader", i64, i8, i8, i8, i8, [4 x i8] }>
-%"struct.net::QuicPacketPublicHeader" = type { i64, i32, i8, i8, i8, i8, %"class.std::vector", ptr }
-%"struct.net::QuicStopWaitingFrame" = type { i8, i8, i64 }
-%"class.std::deque" = type { %"class.std::_Deque_base" }
-%"class.std::_Deque_base" = type { %"struct.std::_Deque_base<net::QuicEncryptedPacket *, std::allocator<net::QuicEncryptedPacket *>>::_Deque_impl" }
-%"struct.std::_Deque_base<net::QuicEncryptedPacket *, std::allocator<net::QuicEncryptedPacket *>>::_Deque_impl" = type { %"struct.std::_Deque_base<net::QuicEncryptedPacket *, std::allocator<net::QuicEncryptedPacket *>>::_Deque_impl_data" }
-%"struct.std::_Deque_base<net::QuicEncryptedPacket *, std::allocator<net::QuicEncryptedPacket *>>::_Deque_impl_data" = type { ptr, i64, %"struct.std::_Deque_iterator", %"struct.std::_Deque_iterator" }
-%"struct.std::_Deque_iterator" = type { ptr, ptr, ptr, ptr }
-%"class.std::__cxx11::list" = type { %"class.std::__cxx11::_List_base" }
-%"class.std::__cxx11::_List_base" = type { %"struct.std::__cxx11::_List_base<net::SerializedPacket, std::allocator<net::SerializedPacket>>::_List_impl" }
-%"struct.std::__cxx11::_List_base<net::SerializedPacket, std::allocator<net::SerializedPacket>>::_List_impl" = type { %"struct.std::__detail::_List_node_header" }
-%"struct.std::__detail::_List_node_header" = type { %"struct.std::__detail::_List_node_base", i64 }
-%"struct.std::__detail::_List_node_base" = type { ptr, ptr }
-%"class.std::unique_ptr.58" = type { %"struct.std::__uniq_ptr_data.59" }
-%"struct.std::__uniq_ptr_data.59" = type { %"class.std::__uniq_ptr_impl.60" }
-%"class.std::__uniq_ptr_impl.60" = type { %"class.std::tuple.61" }
-%"class.std::tuple.61" = type { %"struct.std::_Tuple_impl.62" }
-%"struct.std::_Tuple_impl.62" = type { %"struct.std::_Head_base.65" }
-%"struct.std::_Head_base.65" = type { ptr }
-%"class.net::QuicReceivedPacketManager" = type { %"class.net::QuicReceivedEntropyHashCalculatorInterface", %"class.net::QuicReceivedPacketManager::EntropyTracker", i64, %"struct.net::QuicAckFrame", i8, %"class.net::QuicTime", ptr }
-%"class.net::QuicReceivedEntropyHashCalculatorInterface" = type { ptr }
-%"class.net::QuicReceivedPacketManager::EntropyTracker" = type { %"class.std::deque.66", i8, i64, i64 }
-%"class.std::deque.66" = type { %"class.std::_Deque_base.67" }
-%"class.std::_Deque_base.67" = type { %"struct.std::_Deque_base<std::pair<unsigned char, bool>, std::allocator<std::pair<unsigned char, bool>>>::_Deque_impl" }
-%"struct.std::_Deque_base<std::pair<unsigned char, bool>, std::allocator<std::pair<unsigned char, bool>>>::_Deque_impl" = type { %"struct.std::_Deque_base<std::pair<unsigned char, bool>, std::allocator<std::pair<unsigned char, bool>>>::_Deque_impl_data" }
-%"struct.std::_Deque_base<std::pair<unsigned char, bool>, std::allocator<std::pair<unsigned char, bool>>>::_Deque_impl_data" = type { ptr, i64, %"struct.std::_Deque_iterator.71", %"struct.std::_Deque_iterator.71" }
-%"struct.std::_Deque_iterator.71" = type { ptr, ptr, ptr, ptr }
-%"struct.net::QuicAckFrame" = type <{ i64, %"class.net::QuicTime::Delta", %"class.std::vector.72", %"class.net::PacketNumberQueue", i8, i8, i8, i8, [4 x i8] }>
-%"class.std::vector.72" = type { %"struct.std::_Vector_base.73" }
-%"struct.std::_Vector_base.73" = type { %"struct.std::_Vector_base<std::pair<unsigned long, net::QuicTime>, std::allocator<std::pair<unsigned long, net::QuicTime>>>::_Vector_impl" }
-%"struct.std::_Vector_base<std::pair<unsigned long, net::QuicTime>, std::allocator<std::pair<unsigned long, net::QuicTime>>>::_Vector_impl" = type { %"struct.std::_Vector_base<std::pair<unsigned long, net::QuicTime>, std::allocator<std::pair<unsigned long, net::QuicTime>>>::_Vector_impl_data" }
-%"struct.std::_Vector_base<std::pair<unsigned long, net::QuicTime>, std::allocator<std::pair<unsigned long, net::QuicTime>>>::_Vector_impl_data" = type { ptr, ptr, ptr }
-%"class.net::PacketNumberQueue" = type { %"class.net::IntervalSet" }
-%"class.net::IntervalSet" = type { %"class.std::set" }
-%"class.std::set" = type { %"class.std::_Rb_tree" }
-%"class.std::_Rb_tree" = type { %"struct.std::_Rb_tree<net::Interval<unsigned long>, net::Interval<unsigned long>, std::_Identity<net::Interval<unsigned long>>, net::IntervalSet<unsigned long>::IntervalComparator>::_Rb_tree_impl" }
-%"struct.std::_Rb_tree<net::Interval<unsigned long>, net::Interval<unsigned long>, std::_Identity<net::Interval<unsigned long>>, net::IntervalSet<unsigned long>::IntervalComparator>::_Rb_tree_impl" = type { %"struct.std::_Rb_tree_key_compare", %"struct.std::_Rb_tree_header" }
-%"struct.std::_Rb_tree_key_compare" = type { %"struct.net::IntervalSet<unsigned long>::IntervalComparator" }
-%"struct.net::IntervalSet<unsigned long>::IntervalComparator" = type { i8 }
-%"class.net::QuicSentEntropyManager" = type { ptr, %"class.std::deque.80", i64, %"struct.net::QuicSentEntropyManager::CumulativeEntropy", %"struct.net::QuicSentEntropyManager::CumulativeEntropy" }
-%"class.std::deque.80" = type { %"class.std::_Deque_base.81" }
-%"class.std::_Deque_base.81" = type { %"struct.std::_Deque_base<unsigned char, std::allocator<unsigned char>>::_Deque_impl" }
-%"struct.std::_Deque_base<unsigned char, std::allocator<unsigned char>>::_Deque_impl" = type { %"struct.std::_Deque_base<unsigned char, std::allocator<unsigned char>>::_Deque_impl_data" }
-%"struct.std::_Deque_base<unsigned char, std::allocator<unsigned char>>::_Deque_impl_data" = type { ptr, i64, %"struct.std::_Deque_iterator.82", %"struct.std::_Deque_iterator.82" }
-%"struct.std::_Deque_iterator.82" = type { ptr, ptr, ptr, ptr }
-%"struct.net::QuicSentEntropyManager::CumulativeEntropy" = type <{ i64, i8, [7 x i8] }>
-%"class.net::QuicOneBlockArena" = type { [1024 x i8], i32, [4 x i8] }
-%"class.net::QuicArenaScopedPtr" = type { ptr }
-%"class.net::QuicPacketGenerator" = type { ptr, %"class.net::QuicPacketCreator", %"class.std::vector.83", i8, i8, i8, [5 x i8], %"struct.net::QuicAckFrame", %"struct.net::QuicStopWaitingFrame" }
-%"class.net::QuicPacketCreator" = type { ptr, ptr, ptr, %"class.net::QuicPacketCreator::QuicRandomBoolSource", ptr, i8, i8, i8, i8, %"struct.std::array", i64, i64, i32, %"class.std::vector.83", i64, i64, %"struct.net::SerializedPacket", %"class.std::unordered_map" }
-%"class.net::QuicPacketCreator::QuicRandomBoolSource" = type { ptr, i64, i64 }
-%"struct.net::SerializedPacket" = type { ptr, i16, %"class.std::vector.83", i8, i16, i8, i64, i8, i8, i8, i8, i8, i8, i8, i64, %"class.std::__cxx11::list.88" }
-%"class.std::__cxx11::list.88" = type { %"class.std::__cxx11::_List_base.89" }
-%"class.std::__cxx11::_List_base.89" = type { %"struct.std::__cxx11::_List_base<net::AckListenerWrapper, std::allocator<net::AckListenerWrapper>>::_List_impl" }
-%"struct.std::__cxx11::_List_base<net::AckListenerWrapper, std::allocator<net::AckListenerWrapper>>::_List_impl" = type { %"struct.std::__detail::_List_node_header" }
-%"class.std::vector.83" = type { %"struct.std::_Vector_base.84" }
-%"struct.std::_Vector_base.84" = type { %"struct.std::_Vector_base<net::QuicFrame, std::allocator<net::QuicFrame>>::_Vector_impl" }
-%"struct.std::_Vector_base<net::QuicFrame, std::allocator<net::QuicFrame>>::_Vector_impl" = type { %"struct.std::_Vector_base<net::QuicFrame, std::allocator<net::QuicFrame>>::_Vector_impl_data" }
-%"struct.std::_Vector_base<net::QuicFrame, std::allocator<net::QuicFrame>>::_Vector_impl_data" = type { ptr, ptr, ptr }
-%"struct.net::QuicConnectionStats" = type { i64, i64, i64, i64, i64, i64, i64, i64, i64, i64, i64, i64, i64, i64, i64, i64, i64, i64, i64, i64, i64, i64, i64, i64, i64, %"class.net::QuicBandwidth", i64, i64, i64, i32, %"class.net::QuicTime" }
-%"class.net::QuicBandwidth" = type { i64 }
-%"class.std::unique_ptr.93" = type { %"struct.std::__uniq_ptr_data.94" }
-%"struct.std::__uniq_ptr_data.94" = type { %"class.std::__uniq_ptr_impl.95" }
-%"class.std::__uniq_ptr_impl.95" = type { %"class.std::tuple.96" }
-%"class.std::tuple.96" = type { %"struct.std::_Tuple_impl.97" }
-%"struct.std::_Tuple_impl.97" = type { %"struct.std::_Head_base.100" }
-%"struct.std::_Head_base.100" = type { ptr }
-%"class.std::vector" = type { %"struct.std::_Vector_base" }
-%"struct.std::_Vector_base" = type { %"struct.std::_Vector_base<net::QuicVersion, std::allocator<net::QuicVersion>>::_Vector_impl" }
-%"struct.std::_Vector_base<net::QuicVersion, std::allocator<net::QuicVersion>>::_Vector_impl" = type { %"struct.std::_Vector_base<net::QuicVersion, std::allocator<net::QuicVersion>>::_Vector_impl_data" }
-%"struct.std::_Vector_base<net::QuicVersion, std::allocator<net::QuicVersion>>::_Vector_impl_data" = type { ptr, ptr, ptr }
-%"class.base::BasicStringPiece" = type { ptr, i64 }
+%"class.net::SpdyHeaderBlock" = type { %class.linked_hash_map, %"class.std::unique_ptr.207" }
 %class.linked_hash_map = type { %"class.std::unordered_map.184", %"class.std::__cxx11::list.202" }
 %"class.std::unordered_map.184" = type { %"class.std::_Hashtable.185" }
 %"class.std::_Hashtable.185" = type { ptr, i64, %"struct.std::__detail::_Hash_node_base", i64, %"struct.std::__detail::_Prime_rehash_policy", ptr }
+%"struct.std::__detail::_Hash_node_base" = type { ptr }
+%"struct.std::__detail::_Prime_rehash_policy" = type { float, i64 }
 %"class.std::__cxx11::list.202" = type { %"class.std::__cxx11::_List_base.203" }
 %"class.std::__cxx11::_List_base.203" = type { %"struct.std::__cxx11::_List_base<std::pair<base::BasicStringPiece<std::string>, base::BasicStringPiece<std::string>>, std::allocator<std::pair<base::BasicStringPiece<std::string>, base::BasicStringPiece<std::string>>>>::_List_impl" }
 %"struct.std::__cxx11::_List_base<std::pair<base::BasicStringPiece<std::string>, base::BasicStringPiece<std::string>>, std::allocator<std::pair<base::BasicStringPiece<std::string>, base::BasicStringPiece<std::string>>>>::_List_impl" = type { %"struct.std::__detail::_List_node_header" }
-%"struct.std::_List_node" = type { %"struct.std::__detail::_List_node_base", %"struct.__gnu_cxx::__aligned_membuf" }
-%"struct.__gnu_cxx::__aligned_membuf" = type { [32 x i8] }
-%"class.net::SpdyHeaderBlock" = type { %class.linked_hash_map, %"class.std::unique_ptr.207" }
+%"struct.std::__detail::_List_node_header" = type { %"struct.std::__detail::_List_node_base", i64 }
+%"struct.std::__detail::_List_node_base" = type { ptr, ptr }
 %"class.std::unique_ptr.207" = type { %"struct.std::__uniq_ptr_data.208" }
 %"struct.std::__uniq_ptr_data.208" = type { %"class.std::__uniq_ptr_impl.209" }
 %"class.std::__uniq_ptr_impl.209" = type { %"class.std::tuple.210" }
@@ -241,13 +73,13 @@ $_ZTIN3net26QuicClientPushPromiseIndex9TryHandleE = comdat any
 define dso_local void @_ZN3net22QuicClientPromisedInfoC2EPNS_21QuicClientSessionBaseEjNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(96) %this, ptr noundef %session, i32 noundef %id, ptr noundef nonnull %url) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN3net22QuicClientPromisedInfoE, i64 0, inrange i32 0, i64 2), ptr %this, align 8
-  %session_ = getelementptr inbounds %"class.net::QuicClientPromisedInfo", ptr %this, i64 0, i32 1
+  %session_ = getelementptr inbounds i8, ptr %this, i64 8
   store ptr %session, ptr %session_, align 8
-  %id_ = getelementptr inbounds %"class.net::QuicClientPromisedInfo", ptr %this, i64 0, i32 2
+  %id_ = getelementptr inbounds i8, ptr %this, i64 16
   store i32 %id, ptr %id_, align 8
-  %url_ = getelementptr inbounds %"class.net::QuicClientPromisedInfo", ptr %this, i64 0, i32 3
+  %url_ = getelementptr inbounds i8, ptr %this, i64 24
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EOS4_(ptr noundef nonnull align 8 dereferenceable(32) %url_, ptr noundef nonnull align 8 dereferenceable(32) %url) #8
-  %request_headers_ = getelementptr inbounds %"class.net::QuicClientPromisedInfo", ptr %this, i64 0, i32 4
+  %request_headers_ = getelementptr inbounds i8, ptr %this, i64 56
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %request_headers_, i8 0, i64 40, i1 false)
   ret void
 }
@@ -259,21 +91,21 @@ declare void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EOS4_(ptr n
 define dso_local void @_ZN3net22QuicClientPromisedInfoD2Ev(ptr noundef nonnull align 8 dereferenceable(96) %this) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN3net22QuicClientPromisedInfoE, i64 0, inrange i32 0, i64 2), ptr %this, align 8
-  %cleanup_alarm_ = getelementptr inbounds %"class.net::QuicClientPromisedInfo", ptr %this, i64 0, i32 8
+  %cleanup_alarm_ = getelementptr inbounds i8, ptr %this, i64 88
   %0 = load ptr, ptr %cleanup_alarm_, align 8
   %cmp.not.i = icmp eq ptr %0, null
   br i1 %cmp.not.i, label %_ZNSt10unique_ptrIN3net9QuicAlarmESt14default_deleteIS1_EED2Ev.exit, label %_ZNKSt14default_deleteIN3net9QuicAlarmEEclEPS1_.exit.i
 
 _ZNKSt14default_deleteIN3net9QuicAlarmEEclEPS1_.exit.i: ; preds = %entry
   %vtable.i.i = load ptr, ptr %0, align 8
-  %vfn.i.i = getelementptr inbounds ptr, ptr %vtable.i.i, i64 1
+  %vfn.i.i = getelementptr inbounds i8, ptr %vtable.i.i, i64 8
   %1 = load ptr, ptr %vfn.i.i, align 8
   tail call void %1(ptr noundef nonnull align 8 dereferenceable(24) %0) #8
   br label %_ZNSt10unique_ptrIN3net9QuicAlarmESt14default_deleteIS1_EED2Ev.exit
 
 _ZNSt10unique_ptrIN3net9QuicAlarmESt14default_deleteIS1_EED2Ev.exit: ; preds = %entry, %_ZNKSt14default_deleteIN3net9QuicAlarmEEclEPS1_.exit.i
   store ptr null, ptr %cleanup_alarm_, align 8
-  %client_request_headers_ = getelementptr inbounds %"class.net::QuicClientPromisedInfo", ptr %this, i64 0, i32 6
+  %client_request_headers_ = getelementptr inbounds i8, ptr %this, i64 72
   %2 = load ptr, ptr %client_request_headers_, align 8
   %cmp.not.i1 = icmp eq ptr %2, null
   br i1 %cmp.not.i1, label %_ZNSt10unique_ptrIN3net15SpdyHeaderBlockESt14default_deleteIS1_EED2Ev.exit, label %_ZNKSt14default_deleteIN3net15SpdyHeaderBlockEEclEPS1_.exit.i
@@ -285,7 +117,7 @@ _ZNKSt14default_deleteIN3net15SpdyHeaderBlockEEclEPS1_.exit.i: ; preds = %_ZNSt1
 
 _ZNSt10unique_ptrIN3net15SpdyHeaderBlockESt14default_deleteIS1_EED2Ev.exit: ; preds = %_ZNSt10unique_ptrIN3net9QuicAlarmESt14default_deleteIS1_EED2Ev.exit, %_ZNKSt14default_deleteIN3net15SpdyHeaderBlockEEclEPS1_.exit.i
   store ptr null, ptr %client_request_headers_, align 8
-  %response_headers_ = getelementptr inbounds %"class.net::QuicClientPromisedInfo", ptr %this, i64 0, i32 5
+  %response_headers_ = getelementptr inbounds i8, ptr %this, i64 64
   %3 = load ptr, ptr %response_headers_, align 8
   %cmp.not.i2 = icmp eq ptr %3, null
   br i1 %cmp.not.i2, label %_ZNSt10unique_ptrIN3net15SpdyHeaderBlockESt14default_deleteIS1_EED2Ev.exit4, label %_ZNKSt14default_deleteIN3net15SpdyHeaderBlockEEclEPS1_.exit.i3
@@ -297,7 +129,7 @@ _ZNKSt14default_deleteIN3net15SpdyHeaderBlockEEclEPS1_.exit.i3: ; preds = %_ZNSt
 
 _ZNSt10unique_ptrIN3net15SpdyHeaderBlockESt14default_deleteIS1_EED2Ev.exit4: ; preds = %_ZNSt10unique_ptrIN3net15SpdyHeaderBlockESt14default_deleteIS1_EED2Ev.exit, %_ZNKSt14default_deleteIN3net15SpdyHeaderBlockEEclEPS1_.exit.i3
   store ptr null, ptr %response_headers_, align 8
-  %request_headers_ = getelementptr inbounds %"class.net::QuicClientPromisedInfo", ptr %this, i64 0, i32 4
+  %request_headers_ = getelementptr inbounds i8, ptr %this, i64 56
   %4 = load ptr, ptr %request_headers_, align 8
   %cmp.not.i5 = icmp eq ptr %4, null
   br i1 %cmp.not.i5, label %_ZNSt10unique_ptrIN3net15SpdyHeaderBlockESt14default_deleteIS1_EED2Ev.exit7, label %_ZNKSt14default_deleteIN3net15SpdyHeaderBlockEEclEPS1_.exit.i6
@@ -309,7 +141,7 @@ _ZNKSt14default_deleteIN3net15SpdyHeaderBlockEEclEPS1_.exit.i6: ; preds = %_ZNSt
 
 _ZNSt10unique_ptrIN3net15SpdyHeaderBlockESt14default_deleteIS1_EED2Ev.exit7: ; preds = %_ZNSt10unique_ptrIN3net15SpdyHeaderBlockESt14default_deleteIS1_EED2Ev.exit4, %_ZNKSt14default_deleteIN3net15SpdyHeaderBlockEEclEPS1_.exit.i6
   store ptr null, ptr %request_headers_, align 8
-  %url_ = getelementptr inbounds %"class.net::QuicClientPromisedInfo", ptr %this, i64 0, i32 3
+  %url_ = getelementptr inbounds i8, ptr %this, i64 24
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %url_) #8
   tail call void @_ZN3net26QuicClientPushPromiseIndex9TryHandleD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this) #8
   ret void
@@ -335,18 +167,18 @@ declare void @_ZdlPv(ptr noundef) local_unnamed_addr #2
 ; Function Attrs: mustprogress uwtable
 define dso_local void @_ZN3net22QuicClientPromisedInfo12CleanupAlarm7OnAlarmEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %this) unnamed_addr #3 align 2 {
 entry:
-  %promised_ = getelementptr inbounds %"class.net::QuicClientPromisedInfo::CleanupAlarm", ptr %this, i64 0, i32 1
+  %promised_ = getelementptr inbounds i8, ptr %this, i64 8
   %0 = load ptr, ptr %promised_, align 8
-  %client_request_delegate_.i = getelementptr inbounds %"class.net::QuicClientPromisedInfo", ptr %0, i64 0, i32 7
+  %client_request_delegate_.i = getelementptr inbounds i8, ptr %0, i64 80
   %1 = load ptr, ptr %client_request_delegate_.i, align 8
-  %session_.i = getelementptr inbounds %"class.net::QuicClientPromisedInfo", ptr %0, i64 0, i32 1
+  %session_.i = getelementptr inbounds i8, ptr %0, i64 8
   %2 = load ptr, ptr %session_.i, align 8
-  %id_.i = getelementptr inbounds %"class.net::QuicClientPromisedInfo", ptr %0, i64 0, i32 2
+  %id_.i = getelementptr inbounds i8, ptr %0, i64 16
   %3 = load i32, ptr %id_.i, align 8
   tail call void @_ZN3net21QuicClientSessionBase13ResetPromisedEjNS_22QuicRstStreamErrorCodeE(ptr noundef nonnull align 8 dereferenceable(2140) %2, i32 noundef %3, i32 noundef 6)
   %4 = load ptr, ptr %session_.i, align 8
   %vtable.i = load ptr, ptr %4, align 8
-  %vfn.i = getelementptr inbounds ptr, ptr %vtable.i, i64 55
+  %vfn.i = getelementptr inbounds i8, ptr %vtable.i, i64 440
   %5 = load ptr, ptr %vfn.i, align 8
   tail call void %5(ptr noundef nonnull align 8 dereferenceable(2140) %4, ptr noundef nonnull %0)
   %tobool.not.i = icmp eq ptr %1, null
@@ -354,7 +186,7 @@ entry:
 
 if.then.i:                                        ; preds = %entry
   %vtable3.i = load ptr, ptr %1, align 8
-  %vfn4.i = getelementptr inbounds ptr, ptr %vtable3.i, i64 3
+  %vfn4.i = getelementptr inbounds i8, ptr %vtable3.i, i64 24
   %6 = load ptr, ptr %vfn4.i, align 8
   tail call void %6(ptr noundef nonnull align 8 dereferenceable(8) %1, ptr noundef null)
   br label %_ZN3net22QuicClientPromisedInfo5ResetENS_22QuicRstStreamErrorCodeE.exit
@@ -366,16 +198,16 @@ _ZN3net22QuicClientPromisedInfo5ResetENS_22QuicRstStreamErrorCodeE.exit: ; preds
 ; Function Attrs: mustprogress uwtable
 define dso_local void @_ZN3net22QuicClientPromisedInfo5ResetENS_22QuicRstStreamErrorCodeE(ptr noundef nonnull align 8 dereferenceable(96) %this, i32 noundef %error_code) local_unnamed_addr #3 align 2 {
 entry:
-  %client_request_delegate_ = getelementptr inbounds %"class.net::QuicClientPromisedInfo", ptr %this, i64 0, i32 7
+  %client_request_delegate_ = getelementptr inbounds i8, ptr %this, i64 80
   %0 = load ptr, ptr %client_request_delegate_, align 8
-  %session_ = getelementptr inbounds %"class.net::QuicClientPromisedInfo", ptr %this, i64 0, i32 1
+  %session_ = getelementptr inbounds i8, ptr %this, i64 8
   %1 = load ptr, ptr %session_, align 8
-  %id_ = getelementptr inbounds %"class.net::QuicClientPromisedInfo", ptr %this, i64 0, i32 2
+  %id_ = getelementptr inbounds i8, ptr %this, i64 16
   %2 = load i32, ptr %id_, align 8
   tail call void @_ZN3net21QuicClientSessionBase13ResetPromisedEjNS_22QuicRstStreamErrorCodeE(ptr noundef nonnull align 8 dereferenceable(2140) %1, i32 noundef %2, i32 noundef %error_code)
   %3 = load ptr, ptr %session_, align 8
   %vtable = load ptr, ptr %3, align 8
-  %vfn = getelementptr inbounds ptr, ptr %vtable, i64 55
+  %vfn = getelementptr inbounds i8, ptr %vtable, i64 440
   %4 = load ptr, ptr %vfn, align 8
   tail call void %4(ptr noundef nonnull align 8 dereferenceable(2140) %3, ptr noundef nonnull %this)
   %tobool.not = icmp eq ptr %0, null
@@ -383,7 +215,7 @@ entry:
 
 if.then:                                          ; preds = %entry
   %vtable3 = load ptr, ptr %0, align 8
-  %vfn4 = getelementptr inbounds ptr, ptr %vtable3, i64 3
+  %vfn4 = getelementptr inbounds i8, ptr %vtable3, i64 24
   %5 = load ptr, ptr %vfn4, align 8
   tail call void %5(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef null)
   br label %if.end
@@ -395,19 +227,19 @@ if.end:                                           ; preds = %if.then, %entry
 ; Function Attrs: mustprogress uwtable
 define dso_local void @_ZN3net22QuicClientPromisedInfo4InitEv(ptr noundef nonnull align 8 dereferenceable(96) %this) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  %cleanup_alarm_ = getelementptr inbounds %"class.net::QuicClientPromisedInfo", ptr %this, i64 0, i32 8
-  %session_ = getelementptr inbounds %"class.net::QuicClientPromisedInfo", ptr %this, i64 0, i32 1
+  %cleanup_alarm_ = getelementptr inbounds i8, ptr %this, i64 88
+  %session_ = getelementptr inbounds i8, ptr %this, i64 8
   %0 = load ptr, ptr %session_, align 8
-  %connection_.i = getelementptr inbounds %"class.net::QuicSession", ptr %0, i64 0, i32 2
+  %connection_.i = getelementptr inbounds i8, ptr %0, i64 56
   %1 = load ptr, ptr %connection_.i, align 8
-  %alarm_factory_.i = getelementptr inbounds %"class.net::QuicConnection", ptr %1, i64 0, i32 6
+  %alarm_factory_.i = getelementptr inbounds i8, ptr %1, i64 448
   %2 = load ptr, ptr %alarm_factory_.i, align 8
   %call3 = tail call noalias noundef nonnull dereferenceable(16) ptr @_Znwm(i64 noundef 16) #10
   store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN3net22QuicClientPromisedInfo12CleanupAlarmE, i64 0, inrange i32 0, i64 2), ptr %call3, align 8
-  %promised_.i = getelementptr inbounds %"class.net::QuicClientPromisedInfo::CleanupAlarm", ptr %call3, i64 0, i32 1
+  %promised_.i = getelementptr inbounds i8, ptr %call3, i64 8
   store ptr %this, ptr %promised_.i, align 8
   %vtable = load ptr, ptr %2, align 8
-  %vfn = getelementptr inbounds ptr, ptr %vtable, i64 2
+  %vfn = getelementptr inbounds i8, ptr %vtable, i64 16
   %3 = load ptr, ptr %vfn, align 8
   %call4 = tail call noundef ptr %3(ptr noundef nonnull align 8 dereferenceable(8) %2, ptr noundef nonnull %call3)
   %4 = load ptr, ptr %cleanup_alarm_, align 8
@@ -417,7 +249,7 @@ entry:
 
 _ZNKSt14default_deleteIN3net9QuicAlarmEEclEPS1_.exit.i.i: ; preds = %entry
   %vtable.i.i.i = load ptr, ptr %4, align 8
-  %vfn.i.i.i = getelementptr inbounds ptr, ptr %vtable.i.i.i, i64 1
+  %vfn.i.i.i = getelementptr inbounds i8, ptr %vtable.i.i.i, i64 8
   %5 = load ptr, ptr %vfn.i.i.i, align 8
   tail call void %5(ptr noundef nonnull align 8 dereferenceable(24) %4) #8
   %.pre = load ptr, ptr %cleanup_alarm_, align 8
@@ -426,16 +258,16 @@ _ZNKSt14default_deleteIN3net9QuicAlarmEEclEPS1_.exit.i.i: ; preds = %entry
 _ZNSt10unique_ptrIN3net9QuicAlarmESt14default_deleteIS1_EE5resetEPS1_.exit: ; preds = %entry, %_ZNKSt14default_deleteIN3net9QuicAlarmEEclEPS1_.exit.i.i
   %6 = phi ptr [ %call4, %entry ], [ %.pre, %_ZNKSt14default_deleteIN3net9QuicAlarmEEclEPS1_.exit.i.i ]
   %7 = load ptr, ptr %session_, align 8
-  %connection_.i1 = getelementptr inbounds %"class.net::QuicSession", ptr %7, i64 0, i32 2
+  %connection_.i1 = getelementptr inbounds i8, ptr %7, i64 56
   %8 = load ptr, ptr %connection_.i1, align 8
-  %helper_.i = getelementptr inbounds %"class.net::QuicConnection", ptr %8, i64 0, i32 5
+  %helper_.i = getelementptr inbounds i8, ptr %8, i64 440
   %9 = load ptr, ptr %helper_.i, align 8
   %vtable11 = load ptr, ptr %9, align 8
-  %vfn12 = getelementptr inbounds ptr, ptr %vtable11, i64 2
+  %vfn12 = getelementptr inbounds i8, ptr %vtable11, i64 16
   %10 = load ptr, ptr %vfn12, align 8
   %call13 = tail call noundef ptr %10(ptr noundef nonnull align 8 dereferenceable(8) %9)
   %vtable14 = load ptr, ptr %call13, align 8
-  %vfn15 = getelementptr inbounds ptr, ptr %vtable14, i64 2
+  %vfn15 = getelementptr inbounds i8, ptr %vtable14, i64 16
   %11 = load ptr, ptr %vfn15, align 8
   %call16 = tail call i64 %11(ptr noundef nonnull align 8 dereferenceable(8) %call13)
   %add.i = add nsw i64 %call16, 60000000
@@ -460,18 +292,18 @@ entry:
   %ref.tmp11 = alloca %"class.std::__cxx11::basic_string", align 8
   call void @_ZN4base16BasicStringPieceINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEC1EPKc(ptr noundef nonnull align 8 dereferenceable(16) %agg.tmp, ptr noundef nonnull @.str)
   %0 = load ptr, ptr %agg.tmp, align 8
-  %1 = getelementptr inbounds { ptr, i64 }, ptr %agg.tmp, i64 0, i32 1
+  %1 = getelementptr inbounds i8, ptr %agg.tmp, i64 8
   %2 = load i64, ptr %1, align 8
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %key.i)
   store ptr %0, ptr %key.i, align 8
-  %3 = getelementptr inbounds { ptr, i64 }, ptr %key.i, i64 0, i32 1
+  %3 = getelementptr inbounds i8, ptr %key.i, i64 8
   store i64 %2, ptr %3, align 8
   %call.i.i.i = call ptr @_ZNKSt10_HashtableIN4base16BasicStringPieceINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEESt4pairIKS8_St14_List_iteratorIS9_IS8_S8_EEESaISE_ENSt8__detail10_Select1stESt8equal_toIS8_ENS0_15StringPieceHashENSG_18_Mod_range_hashingENSG_20_Default_ranged_hashENSG_20_Prime_rehash_policyENSG_17_Hashtable_traitsILb1ELb0ELb1EEEE4findERSA_(ptr noundef nonnull align 8 dereferenceable(56) %headers, ptr noundef nonnull align 8 dereferenceable(16) %key.i)
   %cmp.i.i.i = icmp eq ptr %call.i.i.i, null
   br i1 %cmp.i.i.i, label %if.then.i.i, label %if.end.i.i
 
 if.then.i.i:                                      ; preds = %entry
-  %list_.i.i.i = getelementptr inbounds %class.linked_hash_map, ptr %headers, i64 0, i32 1
+  %list_.i.i.i = getelementptr inbounds i8, ptr %headers, i64 56
   br label %_ZNK3net15SpdyHeaderBlock4findEN4base16BasicStringPieceINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEE.exit
 
 if.end.i.i:                                       ; preds = %entry
@@ -482,7 +314,7 @@ if.end.i.i:                                       ; preds = %entry
 _ZNK3net15SpdyHeaderBlock4findEN4base16BasicStringPieceINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEE.exit: ; preds = %if.then.i.i, %if.end.i.i
   %retval.sroa.0.0.i.i = phi ptr [ %list_.i.i.i, %if.then.i.i ], [ %4, %if.end.i.i ]
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %key.i)
-  %second = getelementptr inbounds %"struct.std::_List_node", ptr %retval.sroa.0.0.i.i, i64 0, i32 1, i32 0, i64 16
+  %second = getelementptr inbounds i8, ptr %retval.sroa.0.0.i.i, i64 32
   call void @_ZN4base16BasicStringPieceINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEC1EPKc(ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp, ptr noundef nonnull @.str.1)
   %call3 = call noundef zeroext i1 @_ZN4baseeqERKNS_16BasicStringPieceINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEES9_(ptr noundef nonnull align 8 dereferenceable(16) %second, ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp)
   br i1 %call3, label %if.end, label %lor.rhs
@@ -493,16 +325,16 @@ lor.rhs:                                          ; preds = %_ZNK3net15SpdyHeade
   br i1 %call7, label %if.end, label %if.then
 
 if.then:                                          ; preds = %lor.rhs
-  %client_request_delegate_.i = getelementptr inbounds %"class.net::QuicClientPromisedInfo", ptr %this, i64 0, i32 7
+  %client_request_delegate_.i = getelementptr inbounds i8, ptr %this, i64 80
   %5 = load ptr, ptr %client_request_delegate_.i, align 8
-  %session_.i = getelementptr inbounds %"class.net::QuicClientPromisedInfo", ptr %this, i64 0, i32 1
+  %session_.i = getelementptr inbounds i8, ptr %this, i64 8
   %6 = load ptr, ptr %session_.i, align 8
-  %id_.i = getelementptr inbounds %"class.net::QuicClientPromisedInfo", ptr %this, i64 0, i32 2
+  %id_.i = getelementptr inbounds i8, ptr %this, i64 16
   %7 = load i32, ptr %id_.i, align 8
   call void @_ZN3net21QuicClientSessionBase13ResetPromisedEjNS_22QuicRstStreamErrorCodeE(ptr noundef nonnull align 8 dereferenceable(2140) %6, i32 noundef %7, i32 noundef 13)
   %8 = load ptr, ptr %session_.i, align 8
   %vtable.i = load ptr, ptr %8, align 8
-  %vfn.i = getelementptr inbounds ptr, ptr %vtable.i, i64 55
+  %vfn.i = getelementptr inbounds i8, ptr %vtable.i, i64 440
   %9 = load ptr, ptr %vfn.i, align 8
   call void %9(ptr noundef nonnull align 8 dereferenceable(2140) %8, ptr noundef nonnull %this)
   %tobool.not.i = icmp eq ptr %5, null
@@ -510,7 +342,7 @@ if.then:                                          ; preds = %lor.rhs
 
 if.then.i:                                        ; preds = %if.then
   %vtable3.i = load ptr, ptr %5, align 8
-  %vfn4.i = getelementptr inbounds ptr, ptr %vtable3.i, i64 3
+  %vfn4.i = getelementptr inbounds i8, ptr %vtable3.i, i64 24
   %10 = load ptr, ptr %vfn4.i, align 8
   call void %10(ptr noundef nonnull align 8 dereferenceable(8) %5, ptr noundef null)
   br label %return
@@ -520,16 +352,16 @@ if.end:                                           ; preds = %_ZNK3net15SpdyHeade
   br i1 %call8, label %if.end10, label %if.then9
 
 if.then9:                                         ; preds = %if.end
-  %client_request_delegate_.i6 = getelementptr inbounds %"class.net::QuicClientPromisedInfo", ptr %this, i64 0, i32 7
+  %client_request_delegate_.i6 = getelementptr inbounds i8, ptr %this, i64 80
   %11 = load ptr, ptr %client_request_delegate_.i6, align 8
-  %session_.i7 = getelementptr inbounds %"class.net::QuicClientPromisedInfo", ptr %this, i64 0, i32 1
+  %session_.i7 = getelementptr inbounds i8, ptr %this, i64 8
   %12 = load ptr, ptr %session_.i7, align 8
-  %id_.i8 = getelementptr inbounds %"class.net::QuicClientPromisedInfo", ptr %this, i64 0, i32 2
+  %id_.i8 = getelementptr inbounds i8, ptr %this, i64 16
   %13 = load i32, ptr %id_.i8, align 8
   call void @_ZN3net21QuicClientSessionBase13ResetPromisedEjNS_22QuicRstStreamErrorCodeE(ptr noundef nonnull align 8 dereferenceable(2140) %12, i32 noundef %13, i32 noundef 9)
   %14 = load ptr, ptr %session_.i7, align 8
   %vtable.i9 = load ptr, ptr %14, align 8
-  %vfn.i10 = getelementptr inbounds ptr, ptr %vtable.i9, i64 55
+  %vfn.i10 = getelementptr inbounds i8, ptr %vtable.i9, i64 440
   %15 = load ptr, ptr %vfn.i10, align 8
   call void %15(ptr noundef nonnull align 8 dereferenceable(2140) %14, ptr noundef nonnull %this)
   %tobool.not.i11 = icmp eq ptr %11, null
@@ -537,17 +369,17 @@ if.then9:                                         ; preds = %if.end
 
 if.then.i12:                                      ; preds = %if.then9
   %vtable3.i13 = load ptr, ptr %11, align 8
-  %vfn4.i14 = getelementptr inbounds ptr, ptr %vtable3.i13, i64 3
+  %vfn4.i14 = getelementptr inbounds i8, ptr %vtable3.i13, i64 24
   %16 = load ptr, ptr %vfn4.i14, align 8
   call void %16(ptr noundef nonnull align 8 dereferenceable(8) %11, ptr noundef null)
   br label %return
 
 if.end10:                                         ; preds = %if.end
-  %session_ = getelementptr inbounds %"class.net::QuicClientPromisedInfo", ptr %this, i64 0, i32 1
+  %session_ = getelementptr inbounds i8, ptr %this, i64 8
   %17 = load ptr, ptr %session_, align 8
   call void @_ZN3net9SpdyUtils26GetHostNameFromHeaderBlockB5cxx11ERKNS_15SpdyHeaderBlockE(ptr nonnull sret(%"class.std::__cxx11::basic_string") align 8 %ref.tmp11, ptr noundef nonnull align 8 dereferenceable(88) %headers)
   %vtable = load ptr, ptr %17, align 8
-  %vfn = getelementptr inbounds ptr, ptr %vtable, i64 54
+  %vfn = getelementptr inbounds i8, ptr %vtable, i64 432
   %18 = load ptr, ptr %vfn, align 8
   %call12 = invoke noundef zeroext i1 %18(ptr noundef nonnull align 8 dereferenceable(2140) %17, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp11)
           to label %invoke.cont unwind label %lpad
@@ -557,15 +389,15 @@ invoke.cont:                                      ; preds = %if.end10
   br i1 %call12, label %if.end15, label %if.then14
 
 if.then14:                                        ; preds = %invoke.cont
-  %client_request_delegate_.i16 = getelementptr inbounds %"class.net::QuicClientPromisedInfo", ptr %this, i64 0, i32 7
+  %client_request_delegate_.i16 = getelementptr inbounds i8, ptr %this, i64 80
   %19 = load ptr, ptr %client_request_delegate_.i16, align 8
   %20 = load ptr, ptr %session_, align 8
-  %id_.i18 = getelementptr inbounds %"class.net::QuicClientPromisedInfo", ptr %this, i64 0, i32 2
+  %id_.i18 = getelementptr inbounds i8, ptr %this, i64 16
   %21 = load i32, ptr %id_.i18, align 8
   call void @_ZN3net21QuicClientSessionBase13ResetPromisedEjNS_22QuicRstStreamErrorCodeE(ptr noundef nonnull align 8 dereferenceable(2140) %20, i32 noundef %21, i32 noundef 10)
   %22 = load ptr, ptr %session_, align 8
   %vtable.i19 = load ptr, ptr %22, align 8
-  %vfn.i20 = getelementptr inbounds ptr, ptr %vtable.i19, i64 55
+  %vfn.i20 = getelementptr inbounds i8, ptr %vtable.i19, i64 440
   %23 = load ptr, ptr %vfn.i20, align 8
   call void %23(ptr noundef nonnull align 8 dereferenceable(2140) %22, ptr noundef nonnull %this)
   %tobool.not.i21 = icmp eq ptr %19, null
@@ -573,7 +405,7 @@ if.then14:                                        ; preds = %invoke.cont
 
 if.then.i22:                                      ; preds = %if.then14
   %vtable3.i23 = load ptr, ptr %19, align 8
-  %vfn4.i24 = getelementptr inbounds ptr, ptr %vtable3.i23, i64 3
+  %vfn4.i24 = getelementptr inbounds i8, ptr %vtable3.i23, i64 24
   %24 = load ptr, ptr %vfn4.i24, align 8
   call void %24(ptr noundef nonnull align 8 dereferenceable(8) %19, ptr noundef null)
   br label %return
@@ -590,7 +422,7 @@ if.end15:                                         ; preds = %invoke.cont
           to label %invoke.cont18 unwind label %lpad17
 
 invoke.cont18:                                    ; preds = %if.end15
-  %request_headers_ = getelementptr inbounds %"class.net::QuicClientPromisedInfo", ptr %this, i64 0, i32 4
+  %request_headers_ = getelementptr inbounds i8, ptr %this, i64 56
   %26 = load ptr, ptr %request_headers_, align 8
   store ptr %call16, ptr %request_headers_, align 8
   %tobool.not.i.i = icmp eq ptr %26, null
@@ -633,7 +465,7 @@ entry:
           to label %invoke.cont unwind label %lpad
 
 invoke.cont:                                      ; preds = %entry
-  %response_headers_ = getelementptr inbounds %"class.net::QuicClientPromisedInfo", ptr %this, i64 0, i32 5
+  %response_headers_ = getelementptr inbounds i8, ptr %this, i64 64
   %0 = load ptr, ptr %response_headers_, align 8
   store ptr %call, ptr %response_headers_, align 8
   %tobool.not.i.i = icmp eq ptr %0, null
@@ -645,7 +477,7 @@ _ZNKSt14default_deleteIN3net15SpdyHeaderBlockEEclEPS1_.exit.i.i: ; preds = %invo
   br label %_ZNSt10unique_ptrIN3net15SpdyHeaderBlockESt14default_deleteIS1_EE5resetEPS1_.exit
 
 _ZNSt10unique_ptrIN3net15SpdyHeaderBlockESt14default_deleteIS1_EE5resetEPS1_.exit: ; preds = %invoke.cont, %_ZNKSt14default_deleteIN3net15SpdyHeaderBlockEEclEPS1_.exit.i.i
-  %client_request_delegate_ = getelementptr inbounds %"class.net::QuicClientPromisedInfo", ptr %this, i64 0, i32 7
+  %client_request_delegate_ = getelementptr inbounds i8, ptr %this, i64 80
   %1 = load ptr, ptr %client_request_delegate_, align 8
   %tobool.not = icmp eq ptr %1, null
   br i1 %tobool.not, label %if.end, label %if.then
@@ -668,30 +500,30 @@ if.end:                                           ; preds = %if.then, %_ZNSt10un
 define dso_local noundef i32 @_ZN3net22QuicClientPromisedInfo15FinalValidationEv(ptr noundef nonnull align 8 dereferenceable(96) %this) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp8 = alloca %"class.logging::LogMessage", align 8
-  %client_request_delegate_ = getelementptr inbounds %"class.net::QuicClientPromisedInfo", ptr %this, i64 0, i32 7
+  %client_request_delegate_ = getelementptr inbounds i8, ptr %this, i64 80
   %0 = load ptr, ptr %client_request_delegate_, align 8
-  %client_request_headers_ = getelementptr inbounds %"class.net::QuicClientPromisedInfo", ptr %this, i64 0, i32 6
+  %client_request_headers_ = getelementptr inbounds i8, ptr %this, i64 72
   %1 = load ptr, ptr %client_request_headers_, align 8
-  %request_headers_ = getelementptr inbounds %"class.net::QuicClientPromisedInfo", ptr %this, i64 0, i32 4
+  %request_headers_ = getelementptr inbounds i8, ptr %this, i64 56
   %2 = load ptr, ptr %request_headers_, align 8
-  %response_headers_ = getelementptr inbounds %"class.net::QuicClientPromisedInfo", ptr %this, i64 0, i32 5
+  %response_headers_ = getelementptr inbounds i8, ptr %this, i64 64
   %3 = load ptr, ptr %response_headers_, align 8
   %vtable = load ptr, ptr %0, align 8
-  %vfn = getelementptr inbounds ptr, ptr %vtable, i64 2
+  %vfn = getelementptr inbounds i8, ptr %vtable, i64 16
   %4 = load ptr, ptr %vfn, align 8
   %call4 = tail call noundef zeroext i1 %4(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef nonnull align 8 dereferenceable(88) %1, ptr noundef nonnull align 8 dereferenceable(88) %2, ptr noundef nonnull align 8 dereferenceable(88) %3)
   br i1 %call4, label %if.end, label %if.then
 
 if.then:                                          ; preds = %entry
   %5 = load ptr, ptr %client_request_delegate_, align 8
-  %session_.i = getelementptr inbounds %"class.net::QuicClientPromisedInfo", ptr %this, i64 0, i32 1
+  %session_.i = getelementptr inbounds i8, ptr %this, i64 8
   %6 = load ptr, ptr %session_.i, align 8
-  %id_.i = getelementptr inbounds %"class.net::QuicClientPromisedInfo", ptr %this, i64 0, i32 2
+  %id_.i = getelementptr inbounds i8, ptr %this, i64 16
   %7 = load i32, ptr %id_.i, align 8
   tail call void @_ZN3net21QuicClientSessionBase13ResetPromisedEjNS_22QuicRstStreamErrorCodeE(ptr noundef nonnull align 8 dereferenceable(2140) %6, i32 noundef %7, i32 noundef 12)
   %8 = load ptr, ptr %session_.i, align 8
   %vtable.i = load ptr, ptr %8, align 8
-  %vfn.i = getelementptr inbounds ptr, ptr %vtable.i, i64 55
+  %vfn.i = getelementptr inbounds i8, ptr %vtable.i, i64 440
   %9 = load ptr, ptr %vfn.i, align 8
   tail call void %9(ptr noundef nonnull align 8 dereferenceable(2140) %8, ptr noundef nonnull %this)
   %tobool.not.i = icmp eq ptr %5, null
@@ -699,15 +531,15 @@ if.then:                                          ; preds = %entry
 
 if.then.i:                                        ; preds = %if.then
   %vtable3.i = load ptr, ptr %5, align 8
-  %vfn4.i = getelementptr inbounds ptr, ptr %vtable3.i, i64 3
+  %vfn4.i = getelementptr inbounds i8, ptr %vtable3.i, i64 24
   %10 = load ptr, ptr %vfn4.i, align 8
   tail call void %10(ptr noundef nonnull align 8 dereferenceable(8) %5, ptr noundef null)
   br label %return
 
 if.end:                                           ; preds = %entry
-  %session_ = getelementptr inbounds %"class.net::QuicClientPromisedInfo", ptr %this, i64 0, i32 1
+  %session_ = getelementptr inbounds i8, ptr %this, i64 8
   %11 = load ptr, ptr %session_, align 8
-  %id_ = getelementptr inbounds %"class.net::QuicClientPromisedInfo", ptr %this, i64 0, i32 2
+  %id_ = getelementptr inbounds i8, ptr %this, i64 16
   %12 = load i32, ptr %id_, align 8
   %call5 = tail call noundef ptr @_ZN3net21QuicClientSessionBase17GetPromisedStreamEj(ptr noundef nonnull align 8 dereferenceable(2140) %11, i32 noundef %12)
   %tobool.not = icmp eq ptr %call5, null
@@ -719,7 +551,7 @@ if.then6:                                         ; preds = %if.end
 
 cond.false:                                       ; preds = %if.then6
   call void @_ZN7logging10LogMessageC1EPKcii(ptr noundef nonnull align 8 dereferenceable(404) %ref.tmp8, ptr noundef nonnull @.str.3, i32 noundef 90, i32 noundef 2)
-  %stream_.i = getelementptr inbounds %"class.logging::LogMessage", ptr %ref.tmp8, i64 0, i32 2
+  %stream_.i = getelementptr inbounds i8, ptr %ref.tmp8, i64 8
   %call11 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc(ptr noundef nonnull align 8 dereferenceable(8) %stream_.i, ptr noundef nonnull @.str.4)
           to label %invoke.cont10 unwind label %lpad
 
@@ -742,7 +574,7 @@ if.end19:                                         ; preds = %if.then6, %cleanup.
   %15 = load ptr, ptr %client_request_delegate_, align 8
   %16 = load ptr, ptr %session_, align 8
   %vtable22 = load ptr, ptr %16, align 8
-  %vfn23 = getelementptr inbounds ptr, ptr %vtable22, i64 55
+  %vfn23 = getelementptr inbounds i8, ptr %vtable22, i64 440
   %17 = load ptr, ptr %vfn23, align 8
   call void %17(ptr noundef nonnull align 8 dereferenceable(2140) %16, ptr noundef nonnull %this)
   %tobool24.not = icmp eq ptr %15, null
@@ -750,7 +582,7 @@ if.end19:                                         ; preds = %if.then6, %cleanup.
 
 if.then25:                                        ; preds = %if.end19
   %vtable26 = load ptr, ptr %15, align 8
-  %vfn27 = getelementptr inbounds ptr, ptr %vtable26, i64 3
+  %vfn27 = getelementptr inbounds i8, ptr %vtable26, i64 24
   %18 = load ptr, ptr %vfn27, align 8
   call void %18(ptr noundef nonnull align 8 dereferenceable(8) %15, ptr noundef %call5)
   br label %return
@@ -778,9 +610,9 @@ declare void @_ZN7logging10LogMessageD1Ev(ptr noundef nonnull align 8 dereferenc
 ; Function Attrs: mustprogress uwtable
 define dso_local noundef i32 @_ZN3net22QuicClientPromisedInfo19HandleClientRequestERKNS_15SpdyHeaderBlockEPNS_26QuicClientPushPromiseIndex8DelegateE(ptr noundef nonnull align 8 dereferenceable(96) %this, ptr noundef nonnull align 8 dereferenceable(88) %request_headers, ptr noundef %delegate) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  %session_ = getelementptr inbounds %"class.net::QuicClientPromisedInfo", ptr %this, i64 0, i32 1
+  %session_ = getelementptr inbounds i8, ptr %this, i64 8
   %0 = load ptr, ptr %session_, align 8
-  %id_ = getelementptr inbounds %"class.net::QuicClientPromisedInfo", ptr %this, i64 0, i32 2
+  %id_ = getelementptr inbounds i8, ptr %this, i64 16
   %1 = load i32, ptr %id_, align 8
   %call = tail call noundef zeroext i1 @_ZN3net11QuicSession14IsClosedStreamEj(ptr noundef nonnull align 8 dereferenceable(2044) %0, i32 noundef %1)
   br i1 %call, label %if.then, label %if.end
@@ -788,20 +620,20 @@ entry:
 if.then:                                          ; preds = %entry
   %2 = load ptr, ptr %session_, align 8
   %vtable = load ptr, ptr %2, align 8
-  %vfn = getelementptr inbounds ptr, ptr %vtable, i64 55
+  %vfn = getelementptr inbounds i8, ptr %vtable, i64 440
   %3 = load ptr, ptr %vfn, align 8
   tail call void %3(ptr noundef nonnull align 8 dereferenceable(2140) %2, ptr noundef nonnull %this)
   br label %return
 
 if.end:                                           ; preds = %entry
-  %client_request_delegate_ = getelementptr inbounds %"class.net::QuicClientPromisedInfo", ptr %this, i64 0, i32 7
+  %client_request_delegate_ = getelementptr inbounds i8, ptr %this, i64 80
   store ptr %delegate, ptr %client_request_delegate_, align 8
   %call3 = tail call noalias noundef nonnull dereferenceable(88) ptr @_Znwm(i64 noundef 88) #10
   invoke void @_ZNK3net15SpdyHeaderBlock5CloneEv(ptr nonnull sret(%"class.net::SpdyHeaderBlock") align 8 %call3, ptr noundef nonnull align 8 dereferenceable(88) %request_headers)
           to label %invoke.cont unwind label %lpad
 
 invoke.cont:                                      ; preds = %if.end
-  %client_request_headers_ = getelementptr inbounds %"class.net::QuicClientPromisedInfo", ptr %this, i64 0, i32 6
+  %client_request_headers_ = getelementptr inbounds i8, ptr %this, i64 72
   %4 = load ptr, ptr %client_request_headers_, align 8
   store ptr %call3, ptr %client_request_headers_, align 8
   %tobool.not.i.i = icmp eq ptr %4, null
@@ -813,7 +645,7 @@ _ZNKSt14default_deleteIN3net15SpdyHeaderBlockEEclEPS1_.exit.i.i: ; preds = %invo
   br label %_ZNSt10unique_ptrIN3net15SpdyHeaderBlockESt14default_deleteIS1_EE5resetEPS1_.exit
 
 _ZNSt10unique_ptrIN3net15SpdyHeaderBlockESt14default_deleteIS1_EE5resetEPS1_.exit: ; preds = %invoke.cont, %_ZNKSt14default_deleteIN3net15SpdyHeaderBlockEEclEPS1_.exit.i.i
-  %response_headers_ = getelementptr inbounds %"class.net::QuicClientPromisedInfo", ptr %this, i64 0, i32 5
+  %response_headers_ = getelementptr inbounds i8, ptr %this, i64 64
   %5 = load ptr, ptr %response_headers_, align 8
   %cmp.i.not = icmp eq ptr %5, null
   br i1 %cmp.i.not, label %return, label %if.end6
@@ -838,16 +670,16 @@ declare noundef zeroext i1 @_ZN3net11QuicSession14IsClosedStreamEj(ptr noundef n
 ; Function Attrs: mustprogress uwtable
 define dso_local void @_ZN3net22QuicClientPromisedInfo6CancelEv(ptr noundef nonnull align 8 dereferenceable(96) %this) unnamed_addr #3 align 2 {
 _ZN3net22QuicClientPromisedInfo5ResetENS_22QuicRstStreamErrorCodeE.exit:
-  %client_request_delegate_ = getelementptr inbounds %"class.net::QuicClientPromisedInfo", ptr %this, i64 0, i32 7
+  %client_request_delegate_ = getelementptr inbounds i8, ptr %this, i64 80
   store ptr null, ptr %client_request_delegate_, align 8
-  %session_.i = getelementptr inbounds %"class.net::QuicClientPromisedInfo", ptr %this, i64 0, i32 1
+  %session_.i = getelementptr inbounds i8, ptr %this, i64 8
   %0 = load ptr, ptr %session_.i, align 8
-  %id_.i = getelementptr inbounds %"class.net::QuicClientPromisedInfo", ptr %this, i64 0, i32 2
+  %id_.i = getelementptr inbounds i8, ptr %this, i64 16
   %1 = load i32, ptr %id_.i, align 8
   tail call void @_ZN3net21QuicClientSessionBase13ResetPromisedEjNS_22QuicRstStreamErrorCodeE(ptr noundef nonnull align 8 dereferenceable(2140) %0, i32 noundef %1, i32 noundef 6)
   %2 = load ptr, ptr %session_.i, align 8
   %vtable.i = load ptr, ptr %2, align 8
-  %vfn.i = getelementptr inbounds ptr, ptr %vtable.i, i64 55
+  %vfn.i = getelementptr inbounds i8, ptr %vtable.i, i64 440
   %3 = load ptr, ptr %vfn.i, align 8
   tail call void %3(ptr noundef nonnull align 8 dereferenceable(2140) %2, ptr noundef nonnull %this)
   ret void
@@ -872,13 +704,13 @@ declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #6
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr dso_local ptr @_ZNKSt10_HashtableIN4base16BasicStringPieceINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEESt4pairIKS8_St14_List_iteratorIS9_IS8_S8_EEESaISE_ENSt8__detail10_Select1stESt8equal_toIS8_ENS0_15StringPieceHashENSG_18_Mod_range_hashingENSG_20_Default_ranged_hashENSG_20_Prime_rehash_policyENSG_17_Hashtable_traitsILb1ELb0ELb1EEEE4findERSA_(ptr noundef nonnull align 8 dereferenceable(56) %this, ptr noundef nonnull align 8 dereferenceable(16) %__k) local_unnamed_addr #3 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  %_M_element_count.i = getelementptr inbounds %"class.std::_Hashtable.185", ptr %this, i64 0, i32 3
+  %_M_element_count.i = getelementptr inbounds i8, ptr %this, i64 24
   %0 = load i64, ptr %_M_element_count.i, align 8
   %cmp.not.not = icmp eq i64 %0, 0
   br i1 %cmp.not.not, label %if.then, label %if.end15
 
 if.then:                                          ; preds = %entry
-  %_M_before_begin.i.i = getelementptr inbounds %"class.std::_Hashtable.185", ptr %this, i64 0, i32 2
+  %_M_before_begin.i.i = getelementptr inbounds i8, ptr %this, i64 16
   br label %for.cond
 
 for.cond:                                         ; preds = %for.body, %if.then
@@ -912,7 +744,7 @@ for.body.i.i:                                     ; preds = %if.end15, %for.body
 
 _ZNKSt8__detail15_Hash_code_baseIN4base16BasicStringPieceINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEESt4pairIKS9_St14_List_iteratorISA_IS9_S9_EEENS_10_Select1stENS1_15StringPieceHashENS_18_Mod_range_hashingENS_20_Default_ranged_hashELb1EE12_M_hash_codeERSB_.exit: ; preds = %for.body.i.i, %if.end15
   %result.0.lcssa.i.i = phi i64 [ 0, %if.end15 ], [ %add.i.i, %for.body.i.i ]
-  %_M_bucket_count.i = getelementptr inbounds %"class.std::_Hashtable.185", ptr %this, i64 0, i32 1
+  %_M_bucket_count.i = getelementptr inbounds i8, ptr %this, i64 8
   %2 = load i64, ptr %_M_bucket_count.i, align 8
   %rem.i.i.i = urem i64 %result.0.lcssa.i.i, %2
   %3 = load ptr, ptr %this, align 8

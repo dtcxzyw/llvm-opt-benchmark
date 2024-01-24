@@ -45,7 +45,7 @@ entry:
   %10 = or disjoint i32 %or16, %shl19
   %or24 = or disjoint i32 %10, %shl23
   store i32 %or10, ptr %ti, align 4
-  %arrayidx26 = getelementptr inbounds [2 x i32], ptr %ti, i64 0, i64 1
+  %arrayidx26 = getelementptr inbounds i8, ptr %ti, i64 4
   store i32 %or24, ptr %arrayidx26, align 4
   %incdec.ptr28 = getelementptr inbounds i8, ptr %d, i64 1
   store i8 %1, ptr %d, align 1

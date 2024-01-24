@@ -13,7 +13,7 @@ define void @"_ZN113_$LT$regex_automata..util..prefilter..byteset..ByteSet$u20$a
   %7 = alloca { ptr, ptr }, align 8
   %8 = alloca { i64, i64 }, align 8
   store i64 %4, ptr %8, align 8
-  %9 = getelementptr inbounds { i64, i64 }, ptr %8, i64 0, i32 1
+  %9 = getelementptr inbounds i8, ptr %8, i64 8
   store i64 %5, ptr %9, align 8
   %10 = tail call { ptr, i64 } @"_ZN14regex_automata4util6search108_$LT$impl$u20$core..ops..index..Index$LT$regex_automata..util..search..Span$GT$$u20$for$u20$$u5b$u8$u5d$$GT$5index17h3e86cc444039cba3E"(ptr align 1 %2, i64 %3, i64 %4, i64 %5, ptr nonnull align 8 @anon.9506be429fbbf9258cb7a4058d651675.1)
   %11 = extractvalue { ptr, i64 } %10, 0
@@ -22,7 +22,7 @@ define void @"_ZN113_$LT$regex_automata..util..prefilter..byteset..ByteSet$u20$a
   %.fca.0.extract = extractvalue { ptr, ptr } %13, 0
   store ptr %.fca.0.extract, ptr %7, align 8
   %.fca.1.extract = extractvalue { ptr, ptr } %13, 1
-  %.fca.1.gep = getelementptr inbounds { ptr, ptr }, ptr %7, i64 0, i32 1
+  %.fca.1.gep = getelementptr inbounds i8, ptr %7, i64 8
   store ptr %.fca.1.extract, ptr %.fca.1.gep, align 8
   %14 = icmp ne ptr %1, null
   tail call void @llvm.assume(i1 %14)
@@ -58,9 +58,9 @@ define void @"_ZN113_$LT$regex_automata..util..prefilter..byteset..ByteSet$u20$a
 
 16:                                               ; preds = %10
   %17 = add i64 %4, 1
-  %18 = getelementptr inbounds { [1 x i64], { i64, i64 } }, ptr %0, i64 0, i32 1
+  %18 = getelementptr inbounds i8, ptr %0, i64 8
   store i64 %4, ptr %18, align 8
-  %19 = getelementptr inbounds { [1 x i64], { i64, i64 } }, ptr %0, i64 0, i32 1, i32 1
+  %19 = getelementptr inbounds i8, ptr %0, i64 16
   store i64 %17, ptr %19, align 8
   store i64 1, ptr %0, align 8
   br label %20

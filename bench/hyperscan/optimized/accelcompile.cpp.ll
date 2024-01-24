@@ -3,28 +3,7 @@ source_filename = "bench/hyperscan/original/accelcompile.cpp.ll"
 target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:128-n8:16:32:64-S128"
 target triple = "x86_64-unknown-linux-gnu"
 
-%"struct.boost::container::vector_alloc_holder" = type { ptr, i64, i64 }
 %"struct.std::pair" = type { i8, i8 }
-%"struct.ue2::AccelInfo" = type { i32, i32, %"class.ue2::CharReach", %"class.ue2::flat_set", %"class.ue2::CharReach" }
-%"class.ue2::flat_set" = type { %"class.ue2::flat_detail::flat_base" }
-%"class.ue2::flat_detail::flat_base" = type { %"class.std::tuple" }
-%"class.std::tuple" = type { %"struct.std::_Tuple_impl" }
-%"struct.std::_Tuple_impl" = type { %"struct.std::_Head_base.1" }
-%"struct.std::_Head_base.1" = type { %"class.boost::container::small_vector" }
-%"class.boost::container::small_vector" = type { %"class.boost::container::small_vector_base.base", [6 x i8] }
-%"class.boost::container::small_vector_base.base" = type <{ %"class.boost::container::vector", %"union.boost::move_detail::aligned_struct_wrapper" }>
-%"class.boost::container::vector" = type { %"struct.boost::container::vector_alloc_holder" }
-%"union.boost::move_detail::aligned_struct_wrapper" = type { %"struct.boost::move_detail::aligned_struct" }
-%"struct.boost::move_detail::aligned_struct" = type { [2 x i8] }
-%"class.ue2::CharReach" = type { %"class.ue2::bitfield" }
-%"class.ue2::bitfield" = type { %"struct.std::array" }
-%"struct.std::array" = type { [4 x i64] }
-%struct.anon = type { i8, i8 }
-%struct.anon.5 = type { i8, i8, i8, i8, i8, i8 }
-%struct.anon.9 = type { i8, i8, <2 x i64>, <2 x i64>, <2 x i64>, <2 x i64> }
-%struct.anon.4 = type { i8, i8, i8 }
-%struct.anon.8 = type { i8, i8, <2 x i64>, <2 x i64> }
-%struct.anon.10 = type { i8, i8, <2 x i64>, <2 x i64> }
 
 @_ZTIN3ue218ResourceLimitErrorE = external constant ptr
 
@@ -32,7 +11,7 @@ target triple = "x86_64-unknown-linux-gnu"
 define hidden noundef zeroext i1 @_ZN3ue214buildDvermMaskERKNS_8flat_setISt4pairIhhESt4lessIS2_ESaIS2_EEEPhS9_(ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %escape_set, ptr noundef writeonly %m1_out, ptr noundef writeonly %m2_out) local_unnamed_addr #0 {
 entry:
   %0 = load ptr, ptr %escape_set, align 8, !noalias !5
-  %m_size.i.i.i = getelementptr inbounds %"struct.boost::container::vector_alloc_holder", ptr %escape_set, i64 0, i32 1
+  %m_size.i.i.i = getelementptr inbounds i8, ptr %escape_set, i64 8
   %1 = load i64, ptr %m_size.i.i.i, align 8
   %add.ptr.i.i.i = getelementptr inbounds %"struct.std::pair", ptr %0, i64 %1
   %cmp.i.i.i.i.not30 = icmp eq i64 %1, 0
@@ -46,7 +25,7 @@ for.body:                                         ; preds = %entry, %for.body
   %5 = xor <2 x i8> %4, <i8 -1, i8 -1>
   %6 = and <2 x i8> %4, %2
   %7 = and <2 x i8> %3, %5
-  %incdec.ptr.i.i.i.i = getelementptr inbounds %"struct.std::pair", ptr %__begin1.sroa.0.031, i64 1
+  %incdec.ptr.i.i.i.i = getelementptr inbounds i8, ptr %__begin1.sroa.0.031, i64 2
   %cmp.i.i.i.i.not = icmp eq ptr %incdec.ptr.i.i.i.i, %add.ptr.i.i.i
   br i1 %cmp.i.i.i.i.not, label %for.end.loopexit, label %for.body
 
@@ -103,7 +82,7 @@ return:                                           ; preds = %if.end41, %if.then4
 ; Function Attrs: mustprogress uwtable
 define hidden noundef zeroext i1 @_ZN3ue213buildAccelAuxERKNS_9AccelInfoEP8AccelAux(ptr noundef nonnull align 8 dereferenceable(104) %info, ptr noundef %aux) local_unnamed_addr #1 personality ptr @__gxx_personality_v0 {
 entry:
-  %single_stops = getelementptr inbounds %"struct.ue2::AccelInfo", ptr %info, i64 0, i32 4
+  %single_stops = getelementptr inbounds i8, ptr %info, i64 72
   br label %for.body.i.i
 
 for.body.i.i:                                     ; preds = %for.body.i.i, %entry
@@ -123,7 +102,7 @@ if.end3.thread28:                                 ; preds = %_ZNK3ue29CharReach4
   store i8 16, ptr %aux, align 16
   %1 = load i32, ptr %info, align 8
   %conv = trunc i32 %1 to i8
-  %offset = getelementptr inbounds %struct.anon, ptr %aux, i64 0, i32 1
+  %offset = getelementptr inbounds i8, ptr %aux, i64 1
   store i8 %conv, ptr %offset, align 1
   br label %if.end7
 
@@ -133,25 +112,25 @@ if.end:                                           ; preds = %_ZNK3ue29CharReach4
   br i1 %cmp, label %if.then2, label %if.end7
 
 if.then2:                                         ; preds = %if.end
-  %double_stop1.i = getelementptr inbounds %"struct.ue2::AccelInfo", ptr %info, i64 0, i32 2
+  %double_stop1.i = getelementptr inbounds i8, ptr %info, i64 8
   %2 = load i64, ptr %double_stop1.i, align 8
   %3 = tail call i64 @llvm.ctpop.i64(i64 %2), !range !6
-  %arrayidx.i.i44.i.i.i = getelementptr inbounds %"struct.ue2::AccelInfo", ptr %info, i64 0, i32 2, i32 0, i32 0, i32 0, i64 1
+  %arrayidx.i.i44.i.i.i = getelementptr inbounds i8, ptr %info, i64 16
   %4 = load i64, ptr %arrayidx.i.i44.i.i.i, align 8
   %5 = tail call i64 @llvm.ctpop.i64(i64 %4), !range !6
   %add9.i.i.i = add nuw nsw i64 %5, %3
-  %arrayidx.i.i45.i.i.i = getelementptr inbounds %"struct.ue2::AccelInfo", ptr %info, i64 0, i32 2, i32 0, i32 0, i32 0, i64 2
+  %arrayidx.i.i45.i.i.i = getelementptr inbounds i8, ptr %info, i64 24
   %6 = load i64, ptr %arrayidx.i.i45.i.i.i, align 8
   %7 = tail call i64 @llvm.ctpop.i64(i64 %6), !range !6
   %add15.i.i.i = add nuw nsw i64 %add9.i.i.i, %7
-  %arrayidx.i.i46.i.i.i = getelementptr inbounds %"struct.ue2::AccelInfo", ptr %info, i64 0, i32 2, i32 0, i32 0, i32 0, i64 3
+  %arrayidx.i.i46.i.i.i = getelementptr inbounds i8, ptr %info, i64 32
   %8 = load i64, ptr %arrayidx.i.i46.i.i.i, align 8
   %9 = tail call i64 @llvm.ctpop.i64(i64 %8), !range !6
   %add21.i.i.i = add nuw nsw i64 %add15.i.i.i, %9
-  %double_stop2.i = getelementptr inbounds %"struct.ue2::AccelInfo", ptr %info, i64 0, i32 3
-  %m_size.i.i.i = getelementptr inbounds %"struct.ue2::AccelInfo", ptr %info, i64 0, i32 3, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 1
+  %double_stop2.i = getelementptr inbounds i8, ptr %info, i64 40
+  %m_size.i.i.i = getelementptr inbounds i8, ptr %info, i64 48
   %10 = load i64, ptr %m_size.i.i.i, align 8
-  %double_offset.i = getelementptr inbounds %"struct.ue2::AccelInfo", ptr %info, i64 0, i32 1
+  %double_offset.i = getelementptr inbounds i8, ptr %info, i64 4
   %11 = load i32, ptr %double_offset.i, align 4
   %cmp.not.i.i.i = icmp ult i32 %11, 256
   br i1 %cmp.not.i.i.i, label %_ZN3ue29verify_u8IjEEhT_.exit.i, label %if.then.i.i.i
@@ -184,16 +163,16 @@ if.end.i:                                         ; preds = %_ZN3ue29verify_u8Ij
 
 if.then4.i:                                       ; preds = %if.end.i
   store i8 3, ptr %aux, align 16
-  %offset5.i = getelementptr inbounds %struct.anon.5, ptr %aux, i64 0, i32 1
+  %offset5.i = getelementptr inbounds i8, ptr %aux, i64 1
   store i8 %conv.i.i.i, ptr %offset5.i, align 1
   %13 = load ptr, ptr %double_stop2.i, align 8, !noalias !7
   %14 = load i8, ptr %13, align 1
-  %c1.i = getelementptr inbounds %struct.anon.5, ptr %aux, i64 0, i32 2
+  %c1.i = getelementptr inbounds i8, ptr %aux, i64 2
   store i8 %14, ptr %c1.i, align 2
   %15 = load ptr, ptr %double_stop2.i, align 8, !noalias !14
-  %second.i = getelementptr inbounds %"struct.std::pair", ptr %15, i64 0, i32 1
+  %second.i = getelementptr inbounds i8, ptr %15, i64 1
   %16 = load i8, ptr %second.i, align 1
-  %c2.i = getelementptr inbounds %struct.anon.5, ptr %aux, i64 0, i32 3
+  %c2.i = getelementptr inbounds i8, ptr %aux, i64 3
   store i8 %16, ptr %c2.i, align 1
   br label %if.end7
 
@@ -207,7 +186,7 @@ land.lhs.true15.i:                                ; preds = %if.end13.i
 
 for.body.preheader.i.i:                           ; preds = %land.lhs.true15.i
   %17 = load i8, ptr %double_stop2.val.i, align 1
-  %second.i.i = getelementptr inbounds %"struct.std::pair", ptr %double_stop2.val.i, i64 0, i32 1
+  %second.i.i = getelementptr inbounds i8, ptr %double_stop2.val.i, i64 1
   %18 = load i8, ptr %second.i.i, align 1
   br label %for.body.i.i11
 
@@ -226,7 +205,7 @@ for.body.i.i11:                                   ; preds = %for.cond.i.i, %for.
   br i1 %cmp18.not.i.i, label %lor.lhs.false.i.i, label %if.then38.i
 
 lor.lhs.false.i.i:                                ; preds = %for.body.i.i11
-  %second20.i.i = getelementptr inbounds %"struct.std::pair", ptr %it.sroa.0.05.ptr.i.i, i64 0, i32 1
+  %second20.i.i = getelementptr inbounds i8, ptr %it.sroa.0.05.ptr.i.i, i64 1
   %22 = load i8, ptr %second20.i.i, align 1
   %23 = xor i8 %22, %18
   %24 = and i8 %23, -33
@@ -235,18 +214,18 @@ lor.lhs.false.i.i:                                ; preds = %for.body.i.i11
 
 if.then18.i:                                      ; preds = %for.cond.i.i
   store i8 4, ptr %aux, align 16
-  %offset19.i = getelementptr inbounds %struct.anon.5, ptr %aux, i64 0, i32 1
+  %offset19.i = getelementptr inbounds i8, ptr %aux, i64 1
   store i8 %conv.i.i.i, ptr %offset19.i, align 1
   %25 = load ptr, ptr %double_stop2.i, align 8, !noalias !23
   %26 = load i8, ptr %25, align 1
   %27 = and i8 %26, -33
-  %c125.i = getelementptr inbounds %struct.anon.5, ptr %aux, i64 0, i32 2
+  %c125.i = getelementptr inbounds i8, ptr %aux, i64 2
   store i8 %27, ptr %c125.i, align 2
   %28 = load ptr, ptr %double_stop2.i, align 8, !noalias !30
-  %second29.i = getelementptr inbounds %"struct.std::pair", ptr %28, i64 0, i32 1
+  %second29.i = getelementptr inbounds i8, ptr %28, i64 1
   %29 = load i8, ptr %second29.i, align 1
   %30 = and i8 %29, -33
-  %c233.i = getelementptr inbounds %struct.anon.5, ptr %aux, i64 0, i32 3
+  %c233.i = getelementptr inbounds i8, ptr %aux, i64 3
   store i8 %30, ptr %c233.i, align 1
   br label %if.end7
 
@@ -264,12 +243,12 @@ for.body.i46.i:                                   ; preds = %for.body.i46.i, %if
   %and26.i.i = and i8 %31, %a1.035.i.i
   %not.i.i = xor i8 %31, -1
   %and7.i.i = and i8 %b1.033.i.i, %not.i.i
-  %second.i47.i = getelementptr inbounds %"struct.std::pair", ptr %__begin1.sroa.0.031.i.i, i64 0, i32 1
+  %second.i47.i = getelementptr inbounds i8, ptr %__begin1.sroa.0.031.i.i, i64 1
   %32 = load i8, ptr %second.i47.i, align 1
   %and1127.i.i = and i8 %32, %a2.034.i.i
   %not15.i.i = xor i8 %32, -1
   %and17.i.i = and i8 %b2.032.i.i, %not15.i.i
-  %incdec.ptr.i.i.i.i.i.i = getelementptr inbounds %"struct.std::pair", ptr %__begin1.sroa.0.031.i.i, i64 1
+  %incdec.ptr.i.i.i.i.i.i = getelementptr inbounds i8, ptr %__begin1.sroa.0.031.i.i, i64 2
   %cmp.i.i.i.i.not.i48.i = icmp eq ptr %incdec.ptr.i.i.i.i.i.i, %add.ptr.i.i.i.i.i
   br i1 %cmp.i.i.i.i.not.i48.i, label %for.end.i.i, label %for.body.i46.i
 
@@ -311,22 +290,22 @@ for.end.i.i:                                      ; preds = %for.body.i46.i
 
 if.then41.i:                                      ; preds = %for.end.i.i
   store i8 17, ptr %aux, align 16
-  %offset42.i = getelementptr inbounds %struct.anon.5, ptr %aux, i64 0, i32 1
+  %offset42.i = getelementptr inbounds i8, ptr %aux, i64 1
   store i8 %conv.i.i.i, ptr %offset42.i, align 1
   %36 = load ptr, ptr %double_stop2.i, align 8, !noalias !37
   %37 = load i8, ptr %36, align 1
   %and4943.i = and i8 %37, %33
-  %c151.i = getelementptr inbounds %struct.anon.5, ptr %aux, i64 0, i32 2
+  %c151.i = getelementptr inbounds i8, ptr %aux, i64 2
   store i8 %and4943.i, ptr %c151.i, align 2
   %38 = load ptr, ptr %double_stop2.i, align 8, !noalias !44
-  %second55.i = getelementptr inbounds %"struct.std::pair", ptr %38, i64 0, i32 1
+  %second55.i = getelementptr inbounds i8, ptr %38, i64 1
   %39 = load i8, ptr %second55.i, align 1
   %and5844.i = and i8 %39, %34
-  %c260.i = getelementptr inbounds %struct.anon.5, ptr %aux, i64 0, i32 3
+  %c260.i = getelementptr inbounds i8, ptr %aux, i64 3
   store i8 %and5844.i, ptr %c260.i, align 1
-  %m161.i = getelementptr inbounds %struct.anon.5, ptr %aux, i64 0, i32 4
+  %m161.i = getelementptr inbounds i8, ptr %aux, i64 4
   store i8 %33, ptr %m161.i, align 4
-  %m262.i = getelementptr inbounds %struct.anon.5, ptr %aux, i64 0, i32 5
+  %m262.i = getelementptr inbounds i8, ptr %aux, i64 5
   store i8 %34, ptr %m262.i, align 1
   br label %if.end7
 
@@ -338,12 +317,12 @@ if.end66.i:                                       ; preds = %for.end.i.i, %if.en
 
 do.end72.i:                                       ; preds = %if.end66.i
   store i8 14, ptr %aux, align 16
-  %offset73.i = getelementptr inbounds %struct.anon.9, ptr %aux, i64 0, i32 1
+  %offset73.i = getelementptr inbounds i8, ptr %aux, i64 1
   store i8 %conv.i.i.i, ptr %offset73.i, align 1
-  %lo1.i = getelementptr inbounds %struct.anon.9, ptr %aux, i64 0, i32 2
-  %hi1.i = getelementptr inbounds %struct.anon.9, ptr %aux, i64 0, i32 3
-  %lo2.i = getelementptr inbounds %struct.anon.9, ptr %aux, i64 0, i32 4
-  %hi2.i = getelementptr inbounds %struct.anon.9, ptr %aux, i64 0, i32 5
+  %lo1.i = getelementptr inbounds i8, ptr %aux, i64 16
+  %hi1.i = getelementptr inbounds i8, ptr %aux, i64 32
+  %lo2.i = getelementptr inbounds i8, ptr %aux, i64 48
+  %hi2.i = getelementptr inbounds i8, ptr %aux, i64 64
   %call76.i = tail call noundef zeroext i1 @_ZN3ue222shuftiBuildDoubleMasksERKNS_9CharReachERKNS_8flat_setISt4pairIhhESt4lessIS5_ESaIS5_EEEPhSC_SC_SC_(ptr noundef nonnull align 8 dereferenceable(32) %double_stop1.i, ptr noundef nonnull align 8 dereferenceable(32) %double_stop2.i, ptr noundef nonnull %lo1.i, ptr noundef nonnull %hi1.i, ptr noundef nonnull %lo2.i, ptr noundef nonnull %hi2.i)
   br i1 %call76.i, label %if.end3, label %if.end3.thread
 
@@ -372,13 +351,13 @@ for.body.i.i.i:                                   ; preds = %for.body.i.i.i.preh
   br i1 %cmp4.not.i.i.i, label %for.cond.i.i.i, label %if.end.loopexit.i
 
 _ZNK3ue29CharReach3allEv.exit.i:                  ; preds = %for.cond.i.i.i
-  %incdec.ptr.i.i.i.i = getelementptr inbounds %"struct.ue2::AccelInfo", ptr %info, i64 0, i32 4, i32 0, i32 0, i32 0, i64 3
+  %incdec.ptr.i.i.i.i = getelementptr inbounds i8, ptr %info, i64 96
   %42 = load i64, ptr %incdec.ptr.i.i.i.i, align 8
   %cmp8.i.i.i = icmp eq i64 %42, -1
   br i1 %cmp8.i.i.i, label %if.end7, label %if.end.i12
 
 if.end.loopexit.i:                                ; preds = %for.body.i.i.i
-  %arrayidx.i.i46.i.i.phi.trans.insert.i = getelementptr inbounds %"struct.ue2::AccelInfo", ptr %info, i64 0, i32 4, i32 0, i32 0, i32 0, i64 3
+  %arrayidx.i.i46.i.i.phi.trans.insert.i = getelementptr inbounds i8, ptr %info, i64 96
   %.pre.i = load i64, ptr %arrayidx.i.i46.i.i.phi.trans.insert.i, align 8
   br label %if.end.i12
 
@@ -386,10 +365,10 @@ if.end.i12:                                       ; preds = %if.end.loopexit.i, 
   %43 = phi i64 [ %.pre.i, %if.end.loopexit.i ], [ %42, %_ZNK3ue29CharReach3allEv.exit.i ]
   %44 = load i64, ptr %single_stops, align 8
   %45 = tail call i64 @llvm.ctpop.i64(i64 %44), !range !6
-  %arrayidx.i.i44.i.i.i13 = getelementptr inbounds %"struct.ue2::AccelInfo", ptr %info, i64 0, i32 4, i32 0, i32 0, i32 0, i64 1
+  %arrayidx.i.i44.i.i.i13 = getelementptr inbounds i8, ptr %info, i64 80
   %46 = load i64, ptr %arrayidx.i.i44.i.i.i13, align 8
   %47 = tail call i64 @llvm.ctpop.i64(i64 %46), !range !6
-  %arrayidx.i.i45.i.i.i15 = getelementptr inbounds %"struct.ue2::AccelInfo", ptr %info, i64 0, i32 4, i32 0, i32 0, i32 0, i64 2
+  %arrayidx.i.i45.i.i.i15 = getelementptr inbounds i8, ptr %info, i64 88
   %48 = load i64, ptr %arrayidx.i.i45.i.i.i15, align 8
   %49 = tail call i64 @llvm.ctpop.i64(i64 %48), !range !6
   %50 = tail call i64 @llvm.ctpop.i64(i64 %43), !range !6
@@ -405,7 +384,7 @@ if.end.i12:                                       ; preds = %if.end.loopexit.i, 
 if.then3.i:                                       ; preds = %if.end.i12
   store i8 1, ptr %aux, align 16
   %conv.i = trunc i32 %51 to i8
-  %offset4.i = getelementptr inbounds %struct.anon.4, ptr %aux, i64 0, i32 1
+  %offset4.i = getelementptr inbounds i8, ptr %aux, i64 1
   store i8 %conv.i, ptr %offset4.i, align 1
   br label %for.body.i.i26.i
 
@@ -430,7 +409,7 @@ for.inc.i.i.i:                                    ; preds = %for.body.i.i26.i
 
 _ZNK3ue29CharReach10find_firstEv.exit.i:          ; preds = %for.inc.i.i.i, %if.then.i.i.i19
   %retval.0.i.i29.i = phi i8 [ %54, %if.then.i.i.i19 ], [ 0, %for.inc.i.i.i ]
-  %c.i = getelementptr inbounds %struct.anon.4, ptr %aux, i64 0, i32 2
+  %c.i = getelementptr inbounds i8, ptr %aux, i64 2
   store i8 %retval.0.i.i29.i, ptr %c.i, align 2
   br label %if.end7
 
@@ -441,7 +420,7 @@ land.lhs.true.i:                                  ; preds = %if.end.i12
 if.then14.i:                                      ; preds = %land.lhs.true.i
   store i8 2, ptr %aux, align 16
   %conv15.i = trunc i32 %51 to i8
-  %offset16.i = getelementptr inbounds %struct.anon.4, ptr %aux, i64 0, i32 1
+  %offset16.i = getelementptr inbounds i8, ptr %aux, i64 1
   store i8 %conv15.i, ptr %offset16.i, align 1
   br label %for.body.i.i32.i
 
@@ -467,20 +446,20 @@ for.inc.i.i40.i:                                  ; preds = %for.body.i.i32.i
 
 _ZNK3ue29CharReach10find_firstEv.exit43.i:        ; preds = %for.inc.i.i40.i, %if.then.i.i36.i
   %retval.0.i.i39.i = phi i8 [ %58, %if.then.i.i36.i ], [ 0, %for.inc.i.i40.i ]
-  %c20.i = getelementptr inbounds %struct.anon.4, ptr %aux, i64 0, i32 2
+  %c20.i = getelementptr inbounds i8, ptr %aux, i64 2
   store i8 %retval.0.i.i39.i, ptr %c20.i, align 2
   br label %if.end7
 
 do.end25.i:                                       ; preds = %if.end.i12
-  %lo.i = getelementptr inbounds %struct.anon.8, ptr %aux, i64 0, i32 2
-  %hi.i = getelementptr inbounds %struct.anon.8, ptr %aux, i64 0, i32 3
+  %lo.i = getelementptr inbounds i8, ptr %aux, i64 16
+  %hi.i = getelementptr inbounds i8, ptr %aux, i64 32
   %call27.i = tail call noundef i32 @_ZN3ue216shuftiBuildMasksERKNS_9CharReachEPhS3_(ptr noundef nonnull align 8 dereferenceable(32) %single_stops, ptr noundef nonnull %lo.i, ptr noundef nonnull %hi.i)
   %cmp28.not.i = icmp eq i32 %call27.i, -1
   br i1 %cmp28.not.i, label %if.end36.i, label %if.then29.i
 
 do.end25.thread.i:                                ; preds = %land.lhs.true.i
-  %lo45.i = getelementptr inbounds %struct.anon.8, ptr %aux, i64 0, i32 2
-  %hi46.i = getelementptr inbounds %struct.anon.8, ptr %aux, i64 0, i32 3
+  %lo45.i = getelementptr inbounds i8, ptr %aux, i64 16
+  %hi46.i = getelementptr inbounds i8, ptr %aux, i64 32
   %call2747.i = tail call noundef i32 @_ZN3ue216shuftiBuildMasksERKNS_9CharReachEPhS3_(ptr noundef nonnull align 8 dereferenceable(32) %single_stops, ptr noundef nonnull %lo45.i, ptr noundef nonnull %hi46.i)
   %cmp28.not48.i = icmp eq i32 %call2747.i, -1
   br i1 %cmp28.not48.i, label %do.end40.i, label %if.then29.i
@@ -488,7 +467,7 @@ do.end25.thread.i:                                ; preds = %land.lhs.true.i
 if.then29.i:                                      ; preds = %do.end25.thread.i, %do.end25.i
   store i8 13, ptr %aux, align 16
   %conv30.i = trunc i32 %51 to i8
-  %offset31.i = getelementptr inbounds %struct.anon.8, ptr %aux, i64 0, i32 1
+  %offset31.i = getelementptr inbounds i8, ptr %aux, i64 1
   store i8 %conv30.i, ptr %offset31.i, align 1
   br label %if.end7
 
@@ -501,7 +480,7 @@ do.end40.i:                                       ; preds = %if.end36.i, %do.end
   %hi5054.i = phi ptr [ %hi.i, %if.end36.i ], [ %hi46.i, %do.end25.thread.i ]
   store i8 15, ptr %aux, align 16
   %conv41.i = trunc i32 %51 to i8
-  %offset42.i18 = getelementptr inbounds %struct.anon.10, ptr %aux, i64 0, i32 1
+  %offset42.i18 = getelementptr inbounds i8, ptr %aux, i64 1
   store i8 %conv41.i, ptr %offset42.i18, align 1
   tail call void @_ZN3ue217truffleBuildMasksERKNS_9CharReachEPhS3_(ptr noundef nonnull align 8 dereferenceable(32) %single_stops, ptr noundef nonnull %lo4955.i, ptr noundef nonnull %hi5054.i)
   br label %if.end7

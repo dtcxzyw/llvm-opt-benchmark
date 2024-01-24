@@ -4,8 +4,6 @@ target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:
 target triple = "x86_64-unknown-linux-gnu"
 
 %"class.std::ios_base::Init" = type { i8 }
-%"class.Imf_3_2::Compressor" = type { ptr, ptr }
-%"class.Imath_3_2::Vec2" = type { i32, i32 }
 
 @_ZStL8__ioinit = internal global %"class.std::ios_base::Init" zeroinitializer, align 1
 @__dso_handle = external hidden global i8
@@ -34,7 +32,7 @@ declare i32 @__cxa_atexit(ptr, ptr, ptr) local_unnamed_addr #2
 define void @_ZN7Imf_3_210CompressorC2ERKNS_6HeaderE(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(16) %this, ptr noundef nonnull align 1 %hdr) unnamed_addr #3 align 2 {
 entry:
   store ptr getelementptr inbounds ({ [10 x ptr] }, ptr @_ZTVN7Imf_3_210CompressorE, i64 0, inrange i32 0, i64 2), ptr %this, align 8
-  %_header = getelementptr inbounds %"class.Imf_3_2::Compressor", ptr %this, i64 0, i32 1
+  %_header = getelementptr inbounds i8, ptr %this, i64 8
   store ptr %hdr, ptr %_header, align 8
   ret void
 }
@@ -64,10 +62,10 @@ entry:
 ; Function Attrs: mustprogress uwtable
 define noundef i32 @_ZN7Imf_3_210Compressor12compressTileEPKciN9Imath_3_23BoxINS3_4Vec2IiEEEERS2_(ptr noundef nonnull align 8 dereferenceable(16) %this, ptr noundef %inPtr, i32 noundef %inSize, ptr nocapture noundef readonly %range, ptr noundef nonnull align 8 dereferenceable(8) %outPtr) unnamed_addr #7 align 2 {
 entry:
-  %y = getelementptr inbounds %"class.Imath_3_2::Vec2", ptr %range, i64 0, i32 1
+  %y = getelementptr inbounds i8, ptr %range, i64 4
   %0 = load i32, ptr %y, align 4
   %vtable = load ptr, ptr %this, align 8
-  %vfn = getelementptr inbounds ptr, ptr %vtable, i64 4
+  %vfn = getelementptr inbounds i8, ptr %vtable, i64 32
   %1 = load ptr, ptr %vfn, align 8
   %call = tail call noundef i32 %1(ptr noundef nonnull align 8 dereferenceable(16) %this, ptr noundef %inPtr, i32 noundef %inSize, i32 noundef %0, ptr noundef nonnull align 8 dereferenceable(8) %outPtr)
   ret i32 %call
@@ -76,10 +74,10 @@ entry:
 ; Function Attrs: mustprogress uwtable
 define noundef i32 @_ZN7Imf_3_210Compressor14uncompressTileEPKciN9Imath_3_23BoxINS3_4Vec2IiEEEERS2_(ptr noundef nonnull align 8 dereferenceable(16) %this, ptr noundef %inPtr, i32 noundef %inSize, ptr nocapture noundef readonly %range, ptr noundef nonnull align 8 dereferenceable(8) %outPtr) unnamed_addr #7 align 2 {
 entry:
-  %y = getelementptr inbounds %"class.Imath_3_2::Vec2", ptr %range, i64 0, i32 1
+  %y = getelementptr inbounds i8, ptr %range, i64 4
   %0 = load i32, ptr %y, align 4
   %vtable = load ptr, ptr %this, align 8
-  %vfn = getelementptr inbounds ptr, ptr %vtable, i64 6
+  %vfn = getelementptr inbounds i8, ptr %vtable, i64 48
   %1 = load ptr, ptr %vfn, align 8
   %call = tail call noundef i32 %1(ptr noundef nonnull align 8 dereferenceable(16) %this, ptr noundef %inPtr, i32 noundef %inSize, i32 noundef %0, ptr noundef nonnull align 8 dereferenceable(8) %outPtr)
   ret i32 %call

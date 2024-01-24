@@ -714,7 +714,7 @@ entry:
   %str = alloca %"class.icu_75::UnicodeString", align 8
   store ptr %key, ptr %key.addr, align 8
   %vtable = load ptr, ptr %value, align 8
-  %vfn = getelementptr inbounds ptr, ptr %vtable, i64 11
+  %vfn = getelementptr inbounds i8, ptr %vtable, i64 88
   %1 = load ptr, ptr %vfn, align 8
   call void %1(ptr nonnull sret(%"class.icu_75::ResourceTable") align 8 %contextsTable, ptr noundef nonnull align 8 dereferenceable(8) %value, ptr noundef nonnull align 4 dereferenceable(4) %status)
   %2 = load i32, ptr %status, align 4
@@ -727,9 +727,9 @@ for.cond.preheader:                               ; preds = %entry
   br i1 %tobool3.not159, label %for.end131, label %for.body.lr.ph
 
 for.body.lr.ph:                                   ; preds = %for.cond.preheader
-  %length.i = getelementptr inbounds %"class.icu_75::ResourceArray", ptr %array, i64 0, i32 2
-  %fUnion.i.i.i = getelementptr inbounds %"class.icu_75::UnicodeString", ptr %str, i64 0, i32 1
-  %fLength.i.i = getelementptr inbounds %"class.icu_75::UnicodeString", ptr %str, i64 0, i32 1, i32 0, i32 1
+  %length.i = getelementptr inbounds i8, ptr %array, i64 16
+  %fUnion.i.i.i = getelementptr inbounds i8, ptr %str, i64 8
+  %fLength.i.i = getelementptr inbounds i8, ptr %str, i64 12
   br label %for.body
 
 for.body:                                         ; preds = %for.body.lr.ph, %for.inc129
@@ -741,7 +741,7 @@ for.body:                                         ; preds = %for.body.lr.ph, %fo
 
 if.else:                                          ; preds = %for.body
   %vtable6 = load ptr, ptr %value, align 8
-  %vfn7 = getelementptr inbounds ptr, ptr %vtable6, i64 11
+  %vfn7 = getelementptr inbounds i8, ptr %vtable6, i64 88
   %4 = load ptr, ptr %vfn7, align 8
   call void %4(ptr nonnull sret(%"class.icu_75::ResourceTable") align 8 %strictnessTable, ptr noundef nonnull align 8 dereferenceable(8) %value, ptr noundef nonnull align 4 dereferenceable(4) %status)
   %5 = load i32, ptr %status, align 4
@@ -759,7 +759,7 @@ for.body15:                                       ; preds = %for.cond12.preheade
   %call16 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %6, ptr noundef nonnull dereferenceable(8) @.str.9) #9
   %cmp17 = icmp eq i32 %call16, 0
   %vtable18 = load ptr, ptr %value, align 8
-  %vfn19 = getelementptr inbounds ptr, ptr %vtable18, i64 10
+  %vfn19 = getelementptr inbounds i8, ptr %vtable18, i64 80
   %7 = load ptr, ptr %vfn19, align 8
   call void %7(ptr nonnull sret(%"class.icu_75::ResourceArray") align 8 %array, ptr noundef nonnull align 8 dereferenceable(8) %value, ptr noundef nonnull align 4 dereferenceable(4) %status)
   %8 = load i32, ptr %status, align 4
@@ -785,7 +785,7 @@ for.body27:                                       ; preds = %for.body27.lr.ph, %
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %agg.tmp.i)
   store i32 0, ptr %len.i, align 4, !noalias !6
   %vtable.i = load ptr, ptr %value, align 8, !noalias !6
-  %vfn.i = getelementptr inbounds ptr, ptr %vtable.i, i64 4
+  %vfn.i = getelementptr inbounds i8, ptr %vtable.i, i64 32
   %10 = load ptr, ptr %vfn.i, align 8, !noalias !6
   %call.i = call noundef ptr %10(ptr noundef nonnull align 8 dereferenceable(8) %value, ptr noundef nonnull align 4 dereferenceable(4) %len.i, ptr noundef nonnull align 4 dereferenceable(4) %status), !noalias !6
   store ptr %call.i, ptr %agg.tmp.i, align 8, !noalias !6

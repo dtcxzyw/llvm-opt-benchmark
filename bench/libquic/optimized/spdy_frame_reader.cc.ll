@@ -3,17 +3,15 @@ source_filename = "bench/libquic/original/spdy_frame_reader.cc.ll"
 target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:128-n8:16:32:64-S128"
 target triple = "x86_64-unknown-linux-gnu"
 
-%"class.net::SpdyFrameReader" = type { ptr, i64, i64 }
-
 @_ZN3net15SpdyFrameReaderC1EPKcm = dso_local unnamed_addr alias void (ptr, ptr, i64), ptr @_ZN3net15SpdyFrameReaderC2EPKcm
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
 define dso_local void @_ZN3net15SpdyFrameReaderC2EPKcm(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(24) %this, ptr noundef %data, i64 noundef %len) unnamed_addr #0 align 2 {
 entry:
   store ptr %data, ptr %this, align 8
-  %len_ = getelementptr inbounds %"class.net::SpdyFrameReader", ptr %this, i64 0, i32 1
+  %len_ = getelementptr inbounds i8, ptr %this, i64 8
   store i64 %len, ptr %len_, align 8
-  %ofs_ = getelementptr inbounds %"class.net::SpdyFrameReader", ptr %this, i64 0, i32 2
+  %ofs_ = getelementptr inbounds i8, ptr %this, i64 16
   store i64 0, ptr %ofs_, align 8
   ret void
 }
@@ -21,9 +19,9 @@ entry:
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
 define dso_local noundef zeroext i1 @_ZN3net15SpdyFrameReader9ReadUInt8EPh(ptr nocapture noundef nonnull align 8 dereferenceable(24) %this, ptr nocapture noundef writeonly %result) local_unnamed_addr #1 align 2 {
 entry:
-  %len_.i = getelementptr inbounds %"class.net::SpdyFrameReader", ptr %this, i64 0, i32 1
+  %len_.i = getelementptr inbounds i8, ptr %this, i64 8
   %0 = load i64, ptr %len_.i, align 8
-  %ofs_.i = getelementptr inbounds %"class.net::SpdyFrameReader", ptr %this, i64 0, i32 2
+  %ofs_.i = getelementptr inbounds i8, ptr %this, i64 16
   %1 = load i64, ptr %ofs_.i, align 8
   %cmp.i = icmp ne i64 %0, %1
   br i1 %cmp.i, label %if.end, label %return
@@ -46,9 +44,9 @@ return:                                           ; preds = %entry, %if.end
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
 define dso_local noundef zeroext i1 @_ZNK3net15SpdyFrameReader7CanReadEm(ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %this, i64 noundef %bytes) local_unnamed_addr #2 align 2 {
 entry:
-  %len_ = getelementptr inbounds %"class.net::SpdyFrameReader", ptr %this, i64 0, i32 1
+  %len_ = getelementptr inbounds i8, ptr %this, i64 8
   %0 = load i64, ptr %len_, align 8
-  %ofs_ = getelementptr inbounds %"class.net::SpdyFrameReader", ptr %this, i64 0, i32 2
+  %ofs_ = getelementptr inbounds i8, ptr %this, i64 16
   %1 = load i64, ptr %ofs_, align 8
   %sub = sub i64 %0, %1
   %cmp = icmp uge i64 %sub, %bytes
@@ -58,9 +56,9 @@ entry:
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
 define dso_local void @_ZN3net15SpdyFrameReader9OnFailureEv(ptr nocapture noundef nonnull align 8 dereferenceable(24) %this) local_unnamed_addr #3 align 2 {
 entry:
-  %len_ = getelementptr inbounds %"class.net::SpdyFrameReader", ptr %this, i64 0, i32 1
+  %len_ = getelementptr inbounds i8, ptr %this, i64 8
   %0 = load i64, ptr %len_, align 8
-  %ofs_ = getelementptr inbounds %"class.net::SpdyFrameReader", ptr %this, i64 0, i32 2
+  %ofs_ = getelementptr inbounds i8, ptr %this, i64 16
   store i64 %0, ptr %ofs_, align 8
   ret void
 }
@@ -68,9 +66,9 @@ entry:
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
 define dso_local noundef zeroext i1 @_ZN3net15SpdyFrameReader10ReadUInt16EPt(ptr nocapture noundef nonnull align 8 dereferenceable(24) %this, ptr nocapture noundef writeonly %result) local_unnamed_addr #1 align 2 {
 entry:
-  %len_.i = getelementptr inbounds %"class.net::SpdyFrameReader", ptr %this, i64 0, i32 1
+  %len_.i = getelementptr inbounds i8, ptr %this, i64 8
   %0 = load i64, ptr %len_.i, align 8
-  %ofs_.i = getelementptr inbounds %"class.net::SpdyFrameReader", ptr %this, i64 0, i32 2
+  %ofs_.i = getelementptr inbounds i8, ptr %this, i64 16
   %1 = load i64, ptr %ofs_.i, align 8
   %sub.i = sub i64 %0, %1
   %cmp.i = icmp ugt i64 %sub.i, 1
@@ -95,9 +93,9 @@ return:                                           ; preds = %entry, %if.end
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
 define dso_local noundef zeroext i1 @_ZN3net15SpdyFrameReader10ReadUInt32EPj(ptr nocapture noundef nonnull align 8 dereferenceable(24) %this, ptr nocapture noundef writeonly %result) local_unnamed_addr #1 align 2 {
 entry:
-  %len_.i = getelementptr inbounds %"class.net::SpdyFrameReader", ptr %this, i64 0, i32 1
+  %len_.i = getelementptr inbounds i8, ptr %this, i64 8
   %0 = load i64, ptr %len_.i, align 8
-  %ofs_.i = getelementptr inbounds %"class.net::SpdyFrameReader", ptr %this, i64 0, i32 2
+  %ofs_.i = getelementptr inbounds i8, ptr %this, i64 16
   %1 = load i64, ptr %ofs_.i, align 8
   %sub.i = sub i64 %0, %1
   %cmp.i = icmp ugt i64 %sub.i, 3
@@ -122,9 +120,9 @@ return:                                           ; preds = %entry, %if.end
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
 define dso_local noundef zeroext i1 @_ZN3net15SpdyFrameReader10ReadUInt64EPm(ptr nocapture noundef nonnull align 8 dereferenceable(24) %this, ptr nocapture noundef writeonly %result) local_unnamed_addr #1 align 2 {
 entry:
-  %len_.i = getelementptr inbounds %"class.net::SpdyFrameReader", ptr %this, i64 0, i32 1
+  %len_.i = getelementptr inbounds i8, ptr %this, i64 8
   %0 = load i64, ptr %len_.i, align 8
-  %ofs_.i = getelementptr inbounds %"class.net::SpdyFrameReader", ptr %this, i64 0, i32 2
+  %ofs_.i = getelementptr inbounds i8, ptr %this, i64 16
   %1 = load i64, ptr %ofs_.i, align 8
   %sub.i = sub i64 %0, %1
   %cmp.i = icmp ugt i64 %sub.i, 7
@@ -149,9 +147,9 @@ return:                                           ; preds = %entry, %if.end
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
 define dso_local noundef zeroext i1 @_ZN3net15SpdyFrameReader10ReadUInt31EPj(ptr nocapture noundef nonnull align 8 dereferenceable(24) %this, ptr nocapture noundef %result) local_unnamed_addr #1 align 2 {
 entry:
-  %len_.i.i = getelementptr inbounds %"class.net::SpdyFrameReader", ptr %this, i64 0, i32 1
+  %len_.i.i = getelementptr inbounds i8, ptr %this, i64 8
   %0 = load i64, ptr %len_.i.i, align 8
-  %ofs_.i.i = getelementptr inbounds %"class.net::SpdyFrameReader", ptr %this, i64 0, i32 2
+  %ofs_.i.i = getelementptr inbounds i8, ptr %this, i64 16
   %1 = load i64, ptr %ofs_.i.i, align 8
   %sub.i.i = sub i64 %0, %1
   %cmp.i.i = icmp ugt i64 %sub.i.i, 3
@@ -182,9 +180,9 @@ if.end:                                           ; preds = %_ZN3net15SpdyFrameR
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
 define dso_local noundef zeroext i1 @_ZN3net15SpdyFrameReader10ReadUInt24EPj(ptr nocapture noundef nonnull align 8 dereferenceable(24) %this, ptr nocapture noundef %result) local_unnamed_addr #4 align 2 {
 entry:
-  %len_.i = getelementptr inbounds %"class.net::SpdyFrameReader", ptr %this, i64 0, i32 1
+  %len_.i = getelementptr inbounds i8, ptr %this, i64 8
   %0 = load i64, ptr %len_.i, align 8
-  %ofs_.i = getelementptr inbounds %"class.net::SpdyFrameReader", ptr %this, i64 0, i32 2
+  %ofs_.i = getelementptr inbounds i8, ptr %this, i64 16
   %1 = load i64, ptr %ofs_.i, align 8
   %sub.i = sub i64 %0, %1
   %cmp.i = icmp ugt i64 %sub.i, 2
@@ -216,9 +214,9 @@ declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias
 ; Function Attrs: mustprogress uwtable
 define dso_local noundef zeroext i1 @_ZN3net15SpdyFrameReader17ReadStringPiece16EPN4base16BasicStringPieceINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEE(ptr nocapture noundef nonnull align 8 dereferenceable(24) %this, ptr noundef %result) local_unnamed_addr #6 align 2 {
 entry:
-  %len_.i.i = getelementptr inbounds %"class.net::SpdyFrameReader", ptr %this, i64 0, i32 1
+  %len_.i.i = getelementptr inbounds i8, ptr %this, i64 8
   %0 = load i64, ptr %len_.i.i, align 8
-  %ofs_.i.i = getelementptr inbounds %"class.net::SpdyFrameReader", ptr %this, i64 0, i32 2
+  %ofs_.i.i = getelementptr inbounds i8, ptr %this, i64 16
   %1 = load i64, ptr %ofs_.i.i, align 8
   %sub.i.i = sub i64 %0, %1
   %cmp.i.i = icmp ugt i64 %sub.i.i, 1
@@ -255,9 +253,9 @@ declare void @_ZN4base16BasicStringPieceINSt7__cxx1112basic_stringIcSt11char_tra
 ; Function Attrs: mustprogress uwtable
 define dso_local noundef zeroext i1 @_ZN3net15SpdyFrameReader17ReadStringPiece32EPN4base16BasicStringPieceINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEE(ptr nocapture noundef nonnull align 8 dereferenceable(24) %this, ptr noundef %result) local_unnamed_addr #6 align 2 {
 entry:
-  %len_.i.i = getelementptr inbounds %"class.net::SpdyFrameReader", ptr %this, i64 0, i32 1
+  %len_.i.i = getelementptr inbounds i8, ptr %this, i64 8
   %0 = load i64, ptr %len_.i.i, align 8
-  %ofs_.i.i = getelementptr inbounds %"class.net::SpdyFrameReader", ptr %this, i64 0, i32 2
+  %ofs_.i.i = getelementptr inbounds i8, ptr %this, i64 16
   %1 = load i64, ptr %ofs_.i.i, align 8
   %sub.i.i = sub i64 %0, %1
   %cmp.i.i = icmp ugt i64 %sub.i.i, 3
@@ -292,9 +290,9 @@ return:                                           ; preds = %if.end, %entry, %if
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
 define dso_local noundef zeroext i1 @_ZN3net15SpdyFrameReader9ReadBytesEPvm(ptr nocapture noundef nonnull align 8 dereferenceable(24) %this, ptr nocapture noundef writeonly %result, i64 noundef %size) local_unnamed_addr #4 align 2 {
 entry:
-  %len_.i = getelementptr inbounds %"class.net::SpdyFrameReader", ptr %this, i64 0, i32 1
+  %len_.i = getelementptr inbounds i8, ptr %this, i64 8
   %0 = load i64, ptr %len_.i, align 8
-  %ofs_.i = getelementptr inbounds %"class.net::SpdyFrameReader", ptr %this, i64 0, i32 2
+  %ofs_.i = getelementptr inbounds i8, ptr %this, i64 16
   %1 = load i64, ptr %ofs_.i, align 8
   %sub.i = sub i64 %0, %1
   %cmp.i = icmp uge i64 %sub.i, %size
@@ -317,9 +315,9 @@ return:                                           ; preds = %entry, %if.end
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
 define dso_local noundef zeroext i1 @_ZN3net15SpdyFrameReader4SeekEm(ptr nocapture noundef nonnull align 8 dereferenceable(24) %this, i64 noundef %size) local_unnamed_addr #3 align 2 {
 entry:
-  %len_.i = getelementptr inbounds %"class.net::SpdyFrameReader", ptr %this, i64 0, i32 1
+  %len_.i = getelementptr inbounds i8, ptr %this, i64 8
   %0 = load i64, ptr %len_.i, align 8
-  %ofs_.i = getelementptr inbounds %"class.net::SpdyFrameReader", ptr %this, i64 0, i32 2
+  %ofs_.i = getelementptr inbounds i8, ptr %this, i64 16
   %1 = load i64, ptr %ofs_.i, align 8
   %sub.i = sub i64 %0, %1
   %cmp.i = icmp uge i64 %sub.i, %size
@@ -332,9 +330,9 @@ entry:
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
 define dso_local noundef zeroext i1 @_ZNK3net15SpdyFrameReader13IsDoneReadingEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %this) local_unnamed_addr #2 align 2 {
 entry:
-  %len_ = getelementptr inbounds %"class.net::SpdyFrameReader", ptr %this, i64 0, i32 1
+  %len_ = getelementptr inbounds i8, ptr %this, i64 8
   %0 = load i64, ptr %len_, align 8
-  %ofs_ = getelementptr inbounds %"class.net::SpdyFrameReader", ptr %this, i64 0, i32 2
+  %ofs_ = getelementptr inbounds i8, ptr %this, i64 16
   %1 = load i64, ptr %ofs_, align 8
   %cmp = icmp eq i64 %0, %1
   ret i1 %cmp

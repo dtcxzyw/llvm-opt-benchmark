@@ -30,7 +30,7 @@ if.end:                                           ; preds = %entry
   %call1 = tail call noalias noundef nonnull dereferenceable(1000001) ptr @_Znam(i64 noundef 1000001) #11
   store ptr %call1, ptr %mstat, align 8
   %add.ptr = getelementptr inbounds i8, ptr %call1, i64 1000000
-  %end = getelementptr inbounds %"struct.rocksdb::MallocStatus", ptr %mstat, i64 0, i32 1
+  %end = getelementptr inbounds i8, ptr %mstat, i64 8
   store ptr %add.ptr, ptr %end, align 8
   call void @malloc_stats_print(ptr noundef nonnull @_ZN7rocksdbL17GetJemallocStatusEPvPKc, ptr noundef nonnull %mstat, ptr noundef nonnull @.str) #12
   %call5 = invoke noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6appendEPKc(ptr noundef nonnull align 8 dereferenceable(32) %stats, ptr noundef nonnull %call1)
@@ -64,7 +64,7 @@ entry:
 
 cond.end:                                         ; preds = %entry
   %call = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %status) #14
-  %end = getelementptr inbounds %"struct.rocksdb::MallocStatus", ptr %mstat_arg, i64 0, i32 1
+  %end = getelementptr inbounds i8, ptr %mstat_arg, i64 8
   %0 = load ptr, ptr %end, align 8
   %1 = load ptr, ptr %mstat_arg, align 8
   %sub.ptr.lhs.cast = ptrtoint ptr %0 to i64

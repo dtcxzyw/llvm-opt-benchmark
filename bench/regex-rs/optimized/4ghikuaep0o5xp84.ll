@@ -10,7 +10,7 @@ define { i64, ptr } @"_ZN110_$LT$core..iter..adapters..enumerate..Enumerate$LT$I
   br i1 %3, label %8, label %4
 
 4:                                                ; preds = %1
-  %5 = getelementptr inbounds { { ptr, ptr }, i64 }, ptr %0, i64 0, i32 1
+  %5 = getelementptr inbounds i8, ptr %0, i64 16
   %6 = load i64, ptr %5, align 8, !noundef !5
   %7 = add i64 %6, 1
   store i64 %7, ptr %5, align 8
@@ -30,7 +30,7 @@ define { i64, ptr } @"_ZN110_$LT$core..iter..adapters..enumerate..Enumerate$LT$I
   br i1 %3, label %8, label %4
 
 4:                                                ; preds = %1
-  %5 = getelementptr inbounds { { ptr, ptr }, i64 }, ptr %0, i64 0, i32 1
+  %5 = getelementptr inbounds i8, ptr %0, i64 16
   %6 = load i64, ptr %5, align 8, !noundef !5
   %7 = add i64 %6, 1
   store i64 %7, ptr %5, align 8
@@ -45,7 +45,7 @@ define { i64, ptr } @"_ZN110_$LT$core..iter..adapters..enumerate..Enumerate$LT$I
 
 ; Function Attrs: inlinehint nonlazybind uwtable
 define void @"_ZN110_$LT$core..iter..adapters..enumerate..Enumerate$LT$I$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h9e0f48c0426d6306E"(ptr nocapture writeonly sret({ [1 x i64], ptr, [1 x i64] }) align 8 %0, ptr align 8 %1) unnamed_addr #0 personality ptr @rust_eh_personality {
-  %3 = getelementptr inbounds { i64, { { { { i64, i64, { { ptr, i64 }, i64, i64, i64, [4 x i8], i32 }, i8, i8, [6 x i8] } }, {} } } }, ptr %1, i64 0, i32 1
+  %3 = getelementptr inbounds i8, ptr %1, i64 8
   %4 = tail call { ptr, i64 } @"_ZN81_$LT$core..str..iter..Lines$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h9b22103ce7d6ca68E"(ptr nonnull align 8 %3)
   %.fca.0.extract = extractvalue { ptr, i64 } %4, 0
   %5 = icmp eq ptr %.fca.0.extract, null
@@ -57,24 +57,19 @@ define void @"_ZN110_$LT$core..iter..adapters..enumerate..Enumerate$LT$I$GT$$u20
   %8 = add i64 %7, 1
   store i64 %8, ptr %1, align 8
   store i64 %7, ptr %0, align 8
-  %.sroa.2.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 8
-  store ptr %.fca.0.extract, ptr %.sroa.2.0..sroa_idx, align 8
   %.sroa.35.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 16
   store i64 %.fca.1.extract, ptr %.sroa.35.0..sroa_idx, align 8
-  br label %11
+  br label %9
 
-9:                                                ; preds = %2
-  %10 = getelementptr inbounds { [1 x i64], ptr, [1 x i64] }, ptr %0, i64 0, i32 1
-  store ptr null, ptr %10, align 8
-  br label %11
-
-11:                                               ; preds = %6, %9
+9:                                                ; preds = %2, %6
+  %10 = getelementptr inbounds i8, ptr %0, i64 8
+  store ptr %.fca.0.extract, ptr %10, align 8
   ret void
 }
 
 ; Function Attrs: inlinehint nonlazybind uwtable
 define void @"_ZN110_$LT$core..iter..adapters..enumerate..Enumerate$LT$I$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hb88aa9debb58c996E"(ptr nocapture writeonly sret({ i64, [2 x i64] }) align 8 %0, ptr align 8 %1) unnamed_addr #0 personality ptr @rust_eh_personality {
-  %3 = getelementptr inbounds { i64, { { [4 x i8], { i8, i8 } } }, [2 x i8] }, ptr %1, i64 0, i32 1
+  %3 = getelementptr inbounds i8, ptr %1, i64 8
   %4 = tail call { i8, i8 } @"_ZN85_$LT$core..ascii..EscapeDefault$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h83c0a7f418750b98E"(ptr nonnull align 1 %3)
   %.fca.0.extract = extractvalue { i8, i8 } %4, 0
   %5 = and i8 %.fca.0.extract, 1
@@ -86,9 +81,9 @@ define void @"_ZN110_$LT$core..iter..adapters..enumerate..Enumerate$LT$I$GT$$u20
   %7 = load i64, ptr %1, align 8, !noundef !5
   %8 = add i64 %7, 1
   store i64 %8, ptr %1, align 8
-  %9 = getelementptr inbounds { [1 x i64], { i64, i8 } }, ptr %0, i64 0, i32 1
+  %9 = getelementptr inbounds i8, ptr %0, i64 8
   store i64 %7, ptr %9, align 8
-  %10 = getelementptr inbounds { [1 x i64], { i64, i8 } }, ptr %0, i64 0, i32 1, i32 1
+  %10 = getelementptr inbounds i8, ptr %0, i64 16
   store i8 %.fca.1.extract, ptr %10, align 8
   br label %11
 
@@ -102,32 +97,27 @@ define void @"_ZN110_$LT$core..iter..adapters..enumerate..Enumerate$LT$I$GT$$u20
 define void @"_ZN110_$LT$core..iter..adapters..enumerate..Enumerate$LT$I$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hf2b2f199100da24bE"(ptr nocapture writeonly sret({ [32 x i8], i8, [7 x i8] }) align 8 %0, ptr align 8 %1) unnamed_addr #0 personality ptr @rust_eh_personality {
   %3 = alloca { [24 x i8], i8, [7 x i8] }, align 8
   call void @"_ZN96_$LT$alloc..vec..drain..Drain$LT$T$C$A$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h1b2d6f1c07344409E"(ptr nonnull sret({ [24 x i8], i8, [7 x i8] }) align 8 %3, ptr align 8 %1)
-  %4 = getelementptr inbounds { [24 x i8], i8, [7 x i8] }, ptr %3, i64 0, i32 1
+  %4 = getelementptr inbounds i8, ptr %3, i64 24
   %5 = load i8, ptr %4, align 8, !range !6, !noundef !5
   %6 = icmp eq i8 %5, 2
   br i1 %6, label %11, label %7
 
 7:                                                ; preds = %2
   %.sroa.316.0..sroa_idx = getelementptr inbounds i8, ptr %3, i64 25
-  %8 = getelementptr inbounds { { { ptr, ptr }, ptr, i64, i64 }, i64 }, ptr %1, i64 0, i32 1
+  %8 = getelementptr inbounds i8, ptr %1, i64 40
   %9 = load i64, ptr %8, align 8, !noundef !5
   %10 = add i64 %9, 1
   store i64 %10, ptr %8, align 8
   store i64 %9, ptr %0, align 8
   %.sroa.210.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %.sroa.210.0..sroa_idx, ptr noundef nonnull align 8 dereferenceable(24) %3, i64 24, i1 false)
-  %.sroa.210.sroa.2.0..sroa.210.0..sroa_idx.sroa_idx = getelementptr inbounds i8, ptr %0, i64 32
-  store i8 %5, ptr %.sroa.210.sroa.2.0..sroa.210.0..sroa_idx.sroa_idx, align 8
   %.sroa.210.sroa.3.0..sroa.210.0..sroa_idx.sroa_idx = getelementptr inbounds i8, ptr %0, i64 33
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(7) %.sroa.210.sroa.3.0..sroa.210.0..sroa_idx.sroa_idx, ptr noundef nonnull align 1 dereferenceable(7) %.sroa.316.0..sroa_idx, i64 7, i1 false)
-  br label %13
+  br label %11
 
-11:                                               ; preds = %2
-  %12 = getelementptr inbounds { [32 x i8], i8, [7 x i8] }, ptr %0, i64 0, i32 1
-  store i8 2, ptr %12, align 8
-  br label %13
-
-13:                                               ; preds = %7, %11
+11:                                               ; preds = %2, %7
+  %12 = getelementptr inbounds i8, ptr %0, i64 32
+  store i8 %5, ptr %12, align 8
   ret void
 }
 

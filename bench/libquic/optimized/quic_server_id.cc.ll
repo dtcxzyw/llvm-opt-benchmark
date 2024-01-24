@@ -3,16 +3,16 @@ source_filename = "bench/libquic/original/quic_server_id.cc.ll"
 target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:128-n8:16:32:64-S128"
 target triple = "x86_64-unknown-linux-gnu"
 
-%"class.net::QuicServerId" = type { %"class.net::HostPortPair", i32, [4 x i8] }
-%"class.net::HostPortPair" = type <{ %"class.std::__cxx11::basic_string", i16, [6 x i8] }>
-%"class.std::__cxx11::basic_string" = type { %"struct.std::__cxx11::basic_string<char>::_Alloc_hider", i64, %union.anon }
-%"struct.std::__cxx11::basic_string<char>::_Alloc_hider" = type { ptr }
-%union.anon = type { i64, [8 x i8] }
 %"class.std::tuple" = type { %"struct.std::_Tuple_impl" }
 %"struct.std::_Tuple_impl" = type { %"struct.std::_Tuple_impl.0", %"struct.std::_Head_base.1" }
 %"struct.std::_Tuple_impl.0" = type { %"struct.std::_Head_base" }
 %"struct.std::_Head_base" = type { ptr }
 %"struct.std::_Head_base.1" = type { ptr }
+%"class.net::QuicServerId" = type { %"class.net::HostPortPair", i32, [4 x i8] }
+%"class.net::HostPortPair" = type <{ %"class.std::__cxx11::basic_string", i16, [6 x i8] }>
+%"class.std::__cxx11::basic_string" = type { %"struct.std::__cxx11::basic_string<char>::_Alloc_hider", i64, %union.anon }
+%"struct.std::__cxx11::basic_string<char>::_Alloc_hider" = type { ptr }
+%union.anon = type { i64, [8 x i8] }
 %class.GURL = type { %"class.std::__cxx11::basic_string", i8, %"struct.url::Parsed", %"class.std::unique_ptr" }
 %"struct.url::Parsed" = type { %"struct.url::Component", %"struct.url::Component", %"struct.url::Component", %"struct.url::Component", %"struct.url::Component", %"struct.url::Component", %"struct.url::Component", %"struct.url::Component", ptr }
 %"struct.url::Component" = type { i32, i32 }
@@ -42,7 +42,7 @@ $__clang_call_terminate = comdat any
 define dso_local void @_ZN3net12QuicServerIdC2Ev(ptr noundef nonnull align 8 dereferenceable(44) %this) unnamed_addr #0 align 2 {
 entry:
   tail call void @_ZN3net12HostPortPairC1Ev(ptr noundef nonnull align 8 dereferenceable(34) %this)
-  %privacy_mode_ = getelementptr inbounds %"class.net::QuicServerId", ptr %this, i64 0, i32 1
+  %privacy_mode_ = getelementptr inbounds i8, ptr %this, i64 40
   store i32 0, ptr %privacy_mode_, align 8
   ret void
 }
@@ -53,11 +53,11 @@ declare void @_ZN3net12HostPortPairC1Ev(ptr noundef nonnull align 8 dereferencea
 define dso_local void @_ZN3net12QuicServerIdC2ERKNS_12HostPortPairENS_11PrivacyModeE(ptr noundef nonnull align 8 dereferenceable(44) %this, ptr noundef nonnull align 8 dereferenceable(34) %host_port_pair, i32 noundef %privacy_mode) unnamed_addr #0 align 2 {
 entry:
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1ERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %this, ptr noundef nonnull align 8 dereferenceable(32) %host_port_pair)
-  %port_.i = getelementptr inbounds %"class.net::HostPortPair", ptr %this, i64 0, i32 1
-  %port_3.i = getelementptr inbounds %"class.net::HostPortPair", ptr %host_port_pair, i64 0, i32 1
+  %port_.i = getelementptr inbounds i8, ptr %this, i64 32
+  %port_3.i = getelementptr inbounds i8, ptr %host_port_pair, i64 32
   %0 = load i16, ptr %port_3.i, align 8
   store i16 %0, ptr %port_.i, align 8
-  %privacy_mode_ = getelementptr inbounds %"class.net::QuicServerId", ptr %this, i64 0, i32 1
+  %privacy_mode_ = getelementptr inbounds i8, ptr %this, i64 40
   store i32 %privacy_mode, ptr %privacy_mode_, align 8
   ret void
 }
@@ -66,7 +66,7 @@ entry:
 define dso_local void @_ZN3net12QuicServerIdC2ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEt(ptr noundef nonnull align 8 dereferenceable(44) %this, ptr noundef nonnull align 8 dereferenceable(32) %host, i16 noundef zeroext %port) unnamed_addr #0 align 2 {
 entry:
   tail call void @_ZN3net12HostPortPairC1ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEt(ptr noundef nonnull align 8 dereferenceable(34) %this, ptr noundef nonnull align 8 dereferenceable(32) %host, i16 noundef zeroext %port)
-  %privacy_mode_ = getelementptr inbounds %"class.net::QuicServerId", ptr %this, i64 0, i32 1
+  %privacy_mode_ = getelementptr inbounds i8, ptr %this, i64 40
   store i32 0, ptr %privacy_mode_, align 8
   ret void
 }
@@ -77,7 +77,7 @@ declare void @_ZN3net12HostPortPairC1ERKNSt7__cxx1112basic_stringIcSt11char_trai
 define dso_local void @_ZN3net12QuicServerIdC2ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEtNS_11PrivacyModeE(ptr noundef nonnull align 8 dereferenceable(44) %this, ptr noundef nonnull align 8 dereferenceable(32) %host, i16 noundef zeroext %port, i32 noundef %privacy_mode) unnamed_addr #0 align 2 {
 entry:
   tail call void @_ZN3net12HostPortPairC1ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEt(ptr noundef nonnull align 8 dereferenceable(34) %this, ptr noundef nonnull align 8 dereferenceable(32) %host, i16 noundef zeroext %port)
-  %privacy_mode_ = getelementptr inbounds %"class.net::QuicServerId", ptr %this, i64 0, i32 1
+  %privacy_mode_ = getelementptr inbounds i8, ptr %this, i64 40
   store i32 %privacy_mode, ptr %privacy_mode_, align 8
   ret void
 }
@@ -94,11 +94,11 @@ define dso_local noundef zeroext i1 @_ZNK3net12QuicServerIdltERKS0_(ptr noundef 
 entry:
   %ref.tmp = alloca %"class.std::tuple", align 8
   %ref.tmp2 = alloca %"class.std::tuple", align 8
-  %privacy_mode_ = getelementptr inbounds %"class.net::QuicServerId", ptr %this, i64 0, i32 1
+  %privacy_mode_ = getelementptr inbounds i8, ptr %this, i64 40
   store ptr %privacy_mode_, ptr %ref.tmp, align 8, !alias.scope !5
   %0 = getelementptr inbounds i8, ptr %ref.tmp, i64 8
   store ptr %this, ptr %0, align 8, !alias.scope !5
-  %privacy_mode_4 = getelementptr inbounds %"class.net::QuicServerId", ptr %other, i64 0, i32 1
+  %privacy_mode_4 = getelementptr inbounds i8, ptr %other, i64 40
   store ptr %privacy_mode_4, ptr %ref.tmp2, align 8, !alias.scope !8
   %1 = getelementptr inbounds i8, ptr %ref.tmp2, i64 8
   store ptr %other, ptr %1, align 8, !alias.scope !8
@@ -109,9 +109,9 @@ entry:
 ; Function Attrs: mustprogress nounwind uwtable
 define dso_local noundef zeroext i1 @_ZNK3net12QuicServerIdeqERKS0_(ptr noundef nonnull align 8 dereferenceable(44) %this, ptr noundef nonnull align 8 dereferenceable(44) %other) local_unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  %privacy_mode_ = getelementptr inbounds %"class.net::QuicServerId", ptr %this, i64 0, i32 1
+  %privacy_mode_ = getelementptr inbounds i8, ptr %this, i64 40
   %0 = load i32, ptr %privacy_mode_, align 8
-  %privacy_mode_2 = getelementptr inbounds %"class.net::QuicServerId", ptr %other, i64 0, i32 1
+  %privacy_mode_2 = getelementptr inbounds i8, ptr %other, i64 40
   %1 = load i32, ptr %privacy_mode_2, align 8
   %cmp = icmp eq i32 %0, %1
   br i1 %cmp, label %land.rhs, label %land.end
@@ -136,9 +136,9 @@ if.end.i.i.i:                                     ; preds = %land.rhs.i.i
 
 _ZNK3net12HostPortPair6EqualsERKS0_.exit:         ; preds = %land.rhs, %land.rhs.i.i, %if.end.i.i.i
   %3 = phi i1 [ false, %land.rhs ], [ %2, %if.end.i.i.i ], [ true, %land.rhs.i.i ]
-  %port_.i = getelementptr inbounds %"class.net::HostPortPair", ptr %this, i64 0, i32 1
+  %port_.i = getelementptr inbounds i8, ptr %this, i64 32
   %4 = load i16, ptr %port_.i, align 8
-  %port_3.i = getelementptr inbounds %"class.net::HostPortPair", ptr %other, i64 0, i32 1
+  %port_3.i = getelementptr inbounds i8, ptr %other, i64 32
   %5 = load i16, ptr %port_3.i, align 8
   %cmp.i = icmp eq i16 %4, %5
   %6 = select i1 %3, i1 %cmp.i, i1 false
@@ -158,10 +158,10 @@ entry:
   %ref.tmp3 = alloca %"class.std::__cxx11::basic_string", align 8
   call void @_ZN4base16BasicStringPieceINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEC1ERKS6_(ptr noundef nonnull align 8 dereferenceable(16) %agg.tmp, ptr noundef nonnull align 8 dereferenceable(32) %str)
   %0 = load ptr, ptr %agg.tmp, align 8
-  %1 = getelementptr inbounds { ptr, i64 }, ptr %agg.tmp, i64 0, i32 1
+  %1 = getelementptr inbounds i8, ptr %agg.tmp, i64 8
   %2 = load i64, ptr %1, align 8
   call void @_ZN4GURLC1EN4base16BasicStringPieceINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEE(ptr noundef nonnull align 8 dereferenceable(120) %url, ptr %0, i64 %2)
-  %is_valid_.i = getelementptr inbounds %class.GURL, ptr %url, i64 0, i32 1
+  %is_valid_.i = getelementptr inbounds i8, ptr %url, i64 32
   %3 = load i8, ptr %is_valid_.i, align 8
   %4 = and i8 %3, 1
   %tobool.i.not = icmp eq i8 %4, 0
@@ -172,7 +172,7 @@ if.then:                                          ; preds = %entry
           to label %_ZN3net12QuicServerIdC2Ev.exit unwind label %lpad
 
 _ZN3net12QuicServerIdC2Ev.exit:                   ; preds = %if.then
-  %privacy_mode_.i = getelementptr inbounds %"class.net::QuicServerId", ptr %agg.result, i64 0, i32 1
+  %privacy_mode_.i = getelementptr inbounds i8, ptr %agg.result, i64 40
   store i32 0, ptr %privacy_mode_.i, align 8
   br label %cleanup
 
@@ -186,7 +186,7 @@ if.end:                                           ; preds = %entry
           to label %invoke.cont2 unwind label %lpad
 
 invoke.cont2:                                     ; preds = %if.end
-  %len.i.i = getelementptr inbounds %class.GURL, ptr %url, i64 0, i32 2, i32 5, i32 1
+  %len.i.i = getelementptr inbounds i8, ptr %url, i64 84
   %6 = load i32, ptr %len.i.i, align 4, !noalias !11
   %cmp.i.i = icmp slt i32 %6, 1
   br i1 %cmp.i.i, label %if.then.i.i, label %if.end.i.i
@@ -196,7 +196,7 @@ if.then.i.i:                                      ; preds = %invoke.cont2
   br label %invoke.cont5
 
 if.end.i.i:                                       ; preds = %invoke.cont2
-  %path.i = getelementptr inbounds %class.GURL, ptr %url, i64 0, i32 2, i32 5
+  %path.i = getelementptr inbounds i8, ptr %url, i64 80
   %7 = load i32, ptr %path.i, align 8, !noalias !11
   %conv.i.i = sext i32 %7 to i64
   %conv3.i.i = zext nneg i32 %6 to i64
@@ -211,11 +211,11 @@ invoke.cont5:                                     ; preds = %if.then.i.i, %if.en
 invoke.cont9:                                     ; preds = %invoke.cont5
   %cmp.i = icmp eq i32 %call.i, 0
   %cond = zext i1 %cmp.i to i32
-  %port_.i.i = getelementptr inbounds %"class.net::HostPortPair", ptr %agg.result, i64 0, i32 1
-  %port_3.i.i = getelementptr inbounds %"class.net::HostPortPair", ptr %ref.tmp, i64 0, i32 1
+  %port_.i.i = getelementptr inbounds i8, ptr %agg.result, i64 32
+  %port_3.i.i = getelementptr inbounds i8, ptr %ref.tmp, i64 32
   %8 = load i16, ptr %port_3.i.i, align 8
   store i16 %8, ptr %port_.i.i, align 8
-  %privacy_mode_.i3 = getelementptr inbounds %"class.net::QuicServerId", ptr %agg.result, i64 0, i32 1
+  %privacy_mode_.i3 = getelementptr inbounds i8, ptr %agg.result, i64 40
   store i32 %cond, ptr %privacy_mode_.i3, align 8
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp3) #6
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp) #6
@@ -272,7 +272,7 @@ entry:
 
 invoke.cont:                                      ; preds = %entry
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EOS4_(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp, ptr noundef nonnull align 8 dereferenceable(32) %call.i2) #6
-  %privacy_mode_ = getelementptr inbounds %"class.net::QuicServerId", ptr %this, i64 0, i32 1
+  %privacy_mode_ = getelementptr inbounds i8, ptr %this, i64 40
   %0 = load i32, ptr %privacy_mode_, align 8
   %cmp = icmp eq i32 %0, 1
   %cond = select i1 %cmp, ptr @.str, ptr @.str.2
@@ -313,8 +313,8 @@ entry:
   %0 = load ptr, ptr %add.ptr.i.i.i, align 8
   %add.ptr.i.i.i5 = getelementptr inbounds i8, ptr %__u, i64 8
   %1 = load ptr, ptr %add.ptr.i.i.i5, align 8
-  %port_.i = getelementptr inbounds %"class.net::HostPortPair", ptr %0, i64 0, i32 1
-  %port_3.i = getelementptr inbounds %"class.net::HostPortPair", ptr %1, i64 0, i32 1
+  %port_.i = getelementptr inbounds i8, ptr %0, i64 32
+  %port_3.i = getelementptr inbounds i8, ptr %1, i64 32
   %2 = load i16, ptr %port_.i, align 2
   %3 = load i16, ptr %port_3.i, align 2
   %cmp.i.i.i = icmp ult i16 %2, %3
@@ -346,9 +346,9 @@ lor.rhs.i.i.i.i:                                  ; preds = %_ZStltIcSt11char_tr
 lor.rhs.i.i.i.i.lor.rhs_crit_edge:                ; preds = %lor.rhs.i.i.i.i
   %.pre = load ptr, ptr %add.ptr.i.i.i5, align 8
   %.pre22 = load ptr, ptr %add.ptr.i.i.i, align 8
-  %port_.i8.phi.trans.insert = getelementptr inbounds %"class.net::HostPortPair", ptr %.pre, i64 0, i32 1
+  %port_.i8.phi.trans.insert = getelementptr inbounds i8, ptr %.pre, i64 32
   %.pre23 = load i16, ptr %port_.i8.phi.trans.insert, align 2
-  %port_3.i9.phi.trans.insert = getelementptr inbounds %"class.net::HostPortPair", ptr %.pre22, i64 0, i32 1
+  %port_3.i9.phi.trans.insert = getelementptr inbounds i8, ptr %.pre22, i64 32
   %.pre24 = load i16, ptr %port_3.i9.phi.trans.insert, align 2
   br label %lor.rhs
 

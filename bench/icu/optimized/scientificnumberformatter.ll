@@ -3,17 +3,12 @@ source_filename = "bench/icu/original/scientificnumberformatter.ll"
 target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:128-n8:16:32:64-S128"
 target triple = "x86_64-unknown-linux-gnu"
 
-%"class.icu_75::ScientificNumberFormatter::MarkupStyle" = type { %"class.icu_75::ScientificNumberFormatter::Style", %"class.icu_75::UnicodeString", %"class.icu_75::UnicodeString" }
-%"class.icu_75::ScientificNumberFormatter::Style" = type { %"class.icu_75::UObject" }
+%"class.icu_75::FieldPosition" = type <{ %"class.icu_75::UObject", i32, i32, i32, [4 x i8] }>
 %"class.icu_75::UObject" = type { ptr }
 %"class.icu_75::UnicodeString" = type { %"class.icu_75::Replaceable", %"union.icu_75::UnicodeString::StackBufferOrFields" }
 %"class.icu_75::Replaceable" = type { %"class.icu_75::UObject" }
 %"union.icu_75::UnicodeString::StackBufferOrFields" = type { %struct.anon.0, [32 x i8] }
 %struct.anon.0 = type { i16, i32, i32, ptr }
-%"class.icu_75::FieldPosition" = type <{ %"class.icu_75::UObject", i32, i32, i32, [4 x i8] }>
-%"class.icu_75::ScientificNumberFormatter" = type { %"class.icu_75::UObject", %"class.icu_75::UnicodeString", ptr, ptr }
-%"class.icu_75::DecimalFormatSymbols" = type <{ %"class.icu_75::UObject", [29 x %"class.icu_75::UnicodeString"], %"class.icu_75::UnicodeString", i32, [4 x i8], %"class.icu_75::Locale", [157 x i8], [157 x i8], [6 x i8], ptr, [3 x %"class.icu_75::UnicodeString"], [3 x %"class.icu_75::UnicodeString"], i8, i8, [9 x i8], [5 x i8] }>
-%"class.icu_75::Locale" = type <{ %"class.icu_75::UObject", [12 x i8], [6 x i8], [4 x i8], [2 x i8], i32, [4 x i8], ptr, [157 x i8], [3 x i8], ptr, i8, [7 x i8] }>
 %"class.icu_75::FieldPositionIterator" = type <{ %"class.icu_75::UObject", ptr, i32, [4 x i8] }>
 
 $_ZN6icu_7525ScientificNumberFormatter11MarkupStyleD2Ev = comdat any
@@ -86,7 +81,7 @@ lpad4.i:                                          ; preds = %new.notnull.i
 
 delete.notnull.i.i:                               ; preds = %lpad4.i
   %vtable.i.i = load ptr, ptr %call, align 8
-  %vfn.i.i = getelementptr inbounds ptr, ptr %vtable.i.i, i64 1
+  %vfn.i.i = getelementptr inbounds i8, ptr %vtable.i.i, i64 8
   %2 = load ptr, ptr %vfn.i.i, align 8
   tail call void %2(ptr noundef nonnull align 8 dereferenceable(8) %call) #6
   br label %ehcleanup22.i
@@ -98,7 +93,7 @@ if.end11.i:                                       ; preds = %new.notnull.i
 
 delete.notnull.i:                                 ; preds = %if.end11.i
   %vtable.i = load ptr, ptr %call3.i, align 8
-  %vfn.i = getelementptr inbounds ptr, ptr %vtable.i, i64 1
+  %vfn.i = getelementptr inbounds i8, ptr %vtable.i, i64 8
   %4 = load ptr, ptr %vfn.i, align 8
   tail call void %4(ptr noundef nonnull align 8 dereferenceable(88) %call3.i) #6
   br label %_ZN6icu_7525ScientificNumberFormatter14createInstanceEPNS_13DecimalFormatEPNS0_5StyleER10UErrorCode.exit
@@ -108,7 +103,7 @@ cleanup.i:                                        ; preds = %if.then10.i, %new.c
 
 delete.notnull.i10.i:                             ; preds = %cleanup.i
   %vtable.i11.i = load ptr, ptr %call, align 8
-  %vfn.i12.i = getelementptr inbounds ptr, ptr %vtable.i11.i, i64 1
+  %vfn.i12.i = getelementptr inbounds i8, ptr %vtable.i11.i, i64 8
   %5 = load ptr, ptr %vfn.i12.i, align 8
   tail call void %5(ptr noundef nonnull align 8 dereferenceable(8) %call) #6
   br label %_ZN6icu_7512LocalPointerINS_25ScientificNumberFormatter5StyleEED2Ev.exit13.i
@@ -119,7 +114,7 @@ _ZN6icu_7512LocalPointerINS_25ScientificNumberFormatter5StyleEED2Ev.exit13.i: ; 
 
 delete.notnull.i15.i:                             ; preds = %_ZN6icu_7512LocalPointerINS_25ScientificNumberFormatter5StyleEED2Ev.exit13.i
   %vtable.i16.i = load ptr, ptr %fmtToAdopt, align 8
-  %vfn.i17.i = getelementptr inbounds ptr, ptr %vtable.i16.i, i64 1
+  %vfn.i17.i = getelementptr inbounds i8, ptr %vtable.i16.i, i64 8
   %6 = load ptr, ptr %vfn.i17.i, align 8
   tail call void %6(ptr noundef nonnull align 8 dereferenceable(368) %fmtToAdopt) #6
   br label %_ZN6icu_7525ScientificNumberFormatter14createInstanceEPNS_13DecimalFormatEPNS0_5StyleER10UErrorCode.exit
@@ -130,7 +125,7 @@ ehcleanup22.i:                                    ; preds = %delete.notnull.i.i,
 
 delete.notnull.i19.i:                             ; preds = %ehcleanup22.i
   %vtable.i20.i = load ptr, ptr %fmtToAdopt, align 8
-  %vfn.i21.i = getelementptr inbounds ptr, ptr %vtable.i20.i, i64 1
+  %vfn.i21.i = getelementptr inbounds i8, ptr %vtable.i20.i, i64 8
   %7 = load ptr, ptr %vfn.i21.i, align 8
   tail call void %7(ptr noundef nonnull align 8 dereferenceable(368) %fmtToAdopt) #6
   br label %_ZN6icu_7512LocalPointerINS_13DecimalFormatEED2Ev.exit22.i
@@ -172,7 +167,7 @@ lpad4:                                            ; preds = %new.notnull
 
 delete.notnull.i:                                 ; preds = %lpad4
   %vtable.i = load ptr, ptr %styleToAdopt, align 8
-  %vfn.i = getelementptr inbounds ptr, ptr %vtable.i, i64 1
+  %vfn.i = getelementptr inbounds i8, ptr %vtable.i, i64 8
   %2 = load ptr, ptr %vfn.i, align 8
   tail call void %2(ptr noundef nonnull align 8 dereferenceable(8) %styleToAdopt) #6
   br label %ehcleanup22
@@ -184,7 +179,7 @@ if.end11:                                         ; preds = %new.notnull
 
 delete.notnull:                                   ; preds = %if.end11
   %vtable = load ptr, ptr %call3, align 8
-  %vfn = getelementptr inbounds ptr, ptr %vtable, i64 1
+  %vfn = getelementptr inbounds i8, ptr %vtable, i64 8
   %4 = load ptr, ptr %vfn, align 8
   tail call void %4(ptr noundef nonnull align 8 dereferenceable(88) %call3) #6
   br label %_ZN6icu_7512LocalPointerINS_13DecimalFormatEED2Ev.exit
@@ -195,7 +190,7 @@ cleanup:                                          ; preds = %invoke.cont, %if.th
 
 delete.notnull.i10:                               ; preds = %cleanup
   %vtable.i11 = load ptr, ptr %styleToAdopt, align 8
-  %vfn.i12 = getelementptr inbounds ptr, ptr %vtable.i11, i64 1
+  %vfn.i12 = getelementptr inbounds i8, ptr %vtable.i11, i64 8
   %5 = load ptr, ptr %vfn.i12, align 8
   tail call void %5(ptr noundef nonnull align 8 dereferenceable(8) %styleToAdopt) #6
   br label %_ZN6icu_7512LocalPointerINS_25ScientificNumberFormatter5StyleEED2Ev.exit13
@@ -206,7 +201,7 @@ _ZN6icu_7512LocalPointerINS_25ScientificNumberFormatter5StyleEED2Ev.exit13: ; pr
 
 delete.notnull.i15:                               ; preds = %_ZN6icu_7512LocalPointerINS_25ScientificNumberFormatter5StyleEED2Ev.exit13
   %vtable.i16 = load ptr, ptr %fmtToAdopt, align 8
-  %vfn.i17 = getelementptr inbounds ptr, ptr %vtable.i16, i64 1
+  %vfn.i17 = getelementptr inbounds i8, ptr %vtable.i16, i64 8
   %6 = load ptr, ptr %vfn.i17, align 8
   tail call void %6(ptr noundef nonnull align 8 dereferenceable(368) %fmtToAdopt) #6
   br label %_ZN6icu_7512LocalPointerINS_13DecimalFormatEED2Ev.exit
@@ -221,7 +216,7 @@ ehcleanup22:                                      ; preds = %delete.notnull.i, %
 
 delete.notnull.i19:                               ; preds = %ehcleanup22
   %vtable.i20 = load ptr, ptr %fmtToAdopt, align 8
-  %vfn.i21 = getelementptr inbounds ptr, ptr %vtable.i20, i64 1
+  %vfn.i21 = getelementptr inbounds i8, ptr %vtable.i20, i64 8
   %7 = load ptr, ptr %vfn.i21, align 8
   tail call void %7(ptr noundef nonnull align 8 dereferenceable(368) %fmtToAdopt) #6
   br label %_ZN6icu_7512LocalPointerINS_13DecimalFormatEED2Ev.exit22
@@ -274,7 +269,7 @@ lpad4.i:                                          ; preds = %new.notnull.i
 
 delete.notnull.i.i:                               ; preds = %lpad4.i
   %vtable.i.i = load ptr, ptr %call1, align 8
-  %vfn.i.i = getelementptr inbounds ptr, ptr %vtable.i.i, i64 1
+  %vfn.i.i = getelementptr inbounds i8, ptr %vtable.i.i, i64 8
   %2 = load ptr, ptr %vfn.i.i, align 8
   tail call void %2(ptr noundef nonnull align 8 dereferenceable(8) %call1) #6
   br label %ehcleanup22.i
@@ -286,7 +281,7 @@ if.end11.i:                                       ; preds = %new.notnull.i
 
 delete.notnull.i:                                 ; preds = %if.end11.i
   %vtable.i = load ptr, ptr %call3.i, align 8
-  %vfn.i = getelementptr inbounds ptr, ptr %vtable.i, i64 1
+  %vfn.i = getelementptr inbounds i8, ptr %vtable.i, i64 8
   %4 = load ptr, ptr %vfn.i, align 8
   tail call void %4(ptr noundef nonnull align 8 dereferenceable(88) %call3.i) #6
   br label %_ZN6icu_7525ScientificNumberFormatter14createInstanceEPNS_13DecimalFormatEPNS0_5StyleER10UErrorCode.exit
@@ -296,7 +291,7 @@ cleanup.i:                                        ; preds = %if.then10.i, %new.c
 
 delete.notnull.i10.i:                             ; preds = %cleanup.i
   %vtable.i11.i = load ptr, ptr %call1, align 8
-  %vfn.i12.i = getelementptr inbounds ptr, ptr %vtable.i11.i, i64 1
+  %vfn.i12.i = getelementptr inbounds i8, ptr %vtable.i11.i, i64 8
   %5 = load ptr, ptr %vfn.i12.i, align 8
   tail call void %5(ptr noundef nonnull align 8 dereferenceable(8) %call1) #6
   br label %_ZN6icu_7512LocalPointerINS_25ScientificNumberFormatter5StyleEED2Ev.exit13.i
@@ -307,7 +302,7 @@ _ZN6icu_7512LocalPointerINS_25ScientificNumberFormatter5StyleEED2Ev.exit13.i: ; 
 
 delete.notnull.i15.i:                             ; preds = %_ZN6icu_7512LocalPointerINS_25ScientificNumberFormatter5StyleEED2Ev.exit13.i
   %vtable.i16.i = load ptr, ptr %call, align 8
-  %vfn.i17.i = getelementptr inbounds ptr, ptr %vtable.i16.i, i64 1
+  %vfn.i17.i = getelementptr inbounds i8, ptr %vtable.i16.i, i64 8
   %6 = load ptr, ptr %vfn.i17.i, align 8
   tail call void %6(ptr noundef nonnull align 8 dereferenceable(368) %call) #6
   br label %_ZN6icu_7525ScientificNumberFormatter14createInstanceEPNS_13DecimalFormatEPNS0_5StyleER10UErrorCode.exit
@@ -318,7 +313,7 @@ ehcleanup22.i:                                    ; preds = %delete.notnull.i.i,
 
 delete.notnull.i19.i:                             ; preds = %ehcleanup22.i
   %vtable.i20.i = load ptr, ptr %call, align 8
-  %vfn.i21.i = getelementptr inbounds ptr, ptr %vtable.i20.i, i64 1
+  %vfn.i21.i = getelementptr inbounds i8, ptr %vtable.i20.i, i64 8
   %7 = load ptr, ptr %vfn.i21.i, align 8
   tail call void %7(ptr noundef nonnull align 8 dereferenceable(368) %call) #6
   br label %_ZN6icu_7512LocalPointerINS_13DecimalFormatEED2Ev.exit22.i
@@ -342,12 +337,12 @@ entry:
 
 new.notnull:                                      ; preds = %entry
   store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVN6icu_7525ScientificNumberFormatter11MarkupStyleE, i64 0, inrange i32 0, i64 2), ptr %call, align 8
-  %fBeginMarkup.i = getelementptr inbounds %"class.icu_75::ScientificNumberFormatter::MarkupStyle", ptr %call, i64 0, i32 1
+  %fBeginMarkup.i = getelementptr inbounds i8, ptr %call, i64 8
   invoke void @_ZN6icu_7513UnicodeStringC1ERKS0_(ptr noundef nonnull align 8 dereferenceable(64) %fBeginMarkup.i, ptr noundef nonnull align 8 dereferenceable(64) %beginMarkup)
           to label %invoke.cont.i unwind label %lpad.i
 
 invoke.cont.i:                                    ; preds = %new.notnull
-  %fEndMarkup.i = getelementptr inbounds %"class.icu_75::ScientificNumberFormatter::MarkupStyle", ptr %call, i64 0, i32 2
+  %fEndMarkup.i = getelementptr inbounds i8, ptr %call, i64 72
   invoke void @_ZN6icu_7513UnicodeStringC1ERKS0_(ptr noundef nonnull align 8 dereferenceable(64) %fEndMarkup.i, ptr noundef nonnull align 8 dereferenceable(64) %endMarkup)
           to label %new.cont unwind label %lpad2.i
 
@@ -394,7 +389,7 @@ lpad4.i:                                          ; preds = %new.notnull.i
 
 delete.notnull.i.i:                               ; preds = %lpad4.i
   %vtable.i.i = load ptr, ptr %call, align 8
-  %vfn.i.i = getelementptr inbounds ptr, ptr %vtable.i.i, i64 1
+  %vfn.i.i = getelementptr inbounds i8, ptr %vtable.i.i, i64 8
   %4 = load ptr, ptr %vfn.i.i, align 8
   tail call void %4(ptr noundef nonnull align 8 dereferenceable(8) %call) #6
   br label %ehcleanup22.i
@@ -406,7 +401,7 @@ if.end11.i:                                       ; preds = %new.notnull.i
 
 delete.notnull.i:                                 ; preds = %if.end11.i
   %vtable.i = load ptr, ptr %call3.i, align 8
-  %vfn.i = getelementptr inbounds ptr, ptr %vtable.i, i64 1
+  %vfn.i = getelementptr inbounds i8, ptr %vtable.i, i64 8
   %6 = load ptr, ptr %vfn.i, align 8
   tail call void %6(ptr noundef nonnull align 8 dereferenceable(88) %call3.i) #6
   br label %_ZN6icu_7525ScientificNumberFormatter14createInstanceEPNS_13DecimalFormatEPNS0_5StyleER10UErrorCode.exit
@@ -416,7 +411,7 @@ cleanup.i:                                        ; preds = %if.then10.i, %new.c
 
 delete.notnull.i10.i:                             ; preds = %cleanup.i
   %vtable.i11.i = load ptr, ptr %call, align 8
-  %vfn.i12.i = getelementptr inbounds ptr, ptr %vtable.i11.i, i64 1
+  %vfn.i12.i = getelementptr inbounds i8, ptr %vtable.i11.i, i64 8
   %7 = load ptr, ptr %vfn.i12.i, align 8
   tail call void %7(ptr noundef nonnull align 8 dereferenceable(8) %call) #6
   br label %_ZN6icu_7512LocalPointerINS_25ScientificNumberFormatter5StyleEED2Ev.exit13.i
@@ -427,7 +422,7 @@ _ZN6icu_7512LocalPointerINS_25ScientificNumberFormatter5StyleEED2Ev.exit13.i: ; 
 
 delete.notnull.i15.i:                             ; preds = %_ZN6icu_7512LocalPointerINS_25ScientificNumberFormatter5StyleEED2Ev.exit13.i
   %vtable.i16.i = load ptr, ptr %fmtToAdopt, align 8
-  %vfn.i17.i = getelementptr inbounds ptr, ptr %vtable.i16.i, i64 1
+  %vfn.i17.i = getelementptr inbounds i8, ptr %vtable.i16.i, i64 8
   %8 = load ptr, ptr %vfn.i17.i, align 8
   tail call void %8(ptr noundef nonnull align 8 dereferenceable(368) %fmtToAdopt) #6
   br label %_ZN6icu_7525ScientificNumberFormatter14createInstanceEPNS_13DecimalFormatEPNS0_5StyleER10UErrorCode.exit
@@ -438,7 +433,7 @@ ehcleanup22.i:                                    ; preds = %delete.notnull.i.i,
 
 delete.notnull.i19.i:                             ; preds = %ehcleanup22.i
   %vtable.i20.i = load ptr, ptr %fmtToAdopt, align 8
-  %vfn.i21.i = getelementptr inbounds ptr, ptr %vtable.i20.i, i64 1
+  %vfn.i21.i = getelementptr inbounds i8, ptr %vtable.i20.i, i64 8
   %9 = load ptr, ptr %vfn.i21.i, align 8
   tail call void %9(ptr noundef nonnull align 8 dereferenceable(368) %fmtToAdopt) #6
   br label %common.resume
@@ -467,12 +462,12 @@ entry:
 
 new.notnull:                                      ; preds = %entry
   store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVN6icu_7525ScientificNumberFormatter11MarkupStyleE, i64 0, inrange i32 0, i64 2), ptr %call1, align 8
-  %fBeginMarkup.i = getelementptr inbounds %"class.icu_75::ScientificNumberFormatter::MarkupStyle", ptr %call1, i64 0, i32 1
+  %fBeginMarkup.i = getelementptr inbounds i8, ptr %call1, i64 8
   invoke void @_ZN6icu_7513UnicodeStringC1ERKS0_(ptr noundef nonnull align 8 dereferenceable(64) %fBeginMarkup.i, ptr noundef nonnull align 8 dereferenceable(64) %beginMarkup)
           to label %invoke.cont.i unwind label %lpad.i
 
 invoke.cont.i:                                    ; preds = %new.notnull
-  %fEndMarkup.i = getelementptr inbounds %"class.icu_75::ScientificNumberFormatter::MarkupStyle", ptr %call1, i64 0, i32 2
+  %fEndMarkup.i = getelementptr inbounds i8, ptr %call1, i64 72
   invoke void @_ZN6icu_7513UnicodeStringC1ERKS0_(ptr noundef nonnull align 8 dereferenceable(64) %fEndMarkup.i, ptr noundef nonnull align 8 dereferenceable(64) %endMarkup)
           to label %new.cont unwind label %lpad2.i
 
@@ -519,7 +514,7 @@ lpad4.i:                                          ; preds = %new.notnull.i
 
 delete.notnull.i.i:                               ; preds = %lpad4.i
   %vtable.i.i = load ptr, ptr %call1, align 8
-  %vfn.i.i = getelementptr inbounds ptr, ptr %vtable.i.i, i64 1
+  %vfn.i.i = getelementptr inbounds i8, ptr %vtable.i.i, i64 8
   %4 = load ptr, ptr %vfn.i.i, align 8
   tail call void %4(ptr noundef nonnull align 8 dereferenceable(8) %call1) #6
   br label %ehcleanup22.i
@@ -531,7 +526,7 @@ if.end11.i:                                       ; preds = %new.notnull.i
 
 delete.notnull.i:                                 ; preds = %if.end11.i
   %vtable.i = load ptr, ptr %call3.i, align 8
-  %vfn.i = getelementptr inbounds ptr, ptr %vtable.i, i64 1
+  %vfn.i = getelementptr inbounds i8, ptr %vtable.i, i64 8
   %6 = load ptr, ptr %vfn.i, align 8
   tail call void %6(ptr noundef nonnull align 8 dereferenceable(88) %call3.i) #6
   br label %_ZN6icu_7525ScientificNumberFormatter14createInstanceEPNS_13DecimalFormatEPNS0_5StyleER10UErrorCode.exit
@@ -541,7 +536,7 @@ cleanup.i:                                        ; preds = %if.then10.i, %new.c
 
 delete.notnull.i10.i:                             ; preds = %cleanup.i
   %vtable.i11.i = load ptr, ptr %call1, align 8
-  %vfn.i12.i = getelementptr inbounds ptr, ptr %vtable.i11.i, i64 1
+  %vfn.i12.i = getelementptr inbounds i8, ptr %vtable.i11.i, i64 8
   %7 = load ptr, ptr %vfn.i12.i, align 8
   tail call void %7(ptr noundef nonnull align 8 dereferenceable(8) %call1) #6
   br label %_ZN6icu_7512LocalPointerINS_25ScientificNumberFormatter5StyleEED2Ev.exit13.i
@@ -552,7 +547,7 @@ _ZN6icu_7512LocalPointerINS_25ScientificNumberFormatter5StyleEED2Ev.exit13.i: ; 
 
 delete.notnull.i15.i:                             ; preds = %_ZN6icu_7512LocalPointerINS_25ScientificNumberFormatter5StyleEED2Ev.exit13.i
   %vtable.i16.i = load ptr, ptr %call, align 8
-  %vfn.i17.i = getelementptr inbounds ptr, ptr %vtable.i16.i, i64 1
+  %vfn.i17.i = getelementptr inbounds i8, ptr %vtable.i16.i, i64 8
   %8 = load ptr, ptr %vfn.i17.i, align 8
   tail call void %8(ptr noundef nonnull align 8 dereferenceable(368) %call) #6
   br label %_ZN6icu_7525ScientificNumberFormatter14createInstanceEPNS_13DecimalFormatEPNS0_5StyleER10UErrorCode.exit
@@ -563,7 +558,7 @@ ehcleanup22.i:                                    ; preds = %delete.notnull.i.i,
 
 delete.notnull.i19.i:                             ; preds = %ehcleanup22.i
   %vtable.i20.i = load ptr, ptr %call, align 8
-  %vfn.i21.i = getelementptr inbounds ptr, ptr %vtable.i20.i, i64 1
+  %vfn.i21.i = getelementptr inbounds i8, ptr %vtable.i20.i, i64 8
   %9 = load ptr, ptr %vfn.i21.i, align 8
   tail call void %9(ptr noundef nonnull align 8 dereferenceable(368) %call) #6
   br label %common.resume
@@ -605,14 +600,14 @@ entry:
 
 if.end:                                           ; preds = %entry
   store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN6icu_7513FieldPositionE, i64 0, inrange i32 0, i64 2), ptr %fp, align 8
-  %fField.i = getelementptr inbounds %"class.icu_75::FieldPosition", ptr %fp, i64 0, i32 1
+  %fField.i = getelementptr inbounds i8, ptr %fp, i64 8
   store i32 -1, ptr %fField.i, align 8
-  %fBeginIndex.i = getelementptr inbounds %"class.icu_75::FieldPosition", ptr %fp, i64 0, i32 2
+  %fBeginIndex.i = getelementptr inbounds i8, ptr %fp, i64 12
   store i32 0, ptr %fBeginIndex.i, align 4
-  %fEndIndex.i = getelementptr inbounds %"class.icu_75::FieldPosition", ptr %fp, i64 0, i32 3
+  %fEndIndex.i = getelementptr inbounds i8, ptr %fp, i64 16
   store i32 0, ptr %fEndIndex.i, align 8
-  %fUnion.i.i.i = getelementptr inbounds %"class.icu_75::UnicodeString", ptr %preExponent, i64 0, i32 1
-  %fLength.i.i = getelementptr inbounds %"class.icu_75::UnicodeString", ptr %preExponent, i64 0, i32 1, i32 0, i32 1
+  %fUnion.i.i.i = getelementptr inbounds i8, ptr %preExponent, i64 8
+  %fLength.i.i = getelementptr inbounds i8, ptr %preExponent, i64 12
   br label %while.cond.outer
 
 while.cond.outer:                                 ; preds = %while.cond.outer.backedge, %if.end
@@ -793,12 +788,12 @@ if.end60.loopexit:                                ; preds = %call.i.i.noexc
   br label %while.cond.outer.backedge
 
 invoke.cont63:                                    ; preds = %invoke.cont
-  %fUnion.i.i = getelementptr inbounds %"class.icu_75::UnicodeString", ptr %original, i64 0, i32 1
+  %fUnion.i.i = getelementptr inbounds i8, ptr %original, i64 8
   %14 = load i16, ptr %fUnion.i.i, align 8
   %cmp.i.i59 = icmp slt i16 %14, 0
   %15 = ashr i16 %14, 5
   %shr.i.i = sext i16 %15 to i32
-  %fLength.i = getelementptr inbounds %"class.icu_75::UnicodeString", ptr %original, i64 0, i32 1, i32 0, i32 1
+  %fLength.i = getelementptr inbounds i8, ptr %original, i64 12
   %16 = load i32, ptr %fLength.i, align 4
   %cond.i60 = select i1 %cmp.i.i59, i32 %16, i32 %shr.i.i
   %sub65 = sub nsw i32 %cond.i60, %copyFromOffset.0.ph
@@ -837,14 +832,14 @@ entry:
 
 new.notnull:                                      ; preds = %entry
   store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVN6icu_7525ScientificNumberFormatter11MarkupStyleE, i64 0, inrange i32 0, i64 2), ptr %call, align 8
-  %fBeginMarkup.i = getelementptr inbounds %"class.icu_75::ScientificNumberFormatter::MarkupStyle", ptr %call, i64 0, i32 1
-  %fBeginMarkup2.i = getelementptr inbounds %"class.icu_75::ScientificNumberFormatter::MarkupStyle", ptr %this, i64 0, i32 1
+  %fBeginMarkup.i = getelementptr inbounds i8, ptr %call, i64 8
+  %fBeginMarkup2.i = getelementptr inbounds i8, ptr %this, i64 8
   invoke void @_ZN6icu_7513UnicodeStringC1ERKS0_(ptr noundef nonnull align 8 dereferenceable(64) %fBeginMarkup.i, ptr noundef nonnull align 8 dereferenceable(64) %fBeginMarkup2.i)
           to label %invoke.cont.i unwind label %lpad.i
 
 invoke.cont.i:                                    ; preds = %new.notnull
-  %fEndMarkup.i = getelementptr inbounds %"class.icu_75::ScientificNumberFormatter::MarkupStyle", ptr %call, i64 0, i32 2
-  %fEndMarkup3.i = getelementptr inbounds %"class.icu_75::ScientificNumberFormatter::MarkupStyle", ptr %this, i64 0, i32 2
+  %fEndMarkup.i = getelementptr inbounds i8, ptr %call, i64 72
+  %fEndMarkup3.i = getelementptr inbounds i8, ptr %this, i64 72
   invoke void @_ZN6icu_7513UnicodeStringC1ERKS0_(ptr noundef nonnull align 8 dereferenceable(64) %fEndMarkup.i, ptr noundef nonnull align 8 dereferenceable(64) %fEndMarkup3.i)
           to label %new.cont unwind label %lpad4.i
 
@@ -879,20 +874,20 @@ entry:
 
 if.end:                                           ; preds = %entry
   store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN6icu_7513FieldPositionE, i64 0, inrange i32 0, i64 2), ptr %fp, align 8
-  %fField.i = getelementptr inbounds %"class.icu_75::FieldPosition", ptr %fp, i64 0, i32 1
+  %fField.i = getelementptr inbounds i8, ptr %fp, i64 8
   store i32 -1, ptr %fField.i, align 8
-  %fBeginIndex.i = getelementptr inbounds %"class.icu_75::FieldPosition", ptr %fp, i64 0, i32 2
+  %fBeginIndex.i = getelementptr inbounds i8, ptr %fp, i64 12
   store i32 0, ptr %fBeginIndex.i, align 4
-  %fEndIndex.i = getelementptr inbounds %"class.icu_75::FieldPosition", ptr %fp, i64 0, i32 3
+  %fEndIndex.i = getelementptr inbounds i8, ptr %fp, i64 16
   store i32 0, ptr %fEndIndex.i, align 8
-  %fEndMarkup = getelementptr inbounds %"class.icu_75::ScientificNumberFormatter::MarkupStyle", ptr %this, i64 0, i32 2
-  %fUnion.i.i.i32 = getelementptr inbounds %"class.icu_75::ScientificNumberFormatter::MarkupStyle", ptr %this, i64 0, i32 2, i32 1
-  %fLength.i.i35 = getelementptr inbounds %"class.icu_75::ScientificNumberFormatter::MarkupStyle", ptr %this, i64 0, i32 2, i32 1, i32 0, i32 1
-  %fUnion.i.i.i = getelementptr inbounds %"class.icu_75::UnicodeString", ptr %preExponent, i64 0, i32 1
-  %fLength.i.i = getelementptr inbounds %"class.icu_75::UnicodeString", ptr %preExponent, i64 0, i32 1, i32 0, i32 1
-  %fBeginMarkup = getelementptr inbounds %"class.icu_75::ScientificNumberFormatter::MarkupStyle", ptr %this, i64 0, i32 1
-  %fUnion.i.i.i21 = getelementptr inbounds %"class.icu_75::ScientificNumberFormatter::MarkupStyle", ptr %this, i64 0, i32 1, i32 1
-  %fLength.i.i24 = getelementptr inbounds %"class.icu_75::ScientificNumberFormatter::MarkupStyle", ptr %this, i64 0, i32 1, i32 1, i32 0, i32 1
+  %fEndMarkup = getelementptr inbounds i8, ptr %this, i64 72
+  %fUnion.i.i.i32 = getelementptr inbounds i8, ptr %this, i64 80
+  %fLength.i.i35 = getelementptr inbounds i8, ptr %this, i64 84
+  %fUnion.i.i.i = getelementptr inbounds i8, ptr %preExponent, i64 8
+  %fLength.i.i = getelementptr inbounds i8, ptr %preExponent, i64 12
+  %fBeginMarkup = getelementptr inbounds i8, ptr %this, i64 8
+  %fUnion.i.i.i21 = getelementptr inbounds i8, ptr %this, i64 16
+  %fLength.i.i24 = getelementptr inbounds i8, ptr %this, i64 20
   br label %while.cond.outer
 
 while.cond.outer:                                 ; preds = %while.cond.outer.backedge, %if.end
@@ -983,12 +978,12 @@ invoke.cont20:                                    ; preds = %sw.bb16
           to label %while.cond.outer.backedge unwind label %lpad.loopexit.loopexit.split-lp
 
 invoke.cont26:                                    ; preds = %invoke.cont
-  %fUnion.i.i = getelementptr inbounds %"class.icu_75::UnicodeString", ptr %original, i64 0, i32 1
+  %fUnion.i.i = getelementptr inbounds i8, ptr %original, i64 8
   %15 = load i16, ptr %fUnion.i.i, align 8
   %cmp.i.i = icmp slt i16 %15, 0
   %16 = ashr i16 %15, 5
   %shr.i.i = sext i16 %16 to i32
-  %fLength.i = getelementptr inbounds %"class.icu_75::UnicodeString", ptr %original, i64 0, i32 1, i32 0, i32 1
+  %fLength.i = getelementptr inbounds i8, ptr %original, i64 12
   %17 = load i32, ptr %fLength.i, align 4
   %cond.i = select i1 %cmp.i.i, i32 %17, i32 %shr.i.i
   %sub28 = sub nsw i32 %cond.i, %copyFromOffset.0.ph
@@ -1007,19 +1002,19 @@ return:                                           ; preds = %entry, %invoke.cont
 define void @_ZN6icu_7525ScientificNumberFormatterC2EPNS_13DecimalFormatEPNS0_5StyleER10UErrorCode(ptr noundef nonnull align 8 dereferenceable(88) %this, ptr noundef %fmtToAdopt, ptr noundef %styleToAdopt, ptr nocapture noundef nonnull align 4 dereferenceable(4) %status) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 invoke.cont:
   store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN6icu_7525ScientificNumberFormatterE, i64 0, inrange i32 0, i64 2), ptr %this, align 8
-  %fPreExponent = getelementptr inbounds %"class.icu_75::ScientificNumberFormatter", ptr %this, i64 0, i32 1
+  %fPreExponent = getelementptr inbounds i8, ptr %this, i64 8
   store ptr getelementptr inbounds ({ [13 x ptr] }, ptr @_ZTVN6icu_7513UnicodeStringE, i64 0, inrange i32 0, i64 2), ptr %fPreExponent, align 8
-  %fUnion2.i = getelementptr inbounds %"class.icu_75::ScientificNumberFormatter", ptr %this, i64 0, i32 1, i32 1
+  %fUnion2.i = getelementptr inbounds i8, ptr %this, i64 16
   store i16 2, ptr %fUnion2.i, align 8
-  %fDecimalFormat = getelementptr inbounds %"class.icu_75::ScientificNumberFormatter", ptr %this, i64 0, i32 2
+  %fDecimalFormat = getelementptr inbounds i8, ptr %this, i64 72
   store ptr %fmtToAdopt, ptr %fDecimalFormat, align 8
-  %fStyle = getelementptr inbounds %"class.icu_75::ScientificNumberFormatter", ptr %this, i64 0, i32 3
+  %fStyle = getelementptr inbounds i8, ptr %this, i64 80
   store ptr %styleToAdopt, ptr %fStyle, align 8
   %0 = load i32, ptr %status, align 4
   %cmp.i = icmp slt i32 %0, 1
   br i1 %cmp.i, label %if.end, label %invoke.cont16
 
-lpad2:                                            ; preds = %call2.i12.i.noexc, %call2.i.i.noexc, %if.end14, %if.end8
+lpad2:                                            ; preds = %call2.i13.i.noexc, %call2.i.i.noexc, %if.end14, %if.end8
   %1 = landingpad { ptr, i32 }
           cleanup
   tail call void @_ZN6icu_7513UnicodeStringD1Ev(ptr noundef nonnull align 8 dereferenceable(64) %fPreExponent) #6
@@ -1034,7 +1029,7 @@ if.end:                                           ; preds = %invoke.cont
 
 if.end8:                                          ; preds = %if.end
   %vtable = load ptr, ptr %fmtToAdopt, align 8
-  %vfn = getelementptr inbounds ptr, ptr %vtable, i64 39
+  %vfn = getelementptr inbounds i8, ptr %vtable, i64 312
   %2 = load ptr, ptr %vfn, align 8
   %call11 = invoke noundef ptr %2(ptr noundef nonnull align 8 dereferenceable(368) %fmtToAdopt)
           to label %invoke.cont10 unwind label %lpad2
@@ -1044,85 +1039,85 @@ invoke.cont10:                                    ; preds = %if.end8
   br i1 %cmp12, label %invoke.cont16.sink.split, label %if.end14
 
 if.end14:                                         ; preds = %invoke.cont10
-  %arrayidx.i.i = getelementptr inbounds %"class.icu_75::DecimalFormatSymbols", ptr %call11, i64 0, i32 1, i64 27
-  %fUnion.i.i.i.i = getelementptr inbounds %"class.icu_75::DecimalFormatSymbols", ptr %call11, i64 0, i32 1, i64 27, i32 1
+  %arrayidx.i.i = getelementptr inbounds i8, ptr %call11, i64 1736
+  %fUnion.i.i.i.i = getelementptr inbounds i8, ptr %call11, i64 1744
   %3 = load i16, ptr %fUnion.i.i.i.i, align 8
   %cmp.i.i.i.i = icmp slt i16 %3, 0
   %4 = ashr i16 %3, 5
   %shr.i.i.i.i = sext i16 %4 to i32
-  %fLength.i.i.i = getelementptr inbounds %"class.icu_75::DecimalFormatSymbols", ptr %call11, i64 0, i32 1, i64 27, i32 1, i32 0, i32 1
+  %fLength.i.i.i = getelementptr inbounds i8, ptr %call11, i64 1748
   %5 = load i32, ptr %fLength.i.i.i, align 4
   %cond.i.i.i = select i1 %cmp.i.i.i.i, i32 %5, i32 %shr.i.i.i.i
   %call2.i.i5 = invoke noundef nonnull align 8 dereferenceable(64) ptr @_ZN6icu_7513UnicodeString8doAppendERKS0_ii(ptr noundef nonnull align 8 dereferenceable(64) %fPreExponent, ptr noundef nonnull align 8 dereferenceable(64) %arrayidx.i.i, i32 noundef 0, i32 noundef %cond.i.i.i)
           to label %call2.i.i.noexc unwind label %lpad2
 
 call2.i.i.noexc:                                  ; preds = %if.end14
-  %arrayidx.i5.i = getelementptr inbounds %"class.icu_75::DecimalFormatSymbols", ptr %call11, i64 0, i32 1, i64 18
-  %fUnion.i.i.i7.i = getelementptr inbounds %"class.icu_75::DecimalFormatSymbols", ptr %call11, i64 0, i32 1, i64 18, i32 1
-  %6 = load i16, ptr %fUnion.i.i.i7.i, align 8
-  %cmp.i.i.i8.i = icmp slt i16 %6, 0
+  %arrayidx.i6.i = getelementptr inbounds i8, ptr %call11, i64 1160
+  %fUnion.i.i.i8.i = getelementptr inbounds i8, ptr %call11, i64 1168
+  %6 = load i16, ptr %fUnion.i.i.i8.i, align 8
+  %cmp.i.i.i9.i = icmp slt i16 %6, 0
   %7 = ashr i16 %6, 5
-  %shr.i.i.i9.i = sext i16 %7 to i32
-  %fLength.i.i10.i = getelementptr inbounds %"class.icu_75::DecimalFormatSymbols", ptr %call11, i64 0, i32 1, i64 18, i32 1, i32 0, i32 1
-  %8 = load i32, ptr %fLength.i.i10.i, align 4
-  %cond.i.i11.i = select i1 %cmp.i.i.i8.i, i32 %8, i32 %shr.i.i.i9.i
-  %call2.i12.i6 = invoke noundef nonnull align 8 dereferenceable(64) ptr @_ZN6icu_7513UnicodeString8doAppendERKS0_ii(ptr noundef nonnull align 8 dereferenceable(64) %fPreExponent, ptr noundef nonnull align 8 dereferenceable(64) %arrayidx.i5.i, i32 noundef 0, i32 noundef %cond.i.i11.i)
-          to label %call2.i12.i.noexc unwind label %lpad2
+  %shr.i.i.i10.i = sext i16 %7 to i32
+  %fLength.i.i11.i = getelementptr inbounds i8, ptr %call11, i64 1172
+  %8 = load i32, ptr %fLength.i.i11.i, align 4
+  %cond.i.i12.i = select i1 %cmp.i.i.i9.i, i32 %8, i32 %shr.i.i.i10.i
+  %call2.i13.i6 = invoke noundef nonnull align 8 dereferenceable(64) ptr @_ZN6icu_7513UnicodeString8doAppendERKS0_ii(ptr noundef nonnull align 8 dereferenceable(64) %fPreExponent, ptr noundef nonnull align 8 dereferenceable(64) %arrayidx.i6.i, i32 noundef 0, i32 noundef %cond.i.i12.i)
+          to label %call2.i13.i.noexc unwind label %lpad2
 
-call2.i12.i.noexc:                                ; preds = %call2.i.i.noexc
-  %arrayidx.i13.i = getelementptr inbounds %"class.icu_75::DecimalFormatSymbols", ptr %call11, i64 0, i32 1, i64 4
-  %fUnion.i.i.i15.i = getelementptr inbounds %"class.icu_75::DecimalFormatSymbols", ptr %call11, i64 0, i32 1, i64 4, i32 1
-  %9 = load i16, ptr %fUnion.i.i.i15.i, align 8
-  %cmp.i.i.i16.i = icmp slt i16 %9, 0
+call2.i13.i.noexc:                                ; preds = %call2.i.i.noexc
+  %arrayidx.i15.i = getelementptr inbounds i8, ptr %call11, i64 264
+  %fUnion.i.i.i17.i = getelementptr inbounds i8, ptr %call11, i64 272
+  %9 = load i16, ptr %fUnion.i.i.i17.i, align 8
+  %cmp.i.i.i18.i = icmp slt i16 %9, 0
   %10 = ashr i16 %9, 5
-  %shr.i.i.i17.i = sext i16 %10 to i32
-  %fLength.i.i18.i = getelementptr inbounds %"class.icu_75::DecimalFormatSymbols", ptr %call11, i64 0, i32 1, i64 4, i32 1, i32 0, i32 1
-  %11 = load i32, ptr %fLength.i.i18.i, align 4
-  %cond.i.i19.i = select i1 %cmp.i.i.i16.i, i32 %11, i32 %shr.i.i.i17.i
-  %call2.i20.i7 = invoke noundef nonnull align 8 dereferenceable(64) ptr @_ZN6icu_7513UnicodeString8doAppendERKS0_ii(ptr noundef nonnull align 8 dereferenceable(64) %fPreExponent, ptr noundef nonnull align 8 dereferenceable(64) %arrayidx.i13.i, i32 noundef 0, i32 noundef %cond.i.i19.i)
+  %shr.i.i.i19.i = sext i16 %10 to i32
+  %fLength.i.i20.i = getelementptr inbounds i8, ptr %call11, i64 276
+  %11 = load i32, ptr %fLength.i.i20.i, align 4
+  %cond.i.i21.i = select i1 %cmp.i.i.i18.i, i32 %11, i32 %shr.i.i.i19.i
+  %call2.i22.i7 = invoke noundef nonnull align 8 dereferenceable(64) ptr @_ZN6icu_7513UnicodeString8doAppendERKS0_ii(ptr noundef nonnull align 8 dereferenceable(64) %fPreExponent, ptr noundef nonnull align 8 dereferenceable(64) %arrayidx.i15.i, i32 noundef 0, i32 noundef %cond.i.i21.i)
           to label %invoke.cont16 unwind label %lpad2
 
 invoke.cont16.sink.split:                         ; preds = %invoke.cont10, %if.end
   store i32 1, ptr %status, align 4
   br label %invoke.cont16
 
-invoke.cont16:                                    ; preds = %invoke.cont16.sink.split, %call2.i12.i.noexc, %invoke.cont
+invoke.cont16:                                    ; preds = %invoke.cont16.sink.split, %call2.i13.i.noexc, %invoke.cont
   ret void
 }
 
 ; Function Attrs: mustprogress uwtable
 define void @_ZN6icu_7525ScientificNumberFormatter14getPreExponentERKNS_20DecimalFormatSymbolsERNS_13UnicodeStringE(ptr noundef nonnull align 8 dereferenceable(2883) %dfs, ptr noundef nonnull align 8 dereferenceable(64) %preExponent) local_unnamed_addr #0 align 2 {
 entry:
-  %arrayidx.i = getelementptr inbounds %"class.icu_75::DecimalFormatSymbols", ptr %dfs, i64 0, i32 1, i64 27
-  %fUnion.i.i.i = getelementptr inbounds %"class.icu_75::DecimalFormatSymbols", ptr %dfs, i64 0, i32 1, i64 27, i32 1
+  %arrayidx.i = getelementptr inbounds i8, ptr %dfs, i64 1736
+  %fUnion.i.i.i = getelementptr inbounds i8, ptr %dfs, i64 1744
   %0 = load i16, ptr %fUnion.i.i.i, align 8
   %cmp.i.i.i = icmp slt i16 %0, 0
   %1 = ashr i16 %0, 5
   %shr.i.i.i = sext i16 %1 to i32
-  %fLength.i.i = getelementptr inbounds %"class.icu_75::DecimalFormatSymbols", ptr %dfs, i64 0, i32 1, i64 27, i32 1, i32 0, i32 1
+  %fLength.i.i = getelementptr inbounds i8, ptr %dfs, i64 1748
   %2 = load i32, ptr %fLength.i.i, align 4
   %cond.i.i = select i1 %cmp.i.i.i, i32 %2, i32 %shr.i.i.i
   %call2.i = tail call noundef nonnull align 8 dereferenceable(64) ptr @_ZN6icu_7513UnicodeString8doAppendERKS0_ii(ptr noundef nonnull align 8 dereferenceable(64) %preExponent, ptr noundef nonnull align 8 dereferenceable(64) %arrayidx.i, i32 noundef 0, i32 noundef %cond.i.i)
-  %arrayidx.i5 = getelementptr inbounds %"class.icu_75::DecimalFormatSymbols", ptr %dfs, i64 0, i32 1, i64 18
-  %fUnion.i.i.i7 = getelementptr inbounds %"class.icu_75::DecimalFormatSymbols", ptr %dfs, i64 0, i32 1, i64 18, i32 1
-  %3 = load i16, ptr %fUnion.i.i.i7, align 8
-  %cmp.i.i.i8 = icmp slt i16 %3, 0
+  %arrayidx.i6 = getelementptr inbounds i8, ptr %dfs, i64 1160
+  %fUnion.i.i.i8 = getelementptr inbounds i8, ptr %dfs, i64 1168
+  %3 = load i16, ptr %fUnion.i.i.i8, align 8
+  %cmp.i.i.i9 = icmp slt i16 %3, 0
   %4 = ashr i16 %3, 5
-  %shr.i.i.i9 = sext i16 %4 to i32
-  %fLength.i.i10 = getelementptr inbounds %"class.icu_75::DecimalFormatSymbols", ptr %dfs, i64 0, i32 1, i64 18, i32 1, i32 0, i32 1
-  %5 = load i32, ptr %fLength.i.i10, align 4
-  %cond.i.i11 = select i1 %cmp.i.i.i8, i32 %5, i32 %shr.i.i.i9
-  %call2.i12 = tail call noundef nonnull align 8 dereferenceable(64) ptr @_ZN6icu_7513UnicodeString8doAppendERKS0_ii(ptr noundef nonnull align 8 dereferenceable(64) %preExponent, ptr noundef nonnull align 8 dereferenceable(64) %arrayidx.i5, i32 noundef 0, i32 noundef %cond.i.i11)
-  %arrayidx.i13 = getelementptr inbounds %"class.icu_75::DecimalFormatSymbols", ptr %dfs, i64 0, i32 1, i64 4
-  %fUnion.i.i.i15 = getelementptr inbounds %"class.icu_75::DecimalFormatSymbols", ptr %dfs, i64 0, i32 1, i64 4, i32 1
-  %6 = load i16, ptr %fUnion.i.i.i15, align 8
-  %cmp.i.i.i16 = icmp slt i16 %6, 0
+  %shr.i.i.i10 = sext i16 %4 to i32
+  %fLength.i.i11 = getelementptr inbounds i8, ptr %dfs, i64 1172
+  %5 = load i32, ptr %fLength.i.i11, align 4
+  %cond.i.i12 = select i1 %cmp.i.i.i9, i32 %5, i32 %shr.i.i.i10
+  %call2.i13 = tail call noundef nonnull align 8 dereferenceable(64) ptr @_ZN6icu_7513UnicodeString8doAppendERKS0_ii(ptr noundef nonnull align 8 dereferenceable(64) %preExponent, ptr noundef nonnull align 8 dereferenceable(64) %arrayidx.i6, i32 noundef 0, i32 noundef %cond.i.i12)
+  %arrayidx.i15 = getelementptr inbounds i8, ptr %dfs, i64 264
+  %fUnion.i.i.i17 = getelementptr inbounds i8, ptr %dfs, i64 272
+  %6 = load i16, ptr %fUnion.i.i.i17, align 8
+  %cmp.i.i.i18 = icmp slt i16 %6, 0
   %7 = ashr i16 %6, 5
-  %shr.i.i.i17 = sext i16 %7 to i32
-  %fLength.i.i18 = getelementptr inbounds %"class.icu_75::DecimalFormatSymbols", ptr %dfs, i64 0, i32 1, i64 4, i32 1, i32 0, i32 1
-  %8 = load i32, ptr %fLength.i.i18, align 4
-  %cond.i.i19 = select i1 %cmp.i.i.i16, i32 %8, i32 %shr.i.i.i17
-  %call2.i20 = tail call noundef nonnull align 8 dereferenceable(64) ptr @_ZN6icu_7513UnicodeString8doAppendERKS0_ii(ptr noundef nonnull align 8 dereferenceable(64) %preExponent, ptr noundef nonnull align 8 dereferenceable(64) %arrayidx.i13, i32 noundef 0, i32 noundef %cond.i.i19)
+  %shr.i.i.i19 = sext i16 %7 to i32
+  %fLength.i.i20 = getelementptr inbounds i8, ptr %dfs, i64 276
+  %8 = load i32, ptr %fLength.i.i20, align 4
+  %cond.i.i21 = select i1 %cmp.i.i.i18, i32 %8, i32 %shr.i.i.i19
+  %call2.i22 = tail call noundef nonnull align 8 dereferenceable(64) ptr @_ZN6icu_7513UnicodeString8doAppendERKS0_ii(ptr noundef nonnull align 8 dereferenceable(64) %preExponent, ptr noundef nonnull align 8 dereferenceable(64) %arrayidx.i15, i32 noundef 0, i32 noundef %cond.i.i21)
   ret void
 }
 
@@ -1136,34 +1131,34 @@ declare void @_ZN6icu_757UObjectD2Ev(ptr noundef nonnull align 8 dereferenceable
 define void @_ZN6icu_7525ScientificNumberFormatterC2ERKS0_(ptr noundef nonnull align 8 dereferenceable(88) %this, ptr noundef nonnull align 8 dereferenceable(88) %other) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN6icu_7525ScientificNumberFormatterE, i64 0, inrange i32 0, i64 2), ptr %this, align 8
-  %fPreExponent = getelementptr inbounds %"class.icu_75::ScientificNumberFormatter", ptr %this, i64 0, i32 1
-  %fPreExponent2 = getelementptr inbounds %"class.icu_75::ScientificNumberFormatter", ptr %other, i64 0, i32 1
+  %fPreExponent = getelementptr inbounds i8, ptr %this, i64 8
+  %fPreExponent2 = getelementptr inbounds i8, ptr %other, i64 8
   invoke void @_ZN6icu_7513UnicodeStringC1ERKS0_(ptr noundef nonnull align 8 dereferenceable(64) %fPreExponent, ptr noundef nonnull align 8 dereferenceable(64) %fPreExponent2)
           to label %invoke.cont unwind label %lpad
 
 invoke.cont:                                      ; preds = %entry
-  %fDecimalFormat = getelementptr inbounds %"class.icu_75::ScientificNumberFormatter", ptr %this, i64 0, i32 2
-  %fDecimalFormat3 = getelementptr inbounds %"class.icu_75::ScientificNumberFormatter", ptr %other, i64 0, i32 2
+  %fDecimalFormat = getelementptr inbounds i8, ptr %this, i64 72
+  %fDecimalFormat3 = getelementptr inbounds i8, ptr %other, i64 72
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %fDecimalFormat, i8 0, i64 16, i1 false)
   %0 = load ptr, ptr %fDecimalFormat3, align 8
   %vtable = load ptr, ptr %0, align 8
-  %vfn = getelementptr inbounds ptr, ptr %vtable, i64 4
+  %vfn = getelementptr inbounds i8, ptr %vtable, i64 32
   %1 = load ptr, ptr %vfn, align 8
   %call = invoke noundef ptr %1(ptr noundef nonnull align 8 dereferenceable(368) %0)
           to label %invoke.cont5 unwind label %lpad4
 
 invoke.cont5:                                     ; preds = %invoke.cont
   store ptr %call, ptr %fDecimalFormat, align 8
-  %fStyle7 = getelementptr inbounds %"class.icu_75::ScientificNumberFormatter", ptr %other, i64 0, i32 3
+  %fStyle7 = getelementptr inbounds i8, ptr %other, i64 80
   %2 = load ptr, ptr %fStyle7, align 8
   %vtable8 = load ptr, ptr %2, align 8
-  %vfn9 = getelementptr inbounds ptr, ptr %vtable8, i64 3
+  %vfn9 = getelementptr inbounds i8, ptr %vtable8, i64 24
   %3 = load ptr, ptr %vfn9, align 8
   %call11 = invoke noundef ptr %3(ptr noundef nonnull align 8 dereferenceable(8) %2)
           to label %invoke.cont10 unwind label %lpad4
 
 invoke.cont10:                                    ; preds = %invoke.cont5
-  %fStyle = getelementptr inbounds %"class.icu_75::ScientificNumberFormatter", ptr %this, i64 0, i32 3
+  %fStyle = getelementptr inbounds i8, ptr %this, i64 80
   store ptr %call11, ptr %fStyle, align 8
   ret void
 
@@ -1190,33 +1185,33 @@ declare void @_ZN6icu_7513UnicodeStringC1ERKS0_(ptr noundef nonnull align 8 dere
 define void @_ZN6icu_7525ScientificNumberFormatterD2Ev(ptr noundef nonnull align 8 dereferenceable(88) %this) unnamed_addr #4 align 2 {
 entry:
   store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN6icu_7525ScientificNumberFormatterE, i64 0, inrange i32 0, i64 2), ptr %this, align 8
-  %fDecimalFormat = getelementptr inbounds %"class.icu_75::ScientificNumberFormatter", ptr %this, i64 0, i32 2
+  %fDecimalFormat = getelementptr inbounds i8, ptr %this, i64 72
   %0 = load ptr, ptr %fDecimalFormat, align 8
   %isnull = icmp eq ptr %0, null
   br i1 %isnull, label %delete.end, label %delete.notnull
 
 delete.notnull:                                   ; preds = %entry
   %vtable = load ptr, ptr %0, align 8
-  %vfn = getelementptr inbounds ptr, ptr %vtable, i64 1
+  %vfn = getelementptr inbounds i8, ptr %vtable, i64 8
   %1 = load ptr, ptr %vfn, align 8
   tail call void %1(ptr noundef nonnull align 8 dereferenceable(368) %0) #6
   br label %delete.end
 
 delete.end:                                       ; preds = %delete.notnull, %entry
-  %fStyle = getelementptr inbounds %"class.icu_75::ScientificNumberFormatter", ptr %this, i64 0, i32 3
+  %fStyle = getelementptr inbounds i8, ptr %this, i64 80
   %2 = load ptr, ptr %fStyle, align 8
   %isnull2 = icmp eq ptr %2, null
   br i1 %isnull2, label %delete.end6, label %delete.notnull3
 
 delete.notnull3:                                  ; preds = %delete.end
   %vtable4 = load ptr, ptr %2, align 8
-  %vfn5 = getelementptr inbounds ptr, ptr %vtable4, i64 1
+  %vfn5 = getelementptr inbounds i8, ptr %vtable4, i64 8
   %3 = load ptr, ptr %vfn5, align 8
   tail call void %3(ptr noundef nonnull align 8 dereferenceable(8) %2) #6
   br label %delete.end6
 
 delete.end6:                                      ; preds = %delete.notnull3, %delete.end
-  %fPreExponent = getelementptr inbounds %"class.icu_75::ScientificNumberFormatter", ptr %this, i64 0, i32 1
+  %fPreExponent = getelementptr inbounds i8, ptr %this, i64 8
   tail call void @_ZN6icu_7513UnicodeStringD1Ev(ptr noundef nonnull align 8 dereferenceable(64) %fPreExponent) #6
   tail call void @_ZN6icu_757UObjectD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this) #6
   ret void
@@ -1241,26 +1236,26 @@ entry:
 
 if.end:                                           ; preds = %entry
   store ptr getelementptr inbounds ({ [13 x ptr] }, ptr @_ZTVN6icu_7513UnicodeStringE, i64 0, inrange i32 0, i64 2), ptr %original, align 8
-  %fUnion2.i = getelementptr inbounds %"class.icu_75::UnicodeString", ptr %original, i64 0, i32 1
+  %fUnion2.i = getelementptr inbounds i8, ptr %original, i64 8
   store i16 2, ptr %fUnion2.i, align 8
   invoke void @_ZN6icu_7521FieldPositionIteratorC1Ev(ptr noundef nonnull align 8 dereferenceable(20) %fpi)
           to label %invoke.cont unwind label %lpad
 
 invoke.cont:                                      ; preds = %if.end
-  %fDecimalFormat = getelementptr inbounds %"class.icu_75::ScientificNumberFormatter", ptr %this, i64 0, i32 2
+  %fDecimalFormat = getelementptr inbounds i8, ptr %this, i64 72
   %1 = load ptr, ptr %fDecimalFormat, align 8
   %vtable = load ptr, ptr %1, align 8
-  %vfn = getelementptr inbounds ptr, ptr %vtable, i64 6
+  %vfn = getelementptr inbounds i8, ptr %vtable, i64 48
   %2 = load ptr, ptr %vfn, align 8
   %call4 = invoke noundef nonnull align 8 dereferenceable(64) ptr %2(ptr noundef nonnull align 8 dereferenceable(356) %1, ptr noundef nonnull align 8 dereferenceable(112) %number, ptr noundef nonnull align 8 dereferenceable(64) %original, ptr noundef nonnull %fpi, ptr noundef nonnull align 4 dereferenceable(4) %status)
           to label %invoke.cont3 unwind label %lpad2
 
 invoke.cont3:                                     ; preds = %invoke.cont
-  %fStyle = getelementptr inbounds %"class.icu_75::ScientificNumberFormatter", ptr %this, i64 0, i32 3
+  %fStyle = getelementptr inbounds i8, ptr %this, i64 80
   %3 = load ptr, ptr %fStyle, align 8
-  %fPreExponent = getelementptr inbounds %"class.icu_75::ScientificNumberFormatter", ptr %this, i64 0, i32 1
+  %fPreExponent = getelementptr inbounds i8, ptr %this, i64 8
   %vtable5 = load ptr, ptr %3, align 8
-  %vfn6 = getelementptr inbounds ptr, ptr %vtable5, i64 4
+  %vfn6 = getelementptr inbounds i8, ptr %vtable5, i64 32
   %4 = load ptr, ptr %vfn6, align 8
   %call8 = invoke noundef nonnull align 8 dereferenceable(64) ptr %4(ptr noundef nonnull align 8 dereferenceable(8) %3, ptr noundef nonnull align 8 dereferenceable(64) %original, ptr noundef nonnull align 8 dereferenceable(20) %fpi, ptr noundef nonnull align 8 dereferenceable(64) %fPreExponent, ptr noundef nonnull align 8 dereferenceable(64) %appendTo, ptr noundef nonnull align 4 dereferenceable(4) %status)
           to label %invoke.cont7 unwind label %lpad2
@@ -1300,9 +1295,9 @@ declare void @_ZN6icu_7521FieldPositionIteratorD1Ev(ptr noundef nonnull align 8 
 define linkonce_odr void @_ZN6icu_7525ScientificNumberFormatter11MarkupStyleD2Ev(ptr noundef nonnull align 8 dereferenceable(136) %this) unnamed_addr #4 comdat align 2 {
 entry:
   store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVN6icu_7525ScientificNumberFormatter11MarkupStyleE, i64 0, inrange i32 0, i64 2), ptr %this, align 8
-  %fEndMarkup = getelementptr inbounds %"class.icu_75::ScientificNumberFormatter::MarkupStyle", ptr %this, i64 0, i32 2
+  %fEndMarkup = getelementptr inbounds i8, ptr %this, i64 72
   tail call void @_ZN6icu_7513UnicodeStringD1Ev(ptr noundef nonnull align 8 dereferenceable(64) %fEndMarkup) #6
-  %fBeginMarkup = getelementptr inbounds %"class.icu_75::ScientificNumberFormatter::MarkupStyle", ptr %this, i64 0, i32 1
+  %fBeginMarkup = getelementptr inbounds i8, ptr %this, i64 8
   tail call void @_ZN6icu_7513UnicodeStringD1Ev(ptr noundef nonnull align 8 dereferenceable(64) %fBeginMarkup) #6
   tail call void @_ZN6icu_757UObjectD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this) #6
   ret void
@@ -1312,9 +1307,9 @@ entry:
 define linkonce_odr void @_ZN6icu_7525ScientificNumberFormatter11MarkupStyleD0Ev(ptr noundef nonnull align 8 dereferenceable(136) %this) unnamed_addr #4 comdat align 2 {
 entry:
   store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVN6icu_7525ScientificNumberFormatter11MarkupStyleE, i64 0, inrange i32 0, i64 2), ptr %this, align 8
-  %fEndMarkup.i = getelementptr inbounds %"class.icu_75::ScientificNumberFormatter::MarkupStyle", ptr %this, i64 0, i32 2
+  %fEndMarkup.i = getelementptr inbounds i8, ptr %this, i64 72
   tail call void @_ZN6icu_7513UnicodeStringD1Ev(ptr noundef nonnull align 8 dereferenceable(64) %fEndMarkup.i) #6
-  %fBeginMarkup.i = getelementptr inbounds %"class.icu_75::ScientificNumberFormatter::MarkupStyle", ptr %this, i64 0, i32 1
+  %fBeginMarkup.i = getelementptr inbounds i8, ptr %this, i64 8
   tail call void @_ZN6icu_7513UnicodeStringD1Ev(ptr noundef nonnull align 8 dereferenceable(64) %fBeginMarkup.i) #6
   tail call void @_ZN6icu_757UObjectD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this) #6
   tail call void @_ZN6icu_757UMemorydlEPv(ptr noundef nonnull %this) #6

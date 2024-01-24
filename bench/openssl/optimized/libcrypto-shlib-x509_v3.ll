@@ -3,9 +3,6 @@ source_filename = "bench/openssl/original/libcrypto-shlib-x509_v3.ll"
 target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:128-n8:16:32:64-S128"
 target triple = "x86_64-unknown-linux-gnu"
 
-%struct.X509_extension_st = type { ptr, i32, %struct.asn1_string_st }
-%struct.asn1_string_st = type { i32, i32, ptr, i64 }
-
 @.str = private unnamed_addr constant [33 x i8] c"../openssl/crypto/x509/x509_v3.c\00", align 1
 @__func__.X509v3_add_ext = private unnamed_addr constant [15 x i8] c"X509v3_add_ext\00", align 1
 @__func__.X509_EXTENSION_create_by_NID = private unnamed_addr constant [29 x i8] c"X509_EXTENSION_create_by_NID\00", align 1
@@ -118,7 +115,7 @@ for.cond:                                         ; preds = %for.body, %if.end
 
 for.body:                                         ; preds = %for.cond
   %call7 = tail call ptr @OPENSSL_sk_value(ptr noundef nonnull %sk, i32 noundef %lastpos.addr.0) #6
-  %critical = getelementptr inbounds %struct.X509_extension_st, ptr %call7, i64 0, i32 1
+  %critical = getelementptr inbounds i8, ptr %call7, i64 8
   %1 = load i32, ptr %critical, align 8
   %cmp8 = icmp sgt i32 %1, 0
   %or.cond11 = xor i1 %tobool, %cmp8
@@ -176,7 +173,7 @@ return:                                           ; preds = %entry, %lor.lhs.fal
 declare ptr @OPENSSL_sk_delete(ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define ptr @X509v3_add_ext(ptr noundef %x, ptr noundef %ex, i32 noundef %loc) local_unnamed_addr #0 {
+define noundef ptr @X509v3_add_ext(ptr noundef %x, ptr noundef %ex, i32 noundef %loc) local_unnamed_addr #0 {
 entry:
   %cmp = icmp eq ptr %x, null
   br i1 %cmp, label %err, label %if.end
@@ -325,10 +322,10 @@ X509_EXTENSION_set_object.exit:                   ; preds = %if.end4
 if.end11:                                         ; preds = %X509_EXTENSION_set_object.exit
   %tobool.not.i = icmp eq i32 %crit, 0
   %cond.i = select i1 %tobool.not.i, i32 -1, i32 255
-  %critical.i = getelementptr inbounds %struct.X509_extension_st, ptr %ret.0, i64 0, i32 1
+  %critical.i = getelementptr inbounds i8, ptr %ret.0, i64 8
   store i32 %cond.i, ptr %critical.i, align 8
-  %value.i = getelementptr inbounds %struct.X509_extension_st, ptr %ret.0, i64 0, i32 2
-  %data1.i = getelementptr inbounds %struct.asn1_string_st, ptr %data, i64 0, i32 2
+  %value.i = getelementptr inbounds i8, ptr %ret.0, i64 16
+  %data1.i = getelementptr inbounds i8, ptr %data, i64 8
   %2 = load ptr, ptr %data1.i, align 8
   %3 = load i32, ptr %data, align 8
   %call.i17 = tail call i32 @ASN1_OCTET_STRING_set(ptr noundef nonnull %value.i, ptr noundef %2, i32 noundef %3) #6
@@ -391,7 +388,7 @@ return:                                           ; preds = %entry, %if.end
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define i32 @X509_EXTENSION_set_critical(ptr noundef writeonly %ex, i32 noundef %crit) local_unnamed_addr #2 {
+define noundef i32 @X509_EXTENSION_set_critical(ptr noundef writeonly %ex, i32 noundef %crit) local_unnamed_addr #2 {
 entry:
   %cmp = icmp eq ptr %ex, null
   br i1 %cmp, label %return, label %if.end
@@ -399,7 +396,7 @@ entry:
 if.end:                                           ; preds = %entry
   %tobool.not = icmp eq i32 %crit, 0
   %cond = select i1 %tobool.not, i32 -1, i32 255
-  %critical = getelementptr inbounds %struct.X509_extension_st, ptr %ex, i64 0, i32 1
+  %critical = getelementptr inbounds i8, ptr %ex, i64 8
   store i32 %cond, ptr %critical, align 8
   br label %return
 
@@ -415,8 +412,8 @@ entry:
   br i1 %cmp, label %return, label %if.end
 
 if.end:                                           ; preds = %entry
-  %value = getelementptr inbounds %struct.X509_extension_st, ptr %ex, i64 0, i32 2
-  %data1 = getelementptr inbounds %struct.asn1_string_st, ptr %data, i64 0, i32 2
+  %value = getelementptr inbounds i8, ptr %ex, i64 16
+  %data1 = getelementptr inbounds i8, ptr %data, i64 8
   %0 = load ptr, ptr %data1, align 8
   %1 = load i32, ptr %data, align 8
   %call = tail call i32 @ASN1_OCTET_STRING_set(ptr noundef nonnull %value, ptr noundef %0, i32 noundef %1) #6
@@ -452,7 +449,7 @@ return:                                           ; preds = %entry, %if.end
 define ptr @X509_EXTENSION_get_data(ptr noundef readnone %ex) local_unnamed_addr #4 {
 entry:
   %cmp = icmp eq ptr %ex, null
-  %value = getelementptr inbounds %struct.X509_extension_st, ptr %ex, i64 0, i32 2
+  %value = getelementptr inbounds i8, ptr %ex, i64 16
   %retval.0 = select i1 %cmp, ptr null, ptr %value
   ret ptr %retval.0
 }
@@ -464,7 +461,7 @@ entry:
   br i1 %cmp, label %return, label %if.end
 
 if.end:                                           ; preds = %entry
-  %critical = getelementptr inbounds %struct.X509_extension_st, ptr %ex, i64 0, i32 1
+  %critical = getelementptr inbounds i8, ptr %ex, i64 8
   %0 = load i32, ptr %critical, align 8
   %cmp1 = icmp sgt i32 %0, 0
   %. = zext i1 %cmp1 to i32

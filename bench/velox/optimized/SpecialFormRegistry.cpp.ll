@@ -48,9 +48,9 @@ entry:
   %ref.tmp.i = alloca %"class.folly::LockedPtr", align 8
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %ref.tmp.i)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !4)
-  %mutex_.i.i.i = getelementptr inbounds %"struct.folly::Synchronized", ptr %this, i64 0, i32 1
+  %mutex_.i.i.i = getelementptr inbounds i8, ptr %this, i64 56
   store ptr %mutex_.i.i.i, ptr %ref.tmp.i, align 8, !alias.scope !4
-  %_M_owns.i2.i.i.i = getelementptr inbounds %"class.std::unique_lock", ptr %ref.tmp.i, i64 0, i32 1
+  %_M_owns.i2.i.i.i = getelementptr inbounds i8, ptr %ref.tmp.i, i64 8
   tail call void @_ZN5folly15SharedMutexImplILb0EvSt6atomicNS_24SharedMutexPolicyDefaultEE4lockEv(ptr noundef nonnull align 4 dereferenceable(4) %mutex_.i.i.i), !noalias !4
   store i8 1, ptr %_M_owns.i2.i.i.i, align 8, !alias.scope !4
   %call.i.i2.i = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZNSt8__detail9_Map_baseINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS6_St10unique_ptrIN8facebook5velox4exec25FunctionCallToSpecialFormESt14default_deleteISD_EEESaISH_ENS_10_Select1stESt8equal_toIS6_ESt4hashIS6_ENS_18_Mod_range_hashingENS_20_Default_ranged_hashENS_20_Prime_rehash_policyENS_17_Hashtable_traitsILb1ELb0ELb1EEELb1EEixERS8_(ptr noundef nonnull align 1 dereferenceable(1) %this, ptr noundef nonnull align 8 dereferenceable(32) %name)
@@ -66,7 +66,7 @@ call.i.i.noexc.i:                                 ; preds = %entry
 
 _ZNKSt14default_deleteIN8facebook5velox4exec25FunctionCallToSpecialFormEEclEPS3_.exit.i.i.i.i.i.i: ; preds = %call.i.i.noexc.i
   %vtable.i.i.i.i.i.i.i = load ptr, ptr %1, align 8
-  %vfn.i.i.i.i.i.i.i = getelementptr inbounds ptr, ptr %vtable.i.i.i.i.i.i.i, i64 1
+  %vfn.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %vtable.i.i.i.i.i.i.i, i64 8
   %2 = load ptr, ptr %vfn.i.i.i.i.i.i.i, align 8
   tail call void %2(ptr noundef nonnull align 8 dereferenceable(8) %1) #13
   br label %if.then3.i.i.i.i
@@ -96,9 +96,9 @@ lpad.i:                                           ; preds = %entry
 ; Function Attrs: mustprogress uwtable
 define void @_ZN8facebook5velox4exec19SpecialFormRegistry38unregisterAllFunctionCallToSpecialFormEv(ptr noundef nonnull align 8 dereferenceable(64) %this) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  %mutex_.i.i.i = getelementptr inbounds %"struct.folly::Synchronized", ptr %this, i64 0, i32 1
+  %mutex_.i.i.i = getelementptr inbounds i8, ptr %this, i64 56
   tail call void @_ZN5folly15SharedMutexImplILb0EvSt6atomicNS_24SharedMutexPolicyDefaultEE4lockEv(ptr noundef nonnull align 4 dereferenceable(4) %mutex_.i.i.i), !noalias !7
-  %_M_before_begin.i.i.i.i.i = getelementptr inbounds %"class.std::_Hashtable", ptr %this, i64 0, i32 2
+  %_M_before_begin.i.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 16
   %0 = load ptr, ptr %_M_before_begin.i.i.i.i.i, align 8
   %tobool.not3.i.i.i.i.i = icmp eq ptr %0, null
   br i1 %tobool.not3.i.i.i.i.i, label %if.then3.i.i.i.i, label %while.body.i.i.i.i.i
@@ -113,7 +113,7 @@ while.body.i.i.i.i.i:                             ; preds = %entry, %_ZNSt8__det
 
 _ZNKSt14default_deleteIN8facebook5velox4exec25FunctionCallToSpecialFormEEclEPS3_.exit.i.i.i.i.i.i.i.i.i.i: ; preds = %while.body.i.i.i.i.i
   %vtable.i.i.i.i.i.i.i.i.i.i.i = load ptr, ptr %2, align 8
-  %vfn.i.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds ptr, ptr %vtable.i.i.i.i.i.i.i.i.i.i.i, i64 1
+  %vfn.i.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %vtable.i.i.i.i.i.i.i.i.i.i.i, i64 8
   %3 = load ptr, ptr %vfn.i.i.i.i.i.i.i.i.i.i.i, align 8
   tail call void %3(ptr noundef nonnull align 8 dereferenceable(8) %2) #13
   br label %_ZNSt8__detail16_Hashtable_allocISaINS_10_Hash_nodeISt4pairIKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt10unique_ptrIN8facebook5velox4exec25FunctionCallToSpecialFormESt14default_deleteISE_EEELb1EEEEE18_M_deallocate_nodeEPSJ_.exit.i.i.i.i.i
@@ -128,7 +128,7 @@ _ZNSt8__detail16_Hashtable_allocISaINS_10_Hash_nodeISt4pairIKNSt7__cxx1112basic_
 
 if.then3.i.i.i.i:                                 ; preds = %_ZNSt8__detail16_Hashtable_allocISaINS_10_Hash_nodeISt4pairIKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt10unique_ptrIN8facebook5velox4exec25FunctionCallToSpecialFormESt14default_deleteISE_EEELb1EEEEE18_M_deallocate_nodeEPSJ_.exit.i.i.i.i.i, %entry
   %4 = load ptr, ptr %this, align 8
-  %_M_bucket_count.i.i.i.i = getelementptr inbounds %"class.std::_Hashtable", ptr %this, i64 0, i32 1
+  %_M_bucket_count.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 8
   %5 = load i64, ptr %_M_bucket_count.i.i.i.i, align 8
   %mul.i.i.i.i = shl i64 %5, 3
   tail call void @llvm.memset.p0.i64(ptr align 8 %4, i8 0, i64 %mul.i.i.i.i, i1 false)
@@ -153,9 +153,9 @@ entry:
   %ref.tmp.i = alloca %"class.folly::LockedPtr.20", align 8
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %ref.tmp.i)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !12)
-  %mutex_.i.i.i = getelementptr inbounds %"struct.folly::Synchronized", ptr %this, i64 0, i32 1
+  %mutex_.i.i.i = getelementptr inbounds i8, ptr %this, i64 56
   store ptr %mutex_.i.i.i, ptr %ref.tmp.i, align 8, !alias.scope !12
-  %_M_owns.i2.i.i.i = getelementptr inbounds %"class.std::shared_lock", ptr %ref.tmp.i, i64 0, i32 1
+  %_M_owns.i2.i.i.i = getelementptr inbounds i8, ptr %ref.tmp.i, i64 8
   store i8 1, ptr %_M_owns.i2.i.i.i, align 8, !alias.scope !12
   tail call void @_ZN5folly15SharedMutexImplILb0EvSt6atomicNS_24SharedMutexPolicyDefaultEE11lock_sharedEv(ptr noundef nonnull align 4 dereferenceable(4) %mutex_.i.i.i), !noalias !12
   %call.i.i1.i = invoke ptr @_ZNKSt10_HashtableINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS5_St10unique_ptrIN8facebook5velox4exec25FunctionCallToSpecialFormESt14default_deleteISC_EEESaISG_ENSt8__detail10_Select1stESt8equal_toIS5_ESt4hashIS5_ENSI_18_Mod_range_hashingENSI_20_Default_ranged_hashENSI_20_Prime_rehash_policyENSI_17_Hashtable_traitsILb1ELb0ELb1EEEE4findERS7_(ptr noundef nonnull align 8 dereferenceable(56) %this, ptr noundef nonnull align 8 dereferenceable(32) %name)
@@ -208,10 +208,10 @@ init.check.i:                                     ; preds = %entry
 init.i:                                           ; preds = %init.check.i
   store ptr getelementptr inbounds (%"class.facebook::velox::exec::SpecialFormRegistry", ptr @_ZZN8facebook5velox4exec12_GLOBAL__N_127specialFormRegistryInternalEvE8instance, i64 0, i32 0, i32 0, i32 0, i32 5), ptr @_ZZN8facebook5velox4exec12_GLOBAL__N_127specialFormRegistryInternalEvE8instance, align 8
   store i64 1, ptr getelementptr inbounds (%"class.facebook::velox::exec::SpecialFormRegistry", ptr @_ZZN8facebook5velox4exec12_GLOBAL__N_127specialFormRegistryInternalEvE8instance, i64 0, i32 0, i32 0, i32 0, i32 1), align 8
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) getelementptr inbounds (%"class.facebook::velox::exec::SpecialFormRegistry", ptr @_ZZN8facebook5velox4exec12_GLOBAL__N_127specialFormRegistryInternalEvE8instance, i64 0, i32 0, i32 0, i32 0, i32 2), i8 0, i64 16, i1 false)
-  store float 1.000000e+00, ptr getelementptr inbounds (%"class.facebook::velox::exec::SpecialFormRegistry", ptr @_ZZN8facebook5velox4exec12_GLOBAL__N_127specialFormRegistryInternalEvE8instance, i64 0, i32 0, i32 0, i32 0, i32 4), align 8
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) getelementptr inbounds (%"class.facebook::velox::exec::SpecialFormRegistry", ptr @_ZZN8facebook5velox4exec12_GLOBAL__N_127specialFormRegistryInternalEvE8instance, i64 0, i32 0, i32 0, i32 0, i32 2, i32 0), i8 0, i64 16, i1 false)
+  store float 1.000000e+00, ptr getelementptr inbounds (%"class.facebook::velox::exec::SpecialFormRegistry", ptr @_ZZN8facebook5velox4exec12_GLOBAL__N_127specialFormRegistryInternalEvE8instance, i64 0, i32 0, i32 0, i32 0, i32 4, i32 0), align 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) getelementptr inbounds (%"class.facebook::velox::exec::SpecialFormRegistry", ptr @_ZZN8facebook5velox4exec12_GLOBAL__N_127specialFormRegistryInternalEvE8instance, i64 0, i32 0, i32 0, i32 0, i32 4, i32 1), i8 0, i64 16, i1 false)
-  tail call void @_ZN5folly15SharedMutexImplILb0EvSt6atomicNS_24SharedMutexPolicyDefaultEEC1Ev(ptr noundef nonnull align 4 dereferenceable(4) getelementptr inbounds (%"class.facebook::velox::exec::SpecialFormRegistry", ptr @_ZZN8facebook5velox4exec12_GLOBAL__N_127specialFormRegistryInternalEvE8instance, i64 0, i32 0, i32 1)) #13
+  tail call void @_ZN5folly15SharedMutexImplILb0EvSt6atomicNS_24SharedMutexPolicyDefaultEEC1Ev(ptr noundef nonnull align 4 dereferenceable(4) getelementptr inbounds (%"class.facebook::velox::exec::SpecialFormRegistry", ptr @_ZZN8facebook5velox4exec12_GLOBAL__N_127specialFormRegistryInternalEvE8instance, i64 0, i32 0, i32 1, i32 0, i32 0, i32 0)) #13
   %2 = tail call i32 @__cxa_atexit(ptr nonnull @_ZN8facebook5velox4exec19SpecialFormRegistryD2Ev, ptr nonnull @_ZZN8facebook5velox4exec12_GLOBAL__N_127specialFormRegistryInternalEvE8instance, ptr nonnull @__dso_handle) #13
   tail call void @__cxa_guard_release(ptr nonnull @_ZGVZN8facebook5velox4exec12_GLOBAL__N_127specialFormRegistryInternalEvE8instance) #13
   br label %_ZN8facebook5velox4exec12_GLOBAL__N_127specialFormRegistryInternalEv.exit
@@ -235,10 +235,10 @@ init.check.i:                                     ; preds = %entry
 init.i:                                           ; preds = %init.check.i
   store ptr getelementptr inbounds (%"class.facebook::velox::exec::SpecialFormRegistry", ptr @_ZZN8facebook5velox4exec12_GLOBAL__N_127specialFormRegistryInternalEvE8instance, i64 0, i32 0, i32 0, i32 0, i32 5), ptr @_ZZN8facebook5velox4exec12_GLOBAL__N_127specialFormRegistryInternalEvE8instance, align 8
   store i64 1, ptr getelementptr inbounds (%"class.facebook::velox::exec::SpecialFormRegistry", ptr @_ZZN8facebook5velox4exec12_GLOBAL__N_127specialFormRegistryInternalEvE8instance, i64 0, i32 0, i32 0, i32 0, i32 1), align 8
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) getelementptr inbounds (%"class.facebook::velox::exec::SpecialFormRegistry", ptr @_ZZN8facebook5velox4exec12_GLOBAL__N_127specialFormRegistryInternalEvE8instance, i64 0, i32 0, i32 0, i32 0, i32 2), i8 0, i64 16, i1 false)
-  store float 1.000000e+00, ptr getelementptr inbounds (%"class.facebook::velox::exec::SpecialFormRegistry", ptr @_ZZN8facebook5velox4exec12_GLOBAL__N_127specialFormRegistryInternalEvE8instance, i64 0, i32 0, i32 0, i32 0, i32 4), align 8
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) getelementptr inbounds (%"class.facebook::velox::exec::SpecialFormRegistry", ptr @_ZZN8facebook5velox4exec12_GLOBAL__N_127specialFormRegistryInternalEvE8instance, i64 0, i32 0, i32 0, i32 0, i32 2, i32 0), i8 0, i64 16, i1 false)
+  store float 1.000000e+00, ptr getelementptr inbounds (%"class.facebook::velox::exec::SpecialFormRegistry", ptr @_ZZN8facebook5velox4exec12_GLOBAL__N_127specialFormRegistryInternalEvE8instance, i64 0, i32 0, i32 0, i32 0, i32 4, i32 0), align 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) getelementptr inbounds (%"class.facebook::velox::exec::SpecialFormRegistry", ptr @_ZZN8facebook5velox4exec12_GLOBAL__N_127specialFormRegistryInternalEvE8instance, i64 0, i32 0, i32 0, i32 0, i32 4, i32 1), i8 0, i64 16, i1 false)
-  tail call void @_ZN5folly15SharedMutexImplILb0EvSt6atomicNS_24SharedMutexPolicyDefaultEEC1Ev(ptr noundef nonnull align 4 dereferenceable(4) getelementptr inbounds (%"class.facebook::velox::exec::SpecialFormRegistry", ptr @_ZZN8facebook5velox4exec12_GLOBAL__N_127specialFormRegistryInternalEvE8instance, i64 0, i32 0, i32 1)) #13
+  tail call void @_ZN5folly15SharedMutexImplILb0EvSt6atomicNS_24SharedMutexPolicyDefaultEEC1Ev(ptr noundef nonnull align 4 dereferenceable(4) getelementptr inbounds (%"class.facebook::velox::exec::SpecialFormRegistry", ptr @_ZZN8facebook5velox4exec12_GLOBAL__N_127specialFormRegistryInternalEvE8instance, i64 0, i32 0, i32 1, i32 0, i32 0, i32 0)) #13
   %2 = tail call i32 @__cxa_atexit(ptr nonnull @_ZN8facebook5velox4exec19SpecialFormRegistryD2Ev, ptr nonnull @_ZZN8facebook5velox4exec12_GLOBAL__N_127specialFormRegistryInternalEvE8instance, ptr nonnull @__dso_handle) #13
   tail call void @__cxa_guard_release(ptr nonnull @_ZGVZN8facebook5velox4exec12_GLOBAL__N_127specialFormRegistryInternalEvE8instance) #13
   br label %_ZN8facebook5velox4exec12_GLOBAL__N_127specialFormRegistryInternalEv.exit
@@ -263,10 +263,10 @@ init.check.i.i:                                   ; preds = %entry
 init.i.i:                                         ; preds = %init.check.i.i
   store ptr getelementptr inbounds (%"class.facebook::velox::exec::SpecialFormRegistry", ptr @_ZZN8facebook5velox4exec12_GLOBAL__N_127specialFormRegistryInternalEvE8instance, i64 0, i32 0, i32 0, i32 0, i32 5), ptr @_ZZN8facebook5velox4exec12_GLOBAL__N_127specialFormRegistryInternalEvE8instance, align 8
   store i64 1, ptr getelementptr inbounds (%"class.facebook::velox::exec::SpecialFormRegistry", ptr @_ZZN8facebook5velox4exec12_GLOBAL__N_127specialFormRegistryInternalEvE8instance, i64 0, i32 0, i32 0, i32 0, i32 1), align 8
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) getelementptr inbounds (%"class.facebook::velox::exec::SpecialFormRegistry", ptr @_ZZN8facebook5velox4exec12_GLOBAL__N_127specialFormRegistryInternalEvE8instance, i64 0, i32 0, i32 0, i32 0, i32 2), i8 0, i64 16, i1 false)
-  store float 1.000000e+00, ptr getelementptr inbounds (%"class.facebook::velox::exec::SpecialFormRegistry", ptr @_ZZN8facebook5velox4exec12_GLOBAL__N_127specialFormRegistryInternalEvE8instance, i64 0, i32 0, i32 0, i32 0, i32 4), align 8
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) getelementptr inbounds (%"class.facebook::velox::exec::SpecialFormRegistry", ptr @_ZZN8facebook5velox4exec12_GLOBAL__N_127specialFormRegistryInternalEvE8instance, i64 0, i32 0, i32 0, i32 0, i32 2, i32 0), i8 0, i64 16, i1 false)
+  store float 1.000000e+00, ptr getelementptr inbounds (%"class.facebook::velox::exec::SpecialFormRegistry", ptr @_ZZN8facebook5velox4exec12_GLOBAL__N_127specialFormRegistryInternalEvE8instance, i64 0, i32 0, i32 0, i32 0, i32 4, i32 0), align 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) getelementptr inbounds (%"class.facebook::velox::exec::SpecialFormRegistry", ptr @_ZZN8facebook5velox4exec12_GLOBAL__N_127specialFormRegistryInternalEvE8instance, i64 0, i32 0, i32 0, i32 0, i32 4, i32 1), i8 0, i64 16, i1 false)
-  tail call void @_ZN5folly15SharedMutexImplILb0EvSt6atomicNS_24SharedMutexPolicyDefaultEEC1Ev(ptr noundef nonnull align 4 dereferenceable(4) getelementptr inbounds (%"class.facebook::velox::exec::SpecialFormRegistry", ptr @_ZZN8facebook5velox4exec12_GLOBAL__N_127specialFormRegistryInternalEvE8instance, i64 0, i32 0, i32 1)) #13
+  tail call void @_ZN5folly15SharedMutexImplILb0EvSt6atomicNS_24SharedMutexPolicyDefaultEEC1Ev(ptr noundef nonnull align 4 dereferenceable(4) getelementptr inbounds (%"class.facebook::velox::exec::SpecialFormRegistry", ptr @_ZZN8facebook5velox4exec12_GLOBAL__N_127specialFormRegistryInternalEvE8instance, i64 0, i32 0, i32 1, i32 0, i32 0, i32 0)) #13
   %2 = tail call i32 @__cxa_atexit(ptr nonnull @_ZN8facebook5velox4exec19SpecialFormRegistryD2Ev, ptr nonnull @_ZZN8facebook5velox4exec12_GLOBAL__N_127specialFormRegistryInternalEvE8instance, ptr nonnull @__dso_handle) #13
   tail call void @__cxa_guard_release(ptr nonnull @_ZGVZN8facebook5velox4exec12_GLOBAL__N_127specialFormRegistryInternalEvE8instance) #13
   br label %_ZN8facebook5velox4exec26mutableSpecialFormRegistryEv.exit
@@ -276,12 +276,12 @@ _ZN8facebook5velox4exec26mutableSpecialFormRegistryEv.exit: ; preds = %entry, %i
   %4 = inttoptr i64 %3 to ptr
   store ptr null, ptr %functionCallToSpecialForm, align 8
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %ref.tmp.i.i)
-  store ptr getelementptr inbounds (%"class.facebook::velox::exec::SpecialFormRegistry", ptr @_ZZN8facebook5velox4exec12_GLOBAL__N_127specialFormRegistryInternalEvE8instance, i64 0, i32 0, i32 1), ptr %ref.tmp.i.i, align 8, !alias.scope !16
-  invoke void @_ZN5folly15SharedMutexImplILb0EvSt6atomicNS_24SharedMutexPolicyDefaultEE4lockEv(ptr noundef nonnull align 4 dereferenceable(4) getelementptr inbounds (%"class.facebook::velox::exec::SpecialFormRegistry", ptr @_ZZN8facebook5velox4exec12_GLOBAL__N_127specialFormRegistryInternalEvE8instance, i64 0, i32 0, i32 1))
+  store ptr getelementptr inbounds (%"class.facebook::velox::exec::SpecialFormRegistry", ptr @_ZZN8facebook5velox4exec12_GLOBAL__N_127specialFormRegistryInternalEvE8instance, i64 0, i32 0, i32 1, i32 0, i32 0, i32 0), ptr %ref.tmp.i.i, align 8, !alias.scope !16
+  invoke void @_ZN5folly15SharedMutexImplILb0EvSt6atomicNS_24SharedMutexPolicyDefaultEE4lockEv(ptr noundef nonnull align 4 dereferenceable(4) getelementptr inbounds (%"class.facebook::velox::exec::SpecialFormRegistry", ptr @_ZZN8facebook5velox4exec12_GLOBAL__N_127specialFormRegistryInternalEvE8instance, i64 0, i32 0, i32 1, i32 0, i32 0, i32 0))
           to label %.noexc unwind label %lpad
 
 .noexc:                                           ; preds = %_ZN8facebook5velox4exec26mutableSpecialFormRegistryEv.exit
-  %_M_owns.i2.i.i.i.i = getelementptr inbounds %"class.std::unique_lock", ptr %ref.tmp.i.i, i64 0, i32 1
+  %_M_owns.i2.i.i.i.i = getelementptr inbounds i8, ptr %ref.tmp.i.i, i64 8
   store i8 1, ptr %_M_owns.i2.i.i.i.i, align 8, !alias.scope !16
   %call.i.i2.i.i = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZNSt8__detail9_Map_baseINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS6_St10unique_ptrIN8facebook5velox4exec25FunctionCallToSpecialFormESt14default_deleteISD_EEESaISH_ENS_10_Select1stESt8equal_toIS6_ESt4hashIS6_ENS_18_Mod_range_hashingENS_20_Default_ranged_hashENS_20_Prime_rehash_policyENS_17_Hashtable_traitsILb1ELb0ELb1EEELb1EEixERS8_(ptr noundef nonnull align 1 dereferenceable(1) @_ZZN8facebook5velox4exec12_GLOBAL__N_127specialFormRegistryInternalEvE8instance, ptr noundef nonnull align 8 dereferenceable(32) %name)
           to label %call.i.i.noexc.i.i unwind label %lpad.i.i
@@ -294,13 +294,13 @@ call.i.i.noexc.i.i:                               ; preds = %.noexc
 
 _ZNKSt14default_deleteIN8facebook5velox4exec25FunctionCallToSpecialFormEEclEPS3_.exit.i.i.i.i.i.i.i: ; preds = %call.i.i.noexc.i.i
   %vtable.i.i.i.i.i.i.i.i = load ptr, ptr %5, align 8
-  %vfn.i.i.i.i.i.i.i.i = getelementptr inbounds ptr, ptr %vtable.i.i.i.i.i.i.i.i, i64 1
+  %vfn.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %vtable.i.i.i.i.i.i.i.i, i64 8
   %6 = load ptr, ptr %vfn.i.i.i.i.i.i.i.i, align 8
   tail call void %6(ptr noundef nonnull align 8 dereferenceable(8) %5) #13
   br label %if.then3.i.i.i.i.i
 
 if.then3.i.i.i.i.i:                               ; preds = %_ZNKSt14default_deleteIN8facebook5velox4exec25FunctionCallToSpecialFormEEclEPS3_.exit.i.i.i.i.i.i.i, %call.i.i.noexc.i.i
-  invoke void @_ZN5folly15SharedMutexImplILb0EvSt6atomicNS_24SharedMutexPolicyDefaultEE6unlockEv(ptr noundef nonnull align 4 dereferenceable(4) getelementptr inbounds (%"class.facebook::velox::exec::SpecialFormRegistry", ptr @_ZZN8facebook5velox4exec12_GLOBAL__N_127specialFormRegistryInternalEvE8instance, i64 0, i32 0, i32 1))
+  invoke void @_ZN5folly15SharedMutexImplILb0EvSt6atomicNS_24SharedMutexPolicyDefaultEE6unlockEv(ptr noundef nonnull align 4 dereferenceable(4) getelementptr inbounds (%"class.facebook::velox::exec::SpecialFormRegistry", ptr @_ZZN8facebook5velox4exec12_GLOBAL__N_127specialFormRegistryInternalEvE8instance, i64 0, i32 0, i32 1, i32 0, i32 0, i32 0))
           to label %_ZNSt10unique_ptrIN8facebook5velox4exec25FunctionCallToSpecialFormESt14default_deleteIS3_EED2Ev.exit unwind label %terminate.lpad.i.i.i.i
 
 terminate.lpad.i.i.i.i:                           ; preds = %if.then3.i.i.i.i.i
@@ -332,7 +332,7 @@ lpad.body:                                        ; preds = %lpad.i.i, %lpad
 
 _ZNKSt14default_deleteIN8facebook5velox4exec25FunctionCallToSpecialFormEEclEPS3_.exit.i2: ; preds = %lpad.body
   %vtable.i.i3 = load ptr, ptr %4, align 8
-  %vfn.i.i4 = getelementptr inbounds ptr, ptr %vtable.i.i3, i64 1
+  %vfn.i.i4 = getelementptr inbounds i8, ptr %vtable.i.i3, i64 8
   %11 = load ptr, ptr %vfn.i.i4, align 8
   call void %11(ptr noundef nonnull align 8 dereferenceable(8) %4) #13
   br label %_ZNSt10unique_ptrIN8facebook5velox4exec25FunctionCallToSpecialFormESt14default_deleteIS3_EED2Ev.exit5
@@ -358,17 +358,17 @@ init.check.i.i:                                   ; preds = %entry
 init.i.i:                                         ; preds = %init.check.i.i
   store ptr getelementptr inbounds (%"class.facebook::velox::exec::SpecialFormRegistry", ptr @_ZZN8facebook5velox4exec12_GLOBAL__N_127specialFormRegistryInternalEvE8instance, i64 0, i32 0, i32 0, i32 0, i32 5), ptr @_ZZN8facebook5velox4exec12_GLOBAL__N_127specialFormRegistryInternalEvE8instance, align 8
   store i64 1, ptr getelementptr inbounds (%"class.facebook::velox::exec::SpecialFormRegistry", ptr @_ZZN8facebook5velox4exec12_GLOBAL__N_127specialFormRegistryInternalEvE8instance, i64 0, i32 0, i32 0, i32 0, i32 1), align 8
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) getelementptr inbounds (%"class.facebook::velox::exec::SpecialFormRegistry", ptr @_ZZN8facebook5velox4exec12_GLOBAL__N_127specialFormRegistryInternalEvE8instance, i64 0, i32 0, i32 0, i32 0, i32 2), i8 0, i64 16, i1 false)
-  store float 1.000000e+00, ptr getelementptr inbounds (%"class.facebook::velox::exec::SpecialFormRegistry", ptr @_ZZN8facebook5velox4exec12_GLOBAL__N_127specialFormRegistryInternalEvE8instance, i64 0, i32 0, i32 0, i32 0, i32 4), align 8
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) getelementptr inbounds (%"class.facebook::velox::exec::SpecialFormRegistry", ptr @_ZZN8facebook5velox4exec12_GLOBAL__N_127specialFormRegistryInternalEvE8instance, i64 0, i32 0, i32 0, i32 0, i32 2, i32 0), i8 0, i64 16, i1 false)
+  store float 1.000000e+00, ptr getelementptr inbounds (%"class.facebook::velox::exec::SpecialFormRegistry", ptr @_ZZN8facebook5velox4exec12_GLOBAL__N_127specialFormRegistryInternalEvE8instance, i64 0, i32 0, i32 0, i32 0, i32 4, i32 0), align 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) getelementptr inbounds (%"class.facebook::velox::exec::SpecialFormRegistry", ptr @_ZZN8facebook5velox4exec12_GLOBAL__N_127specialFormRegistryInternalEvE8instance, i64 0, i32 0, i32 0, i32 0, i32 4, i32 1), i8 0, i64 16, i1 false)
-  tail call void @_ZN5folly15SharedMutexImplILb0EvSt6atomicNS_24SharedMutexPolicyDefaultEEC1Ev(ptr noundef nonnull align 4 dereferenceable(4) getelementptr inbounds (%"class.facebook::velox::exec::SpecialFormRegistry", ptr @_ZZN8facebook5velox4exec12_GLOBAL__N_127specialFormRegistryInternalEvE8instance, i64 0, i32 0, i32 1)) #13
+  tail call void @_ZN5folly15SharedMutexImplILb0EvSt6atomicNS_24SharedMutexPolicyDefaultEEC1Ev(ptr noundef nonnull align 4 dereferenceable(4) getelementptr inbounds (%"class.facebook::velox::exec::SpecialFormRegistry", ptr @_ZZN8facebook5velox4exec12_GLOBAL__N_127specialFormRegistryInternalEvE8instance, i64 0, i32 0, i32 1, i32 0, i32 0, i32 0)) #13
   %2 = tail call i32 @__cxa_atexit(ptr nonnull @_ZN8facebook5velox4exec19SpecialFormRegistryD2Ev, ptr nonnull @_ZZN8facebook5velox4exec12_GLOBAL__N_127specialFormRegistryInternalEvE8instance, ptr nonnull @__dso_handle) #13
   tail call void @__cxa_guard_release(ptr nonnull @_ZGVZN8facebook5velox4exec12_GLOBAL__N_127specialFormRegistryInternalEvE8instance) #13
   br label %_ZN8facebook5velox4exec26mutableSpecialFormRegistryEv.exit
 
 _ZN8facebook5velox4exec26mutableSpecialFormRegistryEv.exit: ; preds = %entry, %init.check.i.i, %init.i.i
-  tail call void @_ZN5folly15SharedMutexImplILb0EvSt6atomicNS_24SharedMutexPolicyDefaultEE4lockEv(ptr noundef nonnull align 4 dereferenceable(4) getelementptr inbounds (%"class.facebook::velox::exec::SpecialFormRegistry", ptr @_ZZN8facebook5velox4exec12_GLOBAL__N_127specialFormRegistryInternalEvE8instance, i64 0, i32 0, i32 1)), !noalias !19
-  %3 = load ptr, ptr getelementptr inbounds (%"class.facebook::velox::exec::SpecialFormRegistry", ptr @_ZZN8facebook5velox4exec12_GLOBAL__N_127specialFormRegistryInternalEvE8instance, i64 0, i32 0, i32 0, i32 0, i32 2), align 8
+  tail call void @_ZN5folly15SharedMutexImplILb0EvSt6atomicNS_24SharedMutexPolicyDefaultEE4lockEv(ptr noundef nonnull align 4 dereferenceable(4) getelementptr inbounds (%"class.facebook::velox::exec::SpecialFormRegistry", ptr @_ZZN8facebook5velox4exec12_GLOBAL__N_127specialFormRegistryInternalEvE8instance, i64 0, i32 0, i32 1, i32 0, i32 0, i32 0)), !noalias !19
+  %3 = load ptr, ptr getelementptr inbounds (%"class.facebook::velox::exec::SpecialFormRegistry", ptr @_ZZN8facebook5velox4exec12_GLOBAL__N_127specialFormRegistryInternalEvE8instance, i64 0, i32 0, i32 0, i32 0, i32 2, i32 0), align 8
   %tobool.not3.i.i.i.i.i.i = icmp eq ptr %3, null
   br i1 %tobool.not3.i.i.i.i.i.i, label %if.then3.i.i.i.i.i, label %while.body.i.i.i.i.i.i
 
@@ -382,7 +382,7 @@ while.body.i.i.i.i.i.i:                           ; preds = %_ZN8facebook5velox4
 
 _ZNKSt14default_deleteIN8facebook5velox4exec25FunctionCallToSpecialFormEEclEPS3_.exit.i.i.i.i.i.i.i.i.i.i.i: ; preds = %while.body.i.i.i.i.i.i
   %vtable.i.i.i.i.i.i.i.i.i.i.i.i = load ptr, ptr %5, align 8
-  %vfn.i.i.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds ptr, ptr %vtable.i.i.i.i.i.i.i.i.i.i.i.i, i64 1
+  %vfn.i.i.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %vtable.i.i.i.i.i.i.i.i.i.i.i.i, i64 8
   %6 = load ptr, ptr %vfn.i.i.i.i.i.i.i.i.i.i.i.i, align 8
   tail call void %6(ptr noundef nonnull align 8 dereferenceable(8) %5) #13
   br label %_ZNSt8__detail16_Hashtable_allocISaINS_10_Hash_nodeISt4pairIKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt10unique_ptrIN8facebook5velox4exec25FunctionCallToSpecialFormESt14default_deleteISE_EEELb1EEEEE18_M_deallocate_nodeEPSJ_.exit.i.i.i.i.i.i
@@ -400,8 +400,8 @@ if.then3.i.i.i.i.i:                               ; preds = %_ZNSt8__detail16_Ha
   %8 = load i64, ptr getelementptr inbounds (%"class.facebook::velox::exec::SpecialFormRegistry", ptr @_ZZN8facebook5velox4exec12_GLOBAL__N_127specialFormRegistryInternalEvE8instance, i64 0, i32 0, i32 0, i32 0, i32 1), align 8
   %mul.i.i.i.i.i = shl i64 %8, 3
   tail call void @llvm.memset.p0.i64(ptr align 8 %7, i8 0, i64 %mul.i.i.i.i.i, i1 false)
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) getelementptr inbounds (%"class.facebook::velox::exec::SpecialFormRegistry", ptr @_ZZN8facebook5velox4exec12_GLOBAL__N_127specialFormRegistryInternalEvE8instance, i64 0, i32 0, i32 0, i32 0, i32 2), i8 0, i64 16, i1 false)
-  invoke void @_ZN5folly15SharedMutexImplILb0EvSt6atomicNS_24SharedMutexPolicyDefaultEE6unlockEv(ptr noundef nonnull align 4 dereferenceable(4) getelementptr inbounds (%"class.facebook::velox::exec::SpecialFormRegistry", ptr @_ZZN8facebook5velox4exec12_GLOBAL__N_127specialFormRegistryInternalEvE8instance, i64 0, i32 0, i32 1))
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) getelementptr inbounds (%"class.facebook::velox::exec::SpecialFormRegistry", ptr @_ZZN8facebook5velox4exec12_GLOBAL__N_127specialFormRegistryInternalEvE8instance, i64 0, i32 0, i32 0, i32 0, i32 2, i32 0), i8 0, i64 16, i1 false)
+  invoke void @_ZN5folly15SharedMutexImplILb0EvSt6atomicNS_24SharedMutexPolicyDefaultEE6unlockEv(ptr noundef nonnull align 4 dereferenceable(4) getelementptr inbounds (%"class.facebook::velox::exec::SpecialFormRegistry", ptr @_ZZN8facebook5velox4exec12_GLOBAL__N_127specialFormRegistryInternalEvE8instance, i64 0, i32 0, i32 1, i32 0, i32 0, i32 0))
           to label %_ZN8facebook5velox4exec19SpecialFormRegistry38unregisterAllFunctionCallToSpecialFormEv.exit unwind label %terminate.lpad.i.i.i.i
 
 terminate.lpad.i.i.i.i:                           ; preds = %if.then3.i.i.i.i.i
@@ -431,10 +431,10 @@ init.check.i.i:                                   ; preds = %entry
 init.i.i:                                         ; preds = %init.check.i.i
   store ptr getelementptr inbounds (%"class.facebook::velox::exec::SpecialFormRegistry", ptr @_ZZN8facebook5velox4exec12_GLOBAL__N_127specialFormRegistryInternalEvE8instance, i64 0, i32 0, i32 0, i32 0, i32 5), ptr @_ZZN8facebook5velox4exec12_GLOBAL__N_127specialFormRegistryInternalEvE8instance, align 8
   store i64 1, ptr getelementptr inbounds (%"class.facebook::velox::exec::SpecialFormRegistry", ptr @_ZZN8facebook5velox4exec12_GLOBAL__N_127specialFormRegistryInternalEvE8instance, i64 0, i32 0, i32 0, i32 0, i32 1), align 8
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) getelementptr inbounds (%"class.facebook::velox::exec::SpecialFormRegistry", ptr @_ZZN8facebook5velox4exec12_GLOBAL__N_127specialFormRegistryInternalEvE8instance, i64 0, i32 0, i32 0, i32 0, i32 2), i8 0, i64 16, i1 false)
-  store float 1.000000e+00, ptr getelementptr inbounds (%"class.facebook::velox::exec::SpecialFormRegistry", ptr @_ZZN8facebook5velox4exec12_GLOBAL__N_127specialFormRegistryInternalEvE8instance, i64 0, i32 0, i32 0, i32 0, i32 4), align 8
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) getelementptr inbounds (%"class.facebook::velox::exec::SpecialFormRegistry", ptr @_ZZN8facebook5velox4exec12_GLOBAL__N_127specialFormRegistryInternalEvE8instance, i64 0, i32 0, i32 0, i32 0, i32 2, i32 0), i8 0, i64 16, i1 false)
+  store float 1.000000e+00, ptr getelementptr inbounds (%"class.facebook::velox::exec::SpecialFormRegistry", ptr @_ZZN8facebook5velox4exec12_GLOBAL__N_127specialFormRegistryInternalEvE8instance, i64 0, i32 0, i32 0, i32 0, i32 4, i32 0), align 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) getelementptr inbounds (%"class.facebook::velox::exec::SpecialFormRegistry", ptr @_ZZN8facebook5velox4exec12_GLOBAL__N_127specialFormRegistryInternalEvE8instance, i64 0, i32 0, i32 0, i32 0, i32 4, i32 1), i8 0, i64 16, i1 false)
-  tail call void @_ZN5folly15SharedMutexImplILb0EvSt6atomicNS_24SharedMutexPolicyDefaultEEC1Ev(ptr noundef nonnull align 4 dereferenceable(4) getelementptr inbounds (%"class.facebook::velox::exec::SpecialFormRegistry", ptr @_ZZN8facebook5velox4exec12_GLOBAL__N_127specialFormRegistryInternalEvE8instance, i64 0, i32 0, i32 1)) #13
+  tail call void @_ZN5folly15SharedMutexImplILb0EvSt6atomicNS_24SharedMutexPolicyDefaultEEC1Ev(ptr noundef nonnull align 4 dereferenceable(4) getelementptr inbounds (%"class.facebook::velox::exec::SpecialFormRegistry", ptr @_ZZN8facebook5velox4exec12_GLOBAL__N_127specialFormRegistryInternalEvE8instance, i64 0, i32 0, i32 1, i32 0, i32 0, i32 0)) #13
   %2 = tail call i32 @__cxa_atexit(ptr nonnull @_ZN8facebook5velox4exec19SpecialFormRegistryD2Ev, ptr nonnull @_ZZN8facebook5velox4exec12_GLOBAL__N_127specialFormRegistryInternalEvE8instance, ptr nonnull @__dso_handle) #13
   tail call void @__cxa_guard_release(ptr nonnull @_ZGVZN8facebook5velox4exec12_GLOBAL__N_127specialFormRegistryInternalEvE8instance) #13
   br label %_ZN8facebook5velox4exec26mutableSpecialFormRegistryEv.exit
@@ -442,10 +442,10 @@ init.i.i:                                         ; preds = %init.check.i.i
 _ZN8facebook5velox4exec26mutableSpecialFormRegistryEv.exit: ; preds = %entry, %init.check.i.i, %init.i.i
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %ref.tmp.i.i)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !22)
-  store ptr getelementptr inbounds (%"class.facebook::velox::exec::SpecialFormRegistry", ptr @_ZZN8facebook5velox4exec12_GLOBAL__N_127specialFormRegistryInternalEvE8instance, i64 0, i32 0, i32 1), ptr %ref.tmp.i.i, align 8, !alias.scope !22
-  %_M_owns.i2.i.i.i.i = getelementptr inbounds %"class.std::shared_lock", ptr %ref.tmp.i.i, i64 0, i32 1
+  store ptr getelementptr inbounds (%"class.facebook::velox::exec::SpecialFormRegistry", ptr @_ZZN8facebook5velox4exec12_GLOBAL__N_127specialFormRegistryInternalEvE8instance, i64 0, i32 0, i32 1, i32 0, i32 0, i32 0), ptr %ref.tmp.i.i, align 8, !alias.scope !22
+  %_M_owns.i2.i.i.i.i = getelementptr inbounds i8, ptr %ref.tmp.i.i, i64 8
   store i8 1, ptr %_M_owns.i2.i.i.i.i, align 8, !alias.scope !22
-  tail call void @_ZN5folly15SharedMutexImplILb0EvSt6atomicNS_24SharedMutexPolicyDefaultEE11lock_sharedEv(ptr noundef nonnull align 4 dereferenceable(4) getelementptr inbounds (%"class.facebook::velox::exec::SpecialFormRegistry", ptr @_ZZN8facebook5velox4exec12_GLOBAL__N_127specialFormRegistryInternalEvE8instance, i64 0, i32 0, i32 1)), !noalias !22
+  tail call void @_ZN5folly15SharedMutexImplILb0EvSt6atomicNS_24SharedMutexPolicyDefaultEE11lock_sharedEv(ptr noundef nonnull align 4 dereferenceable(4) getelementptr inbounds (%"class.facebook::velox::exec::SpecialFormRegistry", ptr @_ZZN8facebook5velox4exec12_GLOBAL__N_127specialFormRegistryInternalEvE8instance, i64 0, i32 0, i32 1, i32 0, i32 0, i32 0)), !noalias !22
   %call.i.i1.i.i = invoke ptr @_ZNKSt10_HashtableINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS5_St10unique_ptrIN8facebook5velox4exec25FunctionCallToSpecialFormESt14default_deleteISC_EEESaISG_ENSt8__detail10_Select1stESt8equal_toIS5_ESt4hashIS5_ENSI_18_Mod_range_hashingENSI_20_Default_ranged_hashENSI_20_Prime_rehash_policyENSI_17_Hashtable_traitsILb1ELb0ELb1EEEE4findERS7_(ptr noundef nonnull align 8 dereferenceable(56) @_ZZN8facebook5velox4exec12_GLOBAL__N_127specialFormRegistryInternalEvE8instance, ptr noundef nonnull align 8 dereferenceable(32) %functionName)
           to label %call.i.i.noexc.i.i unwind label %lpad.i.i
 
@@ -461,7 +461,7 @@ if.then.i.i.i:                                    ; preds = %call.i.i.noexc.i.i
 
 if.then.i.i.i.i:                                  ; preds = %if.then.i.i.i, %call.i.i.noexc.i.i
   %specialForm.0.i = phi i1 [ false, %call.i.i.noexc.i.i ], [ %4, %if.then.i.i.i ]
-  invoke void @_ZN5folly15SharedMutexImplILb0EvSt6atomicNS_24SharedMutexPolicyDefaultEE13unlock_sharedEv(ptr noundef nonnull align 4 dereferenceable(4) getelementptr inbounds (%"class.facebook::velox::exec::SpecialFormRegistry", ptr @_ZZN8facebook5velox4exec12_GLOBAL__N_127specialFormRegistryInternalEvE8instance, i64 0, i32 0, i32 1))
+  invoke void @_ZN5folly15SharedMutexImplILb0EvSt6atomicNS_24SharedMutexPolicyDefaultEE13unlock_sharedEv(ptr noundef nonnull align 4 dereferenceable(4) getelementptr inbounds (%"class.facebook::velox::exec::SpecialFormRegistry", ptr @_ZZN8facebook5velox4exec12_GLOBAL__N_127specialFormRegistryInternalEvE8instance, i64 0, i32 0, i32 1, i32 0, i32 0, i32 0))
           to label %_ZNK8facebook5velox4exec19SpecialFormRegistry14getSpecialFormERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit unwind label %terminate.lpad.i.i.i.i
 
 terminate.lpad.i.i.i.i:                           ; preds = %if.then.i.i.i.i
@@ -485,7 +485,7 @@ _ZNK8facebook5velox4exec19SpecialFormRegistry14getSpecialFormERKNSt7__cxx1112bas
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZN5folly9LockedPtrINS_12SynchronizedISt13unordered_mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt10unique_ptrIN8facebook5velox4exec25FunctionCallToSpecialFormESt14default_deleteISD_EESt4hashIS8_ESt8equal_toIS8_ESaISt4pairIKS8_SG_EEENS_15SharedMutexImplILb0EvSt6atomicNS_24SharedMutexPolicyDefaultEEEEENS_6detail22SynchronizedLockPolicyILNSV_22SynchronizedMutexLevelE1ELNSV_23SynchronizedMutexMethodE0EEEED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %this) unnamed_addr #1 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  %_M_owns.i = getelementptr inbounds %"class.std::unique_lock", ptr %this, i64 0, i32 1
+  %_M_owns.i = getelementptr inbounds i8, ptr %this, i64 8
   %0 = load i8, ptr %_M_owns.i, align 8
   %1 = and i8 %0, 1
   %tobool.not.i = icmp eq i8 %1, 0
@@ -532,7 +532,7 @@ terminate.lpad.i.i:                               ; preds = %entry
   unreachable
 
 _ZNKSt8__detail15_Hash_code_baseINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS6_St10unique_ptrIN8facebook5velox4exec25FunctionCallToSpecialFormESt14default_deleteISD_EEENS_10_Select1stESt4hashIS6_ENS_18_Mod_range_hashingENS_20_Default_ranged_hashELb1EE12_M_hash_codeERS8_.exit: ; preds = %entry
-  %_M_bucket_count.i = getelementptr inbounds %"class.std::_Hashtable", ptr %this, i64 0, i32 1
+  %_M_bucket_count.i = getelementptr inbounds i8, ptr %this, i64 8
   %2 = load i64, ptr %_M_bucket_count.i, align 8
   %rem.i.i.i = urem i64 %call.i2.i.i, %2
   %call.i = tail call noundef ptr @_ZNKSt10_HashtableINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS5_St10unique_ptrIN8facebook5velox4exec25FunctionCallToSpecialFormESt14default_deleteISC_EEESaISG_ENSt8__detail10_Select1stESt8equal_toIS5_ESt4hashIS5_ENSI_18_Mod_range_hashingENSI_20_Default_ranged_hashENSI_20_Prime_rehash_policyENSI_17_Hashtable_traitsILb1ELb0ELb1EEEE19_M_find_before_nodeEmRS7_m(ptr noundef nonnull align 8 dereferenceable(56) %this, i64 noundef %rem.i.i.i, ptr noundef nonnull align 8 dereferenceable(32) %__k, i64 noundef %call.i2.i.i)
@@ -582,7 +582,7 @@ unreachable.i.i:                                  ; preds = %invoke.cont14.i.i
   unreachable
 
 _ZNSt10_HashtableINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS5_St10unique_ptrIN8facebook5velox4exec25FunctionCallToSpecialFormESt14default_deleteISC_EEESaISG_ENSt8__detail10_Select1stESt8equal_toIS5_ESt4hashIS5_ENSI_18_Mod_range_hashingENSI_20_Default_ranged_hashENSI_20_Prime_rehash_policyENSI_17_Hashtable_traitsILb1ELb0ELb1EEEE12_Scoped_nodeC2IJRKSt21piecewise_construct_tSt5tupleIJRS7_EESZ_IJEEEEEPNSI_16_Hashtable_allocISaINSI_10_Hash_nodeISG_Lb1EEEEEEDpOT_.exit: ; preds = %if.end
-  %_M_node.i = getelementptr inbounds %"struct.std::_Hashtable<std::__cxx11::basic_string<char>, std::pair<const std::__cxx11::basic_string<char>, std::unique_ptr<facebook::velox::exec::FunctionCallToSpecialForm>>, std::allocator<std::pair<const std::__cxx11::basic_string<char>, std::unique_ptr<facebook::velox::exec::FunctionCallToSpecialForm>>>, std::__detail::_Select1st, std::equal_to<std::__cxx11::basic_string<char>>, std::hash<string>, std::__detail::_Mod_range_hashing, std::__detail::_Default_ranged_hash, std::__detail::_Prime_rehash_policy, std::__detail::_Hashtable_traits<true, false, true>>::_Scoped_node", ptr %__node5, i64 0, i32 1
+  %_M_node.i = getelementptr inbounds i8, ptr %__node5, i64 8
   %second.i.i.i.i.i.i = getelementptr inbounds i8, ptr %call5.i.i.i.i, i64 40
   store ptr null, ptr %second.i.i.i.i.i.i, align 8
   store ptr %call5.i.i.i.i, ptr %_M_node.i, align 8
@@ -604,12 +604,12 @@ return:                                           ; preds = %_ZNSt10_HashtableIN
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr ptr @_ZNSt10_HashtableINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS5_St10unique_ptrIN8facebook5velox4exec25FunctionCallToSpecialFormESt14default_deleteISC_EEESaISG_ENSt8__detail10_Select1stESt8equal_toIS5_ESt4hashIS5_ENSI_18_Mod_range_hashingENSI_20_Default_ranged_hashENSI_20_Prime_rehash_policyENSI_17_Hashtable_traitsILb1ELb0ELb1EEEE21_M_insert_unique_nodeEmmPNSI_10_Hash_nodeISG_Lb1EEEm(ptr noundef nonnull align 8 dereferenceable(56) %this, i64 noundef %__bkt, i64 noundef %__code, ptr noundef %__node, i64 noundef %__n_elt) local_unnamed_addr #0 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  %_M_rehash_policy = getelementptr inbounds %"class.std::_Hashtable", ptr %this, i64 0, i32 4
-  %_M_next_resize.i = getelementptr inbounds %"class.std::_Hashtable", ptr %this, i64 0, i32 4, i32 1
+  %_M_rehash_policy = getelementptr inbounds i8, ptr %this, i64 32
+  %_M_next_resize.i = getelementptr inbounds i8, ptr %this, i64 40
   %0 = load i64, ptr %_M_next_resize.i, align 8
-  %_M_bucket_count = getelementptr inbounds %"class.std::_Hashtable", ptr %this, i64 0, i32 1
+  %_M_bucket_count = getelementptr inbounds i8, ptr %this, i64 8
   %1 = load i64, ptr %_M_bucket_count, align 8
-  %_M_element_count = getelementptr inbounds %"class.std::_Hashtable", ptr %this, i64 0, i32 3
+  %_M_element_count = getelementptr inbounds i8, ptr %this, i64 24
   %2 = load i64, ptr %_M_element_count, align 8
   %call3 = tail call { i8, i64 } @_ZNKSt8__detail20_Prime_rehash_policy14_M_need_rehashEmmm(ptr noundef nonnull align 8 dereferenceable(16) %_M_rehash_policy, i64 noundef %1, i64 noundef %2, i64 noundef %__n_elt)
   %3 = extractvalue { i8, i64 } %call3, 0
@@ -675,7 +675,7 @@ if.then.i:                                        ; preds = %if.end
   br label %_ZNSt10_HashtableINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS5_St10unique_ptrIN8facebook5velox4exec25FunctionCallToSpecialFormESt14default_deleteISC_EEESaISG_ENSt8__detail10_Select1stESt8equal_toIS5_ESt4hashIS5_ENSI_18_Mod_range_hashingENSI_20_Default_ranged_hashENSI_20_Prime_rehash_policyENSI_17_Hashtable_traitsILb1ELb0ELb1EEEE22_M_insert_bucket_beginEmPNSI_10_Hash_nodeISG_Lb1EEE.exit
 
 if.else.i:                                        ; preds = %if.end
-  %_M_before_begin.i = getelementptr inbounds %"class.std::_Hashtable", ptr %this, i64 0, i32 2
+  %_M_before_begin.i = getelementptr inbounds i8, ptr %this, i64 16
   %18 = load ptr, ptr %_M_before_begin.i, align 8
   store ptr %18, ptr %__node, align 8
   store ptr %__node, ptr %_M_before_begin.i, align 8
@@ -709,7 +709,7 @@ _ZNSt10_HashtableINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZNSt10_HashtableINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS5_St10unique_ptrIN8facebook5velox4exec25FunctionCallToSpecialFormESt14default_deleteISC_EEESaISG_ENSt8__detail10_Select1stESt8equal_toIS5_ESt4hashIS5_ENSI_18_Mod_range_hashingENSI_20_Default_ranged_hashENSI_20_Prime_rehash_policyENSI_17_Hashtable_traitsILb1ELb0ELb1EEEE12_Scoped_nodeD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %this) unnamed_addr #1 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  %_M_node = getelementptr inbounds %"struct.std::_Hashtable<std::__cxx11::basic_string<char>, std::pair<const std::__cxx11::basic_string<char>, std::unique_ptr<facebook::velox::exec::FunctionCallToSpecialForm>>, std::allocator<std::pair<const std::__cxx11::basic_string<char>, std::unique_ptr<facebook::velox::exec::FunctionCallToSpecialForm>>>, std::__detail::_Select1st, std::equal_to<std::__cxx11::basic_string<char>>, std::hash<string>, std::__detail::_Mod_range_hashing, std::__detail::_Default_ranged_hash, std::__detail::_Prime_rehash_policy, std::__detail::_Hashtable_traits<true, false, true>>::_Scoped_node", ptr %this, i64 0, i32 1
+  %_M_node = getelementptr inbounds i8, ptr %this, i64 8
   %0 = load ptr, ptr %_M_node, align 8
   %tobool.not = icmp eq ptr %0, null
   br i1 %tobool.not, label %if.end, label %if.then
@@ -722,7 +722,7 @@ if.then:                                          ; preds = %entry
 
 _ZNKSt14default_deleteIN8facebook5velox4exec25FunctionCallToSpecialFormEEclEPS3_.exit.i.i.i.i.i: ; preds = %if.then
   %vtable.i.i.i.i.i.i = load ptr, ptr %1, align 8
-  %vfn.i.i.i.i.i.i = getelementptr inbounds ptr, ptr %vtable.i.i.i.i.i.i, i64 1
+  %vfn.i.i.i.i.i.i = getelementptr inbounds i8, ptr %vtable.i.i.i.i.i.i, i64 8
   %2 = load ptr, ptr %vfn.i.i.i.i.i.i, align 8
   tail call void %2(ptr noundef nonnull align 8 dereferenceable(8) %1) #13
   br label %_ZNSt8__detail16_Hashtable_allocISaINS_10_Hash_nodeISt4pairIKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt10unique_ptrIN8facebook5velox4exec25FunctionCallToSpecialFormESt14default_deleteISE_EEELb1EEEEE18_M_deallocate_nodeEPSJ_.exit
@@ -768,7 +768,7 @@ entry:
 
 if.end:                                           ; preds = %entry
   %2 = load ptr, ptr %1, align 8
-  %_M_bucket_count.i = getelementptr inbounds %"class.std::_Hashtable", ptr %this, i64 0, i32 1
+  %_M_bucket_count.i = getelementptr inbounds i8, ptr %this, i64 8
   %add.ptr.i.phi.trans.insert = getelementptr inbounds i8, ptr %2, i64 48
   %.pre = load i64, ptr %add.ptr.i.phi.trans.insert, align 8
   br label %for.cond
@@ -850,7 +850,7 @@ entry:
   br i1 %cmp.i, label %if.then.i, label %if.end.i
 
 if.then.i:                                        ; preds = %entry
-  %_M_single_bucket.i = getelementptr inbounds %"class.std::_Hashtable", ptr %this, i64 0, i32 5
+  %_M_single_bucket.i = getelementptr inbounds i8, ptr %this, i64 48
   store ptr null, ptr %_M_single_bucket.i, align 8
   br label %_ZNSt10_HashtableINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS5_St10unique_ptrIN8facebook5velox4exec25FunctionCallToSpecialFormESt14default_deleteISC_EEESaISG_ENSt8__detail10_Select1stESt8equal_toIS5_ESt4hashIS5_ENSI_18_Mod_range_hashingENSI_20_Default_ranged_hashENSI_20_Prime_rehash_policyENSI_17_Hashtable_traitsILb1ELb0ELb1EEEE19_M_allocate_bucketsEm.exit
 
@@ -878,7 +878,7 @@ _ZNSt8__detail16_Hashtable_allocISaINS_10_Hash_nodeISt4pairIKNSt7__cxx1112basic_
 
 _ZNSt10_HashtableINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS5_St10unique_ptrIN8facebook5velox4exec25FunctionCallToSpecialFormESt14default_deleteISC_EEESaISG_ENSt8__detail10_Select1stESt8equal_toIS5_ESt4hashIS5_ENSI_18_Mod_range_hashingENSI_20_Default_ranged_hashENSI_20_Prime_rehash_policyENSI_17_Hashtable_traitsILb1ELb0ELb1EEEE19_M_allocate_bucketsEm.exit: ; preds = %if.then.i, %_ZNSt8__detail16_Hashtable_allocISaINS_10_Hash_nodeISt4pairIKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt10unique_ptrIN8facebook5velox4exec25FunctionCallToSpecialFormESt14default_deleteISE_EEELb1EEEEE19_M_allocate_bucketsEm.exit.i
   %retval.0.i = phi ptr [ %_M_single_bucket.i, %if.then.i ], [ %call5.i.i4.i.i, %_ZNSt8__detail16_Hashtable_allocISaINS_10_Hash_nodeISt4pairIKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt10unique_ptrIN8facebook5velox4exec25FunctionCallToSpecialFormESt14default_deleteISE_EEELb1EEEEE19_M_allocate_bucketsEm.exit.i ]
-  %_M_before_begin.i = getelementptr inbounds %"class.std::_Hashtable", ptr %this, i64 0, i32 2
+  %_M_before_begin.i = getelementptr inbounds i8, ptr %this, i64 16
   %0 = load ptr, ptr %_M_before_begin.i, align 8
   store ptr null, ptr %_M_before_begin.i, align 8
   %tobool.not20 = icmp eq ptr %0, null
@@ -928,7 +928,7 @@ if.end22:                                         ; preds = %if.end22.sink.split
 
 while.end:                                        ; preds = %if.end22, %_ZNSt10_HashtableINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS5_St10unique_ptrIN8facebook5velox4exec25FunctionCallToSpecialFormESt14default_deleteISC_EEESaISG_ENSt8__detail10_Select1stESt8equal_toIS5_ESt4hashIS5_ENSI_18_Mod_range_hashingENSI_20_Default_ranged_hashENSI_20_Prime_rehash_policyENSI_17_Hashtable_traitsILb1ELb0ELb1EEEE19_M_allocate_bucketsEm.exit
   %8 = load ptr, ptr %this, align 8
-  %_M_single_bucket.i.i.i = getelementptr inbounds %"class.std::_Hashtable", ptr %this, i64 0, i32 5
+  %_M_single_bucket.i.i.i = getelementptr inbounds i8, ptr %this, i64 48
   %cmp.i.i.i = icmp eq ptr %_M_single_bucket.i.i.i, %8
   br i1 %cmp.i.i.i, label %_ZNSt10_HashtableINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS5_St10unique_ptrIN8facebook5velox4exec25FunctionCallToSpecialFormESt14default_deleteISC_EEESaISG_ENSt8__detail10_Select1stESt8equal_toIS5_ESt4hashIS5_ENSI_18_Mod_range_hashingENSI_20_Default_ranged_hashENSI_20_Prime_rehash_policyENSI_17_Hashtable_traitsILb1ELb0ELb1EEEE21_M_deallocate_bucketsEv.exit, label %if.end.i.i
 
@@ -937,7 +937,7 @@ if.end.i.i:                                       ; preds = %while.end
   br label %_ZNSt10_HashtableINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS5_St10unique_ptrIN8facebook5velox4exec25FunctionCallToSpecialFormESt14default_deleteISC_EEESaISG_ENSt8__detail10_Select1stESt8equal_toIS5_ESt4hashIS5_ENSI_18_Mod_range_hashingENSI_20_Default_ranged_hashENSI_20_Prime_rehash_policyENSI_17_Hashtable_traitsILb1ELb0ELb1EEEE21_M_deallocate_bucketsEv.exit
 
 _ZNSt10_HashtableINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS5_St10unique_ptrIN8facebook5velox4exec25FunctionCallToSpecialFormESt14default_deleteISC_EEESaISG_ENSt8__detail10_Select1stESt8equal_toIS5_ESt4hashIS5_ENSI_18_Mod_range_hashingENSI_20_Default_ranged_hashENSI_20_Prime_rehash_policyENSI_17_Hashtable_traitsILb1ELb0ELb1EEEE21_M_deallocate_bucketsEv.exit: ; preds = %while.end, %if.end.i.i
-  %_M_bucket_count = getelementptr inbounds %"class.std::_Hashtable", ptr %this, i64 0, i32 1
+  %_M_bucket_count = getelementptr inbounds i8, ptr %this, i64 8
   store i64 %__bkt_count, ptr %_M_bucket_count, align 8
   store ptr %retval.0.i, ptr %this, align 8
   ret void
@@ -953,7 +953,7 @@ declare void @_ZN5folly15SharedMutexImplILb0EvSt6atomicNS_24SharedMutexPolicyDef
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZN5folly9LockedPtrIKNS_12SynchronizedISt13unordered_mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt10unique_ptrIN8facebook5velox4exec25FunctionCallToSpecialFormESt14default_deleteISD_EESt4hashIS8_ESt8equal_toIS8_ESaISt4pairIKS8_SG_EEENS_15SharedMutexImplILb0EvSt6atomicNS_24SharedMutexPolicyDefaultEEEEENS_6detail22SynchronizedLockPolicyILNSW_22SynchronizedMutexLevelE2ELNSW_23SynchronizedMutexMethodE0EEEED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %this) unnamed_addr #1 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  %_M_owns.i = getelementptr inbounds %"class.std::shared_lock", ptr %this, i64 0, i32 1
+  %_M_owns.i = getelementptr inbounds i8, ptr %this, i64 8
   %0 = load i8, ptr %_M_owns.i, align 8
   %1 = and i8 %0, 1
   %tobool.not.i = icmp eq i8 %1, 0
@@ -978,13 +978,13 @@ _ZNSt11shared_lockIN5folly15SharedMutexImplILb0EvSt6atomicNS0_24SharedMutexPolic
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr ptr @_ZNKSt10_HashtableINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS5_St10unique_ptrIN8facebook5velox4exec25FunctionCallToSpecialFormESt14default_deleteISC_EEESaISG_ENSt8__detail10_Select1stESt8equal_toIS5_ESt4hashIS5_ENSI_18_Mod_range_hashingENSI_20_Default_ranged_hashENSI_20_Prime_rehash_policyENSI_17_Hashtable_traitsILb1ELb0ELb1EEEE4findERS7_(ptr noundef nonnull align 8 dereferenceable(56) %this, ptr noundef nonnull align 8 dereferenceable(32) %__k) local_unnamed_addr #0 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  %_M_element_count.i = getelementptr inbounds %"class.std::_Hashtable", ptr %this, i64 0, i32 3
+  %_M_element_count.i = getelementptr inbounds i8, ptr %this, i64 24
   %0 = load i64, ptr %_M_element_count.i, align 8
   %cmp.not = icmp ugt i64 %0, 20
   br i1 %cmp.not, label %if.end15, label %if.then
 
 if.then:                                          ; preds = %entry
-  %_M_before_begin.i.i = getelementptr inbounds %"class.std::_Hashtable", ptr %this, i64 0, i32 2
+  %_M_before_begin.i.i = getelementptr inbounds i8, ptr %this, i64 16
   %retval.sroa.0.08 = load ptr, ptr %_M_before_begin.i.i, align 8
   %cmp.i.not9 = icmp eq ptr %retval.sroa.0.08, null
   br i1 %cmp.i.not9, label %return, label %for.body
@@ -1028,7 +1028,7 @@ terminate.lpad.i.i:                               ; preds = %if.end15
   unreachable
 
 _ZNKSt8__detail15_Hash_code_baseINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS6_St10unique_ptrIN8facebook5velox4exec25FunctionCallToSpecialFormESt14default_deleteISD_EEENS_10_Select1stESt4hashIS6_ENS_18_Mod_range_hashingENS_20_Default_ranged_hashELb1EE12_M_hash_codeERS8_.exit: ; preds = %if.end15
-  %_M_bucket_count.i = getelementptr inbounds %"class.std::_Hashtable", ptr %this, i64 0, i32 1
+  %_M_bucket_count.i = getelementptr inbounds i8, ptr %this, i64 8
   %4 = load i64, ptr %_M_bucket_count.i, align 8
   %rem.i.i.i = urem i64 %call.i2.i.i, %4
   %call.i = tail call noundef ptr @_ZNKSt10_HashtableINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS5_St10unique_ptrIN8facebook5velox4exec25FunctionCallToSpecialFormESt14default_deleteISC_EEESaISG_ENSt8__detail10_Select1stESt8equal_toIS5_ESt4hashIS5_ENSI_18_Mod_range_hashingENSI_20_Default_ranged_hashENSI_20_Prime_rehash_policyENSI_17_Hashtable_traitsILb1ELb0ELb1EEEE19_M_find_before_nodeEmRS7_m(ptr noundef nonnull align 8 dereferenceable(56) %this, i64 noundef %rem.i.i.i, ptr noundef nonnull align 8 dereferenceable(32) %__k, i64 noundef %call.i2.i.i)
@@ -1054,9 +1054,9 @@ declare i32 @__cxa_guard_acquire(ptr) local_unnamed_addr #9
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZN8facebook5velox4exec19SpecialFormRegistryD2Ev(ptr noundef nonnull align 8 dereferenceable(64) %this) unnamed_addr #1 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  %mutex_.i = getelementptr inbounds %"struct.folly::Synchronized", ptr %this, i64 0, i32 1
+  %mutex_.i = getelementptr inbounds i8, ptr %this, i64 56
   tail call void @_ZN5folly15SharedMutexImplILb0EvSt6atomicNS_24SharedMutexPolicyDefaultEED1Ev(ptr noundef nonnull align 4 dereferenceable(4) %mutex_.i) #13
-  %_M_before_begin.i.i.i.i.i = getelementptr inbounds %"class.std::_Hashtable", ptr %this, i64 0, i32 2
+  %_M_before_begin.i.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 16
   %0 = load ptr, ptr %_M_before_begin.i.i.i.i.i, align 8
   %tobool.not3.i.i.i.i.i = icmp eq ptr %0, null
   br i1 %tobool.not3.i.i.i.i.i, label %_ZNSt10_HashtableINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS5_St10unique_ptrIN8facebook5velox4exec25FunctionCallToSpecialFormESt14default_deleteISC_EEESaISG_ENSt8__detail10_Select1stESt8equal_toIS5_ESt4hashIS5_ENSI_18_Mod_range_hashingENSI_20_Default_ranged_hashENSI_20_Prime_rehash_policyENSI_17_Hashtable_traitsILb1ELb0ELb1EEEE5clearEv.exit.i.i.i, label %while.body.i.i.i.i.i
@@ -1071,7 +1071,7 @@ while.body.i.i.i.i.i:                             ; preds = %entry, %_ZNSt8__det
 
 _ZNKSt14default_deleteIN8facebook5velox4exec25FunctionCallToSpecialFormEEclEPS3_.exit.i.i.i.i.i.i.i.i.i.i: ; preds = %while.body.i.i.i.i.i
   %vtable.i.i.i.i.i.i.i.i.i.i.i = load ptr, ptr %2, align 8
-  %vfn.i.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds ptr, ptr %vtable.i.i.i.i.i.i.i.i.i.i.i, i64 1
+  %vfn.i.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %vtable.i.i.i.i.i.i.i.i.i.i.i, i64 8
   %3 = load ptr, ptr %vfn.i.i.i.i.i.i.i.i.i.i.i, align 8
   tail call void %3(ptr noundef nonnull align 8 dereferenceable(8) %2) #13
   br label %_ZNSt8__detail16_Hashtable_allocISaINS_10_Hash_nodeISt4pairIKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt10unique_ptrIN8facebook5velox4exec25FunctionCallToSpecialFormESt14default_deleteISE_EEELb1EEEEE18_M_deallocate_nodeEPSJ_.exit.i.i.i.i.i
@@ -1086,13 +1086,13 @@ _ZNSt8__detail16_Hashtable_allocISaINS_10_Hash_nodeISt4pairIKNSt7__cxx1112basic_
 
 _ZNSt10_HashtableINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS5_St10unique_ptrIN8facebook5velox4exec25FunctionCallToSpecialFormESt14default_deleteISC_EEESaISG_ENSt8__detail10_Select1stESt8equal_toIS5_ESt4hashIS5_ENSI_18_Mod_range_hashingENSI_20_Default_ranged_hashENSI_20_Prime_rehash_policyENSI_17_Hashtable_traitsILb1ELb0ELb1EEEE5clearEv.exit.i.i.i: ; preds = %_ZNSt8__detail16_Hashtable_allocISaINS_10_Hash_nodeISt4pairIKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt10unique_ptrIN8facebook5velox4exec25FunctionCallToSpecialFormESt14default_deleteISE_EEELb1EEEEE18_M_deallocate_nodeEPSJ_.exit.i.i.i.i.i, %entry
   %4 = load ptr, ptr %this, align 8
-  %_M_bucket_count.i.i.i.i = getelementptr inbounds %"class.std::_Hashtable", ptr %this, i64 0, i32 1
+  %_M_bucket_count.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 8
   %5 = load i64, ptr %_M_bucket_count.i.i.i.i, align 8
   %mul.i.i.i.i = shl i64 %5, 3
   tail call void @llvm.memset.p0.i64(ptr align 8 %4, i8 0, i64 %mul.i.i.i.i, i1 false)
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %_M_before_begin.i.i.i.i.i, i8 0, i64 16, i1 false)
   %6 = load ptr, ptr %this, align 8
-  %_M_single_bucket.i.i.i.i.i.i = getelementptr inbounds %"class.std::_Hashtable", ptr %this, i64 0, i32 5
+  %_M_single_bucket.i.i.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 48
   %cmp.i.i.i.i.i.i = icmp eq ptr %_M_single_bucket.i.i.i.i.i.i, %6
   br i1 %cmp.i.i.i.i.i.i, label %_ZN5folly12SynchronizedISt13unordered_mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt10unique_ptrIN8facebook5velox4exec25FunctionCallToSpecialFormESt14default_deleteISC_EESt4hashIS7_ESt8equal_toIS7_ESaISt4pairIKS7_SF_EEENS_15SharedMutexImplILb0EvSt6atomicNS_24SharedMutexPolicyDefaultEEEED2Ev.exit, label %if.end.i.i.i.i.i
 

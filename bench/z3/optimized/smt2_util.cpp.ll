@@ -191,10 +191,10 @@ define hidden void @_Z21mk_smt2_quoted_symbolB5cxx11RK6symbol(ptr noalias sret(%
 invoke.cont:
   %buffer = alloca %class.string_buffer, align 8
   %ref.tmp = alloca %"class.std::allocator", align 1
-  %m_buffer.i = getelementptr inbounds %class.string_buffer, ptr %buffer, i64 0, i32 1
+  %m_buffer.i = getelementptr inbounds i8, ptr %buffer, i64 64
   store ptr %buffer, ptr %m_buffer.i, align 8
-  %m_pos.i = getelementptr inbounds %class.string_buffer, ptr %buffer, i64 0, i32 2
-  %m_capacity.i = getelementptr inbounds %class.string_buffer, ptr %buffer, i64 0, i32 3
+  %m_pos.i = getelementptr inbounds i8, ptr %buffer, i64 72
+  %m_capacity.i = getelementptr inbounds i8, ptr %buffer, i64 80
   store i64 64, ptr %m_capacity.i, align 8
   store i8 124, ptr %buffer, align 8
   store i64 1, ptr %m_pos.i, align 8
@@ -493,13 +493,13 @@ declare void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1)) unnam
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN13string_bufferILj64EED2Ev(ptr noundef nonnull align 8 dereferenceable(88) %this) unnamed_addr #8 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  %m_capacity = getelementptr inbounds %class.string_buffer, ptr %this, i64 0, i32 3
+  %m_capacity = getelementptr inbounds i8, ptr %this, i64 80
   %0 = load i64, ptr %m_capacity, align 8
   %cmp = icmp ugt i64 %0, 64
   br i1 %cmp, label %if.then, label %if.end
 
 if.then:                                          ; preds = %entry
-  %m_buffer = getelementptr inbounds %class.string_buffer, ptr %this, i64 0, i32 1
+  %m_buffer = getelementptr inbounds i8, ptr %this, i64 64
   %1 = load ptr, ptr %m_buffer, align 8
   %cmp.i = icmp eq ptr %1, null
   br i1 %cmp.i, label %if.end, label %if.end.i

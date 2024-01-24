@@ -4,11 +4,6 @@ target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:
 target triple = "x86_64-unknown-linux-gnu"
 
 %"class.std::ios_base::Init" = type { i8 }
-%"class.grpc_event_engine::experimental::ChannelArgsEndpointConfig" = type { %"class.grpc_event_engine::experimental::EndpointConfig", %"class.grpc_core::ChannelArgs" }
-%"class.grpc_event_engine::experimental::EndpointConfig" = type { ptr }
-%"class.grpc_core::ChannelArgs" = type { %"class.grpc_core::AVL" }
-%"class.grpc_core::AVL" = type { %"class.grpc_core::RefCountedPtr" }
-%"class.grpc_core::RefCountedPtr" = type { ptr }
 %"class.std::optional.0" = type { %"struct.std::_Optional_base.1" }
 %"struct.std::_Optional_base.1" = type { %"struct.std::_Optional_payload.3" }
 %"struct.std::_Optional_payload.3" = type { %"struct.std::_Optional_payload_base.base.5", [7 x i8] }
@@ -47,7 +42,7 @@ declare i32 @__cxa_atexit(ptr, ptr, ptr) local_unnamed_addr #2
 ; Function Attrs: mustprogress uwtable
 define i64 @_ZNK17grpc_event_engine12experimental25ChannelArgsEndpointConfig6GetIntESt17basic_string_viewIcSt11char_traitsIcEE(ptr noundef nonnull align 8 dereferenceable(16) %this, i64 %key.coerce0, ptr %key.coerce1) unnamed_addr #3 align 2 {
 entry:
-  %args_ = getelementptr inbounds %"class.grpc_event_engine::experimental::ChannelArgsEndpointConfig", ptr %this, i64 0, i32 1
+  %args_ = getelementptr inbounds i8, ptr %this, i64 8
   %call = tail call i64 @_ZNK9grpc_core11ChannelArgs6GetIntESt17basic_string_viewIcSt11char_traitsIcEE(ptr noundef nonnull align 8 dereferenceable(8) %args_, i64 %key.coerce0, ptr %key.coerce1)
   ret i64 %call
 }
@@ -57,7 +52,7 @@ declare i64 @_ZNK9grpc_core11ChannelArgs6GetIntESt17basic_string_viewIcSt11char_
 ; Function Attrs: mustprogress uwtable
 define void @_ZNK17grpc_event_engine12experimental25ChannelArgsEndpointConfig9GetStringESt17basic_string_viewIcSt11char_traitsIcEE(ptr noalias sret(%"class.std::optional.0") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(16) %this, i64 %key.coerce0, ptr %key.coerce1) unnamed_addr #3 align 2 {
 entry:
-  %args_ = getelementptr inbounds %"class.grpc_event_engine::experimental::ChannelArgsEndpointConfig", ptr %this, i64 0, i32 1
+  %args_ = getelementptr inbounds i8, ptr %this, i64 8
   tail call void @_ZNK9grpc_core11ChannelArgs9GetStringESt17basic_string_viewIcSt11char_traitsIcEE(ptr sret(%"class.std::optional.0") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(8) %args_, i64 %key.coerce0, ptr %key.coerce1)
   ret void
 }
@@ -76,7 +71,7 @@ _ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i:   ; preds = %entry
   br i1 %cmp.i.i, label %if.then, label %if.end
 
 if.then:                                          ; preds = %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i
-  %args_ = getelementptr inbounds %"class.grpc_event_engine::experimental::ChannelArgsEndpointConfig", ptr %this, i64 0, i32 1
+  %args_ = getelementptr inbounds i8, ptr %this, i64 8
   %call.i.i2 = tail call noundef ptr @_ZNK9grpc_core11ChannelArgs14GetVoidPointerESt17basic_string_viewIcSt11char_traitsIcEE(ptr noundef nonnull align 8 dereferenceable(8) %args_, i64 26, ptr nonnull @.str)
   %cmp.i.i3 = icmp eq ptr %call.i.i2, null
   br i1 %cmp.i.i3, label %return, label %if.end.i.i
@@ -86,7 +81,7 @@ if.end.i.i:                                       ; preds = %if.then
   br label %return
 
 if.end:                                           ; preds = %entry, %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i
-  %args_4 = getelementptr inbounds %"class.grpc_event_engine::experimental::ChannelArgsEndpointConfig", ptr %this, i64 0, i32 1
+  %args_4 = getelementptr inbounds i8, ptr %this, i64 8
   %call6 = tail call noundef ptr @_ZNK9grpc_core11ChannelArgs14GetVoidPointerESt17basic_string_viewIcSt11char_traitsIcEE(ptr noundef nonnull align 8 dereferenceable(8) %args_4, i64 %key.coerce0, ptr %key.coerce1)
   br label %return
 
@@ -101,7 +96,7 @@ declare noundef ptr @_ZNK9grpc_core11ChannelArgs14GetVoidPointerESt17basic_strin
 define linkonce_odr void @_ZN17grpc_event_engine12experimental25ChannelArgsEndpointConfigD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %this) unnamed_addr #4 comdat align 2 {
 entry:
   store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVN17grpc_event_engine12experimental25ChannelArgsEndpointConfigE, i64 0, inrange i32 0, i64 2), ptr %this, align 8
-  %args_ = getelementptr inbounds %"class.grpc_event_engine::experimental::ChannelArgsEndpointConfig", ptr %this, i64 0, i32 1
+  %args_ = getelementptr inbounds i8, ptr %this, i64 8
   tail call void @_ZN9grpc_core11ChannelArgsD1Ev(ptr noundef nonnull align 8 dereferenceable(8) %args_) #8
   ret void
 }
@@ -110,7 +105,7 @@ entry:
 define linkonce_odr void @_ZN17grpc_event_engine12experimental25ChannelArgsEndpointConfigD0Ev(ptr noundef nonnull align 8 dereferenceable(16) %this) unnamed_addr #4 comdat align 2 {
 entry:
   store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVN17grpc_event_engine12experimental25ChannelArgsEndpointConfigE, i64 0, inrange i32 0, i64 2), ptr %this, align 8
-  %args_.i = getelementptr inbounds %"class.grpc_event_engine::experimental::ChannelArgsEndpointConfig", ptr %this, i64 0, i32 1
+  %args_.i = getelementptr inbounds i8, ptr %this, i64 8
   tail call void @_ZN9grpc_core11ChannelArgsD1Ev(ptr noundef nonnull align 8 dereferenceable(8) %args_.i) #8
   tail call void @_ZdlPv(ptr noundef nonnull %this) #9
   ret void

@@ -3,11 +3,9 @@ source_filename = "bench/openssl/original/libssl-lib-quic_wire_pkt.ll"
 target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:128-n8:16:32:64-S128"
 target triple = "x86_64-unknown-linux-gnu"
 
-%struct.quic_hdr_protector_st = type { ptr, ptr, ptr, ptr, i32 }
-%struct.quic_pkt_hdr_ptrs_st = type { ptr, ptr, i64, ptr }
+%struct.wpacket_st = type { ptr, ptr, i64, i64, i64, ptr, i8 }
 %struct.quic_pkt_hdr_st = type { i24, i32, %struct.quic_conn_id_st, %struct.quic_conn_id_st, [4 x i8], ptr, i64, i64, ptr }
 %struct.quic_conn_id_st = type { i8, [20 x i8] }
-%struct.wpacket_st = type { ptr, ptr, i64, i64, i64, ptr, i8 }
 
 @.str = private unnamed_addr constant [12 x i8] c"AES-128-ECB\00", align 1
 @.str.1 = private unnamed_addr constant [12 x i8] c"AES-256-ECB\00", align 1
@@ -23,43 +21,43 @@ target triple = "x86_64-unknown-linux-gnu"
 @switch.table.ossl_quic_hdr_protector_init = private unnamed_addr constant [3 x ptr] [ptr @.str, ptr @.str.1, ptr @.str.2], align 8
 
 ; Function Attrs: nounwind uwtable
-define i32 @ossl_quic_hdr_protector_init(ptr nocapture noundef %hpr, ptr noundef %libctx, ptr noundef %propq, i32 noundef %cipher_id, ptr noundef %quic_hp_key, i64 noundef %quic_hp_key_len) local_unnamed_addr #0 {
+define noundef i32 @ossl_quic_hdr_protector_init(ptr nocapture noundef %hpr, ptr noundef %libctx, ptr noundef %propq, i32 noundef %cipher_id, ptr noundef %quic_hp_key, i64 noundef %quic_hp_key_len) local_unnamed_addr #0 {
 entry:
   %switch.tableidx = add i32 %cipher_id, -1
   %0 = icmp ult i32 %switch.tableidx, 3
   br i1 %0, label %switch.lookup, label %sw.default
 
 sw.default:                                       ; preds = %entry
-  tail call void @ERR_new() #10
-  tail call void @ERR_set_debug(ptr noundef nonnull @.str.3, i32 noundef 34, ptr noundef nonnull @__func__.ossl_quic_hdr_protector_init) #10
-  tail call void (i32, i32, ptr, ...) @ERR_set_error(i32 noundef 20, i32 noundef 524556, ptr noundef null) #10
+  tail call void @ERR_new() #9
+  tail call void @ERR_set_debug(ptr noundef nonnull @.str.3, i32 noundef 34, ptr noundef nonnull @__func__.ossl_quic_hdr_protector_init) #9
+  tail call void (i32, i32, ptr, ...) @ERR_set_error(i32 noundef 20, i32 noundef 524556, ptr noundef null) #9
   br label %return
 
 switch.lookup:                                    ; preds = %entry
   %1 = zext nneg i32 %switch.tableidx to i64
   %switch.gep = getelementptr inbounds [3 x ptr], ptr @switch.table.ossl_quic_hdr_protector_init, i64 0, i64 %1
   %switch.load = load ptr, ptr %switch.gep, align 8
-  %call = tail call ptr @EVP_CIPHER_CTX_new() #10
-  %cipher_ctx = getelementptr inbounds %struct.quic_hdr_protector_st, ptr %hpr, i64 0, i32 2
+  %call = tail call ptr @EVP_CIPHER_CTX_new() #9
+  %cipher_ctx = getelementptr inbounds i8, ptr %hpr, i64 16
   store ptr %call, ptr %cipher_ctx, align 8
   %cmp = icmp eq ptr %call, null
   br i1 %cmp, label %if.then, label %if.end
 
 if.then:                                          ; preds = %switch.lookup
-  tail call void @ERR_new() #10
-  tail call void @ERR_set_debug(ptr noundef nonnull @.str.3, i32 noundef 40, ptr noundef nonnull @__func__.ossl_quic_hdr_protector_init) #10
-  tail call void (i32, i32, ptr, ...) @ERR_set_error(i32 noundef 20, i32 noundef 524294, ptr noundef null) #10
+  tail call void @ERR_new() #9
+  tail call void @ERR_set_debug(ptr noundef nonnull @.str.3, i32 noundef 40, ptr noundef nonnull @__func__.ossl_quic_hdr_protector_init) #9
+  tail call void (i32, i32, ptr, ...) @ERR_set_error(i32 noundef 20, i32 noundef 524294, ptr noundef null) #9
   br label %return
 
 if.end:                                           ; preds = %switch.lookup
-  %call4 = tail call ptr @EVP_CIPHER_fetch(ptr noundef %libctx, ptr noundef nonnull %switch.load, ptr noundef %propq) #10
-  %cipher = getelementptr inbounds %struct.quic_hdr_protector_st, ptr %hpr, i64 0, i32 3
+  %call4 = tail call ptr @EVP_CIPHER_fetch(ptr noundef %libctx, ptr noundef nonnull %switch.load, ptr noundef %propq) #9
+  %cipher = getelementptr inbounds i8, ptr %hpr, i64 24
   store ptr %call4, ptr %cipher, align 8
   %cmp6 = icmp eq ptr %call4, null
   br i1 %cmp6, label %err, label %lor.lhs.false
 
 lor.lhs.false:                                    ; preds = %if.end
-  %call8 = tail call i32 @EVP_CIPHER_get_key_length(ptr noundef nonnull %call4) #10
+  %call8 = tail call i32 @EVP_CIPHER_get_key_length(ptr noundef nonnull %call4) #9
   %conv = sext i32 %call8 to i64
   %cmp9.not = icmp eq i64 %conv, %quic_hp_key_len
   br i1 %cmp9.not, label %if.end12, label %err
@@ -67,28 +65,28 @@ lor.lhs.false:                                    ; preds = %if.end
 if.end12:                                         ; preds = %lor.lhs.false
   %2 = load ptr, ptr %cipher_ctx, align 8
   %3 = load ptr, ptr %cipher, align 8
-  %call15 = tail call i32 @EVP_CipherInit_ex(ptr noundef %2, ptr noundef %3, ptr noundef null, ptr noundef %quic_hp_key, ptr noundef null, i32 noundef 1) #10
+  %call15 = tail call i32 @EVP_CipherInit_ex(ptr noundef %2, ptr noundef %3, ptr noundef null, ptr noundef %quic_hp_key, ptr noundef null, i32 noundef 1) #9
   %tobool.not = icmp eq i32 %call15, 0
   br i1 %tobool.not, label %err, label %if.end17
 
 if.end17:                                         ; preds = %if.end12
   store ptr %libctx, ptr %hpr, align 8
-  %propq19 = getelementptr inbounds %struct.quic_hdr_protector_st, ptr %hpr, i64 0, i32 1
+  %propq19 = getelementptr inbounds i8, ptr %hpr, i64 8
   store ptr %propq, ptr %propq19, align 8
-  %cipher_id20 = getelementptr inbounds %struct.quic_hdr_protector_st, ptr %hpr, i64 0, i32 4
+  %cipher_id20 = getelementptr inbounds i8, ptr %hpr, i64 32
   store i32 %cipher_id, ptr %cipher_id20, align 8
   br label %return
 
 err:                                              ; preds = %if.end12, %if.end, %lor.lhs.false
   %.sink = phi i32 [ 47, %lor.lhs.false ], [ 47, %if.end ], [ 53, %if.end12 ]
-  tail call void @ERR_new() #10
-  tail call void @ERR_set_debug(ptr noundef nonnull @.str.3, i32 noundef %.sink, ptr noundef nonnull @__func__.ossl_quic_hdr_protector_init) #10
-  tail call void (i32, i32, ptr, ...) @ERR_set_error(i32 noundef 20, i32 noundef 524294, ptr noundef null) #10
+  tail call void @ERR_new() #9
+  tail call void @ERR_set_debug(ptr noundef nonnull @.str.3, i32 noundef %.sink, ptr noundef nonnull @__func__.ossl_quic_hdr_protector_init) #9
+  tail call void (i32, i32, ptr, ...) @ERR_set_error(i32 noundef 20, i32 noundef 524294, ptr noundef null) #9
   %4 = load ptr, ptr %cipher_ctx, align 8
-  tail call void @EVP_CIPHER_CTX_free(ptr noundef %4) #10
+  tail call void @EVP_CIPHER_CTX_free(ptr noundef %4) #9
   store ptr null, ptr %cipher_ctx, align 8
   %5 = load ptr, ptr %cipher, align 8
-  tail call void @EVP_CIPHER_free(ptr noundef %5) #10
+  tail call void @EVP_CIPHER_free(ptr noundef %5) #9
   store ptr null, ptr %cipher, align 8
   br label %return
 
@@ -114,13 +112,13 @@ declare i32 @EVP_CipherInit_ex(ptr noundef, ptr noundef, ptr noundef, ptr nounde
 ; Function Attrs: nounwind uwtable
 define void @ossl_quic_hdr_protector_cleanup(ptr nocapture noundef %hpr) local_unnamed_addr #0 {
 entry:
-  %cipher_ctx = getelementptr inbounds %struct.quic_hdr_protector_st, ptr %hpr, i64 0, i32 2
+  %cipher_ctx = getelementptr inbounds i8, ptr %hpr, i64 16
   %0 = load ptr, ptr %cipher_ctx, align 8
-  tail call void @EVP_CIPHER_CTX_free(ptr noundef %0) #10
+  tail call void @EVP_CIPHER_CTX_free(ptr noundef %0) #9
   store ptr null, ptr %cipher_ctx, align 8
-  %cipher = getelementptr inbounds %struct.quic_hdr_protector_st, ptr %hpr, i64 0, i32 3
+  %cipher = getelementptr inbounds i8, ptr %hpr, i64 24
   %1 = load ptr, ptr %cipher, align 8
-  tail call void @EVP_CIPHER_free(ptr noundef %1) #10
+  tail call void @EVP_CIPHER_free(ptr noundef %1) #9
   store ptr null, ptr %cipher, align 8
   ret void
 }
@@ -130,15 +128,15 @@ declare void @EVP_CIPHER_CTX_free(ptr noundef) local_unnamed_addr #1
 declare void @EVP_CIPHER_free(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define i32 @ossl_quic_hdr_protector_decrypt(ptr nocapture noundef readonly %hpr, ptr nocapture noundef readonly %ptrs) local_unnamed_addr #0 {
+define noundef i32 @ossl_quic_hdr_protector_decrypt(ptr nocapture noundef readonly %hpr, ptr nocapture noundef readonly %ptrs) local_unnamed_addr #0 {
 entry:
   %mask.i = alloca [5 x i8], align 1
-  %raw_sample = getelementptr inbounds %struct.quic_pkt_hdr_ptrs_st, ptr %ptrs, i64 0, i32 1
+  %raw_sample = getelementptr inbounds i8, ptr %ptrs, i64 8
   %0 = load ptr, ptr %raw_sample, align 8
-  %raw_sample_len = getelementptr inbounds %struct.quic_pkt_hdr_ptrs_st, ptr %ptrs, i64 0, i32 2
+  %raw_sample_len = getelementptr inbounds i8, ptr %ptrs, i64 16
   %1 = load i64, ptr %raw_sample_len, align 8
   %2 = load ptr, ptr %ptrs, align 8
-  %raw_pn = getelementptr inbounds %struct.quic_pkt_hdr_ptrs_st, ptr %ptrs, i64 0, i32 3
+  %raw_pn = getelementptr inbounds i8, ptr %ptrs, i64 24
   %3 = load ptr, ptr %raw_pn, align 8
   call void @llvm.lifetime.start.p0(i64 5, ptr nonnull %mask.i)
   %call.i = call fastcc i32 @hdr_generate_mask(ptr noundef %hpr, ptr noundef %0, i64 noundef %1, ptr noundef nonnull %mask.i), !range !4
@@ -177,7 +175,7 @@ ossl_quic_hdr_protector_decrypt_fields.exit:      ; preds = %for.body.i, %entry
 }
 
 ; Function Attrs: nounwind uwtable
-define i32 @ossl_quic_hdr_protector_decrypt_fields(ptr nocapture noundef readonly %hpr, ptr noundef %sample, i64 noundef %sample_len, ptr nocapture noundef %first_byte, ptr nocapture noundef %pn_bytes) local_unnamed_addr #0 {
+define noundef i32 @ossl_quic_hdr_protector_decrypt_fields(ptr nocapture noundef readonly %hpr, ptr noundef %sample, i64 noundef %sample_len, ptr nocapture noundef %first_byte, ptr nocapture noundef %pn_bytes) local_unnamed_addr #0 {
 entry:
   %mask = alloca [5 x i8], align 1
   %call = call fastcc i32 @hdr_generate_mask(ptr noundef %hpr, ptr noundef %sample, i64 noundef %sample_len, ptr noundef nonnull %mask), !range !4
@@ -215,12 +213,12 @@ return:                                           ; preds = %for.body, %entry
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @hdr_generate_mask(ptr nocapture noundef readonly %hpr, ptr noundef %sample, i64 noundef %sample_len, ptr noundef %mask) unnamed_addr #0 {
+define internal fastcc noundef i32 @hdr_generate_mask(ptr nocapture noundef readonly %hpr, ptr noundef %sample, i64 noundef %sample_len, ptr noundef %mask) unnamed_addr #0 {
 entry:
   %l = alloca i32, align 4
   %dst = alloca [16 x i8], align 16
   store i32 0, ptr %l, align 4
-  %cipher_id = getelementptr inbounds %struct.quic_hdr_protector_st, ptr %hpr, i64 0, i32 4
+  %cipher_id = getelementptr inbounds i8, ptr %hpr, i64 32
   %0 = load i32, ptr %cipher_id, align 8
   switch i32 %0, label %if.else28 [
     i32 1, label %if.then
@@ -233,21 +231,21 @@ if.then:                                          ; preds = %entry, %entry
   br i1 %cmp3, label %if.then4, label %if.end
 
 if.then4:                                         ; preds = %if.then
-  tail call void @ERR_new() #10
-  tail call void @ERR_set_debug(ptr noundef nonnull @.str.3, i32 noundef 88, ptr noundef nonnull @__func__.hdr_generate_mask) #10
-  tail call void (i32, i32, ptr, ...) @ERR_set_error(i32 noundef 20, i32 noundef 524550, ptr noundef null) #10
+  tail call void @ERR_new() #9
+  tail call void @ERR_set_debug(ptr noundef nonnull @.str.3, i32 noundef 88, ptr noundef nonnull @__func__.hdr_generate_mask) #9
+  tail call void (i32, i32, ptr, ...) @ERR_set_error(i32 noundef 20, i32 noundef 524550, ptr noundef null) #9
   br label %return
 
 if.end:                                           ; preds = %if.then
-  %cipher_ctx = getelementptr inbounds %struct.quic_hdr_protector_st, ptr %hpr, i64 0, i32 2
+  %cipher_ctx = getelementptr inbounds i8, ptr %hpr, i64 16
   %1 = load ptr, ptr %cipher_ctx, align 8
-  %call = tail call i32 @EVP_CipherInit_ex(ptr noundef %1, ptr noundef null, ptr noundef null, ptr noundef null, ptr noundef null, i32 noundef 1) #10
+  %call = tail call i32 @EVP_CipherInit_ex(ptr noundef %1, ptr noundef null, ptr noundef null, ptr noundef null, ptr noundef null, i32 noundef 1) #9
   %tobool.not = icmp eq i32 %call, 0
   br i1 %tobool.not, label %if.then9, label %lor.lhs.false5
 
 lor.lhs.false5:                                   ; preds = %if.end
   %2 = load ptr, ptr %cipher_ctx, align 8
-  %call7 = call i32 @EVP_CipherUpdate(ptr noundef %2, ptr noundef nonnull %dst, ptr noundef nonnull %l, ptr noundef %sample, i32 noundef 16) #10
+  %call7 = call i32 @EVP_CipherUpdate(ptr noundef %2, ptr noundef nonnull %dst, ptr noundef nonnull %l, ptr noundef %sample, i32 noundef 16) #9
   %tobool8.not = icmp eq i32 %call7, 0
   br i1 %tobool8.not, label %if.then9, label %for.body.preheader
 
@@ -256,9 +254,9 @@ for.body.preheader:                               ; preds = %lor.lhs.false5
   br label %return
 
 if.then9:                                         ; preds = %lor.lhs.false5, %if.end
-  call void @ERR_new() #10
-  call void @ERR_set_debug(ptr noundef nonnull @.str.3, i32 noundef 94, ptr noundef nonnull @__func__.hdr_generate_mask) #10
-  call void (i32, i32, ptr, ...) @ERR_set_error(i32 noundef 20, i32 noundef 524294, ptr noundef null) #10
+  call void @ERR_new() #9
+  call void @ERR_set_debug(ptr noundef nonnull @.str.3, i32 noundef 94, ptr noundef nonnull @__func__.hdr_generate_mask) #9
+  call void (i32, i32, ptr, ...) @ERR_set_error(i32 noundef 20, i32 noundef 524294, ptr noundef null) #9
   br label %return
 
 if.then15:                                        ; preds = %entry
@@ -266,34 +264,34 @@ if.then15:                                        ; preds = %entry
   br i1 %cmp16, label %if.then17, label %if.end18
 
 if.then17:                                        ; preds = %if.then15
-  tail call void @ERR_new() #10
-  tail call void @ERR_set_debug(ptr noundef nonnull @.str.3, i32 noundef 102, ptr noundef nonnull @__func__.hdr_generate_mask) #10
-  tail call void (i32, i32, ptr, ...) @ERR_set_error(i32 noundef 20, i32 noundef 524550, ptr noundef null) #10
+  tail call void @ERR_new() #9
+  tail call void @ERR_set_debug(ptr noundef nonnull @.str.3, i32 noundef 102, ptr noundef nonnull @__func__.hdr_generate_mask) #9
+  tail call void (i32, i32, ptr, ...) @ERR_set_error(i32 noundef 20, i32 noundef 524550, ptr noundef null) #9
   br label %return
 
 if.end18:                                         ; preds = %if.then15
-  %cipher_ctx19 = getelementptr inbounds %struct.quic_hdr_protector_st, ptr %hpr, i64 0, i32 2
+  %cipher_ctx19 = getelementptr inbounds i8, ptr %hpr, i64 16
   %3 = load ptr, ptr %cipher_ctx19, align 8
-  %call20 = tail call i32 @EVP_CipherInit_ex(ptr noundef %3, ptr noundef null, ptr noundef null, ptr noundef null, ptr noundef %sample, i32 noundef 1) #10
+  %call20 = tail call i32 @EVP_CipherInit_ex(ptr noundef %3, ptr noundef null, ptr noundef null, ptr noundef null, ptr noundef %sample, i32 noundef 1) #9
   %tobool21.not = icmp eq i32 %call20, 0
   br i1 %tobool21.not, label %if.then26, label %lor.lhs.false22
 
 lor.lhs.false22:                                  ; preds = %if.end18
   %4 = load ptr, ptr %cipher_ctx19, align 8
-  %call24 = call i32 @EVP_CipherUpdate(ptr noundef %4, ptr noundef %mask, ptr noundef nonnull %l, ptr noundef nonnull @hdr_generate_mask.zeroes, i32 noundef 5) #10
+  %call24 = call i32 @EVP_CipherUpdate(ptr noundef %4, ptr noundef %mask, ptr noundef nonnull %l, ptr noundef nonnull @hdr_generate_mask.zeroes, i32 noundef 5) #9
   %tobool25.not = icmp eq i32 %call24, 0
   br i1 %tobool25.not, label %if.then26, label %return
 
 if.then26:                                        ; preds = %lor.lhs.false22, %if.end18
-  call void @ERR_new() #10
-  call void @ERR_set_debug(ptr noundef nonnull @.str.3, i32 noundef 109, ptr noundef nonnull @__func__.hdr_generate_mask) #10
-  call void (i32, i32, ptr, ...) @ERR_set_error(i32 noundef 20, i32 noundef 524294, ptr noundef null) #10
+  call void @ERR_new() #9
+  call void @ERR_set_debug(ptr noundef nonnull @.str.3, i32 noundef 109, ptr noundef nonnull @__func__.hdr_generate_mask) #9
+  call void (i32, i32, ptr, ...) @ERR_set_error(i32 noundef 20, i32 noundef 524294, ptr noundef null) #9
   br label %return
 
 if.else28:                                        ; preds = %entry
-  tail call void @ERR_new() #10
-  tail call void @ERR_set_debug(ptr noundef nonnull @.str.3, i32 noundef 113, ptr noundef nonnull @__func__.hdr_generate_mask) #10
-  tail call void (i32, i32, ptr, ...) @ERR_set_error(i32 noundef 20, i32 noundef 786691, ptr noundef null) #10
+  tail call void @ERR_new() #9
+  tail call void @ERR_set_debug(ptr noundef nonnull @.str.3, i32 noundef 113, ptr noundef nonnull @__func__.hdr_generate_mask) #9
+  tail call void (i32, i32, ptr, ...) @ERR_set_error(i32 noundef 20, i32 noundef 786691, ptr noundef null) #9
   br label %return
 
 return:                                           ; preds = %for.body.preheader, %lor.lhs.false22, %if.else28, %if.then26, %if.then17, %if.then9, %if.then4
@@ -302,15 +300,15 @@ return:                                           ; preds = %for.body.preheader,
 }
 
 ; Function Attrs: nounwind uwtable
-define i32 @ossl_quic_hdr_protector_encrypt(ptr nocapture noundef readonly %hpr, ptr nocapture noundef readonly %ptrs) local_unnamed_addr #0 {
+define noundef i32 @ossl_quic_hdr_protector_encrypt(ptr nocapture noundef readonly %hpr, ptr nocapture noundef readonly %ptrs) local_unnamed_addr #0 {
 entry:
   %mask.i = alloca [5 x i8], align 1
-  %raw_sample = getelementptr inbounds %struct.quic_pkt_hdr_ptrs_st, ptr %ptrs, i64 0, i32 1
+  %raw_sample = getelementptr inbounds i8, ptr %ptrs, i64 8
   %0 = load ptr, ptr %raw_sample, align 8
-  %raw_sample_len = getelementptr inbounds %struct.quic_pkt_hdr_ptrs_st, ptr %ptrs, i64 0, i32 2
+  %raw_sample_len = getelementptr inbounds i8, ptr %ptrs, i64 16
   %1 = load i64, ptr %raw_sample_len, align 8
   %2 = load ptr, ptr %ptrs, align 8
-  %raw_pn = getelementptr inbounds %struct.quic_pkt_hdr_ptrs_st, ptr %ptrs, i64 0, i32 3
+  %raw_pn = getelementptr inbounds i8, ptr %ptrs, i64 24
   %3 = load ptr, ptr %raw_pn, align 8
   call void @llvm.lifetime.start.p0(i64 5, ptr nonnull %mask.i)
   %call.i = call fastcc i32 @hdr_generate_mask(ptr noundef %hpr, ptr noundef %0, i64 noundef %1, ptr noundef nonnull %mask.i), !range !4
@@ -353,7 +351,7 @@ ossl_quic_hdr_protector_encrypt_fields.exit:      ; preds = %entry, %for.end.i
 }
 
 ; Function Attrs: nounwind uwtable
-define i32 @ossl_quic_hdr_protector_encrypt_fields(ptr nocapture noundef readonly %hpr, ptr noundef %sample, i64 noundef %sample_len, ptr nocapture noundef %first_byte, ptr nocapture noundef %pn_bytes) local_unnamed_addr #0 {
+define noundef i32 @ossl_quic_hdr_protector_encrypt_fields(ptr nocapture noundef readonly %hpr, ptr noundef %sample, i64 noundef %sample_len, ptr nocapture noundef %first_byte, ptr nocapture noundef %pn_bytes) local_unnamed_addr #0 {
 entry:
   %mask = alloca [5 x i8], align 1
   %call = call fastcc i32 @hdr_generate_mask(ptr noundef %hpr, ptr noundef %sample, i64 noundef %sample_len, ptr noundef nonnull %mask), !range !4
@@ -395,7 +393,7 @@ return:                                           ; preds = %entry, %for.end
 }
 
 ; Function Attrs: nounwind uwtable
-define i32 @ossl_quic_wire_decode_pkt_hdr(ptr nocapture noundef %pkt, i64 noundef %short_conn_id_len, i32 noundef %partial, i32 noundef %nodata, ptr nocapture noundef %hdr, ptr noundef writeonly %ptrs) local_unnamed_addr #0 {
+define noundef i32 @ossl_quic_wire_decode_pkt_hdr(ptr nocapture noundef %pkt, i64 noundef %short_conn_id_len, i32 noundef %partial, i32 noundef %nodata, ptr nocapture noundef %hdr, ptr noundef writeonly %ptrs) local_unnamed_addr #0 {
 entry:
   %token_len237 = alloca i64, align 8
   %len285 = alloca i64, align 8
@@ -407,7 +405,7 @@ entry:
 if.then:                                          ; preds = %entry
   %pkt.val136 = load ptr, ptr %pkt, align 8
   store ptr %pkt.val136, ptr %ptrs, align 8
-  %raw_sample = getelementptr inbounds %struct.quic_pkt_hdr_ptrs_st, ptr %ptrs, i64 0, i32 1
+  %raw_sample = getelementptr inbounds i8, ptr %ptrs, i64 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %raw_sample, i8 0, i64 24, i1 false)
   br label %if.end
 
@@ -482,7 +480,7 @@ if.end67:                                         ; preds = %if.else, %if.then37
   br i1 %cmp.i.i, label %return, label %if.end71
 
 if.end71:                                         ; preds = %if.end67
-  %id = getelementptr inbounds %struct.quic_pkt_hdr_st, ptr %hdr, i64 0, i32 2, i32 1
+  %id = getelementptr inbounds i8, ptr %hdr, i64 9
   %6 = load ptr, ptr %pkt, align 8
   tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %id, ptr align 1 %6, i64 %short_conn_id_len, i1 false)
   %7 = load ptr, ptr %pkt, align 8
@@ -491,10 +489,10 @@ if.end71:                                         ; preds = %if.end67
   %8 = load i64, ptr %0, align 8
   %sub.i.i148 = sub i64 %8, %short_conn_id_len
   store i64 %sub.i.i148, ptr %0, align 8
-  %dst_conn_id = getelementptr inbounds %struct.quic_pkt_hdr_st, ptr %hdr, i64 0, i32 2
+  %dst_conn_id = getelementptr inbounds i8, ptr %hdr, i64 8
   %conv72 = trunc i64 %short_conn_id_len to i8
   store i8 %conv72, ptr %dst_conn_id, align 8
-  %pn74 = getelementptr inbounds %struct.quic_pkt_hdr_st, ptr %hdr, i64 0, i32 4
+  %pn74 = getelementptr inbounds i8, ptr %hdr, i64 50
   store i32 0, ptr %pn74, align 2
   %pkt.val137 = load ptr, ptr %pkt, align 8
   br i1 %tobool36.not, label %if.else83, label %if.then78
@@ -531,17 +529,17 @@ PACKET_copy_bytes.exit160:                        ; preds = %if.else83
 if.end93:                                         ; preds = %PACKET_copy_bytes.exit160, %PACKET_forward.exit
   %storemerge301 = phi i64 [ %sub.i.i152, %PACKET_forward.exit ], [ %sub.i.i158, %PACKET_copy_bytes.exit160 ]
   store i64 %storemerge301, ptr %0, align 8
-  %version = getelementptr inbounds %struct.quic_pkt_hdr_st, ptr %hdr, i64 0, i32 1
+  %version = getelementptr inbounds i8, ptr %hdr, i64 4
   store i32 0, ptr %version, align 4
-  %src_conn_id = getelementptr inbounds %struct.quic_pkt_hdr_st, ptr %hdr, i64 0, i32 3
+  %src_conn_id = getelementptr inbounds i8, ptr %hdr, i64 29
   store i8 0, ptr %src_conn_id, align 1
-  %token = getelementptr inbounds %struct.quic_pkt_hdr_st, ptr %hdr, i64 0, i32 5
+  %token = getelementptr inbounds i8, ptr %hdr, i64 56
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %token, i8 0, i64 16, i1 false)
   %pkt.val132 = load i64, ptr %0, align 8
-  %len = getelementptr inbounds %struct.quic_pkt_hdr_st, ptr %hdr, i64 0, i32 7
+  %len = getelementptr inbounds i8, ptr %hdr, i64 72
   store i64 %pkt.val132, ptr %len, align 8
   %pkt.val138 = load ptr, ptr %pkt, align 8
-  %data = getelementptr inbounds %struct.quic_pkt_hdr_st, ptr %hdr, i64 0, i32 8
+  %data = getelementptr inbounds i8, ptr %hdr, i64 80
   store ptr %pkt.val138, ptr %data, align 8
   %pkt.val.i161 = load i64, ptr %0, align 8
   %cmp.i162 = icmp ult i64 %pkt.val.i161, %pkt.val132
@@ -600,13 +598,13 @@ PACKET_get_1.exit182:                             ; preds = %if.end107
   br i1 %cmp118, label %return, label %lor.lhs.false120
 
 lor.lhs.false120:                                 ; preds = %PACKET_get_1.exit182
-  %dst_conn_id121 = getelementptr inbounds %struct.quic_pkt_hdr_st, ptr %hdr, i64 0, i32 2
+  %dst_conn_id121 = getelementptr inbounds i8, ptr %hdr, i64 8
   %conv124 = zext nneg i8 %16 to i64
   %cmp.i.i184 = icmp ult i64 %sub.i.i180, %conv124
   br i1 %cmp.i.i184, label %return, label %lor.lhs.false127
 
 lor.lhs.false127:                                 ; preds = %lor.lhs.false120
-  %id122 = getelementptr inbounds %struct.quic_pkt_hdr_st, ptr %hdr, i64 0, i32 2, i32 1
+  %id122 = getelementptr inbounds i8, ptr %hdr, i64 9
   tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %id122, ptr nonnull align 1 %add.ptr.i.i179, i64 %conv124, i1 false)
   %17 = load ptr, ptr %pkt, align 8
   %add.ptr.i.i186 = getelementptr inbounds i8, ptr %17, i64 %conv124
@@ -632,7 +630,7 @@ lor.lhs.false133:                                 ; preds = %PACKET_get_1.exit19
   br i1 %cmp.i.i199, label %return, label %if.end141
 
 if.end141:                                        ; preds = %lor.lhs.false133
-  %id135 = getelementptr inbounds %struct.quic_pkt_hdr_st, ptr %hdr, i64 0, i32 3, i32 1
+  %id135 = getelementptr inbounds i8, ptr %hdr, i64 30
   tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %id135, ptr nonnull align 1 %add.ptr.i.i194, i64 %conv137, i1 false)
   %20 = load ptr, ptr %pkt, align 8
   %add.ptr.i.i201 = getelementptr inbounds i8, ptr %20, i64 %conv137
@@ -640,9 +638,9 @@ if.end141:                                        ; preds = %lor.lhs.false133
   %21 = load i64, ptr %0, align 8
   %sub.i.i202 = sub i64 %21, %conv137
   store i64 %sub.i.i202, ptr %0, align 8
-  %src_conn_id134 = getelementptr inbounds %struct.quic_pkt_hdr_st, ptr %hdr, i64 0, i32 3
+  %src_conn_id134 = getelementptr inbounds i8, ptr %hdr, i64 29
   %conv142 = trunc i64 %or12.i.i to i32
-  %version143 = getelementptr inbounds %struct.quic_pkt_hdr_st, ptr %hdr, i64 0, i32 1
+  %version143 = getelementptr inbounds i8, ptr %hdr, i64 4
   store i32 %conv142, ptr %version143, align 4
   store i8 %16, ptr %dst_conn_id121, align 8
   store i8 %19, ptr %src_conn_id134, align 1
@@ -660,10 +658,10 @@ if.then152:                                       ; preds = %if.end141
   %bf.set163 = or disjoint i32 %bf.clear162, 6
   store i32 %bf.set163, ptr %hdr, align 8
   %pkt.val139 = load ptr, ptr %pkt, align 8
-  %data165 = getelementptr inbounds %struct.quic_pkt_hdr_st, ptr %hdr, i64 0, i32 8
+  %data165 = getelementptr inbounds i8, ptr %hdr, i64 80
   store ptr %pkt.val139, ptr %data165, align 8
   %pkt.val133 = load i64, ptr %0, align 8
-  %len167 = getelementptr inbounds %struct.quic_pkt_hdr_st, ptr %hdr, i64 0, i32 7
+  %len167 = getelementptr inbounds i8, ptr %hdr, i64 72
   store i64 %pkt.val133, ptr %len167, align 8
   %rem = and i64 %pkt.val133, 3
   %cmp169.not = icmp eq i64 %rem, 0
@@ -672,8 +670,8 @@ if.then152:                                       ; preds = %if.end141
 if.end172:                                        ; preds = %if.then152
   %bf.clear183 = and i32 %bf.set163, -32762
   store i32 %bf.clear183, ptr %hdr, align 8
-  %token185 = getelementptr inbounds %struct.quic_pkt_hdr_st, ptr %hdr, i64 0, i32 5
-  %pn187 = getelementptr inbounds %struct.quic_pkt_hdr_st, ptr %hdr, i64 0, i32 4
+  %token185 = getelementptr inbounds i8, ptr %hdr, i64 56
+  %pn187 = getelementptr inbounds i8, ptr %hdr, i64 50
   store i32 0, ptr %pn187, align 2
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %token185, i8 0, i64 16, i1 false)
   %pkt.val.i205 = load i64, ptr %0, align 8
@@ -697,7 +695,7 @@ if.end202:                                        ; preds = %if.else198
   %and204 = and i32 %shr203, 3
   %bf.load205 = load i32, ptr %hdr, align 8
   %bf.clear206 = and i32 %bf.load205, -49152
-  switch i32 %and204, label %if.end202.unreachabledefault [
+  switch i32 %and204, label %default.unreachable303 [
     i32 0, label %sw.epilog
     i32 1, label %if.else255.critedge
     i32 2, label %sw.bb212
@@ -710,7 +708,7 @@ sw.bb212:                                         ; preds = %if.end202
 sw.bb216:                                         ; preds = %if.end202
   br label %if.else255.critedge
 
-if.end202.unreachabledefault:                     ; preds = %if.end202
+default.unreachable303:                           ; preds = %if.end202
   unreachable
 
 sw.epilog:                                        ; preds = %if.end202
@@ -722,7 +720,7 @@ sw.epilog:                                        ; preds = %if.end202
 
 lor.lhs.false243:                                 ; preds = %sw.epilog
   %24 = load i64, ptr %token_len237, align 8
-  %token244 = getelementptr inbounds %struct.quic_pkt_hdr_st, ptr %hdr, i64 0, i32 5
+  %token244 = getelementptr inbounds i8, ptr %hdr, i64 56
   %pkt.val.i.i212 = load i64, ptr %0, align 8
   %cmp.i.i213 = icmp ult i64 %pkt.val.i.i212, %24
   br i1 %cmp.i.i213, label %return, label %if.end248
@@ -735,7 +733,7 @@ if.end248:                                        ; preds = %lor.lhs.false243
   %26 = load i64, ptr %0, align 8
   %sub.i.i216 = sub i64 %26, %24
   store i64 %sub.i.i216, ptr %0, align 8
-  %token_len249 = getelementptr inbounds %struct.quic_pkt_hdr_st, ptr %hdr, i64 0, i32 6
+  %token_len249 = getelementptr inbounds i8, ptr %hdr, i64 64
   store i64 %24, ptr %token_len249, align 8
   %cmp250 = icmp eq i64 %24, 0
   br i1 %cmp250, label %if.then252, label %if.end258
@@ -749,7 +747,7 @@ if.else255.critedge:                              ; preds = %if.end202, %sw.bb21
   %bf.set219.c = or disjoint i32 %bf.clear206, %.sink.ph
   %bf.set225.c = or disjoint i32 %bf.set219.c, 32768
   store i32 %bf.set225.c, ptr %hdr, align 8
-  %token256 = getelementptr inbounds %struct.quic_pkt_hdr_st, ptr %hdr, i64 0, i32 5
+  %token256 = getelementptr inbounds i8, ptr %hdr, i64 56
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %token256, i8 0, i64 16, i1 false)
   br label %if.end258
 
@@ -761,17 +759,17 @@ if.end258:                                        ; preds = %if.end248, %if.then
 
 if.then263:                                       ; preds = %if.end258
   %pkt.val140 = load ptr, ptr %pkt, align 8
-  %data265 = getelementptr inbounds %struct.quic_pkt_hdr_st, ptr %hdr, i64 0, i32 8
+  %data265 = getelementptr inbounds i8, ptr %hdr, i64 80
   store ptr %pkt.val140, ptr %data265, align 8
   %pkt.val134 = load i64, ptr %0, align 8
-  %len267 = getelementptr inbounds %struct.quic_pkt_hdr_st, ptr %hdr, i64 0, i32 7
+  %len267 = getelementptr inbounds i8, ptr %hdr, i64 72
   store i64 %pkt.val134, ptr %len267, align 8
   %and271 = shl nuw nsw i32 %conv.i.i, 16
   %bf.shl274 = and i32 %and271, 983040
   %bf.clear275 = and i32 %bf.load259, -999676
   %bf.set276 = or disjoint i32 %bf.clear275, %bf.shl274
   store i32 %bf.set276, ptr %hdr, align 8
-  %pn277 = getelementptr inbounds %struct.quic_pkt_hdr_st, ptr %hdr, i64 0, i32 4
+  %pn277 = getelementptr inbounds i8, ptr %hdr, i64 50
   store i32 0, ptr %pn277, align 2
   %pkt.val.i218 = load i64, ptr %0, align 8
   %cmp.i219 = icmp ult i64 %pkt.val.i218, %pkt.val134
@@ -815,7 +813,7 @@ land.lhs.true314:                                 ; preds = %if.end312
 
 if.end319:                                        ; preds = %land.lhs.true314, %if.end312
   %pkt.val141 = load ptr, ptr %pkt, align 8
-  %pn321 = getelementptr inbounds %struct.quic_pkt_hdr_st, ptr %hdr, i64 0, i32 4
+  %pn321 = getelementptr inbounds i8, ptr %hdr, i64 50
   store i32 0, ptr %pn321, align 2
   br i1 %tobool286.not, label %if.else330, label %if.then324
 
@@ -860,18 +858,18 @@ if.end340:                                        ; preds = %if.else330
 
 if.end347:                                        ; preds = %if.end340, %if.end328
   %sub345.sink = phi i64 [ %sub345, %if.end340 ], [ %sub, %if.end328 ]
-  %len346 = getelementptr inbounds %struct.quic_pkt_hdr_st, ptr %hdr, i64 0, i32 7
+  %len346 = getelementptr inbounds i8, ptr %hdr, i64 72
   store i64 %sub345.sink, ptr %len346, align 8
   br i1 %tobool313.not, label %if.else351, label %if.then349
 
 if.then349:                                       ; preds = %if.end347
-  %data350 = getelementptr inbounds %struct.quic_pkt_hdr_st, ptr %hdr, i64 0, i32 8
+  %data350 = getelementptr inbounds i8, ptr %hdr, i64 80
   store ptr null, ptr %data350, align 8
   br label %if.end363
 
 if.else351:                                       ; preds = %if.end347
   %pkt.val142 = load ptr, ptr %pkt, align 8
-  %data353 = getelementptr inbounds %struct.quic_pkt_hdr_st, ptr %hdr, i64 0, i32 8
+  %data353 = getelementptr inbounds i8, ptr %hdr, i64 80
   store ptr %pkt.val142, ptr %data353, align 8
   %pkt.val.i239 = load i64, ptr %0, align 8
   %cmp.i240 = icmp ult i64 %pkt.val.i239, %sub345.sink
@@ -889,14 +887,14 @@ if.end363:                                        ; preds = %PACKET_forward.exit
   br i1 %cmp.not, label %return, label %if.then366
 
 if.then366:                                       ; preds = %if.end363
-  %raw_pn367 = getelementptr inbounds %struct.quic_pkt_hdr_ptrs_st, ptr %ptrs, i64 0, i32 3
+  %raw_pn367 = getelementptr inbounds i8, ptr %ptrs, i64 24
   store ptr %pn.0, ptr %raw_pn367, align 8
   %cmp368.not = icmp eq ptr %pn.0, null
   br i1 %cmp368.not, label %return, label %if.then370
 
 if.then370:                                       ; preds = %if.then366
   %add.ptr = getelementptr inbounds i8, ptr %pn.0, i64 4
-  %raw_sample371 = getelementptr inbounds %struct.quic_pkt_hdr_ptrs_st, ptr %ptrs, i64 0, i32 1
+  %raw_sample371 = getelementptr inbounds i8, ptr %ptrs, i64 8
   store ptr %add.ptr, ptr %raw_sample371, align 8
   %pkt.val143 = load ptr, ptr %pkt, align 8
   %pkt.val144 = load i64, ptr %0, align 8
@@ -904,7 +902,7 @@ if.then370:                                       ; preds = %if.then366
   %sub.ptr.lhs.cast = ptrtoint ptr %add.ptr.i to i64
   %sub.ptr.rhs.cast = ptrtoint ptr %add.ptr to i64
   %sub.ptr.sub = sub i64 %sub.ptr.lhs.cast, %sub.ptr.rhs.cast
-  %raw_sample_len374 = getelementptr inbounds %struct.quic_pkt_hdr_ptrs_st, ptr %ptrs, i64 0, i32 2
+  %raw_sample_len374 = getelementptr inbounds i8, ptr %ptrs, i64 16
   store i64 %sub.ptr.sub, ptr %raw_sample_len374, align 8
   br label %return
 
@@ -917,7 +915,7 @@ return:                                           ; preds = %if.end107, %if.else
 declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #2
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @PACKET_get_quic_vlint(ptr nocapture noundef %pkt, ptr nocapture noundef writeonly %data) unnamed_addr #0 {
+define internal fastcc noundef i32 @PACKET_get_quic_vlint(ptr nocapture noundef %pkt, ptr nocapture noundef writeonly %data) unnamed_addr #0 {
 entry:
   %0 = getelementptr i8, ptr %pkt, i64 8
   %pkt.val6 = load i64, ptr %0, align 8
@@ -935,7 +933,7 @@ if.end:                                           ; preds = %entry
   br i1 %cmp3, label %return, label %if.end5
 
 if.end5:                                          ; preds = %if.end
-  %call7 = tail call i64 @ossl_quic_vlint_decode_unchecked(ptr noundef nonnull %1) #10
+  %call7 = tail call i64 @ossl_quic_vlint_decode_unchecked(ptr noundef nonnull %1) #9
   store i64 %call7, ptr %data, align 8
   %4 = load ptr, ptr %pkt, align 8
   %add.ptr.i = getelementptr inbounds i8, ptr %4, i64 %conv1.i
@@ -955,8 +953,8 @@ define i32 @ossl_quic_wire_encode_pkt_hdr(ptr noundef %pkt, i64 noundef %short_c
 entry:
   %off_start = alloca i64, align 8
   %off_pn = alloca i64, align 8
-  %call = tail call ptr @WPACKET_get_curr(ptr noundef %pkt) #10
-  %call1 = call i32 @WPACKET_get_total_written(ptr noundef %pkt, ptr noundef nonnull %off_start) #10
+  %call = tail call ptr @WPACKET_get_curr(ptr noundef %pkt) #9
+  %call1 = call i32 @WPACKET_get_total_written(ptr noundef %pkt, ptr noundef nonnull %off_start) #9
   %tobool.not = icmp eq i32 %call1, 0
   br i1 %tobool.not, label %return, label %if.end
 
@@ -965,7 +963,7 @@ if.end:                                           ; preds = %entry
   br i1 %cmp.not, label %if.end11, label %if.then2
 
 if.then2:                                         ; preds = %if.end
-  %staticbuf = getelementptr inbounds %struct.wpacket_st, ptr %pkt, i64 0, i32 1
+  %staticbuf = getelementptr inbounds i8, ptr %pkt, i64 8
   %0 = load ptr, ptr %staticbuf, align 8
   %cmp3.not = icmp eq ptr %0, null
   br i1 %cmp3.not, label %return, label %if.end10
@@ -983,7 +981,7 @@ if.end11:                                         ; preds = %if.end10, %if.end
 lor.lhs.false:                                    ; preds = %if.end11
   %bf.clear14 = and i32 %bf.load, 255
   %cmp15 = icmp eq i32 %bf.clear14, 5
-  %dst_conn_id = getelementptr inbounds %struct.quic_pkt_hdr_st, ptr %hdr, i64 0, i32 2
+  %dst_conn_id = getelementptr inbounds i8, ptr %hdr, i64 8
   %2 = load i8, ptr %dst_conn_id, align 8
   br i1 %cmp15, label %land.lhs.true, label %if.else
 
@@ -1015,28 +1013,28 @@ if.end48:                                         ; preds = %lor.lhs.false35
   %6 = or i32 %or59.masked, %sub.masked
   %7 = or disjoint i32 %6, 64
   %conv67 = zext nneg i32 %7 to i64
-  %call68 = call i32 @WPACKET_put_bytes__(ptr noundef %pkt, i64 noundef %conv67, i64 noundef 1) #10
+  %call68 = call i32 @WPACKET_put_bytes__(ptr noundef %pkt, i64 noundef %conv67, i64 noundef 1) #9
   %tobool69.not = icmp eq i32 %call68, 0
   br i1 %tobool69.not, label %return, label %lor.lhs.false70
 
 lor.lhs.false70:                                  ; preds = %if.end48
-  %id = getelementptr inbounds %struct.quic_pkt_hdr_st, ptr %hdr, i64 0, i32 2, i32 1
-  %call72 = call i32 @WPACKET_memcpy(ptr noundef %pkt, ptr noundef nonnull %id, i64 noundef %short_conn_id_len) #10
+  %id = getelementptr inbounds i8, ptr %hdr, i64 9
+  %call72 = call i32 @WPACKET_memcpy(ptr noundef %pkt, ptr noundef nonnull %id, i64 noundef %short_conn_id_len) #9
   %tobool73.not = icmp eq i32 %call72, 0
   br i1 %tobool73.not, label %return, label %lor.lhs.false74
 
 lor.lhs.false74:                                  ; preds = %lor.lhs.false70
-  %call75 = call i32 @WPACKET_get_total_written(ptr noundef %pkt, ptr noundef nonnull %off_pn) #10
+  %call75 = call i32 @WPACKET_get_total_written(ptr noundef %pkt, ptr noundef nonnull %off_pn) #9
   %tobool76.not = icmp eq i32 %call75, 0
   br i1 %tobool76.not, label %return, label %lor.lhs.false77
 
 lor.lhs.false77:                                  ; preds = %lor.lhs.false74
-  %pn = getelementptr inbounds %struct.quic_pkt_hdr_st, ptr %hdr, i64 0, i32 4
+  %pn = getelementptr inbounds i8, ptr %hdr, i64 50
   %bf.load79 = load i32, ptr %hdr, align 8
   %bf.lshr80 = lshr i32 %bf.load79, 10
   %bf.clear81 = and i32 %bf.lshr80, 15
   %conv82 = zext nneg i32 %bf.clear81 to i64
-  %call83 = call i32 @WPACKET_memcpy(ptr noundef %pkt, ptr noundef nonnull %pn, i64 noundef %conv82) #10
+  %call83 = call i32 @WPACKET_memcpy(ptr noundef %pkt, ptr noundef nonnull %pn, i64 noundef %conv82) #9
   %tobool84.not = icmp eq i32 %call83, 0
   br i1 %tobool84.not, label %return, label %if.end270
 
@@ -1045,7 +1043,7 @@ if.else:                                          ; preds = %lor.lhs.false
   br i1 %cmp90, label %return, label %lor.lhs.false92
 
 lor.lhs.false92:                                  ; preds = %if.else
-  %src_conn_id = getelementptr inbounds %struct.quic_pkt_hdr_st, ptr %hdr, i64 0, i32 3
+  %src_conn_id = getelementptr inbounds i8, ptr %hdr, i64 29
   %8 = load i8, ptr %src_conn_id, align 1
   %cmp95 = icmp ugt i8 %8, 20
   br i1 %cmp95, label %return, label %if.end98
@@ -1073,7 +1071,7 @@ if.end116:                                        ; preds = %land.lhs.true103, %
   ]
 
 sw.bb:                                            ; preds = %if.end116
-  %version = getelementptr inbounds %struct.quic_pkt_hdr_st, ptr %hdr, i64 0, i32 1
+  %version = getelementptr inbounds i8, ptr %hdr, i64 4
   %11 = load i32, ptr %version, align 4
   %cmp119.not = icmp eq i32 %11, 0
   br i1 %cmp119.not, label %sw.epilog, label %return
@@ -1116,45 +1114,45 @@ if.end163:                                        ; preds = %if.then148, %sw.epi
   %conv174 = select i1 %cmp166, i8 %22, i8 0
   %b0.2 = or i8 %b0.1, %conv174
   %conv176 = zext i8 %b0.2 to i64
-  %call177 = call i32 @WPACKET_put_bytes__(ptr noundef %pkt, i64 noundef %conv176, i64 noundef 1) #10
+  %call177 = call i32 @WPACKET_put_bytes__(ptr noundef %pkt, i64 noundef %conv176, i64 noundef 1) #9
   %tobool178.not = icmp eq i32 %call177, 0
   br i1 %tobool178.not, label %return, label %lor.lhs.false179
 
 lor.lhs.false179:                                 ; preds = %if.end163
-  %version180 = getelementptr inbounds %struct.quic_pkt_hdr_st, ptr %hdr, i64 0, i32 1
+  %version180 = getelementptr inbounds i8, ptr %hdr, i64 4
   %23 = load i32, ptr %version180, align 4
   %conv181 = zext i32 %23 to i64
-  %call182 = call i32 @WPACKET_put_bytes__(ptr noundef %pkt, i64 noundef %conv181, i64 noundef 4) #10
+  %call182 = call i32 @WPACKET_put_bytes__(ptr noundef %pkt, i64 noundef %conv181, i64 noundef 4) #9
   %tobool183.not = icmp eq i32 %call182, 0
   br i1 %tobool183.not, label %return, label %lor.lhs.false184
 
 lor.lhs.false184:                                 ; preds = %lor.lhs.false179
   %24 = load i8, ptr %dst_conn_id, align 8
   %conv187 = zext i8 %24 to i64
-  %call188 = call i32 @WPACKET_put_bytes__(ptr noundef %pkt, i64 noundef %conv187, i64 noundef 1) #10
+  %call188 = call i32 @WPACKET_put_bytes__(ptr noundef %pkt, i64 noundef %conv187, i64 noundef 1) #9
   %tobool189.not = icmp eq i32 %call188, 0
   br i1 %tobool189.not, label %return, label %lor.lhs.false190
 
 lor.lhs.false190:                                 ; preds = %lor.lhs.false184
-  %id192 = getelementptr inbounds %struct.quic_pkt_hdr_st, ptr %hdr, i64 0, i32 2, i32 1
+  %id192 = getelementptr inbounds i8, ptr %hdr, i64 9
   %25 = load i8, ptr %dst_conn_id, align 8
   %conv196 = zext i8 %25 to i64
-  %call197 = call i32 @WPACKET_memcpy(ptr noundef %pkt, ptr noundef nonnull %id192, i64 noundef %conv196) #10
+  %call197 = call i32 @WPACKET_memcpy(ptr noundef %pkt, ptr noundef nonnull %id192, i64 noundef %conv196) #9
   %tobool198.not = icmp eq i32 %call197, 0
   br i1 %tobool198.not, label %return, label %lor.lhs.false199
 
 lor.lhs.false199:                                 ; preds = %lor.lhs.false190
   %26 = load i8, ptr %src_conn_id, align 1
   %conv202 = zext i8 %26 to i64
-  %call203 = call i32 @WPACKET_put_bytes__(ptr noundef %pkt, i64 noundef %conv202, i64 noundef 1) #10
+  %call203 = call i32 @WPACKET_put_bytes__(ptr noundef %pkt, i64 noundef %conv202, i64 noundef 1) #9
   %tobool204.not = icmp eq i32 %call203, 0
   br i1 %tobool204.not, label %return, label %lor.lhs.false205
 
 lor.lhs.false205:                                 ; preds = %lor.lhs.false199
-  %id207 = getelementptr inbounds %struct.quic_pkt_hdr_st, ptr %hdr, i64 0, i32 3, i32 1
+  %id207 = getelementptr inbounds i8, ptr %hdr, i64 30
   %27 = load i8, ptr %src_conn_id, align 1
   %conv211 = zext i8 %27 to i64
-  %call212 = call i32 @WPACKET_memcpy(ptr noundef %pkt, ptr noundef nonnull %id207, i64 noundef %conv211) #10
+  %call212 = call i32 @WPACKET_memcpy(ptr noundef %pkt, ptr noundef nonnull %id207, i64 noundef %conv211) #9
   %tobool213.not = icmp eq i32 %call212, 0
   br i1 %tobool213.not, label %return, label %if.end215
 
@@ -1168,13 +1166,13 @@ if.end215:                                        ; preds = %lor.lhs.false205
   ]
 
 if.then225:                                       ; preds = %if.end215, %if.end215
-  %len = getelementptr inbounds %struct.quic_pkt_hdr_st, ptr %hdr, i64 0, i32 7
+  %len = getelementptr inbounds i8, ptr %hdr, i64 72
   %28 = load i64, ptr %len, align 8
   %cmp226.not = icmp eq i64 %28, 0
   br i1 %cmp226.not, label %if.end233, label %land.lhs.true228
 
 land.lhs.true228:                                 ; preds = %if.then225
-  %call230 = call i32 @WPACKET_reserve_bytes(ptr noundef %pkt, i64 noundef %28, ptr noundef null) #10
+  %call230 = call i32 @WPACKET_reserve_bytes(ptr noundef %pkt, i64 noundef %28, ptr noundef null) #9
   %tobool231.not = icmp eq i32 %call230, 0
   br i1 %tobool231.not, label %return, label %if.end233
 
@@ -1182,17 +1180,17 @@ if.end233:                                        ; preds = %land.lhs.true228, %
   br label %return
 
 if.then239:                                       ; preds = %if.end215
-  %token_len = getelementptr inbounds %struct.quic_pkt_hdr_st, ptr %hdr, i64 0, i32 6
+  %token_len = getelementptr inbounds i8, ptr %hdr, i64 64
   %29 = load i64, ptr %token_len, align 8
-  %call240 = call i32 @WPACKET_quic_write_vlint(ptr noundef %pkt, i64 noundef %29) #10
+  %call240 = call i32 @WPACKET_quic_write_vlint(ptr noundef %pkt, i64 noundef %29) #9
   %tobool241.not = icmp eq i32 %call240, 0
   br i1 %tobool241.not, label %return, label %lor.lhs.false242
 
 lor.lhs.false242:                                 ; preds = %if.then239
-  %token = getelementptr inbounds %struct.quic_pkt_hdr_st, ptr %hdr, i64 0, i32 5
+  %token = getelementptr inbounds i8, ptr %hdr, i64 56
   %30 = load ptr, ptr %token, align 8
   %31 = load i64, ptr %token_len, align 8
-  %call244 = call i32 @WPACKET_memcpy(ptr noundef %pkt, ptr noundef %30, i64 noundef %31) #10
+  %call244 = call i32 @WPACKET_memcpy(ptr noundef %pkt, ptr noundef %30, i64 noundef %31) #9
   %tobool245.not = icmp eq i32 %call244, 0
   br i1 %tobool245.not, label %return, label %lor.lhs.false242.if.end248_crit_edge
 
@@ -1202,39 +1200,39 @@ lor.lhs.false242.if.end248_crit_edge:             ; preds = %lor.lhs.false242
 
 if.end248:                                        ; preds = %lor.lhs.false242.if.end248_crit_edge, %if.end215
   %bf.load250 = phi i32 [ %bf.load250.pre, %lor.lhs.false242.if.end248_crit_edge ], [ %bf.load216, %if.end215 ]
-  %len249 = getelementptr inbounds %struct.quic_pkt_hdr_st, ptr %hdr, i64 0, i32 7
+  %len249 = getelementptr inbounds i8, ptr %hdr, i64 72
   %32 = load i64, ptr %len249, align 8
   %bf.lshr251 = lshr i32 %bf.load250, 10
   %bf.clear252 = and i32 %bf.lshr251, 15
   %conv253 = zext nneg i32 %bf.clear252 to i64
   %add = add i64 %32, %conv253
-  %call254 = call i32 @WPACKET_quic_write_vlint(ptr noundef %pkt, i64 noundef %add) #10
+  %call254 = call i32 @WPACKET_quic_write_vlint(ptr noundef %pkt, i64 noundef %add) #9
   %tobool255.not = icmp eq i32 %call254, 0
   br i1 %tobool255.not, label %return, label %lor.lhs.false256
 
 lor.lhs.false256:                                 ; preds = %if.end248
-  %call257 = call i32 @WPACKET_get_total_written(ptr noundef %pkt, ptr noundef nonnull %off_pn) #10
+  %call257 = call i32 @WPACKET_get_total_written(ptr noundef %pkt, ptr noundef nonnull %off_pn) #9
   %tobool258.not = icmp eq i32 %call257, 0
   br i1 %tobool258.not, label %return, label %lor.lhs.false259
 
 lor.lhs.false259:                                 ; preds = %lor.lhs.false256
-  %pn260 = getelementptr inbounds %struct.quic_pkt_hdr_st, ptr %hdr, i64 0, i32 4
+  %pn260 = getelementptr inbounds i8, ptr %hdr, i64 50
   %bf.load262 = load i32, ptr %hdr, align 8
   %bf.lshr263 = lshr i32 %bf.load262, 10
   %bf.clear264 = and i32 %bf.lshr263, 15
   %conv265 = zext nneg i32 %bf.clear264 to i64
-  %call266 = call i32 @WPACKET_memcpy(ptr noundef %pkt, ptr noundef nonnull %pn260, i64 noundef %conv265) #10
+  %call266 = call i32 @WPACKET_memcpy(ptr noundef %pkt, ptr noundef nonnull %pn260, i64 noundef %conv265) #9
   %tobool267.not = icmp eq i32 %call266, 0
   br i1 %tobool267.not, label %return, label %if.end270
 
 if.end270:                                        ; preds = %lor.lhs.false259, %lor.lhs.false77
-  %len271 = getelementptr inbounds %struct.quic_pkt_hdr_st, ptr %hdr, i64 0, i32 7
+  %len271 = getelementptr inbounds i8, ptr %hdr, i64 72
   %33 = load i64, ptr %len271, align 8
   %cmp272.not = icmp eq i64 %33, 0
   br i1 %cmp272.not, label %if.end279, label %land.lhs.true274
 
 land.lhs.true274:                                 ; preds = %if.end270
-  %call276 = call i32 @WPACKET_reserve_bytes(ptr noundef %pkt, i64 noundef %33, ptr noundef null) #10
+  %call276 = call i32 @WPACKET_reserve_bytes(ptr noundef %pkt, i64 noundef %33, ptr noundef null) #9
   %tobool277.not = icmp eq i32 %call276, 0
   %brmerge = or i1 %cmp.not, %tobool277.not
   %not.tobool277.not = xor i1 %tobool277.not, true
@@ -1251,22 +1249,22 @@ if.then283:                                       ; preds = %land.lhs.true274, %
   %35 = load i64, ptr %off_start, align 8
   %sub285 = sub i64 %add280, %35
   %add.ptr = getelementptr inbounds i8, ptr %call, i64 %sub285
-  %raw_sample286 = getelementptr inbounds %struct.quic_pkt_hdr_ptrs_st, ptr %ptrs, i64 0, i32 1
+  %raw_sample286 = getelementptr inbounds i8, ptr %ptrs, i64 8
   store ptr %add.ptr, ptr %raw_sample286, align 8
-  %call287 = call ptr @WPACKET_get_curr(ptr noundef %pkt) #10
+  %call287 = call ptr @WPACKET_get_curr(ptr noundef %pkt) #9
   %36 = load i64, ptr %len271, align 8
   %add.ptr289 = getelementptr inbounds i8, ptr %call287, i64 %36
   %37 = load ptr, ptr %raw_sample286, align 8
   %sub.ptr.lhs.cast = ptrtoint ptr %add.ptr289 to i64
   %sub.ptr.rhs.cast = ptrtoint ptr %37 to i64
   %sub.ptr.sub = sub i64 %sub.ptr.lhs.cast, %sub.ptr.rhs.cast
-  %raw_sample_len291 = getelementptr inbounds %struct.quic_pkt_hdr_ptrs_st, ptr %ptrs, i64 0, i32 2
+  %raw_sample_len291 = getelementptr inbounds i8, ptr %ptrs, i64 16
   store i64 %sub.ptr.sub, ptr %raw_sample_len291, align 8
   %38 = load i64, ptr %off_pn, align 8
   %39 = load i64, ptr %off_start, align 8
   %sub292 = sub i64 %38, %39
   %add.ptr293 = getelementptr inbounds i8, ptr %call, i64 %sub292
-  %raw_pn294 = getelementptr inbounds %struct.quic_pkt_hdr_ptrs_st, ptr %ptrs, i64 0, i32 3
+  %raw_pn294 = getelementptr inbounds i8, ptr %ptrs, i64 24
   store ptr %add.ptr293, ptr %raw_pn294, align 8
   br label %return
 
@@ -1298,7 +1296,7 @@ entry:
 lor.lhs.false:                                    ; preds = %entry
   %bf.clear2 = and i32 %bf.load, 255
   %cmp = icmp eq i32 %bf.clear2, 5
-  %dst_conn_id = getelementptr inbounds %struct.quic_pkt_hdr_st, ptr %hdr, i64 0, i32 2
+  %dst_conn_id = getelementptr inbounds i8, ptr %hdr, i64 8
   %1 = load i8, ptr %dst_conn_id, align 8
   br i1 %cmp, label %land.lhs.true, label %if.else
 
@@ -1327,7 +1325,7 @@ if.else:                                          ; preds = %lor.lhs.false
   br i1 %cmp41, label %return, label %lor.lhs.false43
 
 lor.lhs.false43:                                  ; preds = %if.else
-  %src_conn_id = getelementptr inbounds %struct.quic_pkt_hdr_st, ptr %hdr, i64 0, i32 3
+  %src_conn_id = getelementptr inbounds i8, ptr %hdr, i64 29
   %5 = load i8, ptr %src_conn_id, align 1
   %cmp46 = icmp ugt i8 %5, 20
   br i1 %cmp46, label %return, label %if.end49
@@ -1359,7 +1357,7 @@ if.end83.thread:                                  ; preds = %if.then64
 
 if.then88:                                        ; preds = %if.end83.thread, %if.end83
   %len.061 = phi i64 [ %add82, %if.end83.thread ], [ %conv59, %if.end83 ]
-  %token_len = getelementptr inbounds %struct.quic_pkt_hdr_st, ptr %hdr, i64 0, i32 6
+  %token_len = getelementptr inbounds i8, ptr %hdr, i64 64
   %8 = load i64, ptr %token_len, align 8
   %cmp.i = icmp ult i64 %8, 64
   br i1 %cmp.i, label %if.end96.thread, label %if.end.i
@@ -1384,7 +1382,7 @@ if.end96.thread:                                  ; preds = %if.end3.i, %if.end.
 
 if.then101:                                       ; preds = %if.end83.thread, %if.end96.thread
   %len.153 = phi i64 [ %add95, %if.end96.thread ], [ %add82, %if.end83.thread ]
-  %len102 = getelementptr inbounds %struct.quic_pkt_hdr_st, ptr %hdr, i64 0, i32 7
+  %len102 = getelementptr inbounds i8, ptr %hdr, i64 72
   %9 = load i64, ptr %len102, align 8
   %bf.lshr104 = lshr i32 %bf.load, 10
   %bf.clear105 = and i32 %bf.lshr104, 15
@@ -1420,8 +1418,8 @@ return:                                           ; preds = %if.end6.i41, %if.en
   ret i32 %retval.0
 }
 
-; Function Attrs: mustprogress nofree nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define i32 @ossl_quic_wire_get_pkt_hdr_dst_conn_id(ptr nocapture noundef readonly %buf, i64 noundef %buf_len, i64 noundef %short_conn_id_len, ptr nocapture noundef writeonly %dst_conn_id) local_unnamed_addr #4 {
+; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
+define noundef i32 @ossl_quic_wire_get_pkt_hdr_dst_conn_id(ptr nocapture noundef readonly %buf, i64 noundef %buf_len, i64 noundef %short_conn_id_len, ptr nocapture noundef writeonly %dst_conn_id) local_unnamed_addr #4 {
 entry:
   %cmp = icmp ult i64 %buf_len, 7
   %cmp1 = icmp ugt i64 %short_conn_id_len, 20
@@ -1491,7 +1489,7 @@ return.sink.split:                                ; preds = %if.end24, %if.end45
   %.sink = phi i64 [ 1, %if.end45 ], [ 6, %if.end24 ]
   %short_conn_id_len.sink = phi i64 [ %short_conn_id_len, %if.end45 ], [ %conv26, %if.end24 ]
   store i8 %conv46.sink, ptr %dst_conn_id, align 1
-  %id48 = getelementptr inbounds %struct.quic_conn_id_st, ptr %dst_conn_id, i64 0, i32 1
+  %id48 = getelementptr inbounds i8, ptr %dst_conn_id, i64 1
   %add.ptr50 = getelementptr inbounds i8, ptr %buf, i64 %.sink
   tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %id48, ptr nonnull align 1 %add.ptr50, i64 %short_conn_id_len.sink, i1 false)
   br label %return
@@ -1505,7 +1503,7 @@ return:                                           ; preds = %return.sink.split, 
 declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #5
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define i32 @ossl_quic_wire_decode_pkt_hdr_pn(ptr nocapture noundef readonly %enc_pn, i64 noundef %enc_pn_len, i64 noundef %largest_pn, ptr nocapture noundef writeonly %res_pn) local_unnamed_addr #6 {
+define noundef i32 @ossl_quic_wire_decode_pkt_hdr_pn(ptr nocapture noundef readonly %enc_pn, i64 noundef %enc_pn_len, i64 noundef %largest_pn, ptr nocapture noundef writeonly %res_pn) local_unnamed_addr #4 {
 entry:
   switch i64 %enc_pn_len, label %return [
     i64 1, label %sw.bb
@@ -1604,7 +1602,7 @@ return:                                           ; preds = %return.sink.split, 
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define i32 @ossl_quic_wire_determine_pn_len(i64 noundef %pn, i64 noundef %largest_acked) local_unnamed_addr #7 {
+define noundef i32 @ossl_quic_wire_determine_pn_len(i64 noundef %pn, i64 noundef %largest_acked) local_unnamed_addr #6 {
 entry:
   %cond = sub i64 %pn, %largest_acked
   %cmp1 = icmp ult i64 %cond, 129
@@ -1625,7 +1623,7 @@ return:                                           ; preds = %if.end4, %if.end, %
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define i32 @ossl_quic_wire_encode_pkt_hdr_pn(i64 noundef %pn, ptr nocapture noundef writeonly %enc_pn, i64 noundef %enc_pn_len) local_unnamed_addr #8 {
+define noundef i32 @ossl_quic_wire_encode_pkt_hdr_pn(i64 noundef %pn, ptr nocapture noundef writeonly %enc_pn, i64 noundef %enc_pn_len) local_unnamed_addr #7 {
 entry:
   switch i64 %enc_pn_len, label %return [
     i64 1, label %return.sink.split
@@ -1679,7 +1677,7 @@ entry:
   br i1 %cmp, label %return, label %lor.lhs.false
 
 lor.lhs.false:                                    ; preds = %entry
-  %len = getelementptr inbounds %struct.quic_pkt_hdr_st, ptr %hdr, i64 0, i32 7
+  %len = getelementptr inbounds i8, ptr %hdr, i64 72
   %0 = load i64, ptr %len, align 8
   %cmp1 = icmp ult i64 %0, 16
   br i1 %cmp1, label %return, label %if.end
@@ -1690,12 +1688,12 @@ if.end:                                           ; preds = %lor.lhs.false
   br i1 %tobool.not, label %return, label %if.end3
 
 if.end3:                                          ; preds = %if.end
-  %data = getelementptr inbounds %struct.quic_pkt_hdr_st, ptr %hdr, i64 0, i32 8
+  %data = getelementptr inbounds i8, ptr %hdr, i64 80
   %1 = load ptr, ptr %data, align 8
   %2 = load i64, ptr %len, align 8
   %add.ptr = getelementptr inbounds i8, ptr %1, i64 %2
   %add.ptr5 = getelementptr inbounds i8, ptr %add.ptr, i64 -16
-  %call7 = call i32 @CRYPTO_memcmp(ptr noundef nonnull %expected_tag, ptr noundef nonnull %add.ptr5, i64 noundef 16) #10
+  %call7 = call i32 @CRYPTO_memcmp(ptr noundef nonnull %expected_tag, ptr noundef nonnull %add.ptr5, i64 noundef 16) #9
   %tobool8.not = icmp eq i32 %call7, 0
   %lnot.ext = zext i1 %tobool8.not to i32
   br label %return
@@ -1706,7 +1704,7 @@ return:                                           ; preds = %if.end, %entry, %lo
 }
 
 ; Function Attrs: nounwind uwtable
-define i32 @ossl_quic_calculate_retry_integrity_tag(ptr noundef %libctx, ptr noundef %propq, ptr nocapture noundef readonly %hdr, ptr noundef %client_initial_dcid, ptr noundef %tag) local_unnamed_addr #0 {
+define noundef i32 @ossl_quic_calculate_retry_integrity_tag(ptr noundef %libctx, ptr noundef %propq, ptr nocapture noundef readonly %hdr, ptr noundef %client_initial_dcid, ptr noundef %tag) local_unnamed_addr #0 {
 entry:
   %l = alloca i32, align 4
   %l2 = alloca i32, align 4
@@ -1723,19 +1721,19 @@ entry:
   br i1 %cmp.not, label %lor.lhs.false, label %if.then
 
 lor.lhs.false:                                    ; preds = %entry
-  %version = getelementptr inbounds %struct.quic_pkt_hdr_st, ptr %hdr, i64 0, i32 1
+  %version = getelementptr inbounds i8, ptr %hdr, i64 4
   %0 = load i32, ptr %version, align 4
   %cmp1 = icmp eq i32 %0, 0
   br i1 %cmp1, label %if.then, label %lor.lhs.false2
 
 lor.lhs.false2:                                   ; preds = %lor.lhs.false
-  %len = getelementptr inbounds %struct.quic_pkt_hdr_st, ptr %hdr, i64 0, i32 7
+  %len = getelementptr inbounds i8, ptr %hdr, i64 72
   %1 = load i64, ptr %len, align 8
   %cmp3 = icmp ult i64 %1, 16
   br i1 %cmp3, label %if.then, label %lor.lhs.false4
 
 lor.lhs.false4:                                   ; preds = %lor.lhs.false2
-  %data = getelementptr inbounds %struct.quic_pkt_hdr_st, ptr %hdr, i64 0, i32 8
+  %data = getelementptr inbounds i8, ptr %hdr, i64 80
   %2 = load ptr, ptr %data, align 8
   %cmp5 = icmp eq ptr %2, null
   %cmp7 = icmp eq ptr %client_initial_dcid, null
@@ -1750,48 +1748,48 @@ lor.lhs.false10:                                  ; preds = %lor.lhs.false4
   br i1 %cmp11, label %if.then, label %if.end
 
 if.then:                                          ; preds = %lor.lhs.false10, %lor.lhs.false4, %lor.lhs.false2, %lor.lhs.false, %entry
-  tail call void @ERR_new() #10
-  tail call void @ERR_set_debug(ptr noundef nonnull @.str.3, i32 noundef 855, ptr noundef nonnull @__func__.ossl_quic_calculate_retry_integrity_tag) #10
-  tail call void (i32, i32, ptr, ...) @ERR_set_error(i32 noundef 20, i32 noundef 524550, ptr noundef null) #10
+  tail call void @ERR_new() #9
+  tail call void @ERR_set_debug(ptr noundef nonnull @.str.3, i32 noundef 855, ptr noundef nonnull @__func__.ossl_quic_calculate_retry_integrity_tag) #9
+  tail call void (i32, i32, ptr, ...) @ERR_set_error(i32 noundef 20, i32 noundef 524550, ptr noundef null) #9
   br label %err
 
 if.end:                                           ; preds = %lor.lhs.false10
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(88) %hdr2, ptr noundef nonnull align 8 dereferenceable(88) %hdr, i64 88, i1 false)
-  %len13 = getelementptr inbounds %struct.quic_pkt_hdr_st, ptr %hdr2, i64 0, i32 7
+  %len13 = getelementptr inbounds i8, ptr %hdr2, i64 72
   store i64 0, ptr %len13, align 8
-  %call = call i32 @WPACKET_init_static_len(ptr noundef nonnull %wpkt, ptr noundef nonnull %buf, i64 noundef 128, i64 noundef 0) #10
+  %call = call i32 @WPACKET_init_static_len(ptr noundef nonnull %wpkt, ptr noundef nonnull %buf, i64 noundef 128, i64 noundef 0) #9
   %tobool.not = icmp eq i32 %call, 0
   br i1 %tobool.not, label %if.then14, label %if.end15
 
 if.then14:                                        ; preds = %if.end
-  call void @ERR_new() #10
-  call void @ERR_set_debug(ptr noundef nonnull @.str.3, i32 noundef 869, ptr noundef nonnull @__func__.ossl_quic_calculate_retry_integrity_tag) #10
-  call void (i32, i32, ptr, ...) @ERR_set_error(i32 noundef 20, i32 noundef 524303, ptr noundef null) #10
+  call void @ERR_new() #9
+  call void @ERR_set_debug(ptr noundef nonnull @.str.3, i32 noundef 869, ptr noundef nonnull @__func__.ossl_quic_calculate_retry_integrity_tag) #9
+  call void (i32, i32, ptr, ...) @ERR_set_error(i32 noundef 20, i32 noundef 524303, ptr noundef null) #9
   br label %err
 
 if.end15:                                         ; preds = %if.end
   %4 = load i8, ptr %client_initial_dcid, align 1
   %conv17 = zext i8 %4 to i64
-  %call18 = call i32 @WPACKET_put_bytes__(ptr noundef nonnull %wpkt, i64 noundef %conv17, i64 noundef 1) #10
+  %call18 = call i32 @WPACKET_put_bytes__(ptr noundef nonnull %wpkt, i64 noundef %conv17, i64 noundef 1) #9
   %tobool19.not = icmp eq i32 %call18, 0
   br i1 %tobool19.not, label %if.then26, label %lor.lhs.false20
 
 lor.lhs.false20:                                  ; preds = %if.end15
-  %id = getelementptr inbounds %struct.quic_conn_id_st, ptr %client_initial_dcid, i64 0, i32 1
+  %id = getelementptr inbounds i8, ptr %client_initial_dcid, i64 1
   %5 = load i8, ptr %client_initial_dcid, align 1
   %conv23 = zext i8 %5 to i64
-  %call24 = call i32 @WPACKET_memcpy(ptr noundef nonnull %wpkt, ptr noundef nonnull %id, i64 noundef %conv23) #10
+  %call24 = call i32 @WPACKET_memcpy(ptr noundef nonnull %wpkt, ptr noundef nonnull %id, i64 noundef %conv23) #9
   %tobool25.not = icmp eq i32 %call24, 0
   br i1 %tobool25.not, label %if.then26, label %if.end27
 
 if.then26:                                        ; preds = %lor.lhs.false20, %if.end15
-  call void @ERR_new() #10
-  call void @ERR_set_debug(ptr noundef nonnull @.str.3, i32 noundef 879, ptr noundef nonnull @__func__.ossl_quic_calculate_retry_integrity_tag) #10
-  call void (i32, i32, ptr, ...) @ERR_set_error(i32 noundef 20, i32 noundef 524303, ptr noundef null) #10
+  call void @ERR_new() #9
+  call void @ERR_set_debug(ptr noundef nonnull @.str.3, i32 noundef 879, ptr noundef nonnull @__func__.ossl_quic_calculate_retry_integrity_tag) #9
+  call void (i32, i32, ptr, ...) @ERR_set_error(i32 noundef 20, i32 noundef 524303, ptr noundef null) #9
   br label %err
 
 if.end27:                                         ; preds = %lor.lhs.false20
-  %dst_conn_id = getelementptr inbounds %struct.quic_pkt_hdr_st, ptr %hdr2, i64 0, i32 2
+  %dst_conn_id = getelementptr inbounds i8, ptr %hdr2, i64 8
   %6 = load i8, ptr %dst_conn_id, align 8
   %conv29 = zext i8 %6 to i64
   %call30 = call i32 @ossl_quic_wire_encode_pkt_hdr(ptr noundef nonnull %wpkt, i64 noundef %conv29, ptr noundef nonnull %hdr2, ptr noundef null), !range !4
@@ -1799,60 +1797,60 @@ if.end27:                                         ; preds = %lor.lhs.false20
   br i1 %tobool31.not, label %err, label %if.end33
 
 if.end33:                                         ; preds = %if.end27
-  %call34 = call i32 @WPACKET_get_total_written(ptr noundef nonnull %wpkt, ptr noundef nonnull %hdr_enc_len) #10
+  %call34 = call i32 @WPACKET_get_total_written(ptr noundef nonnull %wpkt, ptr noundef nonnull %hdr_enc_len) #9
   %tobool35.not = icmp eq i32 %call34, 0
   br i1 %tobool35.not, label %if.then36, label %if.end37
 
 if.then36:                                        ; preds = %if.end33
-  call void @ERR_new() #10
-  call void @ERR_set_debug(ptr noundef nonnull @.str.3, i32 noundef 889, ptr noundef nonnull @__func__.ossl_quic_calculate_retry_integrity_tag) #10
-  call void (i32, i32, ptr, ...) @ERR_set_error(i32 noundef 20, i32 noundef 524303, ptr noundef null) #10
+  call void @ERR_new() #9
+  call void @ERR_set_debug(ptr noundef nonnull @.str.3, i32 noundef 889, ptr noundef nonnull @__func__.ossl_quic_calculate_retry_integrity_tag) #9
+  call void (i32, i32, ptr, ...) @ERR_set_error(i32 noundef 20, i32 noundef 524303, ptr noundef null) #9
   br label %return
 
 if.end37:                                         ; preds = %if.end33
-  %call38 = call ptr @EVP_CIPHER_fetch(ptr noundef %libctx, ptr noundef nonnull @.str.4, ptr noundef %propq) #10
+  %call38 = call ptr @EVP_CIPHER_fetch(ptr noundef %libctx, ptr noundef nonnull @.str.4, ptr noundef %propq) #9
   %cmp39 = icmp eq ptr %call38, null
   br i1 %cmp39, label %if.then41, label %if.end42
 
 if.then41:                                        ; preds = %if.end37
-  call void @ERR_new() #10
-  call void @ERR_set_debug(ptr noundef nonnull @.str.3, i32 noundef 896, ptr noundef nonnull @__func__.ossl_quic_calculate_retry_integrity_tag) #10
-  call void (i32, i32, ptr, ...) @ERR_set_error(i32 noundef 20, i32 noundef 524294, ptr noundef null) #10
+  call void @ERR_new() #9
+  call void @ERR_set_debug(ptr noundef nonnull @.str.3, i32 noundef 896, ptr noundef nonnull @__func__.ossl_quic_calculate_retry_integrity_tag) #9
+  call void (i32, i32, ptr, ...) @ERR_set_error(i32 noundef 20, i32 noundef 524294, ptr noundef null) #9
   br label %err
 
 if.end42:                                         ; preds = %if.end37
-  %call43 = call ptr @EVP_CIPHER_CTX_new() #10
+  %call43 = call ptr @EVP_CIPHER_CTX_new() #9
   %cmp44 = icmp eq ptr %call43, null
   br i1 %cmp44, label %if.then46, label %if.end47
 
 if.then46:                                        ; preds = %if.end42
-  call void @ERR_new() #10
-  call void @ERR_set_debug(ptr noundef nonnull @.str.3, i32 noundef 901, ptr noundef nonnull @__func__.ossl_quic_calculate_retry_integrity_tag) #10
-  call void (i32, i32, ptr, ...) @ERR_set_error(i32 noundef 20, i32 noundef 524294, ptr noundef null) #10
+  call void @ERR_new() #9
+  call void @ERR_set_debug(ptr noundef nonnull @.str.3, i32 noundef 901, ptr noundef nonnull @__func__.ossl_quic_calculate_retry_integrity_tag) #9
+  call void (i32, i32, ptr, ...) @ERR_set_error(i32 noundef 20, i32 noundef 524294, ptr noundef null) #9
   br label %err
 
 if.end47:                                         ; preds = %if.end42
-  %call48 = call i32 @EVP_CipherInit_ex(ptr noundef nonnull %call43, ptr noundef nonnull %call38, ptr noundef null, ptr noundef nonnull @retry_integrity_key, ptr noundef nonnull @retry_integrity_nonce, i32 noundef 1) #10
+  %call48 = call i32 @EVP_CipherInit_ex(ptr noundef nonnull %call43, ptr noundef nonnull %call38, ptr noundef null, ptr noundef nonnull @retry_integrity_key, ptr noundef nonnull @retry_integrity_nonce, i32 noundef 1) #9
   %tobool49.not = icmp eq i32 %call48, 0
   br i1 %tobool49.not, label %if.then50, label %if.end51
 
 if.then50:                                        ; preds = %if.end47
-  call void @ERR_new() #10
-  call void @ERR_set_debug(ptr noundef nonnull @.str.3, i32 noundef 907, ptr noundef nonnull @__func__.ossl_quic_calculate_retry_integrity_tag) #10
-  call void (i32, i32, ptr, ...) @ERR_set_error(i32 noundef 20, i32 noundef 524294, ptr noundef null) #10
+  call void @ERR_new() #9
+  call void @ERR_set_debug(ptr noundef nonnull @.str.3, i32 noundef 907, ptr noundef nonnull @__func__.ossl_quic_calculate_retry_integrity_tag) #9
+  call void (i32, i32, ptr, ...) @ERR_set_error(i32 noundef 20, i32 noundef 524294, ptr noundef null) #9
   br label %err
 
 if.end51:                                         ; preds = %if.end47
   %7 = load i64, ptr %hdr_enc_len, align 8
   %conv53 = trunc i64 %7 to i32
-  %call54 = call i32 @EVP_CipherUpdate(ptr noundef nonnull %call43, ptr noundef null, ptr noundef nonnull %l, ptr noundef nonnull %buf, i32 noundef %conv53) #10
+  %call54 = call i32 @EVP_CipherUpdate(ptr noundef nonnull %call43, ptr noundef null, ptr noundef nonnull %l, ptr noundef nonnull %buf, i32 noundef %conv53) #9
   %cmp55.not = icmp eq i32 %call54, 1
   br i1 %cmp55.not, label %if.end58, label %if.then57
 
 if.then57:                                        ; preds = %if.end51
-  call void @ERR_new() #10
-  call void @ERR_set_debug(ptr noundef nonnull @.str.3, i32 noundef 913, ptr noundef nonnull @__func__.ossl_quic_calculate_retry_integrity_tag) #10
-  call void (i32, i32, ptr, ...) @ERR_set_error(i32 noundef 20, i32 noundef 524294, ptr noundef null) #10
+  call void @ERR_new() #9
+  call void @ERR_set_debug(ptr noundef nonnull @.str.3, i32 noundef 913, ptr noundef nonnull @__func__.ossl_quic_calculate_retry_integrity_tag) #9
+  call void (i32, i32, ptr, ...) @ERR_set_error(i32 noundef 20, i32 noundef 524294, ptr noundef null) #9
   br label %return
 
 if.end58:                                         ; preds = %if.end51
@@ -1860,36 +1858,36 @@ if.end58:                                         ; preds = %if.end51
   %9 = load i64, ptr %len, align 8
   %10 = trunc i64 %9 to i32
   %conv61 = add i32 %10, -16
-  %call62 = call i32 @EVP_CipherUpdate(ptr noundef nonnull %call43, ptr noundef null, ptr noundef nonnull %l, ptr noundef %8, i32 noundef %conv61) #10
+  %call62 = call i32 @EVP_CipherUpdate(ptr noundef nonnull %call43, ptr noundef null, ptr noundef nonnull %l, ptr noundef %8, i32 noundef %conv61) #9
   %cmp63.not = icmp eq i32 %call62, 1
   br i1 %cmp63.not, label %if.end66, label %if.then65
 
 if.then65:                                        ; preds = %if.end58
-  call void @ERR_new() #10
-  call void @ERR_set_debug(ptr noundef nonnull @.str.3, i32 noundef 920, ptr noundef nonnull @__func__.ossl_quic_calculate_retry_integrity_tag) #10
-  call void (i32, i32, ptr, ...) @ERR_set_error(i32 noundef 20, i32 noundef 524294, ptr noundef null) #10
+  call void @ERR_new() #9
+  call void @ERR_set_debug(ptr noundef nonnull @.str.3, i32 noundef 920, ptr noundef nonnull @__func__.ossl_quic_calculate_retry_integrity_tag) #9
+  call void (i32, i32, ptr, ...) @ERR_set_error(i32 noundef 20, i32 noundef 524294, ptr noundef null) #9
   br label %return
 
 if.end66:                                         ; preds = %if.end58
-  %call67 = call i32 @EVP_CipherFinal_ex(ptr noundef nonnull %call43, ptr noundef null, ptr noundef nonnull %l2) #10
+  %call67 = call i32 @EVP_CipherFinal_ex(ptr noundef nonnull %call43, ptr noundef null, ptr noundef nonnull %l2) #9
   %cmp68.not = icmp eq i32 %call67, 1
   br i1 %cmp68.not, label %if.end71, label %if.then70
 
 if.then70:                                        ; preds = %if.end66
-  call void @ERR_new() #10
-  call void @ERR_set_debug(ptr noundef nonnull @.str.3, i32 noundef 926, ptr noundef nonnull @__func__.ossl_quic_calculate_retry_integrity_tag) #10
-  call void (i32, i32, ptr, ...) @ERR_set_error(i32 noundef 20, i32 noundef 524294, ptr noundef null) #10
+  call void @ERR_new() #9
+  call void @ERR_set_debug(ptr noundef nonnull @.str.3, i32 noundef 926, ptr noundef nonnull @__func__.ossl_quic_calculate_retry_integrity_tag) #9
+  call void (i32, i32, ptr, ...) @ERR_set_error(i32 noundef 20, i32 noundef 524294, ptr noundef null) #9
   br label %return
 
 if.end71:                                         ; preds = %if.end66
-  %call72 = call i32 @EVP_CIPHER_CTX_ctrl(ptr noundef nonnull %call43, i32 noundef 16, i32 noundef 16, ptr noundef nonnull %tag) #10
+  %call72 = call i32 @EVP_CIPHER_CTX_ctrl(ptr noundef nonnull %call43, i32 noundef 16, i32 noundef 16, ptr noundef nonnull %tag) #9
   %cmp73.not = icmp eq i32 %call72, 1
   br i1 %cmp73.not, label %err, label %if.then75
 
 if.then75:                                        ; preds = %if.end71
-  call void @ERR_new() #10
-  call void @ERR_set_debug(ptr noundef nonnull @.str.3, i32 noundef 933, ptr noundef nonnull @__func__.ossl_quic_calculate_retry_integrity_tag) #10
-  call void (i32, i32, ptr, ...) @ERR_set_error(i32 noundef 20, i32 noundef 524294, ptr noundef null) #10
+  call void @ERR_new() #9
+  call void @ERR_set_debug(ptr noundef nonnull @.str.3, i32 noundef 933, ptr noundef nonnull @__func__.ossl_quic_calculate_retry_integrity_tag) #9
+  call void (i32, i32, ptr, ...) @ERR_set_error(i32 noundef 20, i32 noundef 524294, ptr noundef null) #9
   br label %return
 
 err:                                              ; preds = %if.end71, %if.end27, %if.then50, %if.then46, %if.then41, %if.then26, %if.then14, %if.then
@@ -1897,12 +1895,12 @@ err:                                              ; preds = %if.end71, %if.end27
   %cctx.0 = phi ptr [ null, %if.then ], [ null, %if.then41 ], [ null, %if.then46 ], [ %call43, %if.then50 ], [ null, %if.end27 ], [ null, %if.then26 ], [ null, %if.then14 ], [ %call43, %if.end71 ]
   %ok.0 = phi i32 [ 0, %if.then ], [ 0, %if.then41 ], [ 0, %if.then46 ], [ 0, %if.then50 ], [ 0, %if.end27 ], [ 0, %if.then26 ], [ 0, %if.then14 ], [ 1, %if.end71 ]
   %tobool77.not = phi i1 [ true, %if.then ], [ false, %if.then41 ], [ false, %if.then46 ], [ false, %if.then50 ], [ false, %if.end27 ], [ false, %if.then26 ], [ true, %if.then14 ], [ false, %if.end71 ]
-  call void @EVP_CIPHER_free(ptr noundef %cipher.0) #10
-  call void @EVP_CIPHER_CTX_free(ptr noundef %cctx.0) #10
+  call void @EVP_CIPHER_free(ptr noundef %cipher.0) #9
+  call void @EVP_CIPHER_CTX_free(ptr noundef %cctx.0) #9
   br i1 %tobool77.not, label %return, label %if.then78
 
 if.then78:                                        ; preds = %err
-  %call79 = call i32 @WPACKET_finish(ptr noundef nonnull %wpkt) #10
+  %call79 = call i32 @WPACKET_finish(ptr noundef nonnull %wpkt) #9
   br label %return
 
 return:                                           ; preds = %err, %if.then78, %if.then75, %if.then70, %if.then65, %if.then57, %if.then36
@@ -1925,22 +1923,21 @@ declare i32 @WPACKET_finish(ptr noundef) local_unnamed_addr #1
 declare i64 @ossl_quic_vlint_decode_unchecked(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #9
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #8
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #9
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #8
 
 attributes #0 = { nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #2 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: write) }
 attributes #3 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #4 = { mustprogress nofree nosync nounwind willreturn memory(argmem: readwrite) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #4 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #5 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
-attributes #6 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #7 = { mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #8 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #9 = { nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
-attributes #10 = { nounwind }
+attributes #6 = { mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #7 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #8 = { nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
+attributes #9 = { nounwind }
 
 !llvm.module.flags = !{!0, !1, !2, !3}
 

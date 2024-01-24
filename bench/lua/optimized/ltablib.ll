@@ -30,7 +30,7 @@ target triple = "x86_64-unknown-linux-gnu"
 @.str.19 = private unnamed_addr constant [35 x i8] c"invalid order function for sorting\00", align 1
 
 ; Function Attrs: nounwind uwtable
-define dso_local i32 @luaopen_table(ptr noundef %L) local_unnamed_addr #0 {
+define dso_local noundef i32 @luaopen_table(ptr noundef %L) local_unnamed_addr #0 {
 entry:
   tail call void @luaL_checkversion_(ptr noundef %L, double noundef 5.040000e+02, i64 noundef 136) #4
   tail call void @lua_createtable(ptr noundef %L, i32 noundef 0, i32 noundef 7) #4
@@ -45,7 +45,7 @@ declare void @lua_createtable(ptr noundef, i32 noundef, i32 noundef) local_unnam
 declare void @luaL_setfuncs(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @tconcat(ptr noundef %L) #0 {
+define internal noundef i32 @tconcat(ptr noundef %L) #0 {
 entry:
   %b = alloca %struct.luaL_Buffer, align 8
   %lsep = alloca i64, align 8
@@ -153,7 +153,7 @@ return:                                           ; preds = %sw.epilog, %sw.defa
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @tpack(ptr noundef %L) #0 {
+define internal noundef i32 @tpack(ptr noundef %L) #0 {
 entry:
   %call = tail call i32 @lua_gettop(ptr noundef %L) #4
   tail call void @lua_createtable(ptr noundef %L, i32 noundef %call, i32 noundef 1) #4
@@ -237,7 +237,7 @@ return:                                           ; preds = %cond.end, %for.end,
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @tremove(ptr noundef %L) #0 {
+define internal noundef i32 @tremove(ptr noundef %L) #0 {
 entry:
   tail call fastcc void @checktab(ptr noundef %L, i32 noundef 1, i32 noundef 7)
   %call = tail call i64 @luaL_len(ptr noundef %L, i32 noundef 1) #4
@@ -273,7 +273,7 @@ for.end:                                          ; preds = %for.body, %if.end
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @tmove(ptr noundef %L) #0 {
+define internal noundef i32 @tmove(ptr noundef %L) #0 {
 entry:
   %call = tail call i64 @luaL_checkinteger(ptr noundef %L, i32 noundef 2) #4
   %call1 = tail call i64 @luaL_checkinteger(ptr noundef %L, i32 noundef 3) #4
@@ -406,7 +406,7 @@ if.end53:                                         ; preds = %for.body47, %for.bo
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @sort(ptr noundef %L) #0 {
+define internal noundef i32 @sort(ptr noundef %L) #0 {
 entry:
   tail call fastcc void @checktab(ptr noundef %L, i32 noundef 1, i32 noundef 7)
   %call = tail call i64 @luaL_len(ptr noundef %L, i32 noundef 1) #4
@@ -569,7 +569,7 @@ entry:
   br i1 %cmp78, label %while.body.lr.ph, label %while.end
 
 while.body.lr.ph:                                 ; preds = %entry
-  %add.ptr.i = getelementptr inbounds i32, ptr %buff.i, i64 2
+  %add.ptr.i = getelementptr inbounds i8, ptr %buff.i, i64 8
   br label %while.body
 
 while.body:                                       ; preds = %while.body.lr.ph, %if.end64

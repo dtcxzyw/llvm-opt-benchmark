@@ -3,51 +3,14 @@ source_filename = "bench/libquic/original/hpack_encoder.cc.ll"
 target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:128-n8:16:32:64-S128"
 target triple = "x86_64-unknown-linux-gnu"
 
-%"class.net::HpackEncoder" = type <{ %"class.net::HpackHeaderTable", %"class.net::HpackOutputStream", ptr, i64, %"class.std::function", i8, i8, [6 x i8] }>
-%"class.net::HpackHeaderTable" = type { ptr, %"class.std::deque", ptr, ptr, %"class.std::unordered_set", %"class.std::unordered_map", i64, i64, i64, i64, %"class.std::unique_ptr" }
-%"class.std::deque" = type { %"class.std::_Deque_base" }
-%"class.std::_Deque_base" = type { %"struct.std::_Deque_base<net::HpackEntry, std::allocator<net::HpackEntry>>::_Deque_impl" }
-%"struct.std::_Deque_base<net::HpackEntry, std::allocator<net::HpackEntry>>::_Deque_impl" = type { %"struct.std::_Deque_base<net::HpackEntry, std::allocator<net::HpackEntry>>::_Deque_impl_data" }
-%"struct.std::_Deque_base<net::HpackEntry, std::allocator<net::HpackEntry>>::_Deque_impl_data" = type { ptr, i64, %"struct.std::_Deque_iterator", %"struct.std::_Deque_iterator" }
-%"struct.std::_Deque_iterator" = type { ptr, ptr, ptr, ptr }
-%"class.std::unordered_set" = type { %"class.std::_Hashtable" }
-%"class.std::_Hashtable" = type { ptr, i64, %"struct.std::__detail::_Hash_node_base", i64, %"struct.std::__detail::_Prime_rehash_policy", ptr }
-%"struct.std::__detail::_Hash_node_base" = type { ptr }
-%"struct.std::__detail::_Prime_rehash_policy" = type { float, i64 }
-%"class.std::unordered_map" = type { %"class.std::_Hashtable.5" }
-%"class.std::_Hashtable.5" = type { ptr, i64, %"struct.std::__detail::_Hash_node_base", i64, %"struct.std::__detail::_Prime_rehash_policy", ptr }
-%"class.std::unique_ptr" = type { %"struct.std::__uniq_ptr_data" }
-%"struct.std::__uniq_ptr_data" = type { %"class.std::__uniq_ptr_impl" }
-%"class.std::__uniq_ptr_impl" = type { %"class.std::tuple" }
-%"class.std::tuple" = type { %"struct.std::_Tuple_impl" }
-%"struct.std::_Tuple_impl" = type { %"struct.std::_Head_base.21" }
-%"struct.std::_Head_base.21" = type { ptr }
-%"class.net::HpackOutputStream" = type { %"class.std::__cxx11::basic_string", i64 }
-%"class.std::__cxx11::basic_string" = type { %"struct.std::__cxx11::basic_string<char>::_Alloc_hider", i64, %union.anon }
-%"struct.std::__cxx11::basic_string<char>::_Alloc_hider" = type { ptr }
-%union.anon = type { i64, [8 x i8] }
-%"class.std::function" = type { %"class.std::_Function_base", ptr }
-%"class.std::_Function_base" = type { %"union.std::_Any_data", ptr }
-%"union.std::_Any_data" = type { %"union.std::_Nocopy_types" }
-%"union.std::_Nocopy_types" = type { { i64, i64 } }
 %"class.base::BasicStringPiece" = type { ptr, i64 }
 %"class.net::HpackEncoder::RepresentationIterator" = type { %"class.__gnu_cxx::__normal_iterator", %"class.__gnu_cxx::__normal_iterator", %"class.__gnu_cxx::__normal_iterator", %"class.__gnu_cxx::__normal_iterator" }
 %"class.__gnu_cxx::__normal_iterator" = type { ptr }
-%"struct.std::_Vector_base<std::pair<base::BasicStringPiece<std::string>, base::BasicStringPiece<std::string>>, std::allocator<std::pair<base::BasicStringPiece<std::string>, base::BasicStringPiece<std::string>>>>::_Vector_impl_data" = type { ptr, ptr, ptr }
-%"struct.std::pair" = type { %"class.base::BasicStringPiece", %"class.base::BasicStringPiece" }
 %"class.std::vector.43" = type { %"struct.std::_Vector_base.44" }
 %"struct.std::_Vector_base.44" = type { %"struct.std::_Vector_base<std::pair<base::BasicStringPiece<std::string>, base::BasicStringPiece<std::string>>, std::allocator<std::pair<base::BasicStringPiece<std::string>, base::BasicStringPiece<std::string>>>>::_Vector_impl" }
 %"struct.std::_Vector_base<std::pair<base::BasicStringPiece<std::string>, base::BasicStringPiece<std::string>>, std::allocator<std::pair<base::BasicStringPiece<std::string>, base::BasicStringPiece<std::string>>>>::_Vector_impl" = type { %"struct.std::_Vector_base<std::pair<base::BasicStringPiece<std::string>, base::BasicStringPiece<std::string>>, std::allocator<std::pair<base::BasicStringPiece<std::string>, base::BasicStringPiece<std::string>>>>::_Vector_impl_data" }
-%class.linked_hash_map = type { %"class.std::unordered_map.48", %"class.std::__cxx11::list" }
-%"class.std::unordered_map.48" = type { %"class.std::_Hashtable.49" }
-%"class.std::_Hashtable.49" = type { ptr, i64, %"struct.std::__detail::_Hash_node_base", i64, %"struct.std::__detail::_Prime_rehash_policy", ptr }
-%"class.std::__cxx11::list" = type { %"class.std::__cxx11::_List_base" }
-%"class.std::__cxx11::_List_base" = type { %"struct.std::__cxx11::_List_base<std::pair<base::BasicStringPiece<std::string>, base::BasicStringPiece<std::string>>, std::allocator<std::pair<base::BasicStringPiece<std::string>, base::BasicStringPiece<std::string>>>>::_List_impl" }
-%"struct.std::__cxx11::_List_base<std::pair<base::BasicStringPiece<std::string>, base::BasicStringPiece<std::string>>, std::allocator<std::pair<base::BasicStringPiece<std::string>, base::BasicStringPiece<std::string>>>>::_List_impl" = type { %"struct.std::__detail::_List_node_header" }
-%"struct.std::__detail::_List_node_header" = type { %"struct.std::__detail::_List_node_base", i64 }
-%"struct.std::__detail::_List_node_base" = type { ptr, ptr }
-%"struct.std::_List_node" = type { %"struct.std::__detail::_List_node_base", %"struct.__gnu_cxx::__aligned_membuf" }
-%"struct.__gnu_cxx::__aligned_membuf" = type { [32 x i8] }
+%"struct.std::_Vector_base<std::pair<base::BasicStringPiece<std::string>, base::BasicStringPiece<std::string>>, std::allocator<std::pair<base::BasicStringPiece<std::string>, base::BasicStringPiece<std::string>>>>::_Vector_impl_data" = type { ptr, ptr, ptr }
+%"struct.std::pair" = type { %"class.base::BasicStringPiece", %"class.base::BasicStringPiece" }
 
 $__clang_call_terminate = comdat any
 
@@ -82,26 +45,26 @@ $_ZTIPFbN4base16BasicStringPieceINSt7__cxx1112basic_stringIcSt11char_traitsIcESa
 define dso_local void @_ZN3net12HpackEncoderC2ERKNS_17HpackHuffmanTableE(ptr noundef nonnull align 8 dereferenceable(346) %this, ptr noundef nonnull align 8 dereferenceable(100) %table) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   tail call void @_ZN3net16HpackHeaderTableC1Ev(ptr noundef nonnull align 8 dereferenceable(256) %this)
-  %output_stream_ = getelementptr inbounds %"class.net::HpackEncoder", ptr %this, i64 0, i32 1
+  %output_stream_ = getelementptr inbounds i8, ptr %this, i64 256
   invoke void @_ZN3net17HpackOutputStreamC1Ev(ptr noundef nonnull align 8 dereferenceable(40) %output_stream_)
           to label %invoke.cont unwind label %lpad
 
 invoke.cont:                                      ; preds = %entry
-  %huffman_table_ = getelementptr inbounds %"class.net::HpackEncoder", ptr %this, i64 0, i32 2
+  %huffman_table_ = getelementptr inbounds i8, ptr %this, i64 296
   store ptr %table, ptr %huffman_table_, align 8
-  %min_table_size_setting_received_ = getelementptr inbounds %"class.net::HpackEncoder", ptr %this, i64 0, i32 3
+  %min_table_size_setting_received_ = getelementptr inbounds i8, ptr %this, i64 304
   store i64 -1, ptr %min_table_size_setting_received_, align 8
-  %should_index_ = getelementptr inbounds %"class.net::HpackEncoder", ptr %this, i64 0, i32 4
-  %_M_manager.i.i = getelementptr inbounds %"class.net::HpackEncoder", ptr %this, i64 0, i32 4, i32 0, i32 1
-  %_M_invoker.i = getelementptr inbounds %"class.net::HpackEncoder", ptr %this, i64 0, i32 4, i32 1
-  %0 = getelementptr inbounds %"class.net::HpackEncoder", ptr %this, i64 0, i32 4, i32 0, i32 0, i32 0, i32 0, i32 1
+  %should_index_ = getelementptr inbounds i8, ptr %this, i64 312
+  %_M_manager.i.i = getelementptr inbounds i8, ptr %this, i64 328
+  %_M_invoker.i = getelementptr inbounds i8, ptr %this, i64 336
+  %0 = getelementptr inbounds i8, ptr %this, i64 320
   store i64 0, ptr %0, align 8
   store ptr @_ZN3net12_GLOBAL__N_113DefaultPolicyEN4base16BasicStringPieceINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEES9_, ptr %should_index_, align 8
   store ptr @_ZNSt17_Function_handlerIFbN4base16BasicStringPieceINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEES8_EPS9_E9_M_invokeERKSt9_Any_dataOS8_SF_, ptr %_M_invoker.i, align 8
   store ptr @_ZNSt17_Function_handlerIFbN4base16BasicStringPieceINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEES8_EPS9_E10_M_managerERSt9_Any_dataRKSC_St18_Manager_operation, ptr %_M_manager.i.i, align 8
-  %allow_huffman_compression_ = getelementptr inbounds %"class.net::HpackEncoder", ptr %this, i64 0, i32 5
+  %allow_huffman_compression_ = getelementptr inbounds i8, ptr %this, i64 344
   store i8 1, ptr %allow_huffman_compression_, align 8
-  %should_emit_table_size_ = getelementptr inbounds %"class.net::HpackEncoder", ptr %this, i64 0, i32 6
+  %should_emit_table_size_ = getelementptr inbounds i8, ptr %this, i64 345
   store i8 0, ptr %should_emit_table_size_, align 1
   ret void
 
@@ -124,7 +87,7 @@ entry:
   %name = alloca %"class.base::BasicStringPiece", align 8
   %ref.tmp = alloca %"class.base::BasicStringPiece", align 8
   store ptr %name.coerce0, ptr %name, align 8
-  %0 = getelementptr inbounds { ptr, i64 }, ptr %name, i64 0, i32 1
+  %0 = getelementptr inbounds i8, ptr %name, i64 8
   store i64 %name.coerce1, ptr %0, align 8
   %call = call noundef zeroext i1 @_ZNK4base16BasicStringPieceINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE5emptyEv(ptr noundef nonnull align 8 dereferenceable(16) %name)
   br i1 %call, label %return, label %if.end
@@ -150,13 +113,13 @@ declare void @_ZN3net16HpackHeaderTableD1Ev(ptr noundef nonnull align 8 derefere
 ; Function Attrs: mustprogress nounwind uwtable
 define dso_local void @_ZN3net12HpackEncoderD2Ev(ptr noundef nonnull align 8 dereferenceable(346) %this) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  %_M_manager.i.i = getelementptr inbounds %"class.net::HpackEncoder", ptr %this, i64 0, i32 4, i32 0, i32 1
+  %_M_manager.i.i = getelementptr inbounds i8, ptr %this, i64 328
   %0 = load ptr, ptr %_M_manager.i.i, align 8
   %tobool.not.i.i = icmp eq ptr %0, null
   br i1 %tobool.not.i.i, label %_ZNSt8functionIFbN4base16BasicStringPieceINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEES8_EED2Ev.exit, label %if.then.i.i
 
 if.then.i.i:                                      ; preds = %entry
-  %should_index_ = getelementptr inbounds %"class.net::HpackEncoder", ptr %this, i64 0, i32 4
+  %should_index_ = getelementptr inbounds i8, ptr %this, i64 312
   %call.i.i = invoke noundef zeroext i1 %0(ptr noundef nonnull align 8 dereferenceable(16) %should_index_, ptr noundef nonnull align 8 dereferenceable(16) %should_index_, i32 noundef 3)
           to label %_ZNSt8functionIFbN4base16BasicStringPieceINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEES8_EED2Ev.exit unwind label %terminate.lpad.i.i
 
@@ -168,7 +131,7 @@ terminate.lpad.i.i:                               ; preds = %if.then.i.i
   unreachable
 
 _ZNSt8functionIFbN4base16BasicStringPieceINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEES8_EED2Ev.exit: ; preds = %entry, %if.then.i.i
-  %output_stream_ = getelementptr inbounds %"class.net::HpackEncoder", ptr %this, i64 0, i32 1
+  %output_stream_ = getelementptr inbounds i8, ptr %this, i64 256
   tail call void @_ZN3net17HpackOutputStreamD1Ev(ptr noundef nonnull align 8 dereferenceable(40) %output_stream_) #13
   tail call void @_ZN3net16HpackHeaderTableD1Ev(ptr noundef nonnull align 8 dereferenceable(256) %this) #13
   ret void
@@ -183,13 +146,13 @@ entry:
   %iter = alloca %"class.net::HpackEncoder::RepresentationIterator", align 8
   %0 = load ptr, ptr %representations, align 8
   store ptr %0, ptr %iter, align 8
-  %pseudo_end_.i = getelementptr inbounds %"class.net::HpackEncoder::RepresentationIterator", ptr %iter, i64 0, i32 1
-  %_M_finish.i.i = getelementptr inbounds %"struct.std::_Vector_base<std::pair<base::BasicStringPiece<std::string>, base::BasicStringPiece<std::string>>, std::allocator<std::pair<base::BasicStringPiece<std::string>, base::BasicStringPiece<std::string>>>>::_Vector_impl_data", ptr %representations, i64 0, i32 1
+  %pseudo_end_.i = getelementptr inbounds i8, ptr %iter, i64 8
+  %_M_finish.i.i = getelementptr inbounds i8, ptr %representations, i64 8
   %1 = load ptr, ptr %_M_finish.i.i, align 8
   store ptr %1, ptr %pseudo_end_.i, align 8
-  %regular_begin_.i = getelementptr inbounds %"class.net::HpackEncoder::RepresentationIterator", ptr %iter, i64 0, i32 2
+  %regular_begin_.i = getelementptr inbounds i8, ptr %iter, i64 16
   store ptr %1, ptr %regular_begin_.i, align 8
-  %regular_end_.i = getelementptr inbounds %"class.net::HpackEncoder::RepresentationIterator", ptr %iter, i64 0, i32 3
+  %regular_end_.i = getelementptr inbounds i8, ptr %iter, i64 24
   store ptr %1, ptr %regular_end_.i, align 8
   call void @_ZN3net12HpackEncoder21EncodeRepresentationsEPNS0_22RepresentationIteratorEPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(346) %this, ptr noundef nonnull %iter, ptr noundef %output)
   ret void
@@ -200,22 +163,22 @@ define dso_local void @_ZN3net12HpackEncoder21EncodeRepresentationsEPNS0_22Repre
 entry:
   %__args.i = alloca %"class.base::BasicStringPiece", align 8
   %__args4.i = alloca %"class.base::BasicStringPiece", align 8
-  %should_emit_table_size_.i = getelementptr inbounds %"class.net::HpackEncoder", ptr %this, i64 0, i32 6
+  %should_emit_table_size_.i = getelementptr inbounds i8, ptr %this, i64 345
   %0 = load i8, ptr %should_emit_table_size_.i, align 1
   %1 = and i8 %0, 1
   %tobool.not.i = icmp eq i8 %1, 0
   br i1 %tobool.not.i, label %_ZN3net12HpackEncoder18MaybeEmitTableSizeEv.exit, label %if.end.i
 
 if.end.i:                                         ; preds = %entry
-  %settings_size_bound_.i.i.i = getelementptr inbounds %"class.net::HpackHeaderTable", ptr %this, i64 0, i32 6
+  %settings_size_bound_.i.i.i = getelementptr inbounds i8, ptr %this, i64 216
   %2 = load i64, ptr %settings_size_bound_.i.i.i, align 8
-  %min_table_size_setting_received_.i = getelementptr inbounds %"class.net::HpackEncoder", ptr %this, i64 0, i32 3
+  %min_table_size_setting_received_.i = getelementptr inbounds i8, ptr %this, i64 304
   %3 = load i64, ptr %min_table_size_setting_received_.i, align 8
   %cmp.i = icmp ult i64 %3, %2
   br i1 %cmp.i, label %if.then2.i, label %if.end5.i
 
 if.then2.i:                                       ; preds = %if.end.i
-  %output_stream_.i = getelementptr inbounds %"class.net::HpackEncoder", ptr %this, i64 0, i32 1
+  %output_stream_.i = getelementptr inbounds i8, ptr %this, i64 256
   tail call void @_ZN3net17HpackOutputStream12AppendPrefixENS_11HpackPrefixE(ptr noundef nonnull align 8 dereferenceable(40) %output_stream_.i, i8 1, i64 3)
   %4 = load i64, ptr %min_table_size_setting_received_.i, align 8
   %conv.i = trunc i64 %4 to i32
@@ -223,7 +186,7 @@ if.then2.i:                                       ; preds = %if.end.i
   br label %if.end5.i
 
 if.end5.i:                                        ; preds = %if.then2.i, %if.end.i
-  %output_stream_6.i = getelementptr inbounds %"class.net::HpackEncoder", ptr %this, i64 0, i32 1
+  %output_stream_6.i = getelementptr inbounds i8, ptr %this, i64 256
   tail call void @_ZN3net17HpackOutputStream12AppendPrefixENS_11HpackPrefixE(ptr noundef nonnull align 8 dereferenceable(40) %output_stream_6.i, i8 1, i64 3)
   %conv9.i = trunc i64 %2 to i32
   tail call void @_ZN3net17HpackOutputStream12AppendUint32Ej(ptr noundef nonnull align 8 dereferenceable(40) %output_stream_6.i, i32 noundef %conv9.i)
@@ -232,9 +195,9 @@ if.end5.i:                                        ; preds = %if.then2.i, %if.end
   br label %_ZN3net12HpackEncoder18MaybeEmitTableSizeEv.exit
 
 _ZN3net12HpackEncoder18MaybeEmitTableSizeEv.exit: ; preds = %entry, %if.end5.i
-  %pseudo_end_.i = getelementptr inbounds %"class.net::HpackEncoder::RepresentationIterator", ptr %iter, i64 0, i32 1
-  %regular_begin_.i = getelementptr inbounds %"class.net::HpackEncoder::RepresentationIterator", ptr %iter, i64 0, i32 2
-  %regular_end_.i = getelementptr inbounds %"class.net::HpackEncoder::RepresentationIterator", ptr %iter, i64 0, i32 3
+  %pseudo_end_.i = getelementptr inbounds i8, ptr %iter, i64 8
+  %regular_begin_.i = getelementptr inbounds i8, ptr %iter, i64 16
+  %regular_end_.i = getelementptr inbounds i8, ptr %iter, i64 24
   %5 = load ptr, ptr %iter, align 8
   %6 = load ptr, ptr %pseudo_end_.i, align 8
   %cmp.i.i23 = icmp ne ptr %5, %6
@@ -245,12 +208,12 @@ _ZN3net12HpackEncoder18MaybeEmitTableSizeEv.exit: ; preds = %entry, %if.end5.i
   br i1 %9, label %while.body.lr.ph, label %while.end
 
 while.body.lr.ph:                                 ; preds = %_ZN3net12HpackEncoder18MaybeEmitTableSizeEv.exit
-  %output_stream_.i5 = getelementptr inbounds %"class.net::HpackEncoder", ptr %this, i64 0, i32 1
-  %10 = getelementptr inbounds { ptr, i64 }, ptr %__args.i, i64 0, i32 1
-  %11 = getelementptr inbounds { ptr, i64 }, ptr %__args4.i, i64 0, i32 1
-  %_M_manager.i.i = getelementptr inbounds %"class.net::HpackEncoder", ptr %this, i64 0, i32 4, i32 0, i32 1
-  %should_index_ = getelementptr inbounds %"class.net::HpackEncoder", ptr %this, i64 0, i32 4
-  %_M_invoker.i = getelementptr inbounds %"class.net::HpackEncoder", ptr %this, i64 0, i32 4, i32 1
+  %output_stream_.i5 = getelementptr inbounds i8, ptr %this, i64 256
+  %10 = getelementptr inbounds i8, ptr %__args.i, i64 8
+  %11 = getelementptr inbounds i8, ptr %__args4.i, i64 8
+  %_M_manager.i.i = getelementptr inbounds i8, ptr %this, i64 328
+  %should_index_ = getelementptr inbounds i8, ptr %this, i64 312
+  %_M_invoker.i = getelementptr inbounds i8, ptr %this, i64 336
   br label %while.body
 
 while.body:                                       ; preds = %while.body.lr.ph, %if.end12
@@ -260,7 +223,7 @@ while.body:                                       ; preds = %while.body.lr.ph, %
   %cmp.i.not.i = icmp eq ptr %14, %13
   %.sink2.i = select i1 %cmp.i.not.i, ptr %12, ptr %14
   %regular_begin_.sink.i = select i1 %cmp.i.not.i, ptr %regular_begin_.i, ptr %iter
-  %incdec.ptr.i1.i = getelementptr inbounds %"struct.std::pair", ptr %.sink2.i, i64 1
+  %incdec.ptr.i1.i = getelementptr inbounds i8, ptr %.sink2.i, i64 32
   store ptr %incdec.ptr.i1.i, ptr %regular_begin_.sink.i, align 8, !noalias !5
   %header.sroa.0.0.copyload = load ptr, ptr %.sink2.i, align 8
   %header.sroa.7.0..sink2.i.sroa_idx = getelementptr inbounds i8, ptr %.sink2.i, i64 8
@@ -342,7 +305,7 @@ if.end12:                                         ; preds = %_ZN3net12HpackEncod
   br i1 %21, label %while.body, label %while.end, !llvm.loop !8
 
 while.end:                                        ; preds = %if.end12, %_ZN3net12HpackEncoder18MaybeEmitTableSizeEv.exit
-  %output_stream_ = getelementptr inbounds %"class.net::HpackEncoder", ptr %this, i64 0, i32 1
+  %output_stream_ = getelementptr inbounds i8, ptr %this, i64 256
   call void @_ZN3net17HpackOutputStream10TakeStringEPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(40) %output_stream_, ptr noundef %output)
   ret void
 }
@@ -356,7 +319,7 @@ invoke.cont2:
   %iter = alloca %"class.net::HpackEncoder::RepresentationIterator", align 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %pseudo_headers, i8 0, i64 24, i1 false)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %regular_headers, i8 0, i64 24, i1 false)
-  %list_.i.i = getelementptr inbounds %class.linked_hash_map, ptr %header_set, i64 0, i32 1
+  %list_.i.i = getelementptr inbounds i8, ptr %header_set, i64 56
   %__begin1.sroa.0.021 = load ptr, ptr %list_.i.i, align 8
   %cmp.i.not22 = icmp eq ptr %__begin1.sroa.0.021, %list_.i.i
   br i1 %cmp.i.not22, label %for.end, label %for.body
@@ -364,7 +327,7 @@ invoke.cont2:
 for.body:                                         ; preds = %invoke.cont2, %for.inc
   %__begin1.sroa.0.024 = phi ptr [ %__begin1.sroa.0.0, %for.inc ], [ %__begin1.sroa.0.021, %invoke.cont2 ]
   %found_cookie.023 = phi i8 [ %found_cookie.1, %for.inc ], [ 0, %invoke.cont2 ]
-  %_M_storage.i.i = getelementptr inbounds %"struct.std::_List_node", ptr %__begin1.sroa.0.024, i64 0, i32 1
+  %_M_storage.i.i = getelementptr inbounds i8, ptr %__begin1.sroa.0.024, i64 16
   %0 = and i8 %found_cookie.023, 1
   %tobool.not = icmp eq i8 %0, 0
   br i1 %tobool.not, label %land.rhs, label %if.else
@@ -448,10 +411,10 @@ for.inc:                                          ; preds = %if.then17.invoke, %
 
 for.end.loopexit:                                 ; preds = %for.inc
   %.pre = load ptr, ptr %pseudo_headers, align 8
-  %_M_finish.i.i.phi.trans.insert = getelementptr inbounds %"struct.std::_Vector_base<std::pair<base::BasicStringPiece<std::string>, base::BasicStringPiece<std::string>>, std::allocator<std::pair<base::BasicStringPiece<std::string>, base::BasicStringPiece<std::string>>>>::_Vector_impl_data", ptr %pseudo_headers, i64 0, i32 1
+  %_M_finish.i.i.phi.trans.insert = getelementptr inbounds i8, ptr %pseudo_headers, i64 8
   %.pre25 = load ptr, ptr %_M_finish.i.i.phi.trans.insert, align 8
   %.pre26 = load ptr, ptr %regular_headers, align 8
-  %_M_finish.i3.i.phi.trans.insert = getelementptr inbounds %"struct.std::_Vector_base<std::pair<base::BasicStringPiece<std::string>, base::BasicStringPiece<std::string>>, std::allocator<std::pair<base::BasicStringPiece<std::string>, base::BasicStringPiece<std::string>>>>::_Vector_impl_data", ptr %regular_headers, i64 0, i32 1
+  %_M_finish.i3.i.phi.trans.insert = getelementptr inbounds i8, ptr %regular_headers, i64 8
   %.pre27 = load ptr, ptr %_M_finish.i3.i.phi.trans.insert, align 8
   br label %for.end
 
@@ -461,11 +424,11 @@ for.end:                                          ; preds = %for.end.loopexit, %
   %6 = phi ptr [ %.pre25, %for.end.loopexit ], [ null, %invoke.cont2 ]
   %7 = phi ptr [ %.pre, %for.end.loopexit ], [ null, %invoke.cont2 ]
   store ptr %7, ptr %iter, align 8
-  %pseudo_end_.i = getelementptr inbounds %"class.net::HpackEncoder::RepresentationIterator", ptr %iter, i64 0, i32 1
+  %pseudo_end_.i = getelementptr inbounds i8, ptr %iter, i64 8
   store ptr %6, ptr %pseudo_end_.i, align 8
-  %regular_begin_.i = getelementptr inbounds %"class.net::HpackEncoder::RepresentationIterator", ptr %iter, i64 0, i32 2
+  %regular_begin_.i = getelementptr inbounds i8, ptr %iter, i64 16
   store ptr %5, ptr %regular_begin_.i, align 8
-  %regular_end_.i = getelementptr inbounds %"class.net::HpackEncoder::RepresentationIterator", ptr %iter, i64 0, i32 3
+  %regular_end_.i = getelementptr inbounds i8, ptr %iter, i64 24
   store ptr %4, ptr %regular_end_.i, align 8
   invoke void @_ZN3net12HpackEncoder21EncodeRepresentationsEPNS0_22RepresentationIteratorEPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(346) %this, ptr noundef nonnull %iter, ptr noundef %output)
           to label %invoke.cont24 unwind label %lpad.loopexit.split-lp
@@ -502,7 +465,7 @@ entry:
   %ref.tmp1 = alloca %"class.base::BasicStringPiece", align 8
   %ref.tmp3 = alloca %"class.base::BasicStringPiece", align 8
   %ref.tmp6 = alloca %"class.base::BasicStringPiece", align 8
-  %second = getelementptr inbounds %"struct.std::pair", ptr %cookie, i64 0, i32 1
+  %second = getelementptr inbounds i8, ptr %cookie, i64 16
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %cookie_value, ptr noundef nonnull align 8 dereferenceable(16) %second, i64 16, i1 false)
   call void @_ZN4base16BasicStringPieceINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEC1EPKc(ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp, ptr noundef nonnull @.str.1)
   %call = call noundef i64 @_ZNK4base16BasicStringPieceINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE17find_first_not_ofERKS7_m(ptr noundef nonnull align 8 dereferenceable(16) %cookie_value, ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp, i64 noundef 0)
@@ -534,8 +497,8 @@ if.end:                                           ; preds = %if.else, %if.then
   br i1 %cmp860, label %if.then9, label %if.end14.lr.ph
 
 if.end14.lr.ph:                                   ; preds = %if.end
-  %_M_finish.i.i15 = getelementptr inbounds %"struct.std::_Vector_base<std::pair<base::BasicStringPiece<std::string>, base::BasicStringPiece<std::string>>, std::allocator<std::pair<base::BasicStringPiece<std::string>, base::BasicStringPiece<std::string>>>>::_Vector_impl_data", ptr %out, i64 0, i32 1
-  %_M_end_of_storage.i.i16 = getelementptr inbounds %"struct.std::_Vector_base<std::pair<base::BasicStringPiece<std::string>, base::BasicStringPiece<std::string>>, std::allocator<std::pair<base::BasicStringPiece<std::string>, base::BasicStringPiece<std::string>>>>::_Vector_impl_data", ptr %out, i64 0, i32 2
+  %_M_finish.i.i15 = getelementptr inbounds i8, ptr %out, i64 8
+  %_M_end_of_storage.i.i16 = getelementptr inbounds i8, ptr %out, i64 16
   br label %if.end14
 
 if.then9:                                         ; preds = %if.end26, %if.end
@@ -543,9 +506,9 @@ if.then9:                                         ; preds = %if.end26, %if.end
   %call13 = call { ptr, i64 } @_ZNK4base16BasicStringPieceINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE6substrEmm(ptr noundef nonnull align 8 dereferenceable(16) %cookie_value, i64 noundef %pos.0.lcssa, i64 noundef -1)
   %2 = extractvalue { ptr, i64 } %call13, 0
   %3 = extractvalue { ptr, i64 } %call13, 1
-  %_M_finish.i.i = getelementptr inbounds %"struct.std::_Vector_base<std::pair<base::BasicStringPiece<std::string>, base::BasicStringPiece<std::string>>, std::allocator<std::pair<base::BasicStringPiece<std::string>, base::BasicStringPiece<std::string>>>>::_Vector_impl_data", ptr %out, i64 0, i32 1
+  %_M_finish.i.i = getelementptr inbounds i8, ptr %out, i64 8
   %4 = load ptr, ptr %_M_finish.i.i, align 8
-  %_M_end_of_storage.i.i = getelementptr inbounds %"struct.std::_Vector_base<std::pair<base::BasicStringPiece<std::string>, base::BasicStringPiece<std::string>>, std::allocator<std::pair<base::BasicStringPiece<std::string>, base::BasicStringPiece<std::string>>>>::_Vector_impl_data", ptr %out, i64 0, i32 2
+  %_M_end_of_storage.i.i = getelementptr inbounds i8, ptr %out, i64 16
   %5 = load ptr, ptr %_M_end_of_storage.i.i, align 8
   %cmp.not.i.i = icmp eq ptr %4, %5
   br i1 %cmp.not.i.i, label %if.else.i.i, label %if.then.i.i
@@ -557,7 +520,7 @@ if.then.i.i:                                      ; preds = %if.then9
   %ref.tmp10.sroa.4.0..sroa_idx = getelementptr inbounds i8, ptr %4, i64 24
   store i64 %3, ptr %ref.tmp10.sroa.4.0..sroa_idx, align 8
   %6 = load ptr, ptr %_M_finish.i.i, align 8
-  %incdec.ptr.i.i = getelementptr inbounds %"struct.std::pair", ptr %6, i64 1
+  %incdec.ptr.i.i = getelementptr inbounds i8, ptr %6, i64 32
   store ptr %incdec.ptr.i.i, ptr %_M_finish.i.i, align 8
   br label %_ZNSt6vectorISt4pairIN4base16BasicStringPieceINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEES9_ESaISA_EE9push_backEOSA_.exit
 
@@ -603,14 +566,14 @@ for.body.i.i.i.i.i.i:                             ; preds = %_ZNSt12_Vector_base
   %__cur.07.i.i.i.i.i.i = phi ptr [ %incdec.ptr1.i.i.i.i.i.i, %for.body.i.i.i.i.i.i ], [ %cond.i10.i.i.i, %_ZNSt12_Vector_baseISt4pairIN4base16BasicStringPieceINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEES9_ESaISA_EE11_M_allocateEm.exit.i.i.i ]
   %__first.addr.06.i.i.i.i.i.i = phi ptr [ %incdec.ptr.i.i.i.i.i.i, %for.body.i.i.i.i.i.i ], [ %7, %_ZNSt12_Vector_baseISt4pairIN4base16BasicStringPieceINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEES9_ESaISA_EE11_M_allocateEm.exit.i.i.i ]
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %__cur.07.i.i.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(32) %__first.addr.06.i.i.i.i.i.i, i64 32, i1 false), !alias.scope !10
-  %incdec.ptr.i.i.i.i.i.i = getelementptr inbounds %"struct.std::pair", ptr %__first.addr.06.i.i.i.i.i.i, i64 1
-  %incdec.ptr1.i.i.i.i.i.i = getelementptr inbounds %"struct.std::pair", ptr %__cur.07.i.i.i.i.i.i, i64 1
+  %incdec.ptr.i.i.i.i.i.i = getelementptr inbounds i8, ptr %__first.addr.06.i.i.i.i.i.i, i64 32
+  %incdec.ptr1.i.i.i.i.i.i = getelementptr inbounds i8, ptr %__cur.07.i.i.i.i.i.i, i64 32
   %cmp.not.i.i.i.i.i.i = icmp eq ptr %incdec.ptr.i.i.i.i.i.i, %4
   br i1 %cmp.not.i.i.i.i.i.i, label %_ZNSt6vectorISt4pairIN4base16BasicStringPieceINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEES9_ESaISA_EE11_S_relocateEPSA_SD_SD_RSB_.exit19.i.i.i, label %for.body.i.i.i.i.i.i, !llvm.loop !14
 
 _ZNSt6vectorISt4pairIN4base16BasicStringPieceINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEES9_ESaISA_EE11_S_relocateEPSA_SD_SD_RSB_.exit19.i.i.i: ; preds = %for.body.i.i.i.i.i.i, %_ZNSt12_Vector_baseISt4pairIN4base16BasicStringPieceINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEES9_ESaISA_EE11_M_allocateEm.exit.i.i.i
   %__cur.0.lcssa.i.i.i.i.i.i = phi ptr [ %cond.i10.i.i.i, %_ZNSt12_Vector_baseISt4pairIN4base16BasicStringPieceINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEES9_ESaISA_EE11_M_allocateEm.exit.i.i.i ], [ %incdec.ptr1.i.i.i.i.i.i, %for.body.i.i.i.i.i.i ]
-  %incdec.ptr.i.i.i = getelementptr %"struct.std::pair", ptr %__cur.0.lcssa.i.i.i.i.i.i, i64 1
+  %incdec.ptr.i.i.i = getelementptr i8, ptr %__cur.0.lcssa.i.i.i.i.i.i, i64 32
   %tobool.not.i.i.i.i = icmp eq ptr %7, null
   br i1 %tobool.not.i.i.i.i, label %_ZNSt6vectorISt4pairIN4base16BasicStringPieceINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEES9_ESaISA_EE17_M_realloc_insertIJSA_EEEvN9__gnu_cxx17__normal_iteratorIPSA_SC_EEDpOT_.exit.i.i, label %if.then.i20.i.i.i
 
@@ -647,7 +610,7 @@ if.then.i.i18:                                    ; preds = %if.end14
   %ref.tmp15.sroa.4.0..sroa_idx = getelementptr inbounds i8, ptr %11, i64 24
   store i64 %10, ptr %ref.tmp15.sroa.4.0..sroa_idx, align 8
   %13 = load ptr, ptr %_M_finish.i.i15, align 8
-  %incdec.ptr.i.i19 = getelementptr inbounds %"struct.std::pair", ptr %13, i64 1
+  %incdec.ptr.i.i19 = getelementptr inbounds i8, ptr %13, i64 32
   store ptr %incdec.ptr.i.i19, ptr %_M_finish.i.i15, align 8
   br label %_ZNSt6vectorISt4pairIN4base16BasicStringPieceINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEES9_ESaISA_EE9push_backEOSA_.exit53
 
@@ -693,14 +656,14 @@ for.body.i.i.i.i.i.i39:                           ; preds = %_ZNSt12_Vector_base
   %__cur.07.i.i.i.i.i.i40 = phi ptr [ %incdec.ptr1.i.i.i.i.i.i43, %for.body.i.i.i.i.i.i39 ], [ %cond.i10.i.i.i36, %_ZNSt12_Vector_baseISt4pairIN4base16BasicStringPieceINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEES9_ESaISA_EE11_M_allocateEm.exit.i.i.i35 ]
   %__first.addr.06.i.i.i.i.i.i41 = phi ptr [ %incdec.ptr.i.i.i.i.i.i42, %for.body.i.i.i.i.i.i39 ], [ %14, %_ZNSt12_Vector_baseISt4pairIN4base16BasicStringPieceINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEES9_ESaISA_EE11_M_allocateEm.exit.i.i.i35 ]
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %__cur.07.i.i.i.i.i.i40, ptr noundef nonnull align 8 dereferenceable(32) %__first.addr.06.i.i.i.i.i.i41, i64 32, i1 false), !alias.scope !15
-  %incdec.ptr.i.i.i.i.i.i42 = getelementptr inbounds %"struct.std::pair", ptr %__first.addr.06.i.i.i.i.i.i41, i64 1
-  %incdec.ptr1.i.i.i.i.i.i43 = getelementptr inbounds %"struct.std::pair", ptr %__cur.07.i.i.i.i.i.i40, i64 1
+  %incdec.ptr.i.i.i.i.i.i42 = getelementptr inbounds i8, ptr %__first.addr.06.i.i.i.i.i.i41, i64 32
+  %incdec.ptr1.i.i.i.i.i.i43 = getelementptr inbounds i8, ptr %__cur.07.i.i.i.i.i.i40, i64 32
   %cmp.not.i.i.i.i.i.i44 = icmp eq ptr %incdec.ptr.i.i.i.i.i.i42, %11
   br i1 %cmp.not.i.i.i.i.i.i44, label %_ZNSt6vectorISt4pairIN4base16BasicStringPieceINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEES9_ESaISA_EE11_S_relocateEPSA_SD_SD_RSB_.exit19.i.i.i45, label %for.body.i.i.i.i.i.i39, !llvm.loop !14
 
 _ZNSt6vectorISt4pairIN4base16BasicStringPieceINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEES9_ESaISA_EE11_S_relocateEPSA_SD_SD_RSB_.exit19.i.i.i45: ; preds = %for.body.i.i.i.i.i.i39, %_ZNSt12_Vector_baseISt4pairIN4base16BasicStringPieceINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEES9_ESaISA_EE11_M_allocateEm.exit.i.i.i35
   %__cur.0.lcssa.i.i.i.i.i.i46 = phi ptr [ %cond.i10.i.i.i36, %_ZNSt12_Vector_baseISt4pairIN4base16BasicStringPieceINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEES9_ESaISA_EE11_M_allocateEm.exit.i.i.i35 ], [ %incdec.ptr1.i.i.i.i.i.i43, %for.body.i.i.i.i.i.i39 ]
-  %incdec.ptr.i.i.i47 = getelementptr %"struct.std::pair", ptr %__cur.0.lcssa.i.i.i.i.i.i46, i64 1
+  %incdec.ptr.i.i.i47 = getelementptr i8, ptr %__cur.0.lcssa.i.i.i.i.i.i46, i64 32
   %tobool.not.i.i.i.i48 = icmp eq ptr %14, null
   br i1 %tobool.not.i.i.i.i48, label %_ZNSt6vectorISt4pairIN4base16BasicStringPieceINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEES9_ESaISA_EE17_M_realloc_insertIJSA_EEEvN9__gnu_cxx17__normal_iteratorIPSA_SC_EEDpOT_.exit.i.i50, label %if.then.i20.i.i.i49
 
@@ -743,9 +706,9 @@ declare noundef signext i8 @_ZNK4base16BasicStringPieceINSt7__cxx1112basic_strin
 ; Function Attrs: mustprogress uwtable
 define dso_local void @_ZN3net12HpackEncoder23DecomposeRepresentationERKSt4pairIN4base16BasicStringPieceINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEESA_EPSt6vectorISB_SaISB_EE(ptr noundef nonnull align 8 dereferenceable(32) %header_field, ptr nocapture noundef %out) local_unnamed_addr #0 align 2 {
 entry:
-  %second = getelementptr inbounds %"struct.std::pair", ptr %header_field, i64 0, i32 1
-  %_M_finish.i.i = getelementptr inbounds %"struct.std::_Vector_base<std::pair<base::BasicStringPiece<std::string>, base::BasicStringPiece<std::string>>, std::allocator<std::pair<base::BasicStringPiece<std::string>, base::BasicStringPiece<std::string>>>>::_Vector_impl_data", ptr %out, i64 0, i32 1
-  %_M_end_of_storage.i.i = getelementptr inbounds %"struct.std::_Vector_base<std::pair<base::BasicStringPiece<std::string>, base::BasicStringPiece<std::string>>, std::allocator<std::pair<base::BasicStringPiece<std::string>, base::BasicStringPiece<std::string>>>>::_Vector_impl_data", ptr %out, i64 0, i32 2
+  %second = getelementptr inbounds i8, ptr %header_field, i64 16
+  %_M_finish.i.i = getelementptr inbounds i8, ptr %out, i64 8
+  %_M_end_of_storage.i.i = getelementptr inbounds i8, ptr %out, i64 16
   br label %while.body
 
 while.body:                                       ; preds = %entry, %_ZNSt6vectorISt4pairIN4base16BasicStringPieceINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEES9_ESaISA_EE9push_backEOSA_.exit
@@ -769,7 +732,7 @@ if.then.i.i:                                      ; preds = %while.body
   %ref.tmp.sroa.4.0..sroa_idx = getelementptr inbounds i8, ptr %2, i64 24
   store i64 %1, ptr %ref.tmp.sroa.4.0..sroa_idx, align 8
   %4 = load ptr, ptr %_M_finish.i.i, align 8
-  %incdec.ptr.i.i = getelementptr inbounds %"struct.std::pair", ptr %4, i64 1
+  %incdec.ptr.i.i = getelementptr inbounds i8, ptr %4, i64 32
   store ptr %incdec.ptr.i.i, ptr %_M_finish.i.i, align 8
   br label %_ZNSt6vectorISt4pairIN4base16BasicStringPieceINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEES9_ESaISA_EE9push_backEOSA_.exit
 
@@ -815,14 +778,14 @@ for.body.i.i.i.i.i.i:                             ; preds = %_ZNSt12_Vector_base
   %__cur.07.i.i.i.i.i.i = phi ptr [ %incdec.ptr1.i.i.i.i.i.i, %for.body.i.i.i.i.i.i ], [ %cond.i10.i.i.i, %_ZNSt12_Vector_baseISt4pairIN4base16BasicStringPieceINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEES9_ESaISA_EE11_M_allocateEm.exit.i.i.i ]
   %__first.addr.06.i.i.i.i.i.i = phi ptr [ %incdec.ptr.i.i.i.i.i.i, %for.body.i.i.i.i.i.i ], [ %5, %_ZNSt12_Vector_baseISt4pairIN4base16BasicStringPieceINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEES9_ESaISA_EE11_M_allocateEm.exit.i.i.i ]
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %__cur.07.i.i.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(32) %__first.addr.06.i.i.i.i.i.i, i64 32, i1 false), !alias.scope !20
-  %incdec.ptr.i.i.i.i.i.i = getelementptr inbounds %"struct.std::pair", ptr %__first.addr.06.i.i.i.i.i.i, i64 1
-  %incdec.ptr1.i.i.i.i.i.i = getelementptr inbounds %"struct.std::pair", ptr %__cur.07.i.i.i.i.i.i, i64 1
+  %incdec.ptr.i.i.i.i.i.i = getelementptr inbounds i8, ptr %__first.addr.06.i.i.i.i.i.i, i64 32
+  %incdec.ptr1.i.i.i.i.i.i = getelementptr inbounds i8, ptr %__cur.07.i.i.i.i.i.i, i64 32
   %cmp.not.i.i.i.i.i.i = icmp eq ptr %incdec.ptr.i.i.i.i.i.i, %2
   br i1 %cmp.not.i.i.i.i.i.i, label %_ZNSt6vectorISt4pairIN4base16BasicStringPieceINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEES9_ESaISA_EE11_S_relocateEPSA_SD_SD_RSB_.exit19.i.i.i, label %for.body.i.i.i.i.i.i, !llvm.loop !14
 
 _ZNSt6vectorISt4pairIN4base16BasicStringPieceINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEES9_ESaISA_EE11_S_relocateEPSA_SD_SD_RSB_.exit19.i.i.i: ; preds = %for.body.i.i.i.i.i.i, %_ZNSt12_Vector_baseISt4pairIN4base16BasicStringPieceINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEES9_ESaISA_EE11_M_allocateEm.exit.i.i.i
   %__cur.0.lcssa.i.i.i.i.i.i = phi ptr [ %cond.i10.i.i.i, %_ZNSt12_Vector_baseISt4pairIN4base16BasicStringPieceINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEES9_ESaISA_EE11_M_allocateEm.exit.i.i.i ], [ %incdec.ptr1.i.i.i.i.i.i, %for.body.i.i.i.i.i.i ]
-  %incdec.ptr.i.i.i = getelementptr %"struct.std::pair", ptr %__cur.0.lcssa.i.i.i.i.i.i, i64 1
+  %incdec.ptr.i.i.i = getelementptr i8, ptr %__cur.0.lcssa.i.i.i.i.i.i, i64 32
   %tobool.not.i.i.i.i = icmp eq ptr %5, null
   br i1 %tobool.not.i.i.i.i, label %_ZNSt6vectorISt4pairIN4base16BasicStringPieceINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEES9_ESaISA_EE17_M_realloc_insertIJSA_EEEvN9__gnu_cxx17__normal_iteratorIPSA_SC_EEDpOT_.exit.i.i, label %if.then.i20.i.i.i
 
@@ -848,24 +811,24 @@ while.end:                                        ; preds = %_ZNSt6vectorISt4pai
 ; Function Attrs: mustprogress uwtable
 define dso_local noundef zeroext i1 @_ZN3net12HpackEncoder33EncodeHeaderSetWithoutCompressionERKNS_15SpdyHeaderBlockEPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(346) %this, ptr noundef nonnull readonly align 8 dereferenceable(88) %header_set, ptr noundef %output) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  %allow_huffman_compression_ = getelementptr inbounds %"class.net::HpackEncoder", ptr %this, i64 0, i32 5
+  %allow_huffman_compression_ = getelementptr inbounds i8, ptr %this, i64 344
   store i8 0, ptr %allow_huffman_compression_, align 8
-  %should_emit_table_size_.i = getelementptr inbounds %"class.net::HpackEncoder", ptr %this, i64 0, i32 6
+  %should_emit_table_size_.i = getelementptr inbounds i8, ptr %this, i64 345
   %0 = load i8, ptr %should_emit_table_size_.i, align 1
   %1 = and i8 %0, 1
   %tobool.not.i = icmp eq i8 %1, 0
   br i1 %tobool.not.i, label %_ZN3net12HpackEncoder18MaybeEmitTableSizeEv.exit, label %if.end.i
 
 if.end.i:                                         ; preds = %entry
-  %settings_size_bound_.i.i.i = getelementptr inbounds %"class.net::HpackHeaderTable", ptr %this, i64 0, i32 6
+  %settings_size_bound_.i.i.i = getelementptr inbounds i8, ptr %this, i64 216
   %2 = load i64, ptr %settings_size_bound_.i.i.i, align 8
-  %min_table_size_setting_received_.i = getelementptr inbounds %"class.net::HpackEncoder", ptr %this, i64 0, i32 3
+  %min_table_size_setting_received_.i = getelementptr inbounds i8, ptr %this, i64 304
   %3 = load i64, ptr %min_table_size_setting_received_.i, align 8
   %cmp.i = icmp ult i64 %3, %2
   br i1 %cmp.i, label %if.then2.i, label %if.end5.i
 
 if.then2.i:                                       ; preds = %if.end.i
-  %output_stream_.i = getelementptr inbounds %"class.net::HpackEncoder", ptr %this, i64 0, i32 1
+  %output_stream_.i = getelementptr inbounds i8, ptr %this, i64 256
   tail call void @_ZN3net17HpackOutputStream12AppendPrefixENS_11HpackPrefixE(ptr noundef nonnull align 8 dereferenceable(40) %output_stream_.i, i8 1, i64 3)
   %4 = load i64, ptr %min_table_size_setting_received_.i, align 8
   %conv.i = trunc i64 %4 to i32
@@ -873,7 +836,7 @@ if.then2.i:                                       ; preds = %if.end.i
   br label %if.end5.i
 
 if.end5.i:                                        ; preds = %if.then2.i, %if.end.i
-  %output_stream_6.i = getelementptr inbounds %"class.net::HpackEncoder", ptr %this, i64 0, i32 1
+  %output_stream_6.i = getelementptr inbounds i8, ptr %this, i64 256
   tail call void @_ZN3net17HpackOutputStream12AppendPrefixENS_11HpackPrefixE(ptr noundef nonnull align 8 dereferenceable(40) %output_stream_6.i, i8 1, i64 3)
   %conv9.i = trunc i64 %2 to i32
   tail call void @_ZN3net17HpackOutputStream12AppendUint32Ej(ptr noundef nonnull align 8 dereferenceable(40) %output_stream_6.i, i32 noundef %conv9.i)
@@ -882,27 +845,27 @@ if.end5.i:                                        ; preds = %if.then2.i, %if.end
   br label %_ZN3net12HpackEncoder18MaybeEmitTableSizeEv.exit
 
 _ZN3net12HpackEncoder18MaybeEmitTableSizeEv.exit: ; preds = %entry, %if.end5.i
-  %list_.i.i = getelementptr inbounds %class.linked_hash_map, ptr %header_set, i64 0, i32 1
+  %list_.i.i = getelementptr inbounds i8, ptr %header_set, i64 56
   %__begin1.sroa.0.07 = load ptr, ptr %list_.i.i, align 8
   %cmp.i3.not8 = icmp eq ptr %__begin1.sroa.0.07, %list_.i.i
   br i1 %cmp.i3.not8, label %for.end, label %for.body.lr.ph
 
 for.body.lr.ph:                                   ; preds = %_ZN3net12HpackEncoder18MaybeEmitTableSizeEv.exit
-  %output_stream_.i4 = getelementptr inbounds %"class.net::HpackEncoder", ptr %this, i64 0, i32 1
+  %output_stream_.i4 = getelementptr inbounds i8, ptr %this, i64 256
   br label %for.body
 
 for.body:                                         ; preds = %for.body.lr.ph, %for.body
   %__begin1.sroa.0.09 = phi ptr [ %__begin1.sroa.0.07, %for.body.lr.ph ], [ %__begin1.sroa.0.0, %for.body ]
-  %_M_storage.i.i = getelementptr inbounds %"struct.std::_List_node", ptr %__begin1.sroa.0.09, i64 0, i32 1
+  %_M_storage.i.i = getelementptr inbounds i8, ptr %__begin1.sroa.0.09, i64 16
   tail call void @_ZN3net17HpackOutputStream12AppendPrefixENS_11HpackPrefixE(ptr noundef nonnull align 8 dereferenceable(40) %output_stream_.i4, i8 0, i64 4)
   tail call void @_ZN3net17HpackOutputStream12AppendUint32Ej(ptr noundef nonnull align 8 dereferenceable(40) %output_stream_.i4, i32 noundef 0)
   %agg.tmp3.sroa.0.0.copyload.i = load ptr, ptr %_M_storage.i.i, align 8
-  %agg.tmp3.sroa.2.0.first.sroa_idx.i = getelementptr inbounds %"struct.std::_List_node", ptr %__begin1.sroa.0.09, i64 0, i32 1, i32 0, i64 8
+  %agg.tmp3.sroa.2.0.first.sroa_idx.i = getelementptr inbounds i8, ptr %__begin1.sroa.0.09, i64 24
   %agg.tmp3.sroa.2.0.copyload.i = load i64, ptr %agg.tmp3.sroa.2.0.first.sroa_idx.i, align 8
   tail call void @_ZN3net12HpackEncoder10EmitStringEN4base16BasicStringPieceINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEE(ptr noundef nonnull align 8 dereferenceable(346) %this, ptr %agg.tmp3.sroa.0.0.copyload.i, i64 %agg.tmp3.sroa.2.0.copyload.i)
-  %second.i = getelementptr inbounds %"struct.std::_List_node", ptr %__begin1.sroa.0.09, i64 0, i32 1, i32 0, i64 16
+  %second.i = getelementptr inbounds i8, ptr %__begin1.sroa.0.09, i64 32
   %agg.tmp4.sroa.0.0.copyload.i = load ptr, ptr %second.i, align 8
-  %agg.tmp4.sroa.2.0.second.sroa_idx.i = getelementptr inbounds %"struct.std::_List_node", ptr %__begin1.sroa.0.09, i64 0, i32 1, i32 0, i64 24
+  %agg.tmp4.sroa.2.0.second.sroa_idx.i = getelementptr inbounds i8, ptr %__begin1.sroa.0.09, i64 40
   %agg.tmp4.sroa.2.0.copyload.i = load i64, ptr %agg.tmp4.sroa.2.0.second.sroa_idx.i, align 8
   tail call void @_ZN3net12HpackEncoder10EmitStringEN4base16BasicStringPieceINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEE(ptr noundef nonnull align 8 dereferenceable(346) %this, ptr %agg.tmp4.sroa.0.0.copyload.i, i64 %agg.tmp4.sroa.2.0.copyload.i)
   %__begin1.sroa.0.0 = load ptr, ptr %__begin1.sroa.0.09, align 8
@@ -911,7 +874,7 @@ for.body:                                         ; preds = %for.body.lr.ph, %fo
 
 for.end:                                          ; preds = %for.body, %_ZN3net12HpackEncoder18MaybeEmitTableSizeEv.exit
   store i8 1, ptr %allow_huffman_compression_, align 8
-  %output_stream_ = getelementptr inbounds %"class.net::HpackEncoder", ptr %this, i64 0, i32 1
+  %output_stream_ = getelementptr inbounds i8, ptr %this, i64 256
   tail call void @_ZN3net17HpackOutputStream10TakeStringEPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(40) %output_stream_, ptr noundef %output)
   ret i1 true
 }
@@ -919,22 +882,22 @@ for.end:                                          ; preds = %for.body, %_ZN3net1
 ; Function Attrs: mustprogress uwtable
 define dso_local void @_ZN3net12HpackEncoder18MaybeEmitTableSizeEv(ptr noundef nonnull align 8 dereferenceable(346) %this) local_unnamed_addr #0 align 2 {
 entry:
-  %should_emit_table_size_ = getelementptr inbounds %"class.net::HpackEncoder", ptr %this, i64 0, i32 6
+  %should_emit_table_size_ = getelementptr inbounds i8, ptr %this, i64 345
   %0 = load i8, ptr %should_emit_table_size_, align 1
   %1 = and i8 %0, 1
   %tobool.not = icmp eq i8 %1, 0
   br i1 %tobool.not, label %return, label %if.end
 
 if.end:                                           ; preds = %entry
-  %settings_size_bound_.i.i = getelementptr inbounds %"class.net::HpackHeaderTable", ptr %this, i64 0, i32 6
+  %settings_size_bound_.i.i = getelementptr inbounds i8, ptr %this, i64 216
   %2 = load i64, ptr %settings_size_bound_.i.i, align 8
-  %min_table_size_setting_received_ = getelementptr inbounds %"class.net::HpackEncoder", ptr %this, i64 0, i32 3
+  %min_table_size_setting_received_ = getelementptr inbounds i8, ptr %this, i64 304
   %3 = load i64, ptr %min_table_size_setting_received_, align 8
   %cmp = icmp ult i64 %3, %2
   br i1 %cmp, label %if.then2, label %if.end5
 
 if.then2:                                         ; preds = %if.end
-  %output_stream_ = getelementptr inbounds %"class.net::HpackEncoder", ptr %this, i64 0, i32 1
+  %output_stream_ = getelementptr inbounds i8, ptr %this, i64 256
   tail call void @_ZN3net17HpackOutputStream12AppendPrefixENS_11HpackPrefixE(ptr noundef nonnull align 8 dereferenceable(40) %output_stream_, i8 1, i64 3)
   %4 = load i64, ptr %min_table_size_setting_received_, align 8
   %conv = trunc i64 %4 to i32
@@ -942,7 +905,7 @@ if.then2:                                         ; preds = %if.end
   br label %if.end5
 
 if.end5:                                          ; preds = %if.then2, %if.end
-  %output_stream_6 = getelementptr inbounds %"class.net::HpackEncoder", ptr %this, i64 0, i32 1
+  %output_stream_6 = getelementptr inbounds i8, ptr %this, i64 256
   tail call void @_ZN3net17HpackOutputStream12AppendPrefixENS_11HpackPrefixE(ptr noundef nonnull align 8 dereferenceable(40) %output_stream_6, i8 1, i64 3)
   %conv9 = trunc i64 %2 to i32
   tail call void @_ZN3net17HpackOutputStream12AppendUint32Ej(ptr noundef nonnull align 8 dereferenceable(40) %output_stream_6, i32 noundef %conv9)
@@ -957,16 +920,16 @@ return:                                           ; preds = %entry, %if.end5
 ; Function Attrs: mustprogress uwtable
 define dso_local void @_ZN3net12HpackEncoder21EmitNonIndexedLiteralERKSt4pairIN4base16BasicStringPieceINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEESA_E(ptr noundef nonnull align 8 dereferenceable(346) %this, ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %representation) local_unnamed_addr #0 align 2 {
 entry:
-  %output_stream_ = getelementptr inbounds %"class.net::HpackEncoder", ptr %this, i64 0, i32 1
+  %output_stream_ = getelementptr inbounds i8, ptr %this, i64 256
   tail call void @_ZN3net17HpackOutputStream12AppendPrefixENS_11HpackPrefixE(ptr noundef nonnull align 8 dereferenceable(40) %output_stream_, i8 0, i64 4)
   tail call void @_ZN3net17HpackOutputStream12AppendUint32Ej(ptr noundef nonnull align 8 dereferenceable(40) %output_stream_, i32 noundef 0)
   %agg.tmp3.sroa.0.0.copyload = load ptr, ptr %representation, align 8
   %agg.tmp3.sroa.2.0.first.sroa_idx = getelementptr inbounds i8, ptr %representation, i64 8
   %agg.tmp3.sroa.2.0.copyload = load i64, ptr %agg.tmp3.sroa.2.0.first.sroa_idx, align 8
   tail call void @_ZN3net12HpackEncoder10EmitStringEN4base16BasicStringPieceINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEE(ptr noundef nonnull align 8 dereferenceable(346) %this, ptr %agg.tmp3.sroa.0.0.copyload, i64 %agg.tmp3.sroa.2.0.copyload)
-  %second = getelementptr inbounds %"struct.std::pair", ptr %representation, i64 0, i32 1
+  %second = getelementptr inbounds i8, ptr %representation, i64 16
   %agg.tmp4.sroa.0.0.copyload = load ptr, ptr %second, align 8
-  %agg.tmp4.sroa.2.0.second.sroa_idx = getelementptr inbounds %"struct.std::pair", ptr %representation, i64 0, i32 1, i32 1
+  %agg.tmp4.sroa.2.0.second.sroa_idx = getelementptr inbounds i8, ptr %representation, i64 24
   %agg.tmp4.sroa.2.0.copyload = load i64, ptr %agg.tmp4.sroa.2.0.second.sroa_idx, align 8
   tail call void @_ZN3net12HpackEncoder10EmitStringEN4base16BasicStringPieceINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEE(ptr noundef nonnull align 8 dereferenceable(346) %this, ptr %agg.tmp4.sroa.0.0.copyload, i64 %agg.tmp4.sroa.2.0.copyload)
   ret void
@@ -977,7 +940,7 @@ declare void @_ZN3net17HpackOutputStream10TakeStringEPNSt7__cxx1112basic_stringI
 ; Function Attrs: mustprogress uwtable
 define dso_local void @_ZN3net12HpackEncoder27ApplyHeaderTableSizeSettingEm(ptr noundef nonnull align 8 dereferenceable(346) %this, i64 noundef %size_setting) local_unnamed_addr #0 align 2 {
 entry:
-  %settings_size_bound_.i = getelementptr inbounds %"class.net::HpackHeaderTable", ptr %this, i64 0, i32 6
+  %settings_size_bound_.i = getelementptr inbounds i8, ptr %this, i64 216
   %0 = load i64, ptr %settings_size_bound_.i, align 8
   %cmp = icmp eq i64 %0, %size_setting
   br i1 %cmp, label %return, label %if.end
@@ -987,7 +950,7 @@ if.end:                                           ; preds = %entry
   br i1 %cmp4, label %if.then5, label %if.end8
 
 if.then5:                                         ; preds = %if.end
-  %min_table_size_setting_received_ = getelementptr inbounds %"class.net::HpackEncoder", ptr %this, i64 0, i32 3
+  %min_table_size_setting_received_ = getelementptr inbounds i8, ptr %this, i64 304
   %1 = load i64, ptr %min_table_size_setting_received_, align 8
   %.sroa.speculated = tail call i64 @llvm.umin.i64(i64 %1, i64 %size_setting)
   store i64 %.sroa.speculated, ptr %min_table_size_setting_received_, align 8
@@ -995,7 +958,7 @@ if.then5:                                         ; preds = %if.end
 
 if.end8:                                          ; preds = %if.then5, %if.end
   tail call void @_ZN3net16HpackHeaderTable26SetSettingsHeaderTableSizeEm(ptr noundef nonnull align 8 dereferenceable(256) %this, i64 noundef %size_setting)
-  %should_emit_table_size_ = getelementptr inbounds %"class.net::HpackEncoder", ptr %this, i64 0, i32 6
+  %should_emit_table_size_ = getelementptr inbounds i8, ptr %this, i64 345
   store i8 1, ptr %should_emit_table_size_, align 1
   br label %return
 
@@ -1013,7 +976,7 @@ declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias
 ; Function Attrs: mustprogress uwtable
 define dso_local void @_ZN3net12HpackEncoder9EmitIndexEPKNS_10HpackEntryE(ptr noundef nonnull align 8 dereferenceable(346) %this, ptr noundef %entry1) local_unnamed_addr #0 align 2 {
 entry:
-  %output_stream_ = getelementptr inbounds %"class.net::HpackEncoder", ptr %this, i64 0, i32 1
+  %output_stream_ = getelementptr inbounds i8, ptr %this, i64 256
   tail call void @_ZN3net17HpackOutputStream12AppendPrefixENS_11HpackPrefixE(ptr noundef nonnull align 8 dereferenceable(40) %output_stream_, i8 1, i64 1)
   %call = tail call noundef i64 @_ZNK3net16HpackHeaderTable7IndexOfEPKNS_10HpackEntryE(ptr noundef nonnull align 8 dereferenceable(256) %this, ptr noundef %entry1)
   %conv = trunc i64 %call to i32
@@ -1024,15 +987,15 @@ entry:
 ; Function Attrs: mustprogress uwtable
 define dso_local void @_ZN3net12HpackEncoder18EmitIndexedLiteralERKSt4pairIN4base16BasicStringPieceINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEESA_E(ptr noundef nonnull align 8 dereferenceable(346) %this, ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %representation) local_unnamed_addr #0 align 2 {
 entry:
-  %output_stream_ = getelementptr inbounds %"class.net::HpackEncoder", ptr %this, i64 0, i32 1
+  %output_stream_ = getelementptr inbounds i8, ptr %this, i64 256
   tail call void @_ZN3net17HpackOutputStream12AppendPrefixENS_11HpackPrefixE(ptr noundef nonnull align 8 dereferenceable(40) %output_stream_, i8 1, i64 2)
   tail call void @_ZN3net12HpackEncoder11EmitLiteralERKSt4pairIN4base16BasicStringPieceINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEESA_E(ptr noundef nonnull align 8 dereferenceable(346) %this, ptr noundef nonnull align 8 dereferenceable(32) %representation)
   %agg.tmp2.sroa.0.0.copyload = load ptr, ptr %representation, align 8
   %agg.tmp2.sroa.2.0.first.sroa_idx = getelementptr inbounds i8, ptr %representation, i64 8
   %agg.tmp2.sroa.2.0.copyload = load i64, ptr %agg.tmp2.sroa.2.0.first.sroa_idx, align 8
-  %second = getelementptr inbounds %"struct.std::pair", ptr %representation, i64 0, i32 1
+  %second = getelementptr inbounds i8, ptr %representation, i64 16
   %agg.tmp3.sroa.0.0.copyload = load ptr, ptr %second, align 8
-  %agg.tmp3.sroa.2.0.second.sroa_idx = getelementptr inbounds %"struct.std::pair", ptr %representation, i64 0, i32 1, i32 1
+  %agg.tmp3.sroa.2.0.second.sroa_idx = getelementptr inbounds i8, ptr %representation, i64 24
   %agg.tmp3.sroa.2.0.copyload = load i64, ptr %agg.tmp3.sroa.2.0.second.sroa_idx, align 8
   %call = tail call noundef ptr @_ZN3net16HpackHeaderTable11TryAddEntryEN4base16BasicStringPieceINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEES9_(ptr noundef nonnull align 8 dereferenceable(256) %this, ptr %agg.tmp2.sroa.0.0.copyload, i64 %agg.tmp2.sroa.2.0.copyload, ptr %agg.tmp3.sroa.0.0.copyload, i64 %agg.tmp3.sroa.2.0.copyload)
   ret void
@@ -1052,7 +1015,7 @@ entry:
   %agg.tmp.sroa.2.0.copyload = load i64, ptr %agg.tmp.sroa.2.0.first.sroa_idx, align 8
   %call = tail call noundef ptr @_ZN3net16HpackHeaderTable9GetByNameEN4base16BasicStringPieceINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEE(ptr noundef nonnull align 8 dereferenceable(256) %this, ptr %agg.tmp.sroa.0.0.copyload, i64 %agg.tmp.sroa.2.0.copyload)
   %cmp.not = icmp eq ptr %call, null
-  %output_stream_4 = getelementptr inbounds %"class.net::HpackEncoder", ptr %this, i64 0, i32 1
+  %output_stream_4 = getelementptr inbounds i8, ptr %this, i64 256
   br i1 %cmp.not, label %if.else, label %if.then
 
 if.then:                                          ; preds = %entry
@@ -1069,9 +1032,9 @@ if.else:                                          ; preds = %entry
   br label %if.end
 
 if.end:                                           ; preds = %if.else, %if.then
-  %second = getelementptr inbounds %"struct.std::pair", ptr %representation, i64 0, i32 1
+  %second = getelementptr inbounds i8, ptr %representation, i64 16
   %agg.tmp7.sroa.0.0.copyload = load ptr, ptr %second, align 8
-  %agg.tmp7.sroa.2.0.second.sroa_idx = getelementptr inbounds %"struct.std::pair", ptr %representation, i64 0, i32 1, i32 1
+  %agg.tmp7.sroa.2.0.second.sroa_idx = getelementptr inbounds i8, ptr %representation, i64 24
   %agg.tmp7.sroa.2.0.copyload = load i64, ptr %agg.tmp7.sroa.2.0.second.sroa_idx, align 8
   tail call void @_ZN3net12HpackEncoder10EmitStringEN4base16BasicStringPieceINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEE(ptr noundef nonnull align 8 dereferenceable(346) %this, ptr %agg.tmp7.sroa.0.0.copyload, i64 %agg.tmp7.sroa.2.0.copyload)
   ret void
@@ -1084,9 +1047,9 @@ define dso_local void @_ZN3net12HpackEncoder10EmitStringEN4base16BasicStringPiec
 entry:
   %str = alloca %"class.base::BasicStringPiece", align 8
   store ptr %str.coerce0, ptr %str, align 8
-  %0 = getelementptr inbounds { ptr, i64 }, ptr %str, i64 0, i32 1
+  %0 = getelementptr inbounds i8, ptr %str, i64 8
   store i64 %str.coerce1, ptr %0, align 8
-  %allow_huffman_compression_ = getelementptr inbounds %"class.net::HpackEncoder", ptr %this, i64 0, i32 5
+  %allow_huffman_compression_ = getelementptr inbounds i8, ptr %this, i64 344
   %1 = load i8, ptr %allow_huffman_compression_, align 8
   %2 = and i8 %1, 1
   %tobool.not = icmp eq i8 %2, 0
@@ -1097,7 +1060,7 @@ cond.true:                                        ; preds = %entry
   br label %cond.end
 
 cond.false:                                       ; preds = %entry
-  %huffman_table_ = getelementptr inbounds %"class.net::HpackEncoder", ptr %this, i64 0, i32 2
+  %huffman_table_ = getelementptr inbounds i8, ptr %this, i64 296
   %3 = load ptr, ptr %huffman_table_, align 8
   %call2 = tail call noundef i64 @_ZNK3net17HpackHuffmanTable11EncodedSizeEN4base16BasicStringPieceINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEE(ptr noundef nonnull align 8 dereferenceable(100) %3, ptr %str.coerce0, i64 %str.coerce1)
   br label %cond.end
@@ -1106,14 +1069,14 @@ cond.end:                                         ; preds = %cond.false, %cond.t
   %cond = phi i64 [ %call, %cond.true ], [ %call2, %cond.false ]
   %call3 = call noundef i64 @_ZNK4base16BasicStringPieceINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %str)
   %cmp = icmp ult i64 %cond, %call3
-  %output_stream_ = getelementptr inbounds %"class.net::HpackEncoder", ptr %this, i64 0, i32 1
+  %output_stream_ = getelementptr inbounds i8, ptr %this, i64 256
   br i1 %cmp, label %if.then, label %if.else
 
 if.then:                                          ; preds = %cond.end
   call void @_ZN3net17HpackOutputStream12AppendPrefixENS_11HpackPrefixE(ptr noundef nonnull align 8 dereferenceable(40) %output_stream_, i8 1, i64 1)
   %conv = trunc i64 %cond to i32
   call void @_ZN3net17HpackOutputStream12AppendUint32Ej(ptr noundef nonnull align 8 dereferenceable(40) %output_stream_, i32 noundef %conv)
-  %huffman_table_6 = getelementptr inbounds %"class.net::HpackEncoder", ptr %this, i64 0, i32 2
+  %huffman_table_6 = getelementptr inbounds i8, ptr %this, i64 296
   %4 = load ptr, ptr %huffman_table_6, align 8
   %agg.tmp7.sroa.0.0.copyload = load ptr, ptr %str, align 8
   %agg.tmp7.sroa.2.0.copyload = load i64, ptr %0, align 8

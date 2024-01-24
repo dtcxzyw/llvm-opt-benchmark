@@ -4,23 +4,6 @@ target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:
 target triple = "x86_64-unknown-linux-gnu"
 
 %struct.QEnumLookup = type { ptr, ptr, i32 }
-%struct.q_obj_add_client_arg = type { ptr, ptr, i8, i8, i8, i8 }
-%struct.IOThreadInfo = type { ptr, i64, i64, i64, i64, i64 }
-%struct.IOThreadInfoList = type { ptr, ptr }
-%struct.q_obj_human_monitor_command_arg = type { ptr, i8, i64 }
-%struct.AddfdInfo = type { i64, i64 }
-%struct.q_obj_add_fd_arg = type { i8, i64, ptr }
-%struct.q_obj_remove_fd_arg = type { i64, i8, i64 }
-%struct.FdsetFdInfo = type { i64, ptr }
-%struct.FdsetFdInfoList = type { ptr, ptr }
-%struct.FdsetInfo = type { i64, ptr }
-%struct.FdsetInfoList = type { ptr, ptr }
-%struct.CommandLineParameterInfo = type { ptr, i32, ptr, ptr }
-%struct.CommandLineParameterInfoList = type { ptr, ptr }
-%struct.CommandLineOptionInfo = type { ptr, ptr }
-%struct.CommandLineOptionInfoList = type { ptr, ptr }
-%struct.q_obj_RTC_CHANGE_arg = type { i64, ptr }
-%struct.q_obj_VFU_CLIENT_HANGUP_arg = type { ptr, ptr, ptr, ptr }
 
 @.str = private unnamed_addr constant [9 x i8] c"protocol\00", align 1
 @.str.1 = private unnamed_addr constant [7 x i8] c"fdname\00", align 1
@@ -63,33 +46,33 @@ target triple = "x86_64-unknown-linux-gnu"
 @qapi_dummy_qapi_visit_misc_c = dso_local local_unnamed_addr global i8 0, align 1
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local zeroext i1 @visit_type_q_obj_add_client_arg_members(ptr noundef %v, ptr noundef %obj, ptr noundef %errp) local_unnamed_addr #0 {
+define dso_local noundef zeroext i1 @visit_type_q_obj_add_client_arg_members(ptr noundef %v, ptr noundef %obj, ptr noundef %errp) local_unnamed_addr #0 {
 entry:
   %call = tail call zeroext i1 @visit_type_str(ptr noundef %v, ptr noundef nonnull @.str, ptr noundef %obj, ptr noundef %errp) #4
   br i1 %call, label %if.end, label %return
 
 if.end:                                           ; preds = %entry
-  %fdname = getelementptr inbounds %struct.q_obj_add_client_arg, ptr %obj, i64 0, i32 1
+  %fdname = getelementptr inbounds i8, ptr %obj, i64 8
   %call1 = tail call zeroext i1 @visit_type_str(ptr noundef %v, ptr noundef nonnull @.str.1, ptr noundef nonnull %fdname, ptr noundef %errp) #4
   br i1 %call1, label %if.end3, label %return
 
 if.end3:                                          ; preds = %if.end
-  %has_skipauth = getelementptr inbounds %struct.q_obj_add_client_arg, ptr %obj, i64 0, i32 2
+  %has_skipauth = getelementptr inbounds i8, ptr %obj, i64 16
   %call4 = tail call zeroext i1 @visit_optional(ptr noundef %v, ptr noundef nonnull @.str.2, ptr noundef nonnull %has_skipauth) #4
   br i1 %call4, label %if.then5, label %if.end9
 
 if.then5:                                         ; preds = %if.end3
-  %skipauth = getelementptr inbounds %struct.q_obj_add_client_arg, ptr %obj, i64 0, i32 3
+  %skipauth = getelementptr inbounds i8, ptr %obj, i64 17
   %call6 = tail call zeroext i1 @visit_type_bool(ptr noundef %v, ptr noundef nonnull @.str.2, ptr noundef nonnull %skipauth, ptr noundef %errp) #4
   br i1 %call6, label %if.end9, label %return
 
 if.end9:                                          ; preds = %if.then5, %if.end3
-  %has_tls = getelementptr inbounds %struct.q_obj_add_client_arg, ptr %obj, i64 0, i32 4
+  %has_tls = getelementptr inbounds i8, ptr %obj, i64 18
   %call10 = tail call zeroext i1 @visit_optional(ptr noundef %v, ptr noundef nonnull @.str.3, ptr noundef nonnull %has_tls) #4
   br i1 %call10, label %if.then11, label %if.end15
 
 if.then11:                                        ; preds = %if.end9
-  %tls = getelementptr inbounds %struct.q_obj_add_client_arg, ptr %obj, i64 0, i32 5
+  %tls = getelementptr inbounds i8, ptr %obj, i64 19
   %call12 = tail call zeroext i1 @visit_type_bool(ptr noundef %v, ptr noundef nonnull @.str.3, ptr noundef nonnull %tls, ptr noundef %errp) #4
   br i1 %call12, label %if.end15, label %return
 
@@ -108,7 +91,7 @@ declare zeroext i1 @visit_optional(ptr noundef, ptr noundef, ptr noundef) local_
 declare zeroext i1 @visit_type_bool(ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local zeroext i1 @visit_type_NameInfo_members(ptr noundef %v, ptr noundef %obj, ptr noundef %errp) local_unnamed_addr #0 {
+define dso_local noundef zeroext i1 @visit_type_NameInfo_members(ptr noundef %v, ptr noundef %obj, ptr noundef %errp) local_unnamed_addr #0 {
 entry:
   %has_name = alloca i8, align 1
   %0 = load ptr, ptr %obj, align 8
@@ -131,7 +114,7 @@ return:                                           ; preds = %if.then, %if.end5
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local zeroext i1 @visit_type_NameInfo(ptr noundef %v, ptr noundef %name, ptr noundef %obj, ptr noundef %errp) local_unnamed_addr #0 {
+define dso_local noundef zeroext i1 @visit_type_NameInfo(ptr noundef %v, ptr noundef %name, ptr noundef %obj, ptr noundef %errp) local_unnamed_addr #0 {
 entry:
   %has_name.i = alloca i8, align 1
   %call = tail call zeroext i1 @visit_start_struct(ptr noundef %v, ptr noundef %name, ptr noundef %obj, i64 noundef 8, ptr noundef %errp) #4
@@ -215,27 +198,27 @@ entry:
   br i1 %call, label %if.end, label %return
 
 if.end:                                           ; preds = %entry
-  %thread_id = getelementptr inbounds %struct.IOThreadInfo, ptr %obj, i64 0, i32 1
+  %thread_id = getelementptr inbounds i8, ptr %obj, i64 8
   %call1 = tail call zeroext i1 @visit_type_int(ptr noundef %v, ptr noundef nonnull @.str.8, ptr noundef nonnull %thread_id, ptr noundef %errp) #4
   br i1 %call1, label %if.end3, label %return
 
 if.end3:                                          ; preds = %if.end
-  %poll_max_ns = getelementptr inbounds %struct.IOThreadInfo, ptr %obj, i64 0, i32 2
+  %poll_max_ns = getelementptr inbounds i8, ptr %obj, i64 16
   %call4 = tail call zeroext i1 @visit_type_int(ptr noundef %v, ptr noundef nonnull @.str.9, ptr noundef nonnull %poll_max_ns, ptr noundef %errp) #4
   br i1 %call4, label %if.end6, label %return
 
 if.end6:                                          ; preds = %if.end3
-  %poll_grow = getelementptr inbounds %struct.IOThreadInfo, ptr %obj, i64 0, i32 3
+  %poll_grow = getelementptr inbounds i8, ptr %obj, i64 24
   %call7 = tail call zeroext i1 @visit_type_int(ptr noundef %v, ptr noundef nonnull @.str.10, ptr noundef nonnull %poll_grow, ptr noundef %errp) #4
   br i1 %call7, label %if.end9, label %return
 
 if.end9:                                          ; preds = %if.end6
-  %poll_shrink = getelementptr inbounds %struct.IOThreadInfo, ptr %obj, i64 0, i32 4
+  %poll_shrink = getelementptr inbounds i8, ptr %obj, i64 32
   %call10 = tail call zeroext i1 @visit_type_int(ptr noundef %v, ptr noundef nonnull @.str.11, ptr noundef nonnull %poll_shrink, ptr noundef %errp) #4
   br i1 %call10, label %if.end12, label %return
 
 if.end12:                                         ; preds = %if.end9
-  %aio_max_batch = getelementptr inbounds %struct.IOThreadInfo, ptr %obj, i64 0, i32 5
+  %aio_max_batch = getelementptr inbounds i8, ptr %obj, i64 40
   %call13 = tail call zeroext i1 @visit_type_int(ptr noundef %v, ptr noundef nonnull @.str.12, ptr noundef nonnull %aio_max_batch, ptr noundef %errp) #4
   br label %return
 
@@ -247,7 +230,7 @@ return:                                           ; preds = %if.end12, %if.end9,
 declare zeroext i1 @visit_type_int(ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local zeroext i1 @visit_type_IOThreadInfo(ptr noundef %v, ptr noundef %name, ptr noundef %obj, ptr noundef %errp) local_unnamed_addr #0 {
+define dso_local noundef zeroext i1 @visit_type_IOThreadInfo(ptr noundef %v, ptr noundef %name, ptr noundef %obj, ptr noundef %errp) local_unnamed_addr #0 {
 entry:
   %call = tail call zeroext i1 @visit_start_struct(ptr noundef %v, ptr noundef %name, ptr noundef %obj, i64 noundef 48, ptr noundef %errp) #4
   br i1 %call, label %if.end, label %return
@@ -300,7 +283,7 @@ return:                                           ; preds = %out_obj.thread, %ou
 declare void @qapi_free_IOThreadInfo(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local zeroext i1 @visit_type_IOThreadInfoList(ptr noundef %v, ptr noundef %name, ptr noundef %obj, ptr noundef %errp) local_unnamed_addr #0 {
+define dso_local noundef zeroext i1 @visit_type_IOThreadInfoList(ptr noundef %v, ptr noundef %name, ptr noundef %obj, ptr noundef %errp) local_unnamed_addr #0 {
 entry:
   %call = tail call zeroext i1 @visit_start_list(ptr noundef %v, ptr noundef %name, ptr noundef %obj, i64 noundef 16, ptr noundef %errp) #4
   br i1 %call, label %if.end, label %return
@@ -312,7 +295,7 @@ if.end:                                           ; preds = %entry
 
 for.body:                                         ; preds = %if.end, %for.inc
   %tail.019 = phi ptr [ %call4, %for.inc ], [ %0, %if.end ]
-  %value = getelementptr inbounds %struct.IOThreadInfoList, ptr %tail.019, i64 0, i32 1
+  %value = getelementptr inbounds i8, ptr %tail.019, i64 8
   %call1 = tail call zeroext i1 @visit_type_IOThreadInfo(ptr noundef %v, ptr noundef null, ptr noundef nonnull %value, ptr noundef %errp)
   br i1 %call1, label %for.inc, label %out_obj.thread
 
@@ -356,18 +339,18 @@ declare void @visit_end_list(ptr noundef, ptr noundef) local_unnamed_addr #1
 declare void @qapi_free_IOThreadInfoList(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local zeroext i1 @visit_type_q_obj_human_monitor_command_arg_members(ptr noundef %v, ptr noundef %obj, ptr noundef %errp) local_unnamed_addr #0 {
+define dso_local noundef zeroext i1 @visit_type_q_obj_human_monitor_command_arg_members(ptr noundef %v, ptr noundef %obj, ptr noundef %errp) local_unnamed_addr #0 {
 entry:
   %call = tail call zeroext i1 @visit_type_str(ptr noundef %v, ptr noundef nonnull @.str.13, ptr noundef %obj, ptr noundef %errp) #4
   br i1 %call, label %if.end, label %return
 
 if.end:                                           ; preds = %entry
-  %has_cpu_index = getelementptr inbounds %struct.q_obj_human_monitor_command_arg, ptr %obj, i64 0, i32 1
+  %has_cpu_index = getelementptr inbounds i8, ptr %obj, i64 8
   %call1 = tail call zeroext i1 @visit_optional(ptr noundef %v, ptr noundef nonnull @.str.14, ptr noundef nonnull %has_cpu_index) #4
   br i1 %call1, label %if.then2, label %if.end6
 
 if.then2:                                         ; preds = %if.end
-  %cpu_index = getelementptr inbounds %struct.q_obj_human_monitor_command_arg, ptr %obj, i64 0, i32 2
+  %cpu_index = getelementptr inbounds i8, ptr %obj, i64 16
   %call3 = tail call zeroext i1 @visit_type_int(ptr noundef %v, ptr noundef nonnull @.str.14, ptr noundef nonnull %cpu_index, ptr noundef %errp) #4
   br i1 %call3, label %if.end6, label %return
 
@@ -400,7 +383,7 @@ entry:
   br i1 %call, label %if.end, label %return
 
 if.end:                                           ; preds = %entry
-  %fd = getelementptr inbounds %struct.AddfdInfo, ptr %obj, i64 0, i32 1
+  %fd = getelementptr inbounds i8, ptr %obj, i64 8
   %call1 = tail call zeroext i1 @visit_type_int(ptr noundef %v, ptr noundef nonnull @.str.16, ptr noundef nonnull %fd, ptr noundef %errp) #4
   br label %return
 
@@ -410,7 +393,7 @@ return:                                           ; preds = %if.end, %entry
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local zeroext i1 @visit_type_AddfdInfo(ptr noundef %v, ptr noundef %name, ptr noundef %obj, ptr noundef %errp) local_unnamed_addr #0 {
+define dso_local noundef zeroext i1 @visit_type_AddfdInfo(ptr noundef %v, ptr noundef %name, ptr noundef %obj, ptr noundef %errp) local_unnamed_addr #0 {
 entry:
   %call = tail call zeroext i1 @visit_start_struct(ptr noundef %v, ptr noundef %name, ptr noundef %obj, i64 noundef 16, ptr noundef %errp) #4
   br i1 %call, label %if.end, label %return
@@ -437,7 +420,7 @@ if.end5:                                          ; preds = %if.end
   br i1 %call.i, label %visit_type_AddfdInfo_members.exit, label %out_obj.thread
 
 visit_type_AddfdInfo_members.exit:                ; preds = %if.end5
-  %fd.i = getelementptr inbounds %struct.AddfdInfo, ptr %0, i64 0, i32 1
+  %fd.i = getelementptr inbounds i8, ptr %0, i64 8
   %call1.i = tail call zeroext i1 @visit_type_int(ptr noundef %v, ptr noundef nonnull @.str.16, ptr noundef nonnull %fd.i, ptr noundef %errp) #4
   br i1 %call1.i, label %out_obj, label %out_obj.thread
 
@@ -468,10 +451,10 @@ return:                                           ; preds = %out_obj.thread17, %
 declare void @qapi_free_AddfdInfo(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local zeroext i1 @visit_type_q_obj_add_fd_arg_members(ptr noundef %v, ptr noundef %obj, ptr noundef %errp) local_unnamed_addr #0 {
+define dso_local noundef zeroext i1 @visit_type_q_obj_add_fd_arg_members(ptr noundef %v, ptr noundef %obj, ptr noundef %errp) local_unnamed_addr #0 {
 entry:
   %has_opaque = alloca i8, align 1
-  %opaque = getelementptr inbounds %struct.q_obj_add_fd_arg, ptr %obj, i64 0, i32 2
+  %opaque = getelementptr inbounds i8, ptr %obj, i64 16
   %0 = load ptr, ptr %opaque, align 8
   %tobool = icmp ne ptr %0, null
   %frombool = zext i1 %tobool to i8
@@ -480,7 +463,7 @@ entry:
   br i1 %call, label %if.then, label %if.end4
 
 if.then:                                          ; preds = %entry
-  %fdset_id = getelementptr inbounds %struct.q_obj_add_fd_arg, ptr %obj, i64 0, i32 1
+  %fdset_id = getelementptr inbounds i8, ptr %obj, i64 8
   %call2 = tail call zeroext i1 @visit_type_int(ptr noundef %v, ptr noundef nonnull @.str.15, ptr noundef nonnull %fdset_id, ptr noundef %errp) #4
   br i1 %call2, label %if.end4, label %return
 
@@ -501,18 +484,18 @@ return:                                           ; preds = %if.then6, %if.then,
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local zeroext i1 @visit_type_q_obj_remove_fd_arg_members(ptr noundef %v, ptr noundef %obj, ptr noundef %errp) local_unnamed_addr #0 {
+define dso_local noundef zeroext i1 @visit_type_q_obj_remove_fd_arg_members(ptr noundef %v, ptr noundef %obj, ptr noundef %errp) local_unnamed_addr #0 {
 entry:
   %call = tail call zeroext i1 @visit_type_int(ptr noundef %v, ptr noundef nonnull @.str.15, ptr noundef %obj, ptr noundef %errp) #4
   br i1 %call, label %if.end, label %return
 
 if.end:                                           ; preds = %entry
-  %has_fd = getelementptr inbounds %struct.q_obj_remove_fd_arg, ptr %obj, i64 0, i32 1
+  %has_fd = getelementptr inbounds i8, ptr %obj, i64 8
   %call1 = tail call zeroext i1 @visit_optional(ptr noundef %v, ptr noundef nonnull @.str.16, ptr noundef nonnull %has_fd) #4
   br i1 %call1, label %if.then2, label %if.end6
 
 if.then2:                                         ; preds = %if.end
-  %fd = getelementptr inbounds %struct.q_obj_remove_fd_arg, ptr %obj, i64 0, i32 2
+  %fd = getelementptr inbounds i8, ptr %obj, i64 16
   %call3 = tail call zeroext i1 @visit_type_int(ptr noundef %v, ptr noundef nonnull @.str.16, ptr noundef nonnull %fd, ptr noundef %errp) #4
   br i1 %call3, label %if.end6, label %return
 
@@ -525,10 +508,10 @@ return:                                           ; preds = %if.then2, %entry, %
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local zeroext i1 @visit_type_FdsetFdInfo_members(ptr noundef %v, ptr noundef %obj, ptr noundef %errp) local_unnamed_addr #0 {
+define dso_local noundef zeroext i1 @visit_type_FdsetFdInfo_members(ptr noundef %v, ptr noundef %obj, ptr noundef %errp) local_unnamed_addr #0 {
 entry:
   %has_opaque = alloca i8, align 1
-  %opaque = getelementptr inbounds %struct.FdsetFdInfo, ptr %obj, i64 0, i32 1
+  %opaque = getelementptr inbounds i8, ptr %obj, i64 8
   %0 = load ptr, ptr %opaque, align 8
   %tobool = icmp ne ptr %0, null
   %frombool = zext i1 %tobool to i8
@@ -553,7 +536,7 @@ return:                                           ; preds = %if.then3, %entry, %
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local zeroext i1 @visit_type_FdsetFdInfo(ptr noundef %v, ptr noundef %name, ptr noundef %obj, ptr noundef %errp) local_unnamed_addr #0 {
+define dso_local noundef zeroext i1 @visit_type_FdsetFdInfo(ptr noundef %v, ptr noundef %name, ptr noundef %obj, ptr noundef %errp) local_unnamed_addr #0 {
 entry:
   %has_opaque.i = alloca i8, align 1
   %call = tail call zeroext i1 @visit_start_struct(ptr noundef %v, ptr noundef %name, ptr noundef %obj, i64 noundef 16, ptr noundef %errp) #4
@@ -578,7 +561,7 @@ if.else:                                          ; preds = %if.then1
 
 if.end5:                                          ; preds = %if.end
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %has_opaque.i)
-  %opaque.i = getelementptr inbounds %struct.FdsetFdInfo, ptr %0, i64 0, i32 1
+  %opaque.i = getelementptr inbounds i8, ptr %0, i64 8
   %1 = load ptr, ptr %opaque.i, align 8
   %tobool.i = icmp ne ptr %1, null
   %frombool.i = zext i1 %tobool.i to i8
@@ -623,7 +606,7 @@ return:                                           ; preds = %out_obj.thread, %ou
 declare void @qapi_free_FdsetFdInfo(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local zeroext i1 @visit_type_FdsetFdInfoList(ptr noundef %v, ptr noundef %name, ptr noundef %obj, ptr noundef %errp) local_unnamed_addr #0 {
+define dso_local noundef zeroext i1 @visit_type_FdsetFdInfoList(ptr noundef %v, ptr noundef %name, ptr noundef %obj, ptr noundef %errp) local_unnamed_addr #0 {
 entry:
   %call = tail call zeroext i1 @visit_start_list(ptr noundef %v, ptr noundef %name, ptr noundef %obj, i64 noundef 16, ptr noundef %errp) #4
   br i1 %call, label %if.end, label %return
@@ -635,7 +618,7 @@ if.end:                                           ; preds = %entry
 
 for.body:                                         ; preds = %if.end, %for.inc
   %tail.019 = phi ptr [ %call4, %for.inc ], [ %0, %if.end ]
-  %value = getelementptr inbounds %struct.FdsetFdInfoList, ptr %tail.019, i64 0, i32 1
+  %value = getelementptr inbounds i8, ptr %tail.019, i64 8
   %call1 = tail call zeroext i1 @visit_type_FdsetFdInfo(ptr noundef %v, ptr noundef null, ptr noundef nonnull %value, ptr noundef %errp)
   br i1 %call1, label %for.inc, label %out_obj.thread
 
@@ -671,13 +654,13 @@ return:                                           ; preds = %out_obj, %land.lhs.
 declare void @qapi_free_FdsetFdInfoList(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local zeroext i1 @visit_type_FdsetInfo_members(ptr noundef %v, ptr noundef %obj, ptr noundef %errp) local_unnamed_addr #0 {
+define dso_local noundef zeroext i1 @visit_type_FdsetInfo_members(ptr noundef %v, ptr noundef %obj, ptr noundef %errp) local_unnamed_addr #0 {
 entry:
   %call = tail call zeroext i1 @visit_type_int(ptr noundef %v, ptr noundef nonnull @.str.15, ptr noundef %obj, ptr noundef %errp) #4
   br i1 %call, label %if.end, label %return
 
 if.end:                                           ; preds = %entry
-  %fds = getelementptr inbounds %struct.FdsetInfo, ptr %obj, i64 0, i32 1
+  %fds = getelementptr inbounds i8, ptr %obj, i64 8
   %call1 = tail call zeroext i1 @visit_type_FdsetFdInfoList(ptr noundef %v, ptr noundef nonnull @.str.18, ptr noundef nonnull %fds, ptr noundef %errp)
   br label %return
 
@@ -687,7 +670,7 @@ return:                                           ; preds = %if.end, %entry
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local zeroext i1 @visit_type_FdsetInfo(ptr noundef %v, ptr noundef %name, ptr noundef %obj, ptr noundef %errp) local_unnamed_addr #0 {
+define dso_local noundef zeroext i1 @visit_type_FdsetInfo(ptr noundef %v, ptr noundef %name, ptr noundef %obj, ptr noundef %errp) local_unnamed_addr #0 {
 entry:
   %call = tail call zeroext i1 @visit_start_struct(ptr noundef %v, ptr noundef %name, ptr noundef %obj, i64 noundef 16, ptr noundef %errp) #4
   br i1 %call, label %if.end, label %return
@@ -714,7 +697,7 @@ if.end5:                                          ; preds = %if.end
   br i1 %call.i, label %visit_type_FdsetInfo_members.exit, label %out_obj.thread
 
 visit_type_FdsetInfo_members.exit:                ; preds = %if.end5
-  %fds.i = getelementptr inbounds %struct.FdsetInfo, ptr %0, i64 0, i32 1
+  %fds.i = getelementptr inbounds i8, ptr %0, i64 8
   %call1.i = tail call zeroext i1 @visit_type_FdsetFdInfoList(ptr noundef %v, ptr noundef nonnull @.str.18, ptr noundef nonnull %fds.i, ptr noundef %errp)
   br i1 %call1.i, label %out_obj, label %out_obj.thread
 
@@ -745,7 +728,7 @@ return:                                           ; preds = %out_obj.thread17, %
 declare void @qapi_free_FdsetInfo(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local zeroext i1 @visit_type_FdsetInfoList(ptr noundef %v, ptr noundef %name, ptr noundef %obj, ptr noundef %errp) local_unnamed_addr #0 {
+define dso_local noundef zeroext i1 @visit_type_FdsetInfoList(ptr noundef %v, ptr noundef %name, ptr noundef %obj, ptr noundef %errp) local_unnamed_addr #0 {
 entry:
   %call = tail call zeroext i1 @visit_start_list(ptr noundef %v, ptr noundef %name, ptr noundef %obj, i64 noundef 16, ptr noundef %errp) #4
   br i1 %call, label %if.end, label %return
@@ -757,7 +740,7 @@ if.end:                                           ; preds = %entry
 
 for.body:                                         ; preds = %if.end, %for.inc
   %tail.019 = phi ptr [ %call4, %for.inc ], [ %0, %if.end ]
-  %value = getelementptr inbounds %struct.FdsetInfoList, ptr %tail.019, i64 0, i32 1
+  %value = getelementptr inbounds i8, ptr %tail.019, i64 8
   %call1 = tail call zeroext i1 @visit_type_FdsetInfo(ptr noundef %v, ptr noundef null, ptr noundef nonnull %value, ptr noundef %errp)
   br i1 %call1, label %for.inc, label %out_obj.thread
 
@@ -807,17 +790,17 @@ entry:
 declare zeroext i1 @visit_type_enum(ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local zeroext i1 @visit_type_CommandLineParameterInfo_members(ptr noundef %v, ptr noundef %obj, ptr noundef %errp) local_unnamed_addr #0 {
+define dso_local noundef zeroext i1 @visit_type_CommandLineParameterInfo_members(ptr noundef %v, ptr noundef %obj, ptr noundef %errp) local_unnamed_addr #0 {
 entry:
   %value.i = alloca i32, align 4
   %has_help = alloca i8, align 1
   %has_q_default = alloca i8, align 1
-  %help = getelementptr inbounds %struct.CommandLineParameterInfo, ptr %obj, i64 0, i32 2
+  %help = getelementptr inbounds i8, ptr %obj, i64 16
   %0 = load ptr, ptr %help, align 8
   %tobool = icmp ne ptr %0, null
   %frombool = zext i1 %tobool to i8
   store i8 %frombool, ptr %has_help, align 1
-  %q_default = getelementptr inbounds %struct.CommandLineParameterInfo, ptr %obj, i64 0, i32 3
+  %q_default = getelementptr inbounds i8, ptr %obj, i64 24
   %1 = load ptr, ptr %q_default, align 8
   %tobool2 = icmp ne ptr %1, null
   %frombool5 = zext i1 %tobool2 to i8
@@ -826,7 +809,7 @@ entry:
   br i1 %call, label %if.end, label %return
 
 if.end:                                           ; preds = %entry
-  %type = getelementptr inbounds %struct.CommandLineParameterInfo, ptr %obj, i64 0, i32 1
+  %type = getelementptr inbounds i8, ptr %obj, i64 8
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %value.i)
   %2 = load i32, ptr %type, align 4
   store i32 %2, ptr %value.i, align 4
@@ -861,7 +844,7 @@ return:                                           ; preds = %if.then17, %if.then
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local zeroext i1 @visit_type_CommandLineParameterInfo(ptr noundef %v, ptr noundef %name, ptr noundef %obj, ptr noundef %errp) local_unnamed_addr #0 {
+define dso_local noundef zeroext i1 @visit_type_CommandLineParameterInfo(ptr noundef %v, ptr noundef %name, ptr noundef %obj, ptr noundef %errp) local_unnamed_addr #0 {
 entry:
   %call = tail call zeroext i1 @visit_start_struct(ptr noundef %v, ptr noundef %name, ptr noundef %obj, i64 noundef 32, ptr noundef %errp) #4
   br i1 %call, label %if.end, label %return
@@ -914,7 +897,7 @@ return:                                           ; preds = %out_obj.thread, %ou
 declare void @qapi_free_CommandLineParameterInfo(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local zeroext i1 @visit_type_CommandLineParameterInfoList(ptr noundef %v, ptr noundef %name, ptr noundef %obj, ptr noundef %errp) local_unnamed_addr #0 {
+define dso_local noundef zeroext i1 @visit_type_CommandLineParameterInfoList(ptr noundef %v, ptr noundef %name, ptr noundef %obj, ptr noundef %errp) local_unnamed_addr #0 {
 entry:
   %call = tail call zeroext i1 @visit_start_list(ptr noundef %v, ptr noundef %name, ptr noundef %obj, i64 noundef 16, ptr noundef %errp) #4
   br i1 %call, label %if.end, label %return
@@ -926,7 +909,7 @@ if.end:                                           ; preds = %entry
 
 for.body:                                         ; preds = %if.end, %for.inc
   %tail.019 = phi ptr [ %call4, %for.inc ], [ %0, %if.end ]
-  %value = getelementptr inbounds %struct.CommandLineParameterInfoList, ptr %tail.019, i64 0, i32 1
+  %value = getelementptr inbounds i8, ptr %tail.019, i64 8
   %call1 = tail call zeroext i1 @visit_type_CommandLineParameterInfo(ptr noundef %v, ptr noundef null, ptr noundef nonnull %value, ptr noundef %errp)
   br i1 %call1, label %for.inc, label %out_obj.thread
 
@@ -962,13 +945,13 @@ return:                                           ; preds = %out_obj, %land.lhs.
 declare void @qapi_free_CommandLineParameterInfoList(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local zeroext i1 @visit_type_CommandLineOptionInfo_members(ptr noundef %v, ptr noundef %obj, ptr noundef %errp) local_unnamed_addr #0 {
+define dso_local noundef zeroext i1 @visit_type_CommandLineOptionInfo_members(ptr noundef %v, ptr noundef %obj, ptr noundef %errp) local_unnamed_addr #0 {
 entry:
   %call = tail call zeroext i1 @visit_type_str(ptr noundef %v, ptr noundef nonnull @.str.22, ptr noundef %obj, ptr noundef %errp) #4
   br i1 %call, label %if.end, label %return
 
 if.end:                                           ; preds = %entry
-  %parameters = getelementptr inbounds %struct.CommandLineOptionInfo, ptr %obj, i64 0, i32 1
+  %parameters = getelementptr inbounds i8, ptr %obj, i64 8
   %call1 = tail call zeroext i1 @visit_type_CommandLineParameterInfoList(ptr noundef %v, ptr noundef nonnull @.str.23, ptr noundef nonnull %parameters, ptr noundef %errp)
   br label %return
 
@@ -978,7 +961,7 @@ return:                                           ; preds = %if.end, %entry
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local zeroext i1 @visit_type_CommandLineOptionInfo(ptr noundef %v, ptr noundef %name, ptr noundef %obj, ptr noundef %errp) local_unnamed_addr #0 {
+define dso_local noundef zeroext i1 @visit_type_CommandLineOptionInfo(ptr noundef %v, ptr noundef %name, ptr noundef %obj, ptr noundef %errp) local_unnamed_addr #0 {
 entry:
   %call = tail call zeroext i1 @visit_start_struct(ptr noundef %v, ptr noundef %name, ptr noundef %obj, i64 noundef 16, ptr noundef %errp) #4
   br i1 %call, label %if.end, label %return
@@ -1005,7 +988,7 @@ if.end5:                                          ; preds = %if.end
   br i1 %call.i, label %visit_type_CommandLineOptionInfo_members.exit, label %out_obj.thread
 
 visit_type_CommandLineOptionInfo_members.exit:    ; preds = %if.end5
-  %parameters.i = getelementptr inbounds %struct.CommandLineOptionInfo, ptr %0, i64 0, i32 1
+  %parameters.i = getelementptr inbounds i8, ptr %0, i64 8
   %call1.i = tail call zeroext i1 @visit_type_CommandLineParameterInfoList(ptr noundef %v, ptr noundef nonnull @.str.23, ptr noundef nonnull %parameters.i, ptr noundef %errp)
   br i1 %call1.i, label %out_obj, label %out_obj.thread
 
@@ -1036,7 +1019,7 @@ return:                                           ; preds = %out_obj.thread17, %
 declare void @qapi_free_CommandLineOptionInfo(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local zeroext i1 @visit_type_q_obj_query_command_line_options_arg_members(ptr noundef %v, ptr noundef %obj, ptr noundef %errp) local_unnamed_addr #0 {
+define dso_local noundef zeroext i1 @visit_type_q_obj_query_command_line_options_arg_members(ptr noundef %v, ptr noundef %obj, ptr noundef %errp) local_unnamed_addr #0 {
 entry:
   %has_option = alloca i8, align 1
   %0 = load ptr, ptr %obj, align 8
@@ -1059,7 +1042,7 @@ return:                                           ; preds = %if.then, %if.end5
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local zeroext i1 @visit_type_CommandLineOptionInfoList(ptr noundef %v, ptr noundef %name, ptr noundef %obj, ptr noundef %errp) local_unnamed_addr #0 {
+define dso_local noundef zeroext i1 @visit_type_CommandLineOptionInfoList(ptr noundef %v, ptr noundef %name, ptr noundef %obj, ptr noundef %errp) local_unnamed_addr #0 {
 entry:
   %call = tail call zeroext i1 @visit_start_list(ptr noundef %v, ptr noundef %name, ptr noundef %obj, i64 noundef 16, ptr noundef %errp) #4
   br i1 %call, label %if.end, label %return
@@ -1071,7 +1054,7 @@ if.end:                                           ; preds = %entry
 
 for.body:                                         ; preds = %if.end, %for.inc
   %tail.019 = phi ptr [ %call4, %for.inc ], [ %0, %if.end ]
-  %value = getelementptr inbounds %struct.CommandLineOptionInfoList, ptr %tail.019, i64 0, i32 1
+  %value = getelementptr inbounds i8, ptr %tail.019, i64 8
   %call1 = tail call zeroext i1 @visit_type_CommandLineOptionInfo(ptr noundef %v, ptr noundef null, ptr noundef nonnull %value, ptr noundef %errp)
   br i1 %call1, label %for.inc, label %out_obj.thread
 
@@ -1113,7 +1096,7 @@ entry:
   br i1 %call, label %if.end, label %return
 
 if.end:                                           ; preds = %entry
-  %qom_path = getelementptr inbounds %struct.q_obj_RTC_CHANGE_arg, ptr %obj, i64 0, i32 1
+  %qom_path = getelementptr inbounds i8, ptr %obj, i64 8
   %call1 = tail call zeroext i1 @visit_type_str(ptr noundef %v, ptr noundef nonnull @.str.25, ptr noundef nonnull %qom_path, ptr noundef %errp) #4
   br label %return
 
@@ -1129,17 +1112,17 @@ entry:
   br i1 %call, label %if.end, label %return
 
 if.end:                                           ; preds = %entry
-  %vfu_qom_path = getelementptr inbounds %struct.q_obj_VFU_CLIENT_HANGUP_arg, ptr %obj, i64 0, i32 1
+  %vfu_qom_path = getelementptr inbounds i8, ptr %obj, i64 8
   %call1 = tail call zeroext i1 @visit_type_str(ptr noundef %v, ptr noundef nonnull @.str.27, ptr noundef nonnull %vfu_qom_path, ptr noundef %errp) #4
   br i1 %call1, label %if.end3, label %return
 
 if.end3:                                          ; preds = %if.end
-  %dev_id = getelementptr inbounds %struct.q_obj_VFU_CLIENT_HANGUP_arg, ptr %obj, i64 0, i32 2
+  %dev_id = getelementptr inbounds i8, ptr %obj, i64 16
   %call4 = tail call zeroext i1 @visit_type_str(ptr noundef %v, ptr noundef nonnull @.str.28, ptr noundef nonnull %dev_id, ptr noundef %errp) #4
   br i1 %call4, label %if.end6, label %return
 
 if.end6:                                          ; preds = %if.end3
-  %dev_qom_path = getelementptr inbounds %struct.q_obj_VFU_CLIENT_HANGUP_arg, ptr %obj, i64 0, i32 3
+  %dev_qom_path = getelementptr inbounds i8, ptr %obj, i64 24
   %call7 = tail call zeroext i1 @visit_type_str(ptr noundef %v, ptr noundef nonnull @.str.29, ptr noundef nonnull %dev_qom_path, ptr noundef %errp) #4
   br label %return
 

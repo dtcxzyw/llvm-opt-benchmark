@@ -22,7 +22,7 @@ if.else:                                          ; preds = %entry
   br label %if.end
 
 if.end:                                           ; preds = %if.else, %if.then
-  %arrayidx25 = getelementptr inbounds [2 x i64], ptr %d, i64 0, i64 1
+  %arrayidx25 = getelementptr inbounds i8, ptr %d, i64 8
   %2 = load i64, ptr %d, align 16
   %conv28 = trunc i64 %2 to i8
   %incdec.ptr29 = getelementptr inbounds i8, ptr %out, i64 1

@@ -30,7 +30,7 @@ define hidden void @_ZN12regex_syntax3hir7literal3Seq12make_inexact17ha8f0b4a908
   %13 = extractvalue { ptr, ptr } %12, 0
   %14 = extractvalue { ptr, ptr } %12, 1
   store ptr %13, ptr %2, align 8
-  %15 = getelementptr inbounds { ptr, ptr }, ptr %2, i64 0, i32 1
+  %15 = getelementptr inbounds i8, ptr %2, i64 8
   store ptr %14, ptr %15, align 8
   %16 = call align 8 ptr @"_ZN94_$LT$core..slice..iter..IterMut$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h2a0a5d9130c335f5E"(ptr nonnull align 8 %2)
   %17 = icmp eq ptr %16, null
@@ -38,7 +38,7 @@ define hidden void @_ZN12regex_syntax3hir7literal3Seq12make_inexact17ha8f0b4a908
 
 .lr.ph:                                           ; preds = %5, %.lr.ph
   %18 = phi ptr [ %20, %.lr.ph ], [ %16, %5 ]
-  %19 = getelementptr inbounds { { { ptr, i64 }, i64 }, i8, [7 x i8] }, ptr %18, i64 0, i32 1
+  %19 = getelementptr inbounds i8, ptr %18, i64 24
   store i8 0, ptr %19, align 8
   %20 = call align 8 ptr @"_ZN94_$LT$core..slice..iter..IterMut$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h2a0a5d9130c335f5E"(ptr nonnull align 8 %2)
   %21 = icmp eq ptr %20, null
@@ -244,8 +244,8 @@ define hidden i8 @"_ZN77_$LT$regex_syntax..hir..literal..Literal$u20$as$u20$core
   br i1 %4, label %5, label %9
 
 5:                                                ; preds = %2
-  %6 = getelementptr inbounds { { { ptr, i64 }, i64 }, i8, [7 x i8] }, ptr %0, i64 0, i32 1
-  %7 = getelementptr inbounds { { { ptr, i64 }, i64 }, i8, [7 x i8] }, ptr %1, i64 0, i32 1
+  %6 = getelementptr inbounds i8, ptr %0, i64 24
+  %7 = getelementptr inbounds i8, ptr %1, i64 24
   %8 = tail call i8 @"_ZN4core3cmp5impls56_$LT$impl$u20$core..cmp..PartialOrd$u20$for$u20$bool$GT$11partial_cmp17ha68e010c5ea06ab8E"(ptr nonnull align 1 %6, ptr nonnull align 1 %7), !range !6
   br label %9
 

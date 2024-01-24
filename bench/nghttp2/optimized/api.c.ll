@@ -3,9 +3,6 @@ source_filename = "bench/nghttp2/original/api.c.ll"
 target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:128-n8:16:32:64-S128"
 target triple = "x86_64-unknown-linux-gnu"
 
-%struct.llhttp__internal_s = type { i32, ptr, ptr, i32, ptr, ptr, ptr, ptr, i64, i8, i8, i8, i8, i8, i8, i8, i8, i16, i16, i8, ptr }
-%struct.llhttp_settings_s = type { ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr }
-
 @.str = private unnamed_addr constant [18 x i8] c"Invalid EOF state\00", align 1
 @.str.1 = private unnamed_addr constant [7 x i8] c"Paused\00", align 1
 @.str.2 = private unnamed_addr constant [7 x i8] c"HPE_OK\00", align 1
@@ -209,9 +206,9 @@ define void @llhttp_init(ptr noundef %parser, i32 noundef %type, ptr noundef %se
 entry:
   %call = tail call i32 @llhttp__internal_init(ptr noundef %parser) #9
   %conv = trunc i32 %type to i8
-  %type1 = getelementptr inbounds %struct.llhttp__internal_s, ptr %parser, i64 0, i32 9
+  %type1 = getelementptr inbounds i8, ptr %parser, i64 72
   store i8 %conv, ptr %type1, align 8
-  %settings2 = getelementptr inbounds %struct.llhttp__internal_s, ptr %parser, i64 0, i32 20
+  %settings2 = getelementptr inbounds i8, ptr %parser, i64 88
   store ptr %settings, ptr %settings2, align 8
   ret void
 }
@@ -221,7 +218,7 @@ declare i32 @llhttp__internal_init(ptr noundef) local_unnamed_addr #1
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
 define zeroext i8 @llhttp_get_type(ptr nocapture noundef readonly %parser) local_unnamed_addr #2 {
 entry:
-  %type = getelementptr inbounds %struct.llhttp__internal_s, ptr %parser, i64 0, i32 9
+  %type = getelementptr inbounds i8, ptr %parser, i64 72
   %0 = load i8, ptr %type, align 8
   ret i8 %0
 }
@@ -229,7 +226,7 @@ entry:
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
 define zeroext i8 @llhttp_get_http_major(ptr nocapture noundef readonly %parser) local_unnamed_addr #2 {
 entry:
-  %http_major = getelementptr inbounds %struct.llhttp__internal_s, ptr %parser, i64 0, i32 11
+  %http_major = getelementptr inbounds i8, ptr %parser, i64 74
   %0 = load i8, ptr %http_major, align 2
   ret i8 %0
 }
@@ -237,7 +234,7 @@ entry:
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
 define zeroext i8 @llhttp_get_http_minor(ptr nocapture noundef readonly %parser) local_unnamed_addr #2 {
 entry:
-  %http_minor = getelementptr inbounds %struct.llhttp__internal_s, ptr %parser, i64 0, i32 12
+  %http_minor = getelementptr inbounds i8, ptr %parser, i64 75
   %0 = load i8, ptr %http_minor, align 1
   ret i8 %0
 }
@@ -245,7 +242,7 @@ entry:
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
 define zeroext i8 @llhttp_get_method(ptr nocapture noundef readonly %parser) local_unnamed_addr #2 {
 entry:
-  %method = getelementptr inbounds %struct.llhttp__internal_s, ptr %parser, i64 0, i32 10
+  %method = getelementptr inbounds i8, ptr %parser, i64 73
   %0 = load i8, ptr %method, align 1
   ret i8 %0
 }
@@ -253,7 +250,7 @@ entry:
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
 define i32 @llhttp_get_status_code(ptr nocapture noundef readonly %parser) local_unnamed_addr #2 {
 entry:
-  %status_code = getelementptr inbounds %struct.llhttp__internal_s, ptr %parser, i64 0, i32 18
+  %status_code = getelementptr inbounds i8, ptr %parser, i64 82
   %0 = load i16, ptr %status_code, align 2
   %conv = zext i16 %0 to i32
   ret i32 %conv
@@ -262,7 +259,7 @@ entry:
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
 define zeroext i8 @llhttp_get_upgrade(ptr nocapture noundef readonly %parser) local_unnamed_addr #2 {
 entry:
-  %upgrade = getelementptr inbounds %struct.llhttp__internal_s, ptr %parser, i64 0, i32 15
+  %upgrade = getelementptr inbounds i8, ptr %parser, i64 78
   %0 = load i8, ptr %upgrade, align 2
   ret i8 %0
 }
@@ -270,13 +267,13 @@ entry:
 ; Function Attrs: nounwind uwtable
 define void @llhttp_reset(ptr noundef %parser) local_unnamed_addr #0 {
 entry:
-  %type1 = getelementptr inbounds %struct.llhttp__internal_s, ptr %parser, i64 0, i32 9
+  %type1 = getelementptr inbounds i8, ptr %parser, i64 72
   %0 = load i8, ptr %type1, align 8
-  %settings2 = getelementptr inbounds %struct.llhttp__internal_s, ptr %parser, i64 0, i32 20
+  %settings2 = getelementptr inbounds i8, ptr %parser, i64 88
   %1 = load ptr, ptr %settings2, align 8
-  %data3 = getelementptr inbounds %struct.llhttp__internal_s, ptr %parser, i64 0, i32 6
+  %data3 = getelementptr inbounds i8, ptr %parser, i64 48
   %2 = load ptr, ptr %data3, align 8
-  %lenient_flags4 = getelementptr inbounds %struct.llhttp__internal_s, ptr %parser, i64 0, i32 14
+  %lenient_flags4 = getelementptr inbounds i8, ptr %parser, i64 77
   %3 = load i8, ptr %lenient_flags4, align 1
   %call = tail call i32 @llhttp__internal_init(ptr noundef %parser) #9
   store i8 %0, ptr %type1, align 8
@@ -309,13 +306,13 @@ declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #4
 ; Function Attrs: nounwind uwtable
 define i32 @llhttp_finish(ptr noundef %parser) local_unnamed_addr #0 {
 entry:
-  %error = getelementptr inbounds %struct.llhttp__internal_s, ptr %parser, i64 0, i32 3
+  %error = getelementptr inbounds i8, ptr %parser, i64 24
   %0 = load i32, ptr %error, align 8
   %cmp.not = icmp eq i32 %0, 0
   br i1 %cmp.not, label %if.end, label %return
 
 if.end:                                           ; preds = %entry
-  %finish = getelementptr inbounds %struct.llhttp__internal_s, ptr %parser, i64 0, i32 16
+  %finish = getelementptr inbounds i8, ptr %parser, i64 79
   %1 = load i8, ptr %finish, align 1
   switch i8 %1, label %sw.default [
     i8 1, label %do.body
@@ -324,13 +321,13 @@ if.end:                                           ; preds = %entry
   ]
 
 do.body:                                          ; preds = %if.end
-  %settings1 = getelementptr inbounds %struct.llhttp__internal_s, ptr %parser, i64 0, i32 20
+  %settings1 = getelementptr inbounds i8, ptr %parser, i64 88
   %2 = load ptr, ptr %settings1, align 8
   %cmp2 = icmp eq ptr %2, null
   br i1 %cmp2, label %sw.bb13, label %lor.lhs.false
 
 lor.lhs.false:                                    ; preds = %do.body
-  %on_message_complete = getelementptr inbounds %struct.llhttp_settings_s, ptr %2, i64 0, i32 11
+  %on_message_complete = getelementptr inbounds i8, ptr %2, i64 88
   %3 = load ptr, ptr %on_message_complete, align 8
   %cmp4 = icmp eq ptr %3, null
   br i1 %cmp4, label %sw.bb13, label %do.end
@@ -344,7 +341,7 @@ sw.bb13:                                          ; preds = %do.body, %lor.lhs.f
   br label %return
 
 sw.bb14:                                          ; preds = %if.end
-  %reason = getelementptr inbounds %struct.llhttp__internal_s, ptr %parser, i64 0, i32 4
+  %reason = getelementptr inbounds i8, ptr %parser, i64 32
   store ptr @.str, ptr %reason, align 8
   br label %return
 
@@ -363,14 +360,14 @@ declare void @abort() local_unnamed_addr #5
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
 define void @llhttp_pause(ptr nocapture noundef %parser) local_unnamed_addr #6 {
 entry:
-  %error = getelementptr inbounds %struct.llhttp__internal_s, ptr %parser, i64 0, i32 3
+  %error = getelementptr inbounds i8, ptr %parser, i64 24
   %0 = load i32, ptr %error, align 8
   %cmp.not = icmp eq i32 %0, 0
   br i1 %cmp.not, label %if.end, label %return
 
 if.end:                                           ; preds = %entry
   store i32 21, ptr %error, align 8
-  %reason = getelementptr inbounds %struct.llhttp__internal_s, ptr %parser, i64 0, i32 4
+  %reason = getelementptr inbounds i8, ptr %parser, i64 32
   store ptr @.str.1, ptr %reason, align 8
   br label %return
 
@@ -381,7 +378,7 @@ return:                                           ; preds = %entry, %if.end
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
 define void @llhttp_resume(ptr nocapture noundef %parser) local_unnamed_addr #6 {
 entry:
-  %error = getelementptr inbounds %struct.llhttp__internal_s, ptr %parser, i64 0, i32 3
+  %error = getelementptr inbounds i8, ptr %parser, i64 24
   %0 = load i32, ptr %error, align 8
   %cmp.not = icmp eq i32 %0, 21
   br i1 %cmp.not, label %if.end, label %return
@@ -397,7 +394,7 @@ return:                                           ; preds = %entry, %if.end
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
 define void @llhttp_resume_after_upgrade(ptr nocapture noundef %parser) local_unnamed_addr #6 {
 entry:
-  %error = getelementptr inbounds %struct.llhttp__internal_s, ptr %parser, i64 0, i32 3
+  %error = getelementptr inbounds i8, ptr %parser, i64 24
   %0 = load i32, ptr %error, align 8
   %cmp.not = icmp eq i32 %0, 22
   br i1 %cmp.not, label %if.end, label %return
@@ -413,7 +410,7 @@ return:                                           ; preds = %entry, %if.end
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
 define i32 @llhttp_get_errno(ptr nocapture noundef readonly %parser) local_unnamed_addr #2 {
 entry:
-  %error = getelementptr inbounds %struct.llhttp__internal_s, ptr %parser, i64 0, i32 3
+  %error = getelementptr inbounds i8, ptr %parser, i64 24
   %0 = load i32, ptr %error, align 8
   ret i32 %0
 }
@@ -421,7 +418,7 @@ entry:
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
 define ptr @llhttp_get_error_reason(ptr nocapture noundef readonly %parser) local_unnamed_addr #2 {
 entry:
-  %reason = getelementptr inbounds %struct.llhttp__internal_s, ptr %parser, i64 0, i32 4
+  %reason = getelementptr inbounds i8, ptr %parser, i64 32
   %0 = load ptr, ptr %reason, align 8
   ret ptr %0
 }
@@ -429,7 +426,7 @@ entry:
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
 define void @llhttp_set_error_reason(ptr nocapture noundef writeonly %parser, ptr noundef %reason) local_unnamed_addr #3 {
 entry:
-  %reason1 = getelementptr inbounds %struct.llhttp__internal_s, ptr %parser, i64 0, i32 4
+  %reason1 = getelementptr inbounds i8, ptr %parser, i64 32
   store ptr %reason, ptr %reason1, align 8
   ret void
 }
@@ -437,7 +434,7 @@ entry:
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
 define ptr @llhttp_get_error_pos(ptr nocapture noundef readonly %parser) local_unnamed_addr #2 {
 entry:
-  %error_pos = getelementptr inbounds %struct.llhttp__internal_s, ptr %parser, i64 0, i32 5
+  %error_pos = getelementptr inbounds i8, ptr %parser, i64 40
   %0 = load ptr, ptr %error_pos, align 8
   ret ptr %0
 }
@@ -888,7 +885,7 @@ return:                                           ; preds = %entry, %sw.bb98, %s
 define void @llhttp_set_lenient_headers(ptr nocapture noundef %parser, i32 noundef %enabled) local_unnamed_addr #6 {
 entry:
   %tobool.not = icmp ne i32 %enabled, 0
-  %lenient_flags2 = getelementptr inbounds %struct.llhttp__internal_s, ptr %parser, i64 0, i32 14
+  %lenient_flags2 = getelementptr inbounds i8, ptr %parser, i64 77
   %0 = load i8, ptr %lenient_flags2, align 1
   %1 = and i8 %0, -2
   %masksel = zext i1 %tobool.not to i8
@@ -901,7 +898,7 @@ entry:
 define void @llhttp_set_lenient_chunked_length(ptr nocapture noundef %parser, i32 noundef %enabled) local_unnamed_addr #6 {
 entry:
   %tobool.not = icmp eq i32 %enabled, 0
-  %lenient_flags2 = getelementptr inbounds %struct.llhttp__internal_s, ptr %parser, i64 0, i32 14
+  %lenient_flags2 = getelementptr inbounds i8, ptr %parser, i64 77
   %0 = load i8, ptr %lenient_flags2, align 1
   %1 = and i8 %0, -3
   %masksel = select i1 %tobool.not, i8 0, i8 2
@@ -914,7 +911,7 @@ entry:
 define void @llhttp_set_lenient_keep_alive(ptr nocapture noundef %parser, i32 noundef %enabled) local_unnamed_addr #6 {
 entry:
   %tobool.not = icmp eq i32 %enabled, 0
-  %lenient_flags2 = getelementptr inbounds %struct.llhttp__internal_s, ptr %parser, i64 0, i32 14
+  %lenient_flags2 = getelementptr inbounds i8, ptr %parser, i64 77
   %0 = load i8, ptr %lenient_flags2, align 1
   %1 = and i8 %0, -5
   %masksel = select i1 %tobool.not, i8 0, i8 4
@@ -927,7 +924,7 @@ entry:
 define void @llhttp_set_lenient_transfer_encoding(ptr nocapture noundef %parser, i32 noundef %enabled) local_unnamed_addr #6 {
 entry:
   %tobool.not = icmp eq i32 %enabled, 0
-  %lenient_flags2 = getelementptr inbounds %struct.llhttp__internal_s, ptr %parser, i64 0, i32 14
+  %lenient_flags2 = getelementptr inbounds i8, ptr %parser, i64 77
   %0 = load i8, ptr %lenient_flags2, align 1
   %1 = and i8 %0, -9
   %masksel = select i1 %tobool.not, i8 0, i8 8
@@ -940,7 +937,7 @@ entry:
 define void @llhttp_set_lenient_version(ptr nocapture noundef %parser, i32 noundef %enabled) local_unnamed_addr #6 {
 entry:
   %tobool.not = icmp eq i32 %enabled, 0
-  %lenient_flags2 = getelementptr inbounds %struct.llhttp__internal_s, ptr %parser, i64 0, i32 14
+  %lenient_flags2 = getelementptr inbounds i8, ptr %parser, i64 77
   %0 = load i8, ptr %lenient_flags2, align 1
   %1 = and i8 %0, -17
   %masksel = select i1 %tobool.not, i8 0, i8 16
@@ -953,7 +950,7 @@ entry:
 define void @llhttp_set_lenient_data_after_close(ptr nocapture noundef %parser, i32 noundef %enabled) local_unnamed_addr #6 {
 entry:
   %tobool.not = icmp eq i32 %enabled, 0
-  %lenient_flags2 = getelementptr inbounds %struct.llhttp__internal_s, ptr %parser, i64 0, i32 14
+  %lenient_flags2 = getelementptr inbounds i8, ptr %parser, i64 77
   %0 = load i8, ptr %lenient_flags2, align 1
   %1 = and i8 %0, -33
   %masksel = select i1 %tobool.not, i8 0, i8 32
@@ -966,7 +963,7 @@ entry:
 define void @llhttp_set_lenient_optional_lf_after_cr(ptr nocapture noundef %parser, i32 noundef %enabled) local_unnamed_addr #6 {
 entry:
   %tobool.not = icmp eq i32 %enabled, 0
-  %lenient_flags2 = getelementptr inbounds %struct.llhttp__internal_s, ptr %parser, i64 0, i32 14
+  %lenient_flags2 = getelementptr inbounds i8, ptr %parser, i64 77
   %0 = load i8, ptr %lenient_flags2, align 1
   %1 = and i8 %0, -65
   %masksel = select i1 %tobool.not, i8 0, i8 64
@@ -979,7 +976,7 @@ entry:
 define void @llhttp_set_lenient_optional_crlf_after_chunk(ptr nocapture noundef %parser, i32 noundef %enabled) local_unnamed_addr #6 {
 entry:
   %tobool.not = icmp eq i32 %enabled, 0
-  %lenient_flags2 = getelementptr inbounds %struct.llhttp__internal_s, ptr %parser, i64 0, i32 14
+  %lenient_flags2 = getelementptr inbounds i8, ptr %parser, i64 77
   %0 = load i8, ptr %lenient_flags2, align 1
   %1 = and i8 %0, 127
   %masksel = select i1 %tobool.not, i8 0, i8 -128
@@ -991,7 +988,7 @@ entry:
 ; Function Attrs: nounwind uwtable
 define i32 @llhttp__on_message_begin(ptr noundef %s, ptr nocapture noundef readnone %p, ptr nocapture noundef readnone %endp) local_unnamed_addr #0 {
 entry:
-  %settings1 = getelementptr inbounds %struct.llhttp__internal_s, ptr %s, i64 0, i32 20
+  %settings1 = getelementptr inbounds i8, ptr %s, i64 88
   %0 = load ptr, ptr %settings1, align 8
   %cmp = icmp eq ptr %0, null
   br i1 %cmp, label %do.end, label %lor.lhs.false
@@ -1013,13 +1010,13 @@ do.end:                                           ; preds = %entry, %lor.lhs.fal
 ; Function Attrs: nounwind uwtable
 define i32 @llhttp__on_url(ptr noundef %s, ptr noundef %p, ptr noundef %endp) local_unnamed_addr #0 {
 entry:
-  %settings1 = getelementptr inbounds %struct.llhttp__internal_s, ptr %s, i64 0, i32 20
+  %settings1 = getelementptr inbounds i8, ptr %s, i64 88
   %0 = load ptr, ptr %settings1, align 8
   %cmp = icmp eq ptr %0, null
   br i1 %cmp, label %do.end, label %lor.lhs.false
 
 lor.lhs.false:                                    ; preds = %entry
-  %on_url = getelementptr inbounds %struct.llhttp_settings_s, ptr %0, i64 0, i32 1
+  %on_url = getelementptr inbounds i8, ptr %0, i64 8
   %1 = load ptr, ptr %on_url, align 8
   %cmp2 = icmp eq ptr %1, null
   br i1 %cmp2, label %do.end, label %if.end
@@ -1033,7 +1030,7 @@ if.end:                                           ; preds = %lor.lhs.false
   br i1 %cmp4, label %if.then5, label %do.end
 
 if.then5:                                         ; preds = %if.end
-  %reason1.i = getelementptr inbounds %struct.llhttp__internal_s, ptr %s, i64 0, i32 4
+  %reason1.i = getelementptr inbounds i8, ptr %s, i64 32
   store ptr @.str.183, ptr %reason1.i, align 8
   br label %do.end
 
@@ -1045,13 +1042,13 @@ do.end:                                           ; preds = %entry, %lor.lhs.fal
 ; Function Attrs: nounwind uwtable
 define i32 @llhttp__on_url_complete(ptr noundef %s, ptr nocapture noundef readnone %p, ptr nocapture noundef readnone %endp) local_unnamed_addr #0 {
 entry:
-  %settings1 = getelementptr inbounds %struct.llhttp__internal_s, ptr %s, i64 0, i32 20
+  %settings1 = getelementptr inbounds i8, ptr %s, i64 88
   %0 = load ptr, ptr %settings1, align 8
   %cmp = icmp eq ptr %0, null
   br i1 %cmp, label %do.end, label %lor.lhs.false
 
 lor.lhs.false:                                    ; preds = %entry
-  %on_url_complete = getelementptr inbounds %struct.llhttp_settings_s, ptr %0, i64 0, i32 12
+  %on_url_complete = getelementptr inbounds i8, ptr %0, i64 96
   %1 = load ptr, ptr %on_url_complete, align 8
   %cmp2 = icmp eq ptr %1, null
   br i1 %cmp2, label %do.end, label %if.end
@@ -1068,13 +1065,13 @@ do.end:                                           ; preds = %entry, %lor.lhs.fal
 ; Function Attrs: nounwind uwtable
 define i32 @llhttp__on_status(ptr noundef %s, ptr noundef %p, ptr noundef %endp) local_unnamed_addr #0 {
 entry:
-  %settings1 = getelementptr inbounds %struct.llhttp__internal_s, ptr %s, i64 0, i32 20
+  %settings1 = getelementptr inbounds i8, ptr %s, i64 88
   %0 = load ptr, ptr %settings1, align 8
   %cmp = icmp eq ptr %0, null
   br i1 %cmp, label %do.end, label %lor.lhs.false
 
 lor.lhs.false:                                    ; preds = %entry
-  %on_status = getelementptr inbounds %struct.llhttp_settings_s, ptr %0, i64 0, i32 2
+  %on_status = getelementptr inbounds i8, ptr %0, i64 16
   %1 = load ptr, ptr %on_status, align 8
   %cmp2 = icmp eq ptr %1, null
   br i1 %cmp2, label %do.end, label %if.end
@@ -1088,7 +1085,7 @@ if.end:                                           ; preds = %lor.lhs.false
   br i1 %cmp4, label %if.then5, label %do.end
 
 if.then5:                                         ; preds = %if.end
-  %reason1.i = getelementptr inbounds %struct.llhttp__internal_s, ptr %s, i64 0, i32 4
+  %reason1.i = getelementptr inbounds i8, ptr %s, i64 32
   store ptr @.str.184, ptr %reason1.i, align 8
   br label %do.end
 
@@ -1100,13 +1097,13 @@ do.end:                                           ; preds = %entry, %lor.lhs.fal
 ; Function Attrs: nounwind uwtable
 define i32 @llhttp__on_status_complete(ptr noundef %s, ptr nocapture noundef readnone %p, ptr nocapture noundef readnone %endp) local_unnamed_addr #0 {
 entry:
-  %settings1 = getelementptr inbounds %struct.llhttp__internal_s, ptr %s, i64 0, i32 20
+  %settings1 = getelementptr inbounds i8, ptr %s, i64 88
   %0 = load ptr, ptr %settings1, align 8
   %cmp = icmp eq ptr %0, null
   br i1 %cmp, label %do.end, label %lor.lhs.false
 
 lor.lhs.false:                                    ; preds = %entry
-  %on_status_complete = getelementptr inbounds %struct.llhttp_settings_s, ptr %0, i64 0, i32 13
+  %on_status_complete = getelementptr inbounds i8, ptr %0, i64 104
   %1 = load ptr, ptr %on_status_complete, align 8
   %cmp2 = icmp eq ptr %1, null
   br i1 %cmp2, label %do.end, label %if.end
@@ -1123,13 +1120,13 @@ do.end:                                           ; preds = %entry, %lor.lhs.fal
 ; Function Attrs: nounwind uwtable
 define i32 @llhttp__on_method(ptr noundef %s, ptr noundef %p, ptr noundef %endp) local_unnamed_addr #0 {
 entry:
-  %settings1 = getelementptr inbounds %struct.llhttp__internal_s, ptr %s, i64 0, i32 20
+  %settings1 = getelementptr inbounds i8, ptr %s, i64 88
   %0 = load ptr, ptr %settings1, align 8
   %cmp = icmp eq ptr %0, null
   br i1 %cmp, label %do.end, label %lor.lhs.false
 
 lor.lhs.false:                                    ; preds = %entry
-  %on_method = getelementptr inbounds %struct.llhttp_settings_s, ptr %0, i64 0, i32 3
+  %on_method = getelementptr inbounds i8, ptr %0, i64 24
   %1 = load ptr, ptr %on_method, align 8
   %cmp2 = icmp eq ptr %1, null
   br i1 %cmp2, label %do.end, label %if.end
@@ -1143,7 +1140,7 @@ if.end:                                           ; preds = %lor.lhs.false
   br i1 %cmp4, label %if.then5, label %do.end
 
 if.then5:                                         ; preds = %if.end
-  %reason1.i = getelementptr inbounds %struct.llhttp__internal_s, ptr %s, i64 0, i32 4
+  %reason1.i = getelementptr inbounds i8, ptr %s, i64 32
   store ptr @.str.185, ptr %reason1.i, align 8
   br label %do.end
 
@@ -1155,13 +1152,13 @@ do.end:                                           ; preds = %entry, %lor.lhs.fal
 ; Function Attrs: nounwind uwtable
 define i32 @llhttp__on_method_complete(ptr noundef %s, ptr nocapture noundef readnone %p, ptr nocapture noundef readnone %endp) local_unnamed_addr #0 {
 entry:
-  %settings1 = getelementptr inbounds %struct.llhttp__internal_s, ptr %s, i64 0, i32 20
+  %settings1 = getelementptr inbounds i8, ptr %s, i64 88
   %0 = load ptr, ptr %settings1, align 8
   %cmp = icmp eq ptr %0, null
   br i1 %cmp, label %do.end, label %lor.lhs.false
 
 lor.lhs.false:                                    ; preds = %entry
-  %on_method_complete = getelementptr inbounds %struct.llhttp_settings_s, ptr %0, i64 0, i32 14
+  %on_method_complete = getelementptr inbounds i8, ptr %0, i64 112
   %1 = load ptr, ptr %on_method_complete, align 8
   %cmp2 = icmp eq ptr %1, null
   br i1 %cmp2, label %do.end, label %if.end
@@ -1178,13 +1175,13 @@ do.end:                                           ; preds = %entry, %lor.lhs.fal
 ; Function Attrs: nounwind uwtable
 define i32 @llhttp__on_version(ptr noundef %s, ptr noundef %p, ptr noundef %endp) local_unnamed_addr #0 {
 entry:
-  %settings1 = getelementptr inbounds %struct.llhttp__internal_s, ptr %s, i64 0, i32 20
+  %settings1 = getelementptr inbounds i8, ptr %s, i64 88
   %0 = load ptr, ptr %settings1, align 8
   %cmp = icmp eq ptr %0, null
   br i1 %cmp, label %do.end, label %lor.lhs.false
 
 lor.lhs.false:                                    ; preds = %entry
-  %on_version = getelementptr inbounds %struct.llhttp_settings_s, ptr %0, i64 0, i32 4
+  %on_version = getelementptr inbounds i8, ptr %0, i64 32
   %1 = load ptr, ptr %on_version, align 8
   %cmp2 = icmp eq ptr %1, null
   br i1 %cmp2, label %do.end, label %if.end
@@ -1198,7 +1195,7 @@ if.end:                                           ; preds = %lor.lhs.false
   br i1 %cmp4, label %if.then5, label %do.end
 
 if.then5:                                         ; preds = %if.end
-  %reason1.i = getelementptr inbounds %struct.llhttp__internal_s, ptr %s, i64 0, i32 4
+  %reason1.i = getelementptr inbounds i8, ptr %s, i64 32
   store ptr @.str.186, ptr %reason1.i, align 8
   br label %do.end
 
@@ -1210,13 +1207,13 @@ do.end:                                           ; preds = %entry, %lor.lhs.fal
 ; Function Attrs: nounwind uwtable
 define i32 @llhttp__on_version_complete(ptr noundef %s, ptr nocapture noundef readnone %p, ptr nocapture noundef readnone %endp) local_unnamed_addr #0 {
 entry:
-  %settings1 = getelementptr inbounds %struct.llhttp__internal_s, ptr %s, i64 0, i32 20
+  %settings1 = getelementptr inbounds i8, ptr %s, i64 88
   %0 = load ptr, ptr %settings1, align 8
   %cmp = icmp eq ptr %0, null
   br i1 %cmp, label %do.end, label %lor.lhs.false
 
 lor.lhs.false:                                    ; preds = %entry
-  %on_version_complete = getelementptr inbounds %struct.llhttp_settings_s, ptr %0, i64 0, i32 15
+  %on_version_complete = getelementptr inbounds i8, ptr %0, i64 120
   %1 = load ptr, ptr %on_version_complete, align 8
   %cmp2 = icmp eq ptr %1, null
   br i1 %cmp2, label %do.end, label %if.end
@@ -1233,13 +1230,13 @@ do.end:                                           ; preds = %entry, %lor.lhs.fal
 ; Function Attrs: nounwind uwtable
 define i32 @llhttp__on_header_field(ptr noundef %s, ptr noundef %p, ptr noundef %endp) local_unnamed_addr #0 {
 entry:
-  %settings1 = getelementptr inbounds %struct.llhttp__internal_s, ptr %s, i64 0, i32 20
+  %settings1 = getelementptr inbounds i8, ptr %s, i64 88
   %0 = load ptr, ptr %settings1, align 8
   %cmp = icmp eq ptr %0, null
   br i1 %cmp, label %do.end, label %lor.lhs.false
 
 lor.lhs.false:                                    ; preds = %entry
-  %on_header_field = getelementptr inbounds %struct.llhttp_settings_s, ptr %0, i64 0, i32 5
+  %on_header_field = getelementptr inbounds i8, ptr %0, i64 40
   %1 = load ptr, ptr %on_header_field, align 8
   %cmp2 = icmp eq ptr %1, null
   br i1 %cmp2, label %do.end, label %if.end
@@ -1253,7 +1250,7 @@ if.end:                                           ; preds = %lor.lhs.false
   br i1 %cmp4, label %if.then5, label %do.end
 
 if.then5:                                         ; preds = %if.end
-  %reason1.i = getelementptr inbounds %struct.llhttp__internal_s, ptr %s, i64 0, i32 4
+  %reason1.i = getelementptr inbounds i8, ptr %s, i64 32
   store ptr @.str.187, ptr %reason1.i, align 8
   br label %do.end
 
@@ -1265,13 +1262,13 @@ do.end:                                           ; preds = %entry, %lor.lhs.fal
 ; Function Attrs: nounwind uwtable
 define i32 @llhttp__on_header_field_complete(ptr noundef %s, ptr nocapture noundef readnone %p, ptr nocapture noundef readnone %endp) local_unnamed_addr #0 {
 entry:
-  %settings1 = getelementptr inbounds %struct.llhttp__internal_s, ptr %s, i64 0, i32 20
+  %settings1 = getelementptr inbounds i8, ptr %s, i64 88
   %0 = load ptr, ptr %settings1, align 8
   %cmp = icmp eq ptr %0, null
   br i1 %cmp, label %do.end, label %lor.lhs.false
 
 lor.lhs.false:                                    ; preds = %entry
-  %on_header_field_complete = getelementptr inbounds %struct.llhttp_settings_s, ptr %0, i64 0, i32 16
+  %on_header_field_complete = getelementptr inbounds i8, ptr %0, i64 128
   %1 = load ptr, ptr %on_header_field_complete, align 8
   %cmp2 = icmp eq ptr %1, null
   br i1 %cmp2, label %do.end, label %if.end
@@ -1288,13 +1285,13 @@ do.end:                                           ; preds = %entry, %lor.lhs.fal
 ; Function Attrs: nounwind uwtable
 define i32 @llhttp__on_header_value(ptr noundef %s, ptr noundef %p, ptr noundef %endp) local_unnamed_addr #0 {
 entry:
-  %settings1 = getelementptr inbounds %struct.llhttp__internal_s, ptr %s, i64 0, i32 20
+  %settings1 = getelementptr inbounds i8, ptr %s, i64 88
   %0 = load ptr, ptr %settings1, align 8
   %cmp = icmp eq ptr %0, null
   br i1 %cmp, label %do.end, label %lor.lhs.false
 
 lor.lhs.false:                                    ; preds = %entry
-  %on_header_value = getelementptr inbounds %struct.llhttp_settings_s, ptr %0, i64 0, i32 6
+  %on_header_value = getelementptr inbounds i8, ptr %0, i64 48
   %1 = load ptr, ptr %on_header_value, align 8
   %cmp2 = icmp eq ptr %1, null
   br i1 %cmp2, label %do.end, label %if.end
@@ -1308,7 +1305,7 @@ if.end:                                           ; preds = %lor.lhs.false
   br i1 %cmp4, label %if.then5, label %do.end
 
 if.then5:                                         ; preds = %if.end
-  %reason1.i = getelementptr inbounds %struct.llhttp__internal_s, ptr %s, i64 0, i32 4
+  %reason1.i = getelementptr inbounds i8, ptr %s, i64 32
   store ptr @.str.188, ptr %reason1.i, align 8
   br label %do.end
 
@@ -1320,13 +1317,13 @@ do.end:                                           ; preds = %entry, %lor.lhs.fal
 ; Function Attrs: nounwind uwtable
 define i32 @llhttp__on_header_value_complete(ptr noundef %s, ptr nocapture noundef readnone %p, ptr nocapture noundef readnone %endp) local_unnamed_addr #0 {
 entry:
-  %settings1 = getelementptr inbounds %struct.llhttp__internal_s, ptr %s, i64 0, i32 20
+  %settings1 = getelementptr inbounds i8, ptr %s, i64 88
   %0 = load ptr, ptr %settings1, align 8
   %cmp = icmp eq ptr %0, null
   br i1 %cmp, label %do.end, label %lor.lhs.false
 
 lor.lhs.false:                                    ; preds = %entry
-  %on_header_value_complete = getelementptr inbounds %struct.llhttp_settings_s, ptr %0, i64 0, i32 17
+  %on_header_value_complete = getelementptr inbounds i8, ptr %0, i64 136
   %1 = load ptr, ptr %on_header_value_complete, align 8
   %cmp2 = icmp eq ptr %1, null
   br i1 %cmp2, label %do.end, label %if.end
@@ -1343,13 +1340,13 @@ do.end:                                           ; preds = %entry, %lor.lhs.fal
 ; Function Attrs: nounwind uwtable
 define i32 @llhttp__on_headers_complete(ptr noundef %s, ptr nocapture noundef readnone %p, ptr nocapture noundef readnone %endp) local_unnamed_addr #0 {
 entry:
-  %settings1 = getelementptr inbounds %struct.llhttp__internal_s, ptr %s, i64 0, i32 20
+  %settings1 = getelementptr inbounds i8, ptr %s, i64 88
   %0 = load ptr, ptr %settings1, align 8
   %cmp = icmp eq ptr %0, null
   br i1 %cmp, label %do.end, label %lor.lhs.false
 
 lor.lhs.false:                                    ; preds = %entry
-  %on_headers_complete = getelementptr inbounds %struct.llhttp_settings_s, ptr %0, i64 0, i32 9
+  %on_headers_complete = getelementptr inbounds i8, ptr %0, i64 72
   %1 = load ptr, ptr %on_headers_complete, align 8
   %cmp2 = icmp eq ptr %1, null
   br i1 %cmp2, label %do.end, label %if.end
@@ -1366,13 +1363,13 @@ do.end:                                           ; preds = %entry, %lor.lhs.fal
 ; Function Attrs: nounwind uwtable
 define i32 @llhttp__on_message_complete(ptr noundef %s, ptr nocapture noundef readnone %p, ptr nocapture noundef readnone %endp) local_unnamed_addr #0 {
 entry:
-  %settings1 = getelementptr inbounds %struct.llhttp__internal_s, ptr %s, i64 0, i32 20
+  %settings1 = getelementptr inbounds i8, ptr %s, i64 88
   %0 = load ptr, ptr %settings1, align 8
   %cmp = icmp eq ptr %0, null
   br i1 %cmp, label %do.end, label %lor.lhs.false
 
 lor.lhs.false:                                    ; preds = %entry
-  %on_message_complete = getelementptr inbounds %struct.llhttp_settings_s, ptr %0, i64 0, i32 11
+  %on_message_complete = getelementptr inbounds i8, ptr %0, i64 88
   %1 = load ptr, ptr %on_message_complete, align 8
   %cmp2 = icmp eq ptr %1, null
   br i1 %cmp2, label %do.end, label %if.end
@@ -1389,13 +1386,13 @@ do.end:                                           ; preds = %entry, %lor.lhs.fal
 ; Function Attrs: nounwind uwtable
 define i32 @llhttp__on_body(ptr noundef %s, ptr noundef %p, ptr noundef %endp) local_unnamed_addr #0 {
 entry:
-  %settings1 = getelementptr inbounds %struct.llhttp__internal_s, ptr %s, i64 0, i32 20
+  %settings1 = getelementptr inbounds i8, ptr %s, i64 88
   %0 = load ptr, ptr %settings1, align 8
   %cmp = icmp eq ptr %0, null
   br i1 %cmp, label %do.end, label %lor.lhs.false
 
 lor.lhs.false:                                    ; preds = %entry
-  %on_body = getelementptr inbounds %struct.llhttp_settings_s, ptr %0, i64 0, i32 10
+  %on_body = getelementptr inbounds i8, ptr %0, i64 80
   %1 = load ptr, ptr %on_body, align 8
   %cmp2 = icmp eq ptr %1, null
   br i1 %cmp2, label %do.end, label %if.end
@@ -1409,7 +1406,7 @@ if.end:                                           ; preds = %lor.lhs.false
   br i1 %cmp4, label %if.then5, label %do.end
 
 if.then5:                                         ; preds = %if.end
-  %reason1.i = getelementptr inbounds %struct.llhttp__internal_s, ptr %s, i64 0, i32 4
+  %reason1.i = getelementptr inbounds i8, ptr %s, i64 32
   store ptr @.str.189, ptr %reason1.i, align 8
   br label %do.end
 
@@ -1421,13 +1418,13 @@ do.end:                                           ; preds = %entry, %lor.lhs.fal
 ; Function Attrs: nounwind uwtable
 define i32 @llhttp__on_chunk_header(ptr noundef %s, ptr nocapture noundef readnone %p, ptr nocapture noundef readnone %endp) local_unnamed_addr #0 {
 entry:
-  %settings1 = getelementptr inbounds %struct.llhttp__internal_s, ptr %s, i64 0, i32 20
+  %settings1 = getelementptr inbounds i8, ptr %s, i64 88
   %0 = load ptr, ptr %settings1, align 8
   %cmp = icmp eq ptr %0, null
   br i1 %cmp, label %do.end, label %lor.lhs.false
 
 lor.lhs.false:                                    ; preds = %entry
-  %on_chunk_header = getelementptr inbounds %struct.llhttp_settings_s, ptr %0, i64 0, i32 20
+  %on_chunk_header = getelementptr inbounds i8, ptr %0, i64 160
   %1 = load ptr, ptr %on_chunk_header, align 8
   %cmp2 = icmp eq ptr %1, null
   br i1 %cmp2, label %do.end, label %if.end
@@ -1444,13 +1441,13 @@ do.end:                                           ; preds = %entry, %lor.lhs.fal
 ; Function Attrs: nounwind uwtable
 define i32 @llhttp__on_chunk_extension_name(ptr noundef %s, ptr noundef %p, ptr noundef %endp) local_unnamed_addr #0 {
 entry:
-  %settings1 = getelementptr inbounds %struct.llhttp__internal_s, ptr %s, i64 0, i32 20
+  %settings1 = getelementptr inbounds i8, ptr %s, i64 88
   %0 = load ptr, ptr %settings1, align 8
   %cmp = icmp eq ptr %0, null
   br i1 %cmp, label %do.end, label %lor.lhs.false
 
 lor.lhs.false:                                    ; preds = %entry
-  %on_chunk_extension_name = getelementptr inbounds %struct.llhttp_settings_s, ptr %0, i64 0, i32 7
+  %on_chunk_extension_name = getelementptr inbounds i8, ptr %0, i64 56
   %1 = load ptr, ptr %on_chunk_extension_name, align 8
   %cmp2 = icmp eq ptr %1, null
   br i1 %cmp2, label %do.end, label %if.end
@@ -1464,7 +1461,7 @@ if.end:                                           ; preds = %lor.lhs.false
   br i1 %cmp4, label %if.then5, label %do.end
 
 if.then5:                                         ; preds = %if.end
-  %reason1.i = getelementptr inbounds %struct.llhttp__internal_s, ptr %s, i64 0, i32 4
+  %reason1.i = getelementptr inbounds i8, ptr %s, i64 32
   store ptr @.str.190, ptr %reason1.i, align 8
   br label %do.end
 
@@ -1476,13 +1473,13 @@ do.end:                                           ; preds = %entry, %lor.lhs.fal
 ; Function Attrs: nounwind uwtable
 define i32 @llhttp__on_chunk_extension_name_complete(ptr noundef %s, ptr nocapture noundef readnone %p, ptr nocapture noundef readnone %endp) local_unnamed_addr #0 {
 entry:
-  %settings1 = getelementptr inbounds %struct.llhttp__internal_s, ptr %s, i64 0, i32 20
+  %settings1 = getelementptr inbounds i8, ptr %s, i64 88
   %0 = load ptr, ptr %settings1, align 8
   %cmp = icmp eq ptr %0, null
   br i1 %cmp, label %do.end, label %lor.lhs.false
 
 lor.lhs.false:                                    ; preds = %entry
-  %on_chunk_extension_name_complete = getelementptr inbounds %struct.llhttp_settings_s, ptr %0, i64 0, i32 18
+  %on_chunk_extension_name_complete = getelementptr inbounds i8, ptr %0, i64 144
   %1 = load ptr, ptr %on_chunk_extension_name_complete, align 8
   %cmp2 = icmp eq ptr %1, null
   br i1 %cmp2, label %do.end, label %if.end
@@ -1499,13 +1496,13 @@ do.end:                                           ; preds = %entry, %lor.lhs.fal
 ; Function Attrs: nounwind uwtable
 define i32 @llhttp__on_chunk_extension_value(ptr noundef %s, ptr noundef %p, ptr noundef %endp) local_unnamed_addr #0 {
 entry:
-  %settings1 = getelementptr inbounds %struct.llhttp__internal_s, ptr %s, i64 0, i32 20
+  %settings1 = getelementptr inbounds i8, ptr %s, i64 88
   %0 = load ptr, ptr %settings1, align 8
   %cmp = icmp eq ptr %0, null
   br i1 %cmp, label %do.end, label %lor.lhs.false
 
 lor.lhs.false:                                    ; preds = %entry
-  %on_chunk_extension_value = getelementptr inbounds %struct.llhttp_settings_s, ptr %0, i64 0, i32 8
+  %on_chunk_extension_value = getelementptr inbounds i8, ptr %0, i64 64
   %1 = load ptr, ptr %on_chunk_extension_value, align 8
   %cmp2 = icmp eq ptr %1, null
   br i1 %cmp2, label %do.end, label %if.end
@@ -1519,7 +1516,7 @@ if.end:                                           ; preds = %lor.lhs.false
   br i1 %cmp4, label %if.then5, label %do.end
 
 if.then5:                                         ; preds = %if.end
-  %reason1.i = getelementptr inbounds %struct.llhttp__internal_s, ptr %s, i64 0, i32 4
+  %reason1.i = getelementptr inbounds i8, ptr %s, i64 32
   store ptr @.str.191, ptr %reason1.i, align 8
   br label %do.end
 
@@ -1531,13 +1528,13 @@ do.end:                                           ; preds = %entry, %lor.lhs.fal
 ; Function Attrs: nounwind uwtable
 define i32 @llhttp__on_chunk_extension_value_complete(ptr noundef %s, ptr nocapture noundef readnone %p, ptr nocapture noundef readnone %endp) local_unnamed_addr #0 {
 entry:
-  %settings1 = getelementptr inbounds %struct.llhttp__internal_s, ptr %s, i64 0, i32 20
+  %settings1 = getelementptr inbounds i8, ptr %s, i64 88
   %0 = load ptr, ptr %settings1, align 8
   %cmp = icmp eq ptr %0, null
   br i1 %cmp, label %do.end, label %lor.lhs.false
 
 lor.lhs.false:                                    ; preds = %entry
-  %on_chunk_extension_value_complete = getelementptr inbounds %struct.llhttp_settings_s, ptr %0, i64 0, i32 19
+  %on_chunk_extension_value_complete = getelementptr inbounds i8, ptr %0, i64 152
   %1 = load ptr, ptr %on_chunk_extension_value_complete, align 8
   %cmp2 = icmp eq ptr %1, null
   br i1 %cmp2, label %do.end, label %if.end
@@ -1554,13 +1551,13 @@ do.end:                                           ; preds = %entry, %lor.lhs.fal
 ; Function Attrs: nounwind uwtable
 define i32 @llhttp__on_chunk_complete(ptr noundef %s, ptr nocapture noundef readnone %p, ptr nocapture noundef readnone %endp) local_unnamed_addr #0 {
 entry:
-  %settings1 = getelementptr inbounds %struct.llhttp__internal_s, ptr %s, i64 0, i32 20
+  %settings1 = getelementptr inbounds i8, ptr %s, i64 88
   %0 = load ptr, ptr %settings1, align 8
   %cmp = icmp eq ptr %0, null
   br i1 %cmp, label %do.end, label %lor.lhs.false
 
 lor.lhs.false:                                    ; preds = %entry
-  %on_chunk_complete = getelementptr inbounds %struct.llhttp_settings_s, ptr %0, i64 0, i32 21
+  %on_chunk_complete = getelementptr inbounds i8, ptr %0, i64 168
   %1 = load ptr, ptr %on_chunk_complete, align 8
   %cmp2 = icmp eq ptr %1, null
   br i1 %cmp2, label %do.end, label %if.end
@@ -1577,13 +1574,13 @@ do.end:                                           ; preds = %entry, %lor.lhs.fal
 ; Function Attrs: nounwind uwtable
 define i32 @llhttp__on_reset(ptr noundef %s, ptr nocapture noundef readnone %p, ptr nocapture noundef readnone %endp) local_unnamed_addr #0 {
 entry:
-  %settings1 = getelementptr inbounds %struct.llhttp__internal_s, ptr %s, i64 0, i32 20
+  %settings1 = getelementptr inbounds i8, ptr %s, i64 88
   %0 = load ptr, ptr %settings1, align 8
   %cmp = icmp eq ptr %0, null
   br i1 %cmp, label %do.end, label %lor.lhs.false
 
 lor.lhs.false:                                    ; preds = %entry
-  %on_reset = getelementptr inbounds %struct.llhttp_settings_s, ptr %0, i64 0, i32 22
+  %on_reset = getelementptr inbounds i8, ptr %0, i64 176
   %1 = load ptr, ptr %on_reset, align 8
   %cmp2 = icmp eq ptr %1, null
   br i1 %cmp2, label %do.end, label %if.end
@@ -1602,10 +1599,10 @@ define void @llhttp__debug(ptr noundef %s, ptr noundef readonly %p, ptr noundef 
 entry:
   %cmp = icmp eq ptr %p, %endp
   %0 = load ptr, ptr @stderr, align 8
-  %type = getelementptr inbounds %struct.llhttp__internal_s, ptr %s, i64 0, i32 9
+  %type = getelementptr inbounds i8, ptr %s, i64 72
   %1 = load i8, ptr %type, align 8
   %conv = zext i8 %1 to i32
-  %flags = getelementptr inbounds %struct.llhttp__internal_s, ptr %s, i64 0, i32 17
+  %flags = getelementptr inbounds i8, ptr %s, i64 80
   %2 = load i16, ptr %flags, align 8
   %conv1 = zext i16 %2 to i32
   br i1 %cmp, label %if.then, label %if.else

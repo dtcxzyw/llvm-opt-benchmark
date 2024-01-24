@@ -4,12 +4,9 @@ target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:
 target triple = "x86_64-unknown-linux-gnu"
 
 %struct.git_hash_algo = type { ptr, i32, i64, i64, i64, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr }
-%struct.object_id = type { [32 x i8], i32 }
 %struct.tree_desc = type { ptr, %struct.name_entry, i32, i32 }
 %struct.name_entry = type { %struct.object_id, ptr, i32, i32 }
-%struct.repository = type { ptr, ptr, ptr, ptr, ptr, %struct.repo_path_cache, ptr, ptr, ptr, ptr, %struct.repo_settings, ptr, ptr, ptr, ptr, ptr, i32, i32, i32, ptr, ptr, i32, i8 }
-%struct.repo_path_cache = type { ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr }
-%struct.repo_settings = type { i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, ptr, i32, i32, i32, i32, i32, i32 }
+%struct.object_id = type { [32 x i8], i32 }
 
 @.str = private unnamed_addr constant [1 x i8] zeroinitializer, align 1
 @.str.1 = private unnamed_addr constant [31 x i8] c"cannot find path %s in tree %s\00", align 1
@@ -43,9 +40,9 @@ entry:
   call fastcc void @match_trees(ptr noundef %hash1, ptr noundef %hash2, ptr noundef nonnull %add_score, ptr noundef nonnull %add_prefix, ptr noundef nonnull @.str, i32 noundef %spec.store.select)
   call fastcc void @match_trees(ptr noundef %hash2, ptr noundef %hash1, ptr noundef nonnull %del_score, ptr noundef nonnull %del_prefix, ptr noundef nonnull @.str, i32 noundef %spec.store.select)
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(32) %shifted, ptr noundef nonnull align 4 dereferenceable(32) %hash2, i64 32, i1 false)
-  %algo.i = getelementptr inbounds %struct.object_id, ptr %hash2, i64 0, i32 1
+  %algo.i = getelementptr inbounds i8, ptr %hash2, i64 32
   %0 = load i32, ptr %algo.i, align 4
-  %algo3.i = getelementptr inbounds %struct.object_id, ptr %shifted, i64 0, i32 1
+  %algo3.i = getelementptr inbounds i8, ptr %shifted, i64 32
   store i32 %0, ptr %algo3.i, align 4
   %1 = load i32, ptr %add_score, align 4
   %2 = load i32, ptr %del_score, align 4
@@ -89,17 +86,17 @@ entry:
   %two = alloca %struct.tree_desc, align 8
   %call = call fastcc ptr @fill_tree_desc_strict(ptr noundef nonnull %one, ptr noundef %hash1)
   %call1 = call fastcc ptr @fill_tree_desc_strict(ptr noundef nonnull %two, ptr noundef %hash2)
-  %size = getelementptr inbounds %struct.tree_desc, ptr %one, i64 0, i32 2
-  %size2 = getelementptr inbounds %struct.tree_desc, ptr %two, i64 0, i32 2
-  %path.i = getelementptr inbounds %struct.tree_desc, ptr %one, i64 0, i32 1, i32 1
-  %0 = getelementptr inbounds %struct.tree_desc, ptr %one, i64 0, i32 1, i32 2
-  %mode.i = getelementptr inbounds %struct.tree_desc, ptr %one, i64 0, i32 1, i32 3
-  %path1.i = getelementptr inbounds %struct.tree_desc, ptr %two, i64 0, i32 1, i32 1
-  %1 = getelementptr inbounds %struct.tree_desc, ptr %two, i64 0, i32 1, i32 2
-  %mode4.i = getelementptr inbounds %struct.tree_desc, ptr %two, i64 0, i32 1, i32 3
-  %entry29 = getelementptr inbounds %struct.tree_desc, ptr %one, i64 0, i32 1
-  %entry30 = getelementptr inbounds %struct.tree_desc, ptr %two, i64 0, i32 1
-  %algo.i = getelementptr inbounds %struct.tree_desc, ptr %one, i64 0, i32 1, i32 0, i32 1
+  %size = getelementptr inbounds i8, ptr %one, i64 64
+  %size2 = getelementptr inbounds i8, ptr %two, i64 64
+  %path.i = getelementptr inbounds i8, ptr %one, i64 48
+  %0 = getelementptr inbounds i8, ptr %one, i64 56
+  %mode.i = getelementptr inbounds i8, ptr %one, i64 60
+  %path1.i = getelementptr inbounds i8, ptr %two, i64 48
+  %1 = getelementptr inbounds i8, ptr %two, i64 56
+  %mode4.i = getelementptr inbounds i8, ptr %two, i64 60
+  %entry29 = getelementptr inbounds i8, ptr %one, i64 8
+  %entry30 = getelementptr inbounds i8, ptr %two, i64 8
+  %algo.i = getelementptr inbounds i8, ptr %one, i64 40
   br label %for.cond
 
 for.cond:                                         ; preds = %if.end50, %entry
@@ -162,7 +159,7 @@ if.else28:                                        ; preds = %if.else21
 
 if.then.i:                                        ; preds = %if.else28
   %11 = load ptr, ptr @the_repository, align 8
-  %hash_algo.i = getelementptr inbounds %struct.repository, ptr %11, i64 0, i32 15
+  %hash_algo.i = getelementptr inbounds i8, ptr %11, i64 256
   %12 = load ptr, ptr %hash_algo.i, align 8
   br label %if.end.i
 
@@ -245,15 +242,15 @@ define internal fastcc void @match_trees(ptr noundef %hash1, ptr noundef %hash2,
 entry:
   %one = alloca %struct.tree_desc, align 8
   %call = call fastcc ptr @fill_tree_desc_strict(ptr noundef nonnull %one, ptr noundef %hash1)
-  %size = getelementptr inbounds %struct.tree_desc, ptr %one, i64 0, i32 2
+  %size = getelementptr inbounds i8, ptr %one, i64 64
   %0 = load i32, ptr %size, align 8
   %tobool.not12 = icmp eq i32 %0, 0
   br i1 %tobool.not12, label %while.end, label %while.body.lr.ph
 
 while.body.lr.ph:                                 ; preds = %entry
-  %entry1.i = getelementptr inbounds %struct.tree_desc, ptr %one, i64 0, i32 1
-  %path.i = getelementptr inbounds %struct.tree_desc, ptr %one, i64 0, i32 1, i32 1
-  %mode.i = getelementptr inbounds %struct.tree_desc, ptr %one, i64 0, i32 1, i32 3
+  %entry1.i = getelementptr inbounds i8, ptr %one, i64 8
+  %path.i = getelementptr inbounds i8, ptr %one, i64 48
+  %mode.i = getelementptr inbounds i8, ptr %one, i64 60
   %tobool9.not = icmp eq i32 %recurse_limit, 0
   %sub = add nsw i32 %recurse_limit, -1
   br i1 %tobool9.not, label %while.body.us, label %while.body
@@ -359,14 +356,14 @@ if.then3:                                         ; preds = %entry
 if.end5:                                          ; preds = %entry
   %2 = load i64, ptr %sz, align 8
   call void @init_tree_desc(ptr noundef nonnull %desc, ptr noundef nonnull %call1, i64 noundef %2) #9
-  %size = getelementptr inbounds %struct.tree_desc, ptr %desc, i64 0, i32 2
+  %size = getelementptr inbounds i8, ptr %desc, i64 64
   %3 = load i32, ptr %size, align 8
   %tobool6.not26 = icmp eq i32 %3, 0
   br i1 %tobool6.not26, label %if.then28, label %while.body.lr.ph
 
 while.body.lr.ph:                                 ; preds = %if.end5
-  %path.i = getelementptr inbounds %struct.tree_desc, ptr %desc, i64 0, i32 1, i32 1
-  %mode.i = getelementptr inbounds %struct.tree_desc, ptr %desc, i64 0, i32 1, i32 3
+  %path.i = getelementptr inbounds i8, ptr %desc, i64 48
+  %mode.i = getelementptr inbounds i8, ptr %desc, i64 60
   %sext = shl i64 %sub.ptr.sub, 32
   %conv9 = ashr exact i64 %sext, 32
   br label %while.body
@@ -414,16 +411,16 @@ if.end30:                                         ; preds = %if.then14
 
 if.then32:                                        ; preds = %if.end30
   %9 = load ptr, ptr @the_repository, align 8
-  %hash_algo.i = getelementptr inbounds %struct.repository, ptr %9, i64 0, i32 15
+  %hash_algo.i = getelementptr inbounds i8, ptr %9, i64 256
   %10 = load ptr, ptr %hash_algo.i, align 8
-  %rawsz.i = getelementptr inbounds %struct.git_hash_algo, ptr %10, i64 0, i32 2
+  %rawsz.i = getelementptr inbounds i8, ptr %10, i64 16
   %11 = load i64, ptr %rawsz.i, align 8
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 4 %tree_oid, ptr nonnull align 1 %add.ptr25, i64 %11, i1 false)
   %sub.ptr.lhs.cast.i.i = ptrtoint ptr %10 to i64
   %sub.ptr.sub.i.i = sub i64 %sub.ptr.lhs.cast.i.i, ptrtoint (ptr @hash_algos to i64)
   %sub.ptr.div.i.i = sdiv exact i64 %sub.ptr.sub.i.i, 104
   %conv.i.i = trunc i64 %sub.ptr.div.i.i to i32
-  %algo.i = getelementptr inbounds %struct.object_id, ptr %tree_oid, i64 0, i32 1
+  %algo.i = getelementptr inbounds i8, ptr %tree_oid, i64 32
   store i32 %conv.i.i, ptr %algo.i, align 4
   %call33 = call fastcc i32 @splice_tree(ptr noundef nonnull %tree_oid, ptr noundef nonnull %spec.select, ptr noundef %oid2, ptr noundef nonnull %subtree)
   %tobool34.not = icmp eq i32 %call33, 0
@@ -432,9 +429,9 @@ if.then32:                                        ; preds = %if.end30
 if.end37:                                         ; preds = %if.end30, %if.then32
   %rewrite_with.0 = phi ptr [ %subtree, %if.then32 ], [ %oid2, %if.end30 ]
   %12 = load ptr, ptr @the_repository, align 8
-  %hash_algo.i21 = getelementptr inbounds %struct.repository, ptr %12, i64 0, i32 15
+  %hash_algo.i21 = getelementptr inbounds i8, ptr %12, i64 256
   %13 = load ptr, ptr %hash_algo.i21, align 8
-  %rawsz.i22 = getelementptr inbounds %struct.git_hash_algo, ptr %13, i64 0, i32 2
+  %rawsz.i22 = getelementptr inbounds i8, ptr %13, i64 16
   %14 = load i64, ptr %rawsz.i22, align 8
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %add.ptr25, ptr align 1 %rewrite_with.0, i64 %14, i1 false)
   %15 = load i64, ptr %sz, align 8
@@ -488,9 +485,9 @@ if.end26:                                         ; preds = %land.lhs.true4, %en
 
 if.then28:                                        ; preds = %if.end26
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(32) %shifted, ptr noundef nonnull align 4 dereferenceable(32) %hash2, i64 32, i1 false)
-  %algo.i = getelementptr inbounds %struct.object_id, ptr %hash2, i64 0, i32 1
+  %algo.i = getelementptr inbounds i8, ptr %hash2, i64 32
   %4 = load i32, ptr %algo.i, align 4
-  %algo3.i = getelementptr inbounds %struct.object_id, ptr %shifted, i64 0, i32 1
+  %algo3.i = getelementptr inbounds i8, ptr %shifted, i64 32
   store i32 %4, ptr %algo3.i, align 4
   br label %if.end34
 
@@ -500,9 +497,9 @@ if.then32:                                        ; preds = %if.end26
 
 if.else:                                          ; preds = %if.then14, %if.end11
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(32) %shifted, ptr noundef nonnull align 4 dereferenceable(32) %sub2, i64 32, i1 false)
-  %algo.i24 = getelementptr inbounds %struct.object_id, ptr %sub2, i64 0, i32 1
+  %algo.i24 = getelementptr inbounds i8, ptr %sub2, i64 32
   %5 = load i32, ptr %algo.i24, align 4
-  %algo3.i25 = getelementptr inbounds %struct.object_id, ptr %shifted, i64 0, i32 1
+  %algo3.i25 = getelementptr inbounds i8, ptr %shifted, i64 32
   store i32 %5, ptr %algo3.i25, align 4
   br label %if.end34
 

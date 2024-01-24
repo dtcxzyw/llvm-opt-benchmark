@@ -6,7 +6,7 @@ target triple = "x86_64-unknown-linux-gnu"
 ; Function Attrs: inlinehint mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: readwrite) uwtable
 define void @_ZN4core4iter6traits8iterator8Iterator3map17heecc3d7c835c20e6E(ptr nocapture writeonly sret({ { { i64, [4 x i64] }, {} }, ptr }) align 8 %0, ptr nocapture readonly align 8 %1, ptr align 4 %2) unnamed_addr #0 {
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %0, ptr noundef nonnull align 8 dereferenceable(40) %1, i64 40, i1 false)
-  %4 = getelementptr inbounds { { { i64, [4 x i64] }, {} }, ptr }, ptr %0, i64 0, i32 1
+  %4 = getelementptr inbounds i8, ptr %0, i64 40
   store ptr %2, ptr %4, align 8
   ret void
 }
@@ -19,8 +19,8 @@ define void @_ZN4core4iter6traits8iterator8Iterator4fold17hb94b8d909fefbc17E(ptr
   %7 = alloca { [24 x i8], i8, [7 x i8] }, align 8
   %8 = alloca { [24 x i8], i8, [7 x i8] }, align 8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %8, ptr noundef nonnull align 8 dereferenceable(32) %2, i64 32, i1 false)
-  %9 = getelementptr inbounds { [24 x i8], i8, [7 x i8] }, ptr %7, i64 0, i32 1
-  %10 = getelementptr inbounds { { [24 x i8], i8, [7 x i8] }, { [24 x i8], i8, [7 x i8] } }, ptr %5, i64 0, i32 1
+  %9 = getelementptr inbounds i8, ptr %7, i64 24
+  %10 = getelementptr inbounds i8, ptr %5, i64 32
   br label %11
 
 11:                                               ; preds = %17, %3
@@ -92,9 +92,9 @@ define void @_ZN4core4iter6traits8iterator8Iterator4fold17hc0f251f62bc0f8d3E(ptr
   %5 = alloca { [24 x i8], i8, [7 x i8] }, align 8
   %6 = alloca { ptr, ptr }, align 8
   store ptr %1, ptr %6, align 8
-  %7 = getelementptr inbounds { ptr, ptr }, ptr %6, i64 0, i32 1
+  %7 = getelementptr inbounds i8, ptr %6, i64 8
   store ptr %2, ptr %7, align 8
-  %8 = getelementptr inbounds { [24 x i8], i8, [7 x i8] }, ptr %5, i64 0, i32 1
+  %8 = getelementptr inbounds i8, ptr %5, i64 24
   br label %9
 
 9:                                                ; preds = %13, %3
@@ -150,9 +150,9 @@ define void @_ZN4core4iter6traits8iterator8Iterator4fold17he6993b434f7a9895E(ptr
   %5 = alloca { [24 x i8], i8, [7 x i8] }, align 8
   %6 = alloca { ptr, ptr }, align 8
   store ptr %1, ptr %6, align 8
-  %7 = getelementptr inbounds { ptr, ptr }, ptr %6, i64 0, i32 1
+  %7 = getelementptr inbounds i8, ptr %6, i64 8
   store ptr %2, ptr %7, align 8
-  %8 = getelementptr inbounds { [24 x i8], i8, [7 x i8] }, ptr %5, i64 0, i32 1
+  %8 = getelementptr inbounds i8, ptr %5, i64 24
   br label %9
 
 9:                                                ; preds = %13, %3
@@ -216,8 +216,8 @@ define void @_ZN4core4iter6traits8iterator8Iterator4last17hf2873260b566ca70E(ptr
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %7)
   %.sroa.1.0..sroa_idx = getelementptr inbounds i8, ptr %7, i64 24
   store i8 7, ptr %.sroa.1.0..sroa_idx, align 8
-  %8 = getelementptr inbounds { [24 x i8], i8, [7 x i8] }, ptr %6, i64 0, i32 1
-  %9 = getelementptr inbounds { { [24 x i8], i8, [7 x i8] }, { [24 x i8], i8, [7 x i8] } }, ptr %4, i64 0, i32 1
+  %8 = getelementptr inbounds i8, ptr %6, i64 24
+  %9 = getelementptr inbounds i8, ptr %4, i64 32
   br label %10
 
 10:                                               ; preds = %16, %2

@@ -6,14 +6,9 @@ target triple = "x86_64-unknown-linux-gnu"
 %struct.ASN1_TEMPLATE_st = type { i64, i64, i64, ptr, ptr }
 %struct.ASN1_ITEM_st = type { i8, i64, ptr, i64, ptr, i64, ptr }
 %struct.ASN1_EXTERN_FUNCS_st = type { ptr, ptr, ptr, ptr, ptr, ptr, ptr }
-%struct.X509_name_st = type { ptr, i32, ptr, ptr, i32 }
 %union.anon = type { ptr }
 %union.anon.0 = type { ptr }
-%struct.buf_mem_st = type { i64, ptr, i64 }
-%struct.X509_name_entry_st = type { ptr, ptr, i32, i32 }
 %union.anon.1 = type { ptr }
-%struct.asn1_pctx_st = type { i64, i64, i64, i64, i64 }
-%struct.asn1_string_st = type { i32, i32, ptr, i64 }
 
 @X509_NAME_ENTRY_seq_tt = internal constant [2 x %struct.ASN1_TEMPLATE_st] [%struct.ASN1_TEMPLATE_st { i64 0, i64 0, i64 0, ptr @.str.4, ptr @ASN1_OBJECT_it }, %struct.ASN1_TEMPLATE_st { i64 0, i64 0, i64 8, ptr @.str.5, ptr @ASN1_PRINTABLE_it }], align 16
 @.str = private unnamed_addr constant [16 x i8] c"X509_NAME_ENTRY\00", align 1
@@ -169,17 +164,17 @@ if.then9.thread:                                  ; preds = %if.end
 
 if.end3:                                          ; preds = %if.end
   %call4 = tail call ptr @BUF_MEM_new() #8
-  %bytes = getelementptr inbounds %struct.X509_name_st, ptr %call, i64 0, i32 2
+  %bytes = getelementptr inbounds i8, ptr %call, i64 16
   store ptr %call4, ptr %bytes, align 8
   %cmp5 = icmp eq ptr %call4, null
   br i1 %cmp5, label %if.then12, label %if.end7
 
 if.end7:                                          ; preds = %if.end3
-  %canon_enc = getelementptr inbounds %struct.X509_name_st, ptr %call, i64 0, i32 3
+  %canon_enc = getelementptr inbounds i8, ptr %call, i64 24
   store ptr null, ptr %canon_enc, align 8
-  %canon_enclen = getelementptr inbounds %struct.X509_name_st, ptr %call, i64 0, i32 4
+  %canon_enclen = getelementptr inbounds i8, ptr %call, i64 32
   store i32 0, ptr %canon_enclen, align 8
-  %modified = getelementptr inbounds %struct.X509_name_st, ptr %call, i64 0, i32 1
+  %modified = getelementptr inbounds i8, ptr %call, i64 8
   store i32 1, ptr %modified, align 8
   store ptr %call, ptr %val, align 8
   br label %return
@@ -214,12 +209,12 @@ lor.lhs.false:                                    ; preds = %entry
   br i1 %tobool1.not, label %return, label %if.end
 
 if.end:                                           ; preds = %lor.lhs.false
-  %bytes = getelementptr inbounds %struct.X509_name_st, ptr %0, i64 0, i32 2
+  %bytes = getelementptr inbounds i8, ptr %0, i64 16
   %1 = load ptr, ptr %bytes, align 8
   tail call void @BUF_MEM_free(ptr noundef %1) #8
   %2 = load ptr, ptr %0, align 8
   tail call void @sk_pop_free(ptr noundef %2, ptr noundef nonnull @X509_NAME_ENTRY_free) #8
-  %canon_enc = getelementptr inbounds %struct.X509_name_st, ptr %0, i64 0, i32 3
+  %canon_enc = getelementptr inbounds i8, ptr %0, i64 24
   %3 = load ptr, ptr %canon_enc, align 8
   %tobool2.not = icmp eq ptr %3, null
   br i1 %tobool2.not, label %if.end5, label %if.then3
@@ -257,12 +252,12 @@ if.end:                                           ; preds = %entry
   br i1 %tobool.not, label %if.end3, label %if.end.i
 
 if.end.i:                                         ; preds = %if.end
-  %bytes.i = getelementptr inbounds %struct.X509_name_st, ptr %1, i64 0, i32 2
+  %bytes.i = getelementptr inbounds i8, ptr %1, i64 16
   %2 = load ptr, ptr %bytes.i, align 8
   call void @BUF_MEM_free(ptr noundef %2) #8
   %3 = load ptr, ptr %1, align 8
   call void @sk_pop_free(ptr noundef %3, ptr noundef nonnull @X509_NAME_ENTRY_free) #8
-  %canon_enc.i = getelementptr inbounds %struct.X509_name_st, ptr %1, i64 0, i32 3
+  %canon_enc.i = getelementptr inbounds i8, ptr %1, i64 24
   %4 = load ptr, ptr %canon_enc.i, align 8
   %tobool2.not.i = icmp eq ptr %4, null
   br i1 %tobool2.not.i, label %x509_name_ex_free.exit, label %if.then3.i
@@ -283,7 +278,7 @@ if.end3:                                          ; preds = %x509_name_ex_free.e
   br i1 %tobool5.not, label %if.then8, label %lor.lhs.false
 
 lor.lhs.false:                                    ; preds = %if.end3
-  %bytes = getelementptr inbounds %struct.X509_name_st, ptr %.pre.pre, i64 0, i32 2
+  %bytes = getelementptr inbounds i8, ptr %.pre.pre, i64 16
   %5 = load ptr, ptr %bytes, align 8
   %6 = load ptr, ptr %p, align 8
   %sub.ptr.lhs.cast = ptrtoint ptr %6 to i64
@@ -300,7 +295,7 @@ if.then8:                                         ; preds = %lor.lhs.false, %if.
 
 if.end9:                                          ; preds = %lor.lhs.false
   %8 = load ptr, ptr %bytes, align 8
-  %data = getelementptr inbounds %struct.buf_mem_st, ptr %8, i64 0, i32 1
+  %data = getelementptr inbounds i8, ptr %8, i64 8
   %9 = load ptr, ptr %data, align 8
   %10 = load ptr, ptr %p, align 8
   %sub.ptr.lhs.cast11 = ptrtoint ptr %10 to i64
@@ -332,7 +327,7 @@ for.cond17:                                       ; preds = %for.body20
 for.body20:                                       ; preds = %for.body20.lr.ph, %for.cond17
   %j.019 = phi i64 [ 0, %for.body20.lr.ph ], [ %inc, %for.cond17 ]
   %call21 = call ptr @sk_value(ptr noundef %call16, i64 noundef %j.019) #8
-  %set = getelementptr inbounds %struct.X509_name_entry_st, ptr %call21, i64 0, i32 2
+  %set = getelementptr inbounds i8, ptr %call21, i64 16
   store i32 %conv, ptr %set, align 8
   %13 = load ptr, ptr %.pre.pre, align 8
   %call23 = call i64 @sk_push(ptr noundef %13, ptr noundef %call21) #8
@@ -355,7 +350,7 @@ for.end29:                                        ; preds = %for.end, %if.end9
   br i1 %tobool31.not, label %err, label %if.end33
 
 if.end33:                                         ; preds = %for.end29
-  %modified = getelementptr inbounds %struct.X509_name_st, ptr %.pre.pre, i64 0, i32 1
+  %modified = getelementptr inbounds i8, ptr %.pre.pre, i64 8
   store i32 0, ptr %modified, align 8
   store ptr %.pre.pre, ptr %val, align 8
   %16 = load ptr, ptr %p, align 8
@@ -385,7 +380,7 @@ entry:
   %intname.i = alloca %union.anon.1, align 8
   %p.i = alloca ptr, align 8
   %0 = load ptr, ptr %val, align 8
-  %modified = getelementptr inbounds %struct.X509_name_st, ptr %0, i64 0, i32 1
+  %modified = getelementptr inbounds i8, ptr %0, i64 8
   %1 = load i32, ptr %modified, align 8
   %tobool.not = icmp eq i32 %1, 0
   br i1 %tobool.not, label %if.end6, label %if.then
@@ -417,7 +412,7 @@ for.body.i:                                       ; preds = %for.cond.preheader.
   %entries.014.i = phi ptr [ %entries.1.i, %for.cond.i ], [ null, %for.cond.preheader.i ]
   %4 = load ptr, ptr %0, align 8
   %call5.i = tail call ptr @sk_value(ptr noundef %4, i64 noundef %i.016.i) #8
-  %set6.i = getelementptr inbounds %struct.X509_name_entry_st, ptr %call5.i, i64 0, i32 2
+  %set6.i = getelementptr inbounds i8, ptr %call5.i, i64 16
   %5 = load i32, ptr %set6.i, align 8
   %cmp7.not.i = icmp eq i32 %5, %set.015.i
   br i1 %cmp7.not.i, label %if.end18.i, label %if.then8.i
@@ -445,7 +440,7 @@ if.end18.i:                                       ; preds = %if.end16.i, %for.bo
 
 for.end.i:                                        ; preds = %for.cond.i, %for.cond.preheader.i
   %call23.i = call i32 @ASN1_item_ex_i2d(ptr noundef nonnull %intname.i, ptr noundef null, ptr noundef nonnull @X509_NAME_INTERNAL_it, i32 noundef -1, i32 noundef -1) #8
-  %bytes.i = getelementptr inbounds %struct.X509_name_st, ptr %0, i64 0, i32 2
+  %bytes.i = getelementptr inbounds i8, ptr %0, i64 16
   %7 = load ptr, ptr %bytes.i, align 8
   %conv.i = sext i32 %call23.i to i64
   %call24.i = call i64 @BUF_MEM_grow(ptr noundef %7, i64 noundef %conv.i) #8
@@ -466,7 +461,7 @@ x509_name_encode.exit.thread:                     ; preds = %if.then8.i, %if.end
 
 x509_name_encode.exit:                            ; preds = %for.end.i
   %9 = load ptr, ptr %bytes.i, align 8
-  %data.i = getelementptr inbounds %struct.buf_mem_st, ptr %9, i64 0, i32 1
+  %data.i = getelementptr inbounds i8, ptr %9, i64 8
   %10 = load ptr, ptr %data.i, align 8
   store ptr %10, ptr %p.i, align 8
   %call29.i = call i32 @ASN1_item_ex_i2d(ptr noundef nonnull %intname.i, ptr noundef nonnull %p.i, ptr noundef nonnull @X509_NAME_INTERNAL_it, i32 noundef -1, i32 noundef -1) #8
@@ -483,7 +478,7 @@ if.end:                                           ; preds = %x509_name_encode.ex
   br label %if.end6
 
 if.end6:                                          ; preds = %if.end, %entry
-  %bytes = getelementptr inbounds %struct.X509_name_st, ptr %0, i64 0, i32 2
+  %bytes = getelementptr inbounds i8, ptr %0, i64 16
   %12 = load ptr, ptr %bytes, align 8
   %13 = load i64, ptr %12, align 8
   %conv = trunc i64 %13 to i32
@@ -492,7 +487,7 @@ if.end6:                                          ; preds = %if.end, %entry
 
 if.then9:                                         ; preds = %if.end6
   %14 = load ptr, ptr %out, align 8
-  %data = getelementptr inbounds %struct.buf_mem_st, ptr %12, i64 0, i32 1
+  %data = getelementptr inbounds i8, ptr %12, i64 8
   %15 = load ptr, ptr %data, align 8
   %sext = shl i64 %13, 32
   %conv11 = ashr exact i64 %sext, 32
@@ -511,7 +506,7 @@ return:                                           ; preds = %x509_name_encode.ex
 define internal i32 @x509_name_ex_print(ptr noundef %out, ptr nocapture noundef readonly %pval, i32 noundef %indent, ptr nocapture readnone %fname, ptr nocapture noundef readonly %pctx) #0 {
 entry:
   %0 = load ptr, ptr %pval, align 8
-  %nm_flags = getelementptr inbounds %struct.asn1_pctx_st, ptr %pctx, i64 0, i32 1
+  %nm_flags = getelementptr inbounds i8, ptr %pctx, i64 8
   %1 = load i64, ptr %nm_flags, align 8
   %call = tail call i32 @X509_NAME_print_ex(ptr noundef %out, ptr noundef %0, i32 noundef %indent, i64 noundef %1) #8
   %cmp.inv = icmp sgt i32 %call, 0
@@ -563,7 +558,7 @@ entry:
   %v.i34 = alloca ptr, align 8
   %v.i = alloca ptr, align 8
   %p = alloca ptr, align 8
-  %canon_enc = getelementptr inbounds %struct.X509_name_st, ptr %a, i64 0, i32 3
+  %canon_enc = getelementptr inbounds i8, ptr %a, i64 24
   %0 = load ptr, ptr %canon_enc, align 8
   %tobool.not = icmp eq ptr %0, null
   br i1 %tobool.not, label %if.end, label %if.then
@@ -580,7 +575,7 @@ if.end:                                           ; preds = %if.then, %entry
   br i1 %cmp, label %if.then5, label %if.end6
 
 if.then5:                                         ; preds = %if.end
-  %canon_enclen = getelementptr inbounds %struct.X509_name_st, ptr %a, i64 0, i32 4
+  %canon_enclen = getelementptr inbounds i8, ptr %a, i64 32
   store i32 0, ptr %canon_enclen, align 8
   br label %return
 
@@ -608,7 +603,7 @@ for.body:                                         ; preds = %for.cond.preheader,
   %entries.073 = phi ptr [ %entries.1, %for.cond ], [ null, %for.cond.preheader ]
   %4 = load ptr, ptr %a, align 8
   %call15 = tail call ptr @sk_value(ptr noundef %4, i64 noundef %i.075) #8
-  %set16 = getelementptr inbounds %struct.X509_name_entry_st, ptr %call15, i64 0, i32 2
+  %set16 = getelementptr inbounds i8, ptr %call15, i64 16
   %5 = load i32, ptr %set16, align 8
   %cmp17.not = icmp eq i32 %5, %set.074
   br i1 %cmp17.not, label %if.end28, label %if.then18
@@ -642,11 +637,11 @@ if.end32:                                         ; preds = %if.end28
   %7 = load ptr, ptr %call15, align 8
   %call33 = tail call ptr @OBJ_dup(ptr noundef %7) #8
   store ptr %call33, ptr %call.i, align 8
-  %value = getelementptr inbounds %struct.X509_name_entry_st, ptr %call.i, i64 0, i32 1
+  %value = getelementptr inbounds i8, ptr %call.i, i64 8
   %8 = load ptr, ptr %value, align 8
-  %value35 = getelementptr inbounds %struct.X509_name_entry_st, ptr %call15, i64 0, i32 1
+  %value35 = getelementptr inbounds i8, ptr %call15, i64 8
   %9 = load ptr, ptr %value35, align 8
-  %type.i = getelementptr inbounds %struct.asn1_string_st, ptr %9, i64 0, i32 1
+  %type.i = getelementptr inbounds i8, ptr %9, i64 4
   %10 = load i32, ptr %type.i, align 4
   %call.i28 = tail call i64 @ASN1_tag2bit(i32 noundef %10) #8
   %and.i = and i64 %call.i28, 10582
@@ -654,9 +649,9 @@ if.end32:                                         ; preds = %if.end28
   br i1 %tobool.not.i, label %asn1_string_canon.exit, label %if.end4.i
 
 if.end4.i:                                        ; preds = %if.end32
-  %type5.i = getelementptr inbounds %struct.asn1_string_st, ptr %8, i64 0, i32 1
+  %type5.i = getelementptr inbounds i8, ptr %8, i64 4
   store i32 12, ptr %type5.i, align 4
-  %data.i = getelementptr inbounds %struct.asn1_string_st, ptr %8, i64 0, i32 2
+  %data.i = getelementptr inbounds i8, ptr %8, i64 8
   %call6.i = tail call i32 @ASN1_STRING_to_UTF8(ptr noundef nonnull %data.i, ptr noundef nonnull %9) #8
   store i32 %call6.i, ptr %8, align 8
   %cmp.i = icmp eq i32 %call6.i, -1
@@ -832,7 +827,7 @@ if.end.i:                                         ; preds = %for.body.i
 i2d_name_canon.exit:                              ; preds = %for.body.i, %if.end.i, %for.end
   %retval.0.i33 = phi i32 [ 0, %for.end ], [ %call2.i, %for.body.i ], [ %add.i, %if.end.i ]
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %v.i)
-  %canon_enclen45 = getelementptr inbounds %struct.X509_name_st, ptr %a, i64 0, i32 4
+  %canon_enclen45 = getelementptr inbounds i8, ptr %a, i64 32
   store i32 %retval.0.i33, ptr %canon_enclen45, align 8
   %conv = sext i32 %retval.0.i33 to i64
   %call47 = call noalias ptr @malloc(i64 noundef %conv) #9

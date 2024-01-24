@@ -3,38 +3,8 @@ source_filename = "bench/qemu/original/hw_pci_pcie_sriov.c.ll"
 target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:128-n8:16:32:64-S128"
 target triple = "x86_64-unknown-linux-gnu"
 
-%struct.PCIDevice = type { %struct.DeviceState, i8, i8, ptr, ptr, ptr, ptr, ptr, i32, %struct.PCIReqIDCache, [64 x i8], [7 x %struct.PCIIORegion], %struct.AddressSpace, %struct.MemoryRegion, %struct.MemoryRegion, ptr, ptr, [3 x ptr], i8, i8, i32, i8, i32, ptr, ptr, ptr, ptr, ptr, ptr, %struct.MemoryRegion, %struct.MemoryRegion, %struct.MemoryRegion, ptr, i8, i32, i8, %struct.PCIExpressDevice, ptr, ptr, i32, i8, %struct.MemoryRegion, i32, ptr, ptr, ptr, ptr, ptr, i32 }
-%struct.DeviceState = type { %struct.Object, ptr, ptr, i8, i8, i64, ptr, i32, i8, ptr, %struct.NamedGPIOListHead, %struct.NamedClockListHead, %struct.BusStateHead, i32, i32, i32, %struct.ResettableState, ptr, %struct.MemReentrancyGuard }
-%struct.Object = type { ptr, ptr, ptr, i32, ptr }
-%struct.NamedGPIOListHead = type { ptr }
-%struct.NamedClockListHead = type { ptr }
-%struct.BusStateHead = type { ptr }
-%struct.ResettableState = type { i32, i8, i8 }
-%struct.MemReentrancyGuard = type { i8 }
-%struct.PCIReqIDCache = type { ptr, i32 }
-%struct.PCIIORegion = type { i64, i64, i8, ptr, ptr }
-%struct.AddressSpace = type { %struct.rcu_head, ptr, ptr, ptr, i32, i32, ptr, %union.anon, %union.anon.0 }
-%struct.rcu_head = type { ptr, ptr }
-%union.anon = type { %struct.QTailQLink }
-%struct.QTailQLink = type { ptr, ptr }
-%union.anon.0 = type { %struct.QTailQLink }
-%struct.PCIExpressDevice = type { i8, i8, i8, i16, %struct.PCIEAERLog, i16, i16, i16, %struct.PCIESriovPF, %struct.PCIESriovVF }
-%struct.PCIEAERLog = type { i16, i16, ptr }
-%struct.PCIESriovPF = type { i16, [7 x i8], ptr, ptr }
-%struct.PCIESriovVF = type { ptr, i16 }
-%struct.MemoryRegion = type { %struct.Object, i8, i8, i8, i8, i8, i8, i8, i8, i8, i8, ptr, ptr, ptr, ptr, ptr, ptr, i32, i128, i64, ptr, i64, i8, i8, i8, i8, i8, ptr, i64, i32, %union.anon.1, %union.anon.2, %union.anon.3, ptr, i32, ptr, ptr, i8 }
-%union.anon.1 = type { %struct.QTailQLink }
-%union.anon.2 = type { %struct.QTailQLink }
-%union.anon.3 = type { %struct.QTailQLink }
 %struct.timeval = type { i64, i64 }
-%struct.PCIBus = type { %struct.BusState, i32, ptr, ptr, i8, i32, ptr, ptr, ptr, ptr, [256 x ptr], ptr, ptr, ptr, %struct.anon, %struct.anon.4, i32, ptr, %struct.Notifier }
-%struct.BusState = type { %struct.Object, ptr, ptr, ptr, i32, i8, i8, i32, %union.BusChildHead, %struct.BusStateEntry, %struct.ResettableState }
-%union.BusChildHead = type { %struct.QTailQLink }
-%struct.BusStateEntry = type { ptr, ptr }
-%struct.anon = type { ptr }
-%struct.anon.4 = type { ptr, ptr }
-%struct.Notifier = type { ptr, %struct.anon.5 }
-%struct.anon.5 = type { ptr, ptr }
+%struct.PCIIORegion = type { i64, i64, i8, ptr, ptr }
 
 @.str = private unnamed_addr constant [14 x i8] c"multifunction\00", align 1
 @.str.1 = private unnamed_addr constant [14 x i8] c"sriov_cap > 0\00", align 1
@@ -75,19 +45,19 @@ target triple = "x86_64-unknown-linux-gnu"
 ; Function Attrs: nounwind sspstrong uwtable
 define dso_local void @pcie_sriov_pf_init(ptr noundef %dev, i16 noundef zeroext %offset, ptr noundef %vfname, i16 noundef zeroext %vf_dev_id, i16 noundef zeroext %init_vfs, i16 noundef zeroext %total_vfs, i16 noundef zeroext %vf_offset, i16 noundef zeroext %vf_stride) local_unnamed_addr #0 {
 entry:
-  %config = getelementptr inbounds %struct.PCIDevice, ptr %dev, i64 0, i32 3
+  %config = getelementptr inbounds i8, ptr %dev, i64 168
   %0 = load ptr, ptr %config, align 8
   %idx.ext = zext i16 %offset to i64
   %add.ptr = getelementptr i8, ptr %0, i64 %idx.ext
   tail call void @pcie_add_capability(ptr noundef %dev, i16 noundef zeroext 16, i8 noundef zeroext 1, i16 noundef zeroext %offset, i16 noundef zeroext 64) #9
-  %sriov_cap = getelementptr inbounds %struct.PCIDevice, ptr %dev, i64 0, i32 36, i32 7
+  %sriov_cap = getelementptr inbounds i8, ptr %dev, i64 2196
   store i16 %offset, ptr %sriov_cap, align 4
-  %sriov_pf = getelementptr inbounds %struct.PCIDevice, ptr %dev, i64 0, i32 36, i32 8
+  %sriov_pf = getelementptr inbounds i8, ptr %dev, i64 2200
   store i16 0, ptr %sriov_pf, align 8
   %call = tail call noalias ptr @g_strdup(ptr noundef %vfname) #9
-  %vfname4 = getelementptr inbounds %struct.PCIDevice, ptr %dev, i64 0, i32 36, i32 8, i32 2
+  %vfname4 = getelementptr inbounds i8, ptr %dev, i64 2216
   store ptr %call, ptr %vfname4, align 8
-  %vf = getelementptr inbounds %struct.PCIDevice, ptr %dev, i64 0, i32 36, i32 8, i32 3
+  %vf = getelementptr inbounds i8, ptr %dev, i64 2224
   store ptr null, ptr %vf, align 8
   %add.ptr7 = getelementptr i8, ptr %add.ptr, i64 20
   store i16 %vf_offset, ptr %add.ptr7, align 1
@@ -105,7 +75,7 @@ entry:
   store i16 %total_vfs, ptr %add.ptr13, align 1
   %add.ptr14 = getelementptr i8, ptr %add.ptr, i64 16
   store i16 0, ptr %add.ptr14, align 1
-  %wmask15 = getelementptr inbounds %struct.PCIDevice, ptr %dev, i64 0, i32 5
+  %wmask15 = getelementptr inbounds i8, ptr %dev, i64 184
   %1 = load ptr, ptr %wmask15, align 8
   %add.ptr18 = getelementptr i8, ptr %1, i64 %idx.ext
   %add.ptr19 = getelementptr i8, ptr %add.ptr18, i64 8
@@ -128,7 +98,7 @@ declare void @qdev_prop_set_bit(ptr noundef, ptr noundef, i1 noundef zeroext) lo
 define dso_local void @pcie_sriov_pf_exit(ptr noundef %dev) local_unnamed_addr #0 {
 entry:
   tail call fastcc void @unregister_vfs(ptr noundef %dev)
-  %vfname = getelementptr inbounds %struct.PCIDevice, ptr %dev, i64 0, i32 36, i32 8, i32 2
+  %vfname = getelementptr inbounds i8, ptr %dev, i64 2216
   %0 = load ptr, ptr %vfname, align 8
   tail call void @g_free(ptr noundef %0) #9
   store ptr null, ptr %vfname, align 8
@@ -140,10 +110,10 @@ define internal fastcc void @unregister_vfs(ptr noundef %dev) unnamed_addr #0 {
 entry:
   %_now.i.i = alloca %struct.timeval, align 8
   %err = alloca ptr, align 8
-  %sriov_pf = getelementptr inbounds %struct.PCIDevice, ptr %dev, i64 0, i32 36, i32 8
+  %sriov_pf = getelementptr inbounds i8, ptr %dev, i64 2200
   %0 = load i16, ptr %sriov_pf, align 8
-  %name = getelementptr inbounds %struct.PCIDevice, ptr %dev, i64 0, i32 10
-  %devfn = getelementptr inbounds %struct.PCIDevice, ptr %dev, i64 0, i32 8
+  %name = getelementptr inbounds i8, ptr %dev, i64 232
+  %devfn = getelementptr inbounds i8, ptr %dev, i64 208
   %1 = load i32, ptr %devfn, align 16
   %shr = lshr i32 %1, 3
   %and = and i32 %shr, 31
@@ -173,7 +143,7 @@ if.then8.i.i:                                     ; preds = %if.then.i.i
   %call9.i.i = call i32 @gettimeofday(ptr noundef nonnull %_now.i.i, ptr noundef null) #9
   %call10.i.i = tail call i32 @qemu_get_thread_id() #9
   %7 = load i64, ptr %_now.i.i, align 8
-  %tv_usec.i.i = getelementptr inbounds %struct.timeval, ptr %_now.i.i, i64 0, i32 1
+  %tv_usec.i.i = getelementptr inbounds i8, ptr %_now.i.i, i64 8
   %8 = load i64, ptr %tv_usec.i.i, align 8
   tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.15, i32 noundef %call10.i.i, i64 noundef %7, i64 noundef %8, ptr noundef nonnull %name, i32 noundef %and, i32 noundef %and3, i32 noundef %conv) #9
   br label %trace_sriov_unregister_vfs.exit
@@ -188,7 +158,7 @@ trace_sriov_unregister_vfs.exit:                  ; preds = %entry, %land.lhs.tr
   br i1 %cmp15.not, label %for.end, label %for.body.lr.ph
 
 for.body.lr.ph:                                   ; preds = %trace_sriov_unregister_vfs.exit
-  %vf9 = getelementptr inbounds %struct.PCIDevice, ptr %dev, i64 0, i32 36, i32 8, i32 3
+  %vf9 = getelementptr inbounds i8, ptr %dev, i64 2224
   %wide.trip.count = zext i16 %0 to i64
   br label %for.body
 
@@ -214,14 +184,14 @@ if.end:                                           ; preds = %if.then, %for.body
   br i1 %exitcond.not, label %for.end, label %for.body, !llvm.loop !5
 
 for.end:                                          ; preds = %if.end, %trace_sriov_unregister_vfs.exit
-  %vf12 = getelementptr inbounds %struct.PCIDevice, ptr %dev, i64 0, i32 36, i32 8, i32 3
+  %vf12 = getelementptr inbounds i8, ptr %dev, i64 2224
   %12 = load ptr, ptr %vf12, align 8
   call void @g_free(ptr noundef %12) #9
   store ptr null, ptr %vf12, align 8
   store i16 0, ptr %sriov_pf, align 8
-  %config = getelementptr inbounds %struct.PCIDevice, ptr %dev, i64 0, i32 3
+  %config = getelementptr inbounds i8, ptr %dev, i64 168
   %13 = load ptr, ptr %config, align 8
-  %sriov_cap = getelementptr inbounds %struct.PCIDevice, ptr %dev, i64 0, i32 36, i32 7
+  %sriov_cap = getelementptr inbounds i8, ptr %dev, i64 2196
   %14 = load i16, ptr %sriov_cap, align 4
   %idx.ext = zext i16 %14 to i64
   %add.ptr = getelementptr i8, ptr %13, i64 %idx.ext
@@ -235,7 +205,7 @@ declare void @g_free(ptr noundef) local_unnamed_addr #1
 ; Function Attrs: nounwind sspstrong uwtable
 define dso_local void @pcie_sriov_pf_init_vf_bar(ptr nocapture noundef %dev, i32 noundef %region_num, i8 noundef zeroext %type, i64 noundef %size) local_unnamed_addr #0 {
 entry:
-  %sriov_cap1 = getelementptr inbounds %struct.PCIDevice, ptr %dev, i64 0, i32 36, i32 7
+  %sriov_cap1 = getelementptr inbounds i8, ptr %dev, i64 2196
   %0 = load i16, ptr %sriov_cap1, align 4
   %conv = zext i16 %0 to i32
   %cmp.not = icmp eq i16 %0, 0
@@ -274,7 +244,7 @@ if.end17:                                         ; preds = %if.end12
   %mul = shl nuw nsw i32 %region_num, 2
   %add = add nuw nsw i32 %mul, 36
   %add19 = add nuw nsw i32 %add, %conv
-  %config = getelementptr inbounds %struct.PCIDevice, ptr %dev, i64 0, i32 3
+  %config = getelementptr inbounds i8, ptr %dev, i64 168
   %1 = load ptr, ptr %config, align 8
   %idx.ext = zext nneg i32 %add19 to i64
   %add.ptr = getelementptr i8, ptr %1, i64 %idx.ext
@@ -282,14 +252,14 @@ if.end17:                                         ; preds = %if.end12
   store i32 %conv20, ptr %add.ptr, align 1
   %2 = and i32 %conv20, 5
   %or.cond.not = icmp eq i32 %2, 4
-  %wmask26 = getelementptr inbounds %struct.PCIDevice, ptr %dev, i64 0, i32 5
+  %wmask26 = getelementptr inbounds i8, ptr %dev, i64 184
   %3 = load ptr, ptr %wmask26, align 8
   %add.ptr28 = getelementptr i8, ptr %3, i64 %idx.ext
   br i1 %or.cond.not, label %if.then25, label %if.else31
 
 if.then25:                                        ; preds = %if.end17
   store i64 %not, ptr %add.ptr28, align 1
-  %cmask = getelementptr inbounds %struct.PCIDevice, ptr %dev, i64 0, i32 4
+  %cmask = getelementptr inbounds i8, ptr %dev, i64 176
   %4 = load ptr, ptr %cmask, align 16
   %add.ptr30 = getelementptr i8, ptr %4, i64 %idx.ext
   store i64 -1, ptr %add.ptr30, align 1
@@ -298,15 +268,16 @@ if.then25:                                        ; preds = %if.end17
 if.else31:                                        ; preds = %if.end17
   %conv36 = trunc i64 %not to i32
   store i32 %conv36, ptr %add.ptr28, align 1
-  %cmask37 = getelementptr inbounds %struct.PCIDevice, ptr %dev, i64 0, i32 4
+  %cmask37 = getelementptr inbounds i8, ptr %dev, i64 176
   %5 = load ptr, ptr %cmask37, align 16
   %add.ptr39 = getelementptr i8, ptr %5, i64 %idx.ext
   store i32 -1, ptr %add.ptr39, align 1
   br label %if.end40
 
 if.end40:                                         ; preds = %if.else31, %if.then25
+  %vf_bar_type = getelementptr inbounds i8, ptr %dev, i64 2202
   %idxprom = zext nneg i32 %region_num to i64
-  %arrayidx = getelementptr %struct.PCIDevice, ptr %dev, i64 0, i32 36, i32 8, i32 1, i64 %idxprom
+  %arrayidx = getelementptr [7 x i8], ptr %vf_bar_type, i64 0, i64 %idxprom
   store i8 %type, ptr %arrayidx, align 1
   ret void
 }
@@ -347,8 +318,9 @@ if.else8:                                         ; preds = %if.end5
   unreachable
 
 if.end9:                                          ; preds = %if.end5
+  %vf_bar_type = getelementptr inbounds i8, ptr %dev.val, i64 2202
   %idxprom = zext nneg i32 %region_num to i64
-  %arrayidx = getelementptr %struct.PCIDevice, ptr %dev.val, i64 0, i32 36, i32 8, i32 1, i64 %idxprom
+  %arrayidx = getelementptr [7 x i8], ptr %vf_bar_type, i64 0, i64 %idxprom
   %1 = load i8, ptr %arrayidx, align 1
   %2 = tail call i64 @llvm.ctpop.i64(i64 %call1), !range !7
   %or.cond = icmp eq i64 %2, 1
@@ -361,20 +333,20 @@ if.then12:                                        ; preds = %if.end9
   unreachable
 
 if.end13:                                         ; preds = %if.end9
-  %arrayidx15 = getelementptr %struct.PCIDevice, ptr %dev, i64 0, i32 11, i64 %idxprom
-  %memory16 = getelementptr %struct.PCIDevice, ptr %dev, i64 0, i32 11, i64 %idxprom, i32 3
+  %io_regions = getelementptr inbounds i8, ptr %dev, i64 296
+  %arrayidx15 = getelementptr [7 x %struct.PCIIORegion], ptr %io_regions, i64 0, i64 %idxprom
+  %memory16 = getelementptr inbounds i8, ptr %arrayidx15, i64 24
   store ptr %memory, ptr %memory16, align 8
   %3 = and i8 %1, 1
   %tobool18.not = icmp eq i8 %3, 0
-  %address_space_io = getelementptr inbounds %struct.PCIBus, ptr %call.i1.i, i64 0, i32 13
-  %address_space_mem = getelementptr inbounds %struct.PCIBus, ptr %call.i1.i, i64 0, i32 12
-  %cond.in = select i1 %tobool18.not, ptr %address_space_mem, ptr %address_space_io
+  %cond.in.v = select i1 %tobool18.not, i64 2240, i64 2248
+  %cond.in = getelementptr inbounds i8, ptr %call.i1.i, i64 %cond.in.v
   %cond = load ptr, ptr %cond.in, align 8
-  %address_space = getelementptr %struct.PCIDevice, ptr %dev, i64 0, i32 11, i64 %idxprom, i32 4
+  %address_space = getelementptr inbounds i8, ptr %arrayidx15, i64 32
   store ptr %cond, ptr %address_space, align 8
-  %size19 = getelementptr %struct.PCIDevice, ptr %dev, i64 0, i32 11, i64 %idxprom, i32 1
+  %size19 = getelementptr inbounds i8, ptr %arrayidx15, i64 8
   store i64 %call1, ptr %size19, align 8
-  %type20 = getelementptr %struct.PCIDevice, ptr %dev, i64 0, i32 11, i64 %idxprom, i32 2
+  %type20 = getelementptr inbounds i8, ptr %arrayidx15, i64 16
   store i8 %1, ptr %type20, align 8
   %call23 = tail call i64 @pci_bar_address(ptr noundef nonnull %dev, i32 noundef %region_num, i8 noundef zeroext %1, i64 noundef %call1) #9
   store i64 %call23, ptr %arrayidx15, align 8
@@ -406,7 +378,7 @@ declare void @memory_region_add_subregion_overlap(ptr noundef, i64 noundef, ptr 
 define dso_local void @pcie_sriov_config_write(ptr noundef %dev, i32 noundef %address, i32 noundef %val, i32 noundef %len) local_unnamed_addr #0 {
 entry:
   %_now.i.i = alloca %struct.timeval, align 8
-  %sriov_cap1 = getelementptr inbounds %struct.PCIDevice, ptr %dev, i64 0, i32 36, i32 7
+  %sriov_cap1 = getelementptr inbounds i8, ptr %dev, i64 2196
   %0 = load i16, ptr %sriov_cap1, align 4
   %tobool.not = icmp eq i16 %0, 0
   br i1 %tobool.not, label %if.end26, label %lor.lhs.false
@@ -422,8 +394,8 @@ if.end:                                           ; preds = %lor.lhs.false
   br i1 %cmp4, label %if.end26, label %if.end7
 
 if.end7:                                          ; preds = %if.end
-  %name = getelementptr inbounds %struct.PCIDevice, ptr %dev, i64 0, i32 10
-  %devfn = getelementptr inbounds %struct.PCIDevice, ptr %dev, i64 0, i32 8
+  %name = getelementptr inbounds i8, ptr %dev, i64 232
+  %devfn = getelementptr inbounds i8, ptr %dev, i64 208
   %1 = load i32, ptr %devfn, align 16
   %shr = lshr i32 %1, 3
   %and = and i32 %shr, 31
@@ -452,7 +424,7 @@ if.then8.i.i:                                     ; preds = %if.then.i.i
   %call9.i.i = call i32 @gettimeofday(ptr noundef nonnull %_now.i.i, ptr noundef null) #9
   %call10.i.i = tail call i32 @qemu_get_thread_id() #9
   %7 = load i64, ptr %_now.i.i, align 8
-  %tv_usec.i.i = getelementptr inbounds %struct.timeval, ptr %_now.i.i, i64 0, i32 1
+  %tv_usec.i.i = getelementptr inbounds i8, ptr %_now.i.i, i64 8
   %8 = load i64, ptr %tv_usec.i.i, align 8
   tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.17, i32 noundef %call10.i.i, i64 noundef %7, i64 noundef %8, ptr noundef nonnull %name, i32 noundef %and, i32 noundef %and9, i32 noundef %sub, i32 noundef %val, i32 noundef %len) #9
   br label %trace_sriov_config_write.exit
@@ -473,7 +445,7 @@ trace_sriov_config_write.exit:                    ; preds = %if.end7, %land.lhs.
   br i1 %narrow.i.not, label %if.end26, label %if.then13
 
 if.then13:                                        ; preds = %trace_sriov_config_write.exit
-  %sriov_pf = getelementptr inbounds %struct.PCIDevice, ptr %dev, i64 0, i32 36, i32 8
+  %sriov_pf = getelementptr inbounds i8, ptr %dev, i64 2200
   %9 = load i16, ptr %sriov_pf, align 8
   %tobool15.not = icmp eq i16 %9, 0
   %and21 = and i32 %val, 1
@@ -503,9 +475,9 @@ define internal fastcc void @register_vfs(ptr noundef %dev) unnamed_addr #0 {
 entry:
   %local_err.i = alloca ptr, align 8
   %_now.i.i = alloca %struct.timeval, align 8
-  %sriov_cap1 = getelementptr inbounds %struct.PCIDevice, ptr %dev, i64 0, i32 36, i32 7
+  %sriov_cap1 = getelementptr inbounds i8, ptr %dev, i64 2196
   %0 = load i16, ptr %sriov_cap1, align 4
-  %config = getelementptr inbounds %struct.PCIDevice, ptr %dev, i64 0, i32 3
+  %config = getelementptr inbounds i8, ptr %dev, i64 168
   %1 = load ptr, ptr %config, align 8
   %idx.ext = zext i16 %0 to i64
   %add.ptr = getelementptr i8, ptr %1, i64 %idx.ext
@@ -521,7 +493,7 @@ if.else:                                          ; preds = %entry
 if.end:                                           ; preds = %entry
   %add.ptr2 = getelementptr i8, ptr %add.ptr, i64 20
   %add.ptr2.val = load i16, ptr %add.ptr2, align 1
-  %devfn9 = getelementptr inbounds %struct.PCIDevice, ptr %dev, i64 0, i32 8
+  %devfn9 = getelementptr inbounds i8, ptr %dev, i64 208
   %2 = load i32, ptr %devfn9, align 16
   %conv10 = zext i16 %add.ptr2.val to i32
   %add = add i32 %2, %conv10
@@ -529,9 +501,9 @@ if.end:                                           ; preds = %entry
   %add.ptr17.val = load i16, ptr %add.ptr17, align 1
   %conv19 = zext i16 %add.ptr17.val to i64
   %call20 = tail call noalias ptr @g_malloc_n(i64 noundef %conv19, i64 noundef 8) #11
-  %vf = getelementptr inbounds %struct.PCIDevice, ptr %dev, i64 0, i32 36, i32 8, i32 3
+  %vf = getelementptr inbounds i8, ptr %dev, i64 2224
   store ptr %call20, ptr %vf, align 8
-  %name = getelementptr inbounds %struct.PCIDevice, ptr %dev, i64 0, i32 10
+  %name = getelementptr inbounds i8, ptr %dev, i64 232
   %3 = load i32, ptr %devfn9, align 16
   %shr = lshr i32 %3, 3
   %and = and i32 %shr, 31
@@ -561,7 +533,7 @@ if.then8.i.i:                                     ; preds = %if.then.i.i
   %call9.i.i = call i32 @gettimeofday(ptr noundef nonnull %_now.i.i, ptr noundef null) #9
   %call10.i.i = tail call i32 @qemu_get_thread_id() #9
   %9 = load i64, ptr %_now.i.i, align 8
-  %tv_usec.i.i = getelementptr inbounds %struct.timeval, ptr %_now.i.i, i64 0, i32 1
+  %tv_usec.i.i = getelementptr inbounds i8, ptr %_now.i.i, i64 8
   %10 = load i64, ptr %tv_usec.i.i, align 8
   tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.19, i32 noundef %call10.i.i, i64 noundef %9, i64 noundef %10, ptr noundef nonnull %name, i32 noundef %and, i32 noundef %and24, i32 noundef %conv25) #9
   br label %trace_sriov_register_vfs.exit
@@ -576,7 +548,7 @@ trace_sriov_register_vfs.exit:                    ; preds = %if.end, %land.lhs.t
   br i1 %cmp2826.not, label %for.end, label %for.body.lr.ph
 
 for.body.lr.ph:                                   ; preds = %trace_sriov_register_vfs.exit
-  %vfname = getelementptr inbounds %struct.PCIDevice, ptr %dev, i64 0, i32 36, i32 8, i32 2
+  %vfname = getelementptr inbounds i8, ptr %dev, i64 2216
   %conv43 = zext i16 %add.ptr7.val to i32
   br label %for.body
 
@@ -586,9 +558,9 @@ for.body:                                         ; preds = %for.body.lr.ph, %if
   %11 = load ptr, ptr %vfname, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %local_err.i)
   %call.i = call ptr @pci_new(i32 noundef %devfn.028, ptr noundef %11) #9
-  %sriov_vf.i = getelementptr inbounds %struct.PCIDevice, ptr %call.i, i64 0, i32 36, i32 9
+  %sriov_vf.i = getelementptr inbounds i8, ptr %call.i, i64 2232
   store ptr %dev, ptr %sriov_vf.i, align 8
-  %vf_number.i = getelementptr inbounds %struct.PCIDevice, ptr %call.i, i64 0, i32 36, i32 9, i32 1
+  %vf_number.i = getelementptr inbounds i8, ptr %call.i, i64 2240
   %12 = trunc i64 %indvars.iv to i16
   store i16 %12, ptr %vf_number.i, align 8
   %call.i.i.i = call ptr @object_dynamic_cast_assert(ptr noundef nonnull %dev, ptr noundef nonnull @.str.11, ptr noundef nonnull @.str.12, i32 noundef 77, ptr noundef nonnull @__func__.DEVICE) #9
@@ -605,7 +577,7 @@ if.then.i:                                        ; preds = %for.body
   br label %register_vf.exit
 
 if.end.i:                                         ; preds = %for.body
-  %config.i = getelementptr inbounds %struct.PCIDevice, ptr %call.i, i64 0, i32 3
+  %config.i = getelementptr inbounds i8, ptr %call.i, i64 168
   %14 = load ptr, ptr %config.i, align 8
   store i16 -1, ptr %14, align 1
   %15 = load ptr, ptr %config.i, align 8
@@ -633,7 +605,7 @@ if.end42:                                         ; preds = %register_vf.exit
 
 for.end:                                          ; preds = %if.end42, %register_vf.exit, %trace_sriov_register_vfs.exit
   %num_vfs.0 = phi i16 [ 0, %trace_sriov_register_vfs.exit ], [ %12, %register_vf.exit ], [ %add.ptr17.val, %if.end42 ]
-  %sriov_pf = getelementptr inbounds %struct.PCIDevice, ptr %dev, i64 0, i32 36, i32 8
+  %sriov_pf = getelementptr inbounds i8, ptr %dev, i64 2200
   store i16 %num_vfs.0, ptr %sriov_pf, align 8
   ret void
 }
@@ -641,13 +613,13 @@ for.end:                                          ; preds = %if.end42, %register
 ; Function Attrs: nounwind sspstrong uwtable
 define dso_local void @pcie_sriov_pf_disable_vfs(ptr noundef %dev) local_unnamed_addr #0 {
 entry:
-  %sriov_cap1 = getelementptr inbounds %struct.PCIDevice, ptr %dev, i64 0, i32 36, i32 7
+  %sriov_cap1 = getelementptr inbounds i8, ptr %dev, i64 2196
   %0 = load i16, ptr %sriov_cap1, align 4
   %tobool.not = icmp eq i16 %0, 0
   br i1 %tobool.not, label %if.end8, label %if.then
 
 if.then:                                          ; preds = %entry
-  %config = getelementptr inbounds %struct.PCIDevice, ptr %dev, i64 0, i32 3
+  %config = getelementptr inbounds i8, ptr %dev, i64 168
   %1 = load ptr, ptr %config, align 8
   %idx.ext = zext i16 %0 to i64
   %add.ptr = getelementptr i8, ptr %1, i64 %idx.ext
@@ -672,13 +644,13 @@ if.end8:                                          ; preds = %if.then, %if.then5,
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(readwrite, inaccessiblemem: none) uwtable
 define dso_local void @pcie_sriov_pf_add_sup_pgsize(ptr nocapture noundef readonly %dev, i16 noundef zeroext %opt_sup_pgsize) local_unnamed_addr #3 {
 entry:
-  %config = getelementptr inbounds %struct.PCIDevice, ptr %dev, i64 0, i32 3
+  %config = getelementptr inbounds i8, ptr %dev, i64 168
   %0 = load ptr, ptr %config, align 8
-  %sriov_cap = getelementptr inbounds %struct.PCIDevice, ptr %dev, i64 0, i32 36, i32 7
+  %sriov_cap = getelementptr inbounds i8, ptr %dev, i64 2196
   %1 = load i16, ptr %sriov_cap, align 4
   %idx.ext = zext i16 %1 to i64
   %add.ptr = getelementptr i8, ptr %0, i64 %idx.ext
-  %wmask1 = getelementptr inbounds %struct.PCIDevice, ptr %dev, i64 0, i32 5
+  %wmask1 = getelementptr inbounds i8, ptr %dev, i64 184
   %2 = load ptr, ptr %wmask1, align 8
   %add.ptr6 = getelementptr i8, ptr %2, i64 %idx.ext
   %add.ptr7 = getelementptr i8, ptr %add.ptr, i64 28
@@ -703,7 +675,7 @@ if.else:                                          ; preds = %entry
   unreachable
 
 if.end:                                           ; preds = %entry
-  %vf_number = getelementptr inbounds %struct.PCIDevice, ptr %dev, i64 0, i32 36, i32 9, i32 1
+  %vf_number = getelementptr inbounds i8, ptr %dev, i64 2240
   %1 = load i16, ptr %vf_number, align 8
   ret i16 %1
 }
@@ -711,7 +683,7 @@ if.end:                                           ; preds = %entry
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(argmem: read) uwtable
 define dso_local ptr @pcie_sriov_get_pf(ptr nocapture noundef readonly %dev) local_unnamed_addr #4 {
 entry:
-  %sriov_vf = getelementptr inbounds %struct.PCIDevice, ptr %dev, i64 0, i32 36, i32 9
+  %sriov_vf = getelementptr inbounds i8, ptr %dev, i64 2232
   %0 = load ptr, ptr %sriov_vf, align 8
   ret ptr %0
 }
@@ -729,14 +701,14 @@ if.else:                                          ; preds = %entry
   unreachable
 
 if.end:                                           ; preds = %entry
-  %sriov_pf = getelementptr inbounds %struct.PCIDevice, ptr %dev, i64 0, i32 36, i32 8
+  %sriov_pf = getelementptr inbounds i8, ptr %dev, i64 2200
   %1 = load i16, ptr %sriov_pf, align 8
   %conv = zext i16 %1 to i32
   %cmp = icmp sgt i32 %conv, %n
   br i1 %cmp, label %if.then2, label %return
 
 if.then2:                                         ; preds = %if.end
-  %vf = getelementptr inbounds %struct.PCIDevice, ptr %dev, i64 0, i32 36, i32 8, i32 3
+  %vf = getelementptr inbounds i8, ptr %dev, i64 2224
   %2 = load ptr, ptr %vf, align 8
   %idxprom = sext i32 %n to i64
   %arrayidx = getelementptr ptr, ptr %2, i64 %idxprom
@@ -751,7 +723,7 @@ return:                                           ; preds = %if.end, %if.then2
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(argmem: read) uwtable
 define dso_local zeroext i16 @pcie_sriov_num_vfs(ptr nocapture noundef readonly %dev) local_unnamed_addr #4 {
 entry:
-  %sriov_pf = getelementptr inbounds %struct.PCIDevice, ptr %dev, i64 0, i32 36, i32 8
+  %sriov_pf = getelementptr inbounds i8, ptr %dev, i64 2200
   %0 = load i16, ptr %sriov_pf, align 8
   ret i16 %0
 }

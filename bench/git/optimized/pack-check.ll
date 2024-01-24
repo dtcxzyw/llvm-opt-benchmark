@@ -3,15 +3,6 @@ source_filename = "bench/git/original/pack-check.ll"
 target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:128-n8:16:32:64-S128"
 target triple = "x86_64-unknown-linux-gnu"
 
-%struct.packed_git = type { %struct.hashmap_entry, ptr, %struct.list_head, ptr, i64, ptr, i64, i32, i64, %struct.oidset, i32, i64, i32, i32, i8, [32 x i8], ptr, ptr, ptr, i64, ptr, i64, [0 x i8] }
-%struct.hashmap_entry = type { ptr, i32 }
-%struct.list_head = type { ptr, ptr }
-%struct.oidset = type { %struct.kh_oid_set }
-%struct.kh_oid_set = type { i32, i32, i32, i32, ptr, ptr, ptr }
-%struct.repository = type { ptr, ptr, ptr, ptr, ptr, %struct.repo_path_cache, ptr, ptr, ptr, ptr, %struct.repo_settings, ptr, ptr, ptr, ptr, ptr, i32, i32, i32, ptr, ptr, i32, i8 }
-%struct.repo_path_cache = type { ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr }
-%struct.repo_settings = type { i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, ptr, i32, i32, i32, i32, i32, i32 }
-%struct.git_hash_algo = type { ptr, i32, i64, i64, i64, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr }
 %union.git_hash_ctx = type { %struct.SHA1_CTX }
 %struct.SHA1_CTX = type { i64, [5 x i32], [64 x i8], i32, i32, i32, i32, i32, ptr, [5 x i32], [5 x i32], [80 x i32], [80 x i32], [80 x [5 x i32]] }
 %struct.object_id = type { [32 x i8], i32 }
@@ -62,20 +53,20 @@ if.end:                                           ; preds = %if.then, %do.body
   br i1 %tobool.not, label %if.else.i, label %do.body, !llvm.loop !5
 
 if.else.i:                                        ; preds = %if.end
-  %index_data = getelementptr inbounds %struct.packed_git, ptr %p, i64 0, i32 5
+  %index_data = getelementptr inbounds i8, ptr %p, i64 56
   %3 = load ptr, ptr %index_data, align 8
   %4 = load ptr, ptr @the_repository, align 8
-  %hash_algo = getelementptr inbounds %struct.repository, ptr %4, i64 0, i32 15
+  %hash_algo = getelementptr inbounds i8, ptr %4, i64 256
   %5 = load ptr, ptr %hash_algo, align 8
-  %rawsz = getelementptr inbounds %struct.git_hash_algo, ptr %5, i64 0, i32 2
+  %rawsz = getelementptr inbounds i8, ptr %5, i64 16
   %6 = load i64, ptr %rawsz, align 8
   %div9 = lshr i64 %6, 2
-  %num_objects = getelementptr inbounds %struct.packed_git, ptr %p, i64 0, i32 7
+  %num_objects = getelementptr inbounds i8, ptr %p, i64 72
   %7 = load i32, ptr %num_objects, align 8
   %conv7 = zext i32 %7 to i64
   %mul = mul i64 %div9, %conv7
   %8 = getelementptr i32, ptr %3, i64 %mul
-  %9 = getelementptr i32, ptr %8, i64 258
+  %9 = getelementptr i8, ptr %8, i64 1032
   %conv9 = zext i32 %nr to i64
   %add.ptr = getelementptr i32, ptr %9, i64 %conv9
   %10 = load i32, ptr %add.ptr, align 4
@@ -98,9 +89,9 @@ entry:
   br i1 %tobool.not, label %if.end, label %return.sink.split
 
 if.end:                                           ; preds = %entry
-  %index_data = getelementptr inbounds %struct.packed_git, ptr %p, i64 0, i32 5
+  %index_data = getelementptr inbounds i8, ptr %p, i64 56
   %0 = load ptr, ptr %index_data, align 8
-  %index_size = getelementptr inbounds %struct.packed_git, ptr %p, i64 0, i32 6
+  %index_size = getelementptr inbounds i8, ptr %p, i64 64
   %1 = load i64, ptr %index_size, align 8
   %call3 = tail call i32 @hashfile_checksum_valid(ptr noundef %0, i64 noundef %1) #8
   %tobool4.not = icmp eq i32 %call3, 0
@@ -108,7 +99,7 @@ if.end:                                           ; preds = %entry
 
 return.sink.split:                                ; preds = %if.end, %entry
   %.str.1.sink = phi ptr [ @.str, %entry ], [ @.str.1, %if.end ]
-  %pack_name6 = getelementptr inbounds %struct.packed_git, ptr %p, i64 0, i32 22
+  %pack_name6 = getelementptr inbounds i8, ptr %p, i64 240
   %call8 = tail call i32 (ptr, ...) @error(ptr noundef nonnull %.str.1.sink, ptr noundef nonnull %pack_name6) #8
   br label %return
 
@@ -142,9 +133,9 @@ entry:
   br i1 %tobool.not.i, label %if.end.i, label %return.sink.split.i
 
 if.end.i:                                         ; preds = %entry
-  %index_data.i = getelementptr inbounds %struct.packed_git, ptr %p, i64 0, i32 5
+  %index_data.i = getelementptr inbounds i8, ptr %p, i64 56
   %0 = load ptr, ptr %index_data.i, align 8
-  %index_size.i = getelementptr inbounds %struct.packed_git, ptr %p, i64 0, i32 6
+  %index_size.i = getelementptr inbounds i8, ptr %p, i64 64
   %1 = load i64, ptr %index_size.i, align 8
   %call3.i = tail call i32 @hashfile_checksum_valid(ptr noundef %0, i64 noundef %1) #8
   %tobool4.not.i = icmp eq i32 %call3.i, 0
@@ -152,13 +143,13 @@ if.end.i:                                         ; preds = %entry
 
 return.sink.split.i:                              ; preds = %if.end.i, %entry
   %.str.1.sink.i = phi ptr [ @.str, %entry ], [ @.str.1, %if.end.i ]
-  %pack_name6.i = getelementptr inbounds %struct.packed_git, ptr %p, i64 0, i32 22
+  %pack_name6.i = getelementptr inbounds i8, ptr %p, i64 240
   %call8.i = tail call i32 (ptr, ...) @error(ptr noundef nonnull %.str.1.sink.i, ptr noundef nonnull %pack_name6.i) #8
   br label %verify_pack_index.exit
 
 verify_pack_index.exit:                           ; preds = %if.end.i, %return.sink.split.i
   %retval.0.i = phi i32 [ 0, %if.end.i ], [ -1, %return.sink.split.i ]
-  %index_data = getelementptr inbounds %struct.packed_git, ptr %p, i64 0, i32 5
+  %index_data = getelementptr inbounds i8, ptr %p, i64 56
   %2 = load ptr, ptr %index_data, align 8
   %tobool.not = icmp eq ptr %2, null
   br i1 %tobool.not, label %return, label %if.end
@@ -172,24 +163,24 @@ if.end:                                           ; preds = %verify_pack_index.e
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %size.i)
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %curpos.i)
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %eaten.i)
-  %index_size1.i = getelementptr inbounds %struct.packed_git, ptr %p, i64 0, i32 6
+  %index_size1.i = getelementptr inbounds i8, ptr %p, i64 64
   %3 = load i64, ptr %index_size1.i, align 8
   %call.i6 = tail call i32 @is_pack_valid(ptr noundef nonnull %p) #8
   %tobool.not.i7 = icmp eq i32 %call.i6, 0
   br i1 %tobool.not.i7, label %if.then.i, label %if.end.i8
 
 if.then.i:                                        ; preds = %if.end
-  %pack_name.i = getelementptr inbounds %struct.packed_git, ptr %p, i64 0, i32 22
+  %pack_name.i = getelementptr inbounds i8, ptr %p, i64 240
   %call2.i = tail call i32 (ptr, ...) @error(ptr noundef nonnull @.str.2, ptr noundef nonnull %pack_name.i) #8
   br label %verify_packfile.exit
 
 if.end.i8:                                        ; preds = %if.end
-  %hash_algo.i = getelementptr inbounds %struct.repository, ptr %r, i64 0, i32 15
+  %hash_algo.i = getelementptr inbounds i8, ptr %r, i64 256
   %4 = load ptr, ptr %hash_algo.i, align 8
-  %init_fn.i = getelementptr inbounds %struct.git_hash_algo, ptr %4, i64 0, i32 5
+  %init_fn.i = getelementptr inbounds i8, ptr %4, i64 40
   %5 = load ptr, ptr %init_fn.i, align 8
   call void %5(ptr noundef nonnull %ctx.i) #8
-  %pack_size.i = getelementptr inbounds %struct.packed_git, ptr %p, i64 0, i32 4
+  %pack_size.i = getelementptr inbounds i8, ptr %p, i64 48
   br label %do.body.i
 
 do.body.i:                                        ; preds = %if.end13.i, %if.end.i8
@@ -204,7 +195,7 @@ do.body.i:                                        ; preds = %if.end13.i, %if.end
 if.then6.i:                                       ; preds = %do.body.i
   %7 = load i64, ptr %pack_size.i, align 8
   %8 = load ptr, ptr %hash_algo.i, align 8
-  %rawsz.i = getelementptr inbounds %struct.git_hash_algo, ptr %8, i64 0, i32 2
+  %rawsz.i = getelementptr inbounds i8, ptr %8, i64 16
   %9 = load i64, ptr %rawsz.i, align 8
   %sub.i = sub i64 %7, %9
   br label %if.end8.i
@@ -224,7 +215,7 @@ if.then9.i:                                       ; preds = %if.end8.i
 if.end13.i:                                       ; preds = %if.then9.i, %if.end8.i
   %10 = phi i64 [ %sub12.i, %if.then9.i ], [ %6, %if.end8.i ]
   %11 = load ptr, ptr %hash_algo.i, align 8
-  %update_fn.i = getelementptr inbounds %struct.git_hash_algo, ptr %11, i64 0, i32 7
+  %update_fn.i = getelementptr inbounds i8, ptr %11, i64 56
   %12 = load ptr, ptr %update_fn.i, align 8
   call void %12(ptr noundef nonnull %ctx.i, ptr noundef %call4.i, i64 noundef %10) #8
   %cmp15.i = icmp slt i64 %add.i, %pack_sig_ofs.1.i
@@ -232,12 +223,12 @@ if.end13.i:                                       ; preds = %if.then9.i, %if.end
 
 do.end.i:                                         ; preds = %if.end13.i
   %13 = load ptr, ptr %hash_algo.i, align 8
-  %final_fn.i = getelementptr inbounds %struct.git_hash_algo, ptr %13, i64 0, i32 8
+  %final_fn.i = getelementptr inbounds i8, ptr %13, i64 64
   %14 = load ptr, ptr %final_fn.i, align 8
   call void %14(ptr noundef nonnull %hash.i, ptr noundef nonnull %ctx.i) #8
   %call19.i = call ptr @use_pack(ptr noundef %p, ptr noundef nonnull %w_curs, i64 noundef %pack_sig_ofs.1.i, ptr noundef null) #8
   %15 = load ptr, ptr @the_repository, align 8
-  %hash_algo.i.i = getelementptr inbounds %struct.repository, ptr %15, i64 0, i32 15
+  %hash_algo.i.i = getelementptr inbounds i8, ptr %15, i64 256
   %16 = load ptr, ptr %hash_algo.i.i, align 8
   %17 = getelementptr i8, ptr %16, i64 16
   %.val.i.i = load i64, ptr %17, align 8
@@ -258,10 +249,10 @@ hasheq.exit.i:                                    ; preds = %if.end.i.i.i, %if.t
   br i1 %retval.0.in.i.i.not.i, label %if.end28.i, label %if.then23.i
 
 if.then23.i:                                      ; preds = %hasheq.exit.i
-  %pack_name24.i = getelementptr inbounds %struct.packed_git, ptr %p, i64 0, i32 22
+  %pack_name24.i = getelementptr inbounds i8, ptr %p, i64 240
   %call26.i = call i32 (ptr, ...) @error(ptr noundef nonnull @.str.3, ptr noundef nonnull %pack_name24.i) #8
   %.pre.i = load ptr, ptr @the_repository, align 8
-  %hash_algo.i89.phi.trans.insert.i = getelementptr inbounds %struct.repository, ptr %.pre.i, i64 0, i32 15
+  %hash_algo.i89.phi.trans.insert.i = getelementptr inbounds i8, ptr %.pre.i, i64 256
   %.pre131.i = load ptr, ptr %hash_algo.i89.phi.trans.insert.i, align 8
   %.phi.trans.insert.i = getelementptr i8, ptr %.pre131.i, i64 16
   %.val.i90.pre.i = load i64, ptr %.phi.trans.insert.i, align 8
@@ -272,7 +263,7 @@ if.end28.i:                                       ; preds = %if.then23.i, %hashe
   %err.0.i = phi i32 [ 0, %hasheq.exit.i ], [ -1, %if.then23.i ]
   %add.ptr.i = getelementptr inbounds i8, ptr %2, i64 %3
   %18 = load ptr, ptr %hash_algo.i, align 8
-  %hexsz.i = getelementptr inbounds %struct.git_hash_algo, ptr %18, i64 0, i32 3
+  %hexsz.i = getelementptr inbounds i8, ptr %18, i64 24
   %19 = load i64, ptr %hexsz.i, align 8
   %idx.neg.i = sub i64 0, %19
   %add.ptr30.i = getelementptr inbounds i8, ptr %add.ptr.i, i64 %idx.neg.i
@@ -293,14 +284,14 @@ hasheq.exit99.i:                                  ; preds = %if.end.i.i92.i, %if
   br i1 %retval.0.in.i.i95.not.i, label %if.end38.i, label %if.then33.i
 
 if.then33.i:                                      ; preds = %hasheq.exit99.i
-  %pack_name34.i = getelementptr inbounds %struct.packed_git, ptr %p, i64 0, i32 22
+  %pack_name34.i = getelementptr inbounds i8, ptr %p, i64 240
   %call36.i = call i32 (ptr, ...) @error(ptr noundef nonnull @.str.4, ptr noundef nonnull %pack_name34.i) #8
   br label %if.end38.i
 
 if.end38.i:                                       ; preds = %if.then33.i, %hasheq.exit99.i
   %err.1.i = phi i32 [ %err.0.i, %hasheq.exit99.i ], [ -1, %if.then33.i ]
   call void @unuse_pack(ptr noundef nonnull %w_curs) #8
-  %num_objects.i = getelementptr inbounds %struct.packed_git, ptr %p, i64 0, i32 7
+  %num_objects.i = getelementptr inbounds i8, ptr %p, i64 72
   %20 = load i32, ptr %num_objects.i, align 8
   %add39.i = add i32 %20, 1
   %conv40.i = zext i32 %add39.i to i64
@@ -318,7 +309,7 @@ for.body.i:                                       ; preds = %if.end38.i, %for.bo
   %call46.i = call i64 @nth_packed_object_offset(ptr noundef %p, i32 noundef %21) #8
   %arrayidx48.i = getelementptr inbounds %struct.idx_entry, ptr %call42.i, i64 %indvars.iv.i
   store i64 %call46.i, ptr %arrayidx48.i, align 8
-  %nr.i = getelementptr inbounds %struct.idx_entry, ptr %call42.i, i64 %indvars.iv.i, i32 1
+  %nr.i = getelementptr inbounds i8, ptr %arrayidx48.i, i64 8
   store i32 %21, ptr %nr.i, align 8
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %idxprom.i
@@ -333,17 +324,17 @@ sane_qsort.exit.thread134.i:                      ; preds = %for.end.i
   br label %for.body56.lr.ph.i
 
 for.body56.lr.ph.i:                               ; preds = %for.end.i, %sane_qsort.exit.thread134.i
-  %index_version.i = getelementptr inbounds %struct.packed_git, ptr %p, i64 0, i32 10
-  %pack_name91.i = getelementptr inbounds %struct.packed_git, ptr %p, i64 0, i32 22
+  %index_version.i = getelementptr inbounds i8, ptr %p, i64 128
+  %pack_name91.i = getelementptr inbounds i8, ptr %p, i64 240
   %tobool148.not.i = icmp eq ptr %fn, null
-  %invariant.gep.i = getelementptr %struct.idx_entry, ptr %call42.i, i64 1
+  %invariant.gep.i = getelementptr i8, ptr %call42.i, i64 16
   br label %for.body56.i
 
 for.body56.i:                                     ; preds = %if.end164.i, %for.body56.lr.ph.i
   %indvars.iv125.i = phi i64 [ 0, %for.body56.lr.ph.i ], [ %indvars.iv.next126.i, %if.end164.i ]
   %err.2120.i = phi i32 [ %err.1.i, %for.body56.lr.ph.i ], [ %err.4.i, %if.end164.i ]
   %arrayidx58.i = getelementptr inbounds %struct.idx_entry, ptr %call42.i, i64 %indvars.iv125.i
-  %nr59.i = getelementptr inbounds %struct.idx_entry, ptr %call42.i, i64 %indvars.iv125.i, i32 1
+  %nr59.i = getelementptr inbounds i8, ptr %arrayidx58.i, i64 8
   %22 = load i32, ptr %nr59.i, align 8
   %call60.i = call i32 @nth_packed_object_id(ptr noundef nonnull %oid.i, ptr noundef %p, i32 noundef %22) #8
   %cmp61.i = icmp slt i32 %call60.i, 0
@@ -397,16 +388,16 @@ if.end.i.i:                                       ; preds = %if.then.i104.i, %do
 if.else.i.i.i:                                    ; preds = %if.end.i.i
   %31 = load ptr, ptr %index_data, align 8
   %32 = load ptr, ptr @the_repository, align 8
-  %hash_algo.i101.i = getelementptr inbounds %struct.repository, ptr %32, i64 0, i32 15
+  %hash_algo.i101.i = getelementptr inbounds i8, ptr %32, i64 256
   %33 = load ptr, ptr %hash_algo.i101.i, align 8
-  %rawsz.i.i = getelementptr inbounds %struct.git_hash_algo, ptr %33, i64 0, i32 2
+  %rawsz.i.i = getelementptr inbounds i8, ptr %33, i64 16
   %34 = load i64, ptr %rawsz.i.i, align 8
   %div9.i.i = lshr i64 %34, 2
   %35 = load i32, ptr %num_objects.i, align 8
   %conv7.i.i = zext i32 %35 to i64
   %mul.i102.i = mul i64 %div9.i.i, %conv7.i.i
   %36 = getelementptr i32, ptr %31, i64 %mul.i102.i
-  %37 = getelementptr i32, ptr %36, i64 258
+  %37 = getelementptr i8, ptr %36, i64 1032
   %conv9.i.i = zext i32 %27 to i64
   %add.ptr.i.i = getelementptr i32, ptr %37, i64 %conv9.i.i
   %38 = load i32, ptr %add.ptr.i.i, align 4

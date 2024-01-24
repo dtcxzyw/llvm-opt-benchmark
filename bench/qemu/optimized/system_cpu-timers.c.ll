@@ -132,7 +132,7 @@ if.then.i:                                        ; preds = %if.then
   %call.i = call i32 @clock_gettime(i32 noundef 1, ptr noundef nonnull %ts.i) #9
   %3 = load i64, ptr %ts.i, align 8
   %mul.i = mul i64 %3, 1000000000
-  %tv_nsec.i = getelementptr inbounds %struct.timespec, ptr %ts.i, i64 0, i32 1
+  %tv_nsec.i = getelementptr inbounds i8, ptr %ts.i, i64 8
   %4 = load i64, ptr %tv_nsec.i, align 8
   %add.i = add i64 %mul.i, %4
   br label %get_clock.exit
@@ -142,7 +142,7 @@ if.else.i:                                        ; preds = %if.then
   %call.i.i = call i32 @gettimeofday(ptr noundef nonnull %tv.i.i, ptr noundef null) #9
   %5 = load i64, ptr %tv.i.i, align 8
   %mul.i.i = mul i64 %5, 1000000000
-  %tv_usec.i.i = getelementptr inbounds %struct.timeval, ptr %tv.i.i, i64 0, i32 1
+  %tv_usec.i.i = getelementptr inbounds i8, ptr %tv.i.i, i64 8
   %6 = load i64, ptr %tv_usec.i.i, align 8
   %mul1.i.i = mul i64 %6, 1000
   %add.i.i = add i64 %mul1.i.i, %mul.i.i
@@ -165,8 +165,8 @@ define dso_local i64 @cpu_get_clock() local_unnamed_addr #0 {
 entry:
   %tv.i.i.i = alloca %struct.timeval, align 8
   %ts.i.i = alloca %struct.timespec, align 8
-  %tv_nsec.i.i = getelementptr inbounds %struct.timespec, ptr %ts.i.i, i64 0, i32 1
-  %tv_usec.i.i.i = getelementptr inbounds %struct.timeval, ptr %tv.i.i.i, i64 0, i32 1
+  %tv_nsec.i.i = getelementptr inbounds i8, ptr %ts.i.i, i64 8
+  %tv_usec.i.i.i = getelementptr inbounds i8, ptr %tv.i.i.i, i64 8
   br label %do.body
 
 do.body:                                          ; preds = %cpu_get_clock_locked.exit, %entry
@@ -278,7 +278,7 @@ if.then.i:                                        ; preds = %if.then
   %call.i = call i32 @clock_gettime(i32 noundef 1, ptr noundef nonnull %ts.i) #9
   %9 = load i64, ptr %ts.i, align 8
   %mul.i = mul i64 %9, 1000000000
-  %tv_nsec.i = getelementptr inbounds %struct.timespec, ptr %ts.i, i64 0, i32 1
+  %tv_nsec.i = getelementptr inbounds i8, ptr %ts.i, i64 8
   %10 = load i64, ptr %tv_nsec.i, align 8
   %add.i = add i64 %mul.i, %10
   br label %get_clock.exit
@@ -288,7 +288,7 @@ if.else.i:                                        ; preds = %if.then
   %call.i.i = call i32 @gettimeofday(ptr noundef nonnull %tv.i.i, ptr noundef null) #9
   %11 = load i64, ptr %tv.i.i, align 8
   %mul.i.i = mul i64 %11, 1000000000
-  %tv_usec.i.i = getelementptr inbounds %struct.timeval, ptr %tv.i.i, i64 0, i32 1
+  %tv_usec.i.i = getelementptr inbounds i8, ptr %tv.i.i, i64 8
   %12 = load i64, ptr %tv_usec.i.i, align 8
   %mul1.i.i = mul i64 %12, 1000
   %add.i.i2 = add i64 %mul1.i.i, %mul.i.i
@@ -375,7 +375,7 @@ if.then.i.i:                                      ; preds = %if.then.i
   %call.i.i = call i32 @clock_gettime(i32 noundef 1, ptr noundef nonnull %ts.i.i) #9
   %11 = load i64, ptr %ts.i.i, align 8
   %mul.i.i = mul i64 %11, 1000000000
-  %tv_nsec.i.i = getelementptr inbounds %struct.timespec, ptr %ts.i.i, i64 0, i32 1
+  %tv_nsec.i.i = getelementptr inbounds i8, ptr %ts.i.i, i64 8
   %12 = load i64, ptr %tv_nsec.i.i, align 8
   %add.i.i2 = add i64 %mul.i.i, %12
   br label %get_clock.exit.i
@@ -385,7 +385,7 @@ if.else.i.i:                                      ; preds = %if.then.i
   %call.i.i.i = call i32 @gettimeofday(ptr noundef nonnull %tv.i.i.i, ptr noundef null) #9
   %13 = load i64, ptr %tv.i.i.i, align 8
   %mul.i.i.i = mul i64 %13, 1000000000
-  %tv_usec.i.i.i = getelementptr inbounds %struct.timeval, ptr %tv.i.i.i, i64 0, i32 1
+  %tv_usec.i.i.i = getelementptr inbounds i8, ptr %tv.i.i.i, i64 8
   %14 = load i64, ptr %tv_usec.i.i.i, align 8
   %mul1.i.i.i = mul i64 %14, 1000
   %add.i.i.i = add i64 %mul1.i.i.i, %mul.i.i.i
@@ -502,7 +502,7 @@ entry:
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(argmem: read) uwtable
 define internal zeroext i1 @warp_timer_state_needed(ptr nocapture noundef readonly %opaque) #7 {
 entry:
-  %icount_warp_timer = getelementptr inbounds %struct.TimersState, ptr %opaque, i64 0, i32 13
+  %icount_warp_timer = getelementptr inbounds i8, ptr %opaque, i64 88
   %0 = load ptr, ptr %icount_warp_timer, align 8
   %cmp = icmp ne ptr %0, null
   ret i1 %cmp
@@ -511,7 +511,7 @@ entry:
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(argmem: read) uwtable
 define internal zeroext i1 @adjust_timers_state_needed(ptr nocapture noundef readonly %opaque) #7 {
 entry:
-  %icount_rt_timer = getelementptr inbounds %struct.TimersState, ptr %opaque, i64 0, i32 11
+  %icount_rt_timer = getelementptr inbounds i8, ptr %opaque, i64 72
   %0 = load ptr, ptr %icount_rt_timer, align 8
   %cmp = icmp ne ptr %0, null
   ret i1 %cmp

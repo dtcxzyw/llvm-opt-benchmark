@@ -4,9 +4,6 @@ target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:
 target triple = "x86_64-unknown-linux-gnu"
 
 %struct.conf_method_st = type { ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr }
-%struct.conf_st = type { ptr, ptr, ptr, i32, i32, ptr, ptr }
-%struct.buf_mem_st = type { i64, ptr, i64, i64 }
-%struct.CONF_VALUE = type { ptr, ptr, ptr }
 %struct.stat = type { i64, i64, i64, i32, i32, i32, i32, i64, i64, i64, i64, %struct.timespec, %struct.timespec, %struct.timespec, [3 x i64] }
 %struct.timespec = type { i64, i64 }
 
@@ -48,13 +45,13 @@ target triple = "x86_64-unknown-linux-gnu"
 @CONF_type_win32 = internal constant [128 x i16] [i16 8, i16 0, i16 0, i16 0, i16 0, i16 0, i16 0, i16 0, i16 0, i16 16, i16 16, i16 0, i16 0, i16 16, i16 0, i16 0, i16 0, i16 0, i16 0, i16 0, i16 0, i16 0, i16 0, i16 0, i16 0, i16 0, i16 0, i16 0, i16 0, i16 0, i16 0, i16 0, i16 16, i16 512, i16 1024, i16 0, i16 4096, i16 512, i16 512, i16 0, i16 0, i16 0, i16 512, i16 512, i16 512, i16 512, i16 512, i16 512, i16 1, i16 1, i16 1, i16 1, i16 1, i16 1, i16 1, i16 1, i16 1, i16 1, i16 0, i16 2560, i16 0, i16 0, i16 0, i16 512, i16 512, i16 2, i16 2, i16 2, i16 2, i16 2, i16 2, i16 2, i16 2, i16 2, i16 2, i16 2, i16 2, i16 2, i16 2, i16 2, i16 2, i16 2, i16 2, i16 2, i16 2, i16 2, i16 2, i16 2, i16 2, i16 2, i16 2, i16 0, i16 0, i16 0, i16 512, i16 256, i16 0, i16 4, i16 4, i16 4, i16 4, i16 4, i16 4, i16 4, i16 4, i16 4, i16 4, i16 4, i16 4, i16 4, i16 4, i16 4, i16 4, i16 4, i16 4, i16 4, i16 4, i16 4, i16 4, i16 4, i16 4, i16 4, i16 4, i16 0, i16 512, i16 0, i16 512, i16 0], align 16
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define nonnull ptr @NCONF_default() local_unnamed_addr #0 {
+define noundef nonnull ptr @NCONF_default() local_unnamed_addr #0 {
 entry:
   ret ptr @default_method
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define nonnull ptr @NCONF_WIN32() local_unnamed_addr #0 {
+define noundef nonnull ptr @NCONF_WIN32() local_unnamed_addr #0 {
 entry:
   ret ptr @WIN32_method
 }
@@ -67,7 +64,7 @@ entry:
   br i1 %cmp.not, label %if.end4, label %if.then
 
 if.then:                                          ; preds = %entry
-  %init = getelementptr inbounds %struct.conf_method_st, ptr %meth, i64 0, i32 2
+  %init = getelementptr inbounds i8, ptr %meth, i64 16
   %0 = load ptr, ptr %init, align 8
   %call1 = tail call i32 %0(ptr noundef nonnull %call) #13
   %cmp2 = icmp eq i32 %call1, 0
@@ -82,8 +79,8 @@ if.end4:                                          ; preds = %if.then, %if.then3,
   ret ptr %ret.0
 }
 
-; Function Attrs: mustprogress nofree nosync nounwind willreturn memory(argmem: write) uwtable
-define internal i32 @def_init_default(ptr noundef writeonly %conf) #2 {
+; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
+define internal noundef i32 @def_init_default(ptr noundef writeonly %conf) #2 {
 entry:
   %cmp = icmp eq ptr %conf, null
   br i1 %cmp, label %return, label %if.end
@@ -92,7 +89,7 @@ if.end:                                           ; preds = %entry
   %0 = getelementptr inbounds i8, ptr %conf, i64 16
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %0, i8 0, i64 32, i1 false)
   store ptr @default_method, ptr %conf, align 8
-  %meth_data = getelementptr inbounds %struct.conf_st, ptr %conf, i64 0, i32 1
+  %meth_data = getelementptr inbounds i8, ptr %conf, i64 8
   store ptr @CONF_type_default, ptr %meth_data, align 8
   br label %return
 
@@ -102,7 +99,7 @@ return:                                           ; preds = %entry, %if.end
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @def_destroy(ptr noundef %conf) #1 {
+define internal noundef i32 @def_destroy(ptr noundef %conf) #1 {
 entry:
   %cmp.i = icmp eq ptr %conf, null
   br i1 %cmp.i, label %return, label %if.then
@@ -118,7 +115,7 @@ return:                                           ; preds = %entry, %if.then
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @def_destroy_data(ptr noundef %conf) #1 {
+define internal noundef i32 @def_destroy_data(ptr noundef %conf) #1 {
 entry:
   %cmp = icmp eq ptr %conf, null
   br i1 %cmp, label %return, label %if.end
@@ -133,7 +130,7 @@ return:                                           ; preds = %entry, %if.end
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @def_load_bio(ptr noundef %conf, ptr noundef %in, ptr noundef writeonly %line) #1 {
+define internal noundef i32 @def_load_bio(ptr noundef %conf, ptr noundef %in, ptr noundef writeonly %line) #1 {
 entry:
   %btmp = alloca [24 x i8], align 16
   %section = alloca ptr, align 8
@@ -141,7 +138,7 @@ entry:
   %dirctx = alloca ptr, align 8
   %include = alloca ptr, align 8
   store ptr null, ptr %section, align 8
-  %data = getelementptr inbounds %struct.conf_st, ptr %conf, i64 0, i32 2
+  %data = getelementptr inbounds i8, ptr %conf, i64 16
   %0 = load ptr, ptr %data, align 8
   store ptr null, ptr %dirpath, align 8
   store ptr null, ptr %dirctx, align 8
@@ -178,11 +175,11 @@ if.end8:                                          ; preds = %if.end4
   br i1 %cmp10, label %if.then11, label %for.cond.preheader
 
 for.cond.preheader:                               ; preds = %if.end8
-  %data16 = getelementptr inbounds %struct.buf_mem_st, ptr %call, i64 0, i32 1
-  %meth_data.i = getelementptr inbounds %struct.conf_st, ptr %conf, i64 0, i32 1
-  %includedir = getelementptr inbounds %struct.conf_st, ptr %conf, i64 0, i32 5
-  %flag_abspath = getelementptr inbounds %struct.conf_st, ptr %conf, i64 0, i32 4
-  %flag_dollarid = getelementptr inbounds %struct.conf_st, ptr %conf, i64 0, i32 3
+  %data16 = getelementptr inbounds i8, ptr %call, i64 8
+  %meth_data.i = getelementptr inbounds i8, ptr %conf, i64 8
+  %includedir = getelementptr inbounds i8, ptr %conf, i64 32
+  %flag_abspath = getelementptr inbounds i8, ptr %conf, i64 28
+  %flag_dollarid = getelementptr inbounds i8, ptr %conf, i64 24
   br label %for.cond.outer
 
 if.then11:                                        ; preds = %if.end8
@@ -1226,9 +1223,9 @@ eat_ws.exit322:                                   ; preds = %is_keytype.exit.i31
 
 if.end343:                                        ; preds = %eat_ws.exit322
   %call344 = call noalias ptr @CRYPTO_strdup(ptr noundef %pname.1, ptr noundef nonnull @.str.1, i32 noundef 536) #13
-  %name = getelementptr inbounds %struct.CONF_VALUE, ptr %call339, i64 0, i32 1
+  %name = getelementptr inbounds i8, ptr %call339, i64 8
   store ptr %call344, ptr %name, align 8
-  %value = getelementptr inbounds %struct.CONF_VALUE, ptr %call339, i64 0, i32 2
+  %value = getelementptr inbounds i8, ptr %call339, i64 16
   store ptr null, ptr %value, align 8
   %cmp346 = icmp eq ptr %call344, null
   br i1 %cmp346, label %err, label %if.end349
@@ -1336,10 +1333,10 @@ if.end406:                                        ; preds = %if.then403, %if.end
   br i1 %cmp407.not, label %return, label %if.then409
 
 if.then409:                                       ; preds = %if.end406
-  %name410 = getelementptr inbounds %struct.CONF_VALUE, ptr %v.1, i64 0, i32 1
+  %name410 = getelementptr inbounds i8, ptr %v.1, i64 8
   %120 = load ptr, ptr %name410, align 8
   call void @CRYPTO_free(ptr noundef %120, ptr noundef nonnull @.str.1, i32 noundef 598) #13
-  %value411 = getelementptr inbounds %struct.CONF_VALUE, ptr %v.1, i64 0, i32 2
+  %value411 = getelementptr inbounds i8, ptr %v.1, i64 16
   %121 = load ptr, ptr %value411, align 8
   call void @CRYPTO_free(ptr noundef %121, ptr noundef nonnull @.str.1, i32 noundef 599) #13
   call void @CRYPTO_free(ptr noundef nonnull %v.1, ptr noundef nonnull @.str.1, i32 noundef 600) #13
@@ -1351,9 +1348,9 @@ return:                                           ; preds = %if.end406, %if.then
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @def_dump(ptr nocapture noundef readonly %conf, ptr noundef %out) #1 {
+define internal noundef i32 @def_dump(ptr nocapture noundef readonly %conf, ptr noundef %out) #1 {
 entry:
-  %data = getelementptr inbounds %struct.conf_st, ptr %conf, i64 0, i32 2
+  %data = getelementptr inbounds i8, ptr %conf, i64 16
   %0 = load ptr, ptr %data, align 8
   tail call void @OPENSSL_LH_doall_arg(ptr noundef %0, ptr noundef nonnull @dump_value_doall_arg, ptr noundef %out) #13
   ret i32 1
@@ -1366,7 +1363,7 @@ entry:
   br i1 %cmp.i, label %is_keytype.exit, label %if.end.i
 
 if.end.i:                                         ; preds = %entry
-  %meth_data.i = getelementptr inbounds %struct.conf_st, ptr %conf, i64 0, i32 1
+  %meth_data.i = getelementptr inbounds i8, ptr %conf, i64 8
   %0 = load ptr, ptr %meth_data.i, align 8
   %idxprom.i = zext nneg i8 %c to i64
   %arrayidx.i = getelementptr inbounds i16, ptr %0, i64 %idxprom.i
@@ -1389,7 +1386,7 @@ entry:
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @def_load(ptr noundef %conf, ptr noundef %name, ptr noundef %line) #1 {
+define internal noundef i32 @def_load(ptr noundef %conf, ptr noundef %name, ptr noundef %line) #1 {
 entry:
   %call = tail call ptr @BIO_new_file(ptr noundef %name, ptr noundef nonnull @.str.24) #13
   %cmp = icmp eq ptr %call, null
@@ -1538,15 +1535,15 @@ declare void @BIO_vfree(ptr noundef) local_unnamed_addr #4
 declare ptr @OPENSSL_sk_pop(ptr noundef) local_unnamed_addr #4
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(read, inaccessiblemem: none) uwtable
-define internal fastcc ptr @eat_alpha_numeric(ptr nocapture noundef readonly %conf, ptr noundef readonly %p) unnamed_addr #8 {
+define internal fastcc noundef ptr @eat_alpha_numeric(ptr nocapture noundef readonly %conf, ptr noundef readonly %p) unnamed_addr #8 {
 entry:
-  %flag_dollarid51 = getelementptr inbounds %struct.conf_st, ptr %conf, i64 0, i32 3
+  %flag_dollarid51 = getelementptr inbounds i8, ptr %conf, i64 24
   %0 = load i8, ptr %p, align 1
   %cmp.i56 = icmp slt i8 %0, 0
   br i1 %cmp.i56, label %if.then9, label %is_keytype.exit.lr.ph
 
 is_keytype.exit.lr.ph:                            ; preds = %entry
-  %meth_data.i34 = getelementptr inbounds %struct.conf_st, ptr %conf, i64 0, i32 1
+  %meth_data.i34 = getelementptr inbounds i8, ptr %conf, i64 8
   %1 = load ptr, ptr %meth_data.i34, align 8
   br label %is_keytype.exit
 
@@ -1612,7 +1609,7 @@ if.end10:                                         ; preds = %lor.lhs.false.threa
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @str_copy(ptr noundef %conf, ptr noundef %section, ptr nocapture noundef %pto, ptr noundef %from) unnamed_addr #1 {
+define internal fastcc noundef i32 @str_copy(ptr noundef %conf, ptr noundef %section, ptr nocapture noundef %pto, ptr noundef %from) unnamed_addr #1 {
 entry:
   %call = tail call ptr @BUF_MEM_new() #13
   %cmp = icmp eq ptr %call, null
@@ -1628,9 +1625,9 @@ if.end:                                           ; preds = %entry
   br i1 %tobool.not, label %err, label %for.cond.preheader
 
 for.cond.preheader:                               ; preds = %if.end
-  %meth_data.i = getelementptr inbounds %struct.conf_st, ptr %conf, i64 0, i32 1
-  %data = getelementptr inbounds %struct.buf_mem_st, ptr %call, i64 0, i32 1
-  %flag_dollarid = getelementptr inbounds %struct.conf_st, ptr %conf, i64 0, i32 3
+  %meth_data.i = getelementptr inbounds i8, ptr %conf, i64 8
+  %data = getelementptr inbounds i8, ptr %call, i64 8
+  %flag_dollarid = getelementptr inbounds i8, ptr %conf, i64 24
   br label %for.cond.outer
 
 for.cond.outer:                                   ; preds = %while.end215, %for.cond.preheader
@@ -2080,7 +2077,7 @@ declare i32 @strncmp(ptr nocapture noundef, ptr nocapture noundef, i64 noundef) 
 ; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
 define internal fastcc void @trim_ws(ptr nocapture noundef readonly %conf, ptr noundef %start) unnamed_addr #9 {
 entry:
-  %meth_data.i = getelementptr inbounds %struct.conf_st, ptr %conf, i64 0, i32 1
+  %meth_data.i = getelementptr inbounds i8, ptr %conf, i64 8
   br label %while.cond
 
 while.cond:                                       ; preds = %while.body, %entry
@@ -2133,7 +2130,7 @@ declare ptr @strchr(ptr noundef, i32 noundef) local_unnamed_addr #6
 declare i32 @strcmp(ptr nocapture noundef, ptr nocapture noundef) local_unnamed_addr #6
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @parsebool(ptr noundef %pval, ptr nocapture noundef writeonly %flag) unnamed_addr #1 {
+define internal fastcc noundef i32 @parsebool(ptr noundef %pval, ptr nocapture noundef writeonly %flag) unnamed_addr #1 {
 entry:
   %call = tail call i32 @OPENSSL_strcasecmp(ptr noundef %pval, ptr noundef nonnull @.str.16) #13
   %cmp = icmp eq i32 %call, 0
@@ -2193,7 +2190,7 @@ if.then:                                          ; preds = %entry
   br label %return
 
 if.end:                                           ; preds = %entry
-  %st_mode = getelementptr inbounds %struct.stat, ptr %st, i64 0, i32 3
+  %st_mode = getelementptr inbounds i8, ptr %st, i64 24
   %1 = load i32, ptr %st_mode, align 8
   %and = and i32 %1, 61440
   %cmp2 = icmp eq i32 %and, 16384
@@ -2271,14 +2268,14 @@ declare ptr @__errno_location() local_unnamed_addr #11
 ; Function Attrs: nounwind uwtable
 define internal void @dump_value_doall_arg(ptr nocapture noundef readonly %a, ptr noundef %out) #1 {
 entry:
-  %name = getelementptr inbounds %struct.CONF_VALUE, ptr %a, i64 0, i32 1
+  %name = getelementptr inbounds i8, ptr %a, i64 8
   %0 = load ptr, ptr %name, align 8
   %tobool.not = icmp eq ptr %0, null
   %1 = load ptr, ptr %a, align 8
   br i1 %tobool.not, label %if.else, label %if.then
 
 if.then:                                          ; preds = %entry
-  %value = getelementptr inbounds %struct.CONF_VALUE, ptr %a, i64 0, i32 2
+  %value = getelementptr inbounds i8, ptr %a, i64 16
   %2 = load ptr, ptr %value, align 8
   %call = tail call i32 (ptr, ptr, ...) @BIO_printf(ptr noundef %out, ptr noundef nonnull @.str.22, ptr noundef %1, ptr noundef nonnull %0, ptr noundef %2) #13
   br label %if.end
@@ -2297,8 +2294,8 @@ declare i32 @BIO_printf(ptr noundef, ptr noundef, ...) local_unnamed_addr #4
 
 declare i64 @ERR_peek_last_error() local_unnamed_addr #4
 
-; Function Attrs: mustprogress nofree nosync nounwind willreturn memory(argmem: write) uwtable
-define internal i32 @def_init_WIN32(ptr noundef writeonly %conf) #2 {
+; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
+define internal noundef i32 @def_init_WIN32(ptr noundef writeonly %conf) #2 {
 entry:
   %cmp = icmp eq ptr %conf, null
   br i1 %cmp, label %return, label %if.end
@@ -2307,7 +2304,7 @@ if.end:                                           ; preds = %entry
   %0 = getelementptr inbounds i8, ptr %conf, i64 16
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %0, i8 0, i64 32, i1 false)
   store ptr @WIN32_method, ptr %conf, align 8
-  %meth_data = getelementptr inbounds %struct.conf_st, ptr %conf, i64 0, i32 1
+  %meth_data = getelementptr inbounds i8, ptr %conf, i64 8
   store ptr @CONF_type_win32, ptr %meth_data, align 8
   br label %return
 
@@ -2321,7 +2318,7 @@ declare i32 @bcmp(ptr nocapture, ptr nocapture, i64) local_unnamed_addr #12
 
 attributes #0 = { mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #2 = { mustprogress nofree nosync nounwind willreturn memory(argmem: write) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #2 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #3 = { mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #4 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #5 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: write) }

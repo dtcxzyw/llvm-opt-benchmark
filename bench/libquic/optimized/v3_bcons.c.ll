@@ -6,8 +6,6 @@ target triple = "x86_64-unknown-linux-gnu"
 %struct.ASN1_ITEM_st = type { i8, i64, ptr, i64, ptr, i64, ptr }
 %struct.v3_ext_method = type { i32, i32, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr }
 %struct.ASN1_TEMPLATE_st = type { i64, i64, i64, ptr, ptr }
-%struct.BASIC_CONSTRAINTS_st = type { i32, ptr }
-%struct.conf_value_st = type { ptr, ptr, ptr }
 
 @BASIC_CONSTRAINTS_it = hidden constant %struct.ASN1_ITEM_st { i8 1, i64 16, ptr @BASIC_CONSTRAINTS_seq_tt, i64 2, ptr null, i64 16, ptr @.str }, align 8
 @v3_bcons = hidden local_unnamed_addr constant %struct.v3_ext_method { i32 87, i32 0, ptr @BASIC_CONSTRAINTS_it, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr @i2v_BASIC_CONSTRAINTS, ptr @v2i_BASIC_CONSTRAINTS, ptr null, ptr null, ptr null }, align 8
@@ -30,7 +28,7 @@ entry:
   store ptr %extlist, ptr %extlist.addr, align 8
   %0 = load i32, ptr %bcons, align 8
   %call = call i32 @X509V3_add_value_bool(ptr noundef nonnull @.str.3, i32 noundef %0, ptr noundef nonnull %extlist.addr) #3
-  %pathlen = getelementptr inbounds %struct.BASIC_CONSTRAINTS_st, ptr %bcons, i64 0, i32 1
+  %pathlen = getelementptr inbounds i8, ptr %bcons, i64 8
   %1 = load ptr, ptr %pathlen, align 8
   %call1 = call i32 @X509V3_add_value_int(ptr noundef nonnull @.str.2, ptr noundef %1, ptr noundef nonnull %extlist.addr) #3
   %2 = load ptr, ptr %extlist.addr, align 8
@@ -50,7 +48,7 @@ for.cond.preheader:                               ; preds = %entry
   br i1 %cmp17.not, label %return, label %for.body.lr.ph
 
 for.body.lr.ph:                                   ; preds = %for.cond.preheader
-  %pathlen = getelementptr inbounds %struct.BASIC_CONSTRAINTS_st, ptr %call.i, i64 0, i32 1
+  %pathlen = getelementptr inbounds i8, ptr %call.i, i64 8
   br label %for.body
 
 if.then:                                          ; preds = %entry
@@ -60,7 +58,7 @@ if.then:                                          ; preds = %entry
 for.body:                                         ; preds = %for.body.lr.ph, %for.inc
   %i.018 = phi i64 [ 0, %for.body.lr.ph ], [ %inc, %for.inc ]
   %call2 = tail call ptr @sk_value(ptr noundef %values, i64 noundef %i.018) #3
-  %name = getelementptr inbounds %struct.conf_value_st, ptr %call2, i64 0, i32 1
+  %name = getelementptr inbounds i8, ptr %call2, i64 8
   %0 = load ptr, ptr %name, align 8
   %call3 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %0, ptr noundef nonnull dereferenceable(3) @.str.3) #4
   %tobool4.not = icmp eq i32 %call3, 0
@@ -82,11 +80,11 @@ if.then13:                                        ; preds = %if.else
   br i1 %tobool15.not, label %err, label %for.inc
 
 if.else18:                                        ; preds = %if.else
-  %name.le = getelementptr inbounds %struct.conf_value_st, ptr %call2, i64 0, i32 1
+  %name.le = getelementptr inbounds i8, ptr %call2, i64 8
   tail call void @ERR_put_error(i32 noundef 20, i32 noundef 0, i32 noundef 123, ptr noundef nonnull @.str.4, i32 noundef 124) #3
   %1 = load ptr, ptr %call2, align 8
   %2 = load ptr, ptr %name.le, align 8
-  %value = getelementptr inbounds %struct.conf_value_st, ptr %call2, i64 0, i32 2
+  %value = getelementptr inbounds i8, ptr %call2, i64 16
   %3 = load ptr, ptr %value, align 8
   tail call void (i32, ...) @ERR_add_error_data(i32 noundef 6, ptr noundef nonnull @.str.5, ptr noundef %1, ptr noundef nonnull @.str.6, ptr noundef %2, ptr noundef nonnull @.str.7, ptr noundef %3) #3
   br label %err

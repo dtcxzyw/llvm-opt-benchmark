@@ -10,11 +10,6 @@ target triple = "x86_64-unknown-linux-gnu"
 %"union.(anonymous struct)::grpc_arg_value" = type { %"struct.(anonymous struct)::grpc_arg_value::grpc_arg_pointer" }
 %"struct.(anonymous struct)::grpc_arg_value::grpc_arg_pointer" = type { ptr, ptr }
 %"class.grpc_core::RefCountedPtr" = type { ptr }
-%"class.grpc_core::RefCounted" = type { %"class.grpc_core::PolymorphicRefCount", %"class.grpc_core::RefCount" }
-%"class.grpc_core::PolymorphicRefCount" = type { ptr }
-%"class.grpc_core::RefCount" = type { %"struct.std::atomic" }
-%"struct.std::atomic" = type { %"struct.std::__atomic_base" }
-%"struct.std::__atomic_base" = type { i64 }
 
 $_ZN9grpc_core19NoDestructSingletonINS_14promise_detail10UnwakeableEE6value_E = comdat any
 
@@ -58,13 +53,13 @@ lor.lhs.false.i:                                  ; preds = %entry
   br i1 %cmp1.not.i, label %_Z30grpc_channel_args_find_pointerIN9grpc_core14ConfigSelectorEEPT_PK17grpc_channel_argsPKc.exit, label %cond.end
 
 _Z30grpc_channel_args_find_pointerIN9grpc_core14ConfigSelectorEEPT_PK17grpc_channel_argsPKc.exit: ; preds = %lor.lhs.false.i
-  %value.i = getelementptr inbounds %struct.grpc_arg, ptr %call.i, i64 0, i32 2
+  %value.i = getelementptr inbounds i8, ptr %call.i, i64 16
   %1 = load ptr, ptr %value.i, align 8
   %cmp.not = icmp eq ptr %1, null
   br i1 %cmp.not, label %cond.end, label %cond.true
 
 cond.true:                                        ; preds = %_Z30grpc_channel_args_find_pointerIN9grpc_core14ConfigSelectorEEPT_PK17grpc_channel_argsPKc.exit
-  %refs_.i.i = getelementptr inbounds %"class.grpc_core::RefCounted", ptr %1, i64 0, i32 1
+  %refs_.i.i = getelementptr inbounds i8, ptr %1, i64 8
   %2 = atomicrmw add ptr %refs_.i.i, i64 1 monotonic, align 8, !noalias !4
   br label %cond.end
 
@@ -93,7 +88,7 @@ init.end:                                         ; preds = %init.check, %entry
 ; Function Attrs: mustprogress nofree norecurse nounwind willreturn memory(argmem: readwrite) uwtable
 define internal noundef ptr @_ZN9grpc_core12_GLOBAL__N_121ConfigSelectorArgCopyEPv(ptr noundef returned %p) #5 personality ptr @__gxx_personality_v0 {
 _ZN9grpc_core13RefCountedPtrINS_14ConfigSelectorEED2Ev.exit:
-  %refs_.i.i = getelementptr inbounds %"class.grpc_core::RefCounted", ptr %p, i64 0, i32 1
+  %refs_.i.i = getelementptr inbounds i8, ptr %p, i64 8
   %0 = atomicrmw add ptr %refs_.i.i, i64 1 monotonic, align 8, !noalias !7
   ret ptr %p
 }
@@ -101,14 +96,14 @@ _ZN9grpc_core13RefCountedPtrINS_14ConfigSelectorEED2Ev.exit:
 ; Function Attrs: mustprogress uwtable
 define internal void @_ZN9grpc_core12_GLOBAL__N_124ConfigSelectorArgDestroyEPv(ptr noundef %p) #3 {
 entry:
-  %refs_.i = getelementptr inbounds %"class.grpc_core::RefCounted", ptr %p, i64 0, i32 1
+  %refs_.i = getelementptr inbounds i8, ptr %p, i64 8
   %0 = atomicrmw sub ptr %refs_.i, i64 1 acq_rel, align 8
   %cmp.i.i = icmp eq i64 %0, 1
   br i1 %cmp.i.i, label %if.then.i, label %_ZNK9grpc_core10RefCountedINS_14ConfigSelectorENS_19PolymorphicRefCountENS_11UnrefDeleteEE5UnrefEv.exit
 
 if.then.i:                                        ; preds = %entry
   %vtable.i.i = load ptr, ptr %p, align 8
-  %vfn.i.i = getelementptr inbounds ptr, ptr %vtable.i.i, i64 1
+  %vfn.i.i = getelementptr inbounds i8, ptr %vtable.i.i, i64 8
   %1 = load ptr, ptr %vfn.i.i, align 8
   tail call void %1(ptr noundef nonnull align 8 dereferenceable(16) %p) #8
   br label %_ZNK9grpc_core10RefCountedINS_14ConfigSelectorENS_19PolymorphicRefCountENS_11UnrefDeleteEE5UnrefEv.exit

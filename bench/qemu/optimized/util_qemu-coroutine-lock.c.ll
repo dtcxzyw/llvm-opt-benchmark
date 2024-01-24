@@ -3,19 +3,9 @@ source_filename = "bench/qemu/original/util_qemu-coroutine-lock.c.ll"
 target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:128-n8:16:32:64-S128"
 target triple = "x86_64-unknown-linux-gnu"
 
-%struct.anon = type { ptr, ptr }
-%struct.Coroutine = type { ptr, ptr, ptr, %struct.anon.0, i64, ptr, ptr, %struct.anon.1, %struct.anon.2, %struct.anon.3 }
-%struct.anon.0 = type { ptr }
-%struct.anon.1 = type { ptr }
-%struct.anon.2 = type { ptr, ptr }
-%struct.anon.3 = type { ptr }
 %struct.timeval = type { i64, i64 }
-%struct.CoMutex = type { i32, ptr, %struct.anon.4, %struct.anon.4, i32, i32, ptr }
-%struct.anon.4 = type { ptr }
 %struct.CoWaitRecord = type { ptr, %struct.anon.5 }
 %struct.anon.5 = type { ptr }
-%struct.CoRwlock = type { %struct.CoMutex, i32, %struct.anon.6 }
-%struct.anon.6 = type { ptr, ptr }
 %struct.CoRwTicket = type { i8, ptr, %struct.anon.7 }
 %struct.anon.7 = type { ptr }
 
@@ -62,7 +52,7 @@ target triple = "x86_64-unknown-linux-gnu"
 define dso_local void @qemu_co_queue_init(ptr noundef %queue) local_unnamed_addr #0 {
 entry:
   store ptr null, ptr %queue, align 8
-  %sqh_last = getelementptr inbounds %struct.anon, ptr %queue, i64 0, i32 1
+  %sqh_last = getelementptr inbounds i8, ptr %queue, i64 8
   store ptr %queue, ptr %sqh_last, align 8
   ret void
 }
@@ -70,20 +60,20 @@ entry:
 ; Function Attrs: nounwind sspstrong uwtable
 define dso_local void @qemu_co_queue_wait_impl(ptr nocapture noundef %queue, ptr noundef readonly %lock, i32 noundef %flags) #1 {
 entry:
-  %call = tail call ptr @qemu_coroutine_self() #10
+  %call = tail call ptr @qemu_coroutine_self() #9
   %and = and i32 %flags, 1
   %tobool.not = icmp eq i32 %and, 0
   br i1 %tobool.not, label %do.body7, label %do.body
 
 do.body:                                          ; preds = %entry
   %0 = load ptr, ptr %queue, align 8
-  %co_queue_next = getelementptr inbounds %struct.Coroutine, ptr %call, i64 0, i32 7
+  %co_queue_next = getelementptr inbounds i8, ptr %call, i64 56
   store ptr %0, ptr %co_queue_next, align 8
   %cmp = icmp eq ptr %0, null
   br i1 %cmp, label %if.then1, label %if.end
 
 if.then1:                                         ; preds = %do.body
-  %sqh_last = getelementptr inbounds %struct.anon, ptr %queue, i64 0, i32 1
+  %sqh_last = getelementptr inbounds i8, ptr %queue, i64 8
   store ptr %co_queue_next, ptr %sqh_last, align 8
   br label %if.end
 
@@ -92,9 +82,9 @@ if.end:                                           ; preds = %if.then1, %do.body
   br label %if.end17
 
 do.body7:                                         ; preds = %entry
-  %co_queue_next8 = getelementptr inbounds %struct.Coroutine, ptr %call, i64 0, i32 7
+  %co_queue_next8 = getelementptr inbounds i8, ptr %call, i64 56
   store ptr null, ptr %co_queue_next8, align 8
-  %sqh_last11 = getelementptr inbounds %struct.anon, ptr %queue, i64 0, i32 1
+  %sqh_last11 = getelementptr inbounds i8, ptr %queue, i64 8
   %1 = load ptr, ptr %sqh_last11, align 8
   store ptr %call, ptr %1, align 8
   store ptr %co_queue_next8, ptr %sqh_last11, align 8
@@ -108,16 +98,16 @@ if.then19:                                        ; preds = %if.end17
   %lock.val = load ptr, ptr %lock, align 8
   %2 = getelementptr i8, ptr %lock, i64 16
   %lock.val13 = load ptr, ptr %2, align 8
-  tail call void %lock.val13(ptr noundef %lock.val) #10
+  tail call void %lock.val13(ptr noundef %lock.val) #9
   br label %if.end20
 
 if.end20:                                         ; preds = %if.then19, %if.end17
-  tail call void @qemu_coroutine_yield() #10
-  %call21 = tail call zeroext i1 @qemu_in_coroutine() #10
+  tail call void @qemu_coroutine_yield() #9
+  %call21 = tail call zeroext i1 @qemu_in_coroutine() #9
   br i1 %call21, label %if.end24, label %if.else23
 
 if.else23:                                        ; preds = %if.end20
-  tail call void @__assert_fail(ptr noundef nonnull @.str, ptr noundef nonnull @.str.1, i32 noundef 61, ptr noundef nonnull @__PRETTY_FUNCTION__.qemu_co_queue_wait_impl) #11
+  tail call void @__assert_fail(ptr noundef nonnull @.str, ptr noundef nonnull @.str.1, i32 noundef 61, ptr noundef nonnull @__PRETTY_FUNCTION__.qemu_co_queue_wait_impl) #10
   unreachable
 
 if.end24:                                         ; preds = %if.end20
@@ -127,7 +117,7 @@ if.then26:                                        ; preds = %if.end24
   %lock.val14 = load ptr, ptr %lock, align 8
   %3 = getelementptr i8, ptr %lock, i64 8
   %lock.val15 = load ptr, ptr %3, align 8
-  tail call void %lock.val15(ptr noundef %lock.val14) #10
+  tail call void %lock.val15(ptr noundef %lock.val14) #9
   br label %if.end27
 
 if.end27:                                         ; preds = %if.then26, %if.end24
@@ -144,21 +134,21 @@ declare zeroext i1 @qemu_in_coroutine() local_unnamed_addr #2
 declare void @__assert_fail(ptr noundef, ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local zeroext i1 @qemu_co_enter_next_impl(ptr noundef %queue, ptr noundef readonly %lock) local_unnamed_addr #1 {
+define dso_local noundef zeroext i1 @qemu_co_enter_next_impl(ptr noundef %queue, ptr noundef readonly %lock) local_unnamed_addr #1 {
 entry:
   %0 = load ptr, ptr %queue, align 8
   %tobool.not = icmp ne ptr %0, null
   br i1 %tobool.not, label %do.body, label %return
 
 do.body:                                          ; preds = %entry
-  %co_queue_next = getelementptr inbounds %struct.Coroutine, ptr %0, i64 0, i32 7
+  %co_queue_next = getelementptr inbounds i8, ptr %0, i64 56
   %1 = load ptr, ptr %co_queue_next, align 8
   store ptr %1, ptr %queue, align 8
   %cmp = icmp eq ptr %1, null
   br i1 %cmp, label %if.then5, label %if.end9
 
 if.then5:                                         ; preds = %do.body
-  %sqh_last = getelementptr inbounds %struct.anon, ptr %queue, i64 0, i32 1
+  %sqh_last = getelementptr inbounds i8, ptr %queue, i64 8
   store ptr %queue, ptr %sqh_last, align 8
   br label %if.end9
 
@@ -171,16 +161,16 @@ if.then13:                                        ; preds = %if.end9
   %lock.val = load ptr, ptr %lock, align 8
   %2 = getelementptr i8, ptr %lock, i64 16
   %lock.val10 = load ptr, ptr %2, align 8
-  tail call void %lock.val10(ptr noundef %lock.val) #10
-  tail call void @aio_co_wake(ptr noundef nonnull %0) #10
+  tail call void %lock.val10(ptr noundef %lock.val) #9
+  tail call void @aio_co_wake(ptr noundef nonnull %0) #9
   %lock.val11 = load ptr, ptr %lock, align 8
   %3 = getelementptr i8, ptr %lock, i64 8
   %lock.val12 = load ptr, ptr %3, align 8
-  tail call void %lock.val12(ptr noundef %lock.val11) #10
+  tail call void %lock.val12(ptr noundef %lock.val11) #9
   br label %return
 
 if.end17.critedge:                                ; preds = %if.end9
-  tail call void @aio_co_wake(ptr noundef nonnull %0) #10
+  tail call void @aio_co_wake(ptr noundef nonnull %0) #9
   br label %return
 
 return:                                           ; preds = %if.then13, %if.end17.critedge, %entry
@@ -190,27 +180,27 @@ return:                                           ; preds = %if.then13, %if.end1
 declare void @aio_co_wake(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local zeroext i1 @qemu_co_queue_next(ptr noundef %queue) #1 {
+define dso_local noundef zeroext i1 @qemu_co_queue_next(ptr noundef %queue) #1 {
 entry:
   %0 = load ptr, ptr %queue, align 8
   %tobool.not.i = icmp ne ptr %0, null
   br i1 %tobool.not.i, label %do.body.i, label %qemu_co_enter_next_impl.exit
 
 do.body.i:                                        ; preds = %entry
-  %co_queue_next.i = getelementptr inbounds %struct.Coroutine, ptr %0, i64 0, i32 7
+  %co_queue_next.i = getelementptr inbounds i8, ptr %0, i64 56
   %1 = load ptr, ptr %co_queue_next.i, align 8
   store ptr %1, ptr %queue, align 8
   %cmp.i = icmp eq ptr %1, null
   br i1 %cmp.i, label %if.then5.i, label %if.end9.i
 
 if.then5.i:                                       ; preds = %do.body.i
-  %sqh_last.i = getelementptr inbounds %struct.anon, ptr %queue, i64 0, i32 1
+  %sqh_last.i = getelementptr inbounds i8, ptr %queue, i64 8
   store ptr %queue, ptr %sqh_last.i, align 8
   br label %if.end9.i
 
 if.end9.i:                                        ; preds = %if.then5.i, %do.body.i
   store ptr null, ptr %co_queue_next.i, align 8
-  tail call void @aio_co_wake(ptr noundef nonnull %0) #10
+  tail call void @aio_co_wake(ptr noundef nonnull %0) #9
   br label %qemu_co_enter_next_impl.exit
 
 qemu_co_enter_next_impl.exit:                     ; preds = %entry, %if.end9.i
@@ -225,7 +215,7 @@ entry:
   br i1 %tobool.not.i.not1, label %while.end, label %do.body.i.lr.ph
 
 do.body.i.lr.ph:                                  ; preds = %entry
-  %sqh_last.i = getelementptr inbounds %struct.anon, ptr %queue, i64 0, i32 1
+  %sqh_last.i = getelementptr inbounds i8, ptr %queue, i64 8
   %tobool12.not.i = icmp eq ptr %lock, null
   %1 = getelementptr i8, ptr %lock, i64 16
   %2 = getelementptr i8, ptr %lock, i64 8
@@ -233,7 +223,7 @@ do.body.i.lr.ph:                                  ; preds = %entry
 
 do.body.i.us:                                     ; preds = %do.body.i.lr.ph, %if.end9.i.us
   %3 = phi ptr [ %5, %if.end9.i.us ], [ %0, %do.body.i.lr.ph ]
-  %co_queue_next.i.us = getelementptr inbounds %struct.Coroutine, ptr %3, i64 0, i32 7
+  %co_queue_next.i.us = getelementptr inbounds i8, ptr %3, i64 56
   %4 = load ptr, ptr %co_queue_next.i.us, align 8
   store ptr %4, ptr %queue, align 8
   %cmp.i.us = icmp eq ptr %4, null
@@ -245,14 +235,14 @@ if.then5.i.us:                                    ; preds = %do.body.i.us
 
 if.end9.i.us:                                     ; preds = %if.then5.i.us, %do.body.i.us
   store ptr null, ptr %co_queue_next.i.us, align 8
-  tail call void @aio_co_wake(ptr noundef nonnull %3) #10
+  tail call void @aio_co_wake(ptr noundef nonnull %3) #9
   %5 = load ptr, ptr %queue, align 8
   %tobool.not.i.not.us = icmp eq ptr %5, null
   br i1 %tobool.not.i.not.us, label %while.end, label %do.body.i.us, !llvm.loop !5
 
 do.body.i:                                        ; preds = %do.body.i.lr.ph, %if.end9.i
   %6 = phi ptr [ %8, %if.end9.i ], [ %0, %do.body.i.lr.ph ]
-  %co_queue_next.i = getelementptr inbounds %struct.Coroutine, ptr %6, i64 0, i32 7
+  %co_queue_next.i = getelementptr inbounds i8, ptr %6, i64 56
   %7 = load ptr, ptr %co_queue_next.i, align 8
   store ptr %7, ptr %queue, align 8
   %cmp.i = icmp eq ptr %7, null
@@ -266,11 +256,11 @@ if.end9.i:                                        ; preds = %if.then5.i, %do.bod
   store ptr null, ptr %co_queue_next.i, align 8
   %lock.val.i = load ptr, ptr %lock, align 8
   %lock.val10.i = load ptr, ptr %1, align 8
-  tail call void %lock.val10.i(ptr noundef %lock.val.i) #10
-  tail call void @aio_co_wake(ptr noundef nonnull %6) #10
+  tail call void %lock.val10.i(ptr noundef %lock.val.i) #9
+  tail call void @aio_co_wake(ptr noundef nonnull %6) #9
   %lock.val11.i = load ptr, ptr %lock, align 8
   %lock.val12.i = load ptr, ptr %2, align 8
-  tail call void %lock.val12.i(ptr noundef %lock.val11.i) #10
+  tail call void %lock.val12.i(ptr noundef %lock.val11.i) #9
   %8 = load ptr, ptr %queue, align 8
   %tobool.not.i.not = icmp eq ptr %8, null
   br i1 %tobool.not.i.not, label %while.end, label %do.body.i, !llvm.loop !5
@@ -287,12 +277,12 @@ entry:
   br i1 %tobool.not.i.not1.i, label %qemu_co_enter_all_impl.exit, label %do.body.i.lr.ph.i
 
 do.body.i.lr.ph.i:                                ; preds = %entry
-  %sqh_last.i.i = getelementptr inbounds %struct.anon, ptr %queue, i64 0, i32 1
+  %sqh_last.i.i = getelementptr inbounds i8, ptr %queue, i64 8
   br label %do.body.i.us.i
 
 do.body.i.us.i:                                   ; preds = %if.end9.i.us.i, %do.body.i.lr.ph.i
   %1 = phi ptr [ %3, %if.end9.i.us.i ], [ %0, %do.body.i.lr.ph.i ]
-  %co_queue_next.i.us.i = getelementptr inbounds %struct.Coroutine, ptr %1, i64 0, i32 7
+  %co_queue_next.i.us.i = getelementptr inbounds i8, ptr %1, i64 56
   %2 = load ptr, ptr %co_queue_next.i.us.i, align 8
   store ptr %2, ptr %queue, align 8
   %cmp.i.us.i = icmp eq ptr %2, null
@@ -304,7 +294,7 @@ if.then5.i.us.i:                                  ; preds = %do.body.i.us.i
 
 if.end9.i.us.i:                                   ; preds = %if.then5.i.us.i, %do.body.i.us.i
   store ptr null, ptr %co_queue_next.i.us.i, align 8
-  tail call void @aio_co_wake(ptr noundef nonnull %1) #10
+  tail call void @aio_co_wake(ptr noundef nonnull %1) #9
   %3 = load ptr, ptr %queue, align 8
   %tobool.not.i.not.us.i = icmp eq ptr %3, null
   br i1 %tobool.not.i.not.us.i, label %qemu_co_enter_all_impl.exit, label %do.body.i.us.i, !llvm.loop !5
@@ -321,28 +311,28 @@ entry:
   ret i1 %cmp
 }
 
-; Function Attrs: mustprogress nofree nosync nounwind sspstrong willreturn memory(argmem: write) uwtable
-define dso_local void @qemu_co_mutex_init(ptr nocapture noundef writeonly %mutex) local_unnamed_addr #5 {
+; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(argmem: write) uwtable
+define dso_local void @qemu_co_mutex_init(ptr nocapture noundef writeonly %mutex) local_unnamed_addr #0 {
 entry:
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %mutex, i8 0, i64 48, i1 false)
   ret void
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #6
+declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #5
 
 ; Function Attrs: nounwind sspstrong uwtable
 define dso_local void @qemu_co_mutex_lock(ptr noundef %mutex) #1 {
 entry:
   %_now.i.i = alloca %struct.timeval, align 8
-  %call = tail call ptr @qemu_get_current_aio_context() #10
-  %call1 = tail call ptr @qemu_coroutine_self() #10
+  %call = tail call ptr @qemu_get_current_aio_context() #9
+  %call1 = tail call ptr @qemu_coroutine_self() #9
   %0 = cmpxchg ptr %mutex, i32 0, i32 1 seq_cst seq_cst, align 8
   %cmp.not19 = extractvalue { i32, i1 } %0, 1
   br i1 %cmp.not19, label %if.then33, label %while.cond3.preheader.lr.ph
 
 while.cond3.preheader.lr.ph:                      ; preds = %entry
-  %ctx13 = getelementptr inbounds %struct.CoMutex, ptr %mutex, i64 0, i32 1
+  %ctx13 = getelementptr inbounds i8, ptr %mutex, i64 8
   br label %while.cond3.preheader
 
 retry_fast_path.loopexit:                         ; preds = %while.end20.us
@@ -373,7 +363,7 @@ while.end20.us:                                   ; preds = %while.end11.us
   br i1 %cmp24.us, label %retry_fast_path.loopexit, label %if.end26.us
 
 if.end26.us:                                      ; preds = %while.end20.us
-  tail call void asm sideeffect "rep; nop", "~{memory},~{dirflag},~{fpsr},~{flags}"() #10, !srcloc !7
+  tail call void asm sideeffect "rep; nop", "~{memory},~{dirflag},~{fpsr},~{flags}"() #9, !srcloc !7
   %inc.us = add nsw i32 %inc.us18, 1
   %exitcond.not = icmp eq i32 %inc.us, 1000
   br i1 %exitcond.not, label %while.end27, label %while.end11.us
@@ -405,21 +395,21 @@ if.then.i.i:                                      ; preds = %land.lhs.true5.i.i
   br i1 %tobool7.not.i.i, label %if.else.i.i, label %if.then8.i.i
 
 if.then8.i.i:                                     ; preds = %if.then.i.i
-  %call9.i.i = call i32 @gettimeofday(ptr noundef nonnull %_now.i.i, ptr noundef null) #10
-  %call10.i.i = tail call i32 @qemu_get_thread_id() #10
+  %call9.i.i = call i32 @gettimeofday(ptr noundef nonnull %_now.i.i, ptr noundef null) #9
+  %call10.i.i = tail call i32 @qemu_get_thread_id() #9
   %13 = load i64, ptr %_now.i.i, align 8
-  %tv_usec.i.i = getelementptr inbounds %struct.timeval, ptr %_now.i.i, i64 0, i32 1
+  %tv_usec.i.i = getelementptr inbounds i8, ptr %_now.i.i, i64 8
   %14 = load i64, ptr %tv_usec.i.i, align 8
-  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.7, i32 noundef %call10.i.i, i64 noundef %13, i64 noundef %14, ptr noundef %mutex, ptr noundef %call1) #10
+  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.7, i32 noundef %call10.i.i, i64 noundef %13, i64 noundef %14, ptr noundef %mutex, ptr noundef %call1) #9
   br label %trace_qemu_co_mutex_lock_uncontended.exit
 
 if.else.i.i:                                      ; preds = %if.then.i.i
-  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.8, ptr noundef %mutex, ptr noundef %call1) #10
+  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.8, ptr noundef %mutex, ptr noundef %call1) #9
   br label %trace_qemu_co_mutex_lock_uncontended.exit
 
 trace_qemu_co_mutex_lock_uncontended.exit:        ; preds = %if.then33, %land.lhs.true5.i.i, %if.then8.i.i, %if.else.i.i
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %_now.i.i)
-  %ctx34 = getelementptr inbounds %struct.CoMutex, ptr %mutex, i64 0, i32 1
+  %ctx34 = getelementptr inbounds i8, ptr %mutex, i64 8
   store ptr %call, ptr %ctx34, align 8
   br label %if.end35
 
@@ -428,9 +418,9 @@ if.else:                                          ; preds = %while.end27
   br label %if.end35
 
 if.end35:                                         ; preds = %if.else, %trace_qemu_co_mutex_lock_uncontended.exit
-  %holder = getelementptr inbounds %struct.CoMutex, ptr %mutex, i64 0, i32 6
+  %holder = getelementptr inbounds i8, ptr %mutex, i64 40
   store ptr %call1, ptr %holder, align 8
-  %locks_held = getelementptr inbounds %struct.Coroutine, ptr %call1, i64 0, i32 4
+  %locks_held = getelementptr inbounds i8, ptr %call1, i64 32
   %15 = load i64, ptr %locks_held, align 8
   %inc36 = add i64 %15, 1
   store i64 %inc36, ptr %locks_held, align 8
@@ -445,7 +435,7 @@ entry:
   %_now.i.i21 = alloca %struct.timeval, align 8
   %_now.i.i = alloca %struct.timeval, align 8
   %w = alloca %struct.CoWaitRecord, align 8
-  %call = tail call ptr @qemu_coroutine_self() #10
+  %call = tail call ptr @qemu_coroutine_self() #9
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %_now.i.i)
   %0 = load i32, ptr @trace_events_enabled_count, align 4
   %tobool.i.i = icmp ne i32 %0, 0
@@ -467,24 +457,24 @@ if.then.i.i:                                      ; preds = %land.lhs.true5.i.i
   br i1 %tobool7.not.i.i, label %if.else.i.i, label %if.then8.i.i
 
 if.then8.i.i:                                     ; preds = %if.then.i.i
-  %call9.i.i = call i32 @gettimeofday(ptr noundef nonnull %_now.i.i, ptr noundef null) #10
-  %call10.i.i = tail call i32 @qemu_get_thread_id() #10
+  %call9.i.i = call i32 @gettimeofday(ptr noundef nonnull %_now.i.i, ptr noundef null) #9
+  %call10.i.i = tail call i32 @qemu_get_thread_id() #9
   %5 = load i64, ptr %_now.i.i, align 8
-  %tv_usec.i.i = getelementptr inbounds %struct.timeval, ptr %_now.i.i, i64 0, i32 1
+  %tv_usec.i.i = getelementptr inbounds i8, ptr %_now.i.i, i64 8
   %6 = load i64, ptr %tv_usec.i.i, align 8
-  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.10, i32 noundef %call10.i.i, i64 noundef %5, i64 noundef %6, ptr noundef %mutex, ptr noundef %call) #10
+  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.10, i32 noundef %call10.i.i, i64 noundef %5, i64 noundef %6, ptr noundef %mutex, ptr noundef %call) #9
   br label %trace_qemu_co_mutex_lock_entry.exit
 
 if.else.i.i:                                      ; preds = %if.then.i.i
-  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.11, ptr noundef %mutex, ptr noundef %call) #10
+  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.11, ptr noundef %mutex, ptr noundef %call) #9
   br label %trace_qemu_co_mutex_lock_entry.exit
 
 trace_qemu_co_mutex_lock_entry.exit:              ; preds = %entry, %land.lhs.true5.i.i, %if.then8.i.i, %if.else.i.i
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %_now.i.i)
-  %call.i = tail call ptr @qemu_coroutine_self() #10
+  %call.i = tail call ptr @qemu_coroutine_self() #9
   store ptr %call.i, ptr %w, align 8
-  %from_push.i = getelementptr inbounds %struct.CoMutex, ptr %mutex, i64 0, i32 2
-  %next.i = getelementptr inbounds %struct.CoWaitRecord, ptr %w, i64 0, i32 1
+  %from_push.i = getelementptr inbounds i8, ptr %mutex, i64 16
+  %next.i = getelementptr inbounds i8, ptr %w, i64 8
   %7 = ptrtoint ptr %w to i64
   br label %do.body1.i
 
@@ -502,13 +492,13 @@ do.body1.i:                                       ; preds = %do.body1.i, %trace_
 
 push_waiter.exit:                                 ; preds = %do.body1.i
   fence syncscope("singlethread") seq_cst
-  %handoff = getelementptr inbounds %struct.CoMutex, ptr %mutex, i64 0, i32 4
+  %handoff = getelementptr inbounds i8, ptr %mutex, i64 32
   %14 = load atomic i32, ptr %handoff monotonic, align 8
   %tobool.not = icmp eq i32 %14, 0
   br i1 %tobool.not, label %if.end20, label %land.lhs.true
 
 land.lhs.true:                                    ; preds = %push_waiter.exit
-  %to_pop.i = getelementptr inbounds %struct.CoMutex, ptr %mutex, i64 0, i32 3
+  %to_pop.i = getelementptr inbounds i8, ptr %mutex, i64 24
   %15 = load ptr, ptr %to_pop.i, align 8
   %cmp.i = icmp eq ptr %15, null
   br i1 %cmp.i, label %while.end7, label %has_waiters.exit
@@ -539,7 +529,7 @@ while.body7.lr.ph.i.i:                            ; preds = %if.then.i
 
 while.body7.i.i:                                  ; preds = %while.body7.i.i, %while.body7.lr.ph.i.i
   %reversed.sroa.0.08.i.i = phi ptr [ %20, %while.body7.lr.ph.i.i ], [ %21, %while.body7.i.i ]
-  %next.i.i = getelementptr inbounds %struct.CoWaitRecord, ptr %reversed.sroa.0.08.i.i, i64 0, i32 1
+  %next.i.i = getelementptr inbounds i8, ptr %reversed.sroa.0.08.i.i, i64 8
   %21 = load ptr, ptr %next.i.i, align 8
   store ptr null, ptr %next.i.i, align 8
   %22 = load ptr, ptr %to_pop.i, align 8
@@ -555,7 +545,7 @@ move_waiters.exit.i:                              ; preds = %if.then.i
 
 if.end5.i:                                        ; preds = %while.body7.i.i, %move_waiters.exit.i, %if.then
   %23 = phi ptr [ %.pr.i, %move_waiters.exit.i ], [ %18, %if.then ], [ %reversed.sroa.0.08.i.i, %while.body7.i.i ]
-  %next.i20 = getelementptr inbounds %struct.CoWaitRecord, ptr %23, i64 0, i32 1
+  %next.i20 = getelementptr inbounds i8, ptr %23, i64 8
   %24 = load ptr, ptr %next.i20, align 8
   store ptr %24, ptr %to_pop.i, align 8
   store ptr null, ptr %next.i20, align 8
@@ -572,25 +562,25 @@ if.then15:                                        ; preds = %pop_waiter.exit
   br i1 %cmp16, label %if.end, label %if.else
 
 if.else:                                          ; preds = %if.then15
-  call void @__assert_fail(ptr noundef nonnull @.str.9, ptr noundef nonnull @.str.1, i32 noundef 224, ptr noundef nonnull @__PRETTY_FUNCTION__.qemu_co_mutex_lock_slowpath) #11
+  call void @__assert_fail(ptr noundef nonnull @.str.9, ptr noundef nonnull @.str.1, i32 noundef 224, ptr noundef nonnull @__PRETTY_FUNCTION__.qemu_co_mutex_lock_slowpath) #10
   unreachable
 
 if.end:                                           ; preds = %if.then15
-  %ctx18 = getelementptr inbounds %struct.CoMutex, ptr %mutex, i64 0, i32 1
+  %ctx18 = getelementptr inbounds i8, ptr %mutex, i64 8
   store ptr %ctx, ptr %ctx18, align 8
   br label %return
 
 if.end19:                                         ; preds = %pop_waiter.exit
-  call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #10, !srcloc !10
-  %ctx.i = getelementptr inbounds %struct.Coroutine, ptr %25, i64 0, i32 5
+  call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #9, !srcloc !10
+  %ctx.i = getelementptr inbounds i8, ptr %25, i64 40
   %26 = load ptr, ptr %ctx.i, align 8
-  %ctx1.i = getelementptr inbounds %struct.CoMutex, ptr %mutex, i64 0, i32 1
+  %ctx1.i = getelementptr inbounds i8, ptr %mutex, i64 8
   store ptr %26, ptr %ctx1.i, align 8
-  call void @aio_co_wake(ptr noundef %25) #10
+  call void @aio_co_wake(ptr noundef %25) #9
   br label %if.end20
 
 if.end20:                                         ; preds = %if.end19, %while.end7, %has_waiters.exit, %push_waiter.exit
-  call void @qemu_coroutine_yield() #10
+  call void @qemu_coroutine_yield() #9
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %_now.i.i21)
   %27 = load i32, ptr @trace_events_enabled_count, align 4
   %tobool.i.i22 = icmp ne i32 %27, 0
@@ -612,16 +602,16 @@ if.then.i.i28:                                    ; preds = %land.lhs.true5.i.i2
   br i1 %tobool7.not.i.i29, label %if.else.i.i34, label %if.then8.i.i30
 
 if.then8.i.i30:                                   ; preds = %if.then.i.i28
-  %call9.i.i31 = call i32 @gettimeofday(ptr noundef nonnull %_now.i.i21, ptr noundef null) #10
-  %call10.i.i32 = call i32 @qemu_get_thread_id() #10
+  %call9.i.i31 = call i32 @gettimeofday(ptr noundef nonnull %_now.i.i21, ptr noundef null) #9
+  %call10.i.i32 = call i32 @qemu_get_thread_id() #9
   %32 = load i64, ptr %_now.i.i21, align 8
-  %tv_usec.i.i33 = getelementptr inbounds %struct.timeval, ptr %_now.i.i21, i64 0, i32 1
+  %tv_usec.i.i33 = getelementptr inbounds i8, ptr %_now.i.i21, i64 8
   %33 = load i64, ptr %tv_usec.i.i33, align 8
-  call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.12, i32 noundef %call10.i.i32, i64 noundef %32, i64 noundef %33, ptr noundef nonnull %mutex, ptr noundef %call) #10
+  call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.12, i32 noundef %call10.i.i32, i64 noundef %32, i64 noundef %33, ptr noundef nonnull %mutex, ptr noundef %call) #9
   br label %trace_qemu_co_mutex_lock_return.exit
 
 if.else.i.i34:                                    ; preds = %if.then.i.i28
-  call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.13, ptr noundef nonnull %mutex, ptr noundef %call) #10
+  call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.13, ptr noundef nonnull %mutex, ptr noundef %call) #9
   br label %trace_qemu_co_mutex_lock_return.exit
 
 trace_qemu_co_mutex_lock_return.exit:             ; preds = %if.end20, %land.lhs.true5.i.i25, %if.then8.i.i30, %if.else.i.i34
@@ -637,7 +627,7 @@ define dso_local void @qemu_co_mutex_unlock(ptr noundef %mutex) #1 {
 entry:
   %_now.i.i25 = alloca %struct.timeval, align 8
   %_now.i.i = alloca %struct.timeval, align 8
-  %call = tail call ptr @qemu_coroutine_self() #10
+  %call = tail call ptr @qemu_coroutine_self() #9
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %_now.i.i)
   %0 = load i32, ptr @trace_events_enabled_count, align 4
   %tobool.i.i = icmp ne i32 %0, 0
@@ -659,16 +649,16 @@ if.then.i.i:                                      ; preds = %land.lhs.true5.i.i
   br i1 %tobool7.not.i.i, label %if.else.i.i, label %if.then8.i.i
 
 if.then8.i.i:                                     ; preds = %if.then.i.i
-  %call9.i.i = call i32 @gettimeofday(ptr noundef nonnull %_now.i.i, ptr noundef null) #10
-  %call10.i.i = tail call i32 @qemu_get_thread_id() #10
+  %call9.i.i = call i32 @gettimeofday(ptr noundef nonnull %_now.i.i, ptr noundef null) #9
+  %call10.i.i = tail call i32 @qemu_get_thread_id() #9
   %5 = load i64, ptr %_now.i.i, align 8
-  %tv_usec.i.i = getelementptr inbounds %struct.timeval, ptr %_now.i.i, i64 0, i32 1
+  %tv_usec.i.i = getelementptr inbounds i8, ptr %_now.i.i, i64 8
   %6 = load i64, ptr %tv_usec.i.i, align 8
-  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.14, i32 noundef %call10.i.i, i64 noundef %5, i64 noundef %6, ptr noundef %mutex, ptr noundef %call) #10
+  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.14, i32 noundef %call10.i.i, i64 noundef %5, i64 noundef %6, ptr noundef %mutex, ptr noundef %call) #9
   br label %trace_qemu_co_mutex_unlock_entry.exit
 
 if.else.i.i:                                      ; preds = %if.then.i.i
-  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.15, ptr noundef %mutex, ptr noundef %call) #10
+  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.15, ptr noundef %mutex, ptr noundef %call) #9
   br label %trace_qemu_co_mutex_unlock_entry.exit
 
 trace_qemu_co_mutex_unlock_entry.exit:            ; preds = %entry, %land.lhs.true5.i.i, %if.then8.i.i, %if.else.i.i
@@ -678,32 +668,32 @@ trace_qemu_co_mutex_unlock_entry.exit:            ; preds = %entry, %land.lhs.tr
   br i1 %tobool.not, label %if.else, label %if.end
 
 if.else:                                          ; preds = %trace_qemu_co_mutex_unlock_entry.exit
-  tail call void @__assert_fail(ptr noundef nonnull @.str.2, ptr noundef nonnull @.str.1, i32 noundef 282, ptr noundef nonnull @__PRETTY_FUNCTION__.qemu_co_mutex_unlock) #11
+  tail call void @__assert_fail(ptr noundef nonnull @.str.2, ptr noundef nonnull @.str.1, i32 noundef 282, ptr noundef nonnull @__PRETTY_FUNCTION__.qemu_co_mutex_unlock) #10
   unreachable
 
 if.end:                                           ; preds = %trace_qemu_co_mutex_unlock_entry.exit
-  %holder = getelementptr inbounds %struct.CoMutex, ptr %mutex, i64 0, i32 6
+  %holder = getelementptr inbounds i8, ptr %mutex, i64 40
   %8 = load ptr, ptr %holder, align 8
   %cmp = icmp eq ptr %8, %call
   br i1 %cmp, label %if.end3, label %if.else2
 
 if.else2:                                         ; preds = %if.end
-  tail call void @__assert_fail(ptr noundef nonnull @.str.3, ptr noundef nonnull @.str.1, i32 noundef 283, ptr noundef nonnull @__PRETTY_FUNCTION__.qemu_co_mutex_unlock) #11
+  tail call void @__assert_fail(ptr noundef nonnull @.str.3, ptr noundef nonnull @.str.1, i32 noundef 283, ptr noundef nonnull @__PRETTY_FUNCTION__.qemu_co_mutex_unlock) #10
   unreachable
 
 if.end3:                                          ; preds = %if.end
-  %call4 = tail call zeroext i1 @qemu_in_coroutine() #10
+  %call4 = tail call zeroext i1 @qemu_in_coroutine() #9
   br i1 %call4, label %if.end7, label %if.else6
 
 if.else6:                                         ; preds = %if.end3
-  tail call void @__assert_fail(ptr noundef nonnull @.str, ptr noundef nonnull @.str.1, i32 noundef 284, ptr noundef nonnull @__PRETTY_FUNCTION__.qemu_co_mutex_unlock) #11
+  tail call void @__assert_fail(ptr noundef nonnull @.str, ptr noundef nonnull @.str.1, i32 noundef 284, ptr noundef nonnull @__PRETTY_FUNCTION__.qemu_co_mutex_unlock) #10
   unreachable
 
 if.end7:                                          ; preds = %if.end3
-  %ctx = getelementptr inbounds %struct.CoMutex, ptr %mutex, i64 0, i32 1
+  %ctx = getelementptr inbounds i8, ptr %mutex, i64 8
   store ptr null, ptr %ctx, align 8
   store ptr null, ptr %holder, align 8
-  %locks_held = getelementptr inbounds %struct.Coroutine, ptr %call, i64 0, i32 4
+  %locks_held = getelementptr inbounds i8, ptr %call, i64 32
   %9 = load i64, ptr %locks_held, align 8
   %dec = add i64 %9, -1
   store i64 %dec, ptr %locks_held, align 8
@@ -712,10 +702,10 @@ if.end7:                                          ; preds = %if.end3
   br i1 %cmp10, label %return, label %for.cond.preheader
 
 for.cond.preheader:                               ; preds = %if.end7
-  %to_pop.i = getelementptr inbounds %struct.CoMutex, ptr %mutex, i64 0, i32 3
-  %from_push.i.i = getelementptr inbounds %struct.CoMutex, ptr %mutex, i64 0, i32 2
-  %sequence = getelementptr inbounds %struct.CoMutex, ptr %mutex, i64 0, i32 5
-  %handoff = getelementptr inbounds %struct.CoMutex, ptr %mutex, i64 0, i32 4
+  %to_pop.i = getelementptr inbounds i8, ptr %mutex, i64 24
+  %from_push.i.i = getelementptr inbounds i8, ptr %mutex, i64 16
+  %sequence = getelementptr inbounds i8, ptr %mutex, i64 36
+  %handoff = getelementptr inbounds i8, ptr %mutex, i64 32
   br label %for.cond
 
 for.cond:                                         ; preds = %for.cond.preheader, %while.end32
@@ -734,7 +724,7 @@ while.body7.lr.ph.i.i:                            ; preds = %if.then.i
 
 while.body7.i.i:                                  ; preds = %while.body7.i.i, %while.body7.lr.ph.i.i
   %reversed.sroa.0.08.i.i = phi ptr [ %13, %while.body7.lr.ph.i.i ], [ %14, %while.body7.i.i ]
-  %next.i.i = getelementptr inbounds %struct.CoWaitRecord, ptr %reversed.sroa.0.08.i.i, i64 0, i32 1
+  %next.i.i = getelementptr inbounds i8, ptr %reversed.sroa.0.08.i.i, i64 8
   %14 = load ptr, ptr %next.i.i, align 8
   store ptr null, ptr %next.i.i, align 8
   %15 = load ptr, ptr %to_pop.i, align 8
@@ -750,16 +740,16 @@ move_waiters.exit.i:                              ; preds = %if.then.i
 
 if.then15:                                        ; preds = %move_waiters.exit.i, %for.cond, %while.body7.i.i
   %16 = phi ptr [ %reversed.sroa.0.08.i.i, %while.body7.i.i ], [ %11, %for.cond ], [ %.pr.i, %move_waiters.exit.i ]
-  %next.i = getelementptr inbounds %struct.CoWaitRecord, ptr %16, i64 0, i32 1
+  %next.i = getelementptr inbounds i8, ptr %16, i64 8
   %17 = load ptr, ptr %next.i, align 8
   store ptr %17, ptr %to_pop.i, align 8
   store ptr null, ptr %next.i, align 8
   %18 = load ptr, ptr %16, align 8
-  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #10, !srcloc !10
-  %ctx.i = getelementptr inbounds %struct.Coroutine, ptr %18, i64 0, i32 5
+  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #9, !srcloc !10
+  %ctx.i = getelementptr inbounds i8, ptr %18, i64 40
   %19 = load ptr, ptr %ctx.i, align 8
   store ptr %19, ptr %ctx, align 8
-  tail call void @aio_co_wake(ptr noundef %18) #10
+  tail call void @aio_co_wake(ptr noundef %18) #9
   br label %for.end
 
 if.end16:                                         ; preds = %move_waiters.exit.i
@@ -805,16 +795,16 @@ if.then.i.i32:                                    ; preds = %land.lhs.true5.i.i2
   br i1 %tobool7.not.i.i33, label %if.else.i.i38, label %if.then8.i.i34
 
 if.then8.i.i34:                                   ; preds = %if.then.i.i32
-  %call9.i.i35 = call i32 @gettimeofday(ptr noundef nonnull %_now.i.i25, ptr noundef null) #10
-  %call10.i.i36 = tail call i32 @qemu_get_thread_id() #10
+  %call9.i.i35 = call i32 @gettimeofday(ptr noundef nonnull %_now.i.i25, ptr noundef null) #9
+  %call10.i.i36 = tail call i32 @qemu_get_thread_id() #9
   %30 = load i64, ptr %_now.i.i25, align 8
-  %tv_usec.i.i37 = getelementptr inbounds %struct.timeval, ptr %_now.i.i25, i64 0, i32 1
+  %tv_usec.i.i37 = getelementptr inbounds i8, ptr %_now.i.i25, i64 8
   %31 = load i64, ptr %tv_usec.i.i37, align 8
-  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.16, i32 noundef %call10.i.i36, i64 noundef %30, i64 noundef %31, ptr noundef nonnull %mutex, ptr noundef %call) #10
+  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.16, i32 noundef %call10.i.i36, i64 noundef %30, i64 noundef %31, ptr noundef nonnull %mutex, ptr noundef %call) #9
   br label %trace_qemu_co_mutex_unlock_return.exit
 
 if.else.i.i38:                                    ; preds = %if.then.i.i32
-  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.17, ptr noundef nonnull %mutex, ptr noundef %call) #10
+  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.17, ptr noundef nonnull %mutex, ptr noundef %call) #9
   br label %trace_qemu_co_mutex_unlock_return.exit
 
 trace_qemu_co_mutex_unlock_return.exit:           ; preds = %for.end, %land.lhs.true5.i.i29, %if.then8.i.i34, %if.else.i.i38
@@ -828,21 +818,21 @@ return:                                           ; preds = %if.end7, %trace_qem
 ; Function Attrs: nounwind sspstrong uwtable
 define internal void @qemu_co_mutex_wake(ptr nocapture noundef writeonly %mutex, ptr noundef %co) #1 {
 entry:
-  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #10, !srcloc !10
-  %ctx = getelementptr inbounds %struct.Coroutine, ptr %co, i64 0, i32 5
+  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #9, !srcloc !10
+  %ctx = getelementptr inbounds i8, ptr %co, i64 40
   %0 = load ptr, ptr %ctx, align 8
-  %ctx1 = getelementptr inbounds %struct.CoMutex, ptr %mutex, i64 0, i32 1
+  %ctx1 = getelementptr inbounds i8, ptr %mutex, i64 8
   store ptr %0, ptr %ctx1, align 8
-  tail call void @aio_co_wake(ptr noundef %co) #10
+  tail call void @aio_co_wake(ptr noundef %co) #9
   ret void
 }
 
-; Function Attrs: mustprogress nofree nosync nounwind sspstrong willreturn memory(argmem: write) uwtable
-define dso_local void @qemu_co_rwlock_init(ptr noundef %lock) local_unnamed_addr #5 {
+; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(argmem: write) uwtable
+define dso_local void @qemu_co_rwlock_init(ptr noundef %lock) local_unnamed_addr #0 {
 entry:
-  %tickets = getelementptr inbounds %struct.CoRwlock, ptr %lock, i64 0, i32 2
+  %tickets = getelementptr inbounds i8, ptr %lock, i64 56
   store ptr null, ptr %tickets, align 8
-  %sqh_last = getelementptr inbounds %struct.CoRwlock, ptr %lock, i64 0, i32 2, i32 1
+  %sqh_last = getelementptr inbounds i8, ptr %lock, i64 64
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(52) %lock, i8 0, i64 52, i1 false)
   store ptr %tickets, ptr %sqh_last, align 8
   ret void
@@ -852,9 +842,9 @@ entry:
 define dso_local void @qemu_co_rwlock_rdlock(ptr noundef %lock) #1 {
 entry:
   %my_ticket = alloca %struct.CoRwTicket, align 8
-  %call = tail call ptr @qemu_coroutine_self() #10
+  %call = tail call ptr @qemu_coroutine_self() #9
   tail call void @qemu_co_mutex_lock(ptr noundef %lock)
-  %owners = getelementptr inbounds %struct.CoRwlock, ptr %lock, i64 0, i32 1
+  %owners = getelementptr inbounds i8, ptr %lock, i64 48
   %0 = load i32, ptr %owners, align 8
   %cmp = icmp eq i32 %0, 0
   br i1 %cmp, label %if.then, label %lor.lhs.false
@@ -864,7 +854,7 @@ lor.lhs.false:                                    ; preds = %entry
   br i1 %cmp2, label %land.lhs.true, label %if.else
 
 land.lhs.true:                                    ; preds = %lor.lhs.false
-  %tickets = getelementptr inbounds %struct.CoRwlock, ptr %lock, i64 0, i32 2
+  %tickets = getelementptr inbounds i8, ptr %lock, i64 56
   %1 = load ptr, ptr %tickets, align 8
   %cmp3 = icmp eq ptr %1, null
   br i1 %cmp3, label %if.then, label %if.else
@@ -877,27 +867,27 @@ if.then:                                          ; preds = %land.lhs.true, %ent
 
 if.else:                                          ; preds = %land.lhs.true, %lor.lhs.false
   store i8 1, ptr %my_ticket, align 8
-  %co = getelementptr inbounds %struct.CoRwTicket, ptr %my_ticket, i64 0, i32 1
+  %co = getelementptr inbounds i8, ptr %my_ticket, i64 8
   store ptr %call, ptr %co, align 8
-  %next = getelementptr inbounds %struct.CoRwTicket, ptr %my_ticket, i64 0, i32 2
+  %next = getelementptr inbounds i8, ptr %my_ticket, i64 16
   store ptr null, ptr %next, align 8
-  %sqh_last = getelementptr inbounds %struct.CoRwlock, ptr %lock, i64 0, i32 2, i32 1
+  %sqh_last = getelementptr inbounds i8, ptr %lock, i64 64
   %2 = load ptr, ptr %sqh_last, align 8
   store ptr %my_ticket, ptr %2, align 8
   store ptr %next, ptr %sqh_last, align 8
   call void @qemu_co_mutex_unlock(ptr noundef nonnull %lock)
-  call void @qemu_coroutine_yield() #10
+  call void @qemu_coroutine_yield() #9
   %3 = load i32, ptr %owners, align 8
   %cmp14 = icmp sgt i32 %3, 0
   br i1 %cmp14, label %if.end, label %if.else16
 
 if.else16:                                        ; preds = %if.else
-  call void @__assert_fail(ptr noundef nonnull @.str.4, ptr noundef nonnull @.str.1, i32 noundef 394, ptr noundef nonnull @__PRETTY_FUNCTION__.qemu_co_rwlock_rdlock) #11
+  call void @__assert_fail(ptr noundef nonnull @.str.4, ptr noundef nonnull @.str.1, i32 noundef 394, ptr noundef nonnull @__PRETTY_FUNCTION__.qemu_co_rwlock_rdlock) #10
   unreachable
 
 if.end:                                           ; preds = %if.else
   call void @qemu_co_mutex_lock(ptr noundef nonnull %lock)
-  %tickets.i = getelementptr inbounds %struct.CoRwlock, ptr %lock, i64 0, i32 2
+  %tickets.i = getelementptr inbounds i8, ptr %lock, i64 56
   %4 = load ptr, ptr %tickets.i, align 8
   %tobool.not.i = icmp eq ptr %4, null
   br i1 %tobool.not.i, label %if.else28.i, label %if.then.i
@@ -924,13 +914,13 @@ if.else.i:                                        ; preds = %if.then.i
 if.end13.i:                                       ; preds = %if.else.i, %if.then3.i
   %inc.sink.i = phi i32 [ %inc.i, %if.then3.i ], [ -1, %if.else.i ]
   store i32 %inc.sink.i, ptr %owners, align 8
-  %co.0.in.i = getelementptr inbounds %struct.CoRwTicket, ptr %4, i64 0, i32 1
+  %co.0.in.i = getelementptr inbounds i8, ptr %4, i64 8
   %co.0.i = load ptr, ptr %co.0.in.i, align 8
   %tobool14.not.i = icmp eq ptr %co.0.i, null
   br i1 %tobool14.not.i, label %if.else28.i, label %do.body.i
 
 do.body.i:                                        ; preds = %if.end13.i
-  %next.i = getelementptr inbounds %struct.CoRwTicket, ptr %4, i64 0, i32 2
+  %next.i = getelementptr inbounds i8, ptr %4, i64 16
   %8 = load ptr, ptr %next.i, align 8
   store ptr %8, ptr %tickets.i, align 8
   %cmp20.i = icmp eq ptr %8, null
@@ -943,7 +933,7 @@ if.then21.i:                                      ; preds = %do.body.i
 if.end25.i:                                       ; preds = %if.then21.i, %do.body.i
   store ptr null, ptr %next.i, align 8
   call void @qemu_co_mutex_unlock(ptr noundef nonnull %lock)
-  call void @aio_co_wake(ptr noundef nonnull %co.0.i) #10
+  call void @aio_co_wake(ptr noundef nonnull %co.0.i) #9
   br label %if.end18
 
 if.else28.i:                                      ; preds = %if.end13.i, %if.else.i, %if.then2.i, %if.end
@@ -951,7 +941,7 @@ if.else28.i:                                      ; preds = %if.end13.i, %if.els
   br label %if.end18
 
 if.end18:                                         ; preds = %if.else28.i, %if.end25.i, %if.then
-  %locks_held = getelementptr inbounds %struct.Coroutine, ptr %call, i64 0, i32 4
+  %locks_held = getelementptr inbounds i8, ptr %call, i64 32
   %9 = load i64, ptr %locks_held, align 8
   %inc19 = add i64 %9, 1
   store i64 %inc19, ptr %locks_held, align 8
@@ -961,7 +951,7 @@ if.end18:                                         ; preds = %if.else28.i, %if.en
 ; Function Attrs: nounwind sspstrong uwtable
 define internal void @qemu_co_rwlock_maybe_wake_one(ptr noundef %lock) #1 {
 entry:
-  %tickets = getelementptr inbounds %struct.CoRwlock, ptr %lock, i64 0, i32 2
+  %tickets = getelementptr inbounds i8, ptr %lock, i64 56
   %0 = load ptr, ptr %tickets, align 8
   %tobool.not = icmp eq ptr %0, null
   br i1 %tobool.not, label %if.else28, label %if.then
@@ -970,7 +960,7 @@ if.then:                                          ; preds = %entry
   %1 = load i8, ptr %0, align 8
   %2 = and i8 %1, 1
   %tobool1.not = icmp eq i8 %2, 0
-  %owners6 = getelementptr inbounds %struct.CoRwlock, ptr %lock, i64 0, i32 1
+  %owners6 = getelementptr inbounds i8, ptr %lock, i64 48
   %3 = load i32, ptr %owners6, align 8
   br i1 %tobool1.not, label %if.else, label %if.then2
 
@@ -989,27 +979,27 @@ if.else:                                          ; preds = %if.then
 if.end13:                                         ; preds = %if.else, %if.then3
   %inc.sink = phi i32 [ %inc, %if.then3 ], [ -1, %if.else ]
   store i32 %inc.sink, ptr %owners6, align 8
-  %co.0.in = getelementptr inbounds %struct.CoRwTicket, ptr %0, i64 0, i32 1
+  %co.0.in = getelementptr inbounds i8, ptr %0, i64 8
   %co.0 = load ptr, ptr %co.0.in, align 8
   %tobool14.not = icmp eq ptr %co.0, null
   br i1 %tobool14.not, label %if.else28, label %do.body
 
 do.body:                                          ; preds = %if.end13
-  %next = getelementptr inbounds %struct.CoRwTicket, ptr %0, i64 0, i32 2
+  %next = getelementptr inbounds i8, ptr %0, i64 16
   %4 = load ptr, ptr %next, align 8
   store ptr %4, ptr %tickets, align 8
   %cmp20 = icmp eq ptr %4, null
   br i1 %cmp20, label %if.then21, label %if.end25
 
 if.then21:                                        ; preds = %do.body
-  %sqh_last = getelementptr inbounds %struct.CoRwlock, ptr %lock, i64 0, i32 2, i32 1
+  %sqh_last = getelementptr inbounds i8, ptr %lock, i64 64
   store ptr %tickets, ptr %sqh_last, align 8
   br label %if.end25
 
 if.end25:                                         ; preds = %if.then21, %do.body
   store ptr null, ptr %next, align 8
   tail call void @qemu_co_mutex_unlock(ptr noundef nonnull %lock)
-  tail call void @aio_co_wake(ptr noundef nonnull %co.0) #10
+  tail call void @aio_co_wake(ptr noundef nonnull %co.0) #9
   br label %if.end30
 
 if.else28:                                        ; preds = %entry, %if.else, %if.then2, %if.end13
@@ -1023,21 +1013,21 @@ if.end30:                                         ; preds = %if.else28, %if.end2
 ; Function Attrs: nounwind sspstrong uwtable
 define dso_local void @qemu_co_rwlock_unlock(ptr noundef %lock) #1 {
 entry:
-  %call = tail call ptr @qemu_coroutine_self() #10
-  %call1 = tail call zeroext i1 @qemu_in_coroutine() #10
+  %call = tail call ptr @qemu_coroutine_self() #9
+  %call1 = tail call zeroext i1 @qemu_in_coroutine() #9
   br i1 %call1, label %if.end, label %if.else
 
 if.else:                                          ; preds = %entry
-  tail call void @__assert_fail(ptr noundef nonnull @.str, ptr noundef nonnull @.str.1, i32 noundef 408, ptr noundef nonnull @__PRETTY_FUNCTION__.qemu_co_rwlock_unlock) #11
+  tail call void @__assert_fail(ptr noundef nonnull @.str, ptr noundef nonnull @.str.1, i32 noundef 408, ptr noundef nonnull @__PRETTY_FUNCTION__.qemu_co_rwlock_unlock) #10
   unreachable
 
 if.end:                                           ; preds = %entry
-  %locks_held = getelementptr inbounds %struct.Coroutine, ptr %call, i64 0, i32 4
+  %locks_held = getelementptr inbounds i8, ptr %call, i64 32
   %0 = load i64, ptr %locks_held, align 8
   %dec = add i64 %0, -1
   store i64 %dec, ptr %locks_held, align 8
   tail call void @qemu_co_mutex_lock(ptr noundef %lock)
-  %owners = getelementptr inbounds %struct.CoRwlock, ptr %lock, i64 0, i32 1
+  %owners = getelementptr inbounds i8, ptr %lock, i64 48
   %1 = load i32, ptr %owners, align 8
   %cmp = icmp sgt i32 %1, 0
   br i1 %cmp, label %if.then2, label %if.else5
@@ -1051,13 +1041,13 @@ if.else5:                                         ; preds = %if.end
   br i1 %cmp7, label %if.end12, label %if.else9
 
 if.else9:                                         ; preds = %if.else5
-  tail call void @__assert_fail(ptr noundef nonnull @.str.5, ptr noundef nonnull @.str.1, i32 noundef 415, ptr noundef nonnull @__PRETTY_FUNCTION__.qemu_co_rwlock_unlock) #11
+  tail call void @__assert_fail(ptr noundef nonnull @.str.5, ptr noundef nonnull @.str.1, i32 noundef 415, ptr noundef nonnull @__PRETTY_FUNCTION__.qemu_co_rwlock_unlock) #10
   unreachable
 
 if.end12:                                         ; preds = %if.else5, %if.then2
   %storemerge = phi i32 [ %dec4, %if.then2 ], [ 0, %if.else5 ]
   store i32 %storemerge, ptr %owners, align 8
-  %tickets.i = getelementptr inbounds %struct.CoRwlock, ptr %lock, i64 0, i32 2
+  %tickets.i = getelementptr inbounds i8, ptr %lock, i64 56
   %2 = load ptr, ptr %tickets.i, align 8
   %tobool.not.i = icmp eq ptr %2, null
   br i1 %tobool.not.i, label %if.else28.i, label %if.then.i
@@ -1079,27 +1069,27 @@ if.else.i:                                        ; preds = %if.then.i
 if.end13.i:                                       ; preds = %if.else.i, %if.then3.i
   %inc.sink.i = phi i32 [ %inc.i, %if.then3.i ], [ -1, %if.else.i ]
   store i32 %inc.sink.i, ptr %owners, align 8
-  %co.0.in.i = getelementptr inbounds %struct.CoRwTicket, ptr %2, i64 0, i32 1
+  %co.0.in.i = getelementptr inbounds i8, ptr %2, i64 8
   %co.0.i = load ptr, ptr %co.0.in.i, align 8
   %tobool14.not.i = icmp eq ptr %co.0.i, null
   br i1 %tobool14.not.i, label %if.else28.i, label %do.body.i
 
 do.body.i:                                        ; preds = %if.end13.i
-  %next.i = getelementptr inbounds %struct.CoRwTicket, ptr %2, i64 0, i32 2
+  %next.i = getelementptr inbounds i8, ptr %2, i64 16
   %5 = load ptr, ptr %next.i, align 8
   store ptr %5, ptr %tickets.i, align 8
   %cmp20.i = icmp eq ptr %5, null
   br i1 %cmp20.i, label %if.then21.i, label %if.end25.i
 
 if.then21.i:                                      ; preds = %do.body.i
-  %sqh_last.i = getelementptr inbounds %struct.CoRwlock, ptr %lock, i64 0, i32 2, i32 1
+  %sqh_last.i = getelementptr inbounds i8, ptr %lock, i64 64
   store ptr %tickets.i, ptr %sqh_last.i, align 8
   br label %if.end25.i
 
 if.end25.i:                                       ; preds = %if.then21.i, %do.body.i
   store ptr null, ptr %next.i, align 8
   tail call void @qemu_co_mutex_unlock(ptr noundef nonnull %lock)
-  tail call void @aio_co_wake(ptr noundef nonnull %co.0.i) #10
+  tail call void @aio_co_wake(ptr noundef nonnull %co.0.i) #9
   br label %qemu_co_rwlock_maybe_wake_one.exit
 
 if.else28.i:                                      ; preds = %if.end13.i, %if.else.i, %if.end12
@@ -1114,18 +1104,18 @@ qemu_co_rwlock_maybe_wake_one.exit:               ; preds = %if.end25.i, %if.els
 define dso_local void @qemu_co_rwlock_downgrade(ptr noundef %lock) #1 {
 entry:
   tail call void @qemu_co_mutex_lock(ptr noundef %lock)
-  %owners = getelementptr inbounds %struct.CoRwlock, ptr %lock, i64 0, i32 1
+  %owners = getelementptr inbounds i8, ptr %lock, i64 48
   %0 = load i32, ptr %owners, align 8
   %cmp = icmp eq i32 %0, -1
   br i1 %cmp, label %if.end, label %if.else
 
 if.else:                                          ; preds = %entry
-  tail call void @__assert_fail(ptr noundef nonnull @.str.5, ptr noundef nonnull @.str.1, i32 noundef 425, ptr noundef nonnull @__PRETTY_FUNCTION__.qemu_co_rwlock_downgrade) #11
+  tail call void @__assert_fail(ptr noundef nonnull @.str.5, ptr noundef nonnull @.str.1, i32 noundef 425, ptr noundef nonnull @__PRETTY_FUNCTION__.qemu_co_rwlock_downgrade) #10
   unreachable
 
 if.end:                                           ; preds = %entry
   store i32 1, ptr %owners, align 8
-  %tickets.i = getelementptr inbounds %struct.CoRwlock, ptr %lock, i64 0, i32 2
+  %tickets.i = getelementptr inbounds i8, ptr %lock, i64 56
   %1 = load ptr, ptr %tickets.i, align 8
   %tobool.not.i = icmp eq ptr %1, null
   br i1 %tobool.not.i, label %if.else28.i, label %if.then.i
@@ -1138,27 +1128,27 @@ if.then.i:                                        ; preds = %if.end
 
 if.end13.i:                                       ; preds = %if.then.i
   store i32 2, ptr %owners, align 8
-  %co.0.in.i = getelementptr inbounds %struct.CoRwTicket, ptr %1, i64 0, i32 1
+  %co.0.in.i = getelementptr inbounds i8, ptr %1, i64 8
   %co.0.i = load ptr, ptr %co.0.in.i, align 8
   %tobool14.not.i = icmp eq ptr %co.0.i, null
   br i1 %tobool14.not.i, label %if.else28.i, label %do.body.i
 
 do.body.i:                                        ; preds = %if.end13.i
-  %next.i = getelementptr inbounds %struct.CoRwTicket, ptr %1, i64 0, i32 2
+  %next.i = getelementptr inbounds i8, ptr %1, i64 16
   %4 = load ptr, ptr %next.i, align 8
   store ptr %4, ptr %tickets.i, align 8
   %cmp20.i = icmp eq ptr %4, null
   br i1 %cmp20.i, label %if.then21.i, label %if.end25.i
 
 if.then21.i:                                      ; preds = %do.body.i
-  %sqh_last.i = getelementptr inbounds %struct.CoRwlock, ptr %lock, i64 0, i32 2, i32 1
+  %sqh_last.i = getelementptr inbounds i8, ptr %lock, i64 64
   store ptr %tickets.i, ptr %sqh_last.i, align 8
   br label %if.end25.i
 
 if.end25.i:                                       ; preds = %if.then21.i, %do.body.i
   store ptr null, ptr %next.i, align 8
   tail call void @qemu_co_mutex_unlock(ptr noundef nonnull %lock)
-  tail call void @aio_co_wake(ptr noundef nonnull %co.0.i) #10
+  tail call void @aio_co_wake(ptr noundef nonnull %co.0.i) #9
   br label %qemu_co_rwlock_maybe_wake_one.exit
 
 if.else28.i:                                      ; preds = %if.then.i, %if.end13.i, %if.end
@@ -1173,9 +1163,9 @@ qemu_co_rwlock_maybe_wake_one.exit:               ; preds = %if.end25.i, %if.els
 define dso_local void @qemu_co_rwlock_wrlock(ptr noundef %lock) #1 {
 entry:
   %my_ticket = alloca %struct.CoRwTicket, align 8
-  %call = tail call ptr @qemu_coroutine_self() #10
+  %call = tail call ptr @qemu_coroutine_self() #9
   tail call void @qemu_co_mutex_lock(ptr noundef %lock)
-  %owners = getelementptr inbounds %struct.CoRwlock, ptr %lock, i64 0, i32 1
+  %owners = getelementptr inbounds i8, ptr %lock, i64 48
   %0 = load i32, ptr %owners, align 8
   %cmp = icmp eq i32 %0, 0
   br i1 %cmp, label %if.then, label %if.else
@@ -1187,27 +1177,27 @@ if.then:                                          ; preds = %entry
 
 if.else:                                          ; preds = %entry
   store i8 0, ptr %my_ticket, align 8
-  %co = getelementptr inbounds %struct.CoRwTicket, ptr %my_ticket, i64 0, i32 1
-  %call3 = tail call ptr @qemu_coroutine_self() #10
+  %co = getelementptr inbounds i8, ptr %my_ticket, i64 8
+  %call3 = tail call ptr @qemu_coroutine_self() #9
   store ptr %call3, ptr %co, align 8
-  %next = getelementptr inbounds %struct.CoRwTicket, ptr %my_ticket, i64 0, i32 2
+  %next = getelementptr inbounds i8, ptr %my_ticket, i64 16
   store ptr null, ptr %next, align 8
-  %sqh_last = getelementptr inbounds %struct.CoRwlock, ptr %lock, i64 0, i32 2, i32 1
+  %sqh_last = getelementptr inbounds i8, ptr %lock, i64 64
   %1 = load ptr, ptr %sqh_last, align 8
   store ptr %my_ticket, ptr %1, align 8
   store ptr %next, ptr %sqh_last, align 8
   call void @qemu_co_mutex_unlock(ptr noundef nonnull %lock)
-  call void @qemu_coroutine_yield() #10
+  call void @qemu_coroutine_yield() #9
   %2 = load i32, ptr %owners, align 8
   %cmp11 = icmp eq i32 %2, -1
   br i1 %cmp11, label %if.end14, label %if.else13
 
 if.else13:                                        ; preds = %if.else
-  call void @__assert_fail(ptr noundef nonnull @.str.5, ptr noundef nonnull @.str.1, i32 noundef 446, ptr noundef nonnull @__PRETTY_FUNCTION__.qemu_co_rwlock_wrlock) #11
+  call void @__assert_fail(ptr noundef nonnull @.str.5, ptr noundef nonnull @.str.1, i32 noundef 446, ptr noundef nonnull @__PRETTY_FUNCTION__.qemu_co_rwlock_wrlock) #10
   unreachable
 
 if.end14:                                         ; preds = %if.else, %if.then
-  %locks_held = getelementptr inbounds %struct.Coroutine, ptr %call, i64 0, i32 4
+  %locks_held = getelementptr inbounds i8, ptr %call, i64 32
   %3 = load i64, ptr %locks_held, align 8
   %inc = add i64 %3, 1
   store i64 %inc, ptr %locks_held, align 8
@@ -1219,13 +1209,13 @@ define dso_local void @qemu_co_rwlock_upgrade(ptr noundef %lock) #1 {
 entry:
   %my_ticket = alloca %struct.CoRwTicket, align 8
   tail call void @qemu_co_mutex_lock(ptr noundef %lock)
-  %owners = getelementptr inbounds %struct.CoRwlock, ptr %lock, i64 0, i32 1
+  %owners = getelementptr inbounds i8, ptr %lock, i64 48
   %0 = load i32, ptr %owners, align 8
   %cmp = icmp sgt i32 %0, 0
   br i1 %cmp, label %if.end, label %if.else
 
 if.else:                                          ; preds = %entry
-  tail call void @__assert_fail(ptr noundef nonnull @.str.6, ptr noundef nonnull @.str.1, i32 noundef 455, ptr noundef nonnull @__PRETTY_FUNCTION__.qemu_co_rwlock_upgrade) #11
+  tail call void @__assert_fail(ptr noundef nonnull @.str.6, ptr noundef nonnull @.str.1, i32 noundef 455, ptr noundef nonnull @__PRETTY_FUNCTION__.qemu_co_rwlock_upgrade) #10
   unreachable
 
 if.end:                                           ; preds = %entry
@@ -1233,7 +1223,7 @@ if.end:                                           ; preds = %entry
   br i1 %cmp2, label %land.lhs.true, label %if.else7
 
 land.lhs.true:                                    ; preds = %if.end
-  %tickets = getelementptr inbounds %struct.CoRwlock, ptr %lock, i64 0, i32 2
+  %tickets = getelementptr inbounds i8, ptr %lock, i64 56
   %1 = load ptr, ptr %tickets, align 8
   %cmp3 = icmp eq ptr %1, null
   br i1 %cmp3, label %if.then4, label %if.else7
@@ -1245,19 +1235,19 @@ if.then4:                                         ; preds = %land.lhs.true
 
 if.else7:                                         ; preds = %land.lhs.true, %if.end
   store i8 0, ptr %my_ticket, align 8
-  %co = getelementptr inbounds %struct.CoRwTicket, ptr %my_ticket, i64 0, i32 1
-  %call = tail call ptr @qemu_coroutine_self() #10
+  %co = getelementptr inbounds i8, ptr %my_ticket, i64 8
+  %call = tail call ptr @qemu_coroutine_self() #9
   store ptr %call, ptr %co, align 8
-  %next = getelementptr inbounds %struct.CoRwTicket, ptr %my_ticket, i64 0, i32 2
+  %next = getelementptr inbounds i8, ptr %my_ticket, i64 16
   %2 = load i32, ptr %owners, align 8
   %dec = add i32 %2, -1
   store i32 %dec, ptr %owners, align 8
   store ptr null, ptr %next, align 8
-  %sqh_last = getelementptr inbounds %struct.CoRwlock, ptr %lock, i64 0, i32 2, i32 1
+  %sqh_last = getelementptr inbounds i8, ptr %lock, i64 64
   %3 = load ptr, ptr %sqh_last, align 8
   store ptr %my_ticket, ptr %3, align 8
   store ptr %next, ptr %sqh_last, align 8
-  %tickets.i = getelementptr inbounds %struct.CoRwlock, ptr %lock, i64 0, i32 2
+  %tickets.i = getelementptr inbounds i8, ptr %lock, i64 56
   %4 = load ptr, ptr %tickets.i, align 8
   %tobool.not.i = icmp eq ptr %4, null
   br i1 %tobool.not.i, label %if.else28.i, label %if.then.i
@@ -1284,13 +1274,13 @@ if.else.i:                                        ; preds = %if.then.i
 if.end13.i:                                       ; preds = %if.else.i, %if.then3.i
   %inc.sink.i = phi i32 [ %inc.i, %if.then3.i ], [ -1, %if.else.i ]
   store i32 %inc.sink.i, ptr %owners, align 8
-  %co.0.in.i = getelementptr inbounds %struct.CoRwTicket, ptr %4, i64 0, i32 1
+  %co.0.in.i = getelementptr inbounds i8, ptr %4, i64 8
   %co.0.i = load ptr, ptr %co.0.in.i, align 8
   %tobool14.not.i = icmp eq ptr %co.0.i, null
   br i1 %tobool14.not.i, label %if.else28.i, label %do.body.i
 
 do.body.i:                                        ; preds = %if.end13.i
-  %next.i = getelementptr inbounds %struct.CoRwTicket, ptr %4, i64 0, i32 2
+  %next.i = getelementptr inbounds i8, ptr %4, i64 16
   %8 = load ptr, ptr %next.i, align 8
   store ptr %8, ptr %tickets.i, align 8
   %cmp20.i = icmp eq ptr %8, null
@@ -1303,7 +1293,7 @@ if.then21.i:                                      ; preds = %do.body.i
 if.end25.i:                                       ; preds = %if.then21.i, %do.body.i
   store ptr null, ptr %next.i, align 8
   call void @qemu_co_mutex_unlock(ptr noundef nonnull %lock)
-  call void @aio_co_wake(ptr noundef nonnull %co.0.i) #10
+  call void @aio_co_wake(ptr noundef nonnull %co.0.i) #9
   br label %qemu_co_rwlock_maybe_wake_one.exit
 
 if.else28.i:                                      ; preds = %if.end13.i, %if.else.i, %if.then2.i, %if.else7
@@ -1311,13 +1301,13 @@ if.else28.i:                                      ; preds = %if.end13.i, %if.els
   br label %qemu_co_rwlock_maybe_wake_one.exit
 
 qemu_co_rwlock_maybe_wake_one.exit:               ; preds = %if.end25.i, %if.else28.i
-  call void @qemu_coroutine_yield() #10
+  call void @qemu_coroutine_yield() #9
   %9 = load i32, ptr %owners, align 8
   %cmp16 = icmp eq i32 %9, -1
   br i1 %cmp16, label %if.end20, label %if.else18
 
 if.else18:                                        ; preds = %qemu_co_rwlock_maybe_wake_one.exit
-  call void @__assert_fail(ptr noundef nonnull @.str.5, ptr noundef nonnull @.str.1, i32 noundef 467, ptr noundef nonnull @__PRETTY_FUNCTION__.qemu_co_rwlock_upgrade) #11
+  call void @__assert_fail(ptr noundef nonnull @.str.5, ptr noundef nonnull @.str.1, i32 noundef 467, ptr noundef nonnull @__PRETTY_FUNCTION__.qemu_co_rwlock_upgrade) #10
   unreachable
 
 if.end20:                                         ; preds = %qemu_co_rwlock_maybe_wake_one.exit, %if.then4
@@ -1325,7 +1315,7 @@ if.end20:                                         ; preds = %qemu_co_rwlock_mayb
 }
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @gettimeofday(ptr nocapture noundef, ptr nocapture noundef) local_unnamed_addr #7
+declare noundef i32 @gettimeofday(ptr nocapture noundef, ptr nocapture noundef) local_unnamed_addr #6
 
 declare void @qemu_log(ptr noundef, ...) local_unnamed_addr #2
 
@@ -1334,10 +1324,10 @@ declare i32 @qemu_get_thread_id() local_unnamed_addr #2
 ; Function Attrs: nounwind sspstrong uwtable
 define internal void @push_waiter(ptr nocapture noundef %mutex, ptr noundef %w) #1 {
 entry:
-  %call = tail call ptr @qemu_coroutine_self() #10
+  %call = tail call ptr @qemu_coroutine_self() #9
   store ptr %call, ptr %w, align 8
-  %from_push = getelementptr inbounds %struct.CoMutex, ptr %mutex, i64 0, i32 2
-  %next = getelementptr inbounds %struct.CoWaitRecord, ptr %w, i64 0, i32 1
+  %from_push = getelementptr inbounds i8, ptr %mutex, i64 16
+  %next = getelementptr inbounds i8, ptr %w, i64 8
   %0 = ptrtoint ptr %w to i64
   br label %do.body1
 
@@ -1358,26 +1348,25 @@ do.end9:                                          ; preds = %do.body1
 }
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #8
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #7
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #8
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #7
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i32 @llvm.umax.i32(i32, i32) #9
+declare i32 @llvm.umax.i32(i32, i32) #8
 
 attributes #0 = { mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(argmem: write) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx16,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { nounwind sspstrong uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx16,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #2 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx16,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #3 = { noreturn nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx16,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #4 = { mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(argmem: read) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx16,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #5 = { mustprogress nofree nosync nounwind sspstrong willreturn memory(argmem: write) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx16,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #6 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: write) }
-attributes #7 = { nofree nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx16,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #8 = { nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
-attributes #9 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
-attributes #10 = { nounwind }
-attributes #11 = { noreturn nounwind }
+attributes #5 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: write) }
+attributes #6 = { nofree nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx16,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #7 = { nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
+attributes #8 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
+attributes #9 = { nounwind }
+attributes #10 = { noreturn nounwind }
 
 !llvm.module.flags = !{!0, !1, !2, !3, !4}
 

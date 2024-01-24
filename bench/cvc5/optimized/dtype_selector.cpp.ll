@@ -4,12 +4,7 @@ target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:
 target triple = "x86_64-unknown-linux-gnu"
 
 %"class.std::ios_base::Init" = type { i8 }
-%"class.cvc5::internal::DTypeSelector" = type <{ %"class.std::__cxx11::basic_string", %"class.cvc5::internal::NodeTemplate", %"class.cvc5::internal::NodeTemplate", %"class.cvc5::internal::NodeTemplate", i8, [7 x i8] }>
-%"class.std::__cxx11::basic_string" = type { %"struct.std::__cxx11::basic_string<char>::_Alloc_hider", i64, %union.anon }
-%"struct.std::__cxx11::basic_string<char>::_Alloc_hider" = type { ptr }
-%union.anon = type { i64, [8 x i8] }
 %"class.cvc5::internal::NodeTemplate" = type { ptr }
-%"class.cvc5::internal::expr::NodeValue" = type { i64, i16, i32, [0 x ptr] }
 %"class.cvc5::internal::TypeNode" = type { ptr }
 %"class.cvc5::internal::NodeTemplate.63" = type { ptr }
 %"class.std::__cxx11::basic_stringstream" = type { %"class.std::basic_iostream.base", %"class.std::__cxx11::basic_stringbuf", %"class.std::basic_ios" }
@@ -19,6 +14,9 @@ target triple = "x86_64-unknown-linux-gnu"
 %"class.std::__cxx11::basic_stringbuf" = type { %"class.std::basic_streambuf", i32, %"class.std::__cxx11::basic_string" }
 %"class.std::basic_streambuf" = type { ptr, ptr, ptr, ptr, ptr, ptr, ptr, %"class.std::locale" }
 %"class.std::locale" = type { ptr }
+%"class.std::__cxx11::basic_string" = type { %"struct.std::__cxx11::basic_string<char>::_Alloc_hider", i64, %union.anon }
+%"struct.std::__cxx11::basic_string<char>::_Alloc_hider" = type { ptr }
+%union.anon = type { i64, [8 x i8] }
 %"class.std::basic_ios" = type { %"class.std::ios_base", ptr, i8, i8, ptr, ptr, ptr, ptr }
 %"class.std::ios_base" = type { ptr, i64, i64, i32, i32, i32, ptr, %"struct.std::ios_base::_Words", [8 x %"struct.std::ios_base::_Words"], i32, ptr, %"class.std::locale" }
 %"struct.std::ios_base::_Words" = type { ptr, i64 }
@@ -69,7 +67,7 @@ declare i32 @__cxa_atexit(ptr, ptr, ptr) local_unnamed_addr #2
 define hidden void @_ZN4cvc58internal13DTypeSelectorC2ENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS0_12NodeTemplateILb1EEES9_(ptr noundef nonnull align 8 dereferenceable(57) %this, ptr noundef nonnull %name, ptr nocapture noundef readonly %selector, ptr nocapture noundef readonly %updater) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1ERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %this, ptr noundef nonnull align 8 dereferenceable(32) %name)
-  %d_selector = getelementptr inbounds %"class.cvc5::internal::DTypeSelector", ptr %this, i64 0, i32 1
+  %d_selector = getelementptr inbounds i8, ptr %this, i64 32
   %0 = load ptr, ptr %selector, align 8
   store ptr %0, ptr %d_selector, align 8
   %bf.load.i.i = load i64, ptr %0, align 8
@@ -98,7 +96,7 @@ if.then13.i.i:                                    ; preds = %if.else.i.i
           to label %invoke.cont unwind label %lpad
 
 invoke.cont:                                      ; preds = %if.else.i.i, %if.then.i.i, %if.then13.i.i
-  %d_updater = getelementptr inbounds %"class.cvc5::internal::DTypeSelector", ptr %this, i64 0, i32 2
+  %d_updater = getelementptr inbounds i8, ptr %this, i64 40
   %2 = load ptr, ptr %updater, align 8
   store ptr %2, ptr %d_updater, align 8
   %bf.load.i.i3 = load i64, ptr %2, align 8
@@ -142,9 +140,9 @@ init.i.i:                                         ; preds = %init.check.i.i
 
 invoke.cont.i.i:                                  ; preds = %init.i.i
   store i64 1152920405095219200, ptr %call.i.i, align 8
-  %d_kind.i.i.i = getelementptr inbounds %"class.cvc5::internal::expr::NodeValue", ptr %call.i.i, i64 0, i32 1
+  %d_kind.i.i.i = getelementptr inbounds i8, ptr %call.i.i, i64 8
   store i16 0, ptr %d_kind.i.i.i, align 8
-  %d_nchildren.i.i.i = getelementptr inbounds %"class.cvc5::internal::expr::NodeValue", ptr %call.i.i, i64 0, i32 2
+  %d_nchildren.i.i.i = getelementptr inbounds i8, ptr %call.i.i, i64 12
   store i32 0, ptr %d_nchildren.i.i.i, align 4
   store ptr %call.i.i, ptr @_ZZN4cvc58internal4expr9NodeValue4nullEvE6s_null, align 8
   tail call void @__cxa_guard_release(ptr nonnull @_ZGVZN4cvc58internal4expr9NodeValue4nullEvE6s_null) #11
@@ -158,10 +156,10 @@ lpad.i.i:                                         ; preds = %init.i.i
   br label %ehcleanup
 
 invoke.cont5:                                     ; preds = %invoke.cont.i.i, %init.check.i.i, %invoke.cont3
-  %d_constructor = getelementptr inbounds %"class.cvc5::internal::DTypeSelector", ptr %this, i64 0, i32 3
+  %d_constructor = getelementptr inbounds i8, ptr %this, i64 48
   %7 = load ptr, ptr @_ZZN4cvc58internal4expr9NodeValue4nullEvE6s_null, align 8
   store ptr %7, ptr %d_constructor, align 8
-  %d_resolved = getelementptr inbounds %"class.cvc5::internal::DTypeSelector", ptr %this, i64 0, i32 4
+  %d_resolved = getelementptr inbounds i8, ptr %this, i64 56
   store i8 0, ptr %d_resolved, align 8
   ret void
 
@@ -235,7 +233,7 @@ entry:
 ; Function Attrs: mustprogress uwtable
 define hidden void @_ZNK4cvc58internal13DTypeSelector11getSelectorEv(ptr noalias nocapture writeonly sret(%"class.cvc5::internal::NodeTemplate") align 8 %agg.result, ptr nocapture noundef nonnull readonly align 8 dereferenceable(57) %this) local_unnamed_addr #3 align 2 {
 entry:
-  %d_selector = getelementptr inbounds %"class.cvc5::internal::DTypeSelector", ptr %this, i64 0, i32 1
+  %d_selector = getelementptr inbounds i8, ptr %this, i64 32
   %0 = load ptr, ptr %d_selector, align 8
   store ptr %0, ptr %agg.result, align 8
   %bf.load.i.i = load i64, ptr %0, align 8
@@ -270,7 +268,7 @@ _ZN4cvc58internal12NodeTemplateILb1EEC2ERKS2_.exit: ; preds = %if.then.i.i, %if.
 ; Function Attrs: mustprogress uwtable
 define hidden void @_ZNK4cvc58internal13DTypeSelector10getUpdaterEv(ptr noalias nocapture writeonly sret(%"class.cvc5::internal::NodeTemplate") align 8 %agg.result, ptr nocapture noundef nonnull readonly align 8 dereferenceable(57) %this) local_unnamed_addr #3 align 2 {
 entry:
-  %d_updater = getelementptr inbounds %"class.cvc5::internal::DTypeSelector", ptr %this, i64 0, i32 2
+  %d_updater = getelementptr inbounds i8, ptr %this, i64 40
   %0 = load ptr, ptr %d_updater, align 8
   store ptr %0, ptr %agg.result, align 8
   %bf.load.i.i = load i64, ptr %0, align 8
@@ -305,7 +303,7 @@ _ZN4cvc58internal12NodeTemplateILb1EEC2ERKS2_.exit: ; preds = %if.then.i.i, %if.
 ; Function Attrs: mustprogress uwtable
 define hidden void @_ZNK4cvc58internal13DTypeSelector14getConstructorEv(ptr noalias nocapture writeonly sret(%"class.cvc5::internal::NodeTemplate") align 8 %agg.result, ptr nocapture noundef nonnull readonly align 8 dereferenceable(57) %this) local_unnamed_addr #3 align 2 {
 entry:
-  %d_constructor = getelementptr inbounds %"class.cvc5::internal::DTypeSelector", ptr %this, i64 0, i32 3
+  %d_constructor = getelementptr inbounds i8, ptr %this, i64 48
   %0 = load ptr, ptr %d_constructor, align 8
   store ptr %0, ptr %agg.result, align 8
   %bf.load.i.i = load i64, ptr %0, align 8
@@ -340,7 +338,7 @@ _ZN4cvc58internal12NodeTemplateILb1EEC2ERKS2_.exit: ; preds = %if.then.i.i, %if.
 ; Function Attrs: mustprogress uwtable
 define hidden void @_ZNK4cvc58internal13DTypeSelector7getTypeEv(ptr noalias sret(%"class.cvc5::internal::TypeNode") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(57) %this) local_unnamed_addr #3 align 2 {
 entry:
-  %d_selector = getelementptr inbounds %"class.cvc5::internal::DTypeSelector", ptr %this, i64 0, i32 1
+  %d_selector = getelementptr inbounds i8, ptr %this, i64 32
   tail call void @_ZNK4cvc58internal12NodeTemplateILb1EE7getTypeEb(ptr sret(%"class.cvc5::internal::TypeNode") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(8) %d_selector, i1 noundef zeroext false)
   ret void
 }
@@ -374,9 +372,9 @@ init.i.i:                                         ; preds = %init.check.i.i
 
 invoke.cont.i.i:                                  ; preds = %init.i.i
   store i64 1152920405095219200, ptr %call.i.i, align 8
-  %d_kind.i.i.i = getelementptr inbounds %"class.cvc5::internal::expr::NodeValue", ptr %call.i.i, i64 0, i32 1
+  %d_kind.i.i.i = getelementptr inbounds i8, ptr %call.i.i, i64 8
   store i16 0, ptr %d_kind.i.i.i, align 8
-  %d_nchildren.i.i.i = getelementptr inbounds %"class.cvc5::internal::expr::NodeValue", ptr %call.i.i, i64 0, i32 2
+  %d_nchildren.i.i.i = getelementptr inbounds i8, ptr %call.i.i, i64 12
   store i32 0, ptr %d_nchildren.i.i.i, align 4
   store ptr %call.i.i, ptr @_ZZN4cvc58internal4expr9NodeValue4nullEvE6s_null, align 8
   call void @__cxa_guard_release(ptr nonnull @_ZGVZN4cvc58internal4expr9NodeValue4nullEvE6s_null) #11
@@ -492,7 +490,7 @@ unreachable:                                      ; preds = %invoke.cont24
 define hidden void @_ZNK4cvc58internal13DTypeSelector12getRangeTypeEv(ptr noalias sret(%"class.cvc5::internal::TypeNode") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(57) %this) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp = alloca %"class.cvc5::internal::TypeNode", align 8
-  %d_selector.i = getelementptr inbounds %"class.cvc5::internal::DTypeSelector", ptr %this, i64 0, i32 1
+  %d_selector.i = getelementptr inbounds i8, ptr %this, i64 32
   call void @_ZNK4cvc58internal12NodeTemplateILb1EE7getTypeEb(ptr nonnull sret(%"class.cvc5::internal::TypeNode") align 8 %ref.tmp, ptr noundef nonnull align 8 dereferenceable(8) %d_selector.i, i1 noundef zeroext false)
   invoke void @_ZNK4cvc58internal8TypeNode12getRangeTypeEv(ptr sret(%"class.cvc5::internal::TypeNode") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp)
           to label %invoke.cont unwind label %lpad
@@ -572,7 +570,7 @@ terminate.lpad:                                   ; preds = %if.then13.i
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
 define hidden noundef zeroext i1 @_ZNK4cvc58internal13DTypeSelector10isResolvedEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(57) %this) local_unnamed_addr #6 align 2 {
 entry:
-  %d_resolved = getelementptr inbounds %"class.cvc5::internal::DTypeSelector", ptr %this, i64 0, i32 4
+  %d_resolved = getelementptr inbounds i8, ptr %this, i64 56
   %0 = load i8, ptr %d_resolved, align 8
   %1 = and i8 %0, 1
   %tobool = icmp ne i8 %1, 0
@@ -607,9 +605,9 @@ init.i.i:                                         ; preds = %init.check.i.i
 
 invoke.cont.i.i:                                  ; preds = %init.i.i
   store i64 1152920405095219200, ptr %call.i.i, align 8
-  %d_kind.i.i.i = getelementptr inbounds %"class.cvc5::internal::expr::NodeValue", ptr %call.i.i, i64 0, i32 1
+  %d_kind.i.i.i = getelementptr inbounds i8, ptr %call.i.i, i64 8
   store i16 0, ptr %d_kind.i.i.i, align 8
-  %d_nchildren.i.i.i = getelementptr inbounds %"class.cvc5::internal::expr::NodeValue", ptr %call.i.i, i64 0, i32 2
+  %d_nchildren.i.i.i = getelementptr inbounds i8, ptr %call.i.i, i64 12
   store i32 0, ptr %d_nchildren.i.i.i, align 4
   store ptr %call.i.i, ptr @_ZZN4cvc58internal4expr9NodeValue4nullEvE6s_null, align 8
   tail call void @__cxa_guard_release(ptr nonnull @_ZGVZN4cvc58internal4expr9NodeValue4nullEvE6s_null) #11
@@ -628,11 +626,11 @@ lpad.i.i:                                         ; preds = %init.i.i
 _ZN4cvc58internal8TypeNodeC2Ev.exit:              ; preds = %entry, %init.check.i.i, %invoke.cont.i.i
   %3 = load ptr, ptr @_ZZN4cvc58internal4expr9NodeValue4nullEvE6s_null, align 8
   store ptr %3, ptr %t, align 8
-  %d_resolved = getelementptr inbounds %"class.cvc5::internal::DTypeSelector", ptr %this, i64 0, i32 4
+  %d_resolved = getelementptr inbounds i8, ptr %this, i64 56
   %4 = load i8, ptr %d_resolved, align 8
   %5 = and i8 %4, 1
   %tobool.not = icmp eq i8 %5, 0
-  %d_selector = getelementptr inbounds %"class.cvc5::internal::DTypeSelector", ptr %this, i64 0, i32 1
+  %d_selector = getelementptr inbounds i8, ptr %this, i64 32
   br i1 %tobool.not, label %if.else, label %if.then
 
 if.then:                                          ; preds = %_ZN4cvc58internal8TypeNodeC2Ev.exit
@@ -656,9 +654,9 @@ init.i.i10:                                       ; preds = %init.check.i.i8
 
 invoke.cont.i.i13:                                ; preds = %init.i.i10
   store i64 1152920405095219200, ptr %call.i.i11, align 8
-  %d_kind.i.i.i14 = getelementptr inbounds %"class.cvc5::internal::expr::NodeValue", ptr %call.i.i11, i64 0, i32 1
+  %d_kind.i.i.i14 = getelementptr inbounds i8, ptr %call.i.i11, i64 8
   store i16 0, ptr %d_kind.i.i.i14, align 8
-  %d_nchildren.i.i.i15 = getelementptr inbounds %"class.cvc5::internal::expr::NodeValue", ptr %call.i.i11, i64 0, i32 2
+  %d_nchildren.i.i.i15 = getelementptr inbounds i8, ptr %call.i.i11, i64 12
   store i32 0, ptr %d_nchildren.i.i.i15, align 4
   store ptr %call.i.i11, ptr @_ZZN4cvc58internal4expr9NodeValue4nullEvE6s_null, align 8
   call void @__cxa_guard_release(ptr nonnull @_ZGVZN4cvc58internal4expr9NodeValue4nullEvE6s_null) #11
@@ -854,9 +852,9 @@ init.i.i44:                                       ; preds = %init.check.i.i42
 
 invoke.cont.i.i47:                                ; preds = %init.i.i44
   store i64 1152920405095219200, ptr %call.i.i45, align 8
-  %d_kind.i.i.i48 = getelementptr inbounds %"class.cvc5::internal::expr::NodeValue", ptr %call.i.i45, i64 0, i32 1
+  %d_kind.i.i.i48 = getelementptr inbounds i8, ptr %call.i.i45, i64 8
   store i16 0, ptr %d_kind.i.i.i48, align 8
-  %d_nchildren.i.i.i49 = getelementptr inbounds %"class.cvc5::internal::expr::NodeValue", ptr %call.i.i45, i64 0, i32 2
+  %d_nchildren.i.i.i49 = getelementptr inbounds i8, ptr %call.i.i45, i64 12
   store i32 0, ptr %d_nchildren.i.i.i49, align 4
   store ptr %call.i.i45, ptr @_ZZN4cvc58internal4expr9NodeValue4nullEvE6s_null, align 8
   tail call void @__cxa_guard_release(ptr nonnull @_ZGVZN4cvc58internal4expr9NodeValue4nullEvE6s_null) #11

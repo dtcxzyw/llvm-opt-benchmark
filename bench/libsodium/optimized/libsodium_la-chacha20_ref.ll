@@ -17,18 +17,18 @@ entry:
 
 if.end:                                           ; preds = %entry
   store <4 x i32> <i32 1634760805, i32 857760878, i32 2036477234, i32 1797285236>, ptr %ctx, align 16
-  %arrayidx8.i = getelementptr inbounds [16 x i32], ptr %ctx, i64 0, i64 4
+  %arrayidx8.i = getelementptr inbounds i8, ptr %ctx, i64 16
   %0 = load <4 x i32>, ptr %k, align 1
   store <4 x i32> %0, ptr %arrayidx8.i, align 16
   %add.ptr21.i = getelementptr i8, ptr %k, i64 16
-  %arrayidx24.i = getelementptr inbounds [16 x i32], ptr %ctx, i64 0, i64 8
+  %arrayidx24.i = getelementptr inbounds i8, ptr %ctx, i64 32
   %1 = load <4 x i32>, ptr %add.ptr21.i, align 1
   store <4 x i32> %1, ptr %arrayidx24.i, align 16
-  %arrayidx.c.i = getelementptr inbounds [16 x i32], ptr %ctx, i64 0, i64 12
+  %arrayidx.c.i = getelementptr inbounds i8, ptr %ctx, i64 48
   store i32 0, ptr %arrayidx.c.i, align 16
-  %arrayidx9.i = getelementptr inbounds [16 x i32], ptr %ctx, i64 0, i64 13
+  %arrayidx9.i = getelementptr inbounds i8, ptr %ctx, i64 52
   store i32 0, ptr %arrayidx9.i, align 4
-  %arrayidx13.i = getelementptr inbounds [16 x i32], ptr %ctx, i64 0, i64 14
+  %arrayidx13.i = getelementptr inbounds i8, ptr %ctx, i64 56
   %2 = load <2 x i32>, ptr %n, align 1
   store <2 x i32> %2, ptr %arrayidx13.i, align 8
   tail call void @llvm.memset.p0.i64(ptr align 1 %c, i8 0, i64 %clen, i1 false)
@@ -49,21 +49,21 @@ entry:
 
 if.end:                                           ; preds = %entry
   store <4 x i32> <i32 1634760805, i32 857760878, i32 2036477234, i32 1797285236>, ptr %ctx, align 16
-  %arrayidx8.i = getelementptr inbounds [16 x i32], ptr %ctx, i64 0, i64 4
+  %arrayidx8.i = getelementptr inbounds i8, ptr %ctx, i64 16
   %0 = load <4 x i32>, ptr %k, align 1
   store <4 x i32> %0, ptr %arrayidx8.i, align 16
   %add.ptr21.i = getelementptr i8, ptr %k, i64 16
-  %arrayidx24.i = getelementptr inbounds [16 x i32], ptr %ctx, i64 0, i64 8
+  %arrayidx24.i = getelementptr inbounds i8, ptr %ctx, i64 32
   %1 = load <4 x i32>, ptr %add.ptr21.i, align 1
   store <4 x i32> %1, ptr %arrayidx24.i, align 16
-  %arrayidx.i = getelementptr inbounds [16 x i32], ptr %ctx, i64 0, i64 12
+  %arrayidx.i = getelementptr inbounds i8, ptr %ctx, i64 48
   store i32 0, ptr %arrayidx.i, align 16
-  %arrayidx3.i = getelementptr inbounds [16 x i32], ptr %ctx, i64 0, i64 13
+  %arrayidx3.i = getelementptr inbounds i8, ptr %ctx, i64 52
   %2 = load <2 x i32>, ptr %n, align 1
   store <2 x i32> %2, ptr %arrayidx3.i, align 4
   %add.ptr8.i = getelementptr i8, ptr %n, i64 8
   %add.ptr8.val.i = load i32, ptr %add.ptr8.i, align 1
-  %arrayidx11.i = getelementptr inbounds [16 x i32], ptr %ctx, i64 0, i64 15
+  %arrayidx11.i = getelementptr inbounds i8, ptr %ctx, i64 60
   store i32 %add.ptr8.val.i, ptr %arrayidx11.i, align 4
   tail call void @llvm.memset.p0.i64(ptr align 1 %c, i8 0, i64 %clen, i1 false)
   call fastcc void @chacha20_encrypt_bytes(ptr noundef nonnull %ctx, ptr noundef %c, ptr noundef %c, i64 noundef %clen)
@@ -86,18 +86,18 @@ if.end:                                           ; preds = %entry
   %conv = trunc i64 %shr to i32
   %conv1 = trunc i64 %ic to i32
   store <4 x i32> <i32 1634760805, i32 857760878, i32 2036477234, i32 1797285236>, ptr %ctx, align 16
-  %arrayidx8.i = getelementptr inbounds [16 x i32], ptr %ctx, i64 0, i64 4
+  %arrayidx8.i = getelementptr inbounds i8, ptr %ctx, i64 16
   %0 = load <4 x i32>, ptr %k, align 1
   store <4 x i32> %0, ptr %arrayidx8.i, align 16
   %add.ptr21.i = getelementptr i8, ptr %k, i64 16
-  %arrayidx24.i = getelementptr inbounds [16 x i32], ptr %ctx, i64 0, i64 8
+  %arrayidx24.i = getelementptr inbounds i8, ptr %ctx, i64 32
   %1 = load <4 x i32>, ptr %add.ptr21.i, align 1
   store <4 x i32> %1, ptr %arrayidx24.i, align 16
-  %arrayidx.i = getelementptr inbounds [16 x i32], ptr %ctx, i64 0, i64 12
+  %arrayidx.i = getelementptr inbounds i8, ptr %ctx, i64 48
   store i32 %conv1, ptr %arrayidx.i, align 16
-  %arrayidx9.i = getelementptr inbounds [16 x i32], ptr %ctx, i64 0, i64 13
+  %arrayidx9.i = getelementptr inbounds i8, ptr %ctx, i64 52
   store i32 %conv, ptr %arrayidx9.i, align 4
-  %arrayidx13.i = getelementptr inbounds [16 x i32], ptr %ctx, i64 0, i64 14
+  %arrayidx13.i = getelementptr inbounds i8, ptr %ctx, i64 56
   %2 = load <2 x i32>, ptr %n, align 1
   store <2 x i32> %2, ptr %arrayidx13.i, align 8
   call fastcc void @chacha20_encrypt_bytes(ptr noundef nonnull %ctx, ptr noundef %m, ptr noundef %c, i64 noundef %mlen)
@@ -117,21 +117,21 @@ entry:
 
 if.end:                                           ; preds = %entry
   store <4 x i32> <i32 1634760805, i32 857760878, i32 2036477234, i32 1797285236>, ptr %ctx, align 16
-  %arrayidx8.i = getelementptr inbounds [16 x i32], ptr %ctx, i64 0, i64 4
+  %arrayidx8.i = getelementptr inbounds i8, ptr %ctx, i64 16
   %0 = load <4 x i32>, ptr %k, align 1
   store <4 x i32> %0, ptr %arrayidx8.i, align 16
   %add.ptr21.i = getelementptr i8, ptr %k, i64 16
-  %arrayidx24.i = getelementptr inbounds [16 x i32], ptr %ctx, i64 0, i64 8
+  %arrayidx24.i = getelementptr inbounds i8, ptr %ctx, i64 32
   %1 = load <4 x i32>, ptr %add.ptr21.i, align 1
   store <4 x i32> %1, ptr %arrayidx24.i, align 16
-  %arrayidx.i = getelementptr inbounds [16 x i32], ptr %ctx, i64 0, i64 12
+  %arrayidx.i = getelementptr inbounds i8, ptr %ctx, i64 48
   store i32 %ic, ptr %arrayidx.i, align 16
-  %arrayidx3.i = getelementptr inbounds [16 x i32], ptr %ctx, i64 0, i64 13
+  %arrayidx3.i = getelementptr inbounds i8, ptr %ctx, i64 52
   %2 = load <2 x i32>, ptr %n, align 1
   store <2 x i32> %2, ptr %arrayidx3.i, align 4
   %add.ptr8.i = getelementptr i8, ptr %n, i64 8
   %add.ptr8.val.i = load i32, ptr %add.ptr8.i, align 1
-  %arrayidx11.i = getelementptr inbounds [16 x i32], ptr %ctx, i64 0, i64 15
+  %arrayidx11.i = getelementptr inbounds i8, ptr %ctx, i64 60
   store i32 %add.ptr8.val.i, ptr %arrayidx11.i, align 4
   call fastcc void @chacha20_encrypt_bytes(ptr noundef nonnull %ctx, ptr noundef %m, ptr noundef %c, i64 noundef %mlen)
   call void @sodium_memzero(ptr noundef nonnull %ctx, i64 noundef 64) #5
@@ -149,21 +149,21 @@ define internal fastcc void @chacha20_encrypt_bytes(ptr nocapture noundef %ctx, 
 entry:
   %tmp = alloca [64 x i8], align 16
   %0 = load i32, ptr %ctx, align 4
-  %arrayidx2 = getelementptr [16 x i32], ptr %ctx, i64 0, i64 1
+  %arrayidx2 = getelementptr i8, ptr %ctx, i64 4
   %1 = load <4 x i32>, ptr %arrayidx2, align 4
-  %arrayidx10 = getelementptr [16 x i32], ptr %ctx, i64 0, i64 5
+  %arrayidx10 = getelementptr i8, ptr %ctx, i64 20
   %2 = load <4 x i32>, ptr %arrayidx10, align 4
-  %arrayidx18 = getelementptr [16 x i32], ptr %ctx, i64 0, i64 9
+  %arrayidx18 = getelementptr i8, ptr %ctx, i64 36
   %3 = load i32, ptr %arrayidx18, align 4
-  %arrayidx20 = getelementptr [16 x i32], ptr %ctx, i64 0, i64 10
+  %arrayidx20 = getelementptr i8, ptr %ctx, i64 40
   %4 = load <2 x i32>, ptr %arrayidx20, align 4
-  %arrayidx24 = getelementptr [16 x i32], ptr %ctx, i64 0, i64 12
+  %arrayidx24 = getelementptr i8, ptr %ctx, i64 48
   %5 = load i32, ptr %arrayidx24, align 4
-  %arrayidx26 = getelementptr [16 x i32], ptr %ctx, i64 0, i64 13
+  %arrayidx26 = getelementptr i8, ptr %ctx, i64 52
   %6 = load i32, ptr %arrayidx26, align 4
-  %arrayidx28 = getelementptr [16 x i32], ptr %ctx, i64 0, i64 14
+  %arrayidx28 = getelementptr i8, ptr %ctx, i64 56
   %7 = load i32, ptr %arrayidx28, align 4
-  %arrayidx30 = getelementptr [16 x i32], ptr %ctx, i64 0, i64 15
+  %arrayidx30 = getelementptr i8, ptr %ctx, i64 60
   %8 = load i32, ptr %arrayidx30, align 4
   %9 = extractelement <4 x i32> %1, i64 0
   %10 = extractelement <4 x i32> %1, i64 1

@@ -4,9 +4,6 @@ target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:
 target triple = "x86_64-unknown-linux-gnu"
 
 %struct.evp_cipher_st = type { i32, i32, i32, i32, i32, i32, ptr, ptr, ptr, ptr, ptr }
-%struct.evp_cipher_ctx_st = type { ptr, ptr, ptr, i32, i32, i32, [16 x i8], [16 x i8], [32 x i8], i32, i32, i32, i32, [32 x i8] }
-%struct.EVP_RC2_KEY = type { i32, %struct.rc2_key_st }
-%struct.rc2_key_st = type { [64 x i16] }
 
 @rc2_40_cbc = internal constant %struct.evp_cipher_st { i32 98, i32 8, i32 5, i32 8, i32 132, i32 578, ptr null, ptr @rc2_init_key, ptr @rc2_cbc_cipher, ptr null, ptr @rc2_ctrl }, align 8
 @rc2_cbc = internal constant %struct.evp_cipher_st { i32 37, i32 8, i32 16, i32 8, i32 132, i32 578, ptr null, ptr @rc2_init_key, ptr @rc2_cbc_cipher, ptr null, ptr @rc2_ctrl }, align 8
@@ -27,9 +24,9 @@ entry:
 ; Function Attrs: nounwind uwtable
 define internal noundef i32 @rc2_init_key(ptr noundef %ctx, ptr nocapture noundef readonly %key, ptr nocapture readnone %iv, i32 %enc) #1 {
 entry:
-  %cipher_data = getelementptr inbounds %struct.evp_cipher_ctx_st, ptr %ctx, i64 0, i32 2
+  %cipher_data = getelementptr inbounds i8, ptr %ctx, i64 16
   %0 = load ptr, ptr %cipher_data, align 8
-  %ks = getelementptr %struct.EVP_RC2_KEY, ptr %0, i64 0, i32 1
+  %ks = getelementptr i8, ptr %0, i64 4
   %call = tail call i32 @EVP_CIPHER_CTX_key_length(ptr noundef %ctx) #6
   %1 = load i32, ptr %0, align 4
   store i8 0, ptr %ks, align 1
@@ -126,7 +123,7 @@ while.body.i:                                     ; preds = %while.body.i, %whil
   br i1 %17, label %while.end.i, label %while.body.i, !llvm.loop !10
 
 while.end.i:                                      ; preds = %while.body.i, %for.end30.i
-  %arrayidx57.i = getelementptr inbounds %struct.EVP_RC2_KEY, ptr %0, i64 0, i32 1, i32 0, i64 63
+  %arrayidx57.i = getelementptr inbounds i8, ptr %0, i64 130
   %invariant.gep.i = getelementptr i8, ptr %0, i64 3
   br label %for.body61.i
 
@@ -135,7 +132,7 @@ for.body61.i:                                     ; preds = %for.body61.i, %whil
   %ki.053.i = phi ptr [ %arrayidx57.i, %while.end.i ], [ %incdec.ptr.i, %for.body61.i ]
   %gep.i = getelementptr i8, ptr %invariant.gep.i, i64 %indvars.iv64.i
   %18 = load i16, ptr %gep.i, align 1
-  %incdec.ptr.i = getelementptr inbounds i16, ptr %ki.053.i, i64 -1
+  %incdec.ptr.i = getelementptr inbounds i8, ptr %ki.053.i, i64 -2
   store i16 %18, ptr %ki.053.i, align 2
   %indvars.iv.next65.i = add nsw i64 %indvars.iv64.i, -2
   %cmp59.i = icmp ugt i64 %indvars.iv64.i, 1
@@ -148,15 +145,15 @@ RC2_set_key.exit:                                 ; preds = %for.body61.i
 ; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
 define internal noundef i32 @rc2_cbc_cipher(ptr nocapture noundef %ctx, ptr nocapture noundef writeonly %out, ptr nocapture noundef readonly %in, i64 noundef %inl) #2 {
 entry:
-  %cipher_data = getelementptr inbounds %struct.evp_cipher_ctx_st, ptr %ctx, i64 0, i32 2
+  %cipher_data = getelementptr inbounds i8, ptr %ctx, i64 16
   %0 = load ptr, ptr %cipher_data, align 8
   %cmp13 = icmp ugt i64 %inl, 65535
   br i1 %cmp13, label %while.body.lr.ph, label %while.end
 
 while.body.lr.ph:                                 ; preds = %entry
-  %ks = getelementptr inbounds %struct.EVP_RC2_KEY, ptr %0, i64 0, i32 1
-  %iv = getelementptr inbounds %struct.evp_cipher_ctx_st, ptr %ctx, i64 0, i32 7
-  %encrypt = getelementptr inbounds %struct.evp_cipher_ctx_st, ptr %ctx, i64 0, i32 4
+  %ks = getelementptr inbounds i8, ptr %0, i64 4
+  %iv = getelementptr inbounds i8, ptr %ctx, i64 52
+  %encrypt = getelementptr inbounds i8, ptr %ctx, i64 28
   br label %while.body
 
 while.body:                                       ; preds = %while.body.lr.ph, %while.body
@@ -179,9 +176,9 @@ while.end:                                        ; preds = %while.body, %entry
   br i1 %tobool.not, label %if.end, label %if.then
 
 if.then:                                          ; preds = %while.end
-  %ks2 = getelementptr inbounds %struct.EVP_RC2_KEY, ptr %0, i64 0, i32 1
-  %iv3 = getelementptr inbounds %struct.evp_cipher_ctx_st, ptr %ctx, i64 0, i32 7
-  %encrypt5 = getelementptr inbounds %struct.evp_cipher_ctx_st, ptr %ctx, i64 0, i32 4
+  %ks2 = getelementptr inbounds i8, ptr %0, i64 4
+  %iv3 = getelementptr inbounds i8, ptr %ctx, i64 52
+  %encrypt5 = getelementptr inbounds i8, ptr %ctx, i64 28
   %2 = load i32, ptr %encrypt5, align 4
   tail call fastcc void @RC2_cbc_encrypt(ptr noundef %in.addr.0.lcssa, ptr noundef %out.addr.0.lcssa, i64 noundef %inl.addr.0.lcssa, ptr noundef nonnull %ks2, ptr noundef nonnull %iv3, i32 noundef %2)
   br label %if.end
@@ -193,7 +190,7 @@ if.end:                                           ; preds = %if.then, %while.end
 ; Function Attrs: nounwind uwtable
 define internal noundef i32 @rc2_ctrl(ptr noundef %ctx, i32 noundef %type, i32 noundef %arg, ptr nocapture readnone %ptr) #1 {
 entry:
-  %cipher_data = getelementptr inbounds %struct.evp_cipher_ctx_st, ptr %ctx, i64 0, i32 2
+  %cipher_data = getelementptr inbounds i8, ptr %ctx, i64 16
   %0 = load ptr, ptr %cipher_data, align 8
   switch i32 %type, label %return [
     i32 0, label %sw.bb
@@ -237,7 +234,7 @@ if.then:                                          ; preds = %entry
   br i1 %cmp225224, label %for.body.lr.ph, label %for.end
 
 for.body.lr.ph:                                   ; preds = %if.then
-  %arrayidx55 = getelementptr inbounds [2 x i32], ptr %tin, i64 0, i64 1
+  %arrayidx55 = getelementptr inbounds i8, ptr %tin, i64 4
   br label %for.body
 
 for.body:                                         ; preds = %for.body.lr.ph, %for.body
@@ -400,7 +397,7 @@ sw.epilog:                                        ; preds = %sw.bb118, %if.then8
   %xor127 = xor i32 %or126, %tout0.0.lcssa
   %xor128 = xor i32 %tin1.6, %tout1.0.lcssa
   store i32 %xor127, ptr %tin, align 4
-  %arrayidx130 = getelementptr inbounds [2 x i32], ptr %tin, i64 0, i64 1
+  %arrayidx130 = getelementptr inbounds i8, ptr %tin, i64 4
   store i32 %xor128, ptr %arrayidx130, align 4
   call fastcc void @RC2_encrypt(ptr noundef nonnull %tin, ptr noundef %ks)
   %13 = load i32, ptr %tin, align 4
@@ -458,7 +455,7 @@ if.else:                                          ; preds = %entry
   br i1 %cmp225224, label %for.body227.lr.ph, label %for.end295
 
 for.body227.lr.ph:                                ; preds = %if.else
-  %arrayidx257 = getelementptr inbounds [2 x i32], ptr %tin, i64 0, i64 1
+  %arrayidx257 = getelementptr inbounds i8, ptr %tin, i64 4
   br label %for.body227
 
 for.body227:                                      ; preds = %for.body227.lr.ph, %for.body227
@@ -570,7 +567,7 @@ if.then298:                                       ; preds = %for.end295
   %conv325 = zext i8 %32 to i32
   %shl326 = shl nuw i32 %conv325, 24
   %or327 = or disjoint i32 %or323, %shl326
-  %arrayidx328 = getelementptr inbounds [2 x i32], ptr %tin, i64 0, i64 1
+  %arrayidx328 = getelementptr inbounds i8, ptr %tin, i64 4
   store i32 %or327, ptr %arrayidx328, align 4
   call fastcc void @RC2_decrypt(ptr noundef nonnull %tin, ptr noundef %ks)
   %33 = load i32, ptr %tin, align 4
@@ -679,7 +676,7 @@ define internal fastcc void @RC2_encrypt(ptr nocapture noundef %d, ptr nocapture
 entry:
   %0 = load i32, ptr %d, align 4
   %shr = lshr i32 %0, 16
-  %arrayidx4 = getelementptr inbounds i32, ptr %d, i64 1
+  %arrayidx4 = getelementptr inbounds i8, ptr %d, i64 4
   %1 = load i32, ptr %arrayidx4, align 4
   %shr9 = lshr i32 %1, 16
   br label %for.cond.outer
@@ -706,7 +703,7 @@ for.cond:                                         ; preds = %for.cond.outer, %fo
   %add = add i32 %and15, %x0.0
   %and18 = and i32 %x3.0, %x2.0
   %add19 = add i32 %add, %and18
-  %incdec.ptr = getelementptr inbounds i16, ptr %p0.0, i64 1
+  %incdec.ptr = getelementptr inbounds i8, ptr %p0.0, i64 2
   %2 = load i16, ptr %p0.0, align 2
   %add19.tr = trunc i32 %add19 to i16
   %add21.narrow = add i16 %2, %add19.tr
@@ -719,7 +716,7 @@ for.cond:                                         ; preds = %for.cond.outer, %fo
   %add33 = add i32 %and32, %x1.0
   %and36 = and i32 %or, %x3.0
   %add37 = add i32 %add33, %and36
-  %incdec.ptr38 = getelementptr inbounds i16, ptr %p0.0, i64 2
+  %incdec.ptr38 = getelementptr inbounds i8, ptr %p0.0, i64 4
   %3 = load i16, ptr %incdec.ptr, align 2
   %add37.tr = trunc i32 %add37 to i16
   %add40.narrow = add i16 %3, %add37.tr
@@ -732,7 +729,7 @@ for.cond:                                         ; preds = %for.cond.outer, %fo
   %add54 = add i32 %and53, %x2.0
   %and57 = and i32 %or47, %or
   %add58 = add i32 %add54, %and57
-  %incdec.ptr59 = getelementptr inbounds i16, ptr %p0.0, i64 3
+  %incdec.ptr59 = getelementptr inbounds i8, ptr %p0.0, i64 6
   %4 = load i16, ptr %incdec.ptr38, align 2
   %add58.tr = trunc i32 %add58 to i16
   %add61.narrow = add i16 %4, %add58.tr
@@ -745,7 +742,7 @@ for.cond:                                         ; preds = %for.cond.outer, %fo
   %add75 = add nuw nsw i32 %and74, %x3.0
   %and78 = and i32 %or68, %or47
   %add79 = add nuw nsw i32 %add75, %and78
-  %incdec.ptr80 = getelementptr inbounds i16, ptr %p0.0, i64 4
+  %incdec.ptr80 = getelementptr inbounds i8, ptr %p0.0, i64 8
   %5 = load i16, ptr %incdec.ptr59, align 2
   %add79.tr = trunc i32 %add79 to i16
   %add82.narrow = add i16 %5, %add79.tr
@@ -810,10 +807,10 @@ define internal fastcc void @RC2_decrypt(ptr nocapture noundef %d, ptr nocapture
 entry:
   %0 = load i32, ptr %d, align 4
   %shr = lshr i32 %0, 16
-  %arrayidx4 = getelementptr inbounds i32, ptr %d, i64 1
+  %arrayidx4 = getelementptr inbounds i8, ptr %d, i64 4
   %1 = load i32, ptr %arrayidx4, align 4
   %shr9 = lshr i32 %1, 16
-  %arrayidx11 = getelementptr inbounds [64 x i16], ptr %key, i64 0, i64 63
+  %arrayidx11 = getelementptr inbounds i8, ptr %key, i64 126
   br label %for.cond
 
 for.cond:                                         ; preds = %if.end139, %entry
@@ -831,7 +828,7 @@ for.cond:                                         ; preds = %if.end139, %entry
   %not = xor i32 %conv21, -1
   %and22 = and i32 %x0.0, %not
   %and25 = and i32 %x2.0, %x1.0
-  %incdec.ptr = getelementptr inbounds i16, ptr %p0.0, i64 -1
+  %incdec.ptr = getelementptr inbounds i8, ptr %p0.0, i64 -2
   %2 = load i16, ptr %p0.0, align 2
   %conv27 = zext i16 %2 to i32
   %3 = add nuw nsw i32 %shr16, %shl
@@ -844,7 +841,7 @@ for.cond:                                         ; preds = %if.end139, %entry
   %not41 = xor i32 %x1.0, -1
   %and42 = and i32 %sub28, %not41
   %and46 = and i32 %x1.0, %x0.0
-  %incdec.ptr48 = getelementptr inbounds i16, ptr %p0.0, i64 -2
+  %incdec.ptr48 = getelementptr inbounds i8, ptr %p0.0, i64 -4
   %6 = load i16, ptr %incdec.ptr, align 2
   %conv49 = zext i16 %6 to i32
   %7 = or disjoint i32 %shr34, %shl32
@@ -857,7 +854,7 @@ for.cond:                                         ; preds = %if.end139, %entry
   %not63 = xor i32 %conv20, -1
   %and64 = and i32 %sub50, %not63
   %and68 = and i32 %sub28, %x0.0
-  %incdec.ptr70 = getelementptr inbounds i16, ptr %p0.0, i64 -3
+  %incdec.ptr70 = getelementptr inbounds i8, ptr %p0.0, i64 -6
   %10 = load i16, ptr %incdec.ptr48, align 2
   %conv71 = zext i16 %10 to i32
   %.neg53 = or disjoint i32 %shl54, %shr56
@@ -870,7 +867,7 @@ for.cond:                                         ; preds = %if.end139, %entry
   %not85 = xor i32 %and29, -1
   %and86 = and i32 %sub72, %not85
   %and90 = and i32 %sub50, %sub28
-  %incdec.ptr92 = getelementptr inbounds i16, ptr %p0.0, i64 -4
+  %incdec.ptr92 = getelementptr inbounds i8, ptr %p0.0, i64 -8
   %13 = load i16, ptr %incdec.ptr70, align 2
   %conv93 = zext i16 %13 to i32
   %.neg55 = or disjoint i32 %shl76, %shr78

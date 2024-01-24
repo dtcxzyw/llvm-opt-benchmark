@@ -9,18 +9,7 @@ target triple = "x86_64-unknown-linux-gnu"
 %"class.std::allocator.22" = type { i8 }
 %"class.std::shared_ptr.0" = type { %"class.std::__shared_ptr.1" }
 %"class.std::__shared_ptr.1" = type { ptr, %"class.std::__shared_count" }
-%"class.std::_Sp_counted_base" = type { ptr, i32, i32 }
 %"struct.OpenColorIO_v2_4dev::GradingControlPoint" = type { float, float }
-%"class.OpenColorIO_v2_4dev::GradingBSplineCurveImpl" = type { %"class.OpenColorIO_v2_4dev::GradingBSplineCurve", %"class.std::vector", %"class.std::vector.3" }
-%"class.OpenColorIO_v2_4dev::GradingBSplineCurve" = type { ptr }
-%"class.std::vector" = type { %"struct.std::_Vector_base" }
-%"struct.std::_Vector_base" = type { %"struct.std::_Vector_base<OpenColorIO_v2_4dev::GradingControlPoint, std::allocator<OpenColorIO_v2_4dev::GradingControlPoint>>::_Vector_impl" }
-%"struct.std::_Vector_base<OpenColorIO_v2_4dev::GradingControlPoint, std::allocator<OpenColorIO_v2_4dev::GradingControlPoint>>::_Vector_impl" = type { %"struct.std::_Vector_base<OpenColorIO_v2_4dev::GradingControlPoint, std::allocator<OpenColorIO_v2_4dev::GradingControlPoint>>::_Vector_impl_data" }
-%"struct.std::_Vector_base<OpenColorIO_v2_4dev::GradingControlPoint, std::allocator<OpenColorIO_v2_4dev::GradingControlPoint>>::_Vector_impl_data" = type { ptr, ptr, ptr }
-%"class.std::vector.3" = type { %"struct.std::_Vector_base.4" }
-%"struct.std::_Vector_base.4" = type { %"struct.std::_Vector_base<float, std::allocator<float>>::_Vector_impl" }
-%"struct.std::_Vector_base<float, std::allocator<float>>::_Vector_impl" = type { %"struct.std::_Vector_base<float, std::allocator<float>>::_Vector_impl_data" }
-%"struct.std::_Vector_base<float, std::allocator<float>>::_Vector_impl_data" = type { ptr, ptr, ptr }
 %"class.std::__cxx11::basic_ostringstream" = type { %"class.std::basic_ostream.base", %"class.std::__cxx11::basic_stringbuf", %"class.std::basic_ios" }
 %"class.std::basic_ostream.base" = type { ptr }
 %"class.std::__cxx11::basic_stringbuf" = type { %"class.std::basic_streambuf", i32, %"class.std::__cxx11::basic_string" }
@@ -32,17 +21,11 @@ target triple = "x86_64-unknown-linux-gnu"
 %"class.std::basic_ios" = type { %"class.std::ios_base", ptr, i8, i8, ptr, ptr, ptr, ptr }
 %"class.std::ios_base" = type { ptr, i64, i64, i32, i32, i32, ptr, %"struct.std::ios_base::_Words", [8 x %"struct.std::ios_base::_Words"], i32, ptr, %"class.std::locale" }
 %"struct.std::ios_base::_Words" = type { ptr, i64 }
-%"struct.OpenColorIO_v2_4dev::GradingBSplineCurveImpl::KnotsCoefs" = type { i8, %"class.std::vector.15", %"class.std::vector.15", %"class.std::vector.3", %"class.std::vector.3" }
-%"class.std::vector.15" = type { %"struct.std::_Vector_base.16" }
-%"struct.std::_Vector_base.16" = type { %"struct.std::_Vector_base<int, std::allocator<int>>::_Vector_impl" }
-%"struct.std::_Vector_base<int, std::allocator<int>>::_Vector_impl" = type { %"struct.std::_Vector_base<int, std::allocator<int>>::_Vector_impl_data" }
-%"struct.std::_Vector_base<int, std::allocator<int>>::_Vector_impl_data" = type { ptr, ptr, ptr }
+%"class.std::vector.3" = type { %"struct.std::_Vector_base.4" }
+%"struct.std::_Vector_base.4" = type { %"struct.std::_Vector_base<float, std::allocator<float>>::_Vector_impl" }
+%"struct.std::_Vector_base<float, std::allocator<float>>::_Vector_impl" = type { %"struct.std::_Vector_base<float, std::allocator<float>>::_Vector_impl_data" }
+%"struct.std::_Vector_base<float, std::allocator<float>>::_Vector_impl_data" = type { ptr, ptr, ptr }
 %"class.OpenColorIO_v2_4dev::GpuShaderText::GpuShaderLine" = type { ptr }
-%"class.std::_Sp_counted_ptr_inplace" = type { %"class.std::_Sp_counted_base", %"class.std::_Sp_counted_ptr_inplace<OpenColorIO_v2_4dev::GradingBSplineCurveImpl, std::allocator<void>, __gnu_cxx::_S_atomic>::_Impl" }
-%"class.std::_Sp_counted_ptr_inplace<OpenColorIO_v2_4dev::GradingBSplineCurveImpl, std::allocator<void>, __gnu_cxx::_S_atomic>::_Impl" = type { %"struct.__gnu_cxx::__aligned_buffer" }
-%"struct.__gnu_cxx::__aligned_buffer" = type { %"union.std::aligned_storage<56, 8>::type" }
-%"union.std::aligned_storage<56, 8>::type" = type { [56 x i8] }
-%"class.std::type_info" = type { ptr, ptr }
 
 $_ZNSt10shared_ptrIN19OpenColorIO_v2_4dev23GradingBSplineCurveImplEED2Ev = comdat any
 
@@ -205,19 +188,19 @@ entry:
   store i64 %size, ptr %size.addr, align 8
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %__a.i)
   store ptr null, ptr %newSpline, align 8, !alias.scope !4
-  %_M_refcount.i.i.i = getelementptr inbounds %"class.std::__shared_ptr.1", ptr %newSpline, i64 0, i32 1
+  %_M_refcount.i.i.i = getelementptr inbounds i8, ptr %newSpline, i64 8
   call void @_ZNSt14__shared_countILN9__gnu_cxx12_Lock_policyE2EEC2IN19OpenColorIO_v2_4dev23GradingBSplineCurveImplESaIvEJRmEEERPT_St20_Sp_alloc_shared_tagIT0_EDpOT1_(ptr noundef nonnull align 8 dereferenceable(8) %_M_refcount.i.i.i, ptr noundef nonnull align 8 dereferenceable(8) %newSpline, ptr nonnull %__a.i, ptr noundef nonnull align 8 dereferenceable(8) %size.addr)
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %__a.i)
   %0 = load ptr, ptr %newSpline, align 8
   store ptr %0, ptr %agg.result, align 8
-  %_M_refcount.i.i = getelementptr inbounds %"class.std::__shared_ptr", ptr %agg.result, i64 0, i32 1
+  %_M_refcount.i.i = getelementptr inbounds i8, ptr %agg.result, i64 8
   %1 = load ptr, ptr %_M_refcount.i.i.i, align 8
   store ptr %1, ptr %_M_refcount.i.i, align 8
   %cmp.not.i.i.i = icmp eq ptr %1, null
   br i1 %cmp.not.i.i.i, label %_ZNSt10shared_ptrIN19OpenColorIO_v2_4dev23GradingBSplineCurveImplEED2Ev.exit, label %if.then.i.i.i
 
 if.then.i.i.i:                                    ; preds = %entry
-  %_M_use_count.i.i.i.i = getelementptr inbounds %"class.std::_Sp_counted_base", ptr %1, i64 0, i32 1
+  %_M_use_count.i.i.i.i = getelementptr inbounds i8, ptr %1, i64 8
   %2 = load i8, ptr @__libc_single_threaded, align 1
   %tobool.i.i.not.i.i.i.i = icmp eq i8 %2, 0
   br i1 %tobool.i.i.not.i.i.i.i, label %if.else.i.i.i.i.i, label %if.then.i.i.i.i.i
@@ -238,7 +221,7 @@ _ZNSt10shared_ptrIN19OpenColorIO_v2_4dev19GradingBSplineCurveEEC2INS0_23GradingB
   br i1 %cmp.not.i.i.i2, label %_ZNSt10shared_ptrIN19OpenColorIO_v2_4dev23GradingBSplineCurveImplEED2Ev.exit, label %if.then.i.i.i3
 
 if.then.i.i.i3:                                   ; preds = %_ZNSt10shared_ptrIN19OpenColorIO_v2_4dev19GradingBSplineCurveEEC2INS0_23GradingBSplineCurveImplEvEERKS_IT_E.exit
-  %_M_use_count.i.i.i.i4 = getelementptr inbounds %"class.std::_Sp_counted_base", ptr %.pr, i64 0, i32 1
+  %_M_use_count.i.i.i.i4 = getelementptr inbounds i8, ptr %.pr, i64 8
   %5 = load atomic i64, ptr %_M_use_count.i.i.i.i4 acquire, align 8
   %cmp.i.i.i.i = icmp eq i64 %5, 4294967297
   %6 = trunc i64 %5 to i32
@@ -246,10 +229,10 @@ if.then.i.i.i3:                                   ; preds = %_ZNSt10shared_ptrIN
 
 if.then.i.i.i.i:                                  ; preds = %if.then.i.i.i3
   store i32 0, ptr %_M_use_count.i.i.i.i4, align 8
-  %_M_weak_count.i.i.i.i = getelementptr inbounds %"class.std::_Sp_counted_base", ptr %.pr, i64 0, i32 2
+  %_M_weak_count.i.i.i.i = getelementptr inbounds i8, ptr %.pr, i64 12
   store i32 0, ptr %_M_weak_count.i.i.i.i, align 4
   %vtable.i.i.i.i = load ptr, ptr %.pr, align 8
-  %vfn.i.i.i.i = getelementptr inbounds ptr, ptr %vtable.i.i.i.i, i64 2
+  %vfn.i.i.i.i = getelementptr inbounds i8, ptr %vtable.i.i.i.i, i64 16
   %7 = load ptr, ptr %vfn.i.i.i.i, align 8
   call void %7(ptr noundef nonnull align 8 dereferenceable(16) %.pr) #20
   br label %if.end8.sink.split.i.i.i.i
@@ -275,10 +258,10 @@ _ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i: ; preds = %if.else.
 
 if.then7.i.i.i.i:                                 ; preds = %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i
   %vtable.i.i.i.i.i.i = load ptr, ptr %.pr, align 8
-  %vfn.i.i.i.i.i.i = getelementptr inbounds ptr, ptr %vtable.i.i.i.i.i.i, i64 2
+  %vfn.i.i.i.i.i.i = getelementptr inbounds i8, ptr %vtable.i.i.i.i.i.i, i64 16
   %10 = load ptr, ptr %vfn.i.i.i.i.i.i, align 8
   call void %10(ptr noundef nonnull align 8 dereferenceable(16) %.pr) #20
-  %_M_weak_count.i.i.i.i.i.i = getelementptr inbounds %"class.std::_Sp_counted_base", ptr %.pr, i64 0, i32 2
+  %_M_weak_count.i.i.i.i.i.i = getelementptr inbounds i8, ptr %.pr, i64 12
   %11 = load i8, ptr @__libc_single_threaded, align 1
   %tobool.i.not.i.i.i.i.i.i = icmp eq i8 %11, 0
   br i1 %tobool.i.not.i.i.i.i.i.i, label %if.else.i.i.i.i.i.i.i, label %if.then.i.i.i.i.i.i.i
@@ -300,7 +283,7 @@ _ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i: ; preds = %if.e
 
 if.end8.sink.split.i.i.i.i:                       ; preds = %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i, %if.then.i.i.i.i
   %vtable2.i.i.i.i.i.i = load ptr, ptr %.pr, align 8
-  %vfn3.i.i.i.i.i.i = getelementptr inbounds ptr, ptr %vtable2.i.i.i.i.i.i, i64 3
+  %vfn3.i.i.i.i.i.i = getelementptr inbounds i8, ptr %vtable2.i.i.i.i.i.i, i64 24
   %14 = load ptr, ptr %vfn3.i.i.i.i.i.i, align 8
   call void %14(ptr noundef nonnull align 8 dereferenceable(16) %.pr) #20
   br label %_ZNSt10shared_ptrIN19OpenColorIO_v2_4dev23GradingBSplineCurveImplEED2Ev.exit
@@ -312,13 +295,13 @@ _ZNSt10shared_ptrIN19OpenColorIO_v2_4dev23GradingBSplineCurveImplEED2Ev.exit: ; 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZNSt10shared_ptrIN19OpenColorIO_v2_4dev23GradingBSplineCurveImplEED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %this) unnamed_addr #1 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  %_M_refcount.i = getelementptr inbounds %"class.std::__shared_ptr.1", ptr %this, i64 0, i32 1
+  %_M_refcount.i = getelementptr inbounds i8, ptr %this, i64 8
   %0 = load ptr, ptr %_M_refcount.i, align 8
   %cmp.not.i.i = icmp eq ptr %0, null
   br i1 %cmp.not.i.i, label %_ZNSt12__shared_ptrIN19OpenColorIO_v2_4dev23GradingBSplineCurveImplELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit, label %if.then.i.i
 
 if.then.i.i:                                      ; preds = %entry
-  %_M_use_count.i.i.i = getelementptr inbounds %"class.std::_Sp_counted_base", ptr %0, i64 0, i32 1
+  %_M_use_count.i.i.i = getelementptr inbounds i8, ptr %0, i64 8
   %1 = load atomic i64, ptr %_M_use_count.i.i.i acquire, align 8
   %cmp.i.i.i = icmp eq i64 %1, 4294967297
   %2 = trunc i64 %1 to i32
@@ -326,10 +309,10 @@ if.then.i.i:                                      ; preds = %entry
 
 if.then.i.i.i:                                    ; preds = %if.then.i.i
   store i32 0, ptr %_M_use_count.i.i.i, align 8
-  %_M_weak_count.i.i.i = getelementptr inbounds %"class.std::_Sp_counted_base", ptr %0, i64 0, i32 2
+  %_M_weak_count.i.i.i = getelementptr inbounds i8, ptr %0, i64 12
   store i32 0, ptr %_M_weak_count.i.i.i, align 4
   %vtable.i.i.i = load ptr, ptr %0, align 8
-  %vfn.i.i.i = getelementptr inbounds ptr, ptr %vtable.i.i.i, i64 2
+  %vfn.i.i.i = getelementptr inbounds i8, ptr %vtable.i.i.i, i64 16
   %3 = load ptr, ptr %vfn.i.i.i, align 8
   tail call void %3(ptr noundef nonnull align 8 dereferenceable(16) %0) #20
   br label %if.end8.sink.split.i.i.i
@@ -355,10 +338,10 @@ _ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i: ; preds = %if.else.i.
 
 if.then7.i.i.i:                                   ; preds = %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i
   %vtable.i.i.i.i.i = load ptr, ptr %0, align 8
-  %vfn.i.i.i.i.i = getelementptr inbounds ptr, ptr %vtable.i.i.i.i.i, i64 2
+  %vfn.i.i.i.i.i = getelementptr inbounds i8, ptr %vtable.i.i.i.i.i, i64 16
   %6 = load ptr, ptr %vfn.i.i.i.i.i, align 8
   tail call void %6(ptr noundef nonnull align 8 dereferenceable(16) %0) #20
-  %_M_weak_count.i.i.i.i.i = getelementptr inbounds %"class.std::_Sp_counted_base", ptr %0, i64 0, i32 2
+  %_M_weak_count.i.i.i.i.i = getelementptr inbounds i8, ptr %0, i64 12
   %7 = load i8, ptr @__libc_single_threaded, align 1
   %tobool.i.not.i.i.i.i.i = icmp eq i8 %7, 0
   br i1 %tobool.i.not.i.i.i.i.i, label %if.else.i.i.i.i.i.i, label %if.then.i.i.i.i.i.i
@@ -380,7 +363,7 @@ _ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i: ; preds = %if.els
 
 if.end8.sink.split.i.i.i:                         ; preds = %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i, %if.then.i.i.i
   %vtable2.i.i.i.i.i = load ptr, ptr %0, align 8
-  %vfn3.i.i.i.i.i = getelementptr inbounds ptr, ptr %vtable2.i.i.i.i.i, i64 3
+  %vfn3.i.i.i.i.i = getelementptr inbounds i8, ptr %vtable2.i.i.i.i.i, i64 24
   %10 = load ptr, ptr %vfn3.i.i.i.i.i, align 8
   tail call void %10(ptr noundef nonnull align 8 dereferenceable(16) %0) #20
   br label %_ZNSt12__shared_ptrIN19OpenColorIO_v2_4dev23GradingBSplineCurveImplELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit
@@ -398,7 +381,7 @@ entry:
   store i64 %values.coerce1, ptr %ref.tmp, align 8
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %__a.i)
   store ptr null, ptr %newSpline, align 8, !alias.scope !7
-  %_M_refcount.i.i.i = getelementptr inbounds %"class.std::__shared_ptr.1", ptr %newSpline, i64 0, i32 1
+  %_M_refcount.i.i.i = getelementptr inbounds i8, ptr %newSpline, i64 8
   call void @_ZNSt14__shared_countILN9__gnu_cxx12_Lock_policyE2EEC2IN19OpenColorIO_v2_4dev23GradingBSplineCurveImplESaIvEJmEEERPT_St20_Sp_alloc_shared_tagIT0_EDpOT1_(ptr noundef nonnull align 8 dereferenceable(8) %_M_refcount.i.i.i, ptr noundef nonnull align 8 dereferenceable(8) %newSpline, ptr nonnull %__a.i, ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp)
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %__a.i)
   %add.ptr.i = getelementptr inbounds %"struct.OpenColorIO_v2_4dev::GradingControlPoint", ptr %values.coerce0, i64 %values.coerce1
@@ -410,7 +393,7 @@ for.body:                                         ; preds = %entry, %invoke.cont
   %__begin1.038 = phi ptr [ %incdec.ptr, %invoke.cont ], [ %values.coerce0, %entry ]
   %0 = load ptr, ptr %newSpline, align 8
   %vtable = load ptr, ptr %0, align 8
-  %vfn = getelementptr inbounds ptr, ptr %vtable, i64 4
+  %vfn = getelementptr inbounds i8, ptr %vtable, i64 32
   %1 = load ptr, ptr %vfn, align 8
   %call4 = invoke noundef nonnull align 4 dereferenceable(8) ptr %1(ptr noundef nonnull align 8 dereferenceable(56) %0, i64 noundef %i.039)
           to label %invoke.cont unwind label %lpad
@@ -419,7 +402,7 @@ invoke.cont:                                      ; preds = %for.body
   %inc = add nuw nsw i64 %i.039, 1
   %2 = load i64, ptr %__begin1.038, align 4
   store i64 %2, ptr %call4, align 4
-  %incdec.ptr = getelementptr inbounds %"struct.OpenColorIO_v2_4dev::GradingControlPoint", ptr %__begin1.038, i64 1
+  %incdec.ptr = getelementptr inbounds i8, ptr %__begin1.038, i64 8
   %cmp.not = icmp eq ptr %incdec.ptr, %add.ptr.i
   br i1 %cmp.not, label %for.end, label %for.body
 
@@ -434,13 +417,13 @@ for.end:                                          ; preds = %invoke.cont, %entry
   store i64 0, ptr %4, align 8
   %5 = load ptr, ptr %newSpline, align 8
   store ptr %5, ptr %agg.result, align 8
-  %_M_refcount3.i.i = getelementptr inbounds %"class.std::__shared_ptr", ptr %agg.result, i64 0, i32 1
+  %_M_refcount3.i.i = getelementptr inbounds i8, ptr %agg.result, i64 8
   %6 = load ptr, ptr %_M_refcount.i.i.i, align 8
   %cmp.not.i.i.i = icmp eq ptr %6, null
   br i1 %cmp.not.i.i.i, label %_ZNSt10shared_ptrIN19OpenColorIO_v2_4dev23GradingBSplineCurveImplEED2Ev.exit, label %if.then4.i.i.i
 
 if.then4.i.i.i:                                   ; preds = %for.end
-  %_M_use_count.i.i.i.i = getelementptr inbounds %"class.std::_Sp_counted_base", ptr %6, i64 0, i32 1
+  %_M_use_count.i.i.i.i = getelementptr inbounds i8, ptr %6, i64 8
   %7 = load i8, ptr @__libc_single_threaded, align 1
   %tobool.i.i.not.i.i.i.i = icmp eq i8 %7, 0
   br i1 %tobool.i.i.not.i.i.i.i, label %if.end.i.i.i, label %if.end.i.i.i.thread
@@ -458,7 +441,7 @@ if.end.i.i.i:                                     ; preds = %if.then4.i.i.i
   br i1 %cmp6.not.i.i.i, label %_ZNSt10shared_ptrIN19OpenColorIO_v2_4dev19GradingBSplineCurveEEaSINS0_23GradingBSplineCurveImplEEENSt9enable_ifIXsr13is_assignableIRSt12__shared_ptrIS1_LN9__gnu_cxx12_Lock_policyE2EERKS_IT_EEE5valueERS2_E4typeESE_.exit, label %if.then7.i.i.i
 
 if.then7.i.i.i:                                   ; preds = %if.end.i.i.i
-  %_M_use_count.i5.i.i.i = getelementptr inbounds %"class.std::_Sp_counted_base", ptr %.pr.i.i.i.pre, i64 0, i32 1
+  %_M_use_count.i5.i.i.i = getelementptr inbounds i8, ptr %.pr.i.i.i.pre, i64 8
   %10 = load atomic i64, ptr %_M_use_count.i5.i.i.i acquire, align 8
   %cmp.i.i.i.i = icmp eq i64 %10, 4294967297
   %11 = trunc i64 %10 to i32
@@ -466,10 +449,10 @@ if.then7.i.i.i:                                   ; preds = %if.end.i.i.i
 
 if.then.i.i.i.i:                                  ; preds = %if.then7.i.i.i
   store i32 0, ptr %_M_use_count.i5.i.i.i, align 8
-  %_M_weak_count.i.i.i.i = getelementptr inbounds %"class.std::_Sp_counted_base", ptr %.pr.i.i.i.pre, i64 0, i32 2
+  %_M_weak_count.i.i.i.i = getelementptr inbounds i8, ptr %.pr.i.i.i.pre, i64 12
   store i32 0, ptr %_M_weak_count.i.i.i.i, align 4
   %vtable.i.i.i.i = load ptr, ptr %.pr.i.i.i.pre, align 8
-  %vfn.i.i.i.i = getelementptr inbounds ptr, ptr %vtable.i.i.i.i, i64 2
+  %vfn.i.i.i.i = getelementptr inbounds i8, ptr %vtable.i.i.i.i, i64 16
   %12 = load ptr, ptr %vfn.i.i.i.i, align 8
   call void %12(ptr noundef nonnull align 8 dereferenceable(16) %.pr.i.i.i.pre) #20
   br label %if.end8.sink.split.i.i.i.i
@@ -495,10 +478,10 @@ _ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i: ; preds = %if.else.
 
 if.then7.i.i.i.i:                                 ; preds = %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i
   %vtable.i.i.i.i.i.i = load ptr, ptr %.pr.i.i.i.pre, align 8
-  %vfn.i.i.i.i.i.i = getelementptr inbounds ptr, ptr %vtable.i.i.i.i.i.i, i64 2
+  %vfn.i.i.i.i.i.i = getelementptr inbounds i8, ptr %vtable.i.i.i.i.i.i, i64 16
   %15 = load ptr, ptr %vfn.i.i.i.i.i.i, align 8
   call void %15(ptr noundef nonnull align 8 dereferenceable(16) %.pr.i.i.i.pre) #20
-  %_M_weak_count.i.i.i.i.i.i = getelementptr inbounds %"class.std::_Sp_counted_base", ptr %.pr.i.i.i.pre, i64 0, i32 2
+  %_M_weak_count.i.i.i.i.i.i = getelementptr inbounds i8, ptr %.pr.i.i.i.pre, i64 12
   %16 = load i8, ptr @__libc_single_threaded, align 1
   %tobool.i.not.i.i.i.i.i.i = icmp eq i8 %16, 0
   br i1 %tobool.i.not.i.i.i.i.i.i, label %if.else.i.i.i.i.i.i.i, label %if.then.i.i.i.i.i.i.i
@@ -520,7 +503,7 @@ _ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i: ; preds = %if.e
 
 if.end8.sink.split.i.i.i.i:                       ; preds = %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i, %if.then.i.i.i.i
   %vtable2.i.i.i.i.i.i = load ptr, ptr %.pr.i.i.i.pre, align 8
-  %vfn3.i.i.i.i.i.i = getelementptr inbounds ptr, ptr %vtable2.i.i.i.i.i.i, i64 3
+  %vfn3.i.i.i.i.i.i = getelementptr inbounds i8, ptr %vtable2.i.i.i.i.i.i, i64 24
   %19 = load ptr, ptr %vfn3.i.i.i.i.i.i, align 8
   call void %19(ptr noundef nonnull align 8 dereferenceable(16) %.pr.i.i.i.pre) #20
   br label %_ZNSt10shared_ptrIN19OpenColorIO_v2_4dev19GradingBSplineCurveEEaSINS0_23GradingBSplineCurveImplEEENSt9enable_ifIXsr13is_assignableIRSt12__shared_ptrIS1_LN9__gnu_cxx12_Lock_policyE2EERKS_IT_EEE5valueERS2_E4typeESE_.exit
@@ -532,7 +515,7 @@ _ZNSt10shared_ptrIN19OpenColorIO_v2_4dev19GradingBSplineCurveEEaSINS0_23GradingB
   br i1 %cmp.not.i.i.i5, label %_ZNSt10shared_ptrIN19OpenColorIO_v2_4dev23GradingBSplineCurveImplEED2Ev.exit, label %if.then.i.i.i6
 
 if.then.i.i.i6:                                   ; preds = %_ZNSt10shared_ptrIN19OpenColorIO_v2_4dev19GradingBSplineCurveEEaSINS0_23GradingBSplineCurveImplEEENSt9enable_ifIXsr13is_assignableIRSt12__shared_ptrIS1_LN9__gnu_cxx12_Lock_policyE2EERKS_IT_EEE5valueERS2_E4typeESE_.exit
-  %_M_use_count.i.i.i.i7 = getelementptr inbounds %"class.std::_Sp_counted_base", ptr %.pr, i64 0, i32 1
+  %_M_use_count.i.i.i.i7 = getelementptr inbounds i8, ptr %.pr, i64 8
   %20 = load atomic i64, ptr %_M_use_count.i.i.i.i7 acquire, align 8
   %cmp.i.i.i.i8 = icmp eq i64 %20, 4294967297
   %21 = trunc i64 %20 to i32
@@ -540,10 +523,10 @@ if.then.i.i.i6:                                   ; preds = %_ZNSt10shared_ptrIN
 
 if.then.i.i.i.i31:                                ; preds = %if.then.i.i.i6
   store i32 0, ptr %_M_use_count.i.i.i.i7, align 8
-  %_M_weak_count.i.i.i.i32 = getelementptr inbounds %"class.std::_Sp_counted_base", ptr %.pr, i64 0, i32 2
+  %_M_weak_count.i.i.i.i32 = getelementptr inbounds i8, ptr %.pr, i64 12
   store i32 0, ptr %_M_weak_count.i.i.i.i32, align 4
   %vtable.i.i.i.i33 = load ptr, ptr %.pr, align 8
-  %vfn.i.i.i.i34 = getelementptr inbounds ptr, ptr %vtable.i.i.i.i33, i64 2
+  %vfn.i.i.i.i34 = getelementptr inbounds i8, ptr %vtable.i.i.i.i33, i64 16
   %22 = load ptr, ptr %vfn.i.i.i.i34, align 8
   call void %22(ptr noundef nonnull align 8 dereferenceable(16) %.pr) #20
   br label %if.end8.sink.split.i.i.i.i26
@@ -569,10 +552,10 @@ _ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i13: ; preds = %if.els
 
 if.then7.i.i.i.i16:                               ; preds = %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i13
   %vtable.i.i.i.i.i.i17 = load ptr, ptr %.pr, align 8
-  %vfn.i.i.i.i.i.i18 = getelementptr inbounds ptr, ptr %vtable.i.i.i.i.i.i17, i64 2
+  %vfn.i.i.i.i.i.i18 = getelementptr inbounds i8, ptr %vtable.i.i.i.i.i.i17, i64 16
   %25 = load ptr, ptr %vfn.i.i.i.i.i.i18, align 8
   call void %25(ptr noundef nonnull align 8 dereferenceable(16) %.pr) #20
-  %_M_weak_count.i.i.i.i.i.i19 = getelementptr inbounds %"class.std::_Sp_counted_base", ptr %.pr, i64 0, i32 2
+  %_M_weak_count.i.i.i.i.i.i19 = getelementptr inbounds i8, ptr %.pr, i64 12
   %26 = load i8, ptr @__libc_single_threaded, align 1
   %tobool.i.not.i.i.i.i.i.i20 = icmp eq i8 %26, 0
   br i1 %tobool.i.not.i.i.i.i.i.i20, label %if.else.i.i.i.i.i.i.i29, label %if.then.i.i.i.i.i.i.i21
@@ -594,7 +577,7 @@ _ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i23: ; preds = %if
 
 if.end8.sink.split.i.i.i.i26:                     ; preds = %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i23, %if.then.i.i.i.i31
   %vtable2.i.i.i.i.i.i27 = load ptr, ptr %.pr, align 8
-  %vfn3.i.i.i.i.i.i28 = getelementptr inbounds ptr, ptr %vtable2.i.i.i.i.i.i27, i64 3
+  %vfn3.i.i.i.i.i.i28 = getelementptr inbounds i8, ptr %vtable2.i.i.i.i.i.i27, i64 24
   %29 = load ptr, ptr %vfn3.i.i.i.i.i.i28, align 8
   call void %29(ptr noundef nonnull align 8 dereferenceable(16) %.pr) #20
   br label %_ZNSt10shared_ptrIN19OpenColorIO_v2_4dev23GradingBSplineCurveImplEED2Ev.exit
@@ -612,7 +595,7 @@ declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias
 define hidden void @_ZN19OpenColorIO_v2_4dev23GradingBSplineCurveImplC2Em(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(56) %this, i64 noundef %size) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store ptr getelementptr inbounds ({ [13 x ptr] }, ptr @_ZTVN19OpenColorIO_v2_4dev23GradingBSplineCurveImplE, i64 0, inrange i32 0, i64 2), ptr %this, align 8
-  %m_controlPoints = getelementptr inbounds %"class.OpenColorIO_v2_4dev::GradingBSplineCurveImpl", ptr %this, i64 0, i32 1
+  %m_controlPoints = getelementptr inbounds i8, ptr %this, i64 8
   %cmp.i.i = icmp ugt i64 %size, 1152921504606846975
   br i1 %cmp.i.i, label %if.then.i.i, label %_ZNSt6vectorIN19OpenColorIO_v2_4dev19GradingControlPointESaIS1_EE17_S_check_init_lenEmRKS2_.exit.i
 
@@ -632,27 +615,27 @@ for.body.preheader.i.i.i.i.i:                     ; preds = %_ZNSt6vectorIN19Ope
   %add.ptr.i.i.i = getelementptr inbounds %"struct.OpenColorIO_v2_4dev::GradingControlPoint", ptr %call5.i.i.i.i2.i.i3, i64 %size
   tail call void @llvm.memset.p0.i64(ptr nonnull align 4 %call5.i.i.i.i2.i.i3, i8 0, i64 %mul.i.i.i.i.i.i, i1 false)
   %scevgep.i.i.i.i.i = getelementptr i8, ptr %call5.i.i.i.i2.i.i3, i64 %mul.i.i.i.i.i.i
-  %_M_finish.i.i7.i = getelementptr inbounds %"class.OpenColorIO_v2_4dev::GradingBSplineCurveImpl", ptr %this, i64 0, i32 1, i32 0, i32 0, i32 0, i32 1
-  %0 = getelementptr inbounds %"class.OpenColorIO_v2_4dev::GradingBSplineCurveImpl", ptr %this, i64 0, i32 1, i32 0, i32 0, i32 0, i32 2
+  %_M_finish.i.i7.i = getelementptr inbounds i8, ptr %this, i64 16
+  %0 = getelementptr inbounds i8, ptr %this, i64 24
   store ptr %add.ptr.i.i.i, ptr %0, align 8
   store ptr %scevgep.i.i.i.i.i, ptr %_M_finish.i.i7.i, align 8
-  %m_slopesArray = getelementptr inbounds %"class.OpenColorIO_v2_4dev::GradingBSplineCurveImpl", ptr %this, i64 0, i32 2
+  %m_slopesArray = getelementptr inbounds i8, ptr %this, i64 32
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %m_slopesArray, i8 0, i64 24, i1 false)
   %mul.i.i.i.i.i.i6 = shl nuw nsw i64 %size, 2
   %call5.i.i.i.i2.i.i12 = invoke noalias noundef nonnull ptr @_Znwm(i64 noundef %mul.i.i.i.i.i.i6) #22
           to label %call5.i.i.i.i2.i.i.noexc11 unwind label %ehcleanup
 
 _ZNSt12_Vector_baseIfSaIfEEC2EmRKS0_.exit.thread.i: ; preds = %_ZNSt6vectorIN19OpenColorIO_v2_4dev19GradingControlPointESaIS1_EE17_S_check_init_lenEmRKS2_.exit.i
-  %_M_finish.i.i4.i = getelementptr inbounds %"class.OpenColorIO_v2_4dev::GradingBSplineCurveImpl", ptr %this, i64 0, i32 2, i32 0, i32 0, i32 0, i32 1
+  %_M_finish.i.i4.i = getelementptr inbounds i8, ptr %this, i64 40
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %m_controlPoints, i8 0, i64 48, i1 false)
   br label %invoke.cont5
 
 call5.i.i.i.i2.i.i.noexc11:                       ; preds = %for.body.preheader.i.i.i.i.i
   store ptr %call5.i.i.i.i2.i.i12, ptr %m_slopesArray, align 8
-  %_M_finish.i.i.i = getelementptr inbounds %"class.OpenColorIO_v2_4dev::GradingBSplineCurveImpl", ptr %this, i64 0, i32 2, i32 0, i32 0, i32 0, i32 1
+  %_M_finish.i.i.i = getelementptr inbounds i8, ptr %this, i64 40
   store ptr %call5.i.i.i.i2.i.i12, ptr %_M_finish.i.i.i, align 8
   %add.ptr.i.i.i7 = getelementptr inbounds float, ptr %call5.i.i.i.i2.i.i12, i64 %size
-  %_M_end_of_storage.i.i.i = getelementptr inbounds %"class.OpenColorIO_v2_4dev::GradingBSplineCurveImpl", ptr %this, i64 0, i32 2, i32 0, i32 0, i32 0, i32 2
+  %_M_end_of_storage.i.i.i = getelementptr inbounds i8, ptr %this, i64 48
   store ptr %add.ptr.i.i.i7, ptr %_M_end_of_storage.i.i.i, align 8
   tail call void @llvm.memset.p0.i64(ptr nonnull align 4 %call5.i.i.i.i2.i.i12, i8 0, i64 %mul.i.i.i.i.i.i6, i1 false)
   br label %invoke.cont5
@@ -674,8 +657,8 @@ ehcleanup:                                        ; preds = %for.body.preheader.
 define hidden void @_ZN19OpenColorIO_v2_4dev23GradingBSplineCurveImplC2ERKSt6vectorINS_19GradingControlPointESaIS2_EE(ptr nocapture noundef nonnull align 8 dereferenceable(56) %this, ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %controlPoints) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store ptr getelementptr inbounds ({ [13 x ptr] }, ptr @_ZTVN19OpenColorIO_v2_4dev23GradingBSplineCurveImplE, i64 0, inrange i32 0, i64 2), ptr %this, align 8
-  %m_controlPoints = getelementptr inbounds %"class.OpenColorIO_v2_4dev::GradingBSplineCurveImpl", ptr %this, i64 0, i32 1
-  %_M_finish.i.i = getelementptr inbounds %"struct.std::_Vector_base<OpenColorIO_v2_4dev::GradingControlPoint, std::allocator<OpenColorIO_v2_4dev::GradingControlPoint>>::_Vector_impl_data", ptr %controlPoints, i64 0, i32 1
+  %m_controlPoints = getelementptr inbounds i8, ptr %this, i64 8
+  %_M_finish.i.i = getelementptr inbounds i8, ptr %controlPoints, i64 8
   %0 = load ptr, ptr %_M_finish.i.i, align 8
   %1 = load ptr, ptr %controlPoints, align 8
   %sub.ptr.lhs.cast.i.i = ptrtoint ptr %0 to i64
@@ -701,10 +684,10 @@ _ZNSt16allocator_traitsISaIN19OpenColorIO_v2_4dev19GradingControlPointEEE8alloca
 invoke.cont.i:                                    ; preds = %_ZNSt16allocator_traitsISaIN19OpenColorIO_v2_4dev19GradingControlPointEEE8allocateERS2_m.exit.i.i.i.i, %entry
   %cond.i.i.i.i = phi ptr [ null, %entry ], [ %call5.i.i.i.i2.i6.i3, %_ZNSt16allocator_traitsISaIN19OpenColorIO_v2_4dev19GradingControlPointEEE8allocateERS2_m.exit.i.i.i.i ]
   store ptr %cond.i.i.i.i, ptr %m_controlPoints, align 8
-  %_M_finish.i.i.i = getelementptr inbounds %"class.OpenColorIO_v2_4dev::GradingBSplineCurveImpl", ptr %this, i64 0, i32 1, i32 0, i32 0, i32 0, i32 1
+  %_M_finish.i.i.i = getelementptr inbounds i8, ptr %this, i64 16
   store ptr %cond.i.i.i.i, ptr %_M_finish.i.i.i, align 8
   %add.ptr.i.i.i = getelementptr inbounds %"struct.OpenColorIO_v2_4dev::GradingControlPoint", ptr %cond.i.i.i.i, i64 %sub.ptr.div.i.i
-  %_M_end_of_storage.i.i.i = getelementptr inbounds %"class.OpenColorIO_v2_4dev::GradingBSplineCurveImpl", ptr %this, i64 0, i32 1, i32 0, i32 0, i32 0, i32 2
+  %_M_end_of_storage.i.i.i = getelementptr inbounds i8, ptr %this, i64 24
   store ptr %add.ptr.i.i.i, ptr %_M_end_of_storage.i.i.i, align 8
   %2 = load ptr, ptr %controlPoints, align 8
   %3 = load ptr, ptr %_M_finish.i.i, align 8
@@ -716,15 +699,15 @@ for.body.i.i.i.i.i:                               ; preds = %invoke.cont.i, %for
   %__first.sroa.0.06.i.i.i.i.i = phi ptr [ %incdec.ptr.i.i.i.i.i.i, %for.body.i.i.i.i.i ], [ %2, %invoke.cont.i ]
   %4 = load i64, ptr %__first.sroa.0.06.i.i.i.i.i, align 4
   store i64 %4, ptr %__cur.07.i.i.i.i.i, align 4
-  %incdec.ptr.i.i.i.i.i.i = getelementptr inbounds %"struct.OpenColorIO_v2_4dev::GradingControlPoint", ptr %__first.sroa.0.06.i.i.i.i.i, i64 1
-  %incdec.ptr.i.i.i.i.i = getelementptr inbounds %"struct.OpenColorIO_v2_4dev::GradingControlPoint", ptr %__cur.07.i.i.i.i.i, i64 1
+  %incdec.ptr.i.i.i.i.i.i = getelementptr inbounds i8, ptr %__first.sroa.0.06.i.i.i.i.i, i64 8
+  %incdec.ptr.i.i.i.i.i = getelementptr inbounds i8, ptr %__cur.07.i.i.i.i.i, i64 8
   %cmp.i.not.i.i.i.i.i = icmp eq ptr %incdec.ptr.i.i.i.i.i.i, %3
   br i1 %cmp.i.not.i.i.i.i.i, label %invoke.cont, label %for.body.i.i.i.i.i, !llvm.loop !10
 
 invoke.cont:                                      ; preds = %for.body.i.i.i.i.i, %invoke.cont.i
   %__cur.0.lcssa.i.i.i.i.i = phi ptr [ %cond.i.i.i.i, %invoke.cont.i ], [ %incdec.ptr.i.i.i.i.i, %for.body.i.i.i.i.i ]
   store ptr %__cur.0.lcssa.i.i.i.i.i, ptr %_M_finish.i.i.i, align 8
-  %m_slopesArray = getelementptr inbounds %"class.OpenColorIO_v2_4dev::GradingBSplineCurveImpl", ptr %this, i64 0, i32 2
+  %m_slopesArray = getelementptr inbounds i8, ptr %this, i64 32
   %5 = load ptr, ptr %_M_finish.i.i, align 8
   %6 = load ptr, ptr %controlPoints, align 8
   %sub.ptr.lhs.cast.i = ptrtoint ptr %5 to i64
@@ -747,7 +730,7 @@ _ZNSt6vectorIfSaIfEE17_S_check_init_lenEmRKS0_.exit.i: ; preds = %invoke.cont
   br i1 %cmp.not.i.i.i.i4, label %_ZNSt12_Vector_baseIfSaIfEEC2EmRKS0_.exit.thread.i, label %if.end.i.i.i.i.i.i.i
 
 _ZNSt12_Vector_baseIfSaIfEEC2EmRKS0_.exit.thread.i: ; preds = %_ZNSt6vectorIfSaIfEE17_S_check_init_lenEmRKS0_.exit.i
-  %_M_finish.i.i4.i = getelementptr inbounds %"class.OpenColorIO_v2_4dev::GradingBSplineCurveImpl", ptr %this, i64 0, i32 2, i32 0, i32 0, i32 0, i32 1
+  %_M_finish.i.i4.i = getelementptr inbounds i8, ptr %this, i64 40
   br label %invoke.cont4
 
 if.end.i.i.i.i.i.i.i:                             ; preds = %_ZNSt6vectorIfSaIfEE17_S_check_init_lenEmRKS0_.exit.i
@@ -757,10 +740,10 @@ if.end.i.i.i.i.i.i.i:                             ; preds = %_ZNSt6vectorIfSaIfE
 
 call5.i.i.i.i2.i.i.noexc:                         ; preds = %if.end.i.i.i.i.i.i.i
   store ptr %call5.i.i.i.i2.i.i10, ptr %m_slopesArray, align 8
-  %_M_finish.i.i.i5 = getelementptr inbounds %"class.OpenColorIO_v2_4dev::GradingBSplineCurveImpl", ptr %this, i64 0, i32 2, i32 0, i32 0, i32 0, i32 1
+  %_M_finish.i.i.i5 = getelementptr inbounds i8, ptr %this, i64 40
   store ptr %call5.i.i.i.i2.i.i10, ptr %_M_finish.i.i.i5, align 8
   %add.ptr.i.i.i6 = getelementptr inbounds float, ptr %call5.i.i.i.i2.i.i10, i64 %sub.ptr.div.i
-  %_M_end_of_storage.i.i.i7 = getelementptr inbounds %"class.OpenColorIO_v2_4dev::GradingBSplineCurveImpl", ptr %this, i64 0, i32 2, i32 0, i32 0, i32 0, i32 2
+  %_M_end_of_storage.i.i.i7 = getelementptr inbounds i8, ptr %this, i64 48
   store ptr %add.ptr.i.i.i6, ptr %_M_end_of_storage.i.i.i7, align 8
   %7 = ashr exact i64 %sub.ptr.sub.i, 1
   %8 = and i64 %7, -4
@@ -797,19 +780,19 @@ entry:
   store i32 0, ptr %ref.tmp, align 4
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %__a.i)
   store ptr null, ptr %copy, align 8, !alias.scope !12
-  %_M_refcount.i.i.i = getelementptr inbounds %"class.std::__shared_ptr.1", ptr %copy, i64 0, i32 1
+  %_M_refcount.i.i.i = getelementptr inbounds i8, ptr %copy, i64 8
   call void @_ZNSt14__shared_countILN9__gnu_cxx12_Lock_policyE2EEC2IN19OpenColorIO_v2_4dev23GradingBSplineCurveImplESaIvEJiEEERPT_St20_Sp_alloc_shared_tagIT0_EDpOT1_(ptr noundef nonnull align 8 dereferenceable(8) %_M_refcount.i.i.i, ptr noundef nonnull align 8 dereferenceable(8) %copy, ptr nonnull %__a.i, ptr noundef nonnull align 4 dereferenceable(4) %ref.tmp)
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %__a.i)
-  %m_controlPoints = getelementptr inbounds %"class.OpenColorIO_v2_4dev::GradingBSplineCurveImpl", ptr %this, i64 0, i32 1
+  %m_controlPoints = getelementptr inbounds i8, ptr %this, i64 8
   %0 = load ptr, ptr %copy, align 8
-  %m_controlPoints2 = getelementptr inbounds %"class.OpenColorIO_v2_4dev::GradingBSplineCurveImpl", ptr %0, i64 0, i32 1
+  %m_controlPoints2 = getelementptr inbounds i8, ptr %0, i64 8
   %call3 = invoke noundef nonnull align 8 dereferenceable(24) ptr @_ZNSt6vectorIN19OpenColorIO_v2_4dev19GradingControlPointESaIS1_EEaSERKS3_(ptr noundef nonnull align 8 dereferenceable(24) %m_controlPoints2, ptr noundef nonnull align 8 dereferenceable(24) %m_controlPoints)
           to label %invoke.cont unwind label %lpad
 
 invoke.cont:                                      ; preds = %entry
-  %m_slopesArray = getelementptr inbounds %"class.OpenColorIO_v2_4dev::GradingBSplineCurveImpl", ptr %this, i64 0, i32 2
+  %m_slopesArray = getelementptr inbounds i8, ptr %this, i64 32
   %1 = load ptr, ptr %copy, align 8
-  %m_slopesArray5 = getelementptr inbounds %"class.OpenColorIO_v2_4dev::GradingBSplineCurveImpl", ptr %1, i64 0, i32 2
+  %m_slopesArray5 = getelementptr inbounds i8, ptr %1, i64 32
   %call7 = invoke noundef nonnull align 8 dereferenceable(24) ptr @_ZNSt6vectorIfSaIfEEaSERKS1_(ptr noundef nonnull align 8 dereferenceable(24) %m_slopesArray5, ptr noundef nonnull align 8 dereferenceable(24) %m_slopesArray)
           to label %invoke.cont6 unwind label %lpad
 
@@ -818,13 +801,13 @@ invoke.cont6:                                     ; preds = %invoke.cont
   store i64 0, ptr %2, align 8
   %3 = load ptr, ptr %copy, align 8
   store ptr %3, ptr %agg.result, align 8
-  %_M_refcount3.i.i = getelementptr inbounds %"class.std::__shared_ptr", ptr %agg.result, i64 0, i32 1
+  %_M_refcount3.i.i = getelementptr inbounds i8, ptr %agg.result, i64 8
   %4 = load ptr, ptr %_M_refcount.i.i.i, align 8
   %cmp.not.i.i.i = icmp eq ptr %4, null
   br i1 %cmp.not.i.i.i, label %_ZNSt10shared_ptrIN19OpenColorIO_v2_4dev23GradingBSplineCurveImplEED2Ev.exit, label %if.then4.i.i.i
 
 if.then4.i.i.i:                                   ; preds = %invoke.cont6
-  %_M_use_count.i.i.i.i = getelementptr inbounds %"class.std::_Sp_counted_base", ptr %4, i64 0, i32 1
+  %_M_use_count.i.i.i.i = getelementptr inbounds i8, ptr %4, i64 8
   %5 = load i8, ptr @__libc_single_threaded, align 1
   %tobool.i.i.not.i.i.i.i = icmp eq i8 %5, 0
   br i1 %tobool.i.i.not.i.i.i.i, label %if.end.i.i.i, label %if.end.i.i.i.thread
@@ -842,7 +825,7 @@ if.end.i.i.i:                                     ; preds = %if.then4.i.i.i
   br i1 %cmp6.not.i.i.i, label %_ZNSt10shared_ptrIN19OpenColorIO_v2_4dev19GradingBSplineCurveEEaSINS0_23GradingBSplineCurveImplEEENSt9enable_ifIXsr13is_assignableIRSt12__shared_ptrIS1_LN9__gnu_cxx12_Lock_policyE2EERKS_IT_EEE5valueERS2_E4typeESE_.exit, label %if.then7.i.i.i
 
 if.then7.i.i.i:                                   ; preds = %if.end.i.i.i
-  %_M_use_count.i5.i.i.i = getelementptr inbounds %"class.std::_Sp_counted_base", ptr %.pr.i.i.i.pre, i64 0, i32 1
+  %_M_use_count.i5.i.i.i = getelementptr inbounds i8, ptr %.pr.i.i.i.pre, i64 8
   %8 = load atomic i64, ptr %_M_use_count.i5.i.i.i acquire, align 8
   %cmp.i.i.i.i = icmp eq i64 %8, 4294967297
   %9 = trunc i64 %8 to i32
@@ -850,10 +833,10 @@ if.then7.i.i.i:                                   ; preds = %if.end.i.i.i
 
 if.then.i.i.i.i:                                  ; preds = %if.then7.i.i.i
   store i32 0, ptr %_M_use_count.i5.i.i.i, align 8
-  %_M_weak_count.i.i.i.i = getelementptr inbounds %"class.std::_Sp_counted_base", ptr %.pr.i.i.i.pre, i64 0, i32 2
+  %_M_weak_count.i.i.i.i = getelementptr inbounds i8, ptr %.pr.i.i.i.pre, i64 12
   store i32 0, ptr %_M_weak_count.i.i.i.i, align 4
   %vtable.i.i.i.i = load ptr, ptr %.pr.i.i.i.pre, align 8
-  %vfn.i.i.i.i = getelementptr inbounds ptr, ptr %vtable.i.i.i.i, i64 2
+  %vfn.i.i.i.i = getelementptr inbounds i8, ptr %vtable.i.i.i.i, i64 16
   %10 = load ptr, ptr %vfn.i.i.i.i, align 8
   call void %10(ptr noundef nonnull align 8 dereferenceable(16) %.pr.i.i.i.pre) #20
   br label %if.end8.sink.split.i.i.i.i
@@ -879,10 +862,10 @@ _ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i: ; preds = %if.else.
 
 if.then7.i.i.i.i:                                 ; preds = %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i
   %vtable.i.i.i.i.i.i = load ptr, ptr %.pr.i.i.i.pre, align 8
-  %vfn.i.i.i.i.i.i = getelementptr inbounds ptr, ptr %vtable.i.i.i.i.i.i, i64 2
+  %vfn.i.i.i.i.i.i = getelementptr inbounds i8, ptr %vtable.i.i.i.i.i.i, i64 16
   %13 = load ptr, ptr %vfn.i.i.i.i.i.i, align 8
   call void %13(ptr noundef nonnull align 8 dereferenceable(16) %.pr.i.i.i.pre) #20
-  %_M_weak_count.i.i.i.i.i.i = getelementptr inbounds %"class.std::_Sp_counted_base", ptr %.pr.i.i.i.pre, i64 0, i32 2
+  %_M_weak_count.i.i.i.i.i.i = getelementptr inbounds i8, ptr %.pr.i.i.i.pre, i64 12
   %14 = load i8, ptr @__libc_single_threaded, align 1
   %tobool.i.not.i.i.i.i.i.i = icmp eq i8 %14, 0
   br i1 %tobool.i.not.i.i.i.i.i.i, label %if.else.i.i.i.i.i.i.i, label %if.then.i.i.i.i.i.i.i
@@ -904,7 +887,7 @@ _ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i: ; preds = %if.e
 
 if.end8.sink.split.i.i.i.i:                       ; preds = %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i, %if.then.i.i.i.i
   %vtable2.i.i.i.i.i.i = load ptr, ptr %.pr.i.i.i.pre, align 8
-  %vfn3.i.i.i.i.i.i = getelementptr inbounds ptr, ptr %vtable2.i.i.i.i.i.i, i64 3
+  %vfn3.i.i.i.i.i.i = getelementptr inbounds i8, ptr %vtable2.i.i.i.i.i.i, i64 24
   %17 = load ptr, ptr %vfn3.i.i.i.i.i.i, align 8
   call void %17(ptr noundef nonnull align 8 dereferenceable(16) %.pr.i.i.i.pre) #20
   br label %_ZNSt10shared_ptrIN19OpenColorIO_v2_4dev19GradingBSplineCurveEEaSINS0_23GradingBSplineCurveImplEEENSt9enable_ifIXsr13is_assignableIRSt12__shared_ptrIS1_LN9__gnu_cxx12_Lock_policyE2EERKS_IT_EEE5valueERS2_E4typeESE_.exit
@@ -916,7 +899,7 @@ _ZNSt10shared_ptrIN19OpenColorIO_v2_4dev19GradingBSplineCurveEEaSINS0_23GradingB
   br i1 %cmp.not.i.i.i2, label %_ZNSt10shared_ptrIN19OpenColorIO_v2_4dev23GradingBSplineCurveImplEED2Ev.exit, label %if.then.i.i.i3
 
 if.then.i.i.i3:                                   ; preds = %_ZNSt10shared_ptrIN19OpenColorIO_v2_4dev19GradingBSplineCurveEEaSINS0_23GradingBSplineCurveImplEEENSt9enable_ifIXsr13is_assignableIRSt12__shared_ptrIS1_LN9__gnu_cxx12_Lock_policyE2EERKS_IT_EEE5valueERS2_E4typeESE_.exit
-  %_M_use_count.i.i.i.i4 = getelementptr inbounds %"class.std::_Sp_counted_base", ptr %.pr, i64 0, i32 1
+  %_M_use_count.i.i.i.i4 = getelementptr inbounds i8, ptr %.pr, i64 8
   %18 = load atomic i64, ptr %_M_use_count.i.i.i.i4 acquire, align 8
   %cmp.i.i.i.i5 = icmp eq i64 %18, 4294967297
   %19 = trunc i64 %18 to i32
@@ -924,10 +907,10 @@ if.then.i.i.i3:                                   ; preds = %_ZNSt10shared_ptrIN
 
 if.then.i.i.i.i28:                                ; preds = %if.then.i.i.i3
   store i32 0, ptr %_M_use_count.i.i.i.i4, align 8
-  %_M_weak_count.i.i.i.i29 = getelementptr inbounds %"class.std::_Sp_counted_base", ptr %.pr, i64 0, i32 2
+  %_M_weak_count.i.i.i.i29 = getelementptr inbounds i8, ptr %.pr, i64 12
   store i32 0, ptr %_M_weak_count.i.i.i.i29, align 4
   %vtable.i.i.i.i30 = load ptr, ptr %.pr, align 8
-  %vfn.i.i.i.i31 = getelementptr inbounds ptr, ptr %vtable.i.i.i.i30, i64 2
+  %vfn.i.i.i.i31 = getelementptr inbounds i8, ptr %vtable.i.i.i.i30, i64 16
   %20 = load ptr, ptr %vfn.i.i.i.i31, align 8
   call void %20(ptr noundef nonnull align 8 dereferenceable(16) %.pr) #20
   br label %if.end8.sink.split.i.i.i.i23
@@ -953,10 +936,10 @@ _ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i10: ; preds = %if.els
 
 if.then7.i.i.i.i13:                               ; preds = %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i10
   %vtable.i.i.i.i.i.i14 = load ptr, ptr %.pr, align 8
-  %vfn.i.i.i.i.i.i15 = getelementptr inbounds ptr, ptr %vtable.i.i.i.i.i.i14, i64 2
+  %vfn.i.i.i.i.i.i15 = getelementptr inbounds i8, ptr %vtable.i.i.i.i.i.i14, i64 16
   %23 = load ptr, ptr %vfn.i.i.i.i.i.i15, align 8
   call void %23(ptr noundef nonnull align 8 dereferenceable(16) %.pr) #20
-  %_M_weak_count.i.i.i.i.i.i16 = getelementptr inbounds %"class.std::_Sp_counted_base", ptr %.pr, i64 0, i32 2
+  %_M_weak_count.i.i.i.i.i.i16 = getelementptr inbounds i8, ptr %.pr, i64 12
   %24 = load i8, ptr @__libc_single_threaded, align 1
   %tobool.i.not.i.i.i.i.i.i17 = icmp eq i8 %24, 0
   br i1 %tobool.i.not.i.i.i.i.i.i17, label %if.else.i.i.i.i.i.i.i26, label %if.then.i.i.i.i.i.i.i18
@@ -978,7 +961,7 @@ _ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i20: ; preds = %if
 
 if.end8.sink.split.i.i.i.i23:                     ; preds = %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i20, %if.then.i.i.i.i28
   %vtable2.i.i.i.i.i.i24 = load ptr, ptr %.pr, align 8
-  %vfn3.i.i.i.i.i.i25 = getelementptr inbounds ptr, ptr %vtable2.i.i.i.i.i.i24, i64 3
+  %vfn3.i.i.i.i.i.i25 = getelementptr inbounds i8, ptr %vtable2.i.i.i.i.i.i24, i64 24
   %27 = load ptr, ptr %vfn3.i.i.i.i.i.i25, align 8
   call void %27(ptr noundef nonnull align 8 dereferenceable(16) %.pr) #20
   br label %_ZNSt10shared_ptrIN19OpenColorIO_v2_4dev23GradingBSplineCurveImplEED2Ev.exit
@@ -1000,13 +983,13 @@ entry:
   br i1 %cmp.not, label %if.end75, label %if.then
 
 if.then:                                          ; preds = %entry
-  %_M_finish.i = getelementptr inbounds %"struct.std::_Vector_base<OpenColorIO_v2_4dev::GradingControlPoint, std::allocator<OpenColorIO_v2_4dev::GradingControlPoint>>::_Vector_impl_data", ptr %__x, i64 0, i32 1
+  %_M_finish.i = getelementptr inbounds i8, ptr %__x, i64 8
   %0 = load ptr, ptr %_M_finish.i, align 8
   %1 = load ptr, ptr %__x, align 8
   %sub.ptr.lhs.cast.i = ptrtoint ptr %0 to i64
   %sub.ptr.rhs.cast.i = ptrtoint ptr %1 to i64
   %sub.ptr.sub.i = sub i64 %sub.ptr.lhs.cast.i, %sub.ptr.rhs.cast.i
-  %_M_end_of_storage.i = getelementptr inbounds %"struct.std::_Vector_base<OpenColorIO_v2_4dev::GradingControlPoint, std::allocator<OpenColorIO_v2_4dev::GradingControlPoint>>::_Vector_impl_data", ptr %this, i64 0, i32 2
+  %_M_end_of_storage.i = getelementptr inbounds i8, ptr %this, i64 16
   %2 = load ptr, ptr %_M_end_of_storage.i, align 8
   %3 = load ptr, ptr %this, align 8
   %sub.ptr.lhs.cast.i14 = ptrtoint ptr %2 to i64
@@ -1051,7 +1034,7 @@ _ZNSt12_Vector_baseIN19OpenColorIO_v2_4dev19GradingControlPointESaIS1_EE13_M_dea
   br label %if.end69
 
 if.else:                                          ; preds = %if.then
-  %_M_finish.i19 = getelementptr inbounds %"struct.std::_Vector_base<OpenColorIO_v2_4dev::GradingControlPoint, std::allocator<OpenColorIO_v2_4dev::GradingControlPoint>>::_Vector_impl_data", ptr %this, i64 0, i32 1
+  %_M_finish.i19 = getelementptr inbounds i8, ptr %this, i64 8
   %8 = load ptr, ptr %_M_finish.i19, align 8
   %sub.ptr.lhs.cast.i20 = ptrtoint ptr %8 to i64
   %sub.ptr.sub.i22 = sub i64 %sub.ptr.lhs.cast.i20, %sub.ptr.rhs.cast.i15
@@ -1096,15 +1079,15 @@ for.body.i.i.i.i:                                 ; preds = %_ZSt4copyIPN19OpenC
   %__first.addr.06.i.i.i.i = phi ptr [ %incdec.ptr.i.i.i.i, %for.body.i.i.i.i ], [ %add.ptr62, %_ZSt4copyIPN19OpenColorIO_v2_4dev19GradingControlPointES2_ET0_T_S4_S3_.exit ]
   %12 = load i64, ptr %__first.addr.06.i.i.i.i, align 4
   store i64 %12, ptr %__cur.07.i.i.i.i, align 4
-  %incdec.ptr.i.i.i.i = getelementptr inbounds %"struct.OpenColorIO_v2_4dev::GradingControlPoint", ptr %__first.addr.06.i.i.i.i, i64 1
-  %incdec.ptr1.i.i.i.i = getelementptr inbounds %"struct.OpenColorIO_v2_4dev::GradingControlPoint", ptr %__cur.07.i.i.i.i, i64 1
+  %incdec.ptr.i.i.i.i = getelementptr inbounds i8, ptr %__first.addr.06.i.i.i.i, i64 8
+  %incdec.ptr1.i.i.i.i = getelementptr inbounds i8, ptr %__cur.07.i.i.i.i, i64 8
   %cmp.not.i.i.i.i = icmp eq ptr %incdec.ptr.i.i.i.i, %9
   br i1 %cmp.not.i.i.i.i, label %if.end69, label %for.body.i.i.i.i, !llvm.loop !15
 
 if.end69:                                         ; preds = %for.body.i.i.i.i, %_ZSt4copyIPN19OpenColorIO_v2_4dev19GradingControlPointES2_ET0_T_S4_S3_.exit, %if.then.i.i.i.i.i, %if.then27, %_ZNSt12_Vector_baseIN19OpenColorIO_v2_4dev19GradingControlPointESaIS1_EE13_M_deallocateEPS1_m.exit
   %13 = load ptr, ptr %this, align 8
   %add.ptr72 = getelementptr inbounds i8, ptr %13, i64 %sub.ptr.sub.i
-  %_M_finish74 = getelementptr inbounds %"struct.std::_Vector_base<OpenColorIO_v2_4dev::GradingControlPoint, std::allocator<OpenColorIO_v2_4dev::GradingControlPoint>>::_Vector_impl_data", ptr %this, i64 0, i32 1
+  %_M_finish74 = getelementptr inbounds i8, ptr %this, i64 8
   store ptr %add.ptr72, ptr %_M_finish74, align 8
   br label %if.end75
 
@@ -1119,13 +1102,13 @@ entry:
   br i1 %cmp.not, label %if.end75, label %if.then
 
 if.then:                                          ; preds = %entry
-  %_M_finish.i = getelementptr inbounds %"struct.std::_Vector_base<float, std::allocator<float>>::_Vector_impl_data", ptr %__x, i64 0, i32 1
+  %_M_finish.i = getelementptr inbounds i8, ptr %__x, i64 8
   %0 = load ptr, ptr %_M_finish.i, align 8
   %1 = load ptr, ptr %__x, align 8
   %sub.ptr.lhs.cast.i = ptrtoint ptr %0 to i64
   %sub.ptr.rhs.cast.i = ptrtoint ptr %1 to i64
   %sub.ptr.sub.i = sub i64 %sub.ptr.lhs.cast.i, %sub.ptr.rhs.cast.i
-  %_M_end_of_storage.i = getelementptr inbounds %"struct.std::_Vector_base<float, std::allocator<float>>::_Vector_impl_data", ptr %this, i64 0, i32 2
+  %_M_end_of_storage.i = getelementptr inbounds i8, ptr %this, i64 16
   %2 = load ptr, ptr %_M_end_of_storage.i, align 8
   %3 = load ptr, ptr %this, align 8
   %sub.ptr.lhs.cast.i14 = ptrtoint ptr %2 to i64
@@ -1166,7 +1149,7 @@ _ZNSt12_Vector_baseIfSaIfEE13_M_deallocateEPfm.exit: ; preds = %_ZNSt6vectorIfSa
   br label %if.end69
 
 if.else:                                          ; preds = %if.then
-  %_M_finish.i19 = getelementptr inbounds %"struct.std::_Vector_base<float, std::allocator<float>>::_Vector_impl_data", ptr %this, i64 0, i32 1
+  %_M_finish.i19 = getelementptr inbounds i8, ptr %this, i64 8
   %4 = load ptr, ptr %_M_finish.i19, align 8
   %sub.ptr.lhs.cast.i20 = ptrtoint ptr %4 to i64
   %sub.ptr.sub.i22 = sub i64 %sub.ptr.lhs.cast.i20, %sub.ptr.rhs.cast.i15
@@ -1216,7 +1199,7 @@ if.then.i.i.i.i.i.i.i.i:                          ; preds = %_ZSt4copyIPfS0_ET0_
 if.end69:                                         ; preds = %if.then.i.i.i.i.i.i.i.i, %_ZSt4copyIPfS0_ET0_T_S2_S1_.exit, %if.then.i.i.i.i.i, %if.then27, %_ZNSt12_Vector_baseIfSaIfEE13_M_deallocateEPfm.exit
   %8 = load ptr, ptr %this, align 8
   %add.ptr72 = getelementptr inbounds i8, ptr %8, i64 %sub.ptr.sub.i
-  %_M_finish74 = getelementptr inbounds %"struct.std::_Vector_base<float, std::allocator<float>>::_Vector_impl_data", ptr %this, i64 0, i32 1
+  %_M_finish74 = getelementptr inbounds i8, ptr %this, i64 8
   store ptr %add.ptr72, ptr %_M_finish74, align 8
   br label %if.end75
 
@@ -1227,8 +1210,8 @@ if.end75:                                         ; preds = %if.end69, %entry
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
 define hidden noundef i64 @_ZNK19OpenColorIO_v2_4dev23GradingBSplineCurveImpl19getNumControlPointsEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(56) %this) unnamed_addr #3 align 2 {
 entry:
-  %m_controlPoints = getelementptr inbounds %"class.OpenColorIO_v2_4dev::GradingBSplineCurveImpl", ptr %this, i64 0, i32 1
-  %_M_finish.i = getelementptr inbounds %"class.OpenColorIO_v2_4dev::GradingBSplineCurveImpl", ptr %this, i64 0, i32 1, i32 0, i32 0, i32 0, i32 1
+  %m_controlPoints = getelementptr inbounds i8, ptr %this, i64 8
+  %_M_finish.i = getelementptr inbounds i8, ptr %this, i64 16
   %0 = load ptr, ptr %_M_finish.i, align 8
   %1 = load ptr, ptr %m_controlPoints, align 8
   %sub.ptr.lhs.cast.i = ptrtoint ptr %0 to i64
@@ -1242,11 +1225,11 @@ entry:
 define hidden void @_ZN19OpenColorIO_v2_4dev23GradingBSplineCurveImpl19setNumControlPointsEm(ptr noundef nonnull align 8 dereferenceable(56) %this, i64 noundef %size) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp = alloca float, align 4
-  %m_controlPoints = getelementptr inbounds %"class.OpenColorIO_v2_4dev::GradingBSplineCurveImpl", ptr %this, i64 0, i32 1
+  %m_controlPoints = getelementptr inbounds i8, ptr %this, i64 8
   tail call void @_ZNSt6vectorIN19OpenColorIO_v2_4dev19GradingControlPointESaIS1_EE6resizeEm(ptr noundef nonnull align 8 dereferenceable(24) %m_controlPoints, i64 noundef %size)
-  %m_slopesArray = getelementptr inbounds %"class.OpenColorIO_v2_4dev::GradingBSplineCurveImpl", ptr %this, i64 0, i32 2
+  %m_slopesArray = getelementptr inbounds i8, ptr %this, i64 32
   store float 0.000000e+00, ptr %ref.tmp, align 4
-  %_M_finish.i.i = getelementptr inbounds %"class.OpenColorIO_v2_4dev::GradingBSplineCurveImpl", ptr %this, i64 0, i32 2, i32 0, i32 0, i32 0, i32 1
+  %_M_finish.i.i = getelementptr inbounds i8, ptr %this, i64 40
   %0 = load ptr, ptr %_M_finish.i.i, align 8
   %1 = load ptr, ptr %m_slopesArray, align 8
   %sub.ptr.lhs.cast.i.i = ptrtoint ptr %0 to i64
@@ -1281,7 +1264,7 @@ _ZNSt6vectorIfSaIfEE6resizeEmRKf.exit:            ; preds = %if.then.i, %if.else
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr hidden void @_ZNSt6vectorIN19OpenColorIO_v2_4dev19GradingControlPointESaIS1_EE6resizeEm(ptr noundef nonnull align 8 dereferenceable(24) %this, i64 noundef %__new_size) local_unnamed_addr #0 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  %_M_finish.i = getelementptr inbounds %"struct.std::_Vector_base<OpenColorIO_v2_4dev::GradingControlPoint, std::allocator<OpenColorIO_v2_4dev::GradingControlPoint>>::_Vector_impl_data", ptr %this, i64 0, i32 1
+  %_M_finish.i = getelementptr inbounds i8, ptr %this, i64 8
   %0 = load ptr, ptr %_M_finish.i, align 8
   %1 = load ptr, ptr %this, align 8
   %sub.ptr.lhs.cast.i = ptrtoint ptr %0 to i64
@@ -1293,7 +1276,7 @@ entry:
 
 if.then:                                          ; preds = %entry
   %sub = sub i64 %__new_size, %sub.ptr.div.i
-  %_M_end_of_storage.i = getelementptr inbounds %"struct.std::_Vector_base<OpenColorIO_v2_4dev::GradingControlPoint, std::allocator<OpenColorIO_v2_4dev::GradingControlPoint>>::_Vector_impl_data", ptr %this, i64 0, i32 2
+  %_M_end_of_storage.i = getelementptr inbounds i8, ptr %this, i64 16
   %2 = load ptr, ptr %_M_end_of_storage.i, align 8
   %sub.ptr.lhs.cast.i9 = ptrtoint ptr %2 to i64
   %sub.ptr.sub.i10 = sub i64 %sub.ptr.lhs.cast.i9, %sub.ptr.lhs.cast.i
@@ -1340,8 +1323,8 @@ for.body.i.i.i.i.i:                               ; preds = %_ZNKSt6vectorIN19Op
   tail call void @llvm.experimental.noalias.scope.decl(metadata !19)
   %6 = load i64, ptr %__first.addr.06.i.i.i.i.i, align 4, !alias.scope !19, !noalias !16
   store i64 %6, ptr %__cur.07.i.i.i.i.i, align 4, !alias.scope !16, !noalias !19
-  %incdec.ptr.i.i.i.i.i = getelementptr inbounds %"struct.OpenColorIO_v2_4dev::GradingControlPoint", ptr %__first.addr.06.i.i.i.i.i, i64 1
-  %incdec.ptr1.i.i.i.i.i = getelementptr inbounds %"struct.OpenColorIO_v2_4dev::GradingControlPoint", ptr %__cur.07.i.i.i.i.i, i64 1
+  %incdec.ptr.i.i.i.i.i = getelementptr inbounds i8, ptr %__first.addr.06.i.i.i.i.i, i64 8
+  %incdec.ptr1.i.i.i.i.i = getelementptr inbounds i8, ptr %__cur.07.i.i.i.i.i, i64 8
   %cmp.not.i.i.i.i.i = icmp eq ptr %incdec.ptr.i.i.i.i.i, %0
   br i1 %cmp.not.i.i.i.i.i, label %_ZNSt6vectorIN19OpenColorIO_v2_4dev19GradingControlPointESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit.i, label %for.body.i.i.i.i.i, !llvm.loop !21
 
@@ -1383,8 +1366,8 @@ define hidden void @_ZNK19OpenColorIO_v2_4dev23GradingBSplineCurveImpl13validate
 entry:
   %oss = alloca %"class.std::__cxx11::basic_ostringstream", align 8
   %ref.tmp = alloca %"class.std::__cxx11::basic_string", align 8
-  %m_controlPoints = getelementptr inbounds %"class.OpenColorIO_v2_4dev::GradingBSplineCurveImpl", ptr %this, i64 0, i32 1
-  %_M_finish.i = getelementptr inbounds %"class.OpenColorIO_v2_4dev::GradingBSplineCurveImpl", ptr %this, i64 0, i32 1, i32 0, i32 0, i32 0, i32 1
+  %m_controlPoints = getelementptr inbounds i8, ptr %this, i64 8
+  %_M_finish.i = getelementptr inbounds i8, ptr %this, i64 16
   %0 = load ptr, ptr %_M_finish.i, align 8
   %1 = load ptr, ptr %m_controlPoints, align 8
   %sub.ptr.lhs.cast.i = ptrtoint ptr %0 to i64
@@ -1500,7 +1483,7 @@ declare void @_ZNSt7__cxx1119basic_ostringstreamIcSt11char_traitsIcESaIcEED1Ev(p
 define hidden noundef nonnull align 4 dereferenceable(8) ptr @_ZNK19OpenColorIO_v2_4dev23GradingBSplineCurveImpl15getControlPointEm(ptr nocapture noundef nonnull readonly align 8 dereferenceable(56) %this, i64 noundef %index) unnamed_addr #0 align 2 {
 entry:
   tail call void @_ZNK19OpenColorIO_v2_4dev23GradingBSplineCurveImpl13validateIndexEm(ptr noundef nonnull align 8 dereferenceable(56) %this, i64 noundef %index)
-  %m_controlPoints = getelementptr inbounds %"class.OpenColorIO_v2_4dev::GradingBSplineCurveImpl", ptr %this, i64 0, i32 1
+  %m_controlPoints = getelementptr inbounds i8, ptr %this, i64 8
   %0 = load ptr, ptr %m_controlPoints, align 8
   %add.ptr.i = getelementptr inbounds %"struct.OpenColorIO_v2_4dev::GradingControlPoint", ptr %0, i64 %index
   ret ptr %add.ptr.i
@@ -1510,7 +1493,7 @@ entry:
 define hidden noundef nonnull align 4 dereferenceable(8) ptr @_ZN19OpenColorIO_v2_4dev23GradingBSplineCurveImpl15getControlPointEm(ptr nocapture noundef nonnull readonly align 8 dereferenceable(56) %this, i64 noundef %index) unnamed_addr #0 align 2 {
 entry:
   tail call void @_ZNK19OpenColorIO_v2_4dev23GradingBSplineCurveImpl13validateIndexEm(ptr noundef nonnull align 8 dereferenceable(56) %this, i64 noundef %index)
-  %m_controlPoints = getelementptr inbounds %"class.OpenColorIO_v2_4dev::GradingBSplineCurveImpl", ptr %this, i64 0, i32 1
+  %m_controlPoints = getelementptr inbounds i8, ptr %this, i64 8
   %0 = load ptr, ptr %m_controlPoints, align 8
   %add.ptr.i = getelementptr inbounds %"struct.OpenColorIO_v2_4dev::GradingControlPoint", ptr %0, i64 %index
   ret ptr %add.ptr.i
@@ -1520,7 +1503,7 @@ entry:
 define hidden noundef float @_ZNK19OpenColorIO_v2_4dev23GradingBSplineCurveImpl8getSlopeEm(ptr nocapture noundef nonnull readonly align 8 dereferenceable(56) %this, i64 noundef %index) unnamed_addr #0 align 2 {
 entry:
   tail call void @_ZNK19OpenColorIO_v2_4dev23GradingBSplineCurveImpl13validateIndexEm(ptr noundef nonnull align 8 dereferenceable(56) %this, i64 noundef %index)
-  %m_slopesArray = getelementptr inbounds %"class.OpenColorIO_v2_4dev::GradingBSplineCurveImpl", ptr %this, i64 0, i32 2
+  %m_slopesArray = getelementptr inbounds i8, ptr %this, i64 32
   %0 = load ptr, ptr %m_slopesArray, align 8
   %add.ptr.i = getelementptr inbounds float, ptr %0, i64 %index
   %1 = load float, ptr %add.ptr.i, align 4
@@ -1531,7 +1514,7 @@ entry:
 define hidden void @_ZN19OpenColorIO_v2_4dev23GradingBSplineCurveImpl8setSlopeEmf(ptr nocapture noundef nonnull readonly align 8 dereferenceable(56) %this, i64 noundef %index, float noundef %slope) unnamed_addr #0 align 2 {
 entry:
   tail call void @_ZNK19OpenColorIO_v2_4dev23GradingBSplineCurveImpl13validateIndexEm(ptr noundef nonnull align 8 dereferenceable(56) %this, i64 noundef %index)
-  %m_slopesArray = getelementptr inbounds %"class.OpenColorIO_v2_4dev::GradingBSplineCurveImpl", ptr %this, i64 0, i32 2
+  %m_slopesArray = getelementptr inbounds i8, ptr %this, i64 32
   %0 = load ptr, ptr %m_slopesArray, align 8
   %add.ptr.i = getelementptr inbounds float, ptr %0, i64 %index
   store float %slope, ptr %add.ptr.i, align 4
@@ -1541,8 +1524,8 @@ entry:
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
 define hidden noundef zeroext i1 @_ZNK19OpenColorIO_v2_4dev23GradingBSplineCurveImpl16slopesAreDefaultEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(56) %this) unnamed_addr #6 align 2 {
 entry:
-  %m_slopesArray = getelementptr inbounds %"class.OpenColorIO_v2_4dev::GradingBSplineCurveImpl", ptr %this, i64 0, i32 2
-  %_M_finish.i = getelementptr inbounds %"class.OpenColorIO_v2_4dev::GradingBSplineCurveImpl", ptr %this, i64 0, i32 2, i32 0, i32 0, i32 0, i32 1
+  %m_slopesArray = getelementptr inbounds i8, ptr %this, i64 32
+  %_M_finish.i = getelementptr inbounds i8, ptr %this, i64 40
   %0 = load ptr, ptr %_M_finish.i, align 8
   %1 = load ptr, ptr %m_slopesArray, align 8
   %sub.ptr.lhs.cast.i = ptrtoint ptr %0 to i64
@@ -1584,8 +1567,8 @@ define hidden void @_ZNK19OpenColorIO_v2_4dev23GradingBSplineCurveImpl8validateE
 entry:
   %oss = alloca %"class.std::__cxx11::basic_ostringstream", align 8
   %ref.tmp = alloca %"class.std::__cxx11::basic_string", align 8
-  %m_controlPoints = getelementptr inbounds %"class.OpenColorIO_v2_4dev::GradingBSplineCurveImpl", ptr %this, i64 0, i32 1
-  %_M_finish.i = getelementptr inbounds %"class.OpenColorIO_v2_4dev::GradingBSplineCurveImpl", ptr %this, i64 0, i32 1, i32 0, i32 0, i32 0, i32 1
+  %m_controlPoints = getelementptr inbounds i8, ptr %this, i64 8
+  %_M_finish.i = getelementptr inbounds i8, ptr %this, i64 16
   %0 = load ptr, ptr %_M_finish.i, align 8
   %1 = load ptr, ptr %m_controlPoints, align 8
   %sub.ptr.lhs.cast.i = ptrtoint ptr %0 to i64
@@ -1611,8 +1594,8 @@ lpad:                                             ; preds = %if.then
   br label %eh.resume
 
 if.end:                                           ; preds = %entry
-  %m_slopesArray = getelementptr inbounds %"class.OpenColorIO_v2_4dev::GradingBSplineCurveImpl", ptr %this, i64 0, i32 2
-  %_M_finish.i13 = getelementptr inbounds %"class.OpenColorIO_v2_4dev::GradingBSplineCurveImpl", ptr %this, i64 0, i32 2, i32 0, i32 0, i32 0, i32 1
+  %m_slopesArray = getelementptr inbounds i8, ptr %this, i64 32
+  %_M_finish.i13 = getelementptr inbounds i8, ptr %this, i64 40
   %3 = load ptr, ptr %_M_finish.i13, align 8
   %4 = load ptr, ptr %m_slopesArray, align 8
   %sub.ptr.lhs.cast.i14 = ptrtoint ptr %3 to i64
@@ -1745,29 +1728,29 @@ declare noundef nonnull align 8 dereferenceable(8) ptr @_ZNSolsEf(ptr noundef no
 ; Function Attrs: mustprogress uwtable
 define hidden noundef zeroext i1 @_ZNK19OpenColorIO_v2_4dev23GradingBSplineCurveImpl10isIdentityEv(ptr noundef nonnull align 8 dereferenceable(56) %this) local_unnamed_addr #0 align 2 {
 entry:
-  %m_controlPoints = getelementptr inbounds %"class.OpenColorIO_v2_4dev::GradingBSplineCurveImpl", ptr %this, i64 0, i32 1
+  %m_controlPoints = getelementptr inbounds i8, ptr %this, i64 8
   %0 = load ptr, ptr %m_controlPoints, align 8
-  %_M_finish.i = getelementptr inbounds %"class.OpenColorIO_v2_4dev::GradingBSplineCurveImpl", ptr %this, i64 0, i32 1, i32 0, i32 0, i32 0, i32 1
+  %_M_finish.i = getelementptr inbounds i8, ptr %this, i64 16
   %1 = load ptr, ptr %_M_finish.i, align 8
   %cmp.i.not5 = icmp eq ptr %0, %1
   br i1 %cmp.i.not5, label %for.end, label %for.body
 
 for.cond:                                         ; preds = %for.body
-  %incdec.ptr.i = getelementptr inbounds %"struct.OpenColorIO_v2_4dev::GradingControlPoint", ptr %__begin1.sroa.0.06, i64 1
+  %incdec.ptr.i = getelementptr inbounds i8, ptr %__begin1.sroa.0.06, i64 8
   %cmp.i.not = icmp eq ptr %incdec.ptr.i, %1
   br i1 %cmp.i.not, label %for.end, label %for.body
 
 for.body:                                         ; preds = %entry, %for.cond
   %__begin1.sroa.0.06 = phi ptr [ %incdec.ptr.i, %for.cond ], [ %0, %entry ]
   %2 = load float, ptr %__begin1.sroa.0.06, align 4
-  %m_y = getelementptr inbounds %"struct.OpenColorIO_v2_4dev::GradingControlPoint", ptr %__begin1.sroa.0.06, i64 0, i32 1
+  %m_y = getelementptr inbounds i8, ptr %__begin1.sroa.0.06, i64 4
   %3 = load float, ptr %m_y, align 4
   %cmp = fcmp une float %2, %3
   br i1 %cmp, label %return, label %for.cond
 
 for.end:                                          ; preds = %for.cond, %entry
   %vtable = load ptr, ptr %this, align 8
-  %vfn = getelementptr inbounds ptr, ptr %vtable, i64 7
+  %vfn = getelementptr inbounds i8, ptr %vtable, i64 56
   %4 = load ptr, ptr %vfn, align 8
   %call7 = tail call noundef zeroext i1 %4(ptr noundef nonnull align 8 dereferenceable(56) %this)
   br label %return
@@ -1790,29 +1773,29 @@ dynamic_cast.end:                                 ; preds = %entry
   br i1 %tobool.not, label %return, label %if.then
 
 if.then:                                          ; preds = %dynamic_cast.end
-  %m_controlPoints.i = getelementptr inbounds %"class.OpenColorIO_v2_4dev::GradingBSplineCurveImpl", ptr %2, i64 0, i32 1
+  %m_controlPoints.i = getelementptr inbounds i8, ptr %2, i64 8
   %3 = load ptr, ptr %m_controlPoints.i, align 8
-  %_M_finish.i.i = getelementptr inbounds %"class.OpenColorIO_v2_4dev::GradingBSplineCurveImpl", ptr %2, i64 0, i32 1, i32 0, i32 0, i32 0, i32 1
+  %_M_finish.i.i = getelementptr inbounds i8, ptr %2, i64 16
   %4 = load ptr, ptr %_M_finish.i.i, align 8
   %cmp.i.not5.i = icmp eq ptr %3, %4
   br i1 %cmp.i.not5.i, label %for.end.i, label %for.body.i
 
 for.cond.i:                                       ; preds = %for.body.i
-  %incdec.ptr.i.i = getelementptr inbounds %"struct.OpenColorIO_v2_4dev::GradingControlPoint", ptr %__begin1.sroa.0.06.i, i64 1
+  %incdec.ptr.i.i = getelementptr inbounds i8, ptr %__begin1.sroa.0.06.i, i64 8
   %cmp.i.not.i = icmp eq ptr %incdec.ptr.i.i, %4
   br i1 %cmp.i.not.i, label %for.end.i, label %for.body.i
 
 for.body.i:                                       ; preds = %if.then, %for.cond.i
   %__begin1.sroa.0.06.i = phi ptr [ %incdec.ptr.i.i, %for.cond.i ], [ %3, %if.then ]
   %5 = load float, ptr %__begin1.sroa.0.06.i, align 4
-  %m_y.i = getelementptr inbounds %"struct.OpenColorIO_v2_4dev::GradingControlPoint", ptr %__begin1.sroa.0.06.i, i64 0, i32 1
+  %m_y.i = getelementptr inbounds i8, ptr %__begin1.sroa.0.06.i, i64 4
   %6 = load float, ptr %m_y.i, align 4
   %cmp.i = fcmp une float %5, %6
   br i1 %cmp.i, label %return, label %for.cond.i
 
 for.end.i:                                        ; preds = %for.cond.i, %if.then
   %vtable.i = load ptr, ptr %2, align 8
-  %vfn.i = getelementptr inbounds ptr, ptr %vtable.i, i64 7
+  %vfn.i = getelementptr inbounds i8, ptr %vtable.i, i64 56
   %7 = load ptr, ptr %vfn.i, align 8
   %call7.i = tail call noundef zeroext i1 %7(ptr noundef nonnull align 8 dereferenceable(56) %2)
   br label %return
@@ -1833,8 +1816,8 @@ entry:
   %coefsB = alloca %"class.std::vector.3", align 8
   %coefsC = alloca %"class.std::vector.3", align 8
   %slopes = alloca %"class.std::vector.3", align 8
-  %m_controlPoints = getelementptr inbounds %"class.OpenColorIO_v2_4dev::GradingBSplineCurveImpl", ptr %this, i64 0, i32 1
-  %_M_finish.i = getelementptr inbounds %"class.OpenColorIO_v2_4dev::GradingBSplineCurveImpl", ptr %this, i64 0, i32 1, i32 0, i32 0, i32 0, i32 1
+  %m_controlPoints = getelementptr inbounds i8, ptr %this, i64 8
+  %_M_finish.i = getelementptr inbounds i8, ptr %this, i64 16
   %0 = load ptr, ptr %_M_finish.i, align 8
   %1 = load ptr, ptr %m_controlPoints, align 8
   %sub.ptr.lhs.cast.i = ptrtoint ptr %0 to i64
@@ -1848,27 +1831,27 @@ lor.lhs.false:                                    ; preds = %entry
   br i1 %cmp.i.not5.i, label %_ZNK19OpenColorIO_v2_4dev23GradingBSplineCurveImpl10isIdentityEv.exit, label %for.body.i
 
 for.cond.i:                                       ; preds = %for.body.i
-  %incdec.ptr.i.i = getelementptr inbounds %"struct.OpenColorIO_v2_4dev::GradingControlPoint", ptr %__begin1.sroa.0.06.i, i64 1
+  %incdec.ptr.i.i = getelementptr inbounds i8, ptr %__begin1.sroa.0.06.i, i64 8
   %cmp.i.not.i = icmp eq ptr %incdec.ptr.i.i, %0
   br i1 %cmp.i.not.i, label %_ZNK19OpenColorIO_v2_4dev23GradingBSplineCurveImpl10isIdentityEv.exit, label %for.body.i
 
 for.body.i:                                       ; preds = %lor.lhs.false, %for.cond.i
   %__begin1.sroa.0.06.i = phi ptr [ %incdec.ptr.i.i, %for.cond.i ], [ %1, %lor.lhs.false ]
   %2 = load float, ptr %__begin1.sroa.0.06.i, align 4
-  %m_y.i = getelementptr inbounds %"struct.OpenColorIO_v2_4dev::GradingControlPoint", ptr %__begin1.sroa.0.06.i, i64 0, i32 1
+  %m_y.i = getelementptr inbounds i8, ptr %__begin1.sroa.0.06.i, i64 4
   %3 = load float, ptr %m_y.i, align 4
   %cmp.i = fcmp une float %2, %3
   br i1 %cmp.i, label %if.else, label %for.cond.i
 
 _ZNK19OpenColorIO_v2_4dev23GradingBSplineCurveImpl10isIdentityEv.exit: ; preds = %for.cond.i, %lor.lhs.false
   %vtable.i = load ptr, ptr %this, align 8
-  %vfn.i = getelementptr inbounds ptr, ptr %vtable.i, i64 7
+  %vfn.i = getelementptr inbounds i8, ptr %vtable.i, i64 56
   %4 = load ptr, ptr %vfn.i, align 8
   %call7.i = tail call noundef zeroext i1 %4(ptr noundef nonnull align 8 dereferenceable(56) %this)
   br i1 %call7.i, label %if.then, label %if.else
 
 if.then:                                          ; preds = %_ZNK19OpenColorIO_v2_4dev23GradingBSplineCurveImpl10isIdentityEv.exit, %entry
-  %m_knotsOffsetsArray = getelementptr inbounds %"struct.OpenColorIO_v2_4dev::GradingBSplineCurveImpl::KnotsCoefs", ptr %knotsCoefs, i64 0, i32 1
+  %m_knotsOffsetsArray = getelementptr inbounds i8, ptr %knotsCoefs, i64 8
   %mul = shl nsw i32 %curveIdx, 1
   %conv = sext i32 %mul to i64
   %5 = load ptr, ptr %m_knotsOffsetsArray, align 8
@@ -1879,7 +1862,7 @@ if.then:                                          ; preds = %_ZNK19OpenColorIO_v
   %6 = load ptr, ptr %m_knotsOffsetsArray, align 8
   %add.ptr.i30 = getelementptr inbounds i32, ptr %6, i64 %conv6
   store i32 0, ptr %add.ptr.i30, align 4
-  %m_coefsOffsetsArray = getelementptr inbounds %"struct.OpenColorIO_v2_4dev::GradingBSplineCurveImpl::KnotsCoefs", ptr %knotsCoefs, i64 0, i32 2
+  %m_coefsOffsetsArray = getelementptr inbounds i8, ptr %knotsCoefs, i64 32
   %7 = load ptr, ptr %m_coefsOffsetsArray, align 8
   %add.ptr.i31 = getelementptr inbounds i32, ptr %7, i64 %conv
   store i32 -1, ptr %add.ptr.i31, align 4
@@ -1895,7 +1878,7 @@ if.else:                                          ; preds = %for.body.i, %_ZNK19
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %coefsC, i8 0, i64 24, i1 false)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %slopes, i8 0, i64 24, i1 false)
   %vtable = load ptr, ptr %this, align 8
-  %vfn = getelementptr inbounds ptr, ptr %vtable, i64 7
+  %vfn = getelementptr inbounds i8, ptr %vtable, i64 56
   %9 = load ptr, ptr %vfn, align 8
   %call16 = invoke noundef zeroext i1 %9(ptr noundef nonnull align 8 dereferenceable(56) %this)
           to label %invoke.cont unwind label %lpad
@@ -1913,8 +1896,8 @@ invoke.cont.if.else25_crit_edge:                  ; preds = %invoke.cont
   br label %if.else25
 
 land.lhs.true:                                    ; preds = %invoke.cont
-  %m_slopesArray = getelementptr inbounds %"class.OpenColorIO_v2_4dev::GradingBSplineCurveImpl", ptr %this, i64 0, i32 2
-  %_M_finish.i33 = getelementptr inbounds %"class.OpenColorIO_v2_4dev::GradingBSplineCurveImpl", ptr %this, i64 0, i32 2, i32 0, i32 0, i32 0, i32 1
+  %m_slopesArray = getelementptr inbounds i8, ptr %this, i64 32
+  %_M_finish.i33 = getelementptr inbounds i8, ptr %this, i64 40
   %10 = load ptr, ptr %_M_finish.i33, align 8
   %11 = load ptr, ptr %m_slopesArray, align 8
   %sub.ptr.lhs.cast.i34 = ptrtoint ptr %10 to i64
@@ -1929,7 +1912,7 @@ land.lhs.true:                                    ; preds = %invoke.cont
   br i1 %cmp20, label %if.then.i, label %if.else25
 
 if.then.i:                                        ; preds = %land.lhs.true
-  %_M_end_of_storage.i.i = getelementptr inbounds %"struct.std::_Vector_base<float, std::allocator<float>>::_Vector_impl_data", ptr %slopes, i64 0, i32 2
+  %_M_end_of_storage.i.i = getelementptr inbounds i8, ptr %slopes, i64 16
   %cmp3.i.not = icmp eq ptr %10, %11
   br i1 %cmp3.i.not, label %if.end69.i, label %cond.true.i.i.i
 
@@ -1965,7 +1948,7 @@ _ZNSt12_Vector_baseIfSaIfEE13_M_deallocateEPfm.exit.i: ; preds = %call5.i.i.i.i.
 if.end69.i:                                       ; preds = %if.then.i, %_ZNSt12_Vector_baseIfSaIfEE13_M_deallocateEPfm.exit.i
   %12 = phi ptr [ %call5.i.i.i.i.i45, %_ZNSt12_Vector_baseIfSaIfEE13_M_deallocateEPfm.exit.i ], [ null, %if.then.i ]
   %add.ptr72.i = getelementptr inbounds i8, ptr %12, i64 %sub.ptr.sub.i36
-  %_M_finish74.i = getelementptr inbounds %"struct.std::_Vector_base<float, std::allocator<float>>::_Vector_impl_data", ptr %slopes, i64 0, i32 1
+  %_M_finish74.i = getelementptr inbounds i8, ptr %slopes, i64 8
   store ptr %add.ptr72.i, ptr %_M_finish74.i, align 8
   br label %if.end
 
@@ -1996,9 +1979,9 @@ for.body.i50:                                     ; preds = %if.else25, %_ZNSt6v
   %add.ptr.i46.i = getelementptr inbounds %"struct.OpenColorIO_v2_4dev::GradingControlPoint", ptr %14, i64 %i.0328.i
   %16 = load float, ptr %add.ptr.i46.i, align 4
   %sub4.i = fsub float %15, %16
-  %m_y.i51 = getelementptr inbounds %"struct.OpenColorIO_v2_4dev::GradingControlPoint", ptr %14, i64 %add.i, i32 1
+  %m_y.i51 = getelementptr inbounds i8, ptr %add.ptr.i.i, i64 4
   %17 = load float, ptr %m_y.i51, align 4
-  %m_y8.i = getelementptr inbounds %"struct.OpenColorIO_v2_4dev::GradingControlPoint", ptr %14, i64 %i.0328.i, i32 1
+  %m_y8.i = getelementptr inbounds i8, ptr %add.ptr.i46.i, i64 4
   %18 = load float, ptr %m_y8.i, align 4
   %sub9.i = fsub float %17, %18
   %div.i = fdiv float %sub9.i, %sub4.i
@@ -2066,7 +2049,7 @@ invoke.cont.i:                                    ; preds = %_ZNSt6vectorIfSaIfE
   %secantSlope.sroa.17.1.i = phi ptr [ %add.ptr19.i.i.i.i, %_ZNSt6vectorIfSaIfEE17_M_realloc_insertIJfEEEvN9__gnu_cxx17__normal_iteratorIPfS1_EEDpOT_.exit.i.i.i ], [ %secantSlope.sroa.17.0325.i, %if.then.i.i.i ]
   %add.ptr.i.i.i.i.i.i.i.pn.i = phi ptr [ %add.ptr.i.i.i.i.i.i.i.i, %_ZNSt6vectorIfSaIfEE17_M_realloc_insertIJfEEEvN9__gnu_cxx17__normal_iteratorIPfS1_EEDpOT_.exit.i.i.i ], [ %secantSlope.sroa.13.0326.i, %if.then.i.i.i ]
   %secantSlope.sroa.0.1.i = phi ptr [ %cond.i10.i.i.i.i, %_ZNSt6vectorIfSaIfEE17_M_realloc_insertIJfEEEvN9__gnu_cxx17__normal_iteratorIPfS1_EEDpOT_.exit.i.i.i ], [ %secantSlope.sroa.0.0327.i, %if.then.i.i.i ]
-  %secantSlope.sroa.13.1.i = getelementptr inbounds float, ptr %add.ptr.i.i.i.i.i.i.i.pn.i, i64 1
+  %secantSlope.sroa.13.1.i = getelementptr inbounds i8, ptr %add.ptr.i.i.i.i.i.i.i.pn.i, i64 4
   %mul11.i = fmul float %sub9.i, %sub9.i
   %20 = tail call float @llvm.fmuladd.f32(float %sub4.i, float %sub4.i, float %mul11.i)
   %sqrt.i = tail call float @llvm.sqrt.f32(float %20)
@@ -2134,7 +2117,7 @@ _ZNSt6vectorIfSaIfEE9push_backEOf.exit85.i:       ; preds = %_ZNSt6vectorIfSaIfE
   %secantLen.sroa.16.1.i = phi ptr [ %add.ptr19.i.i.i79.i, %_ZNSt6vectorIfSaIfEE17_M_realloc_insertIJfEEEvN9__gnu_cxx17__normal_iteratorIPfS1_EEDpOT_.exit.i.i78.i ], [ %secantLen.sroa.16.0322.i, %if.then.i.i53.i ]
   %add.ptr.i.i.i.i.i.i.i74.pn.i = phi ptr [ %add.ptr.i.i.i.i.i.i.i74.i, %_ZNSt6vectorIfSaIfEE17_M_realloc_insertIJfEEEvN9__gnu_cxx17__normal_iteratorIPfS1_EEDpOT_.exit.i.i78.i ], [ %secantLen.sroa.12.0323.i, %if.then.i.i53.i ]
   %secantLen.sroa.0.1.i = phi ptr [ %cond.i10.i.i.i70.i, %_ZNSt6vectorIfSaIfEE17_M_realloc_insertIJfEEEvN9__gnu_cxx17__normal_iteratorIPfS1_EEDpOT_.exit.i.i78.i ], [ %secantLen.sroa.0.0324.i, %if.then.i.i53.i ]
-  %secantLen.sroa.12.1.i = getelementptr inbounds float, ptr %add.ptr.i.i.i.i.i.i.i74.pn.i, i64 1
+  %secantLen.sroa.12.1.i = getelementptr inbounds i8, ptr %add.ptr.i.i.i.i.i.i.i74.pn.i, i64 4
   %exitcond.not.i = icmp eq i64 %add.i, %sub.i
   br i1 %exitcond.not.i, label %for.end.i52, label %for.body.i50
 
@@ -2197,9 +2180,9 @@ while.cond.preheader.i:                           ; preds = %for.end.i52
   br label %while.cond.i
 
 if.then.i54:                                      ; preds = %for.end.i52
-  %_M_finish.i89.i = getelementptr inbounds %"struct.std::_Vector_base<float, std::allocator<float>>::_Vector_impl_data", ptr %slopes, i64 0, i32 1
+  %_M_finish.i89.i = getelementptr inbounds i8, ptr %slopes, i64 8
   %22 = load ptr, ptr %_M_finish.i89.i, align 8
-  %_M_end_of_storage.i.i55 = getelementptr inbounds %"struct.std::_Vector_base<float, std::allocator<float>>::_Vector_impl_data", ptr %slopes, i64 0, i32 2
+  %_M_end_of_storage.i.i55 = getelementptr inbounds i8, ptr %slopes, i64 16
   %23 = load ptr, ptr %_M_end_of_storage.i.i55, align 8
   %cmp.not.i.i = icmp eq ptr %22, %23
   br i1 %cmp.not.i.i, label %if.else.i.i, label %if.then.i.i56
@@ -2207,7 +2190,7 @@ if.then.i54:                                      ; preds = %for.end.i52
 if.then.i.i56:                                    ; preds = %if.then.i54
   %24 = load float, ptr %secantSlope.sroa.0.0.lcssa.i, align 4
   store float %24, ptr %22, align 4
-  %incdec.ptr.i.i57 = getelementptr inbounds float, ptr %22, i64 1
+  %incdec.ptr.i.i57 = getelementptr inbounds i8, ptr %22, i64 4
   store ptr %incdec.ptr.i.i57, ptr %_M_finish.i89.i, align 8
   br label %invoke.cont17.i
 
@@ -2255,7 +2238,7 @@ if.then.i.i.i.i.i.i.i:                            ; preds = %_ZNSt12_Vector_base
 
 _ZNSt6vectorIfSaIfEE11_S_relocateEPfS2_S2_RS0_.exit17.i.i.i: ; preds = %if.then.i.i.i.i.i.i.i, %_ZNSt12_Vector_baseIfSaIfEE11_M_allocateEm.exit.i.i.i
   %add.ptr.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %cond.i10.i.i.i, i64 %sub.ptr.sub.i.i.i.i.i
-  %incdec.ptr.i.i90.i = getelementptr inbounds float, ptr %add.ptr.i.i.i.i.i.i.i, i64 1
+  %incdec.ptr.i.i90.i = getelementptr inbounds i8, ptr %add.ptr.i.i.i.i.i.i.i, i64 4
   %tobool.not.i.i.i91.i = icmp eq ptr %25, null
   br i1 %tobool.not.i.i.i91.i, label %_ZNSt6vectorIfSaIfEE17_M_realloc_insertIJRKfEEEvN9__gnu_cxx17__normal_iteratorIPfS1_EEDpOT_.exit.i.i, label %if.then.i18.i.i.i
 
@@ -2279,7 +2262,7 @@ invoke.cont17.i:                                  ; preds = %_ZNSt6vectorIfSaIfE
 if.then.i98.i:                                    ; preds = %invoke.cont17.i
   %30 = load float, ptr %secantSlope.sroa.0.0.lcssa.i, align 4
   store float %30, ptr %29, align 4
-  %incdec.ptr.i99.i = getelementptr inbounds float, ptr %29, i64 1
+  %incdec.ptr.i99.i = getelementptr inbounds i8, ptr %29, i64 4
   store ptr %incdec.ptr.i99.i, ptr %_M_finish.i89.i, align 8
   br label %cleanup.i
 
@@ -2320,7 +2303,7 @@ if.then.i.i.i.i.i.i125.i:                         ; preds = %_ZNSt12_Vector_base
 
 _ZNSt6vectorIfSaIfEE11_S_relocateEPfS2_S2_RS0_.exit17.i.i118.i: ; preds = %if.then.i.i.i.i.i.i125.i, %_ZNSt12_Vector_baseIfSaIfEE11_M_allocateEm.exit.i.i114.i
   %add.ptr.i.i.i.i.i.i119.i = getelementptr inbounds i8, ptr %cond.i10.i.i115.i, i64 %sub.ptr.sub.i.i.i.i103.i
-  %incdec.ptr.i.i120.i = getelementptr inbounds float, ptr %add.ptr.i.i.i.i.i.i119.i, i64 1
+  %incdec.ptr.i.i120.i = getelementptr inbounds i8, ptr %add.ptr.i.i.i.i.i.i119.i, i64 4
   %tobool.not.i.i.i121.i = icmp eq ptr %31, null
   br i1 %tobool.not.i.i.i121.i, label %_ZNSt6vectorIfSaIfEE17_M_realloc_insertIJRKfEEEvN9__gnu_cxx17__normal_iteratorIPfS1_EEDpOT_.exit.i123.i, label %if.then.i18.i.i122.i
 
@@ -2386,16 +2369,16 @@ for.end43.i:                                      ; preds = %for.body39.i, %whil
   br i1 %cmp45.not.i, label %while.cond.i, label %while.end49.i, !llvm.loop !26
 
 while.end49.i:                                    ; preds = %for.end43.i
-  %_M_finish.i.i136.i = getelementptr inbounds %"struct.std::_Vector_base<float, std::allocator<float>>::_Vector_impl_data", ptr %slopes, i64 0, i32 1
+  %_M_finish.i.i136.i = getelementptr inbounds i8, ptr %slopes, i64 8
   %39 = load ptr, ptr %_M_finish.i.i136.i, align 8
-  %_M_end_of_storage.i.i137.i = getelementptr inbounds %"struct.std::_Vector_base<float, std::allocator<float>>::_Vector_impl_data", ptr %slopes, i64 0, i32 2
+  %_M_end_of_storage.i.i137.i = getelementptr inbounds i8, ptr %slopes, i64 16
   %40 = load ptr, ptr %_M_end_of_storage.i.i137.i, align 8
   %cmp.not.i.i138.i = icmp eq ptr %39, %40
   br i1 %cmp.not.i.i138.i, label %if.else.i.i141.i, label %if.then.i.i139.i
 
 if.then.i.i139.i:                                 ; preds = %while.end49.i
   store float 0.000000e+00, ptr %39, align 4
-  %incdec.ptr.i.i140.i = getelementptr inbounds float, ptr %39, i64 1
+  %incdec.ptr.i.i140.i = getelementptr inbounds i8, ptr %39, i64 4
   store ptr %incdec.ptr.i.i140.i, ptr %_M_finish.i.i136.i, align 8
   br label %_ZNSt6vectorIfSaIfEE9push_backEOf.exit171.i
 
@@ -2435,7 +2418,7 @@ if.then.i.i.i.i.i.i.i166.i:                       ; preds = %_ZNSt12_Vector_base
 
 _ZNSt6vectorIfSaIfEE11_S_relocateEPfS2_S2_RS0_.exit17.i.i.i159.i: ; preds = %if.then.i.i.i.i.i.i.i166.i, %_ZNSt12_Vector_baseIfSaIfEE11_M_allocateEm.exit.i.i.i155.i
   %add.ptr.i.i.i.i.i.i.i160.i = getelementptr inbounds i8, ptr %cond.i10.i.i.i156.i, i64 %sub.ptr.sub.i.i.i.i.i144.i
-  %incdec.ptr.i.i.i161.i = getelementptr inbounds float, ptr %add.ptr.i.i.i.i.i.i.i160.i, i64 1
+  %incdec.ptr.i.i.i161.i = getelementptr inbounds i8, ptr %add.ptr.i.i.i.i.i.i.i160.i, i64 4
   %tobool.not.i.i.i.i162.i = icmp eq ptr %41, null
   br i1 %tobool.not.i.i.i.i162.i, label %_ZNSt6vectorIfSaIfEE17_M_realloc_insertIJfEEEvN9__gnu_cxx17__normal_iteratorIPfS1_EEDpOT_.exit.i.i164.i, label %if.then.i18.i.i.i163.i
 
@@ -2479,7 +2462,7 @@ for.body56.i:                                     ; preds = %_ZNSt6vectorIfSaIfE
 if.then.i181.i:                                   ; preds = %for.body56.i
   store float %div68.i, ptr %45, align 4
   %52 = load ptr, ptr %_M_finish.i.i136.i, align 8
-  %incdec.ptr.i182.i = getelementptr inbounds float, ptr %52, i64 1
+  %incdec.ptr.i182.i = getelementptr inbounds i8, ptr %52, i64 4
   store ptr %incdec.ptr.i182.i, ptr %_M_finish.i.i136.i, align 8
   br label %for.inc70.i
 
@@ -2526,7 +2509,7 @@ if.then.i.i.i.i.i.i208.i:                         ; preds = %_ZNSt12_Vector_base
 
 _ZNSt6vectorIfSaIfEE11_S_relocateEPfS2_S2_RS0_.exit17.i.i201.i: ; preds = %if.then.i.i.i.i.i.i208.i, %_ZNSt12_Vector_baseIfSaIfEE11_M_allocateEm.exit.i.i197.i
   %add.ptr.i.i.i.i.i.i202.i = getelementptr inbounds i8, ptr %cond.i10.i.i198.i, i64 %sub.ptr.sub.i.i.i.i186.i
-  %incdec.ptr.i.i203.i = getelementptr inbounds float, ptr %add.ptr.i.i.i.i.i.i202.i, i64 1
+  %incdec.ptr.i.i203.i = getelementptr inbounds i8, ptr %add.ptr.i.i.i.i.i.i202.i, i64 4
   %tobool.not.i.i.i204.i = icmp eq ptr %53, null
   br i1 %tobool.not.i.i.i204.i, label %_ZNSt6vectorIfSaIfEE17_M_realloc_insertIJRKfEEEvN9__gnu_cxx17__normal_iteratorIPfS1_EEDpOT_.exit.i206.i, label %if.then.i18.i.i205.i
 
@@ -2570,7 +2553,7 @@ if.then.i219.i:                                   ; preds = %for.end72.i
   %.sroa.speculated264.i = select i1 %cmp.i.i, float %mul.i, float 0x3F847AE140000000
   store float %.sroa.speculated264.i, ptr %57, align 4
   %62 = load ptr, ptr %_M_finish.i.i136.i, align 8
-  %incdec.ptr.i220.i = getelementptr inbounds float, ptr %62, i64 1
+  %incdec.ptr.i220.i = getelementptr inbounds i8, ptr %62, i64 4
   store ptr %incdec.ptr.i220.i, ptr %_M_finish.i.i136.i, align 8
   %.pre353.i = load ptr, ptr %slopes, align 8
   br label %cleanup.thread.i
@@ -2611,7 +2594,7 @@ if.then.i.i.i.i.i.i246.i:                         ; preds = %_ZNSt12_Vector_base
 
 _ZNSt6vectorIfSaIfEE17_M_realloc_insertIJRKfEEEvN9__gnu_cxx17__normal_iteratorIPfS1_EEDpOT_.exit.i244.i: ; preds = %if.then.i.i.i.i.i.i246.i, %_ZNSt12_Vector_baseIfSaIfEE11_M_allocateEm.exit.i.i235.i
   %add.ptr.i.i.i.i.i.i240.i = getelementptr inbounds i8, ptr %cond.i10.i.i236.i, i64 %sub.ptr.sub.i.i.i.i224.i
-  %incdec.ptr.i.i241.i = getelementptr inbounds float, ptr %add.ptr.i.i.i.i.i.i240.i, i64 1
+  %incdec.ptr.i.i241.i = getelementptr inbounds i8, ptr %add.ptr.i.i.i.i.i.i240.i, i64 4
   tail call void @_ZdlPv(ptr noundef nonnull %59) #23
   store ptr %cond.i10.i.i236.i, ptr %slopes, align 8
   store ptr %incdec.ptr.i.i241.i, ptr %_M_finish.i.i136.i, align 8
@@ -2622,7 +2605,7 @@ _ZNSt6vectorIfSaIfEE17_M_realloc_insertIJRKfEEEvN9__gnu_cxx17__normal_iteratorIP
 cleanup.thread.i:                                 ; preds = %_ZNSt6vectorIfSaIfEE17_M_realloc_insertIJRKfEEEvN9__gnu_cxx17__normal_iteratorIPfS1_EEDpOT_.exit.i244.i, %if.then.i219.i
   %64 = phi ptr [ %cond.i10.i.i236.i, %_ZNSt6vectorIfSaIfEE17_M_realloc_insertIJRKfEEEvN9__gnu_cxx17__normal_iteratorIPfS1_EEDpOT_.exit.i244.i ], [ %.pre353.i, %if.then.i219.i ]
   %65 = load float, ptr %secantSlope.sroa.0.0.lcssa.i, align 4
-  %add.ptr.i252.i = getelementptr inbounds float, ptr %64, i64 1
+  %add.ptr.i252.i = getelementptr inbounds i8, ptr %64, i64 4
   %66 = load float, ptr %add.ptr.i252.i, align 4
   %neg87.i = fneg float %66
   %67 = tail call float @llvm.fmuladd.f32(float %65, float 3.000000e+00, float %neg87.i)
@@ -2649,7 +2632,7 @@ if.end:                                           ; preds = %if.end69.i, %_ZN19O
           to label %invoke.cont29 unwind label %lpad
 
 invoke.cont29:                                    ; preds = %if.end
-  %_M_finish.i.i59 = getelementptr inbounds %"struct.std::_Vector_base<float, std::allocator<float>>::_Vector_impl_data", ptr %knots, i64 0, i32 1
+  %_M_finish.i.i59 = getelementptr inbounds i8, ptr %knots, i64 8
   %68 = load ptr, ptr %_M_finish.i.i59, align 8
   %69 = load ptr, ptr %knots, align 8
   %cmp67.not.i = icmp eq ptr %68, %69
@@ -2680,9 +2663,9 @@ if.then.i68:                                      ; preds = %while.body.i
   %add.i69 = add i64 %i.069.i, 1
   %add.ptr.i54.i = getelementptr inbounds %"struct.OpenColorIO_v2_4dev::GradingControlPoint", ptr %71, i64 %add.i69
   %74 = load float, ptr %add.ptr.i54.i, align 4
-  %m_y.i70 = getelementptr inbounds %"struct.OpenColorIO_v2_4dev::GradingControlPoint", ptr %71, i64 %i.069.i, i32 1
+  %m_y.i70 = getelementptr inbounds i8, ptr %add.ptr.i.i64, i64 4
   %75 = load float, ptr %m_y.i70, align 4
-  %m_y12.i = getelementptr inbounds %"struct.OpenColorIO_v2_4dev::GradingControlPoint", ptr %71, i64 %add.i69, i32 1
+  %m_y12.i = getelementptr inbounds i8, ptr %add.ptr.i54.i, i64 4
   %76 = load float, ptr %m_y12.i, align 4
   %sub.i71 = fsub float %76, %75
   %sub13.i = fsub float %73, %72
@@ -2734,13 +2717,13 @@ _ZN19OpenColorIO_v2_4dev12_GLOBAL__N_112AdjustSlopesERKSt6vectorINS_19GradingCon
 _ZNSt6vectorIfSaIfEE5clearEv.exit:                ; preds = %_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_112AdjustSlopesERKSt6vectorINS_19GradingControlPointESaIS2_EERS1_IfSaIfEES9_.exit
   store ptr %69, ptr %_M_finish.i.i59, align 8
   %89 = load ptr, ptr %coefsA, align 8
-  %_M_finish.i.i77 = getelementptr inbounds %"struct.std::_Vector_base<float, std::allocator<float>>::_Vector_impl_data", ptr %coefsA, i64 0, i32 1
+  %_M_finish.i.i77 = getelementptr inbounds i8, ptr %coefsA, i64 8
   store ptr %89, ptr %_M_finish.i.i77, align 8
   %90 = load ptr, ptr %coefsB, align 8
-  %_M_finish.i.i81 = getelementptr inbounds %"struct.std::_Vector_base<float, std::allocator<float>>::_Vector_impl_data", ptr %coefsB, i64 0, i32 1
+  %_M_finish.i.i81 = getelementptr inbounds i8, ptr %coefsB, i64 8
   store ptr %90, ptr %_M_finish.i.i81, align 8
   %91 = load ptr, ptr %coefsC, align 8
-  %_M_finish.i.i85 = getelementptr inbounds %"struct.std::_Vector_base<float, std::allocator<float>>::_Vector_impl_data", ptr %coefsC, i64 0, i32 1
+  %_M_finish.i.i85 = getelementptr inbounds i8, ptr %coefsC, i64 8
   store ptr %91, ptr %_M_finish.i.i85, align 8
   invoke fastcc void @_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_19FitSplineERKSt6vectorINS_19GradingControlPointESaIS2_EERKS1_IfSaIfEERS8_SB_SB_SB_(ptr noundef nonnull align 8 dereferenceable(24) %m_controlPoints, ptr noundef nonnull align 8 dereferenceable(24) %slopes, ptr noundef nonnull align 8 dereferenceable(24) %knots, ptr noundef nonnull align 8 dereferenceable(24) %coefsA, ptr noundef nonnull align 8 dereferenceable(24) %coefsB, ptr noundef nonnull align 8 dereferenceable(24) %coefsC)
           to label %_ZNSt6vectorIfSaIfEE5clearEv.exit.if.end36_crit_edge unwind label %lpad
@@ -2753,8 +2736,8 @@ _ZNSt6vectorIfSaIfEE5clearEv.exit.if.end36_crit_edge: ; preds = %_ZNSt6vectorIfS
 if.end36:                                         ; preds = %_ZNSt6vectorIfSaIfEE5clearEv.exit.if.end36_crit_edge, %invoke.cont29, %_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_112AdjustSlopesERKSt6vectorINS_19GradingControlPointESaIS2_EERS1_IfSaIfEES9_.exit
   %92 = phi ptr [ %.pre206, %_ZNSt6vectorIfSaIfEE5clearEv.exit.if.end36_crit_edge ], [ %68, %invoke.cont29 ], [ %69, %_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_112AdjustSlopesERKSt6vectorINS_19GradingControlPointESaIS2_EERS1_IfSaIfEES9_.exit ]
   %93 = phi ptr [ %.pre205, %_ZNSt6vectorIfSaIfEE5clearEv.exit.if.end36_crit_edge ], [ %68, %invoke.cont29 ], [ %68, %_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_112AdjustSlopesERKSt6vectorINS_19GradingControlPointESaIS2_EERS1_IfSaIfEES9_.exit ]
-  %m_knotsArray = getelementptr inbounds %"struct.OpenColorIO_v2_4dev::GradingBSplineCurveImpl::KnotsCoefs", ptr %knotsCoefs, i64 0, i32 4
-  %_M_finish.i89 = getelementptr inbounds %"struct.OpenColorIO_v2_4dev::GradingBSplineCurveImpl::KnotsCoefs", ptr %knotsCoefs, i64 0, i32 4, i32 0, i32 0, i32 0, i32 1
+  %m_knotsArray = getelementptr inbounds i8, ptr %knotsCoefs, i64 80
+  %_M_finish.i89 = getelementptr inbounds i8, ptr %knotsCoefs, i64 88
   %94 = load ptr, ptr %_M_finish.i89, align 8
   %95 = load ptr, ptr %m_knotsArray, align 8
   %sub.ptr.lhs.cast.i90 = ptrtoint ptr %94 to i64
@@ -2767,8 +2750,8 @@ if.end36:                                         ; preds = %_ZNSt6vectorIfSaIfE
   %sub.ptr.sub.i97 = sub i64 %sub.ptr.lhs.cast.i95, %sub.ptr.rhs.cast.i96
   %sub.ptr.div.i98 = lshr exact i64 %sub.ptr.sub.i97, 2
   %conv40 = trunc i64 %sub.ptr.div.i98 to i32
-  %m_coefsArray = getelementptr inbounds %"struct.OpenColorIO_v2_4dev::GradingBSplineCurveImpl::KnotsCoefs", ptr %knotsCoefs, i64 0, i32 3
-  %_M_finish.i99 = getelementptr inbounds %"struct.OpenColorIO_v2_4dev::GradingBSplineCurveImpl::KnotsCoefs", ptr %knotsCoefs, i64 0, i32 3, i32 0, i32 0, i32 0, i32 1
+  %m_coefsArray = getelementptr inbounds i8, ptr %knotsCoefs, i64 56
+  %_M_finish.i99 = getelementptr inbounds i8, ptr %knotsCoefs, i64 64
   %96 = load ptr, ptr %_M_finish.i99, align 8
   %97 = load ptr, ptr %m_coefsArray, align 8
   %sub.ptr.lhs.cast.i100 = ptrtoint ptr %96 to i64
@@ -2776,7 +2759,7 @@ if.end36:                                         ; preds = %_ZNSt6vectorIfSaIfE
   %sub.ptr.sub.i102 = sub i64 %sub.ptr.lhs.cast.i100, %sub.ptr.rhs.cast.i101
   %sub.ptr.div.i103 = lshr exact i64 %sub.ptr.sub.i102, 2
   %conv42 = trunc i64 %sub.ptr.div.i103 to i32
-  %_M_finish.i104 = getelementptr inbounds %"struct.std::_Vector_base<float, std::allocator<float>>::_Vector_impl_data", ptr %coefsA, i64 0, i32 1
+  %_M_finish.i104 = getelementptr inbounds i8, ptr %coefsA, i64 8
   %98 = load ptr, ptr %_M_finish.i104, align 8
   %99 = load ptr, ptr %coefsA, align 8
   %sub.ptr.lhs.cast.i105 = ptrtoint ptr %98 to i64
@@ -2808,7 +2791,7 @@ lpad52:                                           ; preds = %if.then51
   br label %ehcleanup
 
 if.end54:                                         ; preds = %if.end36
-  %m_knotsOffsetsArray55 = getelementptr inbounds %"struct.OpenColorIO_v2_4dev::GradingBSplineCurveImpl::KnotsCoefs", ptr %knotsCoefs, i64 0, i32 1
+  %m_knotsOffsetsArray55 = getelementptr inbounds i8, ptr %knotsCoefs, i64 8
   %mul56 = shl nsw i32 %curveIdx, 1
   %conv57 = sext i32 %mul56 to i64
   %102 = load ptr, ptr %m_knotsOffsetsArray55, align 8
@@ -2819,7 +2802,7 @@ if.end54:                                         ; preds = %if.end36
   %103 = load ptr, ptr %m_knotsOffsetsArray55, align 8
   %add.ptr.i110 = getelementptr inbounds i32, ptr %103, i64 %conv62
   store i32 %conv40, ptr %add.ptr.i110, align 4
-  %m_coefsOffsetsArray64 = getelementptr inbounds %"struct.OpenColorIO_v2_4dev::GradingBSplineCurveImpl::KnotsCoefs", ptr %knotsCoefs, i64 0, i32 2
+  %m_coefsOffsetsArray64 = getelementptr inbounds i8, ptr %knotsCoefs, i64 32
   %104 = load ptr, ptr %m_coefsOffsetsArray64, align 8
   %add.ptr.i111 = getelementptr inbounds i32, ptr %104, i64 %conv57
   store i32 %conv42, ptr %add.ptr.i111, align 4
@@ -2849,7 +2832,7 @@ invoke.cont103:                                   ; preds = %invoke.cont85
   %110 = load ptr, ptr %m_coefsArray, align 8
   %111 = load ptr, ptr %_M_finish.i99, align 8
   %112 = load ptr, ptr %coefsB, align 8
-  %_M_finish.i130 = getelementptr inbounds %"struct.std::_Vector_base<float, std::allocator<float>>::_Vector_impl_data", ptr %coefsB, i64 0, i32 1
+  %_M_finish.i130 = getelementptr inbounds i8, ptr %coefsB, i64 8
   %113 = load ptr, ptr %_M_finish.i130, align 8
   %sub.ptr.lhs.cast.i.i131 = ptrtoint ptr %111 to i64
   %sub.ptr.rhs.cast.i.i132 = ptrtoint ptr %110 to i64
@@ -2862,7 +2845,7 @@ invoke.cont122:                                   ; preds = %invoke.cont103
   %114 = load ptr, ptr %m_coefsArray, align 8
   %115 = load ptr, ptr %_M_finish.i99, align 8
   %116 = load ptr, ptr %coefsC, align 8
-  %_M_finish.i139 = getelementptr inbounds %"struct.std::_Vector_base<float, std::allocator<float>>::_Vector_impl_data", ptr %coefsC, i64 0, i32 1
+  %_M_finish.i139 = getelementptr inbounds i8, ptr %coefsC, i64 8
   %117 = load ptr, ptr %_M_finish.i139, align 8
   %sub.ptr.lhs.cast.i.i140 = ptrtoint ptr %115 to i64
   %sub.ptr.rhs.cast.i.i141 = ptrtoint ptr %114 to i64
@@ -2971,16 +2954,16 @@ unreachable:                                      ; preds = %invoke.cont53
 ; Function Attrs: mustprogress uwtable
 define internal fastcc void @_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_19FitSplineERKSt6vectorINS_19GradingControlPointESaIS2_EERKS1_IfSaIfEERS8_SB_SB_SB_(ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %ctrlPnts, ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %slopes, ptr nocapture noundef nonnull align 8 dereferenceable(24) %knots, ptr nocapture noundef nonnull align 8 dereferenceable(24) %coefsA, ptr nocapture noundef nonnull align 8 dereferenceable(24) %coefsB, ptr nocapture noundef nonnull align 8 dereferenceable(24) %coefsC) unnamed_addr #0 personality ptr @__gxx_personality_v0 {
 entry:
-  %_M_finish.i = getelementptr inbounds %"struct.std::_Vector_base<OpenColorIO_v2_4dev::GradingControlPoint, std::allocator<OpenColorIO_v2_4dev::GradingControlPoint>>::_Vector_impl_data", ptr %ctrlPnts, i64 0, i32 1
+  %_M_finish.i = getelementptr inbounds i8, ptr %ctrlPnts, i64 8
   %0 = load ptr, ptr %_M_finish.i, align 8
   %1 = load ptr, ptr %ctrlPnts, align 8
   %sub.ptr.lhs.cast.i = ptrtoint ptr %0 to i64
   %sub.ptr.rhs.cast.i = ptrtoint ptr %1 to i64
   %sub.ptr.sub.i = sub i64 %sub.ptr.lhs.cast.i, %sub.ptr.rhs.cast.i
   %sub.ptr.div.i = ashr exact i64 %sub.ptr.sub.i, 3
-  %_M_finish.i73 = getelementptr inbounds %"struct.std::_Vector_base<float, std::allocator<float>>::_Vector_impl_data", ptr %knots, i64 0, i32 1
+  %_M_finish.i73 = getelementptr inbounds i8, ptr %knots, i64 8
   %2 = load ptr, ptr %_M_finish.i73, align 8
-  %_M_end_of_storage.i = getelementptr inbounds %"struct.std::_Vector_base<float, std::allocator<float>>::_Vector_impl_data", ptr %knots, i64 0, i32 2
+  %_M_end_of_storage.i = getelementptr inbounds i8, ptr %knots, i64 16
   %3 = load ptr, ptr %_M_end_of_storage.i, align 8
   %cmp.not.i = icmp eq ptr %2, %3
   br i1 %cmp.not.i, label %if.else.i, label %if.then.i
@@ -2989,7 +2972,7 @@ if.then.i:                                        ; preds = %entry
   %4 = load float, ptr %1, align 4
   store float %4, ptr %2, align 4
   %5 = load ptr, ptr %_M_finish.i73, align 8
-  %incdec.ptr.i = getelementptr inbounds float, ptr %5, i64 1
+  %incdec.ptr.i = getelementptr inbounds i8, ptr %5, i64 4
   store ptr %incdec.ptr.i, ptr %_M_finish.i73, align 8
   br label %_ZNSt6vectorIfSaIfEE9push_backERKf.exit
 
@@ -3034,7 +3017,7 @@ if.then.i.i.i.i.i.i:                              ; preds = %_ZNSt12_Vector_base
 
 _ZNSt6vectorIfSaIfEE11_S_relocateEPfS2_S2_RS0_.exit17.i.i: ; preds = %if.then.i.i.i.i.i.i, %_ZNSt12_Vector_baseIfSaIfEE11_M_allocateEm.exit.i.i
   %add.ptr.i.i.i.i.i.i = getelementptr inbounds i8, ptr %cond.i10.i.i, i64 %sub.ptr.sub.i.i.i.i
-  %incdec.ptr.i.i = getelementptr inbounds float, ptr %add.ptr.i.i.i.i.i.i, i64 1
+  %incdec.ptr.i.i = getelementptr inbounds i8, ptr %add.ptr.i.i.i.i.i.i, i64 4
   %tobool.not.i.i.i = icmp eq ptr %6, null
   br i1 %tobool.not.i.i.i, label %_ZNSt6vectorIfSaIfEE17_M_realloc_insertIJRKfEEEvN9__gnu_cxx17__normal_iteratorIPfS1_EEDpOT_.exit.i, label %if.then.i18.i.i
 
@@ -3055,12 +3038,12 @@ _ZNSt6vectorIfSaIfEE9push_backERKf.exit:          ; preds = %if.then.i, %_ZNSt6v
   br i1 %cmp457.not, label %for.end, label %for.body.lr.ph
 
 for.body.lr.ph:                                   ; preds = %_ZNSt6vectorIfSaIfEE9push_backERKf.exit
-  %_M_finish.i161 = getelementptr inbounds %"struct.std::_Vector_base<float, std::allocator<float>>::_Vector_impl_data", ptr %coefsC, i64 0, i32 1
-  %_M_end_of_storage.i162 = getelementptr inbounds %"struct.std::_Vector_base<float, std::allocator<float>>::_Vector_impl_data", ptr %coefsC, i64 0, i32 2
-  %_M_finish.i196 = getelementptr inbounds %"struct.std::_Vector_base<float, std::allocator<float>>::_Vector_impl_data", ptr %coefsB, i64 0, i32 1
-  %_M_end_of_storage.i197 = getelementptr inbounds %"struct.std::_Vector_base<float, std::allocator<float>>::_Vector_impl_data", ptr %coefsB, i64 0, i32 2
-  %_M_finish.i.i230 = getelementptr inbounds %"struct.std::_Vector_base<float, std::allocator<float>>::_Vector_impl_data", ptr %coefsA, i64 0, i32 1
-  %_M_end_of_storage.i.i231 = getelementptr inbounds %"struct.std::_Vector_base<float, std::allocator<float>>::_Vector_impl_data", ptr %coefsA, i64 0, i32 2
+  %_M_finish.i161 = getelementptr inbounds i8, ptr %coefsC, i64 8
+  %_M_end_of_storage.i162 = getelementptr inbounds i8, ptr %coefsC, i64 16
+  %_M_finish.i196 = getelementptr inbounds i8, ptr %coefsB, i64 8
+  %_M_end_of_storage.i197 = getelementptr inbounds i8, ptr %coefsB, i64 16
+  %_M_finish.i.i230 = getelementptr inbounds i8, ptr %coefsA, i64 8
+  %_M_end_of_storage.i.i231 = getelementptr inbounds i8, ptr %coefsA, i64 16
   br label %for.body
 
 for.body:                                         ; preds = %for.body.lr.ph, %_ZNSt6vectorIfSaIfEE9push_backERKf.exit435
@@ -3096,7 +3079,7 @@ if.then.i82:                                      ; preds = %if.then
   %23 = extractelement <2 x float> %10, i64 1
   store float %23, ptr %21, align 4
   %24 = load ptr, ptr %_M_finish.i161, align 8
-  %incdec.ptr.i83 = getelementptr inbounds float, ptr %24, i64 1
+  %incdec.ptr.i83 = getelementptr inbounds i8, ptr %24, i64 4
   store ptr %incdec.ptr.i83, ptr %_M_finish.i161, align 8
   br label %_ZNSt6vectorIfSaIfEE9push_backERKf.exit112
 
@@ -3141,7 +3124,7 @@ if.then.i.i.i.i.i.i110:                           ; preds = %_ZNSt12_Vector_base
 
 _ZNSt6vectorIfSaIfEE11_S_relocateEPfS2_S2_RS0_.exit17.i.i103: ; preds = %if.then.i.i.i.i.i.i110, %_ZNSt12_Vector_baseIfSaIfEE11_M_allocateEm.exit.i.i99
   %add.ptr.i.i.i.i.i.i104 = getelementptr inbounds i8, ptr %cond.i10.i.i100, i64 %sub.ptr.sub.i.i.i.i87
-  %incdec.ptr.i.i105 = getelementptr inbounds float, ptr %add.ptr.i.i.i.i.i.i104, i64 1
+  %incdec.ptr.i.i105 = getelementptr inbounds i8, ptr %add.ptr.i.i.i.i.i.i104, i64 4
   %tobool.not.i.i.i106 = icmp eq ptr %25, null
   br i1 %tobool.not.i.i.i106, label %_ZNSt6vectorIfSaIfEE17_M_realloc_insertIJRKfEEEvN9__gnu_cxx17__normal_iteratorIPfS1_EEDpOT_.exit.i108, label %if.then.i18.i.i107
 
@@ -3168,7 +3151,7 @@ if.then.i117:                                     ; preds = %_ZNSt6vectorIfSaIfE
   %31 = load float, ptr %add.ptr.i113, align 4
   store float %31, ptr %29, align 4
   %32 = load ptr, ptr %_M_finish.i196, align 8
-  %incdec.ptr.i118 = getelementptr inbounds float, ptr %32, i64 1
+  %incdec.ptr.i118 = getelementptr inbounds i8, ptr %32, i64 4
   store ptr %incdec.ptr.i118, ptr %_M_finish.i196, align 8
   br label %_ZNSt6vectorIfSaIfEE9push_backERKf.exit147
 
@@ -3213,7 +3196,7 @@ if.then.i.i.i.i.i.i145:                           ; preds = %_ZNSt12_Vector_base
 
 _ZNSt6vectorIfSaIfEE11_S_relocateEPfS2_S2_RS0_.exit17.i.i138: ; preds = %if.then.i.i.i.i.i.i145, %_ZNSt12_Vector_baseIfSaIfEE11_M_allocateEm.exit.i.i134
   %add.ptr.i.i.i.i.i.i139 = getelementptr inbounds i8, ptr %cond.i10.i.i135, i64 %sub.ptr.sub.i.i.i.i122
-  %incdec.ptr.i.i140 = getelementptr inbounds float, ptr %add.ptr.i.i.i.i.i.i139, i64 1
+  %incdec.ptr.i.i140 = getelementptr inbounds i8, ptr %add.ptr.i.i.i.i.i.i139, i64 4
   %tobool.not.i.i.i141 = icmp eq ptr %33, null
   br i1 %tobool.not.i.i.i141, label %_ZNSt6vectorIfSaIfEE17_M_realloc_insertIJRKfEEEvN9__gnu_cxx17__normal_iteratorIPfS1_EEDpOT_.exit.i143, label %if.then.i18.i.i142
 
@@ -3245,7 +3228,7 @@ _ZNSt6vectorIfSaIfEE9push_backERKf.exit147:       ; preds = %if.then.i117, %_ZNS
 if.then.i.i:                                      ; preds = %_ZNSt6vectorIfSaIfEE9push_backERKf.exit147
   store float %div23, ptr %39, align 4
   %41 = load ptr, ptr %_M_finish.i.i230, align 8
-  %incdec.ptr.i.i150 = getelementptr inbounds float, ptr %41, i64 1
+  %incdec.ptr.i.i150 = getelementptr inbounds i8, ptr %41, i64 4
   store ptr %incdec.ptr.i.i150, ptr %_M_finish.i.i230, align 8
   br label %if.end89
 
@@ -3289,7 +3272,7 @@ if.then.i.i.i.i.i.i.i:                            ; preds = %_ZNSt12_Vector_base
 
 _ZNSt6vectorIfSaIfEE11_S_relocateEPfS2_S2_RS0_.exit17.i.i.i: ; preds = %if.then.i.i.i.i.i.i.i, %_ZNSt12_Vector_baseIfSaIfEE11_M_allocateEm.exit.i.i.i
   %add.ptr.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %cond.i10.i.i.i, i64 %sub.ptr.sub.i.i.i.i.i
-  %incdec.ptr.i.i.i = getelementptr inbounds float, ptr %add.ptr.i.i.i.i.i.i.i, i64 1
+  %incdec.ptr.i.i.i = getelementptr inbounds i8, ptr %add.ptr.i.i.i.i.i.i.i, i64 4
   %tobool.not.i.i.i.i = icmp eq ptr %42, null
   br i1 %tobool.not.i.i.i.i, label %_ZNSt6vectorIfSaIfEE17_M_realloc_insertIJfEEEvN9__gnu_cxx17__normal_iteratorIPfS1_EEDpOT_.exit.i.i, label %if.then.i18.i.i.i
 
@@ -3365,7 +3348,7 @@ if.then.i164:                                     ; preds = %if.end54
   %60 = extractelement <2 x float> %10, i64 1
   store float %60, ptr %58, align 4
   %61 = load ptr, ptr %_M_finish.i161, align 8
-  %incdec.ptr.i165 = getelementptr inbounds float, ptr %61, i64 1
+  %incdec.ptr.i165 = getelementptr inbounds i8, ptr %61, i64 4
   store ptr %incdec.ptr.i165, ptr %_M_finish.i161, align 8
   br label %_ZNSt6vectorIfSaIfEE9push_backERKf.exit194
 
@@ -3410,7 +3393,7 @@ if.then.i.i.i.i.i.i192:                           ; preds = %_ZNSt12_Vector_base
 
 _ZNSt6vectorIfSaIfEE11_S_relocateEPfS2_S2_RS0_.exit17.i.i185: ; preds = %if.then.i.i.i.i.i.i192, %_ZNSt12_Vector_baseIfSaIfEE11_M_allocateEm.exit.i.i181
   %add.ptr.i.i.i.i.i.i186 = getelementptr inbounds i8, ptr %cond.i10.i.i182, i64 %sub.ptr.sub.i.i.i.i169
-  %incdec.ptr.i.i187 = getelementptr inbounds float, ptr %add.ptr.i.i.i.i.i.i186, i64 1
+  %incdec.ptr.i.i187 = getelementptr inbounds i8, ptr %add.ptr.i.i.i.i.i.i186, i64 4
   %tobool.not.i.i.i188 = icmp eq ptr %62, null
   br i1 %tobool.not.i.i.i188, label %_ZNSt6vectorIfSaIfEE17_M_realloc_insertIJRKfEEEvN9__gnu_cxx17__normal_iteratorIPfS1_EEDpOT_.exit.i190, label %if.then.i18.i.i189
 
@@ -3437,7 +3420,7 @@ if.then.i199:                                     ; preds = %_ZNSt6vectorIfSaIfE
   %68 = load float, ptr %add.ptr.i195, align 4
   store float %68, ptr %66, align 4
   %69 = load ptr, ptr %_M_finish.i196, align 8
-  %incdec.ptr.i200 = getelementptr inbounds float, ptr %69, i64 1
+  %incdec.ptr.i200 = getelementptr inbounds i8, ptr %69, i64 4
   store ptr %incdec.ptr.i200, ptr %_M_finish.i196, align 8
   br label %_ZNSt6vectorIfSaIfEE9push_backERKf.exit229
 
@@ -3482,7 +3465,7 @@ if.then.i.i.i.i.i.i227:                           ; preds = %_ZNSt12_Vector_base
 
 _ZNSt6vectorIfSaIfEE11_S_relocateEPfS2_S2_RS0_.exit17.i.i220: ; preds = %if.then.i.i.i.i.i.i227, %_ZNSt12_Vector_baseIfSaIfEE11_M_allocateEm.exit.i.i216
   %add.ptr.i.i.i.i.i.i221 = getelementptr inbounds i8, ptr %cond.i10.i.i217, i64 %sub.ptr.sub.i.i.i.i204
-  %incdec.ptr.i.i222 = getelementptr inbounds float, ptr %add.ptr.i.i.i.i.i.i221, i64 1
+  %incdec.ptr.i.i222 = getelementptr inbounds i8, ptr %add.ptr.i.i.i.i.i.i221, i64 4
   %tobool.not.i.i.i223 = icmp eq ptr %70, null
   br i1 %tobool.not.i.i.i223, label %_ZNSt6vectorIfSaIfEE17_M_realloc_insertIJRKfEEEvN9__gnu_cxx17__normal_iteratorIPfS1_EEDpOT_.exit.i225, label %if.then.i18.i.i224
 
@@ -3507,7 +3490,7 @@ _ZNSt6vectorIfSaIfEE9push_backERKf.exit229:       ; preds = %if.then.i199, %_ZNS
 if.then.i.i233:                                   ; preds = %_ZNSt6vectorIfSaIfEE9push_backERKf.exit229
   store float %mul72, ptr %73, align 4
   %75 = load ptr, ptr %_M_finish.i.i230, align 8
-  %incdec.ptr.i.i234 = getelementptr inbounds float, ptr %75, i64 1
+  %incdec.ptr.i.i234 = getelementptr inbounds i8, ptr %75, i64 4
   store ptr %incdec.ptr.i.i234, ptr %_M_finish.i.i230, align 8
   br label %_ZNSt6vectorIfSaIfEE9push_backEOf.exit263
 
@@ -3551,7 +3534,7 @@ if.then.i.i.i.i.i.i.i261:                         ; preds = %_ZNSt12_Vector_base
 
 _ZNSt6vectorIfSaIfEE11_S_relocateEPfS2_S2_RS0_.exit17.i.i.i254: ; preds = %if.then.i.i.i.i.i.i.i261, %_ZNSt12_Vector_baseIfSaIfEE11_M_allocateEm.exit.i.i.i250
   %add.ptr.i.i.i.i.i.i.i255 = getelementptr inbounds i8, ptr %cond.i10.i.i.i251, i64 %sub.ptr.sub.i.i.i.i.i238
-  %incdec.ptr.i.i.i256 = getelementptr inbounds float, ptr %add.ptr.i.i.i.i.i.i.i255, i64 1
+  %incdec.ptr.i.i.i256 = getelementptr inbounds i8, ptr %add.ptr.i.i.i.i.i.i.i255, i64 4
   %tobool.not.i.i.i.i257 = icmp eq ptr %76, null
   br i1 %tobool.not.i.i.i.i257, label %_ZNSt6vectorIfSaIfEE17_M_realloc_insertIJfEEEvN9__gnu_cxx17__normal_iteratorIPfS1_EEDpOT_.exit.i.i259, label %if.then.i18.i.i.i258
 
@@ -3582,7 +3565,7 @@ _ZNSt6vectorIfSaIfEE9push_backEOf.exit263:        ; preds = %if.then.i.i233, %_Z
 if.then.i.i268:                                   ; preds = %_ZNSt6vectorIfSaIfEE9push_backEOf.exit263
   store float %82, ptr %83, align 4
   %85 = load ptr, ptr %_M_finish.i161, align 8
-  %incdec.ptr.i.i269 = getelementptr inbounds float, ptr %85, i64 1
+  %incdec.ptr.i.i269 = getelementptr inbounds i8, ptr %85, i64 4
   store ptr %incdec.ptr.i.i269, ptr %_M_finish.i161, align 8
   br label %_ZNSt6vectorIfSaIfEE9push_backEOf.exit298
 
@@ -3626,7 +3609,7 @@ if.then.i.i.i.i.i.i.i296:                         ; preds = %_ZNSt12_Vector_base
 
 _ZNSt6vectorIfSaIfEE11_S_relocateEPfS2_S2_RS0_.exit17.i.i.i289: ; preds = %if.then.i.i.i.i.i.i.i296, %_ZNSt12_Vector_baseIfSaIfEE11_M_allocateEm.exit.i.i.i285
   %add.ptr.i.i.i.i.i.i.i290 = getelementptr inbounds i8, ptr %cond.i10.i.i.i286, i64 %sub.ptr.sub.i.i.i.i.i273
-  %incdec.ptr.i.i.i291 = getelementptr inbounds float, ptr %add.ptr.i.i.i.i.i.i.i290, i64 1
+  %incdec.ptr.i.i.i291 = getelementptr inbounds i8, ptr %add.ptr.i.i.i.i.i.i.i290, i64 4
   %tobool.not.i.i.i.i292 = icmp eq ptr %86, null
   br i1 %tobool.not.i.i.i.i292, label %_ZNSt6vectorIfSaIfEE17_M_realloc_insertIJfEEEvN9__gnu_cxx17__normal_iteratorIPfS1_EEDpOT_.exit.i.i294, label %if.then.i18.i.i.i293
 
@@ -3650,7 +3633,7 @@ _ZNSt6vectorIfSaIfEE9push_backEOf.exit298:        ; preds = %if.then.i.i268, %_Z
 if.then.i302:                                     ; preds = %_ZNSt6vectorIfSaIfEE9push_backEOf.exit298
   store float %add65, ptr %88, align 4
   %90 = load ptr, ptr %_M_finish.i196, align 8
-  %incdec.ptr.i303 = getelementptr inbounds float, ptr %90, i64 1
+  %incdec.ptr.i303 = getelementptr inbounds i8, ptr %90, i64 4
   store ptr %incdec.ptr.i303, ptr %_M_finish.i196, align 8
   br label %_ZNSt6vectorIfSaIfEE9push_backERKf.exit332
 
@@ -3694,7 +3677,7 @@ if.then.i.i.i.i.i.i330:                           ; preds = %_ZNSt12_Vector_base
 
 _ZNSt6vectorIfSaIfEE11_S_relocateEPfS2_S2_RS0_.exit17.i.i323: ; preds = %if.then.i.i.i.i.i.i330, %_ZNSt12_Vector_baseIfSaIfEE11_M_allocateEm.exit.i.i319
   %add.ptr.i.i.i.i.i.i324 = getelementptr inbounds i8, ptr %cond.i10.i.i320, i64 %sub.ptr.sub.i.i.i.i307
-  %incdec.ptr.i.i325 = getelementptr inbounds float, ptr %add.ptr.i.i.i.i.i.i324, i64 1
+  %incdec.ptr.i.i325 = getelementptr inbounds i8, ptr %add.ptr.i.i.i.i.i.i324, i64 4
   %tobool.not.i.i.i326 = icmp eq ptr %91, null
   br i1 %tobool.not.i.i.i326, label %_ZNSt6vectorIfSaIfEE17_M_realloc_insertIJRKfEEEvN9__gnu_cxx17__normal_iteratorIPfS1_EEDpOT_.exit.i328, label %if.then.i18.i.i327
 
@@ -3726,7 +3709,7 @@ _ZNSt6vectorIfSaIfEE9push_backERKf.exit332:       ; preds = %if.then.i302, %_ZNS
 if.then.i.i337:                                   ; preds = %_ZNSt6vectorIfSaIfEE9push_backERKf.exit332
   store float %div88, ptr %96, align 4
   %98 = load ptr, ptr %_M_finish.i.i230, align 8
-  %incdec.ptr.i.i338 = getelementptr inbounds float, ptr %98, i64 1
+  %incdec.ptr.i.i338 = getelementptr inbounds i8, ptr %98, i64 4
   store ptr %incdec.ptr.i.i338, ptr %_M_finish.i.i230, align 8
   br label %_ZNSt6vectorIfSaIfEE9push_backEOf.exit367
 
@@ -3770,7 +3753,7 @@ if.then.i.i.i.i.i.i.i365:                         ; preds = %_ZNSt12_Vector_base
 
 _ZNSt6vectorIfSaIfEE11_S_relocateEPfS2_S2_RS0_.exit17.i.i.i358: ; preds = %if.then.i.i.i.i.i.i.i365, %_ZNSt12_Vector_baseIfSaIfEE11_M_allocateEm.exit.i.i.i354
   %add.ptr.i.i.i.i.i.i.i359 = getelementptr inbounds i8, ptr %cond.i10.i.i.i355, i64 %sub.ptr.sub.i.i.i.i.i342
-  %incdec.ptr.i.i.i360 = getelementptr inbounds float, ptr %add.ptr.i.i.i.i.i.i.i359, i64 1
+  %incdec.ptr.i.i.i360 = getelementptr inbounds i8, ptr %add.ptr.i.i.i.i.i.i.i359, i64 4
   %tobool.not.i.i.i.i361 = icmp eq ptr %99, null
   br i1 %tobool.not.i.i.i.i361, label %_ZNSt6vectorIfSaIfEE17_M_realloc_insertIJfEEEvN9__gnu_cxx17__normal_iteratorIPfS1_EEDpOT_.exit.i.i363, label %if.then.i18.i.i.i362
 
@@ -3794,7 +3777,7 @@ _ZNSt6vectorIfSaIfEE9push_backEOf.exit367:        ; preds = %if.then.i.i337, %_Z
 if.then.i371:                                     ; preds = %_ZNSt6vectorIfSaIfEE9push_backEOf.exit367
   store float %ksi.0, ptr %101, align 4
   %103 = load ptr, ptr %_M_finish.i73, align 8
-  %incdec.ptr.i372 = getelementptr inbounds float, ptr %103, i64 1
+  %incdec.ptr.i372 = getelementptr inbounds i8, ptr %103, i64 4
   store ptr %incdec.ptr.i372, ptr %_M_finish.i73, align 8
   br label %if.end89
 
@@ -3838,7 +3821,7 @@ if.then.i.i.i.i.i.i399:                           ; preds = %_ZNSt12_Vector_base
 
 _ZNSt6vectorIfSaIfEE11_S_relocateEPfS2_S2_RS0_.exit17.i.i392: ; preds = %if.then.i.i.i.i.i.i399, %_ZNSt12_Vector_baseIfSaIfEE11_M_allocateEm.exit.i.i388
   %add.ptr.i.i.i.i.i.i393 = getelementptr inbounds i8, ptr %cond.i10.i.i389, i64 %sub.ptr.sub.i.i.i.i376
-  %incdec.ptr.i.i394 = getelementptr inbounds float, ptr %add.ptr.i.i.i.i.i.i393, i64 1
+  %incdec.ptr.i.i394 = getelementptr inbounds i8, ptr %add.ptr.i.i.i.i.i.i393, i64 4
   %tobool.not.i.i.i395 = icmp eq ptr %104, null
   br i1 %tobool.not.i.i.i395, label %_ZNSt6vectorIfSaIfEE17_M_realloc_insertIJRKfEEEvN9__gnu_cxx17__normal_iteratorIPfS1_EEDpOT_.exit.i397, label %if.then.i18.i.i396
 
@@ -3863,7 +3846,7 @@ if.then.i405:                                     ; preds = %if.end89
   %108 = extractelement <2 x float> %11, i64 0
   store float %108, ptr %106, align 4
   %109 = load ptr, ptr %_M_finish.i73, align 8
-  %incdec.ptr.i406 = getelementptr inbounds float, ptr %109, i64 1
+  %incdec.ptr.i406 = getelementptr inbounds i8, ptr %109, i64 4
   store ptr %incdec.ptr.i406, ptr %_M_finish.i73, align 8
   br label %_ZNSt6vectorIfSaIfEE9push_backERKf.exit435
 
@@ -3908,7 +3891,7 @@ if.then.i.i.i.i.i.i433:                           ; preds = %_ZNSt12_Vector_base
 
 _ZNSt6vectorIfSaIfEE11_S_relocateEPfS2_S2_RS0_.exit17.i.i426: ; preds = %if.then.i.i.i.i.i.i433, %_ZNSt12_Vector_baseIfSaIfEE11_M_allocateEm.exit.i.i422
   %add.ptr.i.i.i.i.i.i427 = getelementptr inbounds i8, ptr %cond.i10.i.i423, i64 %sub.ptr.sub.i.i.i.i410
-  %incdec.ptr.i.i428 = getelementptr inbounds float, ptr %add.ptr.i.i.i.i.i.i427, i64 1
+  %incdec.ptr.i.i428 = getelementptr inbounds i8, ptr %add.ptr.i.i.i.i.i.i427, i64 4
   %tobool.not.i.i.i429 = icmp eq ptr %110, null
   br i1 %tobool.not.i.i.i429, label %_ZNSt6vectorIfSaIfEE17_M_realloc_insertIJRKfEEEvN9__gnu_cxx17__normal_iteratorIPfS1_EEDpOT_.exit.i431, label %if.then.i18.i.i430
 
@@ -5410,7 +5393,7 @@ declare void @_ZN19OpenColorIO_v2_4dev13GpuShaderText13GpuShaderLineD1Ev(ptr nou
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
 define hidden noundef float @_ZNK19OpenColorIO_v2_4dev23GradingBSplineCurveImpl10KnotsCoefs9evalCurveEif(ptr nocapture noundef nonnull readonly align 8 dereferenceable(104) %this, i32 noundef %c, float noundef %x) local_unnamed_addr #6 align 2 {
 entry:
-  %m_coefsOffsetsArray = getelementptr inbounds %"struct.OpenColorIO_v2_4dev::GradingBSplineCurveImpl::KnotsCoefs", ptr %this, i64 0, i32 2
+  %m_coefsOffsetsArray = getelementptr inbounds i8, ptr %this, i64 32
   %mul = shl nsw i32 %c, 1
   %add = or disjoint i32 %mul, 1
   %conv = sext i32 %add to i64
@@ -5426,13 +5409,13 @@ if.end:                                           ; preds = %entry
   %conv4 = sext i32 %mul to i64
   %add.ptr.i45 = getelementptr inbounds i32, ptr %0, i64 %conv4
   %2 = load i32, ptr %add.ptr.i45, align 4
-  %m_knotsOffsetsArray = getelementptr inbounds %"struct.OpenColorIO_v2_4dev::GradingBSplineCurveImpl::KnotsCoefs", ptr %this, i64 0, i32 1
+  %m_knotsOffsetsArray = getelementptr inbounds i8, ptr %this, i64 8
   %3 = load ptr, ptr %m_knotsOffsetsArray, align 8
   %add.ptr.i46 = getelementptr inbounds i32, ptr %3, i64 %conv
   %4 = load i32, ptr %add.ptr.i46, align 4
   %add.ptr.i47 = getelementptr inbounds i32, ptr %3, i64 %conv4
   %5 = load i32, ptr %add.ptr.i47, align 4
-  %m_knotsArray = getelementptr inbounds %"struct.OpenColorIO_v2_4dev::GradingBSplineCurveImpl::KnotsCoefs", ptr %this, i64 0, i32 4
+  %m_knotsArray = getelementptr inbounds i8, ptr %this, i64 80
   %conv14 = sext i32 %5 to i64
   %6 = load ptr, ptr %m_knotsArray, align 8
   %add.ptr.i48 = getelementptr inbounds float, ptr %6, i64 %conv14
@@ -5440,13 +5423,13 @@ if.end:                                           ; preds = %entry
   %add17 = add nsw i32 %5, %4
   %8 = sext i32 %add17 to i64
   %9 = getelementptr float, ptr %6, i64 %8
-  %add.ptr.i49 = getelementptr float, ptr %9, i64 -1
+  %add.ptr.i49 = getelementptr i8, ptr %9, i64 -4
   %10 = load float, ptr %add.ptr.i49, align 4
   %cmp20 = fcmp ult float %7, %x
   br i1 %cmp20, label %if.else, label %if.then21
 
 if.then21:                                        ; preds = %if.end
-  %m_coefsArray = getelementptr inbounds %"struct.OpenColorIO_v2_4dev::GradingBSplineCurveImpl::KnotsCoefs", ptr %this, i64 0, i32 3
+  %m_coefsArray = getelementptr inbounds i8, ptr %this, i64 56
   %add22 = add nsw i32 %2, %div
   %conv23 = sext i32 %add22 to i64
   %11 = load ptr, ptr %m_coefsArray, align 8
@@ -5471,32 +5454,32 @@ for.cond.preheader:                               ; preds = %if.else
   br i1 %cmp6761, label %for.body.preheader, label %for.end
 
 for.body.preheader:                               ; preds = %for.cond.preheader
-  %invariant.gep = getelementptr float, ptr %6, i64 1
+  %invariant.gep = getelementptr i8, ptr %6, i64 4
   %wide.trip.count = zext nneg i32 %sub66 to i64
   %invariant.gep68 = getelementptr float, ptr %invariant.gep, i64 %conv14
   br label %for.body
 
 if.then33:                                        ; preds = %if.else
-  %m_coefsArray34 = getelementptr inbounds %"struct.OpenColorIO_v2_4dev::GradingBSplineCurveImpl::KnotsCoefs", ptr %this, i64 0, i32 3
+  %m_coefsArray34 = getelementptr inbounds i8, ptr %this, i64 56
   %add35 = add nsw i32 %2, %div
   %15 = load ptr, ptr %m_coefsArray34, align 8
   %16 = sext i32 %add35 to i64
   %17 = getelementptr float, ptr %15, i64 %16
-  %add.ptr.i52 = getelementptr float, ptr %17, i64 -1
+  %add.ptr.i52 = getelementptr i8, ptr %17, i64 -4
   %18 = load float, ptr %add.ptr.i52, align 4
   %mul41 = shl nsw i32 %div, 1
   %add42 = add nsw i32 %2, %mul41
   %19 = sext i32 %add42 to i64
   %20 = getelementptr float, ptr %15, i64 %19
-  %add.ptr.i53 = getelementptr float, ptr %20, i64 -1
+  %add.ptr.i53 = getelementptr i8, ptr %20, i64 -4
   %21 = load float, ptr %add.ptr.i53, align 4
   %mul48 = mul nsw i32 %div, 3
   %add49 = add nsw i32 %2, %mul48
   %22 = sext i32 %add49 to i64
   %23 = getelementptr float, ptr %15, i64 %22
-  %add.ptr.i54 = getelementptr float, ptr %23, i64 -1
+  %add.ptr.i54 = getelementptr i8, ptr %23, i64 -4
   %24 = load float, ptr %add.ptr.i54, align 4
-  %add.ptr.i55 = getelementptr float, ptr %9, i64 -2
+  %add.ptr.i55 = getelementptr i8, ptr %9, i64 -8
   %25 = load float, ptr %add.ptr.i55, align 4
   %sub58 = fsub float %10, %25
   %mul59 = fmul float %18, 2.000000e+00
@@ -5525,7 +5508,7 @@ for.end.loopexit.split.loop.exit:                 ; preds = %for.body
 
 for.end:                                          ; preds = %for.inc, %for.end.loopexit.split.loop.exit, %for.cond.preheader
   %i.0.lcssa = phi i32 [ 0, %for.cond.preheader ], [ %31, %for.end.loopexit.split.loop.exit ], [ %sub66, %for.inc ]
-  %m_coefsArray77 = getelementptr inbounds %"struct.OpenColorIO_v2_4dev::GradingBSplineCurveImpl::KnotsCoefs", ptr %this, i64 0, i32 3
+  %m_coefsArray77 = getelementptr inbounds i8, ptr %this, i64 56
   %add78 = add nsw i32 %i.0.lcssa, %2
   %conv79 = sext i32 %add78 to i64
   %32 = load ptr, ptr %m_coefsArray77, align 8
@@ -5562,7 +5545,7 @@ declare float @llvm.fmuladd.f32(float, float, float) #8
 ; Function Attrs: mustprogress nofree nounwind memory(readwrite, inaccessiblemem: write) uwtable
 define hidden noundef float @_ZNK19OpenColorIO_v2_4dev23GradingBSplineCurveImpl10KnotsCoefs12evalCurveRevEif(ptr nocapture noundef nonnull readonly align 8 dereferenceable(104) %this, i32 noundef %c, float noundef %y) local_unnamed_addr #9 align 2 {
 entry:
-  %m_coefsOffsetsArray = getelementptr inbounds %"struct.OpenColorIO_v2_4dev::GradingBSplineCurveImpl::KnotsCoefs", ptr %this, i64 0, i32 2
+  %m_coefsOffsetsArray = getelementptr inbounds i8, ptr %this, i64 32
   %mul = shl nsw i32 %c, 1
   %add = or disjoint i32 %mul, 1
   %conv = sext i32 %add to i64
@@ -5578,20 +5561,20 @@ if.end:                                           ; preds = %entry
   %conv4 = sext i32 %mul to i64
   %add.ptr.i61 = getelementptr inbounds i32, ptr %0, i64 %conv4
   %2 = load i32, ptr %add.ptr.i61, align 4
-  %m_knotsOffsetsArray = getelementptr inbounds %"struct.OpenColorIO_v2_4dev::GradingBSplineCurveImpl::KnotsCoefs", ptr %this, i64 0, i32 1
+  %m_knotsOffsetsArray = getelementptr inbounds i8, ptr %this, i64 8
   %3 = load ptr, ptr %m_knotsOffsetsArray, align 8
   %add.ptr.i62 = getelementptr inbounds i32, ptr %3, i64 %conv
   %4 = load i32, ptr %add.ptr.i62, align 4
   %add.ptr.i63 = getelementptr inbounds i32, ptr %3, i64 %conv4
   %5 = load i32, ptr %add.ptr.i63, align 4
-  %m_knotsArray = getelementptr inbounds %"struct.OpenColorIO_v2_4dev::GradingBSplineCurveImpl::KnotsCoefs", ptr %this, i64 0, i32 4
+  %m_knotsArray = getelementptr inbounds i8, ptr %this, i64 80
   %6 = load ptr, ptr %m_knotsArray, align 8
   %add17 = add nsw i32 %5, %4
   %7 = sext i32 %add17 to i64
   %8 = getelementptr float, ptr %6, i64 %7
-  %add.ptr.i65 = getelementptr float, ptr %8, i64 -1
+  %add.ptr.i65 = getelementptr i8, ptr %8, i64 -4
   %9 = load float, ptr %add.ptr.i65, align 4
-  %m_coefsArray = getelementptr inbounds %"struct.OpenColorIO_v2_4dev::GradingBSplineCurveImpl::KnotsCoefs", ptr %this, i64 0, i32 3
+  %m_coefsArray = getelementptr inbounds i8, ptr %this, i64 56
   %mul20 = shl nsw i32 %div, 1
   %add21 = add nsw i32 %2, %mul20
   %conv22 = sext i32 %add21 to i64
@@ -5601,9 +5584,9 @@ if.end:                                           ; preds = %entry
   %add25 = add nsw i32 %2, %div
   %12 = sext i32 %add25 to i64
   %13 = getelementptr float, ptr %10, i64 %12
-  %add.ptr.i67 = getelementptr float, ptr %13, i64 -1
+  %add.ptr.i67 = getelementptr i8, ptr %13, i64 -4
   %14 = load float, ptr %add.ptr.i67, align 4
-  %add.ptr.i68 = getelementptr float, ptr %add.ptr.i66, i64 -1
+  %add.ptr.i68 = getelementptr i8, ptr %add.ptr.i66, i64 -4
   %15 = load float, ptr %add.ptr.i68, align 4
   %cmp49 = fcmp ult float %11, %y
   br i1 %cmp49, label %if.else, label %if.then50
@@ -5622,12 +5605,12 @@ if.then50:                                        ; preds = %if.end
   br label %return
 
 if.else:                                          ; preds = %if.end
-  %add.ptr.i70 = getelementptr float, ptr %8, i64 -2
+  %add.ptr.i70 = getelementptr i8, ptr %8, i64 -8
   %mul36 = mul nsw i32 %div, 3
   %add37 = add nsw i32 %2, %mul36
   %19 = sext i32 %add37 to i64
   %20 = getelementptr float, ptr %10, i64 %19
-  %add.ptr.i69 = getelementptr float, ptr %20, i64 -1
+  %add.ptr.i69 = getelementptr i8, ptr %20, i64 -4
   %21 = load float, ptr %add.ptr.i69, align 4
   %22 = load float, ptr %add.ptr.i70, align 4
   %sub46 = fsub float %9, %22
@@ -5642,7 +5625,7 @@ for.cond.preheader:                               ; preds = %if.else
   br i1 %cmp11282, label %for.body.preheader, label %for.end
 
 for.body.preheader:                               ; preds = %for.cond.preheader
-  %invariant.gep = getelementptr float, ptr %10, i64 1
+  %invariant.gep = getelementptr i8, ptr %10, i64 4
   %wide.trip.count = zext nneg i32 %sub111 to i64
   %invariant.gep89 = getelementptr float, ptr %invariant.gep, i64 %conv22
   br label %for.body
@@ -5716,9 +5699,9 @@ entry:
   %0 = load float, ptr %lhs, align 4
   %1 = load float, ptr %rhs, align 4
   %cmp = fcmp oeq float %0, %1
-  %m_y = getelementptr inbounds %"struct.OpenColorIO_v2_4dev::GradingControlPoint", ptr %lhs, i64 0, i32 1
+  %m_y = getelementptr inbounds i8, ptr %lhs, i64 4
   %2 = load float, ptr %m_y, align 4
-  %m_y2 = getelementptr inbounds %"struct.OpenColorIO_v2_4dev::GradingControlPoint", ptr %rhs, i64 0, i32 1
+  %m_y2 = getelementptr inbounds i8, ptr %rhs, i64 4
   %3 = load float, ptr %m_y2, align 4
   %cmp3 = fcmp oeq float %2, %3
   %4 = select i1 %cmp, i1 %cmp3, i1 false
@@ -5731,9 +5714,9 @@ entry:
   %0 = load float, ptr %lhs, align 4
   %1 = load float, ptr %rhs, align 4
   %cmp.i = fcmp une float %0, %1
-  %m_y.i = getelementptr inbounds %"struct.OpenColorIO_v2_4dev::GradingControlPoint", ptr %lhs, i64 0, i32 1
+  %m_y.i = getelementptr inbounds i8, ptr %lhs, i64 4
   %2 = load float, ptr %m_y.i, align 4
-  %m_y2.i = getelementptr inbounds %"struct.OpenColorIO_v2_4dev::GradingControlPoint", ptr %rhs, i64 0, i32 1
+  %m_y2.i = getelementptr inbounds i8, ptr %rhs, i64 4
   %3 = load float, ptr %m_y2.i, align 4
   %cmp3.i = fcmp une float %2, %3
   %.not = select i1 %cmp.i, i1 true, i1 %cmp3.i
@@ -5744,11 +5727,11 @@ entry:
 define noundef zeroext i1 @_ZN19OpenColorIO_v2_4deveqERKNS_19GradingBSplineCurveES2_(ptr noundef nonnull align 8 dereferenceable(8) %lhs, ptr noundef nonnull align 8 dereferenceable(8) %rhs) local_unnamed_addr #0 {
 entry:
   %vtable = load ptr, ptr %lhs, align 8
-  %vfn = getelementptr inbounds ptr, ptr %vtable, i64 1
+  %vfn = getelementptr inbounds i8, ptr %vtable, i64 8
   %0 = load ptr, ptr %vfn, align 8
   %call = tail call noundef i64 %0(ptr noundef nonnull align 8 dereferenceable(8) %lhs) #20
   %vtable1 = load ptr, ptr %rhs, align 8
-  %vfn2 = getelementptr inbounds ptr, ptr %vtable1, i64 1
+  %vfn2 = getelementptr inbounds i8, ptr %vtable1, i64 8
   %1 = load ptr, ptr %vfn2, align 8
   %call3 = tail call noundef i64 %1(ptr noundef nonnull align 8 dereferenceable(8) %rhs) #20
   %cmp = icmp eq i64 %call, %call3
@@ -5761,19 +5744,19 @@ for.cond.preheader:                               ; preds = %entry
 for.body:                                         ; preds = %for.cond.preheader, %for.body
   %i.08 = phi i64 [ %inc, %for.body ], [ 0, %for.cond.preheader ]
   %vtable5 = load ptr, ptr %lhs, align 8
-  %vfn6 = getelementptr inbounds ptr, ptr %vtable5, i64 3
+  %vfn6 = getelementptr inbounds i8, ptr %vtable5, i64 24
   %2 = load ptr, ptr %vfn6, align 8
   %call7 = tail call noundef nonnull align 4 dereferenceable(8) ptr %2(ptr noundef nonnull align 8 dereferenceable(8) %lhs, i64 noundef %i.08)
   %vtable8 = load ptr, ptr %rhs, align 8
-  %vfn9 = getelementptr inbounds ptr, ptr %vtable8, i64 3
+  %vfn9 = getelementptr inbounds i8, ptr %vtable8, i64 24
   %3 = load ptr, ptr %vfn9, align 8
   %call10 = tail call noundef nonnull align 4 dereferenceable(8) ptr %3(ptr noundef nonnull align 8 dereferenceable(8) %rhs, i64 noundef %i.08)
   %4 = load float, ptr %call7, align 4
   %5 = load float, ptr %call10, align 4
   %cmp.i.i = fcmp oeq float %4, %5
-  %m_y.i.i = getelementptr inbounds %"struct.OpenColorIO_v2_4dev::GradingControlPoint", ptr %call7, i64 0, i32 1
+  %m_y.i.i = getelementptr inbounds i8, ptr %call7, i64 4
   %6 = load float, ptr %m_y.i.i, align 4
-  %m_y2.i.i = getelementptr inbounds %"struct.OpenColorIO_v2_4dev::GradingControlPoint", ptr %call10, i64 0, i32 1
+  %m_y2.i.i = getelementptr inbounds i8, ptr %call10, i64 4
   %7 = load float, ptr %m_y2.i.i, align 4
   %cmp3.i.i = fcmp oeq float %6, %7
   %.not.i.not = select i1 %cmp.i.i, i1 %cmp3.i.i, i1 false
@@ -5791,11 +5774,11 @@ return:                                           ; preds = %for.body, %for.cond
 define noundef zeroext i1 @_ZN19OpenColorIO_v2_4devneERKNS_19GradingBSplineCurveES2_(ptr noundef nonnull align 8 dereferenceable(8) %lhs, ptr noundef nonnull align 8 dereferenceable(8) %rhs) local_unnamed_addr #0 {
 entry:
   %vtable.i = load ptr, ptr %lhs, align 8
-  %vfn.i = getelementptr inbounds ptr, ptr %vtable.i, i64 1
+  %vfn.i = getelementptr inbounds i8, ptr %vtable.i, i64 8
   %0 = load ptr, ptr %vfn.i, align 8
   %call.i = tail call noundef i64 %0(ptr noundef nonnull align 8 dereferenceable(8) %lhs) #20
   %vtable1.i = load ptr, ptr %rhs, align 8
-  %vfn2.i = getelementptr inbounds ptr, ptr %vtable1.i, i64 1
+  %vfn2.i = getelementptr inbounds i8, ptr %vtable1.i, i64 8
   %1 = load ptr, ptr %vfn2.i, align 8
   %call3.i = tail call noundef i64 %1(ptr noundef nonnull align 8 dereferenceable(8) %rhs) #20
   %cmp.i = icmp eq i64 %call.i, %call3.i
@@ -5808,19 +5791,19 @@ for.cond.preheader.i:                             ; preds = %entry
 for.body.i:                                       ; preds = %for.cond.preheader.i, %for.body.i
   %i.08.i = phi i64 [ %inc.i, %for.body.i ], [ 0, %for.cond.preheader.i ]
   %vtable5.i = load ptr, ptr %lhs, align 8
-  %vfn6.i = getelementptr inbounds ptr, ptr %vtable5.i, i64 3
+  %vfn6.i = getelementptr inbounds i8, ptr %vtable5.i, i64 24
   %2 = load ptr, ptr %vfn6.i, align 8
   %call7.i = tail call noundef nonnull align 4 dereferenceable(8) ptr %2(ptr noundef nonnull align 8 dereferenceable(8) %lhs, i64 noundef %i.08.i)
   %vtable8.i = load ptr, ptr %rhs, align 8
-  %vfn9.i = getelementptr inbounds ptr, ptr %vtable8.i, i64 3
+  %vfn9.i = getelementptr inbounds i8, ptr %vtable8.i, i64 24
   %3 = load ptr, ptr %vfn9.i, align 8
   %call10.i = tail call noundef nonnull align 4 dereferenceable(8) ptr %3(ptr noundef nonnull align 8 dereferenceable(8) %rhs, i64 noundef %i.08.i)
   %4 = load float, ptr %call7.i, align 4
   %5 = load float, ptr %call10.i, align 4
   %cmp.i.i.i = fcmp une float %4, %5
-  %m_y.i.i.i = getelementptr inbounds %"struct.OpenColorIO_v2_4dev::GradingControlPoint", ptr %call7.i, i64 0, i32 1
+  %m_y.i.i.i = getelementptr inbounds i8, ptr %call7.i, i64 4
   %6 = load float, ptr %m_y.i.i.i, align 4
-  %m_y2.i.i.i = getelementptr inbounds %"struct.OpenColorIO_v2_4dev::GradingControlPoint", ptr %call10.i, i64 0, i32 1
+  %m_y2.i.i.i = getelementptr inbounds i8, ptr %call10.i, i64 4
   %7 = load float, ptr %m_y2.i.i.i, align 4
   %cmp3.i.i.i = fcmp une float %6, %7
   %.not.i.not.i.not = select i1 %cmp.i.i.i, i1 true, i1 %cmp3.i.i.i
@@ -5838,7 +5821,7 @@ _ZN19OpenColorIO_v2_4deveqERKNS_19GradingBSplineCurveES2_.exit: ; preds = %for.b
 define linkonce_odr hidden void @_ZN19OpenColorIO_v2_4dev23GradingBSplineCurveImplD2Ev(ptr noundef nonnull align 8 dereferenceable(56) %this) unnamed_addr #1 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store ptr getelementptr inbounds ({ [13 x ptr] }, ptr @_ZTVN19OpenColorIO_v2_4dev23GradingBSplineCurveImplE, i64 0, inrange i32 0, i64 2), ptr %this, align 8
-  %m_slopesArray = getelementptr inbounds %"class.OpenColorIO_v2_4dev::GradingBSplineCurveImpl", ptr %this, i64 0, i32 2
+  %m_slopesArray = getelementptr inbounds i8, ptr %this, i64 32
   %0 = load ptr, ptr %m_slopesArray, align 8
   %tobool.not.i.i.i = icmp eq ptr %0, null
   br i1 %tobool.not.i.i.i, label %_ZNSt6vectorIfSaIfEED2Ev.exit, label %if.then.i.i.i
@@ -5848,7 +5831,7 @@ if.then.i.i.i:                                    ; preds = %entry
   br label %_ZNSt6vectorIfSaIfEED2Ev.exit
 
 _ZNSt6vectorIfSaIfEED2Ev.exit:                    ; preds = %entry, %if.then.i.i.i
-  %m_controlPoints = getelementptr inbounds %"class.OpenColorIO_v2_4dev::GradingBSplineCurveImpl", ptr %this, i64 0, i32 1
+  %m_controlPoints = getelementptr inbounds i8, ptr %this, i64 8
   %1 = load ptr, ptr %m_controlPoints, align 8
   %tobool.not.i.i.i1 = icmp eq ptr %1, null
   br i1 %tobool.not.i.i.i1, label %_ZNSt6vectorIN19OpenColorIO_v2_4dev19GradingControlPointESaIS1_EED2Ev.exit, label %if.then.i.i.i2
@@ -5865,7 +5848,7 @@ _ZNSt6vectorIN19OpenColorIO_v2_4dev19GradingControlPointESaIS1_EED2Ev.exit: ; pr
 define linkonce_odr hidden void @_ZN19OpenColorIO_v2_4dev23GradingBSplineCurveImplD0Ev(ptr noundef nonnull align 8 dereferenceable(56) %this) unnamed_addr #1 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store ptr getelementptr inbounds ({ [13 x ptr] }, ptr @_ZTVN19OpenColorIO_v2_4dev23GradingBSplineCurveImplE, i64 0, inrange i32 0, i64 2), ptr %this, align 8
-  %m_slopesArray.i = getelementptr inbounds %"class.OpenColorIO_v2_4dev::GradingBSplineCurveImpl", ptr %this, i64 0, i32 2
+  %m_slopesArray.i = getelementptr inbounds i8, ptr %this, i64 32
   %0 = load ptr, ptr %m_slopesArray.i, align 8
   %tobool.not.i.i.i.i = icmp eq ptr %0, null
   br i1 %tobool.not.i.i.i.i, label %_ZNSt6vectorIfSaIfEED2Ev.exit.i, label %if.then.i.i.i.i
@@ -5875,7 +5858,7 @@ if.then.i.i.i.i:                                  ; preds = %entry
   br label %_ZNSt6vectorIfSaIfEED2Ev.exit.i
 
 _ZNSt6vectorIfSaIfEED2Ev.exit.i:                  ; preds = %if.then.i.i.i.i, %entry
-  %m_controlPoints.i = getelementptr inbounds %"class.OpenColorIO_v2_4dev::GradingBSplineCurveImpl", ptr %this, i64 0, i32 1
+  %m_controlPoints.i = getelementptr inbounds i8, ptr %this, i64 8
   %1 = load ptr, ptr %m_controlPoints.i, align 8
   %tobool.not.i.i.i1.i = icmp eq ptr %1, null
   br i1 %tobool.not.i.i.i1.i, label %_ZN19OpenColorIO_v2_4dev23GradingBSplineCurveImplD2Ev.exit, label %if.then.i.i.i2.i
@@ -5914,15 +5897,15 @@ declare float @llvm.fabs.f32(float) #8
 define linkonce_odr hidden void @_ZNSt14__shared_countILN9__gnu_cxx12_Lock_policyE2EEC2IN19OpenColorIO_v2_4dev23GradingBSplineCurveImplESaIvEJRmEEERPT_St20_Sp_alloc_shared_tagIT0_EDpOT1_(ptr noundef nonnull align 8 dereferenceable(8) %this, ptr noundef nonnull align 8 dereferenceable(8) %__p, ptr %__a.coerce, ptr noundef nonnull align 8 dereferenceable(8) %__args) unnamed_addr #0 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %call5.i.i.i3 = tail call noalias noundef nonnull dereferenceable(72) ptr @_Znwm(i64 noundef 72) #22
-  %_M_use_count.i.i = getelementptr inbounds %"class.std::_Sp_counted_base", ptr %call5.i.i.i3, i64 0, i32 1
+  %_M_use_count.i.i = getelementptr inbounds i8, ptr %call5.i.i.i3, i64 8
   store i32 1, ptr %_M_use_count.i.i, align 8
-  %_M_weak_count.i.i = getelementptr inbounds %"class.std::_Sp_counted_base", ptr %call5.i.i.i3, i64 0, i32 2
+  %_M_weak_count.i.i = getelementptr inbounds i8, ptr %call5.i.i.i3, i64 12
   store i32 1, ptr %_M_weak_count.i.i, align 4
   store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN19OpenColorIO_v2_4dev23GradingBSplineCurveImplESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 0, inrange i32 0, i64 2), ptr %call5.i.i.i3, align 8
-  %_M_impl.i.i = getelementptr inbounds %"class.std::_Sp_counted_ptr_inplace", ptr %call5.i.i.i3, i64 0, i32 1
+  %_M_impl.i.i = getelementptr inbounds i8, ptr %call5.i.i.i3, i64 16
   %0 = load i64, ptr %__args, align 8
   store ptr getelementptr inbounds ({ [13 x ptr] }, ptr @_ZTVN19OpenColorIO_v2_4dev23GradingBSplineCurveImplE, i64 0, inrange i32 0, i64 2), ptr %_M_impl.i.i, align 8
-  %m_controlPoints.i.i.i.i = getelementptr inbounds %"class.std::_Sp_counted_ptr_inplace", ptr %call5.i.i.i3, i64 0, i32 1, i32 0, i32 0, i32 0, i64 8
+  %m_controlPoints.i.i.i.i = getelementptr inbounds i8, ptr %call5.i.i.i3, i64 24
   %cmp.i.i.i.i.i.i = icmp ugt i64 %0, 1152921504606846975
   br i1 %cmp.i.i.i.i.i.i, label %if.then.i.i.i.i.i.i, label %_ZNSt6vectorIN19OpenColorIO_v2_4dev19GradingControlPointESaIS1_EE17_S_check_init_lenEmRKS2_.exit.i.i.i.i.i
 
@@ -5948,27 +5931,27 @@ call5.i.i.i.i2.i.i3.i.i.i1.i.noexc:               ; preds = %for.body.preheader.
   %add.ptr.i.i.i.i.i.i.i = getelementptr inbounds %"struct.OpenColorIO_v2_4dev::GradingControlPoint", ptr %call5.i.i.i.i2.i.i3.i.i.i1.i4, i64 %0
   tail call void @llvm.memset.p0.i64(ptr nonnull align 4 %call5.i.i.i.i2.i.i3.i.i.i1.i4, i8 0, i64 %mul.i.i.i.i.i.i.i.i.i.i, i1 false)
   %scevgep.i.i.i.i.i.i.i.i.i = getelementptr i8, ptr %call5.i.i.i.i2.i.i3.i.i.i1.i4, i64 %mul.i.i.i.i.i.i.i.i.i.i
-  %_M_finish.i.i7.i.i.i.i.i = getelementptr inbounds %"class.std::_Sp_counted_ptr_inplace", ptr %call5.i.i.i3, i64 0, i32 1, i32 0, i32 0, i32 0, i64 16
-  %1 = getelementptr inbounds %"class.std::_Sp_counted_ptr_inplace", ptr %call5.i.i.i3, i64 0, i32 1, i32 0, i32 0, i32 0, i64 24
+  %_M_finish.i.i7.i.i.i.i.i = getelementptr inbounds i8, ptr %call5.i.i.i3, i64 32
+  %1 = getelementptr inbounds i8, ptr %call5.i.i.i3, i64 40
   store ptr %add.ptr.i.i.i.i.i.i.i, ptr %1, align 8
   store ptr %scevgep.i.i.i.i.i.i.i.i.i, ptr %_M_finish.i.i7.i.i.i.i.i, align 8
-  %m_slopesArray.i.i.i.i = getelementptr inbounds %"class.std::_Sp_counted_ptr_inplace", ptr %call5.i.i.i3, i64 0, i32 1, i32 0, i32 0, i32 0, i64 32
+  %m_slopesArray.i.i.i.i = getelementptr inbounds i8, ptr %call5.i.i.i3, i64 48
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %m_slopesArray.i.i.i.i, i8 0, i64 24, i1 false)
   %mul.i.i.i.i.i.i6.i.i.i.i = shl nuw nsw i64 %0, 2
   %call5.i.i.i.i2.i.i12.i.i.i.i = invoke noalias noundef nonnull ptr @_Znwm(i64 noundef %mul.i.i.i.i.i.i6.i.i.i.i) #22
           to label %call5.i.i.i.i2.i.i.noexc11.i.i.i.i unwind label %ehcleanup.i.i.i.i
 
 _ZNSt12_Vector_baseIfSaIfEEC2EmRKS0_.exit.thread.i.i.i.i.i: ; preds = %_ZNSt6vectorIN19OpenColorIO_v2_4dev19GradingControlPointESaIS1_EE17_S_check_init_lenEmRKS2_.exit.i.i.i.i.i
-  %_M_finish.i.i4.i.i.i.i.i = getelementptr inbounds %"class.std::_Sp_counted_ptr_inplace", ptr %call5.i.i.i3, i64 0, i32 1, i32 0, i32 0, i32 0, i64 40
+  %_M_finish.i.i4.i.i.i.i.i = getelementptr inbounds i8, ptr %call5.i.i.i3, i64 56
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %m_controlPoints.i.i.i.i, i8 0, i64 48, i1 false)
   br label %_ZNSt15__allocated_ptrISaISt23_Sp_counted_ptr_inplaceIN19OpenColorIO_v2_4dev23GradingBSplineCurveImplESaIvELN9__gnu_cxx12_Lock_policyE2EEEED2Ev.exit
 
 call5.i.i.i.i2.i.i.noexc11.i.i.i.i:               ; preds = %call5.i.i.i.i2.i.i3.i.i.i1.i.noexc
   store ptr %call5.i.i.i.i2.i.i12.i.i.i.i, ptr %m_slopesArray.i.i.i.i, align 8
-  %_M_finish.i.i.i.i.i.i.i = getelementptr inbounds %"class.std::_Sp_counted_ptr_inplace", ptr %call5.i.i.i3, i64 0, i32 1, i32 0, i32 0, i32 0, i64 40
+  %_M_finish.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %call5.i.i.i3, i64 56
   store ptr %call5.i.i.i.i2.i.i12.i.i.i.i, ptr %_M_finish.i.i.i.i.i.i.i, align 8
   %add.ptr.i.i.i7.i.i.i.i = getelementptr inbounds float, ptr %call5.i.i.i.i2.i.i12.i.i.i.i, i64 %0
-  %_M_end_of_storage.i.i.i.i.i.i.i = getelementptr inbounds %"class.std::_Sp_counted_ptr_inplace", ptr %call5.i.i.i3, i64 0, i32 1, i32 0, i32 0, i32 0, i64 48
+  %_M_end_of_storage.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %call5.i.i.i3, i64 64
   store ptr %add.ptr.i.i.i7.i.i.i.i, ptr %_M_end_of_storage.i.i.i.i.i.i.i, align 8
   tail call void @llvm.memset.p0.i64(ptr nonnull align 4 %call5.i.i.i.i2.i.i12.i.i.i.i, i8 0, i64 %mul.i.i.i.i.i.i6.i.i.i.i, i1 false)
   br label %_ZNSt15__allocated_ptrISaISt23_Sp_counted_ptr_inplaceIN19OpenColorIO_v2_4dev23GradingBSplineCurveImplESaIvELN9__gnu_cxx12_Lock_policyE2EEEED2Ev.exit
@@ -6014,9 +5997,9 @@ entry:
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZNSt23_Sp_counted_ptr_inplaceIN19OpenColorIO_v2_4dev23GradingBSplineCurveImplESaIvELN9__gnu_cxx12_Lock_policyE2EE10_M_disposeEv(ptr noundef nonnull align 8 dereferenceable(72) %this) unnamed_addr #1 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  %_M_impl.i = getelementptr inbounds %"class.std::_Sp_counted_ptr_inplace", ptr %this, i64 0, i32 1
+  %_M_impl.i = getelementptr inbounds i8, ptr %this, i64 16
   %vtable.i.i = load ptr, ptr %_M_impl.i, align 8
-  %vfn.i.i = getelementptr inbounds ptr, ptr %vtable.i.i, i64 9
+  %vfn.i.i = getelementptr inbounds i8, ptr %vtable.i.i, i64 72
   %0 = load ptr, ptr %vfn.i.i, align 8
   tail call void %0(ptr noundef nonnull align 8 dereferenceable(56) %_M_impl.i) #20
   ret void
@@ -6032,12 +6015,12 @@ _ZNSt15__allocated_ptrISaISt23_Sp_counted_ptr_inplaceIN19OpenColorIO_v2_4dev23Gr
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden noundef ptr @_ZNSt23_Sp_counted_ptr_inplaceIN19OpenColorIO_v2_4dev23GradingBSplineCurveImplESaIvELN9__gnu_cxx12_Lock_policyE2EE14_M_get_deleterERKSt9type_info(ptr noundef nonnull align 8 dereferenceable(72) %this, ptr noundef nonnull align 8 dereferenceable(16) %__ti) unnamed_addr #1 comdat align 2 {
 entry:
-  %_M_impl.i = getelementptr inbounds %"class.std::_Sp_counted_ptr_inplace", ptr %this, i64 0, i32 1
+  %_M_impl.i = getelementptr inbounds i8, ptr %this, i64 16
   %cmp = icmp eq ptr %__ti, @_ZZNSt19_Sp_make_shared_tag5_S_tiEvE5__tag
   br i1 %cmp, label %return, label %lor.lhs.false
 
 lor.lhs.false:                                    ; preds = %entry
-  %__name.i = getelementptr inbounds %"class.std::type_info", ptr %__ti, i64 0, i32 1
+  %__name.i = getelementptr inbounds i8, ptr %__ti, i64 8
   %0 = load ptr, ptr %__name.i, align 8
   %cmp.i = icmp eq ptr %0, @_ZTSSt19_Sp_make_shared_tag
   br i1 %cmp.i, label %_ZNKSt9type_infoeqERKS_.exit.thread, label %if.end.i
@@ -6068,15 +6051,15 @@ declare i32 @strcmp(ptr nocapture noundef, ptr nocapture noundef) local_unnamed_
 define linkonce_odr hidden void @_ZNSt14__shared_countILN9__gnu_cxx12_Lock_policyE2EEC2IN19OpenColorIO_v2_4dev23GradingBSplineCurveImplESaIvEJmEEERPT_St20_Sp_alloc_shared_tagIT0_EDpOT1_(ptr noundef nonnull align 8 dereferenceable(8) %this, ptr noundef nonnull align 8 dereferenceable(8) %__p, ptr %__a.coerce, ptr noundef nonnull align 8 dereferenceable(8) %__args) unnamed_addr #0 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %call5.i.i.i3 = tail call noalias noundef nonnull dereferenceable(72) ptr @_Znwm(i64 noundef 72) #22
-  %_M_use_count.i.i = getelementptr inbounds %"class.std::_Sp_counted_base", ptr %call5.i.i.i3, i64 0, i32 1
+  %_M_use_count.i.i = getelementptr inbounds i8, ptr %call5.i.i.i3, i64 8
   store i32 1, ptr %_M_use_count.i.i, align 8
-  %_M_weak_count.i.i = getelementptr inbounds %"class.std::_Sp_counted_base", ptr %call5.i.i.i3, i64 0, i32 2
+  %_M_weak_count.i.i = getelementptr inbounds i8, ptr %call5.i.i.i3, i64 12
   store i32 1, ptr %_M_weak_count.i.i, align 4
   store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN19OpenColorIO_v2_4dev23GradingBSplineCurveImplESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 0, inrange i32 0, i64 2), ptr %call5.i.i.i3, align 8
-  %_M_impl.i.i = getelementptr inbounds %"class.std::_Sp_counted_ptr_inplace", ptr %call5.i.i.i3, i64 0, i32 1
+  %_M_impl.i.i = getelementptr inbounds i8, ptr %call5.i.i.i3, i64 16
   %0 = load i64, ptr %__args, align 8
   store ptr getelementptr inbounds ({ [13 x ptr] }, ptr @_ZTVN19OpenColorIO_v2_4dev23GradingBSplineCurveImplE, i64 0, inrange i32 0, i64 2), ptr %_M_impl.i.i, align 8
-  %m_controlPoints.i.i.i.i = getelementptr inbounds %"class.std::_Sp_counted_ptr_inplace", ptr %call5.i.i.i3, i64 0, i32 1, i32 0, i32 0, i32 0, i64 8
+  %m_controlPoints.i.i.i.i = getelementptr inbounds i8, ptr %call5.i.i.i3, i64 24
   %cmp.i.i.i.i.i.i = icmp ugt i64 %0, 1152921504606846975
   br i1 %cmp.i.i.i.i.i.i, label %if.then.i.i.i.i.i.i, label %_ZNSt6vectorIN19OpenColorIO_v2_4dev19GradingControlPointESaIS1_EE17_S_check_init_lenEmRKS2_.exit.i.i.i.i.i
 
@@ -6102,27 +6085,27 @@ call5.i.i.i.i2.i.i3.i.i.i1.i.noexc:               ; preds = %for.body.preheader.
   %add.ptr.i.i.i.i.i.i.i = getelementptr inbounds %"struct.OpenColorIO_v2_4dev::GradingControlPoint", ptr %call5.i.i.i.i2.i.i3.i.i.i1.i4, i64 %0
   tail call void @llvm.memset.p0.i64(ptr nonnull align 4 %call5.i.i.i.i2.i.i3.i.i.i1.i4, i8 0, i64 %mul.i.i.i.i.i.i.i.i.i.i, i1 false)
   %scevgep.i.i.i.i.i.i.i.i.i = getelementptr i8, ptr %call5.i.i.i.i2.i.i3.i.i.i1.i4, i64 %mul.i.i.i.i.i.i.i.i.i.i
-  %_M_finish.i.i7.i.i.i.i.i = getelementptr inbounds %"class.std::_Sp_counted_ptr_inplace", ptr %call5.i.i.i3, i64 0, i32 1, i32 0, i32 0, i32 0, i64 16
-  %1 = getelementptr inbounds %"class.std::_Sp_counted_ptr_inplace", ptr %call5.i.i.i3, i64 0, i32 1, i32 0, i32 0, i32 0, i64 24
+  %_M_finish.i.i7.i.i.i.i.i = getelementptr inbounds i8, ptr %call5.i.i.i3, i64 32
+  %1 = getelementptr inbounds i8, ptr %call5.i.i.i3, i64 40
   store ptr %add.ptr.i.i.i.i.i.i.i, ptr %1, align 8
   store ptr %scevgep.i.i.i.i.i.i.i.i.i, ptr %_M_finish.i.i7.i.i.i.i.i, align 8
-  %m_slopesArray.i.i.i.i = getelementptr inbounds %"class.std::_Sp_counted_ptr_inplace", ptr %call5.i.i.i3, i64 0, i32 1, i32 0, i32 0, i32 0, i64 32
+  %m_slopesArray.i.i.i.i = getelementptr inbounds i8, ptr %call5.i.i.i3, i64 48
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %m_slopesArray.i.i.i.i, i8 0, i64 24, i1 false)
   %mul.i.i.i.i.i.i6.i.i.i.i = shl nuw nsw i64 %0, 2
   %call5.i.i.i.i2.i.i12.i.i.i.i = invoke noalias noundef nonnull ptr @_Znwm(i64 noundef %mul.i.i.i.i.i.i6.i.i.i.i) #22
           to label %call5.i.i.i.i2.i.i.noexc11.i.i.i.i unwind label %ehcleanup.i.i.i.i
 
 _ZNSt12_Vector_baseIfSaIfEEC2EmRKS0_.exit.thread.i.i.i.i.i: ; preds = %_ZNSt6vectorIN19OpenColorIO_v2_4dev19GradingControlPointESaIS1_EE17_S_check_init_lenEmRKS2_.exit.i.i.i.i.i
-  %_M_finish.i.i4.i.i.i.i.i = getelementptr inbounds %"class.std::_Sp_counted_ptr_inplace", ptr %call5.i.i.i3, i64 0, i32 1, i32 0, i32 0, i32 0, i64 40
+  %_M_finish.i.i4.i.i.i.i.i = getelementptr inbounds i8, ptr %call5.i.i.i3, i64 56
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %m_controlPoints.i.i.i.i, i8 0, i64 48, i1 false)
   br label %_ZNSt15__allocated_ptrISaISt23_Sp_counted_ptr_inplaceIN19OpenColorIO_v2_4dev23GradingBSplineCurveImplESaIvELN9__gnu_cxx12_Lock_policyE2EEEED2Ev.exit
 
 call5.i.i.i.i2.i.i.noexc11.i.i.i.i:               ; preds = %call5.i.i.i.i2.i.i3.i.i.i1.i.noexc
   store ptr %call5.i.i.i.i2.i.i12.i.i.i.i, ptr %m_slopesArray.i.i.i.i, align 8
-  %_M_finish.i.i.i.i.i.i.i = getelementptr inbounds %"class.std::_Sp_counted_ptr_inplace", ptr %call5.i.i.i3, i64 0, i32 1, i32 0, i32 0, i32 0, i64 40
+  %_M_finish.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %call5.i.i.i3, i64 56
   store ptr %call5.i.i.i.i2.i.i12.i.i.i.i, ptr %_M_finish.i.i.i.i.i.i.i, align 8
   %add.ptr.i.i.i7.i.i.i.i = getelementptr inbounds float, ptr %call5.i.i.i.i2.i.i12.i.i.i.i, i64 %0
-  %_M_end_of_storage.i.i.i.i.i.i.i = getelementptr inbounds %"class.std::_Sp_counted_ptr_inplace", ptr %call5.i.i.i3, i64 0, i32 1, i32 0, i32 0, i32 0, i64 48
+  %_M_end_of_storage.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %call5.i.i.i3, i64 64
   store ptr %add.ptr.i.i.i7.i.i.i.i, ptr %_M_end_of_storage.i.i.i.i.i.i.i, align 8
   tail call void @llvm.memset.p0.i64(ptr nonnull align 4 %call5.i.i.i.i2.i.i12.i.i.i.i, i8 0, i64 %mul.i.i.i.i.i.i6.i.i.i.i, i1 false)
   br label %_ZNSt15__allocated_ptrISaISt23_Sp_counted_ptr_inplaceIN19OpenColorIO_v2_4dev23GradingBSplineCurveImplESaIvELN9__gnu_cxx12_Lock_policyE2EEEED2Ev.exit
@@ -6159,16 +6142,16 @@ declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #1
 define linkonce_odr hidden void @_ZNSt14__shared_countILN9__gnu_cxx12_Lock_policyE2EEC2IN19OpenColorIO_v2_4dev23GradingBSplineCurveImplESaIvEJiEEERPT_St20_Sp_alloc_shared_tagIT0_EDpOT1_(ptr noundef nonnull align 8 dereferenceable(8) %this, ptr noundef nonnull align 8 dereferenceable(8) %__p, ptr %__a.coerce, ptr noundef nonnull align 4 dereferenceable(4) %__args) unnamed_addr #0 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %call5.i.i.i3 = tail call noalias noundef nonnull dereferenceable(72) ptr @_Znwm(i64 noundef 72) #22
-  %_M_use_count.i.i = getelementptr inbounds %"class.std::_Sp_counted_base", ptr %call5.i.i.i3, i64 0, i32 1
+  %_M_use_count.i.i = getelementptr inbounds i8, ptr %call5.i.i.i3, i64 8
   store i32 1, ptr %_M_use_count.i.i, align 8
-  %_M_weak_count.i.i = getelementptr inbounds %"class.std::_Sp_counted_base", ptr %call5.i.i.i3, i64 0, i32 2
+  %_M_weak_count.i.i = getelementptr inbounds i8, ptr %call5.i.i.i3, i64 12
   store i32 1, ptr %_M_weak_count.i.i, align 4
   store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN19OpenColorIO_v2_4dev23GradingBSplineCurveImplESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 0, inrange i32 0, i64 2), ptr %call5.i.i.i3, align 8
-  %_M_impl.i.i = getelementptr inbounds %"class.std::_Sp_counted_ptr_inplace", ptr %call5.i.i.i3, i64 0, i32 1
+  %_M_impl.i.i = getelementptr inbounds i8, ptr %call5.i.i.i3, i64 16
   %0 = load i32, ptr %__args, align 4
   %conv.i.i.i = sext i32 %0 to i64
   store ptr getelementptr inbounds ({ [13 x ptr] }, ptr @_ZTVN19OpenColorIO_v2_4dev23GradingBSplineCurveImplE, i64 0, inrange i32 0, i64 2), ptr %_M_impl.i.i, align 8
-  %m_controlPoints.i.i.i.i = getelementptr inbounds %"class.std::_Sp_counted_ptr_inplace", ptr %call5.i.i.i3, i64 0, i32 1, i32 0, i32 0, i32 0, i64 8
+  %m_controlPoints.i.i.i.i = getelementptr inbounds i8, ptr %call5.i.i.i3, i64 24
   %cmp.i.i.i.i.i.i = icmp slt i32 %0, 0
   br i1 %cmp.i.i.i.i.i.i, label %if.then.i.i.i.i.i.i, label %_ZNSt6vectorIN19OpenColorIO_v2_4dev19GradingControlPointESaIS1_EE17_S_check_init_lenEmRKS2_.exit.i.i.i.i.i
 
@@ -6194,27 +6177,27 @@ call5.i.i.i.i2.i.i3.i.i.i1.i.noexc:               ; preds = %for.body.preheader.
   %add.ptr.i.i.i.i.i.i.i = getelementptr inbounds %"struct.OpenColorIO_v2_4dev::GradingControlPoint", ptr %call5.i.i.i.i2.i.i3.i.i.i1.i4, i64 %conv.i.i.i
   tail call void @llvm.memset.p0.i64(ptr nonnull align 4 %call5.i.i.i.i2.i.i3.i.i.i1.i4, i8 0, i64 %mul.i.i.i.i.i.i.i.i.i.i, i1 false)
   %scevgep.i.i.i.i.i.i.i.i.i = getelementptr i8, ptr %call5.i.i.i.i2.i.i3.i.i.i1.i4, i64 %mul.i.i.i.i.i.i.i.i.i.i
-  %_M_finish.i.i7.i.i.i.i.i = getelementptr inbounds %"class.std::_Sp_counted_ptr_inplace", ptr %call5.i.i.i3, i64 0, i32 1, i32 0, i32 0, i32 0, i64 16
-  %1 = getelementptr inbounds %"class.std::_Sp_counted_ptr_inplace", ptr %call5.i.i.i3, i64 0, i32 1, i32 0, i32 0, i32 0, i64 24
+  %_M_finish.i.i7.i.i.i.i.i = getelementptr inbounds i8, ptr %call5.i.i.i3, i64 32
+  %1 = getelementptr inbounds i8, ptr %call5.i.i.i3, i64 40
   store ptr %add.ptr.i.i.i.i.i.i.i, ptr %1, align 8
   store ptr %scevgep.i.i.i.i.i.i.i.i.i, ptr %_M_finish.i.i7.i.i.i.i.i, align 8
-  %m_slopesArray.i.i.i.i = getelementptr inbounds %"class.std::_Sp_counted_ptr_inplace", ptr %call5.i.i.i3, i64 0, i32 1, i32 0, i32 0, i32 0, i64 32
+  %m_slopesArray.i.i.i.i = getelementptr inbounds i8, ptr %call5.i.i.i3, i64 48
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %m_slopesArray.i.i.i.i, i8 0, i64 24, i1 false)
   %mul.i.i.i.i.i.i6.i.i.i.i = shl nuw nsw i64 %conv.i.i.i, 2
   %call5.i.i.i.i2.i.i12.i.i.i.i = invoke noalias noundef nonnull ptr @_Znwm(i64 noundef %mul.i.i.i.i.i.i6.i.i.i.i) #22
           to label %call5.i.i.i.i2.i.i.noexc11.i.i.i.i unwind label %ehcleanup.i.i.i.i
 
 _ZNSt12_Vector_baseIfSaIfEEC2EmRKS0_.exit.thread.i.i.i.i.i: ; preds = %_ZNSt6vectorIN19OpenColorIO_v2_4dev19GradingControlPointESaIS1_EE17_S_check_init_lenEmRKS2_.exit.i.i.i.i.i
-  %_M_finish.i.i4.i.i.i.i.i = getelementptr inbounds %"class.std::_Sp_counted_ptr_inplace", ptr %call5.i.i.i3, i64 0, i32 1, i32 0, i32 0, i32 0, i64 40
+  %_M_finish.i.i4.i.i.i.i.i = getelementptr inbounds i8, ptr %call5.i.i.i3, i64 56
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %m_controlPoints.i.i.i.i, i8 0, i64 48, i1 false)
   br label %_ZNSt15__allocated_ptrISaISt23_Sp_counted_ptr_inplaceIN19OpenColorIO_v2_4dev23GradingBSplineCurveImplESaIvELN9__gnu_cxx12_Lock_policyE2EEEED2Ev.exit
 
 call5.i.i.i.i2.i.i.noexc11.i.i.i.i:               ; preds = %call5.i.i.i.i2.i.i3.i.i.i1.i.noexc
   store ptr %call5.i.i.i.i2.i.i12.i.i.i.i, ptr %m_slopesArray.i.i.i.i, align 8
-  %_M_finish.i.i.i.i.i.i.i = getelementptr inbounds %"class.std::_Sp_counted_ptr_inplace", ptr %call5.i.i.i3, i64 0, i32 1, i32 0, i32 0, i32 0, i64 40
+  %_M_finish.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %call5.i.i.i3, i64 56
   store ptr %call5.i.i.i.i2.i.i12.i.i.i.i, ptr %_M_finish.i.i.i.i.i.i.i, align 8
   %add.ptr.i.i.i7.i.i.i.i = getelementptr inbounds float, ptr %call5.i.i.i.i2.i.i12.i.i.i.i, i64 %conv.i.i.i
-  %_M_end_of_storage.i.i.i.i.i.i.i = getelementptr inbounds %"class.std::_Sp_counted_ptr_inplace", ptr %call5.i.i.i3, i64 0, i32 1, i32 0, i32 0, i32 0, i64 48
+  %_M_end_of_storage.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %call5.i.i.i3, i64 64
   store ptr %add.ptr.i.i.i7.i.i.i.i, ptr %_M_end_of_storage.i.i.i.i.i.i.i, align 8
   tail call void @llvm.memset.p0.i64(ptr nonnull align 4 %call5.i.i.i.i2.i.i12.i.i.i.i, i8 0, i64 %mul.i.i.i.i.i.i6.i.i.i.i, i1 false)
   br label %_ZNSt15__allocated_ptrISaISt23_Sp_counted_ptr_inplaceIN19OpenColorIO_v2_4dev23GradingBSplineCurveImplESaIvELN9__gnu_cxx12_Lock_policyE2EEEED2Ev.exit
@@ -6251,9 +6234,9 @@ entry:
   br i1 %cmp.not, label %if.end94, label %if.then
 
 if.then:                                          ; preds = %entry
-  %_M_end_of_storage = getelementptr inbounds %"struct.std::_Vector_base<float, std::allocator<float>>::_Vector_impl_data", ptr %this, i64 0, i32 2
+  %_M_end_of_storage = getelementptr inbounds i8, ptr %this, i64 16
   %0 = load ptr, ptr %_M_end_of_storage, align 8
-  %_M_finish = getelementptr inbounds %"struct.std::_Vector_base<float, std::allocator<float>>::_Vector_impl_data", ptr %this, i64 0, i32 1
+  %_M_finish = getelementptr inbounds i8, ptr %this, i64 8
   %1 = load ptr, ptr %_M_finish, align 8
   %sub.ptr.lhs.cast = ptrtoint ptr %0 to i64
   %sub.ptr.rhs.cast = ptrtoint ptr %1 to i64
@@ -6297,7 +6280,7 @@ invoke.cont20:                                    ; preds = %if.then.i.i.i.i.i, 
 for.body.i.i.i:                                   ; preds = %invoke.cont20, %for.body.i.i.i
   %__first.addr.04.i.i.i = phi ptr [ %incdec.ptr.i.i.i, %for.body.i.i.i ], [ %__position.coerce, %invoke.cont20 ]
   store float %2, ptr %__first.addr.04.i.i.i, align 4
-  %incdec.ptr.i.i.i = getelementptr inbounds float, ptr %__first.addr.04.i.i.i, i64 1
+  %incdec.ptr.i.i.i = getelementptr inbounds i8, ptr %__first.addr.04.i.i.i, i64 4
   %cmp.not.i.i.i = icmp eq ptr %incdec.ptr.i.i.i, %add.ptr24
   br i1 %cmp.not.i.i.i, label %if.end94, label %for.body.i.i.i, !llvm.loop !33
 
@@ -6313,7 +6296,7 @@ if.end.i.i.i.i.i:                                 ; preds = %if.else
 for.body.i.i.i.i.i.i.i:                           ; preds = %for.body.i.i.i.i.i.i.i, %if.end.i.i.i.i.i
   %__first.addr.04.i.i.i.i.i.i.i = phi ptr [ %incdec.ptr.i.i.i.i.i.i.i, %for.body.i.i.i.i.i.i.i ], [ %1, %if.end.i.i.i.i.i ]
   store float %2, ptr %__first.addr.04.i.i.i.i.i.i.i, align 4
-  %incdec.ptr.i.i.i.i.i.i.i = getelementptr inbounds float, ptr %__first.addr.04.i.i.i.i.i.i.i, i64 1
+  %incdec.ptr.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %__first.addr.04.i.i.i.i.i.i.i, i64 4
   %cmp.not.i.i.i.i.i.i.i = icmp eq ptr %incdec.ptr.i.i.i.i.i.i.i, %add.ptr.i.i.i.i.i49
   br i1 %cmp.not.i.i.i.i.i.i.i, label %invoke.cont27, label %for.body.i.i.i.i.i.i.i, !llvm.loop !33
 
@@ -6338,7 +6321,7 @@ invoke.cont35:                                    ; preds = %invoke.cont27
 for.body.i.i.i58:                                 ; preds = %invoke.cont35, %for.body.i.i.i58
   %__first.addr.04.i.i.i59 = phi ptr [ %incdec.ptr.i.i.i60, %for.body.i.i.i58 ], [ %__position.coerce, %invoke.cont35 ]
   store float %2, ptr %__first.addr.04.i.i.i59, align 4
-  %incdec.ptr.i.i.i60 = getelementptr inbounds float, ptr %__first.addr.04.i.i.i59, i64 1
+  %incdec.ptr.i.i.i60 = getelementptr inbounds i8, ptr %__first.addr.04.i.i.i59, i64 4
   %cmp.not.i.i.i61 = icmp eq ptr %incdec.ptr.i.i.i60, %1
   br i1 %cmp.not.i.i.i61, label %if.end94, label %for.body.i.i.i58, !llvm.loop !33
 
@@ -6381,7 +6364,7 @@ if.end.i.i.i.i.i65:                               ; preds = %cond.true.i, %_ZNKS
 for.body.i.i.i.i.i.i.i67:                         ; preds = %for.body.i.i.i.i.i.i.i67, %if.end.i.i.i.i.i65
   %__first.addr.04.i.i.i.i.i.i.i68 = phi ptr [ %incdec.ptr.i.i.i.i.i.i.i69, %for.body.i.i.i.i.i.i.i67 ], [ %add.ptr54, %if.end.i.i.i.i.i65 ]
   store float %8, ptr %__first.addr.04.i.i.i.i.i.i.i68, align 4
-  %incdec.ptr.i.i.i.i.i.i.i69 = getelementptr inbounds float, ptr %__first.addr.04.i.i.i.i.i.i.i68, i64 1
+  %incdec.ptr.i.i.i.i.i.i.i69 = getelementptr inbounds i8, ptr %__first.addr.04.i.i.i.i.i.i.i68, i64 4
   %cmp.not.i.i.i.i.i.i.i70 = icmp eq ptr %incdec.ptr.i.i.i.i.i.i.i69, %add.ptr.i.i.i.i.i66
   br i1 %cmp.not.i.i.i.i.i.i.i70, label %invoke.cont57, label %for.body.i.i.i.i.i.i.i67, !llvm.loop !33
 
@@ -6433,9 +6416,9 @@ if.then:                                          ; preds = %entry
   %sub.ptr.rhs.cast.i.i.i = ptrtoint ptr %__first.coerce to i64
   %sub.ptr.sub.i.i.i = sub i64 %sub.ptr.lhs.cast.i.i.i, %sub.ptr.rhs.cast.i.i.i
   %sub.ptr.div.i.i.i = ashr exact i64 %sub.ptr.sub.i.i.i, 2
-  %_M_end_of_storage = getelementptr inbounds %"struct.std::_Vector_base<float, std::allocator<float>>::_Vector_impl_data", ptr %this, i64 0, i32 2
+  %_M_end_of_storage = getelementptr inbounds i8, ptr %this, i64 16
   %0 = load ptr, ptr %_M_end_of_storage, align 8
-  %_M_finish = getelementptr inbounds %"struct.std::_Vector_base<float, std::allocator<float>>::_Vector_impl_data", ptr %this, i64 0, i32 1
+  %_M_finish = getelementptr inbounds i8, ptr %this, i64 8
   %1 = load ptr, ptr %_M_finish, align 8
   %sub.ptr.lhs.cast = ptrtoint ptr %0 to i64
   %sub.ptr.rhs.cast = ptrtoint ptr %1 to i64
@@ -6448,7 +6431,7 @@ if.then9:                                         ; preds = %if.then
   %sub.ptr.sub.i = sub i64 %sub.ptr.rhs.cast, %sub.ptr.rhs.cast.i
   %sub.ptr.div.i = ashr exact i64 %sub.ptr.sub.i, 2
   %cmp15 = icmp ugt i64 %sub.ptr.div.i, %sub.ptr.div.i.i.i
-  br i1 %cmp15, label %_ZSt22__uninitialized_move_aIPfS0_SaIfEET0_T_S3_S2_RT1_.exit, label %if.else5.i.i
+  br i1 %cmp15, label %_ZSt22__uninitialized_move_aIPfS0_SaIfEET0_T_S3_S2_RT1_.exit, label %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPfSt6vectorIfSaIfEEEEmEvRT_T0_.exit
 
 _ZSt22__uninitialized_move_aIPfS0_SaIfEET0_T_S3_S2_RT1_.exit: ; preds = %if.then9
   %idx.neg = sub nsw i64 0, %sub.ptr.div.i.i.i
@@ -6473,20 +6456,20 @@ if.then.i.i.i.i.i30:                              ; preds = %if.then.i.i.i.i.i, 
   tail call void @llvm.memmove.p0.p0.i64(ptr align 4 %__position.coerce, ptr align 4 %__first.coerce, i64 %sub.ptr.sub.i.i.i, i1 false)
   br label %if.end109
 
-if.else5.i.i:                                     ; preds = %if.then9
-  %add.ptr.i.i.i = getelementptr inbounds i8, ptr %__first.coerce, i64 %sub.ptr.sub.i
-  %tobool.not.i.i.i.i.i.i.i.i = icmp eq ptr %add.ptr.i.i.i, %__last.coerce
+_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPfSt6vectorIfSaIfEEEEmEvRT_T0_.exit: ; preds = %if.then9
+  %incdec.ptr.i.i.i = getelementptr inbounds i8, ptr %__first.coerce, i64 %sub.ptr.sub.i
+  %tobool.not.i.i.i.i.i.i.i.i = icmp eq ptr %incdec.ptr.i.i.i, %__last.coerce
   br i1 %tobool.not.i.i.i.i.i.i.i.i, label %_ZSt22__uninitialized_copy_aIN9__gnu_cxx17__normal_iteratorIPfSt6vectorIfSaIfEEEES2_fET0_T_S8_S7_RSaIT1_E.exit, label %if.then.i.i.i.i.i.i.i.i
 
-if.then.i.i.i.i.i.i.i.i:                          ; preds = %if.else5.i.i
-  %sub.ptr.rhs.cast.i.i.i.i.i.i.i.i = ptrtoint ptr %add.ptr.i.i.i to i64
+if.then.i.i.i.i.i.i.i.i:                          ; preds = %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPfSt6vectorIfSaIfEEEEmEvRT_T0_.exit
+  %sub.ptr.rhs.cast.i.i.i.i.i.i.i.i = ptrtoint ptr %incdec.ptr.i.i.i to i64
   %sub.ptr.sub.i.i.i.i.i.i.i.i = sub i64 %sub.ptr.lhs.cast.i.i.i, %sub.ptr.rhs.cast.i.i.i.i.i.i.i.i
-  tail call void @llvm.memmove.p0.p0.i64(ptr align 4 %1, ptr align 4 %add.ptr.i.i.i, i64 %sub.ptr.sub.i.i.i.i.i.i.i.i, i1 false)
+  tail call void @llvm.memmove.p0.p0.i64(ptr align 4 %1, ptr align 4 %incdec.ptr.i.i.i, i64 %sub.ptr.sub.i.i.i.i.i.i.i.i, i1 false)
   %.pre = load ptr, ptr %_M_finish, align 8
   br label %_ZSt22__uninitialized_copy_aIN9__gnu_cxx17__normal_iteratorIPfSt6vectorIfSaIfEEEES2_fET0_T_S8_S7_RSaIT1_E.exit
 
-_ZSt22__uninitialized_copy_aIN9__gnu_cxx17__normal_iteratorIPfSt6vectorIfSaIfEEEES2_fET0_T_S8_S7_RSaIT1_E.exit: ; preds = %if.else5.i.i, %if.then.i.i.i.i.i.i.i.i
-  %2 = phi ptr [ %1, %if.else5.i.i ], [ %.pre, %if.then.i.i.i.i.i.i.i.i ]
+_ZSt22__uninitialized_copy_aIN9__gnu_cxx17__normal_iteratorIPfSt6vectorIfSaIfEEEES2_fET0_T_S8_S7_RSaIT1_E.exit: ; preds = %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPfSt6vectorIfSaIfEEEEmEvRT_T0_.exit, %if.then.i.i.i.i.i.i.i.i
+  %2 = phi ptr [ %1, %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPfSt6vectorIfSaIfEEEEmEvRT_T0_.exit ], [ %.pre, %if.then.i.i.i.i.i.i.i.i ]
   %sub = sub nsw i64 %sub.ptr.div.i.i.i, %sub.ptr.div.i
   %add.ptr50 = getelementptr inbounds float, ptr %2, i64 %sub
   store ptr %add.ptr50, ptr %_M_finish, align 8

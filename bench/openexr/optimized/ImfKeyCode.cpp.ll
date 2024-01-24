@@ -3,8 +3,6 @@ source_filename = "bench/openexr/original/ImfKeyCode.cpp.ll"
 target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:128-n8:16:32:64-S128"
 target triple = "x86_64-unknown-linux-gnu"
 
-%"class.Imf_3_2::KeyCode" = type { i32, i32, i32, i32, i32, i32, i32 }
-
 @.str = private unnamed_addr constant [68 x i8] c"Invalid key code film manufacturer code (must be between 0 and 99).\00", align 1
 @_ZTIN7Iex_3_26ArgExcE = external constant ptr
 @.str.1 = private unnamed_addr constant [55 x i8] c"Invalid key code film type (must be between 0 and 99).\00", align 1
@@ -63,7 +61,7 @@ lpad.i4:                                          ; preds = %if.then.i2
   br label %common.resume
 
 _ZN7Imf_3_27KeyCode11setFilmTypeEi.exit:          ; preds = %_ZN7Imf_3_27KeyCode14setFilmMfcCodeEi.exit
-  %_filmType.i = getelementptr inbounds %"class.Imf_3_2::KeyCode", ptr %this, i64 0, i32 1
+  %_filmType.i = getelementptr inbounds i8, ptr %this, i64 4
   store i32 %filmType, ptr %_filmType.i, align 4
   %or.cond.i6 = icmp ugt i32 %prefix, 999999
   br i1 %or.cond.i6, label %if.then.i7, label %_ZN7Imf_3_27KeyCode9setPrefixEi.exit
@@ -83,7 +81,7 @@ lpad.i9:                                          ; preds = %if.then.i7
   br label %common.resume
 
 _ZN7Imf_3_27KeyCode9setPrefixEi.exit:             ; preds = %_ZN7Imf_3_27KeyCode11setFilmTypeEi.exit
-  %_prefix.i = getelementptr inbounds %"class.Imf_3_2::KeyCode", ptr %this, i64 0, i32 2
+  %_prefix.i = getelementptr inbounds i8, ptr %this, i64 8
   store i32 %prefix, ptr %_prefix.i, align 4
   %or.cond.i11 = icmp ugt i32 %count, 9999
   br i1 %or.cond.i11, label %if.then.i12, label %_ZN7Imf_3_27KeyCode8setCountEi.exit
@@ -103,7 +101,7 @@ lpad.i14:                                         ; preds = %if.then.i12
   br label %common.resume
 
 _ZN7Imf_3_27KeyCode8setCountEi.exit:              ; preds = %_ZN7Imf_3_27KeyCode9setPrefixEi.exit
-  %_count.i = getelementptr inbounds %"class.Imf_3_2::KeyCode", ptr %this, i64 0, i32 3
+  %_count.i = getelementptr inbounds i8, ptr %this, i64 12
   store i32 %count, ptr %_count.i, align 4
   %or.cond.i16 = icmp ugt i32 %perfOffset, 119
   br i1 %or.cond.i16, label %if.then.i17, label %_ZN7Imf_3_27KeyCode13setPerfOffsetEi.exit
@@ -123,7 +121,7 @@ lpad.i19:                                         ; preds = %if.then.i17
   br label %common.resume
 
 _ZN7Imf_3_27KeyCode13setPerfOffsetEi.exit:        ; preds = %_ZN7Imf_3_27KeyCode8setCountEi.exit
-  %_perfOffset.i = getelementptr inbounds %"class.Imf_3_2::KeyCode", ptr %this, i64 0, i32 4
+  %_perfOffset.i = getelementptr inbounds i8, ptr %this, i64 16
   store i32 %perfOffset, ptr %_perfOffset.i, align 4
   %5 = add i32 %perfsPerFrame, -16
   %or.cond.i21 = icmp ult i32 %5, -15
@@ -144,7 +142,7 @@ lpad.i24:                                         ; preds = %if.then.i22
   br label %common.resume
 
 _ZN7Imf_3_27KeyCode16setPerfsPerFrameEi.exit:     ; preds = %_ZN7Imf_3_27KeyCode13setPerfOffsetEi.exit
-  %_perfsPerFrame.i = getelementptr inbounds %"class.Imf_3_2::KeyCode", ptr %this, i64 0, i32 5
+  %_perfsPerFrame.i = getelementptr inbounds i8, ptr %this, i64 20
   store i32 %perfsPerFrame, ptr %_perfsPerFrame.i, align 4
   %7 = add i32 %perfsPerCount, -121
   %or.cond.i26 = icmp ult i32 %7, -101
@@ -165,7 +163,7 @@ lpad.i29:                                         ; preds = %if.then.i27
   br label %common.resume
 
 _ZN7Imf_3_27KeyCode16setPerfsPerCountEi.exit:     ; preds = %_ZN7Imf_3_27KeyCode16setPerfsPerFrameEi.exit
-  %_perfsPerCount.i = getelementptr inbounds %"class.Imf_3_2::KeyCode", ptr %this, i64 0, i32 6
+  %_perfsPerCount.i = getelementptr inbounds i8, ptr %this, i64 24
   store i32 %perfsPerCount, ptr %_perfsPerCount.i, align 4
   ret void
 }
@@ -218,7 +216,7 @@ lpad:                                             ; preds = %if.then
   resume { ptr, i32 } %0
 
 if.end:                                           ; preds = %entry
-  %_filmType = getelementptr inbounds %"class.Imf_3_2::KeyCode", ptr %this, i64 0, i32 1
+  %_filmType = getelementptr inbounds i8, ptr %this, i64 4
   store i32 %filmType, ptr %_filmType, align 4
   ret void
 }
@@ -245,7 +243,7 @@ lpad:                                             ; preds = %if.then
   resume { ptr, i32 } %0
 
 if.end:                                           ; preds = %entry
-  %_prefix = getelementptr inbounds %"class.Imf_3_2::KeyCode", ptr %this, i64 0, i32 2
+  %_prefix = getelementptr inbounds i8, ptr %this, i64 8
   store i32 %prefix, ptr %_prefix, align 4
   ret void
 }
@@ -272,7 +270,7 @@ lpad:                                             ; preds = %if.then
   resume { ptr, i32 } %0
 
 if.end:                                           ; preds = %entry
-  %_count = getelementptr inbounds %"class.Imf_3_2::KeyCode", ptr %this, i64 0, i32 3
+  %_count = getelementptr inbounds i8, ptr %this, i64 12
   store i32 %count, ptr %_count, align 4
   ret void
 }
@@ -299,7 +297,7 @@ lpad:                                             ; preds = %if.then
   resume { ptr, i32 } %0
 
 if.end:                                           ; preds = %entry
-  %_perfOffset = getelementptr inbounds %"class.Imf_3_2::KeyCode", ptr %this, i64 0, i32 4
+  %_perfOffset = getelementptr inbounds i8, ptr %this, i64 16
   store i32 %perfOffset, ptr %_perfOffset, align 4
   ret void
 }
@@ -327,7 +325,7 @@ lpad:                                             ; preds = %if.then
   resume { ptr, i32 } %1
 
 if.end:                                           ; preds = %entry
-  %_perfsPerFrame = getelementptr inbounds %"class.Imf_3_2::KeyCode", ptr %this, i64 0, i32 5
+  %_perfsPerFrame = getelementptr inbounds i8, ptr %this, i64 20
   store i32 %perfsPerFrame, ptr %_perfsPerFrame, align 4
   ret void
 }
@@ -355,7 +353,7 @@ lpad:                                             ; preds = %if.then
   resume { ptr, i32 } %1
 
 if.end:                                           ; preds = %entry
-  %_perfsPerCount = getelementptr inbounds %"class.Imf_3_2::KeyCode", ptr %this, i64 0, i32 6
+  %_perfsPerCount = getelementptr inbounds i8, ptr %this, i64 24
   store i32 %perfsPerCount, ptr %_perfsPerCount, align 4
   ret void
 }
@@ -365,29 +363,29 @@ define void @_ZN7Imf_3_27KeyCodeC2ERKS0_(ptr nocapture noundef nonnull writeonly
 entry:
   %0 = load i32, ptr %other, align 4
   store i32 %0, ptr %this, align 4
-  %_filmType = getelementptr inbounds %"class.Imf_3_2::KeyCode", ptr %other, i64 0, i32 1
+  %_filmType = getelementptr inbounds i8, ptr %other, i64 4
   %1 = load i32, ptr %_filmType, align 4
-  %_filmType3 = getelementptr inbounds %"class.Imf_3_2::KeyCode", ptr %this, i64 0, i32 1
+  %_filmType3 = getelementptr inbounds i8, ptr %this, i64 4
   store i32 %1, ptr %_filmType3, align 4
-  %_prefix = getelementptr inbounds %"class.Imf_3_2::KeyCode", ptr %other, i64 0, i32 2
+  %_prefix = getelementptr inbounds i8, ptr %other, i64 8
   %2 = load i32, ptr %_prefix, align 4
-  %_prefix4 = getelementptr inbounds %"class.Imf_3_2::KeyCode", ptr %this, i64 0, i32 2
+  %_prefix4 = getelementptr inbounds i8, ptr %this, i64 8
   store i32 %2, ptr %_prefix4, align 4
-  %_count = getelementptr inbounds %"class.Imf_3_2::KeyCode", ptr %other, i64 0, i32 3
+  %_count = getelementptr inbounds i8, ptr %other, i64 12
   %3 = load i32, ptr %_count, align 4
-  %_count5 = getelementptr inbounds %"class.Imf_3_2::KeyCode", ptr %this, i64 0, i32 3
+  %_count5 = getelementptr inbounds i8, ptr %this, i64 12
   store i32 %3, ptr %_count5, align 4
-  %_perfOffset = getelementptr inbounds %"class.Imf_3_2::KeyCode", ptr %other, i64 0, i32 4
+  %_perfOffset = getelementptr inbounds i8, ptr %other, i64 16
   %4 = load i32, ptr %_perfOffset, align 4
-  %_perfOffset6 = getelementptr inbounds %"class.Imf_3_2::KeyCode", ptr %this, i64 0, i32 4
+  %_perfOffset6 = getelementptr inbounds i8, ptr %this, i64 16
   store i32 %4, ptr %_perfOffset6, align 4
-  %_perfsPerFrame = getelementptr inbounds %"class.Imf_3_2::KeyCode", ptr %other, i64 0, i32 5
+  %_perfsPerFrame = getelementptr inbounds i8, ptr %other, i64 20
   %5 = load i32, ptr %_perfsPerFrame, align 4
-  %_perfsPerFrame7 = getelementptr inbounds %"class.Imf_3_2::KeyCode", ptr %this, i64 0, i32 5
+  %_perfsPerFrame7 = getelementptr inbounds i8, ptr %this, i64 20
   store i32 %5, ptr %_perfsPerFrame7, align 4
-  %_perfsPerCount = getelementptr inbounds %"class.Imf_3_2::KeyCode", ptr %other, i64 0, i32 6
+  %_perfsPerCount = getelementptr inbounds i8, ptr %other, i64 24
   %6 = load i32, ptr %_perfsPerCount, align 4
-  %_perfsPerCount8 = getelementptr inbounds %"class.Imf_3_2::KeyCode", ptr %this, i64 0, i32 6
+  %_perfsPerCount8 = getelementptr inbounds i8, ptr %this, i64 24
   store i32 %6, ptr %_perfsPerCount8, align 4
   ret void
 }
@@ -401,29 +399,29 @@ entry:
 if.then:                                          ; preds = %entry
   %0 = load i32, ptr %other, align 4
   store i32 %0, ptr %this, align 4
-  %_filmType = getelementptr inbounds %"class.Imf_3_2::KeyCode", ptr %other, i64 0, i32 1
+  %_filmType = getelementptr inbounds i8, ptr %other, i64 4
   %1 = load i32, ptr %_filmType, align 4
-  %_filmType3 = getelementptr inbounds %"class.Imf_3_2::KeyCode", ptr %this, i64 0, i32 1
+  %_filmType3 = getelementptr inbounds i8, ptr %this, i64 4
   store i32 %1, ptr %_filmType3, align 4
-  %_prefix = getelementptr inbounds %"class.Imf_3_2::KeyCode", ptr %other, i64 0, i32 2
+  %_prefix = getelementptr inbounds i8, ptr %other, i64 8
   %2 = load i32, ptr %_prefix, align 4
-  %_prefix4 = getelementptr inbounds %"class.Imf_3_2::KeyCode", ptr %this, i64 0, i32 2
+  %_prefix4 = getelementptr inbounds i8, ptr %this, i64 8
   store i32 %2, ptr %_prefix4, align 4
-  %_count = getelementptr inbounds %"class.Imf_3_2::KeyCode", ptr %other, i64 0, i32 3
+  %_count = getelementptr inbounds i8, ptr %other, i64 12
   %3 = load i32, ptr %_count, align 4
-  %_count5 = getelementptr inbounds %"class.Imf_3_2::KeyCode", ptr %this, i64 0, i32 3
+  %_count5 = getelementptr inbounds i8, ptr %this, i64 12
   store i32 %3, ptr %_count5, align 4
-  %_perfOffset = getelementptr inbounds %"class.Imf_3_2::KeyCode", ptr %other, i64 0, i32 4
+  %_perfOffset = getelementptr inbounds i8, ptr %other, i64 16
   %4 = load i32, ptr %_perfOffset, align 4
-  %_perfOffset6 = getelementptr inbounds %"class.Imf_3_2::KeyCode", ptr %this, i64 0, i32 4
+  %_perfOffset6 = getelementptr inbounds i8, ptr %this, i64 16
   store i32 %4, ptr %_perfOffset6, align 4
-  %_perfsPerFrame = getelementptr inbounds %"class.Imf_3_2::KeyCode", ptr %other, i64 0, i32 5
+  %_perfsPerFrame = getelementptr inbounds i8, ptr %other, i64 20
   %5 = load i32, ptr %_perfsPerFrame, align 4
-  %_perfsPerFrame7 = getelementptr inbounds %"class.Imf_3_2::KeyCode", ptr %this, i64 0, i32 5
+  %_perfsPerFrame7 = getelementptr inbounds i8, ptr %this, i64 20
   store i32 %5, ptr %_perfsPerFrame7, align 4
-  %_perfsPerCount = getelementptr inbounds %"class.Imf_3_2::KeyCode", ptr %other, i64 0, i32 6
+  %_perfsPerCount = getelementptr inbounds i8, ptr %other, i64 24
   %6 = load i32, ptr %_perfsPerCount, align 4
-  %_perfsPerCount8 = getelementptr inbounds %"class.Imf_3_2::KeyCode", ptr %this, i64 0, i32 6
+  %_perfsPerCount8 = getelementptr inbounds i8, ptr %this, i64 24
   store i32 %6, ptr %_perfsPerCount8, align 4
   br label %if.end
 
@@ -454,7 +452,7 @@ declare void @__cxa_throw(ptr, ptr, ptr) local_unnamed_addr
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
 define noundef i32 @_ZNK7Imf_3_27KeyCode8filmTypeEv(ptr nocapture noundef nonnull readonly align 4 dereferenceable(28) %this) local_unnamed_addr #2 align 2 {
 entry:
-  %_filmType = getelementptr inbounds %"class.Imf_3_2::KeyCode", ptr %this, i64 0, i32 1
+  %_filmType = getelementptr inbounds i8, ptr %this, i64 4
   %0 = load i32, ptr %_filmType, align 4
   ret i32 %0
 }
@@ -462,7 +460,7 @@ entry:
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
 define noundef i32 @_ZNK7Imf_3_27KeyCode6prefixEv(ptr nocapture noundef nonnull readonly align 4 dereferenceable(28) %this) local_unnamed_addr #2 align 2 {
 entry:
-  %_prefix = getelementptr inbounds %"class.Imf_3_2::KeyCode", ptr %this, i64 0, i32 2
+  %_prefix = getelementptr inbounds i8, ptr %this, i64 8
   %0 = load i32, ptr %_prefix, align 4
   ret i32 %0
 }
@@ -470,7 +468,7 @@ entry:
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
 define noundef i32 @_ZNK7Imf_3_27KeyCode5countEv(ptr nocapture noundef nonnull readonly align 4 dereferenceable(28) %this) local_unnamed_addr #2 align 2 {
 entry:
-  %_count = getelementptr inbounds %"class.Imf_3_2::KeyCode", ptr %this, i64 0, i32 3
+  %_count = getelementptr inbounds i8, ptr %this, i64 12
   %0 = load i32, ptr %_count, align 4
   ret i32 %0
 }
@@ -478,7 +476,7 @@ entry:
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
 define noundef i32 @_ZNK7Imf_3_27KeyCode10perfOffsetEv(ptr nocapture noundef nonnull readonly align 4 dereferenceable(28) %this) local_unnamed_addr #2 align 2 {
 entry:
-  %_perfOffset = getelementptr inbounds %"class.Imf_3_2::KeyCode", ptr %this, i64 0, i32 4
+  %_perfOffset = getelementptr inbounds i8, ptr %this, i64 16
   %0 = load i32, ptr %_perfOffset, align 4
   ret i32 %0
 }
@@ -486,7 +484,7 @@ entry:
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
 define noundef i32 @_ZNK7Imf_3_27KeyCode13perfsPerFrameEv(ptr nocapture noundef nonnull readonly align 4 dereferenceable(28) %this) local_unnamed_addr #2 align 2 {
 entry:
-  %_perfsPerFrame = getelementptr inbounds %"class.Imf_3_2::KeyCode", ptr %this, i64 0, i32 5
+  %_perfsPerFrame = getelementptr inbounds i8, ptr %this, i64 20
   %0 = load i32, ptr %_perfsPerFrame, align 4
   ret i32 %0
 }
@@ -494,7 +492,7 @@ entry:
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
 define noundef i32 @_ZNK7Imf_3_27KeyCode13perfsPerCountEv(ptr nocapture noundef nonnull readonly align 4 dereferenceable(28) %this) local_unnamed_addr #2 align 2 {
 entry:
-  %_perfsPerCount = getelementptr inbounds %"class.Imf_3_2::KeyCode", ptr %this, i64 0, i32 6
+  %_perfsPerCount = getelementptr inbounds i8, ptr %this, i64 24
   %0 = load i32, ptr %_perfsPerCount, align 4
   ret i32 %0
 }

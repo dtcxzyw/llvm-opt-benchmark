@@ -6,15 +6,6 @@ target triple = "x86_64-unknown-linux-gnu"
 %struct.ReadDirCtx = type { ptr, ptr, %struct.stat, [261 x i8] }
 %struct.stat = type { i64, i64, i64, i32, i32, i32, i32, i64, i64, i64, i64, %struct.timespec, %struct.timespec, %struct.timespec, [3 x i64] }
 %struct.timespec = type { i64, i64 }
-%struct.dirent = type { i64, i64, i16, i8, [256 x i8] }
-%struct.wolfSSL_Ref = type { %union.pthread_mutex_t, i32 }
-%union.pthread_mutex_t = type { %struct.__pthread_mutex_s }
-%struct.__pthread_mutex_s = type { i32, i32, i32, i32, i32, i16, i16, %struct.__pthread_internal_list }
-%struct.__pthread_internal_list = type { ptr, ptr }
-%struct.COND_TYPE = type { %union.pthread_mutex_t, %union.pthread_cond_t }
-%union.pthread_cond_t = type { %struct.__pthread_cond_s }
-%struct.__pthread_cond_s = type { %union.__atomic_wide_counter, %union.__atomic_wide_counter, [2 x i32], [2 x i32], i32, i32, [2 x i32] }
-%union.__atomic_wide_counter = type { i64 }
 
 @initRefCount = internal global i32 0, align 4
 @.str = private unnamed_addr constant [3 x i8] c"rb\00", align 1
@@ -135,13 +126,13 @@ entry:
   br i1 %cmp, label %return, label %if.end
 
 if.end:                                           ; preds = %entry
-  %s = getelementptr inbounds %struct.ReadDirCtx, ptr %ctx, i64 0, i32 2
+  %s = getelementptr inbounds i8, ptr %ctx, i64 16
   %call = call i32 @stat(ptr noundef nonnull %fname, ptr noundef nonnull %s) #14
   %cmp1.not = icmp eq i32 %call, 0
   br i1 %cmp1.not, label %if.else, label %return
 
 if.else:                                          ; preds = %if.end
-  %st_mode = getelementptr inbounds %struct.ReadDirCtx, ptr %ctx, i64 0, i32 2, i32 3
+  %st_mode = getelementptr inbounds i8, ptr %ctx, i64 40
   %0 = load i32, ptr %st_mode, align 8
   %and = and i32 %0, 61440
   %cmp4 = icmp ne i32 %and, 32768
@@ -181,7 +172,7 @@ if.end3:                                          ; preds = %if.end
   %call = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %path) #15
   %conv = trunc i64 %call to i32
   %call4 = tail call ptr @opendir(ptr noundef nonnull %path)
-  %dir = getelementptr inbounds %struct.ReadDirCtx, ptr %ctx, i64 0, i32 1
+  %dir = getelementptr inbounds i8, ptr %ctx, i64 8
   store ptr %call4, ptr %dir, align 8
   %cmp6 = icmp eq ptr %call4, null
   br i1 %cmp6, label %return, label %while.cond.preheader
@@ -193,15 +184,14 @@ while.cond.preheader:                             ; preds = %if.end3
   br i1 %cmp13.not27, label %if.end.i, label %while.body.lr.ph
 
 while.body.lr.ph:                                 ; preds = %while.cond.preheader
-  %name23 = getelementptr inbounds %struct.ReadDirCtx, ptr %ctx, i64 0, i32 3
+  %name23 = getelementptr inbounds i8, ptr %ctx, i64 160
   %sext = shl i64 %call, 32
   %conv25 = ashr exact i64 %sext, 32
   %add26 = add nsw i64 %conv25, 1
-  %arrayidx = getelementptr inbounds %struct.ReadDirCtx, ptr %ctx, i64 0, i32 3, i64 %conv25
-  %add.ptr = getelementptr inbounds i8, ptr %name23, i64 %conv25
-  %add.ptr31 = getelementptr inbounds i8, ptr %add.ptr, i64 1
-  %s.i = getelementptr inbounds %struct.ReadDirCtx, ptr %ctx.i, i64 0, i32 2
-  %st_mode.i = getelementptr inbounds %struct.ReadDirCtx, ptr %ctx.i, i64 0, i32 2, i32 3
+  %arrayidx = getelementptr inbounds [261 x i8], ptr %name23, i64 0, i64 %conv25
+  %add.ptr31 = getelementptr inbounds i8, ptr %arrayidx, i64 1
+  %s.i = getelementptr inbounds i8, ptr %ctx.i, i64 16
+  %st_mode.i = getelementptr inbounds i8, ptr %ctx.i, i64 40
   br label %while.body
 
 while.cond:                                       ; preds = %if.end22
@@ -213,7 +203,7 @@ while.cond:                                       ; preds = %if.end22
 
 while.body:                                       ; preds = %while.body.lr.ph, %while.cond
   %call1128 = phi ptr [ %call1126, %while.body.lr.ph ], [ %call11, %while.cond ]
-  %d_name = getelementptr inbounds %struct.dirent, ptr %call1128, i64 0, i32 4
+  %d_name = getelementptr inbounds i8, ptr %call1128, i64 19
   %call16 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %d_name) #15
   %conv17 = trunc i64 %call16 to i32
   %add = add nsw i32 %conv17, %conv
@@ -224,7 +214,7 @@ if.end22:                                         ; preds = %while.body
   %call27 = tail call ptr @strncpy(ptr noundef nonnull %name23, ptr noundef %path, i64 noundef %add26) #14
   store i8 47, ptr %arrayidx, align 1
   %1 = load ptr, ptr %ctx, align 8
-  %d_name33 = getelementptr inbounds %struct.dirent, ptr %1, i64 0, i32 4
+  %d_name33 = getelementptr inbounds i8, ptr %1, i64 19
   %sext24 = shl i64 %call16, 32
   %conv35 = ashr exact i64 %sext24, 32
   %add36 = add nsw i64 %conv35, 1
@@ -283,7 +273,7 @@ entry:
   br i1 %cmp, label %if.end7, label %if.end
 
 if.end:                                           ; preds = %entry
-  %dir = getelementptr inbounds %struct.ReadDirCtx, ptr %ctx, i64 0, i32 1
+  %dir = getelementptr inbounds i8, ptr %ctx, i64 8
   %0 = load ptr, ptr %dir, align 8
   %tobool.not = icmp eq ptr %0, null
   br i1 %tobool.not, label %if.end7, label %if.then1
@@ -315,11 +305,11 @@ if.end:                                           ; preds = %if.then, %entry
   br i1 %or.cond, label %return, label %if.end3
 
 if.end3:                                          ; preds = %if.end
-  %name4 = getelementptr inbounds %struct.ReadDirCtx, ptr %ctx, i64 0, i32 3
+  %name4 = getelementptr inbounds i8, ptr %ctx, i64 160
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(261) %name4, i8 0, i64 261, i1 false)
   %call = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %path) #15
   %conv = trunc i64 %call to i32
-  %dir = getelementptr inbounds %struct.ReadDirCtx, ptr %ctx, i64 0, i32 1
+  %dir = getelementptr inbounds i8, ptr %ctx, i64 8
   %0 = load ptr, ptr %dir, align 8
   %call524 = tail call ptr @readdir(ptr noundef %0) #14
   store ptr %call524, ptr %ctx, align 8
@@ -327,14 +317,14 @@ if.end3:                                          ; preds = %if.end
   br i1 %cmp7.not25, label %if.end.i, label %while.body.lr.ph
 
 while.body.lr.ph:                                 ; preds = %if.end3
-  %invariant.gep = getelementptr %struct.ReadDirCtx, ptr %ctx, i64 0, i32 3, i64 1
+  %invariant.gep = getelementptr i8, ptr %ctx, i64 161
   %sext = shl i64 %call, 32
   %conv20 = ashr exact i64 %sext, 32
   %add21 = add nsw i64 %conv20, 1
-  %arrayidx = getelementptr inbounds %struct.ReadDirCtx, ptr %ctx, i64 0, i32 3, i64 %conv20
+  %arrayidx = getelementptr inbounds [261 x i8], ptr %name4, i64 0, i64 %conv20
   %gep = getelementptr i8, ptr %invariant.gep, i64 %conv20
-  %s.i = getelementptr inbounds %struct.ReadDirCtx, ptr %ctx.i, i64 0, i32 2
-  %st_mode.i = getelementptr inbounds %struct.ReadDirCtx, ptr %ctx.i, i64 0, i32 2, i32 3
+  %s.i = getelementptr inbounds i8, ptr %ctx.i, i64 16
+  %st_mode.i = getelementptr inbounds i8, ptr %ctx.i, i64 40
   br label %while.body
 
 while.cond:                                       ; preds = %if.end17
@@ -346,7 +336,7 @@ while.cond:                                       ; preds = %if.end17
 
 while.body:                                       ; preds = %while.body.lr.ph, %while.cond
   %call526 = phi ptr [ %call524, %while.body.lr.ph ], [ %call5, %while.cond ]
-  %d_name = getelementptr inbounds %struct.dirent, ptr %call526, i64 0, i32 4
+  %d_name = getelementptr inbounds i8, ptr %call526, i64 19
   %call11 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %d_name) #15
   %conv12 = trunc i64 %call11 to i32
   %add = add nsw i32 %conv12, %conv
@@ -357,7 +347,7 @@ if.end17:                                         ; preds = %while.body
   %call22 = tail call ptr @strncpy(ptr noundef nonnull %name4, ptr noundef %path, i64 noundef %add21) #14
   store i8 47, ptr %arrayidx, align 1
   %2 = load ptr, ptr %ctx, align 8
-  %d_name28 = getelementptr inbounds %struct.dirent, ptr %2, i64 0, i32 4
+  %d_name28 = getelementptr inbounds i8, ptr %2, i64 19
   %sext21 = shl i64 %call11, 32
   %conv30 = ashr exact i64 %sext21, 32
   %add31 = add nsw i64 %conv30, 1
@@ -704,7 +694,7 @@ entry:
   %call.i = tail call i32 @pthread_mutex_init(ptr noundef %ref, ptr noundef null) #14
   %cmp.i = icmp eq i32 %call.i, 0
   %..i = select i1 %cmp.i, i32 0, i32 -106
-  %count = getelementptr inbounds %struct.wolfSSL_Ref, ptr %ref, i64 0, i32 1
+  %count = getelementptr inbounds i8, ptr %ref, i64 40
   store i32 1, ptr %count, align 8
   store i32 %..i, ptr %err, align 4
   ret void
@@ -734,7 +724,7 @@ entry:
   br i1 %cmp.i, label %if.else, label %if.end
 
 if.else:                                          ; preds = %entry
-  %count = getelementptr inbounds %struct.wolfSSL_Ref, ptr %ref, i64 0, i32 1
+  %count = getelementptr inbounds i8, ptr %ref, i64 40
   %0 = load i32, ptr %count, align 8
   %inc = add nsw i32 %0, 1
   store i32 %inc, ptr %count, align 8
@@ -777,7 +767,7 @@ do.end:                                           ; preds = %entry
   br label %if.end8
 
 if.else:                                          ; preds = %entry
-  %count = getelementptr inbounds %struct.wolfSSL_Ref, ptr %ref, i64 0, i32 1
+  %count = getelementptr inbounds i8, ptr %ref, i64 40
   %0 = load i32, ptr %count, align 8
   %cmp1 = icmp sgt i32 %0, 0
   br i1 %cmp1, label %if.then2, label %if.end
@@ -978,7 +968,7 @@ if.end:                                           ; preds = %entry
   br i1 %cmp1.not, label %if.end3, label %return
 
 if.end3:                                          ; preds = %if.end
-  %cond4 = getelementptr inbounds %struct.COND_TYPE, ptr %cond, i64 0, i32 1
+  %cond4 = getelementptr inbounds i8, ptr %cond, i64 40
   %call5 = tail call i32 @pthread_cond_init(ptr noundef nonnull %cond4, ptr noundef null) #14
   %cmp6.not = icmp eq i32 %call5, 0
   br i1 %cmp6.not, label %return, label %if.then7
@@ -1004,7 +994,7 @@ entry:
 if.end:                                           ; preds = %entry
   %call = tail call i32 @pthread_mutex_destroy(ptr noundef nonnull %cond) #14
   %cmp1.not = icmp eq i32 %call, 0
-  %cond4 = getelementptr inbounds %struct.COND_TYPE, ptr %cond, i64 0, i32 1
+  %cond4 = getelementptr inbounds i8, ptr %cond, i64 40
   %call5 = tail call i32 @pthread_cond_destroy(ptr noundef nonnull %cond4) #14
   %cmp6.not = icmp eq i32 %call5, 0
   %0 = select i1 %cmp6.not, i1 %cmp1.not, i1 false
@@ -1043,7 +1033,7 @@ entry:
   br i1 %cmp, label %return, label %if.end
 
 if.end:                                           ; preds = %entry
-  %cond1 = getelementptr inbounds %struct.COND_TYPE, ptr %cond, i64 0, i32 1
+  %cond1 = getelementptr inbounds i8, ptr %cond, i64 40
   %call = tail call i32 @pthread_cond_signal(ptr noundef nonnull %cond1) #14
   %cmp2.not = icmp eq i32 %call, 0
   %. = select i1 %cmp2.not, i32 0, i32 -125
@@ -1064,7 +1054,7 @@ entry:
   br i1 %cmp, label %return, label %if.end
 
 if.end:                                           ; preds = %entry
-  %cond1 = getelementptr inbounds %struct.COND_TYPE, ptr %cond, i64 0, i32 1
+  %cond1 = getelementptr inbounds i8, ptr %cond, i64 40
   %call = tail call i32 @pthread_cond_wait(ptr noundef nonnull %cond1, ptr noundef nonnull %cond) #14
   %cmp2.not = icmp eq i32 %call, 0
   %. = select i1 %cmp2.not, i32 0, i32 -125

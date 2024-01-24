@@ -66,7 +66,7 @@ if.then.i:                                        ; preds = %entry
   br label %ASN1_TIME_adj.exit
 
 if.end.i:                                         ; preds = %entry
-  %tm_year.i = getelementptr inbounds %struct.tm, ptr %call.i, i64 0, i32 5
+  %tm_year.i = getelementptr inbounds i8, ptr %call.i, i64 20
   %0 = load i32, ptr %tm_year.i, align 4
   %1 = add i32 %0, -50
   %or.cond11.i = icmp ult i32 %1, 100
@@ -114,7 +114,7 @@ if.then2:                                         ; preds = %if.end
   br i1 %tobool4.not, label %return, label %if.end7
 
 if.end7:                                          ; preds = %if.then2, %if.end
-  %tm_year = getelementptr inbounds %struct.tm, ptr %call, i64 0, i32 5
+  %tm_year = getelementptr inbounds i8, ptr %call, i64 20
   %0 = load i32, ptr %tm_year, align 4
   %1 = add i32 %0, -50
   %or.cond11 = icmp ult i32 %1, 100
@@ -147,7 +147,7 @@ declare ptr @ASN1_GENERALIZEDTIME_adj(ptr noundef, i64 noundef, i32 noundef, i64
 ; Function Attrs: nounwind uwtable
 define hidden i32 @ASN1_TIME_check(ptr noundef %t) local_unnamed_addr #0 {
 entry:
-  %type = getelementptr inbounds %struct.asn1_string_st, ptr %t, i64 0, i32 1
+  %type = getelementptr inbounds i8, ptr %t, i64 4
   %0 = load i32, ptr %type, align 4
   switch i32 %0, label %return [
     i32 24, label %if.then
@@ -174,7 +174,7 @@ declare i32 @ASN1_UTCTIME_check(ptr noundef) local_unnamed_addr #1
 ; Function Attrs: nounwind uwtable
 define hidden ptr @ASN1_TIME_to_generalizedtime(ptr noundef %t, ptr noundef %out) local_unnamed_addr #0 {
 entry:
-  %type.i = getelementptr inbounds %struct.asn1_string_st, ptr %t, i64 0, i32 1
+  %type.i = getelementptr inbounds i8, ptr %t, i64 4
   %0 = load i32, ptr %type.i, align 4
   switch i32 %0, label %return [
     i32 24, label %if.then.i
@@ -224,7 +224,7 @@ if.end11:                                         ; preds = %if.then3, %lor.lhs.
   br i1 %cmp, label %if.then12, label %if.end17
 
 if.then12:                                        ; preds = %if.end11
-  %data = getelementptr inbounds %struct.asn1_string_st, ptr %t, i64 0, i32 2
+  %data = getelementptr inbounds i8, ptr %t, i64 8
   %3 = load ptr, ptr %data, align 8
   %4 = load i32, ptr %t, align 8
   %call13 = tail call i32 @ASN1_STRING_set(ptr noundef nonnull %ret.0, ptr noundef %3, i32 noundef %4) #5
@@ -242,9 +242,9 @@ if.end17:                                         ; preds = %if.end11
 if.end22:                                         ; preds = %if.end17
   %6 = load i32, ptr %t, align 8
   %add25 = add nsw i32 %6, 3
-  %data26 = getelementptr inbounds %struct.asn1_string_st, ptr %ret.0, i64 0, i32 2
+  %data26 = getelementptr inbounds i8, ptr %ret.0, i64 8
   %7 = load ptr, ptr %data26, align 8
-  %data27 = getelementptr inbounds %struct.asn1_string_st, ptr %t, i64 0, i32 2
+  %data27 = getelementptr inbounds i8, ptr %t, i64 8
   %8 = load ptr, ptr %data27, align 8
   %9 = load i8, ptr %8, align 1
   %cmp28 = icmp ugt i8 %9, 52
@@ -275,11 +275,11 @@ ASN1_TIME_check.exit:
   %call = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %str) #6
   %conv = trunc i64 %call to i32
   store i32 %conv, ptr %t, align 8
-  %data = getelementptr inbounds %struct.asn1_string_st, ptr %t, i64 0, i32 2
+  %data = getelementptr inbounds i8, ptr %t, i64 8
   store ptr %str, ptr %data, align 8
-  %flags = getelementptr inbounds %struct.asn1_string_st, ptr %t, i64 0, i32 3
+  %flags = getelementptr inbounds i8, ptr %t, i64 16
   store i64 0, ptr %flags, align 8
-  %type = getelementptr inbounds %struct.asn1_string_st, ptr %t, i64 0, i32 1
+  %type = getelementptr inbounds i8, ptr %t, i64 4
   store i32 23, ptr %type, align 4
   %call4.i = call i32 @ASN1_UTCTIME_check(ptr noundef nonnull %t) #5
   %tobool.not = icmp eq i32 %call4.i, 0
@@ -332,7 +332,7 @@ if.then.i:                                        ; preds = %entry
   br label %asn1_time_to_tm.exit
 
 if.end3.i:                                        ; preds = %entry
-  %type.i = getelementptr inbounds %struct.asn1_string_st, ptr %from, i64 0, i32 1
+  %type.i = getelementptr inbounds i8, ptr %from, i64 4
   %0 = load i32, ptr %type.i, align 4
   switch i32 %0, label %asn1_time_to_tm.exit.thread [
     i32 23, label %if.then5.i
@@ -370,7 +370,7 @@ if.then.i10:                                      ; preds = %if.end
   br label %asn1_time_to_tm.exit15
 
 if.end3.i3:                                       ; preds = %if.end
-  %type.i4 = getelementptr inbounds %struct.asn1_string_st, ptr %to, i64 0, i32 1
+  %type.i4 = getelementptr inbounds i8, ptr %to, i64 4
   %1 = load i32, ptr %type.i4, align 4
   switch i32 %1, label %asn1_time_to_tm.exit15.thread [
     i32 23, label %if.then5.i8

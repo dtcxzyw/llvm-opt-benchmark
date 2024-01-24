@@ -208,9 +208,9 @@ for.cond.preheader:                               ; preds = %if.end
   br i1 %cmp523, label %for.body.lr.ph, label %err
 
 for.body.lr.ph:                                   ; preds = %for.cond.preheader
-  %arrayidx9 = getelementptr inbounds [4 x i8], ptr %cnt, i64 0, i64 1
-  %arrayidx15 = getelementptr inbounds [4 x i8], ptr %cnt, i64 0, i64 2
-  %arrayidx18 = getelementptr inbounds [4 x i8], ptr %cnt, i64 0, i64 3
+  %arrayidx9 = getelementptr inbounds i8, ptr %cnt, i64 1
+  %arrayidx15 = getelementptr inbounds i8, ptr %cnt, i64 2
+  %arrayidx18 = getelementptr inbounds i8, ptr %cnt, i64 3
   %conv27 = zext nneg i32 %call1 to i64
   br label %for.body
 

@@ -100,7 +100,7 @@ return:                                           ; preds = %entry, %for.end51
 declare void @llvm.memmove.p0.p0.i64(ptr nocapture writeonly, ptr nocapture readonly, i64, i1 immarg) #1
 
 ; Function Attrs: nounwind uwtable
-define i64 @CRYPTO_128_unwrap(ptr noundef %key, ptr noundef %iv, ptr noundef %out, ptr nocapture noundef readonly %in, i64 noundef %inlen, ptr nocapture noundef readonly %block) local_unnamed_addr #0 {
+define noundef i64 @CRYPTO_128_unwrap(ptr noundef %key, ptr noundef %iv, ptr noundef %out, ptr nocapture noundef readonly %in, i64 noundef %inlen, ptr nocapture noundef readonly %block) local_unnamed_addr #0 {
 entry:
   %B.i = alloca [16 x i8], align 16
   %got_iv = alloca [8 x i8], align 8
@@ -486,21 +486,21 @@ if.then25:                                        ; preds = %land.lhs.true21, %l
   br label %return
 
 if.end26:                                         ; preds = %land.lhs.true, %land.lhs.true21
-  %arrayidx = getelementptr inbounds [8 x i8], ptr %aiv, i64 0, i64 4
+  %arrayidx = getelementptr inbounds i8, ptr %aiv, i64 4
   %18 = load i8, ptr %arrayidx, align 4
   %conv = zext i8 %18 to i64
   %shl = shl nuw nsw i64 %conv, 24
-  %arrayidx27 = getelementptr inbounds [8 x i8], ptr %aiv, i64 0, i64 5
+  %arrayidx27 = getelementptr inbounds i8, ptr %aiv, i64 5
   %19 = load i8, ptr %arrayidx27, align 1
   %conv28 = zext i8 %19 to i64
   %shl29 = shl nuw nsw i64 %conv28, 16
   %or = or disjoint i64 %shl29, %shl
-  %arrayidx30 = getelementptr inbounds [8 x i8], ptr %aiv, i64 0, i64 6
+  %arrayidx30 = getelementptr inbounds i8, ptr %aiv, i64 6
   %20 = load i8, ptr %arrayidx30, align 2
   %conv31 = zext i8 %20 to i64
   %shl32 = shl nuw nsw i64 %conv31, 8
   %or33 = or disjoint i64 %or, %shl32
-  %arrayidx34 = getelementptr inbounds [8 x i8], ptr %aiv, i64 0, i64 7
+  %arrayidx34 = getelementptr inbounds i8, ptr %aiv, i64 7
   %21 = load i8, ptr %arrayidx34, align 1
   %conv35 = zext i8 %21 to i64
   %or36 = or disjoint i64 %or33, %conv35

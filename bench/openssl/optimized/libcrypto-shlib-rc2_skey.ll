@@ -5,7 +5,7 @@ target triple = "x86_64-unknown-linux-gnu"
 
 @key_table = internal unnamed_addr constant [256 x i8] c"\D9x\F9\C4\19\DD\B5\ED(\E9\FDyJ\A0\D8\9D\C6~7\83+vS\8EbLd\88D\8B\FB\A2\17\9AY\F5\87\B3O\13aEm\8D\09\81}2\BD\8F@\EB\86\B7{\0B\F0\95!\22\\kN\82T\D6e\93\CE`\B2\1CsV\C0\14\A7\8C\F1\DC\12u\CA\1F;\BE\E4\D1B=\D40\A3<\B6&o\BF\0E\DAFi\07W'\F2\1D\9B\BC\94C\03\F8\11\C7\F6\90\EF>\E7\06\C3\D5/\C8f\1E\D7\08\E8\EA\DE\80R\EE\F7\84\AAr\AC5Mj*\96\1A\D2qZ\15ItK\9F\D0^\04\18\A4\EC\C2\E0An\0FQ\CB\CC$\91\AFP\A1\F4p9\99|:\85#\B8\B4z\FC\026[%U\971-]\FA\98\E3\8A\92\AE\05\DF)\10gl\BA\C9\D3\00\E6\CF\E1\9E\A8,c\16\01?X\E2\89\A9\0D84\1B\AB3\FF\B0\BBH\0C_\B9\B1\CD.\C5\F3\DBG\E5\A5\9Cw\0A\A6 h\FE\7F\C1\AD", align 16
 
-; Function Attrs: nofree nosync nounwind memory(write, argmem: readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: nofree norecurse nosync nounwind memory(write, argmem: readwrite, inaccessiblemem: none) uwtable
 define void @RC2_set_key(ptr nocapture noundef %key, i32 noundef %len, ptr nocapture noundef readonly %data, i32 noundef %bits) local_unnamed_addr #0 {
 entry:
   store i8 0, ptr %key, align 1
@@ -103,7 +103,7 @@ while.body:                                       ; preds = %while.body.preheade
   br i1 %15, label %while.end, label %while.body, !llvm.loop !7
 
 while.end:                                        ; preds = %while.body, %for.end30
-  %arrayidx57 = getelementptr inbounds [64 x i32], ptr %key, i64 0, i64 63
+  %arrayidx57 = getelementptr inbounds i8, ptr %key, i64 252
   %invariant.gep = getelementptr i8, ptr %key, i64 -1
   br label %for.body61
 
@@ -113,7 +113,7 @@ for.body61:                                       ; preds = %while.end, %for.bod
   %gep = getelementptr i8, ptr %invariant.gep, i64 %indvars.iv64
   %16 = load i16, ptr %gep, align 1
   %17 = zext i16 %16 to i32
-  %incdec.ptr = getelementptr inbounds i32, ptr %ki.053, i64 -1
+  %incdec.ptr = getelementptr inbounds i8, ptr %ki.053, i64 -4
   store i32 %17, ptr %ki.053, align 4
   %indvars.iv.next65 = add nsw i64 %indvars.iv64, -2
   %cmp59 = icmp ugt i64 %indvars.iv64, 1
@@ -126,7 +126,7 @@ for.end72:                                        ; preds = %for.body61
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i32 @llvm.smin.i32(i32, i32) #1
 
-attributes #0 = { nofree nosync nounwind memory(write, argmem: readwrite, inaccessiblemem: none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #0 = { nofree norecurse nosync nounwind memory(write, argmem: readwrite, inaccessiblemem: none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
 
 !llvm.module.flags = !{!0, !1, !2, !3}

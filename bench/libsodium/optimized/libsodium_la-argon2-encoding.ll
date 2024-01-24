@@ -3,8 +3,6 @@ source_filename = "bench/libsodium/original/libsodium_la-argon2-encoding.ll"
 target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:128-n8:16:32:64-S128"
 target triple = "x86_64-unknown-linux-gnu"
 
-%struct.Argon2_Context = type { ptr, i32, ptr, i32, ptr, i32, ptr, i32, ptr, i32, i32, i32, i32, i32, i32 }
-
 @.str = private unnamed_addr constant [10 x i8] c"$argon2id\00", align 1
 @.str.1 = private unnamed_addr constant [9 x i8] c"$argon2i\00", align 1
 @.str.2 = private unnamed_addr constant [4 x i8] c"$v=\00", align 1
@@ -24,10 +22,10 @@ entry:
   %str_end = alloca ptr, align 8
   %bin_len157 = alloca i64, align 8
   %str_end158 = alloca ptr, align 8
-  %saltlen = getelementptr inbounds %struct.Argon2_Context, ptr %ctx, i64 0, i32 5
+  %saltlen = getelementptr inbounds i8, ptr %ctx, i64 40
   %0 = load i32, ptr %saltlen, align 8
   %conv = zext i32 %0 to i64
-  %outlen = getelementptr inbounds %struct.Argon2_Context, ptr %ctx, i64 0, i32 1
+  %outlen = getelementptr inbounds i8, ptr %ctx, i64 8
   %1 = load i32, ptr %outlen, align 8
   %conv1 = zext i32 %1 to i64
   store i32 0, ptr %saltlen, align 8
@@ -116,7 +114,7 @@ if.end52:                                         ; preds = %do.body46
 
 if.end64:                                         ; preds = %if.end52
   %conv65 = trunc i64 %7 to i32
-  %m_cost = getelementptr inbounds %struct.Argon2_Context, ptr %ctx, i64 0, i32 11
+  %m_cost = getelementptr inbounds i8, ptr %ctx, i64 80
   store i32 %conv65, ptr %m_cost, align 8
   %call74 = tail call i32 @strncmp(ptr noundef nonnull dereferenceable(1) %call57, ptr noundef nonnull dereferenceable(4) @.str.4, i64 noundef 3) #6
   %cmp75.not = icmp eq i32 %call74, 0
@@ -133,7 +131,7 @@ if.end78:                                         ; preds = %if.end64
 
 if.end90:                                         ; preds = %if.end78
   %conv91 = trunc i64 %8 to i32
-  %t_cost = getelementptr inbounds %struct.Argon2_Context, ptr %ctx, i64 0, i32 10
+  %t_cost = getelementptr inbounds i8, ptr %ctx, i64 76
   store i32 %conv91, ptr %t_cost, align 4
   %call100 = tail call i32 @strncmp(ptr noundef nonnull dereferenceable(1) %call83, ptr noundef nonnull dereferenceable(4) @.str.5, i64 noundef 3) #6
   %cmp101.not = icmp eq i32 %call100, 0
@@ -150,9 +148,9 @@ if.end104:                                        ; preds = %if.end90
 
 if.end116:                                        ; preds = %if.end104
   %conv117 = trunc i64 %9 to i32
-  %lanes = getelementptr inbounds %struct.Argon2_Context, ptr %ctx, i64 0, i32 12
+  %lanes = getelementptr inbounds i8, ptr %ctx, i64 84
   store i32 %conv117, ptr %lanes, align 4
-  %threads = getelementptr inbounds %struct.Argon2_Context, ptr %ctx, i64 0, i32 13
+  %threads = getelementptr inbounds i8, ptr %ctx, i64 88
   store i32 %conv117, ptr %threads, align 8
   %lhsc = load i8, ptr %call109, align 1
   %cmp128.not = icmp eq i8 %lhsc, 36
@@ -161,7 +159,7 @@ if.end116:                                        ; preds = %if.end104
 if.end131:                                        ; preds = %if.end116
   %add.ptr132 = getelementptr i8, ptr %call109, i64 1
   store i64 %conv, ptr %bin_len, align 8
-  %salt = getelementptr inbounds %struct.Argon2_Context, ptr %ctx, i64 0, i32 4
+  %salt = getelementptr inbounds i8, ptr %ctx, i64 32
   %10 = load ptr, ptr %salt, align 8
   %call135 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %add.ptr132) #6
   %call136 = call i32 @sodium_base642bin(ptr noundef %10, i64 noundef %conv, ptr noundef %add.ptr132, i64 noundef %call135, ptr noundef null, ptr noundef nonnull %bin_len, ptr noundef nonnull %str_end, i32 noundef 3) #7
@@ -329,7 +327,7 @@ do.body.i:                                        ; preds = %do.body.i, %do.body
   br i1 %cmp.i, label %do.body.i, label %u32_to_string.exit, !llvm.loop !4
 
 u32_to_string.exit:                               ; preds = %do.body.i
-  %arrayidx.i.le = getelementptr inbounds [10 x i8], ptr %tmp.i, i64 0, i64 8
+  %arrayidx.i.le = getelementptr inbounds i8, ptr %tmp.i, i64 8
   %1 = load i16, ptr %arrayidx.i.le, align 1
   store i16 %1, ptr %tmp, align 2
   %arrayidx6.i = getelementptr inbounds i8, ptr %tmp, i64 2
@@ -349,7 +347,7 @@ if.end21:                                         ; preds = %u32_to_string.exit
 if.end32:                                         ; preds = %if.end21
   %add.ptr24 = getelementptr i8, ptr %add.ptr8, i64 %call18
   store i32 4025636, ptr %add.ptr24, align 1
-  %m_cost = getelementptr inbounds %struct.Argon2_Context, ptr %ctx, i64 0, i32 11
+  %m_cost = getelementptr inbounds i8, ptr %ctx, i64 80
   %2 = load i32, ptr %m_cost, align 8
   call void @llvm.lifetime.start.p0(i64 10, ptr nonnull %tmp.i96)
   br label %do.body.i97
@@ -392,7 +390,7 @@ if.end46:                                         ; preds = %u32_to_string.exit1
 if.end57:                                         ; preds = %if.end46
   %add.ptr49 = getelementptr i8, ptr %add.ptr34, i64 %call43
   store i32 4027436, ptr %add.ptr49, align 1
-  %t_cost = getelementptr inbounds %struct.Argon2_Context, ptr %ctx, i64 0, i32 10
+  %t_cost = getelementptr inbounds i8, ptr %ctx, i64 76
   %5 = load i32, ptr %t_cost, align 4
   call void @llvm.lifetime.start.p0(i64 10, ptr nonnull %tmp.i111)
   br label %do.body.i112
@@ -435,7 +433,7 @@ if.end71:                                         ; preds = %u32_to_string.exit1
 if.end82:                                         ; preds = %if.end71
   %add.ptr74 = getelementptr i8, ptr %add.ptr59, i64 %call68
   store i32 4026412, ptr %add.ptr74, align 1
-  %lanes = getelementptr inbounds %struct.Argon2_Context, ptr %ctx, i64 0, i32 12
+  %lanes = getelementptr inbounds i8, ptr %ctx, i64 84
   %8 = load i32, ptr %lanes, align 4
   call void @llvm.lifetime.start.p0(i64 10, ptr nonnull %tmp.i126)
   br label %do.body.i127
@@ -480,9 +478,9 @@ if.end107:                                        ; preds = %if.end96
   store i16 36, ptr %add.ptr99, align 1
   %add.ptr109 = getelementptr i8, ptr %add.ptr99, i64 1
   %sub110 = add i64 %sub100, -1
-  %salt = getelementptr inbounds %struct.Argon2_Context, ptr %ctx, i64 0, i32 4
+  %salt = getelementptr inbounds i8, ptr %ctx, i64 32
   %11 = load ptr, ptr %salt, align 8
-  %saltlen = getelementptr inbounds %struct.Argon2_Context, ptr %ctx, i64 0, i32 5
+  %saltlen = getelementptr inbounds i8, ptr %ctx, i64 40
   %12 = load i32, ptr %saltlen, align 8
   %conv = zext i32 %12 to i64
   %call113 = tail call ptr @sodium_bin2base64(ptr noundef %add.ptr109, i64 noundef %sub110, ptr noundef %11, i64 noundef %conv, i32 noundef 3) #7
@@ -501,7 +499,7 @@ if.end127:                                        ; preds = %if.end117
   %add.ptr129 = getelementptr i8, ptr %add.ptr119, i64 1
   %sub130 = add i64 %sub120, -1
   %13 = load ptr, ptr %ctx, align 8
-  %outlen = getelementptr inbounds %struct.Argon2_Context, ptr %ctx, i64 0, i32 1
+  %outlen = getelementptr inbounds i8, ptr %ctx, i64 8
   %14 = load i32, ptr %outlen, align 8
   %conv134 = zext i32 %14 to i64
   %call135 = tail call ptr @sodium_bin2base64(ptr noundef %add.ptr129, i64 noundef %sub130, ptr noundef %13, i64 noundef %conv134, i32 noundef 3) #7

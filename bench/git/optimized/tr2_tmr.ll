@@ -6,9 +6,6 @@ target triple = "x86_64-unknown-linux-gnu"
 %struct.tr2_timer_metadata = type { ptr, ptr, i8 }
 %struct.tr2_timer_block = type { [2 x %struct.tr2_timer] }
 %struct.tr2_timer = type { i64, i64, i64, i64, i64, i32 }
-%struct.tr2tls_thread_ctx = type { ptr, ptr, i64, i64, i32, %struct.tr2_timer_block, %struct.tr2_counter_block, i8 }
-%struct.tr2_counter_block = type { [5 x %struct.tr2_counter] }
-%struct.tr2_counter = type { i64 }
 
 @tr2_timer_metadata = internal global [2 x %struct.tr2_timer_metadata] [%struct.tr2_timer_metadata { ptr @.str, ptr @.str.1, i8 0 }, %struct.tr2_timer_metadata { ptr @.str, ptr @.str.2, i8 1 }], align 16
 @final_timer_block = internal global %struct.tr2_timer_block zeroinitializer, align 8
@@ -20,9 +17,10 @@ target triple = "x86_64-unknown-linux-gnu"
 define dso_local void @tr2_start_timer(i32 noundef %tid) local_unnamed_addr #0 {
 entry:
   %call = tail call ptr @tr2tls_get_self() #3
-  %timer_block = getelementptr inbounds %struct.tr2tls_thread_ctx, ptr %call, i64 0, i32 5
+  %timer_block = getelementptr inbounds i8, ptr %call, i64 40
   %idxprom = zext i32 %tid to i64
-  %recursion_count = getelementptr inbounds [2 x %struct.tr2_timer], ptr %timer_block, i64 0, i64 %idxprom, i32 5
+  %arrayidx = getelementptr inbounds [2 x %struct.tr2_timer], ptr %timer_block, i64 0, i64 %idxprom
+  %recursion_count = getelementptr inbounds i8, ptr %arrayidx, i64 40
   %0 = load i32, ptr %recursion_count, align 8
   %inc = add i32 %0, 1
   store i32 %inc, ptr %recursion_count, align 8
@@ -31,7 +29,7 @@ entry:
 
 if.end:                                           ; preds = %entry
   %call2 = tail call i64 @getnanotime() #3
-  %start_ns = getelementptr inbounds [2 x %struct.tr2_timer], ptr %timer_block, i64 0, i64 %idxprom, i32 3
+  %start_ns = getelementptr inbounds i8, ptr %arrayidx, i64 24
   store i64 %call2, ptr %start_ns, align 8
   br label %return
 
@@ -47,9 +45,10 @@ declare i64 @getnanotime() local_unnamed_addr #1
 define dso_local void @tr2_stop_timer(i32 noundef %tid) local_unnamed_addr #0 {
 entry:
   %call = tail call ptr @tr2tls_get_self() #3
-  %timer_block = getelementptr inbounds %struct.tr2tls_thread_ctx, ptr %call, i64 0, i32 5
+  %timer_block = getelementptr inbounds i8, ptr %call, i64 40
   %idxprom = zext i32 %tid to i64
-  %recursion_count = getelementptr inbounds [2 x %struct.tr2_timer], ptr %timer_block, i64 0, i64 %idxprom, i32 5
+  %arrayidx = getelementptr inbounds [2 x %struct.tr2_timer], ptr %timer_block, i64 0, i64 %idxprom
+  %recursion_count = getelementptr inbounds i8, ptr %arrayidx, i64 40
   %0 = load i32, ptr %recursion_count, align 8
   %dec = add i32 %0, -1
   store i32 %dec, ptr %recursion_count, align 8
@@ -57,23 +56,22 @@ entry:
   br i1 %tobool.not, label %if.end, label %if.end27
 
 if.end:                                           ; preds = %entry
-  %arrayidx = getelementptr inbounds [2 x %struct.tr2_timer], ptr %timer_block, i64 0, i64 %idxprom
   %call2 = tail call i64 @getnanotime() #3
-  %start_ns = getelementptr inbounds [2 x %struct.tr2_timer], ptr %timer_block, i64 0, i64 %idxprom, i32 3
+  %start_ns = getelementptr inbounds i8, ptr %arrayidx, i64 24
   %1 = load i64, ptr %start_ns, align 8
   %sub = sub i64 %call2, %1
   %2 = load i64, ptr %arrayidx, align 8
   %add = add i64 %2, %sub
   store i64 %add, ptr %arrayidx, align 8
-  %interval_count = getelementptr inbounds [2 x %struct.tr2_timer], ptr %timer_block, i64 0, i64 %idxprom, i32 4
+  %interval_count = getelementptr inbounds i8, ptr %arrayidx, i64 32
   %3 = load i64, ptr %interval_count, align 8
   %tobool3.not = icmp eq i64 %3, 0
-  %min_ns = getelementptr inbounds [2 x %struct.tr2_timer], ptr %timer_block, i64 0, i64 %idxprom, i32 1
+  %min_ns = getelementptr inbounds i8, ptr %arrayidx, i64 8
   br i1 %tobool3.not, label %if.then4, label %if.else
 
 if.then4:                                         ; preds = %if.end
   store i64 %sub, ptr %min_ns, align 8
-  %max_ns = getelementptr inbounds [2 x %struct.tr2_timer], ptr %timer_block, i64 0, i64 %idxprom, i32 2
+  %max_ns = getelementptr inbounds i8, ptr %arrayidx, i64 16
   store i64 %sub, ptr %max_ns, align 8
   br label %if.end16
 
@@ -81,7 +79,7 @@ if.else:                                          ; preds = %if.end
   %4 = load i64, ptr %min_ns, align 8
   %sub. = tail call i64 @llvm.umin.i64(i64 %sub, i64 %4)
   store i64 %sub., ptr %min_ns, align 8
-  %max_ns8 = getelementptr inbounds [2 x %struct.tr2_timer], ptr %timer_block, i64 0, i64 %idxprom, i32 2
+  %max_ns8 = getelementptr inbounds i8, ptr %arrayidx, i64 16
   %5 = load i64, ptr %max_ns8, align 8
   %cond14 = tail call i64 @llvm.umax.i64(i64 %sub, i64 %5)
   store i64 %cond14, ptr %max_ns8, align 8
@@ -90,7 +88,7 @@ if.else:                                          ; preds = %if.end
 if.end16:                                         ; preds = %if.else, %if.then4
   %inc = add i64 %3, 1
   store i64 %inc, ptr %interval_count, align 8
-  %used_any_timer = getelementptr inbounds %struct.tr2tls_thread_ctx, ptr %call, i64 0, i32 7
+  %used_any_timer = getelementptr inbounds i8, ptr %call, i64 176
   %bf.load = load i8, ptr %used_any_timer, align 8
   %bf.set = or i8 %bf.load, 1
   store i8 %bf.set, ptr %used_any_timer, align 8
@@ -113,55 +111,55 @@ if.end27:                                         ; preds = %entry, %if.then23, 
 define dso_local void @tr2_update_final_timers() local_unnamed_addr #0 {
 entry:
   %call = tail call ptr @tr2tls_get_self() #3
-  %used_any_timer = getelementptr inbounds %struct.tr2tls_thread_ctx, ptr %call, i64 0, i32 7
+  %used_any_timer = getelementptr inbounds i8, ptr %call, i64 176
   %bf.load = load i8, ptr %used_any_timer, align 8
   %bf.clear = and i8 %bf.load, 1
   %tobool.not = icmp eq i8 %bf.clear, 0
   br i1 %tobool.not, label %for.end, label %for.cond.preheader
 
 for.cond.preheader:                               ; preds = %entry
-  %timer_block = getelementptr inbounds %struct.tr2tls_thread_ctx, ptr %call, i64 0, i32 5
+  %timer_block = getelementptr inbounds i8, ptr %call, i64 40
   br label %for.body
 
 for.body:                                         ; preds = %for.cond.preheader, %for.inc
   %cmp = phi i1 [ true, %for.cond.preheader ], [ false, %for.inc ]
   %indvars.iv = phi i64 [ 0, %for.cond.preheader ], [ 1, %for.inc ]
-  %interval_count = getelementptr inbounds [2 x %struct.tr2_timer], ptr %timer_block, i64 0, i64 %indvars.iv, i32 4
+  %arrayidx = getelementptr inbounds [2 x %struct.tr2_timer], ptr @final_timer_block, i64 0, i64 %indvars.iv
+  %arrayidx2 = getelementptr inbounds [2 x %struct.tr2_timer], ptr %timer_block, i64 0, i64 %indvars.iv
+  %interval_count = getelementptr inbounds i8, ptr %arrayidx2, i64 32
   %0 = load i64, ptr %interval_count, align 8
   %tobool6.not = icmp eq i64 %0, 0
   br i1 %tobool6.not, label %for.inc, label %if.end8
 
 if.end8:                                          ; preds = %for.body
-  %arrayidx2 = getelementptr inbounds [2 x %struct.tr2_timer], ptr %timer_block, i64 0, i64 %indvars.iv
-  %arrayidx = getelementptr inbounds [2 x %struct.tr2_timer], ptr @final_timer_block, i64 0, i64 %indvars.iv
   %1 = load i64, ptr %arrayidx2, align 8
   %2 = load i64, ptr %arrayidx, align 8
   %add = add i64 %2, %1
   store i64 %add, ptr %arrayidx, align 8
-  %interval_count10 = getelementptr inbounds [2 x %struct.tr2_timer], ptr @final_timer_block, i64 0, i64 %indvars.iv, i32 4
+  %interval_count10 = getelementptr inbounds i8, ptr %arrayidx, i64 32
   %3 = load i64, ptr %interval_count10, align 8
   %tobool11.not = icmp eq i64 %3, 0
-  %max_ns14 = getelementptr inbounds [2 x %struct.tr2_timer], ptr @final_timer_block, i64 0, i64 %indvars.iv, i32 2
+  %max_ns14 = getelementptr inbounds i8, ptr %arrayidx, i64 16
   br i1 %tobool11.not, label %if.then12, label %if.else
 
 if.then12:                                        ; preds = %if.end8
-  %min_ns = getelementptr inbounds [2 x %struct.tr2_timer], ptr %timer_block, i64 0, i64 %indvars.iv, i32 1
+  %min_ns = getelementptr inbounds i8, ptr %arrayidx2, i64 8
   %4 = load i64, ptr %min_ns, align 8
-  %min_ns13 = getelementptr inbounds [2 x %struct.tr2_timer], ptr @final_timer_block, i64 0, i64 %indvars.iv, i32 1
+  %min_ns13 = getelementptr inbounds i8, ptr %arrayidx, i64 8
   store i64 %4, ptr %min_ns13, align 8
-  %max_ns = getelementptr inbounds [2 x %struct.tr2_timer], ptr %timer_block, i64 0, i64 %indvars.iv, i32 2
+  %max_ns = getelementptr inbounds i8, ptr %arrayidx2, i64 16
   %5 = load i64, ptr %max_ns, align 8
   br label %if.end31
 
 if.else:                                          ; preds = %if.end8
-  %min_ns15 = getelementptr inbounds [2 x %struct.tr2_timer], ptr @final_timer_block, i64 0, i64 %indvars.iv, i32 1
+  %min_ns15 = getelementptr inbounds i8, ptr %arrayidx, i64 8
   %6 = load i64, ptr %min_ns15, align 8
-  %min_ns16 = getelementptr inbounds [2 x %struct.tr2_timer], ptr %timer_block, i64 0, i64 %indvars.iv, i32 1
+  %min_ns16 = getelementptr inbounds i8, ptr %arrayidx2, i64 8
   %7 = load i64, ptr %min_ns16, align 8
   %. = tail call i64 @llvm.umin.i64(i64 %6, i64 %7)
   store i64 %., ptr %min_ns15, align 8
   %8 = load i64, ptr %max_ns14, align 8
-  %max_ns22 = getelementptr inbounds [2 x %struct.tr2_timer], ptr %timer_block, i64 0, i64 %indvars.iv, i32 2
+  %max_ns22 = getelementptr inbounds i8, ptr %arrayidx2, i64 16
   %9 = load i64, ptr %max_ns22, align 8
   %cond29 = tail call i64 @llvm.umax.i64(i64 %8, i64 %9)
   br label %if.end31
@@ -184,34 +182,34 @@ for.end:                                          ; preds = %for.inc, %entry
 define dso_local void @tr2_emit_per_thread_timers(ptr nocapture noundef readonly %fn_apply) local_unnamed_addr #0 {
 entry:
   %call = tail call ptr @tr2tls_get_self() #3
-  %used_any_per_thread_timer = getelementptr inbounds %struct.tr2tls_thread_ctx, ptr %call, i64 0, i32 7
+  %used_any_per_thread_timer = getelementptr inbounds i8, ptr %call, i64 176
   %bf.load = load i8, ptr %used_any_per_thread_timer, align 8
   %0 = and i8 %bf.load, 2
   %tobool.not = icmp eq i8 %0, 0
   br i1 %tobool.not, label %for.end, label %for.cond.preheader
 
 for.cond.preheader:                               ; preds = %entry
-  %timer_block = getelementptr inbounds %struct.tr2tls_thread_ctx, ptr %call, i64 0, i32 5
+  %timer_block = getelementptr inbounds i8, ptr %call, i64 40
   br label %for.body
 
 for.body:                                         ; preds = %for.cond.preheader, %for.inc
   %cmp = phi i1 [ true, %for.cond.preheader ], [ false, %for.inc ]
   %indvars.iv = phi i64 [ 0, %for.cond.preheader ], [ 1, %for.inc ]
   %arrayidx = getelementptr inbounds [2 x %struct.tr2_timer_metadata], ptr @tr2_timer_metadata, i64 0, i64 %indvars.iv
-  %want_per_thread_events = getelementptr inbounds [2 x %struct.tr2_timer_metadata], ptr @tr2_timer_metadata, i64 0, i64 %indvars.iv, i32 2
+  %want_per_thread_events = getelementptr inbounds i8, ptr %arrayidx, i64 16
   %bf.load1 = load i8, ptr %want_per_thread_events, align 8
   %bf.clear2 = and i8 %bf.load1, 1
   %tobool4.not = icmp eq i8 %bf.clear2, 0
   br i1 %tobool4.not, label %for.inc, label %land.lhs.true
 
 land.lhs.true:                                    ; preds = %for.body
-  %interval_count = getelementptr inbounds [2 x %struct.tr2_timer], ptr %timer_block, i64 0, i64 %indvars.iv, i32 4
+  %arrayidx6 = getelementptr inbounds [2 x %struct.tr2_timer], ptr %timer_block, i64 0, i64 %indvars.iv
+  %interval_count = getelementptr inbounds i8, ptr %arrayidx6, i64 32
   %1 = load i64, ptr %interval_count, align 8
   %tobool7.not = icmp eq i64 %1, 0
   br i1 %tobool7.not, label %for.inc, label %if.then8
 
 if.then8:                                         ; preds = %land.lhs.true
-  %arrayidx6 = getelementptr inbounds [2 x %struct.tr2_timer], ptr %timer_block, i64 0, i64 %indvars.iv
   tail call void %fn_apply(ptr noundef nonnull %arrayidx, ptr noundef nonnull %arrayidx6, i32 noundef 0) #3
   br label %for.inc
 
@@ -230,13 +228,13 @@ entry:
 for.body:                                         ; preds = %entry, %for.inc
   %cmp = phi i1 [ true, %entry ], [ false, %for.inc ]
   %indvars.iv = phi i64 [ 0, %entry ], [ 1, %for.inc ]
-  %interval_count = getelementptr inbounds [2 x %struct.tr2_timer], ptr @final_timer_block, i64 0, i64 %indvars.iv, i32 4
+  %arrayidx = getelementptr inbounds [2 x %struct.tr2_timer], ptr @final_timer_block, i64 0, i64 %indvars.iv
+  %interval_count = getelementptr inbounds i8, ptr %arrayidx, i64 32
   %0 = load i64, ptr %interval_count, align 8
   %tobool.not = icmp eq i64 %0, 0
   br i1 %tobool.not, label %for.inc, label %if.then
 
 if.then:                                          ; preds = %for.body
-  %arrayidx = getelementptr inbounds [2 x %struct.tr2_timer], ptr @final_timer_block, i64 0, i64 %indvars.iv
   %arrayidx2 = getelementptr inbounds [2 x %struct.tr2_timer_metadata], ptr @tr2_timer_metadata, i64 0, i64 %indvars.iv
   tail call void %fn_apply(ptr noundef nonnull %arrayidx2, ptr noundef nonnull %arrayidx, i32 noundef 1) #3
   br label %for.inc

@@ -109,23 +109,23 @@ entry:
   %shl21.masked = or disjoint i64 %.masked82, %38
   %and52 = or disjoint i64 %shl21.masked, %shr35
   store i64 %and40, ptr %h, align 8
-  %arrayidx53 = getelementptr i64, ptr %h, i64 1
+  %arrayidx53 = getelementptr i8, ptr %h, i64 8
   store i64 %add39, ptr %arrayidx53, align 8
-  %arrayidx54 = getelementptr i64, ptr %h, i64 2
+  %arrayidx54 = getelementptr i8, ptr %h, i64 16
   store i64 %and43, ptr %arrayidx54, align 8
-  %arrayidx55 = getelementptr i64, ptr %h, i64 3
+  %arrayidx55 = getelementptr i8, ptr %h, i64 24
   store i64 %add42, ptr %arrayidx55, align 8
-  %arrayidx56 = getelementptr i64, ptr %h, i64 4
+  %arrayidx56 = getelementptr i8, ptr %h, i64 32
   store i64 %add30, ptr %arrayidx56, align 8
-  %arrayidx57 = getelementptr i64, ptr %h, i64 5
+  %arrayidx57 = getelementptr i8, ptr %h, i64 40
   store i64 %and34, ptr %arrayidx57, align 8
-  %arrayidx58 = getelementptr i64, ptr %h, i64 6
+  %arrayidx58 = getelementptr i8, ptr %h, i64 48
   store i64 %and49, ptr %arrayidx58, align 8
-  %arrayidx59 = getelementptr i64, ptr %h, i64 7
+  %arrayidx59 = getelementptr i8, ptr %h, i64 56
   store i64 %add48, ptr %arrayidx59, align 8
-  %arrayidx60 = getelementptr i64, ptr %h, i64 8
+  %arrayidx60 = getelementptr i8, ptr %h, i64 64
   store i64 %and52, ptr %arrayidx60, align 8
-  %arrayidx61 = getelementptr i64, ptr %h, i64 9
+  %arrayidx61 = getelementptr i8, ptr %h, i64 72
   store i64 %add51, ptr %arrayidx61, align 8
   ret void
 }

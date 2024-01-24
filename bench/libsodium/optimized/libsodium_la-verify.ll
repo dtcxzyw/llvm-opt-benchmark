@@ -101,11 +101,11 @@ entry:
   %xor.i19.i = xor <2 x i64> %v2.i.0.v2.i.0.v2.i.0.v2.0.v2.0.v2.0..i, %v1.i.0.v1.i.0.v1.i.0.v1.0.v1.0.v1.0..i
   store volatile <2 x i64> %xor.i19.i, ptr %z.i, align 16
   %x.i.0.x.i.0.x.i.0.x.0.x.0.x.0.2.i = load volatile ptr, ptr %x.i, align 8
-  %arrayidx5.i = getelementptr <2 x i64>, ptr %x.i.0.x.i.0.x.i.0.x.0.x.0.x.0.2.i, i64 1
+  %arrayidx5.i = getelementptr i8, ptr %x.i.0.x.i.0.x.i.0.x.0.x.0.x.0.2.i, i64 16
   %2 = load <2 x i64>, ptr %arrayidx5.i, align 1
   store volatile <2 x i64> %2, ptr %v1.i, align 16
   %y.i.0.y.i.0.y.i.0.y.0.y.0.y.0.1.i = load volatile ptr, ptr %y.i, align 8
-  %arrayidx8.i = getelementptr <2 x i64>, ptr %y.i.0.y.i.0.y.i.0.y.0.y.0.y.0.1.i, i64 1
+  %arrayidx8.i = getelementptr i8, ptr %y.i.0.y.i.0.y.i.0.y.0.y.0.y.0.1.i, i64 16
   %3 = load <2 x i64>, ptr %arrayidx8.i, align 1
   store volatile <2 x i64> %3, ptr %v2.i, align 16
   %z.i.0.z.i.0.z.i.0.z.0.z.0.z.0..i = load volatile <2 x i64>, ptr %z.i, align 16

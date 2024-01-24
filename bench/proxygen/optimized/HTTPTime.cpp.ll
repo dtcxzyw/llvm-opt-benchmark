@@ -22,7 +22,7 @@ entry:
 
 if.then:                                          ; preds = %entry
   store i8 0, ptr %agg.result, align 8
-  %hasValue.i.i = getelementptr inbounds %"struct.folly::Optional<long>::StorageTriviallyDestructible", ptr %agg.result, i64 0, i32 1
+  %hasValue.i.i = getelementptr inbounds i8, ptr %agg.result, i64 8
   store i8 0, ptr %hasValue.i.i, align 8
   br label %return
 
@@ -46,14 +46,14 @@ lor.lhs.false6:                                   ; preds = %lor.lhs.false
 
 if.then10:                                        ; preds = %lor.lhs.false6, %lor.lhs.false, %if.end
   %call11 = call i64 @timegm(ptr noundef nonnull %tm) #3
-  %hasValue.i.i4 = getelementptr inbounds %"struct.folly::Optional<long>::StorageTriviallyDestructible", ptr %agg.result, i64 0, i32 1
+  %hasValue.i.i4 = getelementptr inbounds i8, ptr %agg.result, i64 8
   store i64 %call11, ptr %agg.result, align 8
   store i8 1, ptr %hasValue.i.i4, align 8
   br label %return
 
 if.end12:                                         ; preds = %lor.lhs.false6
   store i8 0, ptr %agg.result, align 8
-  %hasValue.i.i5 = getelementptr inbounds %"struct.folly::Optional<long>::StorageTriviallyDestructible", ptr %agg.result, i64 0, i32 1
+  %hasValue.i.i5 = getelementptr inbounds i8, ptr %agg.result, i64 8
   store i8 0, ptr %hasValue.i.i5, align 8
   br label %return
 

@@ -6,7 +6,6 @@ target triple = "x86_64-unknown-linux-gnu"
 %struct.anon = type { ptr, i32 }
 %struct.strbuf = type { i64, i64, ptr }
 %struct.__va_list_tag = type { i32, i32, ptr, ptr }
-%struct.string_list = type { ptr, i64, i64, i8, ptr }
 %struct.string_list_item = type { ptr, ptr }
 
 @.str = private unnamed_addr constant [1 x i8] zeroinitializer, align 1
@@ -119,7 +118,7 @@ if.then:                                          ; preds = %entry
   br label %if.end
 
 if.end:                                           ; preds = %if.then, %entry
-  %buf1 = getelementptr inbounds %struct.strbuf, ptr %buf, i64 0, i32 2
+  %buf1 = getelementptr inbounds i8, ptr %buf, i64 16
   %0 = load ptr, ptr %buf1, align 8
   %1 = load i8, ptr %0, align 1
   %tobool2.not12 = icmp eq i8 %1, 0
@@ -323,7 +322,7 @@ for.body:                                         ; preds = %do.body.i14, %for.c
 
 if.end24:                                         ; preds = %for.body
   %call25 = tail call i32 @git_config_bool(ptr noundef %var, ptr noundef %value) #11
-  %enabled = getelementptr inbounds [39 x %struct.anon], ptr @advice_setting, i64 0, i64 %indvars.iv, i32 1
+  %enabled = getelementptr inbounds i8, ptr %arrayidx20, i64 8
   store i32 %call25, ptr %enabled, align 8
   br label %return
 
@@ -550,7 +549,7 @@ entry:
 ; Function Attrs: nounwind uwtable
 define dso_local void @advise_on_updating_sparse_paths(ptr nocapture noundef readonly %pathspec_list) local_unnamed_addr #0 {
 entry:
-  %nr = getelementptr inbounds %struct.string_list, ptr %pathspec_list, i64 0, i32 1
+  %nr = getelementptr inbounds i8, ptr %pathspec_list, i64 8
   %0 = load i64, ptr %nr, align 8
   %tobool.not = icmp eq i64 %0, 0
   br i1 %tobool.not, label %return, label %if.end
@@ -584,7 +583,7 @@ for.body:                                         ; preds = %land.rhs.preheader,
   %6 = load ptr, ptr @stderr, align 8
   %7 = load ptr, ptr %item.01316, align 8
   %call5 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %6, ptr noundef nonnull @.str.26, ptr noundef %7) #13
-  %incdec.ptr = getelementptr inbounds %struct.string_list_item, ptr %item.01316, i64 1
+  %incdec.ptr = getelementptr inbounds i8, ptr %item.01316, i64 16
   %8 = load ptr, ptr %pathspec_list, align 8
   %9 = load i64, ptr %nr, align 8
   %add.ptr = getelementptr inbounds %struct.string_list_item, ptr %8, i64 %9
@@ -633,7 +632,7 @@ _.exit:                                           ; preds = %entry, %if.end3.i
 ; Function Attrs: nounwind uwtable
 define dso_local void @advise_on_moving_dirty_path(ptr nocapture noundef readonly %pathspec_list) local_unnamed_addr #0 {
 entry:
-  %nr = getelementptr inbounds %struct.string_list, ptr %pathspec_list, i64 0, i32 1
+  %nr = getelementptr inbounds i8, ptr %pathspec_list, i64 8
   %0 = load i64, ptr %nr, align 8
   %tobool.not = icmp eq i64 %0, 0
   br i1 %tobool.not, label %return, label %if.end
@@ -667,7 +666,7 @@ for.body:                                         ; preds = %land.rhs.preheader,
   %6 = load ptr, ptr @stderr, align 8
   %7 = load ptr, ptr %item.01316, align 8
   %call5 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %6, ptr noundef nonnull @.str.26, ptr noundef %7) #13
-  %incdec.ptr = getelementptr inbounds %struct.string_list_item, ptr %item.01316, i64 1
+  %incdec.ptr = getelementptr inbounds i8, ptr %item.01316, i64 16
   %8 = load ptr, ptr %pathspec_list, align 8
   %9 = load i64, ptr %nr, align 8
   %add.ptr = getelementptr inbounds %struct.string_list_item, ptr %8, i64 %9

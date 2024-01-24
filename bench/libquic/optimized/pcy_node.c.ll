@@ -5,8 +5,6 @@ target triple = "x86_64-unknown-linux-gnu"
 
 %struct.X509_POLICY_DATA_st = type { i32, ptr, ptr, ptr }
 %struct.X509_POLICY_NODE_st = type { ptr, ptr, i32 }
-%struct.X509_POLICY_LEVEL_st = type { ptr, ptr, ptr, i32 }
-%struct.X509_POLICY_TREE_st = type { ptr, i32, ptr, ptr, ptr, i32 }
 
 ; Function Attrs: nounwind uwtable
 define hidden ptr @policy_node_cmp_new() local_unnamed_addr #0 {
@@ -22,11 +20,11 @@ define internal i32 @node_cmp(ptr nocapture noundef readonly %a, ptr nocapture n
 entry:
   %0 = load ptr, ptr %a, align 8
   %1 = load ptr, ptr %0, align 8
-  %valid_policy = getelementptr inbounds %struct.X509_POLICY_DATA_st, ptr %1, i64 0, i32 1
+  %valid_policy = getelementptr inbounds i8, ptr %1, i64 8
   %2 = load ptr, ptr %valid_policy, align 8
   %3 = load ptr, ptr %b, align 8
   %4 = load ptr, ptr %3, align 8
-  %valid_policy2 = getelementptr inbounds %struct.X509_POLICY_DATA_st, ptr %4, i64 0, i32 1
+  %valid_policy2 = getelementptr inbounds i8, ptr %4, i64 8
   %5 = load ptr, ptr %valid_policy2, align 8
   %call = tail call i32 @OBJ_cmp(ptr noundef %2, ptr noundef %5) #5
   ret i32 %call
@@ -38,7 +36,7 @@ entry:
   %n = alloca %struct.X509_POLICY_DATA_st, align 8
   %l = alloca %struct.X509_POLICY_NODE_st, align 8
   %idx = alloca i64, align 8
-  %valid_policy = getelementptr inbounds %struct.X509_POLICY_DATA_st, ptr %n, i64 0, i32 1
+  %valid_policy = getelementptr inbounds i8, ptr %n, i64 8
   store ptr %id, ptr %valid_policy, align 8
   store ptr %n, ptr %l, align 8
   %call = call i32 @sk_find(ptr noundef %nodes, ptr noundef nonnull %idx, ptr noundef nonnull %l) #5
@@ -62,7 +60,7 @@ declare ptr @sk_value(ptr noundef, i64 noundef) local_unnamed_addr #1
 ; Function Attrs: nounwind uwtable
 define hidden ptr @level_find_node(ptr nocapture noundef readonly %level, ptr noundef readnone %parent, ptr noundef %id) local_unnamed_addr #0 {
 entry:
-  %nodes = getelementptr inbounds %struct.X509_POLICY_LEVEL_st, ptr %level, i64 0, i32 1
+  %nodes = getelementptr inbounds i8, ptr %level, i64 8
   %0 = load ptr, ptr %nodes, align 8
   %call6 = tail call i64 @sk_num(ptr noundef %0) #5
   %cmp7.not = icmp eq i64 %call6, 0
@@ -72,14 +70,14 @@ for.body:                                         ; preds = %entry, %for.inc
   %i.08 = phi i64 [ %inc, %for.inc ], [ 0, %entry ]
   %1 = load ptr, ptr %nodes, align 8
   %call2 = tail call ptr @sk_value(ptr noundef %1, i64 noundef %i.08) #5
-  %parent3 = getelementptr inbounds %struct.X509_POLICY_NODE_st, ptr %call2, i64 0, i32 1
+  %parent3 = getelementptr inbounds i8, ptr %call2, i64 8
   %2 = load ptr, ptr %parent3, align 8
   %cmp4 = icmp eq ptr %2, %parent
   br i1 %cmp4, label %if.then, label %for.inc
 
 if.then:                                          ; preds = %for.body
   %3 = load ptr, ptr %call2, align 8
-  %valid_policy = getelementptr inbounds %struct.X509_POLICY_DATA_st, ptr %3, i64 0, i32 1
+  %valid_policy = getelementptr inbounds i8, ptr %3, i64 8
   %4 = load ptr, ptr %valid_policy, align 8
   %call5 = tail call i32 @OBJ_cmp(ptr noundef %4, ptr noundef %id) #5
   %tobool.not = icmp eq i32 %call5, 0
@@ -110,22 +108,22 @@ entry:
 
 if.end:                                           ; preds = %entry
   store ptr %data, ptr %call, align 8
-  %parent2 = getelementptr inbounds %struct.X509_POLICY_NODE_st, ptr %call, i64 0, i32 1
+  %parent2 = getelementptr inbounds i8, ptr %call, i64 8
   store ptr %parent, ptr %parent2, align 8
-  %nchild = getelementptr inbounds %struct.X509_POLICY_NODE_st, ptr %call, i64 0, i32 2
+  %nchild = getelementptr inbounds i8, ptr %call, i64 16
   store i32 0, ptr %nchild, align 8
   %tobool3.not = icmp eq ptr %level, null
   br i1 %tobool3.not, label %if.end26, label %if.then4
 
 if.then4:                                         ; preds = %if.end
-  %valid_policy = getelementptr inbounds %struct.X509_POLICY_DATA_st, ptr %data, i64 0, i32 1
+  %valid_policy = getelementptr inbounds i8, ptr %data, i64 8
   %0 = load ptr, ptr %valid_policy, align 8
   %call5 = tail call i32 @OBJ_obj2nid(ptr noundef %0) #5
   %cmp = icmp eq i32 %call5, 746
   br i1 %cmp, label %if.then6, label %if.else
 
 if.then6:                                         ; preds = %if.then4
-  %anyPolicy = getelementptr inbounds %struct.X509_POLICY_LEVEL_st, ptr %level, i64 0, i32 2
+  %anyPolicy = getelementptr inbounds i8, ptr %level, i64 16
   %1 = load ptr, ptr %anyPolicy, align 8
   %tobool7.not = icmp eq ptr %1, null
   br i1 %tobool7.not, label %if.end9, label %node_error
@@ -135,7 +133,7 @@ if.end9:                                          ; preds = %if.then6
   br label %if.end26
 
 if.else:                                          ; preds = %if.then4
-  %nodes = getelementptr inbounds %struct.X509_POLICY_LEVEL_st, ptr %level, i64 0, i32 1
+  %nodes = getelementptr inbounds i8, ptr %level, i64 8
   %2 = load ptr, ptr %nodes, align 8
   %tobool11.not = icmp eq ptr %2, null
   br i1 %tobool11.not, label %if.end15, label %if.end19
@@ -157,7 +155,7 @@ if.end26:                                         ; preds = %if.end9, %if.end19,
   br i1 %tobool27.not, label %if.end43, label %if.then28
 
 if.then28:                                        ; preds = %if.end26
-  %extra_data = getelementptr inbounds %struct.X509_POLICY_TREE_st, ptr %tree, i64 0, i32 2
+  %extra_data = getelementptr inbounds i8, ptr %tree, i64 16
   %4 = load ptr, ptr %extra_data, align 8
   %tobool29.not = icmp eq ptr %4, null
   br i1 %tobool29.not, label %if.end33, label %if.end37
@@ -179,7 +177,7 @@ if.end43:                                         ; preds = %if.end37, %if.end26
   br i1 %tobool44.not, label %return, label %if.then45
 
 if.then45:                                        ; preds = %if.end43
-  %nchild46 = getelementptr inbounds %struct.X509_POLICY_NODE_st, ptr %parent, i64 0, i32 2
+  %nchild46 = getelementptr inbounds i8, ptr %parent, i64 16
   %6 = load i32, ptr %nchild46, align 8
   %inc = add nsw i32 %6, 1
   store i32 %inc, ptr %nchild46, align 8
@@ -217,7 +215,7 @@ declare void @free(ptr allocptr nocapture noundef) local_unnamed_addr #4
 define hidden i32 @policy_node_match(ptr nocapture noundef readonly %lvl, ptr nocapture noundef readonly %node, ptr noundef %oid) local_unnamed_addr #0 {
 entry:
   %0 = load ptr, ptr %node, align 8
-  %flags = getelementptr inbounds %struct.X509_POLICY_LEVEL_st, ptr %lvl, i64 0, i32 3
+  %flags = getelementptr inbounds i8, ptr %lvl, i64 24
   %1 = load i32, ptr %flags, align 8
   %and = and i32 %1, 1024
   %tobool.not = icmp eq i32 %and, 0
@@ -230,14 +228,14 @@ lor.lhs.false:                                    ; preds = %entry
   br i1 %tobool3.not, label %if.then, label %for.cond.preheader
 
 for.cond.preheader:                               ; preds = %lor.lhs.false
-  %expected_policy_set = getelementptr inbounds %struct.X509_POLICY_DATA_st, ptr %0, i64 0, i32 3
+  %expected_policy_set = getelementptr inbounds i8, ptr %0, i64 24
   %3 = load ptr, ptr %expected_policy_set, align 8
   %call77 = tail call i64 @sk_num(ptr noundef %3) #5
   %cmp8.not = icmp eq i64 %call77, 0
   br i1 %cmp8.not, label %return, label %for.body
 
 if.then:                                          ; preds = %lor.lhs.false, %entry
-  %valid_policy = getelementptr inbounds %struct.X509_POLICY_DATA_st, ptr %0, i64 0, i32 1
+  %valid_policy = getelementptr inbounds i8, ptr %0, i64 8
   %4 = load ptr, ptr %valid_policy, align 8
   %call = tail call i32 @OBJ_cmp(ptr noundef %4, ptr noundef %oid) #5
   %tobool4.not = icmp eq i32 %call, 0

@@ -43,7 +43,7 @@ arch_select_adler32_func.exit:                    ; preds = %entry, %if.then.i.i
   ret i32 %call1
 }
 
-; Function Attrs: nofree nosync nounwind memory(read, inaccessiblemem: none) uwtable
+; Function Attrs: nofree norecurse nosync nounwind memory(read, inaccessiblemem: none) uwtable
 define internal i32 @adler32_avx2(i32 noundef %adler, ptr noundef %p, i64 noundef %len) #1 {
 entry:
   %and = and i32 %adler, 65535
@@ -114,9 +114,9 @@ do.body.i:                                        ; preds = %do.body.i, %while.b
   %10 = phi <8 x i32> [ zeroinitializer, %while.body ], [ %add.i138, %do.body.i ]
   %11 = phi <8 x i32> [ zeroinitializer, %while.body ], [ %add.i124, %do.body.i ]
   %p.addr.i.0 = phi ptr [ %p.addr.283, %while.body ], [ %incdec.ptr5.i, %do.body.i ]
-  %incdec.ptr.i = getelementptr inbounds <4 x i64>, ptr %p.addr.i.0, i64 1
+  %incdec.ptr.i = getelementptr inbounds i8, ptr %p.addr.i.0, i64 32
   %12 = load <32 x i8>, ptr %p.addr.i.0, align 32
-  %incdec.ptr5.i = getelementptr inbounds <4 x i64>, ptr %p.addr.i.0, i64 2
+  %incdec.ptr5.i = getelementptr inbounds i8, ptr %p.addr.i.0, i64 64
   %13 = load <32 x i8>, ptr %incdec.ptr.i, align 32
   %add.i138 = add <8 x i32> %11, %10
   %14 = tail call <4 x i64> @llvm.x86.avx2.psad.bw(<32 x i8> %12, <32 x i8> zeroinitializer)
@@ -204,7 +204,7 @@ if.end42:                                         ; preds = %do.end39, %while.en
   ret i32 %or
 }
 
-; Function Attrs: nofree nosync nounwind memory(read, inaccessiblemem: none) uwtable
+; Function Attrs: nofree norecurse nosync nounwind memory(read, inaccessiblemem: none) uwtable
 define internal i32 @adler32_sse2(i32 noundef %adler, ptr noundef %p, i64 noundef %len) #2 {
 entry:
   %and = and i32 %adler, 65535
@@ -275,9 +275,9 @@ do.body.i:                                        ; preds = %do.body.i, %while.b
   %10 = phi <4 x i32> [ zeroinitializer, %while.body ], [ %add.i62.i, %do.body.i ]
   %11 = phi <4 x i32> [ zeroinitializer, %while.body ], [ %add.i56.i, %do.body.i ]
   %p.addr.i.0 = phi ptr [ %p.addr.281, %while.body ], [ %incdec.ptr5.i, %do.body.i ]
-  %incdec.ptr.i = getelementptr inbounds <2 x i64>, ptr %p.addr.i.0, i64 1
+  %incdec.ptr.i = getelementptr inbounds i8, ptr %p.addr.i.0, i64 16
   %12 = load <16 x i8>, ptr %p.addr.i.0, align 16
-  %incdec.ptr5.i = getelementptr inbounds <2 x i64>, ptr %p.addr.i.0, i64 2
+  %incdec.ptr5.i = getelementptr inbounds i8, ptr %p.addr.i.0, i64 32
   %13 = load <16 x i8>, ptr %incdec.ptr.i, align 16
   %add.i62.i = add <4 x i32> %11, %10
   %14 = tail call <2 x i64> @llvm.x86.sse2.psad.bw(<16 x i8> %12, <16 x i8> zeroinitializer)
@@ -377,8 +377,8 @@ declare <4 x i32> @llvm.x86.sse2.pmadd.wd(<8 x i16>, <8 x i16>) #4
 declare i64 @llvm.umin.i64(i64, i64) #5
 
 attributes #0 = { nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #1 = { nofree nosync nounwind memory(read, inaccessiblemem: none) uwtable "frame-pointer"="all" "min-legal-vector-width"="256" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+avx,+avx2,+cmov,+crc32,+cx8,+fxsr,+mmx,+popcnt,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+x87,+xsave" "tune-cpu"="generic" }
-attributes #2 = { nofree nosync nounwind memory(read, inaccessiblemem: none) uwtable "frame-pointer"="all" "min-legal-vector-width"="128" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #1 = { nofree norecurse nosync nounwind memory(read, inaccessiblemem: none) uwtable "frame-pointer"="all" "min-legal-vector-width"="256" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+avx,+avx2,+cmov,+crc32,+cx8,+fxsr,+mmx,+popcnt,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+x87,+xsave" "tune-cpu"="generic" }
+attributes #2 = { nofree norecurse nosync nounwind memory(read, inaccessiblemem: none) uwtable "frame-pointer"="all" "min-legal-vector-width"="128" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #3 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #4 = { mustprogress nocallback nofree nosync nounwind willreturn memory(none) }
 attributes #5 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }

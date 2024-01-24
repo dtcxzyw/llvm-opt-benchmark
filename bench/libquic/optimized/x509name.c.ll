@@ -3,17 +3,13 @@ source_filename = "bench/libquic/original/x509name.c.ll"
 target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:128-n8:16:32:64-S128"
 target triple = "x86_64-unknown-linux-gnu"
 
-%struct.X509_name_entry_st = type { ptr, ptr, i32, i32 }
-%struct.asn1_string_st = type { i32, i32, ptr, i64 }
-%struct.X509_name_st = type { ptr, i32, ptr, ptr, i32 }
-
 @.str = private unnamed_addr constant [126 x i8] c"generated/home/dtcxzyw/WorkSpace/Projects/compilers/llvm-opt-benchmark/bench/libquic/libquic/boringssl/crypto/x509/x509name.c\00", align 1
 @.str.1 = private unnamed_addr constant [6 x i8] c"name=\00", align 1
 
 ; Function Attrs: nounwind uwtable
 define hidden i32 @X509_NAME_get_text_by_NID(ptr noundef %name, i32 noundef %nid, ptr noundef %buf, i32 noundef %len) local_unnamed_addr #0 {
 entry:
-  %call = tail call ptr @OBJ_nid2obj(i32 noundef %nid) #6
+  %call = tail call ptr @OBJ_nid2obj(i32 noundef %nid) #7
   %cmp = icmp eq ptr %call, null
   br i1 %cmp, label %return, label %if.end
 
@@ -31,12 +27,12 @@ declare ptr @OBJ_nid2obj(i32 noundef) local_unnamed_addr #1
 ; Function Attrs: nounwind uwtable
 define hidden i32 @X509_NAME_get_text_by_OBJ(ptr noundef readonly %name, ptr noundef %obj, ptr noundef writeonly %buf, i32 noundef %len) local_unnamed_addr #0 {
 entry:
-  %cmp.i = icmp eq ptr %name, null
-  br i1 %cmp.i, label %return, label %if.end.i
+  %cmp.i.not = icmp eq ptr %name, null
+  br i1 %cmp.i.not, label %return, label %if.end.i
 
 if.end.i:                                         ; preds = %entry
   %0 = load ptr, ptr %name, align 8
-  %call.i = tail call i64 @sk_num(ptr noundef %0) #6
+  %call.i = tail call i64 @sk_num(ptr noundef %0) #7
   %sext.i = shl i64 %call.i, 32
   %1 = ashr exact i64 %sext.i, 32
   %smax = tail call i64 @llvm.smax.i64(i64 %1, i64 0)
@@ -50,46 +46,38 @@ for.cond.i:                                       ; preds = %for.body.i, %if.end
 
 for.body.i:                                       ; preds = %for.cond.i
   %indvars.iv.next.i = add nsw i64 %indvars.iv.i, 1
-  %call7.i = tail call ptr @sk_value(ptr noundef %0, i64 noundef %indvars.iv.next.i) #6
+  %call7.i = tail call ptr @sk_value(ptr noundef %0, i64 noundef %indvars.iv.next.i) #7
   %3 = load ptr, ptr %call7.i, align 8
-  %call8.i = tail call i32 @OBJ_cmp(ptr noundef %3, ptr noundef %obj) #6
+  %call8.i = tail call i32 @OBJ_cmp(ptr noundef %3, ptr noundef %obj) #7
   %cmp9.i = icmp eq i32 %call8.i, 0
   br i1 %cmp9.i, label %X509_NAME_get_index_by_OBJ.exit, label %for.cond.i, !llvm.loop !7
 
 X509_NAME_get_index_by_OBJ.exit:                  ; preds = %for.body.i
   %4 = and i64 %indvars.iv.next.i, 2147483648
   %cmp.not = icmp eq i64 %4, 0
-  br i1 %cmp.not, label %lor.lhs.false2.i, label %return
+  br i1 %cmp.not, label %if.end, label %return
 
-lor.lhs.false2.i:                                 ; preds = %X509_NAME_get_index_by_OBJ.exit
+if.end:                                           ; preds = %X509_NAME_get_index_by_OBJ.exit
   %5 = load ptr, ptr %name, align 8
-  %call.i13 = tail call i64 @sk_num(ptr noundef %5) #6
+  %call.i13 = tail call i64 @sk_num(ptr noundef %5) #7
   %conv.i = and i64 %indvars.iv.next.i, 2147483647
   %cmp3.not.i = icmp ugt i64 %call.i13, %conv.i
-  br i1 %cmp3.not.i, label %X509_NAME_get_entry.exit, label %X509_NAME_ENTRY_get_data.exit
-
-X509_NAME_get_entry.exit:                         ; preds = %lor.lhs.false2.i
+  tail call void @llvm.assume(i1 %cmp3.not.i)
   %6 = load ptr, ptr %name, align 8
-  %call7.i15 = tail call ptr @sk_value(ptr noundef %6, i64 noundef %conv.i) #6
-  %cmp.i16 = icmp eq ptr %call7.i15, null
-  br i1 %cmp.i16, label %X509_NAME_ENTRY_get_data.exit, label %if.end.i17
-
-if.end.i17:                                       ; preds = %X509_NAME_get_entry.exit
-  %value.i = getelementptr inbounds %struct.X509_name_entry_st, ptr %call7.i15, i64 0, i32 1
+  %call7.i15 = tail call ptr @sk_value(ptr noundef %6, i64 noundef %conv.i) #7
+  %cmp.i16 = icmp ne ptr %call7.i15, null
+  tail call void @llvm.assume(i1 %cmp.i16)
+  %value.i = getelementptr inbounds i8, ptr %call7.i15, i64 8
   %7 = load ptr, ptr %value.i, align 8
-  br label %X509_NAME_ENTRY_get_data.exit
-
-X509_NAME_ENTRY_get_data.exit:                    ; preds = %lor.lhs.false2.i, %X509_NAME_get_entry.exit, %if.end.i17
-  %retval.0.i18 = phi ptr [ %7, %if.end.i17 ], [ null, %X509_NAME_get_entry.exit ], [ null, %lor.lhs.false2.i ]
-  %8 = load i32, ptr %retval.0.i18, align 8
+  %8 = load i32, ptr %7, align 8
   %cmp6 = icmp eq ptr %buf, null
   br i1 %cmp6, label %return, label %if.end9
 
-if.end9:                                          ; preds = %X509_NAME_ENTRY_get_data.exit
+if.end9:                                          ; preds = %if.end
   %cmp3.not = icmp slt i32 %8, %len
   %sub = add nsw i32 %len, -1
   %cond = select i1 %cmp3.not, i32 %8, i32 %sub
-  %data10 = getelementptr inbounds %struct.asn1_string_st, ptr %retval.0.i18, i64 0, i32 2
+  %data10 = getelementptr inbounds i8, ptr %7, i64 8
   %9 = load ptr, ptr %data10, align 8
   %conv = sext i32 %cond to i64
   tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %buf, ptr align 1 %9, i64 %conv, i1 false)
@@ -97,8 +85,8 @@ if.end9:                                          ; preds = %X509_NAME_ENTRY_get
   store i8 0, ptr %arrayidx, align 1
   br label %return
 
-return:                                           ; preds = %for.cond.i, %entry, %X509_NAME_ENTRY_get_data.exit, %X509_NAME_get_index_by_OBJ.exit, %if.end9
-  %retval.0 = phi i32 [ %cond, %if.end9 ], [ -1, %X509_NAME_get_index_by_OBJ.exit ], [ %8, %X509_NAME_ENTRY_get_data.exit ], [ -1, %entry ], [ -1, %for.cond.i ]
+return:                                           ; preds = %for.cond.i, %entry, %if.end, %X509_NAME_get_index_by_OBJ.exit, %if.end9
+  %retval.0 = phi i32 [ %cond, %if.end9 ], [ -1, %X509_NAME_get_index_by_OBJ.exit ], [ %8, %if.end ], [ -1, %entry ], [ -1, %for.cond.i ]
   ret i32 %retval.0
 }
 
@@ -110,7 +98,7 @@ entry:
 
 if.end:                                           ; preds = %entry
   %0 = load ptr, ptr %name, align 8
-  %call = tail call i64 @sk_num(ptr noundef %0) #6
+  %call = tail call i64 @sk_num(ptr noundef %0) #7
   %1 = tail call i32 @llvm.smax.i32(i32 %lastpos, i32 -1)
   %smax = sext i32 %1 to i64
   %sext = shl i64 %call, 32
@@ -124,9 +112,9 @@ for.cond:                                         ; preds = %for.body, %if.end
   br i1 %cmp4, label %for.body, label %return
 
 for.body:                                         ; preds = %for.cond
-  %call7 = tail call ptr @sk_value(ptr noundef %0, i64 noundef %indvars.iv.next) #6
+  %call7 = tail call ptr @sk_value(ptr noundef %0, i64 noundef %indvars.iv.next) #7
   %3 = load ptr, ptr %call7, align 8
-  %call8 = tail call i32 @OBJ_cmp(ptr noundef %3, ptr noundef %obj) #6
+  %call8 = tail call i32 @OBJ_cmp(ptr noundef %3, ptr noundef %obj) #7
   %cmp9 = icmp eq i32 %call8, 0
   br i1 %cmp9, label %return.loopexit.split.loop.exit, label %for.cond, !llvm.loop !7
 
@@ -146,7 +134,7 @@ entry:
   br i1 %cmp, label %return, label %if.end
 
 if.end:                                           ; preds = %entry
-  %value = getelementptr inbounds %struct.X509_name_entry_st, ptr %ne, i64 0, i32 1
+  %value = getelementptr inbounds i8, ptr %ne, i64 8
   %0 = load ptr, ptr %value, align 8
   br label %return
 
@@ -165,14 +153,14 @@ entry:
 
 lor.lhs.false2:                                   ; preds = %entry
   %0 = load ptr, ptr %name, align 8
-  %call = tail call i64 @sk_num(ptr noundef %0) #6
+  %call = tail call i64 @sk_num(ptr noundef %0) #7
   %conv = zext nneg i32 %loc to i64
   %cmp3.not = icmp ugt i64 %call, %conv
   br i1 %cmp3.not, label %if.else, label %return
 
 if.else:                                          ; preds = %lor.lhs.false2
   %1 = load ptr, ptr %name, align 8
-  %call7 = tail call ptr @sk_value(ptr noundef %1, i64 noundef %conv) #6
+  %call7 = tail call ptr @sk_value(ptr noundef %1, i64 noundef %conv) #7
   br label %return
 
 return:                                           ; preds = %entry, %lor.lhs.false2, %if.else
@@ -191,7 +179,7 @@ entry:
 
 if.end:                                           ; preds = %entry
   %0 = load ptr, ptr %name, align 8
-  %call = tail call i64 @sk_num(ptr noundef %0) #6
+  %call = tail call i64 @sk_num(ptr noundef %0) #7
   %conv = trunc i64 %call to i32
   br label %return
 
@@ -205,7 +193,7 @@ declare i64 @sk_num(ptr noundef) local_unnamed_addr #1
 ; Function Attrs: nounwind uwtable
 define hidden i32 @X509_NAME_get_index_by_NID(ptr noundef readonly %name, i32 noundef %nid, i32 noundef %lastpos) local_unnamed_addr #0 {
 entry:
-  %call = tail call ptr @OBJ_nid2obj(i32 noundef %nid) #6
+  %call = tail call ptr @OBJ_nid2obj(i32 noundef %nid) #7
   %cmp = icmp eq ptr %call, null
   br i1 %cmp, label %return, label %if.end
 
@@ -215,7 +203,7 @@ if.end:                                           ; preds = %entry
 
 if.end.i:                                         ; preds = %if.end
   %0 = load ptr, ptr %name, align 8
-  %call.i = tail call i64 @sk_num(ptr noundef %0) #6
+  %call.i = tail call i64 @sk_num(ptr noundef %0) #7
   %1 = tail call i32 @llvm.smax.i32(i32 %lastpos, i32 -1)
   %smax.i = sext i32 %1 to i64
   %sext.i = shl i64 %call.i, 32
@@ -229,9 +217,9 @@ for.cond.i:                                       ; preds = %for.body.i, %if.end
   br i1 %cmp4.i, label %for.body.i, label %return
 
 for.body.i:                                       ; preds = %for.cond.i
-  %call7.i = tail call ptr @sk_value(ptr noundef %0, i64 noundef %indvars.iv.next.i) #6
+  %call7.i = tail call ptr @sk_value(ptr noundef %0, i64 noundef %indvars.iv.next.i) #7
   %3 = load ptr, ptr %call7.i, align 8
-  %call8.i = tail call i32 @OBJ_cmp(ptr noundef %3, ptr noundef nonnull %call) #6
+  %call8.i = tail call i32 @OBJ_cmp(ptr noundef %3, ptr noundef nonnull %call) #7
   %cmp9.i = icmp eq i32 %call8.i, 0
   br i1 %cmp9.i, label %return.loopexit.split.loop.exit.i, label %for.cond.i, !llvm.loop !7
 
@@ -258,17 +246,17 @@ entry:
 
 lor.lhs.false2:                                   ; preds = %entry
   %0 = load ptr, ptr %name, align 8
-  %call = tail call i64 @sk_num(ptr noundef %0) #6
+  %call = tail call i64 @sk_num(ptr noundef %0) #7
   %conv = zext nneg i32 %loc to i64
   %cmp3.not = icmp ugt i64 %call, %conv
   br i1 %cmp3.not, label %if.end, label %return
 
 if.end:                                           ; preds = %lor.lhs.false2
   %1 = load ptr, ptr %name, align 8
-  %call7 = tail call ptr @sk_delete(ptr noundef %1, i64 noundef %conv) #6
-  %call8 = tail call i64 @sk_num(ptr noundef %1) #6
+  %call7 = tail call ptr @sk_delete(ptr noundef %1, i64 noundef %conv) #7
+  %call8 = tail call i64 @sk_num(ptr noundef %1) #7
   %conv9 = trunc i64 %call8 to i32
-  %modified = getelementptr inbounds %struct.X509_name_st, ptr %name, i64 0, i32 1
+  %modified = getelementptr inbounds i8, ptr %name, i64 8
   store i32 1, ptr %modified, align 8
   %cmp10 = icmp eq i32 %conv9, %loc
   br i1 %cmp10, label %return, label %if.end13
@@ -280,21 +268,21 @@ if.end13:                                         ; preds = %if.end
 if.then16:                                        ; preds = %if.end13
   %sub = add nsw i32 %loc, -1
   %conv17 = zext nneg i32 %sub to i64
-  %call18 = tail call ptr @sk_value(ptr noundef %1, i64 noundef %conv17) #6
-  %set = getelementptr inbounds %struct.X509_name_entry_st, ptr %call18, i64 0, i32 2
+  %call18 = tail call ptr @sk_value(ptr noundef %1, i64 noundef %conv17) #7
+  %set = getelementptr inbounds i8, ptr %call18, i64 16
   %2 = load i32, ptr %set, align 8
   %3 = add nsw i32 %2, 1
   br label %if.end21
 
 if.else:                                          ; preds = %if.end13
-  %set19 = getelementptr inbounds %struct.X509_name_entry_st, ptr %call7, i64 0, i32 2
+  %set19 = getelementptr inbounds i8, ptr %call7, i64 16
   %4 = load i32, ptr %set19, align 8
   br label %if.end21
 
 if.end21:                                         ; preds = %if.else, %if.then16
   %set_prev.0 = phi i32 [ %3, %if.then16 ], [ %4, %if.else ]
-  %call23 = tail call ptr @sk_value(ptr noundef %1, i64 noundef %conv) #6
-  %set24 = getelementptr inbounds %struct.X509_name_entry_st, ptr %call23, i64 0, i32 2
+  %call23 = tail call ptr @sk_value(ptr noundef %1, i64 noundef %conv) #7
+  %set24 = getelementptr inbounds i8, ptr %call23, i64 16
   %5 = load i32, ptr %set24, align 8
   %cmp25 = icmp slt i32 %set_prev.0, %5
   %cmp2820 = icmp sgt i32 %conv9, %loc
@@ -307,8 +295,8 @@ for.body.preheader:                               ; preds = %if.end21
 
 for.body:                                         ; preds = %for.body.preheader, %for.body
   %indvars.iv = phi i64 [ %6, %for.body.preheader ], [ %indvars.iv.next, %for.body ]
-  %call31 = tail call ptr @sk_value(ptr noundef %1, i64 noundef %indvars.iv) #6
-  %set32 = getelementptr inbounds %struct.X509_name_entry_st, ptr %call31, i64 0, i32 2
+  %call31 = tail call ptr @sk_value(ptr noundef %1, i64 noundef %indvars.iv) #7
+  %set32 = getelementptr inbounds i8, ptr %call31, i64 16
   %7 = load i32, ptr %set32, align 8
   %dec = add nsw i32 %7, -1
   store i32 %dec, ptr %set32, align 8
@@ -327,7 +315,7 @@ declare ptr @sk_delete(ptr noundef, i64 noundef) local_unnamed_addr #1
 ; Function Attrs: nounwind uwtable
 define hidden noundef i32 @X509_NAME_add_entry_by_OBJ(ptr noundef %name, ptr noundef %obj, i32 noundef %type, ptr noundef %bytes, i32 noundef %len, i32 noundef %loc, i32 noundef %set) local_unnamed_addr #0 {
 entry:
-  %call.i = tail call ptr @X509_NAME_ENTRY_new() #6
+  %call.i = tail call ptr @X509_NAME_ENTRY_new() #7
   %cmp2.i = icmp eq ptr %call.i, null
   br i1 %cmp2.i, label %return, label %if.end4.i
 
@@ -336,13 +324,13 @@ if.end4.i:                                        ; preds = %entry
   br i1 %cmp1.i.i, label %X509_NAME_ENTRY_set_object.exit.thread.i, label %X509_NAME_ENTRY_set_object.exit.i
 
 X509_NAME_ENTRY_set_object.exit.thread.i:         ; preds = %if.end4.i
-  tail call void @ERR_put_error(i32 noundef 11, i32 noundef 0, i32 noundef 67, ptr noundef nonnull @.str, i32 noundef 341) #6
+  tail call void @ERR_put_error(i32 noundef 11, i32 noundef 0, i32 noundef 67, ptr noundef nonnull @.str, i32 noundef 341) #7
   br label %return.sink.split
 
 X509_NAME_ENTRY_set_object.exit.i:                ; preds = %if.end4.i
   %0 = load ptr, ptr %call.i, align 8
-  tail call void @ASN1_OBJECT_free(ptr noundef %0) #6
-  %call.i.i = tail call ptr @OBJ_dup(ptr noundef nonnull %obj) #6
+  tail call void @ASN1_OBJECT_free(ptr noundef %0) #7
+  %call.i.i = tail call ptr @OBJ_dup(ptr noundef nonnull %obj) #7
   store ptr %call.i.i, ptr %call.i, align 8
   %cmp4.i.not.i = icmp eq ptr %call.i.i, null
   br i1 %cmp4.i.not.i, label %return.sink.split, label %if.end7.i
@@ -358,7 +346,7 @@ if.end:                                           ; preds = %if.end7.i
 
 return.sink.split:                                ; preds = %X509_NAME_ENTRY_set_object.exit.thread.i, %X509_NAME_ENTRY_set_object.exit.i, %if.end7.i, %if.end
   %retval.0.ph = phi i32 [ %call1, %if.end ], [ 0, %if.end7.i ], [ 0, %X509_NAME_ENTRY_set_object.exit.i ], [ 0, %X509_NAME_ENTRY_set_object.exit.thread.i ]
-  tail call void @X509_NAME_ENTRY_free(ptr noundef nonnull %call.i) #6
+  tail call void @X509_NAME_ENTRY_free(ptr noundef nonnull %call.i) #7
   br label %return
 
 return:                                           ; preds = %return.sink.split, %entry
@@ -378,7 +366,7 @@ lor.lhs.false:                                    ; preds = %entry
   br i1 %cmp1, label %if.then, label %if.end4
 
 if.then:                                          ; preds = %lor.lhs.false, %entry
-  %call = tail call ptr @X509_NAME_ENTRY_new() #6
+  %call = tail call ptr @X509_NAME_ENTRY_new() #7
   %cmp2 = icmp eq ptr %call, null
   br i1 %cmp2, label %return, label %if.end4
 
@@ -388,13 +376,13 @@ if.end4:                                          ; preds = %lor.lhs.false, %if.
   br i1 %cmp1.i, label %X509_NAME_ENTRY_set_object.exit.thread, label %X509_NAME_ENTRY_set_object.exit
 
 X509_NAME_ENTRY_set_object.exit.thread:           ; preds = %if.end4
-  tail call void @ERR_put_error(i32 noundef 11, i32 noundef 0, i32 noundef 67, ptr noundef nonnull @.str, i32 noundef 341) #6
+  tail call void @ERR_put_error(i32 noundef 11, i32 noundef 0, i32 noundef 67, ptr noundef nonnull @.str, i32 noundef 341) #7
   br label %err
 
 X509_NAME_ENTRY_set_object.exit:                  ; preds = %if.end4
   %1 = load ptr, ptr %ret.0, align 8
-  tail call void @ASN1_OBJECT_free(ptr noundef %1) #6
-  %call.i = tail call ptr @OBJ_dup(ptr noundef nonnull %obj) #6
+  tail call void @ASN1_OBJECT_free(ptr noundef %1) #7
+  %call.i = tail call ptr @OBJ_dup(ptr noundef nonnull %obj) #7
   store ptr %call.i, ptr %ret.0, align 8
   %cmp4.i.not = icmp eq ptr %call.i, null
   br i1 %cmp4.i.not, label %err, label %if.end7
@@ -425,7 +413,7 @@ lor.lhs.false17:                                  ; preds = %err
   br i1 %cmp18.not, label %return, label %if.then19
 
 if.then19:                                        ; preds = %lor.lhs.false17, %err
-  tail call void @X509_NAME_ENTRY_free(ptr noundef nonnull %ret.0) #6
+  tail call void @X509_NAME_ENTRY_free(ptr noundef nonnull %ret.0) #7
   br label %return
 
 return:                                           ; preds = %lor.lhs.false17, %if.then19, %if.end11, %land.lhs.true, %if.then14, %if.then
@@ -441,12 +429,12 @@ entry:
 
 if.end:                                           ; preds = %entry
   %0 = load ptr, ptr %name, align 8
-  %call = tail call i64 @sk_num(ptr noundef %0) #6
+  %call = tail call i64 @sk_num(ptr noundef %0) #7
   %conv = trunc i64 %call to i32
   %cmp4 = icmp slt i32 %loc, 0
   %1 = tail call i32 @llvm.smin.i32(i32 %conv, i32 %loc)
   %loc.addr.0 = select i1 %cmp4, i32 %conv, i32 %1
-  %modified = getelementptr inbounds %struct.X509_name_st, ptr %name, i64 0, i32 1
+  %modified = getelementptr inbounds i8, ptr %name, i64 8
   store i32 1, ptr %modified, align 8
   %cmp9 = icmp eq i32 %set, -1
   br i1 %cmp9, label %if.then11, label %if.else20
@@ -458,8 +446,8 @@ if.then11:                                        ; preds = %if.end
 if.else15:                                        ; preds = %if.then11
   %sub = add nsw i32 %loc.addr.0, -1
   %conv16 = sext i32 %sub to i64
-  %call17 = tail call ptr @sk_value(ptr noundef %0, i64 noundef %conv16) #6
-  %set18 = getelementptr inbounds %struct.X509_name_entry_st, ptr %call17, i64 0, i32 2
+  %call17 = tail call ptr @sk_value(ptr noundef %0, i64 noundef %conv16) #7
+  %set18 = getelementptr inbounds i8, ptr %call17, i64 16
   %2 = load i32, ptr %set18, align 8
   br label %if.end40
 
@@ -474,16 +462,16 @@ if.then23:                                        ; preds = %if.else20
 if.then26:                                        ; preds = %if.then23
   %sub27 = add nsw i32 %loc.addr.0, -1
   %conv28 = sext i32 %sub27 to i64
-  %call29 = tail call ptr @sk_value(ptr noundef %0, i64 noundef %conv28) #6
-  %set30 = getelementptr inbounds %struct.X509_name_entry_st, ptr %call29, i64 0, i32 2
+  %call29 = tail call ptr @sk_value(ptr noundef %0, i64 noundef %conv28) #7
+  %set30 = getelementptr inbounds i8, ptr %call29, i64 16
   %3 = load i32, ptr %set30, align 8
   %add = add nsw i32 %3, 1
   br label %if.end37
 
 if.else33:                                        ; preds = %if.else20
   %conv34 = sext i32 %loc.addr.0 to i64
-  %call35 = tail call ptr @sk_value(ptr noundef %0, i64 noundef %conv34) #6
-  %set36 = getelementptr inbounds %struct.X509_name_entry_st, ptr %call35, i64 0, i32 2
+  %call35 = tail call ptr @sk_value(ptr noundef %0, i64 noundef %conv34) #7
+  %set36 = getelementptr inbounds i8, ptr %call35, i64 16
   %4 = load i32, ptr %set36, align 8
   br label %if.end37
 
@@ -495,15 +483,15 @@ if.end37:                                         ; preds = %if.then23, %if.then
 if.end40:                                         ; preds = %if.then11, %if.else15, %if.end37
   %set.addr.1 = phi i32 [ %2, %if.else15 ], [ %set.addr.0, %if.end37 ], [ 0, %if.then11 ]
   %inc.0 = phi i1 [ true, %if.else15 ], [ %cmp38, %if.end37 ], [ false, %if.then11 ]
-  %call41 = tail call ptr @X509_NAME_ENTRY_dup(ptr noundef %ne) #6
+  %call41 = tail call ptr @X509_NAME_ENTRY_dup(ptr noundef %ne) #7
   %cond = icmp eq ptr %call41, null
   br i1 %cond, label %return, label %if.end45
 
 if.end45:                                         ; preds = %if.end40
-  %set46 = getelementptr inbounds %struct.X509_name_entry_st, ptr %call41, i64 0, i32 2
+  %set46 = getelementptr inbounds i8, ptr %call41, i64 16
   store i32 %set.addr.1, ptr %set46, align 8
   %conv47 = sext i32 %loc.addr.0 to i64
-  %call48 = tail call i64 @sk_insert(ptr noundef %0, ptr noundef nonnull %call41, i64 noundef %conv47) #6
+  %call48 = tail call i64 @sk_insert(ptr noundef %0, ptr noundef nonnull %call41, i64 noundef %conv47) #7
   %tobool.not = icmp eq i64 %call48, 0
   br i1 %tobool.not, label %if.then67, label %if.end50
 
@@ -511,7 +499,7 @@ if.end50:                                         ; preds = %if.end45
   br i1 %inc.0, label %return, label %if.then52
 
 if.then52:                                        ; preds = %if.end50
-  %call53 = tail call i64 @sk_num(ptr noundef %0) #6
+  %call53 = tail call i64 @sk_num(ptr noundef %0) #7
   %conv54 = trunc i64 %call53 to i32
   %i.029 = add nsw i32 %loc.addr.0, 1
   %cmp5630 = icmp slt i32 %i.029, %conv54
@@ -525,8 +513,8 @@ for.body:                                         ; preds = %for.body.preheader,
   %indvars.iv = phi i64 [ %5, %for.body.preheader ], [ %indvars.iv.next, %for.body ]
   %i.0.in31 = phi i32 [ %loc.addr.0, %for.body.preheader ], [ %7, %for.body ]
   %conv59 = sext i32 %i.0.in31 to i64
-  %call60 = tail call ptr @sk_value(ptr noundef %0, i64 noundef %conv59) #6
-  %set61 = getelementptr inbounds %struct.X509_name_entry_st, ptr %call60, i64 0, i32 2
+  %call60 = tail call ptr @sk_value(ptr noundef %0, i64 noundef %conv59) #7
+  %set61 = getelementptr inbounds i8, ptr %call60, i64 16
   %6 = load i32, ptr %set61, align 8
   %add62 = add nsw i32 %6, 1
   store i32 %add62, ptr %set61, align 8
@@ -537,8 +525,8 @@ for.body:                                         ; preds = %for.body.preheader,
   br i1 %exitcond.not, label %return, label %for.body, !llvm.loop !11
 
 if.then67:                                        ; preds = %if.end45
-  tail call void @ERR_put_error(i32 noundef 11, i32 noundef 0, i32 noundef 65, ptr noundef nonnull @.str, i32 noundef 264) #6
-  tail call void @X509_NAME_ENTRY_free(ptr noundef nonnull %call41) #6
+  tail call void @ERR_put_error(i32 noundef 11, i32 noundef 0, i32 noundef 65, ptr noundef nonnull @.str, i32 noundef 264) #7
+  tail call void @X509_NAME_ENTRY_free(ptr noundef nonnull %call41) #7
   br label %return
 
 return:                                           ; preds = %for.body, %if.then52, %if.end40, %if.then67, %if.end50, %entry
@@ -557,7 +545,7 @@ entry:
 
 if.end:                                           ; preds = %entry
   %call1 = tail call i32 @X509_NAME_add_entry(ptr noundef %name, ptr noundef nonnull %call, i32 noundef %loc, i32 noundef %set), !range !10
-  tail call void @X509_NAME_ENTRY_free(ptr noundef nonnull %call) #6
+  tail call void @X509_NAME_ENTRY_free(ptr noundef nonnull %call) #7
   br label %return
 
 return:                                           ; preds = %entry, %if.end
@@ -568,12 +556,12 @@ return:                                           ; preds = %entry, %if.end
 ; Function Attrs: nounwind uwtable
 define hidden noundef ptr @X509_NAME_ENTRY_create_by_NID(ptr noundef %ne, i32 noundef %nid, i32 noundef %type, ptr noundef %bytes, i32 noundef %len) local_unnamed_addr #0 {
 entry:
-  %call = tail call ptr @OBJ_nid2obj(i32 noundef %nid) #6
+  %call = tail call ptr @OBJ_nid2obj(i32 noundef %nid) #7
   %cmp = icmp eq ptr %call, null
   br i1 %cmp, label %if.then, label %if.end
 
 if.then:                                          ; preds = %entry
-  tail call void @ERR_put_error(i32 noundef 11, i32 noundef 0, i32 noundef 129, ptr noundef nonnull @.str, i32 noundef 304) #6
+  tail call void @ERR_put_error(i32 noundef 11, i32 noundef 0, i32 noundef 129, ptr noundef nonnull @.str, i32 noundef 304) #7
   br label %return
 
 if.end:                                           ; preds = %entry
@@ -586,15 +574,15 @@ lor.lhs.false.i:                                  ; preds = %if.end
   br i1 %cmp1.i, label %if.then.i, label %X509_NAME_ENTRY_set_object.exit.i
 
 if.then.i:                                        ; preds = %lor.lhs.false.i, %if.end
-  %call.i = tail call ptr @X509_NAME_ENTRY_new() #6
+  %call.i = tail call ptr @X509_NAME_ENTRY_new() #7
   %cmp2.i = icmp eq ptr %call.i, null
   br i1 %cmp2.i, label %return, label %X509_NAME_ENTRY_set_object.exit.i
 
 X509_NAME_ENTRY_set_object.exit.i:                ; preds = %lor.lhs.false.i, %if.then.i
   %ret.0.i = phi ptr [ %call.i, %if.then.i ], [ %0, %lor.lhs.false.i ]
   %1 = load ptr, ptr %ret.0.i, align 8
-  tail call void @ASN1_OBJECT_free(ptr noundef %1) #6
-  %call.i.i = tail call ptr @OBJ_dup(ptr noundef nonnull %call) #6
+  tail call void @ASN1_OBJECT_free(ptr noundef %1) #7
+  %call.i.i = tail call ptr @OBJ_dup(ptr noundef nonnull %call) #7
   store ptr %call.i.i, ptr %ret.0.i, align 8
   %cmp4.i.not.i = icmp eq ptr %call.i.i, null
   br i1 %cmp4.i.not.i, label %err.i, label %if.end7.i
@@ -625,7 +613,7 @@ lor.lhs.false17.i:                                ; preds = %err.i
   br i1 %cmp18.not.i, label %return, label %if.then19.i
 
 if.then19.i:                                      ; preds = %lor.lhs.false17.i, %err.i
-  tail call void @X509_NAME_ENTRY_free(ptr noundef nonnull %ret.0.i) #6
+  tail call void @X509_NAME_ENTRY_free(ptr noundef nonnull %ret.0.i) #7
   br label %return
 
 return:                                           ; preds = %if.then19.i, %lor.lhs.false17.i, %if.then14.i, %land.lhs.true.i, %if.end11.i, %if.then.i, %if.then
@@ -642,7 +630,7 @@ entry:
 
 if.end:                                           ; preds = %entry
   %call1 = tail call i32 @X509_NAME_add_entry(ptr noundef %name, ptr noundef nonnull %call, i32 noundef %loc, i32 noundef %set), !range !10
-  tail call void @X509_NAME_ENTRY_free(ptr noundef nonnull %call) #6
+  tail call void @X509_NAME_ENTRY_free(ptr noundef nonnull %call) #7
   br label %return
 
 return:                                           ; preds = %entry, %if.end
@@ -653,13 +641,13 @@ return:                                           ; preds = %entry, %if.end
 ; Function Attrs: nounwind uwtable
 define hidden noundef ptr @X509_NAME_ENTRY_create_by_txt(ptr noundef %ne, ptr noundef %field, i32 noundef %type, ptr noundef %bytes, i32 noundef %len) local_unnamed_addr #0 {
 entry:
-  %call = tail call ptr @OBJ_txt2obj(ptr noundef %field, i32 noundef 0) #6
+  %call = tail call ptr @OBJ_txt2obj(ptr noundef %field, i32 noundef 0) #7
   %cmp = icmp eq ptr %call, null
   br i1 %cmp, label %if.then, label %if.end
 
 if.then:                                          ; preds = %entry
-  tail call void @ERR_put_error(i32 noundef 11, i32 noundef 0, i32 noundef 111, ptr noundef nonnull @.str, i32 noundef 289) #6
-  tail call void (i32, ...) @ERR_add_error_data(i32 noundef 2, ptr noundef nonnull @.str.1, ptr noundef %field) #6
+  tail call void @ERR_put_error(i32 noundef 11, i32 noundef 0, i32 noundef 111, ptr noundef nonnull @.str, i32 noundef 289) #7
+  tail call void (i32, ...) @ERR_add_error_data(i32 noundef 2, ptr noundef nonnull @.str.1, ptr noundef %field) #7
   br label %return
 
 if.end:                                           ; preds = %entry
@@ -672,15 +660,15 @@ lor.lhs.false.i:                                  ; preds = %if.end
   br i1 %cmp1.i, label %if.then.i, label %X509_NAME_ENTRY_set_object.exit.i
 
 if.then.i:                                        ; preds = %lor.lhs.false.i, %if.end
-  %call.i = tail call ptr @X509_NAME_ENTRY_new() #6
+  %call.i = tail call ptr @X509_NAME_ENTRY_new() #7
   %cmp2.i = icmp eq ptr %call.i, null
   br i1 %cmp2.i, label %X509_NAME_ENTRY_create_by_OBJ.exit, label %X509_NAME_ENTRY_set_object.exit.i
 
 X509_NAME_ENTRY_set_object.exit.i:                ; preds = %lor.lhs.false.i, %if.then.i
   %ret.0.i = phi ptr [ %call.i, %if.then.i ], [ %0, %lor.lhs.false.i ]
   %1 = load ptr, ptr %ret.0.i, align 8
-  tail call void @ASN1_OBJECT_free(ptr noundef %1) #6
-  %call.i.i = tail call ptr @OBJ_dup(ptr noundef nonnull %call) #6
+  tail call void @ASN1_OBJECT_free(ptr noundef %1) #7
+  %call.i.i = tail call ptr @OBJ_dup(ptr noundef nonnull %call) #7
   store ptr %call.i.i, ptr %ret.0.i, align 8
   %cmp4.i.not.i = icmp eq ptr %call.i.i, null
   br i1 %cmp4.i.not.i, label %err.i, label %if.end7.i
@@ -711,12 +699,12 @@ lor.lhs.false17.i:                                ; preds = %err.i
   br i1 %cmp18.not.i, label %X509_NAME_ENTRY_create_by_OBJ.exit, label %if.then19.i
 
 if.then19.i:                                      ; preds = %lor.lhs.false17.i, %err.i
-  tail call void @X509_NAME_ENTRY_free(ptr noundef nonnull %ret.0.i) #6
+  tail call void @X509_NAME_ENTRY_free(ptr noundef nonnull %ret.0.i) #7
   br label %X509_NAME_ENTRY_create_by_OBJ.exit
 
 X509_NAME_ENTRY_create_by_OBJ.exit:               ; preds = %if.then.i, %if.end11.i, %land.lhs.true.i, %if.then14.i, %lor.lhs.false17.i, %if.then19.i
   %retval.0.i = phi ptr [ null, %if.then.i ], [ %ret.0.i, %if.then14.i ], [ %ret.0.i, %land.lhs.true.i ], [ %ret.0.i, %if.end11.i ], [ null, %if.then19.i ], [ null, %lor.lhs.false17.i ]
-  tail call void @ASN1_OBJECT_free(ptr noundef nonnull %call) #6
+  tail call void @ASN1_OBJECT_free(ptr noundef nonnull %call) #7
   br label %return
 
 return:                                           ; preds = %X509_NAME_ENTRY_create_by_OBJ.exit, %if.then
@@ -747,13 +735,13 @@ entry:
   br i1 %or.cond, label %if.then, label %if.end
 
 if.then:                                          ; preds = %entry
-  tail call void @ERR_put_error(i32 noundef 11, i32 noundef 0, i32 noundef 67, ptr noundef nonnull @.str, i32 noundef 341) #6
+  tail call void @ERR_put_error(i32 noundef 11, i32 noundef 0, i32 noundef 67, ptr noundef nonnull @.str, i32 noundef 341) #7
   br label %return
 
 if.end:                                           ; preds = %entry
   %0 = load ptr, ptr %ne, align 8
-  tail call void @ASN1_OBJECT_free(ptr noundef %0) #6
-  %call = tail call ptr @OBJ_dup(ptr noundef nonnull %obj) #6
+  tail call void @ASN1_OBJECT_free(ptr noundef %0) #7
+  %call = tail call ptr @OBJ_dup(ptr noundef nonnull %obj) #7
   store ptr %call, ptr %ne, align 8
   %cmp4 = icmp ne ptr %call, null
   %cond = zext i1 %cmp4 to i32
@@ -784,10 +772,10 @@ if.end:                                           ; preds = %lor.lhs.false
   br i1 %or.cond19, label %if.end8, label %if.then5
 
 if.then5:                                         ; preds = %if.end
-  %value = getelementptr inbounds %struct.X509_name_entry_st, ptr %ne, i64 0, i32 1
+  %value = getelementptr inbounds i8, ptr %ne, i64 8
   %0 = load ptr, ptr %ne, align 8
-  %call = tail call i32 @OBJ_obj2nid(ptr noundef %0) #6
-  %call6 = tail call ptr @ASN1_STRING_set_by_NID(ptr noundef nonnull %value, ptr noundef %bytes, i32 noundef %len, i32 noundef %type, i32 noundef %call) #6
+  %call = tail call i32 @OBJ_obj2nid(ptr noundef %0) #7
+  %call6 = tail call ptr @ASN1_STRING_set_by_NID(ptr noundef nonnull %value, ptr noundef %bytes, i32 noundef %len, i32 noundef %type, i32 noundef %call) #7
   %tobool7.not = icmp ne ptr %call6, null
   %cond = zext i1 %tobool7.not to i32
   br label %return
@@ -797,15 +785,15 @@ if.end8:                                          ; preds = %if.end
   br i1 %cmp9, label %if.then10, label %if.end12
 
 if.then10:                                        ; preds = %if.end8
-  %call11 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %bytes) #7
+  %call11 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %bytes) #8
   %conv = trunc i64 %call11 to i32
   br label %if.end12
 
 if.end12:                                         ; preds = %if.then10, %if.end8
   %len.addr.0 = phi i32 [ %conv, %if.then10 ], [ %len, %if.end8 ]
-  %value13 = getelementptr inbounds %struct.X509_name_entry_st, ptr %ne, i64 0, i32 1
+  %value13 = getelementptr inbounds i8, ptr %ne, i64 8
   %1 = load ptr, ptr %value13, align 8
-  %call14 = tail call i32 @ASN1_STRING_set(ptr noundef %1, ptr noundef %bytes, i32 noundef %len.addr.0) #6
+  %call14 = tail call i32 @ASN1_STRING_set(ptr noundef %1, ptr noundef %bytes, i32 noundef %len.addr.0) #7
   %tobool15.not = icmp eq i32 %call14, 0
   br i1 %tobool15.not, label %return, label %if.end17
 
@@ -816,15 +804,15 @@ if.end17:                                         ; preds = %if.end12
   ]
 
 if.then23:                                        ; preds = %if.end17
-  %call24 = tail call i32 @ASN1_PRINTABLE_type(ptr noundef %bytes, i32 noundef %len.addr.0) #6
+  %call24 = tail call i32 @ASN1_PRINTABLE_type(ptr noundef %bytes, i32 noundef %len.addr.0) #7
   %2 = load ptr, ptr %value13, align 8
-  %type26 = getelementptr inbounds %struct.asn1_string_st, ptr %2, i64 0, i32 1
+  %type26 = getelementptr inbounds i8, ptr %2, i64 4
   store i32 %call24, ptr %type26, align 4
   br label %return
 
 if.else:                                          ; preds = %if.end17
   %3 = load ptr, ptr %value13, align 8
-  %type28 = getelementptr inbounds %struct.asn1_string_st, ptr %3, i64 0, i32 1
+  %type28 = getelementptr inbounds i8, ptr %3, i64 4
   store i32 %type, ptr %type28, align 4
   br label %return
 
@@ -867,6 +855,9 @@ declare i32 @llvm.smax.i32(i32, i32) #5
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i64 @llvm.smax.i64(i64, i64) #5
 
+; Function Attrs: nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: write)
+declare void @llvm.assume(i1 noundef) #6
+
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i32 @llvm.smin.i32(i32, i32) #5
 
@@ -876,8 +867,9 @@ attributes #2 = { mustprogress nofree norecurse nosync nounwind willreturn memor
 attributes #3 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
 attributes #4 = { mustprogress nofree nounwind willreturn memory(argmem: read) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #5 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
-attributes #6 = { nounwind }
-attributes #7 = { nounwind willreturn memory(read) }
+attributes #6 = { nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: write) }
+attributes #7 = { nounwind }
+attributes #8 = { nounwind willreturn memory(read) }
 
 !llvm.module.flags = !{!0, !1, !2, !3, !4, !5, !6}
 

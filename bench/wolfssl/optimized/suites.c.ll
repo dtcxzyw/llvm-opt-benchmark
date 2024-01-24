@@ -106,13 +106,13 @@ entry:
   %myArgv = alloca [3 x ptr], align 16
   %puts = tail call i32 @puts(ptr nonnull dereferenceable(1) @str)
   store ptr %argv0, ptr %myArgv, align 16
-  %arrayidx2 = getelementptr inbounds [3 x [80 x i8]], ptr %argv0, i64 0, i64 1
-  %arrayidx4 = getelementptr inbounds [3 x ptr], ptr %myArgv, i64 0, i64 1
+  %arrayidx2 = getelementptr inbounds i8, ptr %argv0, i64 80
+  %arrayidx4 = getelementptr inbounds i8, ptr %myArgv, i64 8
   store ptr %arrayidx2, ptr %arrayidx4, align 8
-  %arrayidx5 = getelementptr inbounds [3 x [80 x i8]], ptr %argv0, i64 0, i64 2
-  %arrayidx7 = getelementptr inbounds [3 x ptr], ptr %myArgv, i64 0, i64 2
+  %arrayidx5 = getelementptr inbounds i8, ptr %argv0, i64 160
+  %arrayidx7 = getelementptr inbounds i8, ptr %myArgv, i64 16
   store ptr %arrayidx5, ptr %arrayidx7, align 16
-  %argv9 = getelementptr inbounds %struct.func_args, ptr %args, i64 0, i32 1
+  %argv9 = getelementptr inbounds i8, ptr %args, i64 8
   store ptr %myArgv, ptr %argv9, align 8
   %call12 = call i64 @wc_strlcpy(ptr noundef nonnull %argv0, ptr noundef nonnull @.str.1, i64 noundef 80) #16
   %call13 = call ptr @wolfSSLv23_client_method() #16
@@ -127,7 +127,7 @@ if.then:                                          ; preds = %entry
 
 if.end:                                           ; preds = %entry
   %cmp16 = icmp sgt i32 %argc, 1
-  %return_code20 = getelementptr inbounds %struct.func_args, ptr %args, i64 0, i32 2
+  %return_code20 = getelementptr inbounds i8, ptr %args, i64 16
   br i1 %cmp16, label %if.then17, label %if.end27
 
 if.then17:                                        ; preds = %if.end
@@ -307,9 +307,9 @@ if.then:                                          ; preds = %entry
   br label %if.end10
 
 if.end10.thread:                                  ; preds = %entry
-  %argv = getelementptr inbounds %struct.func_args, ptr %vargs, i64 0, i32 1
+  %argv = getelementptr inbounds i8, ptr %vargs, i64 8
   %1 = load ptr, ptr %argv, align 8
-  %arrayidx = getelementptr inbounds ptr, ptr %1, i64 2
+  %arrayidx = getelementptr inbounds i8, ptr %1, i64 16
   %2 = load ptr, ptr %arrayidx, align 8
   br label %if.then13
 
@@ -328,9 +328,9 @@ if.end10:                                         ; preds = %if.then, %if.else4
 
 if.then13:                                        ; preds = %if.end10.thread, %if.end10
   %addArgs.0102 = phi ptr [ %2, %if.end10.thread ], [ null, %if.end10 ]
-  %argv14 = getelementptr inbounds %struct.func_args, ptr %vargs, i64 0, i32 1
+  %argv14 = getelementptr inbounds i8, ptr %vargs, i64 8
   %4 = load ptr, ptr %argv14, align 8
-  %arrayidx15 = getelementptr inbounds ptr, ptr %4, i64 1
+  %arrayidx15 = getelementptr inbounds i8, ptr %4, i64 8
   %5 = load ptr, ptr %arrayidx15, align 8
   br label %if.end16
 
@@ -412,7 +412,7 @@ land.rhs.lr.ph:                                   ; preds = %if.end52
   %arrayidx61 = getelementptr inbounds i8, ptr %call46, i64 %call31
   store i8 0, ptr %arrayidx61, align 1
   store ptr %call46, ptr %cursor, align 8
-  %argv62 = getelementptr inbounds %struct.func_args, ptr %vargs, i64 0, i32 1
+  %argv62 = getelementptr inbounds i8, ptr %vargs, i64 8
   %16 = load ptr, ptr %argv62, align 8
   %17 = load ptr, ptr %16, align 8
   store ptr %17, ptr %svrArgs, align 16
@@ -617,7 +617,7 @@ while.end:                                        ; preds = %if.end190, %land.rh
 
 return:                                           ; preds = %while.end, %if.then55, %if.then48, %if.then40, %if.then33, %if.then25, %if.then19, %if.then7
   %.sink = phi i32 [ 0, %while.end ], [ 1, %if.then55 ], [ 1, %if.then48 ], [ 1, %if.then40 ], [ 1, %if.then33 ], [ 1, %if.then25 ], [ 1, %if.then19 ], [ 1, %if.then7 ]
-  %return_code191 = getelementptr inbounds %struct.func_args, ptr %vargs, i64 0, i32 2
+  %return_code191 = getelementptr inbounds i8, ptr %vargs, i64 16
   store i32 %.sink, ptr %return_code191, align 8
   ret void
 }
@@ -670,18 +670,18 @@ entry:
   %commandLine = alloca [240 x i8], align 16
   %cipherSuite = alloca [201 x i8], align 16
   store i32 %cli_argc, ptr %cliArgs, align 8
-  %argv = getelementptr inbounds %struct.func_args, ptr %cliArgs, i64 0, i32 1
+  %argv = getelementptr inbounds i8, ptr %cliArgs, i64 8
   store ptr %cli_argv, ptr %argv, align 8
-  %return_code = getelementptr inbounds %struct.func_args, ptr %cliArgs, i64 0, i32 2
+  %return_code = getelementptr inbounds i8, ptr %cliArgs, i64 16
   store i32 0, ptr %return_code, align 8
-  %signal = getelementptr inbounds %struct.func_args, ptr %cliArgs, i64 0, i32 3
+  %signal = getelementptr inbounds i8, ptr %cliArgs, i64 24
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %signal, i8 0, i64 16, i1 false)
   store i32 %svr_argc, ptr %svrArgs, align 8
-  %argv2 = getelementptr inbounds %struct.func_args, ptr %svrArgs, i64 0, i32 1
+  %argv2 = getelementptr inbounds i8, ptr %svrArgs, i64 8
   store ptr %svr_argv, ptr %argv2, align 8
-  %return_code3 = getelementptr inbounds %struct.func_args, ptr %svrArgs, i64 0, i32 2
+  %return_code3 = getelementptr inbounds i8, ptr %svrArgs, i64 16
   store i32 0, ptr %return_code3, align 8
-  %signal4 = getelementptr inbounds %struct.func_args, ptr %svrArgs, i64 0, i32 3
+  %signal4 = getelementptr inbounds i8, ptr %svrArgs, i64 24
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %signal4, i8 0, i64 16, i1 false)
   store i8 0, ptr %commandLine, align 16
   %cmp128 = icmp sgt i32 %svr_argc, 0
@@ -885,7 +885,7 @@ if.else68:                                        ; preds = %if.end62
   store i32 %inc74, ptr %svrArgs, align 8
   %10 = sext i32 %9 to i64
   %11 = getelementptr ptr, ptr %svr_argv, i64 %10
-  %arrayidx76 = getelementptr ptr, ptr %11, i64 1
+  %arrayidx76 = getelementptr i8, ptr %11, i64 8
   store ptr @svrPort, ptr %arrayidx76, align 8
   br label %if.end77
 
@@ -911,7 +911,7 @@ if.else85:                                        ; preds = %if.then79
   store i32 %inc91, ptr %svrArgs, align 8
   %12 = sext i32 %.pre144 to i64
   %13 = getelementptr ptr, ptr %svr_argv, i64 %12
-  %arrayidx93 = getelementptr ptr, ptr %13, i64 1
+  %arrayidx93 = getelementptr i8, ptr %13, i64 8
   store ptr @forceDefCipherListFlag, ptr %arrayidx93, align 8
   br label %if.end95
 
@@ -954,11 +954,11 @@ for.end118:                                       ; preds = %if.end109, %if.end9
   %call123 = call ptr @strstr(ptr noundef nonnull dereferenceable(1) %commandLine, ptr noundef nonnull dereferenceable(1) @exitWithRetFlag) #20
   %cmp124.not = icmp eq ptr %call123, null
   store i16 0, ptr %ready, align 8
-  %port.i = getelementptr inbounds %struct.tcp_ready, ptr %ready, i64 0, i32 1
+  %port.i = getelementptr inbounds i8, ptr %ready, i64 2
   store i16 0, ptr %port.i, align 2
-  %srfName.i = getelementptr inbounds %struct.tcp_ready, ptr %ready, i64 0, i32 2
+  %srfName.i = getelementptr inbounds i8, ptr %ready, i64 8
   store ptr null, ptr %srfName.i, align 8
-  %mutex.i = getelementptr inbounds %struct.tcp_ready, ptr %ready, i64 0, i32 3
+  %mutex.i = getelementptr inbounds i8, ptr %ready, i64 16
   %call.i76 = call i32 @wc_InitMutex(ptr noundef nonnull %mutex.i) #16
   %cmp.not.i = icmp eq i32 %call.i76, 0
   br i1 %cmp.not.i, label %do.body4.i, label %if.then.i
@@ -972,7 +972,7 @@ if.then.i:                                        ; preds = %for.end118
   unreachable
 
 do.body4.i:                                       ; preds = %for.end118
-  %cond.i = getelementptr inbounds %struct.tcp_ready, ptr %ready, i64 0, i32 4
+  %cond.i = getelementptr inbounds i8, ptr %ready, i64 56
   %call6.i = call i32 @wolfSSL_CondInit(ptr noundef nonnull %cond.i) #16
   %cmp7.not.i = icmp eq i32 %call6.i, 0
   br i1 %cmp7.not.i, label %InitTcpReady.exit, label %if.then8.i
@@ -1053,7 +1053,7 @@ if.else164:                                       ; preds = %if.then157
   store i32 %inc173, ptr %cliArgs, align 8
   %25 = sext i32 %23 to i64
   %26 = getelementptr ptr, ptr %cli_argv, i64 %25
-  %arrayidx175 = getelementptr ptr, ptr %26, i64 1
+  %arrayidx175 = getelementptr i8, ptr %26, i64 8
   store ptr @execute_test_case.portNumber, ptr %arrayidx175, align 8
   br label %if.end177
 
@@ -1079,7 +1079,7 @@ if.else186:                                       ; preds = %if.then179
   store i32 %inc192, ptr %cliArgs, align 8
   %28 = sext i32 %27 to i64
   %29 = getelementptr ptr, ptr %cli_argv, i64 %28
-  %arrayidx194 = getelementptr ptr, ptr %29, i64 1
+  %arrayidx194 = getelementptr i8, ptr %29, i64 8
   store ptr @forceDefCipherListFlag, ptr %arrayidx194, align 8
   br label %if.end196
 

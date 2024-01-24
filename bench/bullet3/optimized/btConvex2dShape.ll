@@ -3,10 +3,6 @@ source_filename = "bench/bullet3/original/btConvex2dShape.ll"
 target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:128-n8:16:32:64-S128"
 target triple = "x86_64-unknown-linux-gnu"
 
-%class.btConvex2dShape = type { %class.btConvexShape, ptr }
-%class.btConvexShape = type { %class.btCollisionShape }
-%class.btCollisionShape = type { ptr, i32, ptr, i32, i32 }
-
 $_ZNK15btConvex2dShape7getNameEv = comdat any
 
 $_ZNK16btCollisionShape38getAnisotropicRollingFrictionDirectionEv = comdat any
@@ -31,9 +27,9 @@ define dso_local void @_ZN15btConvex2dShapeC2EP13btConvexShape(ptr noundef nonnu
 entry:
   tail call void @_ZN13btConvexShapeC2Ev(ptr noundef nonnull align 8 dereferenceable(32) %this)
   store ptr getelementptr inbounds ({ [25 x ptr] }, ptr @_ZTV15btConvex2dShape, i64 0, inrange i32 0, i64 2), ptr %this, align 8
-  %m_childConvexShape = getelementptr inbounds %class.btConvex2dShape, ptr %this, i64 0, i32 1
+  %m_childConvexShape = getelementptr inbounds i8, ptr %this, i64 32
   store ptr %convexChildShape, ptr %m_childConvexShape, align 8
-  %m_shapeType = getelementptr inbounds %class.btCollisionShape, ptr %this, i64 0, i32 1
+  %m_shapeType = getelementptr inbounds i8, ptr %this, i64 8
   store i32 18, ptr %m_shapeType, align 8
   ret void
 }
@@ -71,10 +67,10 @@ _ZN15btConvex2dShapedlEPv.exit:                   ; preds = %entry
 ; Function Attrs: mustprogress uwtable
 define dso_local { <2 x float>, <2 x float> } @_ZNK15btConvex2dShape37localGetSupportingVertexWithoutMarginERK9btVector3(ptr nocapture noundef nonnull readonly align 8 dereferenceable(40) %this, ptr noundef nonnull align 4 dereferenceable(16) %vec) unnamed_addr #4 align 2 {
 entry:
-  %m_childConvexShape = getelementptr inbounds %class.btConvex2dShape, ptr %this, i64 0, i32 1
+  %m_childConvexShape = getelementptr inbounds i8, ptr %this, i64 32
   %0 = load ptr, ptr %m_childConvexShape, align 8
   %vtable = load ptr, ptr %0, align 8
-  %vfn = getelementptr inbounds ptr, ptr %vtable, i64 17
+  %vfn = getelementptr inbounds i8, ptr %vtable, i64 136
   %1 = load ptr, ptr %vfn, align 8
   %call = tail call { <2 x float>, <2 x float> } %1(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef nonnull align 4 dereferenceable(16) %vec)
   ret { <2 x float>, <2 x float> } %call
@@ -83,10 +79,10 @@ entry:
 ; Function Attrs: mustprogress uwtable
 define dso_local void @_ZNK15btConvex2dShape49batchedUnitVectorGetSupportingVertexWithoutMarginEPK9btVector3PS0_i(ptr nocapture noundef nonnull readonly align 8 dereferenceable(40) %this, ptr noundef %vectors, ptr noundef %supportVerticesOut, i32 noundef %numVectors) unnamed_addr #0 align 2 {
 entry:
-  %m_childConvexShape = getelementptr inbounds %class.btConvex2dShape, ptr %this, i64 0, i32 1
+  %m_childConvexShape = getelementptr inbounds i8, ptr %this, i64 32
   %0 = load ptr, ptr %m_childConvexShape, align 8
   %vtable = load ptr, ptr %0, align 8
-  %vfn = getelementptr inbounds ptr, ptr %vtable, i64 19
+  %vfn = getelementptr inbounds i8, ptr %vtable, i64 152
   %1 = load ptr, ptr %vfn, align 8
   tail call void %1(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef %vectors, ptr noundef %supportVerticesOut, i32 noundef %numVectors)
   ret void
@@ -95,10 +91,10 @@ entry:
 ; Function Attrs: mustprogress uwtable
 define dso_local { <2 x float>, <2 x float> } @_ZNK15btConvex2dShape24localGetSupportingVertexERK9btVector3(ptr nocapture noundef nonnull readonly align 8 dereferenceable(40) %this, ptr noundef nonnull align 4 dereferenceable(16) %vec) unnamed_addr #4 align 2 {
 entry:
-  %m_childConvexShape = getelementptr inbounds %class.btConvex2dShape, ptr %this, i64 0, i32 1
+  %m_childConvexShape = getelementptr inbounds i8, ptr %this, i64 32
   %0 = load ptr, ptr %m_childConvexShape, align 8
   %vtable = load ptr, ptr %0, align 8
-  %vfn = getelementptr inbounds ptr, ptr %vtable, i64 16
+  %vfn = getelementptr inbounds i8, ptr %vtable, i64 128
   %1 = load ptr, ptr %vfn, align 8
   %call = tail call { <2 x float>, <2 x float> } %1(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef nonnull align 4 dereferenceable(16) %vec)
   ret { <2 x float>, <2 x float> } %call
@@ -107,10 +103,10 @@ entry:
 ; Function Attrs: mustprogress uwtable
 define dso_local void @_ZNK15btConvex2dShape21calculateLocalInertiaEfR9btVector3(ptr nocapture noundef nonnull readonly align 8 dereferenceable(40) %this, float noundef %mass, ptr noundef nonnull align 4 dereferenceable(16) %inertia) unnamed_addr #0 align 2 {
 entry:
-  %m_childConvexShape = getelementptr inbounds %class.btConvex2dShape, ptr %this, i64 0, i32 1
+  %m_childConvexShape = getelementptr inbounds i8, ptr %this, i64 32
   %0 = load ptr, ptr %m_childConvexShape, align 8
   %vtable = load ptr, ptr %0, align 8
-  %vfn = getelementptr inbounds ptr, ptr %vtable, i64 8
+  %vfn = getelementptr inbounds i8, ptr %vtable, i64 64
   %1 = load ptr, ptr %vfn, align 8
   tail call void %1(ptr noundef nonnull align 8 dereferenceable(32) %0, float noundef %mass, ptr noundef nonnull align 4 dereferenceable(16) %inertia)
   ret void
@@ -119,10 +115,10 @@ entry:
 ; Function Attrs: mustprogress uwtable
 define dso_local void @_ZNK15btConvex2dShape7getAabbERK11btTransformR9btVector3S4_(ptr nocapture noundef nonnull readonly align 8 dereferenceable(40) %this, ptr noundef nonnull align 4 dereferenceable(64) %t, ptr noundef nonnull align 4 dereferenceable(16) %aabbMin, ptr noundef nonnull align 4 dereferenceable(16) %aabbMax) unnamed_addr #0 align 2 {
 entry:
-  %m_childConvexShape = getelementptr inbounds %class.btConvex2dShape, ptr %this, i64 0, i32 1
+  %m_childConvexShape = getelementptr inbounds i8, ptr %this, i64 32
   %0 = load ptr, ptr %m_childConvexShape, align 8
   %vtable = load ptr, ptr %0, align 8
-  %vfn = getelementptr inbounds ptr, ptr %vtable, i64 2
+  %vfn = getelementptr inbounds i8, ptr %vtable, i64 16
   %1 = load ptr, ptr %vfn, align 8
   tail call void %1(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef nonnull align 4 dereferenceable(64) %t, ptr noundef nonnull align 4 dereferenceable(16) %aabbMin, ptr noundef nonnull align 4 dereferenceable(16) %aabbMax)
   ret void
@@ -131,10 +127,10 @@ entry:
 ; Function Attrs: mustprogress uwtable
 define dso_local void @_ZNK15btConvex2dShape11getAabbSlowERK11btTransformR9btVector3S4_(ptr nocapture noundef nonnull readonly align 8 dereferenceable(40) %this, ptr noundef nonnull align 4 dereferenceable(64) %t, ptr noundef nonnull align 4 dereferenceable(16) %aabbMin, ptr noundef nonnull align 4 dereferenceable(16) %aabbMax) unnamed_addr #0 align 2 {
 entry:
-  %m_childConvexShape = getelementptr inbounds %class.btConvex2dShape, ptr %this, i64 0, i32 1
+  %m_childConvexShape = getelementptr inbounds i8, ptr %this, i64 32
   %0 = load ptr, ptr %m_childConvexShape, align 8
   %vtable = load ptr, ptr %0, align 8
-  %vfn = getelementptr inbounds ptr, ptr %vtable, i64 20
+  %vfn = getelementptr inbounds i8, ptr %vtable, i64 160
   %1 = load ptr, ptr %vfn, align 8
   tail call void %1(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef nonnull align 4 dereferenceable(64) %t, ptr noundef nonnull align 4 dereferenceable(16) %aabbMin, ptr noundef nonnull align 4 dereferenceable(16) %aabbMax)
   ret void
@@ -143,10 +139,10 @@ entry:
 ; Function Attrs: mustprogress uwtable
 define dso_local void @_ZN15btConvex2dShape15setLocalScalingERK9btVector3(ptr nocapture noundef nonnull readonly align 8 dereferenceable(40) %this, ptr noundef nonnull align 4 dereferenceable(16) %scaling) unnamed_addr #0 align 2 {
 entry:
-  %m_childConvexShape = getelementptr inbounds %class.btConvex2dShape, ptr %this, i64 0, i32 1
+  %m_childConvexShape = getelementptr inbounds i8, ptr %this, i64 32
   %0 = load ptr, ptr %m_childConvexShape, align 8
   %vtable = load ptr, ptr %0, align 8
-  %vfn = getelementptr inbounds ptr, ptr %vtable, i64 6
+  %vfn = getelementptr inbounds i8, ptr %vtable, i64 48
   %1 = load ptr, ptr %vfn, align 8
   tail call void %1(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef nonnull align 4 dereferenceable(16) %scaling)
   ret void
@@ -155,10 +151,10 @@ entry:
 ; Function Attrs: mustprogress uwtable
 define dso_local noundef nonnull align 4 dereferenceable(16) ptr @_ZNK15btConvex2dShape15getLocalScalingEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(40) %this) unnamed_addr #0 align 2 {
 entry:
-  %m_childConvexShape = getelementptr inbounds %class.btConvex2dShape, ptr %this, i64 0, i32 1
+  %m_childConvexShape = getelementptr inbounds i8, ptr %this, i64 32
   %0 = load ptr, ptr %m_childConvexShape, align 8
   %vtable = load ptr, ptr %0, align 8
-  %vfn = getelementptr inbounds ptr, ptr %vtable, i64 7
+  %vfn = getelementptr inbounds i8, ptr %vtable, i64 56
   %1 = load ptr, ptr %vfn, align 8
   %call = tail call noundef nonnull align 4 dereferenceable(16) ptr %1(ptr noundef nonnull align 8 dereferenceable(32) %0)
   ret ptr %call
@@ -167,10 +163,10 @@ entry:
 ; Function Attrs: mustprogress uwtable
 define dso_local void @_ZN15btConvex2dShape9setMarginEf(ptr nocapture noundef nonnull readonly align 8 dereferenceable(40) %this, float noundef %margin) unnamed_addr #0 align 2 {
 entry:
-  %m_childConvexShape = getelementptr inbounds %class.btConvex2dShape, ptr %this, i64 0, i32 1
+  %m_childConvexShape = getelementptr inbounds i8, ptr %this, i64 32
   %0 = load ptr, ptr %m_childConvexShape, align 8
   %vtable = load ptr, ptr %0, align 8
-  %vfn = getelementptr inbounds ptr, ptr %vtable, i64 11
+  %vfn = getelementptr inbounds i8, ptr %vtable, i64 88
   %1 = load ptr, ptr %vfn, align 8
   tail call void %1(ptr noundef nonnull align 8 dereferenceable(32) %0, float noundef %margin)
   ret void
@@ -179,10 +175,10 @@ entry:
 ; Function Attrs: mustprogress uwtable
 define dso_local noundef float @_ZNK15btConvex2dShape9getMarginEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(40) %this) unnamed_addr #0 align 2 {
 entry:
-  %m_childConvexShape = getelementptr inbounds %class.btConvex2dShape, ptr %this, i64 0, i32 1
+  %m_childConvexShape = getelementptr inbounds i8, ptr %this, i64 32
   %0 = load ptr, ptr %m_childConvexShape, align 8
   %vtable = load ptr, ptr %0, align 8
-  %vfn = getelementptr inbounds ptr, ptr %vtable, i64 12
+  %vfn = getelementptr inbounds i8, ptr %vtable, i64 96
   %1 = load ptr, ptr %vfn, align 8
   %call = tail call noundef float %1(ptr noundef nonnull align 8 dereferenceable(32) %0)
   ret float %call
@@ -191,10 +187,10 @@ entry:
 ; Function Attrs: mustprogress uwtable
 define dso_local noundef i32 @_ZNK15btConvex2dShape36getNumPreferredPenetrationDirectionsEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(40) %this) unnamed_addr #0 align 2 {
 entry:
-  %m_childConvexShape = getelementptr inbounds %class.btConvex2dShape, ptr %this, i64 0, i32 1
+  %m_childConvexShape = getelementptr inbounds i8, ptr %this, i64 32
   %0 = load ptr, ptr %m_childConvexShape, align 8
   %vtable = load ptr, ptr %0, align 8
-  %vfn = getelementptr inbounds ptr, ptr %vtable, i64 21
+  %vfn = getelementptr inbounds i8, ptr %vtable, i64 168
   %1 = load ptr, ptr %vfn, align 8
   %call = tail call noundef i32 %1(ptr noundef nonnull align 8 dereferenceable(32) %0)
   ret i32 %call
@@ -203,10 +199,10 @@ entry:
 ; Function Attrs: mustprogress uwtable
 define dso_local void @_ZNK15btConvex2dShape32getPreferredPenetrationDirectionEiR9btVector3(ptr nocapture noundef nonnull readonly align 8 dereferenceable(40) %this, i32 noundef %index, ptr noundef nonnull align 4 dereferenceable(16) %penetrationVector) unnamed_addr #0 align 2 {
 entry:
-  %m_childConvexShape = getelementptr inbounds %class.btConvex2dShape, ptr %this, i64 0, i32 1
+  %m_childConvexShape = getelementptr inbounds i8, ptr %this, i64 32
   %0 = load ptr, ptr %m_childConvexShape, align 8
   %vtable = load ptr, ptr %0, align 8
-  %vfn = getelementptr inbounds ptr, ptr %vtable, i64 22
+  %vfn = getelementptr inbounds i8, ptr %vtable, i64 176
   %1 = load ptr, ptr %vfn, align 8
   tail call void %1(ptr noundef nonnull align 8 dereferenceable(32) %0, i32 noundef %index, ptr noundef nonnull align 4 dereferenceable(16) %penetrationVector)
   ret void

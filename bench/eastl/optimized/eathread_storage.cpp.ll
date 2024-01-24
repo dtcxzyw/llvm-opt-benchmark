@@ -3,8 +3,6 @@ source_filename = "bench/eastl/original/eathread_storage.cpp.ll"
 target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:128-n8:16:32:64-S128"
 target triple = "x86_64-unknown-linux-gnu"
 
-%struct.EAThreadLocalStorageData = type { i32, i32 }
-
 @_ZN2EA6Thread11gpAllocatorE = external local_unnamed_addr global ptr, align 8
 @llvm.global_ctors = appending global [0 x { i32, ptr, ptr }] zeroinitializer
 
@@ -16,7 +14,7 @@ define dso_local void @_ZN2EA6Thread18ThreadLocalStorageC2Ev(ptr noundef nonnull
 entry:
   store i64 0, ptr %this, align 4
   %call = tail call i32 @pthread_key_create(ptr noundef nonnull %this, ptr noundef null) #6
-  %mResult = getelementptr inbounds %struct.EAThreadLocalStorageData, ptr %this, i64 0, i32 1
+  %mResult = getelementptr inbounds i8, ptr %this, i64 4
   store i32 %call, ptr %mResult, align 4
   ret void
 }
@@ -27,7 +25,7 @@ declare i32 @pthread_key_create(ptr noundef, ptr noundef) local_unnamed_addr #1
 ; Function Attrs: mustprogress nounwind uwtable
 define dso_local void @_ZN2EA6Thread18ThreadLocalStorageD2Ev(ptr nocapture noundef nonnull readonly align 4 dereferenceable(8) %this) unnamed_addr #0 align 2 {
 entry:
-  %mResult = getelementptr inbounds %struct.EAThreadLocalStorageData, ptr %this, i64 0, i32 1
+  %mResult = getelementptr inbounds i8, ptr %this, i64 4
   %0 = load i32, ptr %mResult, align 4
   %cmp = icmp eq i32 %0, 0
   br i1 %cmp, label %if.then, label %if.end
@@ -76,7 +74,7 @@ entry:
 
 if.then:                                          ; preds = %entry
   %vtable = load ptr, ptr %0, align 8
-  %vfn = getelementptr inbounds ptr, ptr %vtable, i64 2
+  %vfn = getelementptr inbounds i8, ptr %vtable, i64 16
   %1 = load ptr, ptr %vfn, align 8
   %call = tail call noundef ptr %1(ptr noundef nonnull align 8 dereferenceable(8) %0, i64 noundef 8, ptr noundef null, i32 noundef 0)
   br label %return
@@ -89,7 +87,7 @@ return:                                           ; preds = %if.else, %if.then
   %call1.sink4 = phi ptr [ %call1, %if.else ], [ %call, %if.then ]
   store i64 0, ptr %call1.sink4, align 4
   %call.i1 = tail call i32 @pthread_key_create(ptr noundef nonnull %call1.sink4, ptr noundef null) #6
-  %mResult.i2 = getelementptr inbounds %struct.EAThreadLocalStorageData, ptr %call1.sink4, i64 0, i32 1
+  %mResult.i2 = getelementptr inbounds i8, ptr %call1.sink4, i64 4
   store i32 %call.i1, ptr %mResult.i2, align 4
   ret ptr %call1.sink4
 }
@@ -110,7 +108,7 @@ entry:
   br i1 %tobool.not, label %if.else, label %if.then
 
 if.then:                                          ; preds = %entry
-  %mResult.i = getelementptr inbounds %struct.EAThreadLocalStorageData, ptr %pThreadLocalStorage, i64 0, i32 1
+  %mResult.i = getelementptr inbounds i8, ptr %pThreadLocalStorage, i64 4
   %1 = load i32, ptr %mResult.i, align 4
   %cmp.i = icmp eq i32 %1, 0
   br i1 %cmp.i, label %if.then.i, label %_ZN2EA6Thread18ThreadLocalStorageD2Ev.exit
@@ -124,7 +122,7 @@ if.then.i:                                        ; preds = %if.then
 _ZN2EA6Thread18ThreadLocalStorageD2Ev.exit:       ; preds = %if.then, %if.then.i
   %3 = phi ptr [ %0, %if.then ], [ %.pre, %if.then.i ]
   %vtable = load ptr, ptr %3, align 8
-  %vfn = getelementptr inbounds ptr, ptr %vtable, i64 4
+  %vfn = getelementptr inbounds i8, ptr %vtable, i64 32
   %4 = load ptr, ptr %vfn, align 8
   tail call void %4(ptr noundef nonnull align 8 dereferenceable(8) %3, ptr noundef nonnull %pThreadLocalStorage, i64 noundef 0)
   br label %if.end
@@ -134,7 +132,7 @@ if.else:                                          ; preds = %entry
   br i1 %isnull, label %if.end, label %delete.notnull
 
 delete.notnull:                                   ; preds = %if.else
-  %mResult.i3 = getelementptr inbounds %struct.EAThreadLocalStorageData, ptr %pThreadLocalStorage, i64 0, i32 1
+  %mResult.i3 = getelementptr inbounds i8, ptr %pThreadLocalStorage, i64 4
   %5 = load i32, ptr %mResult.i3, align 4
   %cmp.i4 = icmp eq i32 %5, 0
   br i1 %cmp.i4, label %if.then.i5, label %_ZN2EA6Thread18ThreadLocalStorageD2Ev.exit7
@@ -163,7 +161,7 @@ define dso_local noundef ptr @_ZN2EA6Thread25ThreadLocalStorageFactory27Construc
 entry:
   store i64 0, ptr %pMemory, align 4
   %call.i = tail call i32 @pthread_key_create(ptr noundef nonnull %pMemory, ptr noundef null) #6
-  %mResult.i = getelementptr inbounds %struct.EAThreadLocalStorageData, ptr %pMemory, i64 0, i32 1
+  %mResult.i = getelementptr inbounds i8, ptr %pMemory, i64 4
   store i32 %call.i, ptr %mResult.i, align 4
   ret ptr %pMemory
 }
@@ -171,7 +169,7 @@ entry:
 ; Function Attrs: mustprogress nounwind uwtable
 define dso_local void @_ZN2EA6Thread25ThreadLocalStorageFactory26DestructThreadLocalStorageEPNS0_18ThreadLocalStorageE(ptr nocapture noundef readonly %pThreadLocalStorage) local_unnamed_addr #0 align 2 {
 entry:
-  %mResult.i = getelementptr inbounds %struct.EAThreadLocalStorageData, ptr %pThreadLocalStorage, i64 0, i32 1
+  %mResult.i = getelementptr inbounds i8, ptr %pThreadLocalStorage, i64 4
   %0 = load i32, ptr %mResult.i, align 4
   %cmp.i = icmp eq i32 %0, 0
   br i1 %cmp.i, label %if.then.i, label %_ZN2EA6Thread18ThreadLocalStorageD2Ev.exit

@@ -4,45 +4,7 @@ target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:
 target triple = "x86_64-unknown-linux-gnu"
 
 %"class.std::ios_base::Init" = type { i8 }
-%"class.OpenColorIO_v2_4dev::GenericScanlineHelper" = type <{ %"class.OpenColorIO_v2_4dev::ScanlineHelper", i32, i32, %"class.std::shared_ptr", %"class.std::shared_ptr", %"struct.OpenColorIO_v2_4dev::GenericImageDesc", %"struct.OpenColorIO_v2_4dev::GenericImageDesc", i32, i32, %"class.std::vector", %"class.std::vector.0", %"class.std::vector.0", i32, i8, [3 x i8] }>
-%"class.OpenColorIO_v2_4dev::ScanlineHelper" = type { ptr }
-%"class.std::shared_ptr" = type { %"class.std::__shared_ptr" }
-%"class.std::__shared_ptr" = type { ptr, %"class.std::__shared_count" }
-%"class.std::__shared_count" = type { ptr }
-%"struct.OpenColorIO_v2_4dev::GenericImageDesc" = type <{ i64, i64, i64, i64, ptr, ptr, ptr, ptr, %"class.std::shared_ptr", i8, i8, [6 x i8] }>
-%"class.std::vector" = type { %"struct.std::_Vector_base" }
-%"struct.std::_Vector_base" = type { %"struct.std::_Vector_base<float, std::allocator<float>>::_Vector_impl" }
-%"struct.std::_Vector_base<float, std::allocator<float>>::_Vector_impl" = type { %"struct.std::_Vector_base<float, std::allocator<float>>::_Vector_impl_data" }
-%"struct.std::_Vector_base<float, std::allocator<float>>::_Vector_impl_data" = type { ptr, ptr, ptr }
-%"class.std::vector.0" = type { %"struct.std::_Vector_base.1" }
-%"struct.std::_Vector_base.1" = type { %"struct.std::_Vector_base<unsigned char, std::allocator<unsigned char>>::_Vector_impl" }
-%"struct.std::_Vector_base<unsigned char, std::allocator<unsigned char>>::_Vector_impl" = type { %"struct.std::_Vector_base<unsigned char, std::allocator<unsigned char>>::_Vector_impl_data" }
-%"struct.std::_Vector_base<unsigned char, std::allocator<unsigned char>>::_Vector_impl_data" = type { ptr, ptr, ptr }
-%"class.std::_Sp_counted_base" = type { ptr, i32, i32 }
-%"class.OpenColorIO_v2_4dev::GenericScanlineHelper.5" = type <{ %"class.OpenColorIO_v2_4dev::ScanlineHelper", i32, i32, %"class.std::shared_ptr", %"class.std::shared_ptr", %"struct.OpenColorIO_v2_4dev::GenericImageDesc", %"struct.OpenColorIO_v2_4dev::GenericImageDesc", i32, i32, %"class.std::vector", %"class.std::vector.0", %"class.std::vector.6", i32, i8, [3 x i8] }>
-%"class.std::vector.6" = type { %"struct.std::_Vector_base.7" }
-%"struct.std::_Vector_base.7" = type { %"struct.std::_Vector_base<unsigned short, std::allocator<unsigned short>>::_Vector_impl" }
-%"struct.std::_Vector_base<unsigned short, std::allocator<unsigned short>>::_Vector_impl" = type { %"struct.std::_Vector_base<unsigned short, std::allocator<unsigned short>>::_Vector_impl_data" }
-%"struct.std::_Vector_base<unsigned short, std::allocator<unsigned short>>::_Vector_impl_data" = type { ptr, ptr, ptr }
-%"class.OpenColorIO_v2_4dev::GenericScanlineHelper.12" = type <{ %"class.OpenColorIO_v2_4dev::ScanlineHelper", i32, i32, %"class.std::shared_ptr", %"class.std::shared_ptr", %"struct.OpenColorIO_v2_4dev::GenericImageDesc", %"struct.OpenColorIO_v2_4dev::GenericImageDesc", i32, i32, %"class.std::vector", %"class.std::vector.0", %"class.std::vector.13", i32, i8, [3 x i8] }>
-%"class.std::vector.13" = type { %"struct.std::_Vector_base.14" }
-%"struct.std::_Vector_base.14" = type { %"struct.std::_Vector_base<Imath_3_1::half, std::allocator<Imath_3_1::half>>::_Vector_impl" }
-%"struct.std::_Vector_base<Imath_3_1::half, std::allocator<Imath_3_1::half>>::_Vector_impl" = type { %"struct.std::_Vector_base<Imath_3_1::half, std::allocator<Imath_3_1::half>>::_Vector_impl_data" }
-%"struct.std::_Vector_base<Imath_3_1::half, std::allocator<Imath_3_1::half>>::_Vector_impl_data" = type { ptr, ptr, ptr }
 %"class.Imath_3_1::half" = type { i16 }
-%"class.OpenColorIO_v2_4dev::GenericScanlineHelper.19" = type <{ %"class.OpenColorIO_v2_4dev::ScanlineHelper", i32, i32, %"class.std::shared_ptr", %"class.std::shared_ptr", %"struct.OpenColorIO_v2_4dev::GenericImageDesc", %"struct.OpenColorIO_v2_4dev::GenericImageDesc", i32, i32, %"class.std::vector", %"class.std::vector.0", %"class.std::vector", i32, i8, [3 x i8] }>
-%"class.OpenColorIO_v2_4dev::GenericScanlineHelper.21" = type <{ %"class.OpenColorIO_v2_4dev::ScanlineHelper", i32, i32, %"class.std::shared_ptr", %"class.std::shared_ptr", %"struct.OpenColorIO_v2_4dev::GenericImageDesc", %"struct.OpenColorIO_v2_4dev::GenericImageDesc", i32, i32, %"class.std::vector", %"class.std::vector.6", %"class.std::vector.0", i32, i8, [3 x i8] }>
-%"class.OpenColorIO_v2_4dev::GenericScanlineHelper.23" = type <{ %"class.OpenColorIO_v2_4dev::ScanlineHelper", i32, i32, %"class.std::shared_ptr", %"class.std::shared_ptr", %"struct.OpenColorIO_v2_4dev::GenericImageDesc", %"struct.OpenColorIO_v2_4dev::GenericImageDesc", i32, i32, %"class.std::vector", %"class.std::vector.6", %"class.std::vector.6", i32, i8, [3 x i8] }>
-%"class.OpenColorIO_v2_4dev::GenericScanlineHelper.25" = type <{ %"class.OpenColorIO_v2_4dev::ScanlineHelper", i32, i32, %"class.std::shared_ptr", %"class.std::shared_ptr", %"struct.OpenColorIO_v2_4dev::GenericImageDesc", %"struct.OpenColorIO_v2_4dev::GenericImageDesc", i32, i32, %"class.std::vector", %"class.std::vector.6", %"class.std::vector.13", i32, i8, [3 x i8] }>
-%"class.OpenColorIO_v2_4dev::GenericScanlineHelper.27" = type <{ %"class.OpenColorIO_v2_4dev::ScanlineHelper", i32, i32, %"class.std::shared_ptr", %"class.std::shared_ptr", %"struct.OpenColorIO_v2_4dev::GenericImageDesc", %"struct.OpenColorIO_v2_4dev::GenericImageDesc", i32, i32, %"class.std::vector", %"class.std::vector.6", %"class.std::vector", i32, i8, [3 x i8] }>
-%"class.OpenColorIO_v2_4dev::GenericScanlineHelper.29" = type <{ %"class.OpenColorIO_v2_4dev::ScanlineHelper", i32, i32, %"class.std::shared_ptr", %"class.std::shared_ptr", %"struct.OpenColorIO_v2_4dev::GenericImageDesc", %"struct.OpenColorIO_v2_4dev::GenericImageDesc", i32, i32, %"class.std::vector", %"class.std::vector.13", %"class.std::vector.0", i32, i8, [3 x i8] }>
-%"class.OpenColorIO_v2_4dev::GenericScanlineHelper.31" = type <{ %"class.OpenColorIO_v2_4dev::ScanlineHelper", i32, i32, %"class.std::shared_ptr", %"class.std::shared_ptr", %"struct.OpenColorIO_v2_4dev::GenericImageDesc", %"struct.OpenColorIO_v2_4dev::GenericImageDesc", i32, i32, %"class.std::vector", %"class.std::vector.13", %"class.std::vector.6", i32, i8, [3 x i8] }>
-%"class.OpenColorIO_v2_4dev::GenericScanlineHelper.33" = type <{ %"class.OpenColorIO_v2_4dev::ScanlineHelper", i32, i32, %"class.std::shared_ptr", %"class.std::shared_ptr", %"struct.OpenColorIO_v2_4dev::GenericImageDesc", %"struct.OpenColorIO_v2_4dev::GenericImageDesc", i32, i32, %"class.std::vector", %"class.std::vector.13", %"class.std::vector.13", i32, i8, [3 x i8] }>
-%"class.OpenColorIO_v2_4dev::GenericScanlineHelper.35" = type <{ %"class.OpenColorIO_v2_4dev::ScanlineHelper", i32, i32, %"class.std::shared_ptr", %"class.std::shared_ptr", %"struct.OpenColorIO_v2_4dev::GenericImageDesc", %"struct.OpenColorIO_v2_4dev::GenericImageDesc", i32, i32, %"class.std::vector", %"class.std::vector.13", %"class.std::vector", i32, i8, [3 x i8] }>
-%"class.OpenColorIO_v2_4dev::GenericScanlineHelper.37" = type <{ %"class.OpenColorIO_v2_4dev::ScanlineHelper", i32, i32, %"class.std::shared_ptr", %"class.std::shared_ptr", %"struct.OpenColorIO_v2_4dev::GenericImageDesc", %"struct.OpenColorIO_v2_4dev::GenericImageDesc", i32, i32, %"class.std::vector", %"class.std::vector", %"class.std::vector.0", i32, i8, [3 x i8] }>
-%"class.OpenColorIO_v2_4dev::GenericScanlineHelper.39" = type <{ %"class.OpenColorIO_v2_4dev::ScanlineHelper", i32, i32, %"class.std::shared_ptr", %"class.std::shared_ptr", %"struct.OpenColorIO_v2_4dev::GenericImageDesc", %"struct.OpenColorIO_v2_4dev::GenericImageDesc", i32, i32, %"class.std::vector", %"class.std::vector", %"class.std::vector.6", i32, i8, [3 x i8] }>
-%"class.OpenColorIO_v2_4dev::GenericScanlineHelper.41" = type <{ %"class.OpenColorIO_v2_4dev::ScanlineHelper", i32, i32, %"class.std::shared_ptr", %"class.std::shared_ptr", %"struct.OpenColorIO_v2_4dev::GenericImageDesc", %"struct.OpenColorIO_v2_4dev::GenericImageDesc", i32, i32, %"class.std::vector", %"class.std::vector", %"class.std::vector.13", i32, i8, [3 x i8] }>
-%"class.OpenColorIO_v2_4dev::GenericScanlineHelper.43" = type <{ %"class.OpenColorIO_v2_4dev::ScanlineHelper", i32, i32, %"class.std::shared_ptr", %"class.std::shared_ptr", %"struct.OpenColorIO_v2_4dev::GenericImageDesc", %"struct.OpenColorIO_v2_4dev::GenericImageDesc", i32, i32, %"class.std::vector", %"class.std::vector", %"class.std::vector", i32, i8, [3 x i8] }>
 
 $_ZN19OpenColorIO_v2_4dev21GenericScanlineHelperIhhEC5ENS_8BitDepthERKSt10shared_ptrIKNS_5OpCPUEES2_S8_ = comdat any
 
@@ -449,22 +411,22 @@ declare i32 @__cxa_atexit(ptr, ptr, ptr) local_unnamed_addr #2
 define weak_odr hidden void @_ZN19OpenColorIO_v2_4dev21GenericScanlineHelperIhhEC2ENS_8BitDepthERKSt10shared_ptrIKNS_5OpCPUEES2_S8_(ptr noundef nonnull align 8 dereferenceable(309) %this, i32 noundef %inputBitDepth, ptr noundef nonnull align 8 dereferenceable(16) %inBitDepthOp, i32 noundef %outputBitDepth, ptr noundef nonnull align 8 dereferenceable(16) %outBitDepthOp) unnamed_addr #3 comdat($_ZN19OpenColorIO_v2_4dev21GenericScanlineHelperIhhEC5ENS_8BitDepthERKSt10shared_ptrIKNS_5OpCPUEES2_S8_) align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTVN19OpenColorIO_v2_4dev21GenericScanlineHelperIhhEE, i64 0, inrange i32 0, i64 2), ptr %this, align 8
-  %m_inputBitDepth = getelementptr inbounds %"class.OpenColorIO_v2_4dev::GenericScanlineHelper", ptr %this, i64 0, i32 1
+  %m_inputBitDepth = getelementptr inbounds i8, ptr %this, i64 8
   store i32 %inputBitDepth, ptr %m_inputBitDepth, align 8
-  %m_outputBitDepth = getelementptr inbounds %"class.OpenColorIO_v2_4dev::GenericScanlineHelper", ptr %this, i64 0, i32 2
+  %m_outputBitDepth = getelementptr inbounds i8, ptr %this, i64 12
   store i32 %outputBitDepth, ptr %m_outputBitDepth, align 4
-  %m_inBitDepthOp = getelementptr inbounds %"class.OpenColorIO_v2_4dev::GenericScanlineHelper", ptr %this, i64 0, i32 3
+  %m_inBitDepthOp = getelementptr inbounds i8, ptr %this, i64 16
   %0 = load ptr, ptr %inBitDepthOp, align 8
   store ptr %0, ptr %m_inBitDepthOp, align 8
-  %_M_refcount.i.i = getelementptr inbounds %"class.OpenColorIO_v2_4dev::GenericScanlineHelper", ptr %this, i64 0, i32 3, i32 0, i32 1
-  %_M_refcount3.i.i = getelementptr inbounds %"class.std::__shared_ptr", ptr %inBitDepthOp, i64 0, i32 1
+  %_M_refcount.i.i = getelementptr inbounds i8, ptr %this, i64 24
+  %_M_refcount3.i.i = getelementptr inbounds i8, ptr %inBitDepthOp, i64 8
   %1 = load ptr, ptr %_M_refcount3.i.i, align 8
   store ptr %1, ptr %_M_refcount.i.i, align 8
   %cmp.not.i.i.i = icmp eq ptr %1, null
   br i1 %cmp.not.i.i.i, label %_ZNSt10shared_ptrIKN19OpenColorIO_v2_4dev5OpCPUEEC2ERKS3_.exit, label %if.then.i.i.i
 
 if.then.i.i.i:                                    ; preds = %entry
-  %_M_use_count.i.i.i.i = getelementptr inbounds %"class.std::_Sp_counted_base", ptr %1, i64 0, i32 1
+  %_M_use_count.i.i.i.i = getelementptr inbounds i8, ptr %1, i64 8
   %2 = load i8, ptr @__libc_single_threaded, align 1
   %tobool.i.not.i.i.i.i = icmp eq i8 %2, 0
   br i1 %tobool.i.not.i.i.i.i, label %if.else.i.i.i.i.i, label %if.then.i.i.i.i.i
@@ -480,18 +442,18 @@ if.else.i.i.i.i.i:                                ; preds = %if.then.i.i.i
   br label %_ZNSt10shared_ptrIKN19OpenColorIO_v2_4dev5OpCPUEEC2ERKS3_.exit
 
 _ZNSt10shared_ptrIKN19OpenColorIO_v2_4dev5OpCPUEEC2ERKS3_.exit: ; preds = %entry, %if.then.i.i.i.i.i, %if.else.i.i.i.i.i
-  %m_outBitDepthOp = getelementptr inbounds %"class.OpenColorIO_v2_4dev::GenericScanlineHelper", ptr %this, i64 0, i32 4
+  %m_outBitDepthOp = getelementptr inbounds i8, ptr %this, i64 32
   %5 = load ptr, ptr %outBitDepthOp, align 8
   store ptr %5, ptr %m_outBitDepthOp, align 8
-  %_M_refcount.i.i1 = getelementptr inbounds %"class.OpenColorIO_v2_4dev::GenericScanlineHelper", ptr %this, i64 0, i32 4, i32 0, i32 1
-  %_M_refcount3.i.i2 = getelementptr inbounds %"class.std::__shared_ptr", ptr %outBitDepthOp, i64 0, i32 1
+  %_M_refcount.i.i1 = getelementptr inbounds i8, ptr %this, i64 40
+  %_M_refcount3.i.i2 = getelementptr inbounds i8, ptr %outBitDepthOp, i64 8
   %6 = load ptr, ptr %_M_refcount3.i.i2, align 8
   store ptr %6, ptr %_M_refcount.i.i1, align 8
   %cmp.not.i.i.i3 = icmp eq ptr %6, null
   br i1 %cmp.not.i.i.i3, label %_ZNSt10shared_ptrIKN19OpenColorIO_v2_4dev5OpCPUEEC2ERKS3_.exit10, label %if.then.i.i.i4
 
 if.then.i.i.i4:                                   ; preds = %_ZNSt10shared_ptrIKN19OpenColorIO_v2_4dev5OpCPUEEC2ERKS3_.exit
-  %_M_use_count.i.i.i.i5 = getelementptr inbounds %"class.std::_Sp_counted_base", ptr %6, i64 0, i32 1
+  %_M_use_count.i.i.i.i5 = getelementptr inbounds i8, ptr %6, i64 8
   %7 = load i8, ptr @__libc_single_threaded, align 1
   %tobool.i.not.i.i.i.i6 = icmp eq i8 %7, 0
   br i1 %tobool.i.not.i.i.i.i6, label %if.else.i.i.i.i.i9, label %if.then.i.i.i.i.i7
@@ -507,11 +469,11 @@ if.else.i.i.i.i.i9:                               ; preds = %if.then.i.i.i4
   br label %_ZNSt10shared_ptrIKN19OpenColorIO_v2_4dev5OpCPUEEC2ERKS3_.exit10
 
 _ZNSt10shared_ptrIKN19OpenColorIO_v2_4dev5OpCPUEEC2ERKS3_.exit10: ; preds = %_ZNSt10shared_ptrIKN19OpenColorIO_v2_4dev5OpCPUEEC2ERKS3_.exit, %if.then.i.i.i.i.i7, %if.else.i.i.i.i.i9
-  %m_srcImg = getelementptr inbounds %"class.OpenColorIO_v2_4dev::GenericScanlineHelper", ptr %this, i64 0, i32 5
+  %m_srcImg = getelementptr inbounds i8, ptr %this, i64 48
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(82) %m_srcImg, i8 0, i64 82, i1 false)
-  %m_dstImg = getelementptr inbounds %"class.OpenColorIO_v2_4dev::GenericScanlineHelper", ptr %this, i64 0, i32 6
+  %m_dstImg = getelementptr inbounds i8, ptr %this, i64 136
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(82) %m_dstImg, i8 0, i64 82, i1 false)
-  %m_inOptimizedMode = getelementptr inbounds %"class.OpenColorIO_v2_4dev::GenericScanlineHelper", ptr %this, i64 0, i32 7
+  %m_inOptimizedMode = getelementptr inbounds i8, ptr %this, i64 224
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(85) %m_inOptimizedMode, i8 0, i64 85, i1 false)
   ret void
 }
@@ -522,17 +484,17 @@ declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #4
 ; Function Attrs: mustprogress uwtable
 define weak_odr hidden void @_ZN19OpenColorIO_v2_4dev21GenericScanlineHelperIhhE4initERKNS_9ImageDescES4_(ptr noundef nonnull align 8 dereferenceable(309) %this, ptr noundef nonnull align 8 dereferenceable(8) %srcImg, ptr noundef nonnull align 8 dereferenceable(8) %dstImg) unnamed_addr #5 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  %m_yIndex = getelementptr inbounds %"class.OpenColorIO_v2_4dev::GenericScanlineHelper", ptr %this, i64 0, i32 12
+  %m_yIndex = getelementptr inbounds i8, ptr %this, i64 304
   store i32 0, ptr %m_yIndex, align 8
-  %m_srcImg = getelementptr inbounds %"class.OpenColorIO_v2_4dev::GenericScanlineHelper", ptr %this, i64 0, i32 5
-  %m_inputBitDepth = getelementptr inbounds %"class.OpenColorIO_v2_4dev::GenericScanlineHelper", ptr %this, i64 0, i32 1
+  %m_srcImg = getelementptr inbounds i8, ptr %this, i64 48
+  %m_inputBitDepth = getelementptr inbounds i8, ptr %this, i64 8
   %0 = load i32, ptr %m_inputBitDepth, align 8
-  %m_inBitDepthOp = getelementptr inbounds %"class.OpenColorIO_v2_4dev::GenericScanlineHelper", ptr %this, i64 0, i32 3
+  %m_inBitDepthOp = getelementptr inbounds i8, ptr %this, i64 16
   tail call void @_ZN19OpenColorIO_v2_4dev16GenericImageDesc4initERKNS_9ImageDescENS_8BitDepthERKSt10shared_ptrIKNS_5OpCPUEE(ptr noundef nonnull align 8 dereferenceable(82) %m_srcImg, ptr noundef nonnull align 8 dereferenceable(8) %srcImg, i32 noundef %0, ptr noundef nonnull align 8 dereferenceable(16) %m_inBitDepthOp)
-  %m_dstImg = getelementptr inbounds %"class.OpenColorIO_v2_4dev::GenericScanlineHelper", ptr %this, i64 0, i32 6
-  %m_outputBitDepth = getelementptr inbounds %"class.OpenColorIO_v2_4dev::GenericScanlineHelper", ptr %this, i64 0, i32 2
+  %m_dstImg = getelementptr inbounds i8, ptr %this, i64 136
+  %m_outputBitDepth = getelementptr inbounds i8, ptr %this, i64 12
   %1 = load i32, ptr %m_outputBitDepth, align 4
-  %m_outBitDepthOp = getelementptr inbounds %"class.OpenColorIO_v2_4dev::GenericScanlineHelper", ptr %this, i64 0, i32 4
+  %m_outBitDepthOp = getelementptr inbounds i8, ptr %this, i64 32
   tail call void @_ZN19OpenColorIO_v2_4dev16GenericImageDesc4initERKNS_9ImageDescENS_8BitDepthERKSt10shared_ptrIKNS_5OpCPUEE(ptr noundef nonnull align 8 dereferenceable(82) %m_dstImg, ptr noundef nonnull align 8 dereferenceable(8) %dstImg, i32 noundef %1, ptr noundef nonnull align 8 dereferenceable(16) %m_outBitDepthOp)
   %2 = load i64, ptr %m_srcImg, align 8
   %3 = load i64, ptr %m_dstImg, align 8
@@ -540,9 +502,9 @@ entry:
   br i1 %cmp.not, label %lor.lhs.false, label %if.then
 
 lor.lhs.false:                                    ; preds = %entry
-  %m_height = getelementptr inbounds %"class.OpenColorIO_v2_4dev::GenericScanlineHelper", ptr %this, i64 0, i32 5, i32 1
+  %m_height = getelementptr inbounds i8, ptr %this, i64 56
   %4 = load i64, ptr %m_height, align 8
-  %m_height7 = getelementptr inbounds %"class.OpenColorIO_v2_4dev::GenericScanlineHelper", ptr %this, i64 0, i32 6, i32 1
+  %m_height7 = getelementptr inbounds i8, ptr %this, i64 144
   %5 = load i64, ptr %m_height7, align 8
   %cmp8.not = icmp eq i64 %4, %5
   br i1 %cmp8.not, label %if.end, label %if.then
@@ -573,7 +535,7 @@ if.then.i:                                        ; preds = %if.end
 
 _ZN19OpenColorIO_v2_4dev19GetOptimizationModeERKNS_16GenericImageDescE.exit: ; preds = %if.end, %if.then.i
   %optim.0.i = phi i32 [ 0, %if.end ], [ %spec.select.i, %if.then.i ]
-  %m_inOptimizedMode = getelementptr inbounds %"class.OpenColorIO_v2_4dev::GenericScanlineHelper", ptr %this, i64 0, i32 7
+  %m_inOptimizedMode = getelementptr inbounds i8, ptr %this, i64 224
   store i32 %optim.0.i, ptr %m_inOptimizedMode, align 8
   %call.i2 = tail call noundef zeroext i1 @_ZNK19OpenColorIO_v2_4dev16GenericImageDesc12isRGBAPackedEv(ptr noundef nonnull align 8 dereferenceable(82) %m_dstImg)
   br i1 %call.i2, label %if.then.i4, label %_ZN19OpenColorIO_v2_4dev19GetOptimizationModeERKNS_16GenericImageDescE.exit7
@@ -585,10 +547,10 @@ if.then.i4:                                       ; preds = %_ZN19OpenColorIO_v2
 
 _ZN19OpenColorIO_v2_4dev19GetOptimizationModeERKNS_16GenericImageDescE.exit7: ; preds = %_ZN19OpenColorIO_v2_4dev19GetOptimizationModeERKNS_16GenericImageDescE.exit, %if.then.i4
   %optim.0.i3 = phi i32 [ 0, %_ZN19OpenColorIO_v2_4dev19GetOptimizationModeERKNS_16GenericImageDescE.exit ], [ %spec.select.i6, %if.then.i4 ]
-  %m_outOptimizedMode = getelementptr inbounds %"class.OpenColorIO_v2_4dev::GenericScanlineHelper", ptr %this, i64 0, i32 8
+  %m_outOptimizedMode = getelementptr inbounds i8, ptr %this, i64 228
   store i32 %optim.0.i3, ptr %m_outOptimizedMode, align 4
   %cmp13 = icmp eq i32 %optim.0.i3, 3
-  %m_useDstBuffer = getelementptr inbounds %"class.OpenColorIO_v2_4dev::GenericScanlineHelper", ptr %this, i64 0, i32 13
+  %m_useDstBuffer = getelementptr inbounds i8, ptr %this, i64 308
   %frombool = zext i1 %cmp13 to i8
   store i8 %frombool, ptr %m_useDstBuffer, align 4
   %7 = load i32, ptr %m_inOptimizedMode, align 8
@@ -599,7 +561,7 @@ _ZN19OpenColorIO_v2_4dev19GetOptimizationModeERKNS_16GenericImageDescE.exit7: ; 
 if.then17:                                        ; preds = %_ZN19OpenColorIO_v2_4dev19GetOptimizationModeERKNS_16GenericImageDescE.exit7
   %8 = load i64, ptr %m_dstImg, align 8
   %mul = shl nsw i64 %8, 2
-  %m_inBitDepthBuffer = getelementptr inbounds %"class.OpenColorIO_v2_4dev::GenericScanlineHelper", ptr %this, i64 0, i32 10
+  %m_inBitDepthBuffer = getelementptr inbounds i8, ptr %this, i64 256
   tail call void @_ZNSt6vectorIhSaIhEE6resizeEm(ptr noundef nonnull align 8 dereferenceable(24) %m_inBitDepthBuffer, i64 noundef %mul)
   %.pre = load i8, ptr %m_useDstBuffer, align 4
   br label %if.end20
@@ -613,8 +575,8 @@ if.end20:                                         ; preds = %if.then17, %_ZN19Op
 if.then22:                                        ; preds = %if.end20
   %11 = load i64, ptr %m_dstImg, align 8
   %mul26 = shl nsw i64 %11, 2
-  %m_rgbaFloatBuffer = getelementptr inbounds %"class.OpenColorIO_v2_4dev::GenericScanlineHelper", ptr %this, i64 0, i32 9
-  %_M_finish.i.i = getelementptr inbounds %"class.OpenColorIO_v2_4dev::GenericScanlineHelper", ptr %this, i64 0, i32 9, i32 0, i32 0, i32 0, i32 1
+  %m_rgbaFloatBuffer = getelementptr inbounds i8, ptr %this, i64 232
+  %_M_finish.i.i = getelementptr inbounds i8, ptr %this, i64 240
   %12 = load ptr, ptr %_M_finish.i.i, align 8
   %13 = load ptr, ptr %m_rgbaFloatBuffer, align 8
   %sub.ptr.lhs.cast.i.i = ptrtoint ptr %12 to i64
@@ -643,7 +605,7 @@ invoke.cont.i.i:                                  ; preds = %if.then5.i
   br label %_ZNSt6vectorIfSaIfEE6resizeEm.exit
 
 _ZNSt6vectorIfSaIfEE6resizeEm.exit:               ; preds = %if.then.i8, %if.else.i, %if.then5.i, %invoke.cont.i.i
-  %m_outBitDepthBuffer = getelementptr inbounds %"class.OpenColorIO_v2_4dev::GenericScanlineHelper", ptr %this, i64 0, i32 11
+  %m_outBitDepthBuffer = getelementptr inbounds i8, ptr %this, i64 280
   tail call void @_ZNSt6vectorIhSaIhEE6resizeEm(ptr noundef nonnull align 8 dereferenceable(24) %m_outBitDepthBuffer, i64 noundef %mul26)
   br label %if.end27
 
@@ -685,7 +647,7 @@ if.end3:                                          ; preds = %if.then, %entry
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr hidden void @_ZNSt6vectorIhSaIhEE6resizeEm(ptr noundef nonnull align 8 dereferenceable(24) %this, i64 noundef %__new_size) local_unnamed_addr #5 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  %_M_finish.i = getelementptr inbounds %"struct.std::_Vector_base<unsigned char, std::allocator<unsigned char>>::_Vector_impl_data", ptr %this, i64 0, i32 1
+  %_M_finish.i = getelementptr inbounds i8, ptr %this, i64 8
   %0 = load ptr, ptr %_M_finish.i, align 8
   %1 = load ptr, ptr %this, align 8
   %sub.ptr.lhs.cast.i = ptrtoint ptr %0 to i64
@@ -696,7 +658,7 @@ entry:
 
 if.then:                                          ; preds = %entry
   %sub = sub i64 %__new_size, %sub.ptr.sub.i
-  %_M_end_of_storage.i = getelementptr inbounds %"struct.std::_Vector_base<unsigned char, std::allocator<unsigned char>>::_Vector_impl_data", ptr %this, i64 0, i32 2
+  %_M_end_of_storage.i = getelementptr inbounds i8, ptr %this, i64 16
   %2 = load ptr, ptr %_M_end_of_storage.i, align 8
   %sub.ptr.lhs.cast.i8 = ptrtoint ptr %2 to i64
   %sub.ptr.sub.i9 = sub i64 %sub.ptr.lhs.cast.i8, %sub.ptr.lhs.cast.i
@@ -793,17 +755,17 @@ if.end6:                                          ; preds = %invoke.cont.i, %if.
 ; Function Attrs: mustprogress uwtable
 define weak_odr hidden void @_ZN19OpenColorIO_v2_4dev21GenericScanlineHelperIhhE4initERKNS_9ImageDescE(ptr noundef nonnull align 8 dereferenceable(309) %this, ptr noundef nonnull align 8 dereferenceable(8) %img) unnamed_addr #5 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  %m_yIndex = getelementptr inbounds %"class.OpenColorIO_v2_4dev::GenericScanlineHelper", ptr %this, i64 0, i32 12
+  %m_yIndex = getelementptr inbounds i8, ptr %this, i64 304
   store i32 0, ptr %m_yIndex, align 8
-  %m_srcImg = getelementptr inbounds %"class.OpenColorIO_v2_4dev::GenericScanlineHelper", ptr %this, i64 0, i32 5
-  %m_inputBitDepth = getelementptr inbounds %"class.OpenColorIO_v2_4dev::GenericScanlineHelper", ptr %this, i64 0, i32 1
+  %m_srcImg = getelementptr inbounds i8, ptr %this, i64 48
+  %m_inputBitDepth = getelementptr inbounds i8, ptr %this, i64 8
   %0 = load i32, ptr %m_inputBitDepth, align 8
-  %m_inBitDepthOp = getelementptr inbounds %"class.OpenColorIO_v2_4dev::GenericScanlineHelper", ptr %this, i64 0, i32 3
+  %m_inBitDepthOp = getelementptr inbounds i8, ptr %this, i64 16
   tail call void @_ZN19OpenColorIO_v2_4dev16GenericImageDesc4initERKNS_9ImageDescENS_8BitDepthERKSt10shared_ptrIKNS_5OpCPUEE(ptr noundef nonnull align 8 dereferenceable(82) %m_srcImg, ptr noundef nonnull align 8 dereferenceable(8) %img, i32 noundef %0, ptr noundef nonnull align 8 dereferenceable(16) %m_inBitDepthOp)
-  %m_dstImg = getelementptr inbounds %"class.OpenColorIO_v2_4dev::GenericScanlineHelper", ptr %this, i64 0, i32 6
-  %m_outputBitDepth = getelementptr inbounds %"class.OpenColorIO_v2_4dev::GenericScanlineHelper", ptr %this, i64 0, i32 2
+  %m_dstImg = getelementptr inbounds i8, ptr %this, i64 136
+  %m_outputBitDepth = getelementptr inbounds i8, ptr %this, i64 12
   %1 = load i32, ptr %m_outputBitDepth, align 4
-  %m_outBitDepthOp = getelementptr inbounds %"class.OpenColorIO_v2_4dev::GenericScanlineHelper", ptr %this, i64 0, i32 4
+  %m_outBitDepthOp = getelementptr inbounds i8, ptr %this, i64 32
   tail call void @_ZN19OpenColorIO_v2_4dev16GenericImageDesc4initERKNS_9ImageDescENS_8BitDepthERKSt10shared_ptrIKNS_5OpCPUEE(ptr noundef nonnull align 8 dereferenceable(82) %m_dstImg, ptr noundef nonnull align 8 dereferenceable(8) %img, i32 noundef %1, ptr noundef nonnull align 8 dereferenceable(16) %m_outBitDepthOp)
   %call.i = tail call noundef zeroext i1 @_ZNK19OpenColorIO_v2_4dev16GenericImageDesc12isRGBAPackedEv(ptr noundef nonnull align 8 dereferenceable(82) %m_srcImg)
   br i1 %call.i, label %if.then.i, label %if.then
@@ -813,26 +775,26 @@ if.then.i:                                        ; preds = %entry
   br i1 %call1.i, label %_ZN19OpenColorIO_v2_4dev19GetOptimizationModeERKNS_16GenericImageDescE.exit, label %if.then
 
 _ZN19OpenColorIO_v2_4dev19GetOptimizationModeERKNS_16GenericImageDescE.exit: ; preds = %if.then.i
-  %m_inOptimizedMode = getelementptr inbounds %"class.OpenColorIO_v2_4dev::GenericScanlineHelper", ptr %this, i64 0, i32 7
+  %m_inOptimizedMode = getelementptr inbounds i8, ptr %this, i64 224
   store i32 3, ptr %m_inOptimizedMode, align 8
-  %m_outOptimizedMode = getelementptr inbounds %"class.OpenColorIO_v2_4dev::GenericScanlineHelper", ptr %this, i64 0, i32 8
+  %m_outOptimizedMode = getelementptr inbounds i8, ptr %this, i64 228
   store i32 3, ptr %m_outOptimizedMode, align 4
-  %m_useDstBuffer = getelementptr inbounds %"class.OpenColorIO_v2_4dev::GenericScanlineHelper", ptr %this, i64 0, i32 13
+  %m_useDstBuffer = getelementptr inbounds i8, ptr %this, i64 308
   store i8 1, ptr %m_useDstBuffer, align 4
   br label %if.end
 
 if.then:                                          ; preds = %entry, %if.then.i
   %optim.0.i.ph = phi i32 [ 1, %if.then.i ], [ 0, %entry ]
-  %m_inOptimizedMode6 = getelementptr inbounds %"class.OpenColorIO_v2_4dev::GenericScanlineHelper", ptr %this, i64 0, i32 7
+  %m_inOptimizedMode6 = getelementptr inbounds i8, ptr %this, i64 224
   store i32 %optim.0.i.ph, ptr %m_inOptimizedMode6, align 8
-  %m_outOptimizedMode7 = getelementptr inbounds %"class.OpenColorIO_v2_4dev::GenericScanlineHelper", ptr %this, i64 0, i32 8
+  %m_outOptimizedMode7 = getelementptr inbounds i8, ptr %this, i64 228
   store i32 %optim.0.i.ph, ptr %m_outOptimizedMode7, align 4
-  %m_useDstBuffer9 = getelementptr inbounds %"class.OpenColorIO_v2_4dev::GenericScanlineHelper", ptr %this, i64 0, i32 13
+  %m_useDstBuffer9 = getelementptr inbounds i8, ptr %this, i64 308
   store i8 0, ptr %m_useDstBuffer9, align 4
   %2 = load i64, ptr %m_dstImg, align 8
   %mul = shl nsw i64 %2, 2
-  %m_rgbaFloatBuffer = getelementptr inbounds %"class.OpenColorIO_v2_4dev::GenericScanlineHelper", ptr %this, i64 0, i32 9
-  %_M_finish.i.i = getelementptr inbounds %"class.OpenColorIO_v2_4dev::GenericScanlineHelper", ptr %this, i64 0, i32 9, i32 0, i32 0, i32 0, i32 1
+  %m_rgbaFloatBuffer = getelementptr inbounds i8, ptr %this, i64 232
+  %_M_finish.i.i = getelementptr inbounds i8, ptr %this, i64 240
   %3 = load ptr, ptr %_M_finish.i.i, align 8
   %4 = load ptr, ptr %m_rgbaFloatBuffer, align 8
   %sub.ptr.lhs.cast.i.i = ptrtoint ptr %3 to i64
@@ -861,9 +823,9 @@ invoke.cont.i.i:                                  ; preds = %if.then5.i
   br label %_ZNSt6vectorIfSaIfEE6resizeEm.exit
 
 _ZNSt6vectorIfSaIfEE6resizeEm.exit:               ; preds = %if.then.i4, %if.else.i, %if.then5.i, %invoke.cont.i.i
-  %m_inBitDepthBuffer = getelementptr inbounds %"class.OpenColorIO_v2_4dev::GenericScanlineHelper", ptr %this, i64 0, i32 10
+  %m_inBitDepthBuffer = getelementptr inbounds i8, ptr %this, i64 256
   tail call void @_ZNSt6vectorIhSaIhEE6resizeEm(ptr noundef nonnull align 8 dereferenceable(24) %m_inBitDepthBuffer, i64 noundef %mul)
-  %m_outBitDepthBuffer = getelementptr inbounds %"class.OpenColorIO_v2_4dev::GenericScanlineHelper", ptr %this, i64 0, i32 11
+  %m_outBitDepthBuffer = getelementptr inbounds i8, ptr %this, i64 280
   tail call void @_ZNSt6vectorIhSaIhEE6resizeEm(ptr noundef nonnull align 8 dereferenceable(24) %m_outBitDepthBuffer, i64 noundef %mul)
   br label %if.end
 
@@ -875,7 +837,7 @@ if.end:                                           ; preds = %_ZN19OpenColorIO_v2
 define weak_odr hidden void @_ZN19OpenColorIO_v2_4dev21GenericScanlineHelperIhhED2Ev(ptr noundef nonnull align 8 dereferenceable(309) %this) unnamed_addr #3 comdat($_ZN19OpenColorIO_v2_4dev21GenericScanlineHelperIhhED5Ev) align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTVN19OpenColorIO_v2_4dev21GenericScanlineHelperIhhEE, i64 0, inrange i32 0, i64 2), ptr %this, align 8
-  %m_outBitDepthBuffer = getelementptr inbounds %"class.OpenColorIO_v2_4dev::GenericScanlineHelper", ptr %this, i64 0, i32 11
+  %m_outBitDepthBuffer = getelementptr inbounds i8, ptr %this, i64 280
   %0 = load ptr, ptr %m_outBitDepthBuffer, align 8
   %tobool.not.i.i.i = icmp eq ptr %0, null
   br i1 %tobool.not.i.i.i, label %_ZNSt6vectorIhSaIhEED2Ev.exit, label %if.then.i.i.i
@@ -885,7 +847,7 @@ if.then.i.i.i:                                    ; preds = %entry
   br label %_ZNSt6vectorIhSaIhEED2Ev.exit
 
 _ZNSt6vectorIhSaIhEED2Ev.exit:                    ; preds = %entry, %if.then.i.i.i
-  %m_inBitDepthBuffer = getelementptr inbounds %"class.OpenColorIO_v2_4dev::GenericScanlineHelper", ptr %this, i64 0, i32 10
+  %m_inBitDepthBuffer = getelementptr inbounds i8, ptr %this, i64 256
   %1 = load ptr, ptr %m_inBitDepthBuffer, align 8
   %tobool.not.i.i.i1 = icmp eq ptr %1, null
   br i1 %tobool.not.i.i.i1, label %_ZNSt6vectorIhSaIhEED2Ev.exit3, label %if.then.i.i.i2
@@ -895,7 +857,7 @@ if.then.i.i.i2:                                   ; preds = %_ZNSt6vectorIhSaIhE
   br label %_ZNSt6vectorIhSaIhEED2Ev.exit3
 
 _ZNSt6vectorIhSaIhEED2Ev.exit3:                   ; preds = %_ZNSt6vectorIhSaIhEED2Ev.exit, %if.then.i.i.i2
-  %m_rgbaFloatBuffer = getelementptr inbounds %"class.OpenColorIO_v2_4dev::GenericScanlineHelper", ptr %this, i64 0, i32 9
+  %m_rgbaFloatBuffer = getelementptr inbounds i8, ptr %this, i64 232
   %2 = load ptr, ptr %m_rgbaFloatBuffer, align 8
   %tobool.not.i.i.i4 = icmp eq ptr %2, null
   br i1 %tobool.not.i.i.i4, label %_ZNSt6vectorIfSaIfEED2Ev.exit, label %if.then.i.i.i5
@@ -905,13 +867,13 @@ if.then.i.i.i5:                                   ; preds = %_ZNSt6vectorIhSaIhE
   br label %_ZNSt6vectorIfSaIfEED2Ev.exit
 
 _ZNSt6vectorIfSaIfEED2Ev.exit:                    ; preds = %_ZNSt6vectorIhSaIhEED2Ev.exit3, %if.then.i.i.i5
-  %_M_refcount.i.i.i = getelementptr inbounds %"class.OpenColorIO_v2_4dev::GenericScanlineHelper", ptr %this, i64 0, i32 6, i32 8, i32 0, i32 1
+  %_M_refcount.i.i.i = getelementptr inbounds i8, ptr %this, i64 208
   %3 = load ptr, ptr %_M_refcount.i.i.i, align 8
   %cmp.not.i.i.i.i = icmp eq ptr %3, null
   br i1 %cmp.not.i.i.i.i, label %_ZN19OpenColorIO_v2_4dev16GenericImageDescD2Ev.exit, label %if.then.i.i.i.i
 
 if.then.i.i.i.i:                                  ; preds = %_ZNSt6vectorIfSaIfEED2Ev.exit
-  %_M_use_count.i.i.i.i.i = getelementptr inbounds %"class.std::_Sp_counted_base", ptr %3, i64 0, i32 1
+  %_M_use_count.i.i.i.i.i = getelementptr inbounds i8, ptr %3, i64 8
   %4 = load atomic i64, ptr %_M_use_count.i.i.i.i.i acquire, align 8
   %cmp.i.i.i.i.i = icmp eq i64 %4, 4294967297
   %5 = trunc i64 %4 to i32
@@ -919,10 +881,10 @@ if.then.i.i.i.i:                                  ; preds = %_ZNSt6vectorIfSaIfE
 
 if.then.i.i.i.i.i:                                ; preds = %if.then.i.i.i.i
   store i32 0, ptr %_M_use_count.i.i.i.i.i, align 8
-  %_M_weak_count.i.i.i.i.i = getelementptr inbounds %"class.std::_Sp_counted_base", ptr %3, i64 0, i32 2
+  %_M_weak_count.i.i.i.i.i = getelementptr inbounds i8, ptr %3, i64 12
   store i32 0, ptr %_M_weak_count.i.i.i.i.i, align 4
   %vtable.i.i.i.i.i = load ptr, ptr %3, align 8
-  %vfn.i.i.i.i.i = getelementptr inbounds ptr, ptr %vtable.i.i.i.i.i, i64 2
+  %vfn.i.i.i.i.i = getelementptr inbounds i8, ptr %vtable.i.i.i.i.i, i64 16
   %6 = load ptr, ptr %vfn.i.i.i.i.i, align 8
   tail call void %6(ptr noundef nonnull align 8 dereferenceable(16) %3) #13
   br label %if.end8.sink.split.i.i.i.i.i
@@ -948,10 +910,10 @@ _ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i: ; preds = %if.els
 
 if.then7.i.i.i.i.i:                               ; preds = %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i
   %vtable.i.i.i.i.i.i.i = load ptr, ptr %3, align 8
-  %vfn.i.i.i.i.i.i.i = getelementptr inbounds ptr, ptr %vtable.i.i.i.i.i.i.i, i64 2
+  %vfn.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %vtable.i.i.i.i.i.i.i, i64 16
   %9 = load ptr, ptr %vfn.i.i.i.i.i.i.i, align 8
   tail call void %9(ptr noundef nonnull align 8 dereferenceable(16) %3) #13
-  %_M_weak_count.i.i.i.i.i.i.i = getelementptr inbounds %"class.std::_Sp_counted_base", ptr %3, i64 0, i32 2
+  %_M_weak_count.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %3, i64 12
   %10 = load i8, ptr @__libc_single_threaded, align 1
   %tobool.i.i.not.i.i.i.i.i.i.i = icmp eq i8 %10, 0
   br i1 %tobool.i.i.not.i.i.i.i.i.i.i, label %if.else.i.i.i.i.i.i.i.i, label %if.then.i.i.i.i.i.i.i.i
@@ -973,19 +935,19 @@ _ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i.i: ; preds = %if
 
 if.end8.sink.split.i.i.i.i.i:                     ; preds = %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i.i, %if.then.i.i.i.i.i
   %vtable2.i.i.i.i.i.i.i = load ptr, ptr %3, align 8
-  %vfn3.i.i.i.i.i.i.i = getelementptr inbounds ptr, ptr %vtable2.i.i.i.i.i.i.i, i64 3
+  %vfn3.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %vtable2.i.i.i.i.i.i.i, i64 24
   %13 = load ptr, ptr %vfn3.i.i.i.i.i.i.i, align 8
   tail call void %13(ptr noundef nonnull align 8 dereferenceable(16) %3) #13
   br label %_ZN19OpenColorIO_v2_4dev16GenericImageDescD2Ev.exit
 
 _ZN19OpenColorIO_v2_4dev16GenericImageDescD2Ev.exit: ; preds = %_ZNSt6vectorIfSaIfEED2Ev.exit, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i.i, %if.end8.sink.split.i.i.i.i.i
-  %_M_refcount.i.i.i6 = getelementptr inbounds %"class.OpenColorIO_v2_4dev::GenericScanlineHelper", ptr %this, i64 0, i32 5, i32 8, i32 0, i32 1
+  %_M_refcount.i.i.i6 = getelementptr inbounds i8, ptr %this, i64 120
   %14 = load ptr, ptr %_M_refcount.i.i.i6, align 8
   %cmp.not.i.i.i.i7 = icmp eq ptr %14, null
   br i1 %cmp.not.i.i.i.i7, label %_ZN19OpenColorIO_v2_4dev16GenericImageDescD2Ev.exit37, label %if.then.i.i.i.i8
 
 if.then.i.i.i.i8:                                 ; preds = %_ZN19OpenColorIO_v2_4dev16GenericImageDescD2Ev.exit
-  %_M_use_count.i.i.i.i.i9 = getelementptr inbounds %"class.std::_Sp_counted_base", ptr %14, i64 0, i32 1
+  %_M_use_count.i.i.i.i.i9 = getelementptr inbounds i8, ptr %14, i64 8
   %15 = load atomic i64, ptr %_M_use_count.i.i.i.i.i9 acquire, align 8
   %cmp.i.i.i.i.i10 = icmp eq i64 %15, 4294967297
   %16 = trunc i64 %15 to i32
@@ -993,10 +955,10 @@ if.then.i.i.i.i8:                                 ; preds = %_ZN19OpenColorIO_v2
 
 if.then.i.i.i.i.i33:                              ; preds = %if.then.i.i.i.i8
   store i32 0, ptr %_M_use_count.i.i.i.i.i9, align 8
-  %_M_weak_count.i.i.i.i.i34 = getelementptr inbounds %"class.std::_Sp_counted_base", ptr %14, i64 0, i32 2
+  %_M_weak_count.i.i.i.i.i34 = getelementptr inbounds i8, ptr %14, i64 12
   store i32 0, ptr %_M_weak_count.i.i.i.i.i34, align 4
   %vtable.i.i.i.i.i35 = load ptr, ptr %14, align 8
-  %vfn.i.i.i.i.i36 = getelementptr inbounds ptr, ptr %vtable.i.i.i.i.i35, i64 2
+  %vfn.i.i.i.i.i36 = getelementptr inbounds i8, ptr %vtable.i.i.i.i.i35, i64 16
   %17 = load ptr, ptr %vfn.i.i.i.i.i36, align 8
   tail call void %17(ptr noundef nonnull align 8 dereferenceable(16) %14) #13
   br label %if.end8.sink.split.i.i.i.i.i28
@@ -1022,10 +984,10 @@ _ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i15: ; preds = %if.e
 
 if.then7.i.i.i.i.i18:                             ; preds = %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i15
   %vtable.i.i.i.i.i.i.i19 = load ptr, ptr %14, align 8
-  %vfn.i.i.i.i.i.i.i20 = getelementptr inbounds ptr, ptr %vtable.i.i.i.i.i.i.i19, i64 2
+  %vfn.i.i.i.i.i.i.i20 = getelementptr inbounds i8, ptr %vtable.i.i.i.i.i.i.i19, i64 16
   %20 = load ptr, ptr %vfn.i.i.i.i.i.i.i20, align 8
   tail call void %20(ptr noundef nonnull align 8 dereferenceable(16) %14) #13
-  %_M_weak_count.i.i.i.i.i.i.i21 = getelementptr inbounds %"class.std::_Sp_counted_base", ptr %14, i64 0, i32 2
+  %_M_weak_count.i.i.i.i.i.i.i21 = getelementptr inbounds i8, ptr %14, i64 12
   %21 = load i8, ptr @__libc_single_threaded, align 1
   %tobool.i.i.not.i.i.i.i.i.i.i22 = icmp eq i8 %21, 0
   br i1 %tobool.i.i.not.i.i.i.i.i.i.i22, label %if.else.i.i.i.i.i.i.i.i31, label %if.then.i.i.i.i.i.i.i.i23
@@ -1047,19 +1009,19 @@ _ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i.i25: ; preds = %
 
 if.end8.sink.split.i.i.i.i.i28:                   ; preds = %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i.i25, %if.then.i.i.i.i.i33
   %vtable2.i.i.i.i.i.i.i29 = load ptr, ptr %14, align 8
-  %vfn3.i.i.i.i.i.i.i30 = getelementptr inbounds ptr, ptr %vtable2.i.i.i.i.i.i.i29, i64 3
+  %vfn3.i.i.i.i.i.i.i30 = getelementptr inbounds i8, ptr %vtable2.i.i.i.i.i.i.i29, i64 24
   %24 = load ptr, ptr %vfn3.i.i.i.i.i.i.i30, align 8
   tail call void %24(ptr noundef nonnull align 8 dereferenceable(16) %14) #13
   br label %_ZN19OpenColorIO_v2_4dev16GenericImageDescD2Ev.exit37
 
 _ZN19OpenColorIO_v2_4dev16GenericImageDescD2Ev.exit37: ; preds = %_ZN19OpenColorIO_v2_4dev16GenericImageDescD2Ev.exit, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i15, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i.i25, %if.end8.sink.split.i.i.i.i.i28
-  %_M_refcount.i.i = getelementptr inbounds %"class.OpenColorIO_v2_4dev::GenericScanlineHelper", ptr %this, i64 0, i32 4, i32 0, i32 1
+  %_M_refcount.i.i = getelementptr inbounds i8, ptr %this, i64 40
   %25 = load ptr, ptr %_M_refcount.i.i, align 8
   %cmp.not.i.i.i = icmp eq ptr %25, null
   br i1 %cmp.not.i.i.i, label %_ZNSt10shared_ptrIKN19OpenColorIO_v2_4dev5OpCPUEED2Ev.exit, label %if.then.i.i.i38
 
 if.then.i.i.i38:                                  ; preds = %_ZN19OpenColorIO_v2_4dev16GenericImageDescD2Ev.exit37
-  %_M_use_count.i.i.i.i = getelementptr inbounds %"class.std::_Sp_counted_base", ptr %25, i64 0, i32 1
+  %_M_use_count.i.i.i.i = getelementptr inbounds i8, ptr %25, i64 8
   %26 = load atomic i64, ptr %_M_use_count.i.i.i.i acquire, align 8
   %cmp.i.i.i.i = icmp eq i64 %26, 4294967297
   %27 = trunc i64 %26 to i32
@@ -1067,10 +1029,10 @@ if.then.i.i.i38:                                  ; preds = %_ZN19OpenColorIO_v2
 
 if.then.i.i.i.i40:                                ; preds = %if.then.i.i.i38
   store i32 0, ptr %_M_use_count.i.i.i.i, align 8
-  %_M_weak_count.i.i.i.i = getelementptr inbounds %"class.std::_Sp_counted_base", ptr %25, i64 0, i32 2
+  %_M_weak_count.i.i.i.i = getelementptr inbounds i8, ptr %25, i64 12
   store i32 0, ptr %_M_weak_count.i.i.i.i, align 4
   %vtable.i.i.i.i = load ptr, ptr %25, align 8
-  %vfn.i.i.i.i = getelementptr inbounds ptr, ptr %vtable.i.i.i.i, i64 2
+  %vfn.i.i.i.i = getelementptr inbounds i8, ptr %vtable.i.i.i.i, i64 16
   %28 = load ptr, ptr %vfn.i.i.i.i, align 8
   tail call void %28(ptr noundef nonnull align 8 dereferenceable(16) %25) #13
   br label %if.end8.sink.split.i.i.i.i
@@ -1096,10 +1058,10 @@ _ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i: ; preds = %if.else.
 
 if.then7.i.i.i.i:                                 ; preds = %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i
   %vtable.i.i.i.i.i.i = load ptr, ptr %25, align 8
-  %vfn.i.i.i.i.i.i = getelementptr inbounds ptr, ptr %vtable.i.i.i.i.i.i, i64 2
+  %vfn.i.i.i.i.i.i = getelementptr inbounds i8, ptr %vtable.i.i.i.i.i.i, i64 16
   %31 = load ptr, ptr %vfn.i.i.i.i.i.i, align 8
   tail call void %31(ptr noundef nonnull align 8 dereferenceable(16) %25) #13
-  %_M_weak_count.i.i.i.i.i.i = getelementptr inbounds %"class.std::_Sp_counted_base", ptr %25, i64 0, i32 2
+  %_M_weak_count.i.i.i.i.i.i = getelementptr inbounds i8, ptr %25, i64 12
   %32 = load i8, ptr @__libc_single_threaded, align 1
   %tobool.i.i.not.i.i.i.i.i.i = icmp eq i8 %32, 0
   br i1 %tobool.i.i.not.i.i.i.i.i.i, label %if.else.i.i.i.i.i.i.i, label %if.then.i.i.i.i.i.i.i
@@ -1121,19 +1083,19 @@ _ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i: ; preds = %if.e
 
 if.end8.sink.split.i.i.i.i:                       ; preds = %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i, %if.then.i.i.i.i40
   %vtable2.i.i.i.i.i.i = load ptr, ptr %25, align 8
-  %vfn3.i.i.i.i.i.i = getelementptr inbounds ptr, ptr %vtable2.i.i.i.i.i.i, i64 3
+  %vfn3.i.i.i.i.i.i = getelementptr inbounds i8, ptr %vtable2.i.i.i.i.i.i, i64 24
   %35 = load ptr, ptr %vfn3.i.i.i.i.i.i, align 8
   tail call void %35(ptr noundef nonnull align 8 dereferenceable(16) %25) #13
   br label %_ZNSt10shared_ptrIKN19OpenColorIO_v2_4dev5OpCPUEED2Ev.exit
 
 _ZNSt10shared_ptrIKN19OpenColorIO_v2_4dev5OpCPUEED2Ev.exit: ; preds = %_ZN19OpenColorIO_v2_4dev16GenericImageDescD2Ev.exit37, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i, %if.end8.sink.split.i.i.i.i
-  %_M_refcount.i.i41 = getelementptr inbounds %"class.OpenColorIO_v2_4dev::GenericScanlineHelper", ptr %this, i64 0, i32 3, i32 0, i32 1
+  %_M_refcount.i.i41 = getelementptr inbounds i8, ptr %this, i64 24
   %36 = load ptr, ptr %_M_refcount.i.i41, align 8
   %cmp.not.i.i.i42 = icmp eq ptr %36, null
   br i1 %cmp.not.i.i.i42, label %_ZNSt10shared_ptrIKN19OpenColorIO_v2_4dev5OpCPUEED2Ev.exit72, label %if.then.i.i.i43
 
 if.then.i.i.i43:                                  ; preds = %_ZNSt10shared_ptrIKN19OpenColorIO_v2_4dev5OpCPUEED2Ev.exit
-  %_M_use_count.i.i.i.i44 = getelementptr inbounds %"class.std::_Sp_counted_base", ptr %36, i64 0, i32 1
+  %_M_use_count.i.i.i.i44 = getelementptr inbounds i8, ptr %36, i64 8
   %37 = load atomic i64, ptr %_M_use_count.i.i.i.i44 acquire, align 8
   %cmp.i.i.i.i45 = icmp eq i64 %37, 4294967297
   %38 = trunc i64 %37 to i32
@@ -1141,10 +1103,10 @@ if.then.i.i.i43:                                  ; preds = %_ZNSt10shared_ptrIK
 
 if.then.i.i.i.i68:                                ; preds = %if.then.i.i.i43
   store i32 0, ptr %_M_use_count.i.i.i.i44, align 8
-  %_M_weak_count.i.i.i.i69 = getelementptr inbounds %"class.std::_Sp_counted_base", ptr %36, i64 0, i32 2
+  %_M_weak_count.i.i.i.i69 = getelementptr inbounds i8, ptr %36, i64 12
   store i32 0, ptr %_M_weak_count.i.i.i.i69, align 4
   %vtable.i.i.i.i70 = load ptr, ptr %36, align 8
-  %vfn.i.i.i.i71 = getelementptr inbounds ptr, ptr %vtable.i.i.i.i70, i64 2
+  %vfn.i.i.i.i71 = getelementptr inbounds i8, ptr %vtable.i.i.i.i70, i64 16
   %39 = load ptr, ptr %vfn.i.i.i.i71, align 8
   tail call void %39(ptr noundef nonnull align 8 dereferenceable(16) %36) #13
   br label %if.end8.sink.split.i.i.i.i63
@@ -1170,10 +1132,10 @@ _ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i50: ; preds = %if.els
 
 if.then7.i.i.i.i53:                               ; preds = %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i50
   %vtable.i.i.i.i.i.i54 = load ptr, ptr %36, align 8
-  %vfn.i.i.i.i.i.i55 = getelementptr inbounds ptr, ptr %vtable.i.i.i.i.i.i54, i64 2
+  %vfn.i.i.i.i.i.i55 = getelementptr inbounds i8, ptr %vtable.i.i.i.i.i.i54, i64 16
   %42 = load ptr, ptr %vfn.i.i.i.i.i.i55, align 8
   tail call void %42(ptr noundef nonnull align 8 dereferenceable(16) %36) #13
-  %_M_weak_count.i.i.i.i.i.i56 = getelementptr inbounds %"class.std::_Sp_counted_base", ptr %36, i64 0, i32 2
+  %_M_weak_count.i.i.i.i.i.i56 = getelementptr inbounds i8, ptr %36, i64 12
   %43 = load i8, ptr @__libc_single_threaded, align 1
   %tobool.i.i.not.i.i.i.i.i.i57 = icmp eq i8 %43, 0
   br i1 %tobool.i.i.not.i.i.i.i.i.i57, label %if.else.i.i.i.i.i.i.i66, label %if.then.i.i.i.i.i.i.i58
@@ -1195,7 +1157,7 @@ _ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i60: ; preds = %if
 
 if.end8.sink.split.i.i.i.i63:                     ; preds = %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i60, %if.then.i.i.i.i68
   %vtable2.i.i.i.i.i.i64 = load ptr, ptr %36, align 8
-  %vfn3.i.i.i.i.i.i65 = getelementptr inbounds ptr, ptr %vtable2.i.i.i.i.i.i64, i64 3
+  %vfn3.i.i.i.i.i.i65 = getelementptr inbounds i8, ptr %vtable2.i.i.i.i.i.i64, i64 24
   %46 = load ptr, ptr %vfn3.i.i.i.i.i.i65, align 8
   tail call void %46(ptr noundef nonnull align 8 dereferenceable(16) %36) #13
   br label %_ZNSt10shared_ptrIKN19OpenColorIO_v2_4dev5OpCPUEED2Ev.exit72
@@ -1218,66 +1180,66 @@ declare void @_ZdlPv(ptr noundef) local_unnamed_addr #6
 ; Function Attrs: mustprogress uwtable
 define weak_odr hidden void @_ZN19OpenColorIO_v2_4dev21GenericScanlineHelperIhhE16prepRGBAScanlineEPPfRl(ptr noundef nonnull align 8 dereferenceable(309) %this, ptr noundef %buffer, ptr noundef nonnull align 8 dereferenceable(8) %numPixels) unnamed_addr #5 comdat align 2 {
 entry:
-  %m_yIndex = getelementptr inbounds %"class.OpenColorIO_v2_4dev::GenericScanlineHelper", ptr %this, i64 0, i32 12
+  %m_yIndex = getelementptr inbounds i8, ptr %this, i64 304
   %0 = load i32, ptr %m_yIndex, align 8
   %conv = sext i32 %0 to i64
-  %m_dstImg = getelementptr inbounds %"class.OpenColorIO_v2_4dev::GenericScanlineHelper", ptr %this, i64 0, i32 6
-  %m_height = getelementptr inbounds %"class.OpenColorIO_v2_4dev::GenericScanlineHelper", ptr %this, i64 0, i32 6, i32 1
+  %m_dstImg = getelementptr inbounds i8, ptr %this, i64 136
+  %m_height = getelementptr inbounds i8, ptr %this, i64 144
   %1 = load i64, ptr %m_height, align 8
   %cmp.not = icmp sgt i64 %1, %conv
   br i1 %cmp.not, label %if.end, label %return
 
 if.end:                                           ; preds = %entry
-  %m_useDstBuffer = getelementptr inbounds %"class.OpenColorIO_v2_4dev::GenericScanlineHelper", ptr %this, i64 0, i32 13
+  %m_useDstBuffer = getelementptr inbounds i8, ptr %this, i64 308
   %2 = load i8, ptr %m_useDstBuffer, align 4
   %3 = and i8 %2, 1
   %tobool.not = icmp eq i8 %3, 0
   br i1 %tobool.not, label %cond.false, label %cond.true
 
 cond.true:                                        ; preds = %if.end
-  %m_rData = getelementptr inbounds %"class.OpenColorIO_v2_4dev::GenericScanlineHelper", ptr %this, i64 0, i32 6, i32 4
+  %m_rData = getelementptr inbounds i8, ptr %this, i64 168
   %4 = load ptr, ptr %m_rData, align 8
-  %m_yStrideBytes = getelementptr inbounds %"class.OpenColorIO_v2_4dev::GenericScanlineHelper", ptr %this, i64 0, i32 6, i32 3
+  %m_yStrideBytes = getelementptr inbounds i8, ptr %this, i64 160
   %5 = load i64, ptr %m_yStrideBytes, align 8
   %mul = mul nsw i64 %5, %conv
   %add.ptr = getelementptr inbounds i8, ptr %4, i64 %mul
   br label %cond.end
 
 cond.false:                                       ; preds = %if.end
-  %m_rgbaFloatBuffer = getelementptr inbounds %"class.OpenColorIO_v2_4dev::GenericScanlineHelper", ptr %this, i64 0, i32 9
+  %m_rgbaFloatBuffer = getelementptr inbounds i8, ptr %this, i64 232
   %6 = load ptr, ptr %m_rgbaFloatBuffer, align 8
   br label %cond.end
 
 cond.end:                                         ; preds = %cond.false, %cond.true
   %cond = phi ptr [ %add.ptr, %cond.true ], [ %6, %cond.false ]
   store ptr %cond, ptr %buffer, align 8
-  %m_inOptimizedMode = getelementptr inbounds %"class.OpenColorIO_v2_4dev::GenericScanlineHelper", ptr %this, i64 0, i32 7
+  %m_inOptimizedMode = getelementptr inbounds i8, ptr %this, i64 224
   %7 = load i32, ptr %m_inOptimizedMode, align 8
   %and = and i32 %7, 1
   %cmp6.not = icmp eq i32 %and, 0
   br i1 %cmp6.not, label %if.else, label %if.then7
 
 if.then7:                                         ; preds = %cond.end
-  %m_rData8 = getelementptr inbounds %"class.OpenColorIO_v2_4dev::GenericScanlineHelper", ptr %this, i64 0, i32 5, i32 4
+  %m_rData8 = getelementptr inbounds i8, ptr %this, i64 80
   %8 = load ptr, ptr %m_rData8, align 8
-  %m_yStrideBytes10 = getelementptr inbounds %"class.OpenColorIO_v2_4dev::GenericScanlineHelper", ptr %this, i64 0, i32 5, i32 3
+  %m_yStrideBytes10 = getelementptr inbounds i8, ptr %this, i64 72
   %9 = load i64, ptr %m_yStrideBytes10, align 8
   %10 = load i32, ptr %m_yIndex, align 8
   %conv12 = sext i32 %10 to i64
   %mul13 = mul nsw i64 %9, %conv12
   %add.ptr14 = getelementptr inbounds i8, ptr %8, i64 %mul13
-  %m_bitDepthOp = getelementptr inbounds %"class.OpenColorIO_v2_4dev::GenericScanlineHelper", ptr %this, i64 0, i32 5, i32 8
+  %m_bitDepthOp = getelementptr inbounds i8, ptr %this, i64 112
   %11 = load ptr, ptr %m_bitDepthOp, align 8
   %12 = load i64, ptr %m_dstImg, align 8
   %vtable = load ptr, ptr %11, align 8
-  %vfn = getelementptr inbounds ptr, ptr %vtable, i64 2
+  %vfn = getelementptr inbounds i8, ptr %vtable, i64 16
   %13 = load ptr, ptr %vfn, align 8
   tail call void %13(ptr noundef nonnull align 8 dereferenceable(8) %11, ptr noundef %add.ptr14, ptr noundef %cond, i64 noundef %12)
   br label %if.end28
 
 if.else:                                          ; preds = %cond.end
-  %m_srcImg18 = getelementptr inbounds %"class.OpenColorIO_v2_4dev::GenericScanlineHelper", ptr %this, i64 0, i32 5
-  %m_inBitDepthBuffer = getelementptr inbounds %"class.OpenColorIO_v2_4dev::GenericScanlineHelper", ptr %this, i64 0, i32 10
+  %m_srcImg18 = getelementptr inbounds i8, ptr %this, i64 48
+  %m_inBitDepthBuffer = getelementptr inbounds i8, ptr %this, i64 256
   %14 = load ptr, ptr %m_inBitDepthBuffer, align 8
   %15 = load i64, ptr %m_dstImg, align 8
   %conv22 = trunc i64 %15 to i32
@@ -1302,47 +1264,47 @@ declare void @_ZN19OpenColorIO_v2_4dev7GenericIhE21PackRGBAFromImageDescERKNS_16
 ; Function Attrs: mustprogress uwtable
 define weak_odr hidden void @_ZN19OpenColorIO_v2_4dev21GenericScanlineHelperIhhE18finishRGBAScanlineEv(ptr noundef nonnull align 8 dereferenceable(309) %this) unnamed_addr #5 comdat align 2 {
 entry:
-  %m_outOptimizedMode = getelementptr inbounds %"class.OpenColorIO_v2_4dev::GenericScanlineHelper", ptr %this, i64 0, i32 8
+  %m_outOptimizedMode = getelementptr inbounds i8, ptr %this, i64 228
   %0 = load i32, ptr %m_outOptimizedMode, align 4
   %and = and i32 %0, 1
   %cmp.not = icmp eq i32 %and, 0
-  %m_dstImg6 = getelementptr inbounds %"class.OpenColorIO_v2_4dev::GenericScanlineHelper", ptr %this, i64 0, i32 6
+  %m_dstImg6 = getelementptr inbounds i8, ptr %this, i64 136
   br i1 %cmp.not, label %if.else, label %if.then
 
 if.then:                                          ; preds = %entry
-  %m_rData = getelementptr inbounds %"class.OpenColorIO_v2_4dev::GenericScanlineHelper", ptr %this, i64 0, i32 6, i32 4
+  %m_rData = getelementptr inbounds i8, ptr %this, i64 168
   %1 = load ptr, ptr %m_rData, align 8
-  %m_yStrideBytes = getelementptr inbounds %"class.OpenColorIO_v2_4dev::GenericScanlineHelper", ptr %this, i64 0, i32 6, i32 3
+  %m_yStrideBytes = getelementptr inbounds i8, ptr %this, i64 160
   %2 = load i64, ptr %m_yStrideBytes, align 8
-  %m_yIndex = getelementptr inbounds %"class.OpenColorIO_v2_4dev::GenericScanlineHelper", ptr %this, i64 0, i32 12
+  %m_yIndex = getelementptr inbounds i8, ptr %this, i64 304
   %3 = load i32, ptr %m_yIndex, align 8
   %conv = sext i32 %3 to i64
   %mul = mul nsw i64 %2, %conv
   %add.ptr = getelementptr inbounds i8, ptr %1, i64 %mul
-  %m_useDstBuffer = getelementptr inbounds %"class.OpenColorIO_v2_4dev::GenericScanlineHelper", ptr %this, i64 0, i32 13
+  %m_useDstBuffer = getelementptr inbounds i8, ptr %this, i64 308
   %4 = load i8, ptr %m_useDstBuffer, align 4
   %5 = and i8 %4, 1
   %tobool.not = icmp eq i8 %5, 0
-  %m_rgbaFloatBuffer = getelementptr inbounds %"class.OpenColorIO_v2_4dev::GenericScanlineHelper", ptr %this, i64 0, i32 9
+  %m_rgbaFloatBuffer = getelementptr inbounds i8, ptr %this, i64 232
   %6 = load ptr, ptr %m_rgbaFloatBuffer, align 8
   %cond = select i1 %tobool.not, ptr %6, ptr %add.ptr
-  %m_bitDepthOp = getelementptr inbounds %"class.OpenColorIO_v2_4dev::GenericScanlineHelper", ptr %this, i64 0, i32 6, i32 8
+  %m_bitDepthOp = getelementptr inbounds i8, ptr %this, i64 200
   %7 = load ptr, ptr %m_bitDepthOp, align 8
   %8 = load i64, ptr %m_dstImg6, align 8
   %vtable = load ptr, ptr %7, align 8
-  %vfn = getelementptr inbounds ptr, ptr %vtable, i64 2
+  %vfn = getelementptr inbounds i8, ptr %vtable, i64 16
   %9 = load ptr, ptr %vfn, align 8
   tail call void %9(ptr noundef nonnull align 8 dereferenceable(8) %7, ptr noundef %cond, ptr noundef %add.ptr, i64 noundef %8)
   br label %if.end
 
 if.else:                                          ; preds = %entry
-  %m_rgbaFloatBuffer7 = getelementptr inbounds %"class.OpenColorIO_v2_4dev::GenericScanlineHelper", ptr %this, i64 0, i32 9
+  %m_rgbaFloatBuffer7 = getelementptr inbounds i8, ptr %this, i64 232
   %10 = load ptr, ptr %m_rgbaFloatBuffer7, align 8
-  %m_outBitDepthBuffer = getelementptr inbounds %"class.OpenColorIO_v2_4dev::GenericScanlineHelper", ptr %this, i64 0, i32 11
+  %m_outBitDepthBuffer = getelementptr inbounds i8, ptr %this, i64 280
   %11 = load ptr, ptr %m_outBitDepthBuffer, align 8
   %12 = load i64, ptr %m_dstImg6, align 8
   %conv12 = trunc i64 %12 to i32
-  %m_yIndex13 = getelementptr inbounds %"class.OpenColorIO_v2_4dev::GenericScanlineHelper", ptr %this, i64 0, i32 12
+  %m_yIndex13 = getelementptr inbounds i8, ptr %this, i64 304
   %13 = load i32, ptr %m_yIndex13, align 8
   %conv14 = sext i32 %13 to i64
   %mul17 = mul nsw i64 %12, %conv14
@@ -1350,7 +1312,7 @@ if.else:                                          ; preds = %entry
   br label %if.end
 
 if.end:                                           ; preds = %if.else, %if.then
-  %m_yIndex18 = getelementptr inbounds %"class.OpenColorIO_v2_4dev::GenericScanlineHelper", ptr %this, i64 0, i32 12
+  %m_yIndex18 = getelementptr inbounds i8, ptr %this, i64 304
   %14 = load i32, ptr %m_yIndex18, align 8
   %inc = add nsw i32 %14, 1
   store i32 %inc, ptr %m_yIndex18, align 8
@@ -1363,22 +1325,22 @@ declare void @_ZN19OpenColorIO_v2_4dev7GenericIhE21UnpackRGBAToImageDescERNS_16G
 define weak_odr hidden void @_ZN19OpenColorIO_v2_4dev21GenericScanlineHelperIhtEC2ENS_8BitDepthERKSt10shared_ptrIKNS_5OpCPUEES2_S8_(ptr noundef nonnull align 8 dereferenceable(309) %this, i32 noundef %inputBitDepth, ptr noundef nonnull align 8 dereferenceable(16) %inBitDepthOp, i32 noundef %outputBitDepth, ptr noundef nonnull align 8 dereferenceable(16) %outBitDepthOp) unnamed_addr #3 comdat($_ZN19OpenColorIO_v2_4dev21GenericScanlineHelperIhtEC5ENS_8BitDepthERKSt10shared_ptrIKNS_5OpCPUEES2_S8_) align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTVN19OpenColorIO_v2_4dev21GenericScanlineHelperIhtEE, i64 0, inrange i32 0, i64 2), ptr %this, align 8
-  %m_inputBitDepth = getelementptr inbounds %"class.OpenColorIO_v2_4dev::GenericScanlineHelper.5", ptr %this, i64 0, i32 1
+  %m_inputBitDepth = getelementptr inbounds i8, ptr %this, i64 8
   store i32 %inputBitDepth, ptr %m_inputBitDepth, align 8
-  %m_outputBitDepth = getelementptr inbounds %"class.OpenColorIO_v2_4dev::GenericScanlineHelper.5", ptr %this, i64 0, i32 2
+  %m_outputBitDepth = getelementptr inbounds i8, ptr %this, i64 12
   store i32 %outputBitDepth, ptr %m_outputBitDepth, align 4
-  %m_inBitDepthOp = getelementptr inbounds %"class.OpenColorIO_v2_4dev::GenericScanlineHelper.5", ptr %this, i64 0, i32 3
+  %m_inBitDepthOp = getelementptr inbounds i8, ptr %this, i64 16
   %0 = load ptr, ptr %inBitDepthOp, align 8
   store ptr %0, ptr %m_inBitDepthOp, align 8
-  %_M_refcount.i.i = getelementptr inbounds %"class.OpenColorIO_v2_4dev::GenericScanlineHelper.5", ptr %this, i64 0, i32 3, i32 0, i32 1
-  %_M_refcount3.i.i = getelementptr inbounds %"class.std::__shared_ptr", ptr %inBitDepthOp, i64 0, i32 1
+  %_M_refcount.i.i = getelementptr inbounds i8, ptr %this, i64 24
+  %_M_refcount3.i.i = getelementptr inbounds i8, ptr %inBitDepthOp, i64 8
   %1 = load ptr, ptr %_M_refcount3.i.i, align 8
   store ptr %1, ptr %_M_refcount.i.i, align 8
   %cmp.not.i.i.i = icmp eq ptr %1, null
   br i1 %cmp.not.i.i.i, label %_ZNSt10shared_ptrIKN19OpenColorIO_v2_4dev5OpCPUEEC2ERKS3_.exit, label %if.then.i.i.i
 
 if.then.i.i.i:                                    ; preds = %entry
-  %_M_use_count.i.i.i.i = getelementptr inbounds %"class.std::_Sp_counted_base", ptr %1, i64 0, i32 1
+  %_M_use_count.i.i.i.i = getelementptr inbounds i8, ptr %1, i64 8
   %2 = load i8, ptr @__libc_single_threaded, align 1
   %tobool.i.not.i.i.i.i = icmp eq i8 %2, 0
   br i1 %tobool.i.not.i.i.i.i, label %if.else.i.i.i.i.i, label %if.then.i.i.i.i.i
@@ -1394,18 +1356,18 @@ if.else.i.i.i.i.i:                                ; preds = %if.then.i.i.i
   br label %_ZNSt10shared_ptrIKN19OpenColorIO_v2_4dev5OpCPUEEC2ERKS3_.exit
 
 _ZNSt10shared_ptrIKN19OpenColorIO_v2_4dev5OpCPUEEC2ERKS3_.exit: ; preds = %entry, %if.then.i.i.i.i.i, %if.else.i.i.i.i.i
-  %m_outBitDepthOp = getelementptr inbounds %"class.OpenColorIO_v2_4dev::GenericScanlineHelper.5", ptr %this, i64 0, i32 4
+  %m_outBitDepthOp = getelementptr inbounds i8, ptr %this, i64 32
   %5 = load ptr, ptr %outBitDepthOp, align 8
   store ptr %5, ptr %m_outBitDepthOp, align 8
-  %_M_refcount.i.i1 = getelementptr inbounds %"class.OpenColorIO_v2_4dev::GenericScanlineHelper.5", ptr %this, i64 0, i32 4, i32 0, i32 1
-  %_M_refcount3.i.i2 = getelementptr inbounds %"class.std::__shared_ptr", ptr %outBitDepthOp, i64 0, i32 1
+  %_M_refcount.i.i1 = getelementptr inbounds i8, ptr %this, i64 40
+  %_M_refcount3.i.i2 = getelementptr inbounds i8, ptr %outBitDepthOp, i64 8
   %6 = load ptr, ptr %_M_refcount3.i.i2, align 8
   store ptr %6, ptr %_M_refcount.i.i1, align 8
   %cmp.not.i.i.i3 = icmp eq ptr %6, null
   br i1 %cmp.not.i.i.i3, label %_ZNSt10shared_ptrIKN19OpenColorIO_v2_4dev5OpCPUEEC2ERKS3_.exit10, label %if.then.i.i.i4
 
 if.then.i.i.i4:                                   ; preds = %_ZNSt10shared_ptrIKN19OpenColorIO_v2_4dev5OpCPUEEC2ERKS3_.exit
-  %_M_use_count.i.i.i.i5 = getelementptr inbounds %"class.std::_Sp_counted_base", ptr %6, i64 0, i32 1
+  %_M_use_count.i.i.i.i5 = getelementptr inbounds i8, ptr %6, i64 8
   %7 = load i8, ptr @__libc_single_threaded, align 1
   %tobool.i.not.i.i.i.i6 = icmp eq i8 %7, 0
   br i1 %tobool.i.not.i.i.i.i6, label %if.else.i.i.i.i.i9, label %if.then.i.i.i.i.i7
@@ -1421,11 +1383,11 @@ if.else.i.i.i.i.i9:                               ; preds = %if.then.i.i.i4
   br label %_ZNSt10shared_ptrIKN19OpenColorIO_v2_4dev5OpCPUEEC2ERKS3_.exit10
 
 _ZNSt10shared_ptrIKN19OpenColorIO_v2_4dev5OpCPUEEC2ERKS3_.exit10: ; preds = %_ZNSt10shared_ptrIKN19OpenColorIO_v2_4dev5OpCPUEEC2ERKS3_.exit, %if.then.i.i.i.i.i7, %if.else.i.i.i.i.i9
-  %m_srcImg = getelementptr inbounds %"class.OpenColorIO_v2_4dev::GenericScanlineHelper.5", ptr %this, i64 0, i32 5
+  %m_srcImg = getelementptr inbounds i8, ptr %this, i64 48
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(82) %m_srcImg, i8 0, i64 82, i1 false)
-  %m_dstImg = getelementptr inbounds %"class.OpenColorIO_v2_4dev::GenericScanlineHelper.5", ptr %this, i64 0, i32 6
+  %m_dstImg = getelementptr inbounds i8, ptr %this, i64 136
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(82) %m_dstImg, i8 0, i64 82, i1 false)
-  %m_inOptimizedMode = getelementptr inbounds %"class.OpenColorIO_v2_4dev::GenericScanlineHelper.5", ptr %this, i64 0, i32 7
+  %m_inOptimizedMode = getelementptr inbounds i8, ptr %this, i64 224
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(85) %m_inOptimizedMode, i8 0, i64 85, i1 false)
   ret void
 }
@@ -1433,17 +1395,17 @@ _ZNSt10shared_ptrIKN19OpenColorIO_v2_4dev5OpCPUEEC2ERKS3_.exit10: ; preds = %_ZN
 ; Function Attrs: mustprogress uwtable
 define weak_odr hidden void @_ZN19OpenColorIO_v2_4dev21GenericScanlineHelperIhtE4initERKNS_9ImageDescES4_(ptr noundef nonnull align 8 dereferenceable(309) %this, ptr noundef nonnull align 8 dereferenceable(8) %srcImg, ptr noundef nonnull align 8 dereferenceable(8) %dstImg) unnamed_addr #5 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  %m_yIndex = getelementptr inbounds %"class.OpenColorIO_v2_4dev::GenericScanlineHelper.5", ptr %this, i64 0, i32 12
+  %m_yIndex = getelementptr inbounds i8, ptr %this, i64 304
   store i32 0, ptr %m_yIndex, align 8
-  %m_srcImg = getelementptr inbounds %"class.OpenColorIO_v2_4dev::GenericScanlineHelper.5", ptr %this, i64 0, i32 5
-  %m_inputBitDepth = getelementptr inbounds %"class.OpenColorIO_v2_4dev::GenericScanlineHelper.5", ptr %this, i64 0, i32 1
+  %m_srcImg = getelementptr inbounds i8, ptr %this, i64 48
+  %m_inputBitDepth = getelementptr inbounds i8, ptr %this, i64 8
   %0 = load i32, ptr %m_inputBitDepth, align 8
-  %m_inBitDepthOp = getelementptr inbounds %"class.OpenColorIO_v2_4dev::GenericScanlineHelper.5", ptr %this, i64 0, i32 3
+  %m_inBitDepthOp = getelementptr inbounds i8, ptr %this, i64 16
   tail call void @_ZN19OpenColorIO_v2_4dev16GenericImageDesc4initERKNS_9ImageDescENS_8BitDepthERKSt10shared_ptrIKNS_5OpCPUEE(ptr noundef nonnull align 8 dereferenceable(82) %m_srcImg, ptr noundef nonnull align 8 dereferenceable(8) %srcImg, i32 noundef %0, ptr noundef nonnull align 8 dereferenceable(16) %m_inBitDepthOp)
-  %m_dstImg = getelementptr inbounds %"class.OpenColorIO_v2_4dev::GenericScanlineHelper.5", ptr %this, i64 0, i32 6
-  %m_outputBitDepth = getelementptr inbounds %"class.OpenColorIO_v2_4dev::GenericScanlineHelper.5", ptr %this, i64 0, i32 2
+  %m_dstImg = getelementptr inbounds i8, ptr %this, i64 136
+  %m_outputBitDepth = getelementptr inbounds i8, ptr %this, i64 12
   %1 = load i32, ptr %m_outputBitDepth, align 4
-  %m_outBitDepthOp = getelementptr inbounds %"class.OpenColorIO_v2_4dev::GenericScanlineHelper.5", ptr %this, i64 0, i32 4
+  %m_outBitDepthOp = getelementptr inbounds i8, ptr %this, i64 32
   tail call void @_ZN19OpenColorIO_v2_4dev16GenericImageDesc4initERKNS_9ImageDescENS_8BitDepthERKSt10shared_ptrIKNS_5OpCPUEE(ptr noundef nonnull align 8 dereferenceable(82) %m_dstImg, ptr noundef nonnull align 8 dereferenceable(8) %dstImg, i32 noundef %1, ptr noundef nonnull align 8 dereferenceable(16) %m_outBitDepthOp)
   %2 = load i64, ptr %m_srcImg, align 8
   %3 = load i64, ptr %m_dstImg, align 8
@@ -1451,9 +1413,9 @@ entry:
   br i1 %cmp.not, label %lor.lhs.false, label %if.then
 
 lor.lhs.false:                                    ; preds = %entry
-  %m_height = getelementptr inbounds %"class.OpenColorIO_v2_4dev::GenericScanlineHelper.5", ptr %this, i64 0, i32 5, i32 1
+  %m_height = getelementptr inbounds i8, ptr %this, i64 56
   %4 = load i64, ptr %m_height, align 8
-  %m_height7 = getelementptr inbounds %"class.OpenColorIO_v2_4dev::GenericScanlineHelper.5", ptr %this, i64 0, i32 6, i32 1
+  %m_height7 = getelementptr inbounds i8, ptr %this, i64 144
   %5 = load i64, ptr %m_height7, align 8
   %cmp8.not = icmp eq i64 %4, %5
   br i1 %cmp8.not, label %if.end, label %if.then
@@ -1484,7 +1446,7 @@ if.then.i:                                        ; preds = %if.end
 
 _ZN19OpenColorIO_v2_4dev19GetOptimizationModeERKNS_16GenericImageDescE.exit: ; preds = %if.end, %if.then.i
   %optim.0.i = phi i32 [ 0, %if.end ], [ %spec.select.i, %if.then.i ]
-  %m_inOptimizedMode = getelementptr inbounds %"class.OpenColorIO_v2_4dev::GenericScanlineHelper.5", ptr %this, i64 0, i32 7
+  %m_inOptimizedMode = getelementptr inbounds i8, ptr %this, i64 224
   store i32 %optim.0.i, ptr %m_inOptimizedMode, align 8
   %call.i2 = tail call noundef zeroext i1 @_ZNK19OpenColorIO_v2_4dev16GenericImageDesc12isRGBAPackedEv(ptr noundef nonnull align 8 dereferenceable(82) %m_dstImg)
   br i1 %call.i2, label %if.then.i4, label %_ZN19OpenColorIO_v2_4dev19GetOptimizationModeERKNS_16GenericImageDescE.exit7
@@ -1496,10 +1458,10 @@ if.then.i4:                                       ; preds = %_ZN19OpenColorIO_v2
 
 _ZN19OpenColorIO_v2_4dev19GetOptimizationModeERKNS_16GenericImageDescE.exit7: ; preds = %_ZN19OpenColorIO_v2_4dev19GetOptimizationModeERKNS_16GenericImageDescE.exit, %if.then.i4
   %optim.0.i3 = phi i32 [ 0, %_ZN19OpenColorIO_v2_4dev19GetOptimizationModeERKNS_16GenericImageDescE.exit ], [ %spec.select.i6, %if.then.i4 ]
-  %m_outOptimizedMode = getelementptr inbounds %"class.OpenColorIO_v2_4dev::GenericScanlineHelper.5", ptr %this, i64 0, i32 8
+  %m_outOptimizedMode = getelementptr inbounds i8, ptr %this, i64 228
   store i32 %optim.0.i3, ptr %m_outOptimizedMode, align 4
   %cmp13 = icmp eq i32 %optim.0.i3, 3
-  %m_useDstBuffer = getelementptr inbounds %"class.OpenColorIO_v2_4dev::GenericScanlineHelper.5", ptr %this, i64 0, i32 13
+  %m_useDstBuffer = getelementptr inbounds i8, ptr %this, i64 308
   %frombool = zext i1 %cmp13 to i8
   store i8 %frombool, ptr %m_useDstBuffer, align 4
   %7 = load i32, ptr %m_inOptimizedMode, align 8
@@ -1510,7 +1472,7 @@ _ZN19OpenColorIO_v2_4dev19GetOptimizationModeERKNS_16GenericImageDescE.exit7: ; 
 if.then17:                                        ; preds = %_ZN19OpenColorIO_v2_4dev19GetOptimizationModeERKNS_16GenericImageDescE.exit7
   %8 = load i64, ptr %m_dstImg, align 8
   %mul = shl nsw i64 %8, 2
-  %m_inBitDepthBuffer = getelementptr inbounds %"class.OpenColorIO_v2_4dev::GenericScanlineHelper.5", ptr %this, i64 0, i32 10
+  %m_inBitDepthBuffer = getelementptr inbounds i8, ptr %this, i64 256
   tail call void @_ZNSt6vectorIhSaIhEE6resizeEm(ptr noundef nonnull align 8 dereferenceable(24) %m_inBitDepthBuffer, i64 noundef %mul)
   %.pre = load i8, ptr %m_useDstBuffer, align 4
   br label %if.end20
@@ -1524,8 +1486,8 @@ if.end20:                                         ; preds = %if.then17, %_ZN19Op
 if.then22:                                        ; preds = %if.end20
   %11 = load i64, ptr %m_dstImg, align 8
   %mul26 = shl nsw i64 %11, 2
-  %m_rgbaFloatBuffer = getelementptr inbounds %"class.OpenColorIO_v2_4dev::GenericScanlineHelper.5", ptr %this, i64 0, i32 9
-  %_M_finish.i.i = getelementptr inbounds %"class.OpenColorIO_v2_4dev::GenericScanlineHelper.5", ptr %this, i64 0, i32 9, i32 0, i32 0, i32 0, i32 1
+  %m_rgbaFloatBuffer = getelementptr inbounds i8, ptr %this, i64 232
+  %_M_finish.i.i = getelementptr inbounds i8, ptr %this, i64 240
   %12 = load ptr, ptr %_M_finish.i.i, align 8
   %13 = load ptr, ptr %m_rgbaFloatBuffer, align 8
   %sub.ptr.lhs.cast.i.i = ptrtoint ptr %12 to i64
@@ -1554,8 +1516,8 @@ invoke.cont.i.i:                                  ; preds = %if.then5.i
   br label %_ZNSt6vectorIfSaIfEE6resizeEm.exit
 
 _ZNSt6vectorIfSaIfEE6resizeEm.exit:               ; preds = %if.then.i8, %if.else.i, %if.then5.i, %invoke.cont.i.i
-  %m_outBitDepthBuffer = getelementptr inbounds %"class.OpenColorIO_v2_4dev::GenericScanlineHelper.5", ptr %this, i64 0, i32 11
-  %_M_finish.i.i9 = getelementptr inbounds %"class.OpenColorIO_v2_4dev::GenericScanlineHelper.5", ptr %this, i64 0, i32 11, i32 0, i32 0, i32 0, i32 1
+  %m_outBitDepthBuffer = getelementptr inbounds i8, ptr %this, i64 280
+  %_M_finish.i.i9 = getelementptr inbounds i8, ptr %this, i64 288
   %14 = load ptr, ptr %_M_finish.i.i9, align 8
   %15 = load ptr, ptr %m_outBitDepthBuffer, align 8
   %sub.ptr.lhs.cast.i.i10 = ptrtoint ptr %14 to i64
@@ -1590,17 +1552,17 @@ if.end27:                                         ; preds = %invoke.cont.i.i20, 
 ; Function Attrs: mustprogress uwtable
 define weak_odr hidden void @_ZN19OpenColorIO_v2_4dev21GenericScanlineHelperIhtE4initERKNS_9ImageDescE(ptr noundef nonnull align 8 dereferenceable(309) %this, ptr noundef nonnull align 8 dereferenceable(8) %img) unnamed_addr #5 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  %m_yIndex = getelementptr inbounds %"class.OpenColorIO_v2_4dev::GenericScanlineHelper.5", ptr %this, i64 0, i32 12
+  %m_yIndex = getelementptr inbounds i8, ptr %this, i64 304
   store i32 0, ptr %m_yIndex, align 8
-  %m_srcImg = getelementptr inbounds %"class.OpenColorIO_v2_4dev::GenericScanlineHelper.5", ptr %this, i64 0, i32 5
-  %m_inputBitDepth = getelementptr inbounds %"class.OpenColorIO_v2_4dev::GenericScanlineHelper.5", ptr %this, i64 0, i32 1
+  %m_srcImg = getelementptr inbounds i8, ptr %this, i64 48
+  %m_inputBitDepth = getelementptr inbounds i8, ptr %this, i64 8
   %0 = load i32, ptr %m_inputBitDepth, align 8
-  %m_inBitDepthOp = getelementptr inbounds %"class.OpenColorIO_v2_4dev::GenericScanlineHelper.5", ptr %this, i64 0, i32 3
+  %m_inBitDepthOp = getelementptr inbounds i8, ptr %this, i64 16
   tail call void @_ZN19OpenColorIO_v2_4dev16GenericImageDesc4initERKNS_9ImageDescENS_8BitDepthERKSt10shared_ptrIKNS_5OpCPUEE(ptr noundef nonnull align 8 dereferenceable(82) %m_srcImg, ptr noundef nonnull align 8 dereferenceable(8) %img, i32 noundef %0, ptr noundef nonnull align 8 dereferenceable(16) %m_inBitDepthOp)
-  %m_dstImg = getelementptr inbounds %"class.OpenColorIO_v2_4dev::GenericScanlineHelper.5", ptr %this, i64 0, i32 6
-  %m_outputBitDepth = getelementptr inbounds %"class.OpenColorIO_v2_4dev::GenericScanlineHelper.5", ptr %this, i64 0, i32 2
+  %m_dstImg = getelementptr inbounds i8, ptr %this, i64 136
+  %m_outputBitDepth = getelementptr inbounds i8, ptr %this, i64 12
   %1 = load i32, ptr %m_outputBitDepth, align 4
-  %m_outBitDepthOp = getelementptr inbounds %"class.OpenColorIO_v2_4dev::GenericScanlineHelper.5", ptr %this, i64 0, i32 4
+  %m_outBitDepthOp = getelementptr inbounds i8, ptr %this, i64 32
   tail call void @_ZN19OpenColorIO_v2_4dev16GenericImageDesc4initERKNS_9ImageDescENS_8BitDepthERKSt10shared_ptrIKNS_5OpCPUEE(ptr noundef nonnull align 8 dereferenceable(82) %m_dstImg, ptr noundef nonnull align 8 dereferenceable(8) %img, i32 noundef %1, ptr noundef nonnull align 8 dereferenceable(16) %m_outBitDepthOp)
   %call.i = tail call noundef zeroext i1 @_ZNK19OpenColorIO_v2_4dev16GenericImageDesc12isRGBAPackedEv(ptr noundef nonnull align 8 dereferenceable(82) %m_srcImg)
   br i1 %call.i, label %if.then.i, label %if.then
@@ -1610,26 +1572,26 @@ if.then.i:                                        ; preds = %entry
   br i1 %call1.i, label %_ZN19OpenColorIO_v2_4dev19GetOptimizationModeERKNS_16GenericImageDescE.exit, label %if.then
 
 _ZN19OpenColorIO_v2_4dev19GetOptimizationModeERKNS_16GenericImageDescE.exit: ; preds = %if.then.i
-  %m_inOptimizedMode = getelementptr inbounds %"class.OpenColorIO_v2_4dev::GenericScanlineHelper.5", ptr %this, i64 0, i32 7
+  %m_inOptimizedMode = getelementptr inbounds i8, ptr %this, i64 224
   store i32 3, ptr %m_inOptimizedMode, align 8
-  %m_outOptimizedMode = getelementptr inbounds %"class.OpenColorIO_v2_4dev::GenericScanlineHelper.5", ptr %this, i64 0, i32 8
+  %m_outOptimizedMode = getelementptr inbounds i8, ptr %this, i64 228
   store i32 3, ptr %m_outOptimizedMode, align 4
-  %m_useDstBuffer = getelementptr inbounds %"class.OpenColorIO_v2_4dev::GenericScanlineHelper.5", ptr %this, i64 0, i32 13
+  %m_useDstBuffer = getelementptr inbounds i8, ptr %this, i64 308
   store i8 1, ptr %m_useDstBuffer, align 4
   br label %if.end
 
 if.then:                                          ; preds = %entry, %if.then.i
   %optim.0.i.ph = phi i32 [ 1, %if.then.i ], [ 0, %entry ]
-  %m_inOptimizedMode20 = getelementptr inbounds %"class.OpenColorIO_v2_4dev::GenericScanlineHelper.5", ptr %this, i64 0, i32 7
+  %m_inOptimizedMode20 = getelementptr inbounds i8, ptr %this, i64 224
   store i32 %optim.0.i.ph, ptr %m_inOptimizedMode20, align 8
-  %m_outOptimizedMode21 = getelementptr inbounds %"class.OpenColorIO_v2_4dev::GenericScanlineHelper.5", ptr %this, i64 0, i32 8
+  %m_outOptimizedMode21 = getelementptr inbounds i8, ptr %this, i64 228
   store i32 %optim.0.i.ph, ptr %m_outOptimizedMode21, align 4
-  %m_useDstBuffer23 = getelementptr inbounds %"class.OpenColorIO_v2_4dev::GenericScanlineHelper.5", ptr %this, i64 0, i32 13
+  %m_useDstBuffer23 = getelementptr inbounds i8, ptr %this, i64 308
   store i8 0, ptr %m_useDstBuffer23, align 4
   %2 = load i64, ptr %m_dstImg, align 8
   %mul = shl nsw i64 %2, 2
-  %m_rgbaFloatBuffer = getelementptr inbounds %"class.OpenColorIO_v2_4dev::GenericScanlineHelper.5", ptr %this, i64 0, i32 9
-  %_M_finish.i.i = getelementptr inbounds %"class.OpenColorIO_v2_4dev::GenericScanlineHelper.5", ptr %this, i64 0, i32 9, i32 0, i32 0, i32 0, i32 1
+  %m_rgbaFloatBuffer = getelementptr inbounds i8, ptr %this, i64 232
+  %_M_finish.i.i = getelementptr inbounds i8, ptr %this, i64 240
   %3 = load ptr, ptr %_M_finish.i.i, align 8
   %4 = load ptr, ptr %m_rgbaFloatBuffer, align 8
   %sub.ptr.lhs.cast.i.i = ptrtoint ptr %3 to i64
@@ -1658,10 +1620,10 @@ invoke.cont.i.i:                                  ; preds = %if.then5.i
   br label %_ZNSt6vectorIfSaIfEE6resizeEm.exit
 
 _ZNSt6vectorIfSaIfEE6resizeEm.exit:               ; preds = %if.then.i4, %if.else.i, %if.then5.i, %invoke.cont.i.i
-  %m_inBitDepthBuffer = getelementptr inbounds %"class.OpenColorIO_v2_4dev::GenericScanlineHelper.5", ptr %this, i64 0, i32 10
+  %m_inBitDepthBuffer = getelementptr inbounds i8, ptr %this, i64 256
   tail call void @_ZNSt6vectorIhSaIhEE6resizeEm(ptr noundef nonnull align 8 dereferenceable(24) %m_inBitDepthBuffer, i64 noundef %mul)
-  %m_outBitDepthBuffer = getelementptr inbounds %"class.OpenColorIO_v2_4dev::GenericScanlineHelper.5", ptr %this, i64 0, i32 11
-  %_M_finish.i.i5 = getelementptr inbounds %"class.OpenColorIO_v2_4dev::GenericScanlineHelper.5", ptr %this, i64 0, i32 11, i32 0, i32 0, i32 0, i32 1
+  %m_outBitDepthBuffer = getelementptr inbounds i8, ptr %this, i64 280
+  %_M_finish.i.i5 = getelementptr inbounds i8, ptr %this, i64 288
   %5 = load ptr, ptr %_M_finish.i.i5, align 8
   %6 = load ptr, ptr %m_outBitDepthBuffer, align 8
   %sub.ptr.lhs.cast.i.i6 = ptrtoint ptr %5 to i64
@@ -1697,7 +1659,7 @@ if.end:                                           ; preds = %invoke.cont.i.i16, 
 define weak_odr hidden void @_ZN19OpenColorIO_v2_4dev21GenericScanlineHelperIhtED2Ev(ptr noundef nonnull align 8 dereferenceable(309) %this) unnamed_addr #3 comdat($_ZN19OpenColorIO_v2_4dev21GenericScanlineHelperIhtED5Ev) align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTVN19OpenColorIO_v2_4dev21GenericScanlineHelperIhtEE, i64 0, inrange i32 0, i64 2), ptr %this, align 8
-  %m_outBitDepthBuffer = getelementptr inbounds %"class.OpenColorIO_v2_4dev::GenericScanlineHelper.5", ptr %this, i64 0, i32 11
+  %m_outBitDepthBuffer = getelementptr inbounds i8, ptr %this, i64 280
   %0 = load ptr, ptr %m_outBitDepthBuffer, align 8
   %tobool.not.i.i.i = icmp eq ptr %0, null
   br i1 %tobool.not.i.i.i, label %_ZNSt6vectorItSaItEED2Ev.exit, label %if.then.i.i.i
@@ -1707,7 +1669,7 @@ if.then.i.i.i:                                    ; preds = %entry
   br label %_ZNSt6vectorItSaItEED2Ev.exit
 
 _ZNSt6vectorItSaItEED2Ev.exit:                    ; preds = %entry, %if.then.i.i.i
-  %m_inBitDepthBuffer = getelementptr inbounds %"class.OpenColorIO_v2_4dev::GenericScanlineHelper.5", ptr %this, i64 0, i32 10
+  %m_inBitDepthBuffer = getelementptr inbounds i8, ptr %this, i64 256
   %1 = load ptr, ptr %m_inBitDepthBuffer, align 8
   %tobool.not.i.i.i1 = icmp eq ptr %1, null
   br i1 %tobool.not.i.i.i1, label %_ZNSt6vectorIhSaIhEED2Ev.exit, label %if.then.i.i.i2
@@ -1717,7 +1679,7 @@ if.then.i.i.i2:                                   ; preds = %_ZNSt6vectorItSaItE
   br label %_ZNSt6vectorIhSaIhEED2Ev.exit
 
 _ZNSt6vectorIhSaIhEED2Ev.exit:                    ; preds = %_ZNSt6vectorItSaItEED2Ev.exit, %if.then.i.i.i2
-  %m_rgbaFloatBuffer = getelementptr inbounds %"class.OpenColorIO_v2_4dev::GenericScanlineHelper.5", ptr %this, i64 0, i32 9
+  %m_rgbaFloatBuffer = getelementptr inbounds i8, ptr %this, i64 232
   %2 = load ptr, ptr %m_rgbaFloatBuffer, align 8
   %tobool.not.i.i.i3 = icmp eq ptr %2, null
   br i1 %tobool.not.i.i.i3, label %_ZNSt6vectorIfSaIfEED2Ev.exit, label %if.then.i.i.i4
@@ -1727,13 +1689,13 @@ if.then.i.i.i4:                                   ; preds = %_ZNSt6vectorIhSaIhE
   br label %_ZNSt6vectorIfSaIfEED2Ev.exit
 
 _ZNSt6vectorIfSaIfEED2Ev.exit:                    ; preds = %_ZNSt6vectorIhSaIhEED2Ev.exit, %if.then.i.i.i4
-  %_M_refcount.i.i.i = getelementptr inbounds %"class.OpenColorIO_v2_4dev::GenericScanlineHelper.5", ptr %this, i64 0, i32 6, i32 8, i32 0, i32 1
+  %_M_refcount.i.i.i = getelementptr inbounds i8, ptr %this, i64 208
   %3 = load ptr, ptr %_M_refcount.i.i.i, align 8
   %cmp.not.i.i.i.i = icmp eq ptr %3, null
   br i1 %cmp.not.i.i.i.i, label %_ZN19OpenColorIO_v2_4dev16GenericImageDescD2Ev.exit, label %if.then.i.i.i.i
 
 if.then.i.i.i.i:                                  ; preds = %_ZNSt6vectorIfSaIfEED2Ev.exit
-  %_M_use_count.i.i.i.i.i = getelementptr inbounds %"class.std::_Sp_counted_base", ptr %3, i64 0, i32 1
+  %_M_use_count.i.i.i.i.i = getelementptr inbounds i8, ptr %3, i64 8
   %4 = load atomic i64, ptr %_M_use_count.i.i.i.i.i acquire, align 8
   %cmp.i.i.i.i.i = icmp eq i64 %4, 4294967297
   %5 = trunc i64 %4 to i32
@@ -1741,10 +1703,10 @@ if.then.i.i.i.i:                                  ; preds = %_ZNSt6vectorIfSaIfE
 
 if.then.i.i.i.i.i:                                ; preds = %if.then.i.i.i.i
   store i32 0, ptr %_M_use_count.i.i.i.i.i, align 8
-  %_M_weak_count.i.i.i.i.i = getelementptr inbounds %"class.std::_Sp_counted_base", ptr %3, i64 0, i32 2
+  %_M_weak_count.i.i.i.i.i = getelementptr inbounds i8, ptr %3, i64 12
   store i32 0, ptr %_M_weak_count.i.i.i.i.i, align 4
   %vtable.i.i.i.i.i = load ptr, ptr %3, align 8
-  %vfn.i.i.i.i.i = getelementptr inbounds ptr, ptr %vtable.i.i.i.i.i, i64 2
+  %vfn.i.i.i.i.i = getelementptr inbounds i8, ptr %vtable.i.i.i.i.i, i64 16
   %6 = load ptr, ptr %vfn.i.i.i.i.i, align 8
   tail call void %6(ptr noundef nonnull align 8 dereferenceable(16) %3) #13
   br label %if.end8.sink.split.i.i.i.i.i
@@ -1770,10 +1732,10 @@ _ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i: ; preds = %if.els
 
 if.then7.i.i.i.i.i:                               ; preds = %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i
   %vtable.i.i.i.i.i.i.i = load ptr, ptr %3, align 8
-  %vfn.i.i.i.i.i.i.i = getelementptr inbounds ptr, ptr %vtable.i.i.i.i.i.i.i, i64 2
+  %vfn.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %vtable.i.i.i.i.i.i.i, i64 16
   %9 = load ptr, ptr %vfn.i.i.i.i.i.i.i, align 8
   tail call void %9(ptr noundef nonnull align 8 dereferenceable(16) %3) #13
-  %_M_weak_count.i.i.i.i.i.i.i = getelementptr inbounds %"class.std::_Sp_counted_base", ptr %3, i64 0, i32 2
+  %_M_weak_count.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %3, i64 12
   %10 = load i8, ptr @__libc_single_threaded, align 1
   %tobool.i.i.not.i.i.i.i.i.i.i = icmp eq i8 %10, 0
   br i1 %tobool.i.i.not.i.i.i.i.i.i.i, label %if.else.i.i.i.i.i.i.i.i, label %if.then.i.i.i.i.i.i.i.i
@@ -1795,19 +1757,19 @@ _ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i.i: ; preds = %if
 
 if.end8.sink.split.i.i.i.i.i:                     ; preds = %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i.i, %if.then.i.i.i.i.i
   %vtable2.i.i.i.i.i.i.i = load ptr, ptr %3, align 8
-  %vfn3.i.i.i.i.i.i.i = getelementptr inbounds ptr, ptr %vtable2.i.i.i.i.i.i.i, i64 3
+  %vfn3.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %vtable2.i.i.i.i.i.i.i, i64 24
   %13 = load ptr, ptr %vfn3.i.i.i.i.i.i.i, align 8
   tail call void %13(ptr noundef nonnull align 8 dereferenceable(16) %3) #13
   br label %_ZN19OpenColorIO_v2_4dev16GenericImageDescD2Ev.exit
 
 _ZN19OpenColorIO_v2_4dev16GenericImageDescD2Ev.exit: ; preds = %_ZNSt6vectorIfSaIfEED2Ev.exit, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i.i, %if.end8.sink.split.i.i.i.i.i
-  %_M_refcount.i.i.i5 = getelementptr inbounds %"class.OpenColorIO_v2_4dev::GenericScanlineHelper.5", ptr %this, i64 0, i32 5, i32 8, i32 0, i32 1
+  %_M_refcount.i.i.i5 = getelementptr inbounds i8, ptr %this, i64 120
   %14 = load ptr, ptr %_M_refcount.i.i.i5, align 8
   %cmp.not.i.i.i.i6 = icmp eq ptr %14, null
   br i1 %cmp.not.i.i.i.i6, label %_ZN19OpenColorIO_v2_4dev16GenericImageDescD2Ev.exit36, label %if.then.i.i.i.i7
 
 if.then.i.i.i.i7:                                 ; preds = %_ZN19OpenColorIO_v2_4dev16GenericImageDescD2Ev.exit
-  %_M_use_count.i.i.i.i.i8 = getelementptr inbounds %"class.std::_Sp_counted_base", ptr %14, i64 0, i32 1
+  %_M_use_count.i.i.i.i.i8 = getelementptr inbounds i8, ptr %14, i64 8
   %15 = load atomic i64, ptr %_M_use_count.i.i.i.i.i8 acquire, align 8
   %cmp.i.i.i.i.i9 = icmp eq i64 %15, 4294967297
   %16 = trunc i64 %15 to i32
@@ -1815,10 +1777,10 @@ if.then.i.i.i.i7:                                 ; preds = %_ZN19OpenColorIO_v2
 
 if.then.i.i.i.i.i32:                              ; preds = %if.then.i.i.i.i7
   store i32 0, ptr %_M_use_count.i.i.i.i.i8, align 8
-  %_M_weak_count.i.i.i.i.i33 = getelementptr inbounds %"class.std::_Sp_counted_base", ptr %14, i64 0, i32 2
+  %_M_weak_count.i.i.i.i.i33 = getelementptr inbounds i8, ptr %14, i64 12
   store i32 0, ptr %_M_weak_count.i.i.i.i.i33, align 4
   %vtable.i.i.i.i.i34 = load ptr, ptr %14, align 8
-  %vfn.i.i.i.i.i35 = getelementptr inbounds ptr, ptr %vtable.i.i.i.i.i34, i64 2
+  %vfn.i.i.i.i.i35 = getelementptr inbounds i8, ptr %vtable.i.i.i.i.i34, i64 16
   %17 = load ptr, ptr %vfn.i.i.i.i.i35, align 8
   tail call void %17(ptr noundef nonnull align 8 dereferenceable(16) %14) #13
   br label %if.end8.sink.split.i.i.i.i.i27
@@ -1844,10 +1806,10 @@ _ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i14: ; preds = %if.e
 
 if.then7.i.i.i.i.i17:                             ; preds = %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i14
   %vtable.i.i.i.i.i.i.i18 = load ptr, ptr %14, align 8
-  %vfn.i.i.i.i.i.i.i19 = getelementptr inbounds ptr, ptr %vtable.i.i.i.i.i.i.i18, i64 2
+  %vfn.i.i.i.i.i.i.i19 = getelementptr inbounds i8, ptr %vtable.i.i.i.i.i.i.i18, i64 16
   %20 = load ptr, ptr %vfn.i.i.i.i.i.i.i19, align 8
   tail call void %20(ptr noundef nonnull align 8 dereferenceable(16) %14) #13
-  %_M_weak_count.i.i.i.i.i.i.i20 = getelementptr inbounds %"class.std::_Sp_counted_base", ptr %14, i64 0, i32 2
+  %_M_weak_count.i.i.i.i.i.i.i20 = getelementptr inbounds i8, ptr %14, i64 12
   %21 = load i8, ptr @__libc_single_threaded, align 1
   %tobool.i.i.not.i.i.i.i.i.i.i21 = icmp eq i8 %21, 0
   br i1 %tobool.i.i.not.i.i.i.i.i.i.i21, label %if.else.i.i.i.i.i.i.i.i30, label %if.then.i.i.i.i.i.i.i.i22
@@ -1869,19 +1831,19 @@ _ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i.i24: ; preds = %
 
 if.end8.sink.split.i.i.i.i.i27:                   ; preds = %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i.i24, %if.then.i.i.i.i.i32
   %vtable2.i.i.i.i.i.i.i28 = load ptr, ptr %14, align 8
-  %vfn3.i.i.i.i.i.i.i29 = getelementptr inbounds ptr, ptr %vtable2.i.i.i.i.i.i.i28, i64 3
+  %vfn3.i.i.i.i.i.i.i29 = getelementptr inbounds i8, ptr %vtable2.i.i.i.i.i.i.i28, i64 24
   %24 = load ptr, ptr %vfn3.i.i.i.i.i.i.i29, align 8
   tail call void %24(ptr noundef nonnull align 8 dereferenceable(16) %14) #13
   br label %_ZN19OpenColorIO_v2_4dev16GenericImageDescD2Ev.exit36
 
 _ZN19OpenColorIO_v2_4dev16GenericImageDescD2Ev.exit36: ; preds = %_ZN19OpenColorIO_v2_4dev16GenericImageDescD2Ev.exit, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i14, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i.i24, %if.end8.sink.split.i.i.i.i.i27
-  %_M_refcount.i.i = getelementptr inbounds %"class.OpenColorIO_v2_4dev::GenericScanlineHelper.5", ptr %this, i64 0, i32 4, i32 0, i32 1
+  %_M_refcount.i.i = getelementptr inbounds i8, ptr %this, i64 40
   %25 = load ptr, ptr %_M_refcount.i.i, align 8
   %cmp.not.i.i.i = icmp eq ptr %25, null
   br i1 %cmp.not.i.i.i, label %_ZNSt10shared_ptrIKN19OpenColorIO_v2_4dev5OpCPUEED2Ev.exit, label %if.then.i.i.i37
 
 if.then.i.i.i37:                                  ; preds = %_ZN19OpenColorIO_v2_4dev16GenericImageDescD2Ev.exit36
-  %_M_use_count.i.i.i.i = getelementptr inbounds %"class.std::_Sp_counted_base", ptr %25, i64 0, i32 1
+  %_M_use_count.i.i.i.i = getelementptr inbounds i8, ptr %25, i64 8
   %26 = load atomic i64, ptr %_M_use_count.i.i.i.i acquire, align 8
   %cmp.i.i.i.i = icmp eq i64 %26, 4294967297
   %27 = trunc i64 %26 to i32
@@ -1889,10 +1851,10 @@ if.then.i.i.i37:                                  ; preds = %_ZN19OpenColorIO_v2
 
 if.then.i.i.i.i39:                                ; preds = %if.then.i.i.i37
   store i32 0, ptr %_M_use_count.i.i.i.i, align 8
-  %_M_weak_count.i.i.i.i = getelementptr inbounds %"class.std::_Sp_counted_base", ptr %25, i64 0, i32 2
+  %_M_weak_count.i.i.i.i = getelementptr inbounds i8, ptr %25, i64 12
   store i32 0, ptr %_M_weak_count.i.i.i.i, align 4
   %vtable.i.i.i.i = load ptr, ptr %25, align 8
-  %vfn.i.i.i.i = getelementptr inbounds ptr, ptr %vtable.i.i.i.i, i64 2
+  %vfn.i.i.i.i = getelementptr inbounds i8, ptr %vtable.i.i.i.i, i64 16
   %28 = load ptr, ptr %vfn.i.i.i.i, align 8
   tail call void %28(ptr noundef nonnull align 8 dereferenceable(16) %25) #13
   br label %if.end8.sink.split.i.i.i.i
@@ -1918,10 +1880,10 @@ _ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i: ; preds = %if.else.
 
 if.then7.i.i.i.i:                                 ; preds = %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i
   %vtable.i.i.i.i.i.i = load ptr, ptr %25, align 8
-  %vfn.i.i.i.i.i.i = getelementptr inbounds ptr, ptr %vtable.i.i.i.i.i.i, i64 2
+  %vfn.i.i.i.i.i.i = getelementptr inbounds i8, ptr %vtable.i.i.i.i.i.i, i64 16
   %31 = load ptr, ptr %vfn.i.i.i.i.i.i, align 8
   tail call void %31(ptr noundef nonnull align 8 dereferenceable(16) %25) #13
-  %_M_weak_count.i.i.i.i.i.i = getelementptr inbounds %"class.std::_Sp_counted_base", ptr %25, i64 0, i32 2
+  %_M_weak_count.i.i.i.i.i.i = getelementptr inbounds i8, ptr %25, i64 12
   %32 = load i8, ptr @__libc_single_threaded, align 1
   %tobool.i.i.not.i.i.i.i.i.i = icmp eq i8 %32, 0
   br i1 %tobool.i.i.not.i.i.i.i.i.i, label %if.else.i.i.i.i.i.i.i, label %if.then.i.i.i.i.i.i.i
@@ -1943,19 +1905,19 @@ _ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i: ; preds = %if.e
 
 if.end8.sink.split.i.i.i.i:                       ; preds = %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i, %if.then.i.i.i.i39
   %vtable2.i.i.i.i.i.i = load ptr, ptr %25, align 8
-  %vfn3.i.i.i.i.i.i = getelementptr inbounds ptr, ptr %vtable2.i.i.i.i.i.i, i64 3
+  %vfn3.i.i.i.i.i.i = getelementptr inbounds i8, ptr %vtable2.i.i.i.i.i.i, i64 24
   %35 = load ptr, ptr %vfn3.i.i.i.i.i.i, align 8
   tail call void %35(ptr noundef nonnull align 8 dereferenceable(16) %25) #13
   br label %_ZNSt10shared_ptrIKN19OpenColorIO_v2_4dev5OpCPUEED2Ev.exit
 
 _ZNSt10shared_ptrIKN19OpenColorIO_v2_4dev5OpCPUEED2Ev.exit: ; preds = %_ZN19OpenColorIO_v2_4dev16GenericImageDescD2Ev.exit36, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i, %if.end8.sink.split.i.i.i.i
-  %_M_refcount.i.i40 = getelementptr inbounds %"class.OpenColorIO_v2_4dev::GenericScanlineHelper.5", ptr %this, i64 0, i32 3, i32 0, i32 1
+  %_M_refcount.i.i40 = getelementptr inbounds i8, ptr %this, i64 24
   %36 = load ptr, ptr %_M_refcount.i.i40, align 8
   %cmp.not.i.i.i41 = icmp eq ptr %36, null
   br i1 %cmp.not.i.i.i41, label %_ZNSt10shared_ptrIKN19OpenColorIO_v2_4dev5OpCPUEED2Ev.exit71, label %if.then.i.i.i42
 
 if.then.i.i.i42:                                  ; preds = %_ZNSt10shared_ptrIKN19OpenColorIO_v2_4dev5OpCPUEED2Ev.exit
-  %_M_use_count.i.i.i.i43 = getelementptr inbounds %"class.std::_Sp_counted_base", ptr %36, i64 0, i32 1
+  %_M_use_count.i.i.i.i43 = getelementptr inbounds i8, ptr %36, i64 8
   %37 = load atomic i64, ptr %_M_use_count.i.i.i.i43 acquire, align 8
   %cmp.i.i.i.i44 = icmp eq i64 %37, 4294967297
   %38 = trunc i64 %37 to i32
@@ -1963,10 +1925,10 @@ if.then.i.i.i42:                                  ; preds = %_ZNSt10shared_ptrIK
 
 if.then.i.i.i.i67:                                ; preds = %if.then.i.i.i42
   store i32 0, ptr %_M_use_count.i.i.i.i43, align 8
-  %_M_weak_count.i.i.i.i68 = getelementptr inbounds %"class.std::_Sp_counted_base", ptr %36, i64 0, i32 2
+  %_M_weak_count.i.i.i.i68 = getelementptr inbounds i8, ptr %36, i64 12
   store i32 0, ptr %_M_weak_count.i.i.i.i68, align 4
   %vtable.i.i.i.i69 = load ptr, ptr %36, align 8
-  %vfn.i.i.i.i70 = getelementptr inbounds ptr, ptr %vtable.i.i.i.i69, i64 2
+  %vfn.i.i.i.i70 = getelementptr inbounds i8, ptr %vtable.i.i.i.i69, i64 16
   %39 = load ptr, ptr %vfn.i.i.i.i70, align 8
   tail call void %39(ptr noundef nonnull align 8 dereferenceable(16) %36) #13
   br label %if.end8.sink.split.i.i.i.i62
@@ -1992,10 +1954,10 @@ _ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i49: ; preds = %if.els
 
 if.then7.i.i.i.i52:                               ; preds = %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i49
   %vtable.i.i.i.i.i.i53 = load ptr, ptr %36, align 8
-  %vfn.i.i.i.i.i.i54 = getelementptr inbounds ptr, ptr %vtable.i.i.i.i.i.i53, i64 2
+  %vfn.i.i.i.i.i.i54 = getelementptr inbounds i8, ptr %vtable.i.i.i.i.i.i53, i64 16
   %42 = load ptr, ptr %vfn.i.i.i.i.i.i54, align 8
   tail call void %42(ptr noundef nonnull align 8 dereferenceable(16) %36) #13
-  %_M_weak_count.i.i.i.i.i.i55 = getelementptr inbounds %"class.std::_Sp_counted_base", ptr %36, i64 0, i32 2
+  %_M_weak_count.i.i.i.i.i.i55 = getelementptr inbounds i8, ptr %36, i64 12
   %43 = load i8, ptr @__libc_single_threaded, align 1
   %tobool.i.i.not.i.i.i.i.i.i56 = icmp eq i8 %43, 0
   br i1 %tobool.i.i.not.i.i.i.i.i.i56, label %if.else.i.i.i.i.i.i.i65, label %if.then.i.i.i.i.i.i.i57
@@ -2017,7 +1979,7 @@ _ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i59: ; preds = %if
 
 if.end8.sink.split.i.i.i.i62:                     ; preds = %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i59, %if.then.i.i.i.i67
   %vtable2.i.i.i.i.i.i63 = load ptr, ptr %36, align 8
-  %vfn3.i.i.i.i.i.i64 = getelementptr inbounds ptr, ptr %vtable2.i.i.i.i.i.i63, i64 3
+  %vfn3.i.i.i.i.i.i64 = getelementptr inbounds i8, ptr %vtable2.i.i.i.i.i.i63, i64 24
   %46 = load ptr, ptr %vfn3.i.i.i.i.i.i64, align 8
   tail call void %46(ptr noundef nonnull align 8 dereferenceable(16) %36) #13
   br label %_ZNSt10shared_ptrIKN19OpenColorIO_v2_4dev5OpCPUEED2Ev.exit71
@@ -2037,66 +1999,66 @@ entry:
 ; Function Attrs: mustprogress uwtable
 define weak_odr hidden void @_ZN19OpenColorIO_v2_4dev21GenericScanlineHelperIhtE16prepRGBAScanlineEPPfRl(ptr noundef nonnull align 8 dereferenceable(309) %this, ptr noundef %buffer, ptr noundef nonnull align 8 dereferenceable(8) %numPixels) unnamed_addr #5 comdat align 2 {
 entry:
-  %m_yIndex = getelementptr inbounds %"class.OpenColorIO_v2_4dev::GenericScanlineHelper.5", ptr %this, i64 0, i32 12
+  %m_yIndex = getelementptr inbounds i8, ptr %this, i64 304
   %0 = load i32, ptr %m_yIndex, align 8
   %conv = sext i32 %0 to i64
-  %m_dstImg = getelementptr inbounds %"class.OpenColorIO_v2_4dev::GenericScanlineHelper.5", ptr %this, i64 0, i32 6
-  %m_height = getelementptr inbounds %"class.OpenColorIO_v2_4dev::GenericScanlineHelper.5", ptr %this, i64 0, i32 6, i32 1
+  %m_dstImg = getelementptr inbounds i8, ptr %this, i64 136
+  %m_height = getelementptr inbounds i8, ptr %this, i64 144
   %1 = load i64, ptr %m_height, align 8
   %cmp.not = icmp sgt i64 %1, %conv
   br i1 %cmp.not, label %if.end, label %return
 
 if.end:                                           ; preds = %entry
-  %m_useDstBuffer = getelementptr inbounds %"class.OpenColorIO_v2_4dev::GenericScanlineHelper.5", ptr %this, i64 0, i32 13
+  %m_useDstBuffer = getelementptr inbounds i8, ptr %this, i64 308
   %2 = load i8, ptr %m_useDstBuffer, align 4
   %3 = and i8 %2, 1
   %tobool.not = icmp eq i8 %3, 0
   br i1 %tobool.not, label %cond.false, label %cond.true
 
 cond.true:                                        ; preds = %if.end
-  %m_rData = getelementptr inbounds %"class.OpenColorIO_v2_4dev::GenericScanlineHelper.5", ptr %this, i64 0, i32 6, i32 4
+  %m_rData = getelementptr inbounds i8, ptr %this, i64 168
   %4 = load ptr, ptr %m_rData, align 8
-  %m_yStrideBytes = getelementptr inbounds %"class.OpenColorIO_v2_4dev::GenericScanlineHelper.5", ptr %this, i64 0, i32 6, i32 3
+  %m_yStrideBytes = getelementptr inbounds i8, ptr %this, i64 160
   %5 = load i64, ptr %m_yStrideBytes, align 8
   %mul = mul nsw i64 %5, %conv
   %add.ptr = getelementptr inbounds i8, ptr %4, i64 %mul
   br label %cond.end
 
 cond.false:                                       ; preds = %if.end
-  %m_rgbaFloatBuffer = getelementptr inbounds %"class.OpenColorIO_v2_4dev::GenericScanlineHelper.5", ptr %this, i64 0, i32 9
+  %m_rgbaFloatBuffer = getelementptr inbounds i8, ptr %this, i64 232
   %6 = load ptr, ptr %m_rgbaFloatBuffer, align 8
   br label %cond.end
 
 cond.end:                                         ; preds = %cond.false, %cond.true
   %cond = phi ptr [ %add.ptr, %cond.true ], [ %6, %cond.false ]
   store ptr %cond, ptr %buffer, align 8
-  %m_inOptimizedMode = getelementptr inbounds %"class.OpenColorIO_v2_4dev::GenericScanlineHelper.5", ptr %this, i64 0, i32 7
+  %m_inOptimizedMode = getelementptr inbounds i8, ptr %this, i64 224
   %7 = load i32, ptr %m_inOptimizedMode, align 8
   %and = and i32 %7, 1
   %cmp6.not = icmp eq i32 %and, 0
   br i1 %cmp6.not, label %if.else, label %if.then7
 
 if.then7:                                         ; preds = %cond.end
-  %m_rData8 = getelementptr inbounds %"class.OpenColorIO_v2_4dev::GenericScanlineHelper.5", ptr %this, i64 0, i32 5, i32 4
+  %m_rData8 = getelementptr inbounds i8, ptr %this, i64 80
   %8 = load ptr, ptr %m_rData8, align 8
-  %m_yStrideBytes10 = getelementptr inbounds %"class.OpenColorIO_v2_4dev::GenericScanlineHelper.5", ptr %this, i64 0, i32 5, i32 3
+  %m_yStrideBytes10 = getelementptr inbounds i8, ptr %this, i64 72
   %9 = load i64, ptr %m_yStrideBytes10, align 8
   %10 = load i32, ptr %m_yIndex, align 8
   %conv12 = sext i32 %10 to i64
   %mul13 = mul nsw i64 %9, %conv12
   %add.ptr14 = getelementptr inbounds i8, ptr %8, i64 %mul13
-  %m_bitDepthOp = getelementptr inbounds %"class.OpenColorIO_v2_4dev::GenericScanlineHelper.5", ptr %this, i64 0, i32 5, i32 8
+  %m_bitDepthOp = getelementptr inbounds i8, ptr %this, i64 112
   %11 = load ptr, ptr %m_bitDepthOp, align 8
   %12 = load i64, ptr %m_dstImg, align 8
   %vtable = load ptr, ptr %11, align 8
-  %vfn = getelementptr inbounds ptr, ptr %vtable, i64 2
+  %vfn = getelementptr inbounds i8, ptr %vtable, i64 16
   %13 = load ptr, ptr %vfn, align 8
   tail call void %13(ptr noundef nonnull align 8 dereferenceable(8) %11, ptr noundef %add.ptr14, ptr noundef %cond, i64 noundef %12)
   br label %if.end28
 
 if.else:                                          ; preds = %cond.end
-  %m_srcImg18 = getelementptr inbounds %"class.OpenColorIO_v2_4dev::GenericScanlineHelper.5", ptr %this, i64 0, i32 5
-  %m_inBitDepthBuffer = getelementptr inbounds %"class.OpenColorIO_v2_4dev::GenericScanlineHelper.5", ptr %this, i64 0, i32 10
+  %m_srcImg18 = getelementptr inbounds i8, ptr %this, i64 48
+  %m_inBitDepthBuffer = getelementptr inbounds i8, ptr %this, i64 256
   %14 = load ptr, ptr %m_inBitDepthBuffer, align 8
   %15 = load i64, ptr %m_dstImg, align 8
   %conv22 = trunc i64 %15 to i32
@@ -2119,47 +2081,47 @@ return:                                           ; preds = %entry, %if.end28
 ; Function Attrs: mustprogress uwtable
 define weak_odr hidden void @_ZN19OpenColorIO_v2_4dev21GenericScanlineHelperIhtE18finishRGBAScanlineEv(ptr noundef nonnull align 8 dereferenceable(309) %this) unnamed_addr #5 comdat align 2 {
 entry:
-  %m_outOptimizedMode = getelementptr inbounds %"class.OpenColorIO_v2_4dev::GenericScanlineHelper.5", ptr %this, i64 0, i32 8
+  %m_outOptimizedMode = getelementptr inbounds i8, ptr %this, i64 228
   %0 = load i32, ptr %m_outOptimizedMode, align 4
   %and = and i32 %0, 1
   %cmp.not = icmp eq i32 %and, 0
-  %m_dstImg6 = getelementptr inbounds %"class.OpenColorIO_v2_4dev::GenericScanlineHelper.5", ptr %this, i64 0, i32 6
+  %m_dstImg6 = getelementptr inbounds i8, ptr %this, i64 136
   br i1 %cmp.not, label %if.else, label %if.then
 
 if.then:                                          ; preds = %entry
-  %m_rData = getelementptr inbounds %"class.OpenColorIO_v2_4dev::GenericScanlineHelper.5", ptr %this, i64 0, i32 6, i32 4
+  %m_rData = getelementptr inbounds i8, ptr %this, i64 168
   %1 = load ptr, ptr %m_rData, align 8
-  %m_yStrideBytes = getelementptr inbounds %"class.OpenColorIO_v2_4dev::GenericScanlineHelper.5", ptr %this, i64 0, i32 6, i32 3
+  %m_yStrideBytes = getelementptr inbounds i8, ptr %this, i64 160
   %2 = load i64, ptr %m_yStrideBytes, align 8
-  %m_yIndex = getelementptr inbounds %"class.OpenColorIO_v2_4dev::GenericScanlineHelper.5", ptr %this, i64 0, i32 12
+  %m_yIndex = getelementptr inbounds i8, ptr %this, i64 304
   %3 = load i32, ptr %m_yIndex, align 8
   %conv = sext i32 %3 to i64
   %mul = mul nsw i64 %2, %conv
   %add.ptr = getelementptr inbounds i8, ptr %1, i64 %mul
-  %m_useDstBuffer = getelementptr inbounds %"class.OpenColorIO_v2_4dev::GenericScanlineHelper.5", ptr %this, i64 0, i32 13
+  %m_useDstBuffer = getelementptr inbounds i8, ptr %this, i64 308
   %4 = load i8, ptr %m_useDstBuffer, align 4
   %5 = and i8 %4, 1
   %tobool.not = icmp eq i8 %5, 0
-  %m_rgbaFloatBuffer = getelementptr inbounds %"class.OpenColorIO_v2_4dev::GenericScanlineHelper.5", ptr %this, i64 0, i32 9
+  %m_rgbaFloatBuffer = getelementptr inbounds i8, ptr %this, i64 232
   %6 = load ptr, ptr %m_rgbaFloatBuffer, align 8
   %cond = select i1 %tobool.not, ptr %6, ptr %add.ptr
-  %m_bitDepthOp = getelementptr inbounds %"class.OpenColorIO_v2_4dev::GenericScanlineHelper.5", ptr %this, i64 0, i32 6, i32 8
+  %m_bitDepthOp = getelementptr inbounds i8, ptr %this, i64 200
   %7 = load ptr, ptr %m_bitDepthOp, align 8
   %8 = load i64, ptr %m_dstImg6, align 8
   %vtable = load ptr, ptr %7, align 8
-  %vfn = getelementptr inbounds ptr, ptr %vtable, i64 2
+  %vfn = getelementptr inbounds i8, ptr %vtable, i64 16
   %9 = load ptr, ptr %vfn, align 8
   tail call void %9(ptr noundef nonnull align 8 dereferenceable(8) %7, ptr noundef %cond, ptr noundef %add.ptr, i64 noundef %8)
   br label %if.end
 
 if.else:                                          ; preds = %entry
-  %m_rgbaFloatBuffer7 = getelementptr inbounds %"class.OpenColorIO_v2_4dev::GenericScanlineHelper.5", ptr %this, i64 0, i32 9
+  %m_rgbaFloatBuffer7 = getelementptr inbounds i8, ptr %this, i64 232
   %10 = load ptr, ptr %m_rgbaFloatBuffer7, align 8
-  %m_outBitDepthBuffer = getelementptr inbounds %"class.OpenColorIO_v2_4dev::GenericScanlineHelper.5", ptr %this, i64 0, i32 11
+  %m_outBitDepthBuffer = getelementptr inbounds i8, ptr %this, i64 280
   %11 = load ptr, ptr %m_outBitDepthBuffer, align 8
   %12 = load i64, ptr %m_dstImg6, align 8
   %conv12 = trunc i64 %12 to i32
-  %m_yIndex13 = getelementptr inbounds %"class.OpenColorIO_v2_4dev::GenericScanlineHelper.5", ptr %this, i64 0, i32 12
+  %m_yIndex13 = getelementptr inbounds i8, ptr %this, i64 304
   %13 = load i32, ptr %m_yIndex13, align 8
   %conv14 = sext i32 %13 to i64
   %mul17 = mul nsw i64 %12, %conv14
@@ -2167,7 +2129,7 @@ if.else:                                          ; preds = %entry
   br label %if.end
 
 if.end:                                           ; preds = %if.else, %if.then
-  %m_yIndex18 = getelementptr inbounds %"class.OpenColorIO_v2_4dev::GenericScanlineHelper.5", ptr %this, i64 0, i32 12
+  %m_yIndex18 = getelementptr inbounds i8, ptr %this, i64 304
   %14 = load i32, ptr %m_yIndex18, align 8
   %inc = add nsw i32 %14, 1
   store i32 %inc, ptr %m_yIndex18, align 8
@@ -2180,22 +2142,22 @@ declare void @_ZN19OpenColorIO_v2_4dev7GenericItE21UnpackRGBAToImageDescERNS_16G
 define weak_odr hidden void @_ZN19OpenColorIO_v2_4dev21GenericScanlineHelperIhN9Imath_3_14halfEEC2ENS_8BitDepthERKSt10shared_ptrIKNS_5OpCPUEES4_SA_(ptr noundef nonnull align 8 dereferenceable(309) %this, i32 noundef %inputBitDepth, ptr noundef nonnull align 8 dereferenceable(16) %inBitDepthOp, i32 noundef %outputBitDepth, ptr noundef nonnull align 8 dereferenceable(16) %outBitDepthOp) unnamed_addr #3 comdat($_ZN19OpenColorIO_v2_4dev21GenericScanlineHelperIhN9Imath_3_14halfEEC5ENS_8BitDepthERKSt10shared_ptrIKNS_5OpCPUEES4_SA_) align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTVN19OpenColorIO_v2_4dev21GenericScanlineHelperIhN9Imath_3_14halfEEE, i64 0, inrange i32 0, i64 2), ptr %this, align 8
-  %m_inputBitDepth = getelementptr inbounds %"class.OpenColorIO_v2_4dev::GenericScanlineHelper.12", ptr %this, i64 0, i32 1
+  %m_inputBitDepth = getelementptr inbounds i8, ptr %this, i64 8
   store i32 %inputBitDepth, ptr %m_inputBitDepth, align 8
-  %m_outputBitDepth = getelementptr inbounds %"class.OpenColorIO_v2_4dev::GenericScanlineHelper.12", ptr %this, i64 0, i32 2
+  %m_outputBitDepth = getelementptr inbounds i8, ptr %this, i64 12
   store i32 %outputBitDepth, ptr %m_outputBitDepth, align 4
-  %m_inBitDepthOp = getelementptr inbounds %"class.OpenColorIO_v2_4dev::GenericScanlineHelper.12", ptr %this, i64 0, i32 3
+  %m_inBitDepthOp = getelementptr inbounds i8, ptr %this, i64 16
   %0 = load ptr, ptr %inBitDepthOp, align 8
   store ptr %0, ptr %m_inBitDepthOp, align 8
-  %_M_refcount.i.i = getelementptr inbounds %"class.OpenColorIO_v2_4dev::GenericScanlineHelper.12", ptr %this, i64 0, i32 3, i32 0, i32 1
-  %_M_refcount3.i.i = getelementptr inbounds %"class.std::__shared_ptr", ptr %inBitDepthOp, i64 0, i32 1
+  %_M_refcount.i.i = getelementptr inbounds i8, ptr %this, i64 24
+  %_M_refcount3.i.i = getelementptr inbounds i8, ptr %inBitDepthOp, i64 8
   %1 = load ptr, ptr %_M_refcount3.i.i, align 8
   store ptr %1, ptr %_M_refcount.i.i, align 8
   %cmp.not.i.i.i = icmp eq ptr %1, null
   br i1 %cmp.not.i.i.i, label %_ZNSt10shared_ptrIKN19OpenColorIO_v2_4dev5OpCPUEEC2ERKS3_.exit, label %if.then.i.i.i
 
 if.then.i.i.i:                                    ; preds = %entry
-  %_M_use_count.i.i.i.i = getelementptr inbounds %"class.std::_Sp_counted_base", ptr %1, i64 0, i32 1
+  %_M_use_count.i.i.i.i = getelementptr inbounds i8, ptr %1, i64 8
   %2 = load i8, ptr @__libc_single_threaded, align 1
   %tobool.i.not.i.i.i.i = icmp eq i8 %2, 0
   br i1 %tobool.i.not.i.i.i.i, label %if.else.i.i.i.i.i, label %if.then.i.i.i.i.i
@@ -2211,18 +2173,18 @@ if.else.i.i.i.i.i:                                ; preds = %if.then.i.i.i
   br label %_ZNSt10shared_ptrIKN19OpenColorIO_v2_4dev5OpCPUEEC2ERKS3_.exit
 
 _ZNSt10shared_ptrIKN19OpenColorIO_v2_4dev5OpCPUEEC2ERKS3_.exit: ; preds = %entry, %if.then.i.i.i.i.i, %if.else.i.i.i.i.i
-  %m_outBitDepthOp = getelementptr inbounds %"class.OpenColorIO_v2_4dev::GenericScanlineHelper.12", ptr %this, i64 0, i32 4
+  %m_outBitDepthOp = getelementptr inbounds i8, ptr %this, i64 32
   %5 = load ptr, ptr %outBitDepthOp, align 8
   store ptr %5, ptr %m_outBitDepthOp, align 8
-  %_M_refcount.i.i1 = getelementptr inbounds %"class.OpenColorIO_v2_4dev::GenericScanlineHelper.12", ptr %this, i64 0, i32 4, i32 0, i32 1
-  %_M_refcount3.i.i2 = getelementptr inbounds %"class.std::__shared_ptr", ptr %outBitDepthOp, i64 0, i32 1
+  %_M_refcount.i.i1 = getelementptr inbounds i8, ptr %this, i64 40
+  %_M_refcount3.i.i2 = getelementptr inbounds i8, ptr %outBitDepthOp, i64 8
   %6 = load ptr, ptr %_M_refcount3.i.i2, align 8
   store ptr %6, ptr %_M_refcount.i.i1, align 8
   %cmp.not.i.i.i3 = icmp eq ptr %6, null
   br i1 %cmp.not.i.i.i3, label %_ZNSt10shared_ptrIKN19OpenColorIO_v2_4dev5OpCPUEEC2ERKS3_.exit10, label %if.then.i.i.i4
 
 if.then.i.i.i4:                                   ; preds = %_ZNSt10shared_ptrIKN19OpenColorIO_v2_4dev5OpCPUEEC2ERKS3_.exit
-  %_M_use_count.i.i.i.i5 = getelementptr inbounds %"class.std::_Sp_counted_base", ptr %6, i64 0, i32 1
+  %_M_use_count.i.i.i.i5 = getelementptr inbounds i8, ptr %6, i64 8
   %7 = load i8, ptr @__libc_single_threaded, align 1
   %tobool.i.not.i.i.i.i6 = icmp eq i8 %7, 0
   br i1 %tobool.i.not.i.i.i.i6, label %if.else.i.i.i.i.i9, label %if.then.i.i.i.i.i7
@@ -2238,11 +2200,11 @@ if.else.i.i.i.i.i9:                               ; preds = %if.then.i.i.i4
   br label %_ZNSt10shared_ptrIKN19OpenColorIO_v2_4dev5OpCPUEEC2ERKS3_.exit10
 
 _ZNSt10shared_ptrIKN19OpenColorIO_v2_4dev5OpCPUEEC2ERKS3_.exit10: ; preds = %_ZNSt10shared_ptrIKN19OpenColorIO_v2_4dev5OpCPUEEC2ERKS3_.exit, %if.then.i.i.i.i.i7, %if.else.i.i.i.i.i9
-  %m_srcImg = getelementptr inbounds %"class.OpenColorIO_v2_4dev::GenericScanlineHelper.12", ptr %this, i64 0, i32 5
+  %m_srcImg = getelementptr inbounds i8, ptr %this, i64 48
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(82) %m_srcImg, i8 0, i64 82, i1 false)
-  %m_dstImg = getelementptr inbounds %"class.OpenColorIO_v2_4dev::GenericScanlineHelper.12", ptr %this, i64 0, i32 6
+  %m_dstImg = getelementptr inbounds i8, ptr %this, i64 136
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(82) %m_dstImg, i8 0, i64 82, i1 false)
-  %m_inOptimizedMode = getelementptr inbounds %"class.OpenColorIO_v2_4dev::GenericScanlineHelper.12", ptr %this, i64 0, i32 7
+  %m_inOptimizedMode = getelementptr inbounds i8, ptr %this, i64 224
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(85) %m_inOptimizedMode, i8 0, i64 85, i1 false)
   ret void
 }
@@ -2250,17 +2212,17 @@ _ZNSt10shared_ptrIKN19OpenColorIO_v2_4dev5OpCPUEEC2ERKS3_.exit10: ; preds = %_ZN
 ; Function Attrs: mustprogress uwtable
 define weak_odr hidden void @_ZN19OpenColorIO_v2_4dev21GenericScanlineHelperIhN9Imath_3_14halfEE4initERKNS_9ImageDescES6_(ptr noundef nonnull align 8 dereferenceable(309) %this, ptr noundef nonnull align 8 dereferenceable(8) %srcImg, ptr noundef nonnull align 8 dereferenceable(8) %dstImg) unnamed_addr #5 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  %m_yIndex = getelementptr inbounds %"class.OpenColorIO_v2_4dev::GenericScanlineHelper.12", ptr %this, i64 0, i32 12
+  %m_yIndex = getelementptr inbounds i8, ptr %this, i64 304
   store i32 0, ptr %m_yIndex, align 8
-  %m_srcImg = getelementptr inbounds %"class.OpenColorIO_v2_4dev::GenericScanlineHelper.12", ptr %this, i64 0, i32 5
-  %m_inputBitDepth = getelementptr inbounds %"class.OpenColorIO_v2_4dev::GenericScanlineHelper.12", ptr %this, i64 0, i32 1
+  %m_srcImg = getelementptr inbounds i8, ptr %this, i64 48
+  %m_inputBitDepth = getelementptr inbounds i8, ptr %this, i64 8
   %0 = load i32, ptr %m_inputBitDepth, align 8
-  %m_inBitDepthOp = getelementptr inbounds %"class.OpenColorIO_v2_4dev::GenericScanlineHelper.12", ptr %this, i64 0, i32 3
+  %m_inBitDepthOp = getelementptr inbounds i8, ptr %this, i64 16
   tail call void @_ZN19OpenColorIO_v2_4dev16GenericImageDesc4initERKNS_9ImageDescENS_8BitDepthERKSt10shared_ptrIKNS_5OpCPUEE(ptr noundef nonnull align 8 dereferenceable(82) %m_srcImg, ptr noundef nonnull align 8 dereferenceable(8) %srcImg, i32 noundef %0, ptr noundef nonnull align 8 dereferenceable(16) %m_inBitDepthOp)
-  %m_dstImg = getelementptr inbounds %"class.OpenColorIO_v2_4dev::GenericScanlineHelper.12", ptr %this, i64 0, i32 6
-  %m_outputBitDepth = getelementptr inbounds %"class.OpenColorIO_v2_4dev::GenericScanlineHelper.12", ptr %this, i64 0, i32 2
+  %m_dstImg = getelementptr inbounds i8, ptr %this, i64 136
+  %m_outputBitDepth = getelementptr inbounds i8, ptr %this, i64 12
   %1 = load i32, ptr %m_outputBitDepth, align 4
-  %m_outBitDepthOp = getelementptr inbounds %"class.OpenColorIO_v2_4dev::GenericScanlineHelper.12", ptr %this, i64 0, i32 4
+  %m_outBitDepthOp = getelementptr inbounds i8, ptr %this, i64 32
   tail call void @_ZN19OpenColorIO_v2_4dev16GenericImageDesc4initERKNS_9ImageDescENS_8BitDepthERKSt10shared_ptrIKNS_5OpCPUEE(ptr noundef nonnull align 8 dereferenceable(82) %m_dstImg, ptr noundef nonnull align 8 dereferenceable(8) %dstImg, i32 noundef %1, ptr noundef nonnull align 8 dereferenceable(16) %m_outBitDepthOp)
   %2 = load i64, ptr %m_srcImg, align 8
   %3 = load i64, ptr %m_dstImg, align 8
@@ -2268,9 +2230,9 @@ entry:
   br i1 %cmp.not, label %lor.lhs.false, label %if.then
 
 lor.lhs.false:                                    ; preds = %entry
-  %m_height = getelementptr inbounds %"class.OpenColorIO_v2_4dev::GenericScanlineHelper.12", ptr %this, i64 0, i32 5, i32 1
+  %m_height = getelementptr inbounds i8, ptr %this, i64 56
   %4 = load i64, ptr %m_height, align 8
-  %m_height7 = getelementptr inbounds %"class.OpenColorIO_v2_4dev::GenericScanlineHelper.12", ptr %this, i64 0, i32 6, i32 1
+  %m_height7 = getelementptr inbounds i8, ptr %this, i64 144
   %5 = load i64, ptr %m_height7, align 8
   %cmp8.not = icmp eq i64 %4, %5
   br i1 %cmp8.not, label %if.end, label %if.then
@@ -2301,7 +2263,7 @@ if.then.i:                                        ; preds = %if.end
 
 _ZN19OpenColorIO_v2_4dev19GetOptimizationModeERKNS_16GenericImageDescE.exit: ; preds = %if.end, %if.then.i
   %optim.0.i = phi i32 [ 0, %if.end ], [ %spec.select.i, %if.then.i ]
-  %m_inOptimizedMode = getelementptr inbounds %"class.OpenColorIO_v2_4dev::GenericScanlineHelper.12", ptr %this, i64 0, i32 7
+  %m_inOptimizedMode = getelementptr inbounds i8, ptr %this, i64 224
   store i32 %optim.0.i, ptr %m_inOptimizedMode, align 8
   %call.i2 = tail call noundef zeroext i1 @_ZNK19OpenColorIO_v2_4dev16GenericImageDesc12isRGBAPackedEv(ptr noundef nonnull align 8 dereferenceable(82) %m_dstImg)
   br i1 %call.i2, label %if.then.i4, label %_ZN19OpenColorIO_v2_4dev19GetOptimizationModeERKNS_16GenericImageDescE.exit7
@@ -2313,10 +2275,10 @@ if.then.i4:                                       ; preds = %_ZN19OpenColorIO_v2
 
 _ZN19OpenColorIO_v2_4dev19GetOptimizationModeERKNS_16GenericImageDescE.exit7: ; preds = %_ZN19OpenColorIO_v2_4dev19GetOptimizationModeERKNS_16GenericImageDescE.exit, %if.then.i4
   %optim.0.i3 = phi i32 [ 0, %_ZN19OpenColorIO_v2_4dev19GetOptimizationModeERKNS_16GenericImageDescE.exit ], [ %spec.select.i6, %if.then.i4 ]
-  %m_outOptimizedMode = getelementptr inbounds %"class.OpenColorIO_v2_4dev::GenericScanlineHelper.12", ptr %this, i64 0, i32 8
+  %m_outOptimizedMode = getelementptr inbounds i8, ptr %this, i64 228
   store i32 %optim.0.i3, ptr %m_outOptimizedMode, align 4
   %cmp13 = icmp eq i32 %optim.0.i3, 3
-  %m_useDstBuffer = getelementptr inbounds %"class.OpenColorIO_v2_4dev::GenericScanlineHelper.12", ptr %this, i64 0, i32 13
+  %m_useDstBuffer = getelementptr inbounds i8, ptr %this, i64 308
   %frombool = zext i1 %cmp13 to i8
   store i8 %frombool, ptr %m_useDstBuffer, align 4
   %7 = load i32, ptr %m_inOptimizedMode, align 8
@@ -2327,7 +2289,7 @@ _ZN19OpenColorIO_v2_4dev19GetOptimizationModeERKNS_16GenericImageDescE.exit7: ; 
 if.then17:                                        ; preds = %_ZN19OpenColorIO_v2_4dev19GetOptimizationModeERKNS_16GenericImageDescE.exit7
   %8 = load i64, ptr %m_dstImg, align 8
   %mul = shl nsw i64 %8, 2
-  %m_inBitDepthBuffer = getelementptr inbounds %"class.OpenColorIO_v2_4dev::GenericScanlineHelper.12", ptr %this, i64 0, i32 10
+  %m_inBitDepthBuffer = getelementptr inbounds i8, ptr %this, i64 256
   tail call void @_ZNSt6vectorIhSaIhEE6resizeEm(ptr noundef nonnull align 8 dereferenceable(24) %m_inBitDepthBuffer, i64 noundef %mul)
   %.pre = load i8, ptr %m_useDstBuffer, align 4
   br label %if.end20
@@ -2341,8 +2303,8 @@ if.end20:                                         ; preds = %if.then17, %_ZN19Op
 if.then22:                                        ; preds = %if.end20
   %11 = load i64, ptr %m_dstImg, align 8
   %mul26 = shl nsw i64 %11, 2
-  %m_rgbaFloatBuffer = getelementptr inbounds %"class.OpenColorIO_v2_4dev::GenericScanlineHelper.12", ptr %this, i64 0, i32 9
-  %_M_finish.i.i = getelementptr inbounds %"class.OpenColorIO_v2_4dev::GenericScanlineHelper.12", ptr %this, i64 0, i32 9, i32 0, i32 0, i32 0, i32 1
+  %m_rgbaFloatBuffer = getelementptr inbounds i8, ptr %this, i64 232
+  %_M_finish.i.i = getelementptr inbounds i8, ptr %this, i64 240
   %12 = load ptr, ptr %_M_finish.i.i, align 8
   %13 = load ptr, ptr %m_rgbaFloatBuffer, align 8
   %sub.ptr.lhs.cast.i.i = ptrtoint ptr %12 to i64
@@ -2371,8 +2333,8 @@ invoke.cont.i.i:                                  ; preds = %if.then5.i
   br label %_ZNSt6vectorIfSaIfEE6resizeEm.exit
 
 _ZNSt6vectorIfSaIfEE6resizeEm.exit:               ; preds = %if.then.i8, %if.else.i, %if.then5.i, %invoke.cont.i.i
-  %m_outBitDepthBuffer = getelementptr inbounds %"class.OpenColorIO_v2_4dev::GenericScanlineHelper.12", ptr %this, i64 0, i32 11
-  %_M_finish.i.i9 = getelementptr inbounds %"class.OpenColorIO_v2_4dev::GenericScanlineHelper.12", ptr %this, i64 0, i32 11, i32 0, i32 0, i32 0, i32 1
+  %m_outBitDepthBuffer = getelementptr inbounds i8, ptr %this, i64 280
+  %_M_finish.i.i9 = getelementptr inbounds i8, ptr %this, i64 288
   %14 = load ptr, ptr %_M_finish.i.i9, align 8
   %15 = load ptr, ptr %m_outBitDepthBuffer, align 8
   %sub.ptr.lhs.cast.i.i10 = ptrtoint ptr %14 to i64
@@ -2407,17 +2369,17 @@ if.end27:                                         ; preds = %invoke.cont.i.i20, 
 ; Function Attrs: mustprogress uwtable
 define weak_odr hidden void @_ZN19OpenColorIO_v2_4dev21GenericScanlineHelperIhN9Imath_3_14halfEE4initERKNS_9ImageDescE(ptr noundef nonnull align 8 dereferenceable(309) %this, ptr noundef nonnull align 8 dereferenceable(8) %img) unnamed_addr #5 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  %m_yIndex = getelementptr inbounds %"class.OpenColorIO_v2_4dev::GenericScanlineHelper.12", ptr %this, i64 0, i32 12
+  %m_yIndex = getelementptr inbounds i8, ptr %this, i64 304
   store i32 0, ptr %m_yIndex, align 8
-  %m_srcImg = getelementptr inbounds %"class.OpenColorIO_v2_4dev::GenericScanlineHelper.12", ptr %this, i64 0, i32 5
-  %m_inputBitDepth = getelementptr inbounds %"class.OpenColorIO_v2_4dev::GenericScanlineHelper.12", ptr %this, i64 0, i32 1
+  %m_srcImg = getelementptr inbounds i8, ptr %this, i64 48
+  %m_inputBitDepth = getelementptr inbounds i8, ptr %this, i64 8
   %0 = load i32, ptr %m_inputBitDepth, align 8
-  %m_inBitDepthOp = getelementptr inbounds %"class.OpenColorIO_v2_4dev::GenericScanlineHelper.12", ptr %this, i64 0, i32 3
+  %m_inBitDepthOp = getelementptr inbounds i8, ptr %this, i64 16
   tail call void @_ZN19OpenColorIO_v2_4dev16GenericImageDesc4initERKNS_9ImageDescENS_8BitDepthERKSt10shared_ptrIKNS_5OpCPUEE(ptr noundef nonnull align 8 dereferenceable(82) %m_srcImg, ptr noundef nonnull align 8 dereferenceable(8) %img, i32 noundef %0, ptr noundef nonnull align 8 dereferenceable(16) %m_inBitDepthOp)
-  %m_dstImg = getelementptr inbounds %"class.OpenColorIO_v2_4dev::GenericScanlineHelper.12", ptr %this, i64 0, i32 6
-  %m_outputBitDepth = getelementptr inbounds %"class.OpenColorIO_v2_4dev::GenericScanlineHelper.12", ptr %this, i64 0, i32 2
+  %m_dstImg = getelementptr inbounds i8, ptr %this, i64 136
+  %m_outputBitDepth = getelementptr inbounds i8, ptr %this, i64 12
   %1 = load i32, ptr %m_outputBitDepth, align 4
-  %m_outBitDepthOp = getelementptr inbounds %"class.OpenColorIO_v2_4dev::GenericScanlineHelper.12", ptr %this, i64 0, i32 4
+  %m_outBitDepthOp = getelementptr inbounds i8, ptr %this, i64 32
   tail call void @_ZN19OpenColorIO_v2_4dev16GenericImageDesc4initERKNS_9ImageDescENS_8BitDepthERKSt10shared_ptrIKNS_5OpCPUEE(ptr noundef nonnull align 8 dereferenceable(82) %m_dstImg, ptr noundef nonnull align 8 dereferenceable(8) %img, i32 noundef %1, ptr noundef nonnull align 8 dereferenceable(16) %m_outBitDepthOp)
   %call.i = tail call noundef zeroext i1 @_ZNK19OpenColorIO_v2_4dev16GenericImageDesc12isRGBAPackedEv(ptr noundef nonnull align 8 dereferenceable(82) %m_srcImg)
   br i1 %call.i, label %if.then.i, label %if.then
@@ -2427,26 +2389,26 @@ if.then.i:                                        ; preds = %entry
   br i1 %call1.i, label %_ZN19OpenColorIO_v2_4dev19GetOptimizationModeERKNS_16GenericImageDescE.exit, label %if.then
 
 _ZN19OpenColorIO_v2_4dev19GetOptimizationModeERKNS_16GenericImageDescE.exit: ; preds = %if.then.i
-  %m_inOptimizedMode = getelementptr inbounds %"class.OpenColorIO_v2_4dev::GenericScanlineHelper.12", ptr %this, i64 0, i32 7
+  %m_inOptimizedMode = getelementptr inbounds i8, ptr %this, i64 224
   store i32 3, ptr %m_inOptimizedMode, align 8
-  %m_outOptimizedMode = getelementptr inbounds %"class.OpenColorIO_v2_4dev::GenericScanlineHelper.12", ptr %this, i64 0, i32 8
+  %m_outOptimizedMode = getelementptr inbounds i8, ptr %this, i64 228
   store i32 3, ptr %m_outOptimizedMode, align 4
-  %m_useDstBuffer = getelementptr inbounds %"class.OpenColorIO_v2_4dev::GenericScanlineHelper.12", ptr %this, i64 0, i32 13
+  %m_useDstBuffer = getelementptr inbounds i8, ptr %this, i64 308
   store i8 1, ptr %m_useDstBuffer, align 4
   br label %if.end
 
 if.then:                                          ; preds = %entry, %if.then.i
   %optim.0.i.ph = phi i32 [ 1, %if.then.i ], [ 0, %entry ]
-  %m_inOptimizedMode20 = getelementptr inbounds %"class.OpenColorIO_v2_4dev::GenericScanlineHelper.12", ptr %this, i64 0, i32 7
+  %m_inOptimizedMode20 = getelementptr inbounds i8, ptr %this, i64 224
   store i32 %optim.0.i.ph, ptr %m_inOptimizedMode20, align 8
-  %m_outOptimizedMode21 = getelementptr inbounds %"class.OpenColorIO_v2_4dev::GenericScanlineHelper.12", ptr %this, i64 0, i32 8
+  %m_outOptimizedMode21 = getelementptr inbounds i8, ptr %this, i64 228
   store i32 %optim.0.i.ph, ptr %m_outOptimizedMode21, align 4
-  %m_useDstBuffer23 = getelementptr inbounds %"class.OpenColorIO_v2_4dev::GenericScanlineHelper.12", ptr %this, i64 0, i32 13
+  %m_useDstBuffer23 = getelementptr inbounds i8, ptr %this, i64 308
   store i8 0, ptr %m_useDstBuffer23, align 4
   %2 = load i64, ptr %m_dstImg, align 8
   %mul = shl nsw i64 %2, 2
-  %m_rgbaFloatBuffer = getelementptr inbounds %"class.OpenColorIO_v2_4dev::GenericScanlineHelper.12", ptr %this, i64 0, i32 9
-  %_M_finish.i.i = getelementptr inbounds %"class.OpenColorIO_v2_4dev::GenericScanlineHelper.12", ptr %this, i64 0, i32 9, i32 0, i32 0, i32 0, i32 1
+  %m_rgbaFloatBuffer = getelementptr inbounds i8, ptr %this, i64 232
+  %_M_finish.i.i = getelementptr inbounds i8, ptr %this, i64 240
   %3 = load ptr, ptr %_M_finish.i.i, align 8
   %4 = load ptr, ptr %m_rgbaFloatBuffer, align 8
   %sub.ptr.lhs.cast.i.i = ptrtoint ptr %3 to i64
@@ -2475,10 +2437,10 @@ invoke.cont.i.i:                                  ; preds = %if.then5.i
   br label %_ZNSt6vectorIfSaIfEE6resizeEm.exit
 
 _ZNSt6vectorIfSaIfEE6resizeEm.exit:               ; preds = %if.then.i4, %if.else.i, %if.then5.i, %invoke.cont.i.i
-  %m_inBitDepthBuffer = getelementptr inbounds %"class.OpenColorIO_v2_4dev::GenericScanlineHelper.12", ptr %this, i64 0, i32 10
+  %m_inBitDepthBuffer = getelementptr inbounds i8, ptr %this, i64 256
   tail call void @_ZNSt6vectorIhSaIhEE6resizeEm(ptr noundef nonnull align 8 dereferenceable(24) %m_inBitDepthBuffer, i64 noundef %mul)
-  %m_outBitDepthBuffer = getelementptr inbounds %"class.OpenColorIO_v2_4dev::GenericScanlineHelper.12", ptr %this, i64 0, i32 11
-  %_M_finish.i.i5 = getelementptr inbounds %"class.OpenColorIO_v2_4dev::GenericScanlineHelper.12", ptr %this, i64 0, i32 11, i32 0, i32 0, i32 0, i32 1
+  %m_outBitDepthBuffer = getelementptr inbounds i8, ptr %this, i64 280
+  %_M_finish.i.i5 = getelementptr inbounds i8, ptr %this, i64 288
   %5 = load ptr, ptr %_M_finish.i.i5, align 8
   %6 = load ptr, ptr %m_outBitDepthBuffer, align 8
   %sub.ptr.lhs.cast.i.i6 = ptrtoint ptr %5 to i64
@@ -2514,7 +2476,7 @@ if.end:                                           ; preds = %invoke.cont.i.i16, 
 define weak_odr hidden void @_ZN19OpenColorIO_v2_4dev21GenericScanlineHelperIhN9Imath_3_14halfEED2Ev(ptr noundef nonnull align 8 dereferenceable(309) %this) unnamed_addr #3 comdat($_ZN19OpenColorIO_v2_4dev21GenericScanlineHelperIhN9Imath_3_14halfEED5Ev) align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTVN19OpenColorIO_v2_4dev21GenericScanlineHelperIhN9Imath_3_14halfEEE, i64 0, inrange i32 0, i64 2), ptr %this, align 8
-  %m_outBitDepthBuffer = getelementptr inbounds %"class.OpenColorIO_v2_4dev::GenericScanlineHelper.12", ptr %this, i64 0, i32 11
+  %m_outBitDepthBuffer = getelementptr inbounds i8, ptr %this, i64 280
   %0 = load ptr, ptr %m_outBitDepthBuffer, align 8
   %tobool.not.i.i.i = icmp eq ptr %0, null
   br i1 %tobool.not.i.i.i, label %_ZNSt6vectorIN9Imath_3_14halfESaIS1_EED2Ev.exit, label %if.then.i.i.i
@@ -2524,7 +2486,7 @@ if.then.i.i.i:                                    ; preds = %entry
   br label %_ZNSt6vectorIN9Imath_3_14halfESaIS1_EED2Ev.exit
 
 _ZNSt6vectorIN9Imath_3_14halfESaIS1_EED2Ev.exit:  ; preds = %entry, %if.then.i.i.i
-  %m_inBitDepthBuffer = getelementptr inbounds %"class.OpenColorIO_v2_4dev::GenericScanlineHelper.12", ptr %this, i64 0, i32 10
+  %m_inBitDepthBuffer = getelementptr inbounds i8, ptr %this, i64 256
   %1 = load ptr, ptr %m_inBitDepthBuffer, align 8
   %tobool.not.i.i.i1 = icmp eq ptr %1, null
   br i1 %tobool.not.i.i.i1, label %_ZNSt6vectorIhSaIhEED2Ev.exit, label %if.then.i.i.i2
@@ -2534,7 +2496,7 @@ if.then.i.i.i2:                                   ; preds = %_ZNSt6vectorIN9Imat
   br label %_ZNSt6vectorIhSaIhEED2Ev.exit
 
 _ZNSt6vectorIhSaIhEED2Ev.exit:                    ; preds = %_ZNSt6vectorIN9Imath_3_14halfESaIS1_EED2Ev.exit, %if.then.i.i.i2
-  %m_rgbaFloatBuffer = getelementptr inbounds %"class.OpenColorIO_v2_4dev::GenericScanlineHelper.12", ptr %this, i64 0, i32 9
+  %m_rgbaFloatBuffer = getelementptr inbounds i8, ptr %this, i64 232
   %2 = load ptr, ptr %m_rgbaFloatBuffer, align 8
   %tobool.not.i.i.i3 = icmp eq ptr %2, null
   br i1 %tobool.not.i.i.i3, label %_ZNSt6vectorIfSaIfEED2Ev.exit, label %if.then.i.i.i4
@@ -2544,13 +2506,13 @@ if.then.i.i.i4:                                   ; preds = %_ZNSt6vectorIhSaIhE
   br label %_ZNSt6vectorIfSaIfEED2Ev.exit
 
 _ZNSt6vectorIfSaIfEED2Ev.exit:                    ; preds = %_ZNSt6vectorIhSaIhEED2Ev.exit, %if.then.i.i.i4
-  %_M_refcount.i.i.i = getelementptr inbounds %"class.OpenColorIO_v2_4dev::GenericScanlineHelper.12", ptr %this, i64 0, i32 6, i32 8, i32 0, i32 1
+  %_M_refcount.i.i.i = getelementptr inbounds i8, ptr %this, i64 208
   %3 = load ptr, ptr %_M_refcount.i.i.i, align 8
   %cmp.not.i.i.i.i = icmp eq ptr %3, null
   br i1 %cmp.not.i.i.i.i, label %_ZN19OpenColorIO_v2_4dev16GenericImageDescD2Ev.exit, label %if.then.i.i.i.i
 
 if.then.i.i.i.i:                                  ; preds = %_ZNSt6vectorIfSaIfEED2Ev.exit
-  %_M_use_count.i.i.i.i.i = getelementptr inbounds %"class.std::_Sp_counted_base", ptr %3, i64 0, i32 1
+  %_M_use_count.i.i.i.i.i = getelementptr inbounds i8, ptr %3, i64 8
   %4 = load atomic i64, ptr %_M_use_count.i.i.i.i.i acquire, align 8
   %cmp.i.i.i.i.i = icmp eq i64 %4, 4294967297
   %5 = trunc i64 %4 to i32
@@ -2558,10 +2520,10 @@ if.then.i.i.i.i:                                  ; preds = %_ZNSt6vectorIfSaIfE
 
 if.then.i.i.i.i.i:                                ; preds = %if.then.i.i.i.i
   store i32 0, ptr %_M_use_count.i.i.i.i.i, align 8
-  %_M_weak_count.i.i.i.i.i = getelementptr inbounds %"class.std::_Sp_counted_base", ptr %3, i64 0, i32 2
+  %_M_weak_count.i.i.i.i.i = getelementptr inbounds i8, ptr %3, i64 12
   store i32 0, ptr %_M_weak_count.i.i.i.i.i, align 4
   %vtable.i.i.i.i.i = load ptr, ptr %3, align 8
-  %vfn.i.i.i.i.i = getelementptr inbounds ptr, ptr %vtable.i.i.i.i.i, i64 2
+  %vfn.i.i.i.i.i = getelementptr inbounds i8, ptr %vtable.i.i.i.i.i, i64 16
   %6 = load ptr, ptr %vfn.i.i.i.i.i, align 8
   tail call void %6(ptr noundef nonnull align 8 dereferenceable(16) %3) #13
   br label %if.end8.sink.split.i.i.i.i.i
@@ -2587,10 +2549,10 @@ _ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i: ; preds = %if.els
 
 if.then7.i.i.i.i.i:                               ; preds = %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i
   %vtable.i.i.i.i.i.i.i = load ptr, ptr %3, align 8
-  %vfn.i.i.i.i.i.i.i = getelementptr inbounds ptr, ptr %vtable.i.i.i.i.i.i.i, i64 2
+  %vfn.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %vtable.i.i.i.i.i.i.i, i64 16
   %9 = load ptr, ptr %vfn.i.i.i.i.i.i.i, align 8
   tail call void %9(ptr noundef nonnull align 8 dereferenceable(16) %3) #13
-  %_M_weak_count.i.i.i.i.i.i.i = getelementptr inbounds %"class.std::_Sp_counted_base", ptr %3, i64 0, i32 2
+  %_M_weak_count.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %3, i64 12
   %10 = load i8, ptr @__libc_single_threaded, align 1
   %tobool.i.i.not.i.i.i.i.i.i.i = icmp eq i8 %10, 0
   br i1 %tobool.i.i.not.i.i.i.i.i.i.i, label %if.else.i.i.i.i.i.i.i.i, label %if.then.i.i.i.i.i.i.i.i
@@ -2612,19 +2574,19 @@ _ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i.i: ; preds = %if
 
 if.end8.sink.split.i.i.i.i.i:                     ; preds = %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i.i, %if.then.i.i.i.i.i
   %vtable2.i.i.i.i.i.i.i = load ptr, ptr %3, align 8
-  %vfn3.i.i.i.i.i.i.i = getelementptr inbounds ptr, ptr %vtable2.i.i.i.i.i.i.i, i64 3
+  %vfn3.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %vtable2.i.i.i.i.i.i.i, i64 24
   %13 = load ptr, ptr %vfn3.i.i.i.i.i.i.i, align 8
   tail call void %13(ptr noundef nonnull align 8 dereferenceable(16) %3) #13
   br label %_ZN19OpenColorIO_v2_4dev16GenericImageDescD2Ev.exit
 
 _ZN19OpenColorIO_v2_4dev16GenericImageDescD2Ev.exit: ; preds = %_ZNSt6vectorIfSaIfEED2Ev.exit, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i.i, %if.end8.sink.split.i.i.i.i.i
-  %_M_refcount.i.i.i5 = getelementptr inbounds %"class.OpenColorIO_v2_4dev::GenericScanlineHelper.12", ptr %this, i64 0, i32 5, i32 8, i32 0, i32 1
+  %_M_refcount.i.i.i5 = getelementptr inbounds i8, ptr %this, i64 120
   %14 = load ptr, ptr %_M_refcount.i.i.i5, align 8
   %cmp.not.i.i.i.i6 = icmp eq ptr %14, null
   br i1 %cmp.not.i.i.i.i6, label %_ZN19OpenColorIO_v2_4dev16GenericImageDescD2Ev.exit36, label %if.then.i.i.i.i7
 
 if.then.i.i.i.i7:                                 ; preds = %_ZN19OpenColorIO_v2_4dev16GenericImageDescD2Ev.exit
-  %_M_use_count.i.i.i.i.i8 = getelementptr inbounds %"class.std::_Sp_counted_base", ptr %14, i64 0, i32 1
+  %_M_use_count.i.i.i.i.i8 = getelementptr inbounds i8, ptr %14, i64 8
   %15 = load atomic i64, ptr %_M_use_count.i.i.i.i.i8 acquire, align 8
   %cmp.i.i.i.i.i9 = icmp eq i64 %15, 4294967297
   %16 = trunc i64 %15 to i32
@@ -2632,10 +2594,10 @@ if.then.i.i.i.i7:                                 ; preds = %_ZN19OpenColorIO_v2
 
 if.then.i.i.i.i.i32:                              ; preds = %if.then.i.i.i.i7
   store i32 0, ptr %_M_use_count.i.i.i.i.i8, align 8
-  %_M_weak_count.i.i.i.i.i33 = getelementptr inbounds %"class.std::_Sp_counted_base", ptr %14, i64 0, i32 2
+  %_M_weak_count.i.i.i.i.i33 = getelementptr inbounds i8, ptr %14, i64 12
   store i32 0, ptr %_M_weak_count.i.i.i.i.i33, align 4
   %vtable.i.i.i.i.i34 = load ptr, ptr %14, align 8
-  %vfn.i.i.i.i.i35 = getelementptr inbounds ptr, ptr %vtable.i.i.i.i.i34, i64 2
+  %vfn.i.i.i.i.i35 = getelementptr inbounds i8, ptr %vtable.i.i.i.i.i34, i64 16
   %17 = load ptr, ptr %vfn.i.i.i.i.i35, align 8
   tail call void %17(ptr noundef nonnull align 8 dereferenceable(16) %14) #13
   br label %if.end8.sink.split.i.i.i.i.i27
@@ -2661,10 +2623,10 @@ _ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i14: ; preds = %if.e
 
 if.then7.i.i.i.i.i17:                             ; preds = %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i14
   %vtable.i.i.i.i.i.i.i18 = load ptr, ptr %14, align 8
-  %vfn.i.i.i.i.i.i.i19 = getelementptr inbounds ptr, ptr %vtable.i.i.i.i.i.i.i18, i64 2
+  %vfn.i.i.i.i.i.i.i19 = getelementptr inbounds i8, ptr %vtable.i.i.i.i.i.i.i18, i64 16
   %20 = load ptr, ptr %vfn.i.i.i.i.i.i.i19, align 8
   tail call void %20(ptr noundef nonnull align 8 dereferenceable(16) %14) #13
-  %_M_weak_count.i.i.i.i.i.i.i20 = getelementptr inbounds %"class.std::_Sp_counted_base", ptr %14, i64 0, i32 2
+  %_M_weak_count.i.i.i.i.i.i.i20 = getelementptr inbounds i8, ptr %14, i64 12
   %21 = load i8, ptr @__libc_single_threaded, align 1
   %tobool.i.i.not.i.i.i.i.i.i.i21 = icmp eq i8 %21, 0
   br i1 %tobool.i.i.not.i.i.i.i.i.i.i21, label %if.else.i.i.i.i.i.i.i.i30, label %if.then.i.i.i.i.i.i.i.i22
@@ -2686,19 +2648,19 @@ _ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i.i24: ; preds = %
 
 if.end8.sink.split.i.i.i.i.i27:                   ; preds = %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i.i24, %if.then.i.i.i.i.i32
   %vtable2.i.i.i.i.i.i.i28 = load ptr, ptr %14, align 8
-  %vfn3.i.i.i.i.i.i.i29 = getelementptr inbounds ptr, ptr %vtable2.i.i.i.i.i.i.i28, i64 3
+  %vfn3.i.i.i.i.i.i.i29 = getelementptr inbounds i8, ptr %vtable2.i.i.i.i.i.i.i28, i64 24
   %24 = load ptr, ptr %vfn3.i.i.i.i.i.i.i29, align 8
   tail call void %24(ptr noundef nonnull align 8 dereferenceable(16) %14) #13
   br label %_ZN19OpenColorIO_v2_4dev16GenericImageDescD2Ev.exit36
 
 _ZN19OpenColorIO_v2_4dev16GenericImageDescD2Ev.exit36: ; preds = %_ZN19OpenColorIO_v2_4dev16GenericImageDescD2Ev.exit, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i14, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i.i24, %if.end8.sink.split.i.i.i.i.i27
-  %_M_refcount.i.i = getelementptr inbounds %"class.OpenColorIO_v2_4dev::GenericScanlineHelper.12", ptr %this, i64 0, i32 4, i32 0, i32 1
+  %_M_refcount.i.i = getelementptr inbounds i8, ptr %this, i64 40
   %25 = load ptr, ptr %_M_refcount.i.i, align 8
   %cmp.not.i.i.i = icmp eq ptr %25, null
   br i1 %cmp.not.i.i.i, label %_ZNSt10shared_ptrIKN19OpenColorIO_v2_4dev5OpCPUEED2Ev.exit, label %if.then.i.i.i37
 
 if.then.i.i.i37:                                  ; preds = %_ZN19OpenColorIO_v2_4dev16GenericImageDescD2Ev.exit36
-  %_M_use_count.i.i.i.i = getelementptr inbounds %"class.std::_Sp_counted_base", ptr %25, i64 0, i32 1
+  %_M_use_count.i.i.i.i = getelementptr inbounds i8, ptr %25, i64 8
   %26 = load atomic i64, ptr %_M_use_count.i.i.i.i acquire, align 8
   %cmp.i.i.i.i = icmp eq i64 %26, 4294967297
   %27 = trunc i64 %26 to i32
@@ -2706,10 +2668,10 @@ if.then.i.i.i37:                                  ; preds = %_ZN19OpenColorIO_v2
 
 if.then.i.i.i.i39:                                ; preds = %if.then.i.i.i37
   store i32 0, ptr %_M_use_count.i.i.i.i, align 8
-  %_M_weak_count.i.i.i.i = getelementptr inbounds %"class.std::_Sp_counted_base", ptr %25, i64 0, i32 2
+  %_M_weak_count.i.i.i.i = getelementptr inbounds i8, ptr %25, i64 12
   store i32 0, ptr %_M_weak_count.i.i.i.i, align 4
   %vtable.i.i.i.i = load ptr, ptr %25, align 8
-  %vfn.i.i.i.i = getelementptr inbounds ptr, ptr %vtable.i.i.i.i, i64 2
+  %vfn.i.i.i.i = getelementptr inbounds i8, ptr %vtable.i.i.i.i, i64 16
   %28 = load ptr, ptr %vfn.i.i.i.i, align 8
   tail call void %28(ptr noundef nonnull align 8 dereferenceable(16) %25) #13
   br label %if.end8.sink.split.i.i.i.i
@@ -2735,10 +2697,10 @@ _ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i: ; preds = %if.else.
 
 if.then7.i.i.i.i:                                 ; preds = %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i
   %vtable.i.i.i.i.i.i = load ptr, ptr %25, align 8
-  %vfn.i.i.i.i.i.i = getelementptr inbounds ptr, ptr %vtable.i.i.i.i.i.i, i64 2
+  %vfn.i.i.i.i.i.i = getelementptr inbounds i8, ptr %vtable.i.i.i.i.i.i, i64 16
   %31 = load ptr, ptr %vfn.i.i.i.i.i.i, align 8
   tail call void %31(ptr noundef nonnull align 8 dereferenceable(16) %25) #13
-  %_M_weak_count.i.i.i.i.i.i = getelementptr inbounds %"class.std::_Sp_counted_base", ptr %25, i64 0, i32 2
+  %_M_weak_count.i.i.i.i.i.i = getelementptr inbounds i8, ptr %25, i64 12
   %32 = load i8, ptr @__libc_single_threaded, align 1
   %tobool.i.i.not.i.i.i.i.i.i = icmp eq i8 %32, 0
   br i1 %tobool.i.i.not.i.i.i.i.i.i, label %if.else.i.i.i.i.i.i.i, label %if.then.i.i.i.i.i.i.i
@@ -2760,19 +2722,19 @@ _ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i: ; preds = %if.e
 
 if.end8.sink.split.i.i.i.i:                       ; preds = %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i, %if.then.i.i.i.i39
   %vtable2.i.i.i.i.i.i = load ptr, ptr %25, align 8
-  %vfn3.i.i.i.i.i.i = getelementptr inbounds ptr, ptr %vtable2.i.i.i.i.i.i, i64 3
+  %vfn3.i.i.i.i.i.i = getelementptr inbounds i8, ptr %vtable2.i.i.i.i.i.i, i64 24
   %35 = load ptr, ptr %vfn3.i.i.i.i.i.i, align 8
   tail call void %35(ptr noundef nonnull align 8 dereferenceable(16) %25) #13
   br label %_ZNSt10shared_ptrIKN19OpenColorIO_v2_4dev5OpCPUEED2Ev.exit
 
 _ZNSt10shared_ptrIKN19OpenColorIO_v2_4dev5OpCPUEED2Ev.exit: ; preds = %_ZN19OpenColorIO_v2_4dev16GenericImageDescD2Ev.exit36, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i, %if.end8.sink.split.i.i.i.i
-  %_M_refcount.i.i40 = getelementptr inbounds %"class.OpenColorIO_v2_4dev::GenericScanlineHelper.12", ptr %this, i64 0, i32 3, i32 0, i32 1
+  %_M_refcount.i.i40 = getelementptr inbounds i8, ptr %this, i64 24
   %36 = load ptr, ptr %_M_refcount.i.i40, align 8
   %cmp.not.i.i.i41 = icmp eq ptr %36, null
   br i1 %cmp.not.i.i.i41, label %_ZNSt10shared_ptrIKN19OpenColorIO_v2_4dev5OpCPUEED2Ev.exit71, label %if.then.i.i.i42
 
 if.then.i.i.i42:                                  ; preds = %_ZNSt10shared_ptrIKN19OpenColorIO_v2_4dev5OpCPUEED2Ev.exit
-  %_M_use_count.i.i.i.i43 = getelementptr inbounds %"class.std::_Sp_counted_base", ptr %36, i64 0, i32 1
+  %_M_use_count.i.i.i.i43 = getelementptr inbounds i8, ptr %36, i64 8
   %37 = load atomic i64, ptr %_M_use_count.i.i.i.i43 acquire, align 8
   %cmp.i.i.i.i44 = icmp eq i64 %37, 4294967297
   %38 = trunc i64 %37 to i32
@@ -2780,10 +2742,10 @@ if.then.i.i.i42:                                  ; preds = %_ZNSt10shared_ptrIK
 
 if.then.i.i.i.i67:                                ; preds = %if.then.i.i.i42
   store i32 0, ptr %_M_use_count.i.i.i.i43, align 8
-  %_M_weak_count.i.i.i.i68 = getelementptr inbounds %"class.std::_Sp_counted_base", ptr %36, i64 0, i32 2
+  %_M_weak_count.i.i.i.i68 = getelementptr inbounds i8, ptr %36, i64 12
   store i32 0, ptr %_M_weak_count.i.i.i.i68, align 4
   %vtable.i.i.i.i69 = load ptr, ptr %36, align 8
-  %vfn.i.i.i.i70 = getelementptr inbounds ptr, ptr %vtable.i.i.i.i69, i64 2
+  %vfn.i.i.i.i70 = getelementptr inbounds i8, ptr %vtable.i.i.i.i69, i64 16
   %39 = load ptr, ptr %vfn.i.i.i.i70, align 8
   tail call void %39(ptr noundef nonnull align 8 dereferenceable(16) %36) #13
   br label %if.end8.sink.split.i.i.i.i62
@@ -2809,10 +2771,10 @@ _ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i49: ; preds = %if.els
 
 if.then7.i.i.i.i52:                               ; preds = %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i49
   %vtable.i.i.i.i.i.i53 = load ptr, ptr %36, align 8
-  %vfn.i.i.i.i.i.i54 = getelementptr inbounds ptr, ptr %vtable.i.i.i.i.i.i53, i64 2
+  %vfn.i.i.i.i.i.i54 = getelementptr inbounds i8, ptr %vtable.i.i.i.i.i.i53, i64 16
   %42 = load ptr, ptr %vfn.i.i.i.i.i.i54, align 8
   tail call void %42(ptr noundef nonnull align 8 dereferenceable(16) %36) #13
-  %_M_weak_count.i.i.i.i.i.i55 = getelementptr inbounds %"class.std::_Sp_counted_base", ptr %36, i64 0, i32 2
+  %_M_weak_count.i.i.i.i.i.i55 = getelementptr inbounds i8, ptr %36, i64 12
   %43 = load i8, ptr @__libc_single_threaded, align 1
   %tobool.i.i.not.i.i.i.i.i.i56 = icmp eq i8 %43, 0
   br i1 %tobool.i.i.not.i.i.i.i.i.i56, label %if.else.i.i.i.i.i.i.i65, label %if.then.i.i.i.i.i.i.i57
@@ -2834,7 +2796,7 @@ _ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i59: ; preds = %if
 
 if.end8.sink.split.i.i.i.i62:                     ; preds = %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i59, %if.then.i.i.i.i67
   %vtable2.i.i.i.i.i.i63 = load ptr, ptr %36, align 8
-  %vfn3.i.i.i.i.i.i64 = getelementptr inbounds ptr, ptr %vtable2.i.i.i.i.i.i63, i64 3
+  %vfn3.i.i.i.i.i.i64 = getelementptr inbounds i8, ptr %vtable2.i.i.i.i.i.i63, i64 24
   %46 = load ptr, ptr %vfn3.i.i.i.i.i.i64, align 8
   tail call void %46(ptr noundef nonnull align 8 dereferenceable(16) %36) #13
   br label %_ZNSt10shared_ptrIKN19OpenColorIO_v2_4dev5OpCPUEED2Ev.exit71
@@ -2854,66 +2816,66 @@ entry:
 ; Function Attrs: mustprogress uwtable
 define weak_odr hidden void @_ZN19OpenColorIO_v2_4dev21GenericScanlineHelperIhN9Imath_3_14halfEE16prepRGBAScanlineEPPfRl(ptr noundef nonnull align 8 dereferenceable(309) %this, ptr noundef %buffer, ptr noundef nonnull align 8 dereferenceable(8) %numPixels) unnamed_addr #5 comdat align 2 {
 entry:
-  %m_yIndex = getelementptr inbounds %"class.OpenColorIO_v2_4dev::GenericScanlineHelper.12", ptr %this, i64 0, i32 12
+  %m_yIndex = getelementptr inbounds i8, ptr %this, i64 304
   %0 = load i32, ptr %m_yIndex, align 8
   %conv = sext i32 %0 to i64
-  %m_dstImg = getelementptr inbounds %"class.OpenColorIO_v2_4dev::GenericScanlineHelper.12", ptr %this, i64 0, i32 6
-  %m_height = getelementptr inbounds %"class.OpenColorIO_v2_4dev::GenericScanlineHelper.12", ptr %this, i64 0, i32 6, i32 1
+  %m_dstImg = getelementptr inbounds i8, ptr %this, i64 136
+  %m_height = getelementptr inbounds i8, ptr %this, i64 144
   %1 = load i64, ptr %m_height, align 8
   %cmp.not = icmp sgt i64 %1, %conv
   br i1 %cmp.not, label %if.end, label %return
 
 if.end:                                           ; preds = %entry
-  %m_useDstBuffer = getelementptr inbounds %"class.OpenColorIO_v2_4dev::GenericScanlineHelper.12", ptr %this, i64 0, i32 13
+  %m_useDstBuffer = getelementptr inbounds i8, ptr %this, i64 308
   %2 = load i8, ptr %m_useDstBuffer, align 4
   %3 = and i8 %2, 1
   %tobool.not = icmp eq i8 %3, 0
   br i1 %tobool.not, label %cond.false, label %cond.true
 
 cond.true:                                        ; preds = %if.end
-  %m_rData = getelementptr inbounds %"class.OpenColorIO_v2_4dev::GenericScanlineHelper.12", ptr %this, i64 0, i32 6, i32 4
+  %m_rData = getelementptr inbounds i8, ptr %this, i64 168
   %4 = load ptr, ptr %m_rData, align 8
-  %m_yStrideBytes = getelementptr inbounds %"class.OpenColorIO_v2_4dev::GenericScanlineHelper.12", ptr %this, i64 0, i32 6, i32 3
+  %m_yStrideBytes = getelementptr inbounds i8, ptr %this, i64 160
   %5 = load i64, ptr %m_yStrideBytes, align 8
   %mul = mul nsw i64 %5, %conv
   %add.ptr = getelementptr inbounds i8, ptr %4, i64 %mul
   br label %cond.end
 
 cond.false:                                       ; preds = %if.end
-  %m_rgbaFloatBuffer = getelementptr inbounds %"class.OpenColorIO_v2_4dev::GenericScanlineHelper.12", ptr %this, i64 0, i32 9
+  %m_rgbaFloatBuffer = getelementptr inbounds i8, ptr %this, i64 232
   %6 = load ptr, ptr %m_rgbaFloatBuffer, align 8
   br label %cond.end
 
 cond.end:                                         ; preds = %cond.false, %cond.true
   %cond = phi ptr [ %add.ptr, %cond.true ], [ %6, %cond.false ]
   store ptr %cond, ptr %buffer, align 8
-  %m_inOptimizedMode = getelementptr inbounds %"class.OpenColorIO_v2_4dev::GenericScanlineHelper.12", ptr %this, i64 0, i32 7
+  %m_inOptimizedMode = getelementptr inbounds i8, ptr %this, i64 224
   %7 = load i32, ptr %m_inOptimizedMode, align 8
   %and = and i32 %7, 1
   %cmp6.not = icmp eq i32 %and, 0
   br i1 %cmp6.not, label %if.else, label %if.then7
 
 if.then7:                                         ; preds = %cond.end
-  %m_rData8 = getelementptr inbounds %"class.OpenColorIO_v2_4dev::GenericScanlineHelper.12", ptr %this, i64 0, i32 5, i32 4
+  %m_rData8 = getelementptr inbounds i8, ptr %this, i64 80
   %8 = load ptr, ptr %m_rData8, align 8
-  %m_yStrideBytes10 = getelementptr inbounds %"class.OpenColorIO_v2_4dev::GenericScanlineHelper.12", ptr %this, i64 0, i32 5, i32 3
+  %m_yStrideBytes10 = getelementptr inbounds i8, ptr %this, i64 72
   %9 = load i64, ptr %m_yStrideBytes10, align 8
   %10 = load i32, ptr %m_yIndex, align 8
   %conv12 = sext i32 %10 to i64
   %mul13 = mul nsw i64 %9, %conv12
   %add.ptr14 = getelementptr inbounds i8, ptr %8, i64 %mul13
-  %m_bitDepthOp = getelementptr inbounds %"class.OpenColorIO_v2_4dev::GenericScanlineHelper.12", ptr %this, i64 0, i32 5, i32 8
+  %m_bitDepthOp = getelementptr inbounds i8, ptr %this, i64 112
   %11 = load ptr, ptr %m_bitDepthOp, align 8
   %12 = load i64, ptr %m_dstImg, align 8
   %vtable = load ptr, ptr %11, align 8
-  %vfn = getelementptr inbounds ptr, ptr %vtable, i64 2
+  %vfn = getelementptr inbounds i8, ptr %vtable, i64 16
   %13 = load ptr, ptr %vfn, align 8
   tail call void %13(ptr noundef nonnull align 8 dereferenceable(8) %11, ptr noundef %add.ptr14, ptr noundef %cond, i64 noundef %12)
   br label %if.end28
 
 if.else:                                          ; preds = %cond.end
-  %m_srcImg18 = getelementptr inbounds %"class.OpenColorIO_v2_4dev::GenericScanlineHelper.12", ptr %this, i64 0, i32 5
-  %m_inBitDepthBuffer = getelementptr inbounds %"class.OpenColorIO_v2_4dev::GenericScanlineHelper.12", ptr %this, i64 0, i32 10
+  %m_srcImg18 = getelementptr inbounds i8, ptr %this, i64 48
+  %m_inBitDepthBuffer = getelementptr inbounds i8, ptr %this, i64 256
   %14 = load ptr, ptr %m_inBitDepthBuffer, align 8
   %15 = load i64, ptr %m_dstImg, align 8
   %conv22 = trunc i64 %15 to i32
@@ -2936,47 +2898,47 @@ return:                                           ; preds = %entry, %if.end28
 ; Function Attrs: mustprogress uwtable
 define weak_odr hidden void @_ZN19OpenColorIO_v2_4dev21GenericScanlineHelperIhN9Imath_3_14halfEE18finishRGBAScanlineEv(ptr noundef nonnull align 8 dereferenceable(309) %this) unnamed_addr #5 comdat align 2 {
 entry:
-  %m_outOptimizedMode = getelementptr inbounds %"class.OpenColorIO_v2_4dev::GenericScanlineHelper.12", ptr %this, i64 0, i32 8
+  %m_outOptimizedMode = getelementptr inbounds i8, ptr %this, i64 228
   %0 = load i32, ptr %m_outOptimizedMode, align 4
   %and = and i32 %0, 1
   %cmp.not = icmp eq i32 %and, 0
-  %m_dstImg6 = getelementptr inbounds %"class.OpenColorIO_v2_4dev::GenericScanlineHelper.12", ptr %this, i64 0, i32 6
+  %m_dstImg6 = getelementptr inbounds i8, ptr %this, i64 136
   br i1 %cmp.not, label %if.else, label %if.then
 
 if.then:                                          ; preds = %entry
-  %m_rData = getelementptr inbounds %"class.OpenColorIO_v2_4dev::GenericScanlineHelper.12", ptr %this, i64 0, i32 6, i32 4
+  %m_rData = getelementptr inbounds i8, ptr %this, i64 168
   %1 = load ptr, ptr %m_rData, align 8
-  %m_yStrideBytes = getelementptr inbounds %"class.OpenColorIO_v2_4dev::GenericScanlineHelper.12", ptr %this, i64 0, i32 6, i32 3
+  %m_yStrideBytes = getelementptr inbounds i8, ptr %this, i64 160
   %2 = load i64, ptr %m_yStrideBytes, align 8
-  %m_yIndex = getelementptr inbounds %"class.OpenColorIO_v2_4dev::GenericScanlineHelper.12", ptr %this, i64 0, i32 12
+  %m_yIndex = getelementptr inbounds i8, ptr %this, i64 304
   %3 = load i32, ptr %m_yIndex, align 8
   %conv = sext i32 %3 to i64
   %mul = mul nsw i64 %2, %conv
   %add.ptr = getelementptr inbounds i8, ptr %1, i64 %mul
-  %m_useDstBuffer = getelementptr inbounds %"class.OpenColorIO_v2_4dev::GenericScanlineHelper.12", ptr %this, i64 0, i32 13
+  %m_useDstBuffer = getelementptr inbounds i8, ptr %this, i64 308
   %4 = load i8, ptr %m_useDstBuffer, align 4
   %5 = and i8 %4, 1
   %tobool.not = icmp eq i8 %5, 0
-  %m_rgbaFloatBuffer = getelementptr inbounds %"class.OpenColorIO_v2_4dev::GenericScanlineHelper.12", ptr %this, i64 0, i32 9
+  %m_rgbaFloatBuffer = getelementptr inbounds i8, ptr %this, i64 232
   %6 = load ptr, ptr %m_rgbaFloatBuffer, align 8
   %cond = select i1 %tobool.not, ptr %6, ptr %add.ptr
-  %m_bitDepthOp = getelementptr inbounds %"class.OpenColorIO_v2_4dev::GenericScanlineHelper.12", ptr %this, i64 0, i32 6, i32 8
+  %m_bitDepthOp = getelementptr inbounds i8, ptr %this, i64 200
   %7 = load ptr, ptr %m_bitDepthOp, align 8
   %8 = load i64, ptr %m_dstImg6, align 8
   %vtable = load ptr, ptr %7, align 8
-  %vfn = getelementptr inbounds ptr, ptr %vtable, i64 2
+  %vfn = getelementptr inbounds i8, ptr %vtable, i64 16
   %9 = load ptr, ptr %vfn, align 8
   tail call void %9(ptr noundef nonnull align 8 dereferenceable(8) %7, ptr noundef %cond, ptr noundef %add.ptr, i64 noundef %8)
   br label %if.end
 
 if.else:                                          ; preds = %entry
-  %m_rgbaFloatBuffer7 = getelementptr inbounds %"class.OpenColorIO_v2_4dev::GenericScanlineHelper.12", ptr %this, i64 0, i32 9
+  %m_rgbaFloatBuffer7 = getelementptr inbounds i8, ptr %this, i64 232
   %10 = load ptr, ptr %m_rgbaFloatBuffer7, align 8
-  %m_outBitDepthBuffer = getelementptr inbounds %"class.OpenColorIO_v2_4dev::GenericScanlineHelper.12", ptr %this, i64 0, i32 11
+  %m_outBitDepthBuffer = getelementptr inbounds i8, ptr %this, i64 280
   %11 = load ptr, ptr %m_outBitDepthBuffer, align 8
   %12 = load i64, ptr %m_dstImg6, align 8
   %conv12 = trunc i64 %12 to i32
-  %m_yIndex13 = getelementptr inbounds %"class.OpenColorIO_v2_4dev::GenericScanlineHelper.12", ptr %this, i64 0, i32 12
+  %m_yIndex13 = getelementptr inbounds i8, ptr %this, i64 304
   %13 = load i32, ptr %m_yIndex13, align 8
   %conv14 = sext i32 %13 to i64
   %mul17 = mul nsw i64 %12, %conv14
@@ -2984,7 +2946,7 @@ if.else:                                          ; preds = %entry
   br label %if.end
 
 if.end:                                           ; preds = %if.else, %if.then
-  %m_yIndex18 = getelementptr inbounds %"class.OpenColorIO_v2_4dev::GenericScanlineHelper.12", ptr %this, i64 0, i32 12
+  %m_yIndex18 = getelementptr inbounds i8, ptr %this, i64 304
   %14 = load i32, ptr %m_yIndex18, align 8
   %inc = add nsw i32 %14, 1
   store i32 %inc, ptr %m_yIndex18, align 8
@@ -2997,22 +2959,22 @@ declare void @_ZN19OpenColorIO_v2_4dev7GenericIN9Imath_3_14halfEE21UnpackRGBAToI
 define weak_odr hidden void @_ZN19OpenColorIO_v2_4dev21GenericScanlineHelperIhfEC2ENS_8BitDepthERKSt10shared_ptrIKNS_5OpCPUEES2_S8_(ptr noundef nonnull align 8 dereferenceable(309) %this, i32 noundef %inputBitDepth, ptr noundef nonnull align 8 dereferenceable(16) %inBitDepthOp, i32 noundef %outputBitDepth, ptr noundef nonnull align 8 dereferenceable(16) %outBitDepthOp) unnamed_addr #3 comdat($_ZN19OpenColorIO_v2_4dev21GenericScanlineHelperIhfEC5ENS_8BitDepthERKSt10shared_ptrIKNS_5OpCPUEES2_S8_) align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTVN19OpenColorIO_v2_4dev21GenericScanlineHelperIhfEE, i64 0, inrange i32 0, i64 2), ptr %this, align 8
-  %m_inputBitDepth = getelementptr inbounds %"class.OpenColorIO_v2_4dev::GenericScanlineHelper.19", ptr %this, i64 0, i32 1
+  %m_inputBitDepth = getelementptr inbounds i8, ptr %this, i64 8
   store i32 %inputBitDepth, ptr %m_inputBitDepth, align 8
-  %m_outputBitDepth = getelementptr inbounds %"class.OpenColorIO_v2_4dev::GenericScanlineHelper.19", ptr %this, i64 0, i32 2
+  %m_outputBitDepth = getelementptr inbounds i8, ptr %this, i64 12
   store i32 %outputBitDepth, ptr %m_outputBitDepth, align 4
-  %m_inBitDepthOp = getelementptr inbounds %"class.OpenColorIO_v2_4dev::GenericScanlineHelper.19", ptr %this, i64 0, i32 3
+  %m_inBitDepthOp = getelementptr inbounds i8, ptr %this, i64 16
   %0 = load ptr, ptr %inBitDepthOp, align 8
   store ptr %0, ptr %m_inBitDepthOp, align 8
-  %_M_refcount.i.i = getelementptr inbounds %"class.OpenColorIO_v2_4dev::GenericScanlineHelper.19", ptr %this, i64 0, i32 3, i32 0, i32 1
-  %_M_refcount3.i.i = getelementptr inbounds %"class.std::__shared_ptr", ptr %inBitDepthOp, i64 0, i32 1
+  %_M_refcount.i.i = getelementptr inbounds i8, ptr %this, i64 24
+  %_M_refcount3.i.i = getelementptr inbounds i8, ptr %inBitDepthOp, i64 8
   %1 = load ptr, ptr %_M_refcount3.i.i, align 8
   store ptr %1, ptr %_M_refcount.i.i, align 8
   %cmp.not.i.i.i = icmp eq ptr %1, null
   br i1 %cmp.not.i.i.i, label %_ZNSt10shared_ptrIKN19OpenColorIO_v2_4dev5OpCPUEEC2ERKS3_.exit, label %if.then.i.i.i
 
 if.then.i.i.i:                                    ; preds = %entry
-  %_M_use_count.i.i.i.i = getelementptr inbounds %"class.std::_Sp_counted_base", ptr %1, i64 0, i32 1
+  %_M_use_count.i.i.i.i = getelementptr inbounds i8, ptr %1, i64 8
   %2 = load i8, ptr @__libc_single_threaded, align 1
   %tobool.i.not.i.i.i.i = icmp eq i8 %2, 0
   br i1 %tobool.i.not.i.i.i.i, label %if.else.i.i.i.i.i, label %if.then.i.i.i.i.i
@@ -3028,18 +2990,18 @@ if.else.i.i.i.i.i:                                ; preds = %if.then.i.i.i
   br label %_ZNSt10shared_ptrIKN19OpenColorIO_v2_4dev5OpCPUEEC2ERKS3_.exit
 
 _ZNSt10shared_ptrIKN19OpenColorIO_v2_4dev5OpCPUEEC2ERKS3_.exit: ; preds = %entry, %if.then.i.i.i.i.i, %if.else.i.i.i.i.i
-  %m_outBitDepthOp = getelementptr inbounds %"class.OpenColorIO_v2_4dev::GenericScanlineHelper.19", ptr %this, i64 0, i32 4
+  %m_outBitDepthOp = getelementptr inbounds i8, ptr %this, i64 32
   %5 = load ptr, ptr %outBitDepthOp, align 8
   store ptr %5, ptr %m_outBitDepthOp, align 8
-  %_M_refcount.i.i1 = getelementptr inbounds %"class.OpenColorIO_v2_4dev::GenericScanlineHelper.19", ptr %this, i64 0, i32 4, i32 0, i32 1
-  %_M_refcount3.i.i2 = getelementptr inbounds %"class.std::__shared_ptr", ptr %outBitDepthOp, i64 0, i32 1
+  %_M_refcount.i.i1 = getelementptr inbounds i8, ptr %this, i64 40
+  %_M_refcount3.i.i2 = getelementptr inbounds i8, ptr %outBitDepthOp, i64 8
   %6 = load ptr, ptr %_M_refcount3.i.i2, align 8
   store ptr %6, ptr %_M_refcount.i.i1, align 8
   %cmp.not.i.i.i3 = icmp eq ptr %6, null
   br i1 %cmp.not.i.i.i3, label %_ZNSt10shared_ptrIKN19OpenColorIO_v2_4dev5OpCPUEEC2ERKS3_.exit10, label %if.then.i.i.i4
 
 if.then.i.i.i4:                                   ; preds = %_ZNSt10shared_ptrIKN19OpenColorIO_v2_4dev5OpCPUEEC2ERKS3_.exit
-  %_M_use_count.i.i.i.i5 = getelementptr inbounds %"class.std::_Sp_counted_base", ptr %6, i64 0, i32 1
+  %_M_use_count.i.i.i.i5 = getelementptr inbounds i8, ptr %6, i64 8
   %7 = load i8, ptr @__libc_single_threaded, align 1
   %tobool.i.not.i.i.i.i6 = icmp eq i8 %7, 0
   br i1 %tobool.i.not.i.i.i.i6, label %if.else.i.i.i.i.i9, label %if.then.i.i.i.i.i7
@@ -3055,11 +3017,11 @@ if.else.i.i.i.i.i9:                               ; preds = %if.then.i.i.i4
   br label %_ZNSt10shared_ptrIKN19OpenColorIO_v2_4dev5OpCPUEEC2ERKS3_.exit10
 
 _ZNSt10shared_ptrIKN19OpenColorIO_v2_4dev5OpCPUEEC2ERKS3_.exit10: ; preds = %_ZNSt10shared_ptrIKN19OpenColorIO_v2_4dev5OpCPUEEC2ERKS3_.exit, %if.then.i.i.i.i.i7, %if.else.i.i.i.i.i9
-  %m_srcImg = getelementptr inbounds %"class.OpenColorIO_v2_4dev::GenericScanlineHelper.19", ptr %this, i64 0, i32 5
+  %m_srcImg = getelementptr inbounds i8, ptr %this, i64 48
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(82) %m_srcImg, i8 0, i64 82, i1 false)
-  %m_dstImg = getelementptr inbounds %"class.OpenColorIO_v2_4dev::GenericScanlineHelper.19", ptr %this, i64 0, i32 6
+  %m_dstImg = getelementptr inbounds i8, ptr %this, i64 136
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(82) %m_dstImg, i8 0, i64 82, i1 false)
-  %m_inOptimizedMode = getelementptr inbounds %"class.OpenColorIO_v2_4dev::GenericScanlineHelper.19", ptr %this, i64 0, i32 7
+  %m_inOptimizedMode = getelementptr inbounds i8, ptr %this, i64 224
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(85) %m_inOptimizedMode, i8 0, i64 85, i1 false)
   ret void
 }
@@ -3067,17 +3029,17 @@ _ZNSt10shared_ptrIKN19OpenColorIO_v2_4dev5OpCPUEEC2ERKS3_.exit10: ; preds = %_ZN
 ; Function Attrs: mustprogress uwtable
 define weak_odr hidden void @_ZN19OpenColorIO_v2_4dev21GenericScanlineHelperIhfE4initERKNS_9ImageDescES4_(ptr noundef nonnull align 8 dereferenceable(309) %this, ptr noundef nonnull align 8 dereferenceable(8) %srcImg, ptr noundef nonnull align 8 dereferenceable(8) %dstImg) unnamed_addr #5 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  %m_yIndex = getelementptr inbounds %"class.OpenColorIO_v2_4dev::GenericScanlineHelper.19", ptr %this, i64 0, i32 12
+  %m_yIndex = getelementptr inbounds i8, ptr %this, i64 304
   store i32 0, ptr %m_yIndex, align 8
-  %m_srcImg = getelementptr inbounds %"class.OpenColorIO_v2_4dev::GenericScanlineHelper.19", ptr %this, i64 0, i32 5
-  %m_inputBitDepth = getelementptr inbounds %"class.OpenColorIO_v2_4dev::GenericScanlineHelper.19", ptr %this, i64 0, i32 1
+  %m_srcImg = getelementptr inbounds i8, ptr %this, i64 48
+  %m_inputBitDepth = getelementptr inbounds i8, ptr %this, i64 8
   %0 = load i32, ptr %m_inputBitDepth, align 8
-  %m_inBitDepthOp = getelementptr inbounds %"class.OpenColorIO_v2_4dev::GenericScanlineHelper.19", ptr %this, i64 0, i32 3
+  %m_inBitDepthOp = getelementptr inbounds i8, ptr %this, i64 16
   tail call void @_ZN19OpenColorIO_v2_4dev16GenericImageDesc4initERKNS_9ImageDescENS_8BitDepthERKSt10shared_ptrIKNS_5OpCPUEE(ptr noundef nonnull align 8 dereferenceable(82) %m_srcImg, ptr noundef nonnull align 8 dereferenceable(8) %srcImg, i32 noundef %0, ptr noundef nonnull align 8 dereferenceable(16) %m_inBitDepthOp)
-  %m_dstImg = getelementptr inbounds %"class.OpenColorIO_v2_4dev::GenericScanlineHelper.19", ptr %this, i64 0, i32 6
-  %m_outputBitDepth = getelementptr inbounds %"class.OpenColorIO_v2_4dev::GenericScanlineHelper.19", ptr %this, i64 0, i32 2
+  %m_dstImg = getelementptr inbounds i8, ptr %this, i64 136
+  %m_outputBitDepth = getelementptr inbounds i8, ptr %this, i64 12
   %1 = load i32, ptr %m_outputBitDepth, align 4
-  %m_outBitDepthOp = getelementptr inbounds %"class.OpenColorIO_v2_4dev::GenericScanlineHelper.19", ptr %this, i64 0, i32 4
+  %m_outBitDepthOp = getelementptr inbounds i8, ptr %this, i64 32
   tail call void @_ZN19OpenColorIO_v2_4dev16GenericImageDesc4initERKNS_9ImageDescENS_8BitDepthERKSt10shared_ptrIKNS_5OpCPUEE(ptr noundef nonnull align 8 dereferenceable(82) %m_dstImg, ptr noundef nonnull align 8 dereferenceable(8) %dstImg, i32 noundef %1, ptr noundef nonnull align 8 dereferenceable(16) %m_outBitDepthOp)
   %2 = load i64, ptr %m_srcImg, align 8
   %3 = load i64, ptr %m_dstImg, align 8
@@ -3085,9 +3047,9 @@ entry:
   br i1 %cmp.not, label %lor.lhs.false, label %if.then
 
 lor.lhs.false:                                    ; preds = %entry
-  %m_height = getelementptr inbounds %"class.OpenColorIO_v2_4dev::GenericScanlineHelper.19", ptr %this, i64 0, i32 5, i32 1
+  %m_height = getelementptr inbounds i8, ptr %this, i64 56
   %4 = load i64, ptr %m_height, align 8
-  %m_height7 = getelementptr inbounds %"class.OpenColorIO_v2_4dev::GenericScanlineHelper.19", ptr %this, i64 0, i32 6, i32 1
+  %m_height7 = getelementptr inbounds i8, ptr %this, i64 144
   %5 = load i64, ptr %m_height7, align 8
   %cmp8.not = icmp eq i64 %4, %5
   br i1 %cmp8.not, label %if.end, label %if.then
@@ -3118,7 +3080,7 @@ if.then.i:                                        ; preds = %if.end
 
 _ZN19OpenColorIO_v2_4dev19GetOptimizationModeERKNS_16GenericImageDescE.exit: ; preds = %if.end, %if.then.i
   %optim.0.i = phi i32 [ 0, %if.end ], [ %spec.select.i, %if.then.i ]
-  %m_inOptimizedMode = getelementptr inbounds %"class.OpenColorIO_v2_4dev::GenericScanlineHelper.19", ptr %this, i64 0, i32 7
+  %m_inOptimizedMode = getelementptr inbounds i8, ptr %this, i64 224
   store i32 %optim.0.i, ptr %m_inOptimizedMode, align 8
   %call.i2 = tail call noundef zeroext i1 @_ZNK19OpenColorIO_v2_4dev16GenericImageDesc12isRGBAPackedEv(ptr noundef nonnull align 8 dereferenceable(82) %m_dstImg)
   br i1 %call.i2, label %if.then.i4, label %_ZN19OpenColorIO_v2_4dev19GetOptimizationModeERKNS_16GenericImageDescE.exit7
@@ -3130,10 +3092,10 @@ if.then.i4:                                       ; preds = %_ZN19OpenColorIO_v2
 
 _ZN19OpenColorIO_v2_4dev19GetOptimizationModeERKNS_16GenericImageDescE.exit7: ; preds = %_ZN19OpenColorIO_v2_4dev19GetOptimizationModeERKNS_16GenericImageDescE.exit, %if.then.i4
   %optim.0.i3 = phi i32 [ 0, %_ZN19OpenColorIO_v2_4dev19GetOptimizationModeERKNS_16GenericImageDescE.exit ], [ %spec.select.i6, %if.then.i4 ]
-  %m_outOptimizedMode = getelementptr inbounds %"class.OpenColorIO_v2_4dev::GenericScanlineHelper.19", ptr %this, i64 0, i32 8
+  %m_outOptimizedMode = getelementptr inbounds i8, ptr %this, i64 228
   store i32 %optim.0.i3, ptr %m_outOptimizedMode, align 4
   %cmp13 = icmp eq i32 %optim.0.i3, 3
-  %m_useDstBuffer = getelementptr inbounds %"class.OpenColorIO_v2_4dev::GenericScanlineHelper.19", ptr %this, i64 0, i32 13
+  %m_useDstBuffer = getelementptr inbounds i8, ptr %this, i64 308
   %frombool = zext i1 %cmp13 to i8
   store i8 %frombool, ptr %m_useDstBuffer, align 4
   %7 = load i32, ptr %m_inOptimizedMode, align 8
@@ -3144,7 +3106,7 @@ _ZN19OpenColorIO_v2_4dev19GetOptimizationModeERKNS_16GenericImageDescE.exit7: ; 
 if.then17:                                        ; preds = %_ZN19OpenColorIO_v2_4dev19GetOptimizationModeERKNS_16GenericImageDescE.exit7
   %8 = load i64, ptr %m_dstImg, align 8
   %mul = shl nsw i64 %8, 2
-  %m_inBitDepthBuffer = getelementptr inbounds %"class.OpenColorIO_v2_4dev::GenericScanlineHelper.19", ptr %this, i64 0, i32 10
+  %m_inBitDepthBuffer = getelementptr inbounds i8, ptr %this, i64 256
   tail call void @_ZNSt6vectorIhSaIhEE6resizeEm(ptr noundef nonnull align 8 dereferenceable(24) %m_inBitDepthBuffer, i64 noundef %mul)
   %.pre = load i8, ptr %m_useDstBuffer, align 4
   br label %if.end20
@@ -3158,8 +3120,8 @@ if.end20:                                         ; preds = %if.then17, %_ZN19Op
 if.then22:                                        ; preds = %if.end20
   %11 = load i64, ptr %m_dstImg, align 8
   %mul26 = shl nsw i64 %11, 2
-  %m_rgbaFloatBuffer = getelementptr inbounds %"class.OpenColorIO_v2_4dev::GenericScanlineHelper.19", ptr %this, i64 0, i32 9
-  %_M_finish.i.i = getelementptr inbounds %"class.OpenColorIO_v2_4dev::GenericScanlineHelper.19", ptr %this, i64 0, i32 9, i32 0, i32 0, i32 0, i32 1
+  %m_rgbaFloatBuffer = getelementptr inbounds i8, ptr %this, i64 232
+  %_M_finish.i.i = getelementptr inbounds i8, ptr %this, i64 240
   %12 = load ptr, ptr %_M_finish.i.i, align 8
   %13 = load ptr, ptr %m_rgbaFloatBuffer, align 8
   %sub.ptr.lhs.cast.i.i = ptrtoint ptr %12 to i64
@@ -3188,8 +3150,8 @@ invoke.cont.i.i:                                  ; preds = %if.then5.i
   br label %_ZNSt6vectorIfSaIfEE6resizeEm.exit
 
 _ZNSt6vectorIfSaIfEE6resizeEm.exit:               ; preds = %if.then.i8, %if.else.i, %if.then5.i, %invoke.cont.i.i
-  %m_outBitDepthBuffer = getelementptr inbounds %"class.OpenColorIO_v2_4dev::GenericScanlineHelper.19", ptr %this, i64 0, i32 11
-  %_M_finish.i.i9 = getelementptr inbounds %"class.OpenColorIO_v2_4dev::GenericScanlineHelper.19", ptr %this, i64 0, i32 11, i32 0, i32 0, i32 0, i32 1
+  %m_outBitDepthBuffer = getelementptr inbounds i8, ptr %this, i64 280
+  %_M_finish.i.i9 = getelementptr inbounds i8, ptr %this, i64 288
   %14 = load ptr, ptr %_M_finish.i.i9, align 8
   %15 = load ptr, ptr %m_outBitDepthBuffer, align 8
   %sub.ptr.lhs.cast.i.i10 = ptrtoint ptr %14 to i64
@@ -3224,17 +3186,17 @@ if.end27:                                         ; preds = %invoke.cont.i.i20, 
 ; Function Attrs: mustprogress uwtable
 define weak_odr hidden void @_ZN19OpenColorIO_v2_4dev21GenericScanlineHelperIhfE4initERKNS_9ImageDescE(ptr noundef nonnull align 8 dereferenceable(309) %this, ptr noundef nonnull align 8 dereferenceable(8) %img) unnamed_addr #5 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  %m_yIndex = getelementptr inbounds %"class.OpenColorIO_v2_4dev::GenericScanlineHelper.19", ptr %this, i64 0, i32 12
+  %m_yIndex = getelementptr inbounds i8, ptr %this, i64 304
   store i32 0, ptr %m_yIndex, align 8
-  %m_srcImg = getelementptr inbounds %"class.OpenColorIO_v2_4dev::GenericScanlineHelper.19", ptr %this, i64 0, i32 5
-  %m_inputBitDepth = getelementptr inbounds %"class.OpenColorIO_v2_4dev::GenericScanlineHelper.19", ptr %this, i64 0, i32 1
+  %m_srcImg = getelementptr inbounds i8, ptr %this, i64 48
+  %m_inputBitDepth = getelementptr inbounds i8, ptr %this, i64 8
   %0 = load i32, ptr %m_inputBitDepth, align 8
-  %m_inBitDepthOp = getelementptr inbounds %"class.OpenColorIO_v2_4dev::GenericScanlineHelper.19", ptr %this, i64 0, i32 3
+  %m_inBitDepthOp = getelementptr inbounds i8, ptr %this, i64 16
   tail call void @_ZN19OpenColorIO_v2_4dev16GenericImageDesc4initERKNS_9ImageDescENS_8BitDepthERKSt10shared_ptrIKNS_5OpCPUEE(ptr noundef nonnull align 8 dereferenceable(82) %m_srcImg, ptr noundef nonnull align 8 dereferenceable(8) %img, i32 noundef %0, ptr noundef nonnull align 8 dereferenceable(16) %m_inBitDepthOp)
-  %m_dstImg = getelementptr inbounds %"class.OpenColorIO_v2_4dev::GenericScanlineHelper.19", ptr %this, i64 0, i32 6
-  %m_outputBitDepth = getelementptr inbounds %"class.OpenColorIO_v2_4dev::GenericScanlineHelper.19", ptr %this, i64 0, i32 2
+  %m_dstImg = getelementptr inbounds i8, ptr %this, i64 136
+  %m_outputBitDepth = getelementptr inbounds i8, ptr %this, i64 12
   %1 = load i32, ptr %m_outputBitDepth, align 4
-  %m_outBitDepthOp = getelementptr inbounds %"class.OpenColorIO_v2_4dev::GenericScanlineHelper.19", ptr %this, i64 0, i32 4
+  %m_outBitDepthOp = getelementptr inbounds i8, ptr %this, i64 32
   tail call void @_ZN19OpenColorIO_v2_4dev16GenericImageDesc4initERKNS_9ImageDescENS_8BitDepthERKSt10shared_ptrIKNS_5OpCPUEE(ptr noundef nonnull align 8 dereferenceable(82) %m_dstImg, ptr noundef nonnull align 8 dereferenceable(8) %img, i32 noundef %1, ptr noundef nonnull align 8 dereferenceable(16) %m_outBitDepthOp)
   %call.i = tail call noundef zeroext i1 @_ZNK19OpenColorIO_v2_4dev16GenericImageDesc12isRGBAPackedEv(ptr noundef nonnull align 8 dereferenceable(82) %m_srcImg)
   br i1 %call.i, label %if.then.i, label %if.then
@@ -3244,26 +3206,26 @@ if.then.i:                                        ; preds = %entry
   br i1 %call1.i, label %_ZN19OpenColorIO_v2_4dev19GetOptimizationModeERKNS_16GenericImageDescE.exit, label %if.then
 
 _ZN19OpenColorIO_v2_4dev19GetOptimizationModeERKNS_16GenericImageDescE.exit: ; preds = %if.then.i
-  %m_inOptimizedMode = getelementptr inbounds %"class.OpenColorIO_v2_4dev::GenericScanlineHelper.19", ptr %this, i64 0, i32 7
+  %m_inOptimizedMode = getelementptr inbounds i8, ptr %this, i64 224
   store i32 3, ptr %m_inOptimizedMode, align 8
-  %m_outOptimizedMode = getelementptr inbounds %"class.OpenColorIO_v2_4dev::GenericScanlineHelper.19", ptr %this, i64 0, i32 8
+  %m_outOptimizedMode = getelementptr inbounds i8, ptr %this, i64 228
   store i32 3, ptr %m_outOptimizedMode, align 4
-  %m_useDstBuffer = getelementptr inbounds %"class.OpenColorIO_v2_4dev::GenericScanlineHelper.19", ptr %this, i64 0, i32 13
+  %m_useDstBuffer = getelementptr inbounds i8, ptr %this, i64 308
   store i8 1, ptr %m_useDstBuffer, align 4
   br label %if.end
 
 if.then:                                          ; preds = %entry, %if.then.i
   %optim.0.i.ph = phi i32 [ 1, %if.then.i ], [ 0, %entry ]
-  %m_inOptimizedMode21 = getelementptr inbounds %"class.OpenColorIO_v2_4dev::GenericScanlineHelper.19", ptr %this, i64 0, i32 7
+  %m_inOptimizedMode21 = getelementptr inbounds i8, ptr %this, i64 224
   store i32 %optim.0.i.ph, ptr %m_inOptimizedMode21, align 8
-  %m_outOptimizedMode22 = getelementptr inbounds %"class.OpenColorIO_v2_4dev::GenericScanlineHelper.19", ptr %this, i64 0, i32 8
+  %m_outOptimizedMode22 = getelementptr inbounds i8, ptr %this, i64 228
   store i32 %optim.0.i.ph, ptr %m_outOptimizedMode22, align 4
-  %m_useDstBuffer24 = getelementptr inbounds %"class.OpenColorIO_v2_4dev::GenericScanlineHelper.19", ptr %this, i64 0, i32 13
+  %m_useDstBuffer24 = getelementptr inbounds i8, ptr %this, i64 308
   store i8 0, ptr %m_useDstBuffer24, align 4
   %2 = load i64, ptr %m_dstImg, align 8
   %mul = shl nsw i64 %2, 2
-  %m_rgbaFloatBuffer = getelementptr inbounds %"class.OpenColorIO_v2_4dev::GenericScanlineHelper.19", ptr %this, i64 0, i32 9
-  %_M_finish.i.i = getelementptr inbounds %"class.OpenColorIO_v2_4dev::GenericScanlineHelper.19", ptr %this, i64 0, i32 9, i32 0, i32 0, i32 0, i32 1
+  %m_rgbaFloatBuffer = getelementptr inbounds i8, ptr %this, i64 232
+  %_M_finish.i.i = getelementptr inbounds i8, ptr %this, i64 240
   %3 = load ptr, ptr %_M_finish.i.i, align 8
   %4 = load ptr, ptr %m_rgbaFloatBuffer, align 8
   %sub.ptr.lhs.cast.i.i = ptrtoint ptr %3 to i64
@@ -3292,10 +3254,10 @@ invoke.cont.i.i:                                  ; preds = %if.then5.i
   br label %_ZNSt6vectorIfSaIfEE6resizeEm.exit
 
 _ZNSt6vectorIfSaIfEE6resizeEm.exit:               ; preds = %if.then.i4, %if.else.i, %if.then5.i, %invoke.cont.i.i
-  %m_inBitDepthBuffer = getelementptr inbounds %"class.OpenColorIO_v2_4dev::GenericScanlineHelper.19", ptr %this, i64 0, i32 10
+  %m_inBitDepthBuffer = getelementptr inbounds i8, ptr %this, i64 256
   tail call void @_ZNSt6vectorIhSaIhEE6resizeEm(ptr noundef nonnull align 8 dereferenceable(24) %m_inBitDepthBuffer, i64 noundef %mul)
-  %m_outBitDepthBuffer = getelementptr inbounds %"class.OpenColorIO_v2_4dev::GenericScanlineHelper.19", ptr %this, i64 0, i32 11
-  %_M_finish.i.i5 = getelementptr inbounds %"class.OpenColorIO_v2_4dev::GenericScanlineHelper.19", ptr %this, i64 0, i32 11, i32 0, i32 0, i32 0, i32 1
+  %m_outBitDepthBuffer = getelementptr inbounds i8, ptr %this, i64 280
+  %_M_finish.i.i5 = getelementptr inbounds i8, ptr %this, i64 288
   %5 = load ptr, ptr %_M_finish.i.i5, align 8
   %6 = load ptr, ptr %m_outBitDepthBuffer, align 8
   %sub.ptr.lhs.cast.i.i6 = ptrtoint ptr %5 to i64
@@ -3331,7 +3293,7 @@ if.end:                                           ; preds = %invoke.cont.i.i16, 
 define weak_odr hidden void @_ZN19OpenColorIO_v2_4dev21GenericScanlineHelperIhfED2Ev(ptr noundef nonnull align 8 dereferenceable(309) %this) unnamed_addr #3 comdat($_ZN19OpenColorIO_v2_4dev21GenericScanlineHelperIhfED5Ev) align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTVN19OpenColorIO_v2_4dev21GenericScanlineHelperIhfEE, i64 0, inrange i32 0, i64 2), ptr %this, align 8
-  %m_outBitDepthBuffer = getelementptr inbounds %"class.OpenColorIO_v2_4dev::GenericScanlineHelper.19", ptr %this, i64 0, i32 11
+  %m_outBitDepthBuffer = getelementptr inbounds i8, ptr %this, i64 280
   %0 = load ptr, ptr %m_outBitDepthBuffer, align 8
   %tobool.not.i.i.i = icmp eq ptr %0, null
   br i1 %tobool.not.i.i.i, label %_ZNSt6vectorIfSaIfEED2Ev.exit, label %if.then.i.i.i
@@ -3341,7 +3303,7 @@ if.then.i.i.i:                                    ; preds = %entry
   br label %_ZNSt6vectorIfSaIfEED2Ev.exit
 
 _ZNSt6vectorIfSaIfEED2Ev.exit:                    ; preds = %entry, %if.then.i.i.i
-  %m_inBitDepthBuffer = getelementptr inbounds %"class.OpenColorIO_v2_4dev::GenericScanlineHelper.19", ptr %this, i64 0, i32 10
+  %m_inBitDepthBuffer = getelementptr inbounds i8, ptr %this, i64 256
   %1 = load ptr, ptr %m_inBitDepthBuffer, align 8
   %tobool.not.i.i.i1 = icmp eq ptr %1, null
   br i1 %tobool.not.i.i.i1, label %_ZNSt6vectorIhSaIhEED2Ev.exit, label %if.then.i.i.i2
@@ -3351,7 +3313,7 @@ if.then.i.i.i2:                                   ; preds = %_ZNSt6vectorIfSaIfE
   br label %_ZNSt6vectorIhSaIhEED2Ev.exit
 
 _ZNSt6vectorIhSaIhEED2Ev.exit:                    ; preds = %_ZNSt6vectorIfSaIfEED2Ev.exit, %if.then.i.i.i2
-  %m_rgbaFloatBuffer = getelementptr inbounds %"class.OpenColorIO_v2_4dev::GenericScanlineHelper.19", ptr %this, i64 0, i32 9
+  %m_rgbaFloatBuffer = getelementptr inbounds i8, ptr %this, i64 232
   %2 = load ptr, ptr %m_rgbaFloatBuffer, align 8
   %tobool.not.i.i.i3 = icmp eq ptr %2, null
   br i1 %tobool.not.i.i.i3, label %_ZNSt6vectorIfSaIfEED2Ev.exit5, label %if.then.i.i.i4
@@ -3361,13 +3323,13 @@ if.then.i.i.i4:                                   ; preds = %_ZNSt6vectorIhSaIhE
   br label %_ZNSt6vectorIfSaIfEED2Ev.exit5
 
 _ZNSt6vectorIfSaIfEED2Ev.exit5:                   ; preds = %_ZNSt6vectorIhSaIhEED2Ev.exit, %if.then.i.i.i4
-  %_M_refcount.i.i.i = getelementptr inbounds %"class.OpenColorIO_v2_4dev::GenericScanlineHelper.19", ptr %this, i64 0, i32 6, i32 8, i32 0, i32 1
+  %_M_refcount.i.i.i = getelementptr inbounds i8, ptr %this, i64 208
   %3 = load ptr, ptr %_M_refcount.i.i.i, align 8
   %cmp.not.i.i.i.i = icmp eq ptr %3, null
   br i1 %cmp.not.i.i.i.i, label %_ZN19OpenColorIO_v2_4dev16GenericImageDescD2Ev.exit, label %if.then.i.i.i.i
 
 if.then.i.i.i.i:                                  ; preds = %_ZNSt6vectorIfSaIfEED2Ev.exit5
-  %_M_use_count.i.i.i.i.i = getelementptr inbounds %"class.std::_Sp_counted_base", ptr %3, i64 0, i32 1
+  %_M_use_count.i.i.i.i.i = getelementptr inbounds i8, ptr %3, i64 8
   %4 = load atomic i64, ptr %_M_use_count.i.i.i.i.i acquire, align 8
   %cmp.i.i.i.i.i = icmp eq i64 %4, 4294967297
   %5 = trunc i64 %4 to i32
@@ -3375,10 +3337,10 @@ if.then.i.i.i.i:                                  ; preds = %_ZNSt6vectorIfSaIfE
 
 if.then.i.i.i.i.i:                                ; preds = %if.then.i.i.i.i
   store i32 0, ptr %_M_use_count.i.i.i.i.i, align 8
-  %_M_weak_count.i.i.i.i.i = getelementptr inbounds %"class.std::_Sp_counted_base", ptr %3, i64 0, i32 2
+  %_M_weak_count.i.i.i.i.i = getelementptr inbounds i8, ptr %3, i64 12
   store i32 0, ptr %_M_weak_count.i.i.i.i.i, align 4
   %vtable.i.i.i.i.i = load ptr, ptr %3, align 8
-  %vfn.i.i.i.i.i = getelementptr inbounds ptr, ptr %vtable.i.i.i.i.i, i64 2
+  %vfn.i.i.i.i.i = getelementptr inbounds i8, ptr %vtable.i.i.i.i.i, i64 16
   %6 = load ptr, ptr %vfn.i.i.i.i.i, align 8
   tail call void %6(ptr noundef nonnull align 8 dereferenceable(16) %3) #13
   br label %if.end8.sink.split.i.i.i.i.i
@@ -3404,10 +3366,10 @@ _ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i: ; preds = %if.els
 
 if.then7.i.i.i.i.i:                               ; preds = %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i
   %vtable.i.i.i.i.i.i.i = load ptr, ptr %3, align 8
-  %vfn.i.i.i.i.i.i.i = getelementptr inbounds ptr, ptr %vtable.i.i.i.i.i.i.i, i64 2
+  %vfn.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %vtable.i.i.i.i.i.i.i, i64 16
   %9 = load ptr, ptr %vfn.i.i.i.i.i.i.i, align 8
   tail call void %9(ptr noundef nonnull align 8 dereferenceable(16) %3) #13
-  %_M_weak_count.i.i.i.i.i.i.i = getelementptr inbounds %"class.std::_Sp_counted_base", ptr %3, i64 0, i32 2
+  %_M_weak_count.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %3, i64 12
   %10 = load i8, ptr @__libc_single_threaded, align 1
   %tobool.i.i.not.i.i.i.i.i.i.i = icmp eq i8 %10, 0
   br i1 %tobool.i.i.not.i.i.i.i.i.i.i, label %if.else.i.i.i.i.i.i.i.i, label %if.then.i.i.i.i.i.i.i.i
@@ -3429,19 +3391,19 @@ _ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i.i: ; preds = %if
 
 if.end8.sink.split.i.i.i.i.i:                     ; preds = %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i.i, %if.then.i.i.i.i.i
   %vtable2.i.i.i.i.i.i.i = load ptr, ptr %3, align 8
-  %vfn3.i.i.i.i.i.i.i = getelementptr inbounds ptr, ptr %vtable2.i.i.i.i.i.i.i, i64 3
+  %vfn3.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %vtable2.i.i.i.i.i.i.i, i64 24
   %13 = load ptr, ptr %vfn3.i.i.i.i.i.i.i, align 8
   tail call void %13(ptr noundef nonnull align 8 dereferenceable(16) %3) #13
   br label %_ZN19OpenColorIO_v2_4dev16GenericImageDescD2Ev.exit
 
 _ZN19OpenColorIO_v2_4dev16GenericImageDescD2Ev.exit: ; preds = %_ZNSt6vectorIfSaIfEED2Ev.exit5, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i.i, %if.end8.sink.split.i.i.i.i.i
-  %_M_refcount.i.i.i6 = getelementptr inbounds %"class.OpenColorIO_v2_4dev::GenericScanlineHelper.19", ptr %this, i64 0, i32 5, i32 8, i32 0, i32 1
+  %_M_refcount.i.i.i6 = getelementptr inbounds i8, ptr %this, i64 120
   %14 = load ptr, ptr %_M_refcount.i.i.i6, align 8
   %cmp.not.i.i.i.i7 = icmp eq ptr %14, null
   br i1 %cmp.not.i.i.i.i7, label %_ZN19OpenColorIO_v2_4dev16GenericImageDescD2Ev.exit37, label %if.then.i.i.i.i8
 
 if.then.i.i.i.i8:                                 ; preds = %_ZN19OpenColorIO_v2_4dev16GenericImageDescD2Ev.exit
-  %_M_use_count.i.i.i.i.i9 = getelementptr inbounds %"class.std::_Sp_counted_base", ptr %14, i64 0, i32 1
+  %_M_use_count.i.i.i.i.i9 = getelementptr inbounds i8, ptr %14, i64 8
   %15 = load atomic i64, ptr %_M_use_count.i.i.i.i.i9 acquire, align 8
   %cmp.i.i.i.i.i10 = icmp eq i64 %15, 4294967297
   %16 = trunc i64 %15 to i32
@@ -3449,10 +3411,10 @@ if.then.i.i.i.i8:                                 ; preds = %_ZN19OpenColorIO_v2
 
 if.then.i.i.i.i.i33:                              ; preds = %if.then.i.i.i.i8
   store i32 0, ptr %_M_use_count.i.i.i.i.i9, align 8
-  %_M_weak_count.i.i.i.i.i34 = getelementptr inbounds %"class.std::_Sp_counted_base", ptr %14, i64 0, i32 2
+  %_M_weak_count.i.i.i.i.i34 = getelementptr inbounds i8, ptr %14, i64 12
   store i32 0, ptr %_M_weak_count.i.i.i.i.i34, align 4
   %vtable.i.i.i.i.i35 = load ptr, ptr %14, align 8
-  %vfn.i.i.i.i.i36 = getelementptr inbounds ptr, ptr %vtable.i.i.i.i.i35, i64 2
+  %vfn.i.i.i.i.i36 = getelementptr inbounds i8, ptr %vtable.i.i.i.i.i35, i64 16
   %17 = load ptr, ptr %vfn.i.i.i.i.i36, align 8
   tail call void %17(ptr noundef nonnull align 8 dereferenceable(16) %14) #13
   br label %if.end8.sink.split.i.i.i.i.i28
@@ -3478,10 +3440,10 @@ _ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i15: ; preds = %if.e
 
 if.then7.i.i.i.i.i18:                             ; preds = %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i15
   %vtable.i.i.i.i.i.i.i19 = load ptr, ptr %14, align 8
-  %vfn.i.i.i.i.i.i.i20 = getelementptr inbounds ptr, ptr %vtable.i.i.i.i.i.i.i19, i64 2
+  %vfn.i.i.i.i.i.i.i20 = getelementptr inbounds i8, ptr %vtable.i.i.i.i.i.i.i19, i64 16
   %20 = load ptr, ptr %vfn.i.i.i.i.i.i.i20, align 8
   tail call void %20(ptr noundef nonnull align 8 dereferenceable(16) %14) #13
-  %_M_weak_count.i.i.i.i.i.i.i21 = getelementptr inbounds %"class.std::_Sp_counted_base", ptr %14, i64 0, i32 2
+  %_M_weak_count.i.i.i.i.i.i.i21 = getelementptr inbounds i8, ptr %14, i64 12
   %21 = load i8, ptr @__libc_single_threaded, align 1
   %tobool.i.i.not.i.i.i.i.i.i.i22 = icmp eq i8 %21, 0
   br i1 %tobool.i.i.not.i.i.i.i.i.i.i22, label %if.else.i.i.i.i.i.i.i.i31, label %if.then.i.i.i.i.i.i.i.i23
@@ -3503,19 +3465,19 @@ _ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i.i25: ; preds = %
 
 if.end8.sink.split.i.i.i.i.i28:                   ; preds = %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i.i25, %if.then.i.i.i.i.i33
   %vtable2.i.i.i.i.i.i.i29 = load ptr, ptr %14, align 8
-  %vfn3.i.i.i.i.i.i.i30 = getelementptr inbounds ptr, ptr %vtable2.i.i.i.i.i.i.i29, i64 3
+  %vfn3.i.i.i.i.i.i.i30 = getelementptr inbounds i8, ptr %vtable2.i.i.i.i.i.i.i29, i64 24
   %24 = load ptr, ptr %vfn3.i.i.i.i.i.i.i30, align 8
   tail call void %24(ptr noundef nonnull align 8 dereferenceable(16) %14) #13
   br label %_ZN19OpenColorIO_v2_4dev16GenericImageDescD2Ev.exit37
 
 _ZN19OpenColorIO_v2_4dev16GenericImageDescD2Ev.exit37: ; preds = %_ZN19OpenColorIO_v2_4dev16GenericImageDescD2Ev.exit, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i15, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i.i25, %if.end8.sink.split.i.i.i.i.i28
-  %_M_refcount.i.i = getelementptr inbounds %"class.OpenColorIO_v2_4dev::GenericScanlineHelper.19", ptr %this, i64 0, i32 4, i32 0, i32 1
+  %_M_refcount.i.i = getelementptr inbounds i8, ptr %this, i64 40
   %25 = load ptr, ptr %_M_refcount.i.i, align 8
   %cmp.not.i.i.i = icmp eq ptr %25, null
   br i1 %cmp.not.i.i.i, label %_ZNSt10shared_ptrIKN19OpenColorIO_v2_4dev5OpCPUEED2Ev.exit, label %if.then.i.i.i38
 
 if.then.i.i.i38:                                  ; preds = %_ZN19OpenColorIO_v2_4dev16GenericImageDescD2Ev.exit37
-  %_M_use_count.i.i.i.i = getelementptr inbounds %"class.std::_Sp_counted_base", ptr %25, i64 0, i32 1
+  %_M_use_count.i.i.i.i = getelementptr inbounds i8, ptr %25, i64 8
   %26 = load atomic i64, ptr %_M_use_count.i.i.i.i acquire, align 8
   %cmp.i.i.i.i = icmp eq i64 %26, 4294967297
   %27 = trunc i64 %26 to i32
@@ -3523,10 +3485,10 @@ if.then.i.i.i38:                                  ; preds = %_ZN19OpenColorIO_v2
 
 if.then.i.i.i.i40:                                ; preds = %if.then.i.i.i38
   store i32 0, ptr %_M_use_count.i.i.i.i, align 8
-  %_M_weak_count.i.i.i.i = getelementptr inbounds %"class.std::_Sp_counted_base", ptr %25, i64 0, i32 2
+  %_M_weak_count.i.i.i.i = getelementptr inbounds i8, ptr %25, i64 12
   store i32 0, ptr %_M_weak_count.i.i.i.i, align 4
   %vtable.i.i.i.i = load ptr, ptr %25, align 8
-  %vfn.i.i.i.i = getelementptr inbounds ptr, ptr %vtable.i.i.i.i, i64 2
+  %vfn.i.i.i.i = getelementptr inbounds i8, ptr %vtable.i.i.i.i, i64 16
   %28 = load ptr, ptr %vfn.i.i.i.i, align 8
   tail call void %28(ptr noundef nonnull align 8 dereferenceable(16) %25) #13
   br label %if.end8.sink.split.i.i.i.i
@@ -3552,10 +3514,10 @@ _ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i: ; preds = %if.else.
 
 if.then7.i.i.i.i:                                 ; preds = %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i
   %vtable.i.i.i.i.i.i = load ptr, ptr %25, align 8
-  %vfn.i.i.i.i.i.i = getelementptr inbounds ptr, ptr %vtable.i.i.i.i.i.i, i64 2
+  %vfn.i.i.i.i.i.i = getelementptr inbounds i8, ptr %vtable.i.i.i.i.i.i, i64 16
   %31 = load ptr, ptr %vfn.i.i.i.i.i.i, align 8
   tail call void %31(ptr noundef nonnull align 8 dereferenceable(16) %25) #13
-  %_M_weak_count.i.i.i.i.i.i = getelementptr inbounds %"class.std::_Sp_counted_base", ptr %25, i64 0, i32 2
+  %_M_weak_count.i.i.i.i.i.i = getelementptr inbounds i8, ptr %25, i64 12
   %32 = load i8, ptr @__libc_single_threaded, align 1
   %tobool.i.i.not.i.i.i.i.i.i = icmp eq i8 %32, 0
   br i1 %tobool.i.i.not.i.i.i.i.i.i, label %if.else.i.i.i.i.i.i.i, label %if.then.i.i.i.i.i.i.i
@@ -3577,19 +3539,19 @@ _ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i: ; preds = %if.e
 
 if.end8.sink.split.i.i.i.i:                       ; preds = %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i, %if.then.i.i.i.i40
   %vtable2.i.i.i.i.i.i = load ptr, ptr %25, align 8
-  %vfn3.i.i.i.i.i.i = getelementptr inbounds ptr, ptr %vtable2.i.i.i.i.i.i, i64 3
+  %vfn3.i.i.i.i.i.i = getelementptr inbounds i8, ptr %vtable2.i.i.i.i.i.i, i64 24
   %35 = load ptr, ptr %vfn3.i.i.i.i.i.i, align 8
   tail call void %35(ptr noundef nonnull align 8 dereferenceable(16) %25) #13
   br label %_ZNSt10shared_ptrIKN19OpenColorIO_v2_4dev5OpCPUEED2Ev.exit
 
 _ZNSt10shared_ptrIKN19OpenColorIO_v2_4dev5OpCPUEED2Ev.exit: ; preds = %_ZN19OpenColorIO_v2_4dev16GenericImageDescD2Ev.exit37, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i, %if.end8.sink.split.i.i.i.i
-  %_M_refcount.i.i41 = getelementptr inbounds %"class.OpenColorIO_v2_4dev::GenericScanlineHelper.19", ptr %this, i64 0, i32 3, i32 0, i32 1
+  %_M_refcount.i.i41 = getelementptr inbounds i8, ptr %this, i64 24
   %36 = load ptr, ptr %_M_refcount.i.i41, align 8
   %cmp.not.i.i.i42 = icmp eq ptr %36, null
   br i1 %cmp.not.i.i.i42, label %_ZNSt10shared_ptrIKN19OpenColorIO_v2_4dev5OpCPUEED2Ev.exit72, label %if.then.i.i.i43
 
 if.then.i.i.i43:                                  ; preds = %_ZNSt10shared_ptrIKN19OpenColorIO_v2_4dev5OpCPUEED2Ev.exit
-  %_M_use_count.i.i.i.i44 = getelementptr inbounds %"class.std::_Sp_counted_base", ptr %36, i64 0, i32 1
+  %_M_use_count.i.i.i.i44 = getelementptr inbounds i8, ptr %36, i64 8
   %37 = load atomic i64, ptr %_M_use_count.i.i.i.i44 acquire, align 8
   %cmp.i.i.i.i45 = icmp eq i64 %37, 4294967297
   %38 = trunc i64 %37 to i32
@@ -3597,10 +3559,10 @@ if.then.i.i.i43:                                  ; preds = %_ZNSt10shared_ptrIK
 
 if.then.i.i.i.i68:                                ; preds = %if.then.i.i.i43
   store i32 0, ptr %_M_use_count.i.i.i.i44, align 8
-  %_M_weak_count.i.i.i.i69 = getelementptr inbounds %"class.std::_Sp_counted_base", ptr %36, i64 0, i32 2
+  %_M_weak_count.i.i.i.i69 = getelementptr inbounds i8, ptr %36, i64 12
   store i32 0, ptr %_M_weak_count.i.i.i.i69, align 4
   %vtable.i.i.i.i70 = load ptr, ptr %36, align 8
-  %vfn.i.i.i.i71 = getelementptr inbounds ptr, ptr %vtable.i.i.i.i70, i64 2
+  %vfn.i.i.i.i71 = getelementptr inbounds i8, ptr %vtable.i.i.i.i70, i64 16
   %39 = load ptr, ptr %vfn.i.i.i.i71, align 8
   tail call void %39(ptr noundef nonnull align 8 dereferenceable(16) %36) #13
   br label %if.end8.sink.split.i.i.i.i63
@@ -3626,10 +3588,10 @@ _ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i50: ; preds = %if.els
 
 if.then7.i.i.i.i53:                               ; preds = %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i50
   %vtable.i.i.i.i.i.i54 = load ptr, ptr %36, align 8
-  %vfn.i.i.i.i.i.i55 = getelementptr inbounds ptr, ptr %vtable.i.i.i.i.i.i54, i64 2
+  %vfn.i.i.i.i.i.i55 = getelementptr inbounds i8, ptr %vtable.i.i.i.i.i.i54, i64 16
   %42 = load ptr, ptr %vfn.i.i.i.i.i.i55, align 8
   tail call void %42(ptr noundef nonnull align 8 dereferenceable(16) %36) #13
-  %_M_weak_count.i.i.i.i.i.i56 = getelementptr inbounds %"class.std::_Sp_counted_base", ptr %36, i64 0, i32 2
+  %_M_weak_count.i.i.i.i.i.i56 = getelementptr inbounds i8, ptr %36, i64 12
   %43 = load i8, ptr @__libc_single_threaded, align 1
   %tobool.i.i.not.i.i.i.i.i.i57 = icmp eq i8 %43, 0
   br i1 %tobool.i.i.not.i.i.i.i.i.i57, label %if.else.i.i.i.i.i.i.i66, label %if.then.i.i.i.i.i.i.i58
@@ -3651,7 +3613,7 @@ _ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i60: ; preds = %if
 
 if.end8.sink.split.i.i.i.i63:                     ; preds = %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i60, %if.then.i.i.i.i68
   %vtable2.i.i.i.i.i.i64 = load ptr, ptr %36, align 8
-  %vfn3.i.i.i.i.i.i65 = getelementptr inbounds ptr, ptr %vtable2.i.i.i.i.i.i64, i64 3
+  %vfn3.i.i.i.i.i.i65 = getelementptr inbounds i8, ptr %vtable2.i.i.i.i.i.i64, i64 24
   %46 = load ptr, ptr %vfn3.i.i.i.i.i.i65, align 8
   tail call void %46(ptr noundef nonnull align 8 dereferenceable(16) %36) #13
   br label %_ZNSt10shared_ptrIKN19OpenColorIO_v2_4dev5OpCPUEED2Ev.exit72
@@ -3671,66 +3633,66 @@ entry:
 ; Function Attrs: mustprogress uwtable
 define weak_odr hidden void @_ZN19OpenColorIO_v2_4dev21GenericScanlineHelperIhfE16prepRGBAScanlineEPPfRl(ptr noundef nonnull align 8 dereferenceable(309) %this, ptr noundef %buffer, ptr noundef nonnull align 8 dereferenceable(8) %numPixels) unnamed_addr #5 comdat align 2 {
 entry:
-  %m_yIndex = getelementptr inbounds %"class.OpenColorIO_v2_4dev::GenericScanlineHelper.19", ptr %this, i64 0, i32 12
+  %m_yIndex = getelementptr inbounds i8, ptr %this, i64 304
   %0 = load i32, ptr %m_yIndex, align 8
   %conv = sext i32 %0 to i64
-  %m_dstImg = getelementptr inbounds %"class.OpenColorIO_v2_4dev::GenericScanlineHelper.19", ptr %this, i64 0, i32 6
-  %m_height = getelementptr inbounds %"class.OpenColorIO_v2_4dev::GenericScanlineHelper.19", ptr %this, i64 0, i32 6, i32 1
+  %m_dstImg = getelementptr inbounds i8, ptr %this, i64 136
+  %m_height = getelementptr inbounds i8, ptr %this, i64 144
   %1 = load i64, ptr %m_height, align 8
   %cmp.not = icmp sgt i64 %1, %conv
   br i1 %cmp.not, label %if.end, label %return
 
 if.end:                                           ; preds = %entry
-  %m_useDstBuffer = getelementptr inbounds %"class.OpenColorIO_v2_4dev::GenericScanlineHelper.19", ptr %this, i64 0, i32 13
+  %m_useDstBuffer = getelementptr inbounds i8, ptr %this, i64 308
   %2 = load i8, ptr %m_useDstBuffer, align 4
   %3 = and i8 %2, 1
   %tobool.not = icmp eq i8 %3, 0
   br i1 %tobool.not, label %cond.false, label %cond.true
 
 cond.true:                                        ; preds = %if.end
-  %m_rData = getelementptr inbounds %"class.OpenColorIO_v2_4dev::GenericScanlineHelper.19", ptr %this, i64 0, i32 6, i32 4
+  %m_rData = getelementptr inbounds i8, ptr %this, i64 168
   %4 = load ptr, ptr %m_rData, align 8
-  %m_yStrideBytes = getelementptr inbounds %"class.OpenColorIO_v2_4dev::GenericScanlineHelper.19", ptr %this, i64 0, i32 6, i32 3
+  %m_yStrideBytes = getelementptr inbounds i8, ptr %this, i64 160
   %5 = load i64, ptr %m_yStrideBytes, align 8
   %mul = mul nsw i64 %5, %conv
   %add.ptr = getelementptr inbounds i8, ptr %4, i64 %mul
   br label %cond.end
 
 cond.false:                                       ; preds = %if.end
-  %m_rgbaFloatBuffer = getelementptr inbounds %"class.OpenColorIO_v2_4dev::GenericScanlineHelper.19", ptr %this, i64 0, i32 9
+  %m_rgbaFloatBuffer = getelementptr inbounds i8, ptr %this, i64 232
   %6 = load ptr, ptr %m_rgbaFloatBuffer, align 8
   br label %cond.end
 
 cond.end:                                         ; preds = %cond.false, %cond.true
   %cond = phi ptr [ %add.ptr, %cond.true ], [ %6, %cond.false ]
   store ptr %cond, ptr %buffer, align 8
-  %m_inOptimizedMode = getelementptr inbounds %"class.OpenColorIO_v2_4dev::GenericScanlineHelper.19", ptr %this, i64 0, i32 7
+  %m_inOptimizedMode = getelementptr inbounds i8, ptr %this, i64 224
   %7 = load i32, ptr %m_inOptimizedMode, align 8
   %and = and i32 %7, 1
   %cmp6.not = icmp eq i32 %and, 0
   br i1 %cmp6.not, label %if.else, label %if.then7
 
 if.then7:                                         ; preds = %cond.end
-  %m_rData8 = getelementptr inbounds %"class.OpenColorIO_v2_4dev::GenericScanlineHelper.19", ptr %this, i64 0, i32 5, i32 4
+  %m_rData8 = getelementptr inbounds i8, ptr %this, i64 80
   %8 = load ptr, ptr %m_rData8, align 8
-  %m_yStrideBytes10 = getelementptr inbounds %"class.OpenColorIO_v2_4dev::GenericScanlineHelper.19", ptr %this, i64 0, i32 5, i32 3
+  %m_yStrideBytes10 = getelementptr inbounds i8, ptr %this, i64 72
   %9 = load i64, ptr %m_yStrideBytes10, align 8
   %10 = load i32, ptr %m_yIndex, align 8
   %conv12 = sext i32 %10 to i64
   %mul13 = mul nsw i64 %9, %conv12
   %add.ptr14 = getelementptr inbounds i8, ptr %8, i64 %mul13
-  %m_bitDepthOp = getelementptr inbounds %"class.OpenColorIO_v2_4dev::GenericScanlineHelper.19", ptr %this, i64 0, i32 5, i32 8
+  %m_bitDepthOp = getelementptr inbounds i8, ptr %this, i64 112
   %11 = load ptr, ptr %m_bitDepthOp, align 8
   %12 = load i64, ptr %m_dstImg, align 8
   %vtable = load ptr, ptr %11, align 8
-  %vfn = getelementptr inbounds ptr, ptr %vtable, i64 2
+  %vfn = getelementptr inbounds i8, ptr %vtable, i64 16
   %13 = load ptr, ptr %vfn, align 8
   tail call void %13(ptr noundef nonnull align 8 dereferenceable(8) %11, ptr noundef %add.ptr14, ptr noundef %cond, i64 noundef %12)
   br label %if.end28
 
 if.else:                                          ; preds = %cond.end
-  %m_srcImg18 = getelementptr inbounds %"class.OpenColorIO_v2_4dev::GenericScanlineHelper.19", ptr %this, i64 0, i32 5
-  %m_inBitDepthBuffer = getelementptr inbounds %"class.OpenColorIO_v2_4dev::GenericScanlineHelper.19", ptr %this, i64 0, i32 10
+  %m_srcImg18 = getelementptr inbounds i8, ptr %this, i64 48
+  %m_inBitDepthBuffer = getelementptr inbounds i8, ptr %this, i64 256
   %14 = load ptr, ptr %m_inBitDepthBuffer, align 8
   %15 = load i64, ptr %m_dstImg, align 8
   %conv22 = trunc i64 %15 to i32
@@ -3753,47 +3715,47 @@ return:                                           ; preds = %entry, %if.end28
 ; Function Attrs: mustprogress uwtable
 define weak_odr hidden void @_ZN19OpenColorIO_v2_4dev21GenericScanlineHelperIhfE18finishRGBAScanlineEv(ptr noundef nonnull align 8 dereferenceable(309) %this) unnamed_addr #5 comdat align 2 {
 entry:
-  %m_outOptimizedMode = getelementptr inbounds %"class.OpenColorIO_v2_4dev::GenericScanlineHelper.19", ptr %this, i64 0, i32 8
+  %m_outOptimizedMode = getelementptr inbounds i8, ptr %this, i64 228
   %0 = load i32, ptr %m_outOptimizedMode, align 4
   %and = and i32 %0, 1
   %cmp.not = icmp eq i32 %and, 0
-  %m_dstImg6 = getelementptr inbounds %"class.OpenColorIO_v2_4dev::GenericScanlineHelper.19", ptr %this, i64 0, i32 6
+  %m_dstImg6 = getelementptr inbounds i8, ptr %this, i64 136
   br i1 %cmp.not, label %if.else, label %if.then
 
 if.then:                                          ; preds = %entry
-  %m_rData = getelementptr inbounds %"class.OpenColorIO_v2_4dev::GenericScanlineHelper.19", ptr %this, i64 0, i32 6, i32 4
+  %m_rData = getelementptr inbounds i8, ptr %this, i64 168
   %1 = load ptr, ptr %m_rData, align 8
-  %m_yStrideBytes = getelementptr inbounds %"class.OpenColorIO_v2_4dev::GenericScanlineHelper.19", ptr %this, i64 0, i32 6, i32 3
+  %m_yStrideBytes = getelementptr inbounds i8, ptr %this, i64 160
   %2 = load i64, ptr %m_yStrideBytes, align 8
-  %m_yIndex = getelementptr inbounds %"class.OpenColorIO_v2_4dev::GenericScanlineHelper.19", ptr %this, i64 0, i32 12
+  %m_yIndex = getelementptr inbounds i8, ptr %this, i64 304
   %3 = load i32, ptr %m_yIndex, align 8
   %conv = sext i32 %3 to i64
   %mul = mul nsw i64 %2, %conv
   %add.ptr = getelementptr inbounds i8, ptr %1, i64 %mul
-  %m_useDstBuffer = getelementptr inbounds %"class.OpenColorIO_v2_4dev::GenericScanlineHelper.19", ptr %this, i64 0, i32 13
+  %m_useDstBuffer = getelementptr inbounds i8, ptr %this, i64 308
   %4 = load i8, ptr %m_useDstBuffer, align 4
   %5 = and i8 %4, 1
   %tobool.not = icmp eq i8 %5, 0
-  %m_rgbaFloatBuffer = getelementptr inbounds %"class.OpenColorIO_v2_4dev::GenericScanlineHelper.19", ptr %this, i64 0, i32 9
+  %m_rgbaFloatBuffer = getelementptr inbounds i8, ptr %this, i64 232
   %6 = load ptr, ptr %m_rgbaFloatBuffer, align 8
   %cond = select i1 %tobool.not, ptr %6, ptr %add.ptr
-  %m_bitDepthOp = getelementptr inbounds %"class.OpenColorIO_v2_4dev::GenericScanlineHelper.19", ptr %this, i64 0, i32 6, i32 8
+  %m_bitDepthOp = getelementptr inbounds i8, ptr %this, i64 200
   %7 = load ptr, ptr %m_bitDepthOp, align 8
   %8 = load i64, ptr %m_dstImg6, align 8
   %vtable = load ptr, ptr %7, align 8
-  %vfn = getelementptr inbounds ptr, ptr %vtable, i64 2
+  %vfn = getelementptr inbounds i8, ptr %vtable, i64 16
   %9 = load ptr, ptr %vfn, align 8
   tail call void %9(ptr noundef nonnull align 8 dereferenceable(8) %7, ptr noundef %cond, ptr noundef %add.ptr, i64 noundef %8)
   br label %if.end
 
 if.else:                                          ; preds = %entry
-  %m_rgbaFloatBuffer7 = getelementptr inbounds %"class.OpenColorIO_v2_4dev::GenericScanlineHelper.19", ptr %this, i64 0, i32 9
+  %m_rgbaFloatBuffer7 = getelementptr inbounds i8, ptr %this, i64 232
   %10 = load ptr, ptr %m_rgbaFloatBuffer7, align 8
-  %m_outBitDepthBuffer = getelementptr inbounds %"class.OpenColorIO_v2_4dev::GenericScanlineHelper.19", ptr %this, i64 0, i32 11
+  %m_outBitDepthBuffer = getelementptr inbounds i8, ptr %this, i64 280
   %11 = load ptr, ptr %m_outBitDepthBuffer, align 8
   %12 = load i64, ptr %m_dstImg6, align 8
   %conv12 = trunc i64 %12 to i32
-  %m_yIndex13 = getelementptr inbounds %"class.OpenColorIO_v2_4dev::GenericScanlineHelper.19", ptr %this, i64 0, i32 12
+  %m_yIndex13 = getelementptr inbounds i8, ptr %this, i64 304
   %13 = load i32, ptr %m_yIndex13, align 8
   %conv14 = sext i32 %13 to i64
   %mul17 = mul nsw i64 %12, %conv14
@@ -3801,7 +3763,7 @@ if.else:                                          ; preds = %entry
   br label %if.end
 
 if.end:                                           ; preds = %if.else, %if.then
-  %m_yIndex18 = getelementptr inbounds %"class.OpenColorIO_v2_4dev::GenericScanlineHelper.19", ptr %this, i64 0, i32 12
+  %m_yIndex18 = getelementptr inbounds i8, ptr %this, i64 304
   %14 = load i32, ptr %m_yIndex18, align 8
   %inc = add nsw i32 %14, 1
   store i32 %inc, ptr %m_yIndex18, align 8
@@ -3814,22 +3776,22 @@ declare void @_ZN19OpenColorIO_v2_4dev7GenericIfE21UnpackRGBAToImageDescERNS_16G
 define weak_odr hidden void @_ZN19OpenColorIO_v2_4dev21GenericScanlineHelperIthEC2ENS_8BitDepthERKSt10shared_ptrIKNS_5OpCPUEES2_S8_(ptr noundef nonnull align 8 dereferenceable(309) %this, i32 noundef %inputBitDepth, ptr noundef nonnull align 8 dereferenceable(16) %inBitDepthOp, i32 noundef %outputBitDepth, ptr noundef nonnull align 8 dereferenceable(16) %outBitDepthOp) unnamed_addr #3 comdat($_ZN19OpenColorIO_v2_4dev21GenericScanlineHelperIthEC5ENS_8BitDepthERKSt10shared_ptrIKNS_5OpCPUEES2_S8_) align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTVN19OpenColorIO_v2_4dev21GenericScanlineHelperIthEE, i64 0, inrange i32 0, i64 2), ptr %this, align 8
-  %m_inputBitDepth = getelementptr inbounds %"class.OpenColorIO_v2_4dev::GenericScanlineHelper.21", ptr %this, i64 0, i32 1
+  %m_inputBitDepth = getelementptr inbounds i8, ptr %this, i64 8
   store i32 %inputBitDepth, ptr %m_inputBitDepth, align 8
-  %m_outputBitDepth = getelementptr inbounds %"class.OpenColorIO_v2_4dev::GenericScanlineHelper.21", ptr %this, i64 0, i32 2
+  %m_outputBitDepth = getelementptr inbounds i8, ptr %this, i64 12
   store i32 %outputBitDepth, ptr %m_outputBitDepth, align 4
-  %m_inBitDepthOp = getelementptr inbounds %"class.OpenColorIO_v2_4dev::GenericScanlineHelper.21", ptr %this, i64 0, i32 3
+  %m_inBitDepthOp = getelementptr inbounds i8, ptr %this, i64 16
   %0 = load ptr, ptr %inBitDepthOp, align 8
   store ptr %0, ptr %m_inBitDepthOp, align 8
-  %_M_refcount.i.i = getelementptr inbounds %"class.OpenColorIO_v2_4dev::GenericScanlineHelper.21", ptr %this, i64 0, i32 3, i32 0, i32 1
-  %_M_refcount3.i.i = getelementptr inbounds %"class.std::__shared_ptr", ptr %inBitDepthOp, i64 0, i32 1
+  %_M_refcount.i.i = getelementptr inbounds i8, ptr %this, i64 24
+  %_M_refcount3.i.i = getelementptr inbounds i8, ptr %inBitDepthOp, i64 8
   %1 = load ptr, ptr %_M_refcount3.i.i, align 8
   store ptr %1, ptr %_M_refcount.i.i, align 8
   %cmp.not.i.i.i = icmp eq ptr %1, null
   br i1 %cmp.not.i.i.i, label %_ZNSt10shared_ptrIKN19OpenColorIO_v2_4dev5OpCPUEEC2ERKS3_.exit, label %if.then.i.i.i
 
 if.then.i.i.i:                                    ; preds = %entry
-  %_M_use_count.i.i.i.i = getelementptr inbounds %"class.std::_Sp_counted_base", ptr %1, i64 0, i32 1
+  %_M_use_count.i.i.i.i = getelementptr inbounds i8, ptr %1, i64 8
   %2 = load i8, ptr @__libc_single_threaded, align 1
   %tobool.i.not.i.i.i.i = icmp eq i8 %2, 0
   br i1 %tobool.i.not.i.i.i.i, label %if.else.i.i.i.i.i, label %if.then.i.i.i.i.i
@@ -3845,18 +3807,18 @@ if.else.i.i.i.i.i:                                ; preds = %if.then.i.i.i
   br label %_ZNSt10shared_ptrIKN19OpenColorIO_v2_4dev5OpCPUEEC2ERKS3_.exit
 
 _ZNSt10shared_ptrIKN19OpenColorIO_v2_4dev5OpCPUEEC2ERKS3_.exit: ; preds = %entry, %if.then.i.i.i.i.i, %if.else.i.i.i.i.i
-  %m_outBitDepthOp = getelementptr inbounds %"class.OpenColorIO_v2_4dev::GenericScanlineHelper.21", ptr %this, i64 0, i32 4
+  %m_outBitDepthOp = getelementptr inbounds i8, ptr %this, i64 32
   %5 = load ptr, ptr %outBitDepthOp, align 8
   store ptr %5, ptr %m_outBitDepthOp, align 8
-  %_M_refcount.i.i1 = getelementptr inbounds %"class.OpenColorIO_v2_4dev::GenericScanlineHelper.21", ptr %this, i64 0, i32 4, i32 0, i32 1
-  %_M_refcount3.i.i2 = getelementptr inbounds %"class.std::__shared_ptr", ptr %outBitDepthOp, i64 0, i32 1
+  %_M_refcount.i.i1 = getelementptr inbounds i8, ptr %this, i64 40
+  %_M_refcount3.i.i2 = getelementptr inbounds i8, ptr %outBitDepthOp, i64 8
   %6 = load ptr, ptr %_M_refcount3.i.i2, align 8
   store ptr %6, ptr %_M_refcount.i.i1, align 8
   %cmp.not.i.i.i3 = icmp eq ptr %6, null
   br i1 %cmp.not.i.i.i3, label %_ZNSt10shared_ptrIKN19OpenColorIO_v2_4dev5OpCPUEEC2ERKS3_.exit10, label %if.then.i.i.i4
 
 if.then.i.i.i4:                                   ; preds = %_ZNSt10shared_ptrIKN19OpenColorIO_v2_4dev5OpCPUEEC2ERKS3_.exit
-  %_M_use_count.i.i.i.i5 = getelementptr inbounds %"class.std::_Sp_counted_base", ptr %6, i64 0, i32 1
+  %_M_use_count.i.i.i.i5 = getelementptr inbounds i8, ptr %6, i64 8
   %7 = load i8, ptr @__libc_single_threaded, align 1
   %tobool.i.not.i.i.i.i6 = icmp eq i8 %7, 0
   br i1 %tobool.i.not.i.i.i.i6, label %if.else.i.i.i.i.i9, label %if.then.i.i.i.i.i7
@@ -3872,11 +3834,11 @@ if.else.i.i.i.i.i9:                               ; preds = %if.then.i.i.i4
   br label %_ZNSt10shared_ptrIKN19OpenColorIO_v2_4dev5OpCPUEEC2ERKS3_.exit10
 
 _ZNSt10shared_ptrIKN19OpenColorIO_v2_4dev5OpCPUEEC2ERKS3_.exit10: ; preds = %_ZNSt10shared_ptrIKN19OpenColorIO_v2_4dev5OpCPUEEC2ERKS3_.exit, %if.then.i.i.i.i.i7, %if.else.i.i.i.i.i9
-  %m_srcImg = getelementptr inbounds %"class.OpenColorIO_v2_4dev::GenericScanlineHelper.21", ptr %this, i64 0, i32 5
+  %m_srcImg = getelementptr inbounds i8, ptr %this, i64 48
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(82) %m_srcImg, i8 0, i64 82, i1 false)
-  %m_dstImg = getelementptr inbounds %"class.OpenColorIO_v2_4dev::GenericScanlineHelper.21", ptr %this, i64 0, i32 6
+  %m_dstImg = getelementptr inbounds i8, ptr %this, i64 136
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(82) %m_dstImg, i8 0, i64 82, i1 false)
-  %m_inOptimizedMode = getelementptr inbounds %"class.OpenColorIO_v2_4dev::GenericScanlineHelper.21", ptr %this, i64 0, i32 7
+  %m_inOptimizedMode = getelementptr inbounds i8, ptr %this, i64 224
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(85) %m_inOptimizedMode, i8 0, i64 85, i1 false)
   ret void
 }
@@ -3884,17 +3846,17 @@ _ZNSt10shared_ptrIKN19OpenColorIO_v2_4dev5OpCPUEEC2ERKS3_.exit10: ; preds = %_ZN
 ; Function Attrs: mustprogress uwtable
 define weak_odr hidden void @_ZN19OpenColorIO_v2_4dev21GenericScanlineHelperIthE4initERKNS_9ImageDescES4_(ptr noundef nonnull align 8 dereferenceable(309) %this, ptr noundef nonnull align 8 dereferenceable(8) %srcImg, ptr noundef nonnull align 8 dereferenceable(8) %dstImg) unnamed_addr #5 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  %m_yIndex = getelementptr inbounds %"class.OpenColorIO_v2_4dev::GenericScanlineHelper.21", ptr %this, i64 0, i32 12
+  %m_yIndex = getelementptr inbounds i8, ptr %this, i64 304
   store i32 0, ptr %m_yIndex, align 8
-  %m_srcImg = getelementptr inbounds %"class.OpenColorIO_v2_4dev::GenericScanlineHelper.21", ptr %this, i64 0, i32 5
-  %m_inputBitDepth = getelementptr inbounds %"class.OpenColorIO_v2_4dev::GenericScanlineHelper.21", ptr %this, i64 0, i32 1
+  %m_srcImg = getelementptr inbounds i8, ptr %this, i64 48
+  %m_inputBitDepth = getelementptr inbounds i8, ptr %this, i64 8
   %0 = load i32, ptr %m_inputBitDepth, align 8
-  %m_inBitDepthOp = getelementptr inbounds %"class.OpenColorIO_v2_4dev::GenericScanlineHelper.21", ptr %this, i64 0, i32 3
+  %m_inBitDepthOp = getelementptr inbounds i8, ptr %this, i64 16
   tail call void @_ZN19OpenColorIO_v2_4dev16GenericImageDesc4initERKNS_9ImageDescENS_8BitDepthERKSt10shared_ptrIKNS_5OpCPUEE(ptr noundef nonnull align 8 dereferenceable(82) %m_srcImg, ptr noundef nonnull align 8 dereferenceable(8) %srcImg, i32 noundef %0, ptr noundef nonnull align 8 dereferenceable(16) %m_inBitDepthOp)
-  %m_dstImg = getelementptr inbounds %"class.OpenColorIO_v2_4dev::GenericScanlineHelper.21", ptr %this, i64 0, i32 6
-  %m_outputBitDepth = getelementptr inbounds %"class.OpenColorIO_v2_4dev::GenericScanlineHelper.21", ptr %this, i64 0, i32 2
+  %m_dstImg = getelementptr inbounds i8, ptr %this, i64 136
+  %m_outputBitDepth = getelementptr inbounds i8, ptr %this, i64 12
   %1 = load i32, ptr %m_outputBitDepth, align 4
-  %m_outBitDepthOp = getelementptr inbounds %"class.OpenColorIO_v2_4dev::GenericScanlineHelper.21", ptr %this, i64 0, i32 4
+  %m_outBitDepthOp = getelementptr inbounds i8, ptr %this, i64 32
   tail call void @_ZN19OpenColorIO_v2_4dev16GenericImageDesc4initERKNS_9ImageDescENS_8BitDepthERKSt10shared_ptrIKNS_5OpCPUEE(ptr noundef nonnull align 8 dereferenceable(82) %m_dstImg, ptr noundef nonnull align 8 dereferenceable(8) %dstImg, i32 noundef %1, ptr noundef nonnull align 8 dereferenceable(16) %m_outBitDepthOp)
   %2 = load i64, ptr %m_srcImg, align 8
   %3 = load i64, ptr %m_dstImg, align 8
@@ -3902,9 +3864,9 @@ entry:
   br i1 %cmp.not, label %lor.lhs.false, label %if.then
 
 lor.lhs.false:                                    ; preds = %entry
-  %m_height = getelementptr inbounds %"class.OpenColorIO_v2_4dev::GenericScanlineHelper.21", ptr %this, i64 0, i32 5, i32 1
+  %m_height = getelementptr inbounds i8, ptr %this, i64 56
   %4 = load i64, ptr %m_height, align 8
-  %m_height7 = getelementptr inbounds %"class.OpenColorIO_v2_4dev::GenericScanlineHelper.21", ptr %this, i64 0, i32 6, i32 1
+  %m_height7 = getelementptr inbounds i8, ptr %this, i64 144
   %5 = load i64, ptr %m_height7, align 8
   %cmp8.not = icmp eq i64 %4, %5
   br i1 %cmp8.not, label %if.end, label %if.then
@@ -3935,7 +3897,7 @@ if.then.i:                                        ; preds = %if.end
 
 _ZN19OpenColorIO_v2_4dev19GetOptimizationModeERKNS_16GenericImageDescE.exit: ; preds = %if.end, %if.then.i
   %optim.0.i = phi i32 [ 0, %if.end ], [ %spec.select.i, %if.then.i ]
-  %m_inOptimizedMode = getelementptr inbounds %"class.OpenColorIO_v2_4dev::GenericScanlineHelper.21", ptr %this, i64 0, i32 7
+  %m_inOptimizedMode = getelementptr inbounds i8, ptr %this, i64 224
   store i32 %optim.0.i, ptr %m_inOptimizedMode, align 8
   %call.i2 = tail call noundef zeroext i1 @_ZNK19OpenColorIO_v2_4dev16GenericImageDesc12isRGBAPackedEv(ptr noundef nonnull align 8 dereferenceable(82) %m_dstImg)
   br i1 %call.i2, label %if.then.i4, label %_ZN19OpenColorIO_v2_4dev19GetOptimizationModeERKNS_16GenericImageDescE.exit7
@@ -3947,10 +3909,10 @@ if.then.i4:                                       ; preds = %_ZN19OpenColorIO_v2
 
 _ZN19OpenColorIO_v2_4dev19GetOptimizationModeERKNS_16GenericImageDescE.exit7: ; preds = %_ZN19OpenColorIO_v2_4dev19GetOptimizationModeERKNS_16GenericImageDescE.exit, %if.then.i4
   %optim.0.i3 = phi i32 [ 0, %_ZN19OpenColorIO_v2_4dev19GetOptimizationModeERKNS_16GenericImageDescE.exit ], [ %spec.select.i6, %if.then.i4 ]
-  %m_outOptimizedMode = getelementptr inbounds %"class.OpenColorIO_v2_4dev::GenericScanlineHelper.21", ptr %this, i64 0, i32 8
+  %m_outOptimizedMode = getelementptr inbounds i8, ptr %this, i64 228
   store i32 %optim.0.i3, ptr %m_outOptimizedMode, align 4
   %cmp13 = icmp eq i32 %optim.0.i3, 3
-  %m_useDstBuffer = getelementptr inbounds %"class.OpenColorIO_v2_4dev::GenericScanlineHelper.21", ptr %this, i64 0, i32 13
+  %m_useDstBuffer = getelementptr inbounds i8, ptr %this, i64 308
   %frombool = zext i1 %cmp13 to i8
   store i8 %frombool, ptr %m_useDstBuffer, align 4
   %7 = load i32, ptr %m_inOptimizedMode, align 8
@@ -3961,8 +3923,8 @@ _ZN19OpenColorIO_v2_4dev19GetOptimizationModeERKNS_16GenericImageDescE.exit7: ; 
 if.then17:                                        ; preds = %_ZN19OpenColorIO_v2_4dev19GetOptimizationModeERKNS_16GenericImageDescE.exit7
   %8 = load i64, ptr %m_dstImg, align 8
   %mul = shl nsw i64 %8, 2
-  %m_inBitDepthBuffer = getelementptr inbounds %"class.OpenColorIO_v2_4dev::GenericScanlineHelper.21", ptr %this, i64 0, i32 10
-  %_M_finish.i.i = getelementptr inbounds %"class.OpenColorIO_v2_4dev::GenericScanlineHelper.21", ptr %this, i64 0, i32 10, i32 0, i32 0, i32 0, i32 1
+  %m_inBitDepthBuffer = getelementptr inbounds i8, ptr %this, i64 256
+  %_M_finish.i.i = getelementptr inbounds i8, ptr %this, i64 264
   %9 = load ptr, ptr %_M_finish.i.i, align 8
   %10 = load ptr, ptr %m_inBitDepthBuffer, align 8
   %sub.ptr.lhs.cast.i.i = ptrtoint ptr %9 to i64
@@ -4000,8 +3962,8 @@ if.end20:                                         ; preds = %invoke.cont.i.i, %i
 if.then22:                                        ; preds = %if.end20
   %13 = load i64, ptr %m_dstImg, align 8
   %mul26 = shl nsw i64 %13, 2
-  %m_rgbaFloatBuffer = getelementptr inbounds %"class.OpenColorIO_v2_4dev::GenericScanlineHelper.21", ptr %this, i64 0, i32 9
-  %_M_finish.i.i9 = getelementptr inbounds %"class.OpenColorIO_v2_4dev::GenericScanlineHelper.21", ptr %this, i64 0, i32 9, i32 0, i32 0, i32 0, i32 1
+  %m_rgbaFloatBuffer = getelementptr inbounds i8, ptr %this, i64 232
+  %_M_finish.i.i9 = getelementptr inbounds i8, ptr %this, i64 240
   %14 = load ptr, ptr %_M_finish.i.i9, align 8
   %15 = load ptr, ptr %m_rgbaFloatBuffer, align 8
   %sub.ptr.lhs.cast.i.i10 = ptrtoint ptr %14 to i64
@@ -4030,7 +3992,7 @@ invoke.cont.i.i20:                                ; preds = %if.then5.i17
   br label %_ZNSt6vectorIfSaIfEE6resizeEm.exit
 
 _ZNSt6vectorIfSaIfEE6resizeEm.exit:               ; preds = %if.then.i21, %if.else.i15, %if.then5.i17, %invoke.cont.i.i20
-  %m_outBitDepthBuffer = getelementptr inbounds %"class.OpenColorIO_v2_4dev::GenericScanlineHelper.21", ptr %this, i64 0, i32 11
+  %m_outBitDepthBuffer = getelementptr inbounds i8, ptr %this, i64 280
   tail call void @_ZNSt6vectorIhSaIhEE6resizeEm(ptr noundef nonnull align 8 dereferenceable(24) %m_outBitDepthBuffer, i64 noundef %mul26)
   br label %if.end27
 
@@ -4041,17 +4003,17 @@ if.end27:                                         ; preds = %_ZNSt6vectorIfSaIfE
 ; Function Attrs: mustprogress uwtable
 define weak_odr hidden void @_ZN19OpenColorIO_v2_4dev21GenericScanlineHelperIthE4initERKNS_9ImageDescE(ptr noundef nonnull align 8 dereferenceable(309) %this, ptr noundef nonnull align 8 dereferenceable(8) %img) unnamed_addr #5 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  %m_yIndex = getelementptr inbounds %"class.OpenColorIO_v2_4dev::GenericScanlineHelper.21", ptr %this, i64 0, i32 12
+  %m_yIndex = getelementptr inbounds i8, ptr %this, i64 304
   store i32 0, ptr %m_yIndex, align 8
-  %m_srcImg = getelementptr inbounds %"class.OpenColorIO_v2_4dev::GenericScanlineHelper.21", ptr %this, i64 0, i32 5
-  %m_inputBitDepth = getelementptr inbounds %"class.OpenColorIO_v2_4dev::GenericScanlineHelper.21", ptr %this, i64 0, i32 1
+  %m_srcImg = getelementptr inbounds i8, ptr %this, i64 48
+  %m_inputBitDepth = getelementptr inbounds i8, ptr %this, i64 8
   %0 = load i32, ptr %m_inputBitDepth, align 8
-  %m_inBitDepthOp = getelementptr inbounds %"class.OpenColorIO_v2_4dev::GenericScanlineHelper.21", ptr %this, i64 0, i32 3
+  %m_inBitDepthOp = getelementptr inbounds i8, ptr %this, i64 16
   tail call void @_ZN19OpenColorIO_v2_4dev16GenericImageDesc4initERKNS_9ImageDescENS_8BitDepthERKSt10shared_ptrIKNS_5OpCPUEE(ptr noundef nonnull align 8 dereferenceable(82) %m_srcImg, ptr noundef nonnull align 8 dereferenceable(8) %img, i32 noundef %0, ptr noundef nonnull align 8 dereferenceable(16) %m_inBitDepthOp)
-  %m_dstImg = getelementptr inbounds %"class.OpenColorIO_v2_4dev::GenericScanlineHelper.21", ptr %this, i64 0, i32 6
-  %m_outputBitDepth = getelementptr inbounds %"class.OpenColorIO_v2_4dev::GenericScanlineHelper.21", ptr %this, i64 0, i32 2
+  %m_dstImg = getelementptr inbounds i8, ptr %this, i64 136
+  %m_outputBitDepth = getelementptr inbounds i8, ptr %this, i64 12
   %1 = load i32, ptr %m_outputBitDepth, align 4
-  %m_outBitDepthOp = getelementptr inbounds %"class.OpenColorIO_v2_4dev::GenericScanlineHelper.21", ptr %this, i64 0, i32 4
+  %m_outBitDepthOp = getelementptr inbounds i8, ptr %this, i64 32
   tail call void @_ZN19OpenColorIO_v2_4dev16GenericImageDesc4initERKNS_9ImageDescENS_8BitDepthERKSt10shared_ptrIKNS_5OpCPUEE(ptr noundef nonnull align 8 dereferenceable(82) %m_dstImg, ptr noundef nonnull align 8 dereferenceable(8) %img, i32 noundef %1, ptr noundef nonnull align 8 dereferenceable(16) %m_outBitDepthOp)
   %call.i = tail call noundef zeroext i1 @_ZNK19OpenColorIO_v2_4dev16GenericImageDesc12isRGBAPackedEv(ptr noundef nonnull align 8 dereferenceable(82) %m_srcImg)
   br i1 %call.i, label %if.then.i, label %if.then
@@ -4061,26 +4023,26 @@ if.then.i:                                        ; preds = %entry
   br i1 %call1.i, label %_ZN19OpenColorIO_v2_4dev19GetOptimizationModeERKNS_16GenericImageDescE.exit, label %if.then
 
 _ZN19OpenColorIO_v2_4dev19GetOptimizationModeERKNS_16GenericImageDescE.exit: ; preds = %if.then.i
-  %m_inOptimizedMode = getelementptr inbounds %"class.OpenColorIO_v2_4dev::GenericScanlineHelper.21", ptr %this, i64 0, i32 7
+  %m_inOptimizedMode = getelementptr inbounds i8, ptr %this, i64 224
   store i32 3, ptr %m_inOptimizedMode, align 8
-  %m_outOptimizedMode = getelementptr inbounds %"class.OpenColorIO_v2_4dev::GenericScanlineHelper.21", ptr %this, i64 0, i32 8
+  %m_outOptimizedMode = getelementptr inbounds i8, ptr %this, i64 228
   store i32 3, ptr %m_outOptimizedMode, align 4
-  %m_useDstBuffer = getelementptr inbounds %"class.OpenColorIO_v2_4dev::GenericScanlineHelper.21", ptr %this, i64 0, i32 13
+  %m_useDstBuffer = getelementptr inbounds i8, ptr %this, i64 308
   store i8 1, ptr %m_useDstBuffer, align 4
   br label %if.end
 
 if.then:                                          ; preds = %entry, %if.then.i
   %optim.0.i.ph = phi i32 [ 1, %if.then.i ], [ 0, %entry ]
-  %m_inOptimizedMode20 = getelementptr inbounds %"class.OpenColorIO_v2_4dev::GenericScanlineHelper.21", ptr %this, i64 0, i32 7
+  %m_inOptimizedMode20 = getelementptr inbounds i8, ptr %this, i64 224
   store i32 %optim.0.i.ph, ptr %m_inOptimizedMode20, align 8
-  %m_outOptimizedMode21 = getelementptr inbounds %"class.OpenColorIO_v2_4dev::GenericScanlineHelper.21", ptr %this, i64 0, i32 8
+  %m_outOptimizedMode21 = getelementptr inbounds i8, ptr %this, i64 228
   store i32 %optim.0.i.ph, ptr %m_outOptimizedMode21, align 4
-  %m_useDstBuffer23 = getelementptr inbounds %"class.OpenColorIO_v2_4dev::GenericScanlineHelper.21", ptr %this, i64 0, i32 13
+  %m_useDstBuffer23 = getelementptr inbounds i8, ptr %this, i64 308
   store i8 0, ptr %m_useDstBuffer23, align 4
   %2 = load i64, ptr %m_dstImg, align 8
   %mul = shl nsw i64 %2, 2
-  %m_rgbaFloatBuffer = getelementptr inbounds %"class.OpenColorIO_v2_4dev::GenericScanlineHelper.21", ptr %this, i64 0, i32 9
-  %_M_finish.i.i = getelementptr inbounds %"class.OpenColorIO_v2_4dev::GenericScanlineHelper.21", ptr %this, i64 0, i32 9, i32 0, i32 0, i32 0, i32 1
+  %m_rgbaFloatBuffer = getelementptr inbounds i8, ptr %this, i64 232
+  %_M_finish.i.i = getelementptr inbounds i8, ptr %this, i64 240
   %3 = load ptr, ptr %_M_finish.i.i, align 8
   %4 = load ptr, ptr %m_rgbaFloatBuffer, align 8
   %sub.ptr.lhs.cast.i.i = ptrtoint ptr %3 to i64
@@ -4109,8 +4071,8 @@ invoke.cont.i.i:                                  ; preds = %if.then5.i
   br label %_ZNSt6vectorIfSaIfEE6resizeEm.exit
 
 _ZNSt6vectorIfSaIfEE6resizeEm.exit:               ; preds = %if.then.i4, %if.else.i, %if.then5.i, %invoke.cont.i.i
-  %m_inBitDepthBuffer = getelementptr inbounds %"class.OpenColorIO_v2_4dev::GenericScanlineHelper.21", ptr %this, i64 0, i32 10
-  %_M_finish.i.i5 = getelementptr inbounds %"class.OpenColorIO_v2_4dev::GenericScanlineHelper.21", ptr %this, i64 0, i32 10, i32 0, i32 0, i32 0, i32 1
+  %m_inBitDepthBuffer = getelementptr inbounds i8, ptr %this, i64 256
+  %_M_finish.i.i5 = getelementptr inbounds i8, ptr %this, i64 264
   %5 = load ptr, ptr %_M_finish.i.i5, align 8
   %6 = load ptr, ptr %m_inBitDepthBuffer, align 8
   %sub.ptr.lhs.cast.i.i6 = ptrtoint ptr %5 to i64
@@ -4139,7 +4101,7 @@ invoke.cont.i.i16:                                ; preds = %if.then5.i13
   br label %_ZNSt6vectorItSaItEE6resizeEm.exit
 
 _ZNSt6vectorItSaItEE6resizeEm.exit:               ; preds = %if.then.i17, %if.else.i11, %if.then5.i13, %invoke.cont.i.i16
-  %m_outBitDepthBuffer = getelementptr inbounds %"class.OpenColorIO_v2_4dev::GenericScanlineHelper.21", ptr %this, i64 0, i32 11
+  %m_outBitDepthBuffer = getelementptr inbounds i8, ptr %this, i64 280
   tail call void @_ZNSt6vectorIhSaIhEE6resizeEm(ptr noundef nonnull align 8 dereferenceable(24) %m_outBitDepthBuffer, i64 noundef %mul)
   br label %if.end
 
@@ -4151,7 +4113,7 @@ if.end:                                           ; preds = %_ZN19OpenColorIO_v2
 define weak_odr hidden void @_ZN19OpenColorIO_v2_4dev21GenericScanlineHelperIthED2Ev(ptr noundef nonnull align 8 dereferenceable(309) %this) unnamed_addr #3 comdat($_ZN19OpenColorIO_v2_4dev21GenericScanlineHelperIthED5Ev) align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTVN19OpenColorIO_v2_4dev21GenericScanlineHelperIthEE, i64 0, inrange i32 0, i64 2), ptr %this, align 8
-  %m_outBitDepthBuffer = getelementptr inbounds %"class.OpenColorIO_v2_4dev::GenericScanlineHelper.21", ptr %this, i64 0, i32 11
+  %m_outBitDepthBuffer = getelementptr inbounds i8, ptr %this, i64 280
   %0 = load ptr, ptr %m_outBitDepthBuffer, align 8
   %tobool.not.i.i.i = icmp eq ptr %0, null
   br i1 %tobool.not.i.i.i, label %_ZNSt6vectorIhSaIhEED2Ev.exit, label %if.then.i.i.i
@@ -4161,7 +4123,7 @@ if.then.i.i.i:                                    ; preds = %entry
   br label %_ZNSt6vectorIhSaIhEED2Ev.exit
 
 _ZNSt6vectorIhSaIhEED2Ev.exit:                    ; preds = %entry, %if.then.i.i.i
-  %m_inBitDepthBuffer = getelementptr inbounds %"class.OpenColorIO_v2_4dev::GenericScanlineHelper.21", ptr %this, i64 0, i32 10
+  %m_inBitDepthBuffer = getelementptr inbounds i8, ptr %this, i64 256
   %1 = load ptr, ptr %m_inBitDepthBuffer, align 8
   %tobool.not.i.i.i1 = icmp eq ptr %1, null
   br i1 %tobool.not.i.i.i1, label %_ZNSt6vectorItSaItEED2Ev.exit, label %if.then.i.i.i2
@@ -4171,7 +4133,7 @@ if.then.i.i.i2:                                   ; preds = %_ZNSt6vectorIhSaIhE
   br label %_ZNSt6vectorItSaItEED2Ev.exit
 
 _ZNSt6vectorItSaItEED2Ev.exit:                    ; preds = %_ZNSt6vectorIhSaIhEED2Ev.exit, %if.then.i.i.i2
-  %m_rgbaFloatBuffer = getelementptr inbounds %"class.OpenColorIO_v2_4dev::GenericScanlineHelper.21", ptr %this, i64 0, i32 9
+  %m_rgbaFloatBuffer = getelementptr inbounds i8, ptr %this, i64 232
   %2 = load ptr, ptr %m_rgbaFloatBuffer, align 8
   %tobool.not.i.i.i3 = icmp eq ptr %2, null
   br i1 %tobool.not.i.i.i3, label %_ZNSt6vectorIfSaIfEED2Ev.exit, label %if.then.i.i.i4
@@ -4181,13 +4143,13 @@ if.then.i.i.i4:                                   ; preds = %_ZNSt6vectorItSaItE
   br label %_ZNSt6vectorIfSaIfEED2Ev.exit
 
 _ZNSt6vectorIfSaIfEED2Ev.exit:                    ; preds = %_ZNSt6vectorItSaItEED2Ev.exit, %if.then.i.i.i4
-  %_M_refcount.i.i.i = getelementptr inbounds %"class.OpenColorIO_v2_4dev::GenericScanlineHelper.21", ptr %this, i64 0, i32 6, i32 8, i32 0, i32 1
+  %_M_refcount.i.i.i = getelementptr inbounds i8, ptr %this, i64 208
   %3 = load ptr, ptr %_M_refcount.i.i.i, align 8
   %cmp.not.i.i.i.i = icmp eq ptr %3, null
   br i1 %cmp.not.i.i.i.i, label %_ZN19OpenColorIO_v2_4dev16GenericImageDescD2Ev.exit, label %if.then.i.i.i.i
 
 if.then.i.i.i.i:                                  ; preds = %_ZNSt6vectorIfSaIfEED2Ev.exit
-  %_M_use_count.i.i.i.i.i = getelementptr inbounds %"class.std::_Sp_counted_base", ptr %3, i64 0, i32 1
+  %_M_use_count.i.i.i.i.i = getelementptr inbounds i8, ptr %3, i64 8
   %4 = load atomic i64, ptr %_M_use_count.i.i.i.i.i acquire, align 8
   %cmp.i.i.i.i.i = icmp eq i64 %4, 4294967297
   %5 = trunc i64 %4 to i32
@@ -4195,10 +4157,10 @@ if.then.i.i.i.i:                                  ; preds = %_ZNSt6vectorIfSaIfE
 
 if.then.i.i.i.i.i:                                ; preds = %if.then.i.i.i.i
   store i32 0, ptr %_M_use_count.i.i.i.i.i, align 8
-  %_M_weak_count.i.i.i.i.i = getelementptr inbounds %"class.std::_Sp_counted_base", ptr %3, i64 0, i32 2
+  %_M_weak_count.i.i.i.i.i = getelementptr inbounds i8, ptr %3, i64 12
   store i32 0, ptr %_M_weak_count.i.i.i.i.i, align 4
   %vtable.i.i.i.i.i = load ptr, ptr %3, align 8
-  %vfn.i.i.i.i.i = getelementptr inbounds ptr, ptr %vtable.i.i.i.i.i, i64 2
+  %vfn.i.i.i.i.i = getelementptr inbounds i8, ptr %vtable.i.i.i.i.i, i64 16
   %6 = load ptr, ptr %vfn.i.i.i.i.i, align 8
   tail call void %6(ptr noundef nonnull align 8 dereferenceable(16) %3) #13
   br label %if.end8.sink.split.i.i.i.i.i
@@ -4224,10 +4186,10 @@ _ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i: ; preds = %if.els
 
 if.then7.i.i.i.i.i:                               ; preds = %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i
   %vtable.i.i.i.i.i.i.i = load ptr, ptr %3, align 8
-  %vfn.i.i.i.i.i.i.i = getelementptr inbounds ptr, ptr %vtable.i.i.i.i.i.i.i, i64 2
+  %vfn.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %vtable.i.i.i.i.i.i.i, i64 16
   %9 = load ptr, ptr %vfn.i.i.i.i.i.i.i, align 8
   tail call void %9(ptr noundef nonnull align 8 dereferenceable(16) %3) #13
-  %_M_weak_count.i.i.i.i.i.i.i = getelementptr inbounds %"class.std::_Sp_counted_base", ptr %3, i64 0, i32 2
+  %_M_weak_count.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %3, i64 12
   %10 = load i8, ptr @__libc_single_threaded, align 1
   %tobool.i.i.not.i.i.i.i.i.i.i = icmp eq i8 %10, 0
   br i1 %tobool.i.i.not.i.i.i.i.i.i.i, label %if.else.i.i.i.i.i.i.i.i, label %if.then.i.i.i.i.i.i.i.i
@@ -4249,19 +4211,19 @@ _ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i.i: ; preds = %if
 
 if.end8.sink.split.i.i.i.i.i:                     ; preds = %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i.i, %if.then.i.i.i.i.i
   %vtable2.i.i.i.i.i.i.i = load ptr, ptr %3, align 8
-  %vfn3.i.i.i.i.i.i.i = getelementptr inbounds ptr, ptr %vtable2.i.i.i.i.i.i.i, i64 3
+  %vfn3.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %vtable2.i.i.i.i.i.i.i, i64 24
   %13 = load ptr, ptr %vfn3.i.i.i.i.i.i.i, align 8
   tail call void %13(ptr noundef nonnull align 8 dereferenceable(16) %3) #13
   br label %_ZN19OpenColorIO_v2_4dev16GenericImageDescD2Ev.exit
 
 _ZN19OpenColorIO_v2_4dev16GenericImageDescD2Ev.exit: ; preds = %_ZNSt6vectorIfSaIfEED2Ev.exit, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i.i, %if.end8.sink.split.i.i.i.i.i
-  %_M_refcount.i.i.i5 = getelementptr inbounds %"class.OpenColorIO_v2_4dev::GenericScanlineHelper.21", ptr %this, i64 0, i32 5, i32 8, i32 0, i32 1
+  %_M_refcount.i.i.i5 = getelementptr inbounds i8, ptr %this, i64 120
   %14 = load ptr, ptr %_M_refcount.i.i.i5, align 8
   %cmp.not.i.i.i.i6 = icmp eq ptr %14, null
   br i1 %cmp.not.i.i.i.i6, label %_ZN19OpenColorIO_v2_4dev16GenericImageDescD2Ev.exit36, label %if.then.i.i.i.i7
 
 if.then.i.i.i.i7:                                 ; preds = %_ZN19OpenColorIO_v2_4dev16GenericImageDescD2Ev.exit
-  %_M_use_count.i.i.i.i.i8 = getelementptr inbounds %"class.std::_Sp_counted_base", ptr %14, i64 0, i32 1
+  %_M_use_count.i.i.i.i.i8 = getelementptr inbounds i8, ptr %14, i64 8
   %15 = load atomic i64, ptr %_M_use_count.i.i.i.i.i8 acquire, align 8
   %cmp.i.i.i.i.i9 = icmp eq i64 %15, 4294967297
   %16 = trunc i64 %15 to i32
@@ -4269,10 +4231,10 @@ if.then.i.i.i.i7:                                 ; preds = %_ZN19OpenColorIO_v2
 
 if.then.i.i.i.i.i32:                              ; preds = %if.then.i.i.i.i7
   store i32 0, ptr %_M_use_count.i.i.i.i.i8, align 8
-  %_M_weak_count.i.i.i.i.i33 = getelementptr inbounds %"class.std::_Sp_counted_base", ptr %14, i64 0, i32 2
+  %_M_weak_count.i.i.i.i.i33 = getelementptr inbounds i8, ptr %14, i64 12
   store i32 0, ptr %_M_weak_count.i.i.i.i.i33, align 4
   %vtable.i.i.i.i.i34 = load ptr, ptr %14, align 8
-  %vfn.i.i.i.i.i35 = getelementptr inbounds ptr, ptr %vtable.i.i.i.i.i34, i64 2
+  %vfn.i.i.i.i.i35 = getelementptr inbounds i8, ptr %vtable.i.i.i.i.i34, i64 16
   %17 = load ptr, ptr %vfn.i.i.i.i.i35, align 8
   tail call void %17(ptr noundef nonnull align 8 dereferenceable(16) %14) #13
   br label %if.end8.sink.split.i.i.i.i.i27
@@ -4298,10 +4260,10 @@ _ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i14: ; preds = %if.e
 
 if.then7.i.i.i.i.i17:                             ; preds = %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i14
   %vtable.i.i.i.i.i.i.i18 = load ptr, ptr %14, align 8
-  %vfn.i.i.i.i.i.i.i19 = getelementptr inbounds ptr, ptr %vtable.i.i.i.i.i.i.i18, i64 2
+  %vfn.i.i.i.i.i.i.i19 = getelementptr inbounds i8, ptr %vtable.i.i.i.i.i.i.i18, i64 16
   %20 = load ptr, ptr %vfn.i.i.i.i.i.i.i19, align 8
   tail call void %20(ptr noundef nonnull align 8 dereferenceable(16) %14) #13
-  %_M_weak_count.i.i.i.i.i.i.i20 = getelementptr inbounds %"class.std::_Sp_counted_base", ptr %14, i64 0, i32 2
+  %_M_weak_count.i.i.i.i.i.i.i20 = getelementptr inbounds i8, ptr %14, i64 12
   %21 = load i8, ptr @__libc_single_threaded, align 1
   %tobool.i.i.not.i.i.i.i.i.i.i21 = icmp eq i8 %21, 0
   br i1 %tobool.i.i.not.i.i.i.i.i.i.i21, label %if.else.i.i.i.i.i.i.i.i30, label %if.then.i.i.i.i.i.i.i.i22
@@ -4323,19 +4285,19 @@ _ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i.i24: ; preds = %
 
 if.end8.sink.split.i.i.i.i.i27:                   ; preds = %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i.i24, %if.then.i.i.i.i.i32
   %vtable2.i.i.i.i.i.i.i28 = load ptr, ptr %14, align 8
-  %vfn3.i.i.i.i.i.i.i29 = getelementptr inbounds ptr, ptr %vtable2.i.i.i.i.i.i.i28, i64 3
+  %vfn3.i.i.i.i.i.i.i29 = getelementptr inbounds i8, ptr %vtable2.i.i.i.i.i.i.i28, i64 24
   %24 = load ptr, ptr %vfn3.i.i.i.i.i.i.i29, align 8
   tail call void %24(ptr noundef nonnull align 8 dereferenceable(16) %14) #13
   br label %_ZN19OpenColorIO_v2_4dev16GenericImageDescD2Ev.exit36
 
 _ZN19OpenColorIO_v2_4dev16GenericImageDescD2Ev.exit36: ; preds = %_ZN19OpenColorIO_v2_4dev16GenericImageDescD2Ev.exit, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i14, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i.i24, %if.end8.sink.split.i.i.i.i.i27
-  %_M_refcount.i.i = getelementptr inbounds %"class.OpenColorIO_v2_4dev::GenericScanlineHelper.21", ptr %this, i64 0, i32 4, i32 0, i32 1
+  %_M_refcount.i.i = getelementptr inbounds i8, ptr %this, i64 40
   %25 = load ptr, ptr %_M_refcount.i.i, align 8
   %cmp.not.i.i.i = icmp eq ptr %25, null
   br i1 %cmp.not.i.i.i, label %_ZNSt10shared_ptrIKN19OpenColorIO_v2_4dev5OpCPUEED2Ev.exit, label %if.then.i.i.i37
 
 if.then.i.i.i37:                                  ; preds = %_ZN19OpenColorIO_v2_4dev16GenericImageDescD2Ev.exit36
-  %_M_use_count.i.i.i.i = getelementptr inbounds %"class.std::_Sp_counted_base", ptr %25, i64 0, i32 1
+  %_M_use_count.i.i.i.i = getelementptr inbounds i8, ptr %25, i64 8
   %26 = load atomic i64, ptr %_M_use_count.i.i.i.i acquire, align 8
   %cmp.i.i.i.i = icmp eq i64 %26, 4294967297
   %27 = trunc i64 %26 to i32
@@ -4343,10 +4305,10 @@ if.then.i.i.i37:                                  ; preds = %_ZN19OpenColorIO_v2
 
 if.then.i.i.i.i39:                                ; preds = %if.then.i.i.i37
   store i32 0, ptr %_M_use_count.i.i.i.i, align 8
-  %_M_weak_count.i.i.i.i = getelementptr inbounds %"class.std::_Sp_counted_base", ptr %25, i64 0, i32 2
+  %_M_weak_count.i.i.i.i = getelementptr inbounds i8, ptr %25, i64 12
   store i32 0, ptr %_M_weak_count.i.i.i.i, align 4
   %vtable.i.i.i.i = load ptr, ptr %25, align 8
-  %vfn.i.i.i.i = getelementptr inbounds ptr, ptr %vtable.i.i.i.i, i64 2
+  %vfn.i.i.i.i = getelementptr inbounds i8, ptr %vtable.i.i.i.i, i64 16
   %28 = load ptr, ptr %vfn.i.i.i.i, align 8
   tail call void %28(ptr noundef nonnull align 8 dereferenceable(16) %25) #13
   br label %if.end8.sink.split.i.i.i.i
@@ -4372,10 +4334,10 @@ _ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i: ; preds = %if.else.
 
 if.then7.i.i.i.i:                                 ; preds = %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i
   %vtable.i.i.i.i.i.i = load ptr, ptr %25, align 8
-  %vfn.i.i.i.i.i.i = getelementptr inbounds ptr, ptr %vtable.i.i.i.i.i.i, i64 2
+  %vfn.i.i.i.i.i.i = getelementptr inbounds i8, ptr %vtable.i.i.i.i.i.i, i64 16
   %31 = load ptr, ptr %vfn.i.i.i.i.i.i, align 8
   tail call void %31(ptr noundef nonnull align 8 dereferenceable(16) %25) #13
-  %_M_weak_count.i.i.i.i.i.i = getelementptr inbounds %"class.std::_Sp_counted_base", ptr %25, i64 0, i32 2
+  %_M_weak_count.i.i.i.i.i.i = getelementptr inbounds i8, ptr %25, i64 12
   %32 = load i8, ptr @__libc_single_threaded, align 1
   %tobool.i.i.not.i.i.i.i.i.i = icmp eq i8 %32, 0
   br i1 %tobool.i.i.not.i.i.i.i.i.i, label %if.else.i.i.i.i.i.i.i, label %if.then.i.i.i.i.i.i.i
@@ -4397,19 +4359,19 @@ _ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i: ; preds = %if.e
 
 if.end8.sink.split.i.i.i.i:                       ; preds = %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i, %if.then.i.i.i.i39
   %vtable2.i.i.i.i.i.i = load ptr, ptr %25, align 8
-  %vfn3.i.i.i.i.i.i = getelementptr inbounds ptr, ptr %vtable2.i.i.i.i.i.i, i64 3
+  %vfn3.i.i.i.i.i.i = getelementptr inbounds i8, ptr %vtable2.i.i.i.i.i.i, i64 24
   %35 = load ptr, ptr %vfn3.i.i.i.i.i.i, align 8
   tail call void %35(ptr noundef nonnull align 8 dereferenceable(16) %25) #13
   br label %_ZNSt10shared_ptrIKN19OpenColorIO_v2_4dev5OpCPUEED2Ev.exit
 
 _ZNSt10shared_ptrIKN19OpenColorIO_v2_4dev5OpCPUEED2Ev.exit: ; preds = %_ZN19OpenColorIO_v2_4dev16GenericImageDescD2Ev.exit36, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i, %if.end8.sink.split.i.i.i.i
-  %_M_refcount.i.i40 = getelementptr inbounds %"class.OpenColorIO_v2_4dev::GenericScanlineHelper.21", ptr %this, i64 0, i32 3, i32 0, i32 1
+  %_M_refcount.i.i40 = getelementptr inbounds i8, ptr %this, i64 24
   %36 = load ptr, ptr %_M_refcount.i.i40, align 8
   %cmp.not.i.i.i41 = icmp eq ptr %36, null
   br i1 %cmp.not.i.i.i41, label %_ZNSt10shared_ptrIKN19OpenColorIO_v2_4dev5OpCPUEED2Ev.exit71, label %if.then.i.i.i42
 
 if.then.i.i.i42:                                  ; preds = %_ZNSt10shared_ptrIKN19OpenColorIO_v2_4dev5OpCPUEED2Ev.exit
-  %_M_use_count.i.i.i.i43 = getelementptr inbounds %"class.std::_Sp_counted_base", ptr %36, i64 0, i32 1
+  %_M_use_count.i.i.i.i43 = getelementptr inbounds i8, ptr %36, i64 8
   %37 = load atomic i64, ptr %_M_use_count.i.i.i.i43 acquire, align 8
   %cmp.i.i.i.i44 = icmp eq i64 %37, 4294967297
   %38 = trunc i64 %37 to i32
@@ -4417,10 +4379,10 @@ if.then.i.i.i42:                                  ; preds = %_ZNSt10shared_ptrIK
 
 if.then.i.i.i.i67:                                ; preds = %if.then.i.i.i42
   store i32 0, ptr %_M_use_count.i.i.i.i43, align 8
-  %_M_weak_count.i.i.i.i68 = getelementptr inbounds %"class.std::_Sp_counted_base", ptr %36, i64 0, i32 2
+  %_M_weak_count.i.i.i.i68 = getelementptr inbounds i8, ptr %36, i64 12
   store i32 0, ptr %_M_weak_count.i.i.i.i68, align 4
   %vtable.i.i.i.i69 = load ptr, ptr %36, align 8
-  %vfn.i.i.i.i70 = getelementptr inbounds ptr, ptr %vtable.i.i.i.i69, i64 2
+  %vfn.i.i.i.i70 = getelementptr inbounds i8, ptr %vtable.i.i.i.i69, i64 16
   %39 = load ptr, ptr %vfn.i.i.i.i70, align 8
   tail call void %39(ptr noundef nonnull align 8 dereferenceable(16) %36) #13
   br label %if.end8.sink.split.i.i.i.i62
@@ -4446,10 +4408,10 @@ _ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i49: ; preds = %if.els
 
 if.then7.i.i.i.i52:                               ; preds = %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i49
   %vtable.i.i.i.i.i.i53 = load ptr, ptr %36, align 8
-  %vfn.i.i.i.i.i.i54 = getelementptr inbounds ptr, ptr %vtable.i.i.i.i.i.i53, i64 2
+  %vfn.i.i.i.i.i.i54 = getelementptr inbounds i8, ptr %vtable.i.i.i.i.i.i53, i64 16
   %42 = load ptr, ptr %vfn.i.i.i.i.i.i54, align 8
   tail call void %42(ptr noundef nonnull align 8 dereferenceable(16) %36) #13
-  %_M_weak_count.i.i.i.i.i.i55 = getelementptr inbounds %"class.std::_Sp_counted_base", ptr %36, i64 0, i32 2
+  %_M_weak_count.i.i.i.i.i.i55 = getelementptr inbounds i8, ptr %36, i64 12
   %43 = load i8, ptr @__libc_single_threaded, align 1
   %tobool.i.i.not.i.i.i.i.i.i56 = icmp eq i8 %43, 0
   br i1 %tobool.i.i.not.i.i.i.i.i.i56, label %if.else.i.i.i.i.i.i.i65, label %if.then.i.i.i.i.i.i.i57
@@ -4471,7 +4433,7 @@ _ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i59: ; preds = %if
 
 if.end8.sink.split.i.i.i.i62:                     ; preds = %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i59, %if.then.i.i.i.i67
   %vtable2.i.i.i.i.i.i63 = load ptr, ptr %36, align 8
-  %vfn3.i.i.i.i.i.i64 = getelementptr inbounds ptr, ptr %vtable2.i.i.i.i.i.i63, i64 3
+  %vfn3.i.i.i.i.i.i64 = getelementptr inbounds i8, ptr %vtable2.i.i.i.i.i.i63, i64 24
   %46 = load ptr, ptr %vfn3.i.i.i.i.i.i64, align 8
   tail call void %46(ptr noundef nonnull align 8 dereferenceable(16) %36) #13
   br label %_ZNSt10shared_ptrIKN19OpenColorIO_v2_4dev5OpCPUEED2Ev.exit71
@@ -4491,66 +4453,66 @@ entry:
 ; Function Attrs: mustprogress uwtable
 define weak_odr hidden void @_ZN19OpenColorIO_v2_4dev21GenericScanlineHelperIthE16prepRGBAScanlineEPPfRl(ptr noundef nonnull align 8 dereferenceable(309) %this, ptr noundef %buffer, ptr noundef nonnull align 8 dereferenceable(8) %numPixels) unnamed_addr #5 comdat align 2 {
 entry:
-  %m_yIndex = getelementptr inbounds %"class.OpenColorIO_v2_4dev::GenericScanlineHelper.21", ptr %this, i64 0, i32 12
+  %m_yIndex = getelementptr inbounds i8, ptr %this, i64 304
   %0 = load i32, ptr %m_yIndex, align 8
   %conv = sext i32 %0 to i64
-  %m_dstImg = getelementptr inbounds %"class.OpenColorIO_v2_4dev::GenericScanlineHelper.21", ptr %this, i64 0, i32 6
-  %m_height = getelementptr inbounds %"class.OpenColorIO_v2_4dev::GenericScanlineHelper.21", ptr %this, i64 0, i32 6, i32 1
+  %m_dstImg = getelementptr inbounds i8, ptr %this, i64 136
+  %m_height = getelementptr inbounds i8, ptr %this, i64 144
   %1 = load i64, ptr %m_height, align 8
   %cmp.not = icmp sgt i64 %1, %conv
   br i1 %cmp.not, label %if.end, label %return
 
 if.end:                                           ; preds = %entry
-  %m_useDstBuffer = getelementptr inbounds %"class.OpenColorIO_v2_4dev::GenericScanlineHelper.21", ptr %this, i64 0, i32 13
+  %m_useDstBuffer = getelementptr inbounds i8, ptr %this, i64 308
   %2 = load i8, ptr %m_useDstBuffer, align 4
   %3 = and i8 %2, 1
   %tobool.not = icmp eq i8 %3, 0
   br i1 %tobool.not, label %cond.false, label %cond.true
 
 cond.true:                                        ; preds = %if.end
-  %m_rData = getelementptr inbounds %"class.OpenColorIO_v2_4dev::GenericScanlineHelper.21", ptr %this, i64 0, i32 6, i32 4
+  %m_rData = getelementptr inbounds i8, ptr %this, i64 168
   %4 = load ptr, ptr %m_rData, align 8
-  %m_yStrideBytes = getelementptr inbounds %"class.OpenColorIO_v2_4dev::GenericScanlineHelper.21", ptr %this, i64 0, i32 6, i32 3
+  %m_yStrideBytes = getelementptr inbounds i8, ptr %this, i64 160
   %5 = load i64, ptr %m_yStrideBytes, align 8
   %mul = mul nsw i64 %5, %conv
   %add.ptr = getelementptr inbounds i8, ptr %4, i64 %mul
   br label %cond.end
 
 cond.false:                                       ; preds = %if.end
-  %m_rgbaFloatBuffer = getelementptr inbounds %"class.OpenColorIO_v2_4dev::GenericScanlineHelper.21", ptr %this, i64 0, i32 9
+  %m_rgbaFloatBuffer = getelementptr inbounds i8, ptr %this, i64 232
   %6 = load ptr, ptr %m_rgbaFloatBuffer, align 8
   br label %cond.end
 
 cond.end:                                         ; preds = %cond.false, %cond.true
   %cond = phi ptr [ %add.ptr, %cond.true ], [ %6, %cond.false ]
   store ptr %cond, ptr %buffer, align 8
-  %m_inOptimizedMode = getelementptr inbounds %"class.OpenColorIO_v2_4dev::GenericScanlineHelper.21", ptr %this, i64 0, i32 7
+  %m_inOptimizedMode = getelementptr inbounds i8, ptr %this, i64 224
   %7 = load i32, ptr %m_inOptimizedMode, align 8
   %and = and i32 %7, 1
   %cmp6.not = icmp eq i32 %and, 0
   br i1 %cmp6.not, label %if.else, label %if.then7
 
 if.then7:                                         ; preds = %cond.end
-  %m_rData8 = getelementptr inbounds %"class.OpenColorIO_v2_4dev::GenericScanlineHelper.21", ptr %this, i64 0, i32 5, i32 4
+  %m_rData8 = getelementptr inbounds i8, ptr %this, i64 80
   %8 = load ptr, ptr %m_rData8, align 8
-  %m_yStrideBytes10 = getelementptr inbounds %"class.OpenColorIO_v2_4dev::GenericScanlineHelper.21", ptr %this, i64 0, i32 5, i32 3
+  %m_yStrideBytes10 = getelementptr inbounds i8, ptr %this, i64 72
   %9 = load i64, ptr %m_yStrideBytes10, align 8
   %10 = load i32, ptr %m_yIndex, align 8
   %conv12 = sext i32 %10 to i64
   %mul13 = mul nsw i64 %9, %conv12
   %add.ptr14 = getelementptr inbounds i8, ptr %8, i64 %mul13
-  %m_bitDepthOp = getelementptr inbounds %"class.OpenColorIO_v2_4dev::GenericScanlineHelper.21", ptr %this, i64 0, i32 5, i32 8
+  %m_bitDepthOp = getelementptr inbounds i8, ptr %this, i64 112
   %11 = load ptr, ptr %m_bitDepthOp, align 8
   %12 = load i64, ptr %m_dstImg, align 8
   %vtable = load ptr, ptr %11, align 8
-  %vfn = getelementptr inbounds ptr, ptr %vtable, i64 2
+  %vfn = getelementptr inbounds i8, ptr %vtable, i64 16
   %13 = load ptr, ptr %vfn, align 8
   tail call void %13(ptr noundef nonnull align 8 dereferenceable(8) %11, ptr noundef %add.ptr14, ptr noundef %cond, i64 noundef %12)
   br label %if.end28
 
 if.else:                                          ; preds = %cond.end
-  %m_srcImg18 = getelementptr inbounds %"class.OpenColorIO_v2_4dev::GenericScanlineHelper.21", ptr %this, i64 0, i32 5
-  %m_inBitDepthBuffer = getelementptr inbounds %"class.OpenColorIO_v2_4dev::GenericScanlineHelper.21", ptr %this, i64 0, i32 10
+  %m_srcImg18 = getelementptr inbounds i8, ptr %this, i64 48
+  %m_inBitDepthBuffer = getelementptr inbounds i8, ptr %this, i64 256
   %14 = load ptr, ptr %m_inBitDepthBuffer, align 8
   %15 = load i64, ptr %m_dstImg, align 8
   %conv22 = trunc i64 %15 to i32
@@ -4575,47 +4537,47 @@ declare void @_ZN19OpenColorIO_v2_4dev7GenericItE21PackRGBAFromImageDescERKNS_16
 ; Function Attrs: mustprogress uwtable
 define weak_odr hidden void @_ZN19OpenColorIO_v2_4dev21GenericScanlineHelperIthE18finishRGBAScanlineEv(ptr noundef nonnull align 8 dereferenceable(309) %this) unnamed_addr #5 comdat align 2 {
 entry:
-  %m_outOptimizedMode = getelementptr inbounds %"class.OpenColorIO_v2_4dev::GenericScanlineHelper.21", ptr %this, i64 0, i32 8
+  %m_outOptimizedMode = getelementptr inbounds i8, ptr %this, i64 228
   %0 = load i32, ptr %m_outOptimizedMode, align 4
   %and = and i32 %0, 1
   %cmp.not = icmp eq i32 %and, 0
-  %m_dstImg6 = getelementptr inbounds %"class.OpenColorIO_v2_4dev::GenericScanlineHelper.21", ptr %this, i64 0, i32 6
+  %m_dstImg6 = getelementptr inbounds i8, ptr %this, i64 136
   br i1 %cmp.not, label %if.else, label %if.then
 
 if.then:                                          ; preds = %entry
-  %m_rData = getelementptr inbounds %"class.OpenColorIO_v2_4dev::GenericScanlineHelper.21", ptr %this, i64 0, i32 6, i32 4
+  %m_rData = getelementptr inbounds i8, ptr %this, i64 168
   %1 = load ptr, ptr %m_rData, align 8
-  %m_yStrideBytes = getelementptr inbounds %"class.OpenColorIO_v2_4dev::GenericScanlineHelper.21", ptr %this, i64 0, i32 6, i32 3
+  %m_yStrideBytes = getelementptr inbounds i8, ptr %this, i64 160
   %2 = load i64, ptr %m_yStrideBytes, align 8
-  %m_yIndex = getelementptr inbounds %"class.OpenColorIO_v2_4dev::GenericScanlineHelper.21", ptr %this, i64 0, i32 12
+  %m_yIndex = getelementptr inbounds i8, ptr %this, i64 304
   %3 = load i32, ptr %m_yIndex, align 8
   %conv = sext i32 %3 to i64
   %mul = mul nsw i64 %2, %conv
   %add.ptr = getelementptr inbounds i8, ptr %1, i64 %mul
-  %m_useDstBuffer = getelementptr inbounds %"class.OpenColorIO_v2_4dev::GenericScanlineHelper.21", ptr %this, i64 0, i32 13
+  %m_useDstBuffer = getelementptr inbounds i8, ptr %this, i64 308
   %4 = load i8, ptr %m_useDstBuffer, align 4
   %5 = and i8 %4, 1
   %tobool.not = icmp eq i8 %5, 0
-  %m_rgbaFloatBuffer = getelementptr inbounds %"class.OpenColorIO_v2_4dev::GenericScanlineHelper.21", ptr %this, i64 0, i32 9
+  %m_rgbaFloatBuffer = getelementptr inbounds i8, ptr %this, i64 232
   %6 = load ptr, ptr %m_rgbaFloatBuffer, align 8
   %cond = select i1 %tobool.not, ptr %6, ptr %add.ptr
-  %m_bitDepthOp = getelementptr inbounds %"class.OpenColorIO_v2_4dev::GenericScanlineHelper.21", ptr %this, i64 0, i32 6, i32 8
+  %m_bitDepthOp = getelementptr inbounds i8, ptr %this, i64 200
   %7 = load ptr, ptr %m_bitDepthOp, align 8
   %8 = load i64, ptr %m_dstImg6, align 8
   %vtable = load ptr, ptr %7, align 8
-  %vfn = getelementptr inbounds ptr, ptr %vtable, i64 2
+  %vfn = getelementptr inbounds i8, ptr %vtable, i64 16
   %9 = load ptr, ptr %vfn, align 8
   tail call void %9(ptr noundef nonnull align 8 dereferenceable(8) %7, ptr noundef %cond, ptr noundef %add.ptr, i64 noundef %8)
   br label %if.end
 
 if.else:                                          ; preds = %entry
-  %m_rgbaFloatBuffer7 = getelementptr inbounds %"class.OpenColorIO_v2_4dev::GenericScanlineHelper.21", ptr %this, i64 0, i32 9
+  %m_rgbaFloatBuffer7 = getelementptr inbounds i8, ptr %this, i64 232
   %10 = load ptr, ptr %m_rgbaFloatBuffer7, align 8
-  %m_outBitDepthBuffer = getelementptr inbounds %"class.OpenColorIO_v2_4dev::GenericScanlineHelper.21", ptr %this, i64 0, i32 11
+  %m_outBitDepthBuffer = getelementptr inbounds i8, ptr %this, i64 280
   %11 = load ptr, ptr %m_outBitDepthBuffer, align 8
   %12 = load i64, ptr %m_dstImg6, align 8
   %conv12 = trunc i64 %12 to i32
-  %m_yIndex13 = getelementptr inbounds %"class.OpenColorIO_v2_4dev::GenericScanlineHelper.21", ptr %this, i64 0, i32 12
+  %m_yIndex13 = getelementptr inbounds i8, ptr %this, i64 304
   %13 = load i32, ptr %m_yIndex13, align 8
   %conv14 = sext i32 %13 to i64
   %mul17 = mul nsw i64 %12, %conv14
@@ -4623,7 +4585,7 @@ if.else:                                          ; preds = %entry
   br label %if.end
 
 if.end:                                           ; preds = %if.else, %if.then
-  %m_yIndex18 = getelementptr inbounds %"class.OpenColorIO_v2_4dev::GenericScanlineHelper.21", ptr %this, i64 0, i32 12
+  %m_yIndex18 = getelementptr inbounds i8, ptr %this, i64 304
   %14 = load i32, ptr %m_yIndex18, align 8
   %inc = add nsw i32 %14, 1
   store i32 %inc, ptr %m_yIndex18, align 8
@@ -4634,22 +4596,22 @@ if.end:                                           ; preds = %if.else, %if.then
 define weak_odr hidden void @_ZN19OpenColorIO_v2_4dev21GenericScanlineHelperIttEC2ENS_8BitDepthERKSt10shared_ptrIKNS_5OpCPUEES2_S8_(ptr noundef nonnull align 8 dereferenceable(309) %this, i32 noundef %inputBitDepth, ptr noundef nonnull align 8 dereferenceable(16) %inBitDepthOp, i32 noundef %outputBitDepth, ptr noundef nonnull align 8 dereferenceable(16) %outBitDepthOp) unnamed_addr #3 comdat($_ZN19OpenColorIO_v2_4dev21GenericScanlineHelperIttEC5ENS_8BitDepthERKSt10shared_ptrIKNS_5OpCPUEES2_S8_) align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTVN19OpenColorIO_v2_4dev21GenericScanlineHelperIttEE, i64 0, inrange i32 0, i64 2), ptr %this, align 8
-  %m_inputBitDepth = getelementptr inbounds %"class.OpenColorIO_v2_4dev::GenericScanlineHelper.23", ptr %this, i64 0, i32 1
+  %m_inputBitDepth = getelementptr inbounds i8, ptr %this, i64 8
   store i32 %inputBitDepth, ptr %m_inputBitDepth, align 8
-  %m_outputBitDepth = getelementptr inbounds %"class.OpenColorIO_v2_4dev::GenericScanlineHelper.23", ptr %this, i64 0, i32 2
+  %m_outputBitDepth = getelementptr inbounds i8, ptr %this, i64 12
   store i32 %outputBitDepth, ptr %m_outputBitDepth, align 4
-  %m_inBitDepthOp = getelementptr inbounds %"class.OpenColorIO_v2_4dev::GenericScanlineHelper.23", ptr %this, i64 0, i32 3
+  %m_inBitDepthOp = getelementptr inbounds i8, ptr %this, i64 16
   %0 = load ptr, ptr %inBitDepthOp, align 8
   store ptr %0, ptr %m_inBitDepthOp, align 8
-  %_M_refcount.i.i = getelementptr inbounds %"class.OpenColorIO_v2_4dev::GenericScanlineHelper.23", ptr %this, i64 0, i32 3, i32 0, i32 1
-  %_M_refcount3.i.i = getelementptr inbounds %"class.std::__shared_ptr", ptr %inBitDepthOp, i64 0, i32 1
+  %_M_refcount.i.i = getelementptr inbounds i8, ptr %this, i64 24
+  %_M_refcount3.i.i = getelementptr inbounds i8, ptr %inBitDepthOp, i64 8
   %1 = load ptr, ptr %_M_refcount3.i.i, align 8
   store ptr %1, ptr %_M_refcount.i.i, align 8
   %cmp.not.i.i.i = icmp eq ptr %1, null
   br i1 %cmp.not.i.i.i, label %_ZNSt10shared_ptrIKN19OpenColorIO_v2_4dev5OpCPUEEC2ERKS3_.exit, label %if.then.i.i.i
 
 if.then.i.i.i:                                    ; preds = %entry
-  %_M_use_count.i.i.i.i = getelementptr inbounds %"class.std::_Sp_counted_base", ptr %1, i64 0, i32 1
+  %_M_use_count.i.i.i.i = getelementptr inbounds i8, ptr %1, i64 8
   %2 = load i8, ptr @__libc_single_threaded, align 1
   %tobool.i.not.i.i.i.i = icmp eq i8 %2, 0
   br i1 %tobool.i.not.i.i.i.i, label %if.else.i.i.i.i.i, label %if.then.i.i.i.i.i
@@ -4665,18 +4627,18 @@ if.else.i.i.i.i.i:                                ; preds = %if.then.i.i.i
   br label %_ZNSt10shared_ptrIKN19OpenColorIO_v2_4dev5OpCPUEEC2ERKS3_.exit
 
 _ZNSt10shared_ptrIKN19OpenColorIO_v2_4dev5OpCPUEEC2ERKS3_.exit: ; preds = %entry, %if.then.i.i.i.i.i, %if.else.i.i.i.i.i
-  %m_outBitDepthOp = getelementptr inbounds %"class.OpenColorIO_v2_4dev::GenericScanlineHelper.23", ptr %this, i64 0, i32 4
+  %m_outBitDepthOp = getelementptr inbounds i8, ptr %this, i64 32
   %5 = load ptr, ptr %outBitDepthOp, align 8
   store ptr %5, ptr %m_outBitDepthOp, align 8
-  %_M_refcount.i.i1 = getelementptr inbounds %"class.OpenColorIO_v2_4dev::GenericScanlineHelper.23", ptr %this, i64 0, i32 4, i32 0, i32 1
-  %_M_refcount3.i.i2 = getelementptr inbounds %"class.std::__shared_ptr", ptr %outBitDepthOp, i64 0, i32 1
+  %_M_refcount.i.i1 = getelementptr inbounds i8, ptr %this, i64 40
+  %_M_refcount3.i.i2 = getelementptr inbounds i8, ptr %outBitDepthOp, i64 8
   %6 = load ptr, ptr %_M_refcount3.i.i2, align 8
   store ptr %6, ptr %_M_refcount.i.i1, align 8
   %cmp.not.i.i.i3 = icmp eq ptr %6, null
   br i1 %cmp.not.i.i.i3, label %_ZNSt10shared_ptrIKN19OpenColorIO_v2_4dev5OpCPUEEC2ERKS3_.exit10, label %if.then.i.i.i4
 
 if.then.i.i.i4:                                   ; preds = %_ZNSt10shared_ptrIKN19OpenColorIO_v2_4dev5OpCPUEEC2ERKS3_.exit
-  %_M_use_count.i.i.i.i5 = getelementptr inbounds %"class.std::_Sp_counted_base", ptr %6, i64 0, i32 1
+  %_M_use_count.i.i.i.i5 = getelementptr inbounds i8, ptr %6, i64 8
   %7 = load i8, ptr @__libc_single_threaded, align 1
   %tobool.i.not.i.i.i.i6 = icmp eq i8 %7, 0
   br i1 %tobool.i.not.i.i.i.i6, label %if.else.i.i.i.i.i9, label %if.then.i.i.i.i.i7
@@ -4692,11 +4654,11 @@ if.else.i.i.i.i.i9:                               ; preds = %if.then.i.i.i4
   br label %_ZNSt10shared_ptrIKN19OpenColorIO_v2_4dev5OpCPUEEC2ERKS3_.exit10
 
 _ZNSt10shared_ptrIKN19OpenColorIO_v2_4dev5OpCPUEEC2ERKS3_.exit10: ; preds = %_ZNSt10shared_ptrIKN19OpenColorIO_v2_4dev5OpCPUEEC2ERKS3_.exit, %if.then.i.i.i.i.i7, %if.else.i.i.i.i.i9
-  %m_srcImg = getelementptr inbounds %"class.OpenColorIO_v2_4dev::GenericScanlineHelper.23", ptr %this, i64 0, i32 5
+  %m_srcImg = getelementptr inbounds i8, ptr %this, i64 48
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(82) %m_srcImg, i8 0, i64 82, i1 false)
-  %m_dstImg = getelementptr inbounds %"class.OpenColorIO_v2_4dev::GenericScanlineHelper.23", ptr %this, i64 0, i32 6
+  %m_dstImg = getelementptr inbounds i8, ptr %this, i64 136
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(82) %m_dstImg, i8 0, i64 82, i1 false)
-  %m_inOptimizedMode = getelementptr inbounds %"class.OpenColorIO_v2_4dev::GenericScanlineHelper.23", ptr %this, i64 0, i32 7
+  %m_inOptimizedMode = getelementptr inbounds i8, ptr %this, i64 224
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(85) %m_inOptimizedMode, i8 0, i64 85, i1 false)
   ret void
 }
@@ -4704,17 +4666,17 @@ _ZNSt10shared_ptrIKN19OpenColorIO_v2_4dev5OpCPUEEC2ERKS3_.exit10: ; preds = %_ZN
 ; Function Attrs: mustprogress uwtable
 define weak_odr hidden void @_ZN19OpenColorIO_v2_4dev21GenericScanlineHelperIttE4initERKNS_9ImageDescES4_(ptr noundef nonnull align 8 dereferenceable(309) %this, ptr noundef nonnull align 8 dereferenceable(8) %srcImg, ptr noundef nonnull align 8 dereferenceable(8) %dstImg) unnamed_addr #5 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  %m_yIndex = getelementptr inbounds %"class.OpenColorIO_v2_4dev::GenericScanlineHelper.23", ptr %this, i64 0, i32 12
+  %m_yIndex = getelementptr inbounds i8, ptr %this, i64 304
   store i32 0, ptr %m_yIndex, align 8
-  %m_srcImg = getelementptr inbounds %"class.OpenColorIO_v2_4dev::GenericScanlineHelper.23", ptr %this, i64 0, i32 5
-  %m_inputBitDepth = getelementptr inbounds %"class.OpenColorIO_v2_4dev::GenericScanlineHelper.23", ptr %this, i64 0, i32 1
+  %m_srcImg = getelementptr inbounds i8, ptr %this, i64 48
+  %m_inputBitDepth = getelementptr inbounds i8, ptr %this, i64 8
   %0 = load i32, ptr %m_inputBitDepth, align 8
-  %m_inBitDepthOp = getelementptr inbounds %"class.OpenColorIO_v2_4dev::GenericScanlineHelper.23", ptr %this, i64 0, i32 3
+  %m_inBitDepthOp = getelementptr inbounds i8, ptr %this, i64 16
   tail call void @_ZN19OpenColorIO_v2_4dev16GenericImageDesc4initERKNS_9ImageDescENS_8BitDepthERKSt10shared_ptrIKNS_5OpCPUEE(ptr noundef nonnull align 8 dereferenceable(82) %m_srcImg, ptr noundef nonnull align 8 dereferenceable(8) %srcImg, i32 noundef %0, ptr noundef nonnull align 8 dereferenceable(16) %m_inBitDepthOp)
-  %m_dstImg = getelementptr inbounds %"class.OpenColorIO_v2_4dev::GenericScanlineHelper.23", ptr %this, i64 0, i32 6
-  %m_outputBitDepth = getelementptr inbounds %"class.OpenColorIO_v2_4dev::GenericScanlineHelper.23", ptr %this, i64 0, i32 2
+  %m_dstImg = getelementptr inbounds i8, ptr %this, i64 136
+  %m_outputBitDepth = getelementptr inbounds i8, ptr %this, i64 12
   %1 = load i32, ptr %m_outputBitDepth, align 4
-  %m_outBitDepthOp = getelementptr inbounds %"class.OpenColorIO_v2_4dev::GenericScanlineHelper.23", ptr %this, i64 0, i32 4
+  %m_outBitDepthOp = getelementptr inbounds i8, ptr %this, i64 32
   tail call void @_ZN19OpenColorIO_v2_4dev16GenericImageDesc4initERKNS_9ImageDescENS_8BitDepthERKSt10shared_ptrIKNS_5OpCPUEE(ptr noundef nonnull align 8 dereferenceable(82) %m_dstImg, ptr noundef nonnull align 8 dereferenceable(8) %dstImg, i32 noundef %1, ptr noundef nonnull align 8 dereferenceable(16) %m_outBitDepthOp)
   %2 = load i64, ptr %m_srcImg, align 8
   %3 = load i64, ptr %m_dstImg, align 8
@@ -4722,9 +4684,9 @@ entry:
   br i1 %cmp.not, label %lor.lhs.false, label %if.then
 
 lor.lhs.false:                                    ; preds = %entry
-  %m_height = getelementptr inbounds %"class.OpenColorIO_v2_4dev::GenericScanlineHelper.23", ptr %this, i64 0, i32 5, i32 1
+  %m_height = getelementptr inbounds i8, ptr %this, i64 56
   %4 = load i64, ptr %m_height, align 8
-  %m_height7 = getelementptr inbounds %"class.OpenColorIO_v2_4dev::GenericScanlineHelper.23", ptr %this, i64 0, i32 6, i32 1
+  %m_height7 = getelementptr inbounds i8, ptr %this, i64 144
   %5 = load i64, ptr %m_height7, align 8
   %cmp8.not = icmp eq i64 %4, %5
   br i1 %cmp8.not, label %if.end, label %if.then
@@ -4755,7 +4717,7 @@ if.then.i:                                        ; preds = %if.end
 
 _ZN19OpenColorIO_v2_4dev19GetOptimizationModeERKNS_16GenericImageDescE.exit: ; preds = %if.end, %if.then.i
   %optim.0.i = phi i32 [ 0, %if.end ], [ %spec.select.i, %if.then.i ]
-  %m_inOptimizedMode = getelementptr inbounds %"class.OpenColorIO_v2_4dev::GenericScanlineHelper.23", ptr %this, i64 0, i32 7
+  %m_inOptimizedMode = getelementptr inbounds i8, ptr %this, i64 224
   store i32 %optim.0.i, ptr %m_inOptimizedMode, align 8
   %call.i2 = tail call noundef zeroext i1 @_ZNK19OpenColorIO_v2_4dev16GenericImageDesc12isRGBAPackedEv(ptr noundef nonnull align 8 dereferenceable(82) %m_dstImg)
   br i1 %call.i2, label %if.then.i4, label %_ZN19OpenColorIO_v2_4dev19GetOptimizationModeERKNS_16GenericImageDescE.exit7
@@ -4767,10 +4729,10 @@ if.then.i4:                                       ; preds = %_ZN19OpenColorIO_v2
 
 _ZN19OpenColorIO_v2_4dev19GetOptimizationModeERKNS_16GenericImageDescE.exit7: ; preds = %_ZN19OpenColorIO_v2_4dev19GetOptimizationModeERKNS_16GenericImageDescE.exit, %if.then.i4
   %optim.0.i3 = phi i32 [ 0, %_ZN19OpenColorIO_v2_4dev19GetOptimizationModeERKNS_16GenericImageDescE.exit ], [ %spec.select.i6, %if.then.i4 ]
-  %m_outOptimizedMode = getelementptr inbounds %"class.OpenColorIO_v2_4dev::GenericScanlineHelper.23", ptr %this, i64 0, i32 8
+  %m_outOptimizedMode = getelementptr inbounds i8, ptr %this, i64 228
   store i32 %optim.0.i3, ptr %m_outOptimizedMode, align 4
   %cmp13 = icmp eq i32 %optim.0.i3, 3
-  %m_useDstBuffer = getelementptr inbounds %"class.OpenColorIO_v2_4dev::GenericScanlineHelper.23", ptr %this, i64 0, i32 13
+  %m_useDstBuffer = getelementptr inbounds i8, ptr %this, i64 308
   %frombool = zext i1 %cmp13 to i8
   store i8 %frombool, ptr %m_useDstBuffer, align 4
   %7 = load i32, ptr %m_inOptimizedMode, align 8
@@ -4781,8 +4743,8 @@ _ZN19OpenColorIO_v2_4dev19GetOptimizationModeERKNS_16GenericImageDescE.exit7: ; 
 if.then17:                                        ; preds = %_ZN19OpenColorIO_v2_4dev19GetOptimizationModeERKNS_16GenericImageDescE.exit7
   %8 = load i64, ptr %m_dstImg, align 8
   %mul = shl nsw i64 %8, 2
-  %m_inBitDepthBuffer = getelementptr inbounds %"class.OpenColorIO_v2_4dev::GenericScanlineHelper.23", ptr %this, i64 0, i32 10
-  %_M_finish.i.i = getelementptr inbounds %"class.OpenColorIO_v2_4dev::GenericScanlineHelper.23", ptr %this, i64 0, i32 10, i32 0, i32 0, i32 0, i32 1
+  %m_inBitDepthBuffer = getelementptr inbounds i8, ptr %this, i64 256
+  %_M_finish.i.i = getelementptr inbounds i8, ptr %this, i64 264
   %9 = load ptr, ptr %_M_finish.i.i, align 8
   %10 = load ptr, ptr %m_inBitDepthBuffer, align 8
   %sub.ptr.lhs.cast.i.i = ptrtoint ptr %9 to i64
@@ -4820,8 +4782,8 @@ if.end20:                                         ; preds = %invoke.cont.i.i, %i
 if.then22:                                        ; preds = %if.end20
   %13 = load i64, ptr %m_dstImg, align 8
   %mul26 = shl nsw i64 %13, 2
-  %m_rgbaFloatBuffer = getelementptr inbounds %"class.OpenColorIO_v2_4dev::GenericScanlineHelper.23", ptr %this, i64 0, i32 9
-  %_M_finish.i.i9 = getelementptr inbounds %"class.OpenColorIO_v2_4dev::GenericScanlineHelper.23", ptr %this, i64 0, i32 9, i32 0, i32 0, i32 0, i32 1
+  %m_rgbaFloatBuffer = getelementptr inbounds i8, ptr %this, i64 232
+  %_M_finish.i.i9 = getelementptr inbounds i8, ptr %this, i64 240
   %14 = load ptr, ptr %_M_finish.i.i9, align 8
   %15 = load ptr, ptr %m_rgbaFloatBuffer, align 8
   %sub.ptr.lhs.cast.i.i10 = ptrtoint ptr %14 to i64
@@ -4850,8 +4812,8 @@ invoke.cont.i.i20:                                ; preds = %if.then5.i17
   br label %_ZNSt6vectorIfSaIfEE6resizeEm.exit
 
 _ZNSt6vectorIfSaIfEE6resizeEm.exit:               ; preds = %if.then.i21, %if.else.i15, %if.then5.i17, %invoke.cont.i.i20
-  %m_outBitDepthBuffer = getelementptr inbounds %"class.OpenColorIO_v2_4dev::GenericScanlineHelper.23", ptr %this, i64 0, i32 11
-  %_M_finish.i.i23 = getelementptr inbounds %"class.OpenColorIO_v2_4dev::GenericScanlineHelper.23", ptr %this, i64 0, i32 11, i32 0, i32 0, i32 0, i32 1
+  %m_outBitDepthBuffer = getelementptr inbounds i8, ptr %this, i64 280
+  %_M_finish.i.i23 = getelementptr inbounds i8, ptr %this, i64 288
   %16 = load ptr, ptr %_M_finish.i.i23, align 8
   %17 = load ptr, ptr %m_outBitDepthBuffer, align 8
   %sub.ptr.lhs.cast.i.i24 = ptrtoint ptr %16 to i64
@@ -4886,17 +4848,17 @@ if.end27:                                         ; preds = %invoke.cont.i.i34, 
 ; Function Attrs: mustprogress uwtable
 define weak_odr hidden void @_ZN19OpenColorIO_v2_4dev21GenericScanlineHelperIttE4initERKNS_9ImageDescE(ptr noundef nonnull align 8 dereferenceable(309) %this, ptr noundef nonnull align 8 dereferenceable(8) %img) unnamed_addr #5 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  %m_yIndex = getelementptr inbounds %"class.OpenColorIO_v2_4dev::GenericScanlineHelper.23", ptr %this, i64 0, i32 12
+  %m_yIndex = getelementptr inbounds i8, ptr %this, i64 304
   store i32 0, ptr %m_yIndex, align 8
-  %m_srcImg = getelementptr inbounds %"class.OpenColorIO_v2_4dev::GenericScanlineHelper.23", ptr %this, i64 0, i32 5
-  %m_inputBitDepth = getelementptr inbounds %"class.OpenColorIO_v2_4dev::GenericScanlineHelper.23", ptr %this, i64 0, i32 1
+  %m_srcImg = getelementptr inbounds i8, ptr %this, i64 48
+  %m_inputBitDepth = getelementptr inbounds i8, ptr %this, i64 8
   %0 = load i32, ptr %m_inputBitDepth, align 8
-  %m_inBitDepthOp = getelementptr inbounds %"class.OpenColorIO_v2_4dev::GenericScanlineHelper.23", ptr %this, i64 0, i32 3
+  %m_inBitDepthOp = getelementptr inbounds i8, ptr %this, i64 16
   tail call void @_ZN19OpenColorIO_v2_4dev16GenericImageDesc4initERKNS_9ImageDescENS_8BitDepthERKSt10shared_ptrIKNS_5OpCPUEE(ptr noundef nonnull align 8 dereferenceable(82) %m_srcImg, ptr noundef nonnull align 8 dereferenceable(8) %img, i32 noundef %0, ptr noundef nonnull align 8 dereferenceable(16) %m_inBitDepthOp)
-  %m_dstImg = getelementptr inbounds %"class.OpenColorIO_v2_4dev::GenericScanlineHelper.23", ptr %this, i64 0, i32 6
-  %m_outputBitDepth = getelementptr inbounds %"class.OpenColorIO_v2_4dev::GenericScanlineHelper.23", ptr %this, i64 0, i32 2
+  %m_dstImg = getelementptr inbounds i8, ptr %this, i64 136
+  %m_outputBitDepth = getelementptr inbounds i8, ptr %this, i64 12
   %1 = load i32, ptr %m_outputBitDepth, align 4
-  %m_outBitDepthOp = getelementptr inbounds %"class.OpenColorIO_v2_4dev::GenericScanlineHelper.23", ptr %this, i64 0, i32 4
+  %m_outBitDepthOp = getelementptr inbounds i8, ptr %this, i64 32
   tail call void @_ZN19OpenColorIO_v2_4dev16GenericImageDesc4initERKNS_9ImageDescENS_8BitDepthERKSt10shared_ptrIKNS_5OpCPUEE(ptr noundef nonnull align 8 dereferenceable(82) %m_dstImg, ptr noundef nonnull align 8 dereferenceable(8) %img, i32 noundef %1, ptr noundef nonnull align 8 dereferenceable(16) %m_outBitDepthOp)
   %call.i = tail call noundef zeroext i1 @_ZNK19OpenColorIO_v2_4dev16GenericImageDesc12isRGBAPackedEv(ptr noundef nonnull align 8 dereferenceable(82) %m_srcImg)
   br i1 %call.i, label %if.then.i, label %if.then
@@ -4906,26 +4868,26 @@ if.then.i:                                        ; preds = %entry
   br i1 %call1.i, label %_ZN19OpenColorIO_v2_4dev19GetOptimizationModeERKNS_16GenericImageDescE.exit, label %if.then
 
 _ZN19OpenColorIO_v2_4dev19GetOptimizationModeERKNS_16GenericImageDescE.exit: ; preds = %if.then.i
-  %m_inOptimizedMode = getelementptr inbounds %"class.OpenColorIO_v2_4dev::GenericScanlineHelper.23", ptr %this, i64 0, i32 7
+  %m_inOptimizedMode = getelementptr inbounds i8, ptr %this, i64 224
   store i32 3, ptr %m_inOptimizedMode, align 8
-  %m_outOptimizedMode = getelementptr inbounds %"class.OpenColorIO_v2_4dev::GenericScanlineHelper.23", ptr %this, i64 0, i32 8
+  %m_outOptimizedMode = getelementptr inbounds i8, ptr %this, i64 228
   store i32 3, ptr %m_outOptimizedMode, align 4
-  %m_useDstBuffer = getelementptr inbounds %"class.OpenColorIO_v2_4dev::GenericScanlineHelper.23", ptr %this, i64 0, i32 13
+  %m_useDstBuffer = getelementptr inbounds i8, ptr %this, i64 308
   store i8 1, ptr %m_useDstBuffer, align 4
   br label %if.end
 
 if.then:                                          ; preds = %entry, %if.then.i
   %optim.0.i.ph = phi i32 [ 1, %if.then.i ], [ 0, %entry ]
-  %m_inOptimizedMode35 = getelementptr inbounds %"class.OpenColorIO_v2_4dev::GenericScanlineHelper.23", ptr %this, i64 0, i32 7
+  %m_inOptimizedMode35 = getelementptr inbounds i8, ptr %this, i64 224
   store i32 %optim.0.i.ph, ptr %m_inOptimizedMode35, align 8
-  %m_outOptimizedMode36 = getelementptr inbounds %"class.OpenColorIO_v2_4dev::GenericScanlineHelper.23", ptr %this, i64 0, i32 8
+  %m_outOptimizedMode36 = getelementptr inbounds i8, ptr %this, i64 228
   store i32 %optim.0.i.ph, ptr %m_outOptimizedMode36, align 4
-  %m_useDstBuffer38 = getelementptr inbounds %"class.OpenColorIO_v2_4dev::GenericScanlineHelper.23", ptr %this, i64 0, i32 13
+  %m_useDstBuffer38 = getelementptr inbounds i8, ptr %this, i64 308
   store i8 0, ptr %m_useDstBuffer38, align 4
   %2 = load i64, ptr %m_dstImg, align 8
   %mul = shl nsw i64 %2, 2
-  %m_rgbaFloatBuffer = getelementptr inbounds %"class.OpenColorIO_v2_4dev::GenericScanlineHelper.23", ptr %this, i64 0, i32 9
-  %_M_finish.i.i = getelementptr inbounds %"class.OpenColorIO_v2_4dev::GenericScanlineHelper.23", ptr %this, i64 0, i32 9, i32 0, i32 0, i32 0, i32 1
+  %m_rgbaFloatBuffer = getelementptr inbounds i8, ptr %this, i64 232
+  %_M_finish.i.i = getelementptr inbounds i8, ptr %this, i64 240
   %3 = load ptr, ptr %_M_finish.i.i, align 8
   %4 = load ptr, ptr %m_rgbaFloatBuffer, align 8
   %sub.ptr.lhs.cast.i.i = ptrtoint ptr %3 to i64
@@ -4954,8 +4916,8 @@ invoke.cont.i.i:                                  ; preds = %if.then5.i
   br label %_ZNSt6vectorIfSaIfEE6resizeEm.exit
 
 _ZNSt6vectorIfSaIfEE6resizeEm.exit:               ; preds = %if.then.i4, %if.else.i, %if.then5.i, %invoke.cont.i.i
-  %m_inBitDepthBuffer = getelementptr inbounds %"class.OpenColorIO_v2_4dev::GenericScanlineHelper.23", ptr %this, i64 0, i32 10
-  %_M_finish.i.i5 = getelementptr inbounds %"class.OpenColorIO_v2_4dev::GenericScanlineHelper.23", ptr %this, i64 0, i32 10, i32 0, i32 0, i32 0, i32 1
+  %m_inBitDepthBuffer = getelementptr inbounds i8, ptr %this, i64 256
+  %_M_finish.i.i5 = getelementptr inbounds i8, ptr %this, i64 264
   %5 = load ptr, ptr %_M_finish.i.i5, align 8
   %6 = load ptr, ptr %m_inBitDepthBuffer, align 8
   %sub.ptr.lhs.cast.i.i6 = ptrtoint ptr %5 to i64
@@ -4984,8 +4946,8 @@ invoke.cont.i.i16:                                ; preds = %if.then5.i13
   br label %_ZNSt6vectorItSaItEE6resizeEm.exit
 
 _ZNSt6vectorItSaItEE6resizeEm.exit:               ; preds = %if.then.i17, %if.else.i11, %if.then5.i13, %invoke.cont.i.i16
-  %m_outBitDepthBuffer = getelementptr inbounds %"class.OpenColorIO_v2_4dev::GenericScanlineHelper.23", ptr %this, i64 0, i32 11
-  %_M_finish.i.i19 = getelementptr inbounds %"class.OpenColorIO_v2_4dev::GenericScanlineHelper.23", ptr %this, i64 0, i32 11, i32 0, i32 0, i32 0, i32 1
+  %m_outBitDepthBuffer = getelementptr inbounds i8, ptr %this, i64 280
+  %_M_finish.i.i19 = getelementptr inbounds i8, ptr %this, i64 288
   %7 = load ptr, ptr %_M_finish.i.i19, align 8
   %8 = load ptr, ptr %m_outBitDepthBuffer, align 8
   %sub.ptr.lhs.cast.i.i20 = ptrtoint ptr %7 to i64
@@ -5021,7 +4983,7 @@ if.end:                                           ; preds = %invoke.cont.i.i30, 
 define weak_odr hidden void @_ZN19OpenColorIO_v2_4dev21GenericScanlineHelperIttED2Ev(ptr noundef nonnull align 8 dereferenceable(309) %this) unnamed_addr #3 comdat($_ZN19OpenColorIO_v2_4dev21GenericScanlineHelperIttED5Ev) align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTVN19OpenColorIO_v2_4dev21GenericScanlineHelperIttEE, i64 0, inrange i32 0, i64 2), ptr %this, align 8
-  %m_outBitDepthBuffer = getelementptr inbounds %"class.OpenColorIO_v2_4dev::GenericScanlineHelper.23", ptr %this, i64 0, i32 11
+  %m_outBitDepthBuffer = getelementptr inbounds i8, ptr %this, i64 280
   %0 = load ptr, ptr %m_outBitDepthBuffer, align 8
   %tobool.not.i.i.i = icmp eq ptr %0, null
   br i1 %tobool.not.i.i.i, label %_ZNSt6vectorItSaItEED2Ev.exit, label %if.then.i.i.i
@@ -5031,7 +4993,7 @@ if.then.i.i.i:                                    ; preds = %entry
   br label %_ZNSt6vectorItSaItEED2Ev.exit
 
 _ZNSt6vectorItSaItEED2Ev.exit:                    ; preds = %entry, %if.then.i.i.i
-  %m_inBitDepthBuffer = getelementptr inbounds %"class.OpenColorIO_v2_4dev::GenericScanlineHelper.23", ptr %this, i64 0, i32 10
+  %m_inBitDepthBuffer = getelementptr inbounds i8, ptr %this, i64 256
   %1 = load ptr, ptr %m_inBitDepthBuffer, align 8
   %tobool.not.i.i.i1 = icmp eq ptr %1, null
   br i1 %tobool.not.i.i.i1, label %_ZNSt6vectorItSaItEED2Ev.exit3, label %if.then.i.i.i2
@@ -5041,7 +5003,7 @@ if.then.i.i.i2:                                   ; preds = %_ZNSt6vectorItSaItE
   br label %_ZNSt6vectorItSaItEED2Ev.exit3
 
 _ZNSt6vectorItSaItEED2Ev.exit3:                   ; preds = %_ZNSt6vectorItSaItEED2Ev.exit, %if.then.i.i.i2
-  %m_rgbaFloatBuffer = getelementptr inbounds %"class.OpenColorIO_v2_4dev::GenericScanlineHelper.23", ptr %this, i64 0, i32 9
+  %m_rgbaFloatBuffer = getelementptr inbounds i8, ptr %this, i64 232
   %2 = load ptr, ptr %m_rgbaFloatBuffer, align 8
   %tobool.not.i.i.i4 = icmp eq ptr %2, null
   br i1 %tobool.not.i.i.i4, label %_ZNSt6vectorIfSaIfEED2Ev.exit, label %if.then.i.i.i5
@@ -5051,13 +5013,13 @@ if.then.i.i.i5:                                   ; preds = %_ZNSt6vectorItSaItE
   br label %_ZNSt6vectorIfSaIfEED2Ev.exit
 
 _ZNSt6vectorIfSaIfEED2Ev.exit:                    ; preds = %_ZNSt6vectorItSaItEED2Ev.exit3, %if.then.i.i.i5
-  %_M_refcount.i.i.i = getelementptr inbounds %"class.OpenColorIO_v2_4dev::GenericScanlineHelper.23", ptr %this, i64 0, i32 6, i32 8, i32 0, i32 1
+  %_M_refcount.i.i.i = getelementptr inbounds i8, ptr %this, i64 208
   %3 = load ptr, ptr %_M_refcount.i.i.i, align 8
   %cmp.not.i.i.i.i = icmp eq ptr %3, null
   br i1 %cmp.not.i.i.i.i, label %_ZN19OpenColorIO_v2_4dev16GenericImageDescD2Ev.exit, label %if.then.i.i.i.i
 
 if.then.i.i.i.i:                                  ; preds = %_ZNSt6vectorIfSaIfEED2Ev.exit
-  %_M_use_count.i.i.i.i.i = getelementptr inbounds %"class.std::_Sp_counted_base", ptr %3, i64 0, i32 1
+  %_M_use_count.i.i.i.i.i = getelementptr inbounds i8, ptr %3, i64 8
   %4 = load atomic i64, ptr %_M_use_count.i.i.i.i.i acquire, align 8
   %cmp.i.i.i.i.i = icmp eq i64 %4, 4294967297
   %5 = trunc i64 %4 to i32
@@ -5065,10 +5027,10 @@ if.then.i.i.i.i:                                  ; preds = %_ZNSt6vectorIfSaIfE
 
 if.then.i.i.i.i.i:                                ; preds = %if.then.i.i.i.i
   store i32 0, ptr %_M_use_count.i.i.i.i.i, align 8
-  %_M_weak_count.i.i.i.i.i = getelementptr inbounds %"class.std::_Sp_counted_base", ptr %3, i64 0, i32 2
+  %_M_weak_count.i.i.i.i.i = getelementptr inbounds i8, ptr %3, i64 12
   store i32 0, ptr %_M_weak_count.i.i.i.i.i, align 4
   %vtable.i.i.i.i.i = load ptr, ptr %3, align 8
-  %vfn.i.i.i.i.i = getelementptr inbounds ptr, ptr %vtable.i.i.i.i.i, i64 2
+  %vfn.i.i.i.i.i = getelementptr inbounds i8, ptr %vtable.i.i.i.i.i, i64 16
   %6 = load ptr, ptr %vfn.i.i.i.i.i, align 8
   tail call void %6(ptr noundef nonnull align 8 dereferenceable(16) %3) #13
   br label %if.end8.sink.split.i.i.i.i.i
@@ -5094,10 +5056,10 @@ _ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i: ; preds = %if.els
 
 if.then7.i.i.i.i.i:                               ; preds = %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i
   %vtable.i.i.i.i.i.i.i = load ptr, ptr %3, align 8
-  %vfn.i.i.i.i.i.i.i = getelementptr inbounds ptr, ptr %vtable.i.i.i.i.i.i.i, i64 2
+  %vfn.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %vtable.i.i.i.i.i.i.i, i64 16
   %9 = load ptr, ptr %vfn.i.i.i.i.i.i.i, align 8
   tail call void %9(ptr noundef nonnull align 8 dereferenceable(16) %3) #13
-  %_M_weak_count.i.i.i.i.i.i.i = getelementptr inbounds %"class.std::_Sp_counted_base", ptr %3, i64 0, i32 2
+  %_M_weak_count.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %3, i64 12
   %10 = load i8, ptr @__libc_single_threaded, align 1
   %tobool.i.i.not.i.i.i.i.i.i.i = icmp eq i8 %10, 0
   br i1 %tobool.i.i.not.i.i.i.i.i.i.i, label %if.else.i.i.i.i.i.i.i.i, label %if.then.i.i.i.i.i.i.i.i
@@ -5119,19 +5081,19 @@ _ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i.i: ; preds = %if
 
 if.end8.sink.split.i.i.i.i.i:                     ; preds = %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i.i, %if.then.i.i.i.i.i
   %vtable2.i.i.i.i.i.i.i = load ptr, ptr %3, align 8
-  %vfn3.i.i.i.i.i.i.i = getelementptr inbounds ptr, ptr %vtable2.i.i.i.i.i.i.i, i64 3
+  %vfn3.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %vtable2.i.i.i.i.i.i.i, i64 24
   %13 = load ptr, ptr %vfn3.i.i.i.i.i.i.i, align 8
   tail call void %13(ptr noundef nonnull align 8 dereferenceable(16) %3) #13
   br label %_ZN19OpenColorIO_v2_4dev16GenericImageDescD2Ev.exit
 
 _ZN19OpenColorIO_v2_4dev16GenericImageDescD2Ev.exit: ; preds = %_ZNSt6vectorIfSaIfEED2Ev.exit, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i.i, %if.end8.sink.split.i.i.i.i.i
-  %_M_refcount.i.i.i6 = getelementptr inbounds %"class.OpenColorIO_v2_4dev::GenericScanlineHelper.23", ptr %this, i64 0, i32 5, i32 8, i32 0, i32 1
+  %_M_refcount.i.i.i6 = getelementptr inbounds i8, ptr %this, i64 120
   %14 = load ptr, ptr %_M_refcount.i.i.i6, align 8
   %cmp.not.i.i.i.i7 = icmp eq ptr %14, null
   br i1 %cmp.not.i.i.i.i7, label %_ZN19OpenColorIO_v2_4dev16GenericImageDescD2Ev.exit37, label %if.then.i.i.i.i8
 
 if.then.i.i.i.i8:                                 ; preds = %_ZN19OpenColorIO_v2_4dev16GenericImageDescD2Ev.exit
-  %_M_use_count.i.i.i.i.i9 = getelementptr inbounds %"class.std::_Sp_counted_base", ptr %14, i64 0, i32 1
+  %_M_use_count.i.i.i.i.i9 = getelementptr inbounds i8, ptr %14, i64 8
   %15 = load atomic i64, ptr %_M_use_count.i.i.i.i.i9 acquire, align 8
   %cmp.i.i.i.i.i10 = icmp eq i64 %15, 4294967297
   %16 = trunc i64 %15 to i32
@@ -5139,10 +5101,10 @@ if.then.i.i.i.i8:                                 ; preds = %_ZN19OpenColorIO_v2
 
 if.then.i.i.i.i.i33:                              ; preds = %if.then.i.i.i.i8
   store i32 0, ptr %_M_use_count.i.i.i.i.i9, align 8
-  %_M_weak_count.i.i.i.i.i34 = getelementptr inbounds %"class.std::_Sp_counted_base", ptr %14, i64 0, i32 2
+  %_M_weak_count.i.i.i.i.i34 = getelementptr inbounds i8, ptr %14, i64 12
   store i32 0, ptr %_M_weak_count.i.i.i.i.i34, align 4
   %vtable.i.i.i.i.i35 = load ptr, ptr %14, align 8
-  %vfn.i.i.i.i.i36 = getelementptr inbounds ptr, ptr %vtable.i.i.i.i.i35, i64 2
+  %vfn.i.i.i.i.i36 = getelementptr inbounds i8, ptr %vtable.i.i.i.i.i35, i64 16
   %17 = load ptr, ptr %vfn.i.i.i.i.i36, align 8
   tail call void %17(ptr noundef nonnull align 8 dereferenceable(16) %14) #13
   br label %if.end8.sink.split.i.i.i.i.i28
@@ -5168,10 +5130,10 @@ _ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i15: ; preds = %if.e
 
 if.then7.i.i.i.i.i18:                             ; preds = %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i15
   %vtable.i.i.i.i.i.i.i19 = load ptr, ptr %14, align 8
-  %vfn.i.i.i.i.i.i.i20 = getelementptr inbounds ptr, ptr %vtable.i.i.i.i.i.i.i19, i64 2
+  %vfn.i.i.i.i.i.i.i20 = getelementptr inbounds i8, ptr %vtable.i.i.i.i.i.i.i19, i64 16
   %20 = load ptr, ptr %vfn.i.i.i.i.i.i.i20, align 8
   tail call void %20(ptr noundef nonnull align 8 dereferenceable(16) %14) #13
-  %_M_weak_count.i.i.i.i.i.i.i21 = getelementptr inbounds %"class.std::_Sp_counted_base", ptr %14, i64 0, i32 2
+  %_M_weak_count.i.i.i.i.i.i.i21 = getelementptr inbounds i8, ptr %14, i64 12
   %21 = load i8, ptr @__libc_single_threaded, align 1
   %tobool.i.i.not.i.i.i.i.i.i.i22 = icmp eq i8 %21, 0
   br i1 %tobool.i.i.not.i.i.i.i.i.i.i22, label %if.else.i.i.i.i.i.i.i.i31, label %if.then.i.i.i.i.i.i.i.i23
@@ -5193,19 +5155,19 @@ _ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i.i25: ; preds = %
 
 if.end8.sink.split.i.i.i.i.i28:                   ; preds = %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i.i25, %if.then.i.i.i.i.i33
   %vtable2.i.i.i.i.i.i.i29 = load ptr, ptr %14, align 8
-  %vfn3.i.i.i.i.i.i.i30 = getelementptr inbounds ptr, ptr %vtable2.i.i.i.i.i.i.i29, i64 3
+  %vfn3.i.i.i.i.i.i.i30 = getelementptr inbounds i8, ptr %vtable2.i.i.i.i.i.i.i29, i64 24
   %24 = load ptr, ptr %vfn3.i.i.i.i.i.i.i30, align 8
   tail call void %24(ptr noundef nonnull align 8 dereferenceable(16) %14) #13
   br label %_ZN19OpenColorIO_v2_4dev16GenericImageDescD2Ev.exit37
 
 _ZN19OpenColorIO_v2_4dev16GenericImageDescD2Ev.exit37: ; preds = %_ZN19OpenColorIO_v2_4dev16GenericImageDescD2Ev.exit, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i15, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i.i25, %if.end8.sink.split.i.i.i.i.i28
-  %_M_refcount.i.i = getelementptr inbounds %"class.OpenColorIO_v2_4dev::GenericScanlineHelper.23", ptr %this, i64 0, i32 4, i32 0, i32 1
+  %_M_refcount.i.i = getelementptr inbounds i8, ptr %this, i64 40
   %25 = load ptr, ptr %_M_refcount.i.i, align 8
   %cmp.not.i.i.i = icmp eq ptr %25, null
   br i1 %cmp.not.i.i.i, label %_ZNSt10shared_ptrIKN19OpenColorIO_v2_4dev5OpCPUEED2Ev.exit, label %if.then.i.i.i38
 
 if.then.i.i.i38:                                  ; preds = %_ZN19OpenColorIO_v2_4dev16GenericImageDescD2Ev.exit37
-  %_M_use_count.i.i.i.i = getelementptr inbounds %"class.std::_Sp_counted_base", ptr %25, i64 0, i32 1
+  %_M_use_count.i.i.i.i = getelementptr inbounds i8, ptr %25, i64 8
   %26 = load atomic i64, ptr %_M_use_count.i.i.i.i acquire, align 8
   %cmp.i.i.i.i = icmp eq i64 %26, 4294967297
   %27 = trunc i64 %26 to i32
@@ -5213,10 +5175,10 @@ if.then.i.i.i38:                                  ; preds = %_ZN19OpenColorIO_v2
 
 if.then.i.i.i.i40:                                ; preds = %if.then.i.i.i38
   store i32 0, ptr %_M_use_count.i.i.i.i, align 8
-  %_M_weak_count.i.i.i.i = getelementptr inbounds %"class.std::_Sp_counted_base", ptr %25, i64 0, i32 2
+  %_M_weak_count.i.i.i.i = getelementptr inbounds i8, ptr %25, i64 12
   store i32 0, ptr %_M_weak_count.i.i.i.i, align 4
   %vtable.i.i.i.i = load ptr, ptr %25, align 8
-  %vfn.i.i.i.i = getelementptr inbounds ptr, ptr %vtable.i.i.i.i, i64 2
+  %vfn.i.i.i.i = getelementptr inbounds i8, ptr %vtable.i.i.i.i, i64 16
   %28 = load ptr, ptr %vfn.i.i.i.i, align 8
   tail call void %28(ptr noundef nonnull align 8 dereferenceable(16) %25) #13
   br label %if.end8.sink.split.i.i.i.i
@@ -5242,10 +5204,10 @@ _ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i: ; preds = %if.else.
 
 if.then7.i.i.i.i:                                 ; preds = %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i
   %vtable.i.i.i.i.i.i = load ptr, ptr %25, align 8
-  %vfn.i.i.i.i.i.i = getelementptr inbounds ptr, ptr %vtable.i.i.i.i.i.i, i64 2
+  %vfn.i.i.i.i.i.i = getelementptr inbounds i8, ptr %vtable.i.i.i.i.i.i, i64 16
   %31 = load ptr, ptr %vfn.i.i.i.i.i.i, align 8
   tail call void %31(ptr noundef nonnull align 8 dereferenceable(16) %25) #13
-  %_M_weak_count.i.i.i.i.i.i = getelementptr inbounds %"class.std::_Sp_counted_base", ptr %25, i64 0, i32 2
+  %_M_weak_count.i.i.i.i.i.i = getelementptr inbounds i8, ptr %25, i64 12
   %32 = load i8, ptr @__libc_single_threaded, align 1
   %tobool.i.i.not.i.i.i.i.i.i = icmp eq i8 %32, 0
   br i1 %tobool.i.i.not.i.i.i.i.i.i, label %if.else.i.i.i.i.i.i.i, label %if.then.i.i.i.i.i.i.i
@@ -5267,19 +5229,19 @@ _ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i: ; preds = %if.e
 
 if.end8.sink.split.i.i.i.i:                       ; preds = %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i, %if.then.i.i.i.i40
   %vtable2.i.i.i.i.i.i = load ptr, ptr %25, align 8
-  %vfn3.i.i.i.i.i.i = getelementptr inbounds ptr, ptr %vtable2.i.i.i.i.i.i, i64 3
+  %vfn3.i.i.i.i.i.i = getelementptr inbounds i8, ptr %vtable2.i.i.i.i.i.i, i64 24
   %35 = load ptr, ptr %vfn3.i.i.i.i.i.i, align 8
   tail call void %35(ptr noundef nonnull align 8 dereferenceable(16) %25) #13
   br label %_ZNSt10shared_ptrIKN19OpenColorIO_v2_4dev5OpCPUEED2Ev.exit
 
 _ZNSt10shared_ptrIKN19OpenColorIO_v2_4dev5OpCPUEED2Ev.exit: ; preds = %_ZN19OpenColorIO_v2_4dev16GenericImageDescD2Ev.exit37, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i, %if.end8.sink.split.i.i.i.i
-  %_M_refcount.i.i41 = getelementptr inbounds %"class.OpenColorIO_v2_4dev::GenericScanlineHelper.23", ptr %this, i64 0, i32 3, i32 0, i32 1
+  %_M_refcount.i.i41 = getelementptr inbounds i8, ptr %this, i64 24
   %36 = load ptr, ptr %_M_refcount.i.i41, align 8
   %cmp.not.i.i.i42 = icmp eq ptr %36, null
   br i1 %cmp.not.i.i.i42, label %_ZNSt10shared_ptrIKN19OpenColorIO_v2_4dev5OpCPUEED2Ev.exit72, label %if.then.i.i.i43
 
 if.then.i.i.i43:                                  ; preds = %_ZNSt10shared_ptrIKN19OpenColorIO_v2_4dev5OpCPUEED2Ev.exit
-  %_M_use_count.i.i.i.i44 = getelementptr inbounds %"class.std::_Sp_counted_base", ptr %36, i64 0, i32 1
+  %_M_use_count.i.i.i.i44 = getelementptr inbounds i8, ptr %36, i64 8
   %37 = load atomic i64, ptr %_M_use_count.i.i.i.i44 acquire, align 8
   %cmp.i.i.i.i45 = icmp eq i64 %37, 4294967297
   %38 = trunc i64 %37 to i32
@@ -5287,10 +5249,10 @@ if.then.i.i.i43:                                  ; preds = %_ZNSt10shared_ptrIK
 
 if.then.i.i.i.i68:                                ; preds = %if.then.i.i.i43
   store i32 0, ptr %_M_use_count.i.i.i.i44, align 8
-  %_M_weak_count.i.i.i.i69 = getelementptr inbounds %"class.std::_Sp_counted_base", ptr %36, i64 0, i32 2
+  %_M_weak_count.i.i.i.i69 = getelementptr inbounds i8, ptr %36, i64 12
   store i32 0, ptr %_M_weak_count.i.i.i.i69, align 4
   %vtable.i.i.i.i70 = load ptr, ptr %36, align 8
-  %vfn.i.i.i.i71 = getelementptr inbounds ptr, ptr %vtable.i.i.i.i70, i64 2
+  %vfn.i.i.i.i71 = getelementptr inbounds i8, ptr %vtable.i.i.i.i70, i64 16
   %39 = load ptr, ptr %vfn.i.i.i.i71, align 8
   tail call void %39(ptr noundef nonnull align 8 dereferenceable(16) %36) #13
   br label %if.end8.sink.split.i.i.i.i63
@@ -5316,10 +5278,10 @@ _ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i50: ; preds = %if.els
 
 if.then7.i.i.i.i53:                               ; preds = %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i50
   %vtable.i.i.i.i.i.i54 = load ptr, ptr %36, align 8
-  %vfn.i.i.i.i.i.i55 = getelementptr inbounds ptr, ptr %vtable.i.i.i.i.i.i54, i64 2
+  %vfn.i.i.i.i.i.i55 = getelementptr inbounds i8, ptr %vtable.i.i.i.i.i.i54, i64 16
   %42 = load ptr, ptr %vfn.i.i.i.i.i.i55, align 8
   tail call void %42(ptr noundef nonnull align 8 dereferenceable(16) %36) #13
-  %_M_weak_count.i.i.i.i.i.i56 = getelementptr inbounds %"class.std::_Sp_counted_base", ptr %36, i64 0, i32 2
+  %_M_weak_count.i.i.i.i.i.i56 = getelementptr inbounds i8, ptr %36, i64 12
   %43 = load i8, ptr @__libc_single_threaded, align 1
   %tobool.i.i.not.i.i.i.i.i.i57 = icmp eq i8 %43, 0
   br i1 %tobool.i.i.not.i.i.i.i.i.i57, label %if.else.i.i.i.i.i.i.i66, label %if.then.i.i.i.i.i.i.i58
@@ -5341,7 +5303,7 @@ _ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i60: ; preds = %if
 
 if.end8.sink.split.i.i.i.i63:                     ; preds = %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i60, %if.then.i.i.i.i68
   %vtable2.i.i.i.i.i.i64 = load ptr, ptr %36, align 8
-  %vfn3.i.i.i.i.i.i65 = getelementptr inbounds ptr, ptr %vtable2.i.i.i.i.i.i64, i64 3
+  %vfn3.i.i.i.i.i.i65 = getelementptr inbounds i8, ptr %vtable2.i.i.i.i.i.i64, i64 24
   %46 = load ptr, ptr %vfn3.i.i.i.i.i.i65, align 8
   tail call void %46(ptr noundef nonnull align 8 dereferenceable(16) %36) #13
   br label %_ZNSt10shared_ptrIKN19OpenColorIO_v2_4dev5OpCPUEED2Ev.exit72
@@ -5361,66 +5323,66 @@ entry:
 ; Function Attrs: mustprogress uwtable
 define weak_odr hidden void @_ZN19OpenColorIO_v2_4dev21GenericScanlineHelperIttE16prepRGBAScanlineEPPfRl(ptr noundef nonnull align 8 dereferenceable(309) %this, ptr noundef %buffer, ptr noundef nonnull align 8 dereferenceable(8) %numPixels) unnamed_addr #5 comdat align 2 {
 entry:
-  %m_yIndex = getelementptr inbounds %"class.OpenColorIO_v2_4dev::GenericScanlineHelper.23", ptr %this, i64 0, i32 12
+  %m_yIndex = getelementptr inbounds i8, ptr %this, i64 304
   %0 = load i32, ptr %m_yIndex, align 8
   %conv = sext i32 %0 to i64
-  %m_dstImg = getelementptr inbounds %"class.OpenColorIO_v2_4dev::GenericScanlineHelper.23", ptr %this, i64 0, i32 6
-  %m_height = getelementptr inbounds %"class.OpenColorIO_v2_4dev::GenericScanlineHelper.23", ptr %this, i64 0, i32 6, i32 1
+  %m_dstImg = getelementptr inbounds i8, ptr %this, i64 136
+  %m_height = getelementptr inbounds i8, ptr %this, i64 144
   %1 = load i64, ptr %m_height, align 8
   %cmp.not = icmp sgt i64 %1, %conv
   br i1 %cmp.not, label %if.end, label %return
 
 if.end:                                           ; preds = %entry
-  %m_useDstBuffer = getelementptr inbounds %"class.OpenColorIO_v2_4dev::GenericScanlineHelper.23", ptr %this, i64 0, i32 13
+  %m_useDstBuffer = getelementptr inbounds i8, ptr %this, i64 308
   %2 = load i8, ptr %m_useDstBuffer, align 4
   %3 = and i8 %2, 1
   %tobool.not = icmp eq i8 %3, 0
   br i1 %tobool.not, label %cond.false, label %cond.true
 
 cond.true:                                        ; preds = %if.end
-  %m_rData = getelementptr inbounds %"class.OpenColorIO_v2_4dev::GenericScanlineHelper.23", ptr %this, i64 0, i32 6, i32 4
+  %m_rData = getelementptr inbounds i8, ptr %this, i64 168
   %4 = load ptr, ptr %m_rData, align 8
-  %m_yStrideBytes = getelementptr inbounds %"class.OpenColorIO_v2_4dev::GenericScanlineHelper.23", ptr %this, i64 0, i32 6, i32 3
+  %m_yStrideBytes = getelementptr inbounds i8, ptr %this, i64 160
   %5 = load i64, ptr %m_yStrideBytes, align 8
   %mul = mul nsw i64 %5, %conv
   %add.ptr = getelementptr inbounds i8, ptr %4, i64 %mul
   br label %cond.end
 
 cond.false:                                       ; preds = %if.end
-  %m_rgbaFloatBuffer = getelementptr inbounds %"class.OpenColorIO_v2_4dev::GenericScanlineHelper.23", ptr %this, i64 0, i32 9
+  %m_rgbaFloatBuffer = getelementptr inbounds i8, ptr %this, i64 232
   %6 = load ptr, ptr %m_rgbaFloatBuffer, align 8
   br label %cond.end
 
 cond.end:                                         ; preds = %cond.false, %cond.true
   %cond = phi ptr [ %add.ptr, %cond.true ], [ %6, %cond.false ]
   store ptr %cond, ptr %buffer, align 8
-  %m_inOptimizedMode = getelementptr inbounds %"class.OpenColorIO_v2_4dev::GenericScanlineHelper.23", ptr %this, i64 0, i32 7
+  %m_inOptimizedMode = getelementptr inbounds i8, ptr %this, i64 224
   %7 = load i32, ptr %m_inOptimizedMode, align 8
   %and = and i32 %7, 1
   %cmp6.not = icmp eq i32 %and, 0
   br i1 %cmp6.not, label %if.else, label %if.then7
 
 if.then7:                                         ; preds = %cond.end
-  %m_rData8 = getelementptr inbounds %"class.OpenColorIO_v2_4dev::GenericScanlineHelper.23", ptr %this, i64 0, i32 5, i32 4
+  %m_rData8 = getelementptr inbounds i8, ptr %this, i64 80
   %8 = load ptr, ptr %m_rData8, align 8
-  %m_yStrideBytes10 = getelementptr inbounds %"class.OpenColorIO_v2_4dev::GenericScanlineHelper.23", ptr %this, i64 0, i32 5, i32 3
+  %m_yStrideBytes10 = getelementptr inbounds i8, ptr %this, i64 72
   %9 = load i64, ptr %m_yStrideBytes10, align 8
   %10 = load i32, ptr %m_yIndex, align 8
   %conv12 = sext i32 %10 to i64
   %mul13 = mul nsw i64 %9, %conv12
   %add.ptr14 = getelementptr inbounds i8, ptr %8, i64 %mul13
-  %m_bitDepthOp = getelementptr inbounds %"class.OpenColorIO_v2_4dev::GenericScanlineHelper.23", ptr %this, i64 0, i32 5, i32 8
+  %m_bitDepthOp = getelementptr inbounds i8, ptr %this, i64 112
   %11 = load ptr, ptr %m_bitDepthOp, align 8
   %12 = load i64, ptr %m_dstImg, align 8
   %vtable = load ptr, ptr %11, align 8
-  %vfn = getelementptr inbounds ptr, ptr %vtable, i64 2
+  %vfn = getelementptr inbounds i8, ptr %vtable, i64 16
   %13 = load ptr, ptr %vfn, align 8
   tail call void %13(ptr noundef nonnull align 8 dereferenceable(8) %11, ptr noundef %add.ptr14, ptr noundef %cond, i64 noundef %12)
   br label %if.end28
 
 if.else:                                          ; preds = %cond.end
-  %m_srcImg18 = getelementptr inbounds %"class.OpenColorIO_v2_4dev::GenericScanlineHelper.23", ptr %this, i64 0, i32 5
-  %m_inBitDepthBuffer = getelementptr inbounds %"class.OpenColorIO_v2_4dev::GenericScanlineHelper.23", ptr %this, i64 0, i32 10
+  %m_srcImg18 = getelementptr inbounds i8, ptr %this, i64 48
+  %m_inBitDepthBuffer = getelementptr inbounds i8, ptr %this, i64 256
   %14 = load ptr, ptr %m_inBitDepthBuffer, align 8
   %15 = load i64, ptr %m_dstImg, align 8
   %conv22 = trunc i64 %15 to i32
@@ -5443,47 +5405,47 @@ return:                                           ; preds = %entry, %if.end28
 ; Function Attrs: mustprogress uwtable
 define weak_odr hidden void @_ZN19OpenColorIO_v2_4dev21GenericScanlineHelperIttE18finishRGBAScanlineEv(ptr noundef nonnull align 8 dereferenceable(309) %this) unnamed_addr #5 comdat align 2 {
 entry:
-  %m_outOptimizedMode = getelementptr inbounds %"class.OpenColorIO_v2_4dev::GenericScanlineHelper.23", ptr %this, i64 0, i32 8
+  %m_outOptimizedMode = getelementptr inbounds i8, ptr %this, i64 228
   %0 = load i32, ptr %m_outOptimizedMode, align 4
   %and = and i32 %0, 1
   %cmp.not = icmp eq i32 %and, 0
-  %m_dstImg6 = getelementptr inbounds %"class.OpenColorIO_v2_4dev::GenericScanlineHelper.23", ptr %this, i64 0, i32 6
+  %m_dstImg6 = getelementptr inbounds i8, ptr %this, i64 136
   br i1 %cmp.not, label %if.else, label %if.then
 
 if.then:                                          ; preds = %entry
-  %m_rData = getelementptr inbounds %"class.OpenColorIO_v2_4dev::GenericScanlineHelper.23", ptr %this, i64 0, i32 6, i32 4
+  %m_rData = getelementptr inbounds i8, ptr %this, i64 168
   %1 = load ptr, ptr %m_rData, align 8
-  %m_yStrideBytes = getelementptr inbounds %"class.OpenColorIO_v2_4dev::GenericScanlineHelper.23", ptr %this, i64 0, i32 6, i32 3
+  %m_yStrideBytes = getelementptr inbounds i8, ptr %this, i64 160
   %2 = load i64, ptr %m_yStrideBytes, align 8
-  %m_yIndex = getelementptr inbounds %"class.OpenColorIO_v2_4dev::GenericScanlineHelper.23", ptr %this, i64 0, i32 12
+  %m_yIndex = getelementptr inbounds i8, ptr %this, i64 304
   %3 = load i32, ptr %m_yIndex, align 8
   %conv = sext i32 %3 to i64
   %mul = mul nsw i64 %2, %conv
   %add.ptr = getelementptr inbounds i8, ptr %1, i64 %mul
-  %m_useDstBuffer = getelementptr inbounds %"class.OpenColorIO_v2_4dev::GenericScanlineHelper.23", ptr %this, i64 0, i32 13
+  %m_useDstBuffer = getelementptr inbounds i8, ptr %this, i64 308
   %4 = load i8, ptr %m_useDstBuffer, align 4
   %5 = and i8 %4, 1
   %tobool.not = icmp eq i8 %5, 0
-  %m_rgbaFloatBuffer = getelementptr inbounds %"class.OpenColorIO_v2_4dev::GenericScanlineHelper.23", ptr %this, i64 0, i32 9
+  %m_rgbaFloatBuffer = getelementptr inbounds i8, ptr %this, i64 232
   %6 = load ptr, ptr %m_rgbaFloatBuffer, align 8
   %cond = select i1 %tobool.not, ptr %6, ptr %add.ptr
-  %m_bitDepthOp = getelementptr inbounds %"class.OpenColorIO_v2_4dev::GenericScanlineHelper.23", ptr %this, i64 0, i32 6, i32 8
+  %m_bitDepthOp = getelementptr inbounds i8, ptr %this, i64 200
   %7 = load ptr, ptr %m_bitDepthOp, align 8
   %8 = load i64, ptr %m_dstImg6, align 8
   %vtable = load ptr, ptr %7, align 8
-  %vfn = getelementptr inbounds ptr, ptr %vtable, i64 2
+  %vfn = getelementptr inbounds i8, ptr %vtable, i64 16
   %9 = load ptr, ptr %vfn, align 8
   tail call void %9(ptr noundef nonnull align 8 dereferenceable(8) %7, ptr noundef %cond, ptr noundef %add.ptr, i64 noundef %8)
   br label %if.end
 
 if.else:                                          ; preds = %entry
-  %m_rgbaFloatBuffer7 = getelementptr inbounds %"class.OpenColorIO_v2_4dev::GenericScanlineHelper.23", ptr %this, i64 0, i32 9
+  %m_rgbaFloatBuffer7 = getelementptr inbounds i8, ptr %this, i64 232
   %10 = load ptr, ptr %m_rgbaFloatBuffer7, align 8
-  %m_outBitDepthBuffer = getelementptr inbounds %"class.OpenColorIO_v2_4dev::GenericScanlineHelper.23", ptr %this, i64 0, i32 11
+  %m_outBitDepthBuffer = getelementptr inbounds i8, ptr %this, i64 280
   %11 = load ptr, ptr %m_outBitDepthBuffer, align 8
   %12 = load i64, ptr %m_dstImg6, align 8
   %conv12 = trunc i64 %12 to i32
-  %m_yIndex13 = getelementptr inbounds %"class.OpenColorIO_v2_4dev::GenericScanlineHelper.23", ptr %this, i64 0, i32 12
+  %m_yIndex13 = getelementptr inbounds i8, ptr %this, i64 304
   %13 = load i32, ptr %m_yIndex13, align 8
   %conv14 = sext i32 %13 to i64
   %mul17 = mul nsw i64 %12, %conv14
@@ -5491,7 +5453,7 @@ if.else:                                          ; preds = %entry
   br label %if.end
 
 if.end:                                           ; preds = %if.else, %if.then
-  %m_yIndex18 = getelementptr inbounds %"class.OpenColorIO_v2_4dev::GenericScanlineHelper.23", ptr %this, i64 0, i32 12
+  %m_yIndex18 = getelementptr inbounds i8, ptr %this, i64 304
   %14 = load i32, ptr %m_yIndex18, align 8
   %inc = add nsw i32 %14, 1
   store i32 %inc, ptr %m_yIndex18, align 8
@@ -5502,22 +5464,22 @@ if.end:                                           ; preds = %if.else, %if.then
 define weak_odr hidden void @_ZN19OpenColorIO_v2_4dev21GenericScanlineHelperItN9Imath_3_14halfEEC2ENS_8BitDepthERKSt10shared_ptrIKNS_5OpCPUEES4_SA_(ptr noundef nonnull align 8 dereferenceable(309) %this, i32 noundef %inputBitDepth, ptr noundef nonnull align 8 dereferenceable(16) %inBitDepthOp, i32 noundef %outputBitDepth, ptr noundef nonnull align 8 dereferenceable(16) %outBitDepthOp) unnamed_addr #3 comdat($_ZN19OpenColorIO_v2_4dev21GenericScanlineHelperItN9Imath_3_14halfEEC5ENS_8BitDepthERKSt10shared_ptrIKNS_5OpCPUEES4_SA_) align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTVN19OpenColorIO_v2_4dev21GenericScanlineHelperItN9Imath_3_14halfEEE, i64 0, inrange i32 0, i64 2), ptr %this, align 8
-  %m_inputBitDepth = getelementptr inbounds %"class.OpenColorIO_v2_4dev::GenericScanlineHelper.25", ptr %this, i64 0, i32 1
+  %m_inputBitDepth = getelementptr inbounds i8, ptr %this, i64 8
   store i32 %inputBitDepth, ptr %m_inputBitDepth, align 8
-  %m_outputBitDepth = getelementptr inbounds %"class.OpenColorIO_v2_4dev::GenericScanlineHelper.25", ptr %this, i64 0, i32 2
+  %m_outputBitDepth = getelementptr inbounds i8, ptr %this, i64 12
   store i32 %outputBitDepth, ptr %m_outputBitDepth, align 4
-  %m_inBitDepthOp = getelementptr inbounds %"class.OpenColorIO_v2_4dev::GenericScanlineHelper.25", ptr %this, i64 0, i32 3
+  %m_inBitDepthOp = getelementptr inbounds i8, ptr %this, i64 16
   %0 = load ptr, ptr %inBitDepthOp, align 8
   store ptr %0, ptr %m_inBitDepthOp, align 8
-  %_M_refcount.i.i = getelementptr inbounds %"class.OpenColorIO_v2_4dev::GenericScanlineHelper.25", ptr %this, i64 0, i32 3, i32 0, i32 1
-  %_M_refcount3.i.i = getelementptr inbounds %"class.std::__shared_ptr", ptr %inBitDepthOp, i64 0, i32 1
+  %_M_refcount.i.i = getelementptr inbounds i8, ptr %this, i64 24
+  %_M_refcount3.i.i = getelementptr inbounds i8, ptr %inBitDepthOp, i64 8
   %1 = load ptr, ptr %_M_refcount3.i.i, align 8
   store ptr %1, ptr %_M_refcount.i.i, align 8
   %cmp.not.i.i.i = icmp eq ptr %1, null
   br i1 %cmp.not.i.i.i, label %_ZNSt10shared_ptrIKN19OpenColorIO_v2_4dev5OpCPUEEC2ERKS3_.exit, label %if.then.i.i.i
 
 if.then.i.i.i:                                    ; preds = %entry
-  %_M_use_count.i.i.i.i = getelementptr inbounds %"class.std::_Sp_counted_base", ptr %1, i64 0, i32 1
+  %_M_use_count.i.i.i.i = getelementptr inbounds i8, ptr %1, i64 8
   %2 = load i8, ptr @__libc_single_threaded, align 1
   %tobool.i.not.i.i.i.i = icmp eq i8 %2, 0
   br i1 %tobool.i.not.i.i.i.i, label %if.else.i.i.i.i.i, label %if.then.i.i.i.i.i
@@ -5533,18 +5495,18 @@ if.else.i.i.i.i.i:                                ; preds = %if.then.i.i.i
   br label %_ZNSt10shared_ptrIKN19OpenColorIO_v2_4dev5OpCPUEEC2ERKS3_.exit
 
 _ZNSt10shared_ptrIKN19OpenColorIO_v2_4dev5OpCPUEEC2ERKS3_.exit: ; preds = %entry, %if.then.i.i.i.i.i, %if.else.i.i.i.i.i
-  %m_outBitDepthOp = getelementptr inbounds %"class.OpenColorIO_v2_4dev::GenericScanlineHelper.25", ptr %this, i64 0, i32 4
+  %m_outBitDepthOp = getelementptr inbounds i8, ptr %this, i64 32
   %5 = load ptr, ptr %outBitDepthOp, align 8
   store ptr %5, ptr %m_outBitDepthOp, align 8
-  %_M_refcount.i.i1 = getelementptr inbounds %"class.OpenColorIO_v2_4dev::GenericScanlineHelper.25", ptr %this, i64 0, i32 4, i32 0, i32 1
-  %_M_refcount3.i.i2 = getelementptr inbounds %"class.std::__shared_ptr", ptr %outBitDepthOp, i64 0, i32 1
+  %_M_refcount.i.i1 = getelementptr inbounds i8, ptr %this, i64 40
+  %_M_refcount3.i.i2 = getelementptr inbounds i8, ptr %outBitDepthOp, i64 8
   %6 = load ptr, ptr %_M_refcount3.i.i2, align 8
   store ptr %6, ptr %_M_refcount.i.i1, align 8
   %cmp.not.i.i.i3 = icmp eq ptr %6, null
   br i1 %cmp.not.i.i.i3, label %_ZNSt10shared_ptrIKN19OpenColorIO_v2_4dev5OpCPUEEC2ERKS3_.exit10, label %if.then.i.i.i4
 
 if.then.i.i.i4:                                   ; preds = %_ZNSt10shared_ptrIKN19OpenColorIO_v2_4dev5OpCPUEEC2ERKS3_.exit
-  %_M_use_count.i.i.i.i5 = getelementptr inbounds %"class.std::_Sp_counted_base", ptr %6, i64 0, i32 1
+  %_M_use_count.i.i.i.i5 = getelementptr inbounds i8, ptr %6, i64 8
   %7 = load i8, ptr @__libc_single_threaded, align 1
   %tobool.i.not.i.i.i.i6 = icmp eq i8 %7, 0
   br i1 %tobool.i.not.i.i.i.i6, label %if.else.i.i.i.i.i9, label %if.then.i.i.i.i.i7
@@ -5560,11 +5522,11 @@ if.else.i.i.i.i.i9:                               ; preds = %if.then.i.i.i4
   br label %_ZNSt10shared_ptrIKN19OpenColorIO_v2_4dev5OpCPUEEC2ERKS3_.exit10
 
 _ZNSt10shared_ptrIKN19OpenColorIO_v2_4dev5OpCPUEEC2ERKS3_.exit10: ; preds = %_ZNSt10shared_ptrIKN19OpenColorIO_v2_4dev5OpCPUEEC2ERKS3_.exit, %if.then.i.i.i.i.i7, %if.else.i.i.i.i.i9
-  %m_srcImg = getelementptr inbounds %"class.OpenColorIO_v2_4dev::GenericScanlineHelper.25", ptr %this, i64 0, i32 5
+  %m_srcImg = getelementptr inbounds i8, ptr %this, i64 48
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(82) %m_srcImg, i8 0, i64 82, i1 false)
-  %m_dstImg = getelementptr inbounds %"class.OpenColorIO_v2_4dev::GenericScanlineHelper.25", ptr %this, i64 0, i32 6
+  %m_dstImg = getelementptr inbounds i8, ptr %this, i64 136
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(82) %m_dstImg, i8 0, i64 82, i1 false)
-  %m_inOptimizedMode = getelementptr inbounds %"class.OpenColorIO_v2_4dev::GenericScanlineHelper.25", ptr %this, i64 0, i32 7
+  %m_inOptimizedMode = getelementptr inbounds i8, ptr %this, i64 224
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(85) %m_inOptimizedMode, i8 0, i64 85, i1 false)
   ret void
 }
@@ -5572,17 +5534,17 @@ _ZNSt10shared_ptrIKN19OpenColorIO_v2_4dev5OpCPUEEC2ERKS3_.exit10: ; preds = %_ZN
 ; Function Attrs: mustprogress uwtable
 define weak_odr hidden void @_ZN19OpenColorIO_v2_4dev21GenericScanlineHelperItN9Imath_3_14halfEE4initERKNS_9ImageDescES6_(ptr noundef nonnull align 8 dereferenceable(309) %this, ptr noundef nonnull align 8 dereferenceable(8) %srcImg, ptr noundef nonnull align 8 dereferenceable(8) %dstImg) unnamed_addr #5 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  %m_yIndex = getelementptr inbounds %"class.OpenColorIO_v2_4dev::GenericScanlineHelper.25", ptr %this, i64 0, i32 12
+  %m_yIndex = getelementptr inbounds i8, ptr %this, i64 304
   store i32 0, ptr %m_yIndex, align 8
-  %m_srcImg = getelementptr inbounds %"class.OpenColorIO_v2_4dev::GenericScanlineHelper.25", ptr %this, i64 0, i32 5
-  %m_inputBitDepth = getelementptr inbounds %"class.OpenColorIO_v2_4dev::GenericScanlineHelper.25", ptr %this, i64 0, i32 1
+  %m_srcImg = getelementptr inbounds i8, ptr %this, i64 48
+  %m_inputBitDepth = getelementptr inbounds i8, ptr %this, i64 8
   %0 = load i32, ptr %m_inputBitDepth, align 8
-  %m_inBitDepthOp = getelementptr inbounds %"class.OpenColorIO_v2_4dev::GenericScanlineHelper.25", ptr %this, i64 0, i32 3
+  %m_inBitDepthOp = getelementptr inbounds i8, ptr %this, i64 16
   tail call void @_ZN19OpenColorIO_v2_4dev16GenericImageDesc4initERKNS_9ImageDescENS_8BitDepthERKSt10shared_ptrIKNS_5OpCPUEE(ptr noundef nonnull align 8 dereferenceable(82) %m_srcImg, ptr noundef nonnull align 8 dereferenceable(8) %srcImg, i32 noundef %0, ptr noundef nonnull align 8 dereferenceable(16) %m_inBitDepthOp)
-  %m_dstImg = getelementptr inbounds %"class.OpenColorIO_v2_4dev::GenericScanlineHelper.25", ptr %this, i64 0, i32 6
-  %m_outputBitDepth = getelementptr inbounds %"class.OpenColorIO_v2_4dev::GenericScanlineHelper.25", ptr %this, i64 0, i32 2
+  %m_dstImg = getelementptr inbounds i8, ptr %this, i64 136
+  %m_outputBitDepth = getelementptr inbounds i8, ptr %this, i64 12
   %1 = load i32, ptr %m_outputBitDepth, align 4
-  %m_outBitDepthOp = getelementptr inbounds %"class.OpenColorIO_v2_4dev::GenericScanlineHelper.25", ptr %this, i64 0, i32 4
+  %m_outBitDepthOp = getelementptr inbounds i8, ptr %this, i64 32
   tail call void @_ZN19OpenColorIO_v2_4dev16GenericImageDesc4initERKNS_9ImageDescENS_8BitDepthERKSt10shared_ptrIKNS_5OpCPUEE(ptr noundef nonnull align 8 dereferenceable(82) %m_dstImg, ptr noundef nonnull align 8 dereferenceable(8) %dstImg, i32 noundef %1, ptr noundef nonnull align 8 dereferenceable(16) %m_outBitDepthOp)
   %2 = load i64, ptr %m_srcImg, align 8
   %3 = load i64, ptr %m_dstImg, align 8
@@ -5590,9 +5552,9 @@ entry:
   br i1 %cmp.not, label %lor.lhs.false, label %if.then
 
 lor.lhs.false:                                    ; preds = %entry
-  %m_height = getelementptr inbounds %"class.OpenColorIO_v2_4dev::GenericScanlineHelper.25", ptr %this, i64 0, i32 5, i32 1
+  %m_height = getelementptr inbounds i8, ptr %this, i64 56
   %4 = load i64, ptr %m_height, align 8
-  %m_height7 = getelementptr inbounds %"class.OpenColorIO_v2_4dev::GenericScanlineHelper.25", ptr %this, i64 0, i32 6, i32 1
+  %m_height7 = getelementptr inbounds i8, ptr %this, i64 144
   %5 = load i64, ptr %m_height7, align 8
   %cmp8.not = icmp eq i64 %4, %5
   br i1 %cmp8.not, label %if.end, label %if.then
@@ -5623,7 +5585,7 @@ if.then.i:                                        ; preds = %if.end
 
 _ZN19OpenColorIO_v2_4dev19GetOptimizationModeERKNS_16GenericImageDescE.exit: ; preds = %if.end, %if.then.i
   %optim.0.i = phi i32 [ 0, %if.end ], [ %spec.select.i, %if.then.i ]
-  %m_inOptimizedMode = getelementptr inbounds %"class.OpenColorIO_v2_4dev::GenericScanlineHelper.25", ptr %this, i64 0, i32 7
+  %m_inOptimizedMode = getelementptr inbounds i8, ptr %this, i64 224
   store i32 %optim.0.i, ptr %m_inOptimizedMode, align 8
   %call.i2 = tail call noundef zeroext i1 @_ZNK19OpenColorIO_v2_4dev16GenericImageDesc12isRGBAPackedEv(ptr noundef nonnull align 8 dereferenceable(82) %m_dstImg)
   br i1 %call.i2, label %if.then.i4, label %_ZN19OpenColorIO_v2_4dev19GetOptimizationModeERKNS_16GenericImageDescE.exit7
@@ -5635,10 +5597,10 @@ if.then.i4:                                       ; preds = %_ZN19OpenColorIO_v2
 
 _ZN19OpenColorIO_v2_4dev19GetOptimizationModeERKNS_16GenericImageDescE.exit7: ; preds = %_ZN19OpenColorIO_v2_4dev19GetOptimizationModeERKNS_16GenericImageDescE.exit, %if.then.i4
   %optim.0.i3 = phi i32 [ 0, %_ZN19OpenColorIO_v2_4dev19GetOptimizationModeERKNS_16GenericImageDescE.exit ], [ %spec.select.i6, %if.then.i4 ]
-  %m_outOptimizedMode = getelementptr inbounds %"class.OpenColorIO_v2_4dev::GenericScanlineHelper.25", ptr %this, i64 0, i32 8
+  %m_outOptimizedMode = getelementptr inbounds i8, ptr %this, i64 228
   store i32 %optim.0.i3, ptr %m_outOptimizedMode, align 4
   %cmp13 = icmp eq i32 %optim.0.i3, 3
-  %m_useDstBuffer = getelementptr inbounds %"class.OpenColorIO_v2_4dev::GenericScanlineHelper.25", ptr %this, i64 0, i32 13
+  %m_useDstBuffer = getelementptr inbounds i8, ptr %this, i64 308
   %frombool = zext i1 %cmp13 to i8
   store i8 %frombool, ptr %m_useDstBuffer, align 4
   %7 = load i32, ptr %m_inOptimizedMode, align 8
@@ -5649,8 +5611,8 @@ _ZN19OpenColorIO_v2_4dev19GetOptimizationModeERKNS_16GenericImageDescE.exit7: ; 
 if.then17:                                        ; preds = %_ZN19OpenColorIO_v2_4dev19GetOptimizationModeERKNS_16GenericImageDescE.exit7
   %8 = load i64, ptr %m_dstImg, align 8
   %mul = shl nsw i64 %8, 2
-  %m_inBitDepthBuffer = getelementptr inbounds %"class.OpenColorIO_v2_4dev::GenericScanlineHelper.25", ptr %this, i64 0, i32 10
-  %_M_finish.i.i = getelementptr inbounds %"class.OpenColorIO_v2_4dev::GenericScanlineHelper.25", ptr %this, i64 0, i32 10, i32 0, i32 0, i32 0, i32 1
+  %m_inBitDepthBuffer = getelementptr inbounds i8, ptr %this, i64 256
+  %_M_finish.i.i = getelementptr inbounds i8, ptr %this, i64 264
   %9 = load ptr, ptr %_M_finish.i.i, align 8
   %10 = load ptr, ptr %m_inBitDepthBuffer, align 8
   %sub.ptr.lhs.cast.i.i = ptrtoint ptr %9 to i64
@@ -5688,8 +5650,8 @@ if.end20:                                         ; preds = %invoke.cont.i.i, %i
 if.then22:                                        ; preds = %if.end20
   %13 = load i64, ptr %m_dstImg, align 8
   %mul26 = shl nsw i64 %13, 2
-  %m_rgbaFloatBuffer = getelementptr inbounds %"class.OpenColorIO_v2_4dev::GenericScanlineHelper.25", ptr %this, i64 0, i32 9
-  %_M_finish.i.i9 = getelementptr inbounds %"class.OpenColorIO_v2_4dev::GenericScanlineHelper.25", ptr %this, i64 0, i32 9, i32 0, i32 0, i32 0, i32 1
+  %m_rgbaFloatBuffer = getelementptr inbounds i8, ptr %this, i64 232
+  %_M_finish.i.i9 = getelementptr inbounds i8, ptr %this, i64 240
   %14 = load ptr, ptr %_M_finish.i.i9, align 8
   %15 = load ptr, ptr %m_rgbaFloatBuffer, align 8
   %sub.ptr.lhs.cast.i.i10 = ptrtoint ptr %14 to i64
@@ -5718,8 +5680,8 @@ invoke.cont.i.i20:                                ; preds = %if.then5.i17
   br label %_ZNSt6vectorIfSaIfEE6resizeEm.exit
 
 _ZNSt6vectorIfSaIfEE6resizeEm.exit:               ; preds = %if.then.i21, %if.else.i15, %if.then5.i17, %invoke.cont.i.i20
-  %m_outBitDepthBuffer = getelementptr inbounds %"class.OpenColorIO_v2_4dev::GenericScanlineHelper.25", ptr %this, i64 0, i32 11
-  %_M_finish.i.i23 = getelementptr inbounds %"class.OpenColorIO_v2_4dev::GenericScanlineHelper.25", ptr %this, i64 0, i32 11, i32 0, i32 0, i32 0, i32 1
+  %m_outBitDepthBuffer = getelementptr inbounds i8, ptr %this, i64 280
+  %_M_finish.i.i23 = getelementptr inbounds i8, ptr %this, i64 288
   %16 = load ptr, ptr %_M_finish.i.i23, align 8
   %17 = load ptr, ptr %m_outBitDepthBuffer, align 8
   %sub.ptr.lhs.cast.i.i24 = ptrtoint ptr %16 to i64
@@ -5754,17 +5716,17 @@ if.end27:                                         ; preds = %invoke.cont.i.i34, 
 ; Function Attrs: mustprogress uwtable
 define weak_odr hidden void @_ZN19OpenColorIO_v2_4dev21GenericScanlineHelperItN9Imath_3_14halfEE4initERKNS_9ImageDescE(ptr noundef nonnull align 8 dereferenceable(309) %this, ptr noundef nonnull align 8 dereferenceable(8) %img) unnamed_addr #5 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  %m_yIndex = getelementptr inbounds %"class.OpenColorIO_v2_4dev::GenericScanlineHelper.25", ptr %this, i64 0, i32 12
+  %m_yIndex = getelementptr inbounds i8, ptr %this, i64 304
   store i32 0, ptr %m_yIndex, align 8
-  %m_srcImg = getelementptr inbounds %"class.OpenColorIO_v2_4dev::GenericScanlineHelper.25", ptr %this, i64 0, i32 5
-  %m_inputBitDepth = getelementptr inbounds %"class.OpenColorIO_v2_4dev::GenericScanlineHelper.25", ptr %this, i64 0, i32 1
+  %m_srcImg = getelementptr inbounds i8, ptr %this, i64 48
+  %m_inputBitDepth = getelementptr inbounds i8, ptr %this, i64 8
   %0 = load i32, ptr %m_inputBitDepth, align 8
-  %m_inBitDepthOp = getelementptr inbounds %"class.OpenColorIO_v2_4dev::GenericScanlineHelper.25", ptr %this, i64 0, i32 3
+  %m_inBitDepthOp = getelementptr inbounds i8, ptr %this, i64 16
   tail call void @_ZN19OpenColorIO_v2_4dev16GenericImageDesc4initERKNS_9ImageDescENS_8BitDepthERKSt10shared_ptrIKNS_5OpCPUEE(ptr noundef nonnull align 8 dereferenceable(82) %m_srcImg, ptr noundef nonnull align 8 dereferenceable(8) %img, i32 noundef %0, ptr noundef nonnull align 8 dereferenceable(16) %m_inBitDepthOp)
-  %m_dstImg = getelementptr inbounds %"class.OpenColorIO_v2_4dev::GenericScanlineHelper.25", ptr %this, i64 0, i32 6
-  %m_outputBitDepth = getelementptr inbounds %"class.OpenColorIO_v2_4dev::GenericScanlineHelper.25", ptr %this, i64 0, i32 2
+  %m_dstImg = getelementptr inbounds i8, ptr %this, i64 136
+  %m_outputBitDepth = getelementptr inbounds i8, ptr %this, i64 12
   %1 = load i32, ptr %m_outputBitDepth, align 4
-  %m_outBitDepthOp = getelementptr inbounds %"class.OpenColorIO_v2_4dev::GenericScanlineHelper.25", ptr %this, i64 0, i32 4
+  %m_outBitDepthOp = getelementptr inbounds i8, ptr %this, i64 32
   tail call void @_ZN19OpenColorIO_v2_4dev16GenericImageDesc4initERKNS_9ImageDescENS_8BitDepthERKSt10shared_ptrIKNS_5OpCPUEE(ptr noundef nonnull align 8 dereferenceable(82) %m_dstImg, ptr noundef nonnull align 8 dereferenceable(8) %img, i32 noundef %1, ptr noundef nonnull align 8 dereferenceable(16) %m_outBitDepthOp)
   %call.i = tail call noundef zeroext i1 @_ZNK19OpenColorIO_v2_4dev16GenericImageDesc12isRGBAPackedEv(ptr noundef nonnull align 8 dereferenceable(82) %m_srcImg)
   br i1 %call.i, label %if.then.i, label %if.then
@@ -5774,26 +5736,26 @@ if.then.i:                                        ; preds = %entry
   br i1 %call1.i, label %_ZN19OpenColorIO_v2_4dev19GetOptimizationModeERKNS_16GenericImageDescE.exit, label %if.then
 
 _ZN19OpenColorIO_v2_4dev19GetOptimizationModeERKNS_16GenericImageDescE.exit: ; preds = %if.then.i
-  %m_inOptimizedMode = getelementptr inbounds %"class.OpenColorIO_v2_4dev::GenericScanlineHelper.25", ptr %this, i64 0, i32 7
+  %m_inOptimizedMode = getelementptr inbounds i8, ptr %this, i64 224
   store i32 3, ptr %m_inOptimizedMode, align 8
-  %m_outOptimizedMode = getelementptr inbounds %"class.OpenColorIO_v2_4dev::GenericScanlineHelper.25", ptr %this, i64 0, i32 8
+  %m_outOptimizedMode = getelementptr inbounds i8, ptr %this, i64 228
   store i32 3, ptr %m_outOptimizedMode, align 4
-  %m_useDstBuffer = getelementptr inbounds %"class.OpenColorIO_v2_4dev::GenericScanlineHelper.25", ptr %this, i64 0, i32 13
+  %m_useDstBuffer = getelementptr inbounds i8, ptr %this, i64 308
   store i8 1, ptr %m_useDstBuffer, align 4
   br label %if.end
 
 if.then:                                          ; preds = %entry, %if.then.i
   %optim.0.i.ph = phi i32 [ 1, %if.then.i ], [ 0, %entry ]
-  %m_inOptimizedMode34 = getelementptr inbounds %"class.OpenColorIO_v2_4dev::GenericScanlineHelper.25", ptr %this, i64 0, i32 7
+  %m_inOptimizedMode34 = getelementptr inbounds i8, ptr %this, i64 224
   store i32 %optim.0.i.ph, ptr %m_inOptimizedMode34, align 8
-  %m_outOptimizedMode35 = getelementptr inbounds %"class.OpenColorIO_v2_4dev::GenericScanlineHelper.25", ptr %this, i64 0, i32 8
+  %m_outOptimizedMode35 = getelementptr inbounds i8, ptr %this, i64 228
   store i32 %optim.0.i.ph, ptr %m_outOptimizedMode35, align 4
-  %m_useDstBuffer37 = getelementptr inbounds %"class.OpenColorIO_v2_4dev::GenericScanlineHelper.25", ptr %this, i64 0, i32 13
+  %m_useDstBuffer37 = getelementptr inbounds i8, ptr %this, i64 308
   store i8 0, ptr %m_useDstBuffer37, align 4
   %2 = load i64, ptr %m_dstImg, align 8
   %mul = shl nsw i64 %2, 2
-  %m_rgbaFloatBuffer = getelementptr inbounds %"class.OpenColorIO_v2_4dev::GenericScanlineHelper.25", ptr %this, i64 0, i32 9
-  %_M_finish.i.i = getelementptr inbounds %"class.OpenColorIO_v2_4dev::GenericScanlineHelper.25", ptr %this, i64 0, i32 9, i32 0, i32 0, i32 0, i32 1
+  %m_rgbaFloatBuffer = getelementptr inbounds i8, ptr %this, i64 232
+  %_M_finish.i.i = getelementptr inbounds i8, ptr %this, i64 240
   %3 = load ptr, ptr %_M_finish.i.i, align 8
   %4 = load ptr, ptr %m_rgbaFloatBuffer, align 8
   %sub.ptr.lhs.cast.i.i = ptrtoint ptr %3 to i64
@@ -5822,8 +5784,8 @@ invoke.cont.i.i:                                  ; preds = %if.then5.i
   br label %_ZNSt6vectorIfSaIfEE6resizeEm.exit
 
 _ZNSt6vectorIfSaIfEE6resizeEm.exit:               ; preds = %if.then.i4, %if.else.i, %if.then5.i, %invoke.cont.i.i
-  %m_inBitDepthBuffer = getelementptr inbounds %"class.OpenColorIO_v2_4dev::GenericScanlineHelper.25", ptr %this, i64 0, i32 10
-  %_M_finish.i.i5 = getelementptr inbounds %"class.OpenColorIO_v2_4dev::GenericScanlineHelper.25", ptr %this, i64 0, i32 10, i32 0, i32 0, i32 0, i32 1
+  %m_inBitDepthBuffer = getelementptr inbounds i8, ptr %this, i64 256
+  %_M_finish.i.i5 = getelementptr inbounds i8, ptr %this, i64 264
   %5 = load ptr, ptr %_M_finish.i.i5, align 8
   %6 = load ptr, ptr %m_inBitDepthBuffer, align 8
   %sub.ptr.lhs.cast.i.i6 = ptrtoint ptr %5 to i64
@@ -5852,8 +5814,8 @@ invoke.cont.i.i16:                                ; preds = %if.then5.i13
   br label %_ZNSt6vectorItSaItEE6resizeEm.exit
 
 _ZNSt6vectorItSaItEE6resizeEm.exit:               ; preds = %if.then.i17, %if.else.i11, %if.then5.i13, %invoke.cont.i.i16
-  %m_outBitDepthBuffer = getelementptr inbounds %"class.OpenColorIO_v2_4dev::GenericScanlineHelper.25", ptr %this, i64 0, i32 11
-  %_M_finish.i.i19 = getelementptr inbounds %"class.OpenColorIO_v2_4dev::GenericScanlineHelper.25", ptr %this, i64 0, i32 11, i32 0, i32 0, i32 0, i32 1
+  %m_outBitDepthBuffer = getelementptr inbounds i8, ptr %this, i64 280
+  %_M_finish.i.i19 = getelementptr inbounds i8, ptr %this, i64 288
   %7 = load ptr, ptr %_M_finish.i.i19, align 8
   %8 = load ptr, ptr %m_outBitDepthBuffer, align 8
   %sub.ptr.lhs.cast.i.i20 = ptrtoint ptr %7 to i64
@@ -5889,7 +5851,7 @@ if.end:                                           ; preds = %invoke.cont.i.i30, 
 define weak_odr hidden void @_ZN19OpenColorIO_v2_4dev21GenericScanlineHelperItN9Imath_3_14halfEED2Ev(ptr noundef nonnull align 8 dereferenceable(309) %this) unnamed_addr #3 comdat($_ZN19OpenColorIO_v2_4dev21GenericScanlineHelperItN9Imath_3_14halfEED5Ev) align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTVN19OpenColorIO_v2_4dev21GenericScanlineHelperItN9Imath_3_14halfEEE, i64 0, inrange i32 0, i64 2), ptr %this, align 8
-  %m_outBitDepthBuffer = getelementptr inbounds %"class.OpenColorIO_v2_4dev::GenericScanlineHelper.25", ptr %this, i64 0, i32 11
+  %m_outBitDepthBuffer = getelementptr inbounds i8, ptr %this, i64 280
   %0 = load ptr, ptr %m_outBitDepthBuffer, align 8
   %tobool.not.i.i.i = icmp eq ptr %0, null
   br i1 %tobool.not.i.i.i, label %_ZNSt6vectorIN9Imath_3_14halfESaIS1_EED2Ev.exit, label %if.then.i.i.i
@@ -5899,7 +5861,7 @@ if.then.i.i.i:                                    ; preds = %entry
   br label %_ZNSt6vectorIN9Imath_3_14halfESaIS1_EED2Ev.exit
 
 _ZNSt6vectorIN9Imath_3_14halfESaIS1_EED2Ev.exit:  ; preds = %entry, %if.then.i.i.i
-  %m_inBitDepthBuffer = getelementptr inbounds %"class.OpenColorIO_v2_4dev::GenericScanlineHelper.25", ptr %this, i64 0, i32 10
+  %m_inBitDepthBuffer = getelementptr inbounds i8, ptr %this, i64 256
   %1 = load ptr, ptr %m_inBitDepthBuffer, align 8
   %tobool.not.i.i.i1 = icmp eq ptr %1, null
   br i1 %tobool.not.i.i.i1, label %_ZNSt6vectorItSaItEED2Ev.exit, label %if.then.i.i.i2
@@ -5909,7 +5871,7 @@ if.then.i.i.i2:                                   ; preds = %_ZNSt6vectorIN9Imat
   br label %_ZNSt6vectorItSaItEED2Ev.exit
 
 _ZNSt6vectorItSaItEED2Ev.exit:                    ; preds = %_ZNSt6vectorIN9Imath_3_14halfESaIS1_EED2Ev.exit, %if.then.i.i.i2
-  %m_rgbaFloatBuffer = getelementptr inbounds %"class.OpenColorIO_v2_4dev::GenericScanlineHelper.25", ptr %this, i64 0, i32 9
+  %m_rgbaFloatBuffer = getelementptr inbounds i8, ptr %this, i64 232
   %2 = load ptr, ptr %m_rgbaFloatBuffer, align 8
   %tobool.not.i.i.i3 = icmp eq ptr %2, null
   br i1 %tobool.not.i.i.i3, label %_ZNSt6vectorIfSaIfEED2Ev.exit, label %if.then.i.i.i4
@@ -5919,13 +5881,13 @@ if.then.i.i.i4:                                   ; preds = %_ZNSt6vectorItSaItE
   br label %_ZNSt6vectorIfSaIfEED2Ev.exit
 
 _ZNSt6vectorIfSaIfEED2Ev.exit:                    ; preds = %_ZNSt6vectorItSaItEED2Ev.exit, %if.then.i.i.i4
-  %_M_refcount.i.i.i = getelementptr inbounds %"class.OpenColorIO_v2_4dev::GenericScanlineHelper.25", ptr %this, i64 0, i32 6, i32 8, i32 0, i32 1
+  %_M_refcount.i.i.i = getelementptr inbounds i8, ptr %this, i64 208
   %3 = load ptr, ptr %_M_refcount.i.i.i, align 8
   %cmp.not.i.i.i.i = icmp eq ptr %3, null
   br i1 %cmp.not.i.i.i.i, label %_ZN19OpenColorIO_v2_4dev16GenericImageDescD2Ev.exit, label %if.then.i.i.i.i
 
 if.then.i.i.i.i:                                  ; preds = %_ZNSt6vectorIfSaIfEED2Ev.exit
-  %_M_use_count.i.i.i.i.i = getelementptr inbounds %"class.std::_Sp_counted_base", ptr %3, i64 0, i32 1
+  %_M_use_count.i.i.i.i.i = getelementptr inbounds i8, ptr %3, i64 8
   %4 = load atomic i64, ptr %_M_use_count.i.i.i.i.i acquire, align 8
   %cmp.i.i.i.i.i = icmp eq i64 %4, 4294967297
   %5 = trunc i64 %4 to i32
@@ -5933,10 +5895,10 @@ if.then.i.i.i.i:                                  ; preds = %_ZNSt6vectorIfSaIfE
 
 if.then.i.i.i.i.i:                                ; preds = %if.then.i.i.i.i
   store i32 0, ptr %_M_use_count.i.i.i.i.i, align 8
-  %_M_weak_count.i.i.i.i.i = getelementptr inbounds %"class.std::_Sp_counted_base", ptr %3, i64 0, i32 2
+  %_M_weak_count.i.i.i.i.i = getelementptr inbounds i8, ptr %3, i64 12
   store i32 0, ptr %_M_weak_count.i.i.i.i.i, align 4
   %vtable.i.i.i.i.i = load ptr, ptr %3, align 8
-  %vfn.i.i.i.i.i = getelementptr inbounds ptr, ptr %vtable.i.i.i.i.i, i64 2
+  %vfn.i.i.i.i.i = getelementptr inbounds i8, ptr %vtable.i.i.i.i.i, i64 16
   %6 = load ptr, ptr %vfn.i.i.i.i.i, align 8
   tail call void %6(ptr noundef nonnull align 8 dereferenceable(16) %3) #13
   br label %if.end8.sink.split.i.i.i.i.i
@@ -5962,10 +5924,10 @@ _ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i: ; preds = %if.els
 
 if.then7.i.i.i.i.i:                               ; preds = %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i
   %vtable.i.i.i.i.i.i.i = load ptr, ptr %3, align 8
-  %vfn.i.i.i.i.i.i.i = getelementptr inbounds ptr, ptr %vtable.i.i.i.i.i.i.i, i64 2
+  %vfn.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %vtable.i.i.i.i.i.i.i, i64 16
   %9 = load ptr, ptr %vfn.i.i.i.i.i.i.i, align 8
   tail call void %9(ptr noundef nonnull align 8 dereferenceable(16) %3) #13
-  %_M_weak_count.i.i.i.i.i.i.i = getelementptr inbounds %"class.std::_Sp_counted_base", ptr %3, i64 0, i32 2
+  %_M_weak_count.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %3, i64 12
   %10 = load i8, ptr @__libc_single_threaded, align 1
   %tobool.i.i.not.i.i.i.i.i.i.i = icmp eq i8 %10, 0
   br i1 %tobool.i.i.not.i.i.i.i.i.i.i, label %if.else.i.i.i.i.i.i.i.i, label %if.then.i.i.i.i.i.i.i.i
@@ -5987,19 +5949,19 @@ _ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i.i: ; preds = %if
 
 if.end8.sink.split.i.i.i.i.i:                     ; preds = %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i.i, %if.then.i.i.i.i.i
   %vtable2.i.i.i.i.i.i.i = load ptr, ptr %3, align 8
-  %vfn3.i.i.i.i.i.i.i = getelementptr inbounds ptr, ptr %vtable2.i.i.i.i.i.i.i, i64 3
+  %vfn3.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %vtable2.i.i.i.i.i.i.i, i64 24
   %13 = load ptr, ptr %vfn3.i.i.i.i.i.i.i, align 8
   tail call void %13(ptr noundef nonnull align 8 dereferenceable(16) %3) #13
   br label %_ZN19OpenColorIO_v2_4dev16GenericImageDescD2Ev.exit
 
 _ZN19OpenColorIO_v2_4dev16GenericImageDescD2Ev.exit: ; preds = %_ZNSt6vectorIfSaIfEED2Ev.exit, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i.i, %if.end8.sink.split.i.i.i.i.i
-  %_M_refcount.i.i.i5 = getelementptr inbounds %"class.OpenColorIO_v2_4dev::GenericScanlineHelper.25", ptr %this, i64 0, i32 5, i32 8, i32 0, i32 1
+  %_M_refcount.i.i.i5 = getelementptr inbounds i8, ptr %this, i64 120
   %14 = load ptr, ptr %_M_refcount.i.i.i5, align 8
   %cmp.not.i.i.i.i6 = icmp eq ptr %14, null
   br i1 %cmp.not.i.i.i.i6, label %_ZN19OpenColorIO_v2_4dev16GenericImageDescD2Ev.exit36, label %if.then.i.i.i.i7
 
 if.then.i.i.i.i7:                                 ; preds = %_ZN19OpenColorIO_v2_4dev16GenericImageDescD2Ev.exit
-  %_M_use_count.i.i.i.i.i8 = getelementptr inbounds %"class.std::_Sp_counted_base", ptr %14, i64 0, i32 1
+  %_M_use_count.i.i.i.i.i8 = getelementptr inbounds i8, ptr %14, i64 8
   %15 = load atomic i64, ptr %_M_use_count.i.i.i.i.i8 acquire, align 8
   %cmp.i.i.i.i.i9 = icmp eq i64 %15, 4294967297
   %16 = trunc i64 %15 to i32
@@ -6007,10 +5969,10 @@ if.then.i.i.i.i7:                                 ; preds = %_ZN19OpenColorIO_v2
 
 if.then.i.i.i.i.i32:                              ; preds = %if.then.i.i.i.i7
   store i32 0, ptr %_M_use_count.i.i.i.i.i8, align 8
-  %_M_weak_count.i.i.i.i.i33 = getelementptr inbounds %"class.std::_Sp_counted_base", ptr %14, i64 0, i32 2
+  %_M_weak_count.i.i.i.i.i33 = getelementptr inbounds i8, ptr %14, i64 12
   store i32 0, ptr %_M_weak_count.i.i.i.i.i33, align 4
   %vtable.i.i.i.i.i34 = load ptr, ptr %14, align 8
-  %vfn.i.i.i.i.i35 = getelementptr inbounds ptr, ptr %vtable.i.i.i.i.i34, i64 2
+  %vfn.i.i.i.i.i35 = getelementptr inbounds i8, ptr %vtable.i.i.i.i.i34, i64 16
   %17 = load ptr, ptr %vfn.i.i.i.i.i35, align 8
   tail call void %17(ptr noundef nonnull align 8 dereferenceable(16) %14) #13
   br label %if.end8.sink.split.i.i.i.i.i27
@@ -6036,10 +5998,10 @@ _ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i14: ; preds = %if.e
 
 if.then7.i.i.i.i.i17:                             ; preds = %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i14
   %vtable.i.i.i.i.i.i.i18 = load ptr, ptr %14, align 8
-  %vfn.i.i.i.i.i.i.i19 = getelementptr inbounds ptr, ptr %vtable.i.i.i.i.i.i.i18, i64 2
+  %vfn.i.i.i.i.i.i.i19 = getelementptr inbounds i8, ptr %vtable.i.i.i.i.i.i.i18, i64 16
   %20 = load ptr, ptr %vfn.i.i.i.i.i.i.i19, align 8
   tail call void %20(ptr noundef nonnull align 8 dereferenceable(16) %14) #13
-  %_M_weak_count.i.i.i.i.i.i.i20 = getelementptr inbounds %"class.std::_Sp_counted_base", ptr %14, i64 0, i32 2
+  %_M_weak_count.i.i.i.i.i.i.i20 = getelementptr inbounds i8, ptr %14, i64 12
   %21 = load i8, ptr @__libc_single_threaded, align 1
   %tobool.i.i.not.i.i.i.i.i.i.i21 = icmp eq i8 %21, 0
   br i1 %tobool.i.i.not.i.i.i.i.i.i.i21, label %if.else.i.i.i.i.i.i.i.i30, label %if.then.i.i.i.i.i.i.i.i22
@@ -6061,19 +6023,19 @@ _ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i.i24: ; preds = %
 
 if.end8.sink.split.i.i.i.i.i27:                   ; preds = %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i.i24, %if.then.i.i.i.i.i32
   %vtable2.i.i.i.i.i.i.i28 = load ptr, ptr %14, align 8
-  %vfn3.i.i.i.i.i.i.i29 = getelementptr inbounds ptr, ptr %vtable2.i.i.i.i.i.i.i28, i64 3
+  %vfn3.i.i.i.i.i.i.i29 = getelementptr inbounds i8, ptr %vtable2.i.i.i.i.i.i.i28, i64 24
   %24 = load ptr, ptr %vfn3.i.i.i.i.i.i.i29, align 8
   tail call void %24(ptr noundef nonnull align 8 dereferenceable(16) %14) #13
   br label %_ZN19OpenColorIO_v2_4dev16GenericImageDescD2Ev.exit36
 
 _ZN19OpenColorIO_v2_4dev16GenericImageDescD2Ev.exit36: ; preds = %_ZN19OpenColorIO_v2_4dev16GenericImageDescD2Ev.exit, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i14, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i.i24, %if.end8.sink.split.i.i.i.i.i27
-  %_M_refcount.i.i = getelementptr inbounds %"class.OpenColorIO_v2_4dev::GenericScanlineHelper.25", ptr %this, i64 0, i32 4, i32 0, i32 1
+  %_M_refcount.i.i = getelementptr inbounds i8, ptr %this, i64 40
   %25 = load ptr, ptr %_M_refcount.i.i, align 8
   %cmp.not.i.i.i = icmp eq ptr %25, null
   br i1 %cmp.not.i.i.i, label %_ZNSt10shared_ptrIKN19OpenColorIO_v2_4dev5OpCPUEED2Ev.exit, label %if.then.i.i.i37
 
 if.then.i.i.i37:                                  ; preds = %_ZN19OpenColorIO_v2_4dev16GenericImageDescD2Ev.exit36
-  %_M_use_count.i.i.i.i = getelementptr inbounds %"class.std::_Sp_counted_base", ptr %25, i64 0, i32 1
+  %_M_use_count.i.i.i.i = getelementptr inbounds i8, ptr %25, i64 8
   %26 = load atomic i64, ptr %_M_use_count.i.i.i.i acquire, align 8
   %cmp.i.i.i.i = icmp eq i64 %26, 4294967297
   %27 = trunc i64 %26 to i32
@@ -6081,10 +6043,10 @@ if.then.i.i.i37:                                  ; preds = %_ZN19OpenColorIO_v2
 
 if.then.i.i.i.i39:                                ; preds = %if.then.i.i.i37
   store i32 0, ptr %_M_use_count.i.i.i.i, align 8
-  %_M_weak_count.i.i.i.i = getelementptr inbounds %"class.std::_Sp_counted_base", ptr %25, i64 0, i32 2
+  %_M_weak_count.i.i.i.i = getelementptr inbounds i8, ptr %25, i64 12
   store i32 0, ptr %_M_weak_count.i.i.i.i, align 4
   %vtable.i.i.i.i = load ptr, ptr %25, align 8
-  %vfn.i.i.i.i = getelementptr inbounds ptr, ptr %vtable.i.i.i.i, i64 2
+  %vfn.i.i.i.i = getelementptr inbounds i8, ptr %vtable.i.i.i.i, i64 16
   %28 = load ptr, ptr %vfn.i.i.i.i, align 8
   tail call void %28(ptr noundef nonnull align 8 dereferenceable(16) %25) #13
   br label %if.end8.sink.split.i.i.i.i
@@ -6110,10 +6072,10 @@ _ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i: ; preds = %if.else.
 
 if.then7.i.i.i.i:                                 ; preds = %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i
   %vtable.i.i.i.i.i.i = load ptr, ptr %25, align 8
-  %vfn.i.i.i.i.i.i = getelementptr inbounds ptr, ptr %vtable.i.i.i.i.i.i, i64 2
+  %vfn.i.i.i.i.i.i = getelementptr inbounds i8, ptr %vtable.i.i.i.i.i.i, i64 16
   %31 = load ptr, ptr %vfn.i.i.i.i.i.i, align 8
   tail call void %31(ptr noundef nonnull align 8 dereferenceable(16) %25) #13
-  %_M_weak_count.i.i.i.i.i.i = getelementptr inbounds %"class.std::_Sp_counted_base", ptr %25, i64 0, i32 2
+  %_M_weak_count.i.i.i.i.i.i = getelementptr inbounds i8, ptr %25, i64 12
   %32 = load i8, ptr @__libc_single_threaded, align 1
   %tobool.i.i.not.i.i.i.i.i.i = icmp eq i8 %32, 0
   br i1 %tobool.i.i.not.i.i.i.i.i.i, label %if.else.i.i.i.i.i.i.i, label %if.then.i.i.i.i.i.i.i
@@ -6135,19 +6097,19 @@ _ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i: ; preds = %if.e
 
 if.end8.sink.split.i.i.i.i:                       ; preds = %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i, %if.then.i.i.i.i39
   %vtable2.i.i.i.i.i.i = load ptr, ptr %25, align 8
-  %vfn3.i.i.i.i.i.i = getelementptr inbounds ptr, ptr %vtable2.i.i.i.i.i.i, i64 3
+  %vfn3.i.i.i.i.i.i = getelementptr inbounds i8, ptr %vtable2.i.i.i.i.i.i, i64 24
   %35 = load ptr, ptr %vfn3.i.i.i.i.i.i, align 8
   tail call void %35(ptr noundef nonnull align 8 dereferenceable(16) %25) #13
   br label %_ZNSt10shared_ptrIKN19OpenColorIO_v2_4dev5OpCPUEED2Ev.exit
 
 _ZNSt10shared_ptrIKN19OpenColorIO_v2_4dev5OpCPUEED2Ev.exit: ; preds = %_ZN19OpenColorIO_v2_4dev16GenericImageDescD2Ev.exit36, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i, %if.end8.sink.split.i.i.i.i
-  %_M_refcount.i.i40 = getelementptr inbounds %"class.OpenColorIO_v2_4dev::GenericScanlineHelper.25", ptr %this, i64 0, i32 3, i32 0, i32 1
+  %_M_refcount.i.i40 = getelementptr inbounds i8, ptr %this, i64 24
   %36 = load ptr, ptr %_M_refcount.i.i40, align 8
   %cmp.not.i.i.i41 = icmp eq ptr %36, null
   br i1 %cmp.not.i.i.i41, label %_ZNSt10shared_ptrIKN19OpenColorIO_v2_4dev5OpCPUEED2Ev.exit71, label %if.then.i.i.i42
 
 if.then.i.i.i42:                                  ; preds = %_ZNSt10shared_ptrIKN19OpenColorIO_v2_4dev5OpCPUEED2Ev.exit
-  %_M_use_count.i.i.i.i43 = getelementptr inbounds %"class.std::_Sp_counted_base", ptr %36, i64 0, i32 1
+  %_M_use_count.i.i.i.i43 = getelementptr inbounds i8, ptr %36, i64 8
   %37 = load atomic i64, ptr %_M_use_count.i.i.i.i43 acquire, align 8
   %cmp.i.i.i.i44 = icmp eq i64 %37, 4294967297
   %38 = trunc i64 %37 to i32
@@ -6155,10 +6117,10 @@ if.then.i.i.i42:                                  ; preds = %_ZNSt10shared_ptrIK
 
 if.then.i.i.i.i67:                                ; preds = %if.then.i.i.i42
   store i32 0, ptr %_M_use_count.i.i.i.i43, align 8
-  %_M_weak_count.i.i.i.i68 = getelementptr inbounds %"class.std::_Sp_counted_base", ptr %36, i64 0, i32 2
+  %_M_weak_count.i.i.i.i68 = getelementptr inbounds i8, ptr %36, i64 12
   store i32 0, ptr %_M_weak_count.i.i.i.i68, align 4
   %vtable.i.i.i.i69 = load ptr, ptr %36, align 8
-  %vfn.i.i.i.i70 = getelementptr inbounds ptr, ptr %vtable.i.i.i.i69, i64 2
+  %vfn.i.i.i.i70 = getelementptr inbounds i8, ptr %vtable.i.i.i.i69, i64 16
   %39 = load ptr, ptr %vfn.i.i.i.i70, align 8
   tail call void %39(ptr noundef nonnull align 8 dereferenceable(16) %36) #13
   br label %if.end8.sink.split.i.i.i.i62
@@ -6184,10 +6146,10 @@ _ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i49: ; preds = %if.els
 
 if.then7.i.i.i.i52:                               ; preds = %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i49
   %vtable.i.i.i.i.i.i53 = load ptr, ptr %36, align 8
-  %vfn.i.i.i.i.i.i54 = getelementptr inbounds ptr, ptr %vtable.i.i.i.i.i.i53, i64 2
+  %vfn.i.i.i.i.i.i54 = getelementptr inbounds i8, ptr %vtable.i.i.i.i.i.i53, i64 16
   %42 = load ptr, ptr %vfn.i.i.i.i.i.i54, align 8
   tail call void %42(ptr noundef nonnull align 8 dereferenceable(16) %36) #13
-  %_M_weak_count.i.i.i.i.i.i55 = getelementptr inbounds %"class.std::_Sp_counted_base", ptr %36, i64 0, i32 2
+  %_M_weak_count.i.i.i.i.i.i55 = getelementptr inbounds i8, ptr %36, i64 12
   %43 = load i8, ptr @__libc_single_threaded, align 1
   %tobool.i.i.not.i.i.i.i.i.i56 = icmp eq i8 %43, 0
   br i1 %tobool.i.i.not.i.i.i.i.i.i56, label %if.else.i.i.i.i.i.i.i65, label %if.then.i.i.i.i.i.i.i57
@@ -6209,7 +6171,7 @@ _ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i59: ; preds = %if
 
 if.end8.sink.split.i.i.i.i62:                     ; preds = %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i59, %if.then.i.i.i.i67
   %vtable2.i.i.i.i.i.i63 = load ptr, ptr %36, align 8
-  %vfn3.i.i.i.i.i.i64 = getelementptr inbounds ptr, ptr %vtable2.i.i.i.i.i.i63, i64 3
+  %vfn3.i.i.i.i.i.i64 = getelementptr inbounds i8, ptr %vtable2.i.i.i.i.i.i63, i64 24
   %46 = load ptr, ptr %vfn3.i.i.i.i.i.i64, align 8
   tail call void %46(ptr noundef nonnull align 8 dereferenceable(16) %36) #13
   br label %_ZNSt10shared_ptrIKN19OpenColorIO_v2_4dev5OpCPUEED2Ev.exit71
@@ -6229,66 +6191,66 @@ entry:
 ; Function Attrs: mustprogress uwtable
 define weak_odr hidden void @_ZN19OpenColorIO_v2_4dev21GenericScanlineHelperItN9Imath_3_14halfEE16prepRGBAScanlineEPPfRl(ptr noundef nonnull align 8 dereferenceable(309) %this, ptr noundef %buffer, ptr noundef nonnull align 8 dereferenceable(8) %numPixels) unnamed_addr #5 comdat align 2 {
 entry:
-  %m_yIndex = getelementptr inbounds %"class.OpenColorIO_v2_4dev::GenericScanlineHelper.25", ptr %this, i64 0, i32 12
+  %m_yIndex = getelementptr inbounds i8, ptr %this, i64 304
   %0 = load i32, ptr %m_yIndex, align 8
   %conv = sext i32 %0 to i64
-  %m_dstImg = getelementptr inbounds %"class.OpenColorIO_v2_4dev::GenericScanlineHelper.25", ptr %this, i64 0, i32 6
-  %m_height = getelementptr inbounds %"class.OpenColorIO_v2_4dev::GenericScanlineHelper.25", ptr %this, i64 0, i32 6, i32 1
+  %m_dstImg = getelementptr inbounds i8, ptr %this, i64 136
+  %m_height = getelementptr inbounds i8, ptr %this, i64 144
   %1 = load i64, ptr %m_height, align 8
   %cmp.not = icmp sgt i64 %1, %conv
   br i1 %cmp.not, label %if.end, label %return
 
 if.end:                                           ; preds = %entry
-  %m_useDstBuffer = getelementptr inbounds %"class.OpenColorIO_v2_4dev::GenericScanlineHelper.25", ptr %this, i64 0, i32 13
+  %m_useDstBuffer = getelementptr inbounds i8, ptr %this, i64 308
   %2 = load i8, ptr %m_useDstBuffer, align 4
   %3 = and i8 %2, 1
   %tobool.not = icmp eq i8 %3, 0
   br i1 %tobool.not, label %cond.false, label %cond.true
 
 cond.true:                                        ; preds = %if.end
-  %m_rData = getelementptr inbounds %"class.OpenColorIO_v2_4dev::GenericScanlineHelper.25", ptr %this, i64 0, i32 6, i32 4
+  %m_rData = getelementptr inbounds i8, ptr %this, i64 168
   %4 = load ptr, ptr %m_rData, align 8
-  %m_yStrideBytes = getelementptr inbounds %"class.OpenColorIO_v2_4dev::GenericScanlineHelper.25", ptr %this, i64 0, i32 6, i32 3
+  %m_yStrideBytes = getelementptr inbounds i8, ptr %this, i64 160
   %5 = load i64, ptr %m_yStrideBytes, align 8
   %mul = mul nsw i64 %5, %conv
   %add.ptr = getelementptr inbounds i8, ptr %4, i64 %mul
   br label %cond.end
 
 cond.false:                                       ; preds = %if.end
-  %m_rgbaFloatBuffer = getelementptr inbounds %"class.OpenColorIO_v2_4dev::GenericScanlineHelper.25", ptr %this, i64 0, i32 9
+  %m_rgbaFloatBuffer = getelementptr inbounds i8, ptr %this, i64 232
   %6 = load ptr, ptr %m_rgbaFloatBuffer, align 8
   br label %cond.end
 
 cond.end:                                         ; preds = %cond.false, %cond.true
   %cond = phi ptr [ %add.ptr, %cond.true ], [ %6, %cond.false ]
   store ptr %cond, ptr %buffer, align 8
-  %m_inOptimizedMode = getelementptr inbounds %"class.OpenColorIO_v2_4dev::GenericScanlineHelper.25", ptr %this, i64 0, i32 7
+  %m_inOptimizedMode = getelementptr inbounds i8, ptr %this, i64 224
   %7 = load i32, ptr %m_inOptimizedMode, align 8
   %and = and i32 %7, 1
   %cmp6.not = icmp eq i32 %and, 0
   br i1 %cmp6.not, label %if.else, label %if.then7
 
 if.then7:                                         ; preds = %cond.end
-  %m_rData8 = getelementptr inbounds %"class.OpenColorIO_v2_4dev::GenericScanlineHelper.25", ptr %this, i64 0, i32 5, i32 4
+  %m_rData8 = getelementptr inbounds i8, ptr %this, i64 80
   %8 = load ptr, ptr %m_rData8, align 8
-  %m_yStrideBytes10 = getelementptr inbounds %"class.OpenColorIO_v2_4dev::GenericScanlineHelper.25", ptr %this, i64 0, i32 5, i32 3
+  %m_yStrideBytes10 = getelementptr inbounds i8, ptr %this, i64 72
   %9 = load i64, ptr %m_yStrideBytes10, align 8
   %10 = load i32, ptr %m_yIndex, align 8
   %conv12 = sext i32 %10 to i64
   %mul13 = mul nsw i64 %9, %conv12
   %add.ptr14 = getelementptr inbounds i8, ptr %8, i64 %mul13
-  %m_bitDepthOp = getelementptr inbounds %"class.OpenColorIO_v2_4dev::GenericScanlineHelper.25", ptr %this, i64 0, i32 5, i32 8
+  %m_bitDepthOp = getelementptr inbounds i8, ptr %this, i64 112
   %11 = load ptr, ptr %m_bitDepthOp, align 8
   %12 = load i64, ptr %m_dstImg, align 8
   %vtable = load ptr, ptr %11, align 8
-  %vfn = getelementptr inbounds ptr, ptr %vtable, i64 2
+  %vfn = getelementptr inbounds i8, ptr %vtable, i64 16
   %13 = load ptr, ptr %vfn, align 8
   tail call void %13(ptr noundef nonnull align 8 dereferenceable(8) %11, ptr noundef %add.ptr14, ptr noundef %cond, i64 noundef %12)
   br label %if.end28
 
 if.else:                                          ; preds = %cond.end
-  %m_srcImg18 = getelementptr inbounds %"class.OpenColorIO_v2_4dev::GenericScanlineHelper.25", ptr %this, i64 0, i32 5
-  %m_inBitDepthBuffer = getelementptr inbounds %"class.OpenColorIO_v2_4dev::GenericScanlineHelper.25", ptr %this, i64 0, i32 10
+  %m_srcImg18 = getelementptr inbounds i8, ptr %this, i64 48
+  %m_inBitDepthBuffer = getelementptr inbounds i8, ptr %this, i64 256
   %14 = load ptr, ptr %m_inBitDepthBuffer, align 8
   %15 = load i64, ptr %m_dstImg, align 8
   %conv22 = trunc i64 %15 to i32
@@ -6311,47 +6273,47 @@ return:                                           ; preds = %entry, %if.end28
 ; Function Attrs: mustprogress uwtable
 define weak_odr hidden void @_ZN19OpenColorIO_v2_4dev21GenericScanlineHelperItN9Imath_3_14halfEE18finishRGBAScanlineEv(ptr noundef nonnull align 8 dereferenceable(309) %this) unnamed_addr #5 comdat align 2 {
 entry:
-  %m_outOptimizedMode = getelementptr inbounds %"class.OpenColorIO_v2_4dev::GenericScanlineHelper.25", ptr %this, i64 0, i32 8
+  %m_outOptimizedMode = getelementptr inbounds i8, ptr %this, i64 228
   %0 = load i32, ptr %m_outOptimizedMode, align 4
   %and = and i32 %0, 1
   %cmp.not = icmp eq i32 %and, 0
-  %m_dstImg6 = getelementptr inbounds %"class.OpenColorIO_v2_4dev::GenericScanlineHelper.25", ptr %this, i64 0, i32 6
+  %m_dstImg6 = getelementptr inbounds i8, ptr %this, i64 136
   br i1 %cmp.not, label %if.else, label %if.then
 
 if.then:                                          ; preds = %entry
-  %m_rData = getelementptr inbounds %"class.OpenColorIO_v2_4dev::GenericScanlineHelper.25", ptr %this, i64 0, i32 6, i32 4
+  %m_rData = getelementptr inbounds i8, ptr %this, i64 168
   %1 = load ptr, ptr %m_rData, align 8
-  %m_yStrideBytes = getelementptr inbounds %"class.OpenColorIO_v2_4dev::GenericScanlineHelper.25", ptr %this, i64 0, i32 6, i32 3
+  %m_yStrideBytes = getelementptr inbounds i8, ptr %this, i64 160
   %2 = load i64, ptr %m_yStrideBytes, align 8
-  %m_yIndex = getelementptr inbounds %"class.OpenColorIO_v2_4dev::GenericScanlineHelper.25", ptr %this, i64 0, i32 12
+  %m_yIndex = getelementptr inbounds i8, ptr %this, i64 304
   %3 = load i32, ptr %m_yIndex, align 8
   %conv = sext i32 %3 to i64
   %mul = mul nsw i64 %2, %conv
   %add.ptr = getelementptr inbounds i8, ptr %1, i64 %mul
-  %m_useDstBuffer = getelementptr inbounds %"class.OpenColorIO_v2_4dev::GenericScanlineHelper.25", ptr %this, i64 0, i32 13
+  %m_useDstBuffer = getelementptr inbounds i8, ptr %this, i64 308
   %4 = load i8, ptr %m_useDstBuffer, align 4
   %5 = and i8 %4, 1
   %tobool.not = icmp eq i8 %5, 0
-  %m_rgbaFloatBuffer = getelementptr inbounds %"class.OpenColorIO_v2_4dev::GenericScanlineHelper.25", ptr %this, i64 0, i32 9
+  %m_rgbaFloatBuffer = getelementptr inbounds i8, ptr %this, i64 232
   %6 = load ptr, ptr %m_rgbaFloatBuffer, align 8
   %cond = select i1 %tobool.not, ptr %6, ptr %add.ptr
-  %m_bitDepthOp = getelementptr inbounds %"class.OpenColorIO_v2_4dev::GenericScanlineHelper.25", ptr %this, i64 0, i32 6, i32 8
+  %m_bitDepthOp = getelementptr inbounds i8, ptr %this, i64 200
   %7 = load ptr, ptr %m_bitDepthOp, align 8
   %8 = load i64, ptr %m_dstImg6, align 8
   %vtable = load ptr, ptr %7, align 8
-  %vfn = getelementptr inbounds ptr, ptr %vtable, i64 2
+  %vfn = getelementptr inbounds i8, ptr %vtable, i64 16
   %9 = load ptr, ptr %vfn, align 8
   tail call void %9(ptr noundef nonnull align 8 dereferenceable(8) %7, ptr noundef %cond, ptr noundef %add.ptr, i64 noundef %8)
   br label %if.end
 
 if.else:                                          ; preds = %entry
-  %m_rgbaFloatBuffer7 = getelementptr inbounds %"class.OpenColorIO_v2_4dev::GenericScanlineHelper.25", ptr %this, i64 0, i32 9
+  %m_rgbaFloatBuffer7 = getelementptr inbounds i8, ptr %this, i64 232
   %10 = load ptr, ptr %m_rgbaFloatBuffer7, align 8
-  %m_outBitDepthBuffer = getelementptr inbounds %"class.OpenColorIO_v2_4dev::GenericScanlineHelper.25", ptr %this, i64 0, i32 11
+  %m_outBitDepthBuffer = getelementptr inbounds i8, ptr %this, i64 280
   %11 = load ptr, ptr %m_outBitDepthBuffer, align 8
   %12 = load i64, ptr %m_dstImg6, align 8
   %conv12 = trunc i64 %12 to i32
-  %m_yIndex13 = getelementptr inbounds %"class.OpenColorIO_v2_4dev::GenericScanlineHelper.25", ptr %this, i64 0, i32 12
+  %m_yIndex13 = getelementptr inbounds i8, ptr %this, i64 304
   %13 = load i32, ptr %m_yIndex13, align 8
   %conv14 = sext i32 %13 to i64
   %mul17 = mul nsw i64 %12, %conv14
@@ -6359,7 +6321,7 @@ if.else:                                          ; preds = %entry
   br label %if.end
 
 if.end:                                           ; preds = %if.else, %if.then
-  %m_yIndex18 = getelementptr inbounds %"class.OpenColorIO_v2_4dev::GenericScanlineHelper.25", ptr %this, i64 0, i32 12
+  %m_yIndex18 = getelementptr inbounds i8, ptr %this, i64 304
   %14 = load i32, ptr %m_yIndex18, align 8
   %inc = add nsw i32 %14, 1
   store i32 %inc, ptr %m_yIndex18, align 8
@@ -6370,22 +6332,22 @@ if.end:                                           ; preds = %if.else, %if.then
 define weak_odr hidden void @_ZN19OpenColorIO_v2_4dev21GenericScanlineHelperItfEC2ENS_8BitDepthERKSt10shared_ptrIKNS_5OpCPUEES2_S8_(ptr noundef nonnull align 8 dereferenceable(309) %this, i32 noundef %inputBitDepth, ptr noundef nonnull align 8 dereferenceable(16) %inBitDepthOp, i32 noundef %outputBitDepth, ptr noundef nonnull align 8 dereferenceable(16) %outBitDepthOp) unnamed_addr #3 comdat($_ZN19OpenColorIO_v2_4dev21GenericScanlineHelperItfEC5ENS_8BitDepthERKSt10shared_ptrIKNS_5OpCPUEES2_S8_) align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTVN19OpenColorIO_v2_4dev21GenericScanlineHelperItfEE, i64 0, inrange i32 0, i64 2), ptr %this, align 8
-  %m_inputBitDepth = getelementptr inbounds %"class.OpenColorIO_v2_4dev::GenericScanlineHelper.27", ptr %this, i64 0, i32 1
+  %m_inputBitDepth = getelementptr inbounds i8, ptr %this, i64 8
   store i32 %inputBitDepth, ptr %m_inputBitDepth, align 8
-  %m_outputBitDepth = getelementptr inbounds %"class.OpenColorIO_v2_4dev::GenericScanlineHelper.27", ptr %this, i64 0, i32 2
+  %m_outputBitDepth = getelementptr inbounds i8, ptr %this, i64 12
   store i32 %outputBitDepth, ptr %m_outputBitDepth, align 4
-  %m_inBitDepthOp = getelementptr inbounds %"class.OpenColorIO_v2_4dev::GenericScanlineHelper.27", ptr %this, i64 0, i32 3
+  %m_inBitDepthOp = getelementptr inbounds i8, ptr %this, i64 16
   %0 = load ptr, ptr %inBitDepthOp, align 8
   store ptr %0, ptr %m_inBitDepthOp, align 8
-  %_M_refcount.i.i = getelementptr inbounds %"class.OpenColorIO_v2_4dev::GenericScanlineHelper.27", ptr %this, i64 0, i32 3, i32 0, i32 1
-  %_M_refcount3.i.i = getelementptr inbounds %"class.std::__shared_ptr", ptr %inBitDepthOp, i64 0, i32 1
+  %_M_refcount.i.i = getelementptr inbounds i8, ptr %this, i64 24
+  %_M_refcount3.i.i = getelementptr inbounds i8, ptr %inBitDepthOp, i64 8
   %1 = load ptr, ptr %_M_refcount3.i.i, align 8
   store ptr %1, ptr %_M_refcount.i.i, align 8
   %cmp.not.i.i.i = icmp eq ptr %1, null
   br i1 %cmp.not.i.i.i, label %_ZNSt10shared_ptrIKN19OpenColorIO_v2_4dev5OpCPUEEC2ERKS3_.exit, label %if.then.i.i.i
 
 if.then.i.i.i:                                    ; preds = %entry
-  %_M_use_count.i.i.i.i = getelementptr inbounds %"class.std::_Sp_counted_base", ptr %1, i64 0, i32 1
+  %_M_use_count.i.i.i.i = getelementptr inbounds i8, ptr %1, i64 8
   %2 = load i8, ptr @__libc_single_threaded, align 1
   %tobool.i.not.i.i.i.i = icmp eq i8 %2, 0
   br i1 %tobool.i.not.i.i.i.i, label %if.else.i.i.i.i.i, label %if.then.i.i.i.i.i
@@ -6401,18 +6363,18 @@ if.else.i.i.i.i.i:                                ; preds = %if.then.i.i.i
   br label %_ZNSt10shared_ptrIKN19OpenColorIO_v2_4dev5OpCPUEEC2ERKS3_.exit
 
 _ZNSt10shared_ptrIKN19OpenColorIO_v2_4dev5OpCPUEEC2ERKS3_.exit: ; preds = %entry, %if.then.i.i.i.i.i, %if.else.i.i.i.i.i
-  %m_outBitDepthOp = getelementptr inbounds %"class.OpenColorIO_v2_4dev::GenericScanlineHelper.27", ptr %this, i64 0, i32 4
+  %m_outBitDepthOp = getelementptr inbounds i8, ptr %this, i64 32
   %5 = load ptr, ptr %outBitDepthOp, align 8
   store ptr %5, ptr %m_outBitDepthOp, align 8
-  %_M_refcount.i.i1 = getelementptr inbounds %"class.OpenColorIO_v2_4dev::GenericScanlineHelper.27", ptr %this, i64 0, i32 4, i32 0, i32 1
-  %_M_refcount3.i.i2 = getelementptr inbounds %"class.std::__shared_ptr", ptr %outBitDepthOp, i64 0, i32 1
+  %_M_refcount.i.i1 = getelementptr inbounds i8, ptr %this, i64 40
+  %_M_refcount3.i.i2 = getelementptr inbounds i8, ptr %outBitDepthOp, i64 8
   %6 = load ptr, ptr %_M_refcount3.i.i2, align 8
   store ptr %6, ptr %_M_refcount.i.i1, align 8
   %cmp.not.i.i.i3 = icmp eq ptr %6, null
   br i1 %cmp.not.i.i.i3, label %_ZNSt10shared_ptrIKN19OpenColorIO_v2_4dev5OpCPUEEC2ERKS3_.exit10, label %if.then.i.i.i4
 
 if.then.i.i.i4:                                   ; preds = %_ZNSt10shared_ptrIKN19OpenColorIO_v2_4dev5OpCPUEEC2ERKS3_.exit
-  %_M_use_count.i.i.i.i5 = getelementptr inbounds %"class.std::_Sp_counted_base", ptr %6, i64 0, i32 1
+  %_M_use_count.i.i.i.i5 = getelementptr inbounds i8, ptr %6, i64 8
   %7 = load i8, ptr @__libc_single_threaded, align 1
   %tobool.i.not.i.i.i.i6 = icmp eq i8 %7, 0
   br i1 %tobool.i.not.i.i.i.i6, label %if.else.i.i.i.i.i9, label %if.then.i.i.i.i.i7
@@ -6428,11 +6390,11 @@ if.else.i.i.i.i.i9:                               ; preds = %if.then.i.i.i4
   br label %_ZNSt10shared_ptrIKN19OpenColorIO_v2_4dev5OpCPUEEC2ERKS3_.exit10
 
 _ZNSt10shared_ptrIKN19OpenColorIO_v2_4dev5OpCPUEEC2ERKS3_.exit10: ; preds = %_ZNSt10shared_ptrIKN19OpenColorIO_v2_4dev5OpCPUEEC2ERKS3_.exit, %if.then.i.i.i.i.i7, %if.else.i.i.i.i.i9
-  %m_srcImg = getelementptr inbounds %"class.OpenColorIO_v2_4dev::GenericScanlineHelper.27", ptr %this, i64 0, i32 5
+  %m_srcImg = getelementptr inbounds i8, ptr %this, i64 48
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(82) %m_srcImg, i8 0, i64 82, i1 false)
-  %m_dstImg = getelementptr inbounds %"class.OpenColorIO_v2_4dev::GenericScanlineHelper.27", ptr %this, i64 0, i32 6
+  %m_dstImg = getelementptr inbounds i8, ptr %this, i64 136
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(82) %m_dstImg, i8 0, i64 82, i1 false)
-  %m_inOptimizedMode = getelementptr inbounds %"class.OpenColorIO_v2_4dev::GenericScanlineHelper.27", ptr %this, i64 0, i32 7
+  %m_inOptimizedMode = getelementptr inbounds i8, ptr %this, i64 224
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(85) %m_inOptimizedMode, i8 0, i64 85, i1 false)
   ret void
 }
@@ -6440,17 +6402,17 @@ _ZNSt10shared_ptrIKN19OpenColorIO_v2_4dev5OpCPUEEC2ERKS3_.exit10: ; preds = %_ZN
 ; Function Attrs: mustprogress uwtable
 define weak_odr hidden void @_ZN19OpenColorIO_v2_4dev21GenericScanlineHelperItfE4initERKNS_9ImageDescES4_(ptr noundef nonnull align 8 dereferenceable(309) %this, ptr noundef nonnull align 8 dereferenceable(8) %srcImg, ptr noundef nonnull align 8 dereferenceable(8) %dstImg) unnamed_addr #5 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  %m_yIndex = getelementptr inbounds %"class.OpenColorIO_v2_4dev::GenericScanlineHelper.27", ptr %this, i64 0, i32 12
+  %m_yIndex = getelementptr inbounds i8, ptr %this, i64 304
   store i32 0, ptr %m_yIndex, align 8
-  %m_srcImg = getelementptr inbounds %"class.OpenColorIO_v2_4dev::GenericScanlineHelper.27", ptr %this, i64 0, i32 5
-  %m_inputBitDepth = getelementptr inbounds %"class.OpenColorIO_v2_4dev::GenericScanlineHelper.27", ptr %this, i64 0, i32 1
+  %m_srcImg = getelementptr inbounds i8, ptr %this, i64 48
+  %m_inputBitDepth = getelementptr inbounds i8, ptr %this, i64 8
   %0 = load i32, ptr %m_inputBitDepth, align 8
-  %m_inBitDepthOp = getelementptr inbounds %"class.OpenColorIO_v2_4dev::GenericScanlineHelper.27", ptr %this, i64 0, i32 3
+  %m_inBitDepthOp = getelementptr inbounds i8, ptr %this, i64 16
   tail call void @_ZN19OpenColorIO_v2_4dev16GenericImageDesc4initERKNS_9ImageDescENS_8BitDepthERKSt10shared_ptrIKNS_5OpCPUEE(ptr noundef nonnull align 8 dereferenceable(82) %m_srcImg, ptr noundef nonnull align 8 dereferenceable(8) %srcImg, i32 noundef %0, ptr noundef nonnull align 8 dereferenceable(16) %m_inBitDepthOp)
-  %m_dstImg = getelementptr inbounds %"class.OpenColorIO_v2_4dev::GenericScanlineHelper.27", ptr %this, i64 0, i32 6
-  %m_outputBitDepth = getelementptr inbounds %"class.OpenColorIO_v2_4dev::GenericScanlineHelper.27", ptr %this, i64 0, i32 2
+  %m_dstImg = getelementptr inbounds i8, ptr %this, i64 136
+  %m_outputBitDepth = getelementptr inbounds i8, ptr %this, i64 12
   %1 = load i32, ptr %m_outputBitDepth, align 4
-  %m_outBitDepthOp = getelementptr inbounds %"class.OpenColorIO_v2_4dev::GenericScanlineHelper.27", ptr %this, i64 0, i32 4
+  %m_outBitDepthOp = getelementptr inbounds i8, ptr %this, i64 32
   tail call void @_ZN19OpenColorIO_v2_4dev16GenericImageDesc4initERKNS_9ImageDescENS_8BitDepthERKSt10shared_ptrIKNS_5OpCPUEE(ptr noundef nonnull align 8 dereferenceable(82) %m_dstImg, ptr noundef nonnull align 8 dereferenceable(8) %dstImg, i32 noundef %1, ptr noundef nonnull align 8 dereferenceable(16) %m_outBitDepthOp)
   %2 = load i64, ptr %m_srcImg, align 8
   %3 = load i64, ptr %m_dstImg, align 8
@@ -6458,9 +6420,9 @@ entry:
   br i1 %cmp.not, label %lor.lhs.false, label %if.then
 
 lor.lhs.false:                                    ; preds = %entry
-  %m_height = getelementptr inbounds %"class.OpenColorIO_v2_4dev::GenericScanlineHelper.27", ptr %this, i64 0, i32 5, i32 1
+  %m_height = getelementptr inbounds i8, ptr %this, i64 56
   %4 = load i64, ptr %m_height, align 8
-  %m_height7 = getelementptr inbounds %"class.OpenColorIO_v2_4dev::GenericScanlineHelper.27", ptr %this, i64 0, i32 6, i32 1
+  %m_height7 = getelementptr inbounds i8, ptr %this, i64 144
   %5 = load i64, ptr %m_height7, align 8
   %cmp8.not = icmp eq i64 %4, %5
   br i1 %cmp8.not, label %if.end, label %if.then
@@ -6491,7 +6453,7 @@ if.then.i:                                        ; preds = %if.end
 
 _ZN19OpenColorIO_v2_4dev19GetOptimizationModeERKNS_16GenericImageDescE.exit: ; preds = %if.end, %if.then.i
   %optim.0.i = phi i32 [ 0, %if.end ], [ %spec.select.i, %if.then.i ]
-  %m_inOptimizedMode = getelementptr inbounds %"class.OpenColorIO_v2_4dev::GenericScanlineHelper.27", ptr %this, i64 0, i32 7
+  %m_inOptimizedMode = getelementptr inbounds i8, ptr %this, i64 224
   store i32 %optim.0.i, ptr %m_inOptimizedMode, align 8
   %call.i2 = tail call noundef zeroext i1 @_ZNK19OpenColorIO_v2_4dev16GenericImageDesc12isRGBAPackedEv(ptr noundef nonnull align 8 dereferenceable(82) %m_dstImg)
   br i1 %call.i2, label %if.then.i4, label %_ZN19OpenColorIO_v2_4dev19GetOptimizationModeERKNS_16GenericImageDescE.exit7
@@ -6503,10 +6465,10 @@ if.then.i4:                                       ; preds = %_ZN19OpenColorIO_v2
 
 _ZN19OpenColorIO_v2_4dev19GetOptimizationModeERKNS_16GenericImageDescE.exit7: ; preds = %_ZN19OpenColorIO_v2_4dev19GetOptimizationModeERKNS_16GenericImageDescE.exit, %if.then.i4
   %optim.0.i3 = phi i32 [ 0, %_ZN19OpenColorIO_v2_4dev19GetOptimizationModeERKNS_16GenericImageDescE.exit ], [ %spec.select.i6, %if.then.i4 ]
-  %m_outOptimizedMode = getelementptr inbounds %"class.OpenColorIO_v2_4dev::GenericScanlineHelper.27", ptr %this, i64 0, i32 8
+  %m_outOptimizedMode = getelementptr inbounds i8, ptr %this, i64 228
   store i32 %optim.0.i3, ptr %m_outOptimizedMode, align 4
   %cmp13 = icmp eq i32 %optim.0.i3, 3
-  %m_useDstBuffer = getelementptr inbounds %"class.OpenColorIO_v2_4dev::GenericScanlineHelper.27", ptr %this, i64 0, i32 13
+  %m_useDstBuffer = getelementptr inbounds i8, ptr %this, i64 308
   %frombool = zext i1 %cmp13 to i8
   store i8 %frombool, ptr %m_useDstBuffer, align 4
   %7 = load i32, ptr %m_inOptimizedMode, align 8
@@ -6517,8 +6479,8 @@ _ZN19OpenColorIO_v2_4dev19GetOptimizationModeERKNS_16GenericImageDescE.exit7: ; 
 if.then17:                                        ; preds = %_ZN19OpenColorIO_v2_4dev19GetOptimizationModeERKNS_16GenericImageDescE.exit7
   %8 = load i64, ptr %m_dstImg, align 8
   %mul = shl nsw i64 %8, 2
-  %m_inBitDepthBuffer = getelementptr inbounds %"class.OpenColorIO_v2_4dev::GenericScanlineHelper.27", ptr %this, i64 0, i32 10
-  %_M_finish.i.i = getelementptr inbounds %"class.OpenColorIO_v2_4dev::GenericScanlineHelper.27", ptr %this, i64 0, i32 10, i32 0, i32 0, i32 0, i32 1
+  %m_inBitDepthBuffer = getelementptr inbounds i8, ptr %this, i64 256
+  %_M_finish.i.i = getelementptr inbounds i8, ptr %this, i64 264
   %9 = load ptr, ptr %_M_finish.i.i, align 8
   %10 = load ptr, ptr %m_inBitDepthBuffer, align 8
   %sub.ptr.lhs.cast.i.i = ptrtoint ptr %9 to i64
@@ -6556,8 +6518,8 @@ if.end20:                                         ; preds = %invoke.cont.i.i, %i
 if.then22:                                        ; preds = %if.end20
   %13 = load i64, ptr %m_dstImg, align 8
   %mul26 = shl nsw i64 %13, 2
-  %m_rgbaFloatBuffer = getelementptr inbounds %"class.OpenColorIO_v2_4dev::GenericScanlineHelper.27", ptr %this, i64 0, i32 9
-  %_M_finish.i.i9 = getelementptr inbounds %"class.OpenColorIO_v2_4dev::GenericScanlineHelper.27", ptr %this, i64 0, i32 9, i32 0, i32 0, i32 0, i32 1
+  %m_rgbaFloatBuffer = getelementptr inbounds i8, ptr %this, i64 232
+  %_M_finish.i.i9 = getelementptr inbounds i8, ptr %this, i64 240
   %14 = load ptr, ptr %_M_finish.i.i9, align 8
   %15 = load ptr, ptr %m_rgbaFloatBuffer, align 8
   %sub.ptr.lhs.cast.i.i10 = ptrtoint ptr %14 to i64
@@ -6586,8 +6548,8 @@ invoke.cont.i.i20:                                ; preds = %if.then5.i17
   br label %_ZNSt6vectorIfSaIfEE6resizeEm.exit
 
 _ZNSt6vectorIfSaIfEE6resizeEm.exit:               ; preds = %if.then.i21, %if.else.i15, %if.then5.i17, %invoke.cont.i.i20
-  %m_outBitDepthBuffer = getelementptr inbounds %"class.OpenColorIO_v2_4dev::GenericScanlineHelper.27", ptr %this, i64 0, i32 11
-  %_M_finish.i.i23 = getelementptr inbounds %"class.OpenColorIO_v2_4dev::GenericScanlineHelper.27", ptr %this, i64 0, i32 11, i32 0, i32 0, i32 0, i32 1
+  %m_outBitDepthBuffer = getelementptr inbounds i8, ptr %this, i64 280
+  %_M_finish.i.i23 = getelementptr inbounds i8, ptr %this, i64 288
   %16 = load ptr, ptr %_M_finish.i.i23, align 8
   %17 = load ptr, ptr %m_outBitDepthBuffer, align 8
   %sub.ptr.lhs.cast.i.i24 = ptrtoint ptr %16 to i64
@@ -6622,17 +6584,17 @@ if.end27:                                         ; preds = %invoke.cont.i.i34, 
 ; Function Attrs: mustprogress uwtable
 define weak_odr hidden void @_ZN19OpenColorIO_v2_4dev21GenericScanlineHelperItfE4initERKNS_9ImageDescE(ptr noundef nonnull align 8 dereferenceable(309) %this, ptr noundef nonnull align 8 dereferenceable(8) %img) unnamed_addr #5 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  %m_yIndex = getelementptr inbounds %"class.OpenColorIO_v2_4dev::GenericScanlineHelper.27", ptr %this, i64 0, i32 12
+  %m_yIndex = getelementptr inbounds i8, ptr %this, i64 304
   store i32 0, ptr %m_yIndex, align 8
-  %m_srcImg = getelementptr inbounds %"class.OpenColorIO_v2_4dev::GenericScanlineHelper.27", ptr %this, i64 0, i32 5
-  %m_inputBitDepth = getelementptr inbounds %"class.OpenColorIO_v2_4dev::GenericScanlineHelper.27", ptr %this, i64 0, i32 1
+  %m_srcImg = getelementptr inbounds i8, ptr %this, i64 48
+  %m_inputBitDepth = getelementptr inbounds i8, ptr %this, i64 8
   %0 = load i32, ptr %m_inputBitDepth, align 8
-  %m_inBitDepthOp = getelementptr inbounds %"class.OpenColorIO_v2_4dev::GenericScanlineHelper.27", ptr %this, i64 0, i32 3
+  %m_inBitDepthOp = getelementptr inbounds i8, ptr %this, i64 16
   tail call void @_ZN19OpenColorIO_v2_4dev16GenericImageDesc4initERKNS_9ImageDescENS_8BitDepthERKSt10shared_ptrIKNS_5OpCPUEE(ptr noundef nonnull align 8 dereferenceable(82) %m_srcImg, ptr noundef nonnull align 8 dereferenceable(8) %img, i32 noundef %0, ptr noundef nonnull align 8 dereferenceable(16) %m_inBitDepthOp)
-  %m_dstImg = getelementptr inbounds %"class.OpenColorIO_v2_4dev::GenericScanlineHelper.27", ptr %this, i64 0, i32 6
-  %m_outputBitDepth = getelementptr inbounds %"class.OpenColorIO_v2_4dev::GenericScanlineHelper.27", ptr %this, i64 0, i32 2
+  %m_dstImg = getelementptr inbounds i8, ptr %this, i64 136
+  %m_outputBitDepth = getelementptr inbounds i8, ptr %this, i64 12
   %1 = load i32, ptr %m_outputBitDepth, align 4
-  %m_outBitDepthOp = getelementptr inbounds %"class.OpenColorIO_v2_4dev::GenericScanlineHelper.27", ptr %this, i64 0, i32 4
+  %m_outBitDepthOp = getelementptr inbounds i8, ptr %this, i64 32
   tail call void @_ZN19OpenColorIO_v2_4dev16GenericImageDesc4initERKNS_9ImageDescENS_8BitDepthERKSt10shared_ptrIKNS_5OpCPUEE(ptr noundef nonnull align 8 dereferenceable(82) %m_dstImg, ptr noundef nonnull align 8 dereferenceable(8) %img, i32 noundef %1, ptr noundef nonnull align 8 dereferenceable(16) %m_outBitDepthOp)
   %call.i = tail call noundef zeroext i1 @_ZNK19OpenColorIO_v2_4dev16GenericImageDesc12isRGBAPackedEv(ptr noundef nonnull align 8 dereferenceable(82) %m_srcImg)
   br i1 %call.i, label %if.then.i, label %if.then
@@ -6642,26 +6604,26 @@ if.then.i:                                        ; preds = %entry
   br i1 %call1.i, label %_ZN19OpenColorIO_v2_4dev19GetOptimizationModeERKNS_16GenericImageDescE.exit, label %if.then
 
 _ZN19OpenColorIO_v2_4dev19GetOptimizationModeERKNS_16GenericImageDescE.exit: ; preds = %if.then.i
-  %m_inOptimizedMode = getelementptr inbounds %"class.OpenColorIO_v2_4dev::GenericScanlineHelper.27", ptr %this, i64 0, i32 7
+  %m_inOptimizedMode = getelementptr inbounds i8, ptr %this, i64 224
   store i32 3, ptr %m_inOptimizedMode, align 8
-  %m_outOptimizedMode = getelementptr inbounds %"class.OpenColorIO_v2_4dev::GenericScanlineHelper.27", ptr %this, i64 0, i32 8
+  %m_outOptimizedMode = getelementptr inbounds i8, ptr %this, i64 228
   store i32 3, ptr %m_outOptimizedMode, align 4
-  %m_useDstBuffer = getelementptr inbounds %"class.OpenColorIO_v2_4dev::GenericScanlineHelper.27", ptr %this, i64 0, i32 13
+  %m_useDstBuffer = getelementptr inbounds i8, ptr %this, i64 308
   store i8 1, ptr %m_useDstBuffer, align 4
   br label %if.end
 
 if.then:                                          ; preds = %entry, %if.then.i
   %optim.0.i.ph = phi i32 [ 1, %if.then.i ], [ 0, %entry ]
-  %m_inOptimizedMode35 = getelementptr inbounds %"class.OpenColorIO_v2_4dev::GenericScanlineHelper.27", ptr %this, i64 0, i32 7
+  %m_inOptimizedMode35 = getelementptr inbounds i8, ptr %this, i64 224
   store i32 %optim.0.i.ph, ptr %m_inOptimizedMode35, align 8
-  %m_outOptimizedMode36 = getelementptr inbounds %"class.OpenColorIO_v2_4dev::GenericScanlineHelper.27", ptr %this, i64 0, i32 8
+  %m_outOptimizedMode36 = getelementptr inbounds i8, ptr %this, i64 228
   store i32 %optim.0.i.ph, ptr %m_outOptimizedMode36, align 4
-  %m_useDstBuffer38 = getelementptr inbounds %"class.OpenColorIO_v2_4dev::GenericScanlineHelper.27", ptr %this, i64 0, i32 13
+  %m_useDstBuffer38 = getelementptr inbounds i8, ptr %this, i64 308
   store i8 0, ptr %m_useDstBuffer38, align 4
   %2 = load i64, ptr %m_dstImg, align 8
   %mul = shl nsw i64 %2, 2
-  %m_rgbaFloatBuffer = getelementptr inbounds %"class.OpenColorIO_v2_4dev::GenericScanlineHelper.27", ptr %this, i64 0, i32 9
-  %_M_finish.i.i = getelementptr inbounds %"class.OpenColorIO_v2_4dev::GenericScanlineHelper.27", ptr %this, i64 0, i32 9, i32 0, i32 0, i32 0, i32 1
+  %m_rgbaFloatBuffer = getelementptr inbounds i8, ptr %this, i64 232
+  %_M_finish.i.i = getelementptr inbounds i8, ptr %this, i64 240
   %3 = load ptr, ptr %_M_finish.i.i, align 8
   %4 = load ptr, ptr %m_rgbaFloatBuffer, align 8
   %sub.ptr.lhs.cast.i.i = ptrtoint ptr %3 to i64
@@ -6690,8 +6652,8 @@ invoke.cont.i.i:                                  ; preds = %if.then5.i
   br label %_ZNSt6vectorIfSaIfEE6resizeEm.exit
 
 _ZNSt6vectorIfSaIfEE6resizeEm.exit:               ; preds = %if.then.i4, %if.else.i, %if.then5.i, %invoke.cont.i.i
-  %m_inBitDepthBuffer = getelementptr inbounds %"class.OpenColorIO_v2_4dev::GenericScanlineHelper.27", ptr %this, i64 0, i32 10
-  %_M_finish.i.i5 = getelementptr inbounds %"class.OpenColorIO_v2_4dev::GenericScanlineHelper.27", ptr %this, i64 0, i32 10, i32 0, i32 0, i32 0, i32 1
+  %m_inBitDepthBuffer = getelementptr inbounds i8, ptr %this, i64 256
+  %_M_finish.i.i5 = getelementptr inbounds i8, ptr %this, i64 264
   %5 = load ptr, ptr %_M_finish.i.i5, align 8
   %6 = load ptr, ptr %m_inBitDepthBuffer, align 8
   %sub.ptr.lhs.cast.i.i6 = ptrtoint ptr %5 to i64
@@ -6720,8 +6682,8 @@ invoke.cont.i.i16:                                ; preds = %if.then5.i13
   br label %_ZNSt6vectorItSaItEE6resizeEm.exit
 
 _ZNSt6vectorItSaItEE6resizeEm.exit:               ; preds = %if.then.i17, %if.else.i11, %if.then5.i13, %invoke.cont.i.i16
-  %m_outBitDepthBuffer = getelementptr inbounds %"class.OpenColorIO_v2_4dev::GenericScanlineHelper.27", ptr %this, i64 0, i32 11
-  %_M_finish.i.i19 = getelementptr inbounds %"class.OpenColorIO_v2_4dev::GenericScanlineHelper.27", ptr %this, i64 0, i32 11, i32 0, i32 0, i32 0, i32 1
+  %m_outBitDepthBuffer = getelementptr inbounds i8, ptr %this, i64 280
+  %_M_finish.i.i19 = getelementptr inbounds i8, ptr %this, i64 288
   %7 = load ptr, ptr %_M_finish.i.i19, align 8
   %8 = load ptr, ptr %m_outBitDepthBuffer, align 8
   %sub.ptr.lhs.cast.i.i20 = ptrtoint ptr %7 to i64
@@ -6757,7 +6719,7 @@ if.end:                                           ; preds = %invoke.cont.i.i30, 
 define weak_odr hidden void @_ZN19OpenColorIO_v2_4dev21GenericScanlineHelperItfED2Ev(ptr noundef nonnull align 8 dereferenceable(309) %this) unnamed_addr #3 comdat($_ZN19OpenColorIO_v2_4dev21GenericScanlineHelperItfED5Ev) align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTVN19OpenColorIO_v2_4dev21GenericScanlineHelperItfEE, i64 0, inrange i32 0, i64 2), ptr %this, align 8
-  %m_outBitDepthBuffer = getelementptr inbounds %"class.OpenColorIO_v2_4dev::GenericScanlineHelper.27", ptr %this, i64 0, i32 11
+  %m_outBitDepthBuffer = getelementptr inbounds i8, ptr %this, i64 280
   %0 = load ptr, ptr %m_outBitDepthBuffer, align 8
   %tobool.not.i.i.i = icmp eq ptr %0, null
   br i1 %tobool.not.i.i.i, label %_ZNSt6vectorIfSaIfEED2Ev.exit, label %if.then.i.i.i
@@ -6767,7 +6729,7 @@ if.then.i.i.i:                                    ; preds = %entry
   br label %_ZNSt6vectorIfSaIfEED2Ev.exit
 
 _ZNSt6vectorIfSaIfEED2Ev.exit:                    ; preds = %entry, %if.then.i.i.i
-  %m_inBitDepthBuffer = getelementptr inbounds %"class.OpenColorIO_v2_4dev::GenericScanlineHelper.27", ptr %this, i64 0, i32 10
+  %m_inBitDepthBuffer = getelementptr inbounds i8, ptr %this, i64 256
   %1 = load ptr, ptr %m_inBitDepthBuffer, align 8
   %tobool.not.i.i.i1 = icmp eq ptr %1, null
   br i1 %tobool.not.i.i.i1, label %_ZNSt6vectorItSaItEED2Ev.exit, label %if.then.i.i.i2
@@ -6777,7 +6739,7 @@ if.then.i.i.i2:                                   ; preds = %_ZNSt6vectorIfSaIfE
   br label %_ZNSt6vectorItSaItEED2Ev.exit
 
 _ZNSt6vectorItSaItEED2Ev.exit:                    ; preds = %_ZNSt6vectorIfSaIfEED2Ev.exit, %if.then.i.i.i2
-  %m_rgbaFloatBuffer = getelementptr inbounds %"class.OpenColorIO_v2_4dev::GenericScanlineHelper.27", ptr %this, i64 0, i32 9
+  %m_rgbaFloatBuffer = getelementptr inbounds i8, ptr %this, i64 232
   %2 = load ptr, ptr %m_rgbaFloatBuffer, align 8
   %tobool.not.i.i.i3 = icmp eq ptr %2, null
   br i1 %tobool.not.i.i.i3, label %_ZNSt6vectorIfSaIfEED2Ev.exit5, label %if.then.i.i.i4
@@ -6787,13 +6749,13 @@ if.then.i.i.i4:                                   ; preds = %_ZNSt6vectorItSaItE
   br label %_ZNSt6vectorIfSaIfEED2Ev.exit5
 
 _ZNSt6vectorIfSaIfEED2Ev.exit5:                   ; preds = %_ZNSt6vectorItSaItEED2Ev.exit, %if.then.i.i.i4
-  %_M_refcount.i.i.i = getelementptr inbounds %"class.OpenColorIO_v2_4dev::GenericScanlineHelper.27", ptr %this, i64 0, i32 6, i32 8, i32 0, i32 1
+  %_M_refcount.i.i.i = getelementptr inbounds i8, ptr %this, i64 208
   %3 = load ptr, ptr %_M_refcount.i.i.i, align 8
   %cmp.not.i.i.i.i = icmp eq ptr %3, null
   br i1 %cmp.not.i.i.i.i, label %_ZN19OpenColorIO_v2_4dev16GenericImageDescD2Ev.exit, label %if.then.i.i.i.i
 
 if.then.i.i.i.i:                                  ; preds = %_ZNSt6vectorIfSaIfEED2Ev.exit5
-  %_M_use_count.i.i.i.i.i = getelementptr inbounds %"class.std::_Sp_counted_base", ptr %3, i64 0, i32 1
+  %_M_use_count.i.i.i.i.i = getelementptr inbounds i8, ptr %3, i64 8
   %4 = load atomic i64, ptr %_M_use_count.i.i.i.i.i acquire, align 8
   %cmp.i.i.i.i.i = icmp eq i64 %4, 4294967297
   %5 = trunc i64 %4 to i32
@@ -6801,10 +6763,10 @@ if.then.i.i.i.i:                                  ; preds = %_ZNSt6vectorIfSaIfE
 
 if.then.i.i.i.i.i:                                ; preds = %if.then.i.i.i.i
   store i32 0, ptr %_M_use_count.i.i.i.i.i, align 8
-  %_M_weak_count.i.i.i.i.i = getelementptr inbounds %"class.std::_Sp_counted_base", ptr %3, i64 0, i32 2
+  %_M_weak_count.i.i.i.i.i = getelementptr inbounds i8, ptr %3, i64 12
   store i32 0, ptr %_M_weak_count.i.i.i.i.i, align 4
   %vtable.i.i.i.i.i = load ptr, ptr %3, align 8
-  %vfn.i.i.i.i.i = getelementptr inbounds ptr, ptr %vtable.i.i.i.i.i, i64 2
+  %vfn.i.i.i.i.i = getelementptr inbounds i8, ptr %vtable.i.i.i.i.i, i64 16
   %6 = load ptr, ptr %vfn.i.i.i.i.i, align 8
   tail call void %6(ptr noundef nonnull align 8 dereferenceable(16) %3) #13
   br label %if.end8.sink.split.i.i.i.i.i
@@ -6830,10 +6792,10 @@ _ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i: ; preds = %if.els
 
 if.then7.i.i.i.i.i:                               ; preds = %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i
   %vtable.i.i.i.i.i.i.i = load ptr, ptr %3, align 8
-  %vfn.i.i.i.i.i.i.i = getelementptr inbounds ptr, ptr %vtable.i.i.i.i.i.i.i, i64 2
+  %vfn.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %vtable.i.i.i.i.i.i.i, i64 16
   %9 = load ptr, ptr %vfn.i.i.i.i.i.i.i, align 8
   tail call void %9(ptr noundef nonnull align 8 dereferenceable(16) %3) #13
-  %_M_weak_count.i.i.i.i.i.i.i = getelementptr inbounds %"class.std::_Sp_counted_base", ptr %3, i64 0, i32 2
+  %_M_weak_count.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %3, i64 12
   %10 = load i8, ptr @__libc_single_threaded, align 1
   %tobool.i.i.not.i.i.i.i.i.i.i = icmp eq i8 %10, 0
   br i1 %tobool.i.i.not.i.i.i.i.i.i.i, label %if.else.i.i.i.i.i.i.i.i, label %if.then.i.i.i.i.i.i.i.i
@@ -6855,19 +6817,19 @@ _ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i.i: ; preds = %if
 
 if.end8.sink.split.i.i.i.i.i:                     ; preds = %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i.i, %if.then.i.i.i.i.i
   %vtable2.i.i.i.i.i.i.i = load ptr, ptr %3, align 8
-  %vfn3.i.i.i.i.i.i.i = getelementptr inbounds ptr, ptr %vtable2.i.i.i.i.i.i.i, i64 3
+  %vfn3.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %vtable2.i.i.i.i.i.i.i, i64 24
   %13 = load ptr, ptr %vfn3.i.i.i.i.i.i.i, align 8
   tail call void %13(ptr noundef nonnull align 8 dereferenceable(16) %3) #13
   br label %_ZN19OpenColorIO_v2_4dev16GenericImageDescD2Ev.exit
 
 _ZN19OpenColorIO_v2_4dev16GenericImageDescD2Ev.exit: ; preds = %_ZNSt6vectorIfSaIfEED2Ev.exit5, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i.i, %if.end8.sink.split.i.i.i.i.i
-  %_M_refcount.i.i.i6 = getelementptr inbounds %"class.OpenColorIO_v2_4dev::GenericScanlineHelper.27", ptr %this, i64 0, i32 5, i32 8, i32 0, i32 1
+  %_M_refcount.i.i.i6 = getelementptr inbounds i8, ptr %this, i64 120
   %14 = load ptr, ptr %_M_refcount.i.i.i6, align 8
   %cmp.not.i.i.i.i7 = icmp eq ptr %14, null
   br i1 %cmp.not.i.i.i.i7, label %_ZN19OpenColorIO_v2_4dev16GenericImageDescD2Ev.exit37, label %if.then.i.i.i.i8
 
 if.then.i.i.i.i8:                                 ; preds = %_ZN19OpenColorIO_v2_4dev16GenericImageDescD2Ev.exit
-  %_M_use_count.i.i.i.i.i9 = getelementptr inbounds %"class.std::_Sp_counted_base", ptr %14, i64 0, i32 1
+  %_M_use_count.i.i.i.i.i9 = getelementptr inbounds i8, ptr %14, i64 8
   %15 = load atomic i64, ptr %_M_use_count.i.i.i.i.i9 acquire, align 8
   %cmp.i.i.i.i.i10 = icmp eq i64 %15, 4294967297
   %16 = trunc i64 %15 to i32
@@ -6875,10 +6837,10 @@ if.then.i.i.i.i8:                                 ; preds = %_ZN19OpenColorIO_v2
 
 if.then.i.i.i.i.i33:                              ; preds = %if.then.i.i.i.i8
   store i32 0, ptr %_M_use_count.i.i.i.i.i9, align 8
-  %_M_weak_count.i.i.i.i.i34 = getelementptr inbounds %"class.std::_Sp_counted_base", ptr %14, i64 0, i32 2
+  %_M_weak_count.i.i.i.i.i34 = getelementptr inbounds i8, ptr %14, i64 12
   store i32 0, ptr %_M_weak_count.i.i.i.i.i34, align 4
   %vtable.i.i.i.i.i35 = load ptr, ptr %14, align 8
-  %vfn.i.i.i.i.i36 = getelementptr inbounds ptr, ptr %vtable.i.i.i.i.i35, i64 2
+  %vfn.i.i.i.i.i36 = getelementptr inbounds i8, ptr %vtable.i.i.i.i.i35, i64 16
   %17 = load ptr, ptr %vfn.i.i.i.i.i36, align 8
   tail call void %17(ptr noundef nonnull align 8 dereferenceable(16) %14) #13
   br label %if.end8.sink.split.i.i.i.i.i28
@@ -6904,10 +6866,10 @@ _ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i15: ; preds = %if.e
 
 if.then7.i.i.i.i.i18:                             ; preds = %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i15
   %vtable.i.i.i.i.i.i.i19 = load ptr, ptr %14, align 8
-  %vfn.i.i.i.i.i.i.i20 = getelementptr inbounds ptr, ptr %vtable.i.i.i.i.i.i.i19, i64 2
+  %vfn.i.i.i.i.i.i.i20 = getelementptr inbounds i8, ptr %vtable.i.i.i.i.i.i.i19, i64 16
   %20 = load ptr, ptr %vfn.i.i.i.i.i.i.i20, align 8
   tail call void %20(ptr noundef nonnull align 8 dereferenceable(16) %14) #13
-  %_M_weak_count.i.i.i.i.i.i.i21 = getelementptr inbounds %"class.std::_Sp_counted_base", ptr %14, i64 0, i32 2
+  %_M_weak_count.i.i.i.i.i.i.i21 = getelementptr inbounds i8, ptr %14, i64 12
   %21 = load i8, ptr @__libc_single_threaded, align 1
   %tobool.i.i.not.i.i.i.i.i.i.i22 = icmp eq i8 %21, 0
   br i1 %tobool.i.i.not.i.i.i.i.i.i.i22, label %if.else.i.i.i.i.i.i.i.i31, label %if.then.i.i.i.i.i.i.i.i23
@@ -6929,19 +6891,19 @@ _ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i.i25: ; preds = %
 
 if.end8.sink.split.i.i.i.i.i28:                   ; preds = %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i.i25, %if.then.i.i.i.i.i33
   %vtable2.i.i.i.i.i.i.i29 = load ptr, ptr %14, align 8
-  %vfn3.i.i.i.i.i.i.i30 = getelementptr inbounds ptr, ptr %vtable2.i.i.i.i.i.i.i29, i64 3
+  %vfn3.i.i.i.i.i.i.i30 = getelementptr inbounds i8, ptr %vtable2.i.i.i.i.i.i.i29, i64 24
   %24 = load ptr, ptr %vfn3.i.i.i.i.i.i.i30, align 8
   tail call void %24(ptr noundef nonnull align 8 dereferenceable(16) %14) #13
   br label %_ZN19OpenColorIO_v2_4dev16GenericImageDescD2Ev.exit37
 
 _ZN19OpenColorIO_v2_4dev16GenericImageDescD2Ev.exit37: ; preds = %_ZN19OpenColorIO_v2_4dev16GenericImageDescD2Ev.exit, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i15, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i.i25, %if.end8.sink.split.i.i.i.i.i28
-  %_M_refcount.i.i = getelementptr inbounds %"class.OpenColorIO_v2_4dev::GenericScanlineHelper.27", ptr %this, i64 0, i32 4, i32 0, i32 1
+  %_M_refcount.i.i = getelementptr inbounds i8, ptr %this, i64 40
   %25 = load ptr, ptr %_M_refcount.i.i, align 8
   %cmp.not.i.i.i = icmp eq ptr %25, null
   br i1 %cmp.not.i.i.i, label %_ZNSt10shared_ptrIKN19OpenColorIO_v2_4dev5OpCPUEED2Ev.exit, label %if.then.i.i.i38
 
 if.then.i.i.i38:                                  ; preds = %_ZN19OpenColorIO_v2_4dev16GenericImageDescD2Ev.exit37
-  %_M_use_count.i.i.i.i = getelementptr inbounds %"class.std::_Sp_counted_base", ptr %25, i64 0, i32 1
+  %_M_use_count.i.i.i.i = getelementptr inbounds i8, ptr %25, i64 8
   %26 = load atomic i64, ptr %_M_use_count.i.i.i.i acquire, align 8
   %cmp.i.i.i.i = icmp eq i64 %26, 4294967297
   %27 = trunc i64 %26 to i32
@@ -6949,10 +6911,10 @@ if.then.i.i.i38:                                  ; preds = %_ZN19OpenColorIO_v2
 
 if.then.i.i.i.i40:                                ; preds = %if.then.i.i.i38
   store i32 0, ptr %_M_use_count.i.i.i.i, align 8
-  %_M_weak_count.i.i.i.i = getelementptr inbounds %"class.std::_Sp_counted_base", ptr %25, i64 0, i32 2
+  %_M_weak_count.i.i.i.i = getelementptr inbounds i8, ptr %25, i64 12
   store i32 0, ptr %_M_weak_count.i.i.i.i, align 4
   %vtable.i.i.i.i = load ptr, ptr %25, align 8
-  %vfn.i.i.i.i = getelementptr inbounds ptr, ptr %vtable.i.i.i.i, i64 2
+  %vfn.i.i.i.i = getelementptr inbounds i8, ptr %vtable.i.i.i.i, i64 16
   %28 = load ptr, ptr %vfn.i.i.i.i, align 8
   tail call void %28(ptr noundef nonnull align 8 dereferenceable(16) %25) #13
   br label %if.end8.sink.split.i.i.i.i
@@ -6978,10 +6940,10 @@ _ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i: ; preds = %if.else.
 
 if.then7.i.i.i.i:                                 ; preds = %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i
   %vtable.i.i.i.i.i.i = load ptr, ptr %25, align 8
-  %vfn.i.i.i.i.i.i = getelementptr inbounds ptr, ptr %vtable.i.i.i.i.i.i, i64 2
+  %vfn.i.i.i.i.i.i = getelementptr inbounds i8, ptr %vtable.i.i.i.i.i.i, i64 16
   %31 = load ptr, ptr %vfn.i.i.i.i.i.i, align 8
   tail call void %31(ptr noundef nonnull align 8 dereferenceable(16) %25) #13
-  %_M_weak_count.i.i.i.i.i.i = getelementptr inbounds %"class.std::_Sp_counted_base", ptr %25, i64 0, i32 2
+  %_M_weak_count.i.i.i.i.i.i = getelementptr inbounds i8, ptr %25, i64 12
   %32 = load i8, ptr @__libc_single_threaded, align 1
   %tobool.i.i.not.i.i.i.i.i.i = icmp eq i8 %32, 0
   br i1 %tobool.i.i.not.i.i.i.i.i.i, label %if.else.i.i.i.i.i.i.i, label %if.then.i.i.i.i.i.i.i
@@ -7003,19 +6965,19 @@ _ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i: ; preds = %if.e
 
 if.end8.sink.split.i.i.i.i:                       ; preds = %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i, %if.then.i.i.i.i40
   %vtable2.i.i.i.i.i.i = load ptr, ptr %25, align 8
-  %vfn3.i.i.i.i.i.i = getelementptr inbounds ptr, ptr %vtable2.i.i.i.i.i.i, i64 3
+  %vfn3.i.i.i.i.i.i = getelementptr inbounds i8, ptr %vtable2.i.i.i.i.i.i, i64 24
   %35 = load ptr, ptr %vfn3.i.i.i.i.i.i, align 8
   tail call void %35(ptr noundef nonnull align 8 dereferenceable(16) %25) #13
   br label %_ZNSt10shared_ptrIKN19OpenColorIO_v2_4dev5OpCPUEED2Ev.exit
 
 _ZNSt10shared_ptrIKN19OpenColorIO_v2_4dev5OpCPUEED2Ev.exit: ; preds = %_ZN19OpenColorIO_v2_4dev16GenericImageDescD2Ev.exit37, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i, %if.end8.sink.split.i.i.i.i
-  %_M_refcount.i.i41 = getelementptr inbounds %"class.OpenColorIO_v2_4dev::GenericScanlineHelper.27", ptr %this, i64 0, i32 3, i32 0, i32 1
+  %_M_refcount.i.i41 = getelementptr inbounds i8, ptr %this, i64 24
   %36 = load ptr, ptr %_M_refcount.i.i41, align 8
   %cmp.not.i.i.i42 = icmp eq ptr %36, null
   br i1 %cmp.not.i.i.i42, label %_ZNSt10shared_ptrIKN19OpenColorIO_v2_4dev5OpCPUEED2Ev.exit72, label %if.then.i.i.i43
 
 if.then.i.i.i43:                                  ; preds = %_ZNSt10shared_ptrIKN19OpenColorIO_v2_4dev5OpCPUEED2Ev.exit
-  %_M_use_count.i.i.i.i44 = getelementptr inbounds %"class.std::_Sp_counted_base", ptr %36, i64 0, i32 1
+  %_M_use_count.i.i.i.i44 = getelementptr inbounds i8, ptr %36, i64 8
   %37 = load atomic i64, ptr %_M_use_count.i.i.i.i44 acquire, align 8
   %cmp.i.i.i.i45 = icmp eq i64 %37, 4294967297
   %38 = trunc i64 %37 to i32
@@ -7023,10 +6985,10 @@ if.then.i.i.i43:                                  ; preds = %_ZNSt10shared_ptrIK
 
 if.then.i.i.i.i68:                                ; preds = %if.then.i.i.i43
   store i32 0, ptr %_M_use_count.i.i.i.i44, align 8
-  %_M_weak_count.i.i.i.i69 = getelementptr inbounds %"class.std::_Sp_counted_base", ptr %36, i64 0, i32 2
+  %_M_weak_count.i.i.i.i69 = getelementptr inbounds i8, ptr %36, i64 12
   store i32 0, ptr %_M_weak_count.i.i.i.i69, align 4
   %vtable.i.i.i.i70 = load ptr, ptr %36, align 8
-  %vfn.i.i.i.i71 = getelementptr inbounds ptr, ptr %vtable.i.i.i.i70, i64 2
+  %vfn.i.i.i.i71 = getelementptr inbounds i8, ptr %vtable.i.i.i.i70, i64 16
   %39 = load ptr, ptr %vfn.i.i.i.i71, align 8
   tail call void %39(ptr noundef nonnull align 8 dereferenceable(16) %36) #13
   br label %if.end8.sink.split.i.i.i.i63
@@ -7052,10 +7014,10 @@ _ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i50: ; preds = %if.els
 
 if.then7.i.i.i.i53:                               ; preds = %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i50
   %vtable.i.i.i.i.i.i54 = load ptr, ptr %36, align 8
-  %vfn.i.i.i.i.i.i55 = getelementptr inbounds ptr, ptr %vtable.i.i.i.i.i.i54, i64 2
+  %vfn.i.i.i.i.i.i55 = getelementptr inbounds i8, ptr %vtable.i.i.i.i.i.i54, i64 16
   %42 = load ptr, ptr %vfn.i.i.i.i.i.i55, align 8
   tail call void %42(ptr noundef nonnull align 8 dereferenceable(16) %36) #13
-  %_M_weak_count.i.i.i.i.i.i56 = getelementptr inbounds %"class.std::_Sp_counted_base", ptr %36, i64 0, i32 2
+  %_M_weak_count.i.i.i.i.i.i56 = getelementptr inbounds i8, ptr %36, i64 12
   %43 = load i8, ptr @__libc_single_threaded, align 1
   %tobool.i.i.not.i.i.i.i.i.i57 = icmp eq i8 %43, 0
   br i1 %tobool.i.i.not.i.i.i.i.i.i57, label %if.else.i.i.i.i.i.i.i66, label %if.then.i.i.i.i.i.i.i58
@@ -7077,7 +7039,7 @@ _ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i60: ; preds = %if
 
 if.end8.sink.split.i.i.i.i63:                     ; preds = %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i60, %if.then.i.i.i.i68
   %vtable2.i.i.i.i.i.i64 = load ptr, ptr %36, align 8
-  %vfn3.i.i.i.i.i.i65 = getelementptr inbounds ptr, ptr %vtable2.i.i.i.i.i.i64, i64 3
+  %vfn3.i.i.i.i.i.i65 = getelementptr inbounds i8, ptr %vtable2.i.i.i.i.i.i64, i64 24
   %46 = load ptr, ptr %vfn3.i.i.i.i.i.i65, align 8
   tail call void %46(ptr noundef nonnull align 8 dereferenceable(16) %36) #13
   br label %_ZNSt10shared_ptrIKN19OpenColorIO_v2_4dev5OpCPUEED2Ev.exit72
@@ -7097,66 +7059,66 @@ entry:
 ; Function Attrs: mustprogress uwtable
 define weak_odr hidden void @_ZN19OpenColorIO_v2_4dev21GenericScanlineHelperItfE16prepRGBAScanlineEPPfRl(ptr noundef nonnull align 8 dereferenceable(309) %this, ptr noundef %buffer, ptr noundef nonnull align 8 dereferenceable(8) %numPixels) unnamed_addr #5 comdat align 2 {
 entry:
-  %m_yIndex = getelementptr inbounds %"class.OpenColorIO_v2_4dev::GenericScanlineHelper.27", ptr %this, i64 0, i32 12
+  %m_yIndex = getelementptr inbounds i8, ptr %this, i64 304
   %0 = load i32, ptr %m_yIndex, align 8
   %conv = sext i32 %0 to i64
-  %m_dstImg = getelementptr inbounds %"class.OpenColorIO_v2_4dev::GenericScanlineHelper.27", ptr %this, i64 0, i32 6
-  %m_height = getelementptr inbounds %"class.OpenColorIO_v2_4dev::GenericScanlineHelper.27", ptr %this, i64 0, i32 6, i32 1
+  %m_dstImg = getelementptr inbounds i8, ptr %this, i64 136
+  %m_height = getelementptr inbounds i8, ptr %this, i64 144
   %1 = load i64, ptr %m_height, align 8
   %cmp.not = icmp sgt i64 %1, %conv
   br i1 %cmp.not, label %if.end, label %return
 
 if.end:                                           ; preds = %entry
-  %m_useDstBuffer = getelementptr inbounds %"class.OpenColorIO_v2_4dev::GenericScanlineHelper.27", ptr %this, i64 0, i32 13
+  %m_useDstBuffer = getelementptr inbounds i8, ptr %this, i64 308
   %2 = load i8, ptr %m_useDstBuffer, align 4
   %3 = and i8 %2, 1
   %tobool.not = icmp eq i8 %3, 0
   br i1 %tobool.not, label %cond.false, label %cond.true
 
 cond.true:                                        ; preds = %if.end
-  %m_rData = getelementptr inbounds %"class.OpenColorIO_v2_4dev::GenericScanlineHelper.27", ptr %this, i64 0, i32 6, i32 4
+  %m_rData = getelementptr inbounds i8, ptr %this, i64 168
   %4 = load ptr, ptr %m_rData, align 8
-  %m_yStrideBytes = getelementptr inbounds %"class.OpenColorIO_v2_4dev::GenericScanlineHelper.27", ptr %this, i64 0, i32 6, i32 3
+  %m_yStrideBytes = getelementptr inbounds i8, ptr %this, i64 160
   %5 = load i64, ptr %m_yStrideBytes, align 8
   %mul = mul nsw i64 %5, %conv
   %add.ptr = getelementptr inbounds i8, ptr %4, i64 %mul
   br label %cond.end
 
 cond.false:                                       ; preds = %if.end
-  %m_rgbaFloatBuffer = getelementptr inbounds %"class.OpenColorIO_v2_4dev::GenericScanlineHelper.27", ptr %this, i64 0, i32 9
+  %m_rgbaFloatBuffer = getelementptr inbounds i8, ptr %this, i64 232
   %6 = load ptr, ptr %m_rgbaFloatBuffer, align 8
   br label %cond.end
 
 cond.end:                                         ; preds = %cond.false, %cond.true
   %cond = phi ptr [ %add.ptr, %cond.true ], [ %6, %cond.false ]
   store ptr %cond, ptr %buffer, align 8
-  %m_inOptimizedMode = getelementptr inbounds %"class.OpenColorIO_v2_4dev::GenericScanlineHelper.27", ptr %this, i64 0, i32 7
+  %m_inOptimizedMode = getelementptr inbounds i8, ptr %this, i64 224
   %7 = load i32, ptr %m_inOptimizedMode, align 8
   %and = and i32 %7, 1
   %cmp6.not = icmp eq i32 %and, 0
   br i1 %cmp6.not, label %if.else, label %if.then7
 
 if.then7:                                         ; preds = %cond.end
-  %m_rData8 = getelementptr inbounds %"class.OpenColorIO_v2_4dev::GenericScanlineHelper.27", ptr %this, i64 0, i32 5, i32 4
+  %m_rData8 = getelementptr inbounds i8, ptr %this, i64 80
   %8 = load ptr, ptr %m_rData8, align 8
-  %m_yStrideBytes10 = getelementptr inbounds %"class.OpenColorIO_v2_4dev::GenericScanlineHelper.27", ptr %this, i64 0, i32 5, i32 3
+  %m_yStrideBytes10 = getelementptr inbounds i8, ptr %this, i64 72
   %9 = load i64, ptr %m_yStrideBytes10, align 8
   %10 = load i32, ptr %m_yIndex, align 8
   %conv12 = sext i32 %10 to i64
   %mul13 = mul nsw i64 %9, %conv12
   %add.ptr14 = getelementptr inbounds i8, ptr %8, i64 %mul13
-  %m_bitDepthOp = getelementptr inbounds %"class.OpenColorIO_v2_4dev::GenericScanlineHelper.27", ptr %this, i64 0, i32 5, i32 8
+  %m_bitDepthOp = getelementptr inbounds i8, ptr %this, i64 112
   %11 = load ptr, ptr %m_bitDepthOp, align 8
   %12 = load i64, ptr %m_dstImg, align 8
   %vtable = load ptr, ptr %11, align 8
-  %vfn = getelementptr inbounds ptr, ptr %vtable, i64 2
+  %vfn = getelementptr inbounds i8, ptr %vtable, i64 16
   %13 = load ptr, ptr %vfn, align 8
   tail call void %13(ptr noundef nonnull align 8 dereferenceable(8) %11, ptr noundef %add.ptr14, ptr noundef %cond, i64 noundef %12)
   br label %if.end28
 
 if.else:                                          ; preds = %cond.end
-  %m_srcImg18 = getelementptr inbounds %"class.OpenColorIO_v2_4dev::GenericScanlineHelper.27", ptr %this, i64 0, i32 5
-  %m_inBitDepthBuffer = getelementptr inbounds %"class.OpenColorIO_v2_4dev::GenericScanlineHelper.27", ptr %this, i64 0, i32 10
+  %m_srcImg18 = getelementptr inbounds i8, ptr %this, i64 48
+  %m_inBitDepthBuffer = getelementptr inbounds i8, ptr %this, i64 256
   %14 = load ptr, ptr %m_inBitDepthBuffer, align 8
   %15 = load i64, ptr %m_dstImg, align 8
   %conv22 = trunc i64 %15 to i32
@@ -7179,47 +7141,47 @@ return:                                           ; preds = %entry, %if.end28
 ; Function Attrs: mustprogress uwtable
 define weak_odr hidden void @_ZN19OpenColorIO_v2_4dev21GenericScanlineHelperItfE18finishRGBAScanlineEv(ptr noundef nonnull align 8 dereferenceable(309) %this) unnamed_addr #5 comdat align 2 {
 entry:
-  %m_outOptimizedMode = getelementptr inbounds %"class.OpenColorIO_v2_4dev::GenericScanlineHelper.27", ptr %this, i64 0, i32 8
+  %m_outOptimizedMode = getelementptr inbounds i8, ptr %this, i64 228
   %0 = load i32, ptr %m_outOptimizedMode, align 4
   %and = and i32 %0, 1
   %cmp.not = icmp eq i32 %and, 0
-  %m_dstImg6 = getelementptr inbounds %"class.OpenColorIO_v2_4dev::GenericScanlineHelper.27", ptr %this, i64 0, i32 6
+  %m_dstImg6 = getelementptr inbounds i8, ptr %this, i64 136
   br i1 %cmp.not, label %if.else, label %if.then
 
 if.then:                                          ; preds = %entry
-  %m_rData = getelementptr inbounds %"class.OpenColorIO_v2_4dev::GenericScanlineHelper.27", ptr %this, i64 0, i32 6, i32 4
+  %m_rData = getelementptr inbounds i8, ptr %this, i64 168
   %1 = load ptr, ptr %m_rData, align 8
-  %m_yStrideBytes = getelementptr inbounds %"class.OpenColorIO_v2_4dev::GenericScanlineHelper.27", ptr %this, i64 0, i32 6, i32 3
+  %m_yStrideBytes = getelementptr inbounds i8, ptr %this, i64 160
   %2 = load i64, ptr %m_yStrideBytes, align 8
-  %m_yIndex = getelementptr inbounds %"class.OpenColorIO_v2_4dev::GenericScanlineHelper.27", ptr %this, i64 0, i32 12
+  %m_yIndex = getelementptr inbounds i8, ptr %this, i64 304
   %3 = load i32, ptr %m_yIndex, align 8
   %conv = sext i32 %3 to i64
   %mul = mul nsw i64 %2, %conv
   %add.ptr = getelementptr inbounds i8, ptr %1, i64 %mul
-  %m_useDstBuffer = getelementptr inbounds %"class.OpenColorIO_v2_4dev::GenericScanlineHelper.27", ptr %this, i64 0, i32 13
+  %m_useDstBuffer = getelementptr inbounds i8, ptr %this, i64 308
   %4 = load i8, ptr %m_useDstBuffer, align 4
   %5 = and i8 %4, 1
   %tobool.not = icmp eq i8 %5, 0
-  %m_rgbaFloatBuffer = getelementptr inbounds %"class.OpenColorIO_v2_4dev::GenericScanlineHelper.27", ptr %this, i64 0, i32 9
+  %m_rgbaFloatBuffer = getelementptr inbounds i8, ptr %this, i64 232
   %6 = load ptr, ptr %m_rgbaFloatBuffer, align 8
   %cond = select i1 %tobool.not, ptr %6, ptr %add.ptr
-  %m_bitDepthOp = getelementptr inbounds %"class.OpenColorIO_v2_4dev::GenericScanlineHelper.27", ptr %this, i64 0, i32 6, i32 8
+  %m_bitDepthOp = getelementptr inbounds i8, ptr %this, i64 200
   %7 = load ptr, ptr %m_bitDepthOp, align 8
   %8 = load i64, ptr %m_dstImg6, align 8
   %vtable = load ptr, ptr %7, align 8
-  %vfn = getelementptr inbounds ptr, ptr %vtable, i64 2
+  %vfn = getelementptr inbounds i8, ptr %vtable, i64 16
   %9 = load ptr, ptr %vfn, align 8
   tail call void %9(ptr noundef nonnull align 8 dereferenceable(8) %7, ptr noundef %cond, ptr noundef %add.ptr, i64 noundef %8)
   br label %if.end
 
 if.else:                                          ; preds = %entry
-  %m_rgbaFloatBuffer7 = getelementptr inbounds %"class.OpenColorIO_v2_4dev::GenericScanlineHelper.27", ptr %this, i64 0, i32 9
+  %m_rgbaFloatBuffer7 = getelementptr inbounds i8, ptr %this, i64 232
   %10 = load ptr, ptr %m_rgbaFloatBuffer7, align 8
-  %m_outBitDepthBuffer = getelementptr inbounds %"class.OpenColorIO_v2_4dev::GenericScanlineHelper.27", ptr %this, i64 0, i32 11
+  %m_outBitDepthBuffer = getelementptr inbounds i8, ptr %this, i64 280
   %11 = load ptr, ptr %m_outBitDepthBuffer, align 8
   %12 = load i64, ptr %m_dstImg6, align 8
   %conv12 = trunc i64 %12 to i32
-  %m_yIndex13 = getelementptr inbounds %"class.OpenColorIO_v2_4dev::GenericScanlineHelper.27", ptr %this, i64 0, i32 12
+  %m_yIndex13 = getelementptr inbounds i8, ptr %this, i64 304
   %13 = load i32, ptr %m_yIndex13, align 8
   %conv14 = sext i32 %13 to i64
   %mul17 = mul nsw i64 %12, %conv14
@@ -7227,7 +7189,7 @@ if.else:                                          ; preds = %entry
   br label %if.end
 
 if.end:                                           ; preds = %if.else, %if.then
-  %m_yIndex18 = getelementptr inbounds %"class.OpenColorIO_v2_4dev::GenericScanlineHelper.27", ptr %this, i64 0, i32 12
+  %m_yIndex18 = getelementptr inbounds i8, ptr %this, i64 304
   %14 = load i32, ptr %m_yIndex18, align 8
   %inc = add nsw i32 %14, 1
   store i32 %inc, ptr %m_yIndex18, align 8
@@ -7238,22 +7200,22 @@ if.end:                                           ; preds = %if.else, %if.then
 define weak_odr hidden void @_ZN19OpenColorIO_v2_4dev21GenericScanlineHelperIN9Imath_3_14halfEhEC2ENS_8BitDepthERKSt10shared_ptrIKNS_5OpCPUEES4_SA_(ptr noundef nonnull align 8 dereferenceable(309) %this, i32 noundef %inputBitDepth, ptr noundef nonnull align 8 dereferenceable(16) %inBitDepthOp, i32 noundef %outputBitDepth, ptr noundef nonnull align 8 dereferenceable(16) %outBitDepthOp) unnamed_addr #3 comdat($_ZN19OpenColorIO_v2_4dev21GenericScanlineHelperIN9Imath_3_14halfEhEC5ENS_8BitDepthERKSt10shared_ptrIKNS_5OpCPUEES4_SA_) align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTVN19OpenColorIO_v2_4dev21GenericScanlineHelperIN9Imath_3_14halfEhEE, i64 0, inrange i32 0, i64 2), ptr %this, align 8
-  %m_inputBitDepth = getelementptr inbounds %"class.OpenColorIO_v2_4dev::GenericScanlineHelper.29", ptr %this, i64 0, i32 1
+  %m_inputBitDepth = getelementptr inbounds i8, ptr %this, i64 8
   store i32 %inputBitDepth, ptr %m_inputBitDepth, align 8
-  %m_outputBitDepth = getelementptr inbounds %"class.OpenColorIO_v2_4dev::GenericScanlineHelper.29", ptr %this, i64 0, i32 2
+  %m_outputBitDepth = getelementptr inbounds i8, ptr %this, i64 12
   store i32 %outputBitDepth, ptr %m_outputBitDepth, align 4
-  %m_inBitDepthOp = getelementptr inbounds %"class.OpenColorIO_v2_4dev::GenericScanlineHelper.29", ptr %this, i64 0, i32 3
+  %m_inBitDepthOp = getelementptr inbounds i8, ptr %this, i64 16
   %0 = load ptr, ptr %inBitDepthOp, align 8
   store ptr %0, ptr %m_inBitDepthOp, align 8
-  %_M_refcount.i.i = getelementptr inbounds %"class.OpenColorIO_v2_4dev::GenericScanlineHelper.29", ptr %this, i64 0, i32 3, i32 0, i32 1
-  %_M_refcount3.i.i = getelementptr inbounds %"class.std::__shared_ptr", ptr %inBitDepthOp, i64 0, i32 1
+  %_M_refcount.i.i = getelementptr inbounds i8, ptr %this, i64 24
+  %_M_refcount3.i.i = getelementptr inbounds i8, ptr %inBitDepthOp, i64 8
   %1 = load ptr, ptr %_M_refcount3.i.i, align 8
   store ptr %1, ptr %_M_refcount.i.i, align 8
   %cmp.not.i.i.i = icmp eq ptr %1, null
   br i1 %cmp.not.i.i.i, label %_ZNSt10shared_ptrIKN19OpenColorIO_v2_4dev5OpCPUEEC2ERKS3_.exit, label %if.then.i.i.i
 
 if.then.i.i.i:                                    ; preds = %entry
-  %_M_use_count.i.i.i.i = getelementptr inbounds %"class.std::_Sp_counted_base", ptr %1, i64 0, i32 1
+  %_M_use_count.i.i.i.i = getelementptr inbounds i8, ptr %1, i64 8
   %2 = load i8, ptr @__libc_single_threaded, align 1
   %tobool.i.not.i.i.i.i = icmp eq i8 %2, 0
   br i1 %tobool.i.not.i.i.i.i, label %if.else.i.i.i.i.i, label %if.then.i.i.i.i.i
@@ -7269,18 +7231,18 @@ if.else.i.i.i.i.i:                                ; preds = %if.then.i.i.i
   br label %_ZNSt10shared_ptrIKN19OpenColorIO_v2_4dev5OpCPUEEC2ERKS3_.exit
 
 _ZNSt10shared_ptrIKN19OpenColorIO_v2_4dev5OpCPUEEC2ERKS3_.exit: ; preds = %entry, %if.then.i.i.i.i.i, %if.else.i.i.i.i.i
-  %m_outBitDepthOp = getelementptr inbounds %"class.OpenColorIO_v2_4dev::GenericScanlineHelper.29", ptr %this, i64 0, i32 4
+  %m_outBitDepthOp = getelementptr inbounds i8, ptr %this, i64 32
   %5 = load ptr, ptr %outBitDepthOp, align 8
   store ptr %5, ptr %m_outBitDepthOp, align 8
-  %_M_refcount.i.i1 = getelementptr inbounds %"class.OpenColorIO_v2_4dev::GenericScanlineHelper.29", ptr %this, i64 0, i32 4, i32 0, i32 1
-  %_M_refcount3.i.i2 = getelementptr inbounds %"class.std::__shared_ptr", ptr %outBitDepthOp, i64 0, i32 1
+  %_M_refcount.i.i1 = getelementptr inbounds i8, ptr %this, i64 40
+  %_M_refcount3.i.i2 = getelementptr inbounds i8, ptr %outBitDepthOp, i64 8
   %6 = load ptr, ptr %_M_refcount3.i.i2, align 8
   store ptr %6, ptr %_M_refcount.i.i1, align 8
   %cmp.not.i.i.i3 = icmp eq ptr %6, null
   br i1 %cmp.not.i.i.i3, label %_ZNSt10shared_ptrIKN19OpenColorIO_v2_4dev5OpCPUEEC2ERKS3_.exit10, label %if.then.i.i.i4
 
 if.then.i.i.i4:                                   ; preds = %_ZNSt10shared_ptrIKN19OpenColorIO_v2_4dev5OpCPUEEC2ERKS3_.exit
-  %_M_use_count.i.i.i.i5 = getelementptr inbounds %"class.std::_Sp_counted_base", ptr %6, i64 0, i32 1
+  %_M_use_count.i.i.i.i5 = getelementptr inbounds i8, ptr %6, i64 8
   %7 = load i8, ptr @__libc_single_threaded, align 1
   %tobool.i.not.i.i.i.i6 = icmp eq i8 %7, 0
   br i1 %tobool.i.not.i.i.i.i6, label %if.else.i.i.i.i.i9, label %if.then.i.i.i.i.i7
@@ -7296,11 +7258,11 @@ if.else.i.i.i.i.i9:                               ; preds = %if.then.i.i.i4
   br label %_ZNSt10shared_ptrIKN19OpenColorIO_v2_4dev5OpCPUEEC2ERKS3_.exit10
 
 _ZNSt10shared_ptrIKN19OpenColorIO_v2_4dev5OpCPUEEC2ERKS3_.exit10: ; preds = %_ZNSt10shared_ptrIKN19OpenColorIO_v2_4dev5OpCPUEEC2ERKS3_.exit, %if.then.i.i.i.i.i7, %if.else.i.i.i.i.i9
-  %m_srcImg = getelementptr inbounds %"class.OpenColorIO_v2_4dev::GenericScanlineHelper.29", ptr %this, i64 0, i32 5
+  %m_srcImg = getelementptr inbounds i8, ptr %this, i64 48
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(82) %m_srcImg, i8 0, i64 82, i1 false)
-  %m_dstImg = getelementptr inbounds %"class.OpenColorIO_v2_4dev::GenericScanlineHelper.29", ptr %this, i64 0, i32 6
+  %m_dstImg = getelementptr inbounds i8, ptr %this, i64 136
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(82) %m_dstImg, i8 0, i64 82, i1 false)
-  %m_inOptimizedMode = getelementptr inbounds %"class.OpenColorIO_v2_4dev::GenericScanlineHelper.29", ptr %this, i64 0, i32 7
+  %m_inOptimizedMode = getelementptr inbounds i8, ptr %this, i64 224
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(85) %m_inOptimizedMode, i8 0, i64 85, i1 false)
   ret void
 }
@@ -7308,17 +7270,17 @@ _ZNSt10shared_ptrIKN19OpenColorIO_v2_4dev5OpCPUEEC2ERKS3_.exit10: ; preds = %_ZN
 ; Function Attrs: mustprogress uwtable
 define weak_odr hidden void @_ZN19OpenColorIO_v2_4dev21GenericScanlineHelperIN9Imath_3_14halfEhE4initERKNS_9ImageDescES6_(ptr noundef nonnull align 8 dereferenceable(309) %this, ptr noundef nonnull align 8 dereferenceable(8) %srcImg, ptr noundef nonnull align 8 dereferenceable(8) %dstImg) unnamed_addr #5 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  %m_yIndex = getelementptr inbounds %"class.OpenColorIO_v2_4dev::GenericScanlineHelper.29", ptr %this, i64 0, i32 12
+  %m_yIndex = getelementptr inbounds i8, ptr %this, i64 304
   store i32 0, ptr %m_yIndex, align 8
-  %m_srcImg = getelementptr inbounds %"class.OpenColorIO_v2_4dev::GenericScanlineHelper.29", ptr %this, i64 0, i32 5
-  %m_inputBitDepth = getelementptr inbounds %"class.OpenColorIO_v2_4dev::GenericScanlineHelper.29", ptr %this, i64 0, i32 1
+  %m_srcImg = getelementptr inbounds i8, ptr %this, i64 48
+  %m_inputBitDepth = getelementptr inbounds i8, ptr %this, i64 8
   %0 = load i32, ptr %m_inputBitDepth, align 8
-  %m_inBitDepthOp = getelementptr inbounds %"class.OpenColorIO_v2_4dev::GenericScanlineHelper.29", ptr %this, i64 0, i32 3
+  %m_inBitDepthOp = getelementptr inbounds i8, ptr %this, i64 16
   tail call void @_ZN19OpenColorIO_v2_4dev16GenericImageDesc4initERKNS_9ImageDescENS_8BitDepthERKSt10shared_ptrIKNS_5OpCPUEE(ptr noundef nonnull align 8 dereferenceable(82) %m_srcImg, ptr noundef nonnull align 8 dereferenceable(8) %srcImg, i32 noundef %0, ptr noundef nonnull align 8 dereferenceable(16) %m_inBitDepthOp)
-  %m_dstImg = getelementptr inbounds %"class.OpenColorIO_v2_4dev::GenericScanlineHelper.29", ptr %this, i64 0, i32 6
-  %m_outputBitDepth = getelementptr inbounds %"class.OpenColorIO_v2_4dev::GenericScanlineHelper.29", ptr %this, i64 0, i32 2
+  %m_dstImg = getelementptr inbounds i8, ptr %this, i64 136
+  %m_outputBitDepth = getelementptr inbounds i8, ptr %this, i64 12
   %1 = load i32, ptr %m_outputBitDepth, align 4
-  %m_outBitDepthOp = getelementptr inbounds %"class.OpenColorIO_v2_4dev::GenericScanlineHelper.29", ptr %this, i64 0, i32 4
+  %m_outBitDepthOp = getelementptr inbounds i8, ptr %this, i64 32
   tail call void @_ZN19OpenColorIO_v2_4dev16GenericImageDesc4initERKNS_9ImageDescENS_8BitDepthERKSt10shared_ptrIKNS_5OpCPUEE(ptr noundef nonnull align 8 dereferenceable(82) %m_dstImg, ptr noundef nonnull align 8 dereferenceable(8) %dstImg, i32 noundef %1, ptr noundef nonnull align 8 dereferenceable(16) %m_outBitDepthOp)
   %2 = load i64, ptr %m_srcImg, align 8
   %3 = load i64, ptr %m_dstImg, align 8
@@ -7326,9 +7288,9 @@ entry:
   br i1 %cmp.not, label %lor.lhs.false, label %if.then
 
 lor.lhs.false:                                    ; preds = %entry
-  %m_height = getelementptr inbounds %"class.OpenColorIO_v2_4dev::GenericScanlineHelper.29", ptr %this, i64 0, i32 5, i32 1
+  %m_height = getelementptr inbounds i8, ptr %this, i64 56
   %4 = load i64, ptr %m_height, align 8
-  %m_height7 = getelementptr inbounds %"class.OpenColorIO_v2_4dev::GenericScanlineHelper.29", ptr %this, i64 0, i32 6, i32 1
+  %m_height7 = getelementptr inbounds i8, ptr %this, i64 144
   %5 = load i64, ptr %m_height7, align 8
   %cmp8.not = icmp eq i64 %4, %5
   br i1 %cmp8.not, label %if.end, label %if.then
@@ -7359,7 +7321,7 @@ if.then.i:                                        ; preds = %if.end
 
 _ZN19OpenColorIO_v2_4dev19GetOptimizationModeERKNS_16GenericImageDescE.exit: ; preds = %if.end, %if.then.i
   %optim.0.i = phi i32 [ 0, %if.end ], [ %spec.select.i, %if.then.i ]
-  %m_inOptimizedMode = getelementptr inbounds %"class.OpenColorIO_v2_4dev::GenericScanlineHelper.29", ptr %this, i64 0, i32 7
+  %m_inOptimizedMode = getelementptr inbounds i8, ptr %this, i64 224
   store i32 %optim.0.i, ptr %m_inOptimizedMode, align 8
   %call.i2 = tail call noundef zeroext i1 @_ZNK19OpenColorIO_v2_4dev16GenericImageDesc12isRGBAPackedEv(ptr noundef nonnull align 8 dereferenceable(82) %m_dstImg)
   br i1 %call.i2, label %if.then.i4, label %_ZN19OpenColorIO_v2_4dev19GetOptimizationModeERKNS_16GenericImageDescE.exit7
@@ -7371,10 +7333,10 @@ if.then.i4:                                       ; preds = %_ZN19OpenColorIO_v2
 
 _ZN19OpenColorIO_v2_4dev19GetOptimizationModeERKNS_16GenericImageDescE.exit7: ; preds = %_ZN19OpenColorIO_v2_4dev19GetOptimizationModeERKNS_16GenericImageDescE.exit, %if.then.i4
   %optim.0.i3 = phi i32 [ 0, %_ZN19OpenColorIO_v2_4dev19GetOptimizationModeERKNS_16GenericImageDescE.exit ], [ %spec.select.i6, %if.then.i4 ]
-  %m_outOptimizedMode = getelementptr inbounds %"class.OpenColorIO_v2_4dev::GenericScanlineHelper.29", ptr %this, i64 0, i32 8
+  %m_outOptimizedMode = getelementptr inbounds i8, ptr %this, i64 228
   store i32 %optim.0.i3, ptr %m_outOptimizedMode, align 4
   %cmp13 = icmp eq i32 %optim.0.i3, 3
-  %m_useDstBuffer = getelementptr inbounds %"class.OpenColorIO_v2_4dev::GenericScanlineHelper.29", ptr %this, i64 0, i32 13
+  %m_useDstBuffer = getelementptr inbounds i8, ptr %this, i64 308
   %frombool = zext i1 %cmp13 to i8
   store i8 %frombool, ptr %m_useDstBuffer, align 4
   %7 = load i32, ptr %m_inOptimizedMode, align 8
@@ -7385,8 +7347,8 @@ _ZN19OpenColorIO_v2_4dev19GetOptimizationModeERKNS_16GenericImageDescE.exit7: ; 
 if.then17:                                        ; preds = %_ZN19OpenColorIO_v2_4dev19GetOptimizationModeERKNS_16GenericImageDescE.exit7
   %8 = load i64, ptr %m_dstImg, align 8
   %mul = shl nsw i64 %8, 2
-  %m_inBitDepthBuffer = getelementptr inbounds %"class.OpenColorIO_v2_4dev::GenericScanlineHelper.29", ptr %this, i64 0, i32 10
-  %_M_finish.i.i = getelementptr inbounds %"class.OpenColorIO_v2_4dev::GenericScanlineHelper.29", ptr %this, i64 0, i32 10, i32 0, i32 0, i32 0, i32 1
+  %m_inBitDepthBuffer = getelementptr inbounds i8, ptr %this, i64 256
+  %_M_finish.i.i = getelementptr inbounds i8, ptr %this, i64 264
   %9 = load ptr, ptr %_M_finish.i.i, align 8
   %10 = load ptr, ptr %m_inBitDepthBuffer, align 8
   %sub.ptr.lhs.cast.i.i = ptrtoint ptr %9 to i64
@@ -7424,8 +7386,8 @@ if.end20:                                         ; preds = %invoke.cont.i.i, %i
 if.then22:                                        ; preds = %if.end20
   %13 = load i64, ptr %m_dstImg, align 8
   %mul26 = shl nsw i64 %13, 2
-  %m_rgbaFloatBuffer = getelementptr inbounds %"class.OpenColorIO_v2_4dev::GenericScanlineHelper.29", ptr %this, i64 0, i32 9
-  %_M_finish.i.i9 = getelementptr inbounds %"class.OpenColorIO_v2_4dev::GenericScanlineHelper.29", ptr %this, i64 0, i32 9, i32 0, i32 0, i32 0, i32 1
+  %m_rgbaFloatBuffer = getelementptr inbounds i8, ptr %this, i64 232
+  %_M_finish.i.i9 = getelementptr inbounds i8, ptr %this, i64 240
   %14 = load ptr, ptr %_M_finish.i.i9, align 8
   %15 = load ptr, ptr %m_rgbaFloatBuffer, align 8
   %sub.ptr.lhs.cast.i.i10 = ptrtoint ptr %14 to i64
@@ -7454,7 +7416,7 @@ invoke.cont.i.i20:                                ; preds = %if.then5.i17
   br label %_ZNSt6vectorIfSaIfEE6resizeEm.exit
 
 _ZNSt6vectorIfSaIfEE6resizeEm.exit:               ; preds = %if.then.i21, %if.else.i15, %if.then5.i17, %invoke.cont.i.i20
-  %m_outBitDepthBuffer = getelementptr inbounds %"class.OpenColorIO_v2_4dev::GenericScanlineHelper.29", ptr %this, i64 0, i32 11
+  %m_outBitDepthBuffer = getelementptr inbounds i8, ptr %this, i64 280
   tail call void @_ZNSt6vectorIhSaIhEE6resizeEm(ptr noundef nonnull align 8 dereferenceable(24) %m_outBitDepthBuffer, i64 noundef %mul26)
   br label %if.end27
 
@@ -7465,17 +7427,17 @@ if.end27:                                         ; preds = %_ZNSt6vectorIfSaIfE
 ; Function Attrs: mustprogress uwtable
 define weak_odr hidden void @_ZN19OpenColorIO_v2_4dev21GenericScanlineHelperIN9Imath_3_14halfEhE4initERKNS_9ImageDescE(ptr noundef nonnull align 8 dereferenceable(309) %this, ptr noundef nonnull align 8 dereferenceable(8) %img) unnamed_addr #5 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  %m_yIndex = getelementptr inbounds %"class.OpenColorIO_v2_4dev::GenericScanlineHelper.29", ptr %this, i64 0, i32 12
+  %m_yIndex = getelementptr inbounds i8, ptr %this, i64 304
   store i32 0, ptr %m_yIndex, align 8
-  %m_srcImg = getelementptr inbounds %"class.OpenColorIO_v2_4dev::GenericScanlineHelper.29", ptr %this, i64 0, i32 5
-  %m_inputBitDepth = getelementptr inbounds %"class.OpenColorIO_v2_4dev::GenericScanlineHelper.29", ptr %this, i64 0, i32 1
+  %m_srcImg = getelementptr inbounds i8, ptr %this, i64 48
+  %m_inputBitDepth = getelementptr inbounds i8, ptr %this, i64 8
   %0 = load i32, ptr %m_inputBitDepth, align 8
-  %m_inBitDepthOp = getelementptr inbounds %"class.OpenColorIO_v2_4dev::GenericScanlineHelper.29", ptr %this, i64 0, i32 3
+  %m_inBitDepthOp = getelementptr inbounds i8, ptr %this, i64 16
   tail call void @_ZN19OpenColorIO_v2_4dev16GenericImageDesc4initERKNS_9ImageDescENS_8BitDepthERKSt10shared_ptrIKNS_5OpCPUEE(ptr noundef nonnull align 8 dereferenceable(82) %m_srcImg, ptr noundef nonnull align 8 dereferenceable(8) %img, i32 noundef %0, ptr noundef nonnull align 8 dereferenceable(16) %m_inBitDepthOp)
-  %m_dstImg = getelementptr inbounds %"class.OpenColorIO_v2_4dev::GenericScanlineHelper.29", ptr %this, i64 0, i32 6
-  %m_outputBitDepth = getelementptr inbounds %"class.OpenColorIO_v2_4dev::GenericScanlineHelper.29", ptr %this, i64 0, i32 2
+  %m_dstImg = getelementptr inbounds i8, ptr %this, i64 136
+  %m_outputBitDepth = getelementptr inbounds i8, ptr %this, i64 12
   %1 = load i32, ptr %m_outputBitDepth, align 4
-  %m_outBitDepthOp = getelementptr inbounds %"class.OpenColorIO_v2_4dev::GenericScanlineHelper.29", ptr %this, i64 0, i32 4
+  %m_outBitDepthOp = getelementptr inbounds i8, ptr %this, i64 32
   tail call void @_ZN19OpenColorIO_v2_4dev16GenericImageDesc4initERKNS_9ImageDescENS_8BitDepthERKSt10shared_ptrIKNS_5OpCPUEE(ptr noundef nonnull align 8 dereferenceable(82) %m_dstImg, ptr noundef nonnull align 8 dereferenceable(8) %img, i32 noundef %1, ptr noundef nonnull align 8 dereferenceable(16) %m_outBitDepthOp)
   %call.i = tail call noundef zeroext i1 @_ZNK19OpenColorIO_v2_4dev16GenericImageDesc12isRGBAPackedEv(ptr noundef nonnull align 8 dereferenceable(82) %m_srcImg)
   br i1 %call.i, label %if.then.i, label %if.then
@@ -7485,26 +7447,26 @@ if.then.i:                                        ; preds = %entry
   br i1 %call1.i, label %_ZN19OpenColorIO_v2_4dev19GetOptimizationModeERKNS_16GenericImageDescE.exit, label %if.then
 
 _ZN19OpenColorIO_v2_4dev19GetOptimizationModeERKNS_16GenericImageDescE.exit: ; preds = %if.then.i
-  %m_inOptimizedMode = getelementptr inbounds %"class.OpenColorIO_v2_4dev::GenericScanlineHelper.29", ptr %this, i64 0, i32 7
+  %m_inOptimizedMode = getelementptr inbounds i8, ptr %this, i64 224
   store i32 3, ptr %m_inOptimizedMode, align 8
-  %m_outOptimizedMode = getelementptr inbounds %"class.OpenColorIO_v2_4dev::GenericScanlineHelper.29", ptr %this, i64 0, i32 8
+  %m_outOptimizedMode = getelementptr inbounds i8, ptr %this, i64 228
   store i32 3, ptr %m_outOptimizedMode, align 4
-  %m_useDstBuffer = getelementptr inbounds %"class.OpenColorIO_v2_4dev::GenericScanlineHelper.29", ptr %this, i64 0, i32 13
+  %m_useDstBuffer = getelementptr inbounds i8, ptr %this, i64 308
   store i8 1, ptr %m_useDstBuffer, align 4
   br label %if.end
 
 if.then:                                          ; preds = %entry, %if.then.i
   %optim.0.i.ph = phi i32 [ 1, %if.then.i ], [ 0, %entry ]
-  %m_inOptimizedMode20 = getelementptr inbounds %"class.OpenColorIO_v2_4dev::GenericScanlineHelper.29", ptr %this, i64 0, i32 7
+  %m_inOptimizedMode20 = getelementptr inbounds i8, ptr %this, i64 224
   store i32 %optim.0.i.ph, ptr %m_inOptimizedMode20, align 8
-  %m_outOptimizedMode21 = getelementptr inbounds %"class.OpenColorIO_v2_4dev::GenericScanlineHelper.29", ptr %this, i64 0, i32 8
+  %m_outOptimizedMode21 = getelementptr inbounds i8, ptr %this, i64 228
   store i32 %optim.0.i.ph, ptr %m_outOptimizedMode21, align 4
-  %m_useDstBuffer23 = getelementptr inbounds %"class.OpenColorIO_v2_4dev::GenericScanlineHelper.29", ptr %this, i64 0, i32 13
+  %m_useDstBuffer23 = getelementptr inbounds i8, ptr %this, i64 308
   store i8 0, ptr %m_useDstBuffer23, align 4
   %2 = load i64, ptr %m_dstImg, align 8
   %mul = shl nsw i64 %2, 2
-  %m_rgbaFloatBuffer = getelementptr inbounds %"class.OpenColorIO_v2_4dev::GenericScanlineHelper.29", ptr %this, i64 0, i32 9
-  %_M_finish.i.i = getelementptr inbounds %"class.OpenColorIO_v2_4dev::GenericScanlineHelper.29", ptr %this, i64 0, i32 9, i32 0, i32 0, i32 0, i32 1
+  %m_rgbaFloatBuffer = getelementptr inbounds i8, ptr %this, i64 232
+  %_M_finish.i.i = getelementptr inbounds i8, ptr %this, i64 240
   %3 = load ptr, ptr %_M_finish.i.i, align 8
   %4 = load ptr, ptr %m_rgbaFloatBuffer, align 8
   %sub.ptr.lhs.cast.i.i = ptrtoint ptr %3 to i64
@@ -7533,8 +7495,8 @@ invoke.cont.i.i:                                  ; preds = %if.then5.i
   br label %_ZNSt6vectorIfSaIfEE6resizeEm.exit
 
 _ZNSt6vectorIfSaIfEE6resizeEm.exit:               ; preds = %if.then.i4, %if.else.i, %if.then5.i, %invoke.cont.i.i
-  %m_inBitDepthBuffer = getelementptr inbounds %"class.OpenColorIO_v2_4dev::GenericScanlineHelper.29", ptr %this, i64 0, i32 10
-  %_M_finish.i.i5 = getelementptr inbounds %"class.OpenColorIO_v2_4dev::GenericScanlineHelper.29", ptr %this, i64 0, i32 10, i32 0, i32 0, i32 0, i32 1
+  %m_inBitDepthBuffer = getelementptr inbounds i8, ptr %this, i64 256
+  %_M_finish.i.i5 = getelementptr inbounds i8, ptr %this, i64 264
   %5 = load ptr, ptr %_M_finish.i.i5, align 8
   %6 = load ptr, ptr %m_inBitDepthBuffer, align 8
   %sub.ptr.lhs.cast.i.i6 = ptrtoint ptr %5 to i64
@@ -7563,7 +7525,7 @@ invoke.cont.i.i16:                                ; preds = %if.then5.i13
   br label %_ZNSt6vectorIN9Imath_3_14halfESaIS1_EE6resizeEm.exit
 
 _ZNSt6vectorIN9Imath_3_14halfESaIS1_EE6resizeEm.exit: ; preds = %if.then.i17, %if.else.i11, %if.then5.i13, %invoke.cont.i.i16
-  %m_outBitDepthBuffer = getelementptr inbounds %"class.OpenColorIO_v2_4dev::GenericScanlineHelper.29", ptr %this, i64 0, i32 11
+  %m_outBitDepthBuffer = getelementptr inbounds i8, ptr %this, i64 280
   tail call void @_ZNSt6vectorIhSaIhEE6resizeEm(ptr noundef nonnull align 8 dereferenceable(24) %m_outBitDepthBuffer, i64 noundef %mul)
   br label %if.end
 
@@ -7575,7 +7537,7 @@ if.end:                                           ; preds = %_ZN19OpenColorIO_v2
 define weak_odr hidden void @_ZN19OpenColorIO_v2_4dev21GenericScanlineHelperIN9Imath_3_14halfEhED2Ev(ptr noundef nonnull align 8 dereferenceable(309) %this) unnamed_addr #3 comdat($_ZN19OpenColorIO_v2_4dev21GenericScanlineHelperIN9Imath_3_14halfEhED5Ev) align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTVN19OpenColorIO_v2_4dev21GenericScanlineHelperIN9Imath_3_14halfEhEE, i64 0, inrange i32 0, i64 2), ptr %this, align 8
-  %m_outBitDepthBuffer = getelementptr inbounds %"class.OpenColorIO_v2_4dev::GenericScanlineHelper.29", ptr %this, i64 0, i32 11
+  %m_outBitDepthBuffer = getelementptr inbounds i8, ptr %this, i64 280
   %0 = load ptr, ptr %m_outBitDepthBuffer, align 8
   %tobool.not.i.i.i = icmp eq ptr %0, null
   br i1 %tobool.not.i.i.i, label %_ZNSt6vectorIhSaIhEED2Ev.exit, label %if.then.i.i.i
@@ -7585,7 +7547,7 @@ if.then.i.i.i:                                    ; preds = %entry
   br label %_ZNSt6vectorIhSaIhEED2Ev.exit
 
 _ZNSt6vectorIhSaIhEED2Ev.exit:                    ; preds = %entry, %if.then.i.i.i
-  %m_inBitDepthBuffer = getelementptr inbounds %"class.OpenColorIO_v2_4dev::GenericScanlineHelper.29", ptr %this, i64 0, i32 10
+  %m_inBitDepthBuffer = getelementptr inbounds i8, ptr %this, i64 256
   %1 = load ptr, ptr %m_inBitDepthBuffer, align 8
   %tobool.not.i.i.i1 = icmp eq ptr %1, null
   br i1 %tobool.not.i.i.i1, label %_ZNSt6vectorIN9Imath_3_14halfESaIS1_EED2Ev.exit, label %if.then.i.i.i2
@@ -7595,7 +7557,7 @@ if.then.i.i.i2:                                   ; preds = %_ZNSt6vectorIhSaIhE
   br label %_ZNSt6vectorIN9Imath_3_14halfESaIS1_EED2Ev.exit
 
 _ZNSt6vectorIN9Imath_3_14halfESaIS1_EED2Ev.exit:  ; preds = %_ZNSt6vectorIhSaIhEED2Ev.exit, %if.then.i.i.i2
-  %m_rgbaFloatBuffer = getelementptr inbounds %"class.OpenColorIO_v2_4dev::GenericScanlineHelper.29", ptr %this, i64 0, i32 9
+  %m_rgbaFloatBuffer = getelementptr inbounds i8, ptr %this, i64 232
   %2 = load ptr, ptr %m_rgbaFloatBuffer, align 8
   %tobool.not.i.i.i3 = icmp eq ptr %2, null
   br i1 %tobool.not.i.i.i3, label %_ZNSt6vectorIfSaIfEED2Ev.exit, label %if.then.i.i.i4
@@ -7605,13 +7567,13 @@ if.then.i.i.i4:                                   ; preds = %_ZNSt6vectorIN9Imat
   br label %_ZNSt6vectorIfSaIfEED2Ev.exit
 
 _ZNSt6vectorIfSaIfEED2Ev.exit:                    ; preds = %_ZNSt6vectorIN9Imath_3_14halfESaIS1_EED2Ev.exit, %if.then.i.i.i4
-  %_M_refcount.i.i.i = getelementptr inbounds %"class.OpenColorIO_v2_4dev::GenericScanlineHelper.29", ptr %this, i64 0, i32 6, i32 8, i32 0, i32 1
+  %_M_refcount.i.i.i = getelementptr inbounds i8, ptr %this, i64 208
   %3 = load ptr, ptr %_M_refcount.i.i.i, align 8
   %cmp.not.i.i.i.i = icmp eq ptr %3, null
   br i1 %cmp.not.i.i.i.i, label %_ZN19OpenColorIO_v2_4dev16GenericImageDescD2Ev.exit, label %if.then.i.i.i.i
 
 if.then.i.i.i.i:                                  ; preds = %_ZNSt6vectorIfSaIfEED2Ev.exit
-  %_M_use_count.i.i.i.i.i = getelementptr inbounds %"class.std::_Sp_counted_base", ptr %3, i64 0, i32 1
+  %_M_use_count.i.i.i.i.i = getelementptr inbounds i8, ptr %3, i64 8
   %4 = load atomic i64, ptr %_M_use_count.i.i.i.i.i acquire, align 8
   %cmp.i.i.i.i.i = icmp eq i64 %4, 4294967297
   %5 = trunc i64 %4 to i32
@@ -7619,10 +7581,10 @@ if.then.i.i.i.i:                                  ; preds = %_ZNSt6vectorIfSaIfE
 
 if.then.i.i.i.i.i:                                ; preds = %if.then.i.i.i.i
   store i32 0, ptr %_M_use_count.i.i.i.i.i, align 8
-  %_M_weak_count.i.i.i.i.i = getelementptr inbounds %"class.std::_Sp_counted_base", ptr %3, i64 0, i32 2
+  %_M_weak_count.i.i.i.i.i = getelementptr inbounds i8, ptr %3, i64 12
   store i32 0, ptr %_M_weak_count.i.i.i.i.i, align 4
   %vtable.i.i.i.i.i = load ptr, ptr %3, align 8
-  %vfn.i.i.i.i.i = getelementptr inbounds ptr, ptr %vtable.i.i.i.i.i, i64 2
+  %vfn.i.i.i.i.i = getelementptr inbounds i8, ptr %vtable.i.i.i.i.i, i64 16
   %6 = load ptr, ptr %vfn.i.i.i.i.i, align 8
   tail call void %6(ptr noundef nonnull align 8 dereferenceable(16) %3) #13
   br label %if.end8.sink.split.i.i.i.i.i
@@ -7648,10 +7610,10 @@ _ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i: ; preds = %if.els
 
 if.then7.i.i.i.i.i:                               ; preds = %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i
   %vtable.i.i.i.i.i.i.i = load ptr, ptr %3, align 8
-  %vfn.i.i.i.i.i.i.i = getelementptr inbounds ptr, ptr %vtable.i.i.i.i.i.i.i, i64 2
+  %vfn.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %vtable.i.i.i.i.i.i.i, i64 16
   %9 = load ptr, ptr %vfn.i.i.i.i.i.i.i, align 8
   tail call void %9(ptr noundef nonnull align 8 dereferenceable(16) %3) #13
-  %_M_weak_count.i.i.i.i.i.i.i = getelementptr inbounds %"class.std::_Sp_counted_base", ptr %3, i64 0, i32 2
+  %_M_weak_count.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %3, i64 12
   %10 = load i8, ptr @__libc_single_threaded, align 1
   %tobool.i.i.not.i.i.i.i.i.i.i = icmp eq i8 %10, 0
   br i1 %tobool.i.i.not.i.i.i.i.i.i.i, label %if.else.i.i.i.i.i.i.i.i, label %if.then.i.i.i.i.i.i.i.i
@@ -7673,19 +7635,19 @@ _ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i.i: ; preds = %if
 
 if.end8.sink.split.i.i.i.i.i:                     ; preds = %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i.i, %if.then.i.i.i.i.i
   %vtable2.i.i.i.i.i.i.i = load ptr, ptr %3, align 8
-  %vfn3.i.i.i.i.i.i.i = getelementptr inbounds ptr, ptr %vtable2.i.i.i.i.i.i.i, i64 3
+  %vfn3.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %vtable2.i.i.i.i.i.i.i, i64 24
   %13 = load ptr, ptr %vfn3.i.i.i.i.i.i.i, align 8
   tail call void %13(ptr noundef nonnull align 8 dereferenceable(16) %3) #13
   br label %_ZN19OpenColorIO_v2_4dev16GenericImageDescD2Ev.exit
 
 _ZN19OpenColorIO_v2_4dev16GenericImageDescD2Ev.exit: ; preds = %_ZNSt6vectorIfSaIfEED2Ev.exit, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i.i, %if.end8.sink.split.i.i.i.i.i
-  %_M_refcount.i.i.i5 = getelementptr inbounds %"class.OpenColorIO_v2_4dev::GenericScanlineHelper.29", ptr %this, i64 0, i32 5, i32 8, i32 0, i32 1
+  %_M_refcount.i.i.i5 = getelementptr inbounds i8, ptr %this, i64 120
   %14 = load ptr, ptr %_M_refcount.i.i.i5, align 8
   %cmp.not.i.i.i.i6 = icmp eq ptr %14, null
   br i1 %cmp.not.i.i.i.i6, label %_ZN19OpenColorIO_v2_4dev16GenericImageDescD2Ev.exit36, label %if.then.i.i.i.i7
 
 if.then.i.i.i.i7:                                 ; preds = %_ZN19OpenColorIO_v2_4dev16GenericImageDescD2Ev.exit
-  %_M_use_count.i.i.i.i.i8 = getelementptr inbounds %"class.std::_Sp_counted_base", ptr %14, i64 0, i32 1
+  %_M_use_count.i.i.i.i.i8 = getelementptr inbounds i8, ptr %14, i64 8
   %15 = load atomic i64, ptr %_M_use_count.i.i.i.i.i8 acquire, align 8
   %cmp.i.i.i.i.i9 = icmp eq i64 %15, 4294967297
   %16 = trunc i64 %15 to i32
@@ -7693,10 +7655,10 @@ if.then.i.i.i.i7:                                 ; preds = %_ZN19OpenColorIO_v2
 
 if.then.i.i.i.i.i32:                              ; preds = %if.then.i.i.i.i7
   store i32 0, ptr %_M_use_count.i.i.i.i.i8, align 8
-  %_M_weak_count.i.i.i.i.i33 = getelementptr inbounds %"class.std::_Sp_counted_base", ptr %14, i64 0, i32 2
+  %_M_weak_count.i.i.i.i.i33 = getelementptr inbounds i8, ptr %14, i64 12
   store i32 0, ptr %_M_weak_count.i.i.i.i.i33, align 4
   %vtable.i.i.i.i.i34 = load ptr, ptr %14, align 8
-  %vfn.i.i.i.i.i35 = getelementptr inbounds ptr, ptr %vtable.i.i.i.i.i34, i64 2
+  %vfn.i.i.i.i.i35 = getelementptr inbounds i8, ptr %vtable.i.i.i.i.i34, i64 16
   %17 = load ptr, ptr %vfn.i.i.i.i.i35, align 8
   tail call void %17(ptr noundef nonnull align 8 dereferenceable(16) %14) #13
   br label %if.end8.sink.split.i.i.i.i.i27
@@ -7722,10 +7684,10 @@ _ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i14: ; preds = %if.e
 
 if.then7.i.i.i.i.i17:                             ; preds = %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i14
   %vtable.i.i.i.i.i.i.i18 = load ptr, ptr %14, align 8
-  %vfn.i.i.i.i.i.i.i19 = getelementptr inbounds ptr, ptr %vtable.i.i.i.i.i.i.i18, i64 2
+  %vfn.i.i.i.i.i.i.i19 = getelementptr inbounds i8, ptr %vtable.i.i.i.i.i.i.i18, i64 16
   %20 = load ptr, ptr %vfn.i.i.i.i.i.i.i19, align 8
   tail call void %20(ptr noundef nonnull align 8 dereferenceable(16) %14) #13
-  %_M_weak_count.i.i.i.i.i.i.i20 = getelementptr inbounds %"class.std::_Sp_counted_base", ptr %14, i64 0, i32 2
+  %_M_weak_count.i.i.i.i.i.i.i20 = getelementptr inbounds i8, ptr %14, i64 12
   %21 = load i8, ptr @__libc_single_threaded, align 1
   %tobool.i.i.not.i.i.i.i.i.i.i21 = icmp eq i8 %21, 0
   br i1 %tobool.i.i.not.i.i.i.i.i.i.i21, label %if.else.i.i.i.i.i.i.i.i30, label %if.then.i.i.i.i.i.i.i.i22
@@ -7747,19 +7709,19 @@ _ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i.i24: ; preds = %
 
 if.end8.sink.split.i.i.i.i.i27:                   ; preds = %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i.i24, %if.then.i.i.i.i.i32
   %vtable2.i.i.i.i.i.i.i28 = load ptr, ptr %14, align 8
-  %vfn3.i.i.i.i.i.i.i29 = getelementptr inbounds ptr, ptr %vtable2.i.i.i.i.i.i.i28, i64 3
+  %vfn3.i.i.i.i.i.i.i29 = getelementptr inbounds i8, ptr %vtable2.i.i.i.i.i.i.i28, i64 24
   %24 = load ptr, ptr %vfn3.i.i.i.i.i.i.i29, align 8
   tail call void %24(ptr noundef nonnull align 8 dereferenceable(16) %14) #13
   br label %_ZN19OpenColorIO_v2_4dev16GenericImageDescD2Ev.exit36
 
 _ZN19OpenColorIO_v2_4dev16GenericImageDescD2Ev.exit36: ; preds = %_ZN19OpenColorIO_v2_4dev16GenericImageDescD2Ev.exit, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i14, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i.i24, %if.end8.sink.split.i.i.i.i.i27
-  %_M_refcount.i.i = getelementptr inbounds %"class.OpenColorIO_v2_4dev::GenericScanlineHelper.29", ptr %this, i64 0, i32 4, i32 0, i32 1
+  %_M_refcount.i.i = getelementptr inbounds i8, ptr %this, i64 40
   %25 = load ptr, ptr %_M_refcount.i.i, align 8
   %cmp.not.i.i.i = icmp eq ptr %25, null
   br i1 %cmp.not.i.i.i, label %_ZNSt10shared_ptrIKN19OpenColorIO_v2_4dev5OpCPUEED2Ev.exit, label %if.then.i.i.i37
 
 if.then.i.i.i37:                                  ; preds = %_ZN19OpenColorIO_v2_4dev16GenericImageDescD2Ev.exit36
-  %_M_use_count.i.i.i.i = getelementptr inbounds %"class.std::_Sp_counted_base", ptr %25, i64 0, i32 1
+  %_M_use_count.i.i.i.i = getelementptr inbounds i8, ptr %25, i64 8
   %26 = load atomic i64, ptr %_M_use_count.i.i.i.i acquire, align 8
   %cmp.i.i.i.i = icmp eq i64 %26, 4294967297
   %27 = trunc i64 %26 to i32
@@ -7767,10 +7729,10 @@ if.then.i.i.i37:                                  ; preds = %_ZN19OpenColorIO_v2
 
 if.then.i.i.i.i39:                                ; preds = %if.then.i.i.i37
   store i32 0, ptr %_M_use_count.i.i.i.i, align 8
-  %_M_weak_count.i.i.i.i = getelementptr inbounds %"class.std::_Sp_counted_base", ptr %25, i64 0, i32 2
+  %_M_weak_count.i.i.i.i = getelementptr inbounds i8, ptr %25, i64 12
   store i32 0, ptr %_M_weak_count.i.i.i.i, align 4
   %vtable.i.i.i.i = load ptr, ptr %25, align 8
-  %vfn.i.i.i.i = getelementptr inbounds ptr, ptr %vtable.i.i.i.i, i64 2
+  %vfn.i.i.i.i = getelementptr inbounds i8, ptr %vtable.i.i.i.i, i64 16
   %28 = load ptr, ptr %vfn.i.i.i.i, align 8
   tail call void %28(ptr noundef nonnull align 8 dereferenceable(16) %25) #13
   br label %if.end8.sink.split.i.i.i.i
@@ -7796,10 +7758,10 @@ _ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i: ; preds = %if.else.
 
 if.then7.i.i.i.i:                                 ; preds = %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i
   %vtable.i.i.i.i.i.i = load ptr, ptr %25, align 8
-  %vfn.i.i.i.i.i.i = getelementptr inbounds ptr, ptr %vtable.i.i.i.i.i.i, i64 2
+  %vfn.i.i.i.i.i.i = getelementptr inbounds i8, ptr %vtable.i.i.i.i.i.i, i64 16
   %31 = load ptr, ptr %vfn.i.i.i.i.i.i, align 8
   tail call void %31(ptr noundef nonnull align 8 dereferenceable(16) %25) #13
-  %_M_weak_count.i.i.i.i.i.i = getelementptr inbounds %"class.std::_Sp_counted_base", ptr %25, i64 0, i32 2
+  %_M_weak_count.i.i.i.i.i.i = getelementptr inbounds i8, ptr %25, i64 12
   %32 = load i8, ptr @__libc_single_threaded, align 1
   %tobool.i.i.not.i.i.i.i.i.i = icmp eq i8 %32, 0
   br i1 %tobool.i.i.not.i.i.i.i.i.i, label %if.else.i.i.i.i.i.i.i, label %if.then.i.i.i.i.i.i.i
@@ -7821,19 +7783,19 @@ _ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i: ; preds = %if.e
 
 if.end8.sink.split.i.i.i.i:                       ; preds = %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i, %if.then.i.i.i.i39
   %vtable2.i.i.i.i.i.i = load ptr, ptr %25, align 8
-  %vfn3.i.i.i.i.i.i = getelementptr inbounds ptr, ptr %vtable2.i.i.i.i.i.i, i64 3
+  %vfn3.i.i.i.i.i.i = getelementptr inbounds i8, ptr %vtable2.i.i.i.i.i.i, i64 24
   %35 = load ptr, ptr %vfn3.i.i.i.i.i.i, align 8
   tail call void %35(ptr noundef nonnull align 8 dereferenceable(16) %25) #13
   br label %_ZNSt10shared_ptrIKN19OpenColorIO_v2_4dev5OpCPUEED2Ev.exit
 
 _ZNSt10shared_ptrIKN19OpenColorIO_v2_4dev5OpCPUEED2Ev.exit: ; preds = %_ZN19OpenColorIO_v2_4dev16GenericImageDescD2Ev.exit36, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i, %if.end8.sink.split.i.i.i.i
-  %_M_refcount.i.i40 = getelementptr inbounds %"class.OpenColorIO_v2_4dev::GenericScanlineHelper.29", ptr %this, i64 0, i32 3, i32 0, i32 1
+  %_M_refcount.i.i40 = getelementptr inbounds i8, ptr %this, i64 24
   %36 = load ptr, ptr %_M_refcount.i.i40, align 8
   %cmp.not.i.i.i41 = icmp eq ptr %36, null
   br i1 %cmp.not.i.i.i41, label %_ZNSt10shared_ptrIKN19OpenColorIO_v2_4dev5OpCPUEED2Ev.exit71, label %if.then.i.i.i42
 
 if.then.i.i.i42:                                  ; preds = %_ZNSt10shared_ptrIKN19OpenColorIO_v2_4dev5OpCPUEED2Ev.exit
-  %_M_use_count.i.i.i.i43 = getelementptr inbounds %"class.std::_Sp_counted_base", ptr %36, i64 0, i32 1
+  %_M_use_count.i.i.i.i43 = getelementptr inbounds i8, ptr %36, i64 8
   %37 = load atomic i64, ptr %_M_use_count.i.i.i.i43 acquire, align 8
   %cmp.i.i.i.i44 = icmp eq i64 %37, 4294967297
   %38 = trunc i64 %37 to i32
@@ -7841,10 +7803,10 @@ if.then.i.i.i42:                                  ; preds = %_ZNSt10shared_ptrIK
 
 if.then.i.i.i.i67:                                ; preds = %if.then.i.i.i42
   store i32 0, ptr %_M_use_count.i.i.i.i43, align 8
-  %_M_weak_count.i.i.i.i68 = getelementptr inbounds %"class.std::_Sp_counted_base", ptr %36, i64 0, i32 2
+  %_M_weak_count.i.i.i.i68 = getelementptr inbounds i8, ptr %36, i64 12
   store i32 0, ptr %_M_weak_count.i.i.i.i68, align 4
   %vtable.i.i.i.i69 = load ptr, ptr %36, align 8
-  %vfn.i.i.i.i70 = getelementptr inbounds ptr, ptr %vtable.i.i.i.i69, i64 2
+  %vfn.i.i.i.i70 = getelementptr inbounds i8, ptr %vtable.i.i.i.i69, i64 16
   %39 = load ptr, ptr %vfn.i.i.i.i70, align 8
   tail call void %39(ptr noundef nonnull align 8 dereferenceable(16) %36) #13
   br label %if.end8.sink.split.i.i.i.i62
@@ -7870,10 +7832,10 @@ _ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i49: ; preds = %if.els
 
 if.then7.i.i.i.i52:                               ; preds = %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i49
   %vtable.i.i.i.i.i.i53 = load ptr, ptr %36, align 8
-  %vfn.i.i.i.i.i.i54 = getelementptr inbounds ptr, ptr %vtable.i.i.i.i.i.i53, i64 2
+  %vfn.i.i.i.i.i.i54 = getelementptr inbounds i8, ptr %vtable.i.i.i.i.i.i53, i64 16
   %42 = load ptr, ptr %vfn.i.i.i.i.i.i54, align 8
   tail call void %42(ptr noundef nonnull align 8 dereferenceable(16) %36) #13
-  %_M_weak_count.i.i.i.i.i.i55 = getelementptr inbounds %"class.std::_Sp_counted_base", ptr %36, i64 0, i32 2
+  %_M_weak_count.i.i.i.i.i.i55 = getelementptr inbounds i8, ptr %36, i64 12
   %43 = load i8, ptr @__libc_single_threaded, align 1
   %tobool.i.i.not.i.i.i.i.i.i56 = icmp eq i8 %43, 0
   br i1 %tobool.i.i.not.i.i.i.i.i.i56, label %if.else.i.i.i.i.i.i.i65, label %if.then.i.i.i.i.i.i.i57
@@ -7895,7 +7857,7 @@ _ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i59: ; preds = %if
 
 if.end8.sink.split.i.i.i.i62:                     ; preds = %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i59, %if.then.i.i.i.i67
   %vtable2.i.i.i.i.i.i63 = load ptr, ptr %36, align 8
-  %vfn3.i.i.i.i.i.i64 = getelementptr inbounds ptr, ptr %vtable2.i.i.i.i.i.i63, i64 3
+  %vfn3.i.i.i.i.i.i64 = getelementptr inbounds i8, ptr %vtable2.i.i.i.i.i.i63, i64 24
   %46 = load ptr, ptr %vfn3.i.i.i.i.i.i64, align 8
   tail call void %46(ptr noundef nonnull align 8 dereferenceable(16) %36) #13
   br label %_ZNSt10shared_ptrIKN19OpenColorIO_v2_4dev5OpCPUEED2Ev.exit71
@@ -7915,66 +7877,66 @@ entry:
 ; Function Attrs: mustprogress uwtable
 define weak_odr hidden void @_ZN19OpenColorIO_v2_4dev21GenericScanlineHelperIN9Imath_3_14halfEhE16prepRGBAScanlineEPPfRl(ptr noundef nonnull align 8 dereferenceable(309) %this, ptr noundef %buffer, ptr noundef nonnull align 8 dereferenceable(8) %numPixels) unnamed_addr #5 comdat align 2 {
 entry:
-  %m_yIndex = getelementptr inbounds %"class.OpenColorIO_v2_4dev::GenericScanlineHelper.29", ptr %this, i64 0, i32 12
+  %m_yIndex = getelementptr inbounds i8, ptr %this, i64 304
   %0 = load i32, ptr %m_yIndex, align 8
   %conv = sext i32 %0 to i64
-  %m_dstImg = getelementptr inbounds %"class.OpenColorIO_v2_4dev::GenericScanlineHelper.29", ptr %this, i64 0, i32 6
-  %m_height = getelementptr inbounds %"class.OpenColorIO_v2_4dev::GenericScanlineHelper.29", ptr %this, i64 0, i32 6, i32 1
+  %m_dstImg = getelementptr inbounds i8, ptr %this, i64 136
+  %m_height = getelementptr inbounds i8, ptr %this, i64 144
   %1 = load i64, ptr %m_height, align 8
   %cmp.not = icmp sgt i64 %1, %conv
   br i1 %cmp.not, label %if.end, label %return
 
 if.end:                                           ; preds = %entry
-  %m_useDstBuffer = getelementptr inbounds %"class.OpenColorIO_v2_4dev::GenericScanlineHelper.29", ptr %this, i64 0, i32 13
+  %m_useDstBuffer = getelementptr inbounds i8, ptr %this, i64 308
   %2 = load i8, ptr %m_useDstBuffer, align 4
   %3 = and i8 %2, 1
   %tobool.not = icmp eq i8 %3, 0
   br i1 %tobool.not, label %cond.false, label %cond.true
 
 cond.true:                                        ; preds = %if.end
-  %m_rData = getelementptr inbounds %"class.OpenColorIO_v2_4dev::GenericScanlineHelper.29", ptr %this, i64 0, i32 6, i32 4
+  %m_rData = getelementptr inbounds i8, ptr %this, i64 168
   %4 = load ptr, ptr %m_rData, align 8
-  %m_yStrideBytes = getelementptr inbounds %"class.OpenColorIO_v2_4dev::GenericScanlineHelper.29", ptr %this, i64 0, i32 6, i32 3
+  %m_yStrideBytes = getelementptr inbounds i8, ptr %this, i64 160
   %5 = load i64, ptr %m_yStrideBytes, align 8
   %mul = mul nsw i64 %5, %conv
   %add.ptr = getelementptr inbounds i8, ptr %4, i64 %mul
   br label %cond.end
 
 cond.false:                                       ; preds = %if.end
-  %m_rgbaFloatBuffer = getelementptr inbounds %"class.OpenColorIO_v2_4dev::GenericScanlineHelper.29", ptr %this, i64 0, i32 9
+  %m_rgbaFloatBuffer = getelementptr inbounds i8, ptr %this, i64 232
   %6 = load ptr, ptr %m_rgbaFloatBuffer, align 8
   br label %cond.end
 
 cond.end:                                         ; preds = %cond.false, %cond.true
   %cond = phi ptr [ %add.ptr, %cond.true ], [ %6, %cond.false ]
   store ptr %cond, ptr %buffer, align 8
-  %m_inOptimizedMode = getelementptr inbounds %"class.OpenColorIO_v2_4dev::GenericScanlineHelper.29", ptr %this, i64 0, i32 7
+  %m_inOptimizedMode = getelementptr inbounds i8, ptr %this, i64 224
   %7 = load i32, ptr %m_inOptimizedMode, align 8
   %and = and i32 %7, 1
   %cmp6.not = icmp eq i32 %and, 0
   br i1 %cmp6.not, label %if.else, label %if.then7
 
 if.then7:                                         ; preds = %cond.end
-  %m_rData8 = getelementptr inbounds %"class.OpenColorIO_v2_4dev::GenericScanlineHelper.29", ptr %this, i64 0, i32 5, i32 4
+  %m_rData8 = getelementptr inbounds i8, ptr %this, i64 80
   %8 = load ptr, ptr %m_rData8, align 8
-  %m_yStrideBytes10 = getelementptr inbounds %"class.OpenColorIO_v2_4dev::GenericScanlineHelper.29", ptr %this, i64 0, i32 5, i32 3
+  %m_yStrideBytes10 = getelementptr inbounds i8, ptr %this, i64 72
   %9 = load i64, ptr %m_yStrideBytes10, align 8
   %10 = load i32, ptr %m_yIndex, align 8
   %conv12 = sext i32 %10 to i64
   %mul13 = mul nsw i64 %9, %conv12
   %add.ptr14 = getelementptr inbounds i8, ptr %8, i64 %mul13
-  %m_bitDepthOp = getelementptr inbounds %"class.OpenColorIO_v2_4dev::GenericScanlineHelper.29", ptr %this, i64 0, i32 5, i32 8
+  %m_bitDepthOp = getelementptr inbounds i8, ptr %this, i64 112
   %11 = load ptr, ptr %m_bitDepthOp, align 8
   %12 = load i64, ptr %m_dstImg, align 8
   %vtable = load ptr, ptr %11, align 8
-  %vfn = getelementptr inbounds ptr, ptr %vtable, i64 2
+  %vfn = getelementptr inbounds i8, ptr %vtable, i64 16
   %13 = load ptr, ptr %vfn, align 8
   tail call void %13(ptr noundef nonnull align 8 dereferenceable(8) %11, ptr noundef %add.ptr14, ptr noundef %cond, i64 noundef %12)
   br label %if.end28
 
 if.else:                                          ; preds = %cond.end
-  %m_srcImg18 = getelementptr inbounds %"class.OpenColorIO_v2_4dev::GenericScanlineHelper.29", ptr %this, i64 0, i32 5
-  %m_inBitDepthBuffer = getelementptr inbounds %"class.OpenColorIO_v2_4dev::GenericScanlineHelper.29", ptr %this, i64 0, i32 10
+  %m_srcImg18 = getelementptr inbounds i8, ptr %this, i64 48
+  %m_inBitDepthBuffer = getelementptr inbounds i8, ptr %this, i64 256
   %14 = load ptr, ptr %m_inBitDepthBuffer, align 8
   %15 = load i64, ptr %m_dstImg, align 8
   %conv22 = trunc i64 %15 to i32
@@ -7999,47 +7961,47 @@ declare void @_ZN19OpenColorIO_v2_4dev7GenericIN9Imath_3_14halfEE21PackRGBAFromI
 ; Function Attrs: mustprogress uwtable
 define weak_odr hidden void @_ZN19OpenColorIO_v2_4dev21GenericScanlineHelperIN9Imath_3_14halfEhE18finishRGBAScanlineEv(ptr noundef nonnull align 8 dereferenceable(309) %this) unnamed_addr #5 comdat align 2 {
 entry:
-  %m_outOptimizedMode = getelementptr inbounds %"class.OpenColorIO_v2_4dev::GenericScanlineHelper.29", ptr %this, i64 0, i32 8
+  %m_outOptimizedMode = getelementptr inbounds i8, ptr %this, i64 228
   %0 = load i32, ptr %m_outOptimizedMode, align 4
   %and = and i32 %0, 1
   %cmp.not = icmp eq i32 %and, 0
-  %m_dstImg6 = getelementptr inbounds %"class.OpenColorIO_v2_4dev::GenericScanlineHelper.29", ptr %this, i64 0, i32 6
+  %m_dstImg6 = getelementptr inbounds i8, ptr %this, i64 136
   br i1 %cmp.not, label %if.else, label %if.then
 
 if.then:                                          ; preds = %entry
-  %m_rData = getelementptr inbounds %"class.OpenColorIO_v2_4dev::GenericScanlineHelper.29", ptr %this, i64 0, i32 6, i32 4
+  %m_rData = getelementptr inbounds i8, ptr %this, i64 168
   %1 = load ptr, ptr %m_rData, align 8
-  %m_yStrideBytes = getelementptr inbounds %"class.OpenColorIO_v2_4dev::GenericScanlineHelper.29", ptr %this, i64 0, i32 6, i32 3
+  %m_yStrideBytes = getelementptr inbounds i8, ptr %this, i64 160
   %2 = load i64, ptr %m_yStrideBytes, align 8
-  %m_yIndex = getelementptr inbounds %"class.OpenColorIO_v2_4dev::GenericScanlineHelper.29", ptr %this, i64 0, i32 12
+  %m_yIndex = getelementptr inbounds i8, ptr %this, i64 304
   %3 = load i32, ptr %m_yIndex, align 8
   %conv = sext i32 %3 to i64
   %mul = mul nsw i64 %2, %conv
   %add.ptr = getelementptr inbounds i8, ptr %1, i64 %mul
-  %m_useDstBuffer = getelementptr inbounds %"class.OpenColorIO_v2_4dev::GenericScanlineHelper.29", ptr %this, i64 0, i32 13
+  %m_useDstBuffer = getelementptr inbounds i8, ptr %this, i64 308
   %4 = load i8, ptr %m_useDstBuffer, align 4
   %5 = and i8 %4, 1
   %tobool.not = icmp eq i8 %5, 0
-  %m_rgbaFloatBuffer = getelementptr inbounds %"class.OpenColorIO_v2_4dev::GenericScanlineHelper.29", ptr %this, i64 0, i32 9
+  %m_rgbaFloatBuffer = getelementptr inbounds i8, ptr %this, i64 232
   %6 = load ptr, ptr %m_rgbaFloatBuffer, align 8
   %cond = select i1 %tobool.not, ptr %6, ptr %add.ptr
-  %m_bitDepthOp = getelementptr inbounds %"class.OpenColorIO_v2_4dev::GenericScanlineHelper.29", ptr %this, i64 0, i32 6, i32 8
+  %m_bitDepthOp = getelementptr inbounds i8, ptr %this, i64 200
   %7 = load ptr, ptr %m_bitDepthOp, align 8
   %8 = load i64, ptr %m_dstImg6, align 8
   %vtable = load ptr, ptr %7, align 8
-  %vfn = getelementptr inbounds ptr, ptr %vtable, i64 2
+  %vfn = getelementptr inbounds i8, ptr %vtable, i64 16
   %9 = load ptr, ptr %vfn, align 8
   tail call void %9(ptr noundef nonnull align 8 dereferenceable(8) %7, ptr noundef %cond, ptr noundef %add.ptr, i64 noundef %8)
   br label %if.end
 
 if.else:                                          ; preds = %entry
-  %m_rgbaFloatBuffer7 = getelementptr inbounds %"class.OpenColorIO_v2_4dev::GenericScanlineHelper.29", ptr %this, i64 0, i32 9
+  %m_rgbaFloatBuffer7 = getelementptr inbounds i8, ptr %this, i64 232
   %10 = load ptr, ptr %m_rgbaFloatBuffer7, align 8
-  %m_outBitDepthBuffer = getelementptr inbounds %"class.OpenColorIO_v2_4dev::GenericScanlineHelper.29", ptr %this, i64 0, i32 11
+  %m_outBitDepthBuffer = getelementptr inbounds i8, ptr %this, i64 280
   %11 = load ptr, ptr %m_outBitDepthBuffer, align 8
   %12 = load i64, ptr %m_dstImg6, align 8
   %conv12 = trunc i64 %12 to i32
-  %m_yIndex13 = getelementptr inbounds %"class.OpenColorIO_v2_4dev::GenericScanlineHelper.29", ptr %this, i64 0, i32 12
+  %m_yIndex13 = getelementptr inbounds i8, ptr %this, i64 304
   %13 = load i32, ptr %m_yIndex13, align 8
   %conv14 = sext i32 %13 to i64
   %mul17 = mul nsw i64 %12, %conv14
@@ -8047,7 +8009,7 @@ if.else:                                          ; preds = %entry
   br label %if.end
 
 if.end:                                           ; preds = %if.else, %if.then
-  %m_yIndex18 = getelementptr inbounds %"class.OpenColorIO_v2_4dev::GenericScanlineHelper.29", ptr %this, i64 0, i32 12
+  %m_yIndex18 = getelementptr inbounds i8, ptr %this, i64 304
   %14 = load i32, ptr %m_yIndex18, align 8
   %inc = add nsw i32 %14, 1
   store i32 %inc, ptr %m_yIndex18, align 8
@@ -8058,22 +8020,22 @@ if.end:                                           ; preds = %if.else, %if.then
 define weak_odr hidden void @_ZN19OpenColorIO_v2_4dev21GenericScanlineHelperIN9Imath_3_14halfEtEC2ENS_8BitDepthERKSt10shared_ptrIKNS_5OpCPUEES4_SA_(ptr noundef nonnull align 8 dereferenceable(309) %this, i32 noundef %inputBitDepth, ptr noundef nonnull align 8 dereferenceable(16) %inBitDepthOp, i32 noundef %outputBitDepth, ptr noundef nonnull align 8 dereferenceable(16) %outBitDepthOp) unnamed_addr #3 comdat($_ZN19OpenColorIO_v2_4dev21GenericScanlineHelperIN9Imath_3_14halfEtEC5ENS_8BitDepthERKSt10shared_ptrIKNS_5OpCPUEES4_SA_) align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTVN19OpenColorIO_v2_4dev21GenericScanlineHelperIN9Imath_3_14halfEtEE, i64 0, inrange i32 0, i64 2), ptr %this, align 8
-  %m_inputBitDepth = getelementptr inbounds %"class.OpenColorIO_v2_4dev::GenericScanlineHelper.31", ptr %this, i64 0, i32 1
+  %m_inputBitDepth = getelementptr inbounds i8, ptr %this, i64 8
   store i32 %inputBitDepth, ptr %m_inputBitDepth, align 8
-  %m_outputBitDepth = getelementptr inbounds %"class.OpenColorIO_v2_4dev::GenericScanlineHelper.31", ptr %this, i64 0, i32 2
+  %m_outputBitDepth = getelementptr inbounds i8, ptr %this, i64 12
   store i32 %outputBitDepth, ptr %m_outputBitDepth, align 4
-  %m_inBitDepthOp = getelementptr inbounds %"class.OpenColorIO_v2_4dev::GenericScanlineHelper.31", ptr %this, i64 0, i32 3
+  %m_inBitDepthOp = getelementptr inbounds i8, ptr %this, i64 16
   %0 = load ptr, ptr %inBitDepthOp, align 8
   store ptr %0, ptr %m_inBitDepthOp, align 8
-  %_M_refcount.i.i = getelementptr inbounds %"class.OpenColorIO_v2_4dev::GenericScanlineHelper.31", ptr %this, i64 0, i32 3, i32 0, i32 1
-  %_M_refcount3.i.i = getelementptr inbounds %"class.std::__shared_ptr", ptr %inBitDepthOp, i64 0, i32 1
+  %_M_refcount.i.i = getelementptr inbounds i8, ptr %this, i64 24
+  %_M_refcount3.i.i = getelementptr inbounds i8, ptr %inBitDepthOp, i64 8
   %1 = load ptr, ptr %_M_refcount3.i.i, align 8
   store ptr %1, ptr %_M_refcount.i.i, align 8
   %cmp.not.i.i.i = icmp eq ptr %1, null
   br i1 %cmp.not.i.i.i, label %_ZNSt10shared_ptrIKN19OpenColorIO_v2_4dev5OpCPUEEC2ERKS3_.exit, label %if.then.i.i.i
 
 if.then.i.i.i:                                    ; preds = %entry
-  %_M_use_count.i.i.i.i = getelementptr inbounds %"class.std::_Sp_counted_base", ptr %1, i64 0, i32 1
+  %_M_use_count.i.i.i.i = getelementptr inbounds i8, ptr %1, i64 8
   %2 = load i8, ptr @__libc_single_threaded, align 1
   %tobool.i.not.i.i.i.i = icmp eq i8 %2, 0
   br i1 %tobool.i.not.i.i.i.i, label %if.else.i.i.i.i.i, label %if.then.i.i.i.i.i
@@ -8089,18 +8051,18 @@ if.else.i.i.i.i.i:                                ; preds = %if.then.i.i.i
   br label %_ZNSt10shared_ptrIKN19OpenColorIO_v2_4dev5OpCPUEEC2ERKS3_.exit
 
 _ZNSt10shared_ptrIKN19OpenColorIO_v2_4dev5OpCPUEEC2ERKS3_.exit: ; preds = %entry, %if.then.i.i.i.i.i, %if.else.i.i.i.i.i
-  %m_outBitDepthOp = getelementptr inbounds %"class.OpenColorIO_v2_4dev::GenericScanlineHelper.31", ptr %this, i64 0, i32 4
+  %m_outBitDepthOp = getelementptr inbounds i8, ptr %this, i64 32
   %5 = load ptr, ptr %outBitDepthOp, align 8
   store ptr %5, ptr %m_outBitDepthOp, align 8
-  %_M_refcount.i.i1 = getelementptr inbounds %"class.OpenColorIO_v2_4dev::GenericScanlineHelper.31", ptr %this, i64 0, i32 4, i32 0, i32 1
-  %_M_refcount3.i.i2 = getelementptr inbounds %"class.std::__shared_ptr", ptr %outBitDepthOp, i64 0, i32 1
+  %_M_refcount.i.i1 = getelementptr inbounds i8, ptr %this, i64 40
+  %_M_refcount3.i.i2 = getelementptr inbounds i8, ptr %outBitDepthOp, i64 8
   %6 = load ptr, ptr %_M_refcount3.i.i2, align 8
   store ptr %6, ptr %_M_refcount.i.i1, align 8
   %cmp.not.i.i.i3 = icmp eq ptr %6, null
   br i1 %cmp.not.i.i.i3, label %_ZNSt10shared_ptrIKN19OpenColorIO_v2_4dev5OpCPUEEC2ERKS3_.exit10, label %if.then.i.i.i4
 
 if.then.i.i.i4:                                   ; preds = %_ZNSt10shared_ptrIKN19OpenColorIO_v2_4dev5OpCPUEEC2ERKS3_.exit
-  %_M_use_count.i.i.i.i5 = getelementptr inbounds %"class.std::_Sp_counted_base", ptr %6, i64 0, i32 1
+  %_M_use_count.i.i.i.i5 = getelementptr inbounds i8, ptr %6, i64 8
   %7 = load i8, ptr @__libc_single_threaded, align 1
   %tobool.i.not.i.i.i.i6 = icmp eq i8 %7, 0
   br i1 %tobool.i.not.i.i.i.i6, label %if.else.i.i.i.i.i9, label %if.then.i.i.i.i.i7
@@ -8116,11 +8078,11 @@ if.else.i.i.i.i.i9:                               ; preds = %if.then.i.i.i4
   br label %_ZNSt10shared_ptrIKN19OpenColorIO_v2_4dev5OpCPUEEC2ERKS3_.exit10
 
 _ZNSt10shared_ptrIKN19OpenColorIO_v2_4dev5OpCPUEEC2ERKS3_.exit10: ; preds = %_ZNSt10shared_ptrIKN19OpenColorIO_v2_4dev5OpCPUEEC2ERKS3_.exit, %if.then.i.i.i.i.i7, %if.else.i.i.i.i.i9
-  %m_srcImg = getelementptr inbounds %"class.OpenColorIO_v2_4dev::GenericScanlineHelper.31", ptr %this, i64 0, i32 5
+  %m_srcImg = getelementptr inbounds i8, ptr %this, i64 48
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(82) %m_srcImg, i8 0, i64 82, i1 false)
-  %m_dstImg = getelementptr inbounds %"class.OpenColorIO_v2_4dev::GenericScanlineHelper.31", ptr %this, i64 0, i32 6
+  %m_dstImg = getelementptr inbounds i8, ptr %this, i64 136
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(82) %m_dstImg, i8 0, i64 82, i1 false)
-  %m_inOptimizedMode = getelementptr inbounds %"class.OpenColorIO_v2_4dev::GenericScanlineHelper.31", ptr %this, i64 0, i32 7
+  %m_inOptimizedMode = getelementptr inbounds i8, ptr %this, i64 224
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(85) %m_inOptimizedMode, i8 0, i64 85, i1 false)
   ret void
 }
@@ -8128,17 +8090,17 @@ _ZNSt10shared_ptrIKN19OpenColorIO_v2_4dev5OpCPUEEC2ERKS3_.exit10: ; preds = %_ZN
 ; Function Attrs: mustprogress uwtable
 define weak_odr hidden void @_ZN19OpenColorIO_v2_4dev21GenericScanlineHelperIN9Imath_3_14halfEtE4initERKNS_9ImageDescES6_(ptr noundef nonnull align 8 dereferenceable(309) %this, ptr noundef nonnull align 8 dereferenceable(8) %srcImg, ptr noundef nonnull align 8 dereferenceable(8) %dstImg) unnamed_addr #5 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  %m_yIndex = getelementptr inbounds %"class.OpenColorIO_v2_4dev::GenericScanlineHelper.31", ptr %this, i64 0, i32 12
+  %m_yIndex = getelementptr inbounds i8, ptr %this, i64 304
   store i32 0, ptr %m_yIndex, align 8
-  %m_srcImg = getelementptr inbounds %"class.OpenColorIO_v2_4dev::GenericScanlineHelper.31", ptr %this, i64 0, i32 5
-  %m_inputBitDepth = getelementptr inbounds %"class.OpenColorIO_v2_4dev::GenericScanlineHelper.31", ptr %this, i64 0, i32 1
+  %m_srcImg = getelementptr inbounds i8, ptr %this, i64 48
+  %m_inputBitDepth = getelementptr inbounds i8, ptr %this, i64 8
   %0 = load i32, ptr %m_inputBitDepth, align 8
-  %m_inBitDepthOp = getelementptr inbounds %"class.OpenColorIO_v2_4dev::GenericScanlineHelper.31", ptr %this, i64 0, i32 3
+  %m_inBitDepthOp = getelementptr inbounds i8, ptr %this, i64 16
   tail call void @_ZN19OpenColorIO_v2_4dev16GenericImageDesc4initERKNS_9ImageDescENS_8BitDepthERKSt10shared_ptrIKNS_5OpCPUEE(ptr noundef nonnull align 8 dereferenceable(82) %m_srcImg, ptr noundef nonnull align 8 dereferenceable(8) %srcImg, i32 noundef %0, ptr noundef nonnull align 8 dereferenceable(16) %m_inBitDepthOp)
-  %m_dstImg = getelementptr inbounds %"class.OpenColorIO_v2_4dev::GenericScanlineHelper.31", ptr %this, i64 0, i32 6
-  %m_outputBitDepth = getelementptr inbounds %"class.OpenColorIO_v2_4dev::GenericScanlineHelper.31", ptr %this, i64 0, i32 2
+  %m_dstImg = getelementptr inbounds i8, ptr %this, i64 136
+  %m_outputBitDepth = getelementptr inbounds i8, ptr %this, i64 12
   %1 = load i32, ptr %m_outputBitDepth, align 4
-  %m_outBitDepthOp = getelementptr inbounds %"class.OpenColorIO_v2_4dev::GenericScanlineHelper.31", ptr %this, i64 0, i32 4
+  %m_outBitDepthOp = getelementptr inbounds i8, ptr %this, i64 32
   tail call void @_ZN19OpenColorIO_v2_4dev16GenericImageDesc4initERKNS_9ImageDescENS_8BitDepthERKSt10shared_ptrIKNS_5OpCPUEE(ptr noundef nonnull align 8 dereferenceable(82) %m_dstImg, ptr noundef nonnull align 8 dereferenceable(8) %dstImg, i32 noundef %1, ptr noundef nonnull align 8 dereferenceable(16) %m_outBitDepthOp)
   %2 = load i64, ptr %m_srcImg, align 8
   %3 = load i64, ptr %m_dstImg, align 8
@@ -8146,9 +8108,9 @@ entry:
   br i1 %cmp.not, label %lor.lhs.false, label %if.then
 
 lor.lhs.false:                                    ; preds = %entry
-  %m_height = getelementptr inbounds %"class.OpenColorIO_v2_4dev::GenericScanlineHelper.31", ptr %this, i64 0, i32 5, i32 1
+  %m_height = getelementptr inbounds i8, ptr %this, i64 56
   %4 = load i64, ptr %m_height, align 8
-  %m_height7 = getelementptr inbounds %"class.OpenColorIO_v2_4dev::GenericScanlineHelper.31", ptr %this, i64 0, i32 6, i32 1
+  %m_height7 = getelementptr inbounds i8, ptr %this, i64 144
   %5 = load i64, ptr %m_height7, align 8
   %cmp8.not = icmp eq i64 %4, %5
   br i1 %cmp8.not, label %if.end, label %if.then
@@ -8179,7 +8141,7 @@ if.then.i:                                        ; preds = %if.end
 
 _ZN19OpenColorIO_v2_4dev19GetOptimizationModeERKNS_16GenericImageDescE.exit: ; preds = %if.end, %if.then.i
   %optim.0.i = phi i32 [ 0, %if.end ], [ %spec.select.i, %if.then.i ]
-  %m_inOptimizedMode = getelementptr inbounds %"class.OpenColorIO_v2_4dev::GenericScanlineHelper.31", ptr %this, i64 0, i32 7
+  %m_inOptimizedMode = getelementptr inbounds i8, ptr %this, i64 224
   store i32 %optim.0.i, ptr %m_inOptimizedMode, align 8
   %call.i2 = tail call noundef zeroext i1 @_ZNK19OpenColorIO_v2_4dev16GenericImageDesc12isRGBAPackedEv(ptr noundef nonnull align 8 dereferenceable(82) %m_dstImg)
   br i1 %call.i2, label %if.then.i4, label %_ZN19OpenColorIO_v2_4dev19GetOptimizationModeERKNS_16GenericImageDescE.exit7
@@ -8191,10 +8153,10 @@ if.then.i4:                                       ; preds = %_ZN19OpenColorIO_v2
 
 _ZN19OpenColorIO_v2_4dev19GetOptimizationModeERKNS_16GenericImageDescE.exit7: ; preds = %_ZN19OpenColorIO_v2_4dev19GetOptimizationModeERKNS_16GenericImageDescE.exit, %if.then.i4
   %optim.0.i3 = phi i32 [ 0, %_ZN19OpenColorIO_v2_4dev19GetOptimizationModeERKNS_16GenericImageDescE.exit ], [ %spec.select.i6, %if.then.i4 ]
-  %m_outOptimizedMode = getelementptr inbounds %"class.OpenColorIO_v2_4dev::GenericScanlineHelper.31", ptr %this, i64 0, i32 8
+  %m_outOptimizedMode = getelementptr inbounds i8, ptr %this, i64 228
   store i32 %optim.0.i3, ptr %m_outOptimizedMode, align 4
   %cmp13 = icmp eq i32 %optim.0.i3, 3
-  %m_useDstBuffer = getelementptr inbounds %"class.OpenColorIO_v2_4dev::GenericScanlineHelper.31", ptr %this, i64 0, i32 13
+  %m_useDstBuffer = getelementptr inbounds i8, ptr %this, i64 308
   %frombool = zext i1 %cmp13 to i8
   store i8 %frombool, ptr %m_useDstBuffer, align 4
   %7 = load i32, ptr %m_inOptimizedMode, align 8
@@ -8205,8 +8167,8 @@ _ZN19OpenColorIO_v2_4dev19GetOptimizationModeERKNS_16GenericImageDescE.exit7: ; 
 if.then17:                                        ; preds = %_ZN19OpenColorIO_v2_4dev19GetOptimizationModeERKNS_16GenericImageDescE.exit7
   %8 = load i64, ptr %m_dstImg, align 8
   %mul = shl nsw i64 %8, 2
-  %m_inBitDepthBuffer = getelementptr inbounds %"class.OpenColorIO_v2_4dev::GenericScanlineHelper.31", ptr %this, i64 0, i32 10
-  %_M_finish.i.i = getelementptr inbounds %"class.OpenColorIO_v2_4dev::GenericScanlineHelper.31", ptr %this, i64 0, i32 10, i32 0, i32 0, i32 0, i32 1
+  %m_inBitDepthBuffer = getelementptr inbounds i8, ptr %this, i64 256
+  %_M_finish.i.i = getelementptr inbounds i8, ptr %this, i64 264
   %9 = load ptr, ptr %_M_finish.i.i, align 8
   %10 = load ptr, ptr %m_inBitDepthBuffer, align 8
   %sub.ptr.lhs.cast.i.i = ptrtoint ptr %9 to i64
@@ -8244,8 +8206,8 @@ if.end20:                                         ; preds = %invoke.cont.i.i, %i
 if.then22:                                        ; preds = %if.end20
   %13 = load i64, ptr %m_dstImg, align 8
   %mul26 = shl nsw i64 %13, 2
-  %m_rgbaFloatBuffer = getelementptr inbounds %"class.OpenColorIO_v2_4dev::GenericScanlineHelper.31", ptr %this, i64 0, i32 9
-  %_M_finish.i.i9 = getelementptr inbounds %"class.OpenColorIO_v2_4dev::GenericScanlineHelper.31", ptr %this, i64 0, i32 9, i32 0, i32 0, i32 0, i32 1
+  %m_rgbaFloatBuffer = getelementptr inbounds i8, ptr %this, i64 232
+  %_M_finish.i.i9 = getelementptr inbounds i8, ptr %this, i64 240
   %14 = load ptr, ptr %_M_finish.i.i9, align 8
   %15 = load ptr, ptr %m_rgbaFloatBuffer, align 8
   %sub.ptr.lhs.cast.i.i10 = ptrtoint ptr %14 to i64
@@ -8274,8 +8236,8 @@ invoke.cont.i.i20:                                ; preds = %if.then5.i17
   br label %_ZNSt6vectorIfSaIfEE6resizeEm.exit
 
 _ZNSt6vectorIfSaIfEE6resizeEm.exit:               ; preds = %if.then.i21, %if.else.i15, %if.then5.i17, %invoke.cont.i.i20
-  %m_outBitDepthBuffer = getelementptr inbounds %"class.OpenColorIO_v2_4dev::GenericScanlineHelper.31", ptr %this, i64 0, i32 11
-  %_M_finish.i.i23 = getelementptr inbounds %"class.OpenColorIO_v2_4dev::GenericScanlineHelper.31", ptr %this, i64 0, i32 11, i32 0, i32 0, i32 0, i32 1
+  %m_outBitDepthBuffer = getelementptr inbounds i8, ptr %this, i64 280
+  %_M_finish.i.i23 = getelementptr inbounds i8, ptr %this, i64 288
   %16 = load ptr, ptr %_M_finish.i.i23, align 8
   %17 = load ptr, ptr %m_outBitDepthBuffer, align 8
   %sub.ptr.lhs.cast.i.i24 = ptrtoint ptr %16 to i64
@@ -8310,17 +8272,17 @@ if.end27:                                         ; preds = %invoke.cont.i.i34, 
 ; Function Attrs: mustprogress uwtable
 define weak_odr hidden void @_ZN19OpenColorIO_v2_4dev21GenericScanlineHelperIN9Imath_3_14halfEtE4initERKNS_9ImageDescE(ptr noundef nonnull align 8 dereferenceable(309) %this, ptr noundef nonnull align 8 dereferenceable(8) %img) unnamed_addr #5 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  %m_yIndex = getelementptr inbounds %"class.OpenColorIO_v2_4dev::GenericScanlineHelper.31", ptr %this, i64 0, i32 12
+  %m_yIndex = getelementptr inbounds i8, ptr %this, i64 304
   store i32 0, ptr %m_yIndex, align 8
-  %m_srcImg = getelementptr inbounds %"class.OpenColorIO_v2_4dev::GenericScanlineHelper.31", ptr %this, i64 0, i32 5
-  %m_inputBitDepth = getelementptr inbounds %"class.OpenColorIO_v2_4dev::GenericScanlineHelper.31", ptr %this, i64 0, i32 1
+  %m_srcImg = getelementptr inbounds i8, ptr %this, i64 48
+  %m_inputBitDepth = getelementptr inbounds i8, ptr %this, i64 8
   %0 = load i32, ptr %m_inputBitDepth, align 8
-  %m_inBitDepthOp = getelementptr inbounds %"class.OpenColorIO_v2_4dev::GenericScanlineHelper.31", ptr %this, i64 0, i32 3
+  %m_inBitDepthOp = getelementptr inbounds i8, ptr %this, i64 16
   tail call void @_ZN19OpenColorIO_v2_4dev16GenericImageDesc4initERKNS_9ImageDescENS_8BitDepthERKSt10shared_ptrIKNS_5OpCPUEE(ptr noundef nonnull align 8 dereferenceable(82) %m_srcImg, ptr noundef nonnull align 8 dereferenceable(8) %img, i32 noundef %0, ptr noundef nonnull align 8 dereferenceable(16) %m_inBitDepthOp)
-  %m_dstImg = getelementptr inbounds %"class.OpenColorIO_v2_4dev::GenericScanlineHelper.31", ptr %this, i64 0, i32 6
-  %m_outputBitDepth = getelementptr inbounds %"class.OpenColorIO_v2_4dev::GenericScanlineHelper.31", ptr %this, i64 0, i32 2
+  %m_dstImg = getelementptr inbounds i8, ptr %this, i64 136
+  %m_outputBitDepth = getelementptr inbounds i8, ptr %this, i64 12
   %1 = load i32, ptr %m_outputBitDepth, align 4
-  %m_outBitDepthOp = getelementptr inbounds %"class.OpenColorIO_v2_4dev::GenericScanlineHelper.31", ptr %this, i64 0, i32 4
+  %m_outBitDepthOp = getelementptr inbounds i8, ptr %this, i64 32
   tail call void @_ZN19OpenColorIO_v2_4dev16GenericImageDesc4initERKNS_9ImageDescENS_8BitDepthERKSt10shared_ptrIKNS_5OpCPUEE(ptr noundef nonnull align 8 dereferenceable(82) %m_dstImg, ptr noundef nonnull align 8 dereferenceable(8) %img, i32 noundef %1, ptr noundef nonnull align 8 dereferenceable(16) %m_outBitDepthOp)
   %call.i = tail call noundef zeroext i1 @_ZNK19OpenColorIO_v2_4dev16GenericImageDesc12isRGBAPackedEv(ptr noundef nonnull align 8 dereferenceable(82) %m_srcImg)
   br i1 %call.i, label %if.then.i, label %if.then
@@ -8330,26 +8292,26 @@ if.then.i:                                        ; preds = %entry
   br i1 %call1.i, label %_ZN19OpenColorIO_v2_4dev19GetOptimizationModeERKNS_16GenericImageDescE.exit, label %if.then
 
 _ZN19OpenColorIO_v2_4dev19GetOptimizationModeERKNS_16GenericImageDescE.exit: ; preds = %if.then.i
-  %m_inOptimizedMode = getelementptr inbounds %"class.OpenColorIO_v2_4dev::GenericScanlineHelper.31", ptr %this, i64 0, i32 7
+  %m_inOptimizedMode = getelementptr inbounds i8, ptr %this, i64 224
   store i32 3, ptr %m_inOptimizedMode, align 8
-  %m_outOptimizedMode = getelementptr inbounds %"class.OpenColorIO_v2_4dev::GenericScanlineHelper.31", ptr %this, i64 0, i32 8
+  %m_outOptimizedMode = getelementptr inbounds i8, ptr %this, i64 228
   store i32 3, ptr %m_outOptimizedMode, align 4
-  %m_useDstBuffer = getelementptr inbounds %"class.OpenColorIO_v2_4dev::GenericScanlineHelper.31", ptr %this, i64 0, i32 13
+  %m_useDstBuffer = getelementptr inbounds i8, ptr %this, i64 308
   store i8 1, ptr %m_useDstBuffer, align 4
   br label %if.end
 
 if.then:                                          ; preds = %entry, %if.then.i
   %optim.0.i.ph = phi i32 [ 1, %if.then.i ], [ 0, %entry ]
-  %m_inOptimizedMode34 = getelementptr inbounds %"class.OpenColorIO_v2_4dev::GenericScanlineHelper.31", ptr %this, i64 0, i32 7
+  %m_inOptimizedMode34 = getelementptr inbounds i8, ptr %this, i64 224
   store i32 %optim.0.i.ph, ptr %m_inOptimizedMode34, align 8
-  %m_outOptimizedMode35 = getelementptr inbounds %"class.OpenColorIO_v2_4dev::GenericScanlineHelper.31", ptr %this, i64 0, i32 8
+  %m_outOptimizedMode35 = getelementptr inbounds i8, ptr %this, i64 228
   store i32 %optim.0.i.ph, ptr %m_outOptimizedMode35, align 4
-  %m_useDstBuffer37 = getelementptr inbounds %"class.OpenColorIO_v2_4dev::GenericScanlineHelper.31", ptr %this, i64 0, i32 13
+  %m_useDstBuffer37 = getelementptr inbounds i8, ptr %this, i64 308
   store i8 0, ptr %m_useDstBuffer37, align 4
   %2 = load i64, ptr %m_dstImg, align 8
   %mul = shl nsw i64 %2, 2
-  %m_rgbaFloatBuffer = getelementptr inbounds %"class.OpenColorIO_v2_4dev::GenericScanlineHelper.31", ptr %this, i64 0, i32 9
-  %_M_finish.i.i = getelementptr inbounds %"class.OpenColorIO_v2_4dev::GenericScanlineHelper.31", ptr %this, i64 0, i32 9, i32 0, i32 0, i32 0, i32 1
+  %m_rgbaFloatBuffer = getelementptr inbounds i8, ptr %this, i64 232
+  %_M_finish.i.i = getelementptr inbounds i8, ptr %this, i64 240
   %3 = load ptr, ptr %_M_finish.i.i, align 8
   %4 = load ptr, ptr %m_rgbaFloatBuffer, align 8
   %sub.ptr.lhs.cast.i.i = ptrtoint ptr %3 to i64
@@ -8378,8 +8340,8 @@ invoke.cont.i.i:                                  ; preds = %if.then5.i
   br label %_ZNSt6vectorIfSaIfEE6resizeEm.exit
 
 _ZNSt6vectorIfSaIfEE6resizeEm.exit:               ; preds = %if.then.i4, %if.else.i, %if.then5.i, %invoke.cont.i.i
-  %m_inBitDepthBuffer = getelementptr inbounds %"class.OpenColorIO_v2_4dev::GenericScanlineHelper.31", ptr %this, i64 0, i32 10
-  %_M_finish.i.i5 = getelementptr inbounds %"class.OpenColorIO_v2_4dev::GenericScanlineHelper.31", ptr %this, i64 0, i32 10, i32 0, i32 0, i32 0, i32 1
+  %m_inBitDepthBuffer = getelementptr inbounds i8, ptr %this, i64 256
+  %_M_finish.i.i5 = getelementptr inbounds i8, ptr %this, i64 264
   %5 = load ptr, ptr %_M_finish.i.i5, align 8
   %6 = load ptr, ptr %m_inBitDepthBuffer, align 8
   %sub.ptr.lhs.cast.i.i6 = ptrtoint ptr %5 to i64
@@ -8408,8 +8370,8 @@ invoke.cont.i.i16:                                ; preds = %if.then5.i13
   br label %_ZNSt6vectorIN9Imath_3_14halfESaIS1_EE6resizeEm.exit
 
 _ZNSt6vectorIN9Imath_3_14halfESaIS1_EE6resizeEm.exit: ; preds = %if.then.i17, %if.else.i11, %if.then5.i13, %invoke.cont.i.i16
-  %m_outBitDepthBuffer = getelementptr inbounds %"class.OpenColorIO_v2_4dev::GenericScanlineHelper.31", ptr %this, i64 0, i32 11
-  %_M_finish.i.i19 = getelementptr inbounds %"class.OpenColorIO_v2_4dev::GenericScanlineHelper.31", ptr %this, i64 0, i32 11, i32 0, i32 0, i32 0, i32 1
+  %m_outBitDepthBuffer = getelementptr inbounds i8, ptr %this, i64 280
+  %_M_finish.i.i19 = getelementptr inbounds i8, ptr %this, i64 288
   %7 = load ptr, ptr %_M_finish.i.i19, align 8
   %8 = load ptr, ptr %m_outBitDepthBuffer, align 8
   %sub.ptr.lhs.cast.i.i20 = ptrtoint ptr %7 to i64
@@ -8445,7 +8407,7 @@ if.end:                                           ; preds = %invoke.cont.i.i30, 
 define weak_odr hidden void @_ZN19OpenColorIO_v2_4dev21GenericScanlineHelperIN9Imath_3_14halfEtED2Ev(ptr noundef nonnull align 8 dereferenceable(309) %this) unnamed_addr #3 comdat($_ZN19OpenColorIO_v2_4dev21GenericScanlineHelperIN9Imath_3_14halfEtED5Ev) align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTVN19OpenColorIO_v2_4dev21GenericScanlineHelperIN9Imath_3_14halfEtEE, i64 0, inrange i32 0, i64 2), ptr %this, align 8
-  %m_outBitDepthBuffer = getelementptr inbounds %"class.OpenColorIO_v2_4dev::GenericScanlineHelper.31", ptr %this, i64 0, i32 11
+  %m_outBitDepthBuffer = getelementptr inbounds i8, ptr %this, i64 280
   %0 = load ptr, ptr %m_outBitDepthBuffer, align 8
   %tobool.not.i.i.i = icmp eq ptr %0, null
   br i1 %tobool.not.i.i.i, label %_ZNSt6vectorItSaItEED2Ev.exit, label %if.then.i.i.i
@@ -8455,7 +8417,7 @@ if.then.i.i.i:                                    ; preds = %entry
   br label %_ZNSt6vectorItSaItEED2Ev.exit
 
 _ZNSt6vectorItSaItEED2Ev.exit:                    ; preds = %entry, %if.then.i.i.i
-  %m_inBitDepthBuffer = getelementptr inbounds %"class.OpenColorIO_v2_4dev::GenericScanlineHelper.31", ptr %this, i64 0, i32 10
+  %m_inBitDepthBuffer = getelementptr inbounds i8, ptr %this, i64 256
   %1 = load ptr, ptr %m_inBitDepthBuffer, align 8
   %tobool.not.i.i.i1 = icmp eq ptr %1, null
   br i1 %tobool.not.i.i.i1, label %_ZNSt6vectorIN9Imath_3_14halfESaIS1_EED2Ev.exit, label %if.then.i.i.i2
@@ -8465,7 +8427,7 @@ if.then.i.i.i2:                                   ; preds = %_ZNSt6vectorItSaItE
   br label %_ZNSt6vectorIN9Imath_3_14halfESaIS1_EED2Ev.exit
 
 _ZNSt6vectorIN9Imath_3_14halfESaIS1_EED2Ev.exit:  ; preds = %_ZNSt6vectorItSaItEED2Ev.exit, %if.then.i.i.i2
-  %m_rgbaFloatBuffer = getelementptr inbounds %"class.OpenColorIO_v2_4dev::GenericScanlineHelper.31", ptr %this, i64 0, i32 9
+  %m_rgbaFloatBuffer = getelementptr inbounds i8, ptr %this, i64 232
   %2 = load ptr, ptr %m_rgbaFloatBuffer, align 8
   %tobool.not.i.i.i3 = icmp eq ptr %2, null
   br i1 %tobool.not.i.i.i3, label %_ZNSt6vectorIfSaIfEED2Ev.exit, label %if.then.i.i.i4
@@ -8475,13 +8437,13 @@ if.then.i.i.i4:                                   ; preds = %_ZNSt6vectorIN9Imat
   br label %_ZNSt6vectorIfSaIfEED2Ev.exit
 
 _ZNSt6vectorIfSaIfEED2Ev.exit:                    ; preds = %_ZNSt6vectorIN9Imath_3_14halfESaIS1_EED2Ev.exit, %if.then.i.i.i4
-  %_M_refcount.i.i.i = getelementptr inbounds %"class.OpenColorIO_v2_4dev::GenericScanlineHelper.31", ptr %this, i64 0, i32 6, i32 8, i32 0, i32 1
+  %_M_refcount.i.i.i = getelementptr inbounds i8, ptr %this, i64 208
   %3 = load ptr, ptr %_M_refcount.i.i.i, align 8
   %cmp.not.i.i.i.i = icmp eq ptr %3, null
   br i1 %cmp.not.i.i.i.i, label %_ZN19OpenColorIO_v2_4dev16GenericImageDescD2Ev.exit, label %if.then.i.i.i.i
 
 if.then.i.i.i.i:                                  ; preds = %_ZNSt6vectorIfSaIfEED2Ev.exit
-  %_M_use_count.i.i.i.i.i = getelementptr inbounds %"class.std::_Sp_counted_base", ptr %3, i64 0, i32 1
+  %_M_use_count.i.i.i.i.i = getelementptr inbounds i8, ptr %3, i64 8
   %4 = load atomic i64, ptr %_M_use_count.i.i.i.i.i acquire, align 8
   %cmp.i.i.i.i.i = icmp eq i64 %4, 4294967297
   %5 = trunc i64 %4 to i32
@@ -8489,10 +8451,10 @@ if.then.i.i.i.i:                                  ; preds = %_ZNSt6vectorIfSaIfE
 
 if.then.i.i.i.i.i:                                ; preds = %if.then.i.i.i.i
   store i32 0, ptr %_M_use_count.i.i.i.i.i, align 8
-  %_M_weak_count.i.i.i.i.i = getelementptr inbounds %"class.std::_Sp_counted_base", ptr %3, i64 0, i32 2
+  %_M_weak_count.i.i.i.i.i = getelementptr inbounds i8, ptr %3, i64 12
   store i32 0, ptr %_M_weak_count.i.i.i.i.i, align 4
   %vtable.i.i.i.i.i = load ptr, ptr %3, align 8
-  %vfn.i.i.i.i.i = getelementptr inbounds ptr, ptr %vtable.i.i.i.i.i, i64 2
+  %vfn.i.i.i.i.i = getelementptr inbounds i8, ptr %vtable.i.i.i.i.i, i64 16
   %6 = load ptr, ptr %vfn.i.i.i.i.i, align 8
   tail call void %6(ptr noundef nonnull align 8 dereferenceable(16) %3) #13
   br label %if.end8.sink.split.i.i.i.i.i
@@ -8518,10 +8480,10 @@ _ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i: ; preds = %if.els
 
 if.then7.i.i.i.i.i:                               ; preds = %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i
   %vtable.i.i.i.i.i.i.i = load ptr, ptr %3, align 8
-  %vfn.i.i.i.i.i.i.i = getelementptr inbounds ptr, ptr %vtable.i.i.i.i.i.i.i, i64 2
+  %vfn.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %vtable.i.i.i.i.i.i.i, i64 16
   %9 = load ptr, ptr %vfn.i.i.i.i.i.i.i, align 8
   tail call void %9(ptr noundef nonnull align 8 dereferenceable(16) %3) #13
-  %_M_weak_count.i.i.i.i.i.i.i = getelementptr inbounds %"class.std::_Sp_counted_base", ptr %3, i64 0, i32 2
+  %_M_weak_count.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %3, i64 12
   %10 = load i8, ptr @__libc_single_threaded, align 1
   %tobool.i.i.not.i.i.i.i.i.i.i = icmp eq i8 %10, 0
   br i1 %tobool.i.i.not.i.i.i.i.i.i.i, label %if.else.i.i.i.i.i.i.i.i, label %if.then.i.i.i.i.i.i.i.i
@@ -8543,19 +8505,19 @@ _ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i.i: ; preds = %if
 
 if.end8.sink.split.i.i.i.i.i:                     ; preds = %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i.i, %if.then.i.i.i.i.i
   %vtable2.i.i.i.i.i.i.i = load ptr, ptr %3, align 8
-  %vfn3.i.i.i.i.i.i.i = getelementptr inbounds ptr, ptr %vtable2.i.i.i.i.i.i.i, i64 3
+  %vfn3.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %vtable2.i.i.i.i.i.i.i, i64 24
   %13 = load ptr, ptr %vfn3.i.i.i.i.i.i.i, align 8
   tail call void %13(ptr noundef nonnull align 8 dereferenceable(16) %3) #13
   br label %_ZN19OpenColorIO_v2_4dev16GenericImageDescD2Ev.exit
 
 _ZN19OpenColorIO_v2_4dev16GenericImageDescD2Ev.exit: ; preds = %_ZNSt6vectorIfSaIfEED2Ev.exit, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i.i, %if.end8.sink.split.i.i.i.i.i
-  %_M_refcount.i.i.i5 = getelementptr inbounds %"class.OpenColorIO_v2_4dev::GenericScanlineHelper.31", ptr %this, i64 0, i32 5, i32 8, i32 0, i32 1
+  %_M_refcount.i.i.i5 = getelementptr inbounds i8, ptr %this, i64 120
   %14 = load ptr, ptr %_M_refcount.i.i.i5, align 8
   %cmp.not.i.i.i.i6 = icmp eq ptr %14, null
   br i1 %cmp.not.i.i.i.i6, label %_ZN19OpenColorIO_v2_4dev16GenericImageDescD2Ev.exit36, label %if.then.i.i.i.i7
 
 if.then.i.i.i.i7:                                 ; preds = %_ZN19OpenColorIO_v2_4dev16GenericImageDescD2Ev.exit
-  %_M_use_count.i.i.i.i.i8 = getelementptr inbounds %"class.std::_Sp_counted_base", ptr %14, i64 0, i32 1
+  %_M_use_count.i.i.i.i.i8 = getelementptr inbounds i8, ptr %14, i64 8
   %15 = load atomic i64, ptr %_M_use_count.i.i.i.i.i8 acquire, align 8
   %cmp.i.i.i.i.i9 = icmp eq i64 %15, 4294967297
   %16 = trunc i64 %15 to i32
@@ -8563,10 +8525,10 @@ if.then.i.i.i.i7:                                 ; preds = %_ZN19OpenColorIO_v2
 
 if.then.i.i.i.i.i32:                              ; preds = %if.then.i.i.i.i7
   store i32 0, ptr %_M_use_count.i.i.i.i.i8, align 8
-  %_M_weak_count.i.i.i.i.i33 = getelementptr inbounds %"class.std::_Sp_counted_base", ptr %14, i64 0, i32 2
+  %_M_weak_count.i.i.i.i.i33 = getelementptr inbounds i8, ptr %14, i64 12
   store i32 0, ptr %_M_weak_count.i.i.i.i.i33, align 4
   %vtable.i.i.i.i.i34 = load ptr, ptr %14, align 8
-  %vfn.i.i.i.i.i35 = getelementptr inbounds ptr, ptr %vtable.i.i.i.i.i34, i64 2
+  %vfn.i.i.i.i.i35 = getelementptr inbounds i8, ptr %vtable.i.i.i.i.i34, i64 16
   %17 = load ptr, ptr %vfn.i.i.i.i.i35, align 8
   tail call void %17(ptr noundef nonnull align 8 dereferenceable(16) %14) #13
   br label %if.end8.sink.split.i.i.i.i.i27
@@ -8592,10 +8554,10 @@ _ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i14: ; preds = %if.e
 
 if.then7.i.i.i.i.i17:                             ; preds = %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i14
   %vtable.i.i.i.i.i.i.i18 = load ptr, ptr %14, align 8
-  %vfn.i.i.i.i.i.i.i19 = getelementptr inbounds ptr, ptr %vtable.i.i.i.i.i.i.i18, i64 2
+  %vfn.i.i.i.i.i.i.i19 = getelementptr inbounds i8, ptr %vtable.i.i.i.i.i.i.i18, i64 16
   %20 = load ptr, ptr %vfn.i.i.i.i.i.i.i19, align 8
   tail call void %20(ptr noundef nonnull align 8 dereferenceable(16) %14) #13
-  %_M_weak_count.i.i.i.i.i.i.i20 = getelementptr inbounds %"class.std::_Sp_counted_base", ptr %14, i64 0, i32 2
+  %_M_weak_count.i.i.i.i.i.i.i20 = getelementptr inbounds i8, ptr %14, i64 12
   %21 = load i8, ptr @__libc_single_threaded, align 1
   %tobool.i.i.not.i.i.i.i.i.i.i21 = icmp eq i8 %21, 0
   br i1 %tobool.i.i.not.i.i.i.i.i.i.i21, label %if.else.i.i.i.i.i.i.i.i30, label %if.then.i.i.i.i.i.i.i.i22
@@ -8617,19 +8579,19 @@ _ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i.i24: ; preds = %
 
 if.end8.sink.split.i.i.i.i.i27:                   ; preds = %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i.i24, %if.then.i.i.i.i.i32
   %vtable2.i.i.i.i.i.i.i28 = load ptr, ptr %14, align 8
-  %vfn3.i.i.i.i.i.i.i29 = getelementptr inbounds ptr, ptr %vtable2.i.i.i.i.i.i.i28, i64 3
+  %vfn3.i.i.i.i.i.i.i29 = getelementptr inbounds i8, ptr %vtable2.i.i.i.i.i.i.i28, i64 24
   %24 = load ptr, ptr %vfn3.i.i.i.i.i.i.i29, align 8
   tail call void %24(ptr noundef nonnull align 8 dereferenceable(16) %14) #13
   br label %_ZN19OpenColorIO_v2_4dev16GenericImageDescD2Ev.exit36
 
 _ZN19OpenColorIO_v2_4dev16GenericImageDescD2Ev.exit36: ; preds = %_ZN19OpenColorIO_v2_4dev16GenericImageDescD2Ev.exit, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i14, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i.i24, %if.end8.sink.split.i.i.i.i.i27
-  %_M_refcount.i.i = getelementptr inbounds %"class.OpenColorIO_v2_4dev::GenericScanlineHelper.31", ptr %this, i64 0, i32 4, i32 0, i32 1
+  %_M_refcount.i.i = getelementptr inbounds i8, ptr %this, i64 40
   %25 = load ptr, ptr %_M_refcount.i.i, align 8
   %cmp.not.i.i.i = icmp eq ptr %25, null
   br i1 %cmp.not.i.i.i, label %_ZNSt10shared_ptrIKN19OpenColorIO_v2_4dev5OpCPUEED2Ev.exit, label %if.then.i.i.i37
 
 if.then.i.i.i37:                                  ; preds = %_ZN19OpenColorIO_v2_4dev16GenericImageDescD2Ev.exit36
-  %_M_use_count.i.i.i.i = getelementptr inbounds %"class.std::_Sp_counted_base", ptr %25, i64 0, i32 1
+  %_M_use_count.i.i.i.i = getelementptr inbounds i8, ptr %25, i64 8
   %26 = load atomic i64, ptr %_M_use_count.i.i.i.i acquire, align 8
   %cmp.i.i.i.i = icmp eq i64 %26, 4294967297
   %27 = trunc i64 %26 to i32
@@ -8637,10 +8599,10 @@ if.then.i.i.i37:                                  ; preds = %_ZN19OpenColorIO_v2
 
 if.then.i.i.i.i39:                                ; preds = %if.then.i.i.i37
   store i32 0, ptr %_M_use_count.i.i.i.i, align 8
-  %_M_weak_count.i.i.i.i = getelementptr inbounds %"class.std::_Sp_counted_base", ptr %25, i64 0, i32 2
+  %_M_weak_count.i.i.i.i = getelementptr inbounds i8, ptr %25, i64 12
   store i32 0, ptr %_M_weak_count.i.i.i.i, align 4
   %vtable.i.i.i.i = load ptr, ptr %25, align 8
-  %vfn.i.i.i.i = getelementptr inbounds ptr, ptr %vtable.i.i.i.i, i64 2
+  %vfn.i.i.i.i = getelementptr inbounds i8, ptr %vtable.i.i.i.i, i64 16
   %28 = load ptr, ptr %vfn.i.i.i.i, align 8
   tail call void %28(ptr noundef nonnull align 8 dereferenceable(16) %25) #13
   br label %if.end8.sink.split.i.i.i.i
@@ -8666,10 +8628,10 @@ _ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i: ; preds = %if.else.
 
 if.then7.i.i.i.i:                                 ; preds = %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i
   %vtable.i.i.i.i.i.i = load ptr, ptr %25, align 8
-  %vfn.i.i.i.i.i.i = getelementptr inbounds ptr, ptr %vtable.i.i.i.i.i.i, i64 2
+  %vfn.i.i.i.i.i.i = getelementptr inbounds i8, ptr %vtable.i.i.i.i.i.i, i64 16
   %31 = load ptr, ptr %vfn.i.i.i.i.i.i, align 8
   tail call void %31(ptr noundef nonnull align 8 dereferenceable(16) %25) #13
-  %_M_weak_count.i.i.i.i.i.i = getelementptr inbounds %"class.std::_Sp_counted_base", ptr %25, i64 0, i32 2
+  %_M_weak_count.i.i.i.i.i.i = getelementptr inbounds i8, ptr %25, i64 12
   %32 = load i8, ptr @__libc_single_threaded, align 1
   %tobool.i.i.not.i.i.i.i.i.i = icmp eq i8 %32, 0
   br i1 %tobool.i.i.not.i.i.i.i.i.i, label %if.else.i.i.i.i.i.i.i, label %if.then.i.i.i.i.i.i.i
@@ -8691,19 +8653,19 @@ _ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i: ; preds = %if.e
 
 if.end8.sink.split.i.i.i.i:                       ; preds = %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i, %if.then.i.i.i.i39
   %vtable2.i.i.i.i.i.i = load ptr, ptr %25, align 8
-  %vfn3.i.i.i.i.i.i = getelementptr inbounds ptr, ptr %vtable2.i.i.i.i.i.i, i64 3
+  %vfn3.i.i.i.i.i.i = getelementptr inbounds i8, ptr %vtable2.i.i.i.i.i.i, i64 24
   %35 = load ptr, ptr %vfn3.i.i.i.i.i.i, align 8
   tail call void %35(ptr noundef nonnull align 8 dereferenceable(16) %25) #13
   br label %_ZNSt10shared_ptrIKN19OpenColorIO_v2_4dev5OpCPUEED2Ev.exit
 
 _ZNSt10shared_ptrIKN19OpenColorIO_v2_4dev5OpCPUEED2Ev.exit: ; preds = %_ZN19OpenColorIO_v2_4dev16GenericImageDescD2Ev.exit36, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i, %if.end8.sink.split.i.i.i.i
-  %_M_refcount.i.i40 = getelementptr inbounds %"class.OpenColorIO_v2_4dev::GenericScanlineHelper.31", ptr %this, i64 0, i32 3, i32 0, i32 1
+  %_M_refcount.i.i40 = getelementptr inbounds i8, ptr %this, i64 24
   %36 = load ptr, ptr %_M_refcount.i.i40, align 8
   %cmp.not.i.i.i41 = icmp eq ptr %36, null
   br i1 %cmp.not.i.i.i41, label %_ZNSt10shared_ptrIKN19OpenColorIO_v2_4dev5OpCPUEED2Ev.exit71, label %if.then.i.i.i42
 
 if.then.i.i.i42:                                  ; preds = %_ZNSt10shared_ptrIKN19OpenColorIO_v2_4dev5OpCPUEED2Ev.exit
-  %_M_use_count.i.i.i.i43 = getelementptr inbounds %"class.std::_Sp_counted_base", ptr %36, i64 0, i32 1
+  %_M_use_count.i.i.i.i43 = getelementptr inbounds i8, ptr %36, i64 8
   %37 = load atomic i64, ptr %_M_use_count.i.i.i.i43 acquire, align 8
   %cmp.i.i.i.i44 = icmp eq i64 %37, 4294967297
   %38 = trunc i64 %37 to i32
@@ -8711,10 +8673,10 @@ if.then.i.i.i42:                                  ; preds = %_ZNSt10shared_ptrIK
 
 if.then.i.i.i.i67:                                ; preds = %if.then.i.i.i42
   store i32 0, ptr %_M_use_count.i.i.i.i43, align 8
-  %_M_weak_count.i.i.i.i68 = getelementptr inbounds %"class.std::_Sp_counted_base", ptr %36, i64 0, i32 2
+  %_M_weak_count.i.i.i.i68 = getelementptr inbounds i8, ptr %36, i64 12
   store i32 0, ptr %_M_weak_count.i.i.i.i68, align 4
   %vtable.i.i.i.i69 = load ptr, ptr %36, align 8
-  %vfn.i.i.i.i70 = getelementptr inbounds ptr, ptr %vtable.i.i.i.i69, i64 2
+  %vfn.i.i.i.i70 = getelementptr inbounds i8, ptr %vtable.i.i.i.i69, i64 16
   %39 = load ptr, ptr %vfn.i.i.i.i70, align 8
   tail call void %39(ptr noundef nonnull align 8 dereferenceable(16) %36) #13
   br label %if.end8.sink.split.i.i.i.i62
@@ -8740,10 +8702,10 @@ _ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i49: ; preds = %if.els
 
 if.then7.i.i.i.i52:                               ; preds = %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i49
   %vtable.i.i.i.i.i.i53 = load ptr, ptr %36, align 8
-  %vfn.i.i.i.i.i.i54 = getelementptr inbounds ptr, ptr %vtable.i.i.i.i.i.i53, i64 2
+  %vfn.i.i.i.i.i.i54 = getelementptr inbounds i8, ptr %vtable.i.i.i.i.i.i53, i64 16
   %42 = load ptr, ptr %vfn.i.i.i.i.i.i54, align 8
   tail call void %42(ptr noundef nonnull align 8 dereferenceable(16) %36) #13
-  %_M_weak_count.i.i.i.i.i.i55 = getelementptr inbounds %"class.std::_Sp_counted_base", ptr %36, i64 0, i32 2
+  %_M_weak_count.i.i.i.i.i.i55 = getelementptr inbounds i8, ptr %36, i64 12
   %43 = load i8, ptr @__libc_single_threaded, align 1
   %tobool.i.i.not.i.i.i.i.i.i56 = icmp eq i8 %43, 0
   br i1 %tobool.i.i.not.i.i.i.i.i.i56, label %if.else.i.i.i.i.i.i.i65, label %if.then.i.i.i.i.i.i.i57
@@ -8765,7 +8727,7 @@ _ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i59: ; preds = %if
 
 if.end8.sink.split.i.i.i.i62:                     ; preds = %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i59, %if.then.i.i.i.i67
   %vtable2.i.i.i.i.i.i63 = load ptr, ptr %36, align 8
-  %vfn3.i.i.i.i.i.i64 = getelementptr inbounds ptr, ptr %vtable2.i.i.i.i.i.i63, i64 3
+  %vfn3.i.i.i.i.i.i64 = getelementptr inbounds i8, ptr %vtable2.i.i.i.i.i.i63, i64 24
   %46 = load ptr, ptr %vfn3.i.i.i.i.i.i64, align 8
   tail call void %46(ptr noundef nonnull align 8 dereferenceable(16) %36) #13
   br label %_ZNSt10shared_ptrIKN19OpenColorIO_v2_4dev5OpCPUEED2Ev.exit71
@@ -8785,66 +8747,66 @@ entry:
 ; Function Attrs: mustprogress uwtable
 define weak_odr hidden void @_ZN19OpenColorIO_v2_4dev21GenericScanlineHelperIN9Imath_3_14halfEtE16prepRGBAScanlineEPPfRl(ptr noundef nonnull align 8 dereferenceable(309) %this, ptr noundef %buffer, ptr noundef nonnull align 8 dereferenceable(8) %numPixels) unnamed_addr #5 comdat align 2 {
 entry:
-  %m_yIndex = getelementptr inbounds %"class.OpenColorIO_v2_4dev::GenericScanlineHelper.31", ptr %this, i64 0, i32 12
+  %m_yIndex = getelementptr inbounds i8, ptr %this, i64 304
   %0 = load i32, ptr %m_yIndex, align 8
   %conv = sext i32 %0 to i64
-  %m_dstImg = getelementptr inbounds %"class.OpenColorIO_v2_4dev::GenericScanlineHelper.31", ptr %this, i64 0, i32 6
-  %m_height = getelementptr inbounds %"class.OpenColorIO_v2_4dev::GenericScanlineHelper.31", ptr %this, i64 0, i32 6, i32 1
+  %m_dstImg = getelementptr inbounds i8, ptr %this, i64 136
+  %m_height = getelementptr inbounds i8, ptr %this, i64 144
   %1 = load i64, ptr %m_height, align 8
   %cmp.not = icmp sgt i64 %1, %conv
   br i1 %cmp.not, label %if.end, label %return
 
 if.end:                                           ; preds = %entry
-  %m_useDstBuffer = getelementptr inbounds %"class.OpenColorIO_v2_4dev::GenericScanlineHelper.31", ptr %this, i64 0, i32 13
+  %m_useDstBuffer = getelementptr inbounds i8, ptr %this, i64 308
   %2 = load i8, ptr %m_useDstBuffer, align 4
   %3 = and i8 %2, 1
   %tobool.not = icmp eq i8 %3, 0
   br i1 %tobool.not, label %cond.false, label %cond.true
 
 cond.true:                                        ; preds = %if.end
-  %m_rData = getelementptr inbounds %"class.OpenColorIO_v2_4dev::GenericScanlineHelper.31", ptr %this, i64 0, i32 6, i32 4
+  %m_rData = getelementptr inbounds i8, ptr %this, i64 168
   %4 = load ptr, ptr %m_rData, align 8
-  %m_yStrideBytes = getelementptr inbounds %"class.OpenColorIO_v2_4dev::GenericScanlineHelper.31", ptr %this, i64 0, i32 6, i32 3
+  %m_yStrideBytes = getelementptr inbounds i8, ptr %this, i64 160
   %5 = load i64, ptr %m_yStrideBytes, align 8
   %mul = mul nsw i64 %5, %conv
   %add.ptr = getelementptr inbounds i8, ptr %4, i64 %mul
   br label %cond.end
 
 cond.false:                                       ; preds = %if.end
-  %m_rgbaFloatBuffer = getelementptr inbounds %"class.OpenColorIO_v2_4dev::GenericScanlineHelper.31", ptr %this, i64 0, i32 9
+  %m_rgbaFloatBuffer = getelementptr inbounds i8, ptr %this, i64 232
   %6 = load ptr, ptr %m_rgbaFloatBuffer, align 8
   br label %cond.end
 
 cond.end:                                         ; preds = %cond.false, %cond.true
   %cond = phi ptr [ %add.ptr, %cond.true ], [ %6, %cond.false ]
   store ptr %cond, ptr %buffer, align 8
-  %m_inOptimizedMode = getelementptr inbounds %"class.OpenColorIO_v2_4dev::GenericScanlineHelper.31", ptr %this, i64 0, i32 7
+  %m_inOptimizedMode = getelementptr inbounds i8, ptr %this, i64 224
   %7 = load i32, ptr %m_inOptimizedMode, align 8
   %and = and i32 %7, 1
   %cmp6.not = icmp eq i32 %and, 0
   br i1 %cmp6.not, label %if.else, label %if.then7
 
 if.then7:                                         ; preds = %cond.end
-  %m_rData8 = getelementptr inbounds %"class.OpenColorIO_v2_4dev::GenericScanlineHelper.31", ptr %this, i64 0, i32 5, i32 4
+  %m_rData8 = getelementptr inbounds i8, ptr %this, i64 80
   %8 = load ptr, ptr %m_rData8, align 8
-  %m_yStrideBytes10 = getelementptr inbounds %"class.OpenColorIO_v2_4dev::GenericScanlineHelper.31", ptr %this, i64 0, i32 5, i32 3
+  %m_yStrideBytes10 = getelementptr inbounds i8, ptr %this, i64 72
   %9 = load i64, ptr %m_yStrideBytes10, align 8
   %10 = load i32, ptr %m_yIndex, align 8
   %conv12 = sext i32 %10 to i64
   %mul13 = mul nsw i64 %9, %conv12
   %add.ptr14 = getelementptr inbounds i8, ptr %8, i64 %mul13
-  %m_bitDepthOp = getelementptr inbounds %"class.OpenColorIO_v2_4dev::GenericScanlineHelper.31", ptr %this, i64 0, i32 5, i32 8
+  %m_bitDepthOp = getelementptr inbounds i8, ptr %this, i64 112
   %11 = load ptr, ptr %m_bitDepthOp, align 8
   %12 = load i64, ptr %m_dstImg, align 8
   %vtable = load ptr, ptr %11, align 8
-  %vfn = getelementptr inbounds ptr, ptr %vtable, i64 2
+  %vfn = getelementptr inbounds i8, ptr %vtable, i64 16
   %13 = load ptr, ptr %vfn, align 8
   tail call void %13(ptr noundef nonnull align 8 dereferenceable(8) %11, ptr noundef %add.ptr14, ptr noundef %cond, i64 noundef %12)
   br label %if.end28
 
 if.else:                                          ; preds = %cond.end
-  %m_srcImg18 = getelementptr inbounds %"class.OpenColorIO_v2_4dev::GenericScanlineHelper.31", ptr %this, i64 0, i32 5
-  %m_inBitDepthBuffer = getelementptr inbounds %"class.OpenColorIO_v2_4dev::GenericScanlineHelper.31", ptr %this, i64 0, i32 10
+  %m_srcImg18 = getelementptr inbounds i8, ptr %this, i64 48
+  %m_inBitDepthBuffer = getelementptr inbounds i8, ptr %this, i64 256
   %14 = load ptr, ptr %m_inBitDepthBuffer, align 8
   %15 = load i64, ptr %m_dstImg, align 8
   %conv22 = trunc i64 %15 to i32
@@ -8867,47 +8829,47 @@ return:                                           ; preds = %entry, %if.end28
 ; Function Attrs: mustprogress uwtable
 define weak_odr hidden void @_ZN19OpenColorIO_v2_4dev21GenericScanlineHelperIN9Imath_3_14halfEtE18finishRGBAScanlineEv(ptr noundef nonnull align 8 dereferenceable(309) %this) unnamed_addr #5 comdat align 2 {
 entry:
-  %m_outOptimizedMode = getelementptr inbounds %"class.OpenColorIO_v2_4dev::GenericScanlineHelper.31", ptr %this, i64 0, i32 8
+  %m_outOptimizedMode = getelementptr inbounds i8, ptr %this, i64 228
   %0 = load i32, ptr %m_outOptimizedMode, align 4
   %and = and i32 %0, 1
   %cmp.not = icmp eq i32 %and, 0
-  %m_dstImg6 = getelementptr inbounds %"class.OpenColorIO_v2_4dev::GenericScanlineHelper.31", ptr %this, i64 0, i32 6
+  %m_dstImg6 = getelementptr inbounds i8, ptr %this, i64 136
   br i1 %cmp.not, label %if.else, label %if.then
 
 if.then:                                          ; preds = %entry
-  %m_rData = getelementptr inbounds %"class.OpenColorIO_v2_4dev::GenericScanlineHelper.31", ptr %this, i64 0, i32 6, i32 4
+  %m_rData = getelementptr inbounds i8, ptr %this, i64 168
   %1 = load ptr, ptr %m_rData, align 8
-  %m_yStrideBytes = getelementptr inbounds %"class.OpenColorIO_v2_4dev::GenericScanlineHelper.31", ptr %this, i64 0, i32 6, i32 3
+  %m_yStrideBytes = getelementptr inbounds i8, ptr %this, i64 160
   %2 = load i64, ptr %m_yStrideBytes, align 8
-  %m_yIndex = getelementptr inbounds %"class.OpenColorIO_v2_4dev::GenericScanlineHelper.31", ptr %this, i64 0, i32 12
+  %m_yIndex = getelementptr inbounds i8, ptr %this, i64 304
   %3 = load i32, ptr %m_yIndex, align 8
   %conv = sext i32 %3 to i64
   %mul = mul nsw i64 %2, %conv
   %add.ptr = getelementptr inbounds i8, ptr %1, i64 %mul
-  %m_useDstBuffer = getelementptr inbounds %"class.OpenColorIO_v2_4dev::GenericScanlineHelper.31", ptr %this, i64 0, i32 13
+  %m_useDstBuffer = getelementptr inbounds i8, ptr %this, i64 308
   %4 = load i8, ptr %m_useDstBuffer, align 4
   %5 = and i8 %4, 1
   %tobool.not = icmp eq i8 %5, 0
-  %m_rgbaFloatBuffer = getelementptr inbounds %"class.OpenColorIO_v2_4dev::GenericScanlineHelper.31", ptr %this, i64 0, i32 9
+  %m_rgbaFloatBuffer = getelementptr inbounds i8, ptr %this, i64 232
   %6 = load ptr, ptr %m_rgbaFloatBuffer, align 8
   %cond = select i1 %tobool.not, ptr %6, ptr %add.ptr
-  %m_bitDepthOp = getelementptr inbounds %"class.OpenColorIO_v2_4dev::GenericScanlineHelper.31", ptr %this, i64 0, i32 6, i32 8
+  %m_bitDepthOp = getelementptr inbounds i8, ptr %this, i64 200
   %7 = load ptr, ptr %m_bitDepthOp, align 8
   %8 = load i64, ptr %m_dstImg6, align 8
   %vtable = load ptr, ptr %7, align 8
-  %vfn = getelementptr inbounds ptr, ptr %vtable, i64 2
+  %vfn = getelementptr inbounds i8, ptr %vtable, i64 16
   %9 = load ptr, ptr %vfn, align 8
   tail call void %9(ptr noundef nonnull align 8 dereferenceable(8) %7, ptr noundef %cond, ptr noundef %add.ptr, i64 noundef %8)
   br label %if.end
 
 if.else:                                          ; preds = %entry
-  %m_rgbaFloatBuffer7 = getelementptr inbounds %"class.OpenColorIO_v2_4dev::GenericScanlineHelper.31", ptr %this, i64 0, i32 9
+  %m_rgbaFloatBuffer7 = getelementptr inbounds i8, ptr %this, i64 232
   %10 = load ptr, ptr %m_rgbaFloatBuffer7, align 8
-  %m_outBitDepthBuffer = getelementptr inbounds %"class.OpenColorIO_v2_4dev::GenericScanlineHelper.31", ptr %this, i64 0, i32 11
+  %m_outBitDepthBuffer = getelementptr inbounds i8, ptr %this, i64 280
   %11 = load ptr, ptr %m_outBitDepthBuffer, align 8
   %12 = load i64, ptr %m_dstImg6, align 8
   %conv12 = trunc i64 %12 to i32
-  %m_yIndex13 = getelementptr inbounds %"class.OpenColorIO_v2_4dev::GenericScanlineHelper.31", ptr %this, i64 0, i32 12
+  %m_yIndex13 = getelementptr inbounds i8, ptr %this, i64 304
   %13 = load i32, ptr %m_yIndex13, align 8
   %conv14 = sext i32 %13 to i64
   %mul17 = mul nsw i64 %12, %conv14
@@ -8915,7 +8877,7 @@ if.else:                                          ; preds = %entry
   br label %if.end
 
 if.end:                                           ; preds = %if.else, %if.then
-  %m_yIndex18 = getelementptr inbounds %"class.OpenColorIO_v2_4dev::GenericScanlineHelper.31", ptr %this, i64 0, i32 12
+  %m_yIndex18 = getelementptr inbounds i8, ptr %this, i64 304
   %14 = load i32, ptr %m_yIndex18, align 8
   %inc = add nsw i32 %14, 1
   store i32 %inc, ptr %m_yIndex18, align 8
@@ -8926,22 +8888,22 @@ if.end:                                           ; preds = %if.else, %if.then
 define weak_odr hidden void @_ZN19OpenColorIO_v2_4dev21GenericScanlineHelperIN9Imath_3_14halfES2_EC2ENS_8BitDepthERKSt10shared_ptrIKNS_5OpCPUEES4_SA_(ptr noundef nonnull align 8 dereferenceable(309) %this, i32 noundef %inputBitDepth, ptr noundef nonnull align 8 dereferenceable(16) %inBitDepthOp, i32 noundef %outputBitDepth, ptr noundef nonnull align 8 dereferenceable(16) %outBitDepthOp) unnamed_addr #3 comdat($_ZN19OpenColorIO_v2_4dev21GenericScanlineHelperIN9Imath_3_14halfES2_EC5ENS_8BitDepthERKSt10shared_ptrIKNS_5OpCPUEES4_SA_) align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTVN19OpenColorIO_v2_4dev21GenericScanlineHelperIN9Imath_3_14halfES2_EE, i64 0, inrange i32 0, i64 2), ptr %this, align 8
-  %m_inputBitDepth = getelementptr inbounds %"class.OpenColorIO_v2_4dev::GenericScanlineHelper.33", ptr %this, i64 0, i32 1
+  %m_inputBitDepth = getelementptr inbounds i8, ptr %this, i64 8
   store i32 %inputBitDepth, ptr %m_inputBitDepth, align 8
-  %m_outputBitDepth = getelementptr inbounds %"class.OpenColorIO_v2_4dev::GenericScanlineHelper.33", ptr %this, i64 0, i32 2
+  %m_outputBitDepth = getelementptr inbounds i8, ptr %this, i64 12
   store i32 %outputBitDepth, ptr %m_outputBitDepth, align 4
-  %m_inBitDepthOp = getelementptr inbounds %"class.OpenColorIO_v2_4dev::GenericScanlineHelper.33", ptr %this, i64 0, i32 3
+  %m_inBitDepthOp = getelementptr inbounds i8, ptr %this, i64 16
   %0 = load ptr, ptr %inBitDepthOp, align 8
   store ptr %0, ptr %m_inBitDepthOp, align 8
-  %_M_refcount.i.i = getelementptr inbounds %"class.OpenColorIO_v2_4dev::GenericScanlineHelper.33", ptr %this, i64 0, i32 3, i32 0, i32 1
-  %_M_refcount3.i.i = getelementptr inbounds %"class.std::__shared_ptr", ptr %inBitDepthOp, i64 0, i32 1
+  %_M_refcount.i.i = getelementptr inbounds i8, ptr %this, i64 24
+  %_M_refcount3.i.i = getelementptr inbounds i8, ptr %inBitDepthOp, i64 8
   %1 = load ptr, ptr %_M_refcount3.i.i, align 8
   store ptr %1, ptr %_M_refcount.i.i, align 8
   %cmp.not.i.i.i = icmp eq ptr %1, null
   br i1 %cmp.not.i.i.i, label %_ZNSt10shared_ptrIKN19OpenColorIO_v2_4dev5OpCPUEEC2ERKS3_.exit, label %if.then.i.i.i
 
 if.then.i.i.i:                                    ; preds = %entry
-  %_M_use_count.i.i.i.i = getelementptr inbounds %"class.std::_Sp_counted_base", ptr %1, i64 0, i32 1
+  %_M_use_count.i.i.i.i = getelementptr inbounds i8, ptr %1, i64 8
   %2 = load i8, ptr @__libc_single_threaded, align 1
   %tobool.i.not.i.i.i.i = icmp eq i8 %2, 0
   br i1 %tobool.i.not.i.i.i.i, label %if.else.i.i.i.i.i, label %if.then.i.i.i.i.i
@@ -8957,18 +8919,18 @@ if.else.i.i.i.i.i:                                ; preds = %if.then.i.i.i
   br label %_ZNSt10shared_ptrIKN19OpenColorIO_v2_4dev5OpCPUEEC2ERKS3_.exit
 
 _ZNSt10shared_ptrIKN19OpenColorIO_v2_4dev5OpCPUEEC2ERKS3_.exit: ; preds = %entry, %if.then.i.i.i.i.i, %if.else.i.i.i.i.i
-  %m_outBitDepthOp = getelementptr inbounds %"class.OpenColorIO_v2_4dev::GenericScanlineHelper.33", ptr %this, i64 0, i32 4
+  %m_outBitDepthOp = getelementptr inbounds i8, ptr %this, i64 32
   %5 = load ptr, ptr %outBitDepthOp, align 8
   store ptr %5, ptr %m_outBitDepthOp, align 8
-  %_M_refcount.i.i1 = getelementptr inbounds %"class.OpenColorIO_v2_4dev::GenericScanlineHelper.33", ptr %this, i64 0, i32 4, i32 0, i32 1
-  %_M_refcount3.i.i2 = getelementptr inbounds %"class.std::__shared_ptr", ptr %outBitDepthOp, i64 0, i32 1
+  %_M_refcount.i.i1 = getelementptr inbounds i8, ptr %this, i64 40
+  %_M_refcount3.i.i2 = getelementptr inbounds i8, ptr %outBitDepthOp, i64 8
   %6 = load ptr, ptr %_M_refcount3.i.i2, align 8
   store ptr %6, ptr %_M_refcount.i.i1, align 8
   %cmp.not.i.i.i3 = icmp eq ptr %6, null
   br i1 %cmp.not.i.i.i3, label %_ZNSt10shared_ptrIKN19OpenColorIO_v2_4dev5OpCPUEEC2ERKS3_.exit10, label %if.then.i.i.i4
 
 if.then.i.i.i4:                                   ; preds = %_ZNSt10shared_ptrIKN19OpenColorIO_v2_4dev5OpCPUEEC2ERKS3_.exit
-  %_M_use_count.i.i.i.i5 = getelementptr inbounds %"class.std::_Sp_counted_base", ptr %6, i64 0, i32 1
+  %_M_use_count.i.i.i.i5 = getelementptr inbounds i8, ptr %6, i64 8
   %7 = load i8, ptr @__libc_single_threaded, align 1
   %tobool.i.not.i.i.i.i6 = icmp eq i8 %7, 0
   br i1 %tobool.i.not.i.i.i.i6, label %if.else.i.i.i.i.i9, label %if.then.i.i.i.i.i7
@@ -8984,11 +8946,11 @@ if.else.i.i.i.i.i9:                               ; preds = %if.then.i.i.i4
   br label %_ZNSt10shared_ptrIKN19OpenColorIO_v2_4dev5OpCPUEEC2ERKS3_.exit10
 
 _ZNSt10shared_ptrIKN19OpenColorIO_v2_4dev5OpCPUEEC2ERKS3_.exit10: ; preds = %_ZNSt10shared_ptrIKN19OpenColorIO_v2_4dev5OpCPUEEC2ERKS3_.exit, %if.then.i.i.i.i.i7, %if.else.i.i.i.i.i9
-  %m_srcImg = getelementptr inbounds %"class.OpenColorIO_v2_4dev::GenericScanlineHelper.33", ptr %this, i64 0, i32 5
+  %m_srcImg = getelementptr inbounds i8, ptr %this, i64 48
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(82) %m_srcImg, i8 0, i64 82, i1 false)
-  %m_dstImg = getelementptr inbounds %"class.OpenColorIO_v2_4dev::GenericScanlineHelper.33", ptr %this, i64 0, i32 6
+  %m_dstImg = getelementptr inbounds i8, ptr %this, i64 136
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(82) %m_dstImg, i8 0, i64 82, i1 false)
-  %m_inOptimizedMode = getelementptr inbounds %"class.OpenColorIO_v2_4dev::GenericScanlineHelper.33", ptr %this, i64 0, i32 7
+  %m_inOptimizedMode = getelementptr inbounds i8, ptr %this, i64 224
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(85) %m_inOptimizedMode, i8 0, i64 85, i1 false)
   ret void
 }
@@ -8996,17 +8958,17 @@ _ZNSt10shared_ptrIKN19OpenColorIO_v2_4dev5OpCPUEEC2ERKS3_.exit10: ; preds = %_ZN
 ; Function Attrs: mustprogress uwtable
 define weak_odr hidden void @_ZN19OpenColorIO_v2_4dev21GenericScanlineHelperIN9Imath_3_14halfES2_E4initERKNS_9ImageDescES6_(ptr noundef nonnull align 8 dereferenceable(309) %this, ptr noundef nonnull align 8 dereferenceable(8) %srcImg, ptr noundef nonnull align 8 dereferenceable(8) %dstImg) unnamed_addr #5 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  %m_yIndex = getelementptr inbounds %"class.OpenColorIO_v2_4dev::GenericScanlineHelper.33", ptr %this, i64 0, i32 12
+  %m_yIndex = getelementptr inbounds i8, ptr %this, i64 304
   store i32 0, ptr %m_yIndex, align 8
-  %m_srcImg = getelementptr inbounds %"class.OpenColorIO_v2_4dev::GenericScanlineHelper.33", ptr %this, i64 0, i32 5
-  %m_inputBitDepth = getelementptr inbounds %"class.OpenColorIO_v2_4dev::GenericScanlineHelper.33", ptr %this, i64 0, i32 1
+  %m_srcImg = getelementptr inbounds i8, ptr %this, i64 48
+  %m_inputBitDepth = getelementptr inbounds i8, ptr %this, i64 8
   %0 = load i32, ptr %m_inputBitDepth, align 8
-  %m_inBitDepthOp = getelementptr inbounds %"class.OpenColorIO_v2_4dev::GenericScanlineHelper.33", ptr %this, i64 0, i32 3
+  %m_inBitDepthOp = getelementptr inbounds i8, ptr %this, i64 16
   tail call void @_ZN19OpenColorIO_v2_4dev16GenericImageDesc4initERKNS_9ImageDescENS_8BitDepthERKSt10shared_ptrIKNS_5OpCPUEE(ptr noundef nonnull align 8 dereferenceable(82) %m_srcImg, ptr noundef nonnull align 8 dereferenceable(8) %srcImg, i32 noundef %0, ptr noundef nonnull align 8 dereferenceable(16) %m_inBitDepthOp)
-  %m_dstImg = getelementptr inbounds %"class.OpenColorIO_v2_4dev::GenericScanlineHelper.33", ptr %this, i64 0, i32 6
-  %m_outputBitDepth = getelementptr inbounds %"class.OpenColorIO_v2_4dev::GenericScanlineHelper.33", ptr %this, i64 0, i32 2
+  %m_dstImg = getelementptr inbounds i8, ptr %this, i64 136
+  %m_outputBitDepth = getelementptr inbounds i8, ptr %this, i64 12
   %1 = load i32, ptr %m_outputBitDepth, align 4
-  %m_outBitDepthOp = getelementptr inbounds %"class.OpenColorIO_v2_4dev::GenericScanlineHelper.33", ptr %this, i64 0, i32 4
+  %m_outBitDepthOp = getelementptr inbounds i8, ptr %this, i64 32
   tail call void @_ZN19OpenColorIO_v2_4dev16GenericImageDesc4initERKNS_9ImageDescENS_8BitDepthERKSt10shared_ptrIKNS_5OpCPUEE(ptr noundef nonnull align 8 dereferenceable(82) %m_dstImg, ptr noundef nonnull align 8 dereferenceable(8) %dstImg, i32 noundef %1, ptr noundef nonnull align 8 dereferenceable(16) %m_outBitDepthOp)
   %2 = load i64, ptr %m_srcImg, align 8
   %3 = load i64, ptr %m_dstImg, align 8
@@ -9014,9 +8976,9 @@ entry:
   br i1 %cmp.not, label %lor.lhs.false, label %if.then
 
 lor.lhs.false:                                    ; preds = %entry
-  %m_height = getelementptr inbounds %"class.OpenColorIO_v2_4dev::GenericScanlineHelper.33", ptr %this, i64 0, i32 5, i32 1
+  %m_height = getelementptr inbounds i8, ptr %this, i64 56
   %4 = load i64, ptr %m_height, align 8
-  %m_height7 = getelementptr inbounds %"class.OpenColorIO_v2_4dev::GenericScanlineHelper.33", ptr %this, i64 0, i32 6, i32 1
+  %m_height7 = getelementptr inbounds i8, ptr %this, i64 144
   %5 = load i64, ptr %m_height7, align 8
   %cmp8.not = icmp eq i64 %4, %5
   br i1 %cmp8.not, label %if.end, label %if.then
@@ -9047,7 +9009,7 @@ if.then.i:                                        ; preds = %if.end
 
 _ZN19OpenColorIO_v2_4dev19GetOptimizationModeERKNS_16GenericImageDescE.exit: ; preds = %if.end, %if.then.i
   %optim.0.i = phi i32 [ 0, %if.end ], [ %spec.select.i, %if.then.i ]
-  %m_inOptimizedMode = getelementptr inbounds %"class.OpenColorIO_v2_4dev::GenericScanlineHelper.33", ptr %this, i64 0, i32 7
+  %m_inOptimizedMode = getelementptr inbounds i8, ptr %this, i64 224
   store i32 %optim.0.i, ptr %m_inOptimizedMode, align 8
   %call.i2 = tail call noundef zeroext i1 @_ZNK19OpenColorIO_v2_4dev16GenericImageDesc12isRGBAPackedEv(ptr noundef nonnull align 8 dereferenceable(82) %m_dstImg)
   br i1 %call.i2, label %if.then.i4, label %_ZN19OpenColorIO_v2_4dev19GetOptimizationModeERKNS_16GenericImageDescE.exit7
@@ -9059,10 +9021,10 @@ if.then.i4:                                       ; preds = %_ZN19OpenColorIO_v2
 
 _ZN19OpenColorIO_v2_4dev19GetOptimizationModeERKNS_16GenericImageDescE.exit7: ; preds = %_ZN19OpenColorIO_v2_4dev19GetOptimizationModeERKNS_16GenericImageDescE.exit, %if.then.i4
   %optim.0.i3 = phi i32 [ 0, %_ZN19OpenColorIO_v2_4dev19GetOptimizationModeERKNS_16GenericImageDescE.exit ], [ %spec.select.i6, %if.then.i4 ]
-  %m_outOptimizedMode = getelementptr inbounds %"class.OpenColorIO_v2_4dev::GenericScanlineHelper.33", ptr %this, i64 0, i32 8
+  %m_outOptimizedMode = getelementptr inbounds i8, ptr %this, i64 228
   store i32 %optim.0.i3, ptr %m_outOptimizedMode, align 4
   %cmp13 = icmp eq i32 %optim.0.i3, 3
-  %m_useDstBuffer = getelementptr inbounds %"class.OpenColorIO_v2_4dev::GenericScanlineHelper.33", ptr %this, i64 0, i32 13
+  %m_useDstBuffer = getelementptr inbounds i8, ptr %this, i64 308
   %frombool = zext i1 %cmp13 to i8
   store i8 %frombool, ptr %m_useDstBuffer, align 4
   %7 = load i32, ptr %m_inOptimizedMode, align 8
@@ -9073,8 +9035,8 @@ _ZN19OpenColorIO_v2_4dev19GetOptimizationModeERKNS_16GenericImageDescE.exit7: ; 
 if.then17:                                        ; preds = %_ZN19OpenColorIO_v2_4dev19GetOptimizationModeERKNS_16GenericImageDescE.exit7
   %8 = load i64, ptr %m_dstImg, align 8
   %mul = shl nsw i64 %8, 2
-  %m_inBitDepthBuffer = getelementptr inbounds %"class.OpenColorIO_v2_4dev::GenericScanlineHelper.33", ptr %this, i64 0, i32 10
-  %_M_finish.i.i = getelementptr inbounds %"class.OpenColorIO_v2_4dev::GenericScanlineHelper.33", ptr %this, i64 0, i32 10, i32 0, i32 0, i32 0, i32 1
+  %m_inBitDepthBuffer = getelementptr inbounds i8, ptr %this, i64 256
+  %_M_finish.i.i = getelementptr inbounds i8, ptr %this, i64 264
   %9 = load ptr, ptr %_M_finish.i.i, align 8
   %10 = load ptr, ptr %m_inBitDepthBuffer, align 8
   %sub.ptr.lhs.cast.i.i = ptrtoint ptr %9 to i64
@@ -9112,8 +9074,8 @@ if.end20:                                         ; preds = %invoke.cont.i.i, %i
 if.then22:                                        ; preds = %if.end20
   %13 = load i64, ptr %m_dstImg, align 8
   %mul26 = shl nsw i64 %13, 2
-  %m_rgbaFloatBuffer = getelementptr inbounds %"class.OpenColorIO_v2_4dev::GenericScanlineHelper.33", ptr %this, i64 0, i32 9
-  %_M_finish.i.i9 = getelementptr inbounds %"class.OpenColorIO_v2_4dev::GenericScanlineHelper.33", ptr %this, i64 0, i32 9, i32 0, i32 0, i32 0, i32 1
+  %m_rgbaFloatBuffer = getelementptr inbounds i8, ptr %this, i64 232
+  %_M_finish.i.i9 = getelementptr inbounds i8, ptr %this, i64 240
   %14 = load ptr, ptr %_M_finish.i.i9, align 8
   %15 = load ptr, ptr %m_rgbaFloatBuffer, align 8
   %sub.ptr.lhs.cast.i.i10 = ptrtoint ptr %14 to i64
@@ -9142,8 +9104,8 @@ invoke.cont.i.i20:                                ; preds = %if.then5.i17
   br label %_ZNSt6vectorIfSaIfEE6resizeEm.exit
 
 _ZNSt6vectorIfSaIfEE6resizeEm.exit:               ; preds = %if.then.i21, %if.else.i15, %if.then5.i17, %invoke.cont.i.i20
-  %m_outBitDepthBuffer = getelementptr inbounds %"class.OpenColorIO_v2_4dev::GenericScanlineHelper.33", ptr %this, i64 0, i32 11
-  %_M_finish.i.i23 = getelementptr inbounds %"class.OpenColorIO_v2_4dev::GenericScanlineHelper.33", ptr %this, i64 0, i32 11, i32 0, i32 0, i32 0, i32 1
+  %m_outBitDepthBuffer = getelementptr inbounds i8, ptr %this, i64 280
+  %_M_finish.i.i23 = getelementptr inbounds i8, ptr %this, i64 288
   %16 = load ptr, ptr %_M_finish.i.i23, align 8
   %17 = load ptr, ptr %m_outBitDepthBuffer, align 8
   %sub.ptr.lhs.cast.i.i24 = ptrtoint ptr %16 to i64
@@ -9178,17 +9140,17 @@ if.end27:                                         ; preds = %invoke.cont.i.i34, 
 ; Function Attrs: mustprogress uwtable
 define weak_odr hidden void @_ZN19OpenColorIO_v2_4dev21GenericScanlineHelperIN9Imath_3_14halfES2_E4initERKNS_9ImageDescE(ptr noundef nonnull align 8 dereferenceable(309) %this, ptr noundef nonnull align 8 dereferenceable(8) %img) unnamed_addr #5 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  %m_yIndex = getelementptr inbounds %"class.OpenColorIO_v2_4dev::GenericScanlineHelper.33", ptr %this, i64 0, i32 12
+  %m_yIndex = getelementptr inbounds i8, ptr %this, i64 304
   store i32 0, ptr %m_yIndex, align 8
-  %m_srcImg = getelementptr inbounds %"class.OpenColorIO_v2_4dev::GenericScanlineHelper.33", ptr %this, i64 0, i32 5
-  %m_inputBitDepth = getelementptr inbounds %"class.OpenColorIO_v2_4dev::GenericScanlineHelper.33", ptr %this, i64 0, i32 1
+  %m_srcImg = getelementptr inbounds i8, ptr %this, i64 48
+  %m_inputBitDepth = getelementptr inbounds i8, ptr %this, i64 8
   %0 = load i32, ptr %m_inputBitDepth, align 8
-  %m_inBitDepthOp = getelementptr inbounds %"class.OpenColorIO_v2_4dev::GenericScanlineHelper.33", ptr %this, i64 0, i32 3
+  %m_inBitDepthOp = getelementptr inbounds i8, ptr %this, i64 16
   tail call void @_ZN19OpenColorIO_v2_4dev16GenericImageDesc4initERKNS_9ImageDescENS_8BitDepthERKSt10shared_ptrIKNS_5OpCPUEE(ptr noundef nonnull align 8 dereferenceable(82) %m_srcImg, ptr noundef nonnull align 8 dereferenceable(8) %img, i32 noundef %0, ptr noundef nonnull align 8 dereferenceable(16) %m_inBitDepthOp)
-  %m_dstImg = getelementptr inbounds %"class.OpenColorIO_v2_4dev::GenericScanlineHelper.33", ptr %this, i64 0, i32 6
-  %m_outputBitDepth = getelementptr inbounds %"class.OpenColorIO_v2_4dev::GenericScanlineHelper.33", ptr %this, i64 0, i32 2
+  %m_dstImg = getelementptr inbounds i8, ptr %this, i64 136
+  %m_outputBitDepth = getelementptr inbounds i8, ptr %this, i64 12
   %1 = load i32, ptr %m_outputBitDepth, align 4
-  %m_outBitDepthOp = getelementptr inbounds %"class.OpenColorIO_v2_4dev::GenericScanlineHelper.33", ptr %this, i64 0, i32 4
+  %m_outBitDepthOp = getelementptr inbounds i8, ptr %this, i64 32
   tail call void @_ZN19OpenColorIO_v2_4dev16GenericImageDesc4initERKNS_9ImageDescENS_8BitDepthERKSt10shared_ptrIKNS_5OpCPUEE(ptr noundef nonnull align 8 dereferenceable(82) %m_dstImg, ptr noundef nonnull align 8 dereferenceable(8) %img, i32 noundef %1, ptr noundef nonnull align 8 dereferenceable(16) %m_outBitDepthOp)
   %call.i = tail call noundef zeroext i1 @_ZNK19OpenColorIO_v2_4dev16GenericImageDesc12isRGBAPackedEv(ptr noundef nonnull align 8 dereferenceable(82) %m_srcImg)
   br i1 %call.i, label %if.then.i, label %if.then
@@ -9198,26 +9160,26 @@ if.then.i:                                        ; preds = %entry
   br i1 %call1.i, label %_ZN19OpenColorIO_v2_4dev19GetOptimizationModeERKNS_16GenericImageDescE.exit, label %if.then
 
 _ZN19OpenColorIO_v2_4dev19GetOptimizationModeERKNS_16GenericImageDescE.exit: ; preds = %if.then.i
-  %m_inOptimizedMode = getelementptr inbounds %"class.OpenColorIO_v2_4dev::GenericScanlineHelper.33", ptr %this, i64 0, i32 7
+  %m_inOptimizedMode = getelementptr inbounds i8, ptr %this, i64 224
   store i32 3, ptr %m_inOptimizedMode, align 8
-  %m_outOptimizedMode = getelementptr inbounds %"class.OpenColorIO_v2_4dev::GenericScanlineHelper.33", ptr %this, i64 0, i32 8
+  %m_outOptimizedMode = getelementptr inbounds i8, ptr %this, i64 228
   store i32 3, ptr %m_outOptimizedMode, align 4
-  %m_useDstBuffer = getelementptr inbounds %"class.OpenColorIO_v2_4dev::GenericScanlineHelper.33", ptr %this, i64 0, i32 13
+  %m_useDstBuffer = getelementptr inbounds i8, ptr %this, i64 308
   store i8 1, ptr %m_useDstBuffer, align 4
   br label %if.end
 
 if.then:                                          ; preds = %entry, %if.then.i
   %optim.0.i.ph = phi i32 [ 1, %if.then.i ], [ 0, %entry ]
-  %m_inOptimizedMode35 = getelementptr inbounds %"class.OpenColorIO_v2_4dev::GenericScanlineHelper.33", ptr %this, i64 0, i32 7
+  %m_inOptimizedMode35 = getelementptr inbounds i8, ptr %this, i64 224
   store i32 %optim.0.i.ph, ptr %m_inOptimizedMode35, align 8
-  %m_outOptimizedMode36 = getelementptr inbounds %"class.OpenColorIO_v2_4dev::GenericScanlineHelper.33", ptr %this, i64 0, i32 8
+  %m_outOptimizedMode36 = getelementptr inbounds i8, ptr %this, i64 228
   store i32 %optim.0.i.ph, ptr %m_outOptimizedMode36, align 4
-  %m_useDstBuffer38 = getelementptr inbounds %"class.OpenColorIO_v2_4dev::GenericScanlineHelper.33", ptr %this, i64 0, i32 13
+  %m_useDstBuffer38 = getelementptr inbounds i8, ptr %this, i64 308
   store i8 0, ptr %m_useDstBuffer38, align 4
   %2 = load i64, ptr %m_dstImg, align 8
   %mul = shl nsw i64 %2, 2
-  %m_rgbaFloatBuffer = getelementptr inbounds %"class.OpenColorIO_v2_4dev::GenericScanlineHelper.33", ptr %this, i64 0, i32 9
-  %_M_finish.i.i = getelementptr inbounds %"class.OpenColorIO_v2_4dev::GenericScanlineHelper.33", ptr %this, i64 0, i32 9, i32 0, i32 0, i32 0, i32 1
+  %m_rgbaFloatBuffer = getelementptr inbounds i8, ptr %this, i64 232
+  %_M_finish.i.i = getelementptr inbounds i8, ptr %this, i64 240
   %3 = load ptr, ptr %_M_finish.i.i, align 8
   %4 = load ptr, ptr %m_rgbaFloatBuffer, align 8
   %sub.ptr.lhs.cast.i.i = ptrtoint ptr %3 to i64
@@ -9246,8 +9208,8 @@ invoke.cont.i.i:                                  ; preds = %if.then5.i
   br label %_ZNSt6vectorIfSaIfEE6resizeEm.exit
 
 _ZNSt6vectorIfSaIfEE6resizeEm.exit:               ; preds = %if.then.i4, %if.else.i, %if.then5.i, %invoke.cont.i.i
-  %m_inBitDepthBuffer = getelementptr inbounds %"class.OpenColorIO_v2_4dev::GenericScanlineHelper.33", ptr %this, i64 0, i32 10
-  %_M_finish.i.i5 = getelementptr inbounds %"class.OpenColorIO_v2_4dev::GenericScanlineHelper.33", ptr %this, i64 0, i32 10, i32 0, i32 0, i32 0, i32 1
+  %m_inBitDepthBuffer = getelementptr inbounds i8, ptr %this, i64 256
+  %_M_finish.i.i5 = getelementptr inbounds i8, ptr %this, i64 264
   %5 = load ptr, ptr %_M_finish.i.i5, align 8
   %6 = load ptr, ptr %m_inBitDepthBuffer, align 8
   %sub.ptr.lhs.cast.i.i6 = ptrtoint ptr %5 to i64
@@ -9276,8 +9238,8 @@ invoke.cont.i.i16:                                ; preds = %if.then5.i13
   br label %_ZNSt6vectorIN9Imath_3_14halfESaIS1_EE6resizeEm.exit
 
 _ZNSt6vectorIN9Imath_3_14halfESaIS1_EE6resizeEm.exit: ; preds = %if.then.i17, %if.else.i11, %if.then5.i13, %invoke.cont.i.i16
-  %m_outBitDepthBuffer = getelementptr inbounds %"class.OpenColorIO_v2_4dev::GenericScanlineHelper.33", ptr %this, i64 0, i32 11
-  %_M_finish.i.i19 = getelementptr inbounds %"class.OpenColorIO_v2_4dev::GenericScanlineHelper.33", ptr %this, i64 0, i32 11, i32 0, i32 0, i32 0, i32 1
+  %m_outBitDepthBuffer = getelementptr inbounds i8, ptr %this, i64 280
+  %_M_finish.i.i19 = getelementptr inbounds i8, ptr %this, i64 288
   %7 = load ptr, ptr %_M_finish.i.i19, align 8
   %8 = load ptr, ptr %m_outBitDepthBuffer, align 8
   %sub.ptr.lhs.cast.i.i20 = ptrtoint ptr %7 to i64
@@ -9313,7 +9275,7 @@ if.end:                                           ; preds = %invoke.cont.i.i30, 
 define weak_odr hidden void @_ZN19OpenColorIO_v2_4dev21GenericScanlineHelperIN9Imath_3_14halfES2_ED2Ev(ptr noundef nonnull align 8 dereferenceable(309) %this) unnamed_addr #3 comdat($_ZN19OpenColorIO_v2_4dev21GenericScanlineHelperIN9Imath_3_14halfES2_ED5Ev) align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTVN19OpenColorIO_v2_4dev21GenericScanlineHelperIN9Imath_3_14halfES2_EE, i64 0, inrange i32 0, i64 2), ptr %this, align 8
-  %m_outBitDepthBuffer = getelementptr inbounds %"class.OpenColorIO_v2_4dev::GenericScanlineHelper.33", ptr %this, i64 0, i32 11
+  %m_outBitDepthBuffer = getelementptr inbounds i8, ptr %this, i64 280
   %0 = load ptr, ptr %m_outBitDepthBuffer, align 8
   %tobool.not.i.i.i = icmp eq ptr %0, null
   br i1 %tobool.not.i.i.i, label %_ZNSt6vectorIN9Imath_3_14halfESaIS1_EED2Ev.exit, label %if.then.i.i.i
@@ -9323,7 +9285,7 @@ if.then.i.i.i:                                    ; preds = %entry
   br label %_ZNSt6vectorIN9Imath_3_14halfESaIS1_EED2Ev.exit
 
 _ZNSt6vectorIN9Imath_3_14halfESaIS1_EED2Ev.exit:  ; preds = %entry, %if.then.i.i.i
-  %m_inBitDepthBuffer = getelementptr inbounds %"class.OpenColorIO_v2_4dev::GenericScanlineHelper.33", ptr %this, i64 0, i32 10
+  %m_inBitDepthBuffer = getelementptr inbounds i8, ptr %this, i64 256
   %1 = load ptr, ptr %m_inBitDepthBuffer, align 8
   %tobool.not.i.i.i1 = icmp eq ptr %1, null
   br i1 %tobool.not.i.i.i1, label %_ZNSt6vectorIN9Imath_3_14halfESaIS1_EED2Ev.exit3, label %if.then.i.i.i2
@@ -9333,7 +9295,7 @@ if.then.i.i.i2:                                   ; preds = %_ZNSt6vectorIN9Imat
   br label %_ZNSt6vectorIN9Imath_3_14halfESaIS1_EED2Ev.exit3
 
 _ZNSt6vectorIN9Imath_3_14halfESaIS1_EED2Ev.exit3: ; preds = %_ZNSt6vectorIN9Imath_3_14halfESaIS1_EED2Ev.exit, %if.then.i.i.i2
-  %m_rgbaFloatBuffer = getelementptr inbounds %"class.OpenColorIO_v2_4dev::GenericScanlineHelper.33", ptr %this, i64 0, i32 9
+  %m_rgbaFloatBuffer = getelementptr inbounds i8, ptr %this, i64 232
   %2 = load ptr, ptr %m_rgbaFloatBuffer, align 8
   %tobool.not.i.i.i4 = icmp eq ptr %2, null
   br i1 %tobool.not.i.i.i4, label %_ZNSt6vectorIfSaIfEED2Ev.exit, label %if.then.i.i.i5
@@ -9343,13 +9305,13 @@ if.then.i.i.i5:                                   ; preds = %_ZNSt6vectorIN9Imat
   br label %_ZNSt6vectorIfSaIfEED2Ev.exit
 
 _ZNSt6vectorIfSaIfEED2Ev.exit:                    ; preds = %_ZNSt6vectorIN9Imath_3_14halfESaIS1_EED2Ev.exit3, %if.then.i.i.i5
-  %_M_refcount.i.i.i = getelementptr inbounds %"class.OpenColorIO_v2_4dev::GenericScanlineHelper.33", ptr %this, i64 0, i32 6, i32 8, i32 0, i32 1
+  %_M_refcount.i.i.i = getelementptr inbounds i8, ptr %this, i64 208
   %3 = load ptr, ptr %_M_refcount.i.i.i, align 8
   %cmp.not.i.i.i.i = icmp eq ptr %3, null
   br i1 %cmp.not.i.i.i.i, label %_ZN19OpenColorIO_v2_4dev16GenericImageDescD2Ev.exit, label %if.then.i.i.i.i
 
 if.then.i.i.i.i:                                  ; preds = %_ZNSt6vectorIfSaIfEED2Ev.exit
-  %_M_use_count.i.i.i.i.i = getelementptr inbounds %"class.std::_Sp_counted_base", ptr %3, i64 0, i32 1
+  %_M_use_count.i.i.i.i.i = getelementptr inbounds i8, ptr %3, i64 8
   %4 = load atomic i64, ptr %_M_use_count.i.i.i.i.i acquire, align 8
   %cmp.i.i.i.i.i = icmp eq i64 %4, 4294967297
   %5 = trunc i64 %4 to i32
@@ -9357,10 +9319,10 @@ if.then.i.i.i.i:                                  ; preds = %_ZNSt6vectorIfSaIfE
 
 if.then.i.i.i.i.i:                                ; preds = %if.then.i.i.i.i
   store i32 0, ptr %_M_use_count.i.i.i.i.i, align 8
-  %_M_weak_count.i.i.i.i.i = getelementptr inbounds %"class.std::_Sp_counted_base", ptr %3, i64 0, i32 2
+  %_M_weak_count.i.i.i.i.i = getelementptr inbounds i8, ptr %3, i64 12
   store i32 0, ptr %_M_weak_count.i.i.i.i.i, align 4
   %vtable.i.i.i.i.i = load ptr, ptr %3, align 8
-  %vfn.i.i.i.i.i = getelementptr inbounds ptr, ptr %vtable.i.i.i.i.i, i64 2
+  %vfn.i.i.i.i.i = getelementptr inbounds i8, ptr %vtable.i.i.i.i.i, i64 16
   %6 = load ptr, ptr %vfn.i.i.i.i.i, align 8
   tail call void %6(ptr noundef nonnull align 8 dereferenceable(16) %3) #13
   br label %if.end8.sink.split.i.i.i.i.i
@@ -9386,10 +9348,10 @@ _ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i: ; preds = %if.els
 
 if.then7.i.i.i.i.i:                               ; preds = %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i
   %vtable.i.i.i.i.i.i.i = load ptr, ptr %3, align 8
-  %vfn.i.i.i.i.i.i.i = getelementptr inbounds ptr, ptr %vtable.i.i.i.i.i.i.i, i64 2
+  %vfn.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %vtable.i.i.i.i.i.i.i, i64 16
   %9 = load ptr, ptr %vfn.i.i.i.i.i.i.i, align 8
   tail call void %9(ptr noundef nonnull align 8 dereferenceable(16) %3) #13
-  %_M_weak_count.i.i.i.i.i.i.i = getelementptr inbounds %"class.std::_Sp_counted_base", ptr %3, i64 0, i32 2
+  %_M_weak_count.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %3, i64 12
   %10 = load i8, ptr @__libc_single_threaded, align 1
   %tobool.i.i.not.i.i.i.i.i.i.i = icmp eq i8 %10, 0
   br i1 %tobool.i.i.not.i.i.i.i.i.i.i, label %if.else.i.i.i.i.i.i.i.i, label %if.then.i.i.i.i.i.i.i.i
@@ -9411,19 +9373,19 @@ _ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i.i: ; preds = %if
 
 if.end8.sink.split.i.i.i.i.i:                     ; preds = %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i.i, %if.then.i.i.i.i.i
   %vtable2.i.i.i.i.i.i.i = load ptr, ptr %3, align 8
-  %vfn3.i.i.i.i.i.i.i = getelementptr inbounds ptr, ptr %vtable2.i.i.i.i.i.i.i, i64 3
+  %vfn3.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %vtable2.i.i.i.i.i.i.i, i64 24
   %13 = load ptr, ptr %vfn3.i.i.i.i.i.i.i, align 8
   tail call void %13(ptr noundef nonnull align 8 dereferenceable(16) %3) #13
   br label %_ZN19OpenColorIO_v2_4dev16GenericImageDescD2Ev.exit
 
 _ZN19OpenColorIO_v2_4dev16GenericImageDescD2Ev.exit: ; preds = %_ZNSt6vectorIfSaIfEED2Ev.exit, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i.i, %if.end8.sink.split.i.i.i.i.i
-  %_M_refcount.i.i.i6 = getelementptr inbounds %"class.OpenColorIO_v2_4dev::GenericScanlineHelper.33", ptr %this, i64 0, i32 5, i32 8, i32 0, i32 1
+  %_M_refcount.i.i.i6 = getelementptr inbounds i8, ptr %this, i64 120
   %14 = load ptr, ptr %_M_refcount.i.i.i6, align 8
   %cmp.not.i.i.i.i7 = icmp eq ptr %14, null
   br i1 %cmp.not.i.i.i.i7, label %_ZN19OpenColorIO_v2_4dev16GenericImageDescD2Ev.exit37, label %if.then.i.i.i.i8
 
 if.then.i.i.i.i8:                                 ; preds = %_ZN19OpenColorIO_v2_4dev16GenericImageDescD2Ev.exit
-  %_M_use_count.i.i.i.i.i9 = getelementptr inbounds %"class.std::_Sp_counted_base", ptr %14, i64 0, i32 1
+  %_M_use_count.i.i.i.i.i9 = getelementptr inbounds i8, ptr %14, i64 8
   %15 = load atomic i64, ptr %_M_use_count.i.i.i.i.i9 acquire, align 8
   %cmp.i.i.i.i.i10 = icmp eq i64 %15, 4294967297
   %16 = trunc i64 %15 to i32
@@ -9431,10 +9393,10 @@ if.then.i.i.i.i8:                                 ; preds = %_ZN19OpenColorIO_v2
 
 if.then.i.i.i.i.i33:                              ; preds = %if.then.i.i.i.i8
   store i32 0, ptr %_M_use_count.i.i.i.i.i9, align 8
-  %_M_weak_count.i.i.i.i.i34 = getelementptr inbounds %"class.std::_Sp_counted_base", ptr %14, i64 0, i32 2
+  %_M_weak_count.i.i.i.i.i34 = getelementptr inbounds i8, ptr %14, i64 12
   store i32 0, ptr %_M_weak_count.i.i.i.i.i34, align 4
   %vtable.i.i.i.i.i35 = load ptr, ptr %14, align 8
-  %vfn.i.i.i.i.i36 = getelementptr inbounds ptr, ptr %vtable.i.i.i.i.i35, i64 2
+  %vfn.i.i.i.i.i36 = getelementptr inbounds i8, ptr %vtable.i.i.i.i.i35, i64 16
   %17 = load ptr, ptr %vfn.i.i.i.i.i36, align 8
   tail call void %17(ptr noundef nonnull align 8 dereferenceable(16) %14) #13
   br label %if.end8.sink.split.i.i.i.i.i28
@@ -9460,10 +9422,10 @@ _ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i15: ; preds = %if.e
 
 if.then7.i.i.i.i.i18:                             ; preds = %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i15
   %vtable.i.i.i.i.i.i.i19 = load ptr, ptr %14, align 8
-  %vfn.i.i.i.i.i.i.i20 = getelementptr inbounds ptr, ptr %vtable.i.i.i.i.i.i.i19, i64 2
+  %vfn.i.i.i.i.i.i.i20 = getelementptr inbounds i8, ptr %vtable.i.i.i.i.i.i.i19, i64 16
   %20 = load ptr, ptr %vfn.i.i.i.i.i.i.i20, align 8
   tail call void %20(ptr noundef nonnull align 8 dereferenceable(16) %14) #13
-  %_M_weak_count.i.i.i.i.i.i.i21 = getelementptr inbounds %"class.std::_Sp_counted_base", ptr %14, i64 0, i32 2
+  %_M_weak_count.i.i.i.i.i.i.i21 = getelementptr inbounds i8, ptr %14, i64 12
   %21 = load i8, ptr @__libc_single_threaded, align 1
   %tobool.i.i.not.i.i.i.i.i.i.i22 = icmp eq i8 %21, 0
   br i1 %tobool.i.i.not.i.i.i.i.i.i.i22, label %if.else.i.i.i.i.i.i.i.i31, label %if.then.i.i.i.i.i.i.i.i23
@@ -9485,19 +9447,19 @@ _ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i.i25: ; preds = %
 
 if.end8.sink.split.i.i.i.i.i28:                   ; preds = %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i.i25, %if.then.i.i.i.i.i33
   %vtable2.i.i.i.i.i.i.i29 = load ptr, ptr %14, align 8
-  %vfn3.i.i.i.i.i.i.i30 = getelementptr inbounds ptr, ptr %vtable2.i.i.i.i.i.i.i29, i64 3
+  %vfn3.i.i.i.i.i.i.i30 = getelementptr inbounds i8, ptr %vtable2.i.i.i.i.i.i.i29, i64 24
   %24 = load ptr, ptr %vfn3.i.i.i.i.i.i.i30, align 8
   tail call void %24(ptr noundef nonnull align 8 dereferenceable(16) %14) #13
   br label %_ZN19OpenColorIO_v2_4dev16GenericImageDescD2Ev.exit37
 
 _ZN19OpenColorIO_v2_4dev16GenericImageDescD2Ev.exit37: ; preds = %_ZN19OpenColorIO_v2_4dev16GenericImageDescD2Ev.exit, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i15, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i.i25, %if.end8.sink.split.i.i.i.i.i28
-  %_M_refcount.i.i = getelementptr inbounds %"class.OpenColorIO_v2_4dev::GenericScanlineHelper.33", ptr %this, i64 0, i32 4, i32 0, i32 1
+  %_M_refcount.i.i = getelementptr inbounds i8, ptr %this, i64 40
   %25 = load ptr, ptr %_M_refcount.i.i, align 8
   %cmp.not.i.i.i = icmp eq ptr %25, null
   br i1 %cmp.not.i.i.i, label %_ZNSt10shared_ptrIKN19OpenColorIO_v2_4dev5OpCPUEED2Ev.exit, label %if.then.i.i.i38
 
 if.then.i.i.i38:                                  ; preds = %_ZN19OpenColorIO_v2_4dev16GenericImageDescD2Ev.exit37
-  %_M_use_count.i.i.i.i = getelementptr inbounds %"class.std::_Sp_counted_base", ptr %25, i64 0, i32 1
+  %_M_use_count.i.i.i.i = getelementptr inbounds i8, ptr %25, i64 8
   %26 = load atomic i64, ptr %_M_use_count.i.i.i.i acquire, align 8
   %cmp.i.i.i.i = icmp eq i64 %26, 4294967297
   %27 = trunc i64 %26 to i32
@@ -9505,10 +9467,10 @@ if.then.i.i.i38:                                  ; preds = %_ZN19OpenColorIO_v2
 
 if.then.i.i.i.i40:                                ; preds = %if.then.i.i.i38
   store i32 0, ptr %_M_use_count.i.i.i.i, align 8
-  %_M_weak_count.i.i.i.i = getelementptr inbounds %"class.std::_Sp_counted_base", ptr %25, i64 0, i32 2
+  %_M_weak_count.i.i.i.i = getelementptr inbounds i8, ptr %25, i64 12
   store i32 0, ptr %_M_weak_count.i.i.i.i, align 4
   %vtable.i.i.i.i = load ptr, ptr %25, align 8
-  %vfn.i.i.i.i = getelementptr inbounds ptr, ptr %vtable.i.i.i.i, i64 2
+  %vfn.i.i.i.i = getelementptr inbounds i8, ptr %vtable.i.i.i.i, i64 16
   %28 = load ptr, ptr %vfn.i.i.i.i, align 8
   tail call void %28(ptr noundef nonnull align 8 dereferenceable(16) %25) #13
   br label %if.end8.sink.split.i.i.i.i
@@ -9534,10 +9496,10 @@ _ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i: ; preds = %if.else.
 
 if.then7.i.i.i.i:                                 ; preds = %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i
   %vtable.i.i.i.i.i.i = load ptr, ptr %25, align 8
-  %vfn.i.i.i.i.i.i = getelementptr inbounds ptr, ptr %vtable.i.i.i.i.i.i, i64 2
+  %vfn.i.i.i.i.i.i = getelementptr inbounds i8, ptr %vtable.i.i.i.i.i.i, i64 16
   %31 = load ptr, ptr %vfn.i.i.i.i.i.i, align 8
   tail call void %31(ptr noundef nonnull align 8 dereferenceable(16) %25) #13
-  %_M_weak_count.i.i.i.i.i.i = getelementptr inbounds %"class.std::_Sp_counted_base", ptr %25, i64 0, i32 2
+  %_M_weak_count.i.i.i.i.i.i = getelementptr inbounds i8, ptr %25, i64 12
   %32 = load i8, ptr @__libc_single_threaded, align 1
   %tobool.i.i.not.i.i.i.i.i.i = icmp eq i8 %32, 0
   br i1 %tobool.i.i.not.i.i.i.i.i.i, label %if.else.i.i.i.i.i.i.i, label %if.then.i.i.i.i.i.i.i
@@ -9559,19 +9521,19 @@ _ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i: ; preds = %if.e
 
 if.end8.sink.split.i.i.i.i:                       ; preds = %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i, %if.then.i.i.i.i40
   %vtable2.i.i.i.i.i.i = load ptr, ptr %25, align 8
-  %vfn3.i.i.i.i.i.i = getelementptr inbounds ptr, ptr %vtable2.i.i.i.i.i.i, i64 3
+  %vfn3.i.i.i.i.i.i = getelementptr inbounds i8, ptr %vtable2.i.i.i.i.i.i, i64 24
   %35 = load ptr, ptr %vfn3.i.i.i.i.i.i, align 8
   tail call void %35(ptr noundef nonnull align 8 dereferenceable(16) %25) #13
   br label %_ZNSt10shared_ptrIKN19OpenColorIO_v2_4dev5OpCPUEED2Ev.exit
 
 _ZNSt10shared_ptrIKN19OpenColorIO_v2_4dev5OpCPUEED2Ev.exit: ; preds = %_ZN19OpenColorIO_v2_4dev16GenericImageDescD2Ev.exit37, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i, %if.end8.sink.split.i.i.i.i
-  %_M_refcount.i.i41 = getelementptr inbounds %"class.OpenColorIO_v2_4dev::GenericScanlineHelper.33", ptr %this, i64 0, i32 3, i32 0, i32 1
+  %_M_refcount.i.i41 = getelementptr inbounds i8, ptr %this, i64 24
   %36 = load ptr, ptr %_M_refcount.i.i41, align 8
   %cmp.not.i.i.i42 = icmp eq ptr %36, null
   br i1 %cmp.not.i.i.i42, label %_ZNSt10shared_ptrIKN19OpenColorIO_v2_4dev5OpCPUEED2Ev.exit72, label %if.then.i.i.i43
 
 if.then.i.i.i43:                                  ; preds = %_ZNSt10shared_ptrIKN19OpenColorIO_v2_4dev5OpCPUEED2Ev.exit
-  %_M_use_count.i.i.i.i44 = getelementptr inbounds %"class.std::_Sp_counted_base", ptr %36, i64 0, i32 1
+  %_M_use_count.i.i.i.i44 = getelementptr inbounds i8, ptr %36, i64 8
   %37 = load atomic i64, ptr %_M_use_count.i.i.i.i44 acquire, align 8
   %cmp.i.i.i.i45 = icmp eq i64 %37, 4294967297
   %38 = trunc i64 %37 to i32
@@ -9579,10 +9541,10 @@ if.then.i.i.i43:                                  ; preds = %_ZNSt10shared_ptrIK
 
 if.then.i.i.i.i68:                                ; preds = %if.then.i.i.i43
   store i32 0, ptr %_M_use_count.i.i.i.i44, align 8
-  %_M_weak_count.i.i.i.i69 = getelementptr inbounds %"class.std::_Sp_counted_base", ptr %36, i64 0, i32 2
+  %_M_weak_count.i.i.i.i69 = getelementptr inbounds i8, ptr %36, i64 12
   store i32 0, ptr %_M_weak_count.i.i.i.i69, align 4
   %vtable.i.i.i.i70 = load ptr, ptr %36, align 8
-  %vfn.i.i.i.i71 = getelementptr inbounds ptr, ptr %vtable.i.i.i.i70, i64 2
+  %vfn.i.i.i.i71 = getelementptr inbounds i8, ptr %vtable.i.i.i.i70, i64 16
   %39 = load ptr, ptr %vfn.i.i.i.i71, align 8
   tail call void %39(ptr noundef nonnull align 8 dereferenceable(16) %36) #13
   br label %if.end8.sink.split.i.i.i.i63
@@ -9608,10 +9570,10 @@ _ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i50: ; preds = %if.els
 
 if.then7.i.i.i.i53:                               ; preds = %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i50
   %vtable.i.i.i.i.i.i54 = load ptr, ptr %36, align 8
-  %vfn.i.i.i.i.i.i55 = getelementptr inbounds ptr, ptr %vtable.i.i.i.i.i.i54, i64 2
+  %vfn.i.i.i.i.i.i55 = getelementptr inbounds i8, ptr %vtable.i.i.i.i.i.i54, i64 16
   %42 = load ptr, ptr %vfn.i.i.i.i.i.i55, align 8
   tail call void %42(ptr noundef nonnull align 8 dereferenceable(16) %36) #13
-  %_M_weak_count.i.i.i.i.i.i56 = getelementptr inbounds %"class.std::_Sp_counted_base", ptr %36, i64 0, i32 2
+  %_M_weak_count.i.i.i.i.i.i56 = getelementptr inbounds i8, ptr %36, i64 12
   %43 = load i8, ptr @__libc_single_threaded, align 1
   %tobool.i.i.not.i.i.i.i.i.i57 = icmp eq i8 %43, 0
   br i1 %tobool.i.i.not.i.i.i.i.i.i57, label %if.else.i.i.i.i.i.i.i66, label %if.then.i.i.i.i.i.i.i58
@@ -9633,7 +9595,7 @@ _ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i60: ; preds = %if
 
 if.end8.sink.split.i.i.i.i63:                     ; preds = %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i60, %if.then.i.i.i.i68
   %vtable2.i.i.i.i.i.i64 = load ptr, ptr %36, align 8
-  %vfn3.i.i.i.i.i.i65 = getelementptr inbounds ptr, ptr %vtable2.i.i.i.i.i.i64, i64 3
+  %vfn3.i.i.i.i.i.i65 = getelementptr inbounds i8, ptr %vtable2.i.i.i.i.i.i64, i64 24
   %46 = load ptr, ptr %vfn3.i.i.i.i.i.i65, align 8
   tail call void %46(ptr noundef nonnull align 8 dereferenceable(16) %36) #13
   br label %_ZNSt10shared_ptrIKN19OpenColorIO_v2_4dev5OpCPUEED2Ev.exit72
@@ -9653,66 +9615,66 @@ entry:
 ; Function Attrs: mustprogress uwtable
 define weak_odr hidden void @_ZN19OpenColorIO_v2_4dev21GenericScanlineHelperIN9Imath_3_14halfES2_E16prepRGBAScanlineEPPfRl(ptr noundef nonnull align 8 dereferenceable(309) %this, ptr noundef %buffer, ptr noundef nonnull align 8 dereferenceable(8) %numPixels) unnamed_addr #5 comdat align 2 {
 entry:
-  %m_yIndex = getelementptr inbounds %"class.OpenColorIO_v2_4dev::GenericScanlineHelper.33", ptr %this, i64 0, i32 12
+  %m_yIndex = getelementptr inbounds i8, ptr %this, i64 304
   %0 = load i32, ptr %m_yIndex, align 8
   %conv = sext i32 %0 to i64
-  %m_dstImg = getelementptr inbounds %"class.OpenColorIO_v2_4dev::GenericScanlineHelper.33", ptr %this, i64 0, i32 6
-  %m_height = getelementptr inbounds %"class.OpenColorIO_v2_4dev::GenericScanlineHelper.33", ptr %this, i64 0, i32 6, i32 1
+  %m_dstImg = getelementptr inbounds i8, ptr %this, i64 136
+  %m_height = getelementptr inbounds i8, ptr %this, i64 144
   %1 = load i64, ptr %m_height, align 8
   %cmp.not = icmp sgt i64 %1, %conv
   br i1 %cmp.not, label %if.end, label %return
 
 if.end:                                           ; preds = %entry
-  %m_useDstBuffer = getelementptr inbounds %"class.OpenColorIO_v2_4dev::GenericScanlineHelper.33", ptr %this, i64 0, i32 13
+  %m_useDstBuffer = getelementptr inbounds i8, ptr %this, i64 308
   %2 = load i8, ptr %m_useDstBuffer, align 4
   %3 = and i8 %2, 1
   %tobool.not = icmp eq i8 %3, 0
   br i1 %tobool.not, label %cond.false, label %cond.true
 
 cond.true:                                        ; preds = %if.end
-  %m_rData = getelementptr inbounds %"class.OpenColorIO_v2_4dev::GenericScanlineHelper.33", ptr %this, i64 0, i32 6, i32 4
+  %m_rData = getelementptr inbounds i8, ptr %this, i64 168
   %4 = load ptr, ptr %m_rData, align 8
-  %m_yStrideBytes = getelementptr inbounds %"class.OpenColorIO_v2_4dev::GenericScanlineHelper.33", ptr %this, i64 0, i32 6, i32 3
+  %m_yStrideBytes = getelementptr inbounds i8, ptr %this, i64 160
   %5 = load i64, ptr %m_yStrideBytes, align 8
   %mul = mul nsw i64 %5, %conv
   %add.ptr = getelementptr inbounds i8, ptr %4, i64 %mul
   br label %cond.end
 
 cond.false:                                       ; preds = %if.end
-  %m_rgbaFloatBuffer = getelementptr inbounds %"class.OpenColorIO_v2_4dev::GenericScanlineHelper.33", ptr %this, i64 0, i32 9
+  %m_rgbaFloatBuffer = getelementptr inbounds i8, ptr %this, i64 232
   %6 = load ptr, ptr %m_rgbaFloatBuffer, align 8
   br label %cond.end
 
 cond.end:                                         ; preds = %cond.false, %cond.true
   %cond = phi ptr [ %add.ptr, %cond.true ], [ %6, %cond.false ]
   store ptr %cond, ptr %buffer, align 8
-  %m_inOptimizedMode = getelementptr inbounds %"class.OpenColorIO_v2_4dev::GenericScanlineHelper.33", ptr %this, i64 0, i32 7
+  %m_inOptimizedMode = getelementptr inbounds i8, ptr %this, i64 224
   %7 = load i32, ptr %m_inOptimizedMode, align 8
   %and = and i32 %7, 1
   %cmp6.not = icmp eq i32 %and, 0
   br i1 %cmp6.not, label %if.else, label %if.then7
 
 if.then7:                                         ; preds = %cond.end
-  %m_rData8 = getelementptr inbounds %"class.OpenColorIO_v2_4dev::GenericScanlineHelper.33", ptr %this, i64 0, i32 5, i32 4
+  %m_rData8 = getelementptr inbounds i8, ptr %this, i64 80
   %8 = load ptr, ptr %m_rData8, align 8
-  %m_yStrideBytes10 = getelementptr inbounds %"class.OpenColorIO_v2_4dev::GenericScanlineHelper.33", ptr %this, i64 0, i32 5, i32 3
+  %m_yStrideBytes10 = getelementptr inbounds i8, ptr %this, i64 72
   %9 = load i64, ptr %m_yStrideBytes10, align 8
   %10 = load i32, ptr %m_yIndex, align 8
   %conv12 = sext i32 %10 to i64
   %mul13 = mul nsw i64 %9, %conv12
   %add.ptr14 = getelementptr inbounds i8, ptr %8, i64 %mul13
-  %m_bitDepthOp = getelementptr inbounds %"class.OpenColorIO_v2_4dev::GenericScanlineHelper.33", ptr %this, i64 0, i32 5, i32 8
+  %m_bitDepthOp = getelementptr inbounds i8, ptr %this, i64 112
   %11 = load ptr, ptr %m_bitDepthOp, align 8
   %12 = load i64, ptr %m_dstImg, align 8
   %vtable = load ptr, ptr %11, align 8
-  %vfn = getelementptr inbounds ptr, ptr %vtable, i64 2
+  %vfn = getelementptr inbounds i8, ptr %vtable, i64 16
   %13 = load ptr, ptr %vfn, align 8
   tail call void %13(ptr noundef nonnull align 8 dereferenceable(8) %11, ptr noundef %add.ptr14, ptr noundef %cond, i64 noundef %12)
   br label %if.end28
 
 if.else:                                          ; preds = %cond.end
-  %m_srcImg18 = getelementptr inbounds %"class.OpenColorIO_v2_4dev::GenericScanlineHelper.33", ptr %this, i64 0, i32 5
-  %m_inBitDepthBuffer = getelementptr inbounds %"class.OpenColorIO_v2_4dev::GenericScanlineHelper.33", ptr %this, i64 0, i32 10
+  %m_srcImg18 = getelementptr inbounds i8, ptr %this, i64 48
+  %m_inBitDepthBuffer = getelementptr inbounds i8, ptr %this, i64 256
   %14 = load ptr, ptr %m_inBitDepthBuffer, align 8
   %15 = load i64, ptr %m_dstImg, align 8
   %conv22 = trunc i64 %15 to i32
@@ -9735,47 +9697,47 @@ return:                                           ; preds = %entry, %if.end28
 ; Function Attrs: mustprogress uwtable
 define weak_odr hidden void @_ZN19OpenColorIO_v2_4dev21GenericScanlineHelperIN9Imath_3_14halfES2_E18finishRGBAScanlineEv(ptr noundef nonnull align 8 dereferenceable(309) %this) unnamed_addr #5 comdat align 2 {
 entry:
-  %m_outOptimizedMode = getelementptr inbounds %"class.OpenColorIO_v2_4dev::GenericScanlineHelper.33", ptr %this, i64 0, i32 8
+  %m_outOptimizedMode = getelementptr inbounds i8, ptr %this, i64 228
   %0 = load i32, ptr %m_outOptimizedMode, align 4
   %and = and i32 %0, 1
   %cmp.not = icmp eq i32 %and, 0
-  %m_dstImg6 = getelementptr inbounds %"class.OpenColorIO_v2_4dev::GenericScanlineHelper.33", ptr %this, i64 0, i32 6
+  %m_dstImg6 = getelementptr inbounds i8, ptr %this, i64 136
   br i1 %cmp.not, label %if.else, label %if.then
 
 if.then:                                          ; preds = %entry
-  %m_rData = getelementptr inbounds %"class.OpenColorIO_v2_4dev::GenericScanlineHelper.33", ptr %this, i64 0, i32 6, i32 4
+  %m_rData = getelementptr inbounds i8, ptr %this, i64 168
   %1 = load ptr, ptr %m_rData, align 8
-  %m_yStrideBytes = getelementptr inbounds %"class.OpenColorIO_v2_4dev::GenericScanlineHelper.33", ptr %this, i64 0, i32 6, i32 3
+  %m_yStrideBytes = getelementptr inbounds i8, ptr %this, i64 160
   %2 = load i64, ptr %m_yStrideBytes, align 8
-  %m_yIndex = getelementptr inbounds %"class.OpenColorIO_v2_4dev::GenericScanlineHelper.33", ptr %this, i64 0, i32 12
+  %m_yIndex = getelementptr inbounds i8, ptr %this, i64 304
   %3 = load i32, ptr %m_yIndex, align 8
   %conv = sext i32 %3 to i64
   %mul = mul nsw i64 %2, %conv
   %add.ptr = getelementptr inbounds i8, ptr %1, i64 %mul
-  %m_useDstBuffer = getelementptr inbounds %"class.OpenColorIO_v2_4dev::GenericScanlineHelper.33", ptr %this, i64 0, i32 13
+  %m_useDstBuffer = getelementptr inbounds i8, ptr %this, i64 308
   %4 = load i8, ptr %m_useDstBuffer, align 4
   %5 = and i8 %4, 1
   %tobool.not = icmp eq i8 %5, 0
-  %m_rgbaFloatBuffer = getelementptr inbounds %"class.OpenColorIO_v2_4dev::GenericScanlineHelper.33", ptr %this, i64 0, i32 9
+  %m_rgbaFloatBuffer = getelementptr inbounds i8, ptr %this, i64 232
   %6 = load ptr, ptr %m_rgbaFloatBuffer, align 8
   %cond = select i1 %tobool.not, ptr %6, ptr %add.ptr
-  %m_bitDepthOp = getelementptr inbounds %"class.OpenColorIO_v2_4dev::GenericScanlineHelper.33", ptr %this, i64 0, i32 6, i32 8
+  %m_bitDepthOp = getelementptr inbounds i8, ptr %this, i64 200
   %7 = load ptr, ptr %m_bitDepthOp, align 8
   %8 = load i64, ptr %m_dstImg6, align 8
   %vtable = load ptr, ptr %7, align 8
-  %vfn = getelementptr inbounds ptr, ptr %vtable, i64 2
+  %vfn = getelementptr inbounds i8, ptr %vtable, i64 16
   %9 = load ptr, ptr %vfn, align 8
   tail call void %9(ptr noundef nonnull align 8 dereferenceable(8) %7, ptr noundef %cond, ptr noundef %add.ptr, i64 noundef %8)
   br label %if.end
 
 if.else:                                          ; preds = %entry
-  %m_rgbaFloatBuffer7 = getelementptr inbounds %"class.OpenColorIO_v2_4dev::GenericScanlineHelper.33", ptr %this, i64 0, i32 9
+  %m_rgbaFloatBuffer7 = getelementptr inbounds i8, ptr %this, i64 232
   %10 = load ptr, ptr %m_rgbaFloatBuffer7, align 8
-  %m_outBitDepthBuffer = getelementptr inbounds %"class.OpenColorIO_v2_4dev::GenericScanlineHelper.33", ptr %this, i64 0, i32 11
+  %m_outBitDepthBuffer = getelementptr inbounds i8, ptr %this, i64 280
   %11 = load ptr, ptr %m_outBitDepthBuffer, align 8
   %12 = load i64, ptr %m_dstImg6, align 8
   %conv12 = trunc i64 %12 to i32
-  %m_yIndex13 = getelementptr inbounds %"class.OpenColorIO_v2_4dev::GenericScanlineHelper.33", ptr %this, i64 0, i32 12
+  %m_yIndex13 = getelementptr inbounds i8, ptr %this, i64 304
   %13 = load i32, ptr %m_yIndex13, align 8
   %conv14 = sext i32 %13 to i64
   %mul17 = mul nsw i64 %12, %conv14
@@ -9783,7 +9745,7 @@ if.else:                                          ; preds = %entry
   br label %if.end
 
 if.end:                                           ; preds = %if.else, %if.then
-  %m_yIndex18 = getelementptr inbounds %"class.OpenColorIO_v2_4dev::GenericScanlineHelper.33", ptr %this, i64 0, i32 12
+  %m_yIndex18 = getelementptr inbounds i8, ptr %this, i64 304
   %14 = load i32, ptr %m_yIndex18, align 8
   %inc = add nsw i32 %14, 1
   store i32 %inc, ptr %m_yIndex18, align 8
@@ -9794,22 +9756,22 @@ if.end:                                           ; preds = %if.else, %if.then
 define weak_odr hidden void @_ZN19OpenColorIO_v2_4dev21GenericScanlineHelperIN9Imath_3_14halfEfEC2ENS_8BitDepthERKSt10shared_ptrIKNS_5OpCPUEES4_SA_(ptr noundef nonnull align 8 dereferenceable(309) %this, i32 noundef %inputBitDepth, ptr noundef nonnull align 8 dereferenceable(16) %inBitDepthOp, i32 noundef %outputBitDepth, ptr noundef nonnull align 8 dereferenceable(16) %outBitDepthOp) unnamed_addr #3 comdat($_ZN19OpenColorIO_v2_4dev21GenericScanlineHelperIN9Imath_3_14halfEfEC5ENS_8BitDepthERKSt10shared_ptrIKNS_5OpCPUEES4_SA_) align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTVN19OpenColorIO_v2_4dev21GenericScanlineHelperIN9Imath_3_14halfEfEE, i64 0, inrange i32 0, i64 2), ptr %this, align 8
-  %m_inputBitDepth = getelementptr inbounds %"class.OpenColorIO_v2_4dev::GenericScanlineHelper.35", ptr %this, i64 0, i32 1
+  %m_inputBitDepth = getelementptr inbounds i8, ptr %this, i64 8
   store i32 %inputBitDepth, ptr %m_inputBitDepth, align 8
-  %m_outputBitDepth = getelementptr inbounds %"class.OpenColorIO_v2_4dev::GenericScanlineHelper.35", ptr %this, i64 0, i32 2
+  %m_outputBitDepth = getelementptr inbounds i8, ptr %this, i64 12
   store i32 %outputBitDepth, ptr %m_outputBitDepth, align 4
-  %m_inBitDepthOp = getelementptr inbounds %"class.OpenColorIO_v2_4dev::GenericScanlineHelper.35", ptr %this, i64 0, i32 3
+  %m_inBitDepthOp = getelementptr inbounds i8, ptr %this, i64 16
   %0 = load ptr, ptr %inBitDepthOp, align 8
   store ptr %0, ptr %m_inBitDepthOp, align 8
-  %_M_refcount.i.i = getelementptr inbounds %"class.OpenColorIO_v2_4dev::GenericScanlineHelper.35", ptr %this, i64 0, i32 3, i32 0, i32 1
-  %_M_refcount3.i.i = getelementptr inbounds %"class.std::__shared_ptr", ptr %inBitDepthOp, i64 0, i32 1
+  %_M_refcount.i.i = getelementptr inbounds i8, ptr %this, i64 24
+  %_M_refcount3.i.i = getelementptr inbounds i8, ptr %inBitDepthOp, i64 8
   %1 = load ptr, ptr %_M_refcount3.i.i, align 8
   store ptr %1, ptr %_M_refcount.i.i, align 8
   %cmp.not.i.i.i = icmp eq ptr %1, null
   br i1 %cmp.not.i.i.i, label %_ZNSt10shared_ptrIKN19OpenColorIO_v2_4dev5OpCPUEEC2ERKS3_.exit, label %if.then.i.i.i
 
 if.then.i.i.i:                                    ; preds = %entry
-  %_M_use_count.i.i.i.i = getelementptr inbounds %"class.std::_Sp_counted_base", ptr %1, i64 0, i32 1
+  %_M_use_count.i.i.i.i = getelementptr inbounds i8, ptr %1, i64 8
   %2 = load i8, ptr @__libc_single_threaded, align 1
   %tobool.i.not.i.i.i.i = icmp eq i8 %2, 0
   br i1 %tobool.i.not.i.i.i.i, label %if.else.i.i.i.i.i, label %if.then.i.i.i.i.i
@@ -9825,18 +9787,18 @@ if.else.i.i.i.i.i:                                ; preds = %if.then.i.i.i
   br label %_ZNSt10shared_ptrIKN19OpenColorIO_v2_4dev5OpCPUEEC2ERKS3_.exit
 
 _ZNSt10shared_ptrIKN19OpenColorIO_v2_4dev5OpCPUEEC2ERKS3_.exit: ; preds = %entry, %if.then.i.i.i.i.i, %if.else.i.i.i.i.i
-  %m_outBitDepthOp = getelementptr inbounds %"class.OpenColorIO_v2_4dev::GenericScanlineHelper.35", ptr %this, i64 0, i32 4
+  %m_outBitDepthOp = getelementptr inbounds i8, ptr %this, i64 32
   %5 = load ptr, ptr %outBitDepthOp, align 8
   store ptr %5, ptr %m_outBitDepthOp, align 8
-  %_M_refcount.i.i1 = getelementptr inbounds %"class.OpenColorIO_v2_4dev::GenericScanlineHelper.35", ptr %this, i64 0, i32 4, i32 0, i32 1
-  %_M_refcount3.i.i2 = getelementptr inbounds %"class.std::__shared_ptr", ptr %outBitDepthOp, i64 0, i32 1
+  %_M_refcount.i.i1 = getelementptr inbounds i8, ptr %this, i64 40
+  %_M_refcount3.i.i2 = getelementptr inbounds i8, ptr %outBitDepthOp, i64 8
   %6 = load ptr, ptr %_M_refcount3.i.i2, align 8
   store ptr %6, ptr %_M_refcount.i.i1, align 8
   %cmp.not.i.i.i3 = icmp eq ptr %6, null
   br i1 %cmp.not.i.i.i3, label %_ZNSt10shared_ptrIKN19OpenColorIO_v2_4dev5OpCPUEEC2ERKS3_.exit10, label %if.then.i.i.i4
 
 if.then.i.i.i4:                                   ; preds = %_ZNSt10shared_ptrIKN19OpenColorIO_v2_4dev5OpCPUEEC2ERKS3_.exit
-  %_M_use_count.i.i.i.i5 = getelementptr inbounds %"class.std::_Sp_counted_base", ptr %6, i64 0, i32 1
+  %_M_use_count.i.i.i.i5 = getelementptr inbounds i8, ptr %6, i64 8
   %7 = load i8, ptr @__libc_single_threaded, align 1
   %tobool.i.not.i.i.i.i6 = icmp eq i8 %7, 0
   br i1 %tobool.i.not.i.i.i.i6, label %if.else.i.i.i.i.i9, label %if.then.i.i.i.i.i7
@@ -9852,11 +9814,11 @@ if.else.i.i.i.i.i9:                               ; preds = %if.then.i.i.i4
   br label %_ZNSt10shared_ptrIKN19OpenColorIO_v2_4dev5OpCPUEEC2ERKS3_.exit10
 
 _ZNSt10shared_ptrIKN19OpenColorIO_v2_4dev5OpCPUEEC2ERKS3_.exit10: ; preds = %_ZNSt10shared_ptrIKN19OpenColorIO_v2_4dev5OpCPUEEC2ERKS3_.exit, %if.then.i.i.i.i.i7, %if.else.i.i.i.i.i9
-  %m_srcImg = getelementptr inbounds %"class.OpenColorIO_v2_4dev::GenericScanlineHelper.35", ptr %this, i64 0, i32 5
+  %m_srcImg = getelementptr inbounds i8, ptr %this, i64 48
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(82) %m_srcImg, i8 0, i64 82, i1 false)
-  %m_dstImg = getelementptr inbounds %"class.OpenColorIO_v2_4dev::GenericScanlineHelper.35", ptr %this, i64 0, i32 6
+  %m_dstImg = getelementptr inbounds i8, ptr %this, i64 136
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(82) %m_dstImg, i8 0, i64 82, i1 false)
-  %m_inOptimizedMode = getelementptr inbounds %"class.OpenColorIO_v2_4dev::GenericScanlineHelper.35", ptr %this, i64 0, i32 7
+  %m_inOptimizedMode = getelementptr inbounds i8, ptr %this, i64 224
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(85) %m_inOptimizedMode, i8 0, i64 85, i1 false)
   ret void
 }
@@ -9864,17 +9826,17 @@ _ZNSt10shared_ptrIKN19OpenColorIO_v2_4dev5OpCPUEEC2ERKS3_.exit10: ; preds = %_ZN
 ; Function Attrs: mustprogress uwtable
 define weak_odr hidden void @_ZN19OpenColorIO_v2_4dev21GenericScanlineHelperIN9Imath_3_14halfEfE4initERKNS_9ImageDescES6_(ptr noundef nonnull align 8 dereferenceable(309) %this, ptr noundef nonnull align 8 dereferenceable(8) %srcImg, ptr noundef nonnull align 8 dereferenceable(8) %dstImg) unnamed_addr #5 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  %m_yIndex = getelementptr inbounds %"class.OpenColorIO_v2_4dev::GenericScanlineHelper.35", ptr %this, i64 0, i32 12
+  %m_yIndex = getelementptr inbounds i8, ptr %this, i64 304
   store i32 0, ptr %m_yIndex, align 8
-  %m_srcImg = getelementptr inbounds %"class.OpenColorIO_v2_4dev::GenericScanlineHelper.35", ptr %this, i64 0, i32 5
-  %m_inputBitDepth = getelementptr inbounds %"class.OpenColorIO_v2_4dev::GenericScanlineHelper.35", ptr %this, i64 0, i32 1
+  %m_srcImg = getelementptr inbounds i8, ptr %this, i64 48
+  %m_inputBitDepth = getelementptr inbounds i8, ptr %this, i64 8
   %0 = load i32, ptr %m_inputBitDepth, align 8
-  %m_inBitDepthOp = getelementptr inbounds %"class.OpenColorIO_v2_4dev::GenericScanlineHelper.35", ptr %this, i64 0, i32 3
+  %m_inBitDepthOp = getelementptr inbounds i8, ptr %this, i64 16
   tail call void @_ZN19OpenColorIO_v2_4dev16GenericImageDesc4initERKNS_9ImageDescENS_8BitDepthERKSt10shared_ptrIKNS_5OpCPUEE(ptr noundef nonnull align 8 dereferenceable(82) %m_srcImg, ptr noundef nonnull align 8 dereferenceable(8) %srcImg, i32 noundef %0, ptr noundef nonnull align 8 dereferenceable(16) %m_inBitDepthOp)
-  %m_dstImg = getelementptr inbounds %"class.OpenColorIO_v2_4dev::GenericScanlineHelper.35", ptr %this, i64 0, i32 6
-  %m_outputBitDepth = getelementptr inbounds %"class.OpenColorIO_v2_4dev::GenericScanlineHelper.35", ptr %this, i64 0, i32 2
+  %m_dstImg = getelementptr inbounds i8, ptr %this, i64 136
+  %m_outputBitDepth = getelementptr inbounds i8, ptr %this, i64 12
   %1 = load i32, ptr %m_outputBitDepth, align 4
-  %m_outBitDepthOp = getelementptr inbounds %"class.OpenColorIO_v2_4dev::GenericScanlineHelper.35", ptr %this, i64 0, i32 4
+  %m_outBitDepthOp = getelementptr inbounds i8, ptr %this, i64 32
   tail call void @_ZN19OpenColorIO_v2_4dev16GenericImageDesc4initERKNS_9ImageDescENS_8BitDepthERKSt10shared_ptrIKNS_5OpCPUEE(ptr noundef nonnull align 8 dereferenceable(82) %m_dstImg, ptr noundef nonnull align 8 dereferenceable(8) %dstImg, i32 noundef %1, ptr noundef nonnull align 8 dereferenceable(16) %m_outBitDepthOp)
   %2 = load i64, ptr %m_srcImg, align 8
   %3 = load i64, ptr %m_dstImg, align 8
@@ -9882,9 +9844,9 @@ entry:
   br i1 %cmp.not, label %lor.lhs.false, label %if.then
 
 lor.lhs.false:                                    ; preds = %entry
-  %m_height = getelementptr inbounds %"class.OpenColorIO_v2_4dev::GenericScanlineHelper.35", ptr %this, i64 0, i32 5, i32 1
+  %m_height = getelementptr inbounds i8, ptr %this, i64 56
   %4 = load i64, ptr %m_height, align 8
-  %m_height7 = getelementptr inbounds %"class.OpenColorIO_v2_4dev::GenericScanlineHelper.35", ptr %this, i64 0, i32 6, i32 1
+  %m_height7 = getelementptr inbounds i8, ptr %this, i64 144
   %5 = load i64, ptr %m_height7, align 8
   %cmp8.not = icmp eq i64 %4, %5
   br i1 %cmp8.not, label %if.end, label %if.then
@@ -9915,7 +9877,7 @@ if.then.i:                                        ; preds = %if.end
 
 _ZN19OpenColorIO_v2_4dev19GetOptimizationModeERKNS_16GenericImageDescE.exit: ; preds = %if.end, %if.then.i
   %optim.0.i = phi i32 [ 0, %if.end ], [ %spec.select.i, %if.then.i ]
-  %m_inOptimizedMode = getelementptr inbounds %"class.OpenColorIO_v2_4dev::GenericScanlineHelper.35", ptr %this, i64 0, i32 7
+  %m_inOptimizedMode = getelementptr inbounds i8, ptr %this, i64 224
   store i32 %optim.0.i, ptr %m_inOptimizedMode, align 8
   %call.i2 = tail call noundef zeroext i1 @_ZNK19OpenColorIO_v2_4dev16GenericImageDesc12isRGBAPackedEv(ptr noundef nonnull align 8 dereferenceable(82) %m_dstImg)
   br i1 %call.i2, label %if.then.i4, label %_ZN19OpenColorIO_v2_4dev19GetOptimizationModeERKNS_16GenericImageDescE.exit7
@@ -9927,10 +9889,10 @@ if.then.i4:                                       ; preds = %_ZN19OpenColorIO_v2
 
 _ZN19OpenColorIO_v2_4dev19GetOptimizationModeERKNS_16GenericImageDescE.exit7: ; preds = %_ZN19OpenColorIO_v2_4dev19GetOptimizationModeERKNS_16GenericImageDescE.exit, %if.then.i4
   %optim.0.i3 = phi i32 [ 0, %_ZN19OpenColorIO_v2_4dev19GetOptimizationModeERKNS_16GenericImageDescE.exit ], [ %spec.select.i6, %if.then.i4 ]
-  %m_outOptimizedMode = getelementptr inbounds %"class.OpenColorIO_v2_4dev::GenericScanlineHelper.35", ptr %this, i64 0, i32 8
+  %m_outOptimizedMode = getelementptr inbounds i8, ptr %this, i64 228
   store i32 %optim.0.i3, ptr %m_outOptimizedMode, align 4
   %cmp13 = icmp eq i32 %optim.0.i3, 3
-  %m_useDstBuffer = getelementptr inbounds %"class.OpenColorIO_v2_4dev::GenericScanlineHelper.35", ptr %this, i64 0, i32 13
+  %m_useDstBuffer = getelementptr inbounds i8, ptr %this, i64 308
   %frombool = zext i1 %cmp13 to i8
   store i8 %frombool, ptr %m_useDstBuffer, align 4
   %7 = load i32, ptr %m_inOptimizedMode, align 8
@@ -9941,8 +9903,8 @@ _ZN19OpenColorIO_v2_4dev19GetOptimizationModeERKNS_16GenericImageDescE.exit7: ; 
 if.then17:                                        ; preds = %_ZN19OpenColorIO_v2_4dev19GetOptimizationModeERKNS_16GenericImageDescE.exit7
   %8 = load i64, ptr %m_dstImg, align 8
   %mul = shl nsw i64 %8, 2
-  %m_inBitDepthBuffer = getelementptr inbounds %"class.OpenColorIO_v2_4dev::GenericScanlineHelper.35", ptr %this, i64 0, i32 10
-  %_M_finish.i.i = getelementptr inbounds %"class.OpenColorIO_v2_4dev::GenericScanlineHelper.35", ptr %this, i64 0, i32 10, i32 0, i32 0, i32 0, i32 1
+  %m_inBitDepthBuffer = getelementptr inbounds i8, ptr %this, i64 256
+  %_M_finish.i.i = getelementptr inbounds i8, ptr %this, i64 264
   %9 = load ptr, ptr %_M_finish.i.i, align 8
   %10 = load ptr, ptr %m_inBitDepthBuffer, align 8
   %sub.ptr.lhs.cast.i.i = ptrtoint ptr %9 to i64
@@ -9980,8 +9942,8 @@ if.end20:                                         ; preds = %invoke.cont.i.i, %i
 if.then22:                                        ; preds = %if.end20
   %13 = load i64, ptr %m_dstImg, align 8
   %mul26 = shl nsw i64 %13, 2
-  %m_rgbaFloatBuffer = getelementptr inbounds %"class.OpenColorIO_v2_4dev::GenericScanlineHelper.35", ptr %this, i64 0, i32 9
-  %_M_finish.i.i9 = getelementptr inbounds %"class.OpenColorIO_v2_4dev::GenericScanlineHelper.35", ptr %this, i64 0, i32 9, i32 0, i32 0, i32 0, i32 1
+  %m_rgbaFloatBuffer = getelementptr inbounds i8, ptr %this, i64 232
+  %_M_finish.i.i9 = getelementptr inbounds i8, ptr %this, i64 240
   %14 = load ptr, ptr %_M_finish.i.i9, align 8
   %15 = load ptr, ptr %m_rgbaFloatBuffer, align 8
   %sub.ptr.lhs.cast.i.i10 = ptrtoint ptr %14 to i64
@@ -10010,8 +9972,8 @@ invoke.cont.i.i20:                                ; preds = %if.then5.i17
   br label %_ZNSt6vectorIfSaIfEE6resizeEm.exit
 
 _ZNSt6vectorIfSaIfEE6resizeEm.exit:               ; preds = %if.then.i21, %if.else.i15, %if.then5.i17, %invoke.cont.i.i20
-  %m_outBitDepthBuffer = getelementptr inbounds %"class.OpenColorIO_v2_4dev::GenericScanlineHelper.35", ptr %this, i64 0, i32 11
-  %_M_finish.i.i23 = getelementptr inbounds %"class.OpenColorIO_v2_4dev::GenericScanlineHelper.35", ptr %this, i64 0, i32 11, i32 0, i32 0, i32 0, i32 1
+  %m_outBitDepthBuffer = getelementptr inbounds i8, ptr %this, i64 280
+  %_M_finish.i.i23 = getelementptr inbounds i8, ptr %this, i64 288
   %16 = load ptr, ptr %_M_finish.i.i23, align 8
   %17 = load ptr, ptr %m_outBitDepthBuffer, align 8
   %sub.ptr.lhs.cast.i.i24 = ptrtoint ptr %16 to i64
@@ -10046,17 +10008,17 @@ if.end27:                                         ; preds = %invoke.cont.i.i34, 
 ; Function Attrs: mustprogress uwtable
 define weak_odr hidden void @_ZN19OpenColorIO_v2_4dev21GenericScanlineHelperIN9Imath_3_14halfEfE4initERKNS_9ImageDescE(ptr noundef nonnull align 8 dereferenceable(309) %this, ptr noundef nonnull align 8 dereferenceable(8) %img) unnamed_addr #5 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  %m_yIndex = getelementptr inbounds %"class.OpenColorIO_v2_4dev::GenericScanlineHelper.35", ptr %this, i64 0, i32 12
+  %m_yIndex = getelementptr inbounds i8, ptr %this, i64 304
   store i32 0, ptr %m_yIndex, align 8
-  %m_srcImg = getelementptr inbounds %"class.OpenColorIO_v2_4dev::GenericScanlineHelper.35", ptr %this, i64 0, i32 5
-  %m_inputBitDepth = getelementptr inbounds %"class.OpenColorIO_v2_4dev::GenericScanlineHelper.35", ptr %this, i64 0, i32 1
+  %m_srcImg = getelementptr inbounds i8, ptr %this, i64 48
+  %m_inputBitDepth = getelementptr inbounds i8, ptr %this, i64 8
   %0 = load i32, ptr %m_inputBitDepth, align 8
-  %m_inBitDepthOp = getelementptr inbounds %"class.OpenColorIO_v2_4dev::GenericScanlineHelper.35", ptr %this, i64 0, i32 3
+  %m_inBitDepthOp = getelementptr inbounds i8, ptr %this, i64 16
   tail call void @_ZN19OpenColorIO_v2_4dev16GenericImageDesc4initERKNS_9ImageDescENS_8BitDepthERKSt10shared_ptrIKNS_5OpCPUEE(ptr noundef nonnull align 8 dereferenceable(82) %m_srcImg, ptr noundef nonnull align 8 dereferenceable(8) %img, i32 noundef %0, ptr noundef nonnull align 8 dereferenceable(16) %m_inBitDepthOp)
-  %m_dstImg = getelementptr inbounds %"class.OpenColorIO_v2_4dev::GenericScanlineHelper.35", ptr %this, i64 0, i32 6
-  %m_outputBitDepth = getelementptr inbounds %"class.OpenColorIO_v2_4dev::GenericScanlineHelper.35", ptr %this, i64 0, i32 2
+  %m_dstImg = getelementptr inbounds i8, ptr %this, i64 136
+  %m_outputBitDepth = getelementptr inbounds i8, ptr %this, i64 12
   %1 = load i32, ptr %m_outputBitDepth, align 4
-  %m_outBitDepthOp = getelementptr inbounds %"class.OpenColorIO_v2_4dev::GenericScanlineHelper.35", ptr %this, i64 0, i32 4
+  %m_outBitDepthOp = getelementptr inbounds i8, ptr %this, i64 32
   tail call void @_ZN19OpenColorIO_v2_4dev16GenericImageDesc4initERKNS_9ImageDescENS_8BitDepthERKSt10shared_ptrIKNS_5OpCPUEE(ptr noundef nonnull align 8 dereferenceable(82) %m_dstImg, ptr noundef nonnull align 8 dereferenceable(8) %img, i32 noundef %1, ptr noundef nonnull align 8 dereferenceable(16) %m_outBitDepthOp)
   %call.i = tail call noundef zeroext i1 @_ZNK19OpenColorIO_v2_4dev16GenericImageDesc12isRGBAPackedEv(ptr noundef nonnull align 8 dereferenceable(82) %m_srcImg)
   br i1 %call.i, label %if.then.i, label %if.then
@@ -10066,26 +10028,26 @@ if.then.i:                                        ; preds = %entry
   br i1 %call1.i, label %_ZN19OpenColorIO_v2_4dev19GetOptimizationModeERKNS_16GenericImageDescE.exit, label %if.then
 
 _ZN19OpenColorIO_v2_4dev19GetOptimizationModeERKNS_16GenericImageDescE.exit: ; preds = %if.then.i
-  %m_inOptimizedMode = getelementptr inbounds %"class.OpenColorIO_v2_4dev::GenericScanlineHelper.35", ptr %this, i64 0, i32 7
+  %m_inOptimizedMode = getelementptr inbounds i8, ptr %this, i64 224
   store i32 3, ptr %m_inOptimizedMode, align 8
-  %m_outOptimizedMode = getelementptr inbounds %"class.OpenColorIO_v2_4dev::GenericScanlineHelper.35", ptr %this, i64 0, i32 8
+  %m_outOptimizedMode = getelementptr inbounds i8, ptr %this, i64 228
   store i32 3, ptr %m_outOptimizedMode, align 4
-  %m_useDstBuffer = getelementptr inbounds %"class.OpenColorIO_v2_4dev::GenericScanlineHelper.35", ptr %this, i64 0, i32 13
+  %m_useDstBuffer = getelementptr inbounds i8, ptr %this, i64 308
   store i8 1, ptr %m_useDstBuffer, align 4
   br label %if.end
 
 if.then:                                          ; preds = %entry, %if.then.i
   %optim.0.i.ph = phi i32 [ 1, %if.then.i ], [ 0, %entry ]
-  %m_inOptimizedMode35 = getelementptr inbounds %"class.OpenColorIO_v2_4dev::GenericScanlineHelper.35", ptr %this, i64 0, i32 7
+  %m_inOptimizedMode35 = getelementptr inbounds i8, ptr %this, i64 224
   store i32 %optim.0.i.ph, ptr %m_inOptimizedMode35, align 8
-  %m_outOptimizedMode36 = getelementptr inbounds %"class.OpenColorIO_v2_4dev::GenericScanlineHelper.35", ptr %this, i64 0, i32 8
+  %m_outOptimizedMode36 = getelementptr inbounds i8, ptr %this, i64 228
   store i32 %optim.0.i.ph, ptr %m_outOptimizedMode36, align 4
-  %m_useDstBuffer38 = getelementptr inbounds %"class.OpenColorIO_v2_4dev::GenericScanlineHelper.35", ptr %this, i64 0, i32 13
+  %m_useDstBuffer38 = getelementptr inbounds i8, ptr %this, i64 308
   store i8 0, ptr %m_useDstBuffer38, align 4
   %2 = load i64, ptr %m_dstImg, align 8
   %mul = shl nsw i64 %2, 2
-  %m_rgbaFloatBuffer = getelementptr inbounds %"class.OpenColorIO_v2_4dev::GenericScanlineHelper.35", ptr %this, i64 0, i32 9
-  %_M_finish.i.i = getelementptr inbounds %"class.OpenColorIO_v2_4dev::GenericScanlineHelper.35", ptr %this, i64 0, i32 9, i32 0, i32 0, i32 0, i32 1
+  %m_rgbaFloatBuffer = getelementptr inbounds i8, ptr %this, i64 232
+  %_M_finish.i.i = getelementptr inbounds i8, ptr %this, i64 240
   %3 = load ptr, ptr %_M_finish.i.i, align 8
   %4 = load ptr, ptr %m_rgbaFloatBuffer, align 8
   %sub.ptr.lhs.cast.i.i = ptrtoint ptr %3 to i64
@@ -10114,8 +10076,8 @@ invoke.cont.i.i:                                  ; preds = %if.then5.i
   br label %_ZNSt6vectorIfSaIfEE6resizeEm.exit
 
 _ZNSt6vectorIfSaIfEE6resizeEm.exit:               ; preds = %if.then.i4, %if.else.i, %if.then5.i, %invoke.cont.i.i
-  %m_inBitDepthBuffer = getelementptr inbounds %"class.OpenColorIO_v2_4dev::GenericScanlineHelper.35", ptr %this, i64 0, i32 10
-  %_M_finish.i.i5 = getelementptr inbounds %"class.OpenColorIO_v2_4dev::GenericScanlineHelper.35", ptr %this, i64 0, i32 10, i32 0, i32 0, i32 0, i32 1
+  %m_inBitDepthBuffer = getelementptr inbounds i8, ptr %this, i64 256
+  %_M_finish.i.i5 = getelementptr inbounds i8, ptr %this, i64 264
   %5 = load ptr, ptr %_M_finish.i.i5, align 8
   %6 = load ptr, ptr %m_inBitDepthBuffer, align 8
   %sub.ptr.lhs.cast.i.i6 = ptrtoint ptr %5 to i64
@@ -10144,8 +10106,8 @@ invoke.cont.i.i16:                                ; preds = %if.then5.i13
   br label %_ZNSt6vectorIN9Imath_3_14halfESaIS1_EE6resizeEm.exit
 
 _ZNSt6vectorIN9Imath_3_14halfESaIS1_EE6resizeEm.exit: ; preds = %if.then.i17, %if.else.i11, %if.then5.i13, %invoke.cont.i.i16
-  %m_outBitDepthBuffer = getelementptr inbounds %"class.OpenColorIO_v2_4dev::GenericScanlineHelper.35", ptr %this, i64 0, i32 11
-  %_M_finish.i.i19 = getelementptr inbounds %"class.OpenColorIO_v2_4dev::GenericScanlineHelper.35", ptr %this, i64 0, i32 11, i32 0, i32 0, i32 0, i32 1
+  %m_outBitDepthBuffer = getelementptr inbounds i8, ptr %this, i64 280
+  %_M_finish.i.i19 = getelementptr inbounds i8, ptr %this, i64 288
   %7 = load ptr, ptr %_M_finish.i.i19, align 8
   %8 = load ptr, ptr %m_outBitDepthBuffer, align 8
   %sub.ptr.lhs.cast.i.i20 = ptrtoint ptr %7 to i64
@@ -10181,7 +10143,7 @@ if.end:                                           ; preds = %invoke.cont.i.i30, 
 define weak_odr hidden void @_ZN19OpenColorIO_v2_4dev21GenericScanlineHelperIN9Imath_3_14halfEfED2Ev(ptr noundef nonnull align 8 dereferenceable(309) %this) unnamed_addr #3 comdat($_ZN19OpenColorIO_v2_4dev21GenericScanlineHelperIN9Imath_3_14halfEfED5Ev) align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTVN19OpenColorIO_v2_4dev21GenericScanlineHelperIN9Imath_3_14halfEfEE, i64 0, inrange i32 0, i64 2), ptr %this, align 8
-  %m_outBitDepthBuffer = getelementptr inbounds %"class.OpenColorIO_v2_4dev::GenericScanlineHelper.35", ptr %this, i64 0, i32 11
+  %m_outBitDepthBuffer = getelementptr inbounds i8, ptr %this, i64 280
   %0 = load ptr, ptr %m_outBitDepthBuffer, align 8
   %tobool.not.i.i.i = icmp eq ptr %0, null
   br i1 %tobool.not.i.i.i, label %_ZNSt6vectorIfSaIfEED2Ev.exit, label %if.then.i.i.i
@@ -10191,7 +10153,7 @@ if.then.i.i.i:                                    ; preds = %entry
   br label %_ZNSt6vectorIfSaIfEED2Ev.exit
 
 _ZNSt6vectorIfSaIfEED2Ev.exit:                    ; preds = %entry, %if.then.i.i.i
-  %m_inBitDepthBuffer = getelementptr inbounds %"class.OpenColorIO_v2_4dev::GenericScanlineHelper.35", ptr %this, i64 0, i32 10
+  %m_inBitDepthBuffer = getelementptr inbounds i8, ptr %this, i64 256
   %1 = load ptr, ptr %m_inBitDepthBuffer, align 8
   %tobool.not.i.i.i1 = icmp eq ptr %1, null
   br i1 %tobool.not.i.i.i1, label %_ZNSt6vectorIN9Imath_3_14halfESaIS1_EED2Ev.exit, label %if.then.i.i.i2
@@ -10201,7 +10163,7 @@ if.then.i.i.i2:                                   ; preds = %_ZNSt6vectorIfSaIfE
   br label %_ZNSt6vectorIN9Imath_3_14halfESaIS1_EED2Ev.exit
 
 _ZNSt6vectorIN9Imath_3_14halfESaIS1_EED2Ev.exit:  ; preds = %_ZNSt6vectorIfSaIfEED2Ev.exit, %if.then.i.i.i2
-  %m_rgbaFloatBuffer = getelementptr inbounds %"class.OpenColorIO_v2_4dev::GenericScanlineHelper.35", ptr %this, i64 0, i32 9
+  %m_rgbaFloatBuffer = getelementptr inbounds i8, ptr %this, i64 232
   %2 = load ptr, ptr %m_rgbaFloatBuffer, align 8
   %tobool.not.i.i.i3 = icmp eq ptr %2, null
   br i1 %tobool.not.i.i.i3, label %_ZNSt6vectorIfSaIfEED2Ev.exit5, label %if.then.i.i.i4
@@ -10211,13 +10173,13 @@ if.then.i.i.i4:                                   ; preds = %_ZNSt6vectorIN9Imat
   br label %_ZNSt6vectorIfSaIfEED2Ev.exit5
 
 _ZNSt6vectorIfSaIfEED2Ev.exit5:                   ; preds = %_ZNSt6vectorIN9Imath_3_14halfESaIS1_EED2Ev.exit, %if.then.i.i.i4
-  %_M_refcount.i.i.i = getelementptr inbounds %"class.OpenColorIO_v2_4dev::GenericScanlineHelper.35", ptr %this, i64 0, i32 6, i32 8, i32 0, i32 1
+  %_M_refcount.i.i.i = getelementptr inbounds i8, ptr %this, i64 208
   %3 = load ptr, ptr %_M_refcount.i.i.i, align 8
   %cmp.not.i.i.i.i = icmp eq ptr %3, null
   br i1 %cmp.not.i.i.i.i, label %_ZN19OpenColorIO_v2_4dev16GenericImageDescD2Ev.exit, label %if.then.i.i.i.i
 
 if.then.i.i.i.i:                                  ; preds = %_ZNSt6vectorIfSaIfEED2Ev.exit5
-  %_M_use_count.i.i.i.i.i = getelementptr inbounds %"class.std::_Sp_counted_base", ptr %3, i64 0, i32 1
+  %_M_use_count.i.i.i.i.i = getelementptr inbounds i8, ptr %3, i64 8
   %4 = load atomic i64, ptr %_M_use_count.i.i.i.i.i acquire, align 8
   %cmp.i.i.i.i.i = icmp eq i64 %4, 4294967297
   %5 = trunc i64 %4 to i32
@@ -10225,10 +10187,10 @@ if.then.i.i.i.i:                                  ; preds = %_ZNSt6vectorIfSaIfE
 
 if.then.i.i.i.i.i:                                ; preds = %if.then.i.i.i.i
   store i32 0, ptr %_M_use_count.i.i.i.i.i, align 8
-  %_M_weak_count.i.i.i.i.i = getelementptr inbounds %"class.std::_Sp_counted_base", ptr %3, i64 0, i32 2
+  %_M_weak_count.i.i.i.i.i = getelementptr inbounds i8, ptr %3, i64 12
   store i32 0, ptr %_M_weak_count.i.i.i.i.i, align 4
   %vtable.i.i.i.i.i = load ptr, ptr %3, align 8
-  %vfn.i.i.i.i.i = getelementptr inbounds ptr, ptr %vtable.i.i.i.i.i, i64 2
+  %vfn.i.i.i.i.i = getelementptr inbounds i8, ptr %vtable.i.i.i.i.i, i64 16
   %6 = load ptr, ptr %vfn.i.i.i.i.i, align 8
   tail call void %6(ptr noundef nonnull align 8 dereferenceable(16) %3) #13
   br label %if.end8.sink.split.i.i.i.i.i
@@ -10254,10 +10216,10 @@ _ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i: ; preds = %if.els
 
 if.then7.i.i.i.i.i:                               ; preds = %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i
   %vtable.i.i.i.i.i.i.i = load ptr, ptr %3, align 8
-  %vfn.i.i.i.i.i.i.i = getelementptr inbounds ptr, ptr %vtable.i.i.i.i.i.i.i, i64 2
+  %vfn.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %vtable.i.i.i.i.i.i.i, i64 16
   %9 = load ptr, ptr %vfn.i.i.i.i.i.i.i, align 8
   tail call void %9(ptr noundef nonnull align 8 dereferenceable(16) %3) #13
-  %_M_weak_count.i.i.i.i.i.i.i = getelementptr inbounds %"class.std::_Sp_counted_base", ptr %3, i64 0, i32 2
+  %_M_weak_count.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %3, i64 12
   %10 = load i8, ptr @__libc_single_threaded, align 1
   %tobool.i.i.not.i.i.i.i.i.i.i = icmp eq i8 %10, 0
   br i1 %tobool.i.i.not.i.i.i.i.i.i.i, label %if.else.i.i.i.i.i.i.i.i, label %if.then.i.i.i.i.i.i.i.i
@@ -10279,19 +10241,19 @@ _ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i.i: ; preds = %if
 
 if.end8.sink.split.i.i.i.i.i:                     ; preds = %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i.i, %if.then.i.i.i.i.i
   %vtable2.i.i.i.i.i.i.i = load ptr, ptr %3, align 8
-  %vfn3.i.i.i.i.i.i.i = getelementptr inbounds ptr, ptr %vtable2.i.i.i.i.i.i.i, i64 3
+  %vfn3.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %vtable2.i.i.i.i.i.i.i, i64 24
   %13 = load ptr, ptr %vfn3.i.i.i.i.i.i.i, align 8
   tail call void %13(ptr noundef nonnull align 8 dereferenceable(16) %3) #13
   br label %_ZN19OpenColorIO_v2_4dev16GenericImageDescD2Ev.exit
 
 _ZN19OpenColorIO_v2_4dev16GenericImageDescD2Ev.exit: ; preds = %_ZNSt6vectorIfSaIfEED2Ev.exit5, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i.i, %if.end8.sink.split.i.i.i.i.i
-  %_M_refcount.i.i.i6 = getelementptr inbounds %"class.OpenColorIO_v2_4dev::GenericScanlineHelper.35", ptr %this, i64 0, i32 5, i32 8, i32 0, i32 1
+  %_M_refcount.i.i.i6 = getelementptr inbounds i8, ptr %this, i64 120
   %14 = load ptr, ptr %_M_refcount.i.i.i6, align 8
   %cmp.not.i.i.i.i7 = icmp eq ptr %14, null
   br i1 %cmp.not.i.i.i.i7, label %_ZN19OpenColorIO_v2_4dev16GenericImageDescD2Ev.exit37, label %if.then.i.i.i.i8
 
 if.then.i.i.i.i8:                                 ; preds = %_ZN19OpenColorIO_v2_4dev16GenericImageDescD2Ev.exit
-  %_M_use_count.i.i.i.i.i9 = getelementptr inbounds %"class.std::_Sp_counted_base", ptr %14, i64 0, i32 1
+  %_M_use_count.i.i.i.i.i9 = getelementptr inbounds i8, ptr %14, i64 8
   %15 = load atomic i64, ptr %_M_use_count.i.i.i.i.i9 acquire, align 8
   %cmp.i.i.i.i.i10 = icmp eq i64 %15, 4294967297
   %16 = trunc i64 %15 to i32
@@ -10299,10 +10261,10 @@ if.then.i.i.i.i8:                                 ; preds = %_ZN19OpenColorIO_v2
 
 if.then.i.i.i.i.i33:                              ; preds = %if.then.i.i.i.i8
   store i32 0, ptr %_M_use_count.i.i.i.i.i9, align 8
-  %_M_weak_count.i.i.i.i.i34 = getelementptr inbounds %"class.std::_Sp_counted_base", ptr %14, i64 0, i32 2
+  %_M_weak_count.i.i.i.i.i34 = getelementptr inbounds i8, ptr %14, i64 12
   store i32 0, ptr %_M_weak_count.i.i.i.i.i34, align 4
   %vtable.i.i.i.i.i35 = load ptr, ptr %14, align 8
-  %vfn.i.i.i.i.i36 = getelementptr inbounds ptr, ptr %vtable.i.i.i.i.i35, i64 2
+  %vfn.i.i.i.i.i36 = getelementptr inbounds i8, ptr %vtable.i.i.i.i.i35, i64 16
   %17 = load ptr, ptr %vfn.i.i.i.i.i36, align 8
   tail call void %17(ptr noundef nonnull align 8 dereferenceable(16) %14) #13
   br label %if.end8.sink.split.i.i.i.i.i28
@@ -10328,10 +10290,10 @@ _ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i15: ; preds = %if.e
 
 if.then7.i.i.i.i.i18:                             ; preds = %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i15
   %vtable.i.i.i.i.i.i.i19 = load ptr, ptr %14, align 8
-  %vfn.i.i.i.i.i.i.i20 = getelementptr inbounds ptr, ptr %vtable.i.i.i.i.i.i.i19, i64 2
+  %vfn.i.i.i.i.i.i.i20 = getelementptr inbounds i8, ptr %vtable.i.i.i.i.i.i.i19, i64 16
   %20 = load ptr, ptr %vfn.i.i.i.i.i.i.i20, align 8
   tail call void %20(ptr noundef nonnull align 8 dereferenceable(16) %14) #13
-  %_M_weak_count.i.i.i.i.i.i.i21 = getelementptr inbounds %"class.std::_Sp_counted_base", ptr %14, i64 0, i32 2
+  %_M_weak_count.i.i.i.i.i.i.i21 = getelementptr inbounds i8, ptr %14, i64 12
   %21 = load i8, ptr @__libc_single_threaded, align 1
   %tobool.i.i.not.i.i.i.i.i.i.i22 = icmp eq i8 %21, 0
   br i1 %tobool.i.i.not.i.i.i.i.i.i.i22, label %if.else.i.i.i.i.i.i.i.i31, label %if.then.i.i.i.i.i.i.i.i23
@@ -10353,19 +10315,19 @@ _ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i.i25: ; preds = %
 
 if.end8.sink.split.i.i.i.i.i28:                   ; preds = %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i.i25, %if.then.i.i.i.i.i33
   %vtable2.i.i.i.i.i.i.i29 = load ptr, ptr %14, align 8
-  %vfn3.i.i.i.i.i.i.i30 = getelementptr inbounds ptr, ptr %vtable2.i.i.i.i.i.i.i29, i64 3
+  %vfn3.i.i.i.i.i.i.i30 = getelementptr inbounds i8, ptr %vtable2.i.i.i.i.i.i.i29, i64 24
   %24 = load ptr, ptr %vfn3.i.i.i.i.i.i.i30, align 8
   tail call void %24(ptr noundef nonnull align 8 dereferenceable(16) %14) #13
   br label %_ZN19OpenColorIO_v2_4dev16GenericImageDescD2Ev.exit37
 
 _ZN19OpenColorIO_v2_4dev16GenericImageDescD2Ev.exit37: ; preds = %_ZN19OpenColorIO_v2_4dev16GenericImageDescD2Ev.exit, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i15, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i.i25, %if.end8.sink.split.i.i.i.i.i28
-  %_M_refcount.i.i = getelementptr inbounds %"class.OpenColorIO_v2_4dev::GenericScanlineHelper.35", ptr %this, i64 0, i32 4, i32 0, i32 1
+  %_M_refcount.i.i = getelementptr inbounds i8, ptr %this, i64 40
   %25 = load ptr, ptr %_M_refcount.i.i, align 8
   %cmp.not.i.i.i = icmp eq ptr %25, null
   br i1 %cmp.not.i.i.i, label %_ZNSt10shared_ptrIKN19OpenColorIO_v2_4dev5OpCPUEED2Ev.exit, label %if.then.i.i.i38
 
 if.then.i.i.i38:                                  ; preds = %_ZN19OpenColorIO_v2_4dev16GenericImageDescD2Ev.exit37
-  %_M_use_count.i.i.i.i = getelementptr inbounds %"class.std::_Sp_counted_base", ptr %25, i64 0, i32 1
+  %_M_use_count.i.i.i.i = getelementptr inbounds i8, ptr %25, i64 8
   %26 = load atomic i64, ptr %_M_use_count.i.i.i.i acquire, align 8
   %cmp.i.i.i.i = icmp eq i64 %26, 4294967297
   %27 = trunc i64 %26 to i32
@@ -10373,10 +10335,10 @@ if.then.i.i.i38:                                  ; preds = %_ZN19OpenColorIO_v2
 
 if.then.i.i.i.i40:                                ; preds = %if.then.i.i.i38
   store i32 0, ptr %_M_use_count.i.i.i.i, align 8
-  %_M_weak_count.i.i.i.i = getelementptr inbounds %"class.std::_Sp_counted_base", ptr %25, i64 0, i32 2
+  %_M_weak_count.i.i.i.i = getelementptr inbounds i8, ptr %25, i64 12
   store i32 0, ptr %_M_weak_count.i.i.i.i, align 4
   %vtable.i.i.i.i = load ptr, ptr %25, align 8
-  %vfn.i.i.i.i = getelementptr inbounds ptr, ptr %vtable.i.i.i.i, i64 2
+  %vfn.i.i.i.i = getelementptr inbounds i8, ptr %vtable.i.i.i.i, i64 16
   %28 = load ptr, ptr %vfn.i.i.i.i, align 8
   tail call void %28(ptr noundef nonnull align 8 dereferenceable(16) %25) #13
   br label %if.end8.sink.split.i.i.i.i
@@ -10402,10 +10364,10 @@ _ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i: ; preds = %if.else.
 
 if.then7.i.i.i.i:                                 ; preds = %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i
   %vtable.i.i.i.i.i.i = load ptr, ptr %25, align 8
-  %vfn.i.i.i.i.i.i = getelementptr inbounds ptr, ptr %vtable.i.i.i.i.i.i, i64 2
+  %vfn.i.i.i.i.i.i = getelementptr inbounds i8, ptr %vtable.i.i.i.i.i.i, i64 16
   %31 = load ptr, ptr %vfn.i.i.i.i.i.i, align 8
   tail call void %31(ptr noundef nonnull align 8 dereferenceable(16) %25) #13
-  %_M_weak_count.i.i.i.i.i.i = getelementptr inbounds %"class.std::_Sp_counted_base", ptr %25, i64 0, i32 2
+  %_M_weak_count.i.i.i.i.i.i = getelementptr inbounds i8, ptr %25, i64 12
   %32 = load i8, ptr @__libc_single_threaded, align 1
   %tobool.i.i.not.i.i.i.i.i.i = icmp eq i8 %32, 0
   br i1 %tobool.i.i.not.i.i.i.i.i.i, label %if.else.i.i.i.i.i.i.i, label %if.then.i.i.i.i.i.i.i
@@ -10427,19 +10389,19 @@ _ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i: ; preds = %if.e
 
 if.end8.sink.split.i.i.i.i:                       ; preds = %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i, %if.then.i.i.i.i40
   %vtable2.i.i.i.i.i.i = load ptr, ptr %25, align 8
-  %vfn3.i.i.i.i.i.i = getelementptr inbounds ptr, ptr %vtable2.i.i.i.i.i.i, i64 3
+  %vfn3.i.i.i.i.i.i = getelementptr inbounds i8, ptr %vtable2.i.i.i.i.i.i, i64 24
   %35 = load ptr, ptr %vfn3.i.i.i.i.i.i, align 8
   tail call void %35(ptr noundef nonnull align 8 dereferenceable(16) %25) #13
   br label %_ZNSt10shared_ptrIKN19OpenColorIO_v2_4dev5OpCPUEED2Ev.exit
 
 _ZNSt10shared_ptrIKN19OpenColorIO_v2_4dev5OpCPUEED2Ev.exit: ; preds = %_ZN19OpenColorIO_v2_4dev16GenericImageDescD2Ev.exit37, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i, %if.end8.sink.split.i.i.i.i
-  %_M_refcount.i.i41 = getelementptr inbounds %"class.OpenColorIO_v2_4dev::GenericScanlineHelper.35", ptr %this, i64 0, i32 3, i32 0, i32 1
+  %_M_refcount.i.i41 = getelementptr inbounds i8, ptr %this, i64 24
   %36 = load ptr, ptr %_M_refcount.i.i41, align 8
   %cmp.not.i.i.i42 = icmp eq ptr %36, null
   br i1 %cmp.not.i.i.i42, label %_ZNSt10shared_ptrIKN19OpenColorIO_v2_4dev5OpCPUEED2Ev.exit72, label %if.then.i.i.i43
 
 if.then.i.i.i43:                                  ; preds = %_ZNSt10shared_ptrIKN19OpenColorIO_v2_4dev5OpCPUEED2Ev.exit
-  %_M_use_count.i.i.i.i44 = getelementptr inbounds %"class.std::_Sp_counted_base", ptr %36, i64 0, i32 1
+  %_M_use_count.i.i.i.i44 = getelementptr inbounds i8, ptr %36, i64 8
   %37 = load atomic i64, ptr %_M_use_count.i.i.i.i44 acquire, align 8
   %cmp.i.i.i.i45 = icmp eq i64 %37, 4294967297
   %38 = trunc i64 %37 to i32
@@ -10447,10 +10409,10 @@ if.then.i.i.i43:                                  ; preds = %_ZNSt10shared_ptrIK
 
 if.then.i.i.i.i68:                                ; preds = %if.then.i.i.i43
   store i32 0, ptr %_M_use_count.i.i.i.i44, align 8
-  %_M_weak_count.i.i.i.i69 = getelementptr inbounds %"class.std::_Sp_counted_base", ptr %36, i64 0, i32 2
+  %_M_weak_count.i.i.i.i69 = getelementptr inbounds i8, ptr %36, i64 12
   store i32 0, ptr %_M_weak_count.i.i.i.i69, align 4
   %vtable.i.i.i.i70 = load ptr, ptr %36, align 8
-  %vfn.i.i.i.i71 = getelementptr inbounds ptr, ptr %vtable.i.i.i.i70, i64 2
+  %vfn.i.i.i.i71 = getelementptr inbounds i8, ptr %vtable.i.i.i.i70, i64 16
   %39 = load ptr, ptr %vfn.i.i.i.i71, align 8
   tail call void %39(ptr noundef nonnull align 8 dereferenceable(16) %36) #13
   br label %if.end8.sink.split.i.i.i.i63
@@ -10476,10 +10438,10 @@ _ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i50: ; preds = %if.els
 
 if.then7.i.i.i.i53:                               ; preds = %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i50
   %vtable.i.i.i.i.i.i54 = load ptr, ptr %36, align 8
-  %vfn.i.i.i.i.i.i55 = getelementptr inbounds ptr, ptr %vtable.i.i.i.i.i.i54, i64 2
+  %vfn.i.i.i.i.i.i55 = getelementptr inbounds i8, ptr %vtable.i.i.i.i.i.i54, i64 16
   %42 = load ptr, ptr %vfn.i.i.i.i.i.i55, align 8
   tail call void %42(ptr noundef nonnull align 8 dereferenceable(16) %36) #13
-  %_M_weak_count.i.i.i.i.i.i56 = getelementptr inbounds %"class.std::_Sp_counted_base", ptr %36, i64 0, i32 2
+  %_M_weak_count.i.i.i.i.i.i56 = getelementptr inbounds i8, ptr %36, i64 12
   %43 = load i8, ptr @__libc_single_threaded, align 1
   %tobool.i.i.not.i.i.i.i.i.i57 = icmp eq i8 %43, 0
   br i1 %tobool.i.i.not.i.i.i.i.i.i57, label %if.else.i.i.i.i.i.i.i66, label %if.then.i.i.i.i.i.i.i58
@@ -10501,7 +10463,7 @@ _ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i60: ; preds = %if
 
 if.end8.sink.split.i.i.i.i63:                     ; preds = %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i60, %if.then.i.i.i.i68
   %vtable2.i.i.i.i.i.i64 = load ptr, ptr %36, align 8
-  %vfn3.i.i.i.i.i.i65 = getelementptr inbounds ptr, ptr %vtable2.i.i.i.i.i.i64, i64 3
+  %vfn3.i.i.i.i.i.i65 = getelementptr inbounds i8, ptr %vtable2.i.i.i.i.i.i64, i64 24
   %46 = load ptr, ptr %vfn3.i.i.i.i.i.i65, align 8
   tail call void %46(ptr noundef nonnull align 8 dereferenceable(16) %36) #13
   br label %_ZNSt10shared_ptrIKN19OpenColorIO_v2_4dev5OpCPUEED2Ev.exit72
@@ -10521,66 +10483,66 @@ entry:
 ; Function Attrs: mustprogress uwtable
 define weak_odr hidden void @_ZN19OpenColorIO_v2_4dev21GenericScanlineHelperIN9Imath_3_14halfEfE16prepRGBAScanlineEPPfRl(ptr noundef nonnull align 8 dereferenceable(309) %this, ptr noundef %buffer, ptr noundef nonnull align 8 dereferenceable(8) %numPixels) unnamed_addr #5 comdat align 2 {
 entry:
-  %m_yIndex = getelementptr inbounds %"class.OpenColorIO_v2_4dev::GenericScanlineHelper.35", ptr %this, i64 0, i32 12
+  %m_yIndex = getelementptr inbounds i8, ptr %this, i64 304
   %0 = load i32, ptr %m_yIndex, align 8
   %conv = sext i32 %0 to i64
-  %m_dstImg = getelementptr inbounds %"class.OpenColorIO_v2_4dev::GenericScanlineHelper.35", ptr %this, i64 0, i32 6
-  %m_height = getelementptr inbounds %"class.OpenColorIO_v2_4dev::GenericScanlineHelper.35", ptr %this, i64 0, i32 6, i32 1
+  %m_dstImg = getelementptr inbounds i8, ptr %this, i64 136
+  %m_height = getelementptr inbounds i8, ptr %this, i64 144
   %1 = load i64, ptr %m_height, align 8
   %cmp.not = icmp sgt i64 %1, %conv
   br i1 %cmp.not, label %if.end, label %return
 
 if.end:                                           ; preds = %entry
-  %m_useDstBuffer = getelementptr inbounds %"class.OpenColorIO_v2_4dev::GenericScanlineHelper.35", ptr %this, i64 0, i32 13
+  %m_useDstBuffer = getelementptr inbounds i8, ptr %this, i64 308
   %2 = load i8, ptr %m_useDstBuffer, align 4
   %3 = and i8 %2, 1
   %tobool.not = icmp eq i8 %3, 0
   br i1 %tobool.not, label %cond.false, label %cond.true
 
 cond.true:                                        ; preds = %if.end
-  %m_rData = getelementptr inbounds %"class.OpenColorIO_v2_4dev::GenericScanlineHelper.35", ptr %this, i64 0, i32 6, i32 4
+  %m_rData = getelementptr inbounds i8, ptr %this, i64 168
   %4 = load ptr, ptr %m_rData, align 8
-  %m_yStrideBytes = getelementptr inbounds %"class.OpenColorIO_v2_4dev::GenericScanlineHelper.35", ptr %this, i64 0, i32 6, i32 3
+  %m_yStrideBytes = getelementptr inbounds i8, ptr %this, i64 160
   %5 = load i64, ptr %m_yStrideBytes, align 8
   %mul = mul nsw i64 %5, %conv
   %add.ptr = getelementptr inbounds i8, ptr %4, i64 %mul
   br label %cond.end
 
 cond.false:                                       ; preds = %if.end
-  %m_rgbaFloatBuffer = getelementptr inbounds %"class.OpenColorIO_v2_4dev::GenericScanlineHelper.35", ptr %this, i64 0, i32 9
+  %m_rgbaFloatBuffer = getelementptr inbounds i8, ptr %this, i64 232
   %6 = load ptr, ptr %m_rgbaFloatBuffer, align 8
   br label %cond.end
 
 cond.end:                                         ; preds = %cond.false, %cond.true
   %cond = phi ptr [ %add.ptr, %cond.true ], [ %6, %cond.false ]
   store ptr %cond, ptr %buffer, align 8
-  %m_inOptimizedMode = getelementptr inbounds %"class.OpenColorIO_v2_4dev::GenericScanlineHelper.35", ptr %this, i64 0, i32 7
+  %m_inOptimizedMode = getelementptr inbounds i8, ptr %this, i64 224
   %7 = load i32, ptr %m_inOptimizedMode, align 8
   %and = and i32 %7, 1
   %cmp6.not = icmp eq i32 %and, 0
   br i1 %cmp6.not, label %if.else, label %if.then7
 
 if.then7:                                         ; preds = %cond.end
-  %m_rData8 = getelementptr inbounds %"class.OpenColorIO_v2_4dev::GenericScanlineHelper.35", ptr %this, i64 0, i32 5, i32 4
+  %m_rData8 = getelementptr inbounds i8, ptr %this, i64 80
   %8 = load ptr, ptr %m_rData8, align 8
-  %m_yStrideBytes10 = getelementptr inbounds %"class.OpenColorIO_v2_4dev::GenericScanlineHelper.35", ptr %this, i64 0, i32 5, i32 3
+  %m_yStrideBytes10 = getelementptr inbounds i8, ptr %this, i64 72
   %9 = load i64, ptr %m_yStrideBytes10, align 8
   %10 = load i32, ptr %m_yIndex, align 8
   %conv12 = sext i32 %10 to i64
   %mul13 = mul nsw i64 %9, %conv12
   %add.ptr14 = getelementptr inbounds i8, ptr %8, i64 %mul13
-  %m_bitDepthOp = getelementptr inbounds %"class.OpenColorIO_v2_4dev::GenericScanlineHelper.35", ptr %this, i64 0, i32 5, i32 8
+  %m_bitDepthOp = getelementptr inbounds i8, ptr %this, i64 112
   %11 = load ptr, ptr %m_bitDepthOp, align 8
   %12 = load i64, ptr %m_dstImg, align 8
   %vtable = load ptr, ptr %11, align 8
-  %vfn = getelementptr inbounds ptr, ptr %vtable, i64 2
+  %vfn = getelementptr inbounds i8, ptr %vtable, i64 16
   %13 = load ptr, ptr %vfn, align 8
   tail call void %13(ptr noundef nonnull align 8 dereferenceable(8) %11, ptr noundef %add.ptr14, ptr noundef %cond, i64 noundef %12)
   br label %if.end28
 
 if.else:                                          ; preds = %cond.end
-  %m_srcImg18 = getelementptr inbounds %"class.OpenColorIO_v2_4dev::GenericScanlineHelper.35", ptr %this, i64 0, i32 5
-  %m_inBitDepthBuffer = getelementptr inbounds %"class.OpenColorIO_v2_4dev::GenericScanlineHelper.35", ptr %this, i64 0, i32 10
+  %m_srcImg18 = getelementptr inbounds i8, ptr %this, i64 48
+  %m_inBitDepthBuffer = getelementptr inbounds i8, ptr %this, i64 256
   %14 = load ptr, ptr %m_inBitDepthBuffer, align 8
   %15 = load i64, ptr %m_dstImg, align 8
   %conv22 = trunc i64 %15 to i32
@@ -10603,47 +10565,47 @@ return:                                           ; preds = %entry, %if.end28
 ; Function Attrs: mustprogress uwtable
 define weak_odr hidden void @_ZN19OpenColorIO_v2_4dev21GenericScanlineHelperIN9Imath_3_14halfEfE18finishRGBAScanlineEv(ptr noundef nonnull align 8 dereferenceable(309) %this) unnamed_addr #5 comdat align 2 {
 entry:
-  %m_outOptimizedMode = getelementptr inbounds %"class.OpenColorIO_v2_4dev::GenericScanlineHelper.35", ptr %this, i64 0, i32 8
+  %m_outOptimizedMode = getelementptr inbounds i8, ptr %this, i64 228
   %0 = load i32, ptr %m_outOptimizedMode, align 4
   %and = and i32 %0, 1
   %cmp.not = icmp eq i32 %and, 0
-  %m_dstImg6 = getelementptr inbounds %"class.OpenColorIO_v2_4dev::GenericScanlineHelper.35", ptr %this, i64 0, i32 6
+  %m_dstImg6 = getelementptr inbounds i8, ptr %this, i64 136
   br i1 %cmp.not, label %if.else, label %if.then
 
 if.then:                                          ; preds = %entry
-  %m_rData = getelementptr inbounds %"class.OpenColorIO_v2_4dev::GenericScanlineHelper.35", ptr %this, i64 0, i32 6, i32 4
+  %m_rData = getelementptr inbounds i8, ptr %this, i64 168
   %1 = load ptr, ptr %m_rData, align 8
-  %m_yStrideBytes = getelementptr inbounds %"class.OpenColorIO_v2_4dev::GenericScanlineHelper.35", ptr %this, i64 0, i32 6, i32 3
+  %m_yStrideBytes = getelementptr inbounds i8, ptr %this, i64 160
   %2 = load i64, ptr %m_yStrideBytes, align 8
-  %m_yIndex = getelementptr inbounds %"class.OpenColorIO_v2_4dev::GenericScanlineHelper.35", ptr %this, i64 0, i32 12
+  %m_yIndex = getelementptr inbounds i8, ptr %this, i64 304
   %3 = load i32, ptr %m_yIndex, align 8
   %conv = sext i32 %3 to i64
   %mul = mul nsw i64 %2, %conv
   %add.ptr = getelementptr inbounds i8, ptr %1, i64 %mul
-  %m_useDstBuffer = getelementptr inbounds %"class.OpenColorIO_v2_4dev::GenericScanlineHelper.35", ptr %this, i64 0, i32 13
+  %m_useDstBuffer = getelementptr inbounds i8, ptr %this, i64 308
   %4 = load i8, ptr %m_useDstBuffer, align 4
   %5 = and i8 %4, 1
   %tobool.not = icmp eq i8 %5, 0
-  %m_rgbaFloatBuffer = getelementptr inbounds %"class.OpenColorIO_v2_4dev::GenericScanlineHelper.35", ptr %this, i64 0, i32 9
+  %m_rgbaFloatBuffer = getelementptr inbounds i8, ptr %this, i64 232
   %6 = load ptr, ptr %m_rgbaFloatBuffer, align 8
   %cond = select i1 %tobool.not, ptr %6, ptr %add.ptr
-  %m_bitDepthOp = getelementptr inbounds %"class.OpenColorIO_v2_4dev::GenericScanlineHelper.35", ptr %this, i64 0, i32 6, i32 8
+  %m_bitDepthOp = getelementptr inbounds i8, ptr %this, i64 200
   %7 = load ptr, ptr %m_bitDepthOp, align 8
   %8 = load i64, ptr %m_dstImg6, align 8
   %vtable = load ptr, ptr %7, align 8
-  %vfn = getelementptr inbounds ptr, ptr %vtable, i64 2
+  %vfn = getelementptr inbounds i8, ptr %vtable, i64 16
   %9 = load ptr, ptr %vfn, align 8
   tail call void %9(ptr noundef nonnull align 8 dereferenceable(8) %7, ptr noundef %cond, ptr noundef %add.ptr, i64 noundef %8)
   br label %if.end
 
 if.else:                                          ; preds = %entry
-  %m_rgbaFloatBuffer7 = getelementptr inbounds %"class.OpenColorIO_v2_4dev::GenericScanlineHelper.35", ptr %this, i64 0, i32 9
+  %m_rgbaFloatBuffer7 = getelementptr inbounds i8, ptr %this, i64 232
   %10 = load ptr, ptr %m_rgbaFloatBuffer7, align 8
-  %m_outBitDepthBuffer = getelementptr inbounds %"class.OpenColorIO_v2_4dev::GenericScanlineHelper.35", ptr %this, i64 0, i32 11
+  %m_outBitDepthBuffer = getelementptr inbounds i8, ptr %this, i64 280
   %11 = load ptr, ptr %m_outBitDepthBuffer, align 8
   %12 = load i64, ptr %m_dstImg6, align 8
   %conv12 = trunc i64 %12 to i32
-  %m_yIndex13 = getelementptr inbounds %"class.OpenColorIO_v2_4dev::GenericScanlineHelper.35", ptr %this, i64 0, i32 12
+  %m_yIndex13 = getelementptr inbounds i8, ptr %this, i64 304
   %13 = load i32, ptr %m_yIndex13, align 8
   %conv14 = sext i32 %13 to i64
   %mul17 = mul nsw i64 %12, %conv14
@@ -10651,7 +10613,7 @@ if.else:                                          ; preds = %entry
   br label %if.end
 
 if.end:                                           ; preds = %if.else, %if.then
-  %m_yIndex18 = getelementptr inbounds %"class.OpenColorIO_v2_4dev::GenericScanlineHelper.35", ptr %this, i64 0, i32 12
+  %m_yIndex18 = getelementptr inbounds i8, ptr %this, i64 304
   %14 = load i32, ptr %m_yIndex18, align 8
   %inc = add nsw i32 %14, 1
   store i32 %inc, ptr %m_yIndex18, align 8
@@ -10662,22 +10624,22 @@ if.end:                                           ; preds = %if.else, %if.then
 define weak_odr hidden void @_ZN19OpenColorIO_v2_4dev21GenericScanlineHelperIfhEC2ENS_8BitDepthERKSt10shared_ptrIKNS_5OpCPUEES2_S8_(ptr noundef nonnull align 8 dereferenceable(309) %this, i32 noundef %inputBitDepth, ptr noundef nonnull align 8 dereferenceable(16) %inBitDepthOp, i32 noundef %outputBitDepth, ptr noundef nonnull align 8 dereferenceable(16) %outBitDepthOp) unnamed_addr #3 comdat($_ZN19OpenColorIO_v2_4dev21GenericScanlineHelperIfhEC5ENS_8BitDepthERKSt10shared_ptrIKNS_5OpCPUEES2_S8_) align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTVN19OpenColorIO_v2_4dev21GenericScanlineHelperIfhEE, i64 0, inrange i32 0, i64 2), ptr %this, align 8
-  %m_inputBitDepth = getelementptr inbounds %"class.OpenColorIO_v2_4dev::GenericScanlineHelper.37", ptr %this, i64 0, i32 1
+  %m_inputBitDepth = getelementptr inbounds i8, ptr %this, i64 8
   store i32 %inputBitDepth, ptr %m_inputBitDepth, align 8
-  %m_outputBitDepth = getelementptr inbounds %"class.OpenColorIO_v2_4dev::GenericScanlineHelper.37", ptr %this, i64 0, i32 2
+  %m_outputBitDepth = getelementptr inbounds i8, ptr %this, i64 12
   store i32 %outputBitDepth, ptr %m_outputBitDepth, align 4
-  %m_inBitDepthOp = getelementptr inbounds %"class.OpenColorIO_v2_4dev::GenericScanlineHelper.37", ptr %this, i64 0, i32 3
+  %m_inBitDepthOp = getelementptr inbounds i8, ptr %this, i64 16
   %0 = load ptr, ptr %inBitDepthOp, align 8
   store ptr %0, ptr %m_inBitDepthOp, align 8
-  %_M_refcount.i.i = getelementptr inbounds %"class.OpenColorIO_v2_4dev::GenericScanlineHelper.37", ptr %this, i64 0, i32 3, i32 0, i32 1
-  %_M_refcount3.i.i = getelementptr inbounds %"class.std::__shared_ptr", ptr %inBitDepthOp, i64 0, i32 1
+  %_M_refcount.i.i = getelementptr inbounds i8, ptr %this, i64 24
+  %_M_refcount3.i.i = getelementptr inbounds i8, ptr %inBitDepthOp, i64 8
   %1 = load ptr, ptr %_M_refcount3.i.i, align 8
   store ptr %1, ptr %_M_refcount.i.i, align 8
   %cmp.not.i.i.i = icmp eq ptr %1, null
   br i1 %cmp.not.i.i.i, label %_ZNSt10shared_ptrIKN19OpenColorIO_v2_4dev5OpCPUEEC2ERKS3_.exit, label %if.then.i.i.i
 
 if.then.i.i.i:                                    ; preds = %entry
-  %_M_use_count.i.i.i.i = getelementptr inbounds %"class.std::_Sp_counted_base", ptr %1, i64 0, i32 1
+  %_M_use_count.i.i.i.i = getelementptr inbounds i8, ptr %1, i64 8
   %2 = load i8, ptr @__libc_single_threaded, align 1
   %tobool.i.not.i.i.i.i = icmp eq i8 %2, 0
   br i1 %tobool.i.not.i.i.i.i, label %if.else.i.i.i.i.i, label %if.then.i.i.i.i.i
@@ -10693,18 +10655,18 @@ if.else.i.i.i.i.i:                                ; preds = %if.then.i.i.i
   br label %_ZNSt10shared_ptrIKN19OpenColorIO_v2_4dev5OpCPUEEC2ERKS3_.exit
 
 _ZNSt10shared_ptrIKN19OpenColorIO_v2_4dev5OpCPUEEC2ERKS3_.exit: ; preds = %entry, %if.then.i.i.i.i.i, %if.else.i.i.i.i.i
-  %m_outBitDepthOp = getelementptr inbounds %"class.OpenColorIO_v2_4dev::GenericScanlineHelper.37", ptr %this, i64 0, i32 4
+  %m_outBitDepthOp = getelementptr inbounds i8, ptr %this, i64 32
   %5 = load ptr, ptr %outBitDepthOp, align 8
   store ptr %5, ptr %m_outBitDepthOp, align 8
-  %_M_refcount.i.i1 = getelementptr inbounds %"class.OpenColorIO_v2_4dev::GenericScanlineHelper.37", ptr %this, i64 0, i32 4, i32 0, i32 1
-  %_M_refcount3.i.i2 = getelementptr inbounds %"class.std::__shared_ptr", ptr %outBitDepthOp, i64 0, i32 1
+  %_M_refcount.i.i1 = getelementptr inbounds i8, ptr %this, i64 40
+  %_M_refcount3.i.i2 = getelementptr inbounds i8, ptr %outBitDepthOp, i64 8
   %6 = load ptr, ptr %_M_refcount3.i.i2, align 8
   store ptr %6, ptr %_M_refcount.i.i1, align 8
   %cmp.not.i.i.i3 = icmp eq ptr %6, null
   br i1 %cmp.not.i.i.i3, label %_ZNSt10shared_ptrIKN19OpenColorIO_v2_4dev5OpCPUEEC2ERKS3_.exit10, label %if.then.i.i.i4
 
 if.then.i.i.i4:                                   ; preds = %_ZNSt10shared_ptrIKN19OpenColorIO_v2_4dev5OpCPUEEC2ERKS3_.exit
-  %_M_use_count.i.i.i.i5 = getelementptr inbounds %"class.std::_Sp_counted_base", ptr %6, i64 0, i32 1
+  %_M_use_count.i.i.i.i5 = getelementptr inbounds i8, ptr %6, i64 8
   %7 = load i8, ptr @__libc_single_threaded, align 1
   %tobool.i.not.i.i.i.i6 = icmp eq i8 %7, 0
   br i1 %tobool.i.not.i.i.i.i6, label %if.else.i.i.i.i.i9, label %if.then.i.i.i.i.i7
@@ -10720,11 +10682,11 @@ if.else.i.i.i.i.i9:                               ; preds = %if.then.i.i.i4
   br label %_ZNSt10shared_ptrIKN19OpenColorIO_v2_4dev5OpCPUEEC2ERKS3_.exit10
 
 _ZNSt10shared_ptrIKN19OpenColorIO_v2_4dev5OpCPUEEC2ERKS3_.exit10: ; preds = %_ZNSt10shared_ptrIKN19OpenColorIO_v2_4dev5OpCPUEEC2ERKS3_.exit, %if.then.i.i.i.i.i7, %if.else.i.i.i.i.i9
-  %m_srcImg = getelementptr inbounds %"class.OpenColorIO_v2_4dev::GenericScanlineHelper.37", ptr %this, i64 0, i32 5
+  %m_srcImg = getelementptr inbounds i8, ptr %this, i64 48
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(82) %m_srcImg, i8 0, i64 82, i1 false)
-  %m_dstImg = getelementptr inbounds %"class.OpenColorIO_v2_4dev::GenericScanlineHelper.37", ptr %this, i64 0, i32 6
+  %m_dstImg = getelementptr inbounds i8, ptr %this, i64 136
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(82) %m_dstImg, i8 0, i64 82, i1 false)
-  %m_inOptimizedMode = getelementptr inbounds %"class.OpenColorIO_v2_4dev::GenericScanlineHelper.37", ptr %this, i64 0, i32 7
+  %m_inOptimizedMode = getelementptr inbounds i8, ptr %this, i64 224
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(85) %m_inOptimizedMode, i8 0, i64 85, i1 false)
   ret void
 }
@@ -10732,17 +10694,17 @@ _ZNSt10shared_ptrIKN19OpenColorIO_v2_4dev5OpCPUEEC2ERKS3_.exit10: ; preds = %_ZN
 ; Function Attrs: mustprogress uwtable
 define weak_odr hidden void @_ZN19OpenColorIO_v2_4dev21GenericScanlineHelperIfhE4initERKNS_9ImageDescES4_(ptr noundef nonnull align 8 dereferenceable(309) %this, ptr noundef nonnull align 8 dereferenceable(8) %srcImg, ptr noundef nonnull align 8 dereferenceable(8) %dstImg) unnamed_addr #5 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  %m_yIndex = getelementptr inbounds %"class.OpenColorIO_v2_4dev::GenericScanlineHelper.37", ptr %this, i64 0, i32 12
+  %m_yIndex = getelementptr inbounds i8, ptr %this, i64 304
   store i32 0, ptr %m_yIndex, align 8
-  %m_srcImg = getelementptr inbounds %"class.OpenColorIO_v2_4dev::GenericScanlineHelper.37", ptr %this, i64 0, i32 5
-  %m_inputBitDepth = getelementptr inbounds %"class.OpenColorIO_v2_4dev::GenericScanlineHelper.37", ptr %this, i64 0, i32 1
+  %m_srcImg = getelementptr inbounds i8, ptr %this, i64 48
+  %m_inputBitDepth = getelementptr inbounds i8, ptr %this, i64 8
   %0 = load i32, ptr %m_inputBitDepth, align 8
-  %m_inBitDepthOp = getelementptr inbounds %"class.OpenColorIO_v2_4dev::GenericScanlineHelper.37", ptr %this, i64 0, i32 3
+  %m_inBitDepthOp = getelementptr inbounds i8, ptr %this, i64 16
   tail call void @_ZN19OpenColorIO_v2_4dev16GenericImageDesc4initERKNS_9ImageDescENS_8BitDepthERKSt10shared_ptrIKNS_5OpCPUEE(ptr noundef nonnull align 8 dereferenceable(82) %m_srcImg, ptr noundef nonnull align 8 dereferenceable(8) %srcImg, i32 noundef %0, ptr noundef nonnull align 8 dereferenceable(16) %m_inBitDepthOp)
-  %m_dstImg = getelementptr inbounds %"class.OpenColorIO_v2_4dev::GenericScanlineHelper.37", ptr %this, i64 0, i32 6
-  %m_outputBitDepth = getelementptr inbounds %"class.OpenColorIO_v2_4dev::GenericScanlineHelper.37", ptr %this, i64 0, i32 2
+  %m_dstImg = getelementptr inbounds i8, ptr %this, i64 136
+  %m_outputBitDepth = getelementptr inbounds i8, ptr %this, i64 12
   %1 = load i32, ptr %m_outputBitDepth, align 4
-  %m_outBitDepthOp = getelementptr inbounds %"class.OpenColorIO_v2_4dev::GenericScanlineHelper.37", ptr %this, i64 0, i32 4
+  %m_outBitDepthOp = getelementptr inbounds i8, ptr %this, i64 32
   tail call void @_ZN19OpenColorIO_v2_4dev16GenericImageDesc4initERKNS_9ImageDescENS_8BitDepthERKSt10shared_ptrIKNS_5OpCPUEE(ptr noundef nonnull align 8 dereferenceable(82) %m_dstImg, ptr noundef nonnull align 8 dereferenceable(8) %dstImg, i32 noundef %1, ptr noundef nonnull align 8 dereferenceable(16) %m_outBitDepthOp)
   %2 = load i64, ptr %m_srcImg, align 8
   %3 = load i64, ptr %m_dstImg, align 8
@@ -10750,9 +10712,9 @@ entry:
   br i1 %cmp.not, label %lor.lhs.false, label %if.then
 
 lor.lhs.false:                                    ; preds = %entry
-  %m_height = getelementptr inbounds %"class.OpenColorIO_v2_4dev::GenericScanlineHelper.37", ptr %this, i64 0, i32 5, i32 1
+  %m_height = getelementptr inbounds i8, ptr %this, i64 56
   %4 = load i64, ptr %m_height, align 8
-  %m_height7 = getelementptr inbounds %"class.OpenColorIO_v2_4dev::GenericScanlineHelper.37", ptr %this, i64 0, i32 6, i32 1
+  %m_height7 = getelementptr inbounds i8, ptr %this, i64 144
   %5 = load i64, ptr %m_height7, align 8
   %cmp8.not = icmp eq i64 %4, %5
   br i1 %cmp8.not, label %if.end, label %if.then
@@ -10783,7 +10745,7 @@ if.then.i:                                        ; preds = %if.end
 
 _ZN19OpenColorIO_v2_4dev19GetOptimizationModeERKNS_16GenericImageDescE.exit: ; preds = %if.end, %if.then.i
   %optim.0.i = phi i32 [ 0, %if.end ], [ %spec.select.i, %if.then.i ]
-  %m_inOptimizedMode = getelementptr inbounds %"class.OpenColorIO_v2_4dev::GenericScanlineHelper.37", ptr %this, i64 0, i32 7
+  %m_inOptimizedMode = getelementptr inbounds i8, ptr %this, i64 224
   store i32 %optim.0.i, ptr %m_inOptimizedMode, align 8
   %call.i2 = tail call noundef zeroext i1 @_ZNK19OpenColorIO_v2_4dev16GenericImageDesc12isRGBAPackedEv(ptr noundef nonnull align 8 dereferenceable(82) %m_dstImg)
   br i1 %call.i2, label %if.then.i4, label %_ZN19OpenColorIO_v2_4dev19GetOptimizationModeERKNS_16GenericImageDescE.exit7
@@ -10795,10 +10757,10 @@ if.then.i4:                                       ; preds = %_ZN19OpenColorIO_v2
 
 _ZN19OpenColorIO_v2_4dev19GetOptimizationModeERKNS_16GenericImageDescE.exit7: ; preds = %_ZN19OpenColorIO_v2_4dev19GetOptimizationModeERKNS_16GenericImageDescE.exit, %if.then.i4
   %optim.0.i3 = phi i32 [ 0, %_ZN19OpenColorIO_v2_4dev19GetOptimizationModeERKNS_16GenericImageDescE.exit ], [ %spec.select.i6, %if.then.i4 ]
-  %m_outOptimizedMode = getelementptr inbounds %"class.OpenColorIO_v2_4dev::GenericScanlineHelper.37", ptr %this, i64 0, i32 8
+  %m_outOptimizedMode = getelementptr inbounds i8, ptr %this, i64 228
   store i32 %optim.0.i3, ptr %m_outOptimizedMode, align 4
   %cmp13 = icmp eq i32 %optim.0.i3, 3
-  %m_useDstBuffer = getelementptr inbounds %"class.OpenColorIO_v2_4dev::GenericScanlineHelper.37", ptr %this, i64 0, i32 13
+  %m_useDstBuffer = getelementptr inbounds i8, ptr %this, i64 308
   %frombool = zext i1 %cmp13 to i8
   store i8 %frombool, ptr %m_useDstBuffer, align 4
   %7 = load i32, ptr %m_inOptimizedMode, align 8
@@ -10809,8 +10771,8 @@ _ZN19OpenColorIO_v2_4dev19GetOptimizationModeERKNS_16GenericImageDescE.exit7: ; 
 if.then17:                                        ; preds = %_ZN19OpenColorIO_v2_4dev19GetOptimizationModeERKNS_16GenericImageDescE.exit7
   %8 = load i64, ptr %m_dstImg, align 8
   %mul = shl nsw i64 %8, 2
-  %m_inBitDepthBuffer = getelementptr inbounds %"class.OpenColorIO_v2_4dev::GenericScanlineHelper.37", ptr %this, i64 0, i32 10
-  %_M_finish.i.i = getelementptr inbounds %"class.OpenColorIO_v2_4dev::GenericScanlineHelper.37", ptr %this, i64 0, i32 10, i32 0, i32 0, i32 0, i32 1
+  %m_inBitDepthBuffer = getelementptr inbounds i8, ptr %this, i64 256
+  %_M_finish.i.i = getelementptr inbounds i8, ptr %this, i64 264
   %9 = load ptr, ptr %_M_finish.i.i, align 8
   %10 = load ptr, ptr %m_inBitDepthBuffer, align 8
   %sub.ptr.lhs.cast.i.i = ptrtoint ptr %9 to i64
@@ -10848,8 +10810,8 @@ if.end20:                                         ; preds = %invoke.cont.i.i, %i
 if.then22:                                        ; preds = %if.end20
   %13 = load i64, ptr %m_dstImg, align 8
   %mul26 = shl nsw i64 %13, 2
-  %m_rgbaFloatBuffer = getelementptr inbounds %"class.OpenColorIO_v2_4dev::GenericScanlineHelper.37", ptr %this, i64 0, i32 9
-  %_M_finish.i.i9 = getelementptr inbounds %"class.OpenColorIO_v2_4dev::GenericScanlineHelper.37", ptr %this, i64 0, i32 9, i32 0, i32 0, i32 0, i32 1
+  %m_rgbaFloatBuffer = getelementptr inbounds i8, ptr %this, i64 232
+  %_M_finish.i.i9 = getelementptr inbounds i8, ptr %this, i64 240
   %14 = load ptr, ptr %_M_finish.i.i9, align 8
   %15 = load ptr, ptr %m_rgbaFloatBuffer, align 8
   %sub.ptr.lhs.cast.i.i10 = ptrtoint ptr %14 to i64
@@ -10878,7 +10840,7 @@ invoke.cont.i.i20:                                ; preds = %if.then5.i17
   br label %_ZNSt6vectorIfSaIfEE6resizeEm.exit23
 
 _ZNSt6vectorIfSaIfEE6resizeEm.exit23:             ; preds = %if.then.i21, %if.else.i15, %if.then5.i17, %invoke.cont.i.i20
-  %m_outBitDepthBuffer = getelementptr inbounds %"class.OpenColorIO_v2_4dev::GenericScanlineHelper.37", ptr %this, i64 0, i32 11
+  %m_outBitDepthBuffer = getelementptr inbounds i8, ptr %this, i64 280
   tail call void @_ZNSt6vectorIhSaIhEE6resizeEm(ptr noundef nonnull align 8 dereferenceable(24) %m_outBitDepthBuffer, i64 noundef %mul26)
   br label %if.end27
 
@@ -10889,17 +10851,17 @@ if.end27:                                         ; preds = %_ZNSt6vectorIfSaIfE
 ; Function Attrs: mustprogress uwtable
 define weak_odr hidden void @_ZN19OpenColorIO_v2_4dev21GenericScanlineHelperIfhE4initERKNS_9ImageDescE(ptr noundef nonnull align 8 dereferenceable(309) %this, ptr noundef nonnull align 8 dereferenceable(8) %img) unnamed_addr #5 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  %m_yIndex = getelementptr inbounds %"class.OpenColorIO_v2_4dev::GenericScanlineHelper.37", ptr %this, i64 0, i32 12
+  %m_yIndex = getelementptr inbounds i8, ptr %this, i64 304
   store i32 0, ptr %m_yIndex, align 8
-  %m_srcImg = getelementptr inbounds %"class.OpenColorIO_v2_4dev::GenericScanlineHelper.37", ptr %this, i64 0, i32 5
-  %m_inputBitDepth = getelementptr inbounds %"class.OpenColorIO_v2_4dev::GenericScanlineHelper.37", ptr %this, i64 0, i32 1
+  %m_srcImg = getelementptr inbounds i8, ptr %this, i64 48
+  %m_inputBitDepth = getelementptr inbounds i8, ptr %this, i64 8
   %0 = load i32, ptr %m_inputBitDepth, align 8
-  %m_inBitDepthOp = getelementptr inbounds %"class.OpenColorIO_v2_4dev::GenericScanlineHelper.37", ptr %this, i64 0, i32 3
+  %m_inBitDepthOp = getelementptr inbounds i8, ptr %this, i64 16
   tail call void @_ZN19OpenColorIO_v2_4dev16GenericImageDesc4initERKNS_9ImageDescENS_8BitDepthERKSt10shared_ptrIKNS_5OpCPUEE(ptr noundef nonnull align 8 dereferenceable(82) %m_srcImg, ptr noundef nonnull align 8 dereferenceable(8) %img, i32 noundef %0, ptr noundef nonnull align 8 dereferenceable(16) %m_inBitDepthOp)
-  %m_dstImg = getelementptr inbounds %"class.OpenColorIO_v2_4dev::GenericScanlineHelper.37", ptr %this, i64 0, i32 6
-  %m_outputBitDepth = getelementptr inbounds %"class.OpenColorIO_v2_4dev::GenericScanlineHelper.37", ptr %this, i64 0, i32 2
+  %m_dstImg = getelementptr inbounds i8, ptr %this, i64 136
+  %m_outputBitDepth = getelementptr inbounds i8, ptr %this, i64 12
   %1 = load i32, ptr %m_outputBitDepth, align 4
-  %m_outBitDepthOp = getelementptr inbounds %"class.OpenColorIO_v2_4dev::GenericScanlineHelper.37", ptr %this, i64 0, i32 4
+  %m_outBitDepthOp = getelementptr inbounds i8, ptr %this, i64 32
   tail call void @_ZN19OpenColorIO_v2_4dev16GenericImageDesc4initERKNS_9ImageDescENS_8BitDepthERKSt10shared_ptrIKNS_5OpCPUEE(ptr noundef nonnull align 8 dereferenceable(82) %m_dstImg, ptr noundef nonnull align 8 dereferenceable(8) %img, i32 noundef %1, ptr noundef nonnull align 8 dereferenceable(16) %m_outBitDepthOp)
   %call.i = tail call noundef zeroext i1 @_ZNK19OpenColorIO_v2_4dev16GenericImageDesc12isRGBAPackedEv(ptr noundef nonnull align 8 dereferenceable(82) %m_srcImg)
   br i1 %call.i, label %if.then.i, label %if.then
@@ -10909,26 +10871,26 @@ if.then.i:                                        ; preds = %entry
   br i1 %call1.i, label %_ZN19OpenColorIO_v2_4dev19GetOptimizationModeERKNS_16GenericImageDescE.exit, label %if.then
 
 _ZN19OpenColorIO_v2_4dev19GetOptimizationModeERKNS_16GenericImageDescE.exit: ; preds = %if.then.i
-  %m_inOptimizedMode = getelementptr inbounds %"class.OpenColorIO_v2_4dev::GenericScanlineHelper.37", ptr %this, i64 0, i32 7
+  %m_inOptimizedMode = getelementptr inbounds i8, ptr %this, i64 224
   store i32 3, ptr %m_inOptimizedMode, align 8
-  %m_outOptimizedMode = getelementptr inbounds %"class.OpenColorIO_v2_4dev::GenericScanlineHelper.37", ptr %this, i64 0, i32 8
+  %m_outOptimizedMode = getelementptr inbounds i8, ptr %this, i64 228
   store i32 3, ptr %m_outOptimizedMode, align 4
-  %m_useDstBuffer = getelementptr inbounds %"class.OpenColorIO_v2_4dev::GenericScanlineHelper.37", ptr %this, i64 0, i32 13
+  %m_useDstBuffer = getelementptr inbounds i8, ptr %this, i64 308
   store i8 1, ptr %m_useDstBuffer, align 4
   br label %if.end
 
 if.then:                                          ; preds = %entry, %if.then.i
   %optim.0.i.ph = phi i32 [ 1, %if.then.i ], [ 0, %entry ]
-  %m_inOptimizedMode21 = getelementptr inbounds %"class.OpenColorIO_v2_4dev::GenericScanlineHelper.37", ptr %this, i64 0, i32 7
+  %m_inOptimizedMode21 = getelementptr inbounds i8, ptr %this, i64 224
   store i32 %optim.0.i.ph, ptr %m_inOptimizedMode21, align 8
-  %m_outOptimizedMode22 = getelementptr inbounds %"class.OpenColorIO_v2_4dev::GenericScanlineHelper.37", ptr %this, i64 0, i32 8
+  %m_outOptimizedMode22 = getelementptr inbounds i8, ptr %this, i64 228
   store i32 %optim.0.i.ph, ptr %m_outOptimizedMode22, align 4
-  %m_useDstBuffer24 = getelementptr inbounds %"class.OpenColorIO_v2_4dev::GenericScanlineHelper.37", ptr %this, i64 0, i32 13
+  %m_useDstBuffer24 = getelementptr inbounds i8, ptr %this, i64 308
   store i8 0, ptr %m_useDstBuffer24, align 4
   %2 = load i64, ptr %m_dstImg, align 8
   %mul = shl nsw i64 %2, 2
-  %m_rgbaFloatBuffer = getelementptr inbounds %"class.OpenColorIO_v2_4dev::GenericScanlineHelper.37", ptr %this, i64 0, i32 9
-  %_M_finish.i.i = getelementptr inbounds %"class.OpenColorIO_v2_4dev::GenericScanlineHelper.37", ptr %this, i64 0, i32 9, i32 0, i32 0, i32 0, i32 1
+  %m_rgbaFloatBuffer = getelementptr inbounds i8, ptr %this, i64 232
+  %_M_finish.i.i = getelementptr inbounds i8, ptr %this, i64 240
   %3 = load ptr, ptr %_M_finish.i.i, align 8
   %4 = load ptr, ptr %m_rgbaFloatBuffer, align 8
   %sub.ptr.lhs.cast.i.i = ptrtoint ptr %3 to i64
@@ -10957,8 +10919,8 @@ invoke.cont.i.i:                                  ; preds = %if.then5.i
   br label %_ZNSt6vectorIfSaIfEE6resizeEm.exit
 
 _ZNSt6vectorIfSaIfEE6resizeEm.exit:               ; preds = %if.then.i4, %if.else.i, %if.then5.i, %invoke.cont.i.i
-  %m_inBitDepthBuffer = getelementptr inbounds %"class.OpenColorIO_v2_4dev::GenericScanlineHelper.37", ptr %this, i64 0, i32 10
-  %_M_finish.i.i5 = getelementptr inbounds %"class.OpenColorIO_v2_4dev::GenericScanlineHelper.37", ptr %this, i64 0, i32 10, i32 0, i32 0, i32 0, i32 1
+  %m_inBitDepthBuffer = getelementptr inbounds i8, ptr %this, i64 256
+  %_M_finish.i.i5 = getelementptr inbounds i8, ptr %this, i64 264
   %5 = load ptr, ptr %_M_finish.i.i5, align 8
   %6 = load ptr, ptr %m_inBitDepthBuffer, align 8
   %sub.ptr.lhs.cast.i.i6 = ptrtoint ptr %5 to i64
@@ -10987,7 +10949,7 @@ invoke.cont.i.i16:                                ; preds = %if.then5.i13
   br label %_ZNSt6vectorIfSaIfEE6resizeEm.exit19
 
 _ZNSt6vectorIfSaIfEE6resizeEm.exit19:             ; preds = %if.then.i17, %if.else.i11, %if.then5.i13, %invoke.cont.i.i16
-  %m_outBitDepthBuffer = getelementptr inbounds %"class.OpenColorIO_v2_4dev::GenericScanlineHelper.37", ptr %this, i64 0, i32 11
+  %m_outBitDepthBuffer = getelementptr inbounds i8, ptr %this, i64 280
   tail call void @_ZNSt6vectorIhSaIhEE6resizeEm(ptr noundef nonnull align 8 dereferenceable(24) %m_outBitDepthBuffer, i64 noundef %mul)
   br label %if.end
 
@@ -10999,7 +10961,7 @@ if.end:                                           ; preds = %_ZN19OpenColorIO_v2
 define weak_odr hidden void @_ZN19OpenColorIO_v2_4dev21GenericScanlineHelperIfhED2Ev(ptr noundef nonnull align 8 dereferenceable(309) %this) unnamed_addr #3 comdat($_ZN19OpenColorIO_v2_4dev21GenericScanlineHelperIfhED5Ev) align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTVN19OpenColorIO_v2_4dev21GenericScanlineHelperIfhEE, i64 0, inrange i32 0, i64 2), ptr %this, align 8
-  %m_outBitDepthBuffer = getelementptr inbounds %"class.OpenColorIO_v2_4dev::GenericScanlineHelper.37", ptr %this, i64 0, i32 11
+  %m_outBitDepthBuffer = getelementptr inbounds i8, ptr %this, i64 280
   %0 = load ptr, ptr %m_outBitDepthBuffer, align 8
   %tobool.not.i.i.i = icmp eq ptr %0, null
   br i1 %tobool.not.i.i.i, label %_ZNSt6vectorIhSaIhEED2Ev.exit, label %if.then.i.i.i
@@ -11009,7 +10971,7 @@ if.then.i.i.i:                                    ; preds = %entry
   br label %_ZNSt6vectorIhSaIhEED2Ev.exit
 
 _ZNSt6vectorIhSaIhEED2Ev.exit:                    ; preds = %entry, %if.then.i.i.i
-  %m_inBitDepthBuffer = getelementptr inbounds %"class.OpenColorIO_v2_4dev::GenericScanlineHelper.37", ptr %this, i64 0, i32 10
+  %m_inBitDepthBuffer = getelementptr inbounds i8, ptr %this, i64 256
   %1 = load ptr, ptr %m_inBitDepthBuffer, align 8
   %tobool.not.i.i.i1 = icmp eq ptr %1, null
   br i1 %tobool.not.i.i.i1, label %_ZNSt6vectorIfSaIfEED2Ev.exit, label %if.then.i.i.i2
@@ -11019,7 +10981,7 @@ if.then.i.i.i2:                                   ; preds = %_ZNSt6vectorIhSaIhE
   br label %_ZNSt6vectorIfSaIfEED2Ev.exit
 
 _ZNSt6vectorIfSaIfEED2Ev.exit:                    ; preds = %_ZNSt6vectorIhSaIhEED2Ev.exit, %if.then.i.i.i2
-  %m_rgbaFloatBuffer = getelementptr inbounds %"class.OpenColorIO_v2_4dev::GenericScanlineHelper.37", ptr %this, i64 0, i32 9
+  %m_rgbaFloatBuffer = getelementptr inbounds i8, ptr %this, i64 232
   %2 = load ptr, ptr %m_rgbaFloatBuffer, align 8
   %tobool.not.i.i.i3 = icmp eq ptr %2, null
   br i1 %tobool.not.i.i.i3, label %_ZNSt6vectorIfSaIfEED2Ev.exit5, label %if.then.i.i.i4
@@ -11029,13 +10991,13 @@ if.then.i.i.i4:                                   ; preds = %_ZNSt6vectorIfSaIfE
   br label %_ZNSt6vectorIfSaIfEED2Ev.exit5
 
 _ZNSt6vectorIfSaIfEED2Ev.exit5:                   ; preds = %_ZNSt6vectorIfSaIfEED2Ev.exit, %if.then.i.i.i4
-  %_M_refcount.i.i.i = getelementptr inbounds %"class.OpenColorIO_v2_4dev::GenericScanlineHelper.37", ptr %this, i64 0, i32 6, i32 8, i32 0, i32 1
+  %_M_refcount.i.i.i = getelementptr inbounds i8, ptr %this, i64 208
   %3 = load ptr, ptr %_M_refcount.i.i.i, align 8
   %cmp.not.i.i.i.i = icmp eq ptr %3, null
   br i1 %cmp.not.i.i.i.i, label %_ZN19OpenColorIO_v2_4dev16GenericImageDescD2Ev.exit, label %if.then.i.i.i.i
 
 if.then.i.i.i.i:                                  ; preds = %_ZNSt6vectorIfSaIfEED2Ev.exit5
-  %_M_use_count.i.i.i.i.i = getelementptr inbounds %"class.std::_Sp_counted_base", ptr %3, i64 0, i32 1
+  %_M_use_count.i.i.i.i.i = getelementptr inbounds i8, ptr %3, i64 8
   %4 = load atomic i64, ptr %_M_use_count.i.i.i.i.i acquire, align 8
   %cmp.i.i.i.i.i = icmp eq i64 %4, 4294967297
   %5 = trunc i64 %4 to i32
@@ -11043,10 +11005,10 @@ if.then.i.i.i.i:                                  ; preds = %_ZNSt6vectorIfSaIfE
 
 if.then.i.i.i.i.i:                                ; preds = %if.then.i.i.i.i
   store i32 0, ptr %_M_use_count.i.i.i.i.i, align 8
-  %_M_weak_count.i.i.i.i.i = getelementptr inbounds %"class.std::_Sp_counted_base", ptr %3, i64 0, i32 2
+  %_M_weak_count.i.i.i.i.i = getelementptr inbounds i8, ptr %3, i64 12
   store i32 0, ptr %_M_weak_count.i.i.i.i.i, align 4
   %vtable.i.i.i.i.i = load ptr, ptr %3, align 8
-  %vfn.i.i.i.i.i = getelementptr inbounds ptr, ptr %vtable.i.i.i.i.i, i64 2
+  %vfn.i.i.i.i.i = getelementptr inbounds i8, ptr %vtable.i.i.i.i.i, i64 16
   %6 = load ptr, ptr %vfn.i.i.i.i.i, align 8
   tail call void %6(ptr noundef nonnull align 8 dereferenceable(16) %3) #13
   br label %if.end8.sink.split.i.i.i.i.i
@@ -11072,10 +11034,10 @@ _ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i: ; preds = %if.els
 
 if.then7.i.i.i.i.i:                               ; preds = %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i
   %vtable.i.i.i.i.i.i.i = load ptr, ptr %3, align 8
-  %vfn.i.i.i.i.i.i.i = getelementptr inbounds ptr, ptr %vtable.i.i.i.i.i.i.i, i64 2
+  %vfn.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %vtable.i.i.i.i.i.i.i, i64 16
   %9 = load ptr, ptr %vfn.i.i.i.i.i.i.i, align 8
   tail call void %9(ptr noundef nonnull align 8 dereferenceable(16) %3) #13
-  %_M_weak_count.i.i.i.i.i.i.i = getelementptr inbounds %"class.std::_Sp_counted_base", ptr %3, i64 0, i32 2
+  %_M_weak_count.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %3, i64 12
   %10 = load i8, ptr @__libc_single_threaded, align 1
   %tobool.i.i.not.i.i.i.i.i.i.i = icmp eq i8 %10, 0
   br i1 %tobool.i.i.not.i.i.i.i.i.i.i, label %if.else.i.i.i.i.i.i.i.i, label %if.then.i.i.i.i.i.i.i.i
@@ -11097,19 +11059,19 @@ _ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i.i: ; preds = %if
 
 if.end8.sink.split.i.i.i.i.i:                     ; preds = %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i.i, %if.then.i.i.i.i.i
   %vtable2.i.i.i.i.i.i.i = load ptr, ptr %3, align 8
-  %vfn3.i.i.i.i.i.i.i = getelementptr inbounds ptr, ptr %vtable2.i.i.i.i.i.i.i, i64 3
+  %vfn3.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %vtable2.i.i.i.i.i.i.i, i64 24
   %13 = load ptr, ptr %vfn3.i.i.i.i.i.i.i, align 8
   tail call void %13(ptr noundef nonnull align 8 dereferenceable(16) %3) #13
   br label %_ZN19OpenColorIO_v2_4dev16GenericImageDescD2Ev.exit
 
 _ZN19OpenColorIO_v2_4dev16GenericImageDescD2Ev.exit: ; preds = %_ZNSt6vectorIfSaIfEED2Ev.exit5, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i.i, %if.end8.sink.split.i.i.i.i.i
-  %_M_refcount.i.i.i6 = getelementptr inbounds %"class.OpenColorIO_v2_4dev::GenericScanlineHelper.37", ptr %this, i64 0, i32 5, i32 8, i32 0, i32 1
+  %_M_refcount.i.i.i6 = getelementptr inbounds i8, ptr %this, i64 120
   %14 = load ptr, ptr %_M_refcount.i.i.i6, align 8
   %cmp.not.i.i.i.i7 = icmp eq ptr %14, null
   br i1 %cmp.not.i.i.i.i7, label %_ZN19OpenColorIO_v2_4dev16GenericImageDescD2Ev.exit37, label %if.then.i.i.i.i8
 
 if.then.i.i.i.i8:                                 ; preds = %_ZN19OpenColorIO_v2_4dev16GenericImageDescD2Ev.exit
-  %_M_use_count.i.i.i.i.i9 = getelementptr inbounds %"class.std::_Sp_counted_base", ptr %14, i64 0, i32 1
+  %_M_use_count.i.i.i.i.i9 = getelementptr inbounds i8, ptr %14, i64 8
   %15 = load atomic i64, ptr %_M_use_count.i.i.i.i.i9 acquire, align 8
   %cmp.i.i.i.i.i10 = icmp eq i64 %15, 4294967297
   %16 = trunc i64 %15 to i32
@@ -11117,10 +11079,10 @@ if.then.i.i.i.i8:                                 ; preds = %_ZN19OpenColorIO_v2
 
 if.then.i.i.i.i.i33:                              ; preds = %if.then.i.i.i.i8
   store i32 0, ptr %_M_use_count.i.i.i.i.i9, align 8
-  %_M_weak_count.i.i.i.i.i34 = getelementptr inbounds %"class.std::_Sp_counted_base", ptr %14, i64 0, i32 2
+  %_M_weak_count.i.i.i.i.i34 = getelementptr inbounds i8, ptr %14, i64 12
   store i32 0, ptr %_M_weak_count.i.i.i.i.i34, align 4
   %vtable.i.i.i.i.i35 = load ptr, ptr %14, align 8
-  %vfn.i.i.i.i.i36 = getelementptr inbounds ptr, ptr %vtable.i.i.i.i.i35, i64 2
+  %vfn.i.i.i.i.i36 = getelementptr inbounds i8, ptr %vtable.i.i.i.i.i35, i64 16
   %17 = load ptr, ptr %vfn.i.i.i.i.i36, align 8
   tail call void %17(ptr noundef nonnull align 8 dereferenceable(16) %14) #13
   br label %if.end8.sink.split.i.i.i.i.i28
@@ -11146,10 +11108,10 @@ _ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i15: ; preds = %if.e
 
 if.then7.i.i.i.i.i18:                             ; preds = %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i15
   %vtable.i.i.i.i.i.i.i19 = load ptr, ptr %14, align 8
-  %vfn.i.i.i.i.i.i.i20 = getelementptr inbounds ptr, ptr %vtable.i.i.i.i.i.i.i19, i64 2
+  %vfn.i.i.i.i.i.i.i20 = getelementptr inbounds i8, ptr %vtable.i.i.i.i.i.i.i19, i64 16
   %20 = load ptr, ptr %vfn.i.i.i.i.i.i.i20, align 8
   tail call void %20(ptr noundef nonnull align 8 dereferenceable(16) %14) #13
-  %_M_weak_count.i.i.i.i.i.i.i21 = getelementptr inbounds %"class.std::_Sp_counted_base", ptr %14, i64 0, i32 2
+  %_M_weak_count.i.i.i.i.i.i.i21 = getelementptr inbounds i8, ptr %14, i64 12
   %21 = load i8, ptr @__libc_single_threaded, align 1
   %tobool.i.i.not.i.i.i.i.i.i.i22 = icmp eq i8 %21, 0
   br i1 %tobool.i.i.not.i.i.i.i.i.i.i22, label %if.else.i.i.i.i.i.i.i.i31, label %if.then.i.i.i.i.i.i.i.i23
@@ -11171,19 +11133,19 @@ _ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i.i25: ; preds = %
 
 if.end8.sink.split.i.i.i.i.i28:                   ; preds = %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i.i25, %if.then.i.i.i.i.i33
   %vtable2.i.i.i.i.i.i.i29 = load ptr, ptr %14, align 8
-  %vfn3.i.i.i.i.i.i.i30 = getelementptr inbounds ptr, ptr %vtable2.i.i.i.i.i.i.i29, i64 3
+  %vfn3.i.i.i.i.i.i.i30 = getelementptr inbounds i8, ptr %vtable2.i.i.i.i.i.i.i29, i64 24
   %24 = load ptr, ptr %vfn3.i.i.i.i.i.i.i30, align 8
   tail call void %24(ptr noundef nonnull align 8 dereferenceable(16) %14) #13
   br label %_ZN19OpenColorIO_v2_4dev16GenericImageDescD2Ev.exit37
 
 _ZN19OpenColorIO_v2_4dev16GenericImageDescD2Ev.exit37: ; preds = %_ZN19OpenColorIO_v2_4dev16GenericImageDescD2Ev.exit, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i15, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i.i25, %if.end8.sink.split.i.i.i.i.i28
-  %_M_refcount.i.i = getelementptr inbounds %"class.OpenColorIO_v2_4dev::GenericScanlineHelper.37", ptr %this, i64 0, i32 4, i32 0, i32 1
+  %_M_refcount.i.i = getelementptr inbounds i8, ptr %this, i64 40
   %25 = load ptr, ptr %_M_refcount.i.i, align 8
   %cmp.not.i.i.i = icmp eq ptr %25, null
   br i1 %cmp.not.i.i.i, label %_ZNSt10shared_ptrIKN19OpenColorIO_v2_4dev5OpCPUEED2Ev.exit, label %if.then.i.i.i38
 
 if.then.i.i.i38:                                  ; preds = %_ZN19OpenColorIO_v2_4dev16GenericImageDescD2Ev.exit37
-  %_M_use_count.i.i.i.i = getelementptr inbounds %"class.std::_Sp_counted_base", ptr %25, i64 0, i32 1
+  %_M_use_count.i.i.i.i = getelementptr inbounds i8, ptr %25, i64 8
   %26 = load atomic i64, ptr %_M_use_count.i.i.i.i acquire, align 8
   %cmp.i.i.i.i = icmp eq i64 %26, 4294967297
   %27 = trunc i64 %26 to i32
@@ -11191,10 +11153,10 @@ if.then.i.i.i38:                                  ; preds = %_ZN19OpenColorIO_v2
 
 if.then.i.i.i.i40:                                ; preds = %if.then.i.i.i38
   store i32 0, ptr %_M_use_count.i.i.i.i, align 8
-  %_M_weak_count.i.i.i.i = getelementptr inbounds %"class.std::_Sp_counted_base", ptr %25, i64 0, i32 2
+  %_M_weak_count.i.i.i.i = getelementptr inbounds i8, ptr %25, i64 12
   store i32 0, ptr %_M_weak_count.i.i.i.i, align 4
   %vtable.i.i.i.i = load ptr, ptr %25, align 8
-  %vfn.i.i.i.i = getelementptr inbounds ptr, ptr %vtable.i.i.i.i, i64 2
+  %vfn.i.i.i.i = getelementptr inbounds i8, ptr %vtable.i.i.i.i, i64 16
   %28 = load ptr, ptr %vfn.i.i.i.i, align 8
   tail call void %28(ptr noundef nonnull align 8 dereferenceable(16) %25) #13
   br label %if.end8.sink.split.i.i.i.i
@@ -11220,10 +11182,10 @@ _ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i: ; preds = %if.else.
 
 if.then7.i.i.i.i:                                 ; preds = %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i
   %vtable.i.i.i.i.i.i = load ptr, ptr %25, align 8
-  %vfn.i.i.i.i.i.i = getelementptr inbounds ptr, ptr %vtable.i.i.i.i.i.i, i64 2
+  %vfn.i.i.i.i.i.i = getelementptr inbounds i8, ptr %vtable.i.i.i.i.i.i, i64 16
   %31 = load ptr, ptr %vfn.i.i.i.i.i.i, align 8
   tail call void %31(ptr noundef nonnull align 8 dereferenceable(16) %25) #13
-  %_M_weak_count.i.i.i.i.i.i = getelementptr inbounds %"class.std::_Sp_counted_base", ptr %25, i64 0, i32 2
+  %_M_weak_count.i.i.i.i.i.i = getelementptr inbounds i8, ptr %25, i64 12
   %32 = load i8, ptr @__libc_single_threaded, align 1
   %tobool.i.i.not.i.i.i.i.i.i = icmp eq i8 %32, 0
   br i1 %tobool.i.i.not.i.i.i.i.i.i, label %if.else.i.i.i.i.i.i.i, label %if.then.i.i.i.i.i.i.i
@@ -11245,19 +11207,19 @@ _ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i: ; preds = %if.e
 
 if.end8.sink.split.i.i.i.i:                       ; preds = %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i, %if.then.i.i.i.i40
   %vtable2.i.i.i.i.i.i = load ptr, ptr %25, align 8
-  %vfn3.i.i.i.i.i.i = getelementptr inbounds ptr, ptr %vtable2.i.i.i.i.i.i, i64 3
+  %vfn3.i.i.i.i.i.i = getelementptr inbounds i8, ptr %vtable2.i.i.i.i.i.i, i64 24
   %35 = load ptr, ptr %vfn3.i.i.i.i.i.i, align 8
   tail call void %35(ptr noundef nonnull align 8 dereferenceable(16) %25) #13
   br label %_ZNSt10shared_ptrIKN19OpenColorIO_v2_4dev5OpCPUEED2Ev.exit
 
 _ZNSt10shared_ptrIKN19OpenColorIO_v2_4dev5OpCPUEED2Ev.exit: ; preds = %_ZN19OpenColorIO_v2_4dev16GenericImageDescD2Ev.exit37, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i, %if.end8.sink.split.i.i.i.i
-  %_M_refcount.i.i41 = getelementptr inbounds %"class.OpenColorIO_v2_4dev::GenericScanlineHelper.37", ptr %this, i64 0, i32 3, i32 0, i32 1
+  %_M_refcount.i.i41 = getelementptr inbounds i8, ptr %this, i64 24
   %36 = load ptr, ptr %_M_refcount.i.i41, align 8
   %cmp.not.i.i.i42 = icmp eq ptr %36, null
   br i1 %cmp.not.i.i.i42, label %_ZNSt10shared_ptrIKN19OpenColorIO_v2_4dev5OpCPUEED2Ev.exit72, label %if.then.i.i.i43
 
 if.then.i.i.i43:                                  ; preds = %_ZNSt10shared_ptrIKN19OpenColorIO_v2_4dev5OpCPUEED2Ev.exit
-  %_M_use_count.i.i.i.i44 = getelementptr inbounds %"class.std::_Sp_counted_base", ptr %36, i64 0, i32 1
+  %_M_use_count.i.i.i.i44 = getelementptr inbounds i8, ptr %36, i64 8
   %37 = load atomic i64, ptr %_M_use_count.i.i.i.i44 acquire, align 8
   %cmp.i.i.i.i45 = icmp eq i64 %37, 4294967297
   %38 = trunc i64 %37 to i32
@@ -11265,10 +11227,10 @@ if.then.i.i.i43:                                  ; preds = %_ZNSt10shared_ptrIK
 
 if.then.i.i.i.i68:                                ; preds = %if.then.i.i.i43
   store i32 0, ptr %_M_use_count.i.i.i.i44, align 8
-  %_M_weak_count.i.i.i.i69 = getelementptr inbounds %"class.std::_Sp_counted_base", ptr %36, i64 0, i32 2
+  %_M_weak_count.i.i.i.i69 = getelementptr inbounds i8, ptr %36, i64 12
   store i32 0, ptr %_M_weak_count.i.i.i.i69, align 4
   %vtable.i.i.i.i70 = load ptr, ptr %36, align 8
-  %vfn.i.i.i.i71 = getelementptr inbounds ptr, ptr %vtable.i.i.i.i70, i64 2
+  %vfn.i.i.i.i71 = getelementptr inbounds i8, ptr %vtable.i.i.i.i70, i64 16
   %39 = load ptr, ptr %vfn.i.i.i.i71, align 8
   tail call void %39(ptr noundef nonnull align 8 dereferenceable(16) %36) #13
   br label %if.end8.sink.split.i.i.i.i63
@@ -11294,10 +11256,10 @@ _ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i50: ; preds = %if.els
 
 if.then7.i.i.i.i53:                               ; preds = %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i50
   %vtable.i.i.i.i.i.i54 = load ptr, ptr %36, align 8
-  %vfn.i.i.i.i.i.i55 = getelementptr inbounds ptr, ptr %vtable.i.i.i.i.i.i54, i64 2
+  %vfn.i.i.i.i.i.i55 = getelementptr inbounds i8, ptr %vtable.i.i.i.i.i.i54, i64 16
   %42 = load ptr, ptr %vfn.i.i.i.i.i.i55, align 8
   tail call void %42(ptr noundef nonnull align 8 dereferenceable(16) %36) #13
-  %_M_weak_count.i.i.i.i.i.i56 = getelementptr inbounds %"class.std::_Sp_counted_base", ptr %36, i64 0, i32 2
+  %_M_weak_count.i.i.i.i.i.i56 = getelementptr inbounds i8, ptr %36, i64 12
   %43 = load i8, ptr @__libc_single_threaded, align 1
   %tobool.i.i.not.i.i.i.i.i.i57 = icmp eq i8 %43, 0
   br i1 %tobool.i.i.not.i.i.i.i.i.i57, label %if.else.i.i.i.i.i.i.i66, label %if.then.i.i.i.i.i.i.i58
@@ -11319,7 +11281,7 @@ _ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i60: ; preds = %if
 
 if.end8.sink.split.i.i.i.i63:                     ; preds = %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i60, %if.then.i.i.i.i68
   %vtable2.i.i.i.i.i.i64 = load ptr, ptr %36, align 8
-  %vfn3.i.i.i.i.i.i65 = getelementptr inbounds ptr, ptr %vtable2.i.i.i.i.i.i64, i64 3
+  %vfn3.i.i.i.i.i.i65 = getelementptr inbounds i8, ptr %vtable2.i.i.i.i.i.i64, i64 24
   %46 = load ptr, ptr %vfn3.i.i.i.i.i.i65, align 8
   tail call void %46(ptr noundef nonnull align 8 dereferenceable(16) %36) #13
   br label %_ZNSt10shared_ptrIKN19OpenColorIO_v2_4dev5OpCPUEED2Ev.exit72
@@ -11339,66 +11301,66 @@ entry:
 ; Function Attrs: mustprogress uwtable
 define weak_odr hidden void @_ZN19OpenColorIO_v2_4dev21GenericScanlineHelperIfhE16prepRGBAScanlineEPPfRl(ptr noundef nonnull align 8 dereferenceable(309) %this, ptr noundef %buffer, ptr noundef nonnull align 8 dereferenceable(8) %numPixels) unnamed_addr #5 comdat align 2 {
 entry:
-  %m_yIndex = getelementptr inbounds %"class.OpenColorIO_v2_4dev::GenericScanlineHelper.37", ptr %this, i64 0, i32 12
+  %m_yIndex = getelementptr inbounds i8, ptr %this, i64 304
   %0 = load i32, ptr %m_yIndex, align 8
   %conv = sext i32 %0 to i64
-  %m_dstImg = getelementptr inbounds %"class.OpenColorIO_v2_4dev::GenericScanlineHelper.37", ptr %this, i64 0, i32 6
-  %m_height = getelementptr inbounds %"class.OpenColorIO_v2_4dev::GenericScanlineHelper.37", ptr %this, i64 0, i32 6, i32 1
+  %m_dstImg = getelementptr inbounds i8, ptr %this, i64 136
+  %m_height = getelementptr inbounds i8, ptr %this, i64 144
   %1 = load i64, ptr %m_height, align 8
   %cmp.not = icmp sgt i64 %1, %conv
   br i1 %cmp.not, label %if.end, label %return
 
 if.end:                                           ; preds = %entry
-  %m_useDstBuffer = getelementptr inbounds %"class.OpenColorIO_v2_4dev::GenericScanlineHelper.37", ptr %this, i64 0, i32 13
+  %m_useDstBuffer = getelementptr inbounds i8, ptr %this, i64 308
   %2 = load i8, ptr %m_useDstBuffer, align 4
   %3 = and i8 %2, 1
   %tobool.not = icmp eq i8 %3, 0
   br i1 %tobool.not, label %cond.false, label %cond.true
 
 cond.true:                                        ; preds = %if.end
-  %m_rData = getelementptr inbounds %"class.OpenColorIO_v2_4dev::GenericScanlineHelper.37", ptr %this, i64 0, i32 6, i32 4
+  %m_rData = getelementptr inbounds i8, ptr %this, i64 168
   %4 = load ptr, ptr %m_rData, align 8
-  %m_yStrideBytes = getelementptr inbounds %"class.OpenColorIO_v2_4dev::GenericScanlineHelper.37", ptr %this, i64 0, i32 6, i32 3
+  %m_yStrideBytes = getelementptr inbounds i8, ptr %this, i64 160
   %5 = load i64, ptr %m_yStrideBytes, align 8
   %mul = mul nsw i64 %5, %conv
   %add.ptr = getelementptr inbounds i8, ptr %4, i64 %mul
   br label %cond.end
 
 cond.false:                                       ; preds = %if.end
-  %m_rgbaFloatBuffer = getelementptr inbounds %"class.OpenColorIO_v2_4dev::GenericScanlineHelper.37", ptr %this, i64 0, i32 9
+  %m_rgbaFloatBuffer = getelementptr inbounds i8, ptr %this, i64 232
   %6 = load ptr, ptr %m_rgbaFloatBuffer, align 8
   br label %cond.end
 
 cond.end:                                         ; preds = %cond.false, %cond.true
   %cond = phi ptr [ %add.ptr, %cond.true ], [ %6, %cond.false ]
   store ptr %cond, ptr %buffer, align 8
-  %m_inOptimizedMode = getelementptr inbounds %"class.OpenColorIO_v2_4dev::GenericScanlineHelper.37", ptr %this, i64 0, i32 7
+  %m_inOptimizedMode = getelementptr inbounds i8, ptr %this, i64 224
   %7 = load i32, ptr %m_inOptimizedMode, align 8
   %and = and i32 %7, 1
   %cmp6.not = icmp eq i32 %and, 0
   br i1 %cmp6.not, label %if.else, label %if.then7
 
 if.then7:                                         ; preds = %cond.end
-  %m_rData8 = getelementptr inbounds %"class.OpenColorIO_v2_4dev::GenericScanlineHelper.37", ptr %this, i64 0, i32 5, i32 4
+  %m_rData8 = getelementptr inbounds i8, ptr %this, i64 80
   %8 = load ptr, ptr %m_rData8, align 8
-  %m_yStrideBytes10 = getelementptr inbounds %"class.OpenColorIO_v2_4dev::GenericScanlineHelper.37", ptr %this, i64 0, i32 5, i32 3
+  %m_yStrideBytes10 = getelementptr inbounds i8, ptr %this, i64 72
   %9 = load i64, ptr %m_yStrideBytes10, align 8
   %10 = load i32, ptr %m_yIndex, align 8
   %conv12 = sext i32 %10 to i64
   %mul13 = mul nsw i64 %9, %conv12
   %add.ptr14 = getelementptr inbounds i8, ptr %8, i64 %mul13
-  %m_bitDepthOp = getelementptr inbounds %"class.OpenColorIO_v2_4dev::GenericScanlineHelper.37", ptr %this, i64 0, i32 5, i32 8
+  %m_bitDepthOp = getelementptr inbounds i8, ptr %this, i64 112
   %11 = load ptr, ptr %m_bitDepthOp, align 8
   %12 = load i64, ptr %m_dstImg, align 8
   %vtable = load ptr, ptr %11, align 8
-  %vfn = getelementptr inbounds ptr, ptr %vtable, i64 2
+  %vfn = getelementptr inbounds i8, ptr %vtable, i64 16
   %13 = load ptr, ptr %vfn, align 8
   tail call void %13(ptr noundef nonnull align 8 dereferenceable(8) %11, ptr noundef %add.ptr14, ptr noundef %cond, i64 noundef %12)
   br label %if.end28
 
 if.else:                                          ; preds = %cond.end
-  %m_srcImg18 = getelementptr inbounds %"class.OpenColorIO_v2_4dev::GenericScanlineHelper.37", ptr %this, i64 0, i32 5
-  %m_inBitDepthBuffer = getelementptr inbounds %"class.OpenColorIO_v2_4dev::GenericScanlineHelper.37", ptr %this, i64 0, i32 10
+  %m_srcImg18 = getelementptr inbounds i8, ptr %this, i64 48
+  %m_inBitDepthBuffer = getelementptr inbounds i8, ptr %this, i64 256
   %14 = load ptr, ptr %m_inBitDepthBuffer, align 8
   %15 = load i64, ptr %m_dstImg, align 8
   %conv22 = trunc i64 %15 to i32
@@ -11423,47 +11385,47 @@ declare void @_ZN19OpenColorIO_v2_4dev7GenericIfE21PackRGBAFromImageDescERKNS_16
 ; Function Attrs: mustprogress uwtable
 define weak_odr hidden void @_ZN19OpenColorIO_v2_4dev21GenericScanlineHelperIfhE18finishRGBAScanlineEv(ptr noundef nonnull align 8 dereferenceable(309) %this) unnamed_addr #5 comdat align 2 {
 entry:
-  %m_outOptimizedMode = getelementptr inbounds %"class.OpenColorIO_v2_4dev::GenericScanlineHelper.37", ptr %this, i64 0, i32 8
+  %m_outOptimizedMode = getelementptr inbounds i8, ptr %this, i64 228
   %0 = load i32, ptr %m_outOptimizedMode, align 4
   %and = and i32 %0, 1
   %cmp.not = icmp eq i32 %and, 0
-  %m_dstImg6 = getelementptr inbounds %"class.OpenColorIO_v2_4dev::GenericScanlineHelper.37", ptr %this, i64 0, i32 6
+  %m_dstImg6 = getelementptr inbounds i8, ptr %this, i64 136
   br i1 %cmp.not, label %if.else, label %if.then
 
 if.then:                                          ; preds = %entry
-  %m_rData = getelementptr inbounds %"class.OpenColorIO_v2_4dev::GenericScanlineHelper.37", ptr %this, i64 0, i32 6, i32 4
+  %m_rData = getelementptr inbounds i8, ptr %this, i64 168
   %1 = load ptr, ptr %m_rData, align 8
-  %m_yStrideBytes = getelementptr inbounds %"class.OpenColorIO_v2_4dev::GenericScanlineHelper.37", ptr %this, i64 0, i32 6, i32 3
+  %m_yStrideBytes = getelementptr inbounds i8, ptr %this, i64 160
   %2 = load i64, ptr %m_yStrideBytes, align 8
-  %m_yIndex = getelementptr inbounds %"class.OpenColorIO_v2_4dev::GenericScanlineHelper.37", ptr %this, i64 0, i32 12
+  %m_yIndex = getelementptr inbounds i8, ptr %this, i64 304
   %3 = load i32, ptr %m_yIndex, align 8
   %conv = sext i32 %3 to i64
   %mul = mul nsw i64 %2, %conv
   %add.ptr = getelementptr inbounds i8, ptr %1, i64 %mul
-  %m_useDstBuffer = getelementptr inbounds %"class.OpenColorIO_v2_4dev::GenericScanlineHelper.37", ptr %this, i64 0, i32 13
+  %m_useDstBuffer = getelementptr inbounds i8, ptr %this, i64 308
   %4 = load i8, ptr %m_useDstBuffer, align 4
   %5 = and i8 %4, 1
   %tobool.not = icmp eq i8 %5, 0
-  %m_rgbaFloatBuffer = getelementptr inbounds %"class.OpenColorIO_v2_4dev::GenericScanlineHelper.37", ptr %this, i64 0, i32 9
+  %m_rgbaFloatBuffer = getelementptr inbounds i8, ptr %this, i64 232
   %6 = load ptr, ptr %m_rgbaFloatBuffer, align 8
   %cond = select i1 %tobool.not, ptr %6, ptr %add.ptr
-  %m_bitDepthOp = getelementptr inbounds %"class.OpenColorIO_v2_4dev::GenericScanlineHelper.37", ptr %this, i64 0, i32 6, i32 8
+  %m_bitDepthOp = getelementptr inbounds i8, ptr %this, i64 200
   %7 = load ptr, ptr %m_bitDepthOp, align 8
   %8 = load i64, ptr %m_dstImg6, align 8
   %vtable = load ptr, ptr %7, align 8
-  %vfn = getelementptr inbounds ptr, ptr %vtable, i64 2
+  %vfn = getelementptr inbounds i8, ptr %vtable, i64 16
   %9 = load ptr, ptr %vfn, align 8
   tail call void %9(ptr noundef nonnull align 8 dereferenceable(8) %7, ptr noundef %cond, ptr noundef %add.ptr, i64 noundef %8)
   br label %if.end
 
 if.else:                                          ; preds = %entry
-  %m_rgbaFloatBuffer7 = getelementptr inbounds %"class.OpenColorIO_v2_4dev::GenericScanlineHelper.37", ptr %this, i64 0, i32 9
+  %m_rgbaFloatBuffer7 = getelementptr inbounds i8, ptr %this, i64 232
   %10 = load ptr, ptr %m_rgbaFloatBuffer7, align 8
-  %m_outBitDepthBuffer = getelementptr inbounds %"class.OpenColorIO_v2_4dev::GenericScanlineHelper.37", ptr %this, i64 0, i32 11
+  %m_outBitDepthBuffer = getelementptr inbounds i8, ptr %this, i64 280
   %11 = load ptr, ptr %m_outBitDepthBuffer, align 8
   %12 = load i64, ptr %m_dstImg6, align 8
   %conv12 = trunc i64 %12 to i32
-  %m_yIndex13 = getelementptr inbounds %"class.OpenColorIO_v2_4dev::GenericScanlineHelper.37", ptr %this, i64 0, i32 12
+  %m_yIndex13 = getelementptr inbounds i8, ptr %this, i64 304
   %13 = load i32, ptr %m_yIndex13, align 8
   %conv14 = sext i32 %13 to i64
   %mul17 = mul nsw i64 %12, %conv14
@@ -11471,7 +11433,7 @@ if.else:                                          ; preds = %entry
   br label %if.end
 
 if.end:                                           ; preds = %if.else, %if.then
-  %m_yIndex18 = getelementptr inbounds %"class.OpenColorIO_v2_4dev::GenericScanlineHelper.37", ptr %this, i64 0, i32 12
+  %m_yIndex18 = getelementptr inbounds i8, ptr %this, i64 304
   %14 = load i32, ptr %m_yIndex18, align 8
   %inc = add nsw i32 %14, 1
   store i32 %inc, ptr %m_yIndex18, align 8
@@ -11482,22 +11444,22 @@ if.end:                                           ; preds = %if.else, %if.then
 define weak_odr hidden void @_ZN19OpenColorIO_v2_4dev21GenericScanlineHelperIftEC2ENS_8BitDepthERKSt10shared_ptrIKNS_5OpCPUEES2_S8_(ptr noundef nonnull align 8 dereferenceable(309) %this, i32 noundef %inputBitDepth, ptr noundef nonnull align 8 dereferenceable(16) %inBitDepthOp, i32 noundef %outputBitDepth, ptr noundef nonnull align 8 dereferenceable(16) %outBitDepthOp) unnamed_addr #3 comdat($_ZN19OpenColorIO_v2_4dev21GenericScanlineHelperIftEC5ENS_8BitDepthERKSt10shared_ptrIKNS_5OpCPUEES2_S8_) align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTVN19OpenColorIO_v2_4dev21GenericScanlineHelperIftEE, i64 0, inrange i32 0, i64 2), ptr %this, align 8
-  %m_inputBitDepth = getelementptr inbounds %"class.OpenColorIO_v2_4dev::GenericScanlineHelper.39", ptr %this, i64 0, i32 1
+  %m_inputBitDepth = getelementptr inbounds i8, ptr %this, i64 8
   store i32 %inputBitDepth, ptr %m_inputBitDepth, align 8
-  %m_outputBitDepth = getelementptr inbounds %"class.OpenColorIO_v2_4dev::GenericScanlineHelper.39", ptr %this, i64 0, i32 2
+  %m_outputBitDepth = getelementptr inbounds i8, ptr %this, i64 12
   store i32 %outputBitDepth, ptr %m_outputBitDepth, align 4
-  %m_inBitDepthOp = getelementptr inbounds %"class.OpenColorIO_v2_4dev::GenericScanlineHelper.39", ptr %this, i64 0, i32 3
+  %m_inBitDepthOp = getelementptr inbounds i8, ptr %this, i64 16
   %0 = load ptr, ptr %inBitDepthOp, align 8
   store ptr %0, ptr %m_inBitDepthOp, align 8
-  %_M_refcount.i.i = getelementptr inbounds %"class.OpenColorIO_v2_4dev::GenericScanlineHelper.39", ptr %this, i64 0, i32 3, i32 0, i32 1
-  %_M_refcount3.i.i = getelementptr inbounds %"class.std::__shared_ptr", ptr %inBitDepthOp, i64 0, i32 1
+  %_M_refcount.i.i = getelementptr inbounds i8, ptr %this, i64 24
+  %_M_refcount3.i.i = getelementptr inbounds i8, ptr %inBitDepthOp, i64 8
   %1 = load ptr, ptr %_M_refcount3.i.i, align 8
   store ptr %1, ptr %_M_refcount.i.i, align 8
   %cmp.not.i.i.i = icmp eq ptr %1, null
   br i1 %cmp.not.i.i.i, label %_ZNSt10shared_ptrIKN19OpenColorIO_v2_4dev5OpCPUEEC2ERKS3_.exit, label %if.then.i.i.i
 
 if.then.i.i.i:                                    ; preds = %entry
-  %_M_use_count.i.i.i.i = getelementptr inbounds %"class.std::_Sp_counted_base", ptr %1, i64 0, i32 1
+  %_M_use_count.i.i.i.i = getelementptr inbounds i8, ptr %1, i64 8
   %2 = load i8, ptr @__libc_single_threaded, align 1
   %tobool.i.not.i.i.i.i = icmp eq i8 %2, 0
   br i1 %tobool.i.not.i.i.i.i, label %if.else.i.i.i.i.i, label %if.then.i.i.i.i.i
@@ -11513,18 +11475,18 @@ if.else.i.i.i.i.i:                                ; preds = %if.then.i.i.i
   br label %_ZNSt10shared_ptrIKN19OpenColorIO_v2_4dev5OpCPUEEC2ERKS3_.exit
 
 _ZNSt10shared_ptrIKN19OpenColorIO_v2_4dev5OpCPUEEC2ERKS3_.exit: ; preds = %entry, %if.then.i.i.i.i.i, %if.else.i.i.i.i.i
-  %m_outBitDepthOp = getelementptr inbounds %"class.OpenColorIO_v2_4dev::GenericScanlineHelper.39", ptr %this, i64 0, i32 4
+  %m_outBitDepthOp = getelementptr inbounds i8, ptr %this, i64 32
   %5 = load ptr, ptr %outBitDepthOp, align 8
   store ptr %5, ptr %m_outBitDepthOp, align 8
-  %_M_refcount.i.i1 = getelementptr inbounds %"class.OpenColorIO_v2_4dev::GenericScanlineHelper.39", ptr %this, i64 0, i32 4, i32 0, i32 1
-  %_M_refcount3.i.i2 = getelementptr inbounds %"class.std::__shared_ptr", ptr %outBitDepthOp, i64 0, i32 1
+  %_M_refcount.i.i1 = getelementptr inbounds i8, ptr %this, i64 40
+  %_M_refcount3.i.i2 = getelementptr inbounds i8, ptr %outBitDepthOp, i64 8
   %6 = load ptr, ptr %_M_refcount3.i.i2, align 8
   store ptr %6, ptr %_M_refcount.i.i1, align 8
   %cmp.not.i.i.i3 = icmp eq ptr %6, null
   br i1 %cmp.not.i.i.i3, label %_ZNSt10shared_ptrIKN19OpenColorIO_v2_4dev5OpCPUEEC2ERKS3_.exit10, label %if.then.i.i.i4
 
 if.then.i.i.i4:                                   ; preds = %_ZNSt10shared_ptrIKN19OpenColorIO_v2_4dev5OpCPUEEC2ERKS3_.exit
-  %_M_use_count.i.i.i.i5 = getelementptr inbounds %"class.std::_Sp_counted_base", ptr %6, i64 0, i32 1
+  %_M_use_count.i.i.i.i5 = getelementptr inbounds i8, ptr %6, i64 8
   %7 = load i8, ptr @__libc_single_threaded, align 1
   %tobool.i.not.i.i.i.i6 = icmp eq i8 %7, 0
   br i1 %tobool.i.not.i.i.i.i6, label %if.else.i.i.i.i.i9, label %if.then.i.i.i.i.i7
@@ -11540,11 +11502,11 @@ if.else.i.i.i.i.i9:                               ; preds = %if.then.i.i.i4
   br label %_ZNSt10shared_ptrIKN19OpenColorIO_v2_4dev5OpCPUEEC2ERKS3_.exit10
 
 _ZNSt10shared_ptrIKN19OpenColorIO_v2_4dev5OpCPUEEC2ERKS3_.exit10: ; preds = %_ZNSt10shared_ptrIKN19OpenColorIO_v2_4dev5OpCPUEEC2ERKS3_.exit, %if.then.i.i.i.i.i7, %if.else.i.i.i.i.i9
-  %m_srcImg = getelementptr inbounds %"class.OpenColorIO_v2_4dev::GenericScanlineHelper.39", ptr %this, i64 0, i32 5
+  %m_srcImg = getelementptr inbounds i8, ptr %this, i64 48
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(82) %m_srcImg, i8 0, i64 82, i1 false)
-  %m_dstImg = getelementptr inbounds %"class.OpenColorIO_v2_4dev::GenericScanlineHelper.39", ptr %this, i64 0, i32 6
+  %m_dstImg = getelementptr inbounds i8, ptr %this, i64 136
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(82) %m_dstImg, i8 0, i64 82, i1 false)
-  %m_inOptimizedMode = getelementptr inbounds %"class.OpenColorIO_v2_4dev::GenericScanlineHelper.39", ptr %this, i64 0, i32 7
+  %m_inOptimizedMode = getelementptr inbounds i8, ptr %this, i64 224
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(85) %m_inOptimizedMode, i8 0, i64 85, i1 false)
   ret void
 }
@@ -11552,17 +11514,17 @@ _ZNSt10shared_ptrIKN19OpenColorIO_v2_4dev5OpCPUEEC2ERKS3_.exit10: ; preds = %_ZN
 ; Function Attrs: mustprogress uwtable
 define weak_odr hidden void @_ZN19OpenColorIO_v2_4dev21GenericScanlineHelperIftE4initERKNS_9ImageDescES4_(ptr noundef nonnull align 8 dereferenceable(309) %this, ptr noundef nonnull align 8 dereferenceable(8) %srcImg, ptr noundef nonnull align 8 dereferenceable(8) %dstImg) unnamed_addr #5 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  %m_yIndex = getelementptr inbounds %"class.OpenColorIO_v2_4dev::GenericScanlineHelper.39", ptr %this, i64 0, i32 12
+  %m_yIndex = getelementptr inbounds i8, ptr %this, i64 304
   store i32 0, ptr %m_yIndex, align 8
-  %m_srcImg = getelementptr inbounds %"class.OpenColorIO_v2_4dev::GenericScanlineHelper.39", ptr %this, i64 0, i32 5
-  %m_inputBitDepth = getelementptr inbounds %"class.OpenColorIO_v2_4dev::GenericScanlineHelper.39", ptr %this, i64 0, i32 1
+  %m_srcImg = getelementptr inbounds i8, ptr %this, i64 48
+  %m_inputBitDepth = getelementptr inbounds i8, ptr %this, i64 8
   %0 = load i32, ptr %m_inputBitDepth, align 8
-  %m_inBitDepthOp = getelementptr inbounds %"class.OpenColorIO_v2_4dev::GenericScanlineHelper.39", ptr %this, i64 0, i32 3
+  %m_inBitDepthOp = getelementptr inbounds i8, ptr %this, i64 16
   tail call void @_ZN19OpenColorIO_v2_4dev16GenericImageDesc4initERKNS_9ImageDescENS_8BitDepthERKSt10shared_ptrIKNS_5OpCPUEE(ptr noundef nonnull align 8 dereferenceable(82) %m_srcImg, ptr noundef nonnull align 8 dereferenceable(8) %srcImg, i32 noundef %0, ptr noundef nonnull align 8 dereferenceable(16) %m_inBitDepthOp)
-  %m_dstImg = getelementptr inbounds %"class.OpenColorIO_v2_4dev::GenericScanlineHelper.39", ptr %this, i64 0, i32 6
-  %m_outputBitDepth = getelementptr inbounds %"class.OpenColorIO_v2_4dev::GenericScanlineHelper.39", ptr %this, i64 0, i32 2
+  %m_dstImg = getelementptr inbounds i8, ptr %this, i64 136
+  %m_outputBitDepth = getelementptr inbounds i8, ptr %this, i64 12
   %1 = load i32, ptr %m_outputBitDepth, align 4
-  %m_outBitDepthOp = getelementptr inbounds %"class.OpenColorIO_v2_4dev::GenericScanlineHelper.39", ptr %this, i64 0, i32 4
+  %m_outBitDepthOp = getelementptr inbounds i8, ptr %this, i64 32
   tail call void @_ZN19OpenColorIO_v2_4dev16GenericImageDesc4initERKNS_9ImageDescENS_8BitDepthERKSt10shared_ptrIKNS_5OpCPUEE(ptr noundef nonnull align 8 dereferenceable(82) %m_dstImg, ptr noundef nonnull align 8 dereferenceable(8) %dstImg, i32 noundef %1, ptr noundef nonnull align 8 dereferenceable(16) %m_outBitDepthOp)
   %2 = load i64, ptr %m_srcImg, align 8
   %3 = load i64, ptr %m_dstImg, align 8
@@ -11570,9 +11532,9 @@ entry:
   br i1 %cmp.not, label %lor.lhs.false, label %if.then
 
 lor.lhs.false:                                    ; preds = %entry
-  %m_height = getelementptr inbounds %"class.OpenColorIO_v2_4dev::GenericScanlineHelper.39", ptr %this, i64 0, i32 5, i32 1
+  %m_height = getelementptr inbounds i8, ptr %this, i64 56
   %4 = load i64, ptr %m_height, align 8
-  %m_height7 = getelementptr inbounds %"class.OpenColorIO_v2_4dev::GenericScanlineHelper.39", ptr %this, i64 0, i32 6, i32 1
+  %m_height7 = getelementptr inbounds i8, ptr %this, i64 144
   %5 = load i64, ptr %m_height7, align 8
   %cmp8.not = icmp eq i64 %4, %5
   br i1 %cmp8.not, label %if.end, label %if.then
@@ -11603,7 +11565,7 @@ if.then.i:                                        ; preds = %if.end
 
 _ZN19OpenColorIO_v2_4dev19GetOptimizationModeERKNS_16GenericImageDescE.exit: ; preds = %if.end, %if.then.i
   %optim.0.i = phi i32 [ 0, %if.end ], [ %spec.select.i, %if.then.i ]
-  %m_inOptimizedMode = getelementptr inbounds %"class.OpenColorIO_v2_4dev::GenericScanlineHelper.39", ptr %this, i64 0, i32 7
+  %m_inOptimizedMode = getelementptr inbounds i8, ptr %this, i64 224
   store i32 %optim.0.i, ptr %m_inOptimizedMode, align 8
   %call.i2 = tail call noundef zeroext i1 @_ZNK19OpenColorIO_v2_4dev16GenericImageDesc12isRGBAPackedEv(ptr noundef nonnull align 8 dereferenceable(82) %m_dstImg)
   br i1 %call.i2, label %if.then.i4, label %_ZN19OpenColorIO_v2_4dev19GetOptimizationModeERKNS_16GenericImageDescE.exit7
@@ -11615,10 +11577,10 @@ if.then.i4:                                       ; preds = %_ZN19OpenColorIO_v2
 
 _ZN19OpenColorIO_v2_4dev19GetOptimizationModeERKNS_16GenericImageDescE.exit7: ; preds = %_ZN19OpenColorIO_v2_4dev19GetOptimizationModeERKNS_16GenericImageDescE.exit, %if.then.i4
   %optim.0.i3 = phi i32 [ 0, %_ZN19OpenColorIO_v2_4dev19GetOptimizationModeERKNS_16GenericImageDescE.exit ], [ %spec.select.i6, %if.then.i4 ]
-  %m_outOptimizedMode = getelementptr inbounds %"class.OpenColorIO_v2_4dev::GenericScanlineHelper.39", ptr %this, i64 0, i32 8
+  %m_outOptimizedMode = getelementptr inbounds i8, ptr %this, i64 228
   store i32 %optim.0.i3, ptr %m_outOptimizedMode, align 4
   %cmp13 = icmp eq i32 %optim.0.i3, 3
-  %m_useDstBuffer = getelementptr inbounds %"class.OpenColorIO_v2_4dev::GenericScanlineHelper.39", ptr %this, i64 0, i32 13
+  %m_useDstBuffer = getelementptr inbounds i8, ptr %this, i64 308
   %frombool = zext i1 %cmp13 to i8
   store i8 %frombool, ptr %m_useDstBuffer, align 4
   %7 = load i32, ptr %m_inOptimizedMode, align 8
@@ -11629,8 +11591,8 @@ _ZN19OpenColorIO_v2_4dev19GetOptimizationModeERKNS_16GenericImageDescE.exit7: ; 
 if.then17:                                        ; preds = %_ZN19OpenColorIO_v2_4dev19GetOptimizationModeERKNS_16GenericImageDescE.exit7
   %8 = load i64, ptr %m_dstImg, align 8
   %mul = shl nsw i64 %8, 2
-  %m_inBitDepthBuffer = getelementptr inbounds %"class.OpenColorIO_v2_4dev::GenericScanlineHelper.39", ptr %this, i64 0, i32 10
-  %_M_finish.i.i = getelementptr inbounds %"class.OpenColorIO_v2_4dev::GenericScanlineHelper.39", ptr %this, i64 0, i32 10, i32 0, i32 0, i32 0, i32 1
+  %m_inBitDepthBuffer = getelementptr inbounds i8, ptr %this, i64 256
+  %_M_finish.i.i = getelementptr inbounds i8, ptr %this, i64 264
   %9 = load ptr, ptr %_M_finish.i.i, align 8
   %10 = load ptr, ptr %m_inBitDepthBuffer, align 8
   %sub.ptr.lhs.cast.i.i = ptrtoint ptr %9 to i64
@@ -11668,8 +11630,8 @@ if.end20:                                         ; preds = %invoke.cont.i.i, %i
 if.then22:                                        ; preds = %if.end20
   %13 = load i64, ptr %m_dstImg, align 8
   %mul26 = shl nsw i64 %13, 2
-  %m_rgbaFloatBuffer = getelementptr inbounds %"class.OpenColorIO_v2_4dev::GenericScanlineHelper.39", ptr %this, i64 0, i32 9
-  %_M_finish.i.i9 = getelementptr inbounds %"class.OpenColorIO_v2_4dev::GenericScanlineHelper.39", ptr %this, i64 0, i32 9, i32 0, i32 0, i32 0, i32 1
+  %m_rgbaFloatBuffer = getelementptr inbounds i8, ptr %this, i64 232
+  %_M_finish.i.i9 = getelementptr inbounds i8, ptr %this, i64 240
   %14 = load ptr, ptr %_M_finish.i.i9, align 8
   %15 = load ptr, ptr %m_rgbaFloatBuffer, align 8
   %sub.ptr.lhs.cast.i.i10 = ptrtoint ptr %14 to i64
@@ -11698,8 +11660,8 @@ invoke.cont.i.i20:                                ; preds = %if.then5.i17
   br label %_ZNSt6vectorIfSaIfEE6resizeEm.exit23
 
 _ZNSt6vectorIfSaIfEE6resizeEm.exit23:             ; preds = %if.then.i21, %if.else.i15, %if.then5.i17, %invoke.cont.i.i20
-  %m_outBitDepthBuffer = getelementptr inbounds %"class.OpenColorIO_v2_4dev::GenericScanlineHelper.39", ptr %this, i64 0, i32 11
-  %_M_finish.i.i24 = getelementptr inbounds %"class.OpenColorIO_v2_4dev::GenericScanlineHelper.39", ptr %this, i64 0, i32 11, i32 0, i32 0, i32 0, i32 1
+  %m_outBitDepthBuffer = getelementptr inbounds i8, ptr %this, i64 280
+  %_M_finish.i.i24 = getelementptr inbounds i8, ptr %this, i64 288
   %16 = load ptr, ptr %_M_finish.i.i24, align 8
   %17 = load ptr, ptr %m_outBitDepthBuffer, align 8
   %sub.ptr.lhs.cast.i.i25 = ptrtoint ptr %16 to i64
@@ -11734,17 +11696,17 @@ if.end27:                                         ; preds = %invoke.cont.i.i35, 
 ; Function Attrs: mustprogress uwtable
 define weak_odr hidden void @_ZN19OpenColorIO_v2_4dev21GenericScanlineHelperIftE4initERKNS_9ImageDescE(ptr noundef nonnull align 8 dereferenceable(309) %this, ptr noundef nonnull align 8 dereferenceable(8) %img) unnamed_addr #5 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  %m_yIndex = getelementptr inbounds %"class.OpenColorIO_v2_4dev::GenericScanlineHelper.39", ptr %this, i64 0, i32 12
+  %m_yIndex = getelementptr inbounds i8, ptr %this, i64 304
   store i32 0, ptr %m_yIndex, align 8
-  %m_srcImg = getelementptr inbounds %"class.OpenColorIO_v2_4dev::GenericScanlineHelper.39", ptr %this, i64 0, i32 5
-  %m_inputBitDepth = getelementptr inbounds %"class.OpenColorIO_v2_4dev::GenericScanlineHelper.39", ptr %this, i64 0, i32 1
+  %m_srcImg = getelementptr inbounds i8, ptr %this, i64 48
+  %m_inputBitDepth = getelementptr inbounds i8, ptr %this, i64 8
   %0 = load i32, ptr %m_inputBitDepth, align 8
-  %m_inBitDepthOp = getelementptr inbounds %"class.OpenColorIO_v2_4dev::GenericScanlineHelper.39", ptr %this, i64 0, i32 3
+  %m_inBitDepthOp = getelementptr inbounds i8, ptr %this, i64 16
   tail call void @_ZN19OpenColorIO_v2_4dev16GenericImageDesc4initERKNS_9ImageDescENS_8BitDepthERKSt10shared_ptrIKNS_5OpCPUEE(ptr noundef nonnull align 8 dereferenceable(82) %m_srcImg, ptr noundef nonnull align 8 dereferenceable(8) %img, i32 noundef %0, ptr noundef nonnull align 8 dereferenceable(16) %m_inBitDepthOp)
-  %m_dstImg = getelementptr inbounds %"class.OpenColorIO_v2_4dev::GenericScanlineHelper.39", ptr %this, i64 0, i32 6
-  %m_outputBitDepth = getelementptr inbounds %"class.OpenColorIO_v2_4dev::GenericScanlineHelper.39", ptr %this, i64 0, i32 2
+  %m_dstImg = getelementptr inbounds i8, ptr %this, i64 136
+  %m_outputBitDepth = getelementptr inbounds i8, ptr %this, i64 12
   %1 = load i32, ptr %m_outputBitDepth, align 4
-  %m_outBitDepthOp = getelementptr inbounds %"class.OpenColorIO_v2_4dev::GenericScanlineHelper.39", ptr %this, i64 0, i32 4
+  %m_outBitDepthOp = getelementptr inbounds i8, ptr %this, i64 32
   tail call void @_ZN19OpenColorIO_v2_4dev16GenericImageDesc4initERKNS_9ImageDescENS_8BitDepthERKSt10shared_ptrIKNS_5OpCPUEE(ptr noundef nonnull align 8 dereferenceable(82) %m_dstImg, ptr noundef nonnull align 8 dereferenceable(8) %img, i32 noundef %1, ptr noundef nonnull align 8 dereferenceable(16) %m_outBitDepthOp)
   %call.i = tail call noundef zeroext i1 @_ZNK19OpenColorIO_v2_4dev16GenericImageDesc12isRGBAPackedEv(ptr noundef nonnull align 8 dereferenceable(82) %m_srcImg)
   br i1 %call.i, label %if.then.i, label %if.then
@@ -11754,26 +11716,26 @@ if.then.i:                                        ; preds = %entry
   br i1 %call1.i, label %_ZN19OpenColorIO_v2_4dev19GetOptimizationModeERKNS_16GenericImageDescE.exit, label %if.then
 
 _ZN19OpenColorIO_v2_4dev19GetOptimizationModeERKNS_16GenericImageDescE.exit: ; preds = %if.then.i
-  %m_inOptimizedMode = getelementptr inbounds %"class.OpenColorIO_v2_4dev::GenericScanlineHelper.39", ptr %this, i64 0, i32 7
+  %m_inOptimizedMode = getelementptr inbounds i8, ptr %this, i64 224
   store i32 3, ptr %m_inOptimizedMode, align 8
-  %m_outOptimizedMode = getelementptr inbounds %"class.OpenColorIO_v2_4dev::GenericScanlineHelper.39", ptr %this, i64 0, i32 8
+  %m_outOptimizedMode = getelementptr inbounds i8, ptr %this, i64 228
   store i32 3, ptr %m_outOptimizedMode, align 4
-  %m_useDstBuffer = getelementptr inbounds %"class.OpenColorIO_v2_4dev::GenericScanlineHelper.39", ptr %this, i64 0, i32 13
+  %m_useDstBuffer = getelementptr inbounds i8, ptr %this, i64 308
   store i8 1, ptr %m_useDstBuffer, align 4
   br label %if.end
 
 if.then:                                          ; preds = %entry, %if.then.i
   %optim.0.i.ph = phi i32 [ 1, %if.then.i ], [ 0, %entry ]
-  %m_inOptimizedMode35 = getelementptr inbounds %"class.OpenColorIO_v2_4dev::GenericScanlineHelper.39", ptr %this, i64 0, i32 7
+  %m_inOptimizedMode35 = getelementptr inbounds i8, ptr %this, i64 224
   store i32 %optim.0.i.ph, ptr %m_inOptimizedMode35, align 8
-  %m_outOptimizedMode36 = getelementptr inbounds %"class.OpenColorIO_v2_4dev::GenericScanlineHelper.39", ptr %this, i64 0, i32 8
+  %m_outOptimizedMode36 = getelementptr inbounds i8, ptr %this, i64 228
   store i32 %optim.0.i.ph, ptr %m_outOptimizedMode36, align 4
-  %m_useDstBuffer38 = getelementptr inbounds %"class.OpenColorIO_v2_4dev::GenericScanlineHelper.39", ptr %this, i64 0, i32 13
+  %m_useDstBuffer38 = getelementptr inbounds i8, ptr %this, i64 308
   store i8 0, ptr %m_useDstBuffer38, align 4
   %2 = load i64, ptr %m_dstImg, align 8
   %mul = shl nsw i64 %2, 2
-  %m_rgbaFloatBuffer = getelementptr inbounds %"class.OpenColorIO_v2_4dev::GenericScanlineHelper.39", ptr %this, i64 0, i32 9
-  %_M_finish.i.i = getelementptr inbounds %"class.OpenColorIO_v2_4dev::GenericScanlineHelper.39", ptr %this, i64 0, i32 9, i32 0, i32 0, i32 0, i32 1
+  %m_rgbaFloatBuffer = getelementptr inbounds i8, ptr %this, i64 232
+  %_M_finish.i.i = getelementptr inbounds i8, ptr %this, i64 240
   %3 = load ptr, ptr %_M_finish.i.i, align 8
   %4 = load ptr, ptr %m_rgbaFloatBuffer, align 8
   %sub.ptr.lhs.cast.i.i = ptrtoint ptr %3 to i64
@@ -11802,8 +11764,8 @@ invoke.cont.i.i:                                  ; preds = %if.then5.i
   br label %_ZNSt6vectorIfSaIfEE6resizeEm.exit
 
 _ZNSt6vectorIfSaIfEE6resizeEm.exit:               ; preds = %if.then.i4, %if.else.i, %if.then5.i, %invoke.cont.i.i
-  %m_inBitDepthBuffer = getelementptr inbounds %"class.OpenColorIO_v2_4dev::GenericScanlineHelper.39", ptr %this, i64 0, i32 10
-  %_M_finish.i.i5 = getelementptr inbounds %"class.OpenColorIO_v2_4dev::GenericScanlineHelper.39", ptr %this, i64 0, i32 10, i32 0, i32 0, i32 0, i32 1
+  %m_inBitDepthBuffer = getelementptr inbounds i8, ptr %this, i64 256
+  %_M_finish.i.i5 = getelementptr inbounds i8, ptr %this, i64 264
   %5 = load ptr, ptr %_M_finish.i.i5, align 8
   %6 = load ptr, ptr %m_inBitDepthBuffer, align 8
   %sub.ptr.lhs.cast.i.i6 = ptrtoint ptr %5 to i64
@@ -11832,8 +11794,8 @@ invoke.cont.i.i16:                                ; preds = %if.then5.i13
   br label %_ZNSt6vectorIfSaIfEE6resizeEm.exit19
 
 _ZNSt6vectorIfSaIfEE6resizeEm.exit19:             ; preds = %if.then.i17, %if.else.i11, %if.then5.i13, %invoke.cont.i.i16
-  %m_outBitDepthBuffer = getelementptr inbounds %"class.OpenColorIO_v2_4dev::GenericScanlineHelper.39", ptr %this, i64 0, i32 11
-  %_M_finish.i.i20 = getelementptr inbounds %"class.OpenColorIO_v2_4dev::GenericScanlineHelper.39", ptr %this, i64 0, i32 11, i32 0, i32 0, i32 0, i32 1
+  %m_outBitDepthBuffer = getelementptr inbounds i8, ptr %this, i64 280
+  %_M_finish.i.i20 = getelementptr inbounds i8, ptr %this, i64 288
   %7 = load ptr, ptr %_M_finish.i.i20, align 8
   %8 = load ptr, ptr %m_outBitDepthBuffer, align 8
   %sub.ptr.lhs.cast.i.i21 = ptrtoint ptr %7 to i64
@@ -11869,7 +11831,7 @@ if.end:                                           ; preds = %invoke.cont.i.i31, 
 define weak_odr hidden void @_ZN19OpenColorIO_v2_4dev21GenericScanlineHelperIftED2Ev(ptr noundef nonnull align 8 dereferenceable(309) %this) unnamed_addr #3 comdat($_ZN19OpenColorIO_v2_4dev21GenericScanlineHelperIftED5Ev) align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTVN19OpenColorIO_v2_4dev21GenericScanlineHelperIftEE, i64 0, inrange i32 0, i64 2), ptr %this, align 8
-  %m_outBitDepthBuffer = getelementptr inbounds %"class.OpenColorIO_v2_4dev::GenericScanlineHelper.39", ptr %this, i64 0, i32 11
+  %m_outBitDepthBuffer = getelementptr inbounds i8, ptr %this, i64 280
   %0 = load ptr, ptr %m_outBitDepthBuffer, align 8
   %tobool.not.i.i.i = icmp eq ptr %0, null
   br i1 %tobool.not.i.i.i, label %_ZNSt6vectorItSaItEED2Ev.exit, label %if.then.i.i.i
@@ -11879,7 +11841,7 @@ if.then.i.i.i:                                    ; preds = %entry
   br label %_ZNSt6vectorItSaItEED2Ev.exit
 
 _ZNSt6vectorItSaItEED2Ev.exit:                    ; preds = %entry, %if.then.i.i.i
-  %m_inBitDepthBuffer = getelementptr inbounds %"class.OpenColorIO_v2_4dev::GenericScanlineHelper.39", ptr %this, i64 0, i32 10
+  %m_inBitDepthBuffer = getelementptr inbounds i8, ptr %this, i64 256
   %1 = load ptr, ptr %m_inBitDepthBuffer, align 8
   %tobool.not.i.i.i1 = icmp eq ptr %1, null
   br i1 %tobool.not.i.i.i1, label %_ZNSt6vectorIfSaIfEED2Ev.exit, label %if.then.i.i.i2
@@ -11889,7 +11851,7 @@ if.then.i.i.i2:                                   ; preds = %_ZNSt6vectorItSaItE
   br label %_ZNSt6vectorIfSaIfEED2Ev.exit
 
 _ZNSt6vectorIfSaIfEED2Ev.exit:                    ; preds = %_ZNSt6vectorItSaItEED2Ev.exit, %if.then.i.i.i2
-  %m_rgbaFloatBuffer = getelementptr inbounds %"class.OpenColorIO_v2_4dev::GenericScanlineHelper.39", ptr %this, i64 0, i32 9
+  %m_rgbaFloatBuffer = getelementptr inbounds i8, ptr %this, i64 232
   %2 = load ptr, ptr %m_rgbaFloatBuffer, align 8
   %tobool.not.i.i.i3 = icmp eq ptr %2, null
   br i1 %tobool.not.i.i.i3, label %_ZNSt6vectorIfSaIfEED2Ev.exit5, label %if.then.i.i.i4
@@ -11899,13 +11861,13 @@ if.then.i.i.i4:                                   ; preds = %_ZNSt6vectorIfSaIfE
   br label %_ZNSt6vectorIfSaIfEED2Ev.exit5
 
 _ZNSt6vectorIfSaIfEED2Ev.exit5:                   ; preds = %_ZNSt6vectorIfSaIfEED2Ev.exit, %if.then.i.i.i4
-  %_M_refcount.i.i.i = getelementptr inbounds %"class.OpenColorIO_v2_4dev::GenericScanlineHelper.39", ptr %this, i64 0, i32 6, i32 8, i32 0, i32 1
+  %_M_refcount.i.i.i = getelementptr inbounds i8, ptr %this, i64 208
   %3 = load ptr, ptr %_M_refcount.i.i.i, align 8
   %cmp.not.i.i.i.i = icmp eq ptr %3, null
   br i1 %cmp.not.i.i.i.i, label %_ZN19OpenColorIO_v2_4dev16GenericImageDescD2Ev.exit, label %if.then.i.i.i.i
 
 if.then.i.i.i.i:                                  ; preds = %_ZNSt6vectorIfSaIfEED2Ev.exit5
-  %_M_use_count.i.i.i.i.i = getelementptr inbounds %"class.std::_Sp_counted_base", ptr %3, i64 0, i32 1
+  %_M_use_count.i.i.i.i.i = getelementptr inbounds i8, ptr %3, i64 8
   %4 = load atomic i64, ptr %_M_use_count.i.i.i.i.i acquire, align 8
   %cmp.i.i.i.i.i = icmp eq i64 %4, 4294967297
   %5 = trunc i64 %4 to i32
@@ -11913,10 +11875,10 @@ if.then.i.i.i.i:                                  ; preds = %_ZNSt6vectorIfSaIfE
 
 if.then.i.i.i.i.i:                                ; preds = %if.then.i.i.i.i
   store i32 0, ptr %_M_use_count.i.i.i.i.i, align 8
-  %_M_weak_count.i.i.i.i.i = getelementptr inbounds %"class.std::_Sp_counted_base", ptr %3, i64 0, i32 2
+  %_M_weak_count.i.i.i.i.i = getelementptr inbounds i8, ptr %3, i64 12
   store i32 0, ptr %_M_weak_count.i.i.i.i.i, align 4
   %vtable.i.i.i.i.i = load ptr, ptr %3, align 8
-  %vfn.i.i.i.i.i = getelementptr inbounds ptr, ptr %vtable.i.i.i.i.i, i64 2
+  %vfn.i.i.i.i.i = getelementptr inbounds i8, ptr %vtable.i.i.i.i.i, i64 16
   %6 = load ptr, ptr %vfn.i.i.i.i.i, align 8
   tail call void %6(ptr noundef nonnull align 8 dereferenceable(16) %3) #13
   br label %if.end8.sink.split.i.i.i.i.i
@@ -11942,10 +11904,10 @@ _ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i: ; preds = %if.els
 
 if.then7.i.i.i.i.i:                               ; preds = %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i
   %vtable.i.i.i.i.i.i.i = load ptr, ptr %3, align 8
-  %vfn.i.i.i.i.i.i.i = getelementptr inbounds ptr, ptr %vtable.i.i.i.i.i.i.i, i64 2
+  %vfn.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %vtable.i.i.i.i.i.i.i, i64 16
   %9 = load ptr, ptr %vfn.i.i.i.i.i.i.i, align 8
   tail call void %9(ptr noundef nonnull align 8 dereferenceable(16) %3) #13
-  %_M_weak_count.i.i.i.i.i.i.i = getelementptr inbounds %"class.std::_Sp_counted_base", ptr %3, i64 0, i32 2
+  %_M_weak_count.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %3, i64 12
   %10 = load i8, ptr @__libc_single_threaded, align 1
   %tobool.i.i.not.i.i.i.i.i.i.i = icmp eq i8 %10, 0
   br i1 %tobool.i.i.not.i.i.i.i.i.i.i, label %if.else.i.i.i.i.i.i.i.i, label %if.then.i.i.i.i.i.i.i.i
@@ -11967,19 +11929,19 @@ _ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i.i: ; preds = %if
 
 if.end8.sink.split.i.i.i.i.i:                     ; preds = %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i.i, %if.then.i.i.i.i.i
   %vtable2.i.i.i.i.i.i.i = load ptr, ptr %3, align 8
-  %vfn3.i.i.i.i.i.i.i = getelementptr inbounds ptr, ptr %vtable2.i.i.i.i.i.i.i, i64 3
+  %vfn3.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %vtable2.i.i.i.i.i.i.i, i64 24
   %13 = load ptr, ptr %vfn3.i.i.i.i.i.i.i, align 8
   tail call void %13(ptr noundef nonnull align 8 dereferenceable(16) %3) #13
   br label %_ZN19OpenColorIO_v2_4dev16GenericImageDescD2Ev.exit
 
 _ZN19OpenColorIO_v2_4dev16GenericImageDescD2Ev.exit: ; preds = %_ZNSt6vectorIfSaIfEED2Ev.exit5, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i.i, %if.end8.sink.split.i.i.i.i.i
-  %_M_refcount.i.i.i6 = getelementptr inbounds %"class.OpenColorIO_v2_4dev::GenericScanlineHelper.39", ptr %this, i64 0, i32 5, i32 8, i32 0, i32 1
+  %_M_refcount.i.i.i6 = getelementptr inbounds i8, ptr %this, i64 120
   %14 = load ptr, ptr %_M_refcount.i.i.i6, align 8
   %cmp.not.i.i.i.i7 = icmp eq ptr %14, null
   br i1 %cmp.not.i.i.i.i7, label %_ZN19OpenColorIO_v2_4dev16GenericImageDescD2Ev.exit37, label %if.then.i.i.i.i8
 
 if.then.i.i.i.i8:                                 ; preds = %_ZN19OpenColorIO_v2_4dev16GenericImageDescD2Ev.exit
-  %_M_use_count.i.i.i.i.i9 = getelementptr inbounds %"class.std::_Sp_counted_base", ptr %14, i64 0, i32 1
+  %_M_use_count.i.i.i.i.i9 = getelementptr inbounds i8, ptr %14, i64 8
   %15 = load atomic i64, ptr %_M_use_count.i.i.i.i.i9 acquire, align 8
   %cmp.i.i.i.i.i10 = icmp eq i64 %15, 4294967297
   %16 = trunc i64 %15 to i32
@@ -11987,10 +11949,10 @@ if.then.i.i.i.i8:                                 ; preds = %_ZN19OpenColorIO_v2
 
 if.then.i.i.i.i.i33:                              ; preds = %if.then.i.i.i.i8
   store i32 0, ptr %_M_use_count.i.i.i.i.i9, align 8
-  %_M_weak_count.i.i.i.i.i34 = getelementptr inbounds %"class.std::_Sp_counted_base", ptr %14, i64 0, i32 2
+  %_M_weak_count.i.i.i.i.i34 = getelementptr inbounds i8, ptr %14, i64 12
   store i32 0, ptr %_M_weak_count.i.i.i.i.i34, align 4
   %vtable.i.i.i.i.i35 = load ptr, ptr %14, align 8
-  %vfn.i.i.i.i.i36 = getelementptr inbounds ptr, ptr %vtable.i.i.i.i.i35, i64 2
+  %vfn.i.i.i.i.i36 = getelementptr inbounds i8, ptr %vtable.i.i.i.i.i35, i64 16
   %17 = load ptr, ptr %vfn.i.i.i.i.i36, align 8
   tail call void %17(ptr noundef nonnull align 8 dereferenceable(16) %14) #13
   br label %if.end8.sink.split.i.i.i.i.i28
@@ -12016,10 +11978,10 @@ _ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i15: ; preds = %if.e
 
 if.then7.i.i.i.i.i18:                             ; preds = %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i15
   %vtable.i.i.i.i.i.i.i19 = load ptr, ptr %14, align 8
-  %vfn.i.i.i.i.i.i.i20 = getelementptr inbounds ptr, ptr %vtable.i.i.i.i.i.i.i19, i64 2
+  %vfn.i.i.i.i.i.i.i20 = getelementptr inbounds i8, ptr %vtable.i.i.i.i.i.i.i19, i64 16
   %20 = load ptr, ptr %vfn.i.i.i.i.i.i.i20, align 8
   tail call void %20(ptr noundef nonnull align 8 dereferenceable(16) %14) #13
-  %_M_weak_count.i.i.i.i.i.i.i21 = getelementptr inbounds %"class.std::_Sp_counted_base", ptr %14, i64 0, i32 2
+  %_M_weak_count.i.i.i.i.i.i.i21 = getelementptr inbounds i8, ptr %14, i64 12
   %21 = load i8, ptr @__libc_single_threaded, align 1
   %tobool.i.i.not.i.i.i.i.i.i.i22 = icmp eq i8 %21, 0
   br i1 %tobool.i.i.not.i.i.i.i.i.i.i22, label %if.else.i.i.i.i.i.i.i.i31, label %if.then.i.i.i.i.i.i.i.i23
@@ -12041,19 +12003,19 @@ _ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i.i25: ; preds = %
 
 if.end8.sink.split.i.i.i.i.i28:                   ; preds = %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i.i25, %if.then.i.i.i.i.i33
   %vtable2.i.i.i.i.i.i.i29 = load ptr, ptr %14, align 8
-  %vfn3.i.i.i.i.i.i.i30 = getelementptr inbounds ptr, ptr %vtable2.i.i.i.i.i.i.i29, i64 3
+  %vfn3.i.i.i.i.i.i.i30 = getelementptr inbounds i8, ptr %vtable2.i.i.i.i.i.i.i29, i64 24
   %24 = load ptr, ptr %vfn3.i.i.i.i.i.i.i30, align 8
   tail call void %24(ptr noundef nonnull align 8 dereferenceable(16) %14) #13
   br label %_ZN19OpenColorIO_v2_4dev16GenericImageDescD2Ev.exit37
 
 _ZN19OpenColorIO_v2_4dev16GenericImageDescD2Ev.exit37: ; preds = %_ZN19OpenColorIO_v2_4dev16GenericImageDescD2Ev.exit, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i15, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i.i25, %if.end8.sink.split.i.i.i.i.i28
-  %_M_refcount.i.i = getelementptr inbounds %"class.OpenColorIO_v2_4dev::GenericScanlineHelper.39", ptr %this, i64 0, i32 4, i32 0, i32 1
+  %_M_refcount.i.i = getelementptr inbounds i8, ptr %this, i64 40
   %25 = load ptr, ptr %_M_refcount.i.i, align 8
   %cmp.not.i.i.i = icmp eq ptr %25, null
   br i1 %cmp.not.i.i.i, label %_ZNSt10shared_ptrIKN19OpenColorIO_v2_4dev5OpCPUEED2Ev.exit, label %if.then.i.i.i38
 
 if.then.i.i.i38:                                  ; preds = %_ZN19OpenColorIO_v2_4dev16GenericImageDescD2Ev.exit37
-  %_M_use_count.i.i.i.i = getelementptr inbounds %"class.std::_Sp_counted_base", ptr %25, i64 0, i32 1
+  %_M_use_count.i.i.i.i = getelementptr inbounds i8, ptr %25, i64 8
   %26 = load atomic i64, ptr %_M_use_count.i.i.i.i acquire, align 8
   %cmp.i.i.i.i = icmp eq i64 %26, 4294967297
   %27 = trunc i64 %26 to i32
@@ -12061,10 +12023,10 @@ if.then.i.i.i38:                                  ; preds = %_ZN19OpenColorIO_v2
 
 if.then.i.i.i.i40:                                ; preds = %if.then.i.i.i38
   store i32 0, ptr %_M_use_count.i.i.i.i, align 8
-  %_M_weak_count.i.i.i.i = getelementptr inbounds %"class.std::_Sp_counted_base", ptr %25, i64 0, i32 2
+  %_M_weak_count.i.i.i.i = getelementptr inbounds i8, ptr %25, i64 12
   store i32 0, ptr %_M_weak_count.i.i.i.i, align 4
   %vtable.i.i.i.i = load ptr, ptr %25, align 8
-  %vfn.i.i.i.i = getelementptr inbounds ptr, ptr %vtable.i.i.i.i, i64 2
+  %vfn.i.i.i.i = getelementptr inbounds i8, ptr %vtable.i.i.i.i, i64 16
   %28 = load ptr, ptr %vfn.i.i.i.i, align 8
   tail call void %28(ptr noundef nonnull align 8 dereferenceable(16) %25) #13
   br label %if.end8.sink.split.i.i.i.i
@@ -12090,10 +12052,10 @@ _ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i: ; preds = %if.else.
 
 if.then7.i.i.i.i:                                 ; preds = %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i
   %vtable.i.i.i.i.i.i = load ptr, ptr %25, align 8
-  %vfn.i.i.i.i.i.i = getelementptr inbounds ptr, ptr %vtable.i.i.i.i.i.i, i64 2
+  %vfn.i.i.i.i.i.i = getelementptr inbounds i8, ptr %vtable.i.i.i.i.i.i, i64 16
   %31 = load ptr, ptr %vfn.i.i.i.i.i.i, align 8
   tail call void %31(ptr noundef nonnull align 8 dereferenceable(16) %25) #13
-  %_M_weak_count.i.i.i.i.i.i = getelementptr inbounds %"class.std::_Sp_counted_base", ptr %25, i64 0, i32 2
+  %_M_weak_count.i.i.i.i.i.i = getelementptr inbounds i8, ptr %25, i64 12
   %32 = load i8, ptr @__libc_single_threaded, align 1
   %tobool.i.i.not.i.i.i.i.i.i = icmp eq i8 %32, 0
   br i1 %tobool.i.i.not.i.i.i.i.i.i, label %if.else.i.i.i.i.i.i.i, label %if.then.i.i.i.i.i.i.i
@@ -12115,19 +12077,19 @@ _ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i: ; preds = %if.e
 
 if.end8.sink.split.i.i.i.i:                       ; preds = %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i, %if.then.i.i.i.i40
   %vtable2.i.i.i.i.i.i = load ptr, ptr %25, align 8
-  %vfn3.i.i.i.i.i.i = getelementptr inbounds ptr, ptr %vtable2.i.i.i.i.i.i, i64 3
+  %vfn3.i.i.i.i.i.i = getelementptr inbounds i8, ptr %vtable2.i.i.i.i.i.i, i64 24
   %35 = load ptr, ptr %vfn3.i.i.i.i.i.i, align 8
   tail call void %35(ptr noundef nonnull align 8 dereferenceable(16) %25) #13
   br label %_ZNSt10shared_ptrIKN19OpenColorIO_v2_4dev5OpCPUEED2Ev.exit
 
 _ZNSt10shared_ptrIKN19OpenColorIO_v2_4dev5OpCPUEED2Ev.exit: ; preds = %_ZN19OpenColorIO_v2_4dev16GenericImageDescD2Ev.exit37, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i, %if.end8.sink.split.i.i.i.i
-  %_M_refcount.i.i41 = getelementptr inbounds %"class.OpenColorIO_v2_4dev::GenericScanlineHelper.39", ptr %this, i64 0, i32 3, i32 0, i32 1
+  %_M_refcount.i.i41 = getelementptr inbounds i8, ptr %this, i64 24
   %36 = load ptr, ptr %_M_refcount.i.i41, align 8
   %cmp.not.i.i.i42 = icmp eq ptr %36, null
   br i1 %cmp.not.i.i.i42, label %_ZNSt10shared_ptrIKN19OpenColorIO_v2_4dev5OpCPUEED2Ev.exit72, label %if.then.i.i.i43
 
 if.then.i.i.i43:                                  ; preds = %_ZNSt10shared_ptrIKN19OpenColorIO_v2_4dev5OpCPUEED2Ev.exit
-  %_M_use_count.i.i.i.i44 = getelementptr inbounds %"class.std::_Sp_counted_base", ptr %36, i64 0, i32 1
+  %_M_use_count.i.i.i.i44 = getelementptr inbounds i8, ptr %36, i64 8
   %37 = load atomic i64, ptr %_M_use_count.i.i.i.i44 acquire, align 8
   %cmp.i.i.i.i45 = icmp eq i64 %37, 4294967297
   %38 = trunc i64 %37 to i32
@@ -12135,10 +12097,10 @@ if.then.i.i.i43:                                  ; preds = %_ZNSt10shared_ptrIK
 
 if.then.i.i.i.i68:                                ; preds = %if.then.i.i.i43
   store i32 0, ptr %_M_use_count.i.i.i.i44, align 8
-  %_M_weak_count.i.i.i.i69 = getelementptr inbounds %"class.std::_Sp_counted_base", ptr %36, i64 0, i32 2
+  %_M_weak_count.i.i.i.i69 = getelementptr inbounds i8, ptr %36, i64 12
   store i32 0, ptr %_M_weak_count.i.i.i.i69, align 4
   %vtable.i.i.i.i70 = load ptr, ptr %36, align 8
-  %vfn.i.i.i.i71 = getelementptr inbounds ptr, ptr %vtable.i.i.i.i70, i64 2
+  %vfn.i.i.i.i71 = getelementptr inbounds i8, ptr %vtable.i.i.i.i70, i64 16
   %39 = load ptr, ptr %vfn.i.i.i.i71, align 8
   tail call void %39(ptr noundef nonnull align 8 dereferenceable(16) %36) #13
   br label %if.end8.sink.split.i.i.i.i63
@@ -12164,10 +12126,10 @@ _ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i50: ; preds = %if.els
 
 if.then7.i.i.i.i53:                               ; preds = %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i50
   %vtable.i.i.i.i.i.i54 = load ptr, ptr %36, align 8
-  %vfn.i.i.i.i.i.i55 = getelementptr inbounds ptr, ptr %vtable.i.i.i.i.i.i54, i64 2
+  %vfn.i.i.i.i.i.i55 = getelementptr inbounds i8, ptr %vtable.i.i.i.i.i.i54, i64 16
   %42 = load ptr, ptr %vfn.i.i.i.i.i.i55, align 8
   tail call void %42(ptr noundef nonnull align 8 dereferenceable(16) %36) #13
-  %_M_weak_count.i.i.i.i.i.i56 = getelementptr inbounds %"class.std::_Sp_counted_base", ptr %36, i64 0, i32 2
+  %_M_weak_count.i.i.i.i.i.i56 = getelementptr inbounds i8, ptr %36, i64 12
   %43 = load i8, ptr @__libc_single_threaded, align 1
   %tobool.i.i.not.i.i.i.i.i.i57 = icmp eq i8 %43, 0
   br i1 %tobool.i.i.not.i.i.i.i.i.i57, label %if.else.i.i.i.i.i.i.i66, label %if.then.i.i.i.i.i.i.i58
@@ -12189,7 +12151,7 @@ _ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i60: ; preds = %if
 
 if.end8.sink.split.i.i.i.i63:                     ; preds = %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i60, %if.then.i.i.i.i68
   %vtable2.i.i.i.i.i.i64 = load ptr, ptr %36, align 8
-  %vfn3.i.i.i.i.i.i65 = getelementptr inbounds ptr, ptr %vtable2.i.i.i.i.i.i64, i64 3
+  %vfn3.i.i.i.i.i.i65 = getelementptr inbounds i8, ptr %vtable2.i.i.i.i.i.i64, i64 24
   %46 = load ptr, ptr %vfn3.i.i.i.i.i.i65, align 8
   tail call void %46(ptr noundef nonnull align 8 dereferenceable(16) %36) #13
   br label %_ZNSt10shared_ptrIKN19OpenColorIO_v2_4dev5OpCPUEED2Ev.exit72
@@ -12209,66 +12171,66 @@ entry:
 ; Function Attrs: mustprogress uwtable
 define weak_odr hidden void @_ZN19OpenColorIO_v2_4dev21GenericScanlineHelperIftE16prepRGBAScanlineEPPfRl(ptr noundef nonnull align 8 dereferenceable(309) %this, ptr noundef %buffer, ptr noundef nonnull align 8 dereferenceable(8) %numPixels) unnamed_addr #5 comdat align 2 {
 entry:
-  %m_yIndex = getelementptr inbounds %"class.OpenColorIO_v2_4dev::GenericScanlineHelper.39", ptr %this, i64 0, i32 12
+  %m_yIndex = getelementptr inbounds i8, ptr %this, i64 304
   %0 = load i32, ptr %m_yIndex, align 8
   %conv = sext i32 %0 to i64
-  %m_dstImg = getelementptr inbounds %"class.OpenColorIO_v2_4dev::GenericScanlineHelper.39", ptr %this, i64 0, i32 6
-  %m_height = getelementptr inbounds %"class.OpenColorIO_v2_4dev::GenericScanlineHelper.39", ptr %this, i64 0, i32 6, i32 1
+  %m_dstImg = getelementptr inbounds i8, ptr %this, i64 136
+  %m_height = getelementptr inbounds i8, ptr %this, i64 144
   %1 = load i64, ptr %m_height, align 8
   %cmp.not = icmp sgt i64 %1, %conv
   br i1 %cmp.not, label %if.end, label %return
 
 if.end:                                           ; preds = %entry
-  %m_useDstBuffer = getelementptr inbounds %"class.OpenColorIO_v2_4dev::GenericScanlineHelper.39", ptr %this, i64 0, i32 13
+  %m_useDstBuffer = getelementptr inbounds i8, ptr %this, i64 308
   %2 = load i8, ptr %m_useDstBuffer, align 4
   %3 = and i8 %2, 1
   %tobool.not = icmp eq i8 %3, 0
   br i1 %tobool.not, label %cond.false, label %cond.true
 
 cond.true:                                        ; preds = %if.end
-  %m_rData = getelementptr inbounds %"class.OpenColorIO_v2_4dev::GenericScanlineHelper.39", ptr %this, i64 0, i32 6, i32 4
+  %m_rData = getelementptr inbounds i8, ptr %this, i64 168
   %4 = load ptr, ptr %m_rData, align 8
-  %m_yStrideBytes = getelementptr inbounds %"class.OpenColorIO_v2_4dev::GenericScanlineHelper.39", ptr %this, i64 0, i32 6, i32 3
+  %m_yStrideBytes = getelementptr inbounds i8, ptr %this, i64 160
   %5 = load i64, ptr %m_yStrideBytes, align 8
   %mul = mul nsw i64 %5, %conv
   %add.ptr = getelementptr inbounds i8, ptr %4, i64 %mul
   br label %cond.end
 
 cond.false:                                       ; preds = %if.end
-  %m_rgbaFloatBuffer = getelementptr inbounds %"class.OpenColorIO_v2_4dev::GenericScanlineHelper.39", ptr %this, i64 0, i32 9
+  %m_rgbaFloatBuffer = getelementptr inbounds i8, ptr %this, i64 232
   %6 = load ptr, ptr %m_rgbaFloatBuffer, align 8
   br label %cond.end
 
 cond.end:                                         ; preds = %cond.false, %cond.true
   %cond = phi ptr [ %add.ptr, %cond.true ], [ %6, %cond.false ]
   store ptr %cond, ptr %buffer, align 8
-  %m_inOptimizedMode = getelementptr inbounds %"class.OpenColorIO_v2_4dev::GenericScanlineHelper.39", ptr %this, i64 0, i32 7
+  %m_inOptimizedMode = getelementptr inbounds i8, ptr %this, i64 224
   %7 = load i32, ptr %m_inOptimizedMode, align 8
   %and = and i32 %7, 1
   %cmp6.not = icmp eq i32 %and, 0
   br i1 %cmp6.not, label %if.else, label %if.then7
 
 if.then7:                                         ; preds = %cond.end
-  %m_rData8 = getelementptr inbounds %"class.OpenColorIO_v2_4dev::GenericScanlineHelper.39", ptr %this, i64 0, i32 5, i32 4
+  %m_rData8 = getelementptr inbounds i8, ptr %this, i64 80
   %8 = load ptr, ptr %m_rData8, align 8
-  %m_yStrideBytes10 = getelementptr inbounds %"class.OpenColorIO_v2_4dev::GenericScanlineHelper.39", ptr %this, i64 0, i32 5, i32 3
+  %m_yStrideBytes10 = getelementptr inbounds i8, ptr %this, i64 72
   %9 = load i64, ptr %m_yStrideBytes10, align 8
   %10 = load i32, ptr %m_yIndex, align 8
   %conv12 = sext i32 %10 to i64
   %mul13 = mul nsw i64 %9, %conv12
   %add.ptr14 = getelementptr inbounds i8, ptr %8, i64 %mul13
-  %m_bitDepthOp = getelementptr inbounds %"class.OpenColorIO_v2_4dev::GenericScanlineHelper.39", ptr %this, i64 0, i32 5, i32 8
+  %m_bitDepthOp = getelementptr inbounds i8, ptr %this, i64 112
   %11 = load ptr, ptr %m_bitDepthOp, align 8
   %12 = load i64, ptr %m_dstImg, align 8
   %vtable = load ptr, ptr %11, align 8
-  %vfn = getelementptr inbounds ptr, ptr %vtable, i64 2
+  %vfn = getelementptr inbounds i8, ptr %vtable, i64 16
   %13 = load ptr, ptr %vfn, align 8
   tail call void %13(ptr noundef nonnull align 8 dereferenceable(8) %11, ptr noundef %add.ptr14, ptr noundef %cond, i64 noundef %12)
   br label %if.end28
 
 if.else:                                          ; preds = %cond.end
-  %m_srcImg18 = getelementptr inbounds %"class.OpenColorIO_v2_4dev::GenericScanlineHelper.39", ptr %this, i64 0, i32 5
-  %m_inBitDepthBuffer = getelementptr inbounds %"class.OpenColorIO_v2_4dev::GenericScanlineHelper.39", ptr %this, i64 0, i32 10
+  %m_srcImg18 = getelementptr inbounds i8, ptr %this, i64 48
+  %m_inBitDepthBuffer = getelementptr inbounds i8, ptr %this, i64 256
   %14 = load ptr, ptr %m_inBitDepthBuffer, align 8
   %15 = load i64, ptr %m_dstImg, align 8
   %conv22 = trunc i64 %15 to i32
@@ -12291,47 +12253,47 @@ return:                                           ; preds = %entry, %if.end28
 ; Function Attrs: mustprogress uwtable
 define weak_odr hidden void @_ZN19OpenColorIO_v2_4dev21GenericScanlineHelperIftE18finishRGBAScanlineEv(ptr noundef nonnull align 8 dereferenceable(309) %this) unnamed_addr #5 comdat align 2 {
 entry:
-  %m_outOptimizedMode = getelementptr inbounds %"class.OpenColorIO_v2_4dev::GenericScanlineHelper.39", ptr %this, i64 0, i32 8
+  %m_outOptimizedMode = getelementptr inbounds i8, ptr %this, i64 228
   %0 = load i32, ptr %m_outOptimizedMode, align 4
   %and = and i32 %0, 1
   %cmp.not = icmp eq i32 %and, 0
-  %m_dstImg6 = getelementptr inbounds %"class.OpenColorIO_v2_4dev::GenericScanlineHelper.39", ptr %this, i64 0, i32 6
+  %m_dstImg6 = getelementptr inbounds i8, ptr %this, i64 136
   br i1 %cmp.not, label %if.else, label %if.then
 
 if.then:                                          ; preds = %entry
-  %m_rData = getelementptr inbounds %"class.OpenColorIO_v2_4dev::GenericScanlineHelper.39", ptr %this, i64 0, i32 6, i32 4
+  %m_rData = getelementptr inbounds i8, ptr %this, i64 168
   %1 = load ptr, ptr %m_rData, align 8
-  %m_yStrideBytes = getelementptr inbounds %"class.OpenColorIO_v2_4dev::GenericScanlineHelper.39", ptr %this, i64 0, i32 6, i32 3
+  %m_yStrideBytes = getelementptr inbounds i8, ptr %this, i64 160
   %2 = load i64, ptr %m_yStrideBytes, align 8
-  %m_yIndex = getelementptr inbounds %"class.OpenColorIO_v2_4dev::GenericScanlineHelper.39", ptr %this, i64 0, i32 12
+  %m_yIndex = getelementptr inbounds i8, ptr %this, i64 304
   %3 = load i32, ptr %m_yIndex, align 8
   %conv = sext i32 %3 to i64
   %mul = mul nsw i64 %2, %conv
   %add.ptr = getelementptr inbounds i8, ptr %1, i64 %mul
-  %m_useDstBuffer = getelementptr inbounds %"class.OpenColorIO_v2_4dev::GenericScanlineHelper.39", ptr %this, i64 0, i32 13
+  %m_useDstBuffer = getelementptr inbounds i8, ptr %this, i64 308
   %4 = load i8, ptr %m_useDstBuffer, align 4
   %5 = and i8 %4, 1
   %tobool.not = icmp eq i8 %5, 0
-  %m_rgbaFloatBuffer = getelementptr inbounds %"class.OpenColorIO_v2_4dev::GenericScanlineHelper.39", ptr %this, i64 0, i32 9
+  %m_rgbaFloatBuffer = getelementptr inbounds i8, ptr %this, i64 232
   %6 = load ptr, ptr %m_rgbaFloatBuffer, align 8
   %cond = select i1 %tobool.not, ptr %6, ptr %add.ptr
-  %m_bitDepthOp = getelementptr inbounds %"class.OpenColorIO_v2_4dev::GenericScanlineHelper.39", ptr %this, i64 0, i32 6, i32 8
+  %m_bitDepthOp = getelementptr inbounds i8, ptr %this, i64 200
   %7 = load ptr, ptr %m_bitDepthOp, align 8
   %8 = load i64, ptr %m_dstImg6, align 8
   %vtable = load ptr, ptr %7, align 8
-  %vfn = getelementptr inbounds ptr, ptr %vtable, i64 2
+  %vfn = getelementptr inbounds i8, ptr %vtable, i64 16
   %9 = load ptr, ptr %vfn, align 8
   tail call void %9(ptr noundef nonnull align 8 dereferenceable(8) %7, ptr noundef %cond, ptr noundef %add.ptr, i64 noundef %8)
   br label %if.end
 
 if.else:                                          ; preds = %entry
-  %m_rgbaFloatBuffer7 = getelementptr inbounds %"class.OpenColorIO_v2_4dev::GenericScanlineHelper.39", ptr %this, i64 0, i32 9
+  %m_rgbaFloatBuffer7 = getelementptr inbounds i8, ptr %this, i64 232
   %10 = load ptr, ptr %m_rgbaFloatBuffer7, align 8
-  %m_outBitDepthBuffer = getelementptr inbounds %"class.OpenColorIO_v2_4dev::GenericScanlineHelper.39", ptr %this, i64 0, i32 11
+  %m_outBitDepthBuffer = getelementptr inbounds i8, ptr %this, i64 280
   %11 = load ptr, ptr %m_outBitDepthBuffer, align 8
   %12 = load i64, ptr %m_dstImg6, align 8
   %conv12 = trunc i64 %12 to i32
-  %m_yIndex13 = getelementptr inbounds %"class.OpenColorIO_v2_4dev::GenericScanlineHelper.39", ptr %this, i64 0, i32 12
+  %m_yIndex13 = getelementptr inbounds i8, ptr %this, i64 304
   %13 = load i32, ptr %m_yIndex13, align 8
   %conv14 = sext i32 %13 to i64
   %mul17 = mul nsw i64 %12, %conv14
@@ -12339,7 +12301,7 @@ if.else:                                          ; preds = %entry
   br label %if.end
 
 if.end:                                           ; preds = %if.else, %if.then
-  %m_yIndex18 = getelementptr inbounds %"class.OpenColorIO_v2_4dev::GenericScanlineHelper.39", ptr %this, i64 0, i32 12
+  %m_yIndex18 = getelementptr inbounds i8, ptr %this, i64 304
   %14 = load i32, ptr %m_yIndex18, align 8
   %inc = add nsw i32 %14, 1
   store i32 %inc, ptr %m_yIndex18, align 8
@@ -12350,22 +12312,22 @@ if.end:                                           ; preds = %if.else, %if.then
 define weak_odr hidden void @_ZN19OpenColorIO_v2_4dev21GenericScanlineHelperIfN9Imath_3_14halfEEC2ENS_8BitDepthERKSt10shared_ptrIKNS_5OpCPUEES4_SA_(ptr noundef nonnull align 8 dereferenceable(309) %this, i32 noundef %inputBitDepth, ptr noundef nonnull align 8 dereferenceable(16) %inBitDepthOp, i32 noundef %outputBitDepth, ptr noundef nonnull align 8 dereferenceable(16) %outBitDepthOp) unnamed_addr #3 comdat($_ZN19OpenColorIO_v2_4dev21GenericScanlineHelperIfN9Imath_3_14halfEEC5ENS_8BitDepthERKSt10shared_ptrIKNS_5OpCPUEES4_SA_) align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTVN19OpenColorIO_v2_4dev21GenericScanlineHelperIfN9Imath_3_14halfEEE, i64 0, inrange i32 0, i64 2), ptr %this, align 8
-  %m_inputBitDepth = getelementptr inbounds %"class.OpenColorIO_v2_4dev::GenericScanlineHelper.41", ptr %this, i64 0, i32 1
+  %m_inputBitDepth = getelementptr inbounds i8, ptr %this, i64 8
   store i32 %inputBitDepth, ptr %m_inputBitDepth, align 8
-  %m_outputBitDepth = getelementptr inbounds %"class.OpenColorIO_v2_4dev::GenericScanlineHelper.41", ptr %this, i64 0, i32 2
+  %m_outputBitDepth = getelementptr inbounds i8, ptr %this, i64 12
   store i32 %outputBitDepth, ptr %m_outputBitDepth, align 4
-  %m_inBitDepthOp = getelementptr inbounds %"class.OpenColorIO_v2_4dev::GenericScanlineHelper.41", ptr %this, i64 0, i32 3
+  %m_inBitDepthOp = getelementptr inbounds i8, ptr %this, i64 16
   %0 = load ptr, ptr %inBitDepthOp, align 8
   store ptr %0, ptr %m_inBitDepthOp, align 8
-  %_M_refcount.i.i = getelementptr inbounds %"class.OpenColorIO_v2_4dev::GenericScanlineHelper.41", ptr %this, i64 0, i32 3, i32 0, i32 1
-  %_M_refcount3.i.i = getelementptr inbounds %"class.std::__shared_ptr", ptr %inBitDepthOp, i64 0, i32 1
+  %_M_refcount.i.i = getelementptr inbounds i8, ptr %this, i64 24
+  %_M_refcount3.i.i = getelementptr inbounds i8, ptr %inBitDepthOp, i64 8
   %1 = load ptr, ptr %_M_refcount3.i.i, align 8
   store ptr %1, ptr %_M_refcount.i.i, align 8
   %cmp.not.i.i.i = icmp eq ptr %1, null
   br i1 %cmp.not.i.i.i, label %_ZNSt10shared_ptrIKN19OpenColorIO_v2_4dev5OpCPUEEC2ERKS3_.exit, label %if.then.i.i.i
 
 if.then.i.i.i:                                    ; preds = %entry
-  %_M_use_count.i.i.i.i = getelementptr inbounds %"class.std::_Sp_counted_base", ptr %1, i64 0, i32 1
+  %_M_use_count.i.i.i.i = getelementptr inbounds i8, ptr %1, i64 8
   %2 = load i8, ptr @__libc_single_threaded, align 1
   %tobool.i.not.i.i.i.i = icmp eq i8 %2, 0
   br i1 %tobool.i.not.i.i.i.i, label %if.else.i.i.i.i.i, label %if.then.i.i.i.i.i
@@ -12381,18 +12343,18 @@ if.else.i.i.i.i.i:                                ; preds = %if.then.i.i.i
   br label %_ZNSt10shared_ptrIKN19OpenColorIO_v2_4dev5OpCPUEEC2ERKS3_.exit
 
 _ZNSt10shared_ptrIKN19OpenColorIO_v2_4dev5OpCPUEEC2ERKS3_.exit: ; preds = %entry, %if.then.i.i.i.i.i, %if.else.i.i.i.i.i
-  %m_outBitDepthOp = getelementptr inbounds %"class.OpenColorIO_v2_4dev::GenericScanlineHelper.41", ptr %this, i64 0, i32 4
+  %m_outBitDepthOp = getelementptr inbounds i8, ptr %this, i64 32
   %5 = load ptr, ptr %outBitDepthOp, align 8
   store ptr %5, ptr %m_outBitDepthOp, align 8
-  %_M_refcount.i.i1 = getelementptr inbounds %"class.OpenColorIO_v2_4dev::GenericScanlineHelper.41", ptr %this, i64 0, i32 4, i32 0, i32 1
-  %_M_refcount3.i.i2 = getelementptr inbounds %"class.std::__shared_ptr", ptr %outBitDepthOp, i64 0, i32 1
+  %_M_refcount.i.i1 = getelementptr inbounds i8, ptr %this, i64 40
+  %_M_refcount3.i.i2 = getelementptr inbounds i8, ptr %outBitDepthOp, i64 8
   %6 = load ptr, ptr %_M_refcount3.i.i2, align 8
   store ptr %6, ptr %_M_refcount.i.i1, align 8
   %cmp.not.i.i.i3 = icmp eq ptr %6, null
   br i1 %cmp.not.i.i.i3, label %_ZNSt10shared_ptrIKN19OpenColorIO_v2_4dev5OpCPUEEC2ERKS3_.exit10, label %if.then.i.i.i4
 
 if.then.i.i.i4:                                   ; preds = %_ZNSt10shared_ptrIKN19OpenColorIO_v2_4dev5OpCPUEEC2ERKS3_.exit
-  %_M_use_count.i.i.i.i5 = getelementptr inbounds %"class.std::_Sp_counted_base", ptr %6, i64 0, i32 1
+  %_M_use_count.i.i.i.i5 = getelementptr inbounds i8, ptr %6, i64 8
   %7 = load i8, ptr @__libc_single_threaded, align 1
   %tobool.i.not.i.i.i.i6 = icmp eq i8 %7, 0
   br i1 %tobool.i.not.i.i.i.i6, label %if.else.i.i.i.i.i9, label %if.then.i.i.i.i.i7
@@ -12408,11 +12370,11 @@ if.else.i.i.i.i.i9:                               ; preds = %if.then.i.i.i4
   br label %_ZNSt10shared_ptrIKN19OpenColorIO_v2_4dev5OpCPUEEC2ERKS3_.exit10
 
 _ZNSt10shared_ptrIKN19OpenColorIO_v2_4dev5OpCPUEEC2ERKS3_.exit10: ; preds = %_ZNSt10shared_ptrIKN19OpenColorIO_v2_4dev5OpCPUEEC2ERKS3_.exit, %if.then.i.i.i.i.i7, %if.else.i.i.i.i.i9
-  %m_srcImg = getelementptr inbounds %"class.OpenColorIO_v2_4dev::GenericScanlineHelper.41", ptr %this, i64 0, i32 5
+  %m_srcImg = getelementptr inbounds i8, ptr %this, i64 48
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(82) %m_srcImg, i8 0, i64 82, i1 false)
-  %m_dstImg = getelementptr inbounds %"class.OpenColorIO_v2_4dev::GenericScanlineHelper.41", ptr %this, i64 0, i32 6
+  %m_dstImg = getelementptr inbounds i8, ptr %this, i64 136
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(82) %m_dstImg, i8 0, i64 82, i1 false)
-  %m_inOptimizedMode = getelementptr inbounds %"class.OpenColorIO_v2_4dev::GenericScanlineHelper.41", ptr %this, i64 0, i32 7
+  %m_inOptimizedMode = getelementptr inbounds i8, ptr %this, i64 224
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(85) %m_inOptimizedMode, i8 0, i64 85, i1 false)
   ret void
 }
@@ -12420,17 +12382,17 @@ _ZNSt10shared_ptrIKN19OpenColorIO_v2_4dev5OpCPUEEC2ERKS3_.exit10: ; preds = %_ZN
 ; Function Attrs: mustprogress uwtable
 define weak_odr hidden void @_ZN19OpenColorIO_v2_4dev21GenericScanlineHelperIfN9Imath_3_14halfEE4initERKNS_9ImageDescES6_(ptr noundef nonnull align 8 dereferenceable(309) %this, ptr noundef nonnull align 8 dereferenceable(8) %srcImg, ptr noundef nonnull align 8 dereferenceable(8) %dstImg) unnamed_addr #5 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  %m_yIndex = getelementptr inbounds %"class.OpenColorIO_v2_4dev::GenericScanlineHelper.41", ptr %this, i64 0, i32 12
+  %m_yIndex = getelementptr inbounds i8, ptr %this, i64 304
   store i32 0, ptr %m_yIndex, align 8
-  %m_srcImg = getelementptr inbounds %"class.OpenColorIO_v2_4dev::GenericScanlineHelper.41", ptr %this, i64 0, i32 5
-  %m_inputBitDepth = getelementptr inbounds %"class.OpenColorIO_v2_4dev::GenericScanlineHelper.41", ptr %this, i64 0, i32 1
+  %m_srcImg = getelementptr inbounds i8, ptr %this, i64 48
+  %m_inputBitDepth = getelementptr inbounds i8, ptr %this, i64 8
   %0 = load i32, ptr %m_inputBitDepth, align 8
-  %m_inBitDepthOp = getelementptr inbounds %"class.OpenColorIO_v2_4dev::GenericScanlineHelper.41", ptr %this, i64 0, i32 3
+  %m_inBitDepthOp = getelementptr inbounds i8, ptr %this, i64 16
   tail call void @_ZN19OpenColorIO_v2_4dev16GenericImageDesc4initERKNS_9ImageDescENS_8BitDepthERKSt10shared_ptrIKNS_5OpCPUEE(ptr noundef nonnull align 8 dereferenceable(82) %m_srcImg, ptr noundef nonnull align 8 dereferenceable(8) %srcImg, i32 noundef %0, ptr noundef nonnull align 8 dereferenceable(16) %m_inBitDepthOp)
-  %m_dstImg = getelementptr inbounds %"class.OpenColorIO_v2_4dev::GenericScanlineHelper.41", ptr %this, i64 0, i32 6
-  %m_outputBitDepth = getelementptr inbounds %"class.OpenColorIO_v2_4dev::GenericScanlineHelper.41", ptr %this, i64 0, i32 2
+  %m_dstImg = getelementptr inbounds i8, ptr %this, i64 136
+  %m_outputBitDepth = getelementptr inbounds i8, ptr %this, i64 12
   %1 = load i32, ptr %m_outputBitDepth, align 4
-  %m_outBitDepthOp = getelementptr inbounds %"class.OpenColorIO_v2_4dev::GenericScanlineHelper.41", ptr %this, i64 0, i32 4
+  %m_outBitDepthOp = getelementptr inbounds i8, ptr %this, i64 32
   tail call void @_ZN19OpenColorIO_v2_4dev16GenericImageDesc4initERKNS_9ImageDescENS_8BitDepthERKSt10shared_ptrIKNS_5OpCPUEE(ptr noundef nonnull align 8 dereferenceable(82) %m_dstImg, ptr noundef nonnull align 8 dereferenceable(8) %dstImg, i32 noundef %1, ptr noundef nonnull align 8 dereferenceable(16) %m_outBitDepthOp)
   %2 = load i64, ptr %m_srcImg, align 8
   %3 = load i64, ptr %m_dstImg, align 8
@@ -12438,9 +12400,9 @@ entry:
   br i1 %cmp.not, label %lor.lhs.false, label %if.then
 
 lor.lhs.false:                                    ; preds = %entry
-  %m_height = getelementptr inbounds %"class.OpenColorIO_v2_4dev::GenericScanlineHelper.41", ptr %this, i64 0, i32 5, i32 1
+  %m_height = getelementptr inbounds i8, ptr %this, i64 56
   %4 = load i64, ptr %m_height, align 8
-  %m_height7 = getelementptr inbounds %"class.OpenColorIO_v2_4dev::GenericScanlineHelper.41", ptr %this, i64 0, i32 6, i32 1
+  %m_height7 = getelementptr inbounds i8, ptr %this, i64 144
   %5 = load i64, ptr %m_height7, align 8
   %cmp8.not = icmp eq i64 %4, %5
   br i1 %cmp8.not, label %if.end, label %if.then
@@ -12471,7 +12433,7 @@ if.then.i:                                        ; preds = %if.end
 
 _ZN19OpenColorIO_v2_4dev19GetOptimizationModeERKNS_16GenericImageDescE.exit: ; preds = %if.end, %if.then.i
   %optim.0.i = phi i32 [ 0, %if.end ], [ %spec.select.i, %if.then.i ]
-  %m_inOptimizedMode = getelementptr inbounds %"class.OpenColorIO_v2_4dev::GenericScanlineHelper.41", ptr %this, i64 0, i32 7
+  %m_inOptimizedMode = getelementptr inbounds i8, ptr %this, i64 224
   store i32 %optim.0.i, ptr %m_inOptimizedMode, align 8
   %call.i2 = tail call noundef zeroext i1 @_ZNK19OpenColorIO_v2_4dev16GenericImageDesc12isRGBAPackedEv(ptr noundef nonnull align 8 dereferenceable(82) %m_dstImg)
   br i1 %call.i2, label %if.then.i4, label %_ZN19OpenColorIO_v2_4dev19GetOptimizationModeERKNS_16GenericImageDescE.exit7
@@ -12483,10 +12445,10 @@ if.then.i4:                                       ; preds = %_ZN19OpenColorIO_v2
 
 _ZN19OpenColorIO_v2_4dev19GetOptimizationModeERKNS_16GenericImageDescE.exit7: ; preds = %_ZN19OpenColorIO_v2_4dev19GetOptimizationModeERKNS_16GenericImageDescE.exit, %if.then.i4
   %optim.0.i3 = phi i32 [ 0, %_ZN19OpenColorIO_v2_4dev19GetOptimizationModeERKNS_16GenericImageDescE.exit ], [ %spec.select.i6, %if.then.i4 ]
-  %m_outOptimizedMode = getelementptr inbounds %"class.OpenColorIO_v2_4dev::GenericScanlineHelper.41", ptr %this, i64 0, i32 8
+  %m_outOptimizedMode = getelementptr inbounds i8, ptr %this, i64 228
   store i32 %optim.0.i3, ptr %m_outOptimizedMode, align 4
   %cmp13 = icmp eq i32 %optim.0.i3, 3
-  %m_useDstBuffer = getelementptr inbounds %"class.OpenColorIO_v2_4dev::GenericScanlineHelper.41", ptr %this, i64 0, i32 13
+  %m_useDstBuffer = getelementptr inbounds i8, ptr %this, i64 308
   %frombool = zext i1 %cmp13 to i8
   store i8 %frombool, ptr %m_useDstBuffer, align 4
   %7 = load i32, ptr %m_inOptimizedMode, align 8
@@ -12497,8 +12459,8 @@ _ZN19OpenColorIO_v2_4dev19GetOptimizationModeERKNS_16GenericImageDescE.exit7: ; 
 if.then17:                                        ; preds = %_ZN19OpenColorIO_v2_4dev19GetOptimizationModeERKNS_16GenericImageDescE.exit7
   %8 = load i64, ptr %m_dstImg, align 8
   %mul = shl nsw i64 %8, 2
-  %m_inBitDepthBuffer = getelementptr inbounds %"class.OpenColorIO_v2_4dev::GenericScanlineHelper.41", ptr %this, i64 0, i32 10
-  %_M_finish.i.i = getelementptr inbounds %"class.OpenColorIO_v2_4dev::GenericScanlineHelper.41", ptr %this, i64 0, i32 10, i32 0, i32 0, i32 0, i32 1
+  %m_inBitDepthBuffer = getelementptr inbounds i8, ptr %this, i64 256
+  %_M_finish.i.i = getelementptr inbounds i8, ptr %this, i64 264
   %9 = load ptr, ptr %_M_finish.i.i, align 8
   %10 = load ptr, ptr %m_inBitDepthBuffer, align 8
   %sub.ptr.lhs.cast.i.i = ptrtoint ptr %9 to i64
@@ -12536,8 +12498,8 @@ if.end20:                                         ; preds = %invoke.cont.i.i, %i
 if.then22:                                        ; preds = %if.end20
   %13 = load i64, ptr %m_dstImg, align 8
   %mul26 = shl nsw i64 %13, 2
-  %m_rgbaFloatBuffer = getelementptr inbounds %"class.OpenColorIO_v2_4dev::GenericScanlineHelper.41", ptr %this, i64 0, i32 9
-  %_M_finish.i.i9 = getelementptr inbounds %"class.OpenColorIO_v2_4dev::GenericScanlineHelper.41", ptr %this, i64 0, i32 9, i32 0, i32 0, i32 0, i32 1
+  %m_rgbaFloatBuffer = getelementptr inbounds i8, ptr %this, i64 232
+  %_M_finish.i.i9 = getelementptr inbounds i8, ptr %this, i64 240
   %14 = load ptr, ptr %_M_finish.i.i9, align 8
   %15 = load ptr, ptr %m_rgbaFloatBuffer, align 8
   %sub.ptr.lhs.cast.i.i10 = ptrtoint ptr %14 to i64
@@ -12566,8 +12528,8 @@ invoke.cont.i.i20:                                ; preds = %if.then5.i17
   br label %_ZNSt6vectorIfSaIfEE6resizeEm.exit23
 
 _ZNSt6vectorIfSaIfEE6resizeEm.exit23:             ; preds = %if.then.i21, %if.else.i15, %if.then5.i17, %invoke.cont.i.i20
-  %m_outBitDepthBuffer = getelementptr inbounds %"class.OpenColorIO_v2_4dev::GenericScanlineHelper.41", ptr %this, i64 0, i32 11
-  %_M_finish.i.i24 = getelementptr inbounds %"class.OpenColorIO_v2_4dev::GenericScanlineHelper.41", ptr %this, i64 0, i32 11, i32 0, i32 0, i32 0, i32 1
+  %m_outBitDepthBuffer = getelementptr inbounds i8, ptr %this, i64 280
+  %_M_finish.i.i24 = getelementptr inbounds i8, ptr %this, i64 288
   %16 = load ptr, ptr %_M_finish.i.i24, align 8
   %17 = load ptr, ptr %m_outBitDepthBuffer, align 8
   %sub.ptr.lhs.cast.i.i25 = ptrtoint ptr %16 to i64
@@ -12602,17 +12564,17 @@ if.end27:                                         ; preds = %invoke.cont.i.i35, 
 ; Function Attrs: mustprogress uwtable
 define weak_odr hidden void @_ZN19OpenColorIO_v2_4dev21GenericScanlineHelperIfN9Imath_3_14halfEE4initERKNS_9ImageDescE(ptr noundef nonnull align 8 dereferenceable(309) %this, ptr noundef nonnull align 8 dereferenceable(8) %img) unnamed_addr #5 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  %m_yIndex = getelementptr inbounds %"class.OpenColorIO_v2_4dev::GenericScanlineHelper.41", ptr %this, i64 0, i32 12
+  %m_yIndex = getelementptr inbounds i8, ptr %this, i64 304
   store i32 0, ptr %m_yIndex, align 8
-  %m_srcImg = getelementptr inbounds %"class.OpenColorIO_v2_4dev::GenericScanlineHelper.41", ptr %this, i64 0, i32 5
-  %m_inputBitDepth = getelementptr inbounds %"class.OpenColorIO_v2_4dev::GenericScanlineHelper.41", ptr %this, i64 0, i32 1
+  %m_srcImg = getelementptr inbounds i8, ptr %this, i64 48
+  %m_inputBitDepth = getelementptr inbounds i8, ptr %this, i64 8
   %0 = load i32, ptr %m_inputBitDepth, align 8
-  %m_inBitDepthOp = getelementptr inbounds %"class.OpenColorIO_v2_4dev::GenericScanlineHelper.41", ptr %this, i64 0, i32 3
+  %m_inBitDepthOp = getelementptr inbounds i8, ptr %this, i64 16
   tail call void @_ZN19OpenColorIO_v2_4dev16GenericImageDesc4initERKNS_9ImageDescENS_8BitDepthERKSt10shared_ptrIKNS_5OpCPUEE(ptr noundef nonnull align 8 dereferenceable(82) %m_srcImg, ptr noundef nonnull align 8 dereferenceable(8) %img, i32 noundef %0, ptr noundef nonnull align 8 dereferenceable(16) %m_inBitDepthOp)
-  %m_dstImg = getelementptr inbounds %"class.OpenColorIO_v2_4dev::GenericScanlineHelper.41", ptr %this, i64 0, i32 6
-  %m_outputBitDepth = getelementptr inbounds %"class.OpenColorIO_v2_4dev::GenericScanlineHelper.41", ptr %this, i64 0, i32 2
+  %m_dstImg = getelementptr inbounds i8, ptr %this, i64 136
+  %m_outputBitDepth = getelementptr inbounds i8, ptr %this, i64 12
   %1 = load i32, ptr %m_outputBitDepth, align 4
-  %m_outBitDepthOp = getelementptr inbounds %"class.OpenColorIO_v2_4dev::GenericScanlineHelper.41", ptr %this, i64 0, i32 4
+  %m_outBitDepthOp = getelementptr inbounds i8, ptr %this, i64 32
   tail call void @_ZN19OpenColorIO_v2_4dev16GenericImageDesc4initERKNS_9ImageDescENS_8BitDepthERKSt10shared_ptrIKNS_5OpCPUEE(ptr noundef nonnull align 8 dereferenceable(82) %m_dstImg, ptr noundef nonnull align 8 dereferenceable(8) %img, i32 noundef %1, ptr noundef nonnull align 8 dereferenceable(16) %m_outBitDepthOp)
   %call.i = tail call noundef zeroext i1 @_ZNK19OpenColorIO_v2_4dev16GenericImageDesc12isRGBAPackedEv(ptr noundef nonnull align 8 dereferenceable(82) %m_srcImg)
   br i1 %call.i, label %if.then.i, label %if.then
@@ -12622,26 +12584,26 @@ if.then.i:                                        ; preds = %entry
   br i1 %call1.i, label %_ZN19OpenColorIO_v2_4dev19GetOptimizationModeERKNS_16GenericImageDescE.exit, label %if.then
 
 _ZN19OpenColorIO_v2_4dev19GetOptimizationModeERKNS_16GenericImageDescE.exit: ; preds = %if.then.i
-  %m_inOptimizedMode = getelementptr inbounds %"class.OpenColorIO_v2_4dev::GenericScanlineHelper.41", ptr %this, i64 0, i32 7
+  %m_inOptimizedMode = getelementptr inbounds i8, ptr %this, i64 224
   store i32 3, ptr %m_inOptimizedMode, align 8
-  %m_outOptimizedMode = getelementptr inbounds %"class.OpenColorIO_v2_4dev::GenericScanlineHelper.41", ptr %this, i64 0, i32 8
+  %m_outOptimizedMode = getelementptr inbounds i8, ptr %this, i64 228
   store i32 3, ptr %m_outOptimizedMode, align 4
-  %m_useDstBuffer = getelementptr inbounds %"class.OpenColorIO_v2_4dev::GenericScanlineHelper.41", ptr %this, i64 0, i32 13
+  %m_useDstBuffer = getelementptr inbounds i8, ptr %this, i64 308
   store i8 1, ptr %m_useDstBuffer, align 4
   br label %if.end
 
 if.then:                                          ; preds = %entry, %if.then.i
   %optim.0.i.ph = phi i32 [ 1, %if.then.i ], [ 0, %entry ]
-  %m_inOptimizedMode35 = getelementptr inbounds %"class.OpenColorIO_v2_4dev::GenericScanlineHelper.41", ptr %this, i64 0, i32 7
+  %m_inOptimizedMode35 = getelementptr inbounds i8, ptr %this, i64 224
   store i32 %optim.0.i.ph, ptr %m_inOptimizedMode35, align 8
-  %m_outOptimizedMode36 = getelementptr inbounds %"class.OpenColorIO_v2_4dev::GenericScanlineHelper.41", ptr %this, i64 0, i32 8
+  %m_outOptimizedMode36 = getelementptr inbounds i8, ptr %this, i64 228
   store i32 %optim.0.i.ph, ptr %m_outOptimizedMode36, align 4
-  %m_useDstBuffer38 = getelementptr inbounds %"class.OpenColorIO_v2_4dev::GenericScanlineHelper.41", ptr %this, i64 0, i32 13
+  %m_useDstBuffer38 = getelementptr inbounds i8, ptr %this, i64 308
   store i8 0, ptr %m_useDstBuffer38, align 4
   %2 = load i64, ptr %m_dstImg, align 8
   %mul = shl nsw i64 %2, 2
-  %m_rgbaFloatBuffer = getelementptr inbounds %"class.OpenColorIO_v2_4dev::GenericScanlineHelper.41", ptr %this, i64 0, i32 9
-  %_M_finish.i.i = getelementptr inbounds %"class.OpenColorIO_v2_4dev::GenericScanlineHelper.41", ptr %this, i64 0, i32 9, i32 0, i32 0, i32 0, i32 1
+  %m_rgbaFloatBuffer = getelementptr inbounds i8, ptr %this, i64 232
+  %_M_finish.i.i = getelementptr inbounds i8, ptr %this, i64 240
   %3 = load ptr, ptr %_M_finish.i.i, align 8
   %4 = load ptr, ptr %m_rgbaFloatBuffer, align 8
   %sub.ptr.lhs.cast.i.i = ptrtoint ptr %3 to i64
@@ -12670,8 +12632,8 @@ invoke.cont.i.i:                                  ; preds = %if.then5.i
   br label %_ZNSt6vectorIfSaIfEE6resizeEm.exit
 
 _ZNSt6vectorIfSaIfEE6resizeEm.exit:               ; preds = %if.then.i4, %if.else.i, %if.then5.i, %invoke.cont.i.i
-  %m_inBitDepthBuffer = getelementptr inbounds %"class.OpenColorIO_v2_4dev::GenericScanlineHelper.41", ptr %this, i64 0, i32 10
-  %_M_finish.i.i5 = getelementptr inbounds %"class.OpenColorIO_v2_4dev::GenericScanlineHelper.41", ptr %this, i64 0, i32 10, i32 0, i32 0, i32 0, i32 1
+  %m_inBitDepthBuffer = getelementptr inbounds i8, ptr %this, i64 256
+  %_M_finish.i.i5 = getelementptr inbounds i8, ptr %this, i64 264
   %5 = load ptr, ptr %_M_finish.i.i5, align 8
   %6 = load ptr, ptr %m_inBitDepthBuffer, align 8
   %sub.ptr.lhs.cast.i.i6 = ptrtoint ptr %5 to i64
@@ -12700,8 +12662,8 @@ invoke.cont.i.i16:                                ; preds = %if.then5.i13
   br label %_ZNSt6vectorIfSaIfEE6resizeEm.exit19
 
 _ZNSt6vectorIfSaIfEE6resizeEm.exit19:             ; preds = %if.then.i17, %if.else.i11, %if.then5.i13, %invoke.cont.i.i16
-  %m_outBitDepthBuffer = getelementptr inbounds %"class.OpenColorIO_v2_4dev::GenericScanlineHelper.41", ptr %this, i64 0, i32 11
-  %_M_finish.i.i20 = getelementptr inbounds %"class.OpenColorIO_v2_4dev::GenericScanlineHelper.41", ptr %this, i64 0, i32 11, i32 0, i32 0, i32 0, i32 1
+  %m_outBitDepthBuffer = getelementptr inbounds i8, ptr %this, i64 280
+  %_M_finish.i.i20 = getelementptr inbounds i8, ptr %this, i64 288
   %7 = load ptr, ptr %_M_finish.i.i20, align 8
   %8 = load ptr, ptr %m_outBitDepthBuffer, align 8
   %sub.ptr.lhs.cast.i.i21 = ptrtoint ptr %7 to i64
@@ -12737,7 +12699,7 @@ if.end:                                           ; preds = %invoke.cont.i.i31, 
 define weak_odr hidden void @_ZN19OpenColorIO_v2_4dev21GenericScanlineHelperIfN9Imath_3_14halfEED2Ev(ptr noundef nonnull align 8 dereferenceable(309) %this) unnamed_addr #3 comdat($_ZN19OpenColorIO_v2_4dev21GenericScanlineHelperIfN9Imath_3_14halfEED5Ev) align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTVN19OpenColorIO_v2_4dev21GenericScanlineHelperIfN9Imath_3_14halfEEE, i64 0, inrange i32 0, i64 2), ptr %this, align 8
-  %m_outBitDepthBuffer = getelementptr inbounds %"class.OpenColorIO_v2_4dev::GenericScanlineHelper.41", ptr %this, i64 0, i32 11
+  %m_outBitDepthBuffer = getelementptr inbounds i8, ptr %this, i64 280
   %0 = load ptr, ptr %m_outBitDepthBuffer, align 8
   %tobool.not.i.i.i = icmp eq ptr %0, null
   br i1 %tobool.not.i.i.i, label %_ZNSt6vectorIN9Imath_3_14halfESaIS1_EED2Ev.exit, label %if.then.i.i.i
@@ -12747,7 +12709,7 @@ if.then.i.i.i:                                    ; preds = %entry
   br label %_ZNSt6vectorIN9Imath_3_14halfESaIS1_EED2Ev.exit
 
 _ZNSt6vectorIN9Imath_3_14halfESaIS1_EED2Ev.exit:  ; preds = %entry, %if.then.i.i.i
-  %m_inBitDepthBuffer = getelementptr inbounds %"class.OpenColorIO_v2_4dev::GenericScanlineHelper.41", ptr %this, i64 0, i32 10
+  %m_inBitDepthBuffer = getelementptr inbounds i8, ptr %this, i64 256
   %1 = load ptr, ptr %m_inBitDepthBuffer, align 8
   %tobool.not.i.i.i1 = icmp eq ptr %1, null
   br i1 %tobool.not.i.i.i1, label %_ZNSt6vectorIfSaIfEED2Ev.exit, label %if.then.i.i.i2
@@ -12757,7 +12719,7 @@ if.then.i.i.i2:                                   ; preds = %_ZNSt6vectorIN9Imat
   br label %_ZNSt6vectorIfSaIfEED2Ev.exit
 
 _ZNSt6vectorIfSaIfEED2Ev.exit:                    ; preds = %_ZNSt6vectorIN9Imath_3_14halfESaIS1_EED2Ev.exit, %if.then.i.i.i2
-  %m_rgbaFloatBuffer = getelementptr inbounds %"class.OpenColorIO_v2_4dev::GenericScanlineHelper.41", ptr %this, i64 0, i32 9
+  %m_rgbaFloatBuffer = getelementptr inbounds i8, ptr %this, i64 232
   %2 = load ptr, ptr %m_rgbaFloatBuffer, align 8
   %tobool.not.i.i.i3 = icmp eq ptr %2, null
   br i1 %tobool.not.i.i.i3, label %_ZNSt6vectorIfSaIfEED2Ev.exit5, label %if.then.i.i.i4
@@ -12767,13 +12729,13 @@ if.then.i.i.i4:                                   ; preds = %_ZNSt6vectorIfSaIfE
   br label %_ZNSt6vectorIfSaIfEED2Ev.exit5
 
 _ZNSt6vectorIfSaIfEED2Ev.exit5:                   ; preds = %_ZNSt6vectorIfSaIfEED2Ev.exit, %if.then.i.i.i4
-  %_M_refcount.i.i.i = getelementptr inbounds %"class.OpenColorIO_v2_4dev::GenericScanlineHelper.41", ptr %this, i64 0, i32 6, i32 8, i32 0, i32 1
+  %_M_refcount.i.i.i = getelementptr inbounds i8, ptr %this, i64 208
   %3 = load ptr, ptr %_M_refcount.i.i.i, align 8
   %cmp.not.i.i.i.i = icmp eq ptr %3, null
   br i1 %cmp.not.i.i.i.i, label %_ZN19OpenColorIO_v2_4dev16GenericImageDescD2Ev.exit, label %if.then.i.i.i.i
 
 if.then.i.i.i.i:                                  ; preds = %_ZNSt6vectorIfSaIfEED2Ev.exit5
-  %_M_use_count.i.i.i.i.i = getelementptr inbounds %"class.std::_Sp_counted_base", ptr %3, i64 0, i32 1
+  %_M_use_count.i.i.i.i.i = getelementptr inbounds i8, ptr %3, i64 8
   %4 = load atomic i64, ptr %_M_use_count.i.i.i.i.i acquire, align 8
   %cmp.i.i.i.i.i = icmp eq i64 %4, 4294967297
   %5 = trunc i64 %4 to i32
@@ -12781,10 +12743,10 @@ if.then.i.i.i.i:                                  ; preds = %_ZNSt6vectorIfSaIfE
 
 if.then.i.i.i.i.i:                                ; preds = %if.then.i.i.i.i
   store i32 0, ptr %_M_use_count.i.i.i.i.i, align 8
-  %_M_weak_count.i.i.i.i.i = getelementptr inbounds %"class.std::_Sp_counted_base", ptr %3, i64 0, i32 2
+  %_M_weak_count.i.i.i.i.i = getelementptr inbounds i8, ptr %3, i64 12
   store i32 0, ptr %_M_weak_count.i.i.i.i.i, align 4
   %vtable.i.i.i.i.i = load ptr, ptr %3, align 8
-  %vfn.i.i.i.i.i = getelementptr inbounds ptr, ptr %vtable.i.i.i.i.i, i64 2
+  %vfn.i.i.i.i.i = getelementptr inbounds i8, ptr %vtable.i.i.i.i.i, i64 16
   %6 = load ptr, ptr %vfn.i.i.i.i.i, align 8
   tail call void %6(ptr noundef nonnull align 8 dereferenceable(16) %3) #13
   br label %if.end8.sink.split.i.i.i.i.i
@@ -12810,10 +12772,10 @@ _ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i: ; preds = %if.els
 
 if.then7.i.i.i.i.i:                               ; preds = %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i
   %vtable.i.i.i.i.i.i.i = load ptr, ptr %3, align 8
-  %vfn.i.i.i.i.i.i.i = getelementptr inbounds ptr, ptr %vtable.i.i.i.i.i.i.i, i64 2
+  %vfn.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %vtable.i.i.i.i.i.i.i, i64 16
   %9 = load ptr, ptr %vfn.i.i.i.i.i.i.i, align 8
   tail call void %9(ptr noundef nonnull align 8 dereferenceable(16) %3) #13
-  %_M_weak_count.i.i.i.i.i.i.i = getelementptr inbounds %"class.std::_Sp_counted_base", ptr %3, i64 0, i32 2
+  %_M_weak_count.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %3, i64 12
   %10 = load i8, ptr @__libc_single_threaded, align 1
   %tobool.i.i.not.i.i.i.i.i.i.i = icmp eq i8 %10, 0
   br i1 %tobool.i.i.not.i.i.i.i.i.i.i, label %if.else.i.i.i.i.i.i.i.i, label %if.then.i.i.i.i.i.i.i.i
@@ -12835,19 +12797,19 @@ _ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i.i: ; preds = %if
 
 if.end8.sink.split.i.i.i.i.i:                     ; preds = %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i.i, %if.then.i.i.i.i.i
   %vtable2.i.i.i.i.i.i.i = load ptr, ptr %3, align 8
-  %vfn3.i.i.i.i.i.i.i = getelementptr inbounds ptr, ptr %vtable2.i.i.i.i.i.i.i, i64 3
+  %vfn3.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %vtable2.i.i.i.i.i.i.i, i64 24
   %13 = load ptr, ptr %vfn3.i.i.i.i.i.i.i, align 8
   tail call void %13(ptr noundef nonnull align 8 dereferenceable(16) %3) #13
   br label %_ZN19OpenColorIO_v2_4dev16GenericImageDescD2Ev.exit
 
 _ZN19OpenColorIO_v2_4dev16GenericImageDescD2Ev.exit: ; preds = %_ZNSt6vectorIfSaIfEED2Ev.exit5, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i.i, %if.end8.sink.split.i.i.i.i.i
-  %_M_refcount.i.i.i6 = getelementptr inbounds %"class.OpenColorIO_v2_4dev::GenericScanlineHelper.41", ptr %this, i64 0, i32 5, i32 8, i32 0, i32 1
+  %_M_refcount.i.i.i6 = getelementptr inbounds i8, ptr %this, i64 120
   %14 = load ptr, ptr %_M_refcount.i.i.i6, align 8
   %cmp.not.i.i.i.i7 = icmp eq ptr %14, null
   br i1 %cmp.not.i.i.i.i7, label %_ZN19OpenColorIO_v2_4dev16GenericImageDescD2Ev.exit37, label %if.then.i.i.i.i8
 
 if.then.i.i.i.i8:                                 ; preds = %_ZN19OpenColorIO_v2_4dev16GenericImageDescD2Ev.exit
-  %_M_use_count.i.i.i.i.i9 = getelementptr inbounds %"class.std::_Sp_counted_base", ptr %14, i64 0, i32 1
+  %_M_use_count.i.i.i.i.i9 = getelementptr inbounds i8, ptr %14, i64 8
   %15 = load atomic i64, ptr %_M_use_count.i.i.i.i.i9 acquire, align 8
   %cmp.i.i.i.i.i10 = icmp eq i64 %15, 4294967297
   %16 = trunc i64 %15 to i32
@@ -12855,10 +12817,10 @@ if.then.i.i.i.i8:                                 ; preds = %_ZN19OpenColorIO_v2
 
 if.then.i.i.i.i.i33:                              ; preds = %if.then.i.i.i.i8
   store i32 0, ptr %_M_use_count.i.i.i.i.i9, align 8
-  %_M_weak_count.i.i.i.i.i34 = getelementptr inbounds %"class.std::_Sp_counted_base", ptr %14, i64 0, i32 2
+  %_M_weak_count.i.i.i.i.i34 = getelementptr inbounds i8, ptr %14, i64 12
   store i32 0, ptr %_M_weak_count.i.i.i.i.i34, align 4
   %vtable.i.i.i.i.i35 = load ptr, ptr %14, align 8
-  %vfn.i.i.i.i.i36 = getelementptr inbounds ptr, ptr %vtable.i.i.i.i.i35, i64 2
+  %vfn.i.i.i.i.i36 = getelementptr inbounds i8, ptr %vtable.i.i.i.i.i35, i64 16
   %17 = load ptr, ptr %vfn.i.i.i.i.i36, align 8
   tail call void %17(ptr noundef nonnull align 8 dereferenceable(16) %14) #13
   br label %if.end8.sink.split.i.i.i.i.i28
@@ -12884,10 +12846,10 @@ _ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i15: ; preds = %if.e
 
 if.then7.i.i.i.i.i18:                             ; preds = %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i15
   %vtable.i.i.i.i.i.i.i19 = load ptr, ptr %14, align 8
-  %vfn.i.i.i.i.i.i.i20 = getelementptr inbounds ptr, ptr %vtable.i.i.i.i.i.i.i19, i64 2
+  %vfn.i.i.i.i.i.i.i20 = getelementptr inbounds i8, ptr %vtable.i.i.i.i.i.i.i19, i64 16
   %20 = load ptr, ptr %vfn.i.i.i.i.i.i.i20, align 8
   tail call void %20(ptr noundef nonnull align 8 dereferenceable(16) %14) #13
-  %_M_weak_count.i.i.i.i.i.i.i21 = getelementptr inbounds %"class.std::_Sp_counted_base", ptr %14, i64 0, i32 2
+  %_M_weak_count.i.i.i.i.i.i.i21 = getelementptr inbounds i8, ptr %14, i64 12
   %21 = load i8, ptr @__libc_single_threaded, align 1
   %tobool.i.i.not.i.i.i.i.i.i.i22 = icmp eq i8 %21, 0
   br i1 %tobool.i.i.not.i.i.i.i.i.i.i22, label %if.else.i.i.i.i.i.i.i.i31, label %if.then.i.i.i.i.i.i.i.i23
@@ -12909,19 +12871,19 @@ _ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i.i25: ; preds = %
 
 if.end8.sink.split.i.i.i.i.i28:                   ; preds = %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i.i25, %if.then.i.i.i.i.i33
   %vtable2.i.i.i.i.i.i.i29 = load ptr, ptr %14, align 8
-  %vfn3.i.i.i.i.i.i.i30 = getelementptr inbounds ptr, ptr %vtable2.i.i.i.i.i.i.i29, i64 3
+  %vfn3.i.i.i.i.i.i.i30 = getelementptr inbounds i8, ptr %vtable2.i.i.i.i.i.i.i29, i64 24
   %24 = load ptr, ptr %vfn3.i.i.i.i.i.i.i30, align 8
   tail call void %24(ptr noundef nonnull align 8 dereferenceable(16) %14) #13
   br label %_ZN19OpenColorIO_v2_4dev16GenericImageDescD2Ev.exit37
 
 _ZN19OpenColorIO_v2_4dev16GenericImageDescD2Ev.exit37: ; preds = %_ZN19OpenColorIO_v2_4dev16GenericImageDescD2Ev.exit, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i15, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i.i25, %if.end8.sink.split.i.i.i.i.i28
-  %_M_refcount.i.i = getelementptr inbounds %"class.OpenColorIO_v2_4dev::GenericScanlineHelper.41", ptr %this, i64 0, i32 4, i32 0, i32 1
+  %_M_refcount.i.i = getelementptr inbounds i8, ptr %this, i64 40
   %25 = load ptr, ptr %_M_refcount.i.i, align 8
   %cmp.not.i.i.i = icmp eq ptr %25, null
   br i1 %cmp.not.i.i.i, label %_ZNSt10shared_ptrIKN19OpenColorIO_v2_4dev5OpCPUEED2Ev.exit, label %if.then.i.i.i38
 
 if.then.i.i.i38:                                  ; preds = %_ZN19OpenColorIO_v2_4dev16GenericImageDescD2Ev.exit37
-  %_M_use_count.i.i.i.i = getelementptr inbounds %"class.std::_Sp_counted_base", ptr %25, i64 0, i32 1
+  %_M_use_count.i.i.i.i = getelementptr inbounds i8, ptr %25, i64 8
   %26 = load atomic i64, ptr %_M_use_count.i.i.i.i acquire, align 8
   %cmp.i.i.i.i = icmp eq i64 %26, 4294967297
   %27 = trunc i64 %26 to i32
@@ -12929,10 +12891,10 @@ if.then.i.i.i38:                                  ; preds = %_ZN19OpenColorIO_v2
 
 if.then.i.i.i.i40:                                ; preds = %if.then.i.i.i38
   store i32 0, ptr %_M_use_count.i.i.i.i, align 8
-  %_M_weak_count.i.i.i.i = getelementptr inbounds %"class.std::_Sp_counted_base", ptr %25, i64 0, i32 2
+  %_M_weak_count.i.i.i.i = getelementptr inbounds i8, ptr %25, i64 12
   store i32 0, ptr %_M_weak_count.i.i.i.i, align 4
   %vtable.i.i.i.i = load ptr, ptr %25, align 8
-  %vfn.i.i.i.i = getelementptr inbounds ptr, ptr %vtable.i.i.i.i, i64 2
+  %vfn.i.i.i.i = getelementptr inbounds i8, ptr %vtable.i.i.i.i, i64 16
   %28 = load ptr, ptr %vfn.i.i.i.i, align 8
   tail call void %28(ptr noundef nonnull align 8 dereferenceable(16) %25) #13
   br label %if.end8.sink.split.i.i.i.i
@@ -12958,10 +12920,10 @@ _ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i: ; preds = %if.else.
 
 if.then7.i.i.i.i:                                 ; preds = %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i
   %vtable.i.i.i.i.i.i = load ptr, ptr %25, align 8
-  %vfn.i.i.i.i.i.i = getelementptr inbounds ptr, ptr %vtable.i.i.i.i.i.i, i64 2
+  %vfn.i.i.i.i.i.i = getelementptr inbounds i8, ptr %vtable.i.i.i.i.i.i, i64 16
   %31 = load ptr, ptr %vfn.i.i.i.i.i.i, align 8
   tail call void %31(ptr noundef nonnull align 8 dereferenceable(16) %25) #13
-  %_M_weak_count.i.i.i.i.i.i = getelementptr inbounds %"class.std::_Sp_counted_base", ptr %25, i64 0, i32 2
+  %_M_weak_count.i.i.i.i.i.i = getelementptr inbounds i8, ptr %25, i64 12
   %32 = load i8, ptr @__libc_single_threaded, align 1
   %tobool.i.i.not.i.i.i.i.i.i = icmp eq i8 %32, 0
   br i1 %tobool.i.i.not.i.i.i.i.i.i, label %if.else.i.i.i.i.i.i.i, label %if.then.i.i.i.i.i.i.i
@@ -12983,19 +12945,19 @@ _ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i: ; preds = %if.e
 
 if.end8.sink.split.i.i.i.i:                       ; preds = %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i, %if.then.i.i.i.i40
   %vtable2.i.i.i.i.i.i = load ptr, ptr %25, align 8
-  %vfn3.i.i.i.i.i.i = getelementptr inbounds ptr, ptr %vtable2.i.i.i.i.i.i, i64 3
+  %vfn3.i.i.i.i.i.i = getelementptr inbounds i8, ptr %vtable2.i.i.i.i.i.i, i64 24
   %35 = load ptr, ptr %vfn3.i.i.i.i.i.i, align 8
   tail call void %35(ptr noundef nonnull align 8 dereferenceable(16) %25) #13
   br label %_ZNSt10shared_ptrIKN19OpenColorIO_v2_4dev5OpCPUEED2Ev.exit
 
 _ZNSt10shared_ptrIKN19OpenColorIO_v2_4dev5OpCPUEED2Ev.exit: ; preds = %_ZN19OpenColorIO_v2_4dev16GenericImageDescD2Ev.exit37, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i, %if.end8.sink.split.i.i.i.i
-  %_M_refcount.i.i41 = getelementptr inbounds %"class.OpenColorIO_v2_4dev::GenericScanlineHelper.41", ptr %this, i64 0, i32 3, i32 0, i32 1
+  %_M_refcount.i.i41 = getelementptr inbounds i8, ptr %this, i64 24
   %36 = load ptr, ptr %_M_refcount.i.i41, align 8
   %cmp.not.i.i.i42 = icmp eq ptr %36, null
   br i1 %cmp.not.i.i.i42, label %_ZNSt10shared_ptrIKN19OpenColorIO_v2_4dev5OpCPUEED2Ev.exit72, label %if.then.i.i.i43
 
 if.then.i.i.i43:                                  ; preds = %_ZNSt10shared_ptrIKN19OpenColorIO_v2_4dev5OpCPUEED2Ev.exit
-  %_M_use_count.i.i.i.i44 = getelementptr inbounds %"class.std::_Sp_counted_base", ptr %36, i64 0, i32 1
+  %_M_use_count.i.i.i.i44 = getelementptr inbounds i8, ptr %36, i64 8
   %37 = load atomic i64, ptr %_M_use_count.i.i.i.i44 acquire, align 8
   %cmp.i.i.i.i45 = icmp eq i64 %37, 4294967297
   %38 = trunc i64 %37 to i32
@@ -13003,10 +12965,10 @@ if.then.i.i.i43:                                  ; preds = %_ZNSt10shared_ptrIK
 
 if.then.i.i.i.i68:                                ; preds = %if.then.i.i.i43
   store i32 0, ptr %_M_use_count.i.i.i.i44, align 8
-  %_M_weak_count.i.i.i.i69 = getelementptr inbounds %"class.std::_Sp_counted_base", ptr %36, i64 0, i32 2
+  %_M_weak_count.i.i.i.i69 = getelementptr inbounds i8, ptr %36, i64 12
   store i32 0, ptr %_M_weak_count.i.i.i.i69, align 4
   %vtable.i.i.i.i70 = load ptr, ptr %36, align 8
-  %vfn.i.i.i.i71 = getelementptr inbounds ptr, ptr %vtable.i.i.i.i70, i64 2
+  %vfn.i.i.i.i71 = getelementptr inbounds i8, ptr %vtable.i.i.i.i70, i64 16
   %39 = load ptr, ptr %vfn.i.i.i.i71, align 8
   tail call void %39(ptr noundef nonnull align 8 dereferenceable(16) %36) #13
   br label %if.end8.sink.split.i.i.i.i63
@@ -13032,10 +12994,10 @@ _ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i50: ; preds = %if.els
 
 if.then7.i.i.i.i53:                               ; preds = %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i50
   %vtable.i.i.i.i.i.i54 = load ptr, ptr %36, align 8
-  %vfn.i.i.i.i.i.i55 = getelementptr inbounds ptr, ptr %vtable.i.i.i.i.i.i54, i64 2
+  %vfn.i.i.i.i.i.i55 = getelementptr inbounds i8, ptr %vtable.i.i.i.i.i.i54, i64 16
   %42 = load ptr, ptr %vfn.i.i.i.i.i.i55, align 8
   tail call void %42(ptr noundef nonnull align 8 dereferenceable(16) %36) #13
-  %_M_weak_count.i.i.i.i.i.i56 = getelementptr inbounds %"class.std::_Sp_counted_base", ptr %36, i64 0, i32 2
+  %_M_weak_count.i.i.i.i.i.i56 = getelementptr inbounds i8, ptr %36, i64 12
   %43 = load i8, ptr @__libc_single_threaded, align 1
   %tobool.i.i.not.i.i.i.i.i.i57 = icmp eq i8 %43, 0
   br i1 %tobool.i.i.not.i.i.i.i.i.i57, label %if.else.i.i.i.i.i.i.i66, label %if.then.i.i.i.i.i.i.i58
@@ -13057,7 +13019,7 @@ _ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i60: ; preds = %if
 
 if.end8.sink.split.i.i.i.i63:                     ; preds = %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i60, %if.then.i.i.i.i68
   %vtable2.i.i.i.i.i.i64 = load ptr, ptr %36, align 8
-  %vfn3.i.i.i.i.i.i65 = getelementptr inbounds ptr, ptr %vtable2.i.i.i.i.i.i64, i64 3
+  %vfn3.i.i.i.i.i.i65 = getelementptr inbounds i8, ptr %vtable2.i.i.i.i.i.i64, i64 24
   %46 = load ptr, ptr %vfn3.i.i.i.i.i.i65, align 8
   tail call void %46(ptr noundef nonnull align 8 dereferenceable(16) %36) #13
   br label %_ZNSt10shared_ptrIKN19OpenColorIO_v2_4dev5OpCPUEED2Ev.exit72
@@ -13077,66 +13039,66 @@ entry:
 ; Function Attrs: mustprogress uwtable
 define weak_odr hidden void @_ZN19OpenColorIO_v2_4dev21GenericScanlineHelperIfN9Imath_3_14halfEE16prepRGBAScanlineEPPfRl(ptr noundef nonnull align 8 dereferenceable(309) %this, ptr noundef %buffer, ptr noundef nonnull align 8 dereferenceable(8) %numPixels) unnamed_addr #5 comdat align 2 {
 entry:
-  %m_yIndex = getelementptr inbounds %"class.OpenColorIO_v2_4dev::GenericScanlineHelper.41", ptr %this, i64 0, i32 12
+  %m_yIndex = getelementptr inbounds i8, ptr %this, i64 304
   %0 = load i32, ptr %m_yIndex, align 8
   %conv = sext i32 %0 to i64
-  %m_dstImg = getelementptr inbounds %"class.OpenColorIO_v2_4dev::GenericScanlineHelper.41", ptr %this, i64 0, i32 6
-  %m_height = getelementptr inbounds %"class.OpenColorIO_v2_4dev::GenericScanlineHelper.41", ptr %this, i64 0, i32 6, i32 1
+  %m_dstImg = getelementptr inbounds i8, ptr %this, i64 136
+  %m_height = getelementptr inbounds i8, ptr %this, i64 144
   %1 = load i64, ptr %m_height, align 8
   %cmp.not = icmp sgt i64 %1, %conv
   br i1 %cmp.not, label %if.end, label %return
 
 if.end:                                           ; preds = %entry
-  %m_useDstBuffer = getelementptr inbounds %"class.OpenColorIO_v2_4dev::GenericScanlineHelper.41", ptr %this, i64 0, i32 13
+  %m_useDstBuffer = getelementptr inbounds i8, ptr %this, i64 308
   %2 = load i8, ptr %m_useDstBuffer, align 4
   %3 = and i8 %2, 1
   %tobool.not = icmp eq i8 %3, 0
   br i1 %tobool.not, label %cond.false, label %cond.true
 
 cond.true:                                        ; preds = %if.end
-  %m_rData = getelementptr inbounds %"class.OpenColorIO_v2_4dev::GenericScanlineHelper.41", ptr %this, i64 0, i32 6, i32 4
+  %m_rData = getelementptr inbounds i8, ptr %this, i64 168
   %4 = load ptr, ptr %m_rData, align 8
-  %m_yStrideBytes = getelementptr inbounds %"class.OpenColorIO_v2_4dev::GenericScanlineHelper.41", ptr %this, i64 0, i32 6, i32 3
+  %m_yStrideBytes = getelementptr inbounds i8, ptr %this, i64 160
   %5 = load i64, ptr %m_yStrideBytes, align 8
   %mul = mul nsw i64 %5, %conv
   %add.ptr = getelementptr inbounds i8, ptr %4, i64 %mul
   br label %cond.end
 
 cond.false:                                       ; preds = %if.end
-  %m_rgbaFloatBuffer = getelementptr inbounds %"class.OpenColorIO_v2_4dev::GenericScanlineHelper.41", ptr %this, i64 0, i32 9
+  %m_rgbaFloatBuffer = getelementptr inbounds i8, ptr %this, i64 232
   %6 = load ptr, ptr %m_rgbaFloatBuffer, align 8
   br label %cond.end
 
 cond.end:                                         ; preds = %cond.false, %cond.true
   %cond = phi ptr [ %add.ptr, %cond.true ], [ %6, %cond.false ]
   store ptr %cond, ptr %buffer, align 8
-  %m_inOptimizedMode = getelementptr inbounds %"class.OpenColorIO_v2_4dev::GenericScanlineHelper.41", ptr %this, i64 0, i32 7
+  %m_inOptimizedMode = getelementptr inbounds i8, ptr %this, i64 224
   %7 = load i32, ptr %m_inOptimizedMode, align 8
   %and = and i32 %7, 1
   %cmp6.not = icmp eq i32 %and, 0
   br i1 %cmp6.not, label %if.else, label %if.then7
 
 if.then7:                                         ; preds = %cond.end
-  %m_rData8 = getelementptr inbounds %"class.OpenColorIO_v2_4dev::GenericScanlineHelper.41", ptr %this, i64 0, i32 5, i32 4
+  %m_rData8 = getelementptr inbounds i8, ptr %this, i64 80
   %8 = load ptr, ptr %m_rData8, align 8
-  %m_yStrideBytes10 = getelementptr inbounds %"class.OpenColorIO_v2_4dev::GenericScanlineHelper.41", ptr %this, i64 0, i32 5, i32 3
+  %m_yStrideBytes10 = getelementptr inbounds i8, ptr %this, i64 72
   %9 = load i64, ptr %m_yStrideBytes10, align 8
   %10 = load i32, ptr %m_yIndex, align 8
   %conv12 = sext i32 %10 to i64
   %mul13 = mul nsw i64 %9, %conv12
   %add.ptr14 = getelementptr inbounds i8, ptr %8, i64 %mul13
-  %m_bitDepthOp = getelementptr inbounds %"class.OpenColorIO_v2_4dev::GenericScanlineHelper.41", ptr %this, i64 0, i32 5, i32 8
+  %m_bitDepthOp = getelementptr inbounds i8, ptr %this, i64 112
   %11 = load ptr, ptr %m_bitDepthOp, align 8
   %12 = load i64, ptr %m_dstImg, align 8
   %vtable = load ptr, ptr %11, align 8
-  %vfn = getelementptr inbounds ptr, ptr %vtable, i64 2
+  %vfn = getelementptr inbounds i8, ptr %vtable, i64 16
   %13 = load ptr, ptr %vfn, align 8
   tail call void %13(ptr noundef nonnull align 8 dereferenceable(8) %11, ptr noundef %add.ptr14, ptr noundef %cond, i64 noundef %12)
   br label %if.end28
 
 if.else:                                          ; preds = %cond.end
-  %m_srcImg18 = getelementptr inbounds %"class.OpenColorIO_v2_4dev::GenericScanlineHelper.41", ptr %this, i64 0, i32 5
-  %m_inBitDepthBuffer = getelementptr inbounds %"class.OpenColorIO_v2_4dev::GenericScanlineHelper.41", ptr %this, i64 0, i32 10
+  %m_srcImg18 = getelementptr inbounds i8, ptr %this, i64 48
+  %m_inBitDepthBuffer = getelementptr inbounds i8, ptr %this, i64 256
   %14 = load ptr, ptr %m_inBitDepthBuffer, align 8
   %15 = load i64, ptr %m_dstImg, align 8
   %conv22 = trunc i64 %15 to i32
@@ -13159,47 +13121,47 @@ return:                                           ; preds = %entry, %if.end28
 ; Function Attrs: mustprogress uwtable
 define weak_odr hidden void @_ZN19OpenColorIO_v2_4dev21GenericScanlineHelperIfN9Imath_3_14halfEE18finishRGBAScanlineEv(ptr noundef nonnull align 8 dereferenceable(309) %this) unnamed_addr #5 comdat align 2 {
 entry:
-  %m_outOptimizedMode = getelementptr inbounds %"class.OpenColorIO_v2_4dev::GenericScanlineHelper.41", ptr %this, i64 0, i32 8
+  %m_outOptimizedMode = getelementptr inbounds i8, ptr %this, i64 228
   %0 = load i32, ptr %m_outOptimizedMode, align 4
   %and = and i32 %0, 1
   %cmp.not = icmp eq i32 %and, 0
-  %m_dstImg6 = getelementptr inbounds %"class.OpenColorIO_v2_4dev::GenericScanlineHelper.41", ptr %this, i64 0, i32 6
+  %m_dstImg6 = getelementptr inbounds i8, ptr %this, i64 136
   br i1 %cmp.not, label %if.else, label %if.then
 
 if.then:                                          ; preds = %entry
-  %m_rData = getelementptr inbounds %"class.OpenColorIO_v2_4dev::GenericScanlineHelper.41", ptr %this, i64 0, i32 6, i32 4
+  %m_rData = getelementptr inbounds i8, ptr %this, i64 168
   %1 = load ptr, ptr %m_rData, align 8
-  %m_yStrideBytes = getelementptr inbounds %"class.OpenColorIO_v2_4dev::GenericScanlineHelper.41", ptr %this, i64 0, i32 6, i32 3
+  %m_yStrideBytes = getelementptr inbounds i8, ptr %this, i64 160
   %2 = load i64, ptr %m_yStrideBytes, align 8
-  %m_yIndex = getelementptr inbounds %"class.OpenColorIO_v2_4dev::GenericScanlineHelper.41", ptr %this, i64 0, i32 12
+  %m_yIndex = getelementptr inbounds i8, ptr %this, i64 304
   %3 = load i32, ptr %m_yIndex, align 8
   %conv = sext i32 %3 to i64
   %mul = mul nsw i64 %2, %conv
   %add.ptr = getelementptr inbounds i8, ptr %1, i64 %mul
-  %m_useDstBuffer = getelementptr inbounds %"class.OpenColorIO_v2_4dev::GenericScanlineHelper.41", ptr %this, i64 0, i32 13
+  %m_useDstBuffer = getelementptr inbounds i8, ptr %this, i64 308
   %4 = load i8, ptr %m_useDstBuffer, align 4
   %5 = and i8 %4, 1
   %tobool.not = icmp eq i8 %5, 0
-  %m_rgbaFloatBuffer = getelementptr inbounds %"class.OpenColorIO_v2_4dev::GenericScanlineHelper.41", ptr %this, i64 0, i32 9
+  %m_rgbaFloatBuffer = getelementptr inbounds i8, ptr %this, i64 232
   %6 = load ptr, ptr %m_rgbaFloatBuffer, align 8
   %cond = select i1 %tobool.not, ptr %6, ptr %add.ptr
-  %m_bitDepthOp = getelementptr inbounds %"class.OpenColorIO_v2_4dev::GenericScanlineHelper.41", ptr %this, i64 0, i32 6, i32 8
+  %m_bitDepthOp = getelementptr inbounds i8, ptr %this, i64 200
   %7 = load ptr, ptr %m_bitDepthOp, align 8
   %8 = load i64, ptr %m_dstImg6, align 8
   %vtable = load ptr, ptr %7, align 8
-  %vfn = getelementptr inbounds ptr, ptr %vtable, i64 2
+  %vfn = getelementptr inbounds i8, ptr %vtable, i64 16
   %9 = load ptr, ptr %vfn, align 8
   tail call void %9(ptr noundef nonnull align 8 dereferenceable(8) %7, ptr noundef %cond, ptr noundef %add.ptr, i64 noundef %8)
   br label %if.end
 
 if.else:                                          ; preds = %entry
-  %m_rgbaFloatBuffer7 = getelementptr inbounds %"class.OpenColorIO_v2_4dev::GenericScanlineHelper.41", ptr %this, i64 0, i32 9
+  %m_rgbaFloatBuffer7 = getelementptr inbounds i8, ptr %this, i64 232
   %10 = load ptr, ptr %m_rgbaFloatBuffer7, align 8
-  %m_outBitDepthBuffer = getelementptr inbounds %"class.OpenColorIO_v2_4dev::GenericScanlineHelper.41", ptr %this, i64 0, i32 11
+  %m_outBitDepthBuffer = getelementptr inbounds i8, ptr %this, i64 280
   %11 = load ptr, ptr %m_outBitDepthBuffer, align 8
   %12 = load i64, ptr %m_dstImg6, align 8
   %conv12 = trunc i64 %12 to i32
-  %m_yIndex13 = getelementptr inbounds %"class.OpenColorIO_v2_4dev::GenericScanlineHelper.41", ptr %this, i64 0, i32 12
+  %m_yIndex13 = getelementptr inbounds i8, ptr %this, i64 304
   %13 = load i32, ptr %m_yIndex13, align 8
   %conv14 = sext i32 %13 to i64
   %mul17 = mul nsw i64 %12, %conv14
@@ -13207,7 +13169,7 @@ if.else:                                          ; preds = %entry
   br label %if.end
 
 if.end:                                           ; preds = %if.else, %if.then
-  %m_yIndex18 = getelementptr inbounds %"class.OpenColorIO_v2_4dev::GenericScanlineHelper.41", ptr %this, i64 0, i32 12
+  %m_yIndex18 = getelementptr inbounds i8, ptr %this, i64 304
   %14 = load i32, ptr %m_yIndex18, align 8
   %inc = add nsw i32 %14, 1
   store i32 %inc, ptr %m_yIndex18, align 8
@@ -13218,22 +13180,22 @@ if.end:                                           ; preds = %if.else, %if.then
 define weak_odr hidden void @_ZN19OpenColorIO_v2_4dev21GenericScanlineHelperIffEC2ENS_8BitDepthERKSt10shared_ptrIKNS_5OpCPUEES2_S8_(ptr noundef nonnull align 8 dereferenceable(309) %this, i32 noundef %inputBitDepth, ptr noundef nonnull align 8 dereferenceable(16) %inBitDepthOp, i32 noundef %outputBitDepth, ptr noundef nonnull align 8 dereferenceable(16) %outBitDepthOp) unnamed_addr #3 comdat($_ZN19OpenColorIO_v2_4dev21GenericScanlineHelperIffEC5ENS_8BitDepthERKSt10shared_ptrIKNS_5OpCPUEES2_S8_) align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTVN19OpenColorIO_v2_4dev21GenericScanlineHelperIffEE, i64 0, inrange i32 0, i64 2), ptr %this, align 8
-  %m_inputBitDepth = getelementptr inbounds %"class.OpenColorIO_v2_4dev::GenericScanlineHelper.43", ptr %this, i64 0, i32 1
+  %m_inputBitDepth = getelementptr inbounds i8, ptr %this, i64 8
   store i32 %inputBitDepth, ptr %m_inputBitDepth, align 8
-  %m_outputBitDepth = getelementptr inbounds %"class.OpenColorIO_v2_4dev::GenericScanlineHelper.43", ptr %this, i64 0, i32 2
+  %m_outputBitDepth = getelementptr inbounds i8, ptr %this, i64 12
   store i32 %outputBitDepth, ptr %m_outputBitDepth, align 4
-  %m_inBitDepthOp = getelementptr inbounds %"class.OpenColorIO_v2_4dev::GenericScanlineHelper.43", ptr %this, i64 0, i32 3
+  %m_inBitDepthOp = getelementptr inbounds i8, ptr %this, i64 16
   %0 = load ptr, ptr %inBitDepthOp, align 8
   store ptr %0, ptr %m_inBitDepthOp, align 8
-  %_M_refcount.i.i = getelementptr inbounds %"class.OpenColorIO_v2_4dev::GenericScanlineHelper.43", ptr %this, i64 0, i32 3, i32 0, i32 1
-  %_M_refcount3.i.i = getelementptr inbounds %"class.std::__shared_ptr", ptr %inBitDepthOp, i64 0, i32 1
+  %_M_refcount.i.i = getelementptr inbounds i8, ptr %this, i64 24
+  %_M_refcount3.i.i = getelementptr inbounds i8, ptr %inBitDepthOp, i64 8
   %1 = load ptr, ptr %_M_refcount3.i.i, align 8
   store ptr %1, ptr %_M_refcount.i.i, align 8
   %cmp.not.i.i.i = icmp eq ptr %1, null
   br i1 %cmp.not.i.i.i, label %_ZNSt10shared_ptrIKN19OpenColorIO_v2_4dev5OpCPUEEC2ERKS3_.exit, label %if.then.i.i.i
 
 if.then.i.i.i:                                    ; preds = %entry
-  %_M_use_count.i.i.i.i = getelementptr inbounds %"class.std::_Sp_counted_base", ptr %1, i64 0, i32 1
+  %_M_use_count.i.i.i.i = getelementptr inbounds i8, ptr %1, i64 8
   %2 = load i8, ptr @__libc_single_threaded, align 1
   %tobool.i.not.i.i.i.i = icmp eq i8 %2, 0
   br i1 %tobool.i.not.i.i.i.i, label %if.else.i.i.i.i.i, label %if.then.i.i.i.i.i
@@ -13249,18 +13211,18 @@ if.else.i.i.i.i.i:                                ; preds = %if.then.i.i.i
   br label %_ZNSt10shared_ptrIKN19OpenColorIO_v2_4dev5OpCPUEEC2ERKS3_.exit
 
 _ZNSt10shared_ptrIKN19OpenColorIO_v2_4dev5OpCPUEEC2ERKS3_.exit: ; preds = %entry, %if.then.i.i.i.i.i, %if.else.i.i.i.i.i
-  %m_outBitDepthOp = getelementptr inbounds %"class.OpenColorIO_v2_4dev::GenericScanlineHelper.43", ptr %this, i64 0, i32 4
+  %m_outBitDepthOp = getelementptr inbounds i8, ptr %this, i64 32
   %5 = load ptr, ptr %outBitDepthOp, align 8
   store ptr %5, ptr %m_outBitDepthOp, align 8
-  %_M_refcount.i.i1 = getelementptr inbounds %"class.OpenColorIO_v2_4dev::GenericScanlineHelper.43", ptr %this, i64 0, i32 4, i32 0, i32 1
-  %_M_refcount3.i.i2 = getelementptr inbounds %"class.std::__shared_ptr", ptr %outBitDepthOp, i64 0, i32 1
+  %_M_refcount.i.i1 = getelementptr inbounds i8, ptr %this, i64 40
+  %_M_refcount3.i.i2 = getelementptr inbounds i8, ptr %outBitDepthOp, i64 8
   %6 = load ptr, ptr %_M_refcount3.i.i2, align 8
   store ptr %6, ptr %_M_refcount.i.i1, align 8
   %cmp.not.i.i.i3 = icmp eq ptr %6, null
   br i1 %cmp.not.i.i.i3, label %_ZNSt10shared_ptrIKN19OpenColorIO_v2_4dev5OpCPUEEC2ERKS3_.exit10, label %if.then.i.i.i4
 
 if.then.i.i.i4:                                   ; preds = %_ZNSt10shared_ptrIKN19OpenColorIO_v2_4dev5OpCPUEEC2ERKS3_.exit
-  %_M_use_count.i.i.i.i5 = getelementptr inbounds %"class.std::_Sp_counted_base", ptr %6, i64 0, i32 1
+  %_M_use_count.i.i.i.i5 = getelementptr inbounds i8, ptr %6, i64 8
   %7 = load i8, ptr @__libc_single_threaded, align 1
   %tobool.i.not.i.i.i.i6 = icmp eq i8 %7, 0
   br i1 %tobool.i.not.i.i.i.i6, label %if.else.i.i.i.i.i9, label %if.then.i.i.i.i.i7
@@ -13276,11 +13238,11 @@ if.else.i.i.i.i.i9:                               ; preds = %if.then.i.i.i4
   br label %_ZNSt10shared_ptrIKN19OpenColorIO_v2_4dev5OpCPUEEC2ERKS3_.exit10
 
 _ZNSt10shared_ptrIKN19OpenColorIO_v2_4dev5OpCPUEEC2ERKS3_.exit10: ; preds = %_ZNSt10shared_ptrIKN19OpenColorIO_v2_4dev5OpCPUEEC2ERKS3_.exit, %if.then.i.i.i.i.i7, %if.else.i.i.i.i.i9
-  %m_srcImg = getelementptr inbounds %"class.OpenColorIO_v2_4dev::GenericScanlineHelper.43", ptr %this, i64 0, i32 5
+  %m_srcImg = getelementptr inbounds i8, ptr %this, i64 48
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(82) %m_srcImg, i8 0, i64 82, i1 false)
-  %m_dstImg = getelementptr inbounds %"class.OpenColorIO_v2_4dev::GenericScanlineHelper.43", ptr %this, i64 0, i32 6
+  %m_dstImg = getelementptr inbounds i8, ptr %this, i64 136
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(82) %m_dstImg, i8 0, i64 82, i1 false)
-  %m_inOptimizedMode = getelementptr inbounds %"class.OpenColorIO_v2_4dev::GenericScanlineHelper.43", ptr %this, i64 0, i32 7
+  %m_inOptimizedMode = getelementptr inbounds i8, ptr %this, i64 224
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(85) %m_inOptimizedMode, i8 0, i64 85, i1 false)
   ret void
 }
@@ -13288,17 +13250,17 @@ _ZNSt10shared_ptrIKN19OpenColorIO_v2_4dev5OpCPUEEC2ERKS3_.exit10: ; preds = %_ZN
 ; Function Attrs: mustprogress uwtable
 define weak_odr hidden void @_ZN19OpenColorIO_v2_4dev21GenericScanlineHelperIffE4initERKNS_9ImageDescES4_(ptr noundef nonnull align 8 dereferenceable(309) %this, ptr noundef nonnull align 8 dereferenceable(8) %srcImg, ptr noundef nonnull align 8 dereferenceable(8) %dstImg) unnamed_addr #5 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  %m_yIndex = getelementptr inbounds %"class.OpenColorIO_v2_4dev::GenericScanlineHelper.43", ptr %this, i64 0, i32 12
+  %m_yIndex = getelementptr inbounds i8, ptr %this, i64 304
   store i32 0, ptr %m_yIndex, align 8
-  %m_srcImg = getelementptr inbounds %"class.OpenColorIO_v2_4dev::GenericScanlineHelper.43", ptr %this, i64 0, i32 5
-  %m_inputBitDepth = getelementptr inbounds %"class.OpenColorIO_v2_4dev::GenericScanlineHelper.43", ptr %this, i64 0, i32 1
+  %m_srcImg = getelementptr inbounds i8, ptr %this, i64 48
+  %m_inputBitDepth = getelementptr inbounds i8, ptr %this, i64 8
   %0 = load i32, ptr %m_inputBitDepth, align 8
-  %m_inBitDepthOp = getelementptr inbounds %"class.OpenColorIO_v2_4dev::GenericScanlineHelper.43", ptr %this, i64 0, i32 3
+  %m_inBitDepthOp = getelementptr inbounds i8, ptr %this, i64 16
   tail call void @_ZN19OpenColorIO_v2_4dev16GenericImageDesc4initERKNS_9ImageDescENS_8BitDepthERKSt10shared_ptrIKNS_5OpCPUEE(ptr noundef nonnull align 8 dereferenceable(82) %m_srcImg, ptr noundef nonnull align 8 dereferenceable(8) %srcImg, i32 noundef %0, ptr noundef nonnull align 8 dereferenceable(16) %m_inBitDepthOp)
-  %m_dstImg = getelementptr inbounds %"class.OpenColorIO_v2_4dev::GenericScanlineHelper.43", ptr %this, i64 0, i32 6
-  %m_outputBitDepth = getelementptr inbounds %"class.OpenColorIO_v2_4dev::GenericScanlineHelper.43", ptr %this, i64 0, i32 2
+  %m_dstImg = getelementptr inbounds i8, ptr %this, i64 136
+  %m_outputBitDepth = getelementptr inbounds i8, ptr %this, i64 12
   %1 = load i32, ptr %m_outputBitDepth, align 4
-  %m_outBitDepthOp = getelementptr inbounds %"class.OpenColorIO_v2_4dev::GenericScanlineHelper.43", ptr %this, i64 0, i32 4
+  %m_outBitDepthOp = getelementptr inbounds i8, ptr %this, i64 32
   tail call void @_ZN19OpenColorIO_v2_4dev16GenericImageDesc4initERKNS_9ImageDescENS_8BitDepthERKSt10shared_ptrIKNS_5OpCPUEE(ptr noundef nonnull align 8 dereferenceable(82) %m_dstImg, ptr noundef nonnull align 8 dereferenceable(8) %dstImg, i32 noundef %1, ptr noundef nonnull align 8 dereferenceable(16) %m_outBitDepthOp)
   %2 = load i64, ptr %m_srcImg, align 8
   %3 = load i64, ptr %m_dstImg, align 8
@@ -13306,9 +13268,9 @@ entry:
   br i1 %cmp.not, label %lor.lhs.false, label %if.then
 
 lor.lhs.false:                                    ; preds = %entry
-  %m_height = getelementptr inbounds %"class.OpenColorIO_v2_4dev::GenericScanlineHelper.43", ptr %this, i64 0, i32 5, i32 1
+  %m_height = getelementptr inbounds i8, ptr %this, i64 56
   %4 = load i64, ptr %m_height, align 8
-  %m_height7 = getelementptr inbounds %"class.OpenColorIO_v2_4dev::GenericScanlineHelper.43", ptr %this, i64 0, i32 6, i32 1
+  %m_height7 = getelementptr inbounds i8, ptr %this, i64 144
   %5 = load i64, ptr %m_height7, align 8
   %cmp8.not = icmp eq i64 %4, %5
   br i1 %cmp8.not, label %if.end, label %if.then
@@ -13339,7 +13301,7 @@ if.then.i:                                        ; preds = %if.end
 
 _ZN19OpenColorIO_v2_4dev19GetOptimizationModeERKNS_16GenericImageDescE.exit: ; preds = %if.end, %if.then.i
   %optim.0.i = phi i32 [ 0, %if.end ], [ %spec.select.i, %if.then.i ]
-  %m_inOptimizedMode = getelementptr inbounds %"class.OpenColorIO_v2_4dev::GenericScanlineHelper.43", ptr %this, i64 0, i32 7
+  %m_inOptimizedMode = getelementptr inbounds i8, ptr %this, i64 224
   store i32 %optim.0.i, ptr %m_inOptimizedMode, align 8
   %call.i2 = tail call noundef zeroext i1 @_ZNK19OpenColorIO_v2_4dev16GenericImageDesc12isRGBAPackedEv(ptr noundef nonnull align 8 dereferenceable(82) %m_dstImg)
   br i1 %call.i2, label %if.then.i4, label %_ZN19OpenColorIO_v2_4dev19GetOptimizationModeERKNS_16GenericImageDescE.exit7
@@ -13351,10 +13313,10 @@ if.then.i4:                                       ; preds = %_ZN19OpenColorIO_v2
 
 _ZN19OpenColorIO_v2_4dev19GetOptimizationModeERKNS_16GenericImageDescE.exit7: ; preds = %_ZN19OpenColorIO_v2_4dev19GetOptimizationModeERKNS_16GenericImageDescE.exit, %if.then.i4
   %optim.0.i3 = phi i32 [ 0, %_ZN19OpenColorIO_v2_4dev19GetOptimizationModeERKNS_16GenericImageDescE.exit ], [ %spec.select.i6, %if.then.i4 ]
-  %m_outOptimizedMode = getelementptr inbounds %"class.OpenColorIO_v2_4dev::GenericScanlineHelper.43", ptr %this, i64 0, i32 8
+  %m_outOptimizedMode = getelementptr inbounds i8, ptr %this, i64 228
   store i32 %optim.0.i3, ptr %m_outOptimizedMode, align 4
   %cmp13 = icmp eq i32 %optim.0.i3, 3
-  %m_useDstBuffer = getelementptr inbounds %"class.OpenColorIO_v2_4dev::GenericScanlineHelper.43", ptr %this, i64 0, i32 13
+  %m_useDstBuffer = getelementptr inbounds i8, ptr %this, i64 308
   %frombool = zext i1 %cmp13 to i8
   store i8 %frombool, ptr %m_useDstBuffer, align 4
   %7 = load i32, ptr %m_inOptimizedMode, align 8
@@ -13365,8 +13327,8 @@ _ZN19OpenColorIO_v2_4dev19GetOptimizationModeERKNS_16GenericImageDescE.exit7: ; 
 if.then17:                                        ; preds = %_ZN19OpenColorIO_v2_4dev19GetOptimizationModeERKNS_16GenericImageDescE.exit7
   %8 = load i64, ptr %m_dstImg, align 8
   %mul = shl nsw i64 %8, 2
-  %m_inBitDepthBuffer = getelementptr inbounds %"class.OpenColorIO_v2_4dev::GenericScanlineHelper.43", ptr %this, i64 0, i32 10
-  %_M_finish.i.i = getelementptr inbounds %"class.OpenColorIO_v2_4dev::GenericScanlineHelper.43", ptr %this, i64 0, i32 10, i32 0, i32 0, i32 0, i32 1
+  %m_inBitDepthBuffer = getelementptr inbounds i8, ptr %this, i64 256
+  %_M_finish.i.i = getelementptr inbounds i8, ptr %this, i64 264
   %9 = load ptr, ptr %_M_finish.i.i, align 8
   %10 = load ptr, ptr %m_inBitDepthBuffer, align 8
   %sub.ptr.lhs.cast.i.i = ptrtoint ptr %9 to i64
@@ -13404,8 +13366,8 @@ if.end20:                                         ; preds = %invoke.cont.i.i, %i
 if.then22:                                        ; preds = %if.end20
   %13 = load i64, ptr %m_dstImg, align 8
   %mul26 = shl nsw i64 %13, 2
-  %m_rgbaFloatBuffer = getelementptr inbounds %"class.OpenColorIO_v2_4dev::GenericScanlineHelper.43", ptr %this, i64 0, i32 9
-  %_M_finish.i.i9 = getelementptr inbounds %"class.OpenColorIO_v2_4dev::GenericScanlineHelper.43", ptr %this, i64 0, i32 9, i32 0, i32 0, i32 0, i32 1
+  %m_rgbaFloatBuffer = getelementptr inbounds i8, ptr %this, i64 232
+  %_M_finish.i.i9 = getelementptr inbounds i8, ptr %this, i64 240
   %14 = load ptr, ptr %_M_finish.i.i9, align 8
   %15 = load ptr, ptr %m_rgbaFloatBuffer, align 8
   %sub.ptr.lhs.cast.i.i10 = ptrtoint ptr %14 to i64
@@ -13434,8 +13396,8 @@ invoke.cont.i.i20:                                ; preds = %if.then5.i17
   br label %_ZNSt6vectorIfSaIfEE6resizeEm.exit23
 
 _ZNSt6vectorIfSaIfEE6resizeEm.exit23:             ; preds = %if.then.i21, %if.else.i15, %if.then5.i17, %invoke.cont.i.i20
-  %m_outBitDepthBuffer = getelementptr inbounds %"class.OpenColorIO_v2_4dev::GenericScanlineHelper.43", ptr %this, i64 0, i32 11
-  %_M_finish.i.i24 = getelementptr inbounds %"class.OpenColorIO_v2_4dev::GenericScanlineHelper.43", ptr %this, i64 0, i32 11, i32 0, i32 0, i32 0, i32 1
+  %m_outBitDepthBuffer = getelementptr inbounds i8, ptr %this, i64 280
+  %_M_finish.i.i24 = getelementptr inbounds i8, ptr %this, i64 288
   %16 = load ptr, ptr %_M_finish.i.i24, align 8
   %17 = load ptr, ptr %m_outBitDepthBuffer, align 8
   %sub.ptr.lhs.cast.i.i25 = ptrtoint ptr %16 to i64
@@ -13470,17 +13432,17 @@ if.end27:                                         ; preds = %invoke.cont.i.i35, 
 ; Function Attrs: mustprogress uwtable
 define weak_odr hidden void @_ZN19OpenColorIO_v2_4dev21GenericScanlineHelperIffE4initERKNS_9ImageDescE(ptr noundef nonnull align 8 dereferenceable(309) %this, ptr noundef nonnull align 8 dereferenceable(8) %img) unnamed_addr #5 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  %m_yIndex = getelementptr inbounds %"class.OpenColorIO_v2_4dev::GenericScanlineHelper.43", ptr %this, i64 0, i32 12
+  %m_yIndex = getelementptr inbounds i8, ptr %this, i64 304
   store i32 0, ptr %m_yIndex, align 8
-  %m_srcImg = getelementptr inbounds %"class.OpenColorIO_v2_4dev::GenericScanlineHelper.43", ptr %this, i64 0, i32 5
-  %m_inputBitDepth = getelementptr inbounds %"class.OpenColorIO_v2_4dev::GenericScanlineHelper.43", ptr %this, i64 0, i32 1
+  %m_srcImg = getelementptr inbounds i8, ptr %this, i64 48
+  %m_inputBitDepth = getelementptr inbounds i8, ptr %this, i64 8
   %0 = load i32, ptr %m_inputBitDepth, align 8
-  %m_inBitDepthOp = getelementptr inbounds %"class.OpenColorIO_v2_4dev::GenericScanlineHelper.43", ptr %this, i64 0, i32 3
+  %m_inBitDepthOp = getelementptr inbounds i8, ptr %this, i64 16
   tail call void @_ZN19OpenColorIO_v2_4dev16GenericImageDesc4initERKNS_9ImageDescENS_8BitDepthERKSt10shared_ptrIKNS_5OpCPUEE(ptr noundef nonnull align 8 dereferenceable(82) %m_srcImg, ptr noundef nonnull align 8 dereferenceable(8) %img, i32 noundef %0, ptr noundef nonnull align 8 dereferenceable(16) %m_inBitDepthOp)
-  %m_dstImg = getelementptr inbounds %"class.OpenColorIO_v2_4dev::GenericScanlineHelper.43", ptr %this, i64 0, i32 6
-  %m_outputBitDepth = getelementptr inbounds %"class.OpenColorIO_v2_4dev::GenericScanlineHelper.43", ptr %this, i64 0, i32 2
+  %m_dstImg = getelementptr inbounds i8, ptr %this, i64 136
+  %m_outputBitDepth = getelementptr inbounds i8, ptr %this, i64 12
   %1 = load i32, ptr %m_outputBitDepth, align 4
-  %m_outBitDepthOp = getelementptr inbounds %"class.OpenColorIO_v2_4dev::GenericScanlineHelper.43", ptr %this, i64 0, i32 4
+  %m_outBitDepthOp = getelementptr inbounds i8, ptr %this, i64 32
   tail call void @_ZN19OpenColorIO_v2_4dev16GenericImageDesc4initERKNS_9ImageDescENS_8BitDepthERKSt10shared_ptrIKNS_5OpCPUEE(ptr noundef nonnull align 8 dereferenceable(82) %m_dstImg, ptr noundef nonnull align 8 dereferenceable(8) %img, i32 noundef %1, ptr noundef nonnull align 8 dereferenceable(16) %m_outBitDepthOp)
   %call.i = tail call noundef zeroext i1 @_ZNK19OpenColorIO_v2_4dev16GenericImageDesc12isRGBAPackedEv(ptr noundef nonnull align 8 dereferenceable(82) %m_srcImg)
   br i1 %call.i, label %if.then.i, label %if.then
@@ -13490,26 +13452,26 @@ if.then.i:                                        ; preds = %entry
   br i1 %call1.i, label %_ZN19OpenColorIO_v2_4dev19GetOptimizationModeERKNS_16GenericImageDescE.exit, label %if.then
 
 _ZN19OpenColorIO_v2_4dev19GetOptimizationModeERKNS_16GenericImageDescE.exit: ; preds = %if.then.i
-  %m_inOptimizedMode = getelementptr inbounds %"class.OpenColorIO_v2_4dev::GenericScanlineHelper.43", ptr %this, i64 0, i32 7
+  %m_inOptimizedMode = getelementptr inbounds i8, ptr %this, i64 224
   store i32 3, ptr %m_inOptimizedMode, align 8
-  %m_outOptimizedMode = getelementptr inbounds %"class.OpenColorIO_v2_4dev::GenericScanlineHelper.43", ptr %this, i64 0, i32 8
+  %m_outOptimizedMode = getelementptr inbounds i8, ptr %this, i64 228
   store i32 3, ptr %m_outOptimizedMode, align 4
-  %m_useDstBuffer = getelementptr inbounds %"class.OpenColorIO_v2_4dev::GenericScanlineHelper.43", ptr %this, i64 0, i32 13
+  %m_useDstBuffer = getelementptr inbounds i8, ptr %this, i64 308
   store i8 1, ptr %m_useDstBuffer, align 4
   br label %if.end
 
 if.then:                                          ; preds = %entry, %if.then.i
   %optim.0.i.ph = phi i32 [ 1, %if.then.i ], [ 0, %entry ]
-  %m_inOptimizedMode36 = getelementptr inbounds %"class.OpenColorIO_v2_4dev::GenericScanlineHelper.43", ptr %this, i64 0, i32 7
+  %m_inOptimizedMode36 = getelementptr inbounds i8, ptr %this, i64 224
   store i32 %optim.0.i.ph, ptr %m_inOptimizedMode36, align 8
-  %m_outOptimizedMode37 = getelementptr inbounds %"class.OpenColorIO_v2_4dev::GenericScanlineHelper.43", ptr %this, i64 0, i32 8
+  %m_outOptimizedMode37 = getelementptr inbounds i8, ptr %this, i64 228
   store i32 %optim.0.i.ph, ptr %m_outOptimizedMode37, align 4
-  %m_useDstBuffer39 = getelementptr inbounds %"class.OpenColorIO_v2_4dev::GenericScanlineHelper.43", ptr %this, i64 0, i32 13
+  %m_useDstBuffer39 = getelementptr inbounds i8, ptr %this, i64 308
   store i8 0, ptr %m_useDstBuffer39, align 4
   %2 = load i64, ptr %m_dstImg, align 8
   %mul = shl nsw i64 %2, 2
-  %m_rgbaFloatBuffer = getelementptr inbounds %"class.OpenColorIO_v2_4dev::GenericScanlineHelper.43", ptr %this, i64 0, i32 9
-  %_M_finish.i.i = getelementptr inbounds %"class.OpenColorIO_v2_4dev::GenericScanlineHelper.43", ptr %this, i64 0, i32 9, i32 0, i32 0, i32 0, i32 1
+  %m_rgbaFloatBuffer = getelementptr inbounds i8, ptr %this, i64 232
+  %_M_finish.i.i = getelementptr inbounds i8, ptr %this, i64 240
   %3 = load ptr, ptr %_M_finish.i.i, align 8
   %4 = load ptr, ptr %m_rgbaFloatBuffer, align 8
   %sub.ptr.lhs.cast.i.i = ptrtoint ptr %3 to i64
@@ -13538,8 +13500,8 @@ invoke.cont.i.i:                                  ; preds = %if.then5.i
   br label %_ZNSt6vectorIfSaIfEE6resizeEm.exit
 
 _ZNSt6vectorIfSaIfEE6resizeEm.exit:               ; preds = %if.then.i4, %if.else.i, %if.then5.i, %invoke.cont.i.i
-  %m_inBitDepthBuffer = getelementptr inbounds %"class.OpenColorIO_v2_4dev::GenericScanlineHelper.43", ptr %this, i64 0, i32 10
-  %_M_finish.i.i5 = getelementptr inbounds %"class.OpenColorIO_v2_4dev::GenericScanlineHelper.43", ptr %this, i64 0, i32 10, i32 0, i32 0, i32 0, i32 1
+  %m_inBitDepthBuffer = getelementptr inbounds i8, ptr %this, i64 256
+  %_M_finish.i.i5 = getelementptr inbounds i8, ptr %this, i64 264
   %5 = load ptr, ptr %_M_finish.i.i5, align 8
   %6 = load ptr, ptr %m_inBitDepthBuffer, align 8
   %sub.ptr.lhs.cast.i.i6 = ptrtoint ptr %5 to i64
@@ -13568,8 +13530,8 @@ invoke.cont.i.i16:                                ; preds = %if.then5.i13
   br label %_ZNSt6vectorIfSaIfEE6resizeEm.exit19
 
 _ZNSt6vectorIfSaIfEE6resizeEm.exit19:             ; preds = %if.then.i17, %if.else.i11, %if.then5.i13, %invoke.cont.i.i16
-  %m_outBitDepthBuffer = getelementptr inbounds %"class.OpenColorIO_v2_4dev::GenericScanlineHelper.43", ptr %this, i64 0, i32 11
-  %_M_finish.i.i20 = getelementptr inbounds %"class.OpenColorIO_v2_4dev::GenericScanlineHelper.43", ptr %this, i64 0, i32 11, i32 0, i32 0, i32 0, i32 1
+  %m_outBitDepthBuffer = getelementptr inbounds i8, ptr %this, i64 280
+  %_M_finish.i.i20 = getelementptr inbounds i8, ptr %this, i64 288
   %7 = load ptr, ptr %_M_finish.i.i20, align 8
   %8 = load ptr, ptr %m_outBitDepthBuffer, align 8
   %sub.ptr.lhs.cast.i.i21 = ptrtoint ptr %7 to i64
@@ -13605,7 +13567,7 @@ if.end:                                           ; preds = %invoke.cont.i.i31, 
 define weak_odr hidden void @_ZN19OpenColorIO_v2_4dev21GenericScanlineHelperIffED2Ev(ptr noundef nonnull align 8 dereferenceable(309) %this) unnamed_addr #3 comdat($_ZN19OpenColorIO_v2_4dev21GenericScanlineHelperIffED5Ev) align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTVN19OpenColorIO_v2_4dev21GenericScanlineHelperIffEE, i64 0, inrange i32 0, i64 2), ptr %this, align 8
-  %m_outBitDepthBuffer = getelementptr inbounds %"class.OpenColorIO_v2_4dev::GenericScanlineHelper.43", ptr %this, i64 0, i32 11
+  %m_outBitDepthBuffer = getelementptr inbounds i8, ptr %this, i64 280
   %0 = load ptr, ptr %m_outBitDepthBuffer, align 8
   %tobool.not.i.i.i = icmp eq ptr %0, null
   br i1 %tobool.not.i.i.i, label %_ZNSt6vectorIfSaIfEED2Ev.exit, label %if.then.i.i.i
@@ -13615,7 +13577,7 @@ if.then.i.i.i:                                    ; preds = %entry
   br label %_ZNSt6vectorIfSaIfEED2Ev.exit
 
 _ZNSt6vectorIfSaIfEED2Ev.exit:                    ; preds = %entry, %if.then.i.i.i
-  %m_inBitDepthBuffer = getelementptr inbounds %"class.OpenColorIO_v2_4dev::GenericScanlineHelper.43", ptr %this, i64 0, i32 10
+  %m_inBitDepthBuffer = getelementptr inbounds i8, ptr %this, i64 256
   %1 = load ptr, ptr %m_inBitDepthBuffer, align 8
   %tobool.not.i.i.i1 = icmp eq ptr %1, null
   br i1 %tobool.not.i.i.i1, label %_ZNSt6vectorIfSaIfEED2Ev.exit3, label %if.then.i.i.i2
@@ -13625,7 +13587,7 @@ if.then.i.i.i2:                                   ; preds = %_ZNSt6vectorIfSaIfE
   br label %_ZNSt6vectorIfSaIfEED2Ev.exit3
 
 _ZNSt6vectorIfSaIfEED2Ev.exit3:                   ; preds = %_ZNSt6vectorIfSaIfEED2Ev.exit, %if.then.i.i.i2
-  %m_rgbaFloatBuffer = getelementptr inbounds %"class.OpenColorIO_v2_4dev::GenericScanlineHelper.43", ptr %this, i64 0, i32 9
+  %m_rgbaFloatBuffer = getelementptr inbounds i8, ptr %this, i64 232
   %2 = load ptr, ptr %m_rgbaFloatBuffer, align 8
   %tobool.not.i.i.i4 = icmp eq ptr %2, null
   br i1 %tobool.not.i.i.i4, label %_ZNSt6vectorIfSaIfEED2Ev.exit6, label %if.then.i.i.i5
@@ -13635,13 +13597,13 @@ if.then.i.i.i5:                                   ; preds = %_ZNSt6vectorIfSaIfE
   br label %_ZNSt6vectorIfSaIfEED2Ev.exit6
 
 _ZNSt6vectorIfSaIfEED2Ev.exit6:                   ; preds = %_ZNSt6vectorIfSaIfEED2Ev.exit3, %if.then.i.i.i5
-  %_M_refcount.i.i.i = getelementptr inbounds %"class.OpenColorIO_v2_4dev::GenericScanlineHelper.43", ptr %this, i64 0, i32 6, i32 8, i32 0, i32 1
+  %_M_refcount.i.i.i = getelementptr inbounds i8, ptr %this, i64 208
   %3 = load ptr, ptr %_M_refcount.i.i.i, align 8
   %cmp.not.i.i.i.i = icmp eq ptr %3, null
   br i1 %cmp.not.i.i.i.i, label %_ZN19OpenColorIO_v2_4dev16GenericImageDescD2Ev.exit, label %if.then.i.i.i.i
 
 if.then.i.i.i.i:                                  ; preds = %_ZNSt6vectorIfSaIfEED2Ev.exit6
-  %_M_use_count.i.i.i.i.i = getelementptr inbounds %"class.std::_Sp_counted_base", ptr %3, i64 0, i32 1
+  %_M_use_count.i.i.i.i.i = getelementptr inbounds i8, ptr %3, i64 8
   %4 = load atomic i64, ptr %_M_use_count.i.i.i.i.i acquire, align 8
   %cmp.i.i.i.i.i = icmp eq i64 %4, 4294967297
   %5 = trunc i64 %4 to i32
@@ -13649,10 +13611,10 @@ if.then.i.i.i.i:                                  ; preds = %_ZNSt6vectorIfSaIfE
 
 if.then.i.i.i.i.i:                                ; preds = %if.then.i.i.i.i
   store i32 0, ptr %_M_use_count.i.i.i.i.i, align 8
-  %_M_weak_count.i.i.i.i.i = getelementptr inbounds %"class.std::_Sp_counted_base", ptr %3, i64 0, i32 2
+  %_M_weak_count.i.i.i.i.i = getelementptr inbounds i8, ptr %3, i64 12
   store i32 0, ptr %_M_weak_count.i.i.i.i.i, align 4
   %vtable.i.i.i.i.i = load ptr, ptr %3, align 8
-  %vfn.i.i.i.i.i = getelementptr inbounds ptr, ptr %vtable.i.i.i.i.i, i64 2
+  %vfn.i.i.i.i.i = getelementptr inbounds i8, ptr %vtable.i.i.i.i.i, i64 16
   %6 = load ptr, ptr %vfn.i.i.i.i.i, align 8
   tail call void %6(ptr noundef nonnull align 8 dereferenceable(16) %3) #13
   br label %if.end8.sink.split.i.i.i.i.i
@@ -13678,10 +13640,10 @@ _ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i: ; preds = %if.els
 
 if.then7.i.i.i.i.i:                               ; preds = %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i
   %vtable.i.i.i.i.i.i.i = load ptr, ptr %3, align 8
-  %vfn.i.i.i.i.i.i.i = getelementptr inbounds ptr, ptr %vtable.i.i.i.i.i.i.i, i64 2
+  %vfn.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %vtable.i.i.i.i.i.i.i, i64 16
   %9 = load ptr, ptr %vfn.i.i.i.i.i.i.i, align 8
   tail call void %9(ptr noundef nonnull align 8 dereferenceable(16) %3) #13
-  %_M_weak_count.i.i.i.i.i.i.i = getelementptr inbounds %"class.std::_Sp_counted_base", ptr %3, i64 0, i32 2
+  %_M_weak_count.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %3, i64 12
   %10 = load i8, ptr @__libc_single_threaded, align 1
   %tobool.i.i.not.i.i.i.i.i.i.i = icmp eq i8 %10, 0
   br i1 %tobool.i.i.not.i.i.i.i.i.i.i, label %if.else.i.i.i.i.i.i.i.i, label %if.then.i.i.i.i.i.i.i.i
@@ -13703,19 +13665,19 @@ _ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i.i: ; preds = %if
 
 if.end8.sink.split.i.i.i.i.i:                     ; preds = %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i.i, %if.then.i.i.i.i.i
   %vtable2.i.i.i.i.i.i.i = load ptr, ptr %3, align 8
-  %vfn3.i.i.i.i.i.i.i = getelementptr inbounds ptr, ptr %vtable2.i.i.i.i.i.i.i, i64 3
+  %vfn3.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %vtable2.i.i.i.i.i.i.i, i64 24
   %13 = load ptr, ptr %vfn3.i.i.i.i.i.i.i, align 8
   tail call void %13(ptr noundef nonnull align 8 dereferenceable(16) %3) #13
   br label %_ZN19OpenColorIO_v2_4dev16GenericImageDescD2Ev.exit
 
 _ZN19OpenColorIO_v2_4dev16GenericImageDescD2Ev.exit: ; preds = %_ZNSt6vectorIfSaIfEED2Ev.exit6, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i.i, %if.end8.sink.split.i.i.i.i.i
-  %_M_refcount.i.i.i7 = getelementptr inbounds %"class.OpenColorIO_v2_4dev::GenericScanlineHelper.43", ptr %this, i64 0, i32 5, i32 8, i32 0, i32 1
+  %_M_refcount.i.i.i7 = getelementptr inbounds i8, ptr %this, i64 120
   %14 = load ptr, ptr %_M_refcount.i.i.i7, align 8
   %cmp.not.i.i.i.i8 = icmp eq ptr %14, null
   br i1 %cmp.not.i.i.i.i8, label %_ZN19OpenColorIO_v2_4dev16GenericImageDescD2Ev.exit38, label %if.then.i.i.i.i9
 
 if.then.i.i.i.i9:                                 ; preds = %_ZN19OpenColorIO_v2_4dev16GenericImageDescD2Ev.exit
-  %_M_use_count.i.i.i.i.i10 = getelementptr inbounds %"class.std::_Sp_counted_base", ptr %14, i64 0, i32 1
+  %_M_use_count.i.i.i.i.i10 = getelementptr inbounds i8, ptr %14, i64 8
   %15 = load atomic i64, ptr %_M_use_count.i.i.i.i.i10 acquire, align 8
   %cmp.i.i.i.i.i11 = icmp eq i64 %15, 4294967297
   %16 = trunc i64 %15 to i32
@@ -13723,10 +13685,10 @@ if.then.i.i.i.i9:                                 ; preds = %_ZN19OpenColorIO_v2
 
 if.then.i.i.i.i.i34:                              ; preds = %if.then.i.i.i.i9
   store i32 0, ptr %_M_use_count.i.i.i.i.i10, align 8
-  %_M_weak_count.i.i.i.i.i35 = getelementptr inbounds %"class.std::_Sp_counted_base", ptr %14, i64 0, i32 2
+  %_M_weak_count.i.i.i.i.i35 = getelementptr inbounds i8, ptr %14, i64 12
   store i32 0, ptr %_M_weak_count.i.i.i.i.i35, align 4
   %vtable.i.i.i.i.i36 = load ptr, ptr %14, align 8
-  %vfn.i.i.i.i.i37 = getelementptr inbounds ptr, ptr %vtable.i.i.i.i.i36, i64 2
+  %vfn.i.i.i.i.i37 = getelementptr inbounds i8, ptr %vtable.i.i.i.i.i36, i64 16
   %17 = load ptr, ptr %vfn.i.i.i.i.i37, align 8
   tail call void %17(ptr noundef nonnull align 8 dereferenceable(16) %14) #13
   br label %if.end8.sink.split.i.i.i.i.i29
@@ -13752,10 +13714,10 @@ _ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i16: ; preds = %if.e
 
 if.then7.i.i.i.i.i19:                             ; preds = %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i16
   %vtable.i.i.i.i.i.i.i20 = load ptr, ptr %14, align 8
-  %vfn.i.i.i.i.i.i.i21 = getelementptr inbounds ptr, ptr %vtable.i.i.i.i.i.i.i20, i64 2
+  %vfn.i.i.i.i.i.i.i21 = getelementptr inbounds i8, ptr %vtable.i.i.i.i.i.i.i20, i64 16
   %20 = load ptr, ptr %vfn.i.i.i.i.i.i.i21, align 8
   tail call void %20(ptr noundef nonnull align 8 dereferenceable(16) %14) #13
-  %_M_weak_count.i.i.i.i.i.i.i22 = getelementptr inbounds %"class.std::_Sp_counted_base", ptr %14, i64 0, i32 2
+  %_M_weak_count.i.i.i.i.i.i.i22 = getelementptr inbounds i8, ptr %14, i64 12
   %21 = load i8, ptr @__libc_single_threaded, align 1
   %tobool.i.i.not.i.i.i.i.i.i.i23 = icmp eq i8 %21, 0
   br i1 %tobool.i.i.not.i.i.i.i.i.i.i23, label %if.else.i.i.i.i.i.i.i.i32, label %if.then.i.i.i.i.i.i.i.i24
@@ -13777,19 +13739,19 @@ _ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i.i26: ; preds = %
 
 if.end8.sink.split.i.i.i.i.i29:                   ; preds = %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i.i26, %if.then.i.i.i.i.i34
   %vtable2.i.i.i.i.i.i.i30 = load ptr, ptr %14, align 8
-  %vfn3.i.i.i.i.i.i.i31 = getelementptr inbounds ptr, ptr %vtable2.i.i.i.i.i.i.i30, i64 3
+  %vfn3.i.i.i.i.i.i.i31 = getelementptr inbounds i8, ptr %vtable2.i.i.i.i.i.i.i30, i64 24
   %24 = load ptr, ptr %vfn3.i.i.i.i.i.i.i31, align 8
   tail call void %24(ptr noundef nonnull align 8 dereferenceable(16) %14) #13
   br label %_ZN19OpenColorIO_v2_4dev16GenericImageDescD2Ev.exit38
 
 _ZN19OpenColorIO_v2_4dev16GenericImageDescD2Ev.exit38: ; preds = %_ZN19OpenColorIO_v2_4dev16GenericImageDescD2Ev.exit, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i16, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i.i26, %if.end8.sink.split.i.i.i.i.i29
-  %_M_refcount.i.i = getelementptr inbounds %"class.OpenColorIO_v2_4dev::GenericScanlineHelper.43", ptr %this, i64 0, i32 4, i32 0, i32 1
+  %_M_refcount.i.i = getelementptr inbounds i8, ptr %this, i64 40
   %25 = load ptr, ptr %_M_refcount.i.i, align 8
   %cmp.not.i.i.i = icmp eq ptr %25, null
   br i1 %cmp.not.i.i.i, label %_ZNSt10shared_ptrIKN19OpenColorIO_v2_4dev5OpCPUEED2Ev.exit, label %if.then.i.i.i39
 
 if.then.i.i.i39:                                  ; preds = %_ZN19OpenColorIO_v2_4dev16GenericImageDescD2Ev.exit38
-  %_M_use_count.i.i.i.i = getelementptr inbounds %"class.std::_Sp_counted_base", ptr %25, i64 0, i32 1
+  %_M_use_count.i.i.i.i = getelementptr inbounds i8, ptr %25, i64 8
   %26 = load atomic i64, ptr %_M_use_count.i.i.i.i acquire, align 8
   %cmp.i.i.i.i = icmp eq i64 %26, 4294967297
   %27 = trunc i64 %26 to i32
@@ -13797,10 +13759,10 @@ if.then.i.i.i39:                                  ; preds = %_ZN19OpenColorIO_v2
 
 if.then.i.i.i.i41:                                ; preds = %if.then.i.i.i39
   store i32 0, ptr %_M_use_count.i.i.i.i, align 8
-  %_M_weak_count.i.i.i.i = getelementptr inbounds %"class.std::_Sp_counted_base", ptr %25, i64 0, i32 2
+  %_M_weak_count.i.i.i.i = getelementptr inbounds i8, ptr %25, i64 12
   store i32 0, ptr %_M_weak_count.i.i.i.i, align 4
   %vtable.i.i.i.i = load ptr, ptr %25, align 8
-  %vfn.i.i.i.i = getelementptr inbounds ptr, ptr %vtable.i.i.i.i, i64 2
+  %vfn.i.i.i.i = getelementptr inbounds i8, ptr %vtable.i.i.i.i, i64 16
   %28 = load ptr, ptr %vfn.i.i.i.i, align 8
   tail call void %28(ptr noundef nonnull align 8 dereferenceable(16) %25) #13
   br label %if.end8.sink.split.i.i.i.i
@@ -13826,10 +13788,10 @@ _ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i: ; preds = %if.else.
 
 if.then7.i.i.i.i:                                 ; preds = %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i
   %vtable.i.i.i.i.i.i = load ptr, ptr %25, align 8
-  %vfn.i.i.i.i.i.i = getelementptr inbounds ptr, ptr %vtable.i.i.i.i.i.i, i64 2
+  %vfn.i.i.i.i.i.i = getelementptr inbounds i8, ptr %vtable.i.i.i.i.i.i, i64 16
   %31 = load ptr, ptr %vfn.i.i.i.i.i.i, align 8
   tail call void %31(ptr noundef nonnull align 8 dereferenceable(16) %25) #13
-  %_M_weak_count.i.i.i.i.i.i = getelementptr inbounds %"class.std::_Sp_counted_base", ptr %25, i64 0, i32 2
+  %_M_weak_count.i.i.i.i.i.i = getelementptr inbounds i8, ptr %25, i64 12
   %32 = load i8, ptr @__libc_single_threaded, align 1
   %tobool.i.i.not.i.i.i.i.i.i = icmp eq i8 %32, 0
   br i1 %tobool.i.i.not.i.i.i.i.i.i, label %if.else.i.i.i.i.i.i.i, label %if.then.i.i.i.i.i.i.i
@@ -13851,19 +13813,19 @@ _ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i: ; preds = %if.e
 
 if.end8.sink.split.i.i.i.i:                       ; preds = %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i, %if.then.i.i.i.i41
   %vtable2.i.i.i.i.i.i = load ptr, ptr %25, align 8
-  %vfn3.i.i.i.i.i.i = getelementptr inbounds ptr, ptr %vtable2.i.i.i.i.i.i, i64 3
+  %vfn3.i.i.i.i.i.i = getelementptr inbounds i8, ptr %vtable2.i.i.i.i.i.i, i64 24
   %35 = load ptr, ptr %vfn3.i.i.i.i.i.i, align 8
   tail call void %35(ptr noundef nonnull align 8 dereferenceable(16) %25) #13
   br label %_ZNSt10shared_ptrIKN19OpenColorIO_v2_4dev5OpCPUEED2Ev.exit
 
 _ZNSt10shared_ptrIKN19OpenColorIO_v2_4dev5OpCPUEED2Ev.exit: ; preds = %_ZN19OpenColorIO_v2_4dev16GenericImageDescD2Ev.exit38, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i, %if.end8.sink.split.i.i.i.i
-  %_M_refcount.i.i42 = getelementptr inbounds %"class.OpenColorIO_v2_4dev::GenericScanlineHelper.43", ptr %this, i64 0, i32 3, i32 0, i32 1
+  %_M_refcount.i.i42 = getelementptr inbounds i8, ptr %this, i64 24
   %36 = load ptr, ptr %_M_refcount.i.i42, align 8
   %cmp.not.i.i.i43 = icmp eq ptr %36, null
   br i1 %cmp.not.i.i.i43, label %_ZNSt10shared_ptrIKN19OpenColorIO_v2_4dev5OpCPUEED2Ev.exit73, label %if.then.i.i.i44
 
 if.then.i.i.i44:                                  ; preds = %_ZNSt10shared_ptrIKN19OpenColorIO_v2_4dev5OpCPUEED2Ev.exit
-  %_M_use_count.i.i.i.i45 = getelementptr inbounds %"class.std::_Sp_counted_base", ptr %36, i64 0, i32 1
+  %_M_use_count.i.i.i.i45 = getelementptr inbounds i8, ptr %36, i64 8
   %37 = load atomic i64, ptr %_M_use_count.i.i.i.i45 acquire, align 8
   %cmp.i.i.i.i46 = icmp eq i64 %37, 4294967297
   %38 = trunc i64 %37 to i32
@@ -13871,10 +13833,10 @@ if.then.i.i.i44:                                  ; preds = %_ZNSt10shared_ptrIK
 
 if.then.i.i.i.i69:                                ; preds = %if.then.i.i.i44
   store i32 0, ptr %_M_use_count.i.i.i.i45, align 8
-  %_M_weak_count.i.i.i.i70 = getelementptr inbounds %"class.std::_Sp_counted_base", ptr %36, i64 0, i32 2
+  %_M_weak_count.i.i.i.i70 = getelementptr inbounds i8, ptr %36, i64 12
   store i32 0, ptr %_M_weak_count.i.i.i.i70, align 4
   %vtable.i.i.i.i71 = load ptr, ptr %36, align 8
-  %vfn.i.i.i.i72 = getelementptr inbounds ptr, ptr %vtable.i.i.i.i71, i64 2
+  %vfn.i.i.i.i72 = getelementptr inbounds i8, ptr %vtable.i.i.i.i71, i64 16
   %39 = load ptr, ptr %vfn.i.i.i.i72, align 8
   tail call void %39(ptr noundef nonnull align 8 dereferenceable(16) %36) #13
   br label %if.end8.sink.split.i.i.i.i64
@@ -13900,10 +13862,10 @@ _ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i51: ; preds = %if.els
 
 if.then7.i.i.i.i54:                               ; preds = %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i51
   %vtable.i.i.i.i.i.i55 = load ptr, ptr %36, align 8
-  %vfn.i.i.i.i.i.i56 = getelementptr inbounds ptr, ptr %vtable.i.i.i.i.i.i55, i64 2
+  %vfn.i.i.i.i.i.i56 = getelementptr inbounds i8, ptr %vtable.i.i.i.i.i.i55, i64 16
   %42 = load ptr, ptr %vfn.i.i.i.i.i.i56, align 8
   tail call void %42(ptr noundef nonnull align 8 dereferenceable(16) %36) #13
-  %_M_weak_count.i.i.i.i.i.i57 = getelementptr inbounds %"class.std::_Sp_counted_base", ptr %36, i64 0, i32 2
+  %_M_weak_count.i.i.i.i.i.i57 = getelementptr inbounds i8, ptr %36, i64 12
   %43 = load i8, ptr @__libc_single_threaded, align 1
   %tobool.i.i.not.i.i.i.i.i.i58 = icmp eq i8 %43, 0
   br i1 %tobool.i.i.not.i.i.i.i.i.i58, label %if.else.i.i.i.i.i.i.i67, label %if.then.i.i.i.i.i.i.i59
@@ -13925,7 +13887,7 @@ _ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i61: ; preds = %if
 
 if.end8.sink.split.i.i.i.i64:                     ; preds = %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i61, %if.then.i.i.i.i69
   %vtable2.i.i.i.i.i.i65 = load ptr, ptr %36, align 8
-  %vfn3.i.i.i.i.i.i66 = getelementptr inbounds ptr, ptr %vtable2.i.i.i.i.i.i65, i64 3
+  %vfn3.i.i.i.i.i.i66 = getelementptr inbounds i8, ptr %vtable2.i.i.i.i.i.i65, i64 24
   %46 = load ptr, ptr %vfn3.i.i.i.i.i.i66, align 8
   tail call void %46(ptr noundef nonnull align 8 dereferenceable(16) %36) #13
   br label %_ZNSt10shared_ptrIKN19OpenColorIO_v2_4dev5OpCPUEED2Ev.exit73
@@ -13945,66 +13907,66 @@ entry:
 ; Function Attrs: mustprogress uwtable
 define weak_odr hidden void @_ZN19OpenColorIO_v2_4dev21GenericScanlineHelperIffE16prepRGBAScanlineEPPfRl(ptr noundef nonnull align 8 dereferenceable(309) %this, ptr noundef %buffer, ptr noundef nonnull align 8 dereferenceable(8) %numPixels) unnamed_addr #5 comdat align 2 {
 entry:
-  %m_yIndex = getelementptr inbounds %"class.OpenColorIO_v2_4dev::GenericScanlineHelper.43", ptr %this, i64 0, i32 12
+  %m_yIndex = getelementptr inbounds i8, ptr %this, i64 304
   %0 = load i32, ptr %m_yIndex, align 8
   %conv = sext i32 %0 to i64
-  %m_dstImg = getelementptr inbounds %"class.OpenColorIO_v2_4dev::GenericScanlineHelper.43", ptr %this, i64 0, i32 6
-  %m_height = getelementptr inbounds %"class.OpenColorIO_v2_4dev::GenericScanlineHelper.43", ptr %this, i64 0, i32 6, i32 1
+  %m_dstImg = getelementptr inbounds i8, ptr %this, i64 136
+  %m_height = getelementptr inbounds i8, ptr %this, i64 144
   %1 = load i64, ptr %m_height, align 8
   %cmp.not = icmp sgt i64 %1, %conv
   br i1 %cmp.not, label %if.end, label %return
 
 if.end:                                           ; preds = %entry
-  %m_useDstBuffer = getelementptr inbounds %"class.OpenColorIO_v2_4dev::GenericScanlineHelper.43", ptr %this, i64 0, i32 13
+  %m_useDstBuffer = getelementptr inbounds i8, ptr %this, i64 308
   %2 = load i8, ptr %m_useDstBuffer, align 4
   %3 = and i8 %2, 1
   %tobool.not = icmp eq i8 %3, 0
   br i1 %tobool.not, label %cond.false, label %cond.true
 
 cond.true:                                        ; preds = %if.end
-  %m_rData = getelementptr inbounds %"class.OpenColorIO_v2_4dev::GenericScanlineHelper.43", ptr %this, i64 0, i32 6, i32 4
+  %m_rData = getelementptr inbounds i8, ptr %this, i64 168
   %4 = load ptr, ptr %m_rData, align 8
-  %m_yStrideBytes = getelementptr inbounds %"class.OpenColorIO_v2_4dev::GenericScanlineHelper.43", ptr %this, i64 0, i32 6, i32 3
+  %m_yStrideBytes = getelementptr inbounds i8, ptr %this, i64 160
   %5 = load i64, ptr %m_yStrideBytes, align 8
   %mul = mul nsw i64 %5, %conv
   %add.ptr = getelementptr inbounds i8, ptr %4, i64 %mul
   br label %cond.end
 
 cond.false:                                       ; preds = %if.end
-  %m_rgbaFloatBuffer = getelementptr inbounds %"class.OpenColorIO_v2_4dev::GenericScanlineHelper.43", ptr %this, i64 0, i32 9
+  %m_rgbaFloatBuffer = getelementptr inbounds i8, ptr %this, i64 232
   %6 = load ptr, ptr %m_rgbaFloatBuffer, align 8
   br label %cond.end
 
 cond.end:                                         ; preds = %cond.false, %cond.true
   %cond = phi ptr [ %add.ptr, %cond.true ], [ %6, %cond.false ]
   store ptr %cond, ptr %buffer, align 8
-  %m_inOptimizedMode = getelementptr inbounds %"class.OpenColorIO_v2_4dev::GenericScanlineHelper.43", ptr %this, i64 0, i32 7
+  %m_inOptimizedMode = getelementptr inbounds i8, ptr %this, i64 224
   %7 = load i32, ptr %m_inOptimizedMode, align 8
   %and = and i32 %7, 1
   %cmp6.not = icmp eq i32 %and, 0
   br i1 %cmp6.not, label %if.else, label %if.then7
 
 if.then7:                                         ; preds = %cond.end
-  %m_rData8 = getelementptr inbounds %"class.OpenColorIO_v2_4dev::GenericScanlineHelper.43", ptr %this, i64 0, i32 5, i32 4
+  %m_rData8 = getelementptr inbounds i8, ptr %this, i64 80
   %8 = load ptr, ptr %m_rData8, align 8
-  %m_yStrideBytes10 = getelementptr inbounds %"class.OpenColorIO_v2_4dev::GenericScanlineHelper.43", ptr %this, i64 0, i32 5, i32 3
+  %m_yStrideBytes10 = getelementptr inbounds i8, ptr %this, i64 72
   %9 = load i64, ptr %m_yStrideBytes10, align 8
   %10 = load i32, ptr %m_yIndex, align 8
   %conv12 = sext i32 %10 to i64
   %mul13 = mul nsw i64 %9, %conv12
   %add.ptr14 = getelementptr inbounds i8, ptr %8, i64 %mul13
-  %m_bitDepthOp = getelementptr inbounds %"class.OpenColorIO_v2_4dev::GenericScanlineHelper.43", ptr %this, i64 0, i32 5, i32 8
+  %m_bitDepthOp = getelementptr inbounds i8, ptr %this, i64 112
   %11 = load ptr, ptr %m_bitDepthOp, align 8
   %12 = load i64, ptr %m_dstImg, align 8
   %vtable = load ptr, ptr %11, align 8
-  %vfn = getelementptr inbounds ptr, ptr %vtable, i64 2
+  %vfn = getelementptr inbounds i8, ptr %vtable, i64 16
   %13 = load ptr, ptr %vfn, align 8
   tail call void %13(ptr noundef nonnull align 8 dereferenceable(8) %11, ptr noundef %add.ptr14, ptr noundef %cond, i64 noundef %12)
   br label %if.end28
 
 if.else:                                          ; preds = %cond.end
-  %m_srcImg18 = getelementptr inbounds %"class.OpenColorIO_v2_4dev::GenericScanlineHelper.43", ptr %this, i64 0, i32 5
-  %m_inBitDepthBuffer = getelementptr inbounds %"class.OpenColorIO_v2_4dev::GenericScanlineHelper.43", ptr %this, i64 0, i32 10
+  %m_srcImg18 = getelementptr inbounds i8, ptr %this, i64 48
+  %m_inBitDepthBuffer = getelementptr inbounds i8, ptr %this, i64 256
   %14 = load ptr, ptr %m_inBitDepthBuffer, align 8
   %15 = load i64, ptr %m_dstImg, align 8
   %conv22 = trunc i64 %15 to i32
@@ -14027,47 +13989,47 @@ return:                                           ; preds = %entry, %if.end28
 ; Function Attrs: mustprogress uwtable
 define weak_odr hidden void @_ZN19OpenColorIO_v2_4dev21GenericScanlineHelperIffE18finishRGBAScanlineEv(ptr noundef nonnull align 8 dereferenceable(309) %this) unnamed_addr #5 comdat align 2 {
 entry:
-  %m_outOptimizedMode = getelementptr inbounds %"class.OpenColorIO_v2_4dev::GenericScanlineHelper.43", ptr %this, i64 0, i32 8
+  %m_outOptimizedMode = getelementptr inbounds i8, ptr %this, i64 228
   %0 = load i32, ptr %m_outOptimizedMode, align 4
   %and = and i32 %0, 1
   %cmp.not = icmp eq i32 %and, 0
-  %m_dstImg6 = getelementptr inbounds %"class.OpenColorIO_v2_4dev::GenericScanlineHelper.43", ptr %this, i64 0, i32 6
+  %m_dstImg6 = getelementptr inbounds i8, ptr %this, i64 136
   br i1 %cmp.not, label %if.else, label %if.then
 
 if.then:                                          ; preds = %entry
-  %m_rData = getelementptr inbounds %"class.OpenColorIO_v2_4dev::GenericScanlineHelper.43", ptr %this, i64 0, i32 6, i32 4
+  %m_rData = getelementptr inbounds i8, ptr %this, i64 168
   %1 = load ptr, ptr %m_rData, align 8
-  %m_yStrideBytes = getelementptr inbounds %"class.OpenColorIO_v2_4dev::GenericScanlineHelper.43", ptr %this, i64 0, i32 6, i32 3
+  %m_yStrideBytes = getelementptr inbounds i8, ptr %this, i64 160
   %2 = load i64, ptr %m_yStrideBytes, align 8
-  %m_yIndex = getelementptr inbounds %"class.OpenColorIO_v2_4dev::GenericScanlineHelper.43", ptr %this, i64 0, i32 12
+  %m_yIndex = getelementptr inbounds i8, ptr %this, i64 304
   %3 = load i32, ptr %m_yIndex, align 8
   %conv = sext i32 %3 to i64
   %mul = mul nsw i64 %2, %conv
   %add.ptr = getelementptr inbounds i8, ptr %1, i64 %mul
-  %m_useDstBuffer = getelementptr inbounds %"class.OpenColorIO_v2_4dev::GenericScanlineHelper.43", ptr %this, i64 0, i32 13
+  %m_useDstBuffer = getelementptr inbounds i8, ptr %this, i64 308
   %4 = load i8, ptr %m_useDstBuffer, align 4
   %5 = and i8 %4, 1
   %tobool.not = icmp eq i8 %5, 0
-  %m_rgbaFloatBuffer = getelementptr inbounds %"class.OpenColorIO_v2_4dev::GenericScanlineHelper.43", ptr %this, i64 0, i32 9
+  %m_rgbaFloatBuffer = getelementptr inbounds i8, ptr %this, i64 232
   %6 = load ptr, ptr %m_rgbaFloatBuffer, align 8
   %cond = select i1 %tobool.not, ptr %6, ptr %add.ptr
-  %m_bitDepthOp = getelementptr inbounds %"class.OpenColorIO_v2_4dev::GenericScanlineHelper.43", ptr %this, i64 0, i32 6, i32 8
+  %m_bitDepthOp = getelementptr inbounds i8, ptr %this, i64 200
   %7 = load ptr, ptr %m_bitDepthOp, align 8
   %8 = load i64, ptr %m_dstImg6, align 8
   %vtable = load ptr, ptr %7, align 8
-  %vfn = getelementptr inbounds ptr, ptr %vtable, i64 2
+  %vfn = getelementptr inbounds i8, ptr %vtable, i64 16
   %9 = load ptr, ptr %vfn, align 8
   tail call void %9(ptr noundef nonnull align 8 dereferenceable(8) %7, ptr noundef %cond, ptr noundef %add.ptr, i64 noundef %8)
   br label %if.end
 
 if.else:                                          ; preds = %entry
-  %m_rgbaFloatBuffer7 = getelementptr inbounds %"class.OpenColorIO_v2_4dev::GenericScanlineHelper.43", ptr %this, i64 0, i32 9
+  %m_rgbaFloatBuffer7 = getelementptr inbounds i8, ptr %this, i64 232
   %10 = load ptr, ptr %m_rgbaFloatBuffer7, align 8
-  %m_outBitDepthBuffer = getelementptr inbounds %"class.OpenColorIO_v2_4dev::GenericScanlineHelper.43", ptr %this, i64 0, i32 11
+  %m_outBitDepthBuffer = getelementptr inbounds i8, ptr %this, i64 280
   %11 = load ptr, ptr %m_outBitDepthBuffer, align 8
   %12 = load i64, ptr %m_dstImg6, align 8
   %conv12 = trunc i64 %12 to i32
-  %m_yIndex13 = getelementptr inbounds %"class.OpenColorIO_v2_4dev::GenericScanlineHelper.43", ptr %this, i64 0, i32 12
+  %m_yIndex13 = getelementptr inbounds i8, ptr %this, i64 304
   %13 = load i32, ptr %m_yIndex13, align 8
   %conv14 = sext i32 %13 to i64
   %mul17 = mul nsw i64 %12, %conv14
@@ -14075,7 +14037,7 @@ if.else:                                          ; preds = %entry
   br label %if.end
 
 if.end:                                           ; preds = %if.else, %if.then
-  %m_yIndex18 = getelementptr inbounds %"class.OpenColorIO_v2_4dev::GenericScanlineHelper.43", ptr %this, i64 0, i32 12
+  %m_yIndex18 = getelementptr inbounds i8, ptr %this, i64 304
   %14 = load i32, ptr %m_yIndex18, align 8
   %inc = add nsw i32 %14, 1
   store i32 %inc, ptr %m_yIndex18, align 8
@@ -14102,14 +14064,14 @@ entry:
   br i1 %cmp.not, label %if.end44, label %if.then
 
 if.then:                                          ; preds = %entry
-  %_M_finish.i = getelementptr inbounds %"struct.std::_Vector_base<float, std::allocator<float>>::_Vector_impl_data", ptr %this, i64 0, i32 1
+  %_M_finish.i = getelementptr inbounds i8, ptr %this, i64 8
   %0 = load ptr, ptr %_M_finish.i, align 8
   %1 = load ptr, ptr %this, align 8
   %sub.ptr.lhs.cast.i = ptrtoint ptr %0 to i64
   %sub.ptr.rhs.cast.i = ptrtoint ptr %1 to i64
   %sub.ptr.sub.i = sub i64 %sub.ptr.lhs.cast.i, %sub.ptr.rhs.cast.i
   %sub.ptr.div.i = ashr exact i64 %sub.ptr.sub.i, 2
-  %_M_end_of_storage = getelementptr inbounds %"struct.std::_Vector_base<float, std::allocator<float>>::_Vector_impl_data", ptr %this, i64 0, i32 2
+  %_M_end_of_storage = getelementptr inbounds i8, ptr %this, i64 16
   %2 = load ptr, ptr %_M_end_of_storage, align 8
   %sub.ptr.lhs.cast = ptrtoint ptr %2 to i64
   %sub.ptr.sub = sub i64 %sub.ptr.lhs.cast, %sub.ptr.lhs.cast.i
@@ -14124,15 +14086,16 @@ if.then:                                          ; preds = %entry
 
 if.then.i.i.i:                                    ; preds = %if.then
   store float 0.000000e+00, ptr %0, align 4
-  %incdec.ptr.i.i.i = getelementptr float, ptr %0, i64 1
-  %cmp.i.i.i.i.i = icmp eq i64 %__n, 1
+  %incdec.ptr.i.i.i = getelementptr i8, ptr %0, i64 4
+  %sub.i.i.i = add i64 %__n, -1
+  %cmp.i.i.i.i.i = icmp eq i64 %sub.i.i.i, 0
   br i1 %cmp.i.i.i.i.i, label %_ZSt27__uninitialized_default_n_aIPfmfET_S1_T0_RSaIT1_E.exit, label %if.end.i.i.i.i.i
 
 if.end.i.i.i.i.i:                                 ; preds = %if.then.i.i.i
   %3 = shl i64 %__n, 2
   %4 = add i64 %3, -4
   tail call void @llvm.memset.p0.i64(ptr align 4 %incdec.ptr.i.i.i, i8 0, i64 %4, i1 false)
-  %add.ptr.i.i.i.i.i = getelementptr inbounds float, ptr %0, i64 %__n
+  %add.ptr.i.i.i.i.i = getelementptr inbounds float, ptr %incdec.ptr.i.i.i, i64 %sub.i.i.i
   br label %_ZSt27__uninitialized_default_n_aIPfmfET_S1_T0_RSaIT1_E.exit
 
 _ZSt27__uninitialized_default_n_aIPfmfET_S1_T0_RSaIT1_E.exit: ; preds = %if.then.i.i.i, %if.end.i.i.i.i.i
@@ -14156,17 +14119,17 @@ _ZNKSt6vectorIfSaIfEE12_M_check_lenEmPKc.exit:    ; preds = %if.else
   %call5.i.i.i = tail call noalias noundef nonnull ptr @_Znwm(i64 noundef %mul.i.i.i) #15
   %add.ptr = getelementptr inbounds i8, ptr %call5.i.i.i, i64 %sub.ptr.sub.i
   store float 0.000000e+00, ptr %add.ptr, align 4
-  %cmp.i.i.i.i.i23 = icmp eq i64 %__n, 1
-  br i1 %cmp.i.i.i.i.i23, label %try.cont, label %if.end.i.i.i.i.i24
+  %cmp.i.i.i.i.i24 = icmp eq i64 %__n, 1
+  br i1 %cmp.i.i.i.i.i24, label %try.cont, label %if.end.i.i.i.i.i25
 
-if.end.i.i.i.i.i24:                               ; preds = %_ZNKSt6vectorIfSaIfEE12_M_check_lenEmPKc.exit
-  %incdec.ptr.i.i.i22 = getelementptr float, ptr %add.ptr, i64 1
+if.end.i.i.i.i.i25:                               ; preds = %_ZNKSt6vectorIfSaIfEE12_M_check_lenEmPKc.exit
+  %incdec.ptr.i.i.i22 = getelementptr i8, ptr %add.ptr, i64 4
   %6 = shl nuw nsw i64 %__n, 2
   %7 = add nsw i64 %6, -4
   tail call void @llvm.memset.p0.i64(ptr align 4 %incdec.ptr.i.i.i22, i8 0, i64 %7, i1 false)
   br label %try.cont
 
-try.cont:                                         ; preds = %if.end.i.i.i.i.i24, %_ZNKSt6vectorIfSaIfEE12_M_check_lenEmPKc.exit
+try.cont:                                         ; preds = %if.end.i.i.i.i.i25, %_ZNKSt6vectorIfSaIfEE12_M_check_lenEmPKc.exit
   %cmp.i.i.i.i = icmp sgt i64 %sub.ptr.sub.i, 0
   br i1 %cmp.i.i.i.i, label %if.then.i.i.i.i, label %_ZNSt6vectorIfSaIfEE11_S_relocateEPfS2_S2_RS0_.exit
 
@@ -14175,14 +14138,14 @@ if.then.i.i.i.i:                                  ; preds = %try.cont
   br label %_ZNSt6vectorIfSaIfEE11_S_relocateEPfS2_S2_RS0_.exit
 
 _ZNSt6vectorIfSaIfEE11_S_relocateEPfS2_S2_RS0_.exit: ; preds = %try.cont, %if.then.i.i.i.i
-  %tobool.not.i29 = icmp eq ptr %1, null
-  br i1 %tobool.not.i29, label %_ZNSt12_Vector_baseIfSaIfEE13_M_deallocateEPfm.exit31, label %if.then.i30
+  %tobool.not.i30 = icmp eq ptr %1, null
+  br i1 %tobool.not.i30, label %_ZNSt12_Vector_baseIfSaIfEE13_M_deallocateEPfm.exit32, label %if.then.i31
 
-if.then.i30:                                      ; preds = %_ZNSt6vectorIfSaIfEE11_S_relocateEPfS2_S2_RS0_.exit
+if.then.i31:                                      ; preds = %_ZNSt6vectorIfSaIfEE11_S_relocateEPfS2_S2_RS0_.exit
   tail call void @_ZdlPv(ptr noundef nonnull %1) #16
-  br label %_ZNSt12_Vector_baseIfSaIfEE13_M_deallocateEPfm.exit31
+  br label %_ZNSt12_Vector_baseIfSaIfEE13_M_deallocateEPfm.exit32
 
-_ZNSt12_Vector_baseIfSaIfEE13_M_deallocateEPfm.exit31: ; preds = %_ZNSt6vectorIfSaIfEE11_S_relocateEPfS2_S2_RS0_.exit, %if.then.i30
+_ZNSt12_Vector_baseIfSaIfEE13_M_deallocateEPfm.exit32: ; preds = %_ZNSt6vectorIfSaIfEE11_S_relocateEPfS2_S2_RS0_.exit, %if.then.i31
   store ptr %call5.i.i.i, ptr %this, align 8
   %add.ptr37 = getelementptr inbounds float, ptr %add.ptr, i64 %__n
   store ptr %add.ptr37, ptr %_M_finish.i, align 8
@@ -14190,7 +14153,7 @@ _ZNSt12_Vector_baseIfSaIfEE13_M_deallocateEPfm.exit31: ; preds = %_ZNSt6vectorIf
   store ptr %add.ptr40, ptr %_M_end_of_storage, align 8
   br label %if.end44
 
-if.end44:                                         ; preds = %_ZSt27__uninitialized_default_n_aIPfmfET_S1_T0_RSaIT1_E.exit, %_ZNSt12_Vector_baseIfSaIfEE13_M_deallocateEPfm.exit31, %entry
+if.end44:                                         ; preds = %_ZSt27__uninitialized_default_n_aIPfmfET_S1_T0_RSaIT1_E.exit, %_ZNSt12_Vector_baseIfSaIfEE13_M_deallocateEPfm.exit32, %entry
   ret void
 }
 
@@ -14201,14 +14164,14 @@ entry:
   br i1 %cmp.not, label %if.end44, label %if.then
 
 if.then:                                          ; preds = %entry
-  %_M_finish.i = getelementptr inbounds %"struct.std::_Vector_base<unsigned short, std::allocator<unsigned short>>::_Vector_impl_data", ptr %this, i64 0, i32 1
+  %_M_finish.i = getelementptr inbounds i8, ptr %this, i64 8
   %0 = load ptr, ptr %_M_finish.i, align 8
   %1 = load ptr, ptr %this, align 8
   %sub.ptr.lhs.cast.i = ptrtoint ptr %0 to i64
   %sub.ptr.rhs.cast.i = ptrtoint ptr %1 to i64
   %sub.ptr.sub.i = sub i64 %sub.ptr.lhs.cast.i, %sub.ptr.rhs.cast.i
   %sub.ptr.div.i = ashr exact i64 %sub.ptr.sub.i, 1
-  %_M_end_of_storage = getelementptr inbounds %"struct.std::_Vector_base<unsigned short, std::allocator<unsigned short>>::_Vector_impl_data", ptr %this, i64 0, i32 2
+  %_M_end_of_storage = getelementptr inbounds i8, ptr %this, i64 16
   %2 = load ptr, ptr %_M_end_of_storage, align 8
   %sub.ptr.lhs.cast = ptrtoint ptr %2 to i64
   %sub.ptr.sub = sub i64 %sub.ptr.lhs.cast, %sub.ptr.lhs.cast.i
@@ -14223,15 +14186,16 @@ if.then:                                          ; preds = %entry
 
 if.then.i.i.i:                                    ; preds = %if.then
   store i16 0, ptr %0, align 2
-  %incdec.ptr.i.i.i = getelementptr i16, ptr %0, i64 1
-  %cmp.i.i.i.i.i = icmp eq i64 %__n, 1
+  %incdec.ptr.i.i.i = getelementptr i8, ptr %0, i64 2
+  %sub.i.i.i = add i64 %__n, -1
+  %cmp.i.i.i.i.i = icmp eq i64 %sub.i.i.i, 0
   br i1 %cmp.i.i.i.i.i, label %_ZSt27__uninitialized_default_n_aIPtmtET_S1_T0_RSaIT1_E.exit, label %if.end.i.i.i.i.i
 
 if.end.i.i.i.i.i:                                 ; preds = %if.then.i.i.i
   %3 = shl i64 %__n, 1
   %4 = add i64 %3, -2
   tail call void @llvm.memset.p0.i64(ptr align 2 %incdec.ptr.i.i.i, i8 0, i64 %4, i1 false)
-  %add.ptr.i.i.i.i.i = getelementptr inbounds i16, ptr %0, i64 %__n
+  %add.ptr.i.i.i.i.i = getelementptr inbounds i16, ptr %incdec.ptr.i.i.i, i64 %sub.i.i.i
   br label %_ZSt27__uninitialized_default_n_aIPtmtET_S1_T0_RSaIT1_E.exit
 
 _ZSt27__uninitialized_default_n_aIPtmtET_S1_T0_RSaIT1_E.exit: ; preds = %if.then.i.i.i, %if.end.i.i.i.i.i
@@ -14255,17 +14219,17 @@ _ZNKSt6vectorItSaItEE12_M_check_lenEmPKc.exit:    ; preds = %if.else
   %call5.i.i.i = tail call noalias noundef nonnull ptr @_Znwm(i64 noundef %mul.i.i.i) #15
   %add.ptr = getelementptr inbounds i8, ptr %call5.i.i.i, i64 %sub.ptr.sub.i
   store i16 0, ptr %add.ptr, align 2
-  %cmp.i.i.i.i.i23 = icmp eq i64 %__n, 1
-  br i1 %cmp.i.i.i.i.i23, label %try.cont, label %if.end.i.i.i.i.i24
+  %cmp.i.i.i.i.i24 = icmp eq i64 %__n, 1
+  br i1 %cmp.i.i.i.i.i24, label %try.cont, label %if.end.i.i.i.i.i25
 
-if.end.i.i.i.i.i24:                               ; preds = %_ZNKSt6vectorItSaItEE12_M_check_lenEmPKc.exit
-  %incdec.ptr.i.i.i22 = getelementptr i16, ptr %add.ptr, i64 1
+if.end.i.i.i.i.i25:                               ; preds = %_ZNKSt6vectorItSaItEE12_M_check_lenEmPKc.exit
+  %incdec.ptr.i.i.i22 = getelementptr i8, ptr %add.ptr, i64 2
   %6 = shl nuw nsw i64 %__n, 1
   %7 = add nsw i64 %6, -2
   tail call void @llvm.memset.p0.i64(ptr align 2 %incdec.ptr.i.i.i22, i8 0, i64 %7, i1 false)
   br label %try.cont
 
-try.cont:                                         ; preds = %if.end.i.i.i.i.i24, %_ZNKSt6vectorItSaItEE12_M_check_lenEmPKc.exit
+try.cont:                                         ; preds = %if.end.i.i.i.i.i25, %_ZNKSt6vectorItSaItEE12_M_check_lenEmPKc.exit
   %cmp.i.i.i.i = icmp sgt i64 %sub.ptr.sub.i, 0
   br i1 %cmp.i.i.i.i, label %if.then.i.i.i.i, label %_ZNSt6vectorItSaItEE11_S_relocateEPtS2_S2_RS0_.exit
 
@@ -14274,14 +14238,14 @@ if.then.i.i.i.i:                                  ; preds = %try.cont
   br label %_ZNSt6vectorItSaItEE11_S_relocateEPtS2_S2_RS0_.exit
 
 _ZNSt6vectorItSaItEE11_S_relocateEPtS2_S2_RS0_.exit: ; preds = %try.cont, %if.then.i.i.i.i
-  %tobool.not.i29 = icmp eq ptr %1, null
-  br i1 %tobool.not.i29, label %_ZNSt12_Vector_baseItSaItEE13_M_deallocateEPtm.exit31, label %if.then.i30
+  %tobool.not.i30 = icmp eq ptr %1, null
+  br i1 %tobool.not.i30, label %_ZNSt12_Vector_baseItSaItEE13_M_deallocateEPtm.exit32, label %if.then.i31
 
-if.then.i30:                                      ; preds = %_ZNSt6vectorItSaItEE11_S_relocateEPtS2_S2_RS0_.exit
+if.then.i31:                                      ; preds = %_ZNSt6vectorItSaItEE11_S_relocateEPtS2_S2_RS0_.exit
   tail call void @_ZdlPv(ptr noundef nonnull %1) #16
-  br label %_ZNSt12_Vector_baseItSaItEE13_M_deallocateEPtm.exit31
+  br label %_ZNSt12_Vector_baseItSaItEE13_M_deallocateEPtm.exit32
 
-_ZNSt12_Vector_baseItSaItEE13_M_deallocateEPtm.exit31: ; preds = %_ZNSt6vectorItSaItEE11_S_relocateEPtS2_S2_RS0_.exit, %if.then.i30
+_ZNSt12_Vector_baseItSaItEE13_M_deallocateEPtm.exit32: ; preds = %_ZNSt6vectorItSaItEE11_S_relocateEPtS2_S2_RS0_.exit, %if.then.i31
   store ptr %call5.i.i.i, ptr %this, align 8
   %add.ptr37 = getelementptr inbounds i16, ptr %add.ptr, i64 %__n
   store ptr %add.ptr37, ptr %_M_finish.i, align 8
@@ -14289,7 +14253,7 @@ _ZNSt12_Vector_baseItSaItEE13_M_deallocateEPtm.exit31: ; preds = %_ZNSt6vectorIt
   store ptr %add.ptr40, ptr %_M_end_of_storage, align 8
   br label %if.end44
 
-if.end44:                                         ; preds = %_ZSt27__uninitialized_default_n_aIPtmtET_S1_T0_RSaIT1_E.exit, %_ZNSt12_Vector_baseItSaItEE13_M_deallocateEPtm.exit31, %entry
+if.end44:                                         ; preds = %_ZSt27__uninitialized_default_n_aIPtmtET_S1_T0_RSaIT1_E.exit, %_ZNSt12_Vector_baseItSaItEE13_M_deallocateEPtm.exit32, %entry
   ret void
 }
 
@@ -14300,14 +14264,14 @@ entry:
   br i1 %cmp.not, label %if.end44, label %if.then
 
 if.then:                                          ; preds = %entry
-  %_M_finish.i = getelementptr inbounds %"struct.std::_Vector_base<Imath_3_1::half, std::allocator<Imath_3_1::half>>::_Vector_impl_data", ptr %this, i64 0, i32 1
+  %_M_finish.i = getelementptr inbounds i8, ptr %this, i64 8
   %0 = load ptr, ptr %_M_finish.i, align 8
   %1 = load ptr, ptr %this, align 8
   %sub.ptr.lhs.cast.i = ptrtoint ptr %0 to i64
   %sub.ptr.rhs.cast.i = ptrtoint ptr %1 to i64
   %sub.ptr.sub.i = sub i64 %sub.ptr.lhs.cast.i, %sub.ptr.rhs.cast.i
   %sub.ptr.div.i = ashr exact i64 %sub.ptr.sub.i, 1
-  %_M_end_of_storage = getelementptr inbounds %"struct.std::_Vector_base<Imath_3_1::half, std::allocator<Imath_3_1::half>>::_Vector_impl_data", ptr %this, i64 0, i32 2
+  %_M_end_of_storage = getelementptr inbounds i8, ptr %this, i64 16
   %2 = load ptr, ptr %_M_end_of_storage, align 8
   %sub.ptr.lhs.cast = ptrtoint ptr %2 to i64
   %sub.ptr.sub = sub i64 %sub.ptr.lhs.cast, %sub.ptr.lhs.cast.i
@@ -14322,15 +14286,16 @@ if.then:                                          ; preds = %entry
 
 if.then.i.i.i:                                    ; preds = %if.then
   store i16 0, ptr %0, align 2
-  %incdec.ptr.i.i.i = getelementptr %"class.Imath_3_1::half", ptr %0, i64 1
-  %cmp.i.i.i.i.i = icmp eq i64 %__n, 1
+  %incdec.ptr.i.i.i = getelementptr i8, ptr %0, i64 2
+  %sub.i.i.i = add i64 %__n, -1
+  %cmp.i.i.i.i.i = icmp eq i64 %sub.i.i.i, 0
   br i1 %cmp.i.i.i.i.i, label %_ZSt27__uninitialized_default_n_aIPN9Imath_3_14halfEmS1_ET_S3_T0_RSaIT1_E.exit, label %if.end.i.i.i.i.i
 
 if.end.i.i.i.i.i:                                 ; preds = %if.then.i.i.i
   %3 = shl i64 %__n, 1
   %4 = add i64 %3, -2
   tail call void @llvm.memset.p0.i64(ptr align 2 %incdec.ptr.i.i.i, i8 0, i64 %4, i1 false)
-  %add.ptr.i.i.i.i.i = getelementptr inbounds %"class.Imath_3_1::half", ptr %0, i64 %__n
+  %add.ptr.i.i.i.i.i = getelementptr inbounds %"class.Imath_3_1::half", ptr %incdec.ptr.i.i.i, i64 %sub.i.i.i
   br label %_ZSt27__uninitialized_default_n_aIPN9Imath_3_14halfEmS1_ET_S3_T0_RSaIT1_E.exit
 
 _ZSt27__uninitialized_default_n_aIPN9Imath_3_14halfEmS1_ET_S3_T0_RSaIT1_E.exit: ; preds = %if.then.i.i.i, %if.end.i.i.i.i.i
@@ -14354,17 +14319,17 @@ _ZNKSt6vectorIN9Imath_3_14halfESaIS1_EE12_M_check_lenEmPKc.exit: ; preds = %if.e
   %call5.i.i.i = tail call noalias noundef nonnull ptr @_Znwm(i64 noundef %mul.i.i.i) #15
   %add.ptr = getelementptr inbounds i8, ptr %call5.i.i.i, i64 %sub.ptr.sub.i
   store i16 0, ptr %add.ptr, align 2
-  %cmp.i.i.i.i.i23 = icmp eq i64 %__n, 1
-  br i1 %cmp.i.i.i.i.i23, label %try.cont, label %if.end.i.i.i.i.i24
+  %cmp.i.i.i.i.i24 = icmp eq i64 %__n, 1
+  br i1 %cmp.i.i.i.i.i24, label %try.cont, label %if.end.i.i.i.i.i25
 
-if.end.i.i.i.i.i24:                               ; preds = %_ZNKSt6vectorIN9Imath_3_14halfESaIS1_EE12_M_check_lenEmPKc.exit
-  %incdec.ptr.i.i.i22 = getelementptr %"class.Imath_3_1::half", ptr %add.ptr, i64 1
+if.end.i.i.i.i.i25:                               ; preds = %_ZNKSt6vectorIN9Imath_3_14halfESaIS1_EE12_M_check_lenEmPKc.exit
+  %incdec.ptr.i.i.i22 = getelementptr i8, ptr %add.ptr, i64 2
   %6 = shl nuw nsw i64 %__n, 1
   %7 = add nsw i64 %6, -2
   tail call void @llvm.memset.p0.i64(ptr align 2 %incdec.ptr.i.i.i22, i8 0, i64 %7, i1 false)
   br label %try.cont
 
-try.cont:                                         ; preds = %if.end.i.i.i.i.i24, %_ZNKSt6vectorIN9Imath_3_14halfESaIS1_EE12_M_check_lenEmPKc.exit
+try.cont:                                         ; preds = %if.end.i.i.i.i.i25, %_ZNKSt6vectorIN9Imath_3_14halfESaIS1_EE12_M_check_lenEmPKc.exit
   %cmp.i.i.i.i = icmp sgt i64 %sub.ptr.sub.i, 0
   br i1 %cmp.i.i.i.i, label %if.then.i.i.i.i, label %_ZNSt6vectorIN9Imath_3_14halfESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit
 
@@ -14373,14 +14338,14 @@ if.then.i.i.i.i:                                  ; preds = %try.cont
   br label %_ZNSt6vectorIN9Imath_3_14halfESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit
 
 _ZNSt6vectorIN9Imath_3_14halfESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit: ; preds = %try.cont, %if.then.i.i.i.i
-  %tobool.not.i29 = icmp eq ptr %1, null
-  br i1 %tobool.not.i29, label %_ZNSt12_Vector_baseIN9Imath_3_14halfESaIS1_EE13_M_deallocateEPS1_m.exit31, label %if.then.i30
+  %tobool.not.i30 = icmp eq ptr %1, null
+  br i1 %tobool.not.i30, label %_ZNSt12_Vector_baseIN9Imath_3_14halfESaIS1_EE13_M_deallocateEPS1_m.exit32, label %if.then.i31
 
-if.then.i30:                                      ; preds = %_ZNSt6vectorIN9Imath_3_14halfESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit
+if.then.i31:                                      ; preds = %_ZNSt6vectorIN9Imath_3_14halfESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit
   tail call void @_ZdlPv(ptr noundef nonnull %1) #16
-  br label %_ZNSt12_Vector_baseIN9Imath_3_14halfESaIS1_EE13_M_deallocateEPS1_m.exit31
+  br label %_ZNSt12_Vector_baseIN9Imath_3_14halfESaIS1_EE13_M_deallocateEPS1_m.exit32
 
-_ZNSt12_Vector_baseIN9Imath_3_14halfESaIS1_EE13_M_deallocateEPS1_m.exit31: ; preds = %_ZNSt6vectorIN9Imath_3_14halfESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit, %if.then.i30
+_ZNSt12_Vector_baseIN9Imath_3_14halfESaIS1_EE13_M_deallocateEPS1_m.exit32: ; preds = %_ZNSt6vectorIN9Imath_3_14halfESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit, %if.then.i31
   store ptr %call5.i.i.i, ptr %this, align 8
   %add.ptr37 = getelementptr inbounds %"class.Imath_3_1::half", ptr %add.ptr, i64 %__n
   store ptr %add.ptr37, ptr %_M_finish.i, align 8
@@ -14388,7 +14353,7 @@ _ZNSt12_Vector_baseIN9Imath_3_14halfESaIS1_EE13_M_deallocateEPS1_m.exit31: ; pre
   store ptr %add.ptr40, ptr %_M_end_of_storage, align 8
   br label %if.end44
 
-if.end44:                                         ; preds = %_ZSt27__uninitialized_default_n_aIPN9Imath_3_14halfEmS1_ET_S3_T0_RSaIT1_E.exit, %_ZNSt12_Vector_baseIN9Imath_3_14halfESaIS1_EE13_M_deallocateEPS1_m.exit31, %entry
+if.end44:                                         ; preds = %_ZSt27__uninitialized_default_n_aIPN9Imath_3_14halfEmS1_ET_S3_T0_RSaIT1_E.exit, %_ZNSt12_Vector_baseIN9Imath_3_14halfESaIS1_EE13_M_deallocateEPS1_m.exit32, %entry
   ret void
 }
 

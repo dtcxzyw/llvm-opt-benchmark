@@ -15,11 +15,6 @@ target triple = "x86_64-unknown-linux-gnu"
 %"class.std::basic_ios" = type { %"class.std::ios_base", ptr, i8, i8, ptr, ptr, ptr, ptr }
 %"class.std::ios_base" = type { ptr, i64, i64, i32, i32, i32, ptr, %"struct.std::ios_base::_Words", [8 x %"struct.std::ios_base::_Words"], i32, ptr, %"class.std::locale" }
 %"struct.std::ios_base::_Words" = type { ptr, i64 }
-%"struct.OpenColorIO_v2_4dev::AllocationData" = type { i32, %"class.std::vector" }
-%"class.std::vector" = type { %"struct.std::_Vector_base" }
-%"struct.std::_Vector_base" = type { %"struct.std::_Vector_base<float, std::allocator<float>>::_Vector_impl" }
-%"struct.std::_Vector_base<float, std::allocator<float>>::_Vector_impl" = type { %"struct.std::_Vector_base<float, std::allocator<float>>::_Vector_impl_data" }
-%"struct.std::_Vector_base<float, std::allocator<float>>::_Vector_impl_data" = type { ptr, ptr, ptr }
 
 @_ZStL8__ioinit = internal global %"class.std::ios_base::Init" zeroinitializer, align 1
 @__dso_handle = external hidden global i8
@@ -49,7 +44,7 @@ entry:
   %vbase.offset.ptr = getelementptr i8, ptr %vtable, i64 -24
   %vbase.offset = load i64, ptr %vbase.offset.ptr, align 8
   %add.ptr = getelementptr inbounds i8, ptr %os, i64 %vbase.offset
-  %_M_precision.i = getelementptr inbounds %"class.std::ios_base", ptr %add.ptr, i64 0, i32 1
+  %_M_precision.i = getelementptr inbounds i8, ptr %add.ptr, i64 8
   store i64 7, ptr %_M_precision.i, align 8
   %0 = load i32, ptr %this, align 8
   %call3 = invoke noundef ptr @_ZN19OpenColorIO_v2_4dev18AllocationToStringENS_10AllocationE(i32 noundef %0)
@@ -64,9 +59,9 @@ invoke.cont4:                                     ; preds = %invoke.cont2
           to label %invoke.cont6 unwind label %lpad.loopexit.split-lp
 
 invoke.cont6:                                     ; preds = %invoke.cont4
-  %vars = getelementptr inbounds %"struct.OpenColorIO_v2_4dev::AllocationData", ptr %this, i64 0, i32 1
+  %vars = getelementptr inbounds i8, ptr %this, i64 8
   %1 = load ptr, ptr %vars, align 8
-  %_M_finish.i = getelementptr inbounds %"struct.OpenColorIO_v2_4dev::AllocationData", ptr %this, i64 0, i32 1, i32 0, i32 0, i32 0, i32 1
+  %_M_finish.i = getelementptr inbounds i8, ptr %this, i64 16
   %2 = load ptr, ptr %_M_finish.i, align 8
   %cmp.i.not6 = icmp eq ptr %1, %2
   br i1 %cmp.i.not6, label %for.end, label %for.body
@@ -82,7 +77,7 @@ invoke.cont13:                                    ; preds = %for.body
           to label %for.inc unwind label %lpad.loopexit
 
 for.inc:                                          ; preds = %invoke.cont13
-  %incdec.ptr.i = getelementptr inbounds float, ptr %__begin1.sroa.0.07, i64 1
+  %incdec.ptr.i = getelementptr inbounds i8, ptr %__begin1.sroa.0.07, i64 4
   %cmp.i.not = icmp eq ptr %incdec.ptr.i, %2
   br i1 %cmp.i.not, label %for.end, label %for.body
 
@@ -176,8 +171,8 @@ sw.bb:                                            ; preds = %entry
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(32) %oldmax, ptr noundef nonnull align 16 dereferenceable(32) @__const._ZN19OpenColorIO_v2_4dev19CreateAllocationOpsERNS_10OpRcPtrVecERKNS_14AllocationDataENS_18TransformDirectionE.newmax.2, i64 32, i1 false)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(32) %newmin, i8 0, i64 32, i1 false)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(32) %newmax, ptr noundef nonnull align 16 dereferenceable(32) @__const._ZN19OpenColorIO_v2_4dev19CreateAllocationOpsERNS_10OpRcPtrVecERKNS_14AllocationDataENS_18TransformDirectionE.newmax.2, i64 32, i1 false)
-  %vars = getelementptr inbounds %"struct.OpenColorIO_v2_4dev::AllocationData", ptr %data, i64 0, i32 1
-  %_M_finish.i = getelementptr inbounds %"struct.OpenColorIO_v2_4dev::AllocationData", ptr %data, i64 0, i32 1, i32 0, i32 0, i32 0, i32 1
+  %vars = getelementptr inbounds i8, ptr %data, i64 8
+  %_M_finish.i = getelementptr inbounds i8, ptr %data, i64 16
   %1 = load ptr, ptr %_M_finish.i, align 8
   %2 = load ptr, ptr %vars, align 8
   %sub.ptr.lhs.cast.i = ptrtoint ptr %1 to i64
@@ -187,7 +182,7 @@ sw.bb:                                            ; preds = %entry
   br i1 %cmp, label %for.cond.preheader, label %if.end
 
 for.cond.preheader:                               ; preds = %sw.bb
-  %add.ptr.i = getelementptr inbounds float, ptr %2, i64 1
+  %add.ptr.i = getelementptr inbounds i8, ptr %2, i64 4
   %.pre53 = load float, ptr %2, align 4
   %.pre54 = load float, ptr %add.ptr.i, align 4
   %conv = fpext float %.pre53 to double
@@ -213,8 +208,8 @@ sw.bb12:                                          ; preds = %entry
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(32) %oldmax14, ptr noundef nonnull align 16 dereferenceable(32) @__const._ZN19OpenColorIO_v2_4dev19CreateAllocationOpsERNS_10OpRcPtrVecERKNS_14AllocationDataENS_18TransformDirectionE.oldmax.1, i64 32, i1 false)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(32) %newmin15, i8 0, i64 32, i1 false)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(32) %newmax16, ptr noundef nonnull align 16 dereferenceable(32) @__const._ZN19OpenColorIO_v2_4dev19CreateAllocationOpsERNS_10OpRcPtrVecERKNS_14AllocationDataENS_18TransformDirectionE.newmax.2, i64 32, i1 false)
-  %vars17 = getelementptr inbounds %"struct.OpenColorIO_v2_4dev::AllocationData", ptr %data, i64 0, i32 1
-  %_M_finish.i27 = getelementptr inbounds %"struct.OpenColorIO_v2_4dev::AllocationData", ptr %data, i64 0, i32 1, i32 0, i32 0, i32 0, i32 1
+  %vars17 = getelementptr inbounds i8, ptr %data, i64 8
+  %_M_finish.i27 = getelementptr inbounds i8, ptr %data, i64 16
   %3 = load ptr, ptr %_M_finish.i27, align 8
   %4 = load ptr, ptr %vars17, align 8
   %sub.ptr.lhs.cast.i28 = ptrtoint ptr %3 to i64
@@ -225,7 +220,7 @@ sw.bb12:                                          ; preds = %entry
   br i1 %cmp19, label %for.cond22.preheader, label %if.end38
 
 for.cond22.preheader:                             ; preds = %sw.bb12
-  %add.ptr.i32 = getelementptr inbounds float, ptr %4, i64 1
+  %add.ptr.i32 = getelementptr inbounds i8, ptr %4, i64 4
   %.pre = load float, ptr %4, align 4
   %.pre51 = load float, ptr %add.ptr.i32, align 4
   %conv27 = fpext float %.pre to double
@@ -251,7 +246,7 @@ if.end38:                                         ; preds = %for.body24, %sw.bb1
   br i1 %cmp41, label %for.cond44.preheader, label %if.end55
 
 for.cond44.preheader:                             ; preds = %if.end38
-  %add.ptr.i38 = getelementptr inbounds float, ptr %4, i64 2
+  %add.ptr.i38 = getelementptr inbounds i8, ptr %4, i64 8
   %.pre52 = load float, ptr %add.ptr.i38, align 4
   %conv49 = fpext float %.pre52 to double
   br label %for.body46

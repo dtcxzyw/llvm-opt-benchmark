@@ -82,9 +82,9 @@ if.end.i:                                         ; preds = %land.rhs.i.i.i, %_r
 
 if.end.i.i.i:                                     ; preds = %if.end.i
   store i32 %call.i.i2.i, ptr %pfd.i.i.i, align 4
-  %events.i.i.i = getelementptr inbounds %struct.pollfd, ptr %pfd.i.i.i, i64 0, i32 1
+  %events.i.i.i = getelementptr inbounds i8, ptr %pfd.i.i.i, i64 4
   store i16 1, ptr %events.i.i.i, align 4
-  %revents.i.i.i = getelementptr inbounds %struct.pollfd, ptr %pfd.i.i.i, i64 0, i32 2
+  %revents.i.i.i = getelementptr inbounds i8, ptr %pfd.i.i.i, i64 6
   store i16 0, ptr %revents.i.i.i, align 2
   %call27.i.i.i = call i32 @poll(ptr noundef nonnull %pfd.i.i.i, i64 noundef 1, i32 noundef -1) #10
   %cmp38.i.i.i = icmp slt i32 %call27.i.i.i, 0
@@ -124,7 +124,7 @@ do.body.critedge.i.i:                             ; preds = %if.end.i
   br label %do.body.preheader.i.i
 
 do.body.preheader.i.i:                            ; preds = %do.body.critedge.i.i, %if.end12.i.i.i
-  %st_mode.i.i = getelementptr inbounds %struct.stat, ptr %st.i.i, i64 0, i32 3
+  %st_mode.i.i = getelementptr inbounds i8, ptr %st.i.i, i64 24
   br label %do.body.i5.i
 
 do.body.i5.i:                                     ; preds = %do.cond.i.i, %do.body.preheader.i.i
@@ -155,7 +155,7 @@ if.else.i.i:                                      ; preds = %do.body.i5.i
   br i1 %cmp13.i.i, label %do.cond.i.i, label %if.end16.i.i
 
 if.end16.i.i:                                     ; preds = %if.else.i.i, %if.end10.i.i
-  %incdec.ptr.i.i = getelementptr ptr, ptr %device.0.i.i, i64 1
+  %incdec.ptr.i.i = getelementptr i8, ptr %device.0.i.i, i64 8
   %.pre12.i.i = load ptr, ptr %incdec.ptr.i.i, align 8
   br label %do.cond.i.i
 

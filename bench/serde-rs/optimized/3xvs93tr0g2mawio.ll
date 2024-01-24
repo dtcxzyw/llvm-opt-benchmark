@@ -7,7 +7,7 @@ target triple = "x86_64-unknown-linux-gnu"
 define void @_ZN5alloc11collections5btree3mem7replace17h24b24cf959db0191E(ptr nocapture align 8 %0) unnamed_addr #0 personality ptr @rust_eh_personality {
   %2 = alloca {}, align 1
   %3 = load ptr, ptr %0, align 8, !nonnull !5, !noundef !5
-  %4 = getelementptr inbounds { ptr, i64 }, ptr %0, i64 0, i32 1
+  %4 = getelementptr inbounds i8, ptr %0, i64 8
   %5 = load i64, ptr %4, align 8, !noundef !5
   %6 = invoke { ptr, i64 } @"_ZN5alloc11collections5btree4node127NodeRef$LT$alloc..collections..btree..node..marker..Owned$C$K$C$V$C$alloc..collections..btree..node..marker..LeafOrInternal$GT$19push_internal_level28_$u7b$$u7b$closure$u7d$$u7d$17h5cf9764a7acec3b5E"(ptr nonnull %3, i64 %5)
           to label %9 unwind label %7
@@ -53,7 +53,7 @@ define void @_ZN5alloc11collections5btree3mem7replace17h297045d0a466d3a7E(ptr no
           to label %12 unwind label %10
 
 8:                                                ; preds = %2
-  %9 = getelementptr inbounds { { { ptr, i64 }, i64, {} }, { { ptr, i64 }, i64, {} } }, ptr %5, i64 0, i32 1
+  %9 = getelementptr inbounds i8, ptr %5, i64 24
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr noundef nonnull align 8 dereferenceable(24) %9, i64 24, i1 false)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %1, ptr noundef nonnull align 8 dereferenceable(24) %5, i64 24, i1 false)
   ret void
@@ -84,9 +84,9 @@ define { ptr, ptr } @_ZN5alloc11collections5btree3mem7replace17h4ac34c183a785550
           to label %16 unwind label %14
 
 7:                                                ; preds = %1
-  %8 = getelementptr inbounds { { { ptr, i64 }, i64, {} }, { ptr, ptr } }, ptr %4, i64 0, i32 1
+  %8 = getelementptr inbounds i8, ptr %4, i64 24
   %9 = load ptr, ptr %8, align 8, !nonnull !5, !align !6, !noundef !5
-  %10 = getelementptr inbounds { { { ptr, i64 }, i64, {} }, { ptr, ptr } }, ptr %4, i64 0, i32 1, i32 1
+  %10 = getelementptr inbounds i8, ptr %4, i64 32
   %11 = load ptr, ptr %10, align 8, !nonnull !5, !align !7, !noundef !5
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr noundef nonnull align 8 dereferenceable(24) %4, i64 24, i1 false)
   %12 = insertvalue { ptr, ptr } poison, ptr %9, 0
@@ -119,7 +119,7 @@ define void @_ZN5alloc11collections5btree3mem7replace17h88acebd1886fa69fE(ptr no
           to label %12 unwind label %10
 
 8:                                                ; preds = %2
-  %9 = getelementptr inbounds { { { ptr, i64 }, i64, {} }, { { ptr, i64 }, i64, {} } }, ptr %5, i64 0, i32 1
+  %9 = getelementptr inbounds i8, ptr %5, i64 24
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr noundef nonnull align 8 dereferenceable(24) %9, i64 24, i1 false)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %1, ptr noundef nonnull align 8 dereferenceable(24) %5, i64 24, i1 false)
   ret void
@@ -138,7 +138,7 @@ define void @_ZN5alloc11collections5btree3mem7replace17h88acebd1886fa69fE(ptr no
 define void @_ZN5alloc11collections5btree3mem7replace17h9958e8db39e4c7eaE(ptr nocapture align 8 %0) unnamed_addr #0 personality ptr @rust_eh_personality {
   %2 = alloca {}, align 1
   %3 = load ptr, ptr %0, align 8, !nonnull !5, !noundef !5
-  %4 = getelementptr inbounds { ptr, i64 }, ptr %0, i64 0, i32 1
+  %4 = getelementptr inbounds i8, ptr %0, i64 8
   %5 = load i64, ptr %4, align 8, !noundef !5
   %6 = invoke { ptr, i64 } @"_ZN5alloc11collections5btree4node127NodeRef$LT$alloc..collections..btree..node..marker..Owned$C$K$C$V$C$alloc..collections..btree..node..marker..LeafOrInternal$GT$19push_internal_level28_$u7b$$u7b$closure$u7d$$u7d$17hc4703acb1a53f9a2E"(ptr nonnull %3, i64 %5)
           to label %9 unwind label %7
@@ -184,9 +184,9 @@ define { ptr, ptr } @_ZN5alloc11collections5btree3mem7replace17hfd86ed2ac450eaf4
           to label %16 unwind label %14
 
 7:                                                ; preds = %1
-  %8 = getelementptr inbounds { { { ptr, i64 }, i64, {} }, { ptr, ptr } }, ptr %4, i64 0, i32 1
+  %8 = getelementptr inbounds i8, ptr %4, i64 24
   %9 = load ptr, ptr %8, align 8, !nonnull !5, !align !6, !noundef !5
-  %10 = getelementptr inbounds { { { ptr, i64 }, i64, {} }, { ptr, ptr } }, ptr %4, i64 0, i32 1, i32 1
+  %10 = getelementptr inbounds i8, ptr %4, i64 32
   %11 = load ptr, ptr %10, align 8, !nonnull !5, !align !7, !noundef !5
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr noundef nonnull align 8 dereferenceable(24) %4, i64 24, i1 false)
   %12 = insertvalue { ptr, ptr } poison, ptr %9, 0

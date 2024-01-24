@@ -35,7 +35,7 @@ define zeroext i1 @"_ZN4core3ops8function5impls79_$LT$impl$u20$core..ops..functi
   %4 = icmp ne ptr %1, null
   tail call void @llvm.assume(i1 %4)
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %3)
-  %5 = getelementptr inbounds { i64, ptr }, ptr %1, i64 0, i32 1
+  %5 = getelementptr inbounds i8, ptr %1, i64 8
   %6 = load ptr, ptr %5, align 8, !nonnull !5, !align !6, !noundef !5
   %7 = load i32, ptr %6, align 4, !noundef !5
   store i32 %7, ptr %3, align 4
@@ -206,7 +206,7 @@ define hidden void @"_ZN78_$LT$regex_automata..nfa..thompson..nfa..State$u20$as$
   %6 = alloca ptr, align 8
   store ptr %2, ptr %6, align 8
   store ptr %6, ptr %4, align 8
-  %7 = getelementptr inbounds { ptr, ptr }, ptr %4, i64 0, i32 1
+  %7 = getelementptr inbounds i8, ptr %4, i64 8
   store ptr @"_ZN42_$LT$$RF$T$u20$as$u20$core..fmt..Debug$GT$3fmt17h15d22bd0ed124ca2E", ptr %7, align 8
   call void @_ZN4core3fmt9Arguments6new_v117h051e31f362cb8353E(ptr nonnull sret({ { ptr, i64 }, { ptr, i64 }, { ptr, i64 } }) align 8 %5, ptr nonnull align 8 @anon.942496fa6d2c18591da5fcf634eccb4b.2, i64 1, ptr nonnull align 8 %4, i64 1)
   call void @_ZN5alloc3fmt6format17ha29fd04f702afcabE(ptr sret({ { { ptr, i64 }, i64 } }) align 8 %0, ptr nonnull align 8 %5)
@@ -221,7 +221,7 @@ define hidden void @"_ZN78_$LT$regex_automata..nfa..thompson..nfa..State$u20$as$
   %7 = tail call i64 @_ZN14regex_automata4util10primitives7StateID8as_usize17h4dd274f99e3b484eE(ptr align 4 %2)
   store i64 %7, ptr %4, align 8
   store ptr %4, ptr %5, align 8
-  %8 = getelementptr inbounds { ptr, ptr }, ptr %5, i64 0, i32 1
+  %8 = getelementptr inbounds i8, ptr %5, i64 8
   store ptr @"_ZN4core3fmt3num52_$LT$impl$u20$core..fmt..Debug$u20$for$u20$usize$GT$3fmt17h88cfa37c04fce35fE", ptr %8, align 8
   call void @_ZN4core3fmt9Arguments6new_v117h051e31f362cb8353E(ptr nonnull sret({ { ptr, i64 }, { ptr, i64 }, { ptr, i64 } }) align 8 %6, ptr nonnull align 8 @anon.942496fa6d2c18591da5fcf634eccb4b.2, i64 1, ptr nonnull align 8 %5, i64 1)
   call void @_ZN5alloc3fmt6format17ha29fd04f702afcabE(ptr sret({ { { ptr, i64 }, i64 } }) align 8 %0, ptr nonnull align 8 %6)
@@ -265,7 +265,7 @@ define hidden { i32, i32 } @"_ZN14regex_automata3nfa8thompson3nfa16DenseTransiti
 ; Function Attrs: inlinehint nonlazybind uwtable
 define zeroext i1 @"_ZN14regex_automata3nfa8thompson3nfa16DenseTransitions4iter28_$u7b$$u7b$closure$u7d$$u7d$17haab8b726d3d24349E"(ptr nocapture readnone align 1 %0, ptr nocapture readonly align 8 %1) unnamed_addr #4 {
   %3 = alloca i32, align 4
-  %4 = getelementptr inbounds { i64, ptr }, ptr %1, i64 0, i32 1
+  %4 = getelementptr inbounds i8, ptr %1, i64 8
   %5 = load ptr, ptr %4, align 8, !nonnull !5, !align !6, !noundef !5
   %6 = load i32, ptr %5, align 4, !noundef !5
   store i32 %6, ptr %3, align 4

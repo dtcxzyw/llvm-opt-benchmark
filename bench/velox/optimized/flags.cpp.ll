@@ -173,7 +173,7 @@ define linkonce_odr void @_ZN3fLS20StringFlagDestructorD2Ev(ptr noundef nonnull 
 entry:
   %0 = load ptr, ptr %this, align 8
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %0) #9
-  %defvalue_storage_ = getelementptr inbounds %"class.fLS::StringFlagDestructor", ptr %this, i64 0, i32 1
+  %defvalue_storage_ = getelementptr inbounds i8, ptr %this, i64 8
   %1 = load ptr, ptr %defvalue_storage_, align 8
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %1) #9
   ret void

@@ -4,12 +4,8 @@ target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:
 target triple = "x86_64-unknown-linux-gnu"
 
 %struct.reftable_block_source_vtable = type { ptr, ptr, ptr, ptr }
-%struct.reftable_block_source = type { ptr, ptr }
 %struct.stat = type { i64, i64, i64, i32, i32, i32, i32, i64, i64, i64, i64, %struct.timespec, %struct.timespec, %struct.timespec, [3 x i64] }
 %struct.timespec = type { i64, i64 }
-%struct.file_block_source = type { i32, i64 }
-%struct.strbuf = type { i64, i64, ptr }
-%struct.reftable_block = type { ptr, i32, %struct.reftable_block_source }
 
 @strbuf_vtable = internal global %struct.reftable_block_source_vtable { ptr @strbuf_size, ptr @strbuf_read_block, ptr @strbuf_return_block, ptr @strbuf_close }, align 8
 @file_vtable = internal global %struct.reftable_block_source_vtable { ptr @file_size, ptr @file_read_block, ptr @file_return_block, ptr @file_close }, align 8
@@ -19,7 +15,7 @@ target triple = "x86_64-unknown-linux-gnu"
 define dso_local void @block_source_from_strbuf(ptr nocapture noundef writeonly %bs, ptr noundef %buf) local_unnamed_addr #0 {
 entry:
   store ptr @strbuf_vtable, ptr %bs, align 8
-  %arg = getelementptr inbounds %struct.reftable_block_source, ptr %bs, i64 0, i32 1
+  %arg = getelementptr inbounds i8, ptr %bs, i64 8
   store ptr %buf, ptr %arg, align 8
   ret void
 }
@@ -60,13 +56,13 @@ if.then7:                                         ; preds = %if.end4
 
 if.end9:                                          ; preds = %if.end4
   %call10 = tail call ptr @reftable_calloc(i64 noundef 16) #10
-  %st_size = getelementptr inbounds %struct.stat, ptr %st, i64 0, i32 8
+  %st_size = getelementptr inbounds i8, ptr %st, i64 48
   %1 = load i64, ptr %st_size, align 8
-  %size = getelementptr inbounds %struct.file_block_source, ptr %call10, i64 0, i32 1
+  %size = getelementptr inbounds i8, ptr %call10, i64 8
   store i64 %1, ptr %size, align 8
   store i32 %call, ptr %call10, align 8
   store ptr @file_vtable, ptr %bs, align 8
-  %arg = getelementptr inbounds %struct.reftable_block_source, ptr %bs, i64 0, i32 1
+  %arg = getelementptr inbounds i8, ptr %bs, i64 8
   store ptr %call10, ptr %arg, align 8
   br label %return
 
@@ -94,7 +90,7 @@ declare ptr @reftable_calloc(i64 noundef) local_unnamed_addr #8
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
 define internal i64 @strbuf_size(ptr nocapture noundef readonly %b) #9 {
 entry:
-  %len = getelementptr inbounds %struct.strbuf, ptr %b, i64 0, i32 1
+  %len = getelementptr inbounds i8, ptr %b, i64 8
   %0 = load i64, ptr %len, align 8
   ret i64 %0
 }
@@ -105,11 +101,11 @@ entry:
   %conv = zext i32 %size to i64
   %call = tail call ptr @reftable_calloc(i64 noundef %conv) #10
   store ptr %call, ptr %dest, align 8
-  %buf = getelementptr inbounds %struct.strbuf, ptr %v, i64 0, i32 2
+  %buf = getelementptr inbounds i8, ptr %v, i64 16
   %0 = load ptr, ptr %buf, align 8
   %add.ptr = getelementptr inbounds i8, ptr %0, i64 %off
   tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %call, ptr align 1 %add.ptr, i64 %conv, i1 false)
-  %len = getelementptr inbounds %struct.reftable_block, ptr %dest, i64 0, i32 1
+  %len = getelementptr inbounds i8, ptr %dest, i64 8
   store i32 %size, ptr %len, align 8
   ret i32 %size
 }
@@ -117,7 +113,7 @@ entry:
 ; Function Attrs: nounwind uwtable
 define internal void @strbuf_return_block(ptr nocapture readnone %b, ptr nocapture noundef readonly %dest) #3 {
 entry:
-  %len = getelementptr inbounds %struct.reftable_block, ptr %dest, i64 0, i32 1
+  %len = getelementptr inbounds i8, ptr %dest, i64 8
   %0 = load i32, ptr %len, align 8
   %tobool.not = icmp eq i32 %0, 0
   br i1 %tobool.not, label %if.end, label %if.then
@@ -145,7 +141,7 @@ declare void @reftable_free(ptr noundef) local_unnamed_addr #8
 ; Function Attrs: nounwind uwtable
 define internal void @malloc_return_block(ptr nocapture readnone %b, ptr nocapture noundef readonly %dest) #3 {
 entry:
-  %len = getelementptr inbounds %struct.reftable_block, ptr %dest, i64 0, i32 1
+  %len = getelementptr inbounds i8, ptr %dest, i64 8
   %0 = load i32, ptr %len, align 8
   %tobool.not = icmp eq i32 %0, 0
   br i1 %tobool.not, label %if.end, label %if.then
@@ -165,7 +161,7 @@ if.end:                                           ; preds = %if.then, %entry
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
 define internal i64 @file_size(ptr nocapture noundef readonly %b) #9 {
 entry:
-  %size = getelementptr inbounds %struct.file_block_source, ptr %b, i64 0, i32 1
+  %size = getelementptr inbounds i8, ptr %b, i64 8
   %0 = load i64, ptr %size, align 8
   ret i64 %0
 }
@@ -182,7 +178,7 @@ entry:
   br i1 %cmp.not, label %if.end, label %return
 
 if.end:                                           ; preds = %entry
-  %len = getelementptr inbounds %struct.reftable_block, ptr %dest, i64 0, i32 1
+  %len = getelementptr inbounds i8, ptr %dest, i64 8
   store i32 %size, ptr %len, align 8
   br label %return
 
@@ -194,7 +190,7 @@ return:                                           ; preds = %entry, %if.end
 ; Function Attrs: nounwind uwtable
 define internal void @file_return_block(ptr nocapture readnone %b, ptr nocapture noundef readonly %dest) #3 {
 entry:
-  %len = getelementptr inbounds %struct.reftable_block, ptr %dest, i64 0, i32 1
+  %len = getelementptr inbounds i8, ptr %dest, i64 8
   %0 = load i32, ptr %len, align 8
   %tobool.not = icmp eq i32 %0, 0
   br i1 %tobool.not, label %if.end, label %if.then

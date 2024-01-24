@@ -3,8 +3,6 @@ source_filename = "bench/eastl/original/intrusive_list.cpp.ll"
 target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:128-n8:16:32:64-S128"
 target triple = "x86_64-unknown-linux-gnu"
 
-%"struct.eastl::intrusive_list_node" = type { ptr, ptr }
-
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
 define dso_local void @_ZN5eastl19intrusive_list_base7reverseEv(ptr noundef nonnull align 8 dereferenceable(16) %this) local_unnamed_addr #0 align 2 {
 entry:
@@ -13,7 +11,7 @@ entry:
 do.body:                                          ; preds = %do.body, %entry
   %pNode.0 = phi ptr [ %this, %entry ], [ %0, %do.body ]
   %0 = load ptr, ptr %pNode.0, align 8
-  %mpPrev = getelementptr inbounds %"struct.eastl::intrusive_list_node", ptr %pNode.0, i64 0, i32 1
+  %mpPrev = getelementptr inbounds i8, ptr %pNode.0, i64 8
   %1 = load ptr, ptr %mpPrev, align 8
   store ptr %1, ptr %pNode.0, align 8
   store ptr %0, ptr %mpPrev, align 8
@@ -33,7 +31,7 @@ do.body:                                          ; preds = %do.cond, %entry
   %p.0 = phi ptr [ %this, %entry ], [ %2, %do.cond ]
   %q.0 = phi ptr [ %this, %entry ], [ %4, %do.cond ]
   %0 = load ptr, ptr %p.0, align 8
-  %mpPrev = getelementptr inbounds %"struct.eastl::intrusive_list_node", ptr %0, i64 0, i32 1
+  %mpPrev = getelementptr inbounds i8, ptr %0, i64 8
   %1 = load ptr, ptr %mpPrev, align 8
   %cmp.not = icmp eq ptr %1, %p.0
   br i1 %cmp.not, label %if.end, label %return
@@ -48,7 +46,7 @@ if.end6:                                          ; preds = %if.end
 
 if.end9:                                          ; preds = %if.end6
   %2 = load ptr, ptr %0, align 8
-  %mpPrev11 = getelementptr inbounds %"struct.eastl::intrusive_list_node", ptr %2, i64 0, i32 1
+  %mpPrev11 = getelementptr inbounds i8, ptr %2, i64 8
   %3 = load ptr, ptr %mpPrev11, align 8
   %cmp12.not = icmp eq ptr %3, %0
   br i1 %cmp12.not, label %if.end14, label %return

@@ -5,10 +5,6 @@ target triple = "x86_64-unknown-linux-gnu"
 
 %struct.evp_cipher_st = type { i32, i32, i32, i32, i64, i32, ptr, ptr, ptr, i32, ptr, ptr, ptr, ptr, i32, ptr, ptr, ptr, %struct.CRYPTO_REF_COUNT, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr }
 %struct.CRYPTO_REF_COUNT = type { i32 }
-%struct.EVP_SM4_KEY = type { %union.anon, ptr, %union.anon.0 }
-%union.anon = type { double, [120 x i8] }
-%union.anon.0 = type { ptr }
-%struct.evp_cipher_ctx_st = type { ptr, ptr, i32, i32, [16 x i8], [16 x i8], [32 x i8], i32, ptr, i32, i32, i64, ptr, i32, i32, [32 x i8], ptr, ptr }
 
 @sm4_cbc = internal constant %struct.evp_cipher_st { i32 1134, i32 16, i32 16, i32 16, i64 2, i32 1, ptr @sm4_init_key, ptr @sm4_cbc_cipher, ptr null, i32 144, ptr null, ptr null, ptr null, ptr null, i32 0, ptr null, ptr null, ptr null, %struct.CRYPTO_REF_COUNT zeroinitializer, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null }, align 8
 @sm4_ecb = internal constant %struct.evp_cipher_st { i32 1133, i32 16, i32 16, i32 0, i64 1, i32 1, ptr @sm4_init_key, ptr @sm4_ecb_cipher, ptr null, i32 144, ptr null, ptr null, ptr null, ptr null, i32 0, ptr null, ptr null, ptr null, %struct.CRYPTO_REF_COUNT zeroinitializer, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null }, align 8
@@ -17,37 +13,37 @@ target triple = "x86_64-unknown-linux-gnu"
 @sm4_ctr = internal constant %struct.evp_cipher_st { i32 1139, i32 1, i32 16, i32 16, i64 5, i32 1, ptr @sm4_init_key, ptr @sm4_ctr_cipher, ptr null, i32 144, ptr null, ptr null, ptr null, ptr null, i32 0, ptr null, ptr null, ptr null, %struct.CRYPTO_REF_COUNT zeroinitializer, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null }, align 8
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define nonnull ptr @EVP_sm4_cbc() local_unnamed_addr #0 {
+define noundef nonnull ptr @EVP_sm4_cbc() local_unnamed_addr #0 {
 entry:
   ret ptr @sm4_cbc
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define nonnull ptr @EVP_sm4_ecb() local_unnamed_addr #0 {
+define noundef nonnull ptr @EVP_sm4_ecb() local_unnamed_addr #0 {
 entry:
   ret ptr @sm4_ecb
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define nonnull ptr @EVP_sm4_ofb() local_unnamed_addr #0 {
+define noundef nonnull ptr @EVP_sm4_ofb() local_unnamed_addr #0 {
 entry:
   ret ptr @sm4_ofb
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define nonnull ptr @EVP_sm4_cfb128() local_unnamed_addr #0 {
+define noundef nonnull ptr @EVP_sm4_cfb128() local_unnamed_addr #0 {
 entry:
   ret ptr @sm4_cfb
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define nonnull ptr @EVP_sm4_ctr() local_unnamed_addr #0 {
+define noundef nonnull ptr @EVP_sm4_ctr() local_unnamed_addr #0 {
 entry:
   ret ptr @sm4_ctr
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @sm4_init_key(ptr noundef %ctx, ptr noundef %key, ptr nocapture readnone %iv, i32 noundef %enc) #1 {
+define internal noundef i32 @sm4_init_key(ptr noundef %ctx, ptr noundef %key, ptr nocapture readnone %iv, i32 noundef %enc) #1 {
 entry:
   %call = tail call ptr @EVP_CIPHER_CTX_get_cipher_data(ptr noundef %ctx) #3
   %call1 = tail call ptr @EVP_CIPHER_CTX_get0_cipher(ptr noundef %ctx) #3
@@ -56,7 +52,7 @@ entry:
   %or.cond = icmp ult i32 %0, -2
   %tobool = icmp ne i32 %enc, 0
   %or.cond1 = or i1 %tobool, %or.cond
-  %block6 = getelementptr inbounds %struct.EVP_SM4_KEY, ptr %call, i64 0, i32 1
+  %block6 = getelementptr inbounds i8, ptr %call, i64 128
   %ossl_sm4_encrypt.ossl_sm4_decrypt = select i1 %or.cond1, ptr @ossl_sm4_encrypt, ptr @ossl_sm4_decrypt
   store ptr %ossl_sm4_encrypt.ossl_sm4_decrypt, ptr %block6, align 8
   %call7 = tail call ptr @EVP_CIPHER_CTX_get_cipher_data(ptr noundef %ctx) #3
@@ -65,16 +61,16 @@ entry:
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @sm4_cbc_cipher(ptr noundef %ctx, ptr noundef %out, ptr noundef %in, i64 noundef %len) #1 {
+define internal noundef i32 @sm4_cbc_cipher(ptr noundef %ctx, ptr noundef %out, ptr noundef %in, i64 noundef %len) #1 {
 entry:
   %call = tail call ptr @EVP_CIPHER_CTX_get_cipher_data(ptr noundef %ctx) #3
-  %stream = getelementptr inbounds %struct.EVP_SM4_KEY, ptr %call, i64 0, i32 2
+  %stream = getelementptr inbounds i8, ptr %call, i64 136
   %0 = load ptr, ptr %stream, align 8
   %tobool.not = icmp eq ptr %0, null
   br i1 %tobool.not, label %if.else, label %if.then
 
 if.then:                                          ; preds = %entry
-  %iv = getelementptr inbounds %struct.evp_cipher_ctx_st, ptr %ctx, i64 0, i32 5
+  %iv = getelementptr inbounds i8, ptr %ctx, i64 40
   %call2 = tail call i32 @EVP_CIPHER_CTX_is_encrypting(ptr noundef %ctx) #3
   tail call void %0(ptr noundef %in, ptr noundef %out, i64 noundef %len, ptr noundef nonnull %call, ptr noundef nonnull %iv, i32 noundef %call2) #3
   br label %if.end14
@@ -82,8 +78,8 @@ if.then:                                          ; preds = %entry
 if.else:                                          ; preds = %entry
   %call3 = tail call i32 @EVP_CIPHER_CTX_is_encrypting(ptr noundef %ctx) #3
   %tobool4.not = icmp eq i32 %call3, 0
-  %iv11 = getelementptr inbounds %struct.evp_cipher_ctx_st, ptr %ctx, i64 0, i32 5
-  %block13 = getelementptr inbounds %struct.EVP_SM4_KEY, ptr %call, i64 0, i32 1
+  %iv11 = getelementptr inbounds i8, ptr %ctx, i64 40
+  %block13 = getelementptr inbounds i8, ptr %call, i64 128
   %1 = load ptr, ptr %block13, align 8
   br i1 %tobool4.not, label %if.else9, label %if.then5
 
@@ -118,7 +114,7 @@ declare void @CRYPTO_cbc128_encrypt(ptr noundef, ptr noundef, i64 noundef, ptr n
 declare void @CRYPTO_cbc128_decrypt(ptr noundef, ptr noundef, i64 noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @sm4_ecb_cipher(ptr noundef %ctx, ptr noundef %out, ptr noundef %in, i64 noundef %len) #1 {
+define internal noundef i32 @sm4_ecb_cipher(ptr noundef %ctx, ptr noundef %out, ptr noundef %in, i64 noundef %len) #1 {
 entry:
   %call = tail call i32 @EVP_CIPHER_CTX_get_block_size(ptr noundef %ctx) #3
   %conv = sext i32 %call to i64
@@ -127,7 +123,7 @@ entry:
   br i1 %cmp, label %return, label %if.end
 
 if.end:                                           ; preds = %entry
-  %stream = getelementptr inbounds %struct.EVP_SM4_KEY, ptr %call1, i64 0, i32 2
+  %stream = getelementptr inbounds i8, ptr %call1, i64 136
   %0 = load ptr, ptr %stream, align 8
   %cmp3.not = icmp eq ptr %0, null
   br i1 %cmp3.not, label %if.else, label %if.then5
@@ -139,7 +135,7 @@ if.then5:                                         ; preds = %if.end
 
 if.else:                                          ; preds = %if.end
   %sub = sub i64 %len, %conv
-  %block = getelementptr inbounds %struct.EVP_SM4_KEY, ptr %call1, i64 0, i32 1
+  %block = getelementptr inbounds i8, ptr %call1, i64 128
   br label %for.body
 
 for.body:                                         ; preds = %if.else, %for.body
@@ -159,14 +155,14 @@ return:                                           ; preds = %for.body, %if.then5
 declare i32 @EVP_CIPHER_CTX_get_block_size(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @sm4_ofb_cipher(ptr noundef %ctx, ptr noundef %out, ptr noundef %in, i64 noundef %len) #1 {
+define internal noundef i32 @sm4_ofb_cipher(ptr noundef %ctx, ptr noundef %out, ptr noundef %in, i64 noundef %len) #1 {
 entry:
   %num = alloca i32, align 4
   %call = tail call ptr @EVP_CIPHER_CTX_get_cipher_data(ptr noundef %ctx) #3
   %call1 = tail call i32 @EVP_CIPHER_CTX_get_num(ptr noundef %ctx) #3
   store i32 %call1, ptr %num, align 4
-  %iv = getelementptr inbounds %struct.evp_cipher_ctx_st, ptr %ctx, i64 0, i32 5
-  %block = getelementptr inbounds %struct.EVP_SM4_KEY, ptr %call, i64 0, i32 1
+  %iv = getelementptr inbounds i8, ptr %ctx, i64 40
+  %block = getelementptr inbounds i8, ptr %call, i64 128
   %0 = load ptr, ptr %block, align 8
   call void @CRYPTO_ofb128_encrypt(ptr noundef %in, ptr noundef %out, i64 noundef %len, ptr noundef %call, ptr noundef nonnull %iv, ptr noundef nonnull %num, ptr noundef %0) #3
   %1 = load i32, ptr %num, align 4
@@ -181,15 +177,15 @@ declare void @CRYPTO_ofb128_encrypt(ptr noundef, ptr noundef, i64 noundef, ptr n
 declare i32 @EVP_CIPHER_CTX_set_num(ptr noundef, i32 noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @sm4_cfb_cipher(ptr noundef %ctx, ptr noundef %out, ptr noundef %in, i64 noundef %len) #1 {
+define internal noundef i32 @sm4_cfb_cipher(ptr noundef %ctx, ptr noundef %out, ptr noundef %in, i64 noundef %len) #1 {
 entry:
   %num = alloca i32, align 4
   %call = tail call ptr @EVP_CIPHER_CTX_get_cipher_data(ptr noundef %ctx) #3
   %call1 = tail call i32 @EVP_CIPHER_CTX_get_num(ptr noundef %ctx) #3
   store i32 %call1, ptr %num, align 4
-  %iv = getelementptr inbounds %struct.evp_cipher_ctx_st, ptr %ctx, i64 0, i32 5
+  %iv = getelementptr inbounds i8, ptr %ctx, i64 40
   %call2 = tail call i32 @EVP_CIPHER_CTX_is_encrypting(ptr noundef %ctx) #3
-  %block = getelementptr inbounds %struct.EVP_SM4_KEY, ptr %call, i64 0, i32 1
+  %block = getelementptr inbounds i8, ptr %call, i64 128
   %0 = load ptr, ptr %block, align 8
   call void @CRYPTO_cfb128_encrypt(ptr noundef %in, ptr noundef %out, i64 noundef %len, ptr noundef %call, ptr noundef nonnull %iv, ptr noundef nonnull %num, i32 noundef %call2, ptr noundef %0) #3
   %1 = load i32, ptr %num, align 4
@@ -200,7 +196,7 @@ entry:
 declare void @CRYPTO_cfb128_encrypt(ptr noundef, ptr noundef, i64 noundef, ptr noundef, ptr noundef, ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @sm4_ctr_cipher(ptr noundef %ctx, ptr noundef %out, ptr noundef %in, i64 noundef %len) #1 {
+define internal noundef i32 @sm4_ctr_cipher(ptr noundef %ctx, ptr noundef %out, ptr noundef %in, i64 noundef %len) #1 {
 entry:
   %num = alloca i32, align 4
   %call = tail call i32 @EVP_CIPHER_CTX_get_num(ptr noundef %ctx) #3
@@ -210,10 +206,10 @@ entry:
 
 if.end:                                           ; preds = %entry
   store i32 %call, ptr %num, align 4
-  %stream = getelementptr inbounds %struct.EVP_SM4_KEY, ptr %call1, i64 0, i32 2
+  %stream = getelementptr inbounds i8, ptr %call1, i64 136
   %0 = load ptr, ptr %stream, align 8
   %tobool.not = icmp eq ptr %0, null
-  %iv6 = getelementptr inbounds %struct.evp_cipher_ctx_st, ptr %ctx, i64 0, i32 5
+  %iv6 = getelementptr inbounds i8, ptr %ctx, i64 40
   %call8 = tail call ptr @EVP_CIPHER_CTX_buf_noconst(ptr noundef %ctx) #3
   br i1 %tobool.not, label %if.else, label %if.then2
 
@@ -223,7 +219,7 @@ if.then2:                                         ; preds = %if.end
   br label %if.end9
 
 if.else:                                          ; preds = %if.end
-  %block = getelementptr inbounds %struct.EVP_SM4_KEY, ptr %call1, i64 0, i32 1
+  %block = getelementptr inbounds i8, ptr %call1, i64 128
   %2 = load ptr, ptr %block, align 8
   call void @CRYPTO_ctr128_encrypt(ptr noundef %in, ptr noundef %out, i64 noundef %len, ptr noundef nonnull %call1, ptr noundef nonnull %iv6, ptr noundef %call8, ptr noundef nonnull %num, ptr noundef %2) #3
   br label %if.end9

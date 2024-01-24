@@ -6,8 +6,6 @@ target triple = "x86_64-unknown-linux-gnu"
 %struct.strbuf = type { i64, i64, ptr }
 %struct.notes_tree = type { ptr, ptr, ptr, ptr, ptr, ptr, i32, i32 }
 %struct.object_id = type { [32 x i8], i32 }
-%struct.notes_rewrite_cfg = type { ptr, ptr, i32, ptr, ptr, i32, i32 }
-%struct.string_list = type { ptr, i64, i64, i8, ptr }
 
 @.str = private unnamed_addr constant [39 x i8] c"Failed to write notes tree to database\00", align 1
 @.str.1 = private unnamed_addr constant [31 x i8] c"Failed to find/parse commit %s\00", align 1
@@ -57,7 +55,7 @@ if.end:                                           ; preds = %entry
   br i1 %tobool1.not, label %if.then2, label %if.end14
 
 if.then2:                                         ; preds = %if.end
-  %ref = getelementptr inbounds %struct.notes_tree, ptr %t, i64 0, i32 3
+  %ref = getelementptr inbounds i8, ptr %t, i64 24
   %0 = load ptr, ptr %ref, align 8
   %call3 = call i32 @read_ref(ptr noundef %0, ptr noundef nonnull %parent_oid) #10
   %tobool4.not = icmp eq i32 %call3, 0
@@ -114,13 +112,13 @@ entry:
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %buf, ptr noundef nonnull align 8 dereferenceable(24) @__const.commit_notes.buf, i64 24, i1 false)
   %tobool.not = icmp eq ptr %t, null
   %spec.store.select = select i1 %tobool.not, ptr @default_notes_tree, ptr %t
-  %initialized = getelementptr inbounds %struct.notes_tree, ptr %spec.store.select, i64 0, i32 6
+  %initialized = getelementptr inbounds i8, ptr %spec.store.select, i64 48
   %0 = load i32, ptr %initialized, align 8
   %tobool1.not = icmp eq i32 %0, 0
   br i1 %tobool1.not, label %if.then6, label %lor.lhs.false
 
 lor.lhs.false:                                    ; preds = %entry
-  %update_ref = getelementptr inbounds %struct.notes_tree, ptr %spec.store.select, i64 0, i32 4
+  %update_ref = getelementptr inbounds i8, ptr %spec.store.select, i64 32
   %1 = load ptr, ptr %update_ref, align 8
   %tobool2.not = icmp eq ptr %1, null
   br i1 %tobool2.not, label %if.then6, label %lor.lhs.false3
@@ -136,7 +134,7 @@ if.then6:                                         ; preds = %lor.lhs.false3, %lo
   unreachable
 
 if.end7:                                          ; preds = %lor.lhs.false3
-  %dirty = getelementptr inbounds %struct.notes_tree, ptr %spec.store.select, i64 0, i32 7
+  %dirty = getelementptr inbounds i8, ptr %spec.store.select, i64 52
   %3 = load i32, ptr %dirty, align 4
   %tobool8.not = icmp eq i32 %3, 0
   br i1 %tobool8.not, label %return, label %if.end10
@@ -144,13 +142,13 @@ if.end7:                                          ; preds = %lor.lhs.false3
 if.end10:                                         ; preds = %if.end7
   %call.i = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %msg) #12
   call void @strbuf_add(ptr noundef nonnull %buf, ptr noundef %msg, i64 noundef %call.i) #10
-  %len.i.i = getelementptr inbounds %struct.strbuf, ptr %buf, i64 0, i32 1
+  %len.i.i = getelementptr inbounds i8, ptr %buf, i64 8
   %4 = load i64, ptr %len.i.i, align 8
   %tobool.not.i.i = icmp eq i64 %4, 0
   br i1 %tobool.not.i.i, label %strbuf_complete_line.exit, label %land.lhs.true.i.i
 
 land.lhs.true.i.i:                                ; preds = %if.end10
-  %buf.i.i = getelementptr inbounds %struct.strbuf, ptr %buf, i64 0, i32 2
+  %buf.i.i = getelementptr inbounds i8, ptr %buf, i64 16
   %5 = load ptr, ptr %buf.i.i, align 8
   %6 = getelementptr i8, ptr %5, i64 %4
   %arrayidx.i.i = getelementptr i8, ptr %6, i64 -1
@@ -189,7 +187,7 @@ strbuf_addch.exit.i.i:                            ; preds = %if.then.i.i.i, %if.
 
 strbuf_complete_line.exit:                        ; preds = %if.end10, %land.lhs.true.i.i, %strbuf_addch.exit.i.i
   %13 = phi i64 [ 0, %if.end10 ], [ %4, %land.lhs.true.i.i ], [ %.pre, %strbuf_addch.exit.i.i ]
-  %buf11 = getelementptr inbounds %struct.strbuf, ptr %buf, i64 0, i32 2
+  %buf11 = getelementptr inbounds i8, ptr %buf, i64 16
   %14 = load ptr, ptr %buf11, align 8
   call void @create_notes_commit(ptr noundef %r, ptr noundef nonnull %spec.store.select, ptr noundef null, ptr noundef %14, i64 noundef %13, ptr noundef nonnull %commit_oid)
   call void @strbuf_insert(ptr noundef nonnull %buf, i64 noundef 0, ptr noundef nonnull @.str.4, i64 noundef 7) #10
@@ -277,22 +275,22 @@ entry:
   %call = tail call ptr @xmalloc(i64 noundef 48) #10
   %call1 = tail call ptr @getenv(ptr noundef nonnull @.str.10) #10
   %call2 = tail call ptr @getenv(ptr noundef nonnull @.str.11) #10
-  %cmd3 = getelementptr inbounds %struct.notes_rewrite_cfg, ptr %call, i64 0, i32 1
+  %cmd3 = getelementptr inbounds i8, ptr %call, i64 8
   store ptr %cmd, ptr %cmd3, align 8
-  %enabled = getelementptr inbounds %struct.notes_rewrite_cfg, ptr %call, i64 0, i32 2
+  %enabled = getelementptr inbounds i8, ptr %call, i64 16
   store i32 1, ptr %enabled, align 8
-  %combine = getelementptr inbounds %struct.notes_rewrite_cfg, ptr %call, i64 0, i32 3
+  %combine = getelementptr inbounds i8, ptr %call, i64 24
   store ptr @combine_notes_concatenate, ptr %combine, align 8
   %call4 = tail call ptr @xcalloc(i64 noundef 1, i64 noundef 40) #10
-  %refs = getelementptr inbounds %struct.notes_rewrite_cfg, ptr %call, i64 0, i32 4
+  %refs = getelementptr inbounds i8, ptr %call, i64 32
   store ptr %call4, ptr %refs, align 8
-  %strdup_strings = getelementptr inbounds %struct.string_list, ptr %call4, i64 0, i32 3
+  %strdup_strings = getelementptr inbounds i8, ptr %call4, i64 24
   %bf.load = load i8, ptr %strdup_strings, align 8
   %bf.set = or i8 %bf.load, 1
   store i8 %bf.set, ptr %strdup_strings, align 8
-  %refs_from_env = getelementptr inbounds %struct.notes_rewrite_cfg, ptr %call, i64 0, i32 5
+  %refs_from_env = getelementptr inbounds i8, ptr %call, i64 40
   store i32 0, ptr %refs_from_env, align 8
-  %mode_from_env = getelementptr inbounds %struct.notes_rewrite_cfg, ptr %call, i64 0, i32 6
+  %mode_from_env = getelementptr inbounds i8, ptr %call, i64 44
   store i32 0, ptr %mode_from_env, align 4
   %tobool.not = icmp eq ptr %call1, null
   br i1 %tobool.not, label %if.end15, label %if.then
@@ -356,7 +354,7 @@ if.end20:                                         ; preds = %if.then17, %if.end1
   br i1 %tobool22.not, label %if.then25, label %lor.lhs.false
 
 lor.lhs.false:                                    ; preds = %if.end20
-  %nr = getelementptr inbounds %struct.string_list, ptr %.pre, i64 0, i32 1
+  %nr = getelementptr inbounds i8, ptr %.pre, i64 8
   %3 = load i64, ptr %nr, align 8
   %tobool24.not = icmp eq i64 %3, 0
   br i1 %tobool24.not, label %if.then25, label %if.end28
@@ -406,7 +404,7 @@ entry:
 
 land.lhs.true:                                    ; preds = %entry
   %add.ptr = getelementptr inbounds i8, ptr %k, i64 14
-  %cmd = getelementptr inbounds %struct.notes_rewrite_cfg, ptr %cb, i64 0, i32 1
+  %cmd = getelementptr inbounds i8, ptr %cb, i64 8
   %0 = load ptr, ptr %cmd, align 8
   %call1 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %add.ptr, ptr noundef nonnull dereferenceable(1) %0) #12
   %tobool2.not = icmp eq i32 %call1, 0
@@ -414,12 +412,12 @@ land.lhs.true:                                    ; preds = %entry
 
 if.then:                                          ; preds = %land.lhs.true
   %call3 = tail call i32 @git_config_bool(ptr noundef %k, ptr noundef %v) #10
-  %enabled = getelementptr inbounds %struct.notes_rewrite_cfg, ptr %cb, i64 0, i32 2
+  %enabled = getelementptr inbounds i8, ptr %cb, i64 16
   store i32 %call3, ptr %enabled, align 8
   br label %return
 
 if.else:                                          ; preds = %land.lhs.true, %entry
-  %mode_from_env = getelementptr inbounds %struct.notes_rewrite_cfg, ptr %cb, i64 0, i32 6
+  %mode_from_env = getelementptr inbounds i8, ptr %cb, i64 44
   %1 = load i32, ptr %mode_from_env, align 4
   %tobool4.not = icmp eq i32 %1, 0
   br i1 %tobool4.not, label %land.lhs.true5, label %if.else21
@@ -459,12 +457,12 @@ if.else8.i:                                       ; preds = %if.else4.i
 
 parse_combine_notes_fn.exit.thread:               ; preds = %if.end, %if.else.i, %if.else4.i, %if.else8.i
   %retval.0.i.ph = phi ptr [ @combine_notes_concatenate, %if.else4.i ], [ @combine_notes_ignore, %if.else.i ], [ @combine_notes_overwrite, %if.end ], [ @combine_notes_cat_sort_uniq, %if.else8.i ]
-  %combine28 = getelementptr inbounds %struct.notes_rewrite_cfg, ptr %cb, i64 0, i32 3
+  %combine28 = getelementptr inbounds i8, ptr %cb, i64 24
   store ptr %retval.0.i.ph, ptr %combine28, align 8
   br label %return
 
 if.then16:                                        ; preds = %if.else8.i
-  %combine = getelementptr inbounds %struct.notes_rewrite_cfg, ptr %cb, i64 0, i32 3
+  %combine = getelementptr inbounds i8, ptr %cb, i64 24
   store ptr null, ptr %combine, align 8
   %2 = load i32, ptr @git_gettext_enabled, align 4
   %tobool1.not.i = icmp eq i32 %2, 0
@@ -480,7 +478,7 @@ _.exit:                                           ; preds = %if.then16, %if.end3
   br label %return
 
 if.else21:                                        ; preds = %land.lhs.true5, %if.else
-  %refs_from_env = getelementptr inbounds %struct.notes_rewrite_cfg, ptr %cb, i64 0, i32 5
+  %refs_from_env = getelementptr inbounds i8, ptr %cb, i64 40
   %3 = load i32, ptr %refs_from_env, align 8
   %tobool22.not = icmp eq i32 %3, 0
   br i1 %tobool22.not, label %land.lhs.true23, label %return
@@ -504,7 +502,7 @@ if.end31:                                         ; preds = %if.then26
   br i1 %tobool33.not, label %if.else35, label %if.then34
 
 if.then34:                                        ; preds = %if.end31
-  %refs = getelementptr inbounds %struct.notes_rewrite_cfg, ptr %cb, i64 0, i32 4
+  %refs = getelementptr inbounds i8, ptr %cb, i64 32
   %4 = load ptr, ptr %refs, align 8
   tail call void @string_list_add_refs_by_glob(ptr noundef %4, ptr noundef nonnull %v) #10
   br label %return
@@ -544,7 +542,7 @@ entry:
   br i1 %tobool.not6, label %for.end, label %for.body.lr.ph
 
 for.body.lr.ph:                                   ; preds = %entry
-  %combine = getelementptr inbounds %struct.notes_rewrite_cfg, ptr %c, i64 0, i32 3
+  %combine = getelementptr inbounds i8, ptr %c, i64 24
   br label %for.body
 
 for.body:                                         ; preds = %for.body.lr.ph, %for.body

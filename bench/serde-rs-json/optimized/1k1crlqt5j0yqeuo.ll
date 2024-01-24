@@ -16,7 +16,7 @@ target triple = "x86_64-unknown-linux-gnu"
 define void @_ZN4core3str7pattern14TwoWaySearcher4next17hcbc6204ef26a8a00E(ptr sret({ i64, [2 x i64] }) align 8 %0, ptr nocapture align 8 %1, ptr readonly align 1 %2, i64 %3, ptr nocapture readonly align 1 %4, i64 %5, i1 zeroext %6) unnamed_addr #0 {
   %8 = alloca { i64, i64 }, align 8
   %.fr65 = freeze ptr %2
-  %9 = getelementptr inbounds { i64, i64, i64, i64, i64, i64, i64, i64 }, ptr %1, i64 0, i32 4
+  %9 = getelementptr inbounds i8, ptr %1, i64 32
   %10 = load i64, ptr %9, align 8, !noundef !5
   %11 = add i64 %5, -1
   %12 = icmp eq ptr %.fr65, null
@@ -26,10 +26,10 @@ define void @_ZN4core3str7pattern14TwoWaySearcher4next17hcbc6204ef26a8a00E(ptr s
   br i1 %15, label %.outer._crit_edge, label %.lr.ph.lr.ph
 
 .lr.ph.lr.ph:                                     ; preds = %7
-  %16 = getelementptr inbounds { i64, i64, i64, i64, i64, i64, i64, i64 }, ptr %1, i64 0, i32 3
-  %17 = getelementptr inbounds { i64, i64, i64, i64, i64, i64, i64, i64 }, ptr %1, i64 0, i32 6
-  %18 = getelementptr inbounds { i64, i64 }, ptr %8, i64 0, i32 1
-  %19 = getelementptr inbounds { i64, i64, i64, i64, i64, i64, i64, i64 }, ptr %1, i64 0, i32 2
+  %16 = getelementptr inbounds i8, ptr %1, i64 24
+  %17 = getelementptr inbounds i8, ptr %1, i64 48
+  %18 = getelementptr inbounds i8, ptr %8, i64 8
+  %19 = getelementptr inbounds i8, ptr %1, i64 16
   br label %.lr.ph.split
 
 .outer._crit_edge:                                ; preds = %.outer, %.backedge, %7
@@ -218,7 +218,7 @@ define void @_ZN4core3str7pattern14TwoWaySearcher4next17hcbc6204ef26a8a00E(ptr s
 define void @_ZN4core3str7pattern14TwoWaySearcher4next17he435273ed242e25fE(ptr sret({ i64, [2 x i64] }) align 8 %0, ptr nocapture align 8 %1, ptr readonly align 1 %2, i64 %3, ptr nocapture readonly align 1 %4, i64 %5, i1 zeroext %6) unnamed_addr #0 {
   %8 = alloca { i64, i64 }, align 8
   %.fr65 = freeze ptr %2
-  %9 = getelementptr inbounds { i64, i64, i64, i64, i64, i64, i64, i64 }, ptr %1, i64 0, i32 4
+  %9 = getelementptr inbounds i8, ptr %1, i64 32
   %10 = load i64, ptr %9, align 8, !noundef !5
   %11 = add i64 %5, -1
   %12 = icmp eq ptr %.fr65, null
@@ -228,10 +228,10 @@ define void @_ZN4core3str7pattern14TwoWaySearcher4next17he435273ed242e25fE(ptr s
   br i1 %15, label %.outer._crit_edge, label %.lr.ph.lr.ph
 
 .lr.ph.lr.ph:                                     ; preds = %7
-  %16 = getelementptr inbounds { i64, i64, i64, i64, i64, i64, i64, i64 }, ptr %1, i64 0, i32 3
-  %17 = getelementptr inbounds { i64, i64, i64, i64, i64, i64, i64, i64 }, ptr %1, i64 0, i32 6
-  %18 = getelementptr inbounds { i64, i64 }, ptr %8, i64 0, i32 1
-  %19 = getelementptr inbounds { i64, i64, i64, i64, i64, i64, i64, i64 }, ptr %1, i64 0, i32 2
+  %16 = getelementptr inbounds i8, ptr %1, i64 24
+  %17 = getelementptr inbounds i8, ptr %1, i64 48
+  %18 = getelementptr inbounds i8, ptr %8, i64 8
+  %19 = getelementptr inbounds i8, ptr %1, i64 16
   br label %.lr.ph.split
 
 .outer._crit_edge:                                ; preds = %.outer, %.backedge, %7
@@ -420,7 +420,7 @@ define void @_ZN4core3str7pattern14TwoWaySearcher4next17he435273ed242e25fE(ptr s
 define void @_ZN4core3str7pattern14TwoWaySearcher9next_back17h38354823df875e48E(ptr sret({ i64, [2 x i64] }) align 8 %0, ptr nocapture align 8 %1, ptr readonly align 1 %2, i64 %3, ptr nocapture readonly align 1 %4, i64 %5, i1 zeroext %6) unnamed_addr #0 {
   %8 = alloca { i64, i64 }, align 8
   %.fr60 = freeze ptr %2
-  %9 = getelementptr inbounds { i64, i64, i64, i64, i64, i64, i64, i64 }, ptr %1, i64 0, i32 5
+  %9 = getelementptr inbounds i8, ptr %1, i64 40
   %10 = load i64, ptr %9, align 8, !noundef !5
   %11 = icmp eq ptr %.fr60, null
   %12 = sub i64 %10, %5
@@ -429,11 +429,11 @@ define void @_ZN4core3str7pattern14TwoWaySearcher9next_back17h38354823df875e48E(
   br i1 %14, label %.outer._crit_edge, label %.lr.ph.lr.ph
 
 .lr.ph.lr.ph:                                     ; preds = %7
-  %15 = getelementptr inbounds { i64, i64, i64, i64, i64, i64, i64, i64 }, ptr %1, i64 0, i32 3
-  %16 = getelementptr inbounds { i64, i64, i64, i64, i64, i64, i64, i64 }, ptr %1, i64 0, i32 7
-  %17 = getelementptr inbounds { i64, i64, i64, i64, i64, i64, i64, i64 }, ptr %1, i64 0, i32 1
-  %18 = getelementptr inbounds { i64, i64 }, ptr %8, i64 0, i32 1
-  %19 = getelementptr inbounds { i64, i64, i64, i64, i64, i64, i64, i64 }, ptr %1, i64 0, i32 2
+  %15 = getelementptr inbounds i8, ptr %1, i64 24
+  %16 = getelementptr inbounds i8, ptr %1, i64 56
+  %17 = getelementptr inbounds i8, ptr %1, i64 8
+  %18 = getelementptr inbounds i8, ptr %8, i64 8
+  %19 = getelementptr inbounds i8, ptr %1, i64 16
   br label %.lr.ph.split
 
 .outer._crit_edge:                                ; preds = %.outer, %.backedge, %7
@@ -626,7 +626,7 @@ define void @_ZN4core3str7pattern14TwoWaySearcher9next_back17h38354823df875e48E(
 define void @_ZN4core3str7pattern14TwoWaySearcher9next_back17hb31522036755e1a9E(ptr sret({ i64, [2 x i64] }) align 8 %0, ptr nocapture align 8 %1, ptr readonly align 1 %2, i64 %3, ptr nocapture readonly align 1 %4, i64 %5, i1 zeroext %6) unnamed_addr #0 {
   %8 = alloca { i64, i64 }, align 8
   %.fr60 = freeze ptr %2
-  %9 = getelementptr inbounds { i64, i64, i64, i64, i64, i64, i64, i64 }, ptr %1, i64 0, i32 5
+  %9 = getelementptr inbounds i8, ptr %1, i64 40
   %10 = load i64, ptr %9, align 8, !noundef !5
   %11 = icmp eq ptr %.fr60, null
   %12 = sub i64 %10, %5
@@ -635,11 +635,11 @@ define void @_ZN4core3str7pattern14TwoWaySearcher9next_back17hb31522036755e1a9E(
   br i1 %14, label %.outer._crit_edge, label %.lr.ph.lr.ph
 
 .lr.ph.lr.ph:                                     ; preds = %7
-  %15 = getelementptr inbounds { i64, i64, i64, i64, i64, i64, i64, i64 }, ptr %1, i64 0, i32 3
-  %16 = getelementptr inbounds { i64, i64, i64, i64, i64, i64, i64, i64 }, ptr %1, i64 0, i32 7
-  %17 = getelementptr inbounds { i64, i64, i64, i64, i64, i64, i64, i64 }, ptr %1, i64 0, i32 1
-  %18 = getelementptr inbounds { i64, i64 }, ptr %8, i64 0, i32 1
-  %19 = getelementptr inbounds { i64, i64, i64, i64, i64, i64, i64, i64 }, ptr %1, i64 0, i32 2
+  %15 = getelementptr inbounds i8, ptr %1, i64 24
+  %16 = getelementptr inbounds i8, ptr %1, i64 56
+  %17 = getelementptr inbounds i8, ptr %1, i64 8
+  %18 = getelementptr inbounds i8, ptr %8, i64 8
+  %19 = getelementptr inbounds i8, ptr %1, i64 16
   br label %.lr.ph.split
 
 .outer._crit_edge:                                ; preds = %.outer, %.backedge, %7

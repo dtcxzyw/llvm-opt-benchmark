@@ -3,16 +3,14 @@ source_filename = "bench/icu/original/funcrepl.ll"
 target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:128-n8:16:32:64-S128"
 target triple = "x86_64-unknown-linux-gnu"
 
-%"class.icu_75::FunctionReplacer" = type { %"class.icu_75::UnicodeFunctor", %"class.icu_75::UnicodeReplacer", ptr, ptr }
-%"class.icu_75::UnicodeFunctor" = type { %"class.icu_75::UObject" }
-%"class.icu_75::UObject" = type { ptr }
-%"class.icu_75::UnicodeReplacer" = type { ptr }
 %"class.icu_75::UnicodeString" = type { %"class.icu_75::Replaceable", %"union.icu_75::UnicodeString::StackBufferOrFields" }
 %"class.icu_75::Replaceable" = type { %"class.icu_75::UObject" }
+%"class.icu_75::UObject" = type { ptr }
 %"union.icu_75::UnicodeString::StackBufferOrFields" = type { %struct.anon.0, [32 x i8] }
 %struct.anon.0 = type { i16, i32, i32, ptr }
 %"class.icu_75::UnicodeSet" = type <{ %"class.icu_75::UnicodeFilter", ptr, i32, i32, i8, [7 x i8], ptr, ptr, i32, [4 x i8], ptr, i32, [4 x i8], ptr, ptr, [25 x i32], [4 x i8] }>
 %"class.icu_75::UnicodeFilter" = type { %"class.icu_75::UnicodeFunctor", %"class.icu_75::UnicodeMatcher" }
+%"class.icu_75::UnicodeFunctor" = type { %"class.icu_75::UObject" }
 %"class.icu_75::UnicodeMatcher" = type { ptr }
 
 @_ZZN6icu_7516FunctionReplacer16getStaticClassIDEvE7classID = internal global i8 0, align 1
@@ -48,9 +46,9 @@ entry:
   %0 = getelementptr inbounds i8, ptr %this, i64 8
   store ptr getelementptr inbounds ({ [12 x ptr], [7 x ptr] }, ptr @_ZTVN6icu_7516FunctionReplacerE, i64 0, inrange i32 0, i64 2), ptr %this, align 8
   store ptr getelementptr inbounds ({ [12 x ptr], [7 x ptr] }, ptr @_ZTVN6icu_7516FunctionReplacerE, i64 0, inrange i32 1, i64 2), ptr %0, align 8
-  %translit = getelementptr inbounds %"class.icu_75::FunctionReplacer", ptr %this, i64 0, i32 2
+  %translit = getelementptr inbounds i8, ptr %this, i64 16
   store ptr %adoptedTranslit, ptr %translit, align 8
-  %replacer = getelementptr inbounds %"class.icu_75::FunctionReplacer", ptr %this, i64 0, i32 3
+  %replacer = getelementptr inbounds i8, ptr %this, i64 24
   store ptr %adoptedReplacer, ptr %replacer, align 8
   ret void
 }
@@ -61,27 +59,27 @@ entry:
   %0 = getelementptr inbounds i8, ptr %this, i64 8
   store ptr getelementptr inbounds ({ [12 x ptr], [7 x ptr] }, ptr @_ZTVN6icu_7516FunctionReplacerE, i64 0, inrange i32 0, i64 2), ptr %this, align 8
   store ptr getelementptr inbounds ({ [12 x ptr], [7 x ptr] }, ptr @_ZTVN6icu_7516FunctionReplacerE, i64 0, inrange i32 1, i64 2), ptr %0, align 8
-  %translit = getelementptr inbounds %"class.icu_75::FunctionReplacer", ptr %other, i64 0, i32 2
+  %translit = getelementptr inbounds i8, ptr %other, i64 16
   %1 = load ptr, ptr %translit, align 8
   %vtable = load ptr, ptr %1, align 8
-  %vfn = getelementptr inbounds ptr, ptr %vtable, i64 3
+  %vfn = getelementptr inbounds i8, ptr %vtable, i64 24
   %2 = load ptr, ptr %vfn, align 8
   %call = invoke noundef ptr %2(ptr noundef nonnull align 8 dereferenceable(84) %1)
           to label %invoke.cont unwind label %lpad
 
 invoke.cont:                                      ; preds = %entry
-  %translit3 = getelementptr inbounds %"class.icu_75::FunctionReplacer", ptr %this, i64 0, i32 2
+  %translit3 = getelementptr inbounds i8, ptr %this, i64 16
   store ptr %call, ptr %translit3, align 8
-  %replacer = getelementptr inbounds %"class.icu_75::FunctionReplacer", ptr %other, i64 0, i32 3
+  %replacer = getelementptr inbounds i8, ptr %other, i64 24
   %3 = load ptr, ptr %replacer, align 8
   %vtable4 = load ptr, ptr %3, align 8
-  %vfn5 = getelementptr inbounds ptr, ptr %vtable4, i64 3
+  %vfn5 = getelementptr inbounds i8, ptr %vtable4, i64 24
   %4 = load ptr, ptr %vfn5, align 8
   %call7 = invoke noundef ptr %4(ptr noundef nonnull align 8 dereferenceable(8) %3)
           to label %invoke.cont6 unwind label %lpad
 
 invoke.cont6:                                     ; preds = %invoke.cont
-  %replacer8 = getelementptr inbounds %"class.icu_75::FunctionReplacer", ptr %this, i64 0, i32 3
+  %replacer8 = getelementptr inbounds i8, ptr %this, i64 24
   store ptr %call7, ptr %replacer8, align 8
   ret void
 
@@ -107,27 +105,27 @@ entry:
   store ptr getelementptr inbounds ({ [12 x ptr], [7 x ptr] }, ptr @_ZTVN6icu_7516FunctionReplacerE, i64 0, inrange i32 0, i64 2), ptr %this, align 8
   %add.ptr = getelementptr inbounds i8, ptr %this, i64 8
   store ptr getelementptr inbounds ({ [12 x ptr], [7 x ptr] }, ptr @_ZTVN6icu_7516FunctionReplacerE, i64 0, inrange i32 1, i64 2), ptr %add.ptr, align 8
-  %translit = getelementptr inbounds %"class.icu_75::FunctionReplacer", ptr %this, i64 0, i32 2
+  %translit = getelementptr inbounds i8, ptr %this, i64 16
   %0 = load ptr, ptr %translit, align 8
   %isnull = icmp eq ptr %0, null
   br i1 %isnull, label %delete.end, label %delete.notnull
 
 delete.notnull:                                   ; preds = %entry
   %vtable = load ptr, ptr %0, align 8
-  %vfn = getelementptr inbounds ptr, ptr %vtable, i64 1
+  %vfn = getelementptr inbounds i8, ptr %vtable, i64 8
   %1 = load ptr, ptr %vfn, align 8
   tail call void %1(ptr noundef nonnull align 8 dereferenceable(84) %0) #9
   br label %delete.end
 
 delete.end:                                       ; preds = %delete.notnull, %entry
-  %replacer = getelementptr inbounds %"class.icu_75::FunctionReplacer", ptr %this, i64 0, i32 3
+  %replacer = getelementptr inbounds i8, ptr %this, i64 24
   %2 = load ptr, ptr %replacer, align 8
   %isnull2 = icmp eq ptr %2, null
   br i1 %isnull2, label %delete.end6, label %delete.notnull3
 
 delete.notnull3:                                  ; preds = %delete.end
   %vtable4 = load ptr, ptr %2, align 8
-  %vfn5 = getelementptr inbounds ptr, ptr %vtable4, i64 1
+  %vfn5 = getelementptr inbounds i8, ptr %vtable4, i64 8
   %3 = load ptr, ptr %vfn5, align 8
   tail call void %3(ptr noundef nonnull align 8 dereferenceable(8) %2) #9
   br label %delete.end6
@@ -200,21 +198,21 @@ entry:
 ; Function Attrs: mustprogress uwtable
 define noundef i32 @_ZN6icu_7516FunctionReplacer7replaceERNS_11ReplaceableEiiRi(ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %this, ptr noundef nonnull align 8 dereferenceable(8) %text, i32 noundef %start, i32 noundef %limit, ptr noundef nonnull align 4 dereferenceable(4) %cursor) unnamed_addr #2 align 2 {
 entry:
-  %replacer = getelementptr inbounds %"class.icu_75::FunctionReplacer", ptr %this, i64 0, i32 3
+  %replacer = getelementptr inbounds i8, ptr %this, i64 24
   %0 = load ptr, ptr %replacer, align 8
   %vtable = load ptr, ptr %0, align 8
-  %vfn = getelementptr inbounds ptr, ptr %vtable, i64 5
+  %vfn = getelementptr inbounds i8, ptr %vtable, i64 40
   %1 = load ptr, ptr %vfn, align 8
   %call = tail call noundef ptr %1(ptr noundef nonnull align 8 dereferenceable(8) %0)
   %vtable2 = load ptr, ptr %call, align 8
-  %vfn3 = getelementptr inbounds ptr, ptr %vtable2, i64 2
+  %vfn3 = getelementptr inbounds i8, ptr %vtable2, i64 16
   %2 = load ptr, ptr %vfn3, align 8
   %call4 = tail call noundef i32 %2(ptr noundef nonnull align 8 dereferenceable(8) %call, ptr noundef nonnull align 8 dereferenceable(8) %text, i32 noundef %start, i32 noundef %limit, ptr noundef nonnull align 4 dereferenceable(4) %cursor)
   %add = add nsw i32 %call4, %start
-  %translit = getelementptr inbounds %"class.icu_75::FunctionReplacer", ptr %this, i64 0, i32 2
+  %translit = getelementptr inbounds i8, ptr %this, i64 16
   %3 = load ptr, ptr %translit, align 8
   %vtable5 = load ptr, ptr %3, align 8
-  %vfn6 = getelementptr inbounds ptr, ptr %vtable5, i64 4
+  %vfn6 = getelementptr inbounds i8, ptr %vtable5, i64 32
   %4 = load ptr, ptr %vfn6, align 8
   %call7 = tail call noundef i32 %4(ptr noundef nonnull align 8 dereferenceable(84) %3, ptr noundef nonnull align 8 dereferenceable(8) %text, i32 noundef %start, i32 noundef %add)
   %sub = sub nsw i32 %call7, %start
@@ -227,18 +225,18 @@ entry:
   %replacer.i = getelementptr inbounds i8, ptr %this, i64 16
   %0 = load ptr, ptr %replacer.i, align 8
   %vtable.i = load ptr, ptr %0, align 8
-  %vfn.i = getelementptr inbounds ptr, ptr %vtable.i, i64 5
+  %vfn.i = getelementptr inbounds i8, ptr %vtable.i, i64 40
   %1 = load ptr, ptr %vfn.i, align 8
   %call.i = tail call noundef ptr %1(ptr noundef nonnull align 8 dereferenceable(8) %0)
   %vtable2.i = load ptr, ptr %call.i, align 8
-  %vfn3.i = getelementptr inbounds ptr, ptr %vtable2.i, i64 2
+  %vfn3.i = getelementptr inbounds i8, ptr %vtable2.i, i64 16
   %2 = load ptr, ptr %vfn3.i, align 8
   %call4.i = tail call noundef i32 %2(ptr noundef nonnull align 8 dereferenceable(8) %call.i, ptr noundef nonnull align 8 dereferenceable(8) %text, i32 noundef %start, i32 noundef %limit, ptr noundef nonnull align 4 dereferenceable(4) %cursor)
   %add.i = add nsw i32 %call4.i, %start
   %translit.i = getelementptr inbounds i8, ptr %this, i64 8
   %3 = load ptr, ptr %translit.i, align 8
   %vtable5.i = load ptr, ptr %3, align 8
-  %vfn6.i = getelementptr inbounds ptr, ptr %vtable5.i, i64 4
+  %vfn6.i = getelementptr inbounds i8, ptr %vtable5.i, i64 32
   %4 = load ptr, ptr %vfn6.i, align 8
   %call7.i = tail call noundef i32 %4(ptr noundef nonnull align 8 dereferenceable(84) %3, ptr noundef nonnull align 8 dereferenceable(8) %text, i32 noundef %start, i32 noundef %add.i)
   %sub.i = sub nsw i32 %call7.i, %start
@@ -251,9 +249,9 @@ entry:
   %srcChar.addr.i = alloca i16, align 2
   %str = alloca %"class.icu_75::UnicodeString", align 8
   store ptr getelementptr inbounds ({ [13 x ptr] }, ptr @_ZTVN6icu_7513UnicodeStringE, i64 0, inrange i32 0, i64 2), ptr %str, align 8
-  %fUnion2.i = getelementptr inbounds %"class.icu_75::UnicodeString", ptr %str, i64 0, i32 1
+  %fUnion2.i = getelementptr inbounds i8, ptr %str, i64 8
   store i16 2, ptr %fUnion2.i, align 8
-  %fUnion.i.i = getelementptr inbounds %"class.icu_75::UnicodeString", ptr %rule, i64 0, i32 1
+  %fUnion.i.i = getelementptr inbounds i8, ptr %rule, i64 8
   %0 = load i16, ptr %fUnion.i.i, align 8
   %conv2.i5.i = and i16 %0, 1
   %tobool.i.not = icmp eq i16 %conv2.i5.i, 0
@@ -267,7 +265,7 @@ if.else.i:                                        ; preds = %entry
   %cmp.i.i.i = icmp slt i16 %0, 0
   %1 = ashr i16 %0, 5
   %shr.i.i.i = sext i16 %1 to i32
-  %fLength.i.i = getelementptr inbounds %"class.icu_75::UnicodeString", ptr %rule, i64 0, i32 1, i32 0, i32 1
+  %fLength.i.i = getelementptr inbounds i8, ptr %rule, i64 12
   %2 = load i32, ptr %fLength.i.i, align 4
   %cond.i.i = select i1 %cmp.i.i.i, i32 %2, i32 %shr.i.i.i
   %cmp3.i.not = icmp eq i32 %cond.i.i, 0
@@ -286,21 +284,21 @@ invoke.cont:                                      ; preds = %if.then4.i, %if.els
 
 invoke.cont2:                                     ; preds = %invoke.cont
   call void @llvm.lifetime.end.p0(i64 2, ptr nonnull %srcChar.addr.i)
-  %translit = getelementptr inbounds %"class.icu_75::FunctionReplacer", ptr %this, i64 0, i32 2
+  %translit = getelementptr inbounds i8, ptr %this, i64 16
   %4 = load ptr, ptr %translit, align 8
   %vtable = load ptr, ptr %4, align 8
-  %vfn = getelementptr inbounds ptr, ptr %vtable, i64 13
+  %vfn = getelementptr inbounds i8, ptr %vtable, i64 104
   %5 = load ptr, ptr %vfn, align 8
   %call5 = invoke noundef nonnull align 8 dereferenceable(64) ptr %5(ptr noundef nonnull align 8 dereferenceable(84) %4)
           to label %invoke.cont4 unwind label %lpad
 
 invoke.cont4:                                     ; preds = %invoke.cont2
-  %fUnion.i.i.i = getelementptr inbounds %"class.icu_75::UnicodeString", ptr %call5, i64 0, i32 1
+  %fUnion.i.i.i = getelementptr inbounds i8, ptr %call5, i64 8
   %6 = load i16, ptr %fUnion.i.i.i, align 8
   %cmp.i.i.i9 = icmp slt i16 %6, 0
   %7 = ashr i16 %6, 5
   %shr.i.i.i10 = sext i16 %7 to i32
-  %fLength.i.i11 = getelementptr inbounds %"class.icu_75::UnicodeString", ptr %call5, i64 0, i32 1, i32 0, i32 1
+  %fLength.i.i11 = getelementptr inbounds i8, ptr %call5, i64 12
   %8 = load i32, ptr %fLength.i.i11, align 4
   %cond.i.i12 = select i1 %cmp.i.i.i9, i32 %8, i32 %shr.i.i.i10
   %call2.i13 = invoke noundef nonnull align 8 dereferenceable(64) ptr @_ZN6icu_7513UnicodeString8doAppendERKS0_ii(ptr noundef nonnull align 8 dereferenceable(64) %rule, ptr noundef nonnull align 8 dereferenceable(64) %call5, i32 noundef 0, i32 noundef %cond.i.i12)
@@ -312,28 +310,28 @@ invoke.cont6:                                     ; preds = %invoke.cont4
 
 invoke.cont10:                                    ; preds = %invoke.cont6
   call void asm sideeffect "", "rm,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull @_ZL4OPEN) #9, !srcloc !4
-  %replacer = getelementptr inbounds %"class.icu_75::FunctionReplacer", ptr %this, i64 0, i32 3
+  %replacer = getelementptr inbounds i8, ptr %this, i64 24
   %9 = load ptr, ptr %replacer, align 8
   %vtable12 = load ptr, ptr %9, align 8
-  %vfn13 = getelementptr inbounds ptr, ptr %vtable12, i64 5
+  %vfn13 = getelementptr inbounds i8, ptr %vtable12, i64 40
   %10 = load ptr, ptr %vfn13, align 8
   %call15 = invoke noundef ptr %10(ptr noundef nonnull align 8 dereferenceable(8) %9)
           to label %invoke.cont14 unwind label %lpad
 
 invoke.cont14:                                    ; preds = %invoke.cont10
   %vtable16 = load ptr, ptr %call15, align 8
-  %vfn17 = getelementptr inbounds ptr, ptr %vtable16, i64 3
+  %vfn17 = getelementptr inbounds i8, ptr %vtable16, i64 24
   %11 = load ptr, ptr %vfn17, align 8
   %call19 = invoke noundef nonnull align 8 dereferenceable(64) ptr %11(ptr noundef nonnull align 8 dereferenceable(8) %call15, ptr noundef nonnull align 8 dereferenceable(64) %str, i8 noundef signext %escapeUnprintable)
           to label %invoke.cont18 unwind label %lpad
 
 invoke.cont18:                                    ; preds = %invoke.cont14
-  %fUnion.i.i.i15 = getelementptr inbounds %"class.icu_75::UnicodeString", ptr %call19, i64 0, i32 1
+  %fUnion.i.i.i15 = getelementptr inbounds i8, ptr %call19, i64 8
   %12 = load i16, ptr %fUnion.i.i.i15, align 8
   %cmp.i.i.i16 = icmp slt i16 %12, 0
   %13 = ashr i16 %12, 5
   %shr.i.i.i17 = sext i16 %13 to i32
-  %fLength.i.i18 = getelementptr inbounds %"class.icu_75::UnicodeString", ptr %call19, i64 0, i32 1, i32 0, i32 1
+  %fLength.i.i18 = getelementptr inbounds i8, ptr %call19, i64 12
   %14 = load i32, ptr %fLength.i.i18, align 4
   %cond.i.i19 = select i1 %cmp.i.i.i16, i32 %14, i32 %shr.i.i.i17
   %call2.i20 = invoke noundef nonnull align 8 dereferenceable(64) ptr @_ZN6icu_7513UnicodeString8doAppendERKS0_ii(ptr noundef nonnull align 8 dereferenceable(64) %rule, ptr noundef nonnull align 8 dereferenceable(64) %call19, i32 noundef 0, i32 noundef %cond.i.i19)
@@ -387,10 +385,10 @@ define void @_ZNK6icu_7516FunctionReplacer19addReplacementSetToERNS_10UnicodeSet
 entry:
   %set = alloca %"class.icu_75::UnicodeSet", align 8
   call void @_ZN6icu_7510UnicodeSetC1Ev(ptr noundef nonnull align 8 dereferenceable(200) %set)
-  %translit = getelementptr inbounds %"class.icu_75::FunctionReplacer", ptr %this, i64 0, i32 2
+  %translit = getelementptr inbounds i8, ptr %this, i64 16
   %0 = load ptr, ptr %translit, align 8
   %vtable = load ptr, ptr %0, align 8
-  %vfn = getelementptr inbounds ptr, ptr %vtable, i64 16
+  %vfn = getelementptr inbounds i8, ptr %vtable, i64 128
   %1 = load ptr, ptr %vfn, align 8
   %call = invoke noundef nonnull align 8 dereferenceable(200) ptr %1(ptr noundef nonnull align 8 dereferenceable(84) %0, ptr noundef nonnull align 8 dereferenceable(200) %set)
           to label %invoke.cont unwind label %lpad
@@ -426,7 +424,7 @@ entry:
   %translit.i = getelementptr inbounds i8, ptr %this, i64 8
   %0 = load ptr, ptr %translit.i, align 8
   %vtable.i = load ptr, ptr %0, align 8
-  %vfn.i = getelementptr inbounds ptr, ptr %vtable.i, i64 16
+  %vfn.i = getelementptr inbounds i8, ptr %vtable.i, i64 128
   %1 = load ptr, ptr %vfn.i, align 8
   %call.i = invoke noundef nonnull align 8 dereferenceable(200) ptr %1(ptr noundef nonnull align 8 dereferenceable(84) %0, ptr noundef nonnull align 8 dereferenceable(200) %set.i)
           to label %invoke.cont.i unwind label %lpad.i
@@ -450,10 +448,10 @@ _ZNK6icu_7516FunctionReplacer19addReplacementSetToERNS_10UnicodeSetE.exit: ; pre
 ; Function Attrs: mustprogress uwtable
 define void @_ZN6icu_7516FunctionReplacer7setDataEPKNS_23TransliterationRuleDataE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %this, ptr noundef %d) unnamed_addr #2 align 2 {
 entry:
-  %replacer = getelementptr inbounds %"class.icu_75::FunctionReplacer", ptr %this, i64 0, i32 3
+  %replacer = getelementptr inbounds i8, ptr %this, i64 24
   %0 = load ptr, ptr %replacer, align 8
   %vtable = load ptr, ptr %0, align 8
-  %vfn = getelementptr inbounds ptr, ptr %vtable, i64 6
+  %vfn = getelementptr inbounds i8, ptr %vtable, i64 48
   %1 = load ptr, ptr %vfn, align 8
   tail call void %1(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %d)
   ret void

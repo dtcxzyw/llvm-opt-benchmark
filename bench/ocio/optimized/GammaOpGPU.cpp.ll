@@ -21,28 +21,6 @@ target triple = "x86_64-unknown-linux-gnu"
 %"class.std::shared_ptr.13" = type { %"class.std::__shared_ptr.14" }
 %"class.std::__shared_ptr.14" = type { ptr, %"class.std::__shared_count" }
 %"class.std::__shared_count" = type { ptr }
-%"class.OpenColorIO_v2_4dev::GammaOpData" = type { %"class.OpenColorIO_v2_4dev::OpData", i32, %"class.std::vector.8", %"class.std::vector.8", %"class.std::vector.8", %"class.std::vector.8" }
-%"class.OpenColorIO_v2_4dev::OpData" = type { ptr, %"class.std::mutex", %"class.OpenColorIO_v2_4dev::FormatMetadataImpl" }
-%"class.std::mutex" = type { %"class.std::__mutex_base" }
-%"class.std::__mutex_base" = type { %union.pthread_mutex_t }
-%union.pthread_mutex_t = type { %struct.__pthread_mutex_s }
-%struct.__pthread_mutex_s = type { i32, i32, i32, i32, i32, i16, i16, %struct.__pthread_internal_list }
-%struct.__pthread_internal_list = type { ptr, ptr }
-%"class.OpenColorIO_v2_4dev::FormatMetadataImpl" = type { %"class.OpenColorIO_v2_4dev::FormatMetadata", %"class.std::__cxx11::basic_string", %"class.std::__cxx11::basic_string", %"class.std::vector", %"class.std::vector.3" }
-%"class.OpenColorIO_v2_4dev::FormatMetadata" = type { ptr }
-%"class.std::vector" = type { %"struct.std::_Vector_base" }
-%"struct.std::_Vector_base" = type { %"struct.std::_Vector_base<std::pair<std::__cxx11::basic_string<char>, std::__cxx11::basic_string<char>>, std::allocator<std::pair<std::__cxx11::basic_string<char>, std::__cxx11::basic_string<char>>>>::_Vector_impl" }
-%"struct.std::_Vector_base<std::pair<std::__cxx11::basic_string<char>, std::__cxx11::basic_string<char>>, std::allocator<std::pair<std::__cxx11::basic_string<char>, std::__cxx11::basic_string<char>>>>::_Vector_impl" = type { %"struct.std::_Vector_base<std::pair<std::__cxx11::basic_string<char>, std::__cxx11::basic_string<char>>, std::allocator<std::pair<std::__cxx11::basic_string<char>, std::__cxx11::basic_string<char>>>>::_Vector_impl_data" }
-%"struct.std::_Vector_base<std::pair<std::__cxx11::basic_string<char>, std::__cxx11::basic_string<char>>, std::allocator<std::pair<std::__cxx11::basic_string<char>, std::__cxx11::basic_string<char>>>>::_Vector_impl_data" = type { ptr, ptr, ptr }
-%"class.std::vector.3" = type { %"struct.std::_Vector_base.4" }
-%"struct.std::_Vector_base.4" = type { %"struct.std::_Vector_base<OpenColorIO_v2_4dev::FormatMetadataImpl, std::allocator<OpenColorIO_v2_4dev::FormatMetadataImpl>>::_Vector_impl" }
-%"struct.std::_Vector_base<OpenColorIO_v2_4dev::FormatMetadataImpl, std::allocator<OpenColorIO_v2_4dev::FormatMetadataImpl>>::_Vector_impl" = type { %"struct.std::_Vector_base<OpenColorIO_v2_4dev::FormatMetadataImpl, std::allocator<OpenColorIO_v2_4dev::FormatMetadataImpl>>::_Vector_impl_data" }
-%"struct.std::_Vector_base<OpenColorIO_v2_4dev::FormatMetadataImpl, std::allocator<OpenColorIO_v2_4dev::FormatMetadataImpl>>::_Vector_impl_data" = type { ptr, ptr, ptr }
-%"class.std::vector.8" = type { %"struct.std::_Vector_base.9" }
-%"struct.std::_Vector_base.9" = type { %"struct.std::_Vector_base<double, std::allocator<double>>::_Vector_impl" }
-%"struct.std::_Vector_base<double, std::allocator<double>>::_Vector_impl" = type { %"struct.std::_Vector_base<double, std::allocator<double>>::_Vector_impl_data" }
-%"struct.std::_Vector_base<double, std::allocator<double>>::_Vector_impl_data" = type { ptr, ptr, ptr }
-%"class.std::_Sp_counted_base" = type { ptr, i32, i32 }
 
 $_ZNSt10shared_ptrIKN19OpenColorIO_v2_4dev11GammaOpDataEED2Ev = comdat any
 
@@ -475,7 +453,7 @@ invoke.cont7:                                     ; preds = %invoke.cont4
 
 invoke.cont9:                                     ; preds = %invoke.cont7
   %1 = load ptr, ptr %gammaData, align 8
-  %m_style.i = getelementptr inbounds %"class.OpenColorIO_v2_4dev::GammaOpData", ptr %1, i64 0, i32 1
+  %m_style.i = getelementptr inbounds i8, ptr %1, i64 168
   %2 = load i32, ptr %m_style.i, align 8
   %call14 = invoke noundef ptr @_ZN19OpenColorIO_v2_4dev11GammaOpData20ConvertStyleToStringENS0_5StyleE(i32 noundef %2)
           to label %invoke.cont13 unwind label %lpad8
@@ -513,7 +491,7 @@ invoke.cont27:                                    ; preds = %invoke.cont25
 
 invoke.cont29:                                    ; preds = %invoke.cont27
   %3 = load ptr, ptr %gammaData, align 8
-  %m_style.i29 = getelementptr inbounds %"class.OpenColorIO_v2_4dev::GammaOpData", ptr %3, i64 0, i32 1
+  %m_style.i29 = getelementptr inbounds i8, ptr %3, i64 168
   %4 = load i32, ptr %m_style.i29, align 8
   switch i32 %4, label %sw.epilog [
     i32 6, label %sw.bb
@@ -559,15 +537,15 @@ lpad26:                                           ; preds = %invoke.cont25
 
 sw.bb:                                            ; preds = %invoke.cont29
   store ptr %3, ptr %agg.tmp, align 8
-  %_M_refcount.i.i = getelementptr inbounds %"class.std::__shared_ptr.14", ptr %agg.tmp, i64 0, i32 1
-  %_M_refcount3.i.i = getelementptr inbounds %"class.std::__shared_ptr.14", ptr %gammaData, i64 0, i32 1
+  %_M_refcount.i.i = getelementptr inbounds i8, ptr %agg.tmp, i64 8
+  %_M_refcount3.i.i = getelementptr inbounds i8, ptr %gammaData, i64 8
   %10 = load ptr, ptr %_M_refcount3.i.i, align 8
   store ptr %10, ptr %_M_refcount.i.i, align 8
   %cmp.not.i.i.i = icmp eq ptr %10, null
   br i1 %cmp.not.i.i.i, label %_ZNSt10shared_ptrIKN19OpenColorIO_v2_4dev11GammaOpDataEEC2ERKS3_.exit, label %if.then.i.i.i
 
 if.then.i.i.i:                                    ; preds = %sw.bb
-  %_M_use_count.i.i.i.i = getelementptr inbounds %"class.std::_Sp_counted_base", ptr %10, i64 0, i32 1
+  %_M_use_count.i.i.i.i = getelementptr inbounds i8, ptr %10, i64 8
   %11 = load i8, ptr @__libc_single_threaded, align 1
   %tobool.i.not.i.i.i.i = icmp eq i8 %11, 0
   br i1 %tobool.i.not.i.i.i.i, label %if.else.i.i.i.i.i, label %if.then.i.i.i.i.i
@@ -631,47 +609,47 @@ _ZNSt10shared_ptrIKN19OpenColorIO_v2_4dev11GammaOpDataEEC2ERKS3_.exit: ; preds =
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %ref.tmp192.i)
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %ref.tmp193.i)
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %ref.tmp211.i)
-  %offset.i.i = getelementptr inbounds %"struct.OpenColorIO_v2_4dev::RendererParams", ptr %red.i, i64 0, i32 1
-  %breakPnt.i.i = getelementptr inbounds %"struct.OpenColorIO_v2_4dev::RendererParams", ptr %red.i, i64 0, i32 2
-  %slope.i.i = getelementptr inbounds %"struct.OpenColorIO_v2_4dev::RendererParams", ptr %red.i, i64 0, i32 3
+  %offset.i.i = getelementptr inbounds i8, ptr %red.i, i64 4
+  %breakPnt.i.i = getelementptr inbounds i8, ptr %red.i, i64 8
+  %slope.i.i = getelementptr inbounds i8, ptr %red.i, i64 12
   store <4 x float> <float 1.000000e+00, float 0.000000e+00, float 0.000000e+00, float 1.000000e+00>, ptr %red.i, align 16
-  %scale.i.i = getelementptr inbounds %"struct.OpenColorIO_v2_4dev::RendererParams", ptr %red.i, i64 0, i32 4
+  %scale.i.i = getelementptr inbounds i8, ptr %red.i, i64 16
   store float 1.000000e+00, ptr %scale.i.i, align 16
-  %offset.i54.i = getelementptr inbounds %"struct.OpenColorIO_v2_4dev::RendererParams", ptr %green.i, i64 0, i32 1
-  %breakPnt.i55.i = getelementptr inbounds %"struct.OpenColorIO_v2_4dev::RendererParams", ptr %green.i, i64 0, i32 2
-  %slope.i56.i = getelementptr inbounds %"struct.OpenColorIO_v2_4dev::RendererParams", ptr %green.i, i64 0, i32 3
+  %offset.i54.i = getelementptr inbounds i8, ptr %green.i, i64 4
+  %breakPnt.i55.i = getelementptr inbounds i8, ptr %green.i, i64 8
+  %slope.i56.i = getelementptr inbounds i8, ptr %green.i, i64 12
   store <4 x float> <float 1.000000e+00, float 0.000000e+00, float 0.000000e+00, float 1.000000e+00>, ptr %green.i, align 16
-  %scale.i57.i = getelementptr inbounds %"struct.OpenColorIO_v2_4dev::RendererParams", ptr %green.i, i64 0, i32 4
+  %scale.i57.i = getelementptr inbounds i8, ptr %green.i, i64 16
   store float 1.000000e+00, ptr %scale.i57.i, align 16
-  %offset.i58.i = getelementptr inbounds %"struct.OpenColorIO_v2_4dev::RendererParams", ptr %blue.i, i64 0, i32 1
-  %breakPnt.i59.i = getelementptr inbounds %"struct.OpenColorIO_v2_4dev::RendererParams", ptr %blue.i, i64 0, i32 2
-  %slope.i60.i = getelementptr inbounds %"struct.OpenColorIO_v2_4dev::RendererParams", ptr %blue.i, i64 0, i32 3
+  %offset.i58.i = getelementptr inbounds i8, ptr %blue.i, i64 4
+  %breakPnt.i59.i = getelementptr inbounds i8, ptr %blue.i, i64 8
+  %slope.i60.i = getelementptr inbounds i8, ptr %blue.i, i64 12
   store <4 x float> <float 1.000000e+00, float 0.000000e+00, float 0.000000e+00, float 1.000000e+00>, ptr %blue.i, align 16
-  %scale.i61.i = getelementptr inbounds %"struct.OpenColorIO_v2_4dev::RendererParams", ptr %blue.i, i64 0, i32 4
+  %scale.i61.i = getelementptr inbounds i8, ptr %blue.i, i64 16
   store float 1.000000e+00, ptr %scale.i61.i, align 16
-  %offset.i62.i = getelementptr inbounds %"struct.OpenColorIO_v2_4dev::RendererParams", ptr %alpha.i, i64 0, i32 1
-  %breakPnt.i63.i = getelementptr inbounds %"struct.OpenColorIO_v2_4dev::RendererParams", ptr %alpha.i, i64 0, i32 2
-  %slope.i64.i = getelementptr inbounds %"struct.OpenColorIO_v2_4dev::RendererParams", ptr %alpha.i, i64 0, i32 3
+  %offset.i62.i = getelementptr inbounds i8, ptr %alpha.i, i64 4
+  %breakPnt.i63.i = getelementptr inbounds i8, ptr %alpha.i, i64 8
+  %slope.i64.i = getelementptr inbounds i8, ptr %alpha.i, i64 12
   store <4 x float> <float 1.000000e+00, float 0.000000e+00, float 0.000000e+00, float 1.000000e+00>, ptr %alpha.i, align 16
-  %scale.i65.i = getelementptr inbounds %"struct.OpenColorIO_v2_4dev::RendererParams", ptr %alpha.i, i64 0, i32 4
+  %scale.i65.i = getelementptr inbounds i8, ptr %alpha.i, i64 16
   store float 1.000000e+00, ptr %scale.i65.i, align 16
-  %m_redParams.i.i = getelementptr inbounds %"class.OpenColorIO_v2_4dev::GammaOpData", ptr %14, i64 0, i32 2
+  %m_redParams.i.i = getelementptr inbounds i8, ptr %14, i64 176
   invoke void @_ZN19OpenColorIO_v2_4dev16ComputeParamsFwdERKSt6vectorIdSaIdEERNS_14RendererParamsE(ptr noundef nonnull align 8 dereferenceable(24) %m_redParams.i.i, ptr noundef nonnull align 4 dereferenceable(20) %red.i)
           to label %.noexc unwind label %lpad32
 
 .noexc:                                           ; preds = %_ZNSt10shared_ptrIKN19OpenColorIO_v2_4dev11GammaOpDataEEC2ERKS3_.exit
   %15 = load ptr, ptr %agg.tmp, align 8
-  %m_greenParams.i.i = getelementptr inbounds %"class.OpenColorIO_v2_4dev::GammaOpData", ptr %15, i64 0, i32 3
+  %m_greenParams.i.i = getelementptr inbounds i8, ptr %15, i64 200
   invoke void @_ZN19OpenColorIO_v2_4dev16ComputeParamsFwdERKSt6vectorIdSaIdEERNS_14RendererParamsE(ptr noundef nonnull align 8 dereferenceable(24) %m_greenParams.i.i, ptr noundef nonnull align 4 dereferenceable(20) %green.i)
           to label %.noexc30 unwind label %lpad32
 
 .noexc30:                                         ; preds = %.noexc
-  %m_blueParams.i.i = getelementptr inbounds %"class.OpenColorIO_v2_4dev::GammaOpData", ptr %15, i64 0, i32 4
+  %m_blueParams.i.i = getelementptr inbounds i8, ptr %15, i64 224
   invoke void @_ZN19OpenColorIO_v2_4dev16ComputeParamsFwdERKSt6vectorIdSaIdEERNS_14RendererParamsE(ptr noundef nonnull align 8 dereferenceable(24) %m_blueParams.i.i, ptr noundef nonnull align 4 dereferenceable(20) %blue.i)
           to label %.noexc31 unwind label %lpad32
 
 .noexc31:                                         ; preds = %.noexc30
-  %m_alphaParams.i.i = getelementptr inbounds %"class.OpenColorIO_v2_4dev::GammaOpData", ptr %15, i64 0, i32 5
+  %m_alphaParams.i.i = getelementptr inbounds i8, ptr %15, i64 248
   invoke void @_ZN19OpenColorIO_v2_4dev16ComputeParamsFwdERKSt6vectorIdSaIdEERNS_14RendererParamsE(ptr noundef nonnull align 8 dereferenceable(24) %m_alphaParams.i.i, ptr noundef nonnull align 4 dereferenceable(20) %alpha.i)
           to label %.noexc32 unwind label %lpad32
 
@@ -1351,7 +1329,7 @@ invoke.cont33:                                    ; preds = %invoke.cont214.i
   br i1 %cmp.not.i.i.i34, label %sw.epilog, label %if.then.i.i.i35
 
 if.then.i.i.i35:                                  ; preds = %invoke.cont33
-  %_M_use_count.i.i.i.i36 = getelementptr inbounds %"class.std::_Sp_counted_base", ptr %73, i64 0, i32 1
+  %_M_use_count.i.i.i.i36 = getelementptr inbounds i8, ptr %73, i64 8
   %74 = load atomic i64, ptr %_M_use_count.i.i.i.i36 acquire, align 8
   %cmp.i.i.i.i = icmp eq i64 %74, 4294967297
   %75 = trunc i64 %74 to i32
@@ -1378,10 +1356,10 @@ _ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i: ; preds = %if.else.
 
 if.then7.i.i.i.i:                                 ; preds = %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i
   %vtable.i.i.i.i.i.i = load ptr, ptr %73, align 8
-  %vfn.i.i.i.i.i.i = getelementptr inbounds ptr, ptr %vtable.i.i.i.i.i.i, i64 2
+  %vfn.i.i.i.i.i.i = getelementptr inbounds i8, ptr %vtable.i.i.i.i.i.i, i64 16
   %78 = load ptr, ptr %vfn.i.i.i.i.i.i, align 8
   call void %78(ptr noundef nonnull align 8 dereferenceable(16) %73) #5
-  %_M_weak_count.i.i.i.i.i.i = getelementptr inbounds %"class.std::_Sp_counted_base", ptr %73, i64 0, i32 2
+  %_M_weak_count.i.i.i.i.i.i = getelementptr inbounds i8, ptr %73, i64 12
   %79 = load i8, ptr @__libc_single_threaded, align 1
   %tobool.i.i.not.i.i.i.i.i.i = icmp eq i8 %79, 0
   br i1 %tobool.i.i.not.i.i.i.i.i.i, label %if.else.i.i.i.i.i.i.i, label %if.then.i.i.i.i.i.i.i
@@ -1413,15 +1391,15 @@ lpad32.body:                                      ; preds = %lpad.i, %ehcleanup2
 
 sw.bb34:                                          ; preds = %invoke.cont29
   store ptr %3, ptr %agg.tmp35, align 8
-  %_M_refcount.i.i40 = getelementptr inbounds %"class.std::__shared_ptr.14", ptr %agg.tmp35, i64 0, i32 1
-  %_M_refcount3.i.i41 = getelementptr inbounds %"class.std::__shared_ptr.14", ptr %gammaData, i64 0, i32 1
+  %_M_refcount.i.i40 = getelementptr inbounds i8, ptr %agg.tmp35, i64 8
+  %_M_refcount3.i.i41 = getelementptr inbounds i8, ptr %gammaData, i64 8
   %83 = load ptr, ptr %_M_refcount3.i.i41, align 8
   store ptr %83, ptr %_M_refcount.i.i40, align 8
   %cmp.not.i.i.i42 = icmp eq ptr %83, null
   br i1 %cmp.not.i.i.i42, label %_ZNSt10shared_ptrIKN19OpenColorIO_v2_4dev11GammaOpDataEEC2ERKS3_.exit49, label %if.then.i.i.i43
 
 if.then.i.i.i43:                                  ; preds = %sw.bb34
-  %_M_use_count.i.i.i.i44 = getelementptr inbounds %"class.std::_Sp_counted_base", ptr %83, i64 0, i32 1
+  %_M_use_count.i.i.i.i44 = getelementptr inbounds i8, ptr %83, i64 8
   %84 = load i8, ptr @__libc_single_threaded, align 1
   %tobool.i.not.i.i.i.i45 = icmp eq i8 %84, 0
   br i1 %tobool.i.not.i.i.i.i45, label %if.else.i.i.i.i.i48, label %if.then.i.i.i.i.i46
@@ -1485,47 +1463,47 @@ _ZNSt10shared_ptrIKN19OpenColorIO_v2_4dev11GammaOpDataEEC2ERKS3_.exit49: ; preds
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %ref.tmp192.i93)
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %ref.tmp193.i94)
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %ref.tmp211.i95)
-  %offset.i.i96 = getelementptr inbounds %"struct.OpenColorIO_v2_4dev::RendererParams", ptr %red.i50, i64 0, i32 1
-  %breakPnt.i.i97 = getelementptr inbounds %"struct.OpenColorIO_v2_4dev::RendererParams", ptr %red.i50, i64 0, i32 2
-  %slope.i.i98 = getelementptr inbounds %"struct.OpenColorIO_v2_4dev::RendererParams", ptr %red.i50, i64 0, i32 3
+  %offset.i.i96 = getelementptr inbounds i8, ptr %red.i50, i64 4
+  %breakPnt.i.i97 = getelementptr inbounds i8, ptr %red.i50, i64 8
+  %slope.i.i98 = getelementptr inbounds i8, ptr %red.i50, i64 12
   store <4 x float> <float 1.000000e+00, float 0.000000e+00, float 0.000000e+00, float 1.000000e+00>, ptr %red.i50, align 16
-  %scale.i.i99 = getelementptr inbounds %"struct.OpenColorIO_v2_4dev::RendererParams", ptr %red.i50, i64 0, i32 4
+  %scale.i.i99 = getelementptr inbounds i8, ptr %red.i50, i64 16
   store float 1.000000e+00, ptr %scale.i.i99, align 16
-  %offset.i54.i100 = getelementptr inbounds %"struct.OpenColorIO_v2_4dev::RendererParams", ptr %green.i51, i64 0, i32 1
-  %breakPnt.i55.i101 = getelementptr inbounds %"struct.OpenColorIO_v2_4dev::RendererParams", ptr %green.i51, i64 0, i32 2
-  %slope.i56.i102 = getelementptr inbounds %"struct.OpenColorIO_v2_4dev::RendererParams", ptr %green.i51, i64 0, i32 3
+  %offset.i54.i100 = getelementptr inbounds i8, ptr %green.i51, i64 4
+  %breakPnt.i55.i101 = getelementptr inbounds i8, ptr %green.i51, i64 8
+  %slope.i56.i102 = getelementptr inbounds i8, ptr %green.i51, i64 12
   store <4 x float> <float 1.000000e+00, float 0.000000e+00, float 0.000000e+00, float 1.000000e+00>, ptr %green.i51, align 16
-  %scale.i57.i103 = getelementptr inbounds %"struct.OpenColorIO_v2_4dev::RendererParams", ptr %green.i51, i64 0, i32 4
+  %scale.i57.i103 = getelementptr inbounds i8, ptr %green.i51, i64 16
   store float 1.000000e+00, ptr %scale.i57.i103, align 16
-  %offset.i58.i104 = getelementptr inbounds %"struct.OpenColorIO_v2_4dev::RendererParams", ptr %blue.i52, i64 0, i32 1
-  %breakPnt.i59.i105 = getelementptr inbounds %"struct.OpenColorIO_v2_4dev::RendererParams", ptr %blue.i52, i64 0, i32 2
-  %slope.i60.i106 = getelementptr inbounds %"struct.OpenColorIO_v2_4dev::RendererParams", ptr %blue.i52, i64 0, i32 3
+  %offset.i58.i104 = getelementptr inbounds i8, ptr %blue.i52, i64 4
+  %breakPnt.i59.i105 = getelementptr inbounds i8, ptr %blue.i52, i64 8
+  %slope.i60.i106 = getelementptr inbounds i8, ptr %blue.i52, i64 12
   store <4 x float> <float 1.000000e+00, float 0.000000e+00, float 0.000000e+00, float 1.000000e+00>, ptr %blue.i52, align 16
-  %scale.i61.i107 = getelementptr inbounds %"struct.OpenColorIO_v2_4dev::RendererParams", ptr %blue.i52, i64 0, i32 4
+  %scale.i61.i107 = getelementptr inbounds i8, ptr %blue.i52, i64 16
   store float 1.000000e+00, ptr %scale.i61.i107, align 16
-  %offset.i62.i108 = getelementptr inbounds %"struct.OpenColorIO_v2_4dev::RendererParams", ptr %alpha.i53, i64 0, i32 1
-  %breakPnt.i63.i109 = getelementptr inbounds %"struct.OpenColorIO_v2_4dev::RendererParams", ptr %alpha.i53, i64 0, i32 2
-  %slope.i64.i110 = getelementptr inbounds %"struct.OpenColorIO_v2_4dev::RendererParams", ptr %alpha.i53, i64 0, i32 3
+  %offset.i62.i108 = getelementptr inbounds i8, ptr %alpha.i53, i64 4
+  %breakPnt.i63.i109 = getelementptr inbounds i8, ptr %alpha.i53, i64 8
+  %slope.i64.i110 = getelementptr inbounds i8, ptr %alpha.i53, i64 12
   store <4 x float> <float 1.000000e+00, float 0.000000e+00, float 0.000000e+00, float 1.000000e+00>, ptr %alpha.i53, align 16
-  %scale.i65.i111 = getelementptr inbounds %"struct.OpenColorIO_v2_4dev::RendererParams", ptr %alpha.i53, i64 0, i32 4
+  %scale.i65.i111 = getelementptr inbounds i8, ptr %alpha.i53, i64 16
   store float 1.000000e+00, ptr %scale.i65.i111, align 16
-  %m_redParams.i.i112 = getelementptr inbounds %"class.OpenColorIO_v2_4dev::GammaOpData", ptr %87, i64 0, i32 2
+  %m_redParams.i.i112 = getelementptr inbounds i8, ptr %87, i64 176
   invoke void @_ZN19OpenColorIO_v2_4dev16ComputeParamsRevERKSt6vectorIdSaIdEERNS_14RendererParamsE(ptr noundef nonnull align 8 dereferenceable(24) %m_redParams.i.i112, ptr noundef nonnull align 4 dereferenceable(20) %red.i50)
           to label %.noexc283 unwind label %lpad36
 
 .noexc283:                                        ; preds = %_ZNSt10shared_ptrIKN19OpenColorIO_v2_4dev11GammaOpDataEEC2ERKS3_.exit49
   %88 = load ptr, ptr %agg.tmp35, align 8
-  %m_greenParams.i.i113 = getelementptr inbounds %"class.OpenColorIO_v2_4dev::GammaOpData", ptr %88, i64 0, i32 3
+  %m_greenParams.i.i113 = getelementptr inbounds i8, ptr %88, i64 200
   invoke void @_ZN19OpenColorIO_v2_4dev16ComputeParamsRevERKSt6vectorIdSaIdEERNS_14RendererParamsE(ptr noundef nonnull align 8 dereferenceable(24) %m_greenParams.i.i113, ptr noundef nonnull align 4 dereferenceable(20) %green.i51)
           to label %.noexc284 unwind label %lpad36
 
 .noexc284:                                        ; preds = %.noexc283
-  %m_blueParams.i.i114 = getelementptr inbounds %"class.OpenColorIO_v2_4dev::GammaOpData", ptr %88, i64 0, i32 4
+  %m_blueParams.i.i114 = getelementptr inbounds i8, ptr %88, i64 224
   invoke void @_ZN19OpenColorIO_v2_4dev16ComputeParamsRevERKSt6vectorIdSaIdEERNS_14RendererParamsE(ptr noundef nonnull align 8 dereferenceable(24) %m_blueParams.i.i114, ptr noundef nonnull align 4 dereferenceable(20) %blue.i52)
           to label %.noexc285 unwind label %lpad36
 
 .noexc285:                                        ; preds = %.noexc284
-  %m_alphaParams.i.i115 = getelementptr inbounds %"class.OpenColorIO_v2_4dev::GammaOpData", ptr %88, i64 0, i32 5
+  %m_alphaParams.i.i115 = getelementptr inbounds i8, ptr %88, i64 248
   invoke void @_ZN19OpenColorIO_v2_4dev16ComputeParamsRevERKSt6vectorIdSaIdEERNS_14RendererParamsE(ptr noundef nonnull align 8 dereferenceable(24) %m_alphaParams.i.i115, ptr noundef nonnull align 4 dereferenceable(20) %alpha.i53)
           to label %.noexc286 unwind label %lpad36
 
@@ -2205,7 +2183,7 @@ invoke.cont37:                                    ; preds = %invoke.cont214.i281
   br i1 %cmp.not.i.i.i289, label %sw.epilog, label %if.then.i.i.i290
 
 if.then.i.i.i290:                                 ; preds = %invoke.cont37
-  %_M_use_count.i.i.i.i291 = getelementptr inbounds %"class.std::_Sp_counted_base", ptr %146, i64 0, i32 1
+  %_M_use_count.i.i.i.i291 = getelementptr inbounds i8, ptr %146, i64 8
   %147 = load atomic i64, ptr %_M_use_count.i.i.i.i291 acquire, align 8
   %cmp.i.i.i.i292 = icmp eq i64 %147, 4294967297
   %148 = trunc i64 %147 to i32
@@ -2232,10 +2210,10 @@ _ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i297: ; preds = %if.el
 
 if.then7.i.i.i.i300:                              ; preds = %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i297
   %vtable.i.i.i.i.i.i301 = load ptr, ptr %146, align 8
-  %vfn.i.i.i.i.i.i302 = getelementptr inbounds ptr, ptr %vtable.i.i.i.i.i.i301, i64 2
+  %vfn.i.i.i.i.i.i302 = getelementptr inbounds i8, ptr %vtable.i.i.i.i.i.i301, i64 16
   %151 = load ptr, ptr %vfn.i.i.i.i.i.i302, align 8
   call void %151(ptr noundef nonnull align 8 dereferenceable(16) %146) #5
-  %_M_weak_count.i.i.i.i.i.i303 = getelementptr inbounds %"class.std::_Sp_counted_base", ptr %146, i64 0, i32 2
+  %_M_weak_count.i.i.i.i.i.i303 = getelementptr inbounds i8, ptr %146, i64 12
   %152 = load i8, ptr @__libc_single_threaded, align 1
   %tobool.i.i.not.i.i.i.i.i.i304 = icmp eq i8 %152, 0
   br i1 %tobool.i.i.not.i.i.i.i.i.i304, label %if.else.i.i.i.i.i.i.i313, label %if.then.i.i.i.i.i.i.i305
@@ -2267,15 +2245,15 @@ lpad36.body:                                      ; preds = %lpad.i117, %ehclean
 
 sw.bb38:                                          ; preds = %invoke.cont29
   store ptr %3, ptr %agg.tmp39, align 8
-  %_M_refcount.i.i320 = getelementptr inbounds %"class.std::__shared_ptr.14", ptr %agg.tmp39, i64 0, i32 1
-  %_M_refcount3.i.i321 = getelementptr inbounds %"class.std::__shared_ptr.14", ptr %gammaData, i64 0, i32 1
+  %_M_refcount.i.i320 = getelementptr inbounds i8, ptr %agg.tmp39, i64 8
+  %_M_refcount3.i.i321 = getelementptr inbounds i8, ptr %gammaData, i64 8
   %156 = load ptr, ptr %_M_refcount3.i.i321, align 8
   store ptr %156, ptr %_M_refcount.i.i320, align 8
   %cmp.not.i.i.i322 = icmp eq ptr %156, null
   br i1 %cmp.not.i.i.i322, label %_ZNSt10shared_ptrIKN19OpenColorIO_v2_4dev11GammaOpDataEEC2ERKS3_.exit329, label %if.then.i.i.i323
 
 if.then.i.i.i323:                                 ; preds = %sw.bb38
-  %_M_use_count.i.i.i.i324 = getelementptr inbounds %"class.std::_Sp_counted_base", ptr %156, i64 0, i32 1
+  %_M_use_count.i.i.i.i324 = getelementptr inbounds i8, ptr %156, i64 8
   %157 = load i8, ptr @__libc_single_threaded, align 1
   %tobool.i.not.i.i.i.i325 = icmp eq i8 %157, 0
   br i1 %tobool.i.not.i.i.i.i325, label %if.else.i.i.i.i.i328, label %if.then.i.i.i.i.i326
@@ -2345,47 +2323,47 @@ _ZNSt10shared_ptrIKN19OpenColorIO_v2_4dev11GammaOpDataEEC2ERKS3_.exit329: ; pred
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %ref.tmp228.i)
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %ref.tmp229.i)
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %ref.tmp247.i)
-  %offset.i.i353 = getelementptr inbounds %"struct.OpenColorIO_v2_4dev::RendererParams", ptr %red.i330, i64 0, i32 1
-  %breakPnt.i.i354 = getelementptr inbounds %"struct.OpenColorIO_v2_4dev::RendererParams", ptr %red.i330, i64 0, i32 2
-  %slope.i.i355 = getelementptr inbounds %"struct.OpenColorIO_v2_4dev::RendererParams", ptr %red.i330, i64 0, i32 3
+  %offset.i.i353 = getelementptr inbounds i8, ptr %red.i330, i64 4
+  %breakPnt.i.i354 = getelementptr inbounds i8, ptr %red.i330, i64 8
+  %slope.i.i355 = getelementptr inbounds i8, ptr %red.i330, i64 12
   store <4 x float> <float 1.000000e+00, float 0.000000e+00, float 0.000000e+00, float 1.000000e+00>, ptr %red.i330, align 16
-  %scale.i.i356 = getelementptr inbounds %"struct.OpenColorIO_v2_4dev::RendererParams", ptr %red.i330, i64 0, i32 4
+  %scale.i.i356 = getelementptr inbounds i8, ptr %red.i330, i64 16
   store float 1.000000e+00, ptr %scale.i.i356, align 16
-  %offset.i61.i = getelementptr inbounds %"struct.OpenColorIO_v2_4dev::RendererParams", ptr %green.i331, i64 0, i32 1
-  %breakPnt.i62.i = getelementptr inbounds %"struct.OpenColorIO_v2_4dev::RendererParams", ptr %green.i331, i64 0, i32 2
-  %slope.i63.i = getelementptr inbounds %"struct.OpenColorIO_v2_4dev::RendererParams", ptr %green.i331, i64 0, i32 3
+  %offset.i61.i = getelementptr inbounds i8, ptr %green.i331, i64 4
+  %breakPnt.i62.i = getelementptr inbounds i8, ptr %green.i331, i64 8
+  %slope.i63.i = getelementptr inbounds i8, ptr %green.i331, i64 12
   store <4 x float> <float 1.000000e+00, float 0.000000e+00, float 0.000000e+00, float 1.000000e+00>, ptr %green.i331, align 16
-  %scale.i64.i = getelementptr inbounds %"struct.OpenColorIO_v2_4dev::RendererParams", ptr %green.i331, i64 0, i32 4
+  %scale.i64.i = getelementptr inbounds i8, ptr %green.i331, i64 16
   store float 1.000000e+00, ptr %scale.i64.i, align 16
-  %offset.i65.i = getelementptr inbounds %"struct.OpenColorIO_v2_4dev::RendererParams", ptr %blue.i332, i64 0, i32 1
-  %breakPnt.i66.i = getelementptr inbounds %"struct.OpenColorIO_v2_4dev::RendererParams", ptr %blue.i332, i64 0, i32 2
-  %slope.i67.i = getelementptr inbounds %"struct.OpenColorIO_v2_4dev::RendererParams", ptr %blue.i332, i64 0, i32 3
+  %offset.i65.i = getelementptr inbounds i8, ptr %blue.i332, i64 4
+  %breakPnt.i66.i = getelementptr inbounds i8, ptr %blue.i332, i64 8
+  %slope.i67.i = getelementptr inbounds i8, ptr %blue.i332, i64 12
   store <4 x float> <float 1.000000e+00, float 0.000000e+00, float 0.000000e+00, float 1.000000e+00>, ptr %blue.i332, align 16
-  %scale.i68.i = getelementptr inbounds %"struct.OpenColorIO_v2_4dev::RendererParams", ptr %blue.i332, i64 0, i32 4
+  %scale.i68.i = getelementptr inbounds i8, ptr %blue.i332, i64 16
   store float 1.000000e+00, ptr %scale.i68.i, align 16
-  %offset.i69.i = getelementptr inbounds %"struct.OpenColorIO_v2_4dev::RendererParams", ptr %alpha.i333, i64 0, i32 1
-  %breakPnt.i70.i = getelementptr inbounds %"struct.OpenColorIO_v2_4dev::RendererParams", ptr %alpha.i333, i64 0, i32 2
-  %slope.i71.i = getelementptr inbounds %"struct.OpenColorIO_v2_4dev::RendererParams", ptr %alpha.i333, i64 0, i32 3
+  %offset.i69.i = getelementptr inbounds i8, ptr %alpha.i333, i64 4
+  %breakPnt.i70.i = getelementptr inbounds i8, ptr %alpha.i333, i64 8
+  %slope.i71.i = getelementptr inbounds i8, ptr %alpha.i333, i64 12
   store <4 x float> <float 1.000000e+00, float 0.000000e+00, float 0.000000e+00, float 1.000000e+00>, ptr %alpha.i333, align 16
-  %scale.i72.i = getelementptr inbounds %"struct.OpenColorIO_v2_4dev::RendererParams", ptr %alpha.i333, i64 0, i32 4
+  %scale.i72.i = getelementptr inbounds i8, ptr %alpha.i333, i64 16
   store float 1.000000e+00, ptr %scale.i72.i, align 16
-  %m_redParams.i.i357 = getelementptr inbounds %"class.OpenColorIO_v2_4dev::GammaOpData", ptr %160, i64 0, i32 2
+  %m_redParams.i.i357 = getelementptr inbounds i8, ptr %160, i64 176
   invoke void @_ZN19OpenColorIO_v2_4dev16ComputeParamsFwdERKSt6vectorIdSaIdEERNS_14RendererParamsE(ptr noundef nonnull align 8 dereferenceable(24) %m_redParams.i.i357, ptr noundef nonnull align 4 dereferenceable(20) %red.i330)
           to label %.noexc417 unwind label %lpad40
 
 .noexc417:                                        ; preds = %_ZNSt10shared_ptrIKN19OpenColorIO_v2_4dev11GammaOpDataEEC2ERKS3_.exit329
   %161 = load ptr, ptr %agg.tmp39, align 8
-  %m_greenParams.i.i358 = getelementptr inbounds %"class.OpenColorIO_v2_4dev::GammaOpData", ptr %161, i64 0, i32 3
+  %m_greenParams.i.i358 = getelementptr inbounds i8, ptr %161, i64 200
   invoke void @_ZN19OpenColorIO_v2_4dev16ComputeParamsFwdERKSt6vectorIdSaIdEERNS_14RendererParamsE(ptr noundef nonnull align 8 dereferenceable(24) %m_greenParams.i.i358, ptr noundef nonnull align 4 dereferenceable(20) %green.i331)
           to label %.noexc418 unwind label %lpad40
 
 .noexc418:                                        ; preds = %.noexc417
-  %m_blueParams.i.i359 = getelementptr inbounds %"class.OpenColorIO_v2_4dev::GammaOpData", ptr %161, i64 0, i32 4
+  %m_blueParams.i.i359 = getelementptr inbounds i8, ptr %161, i64 224
   invoke void @_ZN19OpenColorIO_v2_4dev16ComputeParamsFwdERKSt6vectorIdSaIdEERNS_14RendererParamsE(ptr noundef nonnull align 8 dereferenceable(24) %m_blueParams.i.i359, ptr noundef nonnull align 4 dereferenceable(20) %blue.i332)
           to label %.noexc419 unwind label %lpad40
 
 .noexc419:                                        ; preds = %.noexc418
-  %m_alphaParams.i.i360 = getelementptr inbounds %"class.OpenColorIO_v2_4dev::GammaOpData", ptr %161, i64 0, i32 5
+  %m_alphaParams.i.i360 = getelementptr inbounds i8, ptr %161, i64 248
   invoke void @_ZN19OpenColorIO_v2_4dev16ComputeParamsFwdERKSt6vectorIdSaIdEERNS_14RendererParamsE(ptr noundef nonnull align 8 dereferenceable(24) %m_alphaParams.i.i360, ptr noundef nonnull align 4 dereferenceable(20) %alpha.i333)
           to label %.noexc420 unwind label %lpad40
 
@@ -3165,7 +3143,7 @@ invoke.cont41:                                    ; preds = %invoke.cont250.i
   br i1 %cmp.not.i.i.i423, label %sw.epilog, label %if.then.i.i.i424
 
 if.then.i.i.i424:                                 ; preds = %invoke.cont41
-  %_M_use_count.i.i.i.i425 = getelementptr inbounds %"class.std::_Sp_counted_base", ptr %224, i64 0, i32 1
+  %_M_use_count.i.i.i.i425 = getelementptr inbounds i8, ptr %224, i64 8
   %225 = load atomic i64, ptr %_M_use_count.i.i.i.i425 acquire, align 8
   %cmp.i.i.i.i426 = icmp eq i64 %225, 4294967297
   %226 = trunc i64 %225 to i32
@@ -3192,10 +3170,10 @@ _ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i431: ; preds = %if.el
 
 if.then7.i.i.i.i434:                              ; preds = %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i431
   %vtable.i.i.i.i.i.i435 = load ptr, ptr %224, align 8
-  %vfn.i.i.i.i.i.i436 = getelementptr inbounds ptr, ptr %vtable.i.i.i.i.i.i435, i64 2
+  %vfn.i.i.i.i.i.i436 = getelementptr inbounds i8, ptr %vtable.i.i.i.i.i.i435, i64 16
   %229 = load ptr, ptr %vfn.i.i.i.i.i.i436, align 8
   call void %229(ptr noundef nonnull align 8 dereferenceable(16) %224) #5
-  %_M_weak_count.i.i.i.i.i.i437 = getelementptr inbounds %"class.std::_Sp_counted_base", ptr %224, i64 0, i32 2
+  %_M_weak_count.i.i.i.i.i.i437 = getelementptr inbounds i8, ptr %224, i64 12
   %230 = load i8, ptr @__libc_single_threaded, align 1
   %tobool.i.i.not.i.i.i.i.i.i438 = icmp eq i8 %230, 0
   br i1 %tobool.i.i.not.i.i.i.i.i.i438, label %if.else.i.i.i.i.i.i.i447, label %if.then.i.i.i.i.i.i.i439
@@ -3227,15 +3205,15 @@ lpad40.body:                                      ; preds = %lpad.i362, %ehclean
 
 sw.bb42:                                          ; preds = %invoke.cont29
   store ptr %3, ptr %agg.tmp43, align 8
-  %_M_refcount.i.i454 = getelementptr inbounds %"class.std::__shared_ptr.14", ptr %agg.tmp43, i64 0, i32 1
-  %_M_refcount3.i.i455 = getelementptr inbounds %"class.std::__shared_ptr.14", ptr %gammaData, i64 0, i32 1
+  %_M_refcount.i.i454 = getelementptr inbounds i8, ptr %agg.tmp43, i64 8
+  %_M_refcount3.i.i455 = getelementptr inbounds i8, ptr %gammaData, i64 8
   %234 = load ptr, ptr %_M_refcount3.i.i455, align 8
   store ptr %234, ptr %_M_refcount.i.i454, align 8
   %cmp.not.i.i.i456 = icmp eq ptr %234, null
   br i1 %cmp.not.i.i.i456, label %_ZNSt10shared_ptrIKN19OpenColorIO_v2_4dev11GammaOpDataEEC2ERKS3_.exit463, label %if.then.i.i.i457
 
 if.then.i.i.i457:                                 ; preds = %sw.bb42
-  %_M_use_count.i.i.i.i458 = getelementptr inbounds %"class.std::_Sp_counted_base", ptr %234, i64 0, i32 1
+  %_M_use_count.i.i.i.i458 = getelementptr inbounds i8, ptr %234, i64 8
   %235 = load i8, ptr @__libc_single_threaded, align 1
   %tobool.i.not.i.i.i.i459 = icmp eq i8 %235, 0
   br i1 %tobool.i.not.i.i.i.i459, label %if.else.i.i.i.i.i462, label %if.then.i.i.i.i.i460
@@ -3305,47 +3283,47 @@ _ZNSt10shared_ptrIKN19OpenColorIO_v2_4dev11GammaOpDataEEC2ERKS3_.exit463: ; pred
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %ref.tmp228.i513)
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %ref.tmp229.i514)
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %ref.tmp247.i515)
-  %offset.i.i516 = getelementptr inbounds %"struct.OpenColorIO_v2_4dev::RendererParams", ptr %red.i464, i64 0, i32 1
-  %breakPnt.i.i517 = getelementptr inbounds %"struct.OpenColorIO_v2_4dev::RendererParams", ptr %red.i464, i64 0, i32 2
-  %slope.i.i518 = getelementptr inbounds %"struct.OpenColorIO_v2_4dev::RendererParams", ptr %red.i464, i64 0, i32 3
+  %offset.i.i516 = getelementptr inbounds i8, ptr %red.i464, i64 4
+  %breakPnt.i.i517 = getelementptr inbounds i8, ptr %red.i464, i64 8
+  %slope.i.i518 = getelementptr inbounds i8, ptr %red.i464, i64 12
   store <4 x float> <float 1.000000e+00, float 0.000000e+00, float 0.000000e+00, float 1.000000e+00>, ptr %red.i464, align 16
-  %scale.i.i519 = getelementptr inbounds %"struct.OpenColorIO_v2_4dev::RendererParams", ptr %red.i464, i64 0, i32 4
+  %scale.i.i519 = getelementptr inbounds i8, ptr %red.i464, i64 16
   store float 1.000000e+00, ptr %scale.i.i519, align 16
-  %offset.i61.i520 = getelementptr inbounds %"struct.OpenColorIO_v2_4dev::RendererParams", ptr %green.i465, i64 0, i32 1
-  %breakPnt.i62.i521 = getelementptr inbounds %"struct.OpenColorIO_v2_4dev::RendererParams", ptr %green.i465, i64 0, i32 2
-  %slope.i63.i522 = getelementptr inbounds %"struct.OpenColorIO_v2_4dev::RendererParams", ptr %green.i465, i64 0, i32 3
+  %offset.i61.i520 = getelementptr inbounds i8, ptr %green.i465, i64 4
+  %breakPnt.i62.i521 = getelementptr inbounds i8, ptr %green.i465, i64 8
+  %slope.i63.i522 = getelementptr inbounds i8, ptr %green.i465, i64 12
   store <4 x float> <float 1.000000e+00, float 0.000000e+00, float 0.000000e+00, float 1.000000e+00>, ptr %green.i465, align 16
-  %scale.i64.i523 = getelementptr inbounds %"struct.OpenColorIO_v2_4dev::RendererParams", ptr %green.i465, i64 0, i32 4
+  %scale.i64.i523 = getelementptr inbounds i8, ptr %green.i465, i64 16
   store float 1.000000e+00, ptr %scale.i64.i523, align 16
-  %offset.i65.i524 = getelementptr inbounds %"struct.OpenColorIO_v2_4dev::RendererParams", ptr %blue.i466, i64 0, i32 1
-  %breakPnt.i66.i525 = getelementptr inbounds %"struct.OpenColorIO_v2_4dev::RendererParams", ptr %blue.i466, i64 0, i32 2
-  %slope.i67.i526 = getelementptr inbounds %"struct.OpenColorIO_v2_4dev::RendererParams", ptr %blue.i466, i64 0, i32 3
+  %offset.i65.i524 = getelementptr inbounds i8, ptr %blue.i466, i64 4
+  %breakPnt.i66.i525 = getelementptr inbounds i8, ptr %blue.i466, i64 8
+  %slope.i67.i526 = getelementptr inbounds i8, ptr %blue.i466, i64 12
   store <4 x float> <float 1.000000e+00, float 0.000000e+00, float 0.000000e+00, float 1.000000e+00>, ptr %blue.i466, align 16
-  %scale.i68.i527 = getelementptr inbounds %"struct.OpenColorIO_v2_4dev::RendererParams", ptr %blue.i466, i64 0, i32 4
+  %scale.i68.i527 = getelementptr inbounds i8, ptr %blue.i466, i64 16
   store float 1.000000e+00, ptr %scale.i68.i527, align 16
-  %offset.i69.i528 = getelementptr inbounds %"struct.OpenColorIO_v2_4dev::RendererParams", ptr %alpha.i467, i64 0, i32 1
-  %breakPnt.i70.i529 = getelementptr inbounds %"struct.OpenColorIO_v2_4dev::RendererParams", ptr %alpha.i467, i64 0, i32 2
-  %slope.i71.i530 = getelementptr inbounds %"struct.OpenColorIO_v2_4dev::RendererParams", ptr %alpha.i467, i64 0, i32 3
+  %offset.i69.i528 = getelementptr inbounds i8, ptr %alpha.i467, i64 4
+  %breakPnt.i70.i529 = getelementptr inbounds i8, ptr %alpha.i467, i64 8
+  %slope.i71.i530 = getelementptr inbounds i8, ptr %alpha.i467, i64 12
   store <4 x float> <float 1.000000e+00, float 0.000000e+00, float 0.000000e+00, float 1.000000e+00>, ptr %alpha.i467, align 16
-  %scale.i72.i531 = getelementptr inbounds %"struct.OpenColorIO_v2_4dev::RendererParams", ptr %alpha.i467, i64 0, i32 4
+  %scale.i72.i531 = getelementptr inbounds i8, ptr %alpha.i467, i64 16
   store float 1.000000e+00, ptr %scale.i72.i531, align 16
-  %m_redParams.i.i532 = getelementptr inbounds %"class.OpenColorIO_v2_4dev::GammaOpData", ptr %238, i64 0, i32 2
+  %m_redParams.i.i532 = getelementptr inbounds i8, ptr %238, i64 176
   invoke void @_ZN19OpenColorIO_v2_4dev16ComputeParamsRevERKSt6vectorIdSaIdEERNS_14RendererParamsE(ptr noundef nonnull align 8 dereferenceable(24) %m_redParams.i.i532, ptr noundef nonnull align 4 dereferenceable(20) %red.i464)
           to label %.noexc731 unwind label %lpad44
 
 .noexc731:                                        ; preds = %_ZNSt10shared_ptrIKN19OpenColorIO_v2_4dev11GammaOpDataEEC2ERKS3_.exit463
   %239 = load ptr, ptr %agg.tmp43, align 8
-  %m_greenParams.i.i533 = getelementptr inbounds %"class.OpenColorIO_v2_4dev::GammaOpData", ptr %239, i64 0, i32 3
+  %m_greenParams.i.i533 = getelementptr inbounds i8, ptr %239, i64 200
   invoke void @_ZN19OpenColorIO_v2_4dev16ComputeParamsRevERKSt6vectorIdSaIdEERNS_14RendererParamsE(ptr noundef nonnull align 8 dereferenceable(24) %m_greenParams.i.i533, ptr noundef nonnull align 4 dereferenceable(20) %green.i465)
           to label %.noexc732 unwind label %lpad44
 
 .noexc732:                                        ; preds = %.noexc731
-  %m_blueParams.i.i534 = getelementptr inbounds %"class.OpenColorIO_v2_4dev::GammaOpData", ptr %239, i64 0, i32 4
+  %m_blueParams.i.i534 = getelementptr inbounds i8, ptr %239, i64 224
   invoke void @_ZN19OpenColorIO_v2_4dev16ComputeParamsRevERKSt6vectorIdSaIdEERNS_14RendererParamsE(ptr noundef nonnull align 8 dereferenceable(24) %m_blueParams.i.i534, ptr noundef nonnull align 4 dereferenceable(20) %blue.i466)
           to label %.noexc733 unwind label %lpad44
 
 .noexc733:                                        ; preds = %.noexc732
-  %m_alphaParams.i.i535 = getelementptr inbounds %"class.OpenColorIO_v2_4dev::GammaOpData", ptr %239, i64 0, i32 5
+  %m_alphaParams.i.i535 = getelementptr inbounds i8, ptr %239, i64 248
   invoke void @_ZN19OpenColorIO_v2_4dev16ComputeParamsRevERKSt6vectorIdSaIdEERNS_14RendererParamsE(ptr noundef nonnull align 8 dereferenceable(24) %m_alphaParams.i.i535, ptr noundef nonnull align 4 dereferenceable(20) %alpha.i467)
           to label %.noexc734 unwind label %lpad44
 
@@ -4125,7 +4103,7 @@ invoke.cont45:                                    ; preds = %invoke.cont250.i729
   br i1 %cmp.not.i.i.i737, label %sw.epilog, label %if.then.i.i.i738
 
 if.then.i.i.i738:                                 ; preds = %invoke.cont45
-  %_M_use_count.i.i.i.i739 = getelementptr inbounds %"class.std::_Sp_counted_base", ptr %302, i64 0, i32 1
+  %_M_use_count.i.i.i.i739 = getelementptr inbounds i8, ptr %302, i64 8
   %303 = load atomic i64, ptr %_M_use_count.i.i.i.i739 acquire, align 8
   %cmp.i.i.i.i740 = icmp eq i64 %303, 4294967297
   %304 = trunc i64 %303 to i32
@@ -4152,10 +4130,10 @@ _ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i745: ; preds = %if.el
 
 if.then7.i.i.i.i748:                              ; preds = %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i745
   %vtable.i.i.i.i.i.i749 = load ptr, ptr %302, align 8
-  %vfn.i.i.i.i.i.i750 = getelementptr inbounds ptr, ptr %vtable.i.i.i.i.i.i749, i64 2
+  %vfn.i.i.i.i.i.i750 = getelementptr inbounds i8, ptr %vtable.i.i.i.i.i.i749, i64 16
   %307 = load ptr, ptr %vfn.i.i.i.i.i.i750, align 8
   call void %307(ptr noundef nonnull align 8 dereferenceable(16) %302) #5
-  %_M_weak_count.i.i.i.i.i.i751 = getelementptr inbounds %"class.std::_Sp_counted_base", ptr %302, i64 0, i32 2
+  %_M_weak_count.i.i.i.i.i.i751 = getelementptr inbounds i8, ptr %302, i64 12
   %308 = load i8, ptr @__libc_single_threaded, align 1
   %tobool.i.i.not.i.i.i.i.i.i752 = icmp eq i8 %308, 0
   br i1 %tobool.i.i.not.i.i.i.i.i.i752, label %if.else.i.i.i.i.i.i.i761, label %if.then.i.i.i.i.i.i.i753
@@ -4187,15 +4165,15 @@ lpad44.body:                                      ; preds = %lpad.i537, %ehclean
 
 sw.bb46:                                          ; preds = %invoke.cont29
   store ptr %3, ptr %agg.tmp47, align 8
-  %_M_refcount.i.i768 = getelementptr inbounds %"class.std::__shared_ptr.14", ptr %agg.tmp47, i64 0, i32 1
-  %_M_refcount3.i.i769 = getelementptr inbounds %"class.std::__shared_ptr.14", ptr %gammaData, i64 0, i32 1
+  %_M_refcount.i.i768 = getelementptr inbounds i8, ptr %agg.tmp47, i64 8
+  %_M_refcount3.i.i769 = getelementptr inbounds i8, ptr %gammaData, i64 8
   %312 = load ptr, ptr %_M_refcount3.i.i769, align 8
   store ptr %312, ptr %_M_refcount.i.i768, align 8
   %cmp.not.i.i.i770 = icmp eq ptr %312, null
   br i1 %cmp.not.i.i.i770, label %_ZNSt10shared_ptrIKN19OpenColorIO_v2_4dev11GammaOpDataEEC2ERKS3_.exit777, label %if.then.i.i.i771
 
 if.then.i.i.i771:                                 ; preds = %sw.bb46
-  %_M_use_count.i.i.i.i772 = getelementptr inbounds %"class.std::_Sp_counted_base", ptr %312, i64 0, i32 1
+  %_M_use_count.i.i.i.i772 = getelementptr inbounds i8, ptr %312, i64 8
   %313 = load i8, ptr @__libc_single_threaded, align 1
   %tobool.i.not.i.i.i.i773 = icmp eq i8 %313, 0
   br i1 %tobool.i.not.i.i.i.i773, label %if.else.i.i.i.i.i776, label %if.then.i.i.i.i.i774
@@ -4232,16 +4210,16 @@ _ZNSt10shared_ptrIKN19OpenColorIO_v2_4dev11GammaOpDataEEC2ERKS3_.exit777: ; pred
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %ref.tmp67.i782)
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %ref.tmp68.i783)
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %ref.tmp86.i)
-  %m_redParams.i.i784 = getelementptr inbounds %"class.OpenColorIO_v2_4dev::GammaOpData", ptr %agg.tmp47.val, i64 0, i32 2
+  %m_redParams.i.i784 = getelementptr inbounds i8, ptr %agg.tmp47.val, i64 176
   %316 = load ptr, ptr %m_redParams.i.i784, align 8
   %317 = load double, ptr %316, align 8
-  %m_greenParams.i.i785 = getelementptr inbounds %"class.OpenColorIO_v2_4dev::GammaOpData", ptr %agg.tmp47.val, i64 0, i32 3
+  %m_greenParams.i.i785 = getelementptr inbounds i8, ptr %agg.tmp47.val, i64 200
   %318 = load ptr, ptr %m_greenParams.i.i785, align 8
   %319 = load double, ptr %318, align 8
-  %m_blueParams.i.i786 = getelementptr inbounds %"class.OpenColorIO_v2_4dev::GammaOpData", ptr %agg.tmp47.val, i64 0, i32 4
+  %m_blueParams.i.i786 = getelementptr inbounds i8, ptr %agg.tmp47.val, i64 224
   %320 = load ptr, ptr %m_blueParams.i.i786, align 8
   %321 = load double, ptr %320, align 8
-  %m_alphaParams.i.i787 = getelementptr inbounds %"class.OpenColorIO_v2_4dev::GammaOpData", ptr %agg.tmp47.val, i64 0, i32 5
+  %m_alphaParams.i.i787 = getelementptr inbounds i8, ptr %agg.tmp47.val, i64 248
   %322 = load ptr, ptr %m_alphaParams.i.i787, align 8
   %323 = load double, ptr %322, align 8
   %call13.i = call noundef ptr @_ZNK19OpenColorIO_v2_4dev16GpuShaderCreator12getPixelNameEv(ptr noundef nonnull align 8 dereferenceable(16) %shaderCreator.val) #5
@@ -4525,7 +4503,7 @@ invoke.cont49:                                    ; preds = %invoke.cont89.i806
   br i1 %cmp.not.i.i.i809, label %sw.epilog, label %if.then.i.i.i810
 
 if.then.i.i.i810:                                 ; preds = %invoke.cont49
-  %_M_use_count.i.i.i.i811 = getelementptr inbounds %"class.std::_Sp_counted_base", ptr %339, i64 0, i32 1
+  %_M_use_count.i.i.i.i811 = getelementptr inbounds i8, ptr %339, i64 8
   %340 = load atomic i64, ptr %_M_use_count.i.i.i.i811 acquire, align 8
   %cmp.i.i.i.i812 = icmp eq i64 %340, 4294967297
   %341 = trunc i64 %340 to i32
@@ -4552,10 +4530,10 @@ _ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i817: ; preds = %if.el
 
 if.then7.i.i.i.i820:                              ; preds = %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i817
   %vtable.i.i.i.i.i.i821 = load ptr, ptr %339, align 8
-  %vfn.i.i.i.i.i.i822 = getelementptr inbounds ptr, ptr %vtable.i.i.i.i.i.i821, i64 2
+  %vfn.i.i.i.i.i.i822 = getelementptr inbounds i8, ptr %vtable.i.i.i.i.i.i821, i64 16
   %344 = load ptr, ptr %vfn.i.i.i.i.i.i822, align 8
   call void %344(ptr noundef nonnull align 8 dereferenceable(16) %339) #5
-  %_M_weak_count.i.i.i.i.i.i823 = getelementptr inbounds %"class.std::_Sp_counted_base", ptr %339, i64 0, i32 2
+  %_M_weak_count.i.i.i.i.i.i823 = getelementptr inbounds i8, ptr %339, i64 12
   %345 = load i8, ptr @__libc_single_threaded, align 1
   %tobool.i.i.not.i.i.i.i.i.i824 = icmp eq i8 %345, 0
   br i1 %tobool.i.i.not.i.i.i.i.i.i824, label %if.else.i.i.i.i.i.i.i833, label %if.then.i.i.i.i.i.i.i825
@@ -4582,15 +4560,15 @@ lpad48.body:                                      ; preds = %lpad.i788, %ehclean
 
 sw.bb50:                                          ; preds = %invoke.cont29
   store ptr %3, ptr %agg.tmp51, align 8
-  %_M_refcount.i.i840 = getelementptr inbounds %"class.std::__shared_ptr.14", ptr %agg.tmp51, i64 0, i32 1
-  %_M_refcount3.i.i841 = getelementptr inbounds %"class.std::__shared_ptr.14", ptr %gammaData, i64 0, i32 1
+  %_M_refcount.i.i840 = getelementptr inbounds i8, ptr %agg.tmp51, i64 8
+  %_M_refcount3.i.i841 = getelementptr inbounds i8, ptr %gammaData, i64 8
   %348 = load ptr, ptr %_M_refcount3.i.i841, align 8
   store ptr %348, ptr %_M_refcount.i.i840, align 8
   %cmp.not.i.i.i842 = icmp eq ptr %348, null
   br i1 %cmp.not.i.i.i842, label %_ZNSt10shared_ptrIKN19OpenColorIO_v2_4dev11GammaOpDataEEC2ERKS3_.exit849, label %if.then.i.i.i843
 
 if.then.i.i.i843:                                 ; preds = %sw.bb50
-  %_M_use_count.i.i.i.i844 = getelementptr inbounds %"class.std::_Sp_counted_base", ptr %348, i64 0, i32 1
+  %_M_use_count.i.i.i.i844 = getelementptr inbounds i8, ptr %348, i64 8
   %349 = load i8, ptr @__libc_single_threaded, align 1
   %tobool.i.not.i.i.i.i845 = icmp eq i8 %349, 0
   br i1 %tobool.i.not.i.i.i.i845, label %if.else.i.i.i.i.i848, label %if.then.i.i.i.i.i846
@@ -4627,19 +4605,19 @@ _ZNSt10shared_ptrIKN19OpenColorIO_v2_4dev11GammaOpDataEEC2ERKS3_.exit849: ; pred
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %ref.tmp70.i)
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %ref.tmp71.i)
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %ref.tmp89.i)
-  %m_redParams.i.i855 = getelementptr inbounds %"class.OpenColorIO_v2_4dev::GammaOpData", ptr %agg.tmp51.val, i64 0, i32 2
+  %m_redParams.i.i855 = getelementptr inbounds i8, ptr %agg.tmp51.val, i64 176
   %352 = load ptr, ptr %m_redParams.i.i855, align 8
   %353 = load double, ptr %352, align 8
   %div.i = fdiv double 1.000000e+00, %353
-  %m_greenParams.i.i856 = getelementptr inbounds %"class.OpenColorIO_v2_4dev::GammaOpData", ptr %agg.tmp51.val, i64 0, i32 3
+  %m_greenParams.i.i856 = getelementptr inbounds i8, ptr %agg.tmp51.val, i64 200
   %354 = load ptr, ptr %m_greenParams.i.i856, align 8
   %355 = load double, ptr %354, align 8
   %div6.i = fdiv double 1.000000e+00, %355
-  %m_blueParams.i.i857 = getelementptr inbounds %"class.OpenColorIO_v2_4dev::GammaOpData", ptr %agg.tmp51.val, i64 0, i32 4
+  %m_blueParams.i.i857 = getelementptr inbounds i8, ptr %agg.tmp51.val, i64 224
   %356 = load ptr, ptr %m_blueParams.i.i857, align 8
   %357 = load double, ptr %356, align 8
   %div10.i = fdiv double 1.000000e+00, %357
-  %m_alphaParams.i.i858 = getelementptr inbounds %"class.OpenColorIO_v2_4dev::GammaOpData", ptr %agg.tmp51.val, i64 0, i32 5
+  %m_alphaParams.i.i858 = getelementptr inbounds i8, ptr %agg.tmp51.val, i64 248
   %358 = load ptr, ptr %m_alphaParams.i.i858, align 8
   %359 = load double, ptr %358, align 8
   %div14.i = fdiv double 1.000000e+00, %359
@@ -4924,7 +4902,7 @@ invoke.cont53:                                    ; preds = %invoke.cont92.i889
   br i1 %cmp.not.i.i.i894, label %sw.epilog, label %if.then.i.i.i895
 
 if.then.i.i.i895:                                 ; preds = %invoke.cont53
-  %_M_use_count.i.i.i.i896 = getelementptr inbounds %"class.std::_Sp_counted_base", ptr %375, i64 0, i32 1
+  %_M_use_count.i.i.i.i896 = getelementptr inbounds i8, ptr %375, i64 8
   %376 = load atomic i64, ptr %_M_use_count.i.i.i.i896 acquire, align 8
   %cmp.i.i.i.i897 = icmp eq i64 %376, 4294967297
   %377 = trunc i64 %376 to i32
@@ -4951,10 +4929,10 @@ _ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i902: ; preds = %if.el
 
 if.then7.i.i.i.i905:                              ; preds = %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i902
   %vtable.i.i.i.i.i.i906 = load ptr, ptr %375, align 8
-  %vfn.i.i.i.i.i.i907 = getelementptr inbounds ptr, ptr %vtable.i.i.i.i.i.i906, i64 2
+  %vfn.i.i.i.i.i.i907 = getelementptr inbounds i8, ptr %vtable.i.i.i.i.i.i906, i64 16
   %380 = load ptr, ptr %vfn.i.i.i.i.i.i907, align 8
   call void %380(ptr noundef nonnull align 8 dereferenceable(16) %375) #5
-  %_M_weak_count.i.i.i.i.i.i908 = getelementptr inbounds %"class.std::_Sp_counted_base", ptr %375, i64 0, i32 2
+  %_M_weak_count.i.i.i.i.i.i908 = getelementptr inbounds i8, ptr %375, i64 12
   %381 = load i8, ptr @__libc_single_threaded, align 1
   %tobool.i.i.not.i.i.i.i.i.i909 = icmp eq i8 %381, 0
   br i1 %tobool.i.i.not.i.i.i.i.i.i909, label %if.else.i.i.i.i.i.i.i918, label %if.then.i.i.i.i.i.i.i910
@@ -4981,15 +4959,15 @@ lpad52.body:                                      ; preds = %lpad.i859, %ehclean
 
 sw.bb54:                                          ; preds = %invoke.cont29
   store ptr %3, ptr %agg.tmp55, align 8
-  %_M_refcount.i.i925 = getelementptr inbounds %"class.std::__shared_ptr.14", ptr %agg.tmp55, i64 0, i32 1
-  %_M_refcount3.i.i926 = getelementptr inbounds %"class.std::__shared_ptr.14", ptr %gammaData, i64 0, i32 1
+  %_M_refcount.i.i925 = getelementptr inbounds i8, ptr %agg.tmp55, i64 8
+  %_M_refcount3.i.i926 = getelementptr inbounds i8, ptr %gammaData, i64 8
   %384 = load ptr, ptr %_M_refcount3.i.i926, align 8
   store ptr %384, ptr %_M_refcount.i.i925, align 8
   %cmp.not.i.i.i927 = icmp eq ptr %384, null
   br i1 %cmp.not.i.i.i927, label %_ZNSt10shared_ptrIKN19OpenColorIO_v2_4dev11GammaOpDataEEC2ERKS3_.exit934, label %if.then.i.i.i928
 
 if.then.i.i.i928:                                 ; preds = %sw.bb54
-  %_M_use_count.i.i.i.i929 = getelementptr inbounds %"class.std::_Sp_counted_base", ptr %384, i64 0, i32 1
+  %_M_use_count.i.i.i.i929 = getelementptr inbounds i8, ptr %384, i64 8
   %385 = load i8, ptr @__libc_single_threaded, align 1
   %tobool.i.not.i.i.i.i930 = icmp eq i8 %385, 0
   br i1 %tobool.i.not.i.i.i.i930, label %if.else.i.i.i.i.i933, label %if.then.i.i.i.i.i931
@@ -5030,16 +5008,16 @@ _ZNSt10shared_ptrIKN19OpenColorIO_v2_4dev11GammaOpDataEEC2ERKS3_.exit934: ; pred
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %ref.tmp85.i)
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %ref.tmp86.i947)
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %ref.tmp104.i)
-  %m_redParams.i.i948 = getelementptr inbounds %"class.OpenColorIO_v2_4dev::GammaOpData", ptr %agg.tmp55.val, i64 0, i32 2
+  %m_redParams.i.i948 = getelementptr inbounds i8, ptr %agg.tmp55.val, i64 176
   %388 = load ptr, ptr %m_redParams.i.i948, align 8
   %389 = load double, ptr %388, align 8
-  %m_greenParams.i.i949 = getelementptr inbounds %"class.OpenColorIO_v2_4dev::GammaOpData", ptr %agg.tmp55.val, i64 0, i32 3
+  %m_greenParams.i.i949 = getelementptr inbounds i8, ptr %agg.tmp55.val, i64 200
   %390 = load ptr, ptr %m_greenParams.i.i949, align 8
   %391 = load double, ptr %390, align 8
-  %m_blueParams.i.i950 = getelementptr inbounds %"class.OpenColorIO_v2_4dev::GammaOpData", ptr %agg.tmp55.val, i64 0, i32 4
+  %m_blueParams.i.i950 = getelementptr inbounds i8, ptr %agg.tmp55.val, i64 224
   %392 = load ptr, ptr %m_blueParams.i.i950, align 8
   %393 = load double, ptr %392, align 8
-  %m_alphaParams.i.i951 = getelementptr inbounds %"class.OpenColorIO_v2_4dev::GammaOpData", ptr %agg.tmp55.val, i64 0, i32 5
+  %m_alphaParams.i.i951 = getelementptr inbounds i8, ptr %agg.tmp55.val, i64 248
   %394 = load ptr, ptr %m_alphaParams.i.i951, align 8
   %395 = load double, ptr %394, align 8
   %call13.i952 = call noundef ptr @_ZNK19OpenColorIO_v2_4dev16GpuShaderCreator12getPixelNameEv(ptr noundef nonnull align 8 dereferenceable(16) %shaderCreator.val25) #5
@@ -5379,7 +5357,7 @@ invoke.cont57:                                    ; preds = %invoke.cont107.i
   br i1 %cmp.not.i.i.i1004, label %sw.epilog, label %if.then.i.i.i1005
 
 if.then.i.i.i1005:                                ; preds = %invoke.cont57
-  %_M_use_count.i.i.i.i1006 = getelementptr inbounds %"class.std::_Sp_counted_base", ptr %414, i64 0, i32 1
+  %_M_use_count.i.i.i.i1006 = getelementptr inbounds i8, ptr %414, i64 8
   %415 = load atomic i64, ptr %_M_use_count.i.i.i.i1006 acquire, align 8
   %cmp.i.i.i.i1007 = icmp eq i64 %415, 4294967297
   %416 = trunc i64 %415 to i32
@@ -5406,10 +5384,10 @@ _ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i1012: ; preds = %if.e
 
 if.then7.i.i.i.i1015:                             ; preds = %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i1012
   %vtable.i.i.i.i.i.i1016 = load ptr, ptr %414, align 8
-  %vfn.i.i.i.i.i.i1017 = getelementptr inbounds ptr, ptr %vtable.i.i.i.i.i.i1016, i64 2
+  %vfn.i.i.i.i.i.i1017 = getelementptr inbounds i8, ptr %vtable.i.i.i.i.i.i1016, i64 16
   %419 = load ptr, ptr %vfn.i.i.i.i.i.i1017, align 8
   call void %419(ptr noundef nonnull align 8 dereferenceable(16) %414) #5
-  %_M_weak_count.i.i.i.i.i.i1018 = getelementptr inbounds %"class.std::_Sp_counted_base", ptr %414, i64 0, i32 2
+  %_M_weak_count.i.i.i.i.i.i1018 = getelementptr inbounds i8, ptr %414, i64 12
   %420 = load i8, ptr @__libc_single_threaded, align 1
   %tobool.i.i.not.i.i.i.i.i.i1019 = icmp eq i8 %420, 0
   br i1 %tobool.i.i.not.i.i.i.i.i.i1019, label %if.else.i.i.i.i.i.i.i1028, label %if.then.i.i.i.i.i.i.i1020
@@ -5436,15 +5414,15 @@ lpad56.body:                                      ; preds = %lpad.i953, %ehclean
 
 sw.bb58:                                          ; preds = %invoke.cont29
   store ptr %3, ptr %agg.tmp59, align 8
-  %_M_refcount.i.i1035 = getelementptr inbounds %"class.std::__shared_ptr.14", ptr %agg.tmp59, i64 0, i32 1
-  %_M_refcount3.i.i1036 = getelementptr inbounds %"class.std::__shared_ptr.14", ptr %gammaData, i64 0, i32 1
+  %_M_refcount.i.i1035 = getelementptr inbounds i8, ptr %agg.tmp59, i64 8
+  %_M_refcount3.i.i1036 = getelementptr inbounds i8, ptr %gammaData, i64 8
   %423 = load ptr, ptr %_M_refcount3.i.i1036, align 8
   store ptr %423, ptr %_M_refcount.i.i1035, align 8
   %cmp.not.i.i.i1037 = icmp eq ptr %423, null
   br i1 %cmp.not.i.i.i1037, label %_ZNSt10shared_ptrIKN19OpenColorIO_v2_4dev11GammaOpDataEEC2ERKS3_.exit1044, label %if.then.i.i.i1038
 
 if.then.i.i.i1038:                                ; preds = %sw.bb58
-  %_M_use_count.i.i.i.i1039 = getelementptr inbounds %"class.std::_Sp_counted_base", ptr %423, i64 0, i32 1
+  %_M_use_count.i.i.i.i1039 = getelementptr inbounds i8, ptr %423, i64 8
   %424 = load i8, ptr @__libc_single_threaded, align 1
   %tobool.i.not.i.i.i.i1040 = icmp eq i8 %424, 0
   br i1 %tobool.i.not.i.i.i.i1040, label %if.else.i.i.i.i.i1043, label %if.then.i.i.i.i.i1041
@@ -5485,19 +5463,19 @@ _ZNSt10shared_ptrIKN19OpenColorIO_v2_4dev11GammaOpDataEEC2ERKS3_.exit1044: ; pre
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %ref.tmp88.i)
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %ref.tmp89.i1062)
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %ref.tmp107.i1063)
-  %m_redParams.i.i1064 = getelementptr inbounds %"class.OpenColorIO_v2_4dev::GammaOpData", ptr %agg.tmp59.val, i64 0, i32 2
+  %m_redParams.i.i1064 = getelementptr inbounds i8, ptr %agg.tmp59.val, i64 176
   %427 = load ptr, ptr %m_redParams.i.i1064, align 8
   %428 = load double, ptr %427, align 8
   %div.i1065 = fdiv double 1.000000e+00, %428
-  %m_greenParams.i.i1066 = getelementptr inbounds %"class.OpenColorIO_v2_4dev::GammaOpData", ptr %agg.tmp59.val, i64 0, i32 3
+  %m_greenParams.i.i1066 = getelementptr inbounds i8, ptr %agg.tmp59.val, i64 200
   %429 = load ptr, ptr %m_greenParams.i.i1066, align 8
   %430 = load double, ptr %429, align 8
   %div6.i1067 = fdiv double 1.000000e+00, %430
-  %m_blueParams.i.i1068 = getelementptr inbounds %"class.OpenColorIO_v2_4dev::GammaOpData", ptr %agg.tmp59.val, i64 0, i32 4
+  %m_blueParams.i.i1068 = getelementptr inbounds i8, ptr %agg.tmp59.val, i64 224
   %431 = load ptr, ptr %m_blueParams.i.i1068, align 8
   %432 = load double, ptr %431, align 8
   %div10.i1069 = fdiv double 1.000000e+00, %432
-  %m_alphaParams.i.i1070 = getelementptr inbounds %"class.OpenColorIO_v2_4dev::GammaOpData", ptr %agg.tmp59.val, i64 0, i32 5
+  %m_alphaParams.i.i1070 = getelementptr inbounds i8, ptr %agg.tmp59.val, i64 248
   %433 = load ptr, ptr %m_alphaParams.i.i1070, align 8
   %434 = load double, ptr %433, align 8
   %div14.i1071 = fdiv double 1.000000e+00, %434
@@ -5838,7 +5816,7 @@ invoke.cont61:                                    ; preds = %invoke.cont110.i113
   br i1 %cmp.not.i.i.i1135, label %sw.epilog, label %if.then.i.i.i1136
 
 if.then.i.i.i1136:                                ; preds = %invoke.cont61
-  %_M_use_count.i.i.i.i1137 = getelementptr inbounds %"class.std::_Sp_counted_base", ptr %453, i64 0, i32 1
+  %_M_use_count.i.i.i.i1137 = getelementptr inbounds i8, ptr %453, i64 8
   %454 = load atomic i64, ptr %_M_use_count.i.i.i.i1137 acquire, align 8
   %cmp.i.i.i.i1138 = icmp eq i64 %454, 4294967297
   %455 = trunc i64 %454 to i32
@@ -5865,10 +5843,10 @@ _ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i1143: ; preds = %if.e
 
 if.then7.i.i.i.i1146:                             ; preds = %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i1143
   %vtable.i.i.i.i.i.i1147 = load ptr, ptr %453, align 8
-  %vfn.i.i.i.i.i.i1148 = getelementptr inbounds ptr, ptr %vtable.i.i.i.i.i.i1147, i64 2
+  %vfn.i.i.i.i.i.i1148 = getelementptr inbounds i8, ptr %vtable.i.i.i.i.i.i1147, i64 16
   %458 = load ptr, ptr %vfn.i.i.i.i.i.i1148, align 8
   call void %458(ptr noundef nonnull align 8 dereferenceable(16) %453) #5
-  %_M_weak_count.i.i.i.i.i.i1149 = getelementptr inbounds %"class.std::_Sp_counted_base", ptr %453, i64 0, i32 2
+  %_M_weak_count.i.i.i.i.i.i1149 = getelementptr inbounds i8, ptr %453, i64 12
   %459 = load i8, ptr @__libc_single_threaded, align 1
   %tobool.i.i.not.i.i.i.i.i.i1150 = icmp eq i8 %459, 0
   br i1 %tobool.i.i.not.i.i.i.i.i.i1150, label %if.else.i.i.i.i.i.i.i1159, label %if.then.i.i.i.i.i.i.i1151
@@ -5895,15 +5873,15 @@ lpad60.body:                                      ; preds = %lpad.i1073, %ehclea
 
 sw.bb62:                                          ; preds = %invoke.cont29
   store ptr %3, ptr %agg.tmp63, align 8
-  %_M_refcount.i.i1166 = getelementptr inbounds %"class.std::__shared_ptr.14", ptr %agg.tmp63, i64 0, i32 1
-  %_M_refcount3.i.i1167 = getelementptr inbounds %"class.std::__shared_ptr.14", ptr %gammaData, i64 0, i32 1
+  %_M_refcount.i.i1166 = getelementptr inbounds i8, ptr %agg.tmp63, i64 8
+  %_M_refcount3.i.i1167 = getelementptr inbounds i8, ptr %gammaData, i64 8
   %462 = load ptr, ptr %_M_refcount3.i.i1167, align 8
   store ptr %462, ptr %_M_refcount.i.i1166, align 8
   %cmp.not.i.i.i1168 = icmp eq ptr %462, null
   br i1 %cmp.not.i.i.i1168, label %_ZNSt10shared_ptrIKN19OpenColorIO_v2_4dev11GammaOpDataEEC2ERKS3_.exit1175, label %if.then.i.i.i1169
 
 if.then.i.i.i1169:                                ; preds = %sw.bb62
-  %_M_use_count.i.i.i.i1170 = getelementptr inbounds %"class.std::_Sp_counted_base", ptr %462, i64 0, i32 1
+  %_M_use_count.i.i.i.i1170 = getelementptr inbounds i8, ptr %462, i64 8
   %463 = load i8, ptr @__libc_single_threaded, align 1
   %tobool.i.not.i.i.i.i1171 = icmp eq i8 %463, 0
   br i1 %tobool.i.not.i.i.i.i1171, label %if.else.i.i.i.i.i1174, label %if.then.i.i.i.i.i1172
@@ -5954,16 +5932,16 @@ _ZNSt10shared_ptrIKN19OpenColorIO_v2_4dev11GammaOpDataEEC2ERKS3_.exit1175: ; pre
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %ref.tmp138.i1190)
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %ref.tmp139.i1191)
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %ref.tmp157.i)
-  %m_redParams.i.i1192 = getelementptr inbounds %"class.OpenColorIO_v2_4dev::GammaOpData", ptr %agg.tmp63.val, i64 0, i32 2
+  %m_redParams.i.i1192 = getelementptr inbounds i8, ptr %agg.tmp63.val, i64 176
   %466 = load ptr, ptr %m_redParams.i.i1192, align 8
   %467 = load double, ptr %466, align 8
-  %m_greenParams.i.i1193 = getelementptr inbounds %"class.OpenColorIO_v2_4dev::GammaOpData", ptr %agg.tmp63.val, i64 0, i32 3
+  %m_greenParams.i.i1193 = getelementptr inbounds i8, ptr %agg.tmp63.val, i64 200
   %468 = load ptr, ptr %m_greenParams.i.i1193, align 8
   %469 = load double, ptr %468, align 8
-  %m_blueParams.i.i1194 = getelementptr inbounds %"class.OpenColorIO_v2_4dev::GammaOpData", ptr %agg.tmp63.val, i64 0, i32 4
+  %m_blueParams.i.i1194 = getelementptr inbounds i8, ptr %agg.tmp63.val, i64 224
   %470 = load ptr, ptr %m_blueParams.i.i1194, align 8
   %471 = load double, ptr %470, align 8
-  %m_alphaParams.i.i1195 = getelementptr inbounds %"class.OpenColorIO_v2_4dev::GammaOpData", ptr %agg.tmp63.val, i64 0, i32 5
+  %m_alphaParams.i.i1195 = getelementptr inbounds i8, ptr %agg.tmp63.val, i64 248
   %472 = load ptr, ptr %m_alphaParams.i.i1195, align 8
   %473 = load double, ptr %472, align 8
   %call13.i1196 = call noundef ptr @_ZNK19OpenColorIO_v2_4dev16GpuShaderCreator12getPixelNameEv(ptr noundef nonnull align 8 dereferenceable(16) %shaderCreator.val27) #5
@@ -6473,7 +6451,7 @@ invoke.cont65:                                    ; preds = %invoke.cont160.i127
   br i1 %cmp.not.i.i.i1276, label %sw.epilog, label %if.then.i.i.i1277
 
 if.then.i.i.i1277:                                ; preds = %invoke.cont65
-  %_M_use_count.i.i.i.i1278 = getelementptr inbounds %"class.std::_Sp_counted_base", ptr %501, i64 0, i32 1
+  %_M_use_count.i.i.i.i1278 = getelementptr inbounds i8, ptr %501, i64 8
   %502 = load atomic i64, ptr %_M_use_count.i.i.i.i1278 acquire, align 8
   %cmp.i.i.i.i1279 = icmp eq i64 %502, 4294967297
   %503 = trunc i64 %502 to i32
@@ -6500,10 +6478,10 @@ _ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i1284: ; preds = %if.e
 
 if.then7.i.i.i.i1287:                             ; preds = %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i1284
   %vtable.i.i.i.i.i.i1288 = load ptr, ptr %501, align 8
-  %vfn.i.i.i.i.i.i1289 = getelementptr inbounds ptr, ptr %vtable.i.i.i.i.i.i1288, i64 2
+  %vfn.i.i.i.i.i.i1289 = getelementptr inbounds i8, ptr %vtable.i.i.i.i.i.i1288, i64 16
   %506 = load ptr, ptr %vfn.i.i.i.i.i.i1289, align 8
   call void %506(ptr noundef nonnull align 8 dereferenceable(16) %501) #5
-  %_M_weak_count.i.i.i.i.i.i1290 = getelementptr inbounds %"class.std::_Sp_counted_base", ptr %501, i64 0, i32 2
+  %_M_weak_count.i.i.i.i.i.i1290 = getelementptr inbounds i8, ptr %501, i64 12
   %507 = load i8, ptr @__libc_single_threaded, align 1
   %tobool.i.i.not.i.i.i.i.i.i1291 = icmp eq i8 %507, 0
   br i1 %tobool.i.i.not.i.i.i.i.i.i1291, label %if.else.i.i.i.i.i.i.i1300, label %if.then.i.i.i.i.i.i.i1292
@@ -6530,15 +6508,15 @@ lpad64.body:                                      ; preds = %lpad.i1197, %ehclea
 
 sw.bb66:                                          ; preds = %invoke.cont29
   store ptr %3, ptr %agg.tmp67, align 8
-  %_M_refcount.i.i1307 = getelementptr inbounds %"class.std::__shared_ptr.14", ptr %agg.tmp67, i64 0, i32 1
-  %_M_refcount3.i.i1308 = getelementptr inbounds %"class.std::__shared_ptr.14", ptr %gammaData, i64 0, i32 1
+  %_M_refcount.i.i1307 = getelementptr inbounds i8, ptr %agg.tmp67, i64 8
+  %_M_refcount3.i.i1308 = getelementptr inbounds i8, ptr %gammaData, i64 8
   %510 = load ptr, ptr %_M_refcount3.i.i1308, align 8
   store ptr %510, ptr %_M_refcount.i.i1307, align 8
   %cmp.not.i.i.i1309 = icmp eq ptr %510, null
   br i1 %cmp.not.i.i.i1309, label %_ZNSt10shared_ptrIKN19OpenColorIO_v2_4dev11GammaOpDataEEC2ERKS3_.exit1316, label %if.then.i.i.i1310
 
 if.then.i.i.i1310:                                ; preds = %sw.bb66
-  %_M_use_count.i.i.i.i1311 = getelementptr inbounds %"class.std::_Sp_counted_base", ptr %510, i64 0, i32 1
+  %_M_use_count.i.i.i.i1311 = getelementptr inbounds i8, ptr %510, i64 8
   %511 = load i8, ptr @__libc_single_threaded, align 1
   %tobool.i.not.i.i.i.i1312 = icmp eq i8 %511, 0
   br i1 %tobool.i.not.i.i.i.i1312, label %if.else.i.i.i.i.i1315, label %if.then.i.i.i.i.i1313
@@ -6589,19 +6567,19 @@ _ZNSt10shared_ptrIKN19OpenColorIO_v2_4dev11GammaOpDataEEC2ERKS3_.exit1316: ; pre
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %ref.tmp141.i)
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %ref.tmp142.i)
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %ref.tmp160.i1335)
-  %m_redParams.i.i1336 = getelementptr inbounds %"class.OpenColorIO_v2_4dev::GammaOpData", ptr %agg.tmp67.val, i64 0, i32 2
+  %m_redParams.i.i1336 = getelementptr inbounds i8, ptr %agg.tmp67.val, i64 176
   %514 = load ptr, ptr %m_redParams.i.i1336, align 8
   %515 = load double, ptr %514, align 8
   %div.i1337 = fdiv double 1.000000e+00, %515
-  %m_greenParams.i.i1338 = getelementptr inbounds %"class.OpenColorIO_v2_4dev::GammaOpData", ptr %agg.tmp67.val, i64 0, i32 3
+  %m_greenParams.i.i1338 = getelementptr inbounds i8, ptr %agg.tmp67.val, i64 200
   %516 = load ptr, ptr %m_greenParams.i.i1338, align 8
   %517 = load double, ptr %516, align 8
   %div6.i1339 = fdiv double 1.000000e+00, %517
-  %m_blueParams.i.i1340 = getelementptr inbounds %"class.OpenColorIO_v2_4dev::GammaOpData", ptr %agg.tmp67.val, i64 0, i32 4
+  %m_blueParams.i.i1340 = getelementptr inbounds i8, ptr %agg.tmp67.val, i64 224
   %518 = load ptr, ptr %m_blueParams.i.i1340, align 8
   %519 = load double, ptr %518, align 8
   %div10.i1341 = fdiv double 1.000000e+00, %519
-  %m_alphaParams.i.i1342 = getelementptr inbounds %"class.OpenColorIO_v2_4dev::GammaOpData", ptr %agg.tmp67.val, i64 0, i32 5
+  %m_alphaParams.i.i1342 = getelementptr inbounds i8, ptr %agg.tmp67.val, i64 248
   %520 = load ptr, ptr %m_alphaParams.i.i1342, align 8
   %521 = load double, ptr %520, align 8
   %div14.i1343 = fdiv double 1.000000e+00, %521
@@ -7112,7 +7090,7 @@ invoke.cont69:                                    ; preds = %invoke.cont163.i
   br i1 %cmp.not.i.i.i1437, label %sw.epilog, label %if.then.i.i.i1438
 
 if.then.i.i.i1438:                                ; preds = %invoke.cont69
-  %_M_use_count.i.i.i.i1439 = getelementptr inbounds %"class.std::_Sp_counted_base", ptr %549, i64 0, i32 1
+  %_M_use_count.i.i.i.i1439 = getelementptr inbounds i8, ptr %549, i64 8
   %550 = load atomic i64, ptr %_M_use_count.i.i.i.i1439 acquire, align 8
   %cmp.i.i.i.i1440 = icmp eq i64 %550, 4294967297
   %551 = trunc i64 %550 to i32
@@ -7139,10 +7117,10 @@ _ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i1445: ; preds = %if.e
 
 if.then7.i.i.i.i1448:                             ; preds = %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i1445
   %vtable.i.i.i.i.i.i1449 = load ptr, ptr %549, align 8
-  %vfn.i.i.i.i.i.i1450 = getelementptr inbounds ptr, ptr %vtable.i.i.i.i.i.i1449, i64 2
+  %vfn.i.i.i.i.i.i1450 = getelementptr inbounds i8, ptr %vtable.i.i.i.i.i.i1449, i64 16
   %554 = load ptr, ptr %vfn.i.i.i.i.i.i1450, align 8
   call void %554(ptr noundef nonnull align 8 dereferenceable(16) %549) #5
-  %_M_weak_count.i.i.i.i.i.i1451 = getelementptr inbounds %"class.std::_Sp_counted_base", ptr %549, i64 0, i32 2
+  %_M_weak_count.i.i.i.i.i.i1451 = getelementptr inbounds i8, ptr %549, i64 12
   %555 = load i8, ptr @__libc_single_threaded, align 1
   %tobool.i.i.not.i.i.i.i.i.i1452 = icmp eq i8 %555, 0
   br i1 %tobool.i.i.not.i.i.i.i.i.i1452, label %if.else.i.i.i.i.i.i.i1461, label %if.then.i.i.i.i.i.i.i1453
@@ -7171,10 +7149,10 @@ sw.epilog.sink.split.sink.split:                  ; preds = %if.then.i.i.i1438, 
   %_M_use_count.i.i.i.i1439.sink = phi ptr [ %_M_use_count.i.i.i.i36, %if.then.i.i.i35 ], [ %_M_use_count.i.i.i.i291, %if.then.i.i.i290 ], [ %_M_use_count.i.i.i.i425, %if.then.i.i.i424 ], [ %_M_use_count.i.i.i.i739, %if.then.i.i.i738 ], [ %_M_use_count.i.i.i.i811, %if.then.i.i.i810 ], [ %_M_use_count.i.i.i.i896, %if.then.i.i.i895 ], [ %_M_use_count.i.i.i.i1006, %if.then.i.i.i1005 ], [ %_M_use_count.i.i.i.i1137, %if.then.i.i.i1136 ], [ %_M_use_count.i.i.i.i1278, %if.then.i.i.i1277 ], [ %_M_use_count.i.i.i.i1439, %if.then.i.i.i1438 ]
   %.sink1483 = phi ptr [ %73, %if.then.i.i.i35 ], [ %146, %if.then.i.i.i290 ], [ %224, %if.then.i.i.i424 ], [ %302, %if.then.i.i.i738 ], [ %339, %if.then.i.i.i810 ], [ %375, %if.then.i.i.i895 ], [ %414, %if.then.i.i.i1005 ], [ %453, %if.then.i.i.i1136 ], [ %501, %if.then.i.i.i1277 ], [ %549, %if.then.i.i.i1438 ]
   store i32 0, ptr %_M_use_count.i.i.i.i1439.sink, align 8
-  %_M_weak_count.i.i.i.i1464 = getelementptr inbounds %"class.std::_Sp_counted_base", ptr %.sink1483, i64 0, i32 2
+  %_M_weak_count.i.i.i.i1464 = getelementptr inbounds i8, ptr %.sink1483, i64 12
   store i32 0, ptr %_M_weak_count.i.i.i.i1464, align 4
   %vtable.i.i.i.i1465 = load ptr, ptr %.sink1483, align 8
-  %vfn.i.i.i.i1466 = getelementptr inbounds ptr, ptr %vtable.i.i.i.i1465, i64 2
+  %vfn.i.i.i.i1466 = getelementptr inbounds i8, ptr %vtable.i.i.i.i1465, i64 16
   %558 = load ptr, ptr %vfn.i.i.i.i1466, align 8
   call void %558(ptr noundef nonnull align 8 dereferenceable(16) %.sink1483) #5
   br label %sw.epilog.sink.split
@@ -7182,7 +7160,7 @@ sw.epilog.sink.split.sink.split:                  ; preds = %if.then.i.i.i1438, 
 sw.epilog.sink.split:                             ; preds = %sw.epilog.sink.split.sink.split, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i1455, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i1294, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i1153, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i1022, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i912, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i827, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i755, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i441, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i307, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i
   %.sink1480 = phi ptr [ %73, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i ], [ %146, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i307 ], [ %224, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i441 ], [ %302, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i755 ], [ %339, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i827 ], [ %375, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i912 ], [ %414, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i1022 ], [ %453, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i1153 ], [ %501, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i1294 ], [ %549, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i1455 ], [ %.sink1483, %sw.epilog.sink.split.sink.split ]
   %vtable2.i.i.i.i.i.i1459 = load ptr, ptr %.sink1480, align 8
-  %vfn3.i.i.i.i.i.i1460 = getelementptr inbounds ptr, ptr %vtable2.i.i.i.i.i.i1459, i64 3
+  %vfn3.i.i.i.i.i.i1460 = getelementptr inbounds i8, ptr %vtable2.i.i.i.i.i.i1459, i64 24
   %559 = load ptr, ptr %vfn3.i.i.i.i.i.i1460, align 8
   call void %559(ptr noundef nonnull align 8 dereferenceable(16) %.sink1480) #5
   br label %sw.epilog
@@ -7212,16 +7190,16 @@ invoke.cont76:                                    ; preds = %invoke.cont74
 invoke.cont79:                                    ; preds = %invoke.cont76
   %call80 = call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5c_strEv(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp78) #5
   %vtable = load ptr, ptr %560, align 8
-  %vfn = getelementptr inbounds ptr, ptr %vtable, i64 18
+  %vfn = getelementptr inbounds i8, ptr %vtable, i64 144
   %561 = load ptr, ptr %vfn, align 8
   invoke void %561(ptr noundef nonnull align 8 dereferenceable(16) %560, ptr noundef %call80)
           to label %invoke.cont82 unwind label %lpad81
 
 invoke.cont82:                                    ; preds = %invoke.cont79
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp78) #5
-  %m_ossLine.i = getelementptr inbounds %"class.OpenColorIO_v2_4dev::GpuShaderText", ptr %ss, i64 0, i32 3
+  %m_ossLine.i = getelementptr inbounds i8, ptr %ss, i64 384
   call void @_ZNSt7__cxx1119basic_ostringstreamIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(112) %m_ossLine.i) #5
-  %m_ossText.i = getelementptr inbounds %"class.OpenColorIO_v2_4dev::GpuShaderText", ptr %ss, i64 0, i32 2
+  %m_ossText.i = getelementptr inbounds i8, ptr %ss, i64 8
   call void @_ZNSt7__cxx1119basic_ostringstreamIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(112) %m_ossText.i) #5
   ret void
 
@@ -7239,9 +7217,9 @@ lpad81:                                           ; preds = %invoke.cont79
 
 ehcleanup:                                        ; preds = %lpad81, %lpad73, %lpad68.body, %lpad64.body, %lpad60.body, %lpad56.body, %lpad52.body, %lpad48.body, %lpad44.body, %lpad40.body, %lpad36.body, %lpad32.body, %lpad26, %lpad21, %lpad8, %lpad3, %lpad
   %.pn = phi { ptr, i32 } [ %563, %lpad81 ], [ %5, %lpad ], [ %562, %lpad73 ], [ %eh.lpad-body1435, %lpad68.body ], [ %eh.lpad-body1274, %lpad64.body ], [ %eh.lpad-body1133, %lpad60.body ], [ %eh.lpad-body1002, %lpad56.body ], [ %eh.lpad-body892, %lpad52.body ], [ %eh.lpad-body807, %lpad48.body ], [ %eh.lpad-body735, %lpad44.body ], [ %eh.lpad-body421, %lpad40.body ], [ %eh.lpad-body287, %lpad36.body ], [ %eh.lpad-body, %lpad32.body ], [ %9, %lpad26 ], [ %8, %lpad21 ], [ %7, %lpad8 ], [ %6, %lpad3 ]
-  %m_ossLine.i1468 = getelementptr inbounds %"class.OpenColorIO_v2_4dev::GpuShaderText", ptr %ss, i64 0, i32 3
+  %m_ossLine.i1468 = getelementptr inbounds i8, ptr %ss, i64 384
   call void @_ZNSt7__cxx1119basic_ostringstreamIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(112) %m_ossLine.i1468) #5
-  %m_ossText.i1469 = getelementptr inbounds %"class.OpenColorIO_v2_4dev::GpuShaderText", ptr %ss, i64 0, i32 2
+  %m_ossText.i1469 = getelementptr inbounds i8, ptr %ss, i64 8
   call void @_ZNSt7__cxx1119basic_ostringstreamIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(112) %m_ossText.i1469) #5
   resume { ptr, i32 } %.pn
 }
@@ -7267,13 +7245,13 @@ declare noundef ptr @_ZN19OpenColorIO_v2_4dev11GammaOpData20ConvertStyleToString
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZNSt10shared_ptrIKN19OpenColorIO_v2_4dev11GammaOpDataEED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %this) unnamed_addr #3 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  %_M_refcount.i = getelementptr inbounds %"class.std::__shared_ptr.14", ptr %this, i64 0, i32 1
+  %_M_refcount.i = getelementptr inbounds i8, ptr %this, i64 8
   %0 = load ptr, ptr %_M_refcount.i, align 8
   %cmp.not.i.i = icmp eq ptr %0, null
   br i1 %cmp.not.i.i, label %_ZNSt12__shared_ptrIKN19OpenColorIO_v2_4dev11GammaOpDataELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit, label %if.then.i.i
 
 if.then.i.i:                                      ; preds = %entry
-  %_M_use_count.i.i.i = getelementptr inbounds %"class.std::_Sp_counted_base", ptr %0, i64 0, i32 1
+  %_M_use_count.i.i.i = getelementptr inbounds i8, ptr %0, i64 8
   %1 = load atomic i64, ptr %_M_use_count.i.i.i acquire, align 8
   %cmp.i.i.i = icmp eq i64 %1, 4294967297
   %2 = trunc i64 %1 to i32
@@ -7281,10 +7259,10 @@ if.then.i.i:                                      ; preds = %entry
 
 if.then.i.i.i:                                    ; preds = %if.then.i.i
   store i32 0, ptr %_M_use_count.i.i.i, align 8
-  %_M_weak_count.i.i.i = getelementptr inbounds %"class.std::_Sp_counted_base", ptr %0, i64 0, i32 2
+  %_M_weak_count.i.i.i = getelementptr inbounds i8, ptr %0, i64 12
   store i32 0, ptr %_M_weak_count.i.i.i, align 4
   %vtable.i.i.i = load ptr, ptr %0, align 8
-  %vfn.i.i.i = getelementptr inbounds ptr, ptr %vtable.i.i.i, i64 2
+  %vfn.i.i.i = getelementptr inbounds i8, ptr %vtable.i.i.i, i64 16
   %3 = load ptr, ptr %vfn.i.i.i, align 8
   tail call void %3(ptr noundef nonnull align 8 dereferenceable(16) %0) #5
   br label %if.end8.sink.split.i.i.i
@@ -7310,10 +7288,10 @@ _ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i: ; preds = %if.else.i.
 
 if.then7.i.i.i:                                   ; preds = %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i
   %vtable.i.i.i.i.i = load ptr, ptr %0, align 8
-  %vfn.i.i.i.i.i = getelementptr inbounds ptr, ptr %vtable.i.i.i.i.i, i64 2
+  %vfn.i.i.i.i.i = getelementptr inbounds i8, ptr %vtable.i.i.i.i.i, i64 16
   %6 = load ptr, ptr %vfn.i.i.i.i.i, align 8
   tail call void %6(ptr noundef nonnull align 8 dereferenceable(16) %0) #5
-  %_M_weak_count.i.i.i.i.i = getelementptr inbounds %"class.std::_Sp_counted_base", ptr %0, i64 0, i32 2
+  %_M_weak_count.i.i.i.i.i = getelementptr inbounds i8, ptr %0, i64 12
   %7 = load i8, ptr @__libc_single_threaded, align 1
   %tobool.i.i.not.i.i.i.i.i = icmp eq i8 %7, 0
   br i1 %tobool.i.i.not.i.i.i.i.i, label %if.else.i.i.i.i.i.i, label %if.then.i.i.i.i.i.i
@@ -7335,7 +7313,7 @@ _ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i: ; preds = %if.els
 
 if.end8.sink.split.i.i.i:                         ; preds = %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i, %if.then.i.i.i
   %vtable2.i.i.i.i.i = load ptr, ptr %0, align 8
-  %vfn3.i.i.i.i.i = getelementptr inbounds ptr, ptr %vtable2.i.i.i.i.i, i64 3
+  %vfn3.i.i.i.i.i = getelementptr inbounds i8, ptr %vtable2.i.i.i.i.i, i64 24
   %10 = load ptr, ptr %vfn3.i.i.i.i.i, align 8
   tail call void %10(ptr noundef nonnull align 8 dereferenceable(16) %0) #5
   br label %_ZNSt12__shared_ptrIKN19OpenColorIO_v2_4dev11GammaOpDataELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit

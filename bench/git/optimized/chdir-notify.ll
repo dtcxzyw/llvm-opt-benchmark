@@ -6,7 +6,6 @@ target triple = "x86_64-unknown-linux-gnu"
 %struct.list_head = type { ptr, ptr }
 %struct.strbuf = type { i64, i64, ptr }
 %struct.trace_key = type { ptr, i32, i8 }
-%struct.chdir_notify_entry = type { ptr, ptr, ptr, %struct.list_head }
 
 @chdir_notify_entries = internal global %struct.list_head { ptr @chdir_notify_entries, ptr @chdir_notify_entries }, align 8
 @strbuf_slopbuf = external global [0 x i8], align 1
@@ -22,16 +21,16 @@ define dso_local void @chdir_notify_register(ptr noundef %name, ptr noundef %cb,
 entry:
   %call = tail call ptr @xmalloc(i64 noundef 40) #6
   store ptr %name, ptr %call, align 8
-  %cb2 = getelementptr inbounds %struct.chdir_notify_entry, ptr %call, i64 0, i32 1
+  %cb2 = getelementptr inbounds i8, ptr %call, i64 8
   store ptr %cb, ptr %cb2, align 8
-  %data3 = getelementptr inbounds %struct.chdir_notify_entry, ptr %call, i64 0, i32 2
+  %data3 = getelementptr inbounds i8, ptr %call, i64 16
   store ptr %data, ptr %data3, align 8
-  %list = getelementptr inbounds %struct.chdir_notify_entry, ptr %call, i64 0, i32 3
+  %list = getelementptr inbounds i8, ptr %call, i64 24
   %0 = load ptr, ptr getelementptr inbounds (%struct.list_head, ptr @chdir_notify_entries, i64 0, i32 1), align 8
   store ptr %list, ptr %0, align 8
   store ptr @chdir_notify_entries, ptr %list, align 8
   %1 = load ptr, ptr getelementptr inbounds (%struct.list_head, ptr @chdir_notify_entries, i64 0, i32 1), align 8
-  %prev3.i = getelementptr inbounds %struct.chdir_notify_entry, ptr %call, i64 0, i32 3, i32 1
+  %prev3.i = getelementptr inbounds i8, ptr %call, i64 32
   store ptr %1, ptr %prev3.i, align 8
   store ptr %list, ptr getelementptr inbounds (%struct.list_head, ptr @chdir_notify_entries, i64 0, i32 1), align 8
   ret void
@@ -44,16 +43,16 @@ define dso_local void @chdir_notify_reparent(ptr noundef %name, ptr noundef %pat
 entry:
   %call.i = tail call ptr @xmalloc(i64 noundef 40) #6
   store ptr %name, ptr %call.i, align 8
-  %cb2.i = getelementptr inbounds %struct.chdir_notify_entry, ptr %call.i, i64 0, i32 1
+  %cb2.i = getelementptr inbounds i8, ptr %call.i, i64 8
   store ptr @reparent_cb, ptr %cb2.i, align 8
-  %data3.i = getelementptr inbounds %struct.chdir_notify_entry, ptr %call.i, i64 0, i32 2
+  %data3.i = getelementptr inbounds i8, ptr %call.i, i64 16
   store ptr %path, ptr %data3.i, align 8
-  %list.i = getelementptr inbounds %struct.chdir_notify_entry, ptr %call.i, i64 0, i32 3
+  %list.i = getelementptr inbounds i8, ptr %call.i, i64 24
   %0 = load ptr, ptr getelementptr inbounds (%struct.list_head, ptr @chdir_notify_entries, i64 0, i32 1), align 8
   store ptr %list.i, ptr %0, align 8
   store ptr @chdir_notify_entries, ptr %list.i, align 8
   %1 = load ptr, ptr getelementptr inbounds (%struct.list_head, ptr @chdir_notify_entries, i64 0, i32 1), align 8
-  %prev3.i.i = getelementptr inbounds %struct.chdir_notify_entry, ptr %call.i, i64 0, i32 3, i32 1
+  %prev3.i.i = getelementptr inbounds i8, ptr %call.i, i64 32
   store ptr %1, ptr %prev3.i.i, align 8
   store ptr %list.i, ptr getelementptr inbounds (%struct.list_head, ptr @chdir_notify_entries, i64 0, i32 1), align 8
   ret void
@@ -138,7 +137,7 @@ do.body:                                          ; preds = %if.end
   br i1 %tobool.not, label %do.end, label %if.then8
 
 if.then8:                                         ; preds = %do.body
-  %buf = getelementptr inbounds %struct.strbuf, ptr %old_cwd, i64 0, i32 2
+  %buf = getelementptr inbounds i8, ptr %old_cwd, i64 16
   %2 = load ptr, ptr %buf, align 8
   call void (ptr, i32, ptr, ptr, ...) @trace_printf_key_fl(ptr noundef nonnull @.str, i32 noundef 70, ptr noundef nonnull @trace_setup_key, ptr noundef nonnull @.str.1, ptr noundef %2, ptr noundef %new_cwd) #6
   br label %do.end
@@ -149,7 +148,7 @@ do.end:                                           ; preds = %do.body, %if.then8
   br i1 %cmp10.not9, label %for.end, label %for.body.lr.ph
 
 for.body.lr.ph:                                   ; preds = %do.end
-  %buf11 = getelementptr inbounds %struct.strbuf, ptr %old_cwd, i64 0, i32 2
+  %buf11 = getelementptr inbounds i8, ptr %old_cwd, i64 16
   br label %for.body
 
 for.body:                                         ; preds = %for.body.lr.ph, %for.body

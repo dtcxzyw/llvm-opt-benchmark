@@ -864,7 +864,6 @@ target triple = "x86_64-unknown-linux-gnu"
 %struct.anon.768 = type { i32 }
 %struct._py_trashcan = type { i32, ptr }
 %struct._err_stackitem = type { ptr, ptr }
-%struct.PyModuleDef_Base = type { %struct._object, ptr, i64, ptr }
 
 @.str = private unnamed_addr constant [5 x i8] c"name\00", align 1
 @PyExc_TypeError = external local_unnamed_addr global ptr, align 8
@@ -1042,7 +1041,7 @@ get_encoded_name.exit:                            ; preds = %if.end.i33.i
   br label %if.end12
 
 if.end12:                                         ; preds = %if.end.i33.i, %Py_DECREF.exit47.i, %get_encoded_name.exit
-  %ob_sval.i = getelementptr inbounds %struct.PyBytesObject, ptr %call26.i, i64 0, i32 2
+  %ob_sval.i = getelementptr inbounds i8, ptr %call26.i, i64 32
   %call14 = tail call ptr @PyObject_GetAttrString(ptr noundef %spec, ptr noundef nonnull @.str.2) #2
   %cmp15 = icmp eq ptr %call14, null
   br i1 %cmp15, label %error, label %if.end17
@@ -1058,7 +1057,7 @@ if.end21:                                         ; preds = %if.end17
   br i1 %cmp23, label %error, label %if.end25
 
 if.end25:                                         ; preds = %if.end21
-  %ob_sval.i68 = getelementptr inbounds %struct.PyBytesObject, ptr %call22, i64 0, i32 2
+  %ob_sval.i68 = getelementptr inbounds i8, ptr %call22, i64 32
   %call27 = tail call ptr @_PyImport_FindSharedFuncptr(ptr noundef nonnull %storemerge.i, ptr noundef nonnull %ob_sval.i, ptr noundef nonnull %ob_sval.i68, ptr noundef %fp) #2
   %14 = load i64, ptr %call22, align 8
   %15 = and i64 %14, 2147483648
@@ -1227,7 +1226,7 @@ if.then76:                                        ; preds = %if.end73
   br label %error
 
 if.end78:                                         ; preds = %if.end73
-  %m_init = getelementptr inbounds %struct.PyModuleDef_Base, ptr %call74, i64 0, i32 1
+  %m_init = getelementptr inbounds i8, ptr %call74, i64 16
   store ptr %call27, ptr %m_init, align 8
   %call79 = tail call i32 @PyModule_AddObjectRef(ptr noundef nonnull %call41, ptr noundef nonnull @.str.12, ptr noundef nonnull %call14) #2
   %cmp80 = icmp slt i32 %call79, 0

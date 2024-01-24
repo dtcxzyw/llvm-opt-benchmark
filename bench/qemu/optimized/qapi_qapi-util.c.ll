@@ -4,7 +4,6 @@ target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:
 target triple = "x86_64-unknown-linux-gnu"
 
 %struct.CompatPolicy = type { i8, i32, i8, i32, i8, i32, i8, i32 }
-%struct.QEnumLookup = type { ptr, ptr, i32 }
 
 @.str = private unnamed_addr constant [11 x i8] c"Deprecated\00", align 1
 @.str.1 = private unnamed_addr constant [9 x i8] c"Unstable\00", align 1
@@ -29,14 +28,14 @@ target triple = "x86_64-unknown-linux-gnu"
 @.str.15 = private unnamed_addr constant [28 x i8] c"%s %s %s disabled by policy\00", align 1
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local zeroext i1 @compat_policy_input_ok(i32 noundef %special_features, ptr nocapture noundef readonly %policy, i32 noundef %error_class, ptr noundef %kind, ptr noundef %name, ptr noundef %errp) local_unnamed_addr #0 {
+define dso_local noundef zeroext i1 @compat_policy_input_ok(i32 noundef %special_features, ptr nocapture noundef readonly %policy, i32 noundef %error_class, ptr noundef %kind, ptr noundef %name, ptr noundef %errp) local_unnamed_addr #0 {
 entry:
   %and = and i32 %special_features, 1
   %tobool.not = icmp eq i32 %and, 0
   br i1 %tobool.not, label %if.end, label %land.lhs.true
 
 land.lhs.true:                                    ; preds = %entry
-  %deprecated_input = getelementptr inbounds %struct.CompatPolicy, ptr %policy, i64 0, i32 1
+  %deprecated_input = getelementptr inbounds i8, ptr %policy, i64 4
   %0 = load i32, ptr %deprecated_input, align 4
   switch i32 %0, label %sw.default.i [
     i32 0, label %if.end
@@ -53,7 +52,7 @@ if.end:                                           ; preds = %land.lhs.true, %ent
   br i1 %tobool2.not, label %return, label %land.lhs.true3
 
 land.lhs.true3:                                   ; preds = %if.end
-  %unstable_input = getelementptr inbounds %struct.CompatPolicy, ptr %policy, i64 0, i32 5
+  %unstable_input = getelementptr inbounds i8, ptr %policy, i64 20
   %1 = load i32, ptr %unstable_input, align 4
   switch i32 %1, label %sw.default.i9 [
     i32 0, label %return
@@ -81,7 +80,7 @@ entry:
   br i1 %cmp, label %land.lhs.true, label %if.else
 
 land.lhs.true:                                    ; preds = %entry
-  %size = getelementptr inbounds %struct.QEnumLookup, ptr %lookup, i64 0, i32 2
+  %size = getelementptr inbounds i8, ptr %lookup, i64 16
   %0 = load i32, ptr %size, align 8
   %cmp1 = icmp sgt i32 %0, %val
   br i1 %cmp1, label %if.end, label %if.else
@@ -108,7 +107,7 @@ entry:
   br i1 %tobool.not, label %return, label %for.cond.preheader
 
 for.cond.preheader:                               ; preds = %entry
-  %size = getelementptr inbounds %struct.QEnumLookup, ptr %lookup, i64 0, i32 2
+  %size = getelementptr inbounds i8, ptr %lookup, i64 16
   %0 = load i32, ptr %size, align 8
   %cmp9 = icmp sgt i32 %0, 0
   br i1 %cmp9, label %for.body.lr.ph, label %for.end
@@ -150,7 +149,7 @@ declare i32 @strcmp(ptr nocapture noundef, ptr nocapture noundef) local_unnamed_
 declare void @error_setg_internal(ptr noundef, ptr noundef, i32 noundef, ptr noundef, ptr noundef, ...) local_unnamed_addr #3
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local zeroext i1 @qapi_bool_parse(ptr noundef %name, ptr noundef %value, ptr nocapture noundef writeonly %obj, ptr noundef %errp) local_unnamed_addr #0 {
+define dso_local noundef zeroext i1 @qapi_bool_parse(ptr noundef %name, ptr noundef %value, ptr nocapture noundef writeonly %obj, ptr noundef %errp) local_unnamed_addr #0 {
 entry:
   %call = tail call i32 @g_str_equal(ptr noundef %value, ptr noundef nonnull @.str.5) #7
   %tobool.not = icmp eq i32 %call, 0

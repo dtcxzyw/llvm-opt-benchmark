@@ -3,13 +3,7 @@ source_filename = "bench/git/original/dir-iterator.ll"
 target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:128-n8:16:32:64-S128"
 target triple = "x86_64-unknown-linux-gnu"
 
-%struct.dir_iterator = type { %struct.strbuf, ptr, ptr, %struct.stat }
-%struct.strbuf = type { i64, i64, ptr }
-%struct.stat = type { i64, i64, i64, i32, i32, i32, i32, i64, i64, i64, i64, %struct.timespec, %struct.timespec, %struct.timespec, [3 x i64] }
-%struct.timespec = type { i64, i64 }
-%struct.dir_iterator_int = type { %struct.dir_iterator, i64, i64, ptr, i32 }
 %struct.dir_iterator_level = type { ptr, i64 }
-%struct.dirent = type { i64, i64, i16, i8, [256 x i8] }
 
 @.str = private unnamed_addr constant [29 x i8] c"error reading directory '%s'\00", align 1
 @.str.1 = private unnamed_addr constant [29 x i8] c"error closing directory '%s'\00", align 1
@@ -23,23 +17,23 @@ target triple = "x86_64-unknown-linux-gnu"
 ; Function Attrs: nounwind uwtable
 define dso_local noundef i32 @dir_iterator_advance(ptr noundef %dir_iterator) local_unnamed_addr #0 {
 entry:
-  %st_mode = getelementptr inbounds %struct.dir_iterator, ptr %dir_iterator, i64 0, i32 3, i32 3
+  %st_mode = getelementptr inbounds i8, ptr %dir_iterator, i64 64
   %0 = load i32, ptr %st_mode, align 8
   %and = and i32 %0, 61440
   %cmp = icmp eq i32 %and, 16384
   br i1 %cmp, label %land.lhs.true, label %if.end10
 
 land.lhs.true:                                    ; preds = %entry
-  %levels_nr.i = getelementptr inbounds %struct.dir_iterator_int, ptr %dir_iterator, i64 0, i32 1
+  %levels_nr.i = getelementptr inbounds i8, ptr %dir_iterator, i64 184
   %1 = load i64, ptr %levels_nr.i, align 8
   %add.i = add i64 %1, 1
-  %levels_alloc.i = getelementptr inbounds %struct.dir_iterator_int, ptr %dir_iterator, i64 0, i32 2
+  %levels_alloc.i = getelementptr inbounds i8, ptr %dir_iterator, i64 192
   %2 = load i64, ptr %levels_alloc.i, align 8
   %cmp.i = icmp ugt i64 %add.i, %2
   br i1 %cmp.i, label %if.then.i, label %entry.do.end_crit_edge.i
 
 entry.do.end_crit_edge.i:                         ; preds = %land.lhs.true
-  %levels19.phi.trans.insert.i = getelementptr inbounds %struct.dir_iterator_int, ptr %dir_iterator, i64 0, i32 3
+  %levels19.phi.trans.insert.i = getelementptr inbounds i8, ptr %dir_iterator, i64 200
   %.pre.i = load ptr, ptr %levels19.phi.trans.insert.i, align 8
   br label %do.end.i
 
@@ -57,7 +51,7 @@ if.then.i.i:                                      ; preds = %if.then.i
   unreachable
 
 st_mult.exit.i:                                   ; preds = %if.then.i
-  %levels.i = getelementptr inbounds %struct.dir_iterator_int, ptr %dir_iterator, i64 0, i32 3
+  %levels.i = getelementptr inbounds i8, ptr %dir_iterator, i64 200
   %4 = load ptr, ptr %levels.i, align 8
   %mul.i.i = shl nuw i64 %add.div22.i, 4
   %call16.i = tail call ptr @xrealloc(ptr noundef %4, i64 noundef %mul.i.i) #9
@@ -72,9 +66,9 @@ do.end.i:                                         ; preds = %st_mult.exit.i, %en
   %6 = phi ptr [ %.pre.i, %entry.do.end_crit_edge.i ], [ %call16.i, %st_mult.exit.i ]
   store i64 %inc.pre-phi.i, ptr %levels_nr.i, align 8
   %arrayidx.i = getelementptr inbounds %struct.dir_iterator_level, ptr %6, i64 %5
-  %buf.i = getelementptr inbounds %struct.strbuf, ptr %dir_iterator, i64 0, i32 2
+  %buf.i = getelementptr inbounds i8, ptr %dir_iterator, i64 16
   %7 = load ptr, ptr %buf.i, align 8
-  %len.i = getelementptr inbounds %struct.strbuf, ptr %dir_iterator, i64 0, i32 1
+  %len.i = getelementptr inbounds i8, ptr %dir_iterator, i64 8
   %8 = load i64, ptr %len.i, align 8
   %9 = getelementptr i8, ptr %7, i64 %8
   %arrayidx23.i = getelementptr i8, ptr %9, i64 -1
@@ -113,7 +107,7 @@ strbuf_addch.exit.i:                              ; preds = %if.then.i24.i, %if.
 
 if.end28.i:                                       ; preds = %strbuf_addch.exit.i, %do.end.i
   %16 = phi i64 [ %.pre27.i, %strbuf_addch.exit.i ], [ %8, %do.end.i ]
-  %prefix_len.i = getelementptr inbounds %struct.dir_iterator_level, ptr %6, i64 %5, i32 1
+  %prefix_len.i = getelementptr inbounds i8, ptr %arrayidx.i, i64 8
   store i64 %16, ptr %prefix_len.i, align 8
   %17 = load ptr, ptr %buf.i, align 8
   %call35.i = tail call ptr @opendir(ptr noundef %17)
@@ -141,7 +135,7 @@ land.lhs.true3:                                   ; preds = %if.then38.i
   %dec.i = add i64 %21, -1
   store i64 %dec.i, ptr %levels_nr.i, align 8
   store i32 %18, ptr %call39.i, align 4
-  %flags = getelementptr inbounds %struct.dir_iterator_int, ptr %dir_iterator, i64 0, i32 4
+  %flags = getelementptr inbounds i8, ptr %dir_iterator, i64 208
   %22 = load i32, ptr %flags, align 8
   %and4 = and i32 %22, 1
   %tobool5.not = icmp eq i32 %and4, 0
@@ -153,12 +147,12 @@ if.end:                                           ; preds = %if.then.thread, %la
   br i1 %cmp7, label %return.sink.split, label %if.end10
 
 if.end10:                                         ; preds = %if.end28.i, %if.end, %entry
-  %levels = getelementptr inbounds %struct.dir_iterator_int, ptr %dir_iterator, i64 0, i32 3
-  %levels_nr11 = getelementptr inbounds %struct.dir_iterator_int, ptr %dir_iterator, i64 0, i32 1
+  %levels = getelementptr inbounds i8, ptr %dir_iterator, i64 200
+  %levels_nr11 = getelementptr inbounds i8, ptr %dir_iterator, i64 184
   %24 = load ptr, ptr %levels, align 8
   %25 = load i64, ptr %levels_nr11, align 8
   %26 = getelementptr %struct.dir_iterator_level, ptr %24, i64 %25
-  %prefix_len44 = getelementptr %struct.dir_iterator_level, ptr %26, i64 -1, i32 1
+  %prefix_len44 = getelementptr i8, ptr %26, i64 -8
   %27 = load i64, ptr %prefix_len44, align 8
   %28 = load i64, ptr %dir_iterator, align 8
   %spec.select.i45 = tail call i64 @llvm.usub.sat.i64(i64 %28, i64 1)
@@ -166,13 +160,13 @@ if.end10:                                         ; preds = %if.end28.i, %if.end
   br i1 %cmp.i1746, label %if.then.i20, label %if.end.i.lr.ph
 
 if.end.i.lr.ph:                                   ; preds = %if.end10
-  %len2.i = getelementptr inbounds %struct.strbuf, ptr %dir_iterator, i64 0, i32 1
-  %buf.i18 = getelementptr inbounds %struct.strbuf, ptr %dir_iterator, i64 0, i32 2
+  %len2.i = getelementptr inbounds i8, ptr %dir_iterator, i64 8
+  %buf.i18 = getelementptr inbounds i8, ptr %dir_iterator, i64 16
   %call13 = tail call ptr @__errno_location() #10
-  %relative_path.i = getelementptr inbounds %struct.dir_iterator, ptr %dir_iterator, i64 0, i32 1
-  %__xpg_basename.i = getelementptr inbounds %struct.dir_iterator, ptr %dir_iterator, i64 0, i32 2
-  %st.i = getelementptr inbounds %struct.dir_iterator, ptr %dir_iterator, i64 0, i32 3
-  %flags44 = getelementptr inbounds %struct.dir_iterator_int, ptr %dir_iterator, i64 0, i32 4
+  %relative_path.i = getelementptr inbounds i8, ptr %dir_iterator, i64 24
+  %__xpg_basename.i = getelementptr inbounds i8, ptr %dir_iterator, i64 32
+  %st.i = getelementptr inbounds i8, ptr %dir_iterator, i64 40
+  %flags44 = getelementptr inbounds i8, ptr %dir_iterator, i64 208
   br label %if.end.i
 
 if.then.i20:                                      ; preds = %while.body.backedge, %if.end10
@@ -182,7 +176,7 @@ if.then.i20:                                      ; preds = %while.body.backedge
 if.end.i:                                         ; preds = %if.end.i.lr.ph, %while.body.backedge
   %29 = phi i64 [ %27, %if.end.i.lr.ph ], [ %45, %while.body.backedge ]
   %.pn = phi ptr [ %26, %if.end.i.lr.ph ], [ %44, %while.body.backedge ]
-  %arrayidx47 = getelementptr %struct.dir_iterator_level, ptr %.pn, i64 -1
+  %arrayidx47 = getelementptr i8, ptr %.pn, i64 -16
   store i64 %29, ptr %len2.i, align 8
   %30 = load ptr, ptr %buf.i18, align 8
   %cmp3.not.i = icmp eq ptr %30, @strbuf_slopbuf
@@ -217,7 +211,7 @@ if.else:                                          ; preds = %if.then16
   %35 = load ptr, ptr %levels, align 8
   %36 = load i64, ptr %levels_nr11, align 8
   %37 = getelementptr %struct.dir_iterator_level, ptr %35, i64 %36
-  %arrayidx.i23 = getelementptr %struct.dir_iterator_level, ptr %37, i64 -1
+  %arrayidx.i23 = getelementptr i8, ptr %37, i64 -16
   %38 = load ptr, ptr %arrayidx.i23, align 8
   %tobool.not.i = icmp eq ptr %38, null
   br i1 %tobool.not.i, label %pop_level.exit, label %land.lhs.true.i
@@ -245,7 +239,7 @@ while.body.backedge:                              ; preds = %land.rhs.i, %if.the
   %42 = load ptr, ptr %levels, align 8
   %43 = load i64, ptr %levels_nr11, align 8
   %44 = getelementptr %struct.dir_iterator_level, ptr %42, i64 %43
-  %prefix_len = getelementptr %struct.dir_iterator_level, ptr %44, i64 -1, i32 1
+  %prefix_len = getelementptr i8, ptr %44, i64 -8
   %45 = load i64, ptr %prefix_len, align 8
   %46 = load i64, ptr %dir_iterator, align 8
   %spec.select.i = tail call i64 @llvm.usub.sat.i64(i64 %46, i64 1)
@@ -253,13 +247,13 @@ while.body.backedge:                              ; preds = %land.rhs.i, %if.the
   br i1 %cmp.i17, label %if.then.i20, label %if.end.i
 
 if.end33:                                         ; preds = %strbuf_setlen.exit
-  %d_name = getelementptr inbounds %struct.dirent, ptr %call14, i64 0, i32 4
+  %d_name = getelementptr inbounds i8, ptr %call14, i64 19
   %47 = load i8, ptr %d_name, align 1
   %cmp.i28 = icmp eq i8 %47, 46
   br i1 %cmp.i28, label %land.rhs.i, label %if.end37
 
 land.rhs.i:                                       ; preds = %if.end33
-  %arrayidx2.i = getelementptr inbounds %struct.dirent, ptr %call14, i64 0, i32 4, i64 1
+  %arrayidx2.i = getelementptr inbounds i8, ptr %call14, i64 20
   %48 = load i8, ptr %arrayidx2.i, align 1
   switch i8 %48, label %if.end37 [
     i8 0, label %while.body.backedge
@@ -267,7 +261,7 @@ land.rhs.i:                                       ; preds = %if.end33
   ]
 
 is_dot_or_dotdot.exit:                            ; preds = %land.rhs.i
-  %arrayidx11.i = getelementptr inbounds %struct.dirent, ptr %call14, i64 0, i32 4, i64 2
+  %arrayidx11.i = getelementptr inbounds i8, ptr %call14, i64 21
   %49 = load i8, ptr %arrayidx11.i, align 1
   %cmp13.i.not = icmp eq i8 %49, 0
   br i1 %cmp13.i.not, label %while.body.backedge, label %if.end37
@@ -277,13 +271,13 @@ if.end37:                                         ; preds = %land.rhs.i, %if.end
   tail call void @strbuf_add(ptr noundef nonnull %dir_iterator, ptr noundef nonnull %d_name, i64 noundef %call.i.i) #9
   %50 = load ptr, ptr %buf.i18, align 8
   %51 = load ptr, ptr %levels, align 8
-  %prefix_len.i31 = getelementptr inbounds %struct.dir_iterator_level, ptr %51, i64 0, i32 1
+  %prefix_len.i31 = getelementptr inbounds i8, ptr %51, i64 8
   %52 = load i64, ptr %prefix_len.i31, align 8
   %add.ptr.i = getelementptr inbounds i8, ptr %50, i64 %52
   store ptr %add.ptr.i, ptr %relative_path.i, align 8
   %53 = load i64, ptr %levels_nr11, align 8
   %54 = getelementptr %struct.dir_iterator_level, ptr %51, i64 %53
-  %prefix_len9.i = getelementptr %struct.dir_iterator_level, ptr %54, i64 -1, i32 1
+  %prefix_len9.i = getelementptr i8, ptr %54, i64 -8
   %55 = load i64, ptr %prefix_len9.i, align 8
   %add.ptr10.i = getelementptr inbounds i8, ptr %50, i64 %55
   store ptr %add.ptr10.i, ptr %__xpg_basename.i, align 8
@@ -332,22 +326,22 @@ declare void @warning_errno(ptr noundef, ...) local_unnamed_addr #2
 ; Function Attrs: nounwind uwtable
 define dso_local noundef i32 @dir_iterator_abort(ptr noundef %dir_iterator) local_unnamed_addr #0 {
 entry:
-  %levels_nr = getelementptr inbounds %struct.dir_iterator_int, ptr %dir_iterator, i64 0, i32 1
+  %levels_nr = getelementptr inbounds i8, ptr %dir_iterator, i64 184
   %0 = load i64, ptr %levels_nr, align 8
   %tobool.not12 = icmp eq i64 %0, 0
   br i1 %tobool.not12, label %for.end, label %for.body.lr.ph
 
 for.body.lr.ph:                                   ; preds = %entry
-  %levels = getelementptr inbounds %struct.dir_iterator_int, ptr %dir_iterator, i64 0, i32 3
-  %len2.i = getelementptr inbounds %struct.strbuf, ptr %dir_iterator, i64 0, i32 1
-  %buf.i = getelementptr inbounds %struct.strbuf, ptr %dir_iterator, i64 0, i32 2
+  %levels = getelementptr inbounds i8, ptr %dir_iterator, i64 200
+  %len2.i = getelementptr inbounds i8, ptr %dir_iterator, i64 8
+  %buf.i = getelementptr inbounds i8, ptr %dir_iterator, i64 16
   br label %for.body
 
 for.body:                                         ; preds = %for.body.lr.ph, %for.inc
   %1 = phi i64 [ %0, %for.body.lr.ph ], [ %dec, %for.inc ]
   %2 = load ptr, ptr %levels, align 8
   %3 = getelementptr %struct.dir_iterator_level, ptr %2, i64 %1
-  %arrayidx = getelementptr %struct.dir_iterator_level, ptr %3, i64 -1
+  %arrayidx = getelementptr i8, ptr %3, i64 -16
   %4 = load ptr, ptr %arrayidx, align 8
   %tobool2.not = icmp eq ptr %4, null
   br i1 %tobool2.not, label %for.inc, label %land.lhs.true
@@ -360,7 +354,7 @@ land.lhs.true:                                    ; preds = %for.body
 if.then:                                          ; preds = %land.lhs.true
   %call5 = tail call ptr @__errno_location() #10
   %5 = load i32, ptr %call5, align 4
-  %prefix_len = getelementptr %struct.dir_iterator_level, ptr %3, i64 -1, i32 1
+  %prefix_len = getelementptr i8, ptr %3, i64 -8
   %6 = load i64, ptr %prefix_len, align 8
   %7 = load i64, ptr %dir_iterator, align 8
   %spec.select.i = tail call i64 @llvm.usub.sat.i64(i64 %7, i64 1)
@@ -396,7 +390,7 @@ for.inc:                                          ; preds = %for.body, %land.lhs
   br i1 %tobool.not, label %for.end, label %for.body, !llvm.loop !5
 
 for.end:                                          ; preds = %for.inc, %entry
-  %levels10 = getelementptr inbounds %struct.dir_iterator_int, ptr %dir_iterator, i64 0, i32 3
+  %levels10 = getelementptr inbounds i8, ptr %dir_iterator, i64 200
   %11 = load ptr, ptr %levels10, align 8
   tail call void @free(ptr noundef %11) #9
   tail call void @strbuf_release(ptr noundef nonnull %dir_iterator) #9
@@ -419,7 +413,7 @@ entry:
   tail call void @strbuf_init(ptr noundef %call, i64 noundef 4096) #9
   %call.i = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %path) #11
   tail call void @strbuf_add(ptr noundef %call, ptr noundef %path, i64 noundef %call.i) #9
-  %levels_alloc = getelementptr inbounds %struct.dir_iterator_int, ptr %call, i64 0, i32 2
+  %levels_alloc = getelementptr inbounds i8, ptr %call, i64 192
   %0 = load i64, ptr %levels_alloc, align 8
   %cmp = icmp ult i64 %0, 10
   br i1 %cmp, label %if.else, label %do.end
@@ -429,7 +423,7 @@ if.else:                                          ; preds = %entry
   %mul = add nuw nsw i64 %1, 48
   %div17 = lshr i64 %mul, 1
   store i64 %div17, ptr %levels_alloc, align 8
-  %levels = getelementptr inbounds %struct.dir_iterator_int, ptr %call, i64 0, i32 3
+  %levels = getelementptr inbounds i8, ptr %call, i64 200
   %2 = load ptr, ptr %levels, align 8
   %mul.i = shl nuw nsw i64 %div17, 4
   %call16 = tail call ptr @xrealloc(ptr noundef %2, i64 noundef %mul.i) #9
@@ -437,13 +431,13 @@ if.else:                                          ; preds = %entry
   br label %do.end
 
 do.end:                                           ; preds = %entry, %if.else
-  %levels_nr = getelementptr inbounds %struct.dir_iterator_int, ptr %call, i64 0, i32 1
+  %levels_nr = getelementptr inbounds i8, ptr %call, i64 184
   store i64 0, ptr %levels_nr, align 8
-  %flags19 = getelementptr inbounds %struct.dir_iterator_int, ptr %call, i64 0, i32 4
+  %flags19 = getelementptr inbounds i8, ptr %call, i64 208
   store i32 %flags, ptr %flags19, align 8
-  %buf = getelementptr inbounds %struct.strbuf, ptr %call, i64 0, i32 2
+  %buf = getelementptr inbounds i8, ptr %call, i64 16
   %3 = load ptr, ptr %buf, align 8
-  %st = getelementptr inbounds %struct.dir_iterator, ptr %call, i64 0, i32 3
+  %st = getelementptr inbounds i8, ptr %call, i64 40
   %call23 = tail call i32 @lstat64(ptr noundef %3, ptr noundef nonnull %st) #9
   %cmp24 = icmp slt i32 %call23, 0
   br i1 %cmp24, label %if.then25, label %if.end27
@@ -454,7 +448,7 @@ if.then25:                                        ; preds = %do.end
   br label %error_out
 
 if.end27:                                         ; preds = %do.end
-  %st_mode = getelementptr inbounds %struct.dir_iterator, ptr %call, i64 0, i32 3, i32 3
+  %st_mode = getelementptr inbounds i8, ptr %call, i64 64
   %5 = load i32, ptr %st_mode, align 8
   %and = and i32 %5, 61440
   %cmp30 = icmp eq i32 %and, 16384

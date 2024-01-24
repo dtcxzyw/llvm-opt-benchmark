@@ -6,7 +6,6 @@ target triple = "x86_64-unknown-linux-gnu"
 %"class.icu_75::GregorianCalendar" = type <{ %"class.icu_75::Calendar.base", [6 x i8], double, i32, [4 x i8], double, i32, i8, i8, [2 x i8] }>
 %"class.icu_75::Calendar.base" = type <{ %"class.icu_75::UObject", i8, i8, i8, i8, [24 x i32], [24 x i8], [24 x i32], i32, double, i8, [7 x i8], ptr, i32, i32, i32, i8, [3 x i8], i32, i32, i32, i32, i32, i32, i32, i32, [157 x i8], [157 x i8] }>
 %"class.icu_75::UObject" = type { ptr }
-%"class.icu_75::Calendar" = type <{ %"class.icu_75::UObject", i8, i8, i8, i8, [24 x i32], [24 x i8], [24 x i32], i32, double, i8, [7 x i8], ptr, i32, i32, i32, i8, [3 x i8], i32, i32, i32, i32, i32, i32, i32, i32, [157 x i8], [157 x i8], [6 x i8] }>
 
 @_ZZN6icu_7517GregorianCalendar16getStaticClassIDEvE7classID = internal global i8 0, align 1
 @_ZTVN6icu_7517GregorianCalendarE = unnamed_addr constant { [61 x ptr] } { [61 x ptr] [ptr null, ptr @_ZTIN6icu_7517GregorianCalendarE, ptr @_ZN6icu_7517GregorianCalendarD1Ev, ptr @_ZN6icu_7517GregorianCalendarD0Ev, ptr @_ZNK6icu_7517GregorianCalendar17getDynamicClassIDEv, ptr @_ZNK6icu_7517GregorianCalendar5cloneEv, ptr @_ZNK6icu_758CalendareqERKS0_, ptr @_ZNK6icu_7517GregorianCalendar14isEquivalentToERKNS_8CalendarE, ptr @_ZN6icu_758Calendar3addENS0_11EDateFieldsEiR10UErrorCode, ptr @_ZN6icu_758Calendar3addE19UCalendarDateFieldsiR10UErrorCode, ptr @_ZN6icu_7517GregorianCalendar4rollENS_8Calendar11EDateFieldsEiR10UErrorCode, ptr @_ZN6icu_7517GregorianCalendar4rollE19UCalendarDateFieldsiR10UErrorCode, ptr @_ZN6icu_758Calendar15fieldDifferenceEdNS0_11EDateFieldsER10UErrorCode, ptr @_ZN6icu_758Calendar15fieldDifferenceEd19UCalendarDateFieldsR10UErrorCode, ptr @_ZNK6icu_758Calendar14inDaylightTimeER10UErrorCode, ptr @_ZNK6icu_758Calendar10getMinimumENS0_11EDateFieldsE, ptr @_ZNK6icu_758Calendar10getMinimumE19UCalendarDateFields, ptr @_ZNK6icu_758Calendar10getMaximumENS0_11EDateFieldsE, ptr @_ZNK6icu_758Calendar10getMaximumE19UCalendarDateFields, ptr @_ZNK6icu_758Calendar18getGreatestMinimumENS0_11EDateFieldsE, ptr @_ZNK6icu_758Calendar18getGreatestMinimumE19UCalendarDateFields, ptr @_ZNK6icu_758Calendar15getLeastMaximumENS0_11EDateFieldsE, ptr @_ZNK6icu_758Calendar15getLeastMaximumE19UCalendarDateFields, ptr @_ZNK6icu_7517GregorianCalendar16getActualMinimumE19UCalendarDateFieldsR10UErrorCode, ptr @_ZNK6icu_7517GregorianCalendar16getActualMaximumE19UCalendarDateFieldsR10UErrorCode, ptr @_ZNK6icu_7517GregorianCalendar7getTypeEv, ptr @_ZNK6icu_758Calendar16getDayOfWeekTypeE19UCalendarDaysOfWeekR10UErrorCode, ptr @_ZNK6icu_758Calendar20getWeekendTransitionE19UCalendarDaysOfWeekR10UErrorCode, ptr @_ZNK6icu_758Calendar9isWeekendEdR10UErrorCode, ptr @_ZNK6icu_758Calendar9isWeekendEv, ptr @_ZNK6icu_758Calendar18inTemporalLeapYearER10UErrorCode, ptr @_ZNK6icu_758Calendar20getTemporalMonthCodeER10UErrorCode, ptr @_ZN6icu_758Calendar20setTemporalMonthCodeEPKcR10UErrorCode, ptr @_ZN6icu_758Calendar11computeTimeER10UErrorCode, ptr @_ZN6icu_758Calendar13computeFieldsER10UErrorCode, ptr @_ZNK6icu_758Calendar16internalGetMonthEv, ptr @_ZNK6icu_758Calendar16internalGetMonthEi, ptr @_ZN6icu_758Calendar16prepareGetActualE19UCalendarDateFieldsaR10UErrorCode, ptr @_ZNK6icu_7517GregorianCalendar14handleGetLimitE19UCalendarDateFieldsNS_8Calendar10ELimitTypeE, ptr @_ZNK6icu_758Calendar8getLimitE19UCalendarDateFieldsNS0_10ELimitTypeE, ptr @_ZNK6icu_7517GregorianCalendar23handleComputeMonthStartEiia, ptr @_ZNK6icu_7517GregorianCalendar20handleGetMonthLengthEii, ptr @_ZNK6icu_7517GregorianCalendar19handleGetYearLengthEi, ptr @_ZN6icu_7517GregorianCalendar21handleGetExtendedYearEv, ptr @_ZN6icu_7517GregorianCalendar22handleComputeJulianDayE19UCalendarDateFieldsR10UErrorCode, ptr @_ZN6icu_7517GregorianCalendar35handleGetExtendedYearFromWeekFieldsEii, ptr @_ZN6icu_758Calendar13validateFieldE19UCalendarDateFieldsR10UErrorCode, ptr @_ZNK6icu_758Calendar23getFieldResolutionTableEv, ptr @_ZN6icu_7517GregorianCalendar19handleComputeFieldsEiR10UErrorCode, ptr @_ZN6icu_758Calendar21getDefaultMonthInYearEi, ptr @_ZN6icu_758Calendar20getDefaultDayInMonthEii, ptr @_ZN6icu_758Calendar8pinFieldE19UCalendarDateFieldsR10UErrorCode, ptr @_ZNK6icu_7517GregorianCalendar18haveDefaultCenturyEv, ptr @_ZNK6icu_7517GregorianCalendar19defaultCenturyStartEv, ptr @_ZNK6icu_7517GregorianCalendar23defaultCenturyStartYearEv, ptr @_ZNK6icu_758Calendar14getRelatedYearER10UErrorCode, ptr @_ZN6icu_758Calendar14setRelatedYearEi, ptr @_ZNK6icu_7517GregorianCalendar14internalGetEraEv, ptr @_ZNK6icu_7517GregorianCalendar11monthLengthEi, ptr @_ZNK6icu_7517GregorianCalendar11monthLengthEii, ptr @_ZN6icu_7517GregorianCalendar11getEpochDayER10UErrorCode] }, align 8
@@ -53,17 +52,17 @@ define void @_ZN6icu_7517GregorianCalendarC2ER10UErrorCode(ptr noundef nonnull a
 entry:
   tail call void @_ZN6icu_758CalendarC2ER10UErrorCode(ptr noundef nonnull align 8 dereferenceable(618) %this, ptr noundef nonnull align 4 dereferenceable(4) %status)
   store ptr getelementptr inbounds ({ [61 x ptr] }, ptr @_ZTVN6icu_7517GregorianCalendarE, i64 0, inrange i32 0, i64 2), ptr %this, align 8
-  %fGregorianCutover = getelementptr inbounds %"class.icu_75::GregorianCalendar", ptr %this, i64 0, i32 2
+  %fGregorianCutover = getelementptr inbounds i8, ptr %this, i64 624
   store double 0xC2A63A0D36A80000, ptr %fGregorianCutover, align 8
-  %fCutoverJulianDay = getelementptr inbounds %"class.icu_75::GregorianCalendar", ptr %this, i64 0, i32 3
+  %fCutoverJulianDay = getelementptr inbounds i8, ptr %this, i64 632
   store i32 2299161, ptr %fCutoverJulianDay, align 8
-  %fNormalizedGregorianCutover = getelementptr inbounds %"class.icu_75::GregorianCalendar", ptr %this, i64 0, i32 5
+  %fNormalizedGregorianCutover = getelementptr inbounds i8, ptr %this, i64 640
   store double 0xC2A63A0D36A80000, ptr %fNormalizedGregorianCutover, align 8
-  %fGregorianCutoverYear = getelementptr inbounds %"class.icu_75::GregorianCalendar", ptr %this, i64 0, i32 6
+  %fGregorianCutoverYear = getelementptr inbounds i8, ptr %this, i64 648
   store i32 1582, ptr %fGregorianCutoverYear, align 8
-  %fIsGregorian = getelementptr inbounds %"class.icu_75::GregorianCalendar", ptr %this, i64 0, i32 7
+  %fIsGregorian = getelementptr inbounds i8, ptr %this, i64 652
   store i8 1, ptr %fIsGregorian, align 4
-  %fInvertGregorian = getelementptr inbounds %"class.icu_75::GregorianCalendar", ptr %this, i64 0, i32 8
+  %fInvertGregorian = getelementptr inbounds i8, ptr %this, i64 653
   store i8 0, ptr %fInvertGregorian, align 1
   %call = invoke noundef double @_ZN6icu_758Calendar6getNowEv()
           to label %invoke.cont unwind label %lpad
@@ -99,17 +98,17 @@ entry:
   %call = tail call noundef nonnull align 8 dereferenceable(217) ptr @_ZN6icu_756Locale10getDefaultEv()
   tail call void @_ZN6icu_758CalendarC2EPNS_8TimeZoneERKNS_6LocaleER10UErrorCode(ptr noundef nonnull align 8 dereferenceable(618) %this, ptr noundef %zone, ptr noundef nonnull align 8 dereferenceable(217) %call, ptr noundef nonnull align 4 dereferenceable(4) %status)
   store ptr getelementptr inbounds ({ [61 x ptr] }, ptr @_ZTVN6icu_7517GregorianCalendarE, i64 0, inrange i32 0, i64 2), ptr %this, align 8
-  %fGregorianCutover = getelementptr inbounds %"class.icu_75::GregorianCalendar", ptr %this, i64 0, i32 2
+  %fGregorianCutover = getelementptr inbounds i8, ptr %this, i64 624
   store double 0xC2A63A0D36A80000, ptr %fGregorianCutover, align 8
-  %fCutoverJulianDay = getelementptr inbounds %"class.icu_75::GregorianCalendar", ptr %this, i64 0, i32 3
+  %fCutoverJulianDay = getelementptr inbounds i8, ptr %this, i64 632
   store i32 2299161, ptr %fCutoverJulianDay, align 8
-  %fNormalizedGregorianCutover = getelementptr inbounds %"class.icu_75::GregorianCalendar", ptr %this, i64 0, i32 5
+  %fNormalizedGregorianCutover = getelementptr inbounds i8, ptr %this, i64 640
   store double 0xC2A63A0D36A80000, ptr %fNormalizedGregorianCutover, align 8
-  %fGregorianCutoverYear = getelementptr inbounds %"class.icu_75::GregorianCalendar", ptr %this, i64 0, i32 6
+  %fGregorianCutoverYear = getelementptr inbounds i8, ptr %this, i64 648
   store i32 1582, ptr %fGregorianCutoverYear, align 8
-  %fIsGregorian = getelementptr inbounds %"class.icu_75::GregorianCalendar", ptr %this, i64 0, i32 7
+  %fIsGregorian = getelementptr inbounds i8, ptr %this, i64 652
   store i8 1, ptr %fIsGregorian, align 4
-  %fInvertGregorian = getelementptr inbounds %"class.icu_75::GregorianCalendar", ptr %this, i64 0, i32 8
+  %fInvertGregorian = getelementptr inbounds i8, ptr %this, i64 653
   store i8 0, ptr %fInvertGregorian, align 1
   %call3 = invoke noundef double @_ZN6icu_758Calendar6getNowEv()
           to label %invoke.cont unwind label %lpad
@@ -138,17 +137,17 @@ entry:
   %call = tail call noundef nonnull align 8 dereferenceable(217) ptr @_ZN6icu_756Locale10getDefaultEv()
   tail call void @_ZN6icu_758CalendarC2ERKNS_8TimeZoneERKNS_6LocaleER10UErrorCode(ptr noundef nonnull align 8 dereferenceable(618) %this, ptr noundef nonnull align 8 dereferenceable(72) %zone, ptr noundef nonnull align 8 dereferenceable(217) %call, ptr noundef nonnull align 4 dereferenceable(4) %status)
   store ptr getelementptr inbounds ({ [61 x ptr] }, ptr @_ZTVN6icu_7517GregorianCalendarE, i64 0, inrange i32 0, i64 2), ptr %this, align 8
-  %fGregorianCutover = getelementptr inbounds %"class.icu_75::GregorianCalendar", ptr %this, i64 0, i32 2
+  %fGregorianCutover = getelementptr inbounds i8, ptr %this, i64 624
   store double 0xC2A63A0D36A80000, ptr %fGregorianCutover, align 8
-  %fCutoverJulianDay = getelementptr inbounds %"class.icu_75::GregorianCalendar", ptr %this, i64 0, i32 3
+  %fCutoverJulianDay = getelementptr inbounds i8, ptr %this, i64 632
   store i32 2299161, ptr %fCutoverJulianDay, align 8
-  %fNormalizedGregorianCutover = getelementptr inbounds %"class.icu_75::GregorianCalendar", ptr %this, i64 0, i32 5
+  %fNormalizedGregorianCutover = getelementptr inbounds i8, ptr %this, i64 640
   store double 0xC2A63A0D36A80000, ptr %fNormalizedGregorianCutover, align 8
-  %fGregorianCutoverYear = getelementptr inbounds %"class.icu_75::GregorianCalendar", ptr %this, i64 0, i32 6
+  %fGregorianCutoverYear = getelementptr inbounds i8, ptr %this, i64 648
   store i32 1582, ptr %fGregorianCutoverYear, align 8
-  %fIsGregorian = getelementptr inbounds %"class.icu_75::GregorianCalendar", ptr %this, i64 0, i32 7
+  %fIsGregorian = getelementptr inbounds i8, ptr %this, i64 652
   store i8 1, ptr %fIsGregorian, align 4
-  %fInvertGregorian = getelementptr inbounds %"class.icu_75::GregorianCalendar", ptr %this, i64 0, i32 8
+  %fInvertGregorian = getelementptr inbounds i8, ptr %this, i64 653
   store i8 0, ptr %fInvertGregorian, align 1
   %call3 = invoke noundef double @_ZN6icu_758Calendar6getNowEv()
           to label %invoke.cont unwind label %lpad
@@ -175,17 +174,17 @@ entry:
   %call = tail call noundef ptr @_ZN6icu_758TimeZone18forLocaleOrDefaultERKNS_6LocaleE(ptr noundef nonnull align 8 dereferenceable(217) %aLocale)
   tail call void @_ZN6icu_758CalendarC2EPNS_8TimeZoneERKNS_6LocaleER10UErrorCode(ptr noundef nonnull align 8 dereferenceable(618) %this, ptr noundef %call, ptr noundef nonnull align 8 dereferenceable(217) %aLocale, ptr noundef nonnull align 4 dereferenceable(4) %status)
   store ptr getelementptr inbounds ({ [61 x ptr] }, ptr @_ZTVN6icu_7517GregorianCalendarE, i64 0, inrange i32 0, i64 2), ptr %this, align 8
-  %fGregorianCutover = getelementptr inbounds %"class.icu_75::GregorianCalendar", ptr %this, i64 0, i32 2
+  %fGregorianCutover = getelementptr inbounds i8, ptr %this, i64 624
   store double 0xC2A63A0D36A80000, ptr %fGregorianCutover, align 8
-  %fCutoverJulianDay = getelementptr inbounds %"class.icu_75::GregorianCalendar", ptr %this, i64 0, i32 3
+  %fCutoverJulianDay = getelementptr inbounds i8, ptr %this, i64 632
   store i32 2299161, ptr %fCutoverJulianDay, align 8
-  %fNormalizedGregorianCutover = getelementptr inbounds %"class.icu_75::GregorianCalendar", ptr %this, i64 0, i32 5
+  %fNormalizedGregorianCutover = getelementptr inbounds i8, ptr %this, i64 640
   store double 0xC2A63A0D36A80000, ptr %fNormalizedGregorianCutover, align 8
-  %fGregorianCutoverYear = getelementptr inbounds %"class.icu_75::GregorianCalendar", ptr %this, i64 0, i32 6
+  %fGregorianCutoverYear = getelementptr inbounds i8, ptr %this, i64 648
   store i32 1582, ptr %fGregorianCutoverYear, align 8
-  %fIsGregorian = getelementptr inbounds %"class.icu_75::GregorianCalendar", ptr %this, i64 0, i32 7
+  %fIsGregorian = getelementptr inbounds i8, ptr %this, i64 652
   store i8 1, ptr %fIsGregorian, align 4
-  %fInvertGregorian = getelementptr inbounds %"class.icu_75::GregorianCalendar", ptr %this, i64 0, i32 8
+  %fInvertGregorian = getelementptr inbounds i8, ptr %this, i64 653
   store i8 0, ptr %fInvertGregorian, align 1
   %call3 = invoke noundef double @_ZN6icu_758Calendar6getNowEv()
           to label %invoke.cont unwind label %lpad
@@ -211,17 +210,17 @@ define void @_ZN6icu_7517GregorianCalendarC2EPNS_8TimeZoneERKNS_6LocaleER10UErro
 entry:
   tail call void @_ZN6icu_758CalendarC2EPNS_8TimeZoneERKNS_6LocaleER10UErrorCode(ptr noundef nonnull align 8 dereferenceable(618) %this, ptr noundef %zone, ptr noundef nonnull align 8 dereferenceable(217) %aLocale, ptr noundef nonnull align 4 dereferenceable(4) %status)
   store ptr getelementptr inbounds ({ [61 x ptr] }, ptr @_ZTVN6icu_7517GregorianCalendarE, i64 0, inrange i32 0, i64 2), ptr %this, align 8
-  %fGregorianCutover = getelementptr inbounds %"class.icu_75::GregorianCalendar", ptr %this, i64 0, i32 2
+  %fGregorianCutover = getelementptr inbounds i8, ptr %this, i64 624
   store double 0xC2A63A0D36A80000, ptr %fGregorianCutover, align 8
-  %fCutoverJulianDay = getelementptr inbounds %"class.icu_75::GregorianCalendar", ptr %this, i64 0, i32 3
+  %fCutoverJulianDay = getelementptr inbounds i8, ptr %this, i64 632
   store i32 2299161, ptr %fCutoverJulianDay, align 8
-  %fNormalizedGregorianCutover = getelementptr inbounds %"class.icu_75::GregorianCalendar", ptr %this, i64 0, i32 5
+  %fNormalizedGregorianCutover = getelementptr inbounds i8, ptr %this, i64 640
   store double 0xC2A63A0D36A80000, ptr %fNormalizedGregorianCutover, align 8
-  %fGregorianCutoverYear = getelementptr inbounds %"class.icu_75::GregorianCalendar", ptr %this, i64 0, i32 6
+  %fGregorianCutoverYear = getelementptr inbounds i8, ptr %this, i64 648
   store i32 1582, ptr %fGregorianCutoverYear, align 8
-  %fIsGregorian = getelementptr inbounds %"class.icu_75::GregorianCalendar", ptr %this, i64 0, i32 7
+  %fIsGregorian = getelementptr inbounds i8, ptr %this, i64 652
   store i8 1, ptr %fIsGregorian, align 4
-  %fInvertGregorian = getelementptr inbounds %"class.icu_75::GregorianCalendar", ptr %this, i64 0, i32 8
+  %fInvertGregorian = getelementptr inbounds i8, ptr %this, i64 653
   store i8 0, ptr %fInvertGregorian, align 1
   %call = invoke noundef double @_ZN6icu_758Calendar6getNowEv()
           to label %invoke.cont unwind label %lpad
@@ -245,17 +244,17 @@ define void @_ZN6icu_7517GregorianCalendarC2ERKNS_8TimeZoneERKNS_6LocaleER10UErr
 entry:
   tail call void @_ZN6icu_758CalendarC2ERKNS_8TimeZoneERKNS_6LocaleER10UErrorCode(ptr noundef nonnull align 8 dereferenceable(618) %this, ptr noundef nonnull align 8 dereferenceable(72) %zone, ptr noundef nonnull align 8 dereferenceable(217) %aLocale, ptr noundef nonnull align 4 dereferenceable(4) %status)
   store ptr getelementptr inbounds ({ [61 x ptr] }, ptr @_ZTVN6icu_7517GregorianCalendarE, i64 0, inrange i32 0, i64 2), ptr %this, align 8
-  %fGregorianCutover = getelementptr inbounds %"class.icu_75::GregorianCalendar", ptr %this, i64 0, i32 2
+  %fGregorianCutover = getelementptr inbounds i8, ptr %this, i64 624
   store double 0xC2A63A0D36A80000, ptr %fGregorianCutover, align 8
-  %fCutoverJulianDay = getelementptr inbounds %"class.icu_75::GregorianCalendar", ptr %this, i64 0, i32 3
+  %fCutoverJulianDay = getelementptr inbounds i8, ptr %this, i64 632
   store i32 2299161, ptr %fCutoverJulianDay, align 8
-  %fNormalizedGregorianCutover = getelementptr inbounds %"class.icu_75::GregorianCalendar", ptr %this, i64 0, i32 5
+  %fNormalizedGregorianCutover = getelementptr inbounds i8, ptr %this, i64 640
   store double 0xC2A63A0D36A80000, ptr %fNormalizedGregorianCutover, align 8
-  %fGregorianCutoverYear = getelementptr inbounds %"class.icu_75::GregorianCalendar", ptr %this, i64 0, i32 6
+  %fGregorianCutoverYear = getelementptr inbounds i8, ptr %this, i64 648
   store i32 1582, ptr %fGregorianCutoverYear, align 8
-  %fIsGregorian = getelementptr inbounds %"class.icu_75::GregorianCalendar", ptr %this, i64 0, i32 7
+  %fIsGregorian = getelementptr inbounds i8, ptr %this, i64 652
   store i8 1, ptr %fIsGregorian, align 4
-  %fInvertGregorian = getelementptr inbounds %"class.icu_75::GregorianCalendar", ptr %this, i64 0, i32 8
+  %fInvertGregorian = getelementptr inbounds i8, ptr %this, i64 653
   store i8 0, ptr %fInvertGregorian, align 1
   %call = invoke noundef double @_ZN6icu_758Calendar6getNowEv()
           to label %invoke.cont unwind label %lpad
@@ -281,17 +280,17 @@ entry:
   %call2 = tail call noundef nonnull align 8 dereferenceable(217) ptr @_ZN6icu_756Locale10getDefaultEv()
   tail call void @_ZN6icu_758CalendarC2EPNS_8TimeZoneERKNS_6LocaleER10UErrorCode(ptr noundef nonnull align 8 dereferenceable(618) %this, ptr noundef %call, ptr noundef nonnull align 8 dereferenceable(217) %call2, ptr noundef nonnull align 4 dereferenceable(4) %status)
   store ptr getelementptr inbounds ({ [61 x ptr] }, ptr @_ZTVN6icu_7517GregorianCalendarE, i64 0, inrange i32 0, i64 2), ptr %this, align 8
-  %fGregorianCutover = getelementptr inbounds %"class.icu_75::GregorianCalendar", ptr %this, i64 0, i32 2
+  %fGregorianCutover = getelementptr inbounds i8, ptr %this, i64 624
   store double 0xC2A63A0D36A80000, ptr %fGregorianCutover, align 8
-  %fCutoverJulianDay = getelementptr inbounds %"class.icu_75::GregorianCalendar", ptr %this, i64 0, i32 3
+  %fCutoverJulianDay = getelementptr inbounds i8, ptr %this, i64 632
   store i32 2299161, ptr %fCutoverJulianDay, align 8
-  %fNormalizedGregorianCutover = getelementptr inbounds %"class.icu_75::GregorianCalendar", ptr %this, i64 0, i32 5
+  %fNormalizedGregorianCutover = getelementptr inbounds i8, ptr %this, i64 640
   store double 0xC2A63A0D36A80000, ptr %fNormalizedGregorianCutover, align 8
-  %fGregorianCutoverYear = getelementptr inbounds %"class.icu_75::GregorianCalendar", ptr %this, i64 0, i32 6
+  %fGregorianCutoverYear = getelementptr inbounds i8, ptr %this, i64 648
   store i32 1582, ptr %fGregorianCutoverYear, align 8
-  %fIsGregorian = getelementptr inbounds %"class.icu_75::GregorianCalendar", ptr %this, i64 0, i32 7
+  %fIsGregorian = getelementptr inbounds i8, ptr %this, i64 652
   store i8 1, ptr %fIsGregorian, align 4
-  %fInvertGregorian = getelementptr inbounds %"class.icu_75::GregorianCalendar", ptr %this, i64 0, i32 8
+  %fInvertGregorian = getelementptr inbounds i8, ptr %this, i64 653
   store i8 0, ptr %fInvertGregorian, align 1
   invoke void @_ZN6icu_758Calendar3setE19UCalendarDateFieldsi(ptr noundef nonnull align 8 dereferenceable(618) %this, i32 noundef 0, i32 noundef 1)
           to label %invoke.cont unwind label %lpad
@@ -329,17 +328,17 @@ entry:
   %call2 = tail call noundef nonnull align 8 dereferenceable(217) ptr @_ZN6icu_756Locale10getDefaultEv()
   tail call void @_ZN6icu_758CalendarC2EPNS_8TimeZoneERKNS_6LocaleER10UErrorCode(ptr noundef nonnull align 8 dereferenceable(618) %this, ptr noundef %call, ptr noundef nonnull align 8 dereferenceable(217) %call2, ptr noundef nonnull align 4 dereferenceable(4) %status)
   store ptr getelementptr inbounds ({ [61 x ptr] }, ptr @_ZTVN6icu_7517GregorianCalendarE, i64 0, inrange i32 0, i64 2), ptr %this, align 8
-  %fGregorianCutover = getelementptr inbounds %"class.icu_75::GregorianCalendar", ptr %this, i64 0, i32 2
+  %fGregorianCutover = getelementptr inbounds i8, ptr %this, i64 624
   store double 0xC2A63A0D36A80000, ptr %fGregorianCutover, align 8
-  %fCutoverJulianDay = getelementptr inbounds %"class.icu_75::GregorianCalendar", ptr %this, i64 0, i32 3
+  %fCutoverJulianDay = getelementptr inbounds i8, ptr %this, i64 632
   store i32 2299161, ptr %fCutoverJulianDay, align 8
-  %fNormalizedGregorianCutover = getelementptr inbounds %"class.icu_75::GregorianCalendar", ptr %this, i64 0, i32 5
+  %fNormalizedGregorianCutover = getelementptr inbounds i8, ptr %this, i64 640
   store double 0xC2A63A0D36A80000, ptr %fNormalizedGregorianCutover, align 8
-  %fGregorianCutoverYear = getelementptr inbounds %"class.icu_75::GregorianCalendar", ptr %this, i64 0, i32 6
+  %fGregorianCutoverYear = getelementptr inbounds i8, ptr %this, i64 648
   store i32 1582, ptr %fGregorianCutoverYear, align 8
-  %fIsGregorian = getelementptr inbounds %"class.icu_75::GregorianCalendar", ptr %this, i64 0, i32 7
+  %fIsGregorian = getelementptr inbounds i8, ptr %this, i64 652
   store i8 1, ptr %fIsGregorian, align 4
-  %fInvertGregorian = getelementptr inbounds %"class.icu_75::GregorianCalendar", ptr %this, i64 0, i32 8
+  %fInvertGregorian = getelementptr inbounds i8, ptr %this, i64 653
   store i8 0, ptr %fInvertGregorian, align 1
   invoke void @_ZN6icu_758Calendar3setE19UCalendarDateFieldsi(ptr noundef nonnull align 8 dereferenceable(618) %this, i32 noundef 0, i32 noundef 1)
           to label %invoke.cont unwind label %lpad
@@ -381,17 +380,17 @@ entry:
   %call2 = tail call noundef nonnull align 8 dereferenceable(217) ptr @_ZN6icu_756Locale10getDefaultEv()
   tail call void @_ZN6icu_758CalendarC2EPNS_8TimeZoneERKNS_6LocaleER10UErrorCode(ptr noundef nonnull align 8 dereferenceable(618) %this, ptr noundef %call, ptr noundef nonnull align 8 dereferenceable(217) %call2, ptr noundef nonnull align 4 dereferenceable(4) %status)
   store ptr getelementptr inbounds ({ [61 x ptr] }, ptr @_ZTVN6icu_7517GregorianCalendarE, i64 0, inrange i32 0, i64 2), ptr %this, align 8
-  %fGregorianCutover = getelementptr inbounds %"class.icu_75::GregorianCalendar", ptr %this, i64 0, i32 2
+  %fGregorianCutover = getelementptr inbounds i8, ptr %this, i64 624
   store double 0xC2A63A0D36A80000, ptr %fGregorianCutover, align 8
-  %fCutoverJulianDay = getelementptr inbounds %"class.icu_75::GregorianCalendar", ptr %this, i64 0, i32 3
+  %fCutoverJulianDay = getelementptr inbounds i8, ptr %this, i64 632
   store i32 2299161, ptr %fCutoverJulianDay, align 8
-  %fNormalizedGregorianCutover = getelementptr inbounds %"class.icu_75::GregorianCalendar", ptr %this, i64 0, i32 5
+  %fNormalizedGregorianCutover = getelementptr inbounds i8, ptr %this, i64 640
   store double 0xC2A63A0D36A80000, ptr %fNormalizedGregorianCutover, align 8
-  %fGregorianCutoverYear = getelementptr inbounds %"class.icu_75::GregorianCalendar", ptr %this, i64 0, i32 6
+  %fGregorianCutoverYear = getelementptr inbounds i8, ptr %this, i64 648
   store i32 1582, ptr %fGregorianCutoverYear, align 8
-  %fIsGregorian = getelementptr inbounds %"class.icu_75::GregorianCalendar", ptr %this, i64 0, i32 7
+  %fIsGregorian = getelementptr inbounds i8, ptr %this, i64 652
   store i8 1, ptr %fIsGregorian, align 4
-  %fInvertGregorian = getelementptr inbounds %"class.icu_75::GregorianCalendar", ptr %this, i64 0, i32 8
+  %fInvertGregorian = getelementptr inbounds i8, ptr %this, i64 653
   store i8 0, ptr %fInvertGregorian, align 1
   invoke void @_ZN6icu_758Calendar3setE19UCalendarDateFieldsi(ptr noundef nonnull align 8 dereferenceable(618) %this, i32 noundef 0, i32 noundef 1)
           to label %invoke.cont unwind label %lpad
@@ -453,28 +452,28 @@ define void @_ZN6icu_7517GregorianCalendarC2ERKS0_(ptr noundef nonnull align 8 d
 entry:
   tail call void @_ZN6icu_758CalendarC2ERKS0_(ptr noundef nonnull align 8 dereferenceable(618) %this, ptr noundef nonnull align 8 dereferenceable(618) %source)
   store ptr getelementptr inbounds ({ [61 x ptr] }, ptr @_ZTVN6icu_7517GregorianCalendarE, i64 0, inrange i32 0, i64 2), ptr %this, align 8
-  %fGregorianCutover = getelementptr inbounds %"class.icu_75::GregorianCalendar", ptr %this, i64 0, i32 2
-  %fGregorianCutover2 = getelementptr inbounds %"class.icu_75::GregorianCalendar", ptr %source, i64 0, i32 2
+  %fGregorianCutover = getelementptr inbounds i8, ptr %this, i64 624
+  %fGregorianCutover2 = getelementptr inbounds i8, ptr %source, i64 624
   %0 = load double, ptr %fGregorianCutover2, align 8
   store double %0, ptr %fGregorianCutover, align 8
-  %fCutoverJulianDay = getelementptr inbounds %"class.icu_75::GregorianCalendar", ptr %this, i64 0, i32 3
-  %fCutoverJulianDay3 = getelementptr inbounds %"class.icu_75::GregorianCalendar", ptr %source, i64 0, i32 3
+  %fCutoverJulianDay = getelementptr inbounds i8, ptr %this, i64 632
+  %fCutoverJulianDay3 = getelementptr inbounds i8, ptr %source, i64 632
   %1 = load i32, ptr %fCutoverJulianDay3, align 8
   store i32 %1, ptr %fCutoverJulianDay, align 8
-  %fNormalizedGregorianCutover = getelementptr inbounds %"class.icu_75::GregorianCalendar", ptr %this, i64 0, i32 5
-  %fNormalizedGregorianCutover4 = getelementptr inbounds %"class.icu_75::GregorianCalendar", ptr %source, i64 0, i32 5
+  %fNormalizedGregorianCutover = getelementptr inbounds i8, ptr %this, i64 640
+  %fNormalizedGregorianCutover4 = getelementptr inbounds i8, ptr %source, i64 640
   %2 = load double, ptr %fNormalizedGregorianCutover4, align 8
   store double %2, ptr %fNormalizedGregorianCutover, align 8
-  %fGregorianCutoverYear = getelementptr inbounds %"class.icu_75::GregorianCalendar", ptr %this, i64 0, i32 6
-  %fGregorianCutoverYear5 = getelementptr inbounds %"class.icu_75::GregorianCalendar", ptr %source, i64 0, i32 6
+  %fGregorianCutoverYear = getelementptr inbounds i8, ptr %this, i64 648
+  %fGregorianCutoverYear5 = getelementptr inbounds i8, ptr %source, i64 648
   %3 = load i32, ptr %fGregorianCutoverYear5, align 8
   store i32 %3, ptr %fGregorianCutoverYear, align 8
-  %fIsGregorian = getelementptr inbounds %"class.icu_75::GregorianCalendar", ptr %this, i64 0, i32 7
-  %fIsGregorian6 = getelementptr inbounds %"class.icu_75::GregorianCalendar", ptr %source, i64 0, i32 7
+  %fIsGregorian = getelementptr inbounds i8, ptr %this, i64 652
+  %fIsGregorian6 = getelementptr inbounds i8, ptr %source, i64 652
   %4 = load i8, ptr %fIsGregorian6, align 4
   store i8 %4, ptr %fIsGregorian, align 4
-  %fInvertGregorian = getelementptr inbounds %"class.icu_75::GregorianCalendar", ptr %this, i64 0, i32 8
-  %fInvertGregorian7 = getelementptr inbounds %"class.icu_75::GregorianCalendar", ptr %source, i64 0, i32 8
+  %fInvertGregorian = getelementptr inbounds i8, ptr %this, i64 653
+  %fInvertGregorian7 = getelementptr inbounds i8, ptr %source, i64 653
   %5 = load i8, ptr %fInvertGregorian7, align 1
   store i8 %5, ptr %fInvertGregorian, align 1
   ret void
@@ -514,21 +513,21 @@ entry:
 
 if.then:                                          ; preds = %entry
   %call = tail call noundef nonnull align 8 dereferenceable(618) ptr @_ZN6icu_758CalendaraSERKS0_(ptr noundef nonnull align 8 dereferenceable(618) %this, ptr noundef nonnull align 8 dereferenceable(618) %right)
-  %fGregorianCutover = getelementptr inbounds %"class.icu_75::GregorianCalendar", ptr %right, i64 0, i32 2
+  %fGregorianCutover = getelementptr inbounds i8, ptr %right, i64 624
   %0 = load double, ptr %fGregorianCutover, align 8
-  %fGregorianCutover2 = getelementptr inbounds %"class.icu_75::GregorianCalendar", ptr %this, i64 0, i32 2
+  %fGregorianCutover2 = getelementptr inbounds i8, ptr %this, i64 624
   store double %0, ptr %fGregorianCutover2, align 8
-  %fNormalizedGregorianCutover = getelementptr inbounds %"class.icu_75::GregorianCalendar", ptr %right, i64 0, i32 5
+  %fNormalizedGregorianCutover = getelementptr inbounds i8, ptr %right, i64 640
   %1 = load double, ptr %fNormalizedGregorianCutover, align 8
-  %fNormalizedGregorianCutover3 = getelementptr inbounds %"class.icu_75::GregorianCalendar", ptr %this, i64 0, i32 5
+  %fNormalizedGregorianCutover3 = getelementptr inbounds i8, ptr %this, i64 640
   store double %1, ptr %fNormalizedGregorianCutover3, align 8
-  %fGregorianCutoverYear = getelementptr inbounds %"class.icu_75::GregorianCalendar", ptr %right, i64 0, i32 6
+  %fGregorianCutoverYear = getelementptr inbounds i8, ptr %right, i64 648
   %2 = load i32, ptr %fGregorianCutoverYear, align 8
-  %fGregorianCutoverYear4 = getelementptr inbounds %"class.icu_75::GregorianCalendar", ptr %this, i64 0, i32 6
+  %fGregorianCutoverYear4 = getelementptr inbounds i8, ptr %this, i64 648
   store i32 %2, ptr %fGregorianCutoverYear4, align 8
-  %fCutoverJulianDay = getelementptr inbounds %"class.icu_75::GregorianCalendar", ptr %right, i64 0, i32 3
+  %fCutoverJulianDay = getelementptr inbounds i8, ptr %right, i64 632
   %3 = load i32, ptr %fCutoverJulianDay, align 8
-  %fCutoverJulianDay5 = getelementptr inbounds %"class.icu_75::GregorianCalendar", ptr %this, i64 0, i32 3
+  %fCutoverJulianDay5 = getelementptr inbounds i8, ptr %this, i64 632
   store i32 %3, ptr %fCutoverJulianDay5, align 8
   br label %if.end
 
@@ -546,9 +545,9 @@ entry:
   br i1 %tobool.not, label %land.end, label %land.rhs
 
 land.rhs:                                         ; preds = %entry
-  %fGregorianCutover = getelementptr inbounds %"class.icu_75::GregorianCalendar", ptr %this, i64 0, i32 2
+  %fGregorianCutover = getelementptr inbounds i8, ptr %this, i64 624
   %0 = load double, ptr %fGregorianCutover, align 8
-  %fGregorianCutover2 = getelementptr inbounds %"class.icu_75::GregorianCalendar", ptr %other, i64 0, i32 2
+  %fGregorianCutover2 = getelementptr inbounds i8, ptr %other, i64 624
   %1 = load double, ptr %fGregorianCutover2, align 8
   %cmp = fcmp oeq double %0, %1
   %2 = zext i1 %cmp to i8
@@ -575,9 +574,9 @@ if.end:                                           ; preds = %entry
   br i1 %cmp, label %if.else, label %if.then3
 
 if.then3:                                         ; preds = %if.end
-  %fNormalizedGregorianCutover = getelementptr inbounds %"class.icu_75::GregorianCalendar", ptr %this, i64 0, i32 5
+  %fNormalizedGregorianCutover = getelementptr inbounds i8, ptr %this, i64 640
   store double 0xC384997000000000, ptr %fNormalizedGregorianCutover, align 8
-  %fGregorianCutover = getelementptr inbounds %"class.icu_75::GregorianCalendar", ptr %this, i64 0, i32 2
+  %fGregorianCutover = getelementptr inbounds i8, ptr %this, i64 624
   store double 0xC384997000000000, ptr %fGregorianCutover, align 8
   br label %if.end14
 
@@ -586,17 +585,17 @@ if.else:                                          ; preds = %if.end
   br i1 %cmp4, label %if.else9, label %if.then5
 
 if.then5:                                         ; preds = %if.else
-  %fNormalizedGregorianCutover7 = getelementptr inbounds %"class.icu_75::GregorianCalendar", ptr %this, i64 0, i32 5
+  %fNormalizedGregorianCutover7 = getelementptr inbounds i8, ptr %this, i64 640
   store double 0x4384996FFFD6CD20, ptr %fNormalizedGregorianCutover7, align 8
-  %fGregorianCutover8 = getelementptr inbounds %"class.icu_75::GregorianCalendar", ptr %this, i64 0, i32 2
+  %fGregorianCutover8 = getelementptr inbounds i8, ptr %this, i64 624
   store double 0x4384996FFFD6CD20, ptr %fGregorianCutover8, align 8
   br label %if.end14
 
 if.else9:                                         ; preds = %if.else
   %mul10 = fmul double %call.i, 8.640000e+07
-  %fNormalizedGregorianCutover11 = getelementptr inbounds %"class.icu_75::GregorianCalendar", ptr %this, i64 0, i32 5
+  %fNormalizedGregorianCutover11 = getelementptr inbounds i8, ptr %this, i64 640
   store double %mul10, ptr %fNormalizedGregorianCutover11, align 8
-  %fGregorianCutover12 = getelementptr inbounds %"class.icu_75::GregorianCalendar", ptr %this, i64 0, i32 2
+  %fGregorianCutover12 = getelementptr inbounds i8, ptr %this, i64 624
   store double %date, ptr %fGregorianCutover12, align 8
   %1 = fptosi double %call.i to i32
   br label %if.end14
@@ -633,7 +632,7 @@ if.end20:                                         ; preds = %invoke.cont
 if.end24:                                         ; preds = %if.end20
   tail call void @_ZN6icu_758Calendar15setTimeInMillisEdR10UErrorCode(ptr noundef nonnull align 8 dereferenceable(618) %call15, double noundef %date, ptr noundef nonnull align 4 dereferenceable(4) %status)
   %call25 = tail call noundef i32 @_ZNK6icu_758Calendar3getE19UCalendarDateFieldsR10UErrorCode(ptr noundef nonnull align 8 dereferenceable(618) %call15, i32 noundef 1, ptr noundef nonnull align 4 dereferenceable(4) %status)
-  %fGregorianCutoverYear = getelementptr inbounds %"class.icu_75::GregorianCalendar", ptr %this, i64 0, i32 6
+  %fGregorianCutoverYear = getelementptr inbounds i8, ptr %this, i64 648
   store i32 %call25, ptr %fGregorianCutoverYear, align 8
   %call26 = tail call noundef i32 @_ZNK6icu_758Calendar3getE19UCalendarDateFieldsR10UErrorCode(ptr noundef nonnull align 8 dereferenceable(618) %call15, i32 noundef 0, ptr noundef nonnull align 4 dereferenceable(4) %status)
   %cmp27 = icmp eq i32 %call26, 0
@@ -646,10 +645,10 @@ if.then28:                                        ; preds = %if.end24
   br label %if.end31
 
 if.end31:                                         ; preds = %if.then28, %if.end24
-  %fCutoverJulianDay = getelementptr inbounds %"class.icu_75::GregorianCalendar", ptr %this, i64 0, i32 3
+  %fCutoverJulianDay = getelementptr inbounds i8, ptr %this, i64 632
   store i32 %cutoverDay.0, ptr %fCutoverJulianDay, align 8
   %vtable = load ptr, ptr %call15, align 8
-  %vfn = getelementptr inbounds ptr, ptr %vtable, i64 1
+  %vfn = getelementptr inbounds i8, ptr %vtable, i64 8
   %5 = load ptr, ptr %vfn, align 8
   tail call void %5(ptr noundef nonnull align 8 dereferenceable(654) %call15) #8
   br label %delete.end
@@ -671,19 +670,19 @@ entry:
   br i1 %cmp.i, label %if.end, label %return
 
 if.end:                                           ; preds = %entry
-  %fCutoverJulianDay = getelementptr inbounds %"class.icu_75::GregorianCalendar", ptr %this, i64 0, i32 3
+  %fCutoverJulianDay = getelementptr inbounds i8, ptr %this, i64 632
   %1 = load i32, ptr %fCutoverJulianDay, align 8
   %cmp.not = icmp sgt i32 %1, %julianDay
   br i1 %cmp.not, label %if.else, label %if.then2
 
 if.then2:                                         ; preds = %if.end
-  %fGregorianMonth.i = getelementptr inbounds %"class.icu_75::Calendar", ptr %this, i64 0, i32 23
+  %fGregorianMonth.i = getelementptr inbounds i8, ptr %this, i64 292
   %2 = load i32, ptr %fGregorianMonth.i, align 4
-  %fGregorianDayOfMonth.i = getelementptr inbounds %"class.icu_75::Calendar", ptr %this, i64 0, i32 25
+  %fGregorianDayOfMonth.i = getelementptr inbounds i8, ptr %this, i64 300
   %3 = load i32, ptr %fGregorianDayOfMonth.i, align 4
-  %fGregorianDayOfYear.i = getelementptr inbounds %"class.icu_75::Calendar", ptr %this, i64 0, i32 24
+  %fGregorianDayOfYear.i = getelementptr inbounds i8, ptr %this, i64 296
   %4 = load i32, ptr %fGregorianDayOfYear.i, align 8
-  %fGregorianYear.i = getelementptr inbounds %"class.icu_75::Calendar", ptr %this, i64 0, i32 22
+  %fGregorianYear.i = getelementptr inbounds i8, ptr %this, i64 288
   %5 = load i32, ptr %fGregorianYear.i, align 8
   br label %if.end30
 
@@ -725,7 +724,7 @@ if.end30:                                         ; preds = %if.else, %if.then2
   %dayOfMonth.0 = phi i32 [ %3, %if.then2 ], [ %add29, %if.else ]
   %month.0 = phi i32 [ %2, %if.then2 ], [ %div, %if.else ]
   %eyear.0 = phi i32 [ %5, %if.then2 ], [ %call7, %if.else ]
-  %fGregorianCutoverYear = getelementptr inbounds %"class.icu_75::GregorianCalendar", ptr %this, i64 0, i32 6
+  %fGregorianCutoverYear = getelementptr inbounds i8, ptr %this, i64 648
   %8 = load i32, ptr %fGregorianCutoverYear, align 8
   %cmp31 = icmp ne i32 %eyear.0, %8
   %cmp33.not = icmp sgt i32 %7, %julianDay
@@ -745,52 +744,52 @@ if.then34:                                        ; preds = %if.end30
 
 if.end37:                                         ; preds = %if.then34, %if.end30
   %dayOfYear.1 = phi i32 [ %add36, %if.then34 ], [ %dayOfYear.0, %if.end30 ]
-  %arrayidx.i = getelementptr inbounds %"class.icu_75::Calendar", ptr %this, i64 0, i32 5, i64 2
+  %fFields.i = getelementptr inbounds i8, ptr %this, i64 12
+  %arrayidx.i = getelementptr inbounds i8, ptr %this, i64 20
   store i32 %month.0, ptr %arrayidx.i, align 4
-  %arrayidx3.i = getelementptr inbounds %"class.icu_75::Calendar", ptr %this, i64 0, i32 7, i64 2
+  %fStamp.i = getelementptr inbounds i8, ptr %this, i64 132
+  %arrayidx3.i = getelementptr inbounds i8, ptr %this, i64 140
   store i32 1, ptr %arrayidx3.i, align 4
-  %arrayidx5.i = getelementptr inbounds %"class.icu_75::Calendar", ptr %this, i64 0, i32 6, i64 2
+  %fIsSet.i = getelementptr inbounds i8, ptr %this, i64 108
+  %arrayidx5.i = getelementptr inbounds i8, ptr %this, i64 110
   store i8 1, ptr %arrayidx5.i, align 2
-  %arrayidx.i23 = getelementptr inbounds %"class.icu_75::Calendar", ptr %this, i64 0, i32 5, i64 23
-  store i32 %month.0, ptr %arrayidx.i23, align 8
-  %arrayidx3.i24 = getelementptr inbounds %"class.icu_75::Calendar", ptr %this, i64 0, i32 7, i64 23
-  store i32 1, ptr %arrayidx3.i24, align 8
-  %arrayidx5.i25 = getelementptr inbounds %"class.icu_75::Calendar", ptr %this, i64 0, i32 6, i64 23
-  store i8 1, ptr %arrayidx5.i25, align 1
-  %arrayidx.i26 = getelementptr inbounds %"class.icu_75::Calendar", ptr %this, i64 0, i32 5, i64 5
-  store i32 %dayOfMonth.0, ptr %arrayidx.i26, align 8
-  %arrayidx3.i27 = getelementptr inbounds %"class.icu_75::Calendar", ptr %this, i64 0, i32 7, i64 5
-  store i32 1, ptr %arrayidx3.i27, align 8
-  %arrayidx5.i28 = getelementptr inbounds %"class.icu_75::Calendar", ptr %this, i64 0, i32 6, i64 5
+  %arrayidx.i24 = getelementptr inbounds i8, ptr %this, i64 104
+  store i32 %month.0, ptr %arrayidx.i24, align 8
+  %arrayidx3.i26 = getelementptr inbounds i8, ptr %this, i64 224
+  store i32 1, ptr %arrayidx3.i26, align 8
+  %arrayidx5.i28 = getelementptr inbounds i8, ptr %this, i64 131
   store i8 1, ptr %arrayidx5.i28, align 1
-  %arrayidx.i29 = getelementptr inbounds %"class.icu_75::Calendar", ptr %this, i64 0, i32 5, i64 6
-  store i32 %dayOfYear.1, ptr %arrayidx.i29, align 4
-  %arrayidx3.i30 = getelementptr inbounds %"class.icu_75::Calendar", ptr %this, i64 0, i32 7, i64 6
-  store i32 1, ptr %arrayidx3.i30, align 4
-  %arrayidx5.i31 = getelementptr inbounds %"class.icu_75::Calendar", ptr %this, i64 0, i32 6, i64 6
-  store i8 1, ptr %arrayidx5.i31, align 2
-  %arrayidx.i32 = getelementptr inbounds %"class.icu_75::Calendar", ptr %this, i64 0, i32 5, i64 19
-  store i32 %eyear.0, ptr %arrayidx.i32, align 8
-  %arrayidx3.i33 = getelementptr inbounds %"class.icu_75::Calendar", ptr %this, i64 0, i32 7, i64 19
-  store i32 1, ptr %arrayidx3.i33, align 8
-  %arrayidx5.i34 = getelementptr inbounds %"class.icu_75::Calendar", ptr %this, i64 0, i32 6, i64 19
+  %arrayidx.i30 = getelementptr inbounds i8, ptr %this, i64 32
+  store i32 %dayOfMonth.0, ptr %arrayidx.i30, align 8
+  %arrayidx3.i32 = getelementptr inbounds i8, ptr %this, i64 152
+  store i32 1, ptr %arrayidx3.i32, align 8
+  %arrayidx5.i34 = getelementptr inbounds i8, ptr %this, i64 113
   store i8 1, ptr %arrayidx5.i34, align 1
+  %arrayidx.i36 = getelementptr inbounds i8, ptr %this, i64 36
+  store i32 %dayOfYear.1, ptr %arrayidx.i36, align 4
+  %arrayidx3.i38 = getelementptr inbounds i8, ptr %this, i64 156
+  store i32 1, ptr %arrayidx3.i38, align 4
+  %arrayidx5.i40 = getelementptr inbounds i8, ptr %this, i64 114
+  store i8 1, ptr %arrayidx5.i40, align 2
+  %arrayidx.i42 = getelementptr inbounds i8, ptr %this, i64 88
+  store i32 %eyear.0, ptr %arrayidx.i42, align 8
+  %arrayidx3.i44 = getelementptr inbounds i8, ptr %this, i64 208
+  store i32 1, ptr %arrayidx3.i44, align 8
+  %arrayidx5.i46 = getelementptr inbounds i8, ptr %this, i64 127
+  store i8 1, ptr %arrayidx5.i46, align 1
   %cmp38 = icmp sgt i32 %eyear.0, 0
   %sub40 = sub nsw i32 1, %eyear.0
-  %spec.select44 = zext i1 %cmp38 to i32
-  %spec.select45 = select i1 %cmp38, i32 %eyear.0, i32 %sub40
-  %10 = getelementptr inbounds %"class.icu_75::Calendar", ptr %this, i64 0, i32 5, i64 0
-  store i32 %spec.select44, ptr %10, align 4
-  %11 = getelementptr inbounds %"class.icu_75::Calendar", ptr %this, i64 0, i32 7, i64 0
-  store i32 1, ptr %11, align 4
-  %12 = getelementptr inbounds %"class.icu_75::Calendar", ptr %this, i64 0, i32 6, i64 0
-  store i8 1, ptr %12, align 4
-  %arrayidx.i41 = getelementptr inbounds %"class.icu_75::Calendar", ptr %this, i64 0, i32 5, i64 1
-  store i32 %spec.select45, ptr %arrayidx.i41, align 8
-  %arrayidx3.i42 = getelementptr inbounds %"class.icu_75::Calendar", ptr %this, i64 0, i32 7, i64 1
-  store i32 1, ptr %arrayidx3.i42, align 8
-  %arrayidx5.i43 = getelementptr inbounds %"class.icu_75::Calendar", ptr %this, i64 0, i32 6, i64 1
-  store i8 1, ptr %arrayidx5.i43, align 1
+  %storemerge = zext i1 %cmp38 to i32
+  %eyear.1 = select i1 %cmp38, i32 %eyear.0, i32 %sub40
+  store i32 %storemerge, ptr %fFields.i, align 4
+  store i32 1, ptr %fStamp.i, align 4
+  store i8 1, ptr %fIsSet.i, align 4
+  %arrayidx.i54 = getelementptr inbounds i8, ptr %this, i64 16
+  store i32 %eyear.1, ptr %arrayidx.i54, align 8
+  %arrayidx3.i56 = getelementptr inbounds i8, ptr %this, i64 136
+  store i32 1, ptr %arrayidx3.i56, align 8
+  %arrayidx5.i58 = getelementptr inbounds i8, ptr %this, i64 109
+  store i8 1, ptr %arrayidx5.i58, align 1
   br label %return
 
 return:                                           ; preds = %entry, %if.end37
@@ -807,7 +806,7 @@ declare noundef i32 @_ZN6icu_759ClockMath11floorDivideEii(i32 noundef, i32 nound
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
 define noundef double @_ZNK6icu_7517GregorianCalendar18getGregorianChangeEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(654) %this) local_unnamed_addr #6 align 2 {
 entry:
-  %fGregorianCutover = getelementptr inbounds %"class.icu_75::GregorianCalendar", ptr %this, i64 0, i32 2
+  %fGregorianCutover = getelementptr inbounds i8, ptr %this, i64 624
   %0 = load double, ptr %fGregorianCutover, align 8
   ret double %0
 }
@@ -815,7 +814,7 @@ entry:
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
 define noundef signext i8 @_ZNK6icu_7517GregorianCalendar10isLeapYearEi(ptr nocapture noundef nonnull readonly align 8 dereferenceable(654) %this, i32 noundef %year) local_unnamed_addr #6 align 2 {
 entry:
-  %fGregorianCutoverYear = getelementptr inbounds %"class.icu_75::GregorianCalendar", ptr %this, i64 0, i32 6
+  %fGregorianCutoverYear = getelementptr inbounds i8, ptr %this, i64 648
   %0 = load i32, ptr %fGregorianCutoverYear, align 8
   %cmp.not = icmp sgt i32 %0, %year
   %and6 = and i32 %year, 3
@@ -844,7 +843,7 @@ cond.end:                                         ; preds = %entry, %lor.rhs, %l
 ; Function Attrs: mustprogress uwtable
 define noundef i32 @_ZN6icu_7517GregorianCalendar22handleComputeJulianDayE19UCalendarDateFieldsR10UErrorCode(ptr noundef nonnull align 8 dereferenceable(654) %this, i32 noundef %bestField, ptr noundef nonnull align 4 dereferenceable(4) %status) unnamed_addr #1 align 2 {
 entry:
-  %fInvertGregorian = getelementptr inbounds %"class.icu_75::GregorianCalendar", ptr %this, i64 0, i32 8
+  %fInvertGregorian = getelementptr inbounds i8, ptr %this, i64 653
   store i8 0, ptr %fInvertGregorian, align 1
   %call = tail call noundef i32 @_ZN6icu_758Calendar22handleComputeJulianDayE19UCalendarDateFieldsR10UErrorCode(ptr noundef nonnull align 8 dereferenceable(618) %this, i32 noundef %bestField, ptr noundef nonnull align 4 dereferenceable(4) %status)
   %0 = load i32, ptr %status, align 4
@@ -856,17 +855,17 @@ if.end:                                           ; preds = %entry
   br i1 %cmp, label %land.lhs.true, label %if.end.if.end10_crit_edge
 
 if.end.if.end10_crit_edge:                        ; preds = %if.end
-  %fCutoverJulianDay11.phi.trans.insert = getelementptr inbounds %"class.icu_75::GregorianCalendar", ptr %this, i64 0, i32 3
+  %fCutoverJulianDay11.phi.trans.insert = getelementptr inbounds i8, ptr %this, i64 632
   %.pre = load i32, ptr %fCutoverJulianDay11.phi.trans.insert, align 8
   br label %if.end10
 
 land.lhs.true:                                    ; preds = %if.end
-  %arrayidx.i = getelementptr inbounds %"class.icu_75::Calendar", ptr %this, i64 0, i32 5, i64 19
+  %arrayidx.i = getelementptr inbounds i8, ptr %this, i64 88
   %1 = load i32, ptr %arrayidx.i, align 8
-  %fGregorianCutoverYear = getelementptr inbounds %"class.icu_75::GregorianCalendar", ptr %this, i64 0, i32 6
+  %fGregorianCutoverYear = getelementptr inbounds i8, ptr %this, i64 648
   %2 = load i32, ptr %fGregorianCutoverYear, align 8
   %cmp4 = icmp ne i32 %1, %2
-  %fCutoverJulianDay = getelementptr inbounds %"class.icu_75::GregorianCalendar", ptr %this, i64 0, i32 3
+  %fCutoverJulianDay = getelementptr inbounds i8, ptr %this, i64 632
   %3 = load i32, ptr %fCutoverJulianDay, align 8
   %cmp6.not = icmp slt i32 %call, %3
   %or.cond = select i1 %cmp4, i1 true, i1 %cmp6.not
@@ -879,7 +878,7 @@ if.then7:                                         ; preds = %land.lhs.true
 
 if.end10:                                         ; preds = %if.end.if.end10_crit_edge, %land.lhs.true
   %4 = phi i32 [ %.pre, %if.end.if.end10_crit_edge ], [ %3, %land.lhs.true ]
-  %fIsGregorian = getelementptr inbounds %"class.icu_75::GregorianCalendar", ptr %this, i64 0, i32 7
+  %fIsGregorian = getelementptr inbounds i8, ptr %this, i64 652
   %5 = load i8, ptr %fIsGregorian, align 4
   %conv = sext i8 %5 to i32
   %cmp12 = icmp sge i32 %call, %4
@@ -895,26 +894,26 @@ if.then15:                                        ; preds = %if.end10
   br i1 %cmp.i14, label %if.then15.if.end22_crit_edge, label %return
 
 if.then15.if.end22_crit_edge:                     ; preds = %if.then15
-  %.pre19 = load i8, ptr %fIsGregorian, align 4
+  %.pre21 = load i8, ptr %fIsGregorian, align 4
   br label %if.end22
 
 if.end22:                                         ; preds = %if.then15.if.end22_crit_edge, %if.end10
-  %7 = phi i8 [ %.pre19, %if.then15.if.end22_crit_edge ], [ %5, %if.end10 ]
+  %7 = phi i8 [ %.pre21, %if.then15.if.end22_crit_edge ], [ %5, %if.end10 ]
   %jd.0 = phi i32 [ %call17, %if.then15.if.end22_crit_edge ], [ %call, %if.end10 ]
   %tobool24.not = icmp eq i8 %7, 0
   br i1 %tobool24.not, label %return, label %land.lhs.true25
 
 land.lhs.true25:                                  ; preds = %if.end22
-  %arrayidx.i16 = getelementptr inbounds %"class.icu_75::Calendar", ptr %this, i64 0, i32 5, i64 19
-  %8 = load i32, ptr %arrayidx.i16, align 8
-  %fGregorianCutoverYear27 = getelementptr inbounds %"class.icu_75::GregorianCalendar", ptr %this, i64 0, i32 6
+  %arrayidx.i17 = getelementptr inbounds i8, ptr %this, i64 88
+  %8 = load i32, ptr %arrayidx.i17, align 8
+  %fGregorianCutoverYear27 = getelementptr inbounds i8, ptr %this, i64 648
   %9 = load i32, ptr %fGregorianCutoverYear27, align 8
   %cmp28 = icmp eq i32 %8, %9
   br i1 %cmp28, label %if.then29, label %return
 
 if.then29:                                        ; preds = %land.lhs.true25
-  %conv.i18 = sext i32 %8 to i64
-  %sub.i = add nsw i64 %conv.i18, -1
+  %conv.i20 = sext i32 %8 to i64
+  %sub.i = add nsw i64 %conv.i20, -1
   %call.i = tail call noundef i64 @_ZN6icu_759ClockMath11floorDivideEll(i64 noundef %sub.i, i64 noundef 400)
   %call1.i = tail call noundef i64 @_ZN6icu_759ClockMath11floorDivideEll(i64 noundef %sub.i, i64 noundef 100)
   switch i32 %bestField, label %return [
@@ -964,13 +963,13 @@ if.end:                                           ; preds = %entry, %if.then
   %call5 = call noundef i64 @_ZN6icu_759ClockMath11floorDivideEll(i64 noundef %sub, i64 noundef 4)
   %add6 = add i64 %call5, 1721423
   %add7 = add i64 %add6, %mul
-  %fGregorianCutoverYear = getelementptr inbounds %"class.icu_75::GregorianCalendar", ptr %this, i64 0, i32 6
+  %fGregorianCutoverYear = getelementptr inbounds i8, ptr %this, i64 648
   %2 = load i32, ptr %fGregorianCutoverYear, align 8
   %cmp8 = icmp sge i32 %eyear.addr.0, %2
   %conv9 = zext i1 %cmp8 to i8
-  %fIsGregorian = getelementptr inbounds %"class.icu_75::GregorianCalendar", ptr %this, i64 0, i32 7
+  %fIsGregorian = getelementptr inbounds i8, ptr %this, i64 652
   store i8 %conv9, ptr %fIsGregorian, align 4
-  %fInvertGregorian = getelementptr inbounds %"class.icu_75::GregorianCalendar", ptr %this, i64 0, i32 8
+  %fInvertGregorian = getelementptr inbounds i8, ptr %this, i64 653
   %3 = load i8, ptr %fInvertGregorian, align 1
   %tobool.not = icmp eq i8 %3, 0
   br i1 %tobool.not, label %if.end15, label %if.then10
@@ -1054,7 +1053,7 @@ if.then:                                          ; preds = %entry
 
 if.end:                                           ; preds = %entry, %if.then
   %extendedYear.addr.0 = phi i32 [ %add, %if.then ], [ %extendedYear, %entry ]
-  %fGregorianCutoverYear.i = getelementptr inbounds %"class.icu_75::GregorianCalendar", ptr %this, i64 0, i32 6
+  %fGregorianCutoverYear.i = getelementptr inbounds i8, ptr %this, i64 648
   %0 = load i32, ptr %fGregorianCutoverYear.i, align 8
   %.fr = freeze i32 %0
   %cmp.not.i = icmp sgt i32 %.fr, %extendedYear.addr.0
@@ -1106,7 +1105,7 @@ _ZNK6icu_7517GregorianCalendar10isLeapYearEi.exit: ; preds = %if.end
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
 define noundef i32 @_ZNK6icu_7517GregorianCalendar19handleGetYearLengthEi(ptr nocapture noundef nonnull readonly align 8 dereferenceable(654) %this, i32 noundef %eyear) unnamed_addr #6 align 2 {
 entry:
-  %fGregorianCutoverYear.i = getelementptr inbounds %"class.icu_75::GregorianCalendar", ptr %this, i64 0, i32 6
+  %fGregorianCutoverYear.i = getelementptr inbounds i8, ptr %this, i64 648
   %0 = load i32, ptr %fGregorianCutoverYear.i, align 8
   %.fr = freeze i32 %0
   %cmp.not.i = icmp sgt i32 %.fr, %eyear
@@ -1139,10 +1138,10 @@ _ZNK6icu_7517GregorianCalendar10isLeapYearEi.exit.thread: ; preds = %land.rhs.i,
 ; Function Attrs: mustprogress uwtable
 define noundef i32 @_ZNK6icu_7517GregorianCalendar11monthLengthEi(ptr noundef nonnull align 8 dereferenceable(654) %this, i32 noundef %month) unnamed_addr #1 align 2 {
 entry:
-  %arrayidx.i = getelementptr inbounds %"class.icu_75::Calendar", ptr %this, i64 0, i32 5, i64 19
+  %arrayidx.i = getelementptr inbounds i8, ptr %this, i64 88
   %0 = load i32, ptr %arrayidx.i, align 8
   %vtable = load ptr, ptr %this, align 8
-  %vfn = getelementptr inbounds ptr, ptr %vtable, i64 39
+  %vfn = getelementptr inbounds i8, ptr %vtable, i64 312
   %1 = load ptr, ptr %vfn, align 8
   %call2 = tail call noundef i32 %1(ptr noundef nonnull align 8 dereferenceable(654) %this, i32 noundef %0, i32 noundef %month)
   ret i32 %call2
@@ -1151,7 +1150,7 @@ entry:
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
 define noundef i32 @_ZNK6icu_7517GregorianCalendar11monthLengthEii(ptr nocapture noundef nonnull readonly align 8 dereferenceable(654) %this, i32 noundef %month, i32 noundef %year) unnamed_addr #6 align 2 {
 entry:
-  %fGregorianCutoverYear.i = getelementptr inbounds %"class.icu_75::GregorianCalendar", ptr %this, i64 0, i32 6
+  %fGregorianCutoverYear.i = getelementptr inbounds i8, ptr %this, i64 648
   %0 = load i32, ptr %fGregorianCutoverYear.i, align 8
   %.fr = freeze i32 %0
   %cmp.not.i = icmp sgt i32 %.fr, %year
@@ -1200,10 +1199,10 @@ _ZNK6icu_7517GregorianCalendar10isLeapYearEi.exit: ; preds = %entry
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
 define noundef i32 @_ZNK6icu_7517GregorianCalendar10yearLengthEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(654) %this) local_unnamed_addr #6 align 2 {
 entry:
-  %arrayidx.i = getelementptr inbounds %"class.icu_75::Calendar", ptr %this, i64 0, i32 5, i64 1
+  %arrayidx.i = getelementptr inbounds i8, ptr %this, i64 16
   %0 = load i32, ptr %arrayidx.i, align 8
   %.fr = freeze i32 %0
-  %fGregorianCutoverYear.i = getelementptr inbounds %"class.icu_75::GregorianCalendar", ptr %this, i64 0, i32 6
+  %fGregorianCutoverYear.i = getelementptr inbounds i8, ptr %this, i64 648
   %1 = load i32, ptr %fGregorianCutoverYear.i, align 8
   %.fr4 = freeze i32 %1
   %cmp.not.i = icmp sgt i32 %.fr4, %.fr
@@ -1236,6 +1235,7 @@ _ZNK6icu_7517GregorianCalendar10isLeapYearEi.exit.thread: ; preds = %land.rhs.i,
 ; Function Attrs: mustprogress uwtable
 define noundef signext i8 @_ZNK6icu_7517GregorianCalendar14validateFieldsEv(ptr noundef nonnull align 8 dereferenceable(654) %this) local_unnamed_addr #1 align 2 {
 entry:
+  %fFields.i = getelementptr inbounds i8, ptr %this, i64 12
   br label %for.body
 
 for.body:                                         ; preds = %entry, %for.inc
@@ -1252,10 +1252,10 @@ land.lhs.true4:                                   ; preds = %for.body
   br i1 %tobool.not, label %for.inc, label %land.lhs.true5
 
 land.lhs.true5:                                   ; preds = %land.lhs.true4
-  %arrayidx.i = getelementptr inbounds %"class.icu_75::Calendar", ptr %this, i64 0, i32 5, i64 %indvars.iv
+  %arrayidx.i = getelementptr inbounds [24 x i32], ptr %fFields.i, i64 0, i64 %indvars.iv
   %3 = load i32, ptr %arrayidx.i, align 4
   %vtable.i = load ptr, ptr %this, align 8
-  %vfn.i = getelementptr inbounds ptr, ptr %vtable.i, i64 14
+  %vfn.i = getelementptr inbounds i8, ptr %vtable.i, i64 112
   %4 = load ptr, ptr %vfn.i, align 8
   %call.i = tail call noundef i32 %4(ptr noundef nonnull align 8 dereferenceable(618) %this, i32 noundef %2)
   %cmp.not.i = icmp sgt i32 %call.i, %3
@@ -1263,7 +1263,7 @@ land.lhs.true5:                                   ; preds = %land.lhs.true4
 
 _ZNK6icu_7517GregorianCalendar11boundsCheckEi19UCalendarDateFields.exit: ; preds = %land.lhs.true5
   %vtable2.i = load ptr, ptr %this, align 8
-  %vfn3.i = getelementptr inbounds ptr, ptr %vtable2.i, i64 16
+  %vfn3.i = getelementptr inbounds i8, ptr %vtable2.i, i64 128
   %5 = load ptr, ptr %vfn3.i, align 8
   %call4.i = tail call noundef i32 %5(ptr noundef nonnull align 8 dereferenceable(618) %this, i32 noundef %2)
   %cmp5.i.not = icmp slt i32 %call4.i, %3
@@ -1280,10 +1280,10 @@ for.end:                                          ; preds = %for.inc
   br i1 %tobool10.not, label %if.end24, label %if.then11
 
 if.then11:                                        ; preds = %for.end
-  %arrayidx.i9 = getelementptr inbounds %"class.icu_75::Calendar", ptr %this, i64 0, i32 5, i64 5
-  %6 = load i32, ptr %arrayidx.i9, align 8
+  %arrayidx.i10 = getelementptr inbounds i8, ptr %this, i64 32
+  %6 = load i32, ptr %arrayidx.i10, align 8
   %vtable = load ptr, ptr %this, align 8
-  %vfn = getelementptr inbounds ptr, ptr %vtable, i64 14
+  %vfn = getelementptr inbounds i8, ptr %vtable, i64 112
   %7 = load ptr, ptr %vfn, align 8
   %call13 = tail call noundef i32 %7(ptr noundef nonnull align 8 dereferenceable(618) %this, i32 noundef 5)
   %cmp14 = icmp slt i32 %6, %call13
@@ -1291,11 +1291,11 @@ if.then11:                                        ; preds = %for.end
 
 lor.lhs.false:                                    ; preds = %if.then11
   %vtable15 = load ptr, ptr %this, align 8
-  %vfn16 = getelementptr inbounds ptr, ptr %vtable15, i64 33
+  %vfn16 = getelementptr inbounds i8, ptr %vtable15, i64 264
   %8 = load ptr, ptr %vfn16, align 8
   %call17 = tail call noundef i32 %8(ptr noundef nonnull align 8 dereferenceable(618) %this)
   %vtable18 = load ptr, ptr %this, align 8
-  %vfn19 = getelementptr inbounds ptr, ptr %vtable18, i64 56
+  %vfn19 = getelementptr inbounds i8, ptr %vtable18, i64 448
   %9 = load ptr, ptr %vfn19, align 8
   %call20 = tail call noundef i32 %9(ptr noundef nonnull align 8 dereferenceable(654) %this, i32 noundef %call17)
   %cmp21 = icmp sgt i32 %6, %call20
@@ -1307,16 +1307,16 @@ if.end24:                                         ; preds = %lor.lhs.false, %for
   br i1 %tobool26.not, label %if.end35, label %if.then27
 
 if.then27:                                        ; preds = %if.end24
-  %arrayidx.i10 = getelementptr inbounds %"class.icu_75::Calendar", ptr %this, i64 0, i32 5, i64 6
-  %10 = load i32, ptr %arrayidx.i10, align 4
+  %arrayidx.i12 = getelementptr inbounds i8, ptr %this, i64 36
+  %10 = load i32, ptr %arrayidx.i12, align 4
   %cmp29 = icmp slt i32 %10, 1
   br i1 %cmp29, label %return, label %lor.lhs.false30
 
 lor.lhs.false30:                                  ; preds = %if.then27
-  %arrayidx.i.i = getelementptr inbounds %"class.icu_75::Calendar", ptr %this, i64 0, i32 5, i64 1
+  %arrayidx.i.i = getelementptr inbounds i8, ptr %this, i64 16
   %11 = load i32, ptr %arrayidx.i.i, align 8
   %.fr.i = freeze i32 %11
-  %fGregorianCutoverYear.i.i = getelementptr inbounds %"class.icu_75::GregorianCalendar", ptr %this, i64 0, i32 6
+  %fGregorianCutoverYear.i.i = getelementptr inbounds i8, ptr %this, i64 648
   %12 = load i32, ptr %fGregorianCutoverYear.i.i, align 8
   %.fr4.i = freeze i32 %12
   %cmp.not.i.i = icmp sgt i32 %.fr4.i, %.fr.i
@@ -1331,8 +1331,8 @@ land.rhs.i.i:                                     ; preds = %lor.lhs.false30
   %cmp3.not.i.i = icmp ne i32 %rem.i.i, 0
   %rem4.i.i = srem i32 %.fr.i, 400
   %cmp5.i.i = icmp eq i32 %rem4.i.i, 0
-  %or.cond14 = or i1 %cmp3.not.i.i, %cmp5.i.i
-  br i1 %or.cond14, label %_ZNK6icu_7517GregorianCalendar10isLeapYearEi.exit.thread.i, label %_ZNK6icu_7517GregorianCalendar10yearLengthEv.exit
+  %or.cond17 = or i1 %cmp3.not.i.i, %cmp5.i.i
+  br i1 %or.cond17, label %_ZNK6icu_7517GregorianCalendar10isLeapYearEi.exit.thread.i, label %_ZNK6icu_7517GregorianCalendar10yearLengthEv.exit
 
 _ZNK6icu_7517GregorianCalendar10isLeapYearEi.exit.i: ; preds = %lor.lhs.false30
   %cmp7.mux.i.i = and i1 %cmp.not.i.i, %cmp7.i.i
@@ -1349,11 +1349,11 @@ _ZNK6icu_7517GregorianCalendar10yearLengthEv.exit: ; preds = %land.rhs.i.i, %_ZN
 if.end35:                                         ; preds = %_ZNK6icu_7517GregorianCalendar10yearLengthEv.exit, %if.end24
   %call36 = tail call noundef signext i8 @_ZNK6icu_758Calendar5isSetE19UCalendarDateFields(ptr noundef nonnull align 8 dereferenceable(618) %this, i32 noundef 8)
   %tobool37.not = icmp eq i8 %call36, 0
-  %arrayidx.i11 = getelementptr inbounds %"class.icu_75::Calendar", ptr %this, i64 0, i32 5, i64 8
-  %14 = load i32, ptr %arrayidx.i11, align 4
+  %arrayidx.i14 = getelementptr inbounds i8, ptr %this, i64 44
+  %14 = load i32, ptr %arrayidx.i14, align 4
   %cmp40 = icmp ne i32 %14, 0
-  %or.cond15.not = select i1 %tobool37.not, i1 true, i1 %cmp40
-  %spec.select = zext i1 %or.cond15.not to i8
+  %or.cond18.not = select i1 %tobool37.not, i1 true, i1 %cmp40
+  %spec.select = zext i1 %or.cond18.not to i8
   br label %return
 
 return:                                           ; preds = %land.lhs.true5, %_ZNK6icu_7517GregorianCalendar11boundsCheckEi19UCalendarDateFields.exit, %if.end35, %if.then27, %_ZNK6icu_7517GregorianCalendar10yearLengthEv.exit, %if.then11, %lor.lhs.false
@@ -1367,7 +1367,7 @@ declare noundef signext i8 @_ZNK6icu_758Calendar5isSetE19UCalendarDateFields(ptr
 define noundef signext i8 @_ZNK6icu_7517GregorianCalendar11boundsCheckEi19UCalendarDateFields(ptr noundef nonnull align 8 dereferenceable(654) %this, i32 noundef %value, i32 noundef %field) local_unnamed_addr #1 align 2 {
 entry:
   %vtable = load ptr, ptr %this, align 8
-  %vfn = getelementptr inbounds ptr, ptr %vtable, i64 14
+  %vfn = getelementptr inbounds i8, ptr %vtable, i64 112
   %0 = load ptr, ptr %vfn, align 8
   %call = tail call noundef i32 %0(ptr noundef nonnull align 8 dereferenceable(618) %this, i32 noundef %field)
   %cmp.not = icmp sgt i32 %call, %value
@@ -1375,7 +1375,7 @@ entry:
 
 land.rhs:                                         ; preds = %entry
   %vtable2 = load ptr, ptr %this, align 8
-  %vfn3 = getelementptr inbounds ptr, ptr %vtable2, i64 16
+  %vfn3 = getelementptr inbounds i8, ptr %vtable2, i64 128
   %1 = load ptr, ptr %vfn3, align 8
   %call4 = tail call noundef i32 %1(ptr noundef nonnull align 8 dereferenceable(618) %this, i32 noundef %field)
   %cmp5 = icmp sge i32 %call4, %value
@@ -1391,13 +1391,13 @@ land.end:                                         ; preds = %land.rhs, %entry
 define noundef double @_ZN6icu_7517GregorianCalendar11getEpochDayER10UErrorCode(ptr noundef nonnull align 8 dereferenceable(654) %this, ptr noundef nonnull align 4 dereferenceable(4) %status) unnamed_addr #1 align 2 {
 entry:
   tail call void @_ZN6icu_758Calendar8completeER10UErrorCode(ptr noundef nonnull align 8 dereferenceable(618) %this, ptr noundef nonnull align 4 dereferenceable(4) %status)
-  %fTime.i = getelementptr inbounds %"class.icu_75::Calendar", ptr %this, i64 0, i32 9
+  %fTime.i = getelementptr inbounds i8, ptr %this, i64 232
   %0 = load double, ptr %fTime.i, align 8
   %div = fdiv double %0, 1.000000e+03
-  %arrayidx.i = getelementptr inbounds %"class.icu_75::Calendar", ptr %this, i64 0, i32 5, i64 15
+  %arrayidx.i = getelementptr inbounds i8, ptr %this, i64 72
   %1 = load i32, ptr %arrayidx.i, align 8
-  %arrayidx.i1 = getelementptr inbounds %"class.icu_75::Calendar", ptr %this, i64 0, i32 5, i64 16
-  %2 = load i32, ptr %arrayidx.i1, align 4
+  %arrayidx.i2 = getelementptr inbounds i8, ptr %this, i64 76
+  %2 = load i32, ptr %arrayidx.i2, align 4
   %add = add nsw i32 %2, %1
   %div4 = sdiv i32 %add, 1000
   %conv = sitofp i32 %div4 to double
@@ -1500,7 +1500,7 @@ declare i32 @uprv_max_75(i32 noundef, i32 noundef) local_unnamed_addr #2
 define void @_ZN6icu_7517GregorianCalendar4rollENS_8Calendar11EDateFieldsEiR10UErrorCode(ptr noundef nonnull align 8 dereferenceable(654) %this, i32 noundef %field, i32 noundef %amount, ptr noundef nonnull align 4 dereferenceable(4) %status) unnamed_addr #1 align 2 {
 entry:
   %vtable = load ptr, ptr %this, align 8
-  %vfn = getelementptr inbounds ptr, ptr %vtable, i64 9
+  %vfn = getelementptr inbounds i8, ptr %vtable, i64 72
   %0 = load ptr, ptr %vfn, align 8
   tail call void %0(ptr noundef nonnull align 8 dereferenceable(654) %this, i32 noundef %field, i32 noundef %amount, ptr noundef nonnull align 4 dereferenceable(4) %status)
   ret void
@@ -1512,12 +1512,12 @@ entry:
   %cmp = icmp ne i32 %amount, 0
   %0 = load i32, ptr %status, align 4
   %cmp.i = icmp slt i32 %0, 1
-  %or.cond74 = select i1 %cmp, i1 %cmp.i, i1 false
-  br i1 %or.cond74, label %if.end, label %return
+  %or.cond77 = select i1 %cmp, i1 %cmp.i, i1 false
+  br i1 %or.cond77, label %if.end, label %return
 
 if.end:                                           ; preds = %entry
   %call2 = tail call noundef i32 @_ZNK6icu_758Calendar3getE19UCalendarDateFieldsR10UErrorCode(ptr noundef nonnull align 8 dereferenceable(618) %this, i32 noundef 19, ptr noundef nonnull align 4 dereferenceable(4) %status)
-  %fGregorianCutoverYear = getelementptr inbounds %"class.icu_75::GregorianCalendar", ptr %this, i64 0, i32 6
+  %fGregorianCutoverYear = getelementptr inbounds i8, ptr %this, i64 648
   %1 = load i32, ptr %fGregorianCutoverYear, align 8
   %cmp3 = icmp eq i32 %call2, %1
   %2 = and i32 %field, -2
@@ -1527,18 +1527,18 @@ if.end:                                           ; preds = %entry
 
 sw.bb:                                            ; preds = %if.end
   %vtable = load ptr, ptr %this, align 8
-  %vfn = getelementptr inbounds ptr, ptr %vtable, i64 33
+  %vfn = getelementptr inbounds i8, ptr %vtable, i64 264
   %3 = load ptr, ptr %vfn, align 8
   %call5 = tail call noundef i32 %3(ptr noundef nonnull align 8 dereferenceable(618) %this)
   %vtable6 = load ptr, ptr %this, align 8
-  %vfn7 = getelementptr inbounds ptr, ptr %vtable6, i64 56
+  %vfn7 = getelementptr inbounds i8, ptr %vtable6, i64 448
   %4 = load ptr, ptr %vfn7, align 8
   %call8 = tail call noundef i32 %4(ptr noundef nonnull align 8 dereferenceable(654) %this, i32 noundef %call5)
-  %fTime.i = getelementptr inbounds %"class.icu_75::Calendar", ptr %this, i64 0, i32 9
+  %fTime.i = getelementptr inbounds i8, ptr %this, i64 232
   %5 = load double, ptr %fTime.i, align 8
-  %arrayidx.i = getelementptr inbounds %"class.icu_75::Calendar", ptr %this, i64 0, i32 5, i64 5
+  %arrayidx.i = getelementptr inbounds i8, ptr %this, i64 32
   %6 = load i32, ptr %arrayidx.i, align 8
-  %fGregorianCutover = getelementptr inbounds %"class.icu_75::GregorianCalendar", ptr %this, i64 0, i32 2
+  %fGregorianCutover = getelementptr inbounds i8, ptr %this, i64 624
   %7 = load double, ptr %fGregorianCutover, align 8
   %cmp11 = fcmp oge double %5, %7
   %cond.neg = select i1 %cmp11, i32 -10, i32 0
@@ -1574,10 +1574,10 @@ if.end21:                                         ; preds = %if.then19, %land.lh
 sw.bb22:                                          ; preds = %if.end21
   %call23 = tail call noundef i32 @_ZNK6icu_758Calendar3getE19UCalendarDateFieldsR10UErrorCode(ptr noundef nonnull align 8 dereferenceable(618) %this, i32 noundef 3, ptr noundef nonnull align 4 dereferenceable(4) %status)
   %call24 = tail call noundef i32 @_ZNK6icu_758Calendar3getE19UCalendarDateFieldsR10UErrorCode(ptr noundef nonnull align 8 dereferenceable(618) %this, i32 noundef 17, ptr noundef nonnull align 4 dereferenceable(4) %status)
-  %arrayidx.i70 = getelementptr inbounds %"class.icu_75::Calendar", ptr %this, i64 0, i32 5, i64 6
-  %10 = load i32, ptr %arrayidx.i70, align 4
+  %arrayidx.i71 = getelementptr inbounds i8, ptr %this, i64 36
+  %10 = load i32, ptr %arrayidx.i71, align 4
   %vtable26 = load ptr, ptr %this, align 8
-  %vfn27 = getelementptr inbounds ptr, ptr %vtable26, i64 33
+  %vfn27 = getelementptr inbounds i8, ptr %vtable26, i64 264
   %11 = load ptr, ptr %vfn27, align 8
   %call28 = tail call noundef i32 %11(ptr noundef nonnull align 8 dereferenceable(618) %this)
   %cmp29 = icmp eq i32 %call28, 0
@@ -1589,7 +1589,7 @@ if.then30:                                        ; preds = %sw.bb22
 
 if.then32:                                        ; preds = %if.then30
   %vtable33 = load ptr, ptr %this, align 8
-  %vfn34 = getelementptr inbounds ptr, ptr %vtable33, i64 40
+  %vfn34 = getelementptr inbounds i8, ptr %vtable33, i64 320
   %12 = load ptr, ptr %vfn34, align 8
   %call35 = tail call noundef i32 %12(ptr noundef nonnull align 8 dereferenceable(654) %this, i32 noundef %call24)
   %add = add nsw i32 %call35, %10
@@ -1602,7 +1602,7 @@ if.else:                                          ; preds = %sw.bb22
 if.then38:                                        ; preds = %if.else
   %sub39 = add nsw i32 %call24, -1
   %vtable40 = load ptr, ptr %this, align 8
-  %vfn41 = getelementptr inbounds ptr, ptr %vtable40, i64 40
+  %vfn41 = getelementptr inbounds i8, ptr %vtable40, i64 320
   %13 = load ptr, ptr %vfn41, align 8
   %call42 = tail call noundef i32 %13(ptr noundef nonnull align 8 dereferenceable(654) %this, i32 noundef %sub39)
   %sub43 = sub nsw i32 %10, %call42
@@ -1617,11 +1617,11 @@ if.end45:                                         ; preds = %if.else, %if.then38
 
 if.then50:                                        ; preds = %if.end45
   %vtable51 = load ptr, ptr %this, align 8
-  %vfn52 = getelementptr inbounds ptr, ptr %vtable51, i64 40
+  %vfn52 = getelementptr inbounds i8, ptr %vtable51, i64 320
   %15 = load ptr, ptr %vfn52, align 8
   %call53 = tail call noundef i32 %15(ptr noundef nonnull align 8 dereferenceable(654) %this, i32 noundef %call24)
-  %arrayidx.i71 = getelementptr inbounds %"class.icu_75::Calendar", ptr %this, i64 0, i32 5, i64 7
-  %16 = load i32, ptr %arrayidx.i71, align 8
+  %arrayidx.i73 = getelementptr inbounds i8, ptr %this, i64 40
+  %16 = load i32, ptr %arrayidx.i73, align 8
   %call57 = tail call noundef i32 @_ZNK6icu_758Calendar17getFirstDayOfWeekEv(ptr noundef nonnull align 8 dereferenceable(618) %this)
   %17 = add i32 %call53, %16
   %18 = add i32 %isoDoy.0, %call57
@@ -1660,8 +1660,8 @@ if.then79:                                        ; preds = %sw.bb77
 if.else80:                                        ; preds = %sw.bb77
   %conv81 = sitofp i32 %cMonthLen.0 to double
   %mul = fmul double %conv81, 8.640000e+07
-  %fTime.i72 = getelementptr inbounds %"class.icu_75::Calendar", ptr %this, i64 0, i32 9
-  %19 = load double, ptr %fTime.i72, align 8
+  %fTime.i74 = getelementptr inbounds i8, ptr %this, i64 232
+  %19 = load double, ptr %fTime.i74, align 8
   %sub83 = fsub double %19, %cMonthStart.0
   %conv84 = sitofp i32 %amount to double
   %20 = tail call double @llvm.fmuladd.f64(double %conv84, double 8.640000e+07, double %sub83)
@@ -1681,8 +1681,8 @@ if.then94:                                        ; preds = %sw.bb92
   br label %return
 
 if.else95:                                        ; preds = %sw.bb92
-  %arrayidx.i73 = getelementptr inbounds %"class.icu_75::Calendar", ptr %this, i64 0, i32 5, i64 7
-  %21 = load i32, ptr %arrayidx.i73, align 8
+  %arrayidx.i76 = getelementptr inbounds i8, ptr %this, i64 40
+  %21 = load i32, ptr %arrayidx.i76, align 8
   %call97 = tail call noundef i32 @_ZNK6icu_758Calendar17getFirstDayOfWeekEv(ptr noundef nonnull align 8 dereferenceable(618) %this)
   %sub98 = sub nsw i32 %21, %call97
   %cmp99 = icmp slt i32 %sub98, 0
@@ -1742,7 +1742,7 @@ declare double @uprv_fmod_75(double noundef, double noundef) local_unnamed_addr 
 define noundef i32 @_ZNK6icu_7517GregorianCalendar16getActualMinimumENS_8Calendar11EDateFieldsE(ptr noundef nonnull align 8 dereferenceable(654) %this, i32 noundef %field) local_unnamed_addr #1 align 2 {
 entry:
   %vtable = load ptr, ptr %this, align 8
-  %vfn = getelementptr inbounds ptr, ptr %vtable, i64 14
+  %vfn = getelementptr inbounds i8, ptr %vtable, i64 112
   %0 = load ptr, ptr %vfn, align 8
   %call = tail call noundef i32 %0(ptr noundef nonnull align 8 dereferenceable(618) %this, i32 noundef %field)
   ret i32 %call
@@ -1752,7 +1752,7 @@ entry:
 define noundef i32 @_ZNK6icu_7517GregorianCalendar16getActualMinimumENS_8Calendar11EDateFieldsER10UErrorCode(ptr noundef nonnull align 8 dereferenceable(654) %this, i32 noundef %field, ptr nocapture noundef nonnull readnone align 4 dereferenceable(4) %0) local_unnamed_addr #1 align 2 {
 entry:
   %vtable = load ptr, ptr %this, align 8
-  %vfn = getelementptr inbounds ptr, ptr %vtable, i64 14
+  %vfn = getelementptr inbounds i8, ptr %vtable, i64 112
   %1 = load ptr, ptr %vfn, align 8
   %call = tail call noundef i32 %1(ptr noundef nonnull align 8 dereferenceable(618) %this, i32 noundef %field)
   ret i32 %call
@@ -1762,7 +1762,7 @@ entry:
 define noundef i32 @_ZNK6icu_7517GregorianCalendar16getActualMinimumE19UCalendarDateFieldsR10UErrorCode(ptr noundef nonnull align 8 dereferenceable(654) %this, i32 noundef %field, ptr nocapture nonnull readnone align 4 %0) unnamed_addr #1 align 2 {
 entry:
   %vtable = load ptr, ptr %this, align 8
-  %vfn = getelementptr inbounds ptr, ptr %vtable, i64 14
+  %vfn = getelementptr inbounds i8, ptr %vtable, i64 112
   %1 = load ptr, ptr %vfn, align 8
   %call = tail call noundef i32 %1(ptr noundef nonnull align 8 dereferenceable(618) %this, i32 noundef %field)
   ret i32 %call
@@ -1791,7 +1791,7 @@ sw.bb:                                            ; preds = %entry
 
 if.end:                                           ; preds = %sw.bb
   %vtable = load ptr, ptr %this, align 8
-  %vfn = getelementptr inbounds ptr, ptr %vtable, i64 3
+  %vfn = getelementptr inbounds i8, ptr %vtable, i64 24
   %1 = load ptr, ptr %vfn, align 8
   %call2 = tail call noundef ptr %1(ptr noundef nonnull align 8 dereferenceable(654) %this)
   %tobool3.not = icmp eq ptr %call2, null
@@ -1835,7 +1835,7 @@ if.end15:                                         ; preds = %land.lhs.true, %if.
 
 delete.notnull:                                   ; preds = %if.end15
   %vtable16 = load ptr, ptr %call2, align 8
-  %vfn17 = getelementptr inbounds ptr, ptr %vtable16, i64 1
+  %vfn17 = getelementptr inbounds i8, ptr %vtable16, i64 8
   %2 = load ptr, ptr %vfn17, align 8
   tail call void %2(ptr noundef nonnull align 8 dereferenceable(618) %call2) #8
   br label %return
@@ -1856,16 +1856,17 @@ declare noundef i32 @_ZNK6icu_758Calendar16getActualMaximumE19UCalendarDateField
 ; Function Attrs: mustprogress uwtable
 define noundef i32 @_ZN6icu_7517GregorianCalendar21handleGetExtendedYearEv(ptr noundef nonnull align 8 dereferenceable(654) %this) unnamed_addr #1 align 2 {
 entry:
-  %arrayidx = getelementptr inbounds %"class.icu_75::Calendar", ptr %this, i64 0, i32 7, i64 19
+  %fStamp = getelementptr inbounds i8, ptr %this, i64 132
+  %arrayidx = getelementptr inbounds i8, ptr %this, i64 208
   %0 = load i32, ptr %arrayidx, align 8
-  %arrayidx3 = getelementptr inbounds %"class.icu_75::Calendar", ptr %this, i64 0, i32 7, i64 1
+  %arrayidx3 = getelementptr inbounds i8, ptr %this, i64 136
   %1 = load i32, ptr %arrayidx3, align 8
   %cmp = icmp slt i32 %0, %1
   %spec.store.select = select i1 %cmp, i32 1, i32 19
   %idxprom5 = zext nneg i32 %spec.store.select to i64
-  %arrayidx6 = getelementptr inbounds %"class.icu_75::Calendar", ptr %this, i64 0, i32 7, i64 %idxprom5
+  %arrayidx6 = getelementptr inbounds [24 x i32], ptr %fStamp, i64 0, i64 %idxprom5
   %2 = load i32, ptr %arrayidx6, align 8
-  %arrayidx8 = getelementptr inbounds %"class.icu_75::Calendar", ptr %this, i64 0, i32 7, i64 17
+  %arrayidx8 = getelementptr inbounds i8, ptr %this, i64 200
   %3 = load i32, ptr %arrayidx8, align 8
   %cmp9 = icmp slt i32 %2, %3
   %spec.store.select1 = select i1 %cmp9, i32 17, i32 %spec.store.select
@@ -1880,61 +1881,60 @@ sw.bb:                                            ; preds = %entry
   br i1 %cmp.i, label %cond.true.i, label %sw.epilog
 
 cond.true.i:                                      ; preds = %sw.bb
-  %arrayidx3.i = getelementptr inbounds %"class.icu_75::Calendar", ptr %this, i64 0, i32 5, i64 19
+  %arrayidx3.i = getelementptr inbounds i8, ptr %this, i64 88
   %4 = load i32, ptr %arrayidx3.i, align 8
   br label %sw.epilog
 
 sw.bb12:                                          ; preds = %entry
-  %arrayidx.i4 = getelementptr inbounds %"class.icu_75::Calendar", ptr %this, i64 0, i32 7, i64 0
-  %5 = load i32, ptr %arrayidx.i4, align 4
+  %5 = load i32, ptr %fStamp, align 4
   %cmp.i5 = icmp sgt i32 %5, 0
-  %arrayidx3.i8 = getelementptr inbounds %"class.icu_75::Calendar", ptr %this, i64 0, i32 5, i64 0
-  %6 = load i32, ptr %arrayidx3.i8, align 4
+  %fFields.i8 = getelementptr inbounds i8, ptr %this, i64 12
+  %6 = load i32, ptr %fFields.i8, align 4
   %cmp14 = icmp eq i32 %6, 0
   %or.cond = select i1 %cmp.i5, i1 %cmp14, i1 false
   br i1 %or.cond, label %if.then15, label %if.else
 
 if.then15:                                        ; preds = %sw.bb12
-  %arrayidx3.i14 = getelementptr inbounds %"class.icu_75::Calendar", ptr %this, i64 0, i32 5, i64 1
-  %7 = load i32, ptr %arrayidx3.i14, align 8
+  %arrayidx3.i16 = getelementptr inbounds i8, ptr %this, i64 16
+  %7 = load i32, ptr %arrayidx3.i16, align 8
   %8 = sub nsw i32 1, %7
-  %cmp.i11.inv.inv = icmp sgt i32 %1, 0
-  %sub = select i1 %cmp.i11.inv.inv, i32 %8, i32 0
+  %cmp.i12.inv.inv = icmp sgt i32 %1, 0
+  %sub = select i1 %cmp.i12.inv.inv, i32 %8, i32 0
   br label %sw.epilog
 
 if.else:                                          ; preds = %sw.bb12
-  %cmp.i17 = icmp sgt i32 %1, 0
-  br i1 %cmp.i17, label %cond.true.i19, label %sw.epilog
+  %cmp.i20 = icmp sgt i32 %1, 0
+  br i1 %cmp.i20, label %cond.true.i22, label %sw.epilog
 
-cond.true.i19:                                    ; preds = %if.else
-  %arrayidx3.i20 = getelementptr inbounds %"class.icu_75::Calendar", ptr %this, i64 0, i32 5, i64 1
-  %9 = load i32, ptr %arrayidx3.i20, align 8
+cond.true.i22:                                    ; preds = %if.else
+  %arrayidx3.i24 = getelementptr inbounds i8, ptr %this, i64 16
+  %9 = load i32, ptr %arrayidx3.i24, align 8
   br label %sw.epilog
 
 sw.bb19:                                          ; preds = %entry
-  %arrayidx.i22 = getelementptr inbounds %"class.icu_75::Calendar", ptr %this, i64 0, i32 5, i64 17
-  %10 = load i32, ptr %arrayidx.i22, align 8
-  %arrayidx.i23 = getelementptr inbounds %"class.icu_75::Calendar", ptr %this, i64 0, i32 5, i64 3
-  %11 = load i32, ptr %arrayidx.i23, align 8
+  %arrayidx.i27 = getelementptr inbounds i8, ptr %this, i64 80
+  %10 = load i32, ptr %arrayidx.i27, align 8
+  %arrayidx.i29 = getelementptr inbounds i8, ptr %this, i64 24
+  %11 = load i32, ptr %arrayidx.i29, align 8
   %vtable = load ptr, ptr %this, align 8
-  %vfn = getelementptr inbounds ptr, ptr %vtable, i64 43
+  %vfn = getelementptr inbounds i8, ptr %vtable, i64 344
   %12 = load ptr, ptr %vfn, align 8
   %call22 = tail call noundef i32 %12(ptr noundef nonnull align 8 dereferenceable(654) %this, i32 noundef %10, i32 noundef %11)
   br label %sw.epilog
 
-sw.epilog:                                        ; preds = %cond.true.i19, %if.else, %cond.true.i, %sw.bb, %entry, %if.then15, %sw.bb19
-  %year.0 = phi i32 [ %call22, %sw.bb19 ], [ %sub, %if.then15 ], [ 1970, %entry ], [ %4, %cond.true.i ], [ 1970, %sw.bb ], [ %9, %cond.true.i19 ], [ 1970, %if.else ]
+sw.epilog:                                        ; preds = %cond.true.i22, %if.else, %cond.true.i, %sw.bb, %entry, %if.then15, %sw.bb19
+  %year.0 = phi i32 [ %call22, %sw.bb19 ], [ %sub, %if.then15 ], [ 1970, %entry ], [ %4, %cond.true.i ], [ 1970, %sw.bb ], [ %9, %cond.true.i22 ], [ 1970, %if.else ]
   ret i32 %year.0
 }
 
 ; Function Attrs: mustprogress uwtable
 define noundef i32 @_ZN6icu_7517GregorianCalendar35handleGetExtendedYearFromWeekFieldsEii(ptr noundef nonnull align 8 dereferenceable(654) %this, i32 noundef %yearWoy, i32 noundef %woy) unnamed_addr #1 align 2 {
 entry:
-  %arrayidx.i = getelementptr inbounds %"class.icu_75::Calendar", ptr %this, i64 0, i32 7, i64 0
-  %0 = load i32, ptr %arrayidx.i, align 4
+  %fStamp.i = getelementptr inbounds i8, ptr %this, i64 132
+  %0 = load i32, ptr %fStamp.i, align 4
   %cmp.i = icmp sgt i32 %0, 0
-  %arrayidx3.i = getelementptr inbounds %"class.icu_75::Calendar", ptr %this, i64 0, i32 5, i64 0
-  %1 = load i32, ptr %arrayidx3.i, align 4
+  %fFields.i = getelementptr inbounds i8, ptr %this, i64 12
+  %1 = load i32, ptr %fFields.i, align 4
   %.fr = freeze i32 %1
   %cmp = icmp eq i32 %.fr, 0
   %sub = sub nsw i32 1, %yearWoy
@@ -1951,8 +1951,8 @@ define noundef i32 @_ZNK6icu_7517GregorianCalendar14internalGetEraEv(ptr noundef
 entry:
   %call = tail call noundef signext i8 @_ZNK6icu_758Calendar5isSetE19UCalendarDateFields(ptr noundef nonnull align 8 dereferenceable(618) %this, i32 noundef 0)
   %tobool.not = icmp eq i8 %call, 0
-  %arrayidx.i = getelementptr inbounds %"class.icu_75::Calendar", ptr %this, i64 0, i32 5, i64 0
-  %0 = load i32, ptr %arrayidx.i, align 4
+  %fFields.i = getelementptr inbounds i8, ptr %this, i64 12
+  %0 = load i32, ptr %fFields.i, align 4
   %cond = select i1 %tobool.not, i32 1, i32 %0
   ret i32 %cond
 }

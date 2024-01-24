@@ -3,30 +3,7 @@ source_filename = "bench/qemu/original/util_qemu-coroutine-sleep.c.ll"
 target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:128-n8:16:32:64-S128"
 target triple = "x86_64-unknown-linux-gnu"
 
-%struct.Coroutine = type { ptr, ptr, ptr, %struct.anon, i64, ptr, ptr, %struct.anon.0, %struct.anon.1, %struct.anon.2 }
-%struct.anon = type { ptr }
-%struct.anon.0 = type { ptr }
-%struct.anon.1 = type { ptr, ptr }
-%struct.anon.2 = type { ptr }
 %struct.QEMUTimer = type { i64, ptr, ptr, ptr, ptr, i32, i32 }
-%struct.AioContext = type { %struct._GSource, %struct.QemuRecMutex, ptr, %struct.AioHandlerList, %struct.AioHandlerList, i32, %struct.QemuLockCnt, %struct.BHList, %struct.anon.3, i8, %struct.EventNotifier, %struct.anon.4, ptr, i32, i32, ptr, ptr, %struct.io_uring, %struct.AioHandlerSList, %struct.QEMUTimerListGroup, i32, i64, i64, i64, i64, i64, %struct.AioHandlerList, i8, i32, ptr }
-%struct._GSource = type { ptr, ptr, ptr, i32, ptr, i32, i32, i32, ptr, ptr, ptr, ptr, ptr }
-%struct.QemuRecMutex = type { %struct.QemuMutex }
-%struct.QemuMutex = type { %union.pthread_mutex_t, i8 }
-%union.pthread_mutex_t = type { %struct.__pthread_mutex_s }
-%struct.__pthread_mutex_s = type { i32, i32, i32, i32, i32, i16, i16, %struct.__pthread_internal_list }
-%struct.__pthread_internal_list = type { ptr, ptr }
-%struct.QemuLockCnt = type { i32 }
-%struct.BHList = type { ptr }
-%struct.anon.3 = type { ptr, ptr }
-%struct.EventNotifier = type { i32, i32, i8 }
-%struct.anon.4 = type { ptr }
-%struct.io_uring = type { %struct.io_uring_sq, %struct.io_uring_cq, i32, i32, i32, [3 x i32] }
-%struct.io_uring_sq = type { ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, i32, i32, i64, ptr, [4 x i32] }
-%struct.io_uring_cq = type { ptr, ptr, ptr, ptr, ptr, ptr, ptr, i64, ptr, [4 x i32] }
-%struct.AioHandlerSList = type { ptr }
-%struct.QEMUTimerListGroup = type { [4 x ptr] }
-%struct.AioHandlerList = type { ptr }
 
 @.str = private unnamed_addr constant [36 x i8] c"../qemu/util/qemu-coroutine-sleep.c\00", align 1
 @.str.1 = private unnamed_addr constant [41 x i8] c"scheduled == qemu_co_sleep_ns__scheduled\00", align 1
@@ -51,7 +28,7 @@ entry:
   br i1 %tobool.not, label %if.end6, label %while.end
 
 while.end:                                        ; preds = %entry
-  %scheduled2 = getelementptr inbounds %struct.Coroutine, ptr %0, i64 0, i32 6
+  %scheduled2 = getelementptr inbounds i8, ptr %0, i64 48
   %1 = cmpxchg ptr %scheduled2, i64 ptrtoint (ptr @.str.4 to i64), i64 0 seq_cst seq_cst, align 8
   %2 = extractvalue { i64, i1 } %1, 1
   %3 = extractvalue { i64, i1 } %1, 0
@@ -81,7 +58,7 @@ declare void @aio_co_wake(ptr noundef) local_unnamed_addr #2
 define dso_local void @qemu_co_sleep(ptr nocapture noundef %w) #0 {
 entry:
   %call = tail call ptr @qemu_coroutine_self() #5
-  %scheduled1 = getelementptr inbounds %struct.Coroutine, ptr %call, i64 0, i32 6
+  %scheduled1 = getelementptr inbounds i8, ptr %call, i64 48
   %0 = cmpxchg ptr %scheduled1, i64 0, i64 ptrtoint (ptr @.str.4 to i64) seq_cst seq_cst, align 8
   %1 = extractvalue { i64, i1 } %0, 1
   br i1 %1, label %if.end, label %if.then
@@ -124,13 +101,13 @@ define dso_local void @qemu_co_sleep_ns_wakeable(ptr noundef %w, i32 noundef %ty
 entry:
   %ts = alloca %struct.QEMUTimer, align 8
   %call = tail call ptr @qemu_get_current_aio_context() #5
-  %tlg.i = getelementptr inbounds %struct.AioContext, ptr %call, i64 0, i32 19
+  %tlg.i = getelementptr inbounds i8, ptr %call, i64 480
   call void @timer_init_full(ptr noundef nonnull %ts, ptr noundef nonnull %tlg.i, i32 noundef %type, i32 noundef 1, i32 noundef 0, ptr noundef nonnull @co_sleep_cb, ptr noundef %w) #5
   %call1 = call i64 @qemu_clock_get_ns(i32 noundef %type) #5
   %add = add i64 %call1, %ns
   call void @timer_mod(ptr noundef nonnull %ts, i64 noundef %add) #5
   %call.i = call ptr @qemu_coroutine_self() #5
-  %scheduled1.i = getelementptr inbounds %struct.Coroutine, ptr %call.i, i64 0, i32 6
+  %scheduled1.i = getelementptr inbounds i8, ptr %call.i, i64 48
   %0 = cmpxchg ptr %scheduled1.i, i64 0, i64 ptrtoint (ptr @.str.4 to i64) seq_cst seq_cst, align 8
   %1 = extractvalue { i64, i1 } %0, 1
   br i1 %1, label %if.end.i, label %if.then.i
@@ -170,7 +147,7 @@ entry:
   br i1 %tobool.not.i, label %qemu_co_sleep_wake.exit, label %while.end.i
 
 while.end.i:                                      ; preds = %entry
-  %scheduled2.i = getelementptr inbounds %struct.Coroutine, ptr %0, i64 0, i32 6
+  %scheduled2.i = getelementptr inbounds i8, ptr %0, i64 48
   %1 = cmpxchg ptr %scheduled2.i, i64 ptrtoint (ptr @.str.4 to i64), i64 0 seq_cst seq_cst, align 8
   %2 = extractvalue { i64, i1 } %1, 1
   %3 = extractvalue { i64, i1 } %1, 0

@@ -3,10 +3,6 @@ source_filename = "bench/libquic/original/weak_ptr.cc.ll"
 target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:128-n8:16:32:64-S128"
 target triple = "x86_64-unknown-linux-gnu"
 
-%"class.base::internal::WeakReference::Flag" = type <{ %"class.base::RefCountedThreadSafe", %"class.base::SequenceChecker", i8, [2 x i8] }>
-%"class.base::RefCountedThreadSafe" = type { %"class.base::subtle::RefCountedThreadSafeBase" }
-%"class.base::subtle::RefCountedThreadSafeBase" = type { i32 }
-%"class.base::SequenceChecker" = type { i8 }
 %"class.base::internal::WeakReference" = type { %class.scoped_refptr }
 %class.scoped_refptr = type { ptr }
 
@@ -29,7 +25,7 @@ $__clang_call_terminate = comdat any
 define dso_local void @_ZN4base8internal13WeakReference4FlagC2Ev(ptr noundef nonnull align 4 dereferenceable(6) %this) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   tail call void @_ZN4base6subtle24RefCountedThreadSafeBaseC2Ev(ptr noundef nonnull align 4 dereferenceable(4) %this)
-  %is_valid_ = getelementptr inbounds %"class.base::internal::WeakReference::Flag", ptr %this, i64 0, i32 2
+  %is_valid_ = getelementptr inbounds i8, ptr %this, i64 5
   store i8 1, ptr %is_valid_, align 1
   ret void
 }
@@ -39,7 +35,7 @@ declare i32 @__gxx_personality_v0(...)
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
 define dso_local void @_ZN4base8internal13WeakReference4Flag10InvalidateEv(ptr nocapture noundef nonnull writeonly align 4 dereferenceable(6) %this) local_unnamed_addr #1 align 2 {
 entry:
-  %is_valid_ = getelementptr inbounds %"class.base::internal::WeakReference::Flag", ptr %this, i64 0, i32 2
+  %is_valid_ = getelementptr inbounds i8, ptr %this, i64 5
   store i8 0, ptr %is_valid_, align 1
   ret void
 }
@@ -47,7 +43,7 @@ entry:
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
 define dso_local noundef zeroext i1 @_ZNK4base8internal13WeakReference4Flag7IsValidEv(ptr nocapture noundef nonnull readonly align 4 dereferenceable(6) %this) local_unnamed_addr #2 align 2 {
 entry:
-  %is_valid_ = getelementptr inbounds %"class.base::internal::WeakReference::Flag", ptr %this, i64 0, i32 2
+  %is_valid_ = getelementptr inbounds i8, ptr %this, i64 5
   %0 = load i8, ptr %is_valid_, align 1
   %1 = and i8 %0, 1
   %tobool = icmp ne i8 %1, 0
@@ -146,7 +142,7 @@ entry:
   br i1 %tobool.not, label %land.end, label %land.rhs
 
 land.rhs:                                         ; preds = %entry
-  %is_valid_.i = getelementptr inbounds %"class.base::internal::WeakReference::Flag", ptr %0, i64 0, i32 2
+  %is_valid_.i = getelementptr inbounds i8, ptr %0, i64 5
   %1 = load i8, ptr %is_valid_.i, align 1
   %2 = and i8 %1, 1
   %tobool.i = icmp ne i8 %2, 0
@@ -172,7 +168,7 @@ entry:
   br i1 %tobool.not.i, label %_ZN13scoped_refptrIN4base8internal13WeakReference4FlagEED2Ev.exit, label %if.then.i
 
 if.then.i:                                        ; preds = %entry
-  %is_valid_.i.i = getelementptr inbounds %"class.base::internal::WeakReference::Flag", ptr %0, i64 0, i32 2
+  %is_valid_.i.i = getelementptr inbounds i8, ptr %0, i64 5
   store i8 0, ptr %is_valid_.i.i, align 1
   %1 = load ptr, ptr %this, align 8
   store ptr null, ptr %this, align 8
@@ -234,7 +230,7 @@ entry:
   br i1 %tobool.not, label %if.end, label %if.then
 
 if.then:                                          ; preds = %entry
-  %is_valid_.i = getelementptr inbounds %"class.base::internal::WeakReference::Flag", ptr %0, i64 0, i32 2
+  %is_valid_.i = getelementptr inbounds i8, ptr %0, i64 5
   store i8 0, ptr %is_valid_.i, align 1
   %1 = load ptr, ptr %this, align 8
   store ptr null, ptr %this, align 8
@@ -282,7 +278,7 @@ if.then:                                          ; preds = %entry, %_ZNK4base8i
           to label %invoke.cont unwind label %lpad
 
 invoke.cont:                                      ; preds = %if.then
-  %is_valid_.i = getelementptr inbounds %"class.base::internal::WeakReference::Flag", ptr %call2, i64 0, i32 2
+  %is_valid_.i = getelementptr inbounds i8, ptr %call2, i64 5
   store i8 1, ptr %is_valid_.i, align 1
   tail call void @_ZNK4base6subtle24RefCountedThreadSafeBase6AddRefEv(ptr noundef nonnull align 4 dereferenceable(4) %call2)
   %1 = load ptr, ptr %this, align 8

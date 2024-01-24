@@ -3,10 +3,6 @@ source_filename = "bench/libquic/original/quic_connection_stats.cc.ll"
 target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:128-n8:16:32:64-S128"
 target triple = "x86_64-unknown-linux-gnu"
 
-%"struct.net::QuicConnectionStats" = type { i64, i64, i64, i64, i64, i64, i64, i64, i64, i64, i64, i64, i64, i64, i64, i64, i64, i64, i64, i64, i64, i64, i64, i64, i64, %"class.net::QuicBandwidth", i64, i64, i64, i32, %"class.net::QuicTime" }
-%"class.net::QuicBandwidth" = type { i64 }
-%"class.net::QuicTime" = type { i64 }
-
 @_ZN3net19QuicConnectionStatsC1Ev = dso_local unnamed_addr alias void (ptr), ptr @_ZN3net19QuicConnectionStatsC2Ev
 @_ZN3net19QuicConnectionStatsC1ERKS0_ = dso_local unnamed_addr alias void (ptr, ptr), ptr @_ZN3net19QuicConnectionStatsC2ERKS0_
 @_ZN3net19QuicConnectionStatsD1Ev = dso_local unnamed_addr alias void (ptr), ptr @_ZN3net19QuicConnectionStatsD2Ev
@@ -14,12 +10,12 @@ target triple = "x86_64-unknown-linux-gnu"
 ; Function Attrs: mustprogress uwtable
 define dso_local void @_ZN3net19QuicConnectionStatsC2Ev(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(248) %this) unnamed_addr #0 align 2 {
 entry:
-  %estimated_bandwidth = getelementptr inbounds %"struct.net::QuicConnectionStats", ptr %this, i64 0, i32 25
+  %estimated_bandwidth = getelementptr inbounds i8, ptr %this, i64 200
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(200) %this, i8 0, i64 200, i1 false)
   %call = tail call i64 @_ZN3net13QuicBandwidth4ZeroEv()
   store i64 %call, ptr %estimated_bandwidth, align 8
-  %packets_reordered = getelementptr inbounds %"struct.net::QuicConnectionStats", ptr %this, i64 0, i32 26
-  %connection_creation_time = getelementptr inbounds %"struct.net::QuicConnectionStats", ptr %this, i64 0, i32 30
+  %packets_reordered = getelementptr inbounds i8, ptr %this, i64 208
+  %connection_creation_time = getelementptr inbounds i8, ptr %this, i64 240
   store i64 0, ptr %connection_creation_time, align 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(28) %packets_reordered, i8 0, i64 28, i1 false)
   ret void

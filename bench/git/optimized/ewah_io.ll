@@ -3,8 +3,6 @@ source_filename = "bench/git/original/ewah_io.ll"
 target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:128-n8:16:32:64-S128"
 target triple = "x86_64-unknown-linux-gnu"
 
-%struct.ewah_bitmap = type { ptr, i64, i64, i64, ptr }
-
 @.str = private unnamed_addr constant [41 x i8] c"corrupt ewah bitmap: eof before bit size\00", align 1
 @.str.1 = private unnamed_addr constant [39 x i8] c"corrupt ewah bitmap: eof before length\00", align 1
 @.str.2 = private unnamed_addr constant [51 x i8] c"corrupt ewah bitmap: eof in data (%lu bytes short)\00", align 1
@@ -18,7 +16,7 @@ entry:
   %bitsize = alloca i32, align 4
   %word_count = alloca i32, align 4
   %rlw_pos = alloca i32, align 4
-  %bit_size = getelementptr inbounds %struct.ewah_bitmap, ptr %self, i64 0, i32 3
+  %bit_size = getelementptr inbounds i8, ptr %self, i64 24
   %0 = load i64, ptr %bit_size, align 8
   %conv = trunc i64 %0 to i32
   %1 = tail call i32 asm "bswap $0", "=r,0,~{dirflag},~{fpsr},~{flags}"(i32 %conv) #5, !srcloc !5
@@ -28,7 +26,7 @@ entry:
   br i1 %cmp.not, label %if.end, label %return
 
 if.end:                                           ; preds = %entry
-  %buffer_size = getelementptr inbounds %struct.ewah_bitmap, ptr %self, i64 0, i32 1
+  %buffer_size = getelementptr inbounds i8, ptr %self, i64 8
   %2 = load i64, ptr %buffer_size, align 8
   %conv3 = trunc i64 %2 to i32
   %3 = call i32 asm "bswap $0", "=r,0,~{dirflag},~{fpsr},~{flags}"(i32 %conv3) #5, !srcloc !5
@@ -56,7 +54,7 @@ if.else.i34:                                      ; preds = %if.else.i34, %for.c
   %arrayidx = getelementptr inbounds [2048 x i64], ptr %dump, i64 0, i64 %i.049
   store i64 %7, ptr %arrayidx, align 8
   %inc = add nuw nsw i64 %i.049, 1
-  %incdec.ptr = getelementptr inbounds i64, ptr %buffer.150, i64 1
+  %incdec.ptr = getelementptr inbounds i8, ptr %buffer.150, i64 8
   %exitcond.not = icmp eq i64 %inc, 2048
   br i1 %exitcond.not, label %for.end, label %if.else.i34, !llvm.loop !7
 
@@ -84,7 +82,7 @@ if.else.i37:                                      ; preds = %while.end, %if.else
   %arrayidx29 = getelementptr inbounds [2048 x i64], ptr %dump, i64 0, i64 %i.155
   store i64 %9, ptr %arrayidx29, align 8
   %inc31 = add nuw i64 %i.155, 1
-  %incdec.ptr32 = getelementptr inbounds i64, ptr %buffer.256, i64 1
+  %incdec.ptr32 = getelementptr inbounds i8, ptr %buffer.256, i64 8
   %exitcond58.not = icmp eq i64 %inc31, %words_left.0.lcssa
   br i1 %exitcond58.not, label %for.end33, label %if.else.i37, !llvm.loop !10
 
@@ -96,7 +94,7 @@ for.end33:                                        ; preds = %if.else.i37
   br i1 %cmp38.not, label %if.else.i42, label %return
 
 if.else.i42:                                      ; preds = %while.end, %for.end33
-  %rlw = getelementptr inbounds %struct.ewah_bitmap, ptr %self, i64 0, i32 4
+  %rlw = getelementptr inbounds i8, ptr %self, i64 32
   %10 = load ptr, ptr %rlw, align 8
   %sub.ptr.lhs.cast = ptrtoint ptr %10 to i64
   %11 = load ptr, ptr %self, align 8
@@ -133,13 +131,13 @@ entry:
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %bitsize.i)
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %word_count.i)
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %rlw_pos.i)
-  %bit_size.i = getelementptr inbounds %struct.ewah_bitmap, ptr %self, i64 0, i32 3
+  %bit_size.i = getelementptr inbounds i8, ptr %self, i64 24
   %0 = load i64, ptr %bit_size.i, align 8
   %conv.i = trunc i64 %0 to i32
   %1 = tail call i32 asm "bswap $0", "=r,0,~{dirflag},~{fpsr},~{flags}"(i32 %conv.i) #5, !srcloc !5
   store i32 %1, ptr %bitsize.i, align 4
   call void @strbuf_add(ptr noundef %sb, ptr noundef nonnull %bitsize.i, i64 noundef 4) #6
-  %buffer_size.i = getelementptr inbounds %struct.ewah_bitmap, ptr %self, i64 0, i32 1
+  %buffer_size.i = getelementptr inbounds i8, ptr %self, i64 8
   %2 = load i64, ptr %buffer_size.i, align 8
   %conv3.i = trunc i64 %2 to i32
   %3 = call i32 asm "bswap $0", "=r,0,~{dirflag},~{fpsr},~{flags}"(i32 %conv3.i) #5, !srcloc !5
@@ -163,7 +161,7 @@ if.else.i34.i:                                    ; preds = %for.cond.preheader.
   %arrayidx.i = getelementptr inbounds [2048 x i64], ptr %dump.i, i64 0, i64 %i.049.i
   store i64 %7, ptr %arrayidx.i, align 8
   %inc.i = add nuw nsw i64 %i.049.i, 1
-  %incdec.ptr.i = getelementptr inbounds i64, ptr %buffer.150.i, i64 1
+  %incdec.ptr.i = getelementptr inbounds i8, ptr %buffer.150.i, i64 8
   %exitcond.not.i = icmp eq i64 %inc.i, 2048
   br i1 %exitcond.not.i, label %if.end22.i, label %if.else.i34.i, !llvm.loop !7
 
@@ -187,7 +185,7 @@ if.else.i37.i:                                    ; preds = %while.end.i, %if.el
   %arrayidx29.i = getelementptr inbounds [2048 x i64], ptr %dump.i, i64 0, i64 %i.155.i
   store i64 %9, ptr %arrayidx29.i, align 8
   %inc31.i = add nuw i64 %i.155.i, 1
-  %incdec.ptr32.i = getelementptr inbounds i64, ptr %buffer.256.i, i64 1
+  %incdec.ptr32.i = getelementptr inbounds i8, ptr %buffer.256.i, i64 8
   %exitcond58.not.i = icmp eq i64 %inc31.i, %words_left.0.lcssa.i
   br i1 %exitcond58.not.i, label %for.end33.i, label %if.else.i37.i, !llvm.loop !10
 
@@ -197,7 +195,7 @@ for.end33.i:                                      ; preds = %if.else.i37.i
   br label %if.else.i42.i
 
 if.else.i42.i:                                    ; preds = %while.end.i, %for.end33.i
-  %rlw.i = getelementptr inbounds %struct.ewah_bitmap, ptr %self, i64 0, i32 4
+  %rlw.i = getelementptr inbounds i8, ptr %self, i64 32
   %10 = load ptr, ptr %rlw.i, align 8
   %sub.ptr.lhs.cast.i = ptrtoint ptr %10 to i64
   %11 = load ptr, ptr %self, align 8
@@ -247,7 +245,7 @@ if.end:                                           ; preds = %entry
   %3 = load i8, ptr %arrayidx8.i, align 1
   %conv9.i = zext i8 %3 to i64
   %or11.i = or disjoint i64 %or7.i, %conv9.i
-  %bit_size = getelementptr inbounds %struct.ewah_bitmap, ptr %self, i64 0, i32 3
+  %bit_size = getelementptr inbounds i8, ptr %self, i64 24
   store i64 %or11.i, ptr %bit_size, align 8
   %4 = and i64 %len, -4
   %cmp4 = icmp eq i64 %4, 4
@@ -276,9 +274,9 @@ if.end10:                                         ; preds = %if.end
   %8 = load i8, ptr %arrayidx8.i47, align 1
   %conv9.i48 = zext i8 %8 to i64
   %or11.i49 = or disjoint i64 %or7.i46, %conv9.i48
-  %alloc_size = getelementptr inbounds %struct.ewah_bitmap, ptr %self, i64 0, i32 2
+  %alloc_size = getelementptr inbounds i8, ptr %self, i64 16
   store i64 %or11.i49, ptr %alloc_size, align 8
-  %buffer_size = getelementptr inbounds %struct.ewah_bitmap, ptr %self, i64 0, i32 1
+  %buffer_size = getelementptr inbounds i8, ptr %self, i64 8
   store i64 %or11.i49, ptr %buffer_size, align 8
   %sub14 = add i64 %len, -8
   %9 = load ptr, ptr %self, align 8
@@ -352,7 +350,7 @@ if.end45:                                         ; preds = %for.end
   %conv9.i67 = zext i8 %20 to i64
   %or11.i68 = or disjoint i64 %or7.i65, %conv9.i67
   %add.ptr48 = getelementptr inbounds i64, ptr %16, i64 %or11.i68
-  %rlw = getelementptr inbounds %struct.ewah_bitmap, ptr %self, i64 0, i32 4
+  %rlw = getelementptr inbounds i8, ptr %self, i64 32
   store ptr %add.ptr48, ptr %rlw, align 8
   %add.ptr49 = getelementptr inbounds i8, ptr %add.ptr30, i64 4
   %sub.ptr.lhs.cast = ptrtoint ptr %add.ptr49 to i64

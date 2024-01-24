@@ -3,8 +3,6 @@ source_filename = "bench/libquic/original/aead.c.ll"
 target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:128-n8:16:32:64-S128"
 target triple = "x86_64-unknown-linux-gnu"
 
-%struct.evp_aead_st = type { i8, i8, i8, i8, ptr, ptr, ptr, ptr, ptr, ptr, ptr }
-
 @.str = private unnamed_addr constant [124 x i8] c"generated/home/dtcxzyw/WorkSpace/Projects/compilers/llvm-opt-benchmark/bench/libquic/libquic/boringssl/crypto/cipher/aead.c\00", align 1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
@@ -18,7 +16,7 @@ entry:
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
 define hidden i64 @EVP_AEAD_nonce_length(ptr nocapture noundef readonly %aead) local_unnamed_addr #0 {
 entry:
-  %nonce_len = getelementptr inbounds %struct.evp_aead_st, ptr %aead, i64 0, i32 1
+  %nonce_len = getelementptr inbounds i8, ptr %aead, i64 1
   %0 = load i8, ptr %nonce_len, align 1
   %conv = zext i8 %0 to i64
   ret i64 %conv
@@ -27,7 +25,7 @@ entry:
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
 define hidden i64 @EVP_AEAD_max_overhead(ptr nocapture noundef readonly %aead) local_unnamed_addr #0 {
 entry:
-  %overhead = getelementptr inbounds %struct.evp_aead_st, ptr %aead, i64 0, i32 2
+  %overhead = getelementptr inbounds i8, ptr %aead, i64 2
   %0 = load i8, ptr %overhead, align 2
   %conv = zext i8 %0 to i64
   ret i64 %conv
@@ -36,7 +34,7 @@ entry:
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
 define hidden i64 @EVP_AEAD_max_tag_len(ptr nocapture noundef readonly %aead) local_unnamed_addr #0 {
 entry:
-  %max_tag_len = getelementptr inbounds %struct.evp_aead_st, ptr %aead, i64 0, i32 3
+  %max_tag_len = getelementptr inbounds i8, ptr %aead, i64 3
   %0 = load i8, ptr %max_tag_len, align 1
   %conv = zext i8 %0 to i64
   ret i64 %conv
@@ -55,7 +53,7 @@ declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #2
 ; Function Attrs: nounwind uwtable
 define hidden i32 @EVP_AEAD_CTX_init(ptr noundef %ctx, ptr noundef %aead, ptr noundef %key, i64 noundef %key_len, i64 noundef %tag_len, ptr nocapture noundef readnone %impl) local_unnamed_addr #3 {
 entry:
-  %init = getelementptr inbounds %struct.evp_aead_st, ptr %aead, i64 0, i32 4
+  %init = getelementptr inbounds i8, ptr %aead, i64 8
   %0 = load ptr, ptr %init, align 8
   %tobool.not = icmp eq ptr %0, null
   br i1 %tobool.not, label %if.then, label %if.end
@@ -85,7 +83,7 @@ if.then5.i:                                       ; preds = %if.end.i
   br label %if.end8.i
 
 if.else.i:                                        ; preds = %if.end.i
-  %init_with_direction.i = getelementptr inbounds %struct.evp_aead_st, ptr %aead, i64 0, i32 5
+  %init_with_direction.i = getelementptr inbounds i8, ptr %aead, i64 16
   %3 = load ptr, ptr %init_with_direction.i, align 8
   %call7.i = tail call i32 %3(ptr noundef nonnull %ctx, ptr noundef %key, i64 noundef %key_len, i64 noundef %tag_len, i32 noundef 0) #5
   br label %if.end8.i
@@ -120,7 +118,7 @@ if.then:                                          ; preds = %entry
 
 if.end:                                           ; preds = %entry
   store ptr %aead, ptr %ctx, align 8
-  %init = getelementptr inbounds %struct.evp_aead_st, ptr %aead, i64 0, i32 4
+  %init = getelementptr inbounds i8, ptr %aead, i64 8
   %1 = load ptr, ptr %init, align 8
   %tobool.not = icmp eq ptr %1, null
   br i1 %tobool.not, label %if.else, label %if.then5
@@ -130,7 +128,7 @@ if.then5:                                         ; preds = %if.end
   br label %if.end8
 
 if.else:                                          ; preds = %if.end
-  %init_with_direction = getelementptr inbounds %struct.evp_aead_st, ptr %aead, i64 0, i32 5
+  %init_with_direction = getelementptr inbounds i8, ptr %aead, i64 16
   %2 = load ptr, ptr %init_with_direction, align 8
   %call7 = tail call i32 %2(ptr noundef nonnull %ctx, ptr noundef %key, i64 noundef %key_len, i64 noundef %tag_len, i32 noundef %dir) #5
   br label %if.end8
@@ -157,7 +155,7 @@ entry:
   br i1 %cmp, label %return, label %if.end
 
 if.end:                                           ; preds = %entry
-  %cleanup = getelementptr inbounds %struct.evp_aead_st, ptr %0, i64 0, i32 6
+  %cleanup = getelementptr inbounds i8, ptr %0, i64 24
   %1 = load ptr, ptr %cleanup, align 8
   tail call void %1(ptr noundef nonnull %ctx) #5
   store ptr null, ptr %ctx, align 8
@@ -171,7 +169,7 @@ return:                                           ; preds = %entry, %if.end
 define hidden noundef i32 @EVP_AEAD_CTX_seal(ptr noundef %ctx, ptr noundef %out, ptr noundef %out_len, i64 noundef %max_out_len, ptr noundef %nonce, i64 noundef %nonce_len, ptr noundef %in, i64 noundef %in_len, ptr noundef %ad, i64 noundef %ad_len) local_unnamed_addr #3 {
 entry:
   %0 = load ptr, ptr %ctx, align 8
-  %overhead = getelementptr inbounds %struct.evp_aead_st, ptr %0, i64 0, i32 2
+  %overhead = getelementptr inbounds i8, ptr %0, i64 2
   %1 = load i8, ptr %overhead, align 2
   %conv = zext i8 %1 to i64
   %2 = xor i64 %in_len, -1
@@ -194,7 +192,7 @@ if.then2:                                         ; preds = %if.end
   br label %error
 
 if.end3:                                          ; preds = %if.end
-  %seal = getelementptr inbounds %struct.evp_aead_st, ptr %0, i64 0, i32 7
+  %seal = getelementptr inbounds i8, ptr %0, i64 32
   %3 = load ptr, ptr %seal, align 8
   %call5 = tail call i32 %3(ptr noundef nonnull %ctx, ptr noundef %out, ptr noundef %out_len, i64 noundef %max_out_len, ptr noundef %nonce, i64 noundef %nonce_len, ptr noundef %in, i64 noundef %in_len, ptr noundef %ad, i64 noundef %ad_len) #5
   %tobool6.not = icmp eq i32 %call5, 0
@@ -225,7 +223,7 @@ if.then:                                          ; preds = %entry
 
 if.end:                                           ; preds = %entry
   %0 = load ptr, ptr %ctx, align 8
-  %open = getelementptr inbounds %struct.evp_aead_st, ptr %0, i64 0, i32 8
+  %open = getelementptr inbounds i8, ptr %0, i64 40
   %1 = load ptr, ptr %open, align 8
   %call1 = tail call i32 %1(ptr noundef nonnull %ctx, ptr noundef %out, ptr noundef %out_len, i64 noundef %max_out_len, ptr noundef %nonce, i64 noundef %nonce_len, ptr noundef %in, i64 noundef %in_len, ptr noundef %ad, i64 noundef %ad_len) #5
   %tobool2.not = icmp eq i32 %call1, 0
@@ -245,7 +243,7 @@ return:                                           ; preds = %if.end, %error
 define hidden i32 @EVP_AEAD_CTX_get_rc4_state(ptr noundef %ctx, ptr noundef %out_key) local_unnamed_addr #3 {
 entry:
   %0 = load ptr, ptr %ctx, align 8
-  %get_rc4_state = getelementptr inbounds %struct.evp_aead_st, ptr %0, i64 0, i32 9
+  %get_rc4_state = getelementptr inbounds i8, ptr %0, i64 48
   %1 = load ptr, ptr %get_rc4_state, align 8
   %cmp = icmp eq ptr %1, null
   br i1 %cmp, label %return, label %if.end
@@ -263,7 +261,7 @@ return:                                           ; preds = %entry, %if.end
 define hidden i32 @EVP_AEAD_CTX_get_iv(ptr noundef %ctx, ptr noundef %out_iv, ptr noundef %out_len) local_unnamed_addr #3 {
 entry:
   %0 = load ptr, ptr %ctx, align 8
-  %get_iv = getelementptr inbounds %struct.evp_aead_st, ptr %0, i64 0, i32 10
+  %get_iv = getelementptr inbounds i8, ptr %0, i64 56
   %1 = load ptr, ptr %get_iv, align 8
   %cmp = icmp eq ptr %1, null
   br i1 %cmp, label %return, label %if.end

@@ -6,14 +6,6 @@ target triple = "x86_64-unknown-linux-gnu"
 %"class.std::ios_base::Init" = type { i8 }
 %"struct.std::atomic" = type { %"struct.std::__atomic_base" }
 %"struct.std::__atomic_base" = type { ptr }
-%"struct.(anonymous namespace)::backup_poller" = type { %struct.grpc_timer, %struct.grpc_closure, %struct.grpc_closure, ptr, ptr, i8, %struct.gpr_refcount, %struct.gpr_refcount }
-%struct.grpc_timer = type { i64, i32, i8, ptr, ptr, ptr, %union.anon.2 }
-%union.anon.2 = type { %"struct.grpc_event_engine::experimental::EventEngine::TaskHandle" }
-%"struct.grpc_event_engine::experimental::EventEngine::TaskHandle" = type { [2 x i64] }
-%struct.grpc_closure = type { %union.anon.3, ptr, ptr, %union.anon.4 }
-%union.anon.3 = type { ptr }
-%union.anon.4 = type { i64 }
-%struct.gpr_refcount = type { i64 }
 %"class.absl::lts_20230802::Status" = type { i64 }
 
 $__clang_call_terminate = comdat any
@@ -101,24 +93,24 @@ if.then.i:                                        ; preds = %if.end
   %call1.i = tail call noundef i64 @_Z17grpc_pollset_sizev()
   %call2.i = tail call ptr @gpr_zalloc(i64 noundef %call1.i)
   %2 = load ptr, ptr @_ZL8g_poller, align 8
-  %pollset.i = getelementptr inbounds %"struct.(anonymous namespace)::backup_poller", ptr %2, i64 0, i32 4
+  %pollset.i = getelementptr inbounds i8, ptr %2, i64 128
   store ptr %call2.i, ptr %pollset.i, align 8
-  %shutting_down.i = getelementptr inbounds %"struct.(anonymous namespace)::backup_poller", ptr %2, i64 0, i32 5
+  %shutting_down.i = getelementptr inbounds i8, ptr %2, i64 136
   store i8 0, ptr %shutting_down.i, align 8
-  %pollset_mu.i = getelementptr inbounds %"struct.(anonymous namespace)::backup_poller", ptr %2, i64 0, i32 3
+  %pollset_mu.i = getelementptr inbounds i8, ptr %2, i64 120
   tail call void @_Z17grpc_pollset_initP12grpc_pollsetPPl(ptr noundef %call2.i, ptr noundef nonnull %pollset_mu.i)
   %3 = load ptr, ptr @_ZL8g_poller, align 8
-  %refs.i = getelementptr inbounds %"struct.(anonymous namespace)::backup_poller", ptr %3, i64 0, i32 6
+  %refs.i = getelementptr inbounds i8, ptr %3, i64 144
   tail call void @gpr_ref_init(ptr noundef nonnull %refs.i, i32 noundef 0)
   %4 = load ptr, ptr @_ZL8g_poller, align 8
-  %shutdown_refs.i = getelementptr inbounds %"struct.(anonymous namespace)::backup_poller", ptr %4, i64 0, i32 7
+  %shutdown_refs.i = getelementptr inbounds i8, ptr %4, i64 152
   tail call void @gpr_ref_init(ptr noundef nonnull %shutdown_refs.i, i32 noundef 3)
   %5 = load ptr, ptr @_ZL8g_poller, align 8
-  %cb1.i.i = getelementptr inbounds %"struct.(anonymous namespace)::backup_poller", ptr %5, i64 0, i32 1, i32 1
+  %cb1.i.i = getelementptr inbounds i8, ptr %5, i64 64
   store ptr @_ZL10run_pollerPvN4absl12lts_202308026StatusE, ptr %cb1.i.i, align 8
-  %cb_arg2.i.i = getelementptr inbounds %"struct.(anonymous namespace)::backup_poller", ptr %5, i64 0, i32 1, i32 2
+  %cb_arg2.i.i = getelementptr inbounds i8, ptr %5, i64 72
   store ptr %5, ptr %cb_arg2.i.i, align 8
-  %error_data.i.i = getelementptr inbounds %"struct.(anonymous namespace)::backup_poller", ptr %5, i64 0, i32 1, i32 3
+  %error_data.i.i = getelementptr inbounds i8, ptr %5, i64 80
   store i64 0, ptr %error_data.i.i, align 8
   br i1 icmp ne (ptr @_ZTHN9grpc_core9Timestamp25thread_local_time_source_E, ptr null), label %6, label %_ZN9grpc_core9Timestamp3NowEv.exit.i
 
@@ -165,17 +157,17 @@ if.end7.i.i.i.i:                                  ; preds = %if.else.i.i.i.i, %i
 _ZN9grpc_coreplENS_9TimestampENS_8DurationE.exit.i: ; preds = %if.end7.i.i.i.i, %if.else.i.i.i.i, %if.then.i.i.i.i, %if.end.i.i.i, %_ZN9grpc_core9Timestamp3NowEv.exit.i
   %retval.0.i.i.i = phi i64 [ 9223372036854775807, %_ZN9grpc_core9Timestamp3NowEv.exit.i ], [ -9223372036854775808, %if.end.i.i.i ], [ %add.i.i.i.i, %if.end7.i.i.i.i ], [ 9223372036854775807, %if.then.i.i.i.i ], [ -9223372036854775808, %if.else.i.i.i.i ]
   %10 = load ptr, ptr @_ZL8g_poller, align 8
-  %run_poller_closure12.i = getelementptr inbounds %"struct.(anonymous namespace)::backup_poller", ptr %10, i64 0, i32 1
+  %run_poller_closure12.i = getelementptr inbounds i8, ptr %10, i64 56
   tail call void @_Z15grpc_timer_initP10grpc_timerN9grpc_core9TimestampEP12grpc_closure(ptr noundef nonnull %5, i64 %retval.0.i.i.i, ptr noundef nonnull %run_poller_closure12.i)
   %.pre = load ptr, ptr @_ZL8g_poller, align 8
   br label %_ZL20g_poller_init_lockedv.exit
 
 _ZL20g_poller_init_lockedv.exit:                  ; preds = %if.end, %_ZN9grpc_coreplENS_9TimestampENS_8DurationE.exit.i
   %11 = phi ptr [ %1, %if.end ], [ %.pre, %_ZN9grpc_coreplENS_9TimestampENS_8DurationE.exit.i ]
-  %refs = getelementptr inbounds %"struct.(anonymous namespace)::backup_poller", ptr %11, i64 0, i32 6
+  %refs = getelementptr inbounds i8, ptr %11, i64 144
   tail call void @gpr_ref(ptr noundef nonnull %refs)
   %12 = load ptr, ptr @_ZL8g_poller, align 8
-  %pollset4 = getelementptr inbounds %"struct.(anonymous namespace)::backup_poller", ptr %12, i64 0, i32 4
+  %pollset4 = getelementptr inbounds i8, ptr %12, i64 128
   %13 = load ptr, ptr %pollset4, align 8
   tail call void @gpr_mu_unlock(ptr noundef nonnull @_ZL11g_poller_mu)
   tail call void @_Z28grpc_pollset_set_add_pollsetP16grpc_pollset_setP12grpc_pollset(ptr noundef %interested_parties, ptr noundef %13)
@@ -208,12 +200,12 @@ lor.lhs.false:                                    ; preds = %entry
 
 if.end:                                           ; preds = %lor.lhs.false
   %1 = load ptr, ptr @_ZL8g_poller, align 8
-  %pollset = getelementptr inbounds %"struct.(anonymous namespace)::backup_poller", ptr %1, i64 0, i32 4
+  %pollset = getelementptr inbounds i8, ptr %1, i64 128
   %2 = load ptr, ptr %pollset, align 8
   tail call void @_Z28grpc_pollset_set_del_pollsetP16grpc_pollset_setP12grpc_pollset(ptr noundef %interested_parties, ptr noundef %2)
   tail call void @gpr_mu_lock(ptr noundef nonnull @_ZL11g_poller_mu)
   %3 = load ptr, ptr @_ZL8g_poller, align 8
-  %refs.i = getelementptr inbounds %"struct.(anonymous namespace)::backup_poller", ptr %3, i64 0, i32 6
+  %refs.i = getelementptr inbounds i8, ptr %3, i64 144
   %call.i = tail call i32 @gpr_unref(ptr noundef nonnull %refs.i)
   %tobool.not.i = icmp eq i32 %call.i, 0
   br i1 %tobool.not.i, label %if.else.i, label %if.then.i
@@ -222,25 +214,25 @@ if.then.i:                                        ; preds = %if.end
   %4 = load ptr, ptr @_ZL8g_poller, align 8
   store ptr null, ptr @_ZL8g_poller, align 8
   tail call void @gpr_mu_unlock(ptr noundef nonnull @_ZL11g_poller_mu)
-  %pollset_mu.i = getelementptr inbounds %"struct.(anonymous namespace)::backup_poller", ptr %4, i64 0, i32 3
+  %pollset_mu.i = getelementptr inbounds i8, ptr %4, i64 120
   %5 = load ptr, ptr %pollset_mu.i, align 8
   tail call void @gpr_mu_lock(ptr noundef %5)
-  %shutting_down.i = getelementptr inbounds %"struct.(anonymous namespace)::backup_poller", ptr %4, i64 0, i32 5
+  %shutting_down.i = getelementptr inbounds i8, ptr %4, i64 136
   store i8 1, ptr %shutting_down.i, align 8
-  %pollset.i = getelementptr inbounds %"struct.(anonymous namespace)::backup_poller", ptr %4, i64 0, i32 4
+  %pollset.i = getelementptr inbounds i8, ptr %4, i64 128
   %6 = load ptr, ptr %pollset.i, align 8
-  %shutdown_closure.i = getelementptr inbounds %"struct.(anonymous namespace)::backup_poller", ptr %4, i64 0, i32 2
-  %cb1.i.i = getelementptr inbounds %"struct.(anonymous namespace)::backup_poller", ptr %4, i64 0, i32 2, i32 1
+  %shutdown_closure.i = getelementptr inbounds i8, ptr %4, i64 88
+  %cb1.i.i = getelementptr inbounds i8, ptr %4, i64 96
   store ptr @_ZL11done_pollerPvN4absl12lts_202308026StatusE, ptr %cb1.i.i, align 8
-  %cb_arg2.i.i = getelementptr inbounds %"struct.(anonymous namespace)::backup_poller", ptr %4, i64 0, i32 2, i32 2
+  %cb_arg2.i.i = getelementptr inbounds i8, ptr %4, i64 104
   store ptr %4, ptr %cb_arg2.i.i, align 8
-  %error_data.i.i = getelementptr inbounds %"struct.(anonymous namespace)::backup_poller", ptr %4, i64 0, i32 2, i32 3
+  %error_data.i.i = getelementptr inbounds i8, ptr %4, i64 112
   store i64 0, ptr %error_data.i.i, align 8
   tail call void @_Z21grpc_pollset_shutdownP12grpc_pollsetP12grpc_closure(ptr noundef %6, ptr noundef nonnull %shutdown_closure.i)
   %7 = load ptr, ptr %pollset_mu.i, align 8
   tail call void @gpr_mu_unlock(ptr noundef %7)
   tail call void @_Z17grpc_timer_cancelP10grpc_timer(ptr noundef %4)
-  %shutdown_refs.i.i = getelementptr inbounds %"struct.(anonymous namespace)::backup_poller", ptr %4, i64 0, i32 7
+  %shutdown_refs.i.i = getelementptr inbounds i8, ptr %4, i64 152
   %call.i.i = tail call i32 @gpr_unref(ptr noundef nonnull %shutdown_refs.i.i)
   %tobool.not.i.i = icmp eq i32 %call.i.i, 0
   br i1 %tobool.not.i.i, label %return, label %if.then.i.i
@@ -407,13 +399,13 @@ lpad:                                             ; preds = %lor.rhs.i.i
   br label %eh.resume
 
 if.end:                                           ; preds = %if.then, %invoke.cont4.thread, %if.then.i.i18, %invoke.cont4, %_ZN4absl12lts_202308026StatusD2Ev.exit
-  %shutdown_refs.i = getelementptr inbounds %"struct.(anonymous namespace)::backup_poller", ptr %arg, i64 0, i32 7
+  %shutdown_refs.i = getelementptr inbounds i8, ptr %arg, i64 152
   %call.i = call i32 @gpr_unref(ptr noundef nonnull %shutdown_refs.i)
   %tobool.not.i = icmp eq i32 %call.i, 0
   br i1 %tobool.not.i, label %return, label %if.then.i
 
 if.then.i:                                        ; preds = %if.end
-  %pollset.i = getelementptr inbounds %"struct.(anonymous namespace)::backup_poller", ptr %arg, i64 0, i32 4
+  %pollset.i = getelementptr inbounds i8, ptr %arg, i64 128
   %15 = load ptr, ptr %pollset.i, align 8
   call void @_Z20grpc_pollset_destroyP12grpc_pollset(ptr noundef %15)
   %16 = load ptr, ptr %pollset.i, align 8
@@ -422,10 +414,10 @@ if.then.i:                                        ; preds = %if.end
   br label %return
 
 if.end6:                                          ; preds = %entry
-  %pollset_mu = getelementptr inbounds %"struct.(anonymous namespace)::backup_poller", ptr %arg, i64 0, i32 3
+  %pollset_mu = getelementptr inbounds i8, ptr %arg, i64 120
   %17 = load ptr, ptr %pollset_mu, align 8
   tail call void @gpr_mu_lock(ptr noundef %17)
-  %shutting_down = getelementptr inbounds %"struct.(anonymous namespace)::backup_poller", ptr %arg, i64 0, i32 5
+  %shutting_down = getelementptr inbounds i8, ptr %arg, i64 136
   %18 = load i8, ptr %shutting_down, align 8
   %19 = and i8 %18, 1
   %tobool.not = icmp eq i8 %19, 0
@@ -434,13 +426,13 @@ if.end6:                                          ; preds = %entry
 if.then7:                                         ; preds = %if.end6
   %20 = load ptr, ptr %pollset_mu, align 8
   tail call void @gpr_mu_unlock(ptr noundef %20)
-  %shutdown_refs.i21 = getelementptr inbounds %"struct.(anonymous namespace)::backup_poller", ptr %arg, i64 0, i32 7
+  %shutdown_refs.i21 = getelementptr inbounds i8, ptr %arg, i64 152
   %call.i22 = tail call i32 @gpr_unref(ptr noundef nonnull %shutdown_refs.i21)
   %tobool.not.i23 = icmp eq i32 %call.i22, 0
   br i1 %tobool.not.i23, label %return, label %if.then.i24
 
 if.then.i24:                                      ; preds = %if.then7
-  %pollset.i25 = getelementptr inbounds %"struct.(anonymous namespace)::backup_poller", ptr %arg, i64 0, i32 4
+  %pollset.i25 = getelementptr inbounds i8, ptr %arg, i64 128
   %21 = load ptr, ptr %pollset.i25, align 8
   tail call void @_Z20grpc_pollset_destroyP12grpc_pollset(ptr noundef %21)
   %22 = load ptr, ptr %pollset.i25, align 8
@@ -449,7 +441,7 @@ if.then.i24:                                      ; preds = %if.then7
   br label %return
 
 if.end9:                                          ; preds = %if.end6
-  %pollset = getelementptr inbounds %"struct.(anonymous namespace)::backup_poller", ptr %arg, i64 0, i32 4
+  %pollset = getelementptr inbounds i8, ptr %arg, i64 128
   %23 = load ptr, ptr %pollset, align 8
   br i1 icmp ne (ptr @_ZTHN9grpc_core9Timestamp25thread_local_time_source_E, ptr null), label %24, label %_ZN9grpc_core9Timestamp3NowEv.exit
 
@@ -589,7 +581,7 @@ if.end7.i.i.i:                                    ; preds = %if.else.i.i.i, %if.
 
 invoke.cont29:                                    ; preds = %if.end7.i.i.i, %if.else.i.i.i, %if.then.i.i.i62, %if.end.i.i, %invoke.cont23
   %retval.0.i.i = phi i64 [ 9223372036854775807, %invoke.cont23 ], [ -9223372036854775808, %if.end.i.i ], [ %add.i.i.i, %if.end7.i.i.i ], [ 9223372036854775807, %if.then.i.i.i62 ], [ -9223372036854775808, %if.else.i.i.i ]
-  %run_poller_closure = getelementptr inbounds %"struct.(anonymous namespace)::backup_poller", ptr %arg, i64 0, i32 1
+  %run_poller_closure = getelementptr inbounds i8, ptr %arg, i64 56
   invoke void @_Z15grpc_timer_initP10grpc_timerN9grpc_core9TimestampEP12grpc_closure(ptr noundef nonnull %arg, i64 %retval.0.i.i, ptr noundef nonnull %run_poller_closure)
           to label %invoke.cont33 unwind label %lpad14
 
@@ -669,13 +661,13 @@ declare void @_Z21grpc_pollset_shutdownP12grpc_pollsetP12grpc_closure(ptr nounde
 ; Function Attrs: mustprogress uwtable
 define internal void @_ZL11done_pollerPvN4absl12lts_202308026StatusE(ptr noundef %arg, ptr nocapture readnone %0) #3 {
 entry:
-  %shutdown_refs.i = getelementptr inbounds %"struct.(anonymous namespace)::backup_poller", ptr %arg, i64 0, i32 7
+  %shutdown_refs.i = getelementptr inbounds i8, ptr %arg, i64 152
   %call.i = tail call i32 @gpr_unref(ptr noundef nonnull %shutdown_refs.i)
   %tobool.not.i = icmp eq i32 %call.i, 0
   br i1 %tobool.not.i, label %_ZL28backup_poller_shutdown_unrefPN12_GLOBAL__N_113backup_pollerE.exit, label %if.then.i
 
 if.then.i:                                        ; preds = %entry
-  %pollset.i = getelementptr inbounds %"struct.(anonymous namespace)::backup_poller", ptr %arg, i64 0, i32 4
+  %pollset.i = getelementptr inbounds i8, ptr %arg, i64 128
   %1 = load ptr, ptr %pollset.i, align 8
   tail call void @_Z20grpc_pollset_destroyP12grpc_pollset(ptr noundef %1)
   %2 = load ptr, ptr %pollset.i, align 8

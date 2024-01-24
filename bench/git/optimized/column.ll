@@ -5,10 +5,7 @@ target triple = "x86_64-unknown-linux-gnu"
 
 %struct.colopt = type { ptr, i32, i32 }
 %struct.strvec = type { ptr, i64, i64 }
-%struct.string_list = type { ptr, i64, i64, i8, ptr }
-%struct.column_options = type { i32, i32, ptr, ptr }
 %struct.string_list_item = type { ptr, ptr }
-%struct.option = type { i32, i32, ptr, ptr, ptr, ptr, i32, ptr, i64, ptr, i64, ptr }
 
 @.str = private unnamed_addr constant [1 x i8] zeroinitializer, align 1
 @.str.1 = private unnamed_addr constant [2 x i8] c"\0A\00", align 1
@@ -42,7 +39,7 @@ target triple = "x86_64-unknown-linux-gnu"
 ; Function Attrs: nounwind uwtable
 define dso_local void @print_columns(ptr nocapture noundef readonly %list, i32 noundef %colopts, ptr noundef readonly %opts) local_unnamed_addr #0 {
 entry:
-  %nr = getelementptr inbounds %struct.string_list, ptr %list, i64 0, i32 1
+  %nr = getelementptr inbounds i8, ptr %list, i64 8
   %0 = load i64, ptr %nr, align 8
   %tobool.not = icmp eq i64 %0, 0
   br i1 %tobool.not, label %sw.epilog, label %if.end
@@ -52,15 +49,15 @@ if.end:                                           ; preds = %entry
   br i1 %tobool1.not, label %cond.false25, label %cond.true15
 
 cond.true15:                                      ; preds = %if.end
-  %indent = getelementptr inbounds %struct.column_options, ptr %opts, i64 0, i32 2
+  %indent = getelementptr inbounds i8, ptr %opts, i64 8
   %1 = load ptr, ptr %indent, align 8
   %tobool2.not = icmp eq ptr %1, null
   %spec.select = select i1 %tobool2.not, ptr @.str, ptr %1
-  %nl = getelementptr inbounds %struct.column_options, ptr %opts, i64 0, i32 3
+  %nl = getelementptr inbounds i8, ptr %opts, i64 16
   %2 = load ptr, ptr %nl, align 8
   %tobool7.not = icmp eq ptr %2, null
   %spec.select19 = select i1 %tobool7.not, ptr @.str.1, ptr %2
-  %padding = getelementptr inbounds %struct.column_options, ptr %opts, i64 0, i32 1
+  %padding = getelementptr inbounds i8, ptr %opts, i64 4
   %3 = load i32, ptr %padding, align 4
   %4 = load i32, ptr %opts, align 8
   %tobool22.not = icmp eq i32 %4, 0
@@ -167,7 +164,7 @@ for.body.i.i:                                     ; preds = %for.end.i, %for.bod
   %spec.select.i = select i1 %cmp2.i.i, ptr %list, ptr %18
   %spec.select120.i = tail call i32 @llvm.smax.i32(i32 %19, i32 %20)
   %indvars.iv.next.i.i = add nuw nsw i64 %indvars.iv.i.i, 1
-  %nr.i.i = getelementptr inbounds %struct.string_list, ptr %spec.select.i, i64 0, i32 1
+  %nr.i.i = getelementptr inbounds i8, ptr %spec.select.i, i64 8
   %21 = load i64, ptr %nr.i.i, align 8
   %cmp.i14.i = icmp ugt i64 %21, %indvars.iv.next.i.i
   br i1 %cmp.i14.i, label %for.body.i.i, label %layout.exit.i, !llvm.loop !8
@@ -842,7 +839,7 @@ declare i32 @strcmp(ptr nocapture noundef, ptr nocapture noundef) local_unnamed_
 ; Function Attrs: nounwind uwtable
 define dso_local noundef i32 @parseopt_column_callback(ptr nocapture noundef readonly %opt, ptr noundef %arg, i32 noundef %unset) local_unnamed_addr #0 {
 entry:
-  %value = getelementptr inbounds %struct.option, ptr %opt, i64 0, i32 3
+  %value = getelementptr inbounds i8, ptr %opt, i64 16
   %0 = load ptr, ptr %value, align 8
   %1 = load i32, ptr %0, align 4
   %or = and i32 %1, -113
@@ -870,20 +867,20 @@ return:                                           ; preds = %if.end, %entry, %if
 define internal fastcc noundef i32 @parse_config(ptr nocapture noundef %colopts, ptr noundef %value) unnamed_addr #0 {
 entry:
   %0 = load i8, ptr %value, align 1
-  %tobool.not26 = icmp eq i8 %0, 0
-  br i1 %tobool.not26, label %return, label %while.body
+  %tobool.not27 = icmp eq i8 %0, 0
+  br i1 %tobool.not27, label %return, label %while.body
 
 while.body:                                       ; preds = %entry, %if.end5
-  %value.addr.028 = phi ptr [ %add.ptr7, %if.end5 ], [ %value, %entry ]
-  %group_set.027 = phi i32 [ %group_set.3, %if.end5 ], [ 0, %entry ]
-  %call = tail call i64 @strcspn(ptr noundef nonnull %value.addr.028, ptr noundef nonnull @.str.14) #11
+  %value.addr.029 = phi ptr [ %add.ptr7, %if.end5 ], [ %value, %entry ]
+  %group_set.028 = phi i32 [ %group_set.3, %if.end5 ], [ 0, %entry ]
+  %call = tail call i64 @strcspn(ptr noundef nonnull %value.addr.029, ptr noundef nonnull @.str.14) #11
   %conv = trunc i64 %call to i32
   %tobool1.not = icmp eq i32 %conv, 0
   br i1 %tobool1.not, label %if.end5, label %if.then
 
 if.then:                                          ; preds = %while.body
   %cmp2.i = icmp sgt i32 %conv, 2
-  %add.ptr.i = getelementptr inbounds i8, ptr %value.addr.028, i64 2
+  %add.ptr.i = getelementptr inbounds i8, ptr %value.addr.029, i64 2
   %sub.i = add nsw i32 %conv, -2
   br i1 %cmp2.i, label %for.body.i, label %for.body.us.i
 
@@ -899,7 +896,7 @@ for.body.us.i:                                    ; preds = %if.then, %for.inc.u
 lor.lhs.false.us.i:                               ; preds = %for.body.us.i
   %sext.us.i = shl i64 %call9.us.i, 32
   %conv16.us.i = ashr exact i64 %sext.us.i, 32
-  %call17.us.i = tail call i32 @strncmp(ptr noundef nonnull %value.addr.028, ptr noundef %1, i64 noundef %conv16.us.i) #11
+  %call17.us.i = tail call i32 @strncmp(ptr noundef nonnull %value.addr.029, ptr noundef %1, i64 noundef %conv16.us.i) #11
   %tobool18.not.us.i = icmp eq i32 %call17.us.i, 0
   br i1 %tobool18.not.us.i, label %if.end20.split.us.i, label %for.inc.us.i
 
@@ -909,18 +906,21 @@ for.inc.us.i:                                     ; preds = %lor.lhs.false.us.i,
   br i1 %exitcond.not.i, label %parse_option.exit, label %for.body.us.i, !llvm.loop !17
 
 if.end20.split.us.i:                              ; preds = %lor.lhs.false.us.i
-  %2 = and i64 %indvars.iv.i, 4294967295
-  %tobool.us.le.i = icmp eq i64 %2, 6
+  %mask.us.le.i = getelementptr inbounds i8, ptr %arrayidx.us.i, i64 12
+  %2 = load i32, ptr %mask.us.le.i, align 4
+  %tobool.us.le.i = icmp eq i32 %2, 0
   br label %if.end20.i
 
 for.body.i:                                       ; preds = %if.then, %for.inc.i
   %indvars.iv33.i = phi i64 [ %indvars.iv.next34.i, %for.inc.i ], [ 0, %if.then ]
   %arrayidx.i = getelementptr inbounds [7 x %struct.colopt], ptr @__const.parse_option.opts, i64 0, i64 %indvars.iv33.i
-  %tobool.i = icmp eq i64 %indvars.iv33.i, 6
+  %mask.i = getelementptr inbounds i8, ptr %arrayidx.i, i64 12
+  %3 = load i32, ptr %mask.i, align 4
+  %tobool.i = icmp eq i32 %3, 0
   br i1 %tobool.i, label %land.lhs.true.i, label %if.end6.i
 
 land.lhs.true.i:                                  ; preds = %for.body.i
-  %call.i = tail call i32 @strncmp(ptr noundef nonnull dereferenceable(1) %value.addr.028, ptr noundef nonnull dereferenceable(3) @.str.21, i64 noundef 2) #11
+  %call.i = tail call i32 @strncmp(ptr noundef nonnull dereferenceable(1) %value.addr.029, ptr noundef nonnull dereferenceable(3) @.str.21, i64 noundef 2) #11
   %tobool4.not.i = icmp eq i32 %call.i, 0
   br i1 %tobool4.not.i, label %if.then5.i, label %if.end6.i
 
@@ -930,9 +930,9 @@ if.then5.i:                                       ; preds = %land.lhs.true.i
 if.end6.i:                                        ; preds = %if.then5.i, %land.lhs.true.i, %for.body.i
   %tobool37.not.i = phi i1 [ false, %land.lhs.true.i ], [ true, %if.then5.i ], [ false, %for.body.i ]
   %arg_len.0.i = phi i32 [ %conv, %land.lhs.true.i ], [ %sub.i, %if.then5.i ], [ %conv, %for.body.i ]
-  %arg_str.0.i = phi ptr [ %value.addr.028, %land.lhs.true.i ], [ %add.ptr.i, %if.then5.i ], [ %value.addr.028, %for.body.i ]
-  %3 = load ptr, ptr %arrayidx.i, align 16
-  %call9.i = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %3) #11
+  %arg_str.0.i = phi ptr [ %value.addr.029, %land.lhs.true.i ], [ %add.ptr.i, %if.then5.i ], [ %value.addr.029, %for.body.i ]
+  %4 = load ptr, ptr %arrayidx.i, align 16
+  %call9.i = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %4) #11
   %conv10.i = trunc i64 %call9.i to i32
   %cmp11.not.i = icmp eq i32 %arg_len.0.i, %conv10.i
   br i1 %cmp11.not.i, label %lor.lhs.false.i, label %for.inc.i
@@ -940,46 +940,45 @@ if.end6.i:                                        ; preds = %if.then5.i, %land.l
 lor.lhs.false.i:                                  ; preds = %if.end6.i
   %sext.i = shl i64 %call9.i, 32
   %conv16.i = ashr exact i64 %sext.i, 32
-  %call17.i = tail call i32 @strncmp(ptr noundef nonnull %arg_str.0.i, ptr noundef %3, i64 noundef %conv16.i) #11
+  %call17.i = tail call i32 @strncmp(ptr noundef nonnull %arg_str.0.i, ptr noundef %4, i64 noundef %conv16.i) #11
   %tobool18.not.i = icmp eq i32 %call17.i, 0
   br i1 %tobool18.not.i, label %if.end20.i, label %for.inc.i
 
 if.end20.i:                                       ; preds = %lor.lhs.false.i, %if.end20.split.us.i
-  %.us-phi.i = phi i64 [ %indvars.iv.i, %if.end20.split.us.i ], [ %indvars.iv33.i, %lor.lhs.false.i ]
-  %.us-phi23.i = phi i1 [ false, %if.end20.split.us.i ], [ %tobool37.not.i, %lor.lhs.false.i ]
-  %.us-phi25.i = phi i1 [ %tobool.us.le.i, %if.end20.split.us.i ], [ %tobool.i, %lor.lhs.false.i ]
-  %mask.le.i = getelementptr inbounds [7 x %struct.colopt], ptr @__const.parse_option.opts, i64 0, i64 %.us-phi.i, i32 2
-  %4 = load i32, ptr %mask.le.i, align 4
-  switch i32 %4, label %sw.epilog.i [
-    i32 48, label %sw.epilog.sink.split.i
+  %.us-phi.i = phi i1 [ false, %if.end20.split.us.i ], [ %tobool37.not.i, %lor.lhs.false.i ]
+  %.us-phi22.i = phi ptr [ %arrayidx.us.i, %if.end20.split.us.i ], [ %arrayidx.i, %lor.lhs.false.i ]
+  %.us-phi23.i = phi i32 [ %2, %if.end20.split.us.i ], [ %3, %lor.lhs.false.i ]
+  %.us-phi24.i = phi i1 [ %tobool.us.le.i, %if.end20.split.us.i ], [ %tobool.i, %lor.lhs.false.i ]
+  switch i32 %.us-phi23.i, label %sw.epilog.i [
+    i32 48, label %if.then30.sink.split.i
     i32 15, label %sw.bb24.i
   ]
 
 sw.bb24.i:                                        ; preds = %if.end20.i
-  br label %sw.epilog.sink.split.i
+  br label %if.then30.sink.split.i
 
-sw.epilog.sink.split.i:                           ; preds = %sw.bb24.i, %if.end20.i
-  %.sink42.i = phi i32 [ 1, %sw.bb24.i ], [ 2, %if.end20.i ]
-  %or25.i = or i32 %.sink42.i, %group_set.027
-  br label %sw.epilog.i
+sw.epilog.i:                                      ; preds = %if.end20.i
+  br i1 %.us-phi24.i, label %if.else.i, label %if.then30.i
 
-sw.epilog.i:                                      ; preds = %sw.epilog.sink.split.i, %if.end20.i
-  %group_set.1 = phi i32 [ %group_set.027, %if.end20.i ], [ %or25.i, %sw.epilog.sink.split.i ]
-  br i1 %.us-phi25.i, label %if.else.i, label %if.then30.i
+if.then30.sink.split.i:                           ; preds = %sw.bb24.i, %if.end20.i
+  %.sink43.i = phi i32 [ 1, %sw.bb24.i ], [ 2, %if.end20.i ]
+  %or.i = or i32 %.sink43.i, %group_set.028
+  br label %if.then30.i
 
-if.then30.i:                                      ; preds = %sw.epilog.i
+if.then30.i:                                      ; preds = %if.then30.sink.split.i, %sw.epilog.i
+  %group_set.1 = phi i32 [ %group_set.028, %sw.epilog.i ], [ %or.i, %if.then30.sink.split.i ]
   %5 = load i32, ptr %colopts, align 4
-  %not.i = xor i32 %4, -1
+  %not.i = xor i32 %.us-phi23.i, -1
   %and.i = and i32 %5, %not.i
-  %value.i = getelementptr inbounds [7 x %struct.colopt], ptr @__const.parse_option.opts, i64 0, i64 %.us-phi.i, i32 1
+  %value.i = getelementptr inbounds i8, ptr %.us-phi22.i, i64 8
   %6 = load i32, ptr %value.i, align 8
   %or36.i = or i32 %and.i, %6
   br label %if.end
 
 if.else.i:                                        ; preds = %sw.epilog.i
-  %value46.i = getelementptr inbounds [7 x %struct.colopt], ptr @__const.parse_option.opts, i64 0, i64 %.us-phi.i, i32 1
+  %value46.i = getelementptr inbounds i8, ptr %.us-phi22.i, i64 8
   %7 = load i32, ptr %value46.i, align 8
-  br i1 %.us-phi23.i, label %if.else43.i, label %if.then38.i
+  br i1 %.us-phi.i, label %if.else43.i, label %if.then38.i
 
 if.then38.i:                                      ; preds = %if.else.i
   %8 = load i32, ptr %colopts, align 4
@@ -998,20 +997,21 @@ for.inc.i:                                        ; preds = %lor.lhs.false.i, %i
   br i1 %exitcond36.not.i, label %parse_option.exit, label %for.body.i, !llvm.loop !17
 
 parse_option.exit:                                ; preds = %for.inc.us.i, %for.inc.i
-  %call51.i = tail call i32 (ptr, ...) @error(ptr noundef nonnull @.str.22, ptr noundef nonnull %value.addr.028) #9
+  %call51.i = tail call i32 (ptr, ...) @error(ptr noundef nonnull @.str.22, ptr noundef nonnull %value.addr.029) #9
   br label %return
 
 if.end:                                           ; preds = %if.then38.i, %if.else43.i, %if.then30.i
   %or42.i.sink = phi i32 [ %or42.i, %if.then38.i ], [ %and48.i, %if.else43.i ], [ %or36.i, %if.then30.i ]
+  %group_set.2.ph = phi i32 [ %group_set.028, %if.then38.i ], [ %group_set.028, %if.else43.i ], [ %group_set.1, %if.then30.i ]
   store i32 %or42.i.sink, ptr %colopts, align 4
   %sext = shl i64 %call, 32
   %idx.ext = ashr exact i64 %sext, 32
-  %add.ptr = getelementptr inbounds i8, ptr %value.addr.028, i64 %idx.ext
+  %add.ptr = getelementptr inbounds i8, ptr %value.addr.029, i64 %idx.ext
   br label %if.end5
 
 if.end5:                                          ; preds = %if.end, %while.body
-  %group_set.3 = phi i32 [ %group_set.027, %while.body ], [ %group_set.1, %if.end ]
-  %value.addr.1 = phi ptr [ %value.addr.028, %while.body ], [ %add.ptr, %if.end ]
+  %group_set.3 = phi i32 [ %group_set.028, %while.body ], [ %group_set.2.ph, %if.end ]
+  %value.addr.1 = phi ptr [ %value.addr.029, %while.body ], [ %add.ptr, %if.end ]
   %call6 = tail call i64 @strspn(ptr noundef %value.addr.1, ptr noundef nonnull @.str.14) #11
   %add.ptr7 = getelementptr inbounds i8, ptr %value.addr.1, i64 %call6
   %10 = load i8, ptr %add.ptr7, align 1
@@ -1059,7 +1059,7 @@ if.then3:                                         ; preds = %land.lhs.true
   br label %land.lhs.true8
 
 land.lhs.true8:                                   ; preds = %land.lhs.true, %if.then3
-  %indent = getelementptr inbounds %struct.column_options, ptr %opts, i64 0, i32 2
+  %indent = getelementptr inbounds i8, ptr %opts, i64 8
   %2 = load ptr, ptr %indent, align 8
   %tobool9.not = icmp eq ptr %2, null
   br i1 %tobool9.not, label %land.lhs.true15, label %if.then10
@@ -1069,7 +1069,7 @@ if.then10:                                        ; preds = %land.lhs.true8
   br label %land.lhs.true15
 
 land.lhs.true15:                                  ; preds = %land.lhs.true8, %if.then10
-  %padding = getelementptr inbounds %struct.column_options, ptr %opts, i64 0, i32 1
+  %padding = getelementptr inbounds i8, ptr %opts, i64 4
   %3 = load i32, ptr %padding, align 4
   %tobool16.not = icmp eq i32 %3, 0
   br i1 %tobool16.not, label %if.end20, label %if.then17

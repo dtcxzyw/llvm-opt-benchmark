@@ -3,8 +3,6 @@ source_filename = "bench/grpc/original/alts_crypter.cc.ll"
 target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:128-n8:16:32:64-S128"
 target triple = "x86_64-unknown-linux-gnu"
 
-%struct.alts_crypter_vtable = type { ptr, ptr, ptr }
-
 @__const._Z29alts_crypter_process_in_placeP12alts_crypterPhmmPmPPc.error_msg = private unnamed_addr constant [62 x i8] c"crypter or crypter->vtable has not been initialized properly.\00", align 16
 
 ; Function Attrs: mustprogress uwtable
@@ -19,7 +17,7 @@ land.lhs.true:                                    ; preds = %entry
   br i1 %cmp1.not, label %if.end, label %land.lhs.true2
 
 land.lhs.true2:                                   ; preds = %land.lhs.true
-  %process_in_place = getelementptr inbounds %struct.alts_crypter_vtable, ptr %0, i64 0, i32 1
+  %process_in_place = getelementptr inbounds i8, ptr %0, i64 8
   %1 = load ptr, ptr %process_in_place, align 8
   %cmp4.not = icmp eq ptr %1, null
   br i1 %cmp4.not, label %if.end, label %if.then
@@ -83,7 +81,7 @@ if.then:                                          ; preds = %entry
   br i1 %cmp1.not, label %if.end, label %land.lhs.true
 
 land.lhs.true:                                    ; preds = %if.then
-  %destruct = getelementptr inbounds %struct.alts_crypter_vtable, ptr %0, i64 0, i32 2
+  %destruct = getelementptr inbounds i8, ptr %0, i64 16
   %1 = load ptr, ptr %destruct, align 8
   %cmp3.not = icmp eq ptr %1, null
   br i1 %cmp3.not, label %if.end, label %if.then4

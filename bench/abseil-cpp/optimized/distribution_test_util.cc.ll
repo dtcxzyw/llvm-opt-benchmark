@@ -40,66 +40,66 @@ entry:
   br i1 %cmp.not21, label %for.end.thread, label %for.body
 
 for.end.thread:                                   ; preds = %entry
-  %mean331 = getelementptr inbounds %"struct.absl::random_internal::DistributionMoments", ptr %agg.result, i64 0, i32 1
-  store double 0x7FF8000000000000, ptr %mean331, align 8
+  %mean330 = getelementptr inbounds i8, ptr %agg.result, i64 8
+  store double 0x7FF8000000000000, ptr %mean330, align 8
   br label %for.end20
 
 for.body:                                         ; preds = %entry, %for.body
-  %add23 = phi double [ %add, %for.body ], [ 0.000000e+00, %entry ]
+  %0 = phi double [ %add, %for.body ], [ 0.000000e+00, %entry ]
   %__begin2.022 = phi ptr [ %incdec.ptr, %for.body ], [ %data_points.coerce0, %entry ]
-  %0 = phi i64 [ %inc, %for.body ], [ 0, %entry ]
-  %1 = load double, ptr %__begin2.022, align 8
-  %inc = add i64 %0, 1
-  %add = fadd double %1, %add23
-  %incdec.ptr = getelementptr inbounds double, ptr %__begin2.022, i64 1
+  %1 = phi i64 [ %inc, %for.body ], [ 0, %entry ]
+  %2 = load double, ptr %__begin2.022, align 8
+  %inc = add i64 %1, 1
+  %add = fadd double %2, %0
+  %incdec.ptr = getelementptr inbounds i8, ptr %__begin2.022, i64 8
   %cmp.not = icmp eq ptr %incdec.ptr, %add.ptr.i
   br i1 %cmp.not, label %for.end, label %for.body
 
 for.end:                                          ; preds = %for.body
   store i64 %inc, ptr %agg.result, align 8
   %conv = uitofp i64 %inc to double
-  %mean3 = getelementptr inbounds %"struct.absl::random_internal::DistributionMoments", ptr %agg.result, i64 0, i32 1
+  %mean3 = getelementptr inbounds i8, ptr %agg.result, i64 8
   %div = fdiv double %add, %conv
   store double %div, ptr %mean3, align 8
   br i1 %cmp.not21, label %for.end20, label %for.body11
 
 for.body11:                                       ; preds = %for.end, %for.body11
-  %2 = phi double [ %5, %for.body11 ], [ 0.000000e+00, %for.end ]
-  %__begin25.025 = phi ptr [ %incdec.ptr19, %for.body11 ], [ %data_points.coerce0, %for.end ]
-  %3 = phi <2 x double> [ %10, %for.body11 ], [ zeroinitializer, %for.end ]
-  %4 = load double, ptr %__begin25.025, align 8
-  %sub = fsub double %4, %div
-  %5 = tail call double @llvm.fmuladd.f64(double %sub, double %sub, double %2)
+  %3 = phi double [ %6, %for.body11 ], [ 0.000000e+00, %for.end ]
+  %__begin25.024 = phi ptr [ %incdec.ptr19, %for.body11 ], [ %data_points.coerce0, %for.end ]
+  %4 = phi <2 x double> [ %11, %for.body11 ], [ zeroinitializer, %for.end ]
+  %5 = load double, ptr %__begin25.024, align 8
+  %sub = fsub double %5, %div
+  %6 = tail call double @llvm.fmuladd.f64(double %sub, double %sub, double %3)
   %mul = fmul double %sub, %sub
   %mul16 = fmul double %sub, %mul
-  %6 = insertelement <2 x double> poison, double %mul, i64 0
-  %7 = insertelement <2 x double> %6, double %mul16, i64 1
-  %8 = insertelement <2 x double> poison, double %sub, i64 0
-  %9 = shufflevector <2 x double> %8, <2 x double> poison, <2 x i32> zeroinitializer
-  %10 = tail call <2 x double> @llvm.fmuladd.v2f64(<2 x double> %7, <2 x double> %9, <2 x double> %3)
-  %incdec.ptr19 = getelementptr inbounds double, ptr %__begin25.025, i64 1
+  %7 = insertelement <2 x double> poison, double %mul, i64 0
+  %8 = insertelement <2 x double> %7, double %mul16, i64 1
+  %9 = insertelement <2 x double> poison, double %sub, i64 0
+  %10 = shufflevector <2 x double> %9, <2 x double> poison, <2 x i32> zeroinitializer
+  %11 = tail call <2 x double> @llvm.fmuladd.v2f64(<2 x double> %8, <2 x double> %10, <2 x double> %4)
+  %incdec.ptr19 = getelementptr inbounds i8, ptr %__begin25.024, i64 8
   %cmp10.not = icmp eq ptr %incdec.ptr19, %add.ptr.i
   br i1 %cmp10.not, label %for.end20, label %for.body11
 
 for.end20:                                        ; preds = %for.body11, %for.end.thread, %for.end
-  %conv33 = phi double [ %conv, %for.end ], [ 0.000000e+00, %for.end.thread ], [ %conv, %for.body11 ]
-  %sub22 = phi i64 [ %0, %for.end ], [ -1, %for.end.thread ], [ %0, %for.body11 ]
-  %11 = phi double [ 0.000000e+00, %for.end ], [ 0.000000e+00, %for.end.thread ], [ %5, %for.body11 ]
-  %12 = phi <2 x double> [ zeroinitializer, %for.end ], [ zeroinitializer, %for.end.thread ], [ %10, %for.body11 ]
+  %conv32 = phi double [ %conv, %for.end ], [ 0.000000e+00, %for.end.thread ], [ %conv, %for.body11 ]
+  %sub22 = phi i64 [ %1, %for.end ], [ -1, %for.end.thread ], [ %1, %for.body11 ]
+  %12 = phi double [ 0.000000e+00, %for.end ], [ 0.000000e+00, %for.end.thread ], [ %6, %for.body11 ]
+  %13 = phi <2 x double> [ zeroinitializer, %for.end ], [ zeroinitializer, %for.end.thread ], [ %11, %for.body11 ]
   %conv23 = uitofp i64 %sub22 to double
-  %variance24 = getelementptr inbounds %"struct.absl::random_internal::DistributionMoments", ptr %agg.result, i64 0, i32 2
-  %div25 = fdiv double %11, %conv23
+  %variance24 = getelementptr inbounds i8, ptr %agg.result, i64 16
+  %div25 = fdiv double %12, %conv23
   store double %div25, ptr %variance24, align 8
-  %skewness28 = getelementptr inbounds %"struct.absl::random_internal::DistributionMoments", ptr %agg.result, i64 0, i32 3
-  %13 = insertelement <2 x double> poison, double %conv33, i64 0
-  %14 = shufflevector <2 x double> %13, <2 x double> poison, <2 x i32> zeroinitializer
-  %15 = fdiv <2 x double> %12, %14
+  %skewness28 = getelementptr inbounds i8, ptr %agg.result, i64 24
+  %14 = insertelement <2 x double> poison, double %conv32, i64 0
+  %15 = shufflevector <2 x double> %14, <2 x double> poison, <2 x i32> zeroinitializer
+  %16 = fdiv <2 x double> %13, %15
   %call31 = tail call double @pow(double noundef %div25, double noundef 1.500000e+00) #15
   %square = fmul double %div25, %div25
-  %16 = insertelement <2 x double> poison, double %call31, i64 0
-  %17 = insertelement <2 x double> %16, double %square, i64 1
-  %18 = fdiv <2 x double> %15, %17
-  store <2 x double> %18, ptr %skewness28, align 8
+  %17 = insertelement <2 x double> poison, double %call31, i64 0
+  %18 = insertelement <2 x double> %17, double %square, i64 1
+  %19 = fdiv <2 x double> %16, %18
+  store <2 x double> %19, ptr %skewness28, align 8
   ret void
 }
 
@@ -114,32 +114,32 @@ define dso_local noundef nonnull align 8 dereferenceable(8) ptr @_ZN4absl15rando
 entry:
   %ref.tmp.i = alloca [4 x %"class.absl::str_format_internal::FormatArgImpl"], align 8
   %ref.tmp = alloca %"class.std::__cxx11::basic_string", align 8
-  %mean = getelementptr inbounds %"struct.absl::random_internal::DistributionMoments", ptr %moments, i64 0, i32 1
-  %variance = getelementptr inbounds %"struct.absl::random_internal::DistributionMoments", ptr %moments, i64 0, i32 2
+  %mean = getelementptr inbounds i8, ptr %moments, i64 8
+  %variance = getelementptr inbounds i8, ptr %moments, i64 16
   %0 = load double, ptr %variance, align 8
   %call = tail call double @sqrt(double noundef %0) #15
-  %skewness = getelementptr inbounds %"struct.absl::random_internal::DistributionMoments", ptr %moments, i64 0, i32 3
-  %kurtosis = getelementptr inbounds %"struct.absl::random_internal::DistributionMoments", ptr %moments, i64 0, i32 4
+  %skewness = getelementptr inbounds i8, ptr %moments, i64 24
+  %kurtosis = getelementptr inbounds i8, ptr %moments, i64 32
   call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %ref.tmp.i)
   %retval.sroa.0.0.copyload.i.i.i.i = load ptr, ptr %mean, align 8, !noalias !5
   store ptr %retval.sroa.0.0.copyload.i.i.i.i, ptr %ref.tmp.i, align 8, !noalias !5
-  %dispatcher_.i.i.i = getelementptr inbounds %"class.absl::str_format_internal::FormatArgImpl", ptr %ref.tmp.i, i64 0, i32 1
+  %dispatcher_.i.i.i = getelementptr inbounds i8, ptr %ref.tmp.i, i64 8
   store ptr @_ZN4absl19str_format_internal13FormatArgImpl8DispatchIdEEbNS1_4DataENS0_24FormatConversionSpecImplEPv, ptr %dispatcher_.i.i.i, align 8, !noalias !5
-  %arrayinit.element.i = getelementptr inbounds %"class.absl::str_format_internal::FormatArgImpl", ptr %ref.tmp.i, i64 1
+  %arrayinit.element.i = getelementptr inbounds i8, ptr %ref.tmp.i, i64 16
   %1 = bitcast double %call to i64
   %2 = inttoptr i64 %1 to ptr
   store ptr %2, ptr %arrayinit.element.i, align 8, !noalias !5
-  %dispatcher_.i.i2.i = getelementptr inbounds %"class.absl::str_format_internal::FormatArgImpl", ptr %ref.tmp.i, i64 1, i32 1
+  %dispatcher_.i.i2.i = getelementptr inbounds i8, ptr %ref.tmp.i, i64 24
   store ptr @_ZN4absl19str_format_internal13FormatArgImpl8DispatchIdEEbNS1_4DataENS0_24FormatConversionSpecImplEPv, ptr %dispatcher_.i.i2.i, align 8, !noalias !5
-  %arrayinit.element9.i = getelementptr inbounds %"class.absl::str_format_internal::FormatArgImpl", ptr %ref.tmp.i, i64 2
+  %arrayinit.element9.i = getelementptr inbounds i8, ptr %ref.tmp.i, i64 32
   %retval.sroa.0.0.copyload.i.i.i3.i = load ptr, ptr %skewness, align 8, !noalias !5
   store ptr %retval.sroa.0.0.copyload.i.i.i3.i, ptr %arrayinit.element9.i, align 8, !noalias !5
-  %dispatcher_.i.i4.i = getelementptr inbounds %"class.absl::str_format_internal::FormatArgImpl", ptr %ref.tmp.i, i64 2, i32 1
+  %dispatcher_.i.i4.i = getelementptr inbounds i8, ptr %ref.tmp.i, i64 40
   store ptr @_ZN4absl19str_format_internal13FormatArgImpl8DispatchIdEEbNS1_4DataENS0_24FormatConversionSpecImplEPv, ptr %dispatcher_.i.i4.i, align 8, !noalias !5
-  %arrayinit.element10.i = getelementptr inbounds %"class.absl::str_format_internal::FormatArgImpl", ptr %ref.tmp.i, i64 3
+  %arrayinit.element10.i = getelementptr inbounds i8, ptr %ref.tmp.i, i64 48
   %retval.sroa.0.0.copyload.i.i.i5.i = load ptr, ptr %kurtosis, align 8, !noalias !5
   store ptr %retval.sroa.0.0.copyload.i.i.i5.i, ptr %arrayinit.element10.i, align 8, !noalias !5
-  %dispatcher_.i.i6.i = getelementptr inbounds %"class.absl::str_format_internal::FormatArgImpl", ptr %ref.tmp.i, i64 3, i32 1
+  %dispatcher_.i.i6.i = getelementptr inbounds i8, ptr %ref.tmp.i, i64 56
   store ptr @_ZN4absl19str_format_internal13FormatArgImpl8DispatchIdEEbNS1_4DataENS0_24FormatConversionSpecImplEPv, ptr %dispatcher_.i.i6.i, align 8, !noalias !5
   call void @_ZN4absl19str_format_internal10FormatPackB5cxx11ENS0_21UntypedFormatSpecImplENS_4SpanIKNS0_13FormatArgImplEEE(ptr nonnull sret(%"class.std::__cxx11::basic_string") align 8 %ref.tmp, ptr nonnull @.str, i64 44, ptr nonnull %ref.tmp.i, i64 4)
   call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %ref.tmp.i)
@@ -280,52 +280,52 @@ entry:
   br i1 %cmp, label %return, label %if.end
 
 if.end:                                           ; preds = %entry
-  %digits_.i = getelementptr inbounds %"class.absl::AlphaNum", ptr %ref.tmp2, i64 0, i32 1
+  %digits_.i = getelementptr inbounds i8, ptr %ref.tmp2, i64 16
   %call.i = call noundef i64 @_ZN4absl16numbers_internal17SixDigitsToBufferEdPc(double noundef %actual, ptr noundef nonnull %digits_.i)
   store i64 %call.i, ptr %ref.tmp2, align 8
-  %_M_str.i.i = getelementptr inbounds %"class.std::basic_string_view", ptr %ref.tmp2, i64 0, i32 1
+  %_M_str.i.i = getelementptr inbounds i8, ptr %ref.tmp2, i64 8
   store ptr %digits_.i, ptr %_M_str.i.i, align 8
-  %digits_.i6 = getelementptr inbounds %"class.absl::AlphaNum", ptr %ref.tmp4, i64 0, i32 1
+  %digits_.i6 = getelementptr inbounds i8, ptr %ref.tmp4, i64 16
   %call.i7 = call noundef i64 @_ZN4absl16numbers_internal17SixDigitsToBufferEdPc(double noundef %expected, ptr noundef nonnull %digits_.i6)
   store i64 %call.i7, ptr %ref.tmp4, align 8
-  %_M_str.i.i8 = getelementptr inbounds %"class.std::basic_string_view", ptr %ref.tmp4, i64 0, i32 1
+  %_M_str.i.i8 = getelementptr inbounds i8, ptr %ref.tmp4, i64 8
   store ptr %digits_.i6, ptr %_M_str.i.i8, align 8
   %div = fdiv double %0, %bound
   call void @llvm.lifetime.start.p0(i64 112, ptr nonnull %ref.tmp.i)
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %ref.tmp14.i)
   store i64 %msg.coerce0, ptr %ref.tmp.i, align 8, !noalias !8
-  %1 = getelementptr inbounds { i64, ptr }, ptr %ref.tmp.i, i64 0, i32 1
+  %1 = getelementptr inbounds i8, ptr %ref.tmp.i, i64 8
   store ptr %msg.coerce1, ptr %1, align 8, !noalias !8
-  %arrayinit.element.i = getelementptr inbounds %"class.std::basic_string_view", ptr %ref.tmp.i, i64 1
+  %arrayinit.element.i = getelementptr inbounds i8, ptr %ref.tmp.i, i64 16
   store i64 8, ptr %arrayinit.element.i, align 8, !noalias !8
-  %2 = getelementptr inbounds %"class.std::basic_string_view", ptr %ref.tmp.i, i64 1, i32 1
+  %2 = getelementptr inbounds i8, ptr %ref.tmp.i, i64 24
   store ptr @.str.1, ptr %2, align 8, !noalias !8
-  %arrayinit.element4.i = getelementptr inbounds %"class.std::basic_string_view", ptr %ref.tmp.i, i64 2
+  %arrayinit.element4.i = getelementptr inbounds i8, ptr %ref.tmp.i, i64 32
   %retval.sroa.0.0.copyload.i6.i = load i64, ptr %ref.tmp2, align 8, !noalias !8
   %retval.sroa.2.0.copyload.i8.i = load ptr, ptr %_M_str.i.i, align 8, !noalias !8
   store i64 %retval.sroa.0.0.copyload.i6.i, ptr %arrayinit.element4.i, align 8, !noalias !8
-  %3 = getelementptr inbounds %"class.std::basic_string_view", ptr %ref.tmp.i, i64 2, i32 1
+  %3 = getelementptr inbounds i8, ptr %ref.tmp.i, i64 40
   store ptr %retval.sroa.2.0.copyload.i8.i, ptr %3, align 8, !noalias !8
-  %arrayinit.element6.i = getelementptr inbounds %"class.std::basic_string_view", ptr %ref.tmp.i, i64 3
+  %arrayinit.element6.i = getelementptr inbounds i8, ptr %ref.tmp.i, i64 48
   store i64 10, ptr %arrayinit.element6.i, align 8, !noalias !8
-  %4 = getelementptr inbounds %"class.std::basic_string_view", ptr %ref.tmp.i, i64 3, i32 1
+  %4 = getelementptr inbounds i8, ptr %ref.tmp.i, i64 56
   store ptr @.str.2, ptr %4, align 8, !noalias !8
-  %arrayinit.element8.i = getelementptr inbounds %"class.std::basic_string_view", ptr %ref.tmp.i, i64 4
+  %arrayinit.element8.i = getelementptr inbounds i8, ptr %ref.tmp.i, i64 64
   store i64 %call.i7, ptr %arrayinit.element8.i, align 8, !noalias !8
-  %5 = getelementptr inbounds %"class.std::basic_string_view", ptr %ref.tmp.i, i64 4, i32 1
+  %5 = getelementptr inbounds i8, ptr %ref.tmp.i, i64 72
   store ptr %digits_.i6, ptr %5, align 8, !noalias !8
-  %arrayinit.element10.i = getelementptr inbounds %"class.std::basic_string_view", ptr %ref.tmp.i, i64 5
+  %arrayinit.element10.i = getelementptr inbounds i8, ptr %ref.tmp.i, i64 80
   store i64 5, ptr %arrayinit.element10.i, align 8, !noalias !8
-  %6 = getelementptr inbounds %"class.std::basic_string_view", ptr %ref.tmp.i, i64 5, i32 1
+  %6 = getelementptr inbounds i8, ptr %ref.tmp.i, i64 88
   store ptr @.str.3, ptr %6, align 8, !noalias !8
-  %arrayinit.element13.i = getelementptr inbounds %"class.std::basic_string_view", ptr %ref.tmp.i, i64 6
-  %digits_.i.i = getelementptr inbounds %"class.absl::AlphaNum", ptr %ref.tmp14.i, i64 0, i32 1
+  %arrayinit.element13.i = getelementptr inbounds i8, ptr %ref.tmp.i, i64 96
+  %digits_.i.i = getelementptr inbounds i8, ptr %ref.tmp14.i, i64 16
   %call.i.i = call noundef i64 @_ZN4absl16numbers_internal17SixDigitsToBufferEdPc(double noundef %div, ptr noundef nonnull %digits_.i.i), !noalias !8
   store i64 %call.i.i, ptr %ref.tmp14.i, align 8, !noalias !8
-  %_M_str.i.i.i = getelementptr inbounds %"class.std::basic_string_view", ptr %ref.tmp14.i, i64 0, i32 1
+  %_M_str.i.i.i = getelementptr inbounds i8, ptr %ref.tmp14.i, i64 8
   store ptr %digits_.i.i, ptr %_M_str.i.i.i, align 8, !noalias !8
   store i64 %call.i.i, ptr %arrayinit.element13.i, align 8, !noalias !8
-  %7 = getelementptr inbounds %"class.std::basic_string_view", ptr %ref.tmp.i, i64 6, i32 1
+  %7 = getelementptr inbounds i8, ptr %ref.tmp.i, i64 104
   store ptr %digits_.i.i, ptr %7, align 8, !noalias !8
   call void @_ZN4absl16strings_internal9CatPiecesB5cxx11ESt16initializer_listISt17basic_string_viewIcSt11char_traitsIcEEE(ptr nonnull sret(%"class.std::__cxx11::basic_string") align 8 %formatted, ptr nonnull %ref.tmp.i, i64 7)
   call void @llvm.lifetime.end.p0(i64 112, ptr nonnull %ref.tmp.i)
@@ -724,10 +724,10 @@ entry:
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(write, argmem: readwrite) uwtable
 define dso_local noundef double @_ZN4absl15random_internal6ZScoreEdRKNS0_19DistributionMomentsE(double noundef %expected_mean, ptr nocapture noundef nonnull readonly align 8 dereferenceable(40) %moments) local_unnamed_addr #10 {
 entry:
-  %mean = getelementptr inbounds %"struct.absl::random_internal::DistributionMoments", ptr %moments, i64 0, i32 1
+  %mean = getelementptr inbounds i8, ptr %moments, i64 8
   %0 = load double, ptr %mean, align 8
   %sub = fsub double %0, %expected_mean
-  %variance = getelementptr inbounds %"struct.absl::random_internal::DistributionMoments", ptr %moments, i64 0, i32 2
+  %variance = getelementptr inbounds i8, ptr %moments, i64 16
   %1 = load double, ptr %variance, align 8
   %call = tail call double @sqrt(double noundef %1) #15
   %2 = load i64, ptr %moments, align 8

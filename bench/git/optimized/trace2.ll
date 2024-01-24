@@ -5,12 +5,7 @@ target triple = "x86_64-unknown-linux-gnu"
 
 %struct.strbuf = type { i64, i64, ptr }
 %struct.tr2_tgt = type { ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr }
-%struct.child_process = type { %struct.strvec, %struct.strvec, i32, i32, i64, ptr, ptr, i32, i32, i32, ptr, i16, ptr }
-%struct.strvec = type { ptr, i64, i64 }
 %struct.__va_list_tag = type { i32, i32, ptr, ptr }
-%struct.repository = type { ptr, ptr, ptr, ptr, ptr, %struct.repo_path_cache, ptr, ptr, ptr, ptr, %struct.repo_settings, ptr, ptr, ptr, ptr, ptr, i32, i32, i32, ptr, ptr, i32, i8 }
-%struct.repo_path_cache = type { ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr }
-%struct.repo_settings = type { i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, ptr, i32, i32, i32, i32, i32, i32 }
 
 @trace2_enabled = internal unnamed_addr global i1 false, align 4
 @.str = private unnamed_addr constant [18 x i8] c"GIT_TRACE2_REDACT\00", align 1
@@ -60,7 +55,7 @@ for.body.i:                                       ; preds = %for.body.i, %if.end
   %indvars.iv.i = phi i64 [ 0, %if.end ], [ %indvars.iv.next.i, %for.body.i ]
   %sum.07.i = phi i32 [ 0, %if.end ], [ %spec.select.i, %for.body.i ]
   %tgt_j.05.i = phi ptr [ @tr2_tgt_normal, %if.end ], [ %1, %for.body.i ]
-  %pfn_init.i = getelementptr inbounds %struct.tr2_tgt, ptr %tgt_j.05.i, i64 0, i32 1
+  %pfn_init.i = getelementptr inbounds i8, ptr %tgt_j.05.i, i64 8
   %0 = load ptr, ptr %pfn_init.i, align 8
   %call.i = tail call i32 %0() #9
   %tobool1.not.i = icmp ne i32 %call.i, 0
@@ -102,7 +97,7 @@ for.body:                                         ; preds = %if.end7, %for.inc
   br i1 %tobool13.not, label %for.inc, label %if.then14
 
 if.then14:                                        ; preds = %for.body
-  %pfn_version_fl = getelementptr inbounds %struct.tr2_tgt, ptr %tgt_j.06, i64 0, i32 3
+  %pfn_version_fl = getelementptr inbounds i8, ptr %tgt_j.06, i64 24
   %3 = load ptr, ptr %pfn_version_fl, align 8
   %tobool15.not = icmp eq ptr %3, null
   br i1 %tobool15.not, label %for.inc, label %if.then16
@@ -157,7 +152,7 @@ for.body:                                         ; preds = %entry, %for.inc
   br i1 %tobool3.not, label %for.inc, label %if.then
 
 if.then:                                          ; preds = %for.body
-  %pfn_atexit = getelementptr inbounds %struct.tr2_tgt, ptr %tgt_j.07, i64 0, i32 7
+  %pfn_atexit = getelementptr inbounds i8, ptr %tgt_j.07, i64 56
   %1 = load ptr, ptr %pfn_atexit, align 8
   %tobool4.not = icmp eq ptr %1, null
   br i1 %tobool4.not, label %for.inc, label %if.then5
@@ -177,7 +172,7 @@ for.inc:                                          ; preds = %for.body, %if.then5
 for.body.i:                                       ; preds = %for.inc, %for.body.i
   %indvars.iv.i = phi i64 [ %indvars.iv.next.i, %for.body.i ], [ 0, %for.inc ]
   %tgt_j.04.i = phi ptr [ %5, %for.body.i ], [ @tr2_tgt_normal, %for.inc ]
-  %pfn_term.i = getelementptr inbounds %struct.tr2_tgt, ptr %tgt_j.04.i, i64 0, i32 2
+  %pfn_term.i = getelementptr inbounds i8, ptr %tgt_j.04.i, i64 16
   %4 = load ptr, ptr %pfn_term.i, align 8
   tail call void %4() #9
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
@@ -216,7 +211,7 @@ for.body:                                         ; preds = %entry, %for.inc
   br i1 %tobool3.not, label %for.inc, label %if.then
 
 if.then:                                          ; preds = %for.body
-  %pfn_signal = getelementptr inbounds %struct.tr2_tgt, ptr %tgt_j.09, i64 0, i32 6
+  %pfn_signal = getelementptr inbounds i8, ptr %tgt_j.09, i64 48
   %1 = load ptr, ptr %pfn_signal, align 8
   %tobool4.not = icmp eq ptr %1, null
   br i1 %tobool4.not, label %for.inc, label %if.then5
@@ -272,7 +267,7 @@ for.body:                                         ; preds = %if.end, %for.inc
   br i1 %tobool5.not, label %for.inc, label %if.then6
 
 if.then6:                                         ; preds = %for.body
-  %pfn_start_fl = getelementptr inbounds %struct.tr2_tgt, ptr %tgt_j.09, i64 0, i32 4
+  %pfn_start_fl = getelementptr inbounds i8, ptr %tgt_j.09, i64 32
   %1 = load ptr, ptr %pfn_start_fl, align 8
   %tobool7.not = icmp eq ptr %1, null
   br i1 %tobool7.not, label %for.inc, label %if.then8
@@ -587,7 +582,7 @@ for.body:                                         ; preds = %if.end, %for.inc
   br i1 %tobool4.not, label %for.inc, label %if.then5
 
 if.then5:                                         ; preds = %for.body
-  %pfn_exit_fl = getelementptr inbounds %struct.tr2_tgt, ptr %tgt_j.08, i64 0, i32 5
+  %pfn_exit_fl = getelementptr inbounds i8, ptr %tgt_j.08, i64 40
   %1 = load ptr, ptr %pfn_exit_fl, align 8
   %tobool6.not = icmp eq ptr %1, null
   br i1 %tobool6.not, label %for.inc, label %if.then7
@@ -624,7 +619,7 @@ for.body:                                         ; preds = %entry, %for.inc
   br i1 %tobool2.not, label %for.inc, label %if.then3
 
 if.then3:                                         ; preds = %for.body
-  %pfn_error_va_fl = getelementptr inbounds %struct.tr2_tgt, ptr %tgt_j.06, i64 0, i32 8
+  %pfn_error_va_fl = getelementptr inbounds i8, ptr %tgt_j.06, i64 64
   %1 = load ptr, ptr %pfn_error_va_fl, align 8
   %tobool4.not = icmp eq ptr %1, null
   br i1 %tobool4.not, label %for.inc, label %if.then5
@@ -659,7 +654,7 @@ for.body:                                         ; preds = %entry, %for.inc
   br i1 %tobool2.not, label %for.inc, label %if.then3
 
 if.then3:                                         ; preds = %for.body
-  %pfn_command_path_fl = getelementptr inbounds %struct.tr2_tgt, ptr %tgt_j.06, i64 0, i32 9
+  %pfn_command_path_fl = getelementptr inbounds i8, ptr %tgt_j.06, i64 72
   %1 = load ptr, ptr %pfn_command_path_fl, align 8
   %tobool4.not = icmp eq ptr %1, null
   br i1 %tobool4.not, label %for.inc, label %if.then5
@@ -694,7 +689,7 @@ for.body:                                         ; preds = %entry, %for.inc
   br i1 %tobool2.not, label %for.inc, label %if.then3
 
 if.then3:                                         ; preds = %for.body
-  %pfn_command_ancestry_fl = getelementptr inbounds %struct.tr2_tgt, ptr %tgt_j.06, i64 0, i32 10
+  %pfn_command_ancestry_fl = getelementptr inbounds i8, ptr %tgt_j.06, i64 80
   %1 = load ptr, ptr %pfn_command_ancestry_fl, align 8
   %tobool4.not = icmp eq ptr %1, null
   br i1 %tobool4.not, label %for.inc, label %if.then5
@@ -734,7 +729,7 @@ for.body:                                         ; preds = %if.end, %for.inc
   br i1 %tobool3.not, label %for.inc, label %if.then4
 
 if.then4:                                         ; preds = %for.body
-  %pfn_command_name_fl = getelementptr inbounds %struct.tr2_tgt, ptr %tgt_j.07, i64 0, i32 11
+  %pfn_command_name_fl = getelementptr inbounds i8, ptr %tgt_j.07, i64 88
   %1 = load ptr, ptr %pfn_command_name_fl, align 8
   %tobool5.not = icmp eq ptr %1, null
   br i1 %tobool5.not, label %for.inc, label %if.then6
@@ -773,7 +768,7 @@ for.body:                                         ; preds = %entry, %for.inc
   br i1 %tobool2.not, label %for.inc, label %if.then3
 
 if.then3:                                         ; preds = %for.body
-  %pfn_command_mode_fl = getelementptr inbounds %struct.tr2_tgt, ptr %tgt_j.06, i64 0, i32 12
+  %pfn_command_mode_fl = getelementptr inbounds i8, ptr %tgt_j.06, i64 96
   %1 = load ptr, ptr %pfn_command_mode_fl, align 8
   %tobool4.not = icmp eq ptr %1, null
   br i1 %tobool4.not, label %for.inc, label %if.then5
@@ -808,7 +803,7 @@ for.body:                                         ; preds = %entry, %for.inc
   br i1 %tobool2.not, label %for.inc, label %if.then3
 
 if.then3:                                         ; preds = %for.body
-  %pfn_alias_fl = getelementptr inbounds %struct.tr2_tgt, ptr %tgt_j.06, i64 0, i32 13
+  %pfn_alias_fl = getelementptr inbounds i8, ptr %tgt_j.06, i64 104
   %1 = load ptr, ptr %pfn_alias_fl, align 8
   %tobool4.not = icmp eq ptr %1, null
   br i1 %tobool4.not, label %for.inc, label %if.then5
@@ -888,9 +883,9 @@ if.end:                                           ; preds = %entry
   %div = udiv i64 %call, 1000
   %call1 = tail call i64 @tr2tls_absolute_elapsed(i64 noundef %div) #9
   %call2 = tail call i32 @tr2tls_locked_increment(ptr noundef nonnull @tr2_next_child_id) #9
-  %trace2_child_id = getelementptr inbounds %struct.child_process, ptr %cmd, i64 0, i32 3
+  %trace2_child_id = getelementptr inbounds i8, ptr %cmd, i64 52
   store i32 %call2, ptr %trace2_child_id, align 4
-  %trace2_child_us_start = getelementptr inbounds %struct.child_process, ptr %cmd, i64 0, i32 4
+  %trace2_child_us_start = getelementptr inbounds i8, ptr %cmd, i64 56
   store i64 %div, ptr %trace2_child_us_start, align 8
   %call3 = tail call fastcc ptr @redact_argv(ptr noundef %0)
   store ptr %call3, ptr %cmd, align 8
@@ -905,7 +900,7 @@ for.body:                                         ; preds = %if.end, %for.inc
   br i1 %tobool8.not, label %for.inc, label %if.then9
 
 if.then9:                                         ; preds = %for.body
-  %pfn_child_start_fl = getelementptr inbounds %struct.tr2_tgt, ptr %tgt_j.020, i64 0, i32 14
+  %pfn_child_start_fl = getelementptr inbounds i8, ptr %tgt_j.020, i64 112
   %2 = load ptr, ptr %pfn_child_start_fl, align 8
   %tobool10.not = icmp eq ptr %2, null
   br i1 %tobool10.not, label %for.inc, label %if.then11
@@ -971,13 +966,13 @@ if.end:                                           ; preds = %entry
   %call = tail call i64 @getnanotime() #9
   %div = udiv i64 %call, 1000
   %call1 = tail call i64 @tr2tls_absolute_elapsed(i64 noundef %div) #9
-  %trace2_child_us_start = getelementptr inbounds %struct.child_process, ptr %cmd, i64 0, i32 4
+  %trace2_child_us_start = getelementptr inbounds i8, ptr %cmd, i64 56
   %0 = load i64, ptr %trace2_child_us_start, align 8
   %tobool2.not = icmp eq i64 %0, 0
   %sub = sub i64 %div, %0
   %us_elapsed_child.0 = select i1 %tobool2.not, i64 0, i64 %sub
-  %trace2_child_id = getelementptr inbounds %struct.child_process, ptr %cmd, i64 0, i32 3
-  %pid = getelementptr inbounds %struct.child_process, ptr %cmd, i64 0, i32 2
+  %trace2_child_id = getelementptr inbounds i8, ptr %cmd, i64 52
+  %pid = getelementptr inbounds i8, ptr %cmd, i64 48
   br label %for.body
 
 for.body:                                         ; preds = %if.end, %for.inc
@@ -989,7 +984,7 @@ for.body:                                         ; preds = %if.end, %for.inc
   br i1 %tobool8.not, label %for.inc, label %if.then9
 
 if.then9:                                         ; preds = %for.body
-  %pfn_child_exit_fl = getelementptr inbounds %struct.tr2_tgt, ptr %tgt_j.012, i64 0, i32 15
+  %pfn_child_exit_fl = getelementptr inbounds i8, ptr %tgt_j.012, i64 120
   %2 = load ptr, ptr %pfn_child_exit_fl, align 8
   %tobool10.not = icmp eq ptr %2, null
   br i1 %tobool10.not, label %for.inc, label %if.then11
@@ -1021,13 +1016,13 @@ if.end:                                           ; preds = %entry
   %call = tail call i64 @getnanotime() #9
   %div = udiv i64 %call, 1000
   %call1 = tail call i64 @tr2tls_absolute_elapsed(i64 noundef %div) #9
-  %trace2_child_us_start = getelementptr inbounds %struct.child_process, ptr %cmd, i64 0, i32 4
+  %trace2_child_us_start = getelementptr inbounds i8, ptr %cmd, i64 56
   %0 = load i64, ptr %trace2_child_us_start, align 8
   %tobool2.not = icmp eq i64 %0, 0
   %sub = sub i64 %div, %0
   %us_elapsed_child.0 = select i1 %tobool2.not, i64 0, i64 %sub
-  %trace2_child_id = getelementptr inbounds %struct.child_process, ptr %cmd, i64 0, i32 3
-  %pid = getelementptr inbounds %struct.child_process, ptr %cmd, i64 0, i32 2
+  %trace2_child_id = getelementptr inbounds i8, ptr %cmd, i64 52
+  %pid = getelementptr inbounds i8, ptr %cmd, i64 48
   br label %for.body
 
 for.body:                                         ; preds = %if.end, %for.inc
@@ -1039,7 +1034,7 @@ for.body:                                         ; preds = %if.end, %for.inc
   br i1 %tobool8.not, label %for.inc, label %if.then9
 
 if.then9:                                         ; preds = %for.body
-  %pfn_child_ready_fl = getelementptr inbounds %struct.tr2_tgt, ptr %tgt_j.012, i64 0, i32 16
+  %pfn_child_ready_fl = getelementptr inbounds i8, ptr %tgt_j.012, i64 128
   %2 = load ptr, ptr %pfn_child_ready_fl, align 8
   %tobool10.not = icmp eq ptr %2, null
   br i1 %tobool10.not, label %for.inc, label %if.then11
@@ -1084,7 +1079,7 @@ for.body:                                         ; preds = %if.end, %for.inc
   br i1 %tobool6.not, label %for.inc, label %if.then7
 
 if.then7:                                         ; preds = %for.body
-  %pfn_exec_fl = getelementptr inbounds %struct.tr2_tgt, ptr %tgt_j.010, i64 0, i32 19
+  %pfn_exec_fl = getelementptr inbounds i8, ptr %tgt_j.010, i64 152
   %1 = load ptr, ptr %pfn_exec_fl, align 8
   %tobool8.not = icmp eq ptr %1, null
   br i1 %tobool8.not, label %for.inc, label %if.then9
@@ -1158,7 +1153,7 @@ for.body:                                         ; preds = %if.end, %for.inc
   br i1 %tobool4.not, label %for.inc, label %if.then5
 
 if.then5:                                         ; preds = %for.body
-  %pfn_exec_result_fl = getelementptr inbounds %struct.tr2_tgt, ptr %tgt_j.07, i64 0, i32 20
+  %pfn_exec_result_fl = getelementptr inbounds i8, ptr %tgt_j.07, i64 160
   %1 = load ptr, ptr %pfn_exec_result_fl, align 8
   %tobool6.not = icmp eq ptr %1, null
   br i1 %tobool6.not, label %for.inc, label %if.then7
@@ -1209,7 +1204,7 @@ for.body:                                         ; preds = %if.end3, %for.inc
   br i1 %tobool9.not, label %for.inc, label %if.then10
 
 if.then10:                                        ; preds = %for.body
-  %pfn_thread_start_fl = getelementptr inbounds %struct.tr2_tgt, ptr %tgt_j.011, i64 0, i32 17
+  %pfn_thread_start_fl = getelementptr inbounds i8, ptr %tgt_j.011, i64 136
   %1 = load ptr, ptr %pfn_thread_start_fl, align 8
   %tobool11.not = icmp eq ptr %1, null
   br i1 %tobool11.not, label %for.inc, label %if.then12
@@ -1254,7 +1249,7 @@ for.body.i:                                       ; preds = %for.inc.i, %if.end.
   br i1 %tobool4.not.i, label %for.inc.i, label %if.then5.i
 
 if.then5.i:                                       ; preds = %for.body.i
-  %pfn_region_enter_printf_va_fl.i = getelementptr inbounds %struct.tr2_tgt, ptr %tgt_j.08.i, i64 0, i32 23
+  %pfn_region_enter_printf_va_fl.i = getelementptr inbounds i8, ptr %tgt_j.08.i, i64 184
   %1 = load ptr, ptr %pfn_region_enter_printf_va_fl.i, align 8
   %tobool6.not.i = icmp eq ptr %1, null
   br i1 %tobool6.not.i, label %for.inc.i, label %if.then7.i
@@ -1319,7 +1314,7 @@ for.body:                                         ; preds = %if.end3, %for.inc
   br i1 %tobool9.not, label %for.inc, label %if.then10
 
 if.then10:                                        ; preds = %for.body
-  %pfn_thread_exit_fl = getelementptr inbounds %struct.tr2_tgt, ptr %tgt_j.010, i64 0, i32 18
+  %pfn_thread_exit_fl = getelementptr inbounds i8, ptr %tgt_j.010, i64 144
   %1 = load ptr, ptr %pfn_thread_exit_fl, align 8
   %tobool11.not = icmp eq ptr %1, null
   br i1 %tobool11.not, label %for.inc, label %if.then12
@@ -1368,7 +1363,7 @@ for.body.i:                                       ; preds = %for.inc.i, %if.end.
   br i1 %tobool5.not.i, label %for.inc.i, label %if.then6.i
 
 if.then6.i:                                       ; preds = %for.body.i
-  %pfn_region_leave_printf_va_fl.i = getelementptr inbounds %struct.tr2_tgt, ptr %tgt_j.08.i, i64 0, i32 24
+  %pfn_region_leave_printf_va_fl.i = getelementptr inbounds i8, ptr %tgt_j.08.i, i64 192
   %1 = load ptr, ptr %pfn_region_leave_printf_va_fl.i, align 8
   %tobool7.not.i = icmp eq ptr %1, null
   br i1 %tobool7.not.i, label %for.inc.i, label %if.then8.i
@@ -1409,7 +1404,7 @@ for.body:                                         ; preds = %entry, %for.inc
   br i1 %tobool1.not, label %for.inc, label %if.then
 
 if.then:                                          ; preds = %for.body
-  %pfn_timer = getelementptr inbounds %struct.tr2_tgt, ptr %tgt_j.06, i64 0, i32 28
+  %pfn_timer = getelementptr inbounds i8, ptr %tgt_j.06, i64 224
   %1 = load ptr, ptr %pfn_timer, align 8
   %tobool2.not = icmp eq ptr %1, null
   br i1 %tobool2.not, label %for.inc, label %if.then3
@@ -1445,7 +1440,7 @@ for.body:                                         ; preds = %entry, %for.inc
   br i1 %tobool1.not, label %for.inc, label %if.then
 
 if.then:                                          ; preds = %for.body
-  %pfn_counter = getelementptr inbounds %struct.tr2_tgt, ptr %tgt_j.06, i64 0, i32 29
+  %pfn_counter = getelementptr inbounds i8, ptr %tgt_j.06, i64 232
   %1 = load ptr, ptr %pfn_counter, align 8
   %tobool2.not = icmp eq ptr %1, null
   br i1 %tobool2.not, label %for.inc, label %if.then3
@@ -1557,7 +1552,7 @@ for.body:                                         ; preds = %redact_arg.exit, %f
   br i1 %tobool3.not, label %for.inc, label %if.then4
 
 if.then4:                                         ; preds = %for.body
-  %pfn_param_fl = getelementptr inbounds %struct.tr2_tgt, ptr %tgt_j.011, i64 0, i32 21
+  %pfn_param_fl = getelementptr inbounds i8, ptr %tgt_j.011, i64 168
   %6 = load ptr, ptr %pfn_param_fl, align 8
   %tobool5.not = icmp eq ptr %6, null
   br i1 %tobool5.not, label %for.inc, label %if.then6
@@ -1595,7 +1590,7 @@ entry:
   br i1 %.b, label %if.end, label %for.end
 
 if.end:                                           ; preds = %entry
-  %trace2_repo_id = getelementptr inbounds %struct.repository, ptr %repo, i64 0, i32 17
+  %trace2_repo_id = getelementptr inbounds i8, ptr %repo, i64 268
   %0 = load i32, ptr %trace2_repo_id, align 4
   %tobool1.not = icmp eq i32 %0, 0
   br i1 %tobool1.not, label %if.end3, label %for.end
@@ -1614,7 +1609,7 @@ for.body:                                         ; preds = %if.end3, %for.inc
   br i1 %tobool7.not, label %for.inc, label %if.then8
 
 if.then8:                                         ; preds = %for.body
-  %pfn_repo_fl = getelementptr inbounds %struct.tr2_tgt, ptr %tgt_j.08, i64 0, i32 22
+  %pfn_repo_fl = getelementptr inbounds i8, ptr %tgt_j.08, i64 176
   %2 = load ptr, ptr %pfn_repo_fl, align 8
   %tobool9.not = icmp eq ptr %2, null
   br i1 %tobool9.not, label %for.inc, label %if.then10
@@ -1655,7 +1650,7 @@ for.body:                                         ; preds = %if.end, %for.inc
   br i1 %tobool4.not, label %for.inc, label %if.then5
 
 if.then5:                                         ; preds = %for.body
-  %pfn_region_enter_printf_va_fl = getelementptr inbounds %struct.tr2_tgt, ptr %tgt_j.08, i64 0, i32 23
+  %pfn_region_enter_printf_va_fl = getelementptr inbounds i8, ptr %tgt_j.08, i64 184
   %1 = load ptr, ptr %pfn_region_enter_printf_va_fl, align 8
   %tobool6.not = icmp eq ptr %1, null
   br i1 %tobool6.not, label %for.inc, label %if.then7
@@ -1704,7 +1699,7 @@ for.body.i:                                       ; preds = %for.inc.i, %if.end.
   br i1 %tobool4.not.i, label %for.inc.i, label %if.then5.i
 
 if.then5.i:                                       ; preds = %for.body.i
-  %pfn_region_enter_printf_va_fl.i = getelementptr inbounds %struct.tr2_tgt, ptr %tgt_j.08.i, i64 0, i32 23
+  %pfn_region_enter_printf_va_fl.i = getelementptr inbounds i8, ptr %tgt_j.08.i, i64 184
   %1 = load ptr, ptr %pfn_region_enter_printf_va_fl.i, align 8
   %tobool6.not.i = icmp eq ptr %1, null
   br i1 %tobool6.not.i, label %for.inc.i, label %if.then7.i
@@ -1758,7 +1753,7 @@ for.body:                                         ; preds = %if.end, %for.inc
   br i1 %tobool5.not, label %for.inc, label %if.then6
 
 if.then6:                                         ; preds = %for.body
-  %pfn_region_leave_printf_va_fl = getelementptr inbounds %struct.tr2_tgt, ptr %tgt_j.08, i64 0, i32 24
+  %pfn_region_leave_printf_va_fl = getelementptr inbounds i8, ptr %tgt_j.08, i64 192
   %1 = load ptr, ptr %pfn_region_leave_printf_va_fl, align 8
   %tobool7.not = icmp eq ptr %1, null
   br i1 %tobool7.not, label %for.inc, label %if.then8
@@ -1805,7 +1800,7 @@ for.body.i:                                       ; preds = %for.inc.i, %if.end.
   br i1 %tobool5.not.i, label %for.inc.i, label %if.then6.i
 
 if.then6.i:                                       ; preds = %for.body.i
-  %pfn_region_leave_printf_va_fl.i = getelementptr inbounds %struct.tr2_tgt, ptr %tgt_j.08.i, i64 0, i32 24
+  %pfn_region_leave_printf_va_fl.i = getelementptr inbounds i8, ptr %tgt_j.08.i, i64 192
   %1 = load ptr, ptr %pfn_region_leave_printf_va_fl.i, align 8
   %tobool7.not.i = icmp eq ptr %1, null
   br i1 %tobool7.not.i, label %for.inc.i, label %if.then8.i
@@ -1848,7 +1843,7 @@ for.body:                                         ; preds = %if.end, %for.inc
   br i1 %tobool5.not, label %for.inc, label %if.then6
 
 if.then6:                                         ; preds = %for.body
-  %pfn_data_fl = getelementptr inbounds %struct.tr2_tgt, ptr %tgt_j.08, i64 0, i32 25
+  %pfn_data_fl = getelementptr inbounds i8, ptr %tgt_j.08, i64 200
   %1 = load ptr, ptr %pfn_data_fl, align 8
   %tobool7.not = icmp eq ptr %1, null
   br i1 %tobool7.not, label %for.inc, label %if.then8
@@ -1878,7 +1873,7 @@ entry:
 
 if.end:                                           ; preds = %entry
   call void (ptr, ptr, ...) @strbuf_addf(ptr noundef nonnull %buf_string, ptr noundef nonnull @.str.3, i64 noundef %value) #9
-  %buf = getelementptr inbounds %struct.strbuf, ptr %buf_string, i64 0, i32 2
+  %buf = getelementptr inbounds i8, ptr %buf_string, i64 16
   %0 = load ptr, ptr %buf, align 8
   %.b.i = load i1, ptr @trace2_enabled, align 4
   br i1 %.b.i, label %if.end.i, label %trace2_data_string_fl.exit
@@ -1899,7 +1894,7 @@ for.body.i:                                       ; preds = %for.inc.i, %if.end.
   br i1 %tobool5.not.i, label %for.inc.i, label %if.then6.i
 
 if.then6.i:                                       ; preds = %for.body.i
-  %pfn_data_fl.i = getelementptr inbounds %struct.tr2_tgt, ptr %tgt_j.08.i, i64 0, i32 25
+  %pfn_data_fl.i = getelementptr inbounds i8, ptr %tgt_j.08.i, i64 200
   %2 = load ptr, ptr %pfn_data_fl.i, align 8
   %tobool7.not.i = icmp eq ptr %2, null
   br i1 %tobool7.not.i, label %for.inc.i, label %if.then8.i
@@ -1952,7 +1947,7 @@ for.body:                                         ; preds = %if.end, %for.inc
   br i1 %tobool5.not, label %for.inc, label %if.then6
 
 if.then6:                                         ; preds = %for.body
-  %pfn_data_json_fl = getelementptr inbounds %struct.tr2_tgt, ptr %tgt_j.08, i64 0, i32 26
+  %pfn_data_json_fl = getelementptr inbounds i8, ptr %tgt_j.08, i64 208
   %1 = load ptr, ptr %pfn_data_json_fl, align 8
   %tobool7.not = icmp eq ptr %1, null
   br i1 %tobool7.not, label %for.inc, label %if.then8
@@ -1993,7 +1988,7 @@ for.body:                                         ; preds = %if.end, %for.inc
   br i1 %tobool4.not, label %for.inc, label %if.then5
 
 if.then5:                                         ; preds = %for.body
-  %pfn_printf_va_fl = getelementptr inbounds %struct.tr2_tgt, ptr %tgt_j.07, i64 0, i32 27
+  %pfn_printf_va_fl = getelementptr inbounds i8, ptr %tgt_j.07, i64 216
   %1 = load ptr, ptr %pfn_printf_va_fl, align 8
   %tobool6.not = icmp eq ptr %1, null
   br i1 %tobool6.not, label %for.inc, label %if.then7
@@ -2036,7 +2031,7 @@ for.body.i:                                       ; preds = %for.inc.i, %if.end.
   br i1 %tobool4.not.i, label %for.inc.i, label %if.then5.i
 
 if.then5.i:                                       ; preds = %for.body.i
-  %pfn_printf_va_fl.i = getelementptr inbounds %struct.tr2_tgt, ptr %tgt_j.07.i, i64 0, i32 27
+  %pfn_printf_va_fl.i = getelementptr inbounds i8, ptr %tgt_j.07.i, i64 216
   %1 = load ptr, ptr %pfn_printf_va_fl.i, align 8
   %tobool6.not.i = icmp eq ptr %1, null
   br i1 %tobool6.not.i, label %for.inc.i, label %if.then7.i

@@ -67,22 +67,22 @@ if.end10:                                         ; preds = %if.then9, %if.end
   br i1 %cmp12, label %return, label %if.end14
 
 if.end14:                                         ; preds = %if.end10
-  %incdec.ptr = getelementptr inbounds %struct.ossl_param_st, ptr %params, i64 1
+  %incdec.ptr = getelementptr inbounds i8, ptr %params, i64 40
   call void @OSSL_PARAM_construct_octet_string(ptr nonnull sret(%struct.ossl_param_st) align 8 %tmp, ptr noundef nonnull @.str.3, ptr noundef nonnull %spec.select13, i64 noundef %spec.select) #3
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(40) %params, ptr noundef nonnull align 8 dereferenceable(40) %tmp, i64 40, i1 false)
-  %incdec.ptr15 = getelementptr inbounds %struct.ossl_param_st, ptr %params, i64 2
+  %incdec.ptr15 = getelementptr inbounds i8, ptr %params, i64 80
   call void @OSSL_PARAM_construct_octet_string(ptr nonnull sret(%struct.ossl_param_st) align 8 %tmp16, ptr noundef nonnull @.str.4, ptr noundef nonnull %salt.addr.0, i64 noundef %saltlen.addr.0) #3
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %incdec.ptr, ptr noundef nonnull align 8 dereferenceable(40) %tmp16, i64 40, i1 false)
-  %incdec.ptr17 = getelementptr inbounds %struct.ossl_param_st, ptr %params, i64 3
+  %incdec.ptr17 = getelementptr inbounds i8, ptr %params, i64 120
   call void @OSSL_PARAM_construct_uint64(ptr nonnull sret(%struct.ossl_param_st) align 8 %tmp18, ptr noundef nonnull @.str.5, ptr noundef nonnull %N.addr) #3
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(40) %incdec.ptr15, ptr noundef nonnull align 8 dereferenceable(40) %tmp18, i64 40, i1 false)
-  %incdec.ptr19 = getelementptr inbounds %struct.ossl_param_st, ptr %params, i64 4
+  %incdec.ptr19 = getelementptr inbounds i8, ptr %params, i64 160
   call void @OSSL_PARAM_construct_uint64(ptr nonnull sret(%struct.ossl_param_st) align 8 %tmp20, ptr noundef nonnull @.str.6, ptr noundef nonnull %r.addr) #3
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %incdec.ptr17, ptr noundef nonnull align 8 dereferenceable(40) %tmp20, i64 40, i1 false)
-  %incdec.ptr21 = getelementptr inbounds %struct.ossl_param_st, ptr %params, i64 5
+  %incdec.ptr21 = getelementptr inbounds i8, ptr %params, i64 200
   call void @OSSL_PARAM_construct_uint64(ptr nonnull sret(%struct.ossl_param_st) align 8 %tmp22, ptr noundef nonnull @.str.7, ptr noundef nonnull %p.addr) #3
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(40) %incdec.ptr19, ptr noundef nonnull align 8 dereferenceable(40) %tmp22, i64 40, i1 false)
-  %incdec.ptr23 = getelementptr inbounds %struct.ossl_param_st, ptr %params, i64 6
+  %incdec.ptr23 = getelementptr inbounds i8, ptr %params, i64 240
   call void @OSSL_PARAM_construct_uint64(ptr nonnull sret(%struct.ossl_param_st) align 8 %tmp24, ptr noundef nonnull @.str.8, ptr noundef nonnull %maxmem.addr) #3
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %incdec.ptr21, ptr noundef nonnull align 8 dereferenceable(40) %tmp24, i64 40, i1 false)
   call void @OSSL_PARAM_construct_end(ptr nonnull sret(%struct.ossl_param_st) align 8 %tmp25) #3

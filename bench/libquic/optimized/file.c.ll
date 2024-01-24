@@ -4,7 +4,6 @@ target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:
 target triple = "x86_64-unknown-linux-gnu"
 
 %struct.bio_method_st = type { i32, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr }
-%struct.bio_st = type { ptr, ptr, ptr, i32, i32, i32, i32, i32, i32, ptr, ptr, i64, i64 }
 
 @.str = private unnamed_addr constant [121 x i8] c"generated/home/dtcxzyw/WorkSpace/Projects/compilers/llvm-opt-benchmark/bench/libquic/libquic/boringssl/crypto/bio/file.c\00", align 1
 @.str.1 = private unnamed_addr constant [8 x i8] c"fopen('\00", align 1
@@ -150,14 +149,14 @@ entry:
 ; Function Attrs: nofree nounwind uwtable
 define internal noundef i32 @file_write(ptr nocapture noundef readonly %b, ptr nocapture noundef %in, i32 noundef %inl) #5 {
 entry:
-  %init = getelementptr inbounds %struct.bio_st, ptr %b, i64 0, i32 3
+  %init = getelementptr inbounds i8, ptr %b, i64 24
   %0 = load i32, ptr %init, align 8
   %tobool.not = icmp eq i32 %0, 0
   br i1 %tobool.not, label %return, label %if.end
 
 if.end:                                           ; preds = %entry
   %conv = sext i32 %inl to i64
-  %ptr = getelementptr inbounds %struct.bio_st, ptr %b, i64 0, i32 9
+  %ptr = getelementptr inbounds i8, ptr %b, i64 48
   %1 = load ptr, ptr %ptr, align 8
   %call = tail call i64 @fwrite(ptr noundef %in, i64 noundef %conv, i64 noundef 1, ptr noundef %1)
   %conv1 = trunc i64 %call to i32
@@ -173,14 +172,14 @@ return:                                           ; preds = %entry, %if.end
 ; Function Attrs: nounwind uwtable
 define internal noundef i32 @file_read(ptr nocapture noundef readonly %b, ptr nocapture noundef %out, i32 noundef %outl) #0 {
 entry:
-  %init = getelementptr inbounds %struct.bio_st, ptr %b, i64 0, i32 3
+  %init = getelementptr inbounds i8, ptr %b, i64 24
   %0 = load i32, ptr %init, align 8
   %tobool.not = icmp eq i32 %0, 0
   br i1 %tobool.not, label %return, label %if.end
 
 if.end:                                           ; preds = %entry
   %conv = sext i32 %outl to i64
-  %ptr = getelementptr inbounds %struct.bio_st, ptr %b, i64 0, i32 9
+  %ptr = getelementptr inbounds i8, ptr %b, i64 48
   %1 = load ptr, ptr %ptr, align 8
   %call = tail call i64 @fread(ptr noundef %out, i64 noundef 1, i64 noundef %conv, ptr noundef %1)
   %cmp = icmp eq i64 %call, 0
@@ -209,7 +208,7 @@ return:                                           ; preds = %entry, %if.end6, %i
 ; Function Attrs: nofree nounwind uwtable
 define internal i32 @file_puts(ptr nocapture noundef readonly %bp, ptr nocapture noundef %str) #5 {
 entry:
-  %init.i = getelementptr inbounds %struct.bio_st, ptr %bp, i64 0, i32 3
+  %init.i = getelementptr inbounds i8, ptr %bp, i64 24
   %0 = load i32, ptr %init.i, align 8
   %tobool.not.i = icmp eq i32 %0, 0
   br i1 %tobool.not.i, label %file_write.exit, label %if.end.i
@@ -219,7 +218,7 @@ if.end.i:                                         ; preds = %entry
   %conv = trunc i64 %call to i32
   %sext = shl i64 %call, 32
   %conv.i = ashr exact i64 %sext, 32
-  %ptr.i = getelementptr inbounds %struct.bio_st, ptr %bp, i64 0, i32 9
+  %ptr.i = getelementptr inbounds i8, ptr %bp, i64 48
   %1 = load ptr, ptr %ptr.i, align 8
   %call.i = tail call i64 @fwrite(ptr noundef %str, i64 noundef %conv.i, i64 noundef 1, ptr noundef %1)
   %conv1.i = trunc i64 %call.i to i32
@@ -239,7 +238,7 @@ entry:
   br i1 %cmp, label %return, label %if.end
 
 if.end:                                           ; preds = %entry
-  %ptr = getelementptr inbounds %struct.bio_st, ptr %bp, i64 0, i32 9
+  %ptr = getelementptr inbounds i8, ptr %bp, i64 48
   %0 = load ptr, ptr %ptr, align 8
   %call = tail call ptr @fgets(ptr noundef %buf, i32 noundef %size, ptr noundef %0)
   %tobool.not = icmp eq ptr %call, null
@@ -263,7 +262,7 @@ return:                                           ; preds = %if.then1, %if.end2,
 define internal i64 @file_ctrl(ptr nocapture noundef %b, i32 noundef %cmd, i64 noundef %num, ptr noundef %ptr) #0 {
 entry:
   %p = alloca [4 x i8], align 1
-  %ptr1 = getelementptr inbounds %struct.bio_st, ptr %b, i64 0, i32 9
+  %ptr1 = getelementptr inbounds i8, ptr %b, i64 48
   %0 = load ptr, ptr %ptr1, align 8
   switch i32 %cmd, label %sw.epilog [
     i32 1, label %sw.bb
@@ -298,13 +297,13 @@ sw.bb6:                                           ; preds = %entry, %entry
   br label %sw.epilog
 
 if.end.i:                                         ; preds = %entry
-  %shutdown.i = getelementptr inbounds %struct.bio_st, ptr %b, i64 0, i32 4
+  %shutdown.i = getelementptr inbounds i8, ptr %b, i64 28
   %1 = load i32, ptr %shutdown.i, align 4
   %tobool.not.i = icmp eq i32 %1, 0
   br i1 %tobool.not.i, label %file_free.exit, label %if.end2.i
 
 if.end2.i:                                        ; preds = %if.end.i
-  %init.i = getelementptr inbounds %struct.bio_st, ptr %b, i64 0, i32 3
+  %init.i = getelementptr inbounds i8, ptr %b, i64 24
   %2 = load i32, ptr %init.i, align 8
   %tobool3.not.i = icmp eq i32 %2, 0
   %cmp4.not.i = icmp eq ptr %0, null
@@ -320,18 +319,18 @@ file_free.exit:                                   ; preds = %if.end2.i, %if.then
   %and = and i32 %conv10, 1
   store i32 %and, ptr %shutdown.i, align 4
   store ptr %ptr, ptr %ptr1, align 8
-  %init = getelementptr inbounds %struct.bio_st, ptr %b, i64 0, i32 3
+  %init = getelementptr inbounds i8, ptr %b, i64 24
   store i32 1, ptr %init, align 8
   br label %sw.epilog
 
 if.end.i31:                                       ; preds = %entry
-  %shutdown.i32 = getelementptr inbounds %struct.bio_st, ptr %b, i64 0, i32 4
+  %shutdown.i32 = getelementptr inbounds i8, ptr %b, i64 28
   %3 = load i32, ptr %shutdown.i32, align 4
   %tobool.not.i33 = icmp eq i32 %3, 0
   br i1 %tobool.not.i33, label %file_free.exit44, label %if.end2.i34
 
 if.end2.i34:                                      ; preds = %if.end.i31
-  %init.i35 = getelementptr inbounds %struct.bio_st, ptr %b, i64 0, i32 3
+  %init.i35 = getelementptr inbounds i8, ptr %b, i64 24
   %4 = load i32, ptr %init.i35, align 8
   %tobool3.not.i36 = icmp eq i32 %4, 0
   %cmp4.not.i39 = icmp eq ptr %0, null
@@ -393,7 +392,7 @@ if.then52:                                        ; preds = %if.end48
 
 if.end54:                                         ; preds = %if.end48
   store ptr %call50, ptr %ptr1, align 8
-  %init56 = getelementptr inbounds %struct.bio_st, ptr %b, i64 0, i32 3
+  %init56 = getelementptr inbounds i8, ptr %b, i64 24
   store i32 1, ptr %init56, align 8
   br label %sw.epilog
 
@@ -406,14 +405,14 @@ if.then60:                                        ; preds = %sw.bb57
   br label %sw.epilog
 
 sw.bb63:                                          ; preds = %entry
-  %shutdown64 = getelementptr inbounds %struct.bio_st, ptr %b, i64 0, i32 4
+  %shutdown64 = getelementptr inbounds i8, ptr %b, i64 28
   %7 = load i32, ptr %shutdown64, align 4
   %conv65 = sext i32 %7 to i64
   br label %sw.epilog
 
 sw.bb66:                                          ; preds = %entry
   %conv67 = trunc i64 %num to i32
-  %shutdown68 = getelementptr inbounds %struct.bio_st, ptr %b, i64 0, i32 4
+  %shutdown68 = getelementptr inbounds i8, ptr %b, i64 28
   store i32 %conv67, ptr %shutdown68, align 4
   br label %sw.epilog
 
@@ -441,19 +440,19 @@ entry:
   br i1 %cmp, label %return, label %if.end
 
 if.end:                                           ; preds = %entry
-  %shutdown = getelementptr inbounds %struct.bio_st, ptr %bio, i64 0, i32 4
+  %shutdown = getelementptr inbounds i8, ptr %bio, i64 28
   %0 = load i32, ptr %shutdown, align 4
   %tobool.not = icmp eq i32 %0, 0
   br i1 %tobool.not, label %return, label %if.end2
 
 if.end2:                                          ; preds = %if.end
-  %init = getelementptr inbounds %struct.bio_st, ptr %bio, i64 0, i32 3
+  %init = getelementptr inbounds i8, ptr %bio, i64 24
   %1 = load i32, ptr %init, align 8
   %tobool3.not = icmp eq i32 %1, 0
   br i1 %tobool3.not, label %if.end8, label %land.lhs.true
 
 land.lhs.true:                                    ; preds = %if.end2
-  %ptr = getelementptr inbounds %struct.bio_st, ptr %bio, i64 0, i32 9
+  %ptr = getelementptr inbounds i8, ptr %bio, i64 48
   %2 = load ptr, ptr %ptr, align 8
   %cmp4.not = icmp eq ptr %2, null
   br i1 %cmp4.not, label %if.end8, label %if.then5

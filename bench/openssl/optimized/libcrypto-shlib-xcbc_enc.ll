@@ -73,7 +73,7 @@ if.then:                                          ; preds = %entry
   br i1 %cmp253, label %for.body.lr.ph, label %for.end
 
 for.body.lr.ph:                                   ; preds = %if.then
-  %arrayidx116 = getelementptr inbounds [2 x i32], ptr %tin, i64 0, i64 1
+  %arrayidx116 = getelementptr inbounds i8, ptr %tin, i64 4
   br label %for.body
 
 for.body:                                         ; preds = %for.body.lr.ph, %for.body
@@ -244,7 +244,7 @@ sw.epilog:                                        ; preds = %sw.bb185, %if.then1
   store i32 %xor190, ptr %tin, align 4
   %32 = xor i32 %or24, %tin1.7
   %xor193 = xor i32 %32, %tout1.0.lcssa
-  %arrayidx194 = getelementptr inbounds [2 x i32], ptr %tin, i64 0, i64 1
+  %arrayidx194 = getelementptr inbounds i8, ptr %tin, i64 4
   store i32 %xor193, ptr %arrayidx194, align 4
   call void @DES_encrypt1(ptr noundef nonnull %tin, ptr noundef %schedule, i32 noundef 1) #2
   %33 = load i32, ptr %tin, align 4
@@ -305,7 +305,7 @@ if.else:                                          ; preds = %entry
   br i1 %cmp291263, label %for.body293.lr.ph, label %for.end365
 
 for.body293.lr.ph:                                ; preds = %if.else
-  %arrayidx325 = getelementptr inbounds [2 x i32], ptr %tin, i64 0, i64 1
+  %arrayidx325 = getelementptr inbounds i8, ptr %tin, i64 4
   br label %for.body293
 
 for.body293:                                      ; preds = %for.body293.lr.ph, %for.body293
@@ -423,7 +423,7 @@ if.then368:                                       ; preds = %for.body293, %for.e
   %shl397 = shl nuw i32 %conv396, 24
   %or398 = or disjoint i32 %or394, %shl397
   %xor399 = xor i32 %or398, %or53
-  %arrayidx400 = getelementptr inbounds [2 x i32], ptr %tin, i64 0, i64 1
+  %arrayidx400 = getelementptr inbounds i8, ptr %tin, i64 4
   store i32 %xor399, ptr %arrayidx400, align 4
   call void @DES_encrypt1(ptr noundef nonnull %tin, ptr noundef %schedule, i32 noundef 0) #2
   %55 = load i32, ptr %tin, align 4

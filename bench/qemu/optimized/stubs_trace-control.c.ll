@@ -3,8 +3,6 @@ source_filename = "bench/qemu/original/stubs_trace-control.c.ll"
 target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:128-n8:16:32:64-S128"
 target triple = "x86_64-unknown-linux-gnu"
 
-%struct.TraceEvent = type { i32, ptr, i8, ptr }
-
 @.str = private unnamed_addr constant [33 x i8] c"trace_event_get_state_static(ev)\00", align 1
 @.str.1 = private unnamed_addr constant [30 x i8] c"../qemu/stubs/trace-control.c\00", align 1
 @__PRETTY_FUNCTION__.trace_event_set_state_dynamic = private unnamed_addr constant [56 x i8] c"void trace_event_set_state_dynamic(TraceEvent *, _Bool)\00", align 1
@@ -24,7 +22,7 @@ if.else.i.i:                                      ; preds = %entry
   unreachable
 
 trace_event_get_state_static.exit.i:              ; preds = %entry
-  %sstate.i.i = getelementptr inbounds %struct.TraceEvent, ptr %ev, i64 0, i32 2
+  %sstate.i.i = getelementptr inbounds i8, ptr %ev, i64 16
   %0 = load i8, ptr %sstate.i.i, align 8
   %1 = and i8 %0, 1
   %tobool.i.not.i = icmp eq i8 %1, 0
@@ -35,7 +33,7 @@ if.else.i:                                        ; preds = %trace_event_get_sta
   unreachable
 
 if.end.i:                                         ; preds = %trace_event_get_state_static.exit.i
-  %dstate.i = getelementptr inbounds %struct.TraceEvent, ptr %ev, i64 0, i32 3
+  %dstate.i = getelementptr inbounds i8, ptr %ev, i64 24
   %2 = load ptr, ptr %dstate.i, align 8
   %3 = load i16, ptr %2, align 2
   %4 = icmp eq i16 %3, 0
@@ -66,7 +64,7 @@ if.else.i:                                        ; preds = %entry
   unreachable
 
 trace_event_get_state_static.exit:                ; preds = %entry
-  %sstate.i = getelementptr inbounds %struct.TraceEvent, ptr %ev, i64 0, i32 2
+  %sstate.i = getelementptr inbounds i8, ptr %ev, i64 16
   %0 = load i8, ptr %sstate.i, align 8
   %1 = and i8 %0, 1
   %tobool.i.not = icmp eq i8 %1, 0
@@ -77,7 +75,7 @@ if.else:                                          ; preds = %trace_event_get_sta
   unreachable
 
 if.end:                                           ; preds = %trace_event_get_state_static.exit
-  %dstate = getelementptr inbounds %struct.TraceEvent, ptr %ev, i64 0, i32 3
+  %dstate = getelementptr inbounds i8, ptr %ev, i64 24
   %2 = load ptr, ptr %dstate, align 8
   %3 = load i16, ptr %2, align 2
   %4 = icmp eq i16 %3, 0

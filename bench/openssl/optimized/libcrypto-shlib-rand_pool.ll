@@ -3,8 +3,6 @@ source_filename = "bench/openssl/original/libcrypto-shlib-rand_pool.ll"
 target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:128-n8:16:32:64-S128"
 target triple = "x86_64-unknown-linux-gnu"
 
-%struct.rand_pool_st = type { ptr, i64, i32, i32, i64, i64, i64, i64, i64 }
-
 @.str = private unnamed_addr constant [35 x i8] c"../openssl/crypto/rand/rand_pool.c\00", align 1
 @__func__.ossl_rand_pool_bytes_needed = private unnamed_addr constant [28 x i8] c"ossl_rand_pool_bytes_needed\00", align 1
 @.str.1 = private unnamed_addr constant [89 x i8] c"entropy_factor=%u, entropy_needed=%zu, bytes_needed=%zu,pool->max_len=%zu, pool->len=%zu\00", align 1
@@ -16,30 +14,30 @@ target triple = "x86_64-unknown-linux-gnu"
 ; Function Attrs: nounwind uwtable
 define ptr @ossl_rand_pool_new(i32 noundef %entropy_requested, i32 noundef %secure, i64 noundef %min_len, i64 noundef %max_len) local_unnamed_addr #0 {
 entry:
-  %call = tail call noalias ptr @CRYPTO_zalloc(i64 noundef 64, ptr noundef nonnull @.str, i32 noundef 25) #7
+  %call = tail call noalias ptr @CRYPTO_zalloc(i64 noundef 64, ptr noundef nonnull @.str, i32 noundef 25) #6
   %cmp = icmp eq ptr %call, null
   br i1 %cmp, label %return, label %if.end
 
 if.end:                                           ; preds = %entry
   %tobool.not = icmp eq i32 %secure, 0
   %cond = select i1 %tobool.not, i64 48, i64 16
-  %min_len2 = getelementptr inbounds %struct.rand_pool_st, ptr %call, i64 0, i32 4
+  %min_len2 = getelementptr inbounds i8, ptr %call, i64 24
   store i64 %min_len, ptr %min_len2, align 8
   %cond5 = tail call i64 @llvm.umin.i64(i64 %max_len, i64 12288)
-  %max_len6 = getelementptr inbounds %struct.rand_pool_st, ptr %call, i64 0, i32 5
+  %max_len6 = getelementptr inbounds i8, ptr %call, i64 32
   store i64 %cond5, ptr %max_len6, align 8
   %cond12 = tail call i64 @llvm.umax.i64(i64 %cond, i64 %min_len)
-  %alloc_len = getelementptr inbounds %struct.rand_pool_st, ptr %call, i64 0, i32 6
+  %alloc_len = getelementptr inbounds i8, ptr %call, i64 40
   %spec.select = tail call i64 @llvm.umin.i64(i64 %cond12, i64 %cond5)
   store i64 %spec.select, ptr %alloc_len, align 8
   br i1 %tobool.not, label %if.else, label %if.then22
 
 if.then22:                                        ; preds = %if.end
-  %call24 = tail call noalias ptr @CRYPTO_secure_zalloc(i64 noundef %spec.select, ptr noundef nonnull @.str, i32 noundef 39) #7
+  %call24 = tail call noalias ptr @CRYPTO_secure_zalloc(i64 noundef %spec.select, ptr noundef nonnull @.str, i32 noundef 39) #6
   br label %if.end28
 
 if.else:                                          ; preds = %if.end
-  %call26 = tail call noalias ptr @CRYPTO_zalloc(i64 noundef %spec.select, ptr noundef nonnull @.str, i32 noundef 41) #7
+  %call26 = tail call noalias ptr @CRYPTO_zalloc(i64 noundef %spec.select, ptr noundef nonnull @.str, i32 noundef 41) #6
   br label %if.end28
 
 if.end28:                                         ; preds = %if.else, %if.then22
@@ -50,14 +48,14 @@ if.end28:                                         ; preds = %if.else, %if.then22
 
 if.end33:                                         ; preds = %if.end28
   %conv34 = sext i32 %entropy_requested to i64
-  %entropy_requested35 = getelementptr inbounds %struct.rand_pool_st, ptr %call, i64 0, i32 8
+  %entropy_requested35 = getelementptr inbounds i8, ptr %call, i64 56
   store i64 %conv34, ptr %entropy_requested35, align 8
-  %secure36 = getelementptr inbounds %struct.rand_pool_st, ptr %call, i64 0, i32 3
+  %secure36 = getelementptr inbounds i8, ptr %call, i64 20
   store i32 %secure, ptr %secure36, align 4
   br label %return
 
 err:                                              ; preds = %if.end28
-  tail call void @CRYPTO_free(ptr noundef nonnull %call, ptr noundef nonnull @.str, i32 noundef 51) #7
+  tail call void @CRYPTO_free(ptr noundef nonnull %call, ptr noundef nonnull @.str, i32 noundef 51) #6
   br label %return
 
 return:                                           ; preds = %entry, %err, %if.end33
@@ -74,23 +72,23 @@ declare void @CRYPTO_free(ptr noundef, ptr noundef, i32 noundef) local_unnamed_a
 ; Function Attrs: nounwind uwtable
 define noalias ptr @ossl_rand_pool_attach(ptr noundef %buffer, i64 noundef %len, i64 noundef %entropy) local_unnamed_addr #0 {
 entry:
-  %call = tail call noalias ptr @CRYPTO_zalloc(i64 noundef 64, ptr noundef nonnull @.str, i32 noundef 64) #7
+  %call = tail call noalias ptr @CRYPTO_zalloc(i64 noundef 64, ptr noundef nonnull @.str, i32 noundef 64) #6
   %cmp = icmp eq ptr %call, null
   br i1 %cmp, label %return, label %if.end
 
 if.end:                                           ; preds = %entry
   store ptr %buffer, ptr %call, align 8
-  %len2 = getelementptr inbounds %struct.rand_pool_st, ptr %call, i64 0, i32 1
+  %len2 = getelementptr inbounds i8, ptr %call, i64 8
   store i64 %len, ptr %len2, align 8
-  %attached = getelementptr inbounds %struct.rand_pool_st, ptr %call, i64 0, i32 2
+  %attached = getelementptr inbounds i8, ptr %call, i64 16
   store i32 1, ptr %attached, align 8
-  %alloc_len = getelementptr inbounds %struct.rand_pool_st, ptr %call, i64 0, i32 6
+  %alloc_len = getelementptr inbounds i8, ptr %call, i64 40
   store i64 %len, ptr %alloc_len, align 8
-  %max_len = getelementptr inbounds %struct.rand_pool_st, ptr %call, i64 0, i32 5
+  %max_len = getelementptr inbounds i8, ptr %call, i64 32
   store i64 %len, ptr %max_len, align 8
-  %min_len = getelementptr inbounds %struct.rand_pool_st, ptr %call, i64 0, i32 4
+  %min_len = getelementptr inbounds i8, ptr %call, i64 24
   store i64 %len, ptr %min_len, align 8
-  %entropy4 = getelementptr inbounds %struct.rand_pool_st, ptr %call, i64 0, i32 7
+  %entropy4 = getelementptr inbounds i8, ptr %call, i64 48
   store i64 %entropy, ptr %entropy4, align 8
   br label %return
 
@@ -105,30 +103,30 @@ entry:
   br i1 %cmp, label %return, label %if.end
 
 if.end:                                           ; preds = %entry
-  %attached = getelementptr inbounds %struct.rand_pool_st, ptr %pool, i64 0, i32 2
+  %attached = getelementptr inbounds i8, ptr %pool, i64 16
   %0 = load i32, ptr %attached, align 8
   %tobool.not = icmp eq i32 %0, 0
   br i1 %tobool.not, label %if.then1, label %if.end7
 
 if.then1:                                         ; preds = %if.end
-  %secure = getelementptr inbounds %struct.rand_pool_st, ptr %pool, i64 0, i32 3
+  %secure = getelementptr inbounds i8, ptr %pool, i64 20
   %1 = load i32, ptr %secure, align 4
   %tobool2.not = icmp eq i32 %1, 0
   %2 = load ptr, ptr %pool, align 8
-  %alloc_len5 = getelementptr inbounds %struct.rand_pool_st, ptr %pool, i64 0, i32 6
+  %alloc_len5 = getelementptr inbounds i8, ptr %pool, i64 40
   %3 = load i64, ptr %alloc_len5, align 8
   br i1 %tobool2.not, label %if.else, label %if.then3
 
 if.then3:                                         ; preds = %if.then1
-  tail call void @CRYPTO_secure_clear_free(ptr noundef %2, i64 noundef %3, ptr noundef nonnull @.str, i32 noundef 101) #7
+  tail call void @CRYPTO_secure_clear_free(ptr noundef %2, i64 noundef %3, ptr noundef nonnull @.str, i32 noundef 101) #6
   br label %if.end7
 
 if.else:                                          ; preds = %if.then1
-  tail call void @CRYPTO_clear_free(ptr noundef %2, i64 noundef %3, ptr noundef nonnull @.str, i32 noundef 103) #7
+  tail call void @CRYPTO_clear_free(ptr noundef %2, i64 noundef %3, ptr noundef nonnull @.str, i32 noundef 103) #6
   br label %if.end7
 
 if.end7:                                          ; preds = %if.then3, %if.else, %if.end
-  tail call void @CRYPTO_free(ptr noundef nonnull %pool, ptr noundef nonnull @.str, i32 noundef 106) #7
+  tail call void @CRYPTO_free(ptr noundef nonnull %pool, ptr noundef nonnull @.str, i32 noundef 106) #6
   br label %return
 
 return:                                           ; preds = %entry, %if.end7
@@ -149,7 +147,7 @@ entry:
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
 define i64 @ossl_rand_pool_entropy(ptr nocapture noundef readonly %pool) local_unnamed_addr #2 {
 entry:
-  %entropy = getelementptr inbounds %struct.rand_pool_st, ptr %pool, i64 0, i32 7
+  %entropy = getelementptr inbounds i8, ptr %pool, i64 48
   %0 = load i64, ptr %entropy, align 8
   ret i64 %0
 }
@@ -157,7 +155,7 @@ entry:
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
 define i64 @ossl_rand_pool_length(ptr nocapture noundef readonly %pool) local_unnamed_addr #2 {
 entry:
-  %len = getelementptr inbounds %struct.rand_pool_st, ptr %pool, i64 0, i32 1
+  %len = getelementptr inbounds i8, ptr %pool, i64 8
   %0 = load i64, ptr %len, align 8
   ret i64 %0
 }
@@ -167,7 +165,7 @@ define ptr @ossl_rand_pool_detach(ptr nocapture noundef %pool) local_unnamed_add
 entry:
   %0 = load ptr, ptr %pool, align 8
   store ptr null, ptr %pool, align 8
-  %entropy = getelementptr inbounds %struct.rand_pool_st, ptr %pool, i64 0, i32 7
+  %entropy = getelementptr inbounds i8, ptr %pool, i64 48
   store i64 0, ptr %entropy, align 8
   ret ptr %0
 }
@@ -176,9 +174,9 @@ entry:
 define void @ossl_rand_pool_reattach(ptr nocapture noundef %pool, ptr noundef %buffer) local_unnamed_addr #0 {
 entry:
   store ptr %buffer, ptr %pool, align 8
-  %len = getelementptr inbounds %struct.rand_pool_st, ptr %pool, i64 0, i32 1
+  %len = getelementptr inbounds i8, ptr %pool, i64 8
   %0 = load i64, ptr %len, align 8
-  tail call void @OPENSSL_cleanse(ptr noundef %buffer, i64 noundef %0) #7
+  tail call void @OPENSSL_cleanse(ptr noundef %buffer, i64 noundef %0) #6
   store i64 0, ptr %len, align 8
   ret void
 }
@@ -188,17 +186,17 @@ declare void @OPENSSL_cleanse(ptr noundef, i64 noundef) local_unnamed_addr #1
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
 define i64 @ossl_rand_pool_entropy_available(ptr nocapture noundef readonly %pool) local_unnamed_addr #2 {
 entry:
-  %entropy = getelementptr inbounds %struct.rand_pool_st, ptr %pool, i64 0, i32 7
+  %entropy = getelementptr inbounds i8, ptr %pool, i64 48
   %0 = load i64, ptr %entropy, align 8
-  %entropy_requested = getelementptr inbounds %struct.rand_pool_st, ptr %pool, i64 0, i32 8
+  %entropy_requested = getelementptr inbounds i8, ptr %pool, i64 56
   %1 = load i64, ptr %entropy_requested, align 8
   %cmp = icmp ult i64 %0, %1
   br i1 %cmp, label %return, label %if.end
 
 if.end:                                           ; preds = %entry
-  %len = getelementptr inbounds %struct.rand_pool_st, ptr %pool, i64 0, i32 1
+  %len = getelementptr inbounds i8, ptr %pool, i64 8
   %2 = load i64, ptr %len, align 8
-  %min_len = getelementptr inbounds %struct.rand_pool_st, ptr %pool, i64 0, i32 4
+  %min_len = getelementptr inbounds i8, ptr %pool, i64 24
   %3 = load i64, ptr %min_len, align 8
   %cmp1 = icmp ult i64 %2, %3
   %. = select i1 %cmp1, i64 0, i64 %0
@@ -209,32 +207,32 @@ return:                                           ; preds = %if.end, %entry
   ret i64 %retval.0
 }
 
-; Function Attrs: mustprogress nofree nosync nounwind willreturn memory(argmem: read) uwtable
-define i64 @ossl_rand_pool_entropy_needed(ptr nocapture noundef readonly %pool) local_unnamed_addr #4 {
+; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
+define i64 @ossl_rand_pool_entropy_needed(ptr nocapture noundef readonly %pool) local_unnamed_addr #2 {
 entry:
-  %entropy = getelementptr inbounds %struct.rand_pool_st, ptr %pool, i64 0, i32 7
+  %entropy = getelementptr inbounds i8, ptr %pool, i64 48
   %0 = load i64, ptr %entropy, align 8
-  %entropy_requested = getelementptr inbounds %struct.rand_pool_st, ptr %pool, i64 0, i32 8
+  %entropy_requested = getelementptr inbounds i8, ptr %pool, i64 56
   %1 = load i64, ptr %entropy_requested, align 8
   %retval.0 = tail call i64 @llvm.usub.sat.i64(i64 %1, i64 %0)
   ret i64 %retval.0
 }
 
 ; Function Attrs: nounwind uwtable
-define i64 @ossl_rand_pool_bytes_needed(ptr nocapture noundef %pool, i32 noundef %entropy_factor) local_unnamed_addr #0 {
+define noundef i64 @ossl_rand_pool_bytes_needed(ptr nocapture noundef %pool, i32 noundef %entropy_factor) local_unnamed_addr #0 {
 entry:
-  %entropy.i = getelementptr inbounds %struct.rand_pool_st, ptr %pool, i64 0, i32 7
+  %entropy.i = getelementptr inbounds i8, ptr %pool, i64 48
   %0 = load i64, ptr %entropy.i, align 8
-  %entropy_requested.i = getelementptr inbounds %struct.rand_pool_st, ptr %pool, i64 0, i32 8
+  %entropy_requested.i = getelementptr inbounds i8, ptr %pool, i64 56
   %1 = load i64, ptr %entropy_requested.i, align 8
   %retval.0.i = tail call i64 @llvm.usub.sat.i64(i64 %1, i64 %0)
   %cmp = icmp eq i32 %entropy_factor, 0
   br i1 %cmp, label %if.then, label %if.end
 
 if.then:                                          ; preds = %entry
-  tail call void @ERR_new() #7
-  tail call void @ERR_set_debug(ptr noundef nonnull @.str, i32 noundef 244, ptr noundef nonnull @__func__.ossl_rand_pool_bytes_needed) #7
-  tail call void (i32, i32, ptr, ...) @ERR_set_error(i32 noundef 36, i32 noundef 105, ptr noundef null) #7
+  tail call void @ERR_new() #6
+  tail call void @ERR_set_debug(ptr noundef nonnull @.str, i32 noundef 244, ptr noundef nonnull @__func__.ossl_rand_pool_bytes_needed) #6
+  tail call void (i32, i32, ptr, ...) @ERR_set_error(i32 noundef 36, i32 noundef 105, ptr noundef null) #6
   br label %return
 
 if.end:                                           ; preds = %entry
@@ -242,24 +240,24 @@ if.end:                                           ; preds = %entry
   %mul = mul i64 %retval.0.i, %conv
   %add = add i64 %mul, 7
   %div22 = lshr i64 %add, 3
-  %max_len = getelementptr inbounds %struct.rand_pool_st, ptr %pool, i64 0, i32 5
+  %max_len = getelementptr inbounds i8, ptr %pool, i64 32
   %2 = load i64, ptr %max_len, align 8
-  %len = getelementptr inbounds %struct.rand_pool_st, ptr %pool, i64 0, i32 1
+  %len = getelementptr inbounds i8, ptr %pool, i64 8
   %3 = load i64, ptr %len, align 8
   %sub = sub i64 %2, %3
   %cmp1 = icmp ugt i64 %div22, %sub
   br i1 %cmp1, label %if.then3, label %if.end6
 
 if.then3:                                         ; preds = %if.end
-  tail call void @ERR_new() #7
-  tail call void @ERR_set_debug(ptr noundef nonnull @.str, i32 noundef 252, ptr noundef nonnull @__func__.ossl_rand_pool_bytes_needed) #7
+  tail call void @ERR_new() #6
+  tail call void @ERR_set_debug(ptr noundef nonnull @.str, i32 noundef 252, ptr noundef nonnull @__func__.ossl_rand_pool_bytes_needed) #6
   %4 = load i64, ptr %max_len, align 8
   %5 = load i64, ptr %len, align 8
-  tail call void (i32, i32, ptr, ...) @ERR_set_error(i32 noundef 36, i32 noundef 125, ptr noundef nonnull @.str.1, i32 noundef %entropy_factor, i64 noundef %retval.0.i, i64 noundef %div22, i64 noundef %4, i64 noundef %5) #7
+  tail call void (i32, i32, ptr, ...) @ERR_set_error(i32 noundef 36, i32 noundef 125, ptr noundef nonnull @.str.1, i32 noundef %entropy_factor, i64 noundef %retval.0.i, i64 noundef %div22, i64 noundef %4, i64 noundef %5) #6
   br label %return
 
 if.end6:                                          ; preds = %if.end
-  %min_len = getelementptr inbounds %struct.rand_pool_st, ptr %pool, i64 0, i32 4
+  %min_len = getelementptr inbounds i8, ptr %pool, i64 24
   %6 = load i64, ptr %min_len, align 8
   %cmp8 = icmp ult i64 %3, %6
   %sub12 = sub i64 %6, %3
@@ -286,21 +284,21 @@ declare void @ERR_set_debug(ptr noundef, i32 noundef, ptr noundef) local_unnamed
 declare void @ERR_set_error(i32 noundef, i32 noundef, ptr noundef, ...) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @rand_pool_grow(ptr nocapture noundef %pool, i64 noundef %len) unnamed_addr #0 {
+define internal fastcc noundef i32 @rand_pool_grow(ptr nocapture noundef %pool, i64 noundef %len) unnamed_addr #0 {
 entry:
-  %alloc_len = getelementptr inbounds %struct.rand_pool_st, ptr %pool, i64 0, i32 6
+  %alloc_len = getelementptr inbounds i8, ptr %pool, i64 40
   %0 = load i64, ptr %alloc_len, align 8
-  %len1 = getelementptr inbounds %struct.rand_pool_st, ptr %pool, i64 0, i32 1
+  %len1 = getelementptr inbounds i8, ptr %pool, i64 8
   %1 = load i64, ptr %len1, align 8
   %sub = sub i64 %0, %1
   %cmp = icmp ult i64 %sub, %len
   br i1 %cmp, label %if.then, label %return
 
 if.then:                                          ; preds = %entry
-  %max_len = getelementptr inbounds %struct.rand_pool_st, ptr %pool, i64 0, i32 5
+  %max_len = getelementptr inbounds i8, ptr %pool, i64 32
   %2 = load i64, ptr %max_len, align 8
   %div28 = lshr i64 %2, 1
-  %attached = getelementptr inbounds %struct.rand_pool_st, ptr %pool, i64 0, i32 2
+  %attached = getelementptr inbounds i8, ptr %pool, i64 16
   %3 = load i32, ptr %attached, align 8
   %tobool.not = icmp ne i32 %3, 0
   %sub5 = sub i64 %2, %1
@@ -309,9 +307,9 @@ if.then:                                          ; preds = %entry
   br i1 %or.cond, label %if.then7, label %do.body
 
 if.then7:                                         ; preds = %if.then
-  tail call void @ERR_new() #7
-  tail call void @ERR_set_debug(ptr noundef nonnull @.str, i32 noundef 207, ptr noundef nonnull @__func__.rand_pool_grow) #7
-  tail call void (i32, i32, ptr, ...) @ERR_set_error(i32 noundef 36, i32 noundef 786691, ptr noundef null) #7
+  tail call void @ERR_new() #6
+  tail call void @ERR_set_debug(ptr noundef nonnull @.str, i32 noundef 207, ptr noundef nonnull @__func__.rand_pool_grow) #6
+  tail call void (i32, i32, ptr, ...) @ERR_set_error(i32 noundef 36, i32 noundef 786691, ptr noundef null) #6
   br label %return
 
 do.body:                                          ; preds = %if.then, %do.body
@@ -324,17 +322,17 @@ do.body:                                          ; preds = %if.then, %do.body
   br i1 %cmp12, label %do.body, label %do.end, !llvm.loop !5
 
 do.end:                                           ; preds = %do.body
-  %secure = getelementptr inbounds %struct.rand_pool_st, ptr %pool, i64 0, i32 3
+  %secure = getelementptr inbounds i8, ptr %pool, i64 20
   %4 = load i32, ptr %secure, align 4
   %tobool13.not = icmp eq i32 %4, 0
   br i1 %tobool13.not, label %if.else, label %if.then14
 
 if.then14:                                        ; preds = %do.end
-  %call = tail call noalias ptr @CRYPTO_secure_zalloc(i64 noundef %spec.select, ptr noundef nonnull @.str, i32 noundef 216) #7
+  %call = tail call noalias ptr @CRYPTO_secure_zalloc(i64 noundef %spec.select, ptr noundef nonnull @.str, i32 noundef 216) #6
   br label %if.end16
 
 if.else:                                          ; preds = %do.end
-  %call15 = tail call noalias ptr @CRYPTO_zalloc(i64 noundef %spec.select, ptr noundef nonnull @.str, i32 noundef 218) #7
+  %call15 = tail call noalias ptr @CRYPTO_zalloc(i64 noundef %spec.select, ptr noundef nonnull @.str, i32 noundef 218) #6
   br label %if.end16
 
 if.end16:                                         ; preds = %if.else, %if.then14
@@ -352,11 +350,11 @@ if.end19:                                         ; preds = %if.end16
   br i1 %tobool22.not, label %if.else26, label %if.then23
 
 if.then23:                                        ; preds = %if.end19
-  tail call void @CRYPTO_secure_clear_free(ptr noundef %5, i64 noundef %8, ptr noundef nonnull @.str, i32 noundef 223) #7
+  tail call void @CRYPTO_secure_clear_free(ptr noundef %5, i64 noundef %8, ptr noundef nonnull @.str, i32 noundef 223) #6
   br label %if.end29
 
 if.else26:                                        ; preds = %if.end19
-  tail call void @CRYPTO_clear_free(ptr noundef %5, i64 noundef %8, ptr noundef nonnull @.str, i32 noundef 225) #7
+  tail call void @CRYPTO_clear_free(ptr noundef %5, i64 noundef %8, ptr noundef nonnull @.str, i32 noundef 225) #6
   br label %if.end29
 
 if.end29:                                         ; preds = %if.else26, %if.then23
@@ -372,29 +370,29 @@ return:                                           ; preds = %entry, %if.end29, %
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
 define i64 @ossl_rand_pool_bytes_remaining(ptr nocapture noundef readonly %pool) local_unnamed_addr #2 {
 entry:
-  %max_len = getelementptr inbounds %struct.rand_pool_st, ptr %pool, i64 0, i32 5
+  %max_len = getelementptr inbounds i8, ptr %pool, i64 32
   %0 = load i64, ptr %max_len, align 8
-  %len = getelementptr inbounds %struct.rand_pool_st, ptr %pool, i64 0, i32 1
+  %len = getelementptr inbounds i8, ptr %pool, i64 8
   %1 = load i64, ptr %len, align 8
   %sub = sub i64 %0, %1
   ret i64 %sub
 }
 
 ; Function Attrs: nounwind uwtable
-define i32 @ossl_rand_pool_add(ptr nocapture noundef %pool, ptr noundef readonly %buffer, i64 noundef %len, i64 noundef %entropy) local_unnamed_addr #0 {
+define noundef i32 @ossl_rand_pool_add(ptr nocapture noundef %pool, ptr noundef readonly %buffer, i64 noundef %len, i64 noundef %entropy) local_unnamed_addr #0 {
 entry:
-  %max_len = getelementptr inbounds %struct.rand_pool_st, ptr %pool, i64 0, i32 5
+  %max_len = getelementptr inbounds i8, ptr %pool, i64 32
   %0 = load i64, ptr %max_len, align 8
-  %len1 = getelementptr inbounds %struct.rand_pool_st, ptr %pool, i64 0, i32 1
+  %len1 = getelementptr inbounds i8, ptr %pool, i64 8
   %1 = load i64, ptr %len1, align 8
   %sub = sub i64 %0, %1
   %cmp = icmp ult i64 %sub, %len
   br i1 %cmp, label %if.then, label %if.end
 
 if.then:                                          ; preds = %entry
-  tail call void @ERR_new() #7
-  tail call void @ERR_set_debug(ptr noundef nonnull @.str, i32 noundef 305, ptr noundef nonnull @__func__.ossl_rand_pool_add) #7
-  tail call void (i32, i32, ptr, ...) @ERR_set_error(i32 noundef 36, i32 noundef 106, ptr noundef null) #7
+  tail call void @ERR_new() #6
+  tail call void @ERR_set_debug(ptr noundef nonnull @.str, i32 noundef 305, ptr noundef nonnull @__func__.ossl_rand_pool_add) #6
+  tail call void (i32, i32, ptr, ...) @ERR_set_error(i32 noundef 36, i32 noundef 106, ptr noundef null) #6
   br label %return
 
 if.end:                                           ; preds = %entry
@@ -403,9 +401,9 @@ if.end:                                           ; preds = %entry
   br i1 %cmp3, label %if.then4, label %if.end5
 
 if.then4:                                         ; preds = %if.end
-  tail call void @ERR_new() #7
-  tail call void @ERR_set_debug(ptr noundef nonnull @.str, i32 noundef 310, ptr noundef nonnull @__func__.ossl_rand_pool_add) #7
-  tail call void (i32, i32, ptr, ...) @ERR_set_error(i32 noundef 36, i32 noundef 786691, ptr noundef null) #7
+  tail call void @ERR_new() #6
+  tail call void @ERR_set_debug(ptr noundef nonnull @.str, i32 noundef 310, ptr noundef nonnull @__func__.ossl_rand_pool_add) #6
+  tail call void (i32, i32, ptr, ...) @ERR_set_error(i32 noundef 36, i32 noundef 786691, ptr noundef null) #6
   br label %return
 
 if.end5:                                          ; preds = %if.end
@@ -413,7 +411,7 @@ if.end5:                                          ; preds = %if.end
   br i1 %cmp6.not, label %return, label %if.then7
 
 if.then7:                                         ; preds = %if.end5
-  %alloc_len = getelementptr inbounds %struct.rand_pool_st, ptr %pool, i64 0, i32 6
+  %alloc_len = getelementptr inbounds i8, ptr %pool, i64 40
   %3 = load i64, ptr %alloc_len, align 8
   %cmp9 = icmp ugt i64 %3, %1
   %add.ptr = getelementptr inbounds i8, ptr %2, i64 %1
@@ -422,9 +420,9 @@ if.then7:                                         ; preds = %if.end5
   br i1 %or.cond, label %if.then13, label %if.end14
 
 if.then13:                                        ; preds = %if.then7
-  tail call void @ERR_new() #7
-  tail call void @ERR_set_debug(ptr noundef nonnull @.str, i32 noundef 324, ptr noundef nonnull @__func__.ossl_rand_pool_add) #7
-  tail call void (i32, i32, ptr, ...) @ERR_set_error(i32 noundef 36, i32 noundef 786691, ptr noundef null) #7
+  tail call void @ERR_new() #6
+  tail call void @ERR_set_debug(ptr noundef nonnull @.str, i32 noundef 324, ptr noundef nonnull @__func__.ossl_rand_pool_add) #6
+  tail call void (i32, i32, ptr, ...) @ERR_set_error(i32 noundef 36, i32 noundef 786691, ptr noundef null) #6
   br label %return
 
 if.end14:                                         ; preds = %if.then7
@@ -440,7 +438,7 @@ if.end16:                                         ; preds = %if.end14
   %6 = load i64, ptr %len1, align 8
   %add = add i64 %6, %len
   store i64 %add, ptr %len1, align 8
-  %entropy21 = getelementptr inbounds %struct.rand_pool_st, ptr %pool, i64 0, i32 7
+  %entropy21 = getelementptr inbounds i8, ptr %pool, i64 48
   %7 = load i64, ptr %entropy21, align 8
   %add22 = add i64 %7, %entropy
   store i64 %add22, ptr %entropy21, align 8
@@ -452,7 +450,7 @@ return:                                           ; preds = %if.end5, %if.end16,
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #5
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #4
 
 ; Function Attrs: nounwind uwtable
 define ptr @ossl_rand_pool_add_begin(ptr nocapture noundef %pool, i64 noundef %len) local_unnamed_addr #0 {
@@ -461,18 +459,18 @@ entry:
   br i1 %cmp, label %return, label %if.end
 
 if.end:                                           ; preds = %entry
-  %max_len = getelementptr inbounds %struct.rand_pool_st, ptr %pool, i64 0, i32 5
+  %max_len = getelementptr inbounds i8, ptr %pool, i64 32
   %0 = load i64, ptr %max_len, align 8
-  %len1 = getelementptr inbounds %struct.rand_pool_st, ptr %pool, i64 0, i32 1
+  %len1 = getelementptr inbounds i8, ptr %pool, i64 8
   %1 = load i64, ptr %len1, align 8
   %sub = sub i64 %0, %1
   %cmp2 = icmp ult i64 %sub, %len
   br i1 %cmp2, label %if.then3, label %if.end4
 
 if.then3:                                         ; preds = %if.end
-  tail call void @ERR_new() #7
-  tail call void @ERR_set_debug(ptr noundef nonnull @.str, i32 noundef 362, ptr noundef nonnull @__func__.ossl_rand_pool_add_begin) #7
-  tail call void (i32, i32, ptr, ...) @ERR_set_error(i32 noundef 36, i32 noundef 125, ptr noundef null) #7
+  tail call void @ERR_new() #6
+  tail call void @ERR_set_debug(ptr noundef nonnull @.str, i32 noundef 362, ptr noundef nonnull @__func__.ossl_rand_pool_add_begin) #6
+  tail call void (i32, i32, ptr, ...) @ERR_set_error(i32 noundef 36, i32 noundef 125, ptr noundef null) #6
   br label %return
 
 if.end4:                                          ; preds = %if.end
@@ -481,9 +479,9 @@ if.end4:                                          ; preds = %if.end
   br i1 %cmp5, label %if.then6, label %if.end7
 
 if.then6:                                         ; preds = %if.end4
-  tail call void @ERR_new() #7
-  tail call void @ERR_set_debug(ptr noundef nonnull @.str, i32 noundef 367, ptr noundef nonnull @__func__.ossl_rand_pool_add_begin) #7
-  tail call void (i32, i32, ptr, ...) @ERR_set_error(i32 noundef 36, i32 noundef 786691, ptr noundef null) #7
+  tail call void @ERR_new() #6
+  tail call void @ERR_set_debug(ptr noundef nonnull @.str, i32 noundef 367, ptr noundef nonnull @__func__.ossl_rand_pool_add_begin) #6
+  tail call void (i32, i32, ptr, ...) @ERR_set_error(i32 noundef 36, i32 noundef 786691, ptr noundef null) #6
   br label %return
 
 if.end7:                                          ; preds = %if.end4
@@ -503,20 +501,20 @@ return:                                           ; preds = %if.end7, %entry, %i
 }
 
 ; Function Attrs: nounwind uwtable
-define i32 @ossl_rand_pool_add_end(ptr nocapture noundef %pool, i64 noundef %len, i64 noundef %entropy) local_unnamed_addr #0 {
+define noundef i32 @ossl_rand_pool_add_end(ptr nocapture noundef %pool, i64 noundef %len, i64 noundef %entropy) local_unnamed_addr #0 {
 entry:
-  %alloc_len = getelementptr inbounds %struct.rand_pool_st, ptr %pool, i64 0, i32 6
+  %alloc_len = getelementptr inbounds i8, ptr %pool, i64 40
   %0 = load i64, ptr %alloc_len, align 8
-  %len1 = getelementptr inbounds %struct.rand_pool_st, ptr %pool, i64 0, i32 1
+  %len1 = getelementptr inbounds i8, ptr %pool, i64 8
   %1 = load i64, ptr %len1, align 8
   %sub = sub i64 %0, %1
   %cmp = icmp ult i64 %sub, %len
   br i1 %cmp, label %if.then, label %if.end
 
 if.then:                                          ; preds = %entry
-  tail call void @ERR_new() #7
-  tail call void @ERR_set_debug(ptr noundef nonnull @.str, i32 noundef 398, ptr noundef nonnull @__func__.ossl_rand_pool_add_end) #7
-  tail call void (i32, i32, ptr, ...) @ERR_set_error(i32 noundef 36, i32 noundef 125, ptr noundef null) #7
+  tail call void @ERR_new() #6
+  tail call void @ERR_set_debug(ptr noundef nonnull @.str, i32 noundef 398, ptr noundef nonnull @__func__.ossl_rand_pool_add_end) #6
+  tail call void (i32, i32, ptr, ...) @ERR_set_error(i32 noundef 36, i32 noundef 125, ptr noundef null) #6
   br label %return
 
 if.end:                                           ; preds = %entry
@@ -526,7 +524,7 @@ if.end:                                           ; preds = %entry
 if.then3:                                         ; preds = %if.end
   %add = add i64 %1, %len
   store i64 %add, ptr %len1, align 8
-  %entropy5 = getelementptr inbounds %struct.rand_pool_st, ptr %pool, i64 0, i32 7
+  %entropy5 = getelementptr inbounds i8, ptr %pool, i64 48
   %2 = load i64, ptr %entropy5, align 8
   %add6 = add i64 %2, %entropy
   store i64 %add6, ptr %entropy5, align 8
@@ -538,22 +536,21 @@ return:                                           ; preds = %if.end, %if.then3, 
 }
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i64 @llvm.umin.i64(i64, i64) #6
+declare i64 @llvm.umin.i64(i64, i64) #5
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i64 @llvm.umax.i64(i64, i64) #6
+declare i64 @llvm.umax.i64(i64, i64) #5
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i64 @llvm.usub.sat.i64(i64, i64) #6
+declare i64 @llvm.usub.sat.i64(i64, i64) #5
 
 attributes #0 = { nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #2 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #3 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #4 = { mustprogress nofree nosync nounwind willreturn memory(argmem: read) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #5 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
-attributes #6 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
-attributes #7 = { nounwind }
+attributes #4 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
+attributes #5 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
+attributes #6 = { nounwind }
 
 !llvm.module.flags = !{!0, !1, !2, !3}
 

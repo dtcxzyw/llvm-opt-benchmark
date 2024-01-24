@@ -56,10 +56,10 @@ define dso_local void @_Z15BenchmarkBitsetv() local_unnamed_addr #0 personality 
 entry:
   %ts.i.i.i.i1363 = alloca %struct.timespec, align 8
   %temp.i1364 = alloca i64, align 8
-  %ts.i.i.i.i1335 = alloca %struct.timespec, align 8
-  %temp.i1336 = alloca i64, align 8
-  %ts.i.i.i.i1309 = alloca %struct.timespec, align 8
-  %temp.i1310 = alloca i64, align 8
+  %ts.i.i.i.i1336 = alloca %struct.timespec, align 8
+  %temp.i1337 = alloca i64, align 8
+  %ts.i.i.i.i1310 = alloca %struct.timespec, align 8
+  %temp.i1311 = alloca i64, align 8
   %ts.i.i.i.i1285 = alloca %struct.timespec, align 8
   %temp.i1286 = alloca i64, align 8
   %ts.i.i.i.i1260 = alloca %struct.timespec, align 8
@@ -147,70 +147,70 @@ entry:
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(16) %eaBitset75, i8 0, i64 16, i1 false)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(192) %stdBitset1500, i8 0, i64 192, i1 false)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(192) %eaBitset1500, i8 0, i64 192, i1 false)
-  %mnUnits.i.i.i = getelementptr inbounds %"class.EA::StdC::Stopwatch", ptr %stopwatch1, i64 0, i32 2
-  %tv_nsec.i.i.i.i = getelementptr inbounds %struct.timespec, ptr %ts.i.i.i.i, i64 0, i32 1
-  %mnUnits.i.i.i33 = getelementptr inbounds %"class.EA::StdC::Stopwatch", ptr %stopwatch2, i64 0, i32 2
-  %tv_nsec.i.i.i.i39 = getelementptr inbounds %struct.timespec, ptr %ts.i.i.i.i32, i64 0, i32 1
-  %tv_nsec.i.i.i.i61 = getelementptr inbounds %struct.timespec, ptr %ts.i.i.i.i54, i64 0, i32 1
-  %tv_nsec.i.i.i.i83 = getelementptr inbounds %struct.timespec, ptr %ts.i.i.i.i76, i64 0, i32 1
-  %tv_nsec.i.i.i.i106 = getelementptr inbounds %struct.timespec, ptr %ts.i.i.i.i99, i64 0, i32 1
-  %arrayidx.i.i.i.i = getelementptr inbounds [2 x i64], ptr %stdBitset75, i64 0, i64 1
-  %tv_nsec.i.i.i.i128 = getelementptr inbounds %struct.timespec, ptr %ts.i.i.i.i121, i64 0, i32 1
-  %arrayidx.i.i = getelementptr inbounds [2 x i64], ptr %eaBitset75, i64 0, i64 1
-  %tv_nsec.i.i.i.i151 = getelementptr inbounds %struct.timespec, ptr %ts.i.i.i.i144, i64 0, i32 1
-  %arrayidx.i.i.i.i156 = getelementptr inbounds [24 x i64], ptr %stdBitset1500, i64 0, i64 23
-  %tv_nsec.i.i.i.i174 = getelementptr inbounds %struct.timespec, ptr %ts.i.i.i.i167, i64 0, i32 1
-  %arrayidx.i.i179 = getelementptr inbounds [24 x i64], ptr %eaBitset1500, i64 0, i64 23
-  %tv_nsec.i.i.i.i198 = getelementptr inbounds %struct.timespec, ptr %ts.i.i.i.i191, i64 0, i32 1
-  %tv_nsec.i.i.i.i220 = getelementptr inbounds %struct.timespec, ptr %ts.i.i.i.i213, i64 0, i32 1
-  %tv_nsec.i.i.i.i244 = getelementptr inbounds %struct.timespec, ptr %ts.i.i.i.i237, i64 0, i32 1
-  %tv_nsec.i.i.i.i267 = getelementptr inbounds %struct.timespec, ptr %ts.i.i.i.i260, i64 0, i32 1
-  %tv_nsec.i.i.i.i291 = getelementptr inbounds %struct.timespec, ptr %ts.i.i.i.i284, i64 0, i32 1
-  %tv_nsec.i.i.i.i315 = getelementptr inbounds %struct.timespec, ptr %ts.i.i.i.i308, i64 0, i32 1
-  %tv_nsec.i.i.i.i339 = getelementptr inbounds %struct.timespec, ptr %ts.i.i.i.i332, i64 0, i32 1
-  %arrayidx.i.i.i.i344 = getelementptr inbounds [24 x i64], ptr %stdBitset1500, i64 0, i64 11
-  %tv_nsec.i.i.i.i363 = getelementptr inbounds %struct.timespec, ptr %ts.i.i.i.i356, i64 0, i32 1
-  %arrayidx.i.i.i368 = getelementptr inbounds [24 x i64], ptr %eaBitset1500, i64 0, i64 11
-  %tv_nsec.i.i.i.i388 = getelementptr inbounds %struct.timespec, ptr %ts.i.i.i.i381, i64 0, i32 1
-  %tv_nsec.i.i.i.i410 = getelementptr inbounds %struct.timespec, ptr %ts.i.i.i.i403, i64 0, i32 1
-  %tv_nsec.i.i.i.i433 = getelementptr inbounds %struct.timespec, ptr %ts.i.i.i.i426, i64 0, i32 1
-  %tv_nsec.i.i.i.i455 = getelementptr inbounds %struct.timespec, ptr %ts.i.i.i.i448, i64 0, i32 1
-  %tv_nsec.i.i.i.i478 = getelementptr inbounds %struct.timespec, ptr %ts.i.i.i.i471, i64 0, i32 1
-  %tv_nsec.i.i.i.i500 = getelementptr inbounds %struct.timespec, ptr %ts.i.i.i.i493, i64 0, i32 1
-  %tv_nsec.i.i.i.i523 = getelementptr inbounds %struct.timespec, ptr %ts.i.i.i.i516, i64 0, i32 1
-  %tv_nsec.i.i.i.i545 = getelementptr inbounds %struct.timespec, ptr %ts.i.i.i.i538, i64 0, i32 1
-  %tv_nsec.i.i.i.i568 = getelementptr inbounds %struct.timespec, ptr %ts.i.i.i.i561, i64 0, i32 1
-  %tv_nsec.i.i.i.i590 = getelementptr inbounds %struct.timespec, ptr %ts.i.i.i.i583, i64 0, i32 1
-  %tv_nsec.i.i.i.i614 = getelementptr inbounds %struct.timespec, ptr %ts.i.i.i.i607, i64 0, i32 1
-  %tv_nsec.i.i.i.i638 = getelementptr inbounds %struct.timespec, ptr %ts.i.i.i.i631, i64 0, i32 1
-  %tv_nsec.i.i.i.i663 = getelementptr inbounds %struct.timespec, ptr %ts.i.i.i.i656, i64 0, i32 1
-  %tv_nsec.i.i.i.i687 = getelementptr inbounds %struct.timespec, ptr %ts.i.i.i.i680, i64 0, i32 1
-  %tv_nsec.i.i.i.i712 = getelementptr inbounds %struct.timespec, ptr %ts.i.i.i.i705, i64 0, i32 1
-  %tv_nsec.i.i.i.i737 = getelementptr inbounds %struct.timespec, ptr %ts.i.i.i.i730, i64 0, i32 1
-  %tv_nsec.i.i.i.i767 = getelementptr inbounds %struct.timespec, ptr %ts.i.i.i.i760, i64 0, i32 1
-  %tv_nsec.i.i.i.i789 = getelementptr inbounds %struct.timespec, ptr %ts.i.i.i.i782, i64 0, i32 1
-  %tv_nsec.i.i.i.i815 = getelementptr inbounds %struct.timespec, ptr %ts.i.i.i.i808, i64 0, i32 1
-  %tv_nsec.i.i.i.i843 = getelementptr inbounds %struct.timespec, ptr %ts.i.i.i.i836, i64 0, i32 1
-  %tv_nsec.i.i.i.i872 = getelementptr inbounds %struct.timespec, ptr %ts.i.i.i.i865, i64 0, i32 1
-  %tv_nsec.i.i.i.i900 = getelementptr inbounds %struct.timespec, ptr %ts.i.i.i.i893, i64 0, i32 1
-  %tv_nsec.i.i.i.i929 = getelementptr inbounds %struct.timespec, ptr %ts.i.i.i.i922, i64 0, i32 1
-  %tv_nsec.i.i.i.i958 = getelementptr inbounds %struct.timespec, ptr %ts.i.i.i.i951, i64 0, i32 1
-  %tv_nsec.i.i.i.i989 = getelementptr inbounds %struct.timespec, ptr %ts.i.i.i.i982, i64 0, i32 1
-  %tv_nsec.i.i.i.i1011 = getelementptr inbounds %struct.timespec, ptr %ts.i.i.i.i1003, i64 0, i32 1
-  %tv_nsec.i.i.i.i1036 = getelementptr inbounds %struct.timespec, ptr %ts.i.i.i.i1028, i64 0, i32 1
-  %tv_nsec.i.i.i.i1060 = getelementptr inbounds %struct.timespec, ptr %ts.i.i.i.i1052, i64 0, i32 1
-  %tv_nsec.i.i.i.i1085 = getelementptr inbounds %struct.timespec, ptr %ts.i.i.i.i1077, i64 0, i32 1
-  %tv_nsec.i.i.i.i1111 = getelementptr inbounds %struct.timespec, ptr %ts.i.i.i.i1103, i64 0, i32 1
-  %tv_nsec.i.i.i.i1136 = getelementptr inbounds %struct.timespec, ptr %ts.i.i.i.i1128, i64 0, i32 1
-  %tv_nsec.i.i.i.i1167 = getelementptr inbounds %struct.timespec, ptr %ts.i.i.i.i1159, i64 0, i32 1
-  %tv_nsec.i.i.i.i1193 = getelementptr inbounds %struct.timespec, ptr %ts.i.i.i.i1185, i64 0, i32 1
-  %tv_nsec.i.i.i.i1218 = getelementptr inbounds %struct.timespec, ptr %ts.i.i.i.i1210, i64 0, i32 1
-  %tv_nsec.i.i.i.i1243 = getelementptr inbounds %struct.timespec, ptr %ts.i.i.i.i1235, i64 0, i32 1
-  %tv_nsec.i.i.i.i1268 = getelementptr inbounds %struct.timespec, ptr %ts.i.i.i.i1260, i64 0, i32 1
-  %tv_nsec.i.i.i.i1293 = getelementptr inbounds %struct.timespec, ptr %ts.i.i.i.i1285, i64 0, i32 1
-  %tv_nsec.i.i.i.i1317 = getelementptr inbounds %struct.timespec, ptr %ts.i.i.i.i1309, i64 0, i32 1
-  %tv_nsec.i.i.i.i1343 = getelementptr inbounds %struct.timespec, ptr %ts.i.i.i.i1335, i64 0, i32 1
-  %tv_nsec.i.i.i.i1371 = getelementptr inbounds %struct.timespec, ptr %ts.i.i.i.i1363, i64 0, i32 1
+  %mnUnits.i.i.i = getelementptr inbounds i8, ptr %stopwatch1, i64 16
+  %tv_nsec.i.i.i.i = getelementptr inbounds i8, ptr %ts.i.i.i.i, i64 8
+  %mnUnits.i.i.i33 = getelementptr inbounds i8, ptr %stopwatch2, i64 16
+  %tv_nsec.i.i.i.i39 = getelementptr inbounds i8, ptr %ts.i.i.i.i32, i64 8
+  %tv_nsec.i.i.i.i61 = getelementptr inbounds i8, ptr %ts.i.i.i.i54, i64 8
+  %tv_nsec.i.i.i.i83 = getelementptr inbounds i8, ptr %ts.i.i.i.i76, i64 8
+  %tv_nsec.i.i.i.i106 = getelementptr inbounds i8, ptr %ts.i.i.i.i99, i64 8
+  %arrayidx.i.i.i.i = getelementptr inbounds i8, ptr %stdBitset75, i64 8
+  %tv_nsec.i.i.i.i128 = getelementptr inbounds i8, ptr %ts.i.i.i.i121, i64 8
+  %arrayidx.i.i = getelementptr inbounds i8, ptr %eaBitset75, i64 8
+  %tv_nsec.i.i.i.i151 = getelementptr inbounds i8, ptr %ts.i.i.i.i144, i64 8
+  %arrayidx.i.i.i.i156 = getelementptr inbounds i8, ptr %stdBitset1500, i64 184
+  %tv_nsec.i.i.i.i174 = getelementptr inbounds i8, ptr %ts.i.i.i.i167, i64 8
+  %arrayidx.i.i179 = getelementptr inbounds i8, ptr %eaBitset1500, i64 184
+  %tv_nsec.i.i.i.i198 = getelementptr inbounds i8, ptr %ts.i.i.i.i191, i64 8
+  %tv_nsec.i.i.i.i220 = getelementptr inbounds i8, ptr %ts.i.i.i.i213, i64 8
+  %tv_nsec.i.i.i.i244 = getelementptr inbounds i8, ptr %ts.i.i.i.i237, i64 8
+  %tv_nsec.i.i.i.i267 = getelementptr inbounds i8, ptr %ts.i.i.i.i260, i64 8
+  %tv_nsec.i.i.i.i291 = getelementptr inbounds i8, ptr %ts.i.i.i.i284, i64 8
+  %tv_nsec.i.i.i.i315 = getelementptr inbounds i8, ptr %ts.i.i.i.i308, i64 8
+  %tv_nsec.i.i.i.i339 = getelementptr inbounds i8, ptr %ts.i.i.i.i332, i64 8
+  %arrayidx.i.i.i.i344 = getelementptr inbounds i8, ptr %stdBitset1500, i64 88
+  %tv_nsec.i.i.i.i363 = getelementptr inbounds i8, ptr %ts.i.i.i.i356, i64 8
+  %arrayidx.i.i.i368 = getelementptr inbounds i8, ptr %eaBitset1500, i64 88
+  %tv_nsec.i.i.i.i388 = getelementptr inbounds i8, ptr %ts.i.i.i.i381, i64 8
+  %tv_nsec.i.i.i.i410 = getelementptr inbounds i8, ptr %ts.i.i.i.i403, i64 8
+  %tv_nsec.i.i.i.i433 = getelementptr inbounds i8, ptr %ts.i.i.i.i426, i64 8
+  %tv_nsec.i.i.i.i455 = getelementptr inbounds i8, ptr %ts.i.i.i.i448, i64 8
+  %tv_nsec.i.i.i.i478 = getelementptr inbounds i8, ptr %ts.i.i.i.i471, i64 8
+  %tv_nsec.i.i.i.i500 = getelementptr inbounds i8, ptr %ts.i.i.i.i493, i64 8
+  %tv_nsec.i.i.i.i523 = getelementptr inbounds i8, ptr %ts.i.i.i.i516, i64 8
+  %tv_nsec.i.i.i.i545 = getelementptr inbounds i8, ptr %ts.i.i.i.i538, i64 8
+  %tv_nsec.i.i.i.i568 = getelementptr inbounds i8, ptr %ts.i.i.i.i561, i64 8
+  %tv_nsec.i.i.i.i590 = getelementptr inbounds i8, ptr %ts.i.i.i.i583, i64 8
+  %tv_nsec.i.i.i.i614 = getelementptr inbounds i8, ptr %ts.i.i.i.i607, i64 8
+  %tv_nsec.i.i.i.i638 = getelementptr inbounds i8, ptr %ts.i.i.i.i631, i64 8
+  %tv_nsec.i.i.i.i663 = getelementptr inbounds i8, ptr %ts.i.i.i.i656, i64 8
+  %tv_nsec.i.i.i.i687 = getelementptr inbounds i8, ptr %ts.i.i.i.i680, i64 8
+  %tv_nsec.i.i.i.i712 = getelementptr inbounds i8, ptr %ts.i.i.i.i705, i64 8
+  %tv_nsec.i.i.i.i737 = getelementptr inbounds i8, ptr %ts.i.i.i.i730, i64 8
+  %tv_nsec.i.i.i.i767 = getelementptr inbounds i8, ptr %ts.i.i.i.i760, i64 8
+  %tv_nsec.i.i.i.i789 = getelementptr inbounds i8, ptr %ts.i.i.i.i782, i64 8
+  %tv_nsec.i.i.i.i815 = getelementptr inbounds i8, ptr %ts.i.i.i.i808, i64 8
+  %tv_nsec.i.i.i.i843 = getelementptr inbounds i8, ptr %ts.i.i.i.i836, i64 8
+  %tv_nsec.i.i.i.i872 = getelementptr inbounds i8, ptr %ts.i.i.i.i865, i64 8
+  %tv_nsec.i.i.i.i900 = getelementptr inbounds i8, ptr %ts.i.i.i.i893, i64 8
+  %tv_nsec.i.i.i.i929 = getelementptr inbounds i8, ptr %ts.i.i.i.i922, i64 8
+  %tv_nsec.i.i.i.i958 = getelementptr inbounds i8, ptr %ts.i.i.i.i951, i64 8
+  %tv_nsec.i.i.i.i989 = getelementptr inbounds i8, ptr %ts.i.i.i.i982, i64 8
+  %tv_nsec.i.i.i.i1011 = getelementptr inbounds i8, ptr %ts.i.i.i.i1003, i64 8
+  %tv_nsec.i.i.i.i1036 = getelementptr inbounds i8, ptr %ts.i.i.i.i1028, i64 8
+  %tv_nsec.i.i.i.i1060 = getelementptr inbounds i8, ptr %ts.i.i.i.i1052, i64 8
+  %tv_nsec.i.i.i.i1085 = getelementptr inbounds i8, ptr %ts.i.i.i.i1077, i64 8
+  %tv_nsec.i.i.i.i1111 = getelementptr inbounds i8, ptr %ts.i.i.i.i1103, i64 8
+  %tv_nsec.i.i.i.i1136 = getelementptr inbounds i8, ptr %ts.i.i.i.i1128, i64 8
+  %tv_nsec.i.i.i.i1167 = getelementptr inbounds i8, ptr %ts.i.i.i.i1159, i64 8
+  %tv_nsec.i.i.i.i1193 = getelementptr inbounds i8, ptr %ts.i.i.i.i1185, i64 8
+  %tv_nsec.i.i.i.i1218 = getelementptr inbounds i8, ptr %ts.i.i.i.i1210, i64 8
+  %tv_nsec.i.i.i.i1243 = getelementptr inbounds i8, ptr %ts.i.i.i.i1235, i64 8
+  %tv_nsec.i.i.i.i1268 = getelementptr inbounds i8, ptr %ts.i.i.i.i1260, i64 8
+  %tv_nsec.i.i.i.i1293 = getelementptr inbounds i8, ptr %ts.i.i.i.i1285, i64 8
+  %tv_nsec.i.i.i.i1318 = getelementptr inbounds i8, ptr %ts.i.i.i.i1310, i64 8
+  %tv_nsec.i.i.i.i1344 = getelementptr inbounds i8, ptr %ts.i.i.i.i1336, i64 8
+  %tv_nsec.i.i.i.i1371 = getelementptr inbounds i8, ptr %ts.i.i.i.i1363, i64 8
   br label %for.body
 
 for.body:                                         ; preds = %entry, %for.inc
@@ -2915,9 +2915,9 @@ if.end321:                                        ; preds = %if.then309, %for.en
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %stopwatch1, i8 0, i64 16, i1 false)
   %291 = load i32, ptr %mnUnits.i.i.i, align 8
   %cmp.i.i.i1288 = icmp eq i32 %291, 1
-  br i1 %cmp.i.i.i1288, label %if.then2.i.i.i1306, label %if.else.i.i.i1289
+  br i1 %cmp.i.i.i1288, label %if.then2.i.i.i1307, label %if.else.i.i.i1289
 
-if.then2.i.i.i1306:                               ; preds = %if.end321
+if.then2.i.i.i1307:                               ; preds = %if.end321
   %292 = call noundef i64 @llvm.x86.rdtsc()
   br label %_ZN2EA4StdC9Stopwatch7RestartEv.exit.i1296
 
@@ -2925,13 +2925,13 @@ if.else.i.i.i1289:                                ; preds = %if.end321
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %ts.i.i.i.i1285)
   %call.i.i.i.i1290 = call i32 @clock_gettime(i32 noundef 1, ptr noundef nonnull %ts.i.i.i.i1285) #3
   %cmp.i.i.i.i1291 = icmp eq i32 %call.i.i.i.i1290, 22
-  br i1 %cmp.i.i.i.i1291, label %if.then.i.i.i.i1304, label %_ZN2EA4StdC9Stopwatch17GetStopwatchCycleEv.exit.i.i.i1292
+  br i1 %cmp.i.i.i.i1291, label %if.then.i.i.i.i1305, label %_ZN2EA4StdC9Stopwatch17GetStopwatchCycleEv.exit.i.i.i1292
 
-if.then.i.i.i.i1304:                              ; preds = %if.else.i.i.i1289
-  %call1.i.i.i.i1305 = call i32 @clock_gettime(i32 noundef 0, ptr noundef nonnull %ts.i.i.i.i1285) #3
+if.then.i.i.i.i1305:                              ; preds = %if.else.i.i.i1289
+  %call1.i.i.i.i1306 = call i32 @clock_gettime(i32 noundef 0, ptr noundef nonnull %ts.i.i.i.i1285) #3
   br label %_ZN2EA4StdC9Stopwatch17GetStopwatchCycleEv.exit.i.i.i1292
 
-_ZN2EA4StdC9Stopwatch17GetStopwatchCycleEv.exit.i.i.i1292: ; preds = %if.then.i.i.i.i1304, %if.else.i.i.i1289
+_ZN2EA4StdC9Stopwatch17GetStopwatchCycleEv.exit.i.i.i1292: ; preds = %if.then.i.i.i.i1305, %if.else.i.i.i1289
   %293 = load i64, ptr %tv_nsec.i.i.i.i1293, align 8
   %294 = load i64, ptr %ts.i.i.i.i1285, align 8
   %mul.i.i.i.i1294 = mul i64 %294, 1000000000
@@ -2939,81 +2939,81 @@ _ZN2EA4StdC9Stopwatch17GetStopwatchCycleEv.exit.i.i.i1292: ; preds = %if.then.i.
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %ts.i.i.i.i1285)
   br label %_ZN2EA4StdC9Stopwatch7RestartEv.exit.i1296
 
-_ZN2EA4StdC9Stopwatch7RestartEv.exit.i1296:       ; preds = %_ZN2EA4StdC9Stopwatch17GetStopwatchCycleEv.exit.i.i.i1292, %if.then2.i.i.i1306
-  %.sink.i.i.i1297 = phi i64 [ %292, %if.then2.i.i.i1306 ], [ %add.i.i.i.i1295, %_ZN2EA4StdC9Stopwatch17GetStopwatchCycleEv.exit.i.i.i1292 ]
+_ZN2EA4StdC9Stopwatch7RestartEv.exit.i1296:       ; preds = %_ZN2EA4StdC9Stopwatch17GetStopwatchCycleEv.exit.i.i.i1292, %if.then2.i.i.i1307
+  %.sink.i.i.i1297 = phi i64 [ %292, %if.then2.i.i.i1307 ], [ %add.i.i.i.i1295, %_ZN2EA4StdC9Stopwatch17GetStopwatchCycleEv.exit.i.i.i1292 ]
   store i64 %.sink.i.i.i1297, ptr %stopwatch1, align 8
-  br label %for.body12.i.i.preheader.i
+  br label %for.body.i1298
 
-for.body12.i.i.preheader.i:                       ; preds = %for.body12.i.i.preheader.i, %_ZN2EA4StdC9Stopwatch7RestartEv.exit.i1296
-  %i.03.i1298 = phi i32 [ 0, %_ZN2EA4StdC9Stopwatch7RestartEv.exit.i1296 ], [ %inc.i1301, %for.body12.i.i.preheader.i ]
+for.body.i1298:                                   ; preds = %for.body.i1298, %_ZN2EA4StdC9Stopwatch7RestartEv.exit.i1296
+  %i.03.i1299 = phi i32 [ 0, %_ZN2EA4StdC9Stopwatch7RestartEv.exit.i1296 ], [ %inc.i1302, %for.body.i1298 ]
   %295 = load i64, ptr %stdBitset75, align 8
   %296 = load i64, ptr %arrayidx.i.i.i.i, align 8
-  %or.i.i.i1299 = call i64 @llvm.fshl.i64(i64 %296, i64 %295, i64 63)
-  store i64 %or.i.i.i1299, ptr %stdBitset75, align 8
+  %or.i.i.i1300 = call i64 @llvm.fshl.i64(i64 %296, i64 %295, i64 63)
+  store i64 %or.i.i.i1300, ptr %stdBitset75, align 8
   %shr27.i.i.i = lshr i64 %296, 1
-  %and.i.i.i.i1300 = and i64 %shr27.i.i.i, 2047
-  store i64 %and.i.i.i.i1300, ptr %arrayidx.i.i.i.i, align 8
+  %and.i.i.i.i1301 = and i64 %shr27.i.i.i, 2047
+  store i64 %and.i.i.i.i1301, ptr %arrayidx.i.i.i.i, align 8
   call void (...) @_ZN9Benchmark9DoNothingEz(ptr noundef nonnull %temp.i1286)
-  %inc.i1301 = add nuw nsw i32 %i.03.i1298, 1
-  %exitcond.not.i1302 = icmp eq i32 %inc.i1301, 100000
-  br i1 %exitcond.not.i1302, label %for.end.i1303, label %for.body12.i.i.preheader.i, !llvm.loop !64
+  %inc.i1302 = add nuw nsw i32 %i.03.i1299, 1
+  %exitcond.not.i1303 = icmp eq i32 %inc.i1302, 100000
+  br i1 %exitcond.not.i1303, label %for.end.i1304, label %for.body.i1298, !llvm.loop !64
 
-for.end.i1303:                                    ; preds = %for.body12.i.i.preheader.i
+for.end.i1304:                                    ; preds = %for.body.i1298
   call void @_ZN2EA4StdC9Stopwatch4StopEv(ptr noundef nonnull align 8 dereferenceable(24) %stopwatch1)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %temp.i1286)
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %temp.i1310)
-  store i64 0, ptr %temp.i1310, align 8
+  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %temp.i1311)
+  store i64 0, ptr %temp.i1311, align 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %stopwatch2, i8 0, i64 16, i1 false)
   %297 = load i32, ptr %mnUnits.i.i.i33, align 8
-  %cmp.i.i.i1312 = icmp eq i32 %297, 1
-  br i1 %cmp.i.i.i1312, label %if.then2.i.i.i1331, label %if.else.i.i.i1313
+  %cmp.i.i.i1313 = icmp eq i32 %297, 1
+  br i1 %cmp.i.i.i1313, label %if.then2.i.i.i1332, label %if.else.i.i.i1314
 
-if.then2.i.i.i1331:                               ; preds = %for.end.i1303
+if.then2.i.i.i1332:                               ; preds = %for.end.i1304
   %298 = call noundef i64 @llvm.x86.rdtsc()
-  br label %_ZN2EA4StdC9Stopwatch7RestartEv.exit.i1320
+  br label %_ZN2EA4StdC9Stopwatch7RestartEv.exit.i1321
 
-if.else.i.i.i1313:                                ; preds = %for.end.i1303
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %ts.i.i.i.i1309)
-  %call.i.i.i.i1314 = call i32 @clock_gettime(i32 noundef 1, ptr noundef nonnull %ts.i.i.i.i1309) #3
-  %cmp.i.i.i.i1315 = icmp eq i32 %call.i.i.i.i1314, 22
-  br i1 %cmp.i.i.i.i1315, label %if.then.i.i.i.i1329, label %_ZN2EA4StdC9Stopwatch17GetStopwatchCycleEv.exit.i.i.i1316
+if.else.i.i.i1314:                                ; preds = %for.end.i1304
+  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %ts.i.i.i.i1310)
+  %call.i.i.i.i1315 = call i32 @clock_gettime(i32 noundef 1, ptr noundef nonnull %ts.i.i.i.i1310) #3
+  %cmp.i.i.i.i1316 = icmp eq i32 %call.i.i.i.i1315, 22
+  br i1 %cmp.i.i.i.i1316, label %if.then.i.i.i.i1330, label %_ZN2EA4StdC9Stopwatch17GetStopwatchCycleEv.exit.i.i.i1317
 
-if.then.i.i.i.i1329:                              ; preds = %if.else.i.i.i1313
-  %call1.i.i.i.i1330 = call i32 @clock_gettime(i32 noundef 0, ptr noundef nonnull %ts.i.i.i.i1309) #3
-  br label %_ZN2EA4StdC9Stopwatch17GetStopwatchCycleEv.exit.i.i.i1316
+if.then.i.i.i.i1330:                              ; preds = %if.else.i.i.i1314
+  %call1.i.i.i.i1331 = call i32 @clock_gettime(i32 noundef 0, ptr noundef nonnull %ts.i.i.i.i1310) #3
+  br label %_ZN2EA4StdC9Stopwatch17GetStopwatchCycleEv.exit.i.i.i1317
 
-_ZN2EA4StdC9Stopwatch17GetStopwatchCycleEv.exit.i.i.i1316: ; preds = %if.then.i.i.i.i1329, %if.else.i.i.i1313
-  %299 = load i64, ptr %tv_nsec.i.i.i.i1317, align 8
-  %300 = load i64, ptr %ts.i.i.i.i1309, align 8
-  %mul.i.i.i.i1318 = mul i64 %300, 1000000000
-  %add.i.i.i.i1319 = add i64 %mul.i.i.i.i1318, %299
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %ts.i.i.i.i1309)
-  br label %_ZN2EA4StdC9Stopwatch7RestartEv.exit.i1320
+_ZN2EA4StdC9Stopwatch17GetStopwatchCycleEv.exit.i.i.i1317: ; preds = %if.then.i.i.i.i1330, %if.else.i.i.i1314
+  %299 = load i64, ptr %tv_nsec.i.i.i.i1318, align 8
+  %300 = load i64, ptr %ts.i.i.i.i1310, align 8
+  %mul.i.i.i.i1319 = mul i64 %300, 1000000000
+  %add.i.i.i.i1320 = add i64 %mul.i.i.i.i1319, %299
+  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %ts.i.i.i.i1310)
+  br label %_ZN2EA4StdC9Stopwatch7RestartEv.exit.i1321
 
-_ZN2EA4StdC9Stopwatch7RestartEv.exit.i1320:       ; preds = %_ZN2EA4StdC9Stopwatch17GetStopwatchCycleEv.exit.i.i.i1316, %if.then2.i.i.i1331
-  %.sink.i.i.i1321 = phi i64 [ %298, %if.then2.i.i.i1331 ], [ %add.i.i.i.i1319, %_ZN2EA4StdC9Stopwatch17GetStopwatchCycleEv.exit.i.i.i1316 ]
-  store i64 %.sink.i.i.i1321, ptr %stopwatch2, align 8
-  br label %for.body.i1323
+_ZN2EA4StdC9Stopwatch7RestartEv.exit.i1321:       ; preds = %_ZN2EA4StdC9Stopwatch17GetStopwatchCycleEv.exit.i.i.i1317, %if.then2.i.i.i1332
+  %.sink.i.i.i1322 = phi i64 [ %298, %if.then2.i.i.i1332 ], [ %add.i.i.i.i1320, %_ZN2EA4StdC9Stopwatch17GetStopwatchCycleEv.exit.i.i.i1317 ]
+  store i64 %.sink.i.i.i1322, ptr %stopwatch2, align 8
+  br label %for.body.i1324
 
-for.body.i1323:                                   ; preds = %for.body.i1323, %_ZN2EA4StdC9Stopwatch7RestartEv.exit.i1320
-  %i.03.i1324 = phi i32 [ 0, %_ZN2EA4StdC9Stopwatch7RestartEv.exit.i1320 ], [ %inc.i1326, %for.body.i1323 ]
+for.body.i1324:                                   ; preds = %for.body.i1324, %_ZN2EA4StdC9Stopwatch7RestartEv.exit.i1321
+  %i.03.i1325 = phi i32 [ 0, %_ZN2EA4StdC9Stopwatch7RestartEv.exit.i1321 ], [ %inc.i1327, %for.body.i1324 ]
   %301 = load i64, ptr %arrayidx.i.i, align 8
   %.pre.i.i.i = load i64, ptr %eaBitset75, align 16
-  %or.i.i.i1325 = call i64 @llvm.fshl.i64(i64 %301, i64 %.pre.i.i.i, i64 63)
-  store i64 %or.i.i.i1325, ptr %eaBitset75, align 16
+  %or.i.i.i1326 = call i64 @llvm.fshl.i64(i64 %301, i64 %.pre.i.i.i, i64 63)
+  store i64 %or.i.i.i1326, ptr %eaBitset75, align 16
   %shr17.i.i.i = lshr i64 %301, 1
   store i64 %shr17.i.i.i, ptr %arrayidx.i.i, align 8
-  call void (...) @_ZN9Benchmark9DoNothingEz(ptr noundef nonnull %temp.i1310)
-  %inc.i1326 = add nuw nsw i32 %i.03.i1324, 1
-  %exitcond.not.i1327 = icmp eq i32 %inc.i1326, 100000
-  br i1 %exitcond.not.i1327, label %for.end.i1328, label %for.body.i1323, !llvm.loop !65
+  call void (...) @_ZN9Benchmark9DoNothingEz(ptr noundef nonnull %temp.i1311)
+  %inc.i1327 = add nuw nsw i32 %i.03.i1325, 1
+  %exitcond.not.i1328 = icmp eq i32 %inc.i1327, 100000
+  br i1 %exitcond.not.i1328, label %for.end.i1329, label %for.body.i1324, !llvm.loop !65
 
-for.end.i1328:                                    ; preds = %for.body.i1323
+for.end.i1329:                                    ; preds = %for.body.i1324
   call void @_ZN2EA4StdC9Stopwatch4StopEv(ptr noundef nonnull align 8 dereferenceable(24) %stopwatch2)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %temp.i1310)
+  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %temp.i1311)
   br i1 %cmp8, label %if.then325, label %if.end337
 
-if.then325:                                       ; preds = %for.end.i1328
+if.then325:                                       ; preds = %for.end.i1329
   %302 = load i32, ptr %mnUnits.i.i.i, align 8
   %call329 = call noundef i64 @_ZNK2EA4StdC9Stopwatch14GetElapsedTimeEv(ptr noundef nonnull align 8 dereferenceable(24) %stopwatch1)
   %call331 = call noundef i64 @_ZNK2EA4StdC9Stopwatch14GetElapsedTimeEv(ptr noundef nonnull align 8 dereferenceable(24) %stopwatch2)
@@ -3023,53 +3023,53 @@ if.then325:                                       ; preds = %for.end.i1328
   call void @_ZN9Benchmark9AddResultEPKcillS1_(ptr noundef nonnull @.str.28, i32 noundef %302, i64 noundef %call329, i64 noundef %call331, ptr noundef %cond335)
   br label %if.end337
 
-if.end337:                                        ; preds = %if.then325, %for.end.i1328
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %temp.i1336)
-  store i64 0, ptr %temp.i1336, align 8
+if.end337:                                        ; preds = %if.then325, %for.end.i1329
+  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %temp.i1337)
+  store i64 0, ptr %temp.i1337, align 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %stopwatch1, i8 0, i64 16, i1 false)
   %303 = load i32, ptr %mnUnits.i.i.i, align 8
-  %cmp.i.i.i1338 = icmp eq i32 %303, 1
-  br i1 %cmp.i.i.i1338, label %if.then2.i.i.i1360, label %if.else.i.i.i1339
+  %cmp.i.i.i1339 = icmp eq i32 %303, 1
+  br i1 %cmp.i.i.i1339, label %if.then2.i.i.i1360, label %if.else.i.i.i1340
 
 if.then2.i.i.i1360:                               ; preds = %if.end337
   %304 = call noundef i64 @llvm.x86.rdtsc()
-  br label %_ZN2EA4StdC9Stopwatch7RestartEv.exit.i1346
+  br label %_ZN2EA4StdC9Stopwatch7RestartEv.exit.i1347
 
-if.else.i.i.i1339:                                ; preds = %if.end337
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %ts.i.i.i.i1335)
-  %call.i.i.i.i1340 = call i32 @clock_gettime(i32 noundef 1, ptr noundef nonnull %ts.i.i.i.i1335) #3
-  %cmp.i.i.i.i1341 = icmp eq i32 %call.i.i.i.i1340, 22
-  br i1 %cmp.i.i.i.i1341, label %if.then.i.i.i.i1358, label %_ZN2EA4StdC9Stopwatch17GetStopwatchCycleEv.exit.i.i.i1342
+if.else.i.i.i1340:                                ; preds = %if.end337
+  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %ts.i.i.i.i1336)
+  %call.i.i.i.i1341 = call i32 @clock_gettime(i32 noundef 1, ptr noundef nonnull %ts.i.i.i.i1336) #3
+  %cmp.i.i.i.i1342 = icmp eq i32 %call.i.i.i.i1341, 22
+  br i1 %cmp.i.i.i.i1342, label %if.then.i.i.i.i1358, label %_ZN2EA4StdC9Stopwatch17GetStopwatchCycleEv.exit.i.i.i1343
 
-if.then.i.i.i.i1358:                              ; preds = %if.else.i.i.i1339
-  %call1.i.i.i.i1359 = call i32 @clock_gettime(i32 noundef 0, ptr noundef nonnull %ts.i.i.i.i1335) #3
-  br label %_ZN2EA4StdC9Stopwatch17GetStopwatchCycleEv.exit.i.i.i1342
+if.then.i.i.i.i1358:                              ; preds = %if.else.i.i.i1340
+  %call1.i.i.i.i1359 = call i32 @clock_gettime(i32 noundef 0, ptr noundef nonnull %ts.i.i.i.i1336) #3
+  br label %_ZN2EA4StdC9Stopwatch17GetStopwatchCycleEv.exit.i.i.i1343
 
-_ZN2EA4StdC9Stopwatch17GetStopwatchCycleEv.exit.i.i.i1342: ; preds = %if.then.i.i.i.i1358, %if.else.i.i.i1339
-  %305 = load i64, ptr %tv_nsec.i.i.i.i1343, align 8
-  %306 = load i64, ptr %ts.i.i.i.i1335, align 8
-  %mul.i.i.i.i1344 = mul i64 %306, 1000000000
-  %add.i.i.i.i1345 = add i64 %mul.i.i.i.i1344, %305
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %ts.i.i.i.i1335)
-  br label %_ZN2EA4StdC9Stopwatch7RestartEv.exit.i1346
+_ZN2EA4StdC9Stopwatch17GetStopwatchCycleEv.exit.i.i.i1343: ; preds = %if.then.i.i.i.i1358, %if.else.i.i.i1340
+  %305 = load i64, ptr %tv_nsec.i.i.i.i1344, align 8
+  %306 = load i64, ptr %ts.i.i.i.i1336, align 8
+  %mul.i.i.i.i1345 = mul i64 %306, 1000000000
+  %add.i.i.i.i1346 = add i64 %mul.i.i.i.i1345, %305
+  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %ts.i.i.i.i1336)
+  br label %_ZN2EA4StdC9Stopwatch7RestartEv.exit.i1347
 
-_ZN2EA4StdC9Stopwatch7RestartEv.exit.i1346:       ; preds = %_ZN2EA4StdC9Stopwatch17GetStopwatchCycleEv.exit.i.i.i1342, %if.then2.i.i.i1360
-  %.sink.i.i.i1347 = phi i64 [ %304, %if.then2.i.i.i1360 ], [ %add.i.i.i.i1345, %_ZN2EA4StdC9Stopwatch17GetStopwatchCycleEv.exit.i.i.i1342 ]
-  store i64 %.sink.i.i.i1347, ptr %stopwatch1, align 8
-  br label %for.body12.i.i.preheader.i1349
+_ZN2EA4StdC9Stopwatch7RestartEv.exit.i1347:       ; preds = %_ZN2EA4StdC9Stopwatch17GetStopwatchCycleEv.exit.i.i.i1343, %if.then2.i.i.i1360
+  %.sink.i.i.i1348 = phi i64 [ %304, %if.then2.i.i.i1360 ], [ %add.i.i.i.i1346, %_ZN2EA4StdC9Stopwatch17GetStopwatchCycleEv.exit.i.i.i1343 ]
+  store i64 %.sink.i.i.i1348, ptr %stopwatch1, align 8
+  br label %for.body12.i.i.preheader.i
 
-for.body12.i.i.preheader.i1349:                   ; preds = %_ZNSt6bitsetILm1500EErSEm.exit.i, %_ZN2EA4StdC9Stopwatch7RestartEv.exit.i1346
-  %i.03.i1350 = phi i32 [ 0, %_ZN2EA4StdC9Stopwatch7RestartEv.exit.i1346 ], [ %inc.i1355, %_ZNSt6bitsetILm1500EErSEm.exit.i ]
+for.body12.i.i.preheader.i:                       ; preds = %_ZNSt6bitsetILm1500EErSEm.exit.i, %_ZN2EA4StdC9Stopwatch7RestartEv.exit.i1347
+  %i.03.i1349 = phi i32 [ 0, %_ZN2EA4StdC9Stopwatch7RestartEv.exit.i1347 ], [ %inc.i1355, %_ZNSt6bitsetILm1500EErSEm.exit.i ]
   %.pre.i = load i64, ptr %stdBitset1500, align 8
   br label %for.body12.i.i.i
 
-for.body12.i.i.i:                                 ; preds = %for.body12.i.i.i, %for.body12.i.i.preheader.i1349
-  %307 = phi i64 [ %308, %for.body12.i.i.i ], [ %.pre.i, %for.body12.i.i.preheader.i1349 ]
-  %__n9.021.i.i.i = phi i64 [ %add18.i.i.i, %for.body12.i.i.i ], [ 0, %for.body12.i.i.preheader.i1349 ]
+for.body12.i.i.i:                                 ; preds = %for.body12.i.i.i, %for.body12.i.i.preheader.i
+  %307 = phi i64 [ %308, %for.body12.i.i.i ], [ %.pre.i, %for.body12.i.i.preheader.i ]
+  %__n9.021.i.i.i = phi i64 [ %add18.i.i.i, %for.body12.i.i.i ], [ 0, %for.body12.i.i.preheader.i ]
   %arrayidx15.i.i.i = getelementptr inbounds [24 x i64], ptr %stdBitset1500, i64 0, i64 %__n9.021.i.i.i
   %add18.i.i.i = add nuw nsw i64 %__n9.021.i.i.i, 1
-  %arrayidx19.i.i.i = getelementptr inbounds [24 x i64], ptr %stdBitset1500, i64 0, i64 %add18.i.i.i
-  %308 = load i64, ptr %arrayidx19.i.i.i, align 8
+  %arrayidx19.i.i.i1350 = getelementptr inbounds [24 x i64], ptr %stdBitset1500, i64 0, i64 %add18.i.i.i
+  %308 = load i64, ptr %arrayidx19.i.i.i1350, align 8
   %or.i.i.i1351 = call i64 @llvm.fshl.i64(i64 %308, i64 %307, i64 63)
   store i64 %or.i.i.i1351, ptr %arrayidx15.i.i.i, align 8
   %exitcond.not.i.i.i1352 = icmp eq i64 %add18.i.i.i, 23
@@ -3080,14 +3080,14 @@ _ZNSt6bitsetILm1500EErSEm.exit.i:                 ; preds = %for.body12.i.i.i
   %shr27.i.i.i1353 = lshr i64 %309, 1
   %and.i.i.i.i1354 = and i64 %shr27.i.i.i1353, 268435455
   store i64 %and.i.i.i.i1354, ptr %arrayidx.i.i.i.i156, align 8
-  call void (...) @_ZN9Benchmark9DoNothingEz(ptr noundef nonnull %temp.i1336)
-  %inc.i1355 = add nuw nsw i32 %i.03.i1350, 1
+  call void (...) @_ZN9Benchmark9DoNothingEz(ptr noundef nonnull %temp.i1337)
+  %inc.i1355 = add nuw nsw i32 %i.03.i1349, 1
   %exitcond.not.i1356 = icmp eq i32 %inc.i1355, 100000
-  br i1 %exitcond.not.i1356, label %for.end.i1357, label %for.body12.i.i.preheader.i1349, !llvm.loop !67
+  br i1 %exitcond.not.i1356, label %for.end.i1357, label %for.body12.i.i.preheader.i, !llvm.loop !67
 
 for.end.i1357:                                    ; preds = %_ZNSt6bitsetILm1500EErSEm.exit.i
   call void @_ZN2EA4StdC9Stopwatch4StopEv(ptr noundef nonnull align 8 dereferenceable(24) %stopwatch1)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %temp.i1336)
+  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %temp.i1337)
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %temp.i1364)
   store i64 0, ptr %temp.i1364, align 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %stopwatch2, i8 0, i64 16, i1 false)

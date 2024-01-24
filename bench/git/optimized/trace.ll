@@ -9,7 +9,6 @@ target triple = "x86_64-unknown-linux-gnu"
 %struct.tm = type { i32, i32, i32, i32, i32, i32, i32, i32, i32, i64, ptr }
 %struct.timespec = type { i64, i64 }
 %struct.__va_list_tag = type { i32, i32, ptr, ptr }
-%struct.startup_info = type { i32, ptr, ptr }
 
 @.str = private unnamed_addr constant [10 x i8] c"GIT_TRACE\00", align 1
 @trace_default_key = dso_local global %struct.trace_key { ptr @.str, i32 0, i8 0 }, align 8
@@ -55,14 +54,14 @@ target triple = "x86_64-unknown-linux-gnu"
 ; Function Attrs: nounwind uwtable
 define dso_local void @trace_override_envvar(ptr nocapture noundef %key, ptr noundef %value) local_unnamed_addr #0 {
 entry:
-  %need_close.i = getelementptr inbounds %struct.trace_key, ptr %key, i64 0, i32 2
+  %need_close.i = getelementptr inbounds i8, ptr %key, i64 12
   %bf.load.i = load i8, ptr %need_close.i, align 4
   %0 = and i8 %bf.load.i, 2
   %tobool.not.i = icmp eq i8 %0, 0
   br i1 %tobool.not.i, label %trace_disable.exit, label %if.then.i
 
 if.then.i:                                        ; preds = %entry
-  %fd.i = getelementptr inbounds %struct.trace_key, ptr %key, i64 0, i32 1
+  %fd.i = getelementptr inbounds i8, ptr %key, i64 8
   %1 = load i32, ptr %fd.i, align 8
   %call.i = tail call i32 @close(i32 noundef %1) #14
   %bf.load2.pre.i = load i8, ptr %need_close.i, align 4
@@ -70,7 +69,7 @@ if.then.i:                                        ; preds = %entry
 
 trace_disable.exit:                               ; preds = %entry, %if.then.i
   %bf.load2.i = phi i8 [ %bf.load2.pre.i, %if.then.i ], [ %bf.load.i, %entry ]
-  %fd1.i = getelementptr inbounds %struct.trace_key, ptr %key, i64 0, i32 1
+  %fd1.i = getelementptr inbounds i8, ptr %key, i64 8
   store i32 0, ptr %fd1.i, align 8
   %bf.set.i = and i8 %bf.load2.i, -4
   store i8 %bf.set.i, ptr %need_close.i, align 4
@@ -81,14 +80,14 @@ trace_disable.exit:                               ; preds = %entry, %if.then.i
 ; Function Attrs: nounwind uwtable
 define dso_local void @trace_disable(ptr nocapture noundef %key) local_unnamed_addr #0 {
 entry:
-  %need_close = getelementptr inbounds %struct.trace_key, ptr %key, i64 0, i32 2
+  %need_close = getelementptr inbounds i8, ptr %key, i64 12
   %bf.load = load i8, ptr %need_close, align 4
   %0 = and i8 %bf.load, 2
   %tobool.not = icmp eq i8 %0, 0
   br i1 %tobool.not, label %if.end, label %if.then
 
 if.then:                                          ; preds = %entry
-  %fd = getelementptr inbounds %struct.trace_key, ptr %key, i64 0, i32 1
+  %fd = getelementptr inbounds i8, ptr %key, i64 8
   %1 = load i32, ptr %fd, align 8
   %call = tail call i32 @close(i32 noundef %1) #14
   %bf.load2.pre = load i8, ptr %need_close, align 4
@@ -96,7 +95,7 @@ if.then:                                          ; preds = %entry
 
 if.end:                                           ; preds = %if.then, %entry
   %bf.load2 = phi i8 [ %bf.load2.pre, %if.then ], [ %bf.load, %entry ]
-  %fd1 = getelementptr inbounds %struct.trace_key, ptr %key, i64 0, i32 1
+  %fd1 = getelementptr inbounds i8, ptr %key, i64 8
   store i32 0, ptr %fd1, align 8
   %bf.set = and i8 %bf.load2, -4
   %bf.clear6 = or disjoint i8 %bf.set, 1
@@ -107,7 +106,7 @@ if.end:                                           ; preds = %if.then, %entry
 ; Function Attrs: nounwind uwtable
 define internal fastcc i32 @get_trace_fd(ptr nocapture noundef %key, ptr noundef %override_envvar) unnamed_addr #0 {
 entry:
-  %initialized = getelementptr inbounds %struct.trace_key, ptr %key, i64 0, i32 2
+  %initialized = getelementptr inbounds i8, ptr %key, i64 12
   %bf.load = load i8, ptr %initialized, align 4
   %bf.clear = and i8 %bf.load, 1
   %tobool.not = icmp eq i8 %bf.clear, 0
@@ -140,7 +139,7 @@ lor.lhs.false9:                                   ; preds = %lor.lhs.false6
   br i1 %tobool11.not, label %if.then12, label %if.else
 
 if.then12:                                        ; preds = %lor.lhs.false9, %lor.lhs.false6, %lor.lhs.false, %cond.end
-  %fd13 = getelementptr inbounds %struct.trace_key, ptr %key, i64 0, i32 1
+  %fd13 = getelementptr inbounds i8, ptr %key, i64 8
   store i32 0, ptr %fd13, align 8
   br label %if.end50
 
@@ -155,7 +154,7 @@ lor.lhs.false16:                                  ; preds = %if.else
   br i1 %tobool18.not, label %if.then19, label %if.else21
 
 if.then19:                                        ; preds = %lor.lhs.false16, %if.else
-  %fd20 = getelementptr inbounds %struct.trace_key, ptr %key, i64 0, i32 1
+  %fd20 = getelementptr inbounds i8, ptr %key, i64 8
   store i32 2, ptr %fd20, align 8
   br label %if.end50
 
@@ -174,7 +173,7 @@ land.lhs.true:                                    ; preds = %if.else21
 
 if.then25:                                        ; preds = %land.lhs.true
   %call26 = tail call i32 @atoi(ptr nocapture noundef nonnull %cond30) #15
-  %fd27 = getelementptr inbounds %struct.trace_key, ptr %key, i64 0, i32 1
+  %fd27 = getelementptr inbounds i8, ptr %key, i64 8
   store i32 %call26, ptr %fd27, align 8
   br label %if.end50
 
@@ -196,7 +195,7 @@ if.then36:                                        ; preds = %if.then31
   br label %if.end50
 
 if.else39:                                        ; preds = %if.then31
-  %fd40 = getelementptr inbounds %struct.trace_key, ptr %key, i64 0, i32 1
+  %fd40 = getelementptr inbounds i8, ptr %key, i64 8
   store i32 %call33, ptr %fd40, align 8
   %bf.load41 = load i8, ptr %initialized, align 4
   %bf.set = or i8 %bf.load41, 2
@@ -216,7 +215,7 @@ if.end50:                                         ; preds = %if.then19, %if.else
   br label %return
 
 return:                                           ; preds = %entry, %if.end50
-  %retval.0.in = getelementptr inbounds %struct.trace_key, ptr %key, i64 0, i32 1
+  %retval.0.in = getelementptr inbounds i8, ptr %key, i64 8
   %retval.0 = load i32, ptr %retval.0.in, align 8
   ret i32 %retval.0
 }
@@ -262,14 +261,14 @@ if.then:                                          ; preds = %entry
   %1 = load i32, ptr %call4, align 4
   %call5 = tail call ptr @strerror(i32 noundef %1) #14
   tail call void (ptr, ...) @warning(ptr noundef nonnull @.str.18, ptr noundef %0, ptr noundef %call5) #14
-  %need_close.i = getelementptr inbounds %struct.trace_key, ptr %key, i64 0, i32 2
+  %need_close.i = getelementptr inbounds i8, ptr %key, i64 12
   %bf.load.i = load i8, ptr %need_close.i, align 4
   %2 = and i8 %bf.load.i, 2
   %tobool.not.i = icmp eq i8 %2, 0
   br i1 %tobool.not.i, label %trace_disable.exit, label %if.then.i
 
 if.then.i:                                        ; preds = %if.then
-  %fd.i = getelementptr inbounds %struct.trace_key, ptr %key, i64 0, i32 1
+  %fd.i = getelementptr inbounds i8, ptr %key, i64 8
   %3 = load i32, ptr %fd.i, align 8
   %call.i = tail call i32 @close(i32 noundef %3) #14
   %bf.load2.pre.i = load i8, ptr %need_close.i, align 4
@@ -277,7 +276,7 @@ if.then.i:                                        ; preds = %if.then
 
 trace_disable.exit:                               ; preds = %if.then, %if.then.i
   %bf.load2.i = phi i8 [ %bf.load2.pre.i, %if.then.i ], [ %bf.load.i, %if.then ]
-  %fd1.i = getelementptr inbounds %struct.trace_key, ptr %key, i64 0, i32 1
+  %fd1.i = getelementptr inbounds i8, ptr %key, i64 8
   store i32 0, ptr %fd1.i, align 8
   %bf.set.i = and i8 %bf.load2.i, -4
   %bf.clear6.i = or disjoint i8 %bf.set.i, 1
@@ -299,13 +298,13 @@ entry:
 
 if.end:                                           ; preds = %entry
   call void @strbuf_addbuf(ptr noundef nonnull %buf, ptr noundef %data) #14
-  %len.i.i.i = getelementptr inbounds %struct.strbuf, ptr %buf, i64 0, i32 1
+  %len.i.i.i = getelementptr inbounds i8, ptr %buf, i64 8
   %0 = load i64, ptr %len.i.i.i, align 8
   %tobool.not.i.i.i = icmp eq i64 %0, 0
   br i1 %tobool.not.i.i.i, label %print_trace_line.exit, label %land.lhs.true.i.i.i
 
 land.lhs.true.i.i.i:                              ; preds = %if.end
-  %buf.i.i.i = getelementptr inbounds %struct.strbuf, ptr %buf, i64 0, i32 2
+  %buf.i.i.i = getelementptr inbounds i8, ptr %buf, i64 16
   %1 = load ptr, ptr %buf.i.i.i, align 8
   %2 = getelementptr i8, ptr %1, i64 %0
   %arrayidx.i.i.i = getelementptr i8, ptr %2, i64 -1
@@ -344,7 +343,7 @@ strbuf_addch.exit.i.i.i:                          ; preds = %if.then.i.i.i.i, %i
 
 print_trace_line.exit:                            ; preds = %if.end, %land.lhs.true.i.i.i, %strbuf_addch.exit.i.i.i
   %9 = phi i64 [ 0, %if.end ], [ %0, %land.lhs.true.i.i.i ], [ %.pre.i, %strbuf_addch.exit.i.i.i ]
-  %buf1.i = getelementptr inbounds %struct.strbuf, ptr %buf, i64 0, i32 2
+  %buf1.i = getelementptr inbounds i8, ptr %buf, i64 16
   %10 = load ptr, ptr %buf1.i, align 8
   %conv.i = trunc i64 %9 to i32
   call fastcc void @trace_write(ptr noundef %key, ptr noundef %10, i32 noundef %conv.i)
@@ -378,21 +377,21 @@ if.end4:                                          ; preds = %if.end
   %0 = load i64, ptr %tv, align 8
   store i64 %0, ptr %secs, align 8
   %call6 = call ptr @localtime_r(ptr noundef nonnull %secs, ptr noundef nonnull %tm) #14
-  %tm_hour = getelementptr inbounds %struct.tm, ptr %tm, i64 0, i32 2
+  %tm_hour = getelementptr inbounds i8, ptr %tm, i64 8
   %1 = load i32, ptr %tm_hour, align 8
-  %tm_min = getelementptr inbounds %struct.tm, ptr %tm, i64 0, i32 1
+  %tm_min = getelementptr inbounds i8, ptr %tm, i64 4
   %2 = load i32, ptr %tm_min, align 4
   %3 = load i32, ptr %tm, align 8
-  %tv_usec = getelementptr inbounds %struct.timeval, ptr %tv, i64 0, i32 1
+  %tv_usec = getelementptr inbounds i8, ptr %tv, i64 8
   %4 = load i64, ptr %tv_usec, align 8
   call void (ptr, ptr, ...) @strbuf_addf(ptr noundef %buf, ptr noundef nonnull @.str.20, i32 noundef %1, i32 noundef %2, i32 noundef %3, i64 noundef %4, ptr noundef %file, i32 noundef %line) #14
-  %len = getelementptr inbounds %struct.strbuf, ptr %buf, i64 0, i32 1
+  %len = getelementptr inbounds i8, ptr %buf, i64 8
   %5 = load i64, ptr %len, align 8
   %cmp6 = icmp ult i64 %5, 40
   br i1 %cmp6, label %while.body.lr.ph, label %return
 
 while.body.lr.ph:                                 ; preds = %if.end4
-  %buf.i = getelementptr inbounds %struct.strbuf, ptr %buf, i64 0, i32 2
+  %buf.i = getelementptr inbounds i8, ptr %buf, i64 16
   br label %while.body
 
 while.body:                                       ; preds = %while.body.lr.ph, %strbuf_addch.exit
@@ -484,7 +483,7 @@ if.then:                                          ; preds = %entry
 if.end.i:                                         ; preds = %if.then
   %1 = load i64, ptr %ts.i, align 8
   %mul.i = mul i64 %1, 1000000000
-  %tv_nsec.i = getelementptr inbounds %struct.timespec, ptr %ts.i, i64 0, i32 1
+  %tv_nsec.i = getelementptr inbounds i8, ptr %ts.i, i64 8
   %2 = load i64, ptr %tv_nsec.i, align 8
   %add.i = add i64 %mul.i, %2
   br label %highres_nanos.exit
@@ -504,7 +503,7 @@ if.then2:                                         ; preds = %if.else
   %call.i3 = call i32 @gettimeofday(ptr noundef nonnull %tv.i, ptr noundef null) #14
   %3 = load i64, ptr %tv.i, align 8
   %mul.i4 = mul i64 %3, 1000000000
-  %tv_usec.i = getelementptr inbounds %struct.timeval, ptr %tv.i, i64 0, i32 1
+  %tv_usec.i = getelementptr inbounds i8, ptr %tv.i, i64 8
   %4 = load i64, ptr %tv_usec.i, align 8
   %mul1.i = mul nsw i64 %4, 1000
   %add.i5 = add i64 %mul1.i, %mul.i4
@@ -516,7 +515,7 @@ if.else4:                                         ; preds = %if.else
   %call.i7 = call i32 @gettimeofday(ptr noundef nonnull %tv.i6, ptr noundef null) #14
   %5 = load i64, ptr %tv.i6, align 8
   %mul.i8 = mul i64 %5, 1000000000
-  %tv_usec.i9 = getelementptr inbounds %struct.timeval, ptr %tv.i6, i64 0, i32 1
+  %tv_usec.i9 = getelementptr inbounds i8, ptr %tv.i6, i64 8
   %6 = load i64, ptr %tv_usec.i9, align 8
   %mul1.i10 = mul nsw i64 %6, 1000
   %add.i11 = add i64 %mul1.i10, %mul.i8
@@ -533,7 +532,7 @@ highres_nanos.exit20.thread:                      ; preds = %if.else4
 highres_nanos.exit20:                             ; preds = %if.else4
   %7 = load i64, ptr %ts.i12, align 8
   %mul.i17 = mul i64 %7, 1000000000
-  %tv_nsec.i18 = getelementptr inbounds %struct.timespec, ptr %ts.i12, i64 0, i32 1
+  %tv_nsec.i18 = getelementptr inbounds i8, ptr %ts.i12, i64 8
   %8 = load i64, ptr %tv_nsec.i18, align 8
   %add.i19 = add i64 %mul.i17, %8
   %add.i19.fr = freeze i64 %add.i19
@@ -572,13 +571,13 @@ entry:
 
 if.end.i:                                         ; preds = %entry
   call void @strbuf_vaddf(ptr noundef nonnull %buf.i, ptr noundef %format, ptr noundef nonnull %ap) #14
-  %len.i.i.i.i = getelementptr inbounds %struct.strbuf, ptr %buf.i, i64 0, i32 1
+  %len.i.i.i.i = getelementptr inbounds i8, ptr %buf.i, i64 8
   %0 = load i64, ptr %len.i.i.i.i, align 8
   %tobool.not.i.i.i.i = icmp eq i64 %0, 0
   br i1 %tobool.not.i.i.i.i, label %print_trace_line.exit.i, label %land.lhs.true.i.i.i.i
 
 land.lhs.true.i.i.i.i:                            ; preds = %if.end.i
-  %buf.i.i.i.i = getelementptr inbounds %struct.strbuf, ptr %buf.i, i64 0, i32 2
+  %buf.i.i.i.i = getelementptr inbounds i8, ptr %buf.i, i64 16
   %1 = load ptr, ptr %buf.i.i.i.i, align 8
   %2 = getelementptr i8, ptr %1, i64 %0
   %arrayidx.i.i.i.i = getelementptr i8, ptr %2, i64 -1
@@ -617,7 +616,7 @@ strbuf_addch.exit.i.i.i.i:                        ; preds = %if.then.i.i.i.i.i, 
 
 print_trace_line.exit.i:                          ; preds = %strbuf_addch.exit.i.i.i.i, %land.lhs.true.i.i.i.i, %if.end.i
   %9 = phi i64 [ 0, %if.end.i ], [ %0, %land.lhs.true.i.i.i.i ], [ %.pre.i.i, %strbuf_addch.exit.i.i.i.i ]
-  %buf1.i.i = getelementptr inbounds %struct.strbuf, ptr %buf.i, i64 0, i32 2
+  %buf1.i.i = getelementptr inbounds i8, ptr %buf.i, i64 16
   %10 = load ptr, ptr %buf1.i.i, align 8
   %conv.i.i = trunc i64 %9 to i32
   call fastcc void @trace_write(ptr noundef %key, ptr noundef %10, i32 noundef %conv.i.i)
@@ -651,13 +650,13 @@ entry:
 if.end.i:                                         ; preds = %entry
   call void @strbuf_vaddf(ptr noundef nonnull %buf.i, ptr noundef %format, ptr noundef nonnull %ap) #14
   call void @sq_quote_argv_pretty(ptr noundef nonnull %buf.i, ptr noundef %argv) #14
-  %len.i.i.i.i = getelementptr inbounds %struct.strbuf, ptr %buf.i, i64 0, i32 1
+  %len.i.i.i.i = getelementptr inbounds i8, ptr %buf.i, i64 8
   %0 = load i64, ptr %len.i.i.i.i, align 8
   %tobool.not.i.i.i.i = icmp eq i64 %0, 0
   br i1 %tobool.not.i.i.i.i, label %print_trace_line.exit.i, label %land.lhs.true.i.i.i.i
 
 land.lhs.true.i.i.i.i:                            ; preds = %if.end.i
-  %buf.i.i.i.i = getelementptr inbounds %struct.strbuf, ptr %buf.i, i64 0, i32 2
+  %buf.i.i.i.i = getelementptr inbounds i8, ptr %buf.i, i64 16
   %1 = load ptr, ptr %buf.i.i.i.i, align 8
   %2 = getelementptr i8, ptr %1, i64 %0
   %arrayidx.i.i.i.i = getelementptr i8, ptr %2, i64 -1
@@ -696,7 +695,7 @@ strbuf_addch.exit.i.i.i.i:                        ; preds = %if.then.i.i.i.i.i, 
 
 print_trace_line.exit.i:                          ; preds = %strbuf_addch.exit.i.i.i.i, %land.lhs.true.i.i.i.i, %if.end.i
   %9 = phi i64 [ 0, %if.end.i ], [ %0, %land.lhs.true.i.i.i.i ], [ %.pre.i.i, %strbuf_addch.exit.i.i.i.i ]
-  %buf1.i.i = getelementptr inbounds %struct.strbuf, ptr %buf.i, i64 0, i32 2
+  %buf1.i.i = getelementptr inbounds i8, ptr %buf.i, i64 16
   %10 = load ptr, ptr %buf1.i.i, align 8
   %conv.i.i = trunc i64 %9 to i32
   call fastcc void @trace_write(ptr noundef nonnull @trace_default_key, ptr noundef %10, i32 noundef %conv.i.i)
@@ -755,13 +754,13 @@ if.end8:                                          ; preds = %if.then4
   br label %if.end9
 
 if.end9:                                          ; preds = %if.end8, %land.lhs.true, %if.end
-  %len.i.i.i = getelementptr inbounds %struct.strbuf, ptr %buf, i64 0, i32 1
+  %len.i.i.i = getelementptr inbounds i8, ptr %buf, i64 8
   %2 = load i64, ptr %len.i.i.i, align 8
   %tobool.not.i.i.i = icmp eq i64 %2, 0
   br i1 %tobool.not.i.i.i, label %print_trace_line.exit, label %land.lhs.true.i.i.i
 
 land.lhs.true.i.i.i:                              ; preds = %if.end9
-  %buf.i.i.i = getelementptr inbounds %struct.strbuf, ptr %buf, i64 0, i32 2
+  %buf.i.i.i = getelementptr inbounds i8, ptr %buf, i64 16
   %3 = load ptr, ptr %buf.i.i.i, align 8
   %4 = getelementptr i8, ptr %3, i64 %2
   %arrayidx.i.i.i = getelementptr i8, ptr %4, i64 -1
@@ -800,7 +799,7 @@ strbuf_addch.exit.i.i.i:                          ; preds = %if.then.i.i.i.i, %i
 
 print_trace_line.exit:                            ; preds = %if.end9, %land.lhs.true.i.i.i, %strbuf_addch.exit.i.i.i
   %11 = phi i64 [ 0, %if.end9 ], [ %2, %land.lhs.true.i.i.i ], [ %.pre.i, %strbuf_addch.exit.i.i.i ]
-  %buf1.i = getelementptr inbounds %struct.strbuf, ptr %buf, i64 0, i32 2
+  %buf1.i = getelementptr inbounds i8, ptr %buf, i64 16
   %12 = load ptr, ptr %buf1.i, align 8
   %conv.i = trunc i64 %11 to i32
   call fastcc void @trace_write(ptr noundef nonnull @trace_perf_key, ptr noundef %12, i32 noundef %conv.i)
@@ -847,7 +846,7 @@ return:                                           ; preds = %if.end, %if.end3
 define dso_local void @trace_repo_setup() local_unnamed_addr #0 {
 entry:
   %0 = load ptr, ptr @startup_info, align 8
-  %prefix1 = getelementptr inbounds %struct.startup_info, ptr %0, i64 0, i32 1
+  %prefix1 = getelementptr inbounds i8, ptr %0, i64 8
   %1 = load ptr, ptr %prefix1, align 8
   %call.i = tail call fastcc i32 @get_trace_fd(ptr noundef nonnull @trace_setup_key, ptr noundef null)
   %tobool.i.not = icmp eq i32 %call.i, 0
@@ -859,7 +858,7 @@ if.end:                                           ; preds = %entry
   %tobool4.not = icmp eq ptr %call3, null
   %spec.store.select = select i1 %tobool4.not, ptr @.str.5, ptr %call3
   %2 = load ptr, ptr @startup_info, align 8
-  %prefix7 = getelementptr inbounds %struct.startup_info, ptr %2, i64 0, i32 1
+  %prefix7 = getelementptr inbounds i8, ptr %2, i64 8
   %3 = load ptr, ptr %prefix7, align 8
   %tobool8.not = icmp eq ptr %3, null
   %spec.select = select i1 %tobool8.not, ptr @.str.5, ptr %1

@@ -15,7 +15,7 @@ define hidden i32 @"_ZN81_$LT$core..str..iter..Chars$u20$as$u20$core..iter..trai
 
 ; Function Attrs: inlinehint nonlazybind uwtable
 define hidden { i64, i32 } @"_ZN87_$LT$core..str..iter..CharIndices$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h3e456033bd3c613dE"(ptr align 8 %0) unnamed_addr #0 {
-  %2 = getelementptr inbounds { ptr, ptr }, ptr %0, i64 0, i32 1
+  %2 = getelementptr inbounds i8, ptr %0, i64 8
   %3 = load ptr, ptr %2, align 8, !nonnull !5, !noundef !5
   %4 = load ptr, ptr %0, align 8, !nonnull !5, !noundef !5
   %5 = tail call { i32, i32 } @_ZN4core3str11validations15next_code_point17hab26e5bff74b0737E(ptr nonnull align 8 %0)
@@ -29,7 +29,7 @@ define hidden { i64, i32 } @"_ZN87_$LT$core..str..iter..CharIndices$u20$as$u20$c
 9:                                                ; preds = %1
   %10 = ptrtoint ptr %3 to i64
   %11 = ptrtoint ptr %4 to i64
-  %12 = getelementptr inbounds { { ptr, ptr }, i64 }, ptr %0, i64 0, i32 1
+  %12 = getelementptr inbounds i8, ptr %0, i64 16
   %13 = load i64, ptr %12, align 8, !noundef !5
   %14 = load ptr, ptr %2, align 8, !nonnull !5, !noundef !5
   %15 = load ptr, ptr %0, align 8, !nonnull !5, !noundef !5

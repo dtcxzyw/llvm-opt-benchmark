@@ -3,7 +3,6 @@ source_filename = "bench/chibicc/original/strings.ll"
 target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:128-n8:16:32:64-S128"
 target triple = "x86_64-unknown-linux-gnu"
 
-%struct.StringArray = type { ptr, i32, i32 }
 %struct.__va_list_tag = type { i32, i32, ptr, ptr }
 
 ; Function Attrs: nounwind uwtable
@@ -14,22 +13,22 @@ entry:
   br i1 %tobool.not, label %if.then, label %entry.if.end_crit_edge
 
 entry.if.end_crit_edge:                           ; preds = %entry
-  %capacity2.phi.trans.insert = getelementptr inbounds %struct.StringArray, ptr %arr, i64 0, i32 1
+  %capacity2.phi.trans.insert = getelementptr inbounds i8, ptr %arr, i64 8
   %.pre = load i32, ptr %capacity2.phi.trans.insert, align 8
   br label %if.end
 
 if.then:                                          ; preds = %entry
   %call = tail call noalias dereferenceable_or_null(64) ptr @calloc(i64 noundef 8, i64 noundef 8) #6
   store ptr %call, ptr %arr, align 8
-  %capacity = getelementptr inbounds %struct.StringArray, ptr %arr, i64 0, i32 1
+  %capacity = getelementptr inbounds i8, ptr %arr, i64 8
   store i32 8, ptr %capacity, align 8
   br label %if.end
 
 if.end:                                           ; preds = %entry.if.end_crit_edge, %if.then
   %1 = phi ptr [ %0, %entry.if.end_crit_edge ], [ %call, %if.then ]
   %2 = phi i32 [ %.pre, %entry.if.end_crit_edge ], [ 8, %if.then ]
-  %capacity2 = getelementptr inbounds %struct.StringArray, ptr %arr, i64 0, i32 1
-  %len = getelementptr inbounds %struct.StringArray, ptr %arr, i64 0, i32 2
+  %capacity2 = getelementptr inbounds i8, ptr %arr, i64 8
+  %len = getelementptr inbounds i8, ptr %arr, i64 12
   %3 = load i32, ptr %len, align 4
   %cmp = icmp eq i32 %2, %3
   br i1 %cmp, label %if.then3, label %if.end16

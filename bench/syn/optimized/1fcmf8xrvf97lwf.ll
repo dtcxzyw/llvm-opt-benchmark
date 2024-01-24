@@ -27,7 +27,7 @@ define void @_ZN3syn4meta15ParseNestedMeta5value17hc90e3dc1e39825e7E(ptr sret({ 
 
 9:                                                ; preds = %2
   %10 = load ptr, ptr %1, align 8, !nonnull !5, !align !6, !noundef !5
-  %11 = getelementptr inbounds { [1 x i64], ptr }, ptr %0, i64 0, i32 1
+  %11 = getelementptr inbounds i8, ptr %0, i64 8
   store ptr %10, ptr %11, align 8
   store ptr null, ptr %0, align 8
   br label %13
@@ -72,7 +72,7 @@ define void @_ZN3syn4meta15parse_meta_path17h20dbab31b60680b9E(ptr sret({ [8 x i
   br i1 %26, label %27, label %30
 
 27:                                               ; preds = %2
-  %28 = getelementptr inbounds { [2 x i32], { i32, [2 x i32] } }, ptr %23, i64 0, i32 1
+  %28 = getelementptr inbounds i8, ptr %23, i64 8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %20, ptr noundef nonnull align 8 dereferenceable(12) %28, i64 12, i1 false)
   call void @"_ZN3syn10punctuated23Punctuated$LT$T$C$P$GT$3new17hb170ec63bfa68d7aE"(ptr nonnull sret({ { { ptr, i64 }, i64 }, ptr }) align 8 %19)
   %29 = invoke zeroext i1 @_ZN3syn5parse11ParseBuffer4peek17h862e389e76a62467E(ptr align 8 %1)
@@ -134,7 +134,7 @@ define void @_ZN3syn4meta15parse_meta_path17h20dbab31b60680b9E(ptr sret({ [8 x i
 .sink.split:                                      ; preds = %41, %39, %42
   %.sink = phi ptr [ %12, %42 ], [ %13, %39 ], [ %11, %41 ]
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr noundef nonnull align 8 dereferenceable(24) %.sink, i64 24, i1 false)
-  %43 = getelementptr inbounds { [8 x i32], i32, [3 x i32] }, ptr %0, i64 0, i32 1
+  %43 = getelementptr inbounds i8, ptr %0, i64 32
   store i32 2, ptr %43, align 8
   br label %44
 
@@ -147,7 +147,7 @@ define void @_ZN3syn4meta15parse_meta_path17h20dbab31b60680b9E(ptr sret({ [8 x i
           to label %46 unwind label %.loopexit.split-lp
 
 46:                                               ; preds = %45
-  %47 = getelementptr inbounds { [24 x i8], i8, [7 x i8] }, ptr %18, i64 0, i32 1
+  %47 = getelementptr inbounds i8, ptr %18, i64 24
   %48 = load i8, ptr %47, align 8, !range !7, !noundef !5
   %.not = icmp eq i8 %48, 3
   br i1 %.not, label %50, label %49
@@ -177,8 +177,8 @@ define void @_ZN3syn4meta15parse_meta_path17h20dbab31b60680b9E(ptr sret({ [8 x i
           to label %.preheader unwind label %53
 
 .preheader:                                       ; preds = %55
-  %56 = getelementptr inbounds { [2 x i32], { [2 x i32] } }, ptr %10, i64 0, i32 1
-  %57 = getelementptr inbounds { [24 x i8], i8, [7 x i8] }, ptr %7, i64 0, i32 1
+  %56 = getelementptr inbounds i8, ptr %10, i64 8
+  %57 = getelementptr inbounds i8, ptr %7, i64 24
   br label %58
 
 58:                                               ; preds = %.preheader, %79
@@ -190,7 +190,7 @@ define void @_ZN3syn4meta15parse_meta_path17h20dbab31b60680b9E(ptr sret({ [8 x i
 
 61:                                               ; preds = %60
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %24, ptr noundef nonnull align 8 dereferenceable(32) %19, i64 32, i1 false)
-  %62 = getelementptr inbounds { { { { ptr, i64 }, i64 }, ptr }, { i32, [2 x i32] }, [1 x i32] }, ptr %24, i64 0, i32 1
+  %62 = getelementptr inbounds i8, ptr %24, i64 32
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(12) %62, ptr noundef nonnull align 4 dereferenceable(12) %20, i64 12, i1 false)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %0, ptr noundef nonnull align 8 dereferenceable(48) %24, i64 48, i1 false)
   br label %64

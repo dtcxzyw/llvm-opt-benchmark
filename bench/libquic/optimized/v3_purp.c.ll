@@ -7,14 +7,6 @@ target triple = "x86_64-unknown-linux-gnu"
 %struct.CRYPTO_STATIC_MUTEX = type { %union.pthread_rwlock_t }
 %union.pthread_rwlock_t = type { %struct.__pthread_rwlock_arch_t }
 %struct.__pthread_rwlock_arch_t = type { i32, i32, i32, i32, i32, i32, i32, i32, i8, [7 x i8], i64, i32 }
-%struct.x509_st = type { ptr, ptr, ptr, i32, i32, ptr, %struct.crypto_ex_data_st, i64, i64, i64, i64, i64, i64, ptr, ptr, ptr, ptr, ptr, ptr, [20 x i8], ptr }
-%struct.crypto_ex_data_st = type { ptr }
-%struct.BASIC_CONSTRAINTS_st = type { i32, ptr }
-%struct.asn1_string_st = type { i32, i32, ptr, i64 }
-%struct.DIST_POINT_st = type { ptr, ptr, ptr, i32 }
-%struct.GENERAL_NAME_st = type { i32, %union.anon }
-%union.anon = type { ptr }
-%struct.AUTHORITY_KEYID_st = type { ptr, ptr, ptr }
 
 @.str = private unnamed_addr constant [127 x i8] c"generated/home/dtcxzyw/WorkSpace/Projects/compilers/llvm-opt-benchmark/bench/libquic/libquic/boringssl/crypto/x509v3/v3_purp.c\00", align 1
 @xptable = internal unnamed_addr global ptr null, align 8
@@ -45,7 +37,7 @@ define hidden i32 @X509_check_purpose(ptr noundef %x, i32 noundef %id, i32 nound
 entry:
   %tmp.i = alloca %struct.x509_purpose_st, align 8
   %idx.i = alloca i64, align 8
-  %ex_flags = getelementptr inbounds %struct.x509_st, ptr %x, i64 0, i32 9
+  %ex_flags = getelementptr inbounds i8, ptr %x, i64 64
   %0 = load i64, ptr %ex_flags, align 8
   %and = and i64 %0, 256
   %tobool.not = icmp eq i64 %and, 0
@@ -119,7 +111,7 @@ if.end3.i:                                        ; preds = %if.end.i6
 
 X509_PURPOSE_get0.exit:                           ; preds = %if.end5, %if.then2.i, %if.end3.i
   %retval.0.i9 = phi ptr [ %add.ptr.i, %if.then2.i ], [ %call.i8, %if.end3.i ], [ null, %if.end5 ]
-  %check_purpose = getelementptr inbounds %struct.x509_purpose_st, ptr %retval.0.i9, i64 0, i32 3
+  %check_purpose = getelementptr inbounds i8, ptr %retval.0.i9, i64 16
   %6 = load ptr, ptr %check_purpose, align 8
   %call7 = call i32 %6(ptr noundef %retval.0.i9, ptr noundef nonnull %x, i32 noundef %ca) #10
   br label %return
@@ -135,7 +127,7 @@ entry:
   %ex_nid.i = alloca i32, align 4
   %j = alloca i32, align 4
   tail call void @CRYPTO_STATIC_MUTEX_lock_write(ptr noundef nonnull @g_x509_cache_extensions_lock) #10
-  %ex_flags = getelementptr inbounds %struct.x509_st, ptr %x, i64 0, i32 9
+  %ex_flags = getelementptr inbounds i8, ptr %x, i64 64
   %0 = load i64, ptr %ex_flags, align 8
   %and = and i64 %0, 256
   %tobool.not = icmp eq i64 %and, 0
@@ -147,7 +139,7 @@ if.then:                                          ; preds = %entry
 
 if.end:                                           ; preds = %entry
   %call = tail call ptr @EVP_sha1() #10
-  %sha1_hash = getelementptr inbounds %struct.x509_st, ptr %x, i64 0, i32 19
+  %sha1_hash = getelementptr inbounds i8, ptr %x, i64 144
   %call1 = tail call i32 @X509_digest(ptr noundef nonnull %x, ptr noundef %call, ptr noundef nonnull %sha1_hash, ptr noundef null) #10
   %1 = load ptr, ptr %x, align 8
   %2 = load ptr, ptr %1, align 8
@@ -178,13 +170,13 @@ if.then11:                                        ; preds = %if.then9
   br label %if.end14
 
 if.end14:                                         ; preds = %if.then11, %if.then9
-  %pathlen = getelementptr inbounds %struct.BASIC_CONSTRAINTS_st, ptr %call7, i64 0, i32 1
+  %pathlen = getelementptr inbounds i8, ptr %call7, i64 8
   %6 = load ptr, ptr %pathlen, align 8
   %tobool15.not = icmp eq ptr %6, null
   br i1 %tobool15.not, label %if.end29, label %if.then16
 
 if.then16:                                        ; preds = %if.end14
-  %type = getelementptr inbounds %struct.asn1_string_st, ptr %6, i64 0, i32 1
+  %type = getelementptr inbounds i8, ptr %6, i64 4
   %7 = load i32, ptr %type, align 4
   %cmp = icmp eq i32 %7, 258
   br i1 %cmp, label %if.then20, label %lor.lhs.false
@@ -206,7 +198,7 @@ if.else:                                          ; preds = %lor.lhs.false
 
 if.end29:                                         ; preds = %if.end14, %if.then20, %if.else
   %.sink98 = phi i64 [ 0, %if.then20 ], [ %call24, %if.else ], [ -1, %if.end14 ]
-  %ex_pathlen = getelementptr inbounds %struct.x509_st, ptr %x, i64 0, i32 7
+  %ex_pathlen = getelementptr inbounds i8, ptr %x, i64 48
   store i64 %.sink98, ptr %ex_pathlen, align 8
   tail call void @BASIC_CONSTRAINTS_free(ptr noundef nonnull %call7) #10
   %10 = load i64, ptr %ex_flags, align 8
@@ -252,7 +244,7 @@ if.then50:                                        ; preds = %if.end48
 
 if.end55:                                         ; preds = %if.end48, %if.then50
   %call52.sink = phi i64 [ %call52, %if.then50 ], [ -1, %if.end48 ]
-  %14 = getelementptr inbounds %struct.x509_st, ptr %x, i64 0, i32 8
+  %14 = getelementptr inbounds i8, ptr %x, i64 56
   store i64 %call52.sink, ptr %14, align 8
   tail call void @PROXY_CERT_INFO_EXTENSION_free(ptr noundef nonnull %call33) #10
   %15 = load i64, ptr %ex_flags, align 8
@@ -271,11 +263,11 @@ if.then61:                                        ; preds = %if.end58
   br i1 %cmp62, label %if.then63, label %if.else75
 
 if.then63:                                        ; preds = %if.then61
-  %data = getelementptr inbounds %struct.asn1_string_st, ptr %call59, i64 0, i32 2
+  %data = getelementptr inbounds i8, ptr %call59, i64 8
   %17 = load ptr, ptr %data, align 8
   %18 = load i8, ptr %17, align 1
   %conv = zext i8 %18 to i64
-  %ex_kusage = getelementptr inbounds %struct.x509_st, ptr %x, i64 0, i32 10
+  %ex_kusage = getelementptr inbounds i8, ptr %x, i64 72
   store i64 %conv, ptr %ex_kusage, align 8
   %19 = load i32, ptr %call59, align 8
   %cmp65 = icmp sgt i32 %19, 1
@@ -292,7 +284,7 @@ if.then67:                                        ; preds = %if.then63
   br label %if.end77
 
 if.else75:                                        ; preds = %if.then61
-  %ex_kusage76 = getelementptr inbounds %struct.x509_st, ptr %x, i64 0, i32 10
+  %ex_kusage76 = getelementptr inbounds i8, ptr %x, i64 72
   store i64 0, ptr %ex_kusage76, align 8
   br label %if.end77
 
@@ -304,7 +296,7 @@ if.end77:                                         ; preds = %if.then63, %if.then
   br label %if.end80
 
 if.end80:                                         ; preds = %if.end77, %if.end58
-  %ex_xkusage = getelementptr inbounds %struct.x509_st, ptr %x, i64 0, i32 11
+  %ex_xkusage = getelementptr inbounds i8, ptr %x, i64 80
   store i64 0, ptr %ex_xkusage, align 8
   %call81 = tail call ptr @X509_get_ext_d2i(ptr noundef nonnull %x, i32 noundef 126, ptr noundef null, ptr noundef null) #10
   %tobool82.not = icmp eq ptr %call81, null
@@ -387,7 +379,7 @@ if.then120:                                       ; preds = %if.end117
   br i1 %cmp122, label %if.then124, label %if.end130
 
 if.then124:                                       ; preds = %if.then120
-  %data125 = getelementptr inbounds %struct.asn1_string_st, ptr %call118, i64 0, i32 2
+  %data125 = getelementptr inbounds i8, ptr %call118, i64 8
   %26 = load ptr, ptr %data125, align 8
   %27 = load i8, ptr %26, align 1
   %conv127 = zext i8 %27 to i64
@@ -395,7 +387,7 @@ if.then124:                                       ; preds = %if.then120
 
 if.end130:                                        ; preds = %if.then120, %if.then124
   %.sink = phi i64 [ %conv127, %if.then124 ], [ 0, %if.then120 ]
-  %28 = getelementptr inbounds %struct.x509_st, ptr %x, i64 0, i32 12
+  %28 = getelementptr inbounds i8, ptr %x, i64 88
   store i64 %.sink, ptr %28, align 8
   %29 = load i64, ptr %ex_flags, align 8
   %or132 = or i64 %29, 8
@@ -405,10 +397,10 @@ if.end130:                                        ; preds = %if.then120, %if.the
 
 if.end133:                                        ; preds = %if.end130, %if.end117
   %call134 = tail call ptr @X509_get_ext_d2i(ptr noundef nonnull %x, i32 noundef 82, ptr noundef null, ptr noundef null) #10
-  %skid = getelementptr inbounds %struct.x509_st, ptr %x, i64 0, i32 13
+  %skid = getelementptr inbounds i8, ptr %x, i64 96
   store ptr %call134, ptr %skid, align 8
   %call135 = tail call ptr @X509_get_ext_d2i(ptr noundef nonnull %x, i32 noundef 90, ptr noundef null, ptr noundef null) #10
-  %akid = getelementptr inbounds %struct.x509_st, ptr %x, i64 0, i32 14
+  %akid = getelementptr inbounds i8, ptr %x, i64 104
   store ptr %call135, ptr %akid, align 8
   %call136 = tail call ptr @X509_get_subject_name(ptr noundef nonnull %x) #10
   %call137 = tail call ptr @X509_get_issuer_name(ptr noundef nonnull %x) #10
@@ -432,7 +424,7 @@ land.lhs.true:                                    ; preds = %if.then140
   br i1 %tobool149.not, label %if.then154, label %land.lhs.true150
 
 land.lhs.true150:                                 ; preds = %land.lhs.true
-  %ex_kusage151 = getelementptr inbounds %struct.x509_st, ptr %x, i64 0, i32 10
+  %ex_kusage151 = getelementptr inbounds i8, ptr %x, i64 72
   %33 = load i64, ptr %ex_kusage151, align 8
   %and152 = and i64 %33, 4
   %tobool153.not = icmp eq i64 %and152, 0
@@ -445,10 +437,10 @@ if.then154:                                       ; preds = %land.lhs.true150, %
 
 if.end158:                                        ; preds = %if.then140, %land.lhs.true150, %if.then154, %if.end133
   %call159 = tail call ptr @X509_get_ext_d2i(ptr noundef nonnull %x, i32 noundef 85, ptr noundef null, ptr noundef null) #10
-  %altname = getelementptr inbounds %struct.x509_st, ptr %x, i64 0, i32 17
+  %altname = getelementptr inbounds i8, ptr %x, i64 128
   store ptr %call159, ptr %altname, align 8
   %call160 = call ptr @X509_get_ext_d2i(ptr noundef nonnull %x, i32 noundef 666, ptr noundef nonnull %j, ptr noundef null) #10
-  %nc = getelementptr inbounds %struct.x509_st, ptr %x, i64 0, i32 18
+  %nc = getelementptr inbounds i8, ptr %x, i64 136
   store ptr %call160, ptr %nc, align 8
   %tobool162 = icmp eq ptr %call160, null
   %34 = load i32, ptr %j, align 4
@@ -464,7 +456,7 @@ if.then166:                                       ; preds = %if.end158
 
 if.end169:                                        ; preds = %if.then166, %if.end158
   %call.i = call ptr @X509_get_ext_d2i(ptr noundef nonnull %x, i32 noundef 103, ptr noundef null, ptr noundef null) #10
-  %crldp.i = getelementptr inbounds %struct.x509_st, ptr %x, i64 0, i32 16
+  %crldp.i = getelementptr inbounds i8, ptr %x, i64 120
   store ptr %call.i, ptr %crldp.i, align 8
   %call28.i = call i64 @sk_num(ptr noundef %call.i) #10
   %cmp9.not.i = icmp eq i64 %call28.i, 0
@@ -474,7 +466,7 @@ for.body.i:                                       ; preds = %if.end169, %setup_d
   %i.010.i = phi i64 [ %inc.i, %setup_dp.exit.i ], [ 0, %if.end169 ]
   %36 = load ptr, ptr %crldp.i, align 8
   %call4.i = call ptr @sk_value(ptr noundef %36, i64 noundef %i.010.i) #10
-  %reasons.i.i = getelementptr inbounds %struct.DIST_POINT_st, ptr %call4.i, i64 0, i32 1
+  %reasons.i.i = getelementptr inbounds i8, ptr %call4.i, i64 8
   %37 = load ptr, ptr %reasons.i.i, align 8
   %tobool.not.i.i = icmp eq ptr %37, null
   br i1 %tobool.not.i.i, label %if.else.i.i, label %if.then.i.i
@@ -485,16 +477,16 @@ if.then.i.i:                                      ; preds = %for.body.i
   br i1 %cmp.i.i, label %if.end.i.i, label %if.then.if.end14_crit_edge.i.i
 
 if.then.if.end14_crit_edge.i.i:                   ; preds = %if.then.i.i
-  %dp_reasons15.phi.trans.insert.i.i = getelementptr inbounds %struct.DIST_POINT_st, ptr %call4.i, i64 0, i32 3
+  %dp_reasons15.phi.trans.insert.i.i = getelementptr inbounds i8, ptr %call4.i, i64 24
   %.pre.i.i = load i32, ptr %dp_reasons15.phi.trans.insert.i.i, align 8
   br label %if.end14.i.i
 
 if.end.i.i:                                       ; preds = %if.then.i.i
-  %data.i.i = getelementptr inbounds %struct.asn1_string_st, ptr %37, i64 0, i32 2
+  %data.i.i = getelementptr inbounds i8, ptr %37, i64 8
   %39 = load ptr, ptr %data.i.i, align 8
   %40 = load i8, ptr %39, align 1
   %conv.i.i = zext i8 %40 to i32
-  %dp_reasons.i.i = getelementptr inbounds %struct.DIST_POINT_st, ptr %call4.i, i64 0, i32 3
+  %dp_reasons.i.i = getelementptr inbounds i8, ptr %call4.i, i64 24
   store i32 %conv.i.i, ptr %dp_reasons.i.i, align 8
   %.pr.i.i = load i32, ptr %37, align 8
   %cmp6.i.i = icmp sgt i32 %.pr.i.i, 1
@@ -511,13 +503,13 @@ if.then8.i.i:                                     ; preds = %if.end.i.i
 
 if.end14.i.i:                                     ; preds = %if.then8.i.i, %if.end.i.i, %if.then.if.end14_crit_edge.i.i
   %43 = phi i32 [ %.pre.i.i, %if.then.if.end14_crit_edge.i.i ], [ %or.i.i, %if.then8.i.i ], [ %conv.i.i, %if.end.i.i ]
-  %dp_reasons15.i.i = getelementptr inbounds %struct.DIST_POINT_st, ptr %call4.i, i64 0, i32 3
+  %dp_reasons15.i.i = getelementptr inbounds i8, ptr %call4.i, i64 24
   %and.i.i = and i32 %43, 32895
   store i32 %and.i.i, ptr %dp_reasons15.i.i, align 8
   br label %if.end17.i.i
 
 if.else.i.i:                                      ; preds = %for.body.i
-  %dp_reasons16.i.i = getelementptr inbounds %struct.DIST_POINT_st, ptr %call4.i, i64 0, i32 3
+  %dp_reasons16.i.i = getelementptr inbounds i8, ptr %call4.i, i64 24
   store i32 32895, ptr %dp_reasons16.i.i, align 8
   br label %if.end17.i.i
 
@@ -532,7 +524,7 @@ lor.lhs.false.i.i:                                ; preds = %if.end17.i.i
   br i1 %cmp20.not.i.i, label %for.cond.preheader.i.i, label %setup_dp.exit.i
 
 for.cond.preheader.i.i:                           ; preds = %lor.lhs.false.i.i
-  %CRLissuer.i.i = getelementptr inbounds %struct.DIST_POINT_st, ptr %call4.i, i64 0, i32 2
+  %CRLissuer.i.i = getelementptr inbounds i8, ptr %call4.i, i64 16
   %46 = load ptr, ptr %CRLissuer.i.i, align 8
   %call22.i.i = call i64 @sk_num(ptr noundef %46) #10
   %cmp2423.not.i.i = icmp eq i64 %call22.i.i, 0
@@ -554,7 +546,7 @@ for.body.i.i:                                     ; preds = %for.cond.preheader.
   br i1 %cmp29.i.i, label %for.end.i.i, label %for.cond.i.i
 
 for.end.i.i:                                      ; preds = %for.body.i.i
-  %d.i.i = getelementptr inbounds %struct.GENERAL_NAME_st, ptr %call27.i.i, i64 0, i32 1
+  %d.i.i = getelementptr inbounds i8, ptr %call27.i.i, i64 8
   %50 = load ptr, ptr %d.i.i, align 8
   %tobool33.not.i.i = icmp eq ptr %50, null
   br i1 %tobool33.not.i.i, label %if.then34.i.i, label %if.end36.i.i
@@ -818,7 +810,7 @@ if.end3.i:                                        ; preds = %for.body
 
 X509_PURPOSE_get0.exit:                           ; preds = %if.then2.i, %if.end3.i
   %retval.0.i7 = phi ptr [ %add.ptr.i, %if.then2.i ], [ %call.i6, %if.end3.i ]
-  %sname2 = getelementptr inbounds %struct.x509_purpose_st, ptr %retval.0.i7, i64 0, i32 5
+  %sname2 = getelementptr inbounds i8, ptr %retval.0.i7, i64 32
   %3 = load ptr, ptr %sname2, align 8
   %call3 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %3, ptr noundef nonnull dereferenceable(1) %sname) #11
   %tobool.not = icmp eq i32 %call3, 0
@@ -894,7 +886,7 @@ if.then2:                                         ; preds = %if.then
   br label %return
 
 if.end:                                           ; preds = %if.then
-  %flags3 = getelementptr inbounds %struct.x509_purpose_st, ptr %call1, i64 0, i32 2
+  %flags3 = getelementptr inbounds i8, ptr %call1, i64 8
   store i32 1, ptr %flags3, align 8
   br label %if.end5
 
@@ -952,17 +944,17 @@ if.then18:                                        ; preds = %if.end16
   br label %return
 
 if.end20:                                         ; preds = %if.end5
-  %flags21 = getelementptr inbounds %struct.x509_purpose_st, ptr %ptmp.0, i64 0, i32 2
+  %flags21 = getelementptr inbounds i8, ptr %ptmp.0, i64 8
   %5 = load i32, ptr %flags21, align 8
   %and22 = and i32 %5, 2
   %tobool23.not = icmp eq i32 %and22, 0
   br i1 %tobool23.not, label %if.end27, label %if.then24
 
 if.then24:                                        ; preds = %if.end20
-  %name25 = getelementptr inbounds %struct.x509_purpose_st, ptr %ptmp.0, i64 0, i32 4
+  %name25 = getelementptr inbounds i8, ptr %ptmp.0, i64 24
   %6 = load ptr, ptr %name25, align 8
   call void @free(ptr noundef %6) #10
-  %sname26 = getelementptr inbounds %struct.x509_purpose_st, ptr %ptmp.0, i64 0, i32 5
+  %sname26 = getelementptr inbounds i8, ptr %ptmp.0, i64 32
   %7 = load ptr, ptr %sname26, align 8
   call void @free(ptr noundef %7) #10
   %.pre = load i32, ptr %flags21, align 8
@@ -970,20 +962,20 @@ if.then24:                                        ; preds = %if.end20
 
 if.end27:                                         ; preds = %if.then24, %if.end20
   %8 = phi i32 [ %.pre, %if.then24 ], [ %5, %if.end20 ]
-  %name28 = getelementptr inbounds %struct.x509_purpose_st, ptr %ptmp.0, i64 0, i32 4
+  %name28 = getelementptr inbounds i8, ptr %ptmp.0, i64 24
   store ptr %call6, ptr %name28, align 8
-  %sname29 = getelementptr inbounds %struct.x509_purpose_st, ptr %ptmp.0, i64 0, i32 5
+  %sname29 = getelementptr inbounds i8, ptr %ptmp.0, i64 32
   store ptr %call7, ptr %sname29, align 8
   %and31 = and i32 %8, 1
   %or = or disjoint i32 %and, %and31
   %or33 = or disjoint i32 %or, 2
   store i32 %or33, ptr %flags21, align 8
   store i32 %id, ptr %ptmp.0, align 8
-  %trust34 = getelementptr inbounds %struct.x509_purpose_st, ptr %ptmp.0, i64 0, i32 1
+  %trust34 = getelementptr inbounds i8, ptr %ptmp.0, i64 4
   store i32 %trust, ptr %trust34, align 4
-  %check_purpose = getelementptr inbounds %struct.x509_purpose_st, ptr %ptmp.0, i64 0, i32 3
+  %check_purpose = getelementptr inbounds i8, ptr %ptmp.0, i64 16
   store ptr %ck, ptr %check_purpose, align 8
-  %usr_data = getelementptr inbounds %struct.x509_purpose_st, ptr %ptmp.0, i64 0, i32 6
+  %usr_data = getelementptr inbounds i8, ptr %ptmp.0, i64 40
   store ptr %arg, ptr %usr_data, align 8
   br i1 %cmp52, label %if.then36, label %return
 
@@ -1083,7 +1075,7 @@ entry:
   br i1 %tobool.not, label %if.end8, label %if.end
 
 if.end:                                           ; preds = %entry
-  %flags = getelementptr inbounds %struct.x509_purpose_st, ptr %p, i64 0, i32 2
+  %flags = getelementptr inbounds i8, ptr %p, i64 8
   %0 = load i32, ptr %flags, align 8
   %and = and i32 %0, 1
   %tobool1.not = icmp eq i32 %and, 0
@@ -1095,10 +1087,10 @@ if.then2:                                         ; preds = %if.end
   br i1 %tobool5.not, label %if.end7, label %if.then6
 
 if.then6:                                         ; preds = %if.then2
-  %name = getelementptr inbounds %struct.x509_purpose_st, ptr %p, i64 0, i32 4
+  %name = getelementptr inbounds i8, ptr %p, i64 24
   %1 = load ptr, ptr %name, align 8
   tail call void @free(ptr noundef %1) #10
-  %sname = getelementptr inbounds %struct.x509_purpose_st, ptr %p, i64 0, i32 5
+  %sname = getelementptr inbounds i8, ptr %p, i64 32
   %2 = load ptr, ptr %sname, align 8
   tail call void @free(ptr noundef %2) #10
   br label %if.end7
@@ -1123,7 +1115,7 @@ entry:
 for.body:                                         ; preds = %entry, %xptable_free.exit
   %indvars.iv = phi i64 [ 0, %entry ], [ %indvars.iv.next, %xptable_free.exit ]
   %add.ptr = getelementptr inbounds %struct.x509_purpose_st, ptr @xstandard, i64 %indvars.iv
-  %flags.i = getelementptr inbounds %struct.x509_purpose_st, ptr @xstandard, i64 %indvars.iv, i32 2
+  %flags.i = getelementptr inbounds i8, ptr %add.ptr, i64 8
   %1 = load i32, ptr %flags.i, align 8
   %and.i = and i32 %1, 1
   %tobool1.not.i = icmp eq i32 %and.i, 0
@@ -1135,10 +1127,10 @@ if.then2.i:                                       ; preds = %for.body
   br i1 %tobool5.not.i, label %if.end7.i, label %if.then6.i
 
 if.then6.i:                                       ; preds = %if.then2.i
-  %name.i = getelementptr inbounds %struct.x509_purpose_st, ptr @xstandard, i64 %indvars.iv, i32 4
+  %name.i = getelementptr inbounds i8, ptr %add.ptr, i64 24
   %2 = load ptr, ptr %name.i, align 8
   tail call void @free(ptr noundef %2) #10
-  %sname.i = getelementptr inbounds %struct.x509_purpose_st, ptr @xstandard, i64 %indvars.iv, i32 5
+  %sname.i = getelementptr inbounds i8, ptr %add.ptr, i64 32
   %3 = load ptr, ptr %sname.i, align 16
   tail call void @free(ptr noundef %3) #10
   br label %if.end7.i
@@ -1169,7 +1161,7 @@ entry:
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
 define hidden ptr @X509_PURPOSE_get0_name(ptr nocapture noundef readonly %xp) local_unnamed_addr #7 {
 entry:
-  %name = getelementptr inbounds %struct.x509_purpose_st, ptr %xp, i64 0, i32 4
+  %name = getelementptr inbounds i8, ptr %xp, i64 24
   %0 = load ptr, ptr %name, align 8
   ret ptr %0
 }
@@ -1177,7 +1169,7 @@ entry:
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
 define hidden ptr @X509_PURPOSE_get0_sname(ptr nocapture noundef readonly %xp) local_unnamed_addr #7 {
 entry:
-  %sname = getelementptr inbounds %struct.x509_purpose_st, ptr %xp, i64 0, i32 5
+  %sname = getelementptr inbounds i8, ptr %xp, i64 32
   %0 = load ptr, ptr %sname, align 8
   ret ptr %0
 }
@@ -1185,7 +1177,7 @@ entry:
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
 define hidden i32 @X509_PURPOSE_get_trust(ptr nocapture noundef readonly %xp) local_unnamed_addr #7 {
 entry:
-  %trust = getelementptr inbounds %struct.x509_purpose_st, ptr %xp, i64 0, i32 1
+  %trust = getelementptr inbounds i8, ptr %xp, i64 4
   %0 = load i32, ptr %trust, align 4
   ret i32 %0
 }
@@ -1229,7 +1221,7 @@ entry:
 ; Function Attrs: nounwind uwtable
 define hidden i32 @X509_check_ca(ptr noundef %x) local_unnamed_addr #0 {
 entry:
-  %ex_flags = getelementptr inbounds %struct.x509_st, ptr %x, i64 0, i32 9
+  %ex_flags = getelementptr inbounds i8, ptr %x, i64 64
   %0 = load i64, ptr %ex_flags, align 8
   %and = and i64 %0, 256
   %tobool.not = icmp eq i64 %and, 0
@@ -1247,7 +1239,7 @@ if.end:                                           ; preds = %if.then, %entry
   br i1 %tobool.not.i, label %land.lhs.true.i, label %if.end.i
 
 land.lhs.true.i:                                  ; preds = %if.end
-  %ex_kusage.i = getelementptr inbounds %struct.x509_st, ptr %x, i64 0, i32 10
+  %ex_kusage.i = getelementptr inbounds i8, ptr %x, i64 72
   %2 = load i64, ptr %ex_kusage.i, align 8
   %and1.i = and i64 %2, 4
   %tobool2.not.i = icmp eq i64 %and1.i, 0
@@ -1277,7 +1269,7 @@ if.else20.i:                                      ; preds = %if.else11.i
   br i1 %tobool23.not.i, label %if.end30.i, label %land.lhs.true24.i
 
 land.lhs.true24.i:                                ; preds = %if.else20.i
-  %ex_nscert.i = getelementptr inbounds %struct.x509_st, ptr %x, i64 0, i32 12
+  %ex_nscert.i = getelementptr inbounds i8, ptr %x, i64 88
   %5 = load i64, ptr %ex_nscert.i, align 8
   %and25.i = and i64 %5, 7
   %tobool26.not.i = icmp eq i64 %and25.i, 0
@@ -1303,7 +1295,7 @@ entry:
 if.end:                                           ; preds = %entry
   tail call fastcc void @x509v3_cache_extensions(ptr noundef %issuer)
   tail call fastcc void @x509v3_cache_extensions(ptr noundef %subject)
-  %akid = getelementptr inbounds %struct.x509_st, ptr %subject, i64 0, i32 14
+  %akid = getelementptr inbounds i8, ptr %subject, i64 104
   %0 = load ptr, ptr %akid, align 8
   %tobool3.not = icmp eq ptr %0, null
   br i1 %tobool3.not, label %if.end9, label %if.then4
@@ -1314,11 +1306,11 @@ if.then4:                                         ; preds = %if.end
   br i1 %cmp.not, label %if.end9, label %return
 
 if.end9:                                          ; preds = %if.then4, %if.end
-  %ex_flags = getelementptr inbounds %struct.x509_st, ptr %subject, i64 0, i32 9
+  %ex_flags = getelementptr inbounds i8, ptr %subject, i64 64
   %1 = load i64, ptr %ex_flags, align 8
   %and = and i64 %1, 1024
   %tobool10.not = icmp eq i64 %and, 0
-  %ex_flags19 = getelementptr inbounds %struct.x509_st, ptr %issuer, i64 0, i32 9
+  %ex_flags19 = getelementptr inbounds i8, ptr %issuer, i64 64
   %2 = load i64, ptr %ex_flags19, align 8
   %and20 = and i64 %2, 2
   %tobool21.not = icmp eq i64 %and20, 0
@@ -1328,7 +1320,7 @@ if.then11:                                        ; preds = %if.end9
   br i1 %tobool21.not, label %if.end28, label %land.lhs.true
 
 land.lhs.true:                                    ; preds = %if.then11
-  %ex_kusage = getelementptr inbounds %struct.x509_st, ptr %issuer, i64 0, i32 10
+  %ex_kusage = getelementptr inbounds i8, ptr %issuer, i64 72
   %3 = load i64, ptr %ex_kusage, align 8
   %and15 = and i64 %3, 128
   %tobool16.not = icmp eq i64 %and15, 0
@@ -1338,7 +1330,7 @@ if.else:                                          ; preds = %if.end9
   br i1 %tobool21.not, label %if.end28, label %land.lhs.true22
 
 land.lhs.true22:                                  ; preds = %if.else
-  %ex_kusage23 = getelementptr inbounds %struct.x509_st, ptr %issuer, i64 0, i32 10
+  %ex_kusage23 = getelementptr inbounds i8, ptr %issuer, i64 72
   %4 = load i64, ptr %ex_kusage23, align 8
   %and24 = and i64 %4, 4
   %tobool25.not = icmp eq i64 %and24, 0
@@ -1370,7 +1362,7 @@ if.end:                                           ; preds = %entry
   br i1 %tobool1.not, label %if.end8, label %land.lhs.true
 
 land.lhs.true:                                    ; preds = %if.end
-  %skid = getelementptr inbounds %struct.x509_st, ptr %issuer, i64 0, i32 13
+  %skid = getelementptr inbounds i8, ptr %issuer, i64 96
   %1 = load ptr, ptr %skid, align 8
   %tobool2.not = icmp eq ptr %1, null
   br i1 %tobool2.not, label %if.end8, label %land.lhs.true3
@@ -1381,7 +1373,7 @@ land.lhs.true3:                                   ; preds = %land.lhs.true
   br i1 %tobool6.not, label %if.end8, label %return
 
 if.end8:                                          ; preds = %land.lhs.true3, %land.lhs.true, %if.end
-  %serial = getelementptr inbounds %struct.AUTHORITY_KEYID_st, ptr %akid, i64 0, i32 2
+  %serial = getelementptr inbounds i8, ptr %akid, i64 16
   %2 = load ptr, ptr %serial, align 8
   %tobool9.not = icmp eq ptr %2, null
   br i1 %tobool9.not, label %if.end16, label %land.lhs.true10
@@ -1394,7 +1386,7 @@ land.lhs.true10:                                  ; preds = %if.end8
   br i1 %tobool14.not, label %if.end16, label %return
 
 if.end16:                                         ; preds = %land.lhs.true10, %if.end8
-  %issuer17 = getelementptr inbounds %struct.AUTHORITY_KEYID_st, ptr %akid, i64 0, i32 1
+  %issuer17 = getelementptr inbounds i8, ptr %akid, i64 8
   %4 = load ptr, ptr %issuer17, align 8
   %tobool18.not = icmp eq ptr %4, null
   br i1 %tobool18.not, label %if.end33, label %for.cond.preheader
@@ -1418,7 +1410,7 @@ for.body:                                         ; preds = %for.cond.preheader,
   br i1 %cmp23, label %for.end, label %for.cond
 
 for.end:                                          ; preds = %for.body
-  %d = getelementptr inbounds %struct.GENERAL_NAME_st, ptr %call22, i64 0, i32 1
+  %d = getelementptr inbounds i8, ptr %call22, i64 8
   %6 = load ptr, ptr %d, align 8
   %tobool26.not = icmp eq ptr %6, null
   br i1 %tobool26.not, label %if.end33, label %land.lhs.true27
@@ -1446,14 +1438,14 @@ declare ptr @X509_get_serialNumber(ptr noundef) local_unnamed_addr #1
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
 define internal i32 @check_purpose_ssl_client(ptr nocapture readnone %xp, ptr nocapture noundef readonly %x, i32 noundef %ca) #7 {
 entry:
-  %ex_flags = getelementptr inbounds %struct.x509_st, ptr %x, i64 0, i32 9
+  %ex_flags = getelementptr inbounds i8, ptr %x, i64 64
   %0 = load i64, ptr %ex_flags, align 8
   %and = and i64 %0, 4
   %tobool.not = icmp eq i64 %and, 0
   br i1 %tobool.not, label %if.end, label %land.lhs.true
 
 land.lhs.true:                                    ; preds = %entry
-  %ex_xkusage = getelementptr inbounds %struct.x509_st, ptr %x, i64 0, i32 11
+  %ex_xkusage = getelementptr inbounds i8, ptr %x, i64 80
   %1 = load i64, ptr %ex_xkusage, align 8
   %and1 = and i64 %1, 2
   %tobool2.not = icmp eq i64 %and1, 0
@@ -1469,7 +1461,7 @@ if.then4:                                         ; preds = %if.end
   br i1 %tobool.not.i.i, label %land.lhs.true.i.i, label %if.end.i.i
 
 land.lhs.true.i.i:                                ; preds = %if.then4
-  %ex_kusage.i.i = getelementptr inbounds %struct.x509_st, ptr %x, i64 0, i32 10
+  %ex_kusage.i.i = getelementptr inbounds i8, ptr %x, i64 72
   %2 = load i64, ptr %ex_kusage.i.i, align 8
   %and1.i.i = and i64 %2, 4
   %tobool2.not.i.i = icmp eq i64 %and1.i.i, 0
@@ -1493,7 +1485,7 @@ if.else20.i.i:                                    ; preds = %if.else11.i.i
   br i1 %tobool23.not.i.i, label %return, label %land.lhs.true24.i.i
 
 land.lhs.true24.i.i:                              ; preds = %if.else20.i.i
-  %ex_nscert.i.i = getelementptr inbounds %struct.x509_st, ptr %x, i64 0, i32 12
+  %ex_nscert.i.i = getelementptr inbounds i8, ptr %x, i64 88
   %3 = load i64, ptr %ex_nscert.i.i, align 8
   %and.i = and i64 %3, 4
   %tobool1.not.i = icmp eq i64 %and.i, 0
@@ -1513,7 +1505,7 @@ if.end5:                                          ; preds = %if.end
   br i1 %tobool8.not, label %if.end13, label %land.lhs.true9
 
 land.lhs.true9:                                   ; preds = %if.end5
-  %ex_kusage = getelementptr inbounds %struct.x509_st, ptr %x, i64 0, i32 10
+  %ex_kusage = getelementptr inbounds i8, ptr %x, i64 72
   %5 = load i64, ptr %ex_kusage, align 8
   %and10 = and i64 %5, 136
   %tobool11.not = icmp eq i64 %and10, 0
@@ -1525,7 +1517,7 @@ if.end13:                                         ; preds = %land.lhs.true9, %if
   br i1 %tobool16.not, label %if.end21, label %land.lhs.true17
 
 land.lhs.true17:                                  ; preds = %if.end13
-  %ex_nscert = getelementptr inbounds %struct.x509_st, ptr %x, i64 0, i32 12
+  %ex_nscert = getelementptr inbounds i8, ptr %x, i64 88
   %6 = load i64, ptr %ex_nscert, align 8
   %and18 = and i64 %6, 128
   %tobool19.not = icmp eq i64 %and18, 0
@@ -1542,14 +1534,14 @@ return:                                           ; preds = %if.then2.i, %check_
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
 define internal i32 @check_purpose_ssl_server(ptr nocapture readnone %xp, ptr nocapture noundef readonly %x, i32 noundef %ca) #7 {
 entry:
-  %ex_flags = getelementptr inbounds %struct.x509_st, ptr %x, i64 0, i32 9
+  %ex_flags = getelementptr inbounds i8, ptr %x, i64 64
   %0 = load i64, ptr %ex_flags, align 8
   %and = and i64 %0, 4
   %tobool.not = icmp eq i64 %and, 0
   br i1 %tobool.not, label %if.end, label %land.lhs.true
 
 land.lhs.true:                                    ; preds = %entry
-  %ex_xkusage = getelementptr inbounds %struct.x509_st, ptr %x, i64 0, i32 11
+  %ex_xkusage = getelementptr inbounds i8, ptr %x, i64 80
   %1 = load i64, ptr %ex_xkusage, align 8
   %and1 = and i64 %1, 17
   %tobool2.not = icmp eq i64 %and1, 0
@@ -1565,7 +1557,7 @@ if.then4:                                         ; preds = %if.end
   br i1 %tobool.not.i.i, label %land.lhs.true.i.i, label %if.end.i.i
 
 land.lhs.true.i.i:                                ; preds = %if.then4
-  %ex_kusage.i.i = getelementptr inbounds %struct.x509_st, ptr %x, i64 0, i32 10
+  %ex_kusage.i.i = getelementptr inbounds i8, ptr %x, i64 72
   %2 = load i64, ptr %ex_kusage.i.i, align 8
   %and1.i.i = and i64 %2, 4
   %tobool2.not.i.i = icmp eq i64 %and1.i.i, 0
@@ -1589,7 +1581,7 @@ if.else20.i.i:                                    ; preds = %if.else11.i.i
   br i1 %tobool23.not.i.i, label %return, label %land.lhs.true24.i.i
 
 land.lhs.true24.i.i:                              ; preds = %if.else20.i.i
-  %ex_nscert.i.i = getelementptr inbounds %struct.x509_st, ptr %x, i64 0, i32 12
+  %ex_nscert.i.i = getelementptr inbounds i8, ptr %x, i64 88
   %3 = load i64, ptr %ex_nscert.i.i, align 8
   %and.i = and i64 %3, 4
   %tobool1.not.i = icmp eq i64 %and.i, 0
@@ -1610,7 +1602,7 @@ if.end5:                                          ; preds = %if.end
   br i1 %tobool8.not, label %if.end13, label %land.lhs.true9
 
 land.lhs.true9:                                   ; preds = %if.end5
-  %ex_nscert = getelementptr inbounds %struct.x509_st, ptr %x, i64 0, i32 12
+  %ex_nscert = getelementptr inbounds i8, ptr %x, i64 88
   %5 = load i64, ptr %ex_nscert, align 8
   %and10 = and i64 %5, 64
   %tobool11.not = icmp eq i64 %and10, 0
@@ -1622,7 +1614,7 @@ if.end13:                                         ; preds = %land.lhs.true9, %if
   br i1 %tobool16.not, label %if.end21, label %land.lhs.true17
 
 land.lhs.true17:                                  ; preds = %if.end13
-  %ex_kusage = getelementptr inbounds %struct.x509_st, ptr %x, i64 0, i32 10
+  %ex_kusage = getelementptr inbounds i8, ptr %x, i64 72
   %6 = load i64, ptr %ex_kusage, align 8
   %and18 = and i64 %6, 168
   %tobool19.not = icmp eq i64 %and18, 0
@@ -1639,14 +1631,14 @@ return:                                           ; preds = %if.then2.i, %check_
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
 define internal i32 @check_purpose_ns_ssl_server(ptr nocapture readnone %xp, ptr nocapture noundef readonly %x, i32 noundef %ca) #7 {
 entry:
-  %ex_flags.i = getelementptr inbounds %struct.x509_st, ptr %x, i64 0, i32 9
+  %ex_flags.i = getelementptr inbounds i8, ptr %x, i64 64
   %0 = load i64, ptr %ex_flags.i, align 8
   %and.i = and i64 %0, 4
   %tobool.not.i = icmp eq i64 %and.i, 0
   br i1 %tobool.not.i, label %if.end.i, label %land.lhs.true.i
 
 land.lhs.true.i:                                  ; preds = %entry
-  %ex_xkusage.i = getelementptr inbounds %struct.x509_st, ptr %x, i64 0, i32 11
+  %ex_xkusage.i = getelementptr inbounds i8, ptr %x, i64 80
   %1 = load i64, ptr %ex_xkusage.i, align 8
   %and1.i = and i64 %1, 17
   %tobool2.not.i = icmp eq i64 %and1.i, 0
@@ -1662,7 +1654,7 @@ if.then4.i:                                       ; preds = %if.end.i
   br i1 %tobool.not.i.i.i, label %land.lhs.true.i.i.i, label %if.end.i.i.i
 
 land.lhs.true.i.i.i:                              ; preds = %if.then4.i
-  %ex_kusage.i.i.i = getelementptr inbounds %struct.x509_st, ptr %x, i64 0, i32 10
+  %ex_kusage.i.i.i = getelementptr inbounds i8, ptr %x, i64 72
   %2 = load i64, ptr %ex_kusage.i.i.i, align 8
   %and1.i.i.i = and i64 %2, 4
   %tobool2.not.i.i.i = icmp eq i64 %and1.i.i.i, 0
@@ -1686,7 +1678,7 @@ if.else20.i.i.i:                                  ; preds = %if.else11.i.i.i
   br i1 %tobool23.not.i.i.i, label %return, label %land.lhs.true24.i.i.i
 
 land.lhs.true24.i.i.i:                            ; preds = %if.else20.i.i.i
-  %ex_nscert.i.i.i = getelementptr inbounds %struct.x509_st, ptr %x, i64 0, i32 12
+  %ex_nscert.i.i.i = getelementptr inbounds i8, ptr %x, i64 88
   %3 = load i64, ptr %ex_nscert.i.i.i, align 8
   %and.i.i = and i64 %3, 4
   %tobool1.not.i.i = icmp eq i64 %and.i.i, 0
@@ -1707,7 +1699,7 @@ if.end5.i:                                        ; preds = %if.end.i
   br i1 %tobool8.not.i, label %if.end13.i, label %land.lhs.true9.i
 
 land.lhs.true9.i:                                 ; preds = %if.end5.i
-  %ex_nscert.i = getelementptr inbounds %struct.x509_st, ptr %x, i64 0, i32 12
+  %ex_nscert.i = getelementptr inbounds i8, ptr %x, i64 88
   %5 = load i64, ptr %ex_nscert.i, align 8
   %and10.i = and i64 %5, 64
   %tobool11.not.i = icmp eq i64 %and10.i, 0
@@ -1719,14 +1711,14 @@ if.end13.i:                                       ; preds = %land.lhs.true9.i, %
   br i1 %tobool16.not.i, label %if.end6, label %land.lhs.true17.i
 
 land.lhs.true17.i:                                ; preds = %if.end13.i
-  %ex_kusage.i = getelementptr inbounds %struct.x509_st, ptr %x, i64 0, i32 10
+  %ex_kusage.i = getelementptr inbounds i8, ptr %x, i64 72
   %6 = load i64, ptr %ex_kusage.i, align 8
   %and18.i = and i64 %6, 168
   %tobool19.not.i = icmp eq i64 %and18.i, 0
   br i1 %tobool19.not.i, label %return, label %land.lhs.true
 
 land.lhs.true:                                    ; preds = %land.lhs.true17.i
-  %ex_kusage = getelementptr inbounds %struct.x509_st, ptr %x, i64 0, i32 10
+  %ex_kusage = getelementptr inbounds i8, ptr %x, i64 72
   %7 = load i64, ptr %ex_kusage, align 8
   %and3 = and i64 %7, 32
   %tobool4.not = icmp eq i64 %and3, 0
@@ -1743,14 +1735,14 @@ return:                                           ; preds = %if.then2.i.i, %if.e
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
 define internal i32 @check_purpose_smime_sign(ptr nocapture readnone %xp, ptr nocapture noundef readonly %x, i32 noundef %ca) #7 {
 entry:
-  %ex_flags.i = getelementptr inbounds %struct.x509_st, ptr %x, i64 0, i32 9
+  %ex_flags.i = getelementptr inbounds i8, ptr %x, i64 64
   %0 = load i64, ptr %ex_flags.i, align 8
   %and.i = and i64 %0, 4
   %tobool.not.i = icmp eq i64 %and.i, 0
   br i1 %tobool.not.i, label %if.end.i, label %land.lhs.true.i
 
 land.lhs.true.i:                                  ; preds = %entry
-  %ex_xkusage.i = getelementptr inbounds %struct.x509_st, ptr %x, i64 0, i32 11
+  %ex_xkusage.i = getelementptr inbounds i8, ptr %x, i64 80
   %1 = load i64, ptr %ex_xkusage.i, align 8
   %and1.i = and i64 %1, 4
   %tobool2.not.i = icmp eq i64 %and1.i, 0
@@ -1766,7 +1758,7 @@ if.then4.i:                                       ; preds = %if.end.i
   br i1 %tobool.not.i.i, label %land.lhs.true.i.i, label %if.end.i.i
 
 land.lhs.true.i.i:                                ; preds = %if.then4.i
-  %ex_kusage.i.i = getelementptr inbounds %struct.x509_st, ptr %x, i64 0, i32 10
+  %ex_kusage.i.i = getelementptr inbounds i8, ptr %x, i64 72
   %2 = load i64, ptr %ex_kusage.i.i, align 8
   %and1.i.i = and i64 %2, 4
   %tobool2.not.i.i = icmp eq i64 %and1.i.i, 0
@@ -1790,7 +1782,7 @@ if.else20.i.i:                                    ; preds = %if.else11.i.i
   br i1 %tobool23.not.i.i, label %return, label %land.lhs.true24.i.i
 
 land.lhs.true24.i.i:                              ; preds = %if.else20.i.i
-  %ex_nscert.i.i = getelementptr inbounds %struct.x509_st, ptr %x, i64 0, i32 12
+  %ex_nscert.i.i = getelementptr inbounds i8, ptr %x, i64 88
   %3 = load i64, ptr %ex_nscert.i.i, align 8
   %and8.i = and i64 %3, 2
   %tobool9.not.i = icmp eq i64 %and8.i, 0
@@ -1811,7 +1803,7 @@ if.end11.i:                                       ; preds = %if.end.i
   br i1 %tobool14.not.i, label %if.end, label %if.then15.i
 
 if.then15.i:                                      ; preds = %if.end11.i
-  %ex_nscert16.i = getelementptr inbounds %struct.x509_st, ptr %x, i64 0, i32 12
+  %ex_nscert16.i = getelementptr inbounds i8, ptr %x, i64 88
   %5 = load i64, ptr %ex_nscert16.i, align 8
   %and17.i = and i64 %5, 32
   %tobool18.not.i = icmp eq i64 %and17.i, 0
@@ -1831,7 +1823,7 @@ if.end:                                           ; preds = %if.end11.i, %if.the
   br i1 %tobool2.not, label %if.end6, label %land.lhs.true
 
 land.lhs.true:                                    ; preds = %if.end
-  %ex_kusage = getelementptr inbounds %struct.x509_st, ptr %x, i64 0, i32 10
+  %ex_kusage = getelementptr inbounds i8, ptr %x, i64 72
   %8 = load i64, ptr %ex_kusage, align 8
   %and3 = and i64 %8, 192
   %tobool4.not = icmp eq i64 %and3, 0
@@ -1848,14 +1840,14 @@ return:                                           ; preds = %if.then10.i, %if.el
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
 define internal i32 @check_purpose_smime_encrypt(ptr nocapture readnone %xp, ptr nocapture noundef readonly %x, i32 noundef %ca) #7 {
 entry:
-  %ex_flags.i = getelementptr inbounds %struct.x509_st, ptr %x, i64 0, i32 9
+  %ex_flags.i = getelementptr inbounds i8, ptr %x, i64 64
   %0 = load i64, ptr %ex_flags.i, align 8
   %and.i = and i64 %0, 4
   %tobool.not.i = icmp eq i64 %and.i, 0
   br i1 %tobool.not.i, label %if.end.i, label %land.lhs.true.i
 
 land.lhs.true.i:                                  ; preds = %entry
-  %ex_xkusage.i = getelementptr inbounds %struct.x509_st, ptr %x, i64 0, i32 11
+  %ex_xkusage.i = getelementptr inbounds i8, ptr %x, i64 80
   %1 = load i64, ptr %ex_xkusage.i, align 8
   %and1.i = and i64 %1, 4
   %tobool2.not.i = icmp eq i64 %and1.i, 0
@@ -1871,7 +1863,7 @@ if.then4.i:                                       ; preds = %if.end.i
   br i1 %tobool.not.i.i, label %land.lhs.true.i.i, label %if.end.i.i
 
 land.lhs.true.i.i:                                ; preds = %if.then4.i
-  %ex_kusage.i.i = getelementptr inbounds %struct.x509_st, ptr %x, i64 0, i32 10
+  %ex_kusage.i.i = getelementptr inbounds i8, ptr %x, i64 72
   %2 = load i64, ptr %ex_kusage.i.i, align 8
   %and1.i.i = and i64 %2, 4
   %tobool2.not.i.i = icmp eq i64 %and1.i.i, 0
@@ -1895,7 +1887,7 @@ if.else20.i.i:                                    ; preds = %if.else11.i.i
   br i1 %tobool23.not.i.i, label %return, label %land.lhs.true24.i.i
 
 land.lhs.true24.i.i:                              ; preds = %if.else20.i.i
-  %ex_nscert.i.i = getelementptr inbounds %struct.x509_st, ptr %x, i64 0, i32 12
+  %ex_nscert.i.i = getelementptr inbounds i8, ptr %x, i64 88
   %3 = load i64, ptr %ex_nscert.i.i, align 8
   %and8.i = and i64 %3, 2
   %tobool9.not.i = icmp eq i64 %and8.i, 0
@@ -1916,7 +1908,7 @@ if.end11.i:                                       ; preds = %if.end.i
   br i1 %tobool14.not.i, label %if.end, label %if.then15.i
 
 if.then15.i:                                      ; preds = %if.end11.i
-  %ex_nscert16.i = getelementptr inbounds %struct.x509_st, ptr %x, i64 0, i32 12
+  %ex_nscert16.i = getelementptr inbounds i8, ptr %x, i64 88
   %5 = load i64, ptr %ex_nscert16.i, align 8
   %and17.i = and i64 %5, 32
   %tobool18.not.i = icmp eq i64 %and17.i, 0
@@ -1936,7 +1928,7 @@ if.end:                                           ; preds = %if.end11.i, %if.the
   br i1 %tobool2.not, label %if.end6, label %land.lhs.true
 
 land.lhs.true:                                    ; preds = %if.end
-  %ex_kusage = getelementptr inbounds %struct.x509_st, ptr %x, i64 0, i32 10
+  %ex_kusage = getelementptr inbounds i8, ptr %x, i64 72
   %8 = load i64, ptr %ex_kusage, align 8
   %and3 = and i64 %8, 32
   %tobool4.not = icmp eq i64 %and3, 0
@@ -1954,7 +1946,7 @@ return:                                           ; preds = %if.then10.i, %if.el
 define internal i32 @check_purpose_crl_sign(ptr nocapture readnone %xp, ptr nocapture noundef readonly %x, i32 noundef %ca) #7 {
 entry:
   %tobool.not = icmp eq i32 %ca, 0
-  %ex_flags = getelementptr inbounds %struct.x509_st, ptr %x, i64 0, i32 9
+  %ex_flags = getelementptr inbounds i8, ptr %x, i64 64
   %0 = load i64, ptr %ex_flags, align 8
   %and = and i64 %0, 2
   br i1 %tobool.not, label %if.end, label %if.then
@@ -1964,7 +1956,7 @@ if.then:                                          ; preds = %entry
   br i1 %tobool.not.i, label %land.lhs.true.i, label %if.end.i
 
 land.lhs.true.i:                                  ; preds = %if.then
-  %ex_kusage.i = getelementptr inbounds %struct.x509_st, ptr %x, i64 0, i32 10
+  %ex_kusage.i = getelementptr inbounds i8, ptr %x, i64 72
   %1 = load i64, ptr %ex_kusage.i, align 8
   %and1.i = and i64 %1, 4
   %tobool2.not.i = icmp eq i64 %and1.i, 0
@@ -1994,7 +1986,7 @@ if.else20.i:                                      ; preds = %if.else11.i
   br i1 %tobool23.not.i, label %if.end30.i, label %land.lhs.true24.i
 
 land.lhs.true24.i:                                ; preds = %if.else20.i
-  %ex_nscert.i = getelementptr inbounds %struct.x509_st, ptr %x, i64 0, i32 12
+  %ex_nscert.i = getelementptr inbounds i8, ptr %x, i64 88
   %4 = load i64, ptr %ex_nscert.i, align 8
   %and25.i = and i64 %4, 7
   %tobool26.not.i = icmp eq i64 %and25.i, 0
@@ -2008,7 +2000,7 @@ if.end:                                           ; preds = %entry
   br i1 %tobool2.not, label %if.end6, label %land.lhs.true
 
 land.lhs.true:                                    ; preds = %if.end
-  %ex_kusage = getelementptr inbounds %struct.x509_st, ptr %x, i64 0, i32 10
+  %ex_kusage = getelementptr inbounds i8, ptr %x, i64 72
   %5 = load i64, ptr %ex_kusage, align 8
   %and3 = and i64 %5, 2
   %tobool4.not = icmp eq i64 %and3, 0
@@ -2035,14 +2027,14 @@ entry:
   br i1 %tobool.not, label %return, label %if.then
 
 if.then:                                          ; preds = %entry
-  %ex_flags.i = getelementptr inbounds %struct.x509_st, ptr %x, i64 0, i32 9
+  %ex_flags.i = getelementptr inbounds i8, ptr %x, i64 64
   %0 = load i64, ptr %ex_flags.i, align 8
   %and.i = and i64 %0, 2
   %tobool.not.i = icmp ne i64 %and.i, 0
   br i1 %tobool.not.i, label %land.lhs.true.i, label %if.end.i
 
 land.lhs.true.i:                                  ; preds = %if.then
-  %ex_kusage.i = getelementptr inbounds %struct.x509_st, ptr %x, i64 0, i32 10
+  %ex_kusage.i = getelementptr inbounds i8, ptr %x, i64 72
   %1 = load i64, ptr %ex_kusage.i, align 8
   %and1.i = and i64 %1, 4
   %tobool2.not.i = icmp eq i64 %and1.i, 0
@@ -2072,7 +2064,7 @@ if.else20.i:                                      ; preds = %if.else11.i
   br i1 %tobool23.not.i, label %if.end30.i, label %land.lhs.true24.i
 
 land.lhs.true24.i:                                ; preds = %if.else20.i
-  %ex_nscert.i = getelementptr inbounds %struct.x509_st, ptr %x, i64 0, i32 12
+  %ex_nscert.i = getelementptr inbounds i8, ptr %x, i64 88
   %4 = load i64, ptr %ex_nscert.i, align 8
   %and25.i = and i64 %4, 7
   %tobool26.not.i = icmp eq i64 %and25.i, 0
@@ -2090,7 +2082,7 @@ return:                                           ; preds = %if.end30.i, %land.l
 define internal i32 @check_purpose_timestamp_sign(ptr nocapture readnone %xp, ptr noundef %x, i32 noundef %ca) #0 {
 entry:
   %tobool.not = icmp eq i32 %ca, 0
-  %ex_flags = getelementptr inbounds %struct.x509_st, ptr %x, i64 0, i32 9
+  %ex_flags = getelementptr inbounds i8, ptr %x, i64 64
   %0 = load i64, ptr %ex_flags, align 8
   %and = and i64 %0, 2
   br i1 %tobool.not, label %if.end, label %if.then
@@ -2100,7 +2092,7 @@ if.then:                                          ; preds = %entry
   br i1 %tobool.not.i, label %land.lhs.true.i, label %if.end.i
 
 land.lhs.true.i:                                  ; preds = %if.then
-  %ex_kusage.i = getelementptr inbounds %struct.x509_st, ptr %x, i64 0, i32 10
+  %ex_kusage.i = getelementptr inbounds i8, ptr %x, i64 72
   %1 = load i64, ptr %ex_kusage.i, align 8
   %and1.i = and i64 %1, 4
   %tobool2.not.i = icmp eq i64 %and1.i, 0
@@ -2130,7 +2122,7 @@ if.else20.i:                                      ; preds = %if.else11.i
   br i1 %tobool23.not.i, label %if.end30.i, label %land.lhs.true24.i
 
 land.lhs.true24.i:                                ; preds = %if.else20.i
-  %ex_nscert.i = getelementptr inbounds %struct.x509_st, ptr %x, i64 0, i32 12
+  %ex_nscert.i = getelementptr inbounds i8, ptr %x, i64 88
   %4 = load i64, ptr %ex_nscert.i, align 8
   %and25.i = and i64 %4, 7
   %tobool26.not.i = icmp eq i64 %and25.i, 0
@@ -2144,7 +2136,7 @@ if.end:                                           ; preds = %entry
   br i1 %tobool1.not, label %if.end8, label %land.lhs.true
 
 land.lhs.true:                                    ; preds = %if.end
-  %ex_kusage = getelementptr inbounds %struct.x509_st, ptr %x, i64 0, i32 10
+  %ex_kusage = getelementptr inbounds i8, ptr %x, i64 72
   %5 = load i64, ptr %ex_kusage, align 8
   %and2 = and i64 %5, -193
   %tobool3.not = icmp ne i64 %and2, 0
@@ -2161,7 +2153,7 @@ if.end8:                                          ; preds = %if.end
   br i1 %tobool11.not.old, label %return, label %lor.lhs.false12
 
 lor.lhs.false12:                                  ; preds = %land.lhs.true, %if.end8
-  %ex_xkusage = getelementptr inbounds %struct.x509_st, ptr %x, i64 0, i32 11
+  %ex_xkusage = getelementptr inbounds i8, ptr %x, i64 80
   %6 = load i64, ptr %ex_xkusage, align 8
   %cmp.not = icmp eq i64 %6, 64
   br i1 %cmp.not, label %if.end14, label %return

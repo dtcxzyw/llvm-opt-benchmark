@@ -3,12 +3,7 @@ source_filename = "bench/bullet3/original/btSubSimplexConvexCast.ll"
 target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:128-n8:16:32:64-S128"
 target triple = "x86_64-unknown-linux-gnu"
 
-%class.btSubsimplexConvexCast = type { %class.btConvexCast, ptr, ptr, ptr }
-%class.btConvexCast = type { ptr }
 %class.btVector3 = type { [4 x float] }
-%class.btTransform = type { %class.btMatrix3x3, %class.btVector3 }
-%class.btMatrix3x3 = type { [3 x %class.btVector3] }
-%"struct.btConvexCast::CastResult" = type <{ ptr, %class.btTransform, %class.btTransform, %class.btVector3, %class.btVector3, float, [4 x i8], ptr, float, i32, float, [4 x i8] }>
 
 $_ZN22btSubsimplexConvexCastD2Ev = comdat any
 
@@ -27,11 +22,11 @@ $_ZN22btSubsimplexConvexCastD0Ev = comdat any
 define dso_local void @_ZN22btSubsimplexConvexCastC2EPK13btConvexShapeS2_P22btVoronoiSimplexSolver(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(32) %this, ptr noundef %convexA, ptr noundef %convexB, ptr noundef %simplexSolver) unnamed_addr #0 align 2 {
 entry:
   store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTV22btSubsimplexConvexCast, i64 0, inrange i32 0, i64 2), ptr %this, align 8
-  %m_simplexSolver = getelementptr inbounds %class.btSubsimplexConvexCast, ptr %this, i64 0, i32 1
+  %m_simplexSolver = getelementptr inbounds i8, ptr %this, i64 8
   store ptr %simplexSolver, ptr %m_simplexSolver, align 8
-  %m_convexA = getelementptr inbounds %class.btSubsimplexConvexCast, ptr %this, i64 0, i32 2
+  %m_convexA = getelementptr inbounds i8, ptr %this, i64 16
   store ptr %convexA, ptr %m_convexA, align 8
-  %m_convexB = getelementptr inbounds %class.btSubsimplexConvexCast, ptr %this, i64 0, i32 3
+  %m_convexB = getelementptr inbounds i8, ptr %this, i64 24
   store ptr %convexB, ptr %m_convexB, align 8
   ret void
 }
@@ -49,36 +44,36 @@ entry:
   %ref.tmp60 = alloca %class.btVector3, align 8
   %hitA = alloca %class.btVector3, align 4
   %hitB = alloca %class.btVector3, align 4
-  %m_simplexSolver = getelementptr inbounds %class.btSubsimplexConvexCast, ptr %this, i64 0, i32 1
+  %m_simplexSolver = getelementptr inbounds i8, ptr %this, i64 8
   %0 = load ptr, ptr %m_simplexSolver, align 8
   tail call void @_ZN22btVoronoiSimplexSolver5resetEv(ptr noundef nonnull align 4 dereferenceable(357) %0)
-  %m_origin.i = getelementptr inbounds %class.btTransform, ptr %toA, i64 0, i32 1
-  %m_origin.i24 = getelementptr inbounds %class.btTransform, ptr %fromA, i64 0, i32 1
+  %m_origin.i = getelementptr inbounds i8, ptr %toA, i64 48
+  %m_origin.i24 = getelementptr inbounds i8, ptr %fromA, i64 48
   %1 = load float, ptr %m_origin.i, align 4
   %2 = load float, ptr %m_origin.i24, align 4
   %sub.i = fsub float %1, %2
-  %arrayidx5.i = getelementptr inbounds %class.btTransform, ptr %toA, i64 0, i32 1, i32 0, i64 1
+  %arrayidx5.i = getelementptr inbounds i8, ptr %toA, i64 52
   %3 = load float, ptr %arrayidx5.i, align 4
-  %arrayidx7.i = getelementptr inbounds %class.btTransform, ptr %fromA, i64 0, i32 1, i32 0, i64 1
-  %arrayidx11.i = getelementptr inbounds %class.btTransform, ptr %toA, i64 0, i32 1, i32 0, i64 2
+  %arrayidx7.i = getelementptr inbounds i8, ptr %fromA, i64 52
+  %arrayidx11.i = getelementptr inbounds i8, ptr %toA, i64 56
   %4 = load float, ptr %arrayidx11.i, align 4
-  %arrayidx13.i = getelementptr inbounds %class.btTransform, ptr %fromA, i64 0, i32 1, i32 0, i64 2
+  %arrayidx13.i = getelementptr inbounds i8, ptr %fromA, i64 56
   %5 = load <2 x float>, ptr %arrayidx7.i, align 4
   %6 = extractelement <2 x float> %5, i64 0
   %sub8.i = fsub float %3, %6
   %7 = extractelement <2 x float> %5, i64 1
   %sub14.i = fsub float %4, %7
-  %m_origin.i25 = getelementptr inbounds %class.btTransform, ptr %toB, i64 0, i32 1
-  %m_origin.i26 = getelementptr inbounds %class.btTransform, ptr %fromB, i64 0, i32 1
+  %m_origin.i25 = getelementptr inbounds i8, ptr %toB, i64 48
+  %m_origin.i26 = getelementptr inbounds i8, ptr %fromB, i64 48
   %8 = load float, ptr %m_origin.i25, align 4
   %9 = load float, ptr %m_origin.i26, align 4
   %sub.i27 = fsub float %8, %9
-  %arrayidx5.i28 = getelementptr inbounds %class.btTransform, ptr %toB, i64 0, i32 1, i32 0, i64 1
+  %arrayidx5.i28 = getelementptr inbounds i8, ptr %toB, i64 52
   %10 = load float, ptr %arrayidx5.i28, align 4
-  %arrayidx7.i29 = getelementptr inbounds %class.btTransform, ptr %fromB, i64 0, i32 1, i32 0, i64 1
-  %arrayidx11.i31 = getelementptr inbounds %class.btTransform, ptr %toB, i64 0, i32 1, i32 0, i64 2
+  %arrayidx7.i29 = getelementptr inbounds i8, ptr %fromB, i64 52
+  %arrayidx11.i31 = getelementptr inbounds i8, ptr %toB, i64 56
   %11 = load float, ptr %arrayidx11.i31, align 4
-  %arrayidx13.i32 = getelementptr inbounds %class.btTransform, ptr %fromB, i64 0, i32 1, i32 0, i64 2
+  %arrayidx13.i32 = getelementptr inbounds i8, ptr %fromB, i64 56
   %12 = load <2 x float>, ptr %arrayidx7.i29, align 4
   %13 = extractelement <2 x float> %12, i64 0
   %sub8.i30 = fsub float %10, %13
@@ -87,35 +82,35 @@ entry:
   %interpolatedTransA.sroa.3.0.fromA.sroa_idx = getelementptr inbounds i8, ptr %fromA, i64 4
   %interpolatedTransA.sroa.5.0.fromA.sroa_idx = getelementptr inbounds i8, ptr %fromA, i64 8
   %interpolatedTransA.sroa.5.0.copyload = load float, ptr %interpolatedTransA.sroa.5.0.fromA.sroa_idx, align 4
-  %arrayidx6.i.i = getelementptr inbounds [3 x %class.btVector3], ptr %fromA, i64 0, i64 1
-  %interpolatedTransA.sroa.10.16.arrayidx6.i.i.sroa_idx = getelementptr inbounds [3 x %class.btVector3], ptr %fromA, i64 0, i64 1, i32 0, i64 1
-  %interpolatedTransA.sroa.12.16.arrayidx6.i.i.sroa_idx = getelementptr inbounds [3 x %class.btVector3], ptr %fromA, i64 0, i64 1, i32 0, i64 2
+  %arrayidx6.i.i = getelementptr inbounds i8, ptr %fromA, i64 16
+  %interpolatedTransA.sroa.10.16.arrayidx6.i.i.sroa_idx = getelementptr inbounds i8, ptr %fromA, i64 20
+  %interpolatedTransA.sroa.12.16.arrayidx6.i.i.sroa_idx = getelementptr inbounds i8, ptr %fromA, i64 24
   %interpolatedTransA.sroa.12.16.copyload = load float, ptr %interpolatedTransA.sroa.12.16.arrayidx6.i.i.sroa_idx, align 4
-  %arrayidx10.i.i = getelementptr inbounds [3 x %class.btVector3], ptr %fromA, i64 0, i64 2
-  %interpolatedTransA.sroa.17.32.arrayidx10.i.i.sroa_idx = getelementptr inbounds [3 x %class.btVector3], ptr %fromA, i64 0, i64 2, i32 0, i64 1
+  %arrayidx10.i.i = getelementptr inbounds i8, ptr %fromA, i64 32
+  %interpolatedTransA.sroa.17.32.arrayidx10.i.i.sroa_idx = getelementptr inbounds i8, ptr %fromA, i64 36
   %15 = load <2 x float>, ptr %fromA, align 4
   %16 = load <2 x float>, ptr %arrayidx6.i.i, align 4
   %17 = load <2 x float>, ptr %arrayidx10.i.i, align 4
-  %interpolatedTransA.sroa.19.32.arrayidx10.i.i.sroa_idx = getelementptr inbounds [3 x %class.btVector3], ptr %fromA, i64 0, i64 2, i32 0, i64 2
+  %interpolatedTransA.sroa.19.32.arrayidx10.i.i.sroa_idx = getelementptr inbounds i8, ptr %fromA, i64 40
   %interpolatedTransA.sroa.19.32.copyload = load float, ptr %interpolatedTransA.sroa.19.32.arrayidx10.i.i.sroa_idx, align 4
   %interpolatedTransB.sroa.3.0.fromB.sroa_idx = getelementptr inbounds i8, ptr %fromB, i64 4
   %interpolatedTransB.sroa.5.0.fromB.sroa_idx = getelementptr inbounds i8, ptr %fromB, i64 8
   %interpolatedTransB.sroa.5.0.copyload = load float, ptr %interpolatedTransB.sroa.5.0.fromB.sroa_idx, align 4
-  %arrayidx6.i.i40 = getelementptr inbounds [3 x %class.btVector3], ptr %fromB, i64 0, i64 1
-  %interpolatedTransB.sroa.10.16.arrayidx6.i.i40.sroa_idx = getelementptr inbounds [3 x %class.btVector3], ptr %fromB, i64 0, i64 1, i32 0, i64 1
-  %interpolatedTransB.sroa.12.16.arrayidx6.i.i40.sroa_idx = getelementptr inbounds [3 x %class.btVector3], ptr %fromB, i64 0, i64 1, i32 0, i64 2
+  %arrayidx6.i.i40 = getelementptr inbounds i8, ptr %fromB, i64 16
+  %interpolatedTransB.sroa.10.16.arrayidx6.i.i40.sroa_idx = getelementptr inbounds i8, ptr %fromB, i64 20
+  %interpolatedTransB.sroa.12.16.arrayidx6.i.i40.sroa_idx = getelementptr inbounds i8, ptr %fromB, i64 24
   %interpolatedTransB.sroa.12.16.copyload = load float, ptr %interpolatedTransB.sroa.12.16.arrayidx6.i.i40.sroa_idx, align 4
-  %arrayidx10.i.i42 = getelementptr inbounds [3 x %class.btVector3], ptr %fromB, i64 0, i64 2
-  %interpolatedTransB.sroa.17.32.arrayidx10.i.i42.sroa_idx = getelementptr inbounds [3 x %class.btVector3], ptr %fromB, i64 0, i64 2, i32 0, i64 1
+  %arrayidx10.i.i42 = getelementptr inbounds i8, ptr %fromB, i64 32
+  %interpolatedTransB.sroa.17.32.arrayidx10.i.i42.sroa_idx = getelementptr inbounds i8, ptr %fromB, i64 36
   %18 = load <2 x float>, ptr %fromB, align 4
   %19 = load <2 x float>, ptr %arrayidx6.i.i40, align 4
   %20 = load <2 x float>, ptr %arrayidx10.i.i42, align 4
-  %interpolatedTransB.sroa.19.32.arrayidx10.i.i42.sroa_idx = getelementptr inbounds [3 x %class.btVector3], ptr %fromB, i64 0, i64 2, i32 0, i64 2
+  %interpolatedTransB.sroa.19.32.arrayidx10.i.i42.sroa_idx = getelementptr inbounds i8, ptr %fromB, i64 40
   %interpolatedTransB.sroa.19.32.copyload = load float, ptr %interpolatedTransB.sroa.19.32.arrayidx10.i.i42.sroa_idx, align 4
   %sub.i46 = fsub float %sub.i, %sub.i27
   %sub8.i49 = fsub float %sub8.i, %sub8.i30
   %sub14.i52 = fsub float %sub14.i, %sub14.i33
-  %m_convexA = getelementptr inbounds %class.btSubsimplexConvexCast, ptr %this, i64 0, i32 2
+  %m_convexA = getelementptr inbounds i8, ptr %this, i64 16
   %21 = load ptr, ptr %m_convexA, align 8
   %fneg.i = fneg float %sub.i46
   %fneg4.i = fneg float %sub8.i49
@@ -134,10 +129,10 @@ entry:
   %32 = tail call noundef float @llvm.fmuladd.f32(float %interpolatedTransA.sroa.19.32.copyload, float %fneg8.i, float %31)
   %retval.sroa.3.12.vec.insert.i66 = insertelement <2 x float> <float poison, float 0.000000e+00>, float %32, i64 0
   store <2 x float> %30, ptr %ref.tmp12, align 8
-  %33 = getelementptr inbounds { <2 x float>, <2 x float> }, ptr %ref.tmp12, i64 0, i32 1
+  %33 = getelementptr inbounds i8, ptr %ref.tmp12, i64 8
   store <2 x float> %retval.sroa.3.12.vec.insert.i66, ptr %33, align 8
   %vtable = load ptr, ptr %21, align 8
-  %vfn = getelementptr inbounds ptr, ptr %vtable, i64 16
+  %vfn = getelementptr inbounds i8, ptr %vtable, i64 128
   %34 = load ptr, ptr %vfn, align 8
   %call19 = call { <2 x float>, <2 x float> } %34(ptr noundef nonnull align 8 dereferenceable(32) %21, ptr noundef nonnull align 4 dereferenceable(16) %ref.tmp12)
   %35 = extractvalue { <2 x float>, <2 x float> } %call19, 0
@@ -175,9 +170,9 @@ entry:
   %add14.i.i = fadd float %50, %62
   %retval.sroa.3.12.vec.insert.i4.i = insertelement <2 x float> <float poison, float 0.000000e+00>, float %add14.i.i, i64 0
   store <2 x float> %61, ptr %supVertexA, align 8
-  %63 = getelementptr inbounds { <2 x float>, <2 x float> }, ptr %supVertexA, i64 0, i32 1
+  %63 = getelementptr inbounds i8, ptr %supVertexA, i64 8
   store <2 x float> %retval.sroa.3.12.vec.insert.i4.i, ptr %63, align 8
-  %m_convexB = getelementptr inbounds %class.btSubsimplexConvexCast, ptr %this, i64 0, i32 3
+  %m_convexB = getelementptr inbounds i8, ptr %this, i64 24
   %64 = load ptr, ptr %m_convexB, align 8
   %65 = load <2 x float>, ptr %fromB, align 4
   %66 = load <2 x float>, ptr %arrayidx6.i.i40, align 4
@@ -199,10 +194,10 @@ entry:
   %81 = call noundef float @llvm.fmuladd.f32(float %80, float %sub14.i52, float %79)
   %retval.sroa.3.12.vec.insert.i85 = insertelement <2 x float> <float poison, float 0.000000e+00>, float %81, i64 0
   store <2 x float> %76, ptr %ref.tmp24, align 8
-  %82 = getelementptr inbounds { <2 x float>, <2 x float> }, ptr %ref.tmp24, i64 0, i32 1
+  %82 = getelementptr inbounds i8, ptr %ref.tmp24, i64 8
   store <2 x float> %retval.sroa.3.12.vec.insert.i85, ptr %82, align 8
   %vtable28 = load ptr, ptr %64, align 8
-  %vfn29 = getelementptr inbounds ptr, ptr %vtable28, i64 16
+  %vfn29 = getelementptr inbounds i8, ptr %vtable28, i64 128
   %83 = load ptr, ptr %vfn29, align 8
   %call30 = call { <2 x float>, <2 x float> } %83(ptr noundef nonnull align 8 dereferenceable(32) %64, ptr noundef nonnull align 4 dereferenceable(16) %ref.tmp24)
   %84 = extractvalue { <2 x float>, <2 x float> } %call30, 0
@@ -240,7 +235,7 @@ entry:
   %add14.i.i106 = fadd float %99, %111
   %retval.sroa.3.12.vec.insert.i4.i109 = insertelement <2 x float> <float poison, float 0.000000e+00>, float %add14.i.i106, i64 0
   store <2 x float> %110, ptr %supVertexB, align 8
-  %112 = getelementptr inbounds { <2 x float>, <2 x float> }, ptr %supVertexB, i64 0, i32 1
+  %112 = getelementptr inbounds i8, ptr %supVertexB, i64 8
   store <2 x float> %retval.sroa.3.12.vec.insert.i4.i109, ptr %112, align 8
   %113 = fsub <2 x float> %61, %110
   %sub14.i118 = fsub float %add14.i.i, %add14.i.i106
@@ -248,22 +243,22 @@ entry:
   store <2 x float> %113, ptr %v, align 8
   %ref.tmp34.sroa.2.0.v.sroa_idx = getelementptr inbounds i8, ptr %v, i64 8
   store <2 x float> %retval.sroa.3.12.vec.insert.i121, ptr %ref.tmp34.sroa.2.0.v.sroa_idx, align 8
-  %arrayidx5.i.i = getelementptr inbounds [4 x float], ptr %v, i64 0, i64 1
+  %arrayidx5.i.i = getelementptr inbounds i8, ptr %v, i64 4
   %114 = fmul <2 x float> %113, %113
   %mul8.i.i = extractelement <2 x float> %114, i64 1
   %115 = extractelement <2 x float> %113, i64 0
   %116 = call float @llvm.fmuladd.f32(float %115, float %115, float %mul8.i.i)
   %117 = call noundef float @llvm.fmuladd.f32(float %sub14.i118, float %sub14.i118, float %116)
-  %m_subSimplexCastEpsilon = getelementptr inbounds %"struct.btConvexCast::CastResult", ptr %result, i64 0, i32 10
+  %m_subSimplexCastEpsilon = getelementptr inbounds i8, ptr %result, i64 192
   %118 = load float, ptr %m_subSimplexCastEpsilon, align 8
   %cmp338 = fcmp ogt float %117, %118
   br i1 %cmp338, label %land.rhs.lr.ph, label %while.end
 
 land.rhs.lr.ph:                                   ; preds = %entry
-  %m_subSimplexCastMaxIterations = getelementptr inbounds %"struct.btConvexCast::CastResult", ptr %result, i64 0, i32 9
+  %m_subSimplexCastMaxIterations = getelementptr inbounds i8, ptr %result, i64 188
   %119 = load i32, ptr %m_subSimplexCastMaxIterations, align 4
-  %120 = getelementptr inbounds { <2 x float>, <2 x float> }, ptr %ref.tmp44, i64 0, i32 1
-  %121 = getelementptr inbounds { <2 x float>, <2 x float> }, ptr %ref.tmp60, i64 0, i32 1
+  %120 = getelementptr inbounds i8, ptr %ref.tmp44, i64 8
+  %121 = getelementptr inbounds i8, ptr %ref.tmp60, i64 8
   %ref.tmp70.sroa.2.0.w.sroa_idx = getelementptr inbounds i8, ptr %w, i64 8
   %122 = insertelement <4 x float> poison, float %9, i64 0
   %123 = shufflevector <2 x float> %12, <2 x float> poison, <4 x i32> <i32 0, i32 1, i32 poison, i32 poison>
@@ -316,7 +311,7 @@ while.body:                                       ; preds = %land.rhs
   store <2 x float> %150, ptr %ref.tmp44, align 8
   store <2 x float> %retval.sroa.3.12.vec.insert.i153, ptr %120, align 8
   %vtable51 = load ptr, ptr %138, align 8
-  %vfn52 = getelementptr inbounds ptr, ptr %vtable51, i64 16
+  %vfn52 = getelementptr inbounds i8, ptr %vtable51, i64 128
   %153 = load ptr, ptr %vfn52, align 8
   %call53 = call { <2 x float>, <2 x float> } %153(ptr noundef nonnull align 8 dereferenceable(32) %138, ptr noundef nonnull align 4 dereferenceable(16) %ref.tmp44)
   %154 = extractvalue { <2 x float>, <2 x float> } %call53, 0
@@ -361,7 +356,7 @@ while.body:                                       ; preds = %land.rhs
   store <2 x float> %181, ptr %ref.tmp60, align 8
   store <2 x float> %retval.sroa.3.12.vec.insert.i195, ptr %121, align 8
   %vtable64 = load ptr, ptr %169, align 8
-  %vfn65 = getelementptr inbounds ptr, ptr %vtable64, i64 16
+  %vfn65 = getelementptr inbounds i8, ptr %vtable64, i64 128
   %184 = load ptr, ptr %vfn65, align 8
   %call66 = call { <2 x float>, <2 x float> } %184(ptr noundef nonnull align 8 dereferenceable(32) %169, ptr noundef nonnull align 4 dereferenceable(16) %ref.tmp60)
   %185 = extractvalue { <2 x float>, <2 x float> } %call66, 0
@@ -487,7 +482,7 @@ while.end:                                        ; preds = %land.rhs, %if.end10
   %n.sroa.0.0.lcssa = phi <2 x float> [ zeroinitializer, %entry ], [ %n.sroa.0.1, %if.end101 ], [ %n.sroa.0.0339, %land.rhs ]
   %n.sroa.6.0.lcssa = phi <2 x float> [ zeroinitializer, %entry ], [ %n.sroa.6.1, %if.end101 ], [ %n.sroa.6.0340, %land.rhs ]
   %lambda.0.lcssa = phi float [ 0.000000e+00, %entry ], [ %lambda.1, %if.end101 ], [ %lambda.0348, %land.rhs ]
-  %m_fraction = getelementptr inbounds %"struct.btConvexCast::CastResult", ptr %result, i64 0, i32 5
+  %m_fraction = getelementptr inbounds i8, ptr %result, i64 168
   store float %lambda.0.lcssa, ptr %m_fraction, align 8
   %248 = fmul <2 x float> %n.sroa.0.0.lcssa, %n.sroa.0.0.lcssa
   %mul8.i.i276 = extractelement <2 x float> %248, i64 1
@@ -506,14 +501,14 @@ if.then104:                                       ; preds = %while.end
   %254 = fmul <2 x float> %n.sroa.0.0.lcssa, %253
   %mul7.i.i.i.i = fmul float %n.sroa.6.8.vec.extract, %div.i.i.i
   %nrm.sroa.6.8.vec.insert.i = insertelement <2 x float> %n.sroa.6.0.lcssa, float %mul7.i.i.i.i, i64 0
-  %m_normal = getelementptr inbounds %"struct.btConvexCast::CastResult", ptr %result, i64 0, i32 3
+  %m_normal = getelementptr inbounds i8, ptr %result, i64 136
   store <2 x float> %254, ptr %m_normal, align 8
-  %ref.tmp105.sroa.2.0.m_normal.sroa_idx = getelementptr inbounds %"struct.btConvexCast::CastResult", ptr %result, i64 0, i32 3, i32 0, i64 2
+  %ref.tmp105.sroa.2.0.m_normal.sroa_idx = getelementptr inbounds i8, ptr %result, i64 144
   store <2 x float> %nrm.sroa.6.8.vec.insert.i, ptr %ref.tmp105.sroa.2.0.m_normal.sroa_idx, align 8
   br label %if.end114
 
 if.else108:                                       ; preds = %while.end
-  %m_normal113 = getelementptr inbounds %"struct.btConvexCast::CastResult", ptr %result, i64 0, i32 3
+  %m_normal113 = getelementptr inbounds i8, ptr %result, i64 136
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %m_normal113, i8 0, i64 16, i1 false)
   br label %if.end114
 
@@ -525,7 +520,7 @@ if.end114:                                        ; preds = %if.else108, %if.the
   %258 = extractelement <2 x float> %256, i64 0
   %259 = call float @llvm.fmuladd.f32(float %258, float %sub.i46, float %mul8.i285)
   %260 = call noundef float @llvm.fmuladd.f32(float %255, float %sub14.i52, float %259)
-  %m_allowedPenetration = getelementptr inbounds %"struct.btConvexCast::CastResult", ptr %result, i64 0, i32 8
+  %m_allowedPenetration = getelementptr inbounds i8, ptr %result, i64 184
   %261 = load float, ptr %m_allowedPenetration, align 8
   %fneg = fneg float %261
   %cmp117 = fcmp ult float %260, %fneg
@@ -534,7 +529,7 @@ if.end114:                                        ; preds = %if.else108, %if.the
 if.end119:                                        ; preds = %if.end114
   %262 = load ptr, ptr %m_simplexSolver, align 8
   call void @_ZN22btVoronoiSimplexSolver14compute_pointsER9btVector3S1_(ptr noundef nonnull align 4 dereferenceable(357) %262, ptr noundef nonnull align 4 dereferenceable(16) %hitA, ptr noundef nonnull align 4 dereferenceable(16) %hitB)
-  %m_hitPoint = getelementptr inbounds %"struct.btConvexCast::CastResult", ptr %result, i64 0, i32 4
+  %m_hitPoint = getelementptr inbounds i8, ptr %result, i64 152
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %m_hitPoint, ptr noundef nonnull align 4 dereferenceable(16) %hitB, i64 16, i1 false)
   br label %return
 

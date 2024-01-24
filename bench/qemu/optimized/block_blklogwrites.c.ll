@@ -10,27 +10,6 @@ target triple = "x86_64-unknown-linux-gnu"
 %struct.QTailQLink = type { ptr, ptr }
 %struct.QemuOptDesc = type { ptr, i32, ptr, ptr }
 %struct.log_write_super = type <{ i64, i64, i64, i32 }>
-%struct.BlockDriverState = type { i32, i8, i8, i8, i8, i8, ptr, ptr, ptr, %struct.anon.0, i8, [4096 x i8], [4096 x i8], [4096 x i8], [16 x i8], ptr, [4096 x i8], %struct.BlockLimits, i32, i32, i32, i32, [32 x i8], %union.anon, %union.anon.1, %union.anon.2, i32, [16 x %struct.anon.3], ptr, %struct.anon.4, ptr, ptr, %struct.anon.5, ptr, ptr, i32, ptr, i64, i64, %struct.QemuMutex, %struct.anon.6, %struct.Stat64, i32, i32, i32, i32, i32, i32, %struct.QemuMutex, %struct.anon.7, %struct.CoQueue, i8, i32, i8, %struct.CoMutex, ptr, ptr }
-%struct.anon.0 = type { ptr }
-%struct.BlockLimits = type { i32, i64, i32, i64, i32, i32, i32, i64, i32, i64, i64, i32, i8, i32, i32, i32, i32, i32, i32, i32 }
-%union.anon = type { %struct.QTailQLink }
-%union.anon.1 = type { %struct.QTailQLink }
-%union.anon.2 = type { %struct.QTailQLink }
-%struct.anon.3 = type { ptr }
-%struct.anon.4 = type { ptr }
-%struct.anon.5 = type { ptr }
-%struct.anon.6 = type { ptr }
-%struct.Stat64 = type { i64 }
-%struct.QemuMutex = type { %union.pthread_mutex_t, i8 }
-%union.pthread_mutex_t = type { %struct.__pthread_mutex_s }
-%struct.__pthread_mutex_s = type { i32, i32, i32, i32, i32, i16, i16, %struct.__pthread_internal_list }
-%struct.__pthread_internal_list = type { ptr, ptr }
-%struct.anon.7 = type { ptr }
-%struct.CoQueue = type { %struct.anon.8 }
-%struct.anon.8 = type { ptr, ptr }
-%struct.CoMutex = type { i32, ptr, %struct.anon.9, %struct.anon.9, i32, i32, ptr }
-%struct.anon.9 = type { ptr }
-%struct.BDRVBlkLogWritesState = type { ptr, i32, i32, i64, i64, i64 }
 %struct.log_write_entry = type { i64, i64, i64, i64 }
 %struct.QEMUIOVector = type { ptr, i32, %union.anon.13 }
 %union.anon.13 = type { %struct.anon.14 }
@@ -105,7 +84,7 @@ define internal i32 @blk_log_writes_open(ptr noundef %bs, ptr noundef %options, 
 entry:
   %local_err = alloca ptr, align 8
   %log_sb = alloca %struct.log_write_super, align 8
-  %opaque = getelementptr inbounds %struct.BlockDriverState, ptr %bs, i64 0, i32 7
+  %opaque = getelementptr inbounds i8, ptr %bs, i64 24
   %0 = load ptr, ptr %opaque, align 8
   store ptr null, ptr %local_err, align 8
   %call = tail call ptr @qemu_opts_create(ptr noundef nonnull @runtime_opts, ptr noundef null, i32 noundef 0, ptr noundef nonnull @error_abort) #8
@@ -146,11 +125,11 @@ if.end15:                                         ; preds = %if.then11
 
 if.end30.thread:                                  ; preds = %if.end15
   store i64 29963231459240050, ptr %log_sb, align 8
-  %version = getelementptr inbounds %struct.log_write_super, ptr %log_sb, i64 0, i32 1
+  %version = getelementptr inbounds i8, ptr %log_sb, i64 8
   store i64 1, ptr %version, align 8
-  %nr_entries = getelementptr inbounds %struct.log_write_super, ptr %log_sb, i64 0, i32 2
+  %nr_entries = getelementptr inbounds i8, ptr %log_sb, i64 16
   store i64 0, ptr %nr_entries, align 8
-  %sectorsize = getelementptr inbounds %struct.log_write_super, ptr %log_sb, i64 0, i32 3
+  %sectorsize = getelementptr inbounds i8, ptr %log_sb, i64 24
   store i32 512, ptr %sectorsize, align 8
   br label %if.end35
 
@@ -175,7 +154,7 @@ if.then34:                                        ; preds = %if.end30
   br label %if.then83
 
 if.end35:                                         ; preds = %if.end30.thread, %if.end30
-  %version36 = getelementptr inbounds %struct.log_write_super, ptr %log_sb, i64 0, i32 1
+  %version36 = getelementptr inbounds i8, ptr %log_sb, i64 8
   %5 = load i64, ptr %version36, align 8
   %cmp38.not = icmp eq i64 %5, 1
   br i1 %cmp38.not, label %if.end42, label %if.then39
@@ -185,12 +164,12 @@ if.then39:                                        ; preds = %if.end35
   br label %if.then83
 
 if.end42:                                         ; preds = %if.end35
-  %sectorsize43 = getelementptr inbounds %struct.log_write_super, ptr %log_sb, i64 0, i32 3
+  %sectorsize43 = getelementptr inbounds i8, ptr %log_sb, i64 24
   %6 = load i32, ptr %sectorsize43, align 8
   %conv = zext i32 %6 to i64
-  %cur_log_sector = getelementptr inbounds %struct.BDRVBlkLogWritesState, ptr %0, i64 0, i32 3
+  %cur_log_sector = getelementptr inbounds i8, ptr %0, i64 16
   store i64 1, ptr %cur_log_sector, align 8
-  %nr_entries45 = getelementptr inbounds %struct.BDRVBlkLogWritesState, ptr %0, i64 0, i32 4
+  %nr_entries45 = getelementptr inbounds i8, ptr %0, i64 24
   store i64 0, ptr %nr_entries45, align 8
   %tobool.not.i.i = icmp eq i32 %6, 0
   br i1 %tobool.not.i.i, label %if.then69, label %blk_log_writes_sector_size_valid.exit
@@ -205,7 +184,7 @@ blk_log_writes_sector_size_valid.exit:            ; preds = %if.end42
 
 if.then48:                                        ; preds = %blk_log_writes_sector_size_valid.exit
   %10 = load ptr, ptr %0, align 8
-  %nr_entries51 = getelementptr inbounds %struct.log_write_super, ptr %log_sb, i64 0, i32 2
+  %nr_entries51 = getelementptr inbounds i8, ptr %log_sb, i64 16
   %11 = load i64, ptr %nr_entries51, align 8
   %call53 = call fastcc i64 @blk_log_writes_find_cur_log_sector(ptr noundef %10, i32 noundef %6, i64 noundef %11, ptr noundef nonnull %local_err)
   store i64 %call53, ptr %cur_log_sector, align 8
@@ -224,9 +203,9 @@ if.end57:                                         ; preds = %if.then48
 
 if.else62:                                        ; preds = %if.end8
   %call63 = tail call i64 @qemu_opt_get_size(ptr noundef %call, ptr noundef nonnull @.str.2, i64 noundef 512) #8
-  %cur_log_sector64 = getelementptr inbounds %struct.BDRVBlkLogWritesState, ptr %0, i64 0, i32 3
+  %cur_log_sector64 = getelementptr inbounds i8, ptr %0, i64 16
   store i64 1, ptr %cur_log_sector64, align 8
-  %nr_entries65 = getelementptr inbounds %struct.BDRVBlkLogWritesState, ptr %0, i64 0, i32 4
+  %nr_entries65 = getelementptr inbounds i8, ptr %0, i64 24
   store i64 0, ptr %nr_entries65, align 8
   br label %if.end66
 
@@ -250,14 +229,14 @@ if.then69:                                        ; preds = %if.end42, %if.end66
   br label %if.then83
 
 blk_log_writes_log2.exit:                         ; preds = %blk_log_writes_sector_size_valid.exit51
-  %sectorsize72 = getelementptr inbounds %struct.BDRVBlkLogWritesState, ptr %0, i64 0, i32 1
+  %sectorsize72 = getelementptr inbounds i8, ptr %0, i64 8
   store i32 %conv67, ptr %sectorsize72, align 8
   %17 = call i32 @llvm.ctlz.i32(i32 %conv67, i1 true), !range !5
   %sub.i = xor i32 %17, 31
-  %sectorbits = getelementptr inbounds %struct.BDRVBlkLogWritesState, ptr %0, i64 0, i32 2
+  %sectorbits = getelementptr inbounds i8, ptr %0, i64 12
   store i32 %sub.i, ptr %sectorbits, align 4
   %call75 = call i64 @qemu_opt_get_number(ptr noundef %call, ptr noundef nonnull @.str.11, i64 noundef 4096) #8
-  %update_interval = getelementptr inbounds %struct.BDRVBlkLogWritesState, ptr %0, i64 0, i32 5
+  %update_interval = getelementptr inbounds i8, ptr %0, i64 32
   store i64 %call75, ptr %update_interval, align 8
   %tobool77.not = icmp eq i64 %call75, 0
   br i1 %tobool77.not, label %if.then78, label %fail
@@ -284,7 +263,7 @@ fail:                                             ; preds = %blk_log_writes_log2
 ; Function Attrs: nounwind sspstrong uwtable
 define internal void @blk_log_writes_close(ptr noundef %bs) #0 {
 entry:
-  %opaque = getelementptr inbounds %struct.BlockDriverState, ptr %bs, i64 0, i32 7
+  %opaque = getelementptr inbounds i8, ptr %bs, i64 24
   %0 = load ptr, ptr %opaque, align 8
   tail call void @bdrv_graph_wrlock(ptr noundef null) #8
   %1 = load ptr, ptr %0, align 8
@@ -297,11 +276,11 @@ entry:
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
 define internal void @blk_log_writes_refresh_limits(ptr nocapture noundef %bs, ptr nocapture readnone %errp) #2 {
 entry:
-  %opaque = getelementptr inbounds %struct.BlockDriverState, ptr %bs, i64 0, i32 7
+  %opaque = getelementptr inbounds i8, ptr %bs, i64 24
   %0 = load ptr, ptr %opaque, align 8
-  %sectorsize = getelementptr inbounds %struct.BDRVBlkLogWritesState, ptr %0, i64 0, i32 1
+  %sectorsize = getelementptr inbounds i8, ptr %0, i64 8
   %1 = load i32, ptr %sectorsize, align 8
-  %bl = getelementptr inbounds %struct.BlockDriverState, ptr %bs, i64 0, i32 17
+  %bl = getelementptr inbounds i8, ptr %bs, i64 16464
   store i32 %1, ptr %bl, align 8
   ret void
 }
@@ -330,7 +309,7 @@ return:                                           ; preds = %if.end, %if.then
 ; Function Attrs: nounwind sspstrong uwtable
 define internal i32 @blk_log_writes_co_preadv(ptr nocapture noundef readonly %bs, i64 noundef %offset, i64 noundef %bytes, ptr noundef %qiov, i32 noundef %flags) #0 {
 entry:
-  %file = getelementptr inbounds %struct.BlockDriverState, ptr %bs, i64 0, i32 31
+  %file = getelementptr inbounds i8, ptr %bs, i64 16840
   %0 = load ptr, ptr %file, align 8
   %call = tail call i32 @bdrv_co_preadv(ptr noundef %0, i64 noundef %offset, i64 noundef %bytes, ptr noundef %qiov, i32 noundef %flags) #8
   ret i32 %call
@@ -367,7 +346,7 @@ entry:
 ; Function Attrs: nounwind sspstrong uwtable
 define internal i64 @blk_log_writes_co_getlength(ptr nocapture noundef readonly %bs) #0 {
 entry:
-  %file = getelementptr inbounds %struct.BlockDriverState, ptr %bs, i64 0, i32 31
+  %file = getelementptr inbounds i8, ptr %bs, i64 16840
   %0 = load ptr, ptr %file, align 8
   %1 = load ptr, ptr %0, align 8
   %call = tail call i64 @bdrv_co_getlength(ptr noundef %1) #8
@@ -416,8 +395,8 @@ while.body.lr.ph:                                 ; preds = %blk_log_writes_log2
   %0 = tail call i32 @llvm.ctlz.i32(i32 %sector_size, i1 true), !range !5
   %sub.i = xor i32 %0, 31
   %sh_prom = zext nneg i32 %sub.i to i64
-  %flags = getelementptr inbounds %struct.log_write_entry, ptr %cur_entry, i64 0, i32 2
-  %nr_sectors = getelementptr inbounds %struct.log_write_entry, ptr %cur_entry, i64 0, i32 1
+  %flags = getelementptr inbounds i8, ptr %cur_entry, i64 16
+  %nr_sectors = getelementptr inbounds i8, ptr %cur_entry, i64 8
   br label %while.body
 
 while.body:                                       ; preds = %while.body.lr.ph, %if.end7
@@ -492,50 +471,50 @@ entry:
   br i1 %tobool.not, label %cond.end, label %cond.true
 
 cond.true:                                        ; preds = %entry
-  %niov1 = getelementptr inbounds %struct.QEMUIOVector, ptr %qiov, i64 0, i32 1
+  %niov1 = getelementptr inbounds i8, ptr %qiov, i64 8
   %0 = load i32, ptr %niov1, align 8
   %1 = add i32 %0, 2
   br label %cond.end
 
 cond.end:                                         ; preds = %entry, %cond.true
   %cond = phi i32 [ %1, %cond.true ], [ 2, %entry ]
-  %opaque = getelementptr inbounds %struct.BlockDriverState, ptr %bs, i64 0, i32 7
+  %opaque = getelementptr inbounds i8, ptr %bs, i64 24
   %2 = load ptr, ptr %opaque, align 8
   store ptr %bs, ptr %fr, align 8
-  %offset3 = getelementptr inbounds %struct.BlkLogWritesFileReq, ptr %fr, i64 0, i32 1
+  %offset3 = getelementptr inbounds i8, ptr %fr, i64 8
   store i64 %offset, ptr %offset3, align 8
-  %bytes4 = getelementptr inbounds %struct.BlkLogWritesFileReq, ptr %fr, i64 0, i32 2
+  %bytes4 = getelementptr inbounds i8, ptr %fr, i64 16
   store i64 %bytes, ptr %bytes4, align 8
-  %file_flags = getelementptr inbounds %struct.BlkLogWritesFileReq, ptr %fr, i64 0, i32 3
+  %file_flags = getelementptr inbounds i8, ptr %fr, i64 24
   store i32 %flags, ptr %file_flags, align 8
-  %qiov5 = getelementptr inbounds %struct.BlkLogWritesFileReq, ptr %fr, i64 0, i32 4
+  %qiov5 = getelementptr inbounds i8, ptr %fr, i64 32
   store ptr %qiov, ptr %qiov5, align 8
-  %func = getelementptr inbounds %struct.BlkLogWritesFileReq, ptr %fr, i64 0, i32 5
+  %func = getelementptr inbounds i8, ptr %fr, i64 40
   store ptr %file_func, ptr %func, align 8
-  %file_ret = getelementptr inbounds %struct.BlkLogWritesFileReq, ptr %fr, i64 0, i32 6
+  %file_ret = getelementptr inbounds i8, ptr %fr, i64 48
   store i32 0, ptr %file_ret, align 8
   store ptr %bs, ptr %lr, align 8
-  %qiov7 = getelementptr inbounds %struct.BlkLogWritesLogReq, ptr %lr, i64 0, i32 1
+  %qiov7 = getelementptr inbounds i8, ptr %lr, i64 8
   store ptr %log_qiov, ptr %qiov7, align 8
-  %entry8 = getelementptr inbounds %struct.BlkLogWritesLogReq, ptr %lr, i64 0, i32 2
-  %sectorbits = getelementptr inbounds %struct.BDRVBlkLogWritesState, ptr %2, i64 0, i32 2
+  %entry8 = getelementptr inbounds i8, ptr %lr, i64 16
+  %sectorbits = getelementptr inbounds i8, ptr %2, i64 12
   %3 = load i32, ptr %sectorbits, align 4
   %sh_prom = zext nneg i32 %3 to i64
   %shr = lshr i64 %offset, %sh_prom
   store i64 %shr, ptr %entry8, align 8
-  %nr_sectors = getelementptr inbounds %struct.BlkLogWritesLogReq, ptr %lr, i64 0, i32 2, i32 1
+  %nr_sectors = getelementptr inbounds i8, ptr %lr, i64 24
   %shr11 = lshr i64 %bytes, %sh_prom
   store i64 %shr11, ptr %nr_sectors, align 8
-  %flags13 = getelementptr inbounds %struct.BlkLogWritesLogReq, ptr %lr, i64 0, i32 2, i32 2
+  %flags13 = getelementptr inbounds i8, ptr %lr, i64 32
   store i64 %entry_flags, ptr %flags13, align 8
-  %data_len = getelementptr inbounds %struct.BlkLogWritesLogReq, ptr %lr, i64 0, i32 2, i32 3
+  %data_len = getelementptr inbounds i8, ptr %lr, i64 40
   store i64 0, ptr %data_len, align 8
-  %zero_size = getelementptr inbounds %struct.BlkLogWritesLogReq, ptr %lr, i64 0, i32 3
+  %zero_size = getelementptr inbounds i8, ptr %lr, i64 48
   %cond20 = select i1 %is_zero_write, i64 %bytes, i64 0
   store i64 %cond20, ptr %zero_size, align 8
-  %log_ret = getelementptr inbounds %struct.BlkLogWritesLogReq, ptr %lr, i64 0, i32 4
+  %log_ret = getelementptr inbounds i8, ptr %lr, i64 56
   store i32 0, ptr %log_ret, align 8
-  %sectorsize = getelementptr inbounds %struct.BDRVBlkLogWritesState, ptr %2, i64 0, i32 1
+  %sectorsize = getelementptr inbounds i8, ptr %2, i64 8
   %4 = load i32, ptr %sectorsize, align 8
   %conv21 = zext i32 %4 to i64
   %sub = add nsw i64 %conv21, -32
@@ -551,7 +530,7 @@ if.else:                                          ; preds = %cond.end
   unreachable
 
 if.end:                                           ; preds = %cond.end
-  %bl = getelementptr inbounds %struct.BlockDriverState, ptr %bs, i64 0, i32 17
+  %bl = getelementptr inbounds i8, ptr %bs, i64 16464
   %7 = load i32, ptr %bl, align 8
   %cmp27 = icmp eq i32 %7, %shl
   br i1 %cmp27, label %if.end31, label %if.else30
@@ -591,7 +570,7 @@ if.end48:                                         ; preds = %if.end39
   br i1 %tobool.not, label %if.end56, label %if.then55
 
 if.then55:                                        ; preds = %if.end48
-  %size = getelementptr inbounds %struct.QEMUIOVector, ptr %qiov, i64 0, i32 2, i32 0, i32 1, i32 1
+  %size = getelementptr inbounds i8, ptr %qiov, i64 32
   %11 = load i64, ptr %size, align 8
   call void @qemu_iovec_concat(ptr noundef nonnull %log_qiov, ptr noundef nonnull %qiov, i64 noundef 0, i64 noundef %11) #8
   br label %if.end56
@@ -613,15 +592,15 @@ if.end56:                                         ; preds = %if.then55, %if.end4
 define internal i32 @blk_log_writes_co_do_file_pwritev(ptr nocapture noundef readonly %fr) #0 {
 entry:
   %0 = load ptr, ptr %fr, align 8
-  %file = getelementptr inbounds %struct.BlockDriverState, ptr %0, i64 0, i32 31
+  %file = getelementptr inbounds i8, ptr %0, i64 16840
   %1 = load ptr, ptr %file, align 8
-  %offset = getelementptr inbounds %struct.BlkLogWritesFileReq, ptr %fr, i64 0, i32 1
+  %offset = getelementptr inbounds i8, ptr %fr, i64 8
   %2 = load i64, ptr %offset, align 8
-  %bytes = getelementptr inbounds %struct.BlkLogWritesFileReq, ptr %fr, i64 0, i32 2
+  %bytes = getelementptr inbounds i8, ptr %fr, i64 16
   %3 = load i64, ptr %bytes, align 8
-  %qiov = getelementptr inbounds %struct.BlkLogWritesFileReq, ptr %fr, i64 0, i32 4
+  %qiov = getelementptr inbounds i8, ptr %fr, i64 32
   %4 = load ptr, ptr %qiov, align 8
-  %file_flags = getelementptr inbounds %struct.BlkLogWritesFileReq, ptr %fr, i64 0, i32 3
+  %file_flags = getelementptr inbounds i8, ptr %fr, i64 24
   %5 = load i32, ptr %file_flags, align 8
   %call = tail call i32 @bdrv_co_pwritev(ptr noundef %1, i64 noundef %2, i64 noundef %3, ptr noundef %4, i32 noundef %5) #8
   ret i32 %call
@@ -639,10 +618,10 @@ declare void @qemu_iovec_concat(ptr noundef, ptr noundef, i64 noundef, i64 nound
 ; Function Attrs: nounwind sspstrong uwtable
 define internal void @blk_log_writes_co_do_file(ptr noundef %fr) #0 {
 entry:
-  %func = getelementptr inbounds %struct.BlkLogWritesFileReq, ptr %fr, i64 0, i32 5
+  %func = getelementptr inbounds i8, ptr %fr, i64 40
   %0 = load ptr, ptr %func, align 8
   %call = tail call i32 %0(ptr noundef %fr) #8
-  %file_ret = getelementptr inbounds %struct.BlkLogWritesFileReq, ptr %fr, i64 0, i32 6
+  %file_ret = getelementptr inbounds i8, ptr %fr, i64 48
   store i32 %call, ptr %file_ret, align 8
   ret void
 }
@@ -653,23 +632,23 @@ entry:
   %super = alloca %struct.log_write_super, align 8
   %qiov58 = alloca %struct.QEMUIOVector, align 8
   %0 = load ptr, ptr %lr, align 8
-  %opaque = getelementptr inbounds %struct.BlockDriverState, ptr %0, i64 0, i32 7
+  %opaque = getelementptr inbounds i8, ptr %0, i64 24
   %1 = load ptr, ptr %opaque, align 8
-  %cur_log_sector = getelementptr inbounds %struct.BDRVBlkLogWritesState, ptr %1, i64 0, i32 3
+  %cur_log_sector = getelementptr inbounds i8, ptr %1, i64 16
   %2 = load i64, ptr %cur_log_sector, align 8
-  %sectorbits = getelementptr inbounds %struct.BDRVBlkLogWritesState, ptr %1, i64 0, i32 2
+  %sectorbits = getelementptr inbounds i8, ptr %1, i64 12
   %3 = load i32, ptr %sectorbits, align 4
   %sh_prom = zext nneg i32 %3 to i64
   %shl = shl i64 %2, %sh_prom
-  %nr_entries = getelementptr inbounds %struct.BDRVBlkLogWritesState, ptr %1, i64 0, i32 4
+  %nr_entries = getelementptr inbounds i8, ptr %1, i64 24
   %4 = load i64, ptr %nr_entries, align 8
   %inc = add i64 %4, 1
   store i64 %inc, ptr %nr_entries, align 8
-  %qiov = getelementptr inbounds %struct.BlkLogWritesLogReq, ptr %lr, i64 0, i32 1
+  %qiov = getelementptr inbounds i8, ptr %lr, i64 8
   %5 = load ptr, ptr %qiov, align 8
-  %size = getelementptr inbounds %struct.QEMUIOVector, ptr %5, i64 0, i32 2, i32 0, i32 1, i32 1
+  %size = getelementptr inbounds i8, ptr %5, i64 32
   %6 = load i64, ptr %size, align 8
-  %sectorsize = getelementptr inbounds %struct.BDRVBlkLogWritesState, ptr %1, i64 0, i32 1
+  %sectorsize = getelementptr inbounds i8, ptr %1, i64 8
   %7 = load i32, ptr %sectorsize, align 8
   %conv = zext i32 %7 to i64
   %add = add i64 %6, -1
@@ -681,16 +660,16 @@ entry:
   store i64 %add7, ptr %cur_log_sector, align 8
   %8 = load ptr, ptr %1, align 8
   %9 = load ptr, ptr %qiov, align 8
-  %size9 = getelementptr inbounds %struct.QEMUIOVector, ptr %9, i64 0, i32 2, i32 0, i32 1, i32 1
+  %size9 = getelementptr inbounds i8, ptr %9, i64 32
   %10 = load i64, ptr %size9, align 8
   %call = tail call i32 @bdrv_co_pwritev(ptr noundef %8, i64 noundef %shl, i64 noundef %10, ptr noundef %9, i32 noundef 0) #8
-  %log_ret = getelementptr inbounds %struct.BlkLogWritesLogReq, ptr %lr, i64 0, i32 4
+  %log_ret = getelementptr inbounds i8, ptr %lr, i64 56
   store i32 %call, ptr %log_ret, align 8
   %cmp = icmp eq i32 %call, 0
   br i1 %cmp, label %land.lhs.true, label %if.end76
 
 land.lhs.true:                                    ; preds = %entry
-  %zero_size = getelementptr inbounds %struct.BlkLogWritesLogReq, ptr %lr, i64 0, i32 3
+  %zero_size = getelementptr inbounds i8, ptr %lr, i64 48
   %11 = load i64, ptr %zero_size, align 8
   %tobool.not = icmp eq i64 %11, 0
   br i1 %tobool.not, label %land.lhs.true38, label %if.end
@@ -717,7 +696,7 @@ if.end:                                           ; preds = %land.lhs.true
   br i1 %17, label %land.lhs.true38, label %if.end76
 
 land.lhs.true38:                                  ; preds = %land.lhs.true, %if.end
-  %flags = getelementptr inbounds %struct.BlkLogWritesLogReq, ptr %lr, i64 0, i32 2, i32 2
+  %flags = getelementptr inbounds i8, ptr %lr, i64 32
   %18 = load i64, ptr %flags, align 8
   %and40 = and i64 %18, 1
   %tobool41.not = icmp eq i64 %and40, 0
@@ -725,7 +704,7 @@ land.lhs.true38:                                  ; preds = %land.lhs.true, %if.
   br i1 %tobool41.not, label %lor.lhs.false, label %if.then45
 
 lor.lhs.false:                                    ; preds = %land.lhs.true38
-  %update_interval = getelementptr inbounds %struct.BDRVBlkLogWritesState, ptr %1, i64 0, i32 5
+  %update_interval = getelementptr inbounds i8, ptr %1, i64 32
   %19 = load i64, ptr %update_interval, align 8
   %rem = urem i64 %.pre, %19
   %cmp43 = icmp eq i64 %rem, 0
@@ -733,11 +712,11 @@ lor.lhs.false:                                    ; preds = %land.lhs.true38
 
 if.then45:                                        ; preds = %lor.lhs.false, %land.lhs.true38
   store i64 29963231459240050, ptr %super, align 8
-  %version = getelementptr inbounds %struct.log_write_super, ptr %super, i64 0, i32 1
+  %version = getelementptr inbounds i8, ptr %super, i64 8
   store i64 1, ptr %version, align 8
-  %nr_entries48 = getelementptr inbounds %struct.log_write_super, ptr %super, i64 0, i32 2
+  %nr_entries48 = getelementptr inbounds i8, ptr %super, i64 16
   store i64 %.pre, ptr %nr_entries48, align 8
-  %sectorsize51 = getelementptr inbounds %struct.log_write_super, ptr %super, i64 0, i32 3
+  %sectorsize51 = getelementptr inbounds i8, ptr %super, i64 24
   %20 = load i32, ptr %sectorsize, align 8
   store i32 %20, ptr %sectorsize51, align 8
   %conv55 = zext i32 %20 to i64
@@ -787,13 +766,13 @@ declare i32 @bdrv_co_flush(ptr noundef) #1
 define internal i32 @blk_log_writes_co_do_file_pwrite_zeroes(ptr nocapture noundef readonly %fr) #0 {
 entry:
   %0 = load ptr, ptr %fr, align 8
-  %file = getelementptr inbounds %struct.BlockDriverState, ptr %0, i64 0, i32 31
+  %file = getelementptr inbounds i8, ptr %0, i64 16840
   %1 = load ptr, ptr %file, align 8
-  %offset = getelementptr inbounds %struct.BlkLogWritesFileReq, ptr %fr, i64 0, i32 1
+  %offset = getelementptr inbounds i8, ptr %fr, i64 8
   %2 = load i64, ptr %offset, align 8
-  %bytes = getelementptr inbounds %struct.BlkLogWritesFileReq, ptr %fr, i64 0, i32 2
+  %bytes = getelementptr inbounds i8, ptr %fr, i64 16
   %3 = load i64, ptr %bytes, align 8
-  %file_flags = getelementptr inbounds %struct.BlkLogWritesFileReq, ptr %fr, i64 0, i32 3
+  %file_flags = getelementptr inbounds i8, ptr %fr, i64 24
   %4 = load i32, ptr %file_flags, align 8
   %call = tail call i32 @bdrv_co_pwrite_zeroes(ptr noundef %1, i64 noundef %2, i64 noundef %3, i32 noundef %4) #8
   ret i32 %call
@@ -803,11 +782,11 @@ entry:
 define internal i32 @blk_log_writes_co_do_file_pdiscard(ptr nocapture noundef readonly %fr) #0 {
 entry:
   %0 = load ptr, ptr %fr, align 8
-  %file = getelementptr inbounds %struct.BlockDriverState, ptr %0, i64 0, i32 31
+  %file = getelementptr inbounds i8, ptr %0, i64 16840
   %1 = load ptr, ptr %file, align 8
-  %offset = getelementptr inbounds %struct.BlkLogWritesFileReq, ptr %fr, i64 0, i32 1
+  %offset = getelementptr inbounds i8, ptr %fr, i64 8
   %2 = load i64, ptr %offset, align 8
-  %bytes = getelementptr inbounds %struct.BlkLogWritesFileReq, ptr %fr, i64 0, i32 2
+  %bytes = getelementptr inbounds i8, ptr %fr, i64 16
   %3 = load i64, ptr %bytes, align 8
   %call = tail call i32 @bdrv_co_pdiscard(ptr noundef %1, i64 noundef %2, i64 noundef %3) #8
   ret i32 %call
@@ -819,7 +798,7 @@ declare i32 @bdrv_co_pdiscard(ptr noundef, i64 noundef, i64 noundef) #1
 define internal i32 @blk_log_writes_co_do_file_flush(ptr nocapture noundef readonly %fr) #0 {
 entry:
   %0 = load ptr, ptr %fr, align 8
-  %file = getelementptr inbounds %struct.BlockDriverState, ptr %0, i64 0, i32 31
+  %file = getelementptr inbounds i8, ptr %0, i64 16840
   %1 = load ptr, ptr %file, align 8
   %2 = load ptr, ptr %1, align 8
   %call = tail call i32 @bdrv_co_flush(ptr noundef %2) #8

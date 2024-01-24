@@ -9,19 +9,10 @@ target triple = "x86_64-unknown-linux-gnu"
 %"class.std::tuple" = type { %"struct.std::_Tuple_impl" }
 %"struct.std::_Tuple_impl" = type { %"struct.std::_Head_base.1" }
 %"struct.std::_Head_base.1" = type { ptr }
-%"class.hermes::vm::StorageProvider" = type { ptr, i64, i64, i64 }
 %"class.llvh::ErrorOr" = type { %union.anon, i8, [7 x i8] }
 %union.anon = type { %"struct.llvh::AlignedCharArrayUnion.10" }
 %"struct.llvh::AlignedCharArrayUnion.10" = type { %"struct.llvh::AlignedCharArray.11" }
 %"struct.llvh::AlignedCharArray.11" = type { [16 x i8] }
-%"class.hermes::vm::(anonymous namespace)::ContiguousVAStorageProvider" = type { %"class.hermes::vm::StorageProvider", i64, ptr, ptr, %"class.llvh::SmallVector" }
-%"class.llvh::SmallVector" = type { %"class.llvh::SmallVectorImpl" }
-%"class.llvh::SmallVectorImpl" = type { %"class.llvh::SmallVectorTemplateBase" }
-%"class.llvh::SmallVectorTemplateBase" = type { %"class.llvh::SmallVectorTemplateCommon" }
-%"class.llvh::SmallVectorTemplateCommon" = type { %"class.llvh::SmallVectorBase" }
-%"class.llvh::SmallVectorBase" = type { ptr, i32, i32 }
-%"class.hermes::vm::(anonymous namespace)::MallocStorageProvider" = type { %"class.hermes::vm::StorageProvider", %"class.llvh::DenseMap" }
-%"class.llvh::DenseMap" = type <{ ptr, i32, i32, i32, [4 x i8] }>
 %"class.llvh::ErrorOr.12" = type { %union.anon.13, i8, [7 x i8] }
 %union.anon.13 = type { %"struct.llvh::AlignedCharArrayUnion.14" }
 %"struct.llvh::AlignedCharArrayUnion.14" = type { %"struct.llvh::AlignedCharArray.11" }
@@ -72,7 +63,7 @@ declare void @llvm.trap() #2
 define hidden void @_ZN6hermes2vm15StorageProvider12mmapProviderEv(ptr noalias nocapture writeonly sret(%"class.std::unique_ptr") align 8 %agg.result) local_unnamed_addr #3 align 2 {
 entry:
   %call = tail call noalias noundef nonnull dereferenceable(32) ptr @_Znwm(i64 noundef 32) #17
-  %numSucceededAllocs_.i.i = getelementptr inbounds %"class.hermes::vm::StorageProvider", ptr %call, i64 0, i32 1
+  %numSucceededAllocs_.i.i = getelementptr inbounds i8, ptr %call, i64 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %numSucceededAllocs_.i.i, i8 0, i64 24, i1 false)
   store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN6hermes2vm12_GLOBAL__N_125VMAllocateStorageProviderE, i64 0, inrange i32 0, i64 2), ptr %call, align 8
   store ptr %call, ptr %agg.result, align 8
@@ -88,23 +79,23 @@ entry:
   %result.i.i = alloca %"class.llvh::ErrorOr", align 8
   %call.i = tail call noalias noundef nonnull dereferenceable(72) ptr @_Znwm(i64 noundef 72) #17, !noalias !4
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %result.i.i), !noalias !4
-  %numSucceededAllocs_.i.i.i = getelementptr inbounds %"class.hermes::vm::StorageProvider", ptr %call.i, i64 0, i32 1
+  %numSucceededAllocs_.i.i.i = getelementptr inbounds i8, ptr %call.i, i64 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %numSucceededAllocs_.i.i.i, i8 0, i64 24, i1 false), !noalias !4
   store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN6hermes2vm12_GLOBAL__N_127ContiguousVAStorageProviderE, i64 0, inrange i32 0, i64 2), ptr %call.i, align 8, !noalias !4
-  %size_.i.i = getelementptr inbounds %"class.hermes::vm::(anonymous namespace)::ContiguousVAStorageProvider", ptr %call.i, i64 0, i32 1
+  %size_.i.i = getelementptr inbounds i8, ptr %call.i, i64 32
   %sub.i.i.i = add i64 %size, 4194303
   %div1.i.i.i = and i64 %sub.i.i.i, -4194304
   store i64 %div1.i.i.i, ptr %size_.i.i, align 8, !noalias !4
-  %freelist_.i.i = getelementptr inbounds %"class.hermes::vm::(anonymous namespace)::ContiguousVAStorageProvider", ptr %call.i, i64 0, i32 4
-  %add.ptr.i.i.i.i.i.i.i = getelementptr inbounds %"class.hermes::vm::(anonymous namespace)::ContiguousVAStorageProvider", ptr %call.i, i64 1
+  %freelist_.i.i = getelementptr inbounds i8, ptr %call.i, i64 56
+  %add.ptr.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %call.i, i64 72
   store ptr %add.ptr.i.i.i.i.i.i.i, ptr %freelist_.i.i, align 8, !noalias !4
-  %Size.i.i.i.i.i.i.i = getelementptr inbounds %"class.hermes::vm::(anonymous namespace)::ContiguousVAStorageProvider", ptr %call.i, i64 0, i32 4, i32 0, i32 0, i32 0, i32 0, i32 1
+  %Size.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %call.i, i64 64
   store i32 0, ptr %Size.i.i.i.i.i.i.i, align 8, !noalias !4
-  %Capacity2.i.i.i.i.i.i.i = getelementptr inbounds %"class.hermes::vm::(anonymous namespace)::ContiguousVAStorageProvider", ptr %call.i, i64 0, i32 4, i32 0, i32 0, i32 0, i32 0, i32 2
+  %Capacity2.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %call.i, i64 68
   store i32 0, ptr %Capacity2.i.i.i.i.i.i.i, align 4, !noalias !4
   %call4.i.i = tail call fastcc noundef ptr @_ZN6hermes2vm12_GLOBAL__N_111getMmapHintEv(), !noalias !4
   call void @_ZN6hermes8oscompat18vm_reserve_alignedEmmPv(ptr nonnull sret(%"class.llvh::ErrorOr") align 8 %result.i.i, i64 noundef %div1.i.i.i, i64 noundef 4194304, ptr noundef %call4.i.i) #18, !noalias !4
-  %HasError.i.i.i = getelementptr inbounds %"class.llvh::ErrorOr", ptr %result.i.i, i64 0, i32 1
+  %HasError.i.i.i = getelementptr inbounds i8, ptr %result.i.i, i64 16
   %bf.load.i.i.i = load i8, ptr %HasError.i.i.i, align 8, !noalias !4
   %0 = and i8 %bf.load.i.i.i, 1
   %bf.cast.not.i.i.i = icmp eq i8 %0, 0
@@ -119,9 +110,9 @@ _ZN4llvh9StringRefC2EPKc.exit.i.i:                ; preds = %entry
 
 _ZNSt10unique_ptrIN6hermes2vm12_GLOBAL__N_127ContiguousVAStorageProviderESt14default_deleteIS3_EED2Ev.exit: ; preds = %entry
   %3 = load ptr, ptr %result.i.i, align 8, !noalias !4
-  %start_.i.i = getelementptr inbounds %"class.hermes::vm::(anonymous namespace)::ContiguousVAStorageProvider", ptr %call.i, i64 0, i32 2
+  %start_.i.i = getelementptr inbounds i8, ptr %call.i, i64 40
   store ptr %3, ptr %start_.i.i, align 8, !noalias !4
-  %level_.i.i = getelementptr inbounds %"class.hermes::vm::(anonymous namespace)::ContiguousVAStorageProvider", ptr %call.i, i64 0, i32 3
+  %level_.i.i = getelementptr inbounds i8, ptr %call.i, i64 48
   store ptr %3, ptr %level_.i.i, align 8, !noalias !4
   %4 = load i64, ptr %size_.i.i, align 8, !noalias !4
   call void @_ZN6hermes8oscompat7vm_nameEPvmPKc(ptr noundef %3, i64 noundef %4, ptr noundef nonnull @.str.4) #18, !noalias !4
@@ -134,10 +125,10 @@ _ZNSt10unique_ptrIN6hermes2vm12_GLOBAL__N_127ContiguousVAStorageProviderESt14def
 define hidden void @_ZN6hermes2vm15StorageProvider14mallocProviderEv(ptr noalias nocapture writeonly sret(%"class.std::unique_ptr") align 8 %agg.result) local_unnamed_addr #3 align 2 {
 entry:
   %call = tail call noalias noundef nonnull dereferenceable(56) ptr @_Znwm(i64 noundef 56) #17
-  %numSucceededAllocs_.i.i = getelementptr inbounds %"class.hermes::vm::StorageProvider", ptr %call, i64 0, i32 1
+  %numSucceededAllocs_.i.i = getelementptr inbounds i8, ptr %call, i64 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %numSucceededAllocs_.i.i, i8 0, i64 24, i1 false)
   store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN6hermes2vm12_GLOBAL__N_121MallocStorageProviderE, i64 0, inrange i32 0, i64 2), ptr %call, align 8
-  %lowLimToAllocHandle_.i = getelementptr inbounds %"class.hermes::vm::(anonymous namespace)::MallocStorageProvider", ptr %call, i64 0, i32 1
+  %lowLimToAllocHandle_.i = getelementptr inbounds i8, ptr %call, i64 32
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(20) %lowLimToAllocHandle_.i, i8 0, i64 20, i1 false)
   store ptr %call, ptr %agg.result, align 8
   ret void
@@ -147,19 +138,18 @@ entry:
 define hidden void @_ZN6hermes2vm15StorageProvider10newStorageEPKc(ptr noalias sret(%"class.llvh::ErrorOr") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(32) %this, ptr noundef %name) local_unnamed_addr #3 align 2 {
 entry:
   %vtable = load ptr, ptr %this, align 8
-  %vfn = getelementptr inbounds ptr, ptr %vtable, i64 2
+  %vfn = getelementptr inbounds i8, ptr %vtable, i64 16
   %0 = load ptr, ptr %vfn, align 8
   tail call void %0(ptr sret(%"class.llvh::ErrorOr") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(32) %this, ptr noundef %name) #18
-  %HasError.i = getelementptr inbounds %"class.llvh::ErrorOr", ptr %agg.result, i64 0, i32 1
+  %HasError.i = getelementptr inbounds i8, ptr %agg.result, i64 16
   %bf.load.i = load i8, ptr %HasError.i, align 8
   %1 = and i8 %bf.load.i, 1
   %bf.cast.not.i = icmp eq i8 %1, 0
-  %numSucceededAllocs_ = getelementptr inbounds %"class.hermes::vm::StorageProvider", ptr %this, i64 0, i32 1
-  %numFailedAllocs_ = getelementptr inbounds %"class.hermes::vm::StorageProvider", ptr %this, i64 0, i32 2
-  %numSucceededAllocs_.sink1 = select i1 %bf.cast.not.i, ptr %numSucceededAllocs_, ptr %numFailedAllocs_
-  %2 = load i64, ptr %numSucceededAllocs_.sink1, align 8
+  %. = select i1 %bf.cast.not.i, i64 8, i64 16
+  %numSucceededAllocs_ = getelementptr inbounds i8, ptr %this, i64 %.
+  %2 = load i64, ptr %numSucceededAllocs_, align 8
   %inc = add i64 %2, 1
-  store i64 %inc, ptr %numSucceededAllocs_.sink1, align 8
+  store i64 %inc, ptr %numSucceededAllocs_, align 8
   ret void
 }
 
@@ -170,12 +160,12 @@ entry:
   br i1 %tobool.not, label %return, label %if.end
 
 if.end:                                           ; preds = %entry
-  %numDeletedAllocs_ = getelementptr inbounds %"class.hermes::vm::StorageProvider", ptr %this, i64 0, i32 3
+  %numDeletedAllocs_ = getelementptr inbounds i8, ptr %this, i64 24
   %0 = load i64, ptr %numDeletedAllocs_, align 8
   %inc = add i64 %0, 1
   store i64 %inc, ptr %numDeletedAllocs_, align 8
   %vtable = load ptr, ptr %this, align 8
-  %vfn = getelementptr inbounds ptr, ptr %vtable, i64 3
+  %vfn = getelementptr inbounds i8, ptr %vtable, i64 24
   %1 = load ptr, ptr %vfn, align 8
   tail call void %1(ptr noundef nonnull align 8 dereferenceable(32) %this, ptr noundef nonnull %storage) #18
   br label %return
@@ -194,7 +184,7 @@ entry:
   br i1 %cmp.not32, label %while.end, label %while.body.lr.ph
 
 while.body.lr.ph:                                 ; preds = %entry
-  %HasError.i.i.i.i = getelementptr inbounds %"class.llvh::ErrorOr", ptr %ref.tmp, i64 0, i32 1
+  %HasError.i.i.i.i = getelementptr inbounds i8, ptr %ref.tmp, i64 16
   %retval.sroa.31.0.this.sroa_idx.i.i.i.i.i = getelementptr inbounds i8, ptr %ref.tmp, i64 8
   %call49 = tail call fastcc noundef ptr @_ZN6hermes2vm12_GLOBAL__N_111getMmapHintEv()
   call void @_ZN6hermes8oscompat19vm_allocate_alignedEmmPv(ptr nonnull sret(%"class.llvh::ErrorOr") align 8 %ref.tmp, i64 noundef %sz, i64 noundef %alignment, ptr noundef %call49) #18
@@ -206,7 +196,7 @@ while.body.lr.ph:                                 ; preds = %entry
 if.then:                                          ; preds = %if.end9, %while.body.lr.ph
   %sz.addr.036.lcssa = phi i64 [ %sz, %while.body.lr.ph ], [ %.sroa.speculated, %if.end9 ]
   %1 = load ptr, ptr %ref.tmp, align 8
-  %HasError.i7 = getelementptr inbounds %"class.llvh::ErrorOr.12", ptr %agg.result, i64 0, i32 1
+  %HasError.i7 = getelementptr inbounds i8, ptr %agg.result, i64 16
   %bf.load.i8 = load i8, ptr %HasError.i7, align 8
   %bf.clear.i = and i8 %bf.load.i8, -2
   store i8 %bf.clear.i, ptr %HasError.i7, align 8
@@ -246,7 +236,7 @@ while.end.loopexit:                               ; preds = %if.end
 while.end:                                        ; preds = %entry, %while.end.loopexit
   %result.sroa.0.2 = phi i32 [ %retval.sroa.0.0.copyload.i.i.i.i.i, %while.end.loopexit ], [ 0, %entry ]
   %result.sroa.5.2 = phi ptr [ %retval.sroa.31.0.copyload.i.i.i.i.i, %while.end.loopexit ], [ %call.i, %entry ]
-  %HasError.i14 = getelementptr inbounds %"class.llvh::ErrorOr.12", ptr %agg.result, i64 0, i32 1
+  %HasError.i14 = getelementptr inbounds i8, ptr %agg.result, i64 16
   %bf.load.i15 = load i8, ptr %HasError.i14, align 8
   %bf.set.i16 = or i8 %bf.load.i15, 1
   store i8 %bf.set.i16, ptr %HasError.i14, align 8
@@ -316,7 +306,7 @@ entry:
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden { i32, ptr } @_ZNK4llvh7ErrorOrIPvE8getErrorEv(ptr noundef nonnull align 8 dereferenceable(17) %this) local_unnamed_addr #3 comdat align 2 {
 entry:
-  %HasError = getelementptr inbounds %"class.llvh::ErrorOr", ptr %this, i64 0, i32 1
+  %HasError = getelementptr inbounds i8, ptr %this, i64 16
   %bf.load = load i8, ptr %HasError, align 8
   %0 = and i8 %bf.load, 1
   %bf.cast.not = icmp eq i8 %0, 0
@@ -343,7 +333,7 @@ cond.end:                                         ; preds = %cond.false, %cond.t
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
 define hidden noundef i64 @_ZNK6hermes2vm15StorageProvider18numSucceededAllocsEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %this) local_unnamed_addr #6 align 2 {
 entry:
-  %numSucceededAllocs_ = getelementptr inbounds %"class.hermes::vm::StorageProvider", ptr %this, i64 0, i32 1
+  %numSucceededAllocs_ = getelementptr inbounds i8, ptr %this, i64 8
   %0 = load i64, ptr %numSucceededAllocs_, align 8
   ret i64 %0
 }
@@ -351,7 +341,7 @@ entry:
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
 define hidden noundef i64 @_ZNK6hermes2vm15StorageProvider15numFailedAllocsEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %this) local_unnamed_addr #6 align 2 {
 entry:
-  %numFailedAllocs_ = getelementptr inbounds %"class.hermes::vm::StorageProvider", ptr %this, i64 0, i32 2
+  %numFailedAllocs_ = getelementptr inbounds i8, ptr %this, i64 16
   %0 = load i64, ptr %numFailedAllocs_, align 8
   ret i64 %0
 }
@@ -359,7 +349,7 @@ entry:
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
 define hidden noundef i64 @_ZNK6hermes2vm15StorageProvider16numDeletedAllocsEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %this) local_unnamed_addr #6 align 2 {
 entry:
-  %numDeletedAllocs_ = getelementptr inbounds %"class.hermes::vm::StorageProvider", ptr %this, i64 0, i32 3
+  %numDeletedAllocs_ = getelementptr inbounds i8, ptr %this, i64 24
   %0 = load i64, ptr %numDeletedAllocs_, align 8
   ret i64 %0
 }
@@ -367,9 +357,9 @@ entry:
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
 define hidden noundef i64 @_ZNK6hermes2vm15StorageProvider13numLiveAllocsEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %this) local_unnamed_addr #6 align 2 {
 entry:
-  %numSucceededAllocs_ = getelementptr inbounds %"class.hermes::vm::StorageProvider", ptr %this, i64 0, i32 1
+  %numSucceededAllocs_ = getelementptr inbounds i8, ptr %this, i64 8
   %0 = load i64, ptr %numSucceededAllocs_, align 8
-  %numDeletedAllocs_ = getelementptr inbounds %"class.hermes::vm::StorageProvider", ptr %this, i64 0, i32 3
+  %numDeletedAllocs_ = getelementptr inbounds i8, ptr %this, i64 24
   %1 = load i64, ptr %numDeletedAllocs_, align 8
   %sub = sub i64 %0, %1
   ret i64 %sub
@@ -397,14 +387,14 @@ entry:
   %result = alloca %"class.llvh::ErrorOr", align 8
   %call3 = tail call fastcc noundef ptr @_ZN6hermes2vm12_GLOBAL__N_111getMmapHintEv()
   call void @_ZN6hermes8oscompat19vm_allocate_alignedEmmPv(ptr nonnull sret(%"class.llvh::ErrorOr") align 8 %result, i64 noundef 4194304, i64 noundef 4194304, ptr noundef %call3) #18
-  %HasError.i = getelementptr inbounds %"class.llvh::ErrorOr", ptr %result, i64 0, i32 1
+  %HasError.i = getelementptr inbounds i8, ptr %result, i64 16
   %bf.load.i = load i8, ptr %HasError.i, align 8
   %0 = and i8 %bf.load.i, 1
   %bf.cast.not.i = icmp eq i8 %0, 0
   br i1 %bf.cast.not.i, label %if.end, label %_ZN4llvh7ErrorOrIPvEC2EOS2_.exit
 
 _ZN4llvh7ErrorOrIPvEC2EOS2_.exit:                 ; preds = %entry
-  %HasError2.i.i = getelementptr inbounds %"class.llvh::ErrorOr", ptr %agg.result, i64 0, i32 1
+  %HasError2.i.i = getelementptr inbounds i8, ptr %agg.result, i64 16
   %bf.load3.i.i = load i8, ptr %HasError2.i.i, align 8
   %bf.set9.i.i = or i8 %bf.load3.i.i, 1
   store i8 %bf.set9.i.i, ptr %HasError2.i.i, align 8
@@ -412,14 +402,14 @@ _ZN4llvh7ErrorOrIPvEC2EOS2_.exit:                 ; preds = %entry
   %retval.sroa.31.0.this.sroa_idx.i.i.i = getelementptr inbounds i8, ptr %result, i64 8
   %retval.sroa.31.0.copyload.i.i.i = load ptr, ptr %retval.sroa.31.0.this.sroa_idx.i.i.i, align 8
   store i32 %retval.sroa.0.0.copyload.i.i.i, ptr %agg.result, align 8
-  %1 = getelementptr inbounds { i32, ptr }, ptr %agg.result, i64 0, i32 1
+  %1 = getelementptr inbounds i8, ptr %agg.result, i64 8
   store ptr %retval.sroa.31.0.copyload.i.i.i, ptr %1, align 8
   br label %cleanup
 
 if.end:                                           ; preds = %entry
   %2 = load ptr, ptr %result, align 8
   call void @_ZN6hermes8oscompat7vm_nameEPvmPKc(ptr noundef %2, i64 noundef 4194304, ptr noundef %name) #18
-  %HasError.i1 = getelementptr inbounds %"class.llvh::ErrorOr", ptr %agg.result, i64 0, i32 1
+  %HasError.i1 = getelementptr inbounds i8, ptr %agg.result, i64 16
   %bf.load.i2 = load i8, ptr %HasError.i1, align 8
   %bf.clear.i = and i8 %bf.load.i2, -2
   store i8 %bf.clear.i, ptr %HasError.i1, align 8
@@ -454,7 +444,7 @@ declare void @_ZN6hermes8oscompat15vm_free_alignedEPvm(ptr noundef, i64 noundef)
 ; Function Attrs: mustprogress nounwind uwtable
 define internal void @_ZN6hermes2vm12_GLOBAL__N_121MallocStorageProviderD2Ev(ptr nocapture noundef nonnull align 8 dereferenceable(56) %this) unnamed_addr #3 align 2 {
 entry:
-  %lowLimToAllocHandle_ = getelementptr inbounds %"class.hermes::vm::(anonymous namespace)::MallocStorageProvider", ptr %this, i64 0, i32 1
+  %lowLimToAllocHandle_ = getelementptr inbounds i8, ptr %this, i64 32
   %0 = load ptr, ptr %lowLimToAllocHandle_, align 8
   tail call void @_ZdlPv(ptr noundef %0) #18
   store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN6hermes2vm15StorageProviderE, i64 0, inrange i32 0, i64 2), ptr %this, align 8
@@ -464,7 +454,7 @@ entry:
 ; Function Attrs: mustprogress nounwind uwtable
 define internal void @_ZN6hermes2vm12_GLOBAL__N_121MallocStorageProviderD0Ev(ptr noundef nonnull align 8 dereferenceable(56) %this) unnamed_addr #3 align 2 {
 entry:
-  %lowLimToAllocHandle_.i = getelementptr inbounds %"class.hermes::vm::(anonymous namespace)::MallocStorageProvider", ptr %this, i64 0, i32 1
+  %lowLimToAllocHandle_.i = getelementptr inbounds i8, ptr %this, i64 32
   %0 = load ptr, ptr %lowLimToAllocHandle_.i, align 8
   tail call void @_ZdlPv(ptr noundef %0) #18
   tail call void @_ZdlPv(ptr noundef nonnull %this) #20
@@ -481,9 +471,9 @@ entry:
   %add2.i.i = and i64 %sub1.i.i, -4194304
   %1 = inttoptr i64 %add2.i.i to ptr
   store ptr %1, ptr %lowLim, align 8
-  %lowLimToAllocHandle_ = getelementptr inbounds %"class.hermes::vm::(anonymous namespace)::MallocStorageProvider", ptr %this, i64 0, i32 1
+  %lowLimToAllocHandle_ = getelementptr inbounds i8, ptr %this, i64 32
   %2 = load ptr, ptr %lowLimToAllocHandle_, align 8
-  %NumBuckets.i.i.i.i.i.i = getelementptr inbounds %"class.hermes::vm::(anonymous namespace)::MallocStorageProvider", ptr %this, i64 0, i32 1, i32 3
+  %NumBuckets.i.i.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 48
   %3 = load i32, ptr %NumBuckets.i.i.i.i.i.i, align 8
   %cmp.i.i.i.i = icmp eq i32 %3, 0
   br i1 %cmp.i.i.i.i, label %if.end.i.i, label %if.end.i.i.i.i
@@ -534,16 +524,16 @@ if.end.i.i:                                       ; preds = %if.then12.i.i.i.i, 
   %call.i.i.i = call noundef ptr @_ZN4llvh12DenseMapBaseINS_8DenseMapIPvS2_NS_12DenseMapInfoIS2_EENS_6detail12DenseMapPairIS2_S2_EEEES2_S2_S4_S7_E20InsertIntoBucketImplIS2_EEPS7_RKS2_RKT_SB_(ptr noundef nonnull align 1 dereferenceable(1) %lowLimToAllocHandle_, ptr noundef nonnull align 8 dereferenceable(8) %lowLim, ptr noundef nonnull align 8 dereferenceable(8) %lowLim, ptr noundef %cond.sink.i.i.i.i)
   %7 = load ptr, ptr %lowLim, align 8
   store ptr %7, ptr %call.i.i.i, align 8
-  %second.i.i.i.i = getelementptr inbounds %"struct.std::pair.16", ptr %call.i.i.i, i64 0, i32 1
+  %second.i.i.i.i = getelementptr inbounds i8, ptr %call.i.i.i, i64 8
   store ptr null, ptr %second.i.i.i.i, align 8
   br label %_ZN4llvh12DenseMapBaseINS_8DenseMapIPvS2_NS_12DenseMapInfoIS2_EENS_6detail12DenseMapPairIS2_S2_EEEES2_S2_S4_S7_EixERKS2_.exit
 
 _ZN4llvh12DenseMapBaseINS_8DenseMapIPvS2_NS_12DenseMapInfoIS2_EENS_6detail12DenseMapPairIS2_S2_EEEES2_S2_S4_S7_EixERKS2_.exit: ; preds = %if.end13.i.i.i.i, %if.end.i.i.i.i, %if.end.i.i
   %8 = phi ptr [ %7, %if.end.i.i ], [ %1, %if.end.i.i.i.i ], [ %1, %if.end13.i.i.i.i ]
   %retval.0.i.i = phi ptr [ %call.i.i.i, %if.end.i.i ], [ %add.ptr21.i.i.i.i, %if.end.i.i.i.i ], [ %add.ptr.i.i.i.i, %if.end13.i.i.i.i ]
-  %second.i = getelementptr inbounds %"struct.std::pair.16", ptr %retval.0.i.i, i64 0, i32 1
+  %second.i = getelementptr inbounds i8, ptr %retval.0.i.i, i64 8
   store ptr %call.i, ptr %second.i, align 8
-  %HasError.i = getelementptr inbounds %"class.llvh::ErrorOr", ptr %agg.result, i64 0, i32 1
+  %HasError.i = getelementptr inbounds i8, ptr %agg.result, i64 16
   %bf.load.i = load i8, ptr %HasError.i, align 8
   %bf.clear.i = and i8 %bf.load.i, -2
   store i8 %bf.clear.i, ptr %HasError.i, align 8
@@ -560,9 +550,9 @@ entry:
   br i1 %tobool.not, label %return, label %if.end
 
 if.end:                                           ; preds = %entry
-  %lowLimToAllocHandle_ = getelementptr inbounds %"class.hermes::vm::(anonymous namespace)::MallocStorageProvider", ptr %this, i64 0, i32 1
+  %lowLimToAllocHandle_ = getelementptr inbounds i8, ptr %this, i64 32
   %0 = load ptr, ptr %lowLimToAllocHandle_, align 8
-  %NumBuckets.i.i.i.i.i.i = getelementptr inbounds %"class.hermes::vm::(anonymous namespace)::MallocStorageProvider", ptr %this, i64 0, i32 1, i32 3
+  %NumBuckets.i.i.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 48
   %1 = load i32, ptr %NumBuckets.i.i.i.i.i.i, align 8
   %cmp.i.i.i.i = icmp eq i32 %1, 0
   br i1 %cmp.i.i.i.i, label %if.end.i.i, label %if.end.i.i.i.i
@@ -614,13 +604,13 @@ if.end.i.i:                                       ; preds = %if.then12.i.i.i.i, 
   %call.i.i.i = call noundef ptr @_ZN4llvh12DenseMapBaseINS_8DenseMapIPvS2_NS_12DenseMapInfoIS2_EENS_6detail12DenseMapPairIS2_S2_EEEES2_S2_S4_S7_E20InsertIntoBucketImplIS2_EEPS7_RKS2_RKT_SB_(ptr noundef nonnull align 1 dereferenceable(1) %lowLimToAllocHandle_, ptr noundef nonnull align 8 dereferenceable(8) %storage.addr, ptr noundef nonnull align 8 dereferenceable(8) %storage.addr, ptr noundef %cond.sink.i.i.i.i)
   %6 = load ptr, ptr %storage.addr, align 8
   store ptr %6, ptr %call.i.i.i, align 8
-  %second.i.i.i.i = getelementptr inbounds %"struct.std::pair.16", ptr %call.i.i.i, i64 0, i32 1
+  %second.i.i.i.i = getelementptr inbounds i8, ptr %call.i.i.i, i64 8
   store ptr null, ptr %second.i.i.i.i, align 8
   br label %_ZN4llvh12DenseMapBaseINS_8DenseMapIPvS2_NS_12DenseMapInfoIS2_EENS_6detail12DenseMapPairIS2_S2_EEEES2_S2_S4_S7_EixERKS2_.exit
 
 _ZN4llvh12DenseMapBaseINS_8DenseMapIPvS2_NS_12DenseMapInfoIS2_EENS_6detail12DenseMapPairIS2_S2_EEEES2_S2_S4_S7_EixERKS2_.exit: ; preds = %if.end13.i.i.i.i, %if.end.i.i.i.i, %if.end.i.i
   %retval.0.i.i = phi ptr [ %call.i.i.i, %if.end.i.i ], [ %add.ptr21.i.i.i.i, %if.end.i.i.i.i ], [ %add.ptr.i.i.i.i, %if.end13.i.i.i.i ]
-  %second.i = getelementptr inbounds %"struct.std::pair.16", ptr %retval.0.i.i, i64 0, i32 1
+  %second.i = getelementptr inbounds i8, ptr %retval.0.i.i, i64 8
   %7 = load ptr, ptr %second.i, align 8
   call void @free(ptr noundef %7) #18
   %8 = load ptr, ptr %lowLimToAllocHandle_, align 8
@@ -663,7 +653,7 @@ if.end13.i.i.i:                                   ; preds = %if.end9.i.i.i
 if.end.i:                                         ; preds = %if.end13.i.i.i, %if.end.i.i.i
   %cond.sink.i.i.ph.i = phi ptr [ %add.ptr21.i.i.i, %if.end.i.i.i ], [ %add.ptr.i.i.i, %if.end13.i.i.i ]
   store ptr inttoptr (i64 -8 to ptr), ptr %cond.sink.i.i.ph.i, align 8
-  %NumEntries.i.i.i.i = getelementptr inbounds %"class.hermes::vm::(anonymous namespace)::MallocStorageProvider", ptr %this, i64 0, i32 1, i32 1
+  %NumEntries.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 40
   %15 = load <2 x i32>, ptr %NumEntries.i.i.i.i, align 8
   %16 = add <2 x i32> %15, <i32 -1, i32 1>
   store <2 x i32> %16, ptr %NumEntries.i.i.i.i, align 8
@@ -678,9 +668,9 @@ declare noalias noundef nonnull ptr @_ZN6hermes13checkedMallocEm(i64 noundef) lo
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden noundef ptr @_ZN4llvh12DenseMapBaseINS_8DenseMapIPvS2_NS_12DenseMapInfoIS2_EENS_6detail12DenseMapPairIS2_S2_EEEES2_S2_S4_S7_E20InsertIntoBucketImplIS2_EEPS7_RKS2_RKT_SB_(ptr noundef nonnull align 1 dereferenceable(1) %this, ptr noundef nonnull align 8 dereferenceable(8) %Key, ptr noundef nonnull align 8 dereferenceable(8) %Lookup, ptr noundef %TheBucket) local_unnamed_addr #3 comdat align 2 {
 entry:
-  %NumEntries.i.i = getelementptr inbounds %"class.llvh::DenseMap", ptr %this, i64 0, i32 1
+  %NumEntries.i.i = getelementptr inbounds i8, ptr %this, i64 8
   %0 = load i32, ptr %NumEntries.i.i, align 8
-  %NumBuckets.i.i = getelementptr inbounds %"class.llvh::DenseMap", ptr %this, i64 0, i32 3
+  %NumBuckets.i.i = getelementptr inbounds i8, ptr %this, i64 16
   %1 = load i32, ptr %NumBuckets.i.i, align 8
   %add = shl i32 %0, 2
   %mul = add i32 %add, 4
@@ -740,7 +730,7 @@ if.end13.i.i:                                     ; preds = %if.end9.i.i
   br i1 %cmp.i.i.i, label %if.end12, label %if.end9.i.i, !llvm.loop !7
 
 if.else:                                          ; preds = %entry
-  %NumTombstones.i.i = getelementptr inbounds %"class.llvh::DenseMap", ptr %this, i64 0, i32 2
+  %NumTombstones.i.i = getelementptr inbounds i8, ptr %this, i64 12
   %9 = load i32, ptr %NumTombstones.i.i, align 4
   %add.neg = xor i32 %0, -1
   %add8.neg = add i32 %1, %add.neg
@@ -809,7 +799,7 @@ if.end12:                                         ; preds = %if.end13.i.i, %if.e
   br i1 %cmp.i, label %if.end17, label %if.then16
 
 if.then16:                                        ; preds = %if.end12
-  %NumTombstones.i.i.i = getelementptr inbounds %"class.llvh::DenseMap", ptr %this, i64 0, i32 2
+  %NumTombstones.i.i.i = getelementptr inbounds i8, ptr %this, i64 12
   %19 = load i32, ptr %NumTombstones.i.i.i, align 4
   %sub.i = add i32 %19, -1
   store i32 %sub.i, ptr %NumTombstones.i.i.i, align 4
@@ -822,7 +812,7 @@ if.end17:                                         ; preds = %if.then16, %if.end1
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN4llvh8DenseMapIPvS1_NS_12DenseMapInfoIS1_EENS_6detail12DenseMapPairIS1_S1_EEE4growEj(ptr noundef nonnull align 8 dereferenceable(20) %this, i32 noundef %AtLeast) local_unnamed_addr #3 comdat align 2 {
 _ZN4llvh8DenseMapIPvS1_NS_12DenseMapInfoIS1_EENS_6detail12DenseMapPairIS1_S1_EEE15allocateBucketsEj.exit:
-  %NumBuckets = getelementptr inbounds %"class.llvh::DenseMap", ptr %this, i64 0, i32 3
+  %NumBuckets = getelementptr inbounds i8, ptr %this, i64 16
   %0 = load i32, ptr %NumBuckets, align 8
   %1 = load ptr, ptr %this, align 8
   %sub = add i32 %AtLeast, -1
@@ -849,9 +839,9 @@ _ZN4llvh8DenseMapIPvS1_NS_12DenseMapInfoIS1_EENS_6detail12DenseMapPairIS1_S1_EEE
   br i1 %tobool.not, label %if.then, label %if.end
 
 if.then:                                          ; preds = %_ZN4llvh8DenseMapIPvS1_NS_12DenseMapInfoIS1_EENS_6detail12DenseMapPairIS1_S1_EEE15allocateBucketsEj.exit
-  %NumEntries.i.i.i = getelementptr inbounds %"class.llvh::DenseMap", ptr %this, i64 0, i32 1
+  %NumEntries.i.i.i = getelementptr inbounds i8, ptr %this, i64 8
   store i32 0, ptr %NumEntries.i.i.i, align 8
-  %NumTombstones.i.i.i = getelementptr inbounds %"class.llvh::DenseMap", ptr %this, i64 0, i32 2
+  %NumTombstones.i.i.i = getelementptr inbounds i8, ptr %this, i64 12
   store i32 0, ptr %NumTombstones.i.i.i, align 4
   %3 = load i32, ptr %NumBuckets, align 8
   %idx.ext.i.i = zext i32 %3 to i64
@@ -862,16 +852,16 @@ if.then:                                          ; preds = %_ZN4llvh8DenseMapIP
 for.body.i:                                       ; preds = %if.then, %for.body.i
   %B.04.i = phi ptr [ %incdec.ptr.i, %for.body.i ], [ %call.i, %if.then ]
   store ptr inttoptr (i64 -4 to ptr), ptr %B.04.i, align 8
-  %incdec.ptr.i = getelementptr inbounds %"struct.llvh::detail::DenseMapPair", ptr %B.04.i, i64 1
+  %incdec.ptr.i = getelementptr inbounds i8, ptr %B.04.i, i64 16
   %cmp.not.i = icmp eq ptr %incdec.ptr.i, %add.ptr.i.i
   br i1 %cmp.not.i, label %return, label %for.body.i, !llvm.loop !9
 
 if.end:                                           ; preds = %_ZN4llvh8DenseMapIPvS1_NS_12DenseMapInfoIS1_EENS_6detail12DenseMapPairIS1_S1_EEE15allocateBucketsEj.exit
   %idx.ext = zext i32 %0 to i64
   %add.ptr = getelementptr inbounds %"struct.llvh::detail::DenseMapPair", ptr %1, i64 %idx.ext
-  %NumEntries.i.i.i.i = getelementptr inbounds %"class.llvh::DenseMap", ptr %this, i64 0, i32 1
+  %NumEntries.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 8
   store i32 0, ptr %NumEntries.i.i.i.i, align 8
-  %NumTombstones.i.i.i.i = getelementptr inbounds %"class.llvh::DenseMap", ptr %this, i64 0, i32 2
+  %NumTombstones.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 12
   store i32 0, ptr %NumTombstones.i.i.i.i, align 4
   %4 = load i32, ptr %NumBuckets, align 8
   %idx.ext.i.i.i = zext i32 %4 to i64
@@ -882,7 +872,7 @@ if.end:                                           ; preds = %_ZN4llvh8DenseMapIP
 for.body.i.i:                                     ; preds = %if.end, %for.body.i.i
   %B.04.i.i = phi ptr [ %incdec.ptr.i.i, %for.body.i.i ], [ %call.i, %if.end ]
   store ptr inttoptr (i64 -4 to ptr), ptr %B.04.i.i, align 8
-  %incdec.ptr.i.i = getelementptr inbounds %"struct.llvh::detail::DenseMapPair", ptr %B.04.i.i, i64 1
+  %incdec.ptr.i.i = getelementptr inbounds i8, ptr %B.04.i.i, i64 16
   %cmp.not.i.i = icmp eq ptr %incdec.ptr.i.i, %add.ptr.i.i.i
   br i1 %cmp.not.i.i, label %_ZN4llvh12DenseMapBaseINS_8DenseMapIPvS2_NS_12DenseMapInfoIS2_EENS_6detail12DenseMapPairIS2_S2_EEEES2_S2_S4_S7_E9initEmptyEv.exit.i, label %for.body.i.i, !llvm.loop !9
 
@@ -947,8 +937,8 @@ if.end13.i.i.i:                                   ; preds = %if.end9.i.i.i
 _ZN4llvh12DenseMapBaseINS_8DenseMapIPvS2_NS_12DenseMapInfoIS2_EENS_6detail12DenseMapPairIS2_S2_EEEES2_S2_S4_S7_E15LookupBucketForIS2_EEbRKT_RPS7_.exit.i: ; preds = %if.end13.i.i.i, %if.then12.i.i.i, %if.then.i
   %cond.sink.i.i.i = phi ptr [ %cond.i.i.i, %if.then12.i.i.i ], [ %add.ptr21.i.i.i, %if.then.i ], [ %add.ptr.i.i12.i, %if.end13.i.i.i ]
   store ptr %5, ptr %cond.sink.i.i.i, align 8
-  %second.i.i = getelementptr inbounds %"struct.std::pair.16", ptr %cond.sink.i.i.i, i64 0, i32 1
-  %second.i13.i = getelementptr inbounds %"struct.std::pair.16", ptr %B.020.i, i64 0, i32 1
+  %second.i.i = getelementptr inbounds i8, ptr %cond.sink.i.i.i, i64 8
+  %second.i13.i = getelementptr inbounds i8, ptr %B.020.i, i64 8
   %11 = load ptr, ptr %second.i13.i, align 8
   store ptr %11, ptr %second.i.i, align 8
   %12 = load i32, ptr %NumEntries.i.i.i.i, align 8
@@ -957,7 +947,7 @@ _ZN4llvh12DenseMapBaseINS_8DenseMapIPvS2_NS_12DenseMapInfoIS2_EENS_6detail12Dens
   br label %if.end.i6
 
 if.end.i6:                                        ; preds = %_ZN4llvh12DenseMapBaseINS_8DenseMapIPvS2_NS_12DenseMapInfoIS2_EENS_6detail12DenseMapPairIS2_S2_EEEES2_S2_S4_S7_E15LookupBucketForIS2_EEbRKT_RPS7_.exit.i, %for.body.i5, %for.body.i5
-  %incdec.ptr.i7 = getelementptr inbounds %"struct.llvh::detail::DenseMapPair", ptr %B.020.i, i64 1
+  %incdec.ptr.i7 = getelementptr inbounds i8, ptr %B.020.i, i64 16
   %cmp.not.i8 = icmp eq ptr %incdec.ptr.i7, %add.ptr
   br i1 %cmp.not.i8, label %_ZN4llvh12DenseMapBaseINS_8DenseMapIPvS2_NS_12DenseMapInfoIS2_EENS_6detail12DenseMapPairIS2_S2_EEEES2_S2_S4_S7_E18moveFromOldBucketsEPS7_SA_.exit, label %for.body.i5, !llvm.loop !10
 
@@ -1009,14 +999,14 @@ declare void @_ZN6hermes12hermes_fatalEN4llvh9StringRefESt10error_code(ptr, i64,
 ; Function Attrs: mustprogress nounwind uwtable
 define internal void @_ZN6hermes2vm12_GLOBAL__N_127ContiguousVAStorageProviderD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %this) unnamed_addr #3 align 2 {
 entry:
-  %start_ = getelementptr inbounds %"class.hermes::vm::(anonymous namespace)::ContiguousVAStorageProvider", ptr %this, i64 0, i32 2
+  %start_ = getelementptr inbounds i8, ptr %this, i64 40
   %0 = load ptr, ptr %start_, align 8
-  %size_ = getelementptr inbounds %"class.hermes::vm::(anonymous namespace)::ContiguousVAStorageProvider", ptr %this, i64 0, i32 1
+  %size_ = getelementptr inbounds i8, ptr %this, i64 32
   %1 = load i64, ptr %size_, align 8
   tail call void @_ZN6hermes8oscompat18vm_release_alignedEPvm(ptr noundef %0, i64 noundef %1) #18
-  %freelist_ = getelementptr inbounds %"class.hermes::vm::(anonymous namespace)::ContiguousVAStorageProvider", ptr %this, i64 0, i32 4
+  %freelist_ = getelementptr inbounds i8, ptr %this, i64 56
   %2 = load ptr, ptr %freelist_, align 8
-  %add.ptr.i.i.i.i = getelementptr inbounds %"class.hermes::vm::(anonymous namespace)::ContiguousVAStorageProvider", ptr %this, i64 1
+  %add.ptr.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 72
   %cmp.i.i.i = icmp eq ptr %2, %add.ptr.i.i.i.i
   br i1 %cmp.i.i.i, label %_ZN4llvh11SmallVectorIPvLj0EED2Ev.exit, label %if.then.i.i
 
@@ -1032,14 +1022,14 @@ _ZN4llvh11SmallVectorIPvLj0EED2Ev.exit:           ; preds = %entry, %if.then.i.i
 ; Function Attrs: mustprogress nounwind uwtable
 define internal void @_ZN6hermes2vm12_GLOBAL__N_127ContiguousVAStorageProviderD0Ev(ptr noundef nonnull align 8 dereferenceable(72) %this) unnamed_addr #3 align 2 {
 entry:
-  %start_.i = getelementptr inbounds %"class.hermes::vm::(anonymous namespace)::ContiguousVAStorageProvider", ptr %this, i64 0, i32 2
+  %start_.i = getelementptr inbounds i8, ptr %this, i64 40
   %0 = load ptr, ptr %start_.i, align 8
-  %size_.i = getelementptr inbounds %"class.hermes::vm::(anonymous namespace)::ContiguousVAStorageProvider", ptr %this, i64 0, i32 1
+  %size_.i = getelementptr inbounds i8, ptr %this, i64 32
   %1 = load i64, ptr %size_.i, align 8
   tail call void @_ZN6hermes8oscompat18vm_release_alignedEPvm(ptr noundef %0, i64 noundef %1) #18
-  %freelist_.i = getelementptr inbounds %"class.hermes::vm::(anonymous namespace)::ContiguousVAStorageProvider", ptr %this, i64 0, i32 4
+  %freelist_.i = getelementptr inbounds i8, ptr %this, i64 56
   %2 = load ptr, ptr %freelist_.i, align 8
-  %add.ptr.i.i.i.i.i = getelementptr inbounds %"class.hermes::vm::(anonymous namespace)::ContiguousVAStorageProvider", ptr %this, i64 1
+  %add.ptr.i.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 72
   %cmp.i.i.i.i = icmp eq ptr %2, %add.ptr.i.i.i.i.i
   br i1 %cmp.i.i.i.i, label %_ZN6hermes2vm12_GLOBAL__N_127ContiguousVAStorageProviderD2Ev.exit, label %if.then.i.i.i
 
@@ -1055,28 +1045,28 @@ _ZN6hermes2vm12_GLOBAL__N_127ContiguousVAStorageProviderD2Ev.exit: ; preds = %en
 ; Function Attrs: mustprogress nounwind uwtable
 define internal void @_ZN6hermes2vm12_GLOBAL__N_127ContiguousVAStorageProvider14newStorageImplEPKc(ptr noalias sret(%"class.llvh::ErrorOr") align 8 %agg.result, ptr nocapture noundef nonnull align 8 dereferenceable(72) %this, ptr noundef %name) unnamed_addr #3 align 2 {
 entry:
-  %Size.i = getelementptr inbounds %"class.hermes::vm::(anonymous namespace)::ContiguousVAStorageProvider", ptr %this, i64 0, i32 4, i32 0, i32 0, i32 0, i32 0, i32 1
+  %Size.i = getelementptr inbounds i8, ptr %this, i64 64
   %0 = load i32, ptr %Size.i, align 8
   %tobool.not.i = icmp eq i32 %0, 0
   br i1 %tobool.not.i, label %if.else, label %if.then
 
 if.then:                                          ; preds = %entry
-  %freelist_ = getelementptr inbounds %"class.hermes::vm::(anonymous namespace)::ContiguousVAStorageProvider", ptr %this, i64 0, i32 4
+  %freelist_ = getelementptr inbounds i8, ptr %this, i64 56
   %1 = load ptr, ptr %freelist_, align 8
   %conv.i.i = zext i32 %0 to i64
   %add.ptr.i.i = getelementptr inbounds ptr, ptr %1, i64 %conv.i.i
-  %arrayidx.i = getelementptr inbounds ptr, ptr %add.ptr.i.i, i64 -1
+  %arrayidx.i = getelementptr inbounds i8, ptr %add.ptr.i.i, i64 -8
   %2 = load ptr, ptr %arrayidx.i, align 8
   %sub.i = add i32 %0, -1
   store i32 %sub.i, ptr %Size.i, align 8
   br label %if.end13
 
 if.else:                                          ; preds = %entry
-  %level_ = getelementptr inbounds %"class.hermes::vm::(anonymous namespace)::ContiguousVAStorageProvider", ptr %this, i64 0, i32 3
+  %level_ = getelementptr inbounds i8, ptr %this, i64 48
   %3 = load ptr, ptr %level_, align 8
-  %start_ = getelementptr inbounds %"class.hermes::vm::(anonymous namespace)::ContiguousVAStorageProvider", ptr %this, i64 0, i32 2
+  %start_ = getelementptr inbounds i8, ptr %this, i64 40
   %4 = load ptr, ptr %start_, align 8
-  %size_ = getelementptr inbounds %"class.hermes::vm::(anonymous namespace)::ContiguousVAStorageProvider", ptr %this, i64 0, i32 1
+  %size_ = getelementptr inbounds i8, ptr %this, i64 32
   %5 = load i64, ptr %size_, align 8
   %add.ptr = getelementptr inbounds i8, ptr %4, i64 %5
   %cmp = icmp ult ptr %3, %add.ptr
@@ -1091,7 +1081,7 @@ if.else11:                                        ; preds = %if.else
   %call12 = tail call { i32, ptr } @_ZN6hermes15make_error_codeENS_8OOMErrorE(i32 noundef 2) #18
   %6 = extractvalue { i32, ptr } %call12, 0
   %7 = extractvalue { i32, ptr } %call12, 1
-  %HasError.i = getelementptr inbounds %"class.llvh::ErrorOr", ptr %agg.result, i64 0, i32 1
+  %HasError.i = getelementptr inbounds i8, ptr %agg.result, i64 16
   %bf.load.i = load i8, ptr %HasError.i, align 8
   %bf.set.i = or i8 %bf.load.i, 1
   store i8 %bf.set.i, ptr %HasError.i, align 8
@@ -1103,7 +1093,7 @@ if.else11:                                        ; preds = %if.else
 if.end13:                                         ; preds = %if.then5, %if.then
   %storage.0 = phi ptr [ %3, %if.then5 ], [ %2, %if.then ]
   tail call void @_ZN6hermes8oscompat9vm_commitEPvm(ptr sret(%"class.llvh::ErrorOr") align 8 %agg.result, ptr noundef %storage.0, i64 noundef 4194304) #18
-  %HasError.i3 = getelementptr inbounds %"class.llvh::ErrorOr", ptr %agg.result, i64 0, i32 1
+  %HasError.i3 = getelementptr inbounds i8, ptr %agg.result, i64 16
   %bf.load.i4 = load i8, ptr %HasError.i3, align 8
   %8 = and i8 %bf.load.i4, 1
   %bf.cast.not.i = icmp eq i8 %8, 0
@@ -1122,16 +1112,16 @@ define internal void @_ZN6hermes2vm12_GLOBAL__N_127ContiguousVAStorageProvider17
 entry:
   tail call void @_ZN6hermes8oscompat7vm_nameEPvmPKc(ptr noundef %storage, i64 noundef 4194304, ptr noundef nonnull @.str.4) #18
   tail call void @_ZN6hermes8oscompat11vm_uncommitEPvm(ptr noundef %storage, i64 noundef 4194304) #18
-  %freelist_ = getelementptr inbounds %"class.hermes::vm::(anonymous namespace)::ContiguousVAStorageProvider", ptr %this, i64 0, i32 4
-  %Size.i.i = getelementptr inbounds %"class.hermes::vm::(anonymous namespace)::ContiguousVAStorageProvider", ptr %this, i64 0, i32 4, i32 0, i32 0, i32 0, i32 0, i32 1
+  %freelist_ = getelementptr inbounds i8, ptr %this, i64 56
+  %Size.i.i = getelementptr inbounds i8, ptr %this, i64 64
   %0 = load i32, ptr %Size.i.i, align 8
-  %Capacity.i.i = getelementptr inbounds %"class.hermes::vm::(anonymous namespace)::ContiguousVAStorageProvider", ptr %this, i64 0, i32 4, i32 0, i32 0, i32 0, i32 0, i32 2
+  %Capacity.i.i = getelementptr inbounds i8, ptr %this, i64 68
   %1 = load i32, ptr %Capacity.i.i, align 4
   %cmp.not.i = icmp ult i32 %0, %1
   br i1 %cmp.not.i, label %_ZN4llvh23SmallVectorTemplateBaseIPvLb1EE9push_backERKS1_.exit, label %if.then.i
 
 if.then.i:                                        ; preds = %entry
-  %add.ptr.i.i.i.i = getelementptr inbounds %"class.hermes::vm::(anonymous namespace)::ContiguousVAStorageProvider", ptr %this, i64 1
+  %add.ptr.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 72
   tail call void @_ZN4llvh15SmallVectorBase8grow_podEPvmm(ptr noundef nonnull align 8 dereferenceable(16) %freelist_, ptr noundef nonnull %add.ptr.i.i.i.i, i64 noundef 0, i64 noundef 8) #18
   %.pre.i = load i32, ptr %Size.i.i, align 8
   br label %_ZN4llvh23SmallVectorTemplateBaseIPvLb1EE9push_backERKS1_.exit

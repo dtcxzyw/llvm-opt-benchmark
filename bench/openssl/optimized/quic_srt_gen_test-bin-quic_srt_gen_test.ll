@@ -18,7 +18,7 @@ target triple = "x86_64-unknown-linux-gnu"
 @tests = internal constant <{ { ptr, i64, { i8, <{ i8, i8, [18 x i8] }> }, %struct.QUIC_STATELESS_RESET_TOKEN }, %struct.test_case, %struct.test_case }> <{ { ptr, i64, { i8, <{ i8, i8, [18 x i8] }> }, %struct.QUIC_STATELESS_RESET_TOKEN } { ptr @key_1, i64 3, { i8, <{ i8, i8, [18 x i8] }> } { i8 2, <{ i8, i8, [18 x i8] }> <{ i8 85, i8 102, [18 x i8] zeroinitializer }> }, %struct.QUIC_STATELESS_RESET_TOKEN { [16 x i8] c"\02\9E\8F=\1E\A9\06#\B2C\D2\19Y\8A\A1f" } }, %struct.test_case { ptr @key_2, i64 16, %struct.quic_conn_id_st zeroinitializer, %struct.QUIC_STATELESS_RESET_TOKEN { [16 x i8] c"\93\10/\C7\AF\9D\9B(?\84\95k\A3\DC\07k" } }, %struct.test_case { ptr @key_2, i64 16, %struct.quic_conn_id_st { i8 20, [20 x i8] c"\01\01\01\01\01\01\01\01\01\01\01\01\01\01\01\01\01\01\01\01" }, %struct.QUIC_STATELESS_RESET_TOKEN { [16 x i8] c"\9A\98\98a\BE\FD\E3\05E\ACf\CF;X\FB\AB" } } }>, align 16
 
 ; Function Attrs: nounwind uwtable
-define dso_local i32 @setup_tests() local_unnamed_addr #0 {
+define dso_local noundef i32 @setup_tests() local_unnamed_addr #0 {
 entry:
   tail call void @add_all_tests(ptr noundef nonnull @.str, ptr noundef nonnull @test_srt_gen, i32 noundef 3, i32 noundef 1) #3
   ret i32 1
@@ -27,13 +27,13 @@ entry:
 declare void @add_all_tests(ptr noundef, ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @test_srt_gen(i32 noundef %idx) #0 {
+define internal noundef i32 @test_srt_gen(i32 noundef %idx) #0 {
 entry:
   %token = alloca %struct.QUIC_STATELESS_RESET_TOKEN, align 1
   %idxprom = sext i32 %idx to i64
   %arrayidx = getelementptr inbounds [3 x %struct.test_case], ptr @tests, i64 0, i64 %idxprom
   %0 = load ptr, ptr %arrayidx, align 8
-  %key_len = getelementptr inbounds [3 x %struct.test_case], ptr @tests, i64 0, i64 %idxprom, i32 1
+  %key_len = getelementptr inbounds i8, ptr %arrayidx, i64 8
   %1 = load i64, ptr %key_len, align 8
   %call = tail call ptr @ossl_quic_srt_gen_new(ptr noundef null, ptr noundef null, ptr noundef %0, i64 noundef %1) #3
   %call1 = tail call i32 @test_ptr(ptr noundef nonnull @.str.1, i32 noundef 58, ptr noundef nonnull @.str.2, ptr noundef %call) #3
@@ -41,8 +41,8 @@ entry:
   br i1 %tobool.not, label %err, label %for.cond.preheader
 
 for.cond.preheader:                               ; preds = %entry
-  %expected = getelementptr inbounds [3 x %struct.test_case], ptr @tests, i64 0, i64 %idxprom, i32 3
-  %dcid = getelementptr inbounds [3 x %struct.test_case], ptr @tests, i64 0, i64 %idxprom, i32 2
+  %expected = getelementptr inbounds i8, ptr %arrayidx, i64 37
+  %dcid = getelementptr inbounds i8, ptr %arrayidx, i64 16
   br label %for.body
 
 for.body:                                         ; preds = %if.end7, %for.cond.preheader

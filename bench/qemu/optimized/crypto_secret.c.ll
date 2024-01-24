@@ -4,12 +4,6 @@ target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:
 target triple = "x86_64-unknown-linux-gnu"
 
 %struct.TypeInfo = type { ptr, ptr, i64, i64, ptr, ptr, ptr, i8, i64, ptr, ptr, ptr, ptr }
-%struct.QCryptoSecret = type { %struct.QCryptoSecretCommon, ptr, ptr }
-%struct.QCryptoSecretCommon = type { %struct.Object, ptr, i64, i32, ptr, ptr }
-%struct.Object = type { ptr, ptr, ptr, i32, ptr }
-%struct.QCryptoSecretCommonClass = type { %struct.ObjectClass, ptr }
-%struct.ObjectClass = type { ptr, ptr, [4 x ptr], [4 x ptr], ptr, ptr }
-%struct._GError = type { i32, i32, ptr }
 
 @qcrypto_secret_info = internal constant %struct.TypeInfo { ptr @.str, ptr @.str.1, i64 96, i64 0, ptr null, ptr null, ptr @qcrypto_secret_finalize, i8 0, i64 104, ptr @qcrypto_secret_class_init, ptr null, ptr null, ptr null }, align 8
 @.str = private unnamed_addr constant [7 x i8] c"secret\00", align 1
@@ -49,10 +43,10 @@ declare ptr @type_register_static(ptr noundef) local_unnamed_addr #1
 define internal void @qcrypto_secret_finalize(ptr noundef %obj) #0 {
 entry:
   %call.i = tail call ptr @object_dynamic_cast_assert(ptr noundef %obj, ptr noundef nonnull @.str, ptr noundef nonnull @.str.2, i32 noundef 31, ptr noundef nonnull @__func__.QCRYPTO_SECRET) #3
-  %file = getelementptr inbounds %struct.QCryptoSecret, ptr %call.i, i64 0, i32 2
+  %file = getelementptr inbounds i8, ptr %call.i, i64 88
   %0 = load ptr, ptr %file, align 8
   tail call void @g_free(ptr noundef %0) #3
-  %data = getelementptr inbounds %struct.QCryptoSecret, ptr %call.i, i64 0, i32 1
+  %data = getelementptr inbounds i8, ptr %call.i, i64 80
   %1 = load ptr, ptr %data, align 8
   tail call void @g_free(ptr noundef %1) #3
   ret void
@@ -62,7 +56,7 @@ entry:
 define internal void @qcrypto_secret_class_init(ptr noundef %oc, ptr nocapture readnone %data) #0 {
 entry:
   %call.i = tail call ptr @object_class_dynamic_cast_assert(ptr noundef %oc, ptr noundef nonnull @.str.1, ptr noundef nonnull @.str.5, i32 noundef 29, ptr noundef nonnull @__func__.QCRYPTO_SECRET_COMMON_CLASS) #3
-  %load_data = getelementptr inbounds %struct.QCryptoSecretCommonClass, ptr %call.i, i64 0, i32 1
+  %load_data = getelementptr inbounds i8, ptr %call.i, i64 96
   store ptr @qcrypto_secret_load_data, ptr %load_data, align 8
   %call1 = tail call ptr @object_class_property_add_str(ptr noundef %oc, ptr noundef nonnull @.str.3, ptr noundef nonnull @qcrypto_secret_prop_get_data, ptr noundef nonnull @qcrypto_secret_prop_set_data) #3
   %call2 = tail call ptr @object_class_property_add_str(ptr noundef %oc, ptr noundef nonnull @.str.4, ptr noundef nonnull @qcrypto_secret_prop_get_file, ptr noundef nonnull @qcrypto_secret_prop_set_file) #3
@@ -85,10 +79,10 @@ entry:
   %call.i = tail call ptr @object_dynamic_cast_assert(ptr noundef %sec_common, ptr noundef nonnull @.str, ptr noundef nonnull @.str.2, i32 noundef 31, ptr noundef nonnull @__func__.QCRYPTO_SECRET) #3
   store ptr null, ptr %output, align 8
   store i64 0, ptr %outputlen, align 8
-  %file = getelementptr inbounds %struct.QCryptoSecret, ptr %call.i, i64 0, i32 2
+  %file = getelementptr inbounds i8, ptr %call.i, i64 88
   %0 = load ptr, ptr %file, align 8
   %tobool.not = icmp eq ptr %0, null
-  %data10 = getelementptr inbounds %struct.QCryptoSecret, ptr %call.i, i64 0, i32 1
+  %data10 = getelementptr inbounds i8, ptr %call.i, i64 80
   %1 = load ptr, ptr %data10, align 8
   %tobool11.not = icmp eq ptr %1, null
   br i1 %tobool.not, label %if.else, label %if.then
@@ -108,7 +102,7 @@ if.end:                                           ; preds = %if.then
 if.then7:                                         ; preds = %if.end
   %2 = load ptr, ptr %file, align 8
   %3 = load ptr, ptr %gerr, align 8
-  %message = getelementptr inbounds %struct._GError, ptr %3, i64 0, i32 2
+  %message = getelementptr inbounds i8, ptr %3, i64 8
   %4 = load ptr, ptr %message, align 8
   call void (ptr, ptr, i32, ptr, ptr, ...) @error_setg_internal(ptr noundef %errp, ptr noundef nonnull @.str.6, i32 noundef 53, ptr noundef nonnull @__func__.qcrypto_secret_load_data, ptr noundef nonnull @.str.8, ptr noundef %2, ptr noundef %4) #3
   %5 = load ptr, ptr %gerr, align 8
@@ -147,7 +141,7 @@ declare ptr @object_class_property_add_str(ptr noundef, ptr noundef, ptr noundef
 define internal noalias ptr @qcrypto_secret_prop_get_data(ptr noundef %obj, ptr nocapture readnone %errp) #0 {
 entry:
   %call.i = tail call ptr @object_dynamic_cast_assert(ptr noundef %obj, ptr noundef nonnull @.str, ptr noundef nonnull @.str.2, i32 noundef 31, ptr noundef nonnull @__func__.QCRYPTO_SECRET) #3
-  %data = getelementptr inbounds %struct.QCryptoSecret, ptr %call.i, i64 0, i32 1
+  %data = getelementptr inbounds i8, ptr %call.i, i64 80
   %0 = load ptr, ptr %data, align 8
   %call1 = tail call noalias ptr @g_strdup(ptr noundef %0) #3
   ret ptr %call1
@@ -157,7 +151,7 @@ entry:
 define internal void @qcrypto_secret_prop_set_data(ptr noundef %obj, ptr noundef %value, ptr nocapture readnone %errp) #0 {
 entry:
   %call.i = tail call ptr @object_dynamic_cast_assert(ptr noundef %obj, ptr noundef nonnull @.str, ptr noundef nonnull @.str.2, i32 noundef 31, ptr noundef nonnull @__func__.QCRYPTO_SECRET) #3
-  %data = getelementptr inbounds %struct.QCryptoSecret, ptr %call.i, i64 0, i32 1
+  %data = getelementptr inbounds i8, ptr %call.i, i64 80
   %0 = load ptr, ptr %data, align 8
   tail call void @g_free(ptr noundef %0) #3
   %call1 = tail call noalias ptr @g_strdup(ptr noundef %value) #3
@@ -169,7 +163,7 @@ entry:
 define internal noalias ptr @qcrypto_secret_prop_get_file(ptr noundef %obj, ptr nocapture readnone %errp) #0 {
 entry:
   %call.i = tail call ptr @object_dynamic_cast_assert(ptr noundef %obj, ptr noundef nonnull @.str, ptr noundef nonnull @.str.2, i32 noundef 31, ptr noundef nonnull @__func__.QCRYPTO_SECRET) #3
-  %file = getelementptr inbounds %struct.QCryptoSecret, ptr %call.i, i64 0, i32 2
+  %file = getelementptr inbounds i8, ptr %call.i, i64 88
   %0 = load ptr, ptr %file, align 8
   %call1 = tail call noalias ptr @g_strdup(ptr noundef %0) #3
   ret ptr %call1
@@ -179,7 +173,7 @@ entry:
 define internal void @qcrypto_secret_prop_set_file(ptr noundef %obj, ptr noundef %value, ptr nocapture readnone %errp) #0 {
 entry:
   %call.i = tail call ptr @object_dynamic_cast_assert(ptr noundef %obj, ptr noundef nonnull @.str, ptr noundef nonnull @.str.2, i32 noundef 31, ptr noundef nonnull @__func__.QCRYPTO_SECRET) #3
-  %file = getelementptr inbounds %struct.QCryptoSecret, ptr %call.i, i64 0, i32 2
+  %file = getelementptr inbounds i8, ptr %call.i, i64 88
   %0 = load ptr, ptr %file, align 8
   tail call void @g_free(ptr noundef %0) #3
   %call1 = tail call noalias ptr @g_strdup(ptr noundef %value) #3

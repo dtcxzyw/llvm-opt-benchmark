@@ -3,47 +3,6 @@ source_filename = "bench/curl/original/libcurl_la-cookie.ll"
 target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:128-n8:16:32:64-S128"
 target triple = "x86_64-unknown-linux-gnu"
 
-%struct.Curl_easy = type { i32, i64, ptr, ptr, ptr, %struct.Curl_llist_element, %struct.Curl_llist_element, i32, i32, %struct.Curl_message, %struct.easy_pollset, %struct.Names, ptr, ptr, ptr, ptr, %struct.SingleRequest, %struct.UserDefined, ptr, ptr, ptr, %struct.Progress, %struct.UrlState, ptr, %struct.PureInfo, %struct.curl_tlssessioninfo }
-%struct.Curl_llist_element = type { ptr, ptr, ptr }
-%struct.Curl_message = type { %struct.Curl_llist_element, %struct.CURLMsg }
-%struct.CURLMsg = type { i32, ptr, %union.anon }
-%union.anon = type { ptr }
-%struct.easy_pollset = type { [5 x i32], i32, [5 x i8] }
-%struct.Names = type { ptr, i32 }
-%struct.SingleRequest = type <{ i64, i64, i64, i64, i64, %struct.curltime, i32, i32, i32, i32, i64, i32, i32, %struct.curltime, i32, i32, ptr, i64, i64, ptr, ptr, i64, ptr, %union.anon.0, ptr, [2 x i8], i8, i16, [3 x i8] }>
-%struct.curltime = type { i64, i32 }
-%union.anon.0 = type { ptr }
-%struct.UserDefined = type <{ ptr, ptr, ptr, ptr, ptr, ptr, i16, [6 x i8], i64, i64, i64, ptr, ptr, i64, i16, i16, [4 x i8], ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, i32, i32, i32, i32, i64, i64, i64, i64, i64, i64, i64, i64, i64, ptr, ptr, %struct.curl_mimepart, ptr, ptr, ptr, i64, i8, i8, i8, [5 x i8], %struct.ssl_config_data, %struct.ssl_config_data, ptr, i16, i8, i8, [4 x i8], %struct.ssl_general_config, i32, i32, i32, [4 x i8], ptr, ptr, i8, [7 x i8], i64, i8, i8, i8, i8, i32, ptr, ptr, ptr, i8, i8, [2 x i8], i32, [80 x ptr], [8 x ptr], i32, i32, i32, [4 x i8], ptr, i32, [4 x i8], ptr, ptr, ptr, ptr, ptr, i8, [3 x i8], i32, i32, [4 x i8], i64, ptr, ptr, i64, ptr, ptr, ptr, ptr, ptr, i8, [7 x i8], ptr, i8, [3 x i8], i32, i8, i8, i56, [6 x i8] }>
-%struct.curl_mimepart = type { ptr, ptr, i32, i32, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, i64, %struct.mime_state, ptr, %struct.mime_encoder_state, i64 }
-%struct.mime_state = type { i32, ptr, i64 }
-%struct.mime_encoder_state = type { i64, i64, i64, [256 x i8] }
-%struct.ssl_config_data = type { %struct.ssl_primary_config, i64, ptr, ptr, ptr, ptr, ptr, ptr, ptr, i8 }
-%struct.ssl_primary_config = type { ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, i8, i32, i8, i8 }
-%struct.ssl_general_config = type { i64, i32 }
-%struct.Progress = type { i64, i64, i64, i64, i64, i64, i32, i32, i64, i64, i64, i64, i64, i64, i64, i64, i64, i64, %struct.curltime, %struct.curltime, %struct.curltime, %struct.curltime, %struct.curltime, i64, %struct.curltime, i64, [6 x i64], [6 x %struct.curltime], i32, i8 }
-%struct.UrlState = type { ptr, %struct.curltime, i64, i64, %struct.dynbuf, ptr, ptr, ptr, i64, ptr, i32, i32, i32, ptr, i64, [3 x %struct.tempbuf], i32, i32, ptr, i64, i32, ptr, %struct.digestdata, %struct.digestdata, %struct.auth, %struct.auth, %struct.Curl_async, ptr, %struct.curltime, %struct.Curl_tree, %struct.Curl_llist, [15 x %struct.time_node], ptr, i8, i64, ptr, i64, i64, i64, i64, [32 x i8], i64, ptr, ptr, ptr, %struct.urlpieces, ptr, ptr, ptr, ptr, ptr, i64, %struct.dynbuf, %struct.Curl_llist, [2 x %struct.curl_header], ptr, i32, ptr, %struct.dynamically_allocated_data, i8, i8, i8, i8, i24 }
-%struct.tempbuf = type { %struct.dynbuf, i32, i8 }
-%struct.digestdata = type { ptr, ptr, ptr, ptr, ptr, ptr, i32, i8, i8 }
-%struct.auth = type { i64, i64, i64, i8 }
-%struct.Curl_async = type { ptr, ptr, ptr, ptr, i32, i32, i8 }
-%struct.Curl_tree = type { ptr, ptr, ptr, ptr, %struct.curltime, ptr }
-%struct.time_node = type { %struct.Curl_llist_element, %struct.curltime, i32 }
-%struct.urlpieces = type { ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr }
-%struct.dynbuf = type { ptr, i64, i64, i64 }
-%struct.Curl_llist = type { ptr, ptr, ptr, i64 }
-%struct.curl_header = type { ptr, ptr, i64, i64, i32, ptr }
-%struct.dynamically_allocated_data = type { ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr }
-%struct.PureInfo = type { i32, i32, i32, i64, i64, i64, i64, i64, ptr, ptr, i64, i32, [46 x i8], i32, i32, [46 x i8], i32, ptr, i32, %struct.curl_certinfo, i32, i8 }
-%struct.curl_certinfo = type { i32, ptr }
-%struct.curl_tlssessioninfo = type { i32, ptr }
-%struct.curl_slist = type { ptr, ptr }
-%struct.CookieInfo = type { [63 x ptr], i64, i32, i32, i8, i8 }
-%struct.Cookie = type { ptr, ptr, ptr, ptr, ptr, ptr, i64, i8, i8, i8, i8, i32, i8 }
-%struct.Curl_share = type { i32, i32, i32, ptr, ptr, ptr, %struct.conncache, %struct.Curl_hash, ptr, %struct.PslCache, ptr, ptr, i64, i64 }
-%struct.conncache = type { %struct.Curl_hash, i64, i64, i64, %struct.curltime, ptr }
-%struct.Curl_hash = type { ptr, ptr, ptr, ptr, i32, i64 }
-%struct.PslCache = type { ptr, i64, i8 }
-
 @.str = private unnamed_addr constant [35 x i8] c"ignoring failed cookie_init for %s\00", align 1
 @Curl_ccalloc = external local_unnamed_addr global ptr, align 8
 @Curl_cfree = external local_unnamed_addr global ptr, align 8
@@ -94,15 +53,15 @@ target triple = "x86_64-unknown-linux-gnu"
 ; Function Attrs: nounwind uwtable
 define hidden void @Curl_cookie_loadfiles(ptr noundef %data) local_unnamed_addr #0 {
 entry:
-  %cookielist = getelementptr inbounds %struct.Curl_easy, ptr %data, i64 0, i32 22, i32 57
+  %cookielist = getelementptr inbounds i8, ptr %data, i64 4920
   %0 = load ptr, ptr %cookielist, align 8
   %tobool.not = icmp eq ptr %0, null
   br i1 %tobool.not, label %if.end19, label %if.then
 
 if.then:                                          ; preds = %entry
   %call = tail call i32 @Curl_share_lock(ptr noundef nonnull %data, i32 noundef 2, i32 noundef 2) #12
-  %cookies = getelementptr inbounds %struct.Curl_easy, ptr %data, i64 0, i32 18
-  %cookiesession = getelementptr inbounds %struct.Curl_easy, ptr %data, i64 0, i32 17, i32 129
+  %cookies = getelementptr inbounds i8, ptr %data, i64 2720
+  %cookiesession = getelementptr inbounds i8, ptr %data, i64 2706
   br label %while.body
 
 while.body:                                       ; preds = %if.then, %if.end17
@@ -132,7 +91,7 @@ if.else:                                          ; preds = %while.body
   br label %if.end17
 
 if.end17:                                         ; preds = %if.then14, %land.lhs.true, %if.else
-  %next = getelementptr inbounds %struct.curl_slist, ptr %list.015, i64 0, i32 1
+  %next = getelementptr inbounds i8, ptr %list.015, i64 8
   %6 = load ptr, ptr %next, align 8
   %tobool1.not = icmp eq ptr %6, null
   br i1 %tobool1.not, label %while.end, label %while.body, !llvm.loop !4
@@ -161,13 +120,13 @@ if.then:                                          ; preds = %entry
   br i1 %tobool1.not, label %return, label %if.end
 
 if.end:                                           ; preds = %if.then
-  %next_expiration = getelementptr inbounds %struct.CookieInfo, ptr %call, i64 0, i32 1
+  %next_expiration = getelementptr inbounds i8, ptr %call, i64 504
   store i64 9223372036854775807, ptr %next_expiration, align 8
   br label %if.end3
 
 if.end3:                                          ; preds = %entry, %if.end
   %c.0 = phi ptr [ %call, %if.end ], [ %inc, %entry ]
-  %newsession5 = getelementptr inbounds %struct.CookieInfo, ptr %c.0, i64 0, i32 5
+  %newsession5 = getelementptr inbounds i8, ptr %c.0, i64 521
   store i8 %frombool, ptr %newsession5, align 1
   %tobool7.not = icmp eq ptr %data, null
   br i1 %tobool7.not, label %if.end59, label %if.then8
@@ -192,12 +151,12 @@ if.else15:                                        ; preds = %if.then11
   br i1 %tobool17.not, label %land.lhs.true20, label %if.end27.thread40
 
 if.end27.thread40:                                ; preds = %if.else15
-  %running43 = getelementptr inbounds %struct.CookieInfo, ptr %c.0, i64 0, i32 4
+  %running43 = getelementptr inbounds i8, ptr %c.0, i64 520
   store i8 0, ptr %running43, align 8
   br label %if.then29
 
 land.lhs.true20:                                  ; preds = %if.else15
-  %verbose = getelementptr inbounds %struct.Curl_easy, ptr %data, i64 0, i32 17, i32 129
+  %verbose = getelementptr inbounds i8, ptr %data, i64 2706
   %bf.load = load i64, ptr %verbose, align 2
   %2 = and i64 %bf.load, 536870912
   %tobool21.not = icmp eq i64 %2, 0
@@ -208,13 +167,13 @@ if.then22:                                        ; preds = %land.lhs.true20
   br label %if.end27.thread
 
 if.end27.thread:                                  ; preds = %if.then22, %land.lhs.true20, %land.lhs.true, %if.then8
-  %running38 = getelementptr inbounds %struct.CookieInfo, ptr %c.0, i64 0, i32 4
+  %running38 = getelementptr inbounds i8, ptr %c.0, i64 520
   store i8 0, ptr %running38, align 8
   br label %if.end56
 
 if.end27:                                         ; preds = %if.then11
   %3 = load ptr, ptr @stdin, align 8
-  %running = getelementptr inbounds %struct.CookieInfo, ptr %c.0, i64 0, i32 4
+  %running = getelementptr inbounds i8, ptr %c.0, i64 520
   store i8 0, ptr %running, align 8
   %tobool28.not = icmp eq ptr %3, null
   br i1 %tobool28.not, label %if.end56, label %if.then29
@@ -272,14 +231,14 @@ if.then53:                                        ; preds = %while.end51
   br label %if.end56
 
 if.end56:                                         ; preds = %if.end27.thread, %while.end51, %if.then53, %if.end27
-  %cookie_engine = getelementptr inbounds %struct.Curl_easy, ptr %data, i64 0, i32 22, i32 63
+  %cookie_engine = getelementptr inbounds i8, ptr %data, i64 5044
   %bf.load57 = load i32, ptr %cookie_engine, align 4
   %bf.set = or i32 %bf.load57, 8192
   store i32 %bf.set, ptr %cookie_engine, align 4
   br label %if.end59
 
 if.end59:                                         ; preds = %if.end56, %if.end3
-  %running60 = getelementptr inbounds %struct.CookieInfo, ptr %c.0, i64 0, i32 4
+  %running60 = getelementptr inbounds i8, ptr %c.0, i64 520
   store i8 1, ptr %running60, align 8
   br label %return
 
@@ -299,23 +258,23 @@ while.body.i.i:                                   ; preds = %for.body.i, %while.
   %co.addr.04.i.i = phi ptr [ %9, %while.body.i.i ], [ %8, %for.body.i ]
   %9 = load ptr, ptr %co.addr.04.i.i, align 8
   %10 = load ptr, ptr @Curl_cfree, align 8
-  %domain.i.i.i = getelementptr inbounds %struct.Cookie, ptr %co.addr.04.i.i, i64 0, i32 5
+  %domain.i.i.i = getelementptr inbounds i8, ptr %co.addr.04.i.i, i64 40
   %11 = load ptr, ptr %domain.i.i.i, align 8
   tail call void %10(ptr noundef %11) #12
   %12 = load ptr, ptr @Curl_cfree, align 8
-  %path.i.i.i = getelementptr inbounds %struct.Cookie, ptr %co.addr.04.i.i, i64 0, i32 3
+  %path.i.i.i = getelementptr inbounds i8, ptr %co.addr.04.i.i, i64 24
   %13 = load ptr, ptr %path.i.i.i, align 8
   tail call void %12(ptr noundef %13) #12
   %14 = load ptr, ptr @Curl_cfree, align 8
-  %spath.i.i.i = getelementptr inbounds %struct.Cookie, ptr %co.addr.04.i.i, i64 0, i32 4
+  %spath.i.i.i = getelementptr inbounds i8, ptr %co.addr.04.i.i, i64 32
   %15 = load ptr, ptr %spath.i.i.i, align 8
   tail call void %14(ptr noundef %15) #12
   %16 = load ptr, ptr @Curl_cfree, align 8
-  %name.i.i.i = getelementptr inbounds %struct.Cookie, ptr %co.addr.04.i.i, i64 0, i32 1
+  %name.i.i.i = getelementptr inbounds i8, ptr %co.addr.04.i.i, i64 8
   %17 = load ptr, ptr %name.i.i.i, align 8
   tail call void %16(ptr noundef %17) #12
   %18 = load ptr, ptr @Curl_cfree, align 8
-  %value.i.i.i = getelementptr inbounds %struct.Cookie, ptr %co.addr.04.i.i, i64 0, i32 2
+  %value.i.i.i = getelementptr inbounds i8, ptr %co.addr.04.i.i, i64 16
   %19 = load ptr, ptr %value.i.i.i, align 8
   tail call void %18(ptr noundef %19) #12
   %20 = load ptr, ptr @Curl_cfree, align 8
@@ -358,7 +317,7 @@ entry:
   %lcase = alloca [256 x i8], align 16
   %lcookie = alloca [256 x i8], align 16
   %call = tail call i64 @time(ptr noundef null) #12
-  %setcookies = getelementptr inbounds %struct.Curl_easy, ptr %data, i64 0, i32 16, i32 26
+  %setcookies = getelementptr inbounds i8, ptr %data, i64 410
   %0 = load i8, ptr %setcookies, align 2
   %cmp = icmp ugt i8 %0, 49
   br i1 %cmp, label %return, label %if.end
@@ -378,20 +337,20 @@ if.then10:                                        ; preds = %if.end8
   br i1 %cmp12, label %if.then14, label %do.body16.preheader
 
 do.body16.preheader:                              ; preds = %if.then10
-  %prefix = getelementptr inbounds %struct.Cookie, ptr %call6, i64 0, i32 12
-  %name = getelementptr inbounds %struct.Cookie, ptr %call6, i64 0, i32 1
-  %httponly = getelementptr inbounds %struct.Cookie, ptr %call6, i64 0, i32 10
-  %running = getelementptr inbounds %struct.CookieInfo, ptr %c, i64 0, i32 4
-  %secure197 = getelementptr inbounds %struct.Cookie, ptr %call6, i64 0, i32 8
-  %expires = getelementptr inbounds %struct.Cookie, ptr %call6, i64 0, i32 6
+  %prefix = getelementptr inbounds i8, ptr %call6, i64 64
+  %name = getelementptr inbounds i8, ptr %call6, i64 8
+  %httponly = getelementptr inbounds i8, ptr %call6, i64 59
+  %running = getelementptr inbounds i8, ptr %c, i64 520
+  %secure197 = getelementptr inbounds i8, ptr %call6, i64 57
+  %expires = getelementptr inbounds i8, ptr %call6, i64 48
   %sub329 = sub nsw i64 9223372036854775807, %call
   %tobool253.not = icmp eq ptr %domain, null
-  %verbose286 = getelementptr inbounds %struct.Curl_easy, ptr %data, i64 0, i32 17, i32 129
-  %domain273 = getelementptr inbounds %struct.Cookie, ptr %call6, i64 0, i32 5
-  %tailmatch = getelementptr inbounds %struct.Cookie, ptr %call6, i64 0, i32 7
-  %path224 = getelementptr inbounds %struct.Cookie, ptr %call6, i64 0, i32 3
-  %spath = getelementptr inbounds %struct.Cookie, ptr %call6, i64 0, i32 4
-  %value = getelementptr inbounds %struct.Cookie, ptr %call6, i64 0, i32 2
+  %verbose286 = getelementptr inbounds i8, ptr %data, i64 2706
+  %domain273 = getelementptr inbounds i8, ptr %call6, i64 40
+  %tailmatch = getelementptr inbounds i8, ptr %call6, i64 56
+  %path224 = getelementptr inbounds i8, ptr %call6, i64 24
+  %spath = getelementptr inbounds i8, ptr %call6, i64 32
+  %value = getelementptr inbounds i8, ptr %call6, i64 16
   br label %do.body16
 
 if.then14:                                        ; preds = %if.then10
@@ -1026,7 +985,7 @@ if.else463:                                       ; preds = %if.end8
 
 if.then468:                                       ; preds = %if.else463
   %add.ptr469 = getelementptr inbounds i8, ptr %lineptr, i64 10
-  %httponly470 = getelementptr inbounds %struct.Cookie, ptr %call6, i64 0, i32 10
+  %httponly470 = getelementptr inbounds i8, ptr %call6, i64 59
   store i8 1, ptr %httponly470, align 1
   br label %if.end471
 
@@ -1065,16 +1024,16 @@ if.end485:                                        ; preds = %if.then484, %if.end
   br i1 %tobool487491.not, label %if.then625, label %for.body.lr.ph
 
 for.body.lr.ph:                                   ; preds = %if.end485
-  %value598 = getelementptr inbounds %struct.Cookie, ptr %call6, i64 0, i32 2
-  %name571 = getelementptr inbounds %struct.Cookie, ptr %call6, i64 0, i32 1
-  %prefix580 = getelementptr inbounds %struct.Cookie, ptr %call6, i64 0, i32 12
-  %expires564 = getelementptr inbounds %struct.Cookie, ptr %call6, i64 0, i32 6
-  %path520 = getelementptr inbounds %struct.Cookie, ptr %call6, i64 0, i32 3
-  %spath527 = getelementptr inbounds %struct.Cookie, ptr %call6, i64 0, i32 4
-  %secure548 = getelementptr inbounds %struct.Cookie, ptr %call6, i64 0, i32 8
-  %running555 = getelementptr inbounds %struct.CookieInfo, ptr %c, i64 0, i32 4
-  %tailmatch510 = getelementptr inbounds %struct.Cookie, ptr %call6, i64 0, i32 7
-  %domain500 = getelementptr inbounds %struct.Cookie, ptr %call6, i64 0, i32 5
+  %value598 = getelementptr inbounds i8, ptr %call6, i64 16
+  %name571 = getelementptr inbounds i8, ptr %call6, i64 8
+  %prefix580 = getelementptr inbounds i8, ptr %call6, i64 64
+  %expires564 = getelementptr inbounds i8, ptr %call6, i64 48
+  %path520 = getelementptr inbounds i8, ptr %call6, i64 24
+  %spath527 = getelementptr inbounds i8, ptr %call6, i64 32
+  %secure548 = getelementptr inbounds i8, ptr %call6, i64 57
+  %running555 = getelementptr inbounds i8, ptr %c, i64 520
+  %tailmatch510 = getelementptr inbounds i8, ptr %call6, i64 56
+  %domain500 = getelementptr inbounds i8, ptr %call6, i64 40
   br label %for.body
 
 for.body:                                         ; preds = %for.body.lr.ph, %for.inc
@@ -1297,7 +1256,7 @@ for.end:                                          ; preds = %for.inc
 if.then608:                                       ; preds = %for.end
   %92 = load ptr, ptr @Curl_cstrdup, align 8
   %call609 = call ptr %92(ptr noundef nonnull @.str.21) #12
-  %value610 = getelementptr inbounds %struct.Cookie, ptr %call6, i64 0, i32 2
+  %value610 = getelementptr inbounds i8, ptr %call6, i64 16
   store ptr %call609, ptr %value610, align 8
   %tobool612.not = icmp eq ptr %call609, null
   %.badcookie.5 = select i1 %tobool612.not, i8 1, i8 %badcookie.9
@@ -1315,23 +1274,23 @@ if.end617:                                        ; preds = %if.then608, %for.en
 
 if.then625:                                       ; preds = %if.end485, %if.end617
   %95 = load ptr, ptr @Curl_cfree, align 8
-  %domain.i439 = getelementptr inbounds %struct.Cookie, ptr %call6, i64 0, i32 5
+  %domain.i439 = getelementptr inbounds i8, ptr %call6, i64 40
   %96 = load ptr, ptr %domain.i439, align 8
   call void %95(ptr noundef %96) #12
   %97 = load ptr, ptr @Curl_cfree, align 8
-  %path.i440 = getelementptr inbounds %struct.Cookie, ptr %call6, i64 0, i32 3
+  %path.i440 = getelementptr inbounds i8, ptr %call6, i64 24
   %98 = load ptr, ptr %path.i440, align 8
   call void %97(ptr noundef %98) #12
   %99 = load ptr, ptr @Curl_cfree, align 8
-  %spath.i441 = getelementptr inbounds %struct.Cookie, ptr %call6, i64 0, i32 4
+  %spath.i441 = getelementptr inbounds i8, ptr %call6, i64 32
   %100 = load ptr, ptr %spath.i441, align 8
   call void %99(ptr noundef %100) #12
   %101 = load ptr, ptr @Curl_cfree, align 8
-  %name.i442 = getelementptr inbounds %struct.Cookie, ptr %call6, i64 0, i32 1
+  %name.i442 = getelementptr inbounds i8, ptr %call6, i64 8
   %102 = load ptr, ptr %name.i442, align 8
   call void %101(ptr noundef %102) #12
   %103 = load ptr, ptr @Curl_cfree, align 8
-  %value.i443 = getelementptr inbounds %struct.Cookie, ptr %call6, i64 0, i32 2
+  %value.i443 = getelementptr inbounds i8, ptr %call6, i64 16
   %104 = load ptr, ptr %value.i443, align 8
   call void %103(ptr noundef %104) #12
   %105 = load ptr, ptr @Curl_cfree, align 8
@@ -1339,14 +1298,14 @@ if.then625:                                       ; preds = %if.end485, %if.end6
   br label %return
 
 if.end627:                                        ; preds = %if.end617, %if.end460
-  %prefix628 = getelementptr inbounds %struct.Cookie, ptr %call6, i64 0, i32 12
+  %prefix628 = getelementptr inbounds i8, ptr %call6, i64 64
   %106 = load i8, ptr %prefix628, align 8
   %107 = and i8 %106, 1
   %tobool630.not = icmp eq i8 %107, 0
   br i1 %tobool630.not, label %if.end636, label %if.then631
 
 if.then631:                                       ; preds = %if.end627
-  %secure632 = getelementptr inbounds %struct.Cookie, ptr %call6, i64 0, i32 8
+  %secure632 = getelementptr inbounds i8, ptr %call6, i64 57
   %108 = load i8, ptr %secure632, align 1
   %109 = and i8 %108, 1
   %tobool633.not = icmp eq i8 %109, 0
@@ -1362,14 +1321,14 @@ if.end636:                                        ; preds = %if.then631, %if.end
   br i1 %tobool640.not, label %if.end659, label %if.then641
 
 if.then641:                                       ; preds = %if.end636
-  %secure642 = getelementptr inbounds %struct.Cookie, ptr %call6, i64 0, i32 8
+  %secure642 = getelementptr inbounds i8, ptr %call6, i64 57
   %111 = load i8, ptr %secure642, align 1
   %112 = and i8 %111, 1
   %tobool643.not = icmp eq i8 %112, 0
   br i1 %tobool643.not, label %if.else657, label %land.lhs.true645
 
 land.lhs.true645:                                 ; preds = %if.then641
-  %path646 = getelementptr inbounds %struct.Cookie, ptr %call6, i64 0, i32 3
+  %path646 = getelementptr inbounds i8, ptr %call6, i64 24
   %113 = load ptr, ptr %path646, align 8
   %tobool647.not = icmp eq ptr %113, null
   br i1 %tobool647.not, label %if.else657, label %land.lhs.true648
@@ -1380,7 +1339,7 @@ land.lhs.true648:                                 ; preds = %land.lhs.true645
   br i1 %cmp651, label %land.lhs.true653, label %if.else657
 
 land.lhs.true653:                                 ; preds = %land.lhs.true648
-  %tailmatch654 = getelementptr inbounds %struct.Cookie, ptr %call6, i64 0, i32 7
+  %tailmatch654 = getelementptr inbounds i8, ptr %call6, i64 56
   %114 = load i8, ptr %tailmatch654, align 8
   %115 = and i8 %114, 1
   %tobool655.not = icmp eq i8 %115, 0
@@ -1391,21 +1350,21 @@ if.else657:                                       ; preds = %land.lhs.true653, %
   br label %return
 
 if.end659:                                        ; preds = %land.lhs.true653, %if.end636
-  %running660 = getelementptr inbounds %struct.CookieInfo, ptr %c, i64 0, i32 4
+  %running660 = getelementptr inbounds i8, ptr %c, i64 520
   %116 = load i8, ptr %running660, align 8
   %117 = and i8 %116, 1
   %tobool661.not = icmp eq i8 %117, 0
   br i1 %tobool661.not, label %land.lhs.true662, label %if.end669
 
 land.lhs.true662:                                 ; preds = %if.end659
-  %newsession = getelementptr inbounds %struct.CookieInfo, ptr %c, i64 0, i32 5
+  %newsession = getelementptr inbounds i8, ptr %c, i64 521
   %118 = load i8, ptr %newsession, align 1
   %119 = and i8 %118, 1
   %tobool663.not = icmp eq i8 %119, 0
   br i1 %tobool663.not, label %if.end669, label %land.lhs.true665
 
 land.lhs.true665:                                 ; preds = %land.lhs.true662
-  %expires666 = getelementptr inbounds %struct.Cookie, ptr %call6, i64 0, i32 6
+  %expires666 = getelementptr inbounds i8, ptr %call6, i64 48
   %120 = load i64, ptr %expires666, align 8
   %tobool667.not = icmp eq i64 %120, 0
   br i1 %tobool667.not, label %if.then668, label %if.end669
@@ -1415,13 +1374,13 @@ if.then668:                                       ; preds = %land.lhs.true665
   br label %return
 
 if.end669:                                        ; preds = %land.lhs.true665, %land.lhs.true662, %if.end659
-  %livecookie = getelementptr inbounds %struct.Cookie, ptr %call6, i64 0, i32 9
+  %livecookie = getelementptr inbounds i8, ptr %call6, i64 58
   store i8 %117, ptr %livecookie, align 2
-  %lastct = getelementptr inbounds %struct.CookieInfo, ptr %c, i64 0, i32 3
+  %lastct = getelementptr inbounds i8, ptr %c, i64 516
   %121 = load i32, ptr %lastct, align 4
   %inc673 = add nsw i32 %121, 1
   store i32 %inc673, ptr %lastct, align 4
-  %creationtime = getelementptr inbounds %struct.Cookie, ptr %call6, i64 0, i32 11
+  %creationtime = getelementptr inbounds i8, ptr %call6, i64 60
   store i32 %inc673, ptr %creationtime, align 4
   br i1 %noexpire, label %if.end676, label %if.then675
 
@@ -1436,7 +1395,7 @@ if.end676:                                        ; preds = %if.then675, %if.end
   br i1 %or.cond5, label %land.lhs.true680, label %if.end735
 
 land.lhs.true680:                                 ; preds = %if.end676
-  %domain681 = getelementptr inbounds %struct.Cookie, ptr %call6, i64 0, i32 5
+  %domain681 = getelementptr inbounds i8, ptr %call6, i64 40
   %122 = load ptr, ptr %domain681, align 8
   %tobool682.not = icmp eq ptr %122, null
   br i1 %tobool682.not, label %if.end735, label %land.lhs.true683
@@ -1476,14 +1435,14 @@ if.end715:                                        ; preds = %if.then695
   br i1 %call711, label %land.lhs.true720, label %if.end735
 
 land.lhs.true720:                                 ; preds = %if.then698, %if.then686, %if.end715
-  %verbose722 = getelementptr inbounds %struct.Curl_easy, ptr %data, i64 0, i32 17, i32 129
+  %verbose722 = getelementptr inbounds i8, ptr %data, i64 2706
   %bf.load723 = load i64, ptr %verbose722, align 2
   %125 = and i64 %bf.load723, 536870912
   %tobool727.not = icmp eq i64 %125, 0
   br i1 %tobool727.not, label %do.end733, label %if.then728
 
 if.then728:                                       ; preds = %land.lhs.true720
-  %name729 = getelementptr inbounds %struct.Cookie, ptr %call6, i64 0, i32 1
+  %name729 = getelementptr inbounds i8, ptr %call6, i64 8
   %126 = load ptr, ptr %name729, align 8
   %127 = load ptr, ptr %domain681, align 8
   call void (ptr, ptr, ...) @Curl_infof(ptr noundef nonnull %data, ptr noundef nonnull @.str.22, ptr noundef %126, ptr noundef nonnull %domain, ptr noundef %127) #12
@@ -1494,7 +1453,7 @@ do.end733:                                        ; preds = %land.lhs.true720, %
   br label %return
 
 if.end735:                                        ; preds = %if.then698, %if.end715, %land.lhs.true683, %land.lhs.true680, %if.end676
-  %domain736 = getelementptr inbounds %struct.Cookie, ptr %call6, i64 0, i32 5
+  %domain736 = getelementptr inbounds i8, ptr %call6, i64 40
   %128 = load ptr, ptr %domain736, align 8
   %call737 = call fastcc i64 @cookiehash(ptr noundef %128)
   %arrayidx738 = getelementptr inbounds [63 x ptr], ptr %c, i64 0, i64 %call737
@@ -1503,10 +1462,10 @@ if.end735:                                        ; preds = %if.then698, %if.end
   br i1 %tobool740.not510, label %if.end915, label %while.body741.lr.ph
 
 while.body741.lr.ph:                              ; preds = %if.end735
-  %name743 = getelementptr inbounds %struct.Cookie, ptr %call6, i64 0, i32 1
-  %spath774 = getelementptr inbounds %struct.Cookie, ptr %call6, i64 0, i32 4
-  %secure781 = getelementptr inbounds %struct.Cookie, ptr %call6, i64 0, i32 8
-  %tailmatch845 = getelementptr inbounds %struct.Cookie, ptr %call6, i64 0, i32 7
+  %name743 = getelementptr inbounds i8, ptr %call6, i64 8
+  %spath774 = getelementptr inbounds i8, ptr %call6, i64 32
+  %secure781 = getelementptr inbounds i8, ptr %call6, i64 57
+  %tailmatch845 = getelementptr inbounds i8, ptr %call6, i64 56
   br label %while.body741
 
 while.body741:                                    ; preds = %while.body741.lr.ph, %if.end902
@@ -1514,7 +1473,7 @@ while.body741:                                    ; preds = %while.body741.lr.ph
   %replace_co.0514 = phi ptr [ null, %while.body741.lr.ph ], [ %replace_co.1, %if.end902 ]
   %replace_clist.0512 = phi ptr [ null, %while.body741.lr.ph ], [ %replace_clist.1, %if.end902 ]
   %replace_old.0511 = phi i8 [ 0, %while.body741.lr.ph ], [ %replace_old.3, %if.end902 ]
-  %name742 = getelementptr inbounds %struct.Cookie, ptr %clist.0515, i64 0, i32 1
+  %name742 = getelementptr inbounds i8, ptr %clist.0515, i64 8
   %129 = load ptr, ptr %name742, align 8
   %130 = load ptr, ptr %name743, align 8
   %call744 = call i32 @curl_strequal(ptr noundef %129, ptr noundef %130) #12
@@ -1522,7 +1481,7 @@ while.body741:                                    ; preds = %while.body741.lr.ph
   br i1 %tobool745.not, label %if.end823, label %if.then746
 
 if.then746:                                       ; preds = %while.body741
-  %domain747 = getelementptr inbounds %struct.Cookie, ptr %clist.0515, i64 0, i32 5
+  %domain747 = getelementptr inbounds i8, ptr %clist.0515, i64 40
   %131 = load ptr, ptr %domain747, align 8
   %tobool748.not = icmp eq ptr %131, null
   %132 = load ptr, ptr %domain736, align 8
@@ -1541,7 +1500,7 @@ if.end767:                                        ; preds = %if.then746
   br i1 %tobool764.not, label %land.lhs.true770, label %if.end823
 
 land.lhs.true770:                                 ; preds = %if.then752, %if.end767
-  %spath771 = getelementptr inbounds %struct.Cookie, ptr %clist.0515, i64 0, i32 4
+  %spath771 = getelementptr inbounds i8, ptr %clist.0515, i64 32
   %133 = load ptr, ptr %spath771, align 8
   %tobool772.not = icmp eq ptr %133, null
   br i1 %tobool772.not, label %if.end823, label %land.lhs.true773
@@ -1552,7 +1511,7 @@ land.lhs.true773:                                 ; preds = %land.lhs.true770
   br i1 %tobool775.not, label %if.end823, label %land.lhs.true776
 
 land.lhs.true776:                                 ; preds = %land.lhs.true773
-  %secure777 = getelementptr inbounds %struct.Cookie, ptr %clist.0515, i64 0, i32 8
+  %secure777 = getelementptr inbounds i8, ptr %clist.0515, i64 57
   %135 = load i8, ptr %secure777, align 1
   %136 = and i8 %135, 1
   %tobool778.not = icmp eq i8 %136, 0
@@ -1591,7 +1550,7 @@ do.body805:                                       ; preds = %if.end799
   br i1 %tobool677, label %land.lhs.true807, label %do.end820
 
 land.lhs.true807:                                 ; preds = %do.body805
-  %verbose809 = getelementptr inbounds %struct.Curl_easy, ptr %data, i64 0, i32 17, i32 129
+  %verbose809 = getelementptr inbounds i8, ptr %data, i64 2706
   %bf.load810 = load i64, ptr %verbose809, align 2
   %139 = and i64 %bf.load810, 536870912
   %tobool814.not = icmp eq i64 %139, 0
@@ -1619,7 +1578,7 @@ land.lhs.true825:                                 ; preds = %if.end823
   br i1 %tobool829.not, label %if.end902, label %if.then830
 
 if.then830:                                       ; preds = %land.lhs.true825
-  %domain831 = getelementptr inbounds %struct.Cookie, ptr %clist.0515, i64 0, i32 5
+  %domain831 = getelementptr inbounds i8, ptr %clist.0515, i64 40
   %144 = load ptr, ptr %domain831, align 8
   %tobool832.not = icmp eq ptr %144, null
   %145 = load ptr, ptr %domain736, align 8
@@ -1635,7 +1594,7 @@ if.then836:                                       ; preds = %land.lhs.true833
   br i1 %tobool840.not, label %if.end860, label %land.lhs.true841
 
 land.lhs.true841:                                 ; preds = %if.then836
-  %tailmatch842 = getelementptr inbounds %struct.Cookie, ptr %clist.0515, i64 0, i32 7
+  %tailmatch842 = getelementptr inbounds i8, ptr %clist.0515, i64 56
   %146 = load i8, ptr %tailmatch842, align 8
   %147 = load i8, ptr %tailmatch845, align 8
   %148 = xor i8 %147, %146
@@ -1655,7 +1614,7 @@ if.end860:                                        ; preds = %land.lhs.true833, %
   br i1 %tobool861.not, label %if.end902, label %if.then862
 
 if.then862:                                       ; preds = %if.end860
-  %spath863 = getelementptr inbounds %struct.Cookie, ptr %clist.0515, i64 0, i32 4
+  %spath863 = getelementptr inbounds i8, ptr %clist.0515, i64 32
   %151 = load ptr, ptr %spath863, align 8
   %tobool864.not = icmp eq ptr %151, null
   %.pre531 = load ptr, ptr %spath774, align 8
@@ -1693,7 +1652,7 @@ land.lhs.true890:                                 ; preds = %if.end887
   br i1 %tobool892.not, label %land.lhs.true893, label %if.end902
 
 land.lhs.true893:                                 ; preds = %land.lhs.true890
-  %livecookie894 = getelementptr inbounds %struct.Cookie, ptr %clist.0515, i64 0, i32 9
+  %livecookie894 = getelementptr inbounds i8, ptr %clist.0515, i64 58
   %157 = load i8, ptr %livecookie894, align 2
   %158 = and i8 %157, 1
   %tobool895.not = icmp eq i8 %158, 0
@@ -1720,28 +1679,28 @@ while.end903:                                     ; preds = %if.end902
 if.then905:                                       ; preds = %while.end903
   %161 = load ptr, ptr %replace_clist.1, align 8
   store ptr %161, ptr %replace_co.1, align 8
-  %creationtime908 = getelementptr inbounds %struct.Cookie, ptr %replace_clist.1, i64 0, i32 11
+  %creationtime908 = getelementptr inbounds i8, ptr %replace_clist.1, i64 60
   %162 = load i32, ptr %creationtime908, align 4
-  %creationtime909 = getelementptr inbounds %struct.Cookie, ptr %replace_co.1, i64 0, i32 11
+  %creationtime909 = getelementptr inbounds i8, ptr %replace_co.1, i64 60
   store i32 %162, ptr %creationtime909, align 4
   %163 = load ptr, ptr @Curl_cfree, align 8
-  %name910 = getelementptr inbounds %struct.Cookie, ptr %replace_clist.1, i64 0, i32 1
+  %name910 = getelementptr inbounds i8, ptr %replace_clist.1, i64 8
   %164 = load ptr, ptr %name910, align 8
   call void %163(ptr noundef %164) #12
   %165 = load ptr, ptr @Curl_cfree, align 8
-  %value911 = getelementptr inbounds %struct.Cookie, ptr %replace_clist.1, i64 0, i32 2
+  %value911 = getelementptr inbounds i8, ptr %replace_clist.1, i64 16
   %166 = load ptr, ptr %value911, align 8
   call void %165(ptr noundef %166) #12
   %167 = load ptr, ptr @Curl_cfree, align 8
-  %domain912 = getelementptr inbounds %struct.Cookie, ptr %replace_clist.1, i64 0, i32 5
+  %domain912 = getelementptr inbounds i8, ptr %replace_clist.1, i64 40
   %168 = load ptr, ptr %domain912, align 8
   call void %167(ptr noundef %168) #12
   %169 = load ptr, ptr @Curl_cfree, align 8
-  %path913 = getelementptr inbounds %struct.Cookie, ptr %replace_clist.1, i64 0, i32 3
+  %path913 = getelementptr inbounds i8, ptr %replace_clist.1, i64 24
   %170 = load ptr, ptr %path913, align 8
   call void %169(ptr noundef %170) #12
   %171 = load ptr, ptr @Curl_cfree, align 8
-  %spath914 = getelementptr inbounds %struct.Cookie, ptr %replace_clist.1, i64 0, i32 4
+  %spath914 = getelementptr inbounds i8, ptr %replace_clist.1, i64 32
   %172 = load ptr, ptr %spath914, align 8
   call void %171(ptr noundef %172) #12
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(72) %replace_clist.1, ptr noundef nonnull align 8 dereferenceable(72) %replace_co.1, i64 72, i1 false)
@@ -1760,7 +1719,7 @@ if.end915:                                        ; preds = %if.end735, %if.then
   br i1 %or.cond8, label %land.lhs.true921, label %if.end941
 
 land.lhs.true921:                                 ; preds = %if.end915
-  %verbose923 = getelementptr inbounds %struct.Curl_easy, ptr %data, i64 0, i32 17, i32 129
+  %verbose923 = getelementptr inbounds i8, ptr %data, i64 2706
   %bf.load924 = load i64, ptr %verbose923, align 2
   %176 = and i64 %bf.load924, 536870912
   %tobool928.not = icmp eq i64 %176, 0
@@ -1768,15 +1727,15 @@ land.lhs.true921:                                 ; preds = %if.end915
 
 if.then929:                                       ; preds = %land.lhs.true921
   %cond932 = select i1 %replace_old.0.lcssa550, ptr @.str.26, ptr @.str.25
-  %name933 = getelementptr inbounds %struct.Cookie, ptr %co.0, i64 0, i32 1
+  %name933 = getelementptr inbounds i8, ptr %co.0, i64 8
   %177 = load ptr, ptr %name933, align 8
-  %value934 = getelementptr inbounds %struct.Cookie, ptr %co.0, i64 0, i32 2
+  %value934 = getelementptr inbounds i8, ptr %co.0, i64 16
   %178 = load ptr, ptr %value934, align 8
-  %domain935 = getelementptr inbounds %struct.Cookie, ptr %co.0, i64 0, i32 5
+  %domain935 = getelementptr inbounds i8, ptr %co.0, i64 40
   %179 = load ptr, ptr %domain935, align 8
-  %path936 = getelementptr inbounds %struct.Cookie, ptr %co.0, i64 0, i32 3
+  %path936 = getelementptr inbounds i8, ptr %co.0, i64 24
   %180 = load ptr, ptr %path936, align 8
-  %expires937 = getelementptr inbounds %struct.Cookie, ptr %co.0, i64 0, i32 6
+  %expires937 = getelementptr inbounds i8, ptr %co.0, i64 48
   %181 = load i64, ptr %expires937, align 8
   call void (ptr, ptr, ...) @Curl_infof(ptr noundef nonnull %data, ptr noundef nonnull @.str.24, ptr noundef nonnull %cond932, ptr noundef %177, ptr noundef %178, ptr noundef %179, ptr noundef %180, i64 noundef %181) #12
   br label %if.end941
@@ -1788,20 +1747,20 @@ if.then943:                                       ; preds = %if.end941
   %tobool944.not = icmp eq ptr %lastc.0.lcssa551, null
   %arrayidx738.lastc.0.lcssa551 = select i1 %tobool944.not, ptr %arrayidx738, ptr %lastc.0.lcssa551
   store ptr %co.0, ptr %arrayidx738.lastc.0.lcssa551, align 8
-  %numcookies = getelementptr inbounds %struct.CookieInfo, ptr %c, i64 0, i32 2
+  %numcookies = getelementptr inbounds i8, ptr %c, i64 512
   %182 = load i32, ptr %numcookies, align 8
   %inc951 = add nsw i32 %182, 1
   store i32 %inc951, ptr %numcookies, align 8
   br label %if.end952
 
 if.end952:                                        ; preds = %if.then943, %if.end941
-  %expires953 = getelementptr inbounds %struct.Cookie, ptr %co.0, i64 0, i32 6
+  %expires953 = getelementptr inbounds i8, ptr %co.0, i64 48
   %183 = load i64, ptr %expires953, align 8
   %tobool954.not = icmp eq i64 %183, 0
   br i1 %tobool954.not, label %return, label %land.lhs.true955
 
 land.lhs.true955:                                 ; preds = %if.end952
-  %next_expiration = getelementptr inbounds %struct.CookieInfo, ptr %c, i64 0, i32 1
+  %next_expiration = getelementptr inbounds i8, ptr %c, i64 504
   %184 = load i64, ptr %next_expiration, align 8
   %cmp957 = icmp slt i64 %183, %184
   br i1 %cmp957, label %if.then959, label %return
@@ -1831,23 +1790,23 @@ declare ptr @memchr(ptr noundef, i32 noundef, i64 noundef) local_unnamed_addr #3
 define internal fastcc void @freecookie(ptr noundef %co) unnamed_addr #0 {
 entry:
   %0 = load ptr, ptr @Curl_cfree, align 8
-  %domain = getelementptr inbounds %struct.Cookie, ptr %co, i64 0, i32 5
+  %domain = getelementptr inbounds i8, ptr %co, i64 40
   %1 = load ptr, ptr %domain, align 8
   tail call void %0(ptr noundef %1) #12
   %2 = load ptr, ptr @Curl_cfree, align 8
-  %path = getelementptr inbounds %struct.Cookie, ptr %co, i64 0, i32 3
+  %path = getelementptr inbounds i8, ptr %co, i64 24
   %3 = load ptr, ptr %path, align 8
   tail call void %2(ptr noundef %3) #12
   %4 = load ptr, ptr @Curl_cfree, align 8
-  %spath = getelementptr inbounds %struct.Cookie, ptr %co, i64 0, i32 4
+  %spath = getelementptr inbounds i8, ptr %co, i64 32
   %5 = load ptr, ptr %spath, align 8
   tail call void %4(ptr noundef %5) #12
   %6 = load ptr, ptr @Curl_cfree, align 8
-  %name = getelementptr inbounds %struct.Cookie, ptr %co, i64 0, i32 1
+  %name = getelementptr inbounds i8, ptr %co, i64 8
   %7 = load ptr, ptr %name, align 8
   tail call void %6(ptr noundef %7) #12
   %8 = load ptr, ptr @Curl_cfree, align 8
-  %value = getelementptr inbounds %struct.Cookie, ptr %co, i64 0, i32 2
+  %value = getelementptr inbounds i8, ptr %co, i64 16
   %9 = load ptr, ptr %value, align 8
   tail call void %8(ptr noundef %9) #12
   %10 = load ptr, ptr @Curl_cfree, align 8
@@ -1996,7 +1955,7 @@ declare i32 @strcmp(ptr nocapture noundef, ptr nocapture noundef) local_unnamed_
 define internal fastcc void @remove_expired(ptr nocapture noundef %cookies) unnamed_addr #0 {
 entry:
   %call = tail call i64 @time(ptr noundef null) #12
-  %next_expiration = getelementptr inbounds %struct.CookieInfo, ptr %cookies, i64 0, i32 1
+  %next_expiration = getelementptr inbounds i8, ptr %cookies, i64 504
   %0 = load i64, ptr %next_expiration, align 8
   %cmp = icmp sge i64 %call, %0
   %cmp2.not = icmp eq i64 %0, 9223372036854775807
@@ -2005,7 +1964,7 @@ entry:
 
 if.else:                                          ; preds = %entry
   store i64 9223372036854775807, ptr %next_expiration, align 8
-  %numcookies = getelementptr inbounds %struct.CookieInfo, ptr %cookies, i64 0, i32 2
+  %numcookies = getelementptr inbounds i8, ptr %cookies, i64 512
   br label %for.body
 
 for.body:                                         ; preds = %if.else, %for.inc
@@ -2019,7 +1978,7 @@ while.body:                                       ; preds = %for.body, %if.end32
   %pv.028 = phi ptr [ %pv.1, %if.end32 ], [ null, %for.body ]
   %co.027 = phi ptr [ %2, %if.end32 ], [ %1, %for.body ]
   %2 = load ptr, ptr %co.027, align 8
-  %expires = getelementptr inbounds %struct.Cookie, ptr %co.027, i64 0, i32 6
+  %expires = getelementptr inbounds i8, ptr %co.027, i64 48
   %3 = load i64, ptr %expires, align 8
   %tobool6.not = icmp ne i64 %3, 0
   %cmp9 = icmp slt i64 %3, %call
@@ -2034,23 +1993,23 @@ if.then10:                                        ; preds = %while.body
   %dec = add nsw i32 %4, -1
   store i32 %dec, ptr %numcookies, align 8
   %5 = load ptr, ptr @Curl_cfree, align 8
-  %domain.i = getelementptr inbounds %struct.Cookie, ptr %co.027, i64 0, i32 5
+  %domain.i = getelementptr inbounds i8, ptr %co.027, i64 40
   %6 = load ptr, ptr %domain.i, align 8
   tail call void %5(ptr noundef %6) #12
   %7 = load ptr, ptr @Curl_cfree, align 8
-  %path.i = getelementptr inbounds %struct.Cookie, ptr %co.027, i64 0, i32 3
+  %path.i = getelementptr inbounds i8, ptr %co.027, i64 24
   %8 = load ptr, ptr %path.i, align 8
   tail call void %7(ptr noundef %8) #12
   %9 = load ptr, ptr @Curl_cfree, align 8
-  %spath.i = getelementptr inbounds %struct.Cookie, ptr %co.027, i64 0, i32 4
+  %spath.i = getelementptr inbounds i8, ptr %co.027, i64 32
   %10 = load ptr, ptr %spath.i, align 8
   tail call void %9(ptr noundef %10) #12
   %11 = load ptr, ptr @Curl_cfree, align 8
-  %name.i = getelementptr inbounds %struct.Cookie, ptr %co.027, i64 0, i32 1
+  %name.i = getelementptr inbounds i8, ptr %co.027, i64 8
   %12 = load ptr, ptr %name.i, align 8
   tail call void %11(ptr noundef %12) #12
   %13 = load ptr, ptr @Curl_cfree, align 8
-  %value.i = getelementptr inbounds %struct.Cookie, ptr %co.027, i64 0, i32 2
+  %value.i = getelementptr inbounds i8, ptr %co.027, i64 16
   %14 = load ptr, ptr %value.i, align 8
   tail call void %13(ptr noundef %14) #12
   %15 = load ptr, ptr @Curl_cfree, align 8
@@ -2210,23 +2169,23 @@ while.body.i:                                     ; preds = %for.body, %while.bo
   %co.addr.04.i = phi ptr [ %1, %while.body.i ], [ %0, %for.body ]
   %1 = load ptr, ptr %co.addr.04.i, align 8
   %2 = load ptr, ptr @Curl_cfree, align 8
-  %domain.i.i = getelementptr inbounds %struct.Cookie, ptr %co.addr.04.i, i64 0, i32 5
+  %domain.i.i = getelementptr inbounds i8, ptr %co.addr.04.i, i64 40
   %3 = load ptr, ptr %domain.i.i, align 8
   tail call void %2(ptr noundef %3) #12
   %4 = load ptr, ptr @Curl_cfree, align 8
-  %path.i.i = getelementptr inbounds %struct.Cookie, ptr %co.addr.04.i, i64 0, i32 3
+  %path.i.i = getelementptr inbounds i8, ptr %co.addr.04.i, i64 24
   %5 = load ptr, ptr %path.i.i, align 8
   tail call void %4(ptr noundef %5) #12
   %6 = load ptr, ptr @Curl_cfree, align 8
-  %spath.i.i = getelementptr inbounds %struct.Cookie, ptr %co.addr.04.i, i64 0, i32 4
+  %spath.i.i = getelementptr inbounds i8, ptr %co.addr.04.i, i64 32
   %7 = load ptr, ptr %spath.i.i, align 8
   tail call void %6(ptr noundef %7) #12
   %8 = load ptr, ptr @Curl_cfree, align 8
-  %name.i.i = getelementptr inbounds %struct.Cookie, ptr %co.addr.04.i, i64 0, i32 1
+  %name.i.i = getelementptr inbounds i8, ptr %co.addr.04.i, i64 8
   %9 = load ptr, ptr %name.i.i, align 8
   tail call void %8(ptr noundef %9) #12
   %10 = load ptr, ptr @Curl_cfree, align 8
-  %value.i.i = getelementptr inbounds %struct.Cookie, ptr %co.addr.04.i, i64 0, i32 2
+  %value.i.i = getelementptr inbounds i8, ptr %co.addr.04.i, i64 16
   %11 = load ptr, ptr %value.i.i, align 8
   tail call void %10(ptr noundef %11) #12
   %12 = load ptr, ptr @Curl_cfree, align 8
@@ -2272,7 +2231,7 @@ while.body:                                       ; preds = %if.end, %if.end48
   %co.099 = phi ptr [ %co.0, %if.end48 ], [ %co.095, %if.end ]
   %mainco.098 = phi ptr [ %mainco.1, %if.end48 ], [ null, %if.end ]
   %matches.097 = phi i64 [ %matches.1, %if.end48 ], [ 0, %if.end ]
-  %secure7 = getelementptr inbounds %struct.Cookie, ptr %co.099, i64 0, i32 8
+  %secure7 = getelementptr inbounds i8, ptr %co.099, i64 57
   %1 = load i8, ptr %secure7, align 1
   %2 = and i8 %1, 1
   %tobool8.not = icmp eq i8 %2, 0
@@ -2280,13 +2239,13 @@ while.body:                                       ; preds = %if.end, %if.end48
   br i1 %brmerge, label %if.then10, label %if.end48
 
 if.then10:                                        ; preds = %while.body
-  %domain = getelementptr inbounds %struct.Cookie, ptr %co.099, i64 0, i32 5
+  %domain = getelementptr inbounds i8, ptr %co.099, i64 40
   %3 = load ptr, ptr %domain, align 8
   %tobool11.not = icmp eq ptr %3, null
   br i1 %tobool11.not, label %if.then29, label %lor.lhs.false12
 
 lor.lhs.false12:                                  ; preds = %if.then10
-  %tailmatch = getelementptr inbounds %struct.Cookie, ptr %co.099, i64 0, i32 7
+  %tailmatch = getelementptr inbounds i8, ptr %co.099, i64 56
   %4 = load i8, ptr %tailmatch, align 8
   %5 = and i8 %4, 1
   %tobool13.not = icmp eq i8 %5, 0
@@ -2331,7 +2290,7 @@ land.lhs.true25:                                  ; preds = %lor.lhs.false20
   br i1 %tobool28.not, label %if.end48, label %if.then29
 
 if.then29:                                        ; preds = %if.end4.i, %land.lhs.true25, %cookie_tailmatch.exit, %if.then10
-  %spath = getelementptr inbounds %struct.Cookie, ptr %co.099, i64 0, i32 4
+  %spath = getelementptr inbounds i8, ptr %co.099, i64 32
   %10 = load ptr, ptr %spath, align 8
   %tobool30.not = icmp eq ptr %10, null
   br i1 %tobool30.not, label %if.then34, label %lor.lhs.false31
@@ -2415,13 +2374,13 @@ do.body.i:                                        ; preds = %if.then34
 if.then2.i:                                       ; preds = %do.body.i
   %19 = load ptr, ptr @Curl_cstrdup, align 8
   %call4.i59 = tail call ptr %19(ptr noundef nonnull %18) #12
-  %domain5.i = getelementptr inbounds %struct.Cookie, ptr %call.i57, i64 0, i32 5
+  %domain5.i = getelementptr inbounds i8, ptr %call.i57, i64 40
   store ptr %call4.i59, ptr %domain5.i, align 8
   %tobool7.not.i = icmp eq ptr %call4.i59, null
   br i1 %tobool7.not.i, label %fail.i, label %do.body10.i
 
 do.body10.i:                                      ; preds = %if.then2.i, %do.body.i
-  %path.i = getelementptr inbounds %struct.Cookie, ptr %co.099, i64 0, i32 3
+  %path.i = getelementptr inbounds i8, ptr %co.099, i64 24
   %20 = load ptr, ptr %path.i, align 8
   %tobool11.not.i = icmp eq ptr %20, null
   br i1 %tobool11.not.i, label %do.body22.i, label %if.then12.i60
@@ -2429,7 +2388,7 @@ do.body10.i:                                      ; preds = %if.then2.i, %do.bod
 if.then12.i60:                                    ; preds = %do.body10.i
   %21 = load ptr, ptr @Curl_cstrdup, align 8
   %call14.i = tail call ptr %21(ptr noundef nonnull %20) #12
-  %path15.i = getelementptr inbounds %struct.Cookie, ptr %call.i57, i64 0, i32 3
+  %path15.i = getelementptr inbounds i8, ptr %call.i57, i64 24
   store ptr %call14.i, ptr %path15.i, align 8
   %tobool17.not.i = icmp eq ptr %call14.i, null
   br i1 %tobool17.not.i, label %fail.i, label %do.body22.i
@@ -2442,13 +2401,13 @@ do.body22.i:                                      ; preds = %if.then12.i60, %do.
 if.then24.i:                                      ; preds = %do.body22.i
   %23 = load ptr, ptr @Curl_cstrdup, align 8
   %call26.i = tail call ptr %23(ptr noundef nonnull %22) #12
-  %spath27.i = getelementptr inbounds %struct.Cookie, ptr %call.i57, i64 0, i32 4
+  %spath27.i = getelementptr inbounds i8, ptr %call.i57, i64 32
   store ptr %call26.i, ptr %spath27.i, align 8
   %tobool29.not.i = icmp eq ptr %call26.i, null
   br i1 %tobool29.not.i, label %fail.i, label %do.body34.i
 
 do.body34.i:                                      ; preds = %if.then24.i, %do.body22.i
-  %name.i = getelementptr inbounds %struct.Cookie, ptr %co.099, i64 0, i32 1
+  %name.i = getelementptr inbounds i8, ptr %co.099, i64 8
   %24 = load ptr, ptr %name.i, align 8
   %tobool35.not.i = icmp eq ptr %24, null
   br i1 %tobool35.not.i, label %do.body46.i, label %if.then36.i
@@ -2456,13 +2415,13 @@ do.body34.i:                                      ; preds = %if.then24.i, %do.bo
 if.then36.i:                                      ; preds = %do.body34.i
   %25 = load ptr, ptr @Curl_cstrdup, align 8
   %call38.i = tail call ptr %25(ptr noundef nonnull %24) #12
-  %name39.i = getelementptr inbounds %struct.Cookie, ptr %call.i57, i64 0, i32 1
+  %name39.i = getelementptr inbounds i8, ptr %call.i57, i64 8
   store ptr %call38.i, ptr %name39.i, align 8
   %tobool41.not.i = icmp eq ptr %call38.i, null
   br i1 %tobool41.not.i, label %fail.i, label %do.body46.i
 
 do.body46.i:                                      ; preds = %if.then36.i, %do.body34.i
-  %value.i = getelementptr inbounds %struct.Cookie, ptr %co.099, i64 0, i32 2
+  %value.i = getelementptr inbounds i8, ptr %co.099, i64 16
   %26 = load ptr, ptr %value.i, align 8
   %tobool47.not.i = icmp eq ptr %26, null
   br i1 %tobool47.not.i, label %if.then37, label %if.then48.i
@@ -2470,30 +2429,30 @@ do.body46.i:                                      ; preds = %if.then36.i, %do.bo
 if.then48.i:                                      ; preds = %do.body46.i
   %27 = load ptr, ptr @Curl_cstrdup, align 8
   %call50.i = tail call ptr %27(ptr noundef nonnull %26) #12
-  %value51.i = getelementptr inbounds %struct.Cookie, ptr %call.i57, i64 0, i32 2
+  %value51.i = getelementptr inbounds i8, ptr %call.i57, i64 16
   store ptr %call50.i, ptr %value51.i, align 8
   %tobool53.not.i = icmp eq ptr %call50.i, null
   br i1 %tobool53.not.i, label %fail.i, label %if.then37
 
 fail.i:                                           ; preds = %if.then48.i, %if.then36.i, %if.then24.i, %if.then12.i60, %if.then2.i
   %28 = load ptr, ptr @Curl_cfree, align 8
-  %domain.i.i = getelementptr inbounds %struct.Cookie, ptr %call.i57, i64 0, i32 5
+  %domain.i.i = getelementptr inbounds i8, ptr %call.i57, i64 40
   %29 = load ptr, ptr %domain.i.i, align 8
   tail call void %28(ptr noundef %29) #12
   %30 = load ptr, ptr @Curl_cfree, align 8
-  %path.i.i = getelementptr inbounds %struct.Cookie, ptr %call.i57, i64 0, i32 3
+  %path.i.i = getelementptr inbounds i8, ptr %call.i57, i64 24
   %31 = load ptr, ptr %path.i.i, align 8
   tail call void %30(ptr noundef %31) #12
   %32 = load ptr, ptr @Curl_cfree, align 8
-  %spath.i.i = getelementptr inbounds %struct.Cookie, ptr %call.i57, i64 0, i32 4
+  %spath.i.i = getelementptr inbounds i8, ptr %call.i57, i64 32
   %33 = load ptr, ptr %spath.i.i, align 8
   tail call void %32(ptr noundef %33) #12
   %34 = load ptr, ptr @Curl_cfree, align 8
-  %name.i.i = getelementptr inbounds %struct.Cookie, ptr %call.i57, i64 0, i32 1
+  %name.i.i = getelementptr inbounds i8, ptr %call.i57, i64 8
   %35 = load ptr, ptr %name.i.i, align 8
   tail call void %34(ptr noundef %35) #12
   %36 = load ptr, ptr @Curl_cfree, align 8
-  %value.i.i = getelementptr inbounds %struct.Cookie, ptr %call.i57, i64 0, i32 2
+  %value.i.i = getelementptr inbounds i8, ptr %call.i57, i64 16
   %37 = load ptr, ptr %value.i.i, align 8
   tail call void %36(ptr noundef %37) #12
   %38 = load ptr, ptr @Curl_cfree, align 8
@@ -2501,32 +2460,32 @@ fail.i:                                           ; preds = %if.then48.i, %if.th
   br label %fail
 
 if.then37:                                        ; preds = %if.then48.i, %do.body46.i
-  %expires.i = getelementptr inbounds %struct.Cookie, ptr %co.099, i64 0, i32 6
+  %expires.i = getelementptr inbounds i8, ptr %co.099, i64 48
   %39 = load i64, ptr %expires.i, align 8
-  %expires58.i = getelementptr inbounds %struct.Cookie, ptr %call.i57, i64 0, i32 6
+  %expires58.i = getelementptr inbounds i8, ptr %call.i57, i64 48
   store i64 %39, ptr %expires58.i, align 8
-  %tailmatch.i = getelementptr inbounds %struct.Cookie, ptr %co.099, i64 0, i32 7
+  %tailmatch.i = getelementptr inbounds i8, ptr %co.099, i64 56
   %40 = load i8, ptr %tailmatch.i, align 8
   %41 = and i8 %40, 1
-  %tailmatch60.i = getelementptr inbounds %struct.Cookie, ptr %call.i57, i64 0, i32 7
+  %tailmatch60.i = getelementptr inbounds i8, ptr %call.i57, i64 56
   store i8 %41, ptr %tailmatch60.i, align 8
   %42 = load i8, ptr %secure7, align 1
   %43 = and i8 %42, 1
-  %secure62.i = getelementptr inbounds %struct.Cookie, ptr %call.i57, i64 0, i32 8
+  %secure62.i = getelementptr inbounds i8, ptr %call.i57, i64 57
   store i8 %43, ptr %secure62.i, align 1
-  %livecookie.i = getelementptr inbounds %struct.Cookie, ptr %co.099, i64 0, i32 9
+  %livecookie.i = getelementptr inbounds i8, ptr %co.099, i64 58
   %44 = load i8, ptr %livecookie.i, align 2
   %45 = and i8 %44, 1
-  %livecookie65.i = getelementptr inbounds %struct.Cookie, ptr %call.i57, i64 0, i32 9
+  %livecookie65.i = getelementptr inbounds i8, ptr %call.i57, i64 58
   store i8 %45, ptr %livecookie65.i, align 2
-  %httponly.i = getelementptr inbounds %struct.Cookie, ptr %co.099, i64 0, i32 10
+  %httponly.i = getelementptr inbounds i8, ptr %co.099, i64 59
   %46 = load i8, ptr %httponly.i, align 1
   %47 = and i8 %46, 1
-  %httponly68.i = getelementptr inbounds %struct.Cookie, ptr %call.i57, i64 0, i32 10
+  %httponly68.i = getelementptr inbounds i8, ptr %call.i57, i64 59
   store i8 %47, ptr %httponly68.i, align 1
-  %creationtime.i = getelementptr inbounds %struct.Cookie, ptr %co.099, i64 0, i32 11
+  %creationtime.i = getelementptr inbounds i8, ptr %co.099, i64 60
   %48 = load i32, ptr %creationtime.i, align 4
-  %creationtime70.i = getelementptr inbounds %struct.Cookie, ptr %call.i57, i64 0, i32 11
+  %creationtime70.i = getelementptr inbounds i8, ptr %call.i57, i64 60
   store i32 %48, ptr %creationtime70.i, align 4
   store ptr %mainco.098, ptr %call.i57, align 8
   %inc = add i64 %matches.097, 1
@@ -2538,7 +2497,7 @@ do.body:                                          ; preds = %if.then37
   br i1 %tobool39.not, label %if.then51, label %land.lhs.true40
 
 land.lhs.true40:                                  ; preds = %do.body
-  %verbose = getelementptr inbounds %struct.Curl_easy, ptr %data, i64 0, i32 17, i32 129
+  %verbose = getelementptr inbounds i8, ptr %data, i64 2706
   %bf.load = load i64, ptr %verbose, align 2
   %49 = and i64 %bf.load, 536870912
   %tobool41.not = icmp eq i64 %49, 0
@@ -2616,23 +2575,23 @@ while.body.i:                                     ; preds = %fail, %while.body.i
   %co.addr.04.i = phi ptr [ %57, %while.body.i ], [ %mainco.4, %fail ]
   %57 = load ptr, ptr %co.addr.04.i, align 8
   %58 = load ptr, ptr @Curl_cfree, align 8
-  %domain.i.i63 = getelementptr inbounds %struct.Cookie, ptr %co.addr.04.i, i64 0, i32 5
+  %domain.i.i63 = getelementptr inbounds i8, ptr %co.addr.04.i, i64 40
   %59 = load ptr, ptr %domain.i.i63, align 8
   tail call void %58(ptr noundef %59) #12
   %60 = load ptr, ptr @Curl_cfree, align 8
-  %path.i.i64 = getelementptr inbounds %struct.Cookie, ptr %co.addr.04.i, i64 0, i32 3
+  %path.i.i64 = getelementptr inbounds i8, ptr %co.addr.04.i, i64 24
   %61 = load ptr, ptr %path.i.i64, align 8
   tail call void %60(ptr noundef %61) #12
   %62 = load ptr, ptr @Curl_cfree, align 8
-  %spath.i.i65 = getelementptr inbounds %struct.Cookie, ptr %co.addr.04.i, i64 0, i32 4
+  %spath.i.i65 = getelementptr inbounds i8, ptr %co.addr.04.i, i64 32
   %63 = load ptr, ptr %spath.i.i65, align 8
   tail call void %62(ptr noundef %63) #12
   %64 = load ptr, ptr @Curl_cfree, align 8
-  %name.i.i66 = getelementptr inbounds %struct.Cookie, ptr %co.addr.04.i, i64 0, i32 1
+  %name.i.i66 = getelementptr inbounds i8, ptr %co.addr.04.i, i64 8
   %65 = load ptr, ptr %name.i.i66, align 8
   tail call void %64(ptr noundef %65) #12
   %66 = load ptr, ptr @Curl_cfree, align 8
-  %value.i.i67 = getelementptr inbounds %struct.Cookie, ptr %co.addr.04.i, i64 0, i32 2
+  %value.i.i67 = getelementptr inbounds i8, ptr %co.addr.04.i, i64 16
   %67 = load ptr, ptr %value.i.i67, align 8
   tail call void %66(ptr noundef %67) #12
   %68 = load ptr, ptr @Curl_cfree, align 8
@@ -2653,7 +2612,7 @@ define internal i32 @cookie_sort(ptr nocapture noundef readonly %p1, ptr nocaptu
 entry:
   %0 = load ptr, ptr %p1, align 8
   %1 = load ptr, ptr %p2, align 8
-  %path = getelementptr inbounds %struct.Cookie, ptr %0, i64 0, i32 3
+  %path = getelementptr inbounds i8, ptr %0, i64 24
   %2 = load ptr, ptr %path, align 8
   %tobool.not = icmp eq ptr %2, null
   br i1 %tobool.not, label %cond.end, label %cond.true
@@ -2664,7 +2623,7 @@ cond.true:                                        ; preds = %entry
 
 cond.end:                                         ; preds = %entry, %cond.true
   %cond = phi i64 [ %call, %cond.true ], [ 0, %entry ]
-  %path2 = getelementptr inbounds %struct.Cookie, ptr %1, i64 0, i32 3
+  %path2 = getelementptr inbounds i8, ptr %1, i64 24
   %3 = load ptr, ptr %path2, align 8
   %tobool3.not = icmp eq ptr %3, null
   br i1 %tobool3.not, label %cond.end8, label %cond.true4
@@ -2683,7 +2642,7 @@ if.then:                                          ; preds = %cond.end8
   br label %return
 
 if.end:                                           ; preds = %cond.end8
-  %domain = getelementptr inbounds %struct.Cookie, ptr %0, i64 0, i32 5
+  %domain = getelementptr inbounds i8, ptr %0, i64 40
   %4 = load ptr, ptr %domain, align 8
   %tobool12.not = icmp eq ptr %4, null
   br i1 %tobool12.not, label %cond.end17, label %cond.true13
@@ -2694,7 +2653,7 @@ cond.true13:                                      ; preds = %if.end
 
 cond.end17:                                       ; preds = %if.end, %cond.true13
   %cond18 = phi i64 [ %call15, %cond.true13 ], [ 0, %if.end ]
-  %domain19 = getelementptr inbounds %struct.Cookie, ptr %1, i64 0, i32 5
+  %domain19 = getelementptr inbounds i8, ptr %1, i64 40
   %5 = load ptr, ptr %domain19, align 8
   %tobool20.not = icmp eq ptr %5, null
   br i1 %tobool20.not, label %cond.end25, label %cond.true21
@@ -2713,7 +2672,7 @@ if.then28:                                        ; preds = %cond.end25
   br label %return
 
 if.end31:                                         ; preds = %cond.end25
-  %name = getelementptr inbounds %struct.Cookie, ptr %0, i64 0, i32 1
+  %name = getelementptr inbounds i8, ptr %0, i64 8
   %6 = load ptr, ptr %name, align 8
   %tobool32.not = icmp eq ptr %6, null
   br i1 %tobool32.not, label %cond.end37, label %cond.true33
@@ -2724,7 +2683,7 @@ cond.true33:                                      ; preds = %if.end31
 
 cond.end37:                                       ; preds = %if.end31, %cond.true33
   %cond38 = phi i64 [ %call35, %cond.true33 ], [ 0, %if.end31 ]
-  %name39 = getelementptr inbounds %struct.Cookie, ptr %1, i64 0, i32 1
+  %name39 = getelementptr inbounds i8, ptr %1, i64 8
   %7 = load ptr, ptr %name39, align 8
   %tobool40.not = icmp eq ptr %7, null
   br i1 %tobool40.not, label %cond.end45, label %cond.true41
@@ -2743,9 +2702,9 @@ if.then48:                                        ; preds = %cond.end45
   br label %return
 
 if.end51:                                         ; preds = %cond.end45
-  %creationtime = getelementptr inbounds %struct.Cookie, ptr %1, i64 0, i32 11
+  %creationtime = getelementptr inbounds i8, ptr %1, i64 60
   %8 = load i32, ptr %creationtime, align 4
-  %creationtime52 = getelementptr inbounds %struct.Cookie, ptr %0, i64 0, i32 11
+  %creationtime52 = getelementptr inbounds i8, ptr %0, i64 60
   %9 = load i32, ptr %creationtime52, align 4
   %cmp53 = icmp sgt i32 %8, %9
   br label %return
@@ -2766,23 +2725,23 @@ while.body:                                       ; preds = %entry, %while.body
   %co.addr.04 = phi ptr [ %0, %while.body ], [ %co, %entry ]
   %0 = load ptr, ptr %co.addr.04, align 8
   %1 = load ptr, ptr @Curl_cfree, align 8
-  %domain.i = getelementptr inbounds %struct.Cookie, ptr %co.addr.04, i64 0, i32 5
+  %domain.i = getelementptr inbounds i8, ptr %co.addr.04, i64 40
   %2 = load ptr, ptr %domain.i, align 8
   tail call void %1(ptr noundef %2) #12
   %3 = load ptr, ptr @Curl_cfree, align 8
-  %path.i = getelementptr inbounds %struct.Cookie, ptr %co.addr.04, i64 0, i32 3
+  %path.i = getelementptr inbounds i8, ptr %co.addr.04, i64 24
   %4 = load ptr, ptr %path.i, align 8
   tail call void %3(ptr noundef %4) #12
   %5 = load ptr, ptr @Curl_cfree, align 8
-  %spath.i = getelementptr inbounds %struct.Cookie, ptr %co.addr.04, i64 0, i32 4
+  %spath.i = getelementptr inbounds i8, ptr %co.addr.04, i64 32
   %6 = load ptr, ptr %spath.i, align 8
   tail call void %5(ptr noundef %6) #12
   %7 = load ptr, ptr @Curl_cfree, align 8
-  %name.i = getelementptr inbounds %struct.Cookie, ptr %co.addr.04, i64 0, i32 1
+  %name.i = getelementptr inbounds i8, ptr %co.addr.04, i64 8
   %8 = load ptr, ptr %name.i, align 8
   tail call void %7(ptr noundef %8) #12
   %9 = load ptr, ptr @Curl_cfree, align 8
-  %value.i = getelementptr inbounds %struct.Cookie, ptr %co.addr.04, i64 0, i32 2
+  %value.i = getelementptr inbounds i8, ptr %co.addr.04, i64 16
   %10 = load ptr, ptr %value.i, align 8
   tail call void %9(ptr noundef %10) #12
   %11 = load ptr, ptr @Curl_cfree, align 8
@@ -2811,23 +2770,23 @@ while.body.i:                                     ; preds = %for.body, %while.bo
   %co.addr.04.i = phi ptr [ %1, %while.body.i ], [ %0, %for.body ]
   %1 = load ptr, ptr %co.addr.04.i, align 8
   %2 = load ptr, ptr @Curl_cfree, align 8
-  %domain.i.i = getelementptr inbounds %struct.Cookie, ptr %co.addr.04.i, i64 0, i32 5
+  %domain.i.i = getelementptr inbounds i8, ptr %co.addr.04.i, i64 40
   %3 = load ptr, ptr %domain.i.i, align 8
   tail call void %2(ptr noundef %3) #12
   %4 = load ptr, ptr @Curl_cfree, align 8
-  %path.i.i = getelementptr inbounds %struct.Cookie, ptr %co.addr.04.i, i64 0, i32 3
+  %path.i.i = getelementptr inbounds i8, ptr %co.addr.04.i, i64 24
   %5 = load ptr, ptr %path.i.i, align 8
   tail call void %4(ptr noundef %5) #12
   %6 = load ptr, ptr @Curl_cfree, align 8
-  %spath.i.i = getelementptr inbounds %struct.Cookie, ptr %co.addr.04.i, i64 0, i32 4
+  %spath.i.i = getelementptr inbounds i8, ptr %co.addr.04.i, i64 32
   %7 = load ptr, ptr %spath.i.i, align 8
   tail call void %6(ptr noundef %7) #12
   %8 = load ptr, ptr @Curl_cfree, align 8
-  %name.i.i = getelementptr inbounds %struct.Cookie, ptr %co.addr.04.i, i64 0, i32 1
+  %name.i.i = getelementptr inbounds i8, ptr %co.addr.04.i, i64 8
   %9 = load ptr, ptr %name.i.i, align 8
   tail call void %8(ptr noundef %9) #12
   %10 = load ptr, ptr @Curl_cfree, align 8
-  %value.i.i = getelementptr inbounds %struct.Cookie, ptr %co.addr.04.i, i64 0, i32 2
+  %value.i.i = getelementptr inbounds i8, ptr %co.addr.04.i, i64 16
   %11 = load ptr, ptr %value.i.i, align 8
   tail call void %10(ptr noundef %11) #12
   %12 = load ptr, ptr @Curl_cfree, align 8
@@ -2842,7 +2801,7 @@ Curl_cookie_freelist.exit:                        ; preds = %while.body.i, %for.
   br i1 %exitcond.not, label %for.end, label %for.body, !llvm.loop !23
 
 for.end:                                          ; preds = %Curl_cookie_freelist.exit
-  %numcookies = getelementptr inbounds %struct.CookieInfo, ptr %cookies, i64 0, i32 2
+  %numcookies = getelementptr inbounds i8, ptr %cookies, i64 512
   store i32 0, ptr %numcookies, align 8
   br label %if.end
 
@@ -2857,7 +2816,7 @@ entry:
   br i1 %tobool.not, label %for.end27, label %for.cond.preheader
 
 for.cond.preheader:                               ; preds = %entry
-  %numcookies = getelementptr inbounds %struct.CookieInfo, ptr %cookies, i64 0, i32 2
+  %numcookies = getelementptr inbounds i8, ptr %cookies, i64 512
   br label %for.body
 
 for.body:                                         ; preds = %for.cond.preheader, %for.inc26
@@ -2872,7 +2831,7 @@ for.body10:                                       ; preds = %for.body, %for.inc
   %first.021 = phi ptr [ %first.2, %for.inc ], [ %0, %for.body ]
   %curr.020 = phi ptr [ %1, %for.inc ], [ %0, %for.body ]
   %1 = load ptr, ptr %curr.020, align 8
-  %expires = getelementptr inbounds %struct.Cookie, ptr %curr.020, i64 0, i32 6
+  %expires = getelementptr inbounds i8, ptr %curr.020, i64 48
   %2 = load i64, ptr %expires, align 8
   %tobool12.not = icmp eq i64 %2, 0
   br i1 %tobool12.not, label %if.then13, label %for.inc
@@ -2890,23 +2849,23 @@ if.else:                                          ; preds = %if.then13
 if.end20:                                         ; preds = %if.then13, %if.else
   %prev.1 = phi ptr [ %prev.022, %if.else ], [ %1, %if.then13 ]
   %3 = load ptr, ptr @Curl_cfree, align 8
-  %domain.i = getelementptr inbounds %struct.Cookie, ptr %curr.020, i64 0, i32 5
+  %domain.i = getelementptr inbounds i8, ptr %curr.020, i64 40
   %4 = load ptr, ptr %domain.i, align 8
   tail call void %3(ptr noundef %4) #12
   %5 = load ptr, ptr @Curl_cfree, align 8
-  %path.i = getelementptr inbounds %struct.Cookie, ptr %curr.020, i64 0, i32 3
+  %path.i = getelementptr inbounds i8, ptr %curr.020, i64 24
   %6 = load ptr, ptr %path.i, align 8
   tail call void %5(ptr noundef %6) #12
   %7 = load ptr, ptr @Curl_cfree, align 8
-  %spath.i = getelementptr inbounds %struct.Cookie, ptr %curr.020, i64 0, i32 4
+  %spath.i = getelementptr inbounds i8, ptr %curr.020, i64 32
   %8 = load ptr, ptr %spath.i, align 8
   tail call void %7(ptr noundef %8) #12
   %9 = load ptr, ptr @Curl_cfree, align 8
-  %name.i = getelementptr inbounds %struct.Cookie, ptr %curr.020, i64 0, i32 1
+  %name.i = getelementptr inbounds i8, ptr %curr.020, i64 8
   %10 = load ptr, ptr %name.i, align 8
   tail call void %9(ptr noundef %10) #12
   %11 = load ptr, ptr @Curl_cfree, align 8
-  %value.i = getelementptr inbounds %struct.Cookie, ptr %curr.020, i64 0, i32 2
+  %value.i = getelementptr inbounds i8, ptr %curr.020, i64 16
   %12 = load ptr, ptr %value.i, align 8
   tail call void %11(ptr noundef %12) #12
   %13 = load ptr, ptr @Curl_cfree, align 8
@@ -2939,13 +2898,13 @@ for.end27:                                        ; preds = %for.inc26, %entry
 define hidden ptr @Curl_cookie_list(ptr noundef %data) local_unnamed_addr #0 {
 entry:
   %call = tail call i32 @Curl_share_lock(ptr noundef %data, i32 noundef 2, i32 noundef 2) #12
-  %cookies.i = getelementptr inbounds %struct.Curl_easy, ptr %data, i64 0, i32 18
+  %cookies.i = getelementptr inbounds i8, ptr %data, i64 2720
   %0 = load ptr, ptr %cookies.i, align 8
   %tobool.not.i = icmp eq ptr %0, null
   br i1 %tobool.not.i, label %cookie_list.exit, label %lor.lhs.false.i
 
 lor.lhs.false.i:                                  ; preds = %entry
-  %numcookies.i = getelementptr inbounds %struct.CookieInfo, ptr %0, i64 0, i32 2
+  %numcookies.i = getelementptr inbounds i8, ptr %0, i64 512
   %1 = load i32, ptr %numcookies.i, align 8
   %cmp.i = icmp eq i32 %1, 0
   br i1 %cmp.i, label %cookie_list.exit, label %for.body.i
@@ -2962,15 +2921,15 @@ for.body.i:                                       ; preds = %lor.lhs.false.i, %f
 for.body7.i:                                      ; preds = %for.body.i, %for.inc.i
   %c.022.i = phi ptr [ %c.0.i, %for.inc.i ], [ %c.019.i, %for.body.i ]
   %list.121.i = phi ptr [ %list.2.i, %for.inc.i ], [ %list.023.i, %for.body.i ]
-  %domain.i = getelementptr inbounds %struct.Cookie, ptr %c.022.i, i64 0, i32 5
+  %domain.i = getelementptr inbounds i8, ptr %c.022.i, i64 40
   %3 = load ptr, ptr %domain.i, align 8
   %tobool8.not.i = icmp eq ptr %3, null
   br i1 %tobool8.not.i, label %for.inc.i, label %if.end10.i
 
 if.end10.i:                                       ; preds = %for.body7.i
-  %httponly.i.i = getelementptr inbounds %struct.Cookie, ptr %c.022.i, i64 0, i32 10
+  %httponly.i.i = getelementptr inbounds i8, ptr %c.022.i, i64 59
   %4 = load i8, ptr %httponly.i.i, align 1
-  %tailmatch.i.i = getelementptr inbounds %struct.Cookie, ptr %c.022.i, i64 0, i32 7
+  %tailmatch.i.i = getelementptr inbounds i8, ptr %c.022.i, i64 56
   %5 = load i8, ptr %tailmatch.i.i, align 8
   %6 = and i8 %5, 1
   %tobool1.not.i.i = icmp eq i8 %6, 0
@@ -2985,17 +2944,17 @@ land.rhs.i.i:                                     ; preds = %if.end10.i
 get_netscape_format.exit.i:                       ; preds = %land.rhs.i.i, %if.end10.i
   %cond13.i.i = phi ptr [ @.str.18, %land.rhs.i.i ], [ @.str.19, %if.end10.i ]
   %cond5.i.i = phi ptr [ %8, %land.rhs.i.i ], [ @.str.21, %if.end10.i ]
-  %path.i.i = getelementptr inbounds %struct.Cookie, ptr %c.022.i, i64 0, i32 3
+  %path.i.i = getelementptr inbounds i8, ptr %c.022.i, i64 24
   %9 = load ptr, ptr %path.i.i, align 8
   %tobool14.not.i.i = icmp eq ptr %9, null
   %cond19.i.i = select i1 %tobool14.not.i.i, ptr @.str.20, ptr %9
-  %secure.i.i = getelementptr inbounds %struct.Cookie, ptr %c.022.i, i64 0, i32 8
+  %secure.i.i = getelementptr inbounds i8, ptr %c.022.i, i64 57
   %10 = load i8, ptr %secure.i.i, align 1
-  %expires.i.i = getelementptr inbounds %struct.Cookie, ptr %c.022.i, i64 0, i32 6
+  %expires.i.i = getelementptr inbounds i8, ptr %c.022.i, i64 48
   %11 = load i64, ptr %expires.i.i, align 8
-  %name.i.i = getelementptr inbounds %struct.Cookie, ptr %c.022.i, i64 0, i32 1
+  %name.i.i = getelementptr inbounds i8, ptr %c.022.i, i64 8
   %12 = load ptr, ptr %name.i.i, align 8
-  %value.i.i = getelementptr inbounds %struct.Cookie, ptr %c.022.i, i64 0, i32 2
+  %value.i.i = getelementptr inbounds i8, ptr %c.022.i, i64 16
   %13 = load ptr, ptr %value.i.i, align 8
   %tobool23.not.i.i = icmp eq ptr %13, null
   %cond28.i.i = select i1 %tobool23.not.i.i, ptr @.str.21, ptr %13
@@ -3046,14 +3005,14 @@ define hidden void @Curl_flush_cookies(ptr noundef %data, i1 noundef zeroext %cl
 entry:
   %out.i = alloca ptr, align 8
   %tempstore.i = alloca ptr, align 8
-  %arrayidx = getelementptr inbounds %struct.Curl_easy, ptr %data, i64 0, i32 17, i32 93, i64 5
+  %arrayidx = getelementptr inbounds i8, ptr %data, i64 1856
   %0 = load ptr, ptr %arrayidx, align 8
   %tobool.not = icmp eq ptr %0, null
   %call16 = tail call i32 @Curl_share_lock(ptr noundef nonnull %data, i32 noundef 2, i32 noundef 2) #12
   br i1 %tobool.not, label %if.end17, label %if.then
 
 if.then:                                          ; preds = %entry
-  %cookies = getelementptr inbounds %struct.Curl_easy, ptr %data, i64 0, i32 18
+  %cookies = getelementptr inbounds i8, ptr %data, i64 2720
   %1 = load ptr, ptr %cookies, align 8
   %2 = load ptr, ptr %arrayidx, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %out.i)
@@ -3087,7 +3046,7 @@ if.end7.i:                                        ; preds = %if.else.if.end7_cri
   %4 = phi ptr [ %.pre.i, %if.else.if.end7_crit_edge.i ], [ %3, %if.then2.i ]
   %use_stdout.0.i = phi i8 [ 0, %if.else.if.end7_crit_edge.i ], [ 1, %if.then2.i ]
   %5 = call i64 @fwrite(ptr nonnull @.str.37, i64 131, i64 1, ptr %4)
-  %numcookies.i = getelementptr inbounds %struct.CookieInfo, ptr %1, i64 0, i32 2
+  %numcookies.i = getelementptr inbounds i8, ptr %1, i64 512
   %6 = load i32, ptr %numcookies.i, align 8
   %tobool9.not.i = icmp eq i32 %6, 0
   br i1 %tobool9.not.i, label %if.end42.i, label %if.then10.i
@@ -3111,7 +3070,7 @@ for.body.i:                                       ; preds = %if.then10.i, %for.i
 for.body19.i:                                     ; preds = %for.body.i, %for.inc.i
   %co.031.i = phi ptr [ %co.0.i, %for.inc.i ], [ %co.028.i, %for.body.i ]
   %nvalid.130.i = phi i64 [ %nvalid.2.i, %for.inc.i ], [ %nvalid.033.i, %for.body.i ]
-  %domain.i = getelementptr inbounds %struct.Cookie, ptr %co.031.i, i64 0, i32 5
+  %domain.i = getelementptr inbounds i8, ptr %co.031.i, i64 40
   %8 = load ptr, ptr %domain.i, align 8
   %tobool20.not.i = icmp eq ptr %8, null
   br i1 %tobool20.not.i, label %for.inc.i, label %if.end22.i
@@ -3144,13 +3103,13 @@ for.body31.i:                                     ; preds = %for.end26.i, %if.en
   %i.135.i = phi i32 [ %inc40.i, %if.end37.i ], [ 0, %for.end26.i ]
   %arrayidx33.i = getelementptr inbounds ptr, ptr %call12.i, i64 %conv2836.i
   %9 = load ptr, ptr %arrayidx33.i, align 8
-  %httponly.i.i = getelementptr inbounds %struct.Cookie, ptr %9, i64 0, i32 10
+  %httponly.i.i = getelementptr inbounds i8, ptr %9, i64 59
   %10 = load i8, ptr %httponly.i.i, align 1
-  %tailmatch.i.i = getelementptr inbounds %struct.Cookie, ptr %9, i64 0, i32 7
+  %tailmatch.i.i = getelementptr inbounds i8, ptr %9, i64 56
   %11 = load i8, ptr %tailmatch.i.i, align 8
   %12 = and i8 %11, 1
   %tobool1.not.i.i = icmp eq i8 %12, 0
-  %domain6.phi.trans.insert.i.i = getelementptr inbounds %struct.Cookie, ptr %9, i64 0, i32 5
+  %domain6.phi.trans.insert.i.i = getelementptr inbounds i8, ptr %9, i64 40
   %.pre.i.i = load ptr, ptr %domain6.phi.trans.insert.i.i, align 8
   br i1 %tobool1.not.i.i, label %get_netscape_format.exit.i, label %land.lhs.true.i.i
 
@@ -3170,17 +3129,17 @@ get_netscape_format.exit.i:                       ; preds = %land.rhs.i.i, %land
   %cond5.i.i = phi ptr [ @.str.21, %land.lhs.true.i.i ], [ %14, %land.rhs.i.i ], [ @.str.21, %for.body31.i ]
   %tobool7.not.i.i = icmp eq ptr %15, null
   %spec.select.i.i = select i1 %tobool7.not.i.i, ptr @.str.36, ptr %15
-  %path.i.i = getelementptr inbounds %struct.Cookie, ptr %9, i64 0, i32 3
+  %path.i.i = getelementptr inbounds i8, ptr %9, i64 24
   %16 = load ptr, ptr %path.i.i, align 8
   %tobool14.not.i.i = icmp eq ptr %16, null
   %cond19.i.i = select i1 %tobool14.not.i.i, ptr @.str.20, ptr %16
-  %secure.i.i = getelementptr inbounds %struct.Cookie, ptr %9, i64 0, i32 8
+  %secure.i.i = getelementptr inbounds i8, ptr %9, i64 57
   %17 = load i8, ptr %secure.i.i, align 1
-  %expires.i.i = getelementptr inbounds %struct.Cookie, ptr %9, i64 0, i32 6
+  %expires.i.i = getelementptr inbounds i8, ptr %9, i64 48
   %18 = load i64, ptr %expires.i.i, align 8
-  %name.i.i = getelementptr inbounds %struct.Cookie, ptr %9, i64 0, i32 1
+  %name.i.i = getelementptr inbounds i8, ptr %9, i64 8
   %19 = load ptr, ptr %name.i.i, align 8
-  %value.i.i = getelementptr inbounds %struct.Cookie, ptr %9, i64 0, i32 2
+  %value.i.i = getelementptr inbounds i8, ptr %9, i64 16
   %20 = load ptr, ptr %value.i.i, align 8
   %tobool23.not.i.i = icmp eq ptr %20, null
   %cond28.i.i = select i1 %tobool23.not.i.i, ptr @.str.21, ptr %20
@@ -3274,7 +3233,7 @@ cookie_output.exit:                               ; preds = %error53.i, %if.then
   br i1 %tobool7.not, label %if.end17, label %land.lhs.true
 
 land.lhs.true:                                    ; preds = %cookie_output.exit
-  %verbose = getelementptr inbounds %struct.Curl_easy, ptr %data, i64 0, i32 17, i32 129
+  %verbose = getelementptr inbounds i8, ptr %data, i64 2706
   %bf.load = load i64, ptr %verbose, align 2
   %35 = and i64 %bf.load, 536870912
   %tobool9.not = icmp eq i64 %35, 0
@@ -3290,21 +3249,21 @@ if.end17:                                         ; preds = %entry, %cookie_outp
   br i1 %cleanup, label %land.lhs.true19, label %if.end27
 
 land.lhs.true19:                                  ; preds = %if.end17
-  %share = getelementptr inbounds %struct.Curl_easy, ptr %data, i64 0, i32 14
+  %share = getelementptr inbounds i8, ptr %data, i64 208
   %37 = load ptr, ptr %share, align 8
   %tobool20.not = icmp eq ptr %37, null
-  %cookies25.phi.trans.insert = getelementptr inbounds %struct.Curl_easy, ptr %data, i64 0, i32 18
+  %cookies25.phi.trans.insert = getelementptr inbounds i8, ptr %data, i64 2720
   %.pre = load ptr, ptr %cookies25.phi.trans.insert, align 8
   br i1 %tobool20.not, label %if.then24, label %lor.lhs.false
 
 lor.lhs.false:                                    ; preds = %land.lhs.true19
-  %cookies23 = getelementptr inbounds %struct.Curl_share, ptr %37, i64 0, i32 8
+  %cookies23 = getelementptr inbounds i8, ptr %37, i64 184
   %38 = load ptr, ptr %cookies23, align 8
   %cmp.not = icmp eq ptr %.pre, %38
   br i1 %cmp.not, label %if.end27, label %if.then24
 
 if.then24:                                        ; preds = %land.lhs.true19, %lor.lhs.false
-  %cookies25 = getelementptr inbounds %struct.Curl_easy, ptr %data, i64 0, i32 18
+  %cookies25 = getelementptr inbounds i8, ptr %data, i64 2720
   %tobool.not.i17 = icmp eq ptr %.pre, null
   br i1 %tobool.not.i17, label %Curl_cookie_cleanup.exit, label %for.body.i18
 
@@ -3319,23 +3278,23 @@ while.body.i.i:                                   ; preds = %for.body.i18, %whil
   %co.addr.04.i.i = phi ptr [ %40, %while.body.i.i ], [ %39, %for.body.i18 ]
   %40 = load ptr, ptr %co.addr.04.i.i, align 8
   %41 = load ptr, ptr @Curl_cfree, align 8
-  %domain.i.i.i = getelementptr inbounds %struct.Cookie, ptr %co.addr.04.i.i, i64 0, i32 5
+  %domain.i.i.i = getelementptr inbounds i8, ptr %co.addr.04.i.i, i64 40
   %42 = load ptr, ptr %domain.i.i.i, align 8
   call void %41(ptr noundef %42) #12
   %43 = load ptr, ptr @Curl_cfree, align 8
-  %path.i.i.i = getelementptr inbounds %struct.Cookie, ptr %co.addr.04.i.i, i64 0, i32 3
+  %path.i.i.i = getelementptr inbounds i8, ptr %co.addr.04.i.i, i64 24
   %44 = load ptr, ptr %path.i.i.i, align 8
   call void %43(ptr noundef %44) #12
   %45 = load ptr, ptr @Curl_cfree, align 8
-  %spath.i.i.i = getelementptr inbounds %struct.Cookie, ptr %co.addr.04.i.i, i64 0, i32 4
+  %spath.i.i.i = getelementptr inbounds i8, ptr %co.addr.04.i.i, i64 32
   %46 = load ptr, ptr %spath.i.i.i, align 8
   call void %45(ptr noundef %46) #12
   %47 = load ptr, ptr @Curl_cfree, align 8
-  %name.i.i.i = getelementptr inbounds %struct.Cookie, ptr %co.addr.04.i.i, i64 0, i32 1
+  %name.i.i.i = getelementptr inbounds i8, ptr %co.addr.04.i.i, i64 8
   %48 = load ptr, ptr %name.i.i.i, align 8
   call void %47(ptr noundef %48) #12
   %49 = load ptr, ptr @Curl_cfree, align 8
-  %value.i.i.i = getelementptr inbounds %struct.Cookie, ptr %co.addr.04.i.i, i64 0, i32 2
+  %value.i.i.i = getelementptr inbounds i8, ptr %co.addr.04.i.i, i64 16
   %50 = load ptr, ptr %value.i.i.i, align 8
   call void %49(ptr noundef %50) #12
   %51 = load ptr, ptr @Curl_cfree, align 8
@@ -3382,9 +3341,9 @@ define internal i32 @cookie_sort_ct(ptr nocapture noundef readonly %p1, ptr noca
 entry:
   %0 = load ptr, ptr %p1, align 8
   %1 = load ptr, ptr %p2, align 8
-  %creationtime = getelementptr inbounds %struct.Cookie, ptr %1, i64 0, i32 11
+  %creationtime = getelementptr inbounds i8, ptr %1, i64 60
   %2 = load i32, ptr %creationtime, align 4
-  %creationtime1 = getelementptr inbounds %struct.Cookie, ptr %0, i64 0, i32 11
+  %creationtime1 = getelementptr inbounds i8, ptr %0, i64 60
   %3 = load i32, ptr %creationtime1, align 4
   %cmp = icmp sgt i32 %2, %3
   %cond = select i1 %cmp, i32 1, i32 -1

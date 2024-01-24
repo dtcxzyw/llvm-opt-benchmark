@@ -7,15 +7,6 @@ target triple = "x86_64-unknown-linux-gnu"
 %"struct.std::__cxx11::basic_string<char>::_Alloc_hider" = type { ptr }
 %union.anon = type { i64, [8 x i8] }
 %"class.std::allocator" = type { i8 }
-%"struct.pbrt::BasicPBRTOptions" = type { i32, i8, i8, i8, i8, i8, i8, i8, i8, i8, i8, i32 }
-%"struct.pbrt::PBRTOptions" = type { %"struct.pbrt::BasicPBRTOptions", i32, i32, %"class.std::__cxx11::basic_string", i8, i8, i8, i8, %"class.pstd::optional", %"class.pstd::optional", i8, i8, %"class.std::__cxx11::basic_string", %"class.std::__cxx11::basic_string", %"class.std::__cxx11::basic_string", %"class.std::__cxx11::basic_string", %"class.std::__cxx11::basic_string", %"class.pstd::optional.0", %"class.pstd::optional.3", %"class.pstd::optional.5", float }
-%"class.pstd::optional" = type { %"union.std::aligned_storage<4, 4>::type", i8, [3 x i8] }
-%"union.std::aligned_storage<4, 4>::type" = type { [4 x i8] }
-%"class.pstd::optional.0" = type { %"union.std::aligned_storage<16, 4>::type", i8, [3 x i8] }
-%"union.std::aligned_storage<16, 4>::type" = type { [16 x i8] }
-%"class.pstd::optional.3" = type { %"union.std::aligned_storage<16, 4>::type", i8, [3 x i8] }
-%"class.pstd::optional.5" = type { %"union.std::aligned_storage<8, 4>::type", i8, [3 x i8] }
-%"union.std::aligned_storage<8, 4>::type" = type { [8 x i8] }
 %struct._Guard = type { ptr }
 %"class.std::__cxx11::basic_stringstream" = type { %"class.std::basic_iostream.base", %"class.std::__cxx11::basic_stringbuf", %"class.std::basic_ios" }
 %"class.std::basic_iostream.base" = type { %"class.std::basic_istream.base", %"class.std::basic_ostream.base" }
@@ -27,12 +18,6 @@ target triple = "x86_64-unknown-linux-gnu"
 %"class.std::basic_ios" = type { %"class.std::ios_base", ptr, i8, i8, ptr, ptr, ptr, ptr }
 %"class.std::ios_base" = type { ptr, i64, i64, i32, i32, i32, ptr, %"struct.std::ios_base::_Words", [8 x %"struct.std::ios_base::_Words"], i32, ptr, %"class.std::locale" }
 %"struct.std::ios_base::_Words" = type { ptr, i64 }
-%"class.pbrt::Bounds2" = type { %"class.pbrt::Point2", %"class.pbrt::Point2" }
-%"class.pbrt::Point2" = type { %"class.pbrt::Tuple2" }
-%"class.pbrt::Tuple2" = type { float, float }
-%"class.pbrt::Bounds2.8" = type { %"class.pbrt::Point2.9", %"class.pbrt::Point2.9" }
-%"class.pbrt::Point2.9" = type { %"class.pbrt::Tuple2.10" }
-%"class.pbrt::Tuple2.10" = type { i32, i32 }
 
 $_ZN4pbrt8LogFatalIJRA38_KcEEEvNS_8LogLevelEPS1_iS5_DpOT_ = comdat any
 
@@ -356,37 +341,37 @@ lpad:                                             ; preds = %_ZN4pbrt12StringPri
 ; Function Attrs: mustprogress uwtable
 define dso_local void @_ZNK4pbrt11PBRTOptions8ToStringB5cxx11Ev(ptr noalias nonnull sret(%"class.std::__cxx11::basic_string") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(304) %this) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  %quiet = getelementptr inbounds %"struct.pbrt::BasicPBRTOptions", ptr %this, i64 0, i32 1
-  %disablePixelJitter = getelementptr inbounds %"struct.pbrt::BasicPBRTOptions", ptr %this, i64 0, i32 2
-  %disableWavelengthJitter = getelementptr inbounds %"struct.pbrt::BasicPBRTOptions", ptr %this, i64 0, i32 3
-  %disableTextureFiltering = getelementptr inbounds %"struct.pbrt::BasicPBRTOptions", ptr %this, i64 0, i32 4
-  %disableImageTextures = getelementptr inbounds %"struct.pbrt::BasicPBRTOptions", ptr %this, i64 0, i32 5
-  %forceDiffuse = getelementptr inbounds %"struct.pbrt::BasicPBRTOptions", ptr %this, i64 0, i32 6
-  %useGPU = getelementptr inbounds %"struct.pbrt::BasicPBRTOptions", ptr %this, i64 0, i32 7
-  %wavefront = getelementptr inbounds %"struct.pbrt::BasicPBRTOptions", ptr %this, i64 0, i32 8
-  %interactive = getelementptr inbounds %"struct.pbrt::BasicPBRTOptions", ptr %this, i64 0, i32 9
-  %fullscreen = getelementptr inbounds %"struct.pbrt::BasicPBRTOptions", ptr %this, i64 0, i32 10
-  %renderingSpace = getelementptr inbounds %"struct.pbrt::BasicPBRTOptions", ptr %this, i64 0, i32 11
-  %nThreads = getelementptr inbounds %"struct.pbrt::PBRTOptions", ptr %this, i64 0, i32 1
-  %logLevel = getelementptr inbounds %"struct.pbrt::PBRTOptions", ptr %this, i64 0, i32 2
-  %logFile = getelementptr inbounds %"struct.pbrt::PBRTOptions", ptr %this, i64 0, i32 3
-  %logUtilization = getelementptr inbounds %"struct.pbrt::PBRTOptions", ptr %this, i64 0, i32 4
-  %writePartialImages = getelementptr inbounds %"struct.pbrt::PBRTOptions", ptr %this, i64 0, i32 5
-  %recordPixelStatistics = getelementptr inbounds %"struct.pbrt::PBRTOptions", ptr %this, i64 0, i32 6
-  %printStatistics = getelementptr inbounds %"struct.pbrt::PBRTOptions", ptr %this, i64 0, i32 7
-  %pixelSamples = getelementptr inbounds %"struct.pbrt::PBRTOptions", ptr %this, i64 0, i32 8
-  %gpuDevice = getelementptr inbounds %"struct.pbrt::PBRTOptions", ptr %this, i64 0, i32 9
-  %quickRender = getelementptr inbounds %"struct.pbrt::PBRTOptions", ptr %this, i64 0, i32 10
-  %upgrade = getelementptr inbounds %"struct.pbrt::PBRTOptions", ptr %this, i64 0, i32 11
-  %imageFile = getelementptr inbounds %"struct.pbrt::PBRTOptions", ptr %this, i64 0, i32 12
-  %mseReferenceImage = getelementptr inbounds %"struct.pbrt::PBRTOptions", ptr %this, i64 0, i32 13
-  %mseReferenceOutput = getelementptr inbounds %"struct.pbrt::PBRTOptions", ptr %this, i64 0, i32 14
-  %debugStart = getelementptr inbounds %"struct.pbrt::PBRTOptions", ptr %this, i64 0, i32 15
-  %displayServer = getelementptr inbounds %"struct.pbrt::PBRTOptions", ptr %this, i64 0, i32 16
-  %cropWindow = getelementptr inbounds %"struct.pbrt::PBRTOptions", ptr %this, i64 0, i32 17
-  %pixelBounds = getelementptr inbounds %"struct.pbrt::PBRTOptions", ptr %this, i64 0, i32 18
-  %pixelMaterial = getelementptr inbounds %"struct.pbrt::PBRTOptions", ptr %this, i64 0, i32 19
-  %displacementEdgeScale = getelementptr inbounds %"struct.pbrt::PBRTOptions", ptr %this, i64 0, i32 20
+  %quiet = getelementptr inbounds i8, ptr %this, i64 4
+  %disablePixelJitter = getelementptr inbounds i8, ptr %this, i64 5
+  %disableWavelengthJitter = getelementptr inbounds i8, ptr %this, i64 6
+  %disableTextureFiltering = getelementptr inbounds i8, ptr %this, i64 7
+  %disableImageTextures = getelementptr inbounds i8, ptr %this, i64 8
+  %forceDiffuse = getelementptr inbounds i8, ptr %this, i64 9
+  %useGPU = getelementptr inbounds i8, ptr %this, i64 10
+  %wavefront = getelementptr inbounds i8, ptr %this, i64 11
+  %interactive = getelementptr inbounds i8, ptr %this, i64 12
+  %fullscreen = getelementptr inbounds i8, ptr %this, i64 13
+  %renderingSpace = getelementptr inbounds i8, ptr %this, i64 16
+  %nThreads = getelementptr inbounds i8, ptr %this, i64 20
+  %logLevel = getelementptr inbounds i8, ptr %this, i64 24
+  %logFile = getelementptr inbounds i8, ptr %this, i64 32
+  %logUtilization = getelementptr inbounds i8, ptr %this, i64 64
+  %writePartialImages = getelementptr inbounds i8, ptr %this, i64 65
+  %recordPixelStatistics = getelementptr inbounds i8, ptr %this, i64 66
+  %printStatistics = getelementptr inbounds i8, ptr %this, i64 67
+  %pixelSamples = getelementptr inbounds i8, ptr %this, i64 68
+  %gpuDevice = getelementptr inbounds i8, ptr %this, i64 76
+  %quickRender = getelementptr inbounds i8, ptr %this, i64 84
+  %upgrade = getelementptr inbounds i8, ptr %this, i64 85
+  %imageFile = getelementptr inbounds i8, ptr %this, i64 88
+  %mseReferenceImage = getelementptr inbounds i8, ptr %this, i64 120
+  %mseReferenceOutput = getelementptr inbounds i8, ptr %this, i64 152
+  %debugStart = getelementptr inbounds i8, ptr %this, i64 184
+  %displayServer = getelementptr inbounds i8, ptr %this, i64 216
+  %cropWindow = getelementptr inbounds i8, ptr %this, i64 248
+  %pixelBounds = getelementptr inbounds i8, ptr %this, i64 268
+  %pixelMaterial = getelementptr inbounds i8, ptr %this, i64 288
+  %displacementEdgeScale = getelementptr inbounds i8, ptr %this, i64 300
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(32) %agg.result) #9
   invoke void @_ZN4pbrt6detail21stringPrintfRecursiveIRKiJRKbS5_S5_S5_S5_S5_S5_S5_S5_S5_RKNS_25RenderingCoordinateSystemES3_RKNS_8LogLevelERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_S5_S5_S5_RKN4pstd8optionalIiEESO_S5_S5_SJ_SJ_SJ_SJ_SJ_RKNSL_INS_7Bounds2IfEEEERKNSL_INSP_IiEEEERKNSL_INS_6Point2IiEEEERKfEEEvPSH_PKcOT_DpOT0_(ptr noundef nonnull %agg.result, ptr noundef nonnull @.str.6, ptr noundef nonnull align 4 dereferenceable(4) %this, ptr noundef nonnull align 1 dereferenceable(1) %quiet, ptr noundef nonnull align 1 dereferenceable(1) %disablePixelJitter, ptr noundef nonnull align 1 dereferenceable(1) %disableWavelengthJitter, ptr noundef nonnull align 1 dereferenceable(1) %disableTextureFiltering, ptr noundef nonnull align 1 dereferenceable(1) %disableImageTextures, ptr noundef nonnull align 1 dereferenceable(1) %forceDiffuse, ptr noundef nonnull align 1 dereferenceable(1) %useGPU, ptr noundef nonnull align 1 dereferenceable(1) %wavefront, ptr noundef nonnull align 1 dereferenceable(1) %interactive, ptr noundef nonnull align 1 dereferenceable(1) %fullscreen, ptr noundef nonnull align 4 dereferenceable(4) %renderingSpace, ptr noundef nonnull align 4 dereferenceable(4) %nThreads, ptr noundef nonnull align 4 dereferenceable(4) %logLevel, ptr noundef nonnull align 8 dereferenceable(32) %logFile, ptr noundef nonnull align 1 dereferenceable(1) %logUtilization, ptr noundef nonnull align 1 dereferenceable(1) %writePartialImages, ptr noundef nonnull align 1 dereferenceable(1) %recordPixelStatistics, ptr noundef nonnull align 1 dereferenceable(1) %printStatistics, ptr noundef nonnull align 4 dereferenceable(5) %pixelSamples, ptr noundef nonnull align 4 dereferenceable(5) %gpuDevice, ptr noundef nonnull align 1 dereferenceable(1) %quickRender, ptr noundef nonnull align 1 dereferenceable(1) %upgrade, ptr noundef nonnull align 8 dereferenceable(32) %imageFile, ptr noundef nonnull align 8 dereferenceable(32) %mseReferenceImage, ptr noundef nonnull align 8 dereferenceable(32) %mseReferenceOutput, ptr noundef nonnull align 8 dereferenceable(32) %debugStart, ptr noundef nonnull align 8 dereferenceable(32) %displayServer, ptr noundef nonnull align 4 dereferenceable(17) %cropWindow, ptr noundef nonnull align 4 dereferenceable(17) %pixelBounds, ptr noundef nonnull align 4 dereferenceable(9) %pixelMaterial, ptr noundef nonnull align 4 dereferenceable(4) %displacementEdgeScale)
           to label %_ZN4pbrt12StringPrintfIJRKiRKbS4_S4_S4_S4_S4_S4_S4_S4_S4_RKNS_25RenderingCoordinateSystemES2_RKNS_8LogLevelERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES4_S4_S4_S4_RKN4pstd8optionalIiEESN_S4_S4_SI_SI_SI_SI_SI_RKNSK_INS_7Bounds2IfEEEERKNSK_INSO_IiEEEERKNSK_INS_6Point2IiEEEERKfEEESG_PKcDpOT_.exit unwind label %lpad.i
@@ -3583,7 +3568,7 @@ ehcleanup64:                                      ; preds = %ehcleanup49, %lpad
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr dso_local noundef nonnull align 8 dereferenceable(8) ptr @_ZN4pstdlsIiEERSoS1_RKNS_8optionalIT_EE(ptr noundef nonnull align 8 dereferenceable(8) %os, ptr noundef nonnull align 4 dereferenceable(5) %opt) local_unnamed_addr #0 comdat {
 entry:
-  %set.i = getelementptr inbounds %"class.pstd::optional", ptr %opt, i64 0, i32 1
+  %set.i = getelementptr inbounds i8, ptr %opt, i64 4
   %0 = load i8, ptr %set.i, align 4
   %1 = and i8 %0, 1
   %tobool.i.not = icmp eq i8 %1, 0
@@ -4902,7 +4887,7 @@ ehcleanup46:                                      ; preds = %ehcleanup31, %lpad
 define linkonce_odr dso_local noundef nonnull align 8 dereferenceable(8) ptr @_ZN4pstdlsIN4pbrt7Bounds2IfEEEERSoS4_RKNS_8optionalIT_EE(ptr noundef nonnull align 8 dereferenceable(8) %os, ptr noundef nonnull align 4 dereferenceable(17) %opt) local_unnamed_addr #0 comdat personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp.i = alloca %"class.std::__cxx11::basic_string", align 8
-  %set.i = getelementptr inbounds %"class.pstd::optional.0", ptr %opt, i64 0, i32 1
+  %set.i = getelementptr inbounds i8, ptr %opt, i64 16
   %0 = load i8, ptr %set.i, align 4
   %1 = and i8 %0, 1
   %tobool.i.not = icmp eq i8 %1, 0
@@ -4924,7 +4909,7 @@ land.rhs.i:                                       ; preds = %if.then
 
 _ZNK4pstd8optionalIN4pbrt7Bounds2IfEEE5valueEv.exit: ; preds = %if.then
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %ref.tmp.i)
-  %pMax.i.i = getelementptr inbounds %"class.pbrt::Bounds2", ptr %opt, i64 0, i32 1
+  %pMax.i.i = getelementptr inbounds i8, ptr %opt, i64 8
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp.i) #9
   invoke void @_ZN4pbrt6detail21stringPrintfRecursiveIRKNS_6Point2IfEEJS5_EEEvPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPKcOT_DpOT0_(ptr noundef nonnull %ref.tmp.i, ptr noundef nonnull @.str.24, ptr noundef nonnull align 4 dereferenceable(8) %opt, ptr noundef nonnull align 4 dereferenceable(8) %pMax.i.i)
           to label %_ZNK4pbrt7Bounds2IfE8ToStringB5cxx11Ev.exit.i unwind label %lpad.i.i.i
@@ -5378,7 +5363,7 @@ declare void @_ZN4pbrt8internal9ToString2IfEENSt7__cxx1112basic_stringIcSt11char
 define linkonce_odr dso_local noundef nonnull align 8 dereferenceable(8) ptr @_ZN4pstdlsIN4pbrt7Bounds2IiEEEERSoS4_RKNS_8optionalIT_EE(ptr noundef nonnull align 8 dereferenceable(8) %os, ptr noundef nonnull align 4 dereferenceable(17) %opt) local_unnamed_addr #0 comdat personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp.i = alloca %"class.std::__cxx11::basic_string", align 8
-  %set.i = getelementptr inbounds %"class.pstd::optional.3", ptr %opt, i64 0, i32 1
+  %set.i = getelementptr inbounds i8, ptr %opt, i64 16
   %0 = load i8, ptr %set.i, align 4
   %1 = and i8 %0, 1
   %tobool.i.not = icmp eq i8 %1, 0
@@ -5400,7 +5385,7 @@ land.rhs.i:                                       ; preds = %if.then
 
 _ZNK4pstd8optionalIN4pbrt7Bounds2IiEEE5valueEv.exit: ; preds = %if.then
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %ref.tmp.i)
-  %pMax.i.i = getelementptr inbounds %"class.pbrt::Bounds2.8", ptr %opt, i64 0, i32 1
+  %pMax.i.i = getelementptr inbounds i8, ptr %opt, i64 8
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp.i) #9
   invoke void @_ZN4pbrt6detail21stringPrintfRecursiveIRKNS_6Point2IiEEJS5_EEEvPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPKcOT_DpOT0_(ptr noundef nonnull %ref.tmp.i, ptr noundef nonnull @.str.24, ptr noundef nonnull align 4 dereferenceable(8) %opt, ptr noundef nonnull align 4 dereferenceable(8) %pMax.i.i)
           to label %_ZNK4pbrt7Bounds2IiE8ToStringB5cxx11Ev.exit.i unwind label %lpad.i.i.i
@@ -5854,7 +5839,7 @@ declare void @_ZN4pbrt8internal9ToString2IiEENSt7__cxx1112basic_stringIcSt11char
 define linkonce_odr dso_local noundef nonnull align 8 dereferenceable(8) ptr @_ZN4pstdlsIN4pbrt6Point2IiEEEERSoS4_RKNS_8optionalIT_EE(ptr noundef nonnull align 8 dereferenceable(8) %os, ptr noundef nonnull align 4 dereferenceable(9) %opt) local_unnamed_addr #0 comdat personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp.i = alloca %"class.std::__cxx11::basic_string", align 8
-  %set.i = getelementptr inbounds %"class.pstd::optional.5", ptr %opt, i64 0, i32 1
+  %set.i = getelementptr inbounds i8, ptr %opt, i64 8
   %0 = load i8, ptr %set.i, align 4
   %1 = and i8 %0, 1
   %tobool.i.not = icmp eq i8 %1, 0

@@ -75,7 +75,7 @@ return:                                           ; preds = %if.end21, %if.else2
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define i32 @BIO_sock_init() local_unnamed_addr #1 {
+define noundef i32 @BIO_sock_init() local_unnamed_addr #1 {
 entry:
   ret i32 1
 }
@@ -99,7 +99,7 @@ declare void @BIO_ADDRINFO_free(ptr noundef) local_unnamed_addr #2
 declare void @ERR_add_error_data(i32 noundef, ...) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define i32 @BIO_get_port(ptr noundef %str, ptr nocapture noundef writeonly %port_ptr) local_unnamed_addr #0 {
+define noundef i32 @BIO_get_port(ptr noundef %str, ptr nocapture noundef writeonly %port_ptr) local_unnamed_addr #0 {
 entry:
   %res = alloca ptr, align 8
   store ptr null, ptr %res, align 8
@@ -434,7 +434,7 @@ BIO_socket_ioctl.exit:                            ; preds = %entry, %if.then.i
 }
 
 ; Function Attrs: nounwind uwtable
-define i32 @BIO_sock_info(i32 noundef %sock, i32 noundef %type, ptr nocapture noundef readonly %info) local_unnamed_addr #0 {
+define noundef i32 @BIO_sock_info(i32 noundef %sock, i32 noundef %type, ptr nocapture noundef readonly %info) local_unnamed_addr #0 {
 entry:
   %addr_len = alloca i32, align 4
   %cond = icmp eq i32 %type, 0
@@ -514,7 +514,7 @@ for.body.preheader:                               ; preds = %if.end4
   %0 = load i64, ptr %arrayidx12, align 8
   %or = or i64 %0, %shl
   store i64 %or, ptr %arrayidx12, align 8
-  %tv_usec = getelementptr inbounds %struct.timeval, ptr %tv, i64 0, i32 1
+  %tv_usec = getelementptr inbounds i8, ptr %tv, i64 8
   store i64 0, ptr %tv_usec, align 8
   %sub = sub nsw i64 %max_time, %call
   store i64 %sub, ptr %tv, align 8

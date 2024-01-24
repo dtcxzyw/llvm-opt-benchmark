@@ -12,7 +12,6 @@ target triple = "x86_64-unknown-linux-gnu"
 %"class.std::__cxx11::basic_string" = type { %"struct.std::__cxx11::basic_string<char>::_Alloc_hider", i64, %union.anon }
 %"struct.std::__cxx11::basic_string<char>::_Alloc_hider" = type { ptr }
 %union.anon = type { i64, [8 x i8] }
-%"struct.std::_Optional_payload_base" = type <{ %"union.std::_Optional_payload_base<std::__cxx11::basic_string<char>>::_Storage", i8, [7 x i8] }>
 
 @.str = private unnamed_addr constant [33 x i8] c"GRPC_EXPERIMENTAL_XDS_FEDERATION\00", align 1
 
@@ -22,7 +21,7 @@ entry:
   %value = alloca %"class.std::optional", align 8
   %parsed_value = alloca i8, align 1
   call void @_ZN9grpc_core6GetEnvB5cxx11EPKc(ptr nonnull sret(%"class.std::optional") align 8 %value, ptr noundef nonnull @.str)
-  %_M_engaged.i.i = getelementptr inbounds %"struct.std::_Optional_payload_base", ptr %value, i64 0, i32 1
+  %_M_engaged.i.i = getelementptr inbounds i8, ptr %value, i64 32
   %0 = load i8, ptr %_M_engaged.i.i, align 8
   %1 = and i8 %0, 1
   %tobool.i.i.not = icmp eq i8 %1, 0

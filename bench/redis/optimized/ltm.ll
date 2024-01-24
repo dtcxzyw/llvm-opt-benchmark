@@ -5,15 +5,11 @@ target triple = "x86_64-unknown-linux-gnu"
 
 %struct.lua_TValue = type { %union.Value, i32 }
 %union.Value = type { ptr }
-%struct.lua_State = type { ptr, i8, i8, i8, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, i32, i32, i16, i16, i8, i8, i32, i32, ptr, %struct.lua_TValue, %struct.lua_TValue, ptr, ptr, ptr, i64 }
 %struct.global_State = type { %struct.stringtable, ptr, ptr, i8, i8, i32, ptr, ptr, ptr, ptr, ptr, ptr, %struct.Mbuffer, i64, i64, i64, i64, i32, i32, ptr, %struct.lua_TValue, ptr, %struct.UpVal, [9 x ptr], [17 x ptr] }
 %struct.stringtable = type { ptr, i32, i32 }
 %struct.Mbuffer = type { ptr, i64, i64 }
 %struct.UpVal = type { ptr, i8, i8, ptr, %union.anon }
 %union.anon = type { %struct.lua_TValue }
-%struct.anon.0 = type { ptr, i8, i8, i8, i32, i64 }
-%struct.Table = type { ptr, i8, i8, i8, i32, i8, ptr, ptr, ptr, ptr, ptr, i32 }
-%struct.anon.1 = type { ptr, i8, i8, ptr, ptr, i64 }
 
 @.str = private unnamed_addr constant [4 x i8] c"nil\00", align 1
 @.str.1 = private unnamed_addr constant [8 x i8] c"boolean\00", align 1
@@ -49,7 +45,7 @@ target triple = "x86_64-unknown-linux-gnu"
 ; Function Attrs: nounwind uwtable
 define hidden void @luaT_init(ptr noundef %L) local_unnamed_addr #0 {
 entry:
-  %l_G = getelementptr inbounds %struct.lua_State, ptr %L, i64 0, i32 6
+  %l_G = getelementptr inbounds i8, ptr %L, i64 32
   br label %for.body
 
 for.body:                                         ; preds = %for.body, %entry
@@ -64,7 +60,7 @@ for.body:                                         ; preds = %for.body, %entry
   %2 = load ptr, ptr %l_G, align 8, !tbaa !8
   %arrayidx9 = getelementptr inbounds %struct.global_State, ptr %2, i64 0, i32 24, i64 %indvars.iv
   %3 = load ptr, ptr %arrayidx9, align 8, !tbaa !4
-  %marked = getelementptr inbounds %struct.anon.0, ptr %3, i64 0, i32 2
+  %marked = getelementptr inbounds i8, ptr %3, i64 9
   %4 = load i8, ptr %marked, align 1, !tbaa !14
   %5 = or i8 %4, 32
   store i8 %5, ptr %marked, align 1, !tbaa !14
@@ -85,14 +81,14 @@ declare i64 @strlen(ptr nocapture noundef) local_unnamed_addr #2
 define hidden ptr @luaT_gettm(ptr noundef %events, i32 noundef %event, ptr noundef %ename) local_unnamed_addr #0 {
 entry:
   %call = tail call ptr @luaH_getstr(ptr noundef %events, ptr noundef %ename) #4
-  %tt = getelementptr inbounds %struct.lua_TValue, ptr %call, i64 0, i32 1
+  %tt = getelementptr inbounds i8, ptr %call, i64 8
   %0 = load i32, ptr %tt, align 8, !tbaa !17
   %cmp = icmp eq i32 %0, 0
   br i1 %cmp, label %if.then, label %cleanup
 
 if.then:                                          ; preds = %entry
   %shl = shl nuw i32 1, %event
-  %flags = getelementptr inbounds %struct.Table, ptr %events, i64 0, i32 3
+  %flags = getelementptr inbounds i8, ptr %events, i64 10
   %1 = load i8, ptr %flags, align 2, !tbaa !18
   %2 = trunc i32 %shl to i8
   %conv3 = or i8 %1, %2
@@ -109,7 +105,7 @@ declare hidden ptr @luaH_getstr(ptr noundef, ptr noundef) local_unnamed_addr #1
 ; Function Attrs: nounwind uwtable
 define hidden ptr @luaT_gettmbyobj(ptr nocapture noundef readonly %L, ptr nocapture noundef readonly %o, i32 noundef %event) local_unnamed_addr #0 {
 entry:
-  %tt = getelementptr inbounds %struct.lua_TValue, ptr %o, i64 0, i32 1
+  %tt = getelementptr inbounds i8, ptr %o, i64 8
   %0 = load i32, ptr %tt, align 8, !tbaa !17
   switch i32 %0, label %sw.default [
     i32 5, label %sw.bb
@@ -118,16 +114,16 @@ entry:
 
 sw.bb:                                            ; preds = %entry
   %1 = load ptr, ptr %o, align 8, !tbaa !14
-  %metatable = getelementptr inbounds %struct.Table, ptr %1, i64 0, i32 6
+  %metatable = getelementptr inbounds i8, ptr %1, i64 24
   br label %sw.epilog
 
 sw.bb1:                                           ; preds = %entry
   %2 = load ptr, ptr %o, align 8, !tbaa !14
-  %metatable3 = getelementptr inbounds %struct.anon.1, ptr %2, i64 0, i32 3
+  %metatable3 = getelementptr inbounds i8, ptr %2, i64 16
   br label %sw.epilog
 
 sw.default:                                       ; preds = %entry
-  %l_G = getelementptr inbounds %struct.lua_State, ptr %L, i64 0, i32 6
+  %l_G = getelementptr inbounds i8, ptr %L, i64 32
   %3 = load ptr, ptr %l_G, align 8, !tbaa !8
   %idxprom = sext i32 %0 to i64
   %arrayidx = getelementptr inbounds %struct.global_State, ptr %3, i64 0, i32 23, i64 %idxprom
@@ -140,7 +136,7 @@ sw.epilog:                                        ; preds = %sw.default, %sw.bb1
   br i1 %tobool.not, label %cond.end, label %cond.true
 
 cond.true:                                        ; preds = %sw.epilog
-  %l_G6 = getelementptr inbounds %struct.lua_State, ptr %L, i64 0, i32 6
+  %l_G6 = getelementptr inbounds i8, ptr %L, i64 32
   %4 = load ptr, ptr %l_G6, align 8, !tbaa !8
   %idxprom7 = zext i32 %event to i64
   %arrayidx8 = getelementptr inbounds %struct.global_State, ptr %4, i64 0, i32 24, i64 %idxprom7

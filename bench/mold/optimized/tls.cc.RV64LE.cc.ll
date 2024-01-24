@@ -5,27 +5,6 @@ target triple = "x86_64-unknown-linux-gnu"
 
 %"class.std::ios_base::Init" = type { i8 }
 %"struct.std::__cxx11::basic_string<char>::_Alloc_hider" = type { ptr }
-%"class.std::__cxx11::basic_string" = type { %"struct.std::__cxx11::basic_string<char>::_Alloc_hider", i64, %union.anon }
-%union.anon = type { i64, [8 x i8] }
-%"class.mold::elf::OutputPhdr" = type { %"class.mold::elf::Chunk", %"class.std::vector.244" }
-%"class.mold::elf::Chunk" = type { ptr, %"class.std::basic_string_view", %"struct.mold::elf::ElfShdr", i64, i8, i8, %"class.std::vector.3", i64, i64, i64, i64, i64, i64, %"class.std::vector.239" }
-%"class.std::basic_string_view" = type { i64, ptr }
-%"struct.mold::elf::ElfShdr" = type { %"class.mold::LittleEndian", %"class.mold::LittleEndian", %"class.mold::LittleEndian.238", %"class.mold::LittleEndian.238", %"class.mold::LittleEndian.238", %"class.mold::LittleEndian.238", %"class.mold::LittleEndian", %"class.mold::LittleEndian", %"class.mold::LittleEndian.238", %"class.mold::LittleEndian.238" }
-%"class.mold::LittleEndian" = type { [4 x i8] }
-%"class.mold::LittleEndian.238" = type { [8 x i8] }
-%"class.std::vector.3" = type { %"struct.std::_Vector_base.4" }
-%"struct.std::_Vector_base.4" = type { %"struct.std::_Vector_base<unsigned char, std::allocator<unsigned char>>::_Vector_impl" }
-%"struct.std::_Vector_base<unsigned char, std::allocator<unsigned char>>::_Vector_impl" = type { %"struct.std::_Vector_base<unsigned char, std::allocator<unsigned char>>::_Vector_impl_data" }
-%"struct.std::_Vector_base<unsigned char, std::allocator<unsigned char>>::_Vector_impl_data" = type { ptr, ptr, ptr }
-%"class.std::vector.239" = type { %"struct.std::_Vector_base.240" }
-%"struct.std::_Vector_base.240" = type { %"struct.std::_Vector_base<unsigned long, std::allocator<unsigned long>>::_Vector_impl" }
-%"struct.std::_Vector_base<unsigned long, std::allocator<unsigned long>>::_Vector_impl" = type { %"struct.std::_Vector_base<unsigned long, std::allocator<unsigned long>>::_Vector_impl_data" }
-%"struct.std::_Vector_base<unsigned long, std::allocator<unsigned long>>::_Vector_impl_data" = type { ptr, ptr, ptr }
-%"class.std::vector.244" = type { %"struct.std::_Vector_base.245" }
-%"struct.std::_Vector_base.245" = type { %"struct.std::_Vector_base<mold::elf::ElfPhdr<mold::elf::RV64LE>, std::allocator<mold::elf::ElfPhdr<mold::elf::RV64LE>>>::_Vector_impl" }
-%"struct.std::_Vector_base<mold::elf::ElfPhdr<mold::elf::RV64LE>, std::allocator<mold::elf::ElfPhdr<mold::elf::RV64LE>>>::_Vector_impl" = type { %"struct.std::_Vector_base<mold::elf::ElfPhdr<mold::elf::RV64LE>, std::allocator<mold::elf::ElfPhdr<mold::elf::RV64LE>>>::_Vector_impl_data" }
-%"struct.std::_Vector_base<mold::elf::ElfPhdr<mold::elf::RV64LE>, std::allocator<mold::elf::ElfPhdr<mold::elf::RV64LE>>>::_Vector_impl_data" = type { ptr, ptr, ptr }
-%"struct.mold::elf::ElfPhdr" = type { %"class.mold::LittleEndian", %"class.mold::LittleEndian", %"class.mold::LittleEndian.238", %"class.mold::LittleEndian.238", %"class.mold::LittleEndian.238", %"class.mold::LittleEndian.238", %"class.mold::LittleEndian.238", %"class.mold::LittleEndian.238" }
 
 $_ZN4mold12mold_versionB5cxx11E = comdat any
 
@@ -86,12 +65,12 @@ declare i32 @__cxa_guard_acquire(ptr) local_unnamed_addr #2
 define linkonce_odr dso_local void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev(ptr noundef nonnull align 8 dereferenceable(32) %this) unnamed_addr #4 comdat align 2 {
 entry:
   %0 = load ptr, ptr %this, align 8
-  %1 = getelementptr inbounds %"class.std::__cxx11::basic_string", ptr %this, i64 0, i32 2
+  %1 = getelementptr inbounds i8, ptr %this, i64 16
   %cmp.i.i = icmp eq ptr %0, %1
   br i1 %cmp.i.i, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i, label %if.then.i
 
 _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i: ; preds = %entry
-  %_M_string_length.i.i = getelementptr inbounds %"class.std::__cxx11::basic_string", ptr %this, i64 0, i32 1
+  %_M_string_length.i.i = getelementptr inbounds i8, ptr %this, i64 8
   %2 = load i64, ptr %_M_string_length.i.i, align 8
   %cmp3.i.i = icmp ult i64 %2, 16
   tail call void @llvm.assume(i1 %cmp3.i.i)
@@ -154,9 +133,9 @@ entry:
   br i1 %tobool.not.i, label %return, label %if.then.i
 
 if.then.i:                                        ; preds = %entry
-  %phdrs.i = getelementptr inbounds %"class.mold::elf::OutputPhdr", ptr %ctx.val, i64 0, i32 1
+  %phdrs.i = getelementptr inbounds i8, ptr %ctx.val, i64 200
   %1 = load ptr, ptr %phdrs.i, align 8
-  %_M_finish.i.i = getelementptr inbounds %"class.mold::elf::OutputPhdr", ptr %ctx.val, i64 0, i32 1, i32 0, i32 0, i32 0, i32 1
+  %_M_finish.i.i = getelementptr inbounds i8, ptr %ctx.val, i64 208
   %2 = load ptr, ptr %_M_finish.i.i, align 8
   %cmp.i3.i = icmp eq ptr %1, %2
   br i1 %cmp.i3.i, label %return, label %for.body.i
@@ -168,12 +147,12 @@ for.body.i:                                       ; preds = %if.then.i, %for.inc
   br i1 %cmp.i, label %if.then, label %for.inc.i
 
 for.inc.i:                                        ; preds = %for.body.i
-  %incdec.ptr.i.i = getelementptr inbounds %"struct.mold::elf::ElfPhdr", ptr %__begin0.sroa.0.04.i, i64 1
+  %incdec.ptr.i.i = getelementptr inbounds i8, ptr %__begin0.sroa.0.04.i, i64 56
   %cmp.i.i = icmp eq ptr %incdec.ptr.i.i, %2
   br i1 %cmp.i.i, label %return, label %for.body.i
 
 if.then:                                          ; preds = %for.body.i
-  %p_vaddr = getelementptr inbounds %"struct.mold::elf::ElfPhdr", ptr %__begin0.sroa.0.04.i, i64 0, i32 3
+  %p_vaddr = getelementptr inbounds i8, ptr %__begin0.sroa.0.04.i, i64 16
   %x.0.copyload.i = load i64, ptr %p_vaddr, align 1
   br label %return
 
@@ -191,9 +170,9 @@ entry:
   br i1 %tobool.not.i, label %return, label %if.then.i
 
 if.then.i:                                        ; preds = %entry
-  %phdrs.i = getelementptr inbounds %"class.mold::elf::OutputPhdr", ptr %ctx.val, i64 0, i32 1
+  %phdrs.i = getelementptr inbounds i8, ptr %ctx.val, i64 200
   %1 = load ptr, ptr %phdrs.i, align 8
-  %_M_finish.i.i = getelementptr inbounds %"class.mold::elf::OutputPhdr", ptr %ctx.val, i64 0, i32 1, i32 0, i32 0, i32 0, i32 1
+  %_M_finish.i.i = getelementptr inbounds i8, ptr %ctx.val, i64 208
   %2 = load ptr, ptr %_M_finish.i.i, align 8
   %cmp.i3.i = icmp eq ptr %1, %2
   br i1 %cmp.i3.i, label %return, label %for.body.i
@@ -205,12 +184,12 @@ for.body.i:                                       ; preds = %if.then.i, %for.inc
   br i1 %cmp.i, label %if.end, label %for.inc.i
 
 for.inc.i:                                        ; preds = %for.body.i
-  %incdec.ptr.i.i = getelementptr inbounds %"struct.mold::elf::ElfPhdr", ptr %__begin0.sroa.0.04.i, i64 1
+  %incdec.ptr.i.i = getelementptr inbounds i8, ptr %__begin0.sroa.0.04.i, i64 56
   %cmp.i.i = icmp eq ptr %incdec.ptr.i.i, %2
   br i1 %cmp.i.i, label %return, label %for.body.i
 
 if.end:                                           ; preds = %for.body.i
-  %p_vaddr = getelementptr inbounds %"struct.mold::elf::ElfPhdr", ptr %__begin0.sroa.0.04.i, i64 0, i32 3
+  %p_vaddr = getelementptr inbounds i8, ptr %__begin0.sroa.0.04.i, i64 16
   %x.0.copyload.i = load i64, ptr %p_vaddr, align 1
   br label %return
 
@@ -228,9 +207,9 @@ entry:
   br i1 %tobool.not.i, label %return, label %if.then.i
 
 if.then.i:                                        ; preds = %entry
-  %phdrs.i = getelementptr inbounds %"class.mold::elf::OutputPhdr", ptr %ctx.val, i64 0, i32 1
+  %phdrs.i = getelementptr inbounds i8, ptr %ctx.val, i64 200
   %1 = load ptr, ptr %phdrs.i, align 8
-  %_M_finish.i.i = getelementptr inbounds %"class.mold::elf::OutputPhdr", ptr %ctx.val, i64 0, i32 1, i32 0, i32 0, i32 0, i32 1
+  %_M_finish.i.i = getelementptr inbounds i8, ptr %ctx.val, i64 208
   %2 = load ptr, ptr %_M_finish.i.i, align 8
   %cmp.i3.i = icmp eq ptr %1, %2
   br i1 %cmp.i3.i, label %return, label %for.body.i
@@ -242,12 +221,12 @@ for.body.i:                                       ; preds = %if.then.i, %for.inc
   br i1 %cmp.i, label %if.end, label %for.inc.i
 
 for.inc.i:                                        ; preds = %for.body.i
-  %incdec.ptr.i.i = getelementptr inbounds %"struct.mold::elf::ElfPhdr", ptr %__begin0.sroa.0.04.i, i64 1
+  %incdec.ptr.i.i = getelementptr inbounds i8, ptr %__begin0.sroa.0.04.i, i64 56
   %cmp.i.i = icmp eq ptr %incdec.ptr.i.i, %2
   br i1 %cmp.i.i, label %return, label %for.body.i
 
 if.end:                                           ; preds = %for.body.i
-  %p_vaddr = getelementptr inbounds %"struct.mold::elf::ElfPhdr", ptr %__begin0.sroa.0.04.i, i64 0, i32 3
+  %p_vaddr = getelementptr inbounds i8, ptr %__begin0.sroa.0.04.i, i64 16
   %x.0.copyload.i = load i64, ptr %p_vaddr, align 1
   %add = add i64 %x.0.copyload.i, 2048
   br label %return

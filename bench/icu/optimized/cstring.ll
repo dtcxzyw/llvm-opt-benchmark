@@ -4,7 +4,7 @@ target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:
 target triple = "x86_64-unknown-linux-gnu"
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define signext i8 @uprv_isASCIILetter_75(i8 noundef signext %c) local_unnamed_addr #0 {
+define noundef signext i8 @uprv_isASCIILetter_75(i8 noundef signext %c) local_unnamed_addr #0 {
 entry:
   %0 = and i8 %c, -33
   %1 = add i8 %0, -65
@@ -34,7 +34,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define signext i8 @uprv_ebcdictolower_75(i8 noundef signext %c) local_unnamed_addr #0 {
+define noundef signext i8 @uprv_ebcdictolower_75(i8 noundef signext %c) local_unnamed_addr #0 {
 entry:
   %0 = and i8 %c, -17
   %1 = add i8 %0, 63
@@ -48,7 +48,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define ptr @T_CString_toLowerCase_75(ptr noundef returned %str) local_unnamed_addr #1 {
+define noundef ptr @T_CString_toLowerCase_75(ptr noundef returned %str) local_unnamed_addr #1 {
 entry:
   %tobool.not = icmp eq ptr %str, null
   br i1 %tobool.not, label %if.end, label %do.body
@@ -70,7 +70,7 @@ if.end:                                           ; preds = %do.body, %entry
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define ptr @T_CString_toUpperCase_75(ptr noundef returned %str) local_unnamed_addr #1 {
+define noundef ptr @T_CString_toUpperCase_75(ptr noundef returned %str) local_unnamed_addr #1 {
 entry:
   %tobool.not = icmp eq ptr %str, null
   br i1 %tobool.not, label %if.end, label %do.body
@@ -108,7 +108,7 @@ if.then:                                          ; preds = %entry
 if.end:                                           ; preds = %if.then, %entry
   %length.0 = phi i64 [ 1, %if.then ], [ 0, %entry ]
   %uval.0 = phi i32 [ %sub, %if.then ], [ %v, %entry ]
-  %arrayidx3 = getelementptr inbounds [30 x i8], ptr %tbuf, i64 0, i64 29
+  %arrayidx3 = getelementptr inbounds i8, ptr %tbuf, i64 29
   store i8 0, ptr %arrayidx3, align 1
   br label %do.body
 
@@ -160,7 +160,7 @@ if.then:                                          ; preds = %entry
 if.end:                                           ; preds = %if.then, %entry
   %length.0 = phi i64 [ 1, %if.then ], [ 0, %entry ]
   %uval.0 = phi i64 [ %sub, %if.then ], [ %v, %entry ]
-  %arrayidx3 = getelementptr inbounds [30 x i8], ptr %tbuf, i64 0, i64 29
+  %arrayidx3 = getelementptr inbounds i8, ptr %tbuf, i64 29
   store i8 0, ptr %arrayidx3, align 1
   %conv = zext i32 %radix to i64
   br label %do.body

@@ -3,9 +3,6 @@ source_filename = "bench/grpc/original/transport_security_grpc.cc.ll"
 target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:128-n8:16:32:64-S128"
 target triple = "x86_64-unknown-linux-gnu"
 
-%struct.tsi_handshaker_result_vtable = type { ptr, ptr, ptr, ptr, ptr, ptr }
-%struct.tsi_zero_copy_grpc_protector_vtable = type { ptr, ptr, ptr, ptr }
-
 ; Function Attrs: mustprogress uwtable
 define noundef i32 @_Z53tsi_handshaker_result_create_zero_copy_grpc_protectorPK21tsi_handshaker_resultPmPP28tsi_zero_copy_grpc_protector(ptr noundef %self, ptr noundef %max_output_protected_frame_size, ptr noundef %protector) local_unnamed_addr #0 {
 entry:
@@ -20,7 +17,7 @@ lor.lhs.false:                                    ; preds = %entry
   br i1 %or.cond, label %return, label %if.end
 
 if.end:                                           ; preds = %lor.lhs.false
-  %create_zero_copy_grpc_protector = getelementptr inbounds %struct.tsi_handshaker_result_vtable, ptr %0, i64 0, i32 2
+  %create_zero_copy_grpc_protector = getelementptr inbounds i8, ptr %0, i64 16
   %1 = load ptr, ptr %create_zero_copy_grpc_protector, align 8
   %cmp5 = icmp eq ptr %1, null
   br i1 %cmp5, label %return, label %if.end7
@@ -79,7 +76,7 @@ lor.lhs.false:                                    ; preds = %entry
   br i1 %or.cond1, label %return, label %if.end
 
 if.end:                                           ; preds = %lor.lhs.false
-  %unprotect = getelementptr inbounds %struct.tsi_zero_copy_grpc_protector_vtable, ptr %0, i64 0, i32 1
+  %unprotect = getelementptr inbounds i8, ptr %0, i64 8
   %1 = load ptr, ptr %unprotect, align 8
   %cmp7 = icmp eq ptr %1, null
   br i1 %cmp7, label %return, label %if.end9
@@ -101,7 +98,7 @@ entry:
 
 if.end:                                           ; preds = %entry
   %0 = load ptr, ptr %self, align 8
-  %destroy = getelementptr inbounds %struct.tsi_zero_copy_grpc_protector_vtable, ptr %0, i64 0, i32 2
+  %destroy = getelementptr inbounds i8, ptr %0, i64 16
   %1 = load ptr, ptr %destroy, align 8
   tail call void %1(ptr noundef nonnull %self)
   br label %return
@@ -120,7 +117,7 @@ entry:
 
 if.end:                                           ; preds = %entry
   %0 = load ptr, ptr %self, align 8
-  %max_frame_size2 = getelementptr inbounds %struct.tsi_zero_copy_grpc_protector_vtable, ptr %0, i64 0, i32 3
+  %max_frame_size2 = getelementptr inbounds i8, ptr %0, i64 24
   %1 = load ptr, ptr %max_frame_size2, align 8
   %cmp3 = icmp eq ptr %1, null
   br i1 %cmp3, label %return, label %if.end5

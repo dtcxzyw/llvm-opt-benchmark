@@ -9,8 +9,6 @@ target triple = "x86_64-unknown-linux-gnu"
 %"class.std::tuple" = type { %"struct.std::_Tuple_impl" }
 %"struct.std::_Tuple_impl" = type { %"struct.std::_Head_base.1" }
 %"struct.std::_Head_base.1" = type { ptr }
-%"class.(anonymous namespace)::HermesABIRuntimeWrapper" = type { %"class.facebook::jsi::Runtime", ptr, ptr, ptr }
-%"class.facebook::jsi::Runtime" = type { ptr }
 %"class.facebook::jsi::Value" = type { i32, %"union.facebook::jsi::Value::Data" }
 %"union.facebook::jsi::Value::Data" = type { double }
 %"class.std::shared_ptr" = type { %"class.std::__shared_ptr" }
@@ -33,8 +31,6 @@ target triple = "x86_64-unknown-linux-gnu"
 %"class.facebook::jsi::WeakObject" = type { %"class.facebook::jsi::Pointer" }
 %"class.facebook::jsi::ArrayBuffer" = type { %"class.facebook::jsi::Object" }
 %"class.facebook::jsi::Function" = type { %"class.facebook::jsi::Object" }
-%"class.facebook::jsi::JSIException" = type { %"class.std::exception", %"class.std::__cxx11::basic_string" }
-%"class.std::exception" = type { ptr }
 %struct._Guard = type { ptr }
 
 $__clang_call_terminate = comdat any
@@ -114,7 +110,7 @@ define dso_local void @_ZN8facebook6hermes27makeHermesABIRuntimeWrapperEPK15Herm
 entry:
   %call.i = tail call noalias noundef nonnull dereferenceable(32) ptr @_Znwm(i64 noundef 32) #10, !noalias !5
   store ptr getelementptr inbounds ({ [73 x ptr] }, ptr @_ZTVN12_GLOBAL__N_123HermesABIRuntimeWrapperE, i64 0, inrange i32 0, i64 2), ptr %call.i, align 8, !noalias !5
-  %abiVtable_.i.i = getelementptr inbounds %"class.(anonymous namespace)::HermesABIRuntimeWrapper", ptr %call.i, i64 0, i32 1
+  %abiVtable_.i.i = getelementptr inbounds i8, ptr %call.i, i64 8
   store ptr %vtable, ptr %abiVtable_.i.i, align 8, !noalias !5
   %0 = load ptr, ptr %vtable, align 8, !noalias !5
   %call.i.i = invoke noundef ptr %0(ptr noundef null)
@@ -128,10 +124,10 @@ lpad.i.i:                                         ; preds = %entry
   resume { ptr, i32 } %1
 
 _ZNSt10unique_ptrIN12_GLOBAL__N_123HermesABIRuntimeWrapperESt14default_deleteIS1_EED2Ev.exit: ; preds = %entry
-  %abiRt_.i.i = getelementptr inbounds %"class.(anonymous namespace)::HermesABIRuntimeWrapper", ptr %call.i, i64 0, i32 3
+  %abiRt_.i.i = getelementptr inbounds i8, ptr %call.i, i64 24
   store ptr %call.i.i, ptr %abiRt_.i.i, align 8, !noalias !5
   %2 = load ptr, ptr %call.i.i, align 8, !noalias !5
-  %vtable_.i.i = getelementptr inbounds %"class.(anonymous namespace)::HermesABIRuntimeWrapper", ptr %call.i, i64 0, i32 2
+  %vtable_.i.i = getelementptr inbounds i8, ptr %call.i, i64 16
   store ptr %2, ptr %vtable_.i.i, align 8, !noalias !5
   store ptr %call.i, ptr %agg.result, align 8
   ret void
@@ -152,10 +148,10 @@ declare void @_ZN8facebook3jsi7RuntimeD2Ev(ptr noundef nonnull align 8 dereferen
 define internal void @_ZN12_GLOBAL__N_123HermesABIRuntimeWrapperD2Ev(ptr noundef nonnull align 8 dereferenceable(32) %this) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store ptr getelementptr inbounds ({ [73 x ptr] }, ptr @_ZTVN12_GLOBAL__N_123HermesABIRuntimeWrapperE, i64 0, inrange i32 0, i64 2), ptr %this, align 8
-  %vtable_ = getelementptr inbounds %"class.(anonymous namespace)::HermesABIRuntimeWrapper", ptr %this, i64 0, i32 2
+  %vtable_ = getelementptr inbounds i8, ptr %this, i64 16
   %0 = load ptr, ptr %vtable_, align 8
   %1 = load ptr, ptr %0, align 8
-  %abiRt_ = getelementptr inbounds %"class.(anonymous namespace)::HermesABIRuntimeWrapper", ptr %this, i64 0, i32 3
+  %abiRt_ = getelementptr inbounds i8, ptr %this, i64 24
   %2 = load ptr, ptr %abiRt_, align 8
   invoke void %1(ptr noundef %2)
           to label %invoke.cont unwind label %terminate.lpad
@@ -176,10 +172,10 @@ terminate.lpad:                                   ; preds = %entry
 define internal void @_ZN12_GLOBAL__N_123HermesABIRuntimeWrapperD0Ev(ptr noundef nonnull align 8 dereferenceable(32) %this) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store ptr getelementptr inbounds ({ [73 x ptr] }, ptr @_ZTVN12_GLOBAL__N_123HermesABIRuntimeWrapperE, i64 0, inrange i32 0, i64 2), ptr %this, align 8
-  %vtable_.i = getelementptr inbounds %"class.(anonymous namespace)::HermesABIRuntimeWrapper", ptr %this, i64 0, i32 2
+  %vtable_.i = getelementptr inbounds i8, ptr %this, i64 16
   %0 = load ptr, ptr %vtable_.i, align 8
   %1 = load ptr, ptr %0, align 8
-  %abiRt_.i = getelementptr inbounds %"class.(anonymous namespace)::HermesABIRuntimeWrapper", ptr %this, i64 0, i32 3
+  %abiRt_.i = getelementptr inbounds i8, ptr %this, i64 24
   %2 = load ptr, ptr %abiRt_.i, align 8
   invoke void %1(ptr noundef %2)
           to label %_ZN12_GLOBAL__N_123HermesABIRuntimeWrapperD2Ev.exit unwind label %terminate.lpad.i
@@ -740,7 +736,7 @@ invoke.cont5:                                     ; preds = %invoke.cont
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %agg.tmp.i)
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EOS4_(ptr noundef nonnull align 8 dereferenceable(32) %agg.tmp.i, ptr noundef nonnull align 8 dereferenceable(32) %agg.tmp) #11
   store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN8facebook3jsi12JSIExceptionE, i64 0, inrange i32 0, i64 2), ptr %exception, align 8
-  %what_.i.i = getelementptr inbounds %"class.facebook::jsi::JSIException", ptr %exception, i64 0, i32 1
+  %what_.i.i = getelementptr inbounds i8, ptr %exception, i64 8
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EOS4_(ptr noundef nonnull align 8 dereferenceable(32) %what_.i.i, ptr noundef nonnull align 8 dereferenceable(32) %agg.tmp.i) #11
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %agg.tmp.i) #11
   store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN8facebook3jsi18JSINativeExceptionE, i64 0, inrange i32 0, i64 2), ptr %exception, align 8

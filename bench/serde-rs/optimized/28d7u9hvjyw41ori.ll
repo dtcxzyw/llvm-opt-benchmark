@@ -22,7 +22,7 @@ define zeroext i1 @"_ZN94_$LT$serde..__private..de..borrow_cow_bytes..CowBytesVi
 define void @_ZN5serde9__private2de19flat_map_take_entry17hf3e3dc2bed2389e0E(ptr sret({ i8, [63 x i8] }) align 8 %0, ptr align 8 %1, ptr align 8 %2, i64 %3) unnamed_addr #0 {
   %5 = alloca { ptr, i64 }, align 8
   store ptr %2, ptr %5, align 8
-  %6 = getelementptr inbounds { ptr, i64 }, ptr %5, i64 0, i32 1
+  %6 = getelementptr inbounds i8, ptr %5, i64 8
   store i64 %3, ptr %6, align 8
   %7 = load i8, ptr %1, align 8, !range !5, !noundef !6
   %8 = icmp eq i8 %7, 22

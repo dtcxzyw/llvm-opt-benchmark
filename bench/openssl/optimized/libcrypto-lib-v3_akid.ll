@@ -4,11 +4,6 @@ target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:
 target triple = "x86_64-unknown-linux-gnu"
 
 %struct.v3_ext_method = type { i32, i32, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr }
-%struct.AUTHORITY_KEYID_st = type { ptr, ptr, ptr }
-%struct.CONF_VALUE = type { ptr, ptr, ptr }
-%struct.v3_ext_ctx = type { i32, ptr, ptr, ptr, ptr, ptr, ptr, ptr }
-%struct.GENERAL_NAME_st = type { i32, %union.anon }
-%union.anon = type { ptr }
 
 @ossl_v3_akey_id = local_unnamed_addr constant %struct.v3_ext_method { i32 90, i32 4, ptr @AUTHORITY_KEYID_it, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr @i2v_AUTHORITY_KEYID, ptr @v2i_AUTHORITY_KEYID, ptr null, ptr null, ptr null }, align 8
 @.str = private unnamed_addr constant [33 x i8] c"../openssl/crypto/x509/v3_akid.c\00", align 1
@@ -45,13 +40,13 @@ if.then2:                                         ; preds = %if.then
   br label %return
 
 if.end:                                           ; preds = %if.then
-  %issuer = getelementptr inbounds %struct.AUTHORITY_KEYID_st, ptr %akeyid, i64 0, i32 1
+  %issuer = getelementptr inbounds i8, ptr %akeyid, i64 8
   %1 = load ptr, ptr %issuer, align 8
   %tobool3.not = icmp eq ptr %1, null
   br i1 %tobool3.not, label %lor.rhs, label %lor.end
 
 lor.rhs:                                          ; preds = %if.end
-  %serial = getelementptr inbounds %struct.AUTHORITY_KEYID_st, ptr %akeyid, i64 0, i32 2
+  %serial = getelementptr inbounds i8, ptr %akeyid, i64 16
   %2 = load ptr, ptr %serial, align 8
   %tobool4.not = icmp eq ptr %2, null
   %3 = select i1 %tobool4.not, ptr null, ptr @.str.1
@@ -75,7 +70,7 @@ if.end8:                                          ; preds = %lor.end
   br label %if.end9
 
 if.end9:                                          ; preds = %if.end8, %entry
-  %issuer10 = getelementptr inbounds %struct.AUTHORITY_KEYID_st, ptr %akeyid, i64 0, i32 1
+  %issuer10 = getelementptr inbounds i8, ptr %akeyid, i64 8
   %4 = load ptr, ptr %issuer10, align 8
   %tobool11.not = icmp eq ptr %4, null
   br i1 %tobool11.not, label %if.end18, label %if.then12
@@ -97,7 +92,7 @@ if.end17:                                         ; preds = %if.then12
   br label %if.end18
 
 if.end18:                                         ; preds = %if.end17, %if.end9
-  %serial19 = getelementptr inbounds %struct.AUTHORITY_KEYID_st, ptr %akeyid, i64 0, i32 2
+  %serial19 = getelementptr inbounds i8, ptr %akeyid, i64 16
   %6 = load ptr, ptr %serial19, align 8
   %tobool20.not = icmp eq ptr %6, null
   br i1 %tobool20.not, label %if.end31, label %if.then21
@@ -159,7 +154,7 @@ if.end:                                           ; preds = %entry
 
 land.lhs.true:                                    ; preds = %if.end
   %call5 = tail call ptr @OPENSSL_sk_value(ptr noundef %values, i32 noundef 0) #3
-  %name = getelementptr inbounds %struct.CONF_VALUE, ptr %call5, i64 0, i32 1
+  %name = getelementptr inbounds i8, ptr %call5, i64 8
   %0 = load ptr, ptr %name, align 8
   %call6 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %0, ptr noundef nonnull dereferenceable(5) @.str.3) #4
   %cmp7 = icmp eq i32 %call6, 0
@@ -177,7 +172,7 @@ for.body:                                         ; preds = %for.body.preheader,
   %issuer.093 = phi i8 [ %issuer.1, %for.inc ], [ 0, %for.body.preheader ]
   %i.092 = phi i32 [ %inc, %for.inc ], [ 0, %for.body.preheader ]
   %call12 = tail call ptr @OPENSSL_sk_value(ptr noundef %values, i32 noundef %i.092) #3
-  %value = getelementptr inbounds %struct.CONF_VALUE, ptr %call12, i64 0, i32 2
+  %value = getelementptr inbounds i8, ptr %call12, i64 16
   %1 = load ptr, ptr %value, align 8
   %cmp13.not = icmp eq ptr %1, null
   br i1 %cmp13.not, label %if.end21, label %land.lhs.true14
@@ -188,17 +183,17 @@ land.lhs.true14:                                  ; preds = %for.body
   br i1 %cmp17.not, label %if.end21, label %if.then18
 
 if.then18:                                        ; preds = %land.lhs.true14
-  %value.le = getelementptr inbounds %struct.CONF_VALUE, ptr %call12, i64 0, i32 2
+  %value.le = getelementptr inbounds i8, ptr %call12, i64 16
   tail call void @ERR_new() #3
   tail call void @ERR_set_debug(ptr noundef nonnull @.str, i32 noundef 123, ptr noundef nonnull @__func__.v2i_AUTHORITY_KEYID) #3
-  %name19 = getelementptr inbounds %struct.CONF_VALUE, ptr %call12, i64 0, i32 1
+  %name19 = getelementptr inbounds i8, ptr %call12, i64 8
   %2 = load ptr, ptr %name19, align 8
   %3 = load ptr, ptr %value.le, align 8
   tail call void (i32, i32, ptr, ...) @ERR_set_error(i32 noundef 34, i32 noundef 120, ptr noundef nonnull @.str.5, ptr noundef %2, ptr noundef %3) #3
   br label %err
 
 if.end21:                                         ; preds = %land.lhs.true14, %for.body
-  %name22 = getelementptr inbounds %struct.CONF_VALUE, ptr %call12, i64 0, i32 1
+  %name22 = getelementptr inbounds i8, ptr %call12, i64 8
   %4 = load ptr, ptr %name22, align 8
   %call23 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %4, ptr noundef nonnull dereferenceable(6) @.str.1) #4
   %cmp24 = icmp eq i32 %call23, 0
@@ -222,7 +217,7 @@ if.then42:                                        ; preds = %if.else
   br label %for.inc
 
 if.else48:                                        ; preds = %if.else
-  %name22.le = getelementptr inbounds %struct.CONF_VALUE, ptr %call12, i64 0, i32 1
+  %name22.le = getelementptr inbounds i8, ptr %call12, i64 8
   %call50 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %4, ptr noundef nonnull dereferenceable(5) @.str.3) #4
   %cmp51 = icmp eq i32 %call50, 0
   %brmerge = or i1 %cmp24, %cmp51
@@ -268,7 +263,7 @@ if.then77:                                        ; preds = %for.end
   br label %err
 
 if.end78:                                         ; preds = %land.lhs.true70
-  %issuer_cert79 = getelementptr inbounds %struct.v3_ext_ctx, ptr %ctx, i64 0, i32 1
+  %issuer_cert79 = getelementptr inbounds i8, ptr %ctx, i64 8
   %8 = load ptr, ptr %issuer_cert79, align 8
   %cmp80 = icmp eq ptr %8, null
   br i1 %cmp80, label %if.then82, label %if.end83
@@ -280,11 +275,11 @@ if.then82:                                        ; preds = %if.end78
   br label %err
 
 if.end83:                                         ; preds = %if.end78
-  %subject_cert = getelementptr inbounds %struct.v3_ext_ctx, ptr %ctx, i64 0, i32 2
+  %subject_cert = getelementptr inbounds i8, ptr %ctx, i64 16
   %9 = load ptr, ptr %subject_cert, align 8
   %cmp85 = icmp eq ptr %9, %8
   %call87 = tail call i32 @ERR_set_mark() #3
-  %issuer_pkey = getelementptr inbounds %struct.v3_ext_ctx, ptr %ctx, i64 0, i32 7
+  %issuer_pkey = getelementptr inbounds i8, ptr %ctx, i64 56
   %10 = load ptr, ptr %issuer_pkey, align 8
   %cmp88.not = icmp eq ptr %10, null
   br i1 %cmp88.not, label %if.end95, label %if.then90
@@ -425,16 +420,16 @@ if.then191:                                       ; preds = %if.end186
 
 if.end192:                                        ; preds = %if.end186
   store i32 4, ptr %call182, align 8
-  %d = getelementptr inbounds %struct.GENERAL_NAME_st, ptr %call182, i64 0, i32 1
+  %d = getelementptr inbounds i8, ptr %call182, i64 8
   store ptr %call164, ptr %d, align 8
   br label %if.end193
 
 if.end193:                                        ; preds = %lor.lhs.false153, %if.end192
   %serial.082 = phi ptr [ %call166, %if.end192 ], [ null, %lor.lhs.false153 ]
   %gens.0 = phi ptr [ %call178, %if.end192 ], [ null, %lor.lhs.false153 ]
-  %issuer194 = getelementptr inbounds %struct.AUTHORITY_KEYID_st, ptr %call2, i64 0, i32 1
+  %issuer194 = getelementptr inbounds i8, ptr %call2, i64 8
   store ptr %gens.0, ptr %issuer194, align 8
-  %serial195 = getelementptr inbounds %struct.AUTHORITY_KEYID_st, ptr %call2, i64 0, i32 2
+  %serial195 = getelementptr inbounds i8, ptr %call2, i64 16
   store ptr %serial.082, ptr %serial195, align 8
   store ptr %ikeyid.3, ptr %call2, align 8
   br label %return

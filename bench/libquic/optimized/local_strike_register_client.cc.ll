@@ -3,20 +3,6 @@ source_filename = "bench/libquic/original/local_strike_register_client.cc.ll"
 target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:128-n8:16:32:64-S128"
 target triple = "x86_64-unknown-linux-gnu"
 
-%"class.net::LocalStrikeRegisterClient" = type { %"class.net::StrikeRegisterClient", %"class.base::Lock", %"class.net::StrikeRegister" }
-%"class.net::StrikeRegisterClient" = type { ptr }
-%"class.base::Lock" = type { %"class.base::internal::LockImpl" }
-%"class.base::internal::LockImpl" = type { %union.pthread_mutex_t }
-%union.pthread_mutex_t = type { %struct.__pthread_mutex_s }
-%struct.__pthread_mutex_s = type { i32, i32, i32, i32, i32, i16, i16, %struct.__pthread_internal_list }
-%struct.__pthread_internal_list = type { ptr, ptr }
-%"class.net::StrikeRegister" = type { i32, i32, i32, [8 x i8], i32, i32, i32, i32, ptr, %"class.std::unique_ptr" }
-%"class.std::unique_ptr" = type { %"struct.std::__uniq_ptr_data" }
-%"struct.std::__uniq_ptr_data" = type { %"class.std::__uniq_ptr_impl" }
-%"class.std::__uniq_ptr_impl" = type { %"class.std::tuple" }
-%"class.std::tuple" = type { %"struct.std::_Tuple_impl" }
-%"struct.std::_Tuple_impl" = type { %"struct.std::_Head_base.1" }
-%"struct.std::_Head_base.1" = type { ptr }
 %"class.base::BasicStringPiece" = type { ptr, i64 }
 %"class.net::QuicWallTime" = type { i64 }
 
@@ -44,9 +30,9 @@ $_ZTIN3net20StrikeRegisterClientE = comdat any
 define dso_local void @_ZN3net25LocalStrikeRegisterClientC2EjjjPKhNS_14StrikeRegister11StartupTypeE(ptr noundef nonnull align 8 dereferenceable(104) %this, i32 noundef %max_entries, i32 noundef %current_time_external, i32 noundef %window_secs, ptr noundef %orbit, i32 noundef %startup) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN3net25LocalStrikeRegisterClientE, i64 0, inrange i32 0, i64 2), ptr %this, align 8
-  %m_ = getelementptr inbounds %"class.net::LocalStrikeRegisterClient", ptr %this, i64 0, i32 1
+  %m_ = getelementptr inbounds i8, ptr %this, i64 8
   tail call void @_ZN4base8internal8LockImplC1Ev(ptr noundef nonnull align 8 dereferenceable(40) %m_)
-  %strike_register_ = getelementptr inbounds %"class.net::LocalStrikeRegisterClient", ptr %this, i64 0, i32 2
+  %strike_register_ = getelementptr inbounds i8, ptr %this, i64 48
   invoke void @_ZN3net14StrikeRegisterC1EjjjPKhNS0_11StartupTypeE(ptr noundef nonnull align 8 dereferenceable(56) %strike_register_, i32 noundef %max_entries, i32 noundef %current_time_external, i32 noundef %window_secs, ptr noundef %orbit, i32 noundef %startup)
           to label %invoke.cont3 unwind label %lpad2
 
@@ -69,9 +55,9 @@ define dso_local noundef zeroext i1 @_ZNK3net25LocalStrikeRegisterClient12IsKnow
 entry:
   %orbit = alloca %"class.base::BasicStringPiece", align 8
   store ptr %orbit.coerce0, ptr %orbit, align 8
-  %0 = getelementptr inbounds { ptr, i64 }, ptr %orbit, i64 0, i32 1
+  %0 = getelementptr inbounds i8, ptr %orbit, i64 8
   store i64 %orbit.coerce1, ptr %0, align 8
-  %m_ = getelementptr inbounds %"class.net::LocalStrikeRegisterClient", ptr %this, i64 0, i32 1
+  %m_ = getelementptr inbounds i8, ptr %this, i64 8
   tail call void @_ZN4base8internal8LockImpl4LockEv(ptr noundef nonnull align 8 dereferenceable(40) %m_)
   %call = invoke noundef i64 @_ZNK4base16BasicStringPieceINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE6lengthEv(ptr noundef nonnull align 8 dereferenceable(16) %orbit)
           to label %invoke.cont unwind label %lpad
@@ -101,7 +87,7 @@ if.end:                                           ; preds = %invoke.cont
           to label %invoke.cont2 unwind label %lpad
 
 invoke.cont2:                                     ; preds = %if.end
-  %strike_register_ = getelementptr inbounds %"class.net::LocalStrikeRegisterClient", ptr %this, i64 0, i32 2
+  %strike_register_ = getelementptr inbounds i8, ptr %this, i64 48
   %call5 = invoke noundef ptr @_ZNK3net14StrikeRegister5orbitEv(ptr noundef nonnull align 8 dereferenceable(56) %strike_register_)
           to label %invoke.cont4 unwind label %lpad
 
@@ -138,7 +124,7 @@ entry:
   %nonce = alloca %"class.base::BasicStringPiece", align 8
   %now = alloca %"class.net::QuicWallTime", align 8
   store ptr %nonce.coerce0, ptr %nonce, align 8
-  %0 = getelementptr inbounds { ptr, i64 }, ptr %nonce, i64 0, i32 1
+  %0 = getelementptr inbounds i8, ptr %nonce, i64 8
   store i64 %nonce.coerce1, ptr %0, align 8
   store i64 %now.coerce, ptr %now, align 8
   %call = call noundef i64 @_ZNK4base16BasicStringPieceINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE6lengthEv(ptr noundef nonnull align 8 dereferenceable(16) %nonce)
@@ -146,9 +132,9 @@ entry:
   br i1 %cmp.not, label %if.else, label %if.end
 
 if.else:                                          ; preds = %entry
-  %m_ = getelementptr inbounds %"class.net::LocalStrikeRegisterClient", ptr %this, i64 0, i32 1
+  %m_ = getelementptr inbounds i8, ptr %this, i64 8
   call void @_ZN4base8internal8LockImpl4LockEv(ptr noundef nonnull align 8 dereferenceable(40) %m_)
-  %strike_register_ = getelementptr inbounds %"class.net::LocalStrikeRegisterClient", ptr %this, i64 0, i32 2
+  %strike_register_ = getelementptr inbounds i8, ptr %this, i64 48
   %call2 = invoke noundef ptr @_ZNK4base16BasicStringPieceINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE4dataEv(ptr noundef nonnull align 8 dereferenceable(16) %nonce)
           to label %invoke.cont unwind label %lpad
 
@@ -192,11 +178,11 @@ if.end:                                           ; preds = %invoke.cont5, %entr
   %nonce_error.0 = phi i32 [ 2, %entry ], [ %call6, %invoke.cont5 ]
   %cmp7 = icmp eq i32 %nonce_error.0, 0
   %vtable.i = load ptr, ptr %cb, align 8
-  %vfn.i = getelementptr inbounds ptr, ptr %vtable.i, i64 2
+  %vfn.i = getelementptr inbounds i8, ptr %vtable.i, i64 16
   %6 = load ptr, ptr %vfn.i, align 8
   call void %6(ptr noundef nonnull align 8 dereferenceable(8) %cb, i1 noundef zeroext %cmp7, i32 noundef %nonce_error.0)
   %vtable2.i = load ptr, ptr %cb, align 8
-  %vfn3.i = getelementptr inbounds ptr, ptr %vtable2.i, i64 1
+  %vfn3.i = getelementptr inbounds i8, ptr %vtable2.i, i64 8
   %7 = load ptr, ptr %vfn3.i, align 8
   call void %7(ptr noundef nonnull align 8 dereferenceable(8) %cb) #7
   ret void
@@ -210,9 +196,9 @@ declare noundef i64 @_ZNK3net12QuicWallTime13ToUNIXSecondsEv(ptr noundef nonnull
 define linkonce_odr dso_local void @_ZN3net25LocalStrikeRegisterClientD2Ev(ptr noundef nonnull align 8 dereferenceable(104) %this) unnamed_addr #2 comdat align 2 {
 entry:
   store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN3net25LocalStrikeRegisterClientE, i64 0, inrange i32 0, i64 2), ptr %this, align 8
-  %strike_register_ = getelementptr inbounds %"class.net::LocalStrikeRegisterClient", ptr %this, i64 0, i32 2
+  %strike_register_ = getelementptr inbounds i8, ptr %this, i64 48
   tail call void @_ZN3net14StrikeRegisterD1Ev(ptr noundef nonnull align 8 dereferenceable(56) %strike_register_) #7
-  %m_ = getelementptr inbounds %"class.net::LocalStrikeRegisterClient", ptr %this, i64 0, i32 1
+  %m_ = getelementptr inbounds i8, ptr %this, i64 8
   tail call void @_ZN4base8internal8LockImplD1Ev(ptr noundef nonnull align 8 dereferenceable(40) %m_) #7
   ret void
 }
@@ -221,9 +207,9 @@ entry:
 define linkonce_odr dso_local void @_ZN3net25LocalStrikeRegisterClientD0Ev(ptr noundef nonnull align 8 dereferenceable(104) %this) unnamed_addr #2 comdat align 2 {
 entry:
   store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN3net25LocalStrikeRegisterClientE, i64 0, inrange i32 0, i64 2), ptr %this, align 8
-  %strike_register_.i = getelementptr inbounds %"class.net::LocalStrikeRegisterClient", ptr %this, i64 0, i32 2
+  %strike_register_.i = getelementptr inbounds i8, ptr %this, i64 48
   tail call void @_ZN3net14StrikeRegisterD1Ev(ptr noundef nonnull align 8 dereferenceable(56) %strike_register_.i) #7
-  %m_.i = getelementptr inbounds %"class.net::LocalStrikeRegisterClient", ptr %this, i64 0, i32 1
+  %m_.i = getelementptr inbounds i8, ptr %this, i64 8
   tail call void @_ZN4base8internal8LockImplD1Ev(ptr noundef nonnull align 8 dereferenceable(40) %m_.i) #7
   tail call void @_ZdlPv(ptr noundef nonnull %this) #9
   ret void

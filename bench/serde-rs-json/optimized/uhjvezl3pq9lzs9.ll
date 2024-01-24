@@ -33,7 +33,7 @@ define void @_ZN5serde2de9MapAccess10next_value17h78db4a8ad4454a62E(ptr sret({ i
   br label %"_ZN75_$LT$serde_json..de..MapAccess$LT$R$GT$$u20$as$u20$serde..de..MapAccess$GT$15next_value_seed17h0e55ede2fcfa3d51E.exit"
 
 8:                                                ; preds = %2
-  %9 = getelementptr inbounds { [1 x i64], ptr }, ptr %0, i64 0, i32 1
+  %9 = getelementptr inbounds i8, ptr %0, i64 8
   store ptr %4, ptr %9, align 8
   store i8 6, ptr %0, align 8
   br label %"_ZN75_$LT$serde_json..de..MapAccess$LT$R$GT$$u20$as$u20$serde..de..MapAccess$GT$15next_value_seed17h0e55ede2fcfa3d51E.exit"
@@ -51,93 +51,91 @@ define void @_ZN5serde2de9MapAccess15next_entry_seed17h9f2fdef17c9753c1E(ptr noc
   call void @"_ZN75_$LT$serde_json..de..MapAccess$LT$R$GT$$u20$as$u20$serde..de..MapAccess$GT$13next_key_seed17h295bcd4535df12dfE"(ptr nonnull sret({ i64, [3 x i64] }) align 8 %6, ptr align 8 %1)
   %7 = load i64, ptr %6, align 8, !range !7, !noundef !5
   %8 = icmp eq i64 %7, 0
-  br i1 %8, label %9, label %12
+  %9 = getelementptr inbounds i8, ptr %6, i64 8
+  %.sroa.0.0.copyload = load ptr, ptr %9, align 8
+  br i1 %8, label %10, label %12
 
-9:                                                ; preds = %2
-  %10 = getelementptr inbounds { [1 x i64], { ptr, [2 x i64] } }, ptr %6, i64 0, i32 1
-  %.sroa.0.0.copyload = load ptr, ptr %10, align 8
+10:                                               ; preds = %2
   %11 = icmp eq ptr %.sroa.0.0.copyload, null
-  br i1 %11, label %16, label %17
+  br i1 %11, label %14, label %15
 
 12:                                               ; preds = %2
-  %13 = getelementptr inbounds { [1 x i64], ptr }, ptr %6, i64 0, i32 1
-  %14 = load ptr, ptr %13, align 8, !nonnull !5, !align !6, !noundef !5
-  store ptr %14, ptr %0, align 8
-  %15 = getelementptr inbounds { [24 x i8], i8, [31 x i8] }, ptr %0, i64 0, i32 1
-  store i8 7, ptr %15, align 8
-  br label %31
+  store ptr %.sroa.0.0.copyload, ptr %0, align 8
+  %13 = getelementptr inbounds i8, ptr %0, i64 24
+  store i8 7, ptr %13, align 8
+  br label %29
 
-16:                                               ; preds = %9
+14:                                               ; preds = %10
   %.sroa.1.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 24
   store i8 6, ptr %.sroa.1.0..sroa_idx, align 8
-  br label %31
+  br label %29
 
-17:                                               ; preds = %9
-  %.sroa.3.0..sroa_idx = getelementptr inbounds { [1 x i64], { ptr, [2 x i64] } }, ptr %6, i64 0, i32 1, i32 1
+15:                                               ; preds = %10
+  %.sroa.3.0..sroa_idx = getelementptr inbounds i8, ptr %6, i64 16
   store ptr %.sroa.0.0.copyload, ptr %5, align 8
   %.sroa.3.0..sroa_idx2 = getelementptr inbounds i8, ptr %5, i64 8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.3.0..sroa_idx2, ptr noundef nonnull align 8 dereferenceable(16) %.sroa.3.0..sroa_idx, i64 16, i1 false)
-  %18 = load ptr, ptr %1, align 8, !nonnull !5, !align !6, !noundef !5
-  %19 = invoke align 8 ptr @"_ZN10serde_json2de21Deserializer$LT$R$GT$18parse_object_colon17hde1355cf1cfa06b3E"(ptr nonnull align 8 %18)
-          to label %.noexc unwind label %24
+  %16 = load ptr, ptr %1, align 8, !nonnull !5, !align !6, !noundef !5
+  %17 = invoke align 8 ptr @"_ZN10serde_json2de21Deserializer$LT$R$GT$18parse_object_colon17hde1355cf1cfa06b3E"(ptr nonnull align 8 %16)
+          to label %.noexc unwind label %22
 
-.noexc:                                           ; preds = %17
-  %20 = icmp eq ptr %19, null
-  br i1 %20, label %21, label %"_ZN75_$LT$serde_json..de..MapAccess$LT$R$GT$$u20$as$u20$serde..de..MapAccess$GT$15next_value_seed17h0e55ede2fcfa3d51E.exit.thread"
+.noexc:                                           ; preds = %15
+  %18 = icmp eq ptr %17, null
+  br i1 %18, label %19, label %"_ZN75_$LT$serde_json..de..MapAccess$LT$R$GT$$u20$as$u20$serde..de..MapAccess$GT$15next_value_seed17h0e55ede2fcfa3d51E.exit.thread"
 
-21:                                               ; preds = %.noexc
-  %22 = load ptr, ptr %1, align 8, !nonnull !5, !align !6, !noundef !5
-  invoke void @"_ZN81_$LT$core..marker..PhantomData$LT$T$GT$$u20$as$u20$serde..de..DeserializeSeed$GT$11deserialize17he133e14f6df9f301E"(ptr nonnull sret({ i8, [31 x i8] }) align 8 %4, ptr nonnull align 8 %22)
-          to label %"_ZN75_$LT$serde_json..de..MapAccess$LT$R$GT$$u20$as$u20$serde..de..MapAccess$GT$15next_value_seed17h0e55ede2fcfa3d51E.exit" unwind label %24
+19:                                               ; preds = %.noexc
+  %20 = load ptr, ptr %1, align 8, !nonnull !5, !align !6, !noundef !5
+  invoke void @"_ZN81_$LT$core..marker..PhantomData$LT$T$GT$$u20$as$u20$serde..de..DeserializeSeed$GT$11deserialize17he133e14f6df9f301E"(ptr nonnull sret({ i8, [31 x i8] }) align 8 %4, ptr nonnull align 8 %20)
+          to label %"_ZN75_$LT$serde_json..de..MapAccess$LT$R$GT$$u20$as$u20$serde..de..MapAccess$GT$15next_value_seed17h0e55ede2fcfa3d51E.exit" unwind label %22
 
 "_ZN75_$LT$serde_json..de..MapAccess$LT$R$GT$$u20$as$u20$serde..de..MapAccess$GT$15next_value_seed17h0e55ede2fcfa3d51E.exit.thread": ; preds = %.noexc
-  %23 = getelementptr inbounds { [1 x i64], ptr }, ptr %4, i64 0, i32 1
-  store ptr %19, ptr %23, align 8
+  %21 = getelementptr inbounds i8, ptr %4, i64 8
+  store ptr %17, ptr %21, align 8
   store i8 6, ptr %4, align 8
-  br label %28
+  br label %26
 
-24:                                               ; preds = %21, %17
-  %25 = landingpad { ptr, i32 }
+22:                                               ; preds = %19, %15
+  %23 = landingpad { ptr, i32 }
           cleanup
   invoke void @"_ZN4core3ptr42drop_in_place$LT$alloc..string..String$GT$17hd821f552b349cfc4E"(ptr nonnull align 8 %5) #10
-          to label %34 unwind label %32
+          to label %32 unwind label %30
 
-"_ZN75_$LT$serde_json..de..MapAccess$LT$R$GT$$u20$as$u20$serde..de..MapAccess$GT$15next_value_seed17h0e55ede2fcfa3d51E.exit": ; preds = %21
+"_ZN75_$LT$serde_json..de..MapAccess$LT$R$GT$$u20$as$u20$serde..de..MapAccess$GT$15next_value_seed17h0e55ede2fcfa3d51E.exit": ; preds = %19
   %.pr = load i8, ptr %4, align 8
   %.not = icmp eq i8 %.pr, 6
-  br i1 %.not, label %"_ZN75_$LT$serde_json..de..MapAccess$LT$R$GT$$u20$as$u20$serde..de..MapAccess$GT$15next_value_seed17h0e55ede2fcfa3d51E.exit._crit_edge", label %26
+  br i1 %.not, label %"_ZN75_$LT$serde_json..de..MapAccess$LT$R$GT$$u20$as$u20$serde..de..MapAccess$GT$15next_value_seed17h0e55ede2fcfa3d51E.exit._crit_edge", label %24
 
 "_ZN75_$LT$serde_json..de..MapAccess$LT$R$GT$$u20$as$u20$serde..de..MapAccess$GT$15next_value_seed17h0e55ede2fcfa3d51E.exit._crit_edge": ; preds = %"_ZN75_$LT$serde_json..de..MapAccess$LT$R$GT$$u20$as$u20$serde..de..MapAccess$GT$15next_value_seed17h0e55ede2fcfa3d51E.exit"
-  %.phi.trans.insert = getelementptr inbounds { [1 x i64], ptr }, ptr %4, i64 0, i32 1
+  %.phi.trans.insert = getelementptr inbounds i8, ptr %4, i64 8
   %.pre = load ptr, ptr %.phi.trans.insert, align 8
-  br label %28
+  br label %26
 
-26:                                               ; preds = %"_ZN75_$LT$serde_json..de..MapAccess$LT$R$GT$$u20$as$u20$serde..de..MapAccess$GT$15next_value_seed17h0e55ede2fcfa3d51E.exit"
-  %27 = getelementptr inbounds { { { { ptr, i64 }, i64 } }, { i8, [31 x i8] } }, ptr %3, i64 0, i32 1
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %27, ptr noundef nonnull align 8 dereferenceable(32) %4, i64 32, i1 false)
+24:                                               ; preds = %"_ZN75_$LT$serde_json..de..MapAccess$LT$R$GT$$u20$as$u20$serde..de..MapAccess$GT$15next_value_seed17h0e55ede2fcfa3d51E.exit"
+  %25 = getelementptr inbounds i8, ptr %3, i64 24
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %25, ptr noundef nonnull align 8 dereferenceable(32) %4, i64 32, i1 false)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %3, ptr noundef nonnull align 8 dereferenceable(24) %5, i64 24, i1 false)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %0, ptr noundef nonnull align 8 dereferenceable(56) %3, i64 56, i1 false)
-  br label %31
+  br label %29
 
-28:                                               ; preds = %"_ZN75_$LT$serde_json..de..MapAccess$LT$R$GT$$u20$as$u20$serde..de..MapAccess$GT$15next_value_seed17h0e55ede2fcfa3d51E.exit._crit_edge", %"_ZN75_$LT$serde_json..de..MapAccess$LT$R$GT$$u20$as$u20$serde..de..MapAccess$GT$15next_value_seed17h0e55ede2fcfa3d51E.exit.thread"
-  %29 = phi ptr [ %.pre, %"_ZN75_$LT$serde_json..de..MapAccess$LT$R$GT$$u20$as$u20$serde..de..MapAccess$GT$15next_value_seed17h0e55ede2fcfa3d51E.exit._crit_edge" ], [ %19, %"_ZN75_$LT$serde_json..de..MapAccess$LT$R$GT$$u20$as$u20$serde..de..MapAccess$GT$15next_value_seed17h0e55ede2fcfa3d51E.exit.thread" ]
-  store ptr %29, ptr %0, align 8
-  %30 = getelementptr inbounds { [24 x i8], i8, [31 x i8] }, ptr %0, i64 0, i32 1
-  store i8 7, ptr %30, align 8
+26:                                               ; preds = %"_ZN75_$LT$serde_json..de..MapAccess$LT$R$GT$$u20$as$u20$serde..de..MapAccess$GT$15next_value_seed17h0e55ede2fcfa3d51E.exit._crit_edge", %"_ZN75_$LT$serde_json..de..MapAccess$LT$R$GT$$u20$as$u20$serde..de..MapAccess$GT$15next_value_seed17h0e55ede2fcfa3d51E.exit.thread"
+  %27 = phi ptr [ %.pre, %"_ZN75_$LT$serde_json..de..MapAccess$LT$R$GT$$u20$as$u20$serde..de..MapAccess$GT$15next_value_seed17h0e55ede2fcfa3d51E.exit._crit_edge" ], [ %17, %"_ZN75_$LT$serde_json..de..MapAccess$LT$R$GT$$u20$as$u20$serde..de..MapAccess$GT$15next_value_seed17h0e55ede2fcfa3d51E.exit.thread" ]
+  store ptr %27, ptr %0, align 8
+  %28 = getelementptr inbounds i8, ptr %0, i64 24
+  store i8 7, ptr %28, align 8
   call void @"_ZN4core3ptr42drop_in_place$LT$alloc..string..String$GT$17hd821f552b349cfc4E"(ptr nonnull align 8 %5)
-  br label %31
+  br label %29
 
-31:                                               ; preds = %28, %12, %16, %26
+29:                                               ; preds = %26, %12, %14, %24
   ret void
 
-32:                                               ; preds = %24
-  %33 = landingpad { ptr, i32 }
+30:                                               ; preds = %22
+  %31 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
   call void @_ZN4core9panicking16panic_in_cleanup17hd44bb2114362504eE() #11
   unreachable
 
-34:                                               ; preds = %24
-  resume { ptr, i32 } %25
+32:                                               ; preds = %22
+  resume { ptr, i32 } %23
 }
 
 ; Function Attrs: inlinehint nonlazybind uwtable
@@ -153,9 +151,9 @@ define void @"_ZN10serde_json2de21Deserializer$LT$R$GT$3new17h097008fd9d586f6fE"
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %.sroa.0, ptr noundef nonnull align 8 dereferenceable(24) %1, i64 24, i1 false)
   call void @"_ZN5alloc3vec12Vec$LT$T$GT$3new17h43471423205843c6E"(ptr nonnull sret({ { ptr, i64 }, i64 }) align 8 %3)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr noundef nonnull align 8 dereferenceable(24) %.sroa.0, i64 24, i1 false)
-  %4 = getelementptr inbounds { { { { ptr, i64 }, i64 } }, { { ptr, i64 }, i64 }, i8, [7 x i8] }, ptr %0, i64 0, i32 1
+  %4 = getelementptr inbounds i8, ptr %0, i64 24
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %4, ptr noundef nonnull align 8 dereferenceable(24) %3, i64 24, i1 false)
-  %5 = getelementptr inbounds { { { { ptr, i64 }, i64 } }, { { ptr, i64 }, i64 }, i8, [7 x i8] }, ptr %0, i64 0, i32 2
+  %5 = getelementptr inbounds i8, ptr %0, i64 48
   store i8 -128, ptr %5, align 8
   ret void
 }
@@ -167,9 +165,9 @@ define void @"_ZN10serde_json2de21Deserializer$LT$R$GT$3new17he39d913d061a6323E"
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %4, ptr noundef nonnull align 8 dereferenceable(24) %1, i64 24, i1 false)
   call void @"_ZN5alloc3vec12Vec$LT$T$GT$3new17h43471423205843c6E"(ptr nonnull sret({ { ptr, i64 }, i64 }) align 8 %3)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr noundef nonnull align 8 dereferenceable(24) %4, i64 24, i1 false)
-  %5 = getelementptr inbounds { { { ptr, i64 }, i64 }, { { ptr, i64 }, i64 }, i8, [7 x i8] }, ptr %0, i64 0, i32 1
+  %5 = getelementptr inbounds i8, ptr %0, i64 24
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %5, ptr noundef nonnull align 8 dereferenceable(24) %3, i64 24, i1 false)
-  %6 = getelementptr inbounds { { { ptr, i64 }, i64 }, { { ptr, i64 }, i64 }, i8, [7 x i8] }, ptr %0, i64 0, i32 2
+  %6 = getelementptr inbounds i8, ptr %0, i64 48
   store i8 -128, ptr %6, align 8
   ret void
 }
@@ -177,34 +175,32 @@ define void @"_ZN10serde_json2de21Deserializer$LT$R$GT$3new17he39d913d061a6323E"
 ; Function Attrs: nonlazybind uwtable
 define void @_ZN10serde_json2de12ParserNumber5visit17hc27c7c793e3af7fbE(ptr sret({ i8, [31 x i8] }) align 8 %0, ptr nocapture readonly align 8 %1) unnamed_addr #1 {
   %3 = load i64, ptr %1, align 8, !range !8, !noundef !5
+  %4 = getelementptr inbounds i8, ptr %1, i64 8
   switch i64 %3, label %default.unreachable1 [
-    i64 0, label %4
+    i64 0, label %5
     i64 1, label %7
-    i64 2, label %10
+    i64 2, label %9
   ]
 
 default.unreachable1:                             ; preds = %2
   unreachable
 
-4:                                                ; preds = %2
-  %5 = getelementptr inbounds { [1 x i64], double }, ptr %1, i64 0, i32 1
-  %6 = load double, ptr %5, align 8, !noundef !5
+5:                                                ; preds = %2
+  %6 = load double, ptr %4, align 8, !noundef !5
   tail call void @"_ZN165_$LT$serde_json..value..de..$LT$impl$u20$serde..de..Deserialize$u20$for$u20$serde_json..value..Value$GT$..deserialize..ValueVisitor$u20$as$u20$serde..de..Visitor$GT$9visit_f6417hb59da904ce065b93E"(ptr sret({ i8, [31 x i8] }) align 8 %0, double %6)
-  br label %13
+  br label %11
 
 7:                                                ; preds = %2
-  %8 = getelementptr inbounds { [1 x i64], i64 }, ptr %1, i64 0, i32 1
-  %9 = load i64, ptr %8, align 8, !noundef !5
-  tail call void @"_ZN165_$LT$serde_json..value..de..$LT$impl$u20$serde..de..Deserialize$u20$for$u20$serde_json..value..Value$GT$..deserialize..ValueVisitor$u20$as$u20$serde..de..Visitor$GT$9visit_u6417h217d8eb312225bb1E"(ptr sret({ i8, [31 x i8] }) align 8 %0, i64 %9)
-  br label %13
+  %8 = load i64, ptr %4, align 8, !noundef !5
+  tail call void @"_ZN165_$LT$serde_json..value..de..$LT$impl$u20$serde..de..Deserialize$u20$for$u20$serde_json..value..Value$GT$..deserialize..ValueVisitor$u20$as$u20$serde..de..Visitor$GT$9visit_u6417h217d8eb312225bb1E"(ptr sret({ i8, [31 x i8] }) align 8 %0, i64 %8)
+  br label %11
 
-10:                                               ; preds = %2
-  %11 = getelementptr inbounds { [1 x i64], i64 }, ptr %1, i64 0, i32 1
-  %12 = load i64, ptr %11, align 8, !noundef !5
-  tail call void @"_ZN165_$LT$serde_json..value..de..$LT$impl$u20$serde..de..Deserialize$u20$for$u20$serde_json..value..Value$GT$..deserialize..ValueVisitor$u20$as$u20$serde..de..Visitor$GT$9visit_i6417he41c1cb073403feaE"(ptr sret({ i8, [31 x i8] }) align 8 %0, i64 %12)
-  br label %13
+9:                                                ; preds = %2
+  %10 = load i64, ptr %4, align 8, !noundef !5
+  tail call void @"_ZN165_$LT$serde_json..value..de..$LT$impl$u20$serde..de..Deserialize$u20$for$u20$serde_json..value..Value$GT$..deserialize..ValueVisitor$u20$as$u20$serde..de..Visitor$GT$9visit_i6417he41c1cb073403feaE"(ptr sret({ i8, [31 x i8] }) align 8 %0, i64 %10)
+  br label %11
 
-13:                                               ; preds = %10, %7, %4
+11:                                               ; preds = %9, %7, %5
   ret void
 }
 
@@ -219,8 +215,8 @@ define align 8 ptr @"_ZN10serde_json2de21Deserializer$LT$R$GT$3end17h3ff03e4f153
   br i1 %5, label %.lr.ph.i, label %.loopexit
 
 .lr.ph.i:                                         ; preds = %1
-  %6 = getelementptr inbounds { [1 x i8], { i8, i8 } }, ptr %2, i64 0, i32 1
-  %7 = getelementptr inbounds { [1 x i8], { i8, i8 } }, ptr %2, i64 0, i32 1, i32 1
+  %6 = getelementptr inbounds i8, ptr %2, i64 1
+  %7 = getelementptr inbounds i8, ptr %2, i64 2
   br label %8
 
 8:                                                ; preds = %12, %.lr.ph.i
@@ -249,7 +245,7 @@ define align 8 ptr @"_ZN10serde_json2de21Deserializer$LT$R$GT$3end17h3ff03e4f153
   br i1 %14, label %8, label %.loopexit
 
 .loopexit:                                        ; preds = %12, %1
-  %15 = getelementptr inbounds { [1 x i64], ptr }, ptr %2, i64 0, i32 1
+  %15 = getelementptr inbounds i8, ptr %2, i64 8
   %16 = load ptr, ptr %15, align 8, !nonnull !5, !align !6, !noundef !5
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %2)
   br label %19
@@ -280,20 +276,20 @@ define void @"_ZN10serde_json2de21Deserializer$LT$R$GT$12peek_or_null17h5be88d26
   br i1 %5, label %6, label %14
 
 6:                                                ; preds = %2
-  %7 = getelementptr inbounds { [1 x i8], { i8, i8 } }, ptr %3, i64 0, i32 1
+  %7 = getelementptr inbounds i8, ptr %3, i64 1
   %8 = load i8, ptr %7, align 1, !range !9, !noundef !5
   %9 = icmp ne i8 %8, 0
-  %10 = getelementptr inbounds { [1 x i8], { i8, i8 } }, ptr %3, i64 0, i32 1, i32 1
+  %10 = getelementptr inbounds i8, ptr %3, i64 2
   %11 = load i8, ptr %10, align 2
   %12 = call i8 @"_ZN4core6option15Option$LT$T$GT$9unwrap_or17h19c1d4ae6b2291dfE"(i1 zeroext %9, i8 %11, i8 0)
-  %13 = getelementptr inbounds { [1 x i8], i8 }, ptr %0, i64 0, i32 1
+  %13 = getelementptr inbounds i8, ptr %0, i64 1
   store i8 %12, ptr %13, align 1
   br label %18
 
 14:                                               ; preds = %2
-  %15 = getelementptr inbounds { [1 x i64], ptr }, ptr %3, i64 0, i32 1
+  %15 = getelementptr inbounds i8, ptr %3, i64 8
   %16 = load ptr, ptr %15, align 8, !nonnull !5, !align !6, !noundef !5
-  %17 = getelementptr inbounds { [1 x i64], ptr }, ptr %0, i64 0, i32 1
+  %17 = getelementptr inbounds i8, ptr %0, i64 8
   store ptr %16, ptr %17, align 8
   br label %18
 
@@ -382,8 +378,8 @@ define void @"_ZN10serde_json2de21Deserializer$LT$R$GT$16parse_whitespace17h8b3a
   br i1 %5, label %.lr.ph, label %._crit_edge
 
 .lr.ph:                                           ; preds = %2
-  %6 = getelementptr inbounds { [1 x i8], { i8, i8 } }, ptr %3, i64 0, i32 1
-  %7 = getelementptr inbounds { [1 x i8], { i8, i8 } }, ptr %3, i64 0, i32 1, i32 1
+  %6 = getelementptr inbounds i8, ptr %3, i64 1
+  %7 = getelementptr inbounds i8, ptr %3, i64 2
   br label %8
 
 8:                                                ; preds = %.lr.ph, %18
@@ -393,9 +389,9 @@ define void @"_ZN10serde_json2de21Deserializer$LT$R$GT$16parse_whitespace17h8b3a
   br i1 %.not, label %15, label %14
 
 ._crit_edge:                                      ; preds = %18, %2
-  %11 = getelementptr inbounds { [1 x i64], ptr }, ptr %3, i64 0, i32 1
+  %11 = getelementptr inbounds i8, ptr %3, i64 8
   %12 = load ptr, ptr %11, align 8, !nonnull !5, !align !6, !noundef !5
-  %13 = getelementptr inbounds { [1 x i64], ptr }, ptr %0, i64 0, i32 1
+  %13 = getelementptr inbounds i8, ptr %0, i64 8
   store ptr %12, ptr %13, align 8
   br label %21
 
@@ -409,9 +405,9 @@ define void @"_ZN10serde_json2de21Deserializer$LT$R$GT$16parse_whitespace17h8b3a
 
 15:                                               ; preds = %14, %8
   %.lcssa5 = phi i8 [ 1, %14 ], [ 0, %8 ]
-  %16 = getelementptr inbounds { [1 x i8], { i8, i8 } }, ptr %0, i64 0, i32 1
+  %16 = getelementptr inbounds i8, ptr %0, i64 1
   store i8 %.lcssa5, ptr %16, align 1
-  %17 = getelementptr inbounds { [1 x i8], { i8, i8 } }, ptr %0, i64 0, i32 1, i32 1
+  %17 = getelementptr inbounds i8, ptr %0, i64 2
   store i8 %10, ptr %17, align 2
   br label %21
 
@@ -454,10 +450,10 @@ define align 8 ptr @"_ZN10serde_json2de21Deserializer$LT$R$GT$11parse_ident17he4
   %9 = extractvalue { ptr, ptr } %8, 0
   %10 = extractvalue { ptr, ptr } %8, 1
   store ptr %9, ptr %7, align 8
-  %11 = getelementptr inbounds { ptr, ptr }, ptr %7, i64 0, i32 1
+  %11 = getelementptr inbounds i8, ptr %7, i64 8
   store ptr %10, ptr %11, align 8
-  %12 = getelementptr inbounds { [1 x i8], { i8, i8 } }, ptr %6, i64 0, i32 1
-  %13 = getelementptr inbounds { [1 x i8], { i8, i8 } }, ptr %6, i64 0, i32 1, i32 1
+  %12 = getelementptr inbounds i8, ptr %6, i64 1
+  %13 = getelementptr inbounds i8, ptr %6, i64 2
   br label %14
 
 14:                                               ; preds = %28, %3
@@ -481,7 +477,7 @@ define align 8 ptr @"_ZN10serde_json2de21Deserializer$LT$R$GT$11parse_ident17he4
   br i1 %22, label %26, label %28
 
 23:                                               ; preds = %17
-  %24 = getelementptr inbounds { [1 x i64], ptr }, ptr %6, i64 0, i32 1
+  %24 = getelementptr inbounds i8, ptr %6, i64 8
   %25 = load ptr, ptr %24, align 8, !nonnull !5, !align !6, !noundef !5
   br label %.loopexit
 
@@ -517,17 +513,17 @@ define void @"_ZN10serde_json2de21Deserializer$LT$R$GT$13parse_integer17hf6384ad
   br i1 %12, label %13, label %19
 
 13:                                               ; preds = %3
-  %14 = getelementptr inbounds { [1 x i8], { i8, i8 } }, ptr %10, i64 0, i32 1
+  %14 = getelementptr inbounds i8, ptr %10, i64 1
   %15 = load i8, ptr %14, align 1, !range !9, !noundef !5
-  %16 = getelementptr inbounds { [1 x i8], { i8, i8 } }, ptr %10, i64 0, i32 1, i32 1
+  %16 = getelementptr inbounds i8, ptr %10, i64 2
   %17 = load i8, ptr %16, align 2
   %18 = icmp eq i8 %15, 0
   br i1 %18, label %23, label %26
 
 19:                                               ; preds = %3
-  %20 = getelementptr inbounds { [1 x i64], ptr }, ptr %10, i64 0, i32 1
+  %20 = getelementptr inbounds i8, ptr %10, i64 8
   %21 = load ptr, ptr %20, align 8, !nonnull !5, !align !6, !noundef !5
-  %22 = getelementptr inbounds { [1 x i64], ptr }, ptr %0, i64 0, i32 1
+  %22 = getelementptr inbounds i8, ptr %0, i64 8
   store ptr %21, ptr %22, align 8
   store i64 3, ptr %0, align 8
   br label %28
@@ -535,7 +531,7 @@ define void @"_ZN10serde_json2de21Deserializer$LT$R$GT$13parse_integer17hf6384ad
 23:                                               ; preds = %13
   store i64 5, ptr %9, align 8
   %24 = call align 8 ptr @"_ZN10serde_json2de21Deserializer$LT$R$GT$5error17h53e53d942f9641bdE"(ptr align 8 %1, ptr nonnull align 8 %9)
-  %25 = getelementptr inbounds { [1 x i64], ptr }, ptr %0, i64 0, i32 1
+  %25 = getelementptr inbounds i8, ptr %0, i64 8
   store ptr %24, ptr %25, align 8
   store i64 3, ptr %0, align 8
   br label %28
@@ -544,7 +540,7 @@ define void @"_ZN10serde_json2de21Deserializer$LT$R$GT$13parse_integer17hf6384ad
   %27 = icmp eq i8 %17, 48
   br i1 %27, label %29, label %32
 
-28:                                               ; preds = %84, %81, %69, %._crit_edge, %50, %47, %46, %42, %23, %19
+28:                                               ; preds = %84, %82, %69, %._crit_edge, %50, %47, %46, %42, %23, %19
   ret void
 
 29:                                               ; preds = %26
@@ -560,10 +556,10 @@ define void @"_ZN10serde_json2de21Deserializer$LT$R$GT$13parse_integer17hf6384ad
   br i1 %or.cond1, label %53, label %50
 
 34:                                               ; preds = %29
-  %35 = getelementptr inbounds { [1 x i8], { i8, i8 } }, ptr %5, i64 0, i32 1
+  %35 = getelementptr inbounds i8, ptr %5, i64 1
   %36 = load i8, ptr %35, align 1, !range !9, !noundef !5
   %37 = icmp ne i8 %36, 0
-  %38 = getelementptr inbounds { [1 x i8], { i8, i8 } }, ptr %5, i64 0, i32 1, i32 1
+  %38 = getelementptr inbounds i8, ptr %5, i64 2
   %39 = load i8, ptr %38, align 2
   %40 = call i8 @"_ZN4core6option15Option$LT$T$GT$9unwrap_or17h19c1d4ae6b2291dfE"(i1 zeroext %37, i8 %39, i8 0)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %5)
@@ -572,10 +568,10 @@ define void @"_ZN10serde_json2de21Deserializer$LT$R$GT$13parse_integer17hf6384ad
   br i1 %or.cond, label %47, label %46
 
 42:                                               ; preds = %29
-  %43 = getelementptr inbounds { [1 x i64], ptr }, ptr %5, i64 0, i32 1
+  %43 = getelementptr inbounds i8, ptr %5, i64 8
   %44 = load ptr, ptr %43, align 8, !nonnull !5, !align !6, !noundef !5
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %5)
-  %45 = getelementptr inbounds { [1 x i64], ptr }, ptr %0, i64 0, i32 1
+  %45 = getelementptr inbounds i8, ptr %0, i64 8
   store ptr %44, ptr %45, align 8
   store i64 3, ptr %0, align 8
   br label %28
@@ -587,7 +583,7 @@ define void @"_ZN10serde_json2de21Deserializer$LT$R$GT$13parse_integer17hf6384ad
 47:                                               ; preds = %34
   store i64 13, ptr %8, align 8
   %48 = call align 8 ptr @"_ZN10serde_json2de21Deserializer$LT$R$GT$10peek_error17h94acb2c276ac062eE"(ptr align 8 %1, ptr nonnull align 8 %8)
-  %49 = getelementptr inbounds { [1 x i64], ptr }, ptr %0, i64 0, i32 1
+  %49 = getelementptr inbounds i8, ptr %0, i64 8
   store ptr %48, ptr %49, align 8
   store i64 3, ptr %0, align 8
   br label %28
@@ -595,7 +591,7 @@ define void @"_ZN10serde_json2de21Deserializer$LT$R$GT$13parse_integer17hf6384ad
 50:                                               ; preds = %32
   store i64 13, ptr %6, align 8
   %51 = call align 8 ptr @"_ZN10serde_json2de21Deserializer$LT$R$GT$5error17h53e53d942f9641bdE"(ptr align 8 %1, ptr nonnull align 8 %6)
-  %52 = getelementptr inbounds { [1 x i64], ptr }, ptr %0, i64 0, i32 1
+  %52 = getelementptr inbounds i8, ptr %0, i64 8
   store ptr %51, ptr %52, align 8
   store i64 3, ptr %0, align 8
   br label %28
@@ -610,8 +606,8 @@ define void @"_ZN10serde_json2de21Deserializer$LT$R$GT$13parse_integer17hf6384ad
 .lr.ph:                                           ; preds = %53
   %56 = add nsw i8 %17, -48
   %57 = zext nneg i8 %56 to i64
-  %58 = getelementptr inbounds { [1 x i8], { i8, i8 } }, ptr %4, i64 0, i32 1
-  %59 = getelementptr inbounds { [1 x i8], { i8, i8 } }, ptr %4, i64 0, i32 1, i32 1
+  %58 = getelementptr inbounds i8, ptr %4, i64 1
+  %59 = getelementptr inbounds i8, ptr %4, i64 2
   br label %60
 
 60:                                               ; preds = %.lr.ph, %.critedge14
@@ -626,10 +622,10 @@ define void @"_ZN10serde_json2de21Deserializer$LT$R$GT$13parse_integer17hf6384ad
   br i1 %or.cond2, label %70, label %69
 
 ._crit_edge:                                      ; preds = %.critedge14, %53
-  %66 = getelementptr inbounds { [1 x i64], ptr }, ptr %4, i64 0, i32 1
+  %66 = getelementptr inbounds i8, ptr %4, i64 8
   %67 = load ptr, ptr %66, align 8, !nonnull !5, !align !6, !noundef !5
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %4)
-  %68 = getelementptr inbounds { [1 x i64], ptr }, ptr %0, i64 0, i32 1
+  %68 = getelementptr inbounds i8, ptr %0, i64 8
   store ptr %67, ptr %68, align 8
   store i64 3, ptr %0, align 8
   br label %28
@@ -663,21 +659,20 @@ define void @"_ZN10serde_json2de21Deserializer$LT$R$GT$13parse_integer17hf6384ad
   call void @"_ZN10serde_json2de21Deserializer$LT$R$GT$18parse_long_integer17hd13ad894956ee110E"(ptr nonnull sret({ i64, [1 x i64] }) align 8 %7, ptr align 8 %1, i1 zeroext %2, i64 %.01032)
   %79 = load i64, ptr %7, align 8, !range !7, !noundef !5
   %80 = icmp eq i64 %79, 0
-  br i1 %80, label %81, label %84
+  %81 = getelementptr inbounds i8, ptr %7, i64 8
+  br i1 %80, label %82, label %84
 
-81:                                               ; preds = %.critedge
-  %82 = getelementptr inbounds { [1 x i64], double }, ptr %7, i64 0, i32 1
-  %83 = load double, ptr %82, align 8, !noundef !5
+82:                                               ; preds = %.critedge
+  %83 = load double, ptr %81, align 8, !noundef !5
   store i64 0, ptr %0, align 8
   %.sroa.29.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 8
   store double %83, ptr %.sroa.29.0..sroa_idx, align 8
   br label %28
 
 84:                                               ; preds = %.critedge
-  %85 = getelementptr inbounds { [1 x i64], ptr }, ptr %7, i64 0, i32 1
-  %86 = load ptr, ptr %85, align 8, !nonnull !5, !align !6, !noundef !5
-  %87 = getelementptr inbounds { [1 x i64], ptr }, ptr %0, i64 0, i32 1
-  store ptr %86, ptr %87, align 8
+  %85 = load ptr, ptr %81, align 8, !nonnull !5, !align !6, !noundef !5
+  %86 = getelementptr inbounds i8, ptr %0, i64 8
+  store ptr %85, ptr %86, align 8
   store i64 3, ptr %0, align 8
   br label %28
 }
@@ -694,89 +689,87 @@ define void @"_ZN10serde_json2de21Deserializer$LT$R$GT$12parse_number17ha396ed5b
   br i1 %9, label %10, label %17
 
 10:                                               ; preds = %4
-  %11 = getelementptr inbounds { [1 x i8], { i8, i8 } }, ptr %5, i64 0, i32 1
+  %11 = getelementptr inbounds i8, ptr %5, i64 1
   %12 = load i8, ptr %11, align 1, !range !9, !noundef !5
   %13 = icmp ne i8 %12, 0
-  %14 = getelementptr inbounds { [1 x i8], { i8, i8 } }, ptr %5, i64 0, i32 1, i32 1
+  %14 = getelementptr inbounds i8, ptr %5, i64 2
   %15 = load i8, ptr %14, align 2
   %16 = call i8 @"_ZN4core6option15Option$LT$T$GT$9unwrap_or17h19c1d4ae6b2291dfE"(i1 zeroext %13, i8 %15, i8 0)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %5)
   switch i8 %16, label %21 [
     i8 46, label %22
-    i8 101, label %25
-    i8 69, label %25
+    i8 101, label %26
+    i8 69, label %26
   ]
 
 17:                                               ; preds = %4
-  %18 = getelementptr inbounds { [1 x i64], ptr }, ptr %5, i64 0, i32 1
+  %18 = getelementptr inbounds i8, ptr %5, i64 8
   %19 = load ptr, ptr %18, align 8, !nonnull !5, !align !6, !noundef !5
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %5)
-  %20 = getelementptr inbounds { [1 x i64], ptr }, ptr %0, i64 0, i32 1
+  %20 = getelementptr inbounds i8, ptr %0, i64 8
   store ptr %19, ptr %20, align 8
   store i64 3, ptr %0, align 8
   br label %36
 
 21:                                               ; preds = %10
-  br i1 %2, label %35, label %44
+  br i1 %2, label %35, label %42
 
 22:                                               ; preds = %10
   call void @"_ZN10serde_json2de21Deserializer$LT$R$GT$13parse_decimal17h7f8c99081e9d6e65E"(ptr nonnull sret({ i64, [1 x i64] }) align 8 %7, ptr align 8 %1, i1 zeroext %2, i64 %3, i32 0)
   %23 = load i64, ptr %7, align 8, !range !7, !noundef !5
   %24 = icmp eq i64 %23, 0
-  br i1 %24, label %28, label %31
+  %25 = getelementptr inbounds i8, ptr %7, i64 8
+  br i1 %24, label %30, label %32
 
-25:                                               ; preds = %10, %10
+26:                                               ; preds = %10, %10
   call void @"_ZN10serde_json2de21Deserializer$LT$R$GT$14parse_exponent17he9552a2fe3a129ddE"(ptr nonnull sret({ i64, [1 x i64] }) align 8 %6, ptr align 8 %1, i1 zeroext %2, i64 %3, i32 0)
-  %26 = load i64, ptr %6, align 8, !range !7, !noundef !5
-  %27 = icmp eq i64 %26, 0
-  br i1 %27, label %37, label %40
+  %27 = load i64, ptr %6, align 8, !range !7, !noundef !5
+  %28 = icmp eq i64 %27, 0
+  %29 = getelementptr inbounds i8, ptr %6, i64 8
+  br i1 %28, label %37, label %39
 
-28:                                               ; preds = %22
-  %29 = getelementptr inbounds { [1 x i64], double }, ptr %7, i64 0, i32 1
-  %30 = load i64, ptr %29, align 8, !noundef !5
+30:                                               ; preds = %22
+  %31 = load i64, ptr %25, align 8, !noundef !5
   br label %35
 
-31:                                               ; preds = %22
-  %32 = getelementptr inbounds { [1 x i64], ptr }, ptr %7, i64 0, i32 1
-  %33 = load ptr, ptr %32, align 8, !nonnull !5, !align !6, !noundef !5
-  %34 = getelementptr inbounds { [1 x i64], ptr }, ptr %0, i64 0, i32 1
+32:                                               ; preds = %22
+  %33 = load ptr, ptr %25, align 8, !nonnull !5, !align !6, !noundef !5
+  %34 = getelementptr inbounds i8, ptr %0, i64 8
   store ptr %33, ptr %34, align 8
   store i64 3, ptr %0, align 8
   br label %36
 
-35:                                               ; preds = %44, %21, %47, %37, %28
-  %.sroa.6.0 = phi i64 [ %50, %47 ], [ %39, %37 ], [ %30, %28 ], [ %3, %21 ], [ %45, %44 ]
-  %.sroa.0.0 = phi i64 [ 0, %47 ], [ 0, %37 ], [ 0, %28 ], [ 1, %21 ], [ 2, %44 ]
+35:                                               ; preds = %42, %21, %45, %37, %30
+  %.sroa.6.0 = phi i64 [ %48, %45 ], [ %38, %37 ], [ %31, %30 ], [ %3, %21 ], [ %43, %42 ]
+  %.sroa.0.0 = phi i64 [ 0, %45 ], [ 0, %37 ], [ 0, %30 ], [ 1, %21 ], [ 2, %42 ]
   store i64 %.sroa.0.0, ptr %0, align 8
   %.sroa.6.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 8
   store i64 %.sroa.6.0, ptr %.sroa.6.0..sroa_idx, align 8
   br label %36
 
-36:                                               ; preds = %40, %35, %31, %17
+36:                                               ; preds = %39, %35, %32, %17
   ret void
 
-37:                                               ; preds = %25
-  %38 = getelementptr inbounds { [1 x i64], double }, ptr %6, i64 0, i32 1
-  %39 = load i64, ptr %38, align 8, !noundef !5
+37:                                               ; preds = %26
+  %38 = load i64, ptr %29, align 8, !noundef !5
   br label %35
 
-40:                                               ; preds = %25
-  %41 = getelementptr inbounds { [1 x i64], ptr }, ptr %6, i64 0, i32 1
-  %42 = load ptr, ptr %41, align 8, !nonnull !5, !align !6, !noundef !5
-  %43 = getelementptr inbounds { [1 x i64], ptr }, ptr %0, i64 0, i32 1
-  store ptr %42, ptr %43, align 8
+39:                                               ; preds = %26
+  %40 = load ptr, ptr %29, align 8, !nonnull !5, !align !6, !noundef !5
+  %41 = getelementptr inbounds i8, ptr %0, i64 8
+  store ptr %40, ptr %41, align 8
   store i64 3, ptr %0, align 8
   br label %36
 
-44:                                               ; preds = %21
-  %45 = sub i64 0, %3
-  %46 = icmp sgt i64 %45, -1
-  br i1 %46, label %47, label %35
+42:                                               ; preds = %21
+  %43 = sub i64 0, %3
+  %44 = icmp sgt i64 %43, -1
+  br i1 %44, label %45, label %35
 
-47:                                               ; preds = %44
-  %48 = uitofp i64 %3 to double
-  %49 = fneg double %48
-  %50 = bitcast double %49 to i64
+45:                                               ; preds = %42
+  %46 = uitofp i64 %3 to double
+  %47 = fneg double %46
+  %48 = bitcast double %47 to i64
   br label %35
 }
 
@@ -795,8 +788,8 @@ define void @"_ZN10serde_json2de21Deserializer$LT$R$GT$13parse_decimal17h7f8c990
   br i1 %12, label %.lr.ph, label %._crit_edge
 
 .lr.ph:                                           ; preds = %5
-  %13 = getelementptr inbounds { [1 x i8], { i8, i8 } }, ptr %7, i64 0, i32 1
-  %14 = getelementptr inbounds { [1 x i8], { i8, i8 } }, ptr %7, i64 0, i32 1, i32 1
+  %13 = getelementptr inbounds i8, ptr %7, i64 1
+  %14 = getelementptr inbounds i8, ptr %7, i64 2
   br label %15
 
 15:                                               ; preds = %.lr.ph, %.critedge15
@@ -812,10 +805,10 @@ define void @"_ZN10serde_json2de21Deserializer$LT$R$GT$13parse_decimal17h7f8c990
   br i1 %or.cond, label %26, label %24
 
 ._crit_edge:                                      ; preds = %.critedge15, %5
-  %21 = getelementptr inbounds { [1 x i64], ptr }, ptr %7, i64 0, i32 1
+  %21 = getelementptr inbounds i8, ptr %7, i64 8
   %22 = load ptr, ptr %21, align 8, !nonnull !5, !align !6, !noundef !5
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %7)
-  %23 = getelementptr inbounds { [1 x i64], ptr }, ptr %0, i64 0, i32 1
+  %23 = getelementptr inbounds i8, ptr %0, i64 8
   store ptr %22, ptr %23, align 8
   store i64 1, ptr %0, align 8
   br label %49
@@ -844,16 +837,16 @@ define void @"_ZN10serde_json2de21Deserializer$LT$R$GT$13parse_decimal17h7f8c990
   br i1 %35, label %50, label %57
 
 36:                                               ; preds = %29
-  %37 = getelementptr inbounds { [1 x i8], { i8, i8 } }, ptr %10, i64 0, i32 1
+  %37 = getelementptr inbounds i8, ptr %10, i64 1
   %38 = load i8, ptr %37, align 1, !range !9, !noundef !5
   %39 = icmp eq i8 %38, 0
-  %40 = getelementptr inbounds { [1 x i64], ptr }, ptr %0, i64 0, i32 1
+  %40 = getelementptr inbounds i8, ptr %0, i64 8
   br i1 %39, label %45, label %47
 
 41:                                               ; preds = %29
-  %42 = getelementptr inbounds { [1 x i64], ptr }, ptr %10, i64 0, i32 1
+  %42 = getelementptr inbounds i8, ptr %10, i64 8
   %43 = load ptr, ptr %42, align 8, !nonnull !5, !align !6, !noundef !5
-  %44 = getelementptr inbounds { [1 x i64], ptr }, ptr %0, i64 0, i32 1
+  %44 = getelementptr inbounds i8, ptr %0, i64 8
   store ptr %43, ptr %44, align 8
   store i64 1, ptr %0, align 8
   br label %49
@@ -876,10 +869,10 @@ define void @"_ZN10serde_json2de21Deserializer$LT$R$GT$13parse_decimal17h7f8c990
   ret void
 
 50:                                               ; preds = %32
-  %51 = getelementptr inbounds { [1 x i8], { i8, i8 } }, ptr %6, i64 0, i32 1
+  %51 = getelementptr inbounds i8, ptr %6, i64 1
   %52 = load i8, ptr %51, align 1, !range !9, !noundef !5
   %53 = icmp ne i8 %52, 0
-  %54 = getelementptr inbounds { [1 x i8], { i8, i8 } }, ptr %6, i64 0, i32 1, i32 1
+  %54 = getelementptr inbounds i8, ptr %6, i64 2
   %55 = load i8, ptr %54, align 2
   %56 = call i8 @"_ZN4core6option15Option$LT$T$GT$9unwrap_or17h19c1d4ae6b2291dfE"(i1 zeroext %53, i8 %55, i8 0)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %6)
@@ -889,10 +882,10 @@ define void @"_ZN10serde_json2de21Deserializer$LT$R$GT$13parse_decimal17h7f8c990
   ]
 
 57:                                               ; preds = %32
-  %58 = getelementptr inbounds { [1 x i64], ptr }, ptr %6, i64 0, i32 1
+  %58 = getelementptr inbounds i8, ptr %6, i64 8
   %59 = load ptr, ptr %58, align 8, !nonnull !5, !align !6, !noundef !5
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %6)
-  %60 = getelementptr inbounds { [1 x i64], ptr }, ptr %0, i64 0, i32 1
+  %60 = getelementptr inbounds i8, ptr %0, i64 8
   store ptr %59, ptr %60, align 8
   store i64 1, ptr %0, align 8
   br label %49
@@ -943,10 +936,10 @@ define void @"_ZN10serde_json2de21Deserializer$LT$R$GT$14parse_exponent17he9552a
   br i1 %12, label %13, label %20
 
 13:                                               ; preds = %5
-  %14 = getelementptr inbounds { [1 x i8], { i8, i8 } }, ptr %7, i64 0, i32 1
+  %14 = getelementptr inbounds i8, ptr %7, i64 1
   %15 = load i8, ptr %14, align 1, !range !9, !noundef !5
   %16 = icmp ne i8 %15, 0
-  %17 = getelementptr inbounds { [1 x i8], { i8, i8 } }, ptr %7, i64 0, i32 1, i32 1
+  %17 = getelementptr inbounds i8, ptr %7, i64 2
   %18 = load i8, ptr %17, align 2
   %19 = call i8 @"_ZN4core6option15Option$LT$T$GT$9unwrap_or17h19c1d4ae6b2291dfE"(i1 zeroext %16, i8 %18, i8 0)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %7)
@@ -956,10 +949,10 @@ define void @"_ZN10serde_json2de21Deserializer$LT$R$GT$14parse_exponent17he9552a
   ]
 
 20:                                               ; preds = %5
-  %21 = getelementptr inbounds { [1 x i64], ptr }, ptr %7, i64 0, i32 1
+  %21 = getelementptr inbounds i8, ptr %7, i64 8
   %22 = load ptr, ptr %21, align 8, !nonnull !5, !align !6, !noundef !5
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %7)
-  %23 = getelementptr inbounds { [1 x i64], ptr }, ptr %0, i64 0, i32 1
+  %23 = getelementptr inbounds i8, ptr %0, i64 8
   store ptr %22, ptr %23, align 8
   store i64 1, ptr %0, align 8
   br label %43
@@ -980,15 +973,15 @@ define void @"_ZN10serde_json2de21Deserializer$LT$R$GT$14parse_exponent17he9552a
   br i1 %27, label %28, label %32
 
 28:                                               ; preds = %25
-  %29 = getelementptr inbounds { [1 x i8], { i8, i8 } }, ptr %10, i64 0, i32 1
+  %29 = getelementptr inbounds i8, ptr %10, i64 1
   %30 = load i8, ptr %29, align 1, !range !9, !noundef !5
   %31 = icmp eq i8 %30, 0
   br i1 %31, label %36, label %39
 
 32:                                               ; preds = %25
-  %33 = getelementptr inbounds { [1 x i64], ptr }, ptr %10, i64 0, i32 1
+  %33 = getelementptr inbounds i8, ptr %10, i64 8
   %34 = load ptr, ptr %33, align 8, !nonnull !5, !align !6, !noundef !5
-  %35 = getelementptr inbounds { [1 x i64], ptr }, ptr %0, i64 0, i32 1
+  %35 = getelementptr inbounds i8, ptr %0, i64 8
   store ptr %34, ptr %35, align 8
   store i64 1, ptr %0, align 8
   br label %43
@@ -996,13 +989,13 @@ define void @"_ZN10serde_json2de21Deserializer$LT$R$GT$14parse_exponent17he9552a
 36:                                               ; preds = %28
   store i64 5, ptr %9, align 8
   %37 = call align 8 ptr @"_ZN10serde_json2de21Deserializer$LT$R$GT$5error17h53e53d942f9641bdE"(ptr align 8 %1, ptr nonnull align 8 %9)
-  %38 = getelementptr inbounds { [1 x i64], ptr }, ptr %0, i64 0, i32 1
+  %38 = getelementptr inbounds i8, ptr %0, i64 8
   store ptr %37, ptr %38, align 8
   store i64 1, ptr %0, align 8
   br label %43
 
 39:                                               ; preds = %28
-  %40 = getelementptr inbounds { [1 x i8], { i8, i8 } }, ptr %10, i64 0, i32 1, i32 1
+  %40 = getelementptr inbounds i8, ptr %10, i64 2
   %41 = load i8, ptr %40, align 2
   %42 = add i8 %41, -48
   %or.cond = icmp ult i8 %42, 10
@@ -1014,7 +1007,7 @@ define void @"_ZN10serde_json2de21Deserializer$LT$R$GT$14parse_exponent17he9552a
 44:                                               ; preds = %39
   store i64 13, ptr %8, align 8
   %45 = call align 8 ptr @"_ZN10serde_json2de21Deserializer$LT$R$GT$5error17h53e53d942f9641bdE"(ptr align 8 %1, ptr nonnull align 8 %8)
-  %46 = getelementptr inbounds { [1 x i64], ptr }, ptr %0, i64 0, i32 1
+  %46 = getelementptr inbounds i8, ptr %0, i64 8
   store ptr %45, ptr %46, align 8
   store i64 1, ptr %0, align 8
   br label %43
@@ -1028,8 +1021,8 @@ define void @"_ZN10serde_json2de21Deserializer$LT$R$GT$14parse_exponent17he9552a
 
 .lr.ph:                                           ; preds = %47
   %50 = zext nneg i8 %42 to i32
-  %51 = getelementptr inbounds { [1 x i8], { i8, i8 } }, ptr %6, i64 0, i32 1
-  %52 = getelementptr inbounds { [1 x i8], { i8, i8 } }, ptr %6, i64 0, i32 1, i32 1
+  %51 = getelementptr inbounds i8, ptr %6, i64 1
+  %52 = getelementptr inbounds i8, ptr %6, i64 2
   br label %53
 
 53:                                               ; preds = %.lr.ph, %.critedge18
@@ -1044,10 +1037,10 @@ define void @"_ZN10serde_json2de21Deserializer$LT$R$GT$14parse_exponent17he9552a
   br i1 %or.cond1, label %63, label %62
 
 ._crit_edge:                                      ; preds = %.critedge18, %47
-  %59 = getelementptr inbounds { [1 x i64], ptr }, ptr %6, i64 0, i32 1
+  %59 = getelementptr inbounds i8, ptr %6, i64 8
   %60 = load ptr, ptr %59, align 8, !nonnull !5, !align !6, !noundef !5
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %6)
-  %61 = getelementptr inbounds { [1 x i64], ptr }, ptr %0, i64 0, i32 1
+  %61 = getelementptr inbounds i8, ptr %0, i64 8
   store ptr %60, ptr %61, align 8
   store i64 1, ptr %0, align 8
   br label %43
@@ -1128,7 +1121,7 @@ define void @"_ZN10serde_json2de21Deserializer$LT$R$GT$14f64_from_parts17h4957b4
   %.1 = phi double [ %34, %33 ], [ %32, %31 ], [ %.01321, %.lr.ph ]
   %18 = fneg double %.1
   %.014 = select i1 %2, double %.1, double %18
-  %19 = getelementptr inbounds { [1 x i64], double }, ptr %0, i64 0, i32 1
+  %19 = getelementptr inbounds i8, ptr %0, i64 8
   store double %.014, ptr %19, align 8
   br label %30
 
@@ -1144,7 +1137,7 @@ define void @"_ZN10serde_json2de21Deserializer$LT$R$GT$14f64_from_parts17h4957b4
 27:                                               ; preds = %16
   store i64 14, ptr %6, align 8
   %28 = call align 8 ptr @"_ZN10serde_json2de21Deserializer$LT$R$GT$5error17h53e53d942f9641bdE"(ptr align 8 %1, ptr nonnull align 8 %6)
-  %29 = getelementptr inbounds { [1 x i64], ptr }, ptr %0, i64 0, i32 1
+  %29 = getelementptr inbounds i8, ptr %0, i64 8
   store ptr %28, ptr %29, align 8
   br label %30
 
@@ -1165,7 +1158,7 @@ define void @"_ZN10serde_json2de21Deserializer$LT$R$GT$14f64_from_parts17h4957b4
 36:                                               ; preds = %33
   store i64 14, ptr %7, align 8
   %37 = call align 8 ptr @"_ZN10serde_json2de21Deserializer$LT$R$GT$5error17h53e53d942f9641bdE"(ptr align 8 %1, ptr nonnull align 8 %7)
-  %38 = getelementptr inbounds { [1 x i64], ptr }, ptr %0, i64 0, i32 1
+  %38 = getelementptr inbounds i8, ptr %0, i64 8
   store ptr %37, ptr %38, align 8
   br label %30
 }
@@ -1180,8 +1173,8 @@ define void @"_ZN10serde_json2de21Deserializer$LT$R$GT$18parse_long_integer17hd1
   br i1 %7, label %.lr.ph, label %._crit_edge
 
 .lr.ph:                                           ; preds = %4
-  %8 = getelementptr inbounds { [1 x i8], { i8, i8 } }, ptr %5, i64 0, i32 1
-  %9 = getelementptr inbounds { [1 x i8], { i8, i8 } }, ptr %5, i64 0, i32 1, i32 1
+  %8 = getelementptr inbounds i8, ptr %5, i64 1
+  %9 = getelementptr inbounds i8, ptr %5, i64 2
   br label %10
 
 10:                                               ; preds = %.lr.ph, %20
@@ -1196,10 +1189,10 @@ define void @"_ZN10serde_json2de21Deserializer$LT$R$GT$18parse_long_integer17hd1
   br i1 %or.cond, label %20, label %19
 
 ._crit_edge:                                      ; preds = %20, %4
-  %16 = getelementptr inbounds { [1 x i64], ptr }, ptr %5, i64 0, i32 1
+  %16 = getelementptr inbounds i8, ptr %5, i64 8
   %17 = load ptr, ptr %16, align 8, !nonnull !5, !align !6, !noundef !5
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %5)
-  %18 = getelementptr inbounds { [1 x i64], ptr }, ptr %0, i64 0, i32 1
+  %18 = getelementptr inbounds i8, ptr %0, i64 8
   store ptr %17, ptr %18, align 8
   store i64 1, ptr %0, align 8
   br label %27
@@ -1247,8 +1240,8 @@ define void @"_ZN10serde_json2de21Deserializer$LT$R$GT$22parse_decimal_overflow1
   br i1 %9, label %.lr.ph, label %._crit_edge
 
 .lr.ph:                                           ; preds = %5
-  %10 = getelementptr inbounds { [1 x i8], { i8, i8 } }, ptr %7, i64 0, i32 1
-  %11 = getelementptr inbounds { [1 x i8], { i8, i8 } }, ptr %7, i64 0, i32 1, i32 1
+  %10 = getelementptr inbounds i8, ptr %7, i64 1
+  %11 = getelementptr inbounds i8, ptr %7, i64 2
   br label %12
 
 12:                                               ; preds = %.lr.ph, %24
@@ -1262,10 +1255,10 @@ define void @"_ZN10serde_json2de21Deserializer$LT$R$GT$22parse_decimal_overflow1
   br i1 %or.cond, label %24, label %21
 
 ._crit_edge:                                      ; preds = %24, %5
-  %18 = getelementptr inbounds { [1 x i64], ptr }, ptr %7, i64 0, i32 1
+  %18 = getelementptr inbounds i8, ptr %7, i64 8
   %19 = load ptr, ptr %18, align 8, !nonnull !5, !align !6, !noundef !5
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %7)
-  %20 = getelementptr inbounds { [1 x i64], ptr }, ptr %0, i64 0, i32 1
+  %20 = getelementptr inbounds i8, ptr %0, i64 8
   store ptr %19, ptr %20, align 8
   store i64 1, ptr %0, align 8
   br label %40
@@ -1286,10 +1279,10 @@ define void @"_ZN10serde_json2de21Deserializer$LT$R$GT$22parse_decimal_overflow1
   br i1 %26, label %12, label %._crit_edge
 
 27:                                               ; preds = %21
-  %28 = getelementptr inbounds { [1 x i8], { i8, i8 } }, ptr %6, i64 0, i32 1
+  %28 = getelementptr inbounds i8, ptr %6, i64 1
   %29 = load i8, ptr %28, align 1, !range !9, !noundef !5
   %30 = icmp ne i8 %29, 0
-  %31 = getelementptr inbounds { [1 x i8], { i8, i8 } }, ptr %6, i64 0, i32 1, i32 1
+  %31 = getelementptr inbounds i8, ptr %6, i64 2
   %32 = load i8, ptr %31, align 2
   %33 = call i8 @"_ZN4core6option15Option$LT$T$GT$9unwrap_or17h19c1d4ae6b2291dfE"(i1 zeroext %30, i8 %32, i8 0)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %6)
@@ -1299,10 +1292,10 @@ define void @"_ZN10serde_json2de21Deserializer$LT$R$GT$22parse_decimal_overflow1
   ]
 
 34:                                               ; preds = %21
-  %35 = getelementptr inbounds { [1 x i64], ptr }, ptr %6, i64 0, i32 1
+  %35 = getelementptr inbounds i8, ptr %6, i64 8
   %36 = load ptr, ptr %35, align 8, !nonnull !5, !align !6, !noundef !5
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %6)
-  %37 = getelementptr inbounds { [1 x i64], ptr }, ptr %0, i64 0, i32 1
+  %37 = getelementptr inbounds i8, ptr %0, i64 8
   store ptr %36, ptr %37, align 8
   store i64 1, ptr %0, align 8
   br label %40
@@ -1335,14 +1328,14 @@ define void @"_ZN10serde_json2de21Deserializer$LT$R$GT$23parse_exponent_overflow
   br i1 %9, label %.lr.ph, label %._crit_edge
 
 .lr.ph:                                           ; preds = %.preheader
-  %10 = getelementptr inbounds { [1 x i8], { i8, i8 } }, ptr %6, i64 0, i32 1
-  %11 = getelementptr inbounds { [1 x i8], { i8, i8 } }, ptr %6, i64 0, i32 1, i32 1
+  %10 = getelementptr inbounds i8, ptr %6, i64 1
+  %11 = getelementptr inbounds i8, ptr %6, i64 2
   br label %16
 
 12:                                               ; preds = %5
   store i64 14, ptr %7, align 8
   %13 = call align 8 ptr @"_ZN10serde_json2de21Deserializer$LT$R$GT$5error17h53e53d942f9641bdE"(ptr align 8 %1, ptr nonnull align 8 %7)
-  %14 = getelementptr inbounds { [1 x i64], ptr }, ptr %0, i64 0, i32 1
+  %14 = getelementptr inbounds i8, ptr %0, i64 8
   store ptr %13, ptr %14, align 8
   br label %15
 
@@ -1362,16 +1355,16 @@ define void @"_ZN10serde_json2de21Deserializer$LT$R$GT$23parse_exponent_overflow
   br i1 %or.cond, label %27, label %25
 
 ._crit_edge:                                      ; preds = %27, %.preheader
-  %22 = getelementptr inbounds { [1 x i64], ptr }, ptr %6, i64 0, i32 1
+  %22 = getelementptr inbounds i8, ptr %6, i64 8
   %23 = load ptr, ptr %22, align 8, !nonnull !5, !align !6, !noundef !5
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %6)
-  %24 = getelementptr inbounds { [1 x i64], ptr }, ptr %0, i64 0, i32 1
+  %24 = getelementptr inbounds i8, ptr %0, i64 8
   store ptr %23, ptr %24, align 8
   br label %15
 
 25:                                               ; preds = %16
   %. = select i1 %2, double 0.000000e+00, double -0.000000e+00
-  %26 = getelementptr inbounds { [1 x i64], double }, ptr %0, i64 0, i32 1
+  %26 = getelementptr inbounds i8, ptr %0, i64 8
   store double %., ptr %26, align 8
   br label %15
 
@@ -1398,17 +1391,17 @@ define hidden void @"_ZN10serde_json2de21Deserializer$LT$R$GT$23parse_any_signed
   br i1 %10, label %11, label %17
 
 11:                                               ; preds = %2
-  %12 = getelementptr inbounds { [1 x i8], { i8, i8 } }, ptr %8, i64 0, i32 1
+  %12 = getelementptr inbounds i8, ptr %8, i64 1
   %13 = load i8, ptr %12, align 1, !range !9, !noundef !5
-  %14 = getelementptr inbounds { [1 x i8], { i8, i8 } }, ptr %8, i64 0, i32 1, i32 1
+  %14 = getelementptr inbounds i8, ptr %8, i64 2
   %15 = load i8, ptr %14, align 2
   %16 = icmp eq i8 %13, 0
   br i1 %16, label %21, label %24
 
 17:                                               ; preds = %2
-  %18 = getelementptr inbounds { [1 x i64], ptr }, ptr %8, i64 0, i32 1
+  %18 = getelementptr inbounds i8, ptr %8, i64 8
   %19 = load ptr, ptr %18, align 8, !nonnull !5, !align !6, !noundef !5
-  %20 = getelementptr inbounds { [1 x i64], ptr }, ptr %0, i64 0, i32 1
+  %20 = getelementptr inbounds i8, ptr %0, i64 8
   store ptr %19, ptr %20, align 8
   store i64 3, ptr %0, align 8
   br label %26
@@ -1416,7 +1409,7 @@ define hidden void @"_ZN10serde_json2de21Deserializer$LT$R$GT$23parse_any_signed
 21:                                               ; preds = %11
   store i64 5, ptr %7, align 8
   %22 = call align 8 ptr @"_ZN10serde_json2de21Deserializer$LT$R$GT$10peek_error17h94acb2c276ac062eE"(ptr align 8 %1, ptr nonnull align 8 %7)
-  %23 = getelementptr inbounds { [1 x i64], ptr }, ptr %0, i64 0, i32 1
+  %23 = getelementptr inbounds i8, ptr %0, i64 8
   store ptr %22, ptr %23, align 8
   store i64 3, ptr %0, align 8
   br label %26
@@ -1445,7 +1438,7 @@ define hidden void @"_ZN10serde_json2de21Deserializer$LT$R$GT$23parse_any_signed
 31:                                               ; preds = %28
   store i64 13, ptr %5, align 8
   %32 = call align 8 ptr @"_ZN10serde_json2de21Deserializer$LT$R$GT$10peek_error17h94acb2c276ac062eE"(ptr align 8 %1, ptr nonnull align 8 %5)
-  %33 = getelementptr inbounds { [1 x i64], ptr }, ptr %6, i64 0, i32 1
+  %33 = getelementptr inbounds i8, ptr %6, i64 8
   store ptr %32, ptr %33, align 8
   store i64 3, ptr %6, align 8
   br label %30
@@ -1470,15 +1463,15 @@ define hidden void @"_ZN10serde_json2de21Deserializer$LT$R$GT$23parse_any_signed
   br i1 %39, label %40, label %44
 
 40:                                               ; preds = %"_ZN10serde_json2de21Deserializer$LT$R$GT$4peek17h35cc30698cc9716bE.exit"
-  %41 = getelementptr inbounds { [1 x i8], { i8, i8 } }, ptr %4, i64 0, i32 1
+  %41 = getelementptr inbounds i8, ptr %4, i64 1
   %42 = load i8, ptr %41, align 1, !range !9, !noundef !5
   %43 = icmp eq i8 %42, 0
   br i1 %43, label %50, label %48
 
 44:                                               ; preds = %"_ZN10serde_json2de21Deserializer$LT$R$GT$4peek17h35cc30698cc9716bE.exit"
-  %45 = getelementptr inbounds { [1 x i64], ptr }, ptr %4, i64 0, i32 1
+  %45 = getelementptr inbounds i8, ptr %4, i64 8
   %46 = load ptr, ptr %45, align 8, !nonnull !5, !align !6, !noundef !5
-  %47 = getelementptr inbounds { [1 x i64], ptr }, ptr %0, i64 0, i32 1
+  %47 = getelementptr inbounds i8, ptr %0, i64 8
   store ptr %46, ptr %47, align 8
   store i64 3, ptr %0, align 8
   call void @"_ZN4core3ptr104drop_in_place$LT$core..result..Result$LT$serde_json..de..ParserNumber$C$serde_json..error..Error$GT$$GT$17hf31635a85a3002a7E"(ptr nonnull align 8 %6)
@@ -1512,7 +1505,7 @@ define hidden void @"_ZN10serde_json2de21Deserializer$LT$R$GT$23parse_any_signed
           to label %54 unwind label %35
 
 54:                                               ; preds = %.thread19
-  %55 = getelementptr inbounds { [1 x i64], ptr }, ptr %0, i64 0, i32 1
+  %55 = getelementptr inbounds i8, ptr %0, i64 8
   store ptr %53, ptr %55, align 8
   store i64 3, ptr %0, align 8
   br i1 %43, label %26, label %56
@@ -1555,8 +1548,8 @@ define align 8 ptr @"_ZN10serde_json2de21Deserializer$LT$R$GT$18parse_object_col
   br i1 %6, label %.lr.ph.i, label %.loopexit
 
 .lr.ph.i:                                         ; preds = %1
-  %7 = getelementptr inbounds { [1 x i8], { i8, i8 } }, ptr %2, i64 0, i32 1
-  %8 = getelementptr inbounds { [1 x i8], { i8, i8 } }, ptr %2, i64 0, i32 1, i32 1
+  %7 = getelementptr inbounds i8, ptr %2, i64 1
+  %8 = getelementptr inbounds i8, ptr %2, i64 2
   br label %9
 
 9:                                                ; preds = %13, %.lr.ph.i
@@ -1581,7 +1574,7 @@ define align 8 ptr @"_ZN10serde_json2de21Deserializer$LT$R$GT$18parse_object_col
   br i1 %15, label %9, label %.loopexit
 
 .loopexit:                                        ; preds = %13, %1
-  %16 = getelementptr inbounds { [1 x i64], ptr }, ptr %2, i64 0, i32 1
+  %16 = getelementptr inbounds i8, ptr %2, i64 8
   %17 = load ptr, ptr %16, align 8, !nonnull !5, !align !6, !noundef !5
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %2)
   br label %22
@@ -1627,8 +1620,8 @@ define align 8 ptr @"_ZN10serde_json2de21Deserializer$LT$R$GT$7end_seq17h0936a57
   br i1 %10, label %.lr.ph.i, label %.loopexit
 
 .lr.ph.i:                                         ; preds = %1
-  %11 = getelementptr inbounds { [1 x i8], { i8, i8 } }, ptr %3, i64 0, i32 1
-  %12 = getelementptr inbounds { [1 x i8], { i8, i8 } }, ptr %3, i64 0, i32 1, i32 1
+  %11 = getelementptr inbounds i8, ptr %3, i64 1
+  %12 = getelementptr inbounds i8, ptr %3, i64 2
   br label %13
 
 13:                                               ; preds = %17, %.lr.ph.i
@@ -1653,7 +1646,7 @@ define align 8 ptr @"_ZN10serde_json2de21Deserializer$LT$R$GT$7end_seq17h0936a57
   br i1 %19, label %13, label %.loopexit
 
 .loopexit:                                        ; preds = %17, %1
-  %20 = getelementptr inbounds { [1 x i64], ptr }, ptr %3, i64 0, i32 1
+  %20 = getelementptr inbounds i8, ptr %3, i64 8
   %21 = load ptr, ptr %20, align 8, !nonnull !5, !align !6, !noundef !5
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %3)
   br label %25
@@ -1693,8 +1686,8 @@ define align 8 ptr @"_ZN10serde_json2de21Deserializer$LT$R$GT$7end_seq17h0936a57
   br i1 %31, label %.lr.ph.i8, label %"_ZN10serde_json2de21Deserializer$LT$R$GT$16parse_whitespace17h8b3a6c5c6383c684E.exit11"
 
 .lr.ph.i8:                                        ; preds = %29
-  %32 = getelementptr inbounds { [1 x i8], { i8, i8 } }, ptr %2, i64 0, i32 1
-  %33 = getelementptr inbounds { [1 x i8], { i8, i8 } }, ptr %2, i64 0, i32 1, i32 1
+  %32 = getelementptr inbounds i8, ptr %2, i64 1
+  %33 = getelementptr inbounds i8, ptr %2, i64 2
   br label %34
 
 34:                                               ; preds = %40, %.lr.ph.i8
@@ -1704,9 +1697,9 @@ define align 8 ptr @"_ZN10serde_json2de21Deserializer$LT$R$GT$7end_seq17h0936a57
   br i1 %.not.i9.not.not, label %.thread, label %39
 
 .thread:                                          ; preds = %34
-  %37 = getelementptr inbounds { [1 x i8], { i8, i8 } }, ptr %8, i64 0, i32 1
+  %37 = getelementptr inbounds i8, ptr %8, i64 1
   store i8 0, ptr %37, align 1
-  %38 = getelementptr inbounds { [1 x i8], { i8, i8 } }, ptr %8, i64 0, i32 1, i32 1
+  %38 = getelementptr inbounds i8, ptr %8, i64 2
   store i8 %36, ptr %38, align 2
   store i8 0, ptr %8, align 8
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %2)
@@ -1728,18 +1721,18 @@ define align 8 ptr @"_ZN10serde_json2de21Deserializer$LT$R$GT$7end_seq17h0936a57
   br i1 %42, label %34, label %"_ZN10serde_json2de21Deserializer$LT$R$GT$16parse_whitespace17h8b3a6c5c6383c684E.exit11"
 
 "_ZN10serde_json2de21Deserializer$LT$R$GT$16parse_whitespace17h8b3a6c5c6383c684E.exit11": ; preds = %40, %29
-  %43 = getelementptr inbounds { [1 x i64], ptr }, ptr %2, i64 0, i32 1
+  %43 = getelementptr inbounds i8, ptr %2, i64 8
   %44 = load ptr, ptr %43, align 8, !nonnull !5, !align !6, !noundef !5
-  %45 = getelementptr inbounds { [1 x i64], ptr }, ptr %8, i64 0, i32 1
+  %45 = getelementptr inbounds i8, ptr %8, i64 8
   store ptr %44, ptr %45, align 8
   store i8 1, ptr %8, align 8
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %2)
   br label %50
 
 46:                                               ; preds = %39
-  %47 = getelementptr inbounds { [1 x i8], { i8, i8 } }, ptr %8, i64 0, i32 1
+  %47 = getelementptr inbounds i8, ptr %8, i64 1
   store i8 1, ptr %47, align 1
-  %48 = getelementptr inbounds { [1 x i8], { i8, i8 } }, ptr %8, i64 0, i32 1, i32 1
+  %48 = getelementptr inbounds i8, ptr %8, i64 2
   store i8 %36, ptr %48, align 2
   store i8 0, ptr %8, align 8
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %2)
@@ -1792,8 +1785,8 @@ define align 8 ptr @"_ZN10serde_json2de21Deserializer$LT$R$GT$7end_map17h4abca31
   br i1 %7, label %.lr.ph.i, label %.loopexit
 
 .lr.ph.i:                                         ; preds = %1
-  %8 = getelementptr inbounds { [1 x i8], { i8, i8 } }, ptr %2, i64 0, i32 1
-  %9 = getelementptr inbounds { [1 x i8], { i8, i8 } }, ptr %2, i64 0, i32 1, i32 1
+  %8 = getelementptr inbounds i8, ptr %2, i64 1
+  %9 = getelementptr inbounds i8, ptr %2, i64 2
   br label %10
 
 10:                                               ; preds = %14, %.lr.ph.i
@@ -1818,7 +1811,7 @@ define align 8 ptr @"_ZN10serde_json2de21Deserializer$LT$R$GT$7end_map17h4abca31
   br i1 %16, label %10, label %.loopexit
 
 .loopexit:                                        ; preds = %14, %1
-  %17 = getelementptr inbounds { [1 x i64], ptr }, ptr %2, i64 0, i32 1
+  %17 = getelementptr inbounds i8, ptr %2, i64 8
   %18 = load ptr, ptr %17, align 8, !nonnull !5, !align !6, !noundef !5
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %2)
   br label %22
@@ -1879,8 +1872,8 @@ define void @"_ZN93_$LT$$RF$mut$u20$serde_json..de..Deserializer$LT$R$GT$$u20$as
   br i1 %19, label %.lr.ph.i, label %.loopexit
 
 .lr.ph.i:                                         ; preds = %2
-  %20 = getelementptr inbounds { [1 x i8], { i8, i8 } }, ptr %3, i64 0, i32 1
-  %21 = getelementptr inbounds { [1 x i8], { i8, i8 } }, ptr %3, i64 0, i32 1, i32 1
+  %20 = getelementptr inbounds i8, ptr %3, i64 1
+  %21 = getelementptr inbounds i8, ptr %3, i64 2
   br label %22
 
 22:                                               ; preds = %26, %.lr.ph.i
@@ -1905,22 +1898,22 @@ define void @"_ZN93_$LT$$RF$mut$u20$serde_json..de..Deserializer$LT$R$GT$$u20$as
   br i1 %28, label %22, label %.loopexit
 
 .loopexit:                                        ; preds = %26, %2
-  %29 = getelementptr inbounds { [1 x i64], ptr }, ptr %3, i64 0, i32 1
+  %29 = getelementptr inbounds i8, ptr %3, i64 8
   %30 = load ptr, ptr %29, align 8, !nonnull !5, !align !6, !noundef !5
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %3)
-  %31 = getelementptr inbounds { [1 x i64], ptr }, ptr %0, i64 0, i32 1
+  %31 = getelementptr inbounds i8, ptr %0, i64 8
   store ptr %30, ptr %31, align 8
   store i8 6, ptr %0, align 8
-  br label %151
+  br label %152
 
 32:                                               ; preds = %22
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %3)
   store i64 5, ptr %17, align 8
   %33 = call align 8 ptr @"_ZN10serde_json2de21Deserializer$LT$R$GT$10peek_error17h94acb2c276ac062eE"(ptr align 8 %1, ptr nonnull align 8 %17)
-  %34 = getelementptr inbounds { [1 x i64], ptr }, ptr %0, i64 0, i32 1
+  %34 = getelementptr inbounds i8, ptr %0, i64 8
   store ptr %33, ptr %34, align 8
   store i8 6, ptr %0, align 8
-  br label %151
+  br label %152
 
 35:                                               ; preds = %24
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %3)
@@ -1929,355 +1922,353 @@ define void @"_ZN93_$LT$$RF$mut$u20$serde_json..de..Deserializer$LT$R$GT$$u20$as
     i8 116, label %41
     i8 102, label %44
     i8 45, label %47
-    i8 34, label %49
-    i8 91, label %52
-    i8 123, label %57
+    i8 34, label %50
+    i8 91, label %55
+    i8 123, label %60
   ]
 
 36:                                               ; preds = %35
   %37 = add i8 %25, -48
   %or.cond = icmp ult i8 %37, 10
-  br i1 %or.cond, label %134, label %.thread63
+  br i1 %or.cond, label %135, label %.thread63
 
 38:                                               ; preds = %35
   call void @"_ZN68_$LT$serde_json..read..StrRead$u20$as$u20$serde_json..read..Read$GT$7discard17h32b6d53759719089E"(ptr align 8 %1)
   %39 = call align 8 ptr @"_ZN10serde_json2de21Deserializer$LT$R$GT$11parse_ident17he4f612b6d53cf9bcE"(ptr align 8 %1, ptr nonnull align 1 @anon.7999ff7f538e2935cfac6f5b5fc964fd.2, i64 3)
   %40 = icmp eq ptr %39, null
-  br i1 %40, label %62, label %63
+  br i1 %40, label %65, label %66
 
 41:                                               ; preds = %35
   call void @"_ZN68_$LT$serde_json..read..StrRead$u20$as$u20$serde_json..read..Read$GT$7discard17h32b6d53759719089E"(ptr align 8 %1)
   %42 = call align 8 ptr @"_ZN10serde_json2de21Deserializer$LT$R$GT$11parse_ident17he4f612b6d53cf9bcE"(ptr align 8 %1, ptr nonnull align 1 @anon.7999ff7f538e2935cfac6f5b5fc964fd.3, i64 3)
   %43 = icmp eq ptr %42, null
-  br i1 %43, label %65, label %66
+  br i1 %43, label %68, label %69
 
 44:                                               ; preds = %35
   call void @"_ZN68_$LT$serde_json..read..StrRead$u20$as$u20$serde_json..read..Read$GT$7discard17h32b6d53759719089E"(ptr align 8 %1)
   %45 = call align 8 ptr @"_ZN10serde_json2de21Deserializer$LT$R$GT$11parse_ident17he4f612b6d53cf9bcE"(ptr align 8 %1, ptr nonnull align 1 @anon.7999ff7f538e2935cfac6f5b5fc964fd.4, i64 4)
   %46 = icmp eq ptr %45, null
-  br i1 %46, label %68, label %69
+  br i1 %46, label %71, label %72
 
 47:                                               ; preds = %35
   call void @"_ZN68_$LT$serde_json..read..StrRead$u20$as$u20$serde_json..read..Read$GT$7discard17h32b6d53759719089E"(ptr align 8 %1)
   call void @"_ZN10serde_json2de21Deserializer$LT$R$GT$13parse_integer17hf6384ad1a42cbcacE"(ptr nonnull sret({ i64, [1 x i64] }) align 8 %15, ptr align 8 %1, i1 zeroext false)
   %48 = load i64, ptr %15, align 8, !range !10, !noundef !5
   %.not39 = icmp eq i64 %48, 3
-  br i1 %.not39, label %76, label %71
+  %49 = getelementptr inbounds i8, ptr %15, i64 8
+  br i1 %.not39, label %79, label %74
 
-49:                                               ; preds = %35
+50:                                               ; preds = %35
   call void @"_ZN68_$LT$serde_json..read..StrRead$u20$as$u20$serde_json..read..Read$GT$7discard17h32b6d53759719089E"(ptr align 8 %1)
-  %50 = getelementptr inbounds { { { { ptr, i64 }, i64 } }, { { ptr, i64 }, i64 }, i8, [7 x i8] }, ptr %1, i64 0, i32 1
-  call void @"_ZN5alloc3vec16Vec$LT$T$C$A$GT$5clear17h35ec257a8449b1baE"(ptr nonnull align 8 %50)
-  call void @"_ZN68_$LT$serde_json..read..StrRead$u20$as$u20$serde_json..read..Read$GT$9parse_str17h96c53e8dc07d23fdE"(ptr nonnull sret({ i64, [2 x i64] }) align 8 %13, ptr align 8 %1, ptr nonnull align 8 %50)
-  %51 = load i64, ptr %13, align 8, !range !8, !noundef !5
-  %.not38 = icmp eq i64 %51, 2
-  br i1 %.not38, label %82, label %80
+  %51 = getelementptr inbounds i8, ptr %1, i64 24
+  call void @"_ZN5alloc3vec16Vec$LT$T$C$A$GT$5clear17h35ec257a8449b1baE"(ptr nonnull align 8 %51)
+  call void @"_ZN68_$LT$serde_json..read..StrRead$u20$as$u20$serde_json..read..Read$GT$9parse_str17h96c53e8dc07d23fdE"(ptr nonnull sret({ i64, [2 x i64] }) align 8 %13, ptr align 8 %1, ptr nonnull align 8 %51)
+  %52 = load i64, ptr %13, align 8, !range !8, !noundef !5
+  %.not38 = icmp eq i64 %52, 2
+  %53 = getelementptr inbounds i8, ptr %13, i64 8
+  %54 = load ptr, ptr %53, align 8
+  br i1 %.not38, label %85, label %82
 
-52:                                               ; preds = %35
-  %53 = getelementptr inbounds { { { { ptr, i64 }, i64 } }, { { ptr, i64 }, i64 }, i8, [7 x i8] }, ptr %1, i64 0, i32 2
-  %54 = load i8, ptr %53, align 8, !noundef !5
-  %55 = add i8 %54, -1
-  store i8 %55, ptr %53, align 8
-  %56 = icmp eq i8 %55, 0
-  br i1 %56, label %88, label %91
+55:                                               ; preds = %35
+  %56 = getelementptr inbounds i8, ptr %1, i64 48
+  %57 = load i8, ptr %56, align 8, !noundef !5
+  %58 = add i8 %57, -1
+  store i8 %58, ptr %56, align 8
+  %59 = icmp eq i8 %58, 0
+  br i1 %59, label %89, label %92
 
-57:                                               ; preds = %35
-  %58 = getelementptr inbounds { { { { ptr, i64 }, i64 } }, { { ptr, i64 }, i64 }, i8, [7 x i8] }, ptr %1, i64 0, i32 2
-  %59 = load i8, ptr %58, align 8, !noundef !5
-  %60 = add i8 %59, -1
-  store i8 %60, ptr %58, align 8
-  %61 = icmp eq i8 %60, 0
-  br i1 %61, label %111, label %114
+60:                                               ; preds = %35
+  %61 = getelementptr inbounds i8, ptr %1, i64 48
+  %62 = load i8, ptr %61, align 8, !noundef !5
+  %63 = add i8 %62, -1
+  store i8 %63, ptr %61, align 8
+  %64 = icmp eq i8 %63, 0
+  br i1 %64, label %112, label %115
 
-62:                                               ; preds = %38
+65:                                               ; preds = %38
   call void @"_ZN165_$LT$serde_json..value..de..$LT$impl$u20$serde..de..Deserialize$u20$for$u20$serde_json..value..Value$GT$..deserialize..ValueVisitor$u20$as$u20$serde..de..Visitor$GT$10visit_unit17h43ab54961f212200E"(ptr nonnull sret({ i8, [31 x i8] }) align 8 %16)
   br label %_ZN10serde_json2de12ParserNumber5visit17hc27c7c793e3af7fbE.exit
 
-63:                                               ; preds = %38
-  %64 = getelementptr inbounds { [1 x i64], ptr }, ptr %0, i64 0, i32 1
-  store ptr %39, ptr %64, align 8
+66:                                               ; preds = %38
+  %67 = getelementptr inbounds i8, ptr %0, i64 8
+  store ptr %39, ptr %67, align 8
   store i8 6, ptr %0, align 8
-  br label %151
+  br label %152
 
-_ZN10serde_json2de12ParserNumber5visit17hc27c7c793e3af7fbE.exit: ; preds = %.thread126, %.thread, %129, %106, %140, %139, %137, %75, %74, %72, %62, %65, %68, %86, %87, %108, %131
+_ZN10serde_json2de12ParserNumber5visit17hc27c7c793e3af7fbE.exit: ; preds = %.thread126, %.thread, %130, %107, %142, %141, %139, %78, %77, %75, %65, %68, %71, %87, %88, %109, %132
   %.pr.pr = load i8, ptr %16, align 8
   %.not41 = icmp eq i8 %.pr.pr, 6
-  br i1 %.not41, label %_ZN10serde_json2de12ParserNumber5visit17hc27c7c793e3af7fbE.exit._crit_edge, label %145
+  br i1 %.not41, label %_ZN10serde_json2de12ParserNumber5visit17hc27c7c793e3af7fbE.exit._crit_edge, label %146
 
-_ZN10serde_json2de12ParserNumber5visit17hc27c7c793e3af7fbE.exit._crit_edge: ; preds = %102, %125, %_ZN10serde_json2de12ParserNumber5visit17hc27c7c793e3af7fbE.exit
-  %.phi.trans.insert = getelementptr inbounds { [1 x i64], ptr }, ptr %16, i64 0, i32 1
+_ZN10serde_json2de12ParserNumber5visit17hc27c7c793e3af7fbE.exit._crit_edge: ; preds = %103, %126, %_ZN10serde_json2de12ParserNumber5visit17hc27c7c793e3af7fbE.exit
+  %.phi.trans.insert = getelementptr inbounds i8, ptr %16, i64 8
   %.pre = load ptr, ptr %.phi.trans.insert, align 8
-  br label %146
+  br label %147
 
-65:                                               ; preds = %41
+68:                                               ; preds = %41
   call void @"_ZN165_$LT$serde_json..value..de..$LT$impl$u20$serde..de..Deserialize$u20$for$u20$serde_json..value..Value$GT$..deserialize..ValueVisitor$u20$as$u20$serde..de..Visitor$GT$10visit_bool17ha3a7b383b41e001fE"(ptr nonnull sret({ i8, [31 x i8] }) align 8 %16, i1 zeroext true)
   br label %_ZN10serde_json2de12ParserNumber5visit17hc27c7c793e3af7fbE.exit
 
-66:                                               ; preds = %41
-  %67 = getelementptr inbounds { [1 x i64], ptr }, ptr %0, i64 0, i32 1
-  store ptr %42, ptr %67, align 8
+69:                                               ; preds = %41
+  %70 = getelementptr inbounds i8, ptr %0, i64 8
+  store ptr %42, ptr %70, align 8
   store i8 6, ptr %0, align 8
-  br label %151
+  br label %152
 
-68:                                               ; preds = %44
+71:                                               ; preds = %44
   call void @"_ZN165_$LT$serde_json..value..de..$LT$impl$u20$serde..de..Deserialize$u20$for$u20$serde_json..value..Value$GT$..deserialize..ValueVisitor$u20$as$u20$serde..de..Visitor$GT$10visit_bool17ha3a7b383b41e001fE"(ptr nonnull sret({ i8, [31 x i8] }) align 8 %16, i1 zeroext false)
   br label %_ZN10serde_json2de12ParserNumber5visit17hc27c7c793e3af7fbE.exit
 
-69:                                               ; preds = %44
-  %70 = getelementptr inbounds { [1 x i64], ptr }, ptr %0, i64 0, i32 1
-  store ptr %45, ptr %70, align 8
+72:                                               ; preds = %44
+  %73 = getelementptr inbounds i8, ptr %0, i64 8
+  store ptr %45, ptr %73, align 8
   store i8 6, ptr %0, align 8
-  br label %151
+  br label %152
 
-71:                                               ; preds = %47
-  %.sroa.251.0..sroa_idx = getelementptr inbounds i8, ptr %15, i64 8
-  %.sroa.251.0.copyload = load i64, ptr %.sroa.251.0..sroa_idx, align 8
+74:                                               ; preds = %47
+  %.sroa.251.0.copyload = load i64, ptr %49, align 8
   switch i64 %48, label %default.unreachable1.i [
-    i64 0, label %72
-    i64 1, label %74
-    i64 2, label %75
+    i64 0, label %75
+    i64 1, label %77
+    i64 2, label %78
   ]
 
-default.unreachable1.i:                           ; preds = %71
+default.unreachable1.i:                           ; preds = %74
   unreachable
 
-72:                                               ; preds = %71
-  %73 = bitcast i64 %.sroa.251.0.copyload to double
-  call void @"_ZN165_$LT$serde_json..value..de..$LT$impl$u20$serde..de..Deserialize$u20$for$u20$serde_json..value..Value$GT$..deserialize..ValueVisitor$u20$as$u20$serde..de..Visitor$GT$9visit_f6417hb59da904ce065b93E"(ptr nonnull sret({ i8, [31 x i8] }) align 8 %16, double %73)
+75:                                               ; preds = %74
+  %76 = bitcast i64 %.sroa.251.0.copyload to double
+  call void @"_ZN165_$LT$serde_json..value..de..$LT$impl$u20$serde..de..Deserialize$u20$for$u20$serde_json..value..Value$GT$..deserialize..ValueVisitor$u20$as$u20$serde..de..Visitor$GT$9visit_f6417hb59da904ce065b93E"(ptr nonnull sret({ i8, [31 x i8] }) align 8 %16, double %76)
   br label %_ZN10serde_json2de12ParserNumber5visit17hc27c7c793e3af7fbE.exit
 
-74:                                               ; preds = %71
+77:                                               ; preds = %74
   call void @"_ZN165_$LT$serde_json..value..de..$LT$impl$u20$serde..de..Deserialize$u20$for$u20$serde_json..value..Value$GT$..deserialize..ValueVisitor$u20$as$u20$serde..de..Visitor$GT$9visit_u6417h217d8eb312225bb1E"(ptr nonnull sret({ i8, [31 x i8] }) align 8 %16, i64 %.sroa.251.0.copyload)
   br label %_ZN10serde_json2de12ParserNumber5visit17hc27c7c793e3af7fbE.exit
 
-75:                                               ; preds = %71
+78:                                               ; preds = %74
   call void @"_ZN165_$LT$serde_json..value..de..$LT$impl$u20$serde..de..Deserialize$u20$for$u20$serde_json..value..Value$GT$..deserialize..ValueVisitor$u20$as$u20$serde..de..Visitor$GT$9visit_i6417he41c1cb073403feaE"(ptr nonnull sret({ i8, [31 x i8] }) align 8 %16, i64 %.sroa.251.0.copyload)
   br label %_ZN10serde_json2de12ParserNumber5visit17hc27c7c793e3af7fbE.exit
 
-76:                                               ; preds = %47
-  %77 = getelementptr inbounds { [1 x i64], ptr }, ptr %15, i64 0, i32 1
-  %78 = load ptr, ptr %77, align 8, !nonnull !5, !align !6, !noundef !5
-  %79 = getelementptr inbounds { [1 x i64], ptr }, ptr %0, i64 0, i32 1
-  store ptr %78, ptr %79, align 8
+79:                                               ; preds = %47
+  %80 = load ptr, ptr %49, align 8, !nonnull !5, !align !6, !noundef !5
+  %81 = getelementptr inbounds i8, ptr %0, i64 8
+  store ptr %80, ptr %81, align 8
   store i8 6, ptr %0, align 8
-  br label %151
+  br label %152
 
-80:                                               ; preds = %49
-  %.sroa.27.0..sroa_idx = getelementptr inbounds i8, ptr %13, i64 8
-  %.sroa.27.0.copyload = load ptr, ptr %.sroa.27.0..sroa_idx, align 8, !nonnull !5, !noundef !5
+82:                                               ; preds = %50
   %.sroa.4.0..sroa_idx = getelementptr inbounds i8, ptr %13, i64 16
   %.sroa.4.0.copyload = load i64, ptr %.sroa.4.0..sroa_idx, align 8
-  %81 = icmp eq i64 %51, 0
-  br i1 %81, label %86, label %87
+  %83 = icmp eq i64 %52, 0
+  %84 = icmp ne ptr %54, null
+  call void @llvm.assume(i1 %84)
+  br i1 %83, label %87, label %88
 
-82:                                               ; preds = %49
-  %83 = getelementptr inbounds { [1 x i64], ptr }, ptr %13, i64 0, i32 1
-  %84 = load ptr, ptr %83, align 8, !nonnull !5, !align !6, !noundef !5
-  %85 = getelementptr inbounds { [1 x i64], ptr }, ptr %0, i64 0, i32 1
-  store ptr %84, ptr %85, align 8
+85:                                               ; preds = %50
+  %86 = getelementptr inbounds i8, ptr %0, i64 8
+  store ptr %54, ptr %86, align 8
   store i8 6, ptr %0, align 8
-  br label %151
+  br label %152
 
-86:                                               ; preds = %80
-  call void @_ZN5serde2de7Visitor18visit_borrowed_str17h4295734b7f6c1f8bE(ptr nonnull sret({ i8, [31 x i8] }) align 8 %16, ptr nonnull align 1 %.sroa.27.0.copyload, i64 %.sroa.4.0.copyload)
+87:                                               ; preds = %82
+  call void @_ZN5serde2de7Visitor18visit_borrowed_str17h4295734b7f6c1f8bE(ptr nonnull sret({ i8, [31 x i8] }) align 8 %16, ptr nonnull align 1 %54, i64 %.sroa.4.0.copyload)
   br label %_ZN10serde_json2de12ParserNumber5visit17hc27c7c793e3af7fbE.exit
 
-87:                                               ; preds = %80
-  call void @"_ZN165_$LT$serde_json..value..de..$LT$impl$u20$serde..de..Deserialize$u20$for$u20$serde_json..value..Value$GT$..deserialize..ValueVisitor$u20$as$u20$serde..de..Visitor$GT$9visit_str17h1d9a491cd169a0f3E"(ptr nonnull sret({ i8, [31 x i8] }) align 8 %16, ptr nonnull align 1 %.sroa.27.0.copyload, i64 %.sroa.4.0.copyload)
+88:                                               ; preds = %82
+  call void @"_ZN165_$LT$serde_json..value..de..$LT$impl$u20$serde..de..Deserialize$u20$for$u20$serde_json..value..Value$GT$..deserialize..ValueVisitor$u20$as$u20$serde..de..Visitor$GT$9visit_str17h1d9a491cd169a0f3E"(ptr nonnull sret({ i8, [31 x i8] }) align 8 %16, ptr nonnull align 1 %54, i64 %.sroa.4.0.copyload)
   br label %_ZN10serde_json2de12ParserNumber5visit17hc27c7c793e3af7fbE.exit
 
-88:                                               ; preds = %52
+89:                                               ; preds = %55
   store i64 24, ptr %12, align 8
-  %89 = call align 8 ptr @"_ZN10serde_json2de21Deserializer$LT$R$GT$10peek_error17h94acb2c276ac062eE"(ptr nonnull align 8 %1, ptr nonnull align 8 %12)
-  %90 = getelementptr inbounds { [1 x i64], ptr }, ptr %0, i64 0, i32 1
-  store ptr %89, ptr %90, align 8
+  %90 = call align 8 ptr @"_ZN10serde_json2de21Deserializer$LT$R$GT$10peek_error17h94acb2c276ac062eE"(ptr nonnull align 8 %1, ptr nonnull align 8 %12)
+  %91 = getelementptr inbounds i8, ptr %0, i64 8
+  store ptr %90, ptr %91, align 8
   store i8 6, ptr %0, align 8
-  br label %151
+  br label %152
 
-91:                                               ; preds = %52
+92:                                               ; preds = %55
   call void @"_ZN68_$LT$serde_json..read..StrRead$u20$as$u20$serde_json..read..Read$GT$7discard17h32b6d53759719089E"(ptr nonnull align 8 %1)
   call void @"_ZN165_$LT$serde_json..value..de..$LT$impl$u20$serde..de..Deserialize$u20$for$u20$serde_json..value..Value$GT$..deserialize..ValueVisitor$u20$as$u20$serde..de..Visitor$GT$9visit_seq17hf443ca687ad24fccE"(ptr nonnull sret({ i8, [31 x i8] }) align 8 %11, ptr nonnull align 8 %1, i1 zeroext true)
-  %92 = load i8, ptr %53, align 8, !noundef !5
-  %93 = add i8 %92, 1
-  store i8 %93, ptr %53, align 8
+  %93 = load i8, ptr %56, align 8, !noundef !5
+  %94 = add i8 %93, 1
+  store i8 %94, ptr %56, align 8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %9, ptr noundef nonnull align 8 dereferenceable(32) %11, i64 32, i1 false)
-  %94 = invoke align 8 ptr @"_ZN10serde_json2de21Deserializer$LT$R$GT$7end_seq17h0936a570e96ccf1fE"(ptr nonnull align 8 %1)
-          to label %97 unwind label %95
+  %95 = invoke align 8 ptr @"_ZN10serde_json2de21Deserializer$LT$R$GT$7end_seq17h0936a570e96ccf1fE"(ptr nonnull align 8 %1)
+          to label %98 unwind label %96
 
-95:                                               ; preds = %91
-  %96 = landingpad { ptr, i32 }
+96:                                               ; preds = %92
+  %97 = landingpad { ptr, i32 }
           cleanup
   invoke void @"_ZN4core3ptr100drop_in_place$LT$core..result..Result$LT$serde_json..value..Value$C$serde_json..error..Error$GT$$GT$17hd29f60d0d33e3917E"(ptr nonnull align 8 %9) #10
-          to label %152 unwind label %109
+          to label %153 unwind label %110
 
-97:                                               ; preds = %91
+98:                                               ; preds = %92
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %10, ptr noundef nonnull align 8 dereferenceable(32) %9, i64 32, i1 false)
-  %98 = getelementptr inbounds { { i8, [31 x i8] }, ptr }, ptr %10, i64 0, i32 1
-  store ptr %94, ptr %98, align 8
-  %99 = load i8, ptr %10, align 8, !range !11, !noundef !5
-  %.not121 = icmp eq i8 %99, 6
-  br i1 %.not121, label %102, label %100
+  %99 = getelementptr inbounds i8, ptr %10, i64 32
+  store ptr %95, ptr %99, align 8
+  %100 = load i8, ptr %10, align 8, !range !11, !noundef !5
+  %.not121 = icmp eq i8 %100, 6
+  br i1 %.not121, label %103, label %101
 
-100:                                              ; preds = %97
-  %101 = icmp eq ptr %94, null
-  br i1 %101, label %.thread, label %106
+101:                                              ; preds = %98
+  %102 = icmp eq ptr %95, null
+  br i1 %102, label %.thread, label %107
 
-.thread:                                          ; preds = %100
+.thread:                                          ; preds = %101
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %16, ptr noundef nonnull align 8 dereferenceable(32) %9, i64 32, i1 false)
   br label %_ZN10serde_json2de12ParserNumber5visit17hc27c7c793e3af7fbE.exit
 
-102:                                              ; preds = %97
-  %103 = getelementptr inbounds { [1 x i64], ptr }, ptr %10, i64 0, i32 1
-  %104 = load ptr, ptr %103, align 8, !nonnull !5, !align !6, !noundef !5
-  %105 = getelementptr inbounds { [1 x i64], ptr }, ptr %16, i64 0, i32 1
-  store ptr %104, ptr %105, align 8
+103:                                              ; preds = %98
+  %104 = getelementptr inbounds i8, ptr %10, i64 8
+  %105 = load ptr, ptr %104, align 8, !nonnull !5, !align !6, !noundef !5
+  %106 = getelementptr inbounds i8, ptr %16, i64 8
+  store ptr %105, ptr %106, align 8
   store i8 6, ptr %16, align 8
-  %.not37 = icmp eq ptr %94, null
-  br i1 %.not37, label %_ZN10serde_json2de12ParserNumber5visit17hc27c7c793e3af7fbE.exit._crit_edge, label %108
+  %.not37 = icmp eq ptr %95, null
+  br i1 %.not37, label %_ZN10serde_json2de12ParserNumber5visit17hc27c7c793e3af7fbE.exit._crit_edge, label %109
 
-106:                                              ; preds = %100
-  %107 = getelementptr inbounds { [1 x i64], ptr }, ptr %16, i64 0, i32 1
-  store ptr %94, ptr %107, align 8
+107:                                              ; preds = %101
+  %108 = getelementptr inbounds i8, ptr %16, i64 8
+  store ptr %95, ptr %108, align 8
   store i8 6, ptr %16, align 8
   call void @"_ZN4core3ptr45drop_in_place$LT$serde_json..value..Value$GT$17h4e7830de5bafa218E"(ptr nonnull align 8 %10)
   br label %_ZN10serde_json2de12ParserNumber5visit17hc27c7c793e3af7fbE.exit
 
-108:                                              ; preds = %102
-  call void @"_ZN4core3ptr45drop_in_place$LT$serde_json..error..Error$GT$17he8b282eff50a4b9dE"(ptr nonnull align 8 %98)
+109:                                              ; preds = %103
+  call void @"_ZN4core3ptr45drop_in_place$LT$serde_json..error..Error$GT$17he8b282eff50a4b9dE"(ptr nonnull align 8 %99)
   br label %_ZN10serde_json2de12ParserNumber5visit17hc27c7c793e3af7fbE.exit
 
-109:                                              ; preds = %118, %95
-  %110 = landingpad { ptr, i32 }
+110:                                              ; preds = %119, %96
+  %111 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
   call void @_ZN4core9panicking16panic_in_cleanup17hd44bb2114362504eE() #11
   unreachable
 
-111:                                              ; preds = %57
+112:                                              ; preds = %60
   store i64 24, ptr %8, align 8
-  %112 = call align 8 ptr @"_ZN10serde_json2de21Deserializer$LT$R$GT$10peek_error17h94acb2c276ac062eE"(ptr nonnull align 8 %1, ptr nonnull align 8 %8)
-  %113 = getelementptr inbounds { [1 x i64], ptr }, ptr %0, i64 0, i32 1
-  store ptr %112, ptr %113, align 8
+  %113 = call align 8 ptr @"_ZN10serde_json2de21Deserializer$LT$R$GT$10peek_error17h94acb2c276ac062eE"(ptr nonnull align 8 %1, ptr nonnull align 8 %8)
+  %114 = getelementptr inbounds i8, ptr %0, i64 8
+  store ptr %113, ptr %114, align 8
   store i8 6, ptr %0, align 8
-  br label %151
+  br label %152
 
-114:                                              ; preds = %57
+115:                                              ; preds = %60
   call void @"_ZN68_$LT$serde_json..read..StrRead$u20$as$u20$serde_json..read..Read$GT$7discard17h32b6d53759719089E"(ptr nonnull align 8 %1)
   call void @"_ZN165_$LT$serde_json..value..de..$LT$impl$u20$serde..de..Deserialize$u20$for$u20$serde_json..value..Value$GT$..deserialize..ValueVisitor$u20$as$u20$serde..de..Visitor$GT$9visit_map17h1120f37a71668778E"(ptr nonnull sret({ i8, [31 x i8] }) align 8 %7, ptr nonnull align 8 %1, i1 zeroext true)
-  %115 = load i8, ptr %58, align 8, !noundef !5
-  %116 = add i8 %115, 1
-  store i8 %116, ptr %58, align 8
+  %116 = load i8, ptr %61, align 8, !noundef !5
+  %117 = add i8 %116, 1
+  store i8 %117, ptr %61, align 8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %5, ptr noundef nonnull align 8 dereferenceable(32) %7, i64 32, i1 false)
-  %117 = invoke align 8 ptr @"_ZN10serde_json2de21Deserializer$LT$R$GT$7end_map17h4abca318301194c8E"(ptr nonnull align 8 %1)
-          to label %120 unwind label %118
+  %118 = invoke align 8 ptr @"_ZN10serde_json2de21Deserializer$LT$R$GT$7end_map17h4abca318301194c8E"(ptr nonnull align 8 %1)
+          to label %121 unwind label %119
 
-118:                                              ; preds = %114
-  %119 = landingpad { ptr, i32 }
+119:                                              ; preds = %115
+  %120 = landingpad { ptr, i32 }
           cleanup
   invoke void @"_ZN4core3ptr100drop_in_place$LT$core..result..Result$LT$serde_json..value..Value$C$serde_json..error..Error$GT$$GT$17hd29f60d0d33e3917E"(ptr nonnull align 8 %5) #10
-          to label %152 unwind label %109
+          to label %153 unwind label %110
 
-120:                                              ; preds = %114
+121:                                              ; preds = %115
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %6, ptr noundef nonnull align 8 dereferenceable(32) %5, i64 32, i1 false)
-  %121 = getelementptr inbounds { { i8, [31 x i8] }, ptr }, ptr %6, i64 0, i32 1
-  store ptr %117, ptr %121, align 8
-  %122 = load i8, ptr %6, align 8, !range !11, !noundef !5
-  %.not = icmp eq i8 %122, 6
-  br i1 %.not, label %125, label %123
+  %122 = getelementptr inbounds i8, ptr %6, i64 32
+  store ptr %118, ptr %122, align 8
+  %123 = load i8, ptr %6, align 8, !range !11, !noundef !5
+  %.not = icmp eq i8 %123, 6
+  br i1 %.not, label %126, label %124
 
-123:                                              ; preds = %120
-  %124 = icmp eq ptr %117, null
-  br i1 %124, label %.thread126, label %129
+124:                                              ; preds = %121
+  %125 = icmp eq ptr %118, null
+  br i1 %125, label %.thread126, label %130
 
-.thread126:                                       ; preds = %123
+.thread126:                                       ; preds = %124
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %16, ptr noundef nonnull align 8 dereferenceable(32) %5, i64 32, i1 false)
   br label %_ZN10serde_json2de12ParserNumber5visit17hc27c7c793e3af7fbE.exit
 
-125:                                              ; preds = %120
-  %126 = getelementptr inbounds { [1 x i64], ptr }, ptr %6, i64 0, i32 1
-  %127 = load ptr, ptr %126, align 8, !nonnull !5, !align !6, !noundef !5
-  %128 = getelementptr inbounds { [1 x i64], ptr }, ptr %16, i64 0, i32 1
-  store ptr %127, ptr %128, align 8
+126:                                              ; preds = %121
+  %127 = getelementptr inbounds i8, ptr %6, i64 8
+  %128 = load ptr, ptr %127, align 8, !nonnull !5, !align !6, !noundef !5
+  %129 = getelementptr inbounds i8, ptr %16, i64 8
+  store ptr %128, ptr %129, align 8
   store i8 6, ptr %16, align 8
-  %.not34 = icmp eq ptr %117, null
-  br i1 %.not34, label %_ZN10serde_json2de12ParserNumber5visit17hc27c7c793e3af7fbE.exit._crit_edge, label %131
+  %.not34 = icmp eq ptr %118, null
+  br i1 %.not34, label %_ZN10serde_json2de12ParserNumber5visit17hc27c7c793e3af7fbE.exit._crit_edge, label %132
 
-129:                                              ; preds = %123
-  %130 = getelementptr inbounds { [1 x i64], ptr }, ptr %16, i64 0, i32 1
-  store ptr %117, ptr %130, align 8
+130:                                              ; preds = %124
+  %131 = getelementptr inbounds i8, ptr %16, i64 8
+  store ptr %118, ptr %131, align 8
   store i8 6, ptr %16, align 8
   call void @"_ZN4core3ptr45drop_in_place$LT$serde_json..value..Value$GT$17h4e7830de5bafa218E"(ptr nonnull align 8 %6)
   br label %_ZN10serde_json2de12ParserNumber5visit17hc27c7c793e3af7fbE.exit
 
-131:                                              ; preds = %125
-  call void @"_ZN4core3ptr45drop_in_place$LT$serde_json..error..Error$GT$17he8b282eff50a4b9dE"(ptr nonnull align 8 %121)
+132:                                              ; preds = %126
+  call void @"_ZN4core3ptr45drop_in_place$LT$serde_json..error..Error$GT$17he8b282eff50a4b9dE"(ptr nonnull align 8 %122)
   br label %_ZN10serde_json2de12ParserNumber5visit17hc27c7c793e3af7fbE.exit
 
 .thread63:                                        ; preds = %36
   store i64 10, ptr %4, align 8
-  %132 = call align 8 ptr @"_ZN10serde_json2de21Deserializer$LT$R$GT$10peek_error17h94acb2c276ac062eE"(ptr align 8 %1, ptr nonnull align 8 %4)
-  %133 = getelementptr inbounds { [1 x i64], ptr }, ptr %16, i64 0, i32 1
-  store ptr %132, ptr %133, align 8
+  %133 = call align 8 ptr @"_ZN10serde_json2de21Deserializer$LT$R$GT$10peek_error17h94acb2c276ac062eE"(ptr align 8 %1, ptr nonnull align 8 %4)
+  %134 = getelementptr inbounds i8, ptr %16, i64 8
+  store ptr %133, ptr %134, align 8
   store i8 6, ptr %16, align 8
-  br label %146
+  br label %147
 
-134:                                              ; preds = %36
+135:                                              ; preds = %36
   call void @"_ZN10serde_json2de21Deserializer$LT$R$GT$13parse_integer17hf6384ad1a42cbcacE"(ptr nonnull sret({ i64, [1 x i64] }) align 8 %14, ptr align 8 %1, i1 zeroext true)
-  %135 = load i64, ptr %14, align 8, !range !10, !noundef !5
-  %.not40 = icmp eq i64 %135, 3
-  br i1 %.not40, label %141, label %136
+  %136 = load i64, ptr %14, align 8, !range !10, !noundef !5
+  %.not40 = icmp eq i64 %136, 3
+  %137 = getelementptr inbounds i8, ptr %14, i64 8
+  br i1 %.not40, label %143, label %138
 
-136:                                              ; preds = %134
-  %.sroa.254.0..sroa_idx = getelementptr inbounds i8, ptr %14, i64 8
-  %.sroa.254.0.copyload = load i64, ptr %.sroa.254.0..sroa_idx, align 8
-  switch i64 %135, label %default.unreachable1.i48 [
-    i64 0, label %137
-    i64 1, label %139
-    i64 2, label %140
+138:                                              ; preds = %135
+  %.sroa.254.0.copyload = load i64, ptr %137, align 8
+  switch i64 %136, label %default.unreachable1.i48 [
+    i64 0, label %139
+    i64 1, label %141
+    i64 2, label %142
   ]
 
-default.unreachable1.i48:                         ; preds = %136
+default.unreachable1.i48:                         ; preds = %138
   unreachable
 
-137:                                              ; preds = %136
-  %138 = bitcast i64 %.sroa.254.0.copyload to double
-  call void @"_ZN165_$LT$serde_json..value..de..$LT$impl$u20$serde..de..Deserialize$u20$for$u20$serde_json..value..Value$GT$..deserialize..ValueVisitor$u20$as$u20$serde..de..Visitor$GT$9visit_f6417hb59da904ce065b93E"(ptr nonnull sret({ i8, [31 x i8] }) align 8 %16, double %138)
+139:                                              ; preds = %138
+  %140 = bitcast i64 %.sroa.254.0.copyload to double
+  call void @"_ZN165_$LT$serde_json..value..de..$LT$impl$u20$serde..de..Deserialize$u20$for$u20$serde_json..value..Value$GT$..deserialize..ValueVisitor$u20$as$u20$serde..de..Visitor$GT$9visit_f6417hb59da904ce065b93E"(ptr nonnull sret({ i8, [31 x i8] }) align 8 %16, double %140)
   br label %_ZN10serde_json2de12ParserNumber5visit17hc27c7c793e3af7fbE.exit
 
-139:                                              ; preds = %136
+141:                                              ; preds = %138
   call void @"_ZN165_$LT$serde_json..value..de..$LT$impl$u20$serde..de..Deserialize$u20$for$u20$serde_json..value..Value$GT$..deserialize..ValueVisitor$u20$as$u20$serde..de..Visitor$GT$9visit_u6417h217d8eb312225bb1E"(ptr nonnull sret({ i8, [31 x i8] }) align 8 %16, i64 %.sroa.254.0.copyload)
   br label %_ZN10serde_json2de12ParserNumber5visit17hc27c7c793e3af7fbE.exit
 
-140:                                              ; preds = %136
+142:                                              ; preds = %138
   call void @"_ZN165_$LT$serde_json..value..de..$LT$impl$u20$serde..de..Deserialize$u20$for$u20$serde_json..value..Value$GT$..deserialize..ValueVisitor$u20$as$u20$serde..de..Visitor$GT$9visit_i6417he41c1cb073403feaE"(ptr nonnull sret({ i8, [31 x i8] }) align 8 %16, i64 %.sroa.254.0.copyload)
   br label %_ZN10serde_json2de12ParserNumber5visit17hc27c7c793e3af7fbE.exit
 
-141:                                              ; preds = %134
-  %142 = getelementptr inbounds { [1 x i64], ptr }, ptr %14, i64 0, i32 1
-  %143 = load ptr, ptr %142, align 8, !nonnull !5, !align !6, !noundef !5
-  %144 = getelementptr inbounds { [1 x i64], ptr }, ptr %0, i64 0, i32 1
-  store ptr %143, ptr %144, align 8
+143:                                              ; preds = %135
+  %144 = load ptr, ptr %137, align 8, !nonnull !5, !align !6, !noundef !5
+  %145 = getelementptr inbounds i8, ptr %0, i64 8
+  store ptr %144, ptr %145, align 8
   store i8 6, ptr %0, align 8
-  br label %151
+  br label %152
 
-145:                                              ; preds = %_ZN10serde_json2de12ParserNumber5visit17hc27c7c793e3af7fbE.exit
+146:                                              ; preds = %_ZN10serde_json2de12ParserNumber5visit17hc27c7c793e3af7fbE.exit
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef nonnull align 8 dereferenceable(32) %16, i64 32, i1 false)
-  br label %151
+  br label %152
 
-146:                                              ; preds = %_ZN10serde_json2de12ParserNumber5visit17hc27c7c793e3af7fbE.exit._crit_edge, %.thread63
-  %147 = phi ptr [ %.pre, %_ZN10serde_json2de12ParserNumber5visit17hc27c7c793e3af7fbE.exit._crit_edge ], [ %132, %.thread63 ]
-  %148 = icmp ne ptr %1, null
-  call void @llvm.assume(i1 %148)
-  %149 = call align 8 ptr @_ZN10serde_json5error5Error12fix_position17h2b012e296d9bbc0aE(ptr nonnull align 8 %147, ptr nonnull align 8 %1)
-  %150 = getelementptr inbounds { [1 x i64], ptr }, ptr %0, i64 0, i32 1
-  store ptr %149, ptr %150, align 8
+147:                                              ; preds = %_ZN10serde_json2de12ParserNumber5visit17hc27c7c793e3af7fbE.exit._crit_edge, %.thread63
+  %148 = phi ptr [ %.pre, %_ZN10serde_json2de12ParserNumber5visit17hc27c7c793e3af7fbE.exit._crit_edge ], [ %133, %.thread63 ]
+  %149 = icmp ne ptr %1, null
+  call void @llvm.assume(i1 %149)
+  %150 = call align 8 ptr @_ZN10serde_json5error5Error12fix_position17h2b012e296d9bbc0aE(ptr nonnull align 8 %148, ptr nonnull align 8 %1)
+  %151 = getelementptr inbounds i8, ptr %0, i64 8
+  store ptr %150, ptr %151, align 8
   store i8 6, ptr %0, align 8
-  br label %151
+  br label %152
 
-151:                                              ; preds = %145, %146, %.loopexit, %32, %63, %66, %69, %76, %82, %88, %111, %141
+152:                                              ; preds = %146, %147, %.loopexit, %32, %66, %69, %72, %79, %85, %89, %112, %143
   ret void
 
-152:                                              ; preds = %95, %118
-  %.pn = phi { ptr, i32 } [ %119, %118 ], [ %96, %95 ]
+153:                                              ; preds = %96, %119
+  %.pn = phi { ptr, i32 } [ %120, %119 ], [ %97, %96 ]
   resume { ptr, i32 } %.pn
 }
 
@@ -2307,8 +2298,8 @@ define void @"_ZN75_$LT$serde_json..de..SeqAccess$LT$R$GT$$u20$as$u20$serde..de.
   br i1 %12, label %.lr.ph.i, label %.loopexit39
 
 .lr.ph.i:                                         ; preds = %2
-  %13 = getelementptr inbounds { [1 x i8], { i8, i8 } }, ptr %4, i64 0, i32 1
-  %14 = getelementptr inbounds { [1 x i8], { i8, i8 } }, ptr %4, i64 0, i32 1, i32 1
+  %13 = getelementptr inbounds i8, ptr %4, i64 1
+  %14 = getelementptr inbounds i8, ptr %4, i64 2
   br label %15
 
 15:                                               ; preds = %19, %.lr.ph.i
@@ -2333,10 +2324,10 @@ define void @"_ZN75_$LT$serde_json..de..SeqAccess$LT$R$GT$$u20$as$u20$serde..de.
   br i1 %21, label %15, label %.loopexit39
 
 .loopexit39:                                      ; preds = %19, %2
-  %22 = getelementptr inbounds { [1 x i64], ptr }, ptr %4, i64 0, i32 1
+  %22 = getelementptr inbounds i8, ptr %4, i64 8
   %23 = load ptr, ptr %22, align 8, !nonnull !5, !align !6, !noundef !5
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %4)
-  %24 = getelementptr inbounds { [1 x i64], ptr }, ptr %0, i64 0, i32 1
+  %24 = getelementptr inbounds i8, ptr %0, i64 8
   store ptr %23, ptr %24, align 8
   store i8 7, ptr %0, align 8
   br label %76
@@ -2346,7 +2337,7 @@ define void @"_ZN75_$LT$serde_json..de..SeqAccess$LT$R$GT$$u20$as$u20$serde..de.
   %26 = load ptr, ptr %1, align 8, !nonnull !5, !align !6, !noundef !5
   store i64 2, ptr %8, align 8
   %27 = call align 8 ptr @"_ZN10serde_json2de21Deserializer$LT$R$GT$10peek_error17h94acb2c276ac062eE"(ptr nonnull align 8 %26, ptr nonnull align 8 %8)
-  %28 = getelementptr inbounds { [1 x i64], ptr }, ptr %0, i64 0, i32 1
+  %28 = getelementptr inbounds i8, ptr %0, i64 8
   store ptr %27, ptr %28, align 8
   store i8 7, ptr %0, align 8
   br label %76
@@ -2359,7 +2350,7 @@ define void @"_ZN75_$LT$serde_json..de..SeqAccess$LT$R$GT$$u20$as$u20$serde..de.
   ]
 
 30:                                               ; preds = %29
-  %.phi.trans.insert = getelementptr inbounds { ptr, i8 }, ptr %1, i64 0, i32 1
+  %.phi.trans.insert = getelementptr inbounds i8, ptr %1, i64 8
   %.pre = load i8, ptr %.phi.trans.insert, align 8, !range !9
   %31 = icmp eq i8 %.pre, 0
   br i1 %31, label %54, label %.thread33
@@ -2369,7 +2360,7 @@ define void @"_ZN75_$LT$serde_json..de..SeqAccess$LT$R$GT$$u20$as$u20$serde..de.
   br label %76
 
 33:                                               ; preds = %29
-  %34 = getelementptr inbounds { ptr, i8 }, ptr %1, i64 0, i32 1
+  %34 = getelementptr inbounds i8, ptr %1, i64 8
   %35 = load i8, ptr %34, align 8, !range !9, !noundef !5
   %.not = icmp eq i8 %35, 0
   br i1 %.not, label %36, label %.thread33
@@ -2385,8 +2376,8 @@ define void @"_ZN75_$LT$serde_json..de..SeqAccess$LT$R$GT$$u20$as$u20$serde..de.
   br i1 %40, label %.lr.ph.i12, label %.loopexit
 
 .lr.ph.i12:                                       ; preds = %36
-  %41 = getelementptr inbounds { [1 x i8], { i8, i8 } }, ptr %3, i64 0, i32 1
-  %42 = getelementptr inbounds { [1 x i8], { i8, i8 } }, ptr %3, i64 0, i32 1, i32 1
+  %41 = getelementptr inbounds i8, ptr %3, i64 1
+  %42 = getelementptr inbounds i8, ptr %3, i64 2
   br label %43
 
 43:                                               ; preds = %47, %.lr.ph.i12
@@ -2411,10 +2402,10 @@ define void @"_ZN75_$LT$serde_json..de..SeqAccess$LT$R$GT$$u20$as$u20$serde..de.
   br i1 %49, label %43, label %.loopexit
 
 .loopexit:                                        ; preds = %47, %36
-  %50 = getelementptr inbounds { [1 x i64], ptr }, ptr %3, i64 0, i32 1
+  %50 = getelementptr inbounds i8, ptr %3, i64 8
   %51 = load ptr, ptr %50, align 8, !nonnull !5, !align !6, !noundef !5
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %3)
-  %52 = getelementptr inbounds { [1 x i64], ptr }, ptr %0, i64 0, i32 1
+  %52 = getelementptr inbounds i8, ptr %0, i64 8
   store ptr %51, ptr %52, align 8
   store i8 7, ptr %0, align 8
   br label %76
@@ -2427,13 +2418,13 @@ define void @"_ZN75_$LT$serde_json..de..SeqAccess$LT$R$GT$$u20$as$u20$serde..de.
   %55 = load ptr, ptr %1, align 8, !nonnull !5, !align !6, !noundef !5
   store i64 7, ptr %9, align 8
   %56 = call align 8 ptr @"_ZN10serde_json2de21Deserializer$LT$R$GT$10peek_error17h94acb2c276ac062eE"(ptr nonnull align 8 %55, ptr nonnull align 8 %9)
-  %57 = getelementptr inbounds { [1 x i64], ptr }, ptr %0, i64 0, i32 1
+  %57 = getelementptr inbounds i8, ptr %0, i64 8
   store ptr %56, ptr %57, align 8
   store i8 7, ptr %0, align 8
   br label %76
 
 .thread33:                                        ; preds = %33, %30
-  %58 = getelementptr inbounds { ptr, i8 }, ptr %1, i64 0, i32 1
+  %58 = getelementptr inbounds i8, ptr %1, i64 8
   store i8 0, ptr %58, align 8
   br label %63
 
@@ -2442,7 +2433,7 @@ define void @"_ZN75_$LT$serde_json..de..SeqAccess$LT$R$GT$$u20$as$u20$serde..de.
   %60 = load ptr, ptr %1, align 8, !nonnull !5, !align !6, !noundef !5
   store i64 5, ptr %5, align 8
   %61 = call align 8 ptr @"_ZN10serde_json2de21Deserializer$LT$R$GT$10peek_error17h94acb2c276ac062eE"(ptr nonnull align 8 %60, ptr nonnull align 8 %5)
-  %62 = getelementptr inbounds { [1 x i64], ptr }, ptr %0, i64 0, i32 1
+  %62 = getelementptr inbounds i8, ptr %0, i64 8
   store ptr %61, ptr %62, align 8
   store i8 7, ptr %0, align 8
   br label %76
@@ -2456,7 +2447,7 @@ define void @"_ZN75_$LT$serde_json..de..SeqAccess$LT$R$GT$$u20$as$u20$serde..de.
 66:                                               ; preds = %63
   store i64 21, ptr %7, align 8
   %67 = call align 8 ptr @"_ZN10serde_json2de21Deserializer$LT$R$GT$10peek_error17h94acb2c276ac062eE"(ptr nonnull align 8 %65, ptr nonnull align 8 %7)
-  %68 = getelementptr inbounds { [1 x i64], ptr }, ptr %0, i64 0, i32 1
+  %68 = getelementptr inbounds i8, ptr %0, i64 8
   store ptr %67, ptr %68, align 8
   store i8 7, ptr %0, align 8
   br label %76
@@ -2472,9 +2463,9 @@ define void @"_ZN75_$LT$serde_json..de..SeqAccess$LT$R$GT$$u20$as$u20$serde..de.
   br label %76
 
 72:                                               ; preds = %69
-  %73 = getelementptr inbounds { [1 x i64], ptr }, ptr %6, i64 0, i32 1
+  %73 = getelementptr inbounds i8, ptr %6, i64 8
   %74 = load ptr, ptr %73, align 8, !nonnull !5, !align !6, !noundef !5
-  %75 = getelementptr inbounds { [1 x i64], ptr }, ptr %0, i64 0, i32 1
+  %75 = getelementptr inbounds i8, ptr %0, i64 8
   store ptr %74, ptr %75, align 8
   store i8 7, ptr %0, align 8
   br label %76
@@ -2510,8 +2501,8 @@ define void @"_ZN75_$LT$serde_json..de..MapAccess$LT$R$GT$$u20$as$u20$serde..de.
   br i1 %13, label %.lr.ph.i, label %.loopexit38
 
 .lr.ph.i:                                         ; preds = %2
-  %14 = getelementptr inbounds { [1 x i8], { i8, i8 } }, ptr %4, i64 0, i32 1
-  %15 = getelementptr inbounds { [1 x i8], { i8, i8 } }, ptr %4, i64 0, i32 1, i32 1
+  %14 = getelementptr inbounds i8, ptr %4, i64 1
+  %15 = getelementptr inbounds i8, ptr %4, i64 2
   br label %16
 
 16:                                               ; preds = %20, %.lr.ph.i
@@ -2536,10 +2527,10 @@ define void @"_ZN75_$LT$serde_json..de..MapAccess$LT$R$GT$$u20$as$u20$serde..de.
   br i1 %22, label %16, label %.loopexit38
 
 .loopexit38:                                      ; preds = %20, %2
-  %23 = getelementptr inbounds { [1 x i64], ptr }, ptr %4, i64 0, i32 1
+  %23 = getelementptr inbounds i8, ptr %4, i64 8
   %24 = load ptr, ptr %23, align 8, !nonnull !5, !align !6, !noundef !5
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %4)
-  %25 = getelementptr inbounds { [1 x i64], ptr }, ptr %0, i64 0, i32 1
+  %25 = getelementptr inbounds i8, ptr %0, i64 8
   store ptr %24, ptr %25, align 8
   store i64 1, ptr %0, align 8
   br label %73
@@ -2549,7 +2540,7 @@ define void @"_ZN75_$LT$serde_json..de..MapAccess$LT$R$GT$$u20$as$u20$serde..de.
   %27 = load ptr, ptr %1, align 8, !nonnull !5, !align !6, !noundef !5
   store i64 3, ptr %9, align 8
   %28 = call align 8 ptr @"_ZN10serde_json2de21Deserializer$LT$R$GT$10peek_error17h94acb2c276ac062eE"(ptr nonnull align 8 %27, ptr nonnull align 8 %9)
-  %29 = getelementptr inbounds { [1 x i64], ptr }, ptr %0, i64 0, i32 1
+  %29 = getelementptr inbounds i8, ptr %0, i64 8
   store ptr %28, ptr %29, align 8
   store i64 1, ptr %0, align 8
   br label %73
@@ -2562,7 +2553,7 @@ define void @"_ZN75_$LT$serde_json..de..MapAccess$LT$R$GT$$u20$as$u20$serde..de.
   ]
 
 31:                                               ; preds = %30
-  %.phi.trans.insert = getelementptr inbounds { ptr, i8 }, ptr %1, i64 0, i32 1
+  %.phi.trans.insert = getelementptr inbounds i8, ptr %1, i64 8
   %.pre = load i8, ptr %.phi.trans.insert, align 8, !range !9
   %32 = icmp eq i8 %.pre, 0
   br i1 %32, label %55, label %.thread32
@@ -2572,7 +2563,7 @@ define void @"_ZN75_$LT$serde_json..de..MapAccess$LT$R$GT$$u20$as$u20$serde..de.
   br label %73
 
 34:                                               ; preds = %30
-  %35 = getelementptr inbounds { ptr, i8 }, ptr %1, i64 0, i32 1
+  %35 = getelementptr inbounds i8, ptr %1, i64 8
   %36 = load i8, ptr %35, align 8, !range !9, !noundef !5
   %.not = icmp eq i8 %36, 0
   br i1 %.not, label %37, label %.thread32
@@ -2588,8 +2579,8 @@ define void @"_ZN75_$LT$serde_json..de..MapAccess$LT$R$GT$$u20$as$u20$serde..de.
   br i1 %41, label %.lr.ph.i11, label %.loopexit
 
 .lr.ph.i11:                                       ; preds = %37
-  %42 = getelementptr inbounds { [1 x i8], { i8, i8 } }, ptr %3, i64 0, i32 1
-  %43 = getelementptr inbounds { [1 x i8], { i8, i8 } }, ptr %3, i64 0, i32 1, i32 1
+  %42 = getelementptr inbounds i8, ptr %3, i64 1
+  %43 = getelementptr inbounds i8, ptr %3, i64 2
   br label %44
 
 44:                                               ; preds = %48, %.lr.ph.i11
@@ -2614,10 +2605,10 @@ define void @"_ZN75_$LT$serde_json..de..MapAccess$LT$R$GT$$u20$as$u20$serde..de.
   br i1 %50, label %44, label %.loopexit
 
 .loopexit:                                        ; preds = %48, %37
-  %51 = getelementptr inbounds { [1 x i64], ptr }, ptr %3, i64 0, i32 1
+  %51 = getelementptr inbounds i8, ptr %3, i64 8
   %52 = load ptr, ptr %51, align 8, !nonnull !5, !align !6, !noundef !5
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %3)
-  %53 = getelementptr inbounds { [1 x i64], ptr }, ptr %0, i64 0, i32 1
+  %53 = getelementptr inbounds i8, ptr %0, i64 8
   store ptr %52, ptr %53, align 8
   store i64 1, ptr %0, align 8
   br label %73
@@ -2630,13 +2621,13 @@ define void @"_ZN75_$LT$serde_json..de..MapAccess$LT$R$GT$$u20$as$u20$serde..de.
   %56 = load ptr, ptr %1, align 8, !nonnull !5, !align !6, !noundef !5
   store i64 8, ptr %10, align 8
   %57 = call align 8 ptr @"_ZN10serde_json2de21Deserializer$LT$R$GT$10peek_error17h94acb2c276ac062eE"(ptr nonnull align 8 %56, ptr nonnull align 8 %10)
-  %58 = getelementptr inbounds { [1 x i64], ptr }, ptr %0, i64 0, i32 1
+  %58 = getelementptr inbounds i8, ptr %0, i64 8
   store ptr %57, ptr %58, align 8
   store i64 1, ptr %0, align 8
   br label %73
 
 .thread32:                                        ; preds = %34, %31
-  %59 = getelementptr inbounds { ptr, i8 }, ptr %1, i64 0, i32 1
+  %59 = getelementptr inbounds i8, ptr %1, i64 8
   store i8 0, ptr %59, align 8
   br label %64
 
@@ -2645,7 +2636,7 @@ define void @"_ZN75_$LT$serde_json..de..MapAccess$LT$R$GT$$u20$as$u20$serde..de.
   %61 = load ptr, ptr %1, align 8, !nonnull !5, !align !6, !noundef !5
   store i64 5, ptr %5, align 8
   %62 = call align 8 ptr @"_ZN10serde_json2de21Deserializer$LT$R$GT$10peek_error17h94acb2c276ac062eE"(ptr nonnull align 8 %61, ptr nonnull align 8 %5)
-  %63 = getelementptr inbounds { [1 x i64], ptr }, ptr %0, i64 0, i32 1
+  %63 = getelementptr inbounds i8, ptr %0, i64 8
   store ptr %62, ptr %63, align 8
   store i64 1, ptr %0, align 8
   br label %73
@@ -2661,7 +2652,7 @@ define void @"_ZN75_$LT$serde_json..de..MapAccess$LT$R$GT$$u20$as$u20$serde..de.
 66:                                               ; preds = %64
   store i64 17, ptr %6, align 8
   %67 = call align 8 ptr @"_ZN10serde_json2de21Deserializer$LT$R$GT$10peek_error17h94acb2c276ac062eE"(ptr nonnull align 8 %65, ptr nonnull align 8 %6)
-  %68 = getelementptr inbounds { [1 x i64], ptr }, ptr %0, i64 0, i32 1
+  %68 = getelementptr inbounds i8, ptr %0, i64 8
   store ptr %67, ptr %68, align 8
   store i64 1, ptr %0, align 8
   br label %73
@@ -2674,7 +2665,7 @@ define void @"_ZN75_$LT$serde_json..de..MapAccess$LT$R$GT$$u20$as$u20$serde..de.
 70:                                               ; preds = %64
   store i64 21, ptr %7, align 8
   %71 = call align 8 ptr @"_ZN10serde_json2de21Deserializer$LT$R$GT$10peek_error17h94acb2c276ac062eE"(ptr nonnull align 8 %65, ptr nonnull align 8 %7)
-  %72 = getelementptr inbounds { [1 x i64], ptr }, ptr %0, i64 0, i32 1
+  %72 = getelementptr inbounds i8, ptr %0, i64 8
   store ptr %71, ptr %72, align 8
   store i64 1, ptr %0, align 8
   br label %73
@@ -2701,8 +2692,8 @@ define void @"_ZN75_$LT$serde_json..de..MapAccess$LT$R$GT$$u20$as$u20$serde..de.
   br i1 %13, label %.lr.ph.i, label %.loopexit38
 
 .lr.ph.i:                                         ; preds = %2
-  %14 = getelementptr inbounds { [1 x i8], { i8, i8 } }, ptr %4, i64 0, i32 1
-  %15 = getelementptr inbounds { [1 x i8], { i8, i8 } }, ptr %4, i64 0, i32 1, i32 1
+  %14 = getelementptr inbounds i8, ptr %4, i64 1
+  %15 = getelementptr inbounds i8, ptr %4, i64 2
   br label %16
 
 16:                                               ; preds = %20, %.lr.ph.i
@@ -2727,10 +2718,10 @@ define void @"_ZN75_$LT$serde_json..de..MapAccess$LT$R$GT$$u20$as$u20$serde..de.
   br i1 %22, label %16, label %.loopexit38
 
 .loopexit38:                                      ; preds = %20, %2
-  %23 = getelementptr inbounds { [1 x i64], ptr }, ptr %4, i64 0, i32 1
+  %23 = getelementptr inbounds i8, ptr %4, i64 8
   %24 = load ptr, ptr %23, align 8, !nonnull !5, !align !6, !noundef !5
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %4)
-  %25 = getelementptr inbounds { [1 x i64], ptr }, ptr %0, i64 0, i32 1
+  %25 = getelementptr inbounds i8, ptr %0, i64 8
   store ptr %24, ptr %25, align 8
   store i64 1, ptr %0, align 8
   br label %73
@@ -2740,7 +2731,7 @@ define void @"_ZN75_$LT$serde_json..de..MapAccess$LT$R$GT$$u20$as$u20$serde..de.
   %27 = load ptr, ptr %1, align 8, !nonnull !5, !align !6, !noundef !5
   store i64 3, ptr %9, align 8
   %28 = call align 8 ptr @"_ZN10serde_json2de21Deserializer$LT$R$GT$10peek_error17h94acb2c276ac062eE"(ptr nonnull align 8 %27, ptr nonnull align 8 %9)
-  %29 = getelementptr inbounds { [1 x i64], ptr }, ptr %0, i64 0, i32 1
+  %29 = getelementptr inbounds i8, ptr %0, i64 8
   store ptr %28, ptr %29, align 8
   store i64 1, ptr %0, align 8
   br label %73
@@ -2753,7 +2744,7 @@ define void @"_ZN75_$LT$serde_json..de..MapAccess$LT$R$GT$$u20$as$u20$serde..de.
   ]
 
 31:                                               ; preds = %30
-  %.phi.trans.insert = getelementptr inbounds { ptr, i8 }, ptr %1, i64 0, i32 1
+  %.phi.trans.insert = getelementptr inbounds i8, ptr %1, i64 8
   %.pre = load i8, ptr %.phi.trans.insert, align 8, !range !9
   %32 = icmp eq i8 %.pre, 0
   br i1 %32, label %55, label %.thread32
@@ -2763,7 +2754,7 @@ define void @"_ZN75_$LT$serde_json..de..MapAccess$LT$R$GT$$u20$as$u20$serde..de.
   br label %73
 
 34:                                               ; preds = %30
-  %35 = getelementptr inbounds { ptr, i8 }, ptr %1, i64 0, i32 1
+  %35 = getelementptr inbounds i8, ptr %1, i64 8
   %36 = load i8, ptr %35, align 8, !range !9, !noundef !5
   %.not = icmp eq i8 %36, 0
   br i1 %.not, label %37, label %.thread32
@@ -2779,8 +2770,8 @@ define void @"_ZN75_$LT$serde_json..de..MapAccess$LT$R$GT$$u20$as$u20$serde..de.
   br i1 %41, label %.lr.ph.i11, label %.loopexit
 
 .lr.ph.i11:                                       ; preds = %37
-  %42 = getelementptr inbounds { [1 x i8], { i8, i8 } }, ptr %3, i64 0, i32 1
-  %43 = getelementptr inbounds { [1 x i8], { i8, i8 } }, ptr %3, i64 0, i32 1, i32 1
+  %42 = getelementptr inbounds i8, ptr %3, i64 1
+  %43 = getelementptr inbounds i8, ptr %3, i64 2
   br label %44
 
 44:                                               ; preds = %48, %.lr.ph.i11
@@ -2805,10 +2796,10 @@ define void @"_ZN75_$LT$serde_json..de..MapAccess$LT$R$GT$$u20$as$u20$serde..de.
   br i1 %50, label %44, label %.loopexit
 
 .loopexit:                                        ; preds = %48, %37
-  %51 = getelementptr inbounds { [1 x i64], ptr }, ptr %3, i64 0, i32 1
+  %51 = getelementptr inbounds i8, ptr %3, i64 8
   %52 = load ptr, ptr %51, align 8, !nonnull !5, !align !6, !noundef !5
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %3)
-  %53 = getelementptr inbounds { [1 x i64], ptr }, ptr %0, i64 0, i32 1
+  %53 = getelementptr inbounds i8, ptr %0, i64 8
   store ptr %52, ptr %53, align 8
   store i64 1, ptr %0, align 8
   br label %73
@@ -2821,13 +2812,13 @@ define void @"_ZN75_$LT$serde_json..de..MapAccess$LT$R$GT$$u20$as$u20$serde..de.
   %56 = load ptr, ptr %1, align 8, !nonnull !5, !align !6, !noundef !5
   store i64 8, ptr %10, align 8
   %57 = call align 8 ptr @"_ZN10serde_json2de21Deserializer$LT$R$GT$10peek_error17h94acb2c276ac062eE"(ptr nonnull align 8 %56, ptr nonnull align 8 %10)
-  %58 = getelementptr inbounds { [1 x i64], ptr }, ptr %0, i64 0, i32 1
+  %58 = getelementptr inbounds i8, ptr %0, i64 8
   store ptr %57, ptr %58, align 8
   store i64 1, ptr %0, align 8
   br label %73
 
 .thread32:                                        ; preds = %34, %31
-  %59 = getelementptr inbounds { ptr, i8 }, ptr %1, i64 0, i32 1
+  %59 = getelementptr inbounds i8, ptr %1, i64 8
   store i8 0, ptr %59, align 8
   br label %64
 
@@ -2836,7 +2827,7 @@ define void @"_ZN75_$LT$serde_json..de..MapAccess$LT$R$GT$$u20$as$u20$serde..de.
   %61 = load ptr, ptr %1, align 8, !nonnull !5, !align !6, !noundef !5
   store i64 5, ptr %5, align 8
   %62 = call align 8 ptr @"_ZN10serde_json2de21Deserializer$LT$R$GT$10peek_error17h94acb2c276ac062eE"(ptr nonnull align 8 %61, ptr nonnull align 8 %5)
-  %63 = getelementptr inbounds { [1 x i64], ptr }, ptr %0, i64 0, i32 1
+  %63 = getelementptr inbounds i8, ptr %0, i64 8
   store ptr %62, ptr %63, align 8
   store i64 1, ptr %0, align 8
   br label %73
@@ -2852,7 +2843,7 @@ define void @"_ZN75_$LT$serde_json..de..MapAccess$LT$R$GT$$u20$as$u20$serde..de.
 66:                                               ; preds = %64
   store i64 17, ptr %6, align 8
   %67 = call align 8 ptr @"_ZN10serde_json2de21Deserializer$LT$R$GT$10peek_error17h94acb2c276ac062eE"(ptr nonnull align 8 %65, ptr nonnull align 8 %6)
-  %68 = getelementptr inbounds { [1 x i64], ptr }, ptr %0, i64 0, i32 1
+  %68 = getelementptr inbounds i8, ptr %0, i64 8
   store ptr %67, ptr %68, align 8
   store i64 1, ptr %0, align 8
   br label %73
@@ -2865,7 +2856,7 @@ define void @"_ZN75_$LT$serde_json..de..MapAccess$LT$R$GT$$u20$as$u20$serde..de.
 70:                                               ; preds = %64
   store i64 21, ptr %7, align 8
   %71 = call align 8 ptr @"_ZN10serde_json2de21Deserializer$LT$R$GT$10peek_error17h94acb2c276ac062eE"(ptr nonnull align 8 %65, ptr nonnull align 8 %7)
-  %72 = getelementptr inbounds { [1 x i64], ptr }, ptr %0, i64 0, i32 1
+  %72 = getelementptr inbounds i8, ptr %0, i64 8
   store ptr %71, ptr %72, align 8
   store i64 1, ptr %0, align 8
   br label %73
@@ -2887,7 +2878,7 @@ define void @"_ZN75_$LT$serde_json..de..MapAccess$LT$R$GT$$u20$as$u20$serde..de.
   br label %10
 
 8:                                                ; preds = %2
-  %9 = getelementptr inbounds { [1 x i64], ptr }, ptr %0, i64 0, i32 1
+  %9 = getelementptr inbounds i8, ptr %0, i64 8
   store ptr %4, ptr %9, align 8
   store i8 6, ptr %0, align 8
   br label %10
@@ -2902,38 +2893,38 @@ define void @"_ZN75_$LT$serde_json..de..MapKey$LT$R$GT$$u20$as$u20$serde..de..De
   %4 = icmp ne ptr %1, null
   tail call void @llvm.assume(i1 %4)
   tail call void @"_ZN68_$LT$serde_json..read..StrRead$u20$as$u20$serde_json..read..Read$GT$7discard17h32b6d53759719089E"(ptr nonnull align 8 %1)
-  %5 = getelementptr inbounds { { { { ptr, i64 }, i64 } }, { { ptr, i64 }, i64 }, i8, [7 x i8] }, ptr %1, i64 0, i32 1
+  %5 = getelementptr inbounds i8, ptr %1, i64 24
   tail call void @"_ZN5alloc3vec16Vec$LT$T$C$A$GT$5clear17h35ec257a8449b1baE"(ptr nonnull align 8 %5)
   call void @"_ZN68_$LT$serde_json..read..StrRead$u20$as$u20$serde_json..read..Read$GT$9parse_str17h96c53e8dc07d23fdE"(ptr nonnull sret({ i64, [2 x i64] }) align 8 %3, ptr nonnull align 8 %1, ptr nonnull align 8 %5)
   %6 = load i64, ptr %3, align 8, !range !8, !noundef !5
   %.not = icmp eq i64 %6, 2
-  br i1 %.not, label %9, label %7
-
-7:                                                ; preds = %2
-  %.sroa.2.0..sroa_idx = getelementptr inbounds i8, ptr %3, i64 8
-  %.sroa.2.0.copyload = load ptr, ptr %.sroa.2.0..sroa_idx, align 8, !nonnull !5, !noundef !5
-  %.sroa.4.0..sroa_idx = getelementptr inbounds i8, ptr %3, i64 16
-  %.sroa.4.0.copyload = load i64, ptr %.sroa.4.0..sroa_idx, align 8
-  %8 = icmp eq i64 %6, 0
-  br i1 %8, label %13, label %14
+  %7 = getelementptr inbounds i8, ptr %3, i64 8
+  %8 = load ptr, ptr %7, align 8
+  br i1 %.not, label %12, label %9
 
 9:                                                ; preds = %2
-  %10 = getelementptr inbounds { [1 x i64], ptr }, ptr %3, i64 0, i32 1
-  %11 = load ptr, ptr %10, align 8, !nonnull !5, !align !6, !noundef !5
-  %12 = getelementptr inbounds { [1 x i64], ptr }, ptr %0, i64 0, i32 1
-  store ptr %11, ptr %12, align 8
+  %.sroa.4.0..sroa_idx = getelementptr inbounds i8, ptr %3, i64 16
+  %.sroa.4.0.copyload = load i64, ptr %.sroa.4.0..sroa_idx, align 8
+  %10 = icmp eq i64 %6, 0
+  %11 = icmp ne ptr %8, null
+  call void @llvm.assume(i1 %11)
+  br i1 %10, label %14, label %15
+
+12:                                               ; preds = %2
+  %13 = getelementptr inbounds i8, ptr %0, i64 8
+  store ptr %8, ptr %13, align 8
   store ptr null, ptr %0, align 8
-  br label %15
+  br label %16
 
-13:                                               ; preds = %7
-  call void @_ZN5serde2de7Visitor18visit_borrowed_str17h870d3569a01ab1aaE(ptr sret({ ptr, [2 x i64] }) align 8 %0, ptr nonnull align 1 %.sroa.2.0.copyload, i64 %.sroa.4.0.copyload)
-  br label %15
+14:                                               ; preds = %9
+  call void @_ZN5serde2de7Visitor18visit_borrowed_str17h870d3569a01ab1aaE(ptr sret({ ptr, [2 x i64] }) align 8 %0, ptr nonnull align 1 %8, i64 %.sroa.4.0.copyload)
+  br label %16
 
-14:                                               ; preds = %7
-  call void @"_ZN75_$LT$serde_json..value..de..KeyClassifier$u20$as$u20$serde..de..Visitor$GT$9visit_str17hc7901ee8e2ae21efE"(ptr sret({ ptr, [2 x i64] }) align 8 %0, ptr nonnull align 1 %.sroa.2.0.copyload, i64 %.sroa.4.0.copyload)
-  br label %15
+15:                                               ; preds = %9
+  call void @"_ZN75_$LT$serde_json..value..de..KeyClassifier$u20$as$u20$serde..de..Visitor$GT$9visit_str17hc7901ee8e2ae21efE"(ptr sret({ ptr, [2 x i64] }) align 8 %0, ptr nonnull align 1 %8, i64 %.sroa.4.0.copyload)
+  br label %16
 
-15:                                               ; preds = %13, %14, %9
+16:                                               ; preds = %14, %15, %12
   ret void
 }
 
@@ -2943,38 +2934,38 @@ define void @"_ZN75_$LT$serde_json..de..MapKey$LT$R$GT$$u20$as$u20$serde..de..De
   %4 = icmp ne ptr %1, null
   tail call void @llvm.assume(i1 %4)
   tail call void @"_ZN68_$LT$serde_json..read..StrRead$u20$as$u20$serde_json..read..Read$GT$7discard17h32b6d53759719089E"(ptr nonnull align 8 %1)
-  %5 = getelementptr inbounds { { { { ptr, i64 }, i64 } }, { { ptr, i64 }, i64 }, i8, [7 x i8] }, ptr %1, i64 0, i32 1
+  %5 = getelementptr inbounds i8, ptr %1, i64 24
   tail call void @"_ZN5alloc3vec16Vec$LT$T$C$A$GT$5clear17h35ec257a8449b1baE"(ptr nonnull align 8 %5)
   call void @"_ZN68_$LT$serde_json..read..StrRead$u20$as$u20$serde_json..read..Read$GT$9parse_str17h96c53e8dc07d23fdE"(ptr nonnull sret({ i64, [2 x i64] }) align 8 %3, ptr nonnull align 8 %1, ptr nonnull align 8 %5)
   %6 = load i64, ptr %3, align 8, !range !8, !noundef !5
   %.not = icmp eq i64 %6, 2
-  br i1 %.not, label %9, label %7
-
-7:                                                ; preds = %2
-  %.sroa.2.0..sroa_idx = getelementptr inbounds i8, ptr %3, i64 8
-  %.sroa.2.0.copyload = load ptr, ptr %.sroa.2.0..sroa_idx, align 8, !nonnull !5, !noundef !5
-  %.sroa.4.0..sroa_idx = getelementptr inbounds i8, ptr %3, i64 16
-  %.sroa.4.0.copyload = load i64, ptr %.sroa.4.0..sroa_idx, align 8
-  %8 = icmp eq i64 %6, 0
-  br i1 %8, label %13, label %14
+  %7 = getelementptr inbounds i8, ptr %3, i64 8
+  %8 = load ptr, ptr %7, align 8
+  br i1 %.not, label %12, label %9
 
 9:                                                ; preds = %2
-  %10 = getelementptr inbounds { [1 x i64], ptr }, ptr %3, i64 0, i32 1
-  %11 = load ptr, ptr %10, align 8, !nonnull !5, !align !6, !noundef !5
-  %12 = getelementptr inbounds { [1 x i64], ptr }, ptr %0, i64 0, i32 1
-  store ptr %11, ptr %12, align 8
+  %.sroa.4.0..sroa_idx = getelementptr inbounds i8, ptr %3, i64 16
+  %.sroa.4.0.copyload = load i64, ptr %.sroa.4.0..sroa_idx, align 8
+  %10 = icmp eq i64 %6, 0
+  %11 = icmp ne ptr %8, null
+  call void @llvm.assume(i1 %11)
+  br i1 %10, label %14, label %15
+
+12:                                               ; preds = %2
+  %13 = getelementptr inbounds i8, ptr %0, i64 8
+  store ptr %8, ptr %13, align 8
   store ptr null, ptr %0, align 8
-  br label %15
+  br label %16
 
-13:                                               ; preds = %7
-  call void @_ZN5serde2de7Visitor18visit_borrowed_str17h379a1947f1cd8d05E(ptr sret({ ptr, [2 x i64] }) align 8 %0, ptr nonnull align 1 %.sroa.2.0.copyload, i64 %.sroa.4.0.copyload)
-  br label %15
+14:                                               ; preds = %9
+  call void @_ZN5serde2de7Visitor18visit_borrowed_str17h379a1947f1cd8d05E(ptr sret({ ptr, [2 x i64] }) align 8 %0, ptr nonnull align 1 %8, i64 %.sroa.4.0.copyload)
+  br label %16
 
-14:                                               ; preds = %7
-  call void @"_ZN70_$LT$serde..de..impls..StringVisitor$u20$as$u20$serde..de..Visitor$GT$9visit_str17h1d24b970649d0623E"(ptr sret({ ptr, [2 x i64] }) align 8 %0, ptr nonnull align 1 %.sroa.2.0.copyload, i64 %.sroa.4.0.copyload)
-  br label %15
+15:                                               ; preds = %9
+  call void @"_ZN70_$LT$serde..de..impls..StringVisitor$u20$as$u20$serde..de..Visitor$GT$9visit_str17h1d24b970649d0623E"(ptr sret({ ptr, [2 x i64] }) align 8 %0, ptr nonnull align 1 %8, i64 %.sroa.4.0.copyload)
+  br label %16
 
-15:                                               ; preds = %13, %14, %9
+16:                                               ; preds = %14, %15, %12
   ret void
 }
 
@@ -2988,10 +2979,10 @@ define void @_ZN10serde_json2de10from_trait17hf0118b27ecacc69fE(ptr nocapture wr
   %7 = alloca { { { { ptr, i64 }, i64 } }, { { ptr, i64 }, i64 }, i8, [7 x i8] }, align 8
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %.sroa.0.i)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %.sroa.0.i, ptr noundef nonnull align 8 dereferenceable(24) %1, i64 24, i1 false)
-  %8 = getelementptr inbounds { { { { ptr, i64 }, i64 } }, { { ptr, i64 }, i64 }, i8, [7 x i8] }, ptr %7, i64 0, i32 1
+  %8 = getelementptr inbounds i8, ptr %7, i64 24
   call void @"_ZN5alloc3vec12Vec$LT$T$GT$3new17h43471423205843c6E"(ptr nonnull sret({ { ptr, i64 }, i64 }) align 8 %8)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %7, ptr noundef nonnull align 8 dereferenceable(24) %.sroa.0.i, i64 24, i1 false)
-  %9 = getelementptr inbounds { { { { ptr, i64 }, i64 } }, { { ptr, i64 }, i64 }, i8, [7 x i8] }, ptr %7, i64 0, i32 2
+  %9 = getelementptr inbounds i8, ptr %7, i64 48
   store i8 -128, ptr %9, align 8
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %.sroa.0.i)
   invoke void @"_ZN10serde_json5value2de77_$LT$impl$u20$serde..de..Deserialize$u20$for$u20$serde_json..value..Value$GT$11deserialize17h3ee2e63fe5bad571E"(ptr nonnull sret({ i8, [31 x i8] }) align 8 %5, ptr nonnull align 8 %7)
@@ -3025,8 +3016,8 @@ define void @_ZN10serde_json2de10from_trait17hf0118b27ecacc69fE(ptr nocapture wr
   br i1 %17, label %.lr.ph.i.i, label %.thread7
 
 .lr.ph.i.i:                                       ; preds = %.noexc
-  %18 = getelementptr inbounds { [1 x i8], { i8, i8 } }, ptr %3, i64 0, i32 1
-  %19 = getelementptr inbounds { [1 x i8], { i8, i8 } }, ptr %3, i64 0, i32 1, i32 1
+  %18 = getelementptr inbounds i8, ptr %3, i64 1
+  %19 = getelementptr inbounds i8, ptr %3, i64 2
   br label %20
 
 20:                                               ; preds = %.noexc4, %.lr.ph.i.i
@@ -3062,7 +3053,7 @@ define void @_ZN10serde_json2de10from_trait17hf0118b27ecacc69fE(ptr nocapture wr
   br i1 %26, label %20, label %.thread7
 
 .thread7:                                         ; preds = %.noexc4, %.noexc
-  %27 = getelementptr inbounds { [1 x i64], ptr }, ptr %3, i64 0, i32 1
+  %27 = getelementptr inbounds i8, ptr %3, i64 8
   %28 = load ptr, ptr %27, align 8, !nonnull !5, !align !6, !noundef !5
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %3)
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %4)
@@ -3075,9 +3066,9 @@ define void @_ZN10serde_json2de10from_trait17hf0118b27ecacc69fE(ptr nocapture wr
           to label %36 unwind label %.loopexit.split-lp
 
 31:                                               ; preds = %13
-  %32 = getelementptr inbounds { [1 x i64], ptr }, ptr %5, i64 0, i32 1
+  %32 = getelementptr inbounds i8, ptr %5, i64 8
   %33 = load ptr, ptr %32, align 8, !nonnull !5, !align !6, !noundef !5
-  %34 = getelementptr inbounds { [1 x i64], ptr }, ptr %0, i64 0, i32 1
+  %34 = getelementptr inbounds i8, ptr %0, i64 8
   store ptr %33, ptr %34, align 8
   store i8 6, ptr %0, align 8
   br label %41
@@ -3108,7 +3099,7 @@ define void @_ZN10serde_json2de10from_trait17hf0118b27ecacc69fE(ptr nocapture wr
 
 39:                                               ; preds = %.thread7, %36
   %.0.i9 = phi ptr [ %28, %.thread7 ], [ %30, %36 ]
-  %40 = getelementptr inbounds { [1 x i64], ptr }, ptr %0, i64 0, i32 1
+  %40 = getelementptr inbounds i8, ptr %0, i64 8
   store ptr %.0.i9, ptr %40, align 8
   store i8 6, ptr %0, align 8
   invoke void @"_ZN4core3ptr45drop_in_place$LT$serde_json..value..Value$GT$17h4e7830de5bafa218E"(ptr nonnull align 8 %6)
@@ -3143,38 +3134,38 @@ define void @"_ZN75_$LT$serde_json..de..MapKey$LT$R$GT$$u20$as$u20$serde..de..De
   %4 = icmp ne ptr %1, null
   tail call void @llvm.assume(i1 %4)
   tail call void @"_ZN68_$LT$serde_json..read..StrRead$u20$as$u20$serde_json..read..Read$GT$7discard17h32b6d53759719089E"(ptr nonnull align 8 %1)
-  %5 = getelementptr inbounds { { { { ptr, i64 }, i64 } }, { { ptr, i64 }, i64 }, i8, [7 x i8] }, ptr %1, i64 0, i32 1
+  %5 = getelementptr inbounds i8, ptr %1, i64 24
   tail call void @"_ZN5alloc3vec16Vec$LT$T$C$A$GT$5clear17h35ec257a8449b1baE"(ptr nonnull align 8 %5)
   call void @"_ZN68_$LT$serde_json..read..StrRead$u20$as$u20$serde_json..read..Read$GT$9parse_str17h96c53e8dc07d23fdE"(ptr nonnull sret({ i64, [2 x i64] }) align 8 %3, ptr nonnull align 8 %1, ptr nonnull align 8 %5)
   %6 = load i64, ptr %3, align 8, !range !8, !noundef !5
   %.not.i = icmp eq i64 %6, 2
-  br i1 %.not.i, label %9, label %7
-
-7:                                                ; preds = %2
-  %.sroa.2.0..sroa_idx.i = getelementptr inbounds i8, ptr %3, i64 8
-  %.sroa.2.0.copyload.i = load ptr, ptr %.sroa.2.0..sroa_idx.i, align 8, !nonnull !5, !noundef !5
-  %.sroa.4.0..sroa_idx.i = getelementptr inbounds i8, ptr %3, i64 16
-  %.sroa.4.0.copyload.i = load i64, ptr %.sroa.4.0..sroa_idx.i, align 8
-  %8 = icmp eq i64 %6, 0
-  br i1 %8, label %13, label %14
+  %7 = getelementptr inbounds i8, ptr %3, i64 8
+  %8 = load ptr, ptr %7, align 8
+  br i1 %.not.i, label %12, label %9
 
 9:                                                ; preds = %2
-  %10 = getelementptr inbounds { [1 x i64], ptr }, ptr %3, i64 0, i32 1
-  %11 = load ptr, ptr %10, align 8, !nonnull !5, !align !6, !noundef !5
-  %12 = getelementptr inbounds { [1 x i64], ptr }, ptr %0, i64 0, i32 1
-  store ptr %11, ptr %12, align 8
+  %.sroa.4.0..sroa_idx.i = getelementptr inbounds i8, ptr %3, i64 16
+  %.sroa.4.0.copyload.i = load i64, ptr %.sroa.4.0..sroa_idx.i, align 8
+  %10 = icmp eq i64 %6, 0
+  %11 = icmp ne ptr %8, null
+  call void @llvm.assume(i1 %11)
+  br i1 %10, label %14, label %15
+
+12:                                               ; preds = %2
+  %13 = getelementptr inbounds i8, ptr %0, i64 8
+  store ptr %8, ptr %13, align 8
   store ptr null, ptr %0, align 8
   br label %"_ZN75_$LT$serde_json..de..MapKey$LT$R$GT$$u20$as$u20$serde..de..Deserializer$GT$15deserialize_any17h0b80fe14ee7ac8f0E.exit"
 
-13:                                               ; preds = %7
-  call void @_ZN5serde2de7Visitor18visit_borrowed_str17h870d3569a01ab1aaE(ptr sret({ ptr, [2 x i64] }) align 8 %0, ptr nonnull align 1 %.sroa.2.0.copyload.i, i64 %.sroa.4.0.copyload.i)
+14:                                               ; preds = %9
+  call void @_ZN5serde2de7Visitor18visit_borrowed_str17h870d3569a01ab1aaE(ptr sret({ ptr, [2 x i64] }) align 8 %0, ptr nonnull align 1 %8, i64 %.sroa.4.0.copyload.i)
   br label %"_ZN75_$LT$serde_json..de..MapKey$LT$R$GT$$u20$as$u20$serde..de..Deserializer$GT$15deserialize_any17h0b80fe14ee7ac8f0E.exit"
 
-14:                                               ; preds = %7
-  call void @"_ZN75_$LT$serde_json..value..de..KeyClassifier$u20$as$u20$serde..de..Visitor$GT$9visit_str17hc7901ee8e2ae21efE"(ptr sret({ ptr, [2 x i64] }) align 8 %0, ptr nonnull align 1 %.sroa.2.0.copyload.i, i64 %.sroa.4.0.copyload.i)
+15:                                               ; preds = %9
+  call void @"_ZN75_$LT$serde_json..value..de..KeyClassifier$u20$as$u20$serde..de..Visitor$GT$9visit_str17hc7901ee8e2ae21efE"(ptr sret({ ptr, [2 x i64] }) align 8 %0, ptr nonnull align 1 %8, i64 %.sroa.4.0.copyload.i)
   br label %"_ZN75_$LT$serde_json..de..MapKey$LT$R$GT$$u20$as$u20$serde..de..Deserializer$GT$15deserialize_any17h0b80fe14ee7ac8f0E.exit"
 
-"_ZN75_$LT$serde_json..de..MapKey$LT$R$GT$$u20$as$u20$serde..de..Deserializer$GT$15deserialize_any17h0b80fe14ee7ac8f0E.exit": ; preds = %9, %13, %14
+"_ZN75_$LT$serde_json..de..MapKey$LT$R$GT$$u20$as$u20$serde..de..Deserializer$GT$15deserialize_any17h0b80fe14ee7ac8f0E.exit": ; preds = %12, %14, %15
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %3)
   ret void
 }
@@ -3186,38 +3177,38 @@ define void @"_ZN75_$LT$serde_json..de..MapKey$LT$R$GT$$u20$as$u20$serde..de..De
   %4 = icmp ne ptr %1, null
   tail call void @llvm.assume(i1 %4)
   tail call void @"_ZN68_$LT$serde_json..read..StrRead$u20$as$u20$serde_json..read..Read$GT$7discard17h32b6d53759719089E"(ptr nonnull align 8 %1)
-  %5 = getelementptr inbounds { { { { ptr, i64 }, i64 } }, { { ptr, i64 }, i64 }, i8, [7 x i8] }, ptr %1, i64 0, i32 1
+  %5 = getelementptr inbounds i8, ptr %1, i64 24
   tail call void @"_ZN5alloc3vec16Vec$LT$T$C$A$GT$5clear17h35ec257a8449b1baE"(ptr nonnull align 8 %5)
   call void @"_ZN68_$LT$serde_json..read..StrRead$u20$as$u20$serde_json..read..Read$GT$9parse_str17h96c53e8dc07d23fdE"(ptr nonnull sret({ i64, [2 x i64] }) align 8 %3, ptr nonnull align 8 %1, ptr nonnull align 8 %5)
   %6 = load i64, ptr %3, align 8, !range !8, !noundef !5
   %.not.i = icmp eq i64 %6, 2
-  br i1 %.not.i, label %9, label %7
-
-7:                                                ; preds = %2
-  %.sroa.2.0..sroa_idx.i = getelementptr inbounds i8, ptr %3, i64 8
-  %.sroa.2.0.copyload.i = load ptr, ptr %.sroa.2.0..sroa_idx.i, align 8, !nonnull !5, !noundef !5
-  %.sroa.4.0..sroa_idx.i = getelementptr inbounds i8, ptr %3, i64 16
-  %.sroa.4.0.copyload.i = load i64, ptr %.sroa.4.0..sroa_idx.i, align 8
-  %8 = icmp eq i64 %6, 0
-  br i1 %8, label %13, label %14
+  %7 = getelementptr inbounds i8, ptr %3, i64 8
+  %8 = load ptr, ptr %7, align 8
+  br i1 %.not.i, label %12, label %9
 
 9:                                                ; preds = %2
-  %10 = getelementptr inbounds { [1 x i64], ptr }, ptr %3, i64 0, i32 1
-  %11 = load ptr, ptr %10, align 8, !nonnull !5, !align !6, !noundef !5
-  %12 = getelementptr inbounds { [1 x i64], ptr }, ptr %0, i64 0, i32 1
-  store ptr %11, ptr %12, align 8
+  %.sroa.4.0..sroa_idx.i = getelementptr inbounds i8, ptr %3, i64 16
+  %.sroa.4.0.copyload.i = load i64, ptr %.sroa.4.0..sroa_idx.i, align 8
+  %10 = icmp eq i64 %6, 0
+  %11 = icmp ne ptr %8, null
+  call void @llvm.assume(i1 %11)
+  br i1 %10, label %14, label %15
+
+12:                                               ; preds = %2
+  %13 = getelementptr inbounds i8, ptr %0, i64 8
+  store ptr %8, ptr %13, align 8
   store ptr null, ptr %0, align 8
   br label %"_ZN75_$LT$serde_json..de..MapKey$LT$R$GT$$u20$as$u20$serde..de..Deserializer$GT$15deserialize_any17hbff1ed33862d4724E.exit"
 
-13:                                               ; preds = %7
-  call void @_ZN5serde2de7Visitor18visit_borrowed_str17h379a1947f1cd8d05E(ptr sret({ ptr, [2 x i64] }) align 8 %0, ptr nonnull align 1 %.sroa.2.0.copyload.i, i64 %.sroa.4.0.copyload.i)
+14:                                               ; preds = %9
+  call void @_ZN5serde2de7Visitor18visit_borrowed_str17h379a1947f1cd8d05E(ptr sret({ ptr, [2 x i64] }) align 8 %0, ptr nonnull align 1 %8, i64 %.sroa.4.0.copyload.i)
   br label %"_ZN75_$LT$serde_json..de..MapKey$LT$R$GT$$u20$as$u20$serde..de..Deserializer$GT$15deserialize_any17hbff1ed33862d4724E.exit"
 
-14:                                               ; preds = %7
-  call void @"_ZN70_$LT$serde..de..impls..StringVisitor$u20$as$u20$serde..de..Visitor$GT$9visit_str17h1d24b970649d0623E"(ptr sret({ ptr, [2 x i64] }) align 8 %0, ptr nonnull align 1 %.sroa.2.0.copyload.i, i64 %.sroa.4.0.copyload.i)
+15:                                               ; preds = %9
+  call void @"_ZN70_$LT$serde..de..impls..StringVisitor$u20$as$u20$serde..de..Visitor$GT$9visit_str17h1d24b970649d0623E"(ptr sret({ ptr, [2 x i64] }) align 8 %0, ptr nonnull align 1 %8, i64 %.sroa.4.0.copyload.i)
   br label %"_ZN75_$LT$serde_json..de..MapKey$LT$R$GT$$u20$as$u20$serde..de..Deserializer$GT$15deserialize_any17hbff1ed33862d4724E.exit"
 
-"_ZN75_$LT$serde_json..de..MapKey$LT$R$GT$$u20$as$u20$serde..de..Deserializer$GT$15deserialize_any17hbff1ed33862d4724E.exit": ; preds = %9, %13, %14
+"_ZN75_$LT$serde_json..de..MapKey$LT$R$GT$$u20$as$u20$serde..de..Deserializer$GT$15deserialize_any17hbff1ed33862d4724E.exit": ; preds = %12, %14, %15
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %3)
   ret void
 }

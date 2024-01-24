@@ -57,7 +57,7 @@ entry:
   store i32 0, ptr %call, align 4, !tbaa !11
   %call2 = call noundef i32 @_ZN5folly6netops10getsockoptENS_13NetworkSocketEiiPvPj(i32 %sockfd.coerce, i32 noundef 6, i32 noundef 11, ptr noundef nonnull %info, ptr noundef nonnull %info_len)
   %cmp.not = icmp eq i32 %call2, 0
-  %tcpi_options = getelementptr inbounds %struct.tcp_info, ptr %info, i64 0, i32 5
+  %tcpi_options = getelementptr inbounds i8, ptr %info, i64 5
   %0 = load i8, ptr %tcpi_options, align 1
   %1 = and i8 %0, 32
   %tobool = icmp ne i8 %1, 0
@@ -125,7 +125,7 @@ entry:
           to label %invoke.cont unwind label %lpad
 
 invoke.cont:                                      ; preds = %entry
-  %_M_file.i.i = getelementptr inbounds %"class.std::basic_ifstream", ptr %ifs, i64 0, i32 1, i32 2
+  %_M_file.i.i = getelementptr inbounds i8, ptr %ifs, i64 120
   %call.i.i = call noundef zeroext i1 @_ZNKSt12__basic_fileIcE7is_openEv(ptr noundef nonnull align 8 dereferenceable(9) %_M_file.i.i) #11
   br i1 %call.i.i, label %if.then, label %if.end
 

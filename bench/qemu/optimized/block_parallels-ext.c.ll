@@ -7,29 +7,6 @@ target triple = "x86_64-unknown-linux-gnu"
 %union.anon.9 = type { %struct.anon.10 }
 %struct.anon.10 = type { i32, i16, i16, i8, i8, [6 x i8] }
 %struct.ParallelsFormatExtensionHeader = type { i64, [16 x i8] }
-%struct.BlockDriverState = type { i32, i8, i8, i8, i8, i8, ptr, ptr, ptr, %struct.anon, i8, [4096 x i8], [4096 x i8], [4096 x i8], [16 x i8], ptr, [4096 x i8], %struct.BlockLimits, i32, i32, i32, i32, [32 x i8], %union.anon, %union.anon.0, %union.anon.1, i32, [16 x %struct.anon.2], ptr, %struct.anon.3, ptr, ptr, %struct.anon.4, ptr, ptr, i32, ptr, i64, i64, %struct.QemuMutex, %struct.anon.5, %struct.Stat64, i32, i32, i32, i32, i32, i32, %struct.QemuMutex, %struct.anon.6, %struct.CoQueue, i8, i32, i8, %struct.CoMutex, ptr, ptr }
-%struct.anon = type { ptr }
-%struct.BlockLimits = type { i32, i64, i32, i64, i32, i32, i32, i64, i32, i64, i64, i32, i8, i32, i32, i32, i32, i32, i32, i32 }
-%union.anon = type { %struct.QTailQLink }
-%struct.QTailQLink = type { ptr, ptr }
-%union.anon.0 = type { %struct.QTailQLink }
-%union.anon.1 = type { %struct.QTailQLink }
-%struct.anon.2 = type { ptr }
-%struct.anon.3 = type { ptr }
-%struct.anon.4 = type { ptr }
-%struct.anon.5 = type { ptr }
-%struct.Stat64 = type { i64 }
-%struct.QemuMutex = type { %union.pthread_mutex_t, i8 }
-%union.pthread_mutex_t = type { %struct.__pthread_mutex_s }
-%struct.__pthread_mutex_s = type { i32, i32, i32, i32, i32, i16, i16, %struct.__pthread_internal_list }
-%struct.__pthread_internal_list = type { ptr, ptr }
-%struct.anon.6 = type { ptr }
-%struct.CoQueue = type { %struct.anon.7 }
-%struct.anon.7 = type { ptr, ptr }
-%struct.CoMutex = type { i32, ptr, %struct.anon.8, %struct.anon.8, i32, i32, ptr }
-%struct.anon.8 = type { ptr }
-%struct.BDRVParallelsState = type { %struct.CoMutex, ptr, i32, i8, ptr, i32, ptr, i64, ptr, i32, i64, i64, i64, i32, i32, i32, i32, ptr }
-%struct._GSList = type { ptr, ptr }
 
 @.str = private unnamed_addr constant [12 x i8] c"ext_off > 0\00", align 1
 @.str.1 = private unnamed_addr constant [30 x i8] c"../qemu/block/parallels-ext.c\00", align 1
@@ -65,9 +42,9 @@ entry:
   %eh.i = alloca %struct.ParallelsFormatExtensionHeader, align 8
   %hash.i = alloca ptr, align 8
   %hash_len.i = alloca i64, align 8
-  %opaque = getelementptr inbounds %struct.BlockDriverState, ptr %bs, i64 0, i32 7
+  %opaque = getelementptr inbounds i8, ptr %bs, i64 24
   %0 = load ptr, ptr %opaque, align 8
-  %cluster_size = getelementptr inbounds %struct.BDRVParallelsState, ptr %0, i64 0, i32 15
+  %cluster_size = getelementptr inbounds i8, ptr %0, i64 144
   %1 = load i32, ptr %cluster_size, align 8
   %conv = zext i32 %1 to i64
   %call = tail call ptr @qemu_blockalign(ptr noundef %bs, i64 noundef %conv) #8
@@ -79,7 +56,7 @@ if.else:                                          ; preds = %entry
   unreachable
 
 if.end:                                           ; preds = %entry
-  %file = getelementptr inbounds %struct.BlockDriverState, ptr %bs, i64 0, i32 31
+  %file = getelementptr inbounds i8, ptr %bs, i64 16840
   %2 = load ptr, ptr %file, align 8
   %3 = load i32, ptr %cluster_size, align 8
   %conv3 = zext i32 %3 to i64
@@ -97,7 +74,7 @@ if.end8:                                          ; preds = %if.end
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %hash.i)
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %hash_len.i)
   %4 = load ptr, ptr %opaque, align 8
-  %cluster_size.i = getelementptr inbounds %struct.BDRVParallelsState, ptr %4, i64 0, i32 15
+  %cluster_size.i = getelementptr inbounds i8, ptr %4, i64 144
   %5 = load i32, ptr %cluster_size.i, align 8
   store ptr null, ptr %hash.i, align 8
   store i64 0, ptr %hash_len.i, align 8
@@ -125,7 +102,7 @@ if.end11.i:                                       ; preds = %if.end.i
 
 lor.lhs.false.i:                                  ; preds = %if.end11.i
   %8 = load ptr, ptr %hash.i, align 8
-  %check_sum.i = getelementptr inbounds %struct.ParallelsFormatExtensionHeader, ptr %eh.i, i64 0, i32 1
+  %check_sum.i = getelementptr inbounds i8, ptr %eh.i, i64 8
   %bcmp.i = call i32 @bcmp(ptr noundef nonnull dereferenceable(16) %8, ptr noundef nonnull dereferenceable(16) %check_sum.i, i64 16)
   %cmp15.not.i = icmp eq i32 %bcmp.i, 0
   br i1 %cmp15.not.i, label %while.cond.preheader.i, label %if.then17.i
@@ -135,7 +112,7 @@ while.cond.preheader.i:                           ; preds = %lor.lhs.false.i
   br i1 %cmp20101.i, label %if.then22.i, label %if.end23.lr.ph.i
 
 if.end23.lr.ph.i:                                 ; preds = %while.cond.preheader.i
-  %total_sectors.i.i = getelementptr inbounds %struct.BlockDriverState, ptr %bs, i64 0, i32 37
+  %total_sectors.i.i = getelementptr inbounds i8, ptr %bs, i64 16888
   %sub.ptr.rhs.cast.i = ptrtoint ptr %call to i64
   br label %if.end23.i
 
@@ -248,7 +225,7 @@ for.end.i.i:                                      ; preds = %for.body.i.i, %if.e
   %10 = load ptr, ptr %opaque, align 8
   %call.i.i.i = call i64 @bdrv_dirty_bitmap_size(ptr noundef nonnull %call20.i.i) #8
   %call1.i.i.i = call i64 @bdrv_dirty_bitmap_serialization_size(ptr noundef nonnull %call20.i.i, i64 noundef 0, i64 noundef %call.i.i.i) #8
-  %cluster_size.i.i.i = getelementptr inbounds %struct.BDRVParallelsState, ptr %10, i64 0, i32 15
+  %cluster_size.i.i.i = getelementptr inbounds i8, ptr %10, i64 144
   %11 = load i32, ptr %cluster_size.i.i.i, align 8
   %conv.i.i.i = zext i32 %11 to i64
   %add.i.i.i = add i64 %call1.i.i.i, -1
@@ -365,7 +342,7 @@ for.body.i:                                       ; preds = %fail.i, %for.body.i
   %el.0107.i = phi ptr [ %18, %for.body.i ], [ %bitmaps.1.i, %fail.i ]
   %17 = load ptr, ptr %el.0107.i, align 8
   call void @bdrv_release_dirty_bitmap(ptr noundef %17) #8
-  %next.i = getelementptr inbounds %struct._GSList, ptr %el.0107.i, i64 0, i32 1
+  %next.i = getelementptr inbounds i8, ptr %el.0107.i, i64 8
   %18 = load ptr, ptr %next.i, align 8
   %tobool57.not.i = icmp eq ptr %18, null
   br i1 %tobool57.not.i, label %for.end.i, label %for.body.i, !llvm.loop !8

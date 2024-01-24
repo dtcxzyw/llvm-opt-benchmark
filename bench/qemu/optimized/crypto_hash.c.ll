@@ -46,7 +46,7 @@ define dso_local i32 @qcrypto_hash_bytes(i32 noundef %alg, ptr noundef %buf, i64
 entry:
   %iov = alloca %struct.iovec, align 8
   store ptr %buf, ptr %iov, align 8
-  %iov_len = getelementptr inbounds %struct.iovec, ptr %iov, i64 0, i32 1
+  %iov_len = getelementptr inbounds i8, ptr %iov, i64 8
   store i64 %len, ptr %iov_len, align 8
   %0 = load ptr, ptr @qcrypto_hash_lib_driver, align 8
   %call.i = call i32 %0(i32 noundef %alg, ptr noundef nonnull %iov, i64 noundef 1, ptr noundef %result, ptr noundef %resultlen, ptr noundef %errp) #6
@@ -54,7 +54,7 @@ entry:
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local i32 @qcrypto_hash_digestv(i32 noundef %alg, ptr noundef %iov, i64 noundef %niov, ptr nocapture noundef %digest, ptr noundef %errp) local_unnamed_addr #0 {
+define dso_local noundef i32 @qcrypto_hash_digestv(i32 noundef %alg, ptr noundef %iov, i64 noundef %niov, ptr nocapture noundef %digest, ptr noundef %errp) local_unnamed_addr #0 {
 entry:
   %result = alloca ptr, align 8
   %resultlen = alloca i64, align 8
@@ -129,13 +129,13 @@ declare noalias ptr @g_malloc0_n(i64 noundef, i64 noundef) local_unnamed_addr #2
 declare void @g_free(ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local i32 @qcrypto_hash_digest(i32 noundef %alg, ptr noundef %buf, i64 noundef %len, ptr nocapture noundef %digest, ptr noundef %errp) local_unnamed_addr #0 {
+define dso_local noundef i32 @qcrypto_hash_digest(i32 noundef %alg, ptr noundef %buf, i64 noundef %len, ptr nocapture noundef %digest, ptr noundef %errp) local_unnamed_addr #0 {
 entry:
   %result.i = alloca ptr, align 8
   %resultlen.i = alloca i64, align 8
   %iov = alloca %struct.iovec, align 8
   store ptr %buf, ptr %iov, align 8
-  %iov_len = getelementptr inbounds %struct.iovec, ptr %iov, i64 0, i32 1
+  %iov_len = getelementptr inbounds i8, ptr %iov, i64 8
   store i64 %len, ptr %iov_len, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %result.i)
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %resultlen.i)
@@ -207,7 +207,7 @@ qcrypto_hash_digestv.exit:                        ; preds = %entry, %for.end.i
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local i32 @qcrypto_hash_base64v(i32 noundef %alg, ptr noundef %iov, i64 noundef %niov, ptr nocapture noundef writeonly %base64, ptr noundef %errp) local_unnamed_addr #0 {
+define dso_local noundef i32 @qcrypto_hash_base64v(i32 noundef %alg, ptr noundef %iov, i64 noundef %niov, ptr nocapture noundef writeonly %base64, ptr noundef %errp) local_unnamed_addr #0 {
 entry:
   %result = alloca ptr, align 8
   %resultlen = alloca i64, align 8
@@ -235,13 +235,13 @@ return:                                           ; preds = %entry, %if.end
 declare noalias ptr @g_base64_encode(ptr noundef, i64 noundef) local_unnamed_addr #3
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local i32 @qcrypto_hash_base64(i32 noundef %alg, ptr noundef %buf, i64 noundef %len, ptr nocapture noundef writeonly %base64, ptr noundef %errp) local_unnamed_addr #0 {
+define dso_local noundef i32 @qcrypto_hash_base64(i32 noundef %alg, ptr noundef %buf, i64 noundef %len, ptr nocapture noundef writeonly %base64, ptr noundef %errp) local_unnamed_addr #0 {
 entry:
   %result.i = alloca ptr, align 8
   %resultlen.i = alloca i64, align 8
   %iov = alloca %struct.iovec, align 8
   store ptr %buf, ptr %iov, align 8
-  %iov_len = getelementptr inbounds %struct.iovec, ptr %iov, i64 0, i32 1
+  %iov_len = getelementptr inbounds i8, ptr %iov, i64 8
   store i64 %len, ptr %iov_len, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %result.i)
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %resultlen.i)

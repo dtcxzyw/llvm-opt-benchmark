@@ -68,13 +68,13 @@ entry:
   %sha256 = alloca %struct.sha256_state_st, align 4
   %digest = alloca [32 x i8], align 16
   store ptr %key.coerce0, ptr %key, align 8
-  %0 = getelementptr inbounds { ptr, i64 }, ptr %key, i64 0, i32 1
+  %0 = getelementptr inbounds i8, ptr %key, i64 8
   store i64 %key.coerce1, ptr %0, align 8
   store ptr %signed_data.coerce0, ptr %signed_data, align 8
-  %1 = getelementptr inbounds { ptr, i64 }, ptr %signed_data, i64 0, i32 1
+  %1 = getelementptr inbounds i8, ptr %signed_data, i64 8
   store i64 %signed_data.coerce1, ptr %1, align 8
   store ptr %signature.coerce0, ptr %signature, align 8
-  %2 = getelementptr inbounds { ptr, i64 }, ptr %signature, i64 0, i32 1
+  %2 = getelementptr inbounds i8, ptr %signature, i64 8
   store i64 %signature.coerce1, ptr %2, align 8
   %call = call noundef i64 @_ZNK4base16BasicStringPieceINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %key)
   %cmp.not = icmp eq i64 %call, 64
@@ -113,7 +113,7 @@ invoke.cont12:                                    ; preds = %invoke.cont9
 invoke.cont15:                                    ; preds = %invoke.cont12
   store ptr %call16, ptr %s, align 8
   store ptr %call13, ptr %sig, align 8
-  %s20 = getelementptr inbounds %struct.ecdsa_sig_st, ptr %sig, i64 0, i32 1
+  %s20 = getelementptr inbounds i8, ptr %sig, i64 8
   store ptr %call16, ptr %s20, align 8
   %call23 = invoke noundef ptr @_ZNK4base16BasicStringPieceINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE4dataEv(ptr noundef nonnull align 8 dereferenceable(16) %key)
           to label %invoke.cont22 unwind label %lpad21

@@ -3,8 +3,6 @@ source_filename = "bench/libquic/original/stack.c.ll"
 target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:128-n8:16:32:64-S128"
 target triple = "x86_64-unknown-linux-gnu"
 
-%struct.stack_st = type { i64, ptr, i64, i64, ptr }
-
 ; Function Attrs: mustprogress nounwind willreturn memory(readwrite, argmem: none) uwtable
 define hidden noalias noundef ptr @sk_new(ptr noundef %comp) local_unnamed_addr #0 {
 entry:
@@ -14,15 +12,15 @@ entry:
 
 if.end:                                           ; preds = %entry
   %calloc = tail call dereferenceable_or_null(32) ptr @calloc(i64 1, i64 32)
-  %data = getelementptr inbounds %struct.stack_st, ptr %calloc9, i64 0, i32 1
+  %data = getelementptr inbounds i8, ptr %calloc9, i64 8
   store ptr %calloc, ptr %data, align 8
   %cmp3 = icmp eq ptr %calloc, null
   br i1 %cmp3, label %err, label %if.end5
 
 if.end5:                                          ; preds = %if.end
-  %comp7 = getelementptr inbounds %struct.stack_st, ptr %calloc9, i64 0, i32 4
+  %comp7 = getelementptr inbounds i8, ptr %calloc9, i64 32
   store ptr %comp, ptr %comp7, align 8
-  %num_alloc = getelementptr inbounds %struct.stack_st, ptr %calloc9, i64 0, i32 3
+  %num_alloc = getelementptr inbounds i8, ptr %calloc9, i64 24
   store i64 4, ptr %num_alloc, align 8
   br label %return
 
@@ -50,13 +48,13 @@ entry:
 
 if.end.i:                                         ; preds = %entry
   %calloc.i = tail call dereferenceable_or_null(32) ptr @calloc(i64 1, i64 32)
-  %data.i = getelementptr inbounds %struct.stack_st, ptr %calloc9.i, i64 0, i32 1
+  %data.i = getelementptr inbounds i8, ptr %calloc9.i, i64 8
   store ptr %calloc.i, ptr %data.i, align 8
   %cmp3.i = icmp eq ptr %calloc.i, null
   br i1 %cmp3.i, label %err.i, label %if.end5.i
 
 if.end5.i:                                        ; preds = %if.end.i
-  %num_alloc.i = getelementptr inbounds %struct.stack_st, ptr %calloc9.i, i64 0, i32 3
+  %num_alloc.i = getelementptr inbounds i8, ptr %calloc9.i, i64 24
   store i64 4, ptr %num_alloc.i, align 8
   br label %sk_new.exit
 
@@ -96,12 +94,12 @@ lor.lhs.false:                                    ; preds = %entry
   br i1 %cmp1, label %return, label %if.end
 
 if.end:                                           ; preds = %lor.lhs.false
-  %data = getelementptr inbounds %struct.stack_st, ptr %sk, i64 0, i32 1
+  %data = getelementptr inbounds i8, ptr %sk, i64 8
   %1 = load ptr, ptr %data, align 8
   %mul = shl i64 %0, 3
   tail call void @llvm.memset.p0.i64(ptr align 8 %1, i8 0, i64 %mul, i1 false)
   store i64 0, ptr %sk, align 8
-  %sorted = getelementptr inbounds %struct.stack_st, ptr %sk, i64 0, i32 2
+  %sorted = getelementptr inbounds i8, ptr %sk, i64 16
   store i64 0, ptr %sorted, align 8
   br label %return
 
@@ -121,7 +119,7 @@ lor.lhs.false:                                    ; preds = %entry
   br i1 %cmp.not, label %if.end, label %return
 
 if.end:                                           ; preds = %lor.lhs.false
-  %data = getelementptr inbounds %struct.stack_st, ptr %sk, i64 0, i32 1
+  %data = getelementptr inbounds i8, ptr %sk, i64 8
   %1 = load ptr, ptr %data, align 8
   %arrayidx = getelementptr inbounds ptr, ptr %1, i64 %i
   %2 = load ptr, ptr %arrayidx, align 8
@@ -144,7 +142,7 @@ lor.lhs.false:                                    ; preds = %entry
   br i1 %cmp.not, label %if.end, label %return
 
 if.end:                                           ; preds = %lor.lhs.false
-  %data = getelementptr inbounds %struct.stack_st, ptr %sk, i64 0, i32 1
+  %data = getelementptr inbounds i8, ptr %sk, i64 8
   %1 = load ptr, ptr %data, align 8
   %arrayidx = getelementptr inbounds ptr, ptr %1, i64 %i
   store ptr %value, ptr %arrayidx, align 8
@@ -162,7 +160,7 @@ entry:
   br i1 %cmp, label %return, label %if.end
 
 if.end:                                           ; preds = %entry
-  %data = getelementptr inbounds %struct.stack_st, ptr %sk, i64 0, i32 1
+  %data = getelementptr inbounds i8, ptr %sk, i64 8
   %0 = load ptr, ptr %data, align 8
   tail call void @free(ptr noundef %0) #18
   tail call void @free(ptr noundef nonnull %sk) #18
@@ -184,7 +182,7 @@ for.cond.preheader:                               ; preds = %entry
   br i1 %cmp18.not, label %sk_free.exit, label %for.body.lr.ph
 
 for.body.lr.ph:                                   ; preds = %for.cond.preheader
-  %data = getelementptr inbounds %struct.stack_st, ptr %sk, i64 0, i32 1
+  %data = getelementptr inbounds i8, ptr %sk, i64 8
   br label %for.body
 
 for.body:                                         ; preds = %for.body.lr.ph, %for.inc
@@ -208,7 +206,7 @@ for.inc:                                          ; preds = %for.body, %if.then3
   br i1 %cmp1, label %for.body, label %sk_free.exit, !llvm.loop !7
 
 sk_free.exit:                                     ; preds = %for.inc, %for.cond.preheader
-  %data.i = getelementptr inbounds %struct.stack_st, ptr %sk, i64 0, i32 1
+  %data.i = getelementptr inbounds i8, ptr %sk, i64 8
   %5 = load ptr, ptr %data.i, align 8
   tail call void @free(ptr noundef %5) #18
   tail call void @free(ptr noundef nonnull %sk) #18
@@ -225,7 +223,7 @@ entry:
   br i1 %cmp, label %return, label %if.end
 
 if.end:                                           ; preds = %entry
-  %num_alloc = getelementptr inbounds %struct.stack_st, ptr %sk, i64 0, i32 3
+  %num_alloc = getelementptr inbounds i8, ptr %sk, i64 24
   %0 = load i64, ptr %num_alloc, align 8
   %1 = load i64, ptr %sk, align 8
   %add = add i64 %1, 1
@@ -259,7 +257,7 @@ if.end11:                                         ; preds = %if.then7, %lor.lhs.
   br i1 %or.cond, label %if.end18, label %return
 
 if.end18:                                         ; preds = %if.end11
-  %data19 = getelementptr inbounds %struct.stack_st, ptr %sk, i64 0, i32 1
+  %data19 = getelementptr inbounds i8, ptr %sk, i64 8
   %2 = load ptr, ptr %data19, align 8
   %call = tail call ptr @realloc(ptr noundef %2, i64 noundef %alloc_size.0) #19
   %cmp20 = icmp eq ptr %call, null
@@ -274,7 +272,7 @@ if.end22:                                         ; preds = %if.end18
 if.end25:                                         ; preds = %if.end22, %if.end
   %3 = phi i64 [ %.pre, %if.end22 ], [ %1, %if.end ]
   %cmp27.not = icmp ugt i64 %3, %where
-  %data31 = getelementptr inbounds %struct.stack_st, ptr %sk, i64 0, i32 1
+  %data31 = getelementptr inbounds i8, ptr %sk, i64 8
   %4 = load ptr, ptr %data31, align 8
   br i1 %cmp27.not, label %if.else, label %if.then28
 
@@ -284,7 +282,7 @@ if.then28:                                        ; preds = %if.end25
 
 if.else:                                          ; preds = %if.end25
   %5 = getelementptr ptr, ptr %4, i64 %where
-  %arrayidx33 = getelementptr ptr, ptr %5, i64 1
+  %arrayidx33 = getelementptr i8, ptr %5, i64 8
   %sub = sub i64 %3, %where
   %mul37 = shl i64 %sub, 3
   tail call void @llvm.memmove.p0.p0.i64(ptr align 8 %arrayidx33, ptr align 8 %5, i64 %mul37, i1 false)
@@ -298,7 +296,7 @@ if.end40:                                         ; preds = %if.else, %if.then28
   %7 = load i64, ptr %sk, align 8
   %inc = add i64 %7, 1
   store i64 %inc, ptr %sk, align 8
-  %sorted = getelementptr inbounds %struct.stack_st, ptr %sk, i64 0, i32 2
+  %sorted = getelementptr inbounds i8, ptr %sk, i64 16
   store i64 0, ptr %sorted, align 8
   br label %return
 
@@ -325,7 +323,7 @@ lor.lhs.false:                                    ; preds = %entry
   br i1 %cmp.not, label %if.end, label %return
 
 if.end:                                           ; preds = %lor.lhs.false
-  %data = getelementptr inbounds %struct.stack_st, ptr %sk, i64 0, i32 1
+  %data = getelementptr inbounds i8, ptr %sk, i64 8
   %1 = load ptr, ptr %data, align 8
   %arrayidx = getelementptr inbounds ptr, ptr %1, i64 %where
   %2 = load ptr, ptr %arrayidx, align 8
@@ -334,7 +332,7 @@ if.end:                                           ; preds = %lor.lhs.false
   br i1 %cmp2.not, label %if.end11, label %if.then3
 
 if.then3:                                         ; preds = %if.end
-  %arrayidx7 = getelementptr ptr, ptr %arrayidx, i64 1
+  %arrayidx7 = getelementptr i8, ptr %arrayidx, i64 8
   %3 = xor i64 %where, -1
   %sub10 = add i64 %0, %3
   %mul = shl i64 %sub10, 3
@@ -365,7 +363,7 @@ for.cond.preheader:                               ; preds = %entry
   br i1 %cmp110.not, label %return, label %for.body.lr.ph
 
 for.body.lr.ph:                                   ; preds = %for.cond.preheader
-  %data = getelementptr inbounds %struct.stack_st, ptr %sk, i64 0, i32 1
+  %data = getelementptr inbounds i8, ptr %sk, i64 8
   %1 = load ptr, ptr %data, align 8
   br label %for.body
 
@@ -383,7 +381,7 @@ if.end.i:                                         ; preds = %for.body
 
 if.then3.i:                                       ; preds = %if.end.i
   %arrayidx.le = getelementptr inbounds ptr, ptr %1, i64 %i.011
-  %arrayidx7.i = getelementptr ptr, ptr %arrayidx.le, i64 1
+  %arrayidx7.i = getelementptr i8, ptr %arrayidx.le, i64 8
   %3 = xor i64 %i.011, -1
   %sub10.i = add i64 %0, %3
   %mul.i = shl i64 %sub10.i, 3
@@ -416,7 +414,7 @@ entry:
   br i1 %cmp, label %return, label %if.end
 
 if.end:                                           ; preds = %entry
-  %comp = getelementptr inbounds %struct.stack_st, ptr %sk, i64 0, i32 4
+  %comp = getelementptr inbounds i8, ptr %sk, i64 32
   %0 = load ptr, ptr %comp, align 8
   %cmp1 = icmp eq ptr %0, null
   br i1 %cmp1, label %for.cond.preheader, label %if.end9
@@ -427,7 +425,7 @@ for.cond.preheader:                               ; preds = %if.end
   br i1 %cmp326.not, label %return, label %for.body.lr.ph
 
 for.body.lr.ph:                                   ; preds = %for.cond.preheader
-  %data = getelementptr inbounds %struct.stack_st, ptr %sk, i64 0, i32 1
+  %data = getelementptr inbounds i8, ptr %sk, i64 8
   %2 = load ptr, ptr %data, align 8
   br label %for.body
 
@@ -452,13 +450,13 @@ if.end9:                                          ; preds = %if.end
   br i1 %cmp10, label %return, label %lor.lhs.false2.i
 
 lor.lhs.false2.i:                                 ; preds = %if.end9
-  %sorted.i = getelementptr inbounds %struct.stack_st, ptr %sk, i64 0, i32 2
+  %sorted.i = getelementptr inbounds i8, ptr %sk, i64 16
   %4 = load i64, ptr %sorted.i, align 8
   %tobool.not.i = icmp eq i64 %4, 0
   br i1 %tobool.not.i, label %if.end.i, label %sk_sort.exit
 
 if.end.i:                                         ; preds = %lor.lhs.false2.i
-  %data.i = getelementptr inbounds %struct.stack_st, ptr %sk, i64 0, i32 1
+  %data.i = getelementptr inbounds i8, ptr %sk, i64 8
   %5 = load ptr, ptr %data.i, align 8
   %6 = load i64, ptr %sk, align 8
   tail call void @qsort(ptr noundef %5, i64 noundef %6, i64 noundef 8, ptr noundef nonnull %0) #18
@@ -468,7 +466,7 @@ if.end.i:                                         ; preds = %lor.lhs.false2.i
 
 sk_sort.exit:                                     ; preds = %lor.lhs.false2.i, %if.end.i
   %7 = phi ptr [ %0, %lor.lhs.false2.i ], [ %.pre, %if.end.i ]
-  %data14 = getelementptr inbounds %struct.stack_st, ptr %sk, i64 0, i32 1
+  %data14 = getelementptr inbounds i8, ptr %sk, i64 8
   %8 = load ptr, ptr %data14, align 8
   %9 = load i64, ptr %sk, align 8
   %call = call ptr @bsearch(ptr noundef nonnull %p.addr, ptr noundef %8, i64 noundef %9, i64 noundef 8, ptr noundef %7) #18
@@ -489,7 +487,7 @@ land.rhs:                                         ; preds = %if.end18, %while.bo
   %11 = load ptr, ptr %comp, align 8
   %12 = load ptr, ptr %data14, align 8
   %13 = getelementptr ptr, ptr %12, i64 %i.124
-  %arrayidx23 = getelementptr ptr, ptr %13, i64 -1
+  %arrayidx23 = getelementptr i8, ptr %13, i64 -8
   %call24 = call i32 %11(ptr noundef nonnull %p.addr, ptr noundef %arrayidx23) #18
   %cmp25 = icmp eq i32 %call24, 0
   br i1 %cmp25, label %while.body, label %while.end
@@ -521,19 +519,19 @@ entry:
   br i1 %cmp, label %return, label %lor.lhs.false
 
 lor.lhs.false:                                    ; preds = %entry
-  %comp = getelementptr inbounds %struct.stack_st, ptr %sk, i64 0, i32 4
+  %comp = getelementptr inbounds i8, ptr %sk, i64 32
   %0 = load ptr, ptr %comp, align 8
   %cmp1 = icmp eq ptr %0, null
   br i1 %cmp1, label %return, label %lor.lhs.false2
 
 lor.lhs.false2:                                   ; preds = %lor.lhs.false
-  %sorted = getelementptr inbounds %struct.stack_st, ptr %sk, i64 0, i32 2
+  %sorted = getelementptr inbounds i8, ptr %sk, i64 16
   %1 = load i64, ptr %sorted, align 8
   %tobool.not = icmp eq i64 %1, 0
   br i1 %tobool.not, label %if.end, label %return
 
 if.end:                                           ; preds = %lor.lhs.false2
-  %data = getelementptr inbounds %struct.stack_st, ptr %sk, i64 0, i32 1
+  %data = getelementptr inbounds i8, ptr %sk, i64 8
   %2 = load ptr, ptr %data, align 8
   %3 = load i64, ptr %sk, align 8
   tail call void @qsort(ptr noundef %2, i64 noundef %3, i64 noundef 8, ptr noundef nonnull %0) #18
@@ -558,7 +556,7 @@ if.end:                                           ; preds = %entry
   br i1 %cmp1, label %return, label %if.end.i
 
 if.end.i:                                         ; preds = %if.end
-  %data.i = getelementptr inbounds %struct.stack_st, ptr %sk, i64 0, i32 1
+  %data.i = getelementptr inbounds i8, ptr %sk, i64 8
   %1 = load ptr, ptr %data.i, align 8
   %2 = load ptr, ptr %1, align 8
   %sub.i = add i64 %0, -1
@@ -566,7 +564,7 @@ if.end.i:                                         ; preds = %if.end
   br i1 %cmp2.not.i, label %sk_delete.exit, label %if.then3.i
 
 if.then3.i:                                       ; preds = %if.end.i
-  %arrayidx7.i = getelementptr ptr, ptr %1, i64 1
+  %arrayidx7.i = getelementptr i8, ptr %1, i64 8
   %mul.i = shl i64 %sub.i, 3
   tail call void @llvm.memmove.p0.p0.i64(ptr nonnull align 8 %1, ptr align 8 %arrayidx7.i, i64 %mul.i, i1 false)
   %.pre.i = load i64, ptr %sk, align 8
@@ -587,14 +585,14 @@ return:                                           ; preds = %if.end, %entry, %sk
 define hidden i64 @sk_push(ptr nocapture noundef %sk, ptr noundef %p) local_unnamed_addr #6 {
 if.end.i:
   %0 = load i64, ptr %sk, align 8
-  %num_alloc.i = getelementptr inbounds %struct.stack_st, ptr %sk, i64 0, i32 3
+  %num_alloc.i = getelementptr inbounds i8, ptr %sk, i64 24
   %1 = load i64, ptr %num_alloc.i, align 8
   %add.i = add i64 %0, 1
   %cmp1.not.i = icmp ugt i64 %1, %add.i
   br i1 %cmp1.not.i, label %if.end25.i.thread, label %if.then2.i
 
 if.end25.i.thread:                                ; preds = %if.end.i
-  %data31.i3 = getelementptr inbounds %struct.stack_st, ptr %sk, i64 0, i32 1
+  %data31.i3 = getelementptr inbounds i8, ptr %sk, i64 8
   %2 = load ptr, ptr %data31.i3, align 8
   br label %if.then28.i
 
@@ -625,7 +623,7 @@ if.end11.i:                                       ; preds = %if.then7.i, %lor.lh
   br i1 %or.cond.i, label %if.end18.i, label %sk_insert.exit
 
 if.end18.i:                                       ; preds = %if.end11.i
-  %data19.i = getelementptr inbounds %struct.stack_st, ptr %sk, i64 0, i32 1
+  %data19.i = getelementptr inbounds i8, ptr %sk, i64 8
   %3 = load ptr, ptr %data19.i, align 8
   %call.i = tail call ptr @realloc(ptr noundef %3, i64 noundef %alloc_size.0.i) #19
   %cmp20.i = icmp eq ptr %call.i, null
@@ -646,7 +644,7 @@ if.then28.i:                                      ; preds = %if.end25.i.thread, 
 
 if.else.i:                                        ; preds = %if.end25.i
   %6 = getelementptr ptr, ptr %call.i, i64 %0
-  %arrayidx33.i = getelementptr ptr, ptr %6, i64 1
+  %arrayidx33.i = getelementptr i8, ptr %6, i64 8
   %sub.i = sub i64 %.pre.i, %0
   %mul37.i = shl i64 %sub.i, 3
   tail call void @llvm.memmove.p0.p0.i64(ptr align 8 %arrayidx33.i, ptr align 8 %6, i64 %mul37.i, i1 false)
@@ -658,7 +656,7 @@ if.end40.i:                                       ; preds = %if.else.i, %if.then
   %7 = load i64, ptr %sk, align 8
   %inc.i = add i64 %7, 1
   store i64 %inc.i, ptr %sk, align 8
-  %sorted.i = getelementptr inbounds %struct.stack_st, ptr %sk, i64 0, i32 2
+  %sorted.i = getelementptr inbounds i8, ptr %sk, i64 16
   store i64 0, ptr %sorted.i, align 8
   br label %sk_insert.exit
 
@@ -680,7 +678,7 @@ if.end:                                           ; preds = %entry
 
 if.end11.i:                                       ; preds = %if.end
   %sub = add i64 %0, -1
-  %data.i = getelementptr inbounds %struct.stack_st, ptr %sk, i64 0, i32 1
+  %data.i = getelementptr inbounds i8, ptr %sk, i64 8
   %1 = load ptr, ptr %data.i, align 8
   %arrayidx.i = getelementptr inbounds ptr, ptr %1, i64 %sub
   %2 = load ptr, ptr %arrayidx.i, align 8
@@ -699,7 +697,7 @@ entry:
   br i1 %cmp, label %return, label %if.end
 
 if.end:                                           ; preds = %entry
-  %comp = getelementptr inbounds %struct.stack_st, ptr %sk, i64 0, i32 4
+  %comp = getelementptr inbounds i8, ptr %sk, i64 32
   %0 = load ptr, ptr %comp, align 8
   %calloc9.i = tail call dereferenceable_or_null(40) ptr @calloc(i64 1, i64 40)
   %cmp.i = icmp eq ptr %calloc9.i, null
@@ -707,7 +705,7 @@ if.end:                                           ; preds = %entry
 
 if.end.i:                                         ; preds = %if.end
   %calloc.i = tail call dereferenceable_or_null(32) ptr @calloc(i64 1, i64 32)
-  %data.i = getelementptr inbounds %struct.stack_st, ptr %calloc9.i, i64 0, i32 1
+  %data.i = getelementptr inbounds i8, ptr %calloc9.i, i64 8
   store ptr %calloc.i, ptr %data.i, align 8
   %cmp3.i = icmp eq ptr %calloc.i, null
   br i1 %cmp3.i, label %if.end.split, label %if.end3
@@ -717,7 +715,7 @@ if.end.split:                                     ; preds = %if.end, %if.end.i
   br label %return
 
 if.end3:                                          ; preds = %if.end.i
-  %num_alloc = getelementptr inbounds %struct.stack_st, ptr %sk, i64 0, i32 3
+  %num_alloc = getelementptr inbounds i8, ptr %sk, i64 24
   %1 = load i64, ptr %num_alloc, align 8
   %mul = shl i64 %1, 3
   %call4 = tail call ptr @realloc(ptr noundef nonnull %calloc.i, i64 noundef %mul) #19
@@ -730,18 +728,18 @@ sk_free.exit:                                     ; preds = %if.end3
   br label %return
 
 if.end7:                                          ; preds = %if.end3
-  %num_alloc.i = getelementptr inbounds %struct.stack_st, ptr %calloc9.i, i64 0, i32 3
-  %comp7.i = getelementptr inbounds %struct.stack_st, ptr %calloc9.i, i64 0, i32 4
+  %num_alloc.i = getelementptr inbounds i8, ptr %calloc9.i, i64 24
+  %comp7.i = getelementptr inbounds i8, ptr %calloc9.i, i64 32
   store ptr %call4, ptr %data.i, align 8
   %2 = load i64, ptr %sk, align 8
   store i64 %2, ptr %calloc9.i, align 8
-  %data11 = getelementptr inbounds %struct.stack_st, ptr %sk, i64 0, i32 1
+  %data11 = getelementptr inbounds i8, ptr %sk, i64 8
   %3 = load ptr, ptr %data11, align 8
   %mul13 = shl i64 %2, 3
   tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %call4, ptr align 8 %3, i64 %mul13, i1 false)
-  %sorted = getelementptr inbounds %struct.stack_st, ptr %sk, i64 0, i32 2
+  %sorted = getelementptr inbounds i8, ptr %sk, i64 16
   %4 = load i64, ptr %sorted, align 8
-  %sorted14 = getelementptr inbounds %struct.stack_st, ptr %calloc9.i, i64 0, i32 2
+  %sorted14 = getelementptr inbounds i8, ptr %calloc9.i, i64 16
   store i64 %4, ptr %sorted14, align 8
   store i64 %1, ptr %num_alloc.i, align 8
   store ptr %0, ptr %comp7.i, align 8
@@ -765,7 +763,7 @@ entry:
   br i1 %tobool.not, label %return, label %if.end
 
 if.end:                                           ; preds = %entry
-  %sorted = getelementptr inbounds %struct.stack_st, ptr %sk, i64 0, i32 2
+  %sorted = getelementptr inbounds i8, ptr %sk, i64 16
   %0 = load i64, ptr %sorted, align 8
   %conv = trunc i64 %0 to i32
   br label %return
@@ -778,13 +776,13 @@ return:                                           ; preds = %entry, %if.end
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
 define hidden ptr @sk_set_cmp_func(ptr nocapture noundef %sk, ptr noundef %comp) local_unnamed_addr #16 {
 entry:
-  %comp1 = getelementptr inbounds %struct.stack_st, ptr %sk, i64 0, i32 4
+  %comp1 = getelementptr inbounds i8, ptr %sk, i64 32
   %0 = load ptr, ptr %comp1, align 8
   %cmp.not = icmp eq ptr %0, %comp
   br i1 %cmp.not, label %if.end, label %if.then
 
 if.then:                                          ; preds = %entry
-  %sorted = getelementptr inbounds %struct.stack_st, ptr %sk, i64 0, i32 2
+  %sorted = getelementptr inbounds i8, ptr %sk, i64 16
   store i64 0, ptr %sorted, align 8
   br label %if.end
 
@@ -806,7 +804,7 @@ for.cond.preheader:                               ; preds = %entry
   br i1 %cmp121.not, label %return, label %for.body.lr.ph
 
 for.body.lr.ph:                                   ; preds = %for.cond.preheader
-  %data = getelementptr inbounds %struct.stack_st, ptr %call, i64 0, i32 1
+  %data = getelementptr inbounds i8, ptr %call, i64 8
   %1 = load ptr, ptr %data, align 8
   br label %for.body
 

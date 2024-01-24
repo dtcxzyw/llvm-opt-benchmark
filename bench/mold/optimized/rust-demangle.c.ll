@@ -106,24 +106,24 @@ entry:
   %s.i.i = alloca [9 x i8], align 1
   %name.i = alloca %struct.rust_mangled_ident, align 8
   %rdm = alloca %struct.rust_demangler, align 8
-  %sym_len = getelementptr inbounds %struct.rust_demangler, ptr %rdm, i64 0, i32 1
+  %sym_len = getelementptr inbounds i8, ptr %rdm, i64 8
   store i64 0, ptr %sym_len, align 8
-  %callback_opaque = getelementptr inbounds %struct.rust_demangler, ptr %rdm, i64 0, i32 2
+  %callback_opaque = getelementptr inbounds i8, ptr %rdm, i64 16
   store ptr %opaque, ptr %callback_opaque, align 8
-  %callback1 = getelementptr inbounds %struct.rust_demangler, ptr %rdm, i64 0, i32 3
+  %callback1 = getelementptr inbounds i8, ptr %rdm, i64 24
   store ptr %callback, ptr %callback1, align 8
-  %next = getelementptr inbounds %struct.rust_demangler, ptr %rdm, i64 0, i32 4
+  %next = getelementptr inbounds i8, ptr %rdm, i64 32
   store i64 0, ptr %next, align 8
-  %errored = getelementptr inbounds %struct.rust_demangler, ptr %rdm, i64 0, i32 5
+  %errored = getelementptr inbounds i8, ptr %rdm, i64 40
   store i8 0, ptr %errored, align 8
-  %skipping_printing = getelementptr inbounds %struct.rust_demangler, ptr %rdm, i64 0, i32 6
+  %skipping_printing = getelementptr inbounds i8, ptr %rdm, i64 41
   store i8 0, ptr %skipping_printing, align 1
-  %verbose = getelementptr inbounds %struct.rust_demangler, ptr %rdm, i64 0, i32 7
+  %verbose = getelementptr inbounds i8, ptr %rdm, i64 42
   %0 = trunc i32 %flags to i8
   %frombool = and i8 %0, 1
   store i8 %frombool, ptr %verbose, align 2
-  %version = getelementptr inbounds %struct.rust_demangler, ptr %rdm, i64 0, i32 8
-  %bound_lifetime_depth = getelementptr inbounds %struct.rust_demangler, ptr %rdm, i64 0, i32 9
+  %version = getelementptr inbounds i8, ptr %rdm, i64 44
+  %bound_lifetime_depth = getelementptr inbounds i8, ptr %rdm, i64 48
   store i64 0, ptr %bound_lifetime_depth, align 8
   %call = tail call i32 @strncmp(ptr noundef nonnull dereferenceable(1) %whole_mangled_symbol, ptr noundef nonnull dereferenceable(3) @.str, i64 noundef 2) #12
   %cmp3 = icmp eq i32 %call, 0
@@ -196,19 +196,19 @@ if.end71:                                         ; preds = %if.then36, %if.then
   %.ph = phi ptr [ %add.ptr38, %if.then36 ], [ %add.ptr47, %if.then45 ], [ %add.ptr29, %if.then27 ]
   store i32 -1, ptr %version, align 4
   %.pr = load i8, ptr %.ph, align 1
-  %tobool.not49 = icmp eq i8 %.pr, 0
-  br i1 %tobool.not49, label %if.then92, label %for.body.preheader
+  %tobool.not50 = icmp eq i8 %.pr, 0
+  br i1 %tobool.not50, label %if.then92, label %for.body.preheader
 
 for.body.preheader:                               ; preds = %if.then58, %if.end71
-  %cmp56.not3074 = phi i1 [ true, %if.end71 ], [ false, %if.then58 ]
+  %cmp56.not3076 = phi i1 [ true, %if.end71 ], [ false, %if.then58 ]
   %5 = phi ptr [ %.ph, %if.end71 ], [ %2, %if.then58 ]
   %6 = phi i8 [ %.pr, %if.end71 ], [ %3, %if.then58 ]
   br label %for.body
 
 for.body:                                         ; preds = %for.body.preheader, %if.end87
-  %7 = phi i8 [ %9, %if.end87 ], [ %6, %for.body.preheader ]
-  %p.050 = phi ptr [ %incdec.ptr, %if.end87 ], [ %5, %for.body.preheader ]
-  %8 = phi i64 [ %inc, %if.end87 ], [ 0, %for.body.preheader ]
+  %7 = phi i8 [ %8, %if.end87 ], [ %6, %for.body.preheader ]
+  %p.052 = phi ptr [ %incdec.ptr, %if.end87 ], [ %5, %for.body.preheader ]
+  %inc4951 = phi i64 [ %inc, %if.end87 ], [ 0, %for.body.preheader ]
   %cmp75.not = icmp sgt i8 %7, -1
   br i1 %cmp75.not, label %if.end78, label %return
 
@@ -217,71 +217,71 @@ if.end78:                                         ; preds = %for.body
   br i1 %cmp80, label %land.lhs.true82, label %if.end87
 
 land.lhs.true82:                                  ; preds = %if.end78
-  %call83 = tail call i32 @strncmp(ptr noundef nonnull dereferenceable(1) %p.050, ptr noundef nonnull dereferenceable(7) @.str.5, i64 noundef 6) #12
+  %call83 = tail call i32 @strncmp(ptr noundef nonnull dereferenceable(1) %p.052, ptr noundef nonnull dereferenceable(7) @.str.5, i64 noundef 6) #12
   %cmp84 = icmp eq i32 %call83, 0
   br i1 %cmp84, label %for.end, label %if.end87
 
 if.end87:                                         ; preds = %land.lhs.true82, %if.end78
-  %inc = add i64 %8, 1
+  %inc = add i64 %inc4951, 1
   store i64 %inc, ptr %sym_len, align 8
-  %incdec.ptr = getelementptr inbounds i8, ptr %p.050, i64 1
-  %9 = load i8, ptr %incdec.ptr, align 1
-  %tobool.not = icmp eq i8 %9, 0
+  %incdec.ptr = getelementptr inbounds i8, ptr %p.052, i64 1
+  %8 = load i8, ptr %incdec.ptr, align 1
+  %tobool.not = icmp eq i8 %8, 0
   br i1 %tobool.not, label %for.end, label %for.body, !llvm.loop !4
 
 for.end:                                          ; preds = %if.end87, %land.lhs.true82
-  br i1 %cmp56.not3074, label %if.then92, label %if.else93
+  br i1 %cmp56.not3076, label %if.then92, label %if.else93
 
 if.then92:                                        ; preds = %if.end71, %for.end
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %name.i)
-  %10 = getelementptr inbounds i8, ptr %name.i, i64 8
+  %9 = getelementptr inbounds i8, ptr %name.i, i64 8
   %name26.sroa.10.0.name.sroa_idx.i = getelementptr inbounds i8, ptr %name.i, i64 16
   br label %while.body.i
 
 while.body.i:                                     ; preds = %print_legacy_ident.exit.i, %if.then92
   %first.0.i = phi i1 [ false, %if.then92 ], [ true, %print_legacy_ident.exit.i ]
-  %11 = load i64, ptr %next, align 8
-  %12 = load i64, ptr %sym_len, align 8
-  %cmp.i.i.i = icmp ult i64 %11, %12
+  %10 = load i64, ptr %next, align 8
+  %11 = load i64, ptr %sym_len, align 8
+  %cmp.i.i.i = icmp ult i64 %10, %11
   br i1 %cmp.i.i.i, label %peek.exit.i.i, label %if.end.i
 
 peek.exit.i.i:                                    ; preds = %while.body.i
-  %13 = load ptr, ptr %rdm, align 8
-  %arrayidx.i.i.i = getelementptr inbounds i8, ptr %13, i64 %11
-  %14 = load i8, ptr %arrayidx.i.i.i, align 1
-  %cmp.i.i = icmp eq i8 %14, 69
+  %12 = load ptr, ptr %rdm, align 8
+  %arrayidx.i.i.i = getelementptr inbounds i8, ptr %12, i64 %10
+  %13 = load i8, ptr %arrayidx.i.i.i, align 1
+  %cmp.i.i = icmp eq i8 %13, 69
   br i1 %cmp.i.i, label %eat.exit.i, label %if.end.i
 
 eat.exit.i:                                       ; preds = %peek.exit.i.i
-  %inc.i.i = add nuw i64 %11, 1
+  %inc.i.i = add nuw i64 %10, 1
   store i64 %inc.i.i, ptr %next, align 8
   br label %demangle_legacy_path.exit
 
 if.end.i:                                         ; preds = %peek.exit.i.i, %while.body.i
   call fastcc void @parse_ident(ptr noalias nonnull align 8 %name.i, ptr noundef nonnull %rdm)
-  %15 = load i8, ptr %verbose, align 2
-  %16 = and i8 %15, 1
-  %tobool.not.i = icmp eq i8 %16, 0
+  %14 = load i8, ptr %verbose, align 2
+  %15 = and i8 %14, 1
+  %tobool.not.i = icmp eq i8 %15, 0
   br i1 %tobool.not.i, label %land.lhs.true.i, label %if.end8.i
 
 land.lhs.true.i:                                  ; preds = %if.end.i
-  %17 = load i64, ptr %next, align 8
-  %18 = load i64, ptr %sym_len, align 8
-  %cmp.i10.i = icmp ult i64 %17, %18
+  %16 = load i64, ptr %next, align 8
+  %17 = load i64, ptr %sym_len, align 8
+  %cmp.i10.i = icmp ult i64 %16, %17
   br i1 %cmp.i10.i, label %peek.exit.i, label %if.end8.i
 
 peek.exit.i:                                      ; preds = %land.lhs.true.i
-  %19 = load ptr, ptr %rdm, align 8
-  %arrayidx.i.i = getelementptr inbounds i8, ptr %19, i64 %17
-  %20 = load i8, ptr %arrayidx.i.i, align 1
-  %cmp.i = icmp eq i8 %20, 69
+  %18 = load ptr, ptr %rdm, align 8
+  %arrayidx.i.i = getelementptr inbounds i8, ptr %18, i64 %16
+  %19 = load i8, ptr %arrayidx.i.i, align 1
+  %cmp.i = icmp eq i8 %19, 69
   br i1 %cmp.i, label %land.lhs.true3.i, label %if.end8.i
 
 land.lhs.true3.i:                                 ; preds = %peek.exit.i
   %name.val.i = load ptr, ptr %name.i, align 8
-  %name.val9.i = load i64, ptr %10, align 8
-  %21 = load i8, ptr %name.val.i, align 1
-  %cmp.not.i.i = icmp eq i8 %21, 104
+  %name.val9.i = load i64, ptr %9, align 8
+  %20 = load i8, ptr %name.val.i, align 1
+  %cmp.not.i.i = icmp eq i8 %20, 104
   br i1 %cmp.not.i.i, label %for.cond.preheader.i.i, label %if.end8.i
 
 for.cond.preheader.i.i:                           ; preds = %land.lhs.true3.i
@@ -296,54 +296,54 @@ for.cond.i.i:                                     ; preds = %for.body.i.i
 for.body.i.i:                                     ; preds = %for.cond.preheader.i.i, %for.cond.i.i
   %i.03.i.i = phi i64 [ %inc.i13.i, %for.cond.i.i ], [ 1, %for.cond.preheader.i.i ]
   %arrayidx5.i.i = getelementptr inbounds i8, ptr %name.val.i, i64 %i.03.i.i
-  %22 = load i8, ptr %arrayidx5.i.i, align 1
-  %23 = add i8 %22, -48
-  %or.cond.i.i = icmp ult i8 %23, 10
-  %24 = add i8 %22, -97
-  %or.cond6.i.i = icmp ult i8 %24, 6
+  %21 = load i8, ptr %arrayidx5.i.i, align 1
+  %22 = add i8 %21, -48
+  %or.cond.i.i = icmp ult i8 %22, 10
+  %23 = add i8 %21, -97
+  %or.cond6.i.i = icmp ult i8 %23, 6
   %or.cond1.i.i = or i1 %or.cond.i.i, %or.cond6.i.i
   br i1 %or.cond1.i.i, label %for.cond.i.i, label %if.end8.i
 
 if.then.i20.i:                                    ; preds = %for.cond.preheader.i.i, %for.cond.i.i
-  %inc.i21.i = add nuw i64 %17, 1
+  %inc.i21.i = add nuw i64 %16, 1
   store i64 %inc.i21.i, ptr %next, align 8
   br label %demangle_legacy_path.exit
 
 if.end8.i:                                        ; preds = %for.body.i.i, %land.lhs.true3.i, %peek.exit.i, %land.lhs.true.i, %if.end.i
   %.pre82.i = load i8, ptr %errored, align 8
-  %25 = and i8 %.pre82.i, 1
-  %tobool.not.i.i = icmp eq i8 %25, 0
+  %24 = and i8 %.pre82.i, 1
+  %tobool.not.i.i = icmp eq i8 %24, 0
   %or.cond.i = select i1 %first.0.i, i1 %tobool.not.i.i, i1 false
   br i1 %or.cond.i, label %land.lhs.true.i.i, label %if.end11.i
 
 land.lhs.true.i.i:                                ; preds = %if.end8.i
-  %26 = load i8, ptr %skipping_printing, align 1
-  %27 = and i8 %26, 1
-  %tobool1.not.i.i = icmp eq i8 %27, 0
+  %25 = load i8, ptr %skipping_printing, align 1
+  %26 = and i8 %25, 1
+  %tobool1.not.i.i = icmp eq i8 %26, 0
   br i1 %tobool1.not.i.i, label %if.then.i25.i, label %if.end11.i
 
 if.then.i25.i:                                    ; preds = %land.lhs.true.i.i
-  %28 = load ptr, ptr %callback1, align 8
-  %29 = load ptr, ptr %callback_opaque, align 8
-  call void %28(ptr noundef nonnull @.str.7, i64 noundef 2, ptr noundef %29) #13
+  %27 = load ptr, ptr %callback1, align 8
+  %28 = load ptr, ptr %callback_opaque, align 8
+  call void %27(ptr noundef nonnull @.str.7, i64 noundef 2, ptr noundef %28) #13
   %.pre.i = load i8, ptr %errored, align 8
   br label %if.end11.i
 
 if.end11.i:                                       ; preds = %if.then.i25.i, %land.lhs.true.i.i, %if.end8.i
-  %30 = phi i8 [ %.pre.i, %if.then.i25.i ], [ %.pre82.i, %land.lhs.true.i.i ], [ %.pre82.i, %if.end8.i ]
+  %29 = phi i8 [ %.pre.i, %if.then.i25.i ], [ %.pre82.i, %land.lhs.true.i.i ], [ %.pre82.i, %if.end8.i ]
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %v.i.i)
   call void @llvm.lifetime.start.p0(i64 9, ptr nonnull %s.i.i)
   %name26.sroa.0.0.copyload.i = load ptr, ptr %name.i, align 8
-  %name26.sroa.6.0.copyload.i = load i64, ptr %10, align 8
+  %name26.sroa.6.0.copyload.i = load i64, ptr %9, align 8
   %name26.sroa.10.0.copyload.i = load ptr, ptr %name26.sroa.10.0.name.sroa_idx.i, align 8
-  %31 = and i8 %30, 1
-  %tobool.not.i28.i = icmp eq i8 %31, 0
+  %30 = and i8 %29, 1
+  %tobool.not.i28.i = icmp eq i8 %30, 0
   br i1 %tobool.not.i28.i, label %lor.lhs.false.i.i, label %print_legacy_ident.exit.i.thread
 
 lor.lhs.false.i.i:                                ; preds = %if.end11.i
-  %32 = load i8, ptr %skipping_printing, align 1
-  %33 = and i8 %32, 1
-  %tobool1.not.i30.i = icmp eq i8 %33, 0
+  %31 = load i8, ptr %skipping_printing, align 1
+  %32 = and i8 %31, 1
+  %tobool1.not.i30.i = icmp eq i8 %32, 0
   br i1 %tobool1.not.i30.i, label %do.body.i.i, label %print_legacy_ident.exit.i
 
 do.body.i.i:                                      ; preds = %lor.lhs.false.i.i
@@ -356,14 +356,14 @@ print_legacy_ident.exit.thread.i:                 ; preds = %do.body.i.i
   br label %do.body14.i
 
 do.end7.i.i:                                      ; preds = %do.body.i.i
-  %34 = load i8, ptr %name26.sroa.0.0.copyload.i, align 1
-  %cmp.i31.i = icmp eq i8 %34, 95
+  %33 = load i8, ptr %name26.sroa.0.0.copyload.i, align 1
+  %cmp.i31.i = icmp eq i8 %33, 95
   br i1 %cmp.i31.i, label %land.lhs.true.i40.i, label %if.end16.i.i
 
 land.lhs.true.i40.i:                              ; preds = %do.end7.i.i
   %arrayidx10.i.i = getelementptr inbounds i8, ptr %name26.sroa.0.0.copyload.i, i64 1
-  %35 = load i8, ptr %arrayidx10.i.i, align 1
-  %cmp12.i.i = icmp eq i8 %35, 36
+  %34 = load i8, ptr %arrayidx10.i.i, align 1
+  %cmp12.i.i = icmp eq i8 %34, 36
   %sub.i.i = sext i1 %cmp12.i.i to i64
   %spec.select.i = add i64 %name26.sroa.6.0.copyload.i, %sub.i.i
   %spec.select50.i = select i1 %cmp12.i.i, ptr %arrayidx10.i.i, ptr %name26.sroa.0.0.copyload.i
@@ -372,35 +372,35 @@ land.lhs.true.i40.i:                              ; preds = %do.end7.i.i
 if.end16.i.i:                                     ; preds = %land.lhs.true.i40.i, %do.end7.i.i
   %name26.sroa.6.0.i = phi i64 [ %name26.sroa.6.0.copyload.i, %do.end7.i.i ], [ %spec.select.i, %land.lhs.true.i40.i ]
   %ident.promoted.i.i = phi ptr [ %name26.sroa.0.0.copyload.i, %do.end7.i.i ], [ %spec.select50.i, %land.lhs.true.i40.i ]
-  %cmp18217.i.i = icmp eq i64 %name26.sroa.6.0.i, 0
-  br i1 %cmp18217.i.i, label %while.end.i.i, label %if.else.i.i
+  %cmp18215.i.i = icmp eq i64 %name26.sroa.6.0.i, 0
+  br i1 %cmp18215.i.i, label %while.end.i.i, label %if.else.i.i
 
 if.else.i.i:                                      ; preds = %if.end16.i.i, %if.end219.i.i
-  %sub209209219.i.i = phi i64 [ %sub209210.i.i, %if.end219.i.i ], [ %name26.sroa.6.0.i, %if.end16.i.i ]
-  %arrayidx194.le213218.i.i = phi ptr [ %arrayidx194.le214.i.i, %if.end219.i.i ], [ %ident.promoted.i.i, %if.end16.i.i ]
-  %36 = load i8, ptr %arrayidx194.le213218.i.i, align 1
+  %35 = phi i64 [ %115, %if.end219.i.i ], [ %name26.sroa.6.0.i, %if.end16.i.i ]
+  %arrayidx194.le211216.i.i = phi ptr [ %arrayidx194.le212.i.i, %if.end219.i.i ], [ %ident.promoted.i.i, %if.end16.i.i ]
+  %36 = load i8, ptr %arrayidx194.le211216.i.i, align 1
   switch i8 %36, label %for.body192.i.i [
     i8 46, label %if.then26.i.i
     i8 36, label %if.then53.i.i
   ]
 
 if.then26.i.i:                                    ; preds = %if.else.i.i
-  %cmp28.not.i.i = icmp eq i64 %sub209209219.i.i, 1
+  %cmp28.not.i.i = icmp eq i64 %35, 1
   br i1 %cmp28.not.i.i, label %if.then26.if.else41_crit_edge.i.i, label %land.lhs.true30.i.i
 
 if.then26.if.else41_crit_edge.i.i:                ; preds = %if.then26.i.i
-  %.pre240.i.i = load i8, ptr %errored, align 8
+  %.pre238.i.i = load i8, ptr %errored, align 8
   br label %if.else41.i.i
 
 land.lhs.true30.i.i:                              ; preds = %if.then26.i.i
-  %arrayidx32.i.i = getelementptr inbounds i8, ptr %arrayidx194.le213218.i.i, i64 1
+  %arrayidx32.i.i = getelementptr inbounds i8, ptr %arrayidx194.le211216.i.i, i64 1
   %37 = load i8, ptr %arrayidx32.i.i, align 1
   %cmp34.i.i = icmp eq i8 %37, 46
-  %.pre241.i.i = load i8, ptr %errored, align 8
+  %.pre239.i.i = load i8, ptr %errored, align 8
   br i1 %cmp34.i.i, label %if.then36.i.i, label %if.else41.i.i
 
 if.then36.i.i:                                    ; preds = %land.lhs.true30.i.i
-  %38 = and i8 %.pre241.i.i, 1
+  %38 = and i8 %.pre239.i.i, 1
   %tobool.not.i.i.i = icmp eq i8 %38, 0
   br i1 %tobool.not.i.i.i, label %land.lhs.true.i.i.i, label %print_str.exit.i.i
 
@@ -417,12 +417,12 @@ if.then.i.i39.i:                                  ; preds = %land.lhs.true.i.i.i
   br label %print_str.exit.i.i
 
 print_str.exit.i.i:                               ; preds = %if.then.i.i39.i, %land.lhs.true.i.i.i, %if.then36.i.i
-  %add.ptr38.i.i = getelementptr inbounds i8, ptr %arrayidx194.le213218.i.i, i64 2
-  %sub40.i.i = add i64 %sub209209219.i.i, -2
+  %add.ptr38.i.i = getelementptr inbounds i8, ptr %arrayidx194.le211216.i.i, i64 2
+  %sub40.i.i = add i64 %35, -2
   br label %if.end219.i.i
 
 if.else41.i.i:                                    ; preds = %land.lhs.true30.i.i, %if.then26.if.else41_crit_edge.i.i
-  %43 = phi i8 [ %.pre240.i.i, %if.then26.if.else41_crit_edge.i.i ], [ %.pre241.i.i, %land.lhs.true30.i.i ]
+  %43 = phi i8 [ %.pre238.i.i, %if.then26.if.else41_crit_edge.i.i ], [ %.pre239.i.i, %land.lhs.true30.i.i ]
   %44 = and i8 %43, 1
   %tobool.not.i62.i.i = icmp eq i8 %44, 0
   br i1 %tobool.not.i62.i.i, label %land.lhs.true.i63.i.i, label %print_str.exit69.i.i
@@ -440,13 +440,13 @@ if.then.i66.i.i:                                  ; preds = %land.lhs.true.i63.i
   br label %print_str.exit69.i.i
 
 print_str.exit69.i.i:                             ; preds = %if.then.i66.i.i, %land.lhs.true.i63.i.i, %if.else41.i.i
-  %add.ptr43.i.i = getelementptr inbounds i8, ptr %arrayidx194.le213218.i.i, i64 1
-  %sub45.i.i = add i64 %sub209209219.i.i, -1
+  %add.ptr43.i.i = getelementptr inbounds i8, ptr %arrayidx194.le211216.i.i, i64 1
+  %sub45.i.i = add i64 %35, -1
   br label %if.end219.i.i
 
 if.then53.i.i:                                    ; preds = %if.else.i.i
-  %arrayidx55.i.i = getelementptr inbounds i8, ptr %arrayidx194.le213218.i.i, i64 1
-  %sub57.i.i = add i64 %sub209209219.i.i, -1
+  %arrayidx55.i.i = getelementptr inbounds i8, ptr %arrayidx194.le211216.i.i, i64 1
+  %sub57.i.i = add i64 %35, -1
   %call.i.i = call ptr @memchr(ptr noundef nonnull %arrayidx55.i.i, i32 noundef 36, i64 noundef %sub57.i.i) #12
   %tobool58.not.i.i = icmp eq ptr %call.i.i, null
   br i1 %tobool58.not.i.i, label %while.end.i.i, label %if.end60.i.i
@@ -593,7 +593,7 @@ land.lhs.true.i135.i.i:                           ; preds = %if.then101.i.i
   br i1 %tobool1.not.i137.i.i, label %if.end180.sink.split.i.i, label %if.end180.i.i
 
 if.end108.i.i:                                    ; preds = %if.else97.i.i
-  %arrayidx109.i.i = getelementptr inbounds i8, ptr %arrayidx194.le213218.i.i, i64 2
+  %arrayidx109.i.i = getelementptr inbounds i8, ptr %arrayidx194.le211216.i.i, i64 2
   %sub110.i.i = add i64 %sub.ptr.sub.i.i, -1
   %cmp111203.i.i = icmp ugt i64 %sub110.i.i, 1
   br i1 %cmp111203.i.i, label %for.body.i35.i, label %for.cond138.preheader.i.i
@@ -637,8 +637,8 @@ for.body142.i.i:                                  ; preds = %for.body142.i.i.pre
   %conv146.i.i = zext i8 %cond.i.i.i to i32
   %or.i.i = or i32 %shl.i.i, %conv146.i.i
   %inc148.i.i = add nuw i64 %i137.0207.i.i, 1
-  %exitcond237.not.i.i = icmp eq i64 %inc148.i.i, %sub110.i.i
-  br i1 %exitcond237.not.i.i, label %for.end149.i.i, label %for.body142.i.i, !llvm.loop !8
+  %exitcond235.not.i.i = icmp eq i64 %inc148.i.i, %sub110.i.i
+  br i1 %exitcond235.not.i.i, label %for.end149.i.i, label %for.body142.i.i, !llvm.loop !8
 
 for.end149.i.i:                                   ; preds = %for.body142.i.i
   %cmp150.i.i = icmp ult i32 %or.i.i, 55296
@@ -668,7 +668,7 @@ land.lhs.true.i144.i.i:                           ; preds = %if.then165.i.i
 
 if.else167.i.i:                                   ; preds = %if.end159.i.i, %for.cond138.preheader.i.if.else167.i_crit_edge.i
   %90 = phi i8 [ %.pre84.i, %if.end159.i.i ], [ %.pre83.i, %for.cond138.preheader.i.if.else167.i_crit_edge.i ]
-  %c.0.lcssa247250.i.i = phi i32 [ %or.i.i, %if.end159.i.i ], [ 0, %for.cond138.preheader.i.if.else167.i_crit_edge.i ]
+  %c.0.lcssa245248.i.i = phi i32 [ %or.i.i, %if.end159.i.i ], [ 0, %for.cond138.preheader.i.if.else167.i_crit_edge.i ]
   %91 = and i8 %90, 1
   %tobool.not.i152.i.i = icmp eq i8 %91, 0
   br i1 %tobool.not.i152.i.i, label %land.lhs.true.i153.i.i, label %print_str.exit159.i.i
@@ -687,7 +687,7 @@ if.then.i156.i.i:                                 ; preds = %land.lhs.true.i153.
 
 print_str.exit159.i.i:                            ; preds = %if.then.i156.i.i, %land.lhs.true.i153.i.i, %if.else167.i.i
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(9) %s.i.i, i8 0, i64 9, i1 false)
-  %call168.i.i = call i32 (ptr, ptr, ...) @sprintf(ptr noundef nonnull dereferenceable(1) %s.i.i, ptr noundef nonnull dereferenceable(1) @.str.26, i32 noundef %c.0.lcssa247250.i.i) #13
+  %call168.i.i = call i32 (ptr, ptr, ...) @sprintf(ptr noundef nonnull dereferenceable(1) %s.i.i, ptr noundef nonnull dereferenceable(1) @.str.26, i32 noundef %c.0.lcssa245248.i.i) #13
   %call171.i.i = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %s.i.i) #12
   %96 = load i8, ptr %errored, align 8
   %97 = and i8 %96, 1
@@ -728,13 +728,13 @@ if.end180.sink.split.i.i:                         ; preds = %land.lhs.true.i171.
 
 if.end180.i.i:                                    ; preds = %if.end180.sink.split.i.i, %land.lhs.true.i171.i.i, %print_str.exit168.i.i, %land.lhs.true.i144.i.i, %if.then165.i.i, %land.lhs.true.i135.i.i, %if.then101.i.i, %land.lhs.true.i126.i.i, %if.then96.i.i, %land.lhs.true.i117.i.i, %if.then91.i.i, %land.lhs.true.i108.i.i, %if.then86.i.i, %land.lhs.true.i99.i.i, %if.then81.i.i, %land.lhs.true.i90.i.i, %if.then76.i.i, %land.lhs.true.i81.i.i, %if.then71.i.i, %land.lhs.true.i72.i.i, %if.then66.i.i
   %add.i.i = add i64 %sub.ptr.sub.i.i, 2
-  %add.ptr182.i.i = getelementptr inbounds i8, ptr %arrayidx194.le213218.i.i, i64 %add.i.i
-  %sub185.i.i = sub i64 %sub209209219.i.i, %add.i.i
+  %add.ptr182.i.i = getelementptr inbounds i8, ptr %arrayidx194.le211216.i.i, i64 %add.i.i
+  %sub185.i.i = sub i64 %35, %add.i.i
   br label %if.end219.i.i
 
 for.body192.i.i:                                  ; preds = %if.else.i.i, %for.inc211.i.i
   %i187.0208.i.i = phi i64 [ %inc212.i.i, %for.inc211.i.i ], [ 0, %if.else.i.i ]
-  %arrayidx194.i.i = getelementptr inbounds i8, ptr %arrayidx194.le213218.i.i, i64 %i187.0208.i.i
+  %arrayidx194.i.i = getelementptr inbounds i8, ptr %arrayidx194.le211216.i.i, i64 %i187.0208.i.i
   %108 = load i8, ptr %arrayidx194.i.i, align 1
   switch i8 %108, label %for.inc211.i.i [
     i8 36, label %if.then204.i.i
@@ -742,7 +742,7 @@ for.body192.i.i:                                  ; preds = %if.else.i.i, %for.i
   ]
 
 if.then204.i.i:                                   ; preds = %for.body192.i.i, %for.body192.i.i
-  %arrayidx194.i.i.le = getelementptr inbounds i8, ptr %arrayidx194.le213218.i.i, i64 %i187.0208.i.i
+  %arrayidx194.i.i.le = getelementptr inbounds i8, ptr %arrayidx194.le211216.i.i, i64 %i187.0208.i.i
   %109 = load i8, ptr %errored, align 8
   %110 = and i8 %109, 1
   %tobool.not.i179.i.i = icmp eq i8 %110, 0
@@ -757,44 +757,44 @@ land.lhs.true.i180.i.i:                           ; preds = %if.then204.i.i
 if.then.i183.i.i:                                 ; preds = %land.lhs.true.i180.i.i
   %113 = load ptr, ptr %callback1, align 8
   %114 = load ptr, ptr %callback_opaque, align 8
-  call void %113(ptr noundef nonnull %arrayidx194.le213218.i.i, i64 noundef %i187.0208.i.i, ptr noundef %114) #13
+  call void %113(ptr noundef nonnull %arrayidx194.le211216.i.i, i64 noundef %i187.0208.i.i, ptr noundef %114) #13
   br label %print_str.exit186.i.i
 
 print_str.exit186.i.i:                            ; preds = %if.then.i183.i.i, %land.lhs.true.i180.i.i, %if.then204.i.i
-  %sub209.i.i = sub i64 %sub209209219.i.i, %i187.0208.i.i
+  %sub209.i.i = sub i64 %35, %i187.0208.i.i
   br label %if.end219.i.i
 
 for.inc211.i.i:                                   ; preds = %for.body192.i.i
   %inc212.i.i = add nuw i64 %i187.0208.i.i, 1
-  %exitcond238.not.i.i = icmp eq i64 %inc212.i.i, %sub209209219.i.i
-  br i1 %exitcond238.not.i.i, label %while.end.i.i, label %for.body192.i.i, !llvm.loop !9
+  %exitcond236.not.i.i = icmp eq i64 %inc212.i.i, %35
+  br i1 %exitcond236.not.i.i, label %while.end.i.i, label %for.body192.i.i, !llvm.loop !9
 
 if.end219.i.i:                                    ; preds = %print_str.exit186.i.i, %if.end180.i.i, %print_str.exit69.i.i, %print_str.exit.i.i
-  %arrayidx194.le214.i.i = phi ptr [ %arrayidx194.i.i.le, %print_str.exit186.i.i ], [ %add.ptr43.i.i, %print_str.exit69.i.i ], [ %add.ptr38.i.i, %print_str.exit.i.i ], [ %add.ptr182.i.i, %if.end180.i.i ]
-  %sub209210.i.i = phi i64 [ %sub209.i.i, %print_str.exit186.i.i ], [ %sub45.i.i, %print_str.exit69.i.i ], [ %sub40.i.i, %print_str.exit.i.i ], [ %sub185.i.i, %if.end180.i.i ]
-  %cmp18.i.i = icmp eq i64 %sub209210.i.i, 0
+  %arrayidx194.le212.i.i = phi ptr [ %arrayidx194.i.i.le, %print_str.exit186.i.i ], [ %add.ptr43.i.i, %print_str.exit69.i.i ], [ %add.ptr38.i.i, %print_str.exit.i.i ], [ %add.ptr182.i.i, %if.end180.i.i ]
+  %115 = phi i64 [ %sub209.i.i, %print_str.exit186.i.i ], [ %sub45.i.i, %print_str.exit69.i.i ], [ %sub40.i.i, %print_str.exit.i.i ], [ %sub185.i.i, %if.end180.i.i ]
+  %cmp18.i.i = icmp eq i64 %115, 0
   br i1 %cmp18.i.i, label %while.end.i.i, label %if.else.i.i
 
 while.end.i.i:                                    ; preds = %if.end219.i.i, %for.end149.i.i, %if.else97.i.i, %if.then53.i.i, %for.body.i35.i, %for.inc211.i.i, %if.end16.i.i
-  %sub209209.lcssa.sink.i.i = phi i64 [ 0, %if.end16.i.i ], [ %sub209209219.i.i, %for.inc211.i.i ], [ %sub209209219.i.i, %for.body.i35.i ], [ 0, %if.end219.i.i ], [ %sub209209219.i.i, %if.then53.i.i ], [ %sub209209219.i.i, %for.end149.i.i ], [ %sub209209219.i.i, %if.else97.i.i ]
-  %arrayidx194.le213.lcssa.sink.i.i = phi ptr [ %ident.promoted.i.i, %if.end16.i.i ], [ %arrayidx194.le213218.i.i, %for.inc211.i.i ], [ %arrayidx194.le213218.i.i, %for.body.i35.i ], [ %arrayidx194.le214.i.i, %if.end219.i.i ], [ %arrayidx194.le213218.i.i, %if.then53.i.i ], [ %arrayidx194.le213218.i.i, %for.end149.i.i ], [ %arrayidx194.le213218.i.i, %if.else97.i.i ]
-  %115 = load i8, ptr %errored, align 8
-  %116 = and i8 %115, 1
-  %tobool.not.i188.i.i = icmp eq i8 %116, 0
+  %.lcssa.sink.i.i = phi i64 [ 0, %if.end16.i.i ], [ %35, %for.inc211.i.i ], [ %35, %for.body.i35.i ], [ 0, %if.end219.i.i ], [ %35, %if.then53.i.i ], [ %35, %for.end149.i.i ], [ %35, %if.else97.i.i ]
+  %arrayidx194.le211.lcssa.sink.i.i = phi ptr [ %ident.promoted.i.i, %if.end16.i.i ], [ %arrayidx194.le211216.i.i, %for.inc211.i.i ], [ %arrayidx194.le211216.i.i, %for.body.i35.i ], [ %arrayidx194.le212.i.i, %if.end219.i.i ], [ %arrayidx194.le211216.i.i, %if.then53.i.i ], [ %arrayidx194.le211216.i.i, %for.end149.i.i ], [ %arrayidx194.le211216.i.i, %if.else97.i.i ]
+  %116 = load i8, ptr %errored, align 8
+  %117 = and i8 %116, 1
+  %tobool.not.i188.i.i = icmp eq i8 %117, 0
   br i1 %tobool.not.i188.i.i, label %land.lhs.true.i189.i.i, label %print_legacy_ident.exit.i.thread
 
 land.lhs.true.i189.i.i:                           ; preds = %while.end.i.i
-  %117 = load i8, ptr %skipping_printing, align 1
-  %118 = and i8 %117, 1
-  %tobool1.not.i191.i.i = icmp eq i8 %118, 0
+  %118 = load i8, ptr %skipping_printing, align 1
+  %119 = and i8 %118, 1
+  %tobool1.not.i191.i.i = icmp eq i8 %119, 0
   br i1 %tobool1.not.i191.i.i, label %if.then.i192.i.i, label %print_legacy_ident.exit.i
 
 if.then.i192.i.i:                                 ; preds = %land.lhs.true.i189.i.i
-  %119 = load ptr, ptr %callback1, align 8
-  %120 = load ptr, ptr %callback_opaque, align 8
-  call void %119(ptr noundef %arrayidx194.le213.lcssa.sink.i.i, i64 noundef %sub209209.lcssa.sink.i.i, ptr noundef %120) #13
+  %120 = load ptr, ptr %callback1, align 8
+  %121 = load ptr, ptr %callback_opaque, align 8
+  call void %120(ptr noundef %arrayidx194.le211.lcssa.sink.i.i, i64 noundef %.lcssa.sink.i.i, ptr noundef %121) #13
   %.pre85.i = load i8, ptr %errored, align 8
-  %.pre70 = and i8 %.pre85.i, 1
+  %.pre72 = and i8 %.pre85.i, 1
   br label %print_legacy_ident.exit.i
 
 print_legacy_ident.exit.i.thread:                 ; preds = %while.end.i.i, %if.end11.i
@@ -803,10 +803,10 @@ print_legacy_ident.exit.i.thread:                 ; preds = %while.end.i.i, %if.
   br label %do.body14.i
 
 print_legacy_ident.exit.i:                        ; preds = %if.then.i192.i.i, %land.lhs.true.i189.i.i, %lor.lhs.false.i.i
-  %.pre-phi71 = phi i8 [ %.pre70, %if.then.i192.i.i ], [ 0, %land.lhs.true.i189.i.i ], [ 0, %lor.lhs.false.i.i ]
+  %.pre-phi73 = phi i8 [ %.pre72, %if.then.i192.i.i ], [ 0, %land.lhs.true.i189.i.i ], [ 0, %lor.lhs.false.i.i ]
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %v.i.i)
   call void @llvm.lifetime.end.p0(i64 9, ptr nonnull %s.i.i)
-  %tobool12.not.i = icmp eq i8 %.pre-phi71, 0
+  %tobool12.not.i = icmp eq i8 %.pre-phi73, 0
   br i1 %tobool12.not.i, label %while.body.i, label %do.body14.i
 
 do.body14.i:                                      ; preds = %print_legacy_ident.exit.i, %print_legacy_ident.exit.i.thread, %print_legacy_ident.exit.thread.i
@@ -819,24 +819,24 @@ demangle_legacy_path.exit:                        ; preds = %eat.exit.i, %if.the
 
 if.else93:                                        ; preds = %for.end
   call fastcc void @demangle_path(ptr noundef nonnull %rdm, i1 noundef zeroext true)
-  %121 = load i8, ptr %errored, align 8
-  %122 = and i8 %121, 1
-  %tobool95.not = icmp eq i8 %122, 0
+  %122 = load i8, ptr %errored, align 8
+  %123 = and i8 %122, 1
+  %tobool95.not = icmp eq i8 %123, 0
   br i1 %tobool95.not, label %land.lhs.true96, label %if.end114
 
 land.lhs.true96:                                  ; preds = %if.else93
-  %123 = load i64, ptr %next, align 8
-  %124 = load i64, ptr %sym_len, align 8
-  %cmp99 = icmp ult i64 %123, %124
+  %124 = load i64, ptr %next, align 8
+  %125 = load i64, ptr %sym_len, align 8
+  %cmp99 = icmp ult i64 %124, %125
   br i1 %cmp99, label %peek.exit, label %if.end114
 
 peek.exit:                                        ; preds = %land.lhs.true96
-  %125 = load ptr, ptr %rdm, align 8
-  %arrayidx.i = getelementptr inbounds i8, ptr %125, i64 %123
-  %126 = load i8, ptr %arrayidx.i, align 1
-  %127 = add i8 %126, -65
-  %or.cond97 = icmp ult i8 %127, 26
-  br i1 %or.cond97, label %if.then111, label %if.end114
+  %126 = load ptr, ptr %rdm, align 8
+  %arrayidx.i = getelementptr inbounds i8, ptr %126, i64 %124
+  %127 = load i8, ptr %arrayidx.i, align 1
+  %128 = add i8 %127, -65
+  %or.cond99 = icmp ult i8 %128, 26
+  br i1 %or.cond99, label %if.then111, label %if.end114
 
 if.then111:                                       ; preds = %peek.exit
   store i8 1, ptr %skipping_printing, align 1
@@ -844,63 +844,63 @@ if.then111:                                       ; preds = %peek.exit
   br label %if.end114
 
 if.end114:                                        ; preds = %if.else93, %land.lhs.true96, %peek.exit, %if.then111, %demangle_legacy_path.exit
-  %128 = load i8, ptr %errored, align 8
-  %129 = and i8 %128, 1
-  %tobool116.not = icmp eq i8 %129, 0
+  %129 = load i8, ptr %errored, align 8
+  %130 = and i8 %129, 1
+  %tobool116.not = icmp eq i8 %130, 0
   br i1 %tobool116.not, label %land.lhs.true117, label %return
 
 land.lhs.true117:                                 ; preds = %if.end114
-  %130 = load i64, ptr %sym_len, align 8
-  %131 = load i64, ptr %next, align 8
-  %cmp120.not = icmp eq i64 %130, %131
+  %131 = load i64, ptr %sym_len, align 8
+  %132 = load i64, ptr %next, align 8
+  %cmp120.not = icmp eq i64 %131, %132
   br i1 %cmp120.not, label %return, label %if.then122
 
 if.then122:                                       ; preds = %land.lhs.true117
-  %132 = load ptr, ptr %rdm, align 8
-  %add.ptr126 = getelementptr inbounds i8, ptr %132, i64 %131
-  %133 = load i8, ptr %add.ptr126, align 1
-  %tobool128.not52 = icmp eq i8 %133, 0
-  br i1 %tobool128.not52, label %land.lhs.true.i27, label %for.body129
+  %133 = load ptr, ptr %rdm, align 8
+  %add.ptr126 = getelementptr inbounds i8, ptr %133, i64 %132
+  %134 = load i8, ptr %add.ptr126, align 1
+  %tobool128.not54 = icmp eq i8 %134, 0
+  br i1 %tobool128.not54, label %land.lhs.true.i27, label %for.body129
 
 for.body129:                                      ; preds = %if.then122, %for.inc158
-  %134 = phi i8 [ %138, %for.inc158 ], [ %133, %if.then122 ]
-  %p123.053 = phi ptr [ %incdec.ptr159, %for.inc158 ], [ %add.ptr126, %if.then122 ]
-  %135 = and i8 %134, -33
-  %136 = add i8 %135, -65
-  %or.cond32 = icmp ult i8 %136, 26
+  %135 = phi i8 [ %139, %for.inc158 ], [ %134, %if.then122 ]
+  %p123.055 = phi ptr [ %incdec.ptr159, %for.inc158 ], [ %add.ptr126, %if.then122 ]
+  %136 = and i8 %135, -33
+  %137 = add i8 %136, -65
+  %or.cond32 = icmp ult i8 %137, 26
   br i1 %or.cond32, label %for.inc158, label %lor.lhs.false144
 
 lor.lhs.false144:                                 ; preds = %for.body129
-  %137 = add i8 %134, -48
-  %or.cond16 = icmp ult i8 %137, 10
-  %cmp154 = icmp eq i8 %134, 46
+  %138 = add i8 %135, -48
+  %or.cond16 = icmp ult i8 %138, 10
+  %cmp154 = icmp eq i8 %135, 46
   %or.cond31 = or i1 %cmp154, %or.cond16
   br i1 %or.cond31, label %for.inc158, label %return
 
 for.inc158:                                       ; preds = %lor.lhs.false144, %for.body129
-  %incdec.ptr159 = getelementptr inbounds i8, ptr %p123.053, i64 1
-  %138 = load i8, ptr %incdec.ptr159, align 1
-  %tobool128.not = icmp eq i8 %138, 0
+  %incdec.ptr159 = getelementptr inbounds i8, ptr %p123.055, i64 1
+  %139 = load i8, ptr %incdec.ptr159, align 1
+  %tobool128.not = icmp eq i8 %139, 0
   br i1 %tobool128.not, label %land.lhs.true.i27, label %for.body129, !llvm.loop !10
 
 land.lhs.true.i27:                                ; preds = %for.inc158, %if.then122
-  %139 = load i8, ptr %skipping_printing, align 1
-  %140 = and i8 %139, 1
-  %tobool1.not.i = icmp eq i8 %140, 0
+  %140 = load i8, ptr %skipping_printing, align 1
+  %141 = and i8 %140, 1
+  %tobool1.not.i = icmp eq i8 %141, 0
   br i1 %tobool1.not.i, label %if.then.i28, label %return
 
 if.then.i28:                                      ; preds = %land.lhs.true.i27
-  %sub166 = sub i64 %130, %131
-  %141 = load ptr, ptr %callback1, align 8
-  %142 = load ptr, ptr %callback_opaque, align 8
-  call void %141(ptr noundef nonnull %add.ptr126, i64 noundef %sub166, ptr noundef %142) #13
+  %sub166 = sub i64 %131, %132
+  %142 = load ptr, ptr %callback1, align 8
+  %143 = load ptr, ptr %callback_opaque, align 8
+  call void %142(ptr noundef nonnull %add.ptr126, i64 noundef %sub166, ptr noundef %143) #13
   %.pre = load i8, ptr %errored, align 8
-  %.pre69 = and i8 %.pre, 1
-  %143 = icmp eq i8 %.pre69, 0
+  %.pre71 = and i8 %.pre, 1
+  %144 = icmp eq i8 %.pre71, 0
   br label %return
 
 return:                                           ; preds = %for.body, %lor.lhs.false144, %if.end114, %land.lhs.true117, %land.lhs.true.i27, %if.then.i28, %if.then58, %if.else40
-  %retval.0 = phi i1 [ false, %if.else40 ], [ false, %if.then58 ], [ %143, %if.then.i28 ], [ true, %land.lhs.true.i27 ], [ true, %land.lhs.true117 ], [ false, %if.end114 ], [ false, %lor.lhs.false144 ], [ false, %for.body ]
+  %retval.0 = phi i1 [ false, %if.else40 ], [ false, %if.then58 ], [ %144, %if.then.i28 ], [ true, %land.lhs.true.i27 ], [ true, %land.lhs.true117 ], [ false, %if.end114 ], [ false, %lor.lhs.false144 ], [ false, %for.body ]
   ret i1 %retval.0
 }
 
@@ -914,7 +914,7 @@ entry:
   %name = alloca %struct.rust_mangled_ident, align 8
   %ns = alloca i8, align 1
   %name32 = alloca %struct.rust_mangled_ident, align 8
-  %errored = getelementptr inbounds %struct.rust_demangler, ptr %rdm, i64 0, i32 5
+  %errored = getelementptr inbounds i8, ptr %rdm, i64 40
   %0 = load i8, ptr %errored, align 8
   %1 = and i8 %0, 1
   %tobool.not = icmp eq i8 %1, 0
@@ -925,9 +925,9 @@ do.body1:                                         ; preds = %entry
   br label %common.ret496
 
 do.end3:                                          ; preds = %entry
-  %next.i.i = getelementptr inbounds %struct.rust_demangler, ptr %rdm, i64 0, i32 4
+  %next.i.i = getelementptr inbounds i8, ptr %rdm, i64 32
   %2 = load i64, ptr %next.i.i, align 8
-  %sym_len.i.i = getelementptr inbounds %struct.rust_demangler, ptr %rdm, i64 0, i32 1
+  %sym_len.i.i = getelementptr inbounds i8, ptr %rdm, i64 8
   %3 = load i64, ptr %sym_len.i.i, align 8
   %cmp.i.i = icmp ult i64 %2, %3
   br i1 %cmp.i.i, label %peek.exit.i, label %do.body94
@@ -1030,7 +1030,7 @@ parse_disambiguator.exit:                         ; preds = %sw.bb, %peek.exit.i
   %retval.0.i.i = phi i64 [ 0, %peek.exit.i.i.i ], [ 1, %do.body.i.i.i ], [ %13, %while.end.i.i.i ], [ 1, %eat.exit.thread.i.i.i ], [ 0, %sw.bb ]
   call fastcc void @parse_ident(ptr noalias nonnull align 8 %name, ptr noundef nonnull %rdm)
   tail call fastcc void @print_ident(ptr noundef nonnull %rdm, ptr noundef nonnull byval(%struct.rust_mangled_ident) align 8 %name)
-  %verbose = getelementptr inbounds %struct.rust_demangler, ptr %rdm, i64 0, i32 7
+  %verbose = getelementptr inbounds i8, ptr %rdm, i64 42
   %14 = load i8, ptr %verbose, align 2
   %15 = and i8 %14, 1
   %tobool5.not = icmp eq i8 %15, 0
@@ -1043,16 +1043,16 @@ if.then6:                                         ; preds = %parse_disambiguator
   br i1 %tobool.not.i63, label %land.lhs.true.i, label %print_str.exit
 
 land.lhs.true.i:                                  ; preds = %if.then6
-  %skipping_printing.i = getelementptr inbounds %struct.rust_demangler, ptr %rdm, i64 0, i32 6
+  %skipping_printing.i = getelementptr inbounds i8, ptr %rdm, i64 41
   %18 = load i8, ptr %skipping_printing.i, align 1
   %19 = and i8 %18, 1
   %tobool1.not.i = icmp eq i8 %19, 0
   br i1 %tobool1.not.i, label %if.then.i, label %print_str.exit
 
 if.then.i:                                        ; preds = %land.lhs.true.i
-  %callback.i = getelementptr inbounds %struct.rust_demangler, ptr %rdm, i64 0, i32 3
+  %callback.i = getelementptr inbounds i8, ptr %rdm, i64 24
   %20 = load ptr, ptr %callback.i, align 8
-  %callback_opaque.i = getelementptr inbounds %struct.rust_demangler, ptr %rdm, i64 0, i32 2
+  %callback_opaque.i = getelementptr inbounds i8, ptr %rdm, i64 16
   %21 = load ptr, ptr %callback_opaque.i, align 8
   tail call void %20(ptr noundef nonnull @.str.28, i64 noundef 1, ptr noundef %21) #13
   br label %print_str.exit
@@ -1067,16 +1067,16 @@ print_str.exit:                                   ; preds = %if.then6, %land.lhs
   br i1 %tobool.not.i.i, label %land.lhs.true.i.i, label %print_uint64_hex.exit
 
 land.lhs.true.i.i:                                ; preds = %print_str.exit
-  %skipping_printing.i.i = getelementptr inbounds %struct.rust_demangler, ptr %rdm, i64 0, i32 6
+  %skipping_printing.i.i = getelementptr inbounds i8, ptr %rdm, i64 41
   %24 = load i8, ptr %skipping_printing.i.i, align 1
   %25 = and i8 %24, 1
   %tobool1.not.i.i = icmp eq i8 %25, 0
   br i1 %tobool1.not.i.i, label %if.then.i.i, label %print_uint64_hex.exit
 
 if.then.i.i:                                      ; preds = %land.lhs.true.i.i
-  %callback.i.i = getelementptr inbounds %struct.rust_demangler, ptr %rdm, i64 0, i32 3
+  %callback.i.i = getelementptr inbounds i8, ptr %rdm, i64 24
   %26 = load ptr, ptr %callback.i.i, align 8
-  %callback_opaque.i.i = getelementptr inbounds %struct.rust_demangler, ptr %rdm, i64 0, i32 2
+  %callback_opaque.i.i = getelementptr inbounds i8, ptr %rdm, i64 16
   %27 = load ptr, ptr %callback_opaque.i.i, align 8
   call void %26(ptr noundef nonnull %s.i, i64 noundef %call3.i, ptr noundef %27) #13
   %.pre430 = load i8, ptr %errored, align 8
@@ -1090,16 +1090,16 @@ print_uint64_hex.exit:                            ; preds = %print_str.exit, %la
   br i1 %tobool.not.i65, label %land.lhs.true.i66, label %common.ret496
 
 land.lhs.true.i66:                                ; preds = %print_uint64_hex.exit
-  %skipping_printing.i67 = getelementptr inbounds %struct.rust_demangler, ptr %rdm, i64 0, i32 6
+  %skipping_printing.i67 = getelementptr inbounds i8, ptr %rdm, i64 41
   %30 = load i8, ptr %skipping_printing.i67, align 1
   %31 = and i8 %30, 1
   %tobool1.not.i68 = icmp eq i8 %31, 0
   br i1 %tobool1.not.i68, label %if.then.i69, label %common.ret496
 
 if.then.i69:                                      ; preds = %land.lhs.true.i66
-  %callback.i70 = getelementptr inbounds %struct.rust_demangler, ptr %rdm, i64 0, i32 3
+  %callback.i70 = getelementptr inbounds i8, ptr %rdm, i64 24
   %32 = load ptr, ptr %callback.i70, align 8
-  %callback_opaque.i71 = getelementptr inbounds %struct.rust_demangler, ptr %rdm, i64 0, i32 2
+  %callback_opaque.i71 = getelementptr inbounds i8, ptr %rdm, i64 16
   %33 = load ptr, ptr %callback_opaque.i71, align 8
   call void %32(ptr noundef nonnull @.str.29, i64 noundef 1, ptr noundef %33) #13
   br label %common.ret496
@@ -1219,16 +1219,16 @@ if.then40:                                        ; preds = %parse_disambiguator
   br i1 %tobool.not.i124, label %land.lhs.true.i125, label %print_str.exit131
 
 land.lhs.true.i125:                               ; preds = %if.then40
-  %skipping_printing.i126 = getelementptr inbounds %struct.rust_demangler, ptr %rdm, i64 0, i32 6
+  %skipping_printing.i126 = getelementptr inbounds i8, ptr %rdm, i64 41
   %51 = load i8, ptr %skipping_printing.i126, align 1
   %52 = and i8 %51, 1
   %tobool1.not.i127 = icmp eq i8 %52, 0
   br i1 %tobool1.not.i127, label %if.then.i128, label %print_str.exit131
 
 if.then.i128:                                     ; preds = %land.lhs.true.i125
-  %callback.i129 = getelementptr inbounds %struct.rust_demangler, ptr %rdm, i64 0, i32 3
+  %callback.i129 = getelementptr inbounds i8, ptr %rdm, i64 24
   %53 = load ptr, ptr %callback.i129, align 8
-  %callback_opaque.i130 = getelementptr inbounds %struct.rust_demangler, ptr %rdm, i64 0, i32 2
+  %callback_opaque.i130 = getelementptr inbounds i8, ptr %rdm, i64 16
   %54 = load ptr, ptr %callback_opaque.i130, align 8
   tail call void %53(ptr noundef nonnull @.str.30, i64 noundef 3, ptr noundef %54) #13
   br label %print_str.exit131
@@ -1246,16 +1246,16 @@ sw.bb42:                                          ; preds = %print_str.exit131
   br i1 %tobool.not.i151, label %land.lhs.true.i134, label %sw.epilog
 
 land.lhs.true.i134:                               ; preds = %sw.bb42
-  %skipping_printing.i135 = getelementptr inbounds %struct.rust_demangler, ptr %rdm, i64 0, i32 6
+  %skipping_printing.i135 = getelementptr inbounds i8, ptr %rdm, i64 41
   %57 = load i8, ptr %skipping_printing.i135, align 1
   %58 = and i8 %57, 1
   %tobool1.not.i136 = icmp eq i8 %58, 0
   br i1 %tobool1.not.i136, label %if.then.i137, label %sw.epilog
 
 if.then.i137:                                     ; preds = %land.lhs.true.i134
-  %callback.i138 = getelementptr inbounds %struct.rust_demangler, ptr %rdm, i64 0, i32 3
+  %callback.i138 = getelementptr inbounds i8, ptr %rdm, i64 24
   %59 = load ptr, ptr %callback.i138, align 8
-  %callback_opaque.i139 = getelementptr inbounds %struct.rust_demangler, ptr %rdm, i64 0, i32 2
+  %callback_opaque.i139 = getelementptr inbounds i8, ptr %rdm, i64 16
   %60 = load ptr, ptr %callback_opaque.i139, align 8
   tail call void %59(ptr noundef nonnull @.str.31, i64 noundef 7, ptr noundef %60) #13
   br label %sw.epilog
@@ -1264,16 +1264,16 @@ sw.bb43:                                          ; preds = %print_str.exit131
   br i1 %tobool.not.i151, label %land.lhs.true.i143, label %sw.epilog
 
 land.lhs.true.i143:                               ; preds = %sw.bb43
-  %skipping_printing.i144 = getelementptr inbounds %struct.rust_demangler, ptr %rdm, i64 0, i32 6
+  %skipping_printing.i144 = getelementptr inbounds i8, ptr %rdm, i64 41
   %61 = load i8, ptr %skipping_printing.i144, align 1
   %62 = and i8 %61, 1
   %tobool1.not.i145 = icmp eq i8 %62, 0
   br i1 %tobool1.not.i145, label %if.then.i146, label %sw.epilog
 
 if.then.i146:                                     ; preds = %land.lhs.true.i143
-  %callback.i147 = getelementptr inbounds %struct.rust_demangler, ptr %rdm, i64 0, i32 3
+  %callback.i147 = getelementptr inbounds i8, ptr %rdm, i64 24
   %63 = load ptr, ptr %callback.i147, align 8
-  %callback_opaque.i148 = getelementptr inbounds %struct.rust_demangler, ptr %rdm, i64 0, i32 2
+  %callback_opaque.i148 = getelementptr inbounds i8, ptr %rdm, i64 16
   %64 = load ptr, ptr %callback_opaque.i148, align 8
   tail call void %63(ptr noundef nonnull @.str.32, i64 noundef 4, ptr noundef %64) #13
   br label %sw.epilog
@@ -1282,16 +1282,16 @@ sw.default:                                       ; preds = %print_str.exit131
   br i1 %tobool.not.i151, label %land.lhs.true.i152, label %sw.epilog
 
 land.lhs.true.i152:                               ; preds = %sw.default
-  %skipping_printing.i153 = getelementptr inbounds %struct.rust_demangler, ptr %rdm, i64 0, i32 6
+  %skipping_printing.i153 = getelementptr inbounds i8, ptr %rdm, i64 41
   %65 = load i8, ptr %skipping_printing.i153, align 1
   %66 = and i8 %65, 1
   %tobool1.not.i154 = icmp eq i8 %66, 0
   br i1 %tobool1.not.i154, label %if.then.i155, label %sw.epilog
 
 if.then.i155:                                     ; preds = %land.lhs.true.i152
-  %callback.i156 = getelementptr inbounds %struct.rust_demangler, ptr %rdm, i64 0, i32 3
+  %callback.i156 = getelementptr inbounds i8, ptr %rdm, i64 24
   %67 = load ptr, ptr %callback.i156, align 8
-  %callback_opaque.i157 = getelementptr inbounds %struct.rust_demangler, ptr %rdm, i64 0, i32 2
+  %callback_opaque.i157 = getelementptr inbounds i8, ptr %rdm, i64 16
   %68 = load ptr, ptr %callback_opaque.i157, align 8
   call void %67(ptr noundef nonnull %ns, i64 noundef 1, ptr noundef %68) #13
   br label %sw.epilog
@@ -1299,7 +1299,7 @@ if.then.i155:                                     ; preds = %land.lhs.true.i152
 sw.epilog:                                        ; preds = %if.then.i155, %land.lhs.true.i152, %sw.default, %if.then.i146, %land.lhs.true.i143, %sw.bb43, %if.then.i137, %land.lhs.true.i134, %sw.bb42
   %69 = load ptr, ptr %name32, align 8
   %tobool44 = icmp ne ptr %69, null
-  %punycode = getelementptr inbounds %struct.rust_mangled_ident, ptr %name32, i64 0, i32 2
+  %punycode = getelementptr inbounds i8, ptr %name32, i64 16
   %70 = load ptr, ptr %punycode, align 8
   %tobool46 = icmp ne ptr %70, null
   %or.cond3 = select i1 %tobool44, i1 true, i1 %tobool46
@@ -1312,16 +1312,16 @@ if.then47:                                        ; preds = %sw.epilog
   br i1 %tobool.not.i160, label %land.lhs.true.i161, label %print_str.exit167
 
 land.lhs.true.i161:                               ; preds = %if.then47
-  %skipping_printing.i162 = getelementptr inbounds %struct.rust_demangler, ptr %rdm, i64 0, i32 6
+  %skipping_printing.i162 = getelementptr inbounds i8, ptr %rdm, i64 41
   %72 = load i8, ptr %skipping_printing.i162, align 1
   %73 = and i8 %72, 1
   %tobool1.not.i163 = icmp eq i8 %73, 0
   br i1 %tobool1.not.i163, label %if.then.i164, label %print_str.exit167
 
 if.then.i164:                                     ; preds = %land.lhs.true.i161
-  %callback.i165 = getelementptr inbounds %struct.rust_demangler, ptr %rdm, i64 0, i32 3
+  %callback.i165 = getelementptr inbounds i8, ptr %rdm, i64 24
   %74 = load ptr, ptr %callback.i165, align 8
-  %callback_opaque.i166 = getelementptr inbounds %struct.rust_demangler, ptr %rdm, i64 0, i32 2
+  %callback_opaque.i166 = getelementptr inbounds i8, ptr %rdm, i64 16
   %75 = load ptr, ptr %callback_opaque.i166, align 8
   call void %74(ptr noundef nonnull @.str.33, i64 noundef 1, ptr noundef %75) #13
   br label %print_str.exit167
@@ -1338,16 +1338,16 @@ if.end48:                                         ; preds = %sw.epilog, %print_s
   br i1 %tobool.not.i169, label %land.lhs.true.i170, label %print_str.exit176
 
 land.lhs.true.i170:                               ; preds = %if.end48
-  %skipping_printing.i171 = getelementptr inbounds %struct.rust_demangler, ptr %rdm, i64 0, i32 6
+  %skipping_printing.i171 = getelementptr inbounds i8, ptr %rdm, i64 41
   %78 = load i8, ptr %skipping_printing.i171, align 1
   %79 = and i8 %78, 1
   %tobool1.not.i172 = icmp eq i8 %79, 0
   br i1 %tobool1.not.i172, label %if.then.i173, label %print_str.exit176
 
 if.then.i173:                                     ; preds = %land.lhs.true.i170
-  %callback.i174 = getelementptr inbounds %struct.rust_demangler, ptr %rdm, i64 0, i32 3
+  %callback.i174 = getelementptr inbounds i8, ptr %rdm, i64 24
   %80 = load ptr, ptr %callback.i174, align 8
-  %callback_opaque.i175 = getelementptr inbounds %struct.rust_demangler, ptr %rdm, i64 0, i32 2
+  %callback_opaque.i175 = getelementptr inbounds i8, ptr %rdm, i64 16
   %81 = load ptr, ptr %callback_opaque.i175, align 8
   call void %80(ptr noundef nonnull @.str.34, i64 noundef 1, ptr noundef %81) #13
   br label %print_str.exit176
@@ -1360,16 +1360,16 @@ print_str.exit176:                                ; preds = %if.end48, %land.lhs
   br i1 %tobool.not.i178, label %land.lhs.true.i179, label %common.ret496
 
 land.lhs.true.i179:                               ; preds = %print_str.exit176
-  %skipping_printing.i180 = getelementptr inbounds %struct.rust_demangler, ptr %rdm, i64 0, i32 6
+  %skipping_printing.i180 = getelementptr inbounds i8, ptr %rdm, i64 41
   %84 = load i8, ptr %skipping_printing.i180, align 1
   %85 = and i8 %84, 1
   %tobool1.not.i181 = icmp eq i8 %85, 0
   br i1 %tobool1.not.i181, label %if.then.i182, label %common.ret496
 
 if.then.i182:                                     ; preds = %land.lhs.true.i179
-  %callback.i183 = getelementptr inbounds %struct.rust_demangler, ptr %rdm, i64 0, i32 3
+  %callback.i183 = getelementptr inbounds i8, ptr %rdm, i64 24
   %86 = load ptr, ptr %callback.i183, align 8
-  %callback_opaque.i184 = getelementptr inbounds %struct.rust_demangler, ptr %rdm, i64 0, i32 2
+  %callback_opaque.i184 = getelementptr inbounds i8, ptr %rdm, i64 16
   %87 = load ptr, ptr %callback_opaque.i184, align 8
   call void %86(ptr noundef nonnull @.str.27, i64 noundef 1, ptr noundef %87) #13
   br label %common.ret496
@@ -1377,7 +1377,7 @@ if.then.i182:                                     ; preds = %land.lhs.true.i179
 if.else:                                          ; preds = %parse_disambiguator.exit122
   %88 = load ptr, ptr %name32, align 8
   %tobool50 = icmp ne ptr %88, null
-  %punycode52 = getelementptr inbounds %struct.rust_mangled_ident, ptr %name32, i64 0, i32 2
+  %punycode52 = getelementptr inbounds i8, ptr %name32, i64 16
   %89 = load ptr, ptr %punycode52, align 8
   %tobool53 = icmp ne ptr %89, null
   %or.cond4 = select i1 %tobool50, i1 true, i1 %tobool53
@@ -1390,16 +1390,16 @@ if.then54:                                        ; preds = %if.else
   br i1 %tobool.not.i187, label %land.lhs.true.i188, label %print_str.exit194
 
 land.lhs.true.i188:                               ; preds = %if.then54
-  %skipping_printing.i189 = getelementptr inbounds %struct.rust_demangler, ptr %rdm, i64 0, i32 6
+  %skipping_printing.i189 = getelementptr inbounds i8, ptr %rdm, i64 41
   %92 = load i8, ptr %skipping_printing.i189, align 1
   %93 = and i8 %92, 1
   %tobool1.not.i190 = icmp eq i8 %93, 0
   br i1 %tobool1.not.i190, label %if.then.i191, label %print_str.exit194
 
 if.then.i191:                                     ; preds = %land.lhs.true.i188
-  %callback.i192 = getelementptr inbounds %struct.rust_demangler, ptr %rdm, i64 0, i32 3
+  %callback.i192 = getelementptr inbounds i8, ptr %rdm, i64 24
   %94 = load ptr, ptr %callback.i192, align 8
-  %callback_opaque.i193 = getelementptr inbounds %struct.rust_demangler, ptr %rdm, i64 0, i32 2
+  %callback_opaque.i193 = getelementptr inbounds i8, ptr %rdm, i64 16
   %95 = load ptr, ptr %callback_opaque.i193, align 8
   tail call void %94(ptr noundef nonnull @.str.7, i64 noundef 2, ptr noundef %95) #13
   br label %print_str.exit194
@@ -1467,7 +1467,7 @@ while.end.i.i.i213:                               ; preds = %peek.exit.i21.i.i.i
   br label %parse_disambiguator.exit232
 
 parse_disambiguator.exit232:                      ; preds = %sw.bb57, %peek.exit.i.i.i199, %eat.exit.thread.i.i.i230, %do.body.i.i.i205, %while.end.i.i.i213
-  %skipping_printing = getelementptr inbounds %struct.rust_demangler, ptr %rdm, i64 0, i32 6
+  %skipping_printing = getelementptr inbounds i8, ptr %rdm, i64 41
   %104 = load i8, ptr %skipping_printing, align 1
   %105 = and i8 %104, 1
   store i8 1, ptr %skipping_printing, align 1
@@ -1483,16 +1483,16 @@ sw.bb66:                                          ; preds = %parse_disambiguator
   br i1 %tobool.not.i234, label %land.lhs.true.i235, label %print_str.exit241
 
 land.lhs.true.i235:                               ; preds = %sw.bb66
-  %skipping_printing.i236 = getelementptr inbounds %struct.rust_demangler, ptr %rdm, i64 0, i32 6
+  %skipping_printing.i236 = getelementptr inbounds i8, ptr %rdm, i64 41
   %108 = load i8, ptr %skipping_printing.i236, align 1
   %109 = and i8 %108, 1
   %tobool1.not.i237 = icmp eq i8 %109, 0
   br i1 %tobool1.not.i237, label %if.then.i238, label %print_str.exit241
 
 if.then.i238:                                     ; preds = %land.lhs.true.i235
-  %callback.i239 = getelementptr inbounds %struct.rust_demangler, ptr %rdm, i64 0, i32 3
+  %callback.i239 = getelementptr inbounds i8, ptr %rdm, i64 24
   %110 = load ptr, ptr %callback.i239, align 8
-  %callback_opaque.i240 = getelementptr inbounds %struct.rust_demangler, ptr %rdm, i64 0, i32 2
+  %callback_opaque.i240 = getelementptr inbounds i8, ptr %rdm, i64 16
   %111 = load ptr, ptr %callback_opaque.i240, align 8
   tail call void %110(ptr noundef nonnull @.str.16, i64 noundef 1, ptr noundef %111) #13
   br label %print_str.exit241
@@ -1509,16 +1509,16 @@ if.then70:                                        ; preds = %print_str.exit241
   br i1 %tobool.not.i243, label %land.lhs.true.i244, label %print_str.exit250
 
 land.lhs.true.i244:                               ; preds = %if.then70
-  %skipping_printing.i245 = getelementptr inbounds %struct.rust_demangler, ptr %rdm, i64 0, i32 6
+  %skipping_printing.i245 = getelementptr inbounds i8, ptr %rdm, i64 41
   %114 = load i8, ptr %skipping_printing.i245, align 1
   %115 = and i8 %114, 1
   %tobool1.not.i246 = icmp eq i8 %115, 0
   br i1 %tobool1.not.i246, label %if.then.i247, label %print_str.exit250
 
 if.then.i247:                                     ; preds = %land.lhs.true.i244
-  %callback.i248 = getelementptr inbounds %struct.rust_demangler, ptr %rdm, i64 0, i32 3
+  %callback.i248 = getelementptr inbounds i8, ptr %rdm, i64 24
   %116 = load ptr, ptr %callback.i248, align 8
-  %callback_opaque.i249 = getelementptr inbounds %struct.rust_demangler, ptr %rdm, i64 0, i32 2
+  %callback_opaque.i249 = getelementptr inbounds i8, ptr %rdm, i64 16
   %117 = load ptr, ptr %callback_opaque.i249, align 8
   tail call void %116(ptr noundef nonnull @.str.35, i64 noundef 4, ptr noundef %117) #13
   br label %print_str.exit250
@@ -1534,16 +1534,16 @@ if.end71:                                         ; preds = %print_str.exit250, 
   br i1 %tobool.not.i252, label %land.lhs.true.i253, label %common.ret496
 
 land.lhs.true.i253:                               ; preds = %if.end71
-  %skipping_printing.i254 = getelementptr inbounds %struct.rust_demangler, ptr %rdm, i64 0, i32 6
+  %skipping_printing.i254 = getelementptr inbounds i8, ptr %rdm, i64 41
   %120 = load i8, ptr %skipping_printing.i254, align 1
   %121 = and i8 %120, 1
   %tobool1.not.i255 = icmp eq i8 %121, 0
   br i1 %tobool1.not.i255, label %if.then.i256, label %common.ret496
 
 if.then.i256:                                     ; preds = %land.lhs.true.i253
-  %callback.i257 = getelementptr inbounds %struct.rust_demangler, ptr %rdm, i64 0, i32 3
+  %callback.i257 = getelementptr inbounds i8, ptr %rdm, i64 24
   %122 = load ptr, ptr %callback.i257, align 8
-  %callback_opaque.i258 = getelementptr inbounds %struct.rust_demangler, ptr %rdm, i64 0, i32 2
+  %callback_opaque.i258 = getelementptr inbounds i8, ptr %rdm, i64 16
   %123 = load ptr, ptr %callback_opaque.i258, align 8
   tail call void %122(ptr noundef nonnull @.str.18, i64 noundef 1, ptr noundef %123) #13
   br label %common.ret496
@@ -1557,16 +1557,16 @@ sw.bb72:                                          ; preds = %next.exit
   br i1 %or.cond449, label %land.lhs.true.i262, label %if.end76
 
 land.lhs.true.i262:                               ; preds = %sw.bb72
-  %skipping_printing.i263 = getelementptr inbounds %struct.rust_demangler, ptr %rdm, i64 0, i32 6
+  %skipping_printing.i263 = getelementptr inbounds i8, ptr %rdm, i64 41
   %125 = load i8, ptr %skipping_printing.i263, align 1
   %126 = and i8 %125, 1
   %tobool1.not.i264 = icmp eq i8 %126, 0
   br i1 %tobool1.not.i264, label %if.then.i265, label %if.end76
 
 if.then.i265:                                     ; preds = %land.lhs.true.i262
-  %callback.i266 = getelementptr inbounds %struct.rust_demangler, ptr %rdm, i64 0, i32 3
+  %callback.i266 = getelementptr inbounds i8, ptr %rdm, i64 24
   %127 = load ptr, ptr %callback.i266, align 8
-  %callback_opaque.i267 = getelementptr inbounds %struct.rust_demangler, ptr %rdm, i64 0, i32 2
+  %callback_opaque.i267 = getelementptr inbounds i8, ptr %rdm, i64 16
   %128 = load ptr, ptr %callback_opaque.i267, align 8
   tail call void %127(ptr noundef nonnull @.str.7, i64 noundef 2, ptr noundef %128) #13
   %.pre = load i8, ptr %errored, align 8
@@ -1579,16 +1579,16 @@ if.end76:                                         ; preds = %if.then.i265, %land
   br i1 %tobool.not.i270, label %land.lhs.true.i271, label %print_str.exit277
 
 land.lhs.true.i271:                               ; preds = %if.end76
-  %skipping_printing.i272 = getelementptr inbounds %struct.rust_demangler, ptr %rdm, i64 0, i32 6
+  %skipping_printing.i272 = getelementptr inbounds i8, ptr %rdm, i64 41
   %131 = load i8, ptr %skipping_printing.i272, align 1
   %132 = and i8 %131, 1
   %tobool1.not.i273 = icmp eq i8 %132, 0
   br i1 %tobool1.not.i273, label %if.then.i274, label %print_str.exit277
 
 if.then.i274:                                     ; preds = %land.lhs.true.i271
-  %callback.i275 = getelementptr inbounds %struct.rust_demangler, ptr %rdm, i64 0, i32 3
+  %callback.i275 = getelementptr inbounds i8, ptr %rdm, i64 24
   %133 = load ptr, ptr %callback.i275, align 8
-  %callback_opaque.i276 = getelementptr inbounds %struct.rust_demangler, ptr %rdm, i64 0, i32 2
+  %callback_opaque.i276 = getelementptr inbounds i8, ptr %rdm, i64 16
   %134 = load ptr, ptr %callback_opaque.i276, align 8
   tail call void %133(ptr noundef nonnull @.str.16, i64 noundef 1, ptr noundef %134) #13
   %.pre424 = load i8, ptr %errored, align 8
@@ -1601,9 +1601,9 @@ print_str.exit277:                                ; preds = %if.end76, %land.lhs
   br i1 %tobool78.not405, label %land.rhs.lr.ph, label %common.ret496
 
 land.rhs.lr.ph:                                   ; preds = %print_str.exit277
-  %skipping_printing.i290 = getelementptr inbounds %struct.rust_demangler, ptr %rdm, i64 0, i32 6
-  %callback.i293 = getelementptr inbounds %struct.rust_demangler, ptr %rdm, i64 0, i32 3
-  %callback_opaque.i294 = getelementptr inbounds %struct.rust_demangler, ptr %rdm, i64 0, i32 2
+  %skipping_printing.i290 = getelementptr inbounds i8, ptr %rdm, i64 41
+  %callback.i293 = getelementptr inbounds i8, ptr %rdm, i64 24
+  %callback_opaque.i294 = getelementptr inbounds i8, ptr %rdm, i64 16
   br label %land.rhs
 
 land.rhs:                                         ; preds = %land.rhs.lr.ph, %demangle_generic_arg.exit
@@ -1824,7 +1824,7 @@ while.end.i:                                      ; preds = %peek.exit.i21.i
 parse_integer_62.exit:                            ; preds = %eat.exit.thread.i, %do.body.i, %while.end.i
   %170 = phi i64 [ %169, %do.body.i ], [ %inc.i25.i, %while.end.i ], [ %inc.i.i, %eat.exit.thread.i ]
   %retval.0.i309 = phi i64 [ 0, %do.body.i ], [ %add41.i, %while.end.i ], [ 0, %eat.exit.thread.i ]
-  %skipping_printing86 = getelementptr inbounds %struct.rust_demangler, ptr %rdm, i64 0, i32 6
+  %skipping_printing86 = getelementptr inbounds i8, ptr %rdm, i64 41
   %171 = load i8, ptr %skipping_printing86, align 1
   %172 = and i8 %171, 1
   %tobool87.not = icmp eq i8 %172, 0
@@ -1848,9 +1848,9 @@ do.body94:                                        ; preds = %peek.exit.i, %do.en
 define dso_local ptr @rust_demangle(ptr noundef %mangled, i32 noundef %flags) local_unnamed_addr #0 {
 entry:
   %out = alloca %struct.str_buf, align 8
-  %len = getelementptr inbounds %struct.str_buf, ptr %out, i64 0, i32 1
-  %cap = getelementptr inbounds %struct.str_buf, ptr %out, i64 0, i32 2
-  %errored = getelementptr inbounds %struct.str_buf, ptr %out, i64 0, i32 3
+  %len = getelementptr inbounds i8, ptr %out, i64 8
+  %cap = getelementptr inbounds i8, ptr %out, i64 16
+  %errored = getelementptr inbounds i8, ptr %out, i64 24
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(25) %out, i8 0, i64 25, i1 false)
   %call = call zeroext i1 @rust_demangle_with_callback(ptr noundef %mangled, i32 noundef %flags, ptr noundef nonnull @str_buf_demangle_callback, ptr noundef nonnull %out)
   br i1 %call, label %if.end, label %if.then
@@ -1934,16 +1934,16 @@ return:                                           ; preds = %str_buf_append.exit
 ; Function Attrs: nounwind
 define internal void @str_buf_demangle_callback(ptr nocapture noundef readonly %data, i64 noundef %len, ptr nocapture noundef %opaque) #0 {
 entry:
-  %errored.i.i = getelementptr inbounds %struct.str_buf, ptr %opaque, i64 0, i32 3
+  %errored.i.i = getelementptr inbounds i8, ptr %opaque, i64 24
   %0 = load i8, ptr %errored.i.i, align 8
   %1 = and i8 %0, 1
   %tobool.not.i.i = icmp eq i8 %1, 0
   br i1 %tobool.not.i.i, label %if.end.i.i, label %str_buf_reserve.exit.i
 
 if.end.i.i:                                       ; preds = %entry
-  %cap.i.i = getelementptr inbounds %struct.str_buf, ptr %opaque, i64 0, i32 2
+  %cap.i.i = getelementptr inbounds i8, ptr %opaque, i64 16
   %2 = load i64, ptr %cap.i.i, align 8
-  %len.i.i = getelementptr inbounds %struct.str_buf, ptr %opaque, i64 0, i32 1
+  %len.i.i = getelementptr inbounds i8, ptr %opaque, i64 8
   %3 = load i64, ptr %len.i.i, align 8
   %sub.i.i = sub i64 %2, %3
   %cmp.not.i.i = icmp ult i64 %sub.i.i, %len
@@ -2005,7 +2005,7 @@ str_buf_reserve.exit.i:                           ; preds = %if.else.i.i, %if.en
 
 if.end.i:                                         ; preds = %str_buf_reserve.exit.i
   %8 = load ptr, ptr %opaque, align 8
-  %len1.i = getelementptr inbounds %struct.str_buf, ptr %opaque, i64 0, i32 1
+  %len1.i = getelementptr inbounds i8, ptr %opaque, i64 8
   %9 = load i64, ptr %len1.i, align 8
   %add.ptr.i = getelementptr inbounds i8, ptr %8, i64 %9
   tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %add.ptr.i, ptr align 1 %data, i64 %len, i1 false)
@@ -2024,16 +2024,16 @@ declare void @free(ptr allocptr nocapture noundef) local_unnamed_addr #2
 ; Function Attrs: nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none)
 define internal fastcc void @parse_ident(ptr noalias nocapture writeonly align 8 %agg.result, ptr nocapture noundef %rdm) unnamed_addr #3 {
 entry:
-  %ascii_len = getelementptr inbounds %struct.rust_mangled_ident, ptr %agg.result, i64 0, i32 1
-  %punycode = getelementptr inbounds %struct.rust_mangled_ident, ptr %agg.result, i64 0, i32 2
-  %punycode_len = getelementptr inbounds %struct.rust_mangled_ident, ptr %agg.result, i64 0, i32 3
-  %version = getelementptr inbounds %struct.rust_demangler, ptr %rdm, i64 0, i32 8
+  %ascii_len = getelementptr inbounds i8, ptr %agg.result, i64 8
+  %punycode = getelementptr inbounds i8, ptr %agg.result, i64 16
+  %punycode_len = getelementptr inbounds i8, ptr %agg.result, i64 24
+  %version = getelementptr inbounds i8, ptr %rdm, i64 44
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %agg.result, i8 0, i64 32, i1 false)
   %0 = load i32, ptr %version, align 4
   %cmp.not = icmp ne i32 %0, -1
-  %next.i.i26.phi.trans.insert = getelementptr inbounds %struct.rust_demangler, ptr %rdm, i64 0, i32 4
+  %next.i.i26.phi.trans.insert = getelementptr inbounds i8, ptr %rdm, i64 32
   %.pre = load i64, ptr %next.i.i26.phi.trans.insert, align 8
-  %sym_len.i.i27.phi.trans.insert = getelementptr inbounds %struct.rust_demangler, ptr %rdm, i64 0, i32 1
+  %sym_len.i.i27.phi.trans.insert = getelementptr inbounds i8, ptr %rdm, i64 8
   %.pre93 = load i64, ptr %sym_len.i.i27.phi.trans.insert, align 8
   %cmp.i.i = icmp ult i64 %.pre, %.pre93
   %or.cond102 = select i1 %cmp.not, i1 %cmp.i.i, i1 false
@@ -2054,7 +2054,7 @@ if.then.i:                                        ; preds = %peek.exit.i
 if.end:                                           ; preds = %entry, %if.then.i, %peek.exit.i
   %3 = phi i64 [ %.pre, %peek.exit.i ], [ %inc.i, %if.then.i ], [ %.pre, %entry ]
   %is_punycode.0 = phi i1 [ false, %peek.exit.i ], [ true, %if.then.i ], [ false, %entry ]
-  %next.i.i26 = getelementptr inbounds %struct.rust_demangler, ptr %rdm, i64 0, i32 4
+  %next.i.i26 = getelementptr inbounds i8, ptr %rdm, i64 32
   %cmp.i.i28 = icmp ult i64 %3, %.pre93
   br i1 %cmp.i.i28, label %peek.exit.i29, label %do.body8
 
@@ -2073,7 +2073,7 @@ next.exit:                                        ; preds = %peek.exit.i29
   br i1 %or.cond, label %do.end10, label %do.body8
 
 do.body8:                                         ; preds = %peek.exit.i29, %if.end, %next.exit
-  %errored = getelementptr inbounds %struct.rust_demangler, ptr %rdm, i64 0, i32 5
+  %errored = getelementptr inbounds i8, ptr %rdm, i64 40
   store i8 1, ptr %errored, align 8
   br label %return
 
@@ -2129,7 +2129,7 @@ if.end35:                                         ; preds = %peek.exit.i57, %if.
   br i1 %or.cond75, label %do.body47, label %do.end51
 
 do.body47:                                        ; preds = %if.end35
-  %errored48 = getelementptr inbounds %struct.rust_demangler, ptr %rdm, i64 0, i32 5
+  %errored48 = getelementptr inbounds i8, ptr %rdm, i64 40
   store i8 1, ptr %errored48, align 8
   br label %return
 
@@ -2170,7 +2170,7 @@ do.body71:                                        ; preds = %while.body60, %if.e
   br i1 %cmp73.not, label %do.body76, label %do.end80
 
 do.body76:                                        ; preds = %do.body71.thread, %do.body71
-  %errored77 = getelementptr inbounds %struct.rust_demangler, ptr %rdm, i64 0, i32 5
+  %errored77 = getelementptr inbounds i8, ptr %rdm, i64 40
   store i8 1, ptr %errored77, align 8
   br label %return
 
@@ -2208,37 +2208,37 @@ declare i64 @strlen(ptr nocapture noundef) local_unnamed_addr #1
 ; Function Attrs: nounwind
 define internal fastcc void @print_ident(ptr nocapture noundef %rdm, ptr nocapture noundef readonly byval(%struct.rust_mangled_ident) align 8 %ident) unnamed_addr #0 {
 entry:
-  %errored = getelementptr inbounds %struct.rust_demangler, ptr %rdm, i64 0, i32 5
+  %errored = getelementptr inbounds i8, ptr %rdm, i64 40
   %0 = load i8, ptr %errored, align 8
   %1 = and i8 %0, 1
   %tobool.not = icmp eq i8 %1, 0
   br i1 %tobool.not, label %lor.lhs.false, label %return
 
 lor.lhs.false:                                    ; preds = %entry
-  %skipping_printing = getelementptr inbounds %struct.rust_demangler, ptr %rdm, i64 0, i32 6
+  %skipping_printing = getelementptr inbounds i8, ptr %rdm, i64 41
   %2 = load i8, ptr %skipping_printing, align 1
   %3 = and i8 %2, 1
   %tobool1.not = icmp eq i8 %3, 0
   br i1 %tobool1.not, label %if.end, label %return
 
 if.end:                                           ; preds = %lor.lhs.false
-  %punycode = getelementptr inbounds %struct.rust_mangled_ident, ptr %ident, i64 0, i32 2
+  %punycode = getelementptr inbounds i8, ptr %ident, i64 16
   %4 = load ptr, ptr %punycode, align 8
   %tobool2.not = icmp eq ptr %4, null
   br i1 %tobool2.not, label %print_str.exit, label %while.cond.preheader
 
 while.cond.preheader:                             ; preds = %if.end
-  %ascii_len5 = getelementptr inbounds %struct.rust_mangled_ident, ptr %ident, i64 0, i32 1
+  %ascii_len5 = getelementptr inbounds i8, ptr %ident, i64 8
   %5 = load i64, ptr %ascii_len5, align 8
   br label %while.cond
 
 print_str.exit:                                   ; preds = %if.end
   %6 = load ptr, ptr %ident, align 8
-  %ascii_len = getelementptr inbounds %struct.rust_mangled_ident, ptr %ident, i64 0, i32 1
+  %ascii_len = getelementptr inbounds i8, ptr %ident, i64 8
   %7 = load i64, ptr %ascii_len, align 8
-  %callback.i = getelementptr inbounds %struct.rust_demangler, ptr %rdm, i64 0, i32 3
+  %callback.i = getelementptr inbounds i8, ptr %rdm, i64 24
   %8 = load ptr, ptr %callback.i, align 8
-  %callback_opaque.i = getelementptr inbounds %struct.rust_demangler, ptr %rdm, i64 0, i32 2
+  %callback_opaque.i = getelementptr inbounds i8, ptr %rdm, i64 16
   %9 = load ptr, ptr %callback_opaque.i, align 8
   tail call void %8(ptr noundef %6, i64 noundef %7, ptr noundef %9) #13
   br label %return
@@ -2276,7 +2276,7 @@ do.body17:                                        ; preds = %while.end
   br label %return
 
 while.cond30.preheader:                           ; preds = %for.body, %for.cond.preheader
-  %punycode_len = getelementptr inbounds %struct.rust_mangled_ident, ptr %ident, i64 0, i32 3
+  %punycode_len = getelementptr inbounds i8, ptr %ident, i64 24
   %11 = load i64, ptr %punycode_len, align 8
   %cmp31135.not = icmp eq i64 %11, 0
   br i1 %cmp31135.not, label %while.end202, label %do.body33.preheader
@@ -2498,9 +2498,9 @@ for.inc217:                                       ; preds = %for.body207, %if.th
 
 if.then.i115:                                     ; preds = %for.inc217, %while.end202
   %j.0.lcssa = phi i64 [ 0, %while.end202 ], [ %j.1, %for.inc217 ]
-  %callback.i116 = getelementptr inbounds %struct.rust_demangler, ptr %rdm, i64 0, i32 3
+  %callback.i116 = getelementptr inbounds i8, ptr %rdm, i64 24
   %23 = load ptr, ptr %callback.i116, align 8
-  %callback_opaque.i117 = getelementptr inbounds %struct.rust_demangler, ptr %rdm, i64 0, i32 2
+  %callback_opaque.i117 = getelementptr inbounds i8, ptr %rdm, i64 16
   %24 = load ptr, ptr %callback_opaque.i117, align 8
   tail call void %23(ptr noundef nonnull %out.1, i64 noundef %j.0.lcssa, ptr noundef %24) #13
   br label %cleanup
@@ -2520,23 +2520,23 @@ entry:
   %s = alloca [21 x i8], align 16
   %call = call i32 (ptr, ptr, ...) @sprintf(ptr noundef nonnull dereferenceable(1) %s, ptr noundef nonnull dereferenceable(1) @.str.38, i64 noundef %x) #13
   %call3 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %s) #12
-  %errored.i = getelementptr inbounds %struct.rust_demangler, ptr %rdm, i64 0, i32 5
+  %errored.i = getelementptr inbounds i8, ptr %rdm, i64 40
   %0 = load i8, ptr %errored.i, align 8
   %1 = and i8 %0, 1
   %tobool.not.i = icmp eq i8 %1, 0
   br i1 %tobool.not.i, label %land.lhs.true.i, label %print_str.exit
 
 land.lhs.true.i:                                  ; preds = %entry
-  %skipping_printing.i = getelementptr inbounds %struct.rust_demangler, ptr %rdm, i64 0, i32 6
+  %skipping_printing.i = getelementptr inbounds i8, ptr %rdm, i64 41
   %2 = load i8, ptr %skipping_printing.i, align 1
   %3 = and i8 %2, 1
   %tobool1.not.i = icmp eq i8 %3, 0
   br i1 %tobool1.not.i, label %if.then.i, label %print_str.exit
 
 if.then.i:                                        ; preds = %land.lhs.true.i
-  %callback.i = getelementptr inbounds %struct.rust_demangler, ptr %rdm, i64 0, i32 3
+  %callback.i = getelementptr inbounds i8, ptr %rdm, i64 24
   %4 = load ptr, ptr %callback.i, align 8
-  %callback_opaque.i = getelementptr inbounds %struct.rust_demangler, ptr %rdm, i64 0, i32 2
+  %callback_opaque.i = getelementptr inbounds i8, ptr %rdm, i64 16
   %5 = load ptr, ptr %callback_opaque.i, align 8
   call void %4(ptr noundef nonnull %s, i64 noundef %call3, ptr noundef %5) #13
   br label %print_str.exit
@@ -2550,18 +2550,18 @@ define internal fastcc void @demangle_type(ptr noundef %rdm) unnamed_addr #0 {
 entry:
   %name.i = alloca %struct.rust_mangled_ident, align 8
   %tmp = alloca %struct.rust_mangled_ident, align 8
-  %errored = getelementptr inbounds %struct.rust_demangler, ptr %rdm, i64 0, i32 5
+  %errored = getelementptr inbounds i8, ptr %rdm, i64 40
   %0 = load i8, ptr %errored, align 8
   %1 = and i8 %0, 1
   %tobool.not640 = icmp eq i8 %1, 0
   br i1 %tobool.not640, label %do.end3.lr.ph, label %do.body1
 
 do.end3.lr.ph:                                    ; preds = %entry
-  %next.i.i = getelementptr inbounds %struct.rust_demangler, ptr %rdm, i64 0, i32 4
-  %sym_len.i.i = getelementptr inbounds %struct.rust_demangler, ptr %rdm, i64 0, i32 1
-  %skipping_printing.i134 = getelementptr inbounds %struct.rust_demangler, ptr %rdm, i64 0, i32 6
-  %callback.i137 = getelementptr inbounds %struct.rust_demangler, ptr %rdm, i64 0, i32 3
-  %callback_opaque.i138 = getelementptr inbounds %struct.rust_demangler, ptr %rdm, i64 0, i32 2
+  %next.i.i = getelementptr inbounds i8, ptr %rdm, i64 32
+  %sym_len.i.i = getelementptr inbounds i8, ptr %rdm, i64 8
+  %skipping_printing.i134 = getelementptr inbounds i8, ptr %rdm, i64 41
+  %callback.i137 = getelementptr inbounds i8, ptr %rdm, i64 24
+  %callback_opaque.i138 = getelementptr inbounds i8, ptr %rdm, i64 16
   br label %do.end3
 
 do.body1:                                         ; preds = %tailrecurse.backedge, %entry
@@ -3065,7 +3065,7 @@ if.then.i228:                                     ; preds = %land.lhs.true.i225
   br label %common.ret
 
 sw.bb44:                                          ; preds = %next.exit
-  %bound_lifetime_depth = getelementptr inbounds %struct.rust_demangler, ptr %rdm, i64 0, i32 9
+  %bound_lifetime_depth = getelementptr inbounds i8, ptr %rdm, i64 48
   %102 = load i64, ptr %bound_lifetime_depth, align 8
   tail call fastcc void @demangle_binder(ptr noundef nonnull %rdm)
   %103 = load i64, ptr %next.i.i, align 8
@@ -3410,7 +3410,7 @@ if.then.i382:                                     ; preds = %land.lhs.true.i379
   br label %print_str.exit385
 
 print_str.exit385:                                ; preds = %sw.bb107, %land.lhs.true.i379, %if.then.i382
-  %bound_lifetime_depth109 = getelementptr inbounds %struct.rust_demangler, ptr %rdm, i64 0, i32 9
+  %bound_lifetime_depth109 = getelementptr inbounds i8, ptr %rdm, i64 48
   %186 = load i64, ptr %bound_lifetime_depth109, align 8
   tail call fastcc void @demangle_binder(ptr noundef nonnull %rdm)
   %187 = load i8, ptr %errored, align 8
@@ -3651,9 +3651,9 @@ sw.default:                                       ; preds = %next.exit, %if.end8
 ; Function Attrs: nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none)
 define internal fastcc i64 @parse_integer_62(ptr nocapture noundef %rdm) unnamed_addr #3 {
 entry:
-  %next.i.i = getelementptr inbounds %struct.rust_demangler, ptr %rdm, i64 0, i32 4
+  %next.i.i = getelementptr inbounds i8, ptr %rdm, i64 32
   %0 = load i64, ptr %next.i.i, align 8
-  %sym_len.i.i = getelementptr inbounds %struct.rust_demangler, ptr %rdm, i64 0, i32 1
+  %sym_len.i.i = getelementptr inbounds i8, ptr %rdm, i64 8
   %1 = load i64, ptr %sym_len.i.i, align 8
   %cmp.i.i = icmp ult i64 %0, %1
   br i1 %cmp.i.i, label %peek.exit.i, label %eat.exit
@@ -3713,7 +3713,7 @@ if.else23:                                        ; preds = %if.else
   br i1 %or.cond2, label %if.end40, label %do.body
 
 do.body:                                          ; preds = %if.end40, %peek.exit.i32, %if.else23, %eat.exit
-  %errored = getelementptr inbounds %struct.rust_demangler, ptr %rdm, i64 0, i32 5
+  %errored = getelementptr inbounds i8, ptr %rdm, i64 40
   store i8 1, ptr %errored, align 8
   br label %return
 
@@ -3750,23 +3750,23 @@ define internal fastcc void @print_lifetime_from_index(ptr nocapture noundef rea
 entry:
   %s.i = alloca [21 x i8], align 16
   %c = alloca i8, align 1
-  %errored.i = getelementptr inbounds %struct.rust_demangler, ptr %rdm, i64 0, i32 5
+  %errored.i = getelementptr inbounds i8, ptr %rdm, i64 40
   %0 = load i8, ptr %errored.i, align 8
   %1 = and i8 %0, 1
   %tobool.not.i = icmp eq i8 %1, 0
   br i1 %tobool.not.i, label %land.lhs.true.i, label %print_str.exit
 
 land.lhs.true.i:                                  ; preds = %entry
-  %skipping_printing.i = getelementptr inbounds %struct.rust_demangler, ptr %rdm, i64 0, i32 6
+  %skipping_printing.i = getelementptr inbounds i8, ptr %rdm, i64 41
   %2 = load i8, ptr %skipping_printing.i, align 1
   %3 = and i8 %2, 1
   %tobool1.not.i = icmp eq i8 %3, 0
   br i1 %tobool1.not.i, label %if.then.i, label %print_str.exit
 
 if.then.i:                                        ; preds = %land.lhs.true.i
-  %callback.i = getelementptr inbounds %struct.rust_demangler, ptr %rdm, i64 0, i32 3
+  %callback.i = getelementptr inbounds i8, ptr %rdm, i64 24
   %4 = load ptr, ptr %callback.i, align 8
-  %callback_opaque.i = getelementptr inbounds %struct.rust_demangler, ptr %rdm, i64 0, i32 2
+  %callback_opaque.i = getelementptr inbounds i8, ptr %rdm, i64 16
   %5 = load ptr, ptr %callback_opaque.i, align 8
   tail call void %4(ptr noundef nonnull @.str.72, i64 noundef 1, ptr noundef %5) #13
   br label %print_str.exit
@@ -3782,22 +3782,22 @@ if.then:                                          ; preds = %print_str.exit
   br i1 %tobool.not.i10, label %land.lhs.true.i11, label %if.end3
 
 land.lhs.true.i11:                                ; preds = %if.then
-  %skipping_printing.i12 = getelementptr inbounds %struct.rust_demangler, ptr %rdm, i64 0, i32 6
+  %skipping_printing.i12 = getelementptr inbounds i8, ptr %rdm, i64 41
   %8 = load i8, ptr %skipping_printing.i12, align 1
   %9 = and i8 %8, 1
   %tobool1.not.i13 = icmp eq i8 %9, 0
   br i1 %tobool1.not.i13, label %if.then.i14, label %if.end3
 
 if.then.i14:                                      ; preds = %land.lhs.true.i11
-  %callback.i15 = getelementptr inbounds %struct.rust_demangler, ptr %rdm, i64 0, i32 3
+  %callback.i15 = getelementptr inbounds i8, ptr %rdm, i64 24
   %10 = load ptr, ptr %callback.i15, align 8
-  %callback_opaque.i16 = getelementptr inbounds %struct.rust_demangler, ptr %rdm, i64 0, i32 2
+  %callback_opaque.i16 = getelementptr inbounds i8, ptr %rdm, i64 16
   %11 = load ptr, ptr %callback_opaque.i16, align 8
   tail call void %10(ptr noundef nonnull @.str.70, i64 noundef 1, ptr noundef %11) #13
   br label %if.end3
 
 if.end:                                           ; preds = %print_str.exit
-  %bound_lifetime_depth = getelementptr inbounds %struct.rust_demangler, ptr %rdm, i64 0, i32 9
+  %bound_lifetime_depth = getelementptr inbounds i8, ptr %rdm, i64 48
   %12 = load i64, ptr %bound_lifetime_depth, align 8
   %sub = sub i64 %12, %lt
   %cmp1 = icmp ult i64 %sub, 26
@@ -3813,16 +3813,16 @@ if.then2:                                         ; preds = %if.end
   br i1 %tobool.not.i19, label %land.lhs.true.i20, label %if.end3
 
 land.lhs.true.i20:                                ; preds = %if.then2
-  %skipping_printing.i21 = getelementptr inbounds %struct.rust_demangler, ptr %rdm, i64 0, i32 6
+  %skipping_printing.i21 = getelementptr inbounds i8, ptr %rdm, i64 41
   %16 = load i8, ptr %skipping_printing.i21, align 1
   %17 = and i8 %16, 1
   %tobool1.not.i22 = icmp eq i8 %17, 0
   br i1 %tobool1.not.i22, label %if.then.i23, label %if.end3
 
 if.then.i23:                                      ; preds = %land.lhs.true.i20
-  %callback.i24 = getelementptr inbounds %struct.rust_demangler, ptr %rdm, i64 0, i32 3
+  %callback.i24 = getelementptr inbounds i8, ptr %rdm, i64 24
   %18 = load ptr, ptr %callback.i24, align 8
-  %callback_opaque.i25 = getelementptr inbounds %struct.rust_demangler, ptr %rdm, i64 0, i32 2
+  %callback_opaque.i25 = getelementptr inbounds i8, ptr %rdm, i64 16
   %19 = load ptr, ptr %callback_opaque.i25, align 8
   call void %18(ptr noundef nonnull %c, i64 noundef 1, ptr noundef %19) #13
   br label %if.end3
@@ -3834,16 +3834,16 @@ if.else:                                          ; preds = %if.end
   br i1 %tobool.not.i28, label %land.lhs.true.i29, label %print_str.exit35
 
 land.lhs.true.i29:                                ; preds = %if.else
-  %skipping_printing.i30 = getelementptr inbounds %struct.rust_demangler, ptr %rdm, i64 0, i32 6
+  %skipping_printing.i30 = getelementptr inbounds i8, ptr %rdm, i64 41
   %22 = load i8, ptr %skipping_printing.i30, align 1
   %23 = and i8 %22, 1
   %tobool1.not.i31 = icmp eq i8 %23, 0
   br i1 %tobool1.not.i31, label %if.then.i32, label %print_str.exit35
 
 if.then.i32:                                      ; preds = %land.lhs.true.i29
-  %callback.i33 = getelementptr inbounds %struct.rust_demangler, ptr %rdm, i64 0, i32 3
+  %callback.i33 = getelementptr inbounds i8, ptr %rdm, i64 24
   %24 = load ptr, ptr %callback.i33, align 8
-  %callback_opaque.i34 = getelementptr inbounds %struct.rust_demangler, ptr %rdm, i64 0, i32 2
+  %callback_opaque.i34 = getelementptr inbounds i8, ptr %rdm, i64 16
   %25 = load ptr, ptr %callback_opaque.i34, align 8
   tail call void %24(ptr noundef nonnull @.str.70, i64 noundef 1, ptr noundef %25) #13
   br label %print_str.exit35
@@ -3858,16 +3858,16 @@ print_str.exit35:                                 ; preds = %if.else, %land.lhs.
   br i1 %tobool.not.i.i, label %land.lhs.true.i.i, label %print_uint64.exit
 
 land.lhs.true.i.i:                                ; preds = %print_str.exit35
-  %skipping_printing.i.i = getelementptr inbounds %struct.rust_demangler, ptr %rdm, i64 0, i32 6
+  %skipping_printing.i.i = getelementptr inbounds i8, ptr %rdm, i64 41
   %28 = load i8, ptr %skipping_printing.i.i, align 1
   %29 = and i8 %28, 1
   %tobool1.not.i.i = icmp eq i8 %29, 0
   br i1 %tobool1.not.i.i, label %if.then.i.i, label %print_uint64.exit
 
 if.then.i.i:                                      ; preds = %land.lhs.true.i.i
-  %callback.i.i = getelementptr inbounds %struct.rust_demangler, ptr %rdm, i64 0, i32 3
+  %callback.i.i = getelementptr inbounds i8, ptr %rdm, i64 24
   %30 = load ptr, ptr %callback.i.i, align 8
-  %callback_opaque.i.i = getelementptr inbounds %struct.rust_demangler, ptr %rdm, i64 0, i32 2
+  %callback_opaque.i.i = getelementptr inbounds i8, ptr %rdm, i64 16
   %31 = load ptr, ptr %callback_opaque.i.i, align 8
   call void %30(ptr noundef nonnull %s.i, i64 noundef %call3.i, ptr noundef %31) #13
   br label %print_uint64.exit
@@ -3884,7 +3884,7 @@ if.end3:                                          ; preds = %if.then.i23, %land.
 define internal fastcc void @demangle_const(ptr noundef %rdm, i1 noundef zeroext %in_value) unnamed_addr #0 {
 entry:
   %name = alloca %struct.rust_mangled_ident, align 8
-  %errored = getelementptr inbounds %struct.rust_demangler, ptr %rdm, i64 0, i32 5
+  %errored = getelementptr inbounds i8, ptr %rdm, i64 40
   %0 = load i8, ptr %errored, align 8
   %1 = and i8 %0, 1
   %tobool.not = icmp eq i8 %1, 0
@@ -3895,9 +3895,9 @@ do.body1:                                         ; preds = %entry
   br label %common.ret676
 
 do.end3:                                          ; preds = %entry
-  %next.i.i = getelementptr inbounds %struct.rust_demangler, ptr %rdm, i64 0, i32 4
+  %next.i.i = getelementptr inbounds i8, ptr %rdm, i64 32
   %2 = load i64, ptr %next.i.i, align 8
-  %sym_len.i.i = getelementptr inbounds %struct.rust_demangler, ptr %rdm, i64 0, i32 1
+  %sym_len.i.i = getelementptr inbounds i8, ptr %rdm, i64 8
   %3 = load i64, ptr %sym_len.i.i, align 8
   %cmp.i.i = icmp ult i64 %2, %3
   br i1 %cmp.i.i, label %peek.exit.i, label %do.body199
@@ -3938,16 +3938,16 @@ next.exit:                                        ; preds = %peek.exit.i
   ]
 
 land.lhs.true.i:                                  ; preds = %next.exit
-  %skipping_printing.i = getelementptr inbounds %struct.rust_demangler, ptr %rdm, i64 0, i32 6
+  %skipping_printing.i = getelementptr inbounds i8, ptr %rdm, i64 41
   %6 = load i8, ptr %skipping_printing.i, align 1
   %7 = and i8 %6, 1
   %tobool1.not.i = icmp eq i8 %7, 0
   br i1 %tobool1.not.i, label %if.then.i, label %common.ret676
 
 if.then.i:                                        ; preds = %land.lhs.true.i
-  %callback.i = getelementptr inbounds %struct.rust_demangler, ptr %rdm, i64 0, i32 3
+  %callback.i = getelementptr inbounds i8, ptr %rdm, i64 24
   %8 = load ptr, ptr %callback.i, align 8
-  %callback_opaque.i = getelementptr inbounds %struct.rust_demangler, ptr %rdm, i64 0, i32 2
+  %callback_opaque.i = getelementptr inbounds i8, ptr %rdm, i64 16
   %9 = load ptr, ptr %callback_opaque.i, align 8
   tail call void %8(ptr noundef nonnull @.str.70, i64 noundef 1, ptr noundef %9) #13
   br label %common.ret676
@@ -3969,16 +3969,16 @@ peek.exit.i105:                                   ; preds = %sw.bb5
 land.lhs.true.i111:                               ; preds = %peek.exit.i105
   %inc.i107 = add nuw i64 %2, 2
   store i64 %inc.i107, ptr %next.i.i, align 8
-  %skipping_printing.i112 = getelementptr inbounds %struct.rust_demangler, ptr %rdm, i64 0, i32 6
+  %skipping_printing.i112 = getelementptr inbounds i8, ptr %rdm, i64 41
   %11 = load i8, ptr %skipping_printing.i112, align 1
   %12 = and i8 %11, 1
   %tobool1.not.i113 = icmp eq i8 %12, 0
   br i1 %tobool1.not.i113, label %if.then.i114, label %if.end8
 
 if.then.i114:                                     ; preds = %land.lhs.true.i111
-  %callback.i115 = getelementptr inbounds %struct.rust_demangler, ptr %rdm, i64 0, i32 3
+  %callback.i115 = getelementptr inbounds i8, ptr %rdm, i64 24
   %13 = load ptr, ptr %callback.i115, align 8
-  %callback_opaque.i116 = getelementptr inbounds %struct.rust_demangler, ptr %rdm, i64 0, i32 2
+  %callback_opaque.i116 = getelementptr inbounds i8, ptr %rdm, i64 16
   %14 = load ptr, ptr %callback_opaque.i116, align 8
   tail call void %13(ptr noundef nonnull @.str.45, i64 noundef 1, ptr noundef %14) #13
   br label %if.end8
@@ -4084,7 +4084,7 @@ do.body32:                                        ; preds = %cond.end
 
 land.lhs.true.i123:                               ; preds = %do.end20, %cond.end
   %cond486 = phi i32 [ %24, %cond.end ], [ 0, %do.end20 ]
-  %skipping_printing.i124 = getelementptr inbounds %struct.rust_demangler, ptr %rdm, i64 0, i32 6
+  %skipping_printing.i124 = getelementptr inbounds i8, ptr %rdm, i64 41
   %25 = load i8, ptr %skipping_printing.i124, align 1
   %26 = and i8 %25, 1
   %tobool1.not.i125 = icmp eq i8 %26, 0
@@ -4094,9 +4094,9 @@ if.then.i126:                                     ; preds = %land.lhs.true.i123
   %cmp38 = icmp eq i32 %cond486, 1
   %call45 = select i1 %cmp38, i64 4, i64 5
   %cond40 = select i1 %cmp38, ptr @.str.73, ptr @.str.74
-  %callback.i127 = getelementptr inbounds %struct.rust_demangler, ptr %rdm, i64 0, i32 3
+  %callback.i127 = getelementptr inbounds i8, ptr %rdm, i64 24
   %27 = load ptr, ptr %callback.i127, align 8
-  %callback_opaque.i128 = getelementptr inbounds %struct.rust_demangler, ptr %rdm, i64 0, i32 2
+  %callback_opaque.i128 = getelementptr inbounds i8, ptr %rdm, i64 16
   %28 = load ptr, ptr %callback_opaque.i128, align 8
   tail call void %27(ptr noundef nonnull %cond40, i64 noundef %call45, ptr noundef %28) #13
   br label %common.ret676
@@ -4200,16 +4200,16 @@ for.body:                                         ; preds = %for.cond.preheader,
 
 land.lhs.true.i177:                               ; preds = %for.body, %for.cond.preheader
   %c.0.lcssa = phi i32 [ 0, %for.cond.preheader ], [ %or, %for.body ]
-  %skipping_printing.i178 = getelementptr inbounds %struct.rust_demangler, ptr %rdm, i64 0, i32 6
+  %skipping_printing.i178 = getelementptr inbounds i8, ptr %rdm, i64 41
   %38 = load i8, ptr %skipping_printing.i178, align 1
   %39 = and i8 %38, 1
   %tobool1.not.i179 = icmp eq i8 %39, 0
   br i1 %tobool1.not.i179, label %if.then.i180, label %print_str.exit183
 
 if.then.i180:                                     ; preds = %land.lhs.true.i177
-  %callback.i181 = getelementptr inbounds %struct.rust_demangler, ptr %rdm, i64 0, i32 3
+  %callback.i181 = getelementptr inbounds i8, ptr %rdm, i64 24
   %40 = load ptr, ptr %callback.i181, align 8
-  %callback_opaque.i182 = getelementptr inbounds %struct.rust_demangler, ptr %rdm, i64 0, i32 2
+  %callback_opaque.i182 = getelementptr inbounds i8, ptr %rdm, i64 16
   %41 = load ptr, ptr %callback_opaque.i182, align 8
   tail call void %40(ptr noundef nonnull @.str.72, i64 noundef 1, ptr noundef %41) #13
   br label %print_str.exit183
@@ -4228,9 +4228,9 @@ land.lhs.true.i186:                               ; preds = %print_str.exit183
   br i1 %tobool1.not.i188, label %if.then.i189, label %common.ret676
 
 if.then.i189:                                     ; preds = %land.lhs.true.i186
-  %callback.i190 = getelementptr inbounds %struct.rust_demangler, ptr %rdm, i64 0, i32 3
+  %callback.i190 = getelementptr inbounds i8, ptr %rdm, i64 24
   %46 = load ptr, ptr %callback.i190, align 8
-  %callback_opaque.i191 = getelementptr inbounds %struct.rust_demangler, ptr %rdm, i64 0, i32 2
+  %callback_opaque.i191 = getelementptr inbounds i8, ptr %rdm, i64 16
   %47 = load ptr, ptr %callback_opaque.i191, align 8
   tail call void %46(ptr noundef nonnull @.str.72, i64 noundef 1, ptr noundef %47) #13
   br label %common.ret676
@@ -4239,16 +4239,16 @@ sw.bb69:                                          ; preds = %next.exit
   br i1 %in_value, label %if.end72, label %land.lhs.true.i195
 
 land.lhs.true.i195:                               ; preds = %sw.bb69
-  %skipping_printing.i196 = getelementptr inbounds %struct.rust_demangler, ptr %rdm, i64 0, i32 6
+  %skipping_printing.i196 = getelementptr inbounds i8, ptr %rdm, i64 41
   %48 = load i8, ptr %skipping_printing.i196, align 1
   %49 = and i8 %48, 1
   %tobool1.not.i197 = icmp eq i8 %49, 0
   br i1 %tobool1.not.i197, label %if.then.i198, label %if.end72
 
 if.then.i198:                                     ; preds = %land.lhs.true.i195
-  %callback.i199 = getelementptr inbounds %struct.rust_demangler, ptr %rdm, i64 0, i32 3
+  %callback.i199 = getelementptr inbounds i8, ptr %rdm, i64 24
   %50 = load ptr, ptr %callback.i199, align 8
-  %callback_opaque.i200 = getelementptr inbounds %struct.rust_demangler, ptr %rdm, i64 0, i32 2
+  %callback_opaque.i200 = getelementptr inbounds i8, ptr %rdm, i64 16
   %51 = load ptr, ptr %callback_opaque.i200, align 8
   tail call void %50(ptr noundef nonnull @.str.75, i64 noundef 1, ptr noundef %51) #13
   %.pre570 = load i8, ptr %errored, align 8
@@ -4262,16 +4262,16 @@ if.end72:                                         ; preds = %if.then.i198, %land
   br i1 %tobool.not.i203, label %land.lhs.true.i204, label %print_str.exit210
 
 land.lhs.true.i204:                               ; preds = %if.end72
-  %skipping_printing.i205 = getelementptr inbounds %struct.rust_demangler, ptr %rdm, i64 0, i32 6
+  %skipping_printing.i205 = getelementptr inbounds i8, ptr %rdm, i64 41
   %54 = load i8, ptr %skipping_printing.i205, align 1
   %55 = and i8 %54, 1
   %tobool1.not.i206 = icmp eq i8 %55, 0
   br i1 %tobool1.not.i206, label %if.then.i207, label %print_str.exit210
 
 if.then.i207:                                     ; preds = %land.lhs.true.i204
-  %callback.i208 = getelementptr inbounds %struct.rust_demangler, ptr %rdm, i64 0, i32 3
+  %callback.i208 = getelementptr inbounds i8, ptr %rdm, i64 24
   %56 = load ptr, ptr %callback.i208, align 8
-  %callback_opaque.i209 = getelementptr inbounds %struct.rust_demangler, ptr %rdm, i64 0, i32 2
+  %callback_opaque.i209 = getelementptr inbounds i8, ptr %rdm, i64 16
   %57 = load ptr, ptr %callback_opaque.i209, align 8
   tail call void %56(ptr noundef nonnull @.str.12, i64 noundef 1, ptr noundef %57) #13
   br label %print_str.exit210
@@ -4300,16 +4300,16 @@ if.end81:                                         ; preds = %land.lhs.true77, %p
   br i1 %in_value, label %if.end84, label %land.lhs.true.i224
 
 land.lhs.true.i224:                               ; preds = %if.end81
-  %skipping_printing.i225 = getelementptr inbounds %struct.rust_demangler, ptr %rdm, i64 0, i32 6
+  %skipping_printing.i225 = getelementptr inbounds i8, ptr %rdm, i64 41
   %59 = load i8, ptr %skipping_printing.i225, align 1
   %60 = and i8 %59, 1
   %tobool1.not.i226 = icmp eq i8 %60, 0
   br i1 %tobool1.not.i226, label %if.then.i227, label %if.end84
 
 if.then.i227:                                     ; preds = %land.lhs.true.i224
-  %callback.i228 = getelementptr inbounds %struct.rust_demangler, ptr %rdm, i64 0, i32 3
+  %callback.i228 = getelementptr inbounds i8, ptr %rdm, i64 24
   %61 = load ptr, ptr %callback.i228, align 8
-  %callback_opaque.i229 = getelementptr inbounds %struct.rust_demangler, ptr %rdm, i64 0, i32 2
+  %callback_opaque.i229 = getelementptr inbounds i8, ptr %rdm, i64 16
   %62 = load ptr, ptr %callback_opaque.i229, align 8
   tail call void %61(ptr noundef nonnull @.str.75, i64 noundef 1, ptr noundef %62) #13
   %.pre = load i8, ptr %errored, align 8
@@ -4323,16 +4323,16 @@ if.end84:                                         ; preds = %if.then.i227, %land
   br i1 %tobool.not.i232, label %land.lhs.true.i233, label %print_str.exit239
 
 land.lhs.true.i233:                               ; preds = %if.end84
-  %skipping_printing.i234 = getelementptr inbounds %struct.rust_demangler, ptr %rdm, i64 0, i32 6
+  %skipping_printing.i234 = getelementptr inbounds i8, ptr %rdm, i64 41
   %65 = load i8, ptr %skipping_printing.i234, align 1
   %66 = and i8 %65, 1
   %tobool1.not.i235 = icmp eq i8 %66, 0
   br i1 %tobool1.not.i235, label %if.then.i236, label %print_str.exit239
 
 if.then.i236:                                     ; preds = %land.lhs.true.i233
-  %callback.i237 = getelementptr inbounds %struct.rust_demangler, ptr %rdm, i64 0, i32 3
+  %callback.i237 = getelementptr inbounds i8, ptr %rdm, i64 24
   %67 = load ptr, ptr %callback.i237, align 8
-  %callback_opaque.i238 = getelementptr inbounds %struct.rust_demangler, ptr %rdm, i64 0, i32 2
+  %callback_opaque.i238 = getelementptr inbounds i8, ptr %rdm, i64 16
   %68 = load ptr, ptr %callback_opaque.i238, align 8
   tail call void %67(ptr noundef nonnull @.str.14, i64 noundef 1, ptr noundef %68) #13
   br label %print_str.exit239
@@ -4348,16 +4348,16 @@ if.then88:                                        ; preds = %print_str.exit239
   br i1 %tobool.not.i241, label %land.lhs.true.i242, label %if.end89
 
 land.lhs.true.i242:                               ; preds = %if.then88
-  %skipping_printing.i243 = getelementptr inbounds %struct.rust_demangler, ptr %rdm, i64 0, i32 6
+  %skipping_printing.i243 = getelementptr inbounds i8, ptr %rdm, i64 41
   %71 = load i8, ptr %skipping_printing.i243, align 1
   %72 = and i8 %71, 1
   %tobool1.not.i244 = icmp eq i8 %72, 0
   br i1 %tobool1.not.i244, label %if.then.i245, label %if.end89
 
 if.then.i245:                                     ; preds = %land.lhs.true.i242
-  %callback.i246 = getelementptr inbounds %struct.rust_demangler, ptr %rdm, i64 0, i32 3
+  %callback.i246 = getelementptr inbounds i8, ptr %rdm, i64 24
   %73 = load ptr, ptr %callback.i246, align 8
-  %callback_opaque.i247 = getelementptr inbounds %struct.rust_demangler, ptr %rdm, i64 0, i32 2
+  %callback_opaque.i247 = getelementptr inbounds i8, ptr %rdm, i64 16
   %74 = load ptr, ptr %callback_opaque.i247, align 8
   tail call void %73(ptr noundef nonnull @.str.40, i64 noundef 4, ptr noundef %74) #13
   br label %if.end89
@@ -4370,16 +4370,16 @@ sw.bb90:                                          ; preds = %next.exit
   br i1 %in_value, label %if.end93, label %land.lhs.true.i251
 
 land.lhs.true.i251:                               ; preds = %sw.bb90
-  %skipping_printing.i252 = getelementptr inbounds %struct.rust_demangler, ptr %rdm, i64 0, i32 6
+  %skipping_printing.i252 = getelementptr inbounds i8, ptr %rdm, i64 41
   %75 = load i8, ptr %skipping_printing.i252, align 1
   %76 = and i8 %75, 1
   %tobool1.not.i253 = icmp eq i8 %76, 0
   br i1 %tobool1.not.i253, label %if.then.i254, label %if.end93
 
 if.then.i254:                                     ; preds = %land.lhs.true.i251
-  %callback.i255 = getelementptr inbounds %struct.rust_demangler, ptr %rdm, i64 0, i32 3
+  %callback.i255 = getelementptr inbounds i8, ptr %rdm, i64 24
   %77 = load ptr, ptr %callback.i255, align 8
-  %callback_opaque.i256 = getelementptr inbounds %struct.rust_demangler, ptr %rdm, i64 0, i32 2
+  %callback_opaque.i256 = getelementptr inbounds i8, ptr %rdm, i64 16
   %78 = load ptr, ptr %callback_opaque.i256, align 8
   tail call void %77(ptr noundef nonnull @.str.75, i64 noundef 1, ptr noundef %78) #13
   %.pre561 = load i8, ptr %errored, align 8
@@ -4393,24 +4393,24 @@ if.end93:                                         ; preds = %if.then.i254, %land
   br i1 %tobool.not.i259, label %land.lhs.true.i260, label %print_str.exit266
 
 land.lhs.true.i260:                               ; preds = %if.end93
-  %skipping_printing.i261 = getelementptr inbounds %struct.rust_demangler, ptr %rdm, i64 0, i32 6
+  %skipping_printing.i261 = getelementptr inbounds i8, ptr %rdm, i64 41
   %81 = load i8, ptr %skipping_printing.i261, align 1
   %82 = and i8 %81, 1
   %tobool1.not.i262 = icmp eq i8 %82, 0
   br i1 %tobool1.not.i262, label %if.then.i263, label %print_str.exit266
 
 if.then.i263:                                     ; preds = %land.lhs.true.i260
-  %callback.i264 = getelementptr inbounds %struct.rust_demangler, ptr %rdm, i64 0, i32 3
+  %callback.i264 = getelementptr inbounds i8, ptr %rdm, i64 24
   %83 = load ptr, ptr %callback.i264, align 8
-  %callback_opaque.i265 = getelementptr inbounds %struct.rust_demangler, ptr %rdm, i64 0, i32 2
+  %callback_opaque.i265 = getelementptr inbounds i8, ptr %rdm, i64 16
   %84 = load ptr, ptr %callback_opaque.i265, align 8
   tail call void %83(ptr noundef nonnull @.str.28, i64 noundef 1, ptr noundef %84) #13
   br label %print_str.exit266
 
 print_str.exit266:                                ; preds = %if.end93, %land.lhs.true.i260, %if.then.i263
-  %skipping_printing.i281 = getelementptr inbounds %struct.rust_demangler, ptr %rdm, i64 0, i32 6
-  %callback.i284 = getelementptr inbounds %struct.rust_demangler, ptr %rdm, i64 0, i32 3
-  %callback_opaque.i285 = getelementptr inbounds %struct.rust_demangler, ptr %rdm, i64 0, i32 2
+  %skipping_printing.i281 = getelementptr inbounds i8, ptr %rdm, i64 41
+  %callback.i284 = getelementptr inbounds i8, ptr %rdm, i64 24
+  %callback_opaque.i285 = getelementptr inbounds i8, ptr %rdm, i64 16
   br label %while.cond
 
 while.cond:                                       ; preds = %if.end108, %print_str.exit266
@@ -4486,16 +4486,16 @@ sw.bb109:                                         ; preds = %next.exit
   br i1 %in_value, label %if.end112, label %land.lhs.true.i298
 
 land.lhs.true.i298:                               ; preds = %sw.bb109
-  %skipping_printing.i299 = getelementptr inbounds %struct.rust_demangler, ptr %rdm, i64 0, i32 6
+  %skipping_printing.i299 = getelementptr inbounds i8, ptr %rdm, i64 41
   %100 = load i8, ptr %skipping_printing.i299, align 1
   %101 = and i8 %100, 1
   %tobool1.not.i300 = icmp eq i8 %101, 0
   br i1 %tobool1.not.i300, label %if.then.i301, label %if.end112
 
 if.then.i301:                                     ; preds = %land.lhs.true.i298
-  %callback.i302 = getelementptr inbounds %struct.rust_demangler, ptr %rdm, i64 0, i32 3
+  %callback.i302 = getelementptr inbounds i8, ptr %rdm, i64 24
   %102 = load ptr, ptr %callback.i302, align 8
-  %callback_opaque.i303 = getelementptr inbounds %struct.rust_demangler, ptr %rdm, i64 0, i32 2
+  %callback_opaque.i303 = getelementptr inbounds i8, ptr %rdm, i64 16
   %103 = load ptr, ptr %callback_opaque.i303, align 8
   tail call void %102(ptr noundef nonnull @.str.75, i64 noundef 1, ptr noundef %103) #13
   %.pre558 = load i8, ptr %errored, align 8
@@ -4509,24 +4509,24 @@ if.end112:                                        ; preds = %if.then.i301, %land
   br i1 %tobool.not.i306, label %land.lhs.true.i307, label %print_str.exit313
 
 land.lhs.true.i307:                               ; preds = %if.end112
-  %skipping_printing.i308 = getelementptr inbounds %struct.rust_demangler, ptr %rdm, i64 0, i32 6
+  %skipping_printing.i308 = getelementptr inbounds i8, ptr %rdm, i64 41
   %106 = load i8, ptr %skipping_printing.i308, align 1
   %107 = and i8 %106, 1
   %tobool1.not.i309 = icmp eq i8 %107, 0
   br i1 %tobool1.not.i309, label %if.then.i310, label %print_str.exit313
 
 if.then.i310:                                     ; preds = %land.lhs.true.i307
-  %callback.i311 = getelementptr inbounds %struct.rust_demangler, ptr %rdm, i64 0, i32 3
+  %callback.i311 = getelementptr inbounds i8, ptr %rdm, i64 24
   %108 = load ptr, ptr %callback.i311, align 8
-  %callback_opaque.i312 = getelementptr inbounds %struct.rust_demangler, ptr %rdm, i64 0, i32 2
+  %callback_opaque.i312 = getelementptr inbounds i8, ptr %rdm, i64 16
   %109 = load ptr, ptr %callback_opaque.i312, align 8
   tail call void %108(ptr noundef nonnull @.str.20, i64 noundef 1, ptr noundef %109) #13
   br label %print_str.exit313
 
 print_str.exit313:                                ; preds = %if.end112, %land.lhs.true.i307, %if.then.i310
-  %skipping_printing.i328 = getelementptr inbounds %struct.rust_demangler, ptr %rdm, i64 0, i32 6
-  %callback.i331 = getelementptr inbounds %struct.rust_demangler, ptr %rdm, i64 0, i32 3
-  %callback_opaque.i332 = getelementptr inbounds %struct.rust_demangler, ptr %rdm, i64 0, i32 2
+  %skipping_printing.i328 = getelementptr inbounds i8, ptr %rdm, i64 41
+  %callback.i331 = getelementptr inbounds i8, ptr %rdm, i64 24
+  %callback_opaque.i332 = getelementptr inbounds i8, ptr %rdm, i64 16
   br label %while.cond114
 
 while.cond114:                                    ; preds = %if.end130, %print_str.exit313
@@ -4623,16 +4623,16 @@ sw.bb137:                                         ; preds = %next.exit
   br i1 %in_value, label %if.end140, label %land.lhs.true.i354
 
 land.lhs.true.i354:                               ; preds = %sw.bb137
-  %skipping_printing.i355 = getelementptr inbounds %struct.rust_demangler, ptr %rdm, i64 0, i32 6
+  %skipping_printing.i355 = getelementptr inbounds i8, ptr %rdm, i64 41
   %131 = load i8, ptr %skipping_printing.i355, align 1
   %132 = and i8 %131, 1
   %tobool1.not.i356 = icmp eq i8 %132, 0
   br i1 %tobool1.not.i356, label %if.then.i357, label %if.end140
 
 if.then.i357:                                     ; preds = %land.lhs.true.i354
-  %callback.i358 = getelementptr inbounds %struct.rust_demangler, ptr %rdm, i64 0, i32 3
+  %callback.i358 = getelementptr inbounds i8, ptr %rdm, i64 24
   %133 = load ptr, ptr %callback.i358, align 8
-  %callback_opaque.i359 = getelementptr inbounds %struct.rust_demangler, ptr %rdm, i64 0, i32 2
+  %callback_opaque.i359 = getelementptr inbounds i8, ptr %rdm, i64 16
   %134 = load ptr, ptr %callback_opaque.i359, align 8
   tail call void %133(ptr noundef nonnull @.str.75, i64 noundef 1, ptr noundef %134) #13
   br label %if.end140
@@ -4668,24 +4668,24 @@ sw.bb144:                                         ; preds = %next.exit372
   br i1 %tobool.not.i374, label %land.lhs.true.i375, label %print_str.exit381
 
 land.lhs.true.i375:                               ; preds = %sw.bb144
-  %skipping_printing.i376 = getelementptr inbounds %struct.rust_demangler, ptr %rdm, i64 0, i32 6
+  %skipping_printing.i376 = getelementptr inbounds i8, ptr %rdm, i64 41
   %141 = load i8, ptr %skipping_printing.i376, align 1
   %142 = and i8 %141, 1
   %tobool1.not.i377 = icmp eq i8 %142, 0
   br i1 %tobool1.not.i377, label %if.then.i378, label %print_str.exit381
 
 if.then.i378:                                     ; preds = %land.lhs.true.i375
-  %callback.i379 = getelementptr inbounds %struct.rust_demangler, ptr %rdm, i64 0, i32 3
+  %callback.i379 = getelementptr inbounds i8, ptr %rdm, i64 24
   %143 = load ptr, ptr %callback.i379, align 8
-  %callback_opaque.i380 = getelementptr inbounds %struct.rust_demangler, ptr %rdm, i64 0, i32 2
+  %callback_opaque.i380 = getelementptr inbounds i8, ptr %rdm, i64 16
   %144 = load ptr, ptr %callback_opaque.i380, align 8
   tail call void %143(ptr noundef nonnull @.str.20, i64 noundef 1, ptr noundef %144) #13
   br label %print_str.exit381
 
 print_str.exit381:                                ; preds = %sw.bb144, %land.lhs.true.i375, %if.then.i378
-  %skipping_printing.i396 = getelementptr inbounds %struct.rust_demangler, ptr %rdm, i64 0, i32 6
-  %callback.i399 = getelementptr inbounds %struct.rust_demangler, ptr %rdm, i64 0, i32 3
-  %callback_opaque.i400 = getelementptr inbounds %struct.rust_demangler, ptr %rdm, i64 0, i32 2
+  %skipping_printing.i396 = getelementptr inbounds i8, ptr %rdm, i64 41
+  %callback.i399 = getelementptr inbounds i8, ptr %rdm, i64 24
+  %callback_opaque.i400 = getelementptr inbounds i8, ptr %rdm, i64 16
   br label %while.cond146
 
 while.cond146:                                    ; preds = %if.end162, %print_str.exit381
@@ -4764,24 +4764,24 @@ sw.bb165:                                         ; preds = %next.exit372
   br i1 %tobool.not.i412, label %land.lhs.true.i413, label %print_str.exit419
 
 land.lhs.true.i413:                               ; preds = %sw.bb165
-  %skipping_printing.i414 = getelementptr inbounds %struct.rust_demangler, ptr %rdm, i64 0, i32 6
+  %skipping_printing.i414 = getelementptr inbounds i8, ptr %rdm, i64 41
   %162 = load i8, ptr %skipping_printing.i414, align 1
   %163 = and i8 %162, 1
   %tobool1.not.i415 = icmp eq i8 %163, 0
   br i1 %tobool1.not.i415, label %if.then.i416, label %print_str.exit419
 
 if.then.i416:                                     ; preds = %land.lhs.true.i413
-  %callback.i417 = getelementptr inbounds %struct.rust_demangler, ptr %rdm, i64 0, i32 3
+  %callback.i417 = getelementptr inbounds i8, ptr %rdm, i64 24
   %164 = load ptr, ptr %callback.i417, align 8
-  %callback_opaque.i418 = getelementptr inbounds %struct.rust_demangler, ptr %rdm, i64 0, i32 2
+  %callback_opaque.i418 = getelementptr inbounds i8, ptr %rdm, i64 16
   %165 = load ptr, ptr %callback_opaque.i418, align 8
   tail call void %164(ptr noundef nonnull @.str.76, i64 noundef 3, ptr noundef %165) #13
   br label %print_str.exit419
 
 print_str.exit419:                                ; preds = %sw.bb165, %land.lhs.true.i413, %if.then.i416
-  %skipping_printing.i434 = getelementptr inbounds %struct.rust_demangler, ptr %rdm, i64 0, i32 6
-  %callback.i437 = getelementptr inbounds %struct.rust_demangler, ptr %rdm, i64 0, i32 3
-  %callback_opaque.i438 = getelementptr inbounds %struct.rust_demangler, ptr %rdm, i64 0, i32 2
+  %skipping_printing.i434 = getelementptr inbounds i8, ptr %rdm, i64 41
+  %callback.i437 = getelementptr inbounds i8, ptr %rdm, i64 24
+  %callback_opaque.i438 = getelementptr inbounds i8, ptr %rdm, i64 16
   br label %while.cond167
 
 while.cond167:                                    ; preds = %print_str.exit455, %print_str.exit419
@@ -5006,7 +5006,7 @@ while.end.i:                                      ; preds = %peek.exit.i21.i
 parse_integer_62.exit:                            ; preds = %eat.exit.thread.i, %do.body.i, %while.end.i
   %205 = phi i64 [ %204, %do.body.i ], [ %inc.i25.i, %while.end.i ], [ %inc.i.i469, %eat.exit.thread.i ]
   %retval.0.i467 = phi i64 [ 0, %do.body.i ], [ %add41.i, %while.end.i ], [ 0, %eat.exit.thread.i ]
-  %skipping_printing = getelementptr inbounds %struct.rust_demangler, ptr %rdm, i64 0, i32 6
+  %skipping_printing = getelementptr inbounds i8, ptr %rdm, i64 41
   %206 = load i8, ptr %skipping_printing, align 1
   %207 = and i8 %206, 1
   %tobool192.not = icmp eq i8 %207, 0
@@ -5038,16 +5038,16 @@ if.then204:                                       ; preds = %sw.epilog202
   br i1 %tobool.not.i471, label %land.lhs.true.i472, label %common.ret676
 
 land.lhs.true.i472:                               ; preds = %if.then204
-  %skipping_printing.i473 = getelementptr inbounds %struct.rust_demangler, ptr %rdm, i64 0, i32 6
+  %skipping_printing.i473 = getelementptr inbounds i8, ptr %rdm, i64 41
   %211 = load i8, ptr %skipping_printing.i473, align 1
   %212 = and i8 %211, 1
   %tobool1.not.i474 = icmp eq i8 %212, 0
   br i1 %tobool1.not.i474, label %if.then.i475, label %common.ret676
 
 if.then.i475:                                     ; preds = %land.lhs.true.i472
-  %callback.i476 = getelementptr inbounds %struct.rust_demangler, ptr %rdm, i64 0, i32 3
+  %callback.i476 = getelementptr inbounds i8, ptr %rdm, i64 24
   %213 = load ptr, ptr %callback.i476, align 8
-  %callback_opaque.i477 = getelementptr inbounds %struct.rust_demangler, ptr %rdm, i64 0, i32 2
+  %callback_opaque.i477 = getelementptr inbounds i8, ptr %rdm, i64 16
   %214 = load ptr, ptr %callback_opaque.i477, align 8
   tail call void %213(ptr noundef nonnull @.str.27, i64 noundef 1, ptr noundef %214) #13
   br label %common.ret676
@@ -5056,7 +5056,7 @@ if.then.i475:                                     ; preds = %land.lhs.true.i472
 ; Function Attrs: nounwind
 define internal fastcc void @demangle_binder(ptr nocapture noundef %rdm) unnamed_addr #0 {
 entry:
-  %errored = getelementptr inbounds %struct.rust_demangler, ptr %rdm, i64 0, i32 5
+  %errored = getelementptr inbounds i8, ptr %rdm, i64 40
   %0 = load i8, ptr %errored, align 8
   %1 = and i8 %0, 1
   %tobool.not = icmp eq i8 %1, 0
@@ -5067,9 +5067,9 @@ do.body1:                                         ; preds = %entry
   br label %if.end10
 
 do.end3:                                          ; preds = %entry
-  %next.i.i.i = getelementptr inbounds %struct.rust_demangler, ptr %rdm, i64 0, i32 4
+  %next.i.i.i = getelementptr inbounds i8, ptr %rdm, i64 32
   %2 = load i64, ptr %next.i.i.i, align 8
-  %sym_len.i.i.i = getelementptr inbounds %struct.rust_demangler, ptr %rdm, i64 0, i32 1
+  %sym_len.i.i.i = getelementptr inbounds i8, ptr %rdm, i64 8
   %3 = load i64, ptr %sym_len.i.i.i, align 8
   %cmp.i.i.i = icmp ult i64 %2, %3
   br i1 %cmp.i.i.i, label %peek.exit.i.i, label %if.end10
@@ -5148,26 +5148,26 @@ parse_opt_integer_62.exit:                        ; preds = %peek.exit.i21.i.i
 
 land.lhs.true.i:                                  ; preds = %parse_opt_integer_62.exit, %eat.exit.thread.i.i
   %retval.0.i40 = phi i64 [ %12, %parse_opt_integer_62.exit ], [ 1, %eat.exit.thread.i.i ]
-  %skipping_printing.i = getelementptr inbounds %struct.rust_demangler, ptr %rdm, i64 0, i32 6
+  %skipping_printing.i = getelementptr inbounds i8, ptr %rdm, i64 41
   %13 = load i8, ptr %skipping_printing.i, align 1
   %14 = and i8 %13, 1
   %tobool1.not.i = icmp eq i8 %14, 0
   br i1 %tobool1.not.i, label %if.then.i, label %print_str.exit
 
 if.then.i:                                        ; preds = %land.lhs.true.i
-  %callback.i = getelementptr inbounds %struct.rust_demangler, ptr %rdm, i64 0, i32 3
+  %callback.i = getelementptr inbounds i8, ptr %rdm, i64 24
   %15 = load ptr, ptr %callback.i, align 8
-  %callback_opaque.i = getelementptr inbounds %struct.rust_demangler, ptr %rdm, i64 0, i32 2
+  %callback_opaque.i = getelementptr inbounds i8, ptr %rdm, i64 16
   %16 = load ptr, ptr %callback_opaque.i, align 8
   tail call void %15(ptr noundef nonnull @.str.88, i64 noundef 4, ptr noundef %16) #13
   br label %print_str.exit
 
 print_str.exit:                                   ; preds = %if.then4.thread, %land.lhs.true.i, %if.then.i
   %retval.0.i4048 = phi i64 [ 1, %if.then4.thread ], [ %retval.0.i40, %land.lhs.true.i ], [ %retval.0.i40, %if.then.i ]
-  %skipping_printing.i16 = getelementptr inbounds %struct.rust_demangler, ptr %rdm, i64 0, i32 6
-  %callback.i19 = getelementptr inbounds %struct.rust_demangler, ptr %rdm, i64 0, i32 3
-  %callback_opaque.i20 = getelementptr inbounds %struct.rust_demangler, ptr %rdm, i64 0, i32 2
-  %bound_lifetime_depth = getelementptr inbounds %struct.rust_demangler, ptr %rdm, i64 0, i32 9
+  %skipping_printing.i16 = getelementptr inbounds i8, ptr %rdm, i64 41
+  %callback.i19 = getelementptr inbounds i8, ptr %rdm, i64 24
+  %callback_opaque.i20 = getelementptr inbounds i8, ptr %rdm, i64 16
+  %bound_lifetime_depth = getelementptr inbounds i8, ptr %rdm, i64 48
   br label %for.body
 
 for.body:                                         ; preds = %print_str.exit, %if.end8
@@ -5231,7 +5231,7 @@ declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias
 define internal fastcc void @demangle_const_uint(ptr nocapture noundef %rdm, i8 noundef signext %ty_tag) unnamed_addr #0 {
 entry:
   %s.i = alloca [21 x i8], align 16
-  %errored = getelementptr inbounds %struct.rust_demangler, ptr %rdm, i64 0, i32 5
+  %errored = getelementptr inbounds i8, ptr %rdm, i64 40
   %0 = load i8, ptr %errored, align 8
   %1 = and i8 %0, 1
   %tobool.not = icmp eq i8 %1, 0
@@ -5242,9 +5242,9 @@ do.body1:                                         ; preds = %entry
   br label %if.end25
 
 do.end3:                                          ; preds = %entry
-  %next.i.i = getelementptr inbounds %struct.rust_demangler, ptr %rdm, i64 0, i32 4
+  %next.i.i = getelementptr inbounds i8, ptr %rdm, i64 32
   %2 = load i64, ptr %next.i.i, align 8
-  %sym_len.i.i.i.i = getelementptr inbounds %struct.rust_demangler, ptr %rdm, i64 0, i32 1
+  %sym_len.i.i.i.i = getelementptr inbounds i8, ptr %rdm, i64 8
   %3 = load i64, ptr %sym_len.i.i.i.i, align 8
   br label %while.cond.i.i
 
@@ -5332,16 +5332,16 @@ for.cond.preheader:                               ; preds = %do.end12
   br i1 %cmp16123.not, label %for.end, label %for.body
 
 land.lhs.true.i:                                  ; preds = %do.end12
-  %skipping_printing.i = getelementptr inbounds %struct.rust_demangler, ptr %rdm, i64 0, i32 6
+  %skipping_printing.i = getelementptr inbounds i8, ptr %rdm, i64 41
   %13 = load i8, ptr %skipping_printing.i, align 1
   %14 = and i8 %13, 1
   %tobool1.not.i = icmp eq i8 %14, 0
   br i1 %tobool1.not.i, label %if.then.i, label %print_str.exit
 
 if.then.i:                                        ; preds = %land.lhs.true.i
-  %callback.i = getelementptr inbounds %struct.rust_demangler, ptr %rdm, i64 0, i32 3
+  %callback.i = getelementptr inbounds i8, ptr %rdm, i64 24
   %15 = load ptr, ptr %callback.i, align 8
-  %callback_opaque.i = getelementptr inbounds %struct.rust_demangler, ptr %rdm, i64 0, i32 2
+  %callback_opaque.i = getelementptr inbounds i8, ptr %rdm, i64 16
   %16 = load ptr, ptr %callback_opaque.i, align 8
   tail call void %15(ptr noundef nonnull @.str.79, i64 noundef 2, ptr noundef %16) #13
   %.pre = load i8, ptr %errored, align 8
@@ -5360,9 +5360,9 @@ land.lhs.true.i19:                                ; preds = %print_str.exit
   br i1 %tobool1.not.i21, label %if.then.i22, label %if.end19
 
 if.then.i22:                                      ; preds = %land.lhs.true.i19
-  %callback.i23 = getelementptr inbounds %struct.rust_demangler, ptr %rdm, i64 0, i32 3
+  %callback.i23 = getelementptr inbounds i8, ptr %rdm, i64 24
   %21 = load ptr, ptr %callback.i23, align 8
-  %callback_opaque.i24 = getelementptr inbounds %struct.rust_demangler, ptr %rdm, i64 0, i32 2
+  %callback_opaque.i24 = getelementptr inbounds i8, ptr %rdm, i64 16
   %22 = load ptr, ptr %callback_opaque.i24, align 8
   tail call void %21(ptr noundef %retval.sroa.0.1.i, i64 noundef %retval.sroa.5.1.i, ptr noundef %22) #13
   br label %if.end19
@@ -5393,16 +5393,16 @@ for.end:                                          ; preds = %for.body, %for.cond
   br i1 %tobool.not.i.i, label %land.lhs.true.i.i, label %print_uint64.exit
 
 land.lhs.true.i.i:                                ; preds = %for.end
-  %skipping_printing.i.i = getelementptr inbounds %struct.rust_demangler, ptr %rdm, i64 0, i32 6
+  %skipping_printing.i.i = getelementptr inbounds i8, ptr %rdm, i64 41
   %26 = load i8, ptr %skipping_printing.i.i, align 1
   %27 = and i8 %26, 1
   %tobool1.not.i.i = icmp eq i8 %27, 0
   br i1 %tobool1.not.i.i, label %if.then.i.i, label %print_uint64.exit
 
 if.then.i.i:                                      ; preds = %land.lhs.true.i.i
-  %callback.i.i = getelementptr inbounds %struct.rust_demangler, ptr %rdm, i64 0, i32 3
+  %callback.i.i = getelementptr inbounds i8, ptr %rdm, i64 24
   %28 = load ptr, ptr %callback.i.i, align 8
-  %callback_opaque.i.i = getelementptr inbounds %struct.rust_demangler, ptr %rdm, i64 0, i32 2
+  %callback_opaque.i.i = getelementptr inbounds i8, ptr %rdm, i64 16
   %29 = load ptr, ptr %callback_opaque.i.i, align 8
   call void %28(ptr noundef nonnull %s.i, i64 noundef %call3.i, ptr noundef %29) #13
   br label %print_uint64.exit
@@ -5412,7 +5412,7 @@ print_uint64.exit:                                ; preds = %for.end, %land.lhs.
   br label %if.end19
 
 if.end19:                                         ; preds = %if.then.i22, %land.lhs.true.i19, %print_str.exit, %print_uint64.exit
-  %verbose = getelementptr inbounds %struct.rust_demangler, ptr %rdm, i64 0, i32 7
+  %verbose = getelementptr inbounds i8, ptr %rdm, i64 42
   %30 = load i8, ptr %verbose, align 2
   %31 = and i8 %30, 1
   %tobool20.not = icmp eq i8 %31, 0
@@ -5435,16 +5435,16 @@ if.then21:                                        ; preds = %if.end19
   br i1 %tobool.not.i50, label %land.lhs.true.i51, label %if.end25
 
 land.lhs.true.i51:                                ; preds = %if.then21
-  %skipping_printing.i52 = getelementptr inbounds %struct.rust_demangler, ptr %rdm, i64 0, i32 6
+  %skipping_printing.i52 = getelementptr inbounds i8, ptr %rdm, i64 41
   %36 = load i8, ptr %skipping_printing.i52, align 1
   %37 = and i8 %36, 1
   %tobool1.not.i53 = icmp eq i8 %37, 0
   br i1 %tobool1.not.i53, label %if.then.i54, label %if.end25
 
 if.then.i54:                                      ; preds = %land.lhs.true.i51
-  %callback.i55 = getelementptr inbounds %struct.rust_demangler, ptr %rdm, i64 0, i32 3
+  %callback.i55 = getelementptr inbounds i8, ptr %rdm, i64 24
   %38 = load ptr, ptr %callback.i55, align 8
-  %callback_opaque.i56 = getelementptr inbounds %struct.rust_demangler, ptr %rdm, i64 0, i32 2
+  %callback_opaque.i56 = getelementptr inbounds i8, ptr %rdm, i64 16
   %39 = load ptr, ptr %callback_opaque.i56, align 8
   call void %38(ptr noundef nonnull %switch.load, i64 noundef %call24, ptr noundef %39) #13
   br label %if.end25
@@ -5465,7 +5465,7 @@ entry:
   br i1 %or.cond23, label %do.end4, label %do.body3
 
 do.body3:                                         ; preds = %entry
-  %errored = getelementptr inbounds %struct.rust_demangler, ptr %rdm, i64 0, i32 5
+  %errored = getelementptr inbounds i8, ptr %rdm, i64 40
   store i8 1, ptr %errored, align 8
   br label %sw.epilog
 
@@ -5481,118 +5481,118 @@ do.end4:                                          ; preds = %entry
   ]
 
 sw.bb:                                            ; preds = %do.end4
-  %errored.i = getelementptr inbounds %struct.rust_demangler, ptr %rdm, i64 0, i32 5
+  %errored.i = getelementptr inbounds i8, ptr %rdm, i64 40
   %1 = load i8, ptr %errored.i, align 8
   %2 = and i8 %1, 1
   %tobool.not.i = icmp eq i8 %2, 0
   br i1 %tobool.not.i, label %land.lhs.true.i, label %sw.epilog
 
 land.lhs.true.i:                                  ; preds = %sw.bb
-  %skipping_printing.i = getelementptr inbounds %struct.rust_demangler, ptr %rdm, i64 0, i32 6
+  %skipping_printing.i = getelementptr inbounds i8, ptr %rdm, i64 41
   %3 = load i8, ptr %skipping_printing.i, align 1
   %4 = and i8 %3, 1
   %tobool1.not.i = icmp eq i8 %4, 0
   br i1 %tobool1.not.i, label %if.then.i, label %sw.epilog
 
 if.then.i:                                        ; preds = %land.lhs.true.i
-  %callback.i = getelementptr inbounds %struct.rust_demangler, ptr %rdm, i64 0, i32 3
+  %callback.i = getelementptr inbounds i8, ptr %rdm, i64 24
   %5 = load ptr, ptr %callback.i, align 8
-  %callback_opaque.i = getelementptr inbounds %struct.rust_demangler, ptr %rdm, i64 0, i32 2
+  %callback_opaque.i = getelementptr inbounds i8, ptr %rdm, i64 16
   %6 = load ptr, ptr %callback_opaque.i, align 8
   tail call void %5(ptr noundef nonnull @.str.80, i64 noundef 2, ptr noundef %6) #13
   br label %sw.epilog
 
 sw.bb5:                                           ; preds = %do.end4
-  %errored.i24 = getelementptr inbounds %struct.rust_demangler, ptr %rdm, i64 0, i32 5
+  %errored.i24 = getelementptr inbounds i8, ptr %rdm, i64 40
   %7 = load i8, ptr %errored.i24, align 8
   %8 = and i8 %7, 1
   %tobool.not.i25 = icmp eq i8 %8, 0
   br i1 %tobool.not.i25, label %land.lhs.true.i26, label %sw.epilog
 
 land.lhs.true.i26:                                ; preds = %sw.bb5
-  %skipping_printing.i27 = getelementptr inbounds %struct.rust_demangler, ptr %rdm, i64 0, i32 6
+  %skipping_printing.i27 = getelementptr inbounds i8, ptr %rdm, i64 41
   %9 = load i8, ptr %skipping_printing.i27, align 1
   %10 = and i8 %9, 1
   %tobool1.not.i28 = icmp eq i8 %10, 0
   br i1 %tobool1.not.i28, label %if.then.i29, label %sw.epilog
 
 if.then.i29:                                      ; preds = %land.lhs.true.i26
-  %callback.i30 = getelementptr inbounds %struct.rust_demangler, ptr %rdm, i64 0, i32 3
+  %callback.i30 = getelementptr inbounds i8, ptr %rdm, i64 24
   %11 = load ptr, ptr %callback.i30, align 8
-  %callback_opaque.i31 = getelementptr inbounds %struct.rust_demangler, ptr %rdm, i64 0, i32 2
+  %callback_opaque.i31 = getelementptr inbounds i8, ptr %rdm, i64 16
   %12 = load ptr, ptr %callback_opaque.i31, align 8
   tail call void %11(ptr noundef nonnull @.str.81, i64 noundef 2, ptr noundef %12) #13
   br label %sw.epilog
 
 sw.bb6:                                           ; preds = %do.end4
-  %errored.i33 = getelementptr inbounds %struct.rust_demangler, ptr %rdm, i64 0, i32 5
+  %errored.i33 = getelementptr inbounds i8, ptr %rdm, i64 40
   %13 = load i8, ptr %errored.i33, align 8
   %14 = and i8 %13, 1
   %tobool.not.i34 = icmp eq i8 %14, 0
   br i1 %tobool.not.i34, label %land.lhs.true.i35, label %sw.epilog
 
 land.lhs.true.i35:                                ; preds = %sw.bb6
-  %skipping_printing.i36 = getelementptr inbounds %struct.rust_demangler, ptr %rdm, i64 0, i32 6
+  %skipping_printing.i36 = getelementptr inbounds i8, ptr %rdm, i64 41
   %15 = load i8, ptr %skipping_printing.i36, align 1
   %16 = and i8 %15, 1
   %tobool1.not.i37 = icmp eq i8 %16, 0
   br i1 %tobool1.not.i37, label %if.then.i38, label %sw.epilog
 
 if.then.i38:                                      ; preds = %land.lhs.true.i35
-  %callback.i39 = getelementptr inbounds %struct.rust_demangler, ptr %rdm, i64 0, i32 3
+  %callback.i39 = getelementptr inbounds i8, ptr %rdm, i64 24
   %17 = load ptr, ptr %callback.i39, align 8
-  %callback_opaque.i40 = getelementptr inbounds %struct.rust_demangler, ptr %rdm, i64 0, i32 2
+  %callback_opaque.i40 = getelementptr inbounds i8, ptr %rdm, i64 16
   %18 = load ptr, ptr %callback_opaque.i40, align 8
   tail call void %17(ptr noundef nonnull @.str.82, i64 noundef 2, ptr noundef %18) #13
   br label %sw.epilog
 
 sw.bb7:                                           ; preds = %do.end4
-  %errored.i42 = getelementptr inbounds %struct.rust_demangler, ptr %rdm, i64 0, i32 5
+  %errored.i42 = getelementptr inbounds i8, ptr %rdm, i64 40
   %19 = load i8, ptr %errored.i42, align 8
   %20 = and i8 %19, 1
   %tobool.not.i43 = icmp eq i8 %20, 0
   br i1 %tobool.not.i43, label %land.lhs.true.i44, label %sw.epilog
 
 land.lhs.true.i44:                                ; preds = %sw.bb7
-  %skipping_printing.i45 = getelementptr inbounds %struct.rust_demangler, ptr %rdm, i64 0, i32 6
+  %skipping_printing.i45 = getelementptr inbounds i8, ptr %rdm, i64 41
   %21 = load i8, ptr %skipping_printing.i45, align 1
   %22 = and i8 %21, 1
   %tobool1.not.i46 = icmp eq i8 %22, 0
   br i1 %tobool1.not.i46, label %if.then.i47, label %sw.epilog
 
 if.then.i47:                                      ; preds = %land.lhs.true.i44
-  %callback.i48 = getelementptr inbounds %struct.rust_demangler, ptr %rdm, i64 0, i32 3
+  %callback.i48 = getelementptr inbounds i8, ptr %rdm, i64 24
   %23 = load ptr, ptr %callback.i48, align 8
-  %callback_opaque.i49 = getelementptr inbounds %struct.rust_demangler, ptr %rdm, i64 0, i32 2
+  %callback_opaque.i49 = getelementptr inbounds i8, ptr %rdm, i64 16
   %24 = load ptr, ptr %callback_opaque.i49, align 8
   tail call void %23(ptr noundef nonnull @.str.83, i64 noundef 2, ptr noundef %24) #13
   br label %sw.epilog
 
 sw.bb8:                                           ; preds = %do.end4
-  %errored.i51 = getelementptr inbounds %struct.rust_demangler, ptr %rdm, i64 0, i32 5
+  %errored.i51 = getelementptr inbounds i8, ptr %rdm, i64 40
   %25 = load i8, ptr %errored.i51, align 8
   %26 = and i8 %25, 1
   %tobool.not.i52 = icmp eq i8 %26, 0
   br i1 %tobool.not.i52, label %land.lhs.true.i53, label %sw.epilog
 
 land.lhs.true.i53:                                ; preds = %sw.bb8
-  %skipping_printing.i54 = getelementptr inbounds %struct.rust_demangler, ptr %rdm, i64 0, i32 6
+  %skipping_printing.i54 = getelementptr inbounds i8, ptr %rdm, i64 41
   %27 = load i8, ptr %skipping_printing.i54, align 1
   %28 = and i8 %27, 1
   %tobool1.not.i55 = icmp eq i8 %28, 0
   br i1 %tobool1.not.i55, label %if.then.i56, label %sw.epilog
 
 if.then.i56:                                      ; preds = %land.lhs.true.i53
-  %callback.i57 = getelementptr inbounds %struct.rust_demangler, ptr %rdm, i64 0, i32 3
+  %callback.i57 = getelementptr inbounds i8, ptr %rdm, i64 24
   %29 = load ptr, ptr %callback.i57, align 8
-  %callback_opaque.i58 = getelementptr inbounds %struct.rust_demangler, ptr %rdm, i64 0, i32 2
+  %callback_opaque.i58 = getelementptr inbounds i8, ptr %rdm, i64 16
   %30 = load ptr, ptr %callback_opaque.i58, align 8
   tail call void %29(ptr noundef nonnull @.str.84, i64 noundef 2, ptr noundef %30) #13
   br label %sw.epilog
 
 sw.bb9:                                           ; preds = %do.end4
   %cmp10 = icmp eq i8 %quote, 34
-  %errored.i60 = getelementptr inbounds %struct.rust_demangler, ptr %rdm, i64 0, i32 5
+  %errored.i60 = getelementptr inbounds i8, ptr %rdm, i64 40
   %31 = load i8, ptr %errored.i60, align 8
   %32 = and i8 %31, 1
   %tobool.not.i61 = icmp eq i8 %32, 0
@@ -5602,16 +5602,16 @@ if.then12:                                        ; preds = %sw.bb9
   br i1 %tobool.not.i61, label %land.lhs.true.i62, label %sw.epilog
 
 land.lhs.true.i62:                                ; preds = %if.then12
-  %skipping_printing.i63 = getelementptr inbounds %struct.rust_demangler, ptr %rdm, i64 0, i32 6
+  %skipping_printing.i63 = getelementptr inbounds i8, ptr %rdm, i64 41
   %33 = load i8, ptr %skipping_printing.i63, align 1
   %34 = and i8 %33, 1
   %tobool1.not.i64 = icmp eq i8 %34, 0
   br i1 %tobool1.not.i64, label %if.then.i65, label %sw.epilog
 
 if.then.i65:                                      ; preds = %land.lhs.true.i62
-  %callback.i66 = getelementptr inbounds %struct.rust_demangler, ptr %rdm, i64 0, i32 3
+  %callback.i66 = getelementptr inbounds i8, ptr %rdm, i64 24
   %35 = load ptr, ptr %callback.i66, align 8
-  %callback_opaque.i67 = getelementptr inbounds %struct.rust_demangler, ptr %rdm, i64 0, i32 2
+  %callback_opaque.i67 = getelementptr inbounds i8, ptr %rdm, i64 16
   %36 = load ptr, ptr %callback_opaque.i67, align 8
   tail call void %35(ptr noundef nonnull @.str.85, i64 noundef 2, ptr noundef %36) #13
   br label %sw.epilog
@@ -5620,23 +5620,23 @@ if.else:                                          ; preds = %sw.bb9
   br i1 %tobool.not.i61, label %land.lhs.true.i71, label %sw.epilog
 
 land.lhs.true.i71:                                ; preds = %if.else
-  %skipping_printing.i72 = getelementptr inbounds %struct.rust_demangler, ptr %rdm, i64 0, i32 6
+  %skipping_printing.i72 = getelementptr inbounds i8, ptr %rdm, i64 41
   %37 = load i8, ptr %skipping_printing.i72, align 1
   %38 = and i8 %37, 1
   %tobool1.not.i73 = icmp eq i8 %38, 0
   br i1 %tobool1.not.i73, label %if.then.i74, label %sw.epilog
 
 if.then.i74:                                      ; preds = %land.lhs.true.i71
-  %callback.i75 = getelementptr inbounds %struct.rust_demangler, ptr %rdm, i64 0, i32 3
+  %callback.i75 = getelementptr inbounds i8, ptr %rdm, i64 24
   %39 = load ptr, ptr %callback.i75, align 8
-  %callback_opaque.i76 = getelementptr inbounds %struct.rust_demangler, ptr %rdm, i64 0, i32 2
+  %callback_opaque.i76 = getelementptr inbounds i8, ptr %rdm, i64 16
   %40 = load ptr, ptr %callback_opaque.i76, align 8
   tail call void %39(ptr noundef nonnull @.str.86, i64 noundef 1, ptr noundef %40) #13
   br label %sw.epilog
 
 sw.bb14:                                          ; preds = %do.end4
   %cmp16 = icmp eq i8 %quote, 39
-  %errored.i78 = getelementptr inbounds %struct.rust_demangler, ptr %rdm, i64 0, i32 5
+  %errored.i78 = getelementptr inbounds i8, ptr %rdm, i64 40
   %41 = load i8, ptr %errored.i78, align 8
   %42 = and i8 %41, 1
   %tobool.not.i79 = icmp eq i8 %42, 0
@@ -5646,16 +5646,16 @@ if.then18:                                        ; preds = %sw.bb14
   br i1 %tobool.not.i79, label %land.lhs.true.i80, label %sw.epilog
 
 land.lhs.true.i80:                                ; preds = %if.then18
-  %skipping_printing.i81 = getelementptr inbounds %struct.rust_demangler, ptr %rdm, i64 0, i32 6
+  %skipping_printing.i81 = getelementptr inbounds i8, ptr %rdm, i64 41
   %43 = load i8, ptr %skipping_printing.i81, align 1
   %44 = and i8 %43, 1
   %tobool1.not.i82 = icmp eq i8 %44, 0
   br i1 %tobool1.not.i82, label %if.then.i83, label %sw.epilog
 
 if.then.i83:                                      ; preds = %land.lhs.true.i80
-  %callback.i84 = getelementptr inbounds %struct.rust_demangler, ptr %rdm, i64 0, i32 3
+  %callback.i84 = getelementptr inbounds i8, ptr %rdm, i64 24
   %45 = load ptr, ptr %callback.i84, align 8
-  %callback_opaque.i85 = getelementptr inbounds %struct.rust_demangler, ptr %rdm, i64 0, i32 2
+  %callback_opaque.i85 = getelementptr inbounds i8, ptr %rdm, i64 16
   %46 = load ptr, ptr %callback_opaque.i85, align 8
   tail call void %45(ptr noundef nonnull @.str.87, i64 noundef 2, ptr noundef %46) #13
   br label %sw.epilog
@@ -5664,16 +5664,16 @@ if.else19:                                        ; preds = %sw.bb14
   br i1 %tobool.not.i79, label %land.lhs.true.i89, label %sw.epilog
 
 land.lhs.true.i89:                                ; preds = %if.else19
-  %skipping_printing.i90 = getelementptr inbounds %struct.rust_demangler, ptr %rdm, i64 0, i32 6
+  %skipping_printing.i90 = getelementptr inbounds i8, ptr %rdm, i64 41
   %47 = load i8, ptr %skipping_printing.i90, align 1
   %48 = and i8 %47, 1
   %tobool1.not.i91 = icmp eq i8 %48, 0
   br i1 %tobool1.not.i91, label %if.then.i92, label %sw.epilog
 
 if.then.i92:                                      ; preds = %land.lhs.true.i89
-  %callback.i93 = getelementptr inbounds %struct.rust_demangler, ptr %rdm, i64 0, i32 3
+  %callback.i93 = getelementptr inbounds i8, ptr %rdm, i64 24
   %49 = load ptr, ptr %callback.i93, align 8
-  %callback_opaque.i94 = getelementptr inbounds %struct.rust_demangler, ptr %rdm, i64 0, i32 2
+  %callback_opaque.i94 = getelementptr inbounds i8, ptr %rdm, i64 16
   %50 = load ptr, ptr %callback_opaque.i94, align 8
   tail call void %49(ptr noundef nonnull @.str.72, i64 noundef 1, ptr noundef %50) #13
   br label %sw.epilog
@@ -5686,45 +5686,45 @@ sw.default:                                       ; preds = %do.end4
 if.then26:                                        ; preds = %sw.default
   %conv27 = trunc i32 %c to i8
   store i8 %conv27, ptr %v, align 1
-  %errored.i96 = getelementptr inbounds %struct.rust_demangler, ptr %rdm, i64 0, i32 5
+  %errored.i96 = getelementptr inbounds i8, ptr %rdm, i64 40
   %52 = load i8, ptr %errored.i96, align 8
   %53 = and i8 %52, 1
   %tobool.not.i97 = icmp eq i8 %53, 0
   br i1 %tobool.not.i97, label %land.lhs.true.i98, label %sw.epilog
 
 land.lhs.true.i98:                                ; preds = %if.then26
-  %skipping_printing.i99 = getelementptr inbounds %struct.rust_demangler, ptr %rdm, i64 0, i32 6
+  %skipping_printing.i99 = getelementptr inbounds i8, ptr %rdm, i64 41
   %54 = load i8, ptr %skipping_printing.i99, align 1
   %55 = and i8 %54, 1
   %tobool1.not.i100 = icmp eq i8 %55, 0
   br i1 %tobool1.not.i100, label %if.then.i101, label %sw.epilog
 
 if.then.i101:                                     ; preds = %land.lhs.true.i98
-  %callback.i102 = getelementptr inbounds %struct.rust_demangler, ptr %rdm, i64 0, i32 3
+  %callback.i102 = getelementptr inbounds i8, ptr %rdm, i64 24
   %56 = load ptr, ptr %callback.i102, align 8
-  %callback_opaque.i103 = getelementptr inbounds %struct.rust_demangler, ptr %rdm, i64 0, i32 2
+  %callback_opaque.i103 = getelementptr inbounds i8, ptr %rdm, i64 16
   %57 = load ptr, ptr %callback_opaque.i103, align 8
   call void %56(ptr noundef nonnull %v, i64 noundef 1, ptr noundef %57) #13
   br label %sw.epilog
 
 if.else28:                                        ; preds = %sw.default
-  %errored.i105 = getelementptr inbounds %struct.rust_demangler, ptr %rdm, i64 0, i32 5
+  %errored.i105 = getelementptr inbounds i8, ptr %rdm, i64 40
   %58 = load i8, ptr %errored.i105, align 8
   %59 = and i8 %58, 1
   %tobool.not.i106 = icmp eq i8 %59, 0
   br i1 %tobool.not.i106, label %land.lhs.true.i107, label %print_str.exit113
 
 land.lhs.true.i107:                               ; preds = %if.else28
-  %skipping_printing.i108 = getelementptr inbounds %struct.rust_demangler, ptr %rdm, i64 0, i32 6
+  %skipping_printing.i108 = getelementptr inbounds i8, ptr %rdm, i64 41
   %60 = load i8, ptr %skipping_printing.i108, align 1
   %61 = and i8 %60, 1
   %tobool1.not.i109 = icmp eq i8 %61, 0
   br i1 %tobool1.not.i109, label %if.then.i110, label %print_str.exit113
 
 if.then.i110:                                     ; preds = %land.lhs.true.i107
-  %callback.i111 = getelementptr inbounds %struct.rust_demangler, ptr %rdm, i64 0, i32 3
+  %callback.i111 = getelementptr inbounds i8, ptr %rdm, i64 24
   %62 = load ptr, ptr %callback.i111, align 8
-  %callback_opaque.i112 = getelementptr inbounds %struct.rust_demangler, ptr %rdm, i64 0, i32 2
+  %callback_opaque.i112 = getelementptr inbounds i8, ptr %rdm, i64 16
   %63 = load ptr, ptr %callback_opaque.i112, align 8
   tail call void %62(ptr noundef nonnull @.str.25, i64 noundef 3, ptr noundef %63) #13
   br label %print_str.exit113
@@ -5739,16 +5739,16 @@ print_str.exit113:                                ; preds = %if.else28, %land.lh
   br i1 %tobool.not.i115, label %land.lhs.true.i116, label %print_str.exit122
 
 land.lhs.true.i116:                               ; preds = %print_str.exit113
-  %skipping_printing.i117 = getelementptr inbounds %struct.rust_demangler, ptr %rdm, i64 0, i32 6
+  %skipping_printing.i117 = getelementptr inbounds i8, ptr %rdm, i64 41
   %66 = load i8, ptr %skipping_printing.i117, align 1
   %67 = and i8 %66, 1
   %tobool1.not.i118 = icmp eq i8 %67, 0
   br i1 %tobool1.not.i118, label %if.then.i119, label %print_str.exit122
 
 if.then.i119:                                     ; preds = %land.lhs.true.i116
-  %callback.i120 = getelementptr inbounds %struct.rust_demangler, ptr %rdm, i64 0, i32 3
+  %callback.i120 = getelementptr inbounds i8, ptr %rdm, i64 24
   %68 = load ptr, ptr %callback.i120, align 8
-  %callback_opaque.i121 = getelementptr inbounds %struct.rust_demangler, ptr %rdm, i64 0, i32 2
+  %callback_opaque.i121 = getelementptr inbounds i8, ptr %rdm, i64 16
   %69 = load ptr, ptr %callback_opaque.i121, align 8
   call void %68(ptr noundef nonnull %s, i64 noundef %call31, ptr noundef %69) #13
   %.pre = load i8, ptr %errored.i105, align 8
@@ -5761,16 +5761,16 @@ print_str.exit122:                                ; preds = %print_str.exit113, 
   br i1 %tobool.not.i124, label %land.lhs.true.i125, label %sw.epilog
 
 land.lhs.true.i125:                               ; preds = %print_str.exit122
-  %skipping_printing.i126 = getelementptr inbounds %struct.rust_demangler, ptr %rdm, i64 0, i32 6
+  %skipping_printing.i126 = getelementptr inbounds i8, ptr %rdm, i64 41
   %72 = load i8, ptr %skipping_printing.i126, align 1
   %73 = and i8 %72, 1
   %tobool1.not.i127 = icmp eq i8 %73, 0
   br i1 %tobool1.not.i127, label %if.then.i128, label %sw.epilog
 
 if.then.i128:                                     ; preds = %land.lhs.true.i125
-  %callback.i129 = getelementptr inbounds %struct.rust_demangler, ptr %rdm, i64 0, i32 3
+  %callback.i129 = getelementptr inbounds i8, ptr %rdm, i64 24
   %74 = load ptr, ptr %callback.i129, align 8
-  %callback_opaque.i130 = getelementptr inbounds %struct.rust_demangler, ptr %rdm, i64 0, i32 2
+  %callback_opaque.i130 = getelementptr inbounds i8, ptr %rdm, i64 16
   %75 = load ptr, ptr %callback_opaque.i130, align 8
   call void %74(ptr noundef nonnull @.str.27, i64 noundef 1, ptr noundef %75) #13
   br label %sw.epilog
@@ -5782,7 +5782,7 @@ sw.epilog:                                        ; preds = %if.then.i128, %land
 ; Function Attrs: nounwind
 define internal fastcc void @demangle_const_str_literal(ptr nocapture noundef %rdm) unnamed_addr #0 {
 entry:
-  %errored = getelementptr inbounds %struct.rust_demangler, ptr %rdm, i64 0, i32 5
+  %errored = getelementptr inbounds i8, ptr %rdm, i64 40
   %0 = load i8, ptr %errored, align 8
   %1 = and i8 %0, 1
   %tobool.not = icmp eq i8 %1, 0
@@ -5793,14 +5793,14 @@ do.body1:                                         ; preds = %entry
   br label %return
 
 do.end3:                                          ; preds = %entry
-  %next.i.i = getelementptr inbounds %struct.rust_demangler, ptr %rdm, i64 0, i32 4
+  %next.i.i = getelementptr inbounds i8, ptr %rdm, i64 32
   %2 = load i64, ptr %next.i.i, align 8
-  %sym_len.i.i.i.i = getelementptr inbounds %struct.rust_demangler, ptr %rdm, i64 0, i32 1
+  %sym_len.i.i.i.i = getelementptr inbounds i8, ptr %rdm, i64 8
   %3 = load i64, ptr %sym_len.i.i.i.i, align 8
   br label %while.cond.i.i
 
 while.cond.i.i:                                   ; preds = %do.end14.i.i, %do.end3
-  %.pre.i = phi i8 [ %0, %do.end3 ], [ %.pre.i108, %do.end14.i.i ]
+  %.pre.i = phi i8 [ %0, %do.end3 ], [ %.pre.i110, %do.end14.i.i ]
   %4 = phi i64 [ %2, %do.end3 ], [ %7, %do.end14.i.i ]
   %hex_len.0.i.i = phi i64 [ 0, %do.end3 ], [ %inc.i.i, %do.end14.i.i ]
   %cmp.i.i.i.i = icmp ult i64 %4, %3
@@ -5825,7 +5825,7 @@ do.end2.i.i.i:                                    ; preds = %peek.exit.i.i.i
   br label %next.exit.i.i
 
 next.exit.i.i:                                    ; preds = %do.end2.i.i.i, %do.body1.i.i.i
-  %.pre.i108 = phi i8 [ %.pre.i, %do.end2.i.i.i ], [ 1, %do.body1.i.i.i ]
+  %.pre.i110 = phi i8 [ %.pre.i, %do.end2.i.i.i ], [ 1, %do.body1.i.i.i ]
   %7 = phi i64 [ %inc.i16.i.i, %do.end2.i.i.i ], [ %4, %do.body1.i.i.i ]
   %retval.0.i.i.i = phi i8 [ %6, %do.end2.i.i.i ], [ 0, %do.body1.i.i.i ]
   %8 = add i8 %retval.0.i.i.i, -48
@@ -5847,39 +5847,39 @@ parse_hex_nibbles.exit.i:                         ; preds = %peek.exit.i.i.i
   %cmp.i = icmp eq i64 %rem.i, 0
   %10 = and i8 %.pre.i, 1
   %11 = icmp eq i8 %10, 0
-  %or.cond125 = select i1 %11, i1 %cmp.i, i1 false
-  br i1 %or.cond125, label %land.lhs.true.i, label %do.body8
+  %or.cond127 = select i1 %11, i1 %cmp.i, i1 false
+  br i1 %or.cond127, label %land.lhs.true.i, label %do.body8
 
 do.body8:                                         ; preds = %next.exit.i.i, %parse_hex_nibbles.exit.i
   store i8 1, ptr %errored, align 8
   br label %return
 
 land.lhs.true.i:                                  ; preds = %parse_hex_nibbles.exit.i
-  %skipping_printing.i = getelementptr inbounds %struct.rust_demangler, ptr %rdm, i64 0, i32 6
+  %skipping_printing.i = getelementptr inbounds i8, ptr %rdm, i64 41
   %12 = load i8, ptr %skipping_printing.i, align 1
   %13 = and i8 %12, 1
   %tobool1.not.i = icmp eq i8 %13, 0
   br i1 %tobool1.not.i, label %if.then.i, label %print_str.exit
 
 if.then.i:                                        ; preds = %land.lhs.true.i
-  %callback.i = getelementptr inbounds %struct.rust_demangler, ptr %rdm, i64 0, i32 3
+  %callback.i = getelementptr inbounds i8, ptr %rdm, i64 24
   %14 = load ptr, ptr %callback.i, align 8
-  %callback_opaque.i = getelementptr inbounds %struct.rust_demangler, ptr %rdm, i64 0, i32 2
+  %callback_opaque.i = getelementptr inbounds i8, ptr %rdm, i64 16
   %15 = load ptr, ptr %callback_opaque.i, align 8
   tail call void %14(ptr noundef nonnull @.str.86, i64 noundef 1, ptr noundef %15) #13
   br label %print_str.exit
 
 print_str.exit:                                   ; preds = %land.lhs.true.i, %if.then.i
-  %cmp93.not = icmp eq i64 %hex_len.0.i.i, 0
-  br i1 %cmp93.not, label %for.end71, label %for.body.lr.ph
+  %cmp95.not = icmp eq i64 %hex_len.0.i.i, 0
+  br i1 %cmp95.not, label %for.end71, label %for.body.lr.ph
 
 for.body.lr.ph:                                   ; preds = %print_str.exit
   %invariant.gep = getelementptr i8, ptr %add.ptr.i.i, i64 3
   br label %for.body
 
 for.body:                                         ; preds = %for.body.lr.ph, %if.end68
-  %i.094 = phi i64 [ 0, %for.body.lr.ph ], [ %add70, %if.end68 ]
-  %arrayidx = getelementptr inbounds i8, ptr %add.ptr.i.i, i64 %i.094
+  %i.096 = phi i64 [ 0, %for.body.lr.ph ], [ %add70, %if.end68 ]
+  %arrayidx = getelementptr inbounds i8, ptr %add.ptr.i.i, i64 %i.096
   %16 = load i8, ptr %arrayidx, align 1
   %cmp.i21 = icmp sgt i8 %16, 96
   %cond.v.i = select i1 %cmp.i21, i8 9, i8 96
@@ -5896,12 +5896,12 @@ for.body:                                         ; preds = %for.body.lr.ph, %if
 
 while.body.i:                                     ; preds = %if.end.i, %for.body
   %utf8.sroa.0.0 = phi i64 [ 0, %for.body ], [ %inc.i, %if.end.i ]
-  %18 = phi i8 [ %or, %for.body ], [ %conv6.i, %if.end.i ]
+  %conv63.i = phi i8 [ %or, %for.body ], [ %conv6.i, %if.end.i ]
   %sh_prom.i = trunc i64 %utf8.sroa.0.0 to i32
   %shr.i = lshr exact i32 128, %sh_prom.i
   %not.i = ashr i32 -129, %sh_prom.i
-  %19 = trunc i32 %not.i to i8
-  %conv6.i = and i8 %18, %19
+  %18 = trunc i32 %not.i to i8
+  %conv6.i = and i8 %conv63.i, %18
   %and10.i = and i32 %shr.i, %conv8.i
   %cmp11.i = icmp eq i32 %and10.i, 0
   br i1 %cmp11.i, label %utf8_decode.exit, label %if.end.i
@@ -5923,71 +5923,71 @@ do.body23:                                        ; preds = %utf8_decode.exit
   br i1 %or.cond, label %for.cond37.preheader, label %do.body31
 
 for.cond37.preheader:                             ; preds = %do.body23
-  %extra.087 = add nsw i64 %utf8.sroa.0.0, -1
-  %cmp38.not88 = icmp eq i64 %extra.087, 0
-  br i1 %cmp38.not88, label %if.end68, label %for.body40
+  %extra.089 = add nsw i64 %utf8.sroa.0.0, -1
+  %cmp38.not90 = icmp eq i64 %extra.089, 0
+  br i1 %cmp38.not90, label %if.end68, label %for.body40
 
 do.body31:                                        ; preds = %do.body23, %if.end.i
   store i8 1, ptr %errored, align 8
   br label %return
 
 for.body40:                                       ; preds = %for.cond37.preheader, %do.end63
-  %extra.091 = phi i64 [ %extra.0, %do.end63 ], [ %extra.087, %for.cond37.preheader ]
-  %c.090 = phi i32 [ %or67, %do.end63 ], [ %conv19, %for.cond37.preheader ]
-  %i.189 = phi i64 [ %add41, %do.end63 ], [ %i.094, %for.cond37.preheader ]
-  %add41 = add i64 %i.189, 2
+  %extra.093 = phi i64 [ %extra.0, %do.end63 ], [ %extra.089, %for.cond37.preheader ]
+  %c.092 = phi i32 [ %or67, %do.end63 ], [ %conv19, %for.cond37.preheader ]
+  %i.191 = phi i64 [ %add41, %do.end63 ], [ %i.096, %for.cond37.preheader ]
+  %add41 = add i64 %i.191, 2
   %arrayidx43 = getelementptr inbounds i8, ptr %add.ptr.i.i, i64 %add41
-  %20 = load i8, ptr %arrayidx43, align 1
-  %cmp.i25 = icmp sgt i8 %20, 96
+  %19 = load i8, ptr %arrayidx43, align 1
+  %cmp.i25 = icmp sgt i8 %19, 96
   %cond.v.i26 = select i1 %cmp.i25, i8 9, i8 96
-  %cond.i27 = add i8 %cond.v.i26, %20
+  %cond.i27 = add i8 %cond.v.i26, %19
   %shl46 = shl i8 %cond.i27, 4
-  %gep = getelementptr i8, ptr %invariant.gep, i64 %i.189
-  %21 = load i8, ptr %gep, align 1
-  %cmp.i28 = icmp sgt i8 %21, 96
+  %gep = getelementptr i8, ptr %invariant.gep, i64 %i.191
+  %20 = load i8, ptr %gep, align 1
+  %cmp.i28 = icmp sgt i8 %20, 96
   %cond.v.i29 = select i1 %cmp.i28, i8 -87, i8 -48
-  %cond.i30 = add i8 %cond.v.i29, %21
+  %cond.i30 = add i8 %cond.v.i29, %20
   %or52 = or i8 %shl46, %cond.i30
   %conv8.i31 = zext i8 %or52 to i32
   br label %while.body.i32
 
-while.body.i32:                                   ; preds = %if.end.i40, %for.body40
-  %tmp.sroa.0.0 = phi i64 [ 0, %for.body40 ], [ %inc.i41, %if.end.i40 ]
-  %22 = phi i32 [ 8, %for.body40 ], [ %dec.i37, %if.end.i40 ]
-  %23 = phi i8 [ %or52, %for.body40 ], [ %conv6.i36, %if.end.i40 ]
-  %sh_prom.i33 = trunc i64 %tmp.sroa.0.0 to i32
-  %shr.i34 = lshr exact i32 128, %sh_prom.i33
-  %not.i35 = ashr i32 -129, %sh_prom.i33
-  %24 = trunc i32 %not.i35 to i8
-  %conv6.i36 = and i8 %23, %24
-  %dec.i37 = add nsw i32 %22, -1
-  %and10.i38 = and i32 %shr.i34, %conv8.i31
-  %cmp11.i39 = icmp eq i32 %and10.i38, 0
-  br i1 %cmp11.i39, label %utf8_decode.exit46, label %if.end.i40
+while.body.i32:                                   ; preds = %if.end.i42, %for.body40
+  %tmp.sroa.0.0 = phi i64 [ 0, %for.body40 ], [ %inc.i43, %if.end.i42 ]
+  %dec4.i33 = phi i32 [ 8, %for.body40 ], [ %dec.i39, %if.end.i42 ]
+  %conv63.i34 = phi i8 [ %or52, %for.body40 ], [ %conv6.i38, %if.end.i42 ]
+  %sh_prom.i35 = trunc i64 %tmp.sroa.0.0 to i32
+  %shr.i36 = lshr exact i32 128, %sh_prom.i35
+  %not.i37 = ashr i32 -129, %sh_prom.i35
+  %21 = trunc i32 %not.i37 to i8
+  %conv6.i38 = and i8 %conv63.i34, %21
+  %dec.i39 = add nsw i32 %dec4.i33, -1
+  %and10.i40 = and i32 %shr.i36, %conv8.i31
+  %cmp11.i41 = icmp eq i32 %and10.i40, 0
+  br i1 %cmp11.i41, label %utf8_decode.exit48, label %if.end.i42
 
-if.end.i40:                                       ; preds = %while.body.i32
-  %inc.i41 = add nuw nsw i64 %tmp.sroa.0.0, 1
-  %exitcond.not.i42 = icmp eq i64 %inc.i41, 7
-  br i1 %exitcond.not.i42, label %do.body59, label %while.body.i32, !llvm.loop !36
+if.end.i42:                                       ; preds = %while.body.i32
+  %inc.i43 = add nuw nsw i64 %tmp.sroa.0.0, 1
+  %exitcond.not.i44 = icmp eq i64 %inc.i43, 7
+  br i1 %exitcond.not.i44, label %do.body59, label %while.body.i32, !llvm.loop !36
 
-utf8_decode.exit46:                               ; preds = %while.body.i32
+utf8_decode.exit48:                               ; preds = %while.body.i32
   %cmp56 = icmp eq i64 %tmp.sroa.0.0, 1
   br i1 %cmp56, label %do.end63, label %do.body59
 
-do.body59:                                        ; preds = %utf8_decode.exit46, %if.end.i40
+do.body59:                                        ; preds = %utf8_decode.exit48, %if.end.i42
   store i8 1, ptr %errored, align 8
   br label %return
 
-do.end63:                                         ; preds = %utf8_decode.exit46
-  %shl64 = shl i32 %c.090, %dec.i37
-  %conv66 = zext i8 %conv6.i36 to i32
+do.end63:                                         ; preds = %utf8_decode.exit48
+  %shl64 = shl i32 %c.092, %dec.i39
+  %conv66 = zext i8 %conv6.i38 to i32
   %or67 = or i32 %shl64, %conv66
-  %extra.0 = add nsw i64 %extra.091, -1
+  %extra.0 = add nsw i64 %extra.093, -1
   %cmp38.not = icmp eq i64 %extra.0, 0
   br i1 %cmp38.not, label %if.end68, label %for.body40, !llvm.loop !37
 
 if.end68:                                         ; preds = %do.end63, %for.cond37.preheader, %utf8_decode.exit
-  %i.2 = phi i64 [ %i.094, %utf8_decode.exit ], [ %i.094, %for.cond37.preheader ], [ %add41, %do.end63 ]
+  %i.2 = phi i64 [ %i.096, %utf8_decode.exit ], [ %i.096, %for.cond37.preheader ], [ %add41, %do.end63 ]
   %c.1 = phi i32 [ %conv19, %utf8_decode.exit ], [ %conv19, %for.cond37.preheader ], [ %or67, %do.end63 ]
   tail call fastcc void @print_quoted_escaped_char(ptr noundef nonnull %rdm, i8 noundef signext 34, i32 noundef %c.1)
   %add70 = add i64 %i.2, 2
@@ -5995,33 +5995,33 @@ if.end68:                                         ; preds = %do.end63, %for.cond
   br i1 %cmp, label %for.body, label %for.end71, !llvm.loop !38
 
 for.end71:                                        ; preds = %if.end68, %print_str.exit
-  %25 = load i8, ptr %errored, align 8
-  %26 = and i8 %25, 1
-  %tobool.not.i48 = icmp eq i8 %26, 0
-  br i1 %tobool.not.i48, label %land.lhs.true.i50, label %return
+  %22 = load i8, ptr %errored, align 8
+  %23 = and i8 %22, 1
+  %tobool.not.i50 = icmp eq i8 %23, 0
+  br i1 %tobool.not.i50, label %land.lhs.true.i52, label %return
 
-land.lhs.true.i50:                                ; preds = %for.end71
-  %27 = load i8, ptr %skipping_printing.i, align 1
-  %28 = and i8 %27, 1
-  %tobool1.not.i52 = icmp eq i8 %28, 0
-  br i1 %tobool1.not.i52, label %if.then.i53, label %return
+land.lhs.true.i52:                                ; preds = %for.end71
+  %24 = load i8, ptr %skipping_printing.i, align 1
+  %25 = and i8 %24, 1
+  %tobool1.not.i54 = icmp eq i8 %25, 0
+  br i1 %tobool1.not.i54, label %if.then.i55, label %return
 
-if.then.i53:                                      ; preds = %land.lhs.true.i50
-  %callback.i54 = getelementptr inbounds %struct.rust_demangler, ptr %rdm, i64 0, i32 3
-  %29 = load ptr, ptr %callback.i54, align 8
-  %callback_opaque.i55 = getelementptr inbounds %struct.rust_demangler, ptr %rdm, i64 0, i32 2
-  %30 = load ptr, ptr %callback_opaque.i55, align 8
-  tail call void %29(ptr noundef nonnull @.str.86, i64 noundef 1, ptr noundef %30) #13
+if.then.i55:                                      ; preds = %land.lhs.true.i52
+  %callback.i56 = getelementptr inbounds i8, ptr %rdm, i64 24
+  %26 = load ptr, ptr %callback.i56, align 8
+  %callback_opaque.i57 = getelementptr inbounds i8, ptr %rdm, i64 16
+  %27 = load ptr, ptr %callback_opaque.i57, align 8
+  tail call void %26(ptr noundef nonnull @.str.86, i64 noundef 1, ptr noundef %27) #13
   br label %return
 
-return:                                           ; preds = %if.then.i53, %land.lhs.true.i50, %for.end71, %do.body59, %do.body31, %do.body8, %do.body1
+return:                                           ; preds = %if.then.i55, %land.lhs.true.i52, %for.end71, %do.body59, %do.body31, %do.body8, %do.body1
   ret void
 }
 
 ; Function Attrs: nounwind
 define internal fastcc zeroext i1 @demangle_path_maybe_open_generics(ptr noundef %rdm) unnamed_addr #0 {
 entry:
-  %errored = getelementptr inbounds %struct.rust_demangler, ptr %rdm, i64 0, i32 5
+  %errored = getelementptr inbounds i8, ptr %rdm, i64 40
   %0 = load i8, ptr %errored, align 8
   %1 = and i8 %0, 1
   %tobool.not = icmp eq i8 %1, 0
@@ -6032,9 +6032,9 @@ do.body1:                                         ; preds = %entry
   br label %common.ret184
 
 do.end4:                                          ; preds = %entry
-  %next.i.i = getelementptr inbounds %struct.rust_demangler, ptr %rdm, i64 0, i32 4
+  %next.i.i = getelementptr inbounds i8, ptr %rdm, i64 32
   %2 = load i64, ptr %next.i.i, align 8
-  %sym_len.i.i = getelementptr inbounds %struct.rust_demangler, ptr %rdm, i64 0, i32 1
+  %sym_len.i.i = getelementptr inbounds i8, ptr %rdm, i64 8
   %3 = load i64, ptr %sym_len.i.i, align 8
   %cmp.i.i = icmp ult i64 %2, %3
   br i1 %cmp.i.i, label %peek.exit.i, label %if.else20
@@ -6114,7 +6114,7 @@ while.end.i:                                      ; preds = %peek.exit.i21.i
 parse_integer_62.exit:                            ; preds = %eat.exit.thread.i, %do.body.i, %while.end.i
   %13 = phi i64 [ %12, %do.body.i ], [ %inc.i25.i, %while.end.i ], [ %inc.i.i, %eat.exit.thread.i ]
   %retval.0.i = phi i64 [ 0, %do.body.i ], [ %add41.i, %while.end.i ], [ 0, %eat.exit.thread.i ]
-  %skipping_printing = getelementptr inbounds %struct.rust_demangler, ptr %rdm, i64 0, i32 6
+  %skipping_printing = getelementptr inbounds i8, ptr %rdm, i64 41
   %14 = load i8, ptr %skipping_printing, align 1
   %15 = and i8 %14, 1
   %tobool7.not = icmp eq i8 %15, 0
@@ -6147,16 +6147,16 @@ if.then14:                                        ; preds = %peek.exit.i23
   br i1 %tobool.not.i, label %land.lhs.true.i, label %print_str.exit
 
 land.lhs.true.i:                                  ; preds = %if.then14
-  %skipping_printing.i = getelementptr inbounds %struct.rust_demangler, ptr %rdm, i64 0, i32 6
+  %skipping_printing.i = getelementptr inbounds i8, ptr %rdm, i64 41
   %20 = load i8, ptr %skipping_printing.i, align 1
   %21 = and i8 %20, 1
   %tobool1.not.i = icmp eq i8 %21, 0
   br i1 %tobool1.not.i, label %if.then.i32, label %print_str.exit
 
 if.then.i32:                                      ; preds = %land.lhs.true.i
-  %callback.i = getelementptr inbounds %struct.rust_demangler, ptr %rdm, i64 0, i32 3
+  %callback.i = getelementptr inbounds i8, ptr %rdm, i64 24
   %22 = load ptr, ptr %callback.i, align 8
-  %callback_opaque.i = getelementptr inbounds %struct.rust_demangler, ptr %rdm, i64 0, i32 2
+  %callback_opaque.i = getelementptr inbounds i8, ptr %rdm, i64 16
   %23 = load ptr, ptr %callback_opaque.i, align 8
   tail call void %22(ptr noundef nonnull @.str.16, i64 noundef 1, ptr noundef %23) #13
   %.pre = load i8, ptr %errored, align 8
@@ -6169,9 +6169,9 @@ print_str.exit:                                   ; preds = %if.then14, %land.lh
   br i1 %tobool16.not142, label %land.rhs.lr.ph, label %common.ret184
 
 land.rhs.lr.ph:                                   ; preds = %print_str.exit
-  %skipping_printing.i47 = getelementptr inbounds %struct.rust_demangler, ptr %rdm, i64 0, i32 6
-  %callback.i50 = getelementptr inbounds %struct.rust_demangler, ptr %rdm, i64 0, i32 3
-  %callback_opaque.i51 = getelementptr inbounds %struct.rust_demangler, ptr %rdm, i64 0, i32 2
+  %skipping_printing.i47 = getelementptr inbounds i8, ptr %rdm, i64 41
+  %callback.i50 = getelementptr inbounds i8, ptr %rdm, i64 24
+  %callback_opaque.i51 = getelementptr inbounds i8, ptr %rdm, i64 16
   br label %land.rhs
 
 land.rhs:                                         ; preds = %land.rhs.lr.ph, %demangle_generic_arg.exit

@@ -3,9 +3,6 @@ source_filename = "bench/openssl/original/libcrypto-shlib-p12_crt.ll"
 target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:128-n8:16:32:64-S128"
 target triple = "x86_64-unknown-linux-gnu"
 
-%struct.PKCS12_SAFEBAG_st = type { ptr, %union.anon, ptr }
-%union.anon = type { ptr }
-
 @.str = private unnamed_addr constant [35 x i8] c"../openssl/crypto/pkcs12/p12_crt.c\00", align 1
 @__func__.PKCS12_create_ex2 = private unnamed_addr constant [18 x i8] c"PKCS12_create_ex2\00", align 1
 
@@ -248,7 +245,7 @@ if.end87:                                         ; preds = %if.then83
   br i1 %cmp.i, label %if.end91, label %copy_bag_attr.exit
 
 copy_bag_attr.exit:                               ; preds = %if.end87
-  %attrib.i = getelementptr inbounds %struct.PKCS12_SAFEBAG_st, ptr %call84, i64 0, i32 2
+  %attrib.i = getelementptr inbounds i8, ptr %call84, i64 16
   %call1.i75 = call ptr @EVP_PKEY_get_attr(ptr noundef nonnull %pkey, i32 noundef %call.i73) #3
   %call2.i76 = call ptr @X509at_add1_attr(ptr noundef nonnull %attrib.i, ptr noundef %call1.i75) #3
   %cmp3.i.not = icmp eq ptr %call2.i76, null
@@ -260,7 +257,7 @@ if.end91:                                         ; preds = %if.end87, %copy_bag
   br i1 %cmp.i79, label %if.end95, label %copy_bag_attr.exit87
 
 copy_bag_attr.exit87:                             ; preds = %if.end91
-  %attrib.i81 = getelementptr inbounds %struct.PKCS12_SAFEBAG_st, ptr %call84, i64 0, i32 2
+  %attrib.i81 = getelementptr inbounds i8, ptr %call84, i64 16
   %call1.i82 = call ptr @EVP_PKEY_get_attr(ptr noundef nonnull %pkey, i32 noundef %call.i78) #3
   %call2.i83 = call ptr @X509at_add1_attr(ptr noundef nonnull %attrib.i81, ptr noundef %call1.i82) #3
   %cmp3.i84.not = icmp eq ptr %call2.i83, null
@@ -519,7 +516,7 @@ entry:
 declare ptr @OPENSSL_sk_value(ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define i32 @PKCS12_add_safe_ex(ptr nocapture noundef %psafes, ptr noundef %bags, i32 noundef %nid_safe, i32 noundef %iter, ptr noundef %pass, ptr noundef %ctx, ptr noundef %propq) local_unnamed_addr #0 {
+define noundef i32 @PKCS12_add_safe_ex(ptr nocapture noundef %psafes, ptr noundef %bags, i32 noundef %nid_safe, i32 noundef %iter, ptr noundef %pass, ptr noundef %ctx, ptr noundef %propq) local_unnamed_addr #0 {
 entry:
   %0 = load ptr, ptr %psafes, align 8
   %cmp.not = icmp eq ptr %0, null
@@ -662,7 +659,7 @@ declare i32 @PKCS12_add_friendlyname_utf8(ptr noundef, ptr noundef, i32 noundef)
 declare i32 @PKCS12_add_localkeyid(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define i32 @PKCS12_add_safe(ptr nocapture noundef %psafes, ptr noundef %bags, i32 noundef %nid_safe, i32 noundef %iter, ptr noundef %pass) local_unnamed_addr #0 {
+define noundef i32 @PKCS12_add_safe(ptr nocapture noundef %psafes, ptr noundef %bags, i32 noundef %nid_safe, i32 noundef %iter, ptr noundef %pass) local_unnamed_addr #0 {
 entry:
   %call = tail call i32 @PKCS12_add_safe_ex(ptr noundef %psafes, ptr noundef %bags, i32 noundef %nid_safe, i32 noundef %iter, ptr noundef %pass, ptr noundef null, ptr noundef null), !range !6
   ret i32 %call

@@ -24,19 +24,19 @@ for.body:                                         ; preds = %for.body.preheader,
   %0 = load i32, ptr %arrayidx, align 4
   %cond = tail call i32 @llvm.abs.i32(i32 %0, i1 true)
   %add = add i32 %cond, %total_error_0.0159
-  %arrayidx10 = getelementptr i32, ptr %arrayidx, i64 -1
+  %arrayidx10 = getelementptr i8, ptr %arrayidx, i64 -4
   %1 = load i32, ptr %arrayidx10, align 4
   %sub11 = sub nsw i32 %0, %1
   %cond29 = tail call i32 @llvm.abs.i32(i32 %sub11, i1 true)
   %add30 = add i32 %cond29, %total_error_1.0160
   %2 = shl i32 %1, 1
   %sub36 = sub i32 %0, %2
-  %arrayidx39 = getelementptr i32, ptr %arrayidx, i64 -2
+  %arrayidx39 = getelementptr i8, ptr %arrayidx, i64 -8
   %3 = load i32, ptr %arrayidx39, align 4
   %add40 = add nsw i32 %sub36, %3
   %cond68 = tail call i32 @llvm.abs.i32(i32 %add40, i1 true)
   %add69 = add i32 %cond68, %total_error_2.0161
-  %arrayidx84 = getelementptr i32, ptr %arrayidx, i64 -3
+  %arrayidx84 = getelementptr i8, ptr %arrayidx, i64 -12
   %4 = load i32, ptr %arrayidx84, align 4
   %reass.add = sub i32 %3, %1
   %reass.mul = mul i32 %reass.add, 3
@@ -47,7 +47,7 @@ for.body:                                         ; preds = %for.body.preheader,
   %mul135 = mul nsw i32 %3, 6
   %5 = add i32 %mul135, %0
   %mul130151 = add i32 %4, %1
-  %arrayidx144 = getelementptr i32, ptr %arrayidx, i64 -4
+  %arrayidx144 = getelementptr i8, ptr %arrayidx, i64 -16
   %6 = load i32, ptr %arrayidx144, align 4
   %sub141 = add i32 %5, %6
   %7 = shl i32 %mul130151, 2
@@ -96,7 +96,7 @@ cond.true264:                                     ; preds = %if.else, %if.else24
   %mul265 = fmul reassoc nsz arcp double %conv, 0x3FE62E42FEFA39EF
   %conv266 = uitofp i32 %data_len to double
   %div = fdiv reassoc nsz arcp double %mul265, %conv266
-  %call = tail call reassoc nsz arcp double @log(double noundef %div) #6
+  %call = tail call reassoc nsz arcp double @log(double noundef %div) #5
   %div267 = fmul reassoc nsz arcp double %call, 0x3FF71547652B82FE
   %8 = fptrunc double %div267 to float
   br label %cond.end269
@@ -113,14 +113,14 @@ cond.true275:                                     ; preds = %cond.end269
   %mul277 = fmul reassoc nsz arcp double %conv276, 0x3FE62E42FEFA39EF
   %conv278 = uitofp i32 %data_len to double
   %div279 = fdiv reassoc nsz arcp double %mul277, %conv278
-  %call280 = tail call reassoc nsz arcp double @log(double noundef %div279) #6
+  %call280 = tail call reassoc nsz arcp double @log(double noundef %div279) #5
   %div281 = fmul reassoc nsz arcp double %call280, 0x3FF71547652B82FE
   %9 = fptrunc double %div281 to float
   br label %cond.end283
 
 cond.end283:                                      ; preds = %cond.end269, %cond.true275
   %cond284 = phi float [ %9, %cond.true275 ], [ 0.000000e+00, %cond.end269 ]
-  %arrayidx286 = getelementptr inbounds float, ptr %residual_bits_per_sample, i64 1
+  %arrayidx286 = getelementptr inbounds i8, ptr %residual_bits_per_sample, i64 4
   store float %cond284, ptr %arrayidx286, align 4
   %cmp287.not = icmp eq i32 %total_error_2.0.lcssa, 0
   br i1 %cmp287.not, label %cond.end297, label %cond.true289
@@ -130,14 +130,14 @@ cond.true289:                                     ; preds = %cond.end283
   %mul291 = fmul reassoc nsz arcp double %conv290, 0x3FE62E42FEFA39EF
   %conv292 = uitofp i32 %data_len to double
   %div293 = fdiv reassoc nsz arcp double %mul291, %conv292
-  %call294 = tail call reassoc nsz arcp double @log(double noundef %div293) #6
+  %call294 = tail call reassoc nsz arcp double @log(double noundef %div293) #5
   %div295 = fmul reassoc nsz arcp double %call294, 0x3FF71547652B82FE
   %10 = fptrunc double %div295 to float
   br label %cond.end297
 
 cond.end297:                                      ; preds = %cond.end283, %cond.true289
   %cond298 = phi float [ %10, %cond.true289 ], [ 0.000000e+00, %cond.end283 ]
-  %arrayidx300 = getelementptr inbounds float, ptr %residual_bits_per_sample, i64 2
+  %arrayidx300 = getelementptr inbounds i8, ptr %residual_bits_per_sample, i64 8
   store float %cond298, ptr %arrayidx300, align 4
   %cmp301.not = icmp eq i32 %total_error_3.0.lcssa, 0
   br i1 %cmp301.not, label %cond.end311, label %cond.true303
@@ -147,14 +147,14 @@ cond.true303:                                     ; preds = %cond.end297
   %mul305 = fmul reassoc nsz arcp double %conv304, 0x3FE62E42FEFA39EF
   %conv306 = uitofp i32 %data_len to double
   %div307 = fdiv reassoc nsz arcp double %mul305, %conv306
-  %call308 = tail call reassoc nsz arcp double @log(double noundef %div307) #6
+  %call308 = tail call reassoc nsz arcp double @log(double noundef %div307) #5
   %div309 = fmul reassoc nsz arcp double %call308, 0x3FF71547652B82FE
   %11 = fptrunc double %div309 to float
   br label %cond.end311
 
 cond.end311:                                      ; preds = %cond.end297, %cond.true303
   %cond312 = phi float [ %11, %cond.true303 ], [ 0.000000e+00, %cond.end297 ]
-  %arrayidx314 = getelementptr inbounds float, ptr %residual_bits_per_sample, i64 3
+  %arrayidx314 = getelementptr inbounds i8, ptr %residual_bits_per_sample, i64 12
   store float %cond312, ptr %arrayidx314, align 4
   %cmp315.not = icmp eq i32 %total_error_4.0.lcssa, 0
   br i1 %cmp315.not, label %cond.end325, label %cond.true317
@@ -164,14 +164,14 @@ cond.true317:                                     ; preds = %cond.end311
   %mul319 = fmul reassoc nsz arcp double %conv318, 0x3FE62E42FEFA39EF
   %conv320 = uitofp i32 %data_len to double
   %div321 = fdiv reassoc nsz arcp double %mul319, %conv320
-  %call322 = tail call reassoc nsz arcp double @log(double noundef %div321) #6
+  %call322 = tail call reassoc nsz arcp double @log(double noundef %div321) #5
   %div323 = fmul reassoc nsz arcp double %call322, 0x3FF71547652B82FE
   %12 = fptrunc double %div323 to float
   br label %cond.end325
 
 cond.end325:                                      ; preds = %cond.end311, %cond.true317
   %cond326 = phi float [ %12, %cond.true317 ], [ 0.000000e+00, %cond.end311 ]
-  %arrayidx328 = getelementptr inbounds float, ptr %residual_bits_per_sample, i64 4
+  %arrayidx328 = getelementptr inbounds i8, ptr %residual_bits_per_sample, i64 16
   store float %cond326, ptr %arrayidx328, align 4
   ret i32 %order.0156
 }
@@ -201,7 +201,7 @@ for.body:                                         ; preds = %for.body.preheader,
   %cond = tail call i32 @llvm.abs.i32(i32 %0, i1 true)
   %conv = zext nneg i32 %cond to i64
   %add = add i64 %total_error_0.0159, %conv
-  %arrayidx10 = getelementptr i32, ptr %arrayidx, i64 -1
+  %arrayidx10 = getelementptr i8, ptr %arrayidx, i64 -4
   %1 = load i32, ptr %arrayidx10, align 4
   %sub11 = sub nsw i32 %0, %1
   %cond30 = tail call i32 @llvm.abs.i32(i32 %sub11, i1 true)
@@ -209,13 +209,13 @@ for.body:                                         ; preds = %for.body.preheader,
   %add32 = add i64 %total_error_1.0160, %conv31
   %2 = shl i32 %1, 1
   %sub38 = sub i32 %0, %2
-  %arrayidx41 = getelementptr i32, ptr %arrayidx, i64 -2
+  %arrayidx41 = getelementptr i8, ptr %arrayidx, i64 -8
   %3 = load i32, ptr %arrayidx41, align 4
   %add42 = add nsw i32 %sub38, %3
   %cond71 = tail call i32 @llvm.abs.i32(i32 %add42, i1 true)
   %conv72 = zext nneg i32 %cond71 to i64
   %add73 = add i64 %total_error_2.0161, %conv72
-  %arrayidx88 = getelementptr i32, ptr %arrayidx, i64 -3
+  %arrayidx88 = getelementptr i8, ptr %arrayidx, i64 -12
   %4 = load i32, ptr %arrayidx88, align 4
   %reass.add = sub i32 %3, %1
   %reass.mul = mul i32 %reass.add, 3
@@ -227,7 +227,7 @@ for.body:                                         ; preds = %for.body.preheader,
   %mul141 = mul nsw i32 %3, 6
   %5 = add i32 %mul141, %0
   %mul136151 = add i32 %4, %1
-  %arrayidx150 = getelementptr i32, ptr %arrayidx, i64 -4
+  %arrayidx150 = getelementptr i8, ptr %arrayidx, i64 -16
   %6 = load i32, ptr %arrayidx150, align 4
   %sub147 = add i32 %5, %6
   %7 = shl i32 %mul136151, 2
@@ -277,7 +277,7 @@ cond.true288:                                     ; preds = %if.else, %if.else26
   %mul290 = fmul reassoc nsz arcp double %conv289, 0x3FE62E42FEFA39EF
   %conv291 = uitofp i32 %data_len to double
   %div = fdiv reassoc nsz arcp double %mul290, %conv291
-  %call = tail call reassoc nsz arcp double @log(double noundef %div) #6
+  %call = tail call reassoc nsz arcp double @log(double noundef %div) #5
   %div292 = fmul reassoc nsz arcp double %call, 0x3FF71547652B82FE
   %8 = fptrunc double %div292 to float
   br label %cond.end294
@@ -294,14 +294,14 @@ cond.true300:                                     ; preds = %cond.end294
   %mul302 = fmul reassoc nsz arcp double %conv301, 0x3FE62E42FEFA39EF
   %conv303 = uitofp i32 %data_len to double
   %div304 = fdiv reassoc nsz arcp double %mul302, %conv303
-  %call305 = tail call reassoc nsz arcp double @log(double noundef %div304) #6
+  %call305 = tail call reassoc nsz arcp double @log(double noundef %div304) #5
   %div306 = fmul reassoc nsz arcp double %call305, 0x3FF71547652B82FE
   %9 = fptrunc double %div306 to float
   br label %cond.end308
 
 cond.end308:                                      ; preds = %cond.end294, %cond.true300
   %cond309 = phi float [ %9, %cond.true300 ], [ 0.000000e+00, %cond.end294 ]
-  %arrayidx311 = getelementptr inbounds float, ptr %residual_bits_per_sample, i64 1
+  %arrayidx311 = getelementptr inbounds i8, ptr %residual_bits_per_sample, i64 4
   store float %cond309, ptr %arrayidx311, align 4
   %cmp312.not = icmp eq i64 %total_error_2.0.lcssa, 0
   br i1 %cmp312.not, label %cond.end322, label %cond.true314
@@ -311,14 +311,14 @@ cond.true314:                                     ; preds = %cond.end308
   %mul316 = fmul reassoc nsz arcp double %conv315, 0x3FE62E42FEFA39EF
   %conv317 = uitofp i32 %data_len to double
   %div318 = fdiv reassoc nsz arcp double %mul316, %conv317
-  %call319 = tail call reassoc nsz arcp double @log(double noundef %div318) #6
+  %call319 = tail call reassoc nsz arcp double @log(double noundef %div318) #5
   %div320 = fmul reassoc nsz arcp double %call319, 0x3FF71547652B82FE
   %10 = fptrunc double %div320 to float
   br label %cond.end322
 
 cond.end322:                                      ; preds = %cond.end308, %cond.true314
   %cond323 = phi float [ %10, %cond.true314 ], [ 0.000000e+00, %cond.end308 ]
-  %arrayidx325 = getelementptr inbounds float, ptr %residual_bits_per_sample, i64 2
+  %arrayidx325 = getelementptr inbounds i8, ptr %residual_bits_per_sample, i64 8
   store float %cond323, ptr %arrayidx325, align 4
   %cmp326.not = icmp eq i64 %total_error_3.0.lcssa, 0
   br i1 %cmp326.not, label %cond.end336, label %cond.true328
@@ -328,14 +328,14 @@ cond.true328:                                     ; preds = %cond.end322
   %mul330 = fmul reassoc nsz arcp double %conv329, 0x3FE62E42FEFA39EF
   %conv331 = uitofp i32 %data_len to double
   %div332 = fdiv reassoc nsz arcp double %mul330, %conv331
-  %call333 = tail call reassoc nsz arcp double @log(double noundef %div332) #6
+  %call333 = tail call reassoc nsz arcp double @log(double noundef %div332) #5
   %div334 = fmul reassoc nsz arcp double %call333, 0x3FF71547652B82FE
   %11 = fptrunc double %div334 to float
   br label %cond.end336
 
 cond.end336:                                      ; preds = %cond.end322, %cond.true328
   %cond337 = phi float [ %11, %cond.true328 ], [ 0.000000e+00, %cond.end322 ]
-  %arrayidx339 = getelementptr inbounds float, ptr %residual_bits_per_sample, i64 3
+  %arrayidx339 = getelementptr inbounds i8, ptr %residual_bits_per_sample, i64 12
   store float %cond337, ptr %arrayidx339, align 4
   %cmp340.not = icmp eq i64 %total_error_4.0.lcssa, 0
   br i1 %cmp340.not, label %cond.end350, label %cond.true342
@@ -345,20 +345,20 @@ cond.true342:                                     ; preds = %cond.end336
   %mul344 = fmul reassoc nsz arcp double %conv343, 0x3FE62E42FEFA39EF
   %conv345 = uitofp i32 %data_len to double
   %div346 = fdiv reassoc nsz arcp double %mul344, %conv345
-  %call347 = tail call reassoc nsz arcp double @log(double noundef %div346) #6
+  %call347 = tail call reassoc nsz arcp double @log(double noundef %div346) #5
   %div348 = fmul reassoc nsz arcp double %call347, 0x3FF71547652B82FE
   %12 = fptrunc double %div348 to float
   br label %cond.end350
 
 cond.end350:                                      ; preds = %cond.end336, %cond.true342
   %cond351 = phi float [ %12, %cond.true342 ], [ 0.000000e+00, %cond.end336 ]
-  %arrayidx353 = getelementptr inbounds float, ptr %residual_bits_per_sample, i64 4
+  %arrayidx353 = getelementptr inbounds i8, ptr %residual_bits_per_sample, i64 16
   store float %cond351, ptr %arrayidx353, align 4
   ret i32 %order.0156
 }
 
 ; Function Attrs: nofree nounwind sspstrong memory(write, argmem: readwrite) uwtable
-define hidden i32 @FLAC__fixed_compute_best_predictor_limit_residual(ptr nocapture noundef readonly %data, i32 noundef %data_len, ptr nocapture noundef writeonly %residual_bits_per_sample) local_unnamed_addr #0 {
+define hidden noundef i32 @FLAC__fixed_compute_best_predictor_limit_residual(ptr nocapture noundef readonly %data, i32 noundef %data_len, ptr nocapture noundef writeonly %residual_bits_per_sample) local_unnamed_addr #0 {
 entry:
   %cmp171 = icmp sgt i32 %data_len, -4
   br i1 %cmp171, label %for.body.preheader, label %if.end302.thread
@@ -387,7 +387,7 @@ for.body:                                         ; preds = %for.body.preheader,
   br i1 %cmp9, label %cond.end44, label %cond.end261
 
 cond.end44:                                       ; preds = %for.body
-  %arrayidx17 = getelementptr i32, ptr %arrayidx, i64 -1
+  %arrayidx17 = getelementptr i8, ptr %arrayidx, i64 -4
   %1 = load i32, ptr %arrayidx17, align 4
   %conv18 = sext i32 %1 to i64
   %sub19 = sub nsw i64 %conv, %conv18
@@ -398,7 +398,7 @@ cond.end44:                                       ; preds = %for.body
 cond.end97:                                       ; preds = %cond.end44
   %3 = shl nsw i64 %conv18, 1
   %sub56 = sub nsw i64 %conv, %3
-  %arrayidx59 = getelementptr i32, ptr %arrayidx, i64 -2
+  %arrayidx59 = getelementptr i8, ptr %arrayidx, i64 -8
   %4 = load i32, ptr %arrayidx59, align 4
   %conv60 = sext i32 %4 to i64
   %add = add nsw i64 %sub56, %conv60
@@ -407,7 +407,7 @@ cond.end97:                                       ; preds = %cond.end44
   br i1 %cmp99, label %cond.end170, label %cond.end261
 
 cond.end170:                                      ; preds = %cond.end97
-  %arrayidx119 = getelementptr i32, ptr %arrayidx, i64 -3
+  %arrayidx119 = getelementptr i8, ptr %arrayidx, i64 -12
   %5 = load i32, ptr %arrayidx119, align 4
   %conv120 = sext i32 %5 to i64
   %reass.add = sub nsw i64 %conv60, %conv18
@@ -422,7 +422,7 @@ cond.true174:                                     ; preds = %cond.end170
   %mul188 = mul nsw i64 %conv60, 6
   %6 = add nsw i64 %mul188, %conv
   %mul182138 = add nsw i64 %conv120, %conv18
-  %arrayidx198 = getelementptr i32, ptr %arrayidx, i64 -4
+  %arrayidx198 = getelementptr i8, ptr %arrayidx, i64 -16
   %7 = load i32, ptr %arrayidx198, align 4
   %conv199 = sext i32 %7 to i64
   %sub195 = add nsw i64 %6, %conv199
@@ -477,7 +477,7 @@ cond.true291:                                     ; preds = %if.then288
   %mul293 = fmul reassoc nsz arcp double %conv292, 0x3FE62E42FEFA39EF
   %conv294 = uitofp i32 %data_len to double
   %div = fdiv reassoc nsz arcp double %mul293, %conv294
-  %call = tail call reassoc nsz arcp double @log(double noundef %div) #6
+  %call = tail call reassoc nsz arcp double @log(double noundef %div) #5
   %div295 = fmul reassoc nsz arcp double %call, 0x3FF71547652B82FE
   %15 = fptrunc double %div295 to float
   br label %if.end302
@@ -509,7 +509,7 @@ cond.true310:                                     ; preds = %if.then307
   %mul312 = fmul reassoc nsz arcp double %conv311, 0x3FE62E42FEFA39EF
   %conv313 = uitofp i32 %data_len to double
   %div314 = fdiv reassoc nsz arcp double %mul312, %conv313
-  %call315 = tail call reassoc nsz arcp double @log(double noundef %div314) #6
+  %call315 = tail call reassoc nsz arcp double @log(double noundef %div314) #5
   %div316 = fmul reassoc nsz arcp double %call315, 0x3FF71547652B82FE
   %16 = fptrunc double %div316 to float
   br label %if.end324
@@ -525,7 +525,7 @@ if.end324:                                        ; preds = %if.end302, %if.end3
   %total_error_4.0.lcssa207 = phi i64 [ %add267, %cond.true310 ], [ %add267, %if.then307 ], [ %total_error_4.0.lcssa209255, %if.end302.thread ], [ %add267, %if.end302 ]
   %smallest_error.1 = phi i64 [ %add264, %cond.true310 ], [ %add264, %if.then307 ], [ 0, %if.end302.thread ], [ %smallest_error.0, %if.end302 ]
   %order.1 = phi i32 [ 1, %cond.true310 ], [ 1, %if.then307 ], [ 0, %if.end302.thread ], [ 0, %if.end302 ]
-  %arrayidx323 = getelementptr inbounds float, ptr %residual_bits_per_sample, i64 1
+  %arrayidx323 = getelementptr inbounds i8, ptr %residual_bits_per_sample, i64 4
   store float %.sink, ptr %arrayidx323, align 4
   %cmp327 = icmp ult i64 %total_error_2.0.lcssa215, %smallest_error.1
   %or.cond140 = select i1 %order_2_is_valid.0.lcssa227, i1 %cmp327, i1 false
@@ -540,7 +540,7 @@ cond.true332:                                     ; preds = %if.then329
   %mul334 = fmul reassoc nsz arcp double %conv333, 0x3FE62E42FEFA39EF
   %conv335 = uitofp i32 %data_len to double
   %div336 = fdiv reassoc nsz arcp double %mul334, %conv335
-  %call337 = tail call reassoc nsz arcp double @log(double noundef %div336) #6
+  %call337 = tail call reassoc nsz arcp double @log(double noundef %div336) #5
   %div338 = fmul reassoc nsz arcp double %call337, 0x3FF71547652B82FE
   %17 = fptrunc double %div338 to float
   br label %if.end346
@@ -549,7 +549,7 @@ if.end346:                                        ; preds = %if.end324, %cond.tr
   %.sink297 = phi float [ %17, %cond.true332 ], [ 0.000000e+00, %if.then329 ], [ 3.400000e+01, %if.end324 ]
   %smallest_error.2 = phi i64 [ %total_error_2.0.lcssa215, %cond.true332 ], [ %total_error_2.0.lcssa215, %if.then329 ], [ %smallest_error.1, %if.end324 ]
   %order.2 = phi i32 [ 2, %cond.true332 ], [ 2, %if.then329 ], [ %order.1, %if.end324 ]
-  %arrayidx345 = getelementptr inbounds float, ptr %residual_bits_per_sample, i64 2
+  %arrayidx345 = getelementptr inbounds i8, ptr %residual_bits_per_sample, i64 8
   store float %.sink297, ptr %arrayidx345, align 4
   %cmp349 = icmp ult i64 %total_error_3.0.lcssa211, %smallest_error.2
   %or.cond141 = select i1 %order_3_is_valid.0.lcssa231, i1 %cmp349, i1 false
@@ -564,7 +564,7 @@ cond.true354:                                     ; preds = %if.then351
   %mul356 = fmul reassoc nsz arcp double %conv355, 0x3FE62E42FEFA39EF
   %conv357 = uitofp i32 %data_len to double
   %div358 = fdiv reassoc nsz arcp double %mul356, %conv357
-  %call359 = tail call reassoc nsz arcp double @log(double noundef %div358) #6
+  %call359 = tail call reassoc nsz arcp double @log(double noundef %div358) #5
   %div360 = fmul reassoc nsz arcp double %call359, 0x3FF71547652B82FE
   %18 = fptrunc double %div360 to float
   br label %if.end368
@@ -573,7 +573,7 @@ if.end368:                                        ; preds = %if.end346, %cond.tr
   %.sink298 = phi float [ %18, %cond.true354 ], [ 0.000000e+00, %if.then351 ], [ 3.400000e+01, %if.end346 ]
   %smallest_error.3 = phi i64 [ %total_error_3.0.lcssa211, %cond.true354 ], [ %total_error_3.0.lcssa211, %if.then351 ], [ %smallest_error.2, %if.end346 ]
   %order.3 = phi i32 [ 3, %cond.true354 ], [ 3, %if.then351 ], [ %order.2, %if.end346 ]
-  %arrayidx367 = getelementptr inbounds float, ptr %residual_bits_per_sample, i64 3
+  %arrayidx367 = getelementptr inbounds i8, ptr %residual_bits_per_sample, i64 12
   store float %.sink298, ptr %arrayidx367, align 4
   %cmp371 = icmp ult i64 %total_error_4.0.lcssa207, %smallest_error.3
   %or.cond142 = select i1 %order_4_is_valid.0.lcssa235, i1 %cmp371, i1 false
@@ -588,7 +588,7 @@ cond.true376:                                     ; preds = %if.then373
   %mul378 = fmul reassoc nsz arcp double %conv377, 0x3FE62E42FEFA39EF
   %conv379 = uitofp i32 %data_len to double
   %div380 = fdiv reassoc nsz arcp double %mul378, %conv379
-  %call381 = tail call reassoc nsz arcp double @log(double noundef %div380) #6
+  %call381 = tail call reassoc nsz arcp double @log(double noundef %div380) #5
   %div382 = fmul reassoc nsz arcp double %call381, 0x3FF71547652B82FE
   %19 = fptrunc double %div382 to float
   br label %if.end390
@@ -596,13 +596,13 @@ cond.true376:                                     ; preds = %if.then373
 if.end390:                                        ; preds = %if.end368, %cond.true376, %if.then373
   %.sink299 = phi float [ %19, %cond.true376 ], [ 0.000000e+00, %if.then373 ], [ 3.400000e+01, %if.end368 ]
   %order.4 = phi i32 [ 4, %cond.true376 ], [ 4, %if.then373 ], [ %order.3, %if.end368 ]
-  %arrayidx389 = getelementptr inbounds float, ptr %residual_bits_per_sample, i64 4
+  %arrayidx389 = getelementptr inbounds i8, ptr %residual_bits_per_sample, i64 16
   store float %.sink299, ptr %arrayidx389, align 4
   ret i32 %order.4
 }
 
 ; Function Attrs: nofree nounwind sspstrong memory(write, argmem: readwrite) uwtable
-define hidden i32 @FLAC__fixed_compute_best_predictor_limit_residual_33bit(ptr nocapture noundef readonly %data, i32 noundef %data_len, ptr nocapture noundef writeonly %residual_bits_per_sample) local_unnamed_addr #0 {
+define hidden noundef i32 @FLAC__fixed_compute_best_predictor_limit_residual_33bit(ptr nocapture noundef readonly %data, i32 noundef %data_len, ptr nocapture noundef writeonly %residual_bits_per_sample) local_unnamed_addr #0 {
 entry:
   %cmp172 = icmp sgt i32 %data_len, -4
   br i1 %cmp172, label %for.body.preheader, label %if.end241.thread
@@ -630,7 +630,7 @@ for.body:                                         ; preds = %for.body.preheader,
   br i1 %cmp6, label %cond.end33, label %cond.end208
 
 cond.end33:                                       ; preds = %for.body
-  %arrayidx12 = getelementptr i64, ptr %arrayidx, i64 -1
+  %arrayidx12 = getelementptr i8, ptr %arrayidx, i64 -8
   %1 = load i64, ptr %arrayidx12, align 8
   %sub13 = sub nsw i64 %0, %1
   %spec.select143 = tail call i64 @llvm.abs.i64(i64 %sub13, i1 true)
@@ -640,7 +640,7 @@ cond.end33:                                       ; preds = %for.body
 cond.end75:                                       ; preds = %cond.end33
   %3 = shl i64 %1, 1
   %sub42 = sub i64 %0, %3
-  %arrayidx45 = getelementptr i64, ptr %arrayidx, i64 -2
+  %arrayidx45 = getelementptr i8, ptr %arrayidx, i64 -16
   %4 = load i64, ptr %arrayidx45, align 8
   %add = add nsw i64 %sub42, %4
   %spec.select144 = tail call i64 @llvm.abs.i64(i64 %add, i1 true)
@@ -648,7 +648,7 @@ cond.end75:                                       ; preds = %cond.end33
   br i1 %cmp77, label %cond.end134, label %cond.end208
 
 cond.end134:                                      ; preds = %cond.end75
-  %arrayidx93 = getelementptr i64, ptr %arrayidx, i64 -3
+  %arrayidx93 = getelementptr i8, ptr %arrayidx, i64 -24
   %5 = load i64, ptr %arrayidx93, align 8
   %reass.add = sub i64 %4, %1
   %reass.mul = mul i64 %reass.add, 3
@@ -662,7 +662,7 @@ cond.true137:                                     ; preds = %cond.end134
   %mul148 = mul nsw i64 %4, 6
   %6 = add i64 %mul148, %0
   %mul143138 = add i64 %5, %1
-  %arrayidx157 = getelementptr i64, ptr %arrayidx, i64 -4
+  %arrayidx157 = getelementptr i8, ptr %arrayidx, i64 -32
   %7 = load i64, ptr %arrayidx157, align 8
   %sub154 = add i64 %6, %7
   %8 = shl i64 %mul143138, 2
@@ -716,7 +716,7 @@ cond.true231:                                     ; preds = %if.then229
   %mul232 = fmul reassoc nsz arcp double %conv, 0x3FE62E42FEFA39EF
   %conv233 = uitofp i32 %data_len to double
   %div = fdiv reassoc nsz arcp double %mul232, %conv233
-  %call = tail call reassoc nsz arcp double @log(double noundef %div) #6
+  %call = tail call reassoc nsz arcp double @log(double noundef %div) #5
   %div234 = fmul reassoc nsz arcp double %call, 0x3FF71547652B82FE
   %15 = fptrunc double %div234 to float
   br label %if.end241
@@ -748,7 +748,7 @@ cond.true249:                                     ; preds = %if.then246
   %mul251 = fmul reassoc nsz arcp double %conv250, 0x3FE62E42FEFA39EF
   %conv252 = uitofp i32 %data_len to double
   %div253 = fdiv reassoc nsz arcp double %mul251, %conv252
-  %call254 = tail call reassoc nsz arcp double @log(double noundef %div253) #6
+  %call254 = tail call reassoc nsz arcp double @log(double noundef %div253) #5
   %div255 = fmul reassoc nsz arcp double %call254, 0x3FF71547652B82FE
   %16 = fptrunc double %div255 to float
   br label %if.end263
@@ -764,7 +764,7 @@ if.end263:                                        ; preds = %if.end241, %if.end2
   %total_error_4.0.lcssa207 = phi i64 [ %add214, %cond.true249 ], [ %add214, %if.then246 ], [ %total_error_4.0.lcssa209255, %if.end241.thread ], [ %add214, %if.end241 ]
   %smallest_error.1 = phi i64 [ %add211, %cond.true249 ], [ %add211, %if.then246 ], [ 0, %if.end241.thread ], [ %smallest_error.0, %if.end241 ]
   %order.1 = phi i32 [ 1, %cond.true249 ], [ 1, %if.then246 ], [ 0, %if.end241.thread ], [ 0, %if.end241 ]
-  %arrayidx262 = getelementptr inbounds float, ptr %residual_bits_per_sample, i64 1
+  %arrayidx262 = getelementptr inbounds i8, ptr %residual_bits_per_sample, i64 4
   store float %.sink, ptr %arrayidx262, align 4
   %cmp266 = icmp ult i64 %total_error_2.0.lcssa215, %smallest_error.1
   %or.cond140 = select i1 %order_2_is_valid.0.lcssa227, i1 %cmp266, i1 false
@@ -779,7 +779,7 @@ cond.true271:                                     ; preds = %if.then268
   %mul273 = fmul reassoc nsz arcp double %conv272, 0x3FE62E42FEFA39EF
   %conv274 = uitofp i32 %data_len to double
   %div275 = fdiv reassoc nsz arcp double %mul273, %conv274
-  %call276 = tail call reassoc nsz arcp double @log(double noundef %div275) #6
+  %call276 = tail call reassoc nsz arcp double @log(double noundef %div275) #5
   %div277 = fmul reassoc nsz arcp double %call276, 0x3FF71547652B82FE
   %17 = fptrunc double %div277 to float
   br label %if.end285
@@ -788,7 +788,7 @@ if.end285:                                        ; preds = %if.end263, %cond.tr
   %.sink297 = phi float [ %17, %cond.true271 ], [ 0.000000e+00, %if.then268 ], [ 3.400000e+01, %if.end263 ]
   %smallest_error.2 = phi i64 [ %total_error_2.0.lcssa215, %cond.true271 ], [ %total_error_2.0.lcssa215, %if.then268 ], [ %smallest_error.1, %if.end263 ]
   %order.2 = phi i32 [ 2, %cond.true271 ], [ 2, %if.then268 ], [ %order.1, %if.end263 ]
-  %arrayidx284 = getelementptr inbounds float, ptr %residual_bits_per_sample, i64 2
+  %arrayidx284 = getelementptr inbounds i8, ptr %residual_bits_per_sample, i64 8
   store float %.sink297, ptr %arrayidx284, align 4
   %cmp288 = icmp ult i64 %total_error_3.0.lcssa211, %smallest_error.2
   %or.cond141 = select i1 %order_3_is_valid.0.lcssa231, i1 %cmp288, i1 false
@@ -803,7 +803,7 @@ cond.true293:                                     ; preds = %if.then290
   %mul295 = fmul reassoc nsz arcp double %conv294, 0x3FE62E42FEFA39EF
   %conv296 = uitofp i32 %data_len to double
   %div297 = fdiv reassoc nsz arcp double %mul295, %conv296
-  %call298 = tail call reassoc nsz arcp double @log(double noundef %div297) #6
+  %call298 = tail call reassoc nsz arcp double @log(double noundef %div297) #5
   %div299 = fmul reassoc nsz arcp double %call298, 0x3FF71547652B82FE
   %18 = fptrunc double %div299 to float
   br label %if.end307
@@ -812,7 +812,7 @@ if.end307:                                        ; preds = %if.end285, %cond.tr
   %.sink298 = phi float [ %18, %cond.true293 ], [ 0.000000e+00, %if.then290 ], [ 3.400000e+01, %if.end285 ]
   %smallest_error.3 = phi i64 [ %total_error_3.0.lcssa211, %cond.true293 ], [ %total_error_3.0.lcssa211, %if.then290 ], [ %smallest_error.2, %if.end285 ]
   %order.3 = phi i32 [ 3, %cond.true293 ], [ 3, %if.then290 ], [ %order.2, %if.end285 ]
-  %arrayidx306 = getelementptr inbounds float, ptr %residual_bits_per_sample, i64 3
+  %arrayidx306 = getelementptr inbounds i8, ptr %residual_bits_per_sample, i64 12
   store float %.sink298, ptr %arrayidx306, align 4
   %cmp310 = icmp ult i64 %total_error_4.0.lcssa207, %smallest_error.3
   %or.cond142 = select i1 %order_4_is_valid.0.lcssa235, i1 %cmp310, i1 false
@@ -827,7 +827,7 @@ cond.true315:                                     ; preds = %if.then312
   %mul317 = fmul reassoc nsz arcp double %conv316, 0x3FE62E42FEFA39EF
   %conv318 = uitofp i32 %data_len to double
   %div319 = fdiv reassoc nsz arcp double %mul317, %conv318
-  %call320 = tail call reassoc nsz arcp double @log(double noundef %div319) #6
+  %call320 = tail call reassoc nsz arcp double @log(double noundef %div319) #5
   %div321 = fmul reassoc nsz arcp double %call320, 0x3FF71547652B82FE
   %19 = fptrunc double %div321 to float
   br label %if.end329
@@ -835,12 +835,12 @@ cond.true315:                                     ; preds = %if.then312
 if.end329:                                        ; preds = %if.end307, %cond.true315, %if.then312
   %.sink299 = phi float [ %19, %cond.true315 ], [ 0.000000e+00, %if.then312 ], [ 3.400000e+01, %if.end307 ]
   %order.4 = phi i32 [ 4, %cond.true315 ], [ 4, %if.then312 ], [ %order.3, %if.end307 ]
-  %arrayidx328 = getelementptr inbounds float, ptr %residual_bits_per_sample, i64 4
+  %arrayidx328 = getelementptr inbounds i8, ptr %residual_bits_per_sample, i64 16
   store float %.sink299, ptr %arrayidx328, align 4
   ret i32 %order.4
 }
 
-; Function Attrs: nofree nosync nounwind sspstrong memory(argmem: readwrite) uwtable
+; Function Attrs: nofree norecurse nosync nounwind sspstrong memory(argmem: readwrite) uwtable
 define hidden void @FLAC__fixed_compute_residual(ptr nocapture noundef readonly %data, i32 noundef %data_len, i32 noundef %order, ptr nocapture noundef writeonly %residual) local_unnamed_addr #2 {
 entry:
   switch i32 %order, label %sw.epilog [
@@ -893,7 +893,7 @@ for.body:                                         ; preds = %for.body.preheader,
   %indvars.iv77 = phi i64 [ 0, %for.body.preheader ], [ %indvars.iv.next78, %for.body ]
   %arrayidx = getelementptr inbounds i32, ptr %data, i64 %indvars.iv77
   %0 = load i32, ptr %arrayidx, align 4
-  %arrayidx4 = getelementptr i32, ptr %arrayidx, i64 -1
+  %arrayidx4 = getelementptr i8, ptr %arrayidx, i64 -4
   %1 = load i32, ptr %arrayidx4, align 4
   %sub5 = sub nsw i32 %0, %1
   %arrayidx7 = getelementptr inbounds i32, ptr %residual, i64 %indvars.iv77
@@ -906,11 +906,11 @@ for.body12:                                       ; preds = %for.body12.preheade
   %indvars.iv72 = phi i64 [ 0, %for.body12.preheader ], [ %indvars.iv.next73, %for.body12 ]
   %arrayidx14 = getelementptr inbounds i32, ptr %data, i64 %indvars.iv72
   %2 = load i32, ptr %arrayidx14, align 4
-  %arrayidx17 = getelementptr i32, ptr %arrayidx14, i64 -1
+  %arrayidx17 = getelementptr i8, ptr %arrayidx14, i64 -4
   %3 = load i32, ptr %arrayidx17, align 4
   %4 = shl i32 %3, 1
   %sub19 = sub i32 %2, %4
-  %arrayidx22 = getelementptr i32, ptr %arrayidx14, i64 -2
+  %arrayidx22 = getelementptr i8, ptr %arrayidx14, i64 -8
   %5 = load i32, ptr %arrayidx22, align 4
   %add = add nsw i32 %sub19, %5
   %arrayidx24 = getelementptr inbounds i32, ptr %residual, i64 %indvars.iv72
@@ -923,11 +923,11 @@ for.body32:                                       ; preds = %for.body32.preheade
   %indvars.iv67 = phi i64 [ 0, %for.body32.preheader ], [ %indvars.iv.next68, %for.body32 ]
   %arrayidx34 = getelementptr inbounds i32, ptr %data, i64 %indvars.iv67
   %6 = load i32, ptr %arrayidx34, align 4
-  %arrayidx37 = getelementptr i32, ptr %arrayidx34, i64 -1
+  %arrayidx37 = getelementptr i8, ptr %arrayidx34, i64 -4
   %7 = load i32, ptr %arrayidx37, align 4
-  %arrayidx42 = getelementptr i32, ptr %arrayidx34, i64 -2
+  %arrayidx42 = getelementptr i8, ptr %arrayidx34, i64 -8
   %8 = load i32, ptr %arrayidx42, align 4
-  %arrayidx47 = getelementptr i32, ptr %arrayidx34, i64 -3
+  %arrayidx47 = getelementptr i8, ptr %arrayidx34, i64 -12
   %9 = load i32, ptr %arrayidx47, align 4
   %reass.add = sub i32 %8, %7
   %reass.mul = mul i32 %reass.add, 3
@@ -943,16 +943,16 @@ for.body58:                                       ; preds = %for.body58.preheade
   %indvars.iv = phi i64 [ 0, %for.body58.preheader ], [ %indvars.iv.next, %for.body58 ]
   %arrayidx60 = getelementptr inbounds i32, ptr %data, i64 %indvars.iv
   %10 = load i32, ptr %arrayidx60, align 4
-  %arrayidx63 = getelementptr i32, ptr %arrayidx60, i64 -1
+  %arrayidx63 = getelementptr i8, ptr %arrayidx60, i64 -4
   %11 = load i32, ptr %arrayidx63, align 4
-  %arrayidx68 = getelementptr i32, ptr %arrayidx60, i64 -2
+  %arrayidx68 = getelementptr i8, ptr %arrayidx60, i64 -8
   %12 = load i32, ptr %arrayidx68, align 4
   %mul69 = mul nsw i32 %12, 6
-  %arrayidx73 = getelementptr i32, ptr %arrayidx60, i64 -3
+  %arrayidx73 = getelementptr i8, ptr %arrayidx60, i64 -12
   %13 = load i32, ptr %arrayidx73, align 4
   %14 = add i32 %mul69, %10
   %mul6448 = add i32 %13, %11
-  %arrayidx78 = getelementptr i32, ptr %arrayidx60, i64 -4
+  %arrayidx78 = getelementptr i8, ptr %arrayidx60, i64 -16
   %15 = load i32, ptr %arrayidx78, align 4
   %sub75 = add i32 %14, %15
   %16 = shl i32 %mul6448, 2
@@ -970,7 +970,7 @@ sw.epilog:                                        ; preds = %for.body58, %for.bo
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
 declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #3
 
-; Function Attrs: nofree nosync nounwind sspstrong memory(argmem: readwrite) uwtable
+; Function Attrs: nofree norecurse nosync nounwind sspstrong memory(argmem: readwrite) uwtable
 define hidden void @FLAC__fixed_compute_residual_wide(ptr nocapture noundef readonly %data, i32 noundef %data_len, i32 noundef %order, ptr nocapture noundef writeonly %residual) local_unnamed_addr #2 {
 entry:
   switch i32 %order, label %sw.epilog [
@@ -1023,7 +1023,7 @@ for.body:                                         ; preds = %for.body.preheader,
   %indvars.iv77 = phi i64 [ 0, %for.body.preheader ], [ %indvars.iv.next78, %for.body ]
   %arrayidx = getelementptr inbounds i32, ptr %data, i64 %indvars.iv77
   %0 = load i32, ptr %arrayidx, align 4
-  %arrayidx5 = getelementptr i32, ptr %arrayidx, i64 -1
+  %arrayidx5 = getelementptr i8, ptr %arrayidx, i64 -4
   %1 = load i32, ptr %arrayidx5, align 4
   %sub7 = sub i32 %0, %1
   %arrayidx10 = getelementptr inbounds i32, ptr %residual, i64 %indvars.iv77
@@ -1036,11 +1036,11 @@ for.body15:                                       ; preds = %for.body15.preheade
   %indvars.iv72 = phi i64 [ 0, %for.body15.preheader ], [ %indvars.iv.next73, %for.body15 ]
   %arrayidx17 = getelementptr inbounds i32, ptr %data, i64 %indvars.iv72
   %2 = load i32, ptr %arrayidx17, align 4
-  %arrayidx21 = getelementptr i32, ptr %arrayidx17, i64 -1
+  %arrayidx21 = getelementptr i8, ptr %arrayidx17, i64 -4
   %3 = load i32, ptr %arrayidx21, align 4
   %4 = shl i32 %3, 1
   %sub24 = sub i32 %2, %4
-  %arrayidx27 = getelementptr i32, ptr %arrayidx17, i64 -2
+  %arrayidx27 = getelementptr i8, ptr %arrayidx17, i64 -8
   %5 = load i32, ptr %arrayidx27, align 4
   %add = add i32 %sub24, %5
   %arrayidx31 = getelementptr inbounds i32, ptr %residual, i64 %indvars.iv72
@@ -1053,11 +1053,11 @@ for.body39:                                       ; preds = %for.body39.preheade
   %indvars.iv67 = phi i64 [ 0, %for.body39.preheader ], [ %indvars.iv.next68, %for.body39 ]
   %arrayidx41 = getelementptr inbounds i32, ptr %data, i64 %indvars.iv67
   %6 = load i32, ptr %arrayidx41, align 4
-  %arrayidx45 = getelementptr i32, ptr %arrayidx41, i64 -1
+  %arrayidx45 = getelementptr i8, ptr %arrayidx41, i64 -4
   %7 = load i32, ptr %arrayidx45, align 4
-  %arrayidx51 = getelementptr i32, ptr %arrayidx41, i64 -2
+  %arrayidx51 = getelementptr i8, ptr %arrayidx41, i64 -8
   %8 = load i32, ptr %arrayidx51, align 4
-  %arrayidx57 = getelementptr i32, ptr %arrayidx41, i64 -3
+  %arrayidx57 = getelementptr i8, ptr %arrayidx41, i64 -12
   %9 = load i32, ptr %arrayidx57, align 4
   %reass.add = sub i32 %8, %7
   %reass.mul = mul i32 %reass.add, 3
@@ -1073,16 +1073,16 @@ for.body70:                                       ; preds = %for.body70.preheade
   %indvars.iv = phi i64 [ 0, %for.body70.preheader ], [ %indvars.iv.next, %for.body70 ]
   %arrayidx72 = getelementptr inbounds i32, ptr %data, i64 %indvars.iv
   %10 = load i32, ptr %arrayidx72, align 4
-  %arrayidx76 = getelementptr i32, ptr %arrayidx72, i64 -1
+  %arrayidx76 = getelementptr i8, ptr %arrayidx72, i64 -4
   %11 = load i32, ptr %arrayidx76, align 4
-  %arrayidx82 = getelementptr i32, ptr %arrayidx72, i64 -2
+  %arrayidx82 = getelementptr i8, ptr %arrayidx72, i64 -8
   %12 = load i32, ptr %arrayidx82, align 4
   %mul84 = mul i32 %12, 6
-  %arrayidx88 = getelementptr i32, ptr %arrayidx72, i64 -3
+  %arrayidx88 = getelementptr i8, ptr %arrayidx72, i64 -12
   %13 = load i32, ptr %arrayidx88, align 4
   %14 = add i32 %mul84, %10
   %mul7848 = add i32 %13, %11
-  %arrayidx94 = getelementptr i32, ptr %arrayidx72, i64 -4
+  %arrayidx94 = getelementptr i8, ptr %arrayidx72, i64 -16
   %15 = load i32, ptr %arrayidx94, align 4
   %sub91 = add i32 %14, %15
   %16 = shl i32 %mul7848, 2
@@ -1098,7 +1098,7 @@ sw.epilog:                                        ; preds = %for.body70, %for.bo
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind sspstrong memory(argmem: readwrite) uwtable
-define hidden void @FLAC__fixed_compute_residual_wide_33bit(ptr nocapture noundef readonly %data, i32 noundef %data_len, i32 noundef %order, ptr nocapture noundef writeonly %residual) local_unnamed_addr #4 {
+define hidden void @FLAC__fixed_compute_residual_wide_33bit(ptr nocapture noundef readonly %data, i32 noundef %data_len, i32 noundef %order, ptr nocapture noundef writeonly %residual) local_unnamed_addr #2 {
 entry:
   switch i32 %order, label %sw.epilog [
     i32 0, label %for.cond.preheader
@@ -1163,7 +1163,7 @@ for.body7:                                        ; preds = %for.body7.preheader
   %indvars.iv85 = phi i64 [ 0, %for.body7.preheader ], [ %indvars.iv.next86, %for.body7 ]
   %arrayidx9 = getelementptr inbounds i64, ptr %data, i64 %indvars.iv85
   %1 = load i64, ptr %arrayidx9, align 8
-  %arrayidx11 = getelementptr i64, ptr %arrayidx9, i64 -1
+  %arrayidx11 = getelementptr i8, ptr %arrayidx9, i64 -8
   %2 = load i64, ptr %arrayidx11, align 8
   %sub12 = sub nsw i64 %1, %2
   %conv13 = trunc i64 %sub12 to i32
@@ -1177,11 +1177,11 @@ for.body23:                                       ; preds = %for.body23.preheade
   %indvars.iv80 = phi i64 [ 0, %for.body23.preheader ], [ %indvars.iv.next81, %for.body23 ]
   %arrayidx25 = getelementptr inbounds i64, ptr %data, i64 %indvars.iv80
   %3 = load i64, ptr %arrayidx25, align 8
-  %arrayidx28 = getelementptr i64, ptr %arrayidx25, i64 -1
+  %arrayidx28 = getelementptr i8, ptr %arrayidx25, i64 -8
   %4 = load i64, ptr %arrayidx28, align 8
   %5 = shl i64 %4, 1
   %sub29 = sub i64 %3, %5
-  %arrayidx32 = getelementptr i64, ptr %arrayidx25, i64 -2
+  %arrayidx32 = getelementptr i8, ptr %arrayidx25, i64 -16
   %6 = load i64, ptr %arrayidx32, align 8
   %add = add nsw i64 %sub29, %6
   %conv33 = trunc i64 %add to i32
@@ -1195,15 +1195,15 @@ for.body43:                                       ; preds = %for.body43.preheade
   %indvars.iv75 = phi i64 [ 0, %for.body43.preheader ], [ %indvars.iv.next76, %for.body43 ]
   %arrayidx45 = getelementptr inbounds i64, ptr %data, i64 %indvars.iv75
   %7 = load i64, ptr %arrayidx45, align 8
-  %arrayidx48 = getelementptr i64, ptr %arrayidx45, i64 -1
+  %arrayidx48 = getelementptr i8, ptr %arrayidx45, i64 -8
   %8 = load i64, ptr %arrayidx48, align 8
   %mul49.neg = mul i64 %8, 4294967293
   %sub50 = add i64 %mul49.neg, %7
-  %arrayidx53 = getelementptr i64, ptr %arrayidx45, i64 -2
+  %arrayidx53 = getelementptr i8, ptr %arrayidx45, i64 -16
   %9 = load i64, ptr %arrayidx53, align 8
   %mul54 = mul nsw i64 %9, 3
   %add55 = add i64 %sub50, %mul54
-  %arrayidx58 = getelementptr i64, ptr %arrayidx45, i64 -3
+  %arrayidx58 = getelementptr i8, ptr %arrayidx45, i64 -24
   %10 = load i64, ptr %arrayidx58, align 8
   %sub59 = sub i64 %add55, %10
   %conv60 = trunc i64 %sub59 to i32
@@ -1217,16 +1217,16 @@ for.body70:                                       ; preds = %for.body70.preheade
   %indvars.iv = phi i64 [ 0, %for.body70.preheader ], [ %indvars.iv.next, %for.body70 ]
   %arrayidx72 = getelementptr inbounds i64, ptr %data, i64 %indvars.iv
   %11 = load i64, ptr %arrayidx72, align 8
-  %arrayidx75 = getelementptr i64, ptr %arrayidx72, i64 -1
+  %arrayidx75 = getelementptr i8, ptr %arrayidx72, i64 -8
   %12 = load i64, ptr %arrayidx75, align 8
-  %arrayidx80 = getelementptr i64, ptr %arrayidx72, i64 -2
+  %arrayidx80 = getelementptr i8, ptr %arrayidx72, i64 -16
   %13 = load i64, ptr %arrayidx80, align 8
   %mul81 = mul nsw i64 %13, 6
-  %arrayidx85 = getelementptr i64, ptr %arrayidx72, i64 -3
+  %arrayidx85 = getelementptr i8, ptr %arrayidx72, i64 -24
   %14 = load i64, ptr %arrayidx85, align 8
   %15 = add i64 %mul81, %11
   %mul7652 = add i64 %14, %12
-  %arrayidx90 = getelementptr i64, ptr %arrayidx72, i64 -4
+  %arrayidx90 = getelementptr i8, ptr %arrayidx72, i64 -32
   %16 = load i64, ptr %arrayidx90, align 8
   %sub87 = add i64 %15, %16
   %17 = shl i64 %mul7652, 2
@@ -1242,7 +1242,7 @@ sw.epilog:                                        ; preds = %for.body70, %for.bo
   ret void
 }
 
-; Function Attrs: nofree nosync nounwind sspstrong memory(argmem: readwrite) uwtable
+; Function Attrs: nofree norecurse nosync nounwind sspstrong memory(argmem: readwrite) uwtable
 define hidden void @FLAC__fixed_restore_signal(ptr nocapture noundef readonly %residual, i32 noundef %data_len, i32 noundef %order, ptr nocapture noundef %data) local_unnamed_addr #2 {
 entry:
   switch i32 %order, label %sw.epilog [
@@ -1319,7 +1319,7 @@ for.body11:                                       ; preds = %for.body11.preheade
   %3 = getelementptr i32, ptr %data, i64 %indvars.iv71
   %mul17 = shl nsw i32 %store_forwarded89, 1
   %add18 = add nsw i32 %mul17, %2
-  %arrayidx21 = getelementptr i32, ptr %3, i64 -2
+  %arrayidx21 = getelementptr i8, ptr %3, i64 -8
   %4 = load i32, ptr %arrayidx21, align 4
   %sub22 = sub i32 %add18, %4
   store i32 %sub22, ptr %3, align 4
@@ -1333,9 +1333,9 @@ for.body32:                                       ; preds = %for.body32.preheade
   %arrayidx34 = getelementptr inbounds i32, ptr %residual, i64 %indvars.iv66
   %5 = load i32, ptr %arrayidx34, align 4
   %6 = getelementptr i32, ptr %data, i64 %indvars.iv66
-  %arrayidx42 = getelementptr i32, ptr %6, i64 -2
+  %arrayidx42 = getelementptr i8, ptr %6, i64 -8
   %7 = load i32, ptr %arrayidx42, align 4
-  %arrayidx47 = getelementptr i32, ptr %6, i64 -3
+  %arrayidx47 = getelementptr i8, ptr %6, i64 -12
   %8 = load i32, ptr %arrayidx47, align 4
   %reass.add48 = sub i32 %store_forwarded92, %7
   %reass.mul49 = mul i32 %reass.add48, 3
@@ -1352,12 +1352,12 @@ for.body58:                                       ; preds = %for.body58.preheade
   %arrayidx60 = getelementptr inbounds i32, ptr %residual, i64 %indvars.iv
   %9 = load i32, ptr %arrayidx60, align 4
   %10 = getelementptr i32, ptr %data, i64 %indvars.iv
-  %arrayidx68 = getelementptr i32, ptr %10, i64 -2
+  %arrayidx68 = getelementptr i8, ptr %10, i64 -8
   %11 = load i32, ptr %arrayidx68, align 4
   %mul69.neg = mul i32 %11, -6
-  %arrayidx73 = getelementptr i32, ptr %10, i64 -3
+  %arrayidx73 = getelementptr i8, ptr %10, i64 -12
   %12 = load i32, ptr %arrayidx73, align 4
-  %arrayidx78 = getelementptr i32, ptr %10, i64 -4
+  %arrayidx78 = getelementptr i8, ptr %10, i64 -16
   %13 = load i32, ptr %arrayidx78, align 4
   %reass.add = add i32 %12, %store_forwarded95
   %reass.mul = shl i32 %reass.add, 2
@@ -1373,7 +1373,7 @@ sw.epilog:                                        ; preds = %for.body58, %for.bo
   ret void
 }
 
-; Function Attrs: nofree nosync nounwind sspstrong memory(argmem: readwrite) uwtable
+; Function Attrs: nofree norecurse nosync nounwind sspstrong memory(argmem: readwrite) uwtable
 define hidden void @FLAC__fixed_restore_signal_wide(ptr nocapture noundef readonly %residual, i32 noundef %data_len, i32 noundef %order, ptr nocapture noundef %data) local_unnamed_addr #2 {
 entry:
   switch i32 %order, label %sw.epilog [
@@ -1450,7 +1450,7 @@ for.body14:                                       ; preds = %for.body14.preheade
   %3 = getelementptr i32, ptr %data, i64 %indvars.iv71
   %mul22 = shl i32 %store_forwarded89, 1
   %add23 = add i32 %mul22, %2
-  %arrayidx26 = getelementptr i32, ptr %3, i64 -2
+  %arrayidx26 = getelementptr i8, ptr %3, i64 -8
   %4 = load i32, ptr %arrayidx26, align 4
   %sub28 = sub i32 %add23, %4
   store i32 %sub28, ptr %3, align 4
@@ -1464,9 +1464,9 @@ for.body39:                                       ; preds = %for.body39.preheade
   %arrayidx41 = getelementptr inbounds i32, ptr %residual, i64 %indvars.iv66
   %5 = load i32, ptr %arrayidx41, align 4
   %6 = getelementptr i32, ptr %data, i64 %indvars.iv66
-  %arrayidx51 = getelementptr i32, ptr %6, i64 -2
+  %arrayidx51 = getelementptr i8, ptr %6, i64 -8
   %7 = load i32, ptr %arrayidx51, align 4
-  %arrayidx57 = getelementptr i32, ptr %6, i64 -3
+  %arrayidx57 = getelementptr i8, ptr %6, i64 -12
   %8 = load i32, ptr %arrayidx57, align 4
   %reass.add48 = sub i32 %store_forwarded92, %7
   %reass.mul49 = mul i32 %reass.add48, 3
@@ -1483,12 +1483,12 @@ for.body70:                                       ; preds = %for.body70.preheade
   %arrayidx72 = getelementptr inbounds i32, ptr %residual, i64 %indvars.iv
   %9 = load i32, ptr %arrayidx72, align 4
   %10 = getelementptr i32, ptr %data, i64 %indvars.iv
-  %arrayidx82 = getelementptr i32, ptr %10, i64 -2
+  %arrayidx82 = getelementptr i8, ptr %10, i64 -8
   %11 = load i32, ptr %arrayidx82, align 4
   %mul84.neg = mul i32 %11, -6
-  %arrayidx88 = getelementptr i32, ptr %10, i64 -3
+  %arrayidx88 = getelementptr i8, ptr %10, i64 -12
   %12 = load i32, ptr %arrayidx88, align 4
-  %arrayidx94 = getelementptr i32, ptr %10, i64 -4
+  %arrayidx94 = getelementptr i8, ptr %10, i64 -16
   %13 = load i32, ptr %arrayidx94, align 4
   %reass.add = add i32 %12, %store_forwarded95
   %reass.mul = shl i32 %reass.add, 2
@@ -1505,7 +1505,7 @@ sw.epilog:                                        ; preds = %for.body70, %for.bo
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind sspstrong memory(argmem: readwrite) uwtable
-define hidden void @FLAC__fixed_restore_signal_wide_33bit(ptr nocapture noundef readonly %residual, i32 noundef %data_len, i32 noundef %order, ptr nocapture noundef %data) local_unnamed_addr #4 {
+define hidden void @FLAC__fixed_restore_signal_wide_33bit(ptr nocapture noundef readonly %residual, i32 noundef %data_len, i32 noundef %order, ptr nocapture noundef %data) local_unnamed_addr #2 {
 entry:
   switch i32 %order, label %sw.epilog [
     i32 0, label %for.cond.preheader
@@ -1596,7 +1596,7 @@ for.body22:                                       ; preds = %for.body22.preheade
   %4 = getelementptr i64, ptr %data, i64 %indvars.iv79
   %mul = shl nsw i64 %store_forwarded104, 1
   %add29 = add nsw i64 %mul, %conv25
-  %arrayidx32 = getelementptr i64, ptr %4, i64 -2
+  %arrayidx32 = getelementptr i8, ptr %4, i64 -16
   %5 = load i64, ptr %arrayidx32, align 8
   %sub33 = sub i64 %add29, %5
   store i64 %sub33, ptr %4, align 8
@@ -1611,9 +1611,9 @@ for.body43:                                       ; preds = %for.body43.preheade
   %6 = load i32, ptr %arrayidx45, align 4
   %conv46 = sext i32 %6 to i64
   %7 = getelementptr i64, ptr %data, i64 %indvars.iv74
-  %arrayidx54 = getelementptr i64, ptr %7, i64 -2
+  %arrayidx54 = getelementptr i8, ptr %7, i64 -16
   %8 = load i64, ptr %arrayidx54, align 8
-  %arrayidx59 = getelementptr i64, ptr %7, i64 -3
+  %arrayidx59 = getelementptr i8, ptr %7, i64 -24
   %9 = load i64, ptr %arrayidx59, align 8
   %reass.add52 = sub i64 %store_forwarded107, %8
   %reass.mul53 = mul i64 %reass.add52, 3
@@ -1631,12 +1631,12 @@ for.body70:                                       ; preds = %for.body70.preheade
   %10 = load i32, ptr %arrayidx72, align 4
   %conv73 = sext i32 %10 to i64
   %11 = getelementptr i64, ptr %data, i64 %indvars.iv
-  %arrayidx81 = getelementptr i64, ptr %11, i64 -2
+  %arrayidx81 = getelementptr i8, ptr %11, i64 -16
   %12 = load i64, ptr %arrayidx81, align 8
   %mul82.neg = mul i64 %12, -6
-  %arrayidx86 = getelementptr i64, ptr %11, i64 -3
+  %arrayidx86 = getelementptr i8, ptr %11, i64 -24
   %13 = load i64, ptr %arrayidx86, align 8
-  %arrayidx91 = getelementptr i64, ptr %11, i64 -4
+  %arrayidx91 = getelementptr i8, ptr %11, i64 -32
   %14 = load i64, ptr %arrayidx91, align 8
   %reass.add = add i64 %13, %store_forwarded110
   %reass.mul = shl i64 %reass.add, 2
@@ -1653,24 +1653,23 @@ sw.epilog:                                        ; preds = %for.body70, %for.bo
 }
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i32 @llvm.umin.i32(i32, i32) #5
+declare i32 @llvm.umin.i32(i32, i32) #4
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i64 @llvm.umin.i64(i64, i64) #5
+declare i64 @llvm.umin.i64(i64, i64) #4
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i32 @llvm.abs.i32(i32, i1 immarg) #5
+declare i32 @llvm.abs.i32(i32, i1 immarg) #4
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i64 @llvm.abs.i64(i64, i1 immarg) #5
+declare i64 @llvm.abs.i64(i64, i1 immarg) #4
 
 attributes #0 = { nofree nounwind sspstrong memory(write, argmem: readwrite) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-signed-zeros-fp-math"="true" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { mustprogress nofree nounwind willreturn memory(write) "frame-pointer"="all" "no-signed-zeros-fp-math"="true" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #2 = { nofree nosync nounwind sspstrong memory(argmem: readwrite) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-signed-zeros-fp-math"="true" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #2 = { nofree norecurse nosync nounwind sspstrong memory(argmem: readwrite) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-signed-zeros-fp-math"="true" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #3 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
-attributes #4 = { nofree norecurse nosync nounwind sspstrong memory(argmem: readwrite) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-signed-zeros-fp-math"="true" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #5 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
-attributes #6 = { nounwind }
+attributes #4 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
+attributes #5 = { nounwind }
 
 !llvm.module.flags = !{!0, !1, !2, !3}
 

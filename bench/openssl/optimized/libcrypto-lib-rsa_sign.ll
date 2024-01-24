@@ -3,13 +3,6 @@ source_filename = "bench/openssl/original/libcrypto-lib-rsa_sign.ll"
 target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:128-n8:16:32:64-S128"
 target triple = "x86_64-unknown-linux-gnu"
 
-%struct.rsa_st = type { i32, ptr, i32, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, %struct.rsa_pss_params_30_st, ptr, ptr, %struct.crypto_ex_data_st, %struct.CRYPTO_REF_COUNT, i32, ptr, ptr, ptr, ptr, ptr, ptr, i32 }
-%struct.rsa_pss_params_30_st = type { i32, %struct.anon, i32, i32 }
-%struct.anon = type { i32, i32 }
-%struct.crypto_ex_data_st = type { ptr, ptr }
-%struct.CRYPTO_REF_COUNT = type { i32 }
-%struct.rsa_meth_st = type { ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, i32, ptr, ptr, ptr, ptr, ptr }
-
 @digestinfo_mdc2_der = internal constant [14 x i8] c"0\1C0\08\06\04U\08\03e\05\00\04\10", align 1
 @digestinfo_md4_der = internal constant [18 x i8] c"0 0\0C\06\08*\86H\86\F7\0D\02\03\05\00\04\10", align 16
 @digestinfo_md5_der = internal constant [18 x i8] c"0 0\0C\06\08*\86H\86\F7\0D\02\05\05\00\04\10", align 16
@@ -31,7 +24,7 @@ target triple = "x86_64-unknown-linux-gnu"
 @__func__.encode_pkcs1 = private unnamed_addr constant [13 x i8] c"encode_pkcs1\00", align 1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define ptr @ossl_rsa_digestinfo_encoding(i32 noundef %md_nid, ptr nocapture noundef writeonly %len) local_unnamed_addr #0 {
+define noundef ptr @ossl_rsa_digestinfo_encoding(i32 noundef %md_nid, ptr nocapture noundef writeonly %len) local_unnamed_addr #0 {
 entry:
   switch i32 %md_nid, label %return [
     i32 95, label %return.sink.split
@@ -111,9 +104,9 @@ entry:
   %tmps = alloca ptr, align 8
   store i64 0, ptr %encoded_len, align 8
   store ptr null, ptr %tmps, align 8
-  %meth = getelementptr inbounds %struct.rsa_st, ptr %rsa, i64 0, i32 3
+  %meth = getelementptr inbounds i8, ptr %rsa, i64 24
   %0 = load ptr, ptr %meth, align 8
-  %rsa_sign = getelementptr inbounds %struct.rsa_meth_st, ptr %0, i64 0, i32 11
+  %rsa_sign = getelementptr inbounds i8, ptr %0, i64 88
   %1 = load ptr, ptr %rsa_sign, align 8
   %cmp.not = icmp eq ptr %1, null
   br i1 %cmp.not, label %if.end, label %if.then
@@ -191,7 +184,7 @@ declare void @ERR_set_debug(ptr noundef, i32 noundef, ptr noundef) local_unnamed
 declare void @ERR_set_error(i32 noundef, i32 noundef, ptr noundef, ...) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @encode_pkcs1(ptr nocapture noundef writeonly %out, ptr nocapture noundef writeonly %out_len, i32 noundef %type, ptr nocapture noundef readonly %m, i64 noundef %m_len) unnamed_addr #1 {
+define internal fastcc noundef i32 @encode_pkcs1(ptr nocapture noundef writeonly %out, ptr nocapture noundef writeonly %out_len, i32 noundef %type, ptr nocapture noundef readonly %m, i64 noundef %m_len) unnamed_addr #1 {
 entry:
   switch i32 %type, label %if.then2 [
     i32 0, label %if.then
@@ -294,7 +287,7 @@ declare i32 @RSA_private_encrypt(i32 noundef, ptr noundef, ptr noundef, ptr noun
 declare void @CRYPTO_clear_free(ptr noundef, i64 noundef, ptr noundef, i32 noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define i32 @ossl_rsa_verify(i32 noundef %type, ptr nocapture noundef readonly %m, i32 noundef %m_len, ptr noundef writeonly %rm, ptr nocapture noundef writeonly %prm_len, ptr noundef %sigbuf, i64 noundef %siglen, ptr noundef %rsa) local_unnamed_addr #1 {
+define noundef i32 @ossl_rsa_verify(i32 noundef %type, ptr nocapture noundef readonly %m, i32 noundef %m_len, ptr noundef writeonly %rm, ptr nocapture noundef writeonly %prm_len, ptr noundef %sigbuf, i64 noundef %siglen, ptr noundef %rsa) local_unnamed_addr #1 {
 entry:
   %encoded_len = alloca i64, align 8
   %encoded = alloca ptr, align 8
@@ -549,9 +542,9 @@ declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias
 ; Function Attrs: nounwind uwtable
 define i32 @RSA_verify(i32 noundef %type, ptr noundef %m, i32 noundef %m_len, ptr noundef %sigbuf, i32 noundef %siglen, ptr noundef %rsa) local_unnamed_addr #1 {
 entry:
-  %meth = getelementptr inbounds %struct.rsa_st, ptr %rsa, i64 0, i32 3
+  %meth = getelementptr inbounds i8, ptr %rsa, i64 24
   %0 = load ptr, ptr %meth, align 8
-  %rsa_verify = getelementptr inbounds %struct.rsa_meth_st, ptr %0, i64 0, i32 12
+  %rsa_verify = getelementptr inbounds i8, ptr %0, i64 96
   %1 = load ptr, ptr %rsa_verify, align 8
   %cmp.not = icmp eq ptr %1, null
   br i1 %cmp.not, label %if.end, label %if.then

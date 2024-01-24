@@ -3,12 +3,6 @@ source_filename = "bench/openssl/original/libcrypto-lib-cms_dd.ll"
 target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:128-n8:16:32:64-S128"
 target triple = "x86_64-unknown-linux-gnu"
 
-%struct.CMS_ContentInfo_st = type { ptr, %union.anon, %struct.CMS_CTX_st }
-%union.anon = type { ptr }
-%struct.CMS_CTX_st = type { ptr, ptr }
-%struct.CMS_DigestedData_st = type { i32, ptr, ptr, ptr }
-%struct.asn1_string_st = type { i32, i32, ptr, i64 }
-
 @.str = private unnamed_addr constant [31 x i8] c"../openssl/crypto/cms/cms_dd.c\00", align 1
 @__func__.ossl_cms_DigestedData_do_final = private unnamed_addr constant [31 x i8] c"ossl_cms_DigestedData_do_final\00", align 1
 
@@ -28,14 +22,14 @@ if.end:                                           ; preds = %entry
 if.end5:                                          ; preds = %if.end
   %call6 = tail call ptr @OBJ_nid2obj(i32 noundef 25) #3
   store ptr %call6, ptr %call, align 8
-  %d = getelementptr inbounds %struct.CMS_ContentInfo_st, ptr %call, i64 0, i32 1
+  %d = getelementptr inbounds i8, ptr %call, i64 8
   store ptr %call2, ptr %d, align 8
   store i32 0, ptr %call2, align 8
   %call7 = tail call ptr @OBJ_nid2obj(i32 noundef 21) #3
-  %encapContentInfo = getelementptr inbounds %struct.CMS_DigestedData_st, ptr %call2, i64 0, i32 2
+  %encapContentInfo = getelementptr inbounds i8, ptr %call2, i64 16
   %0 = load ptr, ptr %encapContentInfo, align 8
   store ptr %call7, ptr %0, align 8
-  %digestAlgorithm = getelementptr inbounds %struct.CMS_DigestedData_st, ptr %call2, i64 0, i32 1
+  %digestAlgorithm = getelementptr inbounds i8, ptr %call2, i64 8
   %1 = load ptr, ptr %digestAlgorithm, align 8
   tail call void @X509_ALGOR_set_md(ptr noundef %1, ptr noundef %md) #3
   br label %return
@@ -64,9 +58,9 @@ declare void @CMS_ContentInfo_free(ptr noundef) local_unnamed_addr #1
 ; Function Attrs: nounwind uwtable
 define ptr @ossl_cms_DigestedData_init_bio(ptr noundef %cms) local_unnamed_addr #0 {
 entry:
-  %d = getelementptr inbounds %struct.CMS_ContentInfo_st, ptr %cms, i64 0, i32 1
+  %d = getelementptr inbounds i8, ptr %cms, i64 8
   %0 = load ptr, ptr %d, align 8
-  %digestAlgorithm = getelementptr inbounds %struct.CMS_DigestedData_st, ptr %0, i64 0, i32 1
+  %digestAlgorithm = getelementptr inbounds i8, ptr %0, i64 8
   %1 = load ptr, ptr %digestAlgorithm, align 8
   %call = tail call ptr @ossl_cms_get0_cmsctx(ptr noundef %cms) #3
   %call1 = tail call ptr @ossl_cms_DigestAlgorithm_init_bio(ptr noundef %1, ptr noundef %call) #3
@@ -93,9 +87,9 @@ if.then:                                          ; preds = %entry
   br label %err
 
 if.end:                                           ; preds = %entry
-  %d = getelementptr inbounds %struct.CMS_ContentInfo_st, ptr %cms, i64 0, i32 1
+  %d = getelementptr inbounds i8, ptr %cms, i64 8
   %0 = load ptr, ptr %d, align 8
-  %digestAlgorithm = getelementptr inbounds %struct.CMS_DigestedData_st, ptr %0, i64 0, i32 1
+  %digestAlgorithm = getelementptr inbounds i8, ptr %0, i64 8
   %1 = load ptr, ptr %digestAlgorithm, align 8
   %call1 = tail call i32 @ossl_cms_DigestAlgorithm_find_ctx(ptr noundef nonnull %call, ptr noundef %chain, ptr noundef %1) #3
   %tobool.not = icmp eq i32 %call1, 0
@@ -112,7 +106,7 @@ if.end7:                                          ; preds = %if.end3
 
 if.then9:                                         ; preds = %if.end7
   %2 = load i32, ptr %mdlen, align 4
-  %digest = getelementptr inbounds %struct.CMS_DigestedData_st, ptr %0, i64 0, i32 3
+  %digest = getelementptr inbounds i8, ptr %0, i64 24
   %3 = load ptr, ptr %digest, align 8
   %4 = load i32, ptr %3, align 8
   %cmp10.not = icmp eq i32 %2, %4
@@ -125,7 +119,7 @@ if.then11:                                        ; preds = %if.then9
   br label %err
 
 if.end12:                                         ; preds = %if.then9
-  %data = getelementptr inbounds %struct.asn1_string_st, ptr %3, i64 0, i32 2
+  %data = getelementptr inbounds i8, ptr %3, i64 8
   %5 = load ptr, ptr %data, align 8
   %conv = zext i32 %2 to i64
   %bcmp = call i32 @bcmp(ptr nonnull %md, ptr %5, i64 %conv)
@@ -139,7 +133,7 @@ if.then17:                                        ; preds = %if.end12
   br label %err
 
 if.else19:                                        ; preds = %if.end7
-  %digest20 = getelementptr inbounds %struct.CMS_DigestedData_st, ptr %0, i64 0, i32 3
+  %digest20 = getelementptr inbounds i8, ptr %0, i64 24
   %6 = load ptr, ptr %digest20, align 8
   %7 = load i32, ptr %mdlen, align 4
   %call22 = call i32 @ASN1_STRING_set(ptr noundef %6, ptr noundef nonnull %md, i32 noundef %7) #3

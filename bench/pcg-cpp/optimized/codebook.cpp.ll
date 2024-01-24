@@ -77,7 +77,7 @@ for.body.i.i.i.i.i:                               ; preds = %for.body.i.i.i.i.i,
   %shift.08.i.i.i.i.i = phi i64 [ 0, %for.cond.preheader.i.i.i.i.i ], [ %add.i.i.i.i.i, %for.body.i.i.i.i.i ]
   %value.07.i.i.i.i.i = phi i64 [ 0, %for.cond.preheader.i.i.i.i.i ], [ %or.i.i.i.i.i, %for.body.i.i.i.i.i ]
   %src_first.addr.16.i.i.i.i.i = phi ptr [ %src_first.addr.012.i.i.i.i.i, %for.cond.preheader.i.i.i.i.i ], [ %incdec.ptr.i.i.i.i.i, %for.body.i.i.i.i.i ]
-  %incdec.ptr.i.i.i.i.i = getelementptr inbounds i32, ptr %src_first.addr.16.i.i.i.i.i, i64 1
+  %incdec.ptr.i.i.i.i.i = getelementptr inbounds i8, ptr %src_first.addr.16.i.i.i.i.i, i64 4
   %0 = load i32, ptr %src_first.addr.16.i.i.i.i.i, align 4
   %conv.i.i.i.i.i = zext i32 %0 to i64
   %sh_prom.i.i.i.i.i = and i64 %shift.08.i.i.i.i.i, 4294967295
@@ -96,7 +96,7 @@ for.end.i.i.i.i.i:                                ; preds = %for.body.i.i.i.i.i
 
 invoke.cont:                                      ; preds = %for.end.i.i.i.i.i
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %buffer.i.i.i)
-  %arrayidx.i = getelementptr inbounds [2 x i64], ptr %seeddata.i, i64 0, i64 1
+  %arrayidx.i = getelementptr inbounds i8, ptr %seeddata.i, i64 8
   %1 = load i64, ptr %arrayidx.i, align 8
   %2 = load i64, ptr %seeddata.i, align 16
   %shl.i.i.i.i = shl i64 %2, 1
@@ -121,7 +121,7 @@ _ZN10pcg_extras13seed_seq_fromISt13random_deviceED2Ev.exit: ; preds = %invoke.co
   %vbase.offset.ptr.i = getelementptr i8, ptr %vtable.i, i64 -24
   %vbase.offset.i = load i64, ptr %vbase.offset.ptr.i, align 8
   %add.ptr.i = getelementptr inbounds i8, ptr %call, i64 %vbase.offset.i
-  %_M_flags.i.i = getelementptr inbounds %"class.std::ios_base", ptr %add.ptr.i, i64 0, i32 3
+  %_M_flags.i.i = getelementptr inbounds i8, ptr %add.ptr.i, i64 24
   %5 = load i32, ptr %_M_flags.i.i, align 8
   store i32 34, ptr %_M_flags.i.i, align 8
   %vtable2.i = load ptr, ptr %call, align 8
@@ -143,7 +143,7 @@ _ZN10pcg_extras13seed_seq_fromISt13random_deviceED2Ev.exit: ; preds = %invoke.co
   %vbase.offset.ptr20.i = getelementptr i8, ptr %vtable19.i, i64 -24
   %vbase.offset21.i = load i64, ptr %vbase.offset.ptr20.i, align 8
   %add.ptr22.i = getelementptr inbounds i8, ptr %call, i64 %vbase.offset21.i
-  %_M_flags.i9.i = getelementptr inbounds %"class.std::ios_base", ptr %add.ptr22.i, i64 0, i32 3
+  %_M_flags.i9.i = getelementptr inbounds i8, ptr %add.ptr22.i, i64 24
   store i32 %5, ptr %_M_flags.i9.i, align 8
   %vtable24.i = load ptr, ptr %call, align 8
   %vbase.offset.ptr25.i = getelementptr i8, ptr %vtable24.i, i64 -24

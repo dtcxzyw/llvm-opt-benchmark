@@ -3,52 +3,14 @@ source_filename = "bench/libquic/original/hpack_decoder.cc.ll"
 target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:128-n8:16:32:64-S128"
 target triple = "x86_64-unknown-linux-gnu"
 
-%"class.net::HpackDecoder" = type { %"class.net::HpackDecoderInterface", %"class.net::HpackHeaderTable", %"class.std::__cxx11::basic_string", %"class.net::SpdyHeaderBlock", %"class.std::__cxx11::basic_string", %"class.std::__cxx11::basic_string", ptr, i64, i64, i32, i8, i8, i8, i8 }
-%"class.net::HpackDecoderInterface" = type { ptr }
-%"class.net::HpackHeaderTable" = type { ptr, %"class.std::deque", ptr, ptr, %"class.std::unordered_set", %"class.std::unordered_map", i64, i64, i64, i64, %"class.std::unique_ptr" }
-%"class.std::deque" = type { %"class.std::_Deque_base" }
-%"class.std::_Deque_base" = type { %"struct.std::_Deque_base<net::HpackEntry, std::allocator<net::HpackEntry>>::_Deque_impl" }
-%"struct.std::_Deque_base<net::HpackEntry, std::allocator<net::HpackEntry>>::_Deque_impl" = type { %"struct.std::_Deque_base<net::HpackEntry, std::allocator<net::HpackEntry>>::_Deque_impl_data" }
-%"struct.std::_Deque_base<net::HpackEntry, std::allocator<net::HpackEntry>>::_Deque_impl_data" = type { ptr, i64, %"struct.std::_Deque_iterator", %"struct.std::_Deque_iterator" }
-%"struct.std::_Deque_iterator" = type { ptr, ptr, ptr, ptr }
-%"class.std::unordered_set" = type { %"class.std::_Hashtable" }
-%"class.std::_Hashtable" = type { ptr, i64, %"struct.std::__detail::_Hash_node_base", i64, %"struct.std::__detail::_Prime_rehash_policy", ptr }
-%"struct.std::__detail::_Hash_node_base" = type { ptr }
-%"struct.std::__detail::_Prime_rehash_policy" = type { float, i64 }
-%"class.std::unordered_map" = type { %"class.std::_Hashtable.5" }
-%"class.std::_Hashtable.5" = type { ptr, i64, %"struct.std::__detail::_Hash_node_base", i64, %"struct.std::__detail::_Prime_rehash_policy", ptr }
-%"class.std::unique_ptr" = type { %"struct.std::__uniq_ptr_data" }
-%"struct.std::__uniq_ptr_data" = type { %"class.std::__uniq_ptr_impl" }
-%"class.std::__uniq_ptr_impl" = type { %"class.std::tuple" }
-%"class.std::tuple" = type { %"struct.std::_Tuple_impl" }
-%"struct.std::_Tuple_impl" = type { %"struct.std::_Head_base.21" }
-%"struct.std::_Head_base.21" = type { ptr }
-%"class.net::SpdyHeaderBlock" = type { %class.linked_hash_map, %"class.std::unique_ptr.42" }
-%class.linked_hash_map = type { %"class.std::unordered_map.25", %"class.std::__cxx11::list" }
-%"class.std::unordered_map.25" = type { %"class.std::_Hashtable.26" }
-%"class.std::_Hashtable.26" = type { ptr, i64, %"struct.std::__detail::_Hash_node_base", i64, %"struct.std::__detail::_Prime_rehash_policy", ptr }
-%"class.std::__cxx11::list" = type { %"class.std::__cxx11::_List_base" }
-%"class.std::__cxx11::_List_base" = type { %"struct.std::__cxx11::_List_base<std::pair<base::BasicStringPiece<std::string>, base::BasicStringPiece<std::string>>, std::allocator<std::pair<base::BasicStringPiece<std::string>, base::BasicStringPiece<std::string>>>>::_List_impl" }
-%"struct.std::__cxx11::_List_base<std::pair<base::BasicStringPiece<std::string>, base::BasicStringPiece<std::string>>, std::allocator<std::pair<base::BasicStringPiece<std::string>, base::BasicStringPiece<std::string>>>>::_List_impl" = type { %"struct.std::__detail::_List_node_header" }
-%"struct.std::__detail::_List_node_header" = type { %"struct.std::__detail::_List_node_base", i64 }
-%"struct.std::__detail::_List_node_base" = type { ptr, ptr }
-%"class.std::unique_ptr.42" = type { %"struct.std::__uniq_ptr_data.43" }
-%"struct.std::__uniq_ptr_data.43" = type { %"class.std::__uniq_ptr_impl.44" }
-%"class.std::__uniq_ptr_impl.44" = type { %"class.std::tuple.45" }
-%"class.std::tuple.45" = type { %"struct.std::_Tuple_impl.46" }
-%"struct.std::_Tuple_impl.46" = type { %"struct.std::_Head_base.49" }
-%"struct.std::_Head_base.49" = type { ptr }
-%"class.std::__cxx11::basic_string" = type { %"struct.std::__cxx11::basic_string<char>::_Alloc_hider", i64, %union.anon }
-%"struct.std::__cxx11::basic_string<char>::_Alloc_hider" = type { ptr }
-%union.anon = type { i64, [8 x i8] }
 %"class.net::HpackInputStream" = type <{ %"class.base::BasicStringPiece", i64, i32, i32, i8, [7 x i8] }>
 %"class.base::BasicStringPiece" = type { ptr, i64 }
 %"class.net::SpdyHeaderBlock::StringPieceProxy" = type <{ ptr, ptr, %"struct.std::_List_iterator", %"class.base::BasicStringPiece", i8, [7 x i8] }>
 %"struct.std::_List_iterator" = type { ptr }
+%"class.std::__cxx11::basic_string" = type { %"struct.std::__cxx11::basic_string<char>::_Alloc_hider", i64, %union.anon }
+%"struct.std::__cxx11::basic_string<char>::_Alloc_hider" = type { ptr }
+%union.anon = type { i64, [8 x i8] }
 %"class.std::allocator.22" = type { i8 }
-%"struct.std::_List_node" = type { %"struct.std::__detail::_List_node_base", %"struct.__gnu_cxx::__aligned_membuf" }
-%"struct.__gnu_cxx::__aligned_membuf" = type { [32 x i8] }
-%"class.net::HpackEntry" = type { %"class.std::__cxx11::basic_string", %"class.std::__cxx11::basic_string", %"class.base::BasicStringPiece", %"class.base::BasicStringPiece", i64, i32, i64 }
 %struct._Guard = type { ptr }
 
 $__clang_call_terminate = comdat any
@@ -81,26 +43,26 @@ $_ZTIN3net21HpackDecoderInterfaceE = comdat any
 define dso_local void @_ZN3net12HpackDecoderC2Ev(ptr noundef nonnull align 8 dereferenceable(480) %this) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store ptr getelementptr inbounds ({ [11 x ptr] }, ptr @_ZTVN3net12HpackDecoderE, i64 0, inrange i32 0, i64 2), ptr %this, align 8
-  %header_table_ = getelementptr inbounds %"class.net::HpackDecoder", ptr %this, i64 0, i32 1
+  %header_table_ = getelementptr inbounds i8, ptr %this, i64 8
   tail call void @_ZN3net16HpackHeaderTableC1Ev(ptr noundef nonnull align 8 dereferenceable(256) %header_table_)
-  %headers_block_buffer_ = getelementptr inbounds %"class.net::HpackDecoder", ptr %this, i64 0, i32 2
+  %headers_block_buffer_ = getelementptr inbounds i8, ptr %this, i64 264
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(32) %headers_block_buffer_) #11
-  %decoded_block_ = getelementptr inbounds %"class.net::HpackDecoder", ptr %this, i64 0, i32 3
+  %decoded_block_ = getelementptr inbounds i8, ptr %this, i64 296
   invoke void @_ZN3net15SpdyHeaderBlockC1Ev(ptr noundef nonnull align 8 dereferenceable(88) %decoded_block_)
           to label %invoke.cont3 unwind label %lpad2
 
 invoke.cont3:                                     ; preds = %entry
-  %key_buffer_ = getelementptr inbounds %"class.net::HpackDecoder", ptr %this, i64 0, i32 4
+  %key_buffer_ = getelementptr inbounds i8, ptr %this, i64 384
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(32) %key_buffer_) #11
-  %value_buffer_ = getelementptr inbounds %"class.net::HpackDecoder", ptr %this, i64 0, i32 5
+  %value_buffer_ = getelementptr inbounds i8, ptr %this, i64 416
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(32) %value_buffer_) #11
-  %handler_ = getelementptr inbounds %"class.net::HpackDecoder", ptr %this, i64 0, i32 6
-  %max_decode_buffer_size_bytes_ = getelementptr inbounds %"class.net::HpackDecoder", ptr %this, i64 0, i32 8
+  %handler_ = getelementptr inbounds i8, ptr %this, i64 448
+  %max_decode_buffer_size_bytes_ = getelementptr inbounds i8, ptr %this, i64 464
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %handler_, i8 0, i64 16, i1 false)
   store i64 32768, ptr %max_decode_buffer_size_bytes_, align 8
-  %total_parsed_bytes_ = getelementptr inbounds %"class.net::HpackDecoder", ptr %this, i64 0, i32 9
+  %total_parsed_bytes_ = getelementptr inbounds i8, ptr %this, i64 472
   store i32 0, ptr %total_parsed_bytes_, align 8
-  %header_block_started_ = getelementptr inbounds %"class.net::HpackDecoder", ptr %this, i64 0, i32 10
+  %header_block_started_ = getelementptr inbounds i8, ptr %this, i64 476
   store i8 0, ptr %header_block_started_, align 4
   ret void
 
@@ -131,15 +93,15 @@ declare void @_ZN3net16HpackHeaderTableD1Ev(ptr noundef nonnull align 8 derefere
 define dso_local void @_ZN3net12HpackDecoderD2Ev(ptr noundef nonnull align 8 dereferenceable(480) %this) unnamed_addr #3 align 2 {
 entry:
   store ptr getelementptr inbounds ({ [11 x ptr] }, ptr @_ZTVN3net12HpackDecoderE, i64 0, inrange i32 0, i64 2), ptr %this, align 8
-  %value_buffer_ = getelementptr inbounds %"class.net::HpackDecoder", ptr %this, i64 0, i32 5
+  %value_buffer_ = getelementptr inbounds i8, ptr %this, i64 416
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %value_buffer_) #11
-  %key_buffer_ = getelementptr inbounds %"class.net::HpackDecoder", ptr %this, i64 0, i32 4
+  %key_buffer_ = getelementptr inbounds i8, ptr %this, i64 384
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %key_buffer_) #11
-  %decoded_block_ = getelementptr inbounds %"class.net::HpackDecoder", ptr %this, i64 0, i32 3
+  %decoded_block_ = getelementptr inbounds i8, ptr %this, i64 296
   tail call void @_ZN3net15SpdyHeaderBlockD1Ev(ptr noundef nonnull align 8 dereferenceable(88) %decoded_block_) #11
-  %headers_block_buffer_ = getelementptr inbounds %"class.net::HpackDecoder", ptr %this, i64 0, i32 2
+  %headers_block_buffer_ = getelementptr inbounds i8, ptr %this, i64 264
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %headers_block_buffer_) #11
-  %header_table_ = getelementptr inbounds %"class.net::HpackDecoder", ptr %this, i64 0, i32 1
+  %header_table_ = getelementptr inbounds i8, ptr %this, i64 8
   tail call void @_ZN3net16HpackHeaderTableD1Ev(ptr noundef nonnull align 8 dereferenceable(256) %header_table_) #11
   ret void
 }
@@ -151,15 +113,15 @@ declare void @_ZN3net15SpdyHeaderBlockD1Ev(ptr noundef nonnull align 8 dereferen
 define dso_local void @_ZN3net12HpackDecoderD0Ev(ptr noundef nonnull align 8 dereferenceable(480) %this) unnamed_addr #3 align 2 {
 entry:
   store ptr getelementptr inbounds ({ [11 x ptr] }, ptr @_ZTVN3net12HpackDecoderE, i64 0, inrange i32 0, i64 2), ptr %this, align 8
-  %value_buffer_.i = getelementptr inbounds %"class.net::HpackDecoder", ptr %this, i64 0, i32 5
+  %value_buffer_.i = getelementptr inbounds i8, ptr %this, i64 416
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %value_buffer_.i) #11
-  %key_buffer_.i = getelementptr inbounds %"class.net::HpackDecoder", ptr %this, i64 0, i32 4
+  %key_buffer_.i = getelementptr inbounds i8, ptr %this, i64 384
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %key_buffer_.i) #11
-  %decoded_block_.i = getelementptr inbounds %"class.net::HpackDecoder", ptr %this, i64 0, i32 3
+  %decoded_block_.i = getelementptr inbounds i8, ptr %this, i64 296
   tail call void @_ZN3net15SpdyHeaderBlockD1Ev(ptr noundef nonnull align 8 dereferenceable(88) %decoded_block_.i) #11
-  %headers_block_buffer_.i = getelementptr inbounds %"class.net::HpackDecoder", ptr %this, i64 0, i32 2
+  %headers_block_buffer_.i = getelementptr inbounds i8, ptr %this, i64 264
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %headers_block_buffer_.i) #11
-  %header_table_.i = getelementptr inbounds %"class.net::HpackDecoder", ptr %this, i64 0, i32 1
+  %header_table_.i = getelementptr inbounds i8, ptr %this, i64 8
   tail call void @_ZN3net16HpackHeaderTableD1Ev(ptr noundef nonnull align 8 dereferenceable(256) %header_table_.i) #11
   tail call void @_ZdlPv(ptr noundef nonnull %this) #12
   ret void
@@ -171,7 +133,7 @@ declare void @_ZdlPv(ptr noundef) local_unnamed_addr #4
 ; Function Attrs: mustprogress uwtable
 define dso_local void @_ZN3net12HpackDecoder27ApplyHeaderTableSizeSettingEm(ptr noundef nonnull align 8 dereferenceable(480) %this, i64 noundef %size_setting) unnamed_addr #0 align 2 {
 entry:
-  %header_table_ = getelementptr inbounds %"class.net::HpackDecoder", ptr %this, i64 0, i32 1
+  %header_table_ = getelementptr inbounds i8, ptr %this, i64 8
   tail call void @_ZN3net16HpackHeaderTable26SetSettingsHeaderTableSizeEm(ptr noundef nonnull align 8 dereferenceable(256) %header_table_, i64 noundef %size_setting)
   ret void
 }
@@ -181,9 +143,9 @@ declare void @_ZN3net16HpackHeaderTable26SetSettingsHeaderTableSizeEm(ptr nounde
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
 define dso_local void @_ZN3net12HpackDecoder30HandleControlFrameHeadersStartEPNS_27SpdyHeadersHandlerInterfaceE(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(480) %this, ptr noundef %handler) unnamed_addr #5 align 2 {
 entry:
-  %handler_ = getelementptr inbounds %"class.net::HpackDecoder", ptr %this, i64 0, i32 6
+  %handler_ = getelementptr inbounds i8, ptr %this, i64 448
   store ptr %handler, ptr %handler_, align 8
-  %total_header_bytes_ = getelementptr inbounds %"class.net::HpackDecoder", ptr %this, i64 0, i32 7
+  %total_header_bytes_ = getelementptr inbounds i8, ptr %this, i64 456
   store i64 0, ptr %total_header_bytes_, align 8
   ret void
 }
@@ -193,36 +155,36 @@ define dso_local noundef zeroext i1 @_ZN3net12HpackDecoder29HandleControlFrameHe
 entry:
   %input_stream = alloca %"class.net::HpackInputStream", align 8
   %agg.tmp17 = alloca %"class.base::BasicStringPiece", align 8
-  %header_block_started_ = getelementptr inbounds %"class.net::HpackDecoder", ptr %this, i64 0, i32 10
+  %header_block_started_ = getelementptr inbounds i8, ptr %this, i64 476
   %0 = load i8, ptr %header_block_started_, align 4
   %1 = and i8 %0, 1
   %tobool.not = icmp eq i8 %1, 0
   br i1 %tobool.not, label %if.then, label %if.end5
 
 if.then:                                          ; preds = %entry
-  %decoded_block_ = getelementptr inbounds %"class.net::HpackDecoder", ptr %this, i64 0, i32 3
+  %decoded_block_ = getelementptr inbounds i8, ptr %this, i64 296
   tail call void @_ZN3net15SpdyHeaderBlock5clearEv(ptr noundef nonnull align 8 dereferenceable(88) %decoded_block_)
   store i8 1, ptr %header_block_started_, align 4
-  %size_updates_allowed_ = getelementptr inbounds %"class.net::HpackDecoder", ptr %this, i64 0, i32 12
+  %size_updates_allowed_ = getelementptr inbounds i8, ptr %this, i64 478
   store i8 1, ptr %size_updates_allowed_, align 2
-  %size_updates_seen_ = getelementptr inbounds %"class.net::HpackDecoder", ptr %this, i64 0, i32 11
+  %size_updates_seen_ = getelementptr inbounds i8, ptr %this, i64 477
   store i8 0, ptr %size_updates_seen_, align 1
-  %handler_ = getelementptr inbounds %"class.net::HpackDecoder", ptr %this, i64 0, i32 6
+  %handler_ = getelementptr inbounds i8, ptr %this, i64 448
   %2 = load ptr, ptr %handler_, align 8
   %cmp.not = icmp eq ptr %2, null
   br i1 %cmp.not, label %if.end5, label %if.then3
 
 if.then3:                                         ; preds = %if.then
   %vtable = load ptr, ptr %2, align 8
-  %vfn = getelementptr inbounds ptr, ptr %vtable, i64 2
+  %vfn = getelementptr inbounds i8, ptr %vtable, i64 16
   %3 = load ptr, ptr %vfn, align 8
   tail call void %3(ptr noundef nonnull align 8 dereferenceable(8) %2)
   br label %if.end5
 
 if.end5:                                          ; preds = %if.then, %if.then3, %entry
-  %headers_block_buffer_ = getelementptr inbounds %"class.net::HpackDecoder", ptr %this, i64 0, i32 2
+  %headers_block_buffer_ = getelementptr inbounds i8, ptr %this, i64 264
   %call = tail call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4sizeEv(ptr noundef nonnull align 8 dereferenceable(32) %headers_block_buffer_) #11
-  %max_decode_buffer_size_bytes_ = getelementptr inbounds %"class.net::HpackDecoder", ptr %this, i64 0, i32 8
+  %max_decode_buffer_size_bytes_ = getelementptr inbounds i8, ptr %this, i64 464
   %4 = load i64, ptr %max_decode_buffer_size_bytes_, align 8
   %cmp6.not = icmp ne i64 %4, 0
   %add = add i64 %call, %headers_data_length
@@ -238,7 +200,7 @@ if.end10:                                         ; preds = %if.end5
   %call9.i = tail call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE7_M_dataEv(ptr noundef nonnull align 8 dereferenceable(32) %headers_block_buffer_)
   call void @_ZN4base16BasicStringPieceINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEC1ERKS6_(ptr noundef nonnull align 8 dereferenceable(16) %agg.tmp17, ptr noundef nonnull align 8 dereferenceable(32) %headers_block_buffer_)
   %5 = load ptr, ptr %agg.tmp17, align 8
-  %6 = getelementptr inbounds { ptr, i64 }, ptr %agg.tmp17, i64 0, i32 1
+  %6 = getelementptr inbounds i8, ptr %agg.tmp17, i64 8
   %7 = load i64, ptr %6, align 8
   call void @_ZN3net16HpackInputStreamC1EN4base16BasicStringPieceINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEE(ptr noundef nonnull align 8 dereferenceable(33) %input_stream, ptr %5, i64 %7)
   br label %while.cond
@@ -293,7 +255,7 @@ if.end41:                                         ; preds = %while.end
           to label %invoke.cont43 unwind label %lpad.loopexit.split-lp
 
 invoke.cont43:                                    ; preds = %if.end41
-  %total_parsed_bytes_ = getelementptr inbounds %"class.net::HpackDecoder", ptr %this, i64 0, i32 9
+  %total_parsed_bytes_ = getelementptr inbounds i8, ptr %this, i64 472
   %8 = load i32, ptr %total_parsed_bytes_, align 8
   %add45 = add i32 %8, %call29
   store i32 %add45, ptr %total_parsed_bytes_, align 8
@@ -353,38 +315,38 @@ entry:
   br i1 %cmp.not, label %if.end, label %if.then
 
 if.then:                                          ; preds = %entry
-  %total_parsed_bytes_ = getelementptr inbounds %"class.net::HpackDecoder", ptr %this, i64 0, i32 9
+  %total_parsed_bytes_ = getelementptr inbounds i8, ptr %this, i64 472
   %0 = load i32, ptr %total_parsed_bytes_, align 8
   %conv = zext i32 %0 to i64
   store i64 %conv, ptr %compressed_len, align 8
   br label %if.end
 
 if.end:                                           ; preds = %if.then, %entry
-  %headers_block_buffer_ = getelementptr inbounds %"class.net::HpackDecoder", ptr %this, i64 0, i32 2
+  %headers_block_buffer_ = getelementptr inbounds i8, ptr %this, i64 264
   %call = tail call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4sizeEv(ptr noundef nonnull align 8 dereferenceable(32) %headers_block_buffer_) #11
   %cmp2.not = icmp eq i64 %call, 0
   br i1 %cmp2.not, label %if.end4, label %return
 
 if.end4:                                          ; preds = %if.end
-  %handler_ = getelementptr inbounds %"class.net::HpackDecoder", ptr %this, i64 0, i32 6
+  %handler_ = getelementptr inbounds i8, ptr %this, i64 448
   %1 = load ptr, ptr %handler_, align 8
   %cmp5.not = icmp eq ptr %1, null
   br i1 %cmp5.not, label %if.end8, label %if.then6
 
 if.then6:                                         ; preds = %if.end4
-  %total_header_bytes_ = getelementptr inbounds %"class.net::HpackDecoder", ptr %this, i64 0, i32 7
+  %total_header_bytes_ = getelementptr inbounds i8, ptr %this, i64 456
   %2 = load i64, ptr %total_header_bytes_, align 8
   %vtable = load ptr, ptr %1, align 8
-  %vfn = getelementptr inbounds ptr, ptr %vtable, i64 4
+  %vfn = getelementptr inbounds i8, ptr %vtable, i64 32
   %3 = load ptr, ptr %vfn, align 8
   tail call void %3(ptr noundef nonnull align 8 dereferenceable(8) %1, i64 noundef %2)
   br label %if.end8
 
 if.end8:                                          ; preds = %if.then6, %if.end4
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5clearEv(ptr noundef nonnull align 8 dereferenceable(32) %headers_block_buffer_) #11
-  %total_parsed_bytes_10 = getelementptr inbounds %"class.net::HpackDecoder", ptr %this, i64 0, i32 9
+  %total_parsed_bytes_10 = getelementptr inbounds i8, ptr %this, i64 472
   store i32 0, ptr %total_parsed_bytes_10, align 8
-  %header_block_started_ = getelementptr inbounds %"class.net::HpackDecoder", ptr %this, i64 0, i32 10
+  %header_block_started_ = getelementptr inbounds i8, ptr %this, i64 476
   store i8 0, ptr %header_block_started_, align 4
   store ptr null, ptr %handler_, align 8
   br label %return
@@ -399,7 +361,7 @@ declare void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5clearEv(ptr 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
 define dso_local noundef nonnull align 8 dereferenceable(88) ptr @_ZNK3net12HpackDecoder13decoded_blockEv(ptr noundef nonnull readnone align 8 dereferenceable(480) %this) unnamed_addr #6 align 2 {
 entry:
-  %decoded_block_ = getelementptr inbounds %"class.net::HpackDecoder", ptr %this, i64 0, i32 3
+  %decoded_block_ = getelementptr inbounds i8, ptr %this, i64 296
   ret ptr %decoded_block_
 }
 
@@ -409,7 +371,7 @@ entry:
   %0 = load i64, ptr %visitor, align 8
   %1 = inttoptr i64 %0 to ptr
   store ptr null, ptr %visitor, align 8
-  %debug_visitor_.i = getelementptr inbounds %"class.net::HpackDecoder", ptr %this, i64 0, i32 1, i32 10
+  %debug_visitor_.i = getelementptr inbounds i8, ptr %this, i64 256
   %2 = load ptr, ptr %debug_visitor_.i, align 8
   store ptr %1, ptr %debug_visitor_.i, align 8
   %tobool.not.i.i.i.i.i = icmp eq ptr %2, null
@@ -417,7 +379,7 @@ entry:
 
 _ZNKSt14default_deleteIN3net16HpackHeaderTable21DebugVisitorInterfaceEEclEPS2_.exit.i.i.i.i.i: ; preds = %entry
   %vtable.i.i.i.i.i.i = load ptr, ptr %2, align 8
-  %vfn.i.i.i.i.i.i = getelementptr inbounds ptr, ptr %vtable.i.i.i.i.i.i, i64 1
+  %vfn.i.i.i.i.i.i = getelementptr inbounds i8, ptr %vtable.i.i.i.i.i.i, i64 8
   %3 = load ptr, ptr %vfn.i.i.i.i.i.i, align 8
   tail call void %3(ptr noundef nonnull align 8 dereferenceable(8) %2) #11
   br label %_ZNSt10unique_ptrIN3net16HpackHeaderTable21DebugVisitorInterfaceESt14default_deleteIS2_EED2Ev.exit
@@ -429,7 +391,7 @@ _ZNSt10unique_ptrIN3net16HpackHeaderTable21DebugVisitorInterfaceESt14default_del
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
 define dso_local void @_ZN3net12HpackDecoder32set_max_decode_buffer_size_bytesEm(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(480) %this, i64 noundef %max_decode_buffer_size_bytes) unnamed_addr #5 align 2 {
 entry:
-  %max_decode_buffer_size_bytes_ = getelementptr inbounds %"class.net::HpackDecoder", ptr %this, i64 0, i32 8
+  %max_decode_buffer_size_bytes_ = getelementptr inbounds i8, ptr %this, i64 464
   store i64 %max_decode_buffer_size_bytes, ptr %max_decode_buffer_size_bytes_, align 8
   ret void
 }
@@ -448,21 +410,21 @@ entry:
   %ref.tmp30 = alloca %"class.std::allocator.22", align 1
   %agg.tmp50 = alloca %"class.base::BasicStringPiece", align 8
   store ptr %name.coerce0, ptr %name, align 8
-  %0 = getelementptr inbounds { ptr, i64 }, ptr %name, i64 0, i32 1
+  %0 = getelementptr inbounds i8, ptr %name, i64 8
   store i64 %name.coerce1, ptr %0, align 8
   store ptr %value.coerce0, ptr %value, align 8
-  %1 = getelementptr inbounds { ptr, i64 }, ptr %value, i64 0, i32 1
+  %1 = getelementptr inbounds i8, ptr %value, i64 8
   store i64 %value.coerce1, ptr %1, align 8
-  %size_updates_allowed_ = getelementptr inbounds %"class.net::HpackDecoder", ptr %this, i64 0, i32 12
+  %size_updates_allowed_ = getelementptr inbounds i8, ptr %this, i64 478
   store i8 0, ptr %size_updates_allowed_, align 2
   %call = call noundef i64 @_ZNK4base16BasicStringPieceINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %name)
   %call2 = call noundef i64 @_ZNK4base16BasicStringPieceINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %value)
   %add = add i64 %call2, %call
-  %total_header_bytes_ = getelementptr inbounds %"class.net::HpackDecoder", ptr %this, i64 0, i32 7
+  %total_header_bytes_ = getelementptr inbounds i8, ptr %this, i64 456
   %2 = load i64, ptr %total_header_bytes_, align 8
   %add3 = add i64 %add, %2
   store i64 %add3, ptr %total_header_bytes_, align 8
-  %handler_ = getelementptr inbounds %"class.net::HpackDecoder", ptr %this, i64 0, i32 6
+  %handler_ = getelementptr inbounds i8, ptr %this, i64 448
   %3 = load ptr, ptr %handler_, align 8
   %cmp = icmp eq ptr %3, null
   br i1 %cmp, label %if.then, label %if.else55
@@ -471,7 +433,7 @@ if.then:                                          ; preds = %entry
   %4 = load i8, ptr @FLAGS_chromium_http2_flag_use_new_spdy_header_block_header_joining, align 1
   %5 = and i8 %4, 1
   %tobool.not = icmp eq i8 %5, 0
-  %decoded_block_6 = getelementptr inbounds %"class.net::HpackDecoder", ptr %this, i64 0, i32 3
+  %decoded_block_6 = getelementptr inbounds i8, ptr %this, i64 296
   %agg.tmp7.sroa.0.0.copyload = load ptr, ptr %name, align 8
   %agg.tmp7.sroa.2.0.copyload = load i64, ptr %0, align 8
   br i1 %tobool.not, label %if.else, label %if.then4
@@ -485,7 +447,7 @@ if.then4:                                         ; preds = %if.then
 if.else:                                          ; preds = %if.then
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %key.i)
   store ptr %agg.tmp7.sroa.0.0.copyload, ptr %key.i, align 8
-  %6 = getelementptr inbounds { ptr, i64 }, ptr %key.i, i64 0, i32 1
+  %6 = getelementptr inbounds i8, ptr %key.i, i64 8
   store i64 %agg.tmp7.sroa.2.0.copyload, ptr %6, align 8
   %call.i.i.i = call ptr @_ZNSt10_HashtableIN4base16BasicStringPieceINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEESt4pairIKS8_St14_List_iteratorIS9_IS8_S8_EEESaISE_ENSt8__detail10_Select1stESt8equal_toIS8_ENS0_15StringPieceHashENSG_18_Mod_range_hashingENSG_20_Default_ranged_hashENSG_20_Prime_rehash_policyENSG_17_Hashtable_traitsILb1ELb0ELb1EEEE4findERSA_(ptr noundef nonnull align 8 dereferenceable(56) %decoded_block_6, ptr noundef nonnull align 8 dereferenceable(16) %key.i)
   %cmp.i.i.i = icmp eq ptr %call.i.i.i, null
@@ -499,7 +461,7 @@ _ZN3net15SpdyHeaderBlock4findEN4base16BasicStringPieceINSt7__cxx1112basic_string
   %second.i.i = getelementptr inbounds i8, ptr %call.i.i.i, i64 24
   %retval.sroa.0.0.copyload.i.i = load ptr, ptr %second.i.i, align 8
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %key.i)
-  %list_.i.i = getelementptr inbounds %"class.net::HpackDecoder", ptr %this, i64 0, i32 3, i32 0, i32 1
+  %list_.i.i = getelementptr inbounds i8, ptr %this, i64 352
   %cmp.i = icmp eq ptr %retval.sroa.0.0.copyload.i.i, %list_.i.i
   br i1 %cmp.i, label %if.then13, label %if.else19
 
@@ -523,7 +485,7 @@ lpad:                                             ; preds = %if.then13
   br label %eh.resume
 
 if.else19:                                        ; preds = %_ZN3net15SpdyHeaderBlock4findEN4base16BasicStringPieceINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEE.exit
-  %second = getelementptr inbounds %"struct.std::_List_node", ptr %retval.sroa.0.0.copyload.i.i, i64 0, i32 1, i32 0, i64 16
+  %second = getelementptr inbounds i8, ptr %retval.sroa.0.0.copyload.i.i, i64 32
   call void @_ZNK4base16BasicStringPieceINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE9as_stringEv(ptr nonnull sret(%"class.std::__cxx11::basic_string") align 8 %new_value, ptr noundef nonnull align 8 dereferenceable(16) %second)
   invoke void @_ZN4base16BasicStringPieceINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEC1EPKc(ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp22, ptr noundef nonnull @.str.1)
           to label %invoke.cont24 unwind label %lpad23
@@ -592,7 +554,7 @@ invoke.cont47:                                    ; preds = %invoke.cont35
 
 invoke.cont51:                                    ; preds = %invoke.cont47
   %10 = load ptr, ptr %agg.tmp50, align 8
-  %11 = getelementptr inbounds { ptr, i64 }, ptr %agg.tmp50, i64 0, i32 1
+  %11 = getelementptr inbounds i8, ptr %agg.tmp50, i64 8
   %12 = load i64, ptr %11, align 8
   invoke void @_ZN3net15SpdyHeaderBlock21ReplaceOrAppendHeaderEN4base16BasicStringPieceINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEES9_(ptr noundef nonnull align 8 dereferenceable(88) %decoded_block_6, ptr %agg.tmp49.sroa.0.0.copyload, i64 %agg.tmp49.sroa.2.0.copyload, ptr %10, i64 %12)
           to label %invoke.cont52 unwind label %lpad23
@@ -647,7 +609,7 @@ if.else55:                                        ; preds = %entry
   %agg.tmp58.sroa.0.0.copyload = load ptr, ptr %value, align 8
   %agg.tmp58.sroa.2.0.copyload = load i64, ptr %1, align 8
   %vtable = load ptr, ptr %3, align 8
-  %vfn = getelementptr inbounds ptr, ptr %vtable, i64 3
+  %vfn = getelementptr inbounds i8, ptr %vtable, i64 24
   %17 = load ptr, ptr %vfn, align 8
   call void %17(ptr noundef nonnull align 8 dereferenceable(8) %3, ptr %agg.tmp57.sroa.0.0.copyload, i64 %agg.tmp57.sroa.2.0.copyload, ptr %agg.tmp58.sroa.0.0.copyload, i64 %agg.tmp58.sroa.2.0.copyload)
   br label %if.end59
@@ -707,7 +669,7 @@ if.then:                                          ; preds = %entry
   br i1 %call.i, label %if.end.i, label %_ZN3net12HpackDecoder23DecodeNextIndexedHeaderEPNS_16HpackInputStreamE.exit
 
 if.end.i:                                         ; preds = %if.then
-  %header_table_.i = getelementptr inbounds %"class.net::HpackDecoder", ptr %this, i64 0, i32 1
+  %header_table_.i = getelementptr inbounds i8, ptr %this, i64 8
   %0 = load i32, ptr %index.i, align 4
   %conv.i = zext i32 %0 to i64
   %call3.i = call noundef ptr @_ZN3net16HpackHeaderTable10GetByIndexEm(ptr noundef nonnull align 8 dereferenceable(256) %header_table_.i, i64 noundef %conv.i)
@@ -715,13 +677,13 @@ if.end.i:                                         ; preds = %if.then
   br i1 %cmp.i, label %_ZN3net12HpackDecoder23DecodeNextIndexedHeaderEPNS_16HpackInputStreamE.exit, label %if.end5.i
 
 if.end5.i:                                        ; preds = %if.end.i
-  %name_ref_.i.i = getelementptr inbounds %"class.net::HpackEntry", ptr %call3.i, i64 0, i32 2
+  %name_ref_.i.i = getelementptr inbounds i8, ptr %call3.i, i64 64
   %retval.sroa.0.0.copyload.i.i = load ptr, ptr %name_ref_.i.i, align 8
-  %retval.sroa.2.0.name_ref_.sroa_idx.i.i = getelementptr inbounds %"class.net::HpackEntry", ptr %call3.i, i64 0, i32 2, i32 1
+  %retval.sroa.2.0.name_ref_.sroa_idx.i.i = getelementptr inbounds i8, ptr %call3.i, i64 72
   %retval.sroa.2.0.copyload.i.i = load i64, ptr %retval.sroa.2.0.name_ref_.sroa_idx.i.i, align 8
-  %value_ref_.i.i = getelementptr inbounds %"class.net::HpackEntry", ptr %call3.i, i64 0, i32 3
+  %value_ref_.i.i = getelementptr inbounds i8, ptr %call3.i, i64 80
   %retval.sroa.0.0.copyload.i3.i = load ptr, ptr %value_ref_.i.i, align 8
-  %retval.sroa.2.0.value_ref_.sroa_idx.i.i = getelementptr inbounds %"class.net::HpackEntry", ptr %call3.i, i64 0, i32 3, i32 1
+  %retval.sroa.2.0.value_ref_.sroa_idx.i.i = getelementptr inbounds i8, ptr %call3.i, i64 88
   %retval.sroa.2.0.copyload.i4.i = load i64, ptr %retval.sroa.2.0.value_ref_.sroa_idx.i.i, align 8
   %call9.i = call noundef zeroext i1 @_ZN3net12HpackDecoder26HandleHeaderRepresentationEN4base16BasicStringPieceINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEES9_(ptr noundef nonnull align 8 dereferenceable(480) %this, ptr %retval.sroa.0.0.copyload.i.i, i64 %retval.sroa.2.0.copyload.i.i, ptr %retval.sroa.0.0.copyload.i3.i, i64 %retval.sroa.2.0.copyload.i4.i)
   br label %_ZN3net12HpackDecoder23DecodeNextIndexedHeaderEPNS_16HpackInputStreamE.exit
@@ -766,14 +728,14 @@ if.then20:                                        ; preds = %if.end17
   br i1 %call.i15, label %if.end.i17, label %_ZN3net12HpackDecoder31DecodeNextHeaderTableSizeUpdateEPNS_16HpackInputStreamE.exit
 
 if.end.i17:                                       ; preds = %if.then20
-  %size_updates_allowed_.i = getelementptr inbounds %"class.net::HpackDecoder", ptr %this, i64 0, i32 12
+  %size_updates_allowed_.i = getelementptr inbounds i8, ptr %this, i64 478
   %1 = load i8, ptr %size_updates_allowed_.i, align 2
   %2 = and i8 %1, 1
   %tobool.not.i = icmp eq i8 %2, 0
   br i1 %tobool.not.i, label %_ZN3net12HpackDecoder31DecodeNextHeaderTableSizeUpdateEPNS_16HpackInputStreamE.exit, label %if.end3.i
 
 if.end3.i:                                        ; preds = %if.end.i17
-  %size_updates_seen_.i = getelementptr inbounds %"class.net::HpackDecoder", ptr %this, i64 0, i32 11
+  %size_updates_seen_.i = getelementptr inbounds i8, ptr %this, i64 477
   %3 = load i8, ptr %size_updates_seen_.i, align 1
   %inc.i = add i8 %3, 1
   store i8 %inc.i, ptr %size_updates_seen_.i, align 1
@@ -783,13 +745,13 @@ if.end3.i:                                        ; preds = %if.end.i17
 if.end6.i:                                        ; preds = %if.end3.i
   %4 = load i32, ptr %size.i, align 4
   %conv7.i = zext i32 %4 to i64
-  %settings_size_bound_.i.i = getelementptr inbounds %"class.net::HpackDecoder", ptr %this, i64 0, i32 1, i32 6
+  %settings_size_bound_.i.i = getelementptr inbounds i8, ptr %this, i64 224
   %5 = load i64, ptr %settings_size_bound_.i.i, align 8
   %cmp9.i = icmp ult i64 %5, %conv7.i
   br i1 %cmp9.i, label %_ZN3net12HpackDecoder31DecodeNextHeaderTableSizeUpdateEPNS_16HpackInputStreamE.exit, label %if.end11.i
 
 if.end11.i:                                       ; preds = %if.end6.i
-  %header_table_.i19 = getelementptr inbounds %"class.net::HpackDecoder", ptr %this, i64 0, i32 1
+  %header_table_.i19 = getelementptr inbounds i8, ptr %this, i64 8
   call void @_ZN3net16HpackHeaderTable10SetMaxSizeEm(ptr noundef nonnull align 8 dereferenceable(256) %header_table_.i19, i64 noundef %conv7.i)
   br label %_ZN3net12HpackDecoder31DecodeNextHeaderTableSizeUpdateEPNS_16HpackInputStreamE.exit
 
@@ -816,7 +778,7 @@ entry:
   br i1 %call, label %if.end, label %return
 
 if.end:                                           ; preds = %entry
-  %header_table_ = getelementptr inbounds %"class.net::HpackDecoder", ptr %this, i64 0, i32 1
+  %header_table_ = getelementptr inbounds i8, ptr %this, i64 8
   %0 = load i32, ptr %index, align 4
   %conv = zext i32 %0 to i64
   %call3 = call noundef ptr @_ZN3net16HpackHeaderTable10GetByIndexEm(ptr noundef nonnull align 8 dereferenceable(256) %header_table_, i64 noundef %conv)
@@ -824,13 +786,13 @@ if.end:                                           ; preds = %entry
   br i1 %cmp, label %return, label %if.end5
 
 if.end5:                                          ; preds = %if.end
-  %name_ref_.i = getelementptr inbounds %"class.net::HpackEntry", ptr %call3, i64 0, i32 2
+  %name_ref_.i = getelementptr inbounds i8, ptr %call3, i64 64
   %retval.sroa.0.0.copyload.i = load ptr, ptr %name_ref_.i, align 8
-  %retval.sroa.2.0.name_ref_.sroa_idx.i = getelementptr inbounds %"class.net::HpackEntry", ptr %call3, i64 0, i32 2, i32 1
+  %retval.sroa.2.0.name_ref_.sroa_idx.i = getelementptr inbounds i8, ptr %call3, i64 72
   %retval.sroa.2.0.copyload.i = load i64, ptr %retval.sroa.2.0.name_ref_.sroa_idx.i, align 8
-  %value_ref_.i = getelementptr inbounds %"class.net::HpackEntry", ptr %call3, i64 0, i32 3
+  %value_ref_.i = getelementptr inbounds i8, ptr %call3, i64 80
   %retval.sroa.0.0.copyload.i3 = load ptr, ptr %value_ref_.i, align 8
-  %retval.sroa.2.0.value_ref_.sroa_idx.i = getelementptr inbounds %"class.net::HpackEntry", ptr %call3, i64 0, i32 3, i32 1
+  %retval.sroa.2.0.value_ref_.sroa_idx.i = getelementptr inbounds i8, ptr %call3, i64 88
   %retval.sroa.2.0.copyload.i4 = load i64, ptr %retval.sroa.2.0.value_ref_.sroa_idx.i, align 8
   %call9 = call noundef zeroext i1 @_ZN3net12HpackDecoder26HandleHeaderRepresentationEN4base16BasicStringPieceINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEES9_(ptr noundef nonnull align 8 dereferenceable(480) %this, ptr %retval.sroa.0.0.copyload.i, i64 %retval.sroa.2.0.copyload.i, ptr %retval.sroa.0.0.copyload.i3, i64 %retval.sroa.2.0.copyload.i4)
   br label %return
@@ -857,9 +819,9 @@ if.end:                                           ; preds = %entry
   br i1 %call.i, label %if.then.i, label %if.end.i
 
 if.then.i:                                        ; preds = %if.end
-  %value_buffer_.i = getelementptr inbounds %"class.net::HpackDecoder", ptr %this, i64 0, i32 5
-  %call2.i = call noundef zeroext i1 @_ZN3net16HpackInputStream23DecodeNextHuffmanStringEPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(33) %input_stream, ptr noundef nonnull %value_buffer_.i)
-  call void @_ZN4base16BasicStringPieceINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEC1ERKS6_(ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp.i, ptr noundef nonnull align 8 dereferenceable(32) %value_buffer_.i)
+  %cond.i = getelementptr inbounds i8, ptr %this, i64 416
+  %call2.i = call noundef zeroext i1 @_ZN3net16HpackInputStream23DecodeNextHuffmanStringEPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(33) %input_stream, ptr noundef nonnull %cond.i)
+  call void @_ZN4base16BasicStringPieceINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEC1ERKS6_(ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp.i, ptr noundef nonnull align 8 dereferenceable(32) %cond.i)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %value, ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp.i, i64 16, i1 false)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %ref.tmp.i)
   br i1 %call2.i, label %if.end4, label %return
@@ -888,7 +850,7 @@ if.end4:                                          ; preds = %if.then.i, %_ZN3net
   br i1 %should_index, label %if.end10, label %return
 
 if.end10:                                         ; preds = %if.end4
-  %header_table_ = getelementptr inbounds %"class.net::HpackDecoder", ptr %this, i64 0, i32 1
+  %header_table_ = getelementptr inbounds i8, ptr %this, i64 8
   %agg.tmp11.sroa.0.0.copyload = load ptr, ptr %name, align 8
   %agg.tmp11.sroa.2.0.copyload = load i64, ptr %agg.tmp.sroa.2.0.name.sroa_idx, align 8
   %agg.tmp12.sroa.0.0.copyload = load ptr, ptr %value, align 8
@@ -910,14 +872,14 @@ entry:
   br i1 %call, label %if.end, label %return
 
 if.end:                                           ; preds = %entry
-  %size_updates_allowed_ = getelementptr inbounds %"class.net::HpackDecoder", ptr %this, i64 0, i32 12
+  %size_updates_allowed_ = getelementptr inbounds i8, ptr %this, i64 478
   %0 = load i8, ptr %size_updates_allowed_, align 2
   %1 = and i8 %0, 1
   %tobool.not = icmp eq i8 %1, 0
   br i1 %tobool.not, label %return, label %if.end3
 
 if.end3:                                          ; preds = %if.end
-  %size_updates_seen_ = getelementptr inbounds %"class.net::HpackDecoder", ptr %this, i64 0, i32 11
+  %size_updates_seen_ = getelementptr inbounds i8, ptr %this, i64 477
   %2 = load i8, ptr %size_updates_seen_, align 1
   %inc = add i8 %2, 1
   store i8 %inc, ptr %size_updates_seen_, align 1
@@ -927,13 +889,13 @@ if.end3:                                          ; preds = %if.end
 if.end6:                                          ; preds = %if.end3
   %3 = load i32, ptr %size, align 4
   %conv7 = zext i32 %3 to i64
-  %settings_size_bound_.i = getelementptr inbounds %"class.net::HpackDecoder", ptr %this, i64 0, i32 1, i32 6
+  %settings_size_bound_.i = getelementptr inbounds i8, ptr %this, i64 224
   %4 = load i64, ptr %settings_size_bound_.i, align 8
   %cmp9 = icmp ult i64 %4, %conv7
   br i1 %cmp9, label %return, label %if.end11
 
 if.end11:                                         ; preds = %if.end6
-  %header_table_ = getelementptr inbounds %"class.net::HpackDecoder", ptr %this, i64 0, i32 1
+  %header_table_ = getelementptr inbounds i8, ptr %this, i64 8
   call void @_ZN3net16HpackHeaderTable10SetMaxSizeEm(ptr noundef nonnull align 8 dereferenceable(256) %header_table_, i64 noundef %conv7)
   br label %return
 
@@ -973,9 +935,9 @@ if.then2:                                         ; preds = %if.end
   br i1 %call.i, label %if.then.i, label %if.end.i
 
 if.then.i:                                        ; preds = %if.then2
-  %key_buffer_.i = getelementptr inbounds %"class.net::HpackDecoder", ptr %this, i64 0, i32 4
-  %call2.i = call noundef zeroext i1 @_ZN3net16HpackInputStream23DecodeNextHuffmanStringEPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(33) %input_stream, ptr noundef nonnull %key_buffer_.i)
-  call void @_ZN4base16BasicStringPieceINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEC1ERKS6_(ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp.i, ptr noundef nonnull align 8 dereferenceable(32) %key_buffer_.i)
+  %cond.i = getelementptr inbounds i8, ptr %this, i64 384
+  %call2.i = call noundef zeroext i1 @_ZN3net16HpackInputStream23DecodeNextHuffmanStringEPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(33) %input_stream, ptr noundef nonnull %cond.i)
+  call void @_ZN4base16BasicStringPieceINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEC1ERKS6_(ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp.i, ptr noundef nonnull align 8 dereferenceable(32) %cond.i)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %next_name, ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp.i, i64 16, i1 false)
   br label %_ZN3net12HpackDecoder23DecodeNextStringLiteralEPNS_16HpackInputStreamEbPN4base16BasicStringPieceINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEE.exit
 
@@ -993,22 +955,22 @@ _ZN3net12HpackDecoder23DecodeNextStringLiteralEPNS_16HpackInputStreamEbPN4base16
   br label %return
 
 if.end4:                                          ; preds = %if.end
-  %header_table_ = getelementptr inbounds %"class.net::HpackDecoder", ptr %this, i64 0, i32 1
+  %header_table_ = getelementptr inbounds i8, ptr %this, i64 8
   %conv = zext i32 %0 to i64
   %call6 = call noundef ptr @_ZN3net16HpackHeaderTable10GetByIndexEm(ptr noundef nonnull align 8 dereferenceable(256) %header_table_, i64 noundef %conv)
   %cmp7 = icmp eq ptr %call6, null
   br i1 %cmp7, label %return, label %if.end9
 
 if.end9:                                          ; preds = %if.end4
-  %type_.i = getelementptr inbounds %"class.net::HpackEntry", ptr %call6, i64 0, i32 5
+  %type_.i = getelementptr inbounds i8, ptr %call6, i64 104
   %1 = load i32, ptr %type_.i, align 8
   %cmp.i = icmp eq i32 %1, 2
   br i1 %cmp.i, label %if.then11, label %if.else
 
 if.then11:                                        ; preds = %if.end9
-  %name_ref_.i = getelementptr inbounds %"class.net::HpackEntry", ptr %call6, i64 0, i32 2
+  %name_ref_.i = getelementptr inbounds i8, ptr %call6, i64 64
   %retval.sroa.0.0.copyload.i = load ptr, ptr %name_ref_.i, align 8
-  %retval.sroa.2.0.name_ref_.sroa_idx.i = getelementptr inbounds %"class.net::HpackEntry", ptr %call6, i64 0, i32 2, i32 1
+  %retval.sroa.2.0.name_ref_.sroa_idx.i = getelementptr inbounds i8, ptr %call6, i64 72
   %retval.sroa.2.0.copyload.i = load i64, ptr %retval.sroa.2.0.name_ref_.sroa_idx.i, align 8
   store ptr %retval.sroa.0.0.copyload.i, ptr %next_name, align 8
   %ref.tmp.sroa.2.0..sroa_idx = getelementptr inbounds i8, ptr %next_name, i64 8
@@ -1016,19 +978,19 @@ if.then11:                                        ; preds = %if.end9
   br label %return
 
 if.else:                                          ; preds = %if.end9
-  %key_buffer_ = getelementptr inbounds %"class.net::HpackDecoder", ptr %this, i64 0, i32 4
-  %name_ref_.i8 = getelementptr inbounds %"class.net::HpackEntry", ptr %call6, i64 0, i32 2
+  %key_buffer_ = getelementptr inbounds i8, ptr %this, i64 384
+  %name_ref_.i8 = getelementptr inbounds i8, ptr %call6, i64 64
   %retval.sroa.0.0.copyload.i9 = load ptr, ptr %name_ref_.i8, align 8
-  %retval.sroa.2.0.name_ref_.sroa_idx.i10 = getelementptr inbounds %"class.net::HpackEntry", ptr %call6, i64 0, i32 2, i32 1
+  %retval.sroa.2.0.name_ref_.sroa_idx.i10 = getelementptr inbounds i8, ptr %call6, i64 72
   %retval.sroa.2.0.copyload.i11 = load i64, ptr %retval.sroa.2.0.name_ref_.sroa_idx.i10, align 8
   store ptr %retval.sroa.0.0.copyload.i9, ptr %ref.tmp13, align 8
-  %2 = getelementptr inbounds { ptr, i64 }, ptr %ref.tmp13, i64 0, i32 1
+  %2 = getelementptr inbounds i8, ptr %ref.tmp13, i64 8
   store i64 %retval.sroa.2.0.copyload.i11, ptr %2, align 8
   %call15 = call noundef ptr @_ZNK4base16BasicStringPieceINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE4dataEv(ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp13)
   %retval.sroa.0.0.copyload.i15 = load ptr, ptr %name_ref_.i8, align 8
   %retval.sroa.2.0.copyload.i17 = load i64, ptr %retval.sroa.2.0.name_ref_.sroa_idx.i10, align 8
   store ptr %retval.sroa.0.0.copyload.i15, ptr %ref.tmp16, align 8
-  %3 = getelementptr inbounds { ptr, i64 }, ptr %ref.tmp16, i64 0, i32 1
+  %3 = getelementptr inbounds i8, ptr %ref.tmp16, i64 8
   store i64 %retval.sroa.2.0.copyload.i17, ptr %3, align 8
   %call18 = call noundef i64 @_ZNK4base16BasicStringPieceINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp16)
   %call19 = call noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6assignEPKcm(ptr noundef nonnull align 8 dereferenceable(32) %key_buffer_, ptr noundef %call15, i64 noundef %call18)
@@ -1049,9 +1011,8 @@ entry:
   br i1 %call, label %if.then, label %if.end
 
 if.then:                                          ; preds = %entry
-  %key_buffer_ = getelementptr inbounds %"class.net::HpackDecoder", ptr %this, i64 0, i32 4
-  %value_buffer_ = getelementptr inbounds %"class.net::HpackDecoder", ptr %this, i64 0, i32 5
-  %cond = select i1 %is_key, ptr %key_buffer_, ptr %value_buffer_
+  %cond.v = select i1 %is_key, i64 384, i64 416
+  %cond = getelementptr inbounds i8, ptr %this, i64 %cond.v
   %call2 = tail call noundef zeroext i1 @_ZN3net16HpackInputStream23DecodeNextHuffmanStringEPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(33) %input_stream, ptr noundef nonnull %cond)
   call void @_ZN4base16BasicStringPieceINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEC1ERKS6_(ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp, ptr noundef nonnull align 8 dereferenceable(32) %cond)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %output, ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp, i64 16, i1 false)
@@ -1094,13 +1055,13 @@ declare void @_ZSt9terminatev() local_unnamed_addr
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr dso_local ptr @_ZNSt10_HashtableIN4base16BasicStringPieceINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEESt4pairIKS8_St14_List_iteratorIS9_IS8_S8_EEESaISE_ENSt8__detail10_Select1stESt8equal_toIS8_ENS0_15StringPieceHashENSG_18_Mod_range_hashingENSG_20_Default_ranged_hashENSG_20_Prime_rehash_policyENSG_17_Hashtable_traitsILb1ELb0ELb1EEEE4findERSA_(ptr noundef nonnull align 8 dereferenceable(56) %this, ptr noundef nonnull align 8 dereferenceable(16) %__k) local_unnamed_addr #0 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  %_M_element_count.i = getelementptr inbounds %"class.std::_Hashtable.26", ptr %this, i64 0, i32 3
+  %_M_element_count.i = getelementptr inbounds i8, ptr %this, i64 24
   %0 = load i64, ptr %_M_element_count.i, align 8
   %cmp.not.not = icmp eq i64 %0, 0
   br i1 %cmp.not.not, label %if.then, label %if.end15
 
 if.then:                                          ; preds = %entry
-  %_M_before_begin.i.i = getelementptr inbounds %"class.std::_Hashtable.26", ptr %this, i64 0, i32 2
+  %_M_before_begin.i.i = getelementptr inbounds i8, ptr %this, i64 16
   br label %for.cond
 
 for.cond:                                         ; preds = %for.body, %if.then
@@ -1134,7 +1095,7 @@ for.body.i.i:                                     ; preds = %if.end15, %for.body
 
 _ZNKSt8__detail15_Hash_code_baseIN4base16BasicStringPieceINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEESt4pairIKS9_St14_List_iteratorISA_IS9_S9_EEENS_10_Select1stENS1_15StringPieceHashENS_18_Mod_range_hashingENS_20_Default_ranged_hashELb1EE12_M_hash_codeERSB_.exit: ; preds = %for.body.i.i, %if.end15
   %result.0.lcssa.i.i = phi i64 [ 0, %if.end15 ], [ %add.i.i, %for.body.i.i ]
-  %_M_bucket_count.i = getelementptr inbounds %"class.std::_Hashtable.26", ptr %this, i64 0, i32 1
+  %_M_bucket_count.i = getelementptr inbounds i8, ptr %this, i64 8
   %2 = load i64, ptr %_M_bucket_count.i, align 8
   %rem.i.i.i = urem i64 %result.0.lcssa.i.i, %2
   %3 = load ptr, ptr %this, align 8

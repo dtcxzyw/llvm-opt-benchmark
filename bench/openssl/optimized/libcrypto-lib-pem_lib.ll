@@ -4,8 +4,6 @@ target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:
 target triple = "x86_64-unknown-linux-gnu"
 
 %struct.evp_cipher_info_st = type { ptr, [16 x i8] }
-%struct.evp_pkey_asn1_method_st = type { i32, i32, i64, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr }
-%struct.buf_mem_st = type { i64, ptr, i64, i64 }
 
 @.str = private unnamed_addr constant [23 x i8] c"Enter PEM pass phrase:\00", align 1
 @.str.1 = private unnamed_addr constant [32 x i8] c"../openssl/crypto/pem/pem_lib.c\00", align 1
@@ -236,14 +234,14 @@ declare ptr @PEM_ASN1_read_bio(ptr noundef, ptr noundef, ptr noundef, ptr nounde
 declare i32 @BIO_free(ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: nounwind uwtable
-define i32 @PEM_bytes_read_bio(ptr nocapture noundef writeonly %pdata, ptr nocapture noundef writeonly %plen, ptr noundef %pnm, ptr noundef %name, ptr noundef %bp, ptr noundef %cb, ptr noundef %u) local_unnamed_addr #0 {
+define noundef i32 @PEM_bytes_read_bio(ptr nocapture noundef writeonly %pdata, ptr nocapture noundef writeonly %plen, ptr noundef %pnm, ptr noundef %name, ptr noundef %bp, ptr noundef %cb, ptr noundef %u) local_unnamed_addr #0 {
 entry:
   %call = tail call fastcc i32 @pem_bytes_read_bio_flags(ptr noundef %pdata, ptr noundef %plen, ptr noundef %pnm, ptr noundef %name, ptr noundef %bp, ptr noundef %cb, ptr noundef %u, i32 noundef 2), !range !6
   ret i32 %call
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @pem_bytes_read_bio_flags(ptr nocapture noundef writeonly %pdata, ptr nocapture noundef writeonly %plen, ptr noundef writeonly %pnm, ptr noundef %name, ptr noundef %bp, ptr noundef %cb, ptr noundef %u, i32 noundef %flags) unnamed_addr #0 {
+define internal fastcc noundef i32 @pem_bytes_read_bio_flags(ptr nocapture noundef writeonly %pdata, ptr nocapture noundef writeonly %plen, ptr noundef writeonly %pnm, ptr noundef %name, ptr noundef %bp, ptr noundef %cb, ptr noundef %u, i32 noundef %flags) unnamed_addr #0 {
 entry:
   %e.i = alloca ptr, align 8
   %cipher = alloca %struct.evp_cipher_info_st, align 8
@@ -356,7 +354,7 @@ if.then14.i:                                      ; preds = %ossl_pem_check_suff
   br i1 %tobool.not.i24, label %check_pem.exit, label %land.lhs.true.i
 
 land.lhs.true.i:                                  ; preds = %if.then14.i
-  %old_priv_decode.i = getelementptr inbounds %struct.evp_pkey_asn1_method_st, ptr %call15.i, i64 0, i32 24
+  %old_priv_decode.i = getelementptr inbounds i8, ptr %call15.i, i64 184
   %9 = load ptr, ptr %old_priv_decode.i, align 8
   %tobool16.not.i = icmp eq ptr %9, null
   br i1 %tobool16.not.i, label %check_pem.exit, label %check_pem.exit.thread
@@ -401,7 +399,7 @@ if.then28.i:                                      ; preds = %ossl_pem_check_suff
   br i1 %tobool30.not.i, label %check_pem.exit, label %if.then31.i
 
 if.then31.i:                                      ; preds = %if.then28.i
-  %param_decode.i = getelementptr inbounds %struct.evp_pkey_asn1_method_st, ptr %call29.i, i64 0, i32 15
+  %param_decode.i = getelementptr inbounds i8, ptr %call29.i, i64 112
   %11 = load ptr, ptr %param_decode.i, align 8
   %tobool32.not.i = icmp ne ptr %11, null
   %..i = zext i1 %tobool32.not.i to i32
@@ -566,7 +564,7 @@ return:                                           ; preds = %if.then.i33.thread,
 }
 
 ; Function Attrs: nounwind uwtable
-define i32 @PEM_bytes_read_bio_secmem(ptr nocapture noundef writeonly %pdata, ptr nocapture noundef writeonly %plen, ptr noundef %pnm, ptr noundef %name, ptr noundef %bp, ptr noundef %cb, ptr noundef %u) local_unnamed_addr #0 {
+define noundef i32 @PEM_bytes_read_bio_secmem(ptr nocapture noundef writeonly %pdata, ptr nocapture noundef writeonly %plen, ptr noundef %pnm, ptr noundef %name, ptr noundef %bp, ptr noundef %cb, ptr noundef %u) local_unnamed_addr #0 {
 entry:
   %call = tail call fastcc i32 @pem_bytes_read_bio_flags(ptr noundef %pdata, ptr noundef %plen, ptr noundef %pnm, ptr noundef %name, ptr noundef %bp, ptr noundef %cb, ptr noundef %u, i32 noundef 3), !range !6
   ret i32 %call
@@ -1038,7 +1036,7 @@ if.then15:                                        ; preds = %if.end12
 if.end16:                                         ; preds = %if.end12
   %2 = load ptr, ptr %cipher, align 8
   %call18 = call ptr @EVP_md5() #10
-  %iv = getelementptr inbounds %struct.evp_cipher_info_st, ptr %cipher, i64 0, i32 1
+  %iv = getelementptr inbounds i8, ptr %cipher, i64 8
   %call21 = call i32 @EVP_BytesToKey(ptr noundef %2, ptr noundef %call18, ptr noundef nonnull %iv, ptr noundef nonnull %buf, i32 noundef %keylen.0, i32 noundef 1, ptr noundef nonnull %key, ptr noundef null) #10
   %tobool.not = icmp eq i32 %call21, 0
   br i1 %tobool.not, label %return, label %if.end23
@@ -1101,10 +1099,10 @@ declare i32 @EVP_DecryptUpdate(ptr noundef, ptr noundef, ptr noundef, ptr nounde
 declare i32 @EVP_DecryptFinal_ex(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: nounwind uwtable
-define i32 @PEM_get_EVP_CIPHER_INFO(ptr noundef %header, ptr nocapture noundef %cipher) local_unnamed_addr #0 {
+define noundef i32 @PEM_get_EVP_CIPHER_INFO(ptr noundef %header, ptr nocapture noundef %cipher) local_unnamed_addr #0 {
 entry:
   %header.addr = alloca ptr, align 8
-  %iv = getelementptr inbounds %struct.evp_cipher_info_st, ptr %cipher, i64 0, i32 1
+  %iv = getelementptr inbounds i8, ptr %cipher, i64 8
   %cmp = icmp eq ptr %header, null
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %cipher, i8 0, i64 24, i1 false)
   br i1 %cmp, label %return, label %lor.lhs.false
@@ -1264,7 +1262,7 @@ declare i64 @strcspn(ptr nocapture noundef, ptr nocapture noundef) local_unnamed
 declare ptr @EVP_get_cipherbyname(ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @load_iv(ptr nocapture noundef %fromp, ptr nocapture noundef %to, i32 noundef %num) unnamed_addr #0 {
+define internal fastcc noundef i32 @load_iv(ptr nocapture noundef %fromp, ptr nocapture noundef %to, i32 noundef %num) unnamed_addr #0 {
 entry:
   %0 = load ptr, ptr %fromp, align 8
   %cmp16 = icmp sgt i32 %num, 0
@@ -1356,7 +1354,7 @@ declare void @EVP_EncodeFinal(ptr noundef, ptr noundef, ptr noundef) local_unnam
 declare void @EVP_ENCODE_CTX_free(ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: nounwind uwtable
-define i32 @PEM_read(ptr noundef %fp, ptr nocapture noundef writeonly %name, ptr nocapture noundef %header, ptr nocapture noundef %data, ptr nocapture noundef writeonly %len) local_unnamed_addr #0 {
+define noundef i32 @PEM_read(ptr noundef %fp, ptr nocapture noundef writeonly %name, ptr nocapture noundef %header, ptr nocapture noundef %data, ptr nocapture noundef writeonly %len) local_unnamed_addr #0 {
 entry:
   %call = tail call ptr @BIO_s_file() #10
   %call1 = tail call ptr @BIO_new(ptr noundef %call) #10
@@ -1371,7 +1369,7 @@ if.then:                                          ; preds = %entry
 
 if.end:                                           ; preds = %entry
   %call2 = tail call i64 @BIO_ctrl(ptr noundef nonnull %call1, i32 noundef 106, i64 noundef 0, ptr noundef %fp) #10
-  %call.i = tail call i32 @PEM_read_bio_ex(ptr noundef nonnull %call1, ptr noundef %name, ptr noundef %header, ptr noundef %data, ptr noundef %len, i32 noundef 2), !range !6
+  %call.i = tail call noundef i32 @PEM_read_bio_ex(ptr noundef nonnull %call1, ptr noundef %name, ptr noundef %header, ptr noundef %data, ptr noundef %len, i32 noundef 2), !range !6
   %call4 = tail call i32 @BIO_free(ptr noundef nonnull %call1) #10
   br label %return
 
@@ -1381,14 +1379,14 @@ return:                                           ; preds = %if.end, %if.then
 }
 
 ; Function Attrs: nounwind uwtable
-define i32 @PEM_read_bio(ptr noundef %bp, ptr nocapture noundef writeonly %name, ptr nocapture noundef %header, ptr nocapture noundef %data, ptr nocapture noundef writeonly %len) local_unnamed_addr #0 {
+define noundef i32 @PEM_read_bio(ptr noundef %bp, ptr nocapture noundef writeonly %name, ptr nocapture noundef %header, ptr nocapture noundef %data, ptr nocapture noundef writeonly %len) local_unnamed_addr #0 {
 entry:
   %call = tail call i32 @PEM_read_bio_ex(ptr noundef %bp, ptr noundef %name, ptr noundef %header, ptr noundef %data, ptr noundef %len, i32 noundef 2), !range !6
   ret i32 %call
 }
 
 ; Function Attrs: nounwind uwtable
-define i32 @PEM_read_bio_ex(ptr noundef %bp, ptr nocapture noundef writeonly %name_out, ptr nocapture noundef %header, ptr nocapture noundef %data, ptr nocapture noundef writeonly %len_out, i32 noundef %flags) local_unnamed_addr #0 {
+define noundef i32 @PEM_read_bio_ex(ptr noundef %bp, ptr nocapture noundef writeonly %name_out, ptr nocapture noundef %header, ptr nocapture noundef %data, ptr nocapture noundef writeonly %len_out, i32 noundef %flags) local_unnamed_addr #0 {
 entry:
   %len = alloca i32, align 4
   %taillen = alloca i32, align 4
@@ -1723,7 +1721,7 @@ if.then27:                                        ; preds = %if.end23
 if.end28:                                         ; preds = %if.end23
   call void @EVP_DecodeInit(ptr noundef nonnull %call24) #10
   %7 = load ptr, ptr %buf_mem, align 8
-  %data29 = getelementptr inbounds %struct.buf_mem_st, ptr %7, i64 0, i32 1
+  %data29 = getelementptr inbounds i8, ptr %7, i64 8
   %8 = load ptr, ptr %data29, align 8
   %call31 = call i32 @EVP_DecodeUpdate(ptr noundef nonnull %call24, ptr noundef %8, ptr noundef nonnull %len, ptr noundef %8, i32 noundef %conv) #10
   %cmp32 = icmp slt i32 %call31, 0
@@ -1731,7 +1729,7 @@ if.end28:                                         ; preds = %if.end23
 
 lor.lhs.false34:                                  ; preds = %if.end28
   %9 = load ptr, ptr %buf_mem, align 8
-  %data35 = getelementptr inbounds %struct.buf_mem_st, ptr %9, i64 0, i32 1
+  %data35 = getelementptr inbounds i8, ptr %9, i64 8
   %10 = load ptr, ptr %data35, align 8
   %11 = load i32, ptr %len, align 4
   %idxprom = sext i32 %11 to i64
@@ -1899,7 +1897,7 @@ if.end:                                           ; preds = %if.else, %if.then
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read) uwtable
-define i32 @ossl_pem_check_suffix(ptr noundef %pem_str, ptr nocapture noundef readonly %suffix) local_unnamed_addr #5 {
+define noundef i32 @ossl_pem_check_suffix(ptr noundef %pem_str, ptr nocapture noundef readonly %suffix) local_unnamed_addr #5 {
 entry:
   %call = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %pem_str) #9
   %conv = trunc i64 %call to i32

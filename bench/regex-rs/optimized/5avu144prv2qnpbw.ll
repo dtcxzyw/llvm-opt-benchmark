@@ -135,7 +135,7 @@ define hidden void @_ZN14regex_automata4meta8wrappers6PikeVM3new17h99b34d6fe14cd
   br i1 %36, label %37, label %39
 
 37:                                               ; preds = %34
-  %38 = getelementptr inbounds { [1 x i64], { ptr, { { [16 x i8], i8, [7 x i8] }, i8, [7 x i8] } } }, ptr %10, i64 0, i32 1
+  %38 = getelementptr inbounds i8, ptr %10, i64 8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %11, ptr noundef nonnull align 8 dereferenceable(40) %38, i64 40, i1 false), !noalias !5
   invoke void @"_ZN4core3ptr67drop_in_place$LT$regex_automata..nfa..thompson..pikevm..Builder$GT$17h478b4e948daeb52bE"(ptr nonnull align 8 %7)
           to label %42 unwind label %40, !noalias !5
@@ -152,7 +152,7 @@ define hidden void @_ZN14regex_automata4meta8wrappers6PikeVM3new17h99b34d6fe14cd
           to label %.thread14.i unwind label %44, !noalias !5
 
 42:                                               ; preds = %37
-  %43 = getelementptr inbounds { [1 x i64], { { ptr, { { [16 x i8], i8, [7 x i8] }, i8, [7 x i8] } } } }, ptr %16, i64 0, i32 1
+  %43 = getelementptr inbounds i8, ptr %16, i64 8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %43, ptr noundef nonnull align 8 dereferenceable(40) %11, i64 40, i1 false)
   store i32 2, ptr %16, align 8, !alias.scope !5
   br label %_ZN14regex_automata4meta8wrappers12PikeVMEngine3new17hecbd707fbec6acc6E.exit
@@ -272,7 +272,7 @@ define hidden void @_ZN14regex_automata4meta8wrappers18BoundedBacktracker3new17h
   br i1 %19, label %22, label %.critedge.i
 
 .critedge.i:                                      ; preds = %29, %20
-  %21 = getelementptr inbounds { [1 x i64], { i64, [5 x i64] } }, ptr %16, i64 0, i32 1
+  %21 = getelementptr inbounds i8, ptr %16, i64 8
   store i64 2, ptr %21, align 8, !alias.scope !13
   store i32 2, ptr %16, align 8, !alias.scope !13
   call void @"_ZN4core3ptr91drop_in_place$LT$core..option..Option$LT$regex_automata..util..prefilter..Prefilter$GT$$GT$17h1cebe812afc28bceE"(ptr align 8 %2), !noalias !13
@@ -338,7 +338,7 @@ define hidden void @_ZN14regex_automata4meta8wrappers18BoundedBacktracker3new17h
   br i1 %43, label %44, label %46
 
 44:                                               ; preds = %41
-  %45 = getelementptr inbounds { [1 x i64], { { { i64, i64 }, { [16 x i8], i8, [7 x i8] } }, ptr } }, ptr %10, i64 0, i32 1
+  %45 = getelementptr inbounds i8, ptr %10, i64 8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %11, ptr noundef nonnull align 8 dereferenceable(48) %45, i64 48, i1 false), !noalias !13
   invoke void @"_ZN4core3ptr70drop_in_place$LT$regex_automata..nfa..thompson..backtrack..Builder$GT$17hb4a5d76aa5f463f9E"(ptr nonnull align 8 %7)
           to label %49 unwind label %47, !noalias !13
@@ -355,7 +355,7 @@ define hidden void @_ZN14regex_automata4meta8wrappers18BoundedBacktracker3new17h
           to label %.thread.i unwind label %51, !noalias !13
 
 49:                                               ; preds = %44
-  %50 = getelementptr inbounds { [1 x i64], { i64, [5 x i64] } }, ptr %16, i64 0, i32 1
+  %50 = getelementptr inbounds i8, ptr %16, i64 8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %50, ptr noundef nonnull align 8 dereferenceable(48) %11, i64 48, i1 false)
   store i32 2, ptr %16, align 8, !alias.scope !13
   br label %_ZN14regex_automata4meta8wrappers24BoundedBacktrackerEngine3new17h1cf90ab535f8a97eE.exit
@@ -513,8 +513,8 @@ define hidden void @_ZN14regex_automata4meta8wrappers7OnePass3new17hdfbf01efc17b
   invoke void @"_ZN4core3ptr58drop_in_place$LT$regex_automata..dfa..onepass..Builder$GT$17ha70078bca22a04a1E"(ptr nonnull align 8 %5)
           to label %41 unwind label %38, !noalias !20
 
-38:                                               ; preds = %44, %37
-  %.0.i = phi i1 [ false, %44 ], [ true, %37 ]
+38:                                               ; preds = %45, %37
+  %.0.i = phi i1 [ false, %45 ], [ true, %37 ]
   %39 = landingpad { ptr, i32 }
           cleanup
   %40 = load i64, ptr %6, align 8, !range !23, !noalias !20, !noundef !9
@@ -524,16 +524,15 @@ define hidden void @_ZN14regex_automata4meta8wrappers7OnePass3new17hdfbf01efc17b
 41:                                               ; preds = %37
   %42 = load i64, ptr %6, align 8, !range !23, !noundef !9
   %.not.i = icmp eq i64 %42, 3
-  br i1 %.not.i, label %44, label %43
-
-43:                                               ; preds = %41
-  %.sroa.5.0..sroa_idx2 = getelementptr inbounds i8, ptr %6, i64 8
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(368) %.sroa.5, ptr noundef nonnull align 8 dereferenceable(368) %.sroa.5.0..sroa_idx2, i64 368, i1 false)
-  br label %_ZN14regex_automata4meta8wrappers13OnePassEngine3new17h51b4e95ded174f21E.exit
+  %43 = getelementptr inbounds i8, ptr %6, i64 8
+  br i1 %.not.i, label %45, label %44
 
 44:                                               ; preds = %41
-  %45 = getelementptr inbounds { [1 x i64], { { i32, [31 x i32] } } }, ptr %6, i64 0, i32 1
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(128) %4, ptr noundef nonnull align 8 dereferenceable(128) %45, i64 128, i1 false), !noalias !20
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(368) %.sroa.5, ptr noundef nonnull align 8 dereferenceable(368) %43, i64 368, i1 false)
+  br label %_ZN14regex_automata4meta8wrappers13OnePassEngine3new17h51b4e95ded174f21E.exit
+
+45:                                               ; preds = %41
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(128) %4, ptr noundef nonnull align 8 dereferenceable(128) %43, i64 128, i1 false), !noalias !20
   invoke void @"_ZN4core3ptr61drop_in_place$LT$regex_automata..dfa..onepass..BuildError$GT$17hf1348a220ccab82eE"(ptr nonnull align 8 %4)
           to label %_ZN14regex_automata4meta8wrappers13OnePassEngine3new17h51b4e95ded174f21E.exit unwind label %38, !noalias !20
 
@@ -555,12 +554,12 @@ define hidden void @_ZN14regex_automata4meta8wrappers7OnePass3new17hdfbf01efc17b
   unreachable
 
 51:                                               ; preds = %46
-  %52 = getelementptr inbounds { [1 x i64], { { i32, [31 x i32] } } }, ptr %6, i64 0, i32 1
+  %52 = getelementptr inbounds i8, ptr %6, i64 8
   invoke void @"_ZN4core3ptr61drop_in_place$LT$regex_automata..dfa..onepass..BuildError$GT$17hf1348a220ccab82eE"(ptr nonnull align 8 %52) #13
           to label %47 unwind label %49, !noalias !20
 
-_ZN14regex_automata4meta8wrappers13OnePassEngine3new17h51b4e95ded174f21E.exit: ; preds = %18, %3, %43, %44
-  %.sroa.0.0 = phi i64 [ 3, %44 ], [ %42, %43 ], [ 3, %3 ], [ 3, %18 ]
+_ZN14regex_automata4meta8wrappers13OnePassEngine3new17h51b4e95ded174f21E.exit: ; preds = %18, %3, %44, %45
+  %.sroa.0.0 = phi i64 [ 3, %45 ], [ %42, %44 ], [ 3, %3 ], [ 3, %18 ]
   call void @llvm.lifetime.end.p0(i64 128, ptr nonnull %4)
   call void @llvm.lifetime.end.p0(i64 472, ptr nonnull %5)
   call void @llvm.lifetime.end.p0(i64 376, ptr nonnull %6)
@@ -884,7 +883,7 @@ define hidden void @_ZN14regex_automata4meta8wrappers6Hybrid3new17h2ee58159f9be3
           to label %101 unwind label %99, !noalias !27
 
 96:                                               ; preds = %93
-  %97 = getelementptr inbounds { [1 x i64], { { i32, [31 x i32] } } }, ptr %23, i64 0, i32 1
+  %97 = getelementptr inbounds i8, ptr %23, i64 8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(128) %19, ptr noundef nonnull align 8 dereferenceable(128) %97, i64 128, i1 false), !noalias !27
   invoke void @"_ZN4core3ptr62drop_in_place$LT$regex_automata..hybrid..error..BuildError$GT$17hbf9721599a59ddaaE"(ptr nonnull align 8 %19)
           to label %.invoke.i unwind label %91, !noalias !27
@@ -915,7 +914,7 @@ define hidden void @_ZN14regex_automata4meta8wrappers6Hybrid3new17h2ee58159f9be3
           to label %105 unwind label %102, !noalias !27
 
 105:                                              ; preds = %104
-  %106 = getelementptr inbounds { [16 x i8], i8, [7 x i8] }, ptr %12, i64 0, i32 1
+  %106 = getelementptr inbounds i8, ptr %12, i64 16
   store i8 2, ptr %106, align 8, !noalias !27
   invoke void @_ZN14regex_automata6hybrid3dfa6Config9prefilter17hf79b522ffc4418a0E(ptr nonnull sret({ { i64, [4 x i64] }, { i64, i64 }, { i64, i64 }, { i64, i64 }, { [16 x i8], i8, [7 x i8] }, i8, i8, i8, i8, i8, i8, [2 x i8] }) align 8 %15, ptr nonnull align 8 %14, ptr nonnull align 8 %12)
           to label %107 unwind label %102, !noalias !27
@@ -966,7 +965,7 @@ define hidden void @_ZN14regex_automata4meta8wrappers6Hybrid3new17h2ee58159f9be3
           to label %122 unwind label %131, !noalias !27
 
 120:                                              ; preds = %117
-  %121 = getelementptr inbounds { [1 x i64], { { i32, [31 x i32] } } }, ptr %18, i64 0, i32 1
+  %121 = getelementptr inbounds i8, ptr %18, i64 8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(128) %10, ptr noundef nonnull align 8 dereferenceable(128) %121, i64 128, i1 false), !noalias !27
   invoke void @"_ZN4core3ptr62drop_in_place$LT$regex_automata..hybrid..error..BuildError$GT$17hbf9721599a59ddaaE"(ptr nonnull align 8 %10)
           to label %133 unwind label %.thread78.i, !noalias !27
@@ -1030,7 +1029,7 @@ define hidden void @_ZN14regex_automata4meta8wrappers6Hybrid3new17h2ee58159f9be3
 .thread96.i:                                      ; preds = %134, %.thread74.i
   %.12585101.i = phi i8 [ 1, %134 ], [ %.125.i, %.thread74.i ]
   %.pn.pn89100.i = phi { ptr, i32 } [ %115, %134 ], [ %.pn.pn.i, %.thread74.i ]
-  %136 = getelementptr inbounds { [1 x i64], { { i32, [31 x i32] } } }, ptr %18, i64 0, i32 1
+  %136 = getelementptr inbounds i8, ptr %18, i64 8
   invoke void @"_ZN4core3ptr62drop_in_place$LT$regex_automata..hybrid..error..BuildError$GT$17hbf9721599a59ddaaE"(ptr nonnull align 8 %136) #13
           to label %98 unwind label %129, !noalias !27
 
@@ -1050,7 +1049,7 @@ define hidden void @_ZN14regex_automata4meta8wrappers6Hybrid3new17h2ee58159f9be3
           to label %77 unwind label %129, !noalias !27
 
 140:                                              ; preds = %138
-  %141 = getelementptr inbounds { [1 x i64], { { i32, [31 x i32] } } }, ptr %23, i64 0, i32 1
+  %141 = getelementptr inbounds i8, ptr %23, i64 8
   invoke void @"_ZN4core3ptr62drop_in_place$LT$regex_automata..hybrid..error..BuildError$GT$17hbf9721599a59ddaaE"(ptr nonnull align 8 %141) #13
           to label %77 unwind label %129, !noalias !27
 
@@ -1270,7 +1269,7 @@ define hidden void @_ZN14regex_automata4meta8wrappers13ReverseHybrid3new17h7a42c
 22:                                               ; preds = %3
   call void @_ZN14regex_automata6hybrid3dfa6Config3new17hb53bc68e26a8b1bbE(ptr nonnull sret({ { i64, [4 x i64] }, { i64, i64 }, { i64, i64 }, { i64, i64 }, { [16 x i8], i8, [7 x i8] }, i8, i8, i8, i8, i8, i8, [2 x i8] }) align 8 %9), !noalias !33
   call void @_ZN14regex_automata6hybrid3dfa6Config10match_kind17hda57a7887a488a46E(ptr nonnull sret({ { i64, [4 x i64] }, { i64, i64 }, { i64, i64 }, { i64, i64 }, { [16 x i8], i8, [7 x i8] }, i8, i8, i8, i8, i8, i8, [2 x i8] }) align 8 %10, ptr nonnull align 8 %9, i1 zeroext false), !noalias !33
-  %23 = getelementptr inbounds { [16 x i8], i8, [7 x i8] }, ptr %8, i64 0, i32 1
+  %23 = getelementptr inbounds i8, ptr %8, i64 16
   store i8 2, ptr %23, align 8, !noalias !33
   call void @_ZN14regex_automata6hybrid3dfa6Config9prefilter17hf79b522ffc4418a0E(ptr nonnull sret({ { i64, [4 x i64] }, { i64, i64 }, { i64, i64 }, { i64, i64 }, { [16 x i8], i8, [7 x i8] }, i8, i8, i8, i8, i8, i8, [2 x i8] }) align 8 %11, ptr nonnull align 8 %10, ptr nonnull align 8 %8), !noalias !33
   call void @_ZN14regex_automata6hybrid3dfa6Config23starts_for_each_pattern17h50e9ad686db2bf3aE(ptr nonnull sret({ { i64, [4 x i64] }, { i64, i64 }, { i64, i64 }, { i64, i64 }, { [16 x i8], i8, [7 x i8] }, i8, i8, i8, i8, i8, i8, [2 x i8] }) align 8 %12, ptr nonnull align 8 %11, i1 zeroext false), !noalias !33
@@ -1323,8 +1322,8 @@ define hidden void @_ZN14regex_automata4meta8wrappers13ReverseHybrid3new17h7a42c
   invoke void @"_ZN4core3ptr57drop_in_place$LT$regex_automata..hybrid..dfa..Builder$GT$17hbb29cd3f40e193a0E"(ptr nonnull align 8 %6)
           to label %43 unwind label %40, !noalias !33
 
-40:                                               ; preds = %46, %39
-  %.013.i = phi i1 [ false, %46 ], [ true, %39 ]
+40:                                               ; preds = %47, %39
+  %.013.i = phi i1 [ false, %47 ], [ true, %39 ]
   %41 = landingpad { ptr, i32 }
           cleanup
   %42 = load i64, ptr %7, align 8, !range !19, !noalias !33, !noundef !9
@@ -1334,16 +1333,15 @@ define hidden void @_ZN14regex_automata4meta8wrappers13ReverseHybrid3new17h7a42c
 43:                                               ; preds = %39
   %44 = load i64, ptr %7, align 8, !range !19, !noundef !9
   %.not.i = icmp eq i64 %44, 2
-  br i1 %.not.i, label %46, label %45
-
-45:                                               ; preds = %43
-  %.sroa.4.0..sroa_idx2 = getelementptr inbounds i8, ptr %7, i64 8
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(680) %.sroa.4, ptr noundef nonnull align 8 dereferenceable(680) %.sroa.4.0..sroa_idx2, i64 680, i1 false)
-  br label %_ZN14regex_automata4meta8wrappers19ReverseHybridEngine3new17h0b6c53a0e5080a4aE.exit
+  %45 = getelementptr inbounds i8, ptr %7, i64 8
+  br i1 %.not.i, label %47, label %46
 
 46:                                               ; preds = %43
-  %47 = getelementptr inbounds { [1 x i64], { { i32, [31 x i32] } } }, ptr %7, i64 0, i32 1
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(128) %4, ptr noundef nonnull align 8 dereferenceable(128) %47, i64 128, i1 false), !noalias !33
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(680) %.sroa.4, ptr noundef nonnull align 8 dereferenceable(680) %45, i64 680, i1 false)
+  br label %_ZN14regex_automata4meta8wrappers19ReverseHybridEngine3new17h0b6c53a0e5080a4aE.exit
+
+47:                                               ; preds = %43
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(128) %4, ptr noundef nonnull align 8 dereferenceable(128) %45, i64 128, i1 false), !noalias !33
   invoke void @"_ZN4core3ptr62drop_in_place$LT$regex_automata..hybrid..error..BuildError$GT$17hbf9721599a59ddaaE"(ptr nonnull align 8 %4)
           to label %_ZN14regex_automata4meta8wrappers19ReverseHybridEngine3new17h0b6c53a0e5080a4aE.exit unwind label %40, !noalias !33
 
@@ -1361,7 +1359,7 @@ define hidden void @_ZN14regex_automata4meta8wrappers13ReverseHybrid3new17h7a42c
   unreachable
 
 52:                                               ; preds = %48
-  %53 = getelementptr inbounds { [1 x i64], { { i32, [31 x i32] } } }, ptr %7, i64 0, i32 1
+  %53 = getelementptr inbounds i8, ptr %7, i64 8
   invoke void @"_ZN4core3ptr62drop_in_place$LT$regex_automata..hybrid..error..BuildError$GT$17hbf9721599a59ddaaE"(ptr nonnull align 8 %53) #13
           to label %.thread29.i unwind label %50, !noalias !33
 
@@ -1387,8 +1385,8 @@ define hidden void @_ZN14regex_automata4meta8wrappers13ReverseHybrid3new17h7a42c
   invoke void @"_ZN4core3ptr56drop_in_place$LT$regex_automata..hybrid..dfa..Config$GT$17h7921a8f9ad7e5d03E"(ptr nonnull align 8 %12) #13
           to label %.thread29.i unwind label %50, !noalias !33
 
-_ZN14regex_automata4meta8wrappers19ReverseHybridEngine3new17h0b6c53a0e5080a4aE.exit: ; preds = %3, %45, %46
-  %.sroa.0.0 = phi i64 [ 2, %46 ], [ %44, %45 ], [ 2, %3 ]
+_ZN14regex_automata4meta8wrappers19ReverseHybridEngine3new17h0b6c53a0e5080a4aE.exit: ; preds = %3, %46, %47
+  %.sroa.0.0 = phi i64 [ 2, %47 ], [ %44, %46 ], [ 2, %3 ]
   call void @llvm.lifetime.end.p0(i64 128, ptr nonnull %4)
   call void @llvm.lifetime.end.p0(i64 120, ptr nonnull %5)
   call void @llvm.lifetime.end.p0(i64 568, ptr nonnull %6)

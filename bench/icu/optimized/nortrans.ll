@@ -9,9 +9,6 @@ target triple = "x86_64-unknown-linux-gnu"
 %"union.icu_75::UnicodeString::StackBufferOrFields" = type { %struct.anon.0, [32 x i8] }
 %struct.anon.0 = type { i16, i32, i32, ptr }
 %"class.icu_75::ConstChar16Ptr" = type { ptr }
-%"class.icu_75::NormalizationTransliterator" = type { %"class.icu_75::Transliterator.base", ptr }
-%"class.icu_75::Transliterator.base" = type <{ %"class.icu_75::UObject", %"class.icu_75::UnicodeString", ptr, i32 }>
-%struct.UTransPosition = type { i32, i32, i32, i32 }
 
 @_ZZN6icu_7527NormalizationTransliterator16getStaticClassIDEvE7classID = internal global i8 0, align 1
 @.str = private unnamed_addr constant [8 x i16] [i16 65, i16 110, i16 121, i16 45, i16 78, i16 70, i16 67, i16 0], align 2
@@ -522,7 +519,7 @@ define void @_ZN6icu_7527NormalizationTransliteratorC2ERKNS_13UnicodeStringERKNS
 entry:
   tail call void @_ZN6icu_7514TransliteratorC2ERKNS_13UnicodeStringEPNS_13UnicodeFilterE(ptr noundef nonnull align 8 dereferenceable(84) %this, ptr noundef nonnull align 8 dereferenceable(64) %id, ptr noundef null)
   store ptr getelementptr inbounds ({ [19 x ptr] }, ptr @_ZTVN6icu_7527NormalizationTransliteratorE, i64 0, inrange i32 0, i64 2), ptr %this, align 8
-  %fNorm2 = getelementptr inbounds %"class.icu_75::NormalizationTransliterator", ptr %this, i64 0, i32 1
+  %fNorm2 = getelementptr inbounds i8, ptr %this, i64 88
   store ptr %norm2, ptr %fNorm2, align 8
   ret void
 }
@@ -552,8 +549,8 @@ define void @_ZN6icu_7527NormalizationTransliteratorC2ERKS0_(ptr noundef nonnull
 entry:
   tail call void @_ZN6icu_7514TransliteratorC2ERKS0_(ptr noundef nonnull align 8 dereferenceable(84) %this, ptr noundef nonnull align 8 dereferenceable(84) %o)
   store ptr getelementptr inbounds ({ [19 x ptr] }, ptr @_ZTVN6icu_7527NormalizationTransliteratorE, i64 0, inrange i32 0, i64 2), ptr %this, align 8
-  %fNorm2 = getelementptr inbounds %"class.icu_75::NormalizationTransliterator", ptr %this, i64 0, i32 1
-  %fNorm22 = getelementptr inbounds %"class.icu_75::NormalizationTransliterator", ptr %o, i64 0, i32 1
+  %fNorm2 = getelementptr inbounds i8, ptr %this, i64 88
+  %fNorm22 = getelementptr inbounds i8, ptr %o, i64 88
   %0 = load ptr, ptr %fNorm22, align 8
   store ptr %0, ptr %fNorm2, align 8
   ret void
@@ -588,9 +585,9 @@ entry:
   %errorCode = alloca i32, align 4
   %segment = alloca %"class.icu_75::UnicodeString", align 8
   %normalized = alloca %"class.icu_75::UnicodeString", align 8
-  %start2 = getelementptr inbounds %struct.UTransPosition, ptr %offsets, i64 0, i32 2
+  %start2 = getelementptr inbounds i8, ptr %offsets, i64 8
   %0 = load i32, ptr %start2, align 4
-  %limit3 = getelementptr inbounds %struct.UTransPosition, ptr %offsets, i64 0, i32 3
+  %limit3 = getelementptr inbounds i8, ptr %offsets, i64 12
   %1 = load i32, ptr %limit3, align 4
   %cmp.not = icmp slt i32 %0, %1
   br i1 %cmp.not, label %invoke.cont, label %return
@@ -598,22 +595,22 @@ entry:
 invoke.cont:                                      ; preds = %entry
   store i32 0, ptr %errorCode, align 4
   store ptr getelementptr inbounds ({ [13 x ptr] }, ptr @_ZTVN6icu_7513UnicodeStringE, i64 0, inrange i32 0, i64 2), ptr %segment, align 8
-  %fUnion2.i = getelementptr inbounds %"class.icu_75::UnicodeString", ptr %segment, i64 0, i32 1
+  %fUnion2.i = getelementptr inbounds i8, ptr %segment, i64 8
   store i16 2, ptr %fUnion2.i, align 8
   store ptr getelementptr inbounds ({ [13 x ptr] }, ptr @_ZTVN6icu_7513UnicodeStringE, i64 0, inrange i32 0, i64 2), ptr %normalized, align 8
-  %fUnion2.i32 = getelementptr inbounds %"class.icu_75::UnicodeString", ptr %normalized, i64 0, i32 1
+  %fUnion2.i32 = getelementptr inbounds i8, ptr %normalized, i64 8
   store i16 2, ptr %fUnion2.i32, align 8
   %vtable.i = load ptr, ptr %text, align 8
-  %vfn.i = getelementptr inbounds ptr, ptr %vtable.i, i64 10
+  %vfn.i = getelementptr inbounds i8, ptr %vtable.i, i64 80
   %2 = load ptr, ptr %vfn.i, align 8
   %call.i33 = invoke noundef i32 %2(ptr noundef nonnull align 8 dereferenceable(8) %text, i32 noundef %0)
           to label %do.body.preheader unwind label %lpad4.loopexit.split-lp.loopexit.split-lp
 
 do.body.preheader:                                ; preds = %invoke.cont
-  %fNorm2 = getelementptr inbounds %"class.icu_75::NormalizationTransliterator", ptr %this, i64 0, i32 1
+  %fNorm2 = getelementptr inbounds i8, ptr %this, i64 88
   %tobool18 = icmp ne i8 %isIncremental, 0
-  %fLength.i.i.i = getelementptr inbounds %"class.icu_75::UnicodeString", ptr %segment, i64 0, i32 1, i32 0, i32 1
-  %fLength.i10.i.i = getelementptr inbounds %"class.icu_75::UnicodeString", ptr %normalized, i64 0, i32 1, i32 0, i32 1
+  %fLength.i.i.i = getelementptr inbounds i8, ptr %segment, i64 12
+  %fLength.i10.i.i = getelementptr inbounds i8, ptr %normalized, i64 12
   br label %do.body
 
 do.body:                                          ; preds = %do.body.preheader, %do.cond50
@@ -644,14 +641,14 @@ invoke.cont9:                                     ; preds = %do.body8
 land.rhs:                                         ; preds = %invoke.cont9
   %5 = load ptr, ptr %fNorm2, align 8
   %vtable.i34 = load ptr, ptr %text, align 8
-  %vfn.i35 = getelementptr inbounds ptr, ptr %vtable.i34, i64 10
+  %vfn.i35 = getelementptr inbounds i8, ptr %vtable.i34, i64 80
   %6 = load ptr, ptr %vfn.i35, align 8
   %call.i36 = invoke noundef i32 %6(ptr noundef nonnull align 8 dereferenceable(8) %text, i32 noundef %add)
           to label %invoke.cont13 unwind label %lpad4.loopexit
 
 invoke.cont13:                                    ; preds = %land.rhs
   %vtable = load ptr, ptr %5, align 8
-  %vfn = getelementptr inbounds ptr, ptr %vtable, i64 15
+  %vfn = getelementptr inbounds i8, ptr %vtable, i64 120
   %7 = load ptr, ptr %vfn, align 8
   %call16 = invoke noundef signext i8 %7(ptr noundef nonnull align 8 dereferenceable(8) %5, i32 noundef %call.i36)
           to label %invoke.cont15 unwind label %lpad4.loopexit
@@ -669,7 +666,7 @@ do.end:                                           ; preds = %invoke.cont9, %invo
 land.lhs.true19:                                  ; preds = %do.end
   %8 = load ptr, ptr %fNorm2, align 8
   %vtable21 = load ptr, ptr %8, align 8
-  %vfn22 = getelementptr inbounds ptr, ptr %vtable21, i64 16
+  %vfn22 = getelementptr inbounds i8, ptr %vtable21, i64 128
   %9 = load ptr, ptr %vfn22, align 8
   %call24 = invoke noundef signext i8 %9(ptr noundef nonnull align 8 dereferenceable(8) %8, i32 noundef %c.2)
           to label %invoke.cont23 unwind label %lpad4.loopexit.split-lp.loopexit
@@ -702,7 +699,7 @@ lpad4:                                            ; preds = %lpad4.loopexit.spli
 if.end27:                                         ; preds = %invoke.cont23, %do.end
   %10 = load ptr, ptr %fNorm2, align 8
   %vtable29 = load ptr, ptr %10, align 8
-  %vfn30 = getelementptr inbounds ptr, ptr %vtable29, i64 3
+  %vfn30 = getelementptr inbounds i8, ptr %vtable29, i64 24
   %11 = load ptr, ptr %vfn30, align 8
   %call32 = invoke noundef nonnull align 8 dereferenceable(64) ptr %11(ptr noundef nonnull align 8 dereferenceable(8) %10, ptr noundef nonnull align 8 dereferenceable(64) %segment, ptr noundef nonnull align 8 dereferenceable(64) %normalized, ptr noundef nonnull align 4 dereferenceable(4) %errorCode)
           to label %invoke.cont31 unwind label %lpad4.loopexit.split-lp.loopexit
@@ -752,7 +749,7 @@ invoke.cont38:                                    ; preds = %land.rhs.i.i
 
 if.then40:                                        ; preds = %if.then.i.i, %if.else.i.i, %invoke.cont38
   %vtable41 = load ptr, ptr %text, align 8
-  %vfn42 = getelementptr inbounds ptr, ptr %vtable41, i64 4
+  %vfn42 = getelementptr inbounds i8, ptr %vtable41, i64 32
   %20 = load ptr, ptr %vfn42, align 8
   invoke void %20(ptr noundef nonnull align 8 dereferenceable(8) %text, i32 noundef %start.0, i32 noundef %add, ptr noundef nonnull align 8 dereferenceable(64) %normalized)
           to label %invoke.cont44 unwind label %lpad4.loopexit.split-lp.loopexit
@@ -782,7 +779,7 @@ do.end52:                                         ; preds = %invoke.cont23, %inv
   store i32 %start.3, ptr %start2, align 4
   %24 = load i32, ptr %limit3, align 4
   %sub55 = sub i32 %limit.2, %24
-  %contextLimit = getelementptr inbounds %struct.UTransPosition, ptr %offsets, i64 0, i32 1
+  %contextLimit = getelementptr inbounds i8, ptr %offsets, i64 4
   %25 = load i32, ptr %contextLimit, align 4
   %add56 = add nsw i32 %sub55, %25
   store i32 %add56, ptr %contextLimit, align 4

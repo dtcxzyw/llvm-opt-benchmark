@@ -20,12 +20,12 @@ entry:
   %0 = load i64, ptr %tv, align 8
   store i64 %0, ptr %secs, align 8
   %call1 = call ptr @localtime_r(ptr noundef nonnull %secs, ptr noundef nonnull %tm) #4
-  %tm_hour = getelementptr inbounds %struct.tm, ptr %tm, i64 0, i32 2
+  %tm_hour = getelementptr inbounds i8, ptr %tm, i64 8
   %1 = load i32, ptr %tm_hour, align 8
-  %tm_min = getelementptr inbounds %struct.tm, ptr %tm, i64 0, i32 1
+  %tm_min = getelementptr inbounds i8, ptr %tm, i64 4
   %2 = load i32, ptr %tm_min, align 4
   %3 = load i32, ptr %tm, align 8
-  %tv_usec = getelementptr inbounds %struct.timeval, ptr %tv, i64 0, i32 1
+  %tv_usec = getelementptr inbounds i8, ptr %tv, i64 8
   %4 = load i64, ptr %tv_usec, align 8
   %call2 = call i32 (ptr, i64, ptr, ...) @xsnprintf(ptr noundef %tb, i64 noundef 32, ptr noundef nonnull @.str, i32 noundef %1, i32 noundef %2, i32 noundef %3, i64 noundef %4) #4
   ret void
@@ -49,20 +49,20 @@ entry:
   %0 = load i64, ptr %tv, align 8
   store i64 %0, ptr %secs, align 8
   %call1 = call ptr @gmtime_r(ptr noundef nonnull %secs, ptr noundef nonnull %tm) #4
-  %tm_year = getelementptr inbounds %struct.tm, ptr %tm, i64 0, i32 5
+  %tm_year = getelementptr inbounds i8, ptr %tm, i64 20
   %1 = load i32, ptr %tm_year, align 4
   %add = add nsw i32 %1, 1900
-  %tm_mon = getelementptr inbounds %struct.tm, ptr %tm, i64 0, i32 4
+  %tm_mon = getelementptr inbounds i8, ptr %tm, i64 16
   %2 = load i32, ptr %tm_mon, align 8
   %add2 = add nsw i32 %2, 1
-  %tm_mday = getelementptr inbounds %struct.tm, ptr %tm, i64 0, i32 3
+  %tm_mday = getelementptr inbounds i8, ptr %tm, i64 12
   %3 = load i32, ptr %tm_mday, align 4
-  %tm_hour = getelementptr inbounds %struct.tm, ptr %tm, i64 0, i32 2
+  %tm_hour = getelementptr inbounds i8, ptr %tm, i64 8
   %4 = load i32, ptr %tm_hour, align 8
-  %tm_min = getelementptr inbounds %struct.tm, ptr %tm, i64 0, i32 1
+  %tm_min = getelementptr inbounds i8, ptr %tm, i64 4
   %5 = load i32, ptr %tm_min, align 4
   %6 = load i32, ptr %tm, align 8
-  %tv_usec = getelementptr inbounds %struct.timeval, ptr %tv, i64 0, i32 1
+  %tv_usec = getelementptr inbounds i8, ptr %tv, i64 8
   %7 = load i64, ptr %tv_usec, align 8
   %call3 = call i32 (ptr, i64, ptr, ...) @xsnprintf(ptr noundef %tb, i64 noundef 32, ptr noundef nonnull @.str.1, i32 noundef %add, i32 noundef %add2, i32 noundef %3, i32 noundef %4, i32 noundef %5, i32 noundef %6, i64 noundef %7) #4
   ret void
@@ -81,20 +81,20 @@ entry:
   %0 = load i64, ptr %tv, align 8
   store i64 %0, ptr %secs, align 8
   %call1 = call ptr @gmtime_r(ptr noundef nonnull %secs, ptr noundef nonnull %tm) #4
-  %tm_year = getelementptr inbounds %struct.tm, ptr %tm, i64 0, i32 5
+  %tm_year = getelementptr inbounds i8, ptr %tm, i64 20
   %1 = load i32, ptr %tm_year, align 4
   %add = add nsw i32 %1, 1900
-  %tm_mon = getelementptr inbounds %struct.tm, ptr %tm, i64 0, i32 4
+  %tm_mon = getelementptr inbounds i8, ptr %tm, i64 16
   %2 = load i32, ptr %tm_mon, align 8
   %add2 = add nsw i32 %2, 1
-  %tm_mday = getelementptr inbounds %struct.tm, ptr %tm, i64 0, i32 3
+  %tm_mday = getelementptr inbounds i8, ptr %tm, i64 12
   %3 = load i32, ptr %tm_mday, align 4
-  %tm_hour = getelementptr inbounds %struct.tm, ptr %tm, i64 0, i32 2
+  %tm_hour = getelementptr inbounds i8, ptr %tm, i64 8
   %4 = load i32, ptr %tm_hour, align 8
-  %tm_min = getelementptr inbounds %struct.tm, ptr %tm, i64 0, i32 1
+  %tm_min = getelementptr inbounds i8, ptr %tm, i64 4
   %5 = load i32, ptr %tm_min, align 4
   %6 = load i32, ptr %tm, align 8
-  %tv_usec = getelementptr inbounds %struct.timeval, ptr %tv, i64 0, i32 1
+  %tv_usec = getelementptr inbounds i8, ptr %tv, i64 8
   %7 = load i64, ptr %tv_usec, align 8
   %call3 = call i32 (ptr, i64, ptr, ...) @xsnprintf(ptr noundef %tb, i64 noundef 32, ptr noundef nonnull @.str.2, i32 noundef %add, i32 noundef %add2, i32 noundef %3, i32 noundef %4, i32 noundef %5, i32 noundef %6, i64 noundef %7) #4
   ret void

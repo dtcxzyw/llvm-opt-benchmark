@@ -3,9 +3,6 @@ source_filename = "bench/hyperscan/original/target_info.cpp.ll"
 target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:128-n8:16:32:64-S128"
 target triple = "x86_64-unknown-linux-gnu"
 
-%"struct.ue2::target_t" = type { i32, i64 }
-%struct.hs_platform_info = type { i32, i64, i64, i64 }
-
 @_ZN3ue28target_tC1ERK16hs_platform_info = hidden unnamed_addr alias void (ptr, ptr), ptr @_ZN3ue28target_tC2ERK16hs_platform_info
 
 ; Function Attrs: mustprogress uwtable
@@ -25,14 +22,14 @@ declare i32 @cpuid_tune() local_unnamed_addr #1
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
 define hidden noundef zeroext i1 @_ZNK3ue28target_t25can_run_on_code_built_forERKS0_(ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %this, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %code_target) local_unnamed_addr #2 align 2 {
 entry:
-  %cpu_features.i = getelementptr inbounds %"struct.ue2::target_t", ptr %this, i64 0, i32 1
+  %cpu_features.i = getelementptr inbounds i8, ptr %this, i64 8
   %0 = load i64, ptr %cpu_features.i, align 8
   %and.i = and i64 %0, 4
   %tobool.i.not = icmp eq i64 %and.i, 0
   br i1 %tobool.i.not, label %land.lhs.true, label %if.end
 
 land.lhs.true:                                    ; preds = %entry
-  %cpu_features.i15 = getelementptr inbounds %"struct.ue2::target_t", ptr %code_target, i64 0, i32 1
+  %cpu_features.i15 = getelementptr inbounds i8, ptr %code_target, i64 8
   %1 = load i64, ptr %cpu_features.i15, align 8
   %and.i16 = and i64 %1, 4
   %tobool.i17.not = icmp eq i64 %and.i16, 0
@@ -44,7 +41,7 @@ if.end:                                           ; preds = %land.lhs.true, %ent
   br i1 %tobool.i20.not, label %land.lhs.true4, label %if.end7
 
 land.lhs.true4:                                   ; preds = %if.end
-  %cpu_features.i21 = getelementptr inbounds %"struct.ue2::target_t", ptr %code_target, i64 0, i32 1
+  %cpu_features.i21 = getelementptr inbounds i8, ptr %code_target, i64 8
   %2 = load i64, ptr %cpu_features.i21, align 8
   %and.i22 = and i64 %2, 8
   %tobool.i23.not = icmp eq i64 %and.i22, 0
@@ -56,7 +53,7 @@ if.end7:                                          ; preds = %land.lhs.true4, %if
   br i1 %tobool.i26.not, label %land.lhs.true9, label %if.end12
 
 land.lhs.true9:                                   ; preds = %if.end7
-  %cpu_features.i27 = getelementptr inbounds %"struct.ue2::target_t", ptr %code_target, i64 0, i32 1
+  %cpu_features.i27 = getelementptr inbounds i8, ptr %code_target, i64 8
   %3 = load i64, ptr %cpu_features.i27, align 8
   %and.i28 = and i64 %3, 16
   %tobool.i29.not = icmp eq i64 %and.i28, 0
@@ -73,7 +70,7 @@ return:                                           ; preds = %if.end12, %land.lhs
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
 define hidden noundef zeroext i1 @_ZNK3ue28target_t8has_avx2Ev(ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %this) local_unnamed_addr #2 align 2 {
 entry:
-  %cpu_features = getelementptr inbounds %"struct.ue2::target_t", ptr %this, i64 0, i32 1
+  %cpu_features = getelementptr inbounds i8, ptr %this, i64 8
   %0 = load i64, ptr %cpu_features, align 8
   %and = and i64 %0, 4
   %tobool = icmp ne i64 %and, 0
@@ -83,7 +80,7 @@ entry:
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
 define hidden noundef zeroext i1 @_ZNK3ue28target_t10has_avx512Ev(ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %this) local_unnamed_addr #2 align 2 {
 entry:
-  %cpu_features = getelementptr inbounds %"struct.ue2::target_t", ptr %this, i64 0, i32 1
+  %cpu_features = getelementptr inbounds i8, ptr %this, i64 8
   %0 = load i64, ptr %cpu_features, align 8
   %and = and i64 %0, 8
   %tobool = icmp ne i64 %and, 0
@@ -93,7 +90,7 @@ entry:
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
 define hidden noundef zeroext i1 @_ZNK3ue28target_t14has_avx512vbmiEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %this) local_unnamed_addr #2 align 2 {
 entry:
-  %cpu_features = getelementptr inbounds %"struct.ue2::target_t", ptr %this, i64 0, i32 1
+  %cpu_features = getelementptr inbounds i8, ptr %this, i64 8
   %0 = load i64, ptr %cpu_features, align 8
   %and = and i64 %0, 16
   %tobool = icmp ne i64 %and, 0
@@ -105,8 +102,8 @@ define hidden void @_ZN3ue28target_tC2ERK16hs_platform_info(ptr nocapture nounde
 entry:
   %0 = load i32, ptr %p, align 8
   store i32 %0, ptr %this, align 8
-  %cpu_features = getelementptr inbounds %"struct.ue2::target_t", ptr %this, i64 0, i32 1
-  %cpu_features3 = getelementptr inbounds %struct.hs_platform_info, ptr %p, i64 0, i32 1
+  %cpu_features = getelementptr inbounds i8, ptr %this, i64 8
+  %cpu_features3 = getelementptr inbounds i8, ptr %p, i64 8
   %1 = load i64, ptr %cpu_features3, align 8
   store i64 %1, ptr %cpu_features, align 8
   ret void

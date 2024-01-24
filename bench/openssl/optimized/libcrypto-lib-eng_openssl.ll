@@ -3,9 +3,6 @@ source_filename = "bench/openssl/original/libcrypto-lib-eng_openssl.ll"
 target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:128-n8:16:32:64-S128"
 target triple = "x86_64-unknown-linux-gnu"
 
-%struct.TEST_RC4_KEY = type { [16 x i8], %struct.rc4_key_st }
-%struct.rc4_key_st = type { i32, i32, [256 x i32] }
-
 @.str = private unnamed_addr constant [8 x i8] c"openssl\00", align 1
 @.str.1 = private unnamed_addr constant [24 x i8] c"Software engine support\00", align 1
 @sha1_md = internal unnamed_addr global ptr null, align 8
@@ -121,7 +118,7 @@ declare i32 @ENGINE_set_name(ptr noundef, ptr noundef) local_unnamed_addr #1
 declare i32 @ENGINE_set_destroy_function(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @openssl_destroy(ptr nocapture readnone %e) #0 {
+define internal noundef i32 @openssl_destroy(ptr nocapture readnone %e) #0 {
 entry:
   %0 = load ptr, ptr @sha1_md, align 8
   tail call void @EVP_MD_meth_free(ptr noundef %0) #5
@@ -463,7 +460,7 @@ if.end:                                           ; preds = %entry
   %conv = zext nneg i32 %call to i64
   tail call void @llvm.memcpy.p0.p0.i64(ptr align 4 %call2, ptr align 1 %key, i64 %conv, i1 false)
   %call4 = tail call ptr @EVP_CIPHER_CTX_get_cipher_data(ptr noundef %ctx) #5
-  %ks = getelementptr inbounds %struct.TEST_RC4_KEY, ptr %call4, i64 0, i32 1
+  %ks = getelementptr inbounds i8, ptr %call4, i64 16
   %call5 = tail call ptr @EVP_CIPHER_CTX_get_cipher_data(ptr noundef %ctx) #5
   tail call void @RC4_set_key(ptr noundef nonnull %ks, i32 noundef %call, ptr noundef %call5) #5
   br label %return
@@ -476,10 +473,10 @@ return:                                           ; preds = %entry, %if.end
 declare i32 @EVP_CIPHER_meth_set_do_cipher(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @test_rc4_cipher(ptr noundef %ctx, ptr noundef %out, ptr noundef %in, i64 noundef %inl) #0 {
+define internal noundef i32 @test_rc4_cipher(ptr noundef %ctx, ptr noundef %out, ptr noundef %in, i64 noundef %inl) #0 {
 entry:
   %call = tail call ptr @EVP_CIPHER_CTX_get_cipher_data(ptr noundef %ctx) #5
-  %ks = getelementptr inbounds %struct.TEST_RC4_KEY, ptr %call, i64 0, i32 1
+  %ks = getelementptr inbounds i8, ptr %call, i64 16
   tail call void @RC4(ptr noundef nonnull %ks, i64 noundef %inl, ptr noundef %in, ptr noundef %out) #5
   ret i32 1
 }

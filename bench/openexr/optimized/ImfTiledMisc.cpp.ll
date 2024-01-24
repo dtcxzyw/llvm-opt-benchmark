@@ -6,10 +6,6 @@ target triple = "x86_64-unknown-linux-gnu"
 %"class.std::ios_base::Init" = type { i8 }
 %"class.Imath_3_2::Box" = type { %"class.Imath_3_2::Vec2", %"class.Imath_3_2::Vec2" }
 %"class.Imath_3_2::Vec2" = type { i32, i32 }
-%"class.Imf_3_2::TileDescription" = type { i32, i32, i32, i32 }
-%"struct.std::_Rb_tree_node" = type { %"struct.std::_Rb_tree_node_base", %"struct.__gnu_cxx::__aligned_membuf" }
-%"struct.std::_Rb_tree_node_base" = type { i32, ptr, ptr, ptr }
-%"struct.__gnu_cxx::__aligned_membuf" = type { [272 x i8] }
 
 $__clang_call_terminate = comdat any
 
@@ -129,7 +125,7 @@ _ZN7Imf_3_29levelSizeEiiiNS_17LevelRoundingModeE.exit20: ; preds = %_ZN7Imf_3_29
   %add.i = add nsw i32 %sub.i, 1
   %shl.i = shl nuw i32 1, %lx
   %div.i = sdiv i32 %add.i, %shl.i
-  %roundingMode = getelementptr inbounds %"class.Imf_3_2::TileDescription", ptr %tileDesc, i64 0, i32 3
+  %roundingMode = getelementptr inbounds i8, ptr %tileDesc, i64 12
   %2 = load i32, ptr %roundingMode, align 4
   %cmp1.i = icmp eq i32 %2, 1
   %mul4.i = shl i32 %div.i, %lx
@@ -152,12 +148,12 @@ _ZN7Imf_3_29levelSizeEiiiNS_17LevelRoundingModeE.exit20: ; preds = %_ZN7Imf_3_29
   %add.i22 = add i32 %sub, %.sroa.speculated.i
   %sub3 = add i32 %minY, -1
   %add4.i24 = add i32 %sub3, %.sroa.speculated.i15
-  %max.i = getelementptr inbounds %"class.Imath_3_2::Box", ptr %agg.result, i64 0, i32 1
+  %max.i = getelementptr inbounds i8, ptr %agg.result, i64 8
   store i32 %minX, ptr %agg.result, align 4
-  %y3.i.i = getelementptr inbounds %"class.Imath_3_2::Vec2", ptr %agg.result, i64 0, i32 1
+  %y3.i.i = getelementptr inbounds i8, ptr %agg.result, i64 4
   store i32 %minY, ptr %y3.i.i, align 4
   store i32 %add.i22, ptr %max.i, align 4
-  %y3.i2.i = getelementptr inbounds %"class.Imath_3_2::Box", ptr %agg.result, i64 0, i32 1, i32 1
+  %y3.i2.i = getelementptr inbounds i8, ptr %agg.result, i64 12
   store i32 %add4.i24, ptr %y3.i2.i, align 4
   ret void
 }
@@ -169,7 +165,7 @@ entry:
   %0 = load i32, ptr %tileDesc, align 4
   %mul = mul i32 %0, %dx
   %add = add i32 %mul, %minX
-  %ySize = getelementptr inbounds %"class.Imf_3_2::TileDescription", ptr %tileDesc, i64 0, i32 1
+  %ySize = getelementptr inbounds i8, ptr %tileDesc, i64 4
   %1 = load i32, ptr %ySize, align 4
   %mul1 = mul i32 %1, %dy
   %add2 = add i32 %mul1, %minY
@@ -182,9 +178,9 @@ entry:
   %add10 = add nsw i64 %conv9, -1
   %sub11 = add nsw i64 %add10, %conv7
   call void @_ZN7Imf_3_218dataWindowForLevelERKNS_15TileDescriptionEiiiiii(ptr nonnull sret(%"class.Imath_3_2::Box") align 4 %ref.tmp, ptr noundef nonnull align 4 dereferenceable(16) %tileDesc, i32 noundef %minX, i32 noundef %maxX, i32 noundef %minY, i32 noundef %maxY, i32 noundef %lx, i32 noundef %ly)
-  %max = getelementptr inbounds %"class.Imath_3_2::Box", ptr %ref.tmp, i64 0, i32 1
+  %max = getelementptr inbounds i8, ptr %ref.tmp, i64 8
   %2 = load i32, ptr %max, align 4
-  %y3.i = getelementptr inbounds %"class.Imath_3_2::Box", ptr %ref.tmp, i64 0, i32 1, i32 1
+  %y3.i = getelementptr inbounds i8, ptr %ref.tmp, i64 12
   %3 = load i32, ptr %y3.i, align 4
   %conv14 = sext i32 %2 to i64
   %.sroa.speculated14 = tail call i64 @llvm.smin.i64(i64 %sub, i64 %conv14)
@@ -192,12 +188,12 @@ entry:
   %conv19 = sext i32 %3 to i64
   %.sroa.speculated = tail call i64 @llvm.smin.i64(i64 %sub11, i64 %conv19)
   %conv21 = trunc i64 %.sroa.speculated to i32
-  %max.i = getelementptr inbounds %"class.Imath_3_2::Box", ptr %agg.result, i64 0, i32 1
+  %max.i = getelementptr inbounds i8, ptr %agg.result, i64 8
   store i32 %add, ptr %agg.result, align 4
-  %y3.i.i = getelementptr inbounds %"class.Imath_3_2::Vec2", ptr %agg.result, i64 0, i32 1
+  %y3.i.i = getelementptr inbounds i8, ptr %agg.result, i64 4
   store i32 %add2, ptr %y3.i.i, align 4
   store i32 %conv16, ptr %max.i, align 4
-  %y3.i2.i = getelementptr inbounds %"class.Imath_3_2::Box", ptr %agg.result, i64 0, i32 1, i32 1
+  %y3.i2.i = getelementptr inbounds i8, ptr %agg.result, i64 12
   store i32 %conv21, ptr %y3.i2.i, align 4
   ret void
 }
@@ -214,7 +210,7 @@ entry:
 for.body:                                         ; preds = %entry, %for.body
   %bytesPerPixel.08 = phi i64 [ %add, %for.body ], [ 0, %entry ]
   %c.sroa.0.07 = phi ptr [ %call.i.i, %for.body ], [ %call1, %entry ]
-  %second.i = getelementptr inbounds %"struct.std::_Rb_tree_node", ptr %c.sroa.0.07, i64 0, i32 1, i32 0, i64 256
+  %second.i = getelementptr inbounds i8, ptr %c.sroa.0.07, i64 288
   %0 = load i32, ptr %second.i, align 4
   %call8 = tail call noundef i32 @_ZN7Imf_3_213pixelTypeSizeENS_9PixelTypeE(i32 noundef %0)
   %conv = sext i32 %call8 to i64
@@ -263,7 +259,7 @@ for.body:                                         ; preds = %for.body.lr.ph, %fo
   br i1 %cmp.not18, label %for.inc28, label %for.body12.lr.ph
 
 for.body12.lr.ph:                                 ; preds = %for.body
-  %second.i = getelementptr inbounds %"struct.std::_Rb_tree_node", ptr %c.sroa.0.023, i64 0, i32 1, i32 0, i64 256
+  %second.i = getelementptr inbounds i8, ptr %c.sroa.0.023, i64 288
   br i1 %cmp16.not16, label %for.inc28, label %for.body12.preheader
 
 for.body12.preheader:                             ; preds = %for.body12.lr.ph
@@ -619,7 +615,7 @@ _ZN7Imf_3_212_GLOBAL__N_117calculateNumTilesEPiiiiiNS_17LevelRoundingModeE.exit:
 
 for.body.lr.ph.i87:                               ; preds = %_ZN7Imf_3_212_GLOBAL__N_117calculateNumTilesEPiiiiiNS_17LevelRoundingModeE.exit
   %23 = load i32, ptr %1, align 4
-  %ySize = getelementptr inbounds %"class.Imf_3_2::TileDescription", ptr %tileDesc, i64 0, i32 1
+  %ySize = getelementptr inbounds i8, ptr %tileDesc, i64 4
   %24 = load i32, ptr %ySize, align 4
   %sub.i.i88 = sub nsw i32 %maxY, %minY
   %add.i.i89 = add nsw i32 %sub.i.i88, 1
@@ -672,11 +668,11 @@ entry:
 
 invoke.cont:                                      ; preds = %entry
   %0 = load i32, ptr %call, align 4
-  %max = getelementptr inbounds %"class.Imath_3_2::Box", ptr %call, i64 0, i32 1
+  %max = getelementptr inbounds i8, ptr %call, i64 8
   %1 = load i32, ptr %max, align 4
-  %y = getelementptr inbounds %"class.Imath_3_2::Vec2", ptr %call, i64 0, i32 1
+  %y = getelementptr inbounds i8, ptr %call, i64 4
   %2 = load i32, ptr %y, align 4
-  %y5 = getelementptr inbounds %"class.Imath_3_2::Box", ptr %call, i64 0, i32 1, i32 1
+  %y5 = getelementptr inbounds i8, ptr %call, i64 12
   %3 = load i32, ptr %y5, align 4
   invoke void @_ZN7Imf_3_220precalculateTileInfoERKNS_15TileDescriptionEiiiiRPiS4_RiS5_(ptr noundef nonnull align 4 dereferenceable(16) %call1, i32 noundef %0, i32 noundef %1, i32 noundef %2, i32 noundef %3, ptr noundef nonnull align 8 dereferenceable(8) %numXTiles, ptr noundef nonnull align 8 dereferenceable(8) %numYTiles, ptr noundef nonnull align 4 dereferenceable(4) %numXLevels, ptr noundef nonnull align 4 dereferenceable(4) %numYLevels)
           to label %invoke.cont6 unwind label %lpad
@@ -686,7 +682,7 @@ invoke.cont6:                                     ; preds = %invoke.cont
           to label %invoke.cont7 unwind label %lpad
 
 invoke.cont7:                                     ; preds = %invoke.cont6
-  %mode = getelementptr inbounds %"class.Imf_3_2::TileDescription", ptr %call8, i64 0, i32 2
+  %mode = getelementptr inbounds i8, ptr %call8, i64 8
   %4 = load i32, ptr %mode, align 4
   switch i32 %4, label %invoke.cont7.sw.epilog_crit_edge [
     i32 0, label %sw.bb

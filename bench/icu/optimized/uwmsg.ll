@@ -213,7 +213,7 @@ fetchErrorName.exit:                              ; preds = %if.end.i, %if.then2
   %arrayidx.i = getelementptr inbounds ptr, ptr %3, i64 %idxprom.i
   %4 = sext i32 %err to i64
   %5 = getelementptr ptr, ptr %1, i64 %4
-  %arrayidx7.i = getelementptr ptr, ptr %5, i64 128
+  %arrayidx7.i = getelementptr i8, ptr %5, i64 1024
   %cmp3.i = icmp slt i32 %err, 0
   %retval.0.in.i = select i1 %cmp3.i, ptr %arrayidx7.i, ptr %arrayidx.i
   %retval.0.i = load ptr, ptr %retval.0.in.i, align 8
@@ -265,7 +265,7 @@ if.end23:                                         ; preds = %if.then4, %if.end18
   %arrayidx = getelementptr inbounds ptr, ptr %10, i64 %idxprom.i
   %11 = load ptr, ptr @gInfoMessages, align 8
   %12 = getelementptr ptr, ptr %11, i64 %4
-  %arrayidx29 = getelementptr ptr, ptr %12, i64 128
+  %arrayidx29 = getelementptr i8, ptr %12, i64 1024
   %cmp2419 = icmp slt i32 %err, 0
   %arrayidx.sink = select i1 %cmp2419, ptr %arrayidx29, ptr %arrayidx
   store ptr %msg.1, ptr %arrayidx.sink, align 8

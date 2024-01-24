@@ -7,10 +7,6 @@ target triple = "x86_64-unknown-linux-gnu"
 %"struct.std::__cxx11::basic_string<char>::_Alloc_hider" = type { ptr }
 %union.anon = type { i64, [8 x i8] }
 %"class.std::allocator" = type { i8 }
-%struct.aiString = type { i32, [1024 x i8] }
-%struct.aiNode = type { %struct.aiString, %class.aiMatrix4x4t, ptr, i32, ptr, i32, ptr, ptr }
-%class.aiMatrix4x4t = type { float, float, float, float, float, float, float, float, float, float, float, float, float, float, float, float }
-%struct.aiMetadata = type { i32, ptr, ptr }
 %struct.aiMetadataEntry = type { i32, ptr }
 %struct._Guard = type { ptr }
 
@@ -58,38 +54,38 @@ invoke.cont:                                      ; preds = %.noexc
   %cmp.not.i = icmp eq i64 %conv3.i, 0
   %spec.select.i = select i1 %cmp.not.i, i32 %conv.i, i32 1023
   store i32 %spec.select.i, ptr %this, align 8
-  %data.i = getelementptr inbounds %struct.aiString, ptr %this, i64 0, i32 1
+  %data.i = getelementptr inbounds i8, ptr %this, i64 4
   %call8.i = call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5c_strEv(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp) #11
   %1 = load i32, ptr %this, align 8
   %conv10.i = zext i32 %1 to i64
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 4 %data.i, ptr align 1 %call8.i, i64 %conv10.i, i1 false)
-  %arrayidx.i = getelementptr inbounds %struct.aiString, ptr %this, i64 0, i32 1, i64 %conv10.i
+  %arrayidx.i = getelementptr inbounds [1024 x i8], ptr %data.i, i64 0, i64 %conv10.i
   store i8 0, ptr %arrayidx.i, align 1
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp) #11
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp2) #11
-  %mTransformation = getelementptr inbounds %struct.aiNode, ptr %this, i64 0, i32 1
+  %mTransformation = getelementptr inbounds i8, ptr %this, i64 1028
   store float 1.000000e+00, ptr %mTransformation, align 4
-  %a2.i = getelementptr inbounds %struct.aiNode, ptr %this, i64 0, i32 1, i32 1
-  %b2.i = getelementptr inbounds %struct.aiNode, ptr %this, i64 0, i32 1, i32 5
+  %a2.i = getelementptr inbounds i8, ptr %this, i64 1032
+  %b2.i = getelementptr inbounds i8, ptr %this, i64 1048
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %a2.i, i8 0, i64 16, i1 false)
   store float 1.000000e+00, ptr %b2.i, align 8
-  %b3.i = getelementptr inbounds %struct.aiNode, ptr %this, i64 0, i32 1, i32 6
-  %c3.i = getelementptr inbounds %struct.aiNode, ptr %this, i64 0, i32 1, i32 10
+  %b3.i = getelementptr inbounds i8, ptr %this, i64 1052
+  %c3.i = getelementptr inbounds i8, ptr %this, i64 1068
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %b3.i, i8 0, i64 16, i1 false)
   store float 1.000000e+00, ptr %c3.i, align 4
-  %c4.i = getelementptr inbounds %struct.aiNode, ptr %this, i64 0, i32 1, i32 11
-  %d4.i = getelementptr inbounds %struct.aiNode, ptr %this, i64 0, i32 1, i32 15
+  %c4.i = getelementptr inbounds i8, ptr %this, i64 1072
+  %d4.i = getelementptr inbounds i8, ptr %this, i64 1088
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %c4.i, i8 0, i64 16, i1 false)
   store float 1.000000e+00, ptr %d4.i, align 8
-  %mParent = getelementptr inbounds %struct.aiNode, ptr %this, i64 0, i32 2
+  %mParent = getelementptr inbounds i8, ptr %this, i64 1096
   store ptr null, ptr %mParent, align 8
-  %mNumChildren = getelementptr inbounds %struct.aiNode, ptr %this, i64 0, i32 3
+  %mNumChildren = getelementptr inbounds i8, ptr %this, i64 1104
   store i32 0, ptr %mNumChildren, align 8
-  %mChildren = getelementptr inbounds %struct.aiNode, ptr %this, i64 0, i32 4
+  %mChildren = getelementptr inbounds i8, ptr %this, i64 1112
   store ptr null, ptr %mChildren, align 8
-  %mNumMeshes = getelementptr inbounds %struct.aiNode, ptr %this, i64 0, i32 5
+  %mNumMeshes = getelementptr inbounds i8, ptr %this, i64 1120
   store i32 0, ptr %mNumMeshes, align 8
-  %mMeshes = getelementptr inbounds %struct.aiNode, ptr %this, i64 0, i32 6
+  %mMeshes = getelementptr inbounds i8, ptr %this, i64 1128
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %mMeshes, i8 0, i64 16, i1 false)
   ret void
 
@@ -124,36 +120,36 @@ entry:
   %cmp.not.i = icmp eq i64 %conv3.i, 0
   %spec.select.i = select i1 %cmp.not.i, i32 %conv.i, i32 1023
   store i32 %spec.select.i, ptr %this, align 8
-  %data.i = getelementptr inbounds %struct.aiString, ptr %this, i64 0, i32 1
+  %data.i = getelementptr inbounds i8, ptr %this, i64 4
   %call8.i = tail call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5c_strEv(ptr noundef nonnull align 8 dereferenceable(32) %name) #11
   %0 = load i32, ptr %this, align 8
   %conv10.i = zext i32 %0 to i64
   tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 4 %data.i, ptr align 1 %call8.i, i64 %conv10.i, i1 false)
-  %arrayidx.i = getelementptr inbounds %struct.aiString, ptr %this, i64 0, i32 1, i64 %conv10.i
+  %arrayidx.i = getelementptr inbounds [1024 x i8], ptr %data.i, i64 0, i64 %conv10.i
   store i8 0, ptr %arrayidx.i, align 1
-  %mTransformation = getelementptr inbounds %struct.aiNode, ptr %this, i64 0, i32 1
+  %mTransformation = getelementptr inbounds i8, ptr %this, i64 1028
   store float 1.000000e+00, ptr %mTransformation, align 4
-  %a2.i = getelementptr inbounds %struct.aiNode, ptr %this, i64 0, i32 1, i32 1
-  %b2.i = getelementptr inbounds %struct.aiNode, ptr %this, i64 0, i32 1, i32 5
+  %a2.i = getelementptr inbounds i8, ptr %this, i64 1032
+  %b2.i = getelementptr inbounds i8, ptr %this, i64 1048
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %a2.i, i8 0, i64 16, i1 false)
   store float 1.000000e+00, ptr %b2.i, align 8
-  %b3.i = getelementptr inbounds %struct.aiNode, ptr %this, i64 0, i32 1, i32 6
-  %c3.i = getelementptr inbounds %struct.aiNode, ptr %this, i64 0, i32 1, i32 10
+  %b3.i = getelementptr inbounds i8, ptr %this, i64 1052
+  %c3.i = getelementptr inbounds i8, ptr %this, i64 1068
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %b3.i, i8 0, i64 16, i1 false)
   store float 1.000000e+00, ptr %c3.i, align 4
-  %c4.i = getelementptr inbounds %struct.aiNode, ptr %this, i64 0, i32 1, i32 11
-  %d4.i = getelementptr inbounds %struct.aiNode, ptr %this, i64 0, i32 1, i32 15
+  %c4.i = getelementptr inbounds i8, ptr %this, i64 1072
+  %d4.i = getelementptr inbounds i8, ptr %this, i64 1088
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %c4.i, i8 0, i64 16, i1 false)
   store float 1.000000e+00, ptr %d4.i, align 8
-  %mParent = getelementptr inbounds %struct.aiNode, ptr %this, i64 0, i32 2
+  %mParent = getelementptr inbounds i8, ptr %this, i64 1096
   store ptr null, ptr %mParent, align 8
-  %mNumChildren = getelementptr inbounds %struct.aiNode, ptr %this, i64 0, i32 3
+  %mNumChildren = getelementptr inbounds i8, ptr %this, i64 1104
   store i32 0, ptr %mNumChildren, align 8
-  %mChildren = getelementptr inbounds %struct.aiNode, ptr %this, i64 0, i32 4
+  %mChildren = getelementptr inbounds i8, ptr %this, i64 1112
   store ptr null, ptr %mChildren, align 8
-  %mNumMeshes = getelementptr inbounds %struct.aiNode, ptr %this, i64 0, i32 5
+  %mNumMeshes = getelementptr inbounds i8, ptr %this, i64 1120
   store i32 0, ptr %mNumMeshes, align 8
-  %mMeshes = getelementptr inbounds %struct.aiNode, ptr %this, i64 0, i32 6
+  %mMeshes = getelementptr inbounds i8, ptr %this, i64 1128
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %mMeshes, i8 0, i64 16, i1 false)
   ret void
 }
@@ -161,13 +157,13 @@ entry:
 ; Function Attrs: mustprogress nounwind uwtable
 define void @_ZN6aiNodeD2Ev(ptr nocapture noundef nonnull readonly align 8 dereferenceable(1144) %this) unnamed_addr #2 align 2 {
 entry:
-  %mNumChildren = getelementptr inbounds %struct.aiNode, ptr %this, i64 0, i32 3
+  %mNumChildren = getelementptr inbounds i8, ptr %this, i64 1104
   %0 = load i32, ptr %mNumChildren, align 8
   %tobool.not = icmp eq i32 %0, 0
   br i1 %tobool.not, label %if.end, label %land.lhs.true
 
 land.lhs.true:                                    ; preds = %entry
-  %mChildren = getelementptr inbounds %struct.aiNode, ptr %this, i64 0, i32 4
+  %mChildren = getelementptr inbounds i8, ptr %this, i64 1112
   %1 = load ptr, ptr %mChildren, align 8
   %tobool2.not.not = icmp eq ptr %1, null
   br i1 %tobool2.not.not, label %if.end, label %for.body
@@ -195,7 +191,7 @@ for.inc:                                          ; preds = %for.body, %delete.n
   br i1 %cmp, label %for.body, label %if.end, !llvm.loop !4
 
 if.end:                                           ; preds = %for.inc, %land.lhs.true, %entry
-  %mChildren5 = getelementptr inbounds %struct.aiNode, ptr %this, i64 0, i32 4
+  %mChildren5 = getelementptr inbounds i8, ptr %this, i64 1112
   %7 = load ptr, ptr %mChildren5, align 8
   %isnull6 = icmp eq ptr %7, null
   br i1 %isnull6, label %delete.end8, label %delete.notnull7
@@ -205,7 +201,7 @@ delete.notnull7:                                  ; preds = %if.end
   br label %delete.end8
 
 delete.end8:                                      ; preds = %delete.notnull7, %if.end
-  %mMeshes = getelementptr inbounds %struct.aiNode, ptr %this, i64 0, i32 6
+  %mMeshes = getelementptr inbounds i8, ptr %this, i64 1128
   %8 = load ptr, ptr %mMeshes, align 8
   %isnull9 = icmp eq ptr %8, null
   br i1 %isnull9, label %delete.end11, label %delete.notnull10
@@ -215,7 +211,7 @@ delete.notnull10:                                 ; preds = %delete.end8
   br label %delete.end11
 
 delete.end11:                                     ; preds = %delete.notnull10, %delete.end8
-  %mMetaData = getelementptr inbounds %struct.aiNode, ptr %this, i64 0, i32 7
+  %mMetaData = getelementptr inbounds i8, ptr %this, i64 1136
   %9 = load ptr, ptr %mMetaData, align 8
   %isnull12 = icmp eq ptr %9, null
   br i1 %isnull12, label %delete.end14, label %delete.notnull13
@@ -238,7 +234,7 @@ declare void @_ZdaPv(ptr noundef) local_unnamed_addr #3
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN10aiMetadataD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %this) unnamed_addr #2 comdat align 2 {
 entry:
-  %mKeys = getelementptr inbounds %struct.aiMetadata, ptr %this, i64 0, i32 1
+  %mKeys = getelementptr inbounds i8, ptr %this, i64 8
   %0 = load ptr, ptr %mKeys, align 8
   %isnull = icmp eq ptr %0, null
   br i1 %isnull, label %delete.end, label %delete.notnull
@@ -249,7 +245,7 @@ delete.notnull:                                   ; preds = %entry
 
 delete.end:                                       ; preds = %delete.notnull, %entry
   store ptr null, ptr %mKeys, align 8
-  %mValues = getelementptr inbounds %struct.aiMetadata, ptr %this, i64 0, i32 2
+  %mValues = getelementptr inbounds i8, ptr %this, i64 16
   %1 = load ptr, ptr %mValues, align 8
   %tobool.not = icmp eq ptr %1, null
   br i1 %tobool.not, label %if.end, label %for.cond.preheader
@@ -263,7 +259,7 @@ for.body:                                         ; preds = %for.cond.preheader,
   %indvars.iv = phi i64 [ %indvars.iv.next, %for.inc ], [ 0, %for.cond.preheader ]
   %3 = load ptr, ptr %mValues, align 8
   %arrayidx = getelementptr inbounds %struct.aiMetadataEntry, ptr %3, i64 %indvars.iv
-  %mData = getelementptr inbounds %struct.aiMetadataEntry, ptr %3, i64 %indvars.iv, i32 1
+  %mData = getelementptr inbounds i8, ptr %arrayidx, i64 8
   %4 = load ptr, ptr %mData, align 8
   %5 = load i32, ptr %arrayidx, align 8
   switch i32 %5, label %for.inc [
@@ -359,19 +355,19 @@ entry:
   br i1 %cmp, label %return, label %if.end
 
 if.end:                                           ; preds = %entry
-  %data = getelementptr inbounds %struct.aiString, ptr %this, i64 0, i32 1
+  %data = getelementptr inbounds i8, ptr %this, i64 4
   %call = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %data, ptr noundef nonnull dereferenceable(1) %name) #13
   %tobool.not = icmp eq i32 %call, 0
   br i1 %tobool.not, label %return, label %for.cond.preheader
 
 for.cond.preheader:                               ; preds = %if.end
-  %mNumChildren = getelementptr inbounds %struct.aiNode, ptr %this, i64 0, i32 3
+  %mNumChildren = getelementptr inbounds i8, ptr %this, i64 1104
   %0 = load i32, ptr %mNumChildren, align 8
   %cmp46.not = icmp eq i32 %0, 0
   br i1 %cmp46.not, label %return, label %for.body.lr.ph
 
 for.body.lr.ph:                                   ; preds = %for.cond.preheader
-  %mChildren = getelementptr inbounds %struct.aiNode, ptr %this, i64 0, i32 4
+  %mChildren = getelementptr inbounds i8, ptr %this, i64 1112
   %1 = load ptr, ptr %mChildren, align 8
   %wide.trip.count = zext i32 %0 to i64
   br label %for.body
@@ -400,19 +396,19 @@ declare i32 @strcmp(ptr nocapture noundef, ptr nocapture noundef) local_unnamed_
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(read, inaccessiblemem: none) uwtable
 define noundef ptr @_ZN6aiNode8FindNodeEPKc(ptr noundef nonnull readonly align 8 dereferenceable(1144) %this, ptr nocapture noundef readonly %name) local_unnamed_addr #4 align 2 {
 entry:
-  %data = getelementptr inbounds %struct.aiString, ptr %this, i64 0, i32 1
+  %data = getelementptr inbounds i8, ptr %this, i64 4
   %call = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %data, ptr noundef nonnull dereferenceable(1) %name) #13
   %tobool.not = icmp eq i32 %call, 0
   br i1 %tobool.not, label %return, label %for.cond.preheader
 
 for.cond.preheader:                               ; preds = %entry
-  %mNumChildren = getelementptr inbounds %struct.aiNode, ptr %this, i64 0, i32 3
+  %mNumChildren = getelementptr inbounds i8, ptr %this, i64 1104
   %0 = load i32, ptr %mNumChildren, align 8
   %cmp5.not = icmp eq i32 %0, 0
   br i1 %cmp5.not, label %return, label %for.body.lr.ph
 
 for.body.lr.ph:                                   ; preds = %for.cond.preheader
-  %mChildren = getelementptr inbounds %struct.aiNode, ptr %this, i64 0, i32 4
+  %mChildren = getelementptr inbounds i8, ptr %this, i64 1112
   %1 = load ptr, ptr %mChildren, align 8
   %wide.trip.count = zext i32 %0 to i64
   br label %for.body
@@ -455,7 +451,7 @@ for.body:                                         ; preds = %for.body.preheader,
   br i1 %cmp4.not, label %for.inc, label %if.then5
 
 if.then5:                                         ; preds = %for.body
-  %mParent = getelementptr inbounds %struct.aiNode, ptr %0, i64 0, i32 2
+  %mParent = getelementptr inbounds i8, ptr %0, i64 1096
   store ptr %this, ptr %mParent, align 8
   br label %for.inc
 
@@ -465,7 +461,7 @@ for.inc:                                          ; preds = %for.body, %if.then5
   br i1 %exitcond.not, label %for.end, label %for.body, !llvm.loop !9
 
 for.end:                                          ; preds = %for.inc
-  %mNumChildren = getelementptr inbounds %struct.aiNode, ptr %this, i64 0, i32 3
+  %mNumChildren = getelementptr inbounds i8, ptr %this, i64 1104
   %1 = load i32, ptr %mNumChildren, align 8
   %cmp7.not = icmp eq i32 %1, 0
   br i1 %cmp7.not, label %for.body38.preheader, label %if.then8
@@ -474,7 +470,7 @@ if.then8:                                         ; preds = %for.end
   %conv = zext i32 %1 to i64
   %2 = shl nuw nsw i64 %conv, 3
   %call = tail call noalias noundef nonnull ptr @_Znam(i64 noundef %2) #14
-  %mChildren = getelementptr inbounds %struct.aiNode, ptr %this, i64 0, i32 4
+  %mChildren = getelementptr inbounds i8, ptr %this, i64 1112
   %3 = load ptr, ptr %mChildren, align 8
   tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %call, ptr align 8 %3, i64 %2, i1 false)
   %isnull = icmp eq ptr %3, null
@@ -507,7 +503,7 @@ delete.end:                                       ; preds = %delete.notnull, %if
 for.body38.preheader:                             ; preds = %for.end
   %6 = shl nuw nsw i64 %wide.trip.count, 3
   %call33 = tail call noalias noundef nonnull ptr @_Znam(i64 noundef %6) #14
-  %mChildren34 = getelementptr inbounds %struct.aiNode, ptr %this, i64 0, i32 4
+  %mChildren34 = getelementptr inbounds i8, ptr %this, i64 1112
   store ptr %call33, ptr %mChildren34, align 8
   br label %for.body38
 

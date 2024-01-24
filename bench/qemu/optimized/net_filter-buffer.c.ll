@@ -4,14 +4,6 @@ target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:
 target triple = "x86_64-unknown-linux-gnu"
 
 %struct.TypeInfo = type { ptr, ptr, i64, i64, ptr, ptr, ptr, i8, i64, ptr, ptr, ptr, ptr }
-%struct.NetFilterClass = type { %struct.ObjectClass, ptr, ptr, ptr, ptr, ptr }
-%struct.ObjectClass = type { ptr, ptr, [4 x ptr], [4 x ptr], ptr, ptr }
-%struct.FilterBufferState = type { %struct.NetFilterState, ptr, i32, %struct.QEMUTimer }
-%struct.NetFilterState = type { %struct.Object, ptr, ptr, i32, i8, ptr, i8, %union.anon }
-%struct.Object = type { ptr, ptr, ptr, i32, ptr }
-%union.anon = type { %struct.QTailQLink }
-%struct.QTailQLink = type { ptr, ptr }
-%struct.QEMUTimer = type { i64, ptr, ptr, ptr, ptr, i32, i32 }
 
 @filter_buffer_info = internal constant %struct.TypeInfo { ptr @.str, ptr @.str.1, i64 160, i64 0, ptr null, ptr null, ptr null, i8 0, i64 0, ptr @filter_buffer_class_init, ptr null, ptr null, ptr null }, align 8
 @.str = private unnamed_addr constant [14 x i8] c"filter-buffer\00", align 1
@@ -52,13 +44,13 @@ define internal void @filter_buffer_class_init(ptr noundef %oc, ptr nocapture re
 entry:
   %call.i = tail call ptr @object_class_dynamic_cast_assert(ptr noundef %oc, ptr noundef nonnull @.str.1, ptr noundef nonnull @.str.4, i32 noundef 18, ptr noundef nonnull @__func__.NETFILTER_CLASS) #2
   %call1 = tail call ptr @object_class_property_add(ptr noundef %oc, ptr noundef nonnull @.str.2, ptr noundef nonnull @.str.3, ptr noundef nonnull @filter_buffer_get_interval, ptr noundef nonnull @filter_buffer_set_interval, ptr noundef null, ptr noundef null) #2
-  %setup = getelementptr inbounds %struct.NetFilterClass, ptr %call.i, i64 0, i32 1
+  %setup = getelementptr inbounds i8, ptr %call.i, i64 96
   store ptr @filter_buffer_setup, ptr %setup, align 8
-  %cleanup = getelementptr inbounds %struct.NetFilterClass, ptr %call.i, i64 0, i32 2
+  %cleanup = getelementptr inbounds i8, ptr %call.i, i64 104
   store ptr @filter_buffer_cleanup, ptr %cleanup, align 8
-  %receive_iov = getelementptr inbounds %struct.NetFilterClass, ptr %call.i, i64 0, i32 5
+  %receive_iov = getelementptr inbounds i8, ptr %call.i, i64 128
   store ptr @filter_buffer_receive_iov, ptr %receive_iov, align 8
-  %status_changed = getelementptr inbounds %struct.NetFilterClass, ptr %call.i, i64 0, i32 3
+  %status_changed = getelementptr inbounds i8, ptr %call.i, i64 112
   store ptr @filter_buffer_status_changed, ptr %status_changed, align 8
   ret void
 }
@@ -70,7 +62,7 @@ define internal void @filter_buffer_get_interval(ptr noundef %obj, ptr noundef %
 entry:
   %value = alloca i32, align 4
   %call.i = tail call ptr @object_dynamic_cast_assert(ptr noundef %obj, ptr noundef nonnull @.str, ptr noundef nonnull @.str.5, i32 noundef 21, ptr noundef nonnull @__func__.FILTER_BUFFER) #2
-  %interval = getelementptr inbounds %struct.FilterBufferState, ptr %call.i, i64 0, i32 2
+  %interval = getelementptr inbounds i8, ptr %call.i, i64 104
   %0 = load i32, ptr %interval, align 8
   store i32 %0, ptr %value, align 4
   %call1 = call zeroext i1 @visit_type_uint32(ptr noundef %v, ptr noundef %name, ptr noundef nonnull %value, ptr noundef %errp) #2
@@ -96,7 +88,7 @@ if.then2:                                         ; preds = %if.end
   br label %return
 
 if.end4:                                          ; preds = %if.end
-  %interval = getelementptr inbounds %struct.FilterBufferState, ptr %call.i, i64 0, i32 2
+  %interval = getelementptr inbounds i8, ptr %call.i, i64 104
   store i32 %0, ptr %interval, align 8
   br label %return
 
@@ -108,7 +100,7 @@ return:                                           ; preds = %entry, %if.end4, %i
 define internal void @filter_buffer_setup(ptr noundef %nf, ptr noundef %errp) #0 {
 entry:
   %call.i = tail call ptr @object_dynamic_cast_assert(ptr noundef %nf, ptr noundef nonnull @.str, ptr noundef nonnull @.str.5, i32 noundef 21, ptr noundef nonnull @__func__.FILTER_BUFFER) #2
-  %interval = getelementptr inbounds %struct.FilterBufferState, ptr %call.i, i64 0, i32 2
+  %interval = getelementptr inbounds i8, ptr %call.i, i64 104
   %0 = load i32, ptr %interval, align 8
   %tobool.not = icmp eq i32 %0, 0
   br i1 %tobool.not, label %if.then, label %if.end
@@ -119,16 +111,16 @@ if.then:                                          ; preds = %entry
 
 if.end:                                           ; preds = %entry
   %call1 = tail call ptr @qemu_new_net_queue(ptr noundef nonnull @qemu_netfilter_pass_to_next, ptr noundef %nf) #2
-  %incoming_queue = getelementptr inbounds %struct.FilterBufferState, ptr %call.i, i64 0, i32 1
+  %incoming_queue = getelementptr inbounds i8, ptr %call.i, i64 96
   store ptr %call1, ptr %incoming_queue, align 8
   %call.i.i = tail call ptr @object_dynamic_cast_assert(ptr noundef %nf, ptr noundef nonnull @.str, ptr noundef nonnull @.str.5, i32 noundef 21, ptr noundef nonnull @__func__.FILTER_BUFFER) #2
-  %interval.i = getelementptr inbounds %struct.FilterBufferState, ptr %call.i.i, i64 0, i32 2
+  %interval.i = getelementptr inbounds i8, ptr %call.i.i, i64 104
   %1 = load i32, ptr %interval.i, align 8
   %tobool.not.i = icmp eq i32 %1, 0
   br i1 %tobool.not.i, label %return, label %if.then.i
 
 if.then.i:                                        ; preds = %if.end
-  %release_timer.i = getelementptr inbounds %struct.FilterBufferState, ptr %call.i.i, i64 0, i32 3
+  %release_timer.i = getelementptr inbounds i8, ptr %call.i.i, i64 112
   tail call void @timer_init_full(ptr noundef nonnull %release_timer.i, ptr noundef null, i32 noundef 1, i32 noundef 1000, i32 noundef 0, ptr noundef nonnull @filter_buffer_release_timer, ptr noundef %nf) #2
   %call.i5.i = tail call i64 @qemu_clock_get_ns(i32 noundef 1) #2
   %div.i.i = sdiv i64 %call.i5.i, 1000
@@ -146,32 +138,32 @@ return:                                           ; preds = %if.then.i, %if.end,
 define internal void @filter_buffer_cleanup(ptr noundef %nf) #0 {
 entry:
   %call.i = tail call ptr @object_dynamic_cast_assert(ptr noundef %nf, ptr noundef nonnull @.str, ptr noundef nonnull @.str.5, i32 noundef 21, ptr noundef nonnull @__func__.FILTER_BUFFER) #2
-  %interval = getelementptr inbounds %struct.FilterBufferState, ptr %call.i, i64 0, i32 2
+  %interval = getelementptr inbounds i8, ptr %call.i, i64 104
   %0 = load i32, ptr %interval, align 8
   %tobool.not = icmp eq i32 %0, 0
   br i1 %tobool.not, label %if.end, label %if.then
 
 if.then:                                          ; preds = %entry
-  %release_timer = getelementptr inbounds %struct.FilterBufferState, ptr %call.i, i64 0, i32 3
+  %release_timer = getelementptr inbounds i8, ptr %call.i, i64 112
   tail call void @timer_del(ptr noundef nonnull %release_timer) #2
   br label %if.end
 
 if.end:                                           ; preds = %if.then, %entry
-  %incoming_queue = getelementptr inbounds %struct.FilterBufferState, ptr %call.i, i64 0, i32 1
+  %incoming_queue = getelementptr inbounds i8, ptr %call.i, i64 96
   %1 = load ptr, ptr %incoming_queue, align 8
   %tobool1.not = icmp eq ptr %1, null
   br i1 %tobool1.not, label %if.end4, label %if.then2
 
 if.then2:                                         ; preds = %if.end
   %call.i.i = tail call ptr @object_dynamic_cast_assert(ptr noundef %nf, ptr noundef nonnull @.str, ptr noundef nonnull @.str.5, i32 noundef 21, ptr noundef nonnull @__func__.FILTER_BUFFER) #2
-  %incoming_queue.i = getelementptr inbounds %struct.FilterBufferState, ptr %call.i.i, i64 0, i32 1
+  %incoming_queue.i = getelementptr inbounds i8, ptr %call.i.i, i64 96
   %2 = load ptr, ptr %incoming_queue.i, align 8
   %call1.i = tail call zeroext i1 @qemu_net_queue_flush(ptr noundef %2) #2
   br i1 %call1.i, label %filter_buffer_flush.exit, label %if.then.i
 
 if.then.i:                                        ; preds = %if.then2
   %3 = load ptr, ptr %incoming_queue.i, align 8
-  %netdev.i = getelementptr inbounds %struct.NetFilterState, ptr %nf, i64 0, i32 2
+  %netdev.i = getelementptr inbounds i8, ptr %nf, i64 48
   %4 = load ptr, ptr %netdev.i, align 8
   tail call void @qemu_net_queue_purge(ptr noundef %3, ptr noundef %4) #2
   br label %filter_buffer_flush.exit
@@ -189,7 +181,7 @@ if.end4:                                          ; preds = %filter_buffer_flush
 define internal i64 @filter_buffer_receive_iov(ptr noundef %nf, ptr noundef %sender, i32 noundef %flags, ptr noundef %iov, i32 noundef %iovcnt, ptr nocapture readnone %sent_cb) #0 {
 entry:
   %call.i = tail call ptr @object_dynamic_cast_assert(ptr noundef %nf, ptr noundef nonnull @.str, ptr noundef nonnull @.str.5, i32 noundef 21, ptr noundef nonnull @__func__.FILTER_BUFFER) #2
-  %incoming_queue = getelementptr inbounds %struct.FilterBufferState, ptr %call.i, i64 0, i32 1
+  %incoming_queue = getelementptr inbounds i8, ptr %call.i, i64 96
   %0 = load ptr, ptr %incoming_queue, align 8
   tail call void @qemu_net_queue_append_iov(ptr noundef %0, ptr noundef %sender, i32 noundef %flags, ptr noundef %iov, i32 noundef %iovcnt, ptr noundef null) #2
   %call1 = tail call i64 @iov_size(ptr noundef %iov, i32 noundef %iovcnt) #2
@@ -200,46 +192,46 @@ entry:
 define internal void @filter_buffer_status_changed(ptr noundef %nf, ptr nocapture readnone %errp) #0 {
 entry:
   %call.i = tail call ptr @object_dynamic_cast_assert(ptr noundef %nf, ptr noundef nonnull @.str, ptr noundef nonnull @.str.5, i32 noundef 21, ptr noundef nonnull @__func__.FILTER_BUFFER) #2
-  %on = getelementptr inbounds %struct.NetFilterState, ptr %nf, i64 0, i32 4
+  %on = getelementptr inbounds i8, ptr %nf, i64 60
   %0 = load i8, ptr %on, align 4
   %1 = and i8 %0, 1
   %tobool.not = icmp eq i8 %1, 0
   br i1 %tobool.not, label %if.then, label %if.else
 
 if.then:                                          ; preds = %entry
-  %interval = getelementptr inbounds %struct.FilterBufferState, ptr %call.i, i64 0, i32 2
+  %interval = getelementptr inbounds i8, ptr %call.i, i64 104
   %2 = load i32, ptr %interval, align 8
   %tobool1.not = icmp eq i32 %2, 0
   br i1 %tobool1.not, label %if.end, label %if.then2
 
 if.then2:                                         ; preds = %if.then
-  %release_timer = getelementptr inbounds %struct.FilterBufferState, ptr %call.i, i64 0, i32 3
+  %release_timer = getelementptr inbounds i8, ptr %call.i, i64 112
   tail call void @timer_del(ptr noundef nonnull %release_timer) #2
   br label %if.end
 
 if.end:                                           ; preds = %if.then2, %if.then
   %call.i.i = tail call ptr @object_dynamic_cast_assert(ptr noundef nonnull %nf, ptr noundef nonnull @.str, ptr noundef nonnull @.str.5, i32 noundef 21, ptr noundef nonnull @__func__.FILTER_BUFFER) #2
-  %incoming_queue.i = getelementptr inbounds %struct.FilterBufferState, ptr %call.i.i, i64 0, i32 1
+  %incoming_queue.i = getelementptr inbounds i8, ptr %call.i.i, i64 96
   %3 = load ptr, ptr %incoming_queue.i, align 8
   %call1.i = tail call zeroext i1 @qemu_net_queue_flush(ptr noundef %3) #2
   br i1 %call1.i, label %if.end3, label %if.then.i
 
 if.then.i:                                        ; preds = %if.end
   %4 = load ptr, ptr %incoming_queue.i, align 8
-  %netdev.i = getelementptr inbounds %struct.NetFilterState, ptr %nf, i64 0, i32 2
+  %netdev.i = getelementptr inbounds i8, ptr %nf, i64 48
   %5 = load ptr, ptr %netdev.i, align 8
   tail call void @qemu_net_queue_purge(ptr noundef %4, ptr noundef %5) #2
   br label %if.end3
 
 if.else:                                          ; preds = %entry
   %call.i.i5 = tail call ptr @object_dynamic_cast_assert(ptr noundef nonnull %nf, ptr noundef nonnull @.str, ptr noundef nonnull @.str.5, i32 noundef 21, ptr noundef nonnull @__func__.FILTER_BUFFER) #2
-  %interval.i = getelementptr inbounds %struct.FilterBufferState, ptr %call.i.i5, i64 0, i32 2
+  %interval.i = getelementptr inbounds i8, ptr %call.i.i5, i64 104
   %6 = load i32, ptr %interval.i, align 8
   %tobool.not.i = icmp eq i32 %6, 0
   br i1 %tobool.not.i, label %if.end3, label %if.then.i6
 
 if.then.i6:                                       ; preds = %if.else
-  %release_timer.i = getelementptr inbounds %struct.FilterBufferState, ptr %call.i.i5, i64 0, i32 3
+  %release_timer.i = getelementptr inbounds i8, ptr %call.i.i5, i64 112
   tail call void @timer_init_full(ptr noundef nonnull %release_timer.i, ptr noundef null, i32 noundef 1, i32 noundef 1000, i32 noundef 0, ptr noundef nonnull @filter_buffer_release_timer, ptr noundef nonnull %nf) #2
   %call.i5.i = tail call i64 @qemu_clock_get_ns(i32 noundef 1) #2
   %div.i.i = sdiv i64 %call.i5.i, 1000
@@ -272,23 +264,23 @@ define internal void @filter_buffer_release_timer(ptr noundef %opaque) #0 {
 entry:
   %call.i = tail call ptr @object_dynamic_cast_assert(ptr noundef %opaque, ptr noundef nonnull @.str, ptr noundef nonnull @.str.5, i32 noundef 21, ptr noundef nonnull @__func__.FILTER_BUFFER) #2
   %call.i.i = tail call ptr @object_dynamic_cast_assert(ptr noundef %opaque, ptr noundef nonnull @.str, ptr noundef nonnull @.str.5, i32 noundef 21, ptr noundef nonnull @__func__.FILTER_BUFFER) #2
-  %incoming_queue.i = getelementptr inbounds %struct.FilterBufferState, ptr %call.i.i, i64 0, i32 1
+  %incoming_queue.i = getelementptr inbounds i8, ptr %call.i.i, i64 96
   %0 = load ptr, ptr %incoming_queue.i, align 8
   %call1.i = tail call zeroext i1 @qemu_net_queue_flush(ptr noundef %0) #2
   br i1 %call1.i, label %filter_buffer_flush.exit, label %if.then.i
 
 if.then.i:                                        ; preds = %entry
   %1 = load ptr, ptr %incoming_queue.i, align 8
-  %netdev.i = getelementptr inbounds %struct.NetFilterState, ptr %opaque, i64 0, i32 2
+  %netdev.i = getelementptr inbounds i8, ptr %opaque, i64 48
   %2 = load ptr, ptr %netdev.i, align 8
   tail call void @qemu_net_queue_purge(ptr noundef %1, ptr noundef %2) #2
   br label %filter_buffer_flush.exit
 
 filter_buffer_flush.exit:                         ; preds = %entry, %if.then.i
-  %release_timer = getelementptr inbounds %struct.FilterBufferState, ptr %call.i, i64 0, i32 3
+  %release_timer = getelementptr inbounds i8, ptr %call.i, i64 112
   %call.i3 = tail call i64 @qemu_clock_get_ns(i32 noundef 1) #2
   %div.i = sdiv i64 %call.i3, 1000
-  %interval = getelementptr inbounds %struct.FilterBufferState, ptr %call.i, i64 0, i32 2
+  %interval = getelementptr inbounds i8, ptr %call.i, i64 104
   %3 = load i32, ptr %interval, align 8
   %conv = zext i32 %3 to i64
   %add = add nsw i64 %div.i, %conv

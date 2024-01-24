@@ -15,7 +15,7 @@ define hidden void @"_ZN73_$LT$regex_automata..meta..regex..Regex$u20$as$u20$cor
   %3 = tail call { ptr, ptr } @"_ZN73_$LT$alloc..sync..Arc$LT$T$C$A$GT$$u20$as$u20$core..ops..deref..Deref$GT$5deref17hb9e73351a5cb175cE"(ptr align 8 %1)
   %4 = extractvalue { ptr, ptr } %3, 0
   %5 = extractvalue { ptr, ptr } %3, 1
-  %6 = getelementptr inbounds ptr, ptr %5, i64 9
+  %6 = getelementptr inbounds i8, ptr %5, i64 72
   %7 = load ptr, ptr %6, align 8, !invariant.load !5, !nonnull !5
   tail call void %7(ptr sret({ { { i64, [87 x i64] } }, { { i64, [43 x i64] } }, { { i32, i32 }, ptr, { { ptr, i64 }, i64 } }, { { ptr, [26 x i64] } }, { { ptr, [6 x i64] } }, { { ptr, [3 x i64] } } }) align 8 %0, ptr align 1 %4)
   ret void
@@ -31,7 +31,7 @@ define hidden i64 @"_ZN14regex_automata4meta5regex9RegexInfo12memory_usage28_$u7
 define void @"_ZN99_$LT$regex_automata..meta..regex..FindMatches$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next28_$u7b$$u7b$closure$u7d$$u7d$17h9b00249ea0ee3299E"(ptr nocapture writeonly sret({ i64, [3 x i64] }) align 8 %0, ptr nocapture readonly align 8 %1, ptr align 8 %2) unnamed_addr #0 {
   %4 = alloca { i64, [3 x i64] }, align 8
   %5 = load ptr, ptr %1, align 8, !nonnull !5, !align !6, !noundef !5
-  %6 = getelementptr inbounds { ptr, ptr }, ptr %1, i64 0, i32 1
+  %6 = getelementptr inbounds i8, ptr %1, i64 8
   %7 = load ptr, ptr %6, align 8, !nonnull !5, !align !6, !noundef !5
   %8 = tail call align 8 ptr @"_ZN97_$LT$regex_automata..util..pool..PoolGuard$LT$T$C$F$GT$$u20$as$u20$core..ops..deref..DerefMut$GT$9deref_mut17h8b9d8b57add80ba0E"(ptr nonnull align 8 %7)
   call void @_ZN14regex_automata4meta5regex5Regex11search_with17h04d099b211ff0bbfE(ptr nonnull sret({ i64, [3 x i64] }) align 8 %4, ptr nonnull align 8 %5, ptr align 8 %8, ptr align 8 %2)
@@ -43,7 +43,7 @@ define void @"_ZN99_$LT$regex_automata..meta..regex..FindMatches$u20$as$u20$core
 define hidden void @"_ZN14regex_automata4meta5regex6Config9overwrite28_$u7b$$u7b$closure$u7d$$u7d$17hb3a72d72f0350dd6E"(ptr sret({ [16 x i8], i8, [7 x i8] }) align 8 %0, ptr align 8 %1) unnamed_addr #0 {
   %3 = icmp ne ptr %1, null
   tail call void @llvm.assume(i1 %3)
-  %4 = getelementptr inbounds { { i64, i64 }, { i64, i64 }, { i64, i64 }, { i64, i64 }, { i64, i64 }, { [16 x i8], i8, [7 x i8] }, { i8, i8 }, i8, i8, i8, i8, i8, i8, i8, i8, i8, [5 x i8] }, ptr %1, i64 0, i32 5
+  %4 = getelementptr inbounds i8, ptr %1, i64 80
   tail call void @"_ZN68_$LT$core..option..Option$LT$T$GT$$u20$as$u20$core..clone..Clone$GT$5clone17ha22c105cac8bcec5E"(ptr sret({ [16 x i8], i8, [7 x i8] }) align 8 %0, ptr nonnull align 8 %4)
   ret void
 }
@@ -125,10 +125,10 @@ define void @_ZN14regex_automata4meta5regex7Builder10build_many17hd56ff8548fd086
 
 40:                                               ; preds = %39
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %25, ptr noundef nonnull align 8 dereferenceable(32) %27, i64 32, i1 false)
-  %41 = getelementptr inbounds { { { i64, i64 }, { i64, i64 }, { i64, i64 }, { i64, i64 }, { i64, i64 }, { [16 x i8], i8, [7 x i8] }, { i8, i8 }, i8, i8, i8, i8, i8, i8, i8, i8, i8, [5 x i8] }, { i8, { i8, i8, i8, i8, i8, i8 }, i8 }, { i32, i8, i8, [2 x i8] } }, ptr %1, i64 0, i32 2
-  %42 = getelementptr inbounds { [1 x i64], { i64, ptr } }, ptr %22, i64 0, i32 1
-  %43 = getelementptr inbounds { [1 x i64], { i64, ptr } }, ptr %22, i64 0, i32 1, i32 1
-  %44 = getelementptr inbounds { i64, ptr }, ptr %23, i64 0, i32 1
+  %41 = getelementptr inbounds i8, ptr %1, i64 128
+  %42 = getelementptr inbounds i8, ptr %22, i64 8
+  %43 = getelementptr inbounds i8, ptr %22, i64 16
+  %44 = getelementptr inbounds i8, ptr %23, i64 8
   br label %45
 
 45:                                               ; preds = %124, %40
@@ -178,10 +178,10 @@ define void @_ZN14regex_automata4meta5regex7Builder10build_many17hd56ff8548fd086
 
 65:                                               ; preds = %64
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(72) %14, ptr noundef nonnull align 8 dereferenceable(72) %17, i64 72, i1 false)
-  %66 = getelementptr inbounds { [1 x i64], ptr, [1 x i64] }, ptr %13, i64 0, i32 1
-  %67 = getelementptr inbounds { { i32, ptr }, ptr }, ptr %13, i64 0, i32 1
-  %68 = getelementptr inbounds { { { i64, i64 }, { i64, i64 }, { i64, i64 }, { i64, i64 }, { i64, i64 }, { [16 x i8], i8, [7 x i8] }, { i8, i8 }, i8, i8, i8, i8, i8, i8, i8, i8, i8, [5 x i8] }, { i8, { i8, i8, i8, i8, i8, i8 }, i8 }, { i32, i8, i8, [2 x i8] } }, ptr %1, i64 0, i32 1
-  %69 = getelementptr inbounds { [1 x i64], { { i64, [4 x i64] }, ptr } }, ptr %10, i64 0, i32 1
+  %66 = getelementptr inbounds i8, ptr %13, i64 8
+  %67 = getelementptr inbounds i8, ptr %13, i64 16
+  %68 = getelementptr inbounds i8, ptr %1, i64 120
+  %69 = getelementptr inbounds i8, ptr %10, i64 8
   br label %70
 
 70:                                               ; preds = %101, %65
@@ -466,7 +466,7 @@ define void @_ZN14regex_automata4meta5regex7Builder19build_many_from_hir17h13bb1
   br i1 %41, label %42, label %46
 
 42:                                               ; preds = %39
-  %43 = getelementptr inbounds { [1 x i64], { ptr, ptr } }, ptr %10, i64 0, i32 1
+  %43 = getelementptr inbounds i8, ptr %10, i64 8
   %44 = load <2 x ptr>, ptr %43, align 8
   store <2 x ptr> %44, ptr %11, align 16
   %45 = invoke { ptr, ptr } @"_ZN68_$LT$alloc..sync..Arc$LT$T$C$A$GT$$u20$as$u20$core..clone..Clone$GT$5clone17h469ba9101fa726faE"(ptr nonnull align 8 %11)
@@ -490,7 +490,7 @@ define void @_ZN14regex_automata4meta5regex7Builder19build_many_from_hir17h13bb1
   %53 = icmp ne ptr %51, null
   call void @llvm.assume(i1 %53)
   store ptr %50, ptr %5, align 8
-  %54 = getelementptr inbounds { ptr, ptr }, ptr %5, i64 0, i32 1
+  %54 = getelementptr inbounds i8, ptr %5, i64 8
   store ptr %51, ptr %54, align 8
   %55 = invoke ptr @_ZN5alloc5alloc15exchange_malloc17hf7111fe2c499d805E(i64 16, i64 8)
           to label %60 unwind label %56
@@ -509,7 +509,7 @@ define void @_ZN14regex_automata4meta5regex7Builder19build_many_from_hir17h13bb1
 
 60:                                               ; preds = %49
   store ptr %50, ptr %55, align 8
-  %61 = getelementptr inbounds { ptr, ptr }, ptr %55, i64 0, i32 1
+  %61 = getelementptr inbounds i8, ptr %55, i64 8
   store ptr %51, ptr %61, align 8
   %62 = invoke align 8 ptr @"_ZN14regex_automata4util4pool17Pool$LT$T$C$F$GT$3new17h294103454dcfe029E"(ptr nonnull align 1 %55, ptr nonnull align 8 @anon.5badd5560f9b4e3246f8bc518278927f.3)
           to label %63 unwind label %47
@@ -519,7 +519,7 @@ define void @_ZN14regex_automata4meta5regex7Builder19build_many_from_hir17h13bb1
   %64 = load ptr, ptr %13, align 8, !nonnull !5, !noundef !5
   %65 = load <2 x ptr>, ptr %11, align 16
   store <2 x ptr> %65, ptr %6, align 16
-  %66 = getelementptr inbounds { { ptr, ptr }, ptr }, ptr %6, i64 0, i32 1
+  %66 = getelementptr inbounds i8, ptr %6, i64 16
   store ptr %64, ptr %66, align 16
   %67 = invoke ptr @"_ZN5alloc4sync12Arc$LT$T$GT$3new17he4a34d49f9423e79E"(ptr nonnull align 8 %6)
           to label %70 unwind label %68
@@ -533,9 +533,9 @@ define void @_ZN14regex_automata4meta5regex7Builder19build_many_from_hir17h13bb1
 70:                                               ; preds = %63
   %71 = icmp ne ptr %67, null
   call void @llvm.assume(i1 %71)
-  %72 = getelementptr inbounds { [1 x i64], { ptr, ptr } }, ptr %0, i64 0, i32 1
+  %72 = getelementptr inbounds i8, ptr %0, i64 8
   store ptr %67, ptr %72, align 8
-  %73 = getelementptr inbounds { [1 x i64], { ptr, ptr } }, ptr %0, i64 0, i32 1, i32 1
+  %73 = getelementptr inbounds i8, ptr %0, i64 16
   store ptr %62, ptr %73, align 8
   store i32 2, ptr %0, align 8
   br label %74
@@ -662,7 +662,7 @@ define void @_ZN14regex_automata4meta5regex7Builder19build_many_from_hir17hba3b5
   br i1 %41, label %42, label %46
 
 42:                                               ; preds = %39
-  %43 = getelementptr inbounds { [1 x i64], { ptr, ptr } }, ptr %10, i64 0, i32 1
+  %43 = getelementptr inbounds i8, ptr %10, i64 8
   %44 = load <2 x ptr>, ptr %43, align 8
   store <2 x ptr> %44, ptr %11, align 16
   %45 = invoke { ptr, ptr } @"_ZN68_$LT$alloc..sync..Arc$LT$T$C$A$GT$$u20$as$u20$core..clone..Clone$GT$5clone17h469ba9101fa726faE"(ptr nonnull align 8 %11)
@@ -686,7 +686,7 @@ define void @_ZN14regex_automata4meta5regex7Builder19build_many_from_hir17hba3b5
   %53 = icmp ne ptr %51, null
   call void @llvm.assume(i1 %53)
   store ptr %50, ptr %5, align 8
-  %54 = getelementptr inbounds { ptr, ptr }, ptr %5, i64 0, i32 1
+  %54 = getelementptr inbounds i8, ptr %5, i64 8
   store ptr %51, ptr %54, align 8
   %55 = invoke ptr @_ZN5alloc5alloc15exchange_malloc17hf7111fe2c499d805E(i64 16, i64 8)
           to label %60 unwind label %56
@@ -705,7 +705,7 @@ define void @_ZN14regex_automata4meta5regex7Builder19build_many_from_hir17hba3b5
 
 60:                                               ; preds = %49
   store ptr %50, ptr %55, align 8
-  %61 = getelementptr inbounds { ptr, ptr }, ptr %55, i64 0, i32 1
+  %61 = getelementptr inbounds i8, ptr %55, i64 8
   store ptr %51, ptr %61, align 8
   %62 = invoke align 8 ptr @"_ZN14regex_automata4util4pool17Pool$LT$T$C$F$GT$3new17h294103454dcfe029E"(ptr nonnull align 1 %55, ptr nonnull align 8 @anon.5badd5560f9b4e3246f8bc518278927f.5)
           to label %63 unwind label %47
@@ -715,7 +715,7 @@ define void @_ZN14regex_automata4meta5regex7Builder19build_many_from_hir17hba3b5
   %64 = load ptr, ptr %13, align 8, !nonnull !5, !noundef !5
   %65 = load <2 x ptr>, ptr %11, align 16
   store <2 x ptr> %65, ptr %6, align 16
-  %66 = getelementptr inbounds { { ptr, ptr }, ptr }, ptr %6, i64 0, i32 1
+  %66 = getelementptr inbounds i8, ptr %6, i64 16
   store ptr %64, ptr %66, align 16
   %67 = invoke ptr @"_ZN5alloc4sync12Arc$LT$T$GT$3new17he4a34d49f9423e79E"(ptr nonnull align 8 %6)
           to label %70 unwind label %68
@@ -729,9 +729,9 @@ define void @_ZN14regex_automata4meta5regex7Builder19build_many_from_hir17hba3b5
 70:                                               ; preds = %63
   %71 = icmp ne ptr %67, null
   call void @llvm.assume(i1 %71)
-  %72 = getelementptr inbounds { [1 x i64], { ptr, ptr } }, ptr %0, i64 0, i32 1
+  %72 = getelementptr inbounds i8, ptr %0, i64 8
   store ptr %67, ptr %72, align 8
-  %73 = getelementptr inbounds { [1 x i64], { ptr, ptr } }, ptr %0, i64 0, i32 1, i32 1
+  %73 = getelementptr inbounds i8, ptr %0, i64 16
   store ptr %62, ptr %73, align 8
   store i32 2, ptr %0, align 8
   br label %74
@@ -804,7 +804,7 @@ define void @"_ZN14regex_automata4meta5regex7Builder19build_many_from_hir28_$u7b
   %3 = tail call { ptr, ptr } @"_ZN73_$LT$alloc..sync..Arc$LT$T$C$A$GT$$u20$as$u20$core..ops..deref..Deref$GT$5deref17hb9e73351a5cb175cE"(ptr align 8 %1)
   %4 = extractvalue { ptr, ptr } %3, 0
   %5 = extractvalue { ptr, ptr } %3, 1
-  %6 = getelementptr inbounds ptr, ptr %5, i64 9
+  %6 = getelementptr inbounds i8, ptr %5, i64 72
   %7 = load ptr, ptr %6, align 8, !invariant.load !5, !nonnull !5
   tail call void %7(ptr sret({ { { i64, [87 x i64] } }, { { i64, [43 x i64] } }, { { i32, i32 }, ptr, { { ptr, i64 }, i64 } }, { { ptr, [26 x i64] } }, { { ptr, [6 x i64] } }, { { ptr, [3 x i64] } } }) align 8 %0, ptr align 1 %4)
   ret void
@@ -815,7 +815,7 @@ define void @"_ZN14regex_automata4meta5regex7Builder19build_many_from_hir28_$u7b
   %3 = tail call { ptr, ptr } @"_ZN73_$LT$alloc..sync..Arc$LT$T$C$A$GT$$u20$as$u20$core..ops..deref..Deref$GT$5deref17hb9e73351a5cb175cE"(ptr align 8 %1)
   %4 = extractvalue { ptr, ptr } %3, 0
   %5 = extractvalue { ptr, ptr } %3, 1
-  %6 = getelementptr inbounds ptr, ptr %5, i64 9
+  %6 = getelementptr inbounds i8, ptr %5, i64 72
   %7 = load ptr, ptr %6, align 8, !invariant.load !5, !nonnull !5
   tail call void %7(ptr sret({ { { i64, [87 x i64] } }, { { i64, [43 x i64] } }, { { i32, i32 }, ptr, { { ptr, i64 }, i64 } }, { { ptr, [26 x i64] } }, { { ptr, [6 x i64] } }, { { ptr, [3 x i64] } } }) align 8 %0, ptr align 1 %4)
   ret void

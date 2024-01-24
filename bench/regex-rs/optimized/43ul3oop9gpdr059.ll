@@ -20,10 +20,10 @@ target triple = "x86_64-unknown-linux-gnu"
 define hidden i64 @_ZN12aho_corasick6packed3api8Searcher12memory_usage17haad587c54a160ed2E(ptr align 8 %0) unnamed_addr #0 {
   %2 = tail call align 8 ptr @"_ZN73_$LT$alloc..sync..Arc$LT$T$C$A$GT$$u20$as$u20$core..ops..deref..Deref$GT$5deref17h9268dea0766cca37E"(ptr align 8 %0)
   %3 = tail call i64 @_ZN12aho_corasick6packed7pattern8Patterns12memory_usage17hda87f3ac3b58af08E(ptr align 8 %2)
-  %4 = getelementptr inbounds { ptr, { ptr, { { ptr, i64 }, i64 }, i64, i64 }, { ptr, [3 x i64] }, i64 }, ptr %0, i64 0, i32 1
+  %4 = getelementptr inbounds i8, ptr %0, i64 8
   %5 = tail call i64 @_ZN12aho_corasick6packed9rabinkarp9RabinKarp12memory_usage17h8b52cda392b6c753E(ptr nonnull align 8 %4)
   %6 = add i64 %5, %3
-  %7 = getelementptr inbounds { ptr, { ptr, { { ptr, i64 }, i64 }, i64, i64 }, { ptr, [3 x i64] }, i64 }, ptr %0, i64 0, i32 2
+  %7 = getelementptr inbounds i8, ptr %0, i64 56
   %8 = tail call i64 @_ZN12aho_corasick6packed3api10SearchKind12memory_usage17h342ba45e5af5ea15E(ptr nonnull align 8 %7)
   %9 = add i64 %6, %8
   ret i64 %9
@@ -32,9 +32,9 @@ define hidden i64 @_ZN12aho_corasick6packed3api8Searcher12memory_usage17haad587c
 ; Function Attrs: inlinehint nonlazybind uwtable
 define hidden zeroext i1 @"_ZN72_$LT$aho_corasick..packed..api..Searcher$u20$as$u20$core..fmt..Debug$GT$3fmt17h97a76801c4b0e6caE"(ptr align 8 %0, ptr align 8 %1) unnamed_addr #0 {
   %3 = alloca ptr, align 8
-  %4 = getelementptr inbounds { ptr, { ptr, { { ptr, i64 }, i64 }, i64, i64 }, { ptr, [3 x i64] }, i64 }, ptr %0, i64 0, i32 1
-  %5 = getelementptr inbounds { ptr, { ptr, { { ptr, i64 }, i64 }, i64, i64 }, { ptr, [3 x i64] }, i64 }, ptr %0, i64 0, i32 2
-  %6 = getelementptr inbounds { ptr, { ptr, { { ptr, i64 }, i64 }, i64, i64 }, { ptr, [3 x i64] }, i64 }, ptr %0, i64 0, i32 3
+  %4 = getelementptr inbounds i8, ptr %0, i64 8
+  %5 = getelementptr inbounds i8, ptr %0, i64 56
+  %6 = getelementptr inbounds i8, ptr %0, i64 88
   store ptr %6, ptr %3, align 8
   %7 = call zeroext i1 @_ZN4core3fmt9Formatter26debug_struct_field4_finish17h690d13318dfd2d41E(ptr align 8 %1, ptr nonnull align 1 @anon.aba88c5177991090aabbb67f047ed032.0, i64 8, ptr nonnull align 1 @anon.aba88c5177991090aabbb67f047ed032.1, i64 8, ptr align 1 %0, ptr nonnull align 8 @anon.aba88c5177991090aabbb67f047ed032.2, ptr nonnull align 1 @anon.aba88c5177991090aabbb67f047ed032.3, i64 9, ptr nonnull align 1 %4, ptr nonnull align 8 @anon.aba88c5177991090aabbb67f047ed032.4, ptr nonnull align 1 @anon.aba88c5177991090aabbb67f047ed032.5, i64 11, ptr nonnull align 1 %5, ptr nonnull align 8 @anon.aba88c5177991090aabbb67f047ed032.6, ptr nonnull align 1 @anon.aba88c5177991090aabbb67f047ed032.7, i64 11, ptr nonnull align 1 %3, ptr nonnull align 8 @anon.aba88c5177991090aabbb67f047ed032.8)
   ret i1 %7

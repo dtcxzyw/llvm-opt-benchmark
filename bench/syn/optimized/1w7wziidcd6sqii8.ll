@@ -24,7 +24,7 @@ define zeroext i1 @"_ZN3syn4expr7parsing2kw1_94_$LT$impl$u20$syn..token..private
   %3 = alloca { { [24 x i8], i8, [7 x i8] }, {} }, align 8
   %4 = alloca { [24 x i8], i8, [23 x i8] }, align 8
   call void @_ZN3syn6buffer6Cursor5ident17hac8c92299a38498cE(ptr nonnull sret({ [24 x i8], i8, [23 x i8] }) align 8 %4, ptr %0, ptr %1)
-  %5 = getelementptr inbounds { [24 x i8], i8, [23 x i8] }, ptr %4, i64 0, i32 1
+  %5 = getelementptr inbounds i8, ptr %4, i64 24
   %6 = load i8, ptr %5, align 8, !range !5, !noundef !6
   %.not.not = icmp eq i8 %6, 3
   br i1 %.not.not, label %14, label %7
@@ -95,7 +95,7 @@ define zeroext i1 @"_ZN3syn4expr7parsing2kw1_90_$LT$impl$u20$syn..token..private
   %3 = alloca { { [24 x i8], i8, [7 x i8] }, {} }, align 8
   %4 = alloca { [24 x i8], i8, [23 x i8] }, align 8
   call void @_ZN3syn6buffer6Cursor5ident17hac8c92299a38498cE(ptr nonnull sret({ [24 x i8], i8, [23 x i8] }) align 8 %4, ptr %0, ptr %1)
-  %5 = getelementptr inbounds { [24 x i8], i8, [23 x i8] }, ptr %4, i64 0, i32 1
+  %5 = getelementptr inbounds i8, ptr %4, i64 24
   %6 = load i8, ptr %5, align 8, !range !5, !noundef !6
   %.not.not = icmp eq i8 %6, 3
   br i1 %.not.not, label %14, label %7

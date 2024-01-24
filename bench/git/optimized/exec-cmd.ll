@@ -176,7 +176,7 @@ if.then.i7:                                       ; preds = %land.lhs.true.i5
   br i1 %tobool.not.i.i.i, label %if.then.i.i, label %strbuf_avail.exit.i.i
 
 strbuf_avail.exit.i.i:                            ; preds = %if.then.i7
-  %len.i.i.i = getelementptr inbounds %struct.strbuf, ptr %new_path, i64 0, i32 1
+  %len.i.i.i = getelementptr inbounds i8, ptr %new_path, i64 8
   %5 = load i64, ptr %len.i.i.i, align 8
   %.neg.i.i = add i64 %5, 1
   %tobool.not.i.i = icmp eq i64 %4, %.neg.i.i
@@ -184,7 +184,7 @@ strbuf_avail.exit.i.i:                            ; preds = %if.then.i7
 
 if.then.i.i:                                      ; preds = %strbuf_avail.exit.i.i, %if.then.i7
   call void @strbuf_grow(ptr noundef nonnull %new_path, i64 noundef 1) #10
-  %len.phi.trans.insert.i.i = getelementptr inbounds %struct.strbuf, ptr %new_path, i64 0, i32 1
+  %len.phi.trans.insert.i.i = getelementptr inbounds i8, ptr %new_path, i64 8
   %.pre.i.i = load i64, ptr %len.phi.trans.insert.i.i, align 8
   %.pre8.i.i = add i64 %.pre.i.i, 1
   br label %strbuf_addch.exit.i
@@ -192,9 +192,9 @@ if.then.i.i:                                      ; preds = %strbuf_avail.exit.i
 strbuf_addch.exit.i:                              ; preds = %if.then.i.i, %strbuf_avail.exit.i.i
   %inc.pre-phi.i.i = phi i64 [ %.pre8.i.i, %if.then.i.i ], [ %.neg.i.i, %strbuf_avail.exit.i.i ]
   %6 = phi i64 [ %.pre.i.i, %if.then.i.i ], [ %5, %strbuf_avail.exit.i.i ]
-  %buf.i.i = getelementptr inbounds %struct.strbuf, ptr %new_path, i64 0, i32 2
+  %buf.i.i = getelementptr inbounds i8, ptr %new_path, i64 16
   %7 = load ptr, ptr %buf.i.i, align 8
-  %len.i.i = getelementptr inbounds %struct.strbuf, ptr %new_path, i64 0, i32 1
+  %len.i.i = getelementptr inbounds i8, ptr %new_path, i64 8
   store i64 %inc.pre-phi.i.i, ptr %len.i.i, align 8
   %arrayidx.i.i = getelementptr inbounds i8, ptr %7, i64 %6
   store i8 58, ptr %arrayidx.i.i, align 1
@@ -218,7 +218,7 @@ if.else:                                          ; preds = %add_path.exit
   br label %if.end
 
 if.end:                                           ; preds = %if.else, %if.then
-  %buf = getelementptr inbounds %struct.strbuf, ptr %new_path, i64 0, i32 2
+  %buf = getelementptr inbounds i8, ptr %new_path, i64 16
   %10 = load ptr, ptr %buf, align 8
   %call2 = call i32 @setenv(ptr noundef nonnull @.str.3, ptr noundef %10, i32 noundef 1) #10
   call void @strbuf_release(ptr noundef nonnull %new_path) #10
@@ -305,15 +305,15 @@ entry:
   call void @llvm.va_start(ptr nonnull %param)
   store ptr %cmd, ptr %argv, align 16
   %param.promoted = load i32, ptr %param, align 16
-  %overflow_arg_area_p = getelementptr inbounds %struct.__va_list_tag, ptr %param, i64 0, i32 2
-  %0 = getelementptr inbounds %struct.__va_list_tag, ptr %param, i64 0, i32 3
+  %overflow_arg_area_p = getelementptr inbounds i8, ptr %param, i64 8
+  %0 = getelementptr inbounds i8, ptr %param, i64 16
   %reg_save_area = load ptr, ptr %0, align 16
   %overflow_arg_area_p.promoted = load ptr, ptr %overflow_arg_area_p, align 8
   br label %while.body
 
 while.body:                                       ; preds = %entry, %vaarg.end
   %indvars.iv = phi i64 [ 1, %entry ], [ %indvars.iv.next, %vaarg.end ]
-  %overflow_arg_area.next9 = phi ptr [ %overflow_arg_area_p.promoted, %entry ], [ %overflow_arg_area.next8, %vaarg.end ]
+  %overflow_arg_area9 = phi ptr [ %overflow_arg_area_p.promoted, %entry ], [ %overflow_arg_area8, %vaarg.end ]
   %gp_offset7 = phi i32 [ %param.promoted, %entry ], [ %gp_offset6, %vaarg.end ]
   %fits_in_gp = icmp ult i32 %gp_offset7, 41
   br i1 %fits_in_gp, label %vaarg.in_reg, label %vaarg.in_mem
@@ -326,14 +326,14 @@ vaarg.in_reg:                                     ; preds = %while.body
   br label %vaarg.end
 
 vaarg.in_mem:                                     ; preds = %while.body
-  %overflow_arg_area.next = getelementptr i8, ptr %overflow_arg_area.next9, i64 8
+  %overflow_arg_area.next = getelementptr i8, ptr %overflow_arg_area9, i64 8
   store ptr %overflow_arg_area.next, ptr %overflow_arg_area_p, align 8
   br label %vaarg.end
 
 vaarg.end:                                        ; preds = %vaarg.in_mem, %vaarg.in_reg
-  %overflow_arg_area.next8 = phi ptr [ %overflow_arg_area.next9, %vaarg.in_reg ], [ %overflow_arg_area.next, %vaarg.in_mem ]
+  %overflow_arg_area8 = phi ptr [ %overflow_arg_area9, %vaarg.in_reg ], [ %overflow_arg_area.next, %vaarg.in_mem ]
   %gp_offset6 = phi i32 [ %3, %vaarg.in_reg ], [ %gp_offset7, %vaarg.in_mem ]
-  %vaarg.addr = phi ptr [ %2, %vaarg.in_reg ], [ %overflow_arg_area.next9, %vaarg.in_mem ]
+  %vaarg.addr = phi ptr [ %2, %vaarg.in_reg ], [ %overflow_arg_area9, %vaarg.in_mem ]
   %4 = load ptr, ptr %vaarg.addr, align 8
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %arrayidx2 = getelementptr inbounds [33 x ptr], ptr %argv, i64 0, i64 %indvars.iv

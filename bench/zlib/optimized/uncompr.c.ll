@@ -25,18 +25,18 @@ if.end:                                           ; preds = %entry, %if.then
   %dest.addr.0 = phi ptr [ %dest, %if.then ], [ %buf, %entry ]
   %left.0 = phi i64 [ %1, %if.then ], [ 1, %entry ]
   store ptr %source, ptr %stream, align 8
-  %avail_in = getelementptr inbounds %struct.z_stream_s, ptr %stream, i64 0, i32 1
+  %avail_in = getelementptr inbounds i8, ptr %stream, i64 8
   store i32 0, ptr %avail_in, align 8
-  %zalloc = getelementptr inbounds %struct.z_stream_s, ptr %stream, i64 0, i32 8
+  %zalloc = getelementptr inbounds i8, ptr %stream, i64 64
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %zalloc, i8 0, i64 24, i1 false)
   %call = call i32 @inflateInit_(ptr noundef nonnull %stream, ptr noundef nonnull @.str, i32 noundef 112) #4
   %cmp.not = icmp eq i32 %call, 0
   br i1 %cmp.not, label %if.end2, label %return
 
 if.end2:                                          ; preds = %if.end
-  %next_out = getelementptr inbounds %struct.z_stream_s, ptr %stream, i64 0, i32 3
+  %next_out = getelementptr inbounds i8, ptr %stream, i64 24
   store ptr %dest.addr.0, ptr %next_out, align 8
-  %avail_out = getelementptr inbounds %struct.z_stream_s, ptr %stream, i64 0, i32 4
+  %avail_out = getelementptr inbounds i8, ptr %stream, i64 32
   store i32 0, ptr %avail_out, align 8
   br label %do.body
 
@@ -85,7 +85,7 @@ do.end:                                           ; preds = %if.end26
   %sub32 = sub i64 %5, %6
   store i64 %sub32, ptr %sourceLen, align 8
   %cmp34.not = icmp eq ptr %dest.addr.0, %buf
-  %total_out38 = getelementptr inbounds %struct.z_stream_s, ptr %stream, i64 0, i32 5
+  %total_out38 = getelementptr inbounds i8, ptr %stream, i64 40
   %7 = load i64, ptr %total_out38, align 8
   br i1 %cmp34.not, label %if.else37, label %if.then36
 

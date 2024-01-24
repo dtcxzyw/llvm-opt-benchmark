@@ -14,7 +14,7 @@ define hidden noundef zeroext i1 @_ZN3syn5ident6xid_ok17h2a50861869d699f5E(ptr a
   %.fca.0.extract = extractvalue { ptr, ptr } %5, 0
   store ptr %.fca.0.extract, ptr %4, align 8
   %.fca.1.extract = extractvalue { ptr, ptr } %5, 1
-  %.fca.1.gep = getelementptr inbounds { ptr, ptr }, ptr %4, i64 0, i32 1
+  %.fca.1.gep = getelementptr inbounds i8, ptr %4, i64 8
   store ptr %.fca.1.extract, ptr %.fca.1.gep, align 8
   %6 = call i32 @"_ZN81_$LT$core..str..iter..Chars$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h67c98bf5c7a6ba5eE"(ptr nonnull align 8 %4), !range !5
   %7 = call i32 @"_ZN4core6option15Option$LT$T$GT$6unwrap17h66cdc5ce65ec7e5bE"(i32 %6, ptr nonnull align 8 @anon.384ef325ae2fec43aba8d02df9d00eb8.1), !range !6
@@ -28,7 +28,7 @@ define hidden noundef zeroext i1 @_ZN3syn5ident6xid_ok17h2a50861869d699f5E(ptr a
   %13 = extractvalue { ptr, ptr } %12, 0
   %14 = extractvalue { ptr, ptr } %12, 1
   store ptr %13, ptr %3, align 8
-  %15 = getelementptr inbounds { ptr, ptr }, ptr %3, i64 0, i32 1
+  %15 = getelementptr inbounds i8, ptr %3, i64 8
   store ptr %14, ptr %15, align 8
   br label %18
 

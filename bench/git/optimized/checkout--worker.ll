@@ -12,10 +12,6 @@ target triple = "x86_64-unknown-linux-gnu"
 %struct.option = type { i32, i32, ptr, ptr, ptr, ptr, i32, ptr, i64, ptr, i64, ptr }
 %struct.parallel_checkout_item = type { ptr, %struct.conv_attrs, i64, ptr, i32, %struct.stat }
 %struct.conv_attrs = type { ptr, i32, i32, i32, ptr }
-%struct.cache_entry = type { %struct.hashmap_entry, %struct.stat_data, i32, i32, i32, i32, i32, %struct.object_id, [0 x i8] }
-%struct.hashmap_entry = type { ptr, i32 }
-%struct.stat_data = type { %struct.cache_time, %struct.cache_time, i32, i32, i32, i32, i32 }
-%struct.cache_time = type { i32, i32 }
 
 @.str = private unnamed_addr constant [1 x i8] zeroinitializer, align 1
 @__const.cmd_checkout__worker.state = private unnamed_addr constant %struct.checkout { ptr null, ptr @.str, i32 0, ptr null, ptr null, %struct.checkout_metadata zeroinitializer, i8 0 }, align 8
@@ -41,20 +37,20 @@ entry:
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(128) %state, ptr noundef nonnull align 8 dereferenceable(128) @__const.cmd_checkout__worker.state, i64 128, i1 false)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(176) %checkout_worker_options, i8 0, i64 176, i1 false)
   store i32 10, ptr %checkout_worker_options, align 16
-  %long_name = getelementptr inbounds %struct.option, ptr %checkout_worker_options, i64 0, i32 2
+  %long_name = getelementptr inbounds i8, ptr %checkout_worker_options, i64 8
   store ptr @.str.1, ptr %long_name, align 8
-  %value = getelementptr inbounds %struct.option, ptr %checkout_worker_options, i64 0, i32 3
-  %base_dir = getelementptr inbounds %struct.checkout, ptr %state, i64 0, i32 1
+  %value = getelementptr inbounds i8, ptr %checkout_worker_options, i64 16
+  %base_dir = getelementptr inbounds i8, ptr %state, i64 8
   store ptr %base_dir, ptr %value, align 16
-  %argh = getelementptr inbounds %struct.option, ptr %checkout_worker_options, i64 0, i32 4
+  %argh = getelementptr inbounds i8, ptr %checkout_worker_options, i64 24
   store ptr @.str.2, ptr %argh, align 8
-  %help = getelementptr inbounds %struct.option, ptr %checkout_worker_options, i64 0, i32 5
+  %help = getelementptr inbounds i8, ptr %checkout_worker_options, i64 32
   store ptr @.str.3, ptr %help, align 16
   %cmp = icmp eq i32 %argc, 2
   br i1 %cmp, label %land.lhs.true, label %if.end
 
 land.lhs.true:                                    ; preds = %entry
-  %arrayidx = getelementptr inbounds ptr, ptr %argv, i64 1
+  %arrayidx = getelementptr inbounds i8, ptr %argv, i64 8
   %0 = load ptr, ptr %arrayidx, align 8
   %call = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %0, ptr noundef nonnull dereferenceable(3) @.str.4) #9
   %tobool.not = icmp eq i32 %call, 0
@@ -82,12 +78,12 @@ if.end11:                                         ; preds = %if.end
 if.then14:                                        ; preds = %if.end11
   %call16 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %1) #9
   %conv = trunc i64 %call16 to i32
-  %base_dir_len = getelementptr inbounds %struct.checkout, ptr %state, i64 0, i32 2
+  %base_dir_len = getelementptr inbounds i8, ptr %state, i64 16
   store i32 %conv, ptr %base_dir_len, align 8
   br label %if.end17
 
 if.end17:                                         ; preds = %if.then14, %if.end11
-  %refresh_cache = getelementptr inbounds %struct.checkout, ptr %state, i64 0, i32 6
+  %refresh_cache = getelementptr inbounds i8, ptr %state, i64 120
   %bf.load = load i8, ptr %refresh_cache, align 8
   %bf.set = or i8 %bf.load, 16
   store i8 %bf.set, ptr %refresh_cache, align 8
@@ -113,7 +109,7 @@ for.cond.preheader.i:                             ; preds = %if.else.i
 
 for.body.lr.ph.i:                                 ; preds = %for.cond.preheader.i
   %2 = getelementptr inbounds i8, ptr %res.i.i, i64 8
-  %st.i.i = getelementptr inbounds %struct.pc_item_result, ptr %res.i.i, i64 0, i32 2
+  %st.i.i = getelementptr inbounds i8, ptr %res.i.i, i64 16
   br label %for.body.i
 
 do.body.i:                                        ; preds = %if.else.i
@@ -181,34 +177,34 @@ packet_to_pc_item.exit.i:                         ; preds = %if.then8.i.i, %if.e
   store ptr %call14.i.i, ptr %arrayidx.i, align 8
   %8 = load i64, ptr getelementptr inbounds ([65520 x i8], ptr @packet_buffer, i64 0, i64 64), align 16
   %conv16.i.i = trunc i64 %8 to i32
-  %ce_namelen.i.i = getelementptr inbounds %struct.cache_entry, ptr %call14.i.i, i64 0, i32 5
+  %ce_namelen.i.i = getelementptr inbounds i8, ptr %call14.i.i, i64 64
   store i32 %conv16.i.i, ptr %ce_namelen.i.i, align 8
   %9 = load i32, ptr getelementptr inbounds ([65520 x i8], ptr @packet_buffer, i64 0, i64 44), align 4
   %10 = load ptr, ptr %arrayidx.i, align 8
-  %ce_mode19.i.i = getelementptr inbounds %struct.cache_entry, ptr %10, i64 0, i32 2
+  %ce_mode19.i.i = getelementptr inbounds i8, ptr %10, i64 52
   store i32 %9, ptr %ce_mode19.i.i, align 4
   %11 = load ptr, ptr %arrayidx.i, align 8
-  %name.i.i = getelementptr inbounds %struct.cache_entry, ptr %11, i64 0, i32 8
-  %ce_namelen22.i.i = getelementptr inbounds %struct.cache_entry, ptr %11, i64 0, i32 5
+  %name.i.i = getelementptr inbounds i8, ptr %11, i64 108
+  %ce_namelen22.i.i = getelementptr inbounds i8, ptr %11, i64 64
   %12 = load i32, ptr %ce_namelen22.i.i, align 8
   %conv23.i.i = zext i32 %12 to i64
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 4 %name.i.i, ptr nonnull align 1 %variant.0.i.i, i64 %conv23.i.i, i1 false)
   %13 = load ptr, ptr %arrayidx.i, align 8
-  %oid.i.i = getelementptr inbounds %struct.cache_entry, ptr %13, i64 0, i32 7
+  %oid.i.i = getelementptr inbounds i8, ptr %13, i64 72
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(32) %oid.i.i, ptr noundef nonnull align 8 dereferenceable(32) getelementptr inbounds ([65520 x i8], ptr @packet_buffer, i64 0, i64 8), i64 32, i1 false)
   %14 = load i32, ptr getelementptr inbounds ([65520 x i8], ptr @packet_buffer, i64 0, i64 40), align 8
-  %algo3.i.i.i = getelementptr inbounds %struct.cache_entry, ptr %13, i64 0, i32 7, i32 1
+  %algo3.i.i.i = getelementptr inbounds i8, ptr %13, i64 104
   store i32 %14, ptr %algo3.i.i.i, align 4
   %15 = load i64, ptr @packet_buffer, align 16
-  %id26.i.i = getelementptr inbounds %struct.parallel_checkout_item, ptr %items.1.i, i64 %nr.038.i, i32 2
+  %id26.i.i = getelementptr inbounds i8, ptr %arrayidx.i, i64 40
   store i64 %15, ptr %id26.i.i, align 8
   %16 = load i32, ptr getelementptr inbounds ([65520 x i8], ptr @packet_buffer, i64 0, i64 48), align 16
-  %crlf_action27.i.i = getelementptr inbounds %struct.parallel_checkout_item, ptr %items.1.i, i64 %nr.038.i, i32 1, i32 2
+  %crlf_action27.i.i = getelementptr inbounds i8, ptr %arrayidx.i, i64 20
   store i32 %16, ptr %crlf_action27.i.i, align 4
   %17 = load i32, ptr getelementptr inbounds ([65520 x i8], ptr @packet_buffer, i64 0, i64 52), align 4
-  %ident29.i.i = getelementptr inbounds %struct.parallel_checkout_item, ptr %items.1.i, i64 %nr.038.i, i32 1, i32 3
+  %ident29.i.i = getelementptr inbounds i8, ptr %arrayidx.i, i64 24
   store i32 %17, ptr %ident29.i.i, align 8
-  %working_tree_encoding.i.i = getelementptr inbounds %struct.parallel_checkout_item, ptr %items.1.i, i64 %nr.038.i, i32 1, i32 4
+  %working_tree_encoding.i.i = getelementptr inbounds i8, ptr %arrayidx.i, i64 32
   store ptr %encoding.0.i.i, ptr %working_tree_encoding.i.i, align 8
   %call.i = call i32 @packet_read(i32 noundef 0, ptr noundef nonnull @packet_buffer, i32 noundef 65520, i32 noundef 0) #11
   %cmp.i = icmp slt i32 %call.i, 0
@@ -220,17 +216,17 @@ for.body.i:                                       ; preds = %report_result.exit.
   call void @write_pc_item(ptr noundef %arrayidx19.i, ptr noundef nonnull %state) #11
   call void @llvm.lifetime.start.p0(i64 160, ptr nonnull %res.i.i)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(160) %2, i8 0, i64 152, i1 false)
-  %id.i.i = getelementptr inbounds %struct.parallel_checkout_item, ptr %items.040.i, i64 %i.043.i, i32 2
+  %id.i.i = getelementptr inbounds i8, ptr %arrayidx19.i, i64 40
   %18 = load i64, ptr %id.i.i, align 8
   store i64 %18, ptr %res.i.i, align 8
-  %status.i.i = getelementptr inbounds %struct.parallel_checkout_item, ptr %items.040.i, i64 %i.043.i, i32 4
+  %status.i.i = getelementptr inbounds i8, ptr %arrayidx19.i, i64 56
   %19 = load i32, ptr %status.i.i, align 8
   store i32 %19, ptr %2, align 8
   %cmp.i20.i = icmp eq i32 %19, 1
   br i1 %cmp.i20.i, label %if.then.i22.i, label %report_result.exit.i
 
 if.then.i22.i:                                    ; preds = %for.body.i
-  %st4.i.i = getelementptr inbounds %struct.parallel_checkout_item, ptr %items.040.i, i64 %i.043.i, i32 5
+  %st4.i.i = getelementptr inbounds i8, ptr %arrayidx19.i, i64 64
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(144) %st.i.i, ptr noundef nonnull align 8 dereferenceable(144) %st4.i.i, i64 144, i1 false)
   br label %report_result.exit.i
 
@@ -238,7 +234,7 @@ report_result.exit.i:                             ; preds = %if.then.i22.i, %for
   %size.0.i.i = phi i64 [ 160, %if.then.i22.i ], [ 16, %for.body.i ]
   call void @packet_write(i32 noundef 1, ptr noundef nonnull %res.i.i, i64 noundef %size.0.i.i) #11
   call void @llvm.lifetime.end.p0(i64 160, ptr nonnull %res.i.i)
-  %working_tree_encoding.i23.i = getelementptr inbounds %struct.parallel_checkout_item, ptr %items.040.i, i64 %i.043.i, i32 1, i32 4
+  %working_tree_encoding.i23.i = getelementptr inbounds i8, ptr %arrayidx19.i, i64 32
   %20 = load ptr, ptr %working_tree_encoding.i23.i, align 8
   call void @free(ptr noundef %20) #11
   %21 = load ptr, ptr %arrayidx19.i, align 8

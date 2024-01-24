@@ -24,7 +24,7 @@ define hidden void @"_ZN3syn3lit7parsing61_$LT$impl$u20$syn..parse..Parse$u20$fo
   %13 = alloca { i64, [5 x i64] }, align 8
   %14 = tail call align 8 ptr @"_ZN66_$LT$syn..parse..StepCursor$u20$as$u20$core..ops..deref..Deref$GT$5deref17h53f065b65b32a41aE"(ptr align 8 %1)
   %15 = load ptr, ptr %14, align 8, !noundef !5
-  %16 = getelementptr inbounds { ptr, ptr }, ptr %14, i64 0, i32 1
+  %16 = getelementptr inbounds i8, ptr %14, i64 8
   %17 = load ptr, ptr %16, align 8, !noundef !5
   call void @_ZN3syn6buffer6Cursor7literal17h421096e429c8d760E(ptr nonnull sret({ i64, [5 x i64] }) align 8 %13, ptr %15, ptr %17)
   %18 = load i64, ptr %13, align 8, !range !6, !noundef !5
@@ -32,9 +32,9 @@ define hidden void @"_ZN3syn3lit7parsing61_$LT$impl$u20$syn..parse..Parse$u20$fo
   br i1 %.not, label %23, label %19
 
 19:                                               ; preds = %2
-  %20 = getelementptr inbounds { [1 x i64], { { { ptr, [2 x i64] }, {} }, { ptr, ptr } } }, ptr %13, i64 0, i32 1
+  %20 = getelementptr inbounds i8, ptr %13, i64 8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %12, ptr noundef nonnull align 8 dereferenceable(24) %20, i64 24, i1 false)
-  %21 = getelementptr inbounds { [1 x i64], { { { ptr, [2 x i64] }, {} }, { ptr, ptr } } }, ptr %13, i64 0, i32 1, i32 1
+  %21 = getelementptr inbounds i8, ptr %13, i64 32
   %.sroa.2.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 32
   %22 = load <2 x ptr>, ptr %21, align 8
   call void @"_ZN3syn3lit5value31_$LT$impl$u20$syn..lit..Lit$GT$3new17h56481e0f1ea575ddE"(ptr nonnull sret({ i32, [7 x i32] }) align 8 %11, ptr nonnull align 8 %12)
@@ -46,10 +46,10 @@ define hidden void @"_ZN3syn3lit7parsing61_$LT$impl$u20$syn..parse..Parse$u20$fo
   call void @"_ZN4core3ptr99drop_in_place$LT$core..option..Option$LT$$LP$proc_macro2..Literal$C$syn..buffer..Cursor$RP$$GT$$GT$17h5e97e6882da71aa2E"(ptr nonnull align 8 %13)
   %24 = call align 8 ptr @"_ZN66_$LT$syn..parse..StepCursor$u20$as$u20$core..ops..deref..Deref$GT$5deref17h53f065b65b32a41aE"(ptr align 8 %1)
   %25 = load ptr, ptr %24, align 8, !noundef !5
-  %26 = getelementptr inbounds { ptr, ptr }, ptr %24, i64 0, i32 1
+  %26 = getelementptr inbounds i8, ptr %24, i64 8
   %27 = load ptr, ptr %26, align 8, !noundef !5
   call void @_ZN3syn6buffer6Cursor5ident17hac8c92299a38498cE(ptr nonnull sret({ [24 x i8], i8, [23 x i8] }) align 8 %10, ptr %25, ptr %27)
-  %28 = getelementptr inbounds { [24 x i8], i8, [23 x i8] }, ptr %10, i64 0, i32 1
+  %28 = getelementptr inbounds i8, ptr %10, i64 24
   %29 = load i8, ptr %28, align 8, !range !7, !noundef !5
   %.not21.not = icmp eq i8 %29, 3
   br i1 %.not21.not, label %48, label %31
@@ -59,7 +59,7 @@ define hidden void @"_ZN3syn3lit7parsing61_$LT$impl$u20$syn..parse..Parse$u20$fo
 
 31:                                               ; preds = %23
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %9, ptr noundef nonnull align 8 dereferenceable(32) %10, i64 32, i1 false)
-  %32 = getelementptr inbounds { { { [24 x i8], i8, [7 x i8] }, {} }, { ptr, ptr } }, ptr %10, i64 0, i32 1
+  %32 = getelementptr inbounds i8, ptr %10, i64 32
   %33 = load <2 x ptr>, ptr %32, align 8
   %34 = invoke zeroext i1 @"_ZN68_$LT$proc_macro2..Ident$u20$as$u20$core..cmp..PartialEq$LT$T$GT$$GT$2eq17hc76ceb7d36b01f33E"(ptr nonnull align 8 %9, ptr nonnull align 8 @anon.cb7bd10d63821fdc7bf2d742619127ba.1)
           to label %37 unwind label %35
@@ -112,7 +112,7 @@ define hidden void @"_ZN3syn3lit7parsing61_$LT$impl$u20$syn..parse..Parse$u20$fo
 48:                                               ; preds = %23, %.thread
   %49 = call align 8 ptr @"_ZN66_$LT$syn..parse..StepCursor$u20$as$u20$core..ops..deref..Deref$GT$5deref17h53f065b65b32a41aE"(ptr align 8 %1)
   %50 = load ptr, ptr %49, align 8, !noundef !5
-  %51 = getelementptr inbounds { ptr, ptr }, ptr %49, i64 0, i32 1
+  %51 = getelementptr inbounds i8, ptr %49, i64 8
   %52 = load ptr, ptr %51, align 8, !noundef !5
   call void @_ZN3syn6buffer6Cursor5punct17h9ff0baca0e858fd5E(ptr nonnull sret({ i32, [7 x i32] }) align 8 %8, ptr %50, ptr %52)
   %53 = load i32, ptr %8, align 8, !range !8, !noundef !5
@@ -121,9 +121,9 @@ define hidden void @"_ZN3syn3lit7parsing61_$LT$impl$u20$syn..parse..Parse$u20$fo
 
 54:                                               ; preds = %48
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %7, ptr noundef nonnull align 8 dereferenceable(12) %8, i64 12, i1 false)
-  %55 = getelementptr inbounds { { i32, i32, i8, [3 x i8] }, [1 x i32], { ptr, ptr } }, ptr %8, i64 0, i32 2
+  %55 = getelementptr inbounds i8, ptr %8, i64 16
   %56 = load ptr, ptr %55, align 8, !noundef !5
-  %57 = getelementptr inbounds { { i32, i32, i8, [3 x i8] }, [1 x i32], { ptr, ptr } }, ptr %8, i64 0, i32 2, i32 1
+  %57 = getelementptr inbounds i8, ptr %8, i64 24
   %58 = load ptr, ptr %57, align 8, !noundef !5
   %59 = call i32 @_ZN11proc_macro25Punct7as_char17hfd127b06b5388d25E(ptr nonnull align 4 %7), !range !9
   %60 = icmp eq i32 %59, 45
@@ -132,7 +132,7 @@ define hidden void @"_ZN3syn3lit7parsing61_$LT$impl$u20$syn..parse..Parse$u20$fo
 61:                                               ; preds = %68, %54, %48
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %3, ptr noundef nonnull align 8 dereferenceable(24) %1, i64 24, i1 false)
   call void @_ZN3syn5parse10StepCursor5error17h97380b7b623ac4d4E(ptr nonnull sret({ { { ptr, i64 }, i64 } }) align 8 %4, ptr nonnull align 8 %3, ptr nonnull align 1 @anon.cb7bd10d63821fdc7bf2d742619127ba.4, i64 16)
-  %62 = getelementptr inbounds { [1 x i64], { { { ptr, i64 }, i64 } } }, ptr %0, i64 0, i32 1
+  %62 = getelementptr inbounds i8, ptr %0, i64 8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %62, ptr noundef nonnull align 8 dereferenceable(24) %4, i64 24, i1 false)
   store i32 8, ptr %0, align 8
   br label %30
@@ -145,7 +145,7 @@ define hidden void @"_ZN3syn3lit7parsing61_$LT$impl$u20$syn..parse..Parse$u20$fo
   br i1 %.not24, label %68, label %65
 
 65:                                               ; preds = %63
-  %66 = getelementptr inbounds { { i32, [7 x i32] }, { ptr, ptr } }, ptr %6, i64 0, i32 1
+  %66 = getelementptr inbounds i8, ptr %6, i64 32
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef nonnull align 8 dereferenceable(32) %6, i64 32, i1 false)
   %.sroa.210.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 32
   %67 = load <2 x ptr>, ptr %66, align 8

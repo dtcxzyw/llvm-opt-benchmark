@@ -3,8 +3,6 @@ source_filename = "bench/libsodium/original/libsodium_la-scrypt_platform.ll"
 target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:128-n8:16:32:64-S128"
 target triple = "x86_64-unknown-linux-gnu"
 
-%struct.escrypt_region_t = type { ptr, ptr, i64 }
-
 ; Function Attrs: nounwind ssp uwtable
 define hidden ptr @_sodium_escrypt_alloc_region(ptr nocapture noundef writeonly %region, i64 noundef %size) local_unnamed_addr #0 {
 entry:
@@ -12,11 +10,11 @@ entry:
   %cmp = icmp eq ptr %call, inttoptr (i64 -1 to ptr)
   %spec.store.select = select i1 %cmp, ptr null, ptr %call
   store ptr %spec.store.select, ptr %region, align 8
-  %aligned2 = getelementptr inbounds %struct.escrypt_region_t, ptr %region, i64 0, i32 1
+  %aligned2 = getelementptr inbounds i8, ptr %region, i64 8
   store ptr %spec.store.select, ptr %aligned2, align 8
   %tobool.not = icmp eq ptr %spec.store.select, null
   %cond = select i1 %tobool.not, i64 0, i64 %size
-  %size3 = getelementptr inbounds %struct.escrypt_region_t, ptr %region, i64 0, i32 2
+  %size3 = getelementptr inbounds i8, ptr %region, i64 16
   store i64 %cond, ptr %size3, align 8
   ret ptr %spec.store.select
 }
@@ -32,7 +30,7 @@ entry:
   br i1 %tobool.not, label %if.end4, label %if.then
 
 if.then:                                          ; preds = %entry
-  %size = getelementptr inbounds %struct.escrypt_region_t, ptr %region, i64 0, i32 2
+  %size = getelementptr inbounds i8, ptr %region, i64 16
   %1 = load i64, ptr %size, align 8
   %call = tail call i32 @munmap(ptr noundef nonnull %0, i64 noundef %1) #4
   %tobool2.not = icmp eq i32 %call, 0
@@ -65,7 +63,7 @@ entry:
   br i1 %tobool.not.i, label %if.end4.i, label %if.then.i
 
 if.then.i:                                        ; preds = %entry
-  %size.i = getelementptr inbounds %struct.escrypt_region_t, ptr %local, i64 0, i32 2
+  %size.i = getelementptr inbounds i8, ptr %local, i64 16
   %1 = load i64, ptr %size.i, align 8
   %call.i = tail call i32 @munmap(ptr noundef nonnull %0, i64 noundef %1) #4
   %tobool2.not.i = icmp eq i32 %call.i, 0

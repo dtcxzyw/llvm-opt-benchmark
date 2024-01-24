@@ -11,7 +11,7 @@ target triple = "x86_64-unknown-linux-gnu"
 @kTransformsData = internal constant [363 x i8] c"1\0011\00\00\00\00\001\0C11\0A\001\00/\00\001\04\00\001\00\031\0A11\00\061\0D11\011\01\00\001\00\01\00\0A\001\00\071\00\090\00\001\00\081\00\051\00\0A1\00\0B1\0311\00\0D1\00\0E1\0E11\0211\00\0F1\00\10\00\0A11\00\0C\05\001\00\00\011\0F11\00\121\00\111\00\131\00\141\1011\111/\0011\0411\00\161\0B11\00\171\00\181\00\191\0711\01\1A1\00\1B1\00\1C\00\00\0C1\00\1D1\1411\1211\0611\00\151\0A\011\0811\00\1F1\00 /\00\031\0511\091\00\0A\011\0A\08\05\00\151\0B\001\0A\0A1\00\1E\00\00\05#\001/\00\021\0A\111\00$1\00!\05\00\001\0A\151\0A\051\00%\00\00\1E1\00&\00\0B\001\00'\00\0B11\00\221\0B\081\0A\0C\00\00\151\00(\00\0A\0C1\00)1\00*1\0B\111\00+\00\0A\051\0B\0A\00\00\221\0A!1\00,1\0B\05-\001\00\00!1\0A\1E1\0B\1E1\00.1\0B\011\0A\22\00\0A!\00\0B\1E\00\0B\011\0B!1\0B\151\0B\0C\00\0B\051\0B\22\00\0B\0C\00\0A\1E\00\0B\22\00\0A\22", align 16
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define nonnull ptr @BrotliGetTransforms() local_unnamed_addr #0 {
+define noundef nonnull ptr @BrotliGetTransforms() local_unnamed_addr #0 {
 entry:
   ret ptr @kBrotliTransforms
 }
@@ -19,11 +19,11 @@ entry:
 ; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
 define i32 @BrotliTransformDictionaryWord(ptr nocapture noundef %dst, ptr nocapture noundef readonly %word, i32 noundef %len, ptr nocapture noundef readonly %transforms, i32 noundef %transform_idx) local_unnamed_addr #1 {
 entry:
-  %prefix_suffix = getelementptr inbounds %struct.BrotliTransforms, ptr %transforms, i64 0, i32 1
+  %prefix_suffix = getelementptr inbounds i8, ptr %transforms, i64 8
   %0 = load ptr, ptr %prefix_suffix, align 8
-  %prefix_suffix_map = getelementptr inbounds %struct.BrotliTransforms, ptr %transforms, i64 0, i32 2
+  %prefix_suffix_map = getelementptr inbounds i8, ptr %transforms, i64 16
   %1 = load ptr, ptr %prefix_suffix_map, align 8
-  %transforms1 = getelementptr inbounds %struct.BrotliTransforms, ptr %transforms, i64 0, i32 4
+  %transforms1 = getelementptr inbounds i8, ptr %transforms, i64 32
   %2 = load ptr, ptr %transforms1, align 8
   %mul = mul nsw i32 %transform_idx, 3
   %idxprom = sext i32 %mul to i64
@@ -215,7 +215,7 @@ ToUpperCase.exit70:                               ; preds = %if.then.i67, %if.th
   br i1 %cmp60, label %while.body62, label %if.end123, !llvm.loop !7
 
 if.then71:                                        ; preds = %while.end45
-  %params = getelementptr inbounds %struct.BrotliTransforms, ptr %transforms, i64 0, i32 5
+  %params = getelementptr inbounds i8, ptr %transforms, i64 40
   %29 = load ptr, ptr %params, align 8
   %mul72 = shl nsw i32 %transform_idx, 1
   %idxprom73 = sext i32 %mul72 to i64
@@ -236,7 +236,7 @@ if.then71:                                        ; preds = %while.end45
   br label %if.end123
 
 if.then91:                                        ; preds = %while.end45
-  %params93 = getelementptr inbounds %struct.BrotliTransforms, ptr %transforms, i64 0, i32 5
+  %params93 = getelementptr inbounds i8, ptr %transforms, i64 40
   %32 = load ptr, ptr %params93, align 8
   %mul94 = shl nsw i32 %transform_idx, 1
   %idxprom95 = sext i32 %mul94 to i64
@@ -301,7 +301,7 @@ while.end134:                                     ; preds = %while.end134.loopex
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define internal fastcc i32 @Shift(ptr nocapture noundef %word, i32 noundef %word_len, i16 noundef zeroext %parameter) unnamed_addr #2 {
+define internal fastcc noundef i32 @Shift(ptr nocapture noundef %word, i32 noundef %word_len, i16 noundef zeroext %parameter) unnamed_addr #2 {
 entry:
   %conv = zext i16 %parameter to i32
   %and = and i32 %conv, 32767

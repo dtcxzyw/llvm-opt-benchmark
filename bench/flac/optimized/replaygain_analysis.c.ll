@@ -27,8 +27,8 @@ target triple = "x86_64-unknown-linux-gnu"
 @A = internal unnamed_addr global [12000 x i32] zeroinitializer, align 16
 @ReplayGainFilters = internal unnamed_addr constant [13 x %struct.ReplayGainFilter] [%struct.ReplayGainFilter { i64 48000, i32 0, [11 x float] [float 0x3FA3C03BA0000000, float 0xBF961F45E0000000, float 0xBF54379320000000, float 0xBF185B8A20000000, float 0xBF90F32A60000000, float 0x3F96225020000000, float 0xBF953CFC20000000, float 0x3F7857AAC0000000, float 0x3F691A42E0000000, float 0x3F1F860EA0000000, float 0x3F67A185A0000000], [11 x float] [float 1.000000e+00, float 0xC00EC5EE60000000, float 0x401F4293C0000000, float 0xC026AEF3C0000000, float 0x402A1C2E80000000, float 0xC028934020000000, float 0x4022F743A0000000, float 0xC0177D8540000000, float 0x4006098A80000000, float 0xBFEBD5C2A0000000, float 0x3FC1D114C0000000], [3 x float] [float 0x3FEF8F0C40000000, float 0xBFFF8F0C40000000, float 0x3FEF8F0C40000000], [3 x float] [float 1.000000e+00, float 0xBFFF8E4500000000, float 0x3FEF1FA760000000] }, %struct.ReplayGainFilter { i64 44100, i32 0, [11 x float] [float 0x3FABBE5760000000, float 0xBF9DCF0840000000, float 0xBF8161AE80000000, float 0xBF816E8F40000000, float 0xBF8119C1E0000000, float 0x3F96FDE6C0000000, float 0xBF9A962540000000, float 0x3F90A37C60000000, float 0xBF63BB9980000000, float 0x3F7BA1D660000000, float 0xBF5EC36240000000], [11 x float] [float 1.000000e+00, float 0xC00BD3E2A0000000, float 0x401973E4E0000000, float 0xC0211853E0000000, float 0x4022F43100000000, float 0xC021A14600000000, float 0x401B6A8300000000, float 0xC011942EE0000000, float 0x400191A5C0000000, float 0xBFE8088B60000000, float 0x3FC0D4C4C0000000], [3 x float] [float 0x3FEF852260000000, float 0xBFFF852260000000, float 0x3FEF852260000000], [3 x float] [float 1.000000e+00, float 0xBFFF843680000000, float 0x3FEF0C1CA0000000] }, %struct.ReplayGainFilter { i64 37800, i32 0, [11 x float] [float 0x3FBA5C0E80000000, float 0xBFA8F9A900000000, float 0xBF9D788740000000, float 0xBFA2051760000000, float 0x3F9D949940000000, float 0xBF78FAFA80000000, float 0x3F6130E620000000, float 0x3F82ABF540000000, float 0x3F87A467C0000000, float 0xBF79D11BC0000000, float 0x3F519E0400000000], [11 x float] [float 1.000000e+00, float 0xC0053016A0000000, float 0x400CAC2800000000, float 0xC00EB41EA0000000, float 0x400F361D80000000, float 0xC00C03AEC0000000, float 0x40055DE820000000, float 0xBFFD368600000000, float 0x3FF1865D20000000, float 0xBFDE855E60000000, float 0x3FBC994F40000000], [3 x float] [float 0x3FEF70D640000000, float 0xBFFF70D640000000, float 0x3FEF70D640000000], [3 x float] [float 1.000000e+00, float 0xBFFF6F95E0000000, float 0x3FEEE42CE0000000] }, %struct.ReplayGainFilter { i64 36000, i32 0, [11 x float] [float 0x3FBDA00540000000, float 0xBFA5195E00000000, float 0xBFA97C69A0000000, float 0xBF8572E9E0000000, float 0x3F7EC15F20000000, float 0x3F423052A0000000, float 0x3F56FE7640000000, float 0x3F8A56D7E0000000, float 0x3F84719040000000, float 0xBF7DB25220000000, float 0x3F6ABF4580000000], [11 x float] [float 1.000000e+00, float 0xC0037D1140000000, float 0x4008271040000000, float 0xC0073AD1A0000000, float 0x40056F8F00000000, float 0xC0016894A0000000, float 0x3FF72FA280000000, float 0xBFEC176900000000, float 0x3FE1264600000000, float 0xBFD0F0BCC0000000, float 0x3FB3307FA0000000], [3 x float] [float 0x3FEF69BEA0000000, float 0xBFFF69BEA0000000, float 0x3FEF69BEA0000000], [3 x float] [float 1.000000e+00, float 0xBFFF685DC0000000, float 0x3FEED63EC0000000] }, %struct.ReplayGainFilter { i64 32000, i32 0, [11 x float] [float 0x3FC3C90C40000000, float 0xBFB7E33240000000, float 0xBFAFFD38C0000000, float 0x3F96279860000000, float 0xBFAC9CD1A0000000, float 0x3FA87B2D60000000, float 0x3F62363BA0000000, float 0x3FA04058C0000000, float 0xBF8C7AB180000000, float 0x3F7AAEA400000000, float 0xBF820CE100000000], [11 x float] [float 1.000000e+00, float 0xC003082B00000000, float 0x4006CA1980000000, float 0xC0052A8A60000000, float 0x4001E55400000000, float 0xBFFABE6360000000, float 0x3FF0186900000000, float 0xBFDD6903C0000000, float 0x3FC4F6CC00000000, float 0xBFA9C3A520000000, float 0x3F980ADF40000000], [3 x float] [float 0x3FEF572840000000, float 0xBFFF572840000000, float 0x3FEF572840000000], [3 x float] [float 1.000000e+00, float 0xBFFF556AC0000000, float 0x3FEEB1CB80000000] }, %struct.ReplayGainFilter { i64 28000, i32 0, [11 x float] [float 0x3FCE91C840000000, float 0xBFCC2B8360000000, float 0xBFAECB6EC0000000, float 0x3FA99F7180000000, float 0xBFA0DC58C0000000, float 0x3F980CEB40000000, float 0x3FA5F7B5A0000000, float 0xBF833690C0000000, float 0x3F23C91740000000, float 0xBF7D302B40000000, float 0xBF79A98A60000000], [11 x float] [float 1.000000e+00, float 0xC0008D30E0000000, float 0x3FFC4FA7A0000000, float 0xBFEA0CAD00000000, float 0x3FD0448840000000, float 0xBFD36B0900000000, float 0x3FD6CB7860000000, float 0xBFC3287D00000000, float 0xBFB1FB5980000000, float 0x3FBC5C57E0000000, float 0xBFA22F7720000000], [3 x float] [float 0x3FEF3F52A0000000, float 0xBFFF3F52A0000000, float 0x3FEF3F52A0000000], [3 x float] [float 1.000000e+00, float 0xBFFF3D0E80000000, float 0x3FEE832D80000000] }, %struct.ReplayGainFilter { i64 24000, i32 0, [11 x float] [float 0x3FD363D860000000, float 0xBFCCF226E0000000, float 0xBFB5FBC9E0000000, float 0x3FA0CF00A0000000, float 0xBF82C0EBA0000000, float 0xBF98357440000000, float 0xBF77F07740000000, float 0x3FB0111B20000000, float 0xBEE15DC1C0000000, float 0x3F60DD3CA0000000, float 0xBF9E359A20000000], [11 x float] [float 1.000000e+00, float 0xBFF9CDBFC0000000, float 0x3FF146C220000000, float 0xBFD06B8580000000, float 0xBFC4D58E20000000, float 0xBFCCFA5000000000, float 0x3FD9098D40000000, float 0xBFCC5639C0000000, float 0x3FA70A8C60000000, float 0x3F948A3860000000, float 0x3F68C69B80000000], [3 x float] [float 0x3FEF35CF00000000, float 0xBFFF35CF00000000, float 0x3FEF35CF00000000], [3 x float] [float 1.000000e+00, float 0xBFFF335020000000, float 0x3FEE709BC0000000] }, %struct.ReplayGainFilter { i64 22050, i32 0, [11 x float] [float 0x3FD587F480000000, float 0xBFD05DC180000000, float 0xBFBE47F8C0000000, float 0x3FBE84A4E0000000, float 0xBFB40E6940000000, float 0xBF73401360000000, float 0xBF78255BA0000000, float 0x3FAD4EDC40000000, float 0x3F810A4E80000000, float 0xBF90BF0DE0000000, float 0xBF92063280000000], [11 x float] [float 1.000000e+00, float 0xBFF7FA3940000000, float 0x3FEBF3BC00000000, float 0x3FBF3EAF00000000, float 0xBFE9D91560000000, float 0x3FDEA087A0000000, float 0xBFBFE17FA0000000, float 0xBFA4D35E00000000, float 0x3FB5559C20000000, float 0xBFA5B1FA00000000, float 0x3F9E7C9200000000], [3 x float] [float 0x3FEF242B60000000, float 0xBFFF242B60000000, float 0x3FEF242B60000000], [3 x float] [float 1.000000e+00, float 0xBFFF213840000000, float 0x3FEE4E3D40000000] }, %struct.ReplayGainFilter { i64 18900, i32 0, [11 x float] [float 0x3FD89587A0000000, float 0xBFDC806800000000, float 0x3FCA2566A0000000, float 0xBFD1F0B5C0000000, float 0x3FD4265F20000000, float 0xBFD0B0ABA0000000, float 0x3FC08B5480000000, float 0xBF875EFD60000000, float 0x3F9F180F80000000, float 0xBFA355B940000000, float 0x3F7C5887A0000000], [11 x float] [float 1.000000e+00, float 0xBFFBE795A0000000, float 0x3FFF784340000000, float 0xC000CE77E0000000, float 0x3FFE8547C0000000, float 0xBFFD690840000000, float 0x3FF5EA58C0000000, float 0xBFE8EC39A0000000, float 0x3FD9216920000000, float 0xBFC009A0E0000000, float 0x3FABC657A0000000], [3 x float] [float 0x3FEEE42C80000000, float 0xBFFEE42C80000000, float 0x3FEEE42C80000000], [3 x float] [float 1.000000e+00, float 0xBFFEDF4180000000, float 0x3FEDD22F40000000] }, %struct.ReplayGainFilter { i64 16000, i32 0, [11 x float] [float 0x3FDCBEEA60000000, float 0xBFC25EC8A0000000, float 0xBFCD29FD80000000, float 0xBF8D1061A0000000, float 0x3FA4E175E0000000, float 0xBFBFBD42A0000000, float 0x3FA4FAC2C0000000, float 0x3FBAD33120000000, float 0xBF931611E0000000, float 0xBFA059B0C0000000, float 0x3F76325080000000], [11 x float] [float 1.000000e+00, float 0xBFE41A43E0000000, float 0x3FD2FBC960000000, float 0xBFD7D81580000000, float 0x3F61830980000000, float 0xBFDAE62A60000000, float 0x3FCC6A61A0000000, float 0x3F79203880000000, float 0x3FB1461EE0000000, float 0x3FAD9E47A0000000, float 0x3FA08020E0000000], [3 x float] [float 0x3FEEDD8DC0000000, float 0xBFFEDD8DC0000000, float 0x3FEEDD8DC0000000], [3 x float] [float 1.000000e+00, float 0xBFFED86740000000, float 0x3FEDC568A0000000] }, %struct.ReplayGainFilter { i64 12000, i32 0, [11 x float] [float 0x3FE21E4460000000, float 0xBFE8260C60000000, float 0x3FC4CA3940000000, float 0x3FC56EC100000000, float 0xBFC831AD80000000, float 0x3FD3CBDD00000000, float 0xBFD1A3EA60000000, float 0x3F7A838B60000000, float 0x3FB6233A60000000, float 0xBFA3664C40000000, float 0xBF7817E2C0000000], [11 x float] [float 1.000000e+00, float 0xBFF0C49F20000000, float 0x3FD2A8F860000000, float 0xBFD127E520000000, float 0x3F80CB28E0000000, float 0x3FDCD5C480000000, float 0xBFD5240760000000, float 0x3FB140B660000000, float 0xBFA87ED160000000, float 0x3F90CAEB80000000, float 0x3F9281E5A0000000], [3 x float] [float 0x3FEEB911A0000000, float 0xBFFEB911A0000000, float 0x3FEEB911A0000000], [3 x float] [float 1.000000e+00, float 0xBFFEB28AE0000000, float 0x3FED7F30C0000000] }, %struct.ReplayGainFilter { i64 11025, i32 0, [11 x float] [float 0x3FE29797C0000000, float 0xBFE10416A0000000, float 0xBFC24A7B40000000, float 0x3FC66D2F40000000, float 0x3F9859A400000000, float 0x3FC3EA3140000000, float 0xBFD0387D80000000, float 0x3F90ACEAA0000000, float 0x3FB1B765E0000000, float 0xBFA30DFDA0000000, float 0xBF7EB452A0000000], [11 x float] [float 1.000000e+00, float 0xBFE054D060000000, float 0xBFD46486C0000000, float 0xBFC9ED9F20000000, float 0x3FC2DA1F20000000, float 0x3FD8EE0020000000, float 0xBFCDD74B00000000, float 0xBFAADC0FE0000000, float 0xBF99A93A80000000, float 0x3F99027E40000000, float 0x3F929FE0C0000000], [3 x float] [float 0x3FEEAC9940000000, float 0xBFFEAC9940000000, float 0x3FEEAC9940000000], [3 x float] [float 1.000000e+00, float 0xBFFEA590A0000000, float 0x3FED6743E0000000] }, %struct.ReplayGainFilter { i64 8000, i32 0, [11 x float] [float 0x3FE12AE8A0000000, float 0xBFDAFBFDE0000000, float 0xBF669B2AA0000000, float 0x3FA5D9F240000000, float 0xBFBA2669E0000000, float 0x3FC2AD1AC0000000, float 0xBF99306360000000, float 0xBFBCAD8CA0000000, float 0xBFA4C99160000000, float 0x3FA8849980000000, float 0xBF96B63040000000], [11 x float] [float 1.000000e+00, float 0xBFD0082BC0000000, float 0xBFDBA4E540000000, float 0xBFA188CC40000000, float 0xBFA7F3FAA0000000, float 0x3FD0E6BC60000000, float 0x3FC3584540000000, float 0xBFC678E960000000, float 0xBFC817EC80000000, float 0x3FAC0BC200000000, float 0x3FA8162A00000000], [3 x float] [float 0x3FEE457140000000, float 0xBFFE457140000000, float 0x3FEE457140000000], [3 x float] [float 1.000000e+00, float 0xBFFE397AC0000000, float 0x3FECA2CF80000000] }], align 16
 
-; Function Attrs: nofree nosync nounwind sspstrong memory(none) uwtable
-define dso_local i32 @ValidGainFrequency(i64 noundef %samplefreq) local_unnamed_addr #0 {
+; Function Attrs: nofree norecurse nosync nounwind sspstrong memory(none) uwtable
+define dso_local noundef i32 @ValidGainFrequency(i64 noundef %samplefreq) local_unnamed_addr #0 {
 entry:
   br label %while.body.i.outer
 
@@ -78,7 +78,7 @@ return:                                           ; preds = %for.end.i, %for.bod
 declare void @free(ptr allocptr nocapture noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local i32 @InitGainAnalysis(i64 noundef %samplefreq) local_unnamed_addr #2 {
+define dso_local noundef i32 @InitGainAnalysis(i64 noundef %samplefreq) local_unnamed_addr #2 {
 entry:
   %0 = load ptr, ptr @replaygainfilter, align 8
   tail call void @free(ptr noundef %0) #13
@@ -136,7 +136,7 @@ CreateGainFilter.exit.thread.i:                   ; preds = %while.end27.i.i, %e
 
 CreateGainFilter.exit.i:                          ; preds = %for.body.i.i
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(128) %call.i.i, ptr noundef nonnull align 16 dereferenceable(128) %arrayidx.i.i, i64 128, i1 false)
-  %downsample17.i.i = getelementptr inbounds %struct.ReplayGainFilter, ptr %call.i.i, i64 0, i32 1
+  %downsample17.i.i = getelementptr inbounds i8, ptr %call.i.i, i64 8
   store i32 %downsample.0.i.i.ph, ptr %downsample17.i.i, align 8
   store ptr %call.i.i, ptr @replaygainfilter, align 8
   %2 = load i64, ptr %call.i.i, align 8
@@ -245,16 +245,16 @@ if.end:                                           ; preds = %for.body.i
   store ptr getelementptr inbounds ([20 x float], ptr @linprebuf, i64 0, i64 10), ptr @linpre, align 8
   store ptr getelementptr inbounds ([20 x float], ptr @rinprebuf, i64 0, i64 10), ptr @rinpre, align 8
   %11 = load ptr, ptr @lstepbuf, align 8
-  %add.ptr = getelementptr inbounds float, ptr %11, i64 10
+  %add.ptr = getelementptr inbounds i8, ptr %11, i64 40
   store ptr %add.ptr, ptr @lstep, align 8
   %12 = load ptr, ptr @rstepbuf, align 8
-  %add.ptr1 = getelementptr inbounds float, ptr %12, i64 10
+  %add.ptr1 = getelementptr inbounds i8, ptr %12, i64 40
   store ptr %add.ptr1, ptr @rstep, align 8
   %13 = load ptr, ptr @loutbuf, align 8
-  %add.ptr2 = getelementptr inbounds float, ptr %13, i64 10
+  %add.ptr2 = getelementptr inbounds i8, ptr %13, i64 40
   store ptr %add.ptr2, ptr @lout, align 8
   %14 = load ptr, ptr @routbuf, align 8
-  %add.ptr3 = getelementptr inbounds float, ptr %14, i64 10
+  %add.ptr3 = getelementptr inbounds i8, ptr %14, i64 40
   store ptr %add.ptr3, ptr @rout, align 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(48000) @B, i8 0, i64 48000, i1 false)
   br label %return
@@ -268,10 +268,10 @@ return:                                           ; preds = %ReallocateWindowBuf
 declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #3
 
 ; Function Attrs: nofree nounwind sspstrong memory(readwrite, inaccessiblemem: write) uwtable
-define dso_local i32 @AnalyzeSamples(ptr nocapture noundef readonly %left_samples, ptr nocapture noundef readonly %right_samples, i64 noundef %num_samples, i32 noundef %num_channels) local_unnamed_addr #4 {
+define dso_local noundef i32 @AnalyzeSamples(ptr nocapture noundef readonly %left_samples, ptr nocapture noundef readonly %right_samples, i64 noundef %num_samples, i32 noundef %num_channels) local_unnamed_addr #4 {
 entry:
   %0 = load ptr, ptr @replaygainfilter, align 8
-  %downsample1 = getelementptr inbounds %struct.ReplayGainFilter, ptr %0, i64 0, i32 1
+  %downsample1 = getelementptr inbounds i8, ptr %0, i64 8
   %1 = load i32, ptr %downsample1, align 8
   %conv = zext i32 %1 to i64
   %div = udiv i64 %num_samples, %conv
@@ -337,7 +337,7 @@ if.then28:                                        ; preds = %while.body
 
 if.else:                                          ; preds = %while.body
   %10 = load ptr, ptr @replaygainfilter, align 8
-  %downsample36 = getelementptr inbounds %struct.ReplayGainFilter, ptr %10, i64 0, i32 1
+  %downsample36 = getelementptr inbounds i8, ptr %10, i64 8
   %11 = load i32, ptr %downsample36, align 8
   %conv37 = zext i32 %11 to i64
   %mul38 = mul nsw i64 %cursamplepos.0, %conv37
@@ -360,8 +360,8 @@ for.body.lr.ph.i:                                 ; preds = %if.then28, %if.end4
   %.pn = load ptr, ptr @lstep, align 8
   %add.ptr44182 = getelementptr inbounds float, ptr %.pn, i64 %7
   %12 = load ptr, ptr @replaygainfilter, align 8
-  %AYule184 = getelementptr inbounds %struct.ReplayGainFilter, ptr %12, i64 0, i32 3
-  %BYule186 = getelementptr inbounds %struct.ReplayGainFilter, ptr %12, i64 0, i32 2
+  %AYule184 = getelementptr inbounds i8, ptr %12, i64 56
+  %BYule186 = getelementptr inbounds i8, ptr %12, i64 12
   %idx.ext.i = zext i32 %downsample.0175 to i64
   %idx.neg.i = sub nsw i64 0, %idx.ext.i
   br label %for.body.i
@@ -382,7 +382,7 @@ for.body4.i:                                      ; preds = %for.body4.i, %for.b
   %k.017.i = phi i64 [ 1, %for.body.i ], [ %inc.i, %for.body4.i ]
   %y.016.i = phi double [ %conv.i, %for.body.i ], [ %add.i, %for.body4.i ]
   %add.ptr.i = getelementptr inbounds float, ptr %input_tail.018.i, i64 %idx.neg.i
-  %incdec.ptr.i = getelementptr inbounds float, ptr %output_tail.019.i, i64 -1
+  %incdec.ptr.i = getelementptr inbounds i8, ptr %output_tail.019.i, i64 -4
   %15 = load float, ptr %add.ptr.i, align 4
   %arrayidx5.i = getelementptr inbounds float, ptr %BYule186, i64 %k.017.i
   %16 = load float, ptr %arrayidx5.i, align 4
@@ -404,7 +404,7 @@ for.cond1.for.end_crit_edge.i:                    ; preds = %for.body4.i
   store float %conv10.i, ptr %arrayidx11.i, align 4
   %inc13.i = add nuw i64 %i.021.i, 1
   %add.ptr15.i = getelementptr inbounds float, ptr %input_head.022.i, i64 %idx.ext.i
-  %incdec.ptr16.i = getelementptr inbounds float, ptr %output_head.023.i, i64 1
+  %incdec.ptr16.i = getelementptr inbounds i8, ptr %output_head.023.i, i64 4
   %exitcond25.not.i = icmp eq i64 %inc13.i, %cursamples.0180
   br i1 %exitcond25.not.i, label %filter.exit, label %for.body.i, !llvm.loop !11
 
@@ -429,7 +429,7 @@ for.body4.i85:                                    ; preds = %for.body4.i85, %for
   %k.017.i88 = phi i64 [ 1, %for.body.i79 ], [ %inc.i97, %for.body4.i85 ]
   %y.016.i89 = phi double [ %conv.i84, %for.body.i79 ], [ %add.i96, %for.body4.i85 ]
   %add.ptr.i90 = getelementptr inbounds float, ptr %input_tail.018.i87, i64 %idx.neg.i
-  %incdec.ptr.i91 = getelementptr inbounds float, ptr %output_tail.019.i86, i64 -1
+  %incdec.ptr.i91 = getelementptr inbounds i8, ptr %output_tail.019.i86, i64 -4
   %24 = load float, ptr %add.ptr.i90, align 4
   %arrayidx5.i92 = getelementptr inbounds float, ptr %BYule186, i64 %k.017.i88
   %25 = load float, ptr %arrayidx5.i92, align 4
@@ -451,15 +451,15 @@ for.cond1.for.end_crit_edge.i99:                  ; preds = %for.body4.i85
   store float %conv10.i100, ptr %arrayidx11.i101, align 4
   %inc13.i102 = add nuw i64 %i.021.i82, 1
   %add.ptr15.i103 = getelementptr inbounds float, ptr %input_head.022.i81, i64 %idx.ext.i
-  %incdec.ptr16.i104 = getelementptr inbounds float, ptr %output_head.023.i80, i64 1
+  %incdec.ptr16.i104 = getelementptr inbounds i8, ptr %output_head.023.i80, i64 4
   %exitcond25.not.i105 = icmp eq i64 %inc13.i102, %cursamples.0180
   br i1 %exitcond25.not.i105, label %filter.exit106, label %for.body.i79, !llvm.loop !11
 
 filter.exit106:                                   ; preds = %for.cond1.for.end_crit_edge.i99
   %30 = load ptr, ptr @lout, align 8
   %add.ptr52 = getelementptr float, ptr %30, i64 %7
-  %AButter = getelementptr inbounds %struct.ReplayGainFilter, ptr %12, i64 0, i32 5
-  %BButter = getelementptr inbounds %struct.ReplayGainFilter, ptr %12, i64 0, i32 4
+  %AButter = getelementptr inbounds i8, ptr %12, i64 112
+  %BButter = getelementptr inbounds i8, ptr %12, i64 100
   br label %for.body.i109
 
 for.body.i109:                                    ; preds = %for.cond1.for.end_crit_edge.i129, %filter.exit106
@@ -477,8 +477,8 @@ for.body4.i115:                                   ; preds = %for.body4.i115, %fo
   %input_tail.018.i117 = phi ptr [ %input_head.022.i111, %for.body.i109 ], [ %add.ptr.i120, %for.body4.i115 ]
   %k.017.i118 = phi i64 [ 1, %for.body.i109 ], [ %inc.i127, %for.body4.i115 ]
   %y.016.i119 = phi double [ %conv.i114, %for.body.i109 ], [ %add.i126, %for.body4.i115 ]
-  %add.ptr.i120 = getelementptr inbounds float, ptr %input_tail.018.i117, i64 -1
-  %incdec.ptr.i121 = getelementptr inbounds float, ptr %output_tail.019.i116, i64 -1
+  %add.ptr.i120 = getelementptr inbounds i8, ptr %input_tail.018.i117, i64 -4
+  %incdec.ptr.i121 = getelementptr inbounds i8, ptr %output_tail.019.i116, i64 -4
   %33 = load float, ptr %add.ptr.i120, align 4
   %arrayidx5.i122 = getelementptr inbounds float, ptr %BButter, i64 %k.017.i118
   %34 = load float, ptr %arrayidx5.i122, align 4
@@ -499,8 +499,8 @@ for.cond1.for.end_crit_edge.i129:                 ; preds = %for.body4.i115
   %arrayidx11.i131 = getelementptr inbounds float, ptr %add.ptr52, i64 %i.021.i112
   store float %conv10.i130, ptr %arrayidx11.i131, align 4
   %inc13.i132 = add nuw i64 %i.021.i112, 1
-  %add.ptr15.i133 = getelementptr inbounds float, ptr %input_head.022.i111, i64 1
-  %incdec.ptr16.i134 = getelementptr inbounds float, ptr %output_head.023.i110, i64 1
+  %add.ptr15.i133 = getelementptr inbounds i8, ptr %input_head.022.i111, i64 4
+  %incdec.ptr16.i134 = getelementptr inbounds i8, ptr %output_head.023.i110, i64 4
   %exitcond25.not.i135 = icmp eq i64 %inc13.i132, %cursamples.0180
   br i1 %exitcond25.not.i135, label %filter.exit136, label %for.body.i109, !llvm.loop !11
 
@@ -524,8 +524,8 @@ for.body4.i145:                                   ; preds = %for.body4.i145, %fo
   %input_tail.018.i147 = phi ptr [ %input_head.022.i141, %for.body.i139 ], [ %add.ptr.i150, %for.body4.i145 ]
   %k.017.i148 = phi i64 [ 1, %for.body.i139 ], [ %inc.i157, %for.body4.i145 ]
   %y.016.i149 = phi double [ %conv.i144, %for.body.i139 ], [ %add.i156, %for.body4.i145 ]
-  %add.ptr.i150 = getelementptr inbounds float, ptr %input_tail.018.i147, i64 -1
-  %incdec.ptr.i151 = getelementptr inbounds float, ptr %output_tail.019.i146, i64 -1
+  %add.ptr.i150 = getelementptr inbounds i8, ptr %input_tail.018.i147, i64 -4
+  %incdec.ptr.i151 = getelementptr inbounds i8, ptr %output_tail.019.i146, i64 -4
   %42 = load float, ptr %add.ptr.i150, align 4
   %arrayidx5.i152 = getelementptr inbounds float, ptr %BButter, i64 %k.017.i148
   %43 = load float, ptr %arrayidx5.i152, align 4
@@ -546,8 +546,8 @@ for.cond1.for.end_crit_edge.i159:                 ; preds = %for.body4.i145
   %arrayidx11.i161 = getelementptr inbounds float, ptr %add.ptr56, i64 %i.021.i142
   store float %conv10.i160, ptr %arrayidx11.i161, align 4
   %inc13.i162 = add nuw i64 %i.021.i142, 1
-  %add.ptr15.i163 = getelementptr inbounds float, ptr %input_head.022.i141, i64 1
-  %incdec.ptr16.i164 = getelementptr inbounds float, ptr %output_head.023.i140, i64 1
+  %add.ptr15.i163 = getelementptr inbounds i8, ptr %input_head.022.i141, i64 4
+  %incdec.ptr16.i164 = getelementptr inbounds i8, ptr %output_head.023.i140, i64 4
   %exitcond25.not.i165 = icmp eq i64 %inc13.i162, %cursamples.0180
   br i1 %exitcond25.not.i165, label %filter.exit166, label %for.body.i139, !llvm.loop !11
 
@@ -658,7 +658,7 @@ if.then123:                                       ; preds = %while.end
 
 if.else135:                                       ; preds = %while.end
   %73 = load ptr, ptr @replaygainfilter, align 8
-  %downsample136 = getelementptr inbounds %struct.ReplayGainFilter, ptr %73, i64 0, i32 1
+  %downsample136 = getelementptr inbounds i8, ptr %73, i64 8
   %74 = load i32, ptr %downsample136, align 8
   %sub137 = add i64 %div, -10
   %conv138 = zext i32 %74 to i64
@@ -875,7 +875,7 @@ declare i64 @llvm.smax.i64(i64, i64) #12
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i64 @llvm.umin.i64(i64, i64) #12
 
-attributes #0 = { nofree nosync nounwind sspstrong memory(none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #0 = { nofree norecurse nosync nounwind sspstrong memory(none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { mustprogress nounwind willreturn allockind("free") memory(argmem: readwrite, inaccessiblemem: readwrite) "alloc-family"="malloc" "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #2 = { nounwind sspstrong uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #3 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: write) }

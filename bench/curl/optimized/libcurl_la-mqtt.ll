@@ -4,48 +4,6 @@ target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:
 target triple = "x86_64-unknown-linux-gnu"
 
 %struct.Curl_handler = type { ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, i32, i32, i32, i32 }
-%struct.MQTT = type { ptr, i64, i64, i8, i64, %struct.dynbuf }
-%struct.dynbuf = type { ptr, i64, i64, i64 }
-%struct.Curl_easy = type { i32, i64, ptr, ptr, ptr, %struct.Curl_llist_element, %struct.Curl_llist_element, i32, i32, %struct.Curl_message, %struct.easy_pollset, %struct.Names, ptr, ptr, ptr, ptr, %struct.SingleRequest, %struct.UserDefined, ptr, ptr, ptr, %struct.Progress, %struct.UrlState, ptr, %struct.PureInfo, %struct.curl_tlssessioninfo }
-%struct.Curl_llist_element = type { ptr, ptr, ptr }
-%struct.Curl_message = type { %struct.Curl_llist_element, %struct.CURLMsg }
-%struct.CURLMsg = type { i32, ptr, %union.anon }
-%union.anon = type { ptr }
-%struct.easy_pollset = type { [5 x i32], i32, [5 x i8] }
-%struct.Names = type { ptr, i32 }
-%struct.SingleRequest = type <{ i64, i64, i64, i64, i64, %struct.curltime, i32, i32, i32, i32, i64, i32, i32, %struct.curltime, i32, i32, ptr, i64, i64, ptr, ptr, i64, ptr, %union.anon.0, ptr, [2 x i8], i8, i16, [3 x i8] }>
-%struct.curltime = type { i64, i32 }
-%union.anon.0 = type { ptr }
-%struct.UserDefined = type <{ ptr, ptr, ptr, ptr, ptr, ptr, i16, [6 x i8], i64, i64, i64, ptr, ptr, i64, i16, i16, [4 x i8], ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, i32, i32, i32, i32, i64, i64, i64, i64, i64, i64, i64, i64, i64, ptr, ptr, %struct.curl_mimepart, ptr, ptr, ptr, i64, i8, i8, i8, [5 x i8], %struct.ssl_config_data, %struct.ssl_config_data, ptr, i16, i8, i8, [4 x i8], %struct.ssl_general_config, i32, i32, i32, [4 x i8], ptr, ptr, i8, [7 x i8], i64, i8, i8, i8, i8, i32, ptr, ptr, ptr, i8, i8, [2 x i8], i32, [80 x ptr], [8 x ptr], i32, i32, i32, [4 x i8], ptr, i32, [4 x i8], ptr, ptr, ptr, ptr, ptr, i8, [3 x i8], i32, i32, [4 x i8], i64, ptr, ptr, i64, ptr, ptr, ptr, ptr, ptr, i8, [7 x i8], ptr, i8, [3 x i8], i32, i8, i8, i56, [6 x i8] }>
-%struct.curl_mimepart = type { ptr, ptr, i32, i32, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, i64, %struct.mime_state, ptr, %struct.mime_encoder_state, i64 }
-%struct.mime_state = type { i32, ptr, i64 }
-%struct.mime_encoder_state = type { i64, i64, i64, [256 x i8] }
-%struct.ssl_config_data = type { %struct.ssl_primary_config, i64, ptr, ptr, ptr, ptr, ptr, ptr, ptr, i8 }
-%struct.ssl_primary_config = type { ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, i8, i32, i8, i8 }
-%struct.ssl_general_config = type { i64, i32 }
-%struct.Progress = type { i64, i64, i64, i64, i64, i64, i32, i32, i64, i64, i64, i64, i64, i64, i64, i64, i64, i64, %struct.curltime, %struct.curltime, %struct.curltime, %struct.curltime, %struct.curltime, i64, %struct.curltime, i64, [6 x i64], [6 x %struct.curltime], i32, i8 }
-%struct.UrlState = type { ptr, %struct.curltime, i64, i64, %struct.dynbuf, ptr, ptr, ptr, i64, ptr, i32, i32, i32, ptr, i64, [3 x %struct.tempbuf], i32, i32, ptr, i64, i32, ptr, %struct.digestdata, %struct.digestdata, %struct.auth, %struct.auth, %struct.Curl_async, ptr, %struct.curltime, %struct.Curl_tree, %struct.Curl_llist, [15 x %struct.time_node], ptr, i8, i64, ptr, i64, i64, i64, i64, [32 x i8], i64, ptr, ptr, ptr, %struct.urlpieces, ptr, ptr, ptr, ptr, ptr, i64, %struct.dynbuf, %struct.Curl_llist, [2 x %struct.curl_header], ptr, i32, ptr, %struct.dynamically_allocated_data, i8, i8, i8, i8, i24 }
-%struct.tempbuf = type { %struct.dynbuf, i32, i8 }
-%struct.digestdata = type { ptr, ptr, ptr, ptr, ptr, ptr, i32, i8, i8 }
-%struct.auth = type { i64, i64, i64, i8 }
-%struct.Curl_async = type { ptr, ptr, ptr, ptr, i32, i32, i8 }
-%struct.Curl_tree = type { ptr, ptr, ptr, ptr, %struct.curltime, ptr }
-%struct.time_node = type { %struct.Curl_llist_element, %struct.curltime, i32 }
-%struct.urlpieces = type { ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr }
-%struct.Curl_llist = type { ptr, ptr, ptr, i64 }
-%struct.curl_header = type { ptr, ptr, i64, i64, i32, ptr }
-%struct.dynamically_allocated_data = type { ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr }
-%struct.PureInfo = type { i32, i32, i32, i64, i64, i64, i64, i64, ptr, ptr, i64, i32, [46 x i8], i32, i32, [46 x i8], i32, ptr, i32, %struct.curl_certinfo, i32, i8 }
-%struct.curl_certinfo = type { i32, ptr }
-%struct.curl_tlssessioninfo = type { i32, ptr }
-%struct.connectdata = type { %struct.Curl_llist_element, ptr, ptr, i64, ptr, ptr, %struct.hostname, ptr, ptr, %struct.hostname, %struct.proxy_info, %struct.proxy_info, [46 x i8], ptr, ptr, ptr, ptr, ptr, %struct.curltime, %struct.curltime, %struct.curltime, [2 x i32], [2 x ptr], [2 x ptr], [2 x ptr], %struct.ssl_primary_config, %struct.ssl_primary_config, %struct.ConnectBits, ptr, ptr, %struct.curltime, i32, i32, %struct.Curl_llist, ptr, ptr, i32, i32, %struct.ntlmdata, %struct.ntlmdata, %union.anon.1, ptr, ptr, ptr, i16, i32, i32, i32, i32, i32, i16, i16, i8, i8, i8, i8, i8, i8, i8 }
-%struct.hostname = type { ptr, ptr, ptr, ptr }
-%struct.proxy_info = type { %struct.hostname, i32, i8, ptr, ptr }
-%struct.ConnectBits = type { i32 }
-%struct.ntlmdata = type { i32, [8 x i8], i32, ptr }
-%union.anon.1 = type { %struct.ftp_conn }
-%struct.ftp_conn = type { %struct.pingpong, ptr, ptr, ptr, ptr, ptr, ptr, ptr, i8, i64, ptr, i64, i32, i32, i32, i32, i32, i16, i8, i8, i8, i8, i8 }
-%struct.pingpong = type { ptr, i64, i64, ptr, i8, ptr, i64, i64, %struct.curltime, i64, %struct.dynbuf, ptr, ptr }
 
 @.str = private unnamed_addr constant [5 x i8] c"MQTT\00", align 1
 @Curl_handler_mqtt = hidden local_unnamed_addr constant %struct.Curl_handler { ptr @.str, ptr @mqtt_setup_conn, ptr @mqtt_do, ptr @mqtt_done, ptr null, ptr null, ptr null, ptr @mqtt_doing, ptr null, ptr @mqtt_getsock, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, i32 1883, i32 268435456, i32 268435456, i32 0 }, align 8
@@ -81,9 +39,9 @@ entry:
   br i1 %tobool.not, label %return, label %if.end
 
 if.end:                                           ; preds = %entry
-  %recvbuf = getelementptr inbounds %struct.MQTT, ptr %call, i64 0, i32 5
+  %recvbuf = getelementptr inbounds i8, ptr %call, i64 40
   tail call void @Curl_dyn_init(ptr noundef nonnull %recvbuf, i64 noundef 65536) #8
-  %p = getelementptr inbounds %struct.Curl_easy, ptr %data, i64 0, i32 16, i32 23
+  %p = getelementptr inbounds i8, ptr %data, i64 392
   store ptr %call, ptr %p, align 8
   br label %return
 
@@ -103,12 +61,12 @@ entry:
   call void @llvm.lifetime.start.p0(i64 13, ptr nonnull %client_id.i)
   store i32 0, ptr %remain.i, align 4
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(13) %client_id.i, ptr noundef nonnull align 1 dereferenceable(13) @__const.mqtt_connect.client_id, i64 13, i1 false)
-  %user.i = getelementptr inbounds %struct.Curl_easy, ptr %data, i64 0, i32 22, i32 58, i32 10
+  %user.i = getelementptr inbounds i8, ptr %data, i64 5008
   %0 = load ptr, ptr %user.i, align 8
   %tobool.not.i = icmp eq ptr %0, null
   %spec.select.i = select i1 %tobool.not.i, ptr @.str.2, ptr %0
   %call.i = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %spec.select.i) #9
-  %passwd6.i = getelementptr inbounds %struct.Curl_easy, ptr %data, i64 0, i32 22, i32 58, i32 11
+  %passwd6.i = getelementptr inbounds i8, ptr %data, i64 5016
   %1 = load ptr, ptr %passwd6.i, align 8
   %tobool7.not.i = icmp eq ptr %1, null
   %cond14.i = select i1 %tobool7.not.i, ptr @.str.2, ptr %1
@@ -172,7 +130,7 @@ if.end35.i:                                       ; preds = %if.end31.i
   store i8 0, ptr %arrayidx26.i.i, align 1
   %arrayidx29.i.i = getelementptr i8, ptr %6, i64 10
   store i8 60, ptr %arrayidx29.i.i, align 1
-  %arrayidx.i = getelementptr inbounds [13 x i8], ptr %client_id.i, i64 0, i64 4
+  %arrayidx.i = getelementptr inbounds i8, ptr %client_id.i, i64 4
   %call38.i = call i32 @Curl_rand_alnum(ptr noundef %data, ptr noundef nonnull %arrayidx.i, i64 noundef 9) #8
   %call41.i = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %client_id.i) #9
   %cmp.not.i.i = icmp eq i64 %call41.i, 12
@@ -193,7 +151,7 @@ do.body.i:                                        ; preds = %if.end35.i
   br i1 %tobool50.not.i, label %do.end.i, label %land.lhs.true.i
 
 land.lhs.true.i:                                  ; preds = %do.body.i
-  %verbose.i = getelementptr inbounds %struct.Curl_easy, ptr %data, i64 0, i32 17, i32 129
+  %verbose.i = getelementptr inbounds i8, ptr %data, i64 2706
   %bf.load.i = load i64, ptr %verbose.i, align 2
   %7 = and i64 %bf.load.i, 536870912
   %tobool51.not.i = icmp eq i64 %7, 0
@@ -266,7 +224,7 @@ if.end73.i:                                       ; preds = %add_passwd.exit.thr
 
 if.then75.i:                                      ; preds = %if.end73.i
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %n.i)
-  %p.i = getelementptr inbounds %struct.Curl_easy, ptr %data, i64 0, i32 16, i32 23
+  %p.i = getelementptr inbounds i8, ptr %data, i64 392
   %12 = load ptr, ptr %p.i, align 8
   %call.i5 = call i32 @Curl_nwrite(ptr noundef %data, i32 noundef 0, ptr noundef nonnull %call32.i, i64 noundef %add28.i, ptr noundef nonnull %n.i) #8
   %tobool.not.i6 = icmp eq i32 %call.i5, 0
@@ -288,7 +246,7 @@ if.then1.i:                                       ; preds = %if.end.i
 
 if.end5.i:                                        ; preds = %if.then1.i
   store ptr %call2.i, ptr %12, align 8
-  %nsend7.i = getelementptr inbounds %struct.MQTT, ptr %12, i64 0, i32 1
+  %nsend7.i = getelementptr inbounds i8, ptr %12, i64 8
   store i64 %sub.i, ptr %nsend7.i, align 8
   br label %mqtt_send.exit
 
@@ -332,7 +290,7 @@ if.then:                                          ; preds = %mqtt_connect.exit.t
 if.end:                                           ; preds = %mqtt_connect.exit
   %20 = getelementptr i8, ptr %data, i64 32
   %data.val = load ptr, ptr %20, align 8
-  %proto.i = getelementptr inbounds %struct.connectdata, ptr %data.val, i64 0, i32 40
+  %proto.i = getelementptr inbounds i8, ptr %data.val, i64 856
   store i32 0, ptr %proto.i, align 4
   %nextstate3.i = getelementptr inbounds i8, ptr %data.val, i64 860
   store i32 2, ptr %nextstate3.i, align 4
@@ -346,13 +304,13 @@ return:                                           ; preds = %if.end, %if.then
 ; Function Attrs: nounwind uwtable
 define internal noundef i32 @mqtt_done(ptr nocapture noundef readonly %data, i32 %status, i1 zeroext %premature) #0 {
 entry:
-  %p = getelementptr inbounds %struct.Curl_easy, ptr %data, i64 0, i32 16, i32 23
+  %p = getelementptr inbounds i8, ptr %data, i64 392
   %0 = load ptr, ptr %p, align 8
   %1 = load ptr, ptr @Curl_cfree, align 8
   %2 = load ptr, ptr %0, align 8
   tail call void %1(ptr noundef %2) #8
   store ptr null, ptr %0, align 8
-  %recvbuf = getelementptr inbounds %struct.MQTT, ptr %0, i64 0, i32 5
+  %recvbuf = getelementptr inbounds i8, ptr %0, i64 40
   tail call void @Curl_dyn_free(ptr noundef nonnull %recvbuf) #8
   ret i32 0
 }
@@ -368,17 +326,17 @@ entry:
   %n.i = alloca i64, align 8
   %nread = alloca i64, align 8
   %byte = alloca i8, align 1
-  %conn1 = getelementptr inbounds %struct.Curl_easy, ptr %data, i64 0, i32 4
+  %conn1 = getelementptr inbounds i8, ptr %data, i64 32
   %0 = load ptr, ptr %conn1, align 8
-  %proto = getelementptr inbounds %struct.connectdata, ptr %0, i64 0, i32 40
-  %p = getelementptr inbounds %struct.Curl_easy, ptr %data, i64 0, i32 16, i32 23
+  %proto = getelementptr inbounds i8, ptr %0, i64 856
+  %p = getelementptr inbounds i8, ptr %data, i64 392
   %1 = load ptr, ptr %p, align 8
-  %sock = getelementptr inbounds %struct.connectdata, ptr %0, i64 0, i32 21
+  %sock = getelementptr inbounds i8, ptr %0, i64 392
   %2 = load i32, ptr %sock, align 8
-  %buffer = getelementptr inbounds %struct.Curl_easy, ptr %data, i64 0, i32 22, i32 6
+  %buffer = getelementptr inbounds i8, ptr %data, i64 3224
   %3 = load ptr, ptr %buffer, align 8
   store i8 0, ptr %done, align 1
-  %nsend = getelementptr inbounds %struct.MQTT, ptr %1, i64 0, i32 1
+  %nsend = getelementptr inbounds i8, ptr %1, i64 8
   %4 = load i64, ptr %nsend, align 8
   %tobool.not = icmp eq i64 %4, 0
   br i1 %tobool.not, label %land.lhs.true, label %if.then
@@ -407,7 +365,7 @@ if.then1.i:                                       ; preds = %if.end.i
 
 if.end5.i:                                        ; preds = %if.then1.i
   store ptr %call2.i, ptr %6, align 8
-  %nsend7.i = getelementptr inbounds %struct.MQTT, ptr %6, i64 0, i32 1
+  %nsend7.i = getelementptr inbounds i8, ptr %6, i64 8
   store i64 %sub.i, ptr %nsend7.i, align 8
   br label %mqtt_send.exit.thread
 
@@ -429,7 +387,7 @@ mqtt_send.exit:                                   ; preds = %if.then, %if.then1.
   br label %return
 
 land.lhs.true:                                    ; preds = %entry, %mqtt_send.exit.thread
-  %verbose = getelementptr inbounds %struct.Curl_easy, ptr %data, i64 0, i32 17, i32 129
+  %verbose = getelementptr inbounds i8, ptr %data, i64 2706
   %bf.load = load i64, ptr %verbose, align 2
   %11 = and i64 %bf.load, 536870912
   %tobool8.not = icmp eq i64 %11, 0
@@ -452,7 +410,7 @@ do.end:                                           ; preds = %land.lhs.true, %if.
   ]
 
 sw.bb:                                            ; preds = %do.end
-  %firstbyte = getelementptr inbounds %struct.MQTT, ptr %1, i64 0, i32 3
+  %firstbyte = getelementptr inbounds i8, ptr %1, i64 24
   %call13 = call i32 @Curl_read(ptr noundef nonnull %data, i32 noundef %2, ptr noundef nonnull %firstbyte, i64 noundef 1, ptr noundef nonnull %nread) #8
   %tobool14.not = icmp eq i32 %call13, 0
   br i1 %tobool14.not, label %if.else, label %sw.epilog
@@ -469,15 +427,15 @@ if.then17:                                        ; preds = %if.else
 
 if.end19:                                         ; preds = %if.else
   call void @Curl_debug(ptr noundef nonnull %data, i32 noundef 1, ptr noundef nonnull %firstbyte, i64 noundef 1) #8
-  %npacket = getelementptr inbounds %struct.MQTT, ptr %1, i64 0, i32 2
+  %npacket = getelementptr inbounds i8, ptr %1, i64 16
   store i64 0, ptr %npacket, align 8
   %data.val = load ptr, ptr %conn1, align 8
-  %proto.i = getelementptr inbounds %struct.connectdata, ptr %data.val, i64 0, i32 40
+  %proto.i = getelementptr inbounds i8, ptr %data.val, i64 856
   store i32 1, ptr %proto.i, align 4
   br label %sw.bb21
 
 sw.bb21:                                          ; preds = %if.end19, %do.end
-  %npacket27 = getelementptr inbounds %struct.MQTT, ptr %1, i64 0, i32 2
+  %npacket27 = getelementptr inbounds i8, ptr %1, i64 16
   br label %do.body22
 
 do.body22:                                        ; preds = %land.rhs, %sw.bb21
@@ -526,7 +484,7 @@ if.end42:                                         ; preds = %do.end32
   br i1 %cmp1.not.i, label %mqtt_decode_len.exit.thread, label %for.body.i
 
 mqtt_decode_len.exit.thread:                      ; preds = %if.end42
-  %remaining_length89 = getelementptr inbounds %struct.MQTT, ptr %1, i64 0, i32 4
+  %remaining_length89 = getelementptr inbounds i8, ptr %1, i64 32
   store i64 0, ptr %remaining_length89, align 8
   store i64 0, ptr %npacket27, align 8
   br label %if.end50
@@ -549,7 +507,7 @@ for.body.i:                                       ; preds = %if.end42, %for.body
   br i1 %24, label %for.body.i, label %mqtt_decode_len.exit, !llvm.loop !7
 
 mqtt_decode_len.exit:                             ; preds = %for.body.i
-  %remaining_length = getelementptr inbounds %struct.MQTT, ptr %1, i64 0, i32 4
+  %remaining_length = getelementptr inbounds i8, ptr %1, i64 32
   store i64 %add.i, ptr %remaining_length, align 8
   store i64 0, ptr %npacket27, align 8
   %tobool48.not = icmp eq i64 %add.i, 0
@@ -559,7 +517,7 @@ if.then49:                                        ; preds = %mqtt_decode_len.exi
   %nextstate = getelementptr inbounds i8, ptr %0, i64 860
   %25 = load i32, ptr %nextstate, align 4
   %data.val58 = load ptr, ptr %conn1, align 8
-  %proto.i64 = getelementptr inbounds %struct.connectdata, ptr %data.val58, i64 0, i32 40
+  %proto.i64 = getelementptr inbounds i8, ptr %data.val58, i64 856
   store i32 %25, ptr %proto.i64, align 4
   %cmp.i65 = icmp eq i32 %25, 0
   br i1 %cmp.i65, label %if.then.i, label %return
@@ -571,11 +529,11 @@ if.then.i:                                        ; preds = %if.then49
 
 if.end50:                                         ; preds = %mqtt_decode_len.exit.thread, %mqtt_decode_len.exit
   %data.val59 = load ptr, ptr %conn1, align 8
-  %proto.i67 = getelementptr inbounds %struct.connectdata, ptr %data.val59, i64 0, i32 40
+  %proto.i67 = getelementptr inbounds i8, ptr %data.val59, i64 856
   store i32 0, ptr %proto.i67, align 4
   %nextstate3.i69 = getelementptr inbounds i8, ptr %data.val59, i64 860
   store i32 0, ptr %nextstate3.i69, align 4
-  %firstbyte51 = getelementptr inbounds %struct.MQTT, ptr %1, i64 0, i32 3
+  %firstbyte51 = getelementptr inbounds i8, ptr %1, i64 24
   %26 = load i8, ptr %firstbyte51, align 8
   %cmp53 = icmp eq i8 %26, -32
   br i1 %cmp53, label %land.lhs.true58, label %return
@@ -598,14 +556,14 @@ sw.bb71:                                          ; preds = %do.end
   %28 = load ptr, ptr %p, align 8
   call void @llvm.lifetime.start.p0(i64 1024, ptr nonnull %readbuf.i.i)
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %nread.i.i)
-  %recvbuf.i.i = getelementptr inbounds %struct.MQTT, ptr %28, i64 0, i32 5
+  %recvbuf.i.i = getelementptr inbounds i8, ptr %28, i64 40
   %call.i.i = call i64 @Curl_dyn_len(ptr noundef nonnull %recvbuf.i.i) #8
   %cmp.i.i = icmp ult i64 %call.i.i, 2
   br i1 %cmp.i.i, label %do.end.i.i, label %do.end.i
 
 do.end.i.i:                                       ; preds = %sw.bb71
   %29 = load ptr, ptr %conn1, align 8
-  %sock.i.i = getelementptr inbounds %struct.connectdata, ptr %29, i64 0, i32 21
+  %sock.i.i = getelementptr inbounds i8, ptr %29, i64 392
   %30 = load i32, ptr %sock.i.i, align 8
   %sub.i.i = sub nuw nsw i64 2, %call.i.i
   %call1.i.i = call i32 @Curl_read(ptr noundef nonnull %data, i32 noundef %30, ptr noundef nonnull %readbuf.i.i, i64 noundef %sub.i.i, ptr noundef nonnull %nread.i.i) #8
@@ -651,7 +609,7 @@ if.then7.i:                                       ; preds = %do.end.i
 
 if.end13.i:                                       ; preds = %do.end.i
   %data.val.i = load ptr, ptr %p, align 8
-  %recvbuf.i11.i = getelementptr inbounds %struct.MQTT, ptr %data.val.i, i64 0, i32 5
+  %recvbuf.i11.i = getelementptr inbounds i8, ptr %data.val.i, i64 40
   %call.i12.i = call i64 @Curl_dyn_len(ptr noundef nonnull %recvbuf.i11.i) #8
   %cmp.not.i.i = icmp ugt i64 %call.i12.i, 2
   br i1 %cmp.not.i.i, label %if.else.i.i, label %if.then.i.i
@@ -666,7 +624,7 @@ if.else.i.i:                                      ; preds = %if.end13.i
   br label %if.end75
 
 if.end75:                                         ; preds = %if.then.i.i, %if.else.i.i
-  %httpreq = getelementptr inbounds %struct.Curl_easy, ptr %data, i64 0, i32 22, i32 61
+  %httpreq = getelementptr inbounds i8, ptr %data, i64 5042
   %34 = load i8, ptr %httpreq, align 2
   %cmp78 = icmp eq i8 %34, 1
   br i1 %cmp78, label %if.then80, label %if.else87
@@ -694,7 +652,7 @@ if.else87:                                        ; preds = %if.end75
 
 if.then90:                                        ; preds = %if.else87
   %data.val60 = load ptr, ptr %conn1, align 8
-  %proto.i73 = getelementptr inbounds %struct.connectdata, ptr %data.val60, i64 0, i32 40
+  %proto.i73 = getelementptr inbounds i8, ptr %data.val60, i64 856
   store i32 0, ptr %proto.i73, align 4
   %nextstate3.i75 = getelementptr inbounds i8, ptr %data.val60, i64 860
   store i32 3, ptr %nextstate3.i75, align 4
@@ -703,11 +661,11 @@ if.then90:                                        ; preds = %if.else87
 sw.bb93:                                          ; preds = %do.end, %do.end, %do.end
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %nread.i)
   %35 = load ptr, ptr %conn1, align 8
-  %sock.i = getelementptr inbounds %struct.connectdata, ptr %35, i64 0, i32 21
+  %sock.i = getelementptr inbounds i8, ptr %35, i64 392
   %36 = load i32, ptr %sock.i, align 8
   %37 = load ptr, ptr %buffer, align 8
-  %proto.i77 = getelementptr inbounds %struct.connectdata, ptr %35, i64 0, i32 40
-  %req.i = getelementptr inbounds %struct.Curl_easy, ptr %data, i64 0, i32 16
+  %proto.i77 = getelementptr inbounds i8, ptr %35, i64 856
+  %req.i = getelementptr inbounds i8, ptr %data, i64 224
   %38 = load ptr, ptr %p, align 8
   %39 = load i32, ptr %proto.i77, align 4
   switch i32 %39, label %mqtt_read_publish.exit [
@@ -718,7 +676,7 @@ sw.bb93:                                          ; preds = %do.end, %do.end, %d
   ]
 
 entry.sw.bb47_crit_edge.i:                        ; preds = %sw.bb93
-  %npacket48.phi.trans.insert.i = getelementptr inbounds %struct.MQTT, ptr %38, i64 0, i32 2
+  %npacket48.phi.trans.insert.i = getelementptr inbounds i8, ptr %38, i64 16
   %.pre.i = load i64, ptr %npacket48.phi.trans.insert.i, align 8
   br label %sw.bb47.i
 
@@ -727,14 +685,14 @@ sw.bb.i:                                          ; preds = %if.then11.i, %sw.bb
   %41 = phi ptr [ %.pre60.i, %if.then11.i ], [ %38, %sw.bb93 ]
   call void @llvm.lifetime.start.p0(i64 1024, ptr nonnull %readbuf.i.i.i)
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %nread.i.i.i)
-  %recvbuf.i.i.i = getelementptr inbounds %struct.MQTT, ptr %41, i64 0, i32 5
+  %recvbuf.i.i.i = getelementptr inbounds i8, ptr %41, i64 40
   %call.i.i.i = call i64 @Curl_dyn_len(ptr noundef nonnull %recvbuf.i.i.i) #8
   %cmp.i.i.i = icmp ult i64 %call.i.i.i, 3
   br i1 %cmp.i.i.i, label %do.end.i.i.i, label %do.end.i.i83
 
 do.end.i.i.i:                                     ; preds = %sw.bb.i
   %42 = load ptr, ptr %conn1, align 8
-  %sock.i.i.i = getelementptr inbounds %struct.connectdata, ptr %42, i64 0, i32 21
+  %sock.i.i.i = getelementptr inbounds i8, ptr %42, i64 392
   %43 = load i32, ptr %sock.i.i.i, align 8
   %sub.i.i.i = xor i64 %call.i.i.i, 3
   %call1.i.i.i = call i32 @Curl_read(ptr noundef nonnull %data, i32 noundef %43, ptr noundef nonnull %readbuf.i.i.i, i64 noundef %sub.i.i.i, ptr noundef nonnull %nread.i.i.i) #8
@@ -764,7 +722,7 @@ do.end.i.i83:                                     ; preds = %if.end13.i.i.i, %sw
   %call2.i.i = call ptr @Curl_dyn_ptr(ptr noundef nonnull %recvbuf.i.i.i) #8
   call void @Curl_debug(ptr noundef nonnull %data, i32 noundef 1, ptr noundef %call2.i.i, i64 noundef 3) #8
   %45 = load i8, ptr %call2.i.i, align 1
-  %packetid.i.i = getelementptr inbounds %struct.connectdata, ptr %40, i64 0, i32 40, i32 0, i32 0, i32 1
+  %packetid.i.i = getelementptr inbounds i8, ptr %40, i64 864
   %46 = load i32, ptr %packetid.i.i, align 4
   %shr.i.i = lshr i32 %46, 8
   %47 = trunc i32 %shr.i.i to i8
@@ -790,7 +748,7 @@ if.then15.i.i:                                    ; preds = %lor.lhs.false10.i.i
 
 if.end17.i.i:                                     ; preds = %lor.lhs.false10.i.i
   %data.val.i.i = load ptr, ptr %p, align 8
-  %recvbuf.i11.i.i = getelementptr inbounds %struct.MQTT, ptr %data.val.i.i, i64 0, i32 5
+  %recvbuf.i11.i.i = getelementptr inbounds i8, ptr %data.val.i.i, i64 40
   %call.i12.i.i = call i64 @Curl_dyn_len(ptr noundef nonnull %recvbuf.i11.i.i) #8
   %cmp.not.i.i.i = icmp ugt i64 %call.i12.i.i, 3
   br i1 %cmp.not.i.i.i, label %if.else.i.i.i, label %if.then.i.i.i
@@ -806,14 +764,14 @@ if.else.i.i.i:                                    ; preds = %if.end17.i.i
 
 if.end.i85:                                       ; preds = %if.else.i.i.i, %if.then.i.i.i
   %data.val53.i = load ptr, ptr %conn1, align 8
-  %proto.i.i = getelementptr inbounds %struct.connectdata, ptr %data.val53.i, i64 0, i32 40
+  %proto.i.i = getelementptr inbounds i8, ptr %data.val53.i, i64 856
   store i32 0, ptr %proto.i.i, align 4
   %nextstate3.i.i = getelementptr inbounds i8, ptr %data.val53.i, i64 860
   store i32 5, ptr %nextstate3.i.i, align 4
   br label %mqtt_read_publish.exit
 
 sw.bb3.i:                                         ; preds = %sw.bb93, %sw.bb93
-  %firstbyte.i = getelementptr inbounds %struct.MQTT, ptr %38, i64 0, i32 3
+  %firstbyte.i = getelementptr inbounds i8, ptr %38, i64 24
   %51 = load i8, ptr %firstbyte.i, align 8
   %52 = and i8 %51, -16
   switch i8 %52, label %mqtt_read_publish.exit [
@@ -844,7 +802,7 @@ do.end.i82:                                       ; preds = %if.then19.i, %land.
 
 land.lhs.true25.i:                                ; preds = %sw.bb3.i
   store i32 6, ptr %proto.i77, align 4
-  %remaining_length.i = getelementptr inbounds %struct.MQTT, ptr %38, i64 0, i32 4
+  %remaining_length.i = getelementptr inbounds i8, ptr %38, i64 32
   %54 = load i64, ptr %remaining_length.i, align 8
   %bf.load28.i = load i64, ptr %verbose, align 2
   %55 = and i64 %bf.load28.i, 536870912
@@ -856,7 +814,7 @@ if.then33.i:                                      ; preds = %land.lhs.true25.i
   br label %do.end35.i
 
 do.end35.i:                                       ; preds = %if.then33.i, %land.lhs.true25.i
-  %max_filesize.i = getelementptr inbounds %struct.Curl_easy, ptr %data, i64 0, i32 17, i32 80
+  %max_filesize.i = getelementptr inbounds i8, ptr %data, i64 1768
   %56 = load i64, ptr %max_filesize.i, align 8
   %tobool37.not.i = icmp ne i64 %56, 0
   %cmp41.i = icmp sgt i64 %54, %56
@@ -869,17 +827,17 @@ if.then43.i:                                      ; preds = %do.end35.i
 
 if.end44.i:                                       ; preds = %do.end35.i
   call void @Curl_pgrsSetDownloadSize(ptr noundef nonnull %data, i64 noundef %54) #8
-  %bytecount.i = getelementptr inbounds %struct.Curl_easy, ptr %data, i64 0, i32 16, i32 2
+  %bytecount.i = getelementptr inbounds i8, ptr %data, i64 240
   store i64 0, ptr %bytecount.i, align 8
   store i64 %54, ptr %req.i, align 8
-  %npacket.i = getelementptr inbounds %struct.MQTT, ptr %38, i64 0, i32 2
+  %npacket.i = getelementptr inbounds i8, ptr %38, i64 16
   store i64 %54, ptr %npacket.i, align 8
   br label %sw.bb47.i
 
 sw.bb47.i:                                        ; preds = %if.end44.i, %entry.sw.bb47_crit_edge.i
   %57 = phi i64 [ %.pre.i, %entry.sw.bb47_crit_edge.i ], [ %54, %if.end44.i ]
-  %npacket48.i = getelementptr inbounds %struct.MQTT, ptr %38, i64 0, i32 2
-  %buffer_size.i = getelementptr inbounds %struct.Curl_easy, ptr %data, i64 0, i32 17, i32 73
+  %npacket48.i = getelementptr inbounds i8, ptr %38, i64 16
+  %buffer_size.i = getelementptr inbounds i8, ptr %data, i64 1732
   %58 = load i32, ptr %buffer_size.i, align 4
   %conv50.i = zext i32 %58 to i64
   %spec.select.i = call i64 @llvm.umin.i64(i64 %57, i64 %conv50.i)
@@ -929,7 +887,7 @@ if.end99.i:                                       ; preds = %if.end94.i
 
 if.then102.i:                                     ; preds = %if.end99.i
   %data.val.i81 = load ptr, ptr %conn1, align 8
-  %proto.i56.i = getelementptr inbounds %struct.connectdata, ptr %data.val.i81, i64 0, i32 40
+  %proto.i56.i = getelementptr inbounds i8, ptr %data.val.i81, i64 856
   store i32 0, ptr %proto.i56.i, align 4
   %nextstate3.i57.i = getelementptr inbounds i8, ptr %data.val.i81, i64 860
   store i32 5, ptr %nextstate3.i57.i, align 4
@@ -960,7 +918,7 @@ return:                                           ; preds = %sw.epilog, %if.then
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
 define internal noundef i32 @mqtt_getsock(ptr nocapture readnone %data, ptr nocapture noundef readonly %conn, ptr nocapture noundef writeonly %sock) #1 {
 entry:
-  %sock1 = getelementptr inbounds %struct.connectdata, ptr %conn, i64 0, i32 21
+  %sock1 = getelementptr inbounds i8, ptr %conn, i64 392
   %0 = load i32, ptr %sock1, align 8
   store i32 %0, ptr %sock, align 4
   ret i32 1
@@ -1000,14 +958,14 @@ entry:
   %topic = alloca ptr, align 8
   %topiclen = alloca i64, align 8
   %encodedbytes = alloca [4 x i8], align 1
-  %postfields = getelementptr inbounds %struct.Curl_easy, ptr %data, i64 0, i32 17, i32 11
+  %postfields = getelementptr inbounds i8, ptr %data, i64 496
   %0 = load ptr, ptr %postfields, align 8
   store ptr null, ptr %topic, align 8
   %tobool.not = icmp eq ptr %0, null
   br i1 %tobool.not, label %return, label %if.end
 
 if.end:                                           ; preds = %entry
-  %postfieldsize2 = getelementptr inbounds %struct.Curl_easy, ptr %data, i64 0, i32 17, i32 13
+  %postfieldsize2 = getelementptr inbounds i8, ptr %data, i64 512
   %1 = load i64, ptr %postfieldsize2, align 8
   %cmp = icmp slt i64 %1, 0
   br i1 %cmp, label %if.then3, label %if.end4
@@ -1018,7 +976,7 @@ if.then3:                                         ; preds = %if.end
 
 if.end4:                                          ; preds = %if.end, %if.then3
   %payloadlen.0 = phi i64 [ %call, %if.then3 ], [ %1, %if.end ]
-  %path1.i = getelementptr inbounds %struct.Curl_easy, ptr %data, i64 0, i32 22, i32 45, i32 6
+  %path1.i = getelementptr inbounds i8, ptr %data, i64 4680
   %2 = load ptr, ptr %path1.i, align 8
   %call.i = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %2) #9
   %cmp.i = icmp ugt i64 %call.i, 1
@@ -1097,7 +1055,7 @@ if.end16:                                         ; preds = %mqtt_encode_len.exi
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %arrayidx29, ptr nonnull align 1 %0, i64 %payloadlen.0, i1 false)
   %add30 = add i64 %add28, %payloadlen.0
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %n.i)
-  %p.i = getelementptr inbounds %struct.Curl_easy, ptr %data, i64 0, i32 16, i32 23
+  %p.i = getelementptr inbounds i8, ptr %data, i64 392
   %13 = load ptr, ptr %p.i, align 8
   %call.i33 = call i32 @Curl_nwrite(ptr noundef %data, i32 noundef 0, ptr noundef nonnull %call13, i64 noundef %add30, ptr noundef nonnull %n.i) #8
   %tobool.not.i34 = icmp eq i32 %call.i33, 0
@@ -1119,7 +1077,7 @@ if.then1.i:                                       ; preds = %if.end.i
 
 if.end5.i:                                        ; preds = %if.then1.i
   store ptr %call2.i36, ptr %13, align 8
-  %nsend7.i = getelementptr inbounds %struct.MQTT, ptr %13, i64 0, i32 1
+  %nsend7.i = getelementptr inbounds i8, ptr %13, i64 8
   store i64 %sub.i, ptr %nsend7.i, align 8
   br label %mqtt_send.exit
 
@@ -1151,7 +1109,7 @@ return:                                           ; preds = %entry, %fail
 define internal fastcc i32 @mqtt_disconnect(ptr noundef %data) unnamed_addr #0 {
 entry:
   %n.i = alloca i64, align 8
-  %p = getelementptr inbounds %struct.Curl_easy, ptr %data, i64 0, i32 16, i32 23
+  %p = getelementptr inbounds i8, ptr %data, i64 392
   %0 = load ptr, ptr %p, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %n.i)
   %call.i = call i32 @Curl_nwrite(ptr noundef %data, i32 noundef 0, ptr noundef nonnull @.str.14, i64 noundef 2, ptr noundef nonnull %n.i) #8
@@ -1174,7 +1132,7 @@ if.then1.i:                                       ; preds = %if.end.i
 
 if.end5.i:                                        ; preds = %if.then1.i
   store ptr %call2.i, ptr %0, align 8
-  %nsend7.i = getelementptr inbounds %struct.MQTT, ptr %0, i64 0, i32 1
+  %nsend7.i = getelementptr inbounds i8, ptr %0, i64 8
   store i64 %sub.i, ptr %nsend7.i, align 8
   br label %mqtt_send.exit
 
@@ -1189,7 +1147,7 @@ mqtt_send.exit:                                   ; preds = %entry, %if.then1.i,
   %4 = load ptr, ptr %0, align 8
   call void %3(ptr noundef %4) #8
   store ptr null, ptr %0, align 8
-  %recvbuf = getelementptr inbounds %struct.MQTT, ptr %0, i64 0, i32 5
+  %recvbuf = getelementptr inbounds i8, ptr %0, i64 40
   call void @Curl_dyn_free(ptr noundef nonnull %recvbuf) #8
   ret i32 %retval.0.i
 }
@@ -1202,9 +1160,9 @@ entry:
   %topiclen = alloca i64, align 8
   %encodedsize = alloca [4 x i8], align 1
   store ptr null, ptr %topic, align 8
-  %conn1 = getelementptr inbounds %struct.Curl_easy, ptr %data, i64 0, i32 4
+  %conn1 = getelementptr inbounds i8, ptr %data, i64 32
   %0 = load ptr, ptr %conn1, align 8
-  %path1.i = getelementptr inbounds %struct.Curl_easy, ptr %data, i64 0, i32 22, i32 45, i32 6
+  %path1.i = getelementptr inbounds i8, ptr %data, i64 4680
   %1 = load ptr, ptr %path1.i, align 8
   %call.i = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %1) #9
   %cmp.i = icmp ugt i64 %call.i, 1
@@ -1227,7 +1185,7 @@ if.end5.sink.split.i:                             ; preds = %land.lhs.true.i, %e
   br label %fail
 
 for.body.i.preheader:                             ; preds = %land.lhs.true.i
-  %packetid = getelementptr inbounds %struct.connectdata, ptr %0, i64 0, i32 40, i32 0, i32 0, i32 1
+  %packetid = getelementptr inbounds i8, ptr %0, i64 864
   %3 = load i32, ptr %packetid, align 8
   %inc = add i32 %3, 1
   store i32 %inc, ptr %packetid, align 8
@@ -1290,7 +1248,7 @@ if.end8:                                          ; preds = %mqtt_encode_len.exi
   %arrayidx35 = getelementptr i8, ptr %arrayidx32, i64 %14
   store i8 0, ptr %arrayidx35, align 1
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %n.i)
-  %p.i = getelementptr inbounds %struct.Curl_easy, ptr %data, i64 0, i32 16, i32 23
+  %p.i = getelementptr inbounds i8, ptr %data, i64 392
   %15 = load ptr, ptr %p.i, align 8
   %call.i28 = call i32 @Curl_nwrite(ptr noundef %data, i32 noundef 0, ptr noundef nonnull %call5, i64 noundef %add4, ptr noundef nonnull %n.i) #8
   %tobool.not.i29 = icmp eq i32 %call.i28, 0
@@ -1312,7 +1270,7 @@ if.then1.i:                                       ; preds = %if.end.i
 
 if.end5.i:                                        ; preds = %if.then1.i
   store ptr %call2.i31, ptr %15, align 8
-  %nsend7.i = getelementptr inbounds %struct.MQTT, ptr %15, i64 0, i32 1
+  %nsend7.i = getelementptr inbounds i8, ptr %15, i64 8
   store i64 %sub.i, ptr %nsend7.i, align 8
   br label %mqtt_send.exit
 

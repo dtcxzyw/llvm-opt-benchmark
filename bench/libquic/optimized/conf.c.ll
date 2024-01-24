@@ -4,7 +4,6 @@ target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:
 target triple = "x86_64-unknown-linux-gnu"
 
 %struct.conf_value_st = type { ptr, ptr, ptr }
-%struct.buf_mem_st = type { i64, ptr, i64 }
 
 @.str = private unnamed_addr constant [122 x i8] c"generated/home/dtcxzyw/WorkSpace/Projects/compilers/llvm-opt-benchmark/bench/libquic/libquic/boringssl/crypto/conf/conf.c\00", align 1
 @.str.1 = private unnamed_addr constant [3 x i8] c"rb\00", align 1
@@ -50,7 +49,7 @@ entry:
   %0 = load ptr, ptr %v, align 8
   %call = tail call i32 @lh_strhash(ptr noundef %0) #12
   %shl = shl i32 %call, 2
-  %name = getelementptr inbounds %struct.conf_value_st, ptr %v, i64 0, i32 1
+  %name = getelementptr inbounds i8, ptr %v, i64 8
   %1 = load ptr, ptr %name, align 8
   %call1 = tail call i32 @lh_strhash(ptr noundef %1) #12
   %xor = xor i32 %call1, %shl
@@ -71,10 +70,10 @@ if.then:                                          ; preds = %entry
   br i1 %tobool.not, label %if.end5, label %return
 
 if.end5:                                          ; preds = %if.then, %entry
-  %name = getelementptr inbounds %struct.conf_value_st, ptr %a, i64 0, i32 1
+  %name = getelementptr inbounds i8, ptr %a, i64 8
   %2 = load ptr, ptr %name, align 8
   %cmp6.not = icmp eq ptr %2, null
-  %name14.phi.trans.insert = getelementptr inbounds %struct.conf_value_st, ptr %b, i64 0, i32 1
+  %name14.phi.trans.insert = getelementptr inbounds i8, ptr %b, i64 8
   %.pre = load ptr, ptr %name14.phi.trans.insert, align 8
   br i1 %cmp6.not, label %if.else, label %land.lhs.true
 
@@ -157,14 +156,14 @@ if.then.i:                                        ; preds = %entry
   br label %if.end.i
 
 if.end.i:                                         ; preds = %if.then.i, %entry
-  %name.i = getelementptr inbounds %struct.conf_value_st, ptr %value, i64 0, i32 1
+  %name.i = getelementptr inbounds i8, ptr %value, i64 8
   %1 = load ptr, ptr %name.i, align 8
   %tobool2.not.i = icmp eq ptr %1, null
   br i1 %tobool2.not.i, label %if.else.i, label %if.then3.i
 
 if.then3.i:                                       ; preds = %if.end.i
   tail call void @free(ptr noundef nonnull %1) #12
-  %value5.i = getelementptr inbounds %struct.conf_value_st, ptr %value, i64 0, i32 2
+  %value5.i = getelementptr inbounds i8, ptr %value, i64 16
   %2 = load ptr, ptr %value5.i, align 8
   %tobool6.not.i = icmp eq ptr %2, null
   br i1 %tobool6.not.i, label %value_free_contents.exit, label %if.then7.i
@@ -174,7 +173,7 @@ if.then7.i:                                       ; preds = %if.then3.i
   br label %value_free_contents.exit
 
 if.else.i:                                        ; preds = %if.end.i
-  %value10.i = getelementptr inbounds %struct.conf_value_st, ptr %value, i64 0, i32 2
+  %value10.i = getelementptr inbounds i8, ptr %value, i64 16
   %3 = load ptr, ptr %value10.i, align 8
   %tobool11.not.i = icmp eq ptr %3, null
   br i1 %tobool11.not.i, label %value_free_contents.exit, label %if.then12.i
@@ -205,7 +204,7 @@ entry:
   br i1 %cmp, label %return, label %if.end
 
 if.end:                                           ; preds = %entry
-  %value = getelementptr inbounds %struct.conf_value_st, ptr %call.i, i64 0, i32 2
+  %value = getelementptr inbounds i8, ptr %call.i, i64 16
   %1 = load ptr, ptr %value, align 8
   br label %return
 
@@ -221,7 +220,7 @@ entry:
   %0 = getelementptr inbounds i8, ptr %template, i64 16
   store i64 0, ptr %0, align 8
   store ptr %section, ptr %template, align 8
-  %name2 = getelementptr inbounds %struct.conf_value_st, ptr %template, i64 0, i32 1
+  %name2 = getelementptr inbounds i8, ptr %template, i64 8
   store ptr %name, ptr %name2, align 8
   %1 = load ptr, ptr %conf, align 8
   %call = call ptr @lh_retrieve(ptr noundef %1, ptr noundef nonnull %template) #12
@@ -229,7 +228,7 @@ entry:
   br i1 %cmp, label %return, label %if.end
 
 if.end:                                           ; preds = %entry
-  %value3 = getelementptr inbounds %struct.conf_value_st, ptr %call, i64 0, i32 2
+  %value3 = getelementptr inbounds i8, ptr %call, i64 16
   %2 = load ptr, ptr %value3, align 8
   br label %return
 
@@ -297,7 +296,7 @@ if.end4:                                          ; preds = %if.end
   br i1 %cmp6, label %if.then7, label %for.cond.preheader
 
 for.cond.preheader:                               ; preds = %if.end4
-  %data = getelementptr inbounds %struct.buf_mem_st, ptr %call, i64 0, i32 1
+  %data = getelementptr inbounds i8, ptr %call, i64 8
   %0 = getelementptr inbounds i8, ptr %template.i190, i64 8
   %1 = getelementptr inbounds i8, ptr %template.i, i64 8
   br label %for.cond.outer
@@ -874,7 +873,7 @@ if.end176:                                        ; preds = %while.end171
   %60 = load ptr, ptr %section, align 8
   %spec.select = select i1 %cmp177, ptr %60, ptr %psection.0
   %call181 = call ptr @OPENSSL_strdup(ptr noundef nonnull %pname.0) #12
-  %name = getelementptr inbounds %struct.conf_value_st, ptr %calloc.i, i64 0, i32 1
+  %name = getelementptr inbounds i8, ptr %calloc.i, i64 8
   store ptr %call181, ptr %name, align 8
   %cmp183 = icmp eq ptr %call181, null
   br i1 %cmp183, label %if.then185, label %if.end186
@@ -884,7 +883,7 @@ if.then185:                                       ; preds = %if.end176
   br label %if.then223
 
 if.end186:                                        ; preds = %if.end176
-  %value = getelementptr inbounds %struct.conf_value_st, ptr %calloc.i, i64 0, i32 2
+  %value = getelementptr inbounds i8, ptr %calloc.i, i64 16
   %call187 = call fastcc i32 @str_copy(ptr noundef %conf, ptr noundef %spec.select, ptr noundef nonnull %value, ptr noundef nonnull %p.addr.0.i182), !range !7
   %tobool188.not = icmp eq i32 %call187, 0
   br i1 %tobool188.not, label %if.then223, label %if.end190
@@ -949,14 +948,14 @@ if.then.i.i.i:                                    ; preds = %if.then9.i
   br label %if.end.i.i.i
 
 if.end.i.i.i:                                     ; preds = %if.then.i.i.i, %if.then9.i
-  %name.i.i.i = getelementptr inbounds %struct.conf_value_st, ptr %65, i64 0, i32 1
+  %name.i.i.i = getelementptr inbounds i8, ptr %65, i64 8
   %67 = load ptr, ptr %name.i.i.i, align 8
   %tobool2.not.i.i.i = icmp eq ptr %67, null
   br i1 %tobool2.not.i.i.i, label %if.else.i.i.i, label %if.then3.i.i.i
 
 if.then3.i.i.i:                                   ; preds = %if.end.i.i.i
   call void @free(ptr noundef nonnull %67) #12
-  %value5.i.i.i = getelementptr inbounds %struct.conf_value_st, ptr %65, i64 0, i32 2
+  %value5.i.i.i = getelementptr inbounds i8, ptr %65, i64 16
   %68 = load ptr, ptr %value5.i.i.i, align 8
   %tobool6.not.i.i.i = icmp eq ptr %68, null
   br i1 %tobool6.not.i.i.i, label %value_free.exit.i, label %if.then7.i.i.i
@@ -966,7 +965,7 @@ if.then7.i.i.i:                                   ; preds = %if.then3.i.i.i
   br label %value_free.exit.i
 
 if.else.i.i.i:                                    ; preds = %if.end.i.i.i
-  %value10.i.i.i = getelementptr inbounds %struct.conf_value_st, ptr %65, i64 0, i32 2
+  %value10.i.i.i = getelementptr inbounds i8, ptr %65, i64 16
   %69 = load ptr, ptr %value10.i.i.i, align 8
   %tobool11.not.i.i.i = icmp eq ptr %69, null
   br i1 %tobool11.not.i.i.i, label %value_free.exit.i, label %if.then12.i.i.i
@@ -1023,7 +1022,7 @@ if.end232:                                        ; preds = %if.then231, %if.end
   br i1 %cmp235.not, label %return, label %if.then237
 
 if.then237:                                       ; preds = %if.end232
-  %name238 = getelementptr inbounds %struct.conf_value_st, ptr %v.1204211, i64 0, i32 1
+  %name238 = getelementptr inbounds i8, ptr %v.1204211, i64 8
   %71 = load ptr, ptr %name238, align 8
   %cmp239.not = icmp eq ptr %71, null
   br i1 %cmp239.not, label %if.end243, label %if.then241
@@ -1033,7 +1032,7 @@ if.then241:                                       ; preds = %if.then237
   br label %if.end243
 
 if.end243:                                        ; preds = %if.then241, %if.then237
-  %value244 = getelementptr inbounds %struct.conf_value_st, ptr %v.1204211, i64 0, i32 2
+  %value244 = getelementptr inbounds i8, ptr %v.1204211, i64 16
   %72 = load ptr, ptr %value244, align 8
   %cmp245.not = icmp eq ptr %72, null
   br i1 %cmp245.not, label %return.sink.split, label %if.then247
@@ -1278,7 +1277,7 @@ if.end:                                           ; preds = %CONF_VALUE_new.exit
   br i1 %cmp6, label %if.end19, label %if.end8
 
 if.end8:                                          ; preds = %if.end
-  %value = getelementptr inbounds %struct.conf_value_st, ptr %calloc.i, i64 0, i32 2
+  %value = getelementptr inbounds i8, ptr %calloc.i, i64 16
   store ptr %call, ptr %value, align 8
   %0 = load ptr, ptr %conf, align 8
   %call9 = call i32 @lh_insert(ptr noundef %0, ptr noundef nonnull %old_value, ptr noundef nonnull %calloc.i) #12
@@ -1300,14 +1299,14 @@ if.then.i.i:                                      ; preds = %if.then13
   br label %if.end.i.i
 
 if.end.i.i:                                       ; preds = %if.then.i.i, %if.then13
-  %name.i.i = getelementptr inbounds %struct.conf_value_st, ptr %1, i64 0, i32 1
+  %name.i.i = getelementptr inbounds i8, ptr %1, i64 8
   %3 = load ptr, ptr %name.i.i, align 8
   %tobool2.not.i.i = icmp eq ptr %3, null
   br i1 %tobool2.not.i.i, label %if.else.i.i, label %if.then3.i.i
 
 if.then3.i.i:                                     ; preds = %if.end.i.i
   call void @free(ptr noundef nonnull %3) #12
-  %value5.i.i = getelementptr inbounds %struct.conf_value_st, ptr %1, i64 0, i32 2
+  %value5.i.i = getelementptr inbounds i8, ptr %1, i64 16
   %4 = load ptr, ptr %value5.i.i, align 8
   %tobool6.not.i.i = icmp eq ptr %4, null
   br i1 %tobool6.not.i.i, label %value_free.exit, label %if.then7.i.i
@@ -1317,7 +1316,7 @@ if.then7.i.i:                                     ; preds = %if.then3.i.i
   br label %value_free.exit
 
 if.else.i.i:                                      ; preds = %if.end.i.i
-  %value10.i.i = getelementptr inbounds %struct.conf_value_st, ptr %1, i64 0, i32 2
+  %value10.i.i = getelementptr inbounds i8, ptr %1, i64 16
   %5 = load ptr, ptr %value10.i.i, align 8
   %tobool11.not.i.i = icmp eq ptr %5, null
   br i1 %tobool11.not.i.i, label %value_free.exit, label %if.then12.i.i
@@ -1365,9 +1364,9 @@ if.end:                                           ; preds = %entry
   br i1 %tobool.not, label %if.then266, label %for.cond.preheader
 
 for.cond.preheader:                               ; preds = %if.end
-  %data = getelementptr inbounds %struct.buf_mem_st, ptr %call, i64 0, i32 1
+  %data = getelementptr inbounds i8, ptr %call, i64 8
   %0 = getelementptr inbounds i8, ptr %template.i, i64 16
-  %name2.i = getelementptr inbounds %struct.conf_value_st, ptr %template.i, i64 0, i32 1
+  %name2.i = getelementptr inbounds i8, ptr %template.i, i64 8
   br label %for.cond.outer
 
 for.cond.outer:                                   ; preds = %while.end237, %for.cond.preheader
@@ -1656,7 +1655,7 @@ if.end214:                                        ; preds = %if.end212, %if.end2
   br i1 %cmp.i, label %NCONF_get_string.exit, label %if.end.i
 
 if.end.i:                                         ; preds = %if.end214
-  %value3.i = getelementptr inbounds %struct.conf_value_st, ptr %call.i, i64 0, i32 2
+  %value3.i = getelementptr inbounds i8, ptr %call.i, i64 16
   %36 = load ptr, ptr %value3.i, align 8
   br label %NCONF_get_string.exit
 

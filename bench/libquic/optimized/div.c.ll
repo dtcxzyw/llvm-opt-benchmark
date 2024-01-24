@@ -11,7 +11,7 @@ target triple = "x86_64-unknown-linux-gnu"
 define hidden noundef i32 @BN_div(ptr noundef %dv, ptr noundef %rm, ptr noundef %num, ptr noundef %divisor, ptr noundef %ctx) local_unnamed_addr #0 {
 entry:
   %wnum = alloca %struct.bignum_st, align 8
-  %top = getelementptr inbounds %struct.bignum_st, ptr %num, i64 0, i32 1
+  %top = getelementptr inbounds i8, ptr %num, i64 8
   %0 = load i32, ptr %top, align 8
   %cmp = icmp sgt i32 %0, 0
   br i1 %cmp, label %land.lhs.true, label %lor.lhs.false
@@ -20,13 +20,13 @@ land.lhs.true:                                    ; preds = %entry
   %1 = load ptr, ptr %num, align 8
   %2 = zext nneg i32 %0 to i64
   %3 = getelementptr i64, ptr %1, i64 %2
-  %arrayidx = getelementptr i64, ptr %3, i64 -1
+  %arrayidx = getelementptr i8, ptr %3, i64 -8
   %4 = load i64, ptr %arrayidx, align 8
   %cmp2 = icmp eq i64 %4, 0
   br i1 %cmp2, label %if.then, label %lor.lhs.false
 
 lor.lhs.false:                                    ; preds = %land.lhs.true, %entry
-  %top3 = getelementptr inbounds %struct.bignum_st, ptr %divisor, i64 0, i32 1
+  %top3 = getelementptr inbounds i8, ptr %divisor, i64 8
   %5 = load i32, ptr %top3, align 8
   %cmp4 = icmp sgt i32 %5, 0
   br i1 %cmp4, label %land.lhs.true5, label %if.end
@@ -35,7 +35,7 @@ land.lhs.true5:                                   ; preds = %lor.lhs.false
   %6 = load ptr, ptr %divisor, align 8
   %7 = zext nneg i32 %5 to i64
   %8 = getelementptr i64, ptr %6, i64 %7
-  %arrayidx10 = getelementptr i64, ptr %8, i64 -1
+  %arrayidx10 = getelementptr i8, ptr %8, i64 -8
   %9 = load i64, ptr %arrayidx10, align 8
   %cmp11 = icmp eq i64 %9, 0
   br i1 %cmp11, label %if.then, label %if.end
@@ -45,14 +45,14 @@ if.then:                                          ; preds = %land.lhs.true5, %la
   br label %return
 
 if.end:                                           ; preds = %land.lhs.true5, %lor.lhs.false
-  %flags = getelementptr inbounds %struct.bignum_st, ptr %num, i64 0, i32 4
+  %flags = getelementptr inbounds i8, ptr %num, i64 20
   %10 = load i32, ptr %flags, align 4
   %and = and i32 %10, 4
   %cmp12.not = icmp eq i32 %and, 0
   br i1 %cmp12.not, label %lor.lhs.false13, label %if.end18.thread
 
 lor.lhs.false13:                                  ; preds = %if.end
-  %flags14 = getelementptr inbounds %struct.bignum_st, ptr %divisor, i64 0, i32 4
+  %flags14 = getelementptr inbounds i8, ptr %divisor, i64 20
   %11 = load i32, ptr %flags14, align 4
   %and15 = and i32 %11, 4
   %cmp16.not = icmp eq i32 %and15, 0
@@ -129,7 +129,7 @@ if.end52:                                         ; preds = %if.end43
   br i1 %tobool56.not, label %err, label %if.end58
 
 if.end58:                                         ; preds = %if.end52
-  %neg = getelementptr inbounds %struct.bignum_st, ptr %call39, i64 0, i32 3
+  %neg = getelementptr inbounds i8, ptr %call39, i64 16
   store i32 0, ptr %neg, align 8
   %add = sub nuw nsw i32 128, %rem
   %call59 = tail call i32 @BN_lshift(ptr noundef nonnull %call38, ptr noundef nonnull %num, i32 noundef %add) #4
@@ -137,14 +137,14 @@ if.end58:                                         ; preds = %if.end52
   br i1 %tobool60.not, label %err, label %if.end62
 
 if.end62:                                         ; preds = %if.end58
-  %neg63 = getelementptr inbounds %struct.bignum_st, ptr %call38, i64 0, i32 3
+  %neg63 = getelementptr inbounds i8, ptr %call38, i64 16
   store i32 0, ptr %neg63, align 8
-  %top107.phi.trans.insert = getelementptr inbounds %struct.bignum_st, ptr %call38, i64 0, i32 1
+  %top107.phi.trans.insert = getelementptr inbounds i8, ptr %call38, i64 8
   %.pre = load i32, ptr %top107.phi.trans.insert, align 8
   br i1 %tobool21.not130135, label %if.end105, label %if.then65
 
 if.then65:                                        ; preds = %if.end62
-  %top67 = getelementptr inbounds %struct.bignum_st, ptr %call39, i64 0, i32 1
+  %top67 = getelementptr inbounds i8, ptr %call39, i64 8
   %18 = load i32, ptr %top67, align 8
   %add68 = add nsw i32 %18, 1
   %cmp69.not = icmp sgt i32 %.pre, %add68
@@ -204,32 +204,32 @@ if.end105.sink.split:                             ; preds = %for.body, %if.end77
 
 if.end105:                                        ; preds = %if.end105.sink.split, %if.end62
   %28 = phi i32 [ %.pre, %if.end62 ], [ %add80.lcssa.sink, %if.end105.sink.split ]
-  %top106 = getelementptr inbounds %struct.bignum_st, ptr %call39, i64 0, i32 1
+  %top106 = getelementptr inbounds i8, ptr %call39, i64 8
   %29 = load i32, ptr %top106, align 8
   %sub108 = sub i32 %28, %29
-  %neg109 = getelementptr inbounds %struct.bignum_st, ptr %wnum, i64 0, i32 3
+  %neg109 = getelementptr inbounds i8, ptr %wnum, i64 16
   store i32 0, ptr %neg109, align 8
   %30 = load ptr, ptr %call38, align 8
   %idxprom111 = sext i32 %sub108 to i64
   %arrayidx112 = getelementptr inbounds i64, ptr %30, i64 %idxprom111
   store ptr %arrayidx112, ptr %wnum, align 8
-  %top114 = getelementptr inbounds %struct.bignum_st, ptr %wnum, i64 0, i32 1
+  %top114 = getelementptr inbounds i8, ptr %wnum, i64 8
   store i32 %29, ptr %top114, align 8
-  %dmax = getelementptr inbounds %struct.bignum_st, ptr %call38, i64 0, i32 2
+  %dmax = getelementptr inbounds i8, ptr %call38, i64 12
   %31 = load i32, ptr %dmax, align 4
   %sub115 = sub nsw i32 %31, %sub108
-  %dmax116 = getelementptr inbounds %struct.bignum_st, ptr %wnum, i64 0, i32 2
+  %dmax116 = getelementptr inbounds i8, ptr %wnum, i64 12
   store i32 %sub115, ptr %dmax116, align 4
   %32 = load ptr, ptr %call39, align 8
   %33 = sext i32 %29 to i64
   %34 = getelementptr i64, ptr %32, i64 %33
-  %arrayidx120 = getelementptr i64, ptr %34, i64 -1
+  %arrayidx120 = getelementptr i8, ptr %34, i64 -8
   %35 = load i64, ptr %arrayidx120, align 8
   %cmp121 = icmp eq i32 %29, 1
   br i1 %cmp121, label %cond.end, label %cond.false
 
 cond.false:                                       ; preds = %if.end105
-  %arrayidx126 = getelementptr i64, ptr %34, i64 -2
+  %arrayidx126 = getelementptr i8, ptr %34, i64 -16
   %36 = load i64, ptr %arrayidx126, align 8
   br label %cond.end
 
@@ -237,13 +237,13 @@ cond.end:                                         ; preds = %if.end105, %cond.fa
   %cond = phi i64 [ %36, %cond.false ], [ 0, %if.end105 ]
   %37 = sext i32 %28 to i64
   %38 = getelementptr i64, ptr %30, i64 %37
-  %arrayidx130 = getelementptr i64, ptr %38, i64 -1
-  %neg131 = getelementptr inbounds %struct.bignum_st, ptr %num, i64 0, i32 3
+  %arrayidx130 = getelementptr i8, ptr %38, i64 -8
+  %neg131 = getelementptr inbounds i8, ptr %num, i64 16
   %39 = load i32, ptr %neg131, align 8
-  %neg132 = getelementptr inbounds %struct.bignum_st, ptr %divisor, i64 0, i32 3
+  %neg132 = getelementptr inbounds i8, ptr %divisor, i64 16
   %40 = load i32, ptr %neg132, align 8
   %xor = xor i32 %40, %39
-  %neg133 = getelementptr inbounds %struct.bignum_st, ptr %res.0, i64 0, i32 3
+  %neg133 = getelementptr inbounds i8, ptr %res.0, i64 16
   store i32 %xor, ptr %neg133, align 8
   %add134 = add nsw i32 %sub108, 1
   %conv135 = sext i32 %add134 to i64
@@ -253,7 +253,7 @@ cond.end:                                         ; preds = %if.end105, %cond.fa
 
 if.end139:                                        ; preds = %cond.end
   %sub140 = add i32 %sub108, %no_branch.0.neg131134
-  %top141 = getelementptr inbounds %struct.bignum_st, ptr %res.0, i64 0, i32 1
+  %top141 = getelementptr inbounds i8, ptr %res.0, i64 8
   store i32 %sub140, ptr %top141, align 8
   %41 = load ptr, ptr %res.0, align 8
   %sub143 = add i32 %sub108, -1
@@ -300,7 +300,7 @@ if.then169:                                       ; preds = %if.end165
   br label %if.end172
 
 if.else171:                                       ; preds = %if.end165
-  %incdec.ptr = getelementptr inbounds i64, ptr %arrayidx145, i64 -1
+  %incdec.ptr = getelementptr inbounds i8, ptr %arrayidx145, i64 -8
   br label %if.end172
 
 if.end172:                                        ; preds = %if.else171, %if.then169
@@ -317,7 +317,7 @@ for.body177:                                      ; preds = %for.body177.lr.ph, 
   %resp.1150 = phi ptr [ %resp.0, %for.body177.lr.ph ], [ %incdec.ptr233, %if.end229 ]
   %wnump.0149 = phi ptr [ %arrayidx130, %for.body177.lr.ph ], [ %arrayidx180, %if.end229 ]
   %46 = load i64, ptr %wnump.0149, align 8
-  %arrayidx180 = getelementptr inbounds i64, ptr %wnump.0149, i64 -1
+  %arrayidx180 = getelementptr inbounds i8, ptr %wnump.0149, i64 -8
   %cmp181 = icmp eq i64 %46, %35
   br i1 %cmp181, label %if.end204, label %if.else184
 
@@ -328,7 +328,7 @@ if.else184:                                       ; preds = %for.body177
   %asmresult1.i = extractvalue { i64, i64 } %48, 1
   %conv186 = zext i64 %asmresult.i to i128
   %mul = mul nuw i128 %conv186, %conv185
-  %arrayidx189 = getelementptr inbounds i64, ptr %wnump.0149, i64 -2
+  %arrayidx189 = getelementptr inbounds i8, ptr %wnump.0149, i64 -16
   %49 = load i64, ptr %arrayidx189, align 8
   %conv190 = zext i64 %49 to i128
   %conv188139 = zext i64 %asmresult1.i to i128
@@ -363,7 +363,7 @@ if.end204:                                        ; preds = %if.end194, %for.con
   %arrayidx210 = getelementptr inbounds i64, ptr %52, i64 %33
   store i64 %call207, ptr %arrayidx210, align 8
   %53 = load ptr, ptr %wnum, align 8
-  %incdec.ptr212 = getelementptr inbounds i64, ptr %53, i64 -1
+  %incdec.ptr212 = getelementptr inbounds i8, ptr %53, i64 -8
   store ptr %incdec.ptr212, ptr %wnum, align 8
   %54 = load ptr, ptr %call37, align 8
   %call217 = call i64 @bn_sub_words(ptr noundef nonnull %incdec.ptr212, ptr noundef nonnull %incdec.ptr212, ptr noundef %54, i32 noundef %add146) #4
@@ -388,7 +388,7 @@ if.end229:                                        ; preds = %if.then219, %if.the
   %q.2 = phi i64 [ %q.1, %if.end204 ], [ %dec220, %if.then219 ], [ %dec220, %if.then226 ]
   store i64 %q.2, ptr %resp.1150, align 8
   %inc231 = add nuw nsw i32 %i.1151, 1
-  %incdec.ptr233 = getelementptr inbounds i64, ptr %resp.1150, i64 -1
+  %incdec.ptr233 = getelementptr inbounds i8, ptr %resp.1150, i64 -8
   %exitcond.not = icmp eq i32 %inc231, %sub143
   br i1 %exitcond.not, label %for.end234, label %for.body177, !llvm.loop !10
 
@@ -409,7 +409,7 @@ if.end243:                                        ; preds = %if.then237
   br i1 %tobool245.not, label %if.then246, label %if.end249
 
 if.then246:                                       ; preds = %if.end243
-  %neg247 = getelementptr inbounds %struct.bignum_st, ptr %rm, i64 0, i32 3
+  %neg247 = getelementptr inbounds i8, ptr %rm, i64 16
   store i32 %58, ptr %neg247, align 8
   br label %if.end249
 
@@ -473,13 +473,13 @@ entry:
   br i1 %tobool.not, label %return, label %if.end
 
 if.end:                                           ; preds = %entry
-  %neg = getelementptr inbounds %struct.bignum_st, ptr %r, i64 0, i32 3
+  %neg = getelementptr inbounds i8, ptr %r, i64 16
   %0 = load i32, ptr %neg, align 8
   %tobool1.not = icmp eq i32 %0, 0
   br i1 %tobool1.not, label %return, label %if.end3
 
 if.end3:                                          ; preds = %if.end
-  %neg4 = getelementptr inbounds %struct.bignum_st, ptr %d, i64 0, i32 3
+  %neg4 = getelementptr inbounds i8, ptr %d, i64 16
   %1 = load i32, ptr %neg4, align 8
   %tobool5.not = icmp eq i32 %1, 0
   %cond = select i1 %tobool5.not, ptr @BN_add, ptr @BN_sub
@@ -508,13 +508,13 @@ if.end:                                           ; preds = %entry
   br i1 %tobool.not.i, label %return, label %if.end.i
 
 if.end.i:                                         ; preds = %if.end
-  %neg.i = getelementptr inbounds %struct.bignum_st, ptr %r, i64 0, i32 3
+  %neg.i = getelementptr inbounds i8, ptr %r, i64 16
   %0 = load i32, ptr %neg.i, align 8
   %tobool1.not.i = icmp eq i32 %0, 0
   br i1 %tobool1.not.i, label %return, label %if.end3.i
 
 if.end3.i:                                        ; preds = %if.end.i
-  %neg4.i = getelementptr inbounds %struct.bignum_st, ptr %m, i64 0, i32 3
+  %neg4.i = getelementptr inbounds i8, ptr %m, i64 16
   %1 = load i32, ptr %neg4.i, align 8
   %tobool5.not.i = icmp eq i32 %1, 0
   %cond.i = select i1 %tobool5.not.i, ptr @BN_add, ptr @BN_sub
@@ -564,13 +564,13 @@ if.end:                                           ; preds = %entry
   br i1 %tobool.not.i, label %return, label %if.end.i
 
 if.end.i:                                         ; preds = %if.end
-  %neg.i = getelementptr inbounds %struct.bignum_st, ptr %r, i64 0, i32 3
+  %neg.i = getelementptr inbounds i8, ptr %r, i64 16
   %0 = load i32, ptr %neg.i, align 8
   %tobool1.not.i = icmp eq i32 %0, 0
   br i1 %tobool1.not.i, label %return, label %if.end3.i
 
 if.end3.i:                                        ; preds = %if.end.i
-  %neg4.i = getelementptr inbounds %struct.bignum_st, ptr %m, i64 0, i32 3
+  %neg4.i = getelementptr inbounds i8, ptr %m, i64 16
   %1 = load i32, ptr %neg4.i, align 8
   %tobool5.not.i = icmp eq i32 %1, 0
   %cond.i = select i1 %tobool5.not.i, ptr @BN_add, ptr @BN_sub
@@ -590,7 +590,7 @@ entry:
   br i1 %tobool.not, label %return, label %if.end
 
 if.end:                                           ; preds = %entry
-  %neg = getelementptr inbounds %struct.bignum_st, ptr %r, i64 0, i32 3
+  %neg = getelementptr inbounds i8, ptr %r, i64 16
   %0 = load i32, ptr %neg, align 8
   %tobool1.not = icmp eq i32 %0, 0
   br i1 %tobool1.not, label %return, label %if.then2
@@ -632,13 +632,13 @@ if.end10:                                         ; preds = %if.else, %if.then2
   br i1 %tobool.not.i, label %BN_nnmod.exit.thread, label %if.end.i
 
 if.end.i:                                         ; preds = %if.end10
-  %neg.i = getelementptr inbounds %struct.bignum_st, ptr %r, i64 0, i32 3
+  %neg.i = getelementptr inbounds i8, ptr %r, i64 16
   %0 = load i32, ptr %neg.i, align 8
   %tobool1.not.i = icmp eq i32 %0, 0
   br i1 %tobool1.not.i, label %err, label %BN_nnmod.exit
 
 BN_nnmod.exit:                                    ; preds = %if.end.i
-  %neg4.i = getelementptr inbounds %struct.bignum_st, ptr %m, i64 0, i32 3
+  %neg4.i = getelementptr inbounds i8, ptr %m, i64 16
   %1 = load i32, ptr %neg4.i, align 8
   %tobool5.not.i = icmp eq i32 %1, 0
   %cond.i = select i1 %tobool5.not.i, ptr @BN_add, ptr @BN_sub
@@ -684,13 +684,13 @@ entry:
   br i1 %tobool.not.i, label %return, label %if.end.i
 
 if.end.i:                                         ; preds = %entry
-  %neg.i = getelementptr inbounds %struct.bignum_st, ptr %r, i64 0, i32 3
+  %neg.i = getelementptr inbounds i8, ptr %r, i64 16
   %0 = load i32, ptr %neg.i, align 8
   %tobool1.not.i = icmp eq i32 %0, 0
   br i1 %tobool1.not.i, label %if.end, label %BN_nnmod.exit
 
 BN_nnmod.exit:                                    ; preds = %if.end.i
-  %neg4.i = getelementptr inbounds %struct.bignum_st, ptr %m, i64 0, i32 3
+  %neg4.i = getelementptr inbounds i8, ptr %m, i64 16
   %1 = load i32, ptr %neg4.i, align 8
   %tobool5.not.i = icmp eq i32 %1, 0
   %cond.i = select i1 %tobool5.not.i, ptr @BN_add, ptr @BN_sub
@@ -699,7 +699,7 @@ BN_nnmod.exit:                                    ; preds = %if.end.i
   br i1 %tobool.not, label %return, label %if.end
 
 if.end:                                           ; preds = %if.end.i, %BN_nnmod.exit
-  %neg = getelementptr inbounds %struct.bignum_st, ptr %m, i64 0, i32 3
+  %neg = getelementptr inbounds i8, ptr %m, i64 16
   %2 = load i32, ptr %neg, align 8
   %tobool1.not = icmp eq i32 %2, 0
   br i1 %tobool1.not, label %if.end7, label %if.then2
@@ -710,7 +710,7 @@ if.then2:                                         ; preds = %if.end
   br i1 %cmp, label %return, label %if.end5
 
 if.end5:                                          ; preds = %if.then2
-  %neg6 = getelementptr inbounds %struct.bignum_st, ptr %call3, i64 0, i32 3
+  %neg6 = getelementptr inbounds i8, ptr %call3, i64 16
   store i32 0, ptr %neg6, align 8
   br label %if.end7
 
@@ -818,13 +818,13 @@ if.end:                                           ; preds = %entry
   br i1 %tobool.not.i, label %return, label %if.end.i
 
 if.end.i:                                         ; preds = %if.end
-  %neg.i = getelementptr inbounds %struct.bignum_st, ptr %r, i64 0, i32 3
+  %neg.i = getelementptr inbounds i8, ptr %r, i64 16
   %0 = load i32, ptr %neg.i, align 8
   %tobool1.not.i = icmp eq i32 %0, 0
   br i1 %tobool1.not.i, label %return, label %if.end3.i
 
 if.end3.i:                                        ; preds = %if.end.i
-  %neg4.i = getelementptr inbounds %struct.bignum_st, ptr %m, i64 0, i32 3
+  %neg4.i = getelementptr inbounds i8, ptr %m, i64 16
   %1 = load i32, ptr %neg4.i, align 8
   %tobool5.not.i = icmp eq i32 %1, 0
   %cond.i = select i1 %tobool5.not.i, ptr @BN_add, ptr @BN_sub
@@ -864,7 +864,7 @@ entry:
   br i1 %tobool.not, label %return, label %if.end
 
 if.end:                                           ; preds = %entry
-  %top = getelementptr inbounds %struct.bignum_st, ptr %a, i64 0, i32 1
+  %top = getelementptr inbounds i8, ptr %a, i64 8
   %0 = load i32, ptr %top, align 8
   %cmp = icmp eq i32 %0, 0
   br i1 %cmp, label %return, label %if.end2
@@ -913,7 +913,7 @@ land.lhs.true:                                    ; preds = %for.end
   %7 = load ptr, ptr %a, align 8
   %8 = zext nneg i32 %.pre to i64
   %9 = getelementptr i64, ptr %7, i64 %8
-  %arrayidx23 = getelementptr i64, ptr %9, i64 -1
+  %arrayidx23 = getelementptr i8, ptr %9, i64 -8
   %10 = load i64, ptr %arrayidx23, align 8
   %cmp24 = icmp eq i64 %10, 0
   br i1 %cmp24, label %if.then25, label %if.end28
@@ -942,7 +942,7 @@ entry:
   br i1 %cmp, label %return, label %if.end
 
 if.end:                                           ; preds = %entry
-  %top = getelementptr inbounds %struct.bignum_st, ptr %a, i64 0, i32 1
+  %top = getelementptr inbounds i8, ptr %a, i64 8
   %0 = load i32, ptr %top, align 8
   %cmp17 = icmp sgt i32 %0, 0
   br i1 %cmp17, label %for.body.lr.ph, label %return

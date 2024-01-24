@@ -3,25 +3,6 @@ source_filename = "bench/libquic/original/hpack_huffman_table.cc.ll"
 target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:128-n8:16:32:64-S128"
 target triple = "x86_64-unknown-linux-gnu"
 
-%"struct.net::HpackHuffmanTable::DecodeEntry" = type { i8, i8, i16 }
-%"struct.net::HpackHuffmanTable::DecodeTable" = type { i8, i8, i64 }
-%"class.net::HpackHuffmanTable" = type <{ %"class.std::vector", %"class.std::vector.0", %"class.std::vector.5", %"class.std::vector.10", i8, i8, i16, [4 x i8] }>
-%"class.std::vector" = type { %"struct.std::_Vector_base" }
-%"struct.std::_Vector_base" = type { %"struct.std::_Vector_base<net::HpackHuffmanTable::DecodeTable, std::allocator<net::HpackHuffmanTable::DecodeTable>>::_Vector_impl" }
-%"struct.std::_Vector_base<net::HpackHuffmanTable::DecodeTable, std::allocator<net::HpackHuffmanTable::DecodeTable>>::_Vector_impl" = type { %"struct.std::_Vector_base<net::HpackHuffmanTable::DecodeTable, std::allocator<net::HpackHuffmanTable::DecodeTable>>::_Vector_impl_data" }
-%"struct.std::_Vector_base<net::HpackHuffmanTable::DecodeTable, std::allocator<net::HpackHuffmanTable::DecodeTable>>::_Vector_impl_data" = type { ptr, ptr, ptr }
-%"class.std::vector.0" = type { %"struct.std::_Vector_base.1" }
-%"struct.std::_Vector_base.1" = type { %"struct.std::_Vector_base<net::HpackHuffmanTable::DecodeEntry, std::allocator<net::HpackHuffmanTable::DecodeEntry>>::_Vector_impl" }
-%"struct.std::_Vector_base<net::HpackHuffmanTable::DecodeEntry, std::allocator<net::HpackHuffmanTable::DecodeEntry>>::_Vector_impl" = type { %"struct.std::_Vector_base<net::HpackHuffmanTable::DecodeEntry, std::allocator<net::HpackHuffmanTable::DecodeEntry>>::_Vector_impl_data" }
-%"struct.std::_Vector_base<net::HpackHuffmanTable::DecodeEntry, std::allocator<net::HpackHuffmanTable::DecodeEntry>>::_Vector_impl_data" = type { ptr, ptr, ptr }
-%"class.std::vector.5" = type { %"struct.std::_Vector_base.6" }
-%"struct.std::_Vector_base.6" = type { %"struct.std::_Vector_base<unsigned int, std::allocator<unsigned int>>::_Vector_impl" }
-%"struct.std::_Vector_base<unsigned int, std::allocator<unsigned int>>::_Vector_impl" = type { %"struct.std::_Vector_base<unsigned int, std::allocator<unsigned int>>::_Vector_impl_data" }
-%"struct.std::_Vector_base<unsigned int, std::allocator<unsigned int>>::_Vector_impl_data" = type { ptr, ptr, ptr }
-%"class.std::vector.10" = type { %"struct.std::_Vector_base.11" }
-%"struct.std::_Vector_base.11" = type { %"struct.std::_Vector_base<unsigned char, std::allocator<unsigned char>>::_Vector_impl" }
-%"struct.std::_Vector_base<unsigned char, std::allocator<unsigned char>>::_Vector_impl" = type { %"struct.std::_Vector_base<unsigned char, std::allocator<unsigned char>>::_Vector_impl_data" }
-%"struct.std::_Vector_base<unsigned char, std::allocator<unsigned char>>::_Vector_impl_data" = type { ptr, ptr, ptr }
 %"class.logging::LogMessage" = type <{ i32, [4 x i8], %"class.std::__cxx11::basic_ostringstream", i64, ptr, i32, [4 x i8] }>
 %"class.std::__cxx11::basic_ostringstream" = type { %"class.std::basic_ostream.base", %"class.std::__cxx11::basic_stringbuf", %"class.std::basic_ios" }
 %"class.std::basic_ostream.base" = type { ptr }
@@ -39,6 +20,8 @@ target triple = "x86_64-unknown-linux-gnu"
 %"struct.std::_Vector_base<net::HpackHuffmanSymbol, std::allocator<net::HpackHuffmanSymbol>>::_Vector_impl" = type { %"struct.std::_Vector_base<net::HpackHuffmanSymbol, std::allocator<net::HpackHuffmanSymbol>>::_Vector_impl_data" }
 %"struct.std::_Vector_base<net::HpackHuffmanSymbol, std::allocator<net::HpackHuffmanSymbol>>::_Vector_impl_data" = type { ptr, ptr, ptr }
 %"struct.net::HpackHuffmanSymbol" = type { i32, i8, i16 }
+%"struct.net::HpackHuffmanTable::DecodeTable" = type { i8, i8, i64 }
+%"struct.net::HpackHuffmanTable::DecodeEntry" = type { i8, i8, i16 }
 %"class.base::BasicStringPiece" = type { ptr, i64 }
 %"struct.__gnu_cxx::__ops::_Iter_comp_iter" = type { ptr }
 
@@ -83,9 +66,9 @@ $_ZN7logging17MakeCheckOpStringImtEEPNSt7__cxx1112basic_stringIcSt11char_traitsI
 define dso_local void @_ZN3net17HpackHuffmanTable11DecodeEntryC2Ev(ptr nocapture noundef nonnull writeonly align 2 dereferenceable(4) %this) unnamed_addr #0 align 2 {
 entry:
   store i8 0, ptr %this, align 2
-  %length = getelementptr inbounds %"struct.net::HpackHuffmanTable::DecodeEntry", ptr %this, i64 0, i32 1
+  %length = getelementptr inbounds i8, ptr %this, i64 1
   store i8 0, ptr %length, align 1
-  %symbol_id = getelementptr inbounds %"struct.net::HpackHuffmanTable::DecodeEntry", ptr %this, i64 0, i32 2
+  %symbol_id = getelementptr inbounds i8, ptr %this, i64 2
   store i16 0, ptr %symbol_id, align 2
   ret void
 }
@@ -94,9 +77,9 @@ entry:
 define dso_local void @_ZN3net17HpackHuffmanTable11DecodeEntryC2Ehht(ptr nocapture noundef nonnull writeonly align 2 dereferenceable(4) %this, i8 noundef zeroext %next_table_index, i8 noundef zeroext %length, i16 noundef zeroext %symbol_id) unnamed_addr #0 align 2 {
 entry:
   store i8 %next_table_index, ptr %this, align 2
-  %length3 = getelementptr inbounds %"struct.net::HpackHuffmanTable::DecodeEntry", ptr %this, i64 0, i32 1
+  %length3 = getelementptr inbounds i8, ptr %this, i64 1
   store i8 %length, ptr %length3, align 1
-  %symbol_id4 = getelementptr inbounds %"struct.net::HpackHuffmanTable::DecodeEntry", ptr %this, i64 0, i32 2
+  %symbol_id4 = getelementptr inbounds i8, ptr %this, i64 2
   store i16 %symbol_id, ptr %symbol_id4, align 2
   ret void
 }
@@ -104,7 +87,7 @@ entry:
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
 define dso_local noundef i64 @_ZNK3net17HpackHuffmanTable11DecodeTable4sizeEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %this) local_unnamed_addr #1 align 2 {
 entry:
-  %indexed_length = getelementptr inbounds %"struct.net::HpackHuffmanTable::DecodeTable", ptr %this, i64 0, i32 1
+  %indexed_length = getelementptr inbounds i8, ptr %this, i64 1
   %0 = load i8, ptr %indexed_length, align 1
   %sh_prom = zext nneg i8 %0 to i64
   %shl = shl nuw i64 1, %sh_prom
@@ -121,7 +104,7 @@ entry:
 ; Function Attrs: mustprogress nounwind uwtable
 define dso_local void @_ZN3net17HpackHuffmanTableD2Ev(ptr nocapture noundef nonnull readonly align 8 dereferenceable(100) %this) unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  %length_by_id_ = getelementptr inbounds %"class.net::HpackHuffmanTable", ptr %this, i64 0, i32 3
+  %length_by_id_ = getelementptr inbounds i8, ptr %this, i64 72
   %0 = load ptr, ptr %length_by_id_, align 8
   %tobool.not.i.i.i = icmp eq ptr %0, null
   br i1 %tobool.not.i.i.i, label %_ZNSt6vectorIhSaIhEED2Ev.exit, label %if.then.i.i.i
@@ -131,7 +114,7 @@ if.then.i.i.i:                                    ; preds = %entry
   br label %_ZNSt6vectorIhSaIhEED2Ev.exit
 
 _ZNSt6vectorIhSaIhEED2Ev.exit:                    ; preds = %entry, %if.then.i.i.i
-  %code_by_id_ = getelementptr inbounds %"class.net::HpackHuffmanTable", ptr %this, i64 0, i32 2
+  %code_by_id_ = getelementptr inbounds i8, ptr %this, i64 48
   %1 = load ptr, ptr %code_by_id_, align 8
   %tobool.not.i.i.i1 = icmp eq ptr %1, null
   br i1 %tobool.not.i.i.i1, label %_ZNSt6vectorIjSaIjEED2Ev.exit, label %if.then.i.i.i2
@@ -141,7 +124,7 @@ if.then.i.i.i2:                                   ; preds = %_ZNSt6vectorIhSaIhE
   br label %_ZNSt6vectorIjSaIjEED2Ev.exit
 
 _ZNSt6vectorIjSaIjEED2Ev.exit:                    ; preds = %_ZNSt6vectorIhSaIhEED2Ev.exit, %if.then.i.i.i2
-  %decode_entries_ = getelementptr inbounds %"class.net::HpackHuffmanTable", ptr %this, i64 0, i32 1
+  %decode_entries_ = getelementptr inbounds i8, ptr %this, i64 24
   %2 = load ptr, ptr %decode_entries_, align 8
   %tobool.not.i.i.i3 = icmp eq ptr %2, null
   br i1 %tobool.not.i.i.i3, label %_ZNSt6vectorIN3net17HpackHuffmanTable11DecodeEntryESaIS2_EED2Ev.exit, label %if.then.i.i.i4
@@ -168,9 +151,9 @@ define dso_local noundef zeroext i1 @_ZN3net17HpackHuffmanTable10InitializeEPKNS
 entry:
   %ref.tmp2 = alloca %"class.logging::LogMessage", align 8
   %symbols = alloca %"class.std::vector.18", align 8
-  %code_by_id_.i = getelementptr inbounds %"class.net::HpackHuffmanTable", ptr %this, i64 0, i32 2
+  %code_by_id_.i = getelementptr inbounds i8, ptr %this, i64 48
   %0 = load ptr, ptr %code_by_id_.i, align 8
-  %_M_finish.i.i.i = getelementptr inbounds %"class.net::HpackHuffmanTable", ptr %this, i64 0, i32 2, i32 0, i32 0, i32 0, i32 1
+  %_M_finish.i.i.i = getelementptr inbounds i8, ptr %this, i64 56
   %1 = load ptr, ptr %_M_finish.i.i.i, align 8
   %cmp.i.i.i.not = icmp eq ptr %0, %1
   br i1 %cmp.i.i.i.not, label %cleanup.done, label %cond.false
@@ -195,7 +178,7 @@ _ZNSt6vectorIN3net18HpackHuffmanSymbolESaIS1_EE17_S_check_init_lenEmRKS2_.exit.i
   br i1 %cmp.not.i.i.i.i, label %for.end.thread, label %if.then.i.i.i.i.i
 
 for.end.thread:                                   ; preds = %_ZNSt6vectorIN3net18HpackHuffmanSymbolESaIS1_EE17_S_check_init_lenEmRKS2_.exit.i
-  %_M_finish.i.i7.i239 = getelementptr inbounds %"struct.std::_Vector_base<net::HpackHuffmanSymbol, std::allocator<net::HpackHuffmanSymbol>>::_Vector_impl_data", ptr %symbols, i64 0, i32 1
+  %_M_finish.i.i7.i240 = getelementptr inbounds i8, ptr %symbols, i64 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %symbols, i8 0, i64 24, i1 false)
   br label %invoke.cont25
 
@@ -203,87 +186,97 @@ if.then.i.i.i.i.i:                                ; preds = %_ZNSt6vectorIN3net1
   %mul.i.i.i.i.i.i = shl nuw nsw i64 %symbol_count, 3
   %call5.i.i.i.i2.i.i18 = call noalias noundef nonnull ptr @_Znwm(i64 noundef %mul.i.i.i.i.i.i) #19
   store ptr %call5.i.i.i.i2.i.i18, ptr %symbols, align 8
-  %add.ptr.i.i.i.idx = shl nuw nsw i64 %symbol_count, 3
-  %add.ptr.i.i.i.ptr = getelementptr inbounds i8, ptr %call5.i.i.i.i2.i.i18, i64 %add.ptr.i.i.i.idx
-  %_M_end_of_storage.i.i.i = getelementptr inbounds %"struct.std::_Vector_base<net::HpackHuffmanSymbol, std::allocator<net::HpackHuffmanSymbol>>::_Vector_impl_data", ptr %symbols, i64 0, i32 2
-  store ptr %add.ptr.i.i.i.ptr, ptr %_M_end_of_storage.i.i.i, align 8
+  %add.ptr.i.i.i = getelementptr inbounds %"struct.net::HpackHuffmanSymbol", ptr %call5.i.i.i.i2.i.i18, i64 %symbol_count
+  %_M_end_of_storage.i.i.i = getelementptr inbounds i8, ptr %symbols, i64 16
+  store ptr %add.ptr.i.i.i, ptr %_M_end_of_storage.i.i.i, align 8
   store i64 0, ptr %call5.i.i.i.i2.i.i18, align 4
   %incdec.ptr.i.i.i.i.i.ptr = getelementptr inbounds i8, ptr %call5.i.i.i.i2.i.i18, i64 8
-  %cmp.i.i.i.i.i.i.i = icmp eq i64 %symbol_count, 1
-  br i1 %cmp.i.i.i.i.i.i.i, label %invoke.cont10.thread242, label %for.body.i.i.i.i.i.i.i.i.i
+  %sub.i.i.i.i.i = add nsw i64 %symbol_count, -1
+  %cmp.i.i.i.i.i.i.i = icmp eq i64 %sub.i.i.i.i.i, 0
+  br i1 %cmp.i.i.i.i.i.i.i, label %invoke.cont10.thread243, label %if.end.i.i.i.i.i.i.i
 
-invoke.cont10.thread242:                          ; preds = %if.then.i.i.i.i.i
-  %_M_finish.i.i7.i244 = getelementptr inbounds %"struct.std::_Vector_base<net::HpackHuffmanSymbol, std::allocator<net::HpackHuffmanSymbol>>::_Vector_impl_data", ptr %symbols, i64 0, i32 1
-  store ptr %incdec.ptr.i.i.i.i.i.ptr, ptr %_M_finish.i.i7.i244, align 8
+invoke.cont10.thread243:                          ; preds = %if.then.i.i.i.i.i
+  %_M_finish.i.i7.i245 = getelementptr inbounds i8, ptr %symbols, i64 8
+  store ptr %incdec.ptr.i.i.i.i.i.ptr, ptr %_M_finish.i.i7.i245, align 8
   br label %for.body.lr.ph
 
-for.body.i.i.i.i.i.i.i.i.i:                       ; preds = %if.then.i.i.i.i.i, %for.body.i.i.i.i.i.i.i.i.i
-  %__first.addr.04.i.i.i.i.i.i.i.i.i = phi ptr [ %incdec.ptr.i.i.i.i.i.i.i.i.i, %for.body.i.i.i.i.i.i.i.i.i ], [ %incdec.ptr.i.i.i.i.i.ptr, %if.then.i.i.i.i.i ]
+if.end.i.i.i.i.i.i.i:                             ; preds = %if.then.i.i.i.i.i
+  %add.ptr.i.i.i.i.i.i.i.idx = shl nsw i64 %sub.i.i.i.i.i, 3
+  %incdec.ptr.i.i.i.i.i.add = add nsw i64 %add.ptr.i.i.i.i.i.i.i.idx, 8
+  %add.ptr.i.i.i.i.i.i.i.ptr = getelementptr inbounds i8, ptr %call5.i.i.i.i2.i.i18, i64 %incdec.ptr.i.i.i.i.i.add
+  br label %for.body.i.i.i.i.i.i.i.i.i
+
+for.body.i.i.i.i.i.i.i.i.i:                       ; preds = %for.body.i.i.i.i.i.i.i.i.i, %if.end.i.i.i.i.i.i.i
+  %__first.addr.04.i.i.i.i.i.i.i.i.i = phi ptr [ %incdec.ptr.i.i.i.i.i.i.i.i.i, %for.body.i.i.i.i.i.i.i.i.i ], [ %incdec.ptr.i.i.i.i.i.ptr, %if.end.i.i.i.i.i.i.i ]
   %3 = load i64, ptr %call5.i.i.i.i2.i.i18, align 4
   store i64 %3, ptr %__first.addr.04.i.i.i.i.i.i.i.i.i, align 4
-  %incdec.ptr.i.i.i.i.i.i.i.i.i = getelementptr inbounds %"struct.net::HpackHuffmanSymbol", ptr %__first.addr.04.i.i.i.i.i.i.i.i.i, i64 1
-  %cmp.not.i.i.i.i.i.i.i.i.i = icmp eq ptr %incdec.ptr.i.i.i.i.i.i.i.i.i, %add.ptr.i.i.i.ptr
+  %incdec.ptr.i.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %__first.addr.04.i.i.i.i.i.i.i.i.i, i64 8
+  %cmp.not.i.i.i.i.i.i.i.i.i = icmp eq ptr %incdec.ptr.i.i.i.i.i.i.i.i.i, %add.ptr.i.i.i.i.i.i.i.ptr
   br i1 %cmp.not.i.i.i.i.i.i.i.i.i, label %invoke.cont10, label %for.body.i.i.i.i.i.i.i.i.i, !llvm.loop !5
 
 invoke.cont10:                                    ; preds = %for.body.i.i.i.i.i.i.i.i.i
-  %_M_finish.i.i7.i = getelementptr inbounds %"struct.std::_Vector_base<net::HpackHuffmanSymbol, std::allocator<net::HpackHuffmanSymbol>>::_Vector_impl_data", ptr %symbols, i64 0, i32 1
-  store ptr %add.ptr.i.i.i.ptr, ptr %_M_finish.i.i7.i, align 8
+  %_M_finish.i.i7.i = getelementptr inbounds i8, ptr %symbols, i64 8
+  store ptr %add.ptr.i.i.i.i.i.i.i.ptr, ptr %_M_finish.i.i7.i, align 8
   br i1 %cmp.not.i.i.i.i, label %for.end, label %for.body.lr.ph
 
-for.body.lr.ph:                                   ; preds = %invoke.cont10.thread242, %invoke.cont10
-  %_M_finish.i.i7.i246 = phi ptr [ %_M_finish.i.i7.i244, %invoke.cont10.thread242 ], [ %_M_finish.i.i7.i, %invoke.cont10 ]
-  %__first.addr.0.i.i.i.i.i245.idx = phi i64 [ 8, %invoke.cont10.thread242 ], [ %add.ptr.i.i.i.idx, %invoke.cont10 ]
+for.body.lr.ph:                                   ; preds = %invoke.cont10.thread243, %invoke.cont10
+  %_M_finish.i.i7.i247 = phi ptr [ %_M_finish.i.i7.i245, %invoke.cont10.thread243 ], [ %_M_finish.i.i7.i, %invoke.cont10 ]
+  %__first.addr.0.i.i.i.i.i246.idx = phi i64 [ 8, %invoke.cont10.thread243 ], [ %incdec.ptr.i.i.i.i.i.add, %invoke.cont10 ]
   br label %for.body
 
 for.body:                                         ; preds = %for.body.lr.ph, %if.end
-  %conv227 = phi i64 [ 0, %for.body.lr.ph ], [ %conv, %if.end ]
-  %i.0226 = phi i16 [ 0, %for.body.lr.ph ], [ %inc, %if.end ]
-  %id = getelementptr inbounds %"struct.net::HpackHuffmanSymbol", ptr %input_symbols, i64 %conv227, i32 2
+  %conv226 = phi i64 [ 0, %for.body.lr.ph ], [ %conv, %if.end ]
+  %i.0225 = phi i16 [ 0, %for.body.lr.ph ], [ %inc, %if.end ]
+  %arrayidx = getelementptr inbounds %"struct.net::HpackHuffmanSymbol", ptr %input_symbols, i64 %conv226
+  %id = getelementptr inbounds i8, ptr %arrayidx, i64 6
   %4 = load i16, ptr %id, align 2
-  %cmp13.not = icmp eq i16 %i.0226, %4
+  %cmp13.not = icmp eq i16 %i.0225, %4
   br i1 %cmp13.not, label %if.end, label %if.then.i.i.i44.sink.split
 
 if.end:                                           ; preds = %for.body
-  %arrayidx = getelementptr inbounds %"struct.net::HpackHuffmanSymbol", ptr %input_symbols, i64 %conv227
-  %add.ptr.i = getelementptr inbounds %"struct.net::HpackHuffmanSymbol", ptr %call5.i.i.i.i2.i.i18, i64 %conv227
+  %add.ptr.i = getelementptr inbounds %"struct.net::HpackHuffmanSymbol", ptr %call5.i.i.i.i2.i.i18, i64 %conv226
   %5 = load i64, ptr %arrayidx, align 4
   store i64 %5, ptr %add.ptr.i, align 4
-  %inc = add i16 %i.0226, 1
+  %inc = add i16 %i.0225, 1
   %conv = zext i16 %inc to i64
   %cmp = icmp ult i64 %conv, %symbol_count
   br i1 %cmp, label %for.body, label %for.end, !llvm.loop !7
 
 for.end:                                          ; preds = %if.end, %invoke.cont10
-  %_M_finish.i.i7.i241 = phi ptr [ %_M_finish.i.i7.i, %invoke.cont10 ], [ %_M_finish.i.i7.i246, %if.end ]
-  %__first.addr.0.i.i.i.i.i240.idx = phi i64 [ %add.ptr.i.i.i.idx, %invoke.cont10 ], [ %__first.addr.0.i.i.i.i.i245.idx, %if.end ]
-  %__first.addr.0.i.i.i.i.i240.ptr.ptr = getelementptr inbounds i8, ptr %call5.i.i.i.i2.i.i18, i64 %__first.addr.0.i.i.i.i.i240.idx
+  %_M_finish.i.i7.i242 = phi ptr [ %_M_finish.i.i7.i, %invoke.cont10 ], [ %_M_finish.i.i7.i247, %if.end ]
+  %__first.addr.0.i.i.i.i.i241.idx = phi i64 [ %incdec.ptr.i.i.i.i.i.add, %invoke.cont10 ], [ %__first.addr.0.i.i.i.i.i246.idx, %if.end ]
+  %__first.addr.0.i.i.i.i.i241.ptr = getelementptr inbounds i8, ptr %call5.i.i.i.i2.i.i18, i64 %__first.addr.0.i.i.i.i.i241.idx
+  %cmp.i.not.i.i = icmp eq i64 %__first.addr.0.i.i.i.i.i241.idx, 0
+  br i1 %cmp.i.not.i.i, label %invoke.cont25, label %if.then.i.i19
+
+if.then.i.i19:                                    ; preds = %for.end
   %sub.ptr.rhs.cast.i.i.i = ptrtoint ptr %call5.i.i.i.i2.i.i18 to i64
-  %sub.ptr.div.i.i.i = ashr exact i64 %__first.addr.0.i.i.i.i.i240.idx, 3
+  %sub.ptr.div.i.i.i = ashr exact i64 %__first.addr.0.i.i.i.i.i241.idx, 3
   %6 = call i64 @llvm.ctlz.i64(i64 %sub.ptr.div.i.i.i, i1 true), !range !8
   %sub.i.i.i = shl nuw nsw i64 %6, 1
   %mul.i.i = xor i64 %sub.i.i.i, 126
-  invoke void @_ZSt16__introsort_loopIN9__gnu_cxx17__normal_iteratorIPN3net18HpackHuffmanSymbolESt6vectorIS3_SaIS3_EEEElNS0_5__ops15_Iter_comp_iterIPFbRKS3_SC_EEEEvT_SG_T0_T1_(ptr nonnull %call5.i.i.i.i2.i.i18, ptr nonnull %__first.addr.0.i.i.i.i.i240.ptr.ptr, i64 noundef %mul.i.i, ptr nonnull @_ZN3net12_GLOBAL__N_124SymbolLengthAndIdCompareERKNS_18HpackHuffmanSymbolES3_)
+  invoke void @_ZSt16__introsort_loopIN9__gnu_cxx17__normal_iteratorIPN3net18HpackHuffmanSymbolESt6vectorIS3_SaIS3_EEEElNS0_5__ops15_Iter_comp_iterIPFbRKS3_SC_EEEEvT_SG_T0_T1_(ptr nonnull %call5.i.i.i.i2.i.i18, ptr nonnull %__first.addr.0.i.i.i.i.i241.ptr, i64 noundef %mul.i.i, ptr nonnull @_ZN3net12_GLOBAL__N_124SymbolLengthAndIdCompareERKNS_18HpackHuffmanSymbolES3_)
           to label %.noexc20 unwind label %lpad24
 
-.noexc20:                                         ; preds = %for.end
-  %cmp.i = icmp sgt i64 %__first.addr.0.i.i.i.i.i240.idx, 128
+.noexc20:                                         ; preds = %if.then.i.i19
+  %cmp.i = icmp sgt i64 %__first.addr.0.i.i.i.i.i241.idx, 128
+  %scevgep.i = getelementptr i8, ptr %call5.i.i.i.i2.i.i18, i64 8
   br i1 %cmp.i, label %for.body.lr.ph.i.i, label %if.else.i
 
 for.body.lr.ph.i.i:                               ; preds = %.noexc20
-  %scevgep.i = getelementptr i8, ptr %call5.i.i.i.i2.i.i18, i64 8
-  %length1.i170 = getelementptr inbounds %"struct.net::HpackHuffmanSymbol", ptr %call5.i.i.i.i2.i.i18, i64 0, i32 1
-  %id4.i173 = getelementptr inbounds %"struct.net::HpackHuffmanSymbol", ptr %call5.i.i.i.i2.i.i18, i64 0, i32 2
+  %length1.i170 = getelementptr inbounds i8, ptr %call5.i.i.i.i2.i.i18, i64 4
+  %id4.i173 = getelementptr inbounds i8, ptr %call5.i.i.i.i2.i.i18, i64 6
   br label %for.body.i.i
 
 for.body.i.i:                                     ; preds = %for.inc.i.i, %for.body.lr.ph.i.i
   %__i.sroa.0.012.i.idx.i = phi i64 [ 8, %for.body.lr.ph.i.i ], [ %__i.sroa.0.012.i.add.i, %for.inc.i.i ]
   %__first.coerce.pn11.i.i = phi ptr [ %call5.i.i.i.i2.i.i18, %for.body.lr.ph.i.i ], [ %__i.sroa.0.012.i.ptr.i, %for.inc.i.i ]
   %__i.sroa.0.012.i.ptr.i = getelementptr inbounds i8, ptr %call5.i.i.i.i2.i.i18, i64 %__i.sroa.0.012.i.idx.i
-  %length.i169 = getelementptr inbounds %"struct.net::HpackHuffmanSymbol", ptr %__i.sroa.0.012.i.ptr.i, i64 0, i32 1
+  %length.i169 = getelementptr inbounds i8, ptr %__i.sroa.0.012.i.ptr.i, i64 4
   %7 = load i8, ptr %length.i169, align 4
   %8 = load i8, ptr %length1.i170, align 4
   %cmp.i171 = icmp eq i8 %7, %8
-  %id.i172 = getelementptr inbounds %"struct.net::HpackHuffmanSymbol", ptr %__i.sroa.0.012.i.ptr.i, i64 0, i32 2
+  %id.i172 = getelementptr inbounds i8, ptr %__i.sroa.0.012.i.ptr.i, i64 6
   %9 = load i16, ptr %id.i172, align 2
   %10 = load i16, ptr %id4.i173, align 2
   %cmp6.i174 = icmp ult i16 %9, %10
@@ -301,10 +294,10 @@ if.else.i.i:                                      ; preds = %for.body.i.i
   %__val.i.i.i.sroa.4.0.extract.trunc = trunc i64 %__val.i.i.i.sroa.4.0.extract.shift to i8
   %__val.i.i.i.sroa.6201.0.extract.shift = lshr i64 %11, 48
   %__val.i.i.i.sroa.6201.0.extract.trunc = trunc i64 %__val.i.i.i.sroa.6201.0.extract.shift to i16
-  %length1.i162 = getelementptr inbounds %"struct.net::HpackHuffmanSymbol", ptr %__first.coerce.pn11.i.i, i64 0, i32 1
+  %length1.i162 = getelementptr inbounds i8, ptr %__first.coerce.pn11.i.i, i64 4
   %12 = load i8, ptr %length1.i162, align 4
   %cmp.i163 = icmp eq i8 %12, %__val.i.i.i.sroa.4.0.extract.trunc
-  %id4.i165 = getelementptr inbounds %"struct.net::HpackHuffmanSymbol", ptr %__first.coerce.pn11.i.i, i64 0, i32 2
+  %id4.i165 = getelementptr inbounds i8, ptr %__first.coerce.pn11.i.i, i64 6
   %13 = load i16, ptr %id4.i165, align 2
   %cmp6.i166 = icmp ugt i16 %13, %__val.i.i.i.sroa.6201.0.extract.trunc
   %cmp11.i167 = icmp ugt i8 %12, %__val.i.i.i.sroa.4.0.extract.trunc
@@ -316,11 +309,11 @@ while.body.i.i.i:                                 ; preds = %if.else.i.i, %while
   %__last.sroa.0.08.i.i.i = phi ptr [ %__next.sroa.0.09.i.i.i, %while.body.i.i.i ], [ %__i.sroa.0.012.i.ptr.i, %if.else.i.i ]
   %14 = load i64, ptr %__next.sroa.0.09.i.i.i, align 4
   store i64 %14, ptr %__last.sroa.0.08.i.i.i, align 4
-  %__next.sroa.0.0.i.i.i = getelementptr inbounds %"struct.net::HpackHuffmanSymbol", ptr %__next.sroa.0.09.i.i.i, i64 -1
-  %length1.i154 = getelementptr %"struct.net::HpackHuffmanSymbol", ptr %__next.sroa.0.09.i.i.i, i64 -1, i32 1
+  %__next.sroa.0.0.i.i.i = getelementptr inbounds i8, ptr %__next.sroa.0.09.i.i.i, i64 -8
+  %length1.i154 = getelementptr inbounds i8, ptr %__next.sroa.0.09.i.i.i, i64 -4
   %15 = load i8, ptr %length1.i154, align 4
   %cmp.i155 = icmp eq i8 %15, %__val.i.i.i.sroa.4.0.extract.trunc
-  %id4.i157 = getelementptr %"struct.net::HpackHuffmanSymbol", ptr %__next.sroa.0.09.i.i.i, i64 -1, i32 2
+  %id4.i157 = getelementptr inbounds i8, ptr %__next.sroa.0.09.i.i.i, i64 -2
   %16 = load i16, ptr %id4.i157, align 2
   %cmp6.i158 = icmp ugt i16 %16, %__val.i.i.i.sroa.6201.0.extract.trunc
   %cmp11.i159 = icmp ugt i8 %15, %__val.i.i.i.sroa.4.0.extract.trunc
@@ -335,7 +328,7 @@ for.inc.i.i:                                      ; preds = %while.body.i.i.i, %
   br i1 %cmp.i1.not.i.i, label %for.body.i3.i.preheader, label %for.body.i.i, !llvm.loop !10
 
 for.body.i3.i.preheader:                          ; preds = %for.inc.i.i
-  %add.ptr.i.i46 = getelementptr inbounds %"struct.net::HpackHuffmanSymbol", ptr %call5.i.i.i.i2.i.i18, i64 16
+  %add.ptr.i.i46 = getelementptr inbounds i8, ptr %call5.i.i.i.i2.i.i18, i64 128
   br label %for.body.i3.i
 
 for.body.i3.i:                                    ; preds = %for.body.i3.i.preheader, %_ZSt25__unguarded_linear_insertIN9__gnu_cxx17__normal_iteratorIPN3net18HpackHuffmanSymbolESt6vectorIS3_SaIS3_EEEENS0_5__ops14_Val_comp_iterIPFbRKS3_SC_EEEEvT_T0_.exit.i5.i
@@ -345,10 +338,10 @@ for.body.i3.i:                                    ; preds = %for.body.i3.i.prehe
   %__val.i.i2.i.sroa.4.0.extract.trunc = trunc i64 %__val.i.i2.i.sroa.4.0.extract.shift to i8
   %__val.i.i2.i.sroa.6204.0.extract.shift = lshr i64 %17, 48
   %__val.i.i2.i.sroa.6204.0.extract.trunc = trunc i64 %__val.i.i2.i.sroa.6204.0.extract.shift to i16
-  %length1.i146 = getelementptr %"struct.net::HpackHuffmanSymbol", ptr %__i.sroa.0.03.i.i, i64 -1, i32 1
+  %length1.i146 = getelementptr inbounds i8, ptr %__i.sroa.0.03.i.i, i64 -4
   %18 = load i8, ptr %length1.i146, align 4
   %cmp.i147 = icmp eq i8 %18, %__val.i.i2.i.sroa.4.0.extract.trunc
-  %id4.i149 = getelementptr %"struct.net::HpackHuffmanSymbol", ptr %__i.sroa.0.03.i.i, i64 -1, i32 2
+  %id4.i149 = getelementptr inbounds i8, ptr %__i.sroa.0.03.i.i, i64 -2
   %19 = load i16, ptr %id4.i149, align 2
   %cmp6.i150 = icmp ugt i16 %19, %__val.i.i2.i.sroa.6204.0.extract.trunc
   %cmp11.i151 = icmp ugt i8 %18, %__val.i.i2.i.sroa.4.0.extract.trunc
@@ -357,13 +350,13 @@ for.body.i3.i:                                    ; preds = %for.body.i3.i.prehe
 
 while.body.i.i7.i:                                ; preds = %for.body.i3.i, %while.body.i.i7.i
   %__last.sroa.0.08.i.i9.i = phi ptr [ %__next.sroa.0.09.i.i8.i, %while.body.i.i7.i ], [ %__i.sroa.0.03.i.i, %for.body.i3.i ]
-  %__next.sroa.0.09.i.i8.i = getelementptr inbounds %"struct.net::HpackHuffmanSymbol", ptr %__last.sroa.0.08.i.i9.i, i64 -1
+  %__next.sroa.0.09.i.i8.i = getelementptr inbounds i8, ptr %__last.sroa.0.08.i.i9.i, i64 -8
   %20 = load i64, ptr %__next.sroa.0.09.i.i8.i, align 4
   store i64 %20, ptr %__last.sroa.0.08.i.i9.i, align 4
-  %length1.i138 = getelementptr %"struct.net::HpackHuffmanSymbol", ptr %__last.sroa.0.08.i.i9.i, i64 -2, i32 1
+  %length1.i138 = getelementptr inbounds i8, ptr %__last.sroa.0.08.i.i9.i, i64 -12
   %21 = load i8, ptr %length1.i138, align 4
   %cmp.i139 = icmp eq i8 %21, %__val.i.i2.i.sroa.4.0.extract.trunc
-  %id4.i141 = getelementptr %"struct.net::HpackHuffmanSymbol", ptr %__last.sroa.0.08.i.i9.i, i64 -2, i32 2
+  %id4.i141 = getelementptr inbounds i8, ptr %__last.sroa.0.08.i.i9.i, i64 -10
   %22 = load i16, ptr %id4.i141, align 2
   %cmp6.i142 = icmp ugt i16 %22, %__val.i.i2.i.sroa.6204.0.extract.trunc
   %cmp11.i143 = icmp ugt i8 %21, %__val.i.i2.i.sroa.4.0.extract.trunc
@@ -373,28 +366,27 @@ while.body.i.i7.i:                                ; preds = %for.body.i3.i, %whi
 _ZSt25__unguarded_linear_insertIN9__gnu_cxx17__normal_iteratorIPN3net18HpackHuffmanSymbolESt6vectorIS3_SaIS3_EEEENS0_5__ops14_Val_comp_iterIPFbRKS3_SC_EEEEvT_T0_.exit.i5.i: ; preds = %while.body.i.i7.i, %for.body.i3.i
   %__last.sroa.0.0.lcssa.i.i6.i = phi ptr [ %__i.sroa.0.03.i.i, %for.body.i3.i ], [ %__next.sroa.0.09.i.i8.i, %while.body.i.i7.i ]
   store i64 %17, ptr %__last.sroa.0.0.lcssa.i.i6.i, align 4
-  %incdec.ptr.i.i.i = getelementptr inbounds %"struct.net::HpackHuffmanSymbol", ptr %__i.sroa.0.03.i.i, i64 1
-  %cmp.i.not.i.i47 = icmp eq ptr %incdec.ptr.i.i.i, %__first.addr.0.i.i.i.i.i240.ptr.ptr
+  %incdec.ptr.i.i.i = getelementptr inbounds i8, ptr %__i.sroa.0.03.i.i, i64 8
+  %cmp.i.not.i.i47 = icmp eq ptr %incdec.ptr.i.i.i, %__first.addr.0.i.i.i.i.i241.ptr
   br i1 %cmp.i.not.i.i47, label %invoke.cont25, label %for.body.i3.i, !llvm.loop !11
 
 if.else.i:                                        ; preds = %.noexc20
-  %cmp.i1.not10.i16.i = icmp eq i64 %__first.addr.0.i.i.i.i.i240.idx, 8
+  %cmp.i1.not10.i16.i = icmp eq ptr %scevgep.i, %__first.addr.0.i.i.i.i.i241.ptr
   br i1 %cmp.i1.not10.i16.i, label %invoke.cont25, label %for.body.i19.i.preheader
 
 for.body.i19.i.preheader:                         ; preds = %if.else.i
-  %__i.sroa.0.09.i15.i = getelementptr inbounds %"struct.net::HpackHuffmanSymbol", ptr %call5.i.i.i.i2.i.i18, i64 1
-  %length1.i130 = getelementptr inbounds %"struct.net::HpackHuffmanSymbol", ptr %call5.i.i.i.i2.i.i18, i64 0, i32 1
-  %id4.i133 = getelementptr inbounds %"struct.net::HpackHuffmanSymbol", ptr %call5.i.i.i.i2.i.i18, i64 0, i32 2
+  %length1.i130 = getelementptr inbounds i8, ptr %call5.i.i.i.i2.i.i18, i64 4
+  %id4.i133 = getelementptr inbounds i8, ptr %call5.i.i.i.i2.i.i18, i64 6
   br label %for.body.i19.i
 
 for.body.i19.i:                                   ; preds = %for.body.i19.i.preheader, %for.inc.i27.i
-  %__i.sroa.0.012.i20.i = phi ptr [ %__i.sroa.0.0.i28.i, %for.inc.i27.i ], [ %__i.sroa.0.09.i15.i, %for.body.i19.i.preheader ]
+  %__i.sroa.0.012.i20.i = phi ptr [ %__i.sroa.0.0.i28.i, %for.inc.i27.i ], [ %scevgep.i, %for.body.i19.i.preheader ]
   %__first.coerce.pn11.i21.i = phi ptr [ %__i.sroa.0.012.i20.i, %for.inc.i27.i ], [ %call5.i.i.i.i2.i.i18, %for.body.i19.i.preheader ]
-  %length.i129 = getelementptr inbounds %"struct.net::HpackHuffmanSymbol", ptr %__i.sroa.0.012.i20.i, i64 0, i32 1
+  %length.i129 = getelementptr inbounds i8, ptr %__i.sroa.0.012.i20.i, i64 4
   %23 = load i8, ptr %length.i129, align 4
   %24 = load i8, ptr %length1.i130, align 4
   %cmp.i131 = icmp eq i8 %23, %24
-  %id.i132 = getelementptr inbounds %"struct.net::HpackHuffmanSymbol", ptr %__i.sroa.0.012.i20.i, i64 0, i32 2
+  %id.i132 = getelementptr inbounds i8, ptr %__i.sroa.0.012.i20.i, i64 6
   %25 = load i16, ptr %id.i132, align 2
   %26 = load i16, ptr %id4.i133, align 2
   %cmp6.i134 = icmp ult i16 %25, %26
@@ -404,7 +396,7 @@ for.body.i19.i:                                   ; preds = %for.body.i19.i.preh
   br i1 %retval.0.i136, label %_ZSt13move_backwardIN9__gnu_cxx17__normal_iteratorIPN3net18HpackHuffmanSymbolESt6vectorIS3_SaIS3_EEEES8_ET0_T_SA_S9_.exit.i35.i, label %if.else.i23.i
 
 _ZSt13move_backwardIN9__gnu_cxx17__normal_iteratorIPN3net18HpackHuffmanSymbolESt6vectorIS3_SaIS3_EEEES8_ET0_T_SA_S9_.exit.i35.i: ; preds = %for.body.i19.i
-  %add.ptr.i2.i36.i = getelementptr inbounds %"struct.net::HpackHuffmanSymbol", ptr %__first.coerce.pn11.i21.i, i64 2
+  %add.ptr.i2.i36.i = getelementptr inbounds i8, ptr %__first.coerce.pn11.i21.i, i64 16
   %sub.ptr.lhs.cast.i.i.i.i.i.i37.i = ptrtoint ptr %__i.sroa.0.012.i20.i to i64
   %sub.ptr.sub.i.i.i.i.i.i38.i = sub i64 %sub.ptr.lhs.cast.i.i.i.i.i.i37.i, %sub.ptr.rhs.cast.i.i.i
   %sub.ptr.div.i.i.i.i.i.i39.i = ashr exact i64 %sub.ptr.sub.i.i.i.i.i.i38.i, 3
@@ -418,10 +410,10 @@ if.else.i23.i:                                    ; preds = %for.body.i19.i
   %__val.i.i12.i.sroa.4.0.extract.trunc = trunc i64 %__val.i.i12.i.sroa.4.0.extract.shift to i8
   %__val.i.i12.i.sroa.6207.0.extract.shift = lshr i64 %27, 48
   %__val.i.i12.i.sroa.6207.0.extract.trunc = trunc i64 %__val.i.i12.i.sroa.6207.0.extract.shift to i16
-  %length1.i122 = getelementptr inbounds %"struct.net::HpackHuffmanSymbol", ptr %__first.coerce.pn11.i21.i, i64 0, i32 1
+  %length1.i122 = getelementptr inbounds i8, ptr %__first.coerce.pn11.i21.i, i64 4
   %28 = load i8, ptr %length1.i122, align 4
   %cmp.i123 = icmp eq i8 %28, %__val.i.i12.i.sroa.4.0.extract.trunc
-  %id4.i125 = getelementptr inbounds %"struct.net::HpackHuffmanSymbol", ptr %__first.coerce.pn11.i21.i, i64 0, i32 2
+  %id4.i125 = getelementptr inbounds i8, ptr %__first.coerce.pn11.i21.i, i64 6
   %29 = load i16, ptr %id4.i125, align 2
   %cmp6.i126 = icmp ugt i16 %29, %__val.i.i12.i.sroa.6207.0.extract.trunc
   %cmp11.i127 = icmp ugt i8 %28, %__val.i.i12.i.sroa.4.0.extract.trunc
@@ -433,11 +425,11 @@ while.body.i.i30.i:                               ; preds = %if.else.i23.i, %whi
   %__last.sroa.0.08.i.i32.i = phi ptr [ %__next.sroa.0.09.i.i31.i, %while.body.i.i30.i ], [ %__i.sroa.0.012.i20.i, %if.else.i23.i ]
   %30 = load i64, ptr %__next.sroa.0.09.i.i31.i, align 4
   store i64 %30, ptr %__last.sroa.0.08.i.i32.i, align 4
-  %__next.sroa.0.0.i.i33.i = getelementptr inbounds %"struct.net::HpackHuffmanSymbol", ptr %__next.sroa.0.09.i.i31.i, i64 -1
-  %length1.i = getelementptr %"struct.net::HpackHuffmanSymbol", ptr %__next.sroa.0.09.i.i31.i, i64 -1, i32 1
+  %__next.sroa.0.0.i.i33.i = getelementptr inbounds i8, ptr %__next.sroa.0.09.i.i31.i, i64 -8
+  %length1.i = getelementptr inbounds i8, ptr %__next.sroa.0.09.i.i31.i, i64 -4
   %31 = load i8, ptr %length1.i, align 4
   %cmp.i120 = icmp eq i8 %31, %__val.i.i12.i.sroa.4.0.extract.trunc
-  %id4.i = getelementptr %"struct.net::HpackHuffmanSymbol", ptr %__next.sroa.0.09.i.i31.i, i64 -1, i32 2
+  %id4.i = getelementptr inbounds i8, ptr %__next.sroa.0.09.i.i31.i, i64 -2
   %32 = load i16, ptr %id4.i, align 2
   %cmp6.i = icmp ugt i16 %32, %__val.i.i12.i.sroa.6207.0.extract.trunc
   %cmp11.i = icmp ugt i8 %31, %__val.i.i12.i.sroa.4.0.extract.trunc
@@ -447,27 +439,27 @@ while.body.i.i30.i:                               ; preds = %if.else.i23.i, %whi
 for.inc.i27.i:                                    ; preds = %while.body.i.i30.i, %if.else.i23.i, %_ZSt13move_backwardIN9__gnu_cxx17__normal_iteratorIPN3net18HpackHuffmanSymbolESt6vectorIS3_SaIS3_EEEES8_ET0_T_SA_S9_.exit.i35.i
   %__last.sroa.0.0.lcssa.i.i26.i.sink = phi ptr [ %call5.i.i.i.i2.i.i18, %_ZSt13move_backwardIN9__gnu_cxx17__normal_iteratorIPN3net18HpackHuffmanSymbolESt6vectorIS3_SaIS3_EEEES8_ET0_T_SA_S9_.exit.i35.i ], [ %__i.sroa.0.012.i20.i, %if.else.i23.i ], [ %__next.sroa.0.09.i.i31.i, %while.body.i.i30.i ]
   store i64 %27, ptr %__last.sroa.0.0.lcssa.i.i26.i.sink, align 4
-  %__i.sroa.0.0.i28.i = getelementptr inbounds %"struct.net::HpackHuffmanSymbol", ptr %__i.sroa.0.012.i20.i, i64 1
-  %cmp.i1.not.i29.i = icmp eq ptr %__i.sroa.0.0.i28.i, %__first.addr.0.i.i.i.i.i240.ptr.ptr
+  %__i.sroa.0.0.i28.i = getelementptr inbounds i8, ptr %__i.sroa.0.012.i20.i, i64 8
+  %cmp.i1.not.i29.i = icmp eq ptr %__i.sroa.0.0.i28.i, %__first.addr.0.i.i.i.i.i241.ptr
   br i1 %cmp.i1.not.i29.i, label %invoke.cont25, label %for.body.i19.i, !llvm.loop !10
 
-invoke.cont25:                                    ; preds = %for.inc.i27.i, %_ZSt25__unguarded_linear_insertIN9__gnu_cxx17__normal_iteratorIPN3net18HpackHuffmanSymbolESt6vectorIS3_SaIS3_EEEENS0_5__ops14_Val_comp_iterIPFbRKS3_SC_EEEEvT_T0_.exit.i5.i, %for.end.thread, %if.else.i
-  %_M_finish.i.i7.i241250 = phi ptr [ %_M_finish.i.i7.i239, %for.end.thread ], [ %_M_finish.i.i7.i241, %if.else.i ], [ %_M_finish.i.i7.i241, %_ZSt25__unguarded_linear_insertIN9__gnu_cxx17__normal_iteratorIPN3net18HpackHuffmanSymbolESt6vectorIS3_SaIS3_EEEENS0_5__ops14_Val_comp_iterIPFbRKS3_SC_EEEEvT_T0_.exit.i5.i ], [ %_M_finish.i.i7.i241, %for.inc.i27.i ]
+invoke.cont25:                                    ; preds = %for.inc.i27.i, %_ZSt25__unguarded_linear_insertIN9__gnu_cxx17__normal_iteratorIPN3net18HpackHuffmanSymbolESt6vectorIS3_SaIS3_EEEENS0_5__ops14_Val_comp_iterIPFbRKS3_SC_EEEEvT_T0_.exit.i5.i, %for.end.thread, %for.end, %if.else.i
+  %_M_finish.i.i7.i242251 = phi ptr [ %_M_finish.i.i7.i240, %for.end.thread ], [ %_M_finish.i.i7.i242, %for.end ], [ %_M_finish.i.i7.i242, %if.else.i ], [ %_M_finish.i.i7.i242, %_ZSt25__unguarded_linear_insertIN9__gnu_cxx17__normal_iteratorIPN3net18HpackHuffmanSymbolESt6vectorIS3_SaIS3_EEEENS0_5__ops14_Val_comp_iterIPFbRKS3_SC_EEEEvT_T0_.exit.i5.i ], [ %_M_finish.i.i7.i242, %for.inc.i27.i ]
   %33 = load ptr, ptr %symbols, align 8
   %34 = load i32, ptr %33, align 4
   %cmp27.not = icmp eq i32 %34, 0
   br i1 %cmp27.not, label %for.cond32.preheader, label %if.then.i.i.i44.sink.split
 
 for.cond32.preheader:                             ; preds = %invoke.cont25
-  %35 = load ptr, ptr %_M_finish.i.i7.i241250, align 8
+  %35 = load ptr, ptr %_M_finish.i.i7.i242251, align 8
   %sub.ptr.lhs.cast.i = ptrtoint ptr %35 to i64
   %sub.ptr.rhs.cast.i = ptrtoint ptr %33 to i64
   %sub.ptr.sub.i = sub i64 %sub.ptr.lhs.cast.i, %sub.ptr.rhs.cast.i
   %sub.ptr.div.i = ashr exact i64 %sub.ptr.sub.i, 3
-  %cmp34.not228 = icmp eq i64 %sub.ptr.sub.i, 8
-  br i1 %cmp34.not228, label %for.end62, label %for.body35
+  %cmp34.not229 = icmp eq i64 %sub.ptr.sub.i, 8
+  br i1 %cmp34.not229, label %for.end62, label %for.body35
 
-lpad24:                                           ; preds = %if.then.i.i33, %for.end, %invoke.cont81, %if.end68
+lpad24:                                           ; preds = %if.then.i.i33, %if.then.i.i19, %invoke.cont81, %if.end68
   %36 = landingpad { ptr, i32 }
           cleanup
   %37 = load ptr, ptr %symbols, align 8
@@ -479,10 +471,10 @@ if.then.i.i.i:                                    ; preds = %lpad24
   br label %eh.resume
 
 for.body35:                                       ; preds = %for.cond32.preheader, %for.inc60
-  %i31.0229 = phi i64 [ %inc61, %for.inc60 ], [ 1, %for.cond32.preheader ]
-  %38 = getelementptr %"struct.net::HpackHuffmanSymbol", ptr %33, i64 %i31.0229
-  %add.ptr.i23 = getelementptr %"struct.net::HpackHuffmanSymbol", ptr %38, i64 -1
-  %length = getelementptr %"struct.net::HpackHuffmanSymbol", ptr %38, i64 -1, i32 1
+  %i31.0230 = phi i64 [ %inc61, %for.inc60 ], [ 1, %for.cond32.preheader ]
+  %38 = getelementptr %"struct.net::HpackHuffmanSymbol", ptr %33, i64 %i31.0230
+  %add.ptr.i23 = getelementptr i8, ptr %38, i64 -8
+  %length = getelementptr i8, ptr %38, i64 -4
   %39 = load i8, ptr %length, align 4
   %conv37 = zext i8 %39 to i32
   %sub38 = sub nsw i32 32, %conv37
@@ -496,22 +488,22 @@ for.body35:                                       ; preds = %for.cond32.preheade
   br i1 %or.cond, label %if.then.i.i.i44.sink.split.sink.split, label %for.inc60
 
 for.inc60:                                        ; preds = %for.body35
-  %inc61 = add i64 %i31.0229, 1
+  %inc61 = add i64 %i31.0230, 1
   %cmp34.not = icmp eq i64 %inc61, %sub.ptr.div.i
   br i1 %cmp34.not, label %for.end62, label %for.body35, !llvm.loop !12
 
 for.end62:                                        ; preds = %for.inc60, %for.cond32.preheader
-  %length64 = getelementptr %"struct.net::HpackHuffmanSymbol", ptr %35, i64 -1, i32 1
+  %length64 = getelementptr inbounds i8, ptr %35, i64 -4
   %42 = load i8, ptr %length64, align 4
   %cmp66 = icmp ugt i8 %42, 7
   br i1 %cmp66, label %if.end68, label %cleanup
 
 if.end68:                                         ; preds = %for.end62
-  %add.ptr.i.i = getelementptr inbounds %"struct.net::HpackHuffmanSymbol", ptr %35, i64 -1
+  %add.ptr.i.i = getelementptr inbounds i8, ptr %35, i64 -8
   %43 = load i32, ptr %add.ptr.i.i, align 4
   %shr = lshr i32 %43, 24
   %conv71 = trunc i32 %shr to i8
-  %pad_bits_ = getelementptr inbounds %"class.net::HpackHuffmanTable", ptr %this, i64 0, i32 4
+  %pad_bits_ = getelementptr inbounds i8, ptr %this, i64 96
   store i8 %conv71, ptr %pad_bits_, align 8
   invoke void @_ZN3net17HpackHuffmanTable17BuildDecodeTablesERKSt6vectorINS_18HpackHuffmanSymbolESaIS2_EE(ptr noundef nonnull align 8 dereferenceable(100) %this, ptr noundef nonnull align 8 dereferenceable(24) %symbols)
           to label %invoke.cont72 unwind label %lpad24
@@ -529,18 +521,18 @@ if.then.i.i33:                                    ; preds = %invoke.cont72
 
 .noexc40:                                         ; preds = %if.then.i.i33
   %cmp.i54 = icmp sgt i64 %sub.ptr.sub.i, 128
+  %scevgep.i84 = getelementptr i8, ptr %33, i64 8
   br i1 %cmp.i54, label %for.body.lr.ph.i.i83, label %if.else.i55
 
 for.body.lr.ph.i.i83:                             ; preds = %.noexc40
-  %scevgep.i84 = getelementptr i8, ptr %33, i64 8
-  %id1.i198 = getelementptr inbounds %"struct.net::HpackHuffmanSymbol", ptr %33, i64 0, i32 2
+  %id1.i198 = getelementptr inbounds i8, ptr %33, i64 6
   br label %for.body.i.i85
 
 for.body.i.i85:                                   ; preds = %for.inc.i.i94, %for.body.lr.ph.i.i83
   %__i.sroa.0.012.i.idx.i86 = phi i64 [ 8, %for.body.lr.ph.i.i83 ], [ %__i.sroa.0.012.i.add.i95, %for.inc.i.i94 ]
   %__first.coerce.pn11.i.i87 = phi ptr [ %33, %for.body.lr.ph.i.i83 ], [ %__i.sroa.0.012.i.ptr.i88, %for.inc.i.i94 ]
   %__i.sroa.0.012.i.ptr.i88 = getelementptr inbounds i8, ptr %33, i64 %__i.sroa.0.012.i.idx.i86
-  %id.i197 = getelementptr inbounds %"struct.net::HpackHuffmanSymbol", ptr %__i.sroa.0.012.i.ptr.i88, i64 0, i32 2
+  %id.i197 = getelementptr inbounds i8, ptr %__i.sroa.0.012.i.ptr.i88, i64 6
   %45 = load i16, ptr %id.i197, align 2
   %46 = load i16, ptr %id1.i198, align 2
   %cmp.i199 = icmp ult i16 %45, %46
@@ -554,7 +546,7 @@ _ZSt13move_backwardIN9__gnu_cxx17__normal_iteratorIPN3net18HpackHuffmanSymbolESt
 if.else.i.i90:                                    ; preds = %for.body.i.i85
   %__val.i.i.i50.sroa.4.0.extract.shift = lshr i64 %47, 48
   %__val.i.i.i50.sroa.4.0.extract.trunc = trunc i64 %__val.i.i.i50.sroa.4.0.extract.shift to i16
-  %id1.i195 = getelementptr inbounds %"struct.net::HpackHuffmanSymbol", ptr %__first.coerce.pn11.i.i87, i64 0, i32 2
+  %id1.i195 = getelementptr inbounds i8, ptr %__first.coerce.pn11.i.i87, i64 6
   %48 = load i16, ptr %id1.i195, align 2
   %cmp.i196 = icmp ugt i16 %48, %__val.i.i.i50.sroa.4.0.extract.trunc
   br i1 %cmp.i196, label %while.body.i.i.i113, label %for.inc.i.i94
@@ -564,8 +556,8 @@ while.body.i.i.i113:                              ; preds = %if.else.i.i90, %whi
   %__last.sroa.0.08.i.i.i115 = phi ptr [ %__next.sroa.0.09.i.i.i114, %while.body.i.i.i113 ], [ %__i.sroa.0.012.i.ptr.i88, %if.else.i.i90 ]
   %49 = load i64, ptr %__next.sroa.0.09.i.i.i114, align 4
   store i64 %49, ptr %__last.sroa.0.08.i.i.i115, align 4
-  %__next.sroa.0.0.i.i.i116 = getelementptr inbounds %"struct.net::HpackHuffmanSymbol", ptr %__next.sroa.0.09.i.i.i114, i64 -1
-  %id1.i192 = getelementptr %"struct.net::HpackHuffmanSymbol", ptr %__next.sroa.0.09.i.i.i114, i64 -1, i32 2
+  %__next.sroa.0.0.i.i.i116 = getelementptr inbounds i8, ptr %__next.sroa.0.09.i.i.i114, i64 -8
+  %id1.i192 = getelementptr inbounds i8, ptr %__next.sroa.0.09.i.i.i114, i64 -2
   %50 = load i16, ptr %id1.i192, align 2
   %cmp.i193 = icmp ugt i16 %50, %__val.i.i.i50.sroa.4.0.extract.trunc
   br i1 %cmp.i193, label %while.body.i.i.i113, label %for.inc.i.i94, !llvm.loop !9
@@ -578,7 +570,7 @@ for.inc.i.i94:                                    ; preds = %while.body.i.i.i113
   br i1 %cmp.i1.not.i.i96, label %_ZSt16__insertion_sortIN9__gnu_cxx17__normal_iteratorIPN3net18HpackHuffmanSymbolESt6vectorIS3_SaIS3_EEEENS0_5__ops15_Iter_comp_iterIPFbRKS3_SC_EEEEvT_SG_T0_.exit.i97, label %for.body.i.i85, !llvm.loop !10
 
 _ZSt16__insertion_sortIN9__gnu_cxx17__normal_iteratorIPN3net18HpackHuffmanSymbolESt6vectorIS3_SaIS3_EEEENS0_5__ops15_Iter_comp_iterIPFbRKS3_SC_EEEEvT_SG_T0_.exit.i97: ; preds = %for.inc.i.i94
-  %add.ptr.i.i98 = getelementptr inbounds %"struct.net::HpackHuffmanSymbol", ptr %33, i64 16
+  %add.ptr.i.i98 = getelementptr inbounds i8, ptr %33, i64 128
   %cmp.i.not2.i.i99 = icmp eq ptr %add.ptr.i.i98, %35
   br i1 %cmp.i.not2.i.i99, label %invoke.cont81, label %for.body.i3.i100
 
@@ -587,17 +579,17 @@ for.body.i3.i100:                                 ; preds = %_ZSt16__insertion_s
   %51 = load i64, ptr %__i.sroa.0.03.i.i101, align 4
   %__val.i.i2.i49.sroa.4.0.extract.shift = lshr i64 %51, 48
   %__val.i.i2.i49.sroa.4.0.extract.trunc = trunc i64 %__val.i.i2.i49.sroa.4.0.extract.shift to i16
-  %id1.i189 = getelementptr %"struct.net::HpackHuffmanSymbol", ptr %__i.sroa.0.03.i.i101, i64 -1, i32 2
+  %id1.i189 = getelementptr inbounds i8, ptr %__i.sroa.0.03.i.i101, i64 -2
   %52 = load i16, ptr %id1.i189, align 2
   %cmp.i190 = icmp ugt i16 %52, %__val.i.i2.i49.sroa.4.0.extract.trunc
   br i1 %cmp.i190, label %while.body.i.i7.i108, label %_ZSt25__unguarded_linear_insertIN9__gnu_cxx17__normal_iteratorIPN3net18HpackHuffmanSymbolESt6vectorIS3_SaIS3_EEEENS0_5__ops14_Val_comp_iterIPFbRKS3_SC_EEEEvT_T0_.exit.i5.i104
 
 while.body.i.i7.i108:                             ; preds = %for.body.i3.i100, %while.body.i.i7.i108
   %__last.sroa.0.08.i.i9.i110 = phi ptr [ %__next.sroa.0.09.i.i8.i109, %while.body.i.i7.i108 ], [ %__i.sroa.0.03.i.i101, %for.body.i3.i100 ]
-  %__next.sroa.0.09.i.i8.i109 = getelementptr inbounds %"struct.net::HpackHuffmanSymbol", ptr %__last.sroa.0.08.i.i9.i110, i64 -1
+  %__next.sroa.0.09.i.i8.i109 = getelementptr inbounds i8, ptr %__last.sroa.0.08.i.i9.i110, i64 -8
   %53 = load i64, ptr %__next.sroa.0.09.i.i8.i109, align 4
   store i64 %53, ptr %__last.sroa.0.08.i.i9.i110, align 4
-  %id1.i186 = getelementptr %"struct.net::HpackHuffmanSymbol", ptr %__last.sroa.0.08.i.i9.i110, i64 -2, i32 2
+  %id1.i186 = getelementptr inbounds i8, ptr %__last.sroa.0.08.i.i9.i110, i64 -10
   %54 = load i16, ptr %id1.i186, align 2
   %cmp.i187 = icmp ugt i16 %54, %__val.i.i2.i49.sroa.4.0.extract.trunc
   br i1 %cmp.i187, label %while.body.i.i7.i108, label %_ZSt25__unguarded_linear_insertIN9__gnu_cxx17__normal_iteratorIPN3net18HpackHuffmanSymbolESt6vectorIS3_SaIS3_EEEENS0_5__ops14_Val_comp_iterIPFbRKS3_SC_EEEEvT_T0_.exit.i5.i104, !llvm.loop !9
@@ -605,23 +597,22 @@ while.body.i.i7.i108:                             ; preds = %for.body.i3.i100, %
 _ZSt25__unguarded_linear_insertIN9__gnu_cxx17__normal_iteratorIPN3net18HpackHuffmanSymbolESt6vectorIS3_SaIS3_EEEENS0_5__ops14_Val_comp_iterIPFbRKS3_SC_EEEEvT_T0_.exit.i5.i104: ; preds = %while.body.i.i7.i108, %for.body.i3.i100
   %__last.sroa.0.0.lcssa.i.i6.i105 = phi ptr [ %__i.sroa.0.03.i.i101, %for.body.i3.i100 ], [ %__next.sroa.0.09.i.i8.i109, %while.body.i.i7.i108 ]
   store i64 %51, ptr %__last.sroa.0.0.lcssa.i.i6.i105, align 4
-  %incdec.ptr.i.i.i106 = getelementptr inbounds %"struct.net::HpackHuffmanSymbol", ptr %__i.sroa.0.03.i.i101, i64 1
+  %incdec.ptr.i.i.i106 = getelementptr inbounds i8, ptr %__i.sroa.0.03.i.i101, i64 8
   %cmp.i.not.i.i107 = icmp eq ptr %incdec.ptr.i.i.i106, %35
   br i1 %cmp.i.not.i.i107, label %invoke.cont81, label %for.body.i3.i100, !llvm.loop !11
 
 if.else.i55:                                      ; preds = %.noexc40
-  %__i.sroa.0.09.i15.i57 = getelementptr inbounds %"struct.net::HpackHuffmanSymbol", ptr %33, i64 1
-  %cmp.i1.not10.i16.i58 = icmp eq ptr %__i.sroa.0.09.i15.i57, %35
+  %cmp.i1.not10.i16.i58 = icmp eq ptr %scevgep.i84, %35
   br i1 %cmp.i1.not10.i16.i58, label %invoke.cont81, label %for.body.i19.i60.preheader
 
 for.body.i19.i60.preheader:                       ; preds = %if.else.i55
-  %id1.i183 = getelementptr inbounds %"struct.net::HpackHuffmanSymbol", ptr %33, i64 0, i32 2
+  %id1.i183 = getelementptr inbounds i8, ptr %33, i64 6
   br label %for.body.i19.i60
 
 for.body.i19.i60:                                 ; preds = %for.body.i19.i60.preheader, %for.inc.i27.i68
-  %__i.sroa.0.012.i20.i61 = phi ptr [ %__i.sroa.0.0.i28.i69, %for.inc.i27.i68 ], [ %__i.sroa.0.09.i15.i57, %for.body.i19.i60.preheader ]
+  %__i.sroa.0.012.i20.i61 = phi ptr [ %__i.sroa.0.0.i28.i69, %for.inc.i27.i68 ], [ %scevgep.i84, %for.body.i19.i60.preheader ]
   %__first.coerce.pn11.i21.i62 = phi ptr [ %__i.sroa.0.012.i20.i61, %for.inc.i27.i68 ], [ %33, %for.body.i19.i60.preheader ]
-  %id.i182 = getelementptr inbounds %"struct.net::HpackHuffmanSymbol", ptr %__i.sroa.0.012.i20.i61, i64 0, i32 2
+  %id.i182 = getelementptr inbounds i8, ptr %__i.sroa.0.012.i20.i61, i64 6
   %55 = load i16, ptr %id.i182, align 2
   %56 = load i16, ptr %id1.i183, align 2
   %cmp.i184 = icmp ult i16 %55, %56
@@ -629,7 +620,7 @@ for.body.i19.i60:                                 ; preds = %for.body.i19.i60.pr
   br i1 %cmp.i184, label %_ZSt13move_backwardIN9__gnu_cxx17__normal_iteratorIPN3net18HpackHuffmanSymbolESt6vectorIS3_SaIS3_EEEES8_ET0_T_SA_S9_.exit.i35.i76, label %if.else.i23.i64
 
 _ZSt13move_backwardIN9__gnu_cxx17__normal_iteratorIPN3net18HpackHuffmanSymbolESt6vectorIS3_SaIS3_EEEES8_ET0_T_SA_S9_.exit.i35.i76: ; preds = %for.body.i19.i60
-  %add.ptr.i2.i36.i77 = getelementptr inbounds %"struct.net::HpackHuffmanSymbol", ptr %__first.coerce.pn11.i21.i62, i64 2
+  %add.ptr.i2.i36.i77 = getelementptr inbounds i8, ptr %__first.coerce.pn11.i21.i62, i64 16
   %sub.ptr.lhs.cast.i.i.i.i.i.i37.i78 = ptrtoint ptr %__i.sroa.0.012.i20.i61 to i64
   %sub.ptr.sub.i.i.i.i.i.i38.i79 = sub i64 %sub.ptr.lhs.cast.i.i.i.i.i.i37.i78, %sub.ptr.rhs.cast.i
   %sub.ptr.div.i.i.i.i.i.i39.i80 = ashr exact i64 %sub.ptr.sub.i.i.i.i.i.i38.i79, 3
@@ -641,7 +632,7 @@ _ZSt13move_backwardIN9__gnu_cxx17__normal_iteratorIPN3net18HpackHuffmanSymbolESt
 if.else.i23.i64:                                  ; preds = %for.body.i19.i60
   %__val.i.i12.i48.sroa.4.0.extract.shift = lshr i64 %57, 48
   %__val.i.i12.i48.sroa.4.0.extract.trunc = trunc i64 %__val.i.i12.i48.sroa.4.0.extract.shift to i16
-  %id1.i180 = getelementptr inbounds %"struct.net::HpackHuffmanSymbol", ptr %__first.coerce.pn11.i21.i62, i64 0, i32 2
+  %id1.i180 = getelementptr inbounds i8, ptr %__first.coerce.pn11.i21.i62, i64 6
   %58 = load i16, ptr %id1.i180, align 2
   %cmp.i181 = icmp ugt i16 %58, %__val.i.i12.i48.sroa.4.0.extract.trunc
   br i1 %cmp.i181, label %while.body.i.i30.i71, label %for.inc.i27.i68
@@ -651,8 +642,8 @@ while.body.i.i30.i71:                             ; preds = %if.else.i23.i64, %w
   %__last.sroa.0.08.i.i32.i73 = phi ptr [ %__next.sroa.0.09.i.i31.i72, %while.body.i.i30.i71 ], [ %__i.sroa.0.012.i20.i61, %if.else.i23.i64 ]
   %59 = load i64, ptr %__next.sroa.0.09.i.i31.i72, align 4
   store i64 %59, ptr %__last.sroa.0.08.i.i32.i73, align 4
-  %__next.sroa.0.0.i.i33.i74 = getelementptr inbounds %"struct.net::HpackHuffmanSymbol", ptr %__next.sroa.0.09.i.i31.i72, i64 -1
-  %id1.i = getelementptr %"struct.net::HpackHuffmanSymbol", ptr %__next.sroa.0.09.i.i31.i72, i64 -1, i32 2
+  %__next.sroa.0.0.i.i33.i74 = getelementptr inbounds i8, ptr %__next.sroa.0.09.i.i31.i72, i64 -8
+  %id1.i = getelementptr inbounds i8, ptr %__next.sroa.0.09.i.i31.i72, i64 -2
   %60 = load i16, ptr %id1.i, align 2
   %cmp.i178 = icmp ugt i16 %60, %__val.i.i12.i48.sroa.4.0.extract.trunc
   br i1 %cmp.i178, label %while.body.i.i30.i71, label %for.inc.i27.i68, !llvm.loop !9
@@ -660,7 +651,7 @@ while.body.i.i30.i71:                             ; preds = %if.else.i23.i64, %w
 for.inc.i27.i68:                                  ; preds = %while.body.i.i30.i71, %if.else.i23.i64, %_ZSt13move_backwardIN9__gnu_cxx17__normal_iteratorIPN3net18HpackHuffmanSymbolESt6vectorIS3_SaIS3_EEEES8_ET0_T_SA_S9_.exit.i35.i76
   %__last.sroa.0.0.lcssa.i.i26.i67.sink = phi ptr [ %33, %_ZSt13move_backwardIN9__gnu_cxx17__normal_iteratorIPN3net18HpackHuffmanSymbolESt6vectorIS3_SaIS3_EEEES8_ET0_T_SA_S9_.exit.i35.i76 ], [ %__i.sroa.0.012.i20.i61, %if.else.i23.i64 ], [ %__next.sroa.0.09.i.i31.i72, %while.body.i.i30.i71 ]
   store i64 %57, ptr %__last.sroa.0.0.lcssa.i.i26.i67.sink, align 4
-  %__i.sroa.0.0.i28.i69 = getelementptr inbounds %"struct.net::HpackHuffmanSymbol", ptr %__i.sroa.0.012.i20.i61, i64 1
+  %__i.sroa.0.0.i28.i69 = getelementptr inbounds i8, ptr %__i.sroa.0.012.i20.i61, i64 8
   %cmp.i1.not.i29.i70 = icmp eq ptr %__i.sroa.0.0.i28.i69, %35
   br i1 %cmp.i1.not.i29.i70, label %invoke.cont81, label %for.body.i19.i60, !llvm.loop !10
 
@@ -678,26 +669,26 @@ cleanup:                                          ; preds = %invoke.cont81.clean
   br i1 %tobool.not.i.i.i43, label %_ZNSt6vectorIN3net18HpackHuffmanSymbolESaIS1_EED2Ev.exit45, label %if.then.i.i.i44
 
 if.then.i.i.i44.sink.split.sink.split:            ; preds = %for.body35
-  %id48 = getelementptr inbounds %"struct.net::HpackHuffmanSymbol", ptr %33, i64 %i31.0229, i32 2
+  %id48 = getelementptr inbounds %"struct.net::HpackHuffmanSymbol", ptr %33, i64 %i31.0230, i32 2
   %62 = load i16, ptr %id48, align 2
   br label %if.then.i.i.i44.sink.split
 
 if.then.i.i.i44.sink.split:                       ; preds = %for.body, %if.then.i.i.i44.sink.split.sink.split, %invoke.cont25
-  %.sink = phi i16 [ 0, %invoke.cont25 ], [ %62, %if.then.i.i.i44.sink.split.sink.split ], [ %i.0226, %for.body ]
+  %.sink = phi i16 [ 0, %invoke.cont25 ], [ %62, %if.then.i.i.i44.sink.split.sink.split ], [ %i.0225, %for.body ]
   %.ph = phi ptr [ %33, %invoke.cont25 ], [ %33, %if.then.i.i.i44.sink.split.sink.split ], [ %call5.i.i.i.i2.i.i18, %for.body ]
-  %failed_symbol_id_58 = getelementptr inbounds %"class.net::HpackHuffmanTable", ptr %this, i64 0, i32 6
+  %failed_symbol_id_58 = getelementptr inbounds i8, ptr %this, i64 98
   store i16 %.sink, ptr %failed_symbol_id_58, align 2
   br label %if.then.i.i.i44
 
 if.then.i.i.i44:                                  ; preds = %if.then.i.i.i44.sink.split, %cleanup
-  %retval.0253 = phi i1 [ %cmp66, %cleanup ], [ false, %if.then.i.i.i44.sink.split ]
+  %retval.0254 = phi i1 [ %cmp66, %cleanup ], [ false, %if.then.i.i.i44.sink.split ]
   %63 = phi ptr [ %61, %cleanup ], [ %.ph, %if.then.i.i.i44.sink.split ]
   call void @_ZdlPv(ptr noundef nonnull %63) #16
   br label %_ZNSt6vectorIN3net18HpackHuffmanSymbolESaIS1_EED2Ev.exit45
 
 _ZNSt6vectorIN3net18HpackHuffmanSymbolESaIS1_EED2Ev.exit45: ; preds = %cleanup, %if.then.i.i.i44
-  %retval.0254 = phi i1 [ %cmp66, %cleanup ], [ %retval.0253, %if.then.i.i.i44 ]
-  ret i1 %retval.0254
+  %retval.0255 = phi i1 [ %cmp66, %cleanup ], [ %retval.0254, %if.then.i.i.i44 ]
+  ret i1 %retval.0255
 
 eh.resume:                                        ; preds = %if.then.i.i.i, %lpad24
   resume { ptr, i32 } %36
@@ -706,9 +697,9 @@ eh.resume:                                        ; preds = %if.then.i.i.i, %lpa
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
 define dso_local noundef zeroext i1 @_ZNK3net17HpackHuffmanTable13IsInitializedEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(100) %this) local_unnamed_addr #1 align 2 {
 entry:
-  %code_by_id_ = getelementptr inbounds %"class.net::HpackHuffmanTable", ptr %this, i64 0, i32 2
+  %code_by_id_ = getelementptr inbounds i8, ptr %this, i64 48
   %0 = load ptr, ptr %code_by_id_, align 8
-  %_M_finish.i.i = getelementptr inbounds %"class.net::HpackHuffmanTable", ptr %this, i64 0, i32 2, i32 0, i32 0, i32 0, i32 1
+  %_M_finish.i.i = getelementptr inbounds i8, ptr %this, i64 56
   %1 = load ptr, ptr %_M_finish.i.i, align 8
   %cmp.i.i = icmp ne ptr %0, %1
   ret i1 %cmp.i.i
@@ -727,14 +718,14 @@ declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
 define internal noundef zeroext i1 @_ZN3net12_GLOBAL__N_124SymbolLengthAndIdCompareERKNS_18HpackHuffmanSymbolES3_(ptr nocapture noundef nonnull readonly align 4 dereferenceable(8) %a, ptr nocapture noundef nonnull readonly align 4 dereferenceable(8) %b) #1 {
 entry:
-  %length = getelementptr inbounds %"struct.net::HpackHuffmanSymbol", ptr %a, i64 0, i32 1
+  %length = getelementptr inbounds i8, ptr %a, i64 4
   %0 = load i8, ptr %length, align 4
-  %length1 = getelementptr inbounds %"struct.net::HpackHuffmanSymbol", ptr %b, i64 0, i32 1
+  %length1 = getelementptr inbounds i8, ptr %b, i64 4
   %1 = load i8, ptr %length1, align 4
   %cmp = icmp eq i8 %0, %1
-  %id = getelementptr inbounds %"struct.net::HpackHuffmanSymbol", ptr %a, i64 0, i32 2
+  %id = getelementptr inbounds i8, ptr %a, i64 6
   %2 = load i16, ptr %id, align 2
-  %id4 = getelementptr inbounds %"struct.net::HpackHuffmanSymbol", ptr %b, i64 0, i32 2
+  %id4 = getelementptr inbounds i8, ptr %b, i64 6
   %3 = load i16, ptr %id4, align 2
   %cmp6 = icmp ult i16 %2, %3
   %cmp11 = icmp ult i8 %0, %1
@@ -772,37 +763,37 @@ entry:
   %ref.tmp117 = alloca %"class.logging::LogMessage", align 8
   %ref.tmp136 = alloca %"class.logging::LogMessage", align 8
   %call = tail call noundef zeroext i8 @_ZN3net17HpackHuffmanTable14AddDecodeTableEhh(ptr noundef nonnull align 8 dereferenceable(100) %this, i8 noundef zeroext 0, i8 noundef zeroext 9)
-  %_M_finish.i.i = getelementptr inbounds %"struct.std::_Vector_base<net::HpackHuffmanSymbol, std::allocator<net::HpackHuffmanSymbol>>::_Vector_impl_data", ptr %symbols, i64 0, i32 1
+  %_M_finish.i.i = getelementptr inbounds i8, ptr %symbols, i64 8
   %0 = load ptr, ptr %_M_finish.i.i, align 8, !noalias !13
   %1 = load ptr, ptr %symbols, align 8, !noalias !16
   %cmp.i.i.i.not195 = icmp eq ptr %0, %1
   br i1 %cmp.i.i.i.not195, label %for.cond74.preheader, label %while.body.preheader.lr.ph
 
 while.body.preheader.lr.ph:                       ; preds = %entry
-  %indexed_length = getelementptr inbounds %"struct.net::HpackHuffmanTable::DecodeTable", ptr %table, i64 0, i32 1
-  %decode_entries_.i = getelementptr inbounds %"class.net::HpackHuffmanTable", ptr %this, i64 0, i32 1
-  %entries_offset.i = getelementptr inbounds %"struct.net::HpackHuffmanTable::DecodeTable", ptr %table, i64 0, i32 2
-  %length30 = getelementptr inbounds %"struct.net::HpackHuffmanTable::DecodeEntry", ptr %entry14, i64 0, i32 1
-  %_M_finish.i.i45 = getelementptr inbounds %"class.net::HpackHuffmanTable", ptr %this, i64 0, i32 1, i32 0, i32 0, i32 0, i32 1
-  %symbol_id = getelementptr inbounds %"struct.net::HpackHuffmanTable::DecodeEntry", ptr %entry14, i64 0, i32 2
+  %indexed_length = getelementptr inbounds i8, ptr %table, i64 1
+  %decode_entries_.i = getelementptr inbounds i8, ptr %this, i64 24
+  %entries_offset.i = getelementptr inbounds i8, ptr %table, i64 8
+  %length30 = getelementptr inbounds i8, ptr %entry14, i64 1
+  %_M_finish.i.i45 = getelementptr inbounds i8, ptr %this, i64 32
+  %symbol_id = getelementptr inbounds i8, ptr %entry14, i64 2
   br label %while.body.preheader
 
 while.body.preheader:                             ; preds = %while.body.preheader.lr.ph, %if.then24
   %it.sroa.0.0196 = phi ptr [ %0, %while.body.preheader.lr.ph ], [ %incdec.ptr.i.i, %if.then24 ]
-  %incdec.ptr.i.i = getelementptr inbounds %"struct.net::HpackHuffmanSymbol", ptr %it.sroa.0.0196, i64 -1
-  %length = getelementptr %"struct.net::HpackHuffmanSymbol", ptr %it.sroa.0.0196, i64 -1, i32 1
+  %incdec.ptr.i.i = getelementptr inbounds i8, ptr %it.sroa.0.0196, i64 -8
+  %length = getelementptr inbounds i8, ptr %it.sroa.0.0196, i64 -4
   br label %while.body
 
 for.cond74.preheader:                             ; preds = %if.then24, %entry
-  %_M_finish.i = getelementptr inbounds %"struct.std::_Vector_base<net::HpackHuffmanTable::DecodeTable, std::allocator<net::HpackHuffmanTable::DecodeTable>>::_Vector_impl_data", ptr %this, i64 0, i32 1
+  %_M_finish.i = getelementptr inbounds i8, ptr %this, i64 8
   %2 = load ptr, ptr %_M_finish.i, align 8
   %3 = load ptr, ptr %this, align 8
   %cmp77.not206 = icmp eq ptr %2, %3
   br i1 %cmp77.not206, label %for.end153, label %for.body78.lr.ph
 
 for.body78.lr.ph:                                 ; preds = %for.cond74.preheader
-  %decode_entries_.i56 = getelementptr inbounds %"class.net::HpackHuffmanTable", ptr %this, i64 0, i32 1
-  %_M_finish.i.i101 = getelementptr inbounds %"class.net::HpackHuffmanTable", ptr %this, i64 0, i32 1, i32 0, i32 0, i32 0, i32 1
+  %decode_entries_.i56 = getelementptr inbounds i8, ptr %this, i64 24
+  %_M_finish.i.i101 = getelementptr inbounds i8, ptr %this, i64 32
   br label %for.body78
 
 while.body:                                       ; preds = %while.body.backedge, %while.body.preheader
@@ -854,7 +845,7 @@ if.end:                                           ; preds = %while.body, %_ZN7lo
 
 if.then24:                                        ; preds = %if.end
   store i8 %13, ptr %length30, align 1
-  %id = getelementptr %"struct.net::HpackHuffmanSymbol", ptr %it.sroa.0.0196, i64 -1, i32 2
+  %id = getelementptr inbounds i8, ptr %it.sroa.0.0196, i64 -2
   %15 = load i16, ptr %id, align 2
   store i16 %15, ptr %symbol_id, align 2
   store i8 %storemerge, ptr %entry14, align 4
@@ -1068,10 +1059,10 @@ for.body78:                                       ; preds = %for.body78.lr.ph, %
   %i.0207 = phi i64 [ 0, %for.body78.lr.ph ], [ %inc152, %for.inc151 ]
   %add.ptr.i52 = getelementptr inbounds %"struct.net::HpackHuffmanTable::DecodeTable", ptr %33, i64 %i.0207
   %34 = load i8, ptr %add.ptr.i52, align 8
-  %indexed_length85 = getelementptr inbounds %"struct.net::HpackHuffmanTable::DecodeTable", ptr %33, i64 %i.0207, i32 1
+  %indexed_length85 = getelementptr inbounds i8, ptr %add.ptr.i52, i64 1
   %35 = load i8, ptr %indexed_length85, align 1
   %add87 = add i8 %35, %34
-  %entries_offset.i57 = getelementptr inbounds %"struct.net::HpackHuffmanTable::DecodeTable", ptr %33, i64 %i.0207, i32 2
+  %entries_offset.i57 = getelementptr inbounds i8, ptr %add.ptr.i52, i64 8
   %conv100 = zext i8 %add87 to i64
   br label %while.body91
 
@@ -1082,7 +1073,7 @@ while.body91:                                     ; preds = %for.body78, %if.end
   %37 = load ptr, ptr %decode_entries_.i56, align 8
   %38 = getelementptr %"struct.net::HpackHuffmanTable::DecodeEntry", ptr %37, i64 %36
   %add.ptr.i.i59 = getelementptr %"struct.net::HpackHuffmanTable::DecodeEntry", ptr %38, i64 %conv.i58
-  %length95 = getelementptr %"struct.net::HpackHuffmanTable::DecodeEntry", ptr %38, i64 %conv.i58, i32 1
+  %length95 = getelementptr inbounds i8, ptr %add.ptr.i.i59, i64 1
   %39 = load i8, ptr %length95, align 1
   %cmp97.not = icmp ne i8 %39, 0
   %cmp101 = icmp ult i8 %39, %add87
@@ -1283,9 +1274,9 @@ for.end153:                                       ; preds = %for.inc151, %for.co
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
 define internal noundef zeroext i1 @_ZN3net12_GLOBAL__N_115SymbolIdCompareERKNS_18HpackHuffmanSymbolES3_(ptr nocapture noundef nonnull readonly align 4 dereferenceable(8) %a, ptr nocapture noundef nonnull readonly align 4 dereferenceable(8) %b) #1 {
 entry:
-  %id = getelementptr inbounds %"struct.net::HpackHuffmanSymbol", ptr %a, i64 0, i32 2
+  %id = getelementptr inbounds i8, ptr %a, i64 6
   %0 = load i16, ptr %id, align 2
-  %id1 = getelementptr inbounds %"struct.net::HpackHuffmanSymbol", ptr %b, i64 0, i32 2
+  %id1 = getelementptr inbounds i8, ptr %b, i64 6
   %1 = load i16, ptr %id1, align 2
   %cmp = icmp ult i16 %0, %1
   ret i1 %cmp
@@ -1296,7 +1287,7 @@ define dso_local void @_ZN3net17HpackHuffmanTable16BuildEncodeTableERKSt6vectorI
 entry:
   %i = alloca i64, align 8
   %ref.tmp = alloca %"class.logging::LogMessage", align 8
-  %_M_finish.i = getelementptr inbounds %"struct.std::_Vector_base<net::HpackHuffmanSymbol, std::allocator<net::HpackHuffmanSymbol>>::_Vector_impl_data", ptr %symbols, i64 0, i32 1
+  %_M_finish.i = getelementptr inbounds i8, ptr %symbols, i64 8
   store i64 0, ptr %i, align 8
   %0 = load ptr, ptr %_M_finish.i, align 8
   %1 = load ptr, ptr %symbols, align 8
@@ -1304,19 +1295,19 @@ entry:
   br i1 %cmp.not39, label %for.end, label %for.body.lr.ph
 
 for.body.lr.ph:                                   ; preds = %entry
-  %code_by_id_ = getelementptr inbounds %"class.net::HpackHuffmanTable", ptr %this, i64 0, i32 2
-  %_M_finish.i4 = getelementptr inbounds %"class.net::HpackHuffmanTable", ptr %this, i64 0, i32 2, i32 0, i32 0, i32 0, i32 1
-  %_M_end_of_storage.i = getelementptr inbounds %"class.net::HpackHuffmanTable", ptr %this, i64 0, i32 2, i32 0, i32 0, i32 0, i32 2
-  %length_by_id_ = getelementptr inbounds %"class.net::HpackHuffmanTable", ptr %this, i64 0, i32 3
-  %_M_finish.i6 = getelementptr inbounds %"class.net::HpackHuffmanTable", ptr %this, i64 0, i32 3, i32 0, i32 0, i32 0, i32 1
-  %_M_end_of_storage.i7 = getelementptr inbounds %"class.net::HpackHuffmanTable", ptr %this, i64 0, i32 3, i32 0, i32 0, i32 0, i32 2
+  %code_by_id_ = getelementptr inbounds i8, ptr %this, i64 48
+  %_M_finish.i4 = getelementptr inbounds i8, ptr %this, i64 56
+  %_M_end_of_storage.i = getelementptr inbounds i8, ptr %this, i64 64
+  %length_by_id_ = getelementptr inbounds i8, ptr %this, i64 72
+  %_M_finish.i6 = getelementptr inbounds i8, ptr %this, i64 80
+  %_M_end_of_storage.i7 = getelementptr inbounds i8, ptr %this, i64 88
   br label %for.body
 
 for.body:                                         ; preds = %for.body.lr.ph, %_ZNSt6vectorIhSaIhEE9push_backERKh.exit
   %2 = phi ptr [ %1, %for.body.lr.ph ], [ %20, %_ZNSt6vectorIhSaIhEE9push_backERKh.exit ]
   %storemerge40 = phi i64 [ 0, %for.body.lr.ph ], [ %inc, %_ZNSt6vectorIhSaIhEE9push_backERKh.exit ]
   %add.ptr.i = getelementptr inbounds %"struct.net::HpackHuffmanSymbol", ptr %2, i64 %storemerge40
-  %id = getelementptr inbounds %"struct.net::HpackHuffmanSymbol", ptr %2, i64 %storemerge40, i32 2
+  %id = getelementptr inbounds i8, ptr %add.ptr.i, i64 6
   %3 = load i16, ptr %id, align 2
   %conv.i = zext i16 %3 to i64
   %cmp.i = icmp eq i64 %storemerge40, %conv.i
@@ -1342,7 +1333,7 @@ if.then.i:                                        ; preds = %if.end
   %6 = load i32, ptr %add.ptr.i, align 4
   store i32 %6, ptr %4, align 4
   %7 = load ptr, ptr %_M_finish.i4, align 8
-  %incdec.ptr.i = getelementptr inbounds i32, ptr %7, i64 1
+  %incdec.ptr.i = getelementptr inbounds i8, ptr %7, i64 4
   store ptr %incdec.ptr.i, ptr %_M_finish.i4, align 8
   br label %_ZNSt6vectorIjSaIjEE9push_backERKj.exit
 
@@ -1387,7 +1378,7 @@ if.then.i.i.i.i.i:                                ; preds = %_ZNSt12_Vector_base
 
 _ZNSt6vectorIjSaIjEE11_S_relocateEPjS2_S2_RS0_.exit17.i.i: ; preds = %if.then.i.i.i.i.i, %_ZNSt12_Vector_baseIjSaIjEE11_M_allocateEm.exit.i.i
   %add.ptr.i.i.i.i.i = getelementptr inbounds i8, ptr %cond.i10.i.i, i64 %sub.ptr.sub.i.i.i.i
-  %incdec.ptr.i.i = getelementptr inbounds i32, ptr %add.ptr.i.i.i.i.i, i64 1
+  %incdec.ptr.i.i = getelementptr inbounds i8, ptr %add.ptr.i.i.i.i.i, i64 4
   %tobool.not.i.i.i = icmp eq ptr %8, null
   br i1 %tobool.not.i.i.i, label %_ZNSt6vectorIjSaIjEE17_M_realloc_insertIJRKjEEEvN9__gnu_cxx17__normal_iteratorIPjS1_EEDpOT_.exit.i, label %if.then.i18.i.i
 
@@ -1403,7 +1394,7 @@ _ZNSt6vectorIjSaIjEE17_M_realloc_insertIJRKjEEEvN9__gnu_cxx17__normal_iteratorIP
   br label %_ZNSt6vectorIjSaIjEE9push_backERKj.exit
 
 _ZNSt6vectorIjSaIjEE9push_backERKj.exit:          ; preds = %if.then.i, %_ZNSt6vectorIjSaIjEE17_M_realloc_insertIJRKjEEEvN9__gnu_cxx17__normal_iteratorIPjS1_EEDpOT_.exit.i
-  %length = getelementptr inbounds %"struct.net::HpackHuffmanSymbol", ptr %2, i64 %storemerge40, i32 1
+  %length = getelementptr inbounds i8, ptr %add.ptr.i, i64 4
   %11 = load ptr, ptr %_M_finish.i6, align 8
   %12 = load ptr, ptr %_M_end_of_storage.i7, align 8
   %cmp.not.i8 = icmp eq ptr %11, %12
@@ -1495,7 +1486,7 @@ entry:
   %ref.tmp = alloca i64, align 8
   %ref.tmp2 = alloca i32, align 4
   %ref.tmp5 = alloca %"class.logging::LogMessage", align 8
-  %_M_finish.i = getelementptr inbounds %"struct.std::_Vector_base<net::HpackHuffmanTable::DecodeTable, std::allocator<net::HpackHuffmanTable::DecodeTable>>::_Vector_impl_data", ptr %this, i64 0, i32 1
+  %_M_finish.i = getelementptr inbounds i8, ptr %this, i64 8
   %0 = load ptr, ptr %_M_finish.i, align 8
   %1 = load ptr, ptr %this, align 8
   %sub.ptr.lhs.cast.i = ptrtoint ptr %0 to i64
@@ -1518,8 +1509,8 @@ if.else:                                          ; preds = %_ZN7logging11CheckL
   br label %if.end
 
 if.end:                                           ; preds = %entry, %_ZN7logging11CheckLTImplImjEEPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKT_RKT0_PKc.exit, %if.else
-  %decode_entries_ = getelementptr inbounds %"class.net::HpackHuffmanTable", ptr %this, i64 0, i32 1
-  %_M_finish.i2 = getelementptr inbounds %"class.net::HpackHuffmanTable", ptr %this, i64 0, i32 1, i32 0, i32 0, i32 0, i32 1
+  %decode_entries_ = getelementptr inbounds i8, ptr %this, i64 24
+  %_M_finish.i2 = getelementptr inbounds i8, ptr %this, i64 32
   %2 = load ptr, ptr %_M_finish.i2, align 8
   %3 = load ptr, ptr %decode_entries_, align 8
   %sub.ptr.lhs.cast.i3 = ptrtoint ptr %2 to i64
@@ -1527,7 +1518,7 @@ if.end:                                           ; preds = %entry, %_ZN7logging
   %sub.ptr.sub.i5 = sub i64 %sub.ptr.lhs.cast.i3, %sub.ptr.rhs.cast.i4
   %sub.ptr.div.i6 = ashr exact i64 %sub.ptr.sub.i5, 2
   %4 = load ptr, ptr %_M_finish.i, align 8
-  %_M_end_of_storage.i = getelementptr inbounds %"struct.std::_Vector_base<net::HpackHuffmanTable::DecodeTable, std::allocator<net::HpackHuffmanTable::DecodeTable>>::_Vector_impl_data", ptr %this, i64 0, i32 2
+  %_M_end_of_storage.i = getelementptr inbounds i8, ptr %this, i64 16
   %5 = load ptr, ptr %_M_end_of_storage.i, align 8
   %cmp.not.i = icmp eq ptr %4, %5
   br i1 %cmp.not.i, label %if.else.i8, label %if.then.i
@@ -1539,7 +1530,7 @@ if.then.i:                                        ; preds = %if.end
   %table.sroa.421.0..sroa_idx = getelementptr inbounds i8, ptr %4, i64 8
   store i64 %sub.ptr.div.i6, ptr %table.sroa.421.0..sroa_idx, align 8
   %6 = load ptr, ptr %_M_finish.i, align 8
-  %incdec.ptr.i = getelementptr inbounds %"struct.net::HpackHuffmanTable::DecodeTable", ptr %6, i64 1
+  %incdec.ptr.i = getelementptr inbounds i8, ptr %6, i64 16
   store ptr %incdec.ptr.i, ptr %_M_finish.i, align 8
   br label %_ZNSt6vectorIN3net17HpackHuffmanTable11DecodeTableESaIS2_EE9push_backERKS2_.exit
 
@@ -1587,7 +1578,7 @@ if.then.i.i.i.i.i:                                ; preds = %_ZNSt12_Vector_base
 
 _ZNSt6vectorIN3net17HpackHuffmanTable11DecodeTableESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit17.i.i: ; preds = %if.then.i.i.i.i.i, %_ZNSt12_Vector_baseIN3net17HpackHuffmanTable11DecodeTableESaIS2_EE11_M_allocateEm.exit.i.i
   %add.ptr.i.i.i.i.i = getelementptr inbounds i8, ptr %cond.i10.i.i, i64 %sub.ptr.sub.i.i.i.i
-  %incdec.ptr.i.i = getelementptr inbounds %"struct.net::HpackHuffmanTable::DecodeTable", ptr %add.ptr.i.i.i.i.i, i64 1
+  %incdec.ptr.i.i = getelementptr inbounds i8, ptr %add.ptr.i.i.i.i.i, i64 16
   %tobool.not.i.i.i = icmp eq ptr %7, null
   br i1 %tobool.not.i.i.i, label %_ZNSt6vectorIN3net17HpackHuffmanTable11DecodeTableESaIS2_EE17_M_realloc_insertIJRKS2_EEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_.exit.i, label %if.then.i18.i.i
 
@@ -1627,8 +1618,8 @@ _ZNSt6vectorIN3net17HpackHuffmanTable11DecodeTableESaIS2_EE9push_backERKS2_.exit
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
 define dso_local noundef nonnull align 2 dereferenceable(4) ptr @_ZNK3net17HpackHuffmanTable5EntryERKNS0_11DecodeTableEj(ptr nocapture noundef nonnull readonly align 8 dereferenceable(100) %this, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %table, i32 noundef %index) local_unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
 if.end13:
-  %decode_entries_ = getelementptr inbounds %"class.net::HpackHuffmanTable", ptr %this, i64 0, i32 1
-  %entries_offset = getelementptr inbounds %"struct.net::HpackHuffmanTable::DecodeTable", ptr %table, i64 0, i32 2
+  %decode_entries_ = getelementptr inbounds i8, ptr %this, i64 24
+  %entries_offset = getelementptr inbounds i8, ptr %table, i64 8
   %0 = load i64, ptr %entries_offset, align 8
   %conv = zext i32 %index to i64
   %1 = load ptr, ptr %decode_entries_, align 8
@@ -1647,7 +1638,7 @@ entry:
   %ref.tmp10 = alloca i64, align 8
   %ref.tmp16 = alloca %"class.logging::LogMessage", align 8
   store i32 %index, ptr %index.addr, align 4
-  %indexed_length.i = getelementptr inbounds %"struct.net::HpackHuffmanTable::DecodeTable", ptr %table, i64 0, i32 1
+  %indexed_length.i = getelementptr inbounds i8, ptr %table, i64 1
   %0 = load i8, ptr %indexed_length.i, align 1
   %sh_prom.i = zext nneg i8 %0 to i64
   %shl.i = shl nuw i64 1, %sh_prom.i
@@ -1667,14 +1658,14 @@ if.else:                                          ; preds = %_ZN7logging11CheckL
   br label %if.end
 
 if.end:                                           ; preds = %entry, %_ZN7logging11CheckLTImplIjmEEPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKT_RKT0_PKc.exit, %if.else
-  %entries_offset = getelementptr inbounds %"struct.net::HpackHuffmanTable::DecodeTable", ptr %table, i64 0, i32 2
+  %entries_offset = getelementptr inbounds i8, ptr %table, i64 8
   %1 = load i64, ptr %entries_offset, align 8
   %2 = load i32, ptr %index.addr, align 4
   %conv = zext i32 %2 to i64
   %add = add i64 %1, %conv
   store i64 %add, ptr %ref.tmp9, align 8
-  %decode_entries_ = getelementptr inbounds %"class.net::HpackHuffmanTable", ptr %this, i64 0, i32 1
-  %_M_finish.i = getelementptr inbounds %"class.net::HpackHuffmanTable", ptr %this, i64 0, i32 1, i32 0, i32 0, i32 0, i32 1
+  %decode_entries_ = getelementptr inbounds i8, ptr %this, i64 24
+  %_M_finish.i = getelementptr inbounds i8, ptr %this, i64 32
   %3 = load ptr, ptr %_M_finish.i, align 8
   %4 = load ptr, ptr %decode_entries_, align 8
   %sub.ptr.lhs.cast.i = ptrtoint ptr %3 to i64
@@ -1710,7 +1701,7 @@ if.end21:                                         ; preds = %if.end, %_ZN7loggin
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr dso_local void @_ZNSt6vectorIN3net17HpackHuffmanTable11DecodeEntryESaIS2_EE6resizeEm(ptr noundef nonnull align 8 dereferenceable(24) %this, i64 noundef %__new_size) local_unnamed_addr #3 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  %_M_finish.i = getelementptr inbounds %"struct.std::_Vector_base<net::HpackHuffmanTable::DecodeEntry, std::allocator<net::HpackHuffmanTable::DecodeEntry>>::_Vector_impl_data", ptr %this, i64 0, i32 1
+  %_M_finish.i = getelementptr inbounds i8, ptr %this, i64 8
   %0 = load ptr, ptr %_M_finish.i, align 8
   %1 = load ptr, ptr %this, align 8
   %sub.ptr.lhs.cast.i = ptrtoint ptr %0 to i64
@@ -1722,7 +1713,7 @@ entry:
 
 if.then:                                          ; preds = %entry
   %sub = sub i64 %__new_size, %sub.ptr.div.i
-  %_M_end_of_storage.i = getelementptr inbounds %"struct.std::_Vector_base<net::HpackHuffmanTable::DecodeEntry, std::allocator<net::HpackHuffmanTable::DecodeEntry>>::_Vector_impl_data", ptr %this, i64 0, i32 2
+  %_M_end_of_storage.i = getelementptr inbounds i8, ptr %this, i64 16
   %2 = load ptr, ptr %_M_end_of_storage.i, align 8
   %sub.ptr.lhs.cast.i9 = ptrtoint ptr %2 to i64
   %sub.ptr.sub.i10 = sub i64 %sub.ptr.lhs.cast.i9, %sub.ptr.lhs.cast.i
@@ -1769,8 +1760,8 @@ for.body.i.i.i.i:                                 ; preds = %_ZNKSt6vectorIN3net
   tail call void @llvm.experimental.noalias.scope.decl(metadata !28)
   %6 = load i32, ptr %__first.addr.06.i.i.i.i, align 2, !alias.scope !28, !noalias !25
   store i32 %6, ptr %__cur.07.i.i.i.i, align 2, !alias.scope !25, !noalias !28
-  %incdec.ptr.i.i.i.i = getelementptr inbounds %"struct.net::HpackHuffmanTable::DecodeEntry", ptr %__first.addr.06.i.i.i.i, i64 1
-  %incdec.ptr1.i.i.i.i = getelementptr inbounds %"struct.net::HpackHuffmanTable::DecodeEntry", ptr %__cur.07.i.i.i.i, i64 1
+  %incdec.ptr.i.i.i.i = getelementptr inbounds i8, ptr %__first.addr.06.i.i.i.i, i64 4
+  %incdec.ptr1.i.i.i.i = getelementptr inbounds i8, ptr %__cur.07.i.i.i.i, i64 4
   %cmp.not.i.i.i.i = icmp eq ptr %incdec.ptr.i.i.i.i, %0
   br i1 %cmp.not.i.i.i.i, label %_ZNSt6vectorIN3net17HpackHuffmanTable11DecodeEntryESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit.i, label %for.body.i.i.i.i, !llvm.loop !30
 
@@ -1815,16 +1806,16 @@ entry:
   %ref.tmp = alloca i64, align 8
   %ref.tmp6 = alloca %"class.logging::LogMessage", align 8
   store ptr %in.coerce0, ptr %in, align 8
-  %0 = getelementptr inbounds { ptr, i64 }, ptr %in, i64 0, i32 1
+  %0 = getelementptr inbounds i8, ptr %in, i64 8
   store i64 %in.coerce1, ptr %0, align 8
   %call31 = call noundef i64 @_ZNK4base16BasicStringPieceINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %in)
   %cmp.not32 = icmp eq i64 %call31, 0
   br i1 %cmp.not32, label %if.end45, label %for.body.lr.ph
 
 for.body.lr.ph:                                   ; preds = %entry
-  %code_by_id_ = getelementptr inbounds %"class.net::HpackHuffmanTable", ptr %this, i64 0, i32 2
-  %_M_finish.i = getelementptr inbounds %"class.net::HpackHuffmanTable", ptr %this, i64 0, i32 2, i32 0, i32 0, i32 0, i32 1
-  %length_by_id_ = getelementptr inbounds %"class.net::HpackHuffmanTable", ptr %this, i64 0, i32 3
+  %code_by_id_ = getelementptr inbounds i8, ptr %this, i64 48
+  %_M_finish.i = getelementptr inbounds i8, ptr %this, i64 56
+  %length_by_id_ = getelementptr inbounds i8, ptr %this, i64 72
   br label %for.body
 
 for.body:                                         ; preds = %for.body.lr.ph, %if.end36
@@ -1921,7 +1912,7 @@ for.end:                                          ; preds = %if.end36
   br i1 %cmp39.not, label %if.end45, label %if.then40
 
 if.then40:                                        ; preds = %for.end
-  %pad_bits_ = getelementptr inbounds %"class.net::HpackHuffmanTable", ptr %this, i64 0, i32 4
+  %pad_bits_ = getelementptr inbounds i8, ptr %this, i64 96
   %8 = load i8, ptr %pad_bits_, align 8
   %sh_prom = trunc i64 %rem to i8
   %shr42 = lshr i8 %8, %sh_prom
@@ -1947,16 +1938,16 @@ entry:
   %ref.tmp = alloca i64, align 8
   %ref.tmp6 = alloca %"class.logging::LogMessage", align 8
   store ptr %in.coerce0, ptr %in, align 8
-  %0 = getelementptr inbounds { ptr, i64 }, ptr %in, i64 0, i32 1
+  %0 = getelementptr inbounds i8, ptr %in, i64 8
   store i64 %in.coerce1, ptr %0, align 8
   %call11 = call noundef i64 @_ZNK4base16BasicStringPieceINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %in)
   %cmp.not12 = icmp eq i64 %call11, 0
   br i1 %cmp.not12, label %for.end, label %for.body.lr.ph
 
 for.body.lr.ph:                                   ; preds = %entry
-  %code_by_id_ = getelementptr inbounds %"class.net::HpackHuffmanTable", ptr %this, i64 0, i32 2
-  %_M_finish.i = getelementptr inbounds %"class.net::HpackHuffmanTable", ptr %this, i64 0, i32 2, i32 0, i32 0, i32 0, i32 1
-  %length_by_id_ = getelementptr inbounds %"class.net::HpackHuffmanTable", ptr %this, i64 0, i32 3
+  %code_by_id_ = getelementptr inbounds i8, ptr %this, i64 48
+  %_M_finish.i = getelementptr inbounds i8, ptr %this, i64 56
+  %length_by_id_ = getelementptr inbounds i8, ptr %this, i64 72
   br label %for.body
 
 for.body:                                         ; preds = %for.body.lr.ph, %if.end
@@ -2018,7 +2009,7 @@ entry:
   store i32 0, ptr %bits, align 4
   store i64 0, ptr %bits_available, align 8
   %call2 = call noundef zeroext i1 @_ZNK3net16HpackInputStream8PeekBitsEPmPj(ptr noundef nonnull align 8 dereferenceable(33) %in, ptr noundef nonnull %bits_available, ptr noundef nonnull %bits)
-  %decode_entries_.i = getelementptr inbounds %"class.net::HpackHuffmanTable", ptr %this, i64 0, i32 1
+  %decode_entries_.i = getelementptr inbounds i8, ptr %this, i64 24
   br label %while.body
 
 while.body:                                       ; preds = %if.end53, %entry
@@ -2033,7 +2024,7 @@ if.end16:                                         ; preds = %while.body, %if.end
   %i.027 = phi i32 [ 0, %while.body ], [ %inc, %if.end16 ]
   %index.026 = phi i32 [ %shr, %while.body ], [ %shr23, %if.end16 ]
   %table.025 = phi ptr [ %0, %while.body ], [ %add.ptr.i, %if.end16 ]
-  %entries_offset.i = getelementptr inbounds %"struct.net::HpackHuffmanTable::DecodeTable", ptr %table.025, i64 0, i32 2
+  %entries_offset.i = getelementptr inbounds i8, ptr %table.025, i64 8
   %3 = load i64, ptr %entries_offset.i, align 8
   %conv.i = zext i32 %index.026 to i64
   %4 = getelementptr %"struct.net::HpackHuffmanTable::DecodeEntry", ptr %2, i64 %3
@@ -2044,7 +2035,7 @@ if.end16:                                         ; preds = %while.body, %if.end
   %6 = load i8, ptr %add.ptr.i, align 8
   %conv21 = zext nneg i8 %6 to i32
   %shl = shl i32 %1, %conv21
-  %indexed_length = getelementptr inbounds %"struct.net::HpackHuffmanTable::DecodeTable", ptr %0, i64 %conv19, i32 1
+  %indexed_length = getelementptr inbounds i8, ptr %add.ptr.i, i64 1
   %7 = load i8, ptr %indexed_length, align 1
   %conv22 = zext i8 %7 to i32
   %sub = sub nsw i32 32, %conv22
@@ -2054,11 +2045,12 @@ if.end16:                                         ; preds = %while.body, %if.end
   br i1 %cmp.not, label %for.end, label %if.end16, !llvm.loop !33
 
 for.end:                                          ; preds = %if.end16
-  %entries_offset.i20 = getelementptr inbounds %"struct.net::HpackHuffmanTable::DecodeTable", ptr %0, i64 %conv19, i32 2
+  %entries_offset.i20 = getelementptr inbounds i8, ptr %add.ptr.i, i64 8
   %8 = load i64, ptr %entries_offset.i20, align 8
   %conv.i21 = zext i32 %shr23 to i64
   %9 = getelementptr %"struct.net::HpackHuffmanTable::DecodeEntry", ptr %2, i64 %8
-  %length = getelementptr %"struct.net::HpackHuffmanTable::DecodeEntry", ptr %9, i64 %conv.i21, i32 1
+  %add.ptr.i.i22 = getelementptr %"struct.net::HpackHuffmanTable::DecodeEntry", ptr %9, i64 %conv.i21
+  %length = getelementptr inbounds i8, ptr %add.ptr.i.i22, i64 1
   %10 = load i8, ptr %length, align 1
   %conv26 = zext i8 %10 to i64
   %11 = load i64, ptr %bits_available, align 8
@@ -2079,7 +2071,7 @@ if.else32:                                        ; preds = %for.end
   br i1 %cmp35, label %return, label %if.else37
 
 if.else37:                                        ; preds = %if.else32
-  %symbol_id = getelementptr %"struct.net::HpackHuffmanTable::DecodeEntry", ptr %9, i64 %conv.i21, i32 2
+  %symbol_id = getelementptr inbounds i8, ptr %add.ptr.i.i22, i64 2
   %12 = load i16, ptr %symbol_id, align 2
   %cmp39 = icmp ult i16 %12, 256
   br i1 %cmp39, label %if.then40, label %if.end43
@@ -2185,7 +2177,7 @@ entry:
 
 while.body.i:                                     ; preds = %entry, %_ZSt10__pop_heapIN9__gnu_cxx17__normal_iteratorIPN3net18HpackHuffmanSymbolESt6vectorIS3_SaIS3_EEEENS0_5__ops15_Iter_comp_iterIPFbRKS3_SC_EEEEvT_SG_SG_RT0_.exit.i
   %__last.sroa.0.05.i = phi ptr [ %incdec.ptr.i.i, %_ZSt10__pop_heapIN9__gnu_cxx17__normal_iteratorIPN3net18HpackHuffmanSymbolESt6vectorIS3_SaIS3_EEEENS0_5__ops15_Iter_comp_iterIPFbRKS3_SC_EEEEvT_SG_SG_RT0_.exit.i ], [ %__middle.coerce, %entry ]
-  %incdec.ptr.i.i = getelementptr inbounds %"struct.net::HpackHuffmanSymbol", ptr %__last.sroa.0.05.i, i64 -1
+  %incdec.ptr.i.i = getelementptr inbounds i8, ptr %__last.sroa.0.05.i, i64 -8
   %__value.sroa.0.0.copyload.i.i = load i64, ptr %incdec.ptr.i.i, align 4
   %0 = load i64, ptr %__first.coerce, align 4
   store i64 %0, ptr %incdec.ptr.i.i, align 4
@@ -2283,8 +2275,8 @@ entry:
   %sub.ptr.div.i = ashr exact i64 %sub.ptr.sub.i, 3
   %div = sdiv i64 %sub.ptr.div.i, 2
   %add.ptr.i = getelementptr inbounds %"struct.net::HpackHuffmanSymbol", ptr %__first.coerce, i64 %div
-  %add.ptr.i1 = getelementptr inbounds %"struct.net::HpackHuffmanSymbol", ptr %__first.coerce, i64 1
-  %add.ptr.i2 = getelementptr inbounds %"struct.net::HpackHuffmanSymbol", ptr %__last.coerce, i64 -1
+  %add.ptr.i1 = getelementptr inbounds i8, ptr %__first.coerce, i64 8
+  %add.ptr.i2 = getelementptr inbounds i8, ptr %__last.coerce, i64 -8
   %call4.i.i = tail call noundef zeroext i1 %__comp.coerce(ptr noundef nonnull align 4 dereferenceable(8) %add.ptr.i1, ptr noundef nonnull align 4 dereferenceable(8) %add.ptr.i)
   br i1 %call4.i.i, label %if.then.i, label %if.else34.i
 
@@ -2354,12 +2346,12 @@ while.body.i:                                     ; preds = %while.body.i.prehea
 while.cond4.i:                                    ; preds = %while.cond4.i, %while.body.i
   %__first.sroa.0.1.i = phi ptr [ %__first.sroa.0.0.i, %while.body.i ], [ %incdec.ptr.i.i, %while.cond4.i ]
   %call4.i.i4 = tail call noundef zeroext i1 %__comp.coerce(ptr noundef nonnull align 4 dereferenceable(8) %__first.sroa.0.1.i, ptr noundef nonnull align 4 dereferenceable(8) %__first.coerce)
-  %incdec.ptr.i.i = getelementptr inbounds %"struct.net::HpackHuffmanSymbol", ptr %__first.sroa.0.1.i, i64 1
+  %incdec.ptr.i.i = getelementptr inbounds i8, ptr %__first.sroa.0.1.i, i64 8
   br i1 %call4.i.i4, label %while.cond4.i, label %while.cond11.i, !llvm.loop !39
 
 while.cond11.i:                                   ; preds = %while.cond4.i, %while.cond11.i
   %__last.sroa.0.0.pn.i = phi ptr [ %__last.sroa.0.1.i, %while.cond11.i ], [ %__last.sroa.0.0.i, %while.cond4.i ]
-  %__last.sroa.0.1.i = getelementptr inbounds %"struct.net::HpackHuffmanSymbol", ptr %__last.sroa.0.0.pn.i, i64 -1
+  %__last.sroa.0.1.i = getelementptr inbounds i8, ptr %__last.sroa.0.0.pn.i, i64 -8
   %call4.i2.i5 = tail call noundef zeroext i1 %__comp.coerce(ptr noundef nonnull align 4 dereferenceable(8) %__first.coerce, ptr noundef nonnull align 4 dereferenceable(8) %__last.sroa.0.1.i)
   br i1 %call4.i2.i5, label %while.cond11.i, label %while.end19.i, !llvm.loop !40
 
@@ -2479,7 +2471,7 @@ _ZSt10__pop_heapIN9__gnu_cxx17__normal_iteratorIPN3net18HpackHuffmanSymbolESt6ve
   br label %for.inc.us
 
 for.inc.us:                                       ; preds = %_ZSt10__pop_heapIN9__gnu_cxx17__normal_iteratorIPN3net18HpackHuffmanSymbolESt6vectorIS3_SaIS3_EEEENS0_5__ops15_Iter_comp_iterIPFbRKS3_SC_EEEEvT_SG_SG_RT0_.exit.us, %for.body.us
-  %incdec.ptr.i.us = getelementptr inbounds %"struct.net::HpackHuffmanSymbol", ptr %__i.sroa.0.03.us, i64 1
+  %incdec.ptr.i.us = getelementptr inbounds i8, ptr %__i.sroa.0.03.us, i64 8
   %cmp.i.us = icmp ult ptr %incdec.ptr.i.us, %__last.coerce
   br i1 %cmp.i.us, label %for.body.us, label %for.end, !llvm.loop !42
 
@@ -2489,7 +2481,7 @@ while.end.i.i.loopexit.us:                        ; preds = %while.body.i.i.us
   br i1 %or.cond, label %if.then21.i.i.us, label %if.end34.i.i.us
 
 for.body.lr.ph.split:                             ; preds = %for.body.lr.ph
-  %add.ptr.i20.i.i = getelementptr inbounds %"struct.net::HpackHuffmanSymbol", ptr %__first.coerce, i64 1
+  %add.ptr.i20.i.i = getelementptr inbounds i8, ptr %__first.coerce, i64 8
   br i1 %cmp17.i.i, label %for.body.lr.ph.split.split.us, label %for.body
 
 for.body.lr.ph.split.split.us:                    ; preds = %for.body.lr.ph.split
@@ -2528,7 +2520,7 @@ while.end.loopexit.i.i.i.us24.us:                 ; preds = %while.body.i.i.i.us
   br label %for.inc.us30.us
 
 for.inc.us30.us:                                  ; preds = %while.end.loopexit.i.i.i.us24.us, %for.body.us4.us
-  %incdec.ptr.i.us31.us = getelementptr inbounds %"struct.net::HpackHuffmanSymbol", ptr %__i.sroa.0.03.us5.us, i64 1
+  %incdec.ptr.i.us31.us = getelementptr inbounds i8, ptr %__i.sroa.0.03.us5.us, i64 8
   %cmp.i.us32.us = icmp ult ptr %incdec.ptr.i.us31.us, %__last.coerce
   br i1 %cmp.i.us32.us, label %for.body.us4.us, label %for.end, !llvm.loop !42
 
@@ -2548,7 +2540,7 @@ if.then.us7:                                      ; preds = %for.body.us4
   br label %for.inc.us30
 
 for.inc.us30:                                     ; preds = %if.then.us7, %for.body.us4
-  %incdec.ptr.i.us31 = getelementptr inbounds %"struct.net::HpackHuffmanSymbol", ptr %__i.sroa.0.03.us5, i64 1
+  %incdec.ptr.i.us31 = getelementptr inbounds i8, ptr %__i.sroa.0.03.us5, i64 8
   %cmp.i.us32 = icmp ult ptr %incdec.ptr.i.us31, %__last.coerce
   br i1 %cmp.i.us32, label %for.body.us4, label %for.end, !llvm.loop !42
 
@@ -2568,7 +2560,7 @@ if.then:                                          ; preds = %for.body
   br label %for.inc
 
 for.inc:                                          ; preds = %for.body, %if.then
-  %incdec.ptr.i = getelementptr inbounds %"struct.net::HpackHuffmanSymbol", ptr %__i.sroa.0.03, i64 1
+  %incdec.ptr.i = getelementptr inbounds i8, ptr %__i.sroa.0.03, i64 8
   %cmp.i = icmp ult ptr %incdec.ptr.i, %__last.coerce
   br i1 %cmp.i, label %for.body, label %for.end, !llvm.loop !42
 

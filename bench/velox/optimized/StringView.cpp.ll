@@ -46,8 +46,8 @@ for.body.lr.ph:                                   ; preds = %if.then
   br i1 %cmp, label %for.body.us, label %for.body.lr.ph.split
 
 for.body.us:                                      ; preds = %for.body.lr.ph, %for.inc.us
-  %indvars.iv282 = phi i64 [ %indvars.iv.next283, %for.inc.us ], [ 0, %for.body.lr.ph ]
-  %add.ptr9.us = getelementptr inbounds i32, ptr %indices, i64 %indvars.iv282
+  %indvars.iv279 = phi i64 [ %indvars.iv.next280, %for.inc.us ], [ 0, %for.body.lr.ph ]
+  %add.ptr9.us = getelementptr inbounds i32, ptr %indices, i64 %indvars.iv279
   %5 = tail call <16 x i8> @llvm.x86.sse3.ldu.dq(ptr nonnull %add.ptr9.us)
   %6 = bitcast <16 x i8> %5 to <4 x i32>
   %7 = shl <4 x i32> %6, <i32 1, i32 1, i32 1, i32 1>
@@ -58,23 +58,23 @@ for.body.us:                                      ; preds = %for.body.lr.ph, %fo
   br i1 %tobool38.not.us, label %for.inc.us, label %if.end.us
 
 if.end.us:                                        ; preds = %for.body.us
-  %10 = trunc i64 %indvars.iv282 to i32
+  %10 = trunc i64 %indvars.iv279 to i32
   %11 = tail call i4 @llvm.cttz.i4(i4 %9, i1 true), !range !4
   %12 = zext nneg i4 %11 to i32
   %add = or disjoint i32 %10, %12
   br label %return
 
 for.inc.us:                                       ; preds = %for.body.us
-  %indvars.iv.next283 = add nuw nsw i64 %indvars.iv282, 4
-  %cmp7.us = icmp ult i64 %indvars.iv.next283, %4
+  %indvars.iv.next280 = add nuw nsw i64 %indvars.iv279, 4
+  %cmp7.us = icmp ult i64 %indvars.iv.next280, %4
   br i1 %cmp7.us, label %for.body.us, label %for.cond.preheader.i, !llvm.loop !5
 
 for.body.lr.ph.split:                             ; preds = %for.body.lr.ph
   br i1 %cmp.i.i, label %for.body.us172, label %for.body.lr.ph.split.split
 
 for.body.us172:                                   ; preds = %for.body.lr.ph.split, %for.inc.us180
-  %indvars.iv278 = phi i64 [ %indvars.iv.next279, %for.inc.us180 ], [ 0, %for.body.lr.ph.split ]
-  %add.ptr9.us175 = getelementptr inbounds i32, ptr %indices, i64 %indvars.iv278
+  %indvars.iv275 = phi i64 [ %indvars.iv.next276, %for.inc.us180 ], [ 0, %for.body.lr.ph.split ]
+  %add.ptr9.us175 = getelementptr inbounds i32, ptr %indices, i64 %indvars.iv275
   %13 = tail call <16 x i8> @llvm.x86.sse3.ldu.dq(ptr nonnull %add.ptr9.us175)
   %14 = bitcast <16 x i8> %13 to <4 x i32>
   %15 = shl <4 x i32> %14, <i32 1, i32 1, i32 1, i32 1>
@@ -86,12 +86,12 @@ for.body.us172:                                   ; preds = %for.body.lr.ph.spli
 
 if.end.us178:                                     ; preds = %for.body.us172
   %conv37.us179 = zext i4 %17 to i16
-  %18 = getelementptr i32, ptr %indices, i64 %indvars.iv278
+  %18 = getelementptr i32, ptr %indices, i64 %indvars.iv275
   br label %while.body.us.us
 
 for.inc.us180:                                    ; preds = %if.end64.us.us, %for.body.us172
-  %indvars.iv.next279 = add nuw nsw i64 %indvars.iv278, 4
-  %cmp7.us182 = icmp ult i64 %indvars.iv.next279, %4
+  %indvars.iv.next276 = add nuw nsw i64 %indvars.iv275, 4
+  %cmp7.us182 = icmp ult i64 %indvars.iv.next276, %4
   br i1 %cmp7.us182, label %for.body.us172, label %for.cond.preheader.i, !llvm.loop !5
 
 while.body.us.us:                                 ; preds = %if.end64.us.us, %if.end.us178
@@ -116,8 +116,8 @@ for.body.lr.ph.split.split:                       ; preds = %for.body.lr.ph.spli
   br i1 %cmp7.i, label %for.body.us185, label %for.body
 
 for.body.us185:                                   ; preds = %for.body.lr.ph.split.split, %for.inc.us193
-  %indvars.iv274 = phi i64 [ %indvars.iv.next275, %for.inc.us193 ], [ 0, %for.body.lr.ph.split.split ]
-  %add.ptr9.us188 = getelementptr inbounds i32, ptr %indices, i64 %indvars.iv274
+  %indvars.iv271 = phi i64 [ %indvars.iv.next272, %for.inc.us193 ], [ 0, %for.body.lr.ph.split.split ]
+  %add.ptr9.us188 = getelementptr inbounds i32, ptr %indices, i64 %indvars.iv271
   %23 = tail call <16 x i8> @llvm.x86.sse3.ldu.dq(ptr nonnull %add.ptr9.us188)
   %24 = bitcast <16 x i8> %23 to <4 x i32>
   %25 = shl <4 x i32> %24, <i32 1, i32 1, i32 1, i32 1>
@@ -129,12 +129,12 @@ for.body.us185:                                   ; preds = %for.body.lr.ph.spli
 
 if.end.us191:                                     ; preds = %for.body.us185
   %conv37.us192 = zext i4 %27 to i16
-  %28 = getelementptr i32, ptr %indices, i64 %indvars.iv274
+  %28 = getelementptr i32, ptr %indices, i64 %indvars.iv271
   br label %while.body.us145.us
 
 for.inc.us193:                                    ; preds = %if.end64.us149.us, %for.body.us185
-  %indvars.iv.next275 = add nuw nsw i64 %indvars.iv274, 4
-  %cmp7.us195 = icmp ult i64 %indvars.iv.next275, %4
+  %indvars.iv.next272 = add nuw nsw i64 %indvars.iv271, 4
+  %cmp7.us195 = icmp ult i64 %indvars.iv.next272, %4
   br i1 %cmp7.us195, label %for.body.us185, label %for.cond.preheader.i, !llvm.loop !5
 
 while.body.us145.us:                              ; preds = %if.end64.us149.us, %if.end.us191
@@ -149,8 +149,8 @@ while.body.us145.us:                              ; preds = %if.end64.us149.us, 
   %arrayidx58.us.us = getelementptr inbounds %"struct.facebook::velox::StringView", ptr %strings, i64 %idxprom57.us.us
   %32 = load i32, ptr %arrayidx58.us.us, align 8
   %cmp.i.i.i41.us.us = icmp ult i32 %32, 13
-  %prefix_.i42.us.us = getelementptr inbounds %"struct.facebook::velox::StringView", ptr %strings, i64 %idxprom57.us.us, i32 1
-  %value_.i43.us.us = getelementptr inbounds %"struct.facebook::velox::StringView", ptr %strings, i64 %idxprom57.us.us, i32 2
+  %prefix_.i42.us.us = getelementptr inbounds i8, ptr %arrayidx58.us.us, i64 4
+  %value_.i43.us.us = getelementptr inbounds i8, ptr %arrayidx58.us.us, i64 8
   %33 = load ptr, ptr %value_.i43.us.us, align 8
   %cond.i44.us.us = select i1 %cmp.i.i.i41.us.us, ptr %prefix_.i42.us.us, ptr %33
   %add.ptr60.us.us = getelementptr inbounds i8, ptr %cond.i44.us.us, i64 4
@@ -171,14 +171,14 @@ _ZN8facebook5velox4simd14memEqualUnsafeIN5xsimd4fma3INS3_4avx2EEEEEbPKvS8_i.exit
   %not.i.us.us = xor i32 %36, -1
   %37 = tail call i32 @llvm.cttz.i32(i32 %not.i.us.us, i1 true), !range !9
   %cmp25.i.not.us.us = icmp ult i32 %37, %size.addr.010.i.us.us
-  br i1 %cmp25.i.not.us.us, label %if.end64.us149.us, label %if.then62.loopexit307
+  br i1 %cmp25.i.not.us.us, label %if.end64.us149.us, label %if.then62.loopexit304
 
 if.then.i.us.us:                                  ; preds = %while.body.i.us.us
   %add.ptr.i.us.us = getelementptr inbounds i8, ptr %left.09.i.us.us, i64 32
   %add.ptr24.i.us.us = getelementptr inbounds i8, ptr %right.08.i.us.us, i64 32
   %sub.i45.us.us = add nsw i32 %size.addr.010.i.us.us, -32
   %cmp.i.us.us = icmp sgt i32 %size.addr.010.i.us.us, 32
-  br i1 %cmp.i.us.us, label %while.body.i.us.us, label %if.then62.loopexit306, !llvm.loop !10
+  br i1 %cmp.i.us.us, label %while.body.i.us.us, label %if.then62.loopexit303, !llvm.loop !10
 
 if.end64.us149.us:                                ; preds = %_ZN8facebook5velox4simd14memEqualUnsafeIN5xsimd4fma3INS3_4avx2EEEEEbPKvS8_i.exit.us.us
   %tobool45.not.us150.us = icmp eq i16 %and.i.us148.us, 0
@@ -205,17 +205,17 @@ if.then62.loopexit:                               ; preds = %while.body.us.us
   %45 = zext nneg i16 %19 to i32
   br label %if.then62
 
-if.then62.loopexit306:                            ; preds = %if.then.i.us.us
+if.then62.loopexit303:                            ; preds = %if.then.i.us.us
   %46 = zext nneg i16 %29 to i32
   br label %if.then62
 
-if.then62.loopexit307:                            ; preds = %_ZN8facebook5velox4simd14memEqualUnsafeIN5xsimd4fma3INS3_4avx2EEEEEbPKvS8_i.exit.us.us
+if.then62.loopexit304:                            ; preds = %_ZN8facebook5velox4simd14memEqualUnsafeIN5xsimd4fma3INS3_4avx2EEEEEbPKvS8_i.exit.us.us
   %47 = zext nneg i16 %29 to i32
   br label %if.then62
 
-if.then62:                                        ; preds = %if.then62.loopexit307, %if.then62.loopexit306, %if.then62.loopexit, %if.end
-  %i.0132.in = phi i64 [ %indvars.iv, %if.end ], [ %indvars.iv278, %if.then62.loopexit ], [ %indvars.iv274, %if.then62.loopexit306 ], [ %indvars.iv274, %if.then62.loopexit307 ]
-  %48 = phi i32 [ %44, %if.end ], [ %45, %if.then62.loopexit ], [ %46, %if.then62.loopexit306 ], [ %47, %if.then62.loopexit307 ]
+if.then62:                                        ; preds = %if.then62.loopexit304, %if.then62.loopexit303, %if.then62.loopexit, %if.end
+  %i.0132.in = phi i64 [ %indvars.iv, %if.end ], [ %indvars.iv275, %if.then62.loopexit ], [ %indvars.iv271, %if.then62.loopexit303 ], [ %indvars.iv271, %if.then62.loopexit304 ]
+  %48 = phi i32 [ %44, %if.end ], [ %45, %if.then62.loopexit ], [ %46, %if.then62.loopexit303 ], [ %47, %if.then62.loopexit304 ]
   %i.0132 = trunc i64 %i.0132.in to i32
   %add63 = add nsw i32 %48, %i.0132
   br label %return
@@ -258,7 +258,7 @@ if.then4.i.i:                                     ; preds = %if.end.i.i
   br i1 %cmp5.i.i, label %return.loopexit60.split.loop.exit.i, label %_ZNK8facebook5velox10StringVieweqERKS1_.exit.i
 
 if.end9.i.i:                                      ; preds = %if.end.i.i
-  %value_.i.i = getelementptr inbounds %"struct.facebook::velox::StringView", ptr %strings, i64 %idxprom1.i, i32 2
+  %value_.i.i = getelementptr inbounds i8, ptr %arrayidx2.i, i64 8
   %52 = load ptr, ptr %value_.i.i, align 8
   %add.ptr.i.i = getelementptr inbounds i8, ptr %52, i64 4
   %bcmp.i.i = tail call i32 @bcmp(ptr nonnull %add.ptr.i.i, ptr nonnull %.sroa.gep, i64 %sub.i.i)
@@ -266,7 +266,7 @@ if.end9.i.i:                                      ; preds = %if.end.i.i
   br i1 %cmp15.i.i, label %return.loopexit60.split.loop.exit62.i, label %for.inc.i
 
 _ZNK8facebook5velox10StringVieweqERKS1_.exit.i:   ; preds = %if.then4.i.i
-  %arrayidx.i.i.i = getelementptr inbounds i64, ptr %arrayidx2.i, i64 1
+  %arrayidx.i.i.i = getelementptr inbounds i8, ptr %arrayidx2.i, i64 8
   %53 = load i64, ptr %arrayidx.i.i.i, align 8
   %cmp8.i.i = icmp eq i64 %53, %2
   br i1 %cmp8.i.i, label %return.loopexit60.split.loop.exit66.i, label %for.inc.i
@@ -293,14 +293,14 @@ for.body83.lr.ph:                                 ; preds = %arrayctor.loop.preh
   br label %for.body83
 
 for.body83:                                       ; preds = %for.body83.lr.ph, %for.inc149
-  %indvars.iv285 = phi i64 [ 0, %for.body83.lr.ph ], [ %indvars.iv.next286, %for.inc149 ]
+  %indvars.iv282 = phi i64 [ 0, %for.body83.lr.ph ], [ %indvars.iv.next283, %for.inc149 ]
   %strings.addr.0227 = phi ptr [ %strings, %for.body83.lr.ph ], [ %add.ptr153, %for.inc149 ]
-  %indvars290 = trunc i64 %indvars.iv285 to i32
+  %indvars287 = trunc i64 %indvars.iv282 to i32
   %57 = load <4 x i64>, ptr %strings.addr.0227, align 1
   %cmp.i.i.i.i48 = icmp eq <4 x i64> %57, %key2.sroa.0.16.vecblend
   %58 = bitcast <4 x i1> %cmp.i.i.i.i48 to i4
   %59 = zext i4 %58 to i32
-  %add.ptr104 = getelementptr inbounds %"struct.facebook::velox::StringView", ptr %strings.addr.0227, i64 2
+  %add.ptr104 = getelementptr inbounds i8, ptr %strings.addr.0227, i64 32
   %60 = load <4 x i64>, ptr %add.ptr104, align 1
   %cmp.i.i.i.i50 = icmp eq <4 x i64> %60, %key2.sroa.0.16.vecblend
   %61 = bitcast <4 x i1> %cmp.i.i.i.i50 to i4
@@ -315,7 +315,7 @@ while.body128.lr.ph:                              ; preds = %for.body83
   br i1 %cmp, label %while.body128.us, label %while.body128.lr.ph.split
 
 while.body128.us:                                 ; preds = %while.body128.lr.ph, %if.end147.us
-  %offset125.0205.us = phi i32 [ %inc.us, %if.end147.us ], [ %indvars290, %while.body128.lr.ph ]
+  %offset125.0205.us = phi i32 [ %inc.us, %if.end147.us ], [ %indvars287, %while.body128.lr.ph ]
   %bits.0204.us = phi i32 [ %shr.us, %if.end147.us ], [ %or, %while.body128.lr.ph ]
   %and130.us = and i32 %bits.0204.us, 1
   %tobool131.not.us = icmp eq i32 %and130.us, 0
@@ -331,11 +331,11 @@ while.body128.lr.ph.split:                        ; preds = %while.body128.lr.ph
   br i1 %cmp.i.i, label %while.body128.us209, label %while.body128
 
 while.body128.us209:                              ; preds = %while.body128.lr.ph.split, %if.end147.us215
-  %offset125.0205.us210 = phi i32 [ %inc.us217, %if.end147.us215 ], [ %indvars290, %while.body128.lr.ph.split ]
+  %offset125.0205.us210 = phi i32 [ %inc.us217, %if.end147.us215 ], [ %indvars287, %while.body128.lr.ph.split ]
   %bits.0204.us211 = phi i32 [ %shr.us216, %if.end147.us215 ], [ %or, %while.body128.lr.ph.split ]
   %63 = and i32 %bits.0204.us211, 3
-  %or.cond231 = icmp eq i32 %63, 3
-  br i1 %or.cond231, label %return, label %if.end147.us215
+  %or.cond228 = icmp eq i32 %63, 3
+  br i1 %or.cond228, label %return, label %if.end147.us215
 
 if.end147.us215:                                  ; preds = %while.body128.us209
   %shr.us216 = lshr i32 %bits.0204.us211, 2
@@ -344,7 +344,7 @@ if.end147.us215:                                  ; preds = %while.body128.us209
   br i1 %tobool127.not.us218, label %for.inc149, label %while.body128.us209, !llvm.loop !12
 
 while.body128:                                    ; preds = %while.body128.lr.ph.split, %if.end147
-  %indvars.iv287 = phi i64 [ %indvars.iv.next288, %if.end147 ], [ %indvars.iv285, %while.body128.lr.ph.split ]
+  %indvars.iv284 = phi i64 [ %indvars.iv.next285, %if.end147 ], [ %indvars.iv282, %while.body128.lr.ph.split ]
   %bits.0204 = phi i32 [ %shr, %if.end147 ], [ %or, %while.body128.lr.ph.split ]
   %and130 = and i32 %bits.0204, 1
   %tobool131.not = icmp eq i32 %and130, 0
@@ -354,14 +354,14 @@ if.then132:                                       ; preds = %while.body128
   %and129 = and i32 %bits.0204, 3
   %cmp133 = icmp eq i32 %and129, 3
   %brmerge = or i1 %cmp133, %cmp7.i56
-  br i1 %brmerge, label %return.loopexit302, label %while.body.i58.preheader
+  br i1 %brmerge, label %return.loopexit299, label %while.body.i58.preheader
 
 while.body.i58.preheader:                         ; preds = %if.then132
-  %arrayidx140 = getelementptr inbounds %"struct.facebook::velox::StringView", ptr %strings.addr.0227, i64 %indvars.iv287
+  %arrayidx140 = getelementptr inbounds %"struct.facebook::velox::StringView", ptr %strings.addr.0227, i64 %indvars.iv284
   %64 = load i32, ptr %arrayidx140, align 8
   %cmp.i.i.i52 = icmp ult i32 %64, 13
-  %prefix_.i53 = getelementptr inbounds %"struct.facebook::velox::StringView", ptr %strings.addr.0227, i64 %indvars.iv287, i32 1
-  %value_.i54 = getelementptr inbounds %"struct.facebook::velox::StringView", ptr %strings.addr.0227, i64 %indvars.iv287, i32 2
+  %prefix_.i53 = getelementptr inbounds i8, ptr %arrayidx140, i64 4
+  %value_.i54 = getelementptr inbounds i8, ptr %arrayidx140, i64 8
   %65 = load ptr, ptr %value_.i54, align 8
   %cond.i55 = select i1 %cmp.i.i.i52, ptr %prefix_.i53, ptr %65
   %add.ptr142 = getelementptr inbounds i8, ptr %cond.i55, i64 4
@@ -383,24 +383,24 @@ if.then.i67:                                      ; preds = %while.body.i58
   %add.ptr24.i69 = getelementptr inbounds i8, ptr %right.08.i61, i64 32
   %sub.i70 = add nsw i32 %size.addr.010.i59, -32
   %cmp.i71 = icmp sgt i32 %size.addr.010.i59, 32
-  br i1 %cmp.i71, label %while.body.i58, label %return.loopexit298, !llvm.loop !10
+  br i1 %cmp.i71, label %while.body.i58, label %return.loopexit295, !llvm.loop !10
 
 _ZN8facebook5velox4simd14memEqualUnsafeIN5xsimd4fma3INS3_4avx2EEEEEbPKvS8_i.exit72: ; preds = %while.body.i58
   %not.i65 = xor i32 %68, -1
   %69 = tail call i32 @llvm.cttz.i32(i32 %not.i65, i1 true), !range !9
   %cmp25.i66.not = icmp ult i32 %69, %size.addr.010.i59
-  br i1 %cmp25.i66.not, label %if.end147, label %return.loopexit302
+  br i1 %cmp25.i66.not, label %if.end147, label %return.loopexit299
 
 if.end147:                                        ; preds = %_ZN8facebook5velox4simd14memEqualUnsafeIN5xsimd4fma3INS3_4avx2EEEEEbPKvS8_i.exit72, %while.body128
   %shr = lshr i32 %bits.0204, 2
-  %indvars.iv.next288 = add nuw nsw i64 %indvars.iv287, 1
+  %indvars.iv.next285 = add nuw nsw i64 %indvars.iv284, 1
   %tobool127.not = icmp ult i32 %bits.0204, 4
   br i1 %tobool127.not, label %for.inc149, label %while.body128, !llvm.loop !12
 
 for.inc149:                                       ; preds = %if.end147, %if.end147.us215, %if.end147.us, %for.body83
-  %indvars.iv.next286 = add nuw nsw i64 %indvars.iv285, 4
-  %indvars = trunc i64 %indvars.iv.next286 to i32
-  %add.ptr153 = getelementptr inbounds %"struct.facebook::velox::StringView", ptr %strings.addr.0227, i64 4
+  %indvars.iv.next283 = add nuw nsw i64 %indvars.iv282, 4
+  %indvars = trunc i64 %indvars.iv.next283 to i32
+  %add.ptr153 = getelementptr inbounds i8, ptr %strings.addr.0227, i64 64
   %cmp82 = icmp sgt i32 %1, %indvars
   br i1 %cmp82, label %for.body83, label %for.end154, !llvm.loop !13
 
@@ -433,7 +433,7 @@ if.then4.i23.i96:                                 ; preds = %if.end.i12.i88
   br i1 %cmp5.i24.i97, label %return.loopexit.split.loop.exit.i102, label %_ZNK8facebook5velox10StringVieweqERKS1_.exit29.i98
 
 if.end9.i14.i90:                                  ; preds = %if.end.i12.i88
-  %value_.i15.i91 = getelementptr inbounds %"struct.facebook::velox::StringView", ptr %strings.addr.0.lcssa, i64 %indvars.iv55.i82, i32 2
+  %value_.i15.i91 = getelementptr inbounds i8, ptr %arrayidx9.i83, i64 8
   %72 = load ptr, ptr %value_.i15.i91, align 8
   %add.ptr.i16.i92 = getelementptr inbounds i8, ptr %72, i64 4
   %bcmp.i21.i93 = tail call i32 @bcmp(ptr nonnull %add.ptr.i16.i92, ptr nonnull %.sroa.gep, i64 %sub.i20.i80)
@@ -441,7 +441,7 @@ if.end9.i14.i90:                                  ; preds = %if.end.i12.i88
   br i1 %cmp15.i22.i94, label %return.loopexit.split.loop.exit70.i95, label %for.inc13.i85
 
 _ZNK8facebook5velox10StringVieweqERKS1_.exit29.i98: ; preds = %if.then4.i23.i96
-  %arrayidx.i.i26.i99 = getelementptr inbounds i64, ptr %arrayidx9.i83, i64 1
+  %arrayidx.i.i26.i99 = getelementptr inbounds i8, ptr %arrayidx9.i83, i64 8
   %73 = load i64, ptr %arrayidx.i.i26.i99, align 8
   %cmp8.i28.i100 = icmp eq i64 %73, %2
   br i1 %cmp8.i28.i100, label %return.loopexit.split.loop.exit74.i101, label %for.inc13.i85
@@ -463,16 +463,16 @@ return.loopexit.split.loop.exit74.i101:           ; preds = %_ZNK8facebook5velox
   %76 = trunc i64 %indvars.iv55.i82 to i32
   br label %return
 
-return.loopexit298:                               ; preds = %if.then.i67
-  %77 = trunc i64 %indvars.iv287 to i32
+return.loopexit295:                               ; preds = %if.then.i67
+  %77 = trunc i64 %indvars.iv284 to i32
   br label %return
 
-return.loopexit302:                               ; preds = %if.then132, %_ZN8facebook5velox4simd14memEqualUnsafeIN5xsimd4fma3INS3_4avx2EEEEEbPKvS8_i.exit72
-  %78 = trunc i64 %indvars.iv287 to i32
+return.loopexit299:                               ; preds = %if.then132, %_ZN8facebook5velox4simd14memEqualUnsafeIN5xsimd4fma3INS3_4avx2EEEEEbPKvS8_i.exit72
+  %78 = trunc i64 %indvars.iv284 to i32
   br label %return
 
-return:                                           ; preds = %for.inc.i, %while.body128.us209, %while.body128.us, %for.inc13.i85, %return.loopexit302, %return.loopexit298, %return.loopexit.split.loop.exit74.i101, %return.loopexit.split.loop.exit70.i95, %return.loopexit.split.loop.exit.i102, %for.end154, %return.loopexit60.split.loop.exit66.i, %return.loopexit60.split.loop.exit62.i, %return.loopexit60.split.loop.exit.i, %for.cond.preheader.i, %if.then62, %if.end.us
-  %retval.0 = phi i32 [ %add, %if.end.us ], [ %add63, %if.then62 ], [ -1, %for.cond.preheader.i ], [ %54, %return.loopexit60.split.loop.exit.i ], [ %55, %return.loopexit60.split.loop.exit62.i ], [ %56, %return.loopexit60.split.loop.exit66.i ], [ -1, %for.end154 ], [ %74, %return.loopexit.split.loop.exit.i102 ], [ %75, %return.loopexit.split.loop.exit70.i95 ], [ %76, %return.loopexit.split.loop.exit74.i101 ], [ %77, %return.loopexit298 ], [ %78, %return.loopexit302 ], [ -1, %for.inc13.i85 ], [ %offset125.0205.us, %while.body128.us ], [ %offset125.0205.us210, %while.body128.us209 ], [ -1, %for.inc.i ]
+return:                                           ; preds = %for.inc.i, %while.body128.us209, %while.body128.us, %for.inc13.i85, %return.loopexit299, %return.loopexit295, %return.loopexit.split.loop.exit74.i101, %return.loopexit.split.loop.exit70.i95, %return.loopexit.split.loop.exit.i102, %for.end154, %return.loopexit60.split.loop.exit66.i, %return.loopexit60.split.loop.exit62.i, %return.loopexit60.split.loop.exit.i, %for.cond.preheader.i, %if.then62, %if.end.us
+  %retval.0 = phi i32 [ %add, %if.end.us ], [ %add63, %if.then62 ], [ -1, %for.cond.preheader.i ], [ %54, %return.loopexit60.split.loop.exit.i ], [ %55, %return.loopexit60.split.loop.exit62.i ], [ %56, %return.loopexit60.split.loop.exit66.i ], [ -1, %for.end154 ], [ %74, %return.loopexit.split.loop.exit.i102 ], [ %75, %return.loopexit.split.loop.exit70.i95 ], [ %76, %return.loopexit.split.loop.exit74.i101 ], [ %77, %return.loopexit295 ], [ %78, %return.loopexit299 ], [ -1, %for.inc13.i85 ], [ %offset125.0205.us, %while.body128.us ], [ %offset125.0205.us210, %while.body128.us209 ], [ -1, %for.inc.i ]
   ret i32 %retval.0
 }
 

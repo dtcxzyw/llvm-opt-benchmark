@@ -25,11 +25,11 @@ define hidden void @_ZN3syn9lookahead3new17h1db7d1750c3182e0E(ptr nocapture writ
   %6 = alloca { i64, { { { ptr, i64 }, i64 } } }, align 8
   call void @"_ZN5alloc3vec12Vec$LT$T$GT$3new17h0233a5b00b59ac0bE"(ptr nonnull sret({ { ptr, i64 }, i64 }) align 8 %5)
   call void @"_ZN4core4cell16RefCell$LT$T$GT$3new17h59579ccffdebd67fE"(ptr nonnull sret({ i64, { { { ptr, i64 }, i64 } } }) align 8 %6, ptr nonnull align 8 %5)
-  %7 = getelementptr inbounds { { i64, { { { ptr, i64 }, i64 } } }, { ptr, ptr }, i32, [1 x i32] }, ptr %0, i64 0, i32 2
+  %7 = getelementptr inbounds i8, ptr %0, i64 48
   store i32 %1, ptr %7, align 8
-  %8 = getelementptr inbounds { { i64, { { { ptr, i64 }, i64 } } }, { ptr, ptr }, i32, [1 x i32] }, ptr %0, i64 0, i32 1
+  %8 = getelementptr inbounds i8, ptr %0, i64 32
   store ptr %2, ptr %8, align 8
-  %9 = getelementptr inbounds { { i64, { { { ptr, i64 }, i64 } } }, { ptr, ptr }, i32, [1 x i32] }, ptr %0, i64 0, i32 1, i32 1
+  %9 = getelementptr inbounds i8, ptr %0, i64 40
   store ptr %3, ptr %9, align 8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef nonnull align 8 dereferenceable(32) %6, i64 32, i1 false)
   ret void
@@ -38,9 +38,9 @@ define hidden void @_ZN3syn9lookahead3new17h1db7d1750c3182e0E(ptr nocapture writ
 ; Function Attrs: nonlazybind uwtable
 define noundef zeroext i1 @_ZN3syn9lookahead9peek_impl17h5a696b09779bc5e4E(ptr align 8 %0, ptr nocapture readonly %1, ptr nocapture readonly %2) unnamed_addr #0 personality ptr @rust_eh_personality {
   %4 = alloca { ptr, ptr }, align 8
-  %5 = getelementptr inbounds { { i64, { { { ptr, i64 }, i64 } } }, { ptr, ptr }, i32, [1 x i32] }, ptr %0, i64 0, i32 1
+  %5 = getelementptr inbounds i8, ptr %0, i64 32
   %6 = load ptr, ptr %5, align 8, !noundef !5
-  %7 = getelementptr inbounds { { i64, { { { ptr, i64 }, i64 } } }, { ptr, ptr }, i32, [1 x i32] }, ptr %0, i64 0, i32 1, i32 1
+  %7 = getelementptr inbounds i8, ptr %0, i64 40
   %8 = load ptr, ptr %7, align 8, !noundef !5
   %9 = tail call zeroext i1 %1(ptr %6, ptr %8)
   br i1 %9, label %21, label %10
@@ -50,7 +50,7 @@ define noundef zeroext i1 @_ZN3syn9lookahead9peek_impl17h5a696b09779bc5e4E(ptr a
   %.fca.0.extract = extractvalue { ptr, ptr } %11, 0
   store ptr %.fca.0.extract, ptr %4, align 8
   %.fca.1.extract = extractvalue { ptr, ptr } %11, 1
-  %.fca.1.gep = getelementptr inbounds { ptr, ptr }, ptr %4, i64 0, i32 1
+  %.fca.1.gep = getelementptr inbounds i8, ptr %4, i64 8
   store ptr %.fca.1.extract, ptr %.fca.1.gep, align 8
   %12 = invoke align 8 ptr @"_ZN74_$LT$core..cell..RefMut$LT$T$GT$$u20$as$u20$core..ops..deref..DerefMut$GT$9deref_mut17hbb33cab13872a16dE"(ptr nonnull align 8 %4)
           to label %15 unwind label %13
@@ -118,7 +118,7 @@ define void @_ZN3syn9lookahead10Lookahead15error17h0f0c313936accb9bE(ptr sret({ 
   %.fca.0.extract = extractvalue { ptr, ptr } %14, 0
   store ptr %.fca.0.extract, ptr %13, align 8
   %.fca.1.extract = extractvalue { ptr, ptr } %14, 1
-  %.fca.1.gep = getelementptr inbounds { ptr, ptr }, ptr %13, i64 0, i32 1
+  %.fca.1.gep = getelementptr inbounds i8, ptr %13, i64 8
   store ptr %.fca.1.extract, ptr %.fca.1.gep, align 8
   %19 = invoke align 8 ptr @"_ZN68_$LT$core..cell..Ref$LT$T$GT$$u20$as$u20$core..ops..deref..Deref$GT$5deref17h49105c10f2050bc5E"(ptr nonnull align 8 %13)
           to label %23 unwind label %21
@@ -149,9 +149,9 @@ define void @_ZN3syn9lookahead10Lookahead15error17h0f0c313936accb9bE(ptr sret({ 
           to label %76 unwind label %21
 
 28:                                               ; preds = %25
-  %29 = getelementptr inbounds { { i64, { { { ptr, i64 }, i64 } } }, { ptr, ptr }, i32, [1 x i32] }, ptr %1, i64 0, i32 1
+  %29 = getelementptr inbounds i8, ptr %1, i64 32
   %30 = load ptr, ptr %29, align 8, !noundef !5
-  %31 = getelementptr inbounds { { i64, { { { ptr, i64 }, i64 } } }, { ptr, ptr }, i32, [1 x i32] }, ptr %1, i64 0, i32 1, i32 1
+  %31 = getelementptr inbounds i8, ptr %1, i64 40
   %32 = load ptr, ptr %31, align 8, !noundef !5
   %33 = invoke zeroext i1 @_ZN3syn6buffer6Cursor3eof17h47951f4c41175520E(ptr %30, ptr %32)
           to label %38 unwind label %21
@@ -174,7 +174,7 @@ define void @_ZN3syn9lookahead10Lookahead15error17h0f0c313936accb9bE(ptr sret({ 
           to label %.invoke11 unwind label %21
 
 43:                                               ; preds = %38
-  %44 = getelementptr inbounds { { i64, { { { ptr, i64 }, i64 } } }, { ptr, ptr }, i32, [1 x i32] }, ptr %1, i64 0, i32 2
+  %44 = getelementptr inbounds i8, ptr %1, i64 48
   %45 = load i32, ptr %44, align 8, !noundef !5
   br label %.invoke11
 
@@ -197,7 +197,7 @@ define void @_ZN3syn9lookahead10Lookahead15error17h0f0c313936accb9bE(ptr sret({ 
   %53 = icmp ne ptr %51, null
   call void @llvm.assume(i1 %53)
   store ptr %51, ptr %10, align 8
-  %54 = getelementptr inbounds { ptr, ptr }, ptr %10, i64 0, i32 1
+  %54 = getelementptr inbounds i8, ptr %10, i64 8
   store ptr @"_ZN44_$LT$$RF$T$u20$as$u20$core..fmt..Display$GT$3fmt17h208391be79799fb4E", ptr %54, align 8
   invoke void @_ZN4core3fmt9Arguments6new_v117hdf8179cb463011b0E(ptr nonnull sret({ { ptr, i64 }, { ptr, i64 }, { ptr, i64 } }) align 8 %11, ptr nonnull align 8 @anon.3be3217f6755cd96a0effab92db07094.6, i64 1, ptr nonnull align 8 %10, i64 1)
           to label %55 unwind label %21
@@ -224,11 +224,11 @@ define void @_ZN3syn9lookahead10Lookahead15error17h0f0c313936accb9bE(ptr sret({ 
   %64 = icmp ne ptr %62, null
   call void @llvm.assume(i1 %64)
   store ptr %57, ptr %7, align 8
-  %65 = getelementptr inbounds { ptr, ptr }, ptr %7, i64 0, i32 1
+  %65 = getelementptr inbounds i8, ptr %7, i64 8
   store ptr @"_ZN44_$LT$$RF$T$u20$as$u20$core..fmt..Display$GT$3fmt17h208391be79799fb4E", ptr %65, align 8
-  %66 = getelementptr inbounds [2 x { ptr, ptr }], ptr %7, i64 0, i64 1
+  %66 = getelementptr inbounds i8, ptr %7, i64 16
   store ptr %62, ptr %66, align 8
-  %67 = getelementptr inbounds [2 x { ptr, ptr }], ptr %7, i64 0, i64 1, i32 1
+  %67 = getelementptr inbounds i8, ptr %7, i64 24
   store ptr @"_ZN44_$LT$$RF$T$u20$as$u20$core..fmt..Display$GT$3fmt17h208391be79799fb4E", ptr %67, align 8
   invoke void @_ZN4core3fmt9Arguments6new_v117hdf8179cb463011b0E(ptr nonnull sret({ { ptr, i64 }, { ptr, i64 }, { ptr, i64 } }) align 8 %8, ptr nonnull align 8 @anon.3be3217f6755cd96a0effab92db07094.9, i64 2, ptr nonnull align 8 %7, i64 2)
           to label %68 unwind label %21
@@ -239,11 +239,11 @@ define void @_ZN3syn9lookahead10Lookahead15error17h0f0c313936accb9bE(ptr sret({ 
 
 .invoke:                                          ; preds = %68, %55
   %69 = phi ptr [ %12, %55 ], [ %9, %68 ]
-  %70 = getelementptr inbounds { { i64, { { { ptr, i64 }, i64 } } }, { ptr, ptr }, i32, [1 x i32] }, ptr %1, i64 0, i32 2
+  %70 = getelementptr inbounds i8, ptr %1, i64 48
   %71 = load i32, ptr %70, align 8, !noundef !5
-  %72 = getelementptr inbounds { { i64, { { { ptr, i64 }, i64 } } }, { ptr, ptr }, i32, [1 x i32] }, ptr %1, i64 0, i32 1
+  %72 = getelementptr inbounds i8, ptr %1, i64 32
   %73 = load ptr, ptr %72, align 8, !noundef !5
-  %74 = getelementptr inbounds { { i64, { { { ptr, i64 }, i64 } } }, { ptr, ptr }, i32, [1 x i32] }, ptr %1, i64 0, i32 1, i32 1
+  %74 = getelementptr inbounds i8, ptr %1, i64 40
   %75 = load ptr, ptr %74, align 8, !noundef !5
   invoke void @_ZN3syn5error6new_at17h7bfabe5ce356804fE(ptr sret({ { { ptr, i64 }, i64 } }) align 8 %0, i32 %71, ptr %73, ptr %75, ptr nonnull align 8 %69)
           to label %49 unwind label %21
@@ -260,7 +260,7 @@ define void @_ZN3syn9lookahead10Lookahead15error17h0f0c313936accb9bE(ptr sret({ 
 
 81:                                               ; preds = %78
   store ptr %6, ptr %3, align 8
-  %82 = getelementptr inbounds { ptr, ptr }, ptr %3, i64 0, i32 1
+  %82 = getelementptr inbounds i8, ptr %3, i64 8
   store ptr @"_ZN60_$LT$alloc..string..String$u20$as$u20$core..fmt..Display$GT$3fmt17h1674d033b44ed6b5E", ptr %82, align 8
   invoke void @_ZN4core3fmt9Arguments6new_v117hdf8179cb463011b0E(ptr nonnull sret({ { ptr, i64 }, { ptr, i64 }, { ptr, i64 } }) align 8 %4, ptr nonnull align 8 @anon.3be3217f6755cd96a0effab92db07094.14, i64 1, ptr nonnull align 8 %3, i64 1)
           to label %85 unwind label %83
@@ -276,11 +276,11 @@ define void @_ZN3syn9lookahead10Lookahead15error17h0f0c313936accb9bE(ptr sret({ 
           to label %86 unwind label %83
 
 86:                                               ; preds = %85
-  %87 = getelementptr inbounds { { i64, { { { ptr, i64 }, i64 } } }, { ptr, ptr }, i32, [1 x i32] }, ptr %1, i64 0, i32 2
+  %87 = getelementptr inbounds i8, ptr %1, i64 48
   %88 = load i32, ptr %87, align 8, !noundef !5
-  %89 = getelementptr inbounds { { i64, { { { ptr, i64 }, i64 } } }, { ptr, ptr }, i32, [1 x i32] }, ptr %1, i64 0, i32 1
+  %89 = getelementptr inbounds i8, ptr %1, i64 32
   %90 = load ptr, ptr %89, align 8, !noundef !5
-  %91 = getelementptr inbounds { { i64, { { { ptr, i64 }, i64 } } }, { ptr, ptr }, i32, [1 x i32] }, ptr %1, i64 0, i32 1, i32 1
+  %91 = getelementptr inbounds i8, ptr %1, i64 40
   %92 = load ptr, ptr %91, align 8, !noundef !5
   invoke void @_ZN3syn5error6new_at17h7bfabe5ce356804fE(ptr sret({ { { ptr, i64 }, i64 } }) align 8 %0, i32 %88, ptr %90, ptr %92, ptr nonnull align 8 %5)
           to label %93 unwind label %83

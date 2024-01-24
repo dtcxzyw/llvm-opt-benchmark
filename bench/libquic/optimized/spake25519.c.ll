@@ -4,7 +4,6 @@ target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:
 target triple = "x86_64-unknown-linux-gnu"
 
 %struct.cbs_st = type { ptr, i64 }
-%struct.spake2_ctx_st = type { [32 x i8], [32 x i8], [32 x i8], [64 x i8], ptr, i64, ptr, i64, i32, i32 }
 %struct.ge_p3 = type { [10 x i32], [10 x i32], [10 x i32], [10 x i32] }
 %struct.ge_cached = type { [10 x i32], [10 x i32], [10 x i32], [10 x i32] }
 %struct.ge_p1p1 = type { [10 x i32], [10 x i32], [10 x i32], [10 x i32] }
@@ -25,19 +24,19 @@ entry:
   br i1 %cmp, label %return, label %if.end
 
 if.end:                                           ; preds = %entry
-  %my_role1 = getelementptr inbounds %struct.spake2_ctx_st, ptr %calloc, i64 0, i32 8
+  %my_role1 = getelementptr inbounds i8, ptr %calloc, i64 192
   store i32 %my_role, ptr %my_role1, align 8
   call void @CBS_init(ptr noundef nonnull %my_name_cbs, ptr noundef %my_name, i64 noundef %my_name_len) #8
   call void @CBS_init(ptr noundef nonnull %their_name_cbs, ptr noundef %their_name, i64 noundef %their_name_len) #8
-  %my_name2 = getelementptr inbounds %struct.spake2_ctx_st, ptr %calloc, i64 0, i32 4
-  %my_name_len3 = getelementptr inbounds %struct.spake2_ctx_st, ptr %calloc, i64 0, i32 5
+  %my_name2 = getelementptr inbounds i8, ptr %calloc, i64 160
+  %my_name_len3 = getelementptr inbounds i8, ptr %calloc, i64 168
   %call4 = call i32 @CBS_stow(ptr noundef nonnull %my_name_cbs, ptr noundef nonnull %my_name2, ptr noundef nonnull %my_name_len3) #8
   %tobool.not = icmp eq i32 %call4, 0
   br i1 %tobool.not, label %SPAKE2_CTX_free.exit, label %lor.lhs.false
 
 lor.lhs.false:                                    ; preds = %if.end
-  %their_name5 = getelementptr inbounds %struct.spake2_ctx_st, ptr %calloc, i64 0, i32 6
-  %their_name_len6 = getelementptr inbounds %struct.spake2_ctx_st, ptr %calloc, i64 0, i32 7
+  %their_name5 = getelementptr inbounds i8, ptr %calloc, i64 176
+  %their_name_len6 = getelementptr inbounds i8, ptr %calloc, i64 184
   %call7 = call i32 @CBS_stow(ptr noundef nonnull %their_name_cbs, ptr noundef nonnull %their_name5, ptr noundef nonnull %their_name_len6) #8
   %tobool8.not = icmp eq i32 %call7, 0
   br i1 %tobool8.not, label %SPAKE2_CTX_free.exit, label %return
@@ -45,7 +44,7 @@ lor.lhs.false:                                    ; preds = %if.end
 SPAKE2_CTX_free.exit:                             ; preds = %lor.lhs.false, %if.end
   %0 = load ptr, ptr %my_name2, align 8
   call void @free(ptr noundef %0) #8
-  %their_name.i = getelementptr inbounds %struct.spake2_ctx_st, ptr %calloc, i64 0, i32 6
+  %their_name.i = getelementptr inbounds i8, ptr %calloc, i64 176
   %1 = load ptr, ptr %their_name.i, align 8
   call void @free(ptr noundef %1) #8
   call void @free(ptr noundef nonnull %calloc) #8
@@ -67,10 +66,10 @@ entry:
   br i1 %cmp, label %return, label %if.end
 
 if.end:                                           ; preds = %entry
-  %my_name = getelementptr inbounds %struct.spake2_ctx_st, ptr %ctx, i64 0, i32 4
+  %my_name = getelementptr inbounds i8, ptr %ctx, i64 160
   %0 = load ptr, ptr %my_name, align 8
   tail call void @free(ptr noundef %0) #8
-  %their_name = getelementptr inbounds %struct.spake2_ctx_st, ptr %ctx, i64 0, i32 6
+  %their_name = getelementptr inbounds i8, ptr %ctx, i64 176
   %1 = load ptr, ptr %their_name, align 8
   tail call void @free(ptr noundef %1) #8
   tail call void @free(ptr noundef nonnull %ctx) #8
@@ -93,7 +92,7 @@ entry:
   %mask_cached = alloca %struct.ge_cached, align 4
   %Pstar = alloca %struct.ge_p1p1, align 4
   %Pstar_proj = alloca %struct.ge_p2, align 4
-  %state = getelementptr inbounds %struct.spake2_ctx_st, ptr %ctx, i64 0, i32 9
+  %state = getelementptr inbounds i8, ptr %ctx, i64 196
   %0 = load i32, ptr %state, align 4
   %cmp.not = icmp ne i32 %0, 0
   %cmp1 = icmp ult i64 %max_out_len, 32
@@ -122,12 +121,12 @@ left_shift_3.exit:                                ; preds = %for.body.i
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %ctx, ptr noundef nonnull align 16 dereferenceable(32) %private_tmp, i64 32, i1 false)
   call void @x25519_ge_scalarmult_base(ptr noundef nonnull %P, ptr noundef %ctx) #8
   %call11 = call ptr @SHA512(ptr noundef %password, i64 noundef %password_len, ptr noundef nonnull %password_tmp) #8
-  %password_hash = getelementptr inbounds %struct.spake2_ctx_st, ptr %ctx, i64 0, i32 3
+  %password_hash = getelementptr inbounds i8, ptr %ctx, i64 96
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %password_hash, ptr noundef nonnull align 16 dereferenceable(64) %password_tmp, i64 64, i1 false)
   call void @x25519_sc_reduce(ptr noundef nonnull %password_tmp) #8
-  %password_scalar = getelementptr inbounds %struct.spake2_ctx_st, ptr %ctx, i64 0, i32 2
+  %password_scalar = getelementptr inbounds i8, ptr %ctx, i64 64
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %password_scalar, ptr noundef nonnull align 16 dereferenceable(32) %password_tmp, i64 32, i1 false)
-  %my_role = getelementptr inbounds %struct.spake2_ctx_st, ptr %ctx, i64 0, i32 8
+  %my_role = getelementptr inbounds i8, ptr %ctx, i64 192
   %2 = load i32, ptr %my_role, align 8
   %cmp19 = icmp eq i32 %2, 0
   %cond = select i1 %cmp19, ptr @kSpakeMSmallPrecomp, ptr @kSpakeNSmallPrecomp
@@ -135,7 +134,7 @@ left_shift_3.exit:                                ; preds = %for.body.i
   call void @x25519_ge_p3_to_cached(ptr noundef nonnull %mask_cached, ptr noundef nonnull %mask) #8
   call void @x25519_ge_add(ptr noundef nonnull %Pstar, ptr noundef nonnull %P, ptr noundef nonnull %mask_cached) #8
   call void @x25519_ge_p1p1_to_p2(ptr noundef nonnull %Pstar_proj, ptr noundef nonnull %Pstar) #8
-  %my_msg = getelementptr inbounds %struct.spake2_ctx_st, ptr %ctx, i64 0, i32 1
+  %my_msg = getelementptr inbounds i8, ptr %ctx, i64 32
   call void @x25519_ge_tobytes(ptr noundef nonnull %my_msg, ptr noundef nonnull %Pstar_proj) #8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(32) %out, ptr noundef nonnull align 8 dereferenceable(32) %my_msg, i64 32, i1 false)
   store i64 32, ptr %out_len, align 8
@@ -190,7 +189,7 @@ entry:
   %dh_shared_encoded = alloca [32 x i8], align 16
   %sha = alloca %struct.sha512_state_st, align 8
   %key = alloca [64 x i8], align 16
-  %state = getelementptr inbounds %struct.spake2_ctx_st, ptr %ctx, i64 0, i32 9
+  %state = getelementptr inbounds i8, ptr %ctx, i64 196
   %0 = load i32, ptr %state, align 4
   %cmp = icmp ne i32 %0, 1
   %cmp1 = icmp ne i64 %their_msg_len, 32
@@ -203,8 +202,8 @@ if.end:                                           ; preds = %entry
   br i1 %cmp2.not, label %if.end4, label %return
 
 if.end4:                                          ; preds = %if.end
-  %password_scalar = getelementptr inbounds %struct.spake2_ctx_st, ptr %ctx, i64 0, i32 2
-  %my_role = getelementptr inbounds %struct.spake2_ctx_st, ptr %ctx, i64 0, i32 8
+  %password_scalar = getelementptr inbounds i8, ptr %ctx, i64 64
+  %my_role = getelementptr inbounds i8, ptr %ctx, i64 192
   %1 = load i32, ptr %my_role, align 8
   %cmp5 = icmp eq i32 %1, 0
   %cond = select i1 %cmp5, ptr @kSpakeNSmallPrecomp, ptr @kSpakeMSmallPrecomp
@@ -220,9 +219,9 @@ if.end4:                                          ; preds = %if.end
   br i1 %cmp10, label %if.then11, label %if.else
 
 if.then11:                                        ; preds = %if.end4
-  %my_name = getelementptr inbounds %struct.spake2_ctx_st, ptr %ctx, i64 0, i32 4
+  %my_name = getelementptr inbounds i8, ptr %ctx, i64 160
   %3 = load ptr, ptr %my_name, align 8
-  %my_name_len = getelementptr inbounds %struct.spake2_ctx_st, ptr %ctx, i64 0, i32 5
+  %my_name_len = getelementptr inbounds i8, ptr %ctx, i64 168
   %4 = load i64, ptr %my_name_len, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %len_le.i)
   br label %for.body.i
@@ -242,9 +241,9 @@ update_with_length_prefix.exit:                   ; preds = %for.body.i
   %call.i = call i32 @SHA512_Update(ptr noundef nonnull %sha, ptr noundef nonnull %len_le.i, i64 noundef 8) #8
   %call1.i = call i32 @SHA512_Update(ptr noundef nonnull %sha, ptr noundef %3, i64 noundef %4) #8
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %len_le.i)
-  %their_name = getelementptr inbounds %struct.spake2_ctx_st, ptr %ctx, i64 0, i32 6
+  %their_name = getelementptr inbounds i8, ptr %ctx, i64 176
   %5 = load ptr, ptr %their_name, align 8
-  %their_name_len = getelementptr inbounds %struct.spake2_ctx_st, ptr %ctx, i64 0, i32 7
+  %their_name_len = getelementptr inbounds i8, ptr %ctx, i64 184
   %6 = load i64, ptr %their_name_len, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %len_le.i21)
   br label %for.body.i22
@@ -277,7 +276,7 @@ for.body.i34:                                     ; preds = %for.body.i34, %upda
   br i1 %exitcond.not.i41, label %update_with_length_prefix.exit44, label %for.body.i34, !llvm.loop !9
 
 update_with_length_prefix.exit44:                 ; preds = %for.body.i34
-  %my_msg = getelementptr inbounds %struct.spake2_ctx_st, ptr %ctx, i64 0, i32 1
+  %my_msg = getelementptr inbounds i8, ptr %ctx, i64 32
   %call.i42 = call i32 @SHA512_Update(ptr noundef nonnull %sha, ptr noundef nonnull %len_le.i33, i64 noundef 8) #8
   %call1.i43 = call i32 @SHA512_Update(ptr noundef nonnull %sha, ptr noundef nonnull %my_msg, i64 noundef 32) #8
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %len_le.i33)
@@ -300,9 +299,9 @@ update_with_length_prefix.exit56:                 ; preds = %for.body.i46
   br label %if.end19
 
 if.else:                                          ; preds = %if.end4
-  %their_name13 = getelementptr inbounds %struct.spake2_ctx_st, ptr %ctx, i64 0, i32 6
+  %their_name13 = getelementptr inbounds i8, ptr %ctx, i64 176
   %7 = load ptr, ptr %their_name13, align 8
-  %their_name_len14 = getelementptr inbounds %struct.spake2_ctx_st, ptr %ctx, i64 0, i32 7
+  %their_name_len14 = getelementptr inbounds i8, ptr %ctx, i64 184
   %8 = load i64, ptr %their_name_len14, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %len_le.i57)
   br label %for.body.i58
@@ -322,9 +321,9 @@ update_with_length_prefix.exit68:                 ; preds = %for.body.i58
   %call.i66 = call i32 @SHA512_Update(ptr noundef nonnull %sha, ptr noundef nonnull %len_le.i57, i64 noundef 8) #8
   %call1.i67 = call i32 @SHA512_Update(ptr noundef nonnull %sha, ptr noundef %7, i64 noundef %8) #8
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %len_le.i57)
-  %my_name15 = getelementptr inbounds %struct.spake2_ctx_st, ptr %ctx, i64 0, i32 4
+  %my_name15 = getelementptr inbounds i8, ptr %ctx, i64 160
   %9 = load ptr, ptr %my_name15, align 8
-  %my_name_len16 = getelementptr inbounds %struct.spake2_ctx_st, ptr %ctx, i64 0, i32 5
+  %my_name_len16 = getelementptr inbounds i8, ptr %ctx, i64 168
   %10 = load i64, ptr %my_name_len16, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %len_le.i69)
   br label %for.body.i70
@@ -373,7 +372,7 @@ for.body.i94:                                     ; preds = %for.body.i94, %upda
   br i1 %exitcond.not.i101, label %update_with_length_prefix.exit104, label %for.body.i94, !llvm.loop !9
 
 update_with_length_prefix.exit104:                ; preds = %for.body.i94
-  %my_msg17 = getelementptr inbounds %struct.spake2_ctx_st, ptr %ctx, i64 0, i32 1
+  %my_msg17 = getelementptr inbounds i8, ptr %ctx, i64 32
   %call.i102 = call i32 @SHA512_Update(ptr noundef nonnull %sha, ptr noundef nonnull %len_le.i93, i64 noundef 8) #8
   %call1.i103 = call i32 @SHA512_Update(ptr noundef nonnull %sha, ptr noundef nonnull %my_msg17, i64 noundef 32) #8
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %len_le.i93)
@@ -409,7 +408,7 @@ for.body.i118:                                    ; preds = %for.body.i118, %upd
   br i1 %exitcond.not.i125, label %update_with_length_prefix.exit128, label %for.body.i118, !llvm.loop !9
 
 update_with_length_prefix.exit128:                ; preds = %for.body.i118
-  %password_hash = getelementptr inbounds %struct.spake2_ctx_st, ptr %ctx, i64 0, i32 3
+  %password_hash = getelementptr inbounds i8, ptr %ctx, i64 96
   %call.i126 = call i32 @SHA512_Update(ptr noundef nonnull %sha, ptr noundef nonnull %len_le.i117, i64 noundef 8) #8
   %call1.i127 = call i32 @SHA512_Update(ptr noundef nonnull %sha, ptr noundef nonnull %password_hash, i64 noundef 64) #8
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %len_le.i117)

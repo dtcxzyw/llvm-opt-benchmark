@@ -4,8 +4,6 @@ target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:
 target triple = "x86_64-unknown-linux-gnu"
 
 %"class.std::ios_base::Init" = type { i8 }
-%"struct.quic::QuicErrorCode" = type <{ %union.anon, i32, [4 x i8] }>
-%union.anon = type { i64 }
 %"class.folly::Optional" = type { %"struct.folly::Optional<proxygen::hq::SettingId>::StorageTriviallyDestructible" }
 %"struct.folly::Optional<proxygen::hq::SettingId>::StorageTriviallyDestructible" = type <{ %union.anon.2, i8, [7 x i8] }>
 %union.anon.2 = type { i64 }
@@ -138,7 +136,7 @@ return:                                           ; preds = %entry, %switch.look
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
 define noundef i32 @_ZN8proxygen2hq15toProxygenErrorEN4quic13QuicErrorCodeEb(ptr nocapture noundef readonly %error, i1 noundef zeroext %fromPeer) local_unnamed_addr #4 {
 entry:
-  %type_.i = getelementptr inbounds %"struct.quic::QuicErrorCode", ptr %error, i64 0, i32 1
+  %type_.i = getelementptr inbounds i8, ptr %error, i64 8
   %0 = load i32, ptr %type_.i, align 8
   switch i32 %0, label %sw.epilog [
     i32 0, label %sw.bb
@@ -187,62 +185,62 @@ entry:
   ]
 
 sw.bb:                                            ; preds = %entry
-  %hasValue.i.i = getelementptr inbounds %"struct.folly::Optional<proxygen::hq::SettingId>::StorageTriviallyDestructible", ptr %agg.result, i64 0, i32 1
+  %hasValue.i.i = getelementptr inbounds i8, ptr %agg.result, i64 8
   store i64 1, ptr %agg.result, align 8
   store i8 1, ptr %hasValue.i.i, align 8
   br label %return
 
 sw.bb1:                                           ; preds = %entry
-  %hasValue.i.i1 = getelementptr inbounds %"struct.folly::Optional<proxygen::hq::SettingId>::StorageTriviallyDestructible", ptr %agg.result, i64 0, i32 1
+  %hasValue.i.i1 = getelementptr inbounds i8, ptr %agg.result, i64 8
   store i64 6, ptr %agg.result, align 8
   store i8 1, ptr %hasValue.i.i1, align 8
   br label %return
 
 sw.bb3:                                           ; preds = %entry
-  %hasValue.i.i2 = getelementptr inbounds %"struct.folly::Optional<proxygen::hq::SettingId>::StorageTriviallyDestructible", ptr %agg.result, i64 0, i32 1
+  %hasValue.i.i2 = getelementptr inbounds i8, ptr %agg.result, i64 8
   store i64 8, ptr %agg.result, align 8
   store i8 1, ptr %hasValue.i.i2, align 8
   br label %return
 
 sw.bb5:                                           ; preds = %entry
-  %hasValue.i.i3 = getelementptr inbounds %"struct.folly::Optional<proxygen::hq::SettingId>::StorageTriviallyDestructible", ptr %agg.result, i64 0, i32 1
+  %hasValue.i.i3 = getelementptr inbounds i8, ptr %agg.result, i64 8
   store i64 7, ptr %agg.result, align 8
   store i8 1, ptr %hasValue.i.i3, align 8
   br label %return
 
 sw.bb7:                                           ; preds = %entry
-  %hasValue.i.i4 = getelementptr inbounds %"struct.folly::Optional<proxygen::hq::SettingId>::StorageTriviallyDestructible", ptr %agg.result, i64 0, i32 1
+  %hasValue.i.i4 = getelementptr inbounds i8, ptr %agg.result, i64 8
   store i64 630, ptr %agg.result, align 8
   store i8 1, ptr %hasValue.i.i4, align 8
   br label %return
 
 sw.bb9:                                           ; preds = %entry
-  %hasValue.i.i5 = getelementptr inbounds %"struct.folly::Optional<proxygen::hq::SettingId>::StorageTriviallyDestructible", ptr %agg.result, i64 0, i32 1
+  %hasValue.i.i5 = getelementptr inbounds i8, ptr %agg.result, i64 8
   store i64 16765559, ptr %agg.result, align 8
   store i8 1, ptr %hasValue.i.i5, align 8
   br label %return
 
 sw.bb11:                                          ; preds = %entry
-  %hasValue.i.i6 = getelementptr inbounds %"struct.folly::Optional<proxygen::hq::SettingId>::StorageTriviallyDestructible", ptr %agg.result, i64 0, i32 1
+  %hasValue.i.i6 = getelementptr inbounds i8, ptr %agg.result, i64 8
   store i64 51, ptr %agg.result, align 8
   store i8 1, ptr %hasValue.i.i6, align 8
   br label %return
 
 sw.bb13:                                          ; preds = %entry
-  %hasValue.i.i7 = getelementptr inbounds %"struct.folly::Optional<proxygen::hq::SettingId>::StorageTriviallyDestructible", ptr %agg.result, i64 0, i32 1
+  %hasValue.i.i7 = getelementptr inbounds i8, ptr %agg.result, i64 8
   store i64 727725890, ptr %agg.result, align 8
   store i8 1, ptr %hasValue.i.i7, align 8
   br label %return
 
 sw.bb15:                                          ; preds = %entry
-  %hasValue.i.i8 = getelementptr inbounds %"struct.folly::Optional<proxygen::hq::SettingId>::StorageTriviallyDestructible", ptr %agg.result, i64 0, i32 1
+  %hasValue.i.i8 = getelementptr inbounds i8, ptr %agg.result, i64 8
   store i64 727725891, ptr %agg.result, align 8
   store i8 1, ptr %hasValue.i.i8, align 8
   br label %return
 
 sw.default:                                       ; preds = %entry
   store i8 0, ptr %agg.result, align 8
-  %hasValue.i.i9 = getelementptr inbounds %"struct.folly::Optional<proxygen::hq::SettingId>::StorageTriviallyDestructible", ptr %agg.result, i64 0, i32 1
+  %hasValue.i.i9 = getelementptr inbounds i8, ptr %agg.result, i64 8
   store i8 0, ptr %hasValue.i.i9, align 8
   br label %return
 
@@ -266,62 +264,62 @@ entry:
   ]
 
 sw.bb:                                            ; preds = %entry
-  %hasValue.i.i = getelementptr inbounds %"struct.folly::Optional<proxygen::SettingsId>::StorageTriviallyDestructible", ptr %agg.result, i64 0, i32 1
+  %hasValue.i.i = getelementptr inbounds i8, ptr %agg.result, i64 8
   store i64 1, ptr %agg.result, align 8
   store i8 1, ptr %hasValue.i.i, align 8
   br label %return
 
 sw.bb1:                                           ; preds = %entry
-  %hasValue.i.i1 = getelementptr inbounds %"struct.folly::Optional<proxygen::SettingsId>::StorageTriviallyDestructible", ptr %agg.result, i64 0, i32 1
+  %hasValue.i.i1 = getelementptr inbounds i8, ptr %agg.result, i64 8
   store i64 6, ptr %agg.result, align 8
   store i8 1, ptr %hasValue.i.i1, align 8
   br label %return
 
 sw.bb3:                                           ; preds = %entry
-  %hasValue.i.i2 = getelementptr inbounds %"struct.folly::Optional<proxygen::SettingsId>::StorageTriviallyDestructible", ptr %agg.result, i64 0, i32 1
+  %hasValue.i.i2 = getelementptr inbounds i8, ptr %agg.result, i64 8
   store i64 8, ptr %agg.result, align 8
   store i8 1, ptr %hasValue.i.i2, align 8
   br label %return
 
 sw.bb5:                                           ; preds = %entry
-  %hasValue.i.i3 = getelementptr inbounds %"struct.folly::Optional<proxygen::SettingsId>::StorageTriviallyDestructible", ptr %agg.result, i64 0, i32 1
+  %hasValue.i.i3 = getelementptr inbounds i8, ptr %agg.result, i64 8
   store i64 4294967303, ptr %agg.result, align 8
   store i8 1, ptr %hasValue.i.i3, align 8
   br label %return
 
 sw.bb7:                                           ; preds = %entry
-  %hasValue.i.i4 = getelementptr inbounds %"struct.folly::Optional<proxygen::SettingsId>::StorageTriviallyDestructible", ptr %agg.result, i64 0, i32 1
+  %hasValue.i.i4 = getelementptr inbounds i8, ptr %agg.result, i64 8
   store i64 4294967926, ptr %agg.result, align 8
   store i8 1, ptr %hasValue.i.i4, align 8
   br label %return
 
 sw.bb9:                                           ; preds = %entry
-  %hasValue.i.i5 = getelementptr inbounds %"struct.folly::Optional<proxygen::SettingsId>::StorageTriviallyDestructible", ptr %agg.result, i64 0, i32 1
+  %hasValue.i.i5 = getelementptr inbounds i8, ptr %agg.result, i64 8
   store i64 4311732855, ptr %agg.result, align 8
   store i8 1, ptr %hasValue.i.i5, align 8
   br label %return
 
 sw.bb11:                                          ; preds = %entry
-  %hasValue.i.i6 = getelementptr inbounds %"struct.folly::Optional<proxygen::SettingsId>::StorageTriviallyDestructible", ptr %agg.result, i64 0, i32 1
+  %hasValue.i.i6 = getelementptr inbounds i8, ptr %agg.result, i64 8
   store i64 4294967347, ptr %agg.result, align 8
   store i8 1, ptr %hasValue.i.i6, align 8
   br label %return
 
 sw.bb13:                                          ; preds = %entry
-  %hasValue.i.i7 = getelementptr inbounds %"struct.folly::Optional<proxygen::SettingsId>::StorageTriviallyDestructible", ptr %agg.result, i64 0, i32 1
+  %hasValue.i.i7 = getelementptr inbounds i8, ptr %agg.result, i64 8
   store i64 727725890, ptr %agg.result, align 8
   store i8 1, ptr %hasValue.i.i7, align 8
   br label %return
 
 sw.bb15:                                          ; preds = %entry
-  %hasValue.i.i8 = getelementptr inbounds %"struct.folly::Optional<proxygen::SettingsId>::StorageTriviallyDestructible", ptr %agg.result, i64 0, i32 1
+  %hasValue.i.i8 = getelementptr inbounds i8, ptr %agg.result, i64 8
   store i64 727725891, ptr %agg.result, align 8
   store i8 1, ptr %hasValue.i.i8, align 8
   br label %return
 
 sw.epilog:                                        ; preds = %entry
   store i8 0, ptr %agg.result, align 8
-  %hasValue.i.i9 = getelementptr inbounds %"struct.folly::Optional<proxygen::SettingsId>::StorageTriviallyDestructible", ptr %agg.result, i64 0, i32 1
+  %hasValue.i.i9 = getelementptr inbounds i8, ptr %agg.result, i64 8
   store i8 0, ptr %hasValue.i.i9, align 8
   br label %return
 

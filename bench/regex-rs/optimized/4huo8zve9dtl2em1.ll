@@ -229,7 +229,7 @@ define hidden void @_ZN14regex_automata4util4look7LookSet10write_repr17hc4bd94cd
   unreachable
 
 7:                                                ; preds = %5
-  %8 = getelementptr inbounds [0 x i8], ptr %1, i64 0, i64 1
+  %8 = getelementptr inbounds i8, ptr %1, i64 1
   store i8 %.sroa.23.0.extract.trunc, ptr %8, align 1
   %9 = icmp ugt i64 %2, 2
   br i1 %9, label %11, label %13, !prof !8
@@ -239,7 +239,7 @@ define hidden void @_ZN14regex_automata4util4look7LookSet10write_repr17hc4bd94cd
   unreachable
 
 11:                                               ; preds = %7
-  %12 = getelementptr inbounds [0 x i8], ptr %1, i64 0, i64 2
+  %12 = getelementptr inbounds i8, ptr %1, i64 2
   store i8 %.sroa.34.0.extract.trunc, ptr %12, align 1
   %.not7 = icmp eq i64 %2, 3
   br i1 %.not7, label %16, label %14, !prof !7
@@ -251,7 +251,7 @@ define hidden void @_ZN14regex_automata4util4look7LookSet10write_repr17hc4bd94cd
 14:                                               ; preds = %11
   %.sroa.45.0.extract.shift = lshr i32 %4, 24
   %.sroa.45.0.extract.trunc = trunc i32 %.sroa.45.0.extract.shift to i8
-  %15 = getelementptr inbounds [0 x i8], ptr %1, i64 0, i64 3
+  %15 = getelementptr inbounds i8, ptr %1, i64 3
   store i8 %.sroa.45.0.extract.trunc, ptr %15, align 1
   ret void
 
@@ -300,7 +300,7 @@ define zeroext i1 @"_ZN72_$LT$regex_automata..util..look..LookSet$u20$as$u20$cor
   %16 = load i32, ptr %0, align 4, !noundef !6
   %17 = tail call i32 @"_ZN63_$LT$I$u20$as$u20$core..iter..traits..collect..IntoIterator$GT$9into_iter17hf09a92750bed87fcE"(i32 %16)
   store i32 %17, ptr %6, align 4
-  %18 = getelementptr inbounds { ptr, ptr }, ptr %4, i64 0, i32 1
+  %18 = getelementptr inbounds i8, ptr %4, i64 8
   br label %21
 
 19:                                               ; preds = %2
@@ -869,15 +869,15 @@ define hidden i8 @_ZN14regex_automata4util4look11LookMatcher15is_word_unicode17h
   br label %61
 
 44:                                               ; preds = %.thread200
-  %45 = getelementptr inbounds { [1 x i64], { ptr, i64 } }, ptr %6, i64 0, i32 1
+  %45 = getelementptr inbounds i8, ptr %6, i64 8
   %46 = load ptr, ptr %45, align 8, !nonnull !6, !align !13, !noundef !6
-  %47 = getelementptr inbounds { [1 x i64], { ptr, i64 } }, ptr %6, i64 0, i32 1, i32 1
+  %47 = getelementptr inbounds i8, ptr %6, i64 16
   %48 = load i64, ptr %47, align 8, !noundef !6
   %49 = call { ptr, ptr } @"_ZN4core3str21_$LT$impl$u20$str$GT$5chars17h990ea14c6004519bE"(ptr nonnull align 1 %46, i64 %48)
   %.fca.0.extract143 = extractvalue { ptr, ptr } %49, 0
   store ptr %.fca.0.extract143, ptr %5, align 8
   %.fca.1.extract145 = extractvalue { ptr, ptr } %49, 1
-  %.fca.1.gep146 = getelementptr inbounds { ptr, ptr }, ptr %5, i64 0, i32 1
+  %.fca.1.gep146 = getelementptr inbounds i8, ptr %5, i64 8
   store ptr %.fca.1.extract145, ptr %.fca.1.gep146, align 8
   %50 = call i32 @"_ZN81_$LT$core..str..iter..Chars$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h97f965c6f879ac1bE"(ptr nonnull align 8 %5), !range !14
   %51 = call i32 @"_ZN4core6option15Option$LT$T$GT$6unwrap17hb8903cbf6aa3318fE"(i32 %50, ptr nonnull align 8 @anon.608b5fe77907f3946c8efbee8b893681.62), !range !12
@@ -980,15 +980,15 @@ define hidden i8 @_ZN14regex_automata4util4look11LookMatcher15is_word_unicode17h
   br label %103
 
 95:                                               ; preds = %.thread231
-  %96 = getelementptr inbounds { [1 x i64], { ptr, i64 } }, ptr %8, i64 0, i32 1
+  %96 = getelementptr inbounds i8, ptr %8, i64 8
   %97 = load ptr, ptr %96, align 8, !nonnull !6, !align !13, !noundef !6
-  %98 = getelementptr inbounds { [1 x i64], { ptr, i64 } }, ptr %8, i64 0, i32 1, i32 1
+  %98 = getelementptr inbounds i8, ptr %8, i64 16
   %99 = load i64, ptr %98, align 8, !noundef !6
   %100 = call { ptr, ptr } @"_ZN4core3str21_$LT$impl$u20$str$GT$5chars17h990ea14c6004519bE"(ptr nonnull align 1 %97, i64 %99)
   %.fca.0.extract56 = extractvalue { ptr, ptr } %100, 0
   store ptr %.fca.0.extract56, ptr %7, align 8
   %.fca.1.extract58 = extractvalue { ptr, ptr } %100, 1
-  %.fca.1.gep59 = getelementptr inbounds { ptr, ptr }, ptr %7, i64 0, i32 1
+  %.fca.1.gep59 = getelementptr inbounds i8, ptr %7, i64 8
   store ptr %.fca.1.extract58, ptr %.fca.1.gep59, align 8
   %101 = call i32 @"_ZN81_$LT$core..str..iter..Chars$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h97f965c6f879ac1bE"(ptr nonnull align 8 %7), !range !14
   %102 = call i32 @"_ZN4core6option15Option$LT$T$GT$6unwrap17hb8903cbf6aa3318fE"(i32 %101, ptr nonnull align 8 @anon.608b5fe77907f3946c8efbee8b893681.62), !range !12
@@ -1102,15 +1102,15 @@ define hidden i8 @_ZN14regex_automata4util4look11LookMatcher22is_word_unicode_ne
   br label %.thread416
 
 46:                                               ; preds = %39
-  %47 = getelementptr inbounds { [1 x i64], { ptr, i64 } }, ptr %6, i64 0, i32 1
+  %47 = getelementptr inbounds i8, ptr %6, i64 8
   %48 = load ptr, ptr %47, align 8, !nonnull !6, !align !13, !noundef !6
-  %49 = getelementptr inbounds { [1 x i64], { ptr, i64 } }, ptr %6, i64 0, i32 1, i32 1
+  %49 = getelementptr inbounds i8, ptr %6, i64 16
   %50 = load i64, ptr %49, align 8, !noundef !6
   %51 = call { ptr, ptr } @"_ZN4core3str21_$LT$impl$u20$str$GT$5chars17h990ea14c6004519bE"(ptr nonnull align 1 %48, i64 %50)
   %.fca.0.extract311 = extractvalue { ptr, ptr } %51, 0
   store ptr %.fca.0.extract311, ptr %5, align 8
   %.fca.1.extract313 = extractvalue { ptr, ptr } %51, 1
-  %.fca.1.gep314 = getelementptr inbounds { ptr, ptr }, ptr %5, i64 0, i32 1
+  %.fca.1.gep314 = getelementptr inbounds i8, ptr %5, i64 8
   store ptr %.fca.1.extract313, ptr %.fca.1.gep314, align 8
   %52 = call i32 @"_ZN81_$LT$core..str..iter..Chars$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h97f965c6f879ac1bE"(ptr nonnull align 8 %5), !range !14
   %53 = call i32 @"_ZN4core6option15Option$LT$T$GT$6unwrap17hb8903cbf6aa3318fE"(i32 %52, ptr nonnull align 8 @anon.608b5fe77907f3946c8efbee8b893681.62), !range !12
@@ -1218,15 +1218,15 @@ define hidden i8 @_ZN14regex_automata4util4look11LookMatcher22is_word_unicode_ne
   br label %117
 
 100:                                              ; preds = %.thread432
-  %101 = getelementptr inbounds { [1 x i64], { ptr, i64 } }, ptr %8, i64 0, i32 1
+  %101 = getelementptr inbounds i8, ptr %8, i64 8
   %102 = load ptr, ptr %101, align 8, !nonnull !6, !align !13, !noundef !6
-  %103 = getelementptr inbounds { [1 x i64], { ptr, i64 } }, ptr %8, i64 0, i32 1, i32 1
+  %103 = getelementptr inbounds i8, ptr %8, i64 16
   %104 = load i64, ptr %103, align 8, !noundef !6
   %105 = call { ptr, ptr } @"_ZN4core3str21_$LT$impl$u20$str$GT$5chars17h990ea14c6004519bE"(ptr nonnull align 1 %102, i64 %104)
   %.fca.0.extract219 = extractvalue { ptr, ptr } %105, 0
   store ptr %.fca.0.extract219, ptr %7, align 8
   %.fca.1.extract221 = extractvalue { ptr, ptr } %105, 1
-  %.fca.1.gep222 = getelementptr inbounds { ptr, ptr }, ptr %7, i64 0, i32 1
+  %.fca.1.gep222 = getelementptr inbounds i8, ptr %7, i64 8
   store ptr %.fca.1.extract221, ptr %.fca.1.gep222, align 8
   %106 = call i32 @"_ZN81_$LT$core..str..iter..Chars$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h97f965c6f879ac1bE"(ptr nonnull align 8 %7), !range !14
   %107 = call i32 @"_ZN4core6option15Option$LT$T$GT$6unwrap17hb8903cbf6aa3318fE"(i32 %106, ptr nonnull align 8 @anon.608b5fe77907f3946c8efbee8b893681.62), !range !12
@@ -1319,15 +1319,15 @@ define hidden i8 @_ZN14regex_automata4util4look11LookMatcher22is_word_unicode_ne
   br label %161
 
 149:                                              ; preds = %142
-  %150 = getelementptr inbounds { [1 x i64], { ptr, i64 } }, ptr %10, i64 0, i32 1
+  %150 = getelementptr inbounds i8, ptr %10, i64 8
   %151 = load ptr, ptr %150, align 8, !nonnull !6, !align !13, !noundef !6
-  %152 = getelementptr inbounds { [1 x i64], { ptr, i64 } }, ptr %10, i64 0, i32 1, i32 1
+  %152 = getelementptr inbounds i8, ptr %10, i64 16
   %153 = load i64, ptr %152, align 8, !noundef !6
   %154 = call { ptr, ptr } @"_ZN4core3str21_$LT$impl$u20$str$GT$5chars17h990ea14c6004519bE"(ptr nonnull align 1 %151, i64 %153)
   %.fca.0.extract132 = extractvalue { ptr, ptr } %154, 0
   store ptr %.fca.0.extract132, ptr %9, align 8
   %.fca.1.extract134 = extractvalue { ptr, ptr } %154, 1
-  %.fca.1.gep135 = getelementptr inbounds { ptr, ptr }, ptr %9, i64 0, i32 1
+  %.fca.1.gep135 = getelementptr inbounds i8, ptr %9, i64 8
   store ptr %.fca.1.extract134, ptr %.fca.1.gep135, align 8
   %155 = call i32 @"_ZN81_$LT$core..str..iter..Chars$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h97f965c6f879ac1bE"(ptr nonnull align 8 %9), !range !14
   %156 = call i32 @"_ZN4core6option15Option$LT$T$GT$6unwrap17hb8903cbf6aa3318fE"(i32 %155, ptr nonnull align 8 @anon.608b5fe77907f3946c8efbee8b893681.62), !range !12
@@ -1402,15 +1402,15 @@ define hidden i8 @_ZN14regex_automata4util4look11LookMatcher22is_word_unicode_ne
   br label %197
 
 189:                                              ; preds = %.thread477
-  %190 = getelementptr inbounds { [1 x i64], { ptr, i64 } }, ptr %12, i64 0, i32 1
+  %190 = getelementptr inbounds i8, ptr %12, i64 8
   %191 = load ptr, ptr %190, align 8, !nonnull !6, !align !13, !noundef !6
-  %192 = getelementptr inbounds { [1 x i64], { ptr, i64 } }, ptr %12, i64 0, i32 1, i32 1
+  %192 = getelementptr inbounds i8, ptr %12, i64 16
   %193 = load i64, ptr %192, align 8, !noundef !6
   %194 = call { ptr, ptr } @"_ZN4core3str21_$LT$impl$u20$str$GT$5chars17h990ea14c6004519bE"(ptr nonnull align 1 %191, i64 %193)
   %.fca.0.extract74 = extractvalue { ptr, ptr } %194, 0
   store ptr %.fca.0.extract74, ptr %11, align 8
   %.fca.1.extract76 = extractvalue { ptr, ptr } %194, 1
-  %.fca.1.gep77 = getelementptr inbounds { ptr, ptr }, ptr %11, i64 0, i32 1
+  %.fca.1.gep77 = getelementptr inbounds i8, ptr %11, i64 8
   store ptr %.fca.1.extract76, ptr %.fca.1.gep77, align 8
   %195 = call i32 @"_ZN81_$LT$core..str..iter..Chars$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h97f965c6f879ac1bE"(ptr nonnull align 8 %11), !range !14
   %196 = call i32 @"_ZN4core6option15Option$LT$T$GT$6unwrap17hb8903cbf6aa3318fE"(i32 %195, ptr nonnull align 8 @anon.608b5fe77907f3946c8efbee8b893681.62), !range !12
@@ -1609,15 +1609,15 @@ define hidden i8 @_ZN14regex_automata4util4look11LookMatcher21is_word_start_unic
   br label %61
 
 44:                                               ; preds = %.thread203
-  %45 = getelementptr inbounds { [1 x i64], { ptr, i64 } }, ptr %6, i64 0, i32 1
+  %45 = getelementptr inbounds i8, ptr %6, i64 8
   %46 = load ptr, ptr %45, align 8, !nonnull !6, !align !13, !noundef !6
-  %47 = getelementptr inbounds { [1 x i64], { ptr, i64 } }, ptr %6, i64 0, i32 1, i32 1
+  %47 = getelementptr inbounds i8, ptr %6, i64 16
   %48 = load i64, ptr %47, align 8, !noundef !6
   %49 = call { ptr, ptr } @"_ZN4core3str21_$LT$impl$u20$str$GT$5chars17h990ea14c6004519bE"(ptr nonnull align 1 %46, i64 %48)
   %.fca.0.extract144 = extractvalue { ptr, ptr } %49, 0
   store ptr %.fca.0.extract144, ptr %5, align 8
   %.fca.1.extract146 = extractvalue { ptr, ptr } %49, 1
-  %.fca.1.gep147 = getelementptr inbounds { ptr, ptr }, ptr %5, i64 0, i32 1
+  %.fca.1.gep147 = getelementptr inbounds i8, ptr %5, i64 8
   store ptr %.fca.1.extract146, ptr %.fca.1.gep147, align 8
   %50 = call i32 @"_ZN81_$LT$core..str..iter..Chars$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h97f965c6f879ac1bE"(ptr nonnull align 8 %5), !range !14
   %51 = call i32 @"_ZN4core6option15Option$LT$T$GT$6unwrap17hb8903cbf6aa3318fE"(i32 %50, ptr nonnull align 8 @anon.608b5fe77907f3946c8efbee8b893681.62), !range !12
@@ -1720,15 +1720,15 @@ define hidden i8 @_ZN14regex_automata4util4look11LookMatcher21is_word_start_unic
   br label %102
 
 94:                                               ; preds = %.thread234
-  %95 = getelementptr inbounds { [1 x i64], { ptr, i64 } }, ptr %8, i64 0, i32 1
+  %95 = getelementptr inbounds i8, ptr %8, i64 8
   %96 = load ptr, ptr %95, align 8, !nonnull !6, !align !13, !noundef !6
-  %97 = getelementptr inbounds { [1 x i64], { ptr, i64 } }, ptr %8, i64 0, i32 1, i32 1
+  %97 = getelementptr inbounds i8, ptr %8, i64 16
   %98 = load i64, ptr %97, align 8, !noundef !6
   %99 = call { ptr, ptr } @"_ZN4core3str21_$LT$impl$u20$str$GT$5chars17h990ea14c6004519bE"(ptr nonnull align 1 %96, i64 %98)
   %.fca.0.extract57 = extractvalue { ptr, ptr } %99, 0
   store ptr %.fca.0.extract57, ptr %7, align 8
   %.fca.1.extract59 = extractvalue { ptr, ptr } %99, 1
-  %.fca.1.gep60 = getelementptr inbounds { ptr, ptr }, ptr %7, i64 0, i32 1
+  %.fca.1.gep60 = getelementptr inbounds i8, ptr %7, i64 8
   store ptr %.fca.1.extract59, ptr %.fca.1.gep60, align 8
   %100 = call i32 @"_ZN81_$LT$core..str..iter..Chars$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h97f965c6f879ac1bE"(ptr nonnull align 8 %7), !range !14
   %101 = call i32 @"_ZN4core6option15Option$LT$T$GT$6unwrap17hb8903cbf6aa3318fE"(i32 %100, ptr nonnull align 8 @anon.608b5fe77907f3946c8efbee8b893681.62), !range !12
@@ -1845,15 +1845,15 @@ define hidden i8 @_ZN14regex_automata4util4look11LookMatcher19is_word_end_unicod
   br label %61
 
 44:                                               ; preds = %.thread204
-  %45 = getelementptr inbounds { [1 x i64], { ptr, i64 } }, ptr %6, i64 0, i32 1
+  %45 = getelementptr inbounds i8, ptr %6, i64 8
   %46 = load ptr, ptr %45, align 8, !nonnull !6, !align !13, !noundef !6
-  %47 = getelementptr inbounds { [1 x i64], { ptr, i64 } }, ptr %6, i64 0, i32 1, i32 1
+  %47 = getelementptr inbounds i8, ptr %6, i64 16
   %48 = load i64, ptr %47, align 8, !noundef !6
   %49 = call { ptr, ptr } @"_ZN4core3str21_$LT$impl$u20$str$GT$5chars17h990ea14c6004519bE"(ptr nonnull align 1 %46, i64 %48)
   %.fca.0.extract144 = extractvalue { ptr, ptr } %49, 0
   store ptr %.fca.0.extract144, ptr %5, align 8
   %.fca.1.extract146 = extractvalue { ptr, ptr } %49, 1
-  %.fca.1.gep147 = getelementptr inbounds { ptr, ptr }, ptr %5, i64 0, i32 1
+  %.fca.1.gep147 = getelementptr inbounds i8, ptr %5, i64 8
   store ptr %.fca.1.extract146, ptr %.fca.1.gep147, align 8
   %50 = call i32 @"_ZN81_$LT$core..str..iter..Chars$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h97f965c6f879ac1bE"(ptr nonnull align 8 %5), !range !14
   %51 = call i32 @"_ZN4core6option15Option$LT$T$GT$6unwrap17hb8903cbf6aa3318fE"(i32 %50, ptr nonnull align 8 @anon.608b5fe77907f3946c8efbee8b893681.62), !range !12
@@ -1956,15 +1956,15 @@ define hidden i8 @_ZN14regex_automata4util4look11LookMatcher19is_word_end_unicod
   br label %102
 
 94:                                               ; preds = %.thread235
-  %95 = getelementptr inbounds { [1 x i64], { ptr, i64 } }, ptr %8, i64 0, i32 1
+  %95 = getelementptr inbounds i8, ptr %8, i64 8
   %96 = load ptr, ptr %95, align 8, !nonnull !6, !align !13, !noundef !6
-  %97 = getelementptr inbounds { [1 x i64], { ptr, i64 } }, ptr %8, i64 0, i32 1, i32 1
+  %97 = getelementptr inbounds i8, ptr %8, i64 16
   %98 = load i64, ptr %97, align 8, !noundef !6
   %99 = call { ptr, ptr } @"_ZN4core3str21_$LT$impl$u20$str$GT$5chars17h990ea14c6004519bE"(ptr nonnull align 1 %96, i64 %98)
   %.fca.0.extract57 = extractvalue { ptr, ptr } %99, 0
   store ptr %.fca.0.extract57, ptr %7, align 8
   %.fca.1.extract59 = extractvalue { ptr, ptr } %99, 1
-  %.fca.1.gep60 = getelementptr inbounds { ptr, ptr }, ptr %7, i64 0, i32 1
+  %.fca.1.gep60 = getelementptr inbounds i8, ptr %7, i64 8
   store ptr %.fca.1.extract59, ptr %.fca.1.gep60, align 8
   %100 = call i32 @"_ZN81_$LT$core..str..iter..Chars$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h97f965c6f879ac1bE"(ptr nonnull align 8 %7), !range !14
   %101 = call i32 @"_ZN4core6option15Option$LT$T$GT$6unwrap17hb8903cbf6aa3318fE"(i32 %100, ptr nonnull align 8 @anon.608b5fe77907f3946c8efbee8b893681.62), !range !12
@@ -2120,15 +2120,15 @@ define hidden i8 @_ZN14regex_automata4util4look11LookMatcher26is_word_start_half
   br label %.thread240
 
 42:                                               ; preds = %35
-  %43 = getelementptr inbounds { [1 x i64], { ptr, i64 } }, ptr %6, i64 0, i32 1
+  %43 = getelementptr inbounds i8, ptr %6, i64 8
   %44 = load ptr, ptr %43, align 8, !nonnull !6, !align !13, !noundef !6
-  %45 = getelementptr inbounds { [1 x i64], { ptr, i64 } }, ptr %6, i64 0, i32 1, i32 1
+  %45 = getelementptr inbounds i8, ptr %6, i64 16
   %46 = load i64, ptr %45, align 8, !noundef !6
   %47 = call { ptr, ptr } @"_ZN4core3str21_$LT$impl$u20$str$GT$5chars17h990ea14c6004519bE"(ptr nonnull align 1 %44, i64 %46)
   %.fca.0.extract173 = extractvalue { ptr, ptr } %47, 0
   store ptr %.fca.0.extract173, ptr %5, align 8
   %.fca.1.extract175 = extractvalue { ptr, ptr } %47, 1
-  %.fca.1.gep176 = getelementptr inbounds { ptr, ptr }, ptr %5, i64 0, i32 1
+  %.fca.1.gep176 = getelementptr inbounds i8, ptr %5, i64 8
   store ptr %.fca.1.extract175, ptr %.fca.1.gep176, align 8
   %48 = call i32 @"_ZN81_$LT$core..str..iter..Chars$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h97f965c6f879ac1bE"(ptr nonnull align 8 %5), !range !14
   %49 = call i32 @"_ZN4core6option15Option$LT$T$GT$6unwrap17hb8903cbf6aa3318fE"(i32 %48, ptr nonnull align 8 @anon.608b5fe77907f3946c8efbee8b893681.62), !range !12
@@ -2231,15 +2231,15 @@ define hidden i8 @_ZN14regex_automata4util4look11LookMatcher26is_word_start_half
   br label %111
 
 94:                                               ; preds = %.thread256
-  %95 = getelementptr inbounds { [1 x i64], { ptr, i64 } }, ptr %8, i64 0, i32 1
+  %95 = getelementptr inbounds i8, ptr %8, i64 8
   %96 = load ptr, ptr %95, align 8, !nonnull !6, !align !13, !noundef !6
-  %97 = getelementptr inbounds { [1 x i64], { ptr, i64 } }, ptr %8, i64 0, i32 1, i32 1
+  %97 = getelementptr inbounds i8, ptr %8, i64 16
   %98 = load i64, ptr %97, align 8, !noundef !6
   %99 = call { ptr, ptr } @"_ZN4core3str21_$LT$impl$u20$str$GT$5chars17h990ea14c6004519bE"(ptr nonnull align 1 %96, i64 %98)
   %.fca.0.extract81 = extractvalue { ptr, ptr } %99, 0
   store ptr %.fca.0.extract81, ptr %7, align 8
   %.fca.1.extract83 = extractvalue { ptr, ptr } %99, 1
-  %.fca.1.gep84 = getelementptr inbounds { ptr, ptr }, ptr %7, i64 0, i32 1
+  %.fca.1.gep84 = getelementptr inbounds i8, ptr %7, i64 8
   store ptr %.fca.1.extract83, ptr %.fca.1.gep84, align 8
   %100 = call i32 @"_ZN81_$LT$core..str..iter..Chars$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h97f965c6f879ac1bE"(ptr nonnull align 8 %7), !range !14
   %101 = call i32 @"_ZN4core6option15Option$LT$T$GT$6unwrap17hb8903cbf6aa3318fE"(i32 %100, ptr nonnull align 8 @anon.608b5fe77907f3946c8efbee8b893681.62), !range !12
@@ -2350,15 +2350,15 @@ define hidden i8 @_ZN14regex_automata4util4look11LookMatcher24is_word_end_half_u
   br label %43
 
 35:                                               ; preds = %28
-  %36 = getelementptr inbounds { [1 x i64], { ptr, i64 } }, ptr %6, i64 0, i32 1
+  %36 = getelementptr inbounds i8, ptr %6, i64 8
   %37 = load ptr, ptr %36, align 8, !nonnull !6, !align !13, !noundef !6
-  %38 = getelementptr inbounds { [1 x i64], { ptr, i64 } }, ptr %6, i64 0, i32 1, i32 1
+  %38 = getelementptr inbounds i8, ptr %6, i64 16
   %39 = load i64, ptr %38, align 8, !noundef !6
   %40 = call { ptr, ptr } @"_ZN4core3str21_$LT$impl$u20$str$GT$5chars17h990ea14c6004519bE"(ptr nonnull align 1 %37, i64 %39)
   %.fca.0.extract107 = extractvalue { ptr, ptr } %40, 0
   store ptr %.fca.0.extract107, ptr %5, align 8
   %.fca.1.extract109 = extractvalue { ptr, ptr } %40, 1
-  %.fca.1.gep110 = getelementptr inbounds { ptr, ptr }, ptr %5, i64 0, i32 1
+  %.fca.1.gep110 = getelementptr inbounds i8, ptr %5, i64 8
   store ptr %.fca.1.extract109, ptr %.fca.1.gep110, align 8
   %41 = call i32 @"_ZN81_$LT$core..str..iter..Chars$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h97f965c6f879ac1bE"(ptr nonnull align 8 %5), !range !14
   %42 = call i32 @"_ZN4core6option15Option$LT$T$GT$6unwrap17hb8903cbf6aa3318fE"(i32 %41, ptr nonnull align 8 @anon.608b5fe77907f3946c8efbee8b893681.62), !range !12
@@ -2426,15 +2426,15 @@ define hidden i8 @_ZN14regex_automata4util4look11LookMatcher24is_word_end_half_u
   br label %79
 
 71:                                               ; preds = %.thread172
-  %72 = getelementptr inbounds { [1 x i64], { ptr, i64 } }, ptr %8, i64 0, i32 1
+  %72 = getelementptr inbounds i8, ptr %8, i64 8
   %73 = load ptr, ptr %72, align 8, !nonnull !6, !align !13, !noundef !6
-  %74 = getelementptr inbounds { [1 x i64], { ptr, i64 } }, ptr %8, i64 0, i32 1, i32 1
+  %74 = getelementptr inbounds i8, ptr %8, i64 16
   %75 = load i64, ptr %74, align 8, !noundef !6
   %76 = call { ptr, ptr } @"_ZN4core3str21_$LT$impl$u20$str$GT$5chars17h990ea14c6004519bE"(ptr nonnull align 1 %73, i64 %75)
   %.fca.0.extract49 = extractvalue { ptr, ptr } %76, 0
   store ptr %.fca.0.extract49, ptr %7, align 8
   %.fca.1.extract51 = extractvalue { ptr, ptr } %76, 1
-  %.fca.1.gep52 = getelementptr inbounds { ptr, ptr }, ptr %7, i64 0, i32 1
+  %.fca.1.gep52 = getelementptr inbounds i8, ptr %7, i64 8
   store ptr %.fca.1.extract51, ptr %.fca.1.gep52, align 8
   %77 = call i32 @"_ZN81_$LT$core..str..iter..Chars$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h97f965c6f879ac1bE"(ptr nonnull align 8 %7), !range !14
   %78 = call i32 @"_ZN4core6option15Option$LT$T$GT$6unwrap17hb8903cbf6aa3318fE"(i32 %77, ptr nonnull align 8 @anon.608b5fe77907f3946c8efbee8b893681.62), !range !12

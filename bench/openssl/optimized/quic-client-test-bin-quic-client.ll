@@ -11,7 +11,7 @@ target triple = "x86_64-unknown-linux-gnu"
 @.str.1 = private unnamed_addr constant [10 x i8] c"\08ossltest\00", align 1
 
 ; Function Attrs: nounwind uwtable
-define dso_local i32 @FuzzerInitialize(ptr nocapture noundef readnone %argc, ptr nocapture noundef readnone %argv) local_unnamed_addr #0 {
+define dso_local noundef i32 @FuzzerInitialize(ptr nocapture noundef readnone %argc, ptr nocapture noundef readnone %argv) local_unnamed_addr #0 {
 entry:
   tail call void @FuzzerSetRand() #6
   %call = tail call i32 @OPENSSL_init_crypto(i64 noundef 258, ptr noundef null) #6
@@ -48,7 +48,7 @@ declare ptr @SSL_COMP_get_compression_methods() local_unnamed_addr #1
 declare void @OPENSSL_sk_sort(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define dso_local i32 @FuzzerTestOneInput(ptr noundef %buf, i64 noundef %len) local_unnamed_addr #0 {
+define dso_local noundef i32 @FuzzerTestOneInput(ptr noundef %buf, i64 noundef %len) local_unnamed_addr #0 {
 entry:
   %allstreams = alloca [4 x ptr], align 16
   %ina = alloca %struct.in_addr, align 4
@@ -132,7 +132,7 @@ if.end51:                                         ; preds = %if.end46
 
 if.end55:                                         ; preds = %if.end51
   store ptr %call5, ptr %allstreams, align 16
-  %1 = getelementptr inbounds { i64, i64 }, ptr %tv, i64 0, i32 1
+  %1 = getelementptr inbounds i8, ptr %tv, i64 8
   br label %for.cond
 
 for.cond:                                         ; preds = %if.end217, %if.end55

@@ -9,19 +9,19 @@ target triple = "x86_64-unknown-linux-gnu"
 @stderr = external local_unnamed_addr global ptr, align 8
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local i32 @qemu_semihosting_console_read(ptr nocapture noundef readnone %cs, ptr nocapture noundef %buf, i32 noundef %len) local_unnamed_addr #0 {
+define dso_local noundef i32 @qemu_semihosting_console_read(ptr nocapture noundef readnone %cs, ptr nocapture noundef %buf, i32 noundef %len) local_unnamed_addr #0 {
 entry:
   %old_tio = alloca %struct.termios, align 4
   %new_tio = alloca %struct.termios, align 4
   %call = call i32 @tcgetattr(i32 noundef 0, ptr noundef nonnull %old_tio) #5
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(60) %new_tio, ptr noundef nonnull align 4 dereferenceable(60) %old_tio, i64 60, i1 false)
-  %c_lflag = getelementptr inbounds %struct.termios, ptr %new_tio, i64 0, i32 3
+  %c_lflag = getelementptr inbounds i8, ptr %new_tio, i64 12
   %0 = load i32, ptr %c_lflag, align 4
   %and = and i32 %0, -11
   store i32 %and, ptr %c_lflag, align 4
-  %arrayidx = getelementptr inbounds %struct.termios, ptr %new_tio, i64 0, i32 5, i64 6
+  %arrayidx = getelementptr inbounds i8, ptr %new_tio, i64 23
   store i8 1, ptr %arrayidx, align 1
-  %arrayidx2 = getelementptr inbounds %struct.termios, ptr %new_tio, i64 0, i32 5, i64 5
+  %arrayidx2 = getelementptr inbounds i8, ptr %new_tio, i64 22
   store i8 0, ptr %arrayidx2, align 2
   %call3 = call i32 @tcsetattr(i32 noundef 0, i32 noundef 0, ptr noundef nonnull %new_tio) #5
   %conv = sext i32 %len to i64
@@ -45,7 +45,7 @@ declare i32 @tcsetattr(i32 noundef, i32 noundef, ptr noundef) local_unnamed_addr
 declare noundef i64 @fread(ptr nocapture noundef, i64 noundef, i64 noundef, ptr nocapture noundef) local_unnamed_addr #3
 
 ; Function Attrs: nofree nounwind sspstrong uwtable
-define dso_local i32 @qemu_semihosting_console_write(ptr nocapture noundef %buf, i32 noundef %len) local_unnamed_addr #4 {
+define dso_local noundef i32 @qemu_semihosting_console_write(ptr nocapture noundef %buf, i32 noundef %len) local_unnamed_addr #4 {
 entry:
   %conv = sext i32 %len to i64
   %0 = load ptr, ptr @stderr, align 8

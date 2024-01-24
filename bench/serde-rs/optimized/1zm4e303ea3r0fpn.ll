@@ -11,7 +11,7 @@ define { ptr, i64 } @"_ZN4core3str21_$LT$impl$u20$str$GT$18trim_start_matches17h
   call void @_ZN4core3str7pattern8Searcher11next_reject17hb7d960017b3904dfE(ptr nonnull sret({ i64, [2 x i64] }) align 8 %5, ptr nonnull align 8 %6)
   %7 = load i64, ptr %5, align 8, !range !5, !noundef !6
   %.not = icmp eq i64 %7, 0
-  %8 = getelementptr inbounds { [1 x i64], { i64, i64 } }, ptr %5, i64 0, i32 1
+  %8 = getelementptr inbounds i8, ptr %5, i64 8
   %9 = load i64, ptr %8, align 8
   %.0 = select i1 %.not, i64 %1, i64 %9
   %10 = getelementptr inbounds i8, ptr %0, i64 %.0

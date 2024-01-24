@@ -3,20 +3,6 @@ source_filename = "bench/hyperscan/original/hwlm.c.ll"
 target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:128-n8:16:32:64-S128"
 target triple = "x86_64-unknown-linux-gnu"
 
-%struct.HWLM = type { i8, i64, %union.AccelAux, %union.AccelAux }
-%union.AccelAux = type { %struct.anon.5 }
-%struct.anon.5 = type { i8, i8, <2 x i64>, <2 x i64>, <2 x i64>, <2 x i64> }
-%struct.anon = type { i8, i8 }
-%struct.anon.0 = type { i8, i8, i8 }
-%struct.anon.1 = type { i8, i8, i8, i8, i8, i8 }
-%struct.anon.4 = type { i8, i8, <2 x i64>, <2 x i64> }
-%struct.anon.6 = type { i8, i8, <2 x i64>, <2 x i64> }
-%struct.hs_scratch = type { i32, i8, i32, i32, i32, i32, i32, %struct.RoseContext, ptr, ptr, ptr, ptr, ptr, ptr, ptr, i64, %struct.catchup_pq, %struct.core_info, %struct.match_deduper, i32, i32, ptr, ptr, ptr, ptr, ptr, i64, i32, i32, i32, i32, i32, ptr, ptr, i8 }
-%struct.RoseContext = type { i8, i64, i64, i64, i64, i64, i64, i64, i64, i64, i32, i32, ptr, i64, ptr, i64 }
-%struct.catchup_pq = type { ptr, i32 }
-%struct.core_info = type { ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, i64, ptr, i64, i64, i8 }
-%struct.match_deduper = type { [2 x ptr], [2 x ptr], [2 x ptr], i32, i32, i64, i8 }
-
 ; Function Attrs: nounwind uwtable
 define hidden i32 @hwlmExec(ptr noundef %t, ptr noundef %buf, i64 noundef %len, i64 noundef %start, ptr noundef %cb, ptr noundef %scratch, i64 noundef %groups) local_unnamed_addr #0 {
 entry:
@@ -34,14 +20,13 @@ do.end6:                                          ; preds = %if.end
   br label %return
 
 if.end7:                                          ; preds = %if.end
-  %accel0 = getelementptr inbounds %struct.HWLM, ptr %t, i64 0, i32 3
-  %accel1_groups = getelementptr inbounds %struct.HWLM, ptr %t, i64 0, i32 1
+  %accel1_groups = getelementptr inbounds i8, ptr %t, i64 8
   %1 = load i64, ptr %accel1_groups, align 8
   %not = xor i64 %1, -1
   %and = and i64 %not, %groups
   %cmp8 = icmp eq i64 %and, 0
-  %accel1 = getelementptr inbounds %struct.HWLM, ptr %t, i64 0, i32 2
-  %spec.select = select i1 %cmp8, ptr %accel1, ptr %accel0
+  %spec.select.v = select i1 %cmp8, i64 16, i64 96
+  %spec.select = getelementptr inbounds i8, ptr %t, i64 %spec.select.v
   %sub.i = sub i64 %len, %start
   %cmp.i = icmp ult i64 %sub.i, 16
   br i1 %cmp.i, label %do.end15, label %if.end.i
@@ -49,7 +34,7 @@ if.end7:                                          ; preds = %if.end
 if.end.i:                                         ; preds = %if.end7
   %add.ptr.i = getelementptr inbounds i8, ptr %buf, i64 %start
   %add.ptr1.i = getelementptr inbounds i8, ptr %buf, i64 %len
-  %offset2.i = getelementptr inbounds %struct.anon, ptr %spec.select, i64 0, i32 1
+  %offset2.i = getelementptr inbounds i8, ptr %spec.select, i64 1
   %2 = load i8, ptr %offset2.i, align 1
   %3 = load i8, ptr %spec.select, align 16
   switch i8 %3, label %run_hwlm_accel.exit [
@@ -62,7 +47,7 @@ if.end.i:                                         ; preds = %if.end7
   ]
 
 sw.bb.i:                                          ; preds = %if.end.i
-  %c.i = getelementptr inbounds %struct.anon.0, ptr %spec.select, i64 0, i32 2
+  %c.i = getelementptr inbounds i8, ptr %spec.select, i64 2
   %4 = load i8, ptr %c.i, align 2
   %vecinit.i793 = insertelement <16 x i8> poison, i8 %4, i64 0
   %vecinit15.i808 = shufflevector <16 x i8> %vecinit.i793, <16 x i8> poison, <16 x i32> zeroinitializer
@@ -184,7 +169,7 @@ cond.false40.i:                                   ; preds = %if.end41.i587, %for
   br label %run_hwlm_accel.exit
 
 sw.bb1.i:                                         ; preds = %if.end.i
-  %c4.i = getelementptr inbounds %struct.anon.0, ptr %spec.select, i64 0, i32 2
+  %c4.i = getelementptr inbounds i8, ptr %spec.select, i64 2
   %22 = load i8, ptr %c4.i, align 2
   %vecinit.i760 = insertelement <16 x i8> poison, i8 %22, i64 0
   %vecinit15.i775 = shufflevector <16 x i8> %vecinit.i760, <16 x i8> poison, <16 x i32> zeroinitializer
@@ -312,9 +297,9 @@ cond.true37.i76:                                  ; preds = %if.end45.i428, %for
   br label %run_hwlm_accel.exit
 
 sw.bb6.i:                                         ; preds = %if.end.i
-  %c1.i = getelementptr inbounds %struct.anon.1, ptr %spec.select, i64 0, i32 2
+  %c1.i = getelementptr inbounds i8, ptr %spec.select, i64 2
   %46 = load i8, ptr %c1.i, align 2
-  %c2.i = getelementptr inbounds %struct.anon.1, ptr %spec.select, i64 0, i32 3
+  %c2.i = getelementptr inbounds i8, ptr %spec.select, i64 3
   %47 = load i8, ptr %c2.i, align 1
   %vecinit.i727 = insertelement <16 x i8> poison, i8 %46, i64 0
   %vecinit15.i742 = shufflevector <16 x i8> %vecinit.i727, <16 x i8> poison, <16 x i32> zeroinitializer
@@ -413,9 +398,9 @@ if.end32.i:                                       ; preds = %cond.false25.i
   br label %run_hwlm_accel.exit
 
 sw.bb10.i:                                        ; preds = %if.end.i
-  %c113.i = getelementptr inbounds %struct.anon.1, ptr %spec.select, i64 0, i32 2
+  %c113.i = getelementptr inbounds i8, ptr %spec.select, i64 2
   %68 = load i8, ptr %c113.i, align 2
-  %c214.i = getelementptr inbounds %struct.anon.1, ptr %spec.select, i64 0, i32 3
+  %c214.i = getelementptr inbounds i8, ptr %spec.select, i64 3
   %69 = load i8, ptr %c214.i, align 1
   %vecinit.i661 = insertelement <16 x i8> poison, i8 %68, i64 0
   %vecinit15.i676 = shufflevector <16 x i8> %vecinit.i661, <16 x i8> poison, <16 x i32> zeroinitializer
@@ -520,17 +505,17 @@ if.end32.i171:                                    ; preds = %cond.true22.i186
   br label %run_hwlm_accel.exit
 
 sw.bb16.i:                                        ; preds = %if.end.i
-  %lo.i = getelementptr inbounds %struct.anon.4, ptr %spec.select, i64 0, i32 2
+  %lo.i = getelementptr inbounds i8, ptr %spec.select, i64 16
   %96 = load <2 x i64>, ptr %lo.i, align 16
-  %hi.i = getelementptr inbounds %struct.anon.4, ptr %spec.select, i64 0, i32 3
+  %hi.i = getelementptr inbounds i8, ptr %spec.select, i64 32
   %97 = load <2 x i64>, ptr %hi.i, align 16
   %call19.i = tail call ptr @shuftiExec(<2 x i64> noundef %96, <2 x i64> noundef %97, ptr noundef %add.ptr.i, ptr noundef %add.ptr1.i) #8
   br label %run_hwlm_accel.exit
 
 sw.bb20.i:                                        ; preds = %if.end.i
-  %mask1.i = getelementptr inbounds %struct.anon.6, ptr %spec.select, i64 0, i32 2
+  %mask1.i = getelementptr inbounds i8, ptr %spec.select, i64 16
   %98 = load <2 x i64>, ptr %mask1.i, align 16
-  %mask2.i = getelementptr inbounds %struct.anon.6, ptr %spec.select, i64 0, i32 3
+  %mask2.i = getelementptr inbounds i8, ptr %spec.select, i64 32
   %99 = load <2 x i64>, ptr %mask2.i, align 16
   %call23.i = tail call ptr @truffleExec(<2 x i64> noundef %98, <2 x i64> noundef %99, ptr noundef %add.ptr.i, ptr noundef %add.ptr1.i) #8
   br label %run_hwlm_accel.exit
@@ -568,11 +553,11 @@ declare i32 @fdrExec(ptr noundef, ptr noundef, i64 noundef, i64 noundef, ptr nou
 define hidden i32 @hwlmExecStreaming(ptr noundef %t, i64 noundef %len, i64 noundef %start, ptr noundef %cb, ptr noundef %scratch, i64 noundef %groups) local_unnamed_addr #0 {
 entry:
   %temp.i = alloca [17 x i8], align 16
-  %hbuf1 = getelementptr inbounds %struct.hs_scratch, ptr %scratch, i64 0, i32 17, i32 9
+  %hbuf1 = getelementptr inbounds i8, ptr %scratch, i64 304
   %0 = load ptr, ptr %hbuf1, align 8
-  %hlen3 = getelementptr inbounds %struct.hs_scratch, ptr %scratch, i64 0, i32 17, i32 10
+  %hlen3 = getelementptr inbounds i8, ptr %scratch, i64 312
   %1 = load i64, ptr %hlen3, align 8
-  %buf5 = getelementptr inbounds %struct.hs_scratch, ptr %scratch, i64 0, i32 17, i32 7
+  %buf5 = getelementptr inbounds i8, ptr %scratch, i64 288
   %2 = load ptr, ptr %buf5, align 8
   %tobool.not = icmp eq i64 %groups, 0
   br i1 %tobool.not, label %return, label %if.end
@@ -596,14 +581,13 @@ if.else:                                          ; preds = %do.end9
   br label %return
 
 if.end14:                                         ; preds = %if.end
-  %accel0 = getelementptr inbounds %struct.HWLM, ptr %t, i64 0, i32 3
-  %accel1_groups = getelementptr inbounds %struct.HWLM, ptr %t, i64 0, i32 1
+  %accel1_groups = getelementptr inbounds i8, ptr %t, i64 8
   %4 = load i64, ptr %accel1_groups, align 8
   %not = xor i64 %4, -1
   %and = and i64 %not, %groups
   %cmp15 = icmp eq i64 %and, 0
-  %accel1 = getelementptr inbounds %struct.HWLM, ptr %t, i64 0, i32 2
-  %spec.select = select i1 %cmp15, ptr %accel1, ptr %accel0
+  %spec.select.v = select i1 %cmp15, i64 16, i64 96
+  %spec.select = getelementptr inbounds i8, ptr %t, i64 %spec.select.v
   call void @llvm.lifetime.start.p0(i64 17, ptr nonnull %temp.i)
   %5 = load i8, ptr %spec.select, align 16
   %cmp.i = icmp eq i8 %5, 0
@@ -613,7 +597,7 @@ if.end14:                                         ; preds = %if.end
   br i1 %or.cond, label %do_accel_streaming.exit, label %if.end.i
 
 if.end.i:                                         ; preds = %if.end14
-  %offset4.i = getelementptr inbounds %struct.anon, ptr %spec.select, i64 0, i32 1
+  %offset4.i = getelementptr inbounds i8, ptr %spec.select, i64 1
   %6 = load i8, ptr %offset4.i, align 1
   %tobool.i = icmp eq i64 %start, 0
   %tobool5.i = icmp ne i64 %1, 0
@@ -636,7 +620,7 @@ if.then9.i:                                       ; preds = %if.then6.i
   ]
 
 sw.bb.i142.i:                                     ; preds = %if.then9.i
-  %c.i143.i = getelementptr inbounds %struct.anon.0, ptr %spec.select, i64 0, i32 2
+  %c.i143.i = getelementptr inbounds i8, ptr %spec.select, i64 2
   %7 = load i8, ptr %c.i143.i, align 2
   %vecinit.i2932.i = insertelement <16 x i8> poison, i8 %7, i64 0
   %vecinit15.i2947.i = shufflevector <16 x i8> %vecinit.i2932.i, <16 x i8> poison, <16 x i32> zeroinitializer
@@ -741,7 +725,7 @@ cond.false40.i.i:                                 ; preds = %if.end41.i2283.i, %
   br label %if.end10.i
 
 sw.bb1.i139.i:                                    ; preds = %if.then9.i
-  %c4.i140.i = getelementptr inbounds %struct.anon.0, ptr %spec.select, i64 0, i32 2
+  %c4.i140.i = getelementptr inbounds i8, ptr %spec.select, i64 2
   %24 = load i8, ptr %c4.i140.i, align 2
   %vecinit.i2899.i = insertelement <16 x i8> poison, i8 %24, i64 0
   %vecinit15.i2914.i = shufflevector <16 x i8> %vecinit.i2899.i, <16 x i8> poison, <16 x i32> zeroinitializer
@@ -851,9 +835,9 @@ cond.true37.i191.i:                               ; preds = %if.end45.i1844.i, %
   br label %if.end10.i
 
 sw.bb6.i135.i:                                    ; preds = %if.then9.i
-  %c1.i136.i = getelementptr inbounds %struct.anon.1, ptr %spec.select, i64 0, i32 2
+  %c1.i136.i = getelementptr inbounds i8, ptr %spec.select, i64 2
   %46 = load i8, ptr %c1.i136.i, align 2
-  %c2.i137.i = getelementptr inbounds %struct.anon.1, ptr %spec.select, i64 0, i32 3
+  %c2.i137.i = getelementptr inbounds i8, ptr %spec.select, i64 3
   %47 = load i8, ptr %c2.i137.i, align 1
   %vecinit.i2734.i = insertelement <16 x i8> poison, i8 %46, i64 0
   %vecinit15.i2749.i = shufflevector <16 x i8> %vecinit.i2734.i, <16 x i8> poison, <16 x i32> zeroinitializer
@@ -952,9 +936,9 @@ if.end32.i.i:                                     ; preds = %cond.false25.i.i
   br label %if.end10.i
 
 sw.bb10.i131.i:                                   ; preds = %if.then9.i
-  %c113.i132.i = getelementptr inbounds %struct.anon.1, ptr %spec.select, i64 0, i32 2
+  %c113.i132.i = getelementptr inbounds i8, ptr %spec.select, i64 2
   %68 = load i8, ptr %c113.i132.i, align 2
-  %c214.i133.i = getelementptr inbounds %struct.anon.1, ptr %spec.select, i64 0, i32 3
+  %c214.i133.i = getelementptr inbounds i8, ptr %spec.select, i64 3
   %69 = load i8, ptr %c214.i133.i, align 1
   %vecinit.i2668.i = insertelement <16 x i8> poison, i8 %68, i64 0
   %vecinit15.i2683.i = shufflevector <16 x i8> %vecinit.i2668.i, <16 x i8> poison, <16 x i32> zeroinitializer
@@ -1059,17 +1043,17 @@ if.end32.i601.i:                                  ; preds = %cond.true22.i616.i
   br label %if.end10.i
 
 sw.bb16.i127.i:                                   ; preds = %if.then9.i
-  %lo.i128.i = getelementptr inbounds %struct.anon.4, ptr %spec.select, i64 0, i32 2
+  %lo.i128.i = getelementptr inbounds i8, ptr %spec.select, i64 16
   %96 = load <2 x i64>, ptr %lo.i128.i, align 16
-  %hi.i129.i = getelementptr inbounds %struct.anon.4, ptr %spec.select, i64 0, i32 3
+  %hi.i129.i = getelementptr inbounds i8, ptr %spec.select, i64 32
   %97 = load <2 x i64>, ptr %hi.i129.i, align 16
   %call19.i130.i = tail call ptr @shuftiExec(<2 x i64> noundef %96, <2 x i64> noundef %97, ptr noundef %0, ptr noundef nonnull %add.ptr.i) #8
   br label %if.end10.i
 
 sw.bb20.i123.i:                                   ; preds = %if.then9.i
-  %mask1.i124.i = getelementptr inbounds %struct.anon.6, ptr %spec.select, i64 0, i32 2
+  %mask1.i124.i = getelementptr inbounds i8, ptr %spec.select, i64 16
   %98 = load <2 x i64>, ptr %mask1.i124.i, align 16
-  %mask2.i125.i = getelementptr inbounds %struct.anon.6, ptr %spec.select, i64 0, i32 3
+  %mask2.i125.i = getelementptr inbounds i8, ptr %spec.select, i64 32
   %99 = load <2 x i64>, ptr %mask2.i125.i, align 16
   %call23.i126.i = tail call ptr @truffleExec(<2 x i64> noundef %98, <2 x i64> noundef %99, ptr noundef %0, ptr noundef nonnull %add.ptr.i) #8
   br label %if.end10.i
@@ -1126,7 +1110,7 @@ if.end36.i:                                       ; preds = %if.then32.i, %do.en
   ]
 
 sw.bb.i113.i:                                     ; preds = %if.end36.i
-  %c.i114.i = getelementptr inbounds %struct.anon.0, ptr %spec.select, i64 0, i32 2
+  %c.i114.i = getelementptr inbounds i8, ptr %spec.select, i64 2
   %104 = load i8, ptr %c.i114.i, align 2
   %vecinit.i2866.i = insertelement <16 x i8> poison, i8 %104, i64 0
   %vecinit15.i2881.i = shufflevector <16 x i8> %vecinit.i2866.i, <16 x i8> poison, <16 x i32> zeroinitializer
@@ -1165,7 +1149,7 @@ cond.false40.i260.i:                              ; preds = %for.cond15.i2137.i
   br label %run_hwlm_accel.exit117.i
 
 sw.bb1.i110.i:                                    ; preds = %if.end36.i
-  %c4.i111.i = getelementptr inbounds %struct.anon.0, ptr %spec.select, i64 0, i32 2
+  %c4.i111.i = getelementptr inbounds i8, ptr %spec.select, i64 2
   %111 = load i8, ptr %c4.i111.i, align 2
   %vecinit.i2833.i = insertelement <16 x i8> poison, i8 %111, i64 0
   %vecinit15.i2848.i = shufflevector <16 x i8> %vecinit.i2833.i, <16 x i8> poison, <16 x i32> zeroinitializer
@@ -1206,9 +1190,9 @@ cond.true37.i349.i:                               ; preds = %for.cond18.i1685.i
   br label %run_hwlm_accel.exit117.i
 
 sw.bb6.i106.i:                                    ; preds = %if.end36.i
-  %c1.i107.i = getelementptr inbounds %struct.anon.1, ptr %spec.select, i64 0, i32 2
+  %c1.i107.i = getelementptr inbounds i8, ptr %spec.select, i64 2
   %120 = load i8, ptr %c1.i107.i, align 2
-  %c2.i108.i = getelementptr inbounds %struct.anon.1, ptr %spec.select, i64 0, i32 3
+  %c2.i108.i = getelementptr inbounds i8, ptr %spec.select, i64 3
   %121 = load i8, ptr %c2.i108.i, align 1
   %vecinit.i2602.i = insertelement <16 x i8> poison, i8 %120, i64 0
   %vecinit15.i2617.i = shufflevector <16 x i8> %vecinit.i2602.i, <16 x i8> poison, <16 x i32> zeroinitializer
@@ -1281,9 +1265,9 @@ if.end32.i670.i:                                  ; preds = %cond.false25.i664.i
   br label %run_hwlm_accel.exit117.i
 
 sw.bb10.i102.i:                                   ; preds = %if.end36.i
-  %c113.i103.i = getelementptr inbounds %struct.anon.1, ptr %spec.select, i64 0, i32 2
+  %c113.i103.i = getelementptr inbounds i8, ptr %spec.select, i64 2
   %136 = load i8, ptr %c113.i103.i, align 2
-  %c214.i104.i = getelementptr inbounds %struct.anon.1, ptr %spec.select, i64 0, i32 3
+  %c214.i104.i = getelementptr inbounds i8, ptr %spec.select, i64 3
   %137 = load i8, ptr %c214.i104.i, align 1
   %vecinit.i2536.i = insertelement <16 x i8> poison, i8 %136, i64 0
   %vecinit15.i2551.i = shufflevector <16 x i8> %vecinit.i2536.i, <16 x i8> poison, <16 x i32> zeroinitializer
@@ -1361,17 +1345,17 @@ if.end32.i739.i:                                  ; preds = %cond.true22.i754.i
   br label %run_hwlm_accel.exit117.i
 
 sw.bb16.i98.i:                                    ; preds = %if.end36.i
-  %lo.i99.i = getelementptr inbounds %struct.anon.4, ptr %spec.select, i64 0, i32 2
+  %lo.i99.i = getelementptr inbounds i8, ptr %spec.select, i64 16
   %157 = load <2 x i64>, ptr %lo.i99.i, align 16
-  %hi.i100.i = getelementptr inbounds %struct.anon.4, ptr %spec.select, i64 0, i32 3
+  %hi.i100.i = getelementptr inbounds i8, ptr %spec.select, i64 32
   %158 = load <2 x i64>, ptr %hi.i100.i, align 16
   %call19.i101.i = call ptr @shuftiExec(<2 x i64> noundef %157, <2 x i64> noundef %158, ptr noundef nonnull %temp.i, ptr noundef nonnull %add.ptr39.i) #8
   br label %run_hwlm_accel.exit117.i
 
 sw.bb20.i94.i:                                    ; preds = %if.end36.i
-  %mask1.i95.i = getelementptr inbounds %struct.anon.6, ptr %spec.select, i64 0, i32 2
+  %mask1.i95.i = getelementptr inbounds i8, ptr %spec.select, i64 16
   %159 = load <2 x i64>, ptr %mask1.i95.i, align 16
-  %mask2.i96.i = getelementptr inbounds %struct.anon.6, ptr %spec.select, i64 0, i32 3
+  %mask2.i96.i = getelementptr inbounds i8, ptr %spec.select, i64 32
   %160 = load <2 x i64>, ptr %mask2.i96.i, align 16
   %call23.i97.i = call ptr @truffleExec(<2 x i64> noundef %159, <2 x i64> noundef %160, ptr noundef nonnull %temp.i, ptr noundef nonnull %add.ptr39.i) #8
   br label %run_hwlm_accel.exit117.i
@@ -1408,7 +1392,7 @@ do.end60.i:                                       ; preds = %if.end51.do.end60_c
   ]
 
 sw.bb.i.i:                                        ; preds = %do.end60.i
-  %c.i.i = getelementptr inbounds %struct.anon.0, ptr %spec.select, i64 0, i32 2
+  %c.i.i = getelementptr inbounds i8, ptr %spec.select, i64 2
   %162 = load i8, ptr %c.i.i, align 2
   %vecinit.i2800.i = insertelement <16 x i8> poison, i8 %162, i64 0
   %vecinit15.i2815.i = shufflevector <16 x i8> %vecinit.i2800.i, <16 x i8> poison, <16 x i32> zeroinitializer
@@ -1530,7 +1514,7 @@ cond.false40.i418.i:                              ; preds = %if.end41.i2019.i, %
   br label %run_hwlm_accel.exit.i
 
 sw.bb1.i.i:                                       ; preds = %do.end60.i
-  %c4.i.i = getelementptr inbounds %struct.anon.0, ptr %spec.select, i64 0, i32 2
+  %c4.i.i = getelementptr inbounds i8, ptr %spec.select, i64 2
   %180 = load i8, ptr %c4.i.i, align 2
   %vecinit.i2767.i = insertelement <16 x i8> poison, i8 %180, i64 0
   %vecinit15.i2782.i = shufflevector <16 x i8> %vecinit.i2767.i, <16 x i8> poison, <16 x i32> zeroinitializer
@@ -1658,9 +1642,9 @@ cond.true37.i506.i:                               ; preds = %if.end45.i1572.i, %
   br label %run_hwlm_accel.exit.i
 
 sw.bb6.i.i:                                       ; preds = %do.end60.i
-  %c1.i.i = getelementptr inbounds %struct.anon.1, ptr %spec.select, i64 0, i32 2
+  %c1.i.i = getelementptr inbounds i8, ptr %spec.select, i64 2
   %204 = load i8, ptr %c1.i.i, align 2
-  %c2.i.i = getelementptr inbounds %struct.anon.1, ptr %spec.select, i64 0, i32 3
+  %c2.i.i = getelementptr inbounds i8, ptr %spec.select, i64 3
   %205 = load i8, ptr %c2.i.i, align 1
   %vecinit.i2470.i = insertelement <16 x i8> poison, i8 %204, i64 0
   %vecinit15.i2485.i = shufflevector <16 x i8> %vecinit.i2470.i, <16 x i8> poison, <16 x i32> zeroinitializer
@@ -1759,9 +1743,9 @@ if.end32.i808.i:                                  ; preds = %cond.false25.i802.i
   br label %run_hwlm_accel.exit.i
 
 sw.bb10.i.i:                                      ; preds = %do.end60.i
-  %c113.i.i = getelementptr inbounds %struct.anon.1, ptr %spec.select, i64 0, i32 2
+  %c113.i.i = getelementptr inbounds i8, ptr %spec.select, i64 2
   %226 = load i8, ptr %c113.i.i, align 2
-  %c214.i.i = getelementptr inbounds %struct.anon.1, ptr %spec.select, i64 0, i32 3
+  %c214.i.i = getelementptr inbounds i8, ptr %spec.select, i64 3
   %227 = load i8, ptr %c214.i.i, align 1
   %vecinit.i2404.i = insertelement <16 x i8> poison, i8 %226, i64 0
   %vecinit15.i2419.i = shufflevector <16 x i8> %vecinit.i2404.i, <16 x i8> poison, <16 x i32> zeroinitializer
@@ -1866,17 +1850,17 @@ if.end32.i877.i:                                  ; preds = %cond.true22.i892.i
   br label %run_hwlm_accel.exit.i
 
 sw.bb16.i.i:                                      ; preds = %do.end60.i
-  %lo.i.i = getelementptr inbounds %struct.anon.4, ptr %spec.select, i64 0, i32 2
+  %lo.i.i = getelementptr inbounds i8, ptr %spec.select, i64 16
   %254 = load <2 x i64>, ptr %lo.i.i, align 16
-  %hi.i.i = getelementptr inbounds %struct.anon.4, ptr %spec.select, i64 0, i32 3
+  %hi.i.i = getelementptr inbounds i8, ptr %spec.select, i64 32
   %255 = load <2 x i64>, ptr %hi.i.i, align 16
   %call19.i.i = call ptr @shuftiExec(<2 x i64> noundef %254, <2 x i64> noundef %255, ptr noundef %add.ptr61.i, ptr noundef %add.ptr62.i) #8
   br label %run_hwlm_accel.exit.i
 
 sw.bb20.i.i:                                      ; preds = %do.end60.i
-  %mask1.i.i = getelementptr inbounds %struct.anon.6, ptr %spec.select, i64 0, i32 2
+  %mask1.i.i = getelementptr inbounds i8, ptr %spec.select, i64 16
   %256 = load <2 x i64>, ptr %mask1.i.i, align 16
-  %mask2.i.i = getelementptr inbounds %struct.anon.6, ptr %spec.select, i64 0, i32 3
+  %mask2.i.i = getelementptr inbounds i8, ptr %spec.select, i64 32
   %257 = load <2 x i64>, ptr %mask2.i.i, align 16
   %call23.i.i = call ptr @truffleExec(<2 x i64> noundef %256, <2 x i64> noundef %257, ptr noundef %add.ptr61.i, ptr noundef %add.ptr62.i) #8
   br label %run_hwlm_accel.exit.i

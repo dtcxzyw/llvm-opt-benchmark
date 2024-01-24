@@ -4,29 +4,6 @@ target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:
 target triple = "x86_64-unknown-linux-gnu"
 
 %"class.pbrt::StatRegisterer" = type { i8 }
-%"class.std::_Hashtable" = type { ptr, i64, %"struct.std::__detail::_Hash_node_base", i64, %"struct.std::__detail::_Prime_rehash_policy", ptr }
-%"struct.std::__detail::_Hash_node_base" = type { ptr }
-%"struct.std::__detail::_Prime_rehash_policy" = type { float, i64 }
-%"class.pbrt::BufferCache" = type { [64 x %"class.std::shared_mutex"], [64 x %"class.std::unordered_set"], %"struct.std::atomic" }
-%"class.std::shared_mutex" = type { %"class.std::__shared_mutex_pthread" }
-%"class.std::__shared_mutex_pthread" = type { %union.pthread_rwlock_t }
-%union.pthread_rwlock_t = type { %struct.__pthread_rwlock_arch_t }
-%struct.__pthread_rwlock_arch_t = type { i32, i32, i32, i32, i32, i32, i32, i32, i8, [7 x i8], i64, i32 }
-%"class.std::unordered_set" = type { %"class.std::_Hashtable" }
-%"struct.std::atomic" = type { %"struct.std::__atomic_base" }
-%"struct.std::__atomic_base" = type { i64 }
-%"class.std::_Hashtable.6" = type { ptr, i64, %"struct.std::__detail::_Hash_node_base", i64, %"struct.std::__detail::_Prime_rehash_policy", ptr }
-%"class.pbrt::BufferCache.4" = type { [64 x %"class.std::shared_mutex"], [64 x %"class.std::unordered_set.5"], %"struct.std::atomic" }
-%"class.std::unordered_set.5" = type { %"class.std::_Hashtable.6" }
-%"class.std::_Hashtable.25" = type { ptr, i64, %"struct.std::__detail::_Hash_node_base", i64, %"struct.std::__detail::_Prime_rehash_policy", ptr }
-%"class.pbrt::BufferCache.23" = type { [64 x %"class.std::shared_mutex"], [64 x %"class.std::unordered_set.24"], %"struct.std::atomic" }
-%"class.std::unordered_set.24" = type { %"class.std::_Hashtable.25" }
-%"class.std::_Hashtable.44" = type { ptr, i64, %"struct.std::__detail::_Hash_node_base", i64, %"struct.std::__detail::_Prime_rehash_policy", ptr }
-%"class.pbrt::BufferCache.42" = type { [64 x %"class.std::shared_mutex"], [64 x %"class.std::unordered_set.43"], %"struct.std::atomic" }
-%"class.std::unordered_set.43" = type { %"class.std::_Hashtable.44" }
-%"class.std::_Hashtable.63" = type { ptr, i64, %"struct.std::__detail::_Hash_node_base", i64, %"struct.std::__detail::_Prime_rehash_policy", ptr }
-%"class.pbrt::BufferCache.61" = type { [64 x %"class.std::shared_mutex"], [64 x %"class.std::unordered_set.62"], %"struct.std::atomic" }
-%"class.std::unordered_set.62" = type { %"class.std::_Hashtable.63" }
 %"class.std::__cxx11::basic_string" = type { %"struct.std::__cxx11::basic_string<char>::_Alloc_hider", i64, %union.anon }
 %"struct.std::__cxx11::basic_string<char>::_Alloc_hider" = type { ptr }
 %union.anon = type { i64, [8 x i8] }
@@ -91,22 +68,22 @@ land.end:                                         ; preds = %entry
 arrayctor.loop4.i:                                ; preds = %arrayctor.loop4.i, %land.end
   %arrayctor.cur5.idx.i = phi i64 [ %arrayctor.cur5.add.i, %arrayctor.loop4.i ], [ 3584, %land.end ]
   %arrayctor.cur5.ptr.i = getelementptr inbounds i8, ptr %call, i64 %arrayctor.cur5.idx.i
-  %_M_single_bucket.i.i.i = getelementptr inbounds %"class.std::_Hashtable", ptr %arrayctor.cur5.ptr.i, i64 0, i32 5
+  %_M_single_bucket.i.i.i = getelementptr inbounds i8, ptr %arrayctor.cur5.ptr.i, i64 48
   store ptr %_M_single_bucket.i.i.i, ptr %arrayctor.cur5.ptr.i, align 8
-  %_M_bucket_count.i.i.i = getelementptr inbounds %"class.std::_Hashtable", ptr %arrayctor.cur5.ptr.i, i64 0, i32 1
+  %_M_bucket_count.i.i.i = getelementptr inbounds i8, ptr %arrayctor.cur5.ptr.i, i64 8
   store i64 1, ptr %_M_bucket_count.i.i.i, align 8
-  %_M_before_begin.i.i.i = getelementptr inbounds %"class.std::_Hashtable", ptr %arrayctor.cur5.ptr.i, i64 0, i32 2
-  %_M_rehash_policy.i.i.i = getelementptr inbounds %"class.std::_Hashtable", ptr %arrayctor.cur5.ptr.i, i64 0, i32 4
+  %_M_before_begin.i.i.i = getelementptr inbounds i8, ptr %arrayctor.cur5.ptr.i, i64 16
+  %_M_rehash_policy.i.i.i = getelementptr inbounds i8, ptr %arrayctor.cur5.ptr.i, i64 32
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %_M_before_begin.i.i.i, i8 0, i64 16, i1 false)
   store float 1.000000e+00, ptr %_M_rehash_policy.i.i.i, align 8
-  %_M_next_resize.i.i.i.i = getelementptr inbounds %"class.std::_Hashtable", ptr %arrayctor.cur5.ptr.i, i64 0, i32 4, i32 1
+  %_M_next_resize.i.i.i.i = getelementptr inbounds i8, ptr %arrayctor.cur5.ptr.i, i64 40
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %_M_next_resize.i.i.i.i, i8 0, i64 16, i1 false)
   %arrayctor.cur5.add.i = add nuw nsw i64 %arrayctor.cur5.idx.i, 56
   %arrayctor.done7.i = icmp eq i64 %arrayctor.cur5.add.i, 7168
   br i1 %arrayctor.done7.i, label %_ZN4pbrt11BufferCacheIiEC2Ev.exit, label %arrayctor.loop4.i
 
 _ZN4pbrt11BufferCacheIiEC2Ev.exit:                ; preds = %arrayctor.loop4.i
-  %bytesUsed.i = getelementptr inbounds %"class.pbrt::BufferCache", ptr %call, i64 0, i32 2
+  %bytesUsed.i = getelementptr inbounds i8, ptr %call, i64 7168
   store i64 0, ptr %bytesUsed.i, align 8
   store ptr %call, ptr @_ZN4pbrt14intBufferCacheE, align 8
   %call1 = tail call noalias noundef nonnull dereferenceable(7176) ptr @_Znwm(i64 noundef 7176) #11
@@ -116,22 +93,22 @@ _ZN4pbrt11BufferCacheIiEC2Ev.exit:                ; preds = %arrayctor.loop4.i
 arrayctor.loop4.i1:                               ; preds = %arrayctor.loop4.i1, %_ZN4pbrt11BufferCacheIiEC2Ev.exit
   %arrayctor.cur5.idx.i2 = phi i64 [ %arrayctor.cur5.add.i9, %arrayctor.loop4.i1 ], [ 3584, %_ZN4pbrt11BufferCacheIiEC2Ev.exit ]
   %arrayctor.cur5.ptr.i3 = getelementptr inbounds i8, ptr %call1, i64 %arrayctor.cur5.idx.i2
-  %_M_single_bucket.i.i.i4 = getelementptr inbounds %"class.std::_Hashtable.6", ptr %arrayctor.cur5.ptr.i3, i64 0, i32 5
+  %_M_single_bucket.i.i.i4 = getelementptr inbounds i8, ptr %arrayctor.cur5.ptr.i3, i64 48
   store ptr %_M_single_bucket.i.i.i4, ptr %arrayctor.cur5.ptr.i3, align 8
-  %_M_bucket_count.i.i.i5 = getelementptr inbounds %"class.std::_Hashtable.6", ptr %arrayctor.cur5.ptr.i3, i64 0, i32 1
+  %_M_bucket_count.i.i.i5 = getelementptr inbounds i8, ptr %arrayctor.cur5.ptr.i3, i64 8
   store i64 1, ptr %_M_bucket_count.i.i.i5, align 8
-  %_M_before_begin.i.i.i6 = getelementptr inbounds %"class.std::_Hashtable.6", ptr %arrayctor.cur5.ptr.i3, i64 0, i32 2
-  %_M_rehash_policy.i.i.i7 = getelementptr inbounds %"class.std::_Hashtable.6", ptr %arrayctor.cur5.ptr.i3, i64 0, i32 4
+  %_M_before_begin.i.i.i6 = getelementptr inbounds i8, ptr %arrayctor.cur5.ptr.i3, i64 16
+  %_M_rehash_policy.i.i.i7 = getelementptr inbounds i8, ptr %arrayctor.cur5.ptr.i3, i64 32
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %_M_before_begin.i.i.i6, i8 0, i64 16, i1 false)
   store float 1.000000e+00, ptr %_M_rehash_policy.i.i.i7, align 8
-  %_M_next_resize.i.i.i.i8 = getelementptr inbounds %"class.std::_Hashtable.6", ptr %arrayctor.cur5.ptr.i3, i64 0, i32 4, i32 1
+  %_M_next_resize.i.i.i.i8 = getelementptr inbounds i8, ptr %arrayctor.cur5.ptr.i3, i64 40
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %_M_next_resize.i.i.i.i8, i8 0, i64 16, i1 false)
   %arrayctor.cur5.add.i9 = add nuw nsw i64 %arrayctor.cur5.idx.i2, 56
   %arrayctor.done7.i10 = icmp eq i64 %arrayctor.cur5.add.i9, 7168
   br i1 %arrayctor.done7.i10, label %_ZN4pbrt11BufferCacheINS_6Point2IfEEEC2Ev.exit, label %arrayctor.loop4.i1
 
 _ZN4pbrt11BufferCacheINS_6Point2IfEEEC2Ev.exit:   ; preds = %arrayctor.loop4.i1
-  %bytesUsed.i11 = getelementptr inbounds %"class.pbrt::BufferCache.4", ptr %call1, i64 0, i32 2
+  %bytesUsed.i11 = getelementptr inbounds i8, ptr %call1, i64 7168
   store i64 0, ptr %bytesUsed.i11, align 8
   store ptr %call1, ptr @_ZN4pbrt17point2BufferCacheE, align 8
   %call2 = tail call noalias noundef nonnull dereferenceable(7176) ptr @_Znwm(i64 noundef 7176) #11
@@ -141,22 +118,22 @@ _ZN4pbrt11BufferCacheINS_6Point2IfEEEC2Ev.exit:   ; preds = %arrayctor.loop4.i1
 arrayctor.loop4.i12:                              ; preds = %arrayctor.loop4.i12, %_ZN4pbrt11BufferCacheINS_6Point2IfEEEC2Ev.exit
   %arrayctor.cur5.idx.i13 = phi i64 [ %arrayctor.cur5.add.i20, %arrayctor.loop4.i12 ], [ 3584, %_ZN4pbrt11BufferCacheINS_6Point2IfEEEC2Ev.exit ]
   %arrayctor.cur5.ptr.i14 = getelementptr inbounds i8, ptr %call2, i64 %arrayctor.cur5.idx.i13
-  %_M_single_bucket.i.i.i15 = getelementptr inbounds %"class.std::_Hashtable.25", ptr %arrayctor.cur5.ptr.i14, i64 0, i32 5
+  %_M_single_bucket.i.i.i15 = getelementptr inbounds i8, ptr %arrayctor.cur5.ptr.i14, i64 48
   store ptr %_M_single_bucket.i.i.i15, ptr %arrayctor.cur5.ptr.i14, align 8
-  %_M_bucket_count.i.i.i16 = getelementptr inbounds %"class.std::_Hashtable.25", ptr %arrayctor.cur5.ptr.i14, i64 0, i32 1
+  %_M_bucket_count.i.i.i16 = getelementptr inbounds i8, ptr %arrayctor.cur5.ptr.i14, i64 8
   store i64 1, ptr %_M_bucket_count.i.i.i16, align 8
-  %_M_before_begin.i.i.i17 = getelementptr inbounds %"class.std::_Hashtable.25", ptr %arrayctor.cur5.ptr.i14, i64 0, i32 2
-  %_M_rehash_policy.i.i.i18 = getelementptr inbounds %"class.std::_Hashtable.25", ptr %arrayctor.cur5.ptr.i14, i64 0, i32 4
+  %_M_before_begin.i.i.i17 = getelementptr inbounds i8, ptr %arrayctor.cur5.ptr.i14, i64 16
+  %_M_rehash_policy.i.i.i18 = getelementptr inbounds i8, ptr %arrayctor.cur5.ptr.i14, i64 32
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %_M_before_begin.i.i.i17, i8 0, i64 16, i1 false)
   store float 1.000000e+00, ptr %_M_rehash_policy.i.i.i18, align 8
-  %_M_next_resize.i.i.i.i19 = getelementptr inbounds %"class.std::_Hashtable.25", ptr %arrayctor.cur5.ptr.i14, i64 0, i32 4, i32 1
+  %_M_next_resize.i.i.i.i19 = getelementptr inbounds i8, ptr %arrayctor.cur5.ptr.i14, i64 40
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %_M_next_resize.i.i.i.i19, i8 0, i64 16, i1 false)
   %arrayctor.cur5.add.i20 = add nuw nsw i64 %arrayctor.cur5.idx.i13, 56
   %arrayctor.done7.i21 = icmp eq i64 %arrayctor.cur5.add.i20, 7168
   br i1 %arrayctor.done7.i21, label %_ZN4pbrt11BufferCacheINS_6Point3IfEEEC2Ev.exit, label %arrayctor.loop4.i12
 
 _ZN4pbrt11BufferCacheINS_6Point3IfEEEC2Ev.exit:   ; preds = %arrayctor.loop4.i12
-  %bytesUsed.i22 = getelementptr inbounds %"class.pbrt::BufferCache.23", ptr %call2, i64 0, i32 2
+  %bytesUsed.i22 = getelementptr inbounds i8, ptr %call2, i64 7168
   store i64 0, ptr %bytesUsed.i22, align 8
   store ptr %call2, ptr @_ZN4pbrt17point3BufferCacheE, align 8
   %call3 = tail call noalias noundef nonnull dereferenceable(7176) ptr @_Znwm(i64 noundef 7176) #11
@@ -166,22 +143,22 @@ _ZN4pbrt11BufferCacheINS_6Point3IfEEEC2Ev.exit:   ; preds = %arrayctor.loop4.i12
 arrayctor.loop4.i23:                              ; preds = %arrayctor.loop4.i23, %_ZN4pbrt11BufferCacheINS_6Point3IfEEEC2Ev.exit
   %arrayctor.cur5.idx.i24 = phi i64 [ %arrayctor.cur5.add.i31, %arrayctor.loop4.i23 ], [ 3584, %_ZN4pbrt11BufferCacheINS_6Point3IfEEEC2Ev.exit ]
   %arrayctor.cur5.ptr.i25 = getelementptr inbounds i8, ptr %call3, i64 %arrayctor.cur5.idx.i24
-  %_M_single_bucket.i.i.i26 = getelementptr inbounds %"class.std::_Hashtable.44", ptr %arrayctor.cur5.ptr.i25, i64 0, i32 5
+  %_M_single_bucket.i.i.i26 = getelementptr inbounds i8, ptr %arrayctor.cur5.ptr.i25, i64 48
   store ptr %_M_single_bucket.i.i.i26, ptr %arrayctor.cur5.ptr.i25, align 8
-  %_M_bucket_count.i.i.i27 = getelementptr inbounds %"class.std::_Hashtable.44", ptr %arrayctor.cur5.ptr.i25, i64 0, i32 1
+  %_M_bucket_count.i.i.i27 = getelementptr inbounds i8, ptr %arrayctor.cur5.ptr.i25, i64 8
   store i64 1, ptr %_M_bucket_count.i.i.i27, align 8
-  %_M_before_begin.i.i.i28 = getelementptr inbounds %"class.std::_Hashtable.44", ptr %arrayctor.cur5.ptr.i25, i64 0, i32 2
-  %_M_rehash_policy.i.i.i29 = getelementptr inbounds %"class.std::_Hashtable.44", ptr %arrayctor.cur5.ptr.i25, i64 0, i32 4
+  %_M_before_begin.i.i.i28 = getelementptr inbounds i8, ptr %arrayctor.cur5.ptr.i25, i64 16
+  %_M_rehash_policy.i.i.i29 = getelementptr inbounds i8, ptr %arrayctor.cur5.ptr.i25, i64 32
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %_M_before_begin.i.i.i28, i8 0, i64 16, i1 false)
   store float 1.000000e+00, ptr %_M_rehash_policy.i.i.i29, align 8
-  %_M_next_resize.i.i.i.i30 = getelementptr inbounds %"class.std::_Hashtable.44", ptr %arrayctor.cur5.ptr.i25, i64 0, i32 4, i32 1
+  %_M_next_resize.i.i.i.i30 = getelementptr inbounds i8, ptr %arrayctor.cur5.ptr.i25, i64 40
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %_M_next_resize.i.i.i.i30, i8 0, i64 16, i1 false)
   %arrayctor.cur5.add.i31 = add nuw nsw i64 %arrayctor.cur5.idx.i24, 56
   %arrayctor.done7.i32 = icmp eq i64 %arrayctor.cur5.add.i31, 7168
   br i1 %arrayctor.done7.i32, label %_ZN4pbrt11BufferCacheINS_7Vector3IfEEEC2Ev.exit, label %arrayctor.loop4.i23
 
 _ZN4pbrt11BufferCacheINS_7Vector3IfEEEC2Ev.exit:  ; preds = %arrayctor.loop4.i23
-  %bytesUsed.i33 = getelementptr inbounds %"class.pbrt::BufferCache.42", ptr %call3, i64 0, i32 2
+  %bytesUsed.i33 = getelementptr inbounds i8, ptr %call3, i64 7168
   store i64 0, ptr %bytesUsed.i33, align 8
   store ptr %call3, ptr @_ZN4pbrt18vector3BufferCacheE, align 8
   %call4 = tail call noalias noundef nonnull dereferenceable(7176) ptr @_Znwm(i64 noundef 7176) #11
@@ -191,22 +168,22 @@ _ZN4pbrt11BufferCacheINS_7Vector3IfEEEC2Ev.exit:  ; preds = %arrayctor.loop4.i23
 arrayctor.loop4.i34:                              ; preds = %arrayctor.loop4.i34, %_ZN4pbrt11BufferCacheINS_7Vector3IfEEEC2Ev.exit
   %arrayctor.cur5.idx.i35 = phi i64 [ %arrayctor.cur5.add.i42, %arrayctor.loop4.i34 ], [ 3584, %_ZN4pbrt11BufferCacheINS_7Vector3IfEEEC2Ev.exit ]
   %arrayctor.cur5.ptr.i36 = getelementptr inbounds i8, ptr %call4, i64 %arrayctor.cur5.idx.i35
-  %_M_single_bucket.i.i.i37 = getelementptr inbounds %"class.std::_Hashtable.63", ptr %arrayctor.cur5.ptr.i36, i64 0, i32 5
+  %_M_single_bucket.i.i.i37 = getelementptr inbounds i8, ptr %arrayctor.cur5.ptr.i36, i64 48
   store ptr %_M_single_bucket.i.i.i37, ptr %arrayctor.cur5.ptr.i36, align 8
-  %_M_bucket_count.i.i.i38 = getelementptr inbounds %"class.std::_Hashtable.63", ptr %arrayctor.cur5.ptr.i36, i64 0, i32 1
+  %_M_bucket_count.i.i.i38 = getelementptr inbounds i8, ptr %arrayctor.cur5.ptr.i36, i64 8
   store i64 1, ptr %_M_bucket_count.i.i.i38, align 8
-  %_M_before_begin.i.i.i39 = getelementptr inbounds %"class.std::_Hashtable.63", ptr %arrayctor.cur5.ptr.i36, i64 0, i32 2
-  %_M_rehash_policy.i.i.i40 = getelementptr inbounds %"class.std::_Hashtable.63", ptr %arrayctor.cur5.ptr.i36, i64 0, i32 4
+  %_M_before_begin.i.i.i39 = getelementptr inbounds i8, ptr %arrayctor.cur5.ptr.i36, i64 16
+  %_M_rehash_policy.i.i.i40 = getelementptr inbounds i8, ptr %arrayctor.cur5.ptr.i36, i64 32
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %_M_before_begin.i.i.i39, i8 0, i64 16, i1 false)
   store float 1.000000e+00, ptr %_M_rehash_policy.i.i.i40, align 8
-  %_M_next_resize.i.i.i.i41 = getelementptr inbounds %"class.std::_Hashtable.63", ptr %arrayctor.cur5.ptr.i36, i64 0, i32 4, i32 1
+  %_M_next_resize.i.i.i.i41 = getelementptr inbounds i8, ptr %arrayctor.cur5.ptr.i36, i64 40
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %_M_next_resize.i.i.i.i41, i8 0, i64 16, i1 false)
   %arrayctor.cur5.add.i42 = add nuw nsw i64 %arrayctor.cur5.idx.i35, 56
   %arrayctor.done7.i43 = icmp eq i64 %arrayctor.cur5.add.i42, 7168
   br i1 %arrayctor.done7.i43, label %_ZN4pbrt11BufferCacheINS_7Normal3IfEEEC2Ev.exit, label %arrayctor.loop4.i34
 
 _ZN4pbrt11BufferCacheINS_7Normal3IfEEEC2Ev.exit:  ; preds = %arrayctor.loop4.i34
-  %bytesUsed.i44 = getelementptr inbounds %"class.pbrt::BufferCache.61", ptr %call4, i64 0, i32 2
+  %bytesUsed.i44 = getelementptr inbounds i8, ptr %call4, i64 7168
   store i64 0, ptr %bytesUsed.i44, align 8
   store ptr %call4, ptr @_ZN4pbrt18normal3BufferCacheE, align 8
   ret void

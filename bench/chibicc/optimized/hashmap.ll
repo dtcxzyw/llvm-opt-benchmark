@@ -3,8 +3,8 @@ source_filename = "bench/chibicc/original/hashmap.ll"
 target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:128-n8:16:32:64-S128"
 target triple = "x86_64-unknown-linux-gnu"
 
-%struct.HashMap = type { ptr, i32, i32 }
 %struct.HashEntry = type { ptr, i32, ptr }
+%struct.HashMap = type { ptr, i32, i32 }
 
 @.str = private unnamed_addr constant [7 x i8] c"key %d\00", align 1
 @.str.1 = private unnamed_addr constant [51 x i8] c"(size_t)hashmap_get(map, format(\22key %d\22, i)) == i\00", align 1
@@ -49,7 +49,7 @@ for.body.i.i.i:                                   ; preds = %for.body.i.i.i, %fo
 
 fnv_hash.exit.i.i:                                ; preds = %for.body.i.i.i, %if.end.i.i
   %hash.0.lcssa.i.i.i = phi i64 [ -3750763034362895579, %if.end.i.i ], [ %xor.i.i.i, %for.body.i.i.i ]
-  %capacity.i.i = getelementptr inbounds %struct.HashMap, ptr %map, i64 0, i32 1
+  %capacity.i.i = getelementptr inbounds i8, ptr %map, i64 8
   %2 = load i32, ptr %capacity.i.i, align 8
   %cmp12.i.i = icmp sgt i32 %2, 0
   br i1 %cmp12.i.i, label %for.body.lr.ph.i.i, label %for.end.i.i
@@ -73,7 +73,7 @@ for.body.i.i:                                     ; preds = %for.inc.i.i, %for.b
   ]
 
 land.lhs.true3.i.i.i:                             ; preds = %for.body.i.i
-  %keylen4.i.i.i = getelementptr inbounds %struct.HashEntry, ptr %0, i64 %rem.i.i, i32 1
+  %keylen4.i.i.i = getelementptr inbounds i8, ptr %arrayidx.i.i, i64 8
   %4 = load i32, ptr %keylen4.i.i.i, align 8
   %cmp5.i10.i.i = icmp eq i32 %4, %conv
   br i1 %cmp5.i10.i.i, label %match.exit.i.i, label %if.end6.i.i
@@ -97,7 +97,7 @@ for.end.i.i:                                      ; preds = %for.inc.i.i, %fnv_h
   unreachable
 
 cond.true.i:                                      ; preds = %match.exit.i.i
-  %val.i = getelementptr inbounds %struct.HashEntry, ptr %0, i64 %rem.i.i, i32 2
+  %val.i = getelementptr inbounds i8, ptr %arrayidx.i.i, i64 16
   %5 = load ptr, ptr %val.i, align 8
   br label %hashmap_get2.exit
 
@@ -135,7 +135,7 @@ for.body.i.i:                                     ; preds = %for.body.i.i, %for.
 
 fnv_hash.exit.i:                                  ; preds = %for.body.i.i, %if.end.i
   %hash.0.lcssa.i.i = phi i64 [ -3750763034362895579, %if.end.i ], [ %xor.i.i, %for.body.i.i ]
-  %capacity.i = getelementptr inbounds %struct.HashMap, ptr %map, i64 0, i32 1
+  %capacity.i = getelementptr inbounds i8, ptr %map, i64 8
   %2 = load i32, ptr %capacity.i, align 8
   %cmp12.i = icmp sgt i32 %2, 0
   br i1 %cmp12.i, label %for.body.lr.ph.i, label %for.end.i
@@ -158,7 +158,7 @@ for.body.i:                                       ; preds = %for.inc.i, %for.bod
   ]
 
 land.lhs.true3.i.i:                               ; preds = %for.body.i
-  %keylen4.i.i = getelementptr inbounds %struct.HashEntry, ptr %0, i64 %rem.i, i32 1
+  %keylen4.i.i = getelementptr inbounds i8, ptr %arrayidx.i, i64 8
   %4 = load i32, ptr %keylen4.i.i, align 8
   %cmp5.i10.i = icmp eq i32 %4, %keylen
   br i1 %cmp5.i10.i, label %match.exit.i, label %if.end6.i
@@ -182,7 +182,7 @@ for.end.i:                                        ; preds = %for.inc.i, %fnv_has
   unreachable
 
 cond.true:                                        ; preds = %match.exit.i
-  %val = getelementptr inbounds %struct.HashEntry, ptr %0, i64 %rem.i, i32 2
+  %val = getelementptr inbounds i8, ptr %arrayidx.i, i64 16
   %5 = load ptr, ptr %val, align 8
   br label %cond.end
 
@@ -214,15 +214,15 @@ entry:
 if.then.i:                                        ; preds = %entry
   %call.i = tail call noalias dereferenceable_or_null(384) ptr @calloc(i64 noundef 16, i64 noundef 24) #12
   store ptr %call.i, ptr %map, align 8
-  %capacity.i = getelementptr inbounds %struct.HashMap, ptr %map, i64 0, i32 1
+  %capacity.i = getelementptr inbounds i8, ptr %map, i64 8
   store i32 16, ptr %capacity.i, align 8
   br label %if.end4.i
 
 if.else.i:                                        ; preds = %entry
-  %used.i = getelementptr inbounds %struct.HashMap, ptr %map, i64 0, i32 2
+  %used.i = getelementptr inbounds i8, ptr %map, i64 12
   %1 = load i32, ptr %used.i, align 4
   %mul.i = mul nsw i32 %1, 100
-  %capacity2.i = getelementptr inbounds %struct.HashMap, ptr %map, i64 0, i32 1
+  %capacity2.i = getelementptr inbounds i8, ptr %map, i64 8
   %2 = load i32, ptr %capacity2.i, align 8
   %div.i = sdiv i32 %mul.i, %2
   %cmp.i = icmp sgt i32 %div.i, 69
@@ -230,8 +230,8 @@ if.else.i:                                        ; preds = %entry
 
 if.then3.i:                                       ; preds = %if.else.i
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %map2.i)
-  %cmp.i1332 = icmp sgt i32 %2, 0
-  br i1 %cmp.i1332, label %for.body.i19.preheader, label %while.cond.i.preheader
+  %cmp.i1328 = icmp sgt i32 %2, 0
+  br i1 %cmp.i1328, label %for.body.i19.preheader, label %while.cond.i.preheader
 
 for.body.i19.preheader:                           ; preds = %if.then3.i
   %wide.trip.count = zext nneg i32 %2 to i64
@@ -244,7 +244,7 @@ while.cond.i.preheader:                           ; preds = %for.inc.i22, %if.th
 
 for.body.i19:                                     ; preds = %for.body.i19.preheader, %for.inc.i22
   %indvars.iv = phi i64 [ 0, %for.body.i19.preheader ], [ %indvars.iv.next, %for.inc.i22 ]
-  %nkeys.0.i34 = phi i32 [ 0, %for.body.i19.preheader ], [ %nkeys.1.i, %for.inc.i22 ]
+  %nkeys.0.i30 = phi i32 [ 0, %for.body.i19.preheader ], [ %nkeys.1.i, %for.inc.i22 ]
   %arrayidx.i20 = getelementptr inbounds %struct.HashEntry, ptr %0, i64 %indvars.iv
   %3 = load ptr, ptr %arrayidx.i20, align 8
   %magicptr.i21 = ptrtoint ptr %3 to i64
@@ -254,11 +254,11 @@ for.body.i19:                                     ; preds = %for.body.i19.prehea
   ]
 
 if.then.i23:                                      ; preds = %for.body.i19
-  %inc.i24 = add nsw i32 %nkeys.0.i34, 1
+  %inc.i24 = add nsw i32 %nkeys.0.i30, 1
   br label %for.inc.i22
 
 for.inc.i22:                                      ; preds = %if.then.i23, %for.body.i19, %for.body.i19
-  %nkeys.1.i = phi i32 [ %inc.i24, %if.then.i23 ], [ %nkeys.0.i34, %for.body.i19 ], [ %nkeys.0.i34, %for.body.i19 ]
+  %nkeys.1.i = phi i32 [ %inc.i24, %if.then.i23 ], [ %nkeys.0.i30, %for.body.i19 ], [ %nkeys.0.i30, %for.body.i19 ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
   br i1 %exitcond.not, label %while.cond.i.preheader, label %for.body.i19, !llvm.loop !10
@@ -284,15 +284,15 @@ cond.end.i:                                       ; preds = %while.end.i
   %conv.i16 = zext nneg i32 %cap.0.i to i64
   %call.i17 = tail call noalias ptr @calloc(i64 noundef %conv.i16, i64 noundef 24) #12
   store ptr %call.i17, ptr %map2.i, align 8
-  %capacity12.i = getelementptr inbounds %struct.HashMap, ptr %map2.i, i64 0, i32 1
+  %capacity12.i = getelementptr inbounds i8, ptr %map2.i, i64 8
   store i32 %cap.0.i, ptr %capacity12.i, align 8
-  br i1 %cmp.i1332, label %for.body18.i, label %for.end33.i
+  br i1 %cmp.i1328, label %for.body18.i, label %for.end33.i
 
 for.body18.i:                                     ; preds = %cond.end.i, %for.inc31.i
   %5 = phi i32 [ %10, %for.inc31.i ], [ %2, %cond.end.i ]
-  %indvars.iv47 = phi i64 [ %indvars.iv.next48, %for.inc31.i ], [ 0, %cond.end.i ]
+  %indvars.iv40 = phi i64 [ %indvars.iv.next41, %for.inc31.i ], [ 0, %cond.end.i ]
   %6 = load ptr, ptr %map, align 8
-  %arrayidx21.i = getelementptr inbounds %struct.HashEntry, ptr %6, i64 %indvars.iv47
+  %arrayidx21.i = getelementptr inbounds %struct.HashEntry, ptr %6, i64 %indvars.iv40
   %7 = load ptr, ptr %arrayidx21.i, align 8
   %magicptr24.i = ptrtoint ptr %7 to i64
   switch i64 %magicptr24.i, label %if.then28.i [
@@ -301,9 +301,9 @@ for.body18.i:                                     ; preds = %cond.end.i, %for.in
   ]
 
 if.then28.i:                                      ; preds = %for.body18.i
-  %keylen.i = getelementptr inbounds %struct.HashEntry, ptr %6, i64 %indvars.iv47, i32 1
+  %keylen.i = getelementptr inbounds i8, ptr %arrayidx21.i, i64 8
   %8 = load i32, ptr %keylen.i, align 8
-  %val.i = getelementptr inbounds %struct.HashEntry, ptr %6, i64 %indvars.iv47, i32 2
+  %val.i = getelementptr inbounds i8, ptr %arrayidx21.i, i64 16
   %9 = load ptr, ptr %val.i, align 8
   call void @hashmap_put2(ptr noundef nonnull %map2.i, ptr noundef nonnull %7, i32 noundef %8, ptr noundef %9)
   %.pre = load i32, ptr %capacity2.i, align 8
@@ -311,18 +311,18 @@ if.then28.i:                                      ; preds = %for.body18.i
 
 for.inc31.i:                                      ; preds = %if.then28.i, %for.body18.i, %for.body18.i
   %10 = phi i32 [ %.pre, %if.then28.i ], [ %5, %for.body18.i ], [ %5, %for.body18.i ]
-  %indvars.iv.next48 = add nuw nsw i64 %indvars.iv47, 1
+  %indvars.iv.next41 = add nuw nsw i64 %indvars.iv40, 1
   %11 = sext i32 %10 to i64
-  %cmp16.i = icmp slt i64 %indvars.iv.next48, %11
+  %cmp16.i = icmp slt i64 %indvars.iv.next41, %11
   br i1 %cmp16.i, label %for.body18.i, label %for.end33.i.loopexit, !llvm.loop !12
 
 for.end33.i.loopexit:                             ; preds = %for.inc31.i
-  %used.i18.phi.trans.insert = getelementptr inbounds %struct.HashMap, ptr %map2.i, i64 0, i32 2
-  %.pre55 = load i32, ptr %used.i18.phi.trans.insert, align 4
+  %used.i18.phi.trans.insert = getelementptr inbounds i8, ptr %map2.i, i64 12
+  %.pre48 = load i32, ptr %used.i18.phi.trans.insert, align 4
   br label %for.end33.i
 
 for.end33.i:                                      ; preds = %for.end33.i.loopexit, %cond.end.i
-  %12 = phi i32 [ %.pre55, %for.end33.i.loopexit ], [ 0, %cond.end.i ]
+  %12 = phi i32 [ %.pre48, %for.end33.i.loopexit ], [ 0, %cond.end.i ]
   %cmp34.i = icmp eq i32 %12, %nkeys.0.i.lcssa
   br i1 %cmp34.i, label %rehash.exit, label %cond.false37.i
 
@@ -357,10 +357,10 @@ for.body.i6:                                      ; preds = %for.body.i6, %for.b
 
 fnv_hash.exit:                                    ; preds = %for.body.i6, %if.end4.i
   %hash.0.lcssa.i = phi i64 [ -3750763034362895579, %if.end4.i ], [ %xor.i, %for.body.i6 ]
-  %capacity6.i = getelementptr inbounds %struct.HashMap, ptr %map, i64 0, i32 1
+  %capacity6.i = getelementptr inbounds i8, ptr %map, i64 8
   %14 = load i32, ptr %capacity6.i, align 8
-  %cmp7.i37 = icmp sgt i32 %14, 0
-  br i1 %cmp7.i37, label %for.body.i.lr.ph, label %for.end.i
+  %cmp7.i33 = icmp sgt i32 %14, 0
+  br i1 %cmp7.i33, label %for.body.i.lr.ph, label %for.end.i
 
 for.body.i.lr.ph:                                 ; preds = %fnv_hash.exit
   %15 = load ptr, ptr %map, align 8
@@ -369,8 +369,8 @@ for.body.i.lr.ph:                                 ; preds = %fnv_hash.exit
   br label %for.body.i
 
 for.body.i:                                       ; preds = %for.body.i.lr.ph, %for.inc.i
-  %indvars.iv50 = phi i64 [ 0, %for.body.i.lr.ph ], [ %indvars.iv.next51, %for.inc.i ]
-  %add.i = add i64 %hash.0.lcssa.i, %indvars.iv50
+  %indvars.iv43 = phi i64 [ 0, %for.body.i.lr.ph ], [ %indvars.iv.next44, %for.inc.i ]
+  %add.i = add i64 %hash.0.lcssa.i, %indvars.iv43
   %rem.i = urem i64 %add.i, %conv10.i
   %arrayidx.i = getelementptr inbounds %struct.HashEntry, ptr %15, i64 %rem.i
   %16 = load ptr, ptr %arrayidx.i, align 8
@@ -381,7 +381,7 @@ for.body.i:                                       ; preds = %for.body.i.lr.ph, %
   ]
 
 land.lhs.true3.i:                                 ; preds = %for.body.i
-  %keylen4.i = getelementptr inbounds %struct.HashEntry, ptr %15, i64 %rem.i, i32 1
+  %keylen4.i = getelementptr inbounds i8, ptr %arrayidx.i, i64 8
   %17 = load i32, ptr %keylen4.i, align 8
   %cmp5.i = icmp eq i32 %17, %keylen
   br i1 %cmp5.i, label %match.exit, label %for.inc.i
@@ -393,31 +393,31 @@ match.exit:                                       ; preds = %land.lhs.true3.i
 
 if.then17.i:                                      ; preds = %for.body.i
   store ptr %key, ptr %arrayidx.i, align 8
-  %keylen19.i = getelementptr inbounds %struct.HashEntry, ptr %15, i64 %rem.i, i32 1
+  %keylen19.i = getelementptr inbounds i8, ptr %arrayidx.i, i64 8
   store i32 %keylen, ptr %keylen19.i, align 8
   br label %get_or_insert_entry.exit
 
 if.then24.i:                                      ; preds = %for.body.i
   store ptr %key, ptr %arrayidx.i, align 8
-  %keylen26.i = getelementptr inbounds %struct.HashEntry, ptr %15, i64 %rem.i, i32 1
+  %keylen26.i = getelementptr inbounds i8, ptr %arrayidx.i, i64 8
   store i32 %keylen, ptr %keylen26.i, align 8
-  %used27.i = getelementptr inbounds %struct.HashMap, ptr %map, i64 0, i32 2
+  %used27.i = getelementptr inbounds i8, ptr %map, i64 12
   %18 = load i32, ptr %used27.i, align 4
   %inc.i = add nsw i32 %18, 1
   store i32 %inc.i, ptr %used27.i, align 4
   br label %get_or_insert_entry.exit
 
 for.inc.i:                                        ; preds = %match.exit, %land.lhs.true3.i
-  %indvars.iv.next51 = add nuw nsw i64 %indvars.iv50, 1
-  %exitcond54.not = icmp eq i64 %indvars.iv.next51, %conv10.i
-  br i1 %exitcond54.not, label %for.end.i, label %for.body.i, !llvm.loop !13
+  %indvars.iv.next44 = add nuw nsw i64 %indvars.iv43, 1
+  %exitcond47.not = icmp eq i64 %indvars.iv.next44, %conv10.i
+  br i1 %exitcond47.not, label %for.end.i, label %for.body.i, !llvm.loop !13
 
 for.end.i:                                        ; preds = %for.inc.i, %fnv_hash.exit
   tail call void (ptr, ...) @error(ptr noundef nonnull @.str.6, ptr noundef nonnull @.str.2, i32 noundef 105) #11
   unreachable
 
 get_or_insert_entry.exit:                         ; preds = %match.exit, %if.then17.i, %if.then24.i
-  %val1 = getelementptr inbounds %struct.HashEntry, ptr %15, i64 %rem.i, i32 2
+  %val1 = getelementptr inbounds i8, ptr %arrayidx.i, i64 16
   store ptr %val, ptr %val1, align 8
   ret void
 }
@@ -453,7 +453,7 @@ for.body.i.i.i:                                   ; preds = %for.body.i.i.i, %fo
 
 fnv_hash.exit.i.i:                                ; preds = %for.body.i.i.i, %if.end.i.i
   %hash.0.lcssa.i.i.i = phi i64 [ -3750763034362895579, %if.end.i.i ], [ %xor.i.i.i, %for.body.i.i.i ]
-  %capacity.i.i = getelementptr inbounds %struct.HashMap, ptr %map, i64 0, i32 1
+  %capacity.i.i = getelementptr inbounds i8, ptr %map, i64 8
   %2 = load i32, ptr %capacity.i.i, align 8
   %cmp12.i.i = icmp sgt i32 %2, 0
   br i1 %cmp12.i.i, label %for.body.lr.ph.i.i, label %for.end.i.i
@@ -477,7 +477,7 @@ for.body.i.i:                                     ; preds = %for.inc.i.i, %for.b
   ]
 
 land.lhs.true3.i.i.i:                             ; preds = %for.body.i.i
-  %keylen4.i.i.i = getelementptr inbounds %struct.HashEntry, ptr %0, i64 %rem.i.i, i32 1
+  %keylen4.i.i.i = getelementptr inbounds i8, ptr %arrayidx.i.i, i64 8
   %4 = load i32, ptr %keylen4.i.i.i, align 8
   %cmp5.i10.i.i = icmp eq i32 %4, %conv
   br i1 %cmp5.i10.i.i, label %match.exit.i.i, label %if.end6.i.i
@@ -537,7 +537,7 @@ for.body.i.i:                                     ; preds = %for.body.i.i, %for.
 
 fnv_hash.exit.i:                                  ; preds = %for.body.i.i, %if.end.i
   %hash.0.lcssa.i.i = phi i64 [ -3750763034362895579, %if.end.i ], [ %xor.i.i, %for.body.i.i ]
-  %capacity.i = getelementptr inbounds %struct.HashMap, ptr %map, i64 0, i32 1
+  %capacity.i = getelementptr inbounds i8, ptr %map, i64 8
   %2 = load i32, ptr %capacity.i, align 8
   %cmp12.i = icmp sgt i32 %2, 0
   br i1 %cmp12.i, label %for.body.lr.ph.i, label %for.end.i
@@ -560,7 +560,7 @@ for.body.i:                                       ; preds = %for.inc.i, %for.bod
   ]
 
 land.lhs.true3.i.i:                               ; preds = %for.body.i
-  %keylen4.i.i = getelementptr inbounds %struct.HashEntry, ptr %0, i64 %rem.i, i32 1
+  %keylen4.i.i = getelementptr inbounds i8, ptr %arrayidx.i, i64 8
   %4 = load i32, ptr %keylen4.i.i, align 8
   %cmp5.i10.i = icmp eq i32 %4, %keylen
   br i1 %cmp5.i10.i, label %match.exit.i, label %if.end6.i

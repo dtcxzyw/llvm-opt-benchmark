@@ -3,14 +3,6 @@ source_filename = "bench/libquic/original/spdy_pinnable_buffer_piece.cc.ll"
 target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:128-n8:16:32:64-S128"
 target triple = "x86_64-unknown-linux-gnu"
 
-%"struct.net::SpdyPinnableBufferPiece" = type { ptr, i64, %"class.std::unique_ptr" }
-%"class.std::unique_ptr" = type { %"struct.std::__uniq_ptr_data" }
-%"struct.std::__uniq_ptr_data" = type { %"class.std::__uniq_ptr_impl" }
-%"class.std::__uniq_ptr_impl" = type { %"class.std::tuple" }
-%"class.std::tuple" = type { %"struct.std::_Tuple_impl" }
-%"struct.std::_Tuple_impl" = type { %"struct.std::_Head_base.1" }
-%"struct.std::_Head_base.1" = type { ptr }
-
 @_ZN3net23SpdyPinnableBufferPieceC1Ev = dso_local unnamed_addr alias void (ptr), ptr @_ZN3net23SpdyPinnableBufferPieceC2Ev
 @_ZN3net23SpdyPinnableBufferPieceD1Ev = dso_local unnamed_addr alias void (ptr), ptr @_ZN3net23SpdyPinnableBufferPieceD2Ev
 
@@ -24,7 +16,7 @@ entry:
 ; Function Attrs: mustprogress nounwind uwtable
 define dso_local void @_ZN3net23SpdyPinnableBufferPieceD2Ev(ptr nocapture noundef nonnull align 8 dereferenceable(24) %this) unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  %storage_ = getelementptr inbounds %"struct.net::SpdyPinnableBufferPiece", ptr %this, i64 0, i32 2
+  %storage_ = getelementptr inbounds i8, ptr %this, i64 16
   %0 = load ptr, ptr %storage_, align 8
   %cmp.not.i = icmp eq ptr %0, null
   br i1 %cmp.not.i, label %_ZNSt10unique_ptrIA_cSt14default_deleteIS0_EED2Ev.exit, label %_ZNKSt14default_deleteIA_cEclIcEENSt9enable_ifIXsr14is_convertibleIPA_T_PS0_EE5valueEvE4typeEPS4_.exit.i
@@ -41,7 +33,7 @@ _ZNSt10unique_ptrIA_cSt14default_deleteIS0_EED2Ev.exit: ; preds = %entry, %_ZNKS
 ; Function Attrs: mustprogress uwtable
 define dso_local void @_ZN3net23SpdyPinnableBufferPiece3PinEv(ptr nocapture noundef nonnull align 8 dereferenceable(24) %this) local_unnamed_addr #2 align 2 {
 entry:
-  %storage_ = getelementptr inbounds %"struct.net::SpdyPinnableBufferPiece", ptr %this, i64 0, i32 2
+  %storage_ = getelementptr inbounds i8, ptr %this, i64 16
   %0 = load ptr, ptr %storage_, align 8
   %cmp.i = icmp ne ptr %0, null
   %1 = load ptr, ptr %this, align 8
@@ -50,7 +42,7 @@ entry:
   br i1 %or.cond, label %if.end, label %land.lhs.true2
 
 land.lhs.true2:                                   ; preds = %entry
-  %length_ = getelementptr inbounds %"struct.net::SpdyPinnableBufferPiece", ptr %this, i64 0, i32 1
+  %length_ = getelementptr inbounds i8, ptr %this, i64 8
   %2 = load i64, ptr %length_, align 8
   %cmp3.not = icmp eq i64 %2, 0
   br i1 %cmp3.not, label %if.end, label %_ZSt4copyIPKcPcET0_T_S4_S3_.exit
@@ -72,9 +64,9 @@ declare noundef nonnull ptr @_Znam(i64 noundef) local_unnamed_addr #3
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
 define dso_local void @_ZN3net23SpdyPinnableBufferPiece4SwapEPS0_(ptr nocapture noundef nonnull align 8 dereferenceable(24) %this, ptr nocapture noundef %other) local_unnamed_addr #4 align 2 {
 entry:
-  %length_ = getelementptr inbounds %"struct.net::SpdyPinnableBufferPiece", ptr %this, i64 0, i32 1
+  %length_ = getelementptr inbounds i8, ptr %this, i64 8
   %0 = load i64, ptr %length_, align 8
-  %length_2 = getelementptr inbounds %"struct.net::SpdyPinnableBufferPiece", ptr %other, i64 0, i32 1
+  %length_2 = getelementptr inbounds i8, ptr %other, i64 8
   %1 = load i64, ptr %length_2, align 8
   store i64 %1, ptr %length_, align 8
   store i64 %0, ptr %length_2, align 8
@@ -82,8 +74,8 @@ entry:
   %3 = load ptr, ptr %other, align 8
   store ptr %3, ptr %this, align 8
   store ptr %2, ptr %other, align 8
-  %storage_ = getelementptr inbounds %"struct.net::SpdyPinnableBufferPiece", ptr %this, i64 0, i32 2
-  %storage_8 = getelementptr inbounds %"struct.net::SpdyPinnableBufferPiece", ptr %other, i64 0, i32 2
+  %storage_ = getelementptr inbounds i8, ptr %this, i64 16
+  %storage_8 = getelementptr inbounds i8, ptr %other, i64 16
   %4 = load ptr, ptr %storage_, align 8
   %5 = load ptr, ptr %storage_8, align 8
   store ptr %5, ptr %storage_, align 8

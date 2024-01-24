@@ -3,7 +3,6 @@ source_filename = "bench/nghttp2/original/url_parser.c.ll"
 target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:128-n8:16:32:64-S128"
 target triple = "x86_64-unknown-linux-gnu"
 
-%struct.http_parser_url = type { i16, i16, [7 x %struct.anon] }
 %struct.anon = type { i16, i16 }
 
 @.str = private unnamed_addr constant [20 x i8] c"!\22Unexpected state\22\00", align 1
@@ -30,7 +29,7 @@ entry:
 
 if.end:                                           ; preds = %entry
   store i16 0, ptr %u, align 2
-  %port = getelementptr inbounds %struct.http_parser_url, ptr %u, i64 0, i32 1
+  %port = getelementptr inbounds i8, ptr %u, i64 2
   store i16 0, ptr %port, align 2
   %tobool.not = icmp ne i32 %is_connect, 0
   %add.ptr = getelementptr inbounds i8, ptr %buf, i64 %buflen
@@ -40,6 +39,7 @@ if.end:                                           ; preds = %entry
 for.body.lr.ph:                                   ; preds = %if.end
   %cond = select i1 %tobool.not, i32 24, i32 20
   %sub.ptr.rhs.cast = ptrtoint ptr %buf to i64
+  %field_data12 = getelementptr inbounds i8, ptr %u, i64 4
   br label %for.body
 
 for.body:                                         ; preds = %for.body.lr.ph, %for.inc
@@ -269,7 +269,7 @@ sw.epilog:                                        ; preds = %if.end250.i, %if.en
 
 if.then10:                                        ; preds = %sw.epilog
   %idxprom = zext nneg i32 %old_uf.082 to i64
-  %len = getelementptr inbounds %struct.http_parser_url, ptr %u, i64 0, i32 2, i64 %idxprom, i32 1
+  %len = getelementptr inbounds [7 x %struct.anon], ptr %field_data12, i64 0, i64 %idxprom, i32 1
   %11 = load i16, ptr %len, align 2
   %inc = add i16 %11, 1
   store i16 %inc, ptr %len, align 2
@@ -280,9 +280,9 @@ if.end11:                                         ; preds = %sw.epilog
   %sub.ptr.sub = sub i64 %sub.ptr.lhs.cast, %sub.ptr.rhs.cast
   %conv = trunc i64 %sub.ptr.sub to i16
   %idxprom13 = zext nneg i32 %uf.0 to i64
-  %arrayidx14 = getelementptr inbounds %struct.http_parser_url, ptr %u, i64 0, i32 2, i64 %idxprom13
+  %arrayidx14 = getelementptr inbounds [7 x %struct.anon], ptr %field_data12, i64 0, i64 %idxprom13
   store i16 %conv, ptr %arrayidx14, align 2
-  %len18 = getelementptr inbounds %struct.http_parser_url, ptr %u, i64 0, i32 2, i64 %idxprom13, i32 1
+  %len18 = getelementptr inbounds i8, ptr %arrayidx14, i64 2
   store i16 1, ptr %len18, align 2
   %shl = shl nuw nsw i32 1, %uf.0
   %12 = trunc i32 %shl to i16
@@ -312,8 +312,8 @@ if.end31:                                         ; preds = %for.end
   br i1 %tobool35.not, label %if.end42, label %if.end.i
 
 if.end.i:                                         ; preds = %if.end31
-  %arrayidx.i40 = getelementptr inbounds %struct.http_parser_url, ptr %u, i64 0, i32 2, i64 1
-  %len.i = getelementptr inbounds %struct.http_parser_url, ptr %u, i64 0, i32 2, i64 1, i32 1
+  %arrayidx.i40 = getelementptr inbounds i8, ptr %u, i64 8
+  %len.i = getelementptr inbounds i8, ptr %u, i64 10
   %18 = load i16, ptr %len.i, align 2
   %conv3.i = zext i16 %18 to i64
   %19 = load i16, ptr %arrayidx.i40, align 2
@@ -326,10 +326,10 @@ if.end.i:                                         ; preds = %if.end31
 
 for.body.lr.ph.i:                                 ; preds = %if.end.i
   %sub.ptr.rhs.cast57.i = ptrtoint ptr %buf to i64
-  %arrayidx61.i = getelementptr inbounds %struct.http_parser_url, ptr %u, i64 0, i32 2, i64 2
-  %len65.i = getelementptr inbounds %struct.http_parser_url, ptr %u, i64 0, i32 2, i64 2, i32 1
-  %arrayidx83.i = getelementptr inbounds %struct.http_parser_url, ptr %u, i64 0, i32 2, i64 6
-  %len87.i = getelementptr inbounds %struct.http_parser_url, ptr %u, i64 0, i32 2, i64 6, i32 1
+  %arrayidx61.i = getelementptr inbounds i8, ptr %u, i64 12
+  %len65.i = getelementptr inbounds i8, ptr %u, i64 14
+  %arrayidx83.i = getelementptr inbounds i8, ptr %u, i64 28
+  %len87.i = getelementptr inbounds i8, ptr %u, i64 30
   br label %for.body.i
 
 for.body.i:                                       ; preds = %sw.epilog.i, %for.body.lr.ph.i
@@ -594,9 +594,9 @@ if.end50:                                         ; preds = %if.end42
   br i1 %tobool54.not, label %return, label %if.then55
 
 if.then55:                                        ; preds = %land.lhs.true44, %if.end50
-  %arrayidx60 = getelementptr inbounds %struct.http_parser_url, ptr %u, i64 0, i32 2, i64 2
+  %arrayidx60 = getelementptr inbounds i8, ptr %u, i64 12
   %49 = load i16, ptr %arrayidx60, align 2
-  %len64 = getelementptr inbounds %struct.http_parser_url, ptr %u, i64 0, i32 2, i64 2, i32 1
+  %len64 = getelementptr inbounds i8, ptr %u, i64 14
   %50 = load i16, ptr %len64, align 2
   %conv65 = zext i16 %49 to i64
   %add.ptr66 = getelementptr inbounds i8, ptr %buf, i64 %conv65

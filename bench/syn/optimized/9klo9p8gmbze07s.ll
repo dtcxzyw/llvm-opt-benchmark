@@ -381,188 +381,161 @@ define void @"_ZN3syn2op7parsing61_$LT$impl$u20$syn..parse..Parse$u20$for$u20$sy
 ; Function Attrs: nonlazybind uwtable
 define void @"_ZN3syn2op8printing71_$LT$impl$u20$quote..to_tokens..ToTokens$u20$for$u20$syn..op..BinOp$GT$9to_tokens17hb6127622922eb8e2E"(ptr align 4 %0, ptr align 8 %1) unnamed_addr #0 {
   %3 = load i32, ptr %0, align 4, !range !5, !noundef !6
+  %4 = getelementptr inbounds i8, ptr %0, i64 4
   switch i32 %3, label %default.unreachable1 [
-    i32 0, label %4
+    i32 0, label %5
     i32 1, label %6
-    i32 2, label %8
-    i32 3, label %10
-    i32 4, label %12
-    i32 5, label %14
-    i32 6, label %16
-    i32 7, label %18
-    i32 8, label %20
-    i32 9, label %22
-    i32 10, label %24
-    i32 11, label %26
-    i32 12, label %28
-    i32 13, label %30
-    i32 14, label %32
-    i32 15, label %34
-    i32 16, label %36
-    i32 17, label %38
-    i32 18, label %40
-    i32 19, label %42
-    i32 20, label %44
-    i32 21, label %46
-    i32 22, label %48
-    i32 23, label %50
-    i32 24, label %52
-    i32 25, label %54
-    i32 26, label %56
-    i32 27, label %58
+    i32 2, label %7
+    i32 3, label %8
+    i32 4, label %9
+    i32 5, label %10
+    i32 6, label %11
+    i32 7, label %12
+    i32 8, label %13
+    i32 9, label %14
+    i32 10, label %15
+    i32 11, label %16
+    i32 12, label %17
+    i32 13, label %18
+    i32 14, label %19
+    i32 15, label %20
+    i32 16, label %21
+    i32 17, label %22
+    i32 18, label %23
+    i32 19, label %24
+    i32 20, label %25
+    i32 21, label %26
+    i32 22, label %27
+    i32 23, label %28
+    i32 24, label %29
+    i32 25, label %30
+    i32 26, label %31
+    i32 27, label %32
   ]
 
 default.unreachable1:                             ; preds = %2
   unreachable
 
-4:                                                ; preds = %2
-  %5 = getelementptr inbounds { [1 x i32], { [1 x i32] } }, ptr %0, i64 0, i32 1
-  tail call void @"_ZN63_$LT$syn..token..Plus$u20$as$u20$quote..to_tokens..ToTokens$GT$9to_tokens17h3c942431479a12fcE"(ptr nonnull align 4 %5, ptr align 8 %1)
-  br label %60
+5:                                                ; preds = %2
+  tail call void @"_ZN63_$LT$syn..token..Plus$u20$as$u20$quote..to_tokens..ToTokens$GT$9to_tokens17h3c942431479a12fcE"(ptr nonnull align 4 %4, ptr align 8 %1)
+  br label %33
 
 6:                                                ; preds = %2
-  %7 = getelementptr inbounds { [1 x i32], { [1 x i32] } }, ptr %0, i64 0, i32 1
-  tail call void @"_ZN64_$LT$syn..token..Minus$u20$as$u20$quote..to_tokens..ToTokens$GT$9to_tokens17h9f72eb8d6fdc8e3dE"(ptr nonnull align 4 %7, ptr align 8 %1)
-  br label %60
+  tail call void @"_ZN64_$LT$syn..token..Minus$u20$as$u20$quote..to_tokens..ToTokens$GT$9to_tokens17h9f72eb8d6fdc8e3dE"(ptr nonnull align 4 %4, ptr align 8 %1)
+  br label %33
+
+7:                                                ; preds = %2
+  tail call void @"_ZN63_$LT$syn..token..Star$u20$as$u20$quote..to_tokens..ToTokens$GT$9to_tokens17h53d61a008a7c7b56E"(ptr nonnull align 4 %4, ptr align 8 %1)
+  br label %33
 
 8:                                                ; preds = %2
-  %9 = getelementptr inbounds { [1 x i32], { [1 x i32] } }, ptr %0, i64 0, i32 1
-  tail call void @"_ZN63_$LT$syn..token..Star$u20$as$u20$quote..to_tokens..ToTokens$GT$9to_tokens17h53d61a008a7c7b56E"(ptr nonnull align 4 %9, ptr align 8 %1)
-  br label %60
+  tail call void @"_ZN64_$LT$syn..token..Slash$u20$as$u20$quote..to_tokens..ToTokens$GT$9to_tokens17hdbbd1a6e9b5ed88eE"(ptr nonnull align 4 %4, ptr align 8 %1)
+  br label %33
+
+9:                                                ; preds = %2
+  tail call void @"_ZN66_$LT$syn..token..Percent$u20$as$u20$quote..to_tokens..ToTokens$GT$9to_tokens17hb390715869d24468E"(ptr nonnull align 4 %4, ptr align 8 %1)
+  br label %33
 
 10:                                               ; preds = %2
-  %11 = getelementptr inbounds { [1 x i32], { [1 x i32] } }, ptr %0, i64 0, i32 1
-  tail call void @"_ZN64_$LT$syn..token..Slash$u20$as$u20$quote..to_tokens..ToTokens$GT$9to_tokens17hdbbd1a6e9b5ed88eE"(ptr nonnull align 4 %11, ptr align 8 %1)
-  br label %60
+  tail call void @"_ZN65_$LT$syn..token..AndAnd$u20$as$u20$quote..to_tokens..ToTokens$GT$9to_tokens17h6c79e972fd0b5291E"(ptr nonnull align 4 %4, ptr align 8 %1)
+  br label %33
+
+11:                                               ; preds = %2
+  tail call void @"_ZN63_$LT$syn..token..OrOr$u20$as$u20$quote..to_tokens..ToTokens$GT$9to_tokens17hcb9a5530d421f407E"(ptr nonnull align 4 %4, ptr align 8 %1)
+  br label %33
 
 12:                                               ; preds = %2
-  %13 = getelementptr inbounds { [1 x i32], { [1 x i32] } }, ptr %0, i64 0, i32 1
-  tail call void @"_ZN66_$LT$syn..token..Percent$u20$as$u20$quote..to_tokens..ToTokens$GT$9to_tokens17hb390715869d24468E"(ptr nonnull align 4 %13, ptr align 8 %1)
-  br label %60
+  tail call void @"_ZN64_$LT$syn..token..Caret$u20$as$u20$quote..to_tokens..ToTokens$GT$9to_tokens17he58a83325153a524E"(ptr nonnull align 4 %4, ptr align 8 %1)
+  br label %33
+
+13:                                               ; preds = %2
+  tail call void @"_ZN62_$LT$syn..token..And$u20$as$u20$quote..to_tokens..ToTokens$GT$9to_tokens17hceee304a8a02a8b5E"(ptr nonnull align 4 %4, ptr align 8 %1)
+  br label %33
 
 14:                                               ; preds = %2
-  %15 = getelementptr inbounds { [1 x i32], { [2 x i32] } }, ptr %0, i64 0, i32 1
-  tail call void @"_ZN65_$LT$syn..token..AndAnd$u20$as$u20$quote..to_tokens..ToTokens$GT$9to_tokens17h6c79e972fd0b5291E"(ptr nonnull align 4 %15, ptr align 8 %1)
-  br label %60
+  tail call void @"_ZN61_$LT$syn..token..Or$u20$as$u20$quote..to_tokens..ToTokens$GT$9to_tokens17h556ed51c533e55feE"(ptr nonnull align 4 %4, ptr align 8 %1)
+  br label %33
+
+15:                                               ; preds = %2
+  tail call void @"_ZN62_$LT$syn..token..Shl$u20$as$u20$quote..to_tokens..ToTokens$GT$9to_tokens17h3ffc34d9e155b6aaE"(ptr nonnull align 4 %4, ptr align 8 %1)
+  br label %33
 
 16:                                               ; preds = %2
-  %17 = getelementptr inbounds { [1 x i32], { [2 x i32] } }, ptr %0, i64 0, i32 1
-  tail call void @"_ZN63_$LT$syn..token..OrOr$u20$as$u20$quote..to_tokens..ToTokens$GT$9to_tokens17hcb9a5530d421f407E"(ptr nonnull align 4 %17, ptr align 8 %1)
-  br label %60
+  tail call void @"_ZN62_$LT$syn..token..Shr$u20$as$u20$quote..to_tokens..ToTokens$GT$9to_tokens17h5e498348f9d262e1E"(ptr nonnull align 4 %4, ptr align 8 %1)
+  br label %33
+
+17:                                               ; preds = %2
+  tail call void @"_ZN63_$LT$syn..token..EqEq$u20$as$u20$quote..to_tokens..ToTokens$GT$9to_tokens17ha2bd293d3db22ccfE"(ptr nonnull align 4 %4, ptr align 8 %1)
+  br label %33
 
 18:                                               ; preds = %2
-  %19 = getelementptr inbounds { [1 x i32], { [1 x i32] } }, ptr %0, i64 0, i32 1
-  tail call void @"_ZN64_$LT$syn..token..Caret$u20$as$u20$quote..to_tokens..ToTokens$GT$9to_tokens17he58a83325153a524E"(ptr nonnull align 4 %19, ptr align 8 %1)
-  br label %60
+  tail call void @"_ZN61_$LT$syn..token..Lt$u20$as$u20$quote..to_tokens..ToTokens$GT$9to_tokens17h0056ca0852a7b15aE"(ptr nonnull align 4 %4, ptr align 8 %1)
+  br label %33
+
+19:                                               ; preds = %2
+  tail call void @"_ZN61_$LT$syn..token..Le$u20$as$u20$quote..to_tokens..ToTokens$GT$9to_tokens17hfdb32e6e69cdd846E"(ptr nonnull align 4 %4, ptr align 8 %1)
+  br label %33
 
 20:                                               ; preds = %2
-  %21 = getelementptr inbounds { [1 x i32], { [1 x i32] } }, ptr %0, i64 0, i32 1
-  tail call void @"_ZN62_$LT$syn..token..And$u20$as$u20$quote..to_tokens..ToTokens$GT$9to_tokens17hceee304a8a02a8b5E"(ptr nonnull align 4 %21, ptr align 8 %1)
-  br label %60
+  tail call void @"_ZN61_$LT$syn..token..Ne$u20$as$u20$quote..to_tokens..ToTokens$GT$9to_tokens17hf4b80e110965f5fdE"(ptr nonnull align 4 %4, ptr align 8 %1)
+  br label %33
+
+21:                                               ; preds = %2
+  tail call void @"_ZN61_$LT$syn..token..Ge$u20$as$u20$quote..to_tokens..ToTokens$GT$9to_tokens17h05791e1f42922ba9E"(ptr nonnull align 4 %4, ptr align 8 %1)
+  br label %33
 
 22:                                               ; preds = %2
-  %23 = getelementptr inbounds { [1 x i32], { [1 x i32] } }, ptr %0, i64 0, i32 1
-  tail call void @"_ZN61_$LT$syn..token..Or$u20$as$u20$quote..to_tokens..ToTokens$GT$9to_tokens17h556ed51c533e55feE"(ptr nonnull align 4 %23, ptr align 8 %1)
-  br label %60
+  tail call void @"_ZN61_$LT$syn..token..Gt$u20$as$u20$quote..to_tokens..ToTokens$GT$9to_tokens17h18db3d17e9971aa0E"(ptr nonnull align 4 %4, ptr align 8 %1)
+  br label %33
+
+23:                                               ; preds = %2
+  tail call void @"_ZN65_$LT$syn..token..PlusEq$u20$as$u20$quote..to_tokens..ToTokens$GT$9to_tokens17h3df43ca88fb246bbE"(ptr nonnull align 4 %4, ptr align 8 %1)
+  br label %33
 
 24:                                               ; preds = %2
-  %25 = getelementptr inbounds { [1 x i32], { [2 x i32] } }, ptr %0, i64 0, i32 1
-  tail call void @"_ZN62_$LT$syn..token..Shl$u20$as$u20$quote..to_tokens..ToTokens$GT$9to_tokens17h3ffc34d9e155b6aaE"(ptr nonnull align 4 %25, ptr align 8 %1)
-  br label %60
+  tail call void @"_ZN66_$LT$syn..token..MinusEq$u20$as$u20$quote..to_tokens..ToTokens$GT$9to_tokens17h4ff5f7bcd46e4298E"(ptr nonnull align 4 %4, ptr align 8 %1)
+  br label %33
+
+25:                                               ; preds = %2
+  tail call void @"_ZN65_$LT$syn..token..StarEq$u20$as$u20$quote..to_tokens..ToTokens$GT$9to_tokens17ha709347b4672646cE"(ptr nonnull align 4 %4, ptr align 8 %1)
+  br label %33
 
 26:                                               ; preds = %2
-  %27 = getelementptr inbounds { [1 x i32], { [2 x i32] } }, ptr %0, i64 0, i32 1
-  tail call void @"_ZN62_$LT$syn..token..Shr$u20$as$u20$quote..to_tokens..ToTokens$GT$9to_tokens17h5e498348f9d262e1E"(ptr nonnull align 4 %27, ptr align 8 %1)
-  br label %60
+  tail call void @"_ZN66_$LT$syn..token..SlashEq$u20$as$u20$quote..to_tokens..ToTokens$GT$9to_tokens17h960289d43bee53b8E"(ptr nonnull align 4 %4, ptr align 8 %1)
+  br label %33
+
+27:                                               ; preds = %2
+  tail call void @"_ZN68_$LT$syn..token..PercentEq$u20$as$u20$quote..to_tokens..ToTokens$GT$9to_tokens17h79fb059a667fe51eE"(ptr nonnull align 4 %4, ptr align 8 %1)
+  br label %33
 
 28:                                               ; preds = %2
-  %29 = getelementptr inbounds { [1 x i32], { [2 x i32] } }, ptr %0, i64 0, i32 1
-  tail call void @"_ZN63_$LT$syn..token..EqEq$u20$as$u20$quote..to_tokens..ToTokens$GT$9to_tokens17ha2bd293d3db22ccfE"(ptr nonnull align 4 %29, ptr align 8 %1)
-  br label %60
+  tail call void @"_ZN66_$LT$syn..token..CaretEq$u20$as$u20$quote..to_tokens..ToTokens$GT$9to_tokens17h0fe439103ce8c4a8E"(ptr nonnull align 4 %4, ptr align 8 %1)
+  br label %33
+
+29:                                               ; preds = %2
+  tail call void @"_ZN64_$LT$syn..token..AndEq$u20$as$u20$quote..to_tokens..ToTokens$GT$9to_tokens17hd1f7ca4c4f3140e5E"(ptr nonnull align 4 %4, ptr align 8 %1)
+  br label %33
 
 30:                                               ; preds = %2
-  %31 = getelementptr inbounds { [1 x i32], { [1 x i32] } }, ptr %0, i64 0, i32 1
-  tail call void @"_ZN61_$LT$syn..token..Lt$u20$as$u20$quote..to_tokens..ToTokens$GT$9to_tokens17h0056ca0852a7b15aE"(ptr nonnull align 4 %31, ptr align 8 %1)
-  br label %60
+  tail call void @"_ZN63_$LT$syn..token..OrEq$u20$as$u20$quote..to_tokens..ToTokens$GT$9to_tokens17h31d5d46f22d25f5eE"(ptr nonnull align 4 %4, ptr align 8 %1)
+  br label %33
+
+31:                                               ; preds = %2
+  tail call void @"_ZN64_$LT$syn..token..ShlEq$u20$as$u20$quote..to_tokens..ToTokens$GT$9to_tokens17h29d0c23b0920743bE"(ptr nonnull align 4 %4, ptr align 8 %1)
+  br label %33
 
 32:                                               ; preds = %2
-  %33 = getelementptr inbounds { [1 x i32], { [2 x i32] } }, ptr %0, i64 0, i32 1
-  tail call void @"_ZN61_$LT$syn..token..Le$u20$as$u20$quote..to_tokens..ToTokens$GT$9to_tokens17hfdb32e6e69cdd846E"(ptr nonnull align 4 %33, ptr align 8 %1)
-  br label %60
+  tail call void @"_ZN64_$LT$syn..token..ShrEq$u20$as$u20$quote..to_tokens..ToTokens$GT$9to_tokens17h131cca577e4bb616E"(ptr nonnull align 4 %4, ptr align 8 %1)
+  br label %33
 
-34:                                               ; preds = %2
-  %35 = getelementptr inbounds { [1 x i32], { [2 x i32] } }, ptr %0, i64 0, i32 1
-  tail call void @"_ZN61_$LT$syn..token..Ne$u20$as$u20$quote..to_tokens..ToTokens$GT$9to_tokens17hf4b80e110965f5fdE"(ptr nonnull align 4 %35, ptr align 8 %1)
-  br label %60
-
-36:                                               ; preds = %2
-  %37 = getelementptr inbounds { [1 x i32], { [2 x i32] } }, ptr %0, i64 0, i32 1
-  tail call void @"_ZN61_$LT$syn..token..Ge$u20$as$u20$quote..to_tokens..ToTokens$GT$9to_tokens17h05791e1f42922ba9E"(ptr nonnull align 4 %37, ptr align 8 %1)
-  br label %60
-
-38:                                               ; preds = %2
-  %39 = getelementptr inbounds { [1 x i32], { [1 x i32] } }, ptr %0, i64 0, i32 1
-  tail call void @"_ZN61_$LT$syn..token..Gt$u20$as$u20$quote..to_tokens..ToTokens$GT$9to_tokens17h18db3d17e9971aa0E"(ptr nonnull align 4 %39, ptr align 8 %1)
-  br label %60
-
-40:                                               ; preds = %2
-  %41 = getelementptr inbounds { [1 x i32], { [2 x i32] } }, ptr %0, i64 0, i32 1
-  tail call void @"_ZN65_$LT$syn..token..PlusEq$u20$as$u20$quote..to_tokens..ToTokens$GT$9to_tokens17h3df43ca88fb246bbE"(ptr nonnull align 4 %41, ptr align 8 %1)
-  br label %60
-
-42:                                               ; preds = %2
-  %43 = getelementptr inbounds { [1 x i32], { [2 x i32] } }, ptr %0, i64 0, i32 1
-  tail call void @"_ZN66_$LT$syn..token..MinusEq$u20$as$u20$quote..to_tokens..ToTokens$GT$9to_tokens17h4ff5f7bcd46e4298E"(ptr nonnull align 4 %43, ptr align 8 %1)
-  br label %60
-
-44:                                               ; preds = %2
-  %45 = getelementptr inbounds { [1 x i32], { [2 x i32] } }, ptr %0, i64 0, i32 1
-  tail call void @"_ZN65_$LT$syn..token..StarEq$u20$as$u20$quote..to_tokens..ToTokens$GT$9to_tokens17ha709347b4672646cE"(ptr nonnull align 4 %45, ptr align 8 %1)
-  br label %60
-
-46:                                               ; preds = %2
-  %47 = getelementptr inbounds { [1 x i32], { [2 x i32] } }, ptr %0, i64 0, i32 1
-  tail call void @"_ZN66_$LT$syn..token..SlashEq$u20$as$u20$quote..to_tokens..ToTokens$GT$9to_tokens17h960289d43bee53b8E"(ptr nonnull align 4 %47, ptr align 8 %1)
-  br label %60
-
-48:                                               ; preds = %2
-  %49 = getelementptr inbounds { [1 x i32], { [2 x i32] } }, ptr %0, i64 0, i32 1
-  tail call void @"_ZN68_$LT$syn..token..PercentEq$u20$as$u20$quote..to_tokens..ToTokens$GT$9to_tokens17h79fb059a667fe51eE"(ptr nonnull align 4 %49, ptr align 8 %1)
-  br label %60
-
-50:                                               ; preds = %2
-  %51 = getelementptr inbounds { [1 x i32], { [2 x i32] } }, ptr %0, i64 0, i32 1
-  tail call void @"_ZN66_$LT$syn..token..CaretEq$u20$as$u20$quote..to_tokens..ToTokens$GT$9to_tokens17h0fe439103ce8c4a8E"(ptr nonnull align 4 %51, ptr align 8 %1)
-  br label %60
-
-52:                                               ; preds = %2
-  %53 = getelementptr inbounds { [1 x i32], { [2 x i32] } }, ptr %0, i64 0, i32 1
-  tail call void @"_ZN64_$LT$syn..token..AndEq$u20$as$u20$quote..to_tokens..ToTokens$GT$9to_tokens17hd1f7ca4c4f3140e5E"(ptr nonnull align 4 %53, ptr align 8 %1)
-  br label %60
-
-54:                                               ; preds = %2
-  %55 = getelementptr inbounds { [1 x i32], { [2 x i32] } }, ptr %0, i64 0, i32 1
-  tail call void @"_ZN63_$LT$syn..token..OrEq$u20$as$u20$quote..to_tokens..ToTokens$GT$9to_tokens17h31d5d46f22d25f5eE"(ptr nonnull align 4 %55, ptr align 8 %1)
-  br label %60
-
-56:                                               ; preds = %2
-  %57 = getelementptr inbounds { [1 x i32], { [3 x i32] } }, ptr %0, i64 0, i32 1
-  tail call void @"_ZN64_$LT$syn..token..ShlEq$u20$as$u20$quote..to_tokens..ToTokens$GT$9to_tokens17h29d0c23b0920743bE"(ptr nonnull align 4 %57, ptr align 8 %1)
-  br label %60
-
-58:                                               ; preds = %2
-  %59 = getelementptr inbounds { [1 x i32], { [3 x i32] } }, ptr %0, i64 0, i32 1
-  tail call void @"_ZN64_$LT$syn..token..ShrEq$u20$as$u20$quote..to_tokens..ToTokens$GT$9to_tokens17h131cca577e4bb616E"(ptr nonnull align 4 %59, ptr align 8 %1)
-  br label %60
-
-60:                                               ; preds = %58, %56, %54, %52, %50, %48, %46, %44, %42, %40, %38, %36, %34, %32, %30, %28, %26, %24, %22, %20, %18, %16, %14, %12, %10, %8, %6, %4
+33:                                               ; preds = %32, %31, %30, %29, %28, %27, %26, %25, %24, %23, %22, %21, %20, %19, %18, %17, %16, %15, %14, %13, %12, %11, %10, %9, %8, %7, %6, %5
   ret void
 }
 
 ; Function Attrs: nonlazybind uwtable
 define void @"_ZN3syn2op8printing70_$LT$impl$u20$quote..to_tokens..ToTokens$u20$for$u20$syn..op..UnOp$GT$9to_tokens17h98a37015ee459c65E"(ptr align 4 %0, ptr align 8 %1) unnamed_addr #0 {
   %3 = load i32, ptr %0, align 4, !range !7, !noundef !6
-  %4 = getelementptr inbounds { [1 x i32], { [1 x i32] } }, ptr %0, i64 0, i32 1
+  %4 = getelementptr inbounds i8, ptr %0, i64 4
   switch i32 %3, label %default.unreachable1 [
     i32 0, label %5
     i32 1, label %6
@@ -590,7 +563,7 @@ default.unreachable1:                             ; preds = %2
 
 ; Function Attrs: inlinehint mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: write) uwtable
 define hidden void @_ZN3syn2op5BinOp3Add17hbfef6b77aeb16341E(ptr nocapture writeonly sret({ i32, [3 x i32] }) align 4 %0, i32 %1) unnamed_addr #1 {
-  %3 = getelementptr inbounds { [1 x i32], { [1 x i32] } }, ptr %0, i64 0, i32 1
+  %3 = getelementptr inbounds i8, ptr %0, i64 4
   store i32 %1, ptr %3, align 4
   store i32 0, ptr %0, align 4
   ret void
@@ -598,7 +571,7 @@ define hidden void @_ZN3syn2op5BinOp3Add17hbfef6b77aeb16341E(ptr nocapture write
 
 ; Function Attrs: inlinehint mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: write) uwtable
 define hidden void @_ZN3syn2op5BinOp3Sub17h55eda17fccdb72e1E(ptr nocapture writeonly sret({ i32, [3 x i32] }) align 4 %0, i32 %1) unnamed_addr #1 {
-  %3 = getelementptr inbounds { [1 x i32], { [1 x i32] } }, ptr %0, i64 0, i32 1
+  %3 = getelementptr inbounds i8, ptr %0, i64 4
   store i32 %1, ptr %3, align 4
   store i32 1, ptr %0, align 4
   ret void
@@ -606,7 +579,7 @@ define hidden void @_ZN3syn2op5BinOp3Sub17h55eda17fccdb72e1E(ptr nocapture write
 
 ; Function Attrs: inlinehint mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: write) uwtable
 define hidden void @_ZN3syn2op5BinOp3Mul17hf8ccbdb8b97de2b1E(ptr nocapture writeonly sret({ i32, [3 x i32] }) align 4 %0, i32 %1) unnamed_addr #1 {
-  %3 = getelementptr inbounds { [1 x i32], { [1 x i32] } }, ptr %0, i64 0, i32 1
+  %3 = getelementptr inbounds i8, ptr %0, i64 4
   store i32 %1, ptr %3, align 4
   store i32 2, ptr %0, align 4
   ret void
@@ -614,7 +587,7 @@ define hidden void @_ZN3syn2op5BinOp3Mul17hf8ccbdb8b97de2b1E(ptr nocapture write
 
 ; Function Attrs: inlinehint mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: write) uwtable
 define hidden void @_ZN3syn2op5BinOp3Div17hcbcd66c4adb0bcabE(ptr nocapture writeonly sret({ i32, [3 x i32] }) align 4 %0, i32 %1) unnamed_addr #1 {
-  %3 = getelementptr inbounds { [1 x i32], { [1 x i32] } }, ptr %0, i64 0, i32 1
+  %3 = getelementptr inbounds i8, ptr %0, i64 4
   store i32 %1, ptr %3, align 4
   store i32 3, ptr %0, align 4
   ret void
@@ -622,7 +595,7 @@ define hidden void @_ZN3syn2op5BinOp3Div17hcbcd66c4adb0bcabE(ptr nocapture write
 
 ; Function Attrs: inlinehint mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: write) uwtable
 define hidden void @_ZN3syn2op5BinOp3Rem17hf83ec68c0605f16cE(ptr nocapture writeonly sret({ i32, [3 x i32] }) align 4 %0, i32 %1) unnamed_addr #1 {
-  %3 = getelementptr inbounds { [1 x i32], { [1 x i32] } }, ptr %0, i64 0, i32 1
+  %3 = getelementptr inbounds i8, ptr %0, i64 4
   store i32 %1, ptr %3, align 4
   store i32 4, ptr %0, align 4
   ret void
@@ -630,7 +603,7 @@ define hidden void @_ZN3syn2op5BinOp3Rem17hf83ec68c0605f16cE(ptr nocapture write
 
 ; Function Attrs: inlinehint mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: write) uwtable
 define hidden void @_ZN3syn2op5BinOp3And17h9b4064dbeac3601fE(ptr nocapture writeonly sret({ i32, [3 x i32] }) align 4 %0, i64 %1) unnamed_addr #1 {
-  %3 = getelementptr inbounds { [1 x i32], { [2 x i32] } }, ptr %0, i64 0, i32 1
+  %3 = getelementptr inbounds i8, ptr %0, i64 4
   store i64 %1, ptr %3, align 4
   store i32 5, ptr %0, align 4
   ret void
@@ -638,7 +611,7 @@ define hidden void @_ZN3syn2op5BinOp3And17h9b4064dbeac3601fE(ptr nocapture write
 
 ; Function Attrs: inlinehint mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: write) uwtable
 define hidden void @_ZN3syn2op5BinOp2Or17hc9fd43ef009a2591E(ptr nocapture writeonly sret({ i32, [3 x i32] }) align 4 %0, i64 %1) unnamed_addr #1 {
-  %3 = getelementptr inbounds { [1 x i32], { [2 x i32] } }, ptr %0, i64 0, i32 1
+  %3 = getelementptr inbounds i8, ptr %0, i64 4
   store i64 %1, ptr %3, align 4
   store i32 6, ptr %0, align 4
   ret void
@@ -646,7 +619,7 @@ define hidden void @_ZN3syn2op5BinOp2Or17hc9fd43ef009a2591E(ptr nocapture writeo
 
 ; Function Attrs: inlinehint mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: write) uwtable
 define hidden void @_ZN3syn2op5BinOp6BitXor17hcc01871cb05920c9E(ptr nocapture writeonly sret({ i32, [3 x i32] }) align 4 %0, i32 %1) unnamed_addr #1 {
-  %3 = getelementptr inbounds { [1 x i32], { [1 x i32] } }, ptr %0, i64 0, i32 1
+  %3 = getelementptr inbounds i8, ptr %0, i64 4
   store i32 %1, ptr %3, align 4
   store i32 7, ptr %0, align 4
   ret void
@@ -654,7 +627,7 @@ define hidden void @_ZN3syn2op5BinOp6BitXor17hcc01871cb05920c9E(ptr nocapture wr
 
 ; Function Attrs: inlinehint mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: write) uwtable
 define hidden void @_ZN3syn2op5BinOp6BitAnd17h8d01f55c8621d016E(ptr nocapture writeonly sret({ i32, [3 x i32] }) align 4 %0, i32 %1) unnamed_addr #1 {
-  %3 = getelementptr inbounds { [1 x i32], { [1 x i32] } }, ptr %0, i64 0, i32 1
+  %3 = getelementptr inbounds i8, ptr %0, i64 4
   store i32 %1, ptr %3, align 4
   store i32 8, ptr %0, align 4
   ret void
@@ -662,7 +635,7 @@ define hidden void @_ZN3syn2op5BinOp6BitAnd17h8d01f55c8621d016E(ptr nocapture wr
 
 ; Function Attrs: inlinehint mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: write) uwtable
 define hidden void @_ZN3syn2op5BinOp5BitOr17h09a4b6e5f6682bfaE(ptr nocapture writeonly sret({ i32, [3 x i32] }) align 4 %0, i32 %1) unnamed_addr #1 {
-  %3 = getelementptr inbounds { [1 x i32], { [1 x i32] } }, ptr %0, i64 0, i32 1
+  %3 = getelementptr inbounds i8, ptr %0, i64 4
   store i32 %1, ptr %3, align 4
   store i32 9, ptr %0, align 4
   ret void
@@ -670,7 +643,7 @@ define hidden void @_ZN3syn2op5BinOp5BitOr17h09a4b6e5f6682bfaE(ptr nocapture wri
 
 ; Function Attrs: inlinehint mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: write) uwtable
 define hidden void @_ZN3syn2op5BinOp3Shl17h0903887ce6620600E(ptr nocapture writeonly sret({ i32, [3 x i32] }) align 4 %0, i64 %1) unnamed_addr #1 {
-  %3 = getelementptr inbounds { [1 x i32], { [2 x i32] } }, ptr %0, i64 0, i32 1
+  %3 = getelementptr inbounds i8, ptr %0, i64 4
   store i64 %1, ptr %3, align 4
   store i32 10, ptr %0, align 4
   ret void
@@ -678,7 +651,7 @@ define hidden void @_ZN3syn2op5BinOp3Shl17h0903887ce6620600E(ptr nocapture write
 
 ; Function Attrs: inlinehint mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: write) uwtable
 define hidden void @_ZN3syn2op5BinOp3Shr17h2d897f0551d92110E(ptr nocapture writeonly sret({ i32, [3 x i32] }) align 4 %0, i64 %1) unnamed_addr #1 {
-  %3 = getelementptr inbounds { [1 x i32], { [2 x i32] } }, ptr %0, i64 0, i32 1
+  %3 = getelementptr inbounds i8, ptr %0, i64 4
   store i64 %1, ptr %3, align 4
   store i32 11, ptr %0, align 4
   ret void
@@ -686,7 +659,7 @@ define hidden void @_ZN3syn2op5BinOp3Shr17h2d897f0551d92110E(ptr nocapture write
 
 ; Function Attrs: inlinehint mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: write) uwtable
 define hidden void @_ZN3syn2op5BinOp2Eq17hcdb5a212bec88f0dE(ptr nocapture writeonly sret({ i32, [3 x i32] }) align 4 %0, i64 %1) unnamed_addr #1 {
-  %3 = getelementptr inbounds { [1 x i32], { [2 x i32] } }, ptr %0, i64 0, i32 1
+  %3 = getelementptr inbounds i8, ptr %0, i64 4
   store i64 %1, ptr %3, align 4
   store i32 12, ptr %0, align 4
   ret void
@@ -694,7 +667,7 @@ define hidden void @_ZN3syn2op5BinOp2Eq17hcdb5a212bec88f0dE(ptr nocapture writeo
 
 ; Function Attrs: inlinehint mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: write) uwtable
 define hidden void @_ZN3syn2op5BinOp2Lt17h926fe337e94ea12cE(ptr nocapture writeonly sret({ i32, [3 x i32] }) align 4 %0, i32 %1) unnamed_addr #1 {
-  %3 = getelementptr inbounds { [1 x i32], { [1 x i32] } }, ptr %0, i64 0, i32 1
+  %3 = getelementptr inbounds i8, ptr %0, i64 4
   store i32 %1, ptr %3, align 4
   store i32 13, ptr %0, align 4
   ret void
@@ -702,7 +675,7 @@ define hidden void @_ZN3syn2op5BinOp2Lt17h926fe337e94ea12cE(ptr nocapture writeo
 
 ; Function Attrs: inlinehint mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: write) uwtable
 define hidden void @_ZN3syn2op5BinOp2Le17haf81ecb0c11448a3E(ptr nocapture writeonly sret({ i32, [3 x i32] }) align 4 %0, i64 %1) unnamed_addr #1 {
-  %3 = getelementptr inbounds { [1 x i32], { [2 x i32] } }, ptr %0, i64 0, i32 1
+  %3 = getelementptr inbounds i8, ptr %0, i64 4
   store i64 %1, ptr %3, align 4
   store i32 14, ptr %0, align 4
   ret void
@@ -710,7 +683,7 @@ define hidden void @_ZN3syn2op5BinOp2Le17haf81ecb0c11448a3E(ptr nocapture writeo
 
 ; Function Attrs: inlinehint mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: write) uwtable
 define hidden void @_ZN3syn2op5BinOp2Ne17h764448fbd3d5d406E(ptr nocapture writeonly sret({ i32, [3 x i32] }) align 4 %0, i64 %1) unnamed_addr #1 {
-  %3 = getelementptr inbounds { [1 x i32], { [2 x i32] } }, ptr %0, i64 0, i32 1
+  %3 = getelementptr inbounds i8, ptr %0, i64 4
   store i64 %1, ptr %3, align 4
   store i32 15, ptr %0, align 4
   ret void
@@ -718,7 +691,7 @@ define hidden void @_ZN3syn2op5BinOp2Ne17h764448fbd3d5d406E(ptr nocapture writeo
 
 ; Function Attrs: inlinehint mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: write) uwtable
 define hidden void @_ZN3syn2op5BinOp2Ge17h10412354c511f0cdE(ptr nocapture writeonly sret({ i32, [3 x i32] }) align 4 %0, i64 %1) unnamed_addr #1 {
-  %3 = getelementptr inbounds { [1 x i32], { [2 x i32] } }, ptr %0, i64 0, i32 1
+  %3 = getelementptr inbounds i8, ptr %0, i64 4
   store i64 %1, ptr %3, align 4
   store i32 16, ptr %0, align 4
   ret void
@@ -726,7 +699,7 @@ define hidden void @_ZN3syn2op5BinOp2Ge17h10412354c511f0cdE(ptr nocapture writeo
 
 ; Function Attrs: inlinehint mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: write) uwtable
 define hidden void @_ZN3syn2op5BinOp2Gt17hbe13f344f650af27E(ptr nocapture writeonly sret({ i32, [3 x i32] }) align 4 %0, i32 %1) unnamed_addr #1 {
-  %3 = getelementptr inbounds { [1 x i32], { [1 x i32] } }, ptr %0, i64 0, i32 1
+  %3 = getelementptr inbounds i8, ptr %0, i64 4
   store i32 %1, ptr %3, align 4
   store i32 17, ptr %0, align 4
   ret void
@@ -734,7 +707,7 @@ define hidden void @_ZN3syn2op5BinOp2Gt17hbe13f344f650af27E(ptr nocapture writeo
 
 ; Function Attrs: inlinehint mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: write) uwtable
 define hidden void @_ZN3syn2op5BinOp9AddAssign17h75bb987b5754748fE(ptr nocapture writeonly sret({ i32, [3 x i32] }) align 4 %0, i64 %1) unnamed_addr #1 {
-  %3 = getelementptr inbounds { [1 x i32], { [2 x i32] } }, ptr %0, i64 0, i32 1
+  %3 = getelementptr inbounds i8, ptr %0, i64 4
   store i64 %1, ptr %3, align 4
   store i32 18, ptr %0, align 4
   ret void
@@ -742,7 +715,7 @@ define hidden void @_ZN3syn2op5BinOp9AddAssign17h75bb987b5754748fE(ptr nocapture
 
 ; Function Attrs: inlinehint mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: write) uwtable
 define hidden void @_ZN3syn2op5BinOp9SubAssign17h6b65db56120ad3f2E(ptr nocapture writeonly sret({ i32, [3 x i32] }) align 4 %0, i64 %1) unnamed_addr #1 {
-  %3 = getelementptr inbounds { [1 x i32], { [2 x i32] } }, ptr %0, i64 0, i32 1
+  %3 = getelementptr inbounds i8, ptr %0, i64 4
   store i64 %1, ptr %3, align 4
   store i32 19, ptr %0, align 4
   ret void
@@ -750,7 +723,7 @@ define hidden void @_ZN3syn2op5BinOp9SubAssign17h6b65db56120ad3f2E(ptr nocapture
 
 ; Function Attrs: inlinehint mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: write) uwtable
 define hidden void @_ZN3syn2op5BinOp9MulAssign17h2921ef61ccf03002E(ptr nocapture writeonly sret({ i32, [3 x i32] }) align 4 %0, i64 %1) unnamed_addr #1 {
-  %3 = getelementptr inbounds { [1 x i32], { [2 x i32] } }, ptr %0, i64 0, i32 1
+  %3 = getelementptr inbounds i8, ptr %0, i64 4
   store i64 %1, ptr %3, align 4
   store i32 20, ptr %0, align 4
   ret void
@@ -758,7 +731,7 @@ define hidden void @_ZN3syn2op5BinOp9MulAssign17h2921ef61ccf03002E(ptr nocapture
 
 ; Function Attrs: inlinehint mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: write) uwtable
 define hidden void @_ZN3syn2op5BinOp9DivAssign17habe4b2779c6c6d80E(ptr nocapture writeonly sret({ i32, [3 x i32] }) align 4 %0, i64 %1) unnamed_addr #1 {
-  %3 = getelementptr inbounds { [1 x i32], { [2 x i32] } }, ptr %0, i64 0, i32 1
+  %3 = getelementptr inbounds i8, ptr %0, i64 4
   store i64 %1, ptr %3, align 4
   store i32 21, ptr %0, align 4
   ret void
@@ -766,7 +739,7 @@ define hidden void @_ZN3syn2op5BinOp9DivAssign17habe4b2779c6c6d80E(ptr nocapture
 
 ; Function Attrs: inlinehint mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: write) uwtable
 define hidden void @_ZN3syn2op5BinOp9RemAssign17h9040b7d92e135f53E(ptr nocapture writeonly sret({ i32, [3 x i32] }) align 4 %0, i64 %1) unnamed_addr #1 {
-  %3 = getelementptr inbounds { [1 x i32], { [2 x i32] } }, ptr %0, i64 0, i32 1
+  %3 = getelementptr inbounds i8, ptr %0, i64 4
   store i64 %1, ptr %3, align 4
   store i32 22, ptr %0, align 4
   ret void
@@ -774,7 +747,7 @@ define hidden void @_ZN3syn2op5BinOp9RemAssign17h9040b7d92e135f53E(ptr nocapture
 
 ; Function Attrs: inlinehint mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: write) uwtable
 define hidden void @_ZN3syn2op5BinOp12BitXorAssign17h54d45a092fa20dafE(ptr nocapture writeonly sret({ i32, [3 x i32] }) align 4 %0, i64 %1) unnamed_addr #1 {
-  %3 = getelementptr inbounds { [1 x i32], { [2 x i32] } }, ptr %0, i64 0, i32 1
+  %3 = getelementptr inbounds i8, ptr %0, i64 4
   store i64 %1, ptr %3, align 4
   store i32 23, ptr %0, align 4
   ret void
@@ -782,7 +755,7 @@ define hidden void @_ZN3syn2op5BinOp12BitXorAssign17h54d45a092fa20dafE(ptr nocap
 
 ; Function Attrs: inlinehint mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: write) uwtable
 define hidden void @_ZN3syn2op5BinOp12BitAndAssign17h41261a1aa042c669E(ptr nocapture writeonly sret({ i32, [3 x i32] }) align 4 %0, i64 %1) unnamed_addr #1 {
-  %3 = getelementptr inbounds { [1 x i32], { [2 x i32] } }, ptr %0, i64 0, i32 1
+  %3 = getelementptr inbounds i8, ptr %0, i64 4
   store i64 %1, ptr %3, align 4
   store i32 24, ptr %0, align 4
   ret void
@@ -790,7 +763,7 @@ define hidden void @_ZN3syn2op5BinOp12BitAndAssign17h41261a1aa042c669E(ptr nocap
 
 ; Function Attrs: inlinehint mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: write) uwtable
 define hidden void @_ZN3syn2op5BinOp11BitOrAssign17h1b26bfad522cd7aeE(ptr nocapture writeonly sret({ i32, [3 x i32] }) align 4 %0, i64 %1) unnamed_addr #1 {
-  %3 = getelementptr inbounds { [1 x i32], { [2 x i32] } }, ptr %0, i64 0, i32 1
+  %3 = getelementptr inbounds i8, ptr %0, i64 4
   store i64 %1, ptr %3, align 4
   store i32 25, ptr %0, align 4
   ret void
@@ -798,7 +771,7 @@ define hidden void @_ZN3syn2op5BinOp11BitOrAssign17h1b26bfad522cd7aeE(ptr nocapt
 
 ; Function Attrs: inlinehint mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: readwrite) uwtable
 define hidden void @_ZN3syn2op5BinOp9ShlAssign17h58537bdc249f118cE(ptr nocapture writeonly sret({ i32, [3 x i32] }) align 4 %0, ptr nocapture readonly align 4 %1) unnamed_addr #2 {
-  %3 = getelementptr inbounds { [1 x i32], { [3 x i32] } }, ptr %0, i64 0, i32 1
+  %3 = getelementptr inbounds i8, ptr %0, i64 4
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %3, ptr noundef nonnull align 4 dereferenceable(12) %1, i64 12, i1 false)
   store i32 26, ptr %0, align 4
   ret void
@@ -806,7 +779,7 @@ define hidden void @_ZN3syn2op5BinOp9ShlAssign17h58537bdc249f118cE(ptr nocapture
 
 ; Function Attrs: inlinehint mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: readwrite) uwtable
 define hidden void @_ZN3syn2op5BinOp9ShrAssign17h6aa9190c62616c07E(ptr nocapture writeonly sret({ i32, [3 x i32] }) align 4 %0, ptr nocapture readonly align 4 %1) unnamed_addr #2 {
-  %3 = getelementptr inbounds { [1 x i32], { [3 x i32] } }, ptr %0, i64 0, i32 1
+  %3 = getelementptr inbounds i8, ptr %0, i64 4
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %3, ptr noundef nonnull align 4 dereferenceable(12) %1, i64 12, i1 false)
   store i32 27, ptr %0, align 4
   ret void

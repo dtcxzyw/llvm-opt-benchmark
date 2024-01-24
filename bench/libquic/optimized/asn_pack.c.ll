@@ -3,8 +3,6 @@ source_filename = "bench/libquic/original/asn_pack.c.ll"
 target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:128-n8:16:32:64-S128"
 target triple = "x86_64-unknown-linux-gnu"
 
-%struct.asn1_string_st = type { i32, i32, ptr, i64 }
-
 @.str = private unnamed_addr constant [126 x i8] c"generated/home/dtcxzyw/WorkSpace/Projects/compilers/llvm-opt-benchmark/bench/libquic/libquic/boringssl/crypto/asn1/asn_pack.c\00", align 1
 
 ; Function Attrs: nounwind uwtable
@@ -38,7 +36,7 @@ if.then5:                                         ; preds = %if.then.thread
 
 if.end7:                                          ; preds = %if.then, %lor.lhs.false, %if.then5
   %octmp.0 = phi ptr [ %call13, %if.then5 ], [ %0, %lor.lhs.false ], [ %call, %if.then ]
-  %data = getelementptr inbounds %struct.asn1_string_st, ptr %octmp.0, i64 0, i32 2
+  %data = getelementptr inbounds i8, ptr %octmp.0, i64 8
   %1 = load ptr, ptr %data, align 8
   %tobool8.not = icmp eq ptr %1, null
   br i1 %tobool8.not, label %if.end12, label %if.then9
@@ -85,7 +83,7 @@ declare i32 @ASN1_item_i2d(ptr noundef, ptr noundef, ptr noundef) local_unnamed_
 define hidden ptr @ASN1_item_unpack(ptr nocapture noundef readonly %oct, ptr noundef %it) local_unnamed_addr #0 {
 entry:
   %p = alloca ptr, align 8
-  %data = getelementptr inbounds %struct.asn1_string_st, ptr %oct, i64 0, i32 2
+  %data = getelementptr inbounds i8, ptr %oct, i64 8
   %0 = load ptr, ptr %data, align 8
   store ptr %0, ptr %p, align 8
   %1 = load i32, ptr %oct, align 8

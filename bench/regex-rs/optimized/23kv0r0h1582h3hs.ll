@@ -19,7 +19,7 @@ define void @"_ZN98_$LT$regex_syntax..error..Error$u20$as$u20$core..convert..Fro
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: readwrite) uwtable
 define void @"_ZN98_$LT$regex_syntax..error..Error$u20$as$u20$core..convert..From$LT$regex_syntax..hir..Error$GT$$GT$4from17h7bbad98588d0613eE"(ptr nocapture writeonly sret({ i32, [31 x i32] }) align 8 %0, ptr nocapture readonly align 8 %1) unnamed_addr #0 {
-  %3 = getelementptr inbounds { [1 x i64], { { { { ptr, i64 }, i64 } }, { { i64, i64, i64 }, { i64, i64, i64 } }, i8, [7 x i8] } }, ptr %0, i64 0, i32 1
+  %3 = getelementptr inbounds i8, ptr %0, i64 8
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(80) %3, ptr noundef nonnull align 8 dereferenceable(80) %1, i64 80, i1 false)
   store i32 34, ptr %0, align 8
   ret void
@@ -36,7 +36,7 @@ define zeroext i1 @"_ZN65_$LT$regex_syntax..error..Error$u20$as$u20$core..fmt..D
   br label %9
 
 6:                                                ; preds = %2
-  %7 = getelementptr inbounds { [1 x i64], { { { { ptr, i64 }, i64 } }, { { i64, i64, i64 }, { i64, i64, i64 } }, i8, [7 x i8] } }, ptr %0, i64 0, i32 1
+  %7 = getelementptr inbounds i8, ptr %0, i64 8
   %8 = tail call zeroext i1 @"_ZN63_$LT$regex_syntax..hir..Error$u20$as$u20$core..fmt..Display$GT$3fmt17h930da9f30cdd619fE"(ptr nonnull align 8 %7, ptr align 8 %1)
   br label %9
 
@@ -54,13 +54,13 @@ define void @"_ZN142_$LT$regex_syntax..error..Formatter$LT$regex_syntax..ast..Er
   %7 = tail call align 8 ptr @_ZN12regex_syntax3ast5Error4span17hc4768de401d6d9c1E(ptr align 8 %1)
   %8 = tail call align 8 ptr @_ZN12regex_syntax3ast5Error14auxiliary_span17h22d29b6cea3fa20fE(ptr align 8 %1)
   store ptr %4, ptr %0, align 8
-  %9 = getelementptr inbounds { ptr, i64 }, ptr %0, i64 0, i32 1
+  %9 = getelementptr inbounds i8, ptr %0, i64 8
   store i64 %5, ptr %9, align 8
-  %10 = getelementptr inbounds { { ptr, i64 }, ptr, ptr, ptr }, ptr %0, i64 0, i32 1
+  %10 = getelementptr inbounds i8, ptr %0, i64 16
   store ptr %6, ptr %10, align 8
-  %11 = getelementptr inbounds { { ptr, i64 }, ptr, ptr, ptr }, ptr %0, i64 0, i32 2
+  %11 = getelementptr inbounds i8, ptr %0, i64 24
   store ptr %7, ptr %11, align 8
-  %12 = getelementptr inbounds { { ptr, i64 }, ptr, ptr, ptr }, ptr %0, i64 0, i32 3
+  %12 = getelementptr inbounds i8, ptr %0, i64 32
   store ptr %8, ptr %12, align 8
   ret void
 }
@@ -73,13 +73,13 @@ define void @"_ZN142_$LT$regex_syntax..error..Formatter$LT$regex_syntax..hir..Er
   %6 = tail call align 1 ptr @_ZN12regex_syntax3hir5Error4kind17h2fb51d01400d734cE(ptr align 8 %1)
   %7 = tail call align 8 ptr @_ZN12regex_syntax3hir5Error4span17h7d63ae6fcbf4b0feE(ptr align 8 %1)
   store ptr %4, ptr %0, align 8
-  %8 = getelementptr inbounds { ptr, i64 }, ptr %0, i64 0, i32 1
+  %8 = getelementptr inbounds i8, ptr %0, i64 8
   store i64 %5, ptr %8, align 8
-  %9 = getelementptr inbounds { { ptr, i64 }, ptr, ptr, ptr }, ptr %0, i64 0, i32 1
+  %9 = getelementptr inbounds i8, ptr %0, i64 16
   store ptr %6, ptr %9, align 8
-  %10 = getelementptr inbounds { { ptr, i64 }, ptr, ptr, ptr }, ptr %0, i64 0, i32 2
+  %10 = getelementptr inbounds i8, ptr %0, i64 24
   store ptr %7, ptr %10, align 8
-  %11 = getelementptr inbounds { { ptr, i64 }, ptr, ptr, ptr }, ptr %0, i64 0, i32 3
+  %11 = getelementptr inbounds i8, ptr %0, i64 32
   store ptr null, ptr %11, align 8
   ret void
 }
@@ -92,17 +92,17 @@ define void @_ZN12regex_syntax5error5Spans3add17h5aedd9d92adc6291E(ptr align 8 %
   br i1 %5, label %9, label %6
 
 6:                                                ; preds = %2
-  %7 = getelementptr inbounds { { ptr, i64 }, { { ptr, i64 }, i64 }, { { ptr, i64 }, i64 }, i64 }, ptr %0, i64 0, i32 2
+  %7 = getelementptr inbounds i8, ptr %0, i64 40
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %3, ptr noundef nonnull align 8 dereferenceable(48) %1, i64 48, i1 false)
   call void @"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17hb38ffaa4fae4f5b4E"(ptr nonnull align 8 %7, ptr nonnull align 8 %3)
   %8 = call { ptr, i64 } @"_ZN75_$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$core..ops..deref..DerefMut$GT$9deref_mut17h1ba8065758ab6241E"(ptr nonnull align 8 %7)
   br label %17
 
 9:                                                ; preds = %2
-  %10 = getelementptr inbounds { i64, i64, i64 }, ptr %1, i64 0, i32 1
+  %10 = getelementptr inbounds i8, ptr %1, i64 8
   %11 = load i64, ptr %10, align 8, !noundef !6
   %12 = add i64 %11, -1
-  %13 = getelementptr inbounds { { ptr, i64 }, { { ptr, i64 }, i64 }, { { ptr, i64 }, i64 }, i64 }, ptr %0, i64 0, i32 1
+  %13 = getelementptr inbounds i8, ptr %0, i64 16
   %14 = tail call align 8 ptr @"_ZN84_$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$core..ops..index..IndexMut$LT$I$GT$$GT$9index_mut17h92925e3512b5cae3E"(ptr nonnull align 8 %13, i64 %12, ptr nonnull align 8 @anon.c014998979d01b050ebd7f97e34cdb75.1)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %4, ptr noundef nonnull align 8 dereferenceable(48) %1, i64 48, i1 false)
   call void @"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17hb38ffaa4fae4f5b4E"(ptr align 8 %14, ptr nonnull align 8 %4)
@@ -139,7 +139,7 @@ define void @_ZN12regex_syntax5error5Spans6notate17he57785280cfa36b9E(ptr nocapt
   %18 = alloca { { { ptr, i64 }, i64 } }, align 8
   call void @_ZN5alloc6string6String3new17h85697d25a8912f8dE(ptr nonnull sret({ { { ptr, i64 }, i64 } }) align 8 %18)
   %19 = load ptr, ptr %1, align 8, !nonnull !6, !align !7, !noundef !6
-  %20 = getelementptr inbounds { ptr, i64 }, ptr %1, i64 0, i32 1
+  %20 = getelementptr inbounds i8, ptr %1, i64 8
   %21 = load i64, ptr %20, align 8, !noundef !6
   invoke void @"_ZN4core3str21_$LT$impl$u20$str$GT$5lines17h8d713eb5e7b02390E"(ptr nonnull sret({ { { { i64, i64, { { ptr, i64 }, i64, i64, i64, [4 x i8], i32 }, i8, i8, [6 x i8] } }, {} } }) align 8 %15, ptr nonnull align 1 %19, i64 %21)
           to label %22 unwind label %.loopexit.split-lp
@@ -169,14 +169,14 @@ define void @_ZN12regex_syntax5error5Spans6notate17he57785280cfa36b9E(ptr nocapt
 
 24:                                               ; preds = %23
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(80) %14, ptr noundef nonnull align 8 dereferenceable(80) %17, i64 80, i1 false)
-  %25 = getelementptr inbounds { [1 x i64], ptr, [1 x i64] }, ptr %13, i64 0, i32 1
-  %26 = getelementptr inbounds { [1 x i64], ptr, [1 x i64] }, ptr %13, i64 0, i32 2
-  %27 = getelementptr inbounds { { ptr, i64 }, { { ptr, i64 }, i64 }, { { ptr, i64 }, i64 }, i64 }, ptr %1, i64 0, i32 3
-  %28 = getelementptr inbounds { { ptr, i64 }, { { ptr, i64 }, i64 }, { { ptr, i64 }, i64 }, i64 }, ptr %1, i64 0, i32 1
-  %29 = getelementptr inbounds { i64, i64 }, ptr %6, i64 0, i32 1
-  %30 = getelementptr inbounds { ptr, ptr }, ptr %5, i64 0, i32 1
-  %31 = getelementptr inbounds { i64, i64 }, ptr %4, i64 0, i32 1
-  %32 = getelementptr inbounds { i64, i64 }, ptr %3, i64 0, i32 1
+  %25 = getelementptr inbounds i8, ptr %13, i64 8
+  %26 = getelementptr inbounds i8, ptr %13, i64 16
+  %27 = getelementptr inbounds i8, ptr %1, i64 64
+  %28 = getelementptr inbounds i8, ptr %1, i64 16
+  %29 = getelementptr inbounds i8, ptr %6, i64 8
+  %30 = getelementptr inbounds i8, ptr %5, i64 8
+  %31 = getelementptr inbounds i8, ptr %4, i64 8
+  %32 = getelementptr inbounds i8, ptr %3, i64 8
   %.sroa.4.0..sroa_idx29 = getelementptr inbounds i8, ptr %7, i64 8
   %.sroa.4.0..sroa_idx = getelementptr inbounds i8, ptr %11, i64 8
   br label %.thread13
@@ -420,7 +420,7 @@ _ZN12regex_syntax5error11repeat_char17h442eac1b687da73bE.exit.i: ; preds = %.noe
   br i1 %102, label %138, label %103
 
 103:                                              ; preds = %101
-  %104 = getelementptr inbounds { i64, i64, i64 }, ptr %100, i64 0, i32 2
+  %104 = getelementptr inbounds i8, ptr %100, i64 16
   %105 = load i64, ptr %104, align 8, !noalias !11, !noundef !6
   %106 = add i64 %105, -1
   %107 = invoke { i64, i64 } @"_ZN63_$LT$I$u20$as$u20$core..iter..traits..collect..IntoIterator$GT$9into_iter17h95bd2e669759c61fE"(i64 %.0.i, i64 %106)
@@ -444,7 +444,7 @@ _ZN12regex_syntax5error11repeat_char17h442eac1b687da73bE.exit.i: ; preds = %.noe
   br i1 %114, label %115, label %121
 
 115:                                              ; preds = %113
-  %116 = getelementptr inbounds { { i64, i64, i64 }, { i64, i64, i64 } }, ptr %100, i64 0, i32 1, i32 2
+  %116 = getelementptr inbounds i8, ptr %100, i64 40
   %117 = load i64, ptr %116, align 8, !noalias !11, !noundef !6
   %118 = load i64, ptr %104, align 8, !noalias !11, !noundef !6
   %119 = call i64 @llvm.usub.sat.i64(i64 %117, i64 %118)

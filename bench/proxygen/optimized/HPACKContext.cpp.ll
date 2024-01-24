@@ -5,28 +5,12 @@ target triple = "x86_64-unknown-linux-gnu"
 
 %"class.std::ios_base::Init" = type { i8 }
 %"union.std::aligned_storage<32, 16>::type" = type { [32 x i8] }
-%"class.proxygen::HeaderTable" = type { ptr, i32, i32, %"class.std::vector", i32, i32, i32, i8, %"class.folly::F14FastMap" }
-%"class.std::vector" = type { %"struct.std::_Vector_base" }
-%"struct.std::_Vector_base" = type { %"struct.std::_Vector_base<proxygen::HPACKHeader, std::allocator<proxygen::HPACKHeader>>::_Vector_impl" }
-%"struct.std::_Vector_base<proxygen::HPACKHeader, std::allocator<proxygen::HPACKHeader>>::_Vector_impl" = type { %"struct.std::_Vector_base<proxygen::HPACKHeader, std::allocator<proxygen::HPACKHeader>>::_Vector_impl_data" }
-%"struct.std::_Vector_base<proxygen::HPACKHeader, std::allocator<proxygen::HPACKHeader>>::_Vector_impl_data" = type { ptr, ptr, ptr }
-%"class.folly::F14FastMap" = type { %"class.folly::f14::detail::F14VectorMapImpl" }
-%"class.folly::f14::detail::F14VectorMapImpl" = type { %"class.folly::f14::detail::F14BasicMap" }
-%"class.folly::f14::detail::F14BasicMap" = type { %"class.folly::f14::detail::F14Table" }
-%"class.folly::f14::detail::F14Table" = type { %"class.folly::f14::detail::VectorContainerPolicy", ptr, %"struct.folly::f14::detail::SizeAndChunkShiftAndPackedBegin" }
-%"class.folly::f14::detail::VectorContainerPolicy" = type { ptr }
-%"struct.folly::f14::detail::SizeAndChunkShiftAndPackedBegin" = type { %"struct.folly::f14::detail::PackedSizeAndChunkShift" }
-%"struct.folly::f14::detail::PackedSizeAndChunkShift" = type { i64 }
-%"class.proxygen::HPACKContext" = type <{ %"class.proxygen::HeaderTable", i32, [4 x i8] }>
-%"class.proxygen::HPACKHeader" = type { %"class.proxygen::HPACKHeaderName", %"class.folly::basic_fbstring" }
 %"class.proxygen::HPACKHeaderName" = type { ptr }
+%"class.proxygen::HPACKHeader" = type { %"class.proxygen::HPACKHeaderName", %"class.folly::basic_fbstring" }
 %"class.folly::basic_fbstring" = type { %"class.folly::fbstring_core" }
 %"class.folly::fbstring_core" = type { %union.anon }
 %union.anon = type { %"struct.folly::fbstring_core<char>::MediumLarge" }
 %"struct.folly::fbstring_core<char>::MediumLarge" = type { ptr, i64, i64 }
-%"class.std::__cxx11::basic_string" = type { %"struct.std::__cxx11::basic_string<char>::_Alloc_hider", i64, %union.anon.22 }
-%"struct.std::__cxx11::basic_string<char>::_Alloc_hider" = type { ptr }
-%union.anon.22 = type { i64, [8 x i8] }
 %"class.google::LogMessageFatal" = type { %"class.google::LogMessage" }
 %"class.google::LogMessage" = type { ptr, ptr, %"struct.google::LogMessageTime" }
 %"struct.google::LogMessageTime" = type { %struct.tm, i64, i32, i64 }
@@ -76,15 +60,15 @@ declare i32 @__cxa_atexit(ptr, ptr, ptr) local_unnamed_addr #2
 define void @_ZN8proxygen12HPACKContextC2Ej(ptr noundef nonnull align 8 dereferenceable(84) %this, i32 noundef %tableSize) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store ptr getelementptr inbounds ({ [11 x ptr] }, ptr @_ZTVN8proxygen11HeaderTableE, i64 0, inrange i32 0, i64 2), ptr %this, align 8
-  %capacity_.i = getelementptr inbounds %"class.proxygen::HeaderTable", ptr %this, i64 0, i32 1
-  %indexNames_.i = getelementptr inbounds %"class.proxygen::HeaderTable", ptr %this, i64 0, i32 7
+  %capacity_.i = getelementptr inbounds i8, ptr %this, i64 8
+  %indexNames_.i = getelementptr inbounds i8, ptr %this, i64 52
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(44) %capacity_.i, i8 0, i64 44, i1 false)
   store i8 1, ptr %indexNames_.i, align 4
-  %names_.i = getelementptr inbounds %"class.proxygen::HeaderTable", ptr %this, i64 0, i32 8
+  %names_.i = getelementptr inbounds i8, ptr %this, i64 56
   store ptr null, ptr %names_.i, align 8
-  %chunks_.i.i.i.i.i = getelementptr inbounds %"class.proxygen::HeaderTable", ptr %this, i64 0, i32 8, i32 0, i32 0, i32 0, i32 1
+  %chunks_.i.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 64
   store ptr @_ZN5folly3f146detail15kEmptyTagVectorE, ptr %chunks_.i.i.i.i.i, align 8
-  %sizeAndChunkShiftAndPackedBegin_.i.i.i.i.i = getelementptr inbounds %"class.proxygen::HeaderTable", ptr %this, i64 0, i32 8, i32 0, i32 0, i32 0, i32 2
+  %sizeAndChunkShiftAndPackedBegin_.i.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 72
   store i64 0, ptr %sizeAndChunkShiftAndPackedBegin_.i.i.i.i.i, align 8
   invoke void @_ZN8proxygen11HeaderTable4initEj(ptr noundef nonnull align 8 dereferenceable(80) %this, i32 noundef %tableSize)
           to label %_ZN8proxygen11HeaderTableC2Ej.exit unwind label %lpad.i
@@ -92,13 +76,13 @@ entry:
 lpad.i:                                           ; preds = %entry
   %0 = landingpad { ptr, i32 }
           cleanup
-  %table_.i = getelementptr inbounds %"class.proxygen::HeaderTable", ptr %this, i64 0, i32 3
+  %table_.i = getelementptr inbounds i8, ptr %this, i64 16
   tail call void @_ZN5folly10F14FastMapIN8proxygen15HPACKHeaderNameENSt7__cxx114listIjSaIjEEENS_23HeterogeneousAccessHashIS2_vEENS_26HeterogeneousAccessEqualToIS2_vEESaISt4pairIKS2_S6_EEED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %names_.i) #12
   tail call void @_ZNSt6vectorIN8proxygen11HPACKHeaderESaIS1_EED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %table_.i) #12
   resume { ptr, i32 } %0
 
 _ZN8proxygen11HeaderTableC2Ej.exit:               ; preds = %entry
-  %staticRefs_ = getelementptr inbounds %"class.proxygen::HPACKContext", ptr %this, i64 0, i32 1
+  %staticRefs_ = getelementptr inbounds i8, ptr %this, i64 80
   store i32 0, ptr %staticRefs_, align 8
   ret void
 }
@@ -106,13 +90,13 @@ _ZN8proxygen11HeaderTableC2Ej.exit:               ; preds = %entry
 ; Function Attrs: mustprogress uwtable
 define i64 @_ZNK8proxygen12HPACKContext8getIndexERKNS_11HPACKHeaderE(ptr noundef nonnull align 8 dereferenceable(84) %this, ptr noundef nonnull align 8 dereferenceable(32) %header) local_unnamed_addr #3 align 2 {
 entry:
-  %value = getelementptr inbounds %"class.proxygen::HPACKHeader", ptr %header, i64 0, i32 1
+  %value = getelementptr inbounds i8, ptr %header, i64 8
   %0 = load ptr, ptr %value, align 8
   %arrayidx.i.i.i.i.i = getelementptr inbounds i8, ptr %header, i64 31
   %1 = load i8, ptr %arrayidx.i.i.i.i.i, align 1
   %cmp.i.i.i.i = icmp ult i8 %1, 64
   %cond.i.i.i.i = select i1 %cmp.i.i.i.i, ptr %value, ptr %0
-  %size_.i.i.i = getelementptr inbounds %"class.proxygen::HPACKHeader", ptr %header, i64 0, i32 1, i32 0, i32 0, i32 0, i32 1
+  %size_.i.i.i = getelementptr inbounds i8, ptr %header, i64 16
   %2 = load i64, ptr %size_.i.i.i, align 8
   %conv.i.i.i = zext i8 %1 to i64
   %sub.i.i.i = sub nsw i64 23, %conv.i.i.i
@@ -178,7 +162,7 @@ if.then8:                                         ; preds = %_ZNK8proxygen15HPAC
   br i1 %tobool13.not, label %if.end20, label %if.then14
 
 if.then14:                                        ; preds = %if.then8
-  %staticRefs_ = getelementptr inbounds %"class.proxygen::HPACKContext", ptr %this, i64 0, i32 1
+  %staticRefs_ = getelementptr inbounds i8, ptr %this, i64 80
   %6 = load i32, ptr %staticRefs_, align 8
   %inc = add i32 %6, 1
   store i32 %inc, ptr %staticRefs_, align 8
@@ -187,7 +171,7 @@ if.then14:                                        ; preds = %if.then8
 if.end20:                                         ; preds = %if.then, %_ZNK8proxygen15HPACKHeaderName13getHeaderCodeEv.exit, %if.then8, %if.end
   %getIndexOnStaticTable.0.in46 = phi i1 [ true, %if.then8 ], [ false, %if.end ], [ false, %_ZNK8proxygen15HPACKHeaderName13getHeaderCodeEv.exit ], [ false, %if.then ]
   %staticIndex.sroa.4.0 = phi i32 [ %ref.tmp9.sroa.2.0.extract.trunc, %if.then8 ], [ 0, %if.end ], [ 0, %_ZNK8proxygen15HPACKHeaderName13getHeaderCodeEv.exit ], [ 0, %if.then ]
-  %capacity_.i = getelementptr inbounds %"class.proxygen::HeaderTable", ptr %this, i64 0, i32 1
+  %capacity_.i = getelementptr inbounds i8, ptr %this, i64 8
   %7 = load i32, ptr %capacity_.i, align 8
   %cmp.not = icmp ne i32 %7, 0
   %or.cond.not = select i1 %checkDynamicTable, i1 %cmp.not, i1 false
@@ -203,7 +187,7 @@ if.end31:                                         ; preds = %if.end20
 
 if.then34:                                        ; preds = %if.end31
   %call.i.i14 = tail call noundef nonnull align 8 dereferenceable(80) ptr @_ZN8proxygen17StaticHeaderTable3getEv()
-  %size_.i.i = getelementptr inbounds %"class.proxygen::HeaderTable", ptr %call.i.i14, i64 0, i32 4
+  %size_.i.i = getelementptr inbounds i8, ptr %call.i.i14, i64 40
   %8 = load i32, ptr %size_.i.i, align 8
   %add.i = add i32 %8, %ref.tmp26.sroa.0.0.extract.trunc
   br label %return
@@ -214,7 +198,7 @@ if.else39:                                        ; preds = %if.end20, %if.end31
   br i1 %tobool40.not, label %if.else48, label %if.then41
 
 if.then41:                                        ; preds = %if.else39
-  %staticRefs_42 = getelementptr inbounds %"class.proxygen::HPACKContext", ptr %this, i64 0, i32 1
+  %staticRefs_42 = getelementptr inbounds i8, ptr %this, i64 80
   %9 = load i32, ptr %staticRefs_42, align 8
   %inc43 = add i32 %9, 1
   store i32 %inc43, ptr %staticRefs_42, align 8
@@ -258,7 +242,7 @@ invoke.cont:                                      ; preds = %init
           to label %invoke.cont55 unwind label %lpad
 
 invoke.cont55:                                    ; preds = %invoke.cont
-  %add.ptr.i.i = getelementptr inbounds %"class.std::__cxx11::basic_string", ptr %call.i.i3132, i64 33
+  %add.ptr.i.i = getelementptr inbounds i8, ptr %call.i.i3132, i64 1056
   store ptr %add.ptr.i.i, ptr %ref.tmp54, align 8
   %call58 = invoke noundef i32 @_ZNK8proxygen11HeaderTable9nameIndexERKNS_15HPACKHeaderNameE(ptr noundef nonnull align 8 dereferenceable(80) %call.i2930, ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp54)
           to label %invoke.cont57 unwind label %lpad56
@@ -270,7 +254,7 @@ invoke.cont57:                                    ; preds = %invoke.cont55
   br label %init.end
 
 init.end:                                         ; preds = %invoke.cont57, %init.check, %if.then51
-  %staticRefs_59 = getelementptr inbounds %"class.proxygen::HPACKContext", ptr %this, i64 0, i32 1
+  %staticRefs_59 = getelementptr inbounds i8, ptr %this, i64 80
   %15 = load i32, ptr %staticRefs_59, align 8
   %inc60 = add i32 %15, 1
   store i32 %inc60, ptr %staticRefs_59, align 8
@@ -299,7 +283,7 @@ if.else64:                                        ; preds = %if.else.i.i18, %if.
 
 if.then67:                                        ; preds = %if.else64
   %call.i.i34 = tail call noundef nonnull align 8 dereferenceable(80) ptr @_ZN8proxygen17StaticHeaderTable3getEv()
-  %size_.i.i35 = getelementptr inbounds %"class.proxygen::HeaderTable", ptr %call.i.i34, i64 0, i32 4
+  %size_.i.i35 = getelementptr inbounds i8, ptr %call.i.i34, i64 40
   %19 = load i32, ptr %size_.i.i35, align 8
   %add.i36 = add i32 %19, %dynamicIndex.sroa.3.051
   br label %return
@@ -318,7 +302,7 @@ if.then76:                                        ; preds = %land.lhs.true74
   br i1 %tobool81.not, label %return, label %if.then82
 
 if.then82:                                        ; preds = %if.then76
-  %staticRefs_83 = getelementptr inbounds %"class.proxygen::HPACKContext", ptr %this, i64 0, i32 1
+  %staticRefs_83 = getelementptr inbounds i8, ptr %this, i64 80
   %20 = load i32, ptr %staticRefs_83, align 8
   %inc84 = add i32 %20, 1
   store i32 %inc84, ptr %staticRefs_83, align 8
@@ -433,7 +417,7 @@ entry:
   br i1 %tobool.not, label %if.end, label %if.then
 
 if.then:                                          ; preds = %entry
-  %staticRefs_ = getelementptr inbounds %"class.proxygen::HPACKContext", ptr %this, i64 0, i32 1
+  %staticRefs_ = getelementptr inbounds i8, ptr %this, i64 80
   %0 = load i32, ptr %staticRefs_, align 8
   %inc = add i32 %0, 1
   store i32 %inc, ptr %staticRefs_, align 8
@@ -446,7 +430,7 @@ if.end:                                           ; preds = %entry
 
 if.then6:                                         ; preds = %if.end
   %call.i.i = tail call noundef nonnull align 8 dereferenceable(80) ptr @_ZN8proxygen17StaticHeaderTable3getEv()
-  %size_.i.i = getelementptr inbounds %"class.proxygen::HeaderTable", ptr %call.i.i, i64 0, i32 4
+  %size_.i.i = getelementptr inbounds i8, ptr %call.i.i, i64 40
   %1 = load i32, ptr %size_.i.i, align 8
   %add.i = add i32 %1, %call4
   br label %return
@@ -460,7 +444,7 @@ return:                                           ; preds = %if.end, %if.then6, 
 define noundef zeroext i1 @_ZNK8proxygen12HPACKContext8isStaticEj(ptr nocapture noundef nonnull readnone align 8 dereferenceable(84) %this, i32 noundef %index) local_unnamed_addr #3 align 2 {
 entry:
   %call.i = tail call noundef nonnull align 8 dereferenceable(80) ptr @_ZN8proxygen17StaticHeaderTable3getEv()
-  %size_.i = getelementptr inbounds %"class.proxygen::HeaderTable", ptr %call.i, i64 0, i32 4
+  %size_.i = getelementptr inbounds i8, ptr %call.i, i64 40
   %0 = load i32, ptr %size_.i, align 8
   %cmp = icmp uge i32 %0, %index
   ret i1 %cmp
@@ -470,13 +454,13 @@ entry:
 define noundef nonnull align 8 dereferenceable(32) ptr @_ZN8proxygen12HPACKContext9getHeaderEj(ptr noundef nonnull align 8 dereferenceable(84) %this, i32 noundef %index) local_unnamed_addr #3 align 2 {
 entry:
   %call.i.i = tail call noundef nonnull align 8 dereferenceable(80) ptr @_ZN8proxygen17StaticHeaderTable3getEv()
-  %size_.i.i = getelementptr inbounds %"class.proxygen::HeaderTable", ptr %call.i.i, i64 0, i32 4
+  %size_.i.i = getelementptr inbounds i8, ptr %call.i.i, i64 40
   %0 = load i32, ptr %size_.i.i, align 8
   %cmp.i.not = icmp ult i32 %0, %index
   br i1 %cmp.i.not, label %if.end, label %if.then
 
 if.then:                                          ; preds = %entry
-  %staticRefs_ = getelementptr inbounds %"class.proxygen::HPACKContext", ptr %this, i64 0, i32 1
+  %staticRefs_ = getelementptr inbounds i8, ptr %this, i64 80
   %1 = load i32, ptr %staticRefs_, align 8
   %inc = add i32 %1, 1
   store i32 %inc, ptr %staticRefs_, align 8
@@ -486,7 +470,7 @@ if.then:                                          ; preds = %entry
 
 if.end:                                           ; preds = %entry
   %call.i.i3 = tail call noundef nonnull align 8 dereferenceable(80) ptr @_ZN8proxygen17StaticHeaderTable3getEv()
-  %size_.i.i4 = getelementptr inbounds %"class.proxygen::HeaderTable", ptr %call.i.i3, i64 0, i32 4
+  %size_.i.i4 = getelementptr inbounds i8, ptr %call.i.i3, i64 40
   %2 = load i32, ptr %size_.i.i4, align 8
   %sub.i = sub i32 %index, %2
   %call6 = tail call noundef nonnull align 8 dereferenceable(32) ptr @_ZNK8proxygen11HeaderTable9getHeaderEj(ptr noundef nonnull align 8 dereferenceable(80) %this, i32 noundef %sub.i)
@@ -505,13 +489,13 @@ entry:
   %agg.tmp = alloca %"class.proxygen::HPACKHeader", align 8
   %ref.tmp8 = alloca %"class.google::LogMessageFatal", align 8
   %0 = load ptr, ptr %headers, align 8
-  %_M_finish.i = getelementptr inbounds %"struct.std::_Vector_base<proxygen::HPACKHeader, std::allocator<proxygen::HPACKHeader>>::_Vector_impl_data", ptr %headers, i64 0, i32 1
+  %_M_finish.i = getelementptr inbounds i8, ptr %headers, i64 8
   %1 = load ptr, ptr %_M_finish.i, align 8
   %cmp.i.not6 = icmp eq ptr %0, %1
   br i1 %cmp.i.not6, label %for.end, label %for.body.lr.ph
 
 for.body.lr.ph:                                   ; preds = %entry
-  %value.i = getelementptr inbounds %"class.proxygen::HPACKHeader", ptr %agg.tmp, i64 0, i32 1
+  %value.i = getelementptr inbounds i8, ptr %agg.tmp, i64 8
   br label %for.body
 
 for.body:                                         ; preds = %for.body.lr.ph, %cleanup.done
@@ -519,7 +503,7 @@ for.body:                                         ; preds = %for.body.lr.ph, %cl
   %2 = load ptr, ptr %__begin1.sroa.0.07, align 8
   store ptr %2, ptr %agg.tmp, align 8
   store ptr null, ptr %__begin1.sroa.0.07, align 8
-  %value3.i = getelementptr inbounds %"class.proxygen::HPACKHeader", ptr %__begin1.sroa.0.07, i64 0, i32 1
+  %value3.i = getelementptr inbounds i8, ptr %__begin1.sroa.0.07, i64 8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %value.i, ptr noundef nonnull align 8 dereferenceable(24) %value3.i, i64 24, i1 false)
   %arrayidx.i.i.i.i.i = getelementptr inbounds i8, ptr %__begin1.sroa.0.07, i64 31
   store i8 23, ptr %arrayidx.i.i.i.i.i, align 1
@@ -569,7 +553,7 @@ lpad10:                                           ; preds = %invoke.cont11, %inv
 
 cleanup.done:                                     ; preds = %invoke.cont
   call void @_ZN8proxygen11HPACKHeaderD2Ev(ptr noundef nonnull align 8 dereferenceable(32) %agg.tmp) #12
-  %incdec.ptr.i = getelementptr inbounds %"class.proxygen::HPACKHeader", ptr %__begin1.sroa.0.07, i64 1
+  %incdec.ptr.i = getelementptr inbounds i8, ptr %__begin1.sroa.0.07, i64 32
   %cmp.i.not = icmp eq ptr %incdec.ptr.i, %1
   br i1 %cmp.i.not, label %for.end, label %for.body
 
@@ -598,7 +582,7 @@ entry:
   br i1 %cmp.i.i, label %_ZN5folly14basic_fbstringIcSt11char_traitsIcESaIcENS_13fbstring_coreIcEEED2Ev.exit, label %if.end.i.i
 
 if.end.i.i:                                       ; preds = %entry
-  %value = getelementptr inbounds %"class.proxygen::HPACKHeader", ptr %this, i64 0, i32 1
+  %value = getelementptr inbounds i8, ptr %this, i64 8
   %cmp.i.i.i = icmp eq i8 %1, -128
   %2 = load ptr, ptr %value, align 8
   br i1 %cmp.i.i.i, label %if.then.i.i.i, label %if.else.i.i.i
@@ -681,13 +665,13 @@ declare void @_ZN8proxygen11HeaderTable4initEj(ptr noundef nonnull align 8 deref
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZN5folly10F14FastMapIN8proxygen15HPACKHeaderNameENSt7__cxx114listIjSaIjEEENS_23HeterogeneousAccessHashIS2_vEENS_26HeterogeneousAccessEqualToIS2_vEESaISt4pairIKS2_S6_EEED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %this) unnamed_addr #5 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  %chunks_.i.i.i.i.i = getelementptr inbounds %"class.folly::f14::detail::F14Table", ptr %this, i64 0, i32 1
+  %chunks_.i.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 8
   %0 = load ptr, ptr %chunks_.i.i.i.i.i, align 8
   %cmp.i.i.i.i.i = icmp eq ptr %0, @_ZN5folly3f146detail15kEmptyTagVectorE
   br i1 %cmp.i.i.i.i.i, label %_ZN5folly3f146detail16F14VectorMapImplIN8proxygen15HPACKHeaderNameENSt7__cxx114listIjSaIjEEENS_23HeterogeneousAccessHashIS4_vEENS_26HeterogeneousAccessEqualToIS4_vEESaISt4pairIKS4_S8_EESt17integral_constantIbLb1EEED2Ev.exit, label %if.end.i.i.i.i.i
 
 if.end.i.i.i.i.i:                                 ; preds = %entry
-  %sizeAndChunkShiftAndPackedBegin_.i.i.i.i.i.i = getelementptr inbounds %"class.folly::f14::detail::F14Table", ptr %this, i64 0, i32 2
+  %sizeAndChunkShiftAndPackedBegin_.i.i.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 16
   %1 = load i64, ptr %sizeAndChunkShiftAndPackedBegin_.i.i.i.i.i.i, align 8
   %shr.i.i.i.i.i.i.i.i = lshr i64 %1, 8
   %cmp3.not.i.i.i.i.i.i.i = icmp ult i64 %1, 256
@@ -722,7 +706,7 @@ _ZN5folly3f146detail16F14VectorMapImplIN8proxygen15HPACKHeaderNameENSt7__cxx114l
 define linkonce_odr void @_ZNSt6vectorIN8proxygen11HPACKHeaderESaIS1_EED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %this) unnamed_addr #5 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %0 = load ptr, ptr %this, align 8
-  %_M_finish = getelementptr inbounds %"struct.std::_Vector_base<proxygen::HPACKHeader, std::allocator<proxygen::HPACKHeader>>::_Vector_impl_data", ptr %this, i64 0, i32 1
+  %_M_finish = getelementptr inbounds i8, ptr %this, i64 8
   %1 = load ptr, ptr %_M_finish, align 8
   %cmp.not3.i.i.i = icmp eq ptr %0, %1
   br i1 %cmp.not3.i.i.i, label %invoke.cont, label %for.body.i.i.i
@@ -730,7 +714,7 @@ entry:
 for.body.i.i.i:                                   ; preds = %entry, %for.body.i.i.i
   %__first.addr.04.i.i.i = phi ptr [ %incdec.ptr.i.i.i, %for.body.i.i.i ], [ %0, %entry ]
   tail call void @_ZN8proxygen11HPACKHeaderD2Ev(ptr noundef nonnull align 8 dereferenceable(32) %__first.addr.04.i.i.i) #12
-  %incdec.ptr.i.i.i = getelementptr inbounds %"class.proxygen::HPACKHeader", ptr %__first.addr.04.i.i.i, i64 1
+  %incdec.ptr.i.i.i = getelementptr inbounds i8, ptr %__first.addr.04.i.i.i, i64 32
   %cmp.not.i.i.i = icmp eq ptr %incdec.ptr.i.i.i, %1
   br i1 %cmp.not.i.i.i, label %invoke.contthread-pre-split, label %for.body.i.i.i, !llvm.loop !7
 
@@ -765,7 +749,7 @@ declare void @_ZSt9terminatev() local_unnamed_addr
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZNSt4pairIKN8proxygen15HPACKHeaderNameENSt7__cxx114listIjSaIjEEEED2Ev(ptr noundef nonnull align 8 dereferenceable(32) %this) unnamed_addr #5 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  %second = getelementptr inbounds %"struct.std::pair.7", ptr %this, i64 0, i32 1
+  %second = getelementptr inbounds i8, ptr %this, i64 8
   %0 = load ptr, ptr %second, align 8
   %cmp.not4.i.i.i = icmp eq ptr %0, %second
   br i1 %cmp.not4.i.i.i, label %_ZNSt7__cxx114listIjSaIjEED2Ev.exit, label %while.body.i.i.i

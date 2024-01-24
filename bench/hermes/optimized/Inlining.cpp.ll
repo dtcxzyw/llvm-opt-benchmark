@@ -28,157 +28,6 @@ target triple = "x86_64-unknown-linux-gnu"
 %"class.hermes::IRBuilder" = type { ptr, %"class.llvh::ilist_iterator.132", ptr, %"class.llvh::SMLoc", ptr }
 %"class.llvh::ilist_iterator.132" = type { ptr }
 %"class.llvh::SMLoc" = type { ptr }
-%"class.hermes::Module" = type <{ %"class.hermes::Value", %"class.std::shared_ptr", ptr, %"class.llvh::iplist", %"class.std::vector", %"class.llvh::DenseMap", %"class.hermes::ScopeDesc", %"class.hermes::GlobalObject", %"class.hermes::LiteralEmpty", %"class.hermes::LiteralUndefined", %"class.hermes::LiteralNull", %"class.hermes::LiteralBool", %"class.hermes::LiteralBool", %"class.hermes::EmptySentinel", %"class.llvh::FoldingSet", %"class.llvh::FoldingSet.15", %"class.llvh::FoldingSet.17", %"class.llvh::DenseMap.19", %"class.std::deque", %"class.llvh::DenseMap.25", %"class.llvh::DenseMap.19", %"class.llvh::DenseMap.28", i8, [7 x i8], %"class.std::unordered_map", %"class.std::unordered_map.36", i8, [7 x i8] }>
-%"class.hermes::Value" = type { i8, %"class.hermes::Type", %"class.llvh::SmallVector" }
-%"class.hermes::Type" = type { i16, i16 }
-%"class.llvh::SmallVector" = type { %"class.llvh::SmallVectorImpl", %"struct.llvh::SmallVectorStorage" }
-%"class.llvh::SmallVectorImpl" = type { %"class.llvh::SmallVectorTemplateBase" }
-%"class.llvh::SmallVectorTemplateBase" = type { %"class.llvh::SmallVectorTemplateCommon" }
-%"class.llvh::SmallVectorTemplateCommon" = type { %"class.llvh::SmallVectorBase" }
-%"struct.llvh::SmallVectorStorage" = type { [2 x %"struct.llvh::AlignedCharArrayUnion"] }
-%"struct.llvh::AlignedCharArrayUnion" = type { %"struct.llvh::AlignedCharArray" }
-%"class.std::shared_ptr" = type { %"class.std::__shared_ptr" }
-%"class.std::__shared_ptr" = type { ptr, %"class.std::__shared_count" }
-%"class.std::__shared_count" = type { ptr }
-%"class.llvh::iplist" = type { %"class.llvh::iplist_impl" }
-%"class.llvh::iplist_impl" = type { %"class.llvh::simple_ilist" }
-%"class.llvh::simple_ilist" = type { %"class.llvh::ilist_sentinel" }
-%"class.llvh::ilist_sentinel" = type { %"class.llvh::ilist_node_impl" }
-%"class.llvh::ilist_node_impl" = type { %"class.llvh::ilist_node_base" }
-%"class.llvh::ilist_node_base" = type { ptr, ptr }
-%"class.std::vector" = type { %"struct.std::_Vector_base" }
-%"struct.std::_Vector_base" = type { %"struct.std::_Vector_base<hermes::GlobalObjectProperty *, std::allocator<hermes::GlobalObjectProperty *>>::_Vector_impl" }
-%"struct.std::_Vector_base<hermes::GlobalObjectProperty *, std::allocator<hermes::GlobalObjectProperty *>>::_Vector_impl" = type { %"struct.std::_Vector_base<hermes::GlobalObjectProperty *, std::allocator<hermes::GlobalObjectProperty *>>::_Vector_impl_data" }
-%"struct.std::_Vector_base<hermes::GlobalObjectProperty *, std::allocator<hermes::GlobalObjectProperty *>>::_Vector_impl_data" = type { ptr, ptr, ptr }
-%"class.llvh::DenseMap" = type <{ ptr, i32, i32, i32, [4 x i8] }>
-%"class.hermes::ScopeDesc" = type <{ %"class.hermes::Value", ptr, %"class.llvh::SmallVector.0", %"class.std::shared_ptr.6", ptr, %"class.llvh::SmallVector.9", i8, [7 x i8] }>
-%"class.llvh::SmallVector.0" = type { %"class.llvh::SmallVectorImpl.1", %"struct.llvh::SmallVectorStorage.4" }
-%"class.llvh::SmallVectorImpl.1" = type { %"class.llvh::SmallVectorTemplateBase.2" }
-%"class.llvh::SmallVectorTemplateBase.2" = type { %"class.llvh::SmallVectorTemplateCommon.3" }
-%"class.llvh::SmallVectorTemplateCommon.3" = type { %"class.llvh::SmallVectorBase" }
-%"struct.llvh::SmallVectorStorage.4" = type { [8 x %"struct.llvh::AlignedCharArrayUnion.5"] }
-%"struct.llvh::AlignedCharArrayUnion.5" = type { %"struct.llvh::AlignedCharArray" }
-%"class.std::shared_ptr.6" = type { %"class.std::__shared_ptr.7" }
-%"class.std::__shared_ptr.7" = type { ptr, %"class.std::__shared_count" }
-%"class.llvh::SmallVector.9" = type { %"class.llvh::SmallVectorImpl.10", %"struct.llvh::SmallVectorStorage.13" }
-%"class.llvh::SmallVectorImpl.10" = type { %"class.llvh::SmallVectorTemplateBase.11" }
-%"class.llvh::SmallVectorTemplateBase.11" = type { %"class.llvh::SmallVectorTemplateCommon.12" }
-%"class.llvh::SmallVectorTemplateCommon.12" = type { %"class.llvh::SmallVectorBase" }
-%"struct.llvh::SmallVectorStorage.13" = type { [8 x %"struct.llvh::AlignedCharArrayUnion.14"] }
-%"struct.llvh::AlignedCharArrayUnion.14" = type { %"struct.llvh::AlignedCharArray" }
-%"class.hermes::GlobalObject" = type { %"class.hermes::Literal" }
-%"class.hermes::Literal" = type { %"class.hermes::Value" }
-%"class.hermes::LiteralEmpty" = type { %"class.hermes::Literal" }
-%"class.hermes::LiteralUndefined" = type { %"class.hermes::Literal" }
-%"class.hermes::LiteralNull" = type { %"class.hermes::Literal" }
-%"class.hermes::LiteralBool" = type <{ %"class.hermes::Literal", i8, [7 x i8] }>
-%"class.hermes::EmptySentinel" = type { %"class.hermes::Value" }
-%"class.llvh::FoldingSet" = type { %"class.llvh::FoldingSetImpl" }
-%"class.llvh::FoldingSetImpl" = type { %"class.llvh::FoldingSetBase" }
-%"class.llvh::FoldingSetBase" = type { ptr, ptr, i32, i32 }
-%"class.llvh::FoldingSet.15" = type { %"class.llvh::FoldingSetImpl.16" }
-%"class.llvh::FoldingSetImpl.16" = type { %"class.llvh::FoldingSetBase" }
-%"class.llvh::FoldingSet.17" = type { %"class.llvh::FoldingSetImpl.18" }
-%"class.llvh::FoldingSetImpl.18" = type { %"class.llvh::FoldingSetBase" }
-%"class.std::deque" = type { %"class.std::_Deque_base" }
-%"class.std::_Deque_base" = type { %"struct.std::_Deque_base<hermes::Module::CJSModule, std::allocator<hermes::Module::CJSModule>>::_Deque_impl" }
-%"struct.std::_Deque_base<hermes::Module::CJSModule, std::allocator<hermes::Module::CJSModule>>::_Deque_impl" = type { %"struct.std::_Deque_base<hermes::Module::CJSModule, std::allocator<hermes::Module::CJSModule>>::_Deque_impl_data" }
-%"struct.std::_Deque_base<hermes::Module::CJSModule, std::allocator<hermes::Module::CJSModule>>::_Deque_impl_data" = type { ptr, i64, %"struct.std::_Deque_iterator", %"struct.std::_Deque_iterator" }
-%"struct.std::_Deque_iterator" = type { ptr, ptr, ptr, ptr }
-%"class.llvh::DenseMap.25" = type <{ ptr, i32, i32, i32, [4 x i8] }>
-%"class.llvh::DenseMap.19" = type <{ ptr, i32, i32, i32, [4 x i8] }>
-%"class.llvh::DenseMap.28" = type <{ ptr, i32, i32, i32, [4 x i8] }>
-%"class.std::unordered_map" = type { %"class.std::_Hashtable" }
-%"class.std::_Hashtable" = type { ptr, i64, %"struct.std::__detail::_Hash_node_base", i64, %"struct.std::__detail::_Prime_rehash_policy", ptr }
-%"struct.std::__detail::_Hash_node_base" = type { ptr }
-%"struct.std::__detail::_Prime_rehash_policy" = type { float, i64 }
-%"class.std::unordered_map.36" = type { %"class.std::_Hashtable.37" }
-%"class.std::_Hashtable.37" = type { ptr, i64, %"struct.std::__detail::_Hash_node_base", i64, %"struct.std::__detail::_Prime_rehash_policy", ptr }
-%"class.hermes::Context" = type { %"class.hermes::BacktrackingBumpPtrAllocator", %"class.hermes::BacktrackingBumpPtrAllocator", %"class.std::unique_ptr", %"class.hermes::StringTable", %"class.std::map", %"class.std::unique_ptr.68", ptr, i8, i8, i8, i32, i32, i8, i8, i8, i8, i8, i32, i8, i8, %"class.std::unique_ptr.76", %"class.std::vector.84", i32, i8, %"struct.hermes::CodeGenerationSettings", %"struct.hermes::OptimizationSettings", %"class.std::shared_ptr.92" }
-%"class.hermes::BacktrackingBumpPtrAllocator" = type { %"class.std::vector.54", ptr }
-%"class.std::vector.54" = type { %"struct.std::_Vector_base.55" }
-%"struct.std::_Vector_base.55" = type { %"struct.std::_Vector_base<std::unique_ptr<hermes::BacktrackingBumpPtrAllocator::Slab>, std::allocator<std::unique_ptr<hermes::BacktrackingBumpPtrAllocator::Slab>>>::_Vector_impl" }
-%"struct.std::_Vector_base<std::unique_ptr<hermes::BacktrackingBumpPtrAllocator::Slab>, std::allocator<std::unique_ptr<hermes::BacktrackingBumpPtrAllocator::Slab>>>::_Vector_impl" = type { %"struct.std::_Vector_base<std::unique_ptr<hermes::BacktrackingBumpPtrAllocator::Slab>, std::allocator<std::unique_ptr<hermes::BacktrackingBumpPtrAllocator::Slab>>>::_Vector_impl_data" }
-%"struct.std::_Vector_base<std::unique_ptr<hermes::BacktrackingBumpPtrAllocator::Slab>, std::allocator<std::unique_ptr<hermes::BacktrackingBumpPtrAllocator::Slab>>>::_Vector_impl_data" = type { ptr, ptr, ptr }
-%"class.std::unique_ptr" = type { %"struct.std::__uniq_ptr_data" }
-%"struct.std::__uniq_ptr_data" = type { %"class.std::__uniq_ptr_impl" }
-%"class.std::__uniq_ptr_impl" = type { %"class.std::tuple" }
-%"class.std::tuple" = type { %"struct.std::_Tuple_impl" }
-%"struct.std::_Tuple_impl" = type { %"struct.std::_Head_base.60" }
-%"struct.std::_Head_base.60" = type { ptr }
-%"class.hermes::StringTable" = type { ptr, %"class.llvh::DenseMap.61" }
-%"class.llvh::DenseMap.61" = type <{ ptr, i32, i32, i32, [4 x i8] }>
-%"class.std::map" = type { %"class.std::_Rb_tree" }
-%"class.std::_Rb_tree" = type { %"struct.std::_Rb_tree<std::pair<hermes::UniqueString *, hermes::UniqueString *>, std::pair<const std::pair<hermes::UniqueString *, hermes::UniqueString *>, hermes::CompiledRegExp>, std::_Select1st<std::pair<const std::pair<hermes::UniqueString *, hermes::UniqueString *>, hermes::CompiledRegExp>>, std::less<std::pair<hermes::UniqueString *, hermes::UniqueString *>>>::_Rb_tree_impl" }
-%"struct.std::_Rb_tree<std::pair<hermes::UniqueString *, hermes::UniqueString *>, std::pair<const std::pair<hermes::UniqueString *, hermes::UniqueString *>, hermes::CompiledRegExp>, std::_Select1st<std::pair<const std::pair<hermes::UniqueString *, hermes::UniqueString *>, hermes::CompiledRegExp>>, std::less<std::pair<hermes::UniqueString *, hermes::UniqueString *>>>::_Rb_tree_impl" = type { %"struct.std::_Rb_tree_key_compare", %"struct.std::_Rb_tree_header" }
-%"struct.std::_Rb_tree_key_compare" = type { %"struct.std::less" }
-%"struct.std::less" = type { i8 }
-%"struct.std::_Rb_tree_header" = type { %"struct.std::_Rb_tree_node_base", i64 }
-%"struct.std::_Rb_tree_node_base" = type { i32, ptr, ptr, ptr }
-%"class.std::unique_ptr.68" = type { %"struct.std::__uniq_ptr_data.69" }
-%"struct.std::__uniq_ptr_data.69" = type { %"class.std::__uniq_ptr_impl.70" }
-%"class.std::__uniq_ptr_impl.70" = type { %"class.std::tuple.71" }
-%"class.std::tuple.71" = type { %"struct.std::_Tuple_impl.72" }
-%"struct.std::_Tuple_impl.72" = type { %"struct.std::_Head_base.75" }
-%"struct.std::_Head_base.75" = type { ptr }
-%"class.std::unique_ptr.76" = type { %"struct.std::__uniq_ptr_data.77" }
-%"struct.std::__uniq_ptr_data.77" = type { %"class.std::__uniq_ptr_impl.78" }
-%"class.std::__uniq_ptr_impl.78" = type { %"class.std::tuple.79" }
-%"class.std::tuple.79" = type { %"struct.std::_Tuple_impl.80" }
-%"struct.std::_Tuple_impl.80" = type { %"struct.std::_Head_base.83" }
-%"struct.std::_Head_base.83" = type { ptr }
-%"class.std::vector.84" = type { %"struct.std::_Vector_base.85" }
-%"struct.std::_Vector_base.85" = type { %"struct.std::_Vector_base<unsigned int, std::allocator<unsigned int>>::_Vector_impl" }
-%"struct.std::_Vector_base<unsigned int, std::allocator<unsigned int>>::_Vector_impl" = type { %"struct.std::_Vector_base<unsigned int, std::allocator<unsigned int>>::_Vector_impl_data" }
-%"struct.std::_Vector_base<unsigned int, std::allocator<unsigned int>>::_Vector_impl_data" = type { ptr, ptr, ptr }
-%"struct.hermes::CodeGenerationSettings" = type { i8, i8, i8, i8, i8, i8, i8, i8, i8, i8, [6 x i8], %"struct.hermes::CodeGenerationSettings_DumpSettings", %"struct.hermes::CodeGenerationSettings_DumpSettings", %"class.llvh::SmallDenseSet" }
-%"struct.hermes::CodeGenerationSettings_DumpSettings" = type { i8, [7 x i8], %"class.llvh::SmallDenseSet", %"class.llvh::SmallDenseSet" }
-%"class.llvh::SmallDenseSet" = type { %"class.llvh::detail::DenseSetImpl" }
-%"class.llvh::detail::DenseSetImpl" = type { %"class.llvh::SmallDenseMap" }
-%"class.llvh::SmallDenseMap" = type { i32, i32, %"struct.llvh::AlignedCharArrayUnion.90" }
-%"struct.llvh::AlignedCharArrayUnion.90" = type { %"struct.llvh::AlignedCharArray.91" }
-%"struct.llvh::AlignedCharArray.91" = type { [64 x i8] }
-%"struct.hermes::OptimizationSettings" = type { i8, i8, i8, i8, i8, i8 }
-%"class.std::shared_ptr.92" = type { %"class.std::__shared_ptr.93" }
-%"class.std::__shared_ptr.93" = type { ptr, %"class.std::__shared_count" }
-%"class.hermes::Instruction" = type <{ %"class.llvh::ilist_node_with_parent.111", %"class.hermes::Value", ptr, %"class.llvh::SmallVector.114", ptr, %"class.llvh::SMLoc", i32, [4 x i8] }>
-%"class.llvh::ilist_node_with_parent.111" = type { %"class.llvh::ilist_node.112" }
-%"class.llvh::ilist_node.112" = type { %"class.llvh::ilist_node_impl.113" }
-%"class.llvh::ilist_node_impl.113" = type { %"class.llvh::ilist_node_base" }
-%"class.llvh::SmallVector.114" = type { %"class.llvh::SmallVectorImpl.115", %"struct.llvh::SmallVectorStorage.118" }
-%"class.llvh::SmallVectorImpl.115" = type { %"class.llvh::SmallVectorTemplateBase.116" }
-%"class.llvh::SmallVectorTemplateBase.116" = type { %"class.llvh::SmallVectorTemplateCommon.117" }
-%"class.llvh::SmallVectorTemplateCommon.117" = type { %"class.llvh::SmallVectorBase" }
-%"struct.llvh::SmallVectorStorage.118" = type { [2 x %"struct.llvh::AlignedCharArrayUnion.119"] }
-%"struct.llvh::AlignedCharArrayUnion.119" = type { %"struct.llvh::AlignedCharArray.120" }
-%"struct.llvh::AlignedCharArray.120" = type { [16 x i8] }
-%"class.hermes::BasicBlock" = type { %"class.llvh::ilist_node_with_parent.121", %"class.hermes::Value", %"class.llvh::iplist.123", ptr }
-%"class.llvh::ilist_node_with_parent.121" = type { %"class.llvh::ilist_node.122" }
-%"class.llvh::ilist_node.122" = type { %"class.llvh::ilist_node_impl.104" }
-%"class.llvh::ilist_node_impl.104" = type { %"class.llvh::ilist_node_base" }
-%"class.llvh::iplist.123" = type { %"class.llvh::iplist_impl.124" }
-%"class.llvh::iplist_impl.124" = type { %"class.llvh::simple_ilist.129" }
-%"class.llvh::simple_ilist.129" = type { %"class.llvh::ilist_sentinel.131" }
-%"class.llvh::ilist_sentinel.131" = type { %"class.llvh::ilist_node_impl.113" }
-%"class.hermes::Function" = type { %"class.llvh::ilist_node_with_parent", %"class.hermes::Value", ptr, i8, ptr, %"class.llvh::iplist.95", %"class.llvh::SmallVector.105", %"class.hermes::Identifier", i32, i8, %"class.llvh::SMRange", i32, %"class.hermes::Identifier", ptr, i32, %"class.hermes::OptValue", [4 x i8], %"struct.hermes::LazySource", %"class.std::shared_ptr.6", ptr }
-%"class.llvh::ilist_node_with_parent" = type { %"class.llvh::ilist_node" }
-%"class.llvh::ilist_node" = type { %"class.llvh::ilist_node_impl" }
-%"class.llvh::iplist.95" = type { %"class.llvh::iplist_impl.96" }
-%"class.llvh::iplist_impl.96" = type { %"class.llvh::simple_ilist.101" }
-%"class.llvh::simple_ilist.101" = type { %"class.llvh::ilist_sentinel.103" }
-%"class.llvh::ilist_sentinel.103" = type { %"class.llvh::ilist_node_impl.104" }
-%"class.llvh::SmallVector.105" = type { %"class.llvh::SmallVectorImpl.106", %"struct.llvh::SmallVectorStorage.109" }
-%"class.llvh::SmallVectorImpl.106" = type { %"class.llvh::SmallVectorTemplateBase.107" }
-%"class.llvh::SmallVectorTemplateBase.107" = type { %"class.llvh::SmallVectorTemplateCommon.108" }
-%"class.llvh::SmallVectorTemplateCommon.108" = type { %"class.llvh::SmallVectorBase" }
-%"struct.llvh::SmallVectorStorage.109" = type { [8 x %"struct.llvh::AlignedCharArrayUnion.110"] }
-%"struct.llvh::AlignedCharArrayUnion.110" = type { %"struct.llvh::AlignedCharArray" }
-%"class.llvh::SMRange" = type { %"class.llvh::SMLoc", %"class.llvh::SMLoc" }
-%"class.hermes::Identifier" = type { ptr }
-%"class.hermes::OptValue" = type <{ i32, i8, [3 x i8] }>
-%"struct.hermes::LazySource" = type <{ i32, i32, %"class.llvh::SMRange", i8, i8, [6 x i8] }>
-%"class.hermes::LiteralNumber" = type { %"class.hermes::Literal", %"class.llvh::FoldingSetBase::Node", double }
-%"class.llvh::FoldingSetBase::Node" = type { ptr }
 %"struct.llvh::detail::DenseMapPair" = type { %"struct.std::pair.184" }
 %"struct.std::pair.184" = type { ptr, ptr }
 %"class.std::unique_ptr.133" = type { %"struct.std::__uniq_ptr_data.134" }
@@ -187,8 +36,6 @@ target triple = "x86_64-unknown-linux-gnu"
 %"class.std::tuple.136" = type { %"struct.std::_Tuple_impl.137" }
 %"struct.std::_Tuple_impl.137" = type { %"struct.std::_Head_base.140" }
 %"struct.std::_Head_base.140" = type { ptr }
-%"class.hermes::Pass" = type { ptr, i32, %"class.llvh::StringRef" }
-%"class.llvh::StringRef" = type { ptr, i64 }
 %"class.llvh::SmallDenseSet.155" = type { %"class.llvh::detail::DenseSetImpl.156" }
 %"class.llvh::detail::DenseSetImpl.156" = type { %"class.llvh::SmallDenseMap.157" }
 %"class.llvh::SmallDenseMap.157" = type { i32, i32, %"struct.llvh::AlignedCharArrayUnion.159" }
@@ -196,7 +43,6 @@ target triple = "x86_64-unknown-linux-gnu"
 %"struct.llvh::AlignedCharArray.160" = type { [32 x i8] }
 %"class.llvh::detail::DenseSetPair" = type { ptr }
 %"struct.llvh::AlignedCharArrayUnion.165" = type { %"struct.llvh::AlignedCharArray.160" }
-%"class.llvh::raw_ostream" = type <{ ptr, ptr, ptr, ptr, i32, [4 x i8] }>
 
 $_ZN6hermes8InliningD2Ev = comdat any
 
@@ -235,36 +81,36 @@ entry:
   %translateOperands.i = alloca %class.anon, align 8
   %ref.tmp.i = alloca %"class.llvh::SmallVector.149", align 8
   %builder = alloca %"class.hermes::IRBuilder", align 8
-  %Ctx.i = getelementptr inbounds %"class.hermes::Module", ptr %M, i64 0, i32 1
+  %Ctx.i = getelementptr inbounds i8, ptr %M, i64 40
   %0 = load ptr, ptr %Ctx.i, align 8
-  %inlining = getelementptr inbounds %"class.hermes::Context", ptr %0, i64 0, i32 25, i32 1
+  %inlining = getelementptr inbounds i8, ptr %0, i64 633
   %1 = load i8, ptr %inlining, align 1
   %2 = and i8 %1, 1
   %tobool.not = icmp eq i8 %2, 0
   br i1 %tobool.not, label %return, label %if.end
 
 if.end:                                           ; preds = %entry
-  %Next.i.i.i.i.i = getelementptr inbounds %"class.hermes::Module", ptr %M, i64 0, i32 3, i32 0, i32 0, i32 0, i32 0, i32 0, i32 1
-  %FunctionList.i = getelementptr inbounds %"class.hermes::Module", ptr %M, i64 0, i32 3
+  %Next.i.i.i.i.i = getelementptr inbounds i8, ptr %M, i64 72
+  %FunctionList.i = getelementptr inbounds i8, ptr %M, i64 64
   %__begin1.sroa.0.0909 = load ptr, ptr %Next.i.i.i.i.i, align 8
   %cmp.i.not910 = icmp eq ptr %__begin1.sroa.0.0909, %FunctionList.i
   br i1 %cmp.i.not910, label %return, label %for.body.lr.ph
 
 for.body.lr.ph:                                   ; preds = %if.end
-  %Size.i17.i = getelementptr inbounds %"class.llvh::SmallVectorBase", ptr %ref.tmp.i, i64 0, i32 1
+  %Size.i17.i = getelementptr inbounds i8, ptr %ref.tmp.i, i64 8
   %add.ptr.i.i.i.i.i = getelementptr inbounds i8, ptr %ref.tmp.i, i64 16
-  %InsertionPoint.i = getelementptr inbounds %"class.hermes::IRBuilder", ptr %builder, i64 0, i32 1
+  %InsertionPoint.i = getelementptr inbounds i8, ptr %builder, i64 8
   %add.ptr.i.i.i.i.i.i28 = getelementptr inbounds i8, ptr %translatedOperands.i, i64 16
-  %Size.i.i.i.i.i.i = getelementptr inbounds %"class.llvh::SmallVectorBase", ptr %translatedOperands.i, i64 0, i32 1
-  %Capacity2.i.i.i.i.i.i = getelementptr inbounds %"class.llvh::SmallVectorBase", ptr %translatedOperands.i, i64 0, i32 2
+  %Size.i.i.i.i.i.i = getelementptr inbounds i8, ptr %translatedOperands.i, i64 8
+  %Capacity2.i.i.i.i.i.i = getelementptr inbounds i8, ptr %translatedOperands.i, i64 12
   %add.ptr.i.i.i.i.i77.i = getelementptr inbounds i8, ptr %phis.i, i64 16
-  %Size.i.i.i.i.i78.i = getelementptr inbounds %"class.llvh::SmallVectorBase", ptr %phis.i, i64 0, i32 1
-  %Capacity2.i.i.i.i.i79.i = getelementptr inbounds %"class.llvh::SmallVectorBase", ptr %phis.i, i64 0, i32 2
-  %NumBuckets.i.i.i.i.i.i.i = getelementptr inbounds %"class.llvh::DenseMap.168", ptr %operandMap.i, i64 0, i32 3
-  %NumEntries.i.i.i377 = getelementptr inbounds %"class.llvh::DenseMap.168", ptr %operandMap.i, i64 0, i32 1
-  %NumTombstones.i.i.i.i.i747 = getelementptr inbounds %"class.llvh::DenseMap.168", ptr %operandMap.i, i64 0, i32 2
-  %Size.i133.i = getelementptr inbounds %"class.llvh::SmallVectorBase", ptr %order.i, i64 0, i32 1
-  %3 = getelementptr inbounds %class.anon, ptr %translateOperands.i, i64 0, i32 1
+  %Size.i.i.i.i.i78.i = getelementptr inbounds i8, ptr %phis.i, i64 8
+  %Capacity2.i.i.i.i.i79.i = getelementptr inbounds i8, ptr %phis.i, i64 12
+  %NumBuckets.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %operandMap.i, i64 16
+  %NumEntries.i.i.i377 = getelementptr inbounds i8, ptr %operandMap.i, i64 8
+  %NumTombstones.i.i.i.i.i747 = getelementptr inbounds i8, ptr %operandMap.i, i64 12
+  %Size.i133.i = getelementptr inbounds i8, ptr %order.i, i64 8
+  %3 = getelementptr inbounds i8, ptr %translateOperands.i, i64 8
   %add.ptr.i.i.i.i402.i = getelementptr inbounds i8, ptr %order.i, i64 16
   br label %for.body
 
@@ -274,7 +120,7 @@ for.body:                                         ; preds = %for.body.lr.ph, %fo
   %add.ptr = getelementptr inbounds i8, ptr %__begin1.sroa.0.0912, i64 16
   %call8 = call noundef nonnull align 8 dereferenceable(32) ptr @_ZNK6hermes5Value8getUsersEv(ptr noundef nonnull align 8 dereferenceable(40) %add.ptr) #11
   %4 = load ptr, ptr %call8, align 8
-  %Size.i = getelementptr inbounds %"class.llvh::SmallVectorBase", ptr %call8, i64 0, i32 1
+  %Size.i = getelementptr inbounds i8, ptr %call8, i64 8
   %5 = load i32, ptr %Size.i, align 8
   %conv.i = zext i32 %5 to i64
   %add.ptr.i = getelementptr inbounds ptr, ptr %4, i64 %conv.i
@@ -314,26 +160,26 @@ if.end26:                                         ; preds = %lor.lhs.false
   br i1 %call32, label %if.end34, label %for.inc
 
 if.end34:                                         ; preds = %if.end26
-  %Parent.i = getelementptr inbounds %"class.hermes::Instruction", ptr %14, i64 0, i32 2
+  %Parent.i = getelementptr inbounds i8, ptr %14, i64 56
   %15 = load ptr, ptr %Parent.i, align 8
-  %Parent.i22 = getelementptr inbounds %"class.hermes::BasicBlock", ptr %15, i64 0, i32 3
+  %Parent.i22 = getelementptr inbounds i8, ptr %15, i64 72
   %16 = load ptr, ptr %Parent.i22, align 8
   %call.i = call noundef ptr @_ZNK6hermes11Instruction10getOperandEj(ptr noundef nonnull align 8 dereferenceable(132) %6, i32 noundef 0) #11
   %17 = icmp eq ptr %call.i, null
   %sub.ptr.i.i.i = getelementptr inbounds i8, ptr %call.i, i64 -16
   %18 = select i1 %17, ptr null, ptr %sub.ptr.i.i.i
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %ref.tmp.i)
-  %scopeDesc_.i.i = getelementptr inbounds %"class.hermes::Function", ptr %18, i64 0, i32 4
+  %scopeDesc_.i.i = getelementptr inbounds i8, ptr %18, i64 72
   %19 = load ptr, ptr %scopeDesc_.i.i, align 8
-  %Size.i.i = getelementptr inbounds %"class.hermes::ScopeDesc", ptr %19, i64 0, i32 5, i32 0, i32 0, i32 0, i32 0, i32 1
+  %Size.i.i = getelementptr inbounds i8, ptr %19, i64 160
   %20 = load i32, ptr %Size.i.i, align 8
   %tobool.not.i.i = icmp eq i32 %20, 0
   br i1 %tobool.not.i.i, label %if.end.i, label %_ZN6hermesL12canBeInlinedEPNS_8FunctionES1_.exit.thread
 
 if.end.i:                                         ; preds = %if.end34
-  %innerScopes_.i.i = getelementptr inbounds %"class.hermes::ScopeDesc", ptr %19, i64 0, i32 2
+  %innerScopes_.i.i = getelementptr inbounds i8, ptr %19, i64 48
   %21 = load ptr, ptr %innerScopes_.i.i, align 8
-  %Size.i14.i = getelementptr inbounds %"class.hermes::ScopeDesc", ptr %19, i64 0, i32 2, i32 0, i32 0, i32 0, i32 0, i32 1
+  %Size.i14.i = getelementptr inbounds i8, ptr %19, i64 56
   %22 = load i32, ptr %Size.i14.i, align 8
   %conv.i.i = zext i32 %22 to i64
   %add.ptr.i.i = getelementptr inbounds ptr, ptr %21, i64 %conv.i.i
@@ -341,24 +187,24 @@ if.end.i:                                         ; preds = %if.end34
   br i1 %cmp.not27.i, label %for.end.i, label %for.body.i
 
 for.cond.i:                                       ; preds = %for.body.i
-  %incdec.ptr.i = getelementptr inbounds ptr, ptr %__begin1.028.i, i64 1
+  %incdec.ptr.i = getelementptr inbounds i8, ptr %__begin1.028.i, i64 8
   %cmp.not.i = icmp eq ptr %incdec.ptr.i, %add.ptr.i.i
   br i1 %cmp.not.i, label %for.end.i, label %for.body.i
 
 for.body.i:                                       ; preds = %if.end.i, %for.cond.i
   %__begin1.028.i = phi ptr [ %incdec.ptr.i, %for.cond.i ], [ %21, %if.end.i ]
   %23 = load ptr, ptr %__begin1.028.i, align 8
-  %function_.i.i = getelementptr inbounds %"class.hermes::ScopeDesc", ptr %23, i64 0, i32 4
+  %function_.i.i = getelementptr inbounds i8, ptr %23, i64 144
   %24 = load ptr, ptr %function_.i.i, align 8
   %cmp8.i = icmp eq ptr %24, %18
   br i1 %cmp8.i, label %_ZN6hermesL12canBeInlinedEPNS_8FunctionES1_.exit.thread, label %for.cond.i
 
 for.end.i:                                        ; preds = %for.cond.i, %if.end.i
-  %strictMode_.i.i = getelementptr inbounds %"class.hermes::Function", ptr %18, i64 0, i32 9
+  %strictMode_.i.i = getelementptr inbounds i8, ptr %18, i64 188
   %25 = load i8, ptr %strictMode_.i.i, align 4
   %26 = and i8 %25, 1
   %tobool.i.i = icmp ne i8 %26, 0
-  %strictMode_.i15.i = getelementptr inbounds %"class.hermes::Function", ptr %16, i64 0, i32 9
+  %strictMode_.i15.i = getelementptr inbounds i8, ptr %16, i64 188
   %27 = load i8, ptr %strictMode_.i15.i, align 4
   %28 = and i8 %27, 1
   %tobool.i16.i = icmp ne i8 %28, 0
@@ -377,8 +223,8 @@ if.end16.i:                                       ; preds = %for.end.i
 for.body24.i:                                     ; preds = %if.end16.i, %for.inc43.i
   %__begin118.033.i = phi ptr [ %incdec.ptr44.i, %for.inc43.i ], [ %30, %if.end16.i ]
   %32 = load ptr, ptr %__begin118.033.i, align 8
-  %Next.i.i.i.i.i.i = getelementptr inbounds %"class.hermes::BasicBlock", ptr %32, i64 0, i32 2, i32 0, i32 0, i32 0, i32 0, i32 0, i32 1
-  %InstList.i.i = getelementptr inbounds %"class.hermes::BasicBlock", ptr %32, i64 0, i32 2
+  %Next.i.i.i.i.i.i = getelementptr inbounds i8, ptr %32, i64 64
+  %InstList.i.i = getelementptr inbounds i8, ptr %32, i64 56
   %__begin2.sroa.0.029.i = load ptr, ptr %Next.i.i.i.i.i.i, align 8
   %cmp.i.not30.i = icmp eq ptr %__begin2.sroa.0.029.i, %InstList.i.i
   br i1 %cmp.i.not30.i, label %for.inc43.i, label %for.body30.i
@@ -397,7 +243,7 @@ for.body30.i:                                     ; preds = %for.body24.i, %for.
 
 sw.bb33.i:                                        ; preds = %for.body30.i
   %call.i.i.i = call noundef ptr @_ZNK6hermes11Instruction10getOperandEj(ptr noundef nonnull align 8 dereferenceable(132) %__begin2.sroa.0.031.i, i32 noundef 0) #11
-  %value.i.i.i.i = getelementptr inbounds %"class.hermes::LiteralNumber", ptr %call.i.i.i, i64 0, i32 2
+  %value.i.i.i.i = getelementptr inbounds i8, ptr %call.i.i.i, i64 48
   %34 = load double, ptr %value.i.i.i.i, align 8
   %cmp.i.i.i.i = fcmp ogt double %34, 0x41DFFFFFFFC00000
   %cmp5.i.i.i.i = fcmp olt double %34, 0xC1E0000000000000
@@ -411,13 +257,13 @@ sw.bb33.i:                                        ; preds = %for.body30.i
   br i1 %cmp37.i, label %cleanup.i, label %for.inc40.i
 
 for.inc40.i:                                      ; preds = %sw.bb33.i, %for.body30.i
-  %Next.i.i.i.i = getelementptr inbounds %"class.llvh::ilist_node_base", ptr %__begin2.sroa.0.031.i, i64 0, i32 1
+  %Next.i.i.i.i = getelementptr inbounds i8, ptr %__begin2.sroa.0.031.i, i64 8
   %__begin2.sroa.0.0.i = load ptr, ptr %Next.i.i.i.i, align 8
   %cmp.i.not.i = icmp eq ptr %__begin2.sroa.0.0.i, %InstList.i.i
   br i1 %cmp.i.not.i, label %for.inc43.i, label %for.body30.i
 
 for.inc43.i:                                      ; preds = %for.inc40.i, %for.body24.i
-  %incdec.ptr44.i = getelementptr inbounds ptr, ptr %__begin118.033.i, i64 1
+  %incdec.ptr44.i = getelementptr inbounds i8, ptr %__begin118.033.i, i64 8
   %cmp23.not.i = icmp eq ptr %incdec.ptr44.i, %add.ptr.i55.i
   br i1 %cmp23.not.i, label %cleanup.i, label %for.body24.i
 
@@ -445,16 +291,16 @@ do.end:                                           ; preds = %if.then.i.i.i, %_ZN
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %InsertionPoint.i, i8 0, i64 32, i1 false)
   %call41 = call noundef ptr @_ZN6hermes9IRBuilder16createBasicBlockEPNS_8FunctionE(ptr noundef nonnull align 8 dereferenceable(40) %builder, ptr noundef %16) #11
   call void @_ZN6hermes9IRBuilder17setInsertionBlockEPNS_10BasicBlockE(ptr noundef nonnull align 8 dereferenceable(40) %builder, ptr noundef %call41) #11
-  %Next.i.i.i = getelementptr inbounds %"class.llvh::ilist_node_base", ptr %14, i64 0, i32 1
+  %Next.i.i.i = getelementptr inbounds i8, ptr %14, i64 8
   %38 = load ptr, ptr %Next.i.i.i, align 8
   %39 = load ptr, ptr %Parent.i, align 8
-  %InstList.i = getelementptr inbounds %"class.hermes::BasicBlock", ptr %39, i64 0, i32 2
+  %InstList.i = getelementptr inbounds i8, ptr %39, i64 56
   %cmp.i25.not904 = icmp eq ptr %38, %InstList.i
   br i1 %cmp.i25.not904, label %while.end, label %while.body
 
 while.body:                                       ; preds = %do.end, %while.body
   %it.sroa.0.0905 = phi ptr [ %40, %while.body ], [ %38, %do.end ]
-  %Next.i.i.i.i26 = getelementptr inbounds %"class.llvh::ilist_node_base", ptr %it.sroa.0.0905, i64 0, i32 1
+  %Next.i.i.i.i26 = getelementptr inbounds i8, ptr %it.sroa.0.0905, i64 8
   %40 = load ptr, ptr %Next.i.i.i.i26, align 8
   call void @_ZN6hermes9IRBuilder33transferInstructionToCurrentBlockEPNS_11InstructionE(ptr noundef nonnull align 8 dereferenceable(40) %builder, ptr noundef nonnull %it.sroa.0.0905) #11
   %cmp.i25.not = icmp eq ptr %40, %InstList.i
@@ -470,7 +316,7 @@ while.end:                                        ; preds = %while.body, %do.end
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %ref.tmp61.i)
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %translateOperands.i)
   %call.i27 = call noundef ptr @_ZN6hermes9IRBuilder17getInsertionBlockEv(ptr noundef nonnull align 8 dereferenceable(40) %builder) #11
-  %Parent.i.i = getelementptr inbounds %"class.hermes::BasicBlock", ptr %call.i27, i64 0, i32 3
+  %Parent.i.i = getelementptr inbounds i8, ptr %call.i27, i64 72
   %41 = load ptr, ptr %Parent.i.i, align 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(20) %operandMap.i, i8 0, i64 20, i1 false)
   store ptr %add.ptr.i.i.i.i.i.i28, ptr %translatedOperands.i, align 8
@@ -480,13 +326,13 @@ while.end:                                        ; preds = %while.body, %do.end
   store i32 0, ptr %Size.i.i.i.i.i78.i, align 8
   store i32 4, ptr %Capacity2.i.i.i.i.i79.i, align 4
   %call2.i = call noundef ptr @_ZN6hermes9IRBuilder16createBasicBlockEPNS_8FunctionE(ptr noundef nonnull align 8 dereferenceable(40) %builder, ptr noundef %41) #11
-  %statementCount_.i.i = getelementptr inbounds %"class.hermes::Function", ptr %41, i64 0, i32 15
+  %statementCount_.i.i = getelementptr inbounds i8, ptr %41, i64 236
   %retval.sroa.0.0.copyload.i.i = load i64, ptr %statementCount_.i.i, align 4
   %42 = and i64 %retval.sroa.0.0.copyload.i.i, 4294967296
   %tobool.i.not.i = icmp eq i64 %42, 0
   %ref.tmp5.sroa.0.0.extract.trunc.i = trunc i64 %retval.sroa.0.0.copyload.i.i to i32
   %spec.select647.i = select i1 %tobool.i.not.i, i32 0, i32 %ref.tmp5.sroa.0.0.extract.trunc.i
-  %statementCount_.i82.i = getelementptr inbounds %"class.hermes::Function", ptr %18, i64 0, i32 15
+  %statementCount_.i82.i = getelementptr inbounds i8, ptr %18, i64 236
   %retval.sroa.0.0.copyload.i83.i = load i64, ptr %statementCount_.i82.i, align 4
   %43 = and i64 %retval.sroa.0.0.copyload.i83.i, 4294967296
   %tobool.i85.not.i = icmp eq i64 %43, 0
@@ -494,7 +340,7 @@ while.end:                                        ; preds = %while.body, %do.end
   %cond17.i = select i1 %tobool.i85.not.i, i32 0, i32 %ref.tmp12.sroa.0.0.extract.trunc.i
   %add.i = add i32 %cond17.i, %spec.select647.i
   store i32 %add.i, ptr %statementCount_.i.i, align 4
-  %ref.tmp.sroa.2.0.statementCount_.sroa_idx.i.i = getelementptr inbounds %"class.hermes::Function", ptr %41, i64 0, i32 15, i32 1
+  %ref.tmp.sroa.2.0.statementCount_.sroa_idx.i.i = getelementptr inbounds i8, ptr %41, i64 240
   store i8 1, ptr %ref.tmp.sroa.2.0.statementCount_.sroa_idx.i.i, align 4
   %44 = load i8, ptr %strictMode_.i.i, align 4
   %45 = and i8 %44, 1
@@ -511,7 +357,7 @@ if.then.i:                                        ; preds = %while.end
 
 if.end.i30:                                       ; preds = %if.then.i, %while.end
   %thisParam.0.i = phi ptr [ %spec.select.i51, %if.then.i ], [ %call.i.i, %while.end ]
-  %thisParameter.i.i = getelementptr inbounds %"class.hermes::Function", ptr %18, i64 0, i32 13
+  %thisParameter.i.i = getelementptr inbounds i8, ptr %18, i64 224
   %47 = load ptr, ptr %thisParameter.i.i, align 8
   store ptr %47, ptr %ref.tmp22.i, align 8
   %48 = load ptr, ptr %operandMap.i, align 8
@@ -566,17 +412,17 @@ if.end.i.i.i:                                     ; preds = %if.then12.i.i.i.i.i
   %call.i.i.i.i = call noundef ptr @_ZN4llvh12DenseMapBaseINS_8DenseMapIPN6hermes5ValueES4_NS_12DenseMapInfoIS4_EENS_6detail12DenseMapPairIS4_S4_EEEES4_S4_S6_S9_E20InsertIntoBucketImplIS4_EEPS9_RKS4_RKT_SD_(ptr noundef nonnull align 1 dereferenceable(1) %operandMap.i, ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp22.i, ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp22.i, ptr noundef %cond.sink.i.i.i.i.i)
   %54 = load ptr, ptr %ref.tmp22.i, align 8
   store ptr %54, ptr %call.i.i.i.i, align 8
-  %second.i.i.i.i.i = getelementptr inbounds %"struct.std::pair.184", ptr %call.i.i.i.i, i64 0, i32 1
+  %second.i.i.i.i.i = getelementptr inbounds i8, ptr %call.i.i.i.i, i64 8
   store ptr null, ptr %second.i.i.i.i.i, align 8
   br label %_ZN4llvh12DenseMapBaseINS_8DenseMapIPN6hermes5ValueES4_NS_12DenseMapInfoIS4_EENS_6detail12DenseMapPairIS4_S4_EEEES4_S4_S6_S9_EixEOS4_.exit.i
 
 _ZN4llvh12DenseMapBaseINS_8DenseMapIPN6hermes5ValueES4_NS_12DenseMapInfoIS4_EENS_6detail12DenseMapPairIS4_S4_EEEES4_S4_S6_S9_EixEOS4_.exit.i: ; preds = %if.end13.i.i.i.i.i, %if.end.i.i.i, %if.end.i.i.i.i.i
   %retval.0.i.i.i = phi ptr [ %call.i.i.i.i, %if.end.i.i.i ], [ %add.ptr21.i.i.i.i.i, %if.end.i.i.i.i.i ], [ %add.ptr.i.i.i.i.i31, %if.end13.i.i.i.i.i ]
-  %second.i.i = getelementptr inbounds %"struct.std::pair.184", ptr %retval.0.i.i.i, i64 0, i32 1
+  %second.i.i = getelementptr inbounds i8, ptr %retval.0.i.i.i, i64 8
   store ptr %thisParam.0.i, ptr %second.i.i, align 8
-  %Parameters.i.i = getelementptr inbounds %"class.hermes::Function", ptr %18, i64 0, i32 6
+  %Parameters.i.i = getelementptr inbounds i8, ptr %18, i64 96
   %55 = load ptr, ptr %Parameters.i.i, align 8
-  %Size.i.i32 = getelementptr inbounds %"class.hermes::Function", ptr %18, i64 0, i32 6, i32 0, i32 0, i32 0, i32 0, i32 1
+  %Size.i.i32 = getelementptr inbounds i8, ptr %18, i64 104
   %56 = load i32, ptr %Size.i.i32, align 8
   %conv.i.i33 = zext i32 %56 to i64
   %add.ptr.i209.i = getelementptr inbounds ptr, ptr %55, i64 %conv.i.i33
@@ -696,7 +542,7 @@ if.then.i800:                                     ; preds = %if.then.i383
 for.body.i.i806:                                  ; preds = %if.then.i800, %for.body.i.i806
   %B.04.i.i807 = phi ptr [ %incdec.ptr.i.i808, %for.body.i.i806 ], [ %call.i.i741, %if.then.i800 ]
   store ptr inttoptr (i64 -8 to ptr), ptr %B.04.i.i807, align 8
-  %incdec.ptr.i.i808 = getelementptr inbounds %"struct.llvh::detail::DenseMapPair", ptr %B.04.i.i807, i64 1
+  %incdec.ptr.i.i808 = getelementptr inbounds i8, ptr %B.04.i.i807, i64 16
   %cmp.not.i.i809 = icmp eq ptr %incdec.ptr.i.i808, %add.ptr.i.i.i804
   br i1 %cmp.not.i.i809, label %_ZN4llvh8DenseMapIPN6hermes5ValueES3_NS_12DenseMapInfoIS3_EENS_6detail12DenseMapPairIS3_S3_EEE4growEj.exit810, label %for.body.i.i806, !llvm.loop !7
 
@@ -714,7 +560,7 @@ if.end.i743:                                      ; preds = %if.then.i383
 for.body.i.i.i751:                                ; preds = %if.end.i743, %for.body.i.i.i751
   %B.04.i.i.i752 = phi ptr [ %incdec.ptr.i.i.i753, %for.body.i.i.i751 ], [ %call.i.i741, %if.end.i743 ]
   store ptr inttoptr (i64 -8 to ptr), ptr %B.04.i.i.i752, align 8
-  %incdec.ptr.i.i.i753 = getelementptr inbounds %"struct.llvh::detail::DenseMapPair", ptr %B.04.i.i.i752, i64 1
+  %incdec.ptr.i.i.i753 = getelementptr inbounds i8, ptr %B.04.i.i.i752, i64 16
   %cmp.not.i.i.i754 = icmp eq ptr %incdec.ptr.i.i.i753, %add.ptr.i.i.i.i749
   br i1 %cmp.not.i.i.i754, label %_ZN4llvh12DenseMapBaseINS_8DenseMapIPN6hermes5ValueES4_NS_12DenseMapInfoIS4_EENS_6detail12DenseMapPairIS4_S4_EEEES4_S4_S6_S9_E9initEmptyEv.exit.i.i755, label %for.body.i.i.i751, !llvm.loop !7
 
@@ -778,8 +624,8 @@ if.end13.i.i.i.i781:                              ; preds = %if.end9.i.i.i.i775
 _ZN4llvh12DenseMapBaseINS_8DenseMapIPN6hermes5ValueES4_NS_12DenseMapInfoIS4_EENS_6detail12DenseMapPairIS4_S4_EEEES4_S4_S6_S9_E15LookupBucketForIS4_EEbRKT_RPS9_.exit.i.i792: ; preds = %if.end13.i.i.i.i781, %if.then12.i.i.i.i797, %if.then.i.i764
   %cond.sink.i.i.i.i793 = phi ptr [ %cond.i.i.i.i799, %if.then12.i.i.i.i797 ], [ %add.ptr21.i.i.i.i773, %if.then.i.i764 ], [ %add.ptr.i.i12.i.i790, %if.end13.i.i.i.i781 ]
   store ptr %68, ptr %cond.sink.i.i.i.i793, align 8
-  %second.i.i.i794 = getelementptr inbounds %"struct.std::pair.184", ptr %cond.sink.i.i.i.i793, i64 0, i32 1
-  %second.i13.i.i795 = getelementptr inbounds %"struct.std::pair.184", ptr %B.020.i.i758, i64 0, i32 1
+  %second.i.i.i794 = getelementptr inbounds i8, ptr %cond.sink.i.i.i.i793, i64 8
+  %second.i13.i.i795 = getelementptr inbounds i8, ptr %B.020.i.i758, i64 8
   %74 = load ptr, ptr %second.i13.i.i795, align 8
   store ptr %74, ptr %second.i.i.i794, align 8
   %75 = load i32, ptr %NumEntries.i.i.i377, align 8
@@ -788,7 +634,7 @@ _ZN4llvh12DenseMapBaseINS_8DenseMapIPN6hermes5ValueES4_NS_12DenseMapInfoIS4_EENS
   br label %if.end.i6.i760
 
 if.end.i6.i760:                                   ; preds = %_ZN4llvh12DenseMapBaseINS_8DenseMapIPN6hermes5ValueES4_NS_12DenseMapInfoIS4_EENS_6detail12DenseMapPairIS4_S4_EEEES4_S4_S6_S9_E15LookupBucketForIS4_EEbRKT_RPS9_.exit.i.i792, %for.body.i5.i757, %for.body.i5.i757
-  %incdec.ptr.i7.i761 = getelementptr inbounds %"struct.llvh::detail::DenseMapPair", ptr %B.020.i.i758, i64 1
+  %incdec.ptr.i7.i761 = getelementptr inbounds i8, ptr %B.020.i.i758, i64 16
   %cmp.not.i8.i762 = icmp eq ptr %incdec.ptr.i7.i761, %add.ptr.i745
   br i1 %cmp.not.i8.i762, label %_ZN4llvh12DenseMapBaseINS_8DenseMapIPN6hermes5ValueES4_NS_12DenseMapInfoIS4_EENS_6detail12DenseMapPairIS4_S4_EEEES4_S4_S6_S9_E18moveFromOldBucketsEPS9_SC_.exit.i763, label %for.body.i5.i757, !llvm.loop !8
 
@@ -921,22 +767,22 @@ if.then16.i417:                                   ; preds = %if.end12.i413
 
 _ZN4llvh12DenseMapBaseINS_8DenseMapIPN6hermes5ValueES4_NS_12DenseMapInfoIS4_EENS_6detail12DenseMapPairIS4_S4_EEEES4_S4_S6_S9_E20InsertIntoBucketImplIS4_EEPS9_RKS4_RKT_SD_.exit462: ; preds = %if.end12.i413, %if.then16.i417
   store ptr %57, ptr %TheBucket.addr.0.i414, align 8
-  %second.i.i.i.i130.i = getelementptr inbounds %"struct.std::pair.184", ptr %TheBucket.addr.0.i414, i64 0, i32 1
+  %second.i.i.i.i130.i = getelementptr inbounds i8, ptr %TheBucket.addr.0.i414, i64 8
   store ptr null, ptr %second.i.i.i.i130.i, align 8
   br label %_ZN4llvh12DenseMapBaseINS_8DenseMapIPN6hermes5ValueES4_NS_12DenseMapInfoIS4_EENS_6detail12DenseMapPairIS4_S4_EEEES4_S4_S6_S9_EixEOS4_.exit131.i
 
 _ZN4llvh12DenseMapBaseINS_8DenseMapIPN6hermes5ValueES4_NS_12DenseMapInfoIS4_EENS_6detail12DenseMapPairIS4_S4_EEEES4_S4_S6_S9_EixEOS4_.exit131.i: ; preds = %if.end13.i.i.i.i111.i, %_ZN4llvh12DenseMapBaseINS_8DenseMapIPN6hermes5ValueES4_NS_12DenseMapInfoIS4_EENS_6detail12DenseMapPairIS4_S4_EEEES4_S4_S6_S9_E20InsertIntoBucketImplIS4_EEPS9_RKS4_RKT_SD_.exit462, %if.end.i.i.i.i95.i
   %retval.0.i.i122.i = phi ptr [ %TheBucket.addr.0.i414, %_ZN4llvh12DenseMapBaseINS_8DenseMapIPN6hermes5ValueES4_NS_12DenseMapInfoIS4_EENS_6detail12DenseMapPairIS4_S4_EEEES4_S4_S6_S9_E20InsertIntoBucketImplIS4_EEPS9_RKS4_RKT_SD_.exit462 ], [ %add.ptr21.i.i.i.i103.i, %if.end.i.i.i.i95.i ], [ %add.ptr.i.i.i.i120.i, %if.end13.i.i.i.i111.i ]
-  %second.i123.i = getelementptr inbounds %"struct.std::pair.184", ptr %retval.0.i.i122.i, i64 0, i32 1
+  %second.i123.i = getelementptr inbounds i8, ptr %retval.0.i.i122.i, i64 8
   store ptr %cond36.i, ptr %second.i123.i, align 8
   %inc.i = add i32 %argIndex.0684.i, 1
-  %incdec.ptr.i35 = getelementptr inbounds ptr, ptr %__begin2.0683.i, i64 1
+  %incdec.ptr.i35 = getelementptr inbounds i8, ptr %__begin2.0683.i, i64 8
   %cmp.not.i36 = icmp eq ptr %incdec.ptr.i35, %add.ptr.i209.i
   br i1 %cmp.not.i36, label %for.end.i37, label %for.body.i34
 
 for.end.i37:                                      ; preds = %_ZN4llvh12DenseMapBaseINS_8DenseMapIPN6hermes5ValueES4_NS_12DenseMapInfoIS4_EENS_6detail12DenseMapPairIS4_S4_EEEES4_S4_S6_S9_EixEOS4_.exit131.i, %_ZN4llvh12DenseMapBaseINS_8DenseMapIPN6hermes5ValueES4_NS_12DenseMapInfoIS4_EENS_6detail12DenseMapPairIS4_S4_EEEES4_S4_S6_S9_EixEOS4_.exit.i
   %91 = load ptr, ptr %scopeDesc_.i.i, align 8
-  %parent_.i.i = getelementptr inbounds %"class.hermes::ScopeDesc", ptr %91, i64 0, i32 1
+  %parent_.i.i = getelementptr inbounds i8, ptr %91, i64 40
   %92 = load ptr, ptr %parent_.i.i, align 8
   call fastcc void @_ZN6hermesL15cloneScopesIntoEPNS_8FunctionEPNS_9ScopeDescES3_RN4llvh8DenseMapIPNS_5ValueES7_NS4_12DenseMapInfoIS7_EENS4_6detail12DenseMapPairIS7_S7_EEEE(ptr noundef nonnull %18, ptr noundef %91, ptr noundef %92, ptr noundef nonnull align 8 dereferenceable(20) %operandMap.i)
   call fastcc void @_ZN6hermesL8orderDFSEPNS_8FunctionE(ptr noalias nonnull align 8 %order.i, ptr noundef nonnull %18)
@@ -1050,7 +896,7 @@ if.then.i713:                                     ; preds = %if.then.i297
 for.body.i.i719:                                  ; preds = %if.then.i713, %for.body.i.i719
   %B.04.i.i720 = phi ptr [ %incdec.ptr.i.i721, %for.body.i.i719 ], [ %call.i.i654, %if.then.i713 ]
   store ptr inttoptr (i64 -8 to ptr), ptr %B.04.i.i720, align 8
-  %incdec.ptr.i.i721 = getelementptr inbounds %"struct.llvh::detail::DenseMapPair", ptr %B.04.i.i720, i64 1
+  %incdec.ptr.i.i721 = getelementptr inbounds i8, ptr %B.04.i.i720, i64 16
   %cmp.not.i.i722 = icmp eq ptr %incdec.ptr.i.i721, %add.ptr.i.i.i717
   br i1 %cmp.not.i.i722, label %_ZN4llvh8DenseMapIPN6hermes5ValueES3_NS_12DenseMapInfoIS3_EENS_6detail12DenseMapPairIS3_S3_EEE4growEj.exit723, label %for.body.i.i719, !llvm.loop !7
 
@@ -1068,7 +914,7 @@ if.end.i656:                                      ; preds = %if.then.i297
 for.body.i.i.i664:                                ; preds = %if.end.i656, %for.body.i.i.i664
   %B.04.i.i.i665 = phi ptr [ %incdec.ptr.i.i.i666, %for.body.i.i.i664 ], [ %call.i.i654, %if.end.i656 ]
   store ptr inttoptr (i64 -8 to ptr), ptr %B.04.i.i.i665, align 8
-  %incdec.ptr.i.i.i666 = getelementptr inbounds %"struct.llvh::detail::DenseMapPair", ptr %B.04.i.i.i665, i64 1
+  %incdec.ptr.i.i.i666 = getelementptr inbounds i8, ptr %B.04.i.i.i665, i64 16
   %cmp.not.i.i.i667 = icmp eq ptr %incdec.ptr.i.i.i666, %add.ptr.i.i.i.i662
   br i1 %cmp.not.i.i.i667, label %_ZN4llvh12DenseMapBaseINS_8DenseMapIPN6hermes5ValueES4_NS_12DenseMapInfoIS4_EENS_6detail12DenseMapPairIS4_S4_EEEES4_S4_S6_S9_E9initEmptyEv.exit.i.i668, label %for.body.i.i.i664, !llvm.loop !7
 
@@ -1132,8 +978,8 @@ if.end13.i.i.i.i694:                              ; preds = %if.end9.i.i.i.i688
 _ZN4llvh12DenseMapBaseINS_8DenseMapIPN6hermes5ValueES4_NS_12DenseMapInfoIS4_EENS_6detail12DenseMapPairIS4_S4_EEEES4_S4_S6_S9_E15LookupBucketForIS4_EEbRKT_RPS9_.exit.i.i705: ; preds = %if.end13.i.i.i.i694, %if.then12.i.i.i.i710, %if.then.i.i677
   %cond.sink.i.i.i.i706 = phi ptr [ %cond.i.i.i.i712, %if.then12.i.i.i.i710 ], [ %add.ptr21.i.i.i.i686, %if.then.i.i677 ], [ %add.ptr.i.i12.i.i703, %if.end13.i.i.i.i694 ]
   store ptr %108, ptr %cond.sink.i.i.i.i706, align 8
-  %second.i.i.i707 = getelementptr inbounds %"struct.std::pair.184", ptr %cond.sink.i.i.i.i706, i64 0, i32 1
-  %second.i13.i.i708 = getelementptr inbounds %"struct.std::pair.184", ptr %B.020.i.i671, i64 0, i32 1
+  %second.i.i.i707 = getelementptr inbounds i8, ptr %cond.sink.i.i.i.i706, i64 8
+  %second.i13.i.i708 = getelementptr inbounds i8, ptr %B.020.i.i671, i64 8
   %114 = load ptr, ptr %second.i13.i.i708, align 8
   store ptr %114, ptr %second.i.i.i707, align 8
   %115 = load i32, ptr %NumEntries.i.i.i377, align 8
@@ -1142,7 +988,7 @@ _ZN4llvh12DenseMapBaseINS_8DenseMapIPN6hermes5ValueES4_NS_12DenseMapInfoIS4_EENS
   br label %if.end.i6.i673
 
 if.end.i6.i673:                                   ; preds = %_ZN4llvh12DenseMapBaseINS_8DenseMapIPN6hermes5ValueES4_NS_12DenseMapInfoIS4_EENS_6detail12DenseMapPairIS4_S4_EEEES4_S4_S6_S9_E15LookupBucketForIS4_EEbRKT_RPS9_.exit.i.i705, %for.body.i5.i670, %for.body.i5.i670
-  %incdec.ptr.i7.i674 = getelementptr inbounds %"struct.llvh::detail::DenseMapPair", ptr %B.020.i.i671, i64 1
+  %incdec.ptr.i7.i674 = getelementptr inbounds i8, ptr %B.020.i.i671, i64 16
   %cmp.not.i8.i675 = icmp eq ptr %incdec.ptr.i7.i674, %add.ptr.i658
   br i1 %cmp.not.i8.i675, label %_ZN4llvh12DenseMapBaseINS_8DenseMapIPN6hermes5ValueES4_NS_12DenseMapInfoIS4_EENS_6detail12DenseMapPairIS4_S4_EEEES4_S4_S6_S9_E18moveFromOldBucketsEPS9_SC_.exit.i676, label %for.body.i5.i670, !llvm.loop !8
 
@@ -1275,15 +1121,15 @@ if.then16.i331:                                   ; preds = %if.end12.i327
 
 _ZN4llvh12DenseMapBaseINS_8DenseMapIPN6hermes5ValueES4_NS_12DenseMapInfoIS4_EENS_6detail12DenseMapPairIS4_S4_EEEES4_S4_S6_S9_E20InsertIntoBucketImplIS4_EEPS9_RKS4_RKT_SD_.exit376: ; preds = %if.end12.i327, %if.then16.i331
   store ptr %cast.result56.i, ptr %TheBucket.addr.0.i328, align 8
-  %second.i.i.i.i172.i = getelementptr inbounds %"struct.std::pair.184", ptr %TheBucket.addr.0.i328, i64 0, i32 1
+  %second.i.i.i.i172.i = getelementptr inbounds i8, ptr %TheBucket.addr.0.i328, i64 8
   store ptr null, ptr %second.i.i.i.i172.i, align 8
   br label %_ZN4llvh12DenseMapBaseINS_8DenseMapIPN6hermes5ValueES4_NS_12DenseMapInfoIS4_EENS_6detail12DenseMapPairIS4_S4_EEEES4_S4_S6_S9_EixEOS4_.exit173.i
 
 _ZN4llvh12DenseMapBaseINS_8DenseMapIPN6hermes5ValueES4_NS_12DenseMapInfoIS4_EENS_6detail12DenseMapPairIS4_S4_EEEES4_S4_S6_S9_EixEOS4_.exit173.i: ; preds = %if.end13.i.i.i.i153.i, %_ZN4llvh12DenseMapBaseINS_8DenseMapIPN6hermes5ValueES4_NS_12DenseMapInfoIS4_EENS_6detail12DenseMapPairIS4_S4_EEEES4_S4_S6_S9_E20InsertIntoBucketImplIS4_EEPS9_RKS4_RKT_SD_.exit376, %if.end.i.i.i.i137.i
   %retval.0.i.i164.i = phi ptr [ %TheBucket.addr.0.i328, %_ZN4llvh12DenseMapBaseINS_8DenseMapIPN6hermes5ValueES4_NS_12DenseMapInfoIS4_EENS_6detail12DenseMapPairIS4_S4_EEEES4_S4_S6_S9_E20InsertIntoBucketImplIS4_EEPS9_RKS4_RKT_SD_.exit376 ], [ %add.ptr21.i.i.i.i145.i, %if.end.i.i.i.i137.i ], [ %add.ptr.i.i.i.i162.i, %if.end13.i.i.i.i153.i ]
-  %second.i165.i = getelementptr inbounds %"struct.std::pair.184", ptr %retval.0.i.i164.i, i64 0, i32 1
+  %second.i165.i = getelementptr inbounds i8, ptr %retval.0.i.i164.i, i64 8
   store ptr %spec.select1.i, ptr %second.i165.i, align 8
-  %incdec.ptr59.i = getelementptr inbounds ptr, ptr %__begin1.0686.i, i64 1
+  %incdec.ptr59.i = getelementptr inbounds i8, ptr %__begin1.0686.i, i64 8
   %cmp45.not.i = icmp eq ptr %incdec.ptr59.i, %add.ptr.i201.i
   br i1 %cmp45.not.i, label %for.end60.loopexit.i, label %for.body46.i
 
@@ -1350,13 +1196,13 @@ if.end.i.i208.i:                                  ; preds = %if.then12.i.i.i.i20
   %call.i.i.i210.i = call noundef ptr @_ZN4llvh12DenseMapBaseINS_8DenseMapIPN6hermes5ValueES4_NS_12DenseMapInfoIS4_EENS_6detail12DenseMapPairIS4_S4_EEEES4_S4_S6_S9_E20InsertIntoBucketImplIS4_EEPS9_RKS4_RKT_SD_(ptr noundef nonnull align 1 dereferenceable(1) %operandMap.i, ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp61.i, ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp61.i, ptr noundef %cond.sink.i.i.i.i209.i)
   %140 = load ptr, ptr %ref.tmp61.i, align 8
   store ptr %140, ptr %call.i.i.i210.i, align 8
-  %second.i.i.i.i211.i = getelementptr inbounds %"struct.std::pair.184", ptr %call.i.i.i210.i, i64 0, i32 1
+  %second.i.i.i.i211.i = getelementptr inbounds i8, ptr %call.i.i.i210.i, i64 8
   store ptr null, ptr %second.i.i.i.i211.i, align 8
   br label %_ZN4llvh12DenseMapBaseINS_8DenseMapIPN6hermes5ValueES4_NS_12DenseMapInfoIS4_EENS_6detail12DenseMapPairIS4_S4_EEEES4_S4_S6_S9_EixEOS4_.exit212.i
 
 _ZN4llvh12DenseMapBaseINS_8DenseMapIPN6hermes5ValueES4_NS_12DenseMapInfoIS4_EENS_6detail12DenseMapPairIS4_S4_EEEES4_S4_S6_S9_EixEOS4_.exit212.i: ; preds = %if.end13.i.i.i.i192.i, %if.end.i.i208.i, %if.end.i.i.i.i176.i
   %retval.0.i.i203.i = phi ptr [ %call.i.i.i210.i, %if.end.i.i208.i ], [ %add.ptr21.i.i.i.i184.i, %if.end.i.i.i.i176.i ], [ %add.ptr.i.i.i.i201.i, %if.end13.i.i.i.i192.i ]
-  %second.i204.i = getelementptr inbounds %"struct.std::pair.184", ptr %retval.0.i.i203.i, i64 0, i32 1
+  %second.i204.i = getelementptr inbounds i8, ptr %retval.0.i.i203.i, i64 8
   %141 = load ptr, ptr %second.i204.i, align 8
   %142 = icmp eq ptr %141, null
   %sub.ptr.i.i.i39 = getelementptr inbounds i8, ptr %141, i64 -16
@@ -1372,7 +1218,7 @@ _ZN4llvh12DenseMapBaseINS_8DenseMapIPN6hermes5ValueES4_NS_12DenseMapInfoIS4_EENS
   br i1 %cmp76.not695.i, label %for.end155.i, label %for.body77.lr.ph.i
 
 for.body77.lr.ph.i:                               ; preds = %_ZN4llvh12DenseMapBaseINS_8DenseMapIPN6hermes5ValueES4_NS_12DenseMapInfoIS4_EENS_6detail12DenseMapPairIS4_S4_EEEES4_S4_S6_S9_EixEOS4_.exit212.i
-  %InstList.i266.i = getelementptr inbounds %"class.hermes::BasicBlock", ptr %call2.i, i64 0, i32 2
+  %InstList.i266.i = getelementptr inbounds i8, ptr %call2.i, i64 56
   br label %for.body77.i
 
 for.body77.i:                                     ; preds = %for.inc153.i, %for.body77.lr.ph.i
@@ -1477,7 +1323,7 @@ if.then.i626:                                     ; preds = %if.then.i211
 for.body.i.i632:                                  ; preds = %if.then.i626, %for.body.i.i632
   %B.04.i.i633 = phi ptr [ %incdec.ptr.i.i634, %for.body.i.i632 ], [ %call.i.i567, %if.then.i626 ]
   store ptr inttoptr (i64 -8 to ptr), ptr %B.04.i.i633, align 8
-  %incdec.ptr.i.i634 = getelementptr inbounds %"struct.llvh::detail::DenseMapPair", ptr %B.04.i.i633, i64 1
+  %incdec.ptr.i.i634 = getelementptr inbounds i8, ptr %B.04.i.i633, i64 16
   %cmp.not.i.i635 = icmp eq ptr %incdec.ptr.i.i634, %add.ptr.i.i.i630
   br i1 %cmp.not.i.i635, label %_ZN4llvh8DenseMapIPN6hermes5ValueES3_NS_12DenseMapInfoIS3_EENS_6detail12DenseMapPairIS3_S3_EEE4growEj.exit636, label %for.body.i.i632, !llvm.loop !7
 
@@ -1495,7 +1341,7 @@ if.end.i569:                                      ; preds = %if.then.i211
 for.body.i.i.i577:                                ; preds = %if.end.i569, %for.body.i.i.i577
   %B.04.i.i.i578 = phi ptr [ %incdec.ptr.i.i.i579, %for.body.i.i.i577 ], [ %call.i.i567, %if.end.i569 ]
   store ptr inttoptr (i64 -8 to ptr), ptr %B.04.i.i.i578, align 8
-  %incdec.ptr.i.i.i579 = getelementptr inbounds %"struct.llvh::detail::DenseMapPair", ptr %B.04.i.i.i578, i64 1
+  %incdec.ptr.i.i.i579 = getelementptr inbounds i8, ptr %B.04.i.i.i578, i64 16
   %cmp.not.i.i.i580 = icmp eq ptr %incdec.ptr.i.i.i579, %add.ptr.i.i.i.i575
   br i1 %cmp.not.i.i.i580, label %_ZN4llvh12DenseMapBaseINS_8DenseMapIPN6hermes5ValueES4_NS_12DenseMapInfoIS4_EENS_6detail12DenseMapPairIS4_S4_EEEES4_S4_S6_S9_E9initEmptyEv.exit.i.i581, label %for.body.i.i.i577, !llvm.loop !7
 
@@ -1559,8 +1405,8 @@ if.end13.i.i.i.i607:                              ; preds = %if.end9.i.i.i.i601
 _ZN4llvh12DenseMapBaseINS_8DenseMapIPN6hermes5ValueES4_NS_12DenseMapInfoIS4_EENS_6detail12DenseMapPairIS4_S4_EEEES4_S4_S6_S9_E15LookupBucketForIS4_EEbRKT_RPS9_.exit.i.i618: ; preds = %if.end13.i.i.i.i607, %if.then12.i.i.i.i623, %if.then.i.i590
   %cond.sink.i.i.i.i619 = phi ptr [ %cond.i.i.i.i625, %if.then12.i.i.i.i623 ], [ %add.ptr21.i.i.i.i599, %if.then.i.i590 ], [ %add.ptr.i.i12.i.i616, %if.end13.i.i.i.i607 ]
   store ptr %158, ptr %cond.sink.i.i.i.i619, align 8
-  %second.i.i.i620 = getelementptr inbounds %"struct.std::pair.184", ptr %cond.sink.i.i.i.i619, i64 0, i32 1
-  %second.i13.i.i621 = getelementptr inbounds %"struct.std::pair.184", ptr %B.020.i.i584, i64 0, i32 1
+  %second.i.i.i620 = getelementptr inbounds i8, ptr %cond.sink.i.i.i.i619, i64 8
+  %second.i13.i.i621 = getelementptr inbounds i8, ptr %B.020.i.i584, i64 8
   %164 = load ptr, ptr %second.i13.i.i621, align 8
   store ptr %164, ptr %second.i.i.i620, align 8
   %165 = load i32, ptr %NumEntries.i.i.i377, align 8
@@ -1569,7 +1415,7 @@ _ZN4llvh12DenseMapBaseINS_8DenseMapIPN6hermes5ValueES4_NS_12DenseMapInfoIS4_EENS
   br label %if.end.i6.i586
 
 if.end.i6.i586:                                   ; preds = %_ZN4llvh12DenseMapBaseINS_8DenseMapIPN6hermes5ValueES4_NS_12DenseMapInfoIS4_EENS_6detail12DenseMapPairIS4_S4_EEEES4_S4_S6_S9_E15LookupBucketForIS4_EEbRKT_RPS9_.exit.i.i618, %for.body.i5.i583, %for.body.i5.i583
-  %incdec.ptr.i7.i587 = getelementptr inbounds %"struct.llvh::detail::DenseMapPair", ptr %B.020.i.i584, i64 1
+  %incdec.ptr.i7.i587 = getelementptr inbounds i8, ptr %B.020.i.i584, i64 16
   %cmp.not.i8.i588 = icmp eq ptr %incdec.ptr.i7.i587, %add.ptr.i571
   br i1 %cmp.not.i8.i588, label %_ZN4llvh12DenseMapBaseINS_8DenseMapIPN6hermes5ValueES4_NS_12DenseMapInfoIS4_EENS_6detail12DenseMapPairIS4_S4_EEEES4_S4_S6_S9_E18moveFromOldBucketsEPS9_SC_.exit.i589, label %for.body.i5.i583, !llvm.loop !8
 
@@ -1702,20 +1548,20 @@ if.then16.i245:                                   ; preds = %if.end12.i241
 
 _ZN4llvh12DenseMapBaseINS_8DenseMapIPN6hermes5ValueES4_NS_12DenseMapInfoIS4_EENS_6detail12DenseMapPairIS4_S4_EEEES4_S4_S6_S9_E20InsertIntoBucketImplIS4_EEPS9_RKS4_RKT_SD_.exit290: ; preds = %if.end12.i241, %if.then16.i245
   store ptr %spec.select3.i, ptr %TheBucket.addr.0.i242, align 8
-  %second.i.i.i.i252.i = getelementptr inbounds %"struct.std::pair.184", ptr %TheBucket.addr.0.i242, i64 0, i32 1
+  %second.i.i.i.i252.i = getelementptr inbounds i8, ptr %TheBucket.addr.0.i242, i64 8
   store ptr null, ptr %second.i.i.i.i252.i, align 8
   br label %_ZN4llvh12DenseMapBaseINS_8DenseMapIPN6hermes5ValueES4_NS_12DenseMapInfoIS4_EENS_6detail12DenseMapPairIS4_S4_EEEES4_S4_S6_S9_EixEOS4_.exit253.i
 
 _ZN4llvh12DenseMapBaseINS_8DenseMapIPN6hermes5ValueES4_NS_12DenseMapInfoIS4_EENS_6detail12DenseMapPairIS4_S4_EEEES4_S4_S6_S9_EixEOS4_.exit253.i: ; preds = %if.end13.i.i.i.i233.i, %_ZN4llvh12DenseMapBaseINS_8DenseMapIPN6hermes5ValueES4_NS_12DenseMapInfoIS4_EENS_6detail12DenseMapPairIS4_S4_EEEES4_S4_S6_S9_E20InsertIntoBucketImplIS4_EEPS9_RKS4_RKT_SD_.exit290, %if.end.i.i.i.i217.i
   %retval.0.i.i244.i = phi ptr [ %TheBucket.addr.0.i242, %_ZN4llvh12DenseMapBaseINS_8DenseMapIPN6hermes5ValueES4_NS_12DenseMapInfoIS4_EENS_6detail12DenseMapPairIS4_S4_EEEES4_S4_S6_S9_E20InsertIntoBucketImplIS4_EEPS9_RKS4_RKT_SD_.exit290 ], [ %add.ptr21.i.i.i.i225.i, %if.end.i.i.i.i217.i ], [ %add.ptr.i.i.i.i242.i, %if.end13.i.i.i.i233.i ]
-  %second.i245.i = getelementptr inbounds %"struct.std::pair.184", ptr %retval.0.i.i244.i, i64 0, i32 1
+  %second.i245.i = getelementptr inbounds i8, ptr %retval.0.i.i244.i, i64 8
   %181 = load ptr, ptr %second.i245.i, align 8
   %182 = icmp eq ptr %181, null
   %sub.ptr.i.i254.i = getelementptr inbounds i8, ptr %181, i64 -16
   %183 = select i1 %182, ptr null, ptr %sub.ptr.i.i254.i
   call void @_ZN6hermes9IRBuilder17setInsertionBlockEPNS_10BasicBlockE(ptr noundef nonnull align 8 dereferenceable(40) %builder, ptr noundef %183) #11
-  %Next.i.i.i.i.i.i41 = getelementptr inbounds %"class.hermes::BasicBlock", ptr %146, i64 0, i32 2, i32 0, i32 0, i32 0, i32 0, i32 0, i32 1
-  %InstList.i.i42 = getelementptr inbounds %"class.hermes::BasicBlock", ptr %146, i64 0, i32 2
+  %Next.i.i.i.i.i.i41 = getelementptr inbounds i8, ptr %146, i64 64
+  %InstList.i.i42 = getelementptr inbounds i8, ptr %146, i64 56
   %__begin287.sroa.0.0687.i = load ptr, ptr %Next.i.i.i.i.i.i41, align 8
   %cmp.i.not688.i = icmp eq ptr %__begin287.sroa.0.0687.i, %InstList.i.i42
   br i1 %cmp.i.not688.i, label %for.inc153.i, label %for.body94.i
@@ -1846,11 +1692,11 @@ if.then124.i:                                     ; preds = %if.else121.i
 
 if.then.i271.i:                                   ; preds = %if.then124.i
   %202 = load ptr, ptr %scopeDesc_.i.i, align 8
-  %parent_.i.i.i = getelementptr inbounds %"class.hermes::ScopeDesc", ptr %202, i64 0, i32 1
+  %parent_.i.i.i = getelementptr inbounds i8, ptr %202, i64 40
   %203 = load ptr, ptr %parent_.i.i.i, align 8
   %call3.i.i = call noundef nonnull align 8 dereferenceable(32) ptr @_ZNK6hermes5Value8getUsersEv(ptr noundef nonnull align 8 dereferenceable(40) %203) #11
   %204 = load ptr, ptr %call3.i.i, align 8
-  %Size.i.i272.i = getelementptr inbounds %"class.llvh::SmallVectorBase", ptr %call3.i.i, i64 0, i32 1
+  %Size.i.i272.i = getelementptr inbounds i8, ptr %call3.i.i, i64 8
   %205 = load i32, ptr %Size.i.i272.i, align 8
   %conv.i.i273.i = zext i32 %205 to i64
   %add.ptr.i.i274.i = getelementptr inbounds ptr, ptr %204, i64 %conv.i.i273.i
@@ -1868,7 +1714,7 @@ for.body.i.i:                                     ; preds = %if.then.i271.i, %fo
   %tobool7.not5.i.i = icmp eq ptr %206, null
   %tobool7.not.i.i = or i1 %tobool7.not5.i.i, %209
   %spec.select648.i = select i1 %tobool7.not.i.i, ptr %inlineeParentScopeCreation.2.i, ptr %206
-  %incdec.ptr.i.i = getelementptr inbounds ptr, ptr %__begin3.07.i.i, i64 1
+  %incdec.ptr.i.i = getelementptr inbounds i8, ptr %__begin3.07.i.i, i64 8
   %cmp.not.i275.i = icmp eq ptr %incdec.ptr.i.i, %add.ptr.i.i274.i
   br i1 %cmp.not.i275.i, label %if.end137.i, label %for.body.i.i
 
@@ -1877,7 +1723,7 @@ if.else127.i:                                     ; preds = %if.else121.i
   %211 = load i32, ptr %Size.i.i.i.i.i.i, align 8
   %conv.i.i277.i = zext i32 %211 to i64
   %call128.i = call noundef ptr @_ZN6hermes9IRBuilder9cloneInstEPKNS_11InstructionEN4llvh8ArrayRefIPNS_5ValueEEE(ptr noundef nonnull align 8 dereferenceable(40) %builder, ptr noundef nonnull %__begin287.sroa.0.0692.i, ptr %210, i64 %conv.i.i277.i) #11
-  %SourceLevelScope.i.i = getelementptr inbounds %"class.hermes::Instruction", ptr %__begin287.sroa.0.0692.i, i64 0, i32 4
+  %SourceLevelScope.i.i = getelementptr inbounds i8, ptr %__begin287.sroa.0.0692.i, i64 112
   %212 = load ptr, ptr %SourceLevelScope.i.i, align 8
   %tobool130.not.i = icmp eq ptr %212, null
   br i1 %tobool130.not.i, label %if.end137.i, label %if.then131.i
@@ -1976,7 +1822,7 @@ if.then.i194:                                     ; preds = %if.then.i412.i
 for.body.i.i200:                                  ; preds = %if.then.i194, %for.body.i.i200
   %B.04.i.i201 = phi ptr [ %incdec.ptr.i.i202, %for.body.i.i200 ], [ %call.i.i135, %if.then.i194 ]
   store ptr inttoptr (i64 -8 to ptr), ptr %B.04.i.i201, align 8
-  %incdec.ptr.i.i202 = getelementptr inbounds %"struct.llvh::detail::DenseMapPair", ptr %B.04.i.i201, i64 1
+  %incdec.ptr.i.i202 = getelementptr inbounds i8, ptr %B.04.i.i201, i64 16
   %cmp.not.i.i203 = icmp eq ptr %incdec.ptr.i.i202, %add.ptr.i.i.i198
   br i1 %cmp.not.i.i203, label %_ZN4llvh8DenseMapIPN6hermes5ValueES3_NS_12DenseMapInfoIS3_EENS_6detail12DenseMapPairIS3_S3_EEE4growEj.exit204, label %for.body.i.i200, !llvm.loop !7
 
@@ -1994,7 +1840,7 @@ if.end.i137:                                      ; preds = %if.then.i412.i
 for.body.i.i.i145:                                ; preds = %if.end.i137, %for.body.i.i.i145
   %B.04.i.i.i146 = phi ptr [ %incdec.ptr.i.i.i147, %for.body.i.i.i145 ], [ %call.i.i135, %if.end.i137 ]
   store ptr inttoptr (i64 -8 to ptr), ptr %B.04.i.i.i146, align 8
-  %incdec.ptr.i.i.i147 = getelementptr inbounds %"struct.llvh::detail::DenseMapPair", ptr %B.04.i.i.i146, i64 1
+  %incdec.ptr.i.i.i147 = getelementptr inbounds i8, ptr %B.04.i.i.i146, i64 16
   %cmp.not.i.i.i148 = icmp eq ptr %incdec.ptr.i.i.i147, %add.ptr.i.i.i.i143
   br i1 %cmp.not.i.i.i148, label %_ZN4llvh12DenseMapBaseINS_8DenseMapIPN6hermes5ValueES4_NS_12DenseMapInfoIS4_EENS_6detail12DenseMapPairIS4_S4_EEEES4_S4_S6_S9_E9initEmptyEv.exit.i.i149, label %for.body.i.i.i145, !llvm.loop !7
 
@@ -2058,8 +1904,8 @@ if.end13.i.i.i.i175:                              ; preds = %if.end9.i.i.i.i169
 _ZN4llvh12DenseMapBaseINS_8DenseMapIPN6hermes5ValueES4_NS_12DenseMapInfoIS4_EENS_6detail12DenseMapPairIS4_S4_EEEES4_S4_S6_S9_E15LookupBucketForIS4_EEbRKT_RPS9_.exit.i.i186: ; preds = %if.end13.i.i.i.i175, %if.then12.i.i.i.i191, %if.then.i.i158
   %cond.sink.i.i.i.i187 = phi ptr [ %cond.i.i.i.i193, %if.then12.i.i.i.i191 ], [ %add.ptr21.i.i.i.i167, %if.then.i.i158 ], [ %add.ptr.i.i12.i.i184, %if.end13.i.i.i.i175 ]
   store ptr %223, ptr %cond.sink.i.i.i.i187, align 8
-  %second.i.i.i188 = getelementptr inbounds %"struct.std::pair.184", ptr %cond.sink.i.i.i.i187, i64 0, i32 1
-  %second.i13.i.i189 = getelementptr inbounds %"struct.std::pair.184", ptr %B.020.i.i152, i64 0, i32 1
+  %second.i.i.i188 = getelementptr inbounds i8, ptr %cond.sink.i.i.i.i187, i64 8
+  %second.i13.i.i189 = getelementptr inbounds i8, ptr %B.020.i.i152, i64 8
   %229 = load ptr, ptr %second.i13.i.i189, align 8
   store ptr %229, ptr %second.i.i.i188, align 8
   %230 = load i32, ptr %NumEntries.i.i.i377, align 8
@@ -2068,7 +1914,7 @@ _ZN4llvh12DenseMapBaseINS_8DenseMapIPN6hermes5ValueES4_NS_12DenseMapInfoIS4_EENS
   br label %if.end.i6.i154
 
 if.end.i6.i154:                                   ; preds = %_ZN4llvh12DenseMapBaseINS_8DenseMapIPN6hermes5ValueES4_NS_12DenseMapInfoIS4_EENS_6detail12DenseMapPairIS4_S4_EEEES4_S4_S6_S9_E15LookupBucketForIS4_EEbRKT_RPS9_.exit.i.i186, %for.body.i5.i151, %for.body.i5.i151
-  %incdec.ptr.i7.i155 = getelementptr inbounds %"struct.llvh::detail::DenseMapPair", ptr %B.020.i.i152, i64 1
+  %incdec.ptr.i7.i155 = getelementptr inbounds i8, ptr %B.020.i.i152, i64 16
   %cmp.not.i8.i156 = icmp eq ptr %incdec.ptr.i7.i155, %add.ptr.i139
   br i1 %cmp.not.i8.i156, label %_ZN4llvh12DenseMapBaseINS_8DenseMapIPN6hermes5ValueES4_NS_12DenseMapInfoIS4_EENS_6detail12DenseMapPairIS4_S4_EEEES4_S4_S6_S9_E18moveFromOldBucketsEPS9_SC_.exit.i157, label %for.body.i5.i151, !llvm.loop !8
 
@@ -2171,7 +2017,7 @@ if.then.i110:                                     ; preds = %if.then10.i.i
 for.body.i.i115:                                  ; preds = %if.then.i110, %for.body.i.i115
   %B.04.i.i = phi ptr [ %incdec.ptr.i.i116, %for.body.i.i115 ], [ %call.i.i69, %if.then.i110 ]
   store ptr inttoptr (i64 -8 to ptr), ptr %B.04.i.i, align 8
-  %incdec.ptr.i.i116 = getelementptr inbounds %"struct.llvh::detail::DenseMapPair", ptr %B.04.i.i, i64 1
+  %incdec.ptr.i.i116 = getelementptr inbounds i8, ptr %B.04.i.i, i64 16
   %cmp.not.i.i117 = icmp eq ptr %incdec.ptr.i.i116, %add.ptr.i.i.i114
   br i1 %cmp.not.i.i117, label %_ZN4llvh8DenseMapIPN6hermes5ValueES3_NS_12DenseMapInfoIS3_EENS_6detail12DenseMapPairIS3_S3_EEE4growEj.exit, label %for.body.i.i115, !llvm.loop !7
 
@@ -2189,7 +2035,7 @@ if.end.i71:                                       ; preds = %if.then10.i.i
 for.body.i.i.i76:                                 ; preds = %if.end.i71, %for.body.i.i.i76
   %B.04.i.i.i77 = phi ptr [ %incdec.ptr.i.i.i78, %for.body.i.i.i76 ], [ %call.i.i69, %if.end.i71 ]
   store ptr inttoptr (i64 -8 to ptr), ptr %B.04.i.i.i77, align 8
-  %incdec.ptr.i.i.i78 = getelementptr inbounds %"struct.llvh::detail::DenseMapPair", ptr %B.04.i.i.i77, i64 1
+  %incdec.ptr.i.i.i78 = getelementptr inbounds i8, ptr %B.04.i.i.i77, i64 16
   %cmp.not.i.i.i79 = icmp eq ptr %incdec.ptr.i.i.i78, %add.ptr.i.i.i.i74
   br i1 %cmp.not.i.i.i79, label %_ZN4llvh12DenseMapBaseINS_8DenseMapIPN6hermes5ValueES4_NS_12DenseMapInfoIS4_EENS_6detail12DenseMapPairIS4_S4_EEEES4_S4_S6_S9_E9initEmptyEv.exit.i.i, label %for.body.i.i.i76, !llvm.loop !7
 
@@ -2253,8 +2099,8 @@ if.end13.i.i.i.i97:                               ; preds = %if.end9.i.i.i.i91
 _ZN4llvh12DenseMapBaseINS_8DenseMapIPN6hermes5ValueES4_NS_12DenseMapInfoIS4_EENS_6detail12DenseMapPairIS4_S4_EEEES4_S4_S6_S9_E15LookupBucketForIS4_EEbRKT_RPS9_.exit.i.i: ; preds = %if.end13.i.i.i.i97, %if.then12.i.i.i.i107, %if.then.i.i80
   %cond.sink.i.i.i.i = phi ptr [ %cond.i.i.i.i109, %if.then12.i.i.i.i107 ], [ %add.ptr21.i.i.i.i89, %if.then.i.i80 ], [ %add.ptr.i.i12.i.i, %if.end13.i.i.i.i97 ]
   store ptr %240, ptr %cond.sink.i.i.i.i, align 8
-  %second.i.i.i = getelementptr inbounds %"struct.std::pair.184", ptr %cond.sink.i.i.i.i, i64 0, i32 1
-  %second.i13.i.i = getelementptr inbounds %"struct.std::pair.184", ptr %B.020.i.i, i64 0, i32 1
+  %second.i.i.i = getelementptr inbounds i8, ptr %cond.sink.i.i.i.i, i64 8
+  %second.i13.i.i = getelementptr inbounds i8, ptr %B.020.i.i, i64 8
   %246 = load ptr, ptr %second.i13.i.i, align 8
   store ptr %246, ptr %second.i.i.i, align 8
   %247 = load i32, ptr %NumEntries.i.i.i377, align 8
@@ -2263,7 +2109,7 @@ _ZN4llvh12DenseMapBaseINS_8DenseMapIPN6hermes5ValueES4_NS_12DenseMapInfoIS4_EENS
   br label %if.end.i6.i
 
 if.end.i6.i:                                      ; preds = %_ZN4llvh12DenseMapBaseINS_8DenseMapIPN6hermes5ValueES4_NS_12DenseMapInfoIS4_EENS_6detail12DenseMapPairIS4_S4_EEEES4_S4_S6_S9_E15LookupBucketForIS4_EEbRKT_RPS9_.exit.i.i, %for.body.i5.i, %for.body.i5.i
-  %incdec.ptr.i7.i = getelementptr inbounds %"struct.llvh::detail::DenseMapPair", ptr %B.020.i.i, i64 1
+  %incdec.ptr.i7.i = getelementptr inbounds i8, ptr %B.020.i.i, i64 16
   %cmp.not.i8.i = icmp eq ptr %incdec.ptr.i7.i, %add.ptr.i72
   br i1 %cmp.not.i8.i, label %_ZN4llvh12DenseMapBaseINS_8DenseMapIPN6hermes5ValueES4_NS_12DenseMapInfoIS4_EENS_6detail12DenseMapPairIS4_S4_EEEES4_S4_S6_S9_E18moveFromOldBucketsEPS9_SC_.exit.i, label %for.body.i5.i, !llvm.loop !8
 
@@ -2338,15 +2184,15 @@ if.then16.i.i:                                    ; preds = %if.end12.i.i
 
 _ZN4llvh12DenseMapBaseINS_8DenseMapIPN6hermes5ValueES4_NS_12DenseMapInfoIS4_EENS_6detail12DenseMapPairIS4_S4_EEEES4_S4_S6_S9_E20InsertIntoBucketImplIS4_EEPS9_RKS4_RKT_SD_.exit.i: ; preds = %if.then16.i.i, %if.end12.i.i
   store ptr %212, ptr %TheBucket.addr.0.i.i, align 8
-  %second.i.i.i.i315.i = getelementptr inbounds %"struct.std::pair.184", ptr %TheBucket.addr.0.i.i, i64 0, i32 1
+  %second.i.i.i.i315.i = getelementptr inbounds i8, ptr %TheBucket.addr.0.i.i, i64 8
   store ptr null, ptr %second.i.i.i.i315.i, align 8
   br label %_ZN4llvh12DenseMapBaseINS_8DenseMapIPN6hermes5ValueES4_NS_12DenseMapInfoIS4_EENS_6detail12DenseMapPairIS4_S4_EEEES4_S4_S6_S9_EixEOS4_.exit316.i
 
 _ZN4llvh12DenseMapBaseINS_8DenseMapIPN6hermes5ValueES4_NS_12DenseMapInfoIS4_EENS_6detail12DenseMapPairIS4_S4_EEEES4_S4_S6_S9_EixEOS4_.exit316.i: ; preds = %if.end13.i.i.i.i296.i, %_ZN4llvh12DenseMapBaseINS_8DenseMapIPN6hermes5ValueES4_NS_12DenseMapInfoIS4_EENS_6detail12DenseMapPairIS4_S4_EEEES4_S4_S6_S9_E20InsertIntoBucketImplIS4_EEPS9_RKS4_RKT_SD_.exit.i, %if.end.i.i.i.i280.i
   %retval.0.i.i307.i = phi ptr [ %TheBucket.addr.0.i.i, %_ZN4llvh12DenseMapBaseINS_8DenseMapIPN6hermes5ValueES4_NS_12DenseMapInfoIS4_EENS_6detail12DenseMapPairIS4_S4_EEEES4_S4_S6_S9_E20InsertIntoBucketImplIS4_EEPS9_RKS4_RKT_SD_.exit.i ], [ %add.ptr21.i.i.i.i288.i, %if.end.i.i.i.i280.i ], [ %add.ptr.i.i.i.i305.i, %if.end13.i.i.i.i296.i ]
-  %second.i308.i = getelementptr inbounds %"struct.std::pair.184", ptr %retval.0.i.i307.i, i64 0, i32 1
+  %second.i308.i = getelementptr inbounds i8, ptr %retval.0.i.i307.i, i64 8
   %256 = load ptr, ptr %second.i308.i, align 8
-  %SourceLevelScope.i317.i = getelementptr inbounds %"class.hermes::Instruction", ptr %call128.i, i64 0, i32 4
+  %SourceLevelScope.i317.i = getelementptr inbounds i8, ptr %call128.i, i64 112
   store ptr %256, ptr %SourceLevelScope.i317.i, align 8
   br label %if.end137.i
 
@@ -2451,7 +2297,7 @@ if.then.i622.i:                                   ; preds = %if.then.i423.i
 for.body.i.i628.i:                                ; preds = %if.then.i622.i, %for.body.i.i628.i
   %B.04.i.i629.i = phi ptr [ %incdec.ptr.i.i630.i, %for.body.i.i628.i ], [ %call.i.i563.i, %if.then.i622.i ]
   store ptr inttoptr (i64 -8 to ptr), ptr %B.04.i.i629.i, align 8
-  %incdec.ptr.i.i630.i = getelementptr inbounds %"struct.llvh::detail::DenseMapPair", ptr %B.04.i.i629.i, i64 1
+  %incdec.ptr.i.i630.i = getelementptr inbounds i8, ptr %B.04.i.i629.i, i64 16
   %cmp.not.i.i631.i = icmp eq ptr %incdec.ptr.i.i630.i, %add.ptr.i.i.i626.i
   br i1 %cmp.not.i.i631.i, label %_ZN4llvh8DenseMapIPN6hermes5ValueES3_NS_12DenseMapInfoIS3_EENS_6detail12DenseMapPairIS3_S3_EEE4growEj.exit632.i, label %for.body.i.i628.i, !llvm.loop !7
 
@@ -2469,7 +2315,7 @@ if.end.i565.i:                                    ; preds = %if.then.i423.i
 for.body.i.i.i573.i:                              ; preds = %if.end.i565.i, %for.body.i.i.i573.i
   %B.04.i.i.i574.i = phi ptr [ %incdec.ptr.i.i.i575.i, %for.body.i.i.i573.i ], [ %call.i.i563.i, %if.end.i565.i ]
   store ptr inttoptr (i64 -8 to ptr), ptr %B.04.i.i.i574.i, align 8
-  %incdec.ptr.i.i.i575.i = getelementptr inbounds %"struct.llvh::detail::DenseMapPair", ptr %B.04.i.i.i574.i, i64 1
+  %incdec.ptr.i.i.i575.i = getelementptr inbounds i8, ptr %B.04.i.i.i574.i, i64 16
   %cmp.not.i.i.i576.i = icmp eq ptr %incdec.ptr.i.i.i575.i, %add.ptr.i.i.i.i571.i
   br i1 %cmp.not.i.i.i576.i, label %_ZN4llvh12DenseMapBaseINS_8DenseMapIPN6hermes5ValueES4_NS_12DenseMapInfoIS4_EENS_6detail12DenseMapPairIS4_S4_EEEES4_S4_S6_S9_E9initEmptyEv.exit.i.i577.i, label %for.body.i.i.i573.i, !llvm.loop !7
 
@@ -2533,8 +2379,8 @@ if.end13.i.i.i.i603.i:                            ; preds = %if.end9.i.i.i.i597.
 _ZN4llvh12DenseMapBaseINS_8DenseMapIPN6hermes5ValueES4_NS_12DenseMapInfoIS4_EENS_6detail12DenseMapPairIS4_S4_EEEES4_S4_S6_S9_E15LookupBucketForIS4_EEbRKT_RPS9_.exit.i.i614.i: ; preds = %if.end13.i.i.i.i603.i, %if.then12.i.i.i.i619.i, %if.then.i.i586.i
   %cond.sink.i.i.i.i615.i = phi ptr [ %cond.i.i.i.i621.i, %if.then12.i.i.i.i619.i ], [ %add.ptr21.i.i.i.i595.i, %if.then.i.i586.i ], [ %add.ptr.i.i12.i.i612.i, %if.end13.i.i.i.i603.i ]
   store ptr %268, ptr %cond.sink.i.i.i.i615.i, align 8
-  %second.i.i.i616.i = getelementptr inbounds %"struct.std::pair.184", ptr %cond.sink.i.i.i.i615.i, i64 0, i32 1
-  %second.i13.i.i617.i = getelementptr inbounds %"struct.std::pair.184", ptr %B.020.i.i580.i, i64 0, i32 1
+  %second.i.i.i616.i = getelementptr inbounds i8, ptr %cond.sink.i.i.i.i615.i, i64 8
+  %second.i13.i.i617.i = getelementptr inbounds i8, ptr %B.020.i.i580.i, i64 8
   %274 = load ptr, ptr %second.i13.i.i617.i, align 8
   store ptr %274, ptr %second.i.i.i616.i, align 8
   %275 = load i32, ptr %NumEntries.i.i.i377, align 8
@@ -2543,7 +2389,7 @@ _ZN4llvh12DenseMapBaseINS_8DenseMapIPN6hermes5ValueES4_NS_12DenseMapInfoIS4_EENS
   br label %if.end.i6.i582.i
 
 if.end.i6.i582.i:                                 ; preds = %_ZN4llvh12DenseMapBaseINS_8DenseMapIPN6hermes5ValueES4_NS_12DenseMapInfoIS4_EENS_6detail12DenseMapPairIS4_S4_EEEES4_S4_S6_S9_E15LookupBucketForIS4_EEbRKT_RPS9_.exit.i.i614.i, %for.body.i5.i579.i, %for.body.i5.i579.i
-  %incdec.ptr.i7.i583.i = getelementptr inbounds %"struct.llvh::detail::DenseMapPair", ptr %B.020.i.i580.i, i64 1
+  %incdec.ptr.i7.i583.i = getelementptr inbounds i8, ptr %B.020.i.i580.i, i64 16
   %cmp.not.i8.i584.i = icmp eq ptr %incdec.ptr.i7.i583.i, %add.ptr.i567.i
   br i1 %cmp.not.i8.i584.i, label %_ZN4llvh12DenseMapBaseINS_8DenseMapIPN6hermes5ValueES4_NS_12DenseMapInfoIS4_EENS_6detail12DenseMapPairIS4_S4_EEEES4_S4_S6_S9_E18moveFromOldBucketsEPS9_SC_.exit.i585.i, label %for.body.i5.i579.i, !llvm.loop !8
 
@@ -2646,7 +2492,7 @@ if.then.i542.i:                                   ; preds = %if.then10.i470.i
 for.body.i.i.i:                                   ; preds = %if.then.i542.i, %for.body.i.i.i
   %B.04.i.i.i = phi ptr [ %incdec.ptr.i.i.i, %for.body.i.i.i ], [ %call.i.i.i48, %if.then.i542.i ]
   store ptr inttoptr (i64 -8 to ptr), ptr %B.04.i.i.i, align 8
-  %incdec.ptr.i.i.i = getelementptr inbounds %"struct.llvh::detail::DenseMapPair", ptr %B.04.i.i.i, i64 1
+  %incdec.ptr.i.i.i = getelementptr inbounds i8, ptr %B.04.i.i.i, i64 16
   %cmp.not.i.i.i = icmp eq ptr %incdec.ptr.i.i.i, %add.ptr.i.i.i545.i
   br i1 %cmp.not.i.i.i, label %_ZN4llvh8DenseMapIPN6hermes5ValueES3_NS_12DenseMapInfoIS3_EENS_6detail12DenseMapPairIS3_S3_EEE4growEj.exit.i, label %for.body.i.i.i, !llvm.loop !7
 
@@ -2664,7 +2510,7 @@ if.end.i507.i:                                    ; preds = %if.then10.i470.i
 for.body.i.i.i.i:                                 ; preds = %if.end.i507.i, %for.body.i.i.i.i
   %B.04.i.i.i.i = phi ptr [ %incdec.ptr.i.i.i.i, %for.body.i.i.i.i ], [ %call.i.i.i48, %if.end.i507.i ]
   store ptr inttoptr (i64 -8 to ptr), ptr %B.04.i.i.i.i, align 8
-  %incdec.ptr.i.i.i.i = getelementptr inbounds %"struct.llvh::detail::DenseMapPair", ptr %B.04.i.i.i.i, i64 1
+  %incdec.ptr.i.i.i.i = getelementptr inbounds i8, ptr %B.04.i.i.i.i, i64 16
   %cmp.not.i.i.i.i = icmp eq ptr %incdec.ptr.i.i.i.i, %add.ptr.i.i.i.i510.i
   br i1 %cmp.not.i.i.i.i, label %_ZN4llvh12DenseMapBaseINS_8DenseMapIPN6hermes5ValueES4_NS_12DenseMapInfoIS4_EENS_6detail12DenseMapPairIS4_S4_EEEES4_S4_S6_S9_E9initEmptyEv.exit.i.i.i, label %for.body.i.i.i.i, !llvm.loop !7
 
@@ -2728,8 +2574,8 @@ if.end13.i.i.i.i528.i:                            ; preds = %if.end9.i.i.i.i522.
 _ZN4llvh12DenseMapBaseINS_8DenseMapIPN6hermes5ValueES4_NS_12DenseMapInfoIS4_EENS_6detail12DenseMapPairIS4_S4_EEEES4_S4_S6_S9_E15LookupBucketForIS4_EEbRKT_RPS9_.exit.i.i.i: ; preds = %if.end13.i.i.i.i528.i, %if.then12.i.i.i.i539.i, %if.then.i.i511.i
   %cond.sink.i.i.i.i537.i = phi ptr [ %cond.i.i.i.i541.i, %if.then12.i.i.i.i539.i ], [ %add.ptr21.i.i.i.i520.i, %if.then.i.i511.i ], [ %add.ptr.i.i12.i.i.i, %if.end13.i.i.i.i528.i ]
   store ptr %285, ptr %cond.sink.i.i.i.i537.i, align 8
-  %second.i.i.i.i = getelementptr inbounds %"struct.std::pair.184", ptr %cond.sink.i.i.i.i537.i, i64 0, i32 1
-  %second.i13.i.i.i = getelementptr inbounds %"struct.std::pair.184", ptr %B.020.i.i.i, i64 0, i32 1
+  %second.i.i.i.i = getelementptr inbounds i8, ptr %cond.sink.i.i.i.i537.i, i64 8
+  %second.i13.i.i.i = getelementptr inbounds i8, ptr %B.020.i.i.i, i64 8
   %291 = load ptr, ptr %second.i13.i.i.i, align 8
   store ptr %291, ptr %second.i.i.i.i, align 8
   %292 = load i32, ptr %NumEntries.i.i.i377, align 8
@@ -2738,7 +2584,7 @@ _ZN4llvh12DenseMapBaseINS_8DenseMapIPN6hermes5ValueES4_NS_12DenseMapInfoIS4_EENS
   br label %if.end.i6.i.i
 
 if.end.i6.i.i:                                    ; preds = %_ZN4llvh12DenseMapBaseINS_8DenseMapIPN6hermes5ValueES4_NS_12DenseMapInfoIS4_EENS_6detail12DenseMapPairIS4_S4_EEEES4_S4_S6_S9_E15LookupBucketForIS4_EEbRKT_RPS9_.exit.i.i.i, %for.body.i5.i.i, %for.body.i5.i.i
-  %incdec.ptr.i7.i.i = getelementptr inbounds %"struct.llvh::detail::DenseMapPair", ptr %B.020.i.i.i, i64 1
+  %incdec.ptr.i7.i.i = getelementptr inbounds i8, ptr %B.020.i.i.i, i64 16
   %cmp.not.i8.i.i = icmp eq ptr %incdec.ptr.i7.i.i, %add.ptr.i508.i
   br i1 %cmp.not.i8.i.i, label %_ZN4llvh12DenseMapBaseINS_8DenseMapIPN6hermes5ValueES4_NS_12DenseMapInfoIS4_EENS_6detail12DenseMapPairIS4_S4_EEEES4_S4_S6_S9_E18moveFromOldBucketsEPS9_SC_.exit.i.i, label %for.body.i5.i.i, !llvm.loop !8
 
@@ -2813,19 +2659,19 @@ if.then16.i457.i:                                 ; preds = %if.end12.i453.i
 
 _ZN4llvh12DenseMapBaseINS_8DenseMapIPN6hermes5ValueES4_NS_12DenseMapInfoIS4_EENS_6detail12DenseMapPairIS4_S4_EEEES4_S4_S6_S9_E20InsertIntoBucketImplIS4_EEPS9_RKS4_RKT_SD_.exit502.i: ; preds = %if.then16.i457.i, %if.end12.i453.i
   store ptr %add.ptr.i.i.i.i.i.i.i, ptr %TheBucket.addr.0.i454.i, align 8
-  %second.i.i.i.i355.i = getelementptr inbounds %"struct.std::pair.184", ptr %TheBucket.addr.0.i454.i, i64 0, i32 1
+  %second.i.i.i.i355.i = getelementptr inbounds i8, ptr %TheBucket.addr.0.i454.i, i64 8
   store ptr null, ptr %second.i.i.i.i355.i, align 8
   br label %_ZN4llvh12DenseMapBaseINS_8DenseMapIPN6hermes5ValueES4_NS_12DenseMapInfoIS4_EENS_6detail12DenseMapPairIS4_S4_EEEES4_S4_S6_S9_EixEOS4_.exit356.i
 
 _ZN4llvh12DenseMapBaseINS_8DenseMapIPN6hermes5ValueES4_NS_12DenseMapInfoIS4_EENS_6detail12DenseMapPairIS4_S4_EEEES4_S4_S6_S9_EixEOS4_.exit356.i: ; preds = %if.end13.i.i.i.i336.i, %_ZN4llvh12DenseMapBaseINS_8DenseMapIPN6hermes5ValueES4_NS_12DenseMapInfoIS4_EENS_6detail12DenseMapPairIS4_S4_EEEES4_S4_S6_S9_E20InsertIntoBucketImplIS4_EEPS9_RKS4_RKT_SD_.exit502.i, %if.end.i.i.i.i320.i
   %retval.0.i.i347.i = phi ptr [ %TheBucket.addr.0.i454.i, %_ZN4llvh12DenseMapBaseINS_8DenseMapIPN6hermes5ValueES4_NS_12DenseMapInfoIS4_EENS_6detail12DenseMapPairIS4_S4_EEEES4_S4_S6_S9_E20InsertIntoBucketImplIS4_EEPS9_RKS4_RKT_SD_.exit502.i ], [ %add.ptr21.i.i.i.i328.i, %if.end.i.i.i.i320.i ], [ %add.ptr.i.i.i.i345.i, %if.end13.i.i.i.i336.i ]
-  %second.i348.i = getelementptr inbounds %"struct.std::pair.184", ptr %retval.0.i.i347.i, i64 0, i32 1
+  %second.i348.i = getelementptr inbounds i8, ptr %retval.0.i.i347.i, i64 8
   store ptr %spec.select5.i, ptr %second.i348.i, align 8
-  %statementIndex_.i.i = getelementptr inbounds %"class.hermes::Instruction", ptr %newInst.0.i, i64 0, i32 6
+  %statementIndex_.i.i = getelementptr inbounds i8, ptr %newInst.0.i, i64 128
   %301 = load i32, ptr %statementIndex_.i.i, align 8
   %add149.i = add i32 %301, %spec.select647.i
   store i32 %add149.i, ptr %statementIndex_.i.i, align 8
-  %Next.i.i.i.i45 = getelementptr inbounds %"class.llvh::ilist_node_base", ptr %__begin287.sroa.0.0692.i, i64 0, i32 1
+  %Next.i.i.i.i45 = getelementptr inbounds i8, ptr %__begin287.sroa.0.0692.i, i64 8
   %__begin287.sroa.0.0.i = load ptr, ptr %Next.i.i.i.i45, align 8
   %cmp.i.not.i46 = icmp eq ptr %__begin287.sroa.0.0.i, %InstList.i.i42
   br i1 %cmp.i.not.i46, label %for.inc153.i, label %for.body94.i
@@ -2834,7 +2680,7 @@ for.inc153.i:                                     ; preds = %_ZN4llvh12DenseMapB
   %inlineeParentScopeCreation.1.lcssa.i = phi ptr [ %inlineeParentScopeCreation.0696.i, %_ZN4llvh12DenseMapBaseINS_8DenseMapIPN6hermes5ValueES4_NS_12DenseMapInfoIS4_EENS_6detail12DenseMapPairIS4_S4_EEEES4_S4_S6_S9_EixEOS4_.exit253.i ], [ %inlineeParentScopeCreation.5.i, %_ZN4llvh12DenseMapBaseINS_8DenseMapIPN6hermes5ValueES4_NS_12DenseMapInfoIS4_EENS_6detail12DenseMapPairIS4_S4_EEEES4_S4_S6_S9_EixEOS4_.exit356.i ]
   %returnFrom.1.lcssa.i = phi ptr [ %returnFrom.0698.i, %_ZN4llvh12DenseMapBaseINS_8DenseMapIPN6hermes5ValueES4_NS_12DenseMapInfoIS4_EENS_6detail12DenseMapPairIS4_S4_EEEES4_S4_S6_S9_EixEOS4_.exit253.i ], [ %returnFrom.3.i, %_ZN4llvh12DenseMapBaseINS_8DenseMapIPN6hermes5ValueES4_NS_12DenseMapInfoIS4_EENS_6detail12DenseMapPairIS4_S4_EEEES4_S4_S6_S9_EixEOS4_.exit356.i ]
   %returnValue.1.lcssa.i = phi ptr [ %returnValue.0699.i, %_ZN4llvh12DenseMapBaseINS_8DenseMapIPN6hermes5ValueES4_NS_12DenseMapInfoIS4_EENS_6detail12DenseMapPairIS4_S4_EEEES4_S4_S6_S9_EixEOS4_.exit253.i ], [ %returnValue.3.i, %_ZN4llvh12DenseMapBaseINS_8DenseMapIPN6hermes5ValueES4_NS_12DenseMapInfoIS4_EENS_6detail12DenseMapPairIS4_S4_EEEES4_S4_S6_S9_EixEOS4_.exit356.i ]
-  %incdec.ptr154.i = getelementptr inbounds ptr, ptr %__begin171.0697.i, i64 1
+  %incdec.ptr154.i = getelementptr inbounds i8, ptr %__begin171.0697.i, i64 8
   %cmp76.not.i = icmp eq ptr %incdec.ptr154.i, %add.ptr.i.i40
   br i1 %cmp76.not.i, label %for.end155.i, label %for.body77.i
 
@@ -2945,7 +2791,7 @@ if.then.i539:                                     ; preds = %if.then.i55
 for.body.i.i545:                                  ; preds = %if.then.i539, %for.body.i.i545
   %B.04.i.i546 = phi ptr [ %incdec.ptr.i.i547, %for.body.i.i545 ], [ %call.i.i480, %if.then.i539 ]
   store ptr inttoptr (i64 -8 to ptr), ptr %B.04.i.i546, align 8
-  %incdec.ptr.i.i547 = getelementptr inbounds %"struct.llvh::detail::DenseMapPair", ptr %B.04.i.i546, i64 1
+  %incdec.ptr.i.i547 = getelementptr inbounds i8, ptr %B.04.i.i546, i64 16
   %cmp.not.i.i548 = icmp eq ptr %incdec.ptr.i.i547, %add.ptr.i.i.i543
   br i1 %cmp.not.i.i548, label %_ZN4llvh8DenseMapIPN6hermes5ValueES3_NS_12DenseMapInfoIS3_EENS_6detail12DenseMapPairIS3_S3_EEE4growEj.exit549, label %for.body.i.i545, !llvm.loop !7
 
@@ -2963,7 +2809,7 @@ if.end.i482:                                      ; preds = %if.then.i55
 for.body.i.i.i490:                                ; preds = %if.end.i482, %for.body.i.i.i490
   %B.04.i.i.i491 = phi ptr [ %incdec.ptr.i.i.i492, %for.body.i.i.i490 ], [ %call.i.i480, %if.end.i482 ]
   store ptr inttoptr (i64 -8 to ptr), ptr %B.04.i.i.i491, align 8
-  %incdec.ptr.i.i.i492 = getelementptr inbounds %"struct.llvh::detail::DenseMapPair", ptr %B.04.i.i.i491, i64 1
+  %incdec.ptr.i.i.i492 = getelementptr inbounds i8, ptr %B.04.i.i.i491, i64 16
   %cmp.not.i.i.i493 = icmp eq ptr %incdec.ptr.i.i.i492, %add.ptr.i.i.i.i488
   br i1 %cmp.not.i.i.i493, label %_ZN4llvh12DenseMapBaseINS_8DenseMapIPN6hermes5ValueES4_NS_12DenseMapInfoIS4_EENS_6detail12DenseMapPairIS4_S4_EEEES4_S4_S6_S9_E9initEmptyEv.exit.i.i494, label %for.body.i.i.i490, !llvm.loop !7
 
@@ -3027,8 +2873,8 @@ if.end13.i.i.i.i520:                              ; preds = %if.end9.i.i.i.i514
 _ZN4llvh12DenseMapBaseINS_8DenseMapIPN6hermes5ValueES4_NS_12DenseMapInfoIS4_EENS_6detail12DenseMapPairIS4_S4_EEEES4_S4_S6_S9_E15LookupBucketForIS4_EEbRKT_RPS9_.exit.i.i531: ; preds = %if.end13.i.i.i.i520, %if.then12.i.i.i.i536, %if.then.i.i503
   %cond.sink.i.i.i.i532 = phi ptr [ %cond.i.i.i.i538, %if.then12.i.i.i.i536 ], [ %add.ptr21.i.i.i.i512, %if.then.i.i503 ], [ %add.ptr.i.i12.i.i529, %if.end13.i.i.i.i520 ]
   store ptr %315, ptr %cond.sink.i.i.i.i532, align 8
-  %second.i.i.i533 = getelementptr inbounds %"struct.std::pair.184", ptr %cond.sink.i.i.i.i532, i64 0, i32 1
-  %second.i13.i.i534 = getelementptr inbounds %"struct.std::pair.184", ptr %B.020.i.i497, i64 0, i32 1
+  %second.i.i.i533 = getelementptr inbounds i8, ptr %cond.sink.i.i.i.i532, i64 8
+  %second.i13.i.i534 = getelementptr inbounds i8, ptr %B.020.i.i497, i64 8
   %321 = load ptr, ptr %second.i13.i.i534, align 8
   store ptr %321, ptr %second.i.i.i533, align 8
   %322 = load i32, ptr %NumEntries.i.i.i377, align 8
@@ -3037,7 +2883,7 @@ _ZN4llvh12DenseMapBaseINS_8DenseMapIPN6hermes5ValueES4_NS_12DenseMapInfoIS4_EENS
   br label %if.end.i6.i499
 
 if.end.i6.i499:                                   ; preds = %_ZN4llvh12DenseMapBaseINS_8DenseMapIPN6hermes5ValueES4_NS_12DenseMapInfoIS4_EENS_6detail12DenseMapPairIS4_S4_EEEES4_S4_S6_S9_E15LookupBucketForIS4_EEbRKT_RPS9_.exit.i.i531, %for.body.i5.i496, %for.body.i5.i496
-  %incdec.ptr.i7.i500 = getelementptr inbounds %"struct.llvh::detail::DenseMapPair", ptr %B.020.i.i497, i64 1
+  %incdec.ptr.i7.i500 = getelementptr inbounds i8, ptr %B.020.i.i497, i64 16
   %cmp.not.i8.i501 = icmp eq ptr %incdec.ptr.i7.i500, %add.ptr.i484
   br i1 %cmp.not.i8.i501, label %_ZN4llvh12DenseMapBaseINS_8DenseMapIPN6hermes5ValueES4_NS_12DenseMapInfoIS4_EENS_6detail12DenseMapPairIS4_S4_EEEES4_S4_S6_S9_E18moveFromOldBucketsEPS9_SC_.exit.i502, label %for.body.i5.i496, !llvm.loop !8
 
@@ -3170,13 +3016,13 @@ if.then16.i:                                      ; preds = %if.end12.i
 
 _ZN4llvh12DenseMapBaseINS_8DenseMapIPN6hermes5ValueES4_NS_12DenseMapInfoIS4_EENS_6detail12DenseMapPairIS4_S4_EEEES4_S4_S6_S9_E20InsertIntoBucketImplIS4_EEPS9_RKS4_RKT_SD_.exit: ; preds = %if.end12.i, %if.then16.i
   store ptr %add.ptr166.i, ptr %TheBucket.addr.0.i, align 8
-  %second.i.i.i.i397.i = getelementptr inbounds %"struct.std::pair.184", ptr %TheBucket.addr.0.i, i64 0, i32 1
+  %second.i.i.i.i397.i = getelementptr inbounds i8, ptr %TheBucket.addr.0.i, i64 8
   store ptr null, ptr %second.i.i.i.i397.i, align 8
   br label %_ZN4llvh12DenseMapBaseINS_8DenseMapIPN6hermes5ValueES4_NS_12DenseMapInfoIS4_EENS_6detail12DenseMapPairIS4_S4_EEEES4_S4_S6_S9_EixEOS4_.exit398.i
 
 _ZN4llvh12DenseMapBaseINS_8DenseMapIPN6hermes5ValueES4_NS_12DenseMapInfoIS4_EENS_6detail12DenseMapPairIS4_S4_EEEES4_S4_S6_S9_EixEOS4_.exit398.i: ; preds = %if.end13.i.i.i.i378.i, %_ZN4llvh12DenseMapBaseINS_8DenseMapIPN6hermes5ValueES4_NS_12DenseMapInfoIS4_EENS_6detail12DenseMapPairIS4_S4_EEEES4_S4_S6_S9_E20InsertIntoBucketImplIS4_EEPS9_RKS4_RKT_SD_.exit, %if.end.i.i.i.i362.i
   %retval.0.i.i389.i = phi ptr [ %TheBucket.addr.0.i, %_ZN4llvh12DenseMapBaseINS_8DenseMapIPN6hermes5ValueES4_NS_12DenseMapInfoIS4_EENS_6detail12DenseMapPairIS4_S4_EEEES4_S4_S6_S9_E20InsertIntoBucketImplIS4_EEPS9_RKS4_RKT_SD_.exit ], [ %add.ptr21.i.i.i.i370.i, %if.end.i.i.i.i362.i ], [ %add.ptr.i.i.i.i387.i, %if.end13.i.i.i.i378.i ]
-  %second.i390.i = getelementptr inbounds %"struct.std::pair.184", ptr %retval.0.i.i389.i, i64 0, i32 1
+  %second.i390.i = getelementptr inbounds i8, ptr %retval.0.i.i389.i, i64 8
   %338 = load ptr, ptr %second.i390.i, align 8
   %339 = icmp eq ptr %338, null
   %sub.ptr.i.i399.i = getelementptr inbounds i8, ptr %338, i64 -16
@@ -3201,7 +3047,7 @@ for.body175.i:                                    ; preds = %for.body175.i, %for
   br i1 %cmp174.not.i, label %for.inc181.i, label %for.body175.i, !llvm.loop !9
 
 for.inc181.i:                                     ; preds = %for.body175.i, %_ZN4llvh12DenseMapBaseINS_8DenseMapIPN6hermes5ValueES4_NS_12DenseMapInfoIS4_EENS_6detail12DenseMapPairIS4_S4_EEEES4_S4_S6_S9_EixEOS4_.exit398.i
-  %incdec.ptr182.i = getelementptr inbounds ptr, ptr %__begin1157.0704.i, i64 1
+  %incdec.ptr182.i = getelementptr inbounds i8, ptr %__begin1157.0704.i, i64 8
   %cmp162.not.i = icmp eq ptr %incdec.ptr182.i, %add.ptr.i235.i
   br i1 %cmp162.not.i, label %for.end183.i, label %for.body163.i
 
@@ -3260,13 +3106,13 @@ _ZN6hermesL14inlineFunctionERNS_9IRBuilderEPNS_8FunctionEPNS_8CallInstEPNS_10Bas
 
 for.inc:                                          ; preds = %if.then.i.i.i, %_ZN6hermesL12canBeInlinedEPNS_8FunctionES1_.exit.thread, %_ZN6hermesL12canBeInlinedEPNS_8FunctionES1_.exit, %if.end26, %if.end16, %lor.lhs.false, %for.body12, %_ZN6hermesL14inlineFunctionERNS_9IRBuilderEPNS_8FunctionEPNS_8CallInstEPNS_10BasicBlockE.exit
   %changed.2 = phi i8 [ %changed.1908, %lor.lhs.false ], [ 1, %_ZN6hermesL14inlineFunctionERNS_9IRBuilderEPNS_8FunctionEPNS_8CallInstEPNS_10BasicBlockE.exit ], [ %changed.1908, %_ZN6hermesL12canBeInlinedEPNS_8FunctionES1_.exit ], [ %changed.1908, %if.end26 ], [ %changed.1908, %if.end16 ], [ %changed.1908, %for.body12 ], [ %changed.1908, %_ZN6hermesL12canBeInlinedEPNS_8FunctionES1_.exit.thread ], [ %changed.1908, %if.then.i.i.i ]
-  %incdec.ptr = getelementptr inbounds ptr, ptr %__begin2.0907, i64 1
+  %incdec.ptr = getelementptr inbounds i8, ptr %__begin2.0907, i64 8
   %cmp.not = icmp eq ptr %incdec.ptr, %add.ptr.i
   br i1 %cmp.not, label %for.inc55, label %for.body12
 
 for.inc55:                                        ; preds = %for.inc, %for.body
   %changed.1.lcssa = phi i8 [ %changed.0911, %for.body ], [ %changed.2, %for.inc ]
-  %Next.i.i.i52 = getelementptr inbounds %"class.llvh::ilist_node_base", ptr %__begin1.sroa.0.0912, i64 0, i32 1
+  %Next.i.i.i52 = getelementptr inbounds i8, ptr %__begin1.sroa.0.0912, i64 8
   %__begin1.sroa.0.0 = load ptr, ptr %Next.i.i.i52, align 8
   %cmp.i.not = icmp eq ptr %__begin1.sroa.0.0, %FunctionList.i
   br i1 %cmp.i.not, label %for.end57.loopexit, label %for.body
@@ -3303,11 +3149,11 @@ declare void @_ZN6hermes11Instruction15eraseFromParentEv(ptr noundef nonnull ali
 define hidden void @_ZN6hermes14createInliningEv(ptr noalias nocapture writeonly sret(%"class.std::unique_ptr.133") align 8 %agg.result) local_unnamed_addr #0 {
 _ZNSt10unique_ptrIN6hermes8InliningESt14default_deleteIS1_EED2Ev.exit:
   %call.i = tail call noalias noundef nonnull dereferenceable(32) ptr @_Znwm(i64 noundef 32) #13, !noalias !10
-  %kind.i.i.i.i = getelementptr inbounds %"class.hermes::Pass", ptr %call.i, i64 0, i32 1
+  %kind.i.i.i.i = getelementptr inbounds i8, ptr %call.i, i64 8
   store i32 1, ptr %kind.i.i.i.i, align 8, !noalias !10
-  %name2.i.i.i.i = getelementptr inbounds %"class.hermes::Pass", ptr %call.i, i64 0, i32 2
+  %name2.i.i.i.i = getelementptr inbounds i8, ptr %call.i, i64 16
   store ptr @.str.2, ptr %name2.i.i.i.i, align 8, !noalias !10
-  %name.sroa.2.0.name2.sroa_idx.i.i.i.i = getelementptr inbounds %"class.hermes::Pass", ptr %call.i, i64 0, i32 2, i32 1
+  %name.sroa.2.0.name2.sroa_idx.i.i.i.i = getelementptr inbounds i8, ptr %call.i, i64 24
   store i64 8, ptr %name.sroa.2.0.name2.sroa_idx.i.i.i.i, align 8, !noalias !10
   store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN6hermes8InliningE, i64 0, inrange i32 0, i64 2), ptr %call.i, align 8, !noalias !10
   store ptr %call.i, ptr %agg.result, align 8
@@ -3340,19 +3186,19 @@ entry:
   %BB = alloca ptr, align 8
   %add.ptr.i.i.i.i.i = getelementptr inbounds i8, ptr %agg.result, i64 16
   store ptr %add.ptr.i.i.i.i.i, ptr %agg.result, align 8
-  %Size.i.i.i.i.i = getelementptr inbounds %"class.llvh::SmallVectorBase", ptr %agg.result, i64 0, i32 1
+  %Size.i.i.i.i.i = getelementptr inbounds i8, ptr %agg.result, i64 8
   store i32 0, ptr %Size.i.i.i.i.i, align 8
-  %Capacity2.i.i.i.i.i = getelementptr inbounds %"class.llvh::SmallVectorBase", ptr %agg.result, i64 0, i32 2
+  %Capacity2.i.i.i.i.i = getelementptr inbounds i8, ptr %agg.result, i64 12
   store i32 4, ptr %Capacity2.i.i.i.i.i, align 4
   %add.ptr.i.i.i.i.i2 = getelementptr inbounds i8, ptr %stack, i64 16
   store ptr %add.ptr.i.i.i.i.i2, ptr %stack, align 8
-  %Size.i.i.i.i.i3 = getelementptr inbounds %"class.llvh::SmallVectorBase", ptr %stack, i64 0, i32 1
-  %Capacity2.i.i.i.i.i4 = getelementptr inbounds %"class.llvh::SmallVectorBase", ptr %stack, i64 0, i32 2
+  %Size.i.i.i.i.i3 = getelementptr inbounds i8, ptr %stack, i64 8
+  %Capacity2.i.i.i.i.i4 = getelementptr inbounds i8, ptr %stack, i64 12
   store i32 4, ptr %Capacity2.i.i.i.i.i4, align 4
   %0 = getelementptr inbounds i8, ptr %visited, i64 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %0, i8 0, i64 32, i1 false)
   store i32 1, ptr %visited, align 8
-  %1 = getelementptr inbounds %"class.llvh::SmallDenseMap.157", ptr %visited, i64 0, i32 1
+  %1 = getelementptr inbounds i8, ptr %visited, i64 4
   store i32 0, ptr %1, align 4
   br label %for.body.i.i.i.i.i
 
@@ -3365,13 +3211,13 @@ for.body.i.i.i.i.i:                               ; preds = %for.body.i.i.i.i.i,
   br i1 %cmp.not.i.i.i.i.i, label %while.body.lr.ph, label %for.body.i.i.i.i.i, !llvm.loop !13
 
 while.body.lr.ph:                                 ; preds = %for.body.i.i.i.i.i
-  %Next.i.i.i.i.i = getelementptr inbounds %"class.hermes::Function", ptr %F, i64 0, i32 5, i32 0, i32 0, i32 0, i32 0, i32 0, i32 1
+  %Next.i.i.i.i.i = getelementptr inbounds i8, ptr %F, i64 88
   %2 = load ptr, ptr %Next.i.i.i.i.i, align 8
   %3 = ptrtoint ptr %2 to i64
   store i64 %3, ptr %add.ptr.i.i.i.i.i2, align 8
   store i32 1, ptr %Size.i.i.i.i.i3, align 8
-  %storage.i.i.i.i.i.i.i = getelementptr inbounds %"class.llvh::SmallDenseMap.157", ptr %visited, i64 0, i32 2
-  %NumBuckets.i.i.i.i.i.i = getelementptr inbounds %"class.llvh::SmallDenseMap.157", ptr %visited, i64 0, i32 2, i32 0, i32 0, i64 8
+  %storage.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %visited, i64 8
+  %NumBuckets.i.i.i.i.i.i = getelementptr inbounds i8, ptr %visited, i64 16
   br label %while.body
 
 while.condthread-pre-split:                       ; preds = %if.end13.i.i.i.i, %_ZN4llvh23SmallVectorTemplateBaseIPN6hermes10BasicBlockELb1EE9push_backERKS3_.exit33, %_ZN6hermes10successorsEPNS_10BasicBlockE.exit.while.condthread-pre-split_crit_edge, %if.end.i.i.i.i
@@ -3384,7 +3230,7 @@ while.body:                                       ; preds = %while.body.lr.ph, %
   %5 = load ptr, ptr %stack, align 8
   %conv.i.i = zext i32 %4 to i64
   %add.ptr.i.i6 = getelementptr inbounds ptr, ptr %5, i64 %conv.i.i
-  %arrayidx.i = getelementptr inbounds ptr, ptr %add.ptr.i.i6, i64 -1
+  %arrayidx.i = getelementptr inbounds i8, ptr %add.ptr.i.i6, i64 -8
   %6 = load ptr, ptr %arrayidx.i, align 8
   store ptr %6, ptr %BB, align 8
   %sub.i = add i32 %4, -1
@@ -3517,7 +3363,7 @@ while.end:                                        ; preds = %while.condthread-pr
   br i1 %tobool.not.i.i.i.i35, label %if.end.i.i.i.i36, label %_ZN4llvh13SmallDenseSetIPN6hermes10BasicBlockELj4ENS_12DenseMapInfoIS3_EEED2Ev.exit
 
 if.end.i.i.i.i36:                                 ; preds = %while.end
-  %storage.i.i.i.i.i.i = getelementptr inbounds %"class.llvh::SmallDenseMap.157", ptr %visited, i64 0, i32 2
+  %storage.i.i.i.i.i.i = getelementptr inbounds i8, ptr %visited, i64 8
   %28 = load ptr, ptr %storage.i.i.i.i.i.i, align 8
   call void @_ZdlPv(ptr noundef %28) #11
   br label %_ZN4llvh13SmallDenseSetIPN6hermes10BasicBlockELj4ENS_12DenseMapInfoIS3_EEED2Ev.exit
@@ -3550,7 +3396,7 @@ entry:
   %bf.lshr.i.i = lshr i32 %bf.load.i.i, 1
   %bf.clear.i.i = and i32 %bf.load.i.i, 1
   %tobool.not.i.i = icmp eq i32 %bf.clear.i.i, 0
-  %NumBuckets.i.i = getelementptr inbounds %"class.llvh::SmallDenseMap.157", ptr %this, i64 0, i32 2, i32 0, i32 0, i64 8
+  %NumBuckets.i.i = getelementptr inbounds i8, ptr %this, i64 16
   %0 = load i32, ptr %NumBuckets.i.i, align 8
   %cond.i.i = select i1 %tobool.not.i.i, i32 %0, i32 4
   %add = shl i32 %bf.lshr.i.i, 2
@@ -3565,7 +3411,7 @@ if.then:                                          ; preds = %entry
   %bf.load.i.i.i.i = load i32, ptr %this, align 8
   %bf.clear.i.i.i.i = and i32 %bf.load.i.i.i.i, 1
   %tobool.not.i.i.i.i = icmp eq i32 %bf.clear.i.i.i.i, 0
-  %storage.i.i.i.i.i = getelementptr inbounds %"class.llvh::SmallDenseMap.157", ptr %this, i64 0, i32 2
+  %storage.i.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 8
   %1 = load ptr, ptr %storage.i.i.i.i.i, align 8
   %cond.i.i.i.i = select i1 %tobool.not.i.i.i.i, ptr %1, ptr %storage.i.i.i.i.i
   %2 = load i32, ptr %NumBuckets.i.i, align 8
@@ -3617,7 +3463,7 @@ if.end13.i.i:                                     ; preds = %if.end9.i.i
   br i1 %cmp.i.i.i, label %if.end12, label %if.end9.i.i, !llvm.loop !19
 
 if.else:                                          ; preds = %entry
-  %NumTombstones.i.i = getelementptr inbounds %"class.llvh::SmallDenseMap.157", ptr %this, i64 0, i32 1
+  %NumTombstones.i.i = getelementptr inbounds i8, ptr %this, i64 4
   %8 = load i32, ptr %NumTombstones.i.i, align 4
   %add.neg = xor i32 %bf.lshr.i.i, -1
   %add8.neg = add i32 %cond.i.i, %add.neg
@@ -3631,7 +3477,7 @@ if.then10:                                        ; preds = %if.else
   %bf.load.i.i.i.i16 = load i32, ptr %this, align 8
   %bf.clear.i.i.i.i17 = and i32 %bf.load.i.i.i.i16, 1
   %tobool.not.i.i.i.i18 = icmp eq i32 %bf.clear.i.i.i.i17, 0
-  %storage.i.i.i.i.i19 = getelementptr inbounds %"class.llvh::SmallDenseMap.157", ptr %this, i64 0, i32 2
+  %storage.i.i.i.i.i19 = getelementptr inbounds i8, ptr %this, i64 8
   %9 = load ptr, ptr %storage.i.i.i.i.i19, align 8
   %cond.i.i.i.i20 = select i1 %tobool.not.i.i.i.i18, ptr %9, ptr %storage.i.i.i.i.i19
   %10 = load i32, ptr %NumBuckets.i.i, align 8
@@ -3695,7 +3541,7 @@ if.end12:                                         ; preds = %if.end13.i.i, %if.e
   br i1 %cmp.i, label %if.end17, label %if.then16
 
 if.then16:                                        ; preds = %if.end12
-  %NumTombstones.i.i.i = getelementptr inbounds %"class.llvh::SmallDenseMap.157", ptr %this, i64 0, i32 1
+  %NumTombstones.i.i.i = getelementptr inbounds i8, ptr %this, i64 4
   %17 = load i32, ptr %NumTombstones.i.i.i, align 4
   %sub.i = add i32 %17, -1
   store i32 %sub.i, ptr %NumTombstones.i.i.i, align 4
@@ -3742,7 +3588,7 @@ if.then5:                                         ; preds = %if.end
   br i1 %cmp6, label %return, label %if.end8
 
 if.end8:                                          ; preds = %if.then5
-  %storage.i.i.i = getelementptr inbounds %"class.llvh::SmallDenseMap.157", ptr %this, i64 0, i32 2
+  %storage.i.i.i = getelementptr inbounds i8, ptr %this, i64 8
   br label %for.body
 
 for.body:                                         ; preds = %if.end8, %if.end23
@@ -3758,7 +3604,7 @@ for.body:                                         ; preds = %if.end8, %if.end23
 
 if.then17:                                        ; preds = %for.body
   store ptr %1, ptr %TmpEnd.033, align 8
-  %incdec.ptr = getelementptr inbounds %"class.llvh::detail::DenseSetPair", ptr %TmpEnd.033, i64 1
+  %incdec.ptr = getelementptr inbounds i8, ptr %TmpEnd.033, i64 8
   br label %if.end23
 
 if.end23:                                         ; preds = %for.body, %for.body, %if.then17
@@ -3775,15 +3621,15 @@ for.end:                                          ; preds = %if.end23
   %mul.i = shl nuw nsw i64 %conv.i, 3
   %call.i = tail call noalias noundef nonnull ptr @_Znwm(i64 noundef %mul.i) #12
   store ptr %call.i, ptr %storage.i.i.i, align 8
-  %2 = getelementptr inbounds %"class.llvh::SmallDenseMap.157", ptr %this, i64 0, i32 2, i32 0, i32 0, i64 8
+  %2 = getelementptr inbounds i8, ptr %this, i64 16
   store i32 %AtLeast.addr.0, ptr %2, align 8
   call void @_ZN4llvh12DenseMapBaseINS_13SmallDenseMapIPN6hermes10BasicBlockENS_6detail13DenseSetEmptyELj4ENS_12DenseMapInfoIS4_EENS5_12DenseSetPairIS4_EEEES4_S6_S8_SA_E18moveFromOldBucketsEPSA_SD_(ptr noundef nonnull align 1 dereferenceable(1) %this, ptr noundef nonnull %TmpStorage, ptr noundef %TmpEnd.1)
   br label %return
 
 if.end30:                                         ; preds = %if.end
-  %storage.i.i22 = getelementptr inbounds %"class.llvh::SmallDenseMap.157", ptr %this, i64 0, i32 2
+  %storage.i.i22 = getelementptr inbounds i8, ptr %this, i64 8
   %OldRep.sroa.0.0.copyload = load ptr, ptr %storage.i.i22, align 8
-  %OldRep.sroa.4.0.call31.sroa_idx = getelementptr inbounds %"class.llvh::SmallDenseMap.157", ptr %this, i64 0, i32 2, i32 0, i32 0, i64 8
+  %OldRep.sroa.4.0.call31.sroa_idx = getelementptr inbounds i8, ptr %this, i64 16
   %OldRep.sroa.4.0.copyload = load i32, ptr %OldRep.sroa.4.0.call31.sroa_idx, align 8
   %cmp33 = icmp ult i32 %AtLeast.addr.0, 5
   br i1 %cmp33, label %if.then34, label %if.else
@@ -3818,13 +3664,13 @@ entry:
   %bf.load.i.i.i = load i32, ptr %this, align 8
   %bf.clear.i.i.i = and i32 %bf.load.i.i.i, 1
   store i32 %bf.clear.i.i.i, ptr %this, align 8
-  %NumTombstones.i.i.i = getelementptr inbounds %"class.llvh::SmallDenseMap.157", ptr %this, i64 0, i32 1
+  %NumTombstones.i.i.i = getelementptr inbounds i8, ptr %this, i64 4
   store i32 0, ptr %NumTombstones.i.i.i, align 4
   %tobool.not.i.i.i.i = icmp eq i32 %bf.clear.i.i.i, 0
-  %storage.i.i.i.i.i = getelementptr inbounds %"class.llvh::SmallDenseMap.157", ptr %this, i64 0, i32 2
+  %storage.i.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 8
   %0 = load ptr, ptr %storage.i.i.i.i.i, align 8
   %cond.i.i.i.i = select i1 %tobool.not.i.i.i.i, ptr %0, ptr %storage.i.i.i.i.i
-  %NumBuckets.i.i.i.i = getelementptr inbounds %"class.llvh::SmallDenseMap.157", ptr %this, i64 0, i32 2, i32 0, i32 0, i64 8
+  %NumBuckets.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 16
   %1 = load i32, ptr %NumBuckets.i.i.i.i, align 8
   %cond.i.i.i3.i = select i1 %tobool.not.i.i.i.i, i32 %1, i32 4
   %idx.ext.i.i = zext i32 %cond.i.i.i3.i to i64
@@ -3835,7 +3681,7 @@ entry:
 for.body.i:                                       ; preds = %entry, %for.body.i
   %B.05.i = phi ptr [ %incdec.ptr.i, %for.body.i ], [ %cond.i.i.i.i, %entry ]
   store ptr inttoptr (i64 -8 to ptr), ptr %B.05.i, align 8
-  %incdec.ptr.i = getelementptr inbounds %"class.llvh::detail::DenseSetPair", ptr %B.05.i, i64 1
+  %incdec.ptr.i = getelementptr inbounds i8, ptr %B.05.i, i64 8
   %cmp.not.i = icmp eq ptr %incdec.ptr.i, %add.ptr.i.i
   br i1 %cmp.not.i, label %_ZN4llvh12DenseMapBaseINS_13SmallDenseMapIPN6hermes10BasicBlockENS_6detail13DenseSetEmptyELj4ENS_12DenseMapInfoIS4_EENS5_12DenseSetPairIS4_EEEES4_S6_S8_SA_E9initEmptyEv.exit, label %for.body.i, !llvm.loop !13
 
@@ -3914,7 +3760,7 @@ _ZN4llvh12DenseMapBaseINS_13SmallDenseMapIPN6hermes10BasicBlockENS_6detail13Dens
   br label %if.end
 
 if.end:                                           ; preds = %for.body, %for.body, %_ZN4llvh12DenseMapBaseINS_13SmallDenseMapIPN6hermes10BasicBlockENS_6detail13DenseSetEmptyELj4ENS_12DenseMapInfoIS4_EENS5_12DenseSetPairIS4_EEEES4_S6_S8_SA_E15LookupBucketForIS4_EEbRKT_RPSA_.exit
-  %incdec.ptr = getelementptr inbounds %"class.llvh::detail::DenseSetPair", ptr %B.022, i64 1
+  %incdec.ptr = getelementptr inbounds i8, ptr %B.022, i64 8
   %cmp.not = icmp eq ptr %incdec.ptr, %OldBucketsEnd
   br i1 %cmp.not, label %for.end, label %for.body, !llvm.loop !25
 
@@ -3945,7 +3791,7 @@ define internal fastcc void @_ZN6hermesL15cloneScopesIntoEPNS_8FunctionEPNS_9Sco
 entry:
   %ref.tmp = alloca ptr, align 8
   %ref.tmp7 = alloca ptr, align 8
-  %function_.i = getelementptr inbounds %"class.hermes::ScopeDesc", ptr %currScopeDesc, i64 0, i32 4
+  %function_.i = getelementptr inbounds i8, ptr %currScopeDesc, i64 144
   %0 = load ptr, ptr %function_.i, align 8
   %cmp.not = icmp eq ptr %0, %F
   br i1 %cmp.not, label %if.end, label %for.end22
@@ -3953,7 +3799,7 @@ entry:
 if.end:                                           ; preds = %entry
   store ptr %currScopeDesc, ptr %ref.tmp, align 8
   %1 = load ptr, ptr %operandMap, align 8
-  %NumBuckets.i.i.i.i.i.i = getelementptr inbounds %"class.llvh::DenseMap.168", ptr %operandMap, i64 0, i32 3
+  %NumBuckets.i.i.i.i.i.i = getelementptr inbounds i8, ptr %operandMap, i64 16
   %2 = load i32, ptr %NumBuckets.i.i.i.i.i.i, align 8
   %cmp.i.i.i.i = icmp eq i32 %2, 0
   br i1 %cmp.i.i.i.i, label %if.end.i.i, label %if.end.i.i.i.i
@@ -4005,17 +3851,17 @@ if.end.i.i:                                       ; preds = %if.then12.i.i.i.i, 
   %call.i.i.i = call noundef ptr @_ZN4llvh12DenseMapBaseINS_8DenseMapIPN6hermes5ValueES4_NS_12DenseMapInfoIS4_EENS_6detail12DenseMapPairIS4_S4_EEEES4_S4_S6_S9_E20InsertIntoBucketImplIS4_EEPS9_RKS4_RKT_SD_(ptr noundef nonnull align 1 dereferenceable(1) %operandMap, ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp, ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp, ptr noundef %cond.sink.i.i.i.i)
   %7 = load ptr, ptr %ref.tmp, align 8
   store ptr %7, ptr %call.i.i.i, align 8
-  %second.i.i.i.i = getelementptr inbounds %"struct.std::pair.184", ptr %call.i.i.i, i64 0, i32 1
+  %second.i.i.i.i = getelementptr inbounds i8, ptr %call.i.i.i, i64 8
   store ptr null, ptr %second.i.i.i.i, align 8
   br label %_ZN4llvh12DenseMapBaseINS_8DenseMapIPN6hermes5ValueES4_NS_12DenseMapInfoIS4_EENS_6detail12DenseMapPairIS4_S4_EEEES4_S4_S6_S9_EixEOS4_.exit
 
 _ZN4llvh12DenseMapBaseINS_8DenseMapIPN6hermes5ValueES4_NS_12DenseMapInfoIS4_EENS_6detail12DenseMapPairIS4_S4_EEEES4_S4_S6_S9_EixEOS4_.exit: ; preds = %if.end13.i.i.i.i, %if.end.i.i.i.i, %if.end.i.i
   %retval.0.i.i = phi ptr [ %call.i.i.i, %if.end.i.i ], [ %add.ptr21.i.i.i.i, %if.end.i.i.i.i ], [ %add.ptr.i.i.i.i, %if.end13.i.i.i.i ]
-  %second.i = getelementptr inbounds %"struct.std::pair.184", ptr %retval.0.i.i, i64 0, i32 1
+  %second.i = getelementptr inbounds i8, ptr %retval.0.i.i, i64 8
   store ptr %newScope, ptr %second.i, align 8
-  %variables_.i = getelementptr inbounds %"class.hermes::ScopeDesc", ptr %currScopeDesc, i64 0, i32 5
+  %variables_.i = getelementptr inbounds i8, ptr %currScopeDesc, i64 152
   %8 = load ptr, ptr %variables_.i, align 8
-  %Size.i = getelementptr inbounds %"class.hermes::ScopeDesc", ptr %currScopeDesc, i64 0, i32 5, i32 0, i32 0, i32 0, i32 0, i32 1
+  %Size.i = getelementptr inbounds i8, ptr %currScopeDesc, i64 160
   %9 = load i32, ptr %Size.i, align 8
   %conv.i = zext i32 %9 to i64
   %add.ptr.i32 = getelementptr inbounds ptr, ptr %8, i64 %conv.i
@@ -4079,22 +3925,22 @@ if.end.i.i52:                                     ; preds = %if.then12.i.i.i.i49
   %call.i.i.i54 = call noundef ptr @_ZN4llvh12DenseMapBaseINS_8DenseMapIPN6hermes5ValueES4_NS_12DenseMapInfoIS4_EENS_6detail12DenseMapPairIS4_S4_EEEES4_S4_S6_S9_E20InsertIntoBucketImplIS4_EEPS9_RKS4_RKT_SD_(ptr noundef nonnull align 1 dereferenceable(1) %operandMap, ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp7, ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp7, ptr noundef %cond.sink.i.i.i.i53)
   %17 = load ptr, ptr %ref.tmp7, align 8
   store ptr %17, ptr %call.i.i.i54, align 8
-  %second.i.i.i.i55 = getelementptr inbounds %"struct.std::pair.184", ptr %call.i.i.i54, i64 0, i32 1
+  %second.i.i.i.i55 = getelementptr inbounds i8, ptr %call.i.i.i54, i64 8
   store ptr null, ptr %second.i.i.i.i55, align 8
   br label %_ZN4llvh12DenseMapBaseINS_8DenseMapIPN6hermes5ValueES4_NS_12DenseMapInfoIS4_EENS_6detail12DenseMapPairIS4_S4_EEEES4_S4_S6_S9_EixEOS4_.exit56
 
 _ZN4llvh12DenseMapBaseINS_8DenseMapIPN6hermes5ValueES4_NS_12DenseMapInfoIS4_EENS_6detail12DenseMapPairIS4_S4_EEEES4_S4_S6_S9_EixEOS4_.exit56: ; preds = %if.end13.i.i.i.i36, %if.end.i.i.i.i20, %if.end.i.i52
   %retval.0.i.i47 = phi ptr [ %call.i.i.i54, %if.end.i.i52 ], [ %add.ptr21.i.i.i.i28, %if.end.i.i.i.i20 ], [ %add.ptr.i.i.i.i45, %if.end13.i.i.i.i36 ]
-  %second.i48 = getelementptr inbounds %"struct.std::pair.184", ptr %retval.0.i.i47, i64 0, i32 1
+  %second.i48 = getelementptr inbounds i8, ptr %retval.0.i.i47, i64 8
   store ptr %call6, ptr %second.i48, align 8
-  %incdec.ptr = getelementptr inbounds ptr, ptr %__begin1.067, i64 1
+  %incdec.ptr = getelementptr inbounds i8, ptr %__begin1.067, i64 8
   %cmp5.not = icmp eq ptr %incdec.ptr, %add.ptr.i32
   br i1 %cmp5.not, label %for.end, label %for.body
 
 for.end:                                          ; preds = %_ZN4llvh12DenseMapBaseINS_8DenseMapIPN6hermes5ValueES4_NS_12DenseMapInfoIS4_EENS_6detail12DenseMapPairIS4_S4_EEEES4_S4_S6_S9_EixEOS4_.exit56, %_ZN4llvh12DenseMapBaseINS_8DenseMapIPN6hermes5ValueES4_NS_12DenseMapInfoIS4_EENS_6detail12DenseMapPairIS4_S4_EEEES4_S4_S6_S9_EixEOS4_.exit
-  %innerScopes_.i = getelementptr inbounds %"class.hermes::ScopeDesc", ptr %currScopeDesc, i64 0, i32 2
+  %innerScopes_.i = getelementptr inbounds i8, ptr %currScopeDesc, i64 48
   %18 = load ptr, ptr %innerScopes_.i, align 8
-  %Size.i57 = getelementptr inbounds %"class.hermes::ScopeDesc", ptr %currScopeDesc, i64 0, i32 2, i32 0, i32 0, i32 0, i32 0, i32 1
+  %Size.i57 = getelementptr inbounds i8, ptr %currScopeDesc, i64 56
   %19 = load i32, ptr %Size.i57, align 8
   %conv.i58 = zext i32 %19 to i64
   %add.ptr.i = getelementptr inbounds ptr, ptr %18, i64 %conv.i58
@@ -4102,48 +3948,48 @@ for.end:                                          ; preds = %_ZN4llvh12DenseMapB
   br i1 %cmp16.not68, label %for.end22, label %for.body17.lr.ph
 
 for.body17.lr.ph:                                 ; preds = %for.end
-  %innerScopes_.i59 = getelementptr inbounds %"class.hermes::ScopeDesc", ptr %newScope, i64 0, i32 2
-  %Size.i.i.i = getelementptr inbounds %"class.hermes::ScopeDesc", ptr %newScope, i64 0, i32 2, i32 0, i32 0, i32 0, i32 0, i32 1
-  %Capacity.i.i.i = getelementptr inbounds %"class.hermes::ScopeDesc", ptr %newScope, i64 0, i32 2, i32 0, i32 0, i32 0, i32 0, i32 2
-  %add.ptr.i.i.i.i.i = getelementptr inbounds %"class.hermes::ScopeDesc", ptr %newScope, i64 0, i32 2, i32 1
-  %function_.i60 = getelementptr inbounds %"class.hermes::ScopeDesc", ptr %newScope, i64 0, i32 4
+  %innerScopes_.i59 = getelementptr inbounds i8, ptr %newScope, i64 48
+  %Size.i.i.i = getelementptr inbounds i8, ptr %newScope, i64 56
+  %Capacity.i.i.i = getelementptr inbounds i8, ptr %newScope, i64 60
+  %add.ptr.i.i.i.i.i = getelementptr inbounds i8, ptr %newScope, i64 64
+  %function_.i60 = getelementptr inbounds i8, ptr %newScope, i64 144
   br label %for.body17
 
 for.body17:                                       ; preds = %for.body17.lr.ph, %_ZN6hermes9ScopeDesc16createInnerScopeEv.exit
   %__begin111.069 = phi ptr [ %18, %for.body17.lr.ph ], [ %incdec.ptr21, %_ZN6hermes9ScopeDesc16createInnerScopeEv.exit ]
   %20 = load ptr, ptr %__begin111.069, align 8
   %call.i = call noalias noundef nonnull dereferenceable(240) ptr @_Znwm(i64 noundef 240) #13
-  %valueType.i.i.i = getelementptr inbounds %"class.hermes::Value", ptr %call.i, i64 0, i32 1
+  %valueType.i.i.i = getelementptr inbounds i8, ptr %call.i, i64 2
   store i16 1023, ptr %valueType.i.i.i, align 2
-  %numBitmask_.i.i.i.i = getelementptr inbounds %"class.hermes::Value", ptr %call.i, i64 0, i32 1, i32 1
+  %numBitmask_.i.i.i.i = getelementptr inbounds i8, ptr %call.i, i64 4
   store i16 7, ptr %numBitmask_.i.i.i.i, align 2
-  %Users.i.i.i = getelementptr inbounds %"class.hermes::Value", ptr %call.i, i64 0, i32 2
-  %add.ptr.i.i.i.i.i.i.i.i = getelementptr inbounds %"class.hermes::Value", ptr %call.i, i64 0, i32 2, i32 1
+  %Users.i.i.i = getelementptr inbounds i8, ptr %call.i, i64 8
+  %add.ptr.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %call.i, i64 24
   store ptr %add.ptr.i.i.i.i.i.i.i.i, ptr %Users.i.i.i, align 8
-  %Size.i.i.i.i.i.i.i.i = getelementptr inbounds %"class.hermes::Value", ptr %call.i, i64 0, i32 2, i32 0, i32 0, i32 0, i32 0, i32 1
+  %Size.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %call.i, i64 16
   store i32 0, ptr %Size.i.i.i.i.i.i.i.i, align 8
-  %Capacity2.i.i.i.i.i.i.i.i = getelementptr inbounds %"class.hermes::Value", ptr %call.i, i64 0, i32 2, i32 0, i32 0, i32 0, i32 0, i32 2
+  %Capacity2.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %call.i, i64 20
   store i32 2, ptr %Capacity2.i.i.i.i.i.i.i.i, align 4
   store i8 120, ptr %call.i, align 8
-  %parent_.i.i = getelementptr inbounds %"class.hermes::ScopeDesc", ptr %call.i, i64 0, i32 1
+  %parent_.i.i = getelementptr inbounds i8, ptr %call.i, i64 40
   store ptr %newScope, ptr %parent_.i.i, align 8
-  %innerScopes_.i.i = getelementptr inbounds %"class.hermes::ScopeDesc", ptr %call.i, i64 0, i32 2
-  %add.ptr.i.i.i.i.i.i.i = getelementptr inbounds %"class.hermes::ScopeDesc", ptr %call.i, i64 0, i32 2, i32 1
+  %innerScopes_.i.i = getelementptr inbounds i8, ptr %call.i, i64 48
+  %add.ptr.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %call.i, i64 64
   store ptr %add.ptr.i.i.i.i.i.i.i, ptr %innerScopes_.i.i, align 8
-  %Size.i.i.i.i.i.i.i = getelementptr inbounds %"class.hermes::ScopeDesc", ptr %call.i, i64 0, i32 2, i32 0, i32 0, i32 0, i32 0, i32 1
+  %Size.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %call.i, i64 56
   store i32 0, ptr %Size.i.i.i.i.i.i.i, align 8
-  %Capacity2.i.i.i.i.i.i.i = getelementptr inbounds %"class.hermes::ScopeDesc", ptr %call.i, i64 0, i32 2, i32 0, i32 0, i32 0, i32 0, i32 2
+  %Capacity2.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %call.i, i64 60
   store i32 8, ptr %Capacity2.i.i.i.i.i.i.i, align 4
-  %serializedScope_.i.i = getelementptr inbounds %"class.hermes::ScopeDesc", ptr %call.i, i64 0, i32 3
-  %variables_.i.i = getelementptr inbounds %"class.hermes::ScopeDesc", ptr %call.i, i64 0, i32 5
-  %add.ptr.i.i.i.i.i1.i.i = getelementptr inbounds %"class.hermes::ScopeDesc", ptr %call.i, i64 0, i32 5, i32 1
+  %serializedScope_.i.i = getelementptr inbounds i8, ptr %call.i, i64 128
+  %variables_.i.i = getelementptr inbounds i8, ptr %call.i, i64 152
+  %add.ptr.i.i.i.i.i1.i.i = getelementptr inbounds i8, ptr %call.i, i64 168
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %serializedScope_.i.i, i8 0, i64 24, i1 false)
   store ptr %add.ptr.i.i.i.i.i1.i.i, ptr %variables_.i.i, align 8
-  %Size.i.i.i.i.i2.i.i = getelementptr inbounds %"class.hermes::ScopeDesc", ptr %call.i, i64 0, i32 5, i32 0, i32 0, i32 0, i32 0, i32 1
+  %Size.i.i.i.i.i2.i.i = getelementptr inbounds i8, ptr %call.i, i64 160
   store i32 0, ptr %Size.i.i.i.i.i2.i.i, align 8
-  %Capacity2.i.i.i.i.i3.i.i = getelementptr inbounds %"class.hermes::ScopeDesc", ptr %call.i, i64 0, i32 5, i32 0, i32 0, i32 0, i32 0, i32 2
+  %Capacity2.i.i.i.i.i3.i.i = getelementptr inbounds i8, ptr %call.i, i64 164
   store i32 8, ptr %Capacity2.i.i.i.i.i3.i.i, align 4
-  %dynamic_.i.i = getelementptr inbounds %"class.hermes::ScopeDesc", ptr %call.i, i64 0, i32 6
+  %dynamic_.i.i = getelementptr inbounds i8, ptr %call.i, i64 232
   store i8 0, ptr %dynamic_.i.i, align 8
   %21 = load i32, ptr %Size.i.i.i, align 8
   %22 = load i32, ptr %Capacity.i.i.i, align 4
@@ -4165,10 +4011,10 @@ _ZN6hermes9ScopeDesc16createInnerScopeEv.exit:    ; preds = %for.body17, %if.the
   %add.i.i = add i32 %25, 1
   store i32 %add.i.i, ptr %Size.i.i.i, align 8
   %26 = load ptr, ptr %function_.i60, align 8
-  %function_.i61 = getelementptr inbounds %"class.hermes::ScopeDesc", ptr %call.i, i64 0, i32 4
+  %function_.i61 = getelementptr inbounds i8, ptr %call.i, i64 144
   store ptr %26, ptr %function_.i61, align 8
   call fastcc void @_ZN6hermesL15cloneScopesIntoEPNS_8FunctionEPNS_9ScopeDescES3_RN4llvh8DenseMapIPNS_5ValueES7_NS4_12DenseMapInfoIS7_EENS4_6detail12DenseMapPairIS7_S7_EEEE(ptr noundef %F, ptr noundef %20, ptr noundef nonnull %call.i, ptr noundef nonnull align 8 dereferenceable(20) %operandMap)
-  %incdec.ptr21 = getelementptr inbounds ptr, ptr %__begin111.069, i64 1
+  %incdec.ptr21 = getelementptr inbounds i8, ptr %__begin111.069, i64 8
   %cmp16.not = icmp eq ptr %incdec.ptr21, %add.ptr.i
   br i1 %cmp16.not, label %for.end22, label %for.body17
 
@@ -4185,14 +4031,14 @@ define internal fastcc void @"_ZZN6hermesL14inlineFunctionERNS_9IRBuilderEPNS_8F
 entry:
   %oldOp = alloca ptr, align 8
   %0 = load ptr, ptr %this, align 8
-  %Size.i.i = getelementptr inbounds %"class.llvh::SmallVectorBase", ptr %0, i64 0, i32 1
+  %Size.i.i = getelementptr inbounds i8, ptr %0, i64 8
   store i32 0, ptr %Size.i.i, align 8
   %call = tail call noundef i32 @_ZNK6hermes11Instruction14getNumOperandsEv(ptr noundef nonnull align 8 dereferenceable(132) %I) #11
   %cmp.not29 = icmp eq i32 %call, 0
   br i1 %cmp.not29, label %for.end, label %for.body.lr.ph
 
 for.body.lr.ph:                                   ; preds = %entry
-  %1 = getelementptr inbounds %class.anon, ptr %this, i64 0, i32 1
+  %1 = getelementptr inbounds i8, ptr %this, i64 8
   br label %for.body
 
 for.body:                                         ; preds = %for.body.lr.ph, %_ZN4llvh23SmallVectorTemplateBaseIPN6hermes5ValueELb1EE9push_backERKS3_.exit
@@ -4207,7 +4053,7 @@ for.body:                                         ; preds = %for.body.lr.ph, %_Z
 if.then:                                          ; preds = %for.body
   %3 = load ptr, ptr %1, align 8
   %4 = load ptr, ptr %3, align 8
-  %NumBuckets.i.i.i.i.i = getelementptr inbounds %"class.llvh::DenseMap.168", ptr %3, i64 0, i32 3
+  %NumBuckets.i.i.i.i.i = getelementptr inbounds i8, ptr %3, i64 16
   %5 = load i32, ptr %NumBuckets.i.i.i.i.i, align 8
   %cmp.i.i.i = icmp eq i32 %5, 0
   br i1 %cmp.i.i.i, label %if.end.i, label %if.end.i.i.i
@@ -4270,7 +4116,7 @@ switch.early.test:                                ; preds = %if.else9
 if.then16:                                        ; preds = %switch.early.test, %switch.early.test, %switch.early.test, %if.else9
   %12 = load ptr, ptr %1, align 8
   %13 = load ptr, ptr %12, align 8
-  %NumBuckets.i.i.i.i.i.i = getelementptr inbounds %"class.llvh::DenseMap.168", ptr %12, i64 0, i32 3
+  %NumBuckets.i.i.i.i.i.i = getelementptr inbounds i8, ptr %12, i64 16
   %14 = load i32, ptr %NumBuckets.i.i.i.i.i.i, align 8
   %cmp.i.i.i.i10 = icmp eq i32 %14, 0
   br i1 %cmp.i.i.i.i10, label %if.end.i.i, label %if.end.i.i.i.i
@@ -4322,7 +4168,7 @@ if.end.i.i:                                       ; preds = %if.then12.i.i.i.i, 
   %call.i.i.i = call noundef ptr @_ZN4llvh12DenseMapBaseINS_8DenseMapIPN6hermes5ValueES4_NS_12DenseMapInfoIS4_EENS_6detail12DenseMapPairIS4_S4_EEEES4_S4_S6_S9_E20InsertIntoBucketImplIS4_EEPS9_RKS4_RKT_SD_(ptr noundef nonnull align 1 dereferenceable(1) %12, ptr noundef nonnull align 8 dereferenceable(8) %oldOp, ptr noundef nonnull align 8 dereferenceable(8) %oldOp, ptr noundef %cond.sink.i.i.i.i)
   %19 = load ptr, ptr %oldOp, align 8
   store ptr %19, ptr %call.i.i.i, align 8
-  %second.i.i.i.i = getelementptr inbounds %"struct.std::pair.184", ptr %call.i.i.i, i64 0, i32 1
+  %second.i.i.i.i = getelementptr inbounds i8, ptr %call.i.i.i, i64 8
   store ptr null, ptr %second.i.i.i.i, align 8
   br label %if.end39.sink.split
 
@@ -4355,16 +4201,16 @@ if.else25:                                        ; preds = %if.else18
 
 if.end39.sink.split:                              ; preds = %if.end13.i.i.i.i, %if.end.i.i, %if.end.i.i.i.i, %_ZN4llvh12DenseMapBaseINS_8DenseMapIPN6hermes5ValueES4_NS_12DenseMapInfoIS4_EENS_6detail12DenseMapPairIS4_S4_EEEES4_S4_S6_S9_E4findEPKS3_.exit
   %retval.0.i.i.sink = phi ptr [ %cond.sink.i.i.ph.pn.i, %_ZN4llvh12DenseMapBaseINS_8DenseMapIPN6hermes5ValueES4_NS_12DenseMapInfoIS4_EENS_6detail12DenseMapPairIS4_S4_EEEES4_S4_S6_S9_E4findEPKS3_.exit ], [ %call.i.i.i, %if.end.i.i ], [ %add.ptr21.i.i.i.i, %if.end.i.i.i.i ], [ %add.ptr.i.i.i.i, %if.end13.i.i.i.i ]
-  %second.i = getelementptr inbounds %"struct.std::pair.184", ptr %retval.0.i.i.sink, i64 0, i32 1
+  %second.i = getelementptr inbounds i8, ptr %retval.0.i.i.sink, i64 8
   %27 = load ptr, ptr %second.i, align 8
   br label %if.end39
 
 if.end39:                                         ; preds = %if.end39.sink.split, %if.else18, %_ZN4llvh12DenseMapBaseINS_8DenseMapIPN6hermes5ValueES4_NS_12DenseMapInfoIS4_EENS_6detail12DenseMapPairIS4_S4_EEEES4_S4_S6_S9_E4findEPKS3_.exit
   %newOp.0 = phi ptr [ %call2, %_ZN4llvh12DenseMapBaseINS_8DenseMapIPN6hermes5ValueES4_NS_12DenseMapInfoIS4_EENS_6detail12DenseMapPairIS4_S4_EEEES4_S4_S6_S9_E4findEPKS3_.exit ], [ %call2, %if.else18 ], [ %27, %if.end39.sink.split ]
   %28 = load ptr, ptr %this, align 8
-  %Size.i.i13 = getelementptr inbounds %"class.llvh::SmallVectorBase", ptr %28, i64 0, i32 1
+  %Size.i.i13 = getelementptr inbounds i8, ptr %28, i64 8
   %29 = load i32, ptr %Size.i.i13, align 8
-  %Capacity.i.i = getelementptr inbounds %"class.llvh::SmallVectorBase", ptr %28, i64 0, i32 2
+  %Capacity.i.i = getelementptr inbounds i8, ptr %28, i64 12
   %30 = load i32, ptr %Capacity.i.i, align 4
   %cmp.not.i = icmp ult i32 %29, %30
   br i1 %cmp.not.i, label %_ZN4llvh23SmallVectorTemplateBaseIPN6hermes5ValueELb1EE9push_backERKS3_.exit, label %if.then.i14
@@ -4404,9 +4250,9 @@ declare void @_ZN6hermes11Instruction10setOperandEPNS_5ValueEj(ptr noundef nonnu
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden noundef ptr @_ZN4llvh12DenseMapBaseINS_8DenseMapIPN6hermes5ValueES4_NS_12DenseMapInfoIS4_EENS_6detail12DenseMapPairIS4_S4_EEEES4_S4_S6_S9_E20InsertIntoBucketImplIS4_EEPS9_RKS4_RKT_SD_(ptr noundef nonnull align 1 dereferenceable(1) %this, ptr noundef nonnull align 8 dereferenceable(8) %Key, ptr noundef nonnull align 8 dereferenceable(8) %Lookup, ptr noundef %TheBucket) local_unnamed_addr #0 comdat align 2 {
 entry:
-  %NumEntries.i.i = getelementptr inbounds %"class.llvh::DenseMap.168", ptr %this, i64 0, i32 1
+  %NumEntries.i.i = getelementptr inbounds i8, ptr %this, i64 8
   %0 = load i32, ptr %NumEntries.i.i, align 8
-  %NumBuckets.i.i = getelementptr inbounds %"class.llvh::DenseMap.168", ptr %this, i64 0, i32 3
+  %NumBuckets.i.i = getelementptr inbounds i8, ptr %this, i64 16
   %1 = load i32, ptr %NumBuckets.i.i, align 8
   %add = shl i32 %0, 2
   %mul = add i32 %add, 4
@@ -4466,7 +4312,7 @@ if.end13.i.i:                                     ; preds = %if.end9.i.i
   br i1 %cmp.i.i.i, label %if.end12, label %if.end9.i.i, !llvm.loop !6
 
 if.else:                                          ; preds = %entry
-  %NumTombstones.i.i = getelementptr inbounds %"class.llvh::DenseMap.168", ptr %this, i64 0, i32 2
+  %NumTombstones.i.i = getelementptr inbounds i8, ptr %this, i64 12
   %9 = load i32, ptr %NumTombstones.i.i, align 4
   %add.neg = xor i32 %0, -1
   %add8.neg = add i32 %1, %add.neg
@@ -4535,7 +4381,7 @@ if.end12:                                         ; preds = %if.end13.i.i, %if.e
   br i1 %cmp.i, label %if.end17, label %if.then16
 
 if.then16:                                        ; preds = %if.end12
-  %NumTombstones.i.i.i = getelementptr inbounds %"class.llvh::DenseMap.168", ptr %this, i64 0, i32 2
+  %NumTombstones.i.i.i = getelementptr inbounds i8, ptr %this, i64 12
   %19 = load i32, ptr %NumTombstones.i.i.i, align 4
   %sub.i = add i32 %19, -1
   store i32 %sub.i, ptr %NumTombstones.i.i.i, align 4
@@ -4548,7 +4394,7 @@ if.end17:                                         ; preds = %if.then16, %if.end1
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN4llvh8DenseMapIPN6hermes5ValueES3_NS_12DenseMapInfoIS3_EENS_6detail12DenseMapPairIS3_S3_EEE4growEj(ptr noundef nonnull align 8 dereferenceable(20) %this, i32 noundef %AtLeast) local_unnamed_addr #0 comdat align 2 {
 _ZN4llvh8DenseMapIPN6hermes5ValueES3_NS_12DenseMapInfoIS3_EENS_6detail12DenseMapPairIS3_S3_EEE15allocateBucketsEj.exit:
-  %NumBuckets = getelementptr inbounds %"class.llvh::DenseMap.168", ptr %this, i64 0, i32 3
+  %NumBuckets = getelementptr inbounds i8, ptr %this, i64 16
   %0 = load i32, ptr %NumBuckets, align 8
   %1 = load ptr, ptr %this, align 8
   %sub = add i32 %AtLeast, -1
@@ -4575,9 +4421,9 @@ _ZN4llvh8DenseMapIPN6hermes5ValueES3_NS_12DenseMapInfoIS3_EENS_6detail12DenseMap
   br i1 %tobool.not, label %if.then, label %if.end
 
 if.then:                                          ; preds = %_ZN4llvh8DenseMapIPN6hermes5ValueES3_NS_12DenseMapInfoIS3_EENS_6detail12DenseMapPairIS3_S3_EEE15allocateBucketsEj.exit
-  %NumEntries.i.i.i = getelementptr inbounds %"class.llvh::DenseMap.168", ptr %this, i64 0, i32 1
+  %NumEntries.i.i.i = getelementptr inbounds i8, ptr %this, i64 8
   store i32 0, ptr %NumEntries.i.i.i, align 8
-  %NumTombstones.i.i.i = getelementptr inbounds %"class.llvh::DenseMap.168", ptr %this, i64 0, i32 2
+  %NumTombstones.i.i.i = getelementptr inbounds i8, ptr %this, i64 12
   store i32 0, ptr %NumTombstones.i.i.i, align 4
   %3 = load i32, ptr %NumBuckets, align 8
   %idx.ext.i.i = zext i32 %3 to i64
@@ -4588,16 +4434,16 @@ if.then:                                          ; preds = %_ZN4llvh8DenseMapIP
 for.body.i:                                       ; preds = %if.then, %for.body.i
   %B.04.i = phi ptr [ %incdec.ptr.i, %for.body.i ], [ %call.i, %if.then ]
   store ptr inttoptr (i64 -8 to ptr), ptr %B.04.i, align 8
-  %incdec.ptr.i = getelementptr inbounds %"struct.llvh::detail::DenseMapPair", ptr %B.04.i, i64 1
+  %incdec.ptr.i = getelementptr inbounds i8, ptr %B.04.i, i64 16
   %cmp.not.i = icmp eq ptr %incdec.ptr.i, %add.ptr.i.i
   br i1 %cmp.not.i, label %return, label %for.body.i, !llvm.loop !7
 
 if.end:                                           ; preds = %_ZN4llvh8DenseMapIPN6hermes5ValueES3_NS_12DenseMapInfoIS3_EENS_6detail12DenseMapPairIS3_S3_EEE15allocateBucketsEj.exit
   %idx.ext = zext i32 %0 to i64
   %add.ptr = getelementptr inbounds %"struct.llvh::detail::DenseMapPair", ptr %1, i64 %idx.ext
-  %NumEntries.i.i.i.i = getelementptr inbounds %"class.llvh::DenseMap.168", ptr %this, i64 0, i32 1
+  %NumEntries.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 8
   store i32 0, ptr %NumEntries.i.i.i.i, align 8
-  %NumTombstones.i.i.i.i = getelementptr inbounds %"class.llvh::DenseMap.168", ptr %this, i64 0, i32 2
+  %NumTombstones.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 12
   store i32 0, ptr %NumTombstones.i.i.i.i, align 4
   %4 = load i32, ptr %NumBuckets, align 8
   %idx.ext.i.i.i = zext i32 %4 to i64
@@ -4608,7 +4454,7 @@ if.end:                                           ; preds = %_ZN4llvh8DenseMapIP
 for.body.i.i:                                     ; preds = %if.end, %for.body.i.i
   %B.04.i.i = phi ptr [ %incdec.ptr.i.i, %for.body.i.i ], [ %call.i, %if.end ]
   store ptr inttoptr (i64 -8 to ptr), ptr %B.04.i.i, align 8
-  %incdec.ptr.i.i = getelementptr inbounds %"struct.llvh::detail::DenseMapPair", ptr %B.04.i.i, i64 1
+  %incdec.ptr.i.i = getelementptr inbounds i8, ptr %B.04.i.i, i64 16
   %cmp.not.i.i = icmp eq ptr %incdec.ptr.i.i, %add.ptr.i.i.i
   br i1 %cmp.not.i.i, label %_ZN4llvh12DenseMapBaseINS_8DenseMapIPN6hermes5ValueES4_NS_12DenseMapInfoIS4_EENS_6detail12DenseMapPairIS4_S4_EEEES4_S4_S6_S9_E9initEmptyEv.exit.i, label %for.body.i.i, !llvm.loop !7
 
@@ -4673,8 +4519,8 @@ if.end13.i.i.i:                                   ; preds = %if.end9.i.i.i
 _ZN4llvh12DenseMapBaseINS_8DenseMapIPN6hermes5ValueES4_NS_12DenseMapInfoIS4_EENS_6detail12DenseMapPairIS4_S4_EEEES4_S4_S6_S9_E15LookupBucketForIS4_EEbRKT_RPS9_.exit.i: ; preds = %if.end13.i.i.i, %if.then12.i.i.i, %if.then.i
   %cond.sink.i.i.i = phi ptr [ %cond.i.i.i, %if.then12.i.i.i ], [ %add.ptr21.i.i.i, %if.then.i ], [ %add.ptr.i.i12.i, %if.end13.i.i.i ]
   store ptr %5, ptr %cond.sink.i.i.i, align 8
-  %second.i.i = getelementptr inbounds %"struct.std::pair.184", ptr %cond.sink.i.i.i, i64 0, i32 1
-  %second.i13.i = getelementptr inbounds %"struct.std::pair.184", ptr %B.020.i, i64 0, i32 1
+  %second.i.i = getelementptr inbounds i8, ptr %cond.sink.i.i.i, i64 8
+  %second.i13.i = getelementptr inbounds i8, ptr %B.020.i, i64 8
   %11 = load ptr, ptr %second.i13.i, align 8
   store ptr %11, ptr %second.i.i, align 8
   %12 = load i32, ptr %NumEntries.i.i.i.i, align 8
@@ -4683,7 +4529,7 @@ _ZN4llvh12DenseMapBaseINS_8DenseMapIPN6hermes5ValueES4_NS_12DenseMapInfoIS4_EENS
   br label %if.end.i6
 
 if.end.i6:                                        ; preds = %_ZN4llvh12DenseMapBaseINS_8DenseMapIPN6hermes5ValueES4_NS_12DenseMapInfoIS4_EENS_6detail12DenseMapPairIS4_S4_EEEES4_S4_S6_S9_E15LookupBucketForIS4_EEbRKT_RPS9_.exit.i, %for.body.i5, %for.body.i5
-  %incdec.ptr.i7 = getelementptr inbounds %"struct.llvh::detail::DenseMapPair", ptr %B.020.i, i64 1
+  %incdec.ptr.i7 = getelementptr inbounds i8, ptr %B.020.i, i64 16
   %cmp.not.i8 = icmp eq ptr %incdec.ptr.i7, %add.ptr
   br i1 %cmp.not.i8, label %_ZN4llvh12DenseMapBaseINS_8DenseMapIPN6hermes5ValueES4_NS_12DenseMapInfoIS4_EENS_6detail12DenseMapPairIS4_S4_EEEES4_S4_S6_S9_E18moveFromOldBucketsEPS9_SC_.exit, label %for.body.i5, !llvm.loop !8
 
@@ -4707,9 +4553,9 @@ entry:
 
 cond.true.i.split:                                ; preds = %entry
   %call.i = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %Str) #15
-  %OutBufEnd.i5 = getelementptr inbounds %"class.llvh::raw_ostream", ptr %this, i64 0, i32 2
+  %OutBufEnd.i5 = getelementptr inbounds i8, ptr %this, i64 16
   %0 = load ptr, ptr %OutBufEnd.i5, align 8
-  %OutBufCur.i6 = getelementptr inbounds %"class.llvh::raw_ostream", ptr %this, i64 0, i32 3
+  %OutBufCur.i6 = getelementptr inbounds i8, ptr %this, i64 24
   %1 = load ptr, ptr %OutBufCur.i6, align 8
   %sub.ptr.lhs.cast.i7 = ptrtoint ptr %0 to i64
   %sub.ptr.rhs.cast.i8 = ptrtoint ptr %1 to i64
@@ -4740,9 +4586,9 @@ _ZN4llvh9StringRefC2EPKc.exit:                    ; preds = %entry, %if.then4.i,
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden noundef nonnull align 8 dereferenceable(36) ptr @_ZN4llvh11raw_ostreamlsENS_9StringRefE(ptr noundef nonnull align 8 dereferenceable(36) %this, ptr %Str.coerce0, i64 %Str.coerce1) local_unnamed_addr #0 comdat align 2 {
 entry:
-  %OutBufEnd = getelementptr inbounds %"class.llvh::raw_ostream", ptr %this, i64 0, i32 2
+  %OutBufEnd = getelementptr inbounds i8, ptr %this, i64 16
   %0 = load ptr, ptr %OutBufEnd, align 8
-  %OutBufCur = getelementptr inbounds %"class.llvh::raw_ostream", ptr %this, i64 0, i32 3
+  %OutBufCur = getelementptr inbounds i8, ptr %this, i64 24
   %1 = load ptr, ptr %OutBufCur, align 8
   %sub.ptr.lhs.cast = ptrtoint ptr %0 to i64
   %sub.ptr.rhs.cast = ptrtoint ptr %1 to i64
@@ -4775,9 +4621,9 @@ declare { ptr, i64 } @_ZNK6hermes5Value10getKindStrEv(ptr noundef nonnull align 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden noundef nonnull align 8 dereferenceable(36) ptr @_ZN4llvh11raw_ostreamlsEc(ptr noundef nonnull align 8 dereferenceable(36) %this, i8 noundef signext %C) local_unnamed_addr #0 comdat align 2 {
 entry:
-  %OutBufCur = getelementptr inbounds %"class.llvh::raw_ostream", ptr %this, i64 0, i32 3
+  %OutBufCur = getelementptr inbounds i8, ptr %this, i64 24
   %0 = load ptr, ptr %OutBufCur, align 8
-  %OutBufEnd = getelementptr inbounds %"class.llvh::raw_ostream", ptr %this, i64 0, i32 2
+  %OutBufEnd = getelementptr inbounds i8, ptr %this, i64 16
   %1 = load ptr, ptr %OutBufEnd, align 8
   %cmp.not = icmp ult ptr %0, %1
   br i1 %cmp.not, label %if.end, label %if.then

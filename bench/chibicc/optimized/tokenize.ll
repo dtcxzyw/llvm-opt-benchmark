@@ -5,9 +5,7 @@ target triple = "x86_64-unknown-linux-gnu"
 
 %struct.HashMap = type { ptr, i32, i32 }
 %struct.__va_list_tag = type { i32, i32, ptr, ptr }
-%struct.File = type { ptr, i32, ptr, ptr, i32 }
 %struct.Token = type { i32, ptr, i64, x86_fp80, ptr, i32, ptr, ptr, ptr, ptr, i32, i32, i8, i8, ptr, ptr }
-%struct.Type = type { i32, i32, i32, i8, i8, ptr, ptr, ptr, ptr, i32, ptr, ptr, ptr, i8, i8, ptr, ptr, i8, ptr }
 
 @stderr = external local_unnamed_addr global ptr, align 8
 @current_file = internal unnamed_addr global ptr null, align 8
@@ -169,7 +167,7 @@ define dso_local void @error_at(ptr noundef %loc, ptr nocapture noundef readonly
 entry:
   %ap = alloca [1 x %struct.__va_list_tag], align 16
   %0 = load ptr, ptr @current_file, align 8
-  %contents = getelementptr inbounds %struct.File, ptr %0, i64 0, i32 2
+  %contents = getelementptr inbounds i8, ptr %0, i64 16
   %1 = load ptr, ptr %contents, align 8
   %cmp5 = icmp ult ptr %1, %loc
   br i1 %cmp5, label %for.body, label %for.end
@@ -256,14 +254,14 @@ define dso_local void @error_tok(ptr nocapture noundef readonly %tok, ptr nocapt
 entry:
   %ap = alloca [1 x %struct.__va_list_tag], align 16
   call void @llvm.va_start(ptr nonnull %ap)
-  %file = getelementptr inbounds %struct.Token, ptr %tok, i64 0, i32 8
+  %file = getelementptr inbounds i8, ptr %tok, i64 80
   %0 = load ptr, ptr %file, align 16
   %1 = load ptr, ptr %0, align 8
-  %contents = getelementptr inbounds %struct.File, ptr %0, i64 0, i32 2
+  %contents = getelementptr inbounds i8, ptr %0, i64 16
   %2 = load ptr, ptr %contents, align 8
-  %line_no = getelementptr inbounds %struct.Token, ptr %tok, i64 0, i32 10
+  %line_no = getelementptr inbounds i8, ptr %tok, i64 96
   %3 = load i32, ptr %line_no, align 16
-  %loc = getelementptr inbounds %struct.Token, ptr %tok, i64 0, i32 4
+  %loc = getelementptr inbounds i8, ptr %tok, i64 48
   %4 = load ptr, ptr %loc, align 16
   call fastcc void @verror_at(ptr noundef %1, ptr noundef %2, i32 noundef %3, ptr noundef %4, ptr noundef %fmt, ptr noundef nonnull %ap)
   call void @exit(i32 noundef 1) #24
@@ -275,14 +273,14 @@ define dso_local void @warn_tok(ptr nocapture noundef readonly %tok, ptr nocaptu
 entry:
   %ap = alloca [1 x %struct.__va_list_tag], align 16
   call void @llvm.va_start(ptr nonnull %ap)
-  %file = getelementptr inbounds %struct.Token, ptr %tok, i64 0, i32 8
+  %file = getelementptr inbounds i8, ptr %tok, i64 80
   %0 = load ptr, ptr %file, align 16
   %1 = load ptr, ptr %0, align 8
-  %contents = getelementptr inbounds %struct.File, ptr %0, i64 0, i32 2
+  %contents = getelementptr inbounds i8, ptr %0, i64 16
   %2 = load ptr, ptr %contents, align 8
-  %line_no = getelementptr inbounds %struct.Token, ptr %tok, i64 0, i32 10
+  %line_no = getelementptr inbounds i8, ptr %tok, i64 96
   %3 = load i32, ptr %line_no, align 16
-  %loc = getelementptr inbounds %struct.Token, ptr %tok, i64 0, i32 4
+  %loc = getelementptr inbounds i8, ptr %tok, i64 48
   %4 = load ptr, ptr %loc, align 16
   call fastcc void @verror_at(ptr noundef %1, ptr noundef %2, i32 noundef %3, ptr noundef %4, ptr noundef %fmt, ptr noundef nonnull %ap)
   call void @llvm.va_end(ptr nonnull %ap)
@@ -295,9 +293,9 @@ declare void @llvm.va_end(ptr) #1
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(read, inaccessiblemem: none) uwtable
 define dso_local zeroext i1 @equal(ptr nocapture noundef readonly %tok, ptr nocapture noundef readonly %op) local_unnamed_addr #5 {
 entry:
-  %loc = getelementptr inbounds %struct.Token, ptr %tok, i64 0, i32 4
+  %loc = getelementptr inbounds i8, ptr %tok, i64 48
   %0 = load ptr, ptr %loc, align 16
-  %len = getelementptr inbounds %struct.Token, ptr %tok, i64 0, i32 5
+  %len = getelementptr inbounds i8, ptr %tok, i64 56
   %1 = load i32, ptr %len, align 8
   %conv = sext i32 %1 to i64
   %bcmp = tail call i32 @bcmp(ptr %0, ptr %op, i64 %conv)
@@ -318,9 +316,9 @@ land.end:                                         ; preds = %land.rhs, %entry
 ; Function Attrs: nounwind uwtable
 define dso_local ptr @skip(ptr nocapture noundef readonly %tok, ptr noundef %op) local_unnamed_addr #4 {
 entry:
-  %loc.i = getelementptr inbounds %struct.Token, ptr %tok, i64 0, i32 4
+  %loc.i = getelementptr inbounds i8, ptr %tok, i64 48
   %0 = load ptr, ptr %loc.i, align 16
-  %len.i = getelementptr inbounds %struct.Token, ptr %tok, i64 0, i32 5
+  %len.i = getelementptr inbounds i8, ptr %tok, i64 56
   %1 = load i32, ptr %len.i, align 8
   %conv.i = sext i32 %1 to i64
   %bcmp.i = tail call i32 @bcmp(ptr %0, ptr %op, i64 %conv.i)
@@ -338,7 +336,7 @@ if.then:                                          ; preds = %entry, %equal.exit
   unreachable
 
 if.end:                                           ; preds = %equal.exit
-  %next = getelementptr inbounds %struct.Token, ptr %tok, i64 0, i32 1
+  %next = getelementptr inbounds i8, ptr %tok, i64 8
   %3 = load ptr, ptr %next, align 8
   ret ptr %3
 }
@@ -346,9 +344,9 @@ if.end:                                           ; preds = %equal.exit
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
 define dso_local noundef zeroext i1 @consume(ptr nocapture noundef writeonly %rest, ptr noundef %tok, ptr nocapture noundef readonly %str) local_unnamed_addr #6 {
 entry:
-  %loc.i = getelementptr inbounds %struct.Token, ptr %tok, i64 0, i32 4
+  %loc.i = getelementptr inbounds i8, ptr %tok, i64 48
   %0 = load ptr, ptr %loc.i, align 16
-  %len.i = getelementptr inbounds %struct.Token, ptr %tok, i64 0, i32 5
+  %len.i = getelementptr inbounds i8, ptr %tok, i64 56
   %1 = load i32, ptr %len.i, align 8
   %conv.i = sext i32 %1 to i64
   %bcmp.i = tail call i32 @bcmp(ptr %0, ptr %str, i64 %conv.i)
@@ -362,7 +360,7 @@ equal.exit:                                       ; preds = %entry
   br i1 %cmp4.i, label %if.then, label %return
 
 if.then:                                          ; preds = %equal.exit
-  %next = getelementptr inbounds %struct.Token, ptr %tok, i64 0, i32 1
+  %next = getelementptr inbounds i8, ptr %tok, i64 8
   %3 = load ptr, ptr %next, align 8
   br label %return
 
@@ -398,9 +396,9 @@ for.body.i:                                       ; preds = %for.body, %for.body
   br i1 %exitcond.not.i, label %is_keyword.exit, label %for.body.i, !llvm.loop !11
 
 is_keyword.exit:                                  ; preds = %for.body.i, %for.body
-  %loc.i = getelementptr inbounds %struct.Token, ptr %t.014, i64 0, i32 4
+  %loc.i = getelementptr inbounds i8, ptr %t.014, i64 48
   %3 = load ptr, ptr %loc.i, align 16
-  %len.i = getelementptr inbounds %struct.Token, ptr %t.014, i64 0, i32 5
+  %len.i = getelementptr inbounds i8, ptr %t.014, i64 56
   %4 = load i32, ptr %len.i, align 8
   %call.i = tail call ptr @hashmap_get2(ptr noundef nonnull @is_keyword.map, ptr noundef %3, i32 noundef %4) #25
   %tobool.i.not = icmp eq ptr %call.i, null
@@ -660,9 +658,9 @@ if.else159.i.i:                                   ; preds = %if.else155.i.i
 convert_pp_int.exit.thread.i:                     ; preds = %if.else159.i.i, %if.then158.i.i, %if.then154.i.i, %if.then150.i.i, %if.then140.i.i, %if.then131.i.i, %if.then128.i.i, %if.else112.i.i, %if.then110.i.i, %if.then107.i.i, %if.then104.i.i
   %ty.0.i.i = phi ptr [ %20, %if.then104.i.i ], [ %21, %if.then107.i.i ], [ %cond.i.i, %if.then110.i.i ], [ %cond118.i.i, %if.else112.i.i ], [ %26, %if.then128.i.i ], [ %cond137.i.i, %if.then131.i.i ], [ %cond146.i.i, %if.then140.i.i ], [ %31, %if.then150.i.i ], [ %32, %if.then154.i.i ], [ %33, %if.then158.i.i ], [ %34, %if.else159.i.i ]
   store i32 4, ptr %t.014, align 16
-  %val167.i.i = getelementptr inbounds %struct.Token, ptr %t.014, i64 0, i32 2
+  %val167.i.i = getelementptr inbounds i8, ptr %t.014, i64 16
   store i64 %call24.i.i, ptr %val167.i.i, align 16
-  %ty168.i.i = getelementptr inbounds %struct.Token, ptr %t.014, i64 0, i32 6
+  %ty168.i.i = getelementptr inbounds i8, ptr %t.014, i64 64
   store ptr %ty.0.i.i, ptr %ty168.i.i, align 16
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %p.i.i)
   br label %convert_pp_number.exit
@@ -704,9 +702,9 @@ if.then22.i:                                      ; preds = %if.end18.i
 if.end23.i:                                       ; preds = %if.end18.i
   %ty.0.i = load ptr, ptr %ty.0.in.i, align 8
   store i32 4, ptr %t.014, align 16
-  %fval.i = getelementptr inbounds %struct.Token, ptr %t.014, i64 0, i32 3
+  %fval.i = getelementptr inbounds i8, ptr %t.014, i64 32
   store x86_fp80 %call1.i, ptr %fval.i, align 16
-  %ty24.i = getelementptr inbounds %struct.Token, ptr %t.014, i64 0, i32 6
+  %ty24.i = getelementptr inbounds i8, ptr %t.014, i64 64
   store ptr %ty.0.i, ptr %ty24.i, align 16
   br label %convert_pp_number.exit
 
@@ -715,7 +713,7 @@ convert_pp_number.exit:                           ; preds = %convert_pp_int.exit
   br label %for.inc
 
 for.inc:                                          ; preds = %if.then, %convert_pp_number.exit, %if.else
-  %next = getelementptr inbounds %struct.Token, ptr %t.014, i64 0, i32 1
+  %next = getelementptr inbounds i8, ptr %t.014, i64 8
   %40 = load ptr, ptr %next, align 8
   %41 = load i32, ptr %40, align 16
   %cmp.not = icmp eq i32 %41, 6
@@ -728,10 +726,10 @@ for.end:                                          ; preds = %for.inc, %entry
 ; Function Attrs: nounwind uwtable
 define dso_local noalias noundef ptr @tokenize_string_literal(ptr nocapture noundef readonly %tok, ptr noundef %basety) local_unnamed_addr #4 {
 entry:
-  %size = getelementptr inbounds %struct.Type, ptr %basety, i64 0, i32 1
+  %size = getelementptr inbounds i8, ptr %basety, i64 4
   %0 = load i32, ptr %size, align 4
   %cmp = icmp eq i32 %0, 2
-  %loc = getelementptr inbounds %struct.Token, ptr %tok, i64 0, i32 4
+  %loc = getelementptr inbounds i8, ptr %tok, i64 48
   %1 = load ptr, ptr %loc, align 16
   br i1 %cmp, label %if.then, label %if.else
 
@@ -745,9 +743,9 @@ if.else:                                          ; preds = %entry
 
 if.end:                                           ; preds = %if.else, %if.then
   %t.0 = phi ptr [ %call, %if.then ], [ %call4, %if.else ]
-  %next = getelementptr inbounds %struct.Token, ptr %tok, i64 0, i32 1
+  %next = getelementptr inbounds i8, ptr %tok, i64 8
   %2 = load ptr, ptr %next, align 8
-  %next5 = getelementptr inbounds %struct.Token, ptr %t.0, i64 0, i32 1
+  %next5 = getelementptr inbounds i8, ptr %t.0, i64 8
   store ptr %2, ptr %next5, align 8
   ret ptr %t.0
 }
@@ -842,7 +840,7 @@ if.else:                                          ; preds = %if.end
   %7 = and i16 %6, 1023
   %conv22 = or disjoint i16 %7, -9216
   %inc23 = add nsw i32 %len.021, 2
-  %arrayidx25 = getelementptr i16, ptr %arrayidx19, i64 1
+  %arrayidx25 = getelementptr i8, ptr %arrayidx19, i64 2
   store i16 %conv22, ptr %arrayidx25, align 2
   br label %for.cond.backedge
 
@@ -855,35 +853,35 @@ for.end:                                          ; preds = %for.end.loopexit, %
   %add.ptr27 = getelementptr inbounds i8, ptr %p.addr.0.i.ptr.le, i64 1
   %call.i = call noalias dereferenceable_or_null(128) ptr @calloc(i64 noundef 1, i64 noundef 128) #29
   store i32 3, ptr %call.i, align 16
-  %loc.i = getelementptr inbounds %struct.Token, ptr %call.i, i64 0, i32 4
+  %loc.i = getelementptr inbounds i8, ptr %call.i, i64 48
   store ptr %start, ptr %loc.i, align 16
   %sub.ptr.lhs.cast.i = ptrtoint ptr %add.ptr27 to i64
   %sub.ptr.sub.i = sub i64 %sub.ptr.lhs.cast.i, %sub.ptr.rhs.cast
   %conv.i = trunc i64 %sub.ptr.sub.i to i32
-  %len.i = getelementptr inbounds %struct.Token, ptr %call.i, i64 0, i32 5
+  %len.i = getelementptr inbounds i8, ptr %call.i, i64 56
   store i32 %conv.i, ptr %len.i, align 8
   %9 = load ptr, ptr @current_file, align 8
-  %file.i = getelementptr inbounds %struct.Token, ptr %call.i, i64 0, i32 8
+  %file.i = getelementptr inbounds i8, ptr %call.i, i64 80
   store ptr %9, ptr %file.i, align 16
-  %display_name.i = getelementptr inbounds %struct.File, ptr %9, i64 0, i32 3
+  %display_name.i = getelementptr inbounds i8, ptr %9, i64 24
   %10 = load ptr, ptr %display_name.i, align 8
-  %filename.i = getelementptr inbounds %struct.Token, ptr %call.i, i64 0, i32 9
+  %filename.i = getelementptr inbounds i8, ptr %call.i, i64 88
   store ptr %10, ptr %filename.i, align 8
   %.b10.i = load i1, ptr @at_bol, align 1
-  %at_bol.i = getelementptr inbounds %struct.Token, ptr %call.i, i64 0, i32 12
+  %at_bol.i = getelementptr inbounds i8, ptr %call.i, i64 104
   %frombool.i = zext i1 %.b10.i to i8
   store i8 %frombool.i, ptr %at_bol.i, align 8
   %.b911.i = load i1, ptr @has_space, align 1
-  %has_space.i = getelementptr inbounds %struct.Token, ptr %call.i, i64 0, i32 13
+  %has_space.i = getelementptr inbounds i8, ptr %call.i, i64 105
   %frombool3.i = zext i1 %.b911.i to i8
   store i8 %frombool3.i, ptr %has_space.i, align 1
   store i1 false, ptr @has_space, align 1
   store i1 false, ptr @at_bol, align 1
   %11 = load ptr, ptr @ty_ushort, align 8
   %call30 = call ptr @array_of(ptr noundef %11, i32 noundef %len.0.lcssa) #25
-  %ty = getelementptr inbounds %struct.Token, ptr %call.i, i64 0, i32 6
+  %ty = getelementptr inbounds i8, ptr %call.i, i64 64
   store ptr %call30, ptr %ty, align 16
-  %str = getelementptr inbounds %struct.Token, ptr %call.i, i64 0, i32 7
+  %str = getelementptr inbounds i8, ptr %call.i, i64 72
   store ptr %call1, ptr %str, align 8
   ret ptr %call.i
 }
@@ -961,35 +959,35 @@ for.end:                                          ; preds = %for.end.loopexit, %
   %add.ptr11 = getelementptr inbounds i8, ptr %p.addr.0.i.ptr.le, i64 1
   %call.i = call noalias dereferenceable_or_null(128) ptr @calloc(i64 noundef 1, i64 noundef 128) #29
   store i32 3, ptr %call.i, align 16
-  %loc.i = getelementptr inbounds %struct.Token, ptr %call.i, i64 0, i32 4
+  %loc.i = getelementptr inbounds i8, ptr %call.i, i64 48
   store ptr %start, ptr %loc.i, align 16
   %sub.ptr.lhs.cast.i = ptrtoint ptr %add.ptr11 to i64
   %sub.ptr.rhs.cast.i = ptrtoint ptr %start to i64
   %sub.ptr.sub.i = sub i64 %sub.ptr.lhs.cast.i, %sub.ptr.rhs.cast.i
   %conv.i = trunc i64 %sub.ptr.sub.i to i32
-  %len.i = getelementptr inbounds %struct.Token, ptr %call.i, i64 0, i32 5
+  %len.i = getelementptr inbounds i8, ptr %call.i, i64 56
   store i32 %conv.i, ptr %len.i, align 8
   %7 = load ptr, ptr @current_file, align 8
-  %file.i = getelementptr inbounds %struct.Token, ptr %call.i, i64 0, i32 8
+  %file.i = getelementptr inbounds i8, ptr %call.i, i64 80
   store ptr %7, ptr %file.i, align 16
-  %display_name.i = getelementptr inbounds %struct.File, ptr %7, i64 0, i32 3
+  %display_name.i = getelementptr inbounds i8, ptr %7, i64 24
   %8 = load ptr, ptr %display_name.i, align 8
-  %filename.i = getelementptr inbounds %struct.Token, ptr %call.i, i64 0, i32 9
+  %filename.i = getelementptr inbounds i8, ptr %call.i, i64 88
   store ptr %8, ptr %filename.i, align 8
   %.b10.i = load i1, ptr @at_bol, align 1
-  %at_bol.i = getelementptr inbounds %struct.Token, ptr %call.i, i64 0, i32 12
+  %at_bol.i = getelementptr inbounds i8, ptr %call.i, i64 104
   %frombool.i = zext i1 %.b10.i to i8
   store i8 %frombool.i, ptr %at_bol.i, align 8
   %.b911.i = load i1, ptr @has_space, align 1
-  %has_space.i = getelementptr inbounds %struct.Token, ptr %call.i, i64 0, i32 13
+  %has_space.i = getelementptr inbounds i8, ptr %call.i, i64 105
   %frombool3.i = zext i1 %.b911.i to i8
   store i8 %frombool3.i, ptr %has_space.i, align 1
   store i1 false, ptr @has_space, align 1
   store i1 false, ptr @at_bol, align 1
   %call13 = call ptr @array_of(ptr noundef %ty, i32 noundef %len.0.lcssa) #25
-  %ty14 = getelementptr inbounds %struct.Token, ptr %call.i, i64 0, i32 6
+  %ty14 = getelementptr inbounds i8, ptr %call.i, i64 64
   store ptr %call13, ptr %ty14, align 16
-  %str = getelementptr inbounds %struct.Token, ptr %call.i, i64 0, i32 7
+  %str = getelementptr inbounds i8, ptr %call.i, i64 72
   store ptr %call1, ptr %str, align 8
   ret ptr %call.i
 }
@@ -999,7 +997,7 @@ define dso_local ptr @tokenize(ptr noundef %file) local_unnamed_addr #4 {
 entry:
   %head = alloca %struct.Token, align 16
   store ptr %file, ptr @current_file, align 8
-  %contents = getelementptr inbounds %struct.File, ptr %file, i64 0, i32 2
+  %contents = getelementptr inbounds i8, ptr %file, i64 16
   %0 = load ptr, ptr %contents, align 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(128) %head, i8 0, i64 128, i1 false)
   store i1 true, ptr @at_bol, align 1
@@ -1154,40 +1152,40 @@ if.end81:                                         ; preds = %if.else, %land.lhs.
 for.end:                                          ; preds = %if.else
   %call.i107 = tail call noalias dereferenceable_or_null(128) ptr @calloc(i64 noundef 1, i64 noundef 128) #29
   store i32 5, ptr %call.i107, align 16
-  %loc.i = getelementptr inbounds %struct.Token, ptr %call.i107, i64 0, i32 4
+  %loc.i = getelementptr inbounds i8, ptr %call.i107, i64 48
   store ptr %p.0143, ptr %loc.i, align 16
   %sub.ptr.lhs.cast.i = ptrtoint ptr %p.2 to i64
   %sub.ptr.rhs.cast.i = ptrtoint ptr %p.0143 to i64
   %sub.ptr.sub.i = sub i64 %sub.ptr.lhs.cast.i, %sub.ptr.rhs.cast.i
   %conv.i = trunc i64 %sub.ptr.sub.i to i32
-  %len.i = getelementptr inbounds %struct.Token, ptr %call.i107, i64 0, i32 5
+  %len.i = getelementptr inbounds i8, ptr %call.i107, i64 56
   store i32 %conv.i, ptr %len.i, align 8
   %16 = load ptr, ptr @current_file, align 8
-  %file.i = getelementptr inbounds %struct.Token, ptr %call.i107, i64 0, i32 8
+  %file.i = getelementptr inbounds i8, ptr %call.i107, i64 80
   store ptr %16, ptr %file.i, align 16
-  %display_name.i = getelementptr inbounds %struct.File, ptr %16, i64 0, i32 3
+  %display_name.i = getelementptr inbounds i8, ptr %16, i64 24
   %17 = load ptr, ptr %display_name.i, align 8
-  %filename.i = getelementptr inbounds %struct.Token, ptr %call.i107, i64 0, i32 9
+  %filename.i = getelementptr inbounds i8, ptr %call.i107, i64 88
   store ptr %17, ptr %filename.i, align 8
   %.b10.i = load i1, ptr @at_bol, align 1
-  %at_bol.i = getelementptr inbounds %struct.Token, ptr %call.i107, i64 0, i32 12
+  %at_bol.i = getelementptr inbounds i8, ptr %call.i107, i64 104
   %frombool.i = zext i1 %.b10.i to i8
   store i8 %frombool.i, ptr %at_bol.i, align 8
   %.b911.i = load i1, ptr @has_space, align 1
-  %has_space.i = getelementptr inbounds %struct.Token, ptr %call.i107, i64 0, i32 13
+  %has_space.i = getelementptr inbounds i8, ptr %call.i107, i64 105
   %frombool3.i = zext i1 %.b911.i to i8
   store i8 %frombool3.i, ptr %has_space.i, align 1
   store i1 false, ptr @has_space, align 1
   store i1 false, ptr @at_bol, align 1
-  %next = getelementptr inbounds %struct.Token, ptr %cur.0142, i64 0, i32 1
+  %next = getelementptr inbounds i8, ptr %cur.0142, i64 8
   store ptr %call.i107, ptr %next, align 8
   br label %while.cond.backedge
 
 if.then87:                                        ; preds = %lor.lhs.false
   %call88 = tail call fastcc ptr @read_string_literal(ptr noundef nonnull %p.0143, ptr noundef nonnull %p.0143)
-  %next89 = getelementptr inbounds %struct.Token, ptr %cur.0142, i64 0, i32 1
+  %next89 = getelementptr inbounds i8, ptr %cur.0142, i64 8
   store ptr %call88, ptr %next89, align 8
-  %len = getelementptr inbounds %struct.Token, ptr %call88, i64 0, i32 5
+  %len = getelementptr inbounds i8, ptr %call88, i64 56
   %18 = load i32, ptr %len, align 8
   %idx.ext = sext i32 %18 to i64
   %add.ptr90 = getelementptr inbounds i8, ptr %p.0143, i64 %idx.ext
@@ -1201,9 +1199,9 @@ if.end91:                                         ; preds = %lor.lhs.false, %lan
 if.then93:                                        ; preds = %if.end91
   %add.ptr94 = getelementptr inbounds i8, ptr %p.0143, i64 2
   %call95 = tail call fastcc ptr @read_string_literal(ptr noundef nonnull %p.0143, ptr noundef nonnull %add.ptr94)
-  %next96 = getelementptr inbounds %struct.Token, ptr %cur.0142, i64 0, i32 1
+  %next96 = getelementptr inbounds i8, ptr %cur.0142, i64 8
   store ptr %call95, ptr %next96, align 8
-  %len97 = getelementptr inbounds %struct.Token, ptr %call95, i64 0, i32 5
+  %len97 = getelementptr inbounds i8, ptr %call95, i64 56
   %19 = load i32, ptr %len97, align 8
   %idx.ext98 = sext i32 %19 to i64
   %add.ptr99 = getelementptr inbounds i8, ptr %p.0143, i64 %idx.ext98
@@ -1217,9 +1215,9 @@ if.end100:                                        ; preds = %if.end91
 if.then102:                                       ; preds = %if.end100
   %add.ptr103 = getelementptr inbounds i8, ptr %p.0143, i64 1
   %call104 = tail call fastcc ptr @read_utf16_string_literal(ptr noundef nonnull %p.0143, ptr noundef nonnull %add.ptr103)
-  %next105 = getelementptr inbounds %struct.Token, ptr %cur.0142, i64 0, i32 1
+  %next105 = getelementptr inbounds i8, ptr %cur.0142, i64 8
   store ptr %call104, ptr %next105, align 8
-  %len106 = getelementptr inbounds %struct.Token, ptr %call104, i64 0, i32 5
+  %len106 = getelementptr inbounds i8, ptr %call104, i64 56
   %20 = load i32, ptr %len106, align 8
   %idx.ext107 = sext i32 %20 to i64
   %add.ptr108 = getelementptr inbounds i8, ptr %p.0143, i64 %idx.ext107
@@ -1234,9 +1232,9 @@ if.then111:                                       ; preds = %if.end109
   %add.ptr112 = getelementptr inbounds i8, ptr %p.0143, i64 1
   %21 = load ptr, ptr @ty_int, align 8
   %call113 = tail call fastcc ptr @read_utf32_string_literal(ptr noundef nonnull %p.0143, ptr noundef nonnull %add.ptr112, ptr noundef %21)
-  %next114 = getelementptr inbounds %struct.Token, ptr %cur.0142, i64 0, i32 1
+  %next114 = getelementptr inbounds i8, ptr %cur.0142, i64 8
   store ptr %call113, ptr %next114, align 8
-  %len115 = getelementptr inbounds %struct.Token, ptr %call113, i64 0, i32 5
+  %len115 = getelementptr inbounds i8, ptr %call113, i64 56
   %22 = load i32, ptr %len115, align 8
   %idx.ext116 = sext i32 %22 to i64
   %add.ptr117 = getelementptr inbounds i8, ptr %p.0143, i64 %idx.ext116
@@ -1251,9 +1249,9 @@ if.then120:                                       ; preds = %if.end118
   %add.ptr121 = getelementptr inbounds i8, ptr %p.0143, i64 1
   %23 = load ptr, ptr @ty_uint, align 8
   %call122 = tail call fastcc ptr @read_utf32_string_literal(ptr noundef nonnull %p.0143, ptr noundef nonnull %add.ptr121, ptr noundef %23)
-  %next123 = getelementptr inbounds %struct.Token, ptr %cur.0142, i64 0, i32 1
+  %next123 = getelementptr inbounds i8, ptr %cur.0142, i64 8
   store ptr %call122, ptr %next123, align 8
-  %len124 = getelementptr inbounds %struct.Token, ptr %call122, i64 0, i32 5
+  %len124 = getelementptr inbounds i8, ptr %call122, i64 56
   %24 = load i32, ptr %len124, align 8
   %idx.ext125 = sext i32 %24 to i64
   %add.ptr126 = getelementptr inbounds i8, ptr %p.0143, i64 %idx.ext125
@@ -1266,14 +1264,14 @@ if.end127:                                        ; preds = %if.end118
 if.then131:                                       ; preds = %if.end127
   %25 = load ptr, ptr @ty_int, align 8
   %call132 = tail call fastcc ptr @read_char_literal(ptr noundef nonnull %p.0143, ptr noundef nonnull %p.0143, ptr noundef %25)
-  %next133 = getelementptr inbounds %struct.Token, ptr %cur.0142, i64 0, i32 1
+  %next133 = getelementptr inbounds i8, ptr %cur.0142, i64 8
   store ptr %call132, ptr %next133, align 8
-  %val = getelementptr inbounds %struct.Token, ptr %call132, i64 0, i32 2
+  %val = getelementptr inbounds i8, ptr %call132, i64 16
   %26 = load i64, ptr %val, align 16
   %sext = shl i64 %26, 56
   %conv135 = ashr exact i64 %sext, 56
   store i64 %conv135, ptr %val, align 16
-  %len137 = getelementptr inbounds %struct.Token, ptr %call132, i64 0, i32 5
+  %len137 = getelementptr inbounds i8, ptr %call132, i64 56
   %27 = load i32, ptr %len137, align 8
   %idx.ext138 = sext i32 %27 to i64
   %add.ptr139 = getelementptr inbounds i8, ptr %p.0143, i64 %idx.ext138
@@ -1287,13 +1285,13 @@ if.then142:                                       ; preds = %if.end140
   %add.ptr143 = getelementptr inbounds i8, ptr %p.0143, i64 1
   %28 = load ptr, ptr @ty_ushort, align 8
   %call144 = tail call fastcc ptr @read_char_literal(ptr noundef nonnull %p.0143, ptr noundef nonnull %add.ptr143, ptr noundef %28)
-  %next145 = getelementptr inbounds %struct.Token, ptr %cur.0142, i64 0, i32 1
+  %next145 = getelementptr inbounds i8, ptr %cur.0142, i64 8
   store ptr %call144, ptr %next145, align 8
-  %val146 = getelementptr inbounds %struct.Token, ptr %call144, i64 0, i32 2
+  %val146 = getelementptr inbounds i8, ptr %call144, i64 16
   %29 = load i64, ptr %val146, align 16
   %and147 = and i64 %29, 65535
   store i64 %and147, ptr %val146, align 16
-  %len148 = getelementptr inbounds %struct.Token, ptr %call144, i64 0, i32 5
+  %len148 = getelementptr inbounds i8, ptr %call144, i64 56
   %30 = load i32, ptr %len148, align 8
   %idx.ext149 = sext i32 %30 to i64
   %add.ptr150 = getelementptr inbounds i8, ptr %p.0143, i64 %idx.ext149
@@ -1307,9 +1305,9 @@ if.then153:                                       ; preds = %if.end151
   %add.ptr154 = getelementptr inbounds i8, ptr %p.0143, i64 1
   %31 = load ptr, ptr @ty_int, align 8
   %call155 = tail call fastcc ptr @read_char_literal(ptr noundef nonnull %p.0143, ptr noundef nonnull %add.ptr154, ptr noundef %31)
-  %next156 = getelementptr inbounds %struct.Token, ptr %cur.0142, i64 0, i32 1
+  %next156 = getelementptr inbounds i8, ptr %cur.0142, i64 8
   store ptr %call155, ptr %next156, align 8
-  %len157 = getelementptr inbounds %struct.Token, ptr %call155, i64 0, i32 5
+  %len157 = getelementptr inbounds i8, ptr %call155, i64 56
   %32 = load i32, ptr %len157, align 8
   %idx.ext158 = sext i32 %32 to i64
   %add.ptr159 = getelementptr inbounds i8, ptr %p.0143, i64 %idx.ext158
@@ -1323,9 +1321,9 @@ if.then162:                                       ; preds = %if.end160
   %add.ptr163 = getelementptr inbounds i8, ptr %p.0143, i64 1
   %33 = load ptr, ptr @ty_uint, align 8
   %call164 = tail call fastcc ptr @read_char_literal(ptr noundef nonnull %p.0143, ptr noundef nonnull %add.ptr163, ptr noundef %33)
-  %next165 = getelementptr inbounds %struct.Token, ptr %cur.0142, i64 0, i32 1
+  %next165 = getelementptr inbounds i8, ptr %cur.0142, i64 8
   store ptr %call164, ptr %next165, align 8
-  %len166 = getelementptr inbounds %struct.Token, ptr %call164, i64 0, i32 5
+  %len166 = getelementptr inbounds i8, ptr %call164, i64 56
   %34 = load i32, ptr %len166, align 8
   %idx.ext167 = sext i32 %34 to i64
   %add.ptr168 = getelementptr inbounds i8, ptr %p.0143, i64 %idx.ext167
@@ -1340,9 +1338,9 @@ if.then172:                                       ; preds = %if.end169
   %idx.ext173 = sext i32 %call170 to i64
   %add.ptr174 = getelementptr inbounds i8, ptr %p.0143, i64 %idx.ext173
   %call175 = tail call fastcc ptr @new_token(i32 noundef 0, ptr noundef nonnull %p.0143, ptr noundef nonnull %add.ptr174)
-  %next176 = getelementptr inbounds %struct.Token, ptr %cur.0142, i64 0, i32 1
+  %next176 = getelementptr inbounds i8, ptr %cur.0142, i64 8
   store ptr %call175, ptr %next176, align 8
-  %len177 = getelementptr inbounds %struct.Token, ptr %call175, i64 0, i32 5
+  %len177 = getelementptr inbounds i8, ptr %call175, i64 56
   %35 = load i32, ptr %len177, align 8
   %idx.ext178 = sext i32 %35 to i64
   %add.ptr179 = getelementptr inbounds i8, ptr %p.0143, i64 %idx.ext178
@@ -1357,9 +1355,9 @@ if.then183:                                       ; preds = %if.end180
   %idx.ext184 = sext i32 %call181 to i64
   %add.ptr185 = getelementptr inbounds i8, ptr %p.0143, i64 %idx.ext184
   %call186 = tail call fastcc ptr @new_token(i32 noundef 1, ptr noundef nonnull %p.0143, ptr noundef nonnull %add.ptr185)
-  %next187 = getelementptr inbounds %struct.Token, ptr %cur.0142, i64 0, i32 1
+  %next187 = getelementptr inbounds i8, ptr %cur.0142, i64 8
   store ptr %call186, ptr %next187, align 8
-  %len188 = getelementptr inbounds %struct.Token, ptr %call186, i64 0, i32 5
+  %len188 = getelementptr inbounds i8, ptr %call186, i64 56
   %36 = load i32, ptr %len188, align 8
   %idx.ext189 = sext i32 %36 to i64
   %add.ptr190 = getelementptr inbounds i8, ptr %p.0143, i64 %idx.ext189
@@ -1385,27 +1383,27 @@ while.end192:                                     ; preds = %while.end192.loopex
   %p.0.lcssa = phi ptr [ %0, %entry ], [ %p.0.be, %while.end192.loopexit ]
   %call.i120 = tail call noalias dereferenceable_or_null(128) ptr @calloc(i64 noundef 1, i64 noundef 128) #29
   store i32 6, ptr %call.i120, align 16
-  %loc.i121 = getelementptr inbounds %struct.Token, ptr %call.i120, i64 0, i32 4
+  %loc.i121 = getelementptr inbounds i8, ptr %call.i120, i64 48
   store ptr %p.0.lcssa, ptr %loc.i121, align 16
-  %len.i124 = getelementptr inbounds %struct.Token, ptr %call.i120, i64 0, i32 5
+  %len.i124 = getelementptr inbounds i8, ptr %call.i120, i64 56
   store i32 0, ptr %len.i124, align 8
-  %file.i125 = getelementptr inbounds %struct.Token, ptr %call.i120, i64 0, i32 8
+  %file.i125 = getelementptr inbounds i8, ptr %call.i120, i64 80
   store ptr %39, ptr %file.i125, align 16
-  %display_name.i126 = getelementptr inbounds %struct.File, ptr %39, i64 0, i32 3
+  %display_name.i126 = getelementptr inbounds i8, ptr %39, i64 24
   %40 = load ptr, ptr %display_name.i126, align 8
-  %filename.i127 = getelementptr inbounds %struct.Token, ptr %call.i120, i64 0, i32 9
+  %filename.i127 = getelementptr inbounds i8, ptr %call.i120, i64 88
   store ptr %40, ptr %filename.i127, align 8
-  %at_bol.i129 = getelementptr inbounds %struct.Token, ptr %call.i120, i64 0, i32 12
+  %at_bol.i129 = getelementptr inbounds i8, ptr %call.i120, i64 104
   store i8 %.b10.i128, ptr %at_bol.i129, align 8
-  %has_space.i132 = getelementptr inbounds %struct.Token, ptr %call.i120, i64 0, i32 13
+  %has_space.i132 = getelementptr inbounds i8, ptr %call.i120, i64 105
   store i8 %.b911.i131, ptr %has_space.i132, align 1
   store i1 false, ptr @has_space, align 1
   store i1 false, ptr @at_bol, align 1
-  %next194 = getelementptr inbounds %struct.Token, ptr %cur.0.lcssa, i64 0, i32 1
+  %next194 = getelementptr inbounds i8, ptr %cur.0.lcssa, i64 8
   store ptr %call.i120, ptr %next194, align 8
-  %next195 = getelementptr inbounds %struct.Token, ptr %head, i64 0, i32 1
+  %next195 = getelementptr inbounds i8, ptr %head, i64 8
   %41 = load ptr, ptr %next195, align 8
-  %contents.i = getelementptr inbounds %struct.File, ptr %39, i64 0, i32 2
+  %contents.i = getelementptr inbounds i8, ptr %39, i64 16
   %42 = load ptr, ptr %contents.i, align 8
   br label %do.body.i
 
@@ -1413,15 +1411,15 @@ do.body.i:                                        ; preds = %if.end.i, %while.en
   %tok.addr.0.i = phi ptr [ %41, %while.end192 ], [ %tok.addr.1.i, %if.end.i ]
   %p.0.i = phi ptr [ %42, %while.end192 ], [ %incdec.ptr.i, %if.end.i ]
   %n.0.i = phi i32 [ 1, %while.end192 ], [ %spec.select.i, %if.end.i ]
-  %loc.i134 = getelementptr inbounds %struct.Token, ptr %tok.addr.0.i, i64 0, i32 4
+  %loc.i134 = getelementptr inbounds i8, ptr %tok.addr.0.i, i64 48
   %43 = load ptr, ptr %loc.i134, align 16
   %cmp.i135 = icmp eq ptr %p.0.i, %43
   br i1 %cmp.i135, label %if.then.i, label %if.end.i
 
 if.then.i:                                        ; preds = %do.body.i
-  %line_no.i = getelementptr inbounds %struct.Token, ptr %tok.addr.0.i, i64 0, i32 10
+  %line_no.i = getelementptr inbounds i8, ptr %tok.addr.0.i, i64 96
   store i32 %n.0.i, ptr %line_no.i, align 16
-  %next.i = getelementptr inbounds %struct.Token, ptr %tok.addr.0.i, i64 0, i32 1
+  %next.i = getelementptr inbounds i8, ptr %tok.addr.0.i, i64 8
   %44 = load ptr, ptr %next.i, align 8
   br label %if.end.i
 
@@ -1465,27 +1463,27 @@ define internal fastcc noalias noundef ptr @new_token(i32 noundef %kind, ptr nou
 entry:
   %call = tail call noalias dereferenceable_or_null(128) ptr @calloc(i64 noundef 1, i64 noundef 128) #29
   store i32 %kind, ptr %call, align 16
-  %loc = getelementptr inbounds %struct.Token, ptr %call, i64 0, i32 4
+  %loc = getelementptr inbounds i8, ptr %call, i64 48
   store ptr %start, ptr %loc, align 16
   %sub.ptr.lhs.cast = ptrtoint ptr %end to i64
   %sub.ptr.rhs.cast = ptrtoint ptr %start to i64
   %sub.ptr.sub = sub i64 %sub.ptr.lhs.cast, %sub.ptr.rhs.cast
   %conv = trunc i64 %sub.ptr.sub to i32
-  %len = getelementptr inbounds %struct.Token, ptr %call, i64 0, i32 5
+  %len = getelementptr inbounds i8, ptr %call, i64 56
   store i32 %conv, ptr %len, align 8
   %0 = load ptr, ptr @current_file, align 8
-  %file = getelementptr inbounds %struct.Token, ptr %call, i64 0, i32 8
+  %file = getelementptr inbounds i8, ptr %call, i64 80
   store ptr %0, ptr %file, align 16
-  %display_name = getelementptr inbounds %struct.File, ptr %0, i64 0, i32 3
+  %display_name = getelementptr inbounds i8, ptr %0, i64 24
   %1 = load ptr, ptr %display_name, align 8
-  %filename = getelementptr inbounds %struct.Token, ptr %call, i64 0, i32 9
+  %filename = getelementptr inbounds i8, ptr %call, i64 88
   store ptr %1, ptr %filename, align 8
   %.b10 = load i1, ptr @at_bol, align 1
-  %at_bol = getelementptr inbounds %struct.Token, ptr %call, i64 0, i32 12
+  %at_bol = getelementptr inbounds i8, ptr %call, i64 104
   %frombool = zext i1 %.b10 to i8
   store i8 %frombool, ptr %at_bol, align 8
   %.b911 = load i1, ptr @has_space, align 1
-  %has_space = getelementptr inbounds %struct.Token, ptr %call, i64 0, i32 13
+  %has_space = getelementptr inbounds i8, ptr %call, i64 105
   %frombool3 = zext i1 %.b911 to i8
   store i8 %frombool3, ptr %has_space, align 1
   store i1 false, ptr @has_space, align 1
@@ -1568,36 +1566,36 @@ for.end:                                          ; preds = %for.end.loopexit, %
   %add.ptr11 = getelementptr inbounds i8, ptr %p.addr.0.i.ptr.le, i64 1
   %call.i = tail call noalias dereferenceable_or_null(128) ptr @calloc(i64 noundef 1, i64 noundef 128) #29
   store i32 3, ptr %call.i, align 16
-  %loc.i = getelementptr inbounds %struct.Token, ptr %call.i, i64 0, i32 4
+  %loc.i = getelementptr inbounds i8, ptr %call.i, i64 48
   store ptr %start, ptr %loc.i, align 16
   %sub.ptr.lhs.cast.i = ptrtoint ptr %add.ptr11 to i64
   %sub.ptr.rhs.cast.i = ptrtoint ptr %start to i64
   %sub.ptr.sub.i = sub i64 %sub.ptr.lhs.cast.i, %sub.ptr.rhs.cast.i
   %conv.i = trunc i64 %sub.ptr.sub.i to i32
-  %len.i = getelementptr inbounds %struct.Token, ptr %call.i, i64 0, i32 5
+  %len.i = getelementptr inbounds i8, ptr %call.i, i64 56
   store i32 %conv.i, ptr %len.i, align 8
   %7 = load ptr, ptr @current_file, align 8
-  %file.i = getelementptr inbounds %struct.Token, ptr %call.i, i64 0, i32 8
+  %file.i = getelementptr inbounds i8, ptr %call.i, i64 80
   store ptr %7, ptr %file.i, align 16
-  %display_name.i = getelementptr inbounds %struct.File, ptr %7, i64 0, i32 3
+  %display_name.i = getelementptr inbounds i8, ptr %7, i64 24
   %8 = load ptr, ptr %display_name.i, align 8
-  %filename.i = getelementptr inbounds %struct.Token, ptr %call.i, i64 0, i32 9
+  %filename.i = getelementptr inbounds i8, ptr %call.i, i64 88
   store ptr %8, ptr %filename.i, align 8
   %.b10.i = load i1, ptr @at_bol, align 1
-  %at_bol.i = getelementptr inbounds %struct.Token, ptr %call.i, i64 0, i32 12
+  %at_bol.i = getelementptr inbounds i8, ptr %call.i, i64 104
   %frombool.i = zext i1 %.b10.i to i8
   store i8 %frombool.i, ptr %at_bol.i, align 8
   %.b911.i = load i1, ptr @has_space, align 1
-  %has_space.i = getelementptr inbounds %struct.Token, ptr %call.i, i64 0, i32 13
+  %has_space.i = getelementptr inbounds i8, ptr %call.i, i64 105
   %frombool3.i = zext i1 %.b911.i to i8
   store i8 %frombool3.i, ptr %has_space.i, align 1
   store i1 false, ptr @has_space, align 1
   store i1 false, ptr @at_bol, align 1
   %9 = load ptr, ptr @ty_char, align 8
   %call13 = tail call ptr @array_of(ptr noundef %9, i32 noundef %len.0.lcssa) #25
-  %ty = getelementptr inbounds %struct.Token, ptr %call.i, i64 0, i32 6
+  %ty = getelementptr inbounds i8, ptr %call.i, i64 64
   store ptr %call13, ptr %ty, align 16
-  %str = getelementptr inbounds %struct.Token, ptr %call.i, i64 0, i32 7
+  %str = getelementptr inbounds i8, ptr %call.i, i64 72
   store ptr %call1, ptr %str, align 8
   ret ptr %call.i
 }
@@ -1642,35 +1640,35 @@ if.end11:                                         ; preds = %if.end8
   %add.ptr12 = getelementptr inbounds i8, ptr %call9, i64 1
   %call.i = call noalias dereferenceable_or_null(128) ptr @calloc(i64 noundef 1, i64 noundef 128) #29
   store i32 4, ptr %call.i, align 16
-  %loc.i = getelementptr inbounds %struct.Token, ptr %call.i, i64 0, i32 4
+  %loc.i = getelementptr inbounds i8, ptr %call.i, i64 48
   store ptr %start, ptr %loc.i, align 16
   %sub.ptr.lhs.cast.i = ptrtoint ptr %add.ptr12 to i64
   %sub.ptr.rhs.cast.i = ptrtoint ptr %start to i64
   %sub.ptr.sub.i = sub i64 %sub.ptr.lhs.cast.i, %sub.ptr.rhs.cast.i
   %conv.i = trunc i64 %sub.ptr.sub.i to i32
-  %len.i = getelementptr inbounds %struct.Token, ptr %call.i, i64 0, i32 5
+  %len.i = getelementptr inbounds i8, ptr %call.i, i64 56
   store i32 %conv.i, ptr %len.i, align 8
   %2 = load ptr, ptr @current_file, align 8
-  %file.i = getelementptr inbounds %struct.Token, ptr %call.i, i64 0, i32 8
+  %file.i = getelementptr inbounds i8, ptr %call.i, i64 80
   store ptr %2, ptr %file.i, align 16
-  %display_name.i = getelementptr inbounds %struct.File, ptr %2, i64 0, i32 3
+  %display_name.i = getelementptr inbounds i8, ptr %2, i64 24
   %3 = load ptr, ptr %display_name.i, align 8
-  %filename.i = getelementptr inbounds %struct.Token, ptr %call.i, i64 0, i32 9
+  %filename.i = getelementptr inbounds i8, ptr %call.i, i64 88
   store ptr %3, ptr %filename.i, align 8
   %.b10.i = load i1, ptr @at_bol, align 1
-  %at_bol.i = getelementptr inbounds %struct.Token, ptr %call.i, i64 0, i32 12
+  %at_bol.i = getelementptr inbounds i8, ptr %call.i, i64 104
   %frombool.i = zext i1 %.b10.i to i8
   store i8 %frombool.i, ptr %at_bol.i, align 8
   %.b911.i = load i1, ptr @has_space, align 1
-  %has_space.i = getelementptr inbounds %struct.Token, ptr %call.i, i64 0, i32 13
+  %has_space.i = getelementptr inbounds i8, ptr %call.i, i64 105
   %frombool3.i = zext i1 %.b911.i to i8
   store i8 %frombool3.i, ptr %has_space.i, align 1
   store i1 false, ptr @has_space, align 1
   store i1 false, ptr @at_bol, align 1
   %conv14 = sext i32 %c.0 to i64
-  %val = getelementptr inbounds %struct.Token, ptr %call.i, i64 0, i32 2
+  %val = getelementptr inbounds i8, ptr %call.i, i64 16
   store i64 %conv14, ptr %val, align 16
-  %ty15 = getelementptr inbounds %struct.Token, ptr %call.i, i64 0, i32 6
+  %ty15 = getelementptr inbounds i8, ptr %call.i, i64 64
   store ptr %ty, ptr %ty15, align 16
   ret ptr %call.i
 }
@@ -1763,11 +1761,11 @@ define dso_local noalias noundef ptr @new_file(ptr noundef %name, i32 noundef %f
 entry:
   %call = tail call noalias dereferenceable_or_null(40) ptr @calloc(i64 noundef 1, i64 noundef 40) #29
   store ptr %name, ptr %call, align 8
-  %display_name = getelementptr inbounds %struct.File, ptr %call, i64 0, i32 3
+  %display_name = getelementptr inbounds i8, ptr %call, i64 24
   store ptr %name, ptr %display_name, align 8
-  %file_no2 = getelementptr inbounds %struct.File, ptr %call, i64 0, i32 1
+  %file_no2 = getelementptr inbounds i8, ptr %call, i64 8
   store i32 %file_no, ptr %file_no2, align 8
-  %contents3 = getelementptr inbounds %struct.File, ptr %call, i64 0, i32 2
+  %contents3 = getelementptr inbounds i8, ptr %call, i64 16
   store ptr %contents, ptr %contents3, align 8
   ret ptr %call
 }
@@ -2133,11 +2131,11 @@ convert_universal_chars.exit:                     ; preds = %if.end36.i, %remove
   %add = add nsw i32 %35, 1
   %call.i28 = call noalias dereferenceable_or_null(40) ptr @calloc(i64 noundef 1, i64 noundef 40) #29
   store ptr %path, ptr %call.i28, align 8
-  %display_name.i = getelementptr inbounds %struct.File, ptr %call.i28, i64 0, i32 3
+  %display_name.i = getelementptr inbounds i8, ptr %call.i28, i64 24
   store ptr %path, ptr %display_name.i, align 8
-  %file_no2.i = getelementptr inbounds %struct.File, ptr %call.i28, i64 0, i32 1
+  %file_no2.i = getelementptr inbounds i8, ptr %call.i28, i64 8
   store i32 %add, ptr %file_no2.i, align 8
-  %contents3.i = getelementptr inbounds %struct.File, ptr %call.i28, i64 0, i32 2
+  %contents3.i = getelementptr inbounds i8, ptr %call.i28, i64 16
   store ptr %spec.select, ptr %contents3.i, align 8
   %36 = load ptr, ptr @input_files, align 8
   %add6 = add nsw i32 %35, 2
@@ -2148,7 +2146,7 @@ convert_universal_chars.exit:                     ; preds = %if.end36.i, %remove
   %idxprom = sext i32 %35 to i64
   %arrayidx = getelementptr inbounds ptr, ptr %call7, i64 %idxprom
   store ptr %call.i28, ptr %arrayidx, align 8
-  %arrayidx10 = getelementptr ptr, ptr %arrayidx, i64 1
+  %arrayidx10 = getelementptr i8, ptr %arrayidx, i64 8
   store ptr null, ptr %arrayidx10, align 8
   store i32 %add, ptr @tokenize_file.file_no, align 4
   %call11 = call ptr @tokenize(ptr noundef nonnull %call.i28)

@@ -3,99 +3,10 @@ source_filename = "bench/libquic/original/quic_crypto_server_stream.cc.ll"
 target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:128-n8:16:32:64-S128"
 target triple = "x86_64-unknown-linux-gnu"
 
-%"class.net::QuicCryptoServerStream" = type { %"class.net::QuicCryptoServerStreamBase", ptr, ptr, %"struct.net::QuicCryptoProof", %"class.std::__cxx11::basic_string", ptr, ptr, i8, i8, ptr, i32, %"class.std::unique_ptr.62", %"class.net::SourceAddressTokens", i8, i8, i64 }
-%"class.net::QuicCryptoServerStreamBase" = type { %"class.net::QuicCryptoStream" }
-%"class.net::QuicCryptoStream" = type { %"class.net::ReliableQuicStream.base", %"class.net::CryptoFramerVisitorInterface", i8, i8, [6 x i8], %"struct.net::QuicCryptoNegotiatedParameters", %"class.net::CryptoFramer" }
-%"class.net::ReliableQuicStream.base" = type <{ ptr, %"class.std::__cxx11::list", i64, %"class.net::QuicStreamSequencer", i32, [4 x i8], ptr, i64, i64, i32, i32, i8, i8, i8, i8, i8, i8, i8, i8, i32, [4 x i8], %"class.net::QuicFlowController", ptr, i8 }>
-%"class.std::__cxx11::list" = type { %"class.std::__cxx11::_List_base" }
-%"class.std::__cxx11::_List_base" = type { %"struct.std::__cxx11::_List_base<net::ReliableQuicStream::PendingData, std::allocator<net::ReliableQuicStream::PendingData>>::_List_impl" }
-%"struct.std::__cxx11::_List_base<net::ReliableQuicStream::PendingData, std::allocator<net::ReliableQuicStream::PendingData>>::_List_impl" = type { %"struct.std::__detail::_List_node_header" }
-%"struct.std::__detail::_List_node_header" = type { %"struct.std::__detail::_List_node_base", i64 }
-%"struct.std::__detail::_List_node_base" = type { ptr, ptr }
-%"class.net::QuicStreamSequencer" = type <{ ptr, ptr, %"class.net::QuicStreamSequencerBuffer", i64, i8, [3 x i8], i32, i32, [4 x i8], ptr, i8, [7 x i8] }>
-%"class.net::QuicStreamSequencerBuffer" = type { i64, i64, i64, %"class.std::__cxx11::list.0", i8, %"class.std::unique_ptr", i64, %"class.std::map" }
-%"class.std::__cxx11::list.0" = type { %"class.std::__cxx11::_List_base.1" }
-%"class.std::__cxx11::_List_base.1" = type { %"struct.std::__cxx11::_List_base<net::QuicStreamSequencerBuffer::Gap, std::allocator<net::QuicStreamSequencerBuffer::Gap>>::_List_impl" }
-%"struct.std::__cxx11::_List_base<net::QuicStreamSequencerBuffer::Gap, std::allocator<net::QuicStreamSequencerBuffer::Gap>>::_List_impl" = type { %"struct.std::__detail::_List_node_header" }
-%"class.std::unique_ptr" = type { %"struct.std::__uniq_ptr_data" }
-%"struct.std::__uniq_ptr_data" = type { %"class.std::__uniq_ptr_impl" }
-%"class.std::__uniq_ptr_impl" = type { %"class.std::tuple" }
-%"class.std::tuple" = type { %"struct.std::_Tuple_impl" }
-%"struct.std::_Tuple_impl" = type { %"struct.std::_Head_base.6" }
-%"struct.std::_Head_base.6" = type { ptr }
-%"class.std::map" = type { %"class.std::_Rb_tree" }
-%"class.std::_Rb_tree" = type { %"struct.std::_Rb_tree<unsigned long, std::pair<const unsigned long, net::QuicStreamSequencerBuffer::FrameInfo>, std::_Select1st<std::pair<const unsigned long, net::QuicStreamSequencerBuffer::FrameInfo>>, std::less<unsigned long>>::_Rb_tree_impl" }
-%"struct.std::_Rb_tree<unsigned long, std::pair<const unsigned long, net::QuicStreamSequencerBuffer::FrameInfo>, std::_Select1st<std::pair<const unsigned long, net::QuicStreamSequencerBuffer::FrameInfo>>, std::less<unsigned long>>::_Rb_tree_impl" = type { %"struct.std::_Rb_tree_key_compare", %"struct.std::_Rb_tree_header" }
-%"struct.std::_Rb_tree_key_compare" = type { %"struct.std::less" }
-%"struct.std::less" = type { i8 }
-%"struct.std::_Rb_tree_header" = type { %"struct.std::_Rb_tree_node_base", i64 }
-%"struct.std::_Rb_tree_node_base" = type { i32, ptr, ptr, ptr }
-%"class.net::QuicFlowController" = type { ptr, i32, i32, i64, i64, i64, i64, i64, i64, i64, i8, i64, %"class.net::QuicTime" }
-%"class.net::QuicTime" = type { i64 }
-%"class.net::CryptoFramerVisitorInterface" = type { ptr }
-%"struct.net::QuicCryptoNegotiatedParameters" = type <{ i32, i32, %"class.std::__cxx11::basic_string", %"class.std::__cxx11::basic_string", %"class.std::__cxx11::basic_string", %"class.std::__cxx11::basic_string", %"struct.net::CrypterPair", %"struct.net::CrypterPair", %"class.std::__cxx11::basic_string", %"class.std::__cxx11::basic_string", %"class.std::__cxx11::basic_string", %"class.std::__cxx11::basic_string", %"class.std::vector", %"class.std::unique_ptr.32", %"class.std::__cxx11::basic_string", i32, i8, i8, [2 x i8], %"class.std::__cxx11::basic_string", %"class.std::__cxx11::basic_string", i8, [7 x i8] }>
-%"struct.net::CrypterPair" = type { %"class.std::unique_ptr.13", %"class.std::unique_ptr.21" }
-%"class.std::unique_ptr.13" = type { %"struct.std::__uniq_ptr_data.14" }
-%"struct.std::__uniq_ptr_data.14" = type { %"class.std::__uniq_ptr_impl.15" }
-%"class.std::__uniq_ptr_impl.15" = type { %"class.std::tuple.16" }
-%"class.std::tuple.16" = type { %"struct.std::_Tuple_impl.17" }
-%"struct.std::_Tuple_impl.17" = type { %"struct.std::_Head_base.20" }
-%"struct.std::_Head_base.20" = type { ptr }
-%"class.std::unique_ptr.21" = type { %"struct.std::__uniq_ptr_data.22" }
-%"struct.std::__uniq_ptr_data.22" = type { %"class.std::__uniq_ptr_impl.23" }
-%"class.std::__uniq_ptr_impl.23" = type { %"class.std::tuple.24" }
-%"class.std::tuple.24" = type { %"struct.std::_Tuple_impl.25" }
-%"struct.std::_Tuple_impl.25" = type { %"struct.std::_Head_base.28" }
-%"struct.std::_Head_base.28" = type { ptr }
-%"class.std::vector" = type { %"struct.std::_Vector_base" }
-%"struct.std::_Vector_base" = type { %"struct.std::_Vector_base<std::__cxx11::basic_string<char>, std::allocator<std::__cxx11::basic_string<char>>>::_Vector_impl" }
-%"struct.std::_Vector_base<std::__cxx11::basic_string<char>, std::allocator<std::__cxx11::basic_string<char>>>::_Vector_impl" = type { %"struct.std::_Vector_base<std::__cxx11::basic_string<char>, std::allocator<std::__cxx11::basic_string<char>>>::_Vector_impl_data" }
-%"struct.std::_Vector_base<std::__cxx11::basic_string<char>, std::allocator<std::__cxx11::basic_string<char>>>::_Vector_impl_data" = type { ptr, ptr, ptr }
-%"class.std::unique_ptr.32" = type { %"struct.std::__uniq_ptr_data.33" }
-%"struct.std::__uniq_ptr_data.33" = type { %"class.std::__uniq_ptr_impl.34" }
-%"class.std::__uniq_ptr_impl.34" = type { %"class.std::tuple.35" }
-%"class.std::tuple.35" = type { %"struct.std::_Tuple_impl.36" }
-%"struct.std::_Tuple_impl.36" = type { %"struct.std::_Head_base.39" }
-%"struct.std::_Head_base.39" = type { ptr }
-%"class.net::CryptoFramer" = type { ptr, ptr, i32, %"class.std::__cxx11::basic_string", i32, %"class.net::CryptoHandshakeMessage", %"class.std::__cxx11::basic_string", i16, %"class.std::vector.56", i64 }
-%"class.net::CryptoHandshakeMessage" = type { i32, %"class.std::map.40", i64, %"class.std::unique_ptr.48" }
-%"class.std::map.40" = type { %"class.std::_Rb_tree.41" }
-%"class.std::_Rb_tree.41" = type { %"struct.std::_Rb_tree<unsigned int, std::pair<const unsigned int, std::__cxx11::basic_string<char>>, std::_Select1st<std::pair<const unsigned int, std::__cxx11::basic_string<char>>>, std::less<unsigned int>>::_Rb_tree_impl" }
-%"struct.std::_Rb_tree<unsigned int, std::pair<const unsigned int, std::__cxx11::basic_string<char>>, std::_Select1st<std::pair<const unsigned int, std::__cxx11::basic_string<char>>>, std::less<unsigned int>>::_Rb_tree_impl" = type { %"struct.std::_Rb_tree_key_compare.45", %"struct.std::_Rb_tree_header" }
-%"struct.std::_Rb_tree_key_compare.45" = type { %"struct.std::less.46" }
-%"struct.std::less.46" = type { i8 }
-%"class.std::unique_ptr.48" = type { %"struct.std::__uniq_ptr_data.49" }
-%"struct.std::__uniq_ptr_data.49" = type { %"class.std::__uniq_ptr_impl.50" }
-%"class.std::__uniq_ptr_impl.50" = type { %"class.std::tuple.51" }
-%"class.std::tuple.51" = type { %"struct.std::_Tuple_impl.52" }
-%"struct.std::_Tuple_impl.52" = type { %"struct.std::_Head_base.55" }
-%"struct.std::_Head_base.55" = type { ptr }
-%"class.std::vector.56" = type { %"struct.std::_Vector_base.57" }
-%"struct.std::_Vector_base.57" = type { %"struct.std::_Vector_base<std::pair<unsigned int, unsigned long>, std::allocator<std::pair<unsigned int, unsigned long>>>::_Vector_impl" }
-%"struct.std::_Vector_base<std::pair<unsigned int, unsigned long>, std::allocator<std::pair<unsigned int, unsigned long>>>::_Vector_impl" = type { %"struct.std::_Vector_base<std::pair<unsigned int, unsigned long>, std::allocator<std::pair<unsigned int, unsigned long>>>::_Vector_impl_data" }
-%"struct.std::_Vector_base<std::pair<unsigned int, unsigned long>, std::allocator<std::pair<unsigned int, unsigned long>>>::_Vector_impl_data" = type { ptr, ptr, ptr }
-%"struct.net::QuicCryptoProof" = type { %"class.std::__cxx11::basic_string", %class.scoped_refptr, %"class.std::__cxx11::basic_string", %class.scoped_refptr.61, %"class.std::__cxx11::basic_string" }
-%class.scoped_refptr = type { ptr }
-%class.scoped_refptr.61 = type { ptr }
+%"class.base::BasicStringPiece" = type { ptr, i64 }
 %"class.std::__cxx11::basic_string" = type { %"struct.std::__cxx11::basic_string<char>::_Alloc_hider", i64, %union.anon }
 %"struct.std::__cxx11::basic_string<char>::_Alloc_hider" = type { ptr }
 %union.anon = type { i64, [8 x i8] }
-%"class.std::unique_ptr.62" = type { %"struct.std::__uniq_ptr_data.63" }
-%"struct.std::__uniq_ptr_data.63" = type { %"class.std::__uniq_ptr_impl.64" }
-%"class.std::__uniq_ptr_impl.64" = type { %"class.std::tuple.65" }
-%"class.std::tuple.65" = type { %"struct.std::_Tuple_impl.66" }
-%"struct.std::_Tuple_impl.66" = type { %"struct.std::_Head_base.69" }
-%"struct.std::_Head_base.69" = type { ptr }
-%"class.net::SourceAddressTokens" = type { %"class.google::protobuf::MessageLite", %"struct.google::protobuf::internal::ArenaStringPtr", ptr, [1 x i32], i32, %"class.google::protobuf::RepeatedPtrField" }
-%"class.google::protobuf::MessageLite" = type { ptr }
-%"struct.google::protobuf::internal::ArenaStringPtr" = type { ptr }
-%"class.google::protobuf::RepeatedPtrField" = type { %"class.google::protobuf::internal::RepeatedPtrFieldBase" }
-%"class.google::protobuf::internal::RepeatedPtrFieldBase" = type { ptr, i32, i32, ptr }
-%"class.net::QuicCryptoServerStream::ValidateCallback" = type { %"class.net::ValidateClientHelloResultCallback", ptr }
-%"class.net::ValidateClientHelloResultCallback" = type { ptr }
-%"class.net::QuicCryptoServerStream::SendServerConfigUpdateCallback" = type { %"class.net::BuildServerConfigUpdateMessageResultCallback", ptr }
-%"class.net::BuildServerConfigUpdateMessageResultCallback" = type { ptr }
-%"class.base::BasicStringPiece" = type { ptr, i64 }
 %"class.std::allocator.10" = type { i8 }
 %"class.std::unique_ptr.267" = type { %"struct.std::__uniq_ptr_data.268" }
 %"struct.std::__uniq_ptr_data.268" = type { %"class.std::__uniq_ptr_impl.269" }
@@ -103,141 +14,21 @@ target triple = "x86_64-unknown-linux-gnu"
 %"class.std::tuple.270" = type { %"struct.std::_Tuple_impl.271" }
 %"struct.std::_Tuple_impl.271" = type { %"struct.std::_Head_base.274" }
 %"struct.std::_Head_base.274" = type { ptr }
-%"class.net::ReliableQuicStream" = type <{ ptr, %"class.std::__cxx11::list", i64, %"class.net::QuicStreamSequencer", i32, [4 x i8], ptr, i64, i64, i32, i32, i8, i8, i8, i8, i8, i8, i8, i8, i32, [4 x i8], %"class.net::QuicFlowController", ptr, i8, [7 x i8] }>
-%"class.net::QuicSession" = type <{ %"class.net::QuicConnectionVisitorInterface", %"class.std::map.152", ptr, %"class.std::vector.157", %"class.net::QuicConfig", i64, i64, %"class.base::SmallMap", %"class.base::SmallMap.170", i32, [4 x i8], %"class.std::unordered_set.172", %"class.std::unordered_set.172", %"class.net::QuicWriteBlockedList", i32, [4 x i8], i64, i64, i64, i32, [4 x i8], %"class.net::QuicFlowController", i32, [4 x i8] }>
-%"class.net::QuicConnectionVisitorInterface" = type { ptr }
-%"class.std::map.152" = type { %"class.std::_Rb_tree.153" }
-%"class.std::_Rb_tree.153" = type { %"struct.std::_Rb_tree<unsigned int, std::pair<const unsigned int, unsigned long>, std::_Select1st<std::pair<const unsigned int, unsigned long>>, std::less<unsigned int>>::_Rb_tree_impl" }
-%"struct.std::_Rb_tree<unsigned int, std::pair<const unsigned int, unsigned long>, std::_Select1st<std::pair<const unsigned int, unsigned long>>, std::less<unsigned int>>::_Rb_tree_impl" = type { %"struct.std::_Rb_tree_key_compare.45", %"struct.std::_Rb_tree_header" }
-%"class.std::vector.157" = type { %"struct.std::_Vector_base.158" }
-%"struct.std::_Vector_base.158" = type { %"struct.std::_Vector_base<net::ReliableQuicStream *, std::allocator<net::ReliableQuicStream *>>::_Vector_impl" }
-%"struct.std::_Vector_base<net::ReliableQuicStream *, std::allocator<net::ReliableQuicStream *>>::_Vector_impl" = type { %"struct.std::_Vector_base<net::ReliableQuicStream *, std::allocator<net::ReliableQuicStream *>>::_Vector_impl_data" }
-%"struct.std::_Vector_base<net::ReliableQuicStream *, std::allocator<net::ReliableQuicStream *>>::_Vector_impl_data" = type { ptr, ptr, ptr }
-%"class.net::QuicConfig" = type { %"class.net::QuicTime::Delta", %"class.net::QuicTime::Delta", i64, %"class.net::QuicFixedTagVector", %"class.net::QuicNegotiableUint32", %"class.net::QuicNegotiableUint32", %"class.net::QuicNegotiableUint32", %"class.net::QuicFixedUint32", %"class.net::QuicFixedUint32", %"class.net::QuicFixedUint32", %"class.net::QuicFixedUint32", %"class.net::QuicFixedUint32", %"class.net::QuicFixedUint32", %"class.net::QuicNegotiableUint32", %"class.net::QuicFixedUint32", %"class.net::QuicFixedIPEndPoint", %"class.net::QuicFixedUint32" }
-%"class.net::QuicTime::Delta" = type { %"class.base::TimeDelta", i64 }
-%"class.base::TimeDelta" = type { i64 }
-%"class.net::QuicFixedTagVector" = type <{ %"class.net::QuicConfigValue", %"class.std::vector.162", i8, [7 x i8], %"class.std::vector.162", i8, [7 x i8] }>
-%"class.net::QuicConfigValue" = type { ptr, i32, i32 }
-%"class.std::vector.162" = type { %"struct.std::_Vector_base.163" }
-%"struct.std::_Vector_base.163" = type { %"struct.std::_Vector_base<unsigned int, std::allocator<unsigned int>>::_Vector_impl" }
-%"struct.std::_Vector_base<unsigned int, std::allocator<unsigned int>>::_Vector_impl" = type { %"struct.std::_Vector_base<unsigned int, std::allocator<unsigned int>>::_Vector_impl_data" }
-%"struct.std::_Vector_base<unsigned int, std::allocator<unsigned int>>::_Vector_impl_data" = type { ptr, ptr, ptr }
-%"class.net::QuicNegotiableUint32" = type { %"class.net::QuicNegotiableValue.base", i32, i32, i32 }
-%"class.net::QuicNegotiableValue.base" = type <{ %"class.net::QuicConfigValue", i8 }>
-%"class.net::QuicFixedIPEndPoint" = type <{ %"class.net::QuicConfigValue", %"class.net::IPEndPoint", i8, [7 x i8], %"class.net::IPEndPoint", i8, [7 x i8] }>
-%"class.net::IPEndPoint" = type <{ %"class.net::IPAddress", i16, [6 x i8] }>
-%"class.net::IPAddress" = type { %"class.std::vector.94" }
-%"class.std::vector.94" = type { %"struct.std::_Vector_base.95" }
-%"struct.std::_Vector_base.95" = type { %"struct.std::_Vector_base<unsigned char, std::allocator<unsigned char>>::_Vector_impl" }
-%"struct.std::_Vector_base<unsigned char, std::allocator<unsigned char>>::_Vector_impl" = type { %"struct.std::_Vector_base<unsigned char, std::allocator<unsigned char>>::_Vector_impl_data" }
-%"struct.std::_Vector_base<unsigned char, std::allocator<unsigned char>>::_Vector_impl_data" = type { ptr, ptr, ptr }
-%"class.net::QuicFixedUint32" = type <{ %"class.net::QuicConfigValue", i32, i8, [3 x i8], i32, i8, [3 x i8] }>
-%"class.base::SmallMap" = type { i32, %"class.base::internal::SmallMapDefaultInit", [3 x i8], %union.anon.167 }
-%"class.base::internal::SmallMapDefaultInit" = type { i8 }
-%union.anon.167 = type { %"class.base::ManualConstructor.168" }
-%"class.base::ManualConstructor.168" = type { %"class.base::AlignedMemory.169" }
-%"class.base::AlignedMemory.169" = type { [56 x i8] }
-%"class.base::SmallMap.170" = type { i32, %"class.base::internal::SmallMapDefaultInit", [3 x i8], %union.anon.171 }
-%union.anon.171 = type { [10 x %"class.base::ManualConstructor"] }
-%"class.base::ManualConstructor" = type { %"class.base::AlignedMemory" }
-%"class.base::AlignedMemory" = type { [16 x i8] }
-%"class.std::unordered_set.172" = type { %"class.std::_Hashtable.173" }
-%"class.std::_Hashtable.173" = type { ptr, i64, %"struct.std::__detail::_Hash_node_base", i64, %"struct.std::__detail::_Prime_rehash_policy", ptr }
-%"struct.std::__detail::_Hash_node_base" = type { ptr }
-%"struct.std::__detail::_Prime_rehash_policy" = type { float, i64 }
-%"class.net::QuicWriteBlockedList" = type <{ %"class.net::PriorityWriteScheduler", [8 x i32], [8 x i32], i8, i8, i8, [5 x i8] }>
-%"class.net::PriorityWriteScheduler" = type { %"class.net::WriteScheduler", i64, [8 x %"struct.net::PriorityWriteScheduler<unsigned int>::PriorityInfo"], %"class.std::unordered_map.197" }
-%"class.net::WriteScheduler" = type { ptr }
-%"struct.net::PriorityWriteScheduler<unsigned int>::PriorityInfo" = type { %"class.std::deque.191", i64 }
-%"class.std::deque.191" = type { %"class.std::_Deque_base.192" }
-%"class.std::_Deque_base.192" = type { %"struct.std::_Deque_base<net::PriorityWriteScheduler<unsigned int>::StreamInfo *, std::allocator<net::PriorityWriteScheduler<unsigned int>::StreamInfo *>>::_Deque_impl" }
-%"struct.std::_Deque_base<net::PriorityWriteScheduler<unsigned int>::StreamInfo *, std::allocator<net::PriorityWriteScheduler<unsigned int>::StreamInfo *>>::_Deque_impl" = type { %"struct.std::_Deque_base<net::PriorityWriteScheduler<unsigned int>::StreamInfo *, std::allocator<net::PriorityWriteScheduler<unsigned int>::StreamInfo *>>::_Deque_impl_data" }
-%"struct.std::_Deque_base<net::PriorityWriteScheduler<unsigned int>::StreamInfo *, std::allocator<net::PriorityWriteScheduler<unsigned int>::StreamInfo *>>::_Deque_impl_data" = type { ptr, i64, %"struct.std::_Deque_iterator.196", %"struct.std::_Deque_iterator.196" }
-%"struct.std::_Deque_iterator.196" = type { ptr, ptr, ptr, ptr }
-%"class.std::unordered_map.197" = type { %"class.std::_Hashtable.198" }
-%"class.std::_Hashtable.198" = type { ptr, i64, %"struct.std::__detail::_Hash_node_base", i64, %"struct.std::__detail::_Prime_rehash_policy", ptr }
-%"class.net::QuicConnection" = type <{ %"class.net::QuicFramerVisitorInterface", %"class.net::QuicBlockedWriterInterface", %"class.net::QuicPacketGenerator::DelegateInterface", %"class.net::QuicSentPacketManagerInterface::NetworkChangeVisitor", %"class.net::QuicFramer", ptr, ptr, ptr, ptr, i8, i8, [6 x i8], ptr, ptr, i64, %"class.net::IPEndPoint", %"class.net::IPEndPoint", i32, [4 x i8], i64, i8, [7 x i8], i64, ptr, i8, [7 x i8], %"struct.net::QuicPacketHeader", %"struct.net::QuicStopWaitingFrame", i8, [7 x i8], i64, i64, %"class.std::deque", i64, i8, [7 x i8], %"class.std::__cxx11::list.102", i8, [7 x i8], %"class.std::unique_ptr.107", i32, i8, [3 x i8], %"class.net::QuicReceivedPacketManager", %"class.net::QuicSentEntropyManager", i8, [7 x i8], i64, i8, [7 x i8], i64, i32, i32, float, i8, i8, i8, i8, %"class.net::QuicTime::Delta", %"class.net::QuicOneBlockArena", %"class.net::QuicArenaScopedPtr", %"class.net::QuicArenaScopedPtr", %"class.net::QuicArenaScopedPtr", %"class.net::QuicArenaScopedPtr", %"class.net::QuicArenaScopedPtr", %"class.net::QuicArenaScopedPtr", %"class.net::QuicArenaScopedPtr", ptr, ptr, %"class.net::QuicPacketGenerator", %"class.net::QuicTime::Delta", %"class.net::QuicTime::Delta", %"struct.net::QuicConnectionStats", %"class.net::QuicTime", %"class.net::QuicTime", %"class.net::QuicTime", i64, %"class.std::unique_ptr.144", i32, i32, i8, [7 x i8], %"class.net::IPEndPoint", %"class.net::IPEndPoint", i8, [7 x i8], %"class.std::vector.89", i64, i64, i64, i64, i64, i64, i64, i8, i8, i8, i8, [4 x i8] }>
-%"class.net::QuicFramerVisitorInterface" = type { ptr }
-%"class.net::QuicBlockedWriterInterface" = type { ptr }
-%"class.net::QuicPacketGenerator::DelegateInterface" = type { %"class.net::QuicPacketCreator::DelegateInterface" }
-%"class.net::QuicPacketCreator::DelegateInterface" = type { %"class.net::QuicConnectionCloseDelegateInterface" }
-%"class.net::QuicConnectionCloseDelegateInterface" = type { ptr }
-%"class.net::QuicSentPacketManagerInterface::NetworkChangeVisitor" = type { ptr }
-%"class.net::QuicFramer" = type { ptr, %"class.std::__cxx11::basic_string", ptr, ptr, i32, %"class.std::unordered_set", %"class.std::unordered_map", i64, %"class.std::unordered_map", i64, i8, i64, i32, i32, %"class.std::vector.89", %"class.std::unique_ptr.21", %"class.std::unique_ptr.21", i8, i8, i8, [3 x %"class.std::unique_ptr.13"], i32, i8, %"class.net::QuicTime", %"class.net::QuicTime::Delta", %"struct.std::array" }
-%"class.std::unordered_set" = type { %"class.std::_Hashtable" }
-%"class.std::_Hashtable" = type { ptr, i64, %"struct.std::__detail::_Hash_node_base", i64, %"struct.std::__detail::_Prime_rehash_policy", ptr }
-%"class.std::unordered_map" = type { %"class.std::_Hashtable.76" }
-%"class.std::_Hashtable.76" = type { ptr, i64, %"struct.std::__detail::_Hash_node_base", i64, %"struct.std::__detail::_Prime_rehash_policy", ptr }
+%"class.net::CryptoHandshakeMessage" = type { i32, %"class.std::map.40", i64, %"class.std::unique_ptr.48" }
+%"class.std::map.40" = type { %"class.std::_Rb_tree.41" }
+%"class.std::_Rb_tree.41" = type { %"struct.std::_Rb_tree<unsigned int, std::pair<const unsigned int, std::__cxx11::basic_string<char>>, std::_Select1st<std::pair<const unsigned int, std::__cxx11::basic_string<char>>>, std::less<unsigned int>>::_Rb_tree_impl" }
+%"struct.std::_Rb_tree<unsigned int, std::pair<const unsigned int, std::__cxx11::basic_string<char>>, std::_Select1st<std::pair<const unsigned int, std::__cxx11::basic_string<char>>>, std::less<unsigned int>>::_Rb_tree_impl" = type { %"struct.std::_Rb_tree_key_compare.45", %"struct.std::_Rb_tree_header" }
+%"struct.std::_Rb_tree_key_compare.45" = type { %"struct.std::less.46" }
+%"struct.std::less.46" = type { i8 }
+%"struct.std::_Rb_tree_header" = type { %"struct.std::_Rb_tree_node_base", i64 }
+%"struct.std::_Rb_tree_node_base" = type { i32, ptr, ptr, ptr }
+%"class.std::unique_ptr.48" = type { %"struct.std::__uniq_ptr_data.49" }
+%"struct.std::__uniq_ptr_data.49" = type { %"class.std::__uniq_ptr_impl.50" }
+%"class.std::__uniq_ptr_impl.50" = type { %"class.std::tuple.51" }
+%"class.std::tuple.51" = type { %"struct.std::_Tuple_impl.52" }
+%"struct.std::_Tuple_impl.52" = type { %"struct.std::_Head_base.55" }
+%"struct.std::_Head_base.55" = type { ptr }
 %"struct.std::array" = type { [32 x i8] }
-%"struct.net::QuicPacketHeader" = type <{ %"struct.net::QuicPacketPublicHeader", i64, i8, i8, i8, i8, [4 x i8] }>
-%"struct.net::QuicPacketPublicHeader" = type { i64, i32, i8, i8, i8, i8, %"class.std::vector.89", ptr }
-%"struct.net::QuicStopWaitingFrame" = type { i8, i8, i64 }
-%"class.std::deque" = type { %"class.std::_Deque_base" }
-%"class.std::_Deque_base" = type { %"struct.std::_Deque_base<net::QuicEncryptedPacket *, std::allocator<net::QuicEncryptedPacket *>>::_Deque_impl" }
-%"struct.std::_Deque_base<net::QuicEncryptedPacket *, std::allocator<net::QuicEncryptedPacket *>>::_Deque_impl" = type { %"struct.std::_Deque_base<net::QuicEncryptedPacket *, std::allocator<net::QuicEncryptedPacket *>>::_Deque_impl_data" }
-%"struct.std::_Deque_base<net::QuicEncryptedPacket *, std::allocator<net::QuicEncryptedPacket *>>::_Deque_impl_data" = type { ptr, i64, %"struct.std::_Deque_iterator", %"struct.std::_Deque_iterator" }
-%"struct.std::_Deque_iterator" = type { ptr, ptr, ptr, ptr }
-%"class.std::__cxx11::list.102" = type { %"class.std::__cxx11::_List_base.103" }
-%"class.std::__cxx11::_List_base.103" = type { %"struct.std::__cxx11::_List_base<net::SerializedPacket, std::allocator<net::SerializedPacket>>::_List_impl" }
-%"struct.std::__cxx11::_List_base<net::SerializedPacket, std::allocator<net::SerializedPacket>>::_List_impl" = type { %"struct.std::__detail::_List_node_header" }
-%"class.std::unique_ptr.107" = type { %"struct.std::__uniq_ptr_data.108" }
-%"struct.std::__uniq_ptr_data.108" = type { %"class.std::__uniq_ptr_impl.109" }
-%"class.std::__uniq_ptr_impl.109" = type { %"class.std::tuple.110" }
-%"class.std::tuple.110" = type { %"struct.std::_Tuple_impl.111" }
-%"struct.std::_Tuple_impl.111" = type { %"struct.std::_Head_base.114" }
-%"struct.std::_Head_base.114" = type { ptr }
-%"class.net::QuicReceivedPacketManager" = type { %"class.net::QuicReceivedEntropyHashCalculatorInterface", %"class.net::QuicReceivedPacketManager::EntropyTracker", i64, %"struct.net::QuicAckFrame", i8, %"class.net::QuicTime", ptr }
-%"class.net::QuicReceivedEntropyHashCalculatorInterface" = type { ptr }
-%"class.net::QuicReceivedPacketManager::EntropyTracker" = type { %"class.std::deque.115", i8, i64, i64 }
-%"class.std::deque.115" = type { %"class.std::_Deque_base.116" }
-%"class.std::_Deque_base.116" = type { %"struct.std::_Deque_base<std::pair<unsigned char, bool>, std::allocator<std::pair<unsigned char, bool>>>::_Deque_impl" }
-%"struct.std::_Deque_base<std::pair<unsigned char, bool>, std::allocator<std::pair<unsigned char, bool>>>::_Deque_impl" = type { %"struct.std::_Deque_base<std::pair<unsigned char, bool>, std::allocator<std::pair<unsigned char, bool>>>::_Deque_impl_data" }
-%"struct.std::_Deque_base<std::pair<unsigned char, bool>, std::allocator<std::pair<unsigned char, bool>>>::_Deque_impl_data" = type { ptr, i64, %"struct.std::_Deque_iterator.120", %"struct.std::_Deque_iterator.120" }
-%"struct.std::_Deque_iterator.120" = type { ptr, ptr, ptr, ptr }
-%"struct.net::QuicAckFrame" = type <{ i64, %"class.net::QuicTime::Delta", %"class.std::vector.121", %"class.net::PacketNumberQueue", i8, i8, i8, i8, [4 x i8] }>
-%"class.std::vector.121" = type { %"struct.std::_Vector_base.122" }
-%"struct.std::_Vector_base.122" = type { %"struct.std::_Vector_base<std::pair<unsigned long, net::QuicTime>, std::allocator<std::pair<unsigned long, net::QuicTime>>>::_Vector_impl" }
-%"struct.std::_Vector_base<std::pair<unsigned long, net::QuicTime>, std::allocator<std::pair<unsigned long, net::QuicTime>>>::_Vector_impl" = type { %"struct.std::_Vector_base<std::pair<unsigned long, net::QuicTime>, std::allocator<std::pair<unsigned long, net::QuicTime>>>::_Vector_impl_data" }
-%"struct.std::_Vector_base<std::pair<unsigned long, net::QuicTime>, std::allocator<std::pair<unsigned long, net::QuicTime>>>::_Vector_impl_data" = type { ptr, ptr, ptr }
-%"class.net::PacketNumberQueue" = type { %"class.net::IntervalSet" }
-%"class.net::IntervalSet" = type { %"class.std::set" }
-%"class.std::set" = type { %"class.std::_Rb_tree.126" }
-%"class.std::_Rb_tree.126" = type { %"struct.std::_Rb_tree<net::Interval<unsigned long>, net::Interval<unsigned long>, std::_Identity<net::Interval<unsigned long>>, net::IntervalSet<unsigned long>::IntervalComparator>::_Rb_tree_impl" }
-%"struct.std::_Rb_tree<net::Interval<unsigned long>, net::Interval<unsigned long>, std::_Identity<net::Interval<unsigned long>>, net::IntervalSet<unsigned long>::IntervalComparator>::_Rb_tree_impl" = type { %"struct.std::_Rb_tree_key_compare.130", %"struct.std::_Rb_tree_header" }
-%"struct.std::_Rb_tree_key_compare.130" = type { %"struct.net::IntervalSet<unsigned long>::IntervalComparator" }
-%"struct.net::IntervalSet<unsigned long>::IntervalComparator" = type { i8 }
-%"class.net::QuicSentEntropyManager" = type { ptr, %"class.std::deque.131", i64, %"struct.net::QuicSentEntropyManager::CumulativeEntropy", %"struct.net::QuicSentEntropyManager::CumulativeEntropy" }
-%"class.std::deque.131" = type { %"class.std::_Deque_base.132" }
-%"class.std::_Deque_base.132" = type { %"struct.std::_Deque_base<unsigned char, std::allocator<unsigned char>>::_Deque_impl" }
-%"struct.std::_Deque_base<unsigned char, std::allocator<unsigned char>>::_Deque_impl" = type { %"struct.std::_Deque_base<unsigned char, std::allocator<unsigned char>>::_Deque_impl_data" }
-%"struct.std::_Deque_base<unsigned char, std::allocator<unsigned char>>::_Deque_impl_data" = type { ptr, i64, %"struct.std::_Deque_iterator.133", %"struct.std::_Deque_iterator.133" }
-%"struct.std::_Deque_iterator.133" = type { ptr, ptr, ptr, ptr }
-%"struct.net::QuicSentEntropyManager::CumulativeEntropy" = type <{ i64, i8, [7 x i8] }>
-%"class.net::QuicOneBlockArena" = type { [1024 x i8], i32, [4 x i8] }
-%"class.net::QuicArenaScopedPtr" = type { ptr }
-%"class.net::QuicPacketGenerator" = type { ptr, %"class.net::QuicPacketCreator", %"class.std::vector.134", i8, i8, i8, [5 x i8], %"struct.net::QuicAckFrame", %"struct.net::QuicStopWaitingFrame" }
-%"class.net::QuicPacketCreator" = type { ptr, ptr, ptr, %"class.net::QuicPacketCreator::QuicRandomBoolSource", ptr, i8, i8, i8, i8, %"struct.std::array", i64, i64, i32, %"class.std::vector.134", i64, i64, %"struct.net::SerializedPacket", %"class.std::unordered_map" }
-%"class.net::QuicPacketCreator::QuicRandomBoolSource" = type { ptr, i64, i64 }
-%"struct.net::SerializedPacket" = type { ptr, i16, %"class.std::vector.134", i8, i16, i8, i64, i8, i8, i8, i8, i8, i8, i8, i64, %"class.std::__cxx11::list.139" }
-%"class.std::__cxx11::list.139" = type { %"class.std::__cxx11::_List_base.140" }
-%"class.std::__cxx11::_List_base.140" = type { %"struct.std::__cxx11::_List_base<net::AckListenerWrapper, std::allocator<net::AckListenerWrapper>>::_List_impl" }
-%"struct.std::__cxx11::_List_base<net::AckListenerWrapper, std::allocator<net::AckListenerWrapper>>::_List_impl" = type { %"struct.std::__detail::_List_node_header" }
-%"class.std::vector.134" = type { %"struct.std::_Vector_base.135" }
-%"struct.std::_Vector_base.135" = type { %"struct.std::_Vector_base<net::QuicFrame, std::allocator<net::QuicFrame>>::_Vector_impl" }
-%"struct.std::_Vector_base<net::QuicFrame, std::allocator<net::QuicFrame>>::_Vector_impl" = type { %"struct.std::_Vector_base<net::QuicFrame, std::allocator<net::QuicFrame>>::_Vector_impl_data" }
-%"struct.std::_Vector_base<net::QuicFrame, std::allocator<net::QuicFrame>>::_Vector_impl_data" = type { ptr, ptr, ptr }
-%"struct.net::QuicConnectionStats" = type { i64, i64, i64, i64, i64, i64, i64, i64, i64, i64, i64, i64, i64, i64, i64, i64, i64, i64, i64, i64, i64, i64, i64, i64, i64, %"class.net::QuicBandwidth", i64, i64, i64, i32, %"class.net::QuicTime" }
-%"class.net::QuicBandwidth" = type { i64 }
-%"class.std::unique_ptr.144" = type { %"struct.std::__uniq_ptr_data.145" }
-%"struct.std::__uniq_ptr_data.145" = type { %"class.std::__uniq_ptr_impl.146" }
-%"class.std::__uniq_ptr_impl.146" = type { %"class.std::tuple.147" }
-%"class.std::tuple.147" = type { %"struct.std::_Tuple_impl.148" }
-%"struct.std::_Tuple_impl.148" = type { %"struct.std::_Head_base.151" }
-%"struct.std::_Head_base.151" = type { ptr }
-%"class.std::vector.89" = type { %"struct.std::_Vector_base.90" }
-%"struct.std::_Vector_base.90" = type { %"struct.std::_Vector_base<net::QuicVersion, std::allocator<net::QuicVersion>>::_Vector_impl" }
-%"struct.std::_Vector_base<net::QuicVersion, std::allocator<net::QuicVersion>>::_Vector_impl" = type { %"struct.std::_Vector_base<net::QuicVersion, std::allocator<net::QuicVersion>>::_Vector_impl_data" }
-%"struct.std::_Vector_base<net::QuicVersion, std::allocator<net::QuicVersion>>::_Vector_impl_data" = type { ptr, ptr, ptr }
 %"class.std::unique_ptr.275" = type { %"struct.std::__uniq_ptr_data.276" }
 %"struct.std::__uniq_ptr_data.276" = type { %"class.std::__uniq_ptr_impl.277" }
 %"class.std::__uniq_ptr_impl.277" = type { %"class.std::tuple.278" }
@@ -250,17 +41,12 @@ target triple = "x86_64-unknown-linux-gnu"
 %"class.std::tuple.294" = type { %"struct.std::_Tuple_impl.295" }
 %"struct.std::_Tuple_impl.295" = type { %"struct.std::_Head_base.298" }
 %"struct.std::_Head_base.298" = type { ptr }
-%"class.net::QuicData" = type <{ ptr, ptr, i64, i8, [7 x i8] }>
 %"class.std::unique_ptr.299" = type { %"struct.std::__uniq_ptr_data.300" }
 %"struct.std::__uniq_ptr_data.300" = type { %"class.std::__uniq_ptr_impl.301" }
 %"class.std::__uniq_ptr_impl.301" = type { %"class.std::tuple.302" }
 %"class.std::tuple.302" = type { %"struct.std::_Tuple_impl.303" }
 %"struct.std::_Tuple_impl.303" = type { %"struct.std::_Head_base.306" }
 %"struct.std::_Head_base.306" = type { ptr }
-%"struct.net::ValidateClientHelloResultCallback::Result" = type { %"class.net::CryptoHandshakeMessage", %"struct.net::ClientHelloInfo", i32, %"class.std::__cxx11::basic_string", %"class.net::CachedNetworkParameters" }
-%"struct.net::ClientHelloInfo" = type { %"class.net::IPAddress", %"class.net::QuicWallTime", i8, %"class.base::BasicStringPiece", %"class.base::BasicStringPiece", %"class.base::BasicStringPiece", %"class.base::BasicStringPiece", %"class.net::SourceAddressTokens", %"class.std::vector.162" }
-%"class.net::QuicWallTime" = type { i64 }
-%"class.net::CachedNetworkParameters" = type { %"class.google::protobuf::MessageLite", %"struct.google::protobuf::internal::ArenaStringPtr", ptr, [1 x i32], i32, %"struct.google::protobuf::internal::ArenaStringPtr", i32, i32, i64, i32, i32, i64 }
 %"struct.net::QuicIOVector" = type { ptr, i32, i64 }
 %struct._Guard = type { ptr }
 
@@ -380,32 +166,32 @@ entry:
   %add.ptr.i = getelementptr inbounds i8, ptr %this, i64 384
   store ptr getelementptr inbounds ({ [33 x ptr], [6 x ptr] }, ptr @_ZTVN3net22QuicCryptoServerStreamE, i64 0, inrange i32 0, i64 2), ptr %this, align 8
   store ptr getelementptr inbounds ({ [33 x ptr], [6 x ptr] }, ptr @_ZTVN3net22QuicCryptoServerStreamE, i64 0, inrange i32 1, i64 2), ptr %add.ptr.i, align 8
-  %crypto_config_ = getelementptr inbounds %"class.net::QuicCryptoServerStream", ptr %this, i64 0, i32 1
+  %crypto_config_ = getelementptr inbounds i8, ptr %this, i64 1048
   store ptr %crypto_config, ptr %crypto_config_, align 8
-  %compressed_certs_cache_ = getelementptr inbounds %"class.net::QuicCryptoServerStream", ptr %this, i64 0, i32 2
+  %compressed_certs_cache_ = getelementptr inbounds i8, ptr %this, i64 1056
   store ptr %compressed_certs_cache, ptr %compressed_certs_cache_, align 8
-  %crypto_proof_ = getelementptr inbounds %"class.net::QuicCryptoServerStream", ptr %this, i64 0, i32 3
+  %crypto_proof_ = getelementptr inbounds i8, ptr %this, i64 1064
   invoke void @_ZN3net15QuicCryptoProofC1Ev(ptr noundef nonnull align 8 dereferenceable(112) %crypto_proof_)
           to label %invoke.cont unwind label %lpad
 
 invoke.cont:                                      ; preds = %entry
-  %chlo_hash_ = getelementptr inbounds %"class.net::QuicCryptoServerStream", ptr %this, i64 0, i32 4
+  %chlo_hash_ = getelementptr inbounds i8, ptr %this, i64 1176
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(32) %chlo_hash_) #15
-  %validate_client_hello_cb_ = getelementptr inbounds %"class.net::QuicCryptoServerStream", ptr %this, i64 0, i32 5
+  %validate_client_hello_cb_ = getelementptr inbounds i8, ptr %this, i64 1208
   store ptr null, ptr %validate_client_hello_cb_, align 8
-  %helper_ = getelementptr inbounds %"class.net::QuicCryptoServerStream", ptr %this, i64 0, i32 6
+  %helper_ = getelementptr inbounds i8, ptr %this, i64 1216
   store ptr %helper, ptr %helper_, align 8
-  %num_handshake_messages_ = getelementptr inbounds %"class.net::QuicCryptoServerStream", ptr %this, i64 0, i32 7
+  %num_handshake_messages_ = getelementptr inbounds i8, ptr %this, i64 1224
   store i8 0, ptr %num_handshake_messages_, align 8
-  %num_handshake_messages_with_server_nonces_ = getelementptr inbounds %"class.net::QuicCryptoServerStream", ptr %this, i64 0, i32 8
+  %num_handshake_messages_with_server_nonces_ = getelementptr inbounds i8, ptr %this, i64 1225
   store i8 0, ptr %num_handshake_messages_with_server_nonces_, align 1
-  %send_server_config_update_cb_ = getelementptr inbounds %"class.net::QuicCryptoServerStream", ptr %this, i64 0, i32 9
+  %send_server_config_update_cb_ = getelementptr inbounds i8, ptr %this, i64 1232
   store ptr null, ptr %send_server_config_update_cb_, align 8
-  %num_server_config_update_messages_sent_ = getelementptr inbounds %"class.net::QuicCryptoServerStream", ptr %this, i64 0, i32 10
+  %num_server_config_update_messages_sent_ = getelementptr inbounds i8, ptr %this, i64 1240
   store i32 0, ptr %num_server_config_update_messages_sent_, align 8
-  %previous_cached_network_params_ = getelementptr inbounds %"class.net::QuicCryptoServerStream", ptr %this, i64 0, i32 11
+  %previous_cached_network_params_ = getelementptr inbounds i8, ptr %this, i64 1248
   store ptr null, ptr %previous_cached_network_params_, align 8
-  %previous_source_address_tokens_ = getelementptr inbounds %"class.net::QuicCryptoServerStream", ptr %this, i64 0, i32 12
+  %previous_source_address_tokens_ = getelementptr inbounds i8, ptr %this, i64 1256
   invoke void @_ZN3net19SourceAddressTokensC1Ev(ptr noundef nonnull align 8 dereferenceable(56) %previous_source_address_tokens_)
           to label %if.end unwind label %ehcleanup14
 
@@ -416,11 +202,11 @@ lpad:                                             ; preds = %entry
 
 if.end:                                           ; preds = %invoke.cont
   %frombool = zext i1 %use_stateless_rejects_if_peer_supported to i8
-  %use_stateless_rejects_if_peer_supported_ = getelementptr inbounds %"class.net::QuicCryptoServerStream", ptr %this, i64 0, i32 13
+  %use_stateless_rejects_if_peer_supported_ = getelementptr inbounds i8, ptr %this, i64 1312
   store i8 %frombool, ptr %use_stateless_rejects_if_peer_supported_, align 8
-  %peer_supports_stateless_rejects_ = getelementptr inbounds %"class.net::QuicCryptoServerStream", ptr %this, i64 0, i32 14
+  %peer_supports_stateless_rejects_ = getelementptr inbounds i8, ptr %this, i64 1313
   store i8 0, ptr %peer_supports_stateless_rejects_, align 1
-  %chlo_packet_size_ = getelementptr inbounds %"class.net::QuicCryptoServerStream", ptr %this, i64 0, i32 15
+  %chlo_packet_size_ = getelementptr inbounds i8, ptr %this, i64 1320
   store i64 0, ptr %chlo_packet_size_, align 8
   ret void
 
@@ -433,7 +219,7 @@ ehcleanup14:                                      ; preds = %invoke.cont
 
 _ZNKSt14default_deleteIN3net23CachedNetworkParametersEEclEPS1_.exit.i: ; preds = %ehcleanup14
   %vtable.i.i = load ptr, ptr %2, align 8
-  %vfn.i.i = getelementptr inbounds ptr, ptr %vtable.i.i, i64 1
+  %vfn.i.i = getelementptr inbounds i8, ptr %vtable.i.i, i64 8
   %3 = load ptr, ptr %vfn.i.i, align 8
   tail call void %3(ptr noundef nonnull align 8 dereferenceable(72) %2) #15
   br label %_ZNSt10unique_ptrIN3net23CachedNetworkParametersESt14default_deleteIS1_EED2Ev.exit
@@ -474,55 +260,55 @@ entry:
   store ptr getelementptr inbounds ({ [33 x ptr], [6 x ptr] }, ptr @_ZTVN3net22QuicCryptoServerStreamE, i64 0, inrange i32 0, i64 2), ptr %this, align 8
   %add.ptr = getelementptr inbounds i8, ptr %this, i64 384
   store ptr getelementptr inbounds ({ [33 x ptr], [6 x ptr] }, ptr @_ZTVN3net22QuicCryptoServerStreamE, i64 0, inrange i32 1, i64 2), ptr %add.ptr, align 8
-  %validate_client_hello_cb_.i = getelementptr inbounds %"class.net::QuicCryptoServerStream", ptr %this, i64 0, i32 5
+  %validate_client_hello_cb_.i = getelementptr inbounds i8, ptr %this, i64 1208
   %0 = load ptr, ptr %validate_client_hello_cb_.i, align 8
   %cmp.not.i = icmp eq ptr %0, null
   br i1 %cmp.not.i, label %if.end.i, label %if.then.i
 
 if.then.i:                                        ; preds = %entry
-  %parent_.i.i = getelementptr inbounds %"class.net::QuicCryptoServerStream::ValidateCallback", ptr %0, i64 0, i32 1
+  %parent_.i.i = getelementptr inbounds i8, ptr %0, i64 8
   store ptr null, ptr %parent_.i.i, align 8
   store ptr null, ptr %validate_client_hello_cb_.i, align 8
   br label %if.end.i
 
 if.end.i:                                         ; preds = %if.then.i, %entry
-  %send_server_config_update_cb_.i = getelementptr inbounds %"class.net::QuicCryptoServerStream", ptr %this, i64 0, i32 9
+  %send_server_config_update_cb_.i = getelementptr inbounds i8, ptr %this, i64 1232
   %1 = load ptr, ptr %send_server_config_update_cb_.i, align 8
   %cmp4.not.i = icmp eq ptr %1, null
   br i1 %cmp4.not.i, label %invoke.cont, label %if.then5.i
 
 if.then5.i:                                       ; preds = %if.end.i
-  %parent_.i2.i = getelementptr inbounds %"class.net::QuicCryptoServerStream::SendServerConfigUpdateCallback", ptr %1, i64 0, i32 1
+  %parent_.i2.i = getelementptr inbounds i8, ptr %1, i64 8
   store ptr null, ptr %parent_.i2.i, align 8
   store ptr null, ptr %send_server_config_update_cb_.i, align 8
   br label %invoke.cont
 
 invoke.cont:                                      ; preds = %if.then5.i, %if.end.i
-  %previous_source_address_tokens_ = getelementptr inbounds %"class.net::QuicCryptoServerStream", ptr %this, i64 0, i32 12
+  %previous_source_address_tokens_ = getelementptr inbounds i8, ptr %this, i64 1256
   tail call void @_ZN3net19SourceAddressTokensD1Ev(ptr noundef nonnull align 8 dereferenceable(56) %previous_source_address_tokens_) #15
-  %previous_cached_network_params_ = getelementptr inbounds %"class.net::QuicCryptoServerStream", ptr %this, i64 0, i32 11
+  %previous_cached_network_params_ = getelementptr inbounds i8, ptr %this, i64 1248
   %2 = load ptr, ptr %previous_cached_network_params_, align 8
   %cmp.not.i1 = icmp eq ptr %2, null
   br i1 %cmp.not.i1, label %_ZNSt10unique_ptrIN3net23CachedNetworkParametersESt14default_deleteIS1_EED2Ev.exit, label %_ZNKSt14default_deleteIN3net23CachedNetworkParametersEEclEPS1_.exit.i
 
 _ZNKSt14default_deleteIN3net23CachedNetworkParametersEEclEPS1_.exit.i: ; preds = %invoke.cont
   %vtable.i.i = load ptr, ptr %2, align 8
-  %vfn.i.i = getelementptr inbounds ptr, ptr %vtable.i.i, i64 1
+  %vfn.i.i = getelementptr inbounds i8, ptr %vtable.i.i, i64 8
   %3 = load ptr, ptr %vfn.i.i, align 8
   tail call void %3(ptr noundef nonnull align 8 dereferenceable(72) %2) #15
   br label %_ZNSt10unique_ptrIN3net23CachedNetworkParametersESt14default_deleteIS1_EED2Ev.exit
 
 _ZNSt10unique_ptrIN3net23CachedNetworkParametersESt14default_deleteIS1_EED2Ev.exit: ; preds = %invoke.cont, %_ZNKSt14default_deleteIN3net23CachedNetworkParametersEEclEPS1_.exit.i
   store ptr null, ptr %previous_cached_network_params_, align 8
-  %chlo_hash_ = getelementptr inbounds %"class.net::QuicCryptoServerStream", ptr %this, i64 0, i32 4
+  %chlo_hash_ = getelementptr inbounds i8, ptr %this, i64 1176
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %chlo_hash_) #15
-  %crypto_proof_ = getelementptr inbounds %"class.net::QuicCryptoServerStream", ptr %this, i64 0, i32 3
+  %crypto_proof_ = getelementptr inbounds i8, ptr %this, i64 1064
   tail call void @_ZN3net15QuicCryptoProofD1Ev(ptr noundef nonnull align 8 dereferenceable(112) %crypto_proof_) #15
   store ptr getelementptr inbounds ({ [19 x ptr], [6 x ptr] }, ptr @_ZTVN3net16QuicCryptoStreamE, i64 0, inrange i32 0, i64 2), ptr %this, align 8
   store ptr getelementptr inbounds ({ [19 x ptr], [6 x ptr] }, ptr @_ZTVN3net16QuicCryptoStreamE, i64 0, inrange i32 1, i64 2), ptr %add.ptr, align 8
-  %crypto_framer_.i.i = getelementptr inbounds %"class.net::QuicCryptoStream", ptr %this, i64 0, i32 6
+  %crypto_framer_.i.i = getelementptr inbounds i8, ptr %this, i64 840
   tail call void @_ZN3net12CryptoFramerD1Ev(ptr noundef nonnull align 8 dereferenceable(208) %crypto_framer_.i.i) #15
-  %crypto_negotiated_params_.i.i = getelementptr inbounds %"class.net::QuicCryptoStream", ptr %this, i64 0, i32 5
+  %crypto_negotiated_params_.i.i = getelementptr inbounds i8, ptr %this, i64 400
   tail call void @_ZN3net30QuicCryptoNegotiatedParametersD1Ev(ptr noundef nonnull align 8 dereferenceable(433) %crypto_negotiated_params_.i.i) #15
   tail call void @_ZN3net18ReliableQuicStreamD2Ev(ptr noundef nonnull align 8 dereferenceable(377) %this) #15
   ret void
@@ -570,25 +356,25 @@ entry:
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(write, argmem: readwrite, inaccessiblemem: none) uwtable
 define dso_local void @_ZN3net22QuicCryptoServerStream26CancelOutstandingCallbacksEv(ptr nocapture noundef nonnull align 8 dereferenceable(1328) %this) unnamed_addr #7 align 2 {
 entry:
-  %validate_client_hello_cb_ = getelementptr inbounds %"class.net::QuicCryptoServerStream", ptr %this, i64 0, i32 5
+  %validate_client_hello_cb_ = getelementptr inbounds i8, ptr %this, i64 1208
   %0 = load ptr, ptr %validate_client_hello_cb_, align 8
   %cmp.not = icmp eq ptr %0, null
   br i1 %cmp.not, label %if.end, label %if.then
 
 if.then:                                          ; preds = %entry
-  %parent_.i = getelementptr inbounds %"class.net::QuicCryptoServerStream::ValidateCallback", ptr %0, i64 0, i32 1
+  %parent_.i = getelementptr inbounds i8, ptr %0, i64 8
   store ptr null, ptr %parent_.i, align 8
   store ptr null, ptr %validate_client_hello_cb_, align 8
   br label %if.end
 
 if.end:                                           ; preds = %if.then, %entry
-  %send_server_config_update_cb_ = getelementptr inbounds %"class.net::QuicCryptoServerStream", ptr %this, i64 0, i32 9
+  %send_server_config_update_cb_ = getelementptr inbounds i8, ptr %this, i64 1232
   %1 = load ptr, ptr %send_server_config_update_cb_, align 8
   %cmp4.not = icmp eq ptr %1, null
   br i1 %cmp4.not, label %if.end8, label %if.then5
 
 if.then5:                                         ; preds = %if.end
-  %parent_.i2 = getelementptr inbounds %"class.net::QuicCryptoServerStream::SendServerConfigUpdateCallback", ptr %1, i64 0, i32 1
+  %parent_.i2 = getelementptr inbounds i8, ptr %1, i64 8
   store ptr null, ptr %parent_.i2, align 8
   store ptr null, ptr %send_server_config_update_cb_, align 8
   br label %if.end8
@@ -600,7 +386,7 @@ if.end8:                                          ; preds = %if.then5, %if.end
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
 define dso_local void @_ZN3net22QuicCryptoServerStream16ValidateCallback6CancelEv(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(16) %this) local_unnamed_addr #8 align 2 {
 entry:
-  %parent_ = getelementptr inbounds %"class.net::QuicCryptoServerStream::ValidateCallback", ptr %this, i64 0, i32 1
+  %parent_ = getelementptr inbounds i8, ptr %this, i64 8
   store ptr null, ptr %parent_, align 8
   ret void
 }
@@ -608,7 +394,7 @@ entry:
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
 define dso_local void @_ZN3net22QuicCryptoServerStream30SendServerConfigUpdateCallback6CancelEv(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(16) %this) local_unnamed_addr #8 align 2 {
 entry:
-  %parent_ = getelementptr inbounds %"class.net::QuicCryptoServerStream::SendServerConfigUpdateCallback", ptr %this, i64 0, i32 1
+  %parent_ = getelementptr inbounds i8, ptr %this, i64 8
   store ptr null, ptr %parent_, align 8
   ret void
 }
@@ -625,24 +411,24 @@ entry:
   %ref.tmp25 = alloca %"class.std::allocator.10", align 1
   %agg.tmp = alloca %"class.std::unique_ptr.267", align 8
   tail call void @_ZN3net16QuicCryptoStream18OnHandshakeMessageERKNS_22CryptoHandshakeMessageE(ptr noundef nonnull align 8 dereferenceable(1048) %this, ptr noundef nonnull align 8 dereferenceable(72) %message)
-  %num_handshake_messages_ = getelementptr inbounds %"class.net::QuicCryptoServerStream", ptr %this, i64 0, i32 7
+  %num_handshake_messages_ = getelementptr inbounds i8, ptr %this, i64 1224
   %0 = load i8, ptr %num_handshake_messages_, align 8
   %inc = add i8 %0, 1
   store i8 %inc, ptr %num_handshake_messages_, align 8
-  %session_.i = getelementptr inbounds %"class.net::ReliableQuicStream", ptr %this, i64 0, i32 6
+  %session_.i = getelementptr inbounds i8, ptr %this, i64 224
   %1 = load ptr, ptr %session_.i, align 8
-  %connection_.i = getelementptr inbounds %"class.net::QuicSession", ptr %1, i64 0, i32 2
+  %connection_.i = getelementptr inbounds i8, ptr %1, i64 56
   %2 = load ptr, ptr %connection_.i, align 8
   %call3 = tail call { ptr, i64 } @_ZN3net14QuicConnection16GetCurrentPacketB5cxx11Ev(ptr noundef nonnull align 8 dereferenceable(3372) %2)
   %3 = extractvalue { ptr, i64 } %call3, 0
   store ptr %3, ptr %ref.tmp, align 8
-  %4 = getelementptr inbounds { ptr, i64 }, ptr %ref.tmp, i64 0, i32 1
+  %4 = getelementptr inbounds i8, ptr %ref.tmp, i64 8
   %5 = extractvalue { ptr, i64 } %call3, 1
   store i64 %5, ptr %4, align 8
   %call4 = call noundef i64 @_ZNK4base16BasicStringPieceINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE6lengthEv(ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp)
-  %chlo_packet_size_ = getelementptr inbounds %"class.net::QuicCryptoServerStream", ptr %this, i64 0, i32 15
+  %chlo_packet_size_ = getelementptr inbounds i8, ptr %this, i64 1320
   store i64 %call4, ptr %chlo_packet_size_, align 8
-  %handshake_confirmed_ = getelementptr inbounds %"class.net::QuicCryptoStream", ptr %this, i64 0, i32 3
+  %handshake_confirmed_ = getelementptr inbounds i8, ptr %this, i64 393
   %6 = load i8, ptr %handshake_confirmed_, align 1
   %7 = and i8 %6, 1
   %tobool.not = icmp eq i8 %7, 0
@@ -669,7 +455,7 @@ lpad.i:                                           ; preds = %.noexc
 
 invoke.cont:                                      ; preds = %.noexc
   %vtable = load ptr, ptr %this, align 8
-  %vfn = getelementptr inbounds ptr, ptr %vtable, i64 9
+  %vfn = getelementptr inbounds i8, ptr %vtable, i64 72
   %9 = load ptr, ptr %vfn, align 8
   invoke void %9(ptr noundef nonnull align 8 dereferenceable(377) %this, i32 noundef 32, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp5)
           to label %invoke.cont8 unwind label %lpad7
@@ -721,7 +507,7 @@ lpad.i15:                                         ; preds = %.noexc18
 
 invoke.cont14:                                    ; preds = %.noexc18
   %vtable15 = load ptr, ptr %this, align 8
-  %vfn16 = getelementptr inbounds ptr, ptr %vtable15, i64 9
+  %vfn16 = getelementptr inbounds i8, ptr %vtable15, i64 72
   %14 = load ptr, ptr %vfn16, align 8
   invoke void %14(ptr noundef nonnull align 8 dereferenceable(377) %this, i32 noundef 33, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp11)
           to label %invoke.cont18 unwind label %lpad17
@@ -748,7 +534,7 @@ ehcleanup20:                                      ; preds = %lpad13, %lpad.i15, 
   br label %eh.resume
 
 if.end21:                                         ; preds = %if.end
-  %validate_client_hello_cb_ = getelementptr inbounds %"class.net::QuicCryptoServerStream", ptr %this, i64 0, i32 5
+  %validate_client_hello_cb_ = getelementptr inbounds i8, ptr %this, i64 1208
   %17 = load ptr, ptr %validate_client_hello_cb_, align 8
   %cmp22.not = icmp eq ptr %17, null
   br i1 %cmp22.not, label %if.end34, label %if.then23
@@ -774,7 +560,7 @@ lpad.i23:                                         ; preds = %.noexc26
 
 invoke.cont27:                                    ; preds = %.noexc26
   %vtable28 = load ptr, ptr %this, align 8
-  %vfn29 = getelementptr inbounds ptr, ptr %vtable28, i64 9
+  %vfn29 = getelementptr inbounds i8, ptr %vtable28, i64 72
   %19 = load ptr, ptr %vfn29, align 8
   invoke void %19(ptr noundef nonnull align 8 dereferenceable(377) %this, i32 noundef 54, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp24)
           to label %invoke.cont31 unwind label %lpad30
@@ -801,7 +587,7 @@ ehcleanup33:                                      ; preds = %lpad26, %lpad.i23, 
   br label %eh.resume
 
 if.end34:                                         ; preds = %if.end21
-  %chlo_hash_ = getelementptr inbounds %"class.net::QuicCryptoServerStream", ptr %this, i64 0, i32 4
+  %chlo_hash_ = getelementptr inbounds i8, ptr %this, i64 1176
   call void @_ZN3net11CryptoUtils20HashHandshakeMessageERKNS_22CryptoHandshakeMessageEPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(72) %message, ptr noundef nonnull %chlo_hash_)
   %call35 = call noalias noundef nonnull dereferenceable(16) ptr @_Znwm(i64 noundef 16) #18
   invoke void @_ZN3net33ValidateClientHelloResultCallbackC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %call35)
@@ -809,26 +595,26 @@ if.end34:                                         ; preds = %if.end21
 
 invoke.cont37:                                    ; preds = %if.end34
   store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN3net22QuicCryptoServerStream16ValidateCallbackE, i64 0, inrange i32 0, i64 2), ptr %call35, align 8
-  %parent_.i = getelementptr inbounds %"class.net::QuicCryptoServerStream::ValidateCallback", ptr %call35, i64 0, i32 1
+  %parent_.i = getelementptr inbounds i8, ptr %call35, i64 8
   store ptr %this, ptr %parent_.i, align 8
   store ptr %call35, ptr %validate_client_hello_cb_, align 8
-  %crypto_config_ = getelementptr inbounds %"class.net::QuicCryptoServerStream", ptr %this, i64 0, i32 1
+  %crypto_config_ = getelementptr inbounds i8, ptr %this, i64 1048
   %22 = load ptr, ptr %crypto_config_, align 8
   %23 = load ptr, ptr %session_.i, align 8
-  %connection_.i31 = getelementptr inbounds %"class.net::QuicSession", ptr %23, i64 0, i32 2
+  %connection_.i31 = getelementptr inbounds i8, ptr %23, i64 56
   %24 = load ptr, ptr %connection_.i31, align 8
   %call59 = invoke noundef i32 @_ZNK3net18ReliableQuicStream7versionEv(ptr noundef nonnull align 8 dereferenceable(377) %this)
           to label %invoke.cont58 unwind label %_ZNKSt14default_deleteIN3net22QuicCryptoServerStream16ValidateCallbackEEclEPS2_.exit.i45
 
 invoke.cont58:                                    ; preds = %invoke.cont37
-  %self_address_.i = getelementptr inbounds %"class.net::QuicConnection", ptr %24, i64 0, i32 15
-  %peer_address_.i = getelementptr inbounds %"class.net::QuicConnection", ptr %24, i64 0, i32 16
+  %self_address_.i = getelementptr inbounds i8, ptr %24, i64 504
+  %peer_address_.i = getelementptr inbounds i8, ptr %24, i64 536
   %25 = load ptr, ptr %session_.i, align 8
-  %connection_.i35 = getelementptr inbounds %"class.net::QuicSession", ptr %25, i64 0, i32 2
+  %connection_.i35 = getelementptr inbounds i8, ptr %25, i64 56
   %26 = load ptr, ptr %connection_.i35, align 8
-  %clock_.i = getelementptr inbounds %"class.net::QuicConnection", ptr %26, i64 0, i32 12
+  %clock_.i = getelementptr inbounds i8, ptr %26, i64 480
   %27 = load ptr, ptr %clock_.i, align 8
-  %crypto_proof_ = getelementptr inbounds %"class.net::QuicCryptoServerStream", ptr %this, i64 0, i32 3
+  %crypto_proof_ = getelementptr inbounds i8, ptr %this, i64 1064
   store ptr %call35, ptr %agg.tmp, align 8
   invoke void @_ZNK3net22QuicCryptoServerConfig19ValidateClientHelloERKNS_22CryptoHandshakeMessageERKNS_9IPAddressES6_NS_11QuicVersionEPKNS_9QuicClockEPNS_15QuicCryptoProofESt10unique_ptrINS_33ValidateClientHelloResultCallbackESt14default_deleteISE_EE(ptr noundef nonnull align 8 dereferenceable(405) %22, ptr noundef nonnull align 8 dereferenceable(72) %message, ptr noundef nonnull align 8 dereferenceable(24) %peer_address_.i, ptr noundef nonnull align 8 dereferenceable(24) %self_address_.i, i32 noundef %call59, ptr noundef %27, ptr noundef nonnull %crypto_proof_, ptr noundef nonnull %agg.tmp)
           to label %invoke.cont67 unwind label %lpad66
@@ -840,7 +626,7 @@ invoke.cont67:                                    ; preds = %invoke.cont58
 
 _ZNKSt14default_deleteIN3net33ValidateClientHelloResultCallbackEEclEPS1_.exit.i: ; preds = %invoke.cont67
   %vtable.i.i = load ptr, ptr %28, align 8
-  %vfn.i.i = getelementptr inbounds ptr, ptr %vtable.i.i, i64 1
+  %vfn.i.i = getelementptr inbounds i8, ptr %vtable.i.i, i64 8
   %29 = load ptr, ptr %vfn.i.i, align 8
   call void %29(ptr noundef nonnull align 8 dereferenceable(8) %28) #15
   br label %return
@@ -863,7 +649,7 @@ lpad66:                                           ; preds = %invoke.cont58
 
 _ZNKSt14default_deleteIN3net33ValidateClientHelloResultCallbackEEclEPS1_.exit.i40: ; preds = %lpad66
   %vtable.i.i41 = load ptr, ptr %32, align 8
-  %vfn.i.i42 = getelementptr inbounds ptr, ptr %vtable.i.i41, i64 1
+  %vfn.i.i42 = getelementptr inbounds i8, ptr %vtable.i.i41, i64 8
   %33 = load ptr, ptr %vfn.i.i42, align 8
   call void %33(ptr noundef nonnull align 8 dereferenceable(8) %32) #15
   br label %eh.resume
@@ -872,7 +658,7 @@ _ZNKSt14default_deleteIN3net22QuicCryptoServerStream16ValidateCallbackEEclEPS2_.
   %34 = landingpad { ptr, i32 }
           cleanup
   %vtable.i.i46 = load ptr, ptr %call35, align 8
-  %vfn.i.i47 = getelementptr inbounds ptr, ptr %vtable.i.i46, i64 1
+  %vfn.i.i47 = getelementptr inbounds i8, ptr %vtable.i.i46, i64 8
   %35 = load ptr, ptr %vfn.i.i47, align 8
   call void %35(ptr noundef nonnull align 8 dereferenceable(16) %call35) #15
   br label %eh.resume
@@ -922,9 +708,9 @@ entry:
   %agg.tmp = alloca %"class.std::unique_ptr.275", align 8
   %ref.tmp = alloca %"class.std::__cxx11::basic_string", align 8
   %ref.tmp32 = alloca %"class.std::allocator.10", align 1
-  %validate_client_hello_cb_ = getelementptr inbounds %"class.net::QuicCryptoServerStream", ptr %this, i64 0, i32 5
+  %validate_client_hello_cb_ = getelementptr inbounds i8, ptr %this, i64 1208
   store ptr null, ptr %validate_client_hello_cb_, align 8
-  %use_stateless_rejects_if_peer_supported_ = getelementptr inbounds %"class.net::QuicCryptoServerStream", ptr %this, i64 0, i32 13
+  %use_stateless_rejects_if_peer_supported_ = getelementptr inbounds i8, ptr %this, i64 1312
   %0 = load i8, ptr %use_stateless_rejects_if_peer_supported_, align 8
   %1 = and i8 %0, 1
   %tobool.not = icmp eq i8 %1, 0
@@ -962,7 +748,7 @@ _ZN3net26QuicCryptoServerStreamBase31DoesPeerSupportStatelessRejectsERKNS_22Cryp
   %retval.0.i = phi i8 [ 0, %if.then ], [ 0, %for.cond.preheader.i ], [ 0, %for.cond.i ], [ 1, %for.body.i ]
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %received_tags.i)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %received_tags_length.i)
-  %peer_supports_stateless_rejects_ = getelementptr inbounds %"class.net::QuicCryptoServerStream", ptr %this, i64 0, i32 14
+  %peer_supports_stateless_rejects_ = getelementptr inbounds i8, ptr %this, i64 1313
   store i8 %retval.0.i, ptr %peer_supports_stateless_rejects_, align 1
   br label %if.end
 
@@ -973,7 +759,7 @@ if.end:                                           ; preds = %_ZN3net26QuicCrypto
   store i64 %5, ptr %agg.tmp, align 8
   store ptr null, ptr %details, align 8
   %vtable = load ptr, ptr %this, align 8
-  %vfn = getelementptr inbounds ptr, ptr %vtable, i64 29
+  %vfn = getelementptr inbounds i8, ptr %vtable, i64 232
   %6 = load ptr, ptr %vfn, align 8
   %call2 = invoke noundef i32 %6(ptr noundef nonnull align 8 dereferenceable(1328) %this, ptr noundef nonnull align 8 dereferenceable(368) %result, ptr noundef nonnull %agg.tmp, ptr noundef nonnull %reply, ptr noundef nonnull %diversification_nonce, ptr noundef nonnull %error_details)
           to label %invoke.cont unwind label %lpad
@@ -985,7 +771,7 @@ invoke.cont:                                      ; preds = %if.end
 
 _ZNKSt14default_deleteIN3net11ProofSource7DetailsEEclEPS2_.exit.i: ; preds = %invoke.cont
   %vtable.i.i = load ptr, ptr %7, align 8
-  %vfn.i.i = getelementptr inbounds ptr, ptr %vtable.i.i, i64 1
+  %vfn.i.i = getelementptr inbounds i8, ptr %vtable.i.i, i64 8
   %8 = load ptr, ptr %vfn.i.i, align 8
   call void %8(ptr noundef nonnull align 8 dereferenceable(8) %7) #15
   br label %_ZNSt10unique_ptrIN3net11ProofSource7DetailsESt14default_deleteIS2_EED2Ev.exit
@@ -1004,7 +790,7 @@ lpad:                                             ; preds = %if.end
 
 _ZNKSt14default_deleteIN3net11ProofSource7DetailsEEclEPS2_.exit.i13: ; preds = %lpad
   %vtable.i.i14 = load ptr, ptr %10, align 8
-  %vfn.i.i15 = getelementptr inbounds ptr, ptr %vtable.i.i14, i64 1
+  %vfn.i.i15 = getelementptr inbounds i8, ptr %vtable.i.i14, i64 8
   %11 = load ptr, ptr %vfn.i.i15, align 8
   call void %11(ptr noundef nonnull align 8 dereferenceable(8) %10) #15
   br label %_ZNSt10unique_ptrIN3net11ProofSource7DetailsESt14default_deleteIS2_EED2Ev.exit16
@@ -1026,9 +812,9 @@ if.end8:                                          ; preds = %_ZNSt10unique_ptrIN
   ]
 
 if.then16:                                        ; preds = %if.end8
-  %session_.i = getelementptr inbounds %"class.net::ReliableQuicStream", ptr %this, i64 0, i32 6
+  %session_.i = getelementptr inbounds i8, ptr %this, i64 224
   %14 = load ptr, ptr %session_.i, align 8
-  %connection_.i = getelementptr inbounds %"class.net::QuicSession", ptr %14, i64 0, i32 2
+  %connection_.i = getelementptr inbounds i8, ptr %14, i64 56
   %15 = load ptr, ptr %connection_.i, align 8
   invoke void @_ZN3net14QuicConnection25EnableSavingCryptoPacketsEv(ptr noundef nonnull align 8 dereferenceable(3372) %15)
           to label %if.end22 unwind label %lpad6
@@ -1043,9 +829,9 @@ invoke.cont23:                                    ; preds = %if.end22
   br i1 %cmp26, label %if.then27, label %cleanup
 
 if.then27:                                        ; preds = %invoke.cont23
-  %session_.i17 = getelementptr inbounds %"class.net::ReliableQuicStream", ptr %this, i64 0, i32 6
+  %session_.i17 = getelementptr inbounds i8, ptr %this, i64 224
   %17 = load ptr, ptr %session_.i17, align 8
-  %connection_.i18 = getelementptr inbounds %"class.net::QuicSession", ptr %17, i64 0, i32 2
+  %connection_.i18 = getelementptr inbounds i8, ptr %17, i64 56
   %18 = load ptr, ptr %connection_.i18, align 8
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp32) #15
   %call.i1920 = invoke noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_M_local_dataEv(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp)
@@ -1067,7 +853,7 @@ lpad.i:                                           ; preds = %.noexc
 
 invoke.cont34:                                    ; preds = %.noexc
   %vtable35 = load ptr, ptr %18, align 8
-  %vfn36 = getelementptr inbounds ptr, ptr %vtable35, i64 32
+  %vfn36 = getelementptr inbounds i8, ptr %vtable35, i64 256
   %20 = load ptr, ptr %vfn36, align 8
   invoke void %20(ptr noundef nonnull align 8 dereferenceable(3372) %18, i32 noundef 72, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp, i32 noundef 0)
           to label %invoke.cont38 unwind label %lpad37
@@ -1094,14 +880,14 @@ ehcleanup:                                        ; preds = %lpad33, %lpad.i, %l
   br label %ehcleanup119
 
 if.end40:                                         ; preds = %if.end8
-  %session_.i21 = getelementptr inbounds %"class.net::ReliableQuicStream", ptr %this, i64 0, i32 6
+  %session_.i21 = getelementptr inbounds i8, ptr %this, i64 224
   %23 = load ptr, ptr %session_.i21, align 8
   %call44 = invoke noundef ptr @_ZN3net11QuicSession6configEv(ptr noundef nonnull align 8 dereferenceable(2044) %23)
           to label %invoke.cont43 unwind label %lpad6
 
 invoke.cont43:                                    ; preds = %if.end40
   %vtable45 = load ptr, ptr %this, align 8
-  %vfn46 = getelementptr inbounds ptr, ptr %vtable45, i64 30
+  %vfn46 = getelementptr inbounds i8, ptr %vtable45, i64 240
   %24 = load ptr, ptr %vfn46, align 8
   invoke void %24(ptr noundef nonnull align 8 dereferenceable(1328) %this, ptr noundef %call44)
           to label %invoke.cont47 unwind label %lpad6
@@ -1117,7 +903,7 @@ invoke.cont48:                                    ; preds = %invoke.cont47
 if.then51.invoke:                                 ; preds = %invoke.cont48, %_ZNSt10unique_ptrIN3net11ProofSource7DetailsESt14default_deleteIS2_EED2Ev.exit
   %25 = phi i32 [ %call2, %_ZNSt10unique_ptrIN3net11ProofSource7DetailsESt14default_deleteIS2_EED2Ev.exit ], [ %call49, %invoke.cont48 ]
   %vtable4 = load ptr, ptr %this, align 8
-  %vfn5 = getelementptr inbounds ptr, ptr %vtable4, i64 9
+  %vfn5 = getelementptr inbounds i8, ptr %vtable4, i64 72
   %26 = load ptr, ptr %vfn5, align 8
   invoke void %26(ptr noundef nonnull align 8 dereferenceable(377) %this, i32 noundef %25, ptr noundef nonnull align 8 dereferenceable(32) %error_details)
           to label %cleanup unwind label %lpad6
@@ -1125,7 +911,7 @@ if.then51.invoke:                                 ; preds = %invoke.cont48, %_ZN
 if.end55:                                         ; preds = %invoke.cont48
   %27 = load ptr, ptr %session_.i21, align 8
   %vtable58 = load ptr, ptr %27, align 8
-  %vfn59 = getelementptr inbounds ptr, ptr %vtable58, i64 25
+  %vfn59 = getelementptr inbounds i8, ptr %vtable58, i64 200
   %28 = load ptr, ptr %vfn59, align 8
   invoke void %28(ptr noundef nonnull align 8 dereferenceable(2044) %27)
           to label %invoke.cont60 unwind label %lpad6
@@ -1136,9 +922,9 @@ invoke.cont60:                                    ; preds = %if.end55
 
 invoke.cont61:                                    ; preds = %invoke.cont60
   %29 = load ptr, ptr %session_.i21, align 8
-  %connection_.i24 = getelementptr inbounds %"class.net::QuicSession", ptr %29, i64 0, i32 2
+  %connection_.i24 = getelementptr inbounds i8, ptr %29, i64 56
   %30 = load ptr, ptr %connection_.i24, align 8
-  %initial_crypters = getelementptr inbounds %"class.net::QuicCryptoStream", ptr %this, i64 0, i32 5, i32 6
+  %initial_crypters = getelementptr inbounds i8, ptr %this, i64 536
   %31 = load ptr, ptr %initial_crypters, align 8
   store ptr null, ptr %initial_crypters, align 8
   invoke void @_ZN3net14QuicConnection12SetEncrypterENS_15EncryptionLevelEPNS_13QuicEncrypterE(ptr noundef nonnull align 8 dereferenceable(3372) %30, i8 noundef signext 1, ptr noundef %31)
@@ -1146,16 +932,16 @@ invoke.cont61:                                    ; preds = %invoke.cont60
 
 invoke.cont67:                                    ; preds = %invoke.cont61
   %32 = load ptr, ptr %session_.i21, align 8
-  %connection_.i26 = getelementptr inbounds %"class.net::QuicSession", ptr %32, i64 0, i32 2
+  %connection_.i26 = getelementptr inbounds i8, ptr %32, i64 56
   %33 = load ptr, ptr %connection_.i26, align 8
   invoke void @_ZN3net14QuicConnection25SetDefaultEncryptionLevelENS_15EncryptionLevelE(ptr noundef nonnull align 8 dereferenceable(3372) %33, i8 noundef signext 1)
           to label %invoke.cont72 unwind label %lpad6
 
 invoke.cont72:                                    ; preds = %invoke.cont67
   %34 = load ptr, ptr %session_.i21, align 8
-  %connection_.i28 = getelementptr inbounds %"class.net::QuicSession", ptr %34, i64 0, i32 2
+  %connection_.i28 = getelementptr inbounds i8, ptr %34, i64 56
   %35 = load ptr, ptr %connection_.i28, align 8
-  %decrypter = getelementptr inbounds %"class.net::QuicCryptoStream", ptr %this, i64 0, i32 5, i32 6, i32 1
+  %decrypter = getelementptr inbounds i8, ptr %this, i64 544
   %36 = load ptr, ptr %decrypter, align 8
   store ptr null, ptr %decrypter, align 8
   invoke void @_ZN3net14QuicConnection12SetDecrypterENS_15EncryptionLevelEPNS_13QuicDecrypterE(ptr noundef nonnull align 8 dereferenceable(3372) %35, i8 noundef signext 1, ptr noundef %36)
@@ -1171,7 +957,7 @@ invoke.cont81:                                    ; preds = %invoke.cont80
 
 if.then84:                                        ; preds = %invoke.cont81
   %37 = load ptr, ptr %session_.i21, align 8
-  %connection_.i30 = getelementptr inbounds %"class.net::QuicSession", ptr %37, i64 0, i32 2
+  %connection_.i30 = getelementptr inbounds i8, ptr %37, i64 56
   %38 = load ptr, ptr %connection_.i30, align 8
   invoke void @_ZN3net14QuicConnection23SetDiversificationNonceERKSt5arrayIcLm32EE(ptr noundef nonnull align 8 dereferenceable(3372) %38, ptr noundef nonnull align 1 dereferenceable(32) %diversification_nonce)
           to label %if.end90 unwind label %lpad6
@@ -1182,9 +968,9 @@ if.end90:                                         ; preds = %if.then84, %invoke.
 
 invoke.cont91:                                    ; preds = %if.end90
   %39 = load ptr, ptr %session_.i21, align 8
-  %connection_.i32 = getelementptr inbounds %"class.net::QuicSession", ptr %39, i64 0, i32 2
+  %connection_.i32 = getelementptr inbounds i8, ptr %39, i64 56
   %40 = load ptr, ptr %connection_.i32, align 8
-  %forward_secure_crypters = getelementptr inbounds %"class.net::QuicCryptoStream", ptr %this, i64 0, i32 5, i32 7
+  %forward_secure_crypters = getelementptr inbounds i8, ptr %this, i64 552
   %41 = load ptr, ptr %forward_secure_crypters, align 8
   store ptr null, ptr %forward_secure_crypters, align 8
   invoke void @_ZN3net14QuicConnection12SetEncrypterENS_15EncryptionLevelEPNS_13QuicEncrypterE(ptr noundef nonnull align 8 dereferenceable(3372) %40, i8 noundef signext 2, ptr noundef %41)
@@ -1192,29 +978,29 @@ invoke.cont91:                                    ; preds = %if.end90
 
 invoke.cont99:                                    ; preds = %invoke.cont91
   %42 = load ptr, ptr %session_.i21, align 8
-  %connection_.i34 = getelementptr inbounds %"class.net::QuicSession", ptr %42, i64 0, i32 2
+  %connection_.i34 = getelementptr inbounds i8, ptr %42, i64 56
   %43 = load ptr, ptr %connection_.i34, align 8
   invoke void @_ZN3net14QuicConnection25SetDefaultEncryptionLevelENS_15EncryptionLevelE(ptr noundef nonnull align 8 dereferenceable(3372) %43, i8 noundef signext 2)
           to label %invoke.cont104 unwind label %lpad6
 
 invoke.cont104:                                   ; preds = %invoke.cont99
   %44 = load ptr, ptr %session_.i21, align 8
-  %connection_.i36 = getelementptr inbounds %"class.net::QuicSession", ptr %44, i64 0, i32 2
+  %connection_.i36 = getelementptr inbounds i8, ptr %44, i64 56
   %45 = load ptr, ptr %connection_.i36, align 8
-  %decrypter111 = getelementptr inbounds %"class.net::QuicCryptoStream", ptr %this, i64 0, i32 5, i32 7, i32 1
+  %decrypter111 = getelementptr inbounds i8, ptr %this, i64 560
   %46 = load ptr, ptr %decrypter111, align 8
   store ptr null, ptr %decrypter111, align 8
   invoke void @_ZN3net14QuicConnection23SetAlternativeDecrypterENS_15EncryptionLevelEPNS_13QuicDecrypterEb(ptr noundef nonnull align 8 dereferenceable(3372) %45, i8 noundef signext 2, ptr noundef %46, i1 noundef zeroext false)
           to label %invoke.cont113 unwind label %lpad6
 
 invoke.cont113:                                   ; preds = %invoke.cont104
-  %encryption_established_ = getelementptr inbounds %"class.net::QuicCryptoStream", ptr %this, i64 0, i32 2
+  %encryption_established_ = getelementptr inbounds i8, ptr %this, i64 392
   store i8 1, ptr %encryption_established_, align 8
-  %handshake_confirmed_ = getelementptr inbounds %"class.net::QuicCryptoStream", ptr %this, i64 0, i32 3
+  %handshake_confirmed_ = getelementptr inbounds i8, ptr %this, i64 393
   store i8 1, ptr %handshake_confirmed_, align 1
   %47 = load ptr, ptr %session_.i21, align 8
   %vtable116 = load ptr, ptr %47, align 8
-  %vfn117 = getelementptr inbounds ptr, ptr %vtable116, i64 26
+  %vfn117 = getelementptr inbounds i8, ptr %vtable116, i64 208
   %48 = load ptr, ptr %vfn117, align 8
   invoke void %48(ptr noundef nonnull align 8 dereferenceable(2044) %47, i32 noundef 2)
           to label %cleanup unwind label %lpad6
@@ -1264,7 +1050,7 @@ entry:
   %server_config_update_message = alloca %"class.net::CryptoHandshakeMessage", align 8
   %agg.tmp56 = alloca %"class.base::BasicStringPiece", align 8
   %agg.tmp96 = alloca %"class.base::BasicStringPiece", align 8
-  %handshake_confirmed_ = getelementptr inbounds %"class.net::QuicCryptoStream", ptr %this, i64 0, i32 3
+  %handshake_confirmed_ = getelementptr inbounds i8, ptr %this, i64 393
   %0 = load i8, ptr %handshake_confirmed_, align 1
   %1 = and i8 %0, 1
   %tobool.not = icmp eq i8 %1, 0
@@ -1277,7 +1063,7 @@ if.end:                                           ; preds = %entry
   br i1 %tobool2.not, label %invoke.cont54, label %if.then3
 
 if.then3:                                         ; preds = %if.end
-  %send_server_config_update_cb_ = getelementptr inbounds %"class.net::QuicCryptoServerStream", ptr %this, i64 0, i32 9
+  %send_server_config_update_cb_ = getelementptr inbounds i8, ptr %this, i64 1232
   %4 = load ptr, ptr %send_server_config_update_cb_, align 8
   %cmp.not = icmp eq ptr %4, null
   br i1 %cmp.not, label %invoke.cont13, label %cleanup.cont
@@ -1285,38 +1071,38 @@ if.then3:                                         ; preds = %if.end
 invoke.cont13:                                    ; preds = %if.then3
   %call = tail call noalias noundef nonnull dereferenceable(16) ptr @_Znwm(i64 noundef 16) #18
   store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN3net22QuicCryptoServerStream30SendServerConfigUpdateCallbackE, i64 0, inrange i32 0, i64 2), ptr %call, align 8
-  %parent_.i = getelementptr inbounds %"class.net::QuicCryptoServerStream::SendServerConfigUpdateCallback", ptr %call, i64 0, i32 1
+  %parent_.i = getelementptr inbounds i8, ptr %call, i64 8
   store ptr %this, ptr %parent_.i, align 8
   store ptr %call, ptr %send_server_config_update_cb_, align 8
-  %crypto_config_ = getelementptr inbounds %"class.net::QuicCryptoServerStream", ptr %this, i64 0, i32 1
+  %crypto_config_ = getelementptr inbounds i8, ptr %this, i64 1048
   %5 = load ptr, ptr %crypto_config_, align 8
-  %session_.i = getelementptr inbounds %"class.net::ReliableQuicStream", ptr %this, i64 0, i32 6
+  %session_.i = getelementptr inbounds i8, ptr %this, i64 224
   %6 = load ptr, ptr %session_.i, align 8
-  %connection_.i = getelementptr inbounds %"class.net::QuicSession", ptr %6, i64 0, i32 2
+  %connection_.i = getelementptr inbounds i8, ptr %6, i64 56
   %7 = load ptr, ptr %connection_.i, align 8
-  %quic_version_.i.i = getelementptr inbounds %"class.net::QuicConnection", ptr %7, i64 0, i32 4, i32 13
+  %quic_version_.i.i = getelementptr inbounds i8, ptr %7, i64 300
   %8 = load i32, ptr %quic_version_.i.i, align 4
-  %chlo_hash_ = getelementptr inbounds %"class.net::QuicCryptoServerStream", ptr %this, i64 0, i32 4
+  %chlo_hash_ = getelementptr inbounds i8, ptr %this, i64 1176
   invoke void @_ZN4base16BasicStringPieceINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEC1ERKS6_(ptr noundef nonnull align 8 dereferenceable(16) %agg.tmp, ptr noundef nonnull align 8 dereferenceable(32) %chlo_hash_)
           to label %invoke.cont15 unwind label %_ZNKSt14default_deleteIN3net22QuicCryptoServerStream30SendServerConfigUpdateCallbackEEclEPS2_.exit.i22
 
 invoke.cont15:                                    ; preds = %invoke.cont13
-  %previous_source_address_tokens_ = getelementptr inbounds %"class.net::QuicCryptoServerStream", ptr %this, i64 0, i32 12
+  %previous_source_address_tokens_ = getelementptr inbounds i8, ptr %this, i64 1256
   %9 = load ptr, ptr %session_.i, align 8
-  %connection_.i6 = getelementptr inbounds %"class.net::QuicSession", ptr %9, i64 0, i32 2
+  %connection_.i6 = getelementptr inbounds i8, ptr %9, i64 56
   %10 = load ptr, ptr %connection_.i6, align 8
-  %self_address_.i = getelementptr inbounds %"class.net::QuicConnection", ptr %10, i64 0, i32 15
-  %peer_address_.i = getelementptr inbounds %"class.net::QuicConnection", ptr %10, i64 0, i32 16
-  %clock_.i = getelementptr inbounds %"class.net::QuicConnection", ptr %10, i64 0, i32 12
+  %self_address_.i = getelementptr inbounds i8, ptr %10, i64 504
+  %peer_address_.i = getelementptr inbounds i8, ptr %10, i64 536
+  %clock_.i = getelementptr inbounds i8, ptr %10, i64 480
   %11 = load ptr, ptr %clock_.i, align 8
-  %random_generator_.i = getelementptr inbounds %"class.net::QuicConnection", ptr %10, i64 0, i32 13
+  %random_generator_.i = getelementptr inbounds i8, ptr %10, i64 488
   %12 = load ptr, ptr %random_generator_.i, align 8
-  %compressed_certs_cache_ = getelementptr inbounds %"class.net::QuicCryptoServerStream", ptr %this, i64 0, i32 2
+  %compressed_certs_cache_ = getelementptr inbounds i8, ptr %this, i64 1056
   %13 = load ptr, ptr %compressed_certs_cache_, align 8
-  %crypto_negotiated_params_ = getelementptr inbounds %"class.net::QuicCryptoStream", ptr %this, i64 0, i32 5
+  %crypto_negotiated_params_ = getelementptr inbounds i8, ptr %this, i64 400
   store ptr %call, ptr %agg.tmp44, align 8
   %14 = load ptr, ptr %agg.tmp, align 8
-  %15 = getelementptr inbounds { ptr, i64 }, ptr %agg.tmp, i64 0, i32 1
+  %15 = getelementptr inbounds i8, ptr %agg.tmp, i64 8
   %16 = load i64, ptr %15, align 8
   invoke void @_ZNK3net22QuicCryptoServerConfig30BuildServerConfigUpdateMessageENS_11QuicVersionEN4base16BasicStringPieceINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEERKNS_19SourceAddressTokensERKNS_9IPAddressESG_PKNS_9QuicClockEPNS_10QuicRandomEPNS_24QuicCompressedCertsCacheERKNS_30QuicCryptoNegotiatedParametersEPKNS_23CachedNetworkParametersESt10unique_ptrINS_44BuildServerConfigUpdateMessageResultCallbackESt14default_deleteISV_EE(ptr noundef nonnull align 8 dereferenceable(405) %5, i32 noundef %8, ptr %14, i64 %16, ptr noundef nonnull align 8 dereferenceable(56) %previous_source_address_tokens_, ptr noundef nonnull align 8 dereferenceable(24) %self_address_.i, ptr noundef nonnull align 8 dereferenceable(24) %peer_address_.i, ptr noundef %11, ptr noundef %12, ptr noundef %13, ptr noundef nonnull align 8 dereferenceable(433) %crypto_negotiated_params_, ptr noundef %cached_network_params, ptr noundef nonnull %agg.tmp44)
           to label %invoke.cont46 unwind label %lpad45
@@ -1328,7 +1114,7 @@ invoke.cont46:                                    ; preds = %invoke.cont15
 
 _ZNKSt14default_deleteIN3net44BuildServerConfigUpdateMessageResultCallbackEEclEPS1_.exit.i: ; preds = %invoke.cont46
   %vtable.i.i = load ptr, ptr %17, align 8
-  %vfn.i.i = getelementptr inbounds ptr, ptr %vtable.i.i, i64 1
+  %vfn.i.i = getelementptr inbounds i8, ptr %vtable.i.i, i64 8
   %18 = load ptr, ptr %vfn.i.i, align 8
   call void %18(ptr noundef nonnull align 8 dereferenceable(8) %17) #15
   br label %cleanup.cont
@@ -1342,7 +1128,7 @@ lpad45:                                           ; preds = %invoke.cont15
 
 _ZNKSt14default_deleteIN3net44BuildServerConfigUpdateMessageResultCallbackEEclEPS1_.exit.i17: ; preds = %lpad45
   %vtable.i.i18 = load ptr, ptr %20, align 8
-  %vfn.i.i19 = getelementptr inbounds ptr, ptr %vtable.i.i18, i64 1
+  %vfn.i.i19 = getelementptr inbounds i8, ptr %vtable.i.i18, i64 8
   %21 = load ptr, ptr %vfn.i.i19, align 8
   call void %21(ptr noundef nonnull align 8 dereferenceable(8) %20) #15
   br label %eh.resume
@@ -1351,41 +1137,41 @@ _ZNKSt14default_deleteIN3net22QuicCryptoServerStream30SendServerConfigUpdateCall
   %22 = landingpad { ptr, i32 }
           cleanup
   %vtable.i.i23 = load ptr, ptr %call, align 8
-  %vfn.i.i24 = getelementptr inbounds ptr, ptr %vtable.i.i23, i64 1
+  %vfn.i.i24 = getelementptr inbounds i8, ptr %vtable.i.i23, i64 8
   %23 = load ptr, ptr %vfn.i.i24, align 8
   call void %23(ptr noundef nonnull align 8 dereferenceable(16) %call) #15
   br label %eh.resume
 
 invoke.cont54:                                    ; preds = %if.end
   call void @_ZN3net22CryptoHandshakeMessageC1Ev(ptr noundef nonnull align 8 dereferenceable(72) %server_config_update_message)
-  %crypto_config_48 = getelementptr inbounds %"class.net::QuicCryptoServerStream", ptr %this, i64 0, i32 1
+  %crypto_config_48 = getelementptr inbounds i8, ptr %this, i64 1048
   %24 = load ptr, ptr %crypto_config_48, align 8
-  %session_.i26 = getelementptr inbounds %"class.net::ReliableQuicStream", ptr %this, i64 0, i32 6
+  %session_.i26 = getelementptr inbounds i8, ptr %this, i64 224
   %25 = load ptr, ptr %session_.i26, align 8
-  %connection_.i27 = getelementptr inbounds %"class.net::QuicSession", ptr %25, i64 0, i32 2
+  %connection_.i27 = getelementptr inbounds i8, ptr %25, i64 56
   %26 = load ptr, ptr %connection_.i27, align 8
-  %quic_version_.i.i28 = getelementptr inbounds %"class.net::QuicConnection", ptr %26, i64 0, i32 4, i32 13
+  %quic_version_.i.i28 = getelementptr inbounds i8, ptr %26, i64 300
   %27 = load i32, ptr %quic_version_.i.i28, align 4
-  %chlo_hash_57 = getelementptr inbounds %"class.net::QuicCryptoServerStream", ptr %this, i64 0, i32 4
+  %chlo_hash_57 = getelementptr inbounds i8, ptr %this, i64 1176
   invoke void @_ZN4base16BasicStringPieceINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEC1ERKS6_(ptr noundef nonnull align 8 dereferenceable(16) %agg.tmp56, ptr noundef nonnull align 8 dereferenceable(32) %chlo_hash_57)
           to label %invoke.cont58 unwind label %lpad49
 
 invoke.cont58:                                    ; preds = %invoke.cont54
-  %previous_source_address_tokens_59 = getelementptr inbounds %"class.net::QuicCryptoServerStream", ptr %this, i64 0, i32 12
+  %previous_source_address_tokens_59 = getelementptr inbounds i8, ptr %this, i64 1256
   %28 = load ptr, ptr %session_.i26, align 8
-  %connection_.i30 = getelementptr inbounds %"class.net::QuicSession", ptr %28, i64 0, i32 2
+  %connection_.i30 = getelementptr inbounds i8, ptr %28, i64 56
   %29 = load ptr, ptr %connection_.i30, align 8
-  %self_address_.i31 = getelementptr inbounds %"class.net::QuicConnection", ptr %29, i64 0, i32 15
-  %peer_address_.i34 = getelementptr inbounds %"class.net::QuicConnection", ptr %29, i64 0, i32 16
-  %clock_.i37 = getelementptr inbounds %"class.net::QuicConnection", ptr %29, i64 0, i32 12
+  %self_address_.i31 = getelementptr inbounds i8, ptr %29, i64 504
+  %peer_address_.i34 = getelementptr inbounds i8, ptr %29, i64 536
+  %clock_.i37 = getelementptr inbounds i8, ptr %29, i64 480
   %30 = load ptr, ptr %clock_.i37, align 8
-  %random_generator_.i40 = getelementptr inbounds %"class.net::QuicConnection", ptr %29, i64 0, i32 13
+  %random_generator_.i40 = getelementptr inbounds i8, ptr %29, i64 488
   %31 = load ptr, ptr %random_generator_.i40, align 8
-  %compressed_certs_cache_88 = getelementptr inbounds %"class.net::QuicCryptoServerStream", ptr %this, i64 0, i32 2
+  %compressed_certs_cache_88 = getelementptr inbounds i8, ptr %this, i64 1056
   %32 = load ptr, ptr %compressed_certs_cache_88, align 8
-  %crypto_negotiated_params_89 = getelementptr inbounds %"class.net::QuicCryptoStream", ptr %this, i64 0, i32 5
+  %crypto_negotiated_params_89 = getelementptr inbounds i8, ptr %this, i64 400
   %33 = load ptr, ptr %agg.tmp56, align 8
-  %34 = getelementptr inbounds { ptr, i64 }, ptr %agg.tmp56, i64 0, i32 1
+  %34 = getelementptr inbounds i8, ptr %agg.tmp56, i64 8
   %35 = load i64, ptr %34, align 8
   %call91 = invoke noundef zeroext i1 @_ZNK3net22QuicCryptoServerConfig30BuildServerConfigUpdateMessageENS_11QuicVersionEN4base16BasicStringPieceINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEERKNS_19SourceAddressTokensERKNS_9IPAddressESG_PKNS_9QuicClockEPNS_10QuicRandomEPNS_24QuicCompressedCertsCacheERKNS_30QuicCryptoNegotiatedParametersEPKNS_23CachedNetworkParametersEPNS_22CryptoHandshakeMessageE(ptr noundef nonnull align 8 dereferenceable(405) %24, i32 noundef %27, ptr %33, i64 %35, ptr noundef nonnull align 8 dereferenceable(56) %previous_source_address_tokens_59, ptr noundef nonnull align 8 dereferenceable(24) %self_address_.i31, ptr noundef nonnull align 8 dereferenceable(24) %peer_address_.i34, ptr noundef %30, ptr noundef %31, ptr noundef %32, ptr noundef nonnull align 8 dereferenceable(433) %crypto_negotiated_params_89, ptr noundef %cached_network_params, ptr noundef nonnull %server_config_update_message)
           to label %invoke.cont90 unwind label %lpad49
@@ -1404,22 +1190,22 @@ if.end93:                                         ; preds = %invoke.cont90
           to label %invoke.cont94 unwind label %lpad49
 
 invoke.cont94:                                    ; preds = %if.end93
-  %buffer_.i = getelementptr inbounds %"class.net::QuicData", ptr %call95, i64 0, i32 1
+  %buffer_.i = getelementptr inbounds i8, ptr %call95, i64 8
   %37 = load ptr, ptr %buffer_.i, align 8
-  %length_.i = getelementptr inbounds %"class.net::QuicData", ptr %call95, i64 0, i32 2
+  %length_.i = getelementptr inbounds i8, ptr %call95, i64 16
   %38 = load i64, ptr %length_.i, align 8
   invoke void @_ZN4base16BasicStringPieceINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEC1EPKcm(ptr noundef nonnull align 8 dereferenceable(16) %agg.tmp96, ptr noundef %37, i64 noundef %38)
           to label %invoke.cont101 unwind label %lpad49
 
 invoke.cont101:                                   ; preds = %invoke.cont94
   %39 = load ptr, ptr %agg.tmp96, align 8
-  %40 = getelementptr inbounds { ptr, i64 }, ptr %agg.tmp96, i64 0, i32 1
+  %40 = getelementptr inbounds i8, ptr %agg.tmp96, i64 8
   %41 = load i64, ptr %40, align 8
   invoke void @_ZN3net18ReliableQuicStream17WriteOrBufferDataEN4base16BasicStringPieceINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEbPNS_24QuicAckListenerInterfaceE(ptr noundef nonnull align 8 dereferenceable(377) %this, ptr %39, i64 %41, i1 noundef zeroext false, ptr noundef null)
           to label %invoke.cont102 unwind label %lpad49
 
 invoke.cont102:                                   ; preds = %invoke.cont101
-  %num_server_config_update_messages_sent_ = getelementptr inbounds %"class.net::QuicCryptoServerStream", ptr %this, i64 0, i32 10
+  %num_server_config_update_messages_sent_ = getelementptr inbounds i8, ptr %this, i64 1240
   %42 = load i32, ptr %num_server_config_update_messages_sent_, align 8
   %inc = add nsw i32 %42, 1
   store i32 %inc, ptr %num_server_config_update_messages_sent_, align 8
@@ -1453,7 +1239,7 @@ declare void @_ZN4base16BasicStringPieceINSt7__cxx1112basic_stringIcSt11char_tra
 define dso_local void @_ZN3net22QuicCryptoServerStream30SendServerConfigUpdateCallbackC2EPS0_(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(16) %this, ptr noundef %parent) unnamed_addr #8 align 2 {
 entry:
   store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN3net22QuicCryptoServerStream30SendServerConfigUpdateCallbackE, i64 0, inrange i32 0, i64 2), ptr %this, align 8
-  %parent_ = getelementptr inbounds %"class.net::QuicCryptoServerStream::SendServerConfigUpdateCallback", ptr %this, i64 0, i32 1
+  %parent_ = getelementptr inbounds i8, ptr %this, i64 8
   store ptr %parent, ptr %parent_, align 8
   ret void
 }
@@ -1462,29 +1248,29 @@ entry:
 define dso_local void @_ZN3net22QuicCryptoServerStream30SendServerConfigUpdateCallback3RunEbRKNS_22CryptoHandshakeMessageE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %this, i1 noundef zeroext %ok, ptr noundef nonnull align 8 dereferenceable(72) %message) unnamed_addr #0 align 2 {
 entry:
   %agg.tmp.i = alloca %"class.base::BasicStringPiece", align 8
-  %parent_ = getelementptr inbounds %"class.net::QuicCryptoServerStream::SendServerConfigUpdateCallback", ptr %this, i64 0, i32 1
+  %parent_ = getelementptr inbounds i8, ptr %this, i64 8
   %0 = load ptr, ptr %parent_, align 8
   %cmp = icmp eq ptr %0, null
   br i1 %cmp, label %return, label %if.end
 
 if.end:                                           ; preds = %entry
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %agg.tmp.i)
-  %send_server_config_update_cb_.i = getelementptr inbounds %"class.net::QuicCryptoServerStream", ptr %0, i64 0, i32 9
+  %send_server_config_update_cb_.i = getelementptr inbounds i8, ptr %0, i64 1232
   store ptr null, ptr %send_server_config_update_cb_.i, align 8
   br i1 %ok, label %if.end.i, label %_ZN3net22QuicCryptoServerStream28FinishSendServerConfigUpdateEbRKNS_22CryptoHandshakeMessageE.exit
 
 if.end.i:                                         ; preds = %if.end
   %call.i = tail call noundef nonnull align 8 dereferenceable(25) ptr @_ZNK3net22CryptoHandshakeMessage13GetSerializedEv(ptr noundef nonnull align 8 dereferenceable(72) %message)
-  %buffer_.i.i = getelementptr inbounds %"class.net::QuicData", ptr %call.i, i64 0, i32 1
+  %buffer_.i.i = getelementptr inbounds i8, ptr %call.i, i64 8
   %1 = load ptr, ptr %buffer_.i.i, align 8
-  %length_.i.i = getelementptr inbounds %"class.net::QuicData", ptr %call.i, i64 0, i32 2
+  %length_.i.i = getelementptr inbounds i8, ptr %call.i, i64 16
   %2 = load i64, ptr %length_.i.i, align 8
   call void @_ZN4base16BasicStringPieceINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEC1EPKcm(ptr noundef nonnull align 8 dereferenceable(16) %agg.tmp.i, ptr noundef %1, i64 noundef %2)
   %3 = load ptr, ptr %agg.tmp.i, align 8
-  %4 = getelementptr inbounds { ptr, i64 }, ptr %agg.tmp.i, i64 0, i32 1
+  %4 = getelementptr inbounds i8, ptr %agg.tmp.i, i64 8
   %5 = load i64, ptr %4, align 8
   call void @_ZN3net18ReliableQuicStream17WriteOrBufferDataEN4base16BasicStringPieceINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEbPNS_24QuicAckListenerInterfaceE(ptr noundef nonnull align 8 dereferenceable(377) %0, ptr %3, i64 %5, i1 noundef zeroext false, ptr noundef null)
-  %num_server_config_update_messages_sent_.i = getelementptr inbounds %"class.net::QuicCryptoServerStream", ptr %0, i64 0, i32 10
+  %num_server_config_update_messages_sent_.i = getelementptr inbounds i8, ptr %0, i64 1240
   %6 = load i32, ptr %num_server_config_update_messages_sent_.i, align 8
   %inc.i = add nsw i32 %6, 1
   store i32 %inc.i, ptr %num_server_config_update_messages_sent_.i, align 8
@@ -1502,22 +1288,22 @@ return:                                           ; preds = %entry, %_ZN3net22Qu
 define dso_local void @_ZN3net22QuicCryptoServerStream28FinishSendServerConfigUpdateEbRKNS_22CryptoHandshakeMessageE(ptr noundef nonnull align 8 dereferenceable(1328) %this, i1 noundef zeroext %ok, ptr noundef nonnull align 8 dereferenceable(72) %message) local_unnamed_addr #0 align 2 {
 entry:
   %agg.tmp = alloca %"class.base::BasicStringPiece", align 8
-  %send_server_config_update_cb_ = getelementptr inbounds %"class.net::QuicCryptoServerStream", ptr %this, i64 0, i32 9
+  %send_server_config_update_cb_ = getelementptr inbounds i8, ptr %this, i64 1232
   store ptr null, ptr %send_server_config_update_cb_, align 8
   br i1 %ok, label %if.end, label %return
 
 if.end:                                           ; preds = %entry
   %call = tail call noundef nonnull align 8 dereferenceable(25) ptr @_ZNK3net22CryptoHandshakeMessage13GetSerializedEv(ptr noundef nonnull align 8 dereferenceable(72) %message)
-  %buffer_.i = getelementptr inbounds %"class.net::QuicData", ptr %call, i64 0, i32 1
+  %buffer_.i = getelementptr inbounds i8, ptr %call, i64 8
   %0 = load ptr, ptr %buffer_.i, align 8
-  %length_.i = getelementptr inbounds %"class.net::QuicData", ptr %call, i64 0, i32 2
+  %length_.i = getelementptr inbounds i8, ptr %call, i64 16
   %1 = load i64, ptr %length_.i, align 8
   call void @_ZN4base16BasicStringPieceINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEC1EPKcm(ptr noundef nonnull align 8 dereferenceable(16) %agg.tmp, ptr noundef %0, i64 noundef %1)
   %2 = load ptr, ptr %agg.tmp, align 8
-  %3 = getelementptr inbounds { ptr, i64 }, ptr %agg.tmp, i64 0, i32 1
+  %3 = getelementptr inbounds i8, ptr %agg.tmp, i64 8
   %4 = load i64, ptr %3, align 8
   call void @_ZN3net18ReliableQuicStream17WriteOrBufferDataEN4base16BasicStringPieceINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEbPNS_24QuicAckListenerInterfaceE(ptr noundef nonnull align 8 dereferenceable(377) %this, ptr %2, i64 %4, i1 noundef zeroext false, ptr noundef null)
-  %num_server_config_update_messages_sent_ = getelementptr inbounds %"class.net::QuicCryptoServerStream", ptr %this, i64 0, i32 10
+  %num_server_config_update_messages_sent_ = getelementptr inbounds i8, ptr %this, i64 1240
   %5 = load i32, ptr %num_server_config_update_messages_sent_, align 8
   %inc = add nsw i32 %5, 1
   store i32 %inc, ptr %num_server_config_update_messages_sent_, align 8
@@ -1530,9 +1316,9 @@ return:                                           ; preds = %entry, %if.end
 ; Function Attrs: mustprogress uwtable
 define dso_local void @_ZN3net22QuicCryptoServerStream18OnServerHelloAckedEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(1328) %this) unnamed_addr #0 align 2 {
 entry:
-  %session_.i = getelementptr inbounds %"class.net::ReliableQuicStream", ptr %this, i64 0, i32 6
+  %session_.i = getelementptr inbounds i8, ptr %this, i64 224
   %0 = load ptr, ptr %session_.i, align 8
-  %connection_.i = getelementptr inbounds %"class.net::QuicSession", ptr %0, i64 0, i32 2
+  %connection_.i = getelementptr inbounds i8, ptr %0, i64 56
   %1 = load ptr, ptr %connection_.i, align 8
   tail call void @_ZN3net14QuicConnection19OnHandshakeCompleteEv(ptr noundef nonnull align 8 dereferenceable(3372) %1)
   ret void
@@ -1543,7 +1329,7 @@ declare void @_ZN3net14QuicConnection19OnHandshakeCompleteEv(ptr noundef nonnull
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
 define dso_local noundef zeroext i8 @_ZNK3net22QuicCryptoServerStream20NumHandshakeMessagesEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(1328) %this) unnamed_addr #11 align 2 {
 entry:
-  %num_handshake_messages_ = getelementptr inbounds %"class.net::QuicCryptoServerStream", ptr %this, i64 0, i32 7
+  %num_handshake_messages_ = getelementptr inbounds i8, ptr %this, i64 1224
   %0 = load i8, ptr %num_handshake_messages_, align 8
   ret i8 %0
 }
@@ -1551,7 +1337,7 @@ entry:
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
 define dso_local noundef zeroext i8 @_ZNK3net22QuicCryptoServerStream36NumHandshakeMessagesWithServerNoncesEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(1328) %this) unnamed_addr #11 align 2 {
 entry:
-  %num_handshake_messages_with_server_nonces_ = getelementptr inbounds %"class.net::QuicCryptoServerStream", ptr %this, i64 0, i32 8
+  %num_handshake_messages_with_server_nonces_ = getelementptr inbounds i8, ptr %this, i64 1225
   %0 = load i8, ptr %num_handshake_messages_with_server_nonces_, align 1
   ret i8 %0
 }
@@ -1559,7 +1345,7 @@ entry:
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
 define dso_local noundef i32 @_ZNK3net22QuicCryptoServerStream33NumServerConfigUpdateMessagesSentEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(1328) %this) unnamed_addr #11 align 2 {
 entry:
-  %num_server_config_update_messages_sent_ = getelementptr inbounds %"class.net::QuicCryptoServerStream", ptr %this, i64 0, i32 10
+  %num_server_config_update_messages_sent_ = getelementptr inbounds i8, ptr %this, i64 1240
   %0 = load i32, ptr %num_server_config_update_messages_sent_, align 8
   ret i32 %0
 }
@@ -1567,7 +1353,7 @@ entry:
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
 define dso_local noundef ptr @_ZNK3net22QuicCryptoServerStream27PreviousCachedNetworkParamsEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(1328) %this) unnamed_addr #11 align 2 {
 entry:
-  %previous_cached_network_params_ = getelementptr inbounds %"class.net::QuicCryptoServerStream", ptr %this, i64 0, i32 11
+  %previous_cached_network_params_ = getelementptr inbounds i8, ptr %this, i64 1248
   %0 = load ptr, ptr %previous_cached_network_params_, align 8
   ret ptr %0
 }
@@ -1575,7 +1361,7 @@ entry:
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
 define dso_local noundef zeroext i1 @_ZNK3net22QuicCryptoServerStream34UseStatelessRejectsIfPeerSupportedEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(1328) %this) unnamed_addr #11 align 2 {
 entry:
-  %use_stateless_rejects_if_peer_supported_ = getelementptr inbounds %"class.net::QuicCryptoServerStream", ptr %this, i64 0, i32 13
+  %use_stateless_rejects_if_peer_supported_ = getelementptr inbounds i8, ptr %this, i64 1312
   %0 = load i8, ptr %use_stateless_rejects_if_peer_supported_, align 8
   %1 = and i8 %0, 1
   %tobool = icmp ne i8 %1, 0
@@ -1585,7 +1371,7 @@ entry:
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
 define dso_local noundef zeroext i1 @_ZNK3net22QuicCryptoServerStream28PeerSupportsStatelessRejectsEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(1328) %this) unnamed_addr #11 align 2 {
 entry:
-  %peer_supports_stateless_rejects_ = getelementptr inbounds %"class.net::QuicCryptoServerStream", ptr %this, i64 0, i32 14
+  %peer_supports_stateless_rejects_ = getelementptr inbounds i8, ptr %this, i64 1313
   %0 = load i8, ptr %peer_supports_stateless_rejects_, align 1
   %1 = and i8 %0, 1
   %tobool = icmp ne i8 %1, 0
@@ -1596,7 +1382,7 @@ entry:
 define dso_local void @_ZN3net22QuicCryptoServerStream31SetPeerSupportsStatelessRejectsEb(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(1328) %this, i1 noundef zeroext %peer_supports_stateless_rejects) unnamed_addr #8 align 2 {
 entry:
   %frombool = zext i1 %peer_supports_stateless_rejects to i8
-  %peer_supports_stateless_rejects_ = getelementptr inbounds %"class.net::QuicCryptoServerStream", ptr %this, i64 0, i32 14
+  %peer_supports_stateless_rejects_ = getelementptr inbounds i8, ptr %this, i64 1313
   store i8 %frombool, ptr %peer_supports_stateless_rejects_, align 1
   ret void
 }
@@ -1609,7 +1395,7 @@ entry:
           to label %invoke.cont unwind label %lpad
 
 invoke.cont:                                      ; preds = %entry
-  %previous_cached_network_params_ = getelementptr inbounds %"class.net::QuicCryptoServerStream", ptr %this, i64 0, i32 11
+  %previous_cached_network_params_ = getelementptr inbounds i8, ptr %this, i64 1248
   %0 = load ptr, ptr %previous_cached_network_params_, align 8
   store ptr %call, ptr %previous_cached_network_params_, align 8
   %tobool.not.i.i = icmp eq ptr %0, null
@@ -1617,7 +1403,7 @@ invoke.cont:                                      ; preds = %entry
 
 _ZNKSt14default_deleteIN3net23CachedNetworkParametersEEclEPS1_.exit.i.i: ; preds = %invoke.cont
   %vtable.i.i.i = load ptr, ptr %0, align 8
-  %vfn.i.i.i = getelementptr inbounds ptr, ptr %vtable.i.i.i, i64 1
+  %vfn.i.i.i = getelementptr inbounds i8, ptr %vtable.i.i.i, i64 8
   %1 = load ptr, ptr %vfn.i.i.i, align 8
   tail call void %1(ptr noundef nonnull align 8 dereferenceable(72) %0) #15
   br label %_ZNSt10unique_ptrIN3net23CachedNetworkParametersESt14default_deleteIS1_EE5resetEPS1_.exit
@@ -1642,14 +1428,14 @@ entry:
   %ref.tmp = alloca %"class.base::BasicStringPiece", align 8
   %ref.tmp12 = alloca %"class.std::__cxx11::basic_string", align 8
   %ref.tmp14 = alloca %"class.std::allocator.10", align 1
-  %encryption_established_ = getelementptr inbounds %"class.net::QuicCryptoStream", ptr %this, i64 0, i32 2
+  %encryption_established_ = getelementptr inbounds i8, ptr %this, i64 392
   %0 = load i8, ptr %encryption_established_, align 8
   %1 = and i8 %0, 1
   %tobool.not = icmp eq i8 %1, 0
   br i1 %tobool.not, label %return, label %lor.lhs.false
 
 lor.lhs.false:                                    ; preds = %entry
-  %channel_id = getelementptr inbounds %"class.net::QuicCryptoStream", ptr %this, i64 0, i32 5, i32 14
+  %channel_id = getelementptr inbounds i8, ptr %this, i64 728
   %call = tail call noundef zeroext i1 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5emptyEv(ptr noundef nonnull align 8 dereferenceable(32) %channel_id) #15
   br i1 %call, label %return, label %if.end
 
@@ -1659,7 +1445,7 @@ if.end:                                           ; preds = %lor.lhs.false
   %call6 = call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4dataEv(ptr noundef nonnull align 8 dereferenceable(32) %channel_id) #15
   %call7 = call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4sizeEv(ptr noundef nonnull align 8 dereferenceable(32) %channel_id) #15
   %vtable = load ptr, ptr %2, align 8
-  %vfn = getelementptr inbounds ptr, ptr %vtable, i64 2
+  %vfn = getelementptr inbounds i8, ptr %vtable, i64 16
   %3 = load ptr, ptr %vfn, align 8
   invoke void %3(ptr noundef nonnull align 8 dereferenceable(8) %2, ptr noundef %call6, i64 noundef %call7)
           to label %invoke.cont unwind label %lpad
@@ -1667,7 +1453,7 @@ if.end:                                           ; preds = %lor.lhs.false
 invoke.cont:                                      ; preds = %if.end
   %4 = load ptr, ptr %hash, align 8
   %vtable9 = load ptr, ptr %4, align 8
-  %vfn10 = getelementptr inbounds ptr, ptr %vtable9, i64 3
+  %vfn10 = getelementptr inbounds i8, ptr %vtable9, i64 24
   %5 = load ptr, ptr %vfn10, align 8
   invoke void %5(ptr noundef nonnull align 8 dereferenceable(8) %4, ptr noundef nonnull %digest, i64 noundef 32)
           to label %invoke.cont11 unwind label %lpad
@@ -1742,7 +1528,7 @@ if.end36:                                         ; preds = %invoke.cont22, %inv
 
 _ZNKSt14default_deleteIN6crypto10SecureHashEEclEPS1_.exit.i: ; preds = %if.end36
   %vtable.i.i = load ptr, ptr %11, align 8
-  %vfn.i.i = getelementptr inbounds ptr, ptr %vtable.i.i, i64 1
+  %vfn.i.i = getelementptr inbounds i8, ptr %vtable.i.i, i64 8
   %12 = load ptr, ptr %vfn.i.i, align 8
   call void %12(ptr noundef nonnull align 8 dereferenceable(8) %11) #15
   br label %return
@@ -1755,7 +1541,7 @@ ehcleanup37:                                      ; preds = %ehcleanup, %lpad
 
 _ZNKSt14default_deleteIN6crypto10SecureHashEEclEPS1_.exit.i15: ; preds = %ehcleanup37
   %vtable.i.i16 = load ptr, ptr %13, align 8
-  %vfn.i.i17 = getelementptr inbounds ptr, ptr %vtable.i.i16, i64 1
+  %vfn.i.i17 = getelementptr inbounds i8, ptr %vtable.i.i16, i64 8
   %14 = load ptr, ptr %vfn.i.i17, align 8
   call void %14(ptr noundef nonnull align 8 dereferenceable(8) %13) #15
   br label %_ZNSt10unique_ptrIN6crypto10SecureHashESt14default_deleteIS1_EED2Ev.exit18
@@ -1790,45 +1576,45 @@ declare void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6resizeEm(ptr
 ; Function Attrs: mustprogress uwtable
 define dso_local noundef i32 @_ZN3net22QuicCryptoServerStream18ProcessClientHelloERKNS_33ValidateClientHelloResultCallback6ResultESt10unique_ptrINS_11ProofSource7DetailsESt14default_deleteIS7_EEPNS_22CryptoHandshakeMessageEPSt5arrayIcLm32EEPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(1328) %this, ptr noundef nonnull align 8 dereferenceable(368) %result, ptr nocapture readnone %proof_source_details, ptr noundef %reply, ptr noundef %out_diversification_nonce, ptr noundef %error_details) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  %helper_ = getelementptr inbounds %"class.net::QuicCryptoServerStream", ptr %this, i64 0, i32 6
+  %helper_ = getelementptr inbounds i8, ptr %this, i64 1216
   %0 = load ptr, ptr %helper_, align 8
-  %session_.i = getelementptr inbounds %"class.net::ReliableQuicStream", ptr %this, i64 0, i32 6
+  %session_.i = getelementptr inbounds i8, ptr %this, i64 224
   %1 = load ptr, ptr %session_.i, align 8
-  %connection_.i = getelementptr inbounds %"class.net::QuicSession", ptr %1, i64 0, i32 2
+  %connection_.i = getelementptr inbounds i8, ptr %1, i64 56
   %2 = load ptr, ptr %connection_.i, align 8
-  %self_address_.i = getelementptr inbounds %"class.net::QuicConnection", ptr %2, i64 0, i32 15
+  %self_address_.i = getelementptr inbounds i8, ptr %2, i64 504
   %vtable = load ptr, ptr %0, align 8
-  %vfn = getelementptr inbounds ptr, ptr %vtable, i64 3
+  %vfn = getelementptr inbounds i8, ptr %vtable, i64 24
   %3 = load ptr, ptr %vfn, align 8
   %call4 = tail call noundef zeroext i1 %3(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef nonnull align 8 dereferenceable(72) %result, ptr noundef nonnull align 8 dereferenceable(26) %self_address_.i, ptr noundef %error_details)
   br i1 %call4, label %if.end, label %return
 
 if.end:                                           ; preds = %entry
-  %server_nonce = getelementptr inbounds %"struct.net::ValidateClientHelloResultCallback::Result", ptr %result, i64 0, i32 1, i32 5
+  %server_nonce = getelementptr inbounds i8, ptr %result, i64 144
   %call5 = tail call noundef zeroext i1 @_ZNK4base16BasicStringPieceINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE5emptyEv(ptr noundef nonnull align 8 dereferenceable(16) %server_nonce)
   br i1 %call5, label %if.end7, label %if.then6
 
 if.then6:                                         ; preds = %if.end
-  %num_handshake_messages_with_server_nonces_ = getelementptr inbounds %"class.net::QuicCryptoServerStream", ptr %this, i64 0, i32 8
+  %num_handshake_messages_with_server_nonces_ = getelementptr inbounds i8, ptr %this, i64 1225
   %4 = load i8, ptr %num_handshake_messages_with_server_nonces_, align 1
   %inc = add i8 %4, 1
   store i8 %inc, ptr %num_handshake_messages_with_server_nonces_, align 1
   br label %if.end7
 
 if.end7:                                          ; preds = %if.then6, %if.end
-  %bandwidth_estimate_bytes_per_second_.i = getelementptr inbounds %"struct.net::ValidateClientHelloResultCallback::Result", ptr %result, i64 0, i32 4, i32 6
+  %bandwidth_estimate_bytes_per_second_.i = getelementptr inbounds i8, ptr %result, i64 336
   %5 = load i32, ptr %bandwidth_estimate_bytes_per_second_.i, align 8
   %cmp = icmp sgt i32 %5, 0
   br i1 %cmp, label %if.then9, label %if.end12
 
 if.then9:                                         ; preds = %if.end7
-  %cached_network_params = getelementptr inbounds %"struct.net::ValidateClientHelloResultCallback::Result", ptr %result, i64 0, i32 4
+  %cached_network_params = getelementptr inbounds i8, ptr %result, i64 296
   %call10 = tail call noalias noundef nonnull dereferenceable(72) ptr @_Znwm(i64 noundef 72) #18
   invoke void @_ZN3net23CachedNetworkParametersC1ERKS0_(ptr noundef nonnull align 8 dereferenceable(72) %call10, ptr noundef nonnull align 8 dereferenceable(72) %cached_network_params)
           to label %invoke.cont unwind label %lpad
 
 invoke.cont:                                      ; preds = %if.then9
-  %previous_cached_network_params_ = getelementptr inbounds %"class.net::QuicCryptoServerStream", ptr %this, i64 0, i32 11
+  %previous_cached_network_params_ = getelementptr inbounds i8, ptr %this, i64 1248
   %6 = load ptr, ptr %previous_cached_network_params_, align 8
   store ptr %call10, ptr %previous_cached_network_params_, align 8
   %tobool.not.i.i = icmp eq ptr %6, null
@@ -1836,7 +1622,7 @@ invoke.cont:                                      ; preds = %if.then9
 
 _ZNKSt14default_deleteIN3net23CachedNetworkParametersEEclEPS1_.exit.i.i: ; preds = %invoke.cont
   %vtable.i.i.i = load ptr, ptr %6, align 8
-  %vfn.i.i.i = getelementptr inbounds ptr, ptr %vtable.i.i.i, i64 1
+  %vfn.i.i.i = getelementptr inbounds i8, ptr %vtable.i.i.i, i64 8
   %7 = load ptr, ptr %vfn.i.i.i, align 8
   tail call void %7(ptr noundef nonnull align 8 dereferenceable(72) %6) #15
   br label %if.end12
@@ -1848,54 +1634,54 @@ lpad:                                             ; preds = %if.then9
   resume { ptr, i32 } %8
 
 if.end12:                                         ; preds = %_ZNKSt14default_deleteIN3net23CachedNetworkParametersEEclEPS1_.exit.i.i, %invoke.cont, %if.end7
-  %source_address_tokens = getelementptr inbounds %"struct.net::ValidateClientHelloResultCallback::Result", ptr %result, i64 0, i32 1, i32 7
-  %previous_source_address_tokens_ = getelementptr inbounds %"class.net::QuicCryptoServerStream", ptr %this, i64 0, i32 12
+  %source_address_tokens = getelementptr inbounds i8, ptr %result, i64 176
+  %previous_source_address_tokens_ = getelementptr inbounds i8, ptr %this, i64 1256
   tail call void @_ZN3net19SourceAddressTokens8CopyFromERKS0_(ptr noundef nonnull align 8 dereferenceable(56) %previous_source_address_tokens_, ptr noundef nonnull align 8 dereferenceable(56) %source_address_tokens)
-  %use_stateless_rejects_if_peer_supported_ = getelementptr inbounds %"class.net::QuicCryptoServerStream", ptr %this, i64 0, i32 13
+  %use_stateless_rejects_if_peer_supported_ = getelementptr inbounds i8, ptr %this, i64 1312
   %9 = load i8, ptr %use_stateless_rejects_if_peer_supported_, align 8
   %10 = and i8 %9, 1
   %tobool.not = icmp ne i8 %10, 0
-  %peer_supports_stateless_rejects_ = getelementptr inbounds %"class.net::QuicCryptoServerStream", ptr %this, i64 0, i32 14
+  %peer_supports_stateless_rejects_ = getelementptr inbounds i8, ptr %this, i64 1313
   %11 = load i8, ptr %peer_supports_stateless_rejects_, align 1
   %12 = and i8 %11, 1
   %tobool15 = icmp ne i8 %12, 0
   %13 = select i1 %tobool.not, i1 %tobool15, i1 false
   %14 = load ptr, ptr %session_.i, align 8
-  %connection_.i14 = getelementptr inbounds %"class.net::QuicSession", ptr %14, i64 0, i32 2
+  %connection_.i14 = getelementptr inbounds i8, ptr %14, i64 56
   %15 = load ptr, ptr %connection_.i14, align 8
   br i1 %13, label %if.end.i, label %_ZN3net22QuicCryptoServerStream29GenerateConnectionIdForRejectEb.exit
 
 if.end.i:                                         ; preds = %if.end12
   %16 = load ptr, ptr %helper_, align 8
-  %connection_id_.i.i = getelementptr inbounds %"class.net::QuicConnection", ptr %15, i64 0, i32 14
+  %connection_id_.i.i = getelementptr inbounds i8, ptr %15, i64 496
   %17 = load i64, ptr %connection_id_.i.i, align 8
   %vtable.i = load ptr, ptr %16, align 8
-  %vfn.i = getelementptr inbounds ptr, ptr %vtable.i, i64 2
+  %vfn.i = getelementptr inbounds i8, ptr %vtable.i, i64 16
   %18 = load ptr, ptr %vfn.i, align 8
   %call4.i = tail call noundef i64 %18(ptr noundef nonnull align 8 dereferenceable(8) %16, i64 noundef %17)
   br label %_ZN3net22QuicCryptoServerStream29GenerateConnectionIdForRejectEb.exit
 
 _ZN3net22QuicCryptoServerStream29GenerateConnectionIdForRejectEb.exit: ; preds = %if.end12, %if.end.i
   %retval.0.i = phi i64 [ %call4.i, %if.end.i ], [ 0, %if.end12 ]
-  %crypto_config_ = getelementptr inbounds %"class.net::QuicCryptoServerStream", ptr %this, i64 0, i32 1
+  %crypto_config_ = getelementptr inbounds i8, ptr %this, i64 1048
   %19 = load ptr, ptr %crypto_config_, align 8
-  %connection_id_.i = getelementptr inbounds %"class.net::QuicConnection", ptr %15, i64 0, i32 14
+  %connection_id_.i = getelementptr inbounds i8, ptr %15, i64 496
   %20 = load i64, ptr %connection_id_.i, align 8
-  %self_address_.i15 = getelementptr inbounds %"class.net::QuicConnection", ptr %15, i64 0, i32 15
-  %peer_address_.i = getelementptr inbounds %"class.net::QuicConnection", ptr %15, i64 0, i32 16
+  %self_address_.i15 = getelementptr inbounds i8, ptr %15, i64 504
+  %peer_address_.i = getelementptr inbounds i8, ptr %15, i64 536
   %call24 = tail call noundef i32 @_ZNK3net18ReliableQuicStream7versionEv(ptr noundef nonnull align 8 dereferenceable(377) %this)
-  %supported_versions_.i.i = getelementptr inbounds %"class.net::QuicConnection", ptr %15, i64 0, i32 4, i32 14
-  %clock_.i = getelementptr inbounds %"class.net::QuicConnection", ptr %15, i64 0, i32 12
+  %supported_versions_.i.i = getelementptr inbounds i8, ptr %15, i64 304
+  %clock_.i = getelementptr inbounds i8, ptr %15, i64 480
   %21 = load ptr, ptr %clock_.i, align 8
-  %random_generator_.i = getelementptr inbounds %"class.net::QuicConnection", ptr %15, i64 0, i32 13
+  %random_generator_.i = getelementptr inbounds i8, ptr %15, i64 488
   %22 = load ptr, ptr %random_generator_.i, align 8
-  %compressed_certs_cache_ = getelementptr inbounds %"class.net::QuicCryptoServerStream", ptr %this, i64 0, i32 2
+  %compressed_certs_cache_ = getelementptr inbounds i8, ptr %this, i64 1056
   %23 = load ptr, ptr %compressed_certs_cache_, align 8
-  %crypto_negotiated_params_ = getelementptr inbounds %"class.net::QuicCryptoStream", ptr %this, i64 0, i32 5
-  %crypto_proof_ = getelementptr inbounds %"class.net::QuicCryptoServerStream", ptr %this, i64 0, i32 3
+  %crypto_negotiated_params_ = getelementptr inbounds i8, ptr %this, i64 400
+  %crypto_proof_ = getelementptr inbounds i8, ptr %this, i64 1064
   %call29 = tail call noundef i32 @_ZNK3net18ReliableQuicStream7versionEv(ptr noundef nonnull align 8 dereferenceable(377) %this)
   %call30 = tail call noundef i64 @_ZN3net16QuicCryptoStream28CryptoMessageFramingOverheadENS_11QuicVersionE(i32 noundef %call29)
-  %chlo_packet_size_ = getelementptr inbounds %"class.net::QuicCryptoServerStream", ptr %this, i64 0, i32 15
+  %chlo_packet_size_ = getelementptr inbounds i8, ptr %this, i64 1320
   %24 = load i64, ptr %chlo_packet_size_, align 8
   %call31 = tail call noundef i32 @_ZNK3net22QuicCryptoServerConfig18ProcessClientHelloERKNS_33ValidateClientHelloResultCallback6ResultEbmRKNS_9IPAddressERKNS_10IPEndPointENS_11QuicVersionERKSt6vectorISB_SaISB_EEbmPKNS_9QuicClockEPNS_10QuicRandomEPNS_24QuicCompressedCertsCacheEPNS_30QuicCryptoNegotiatedParametersEPNS_15QuicCryptoProofEmmPNS_22CryptoHandshakeMessageEPSt5arrayIcLm32EEPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(405) %19, ptr noundef nonnull align 8 dereferenceable(368) %result, i1 noundef zeroext false, i64 noundef %20, ptr noundef nonnull align 8 dereferenceable(24) %self_address_.i15, ptr noundef nonnull align 8 dereferenceable(26) %peer_address_.i, i32 noundef %call24, ptr noundef nonnull align 8 dereferenceable(24) %supported_versions_.i.i, i1 noundef zeroext %13, i64 noundef %retval.0.i, ptr noundef %21, ptr noundef %22, ptr noundef %23, ptr noundef nonnull %crypto_negotiated_params_, ptr noundef nonnull %crypto_proof_, i64 noundef %call30, i64 noundef %24, ptr noundef %reply, ptr noundef %out_diversification_nonce, ptr noundef %error_details)
   br label %return
@@ -1913,16 +1699,16 @@ entry:
   br i1 %use_stateless_rejects, label %if.end, label %return
 
 if.end:                                           ; preds = %entry
-  %helper_ = getelementptr inbounds %"class.net::QuicCryptoServerStream", ptr %this, i64 0, i32 6
+  %helper_ = getelementptr inbounds i8, ptr %this, i64 1216
   %0 = load ptr, ptr %helper_, align 8
-  %session_.i = getelementptr inbounds %"class.net::ReliableQuicStream", ptr %this, i64 0, i32 6
+  %session_.i = getelementptr inbounds i8, ptr %this, i64 224
   %1 = load ptr, ptr %session_.i, align 8
-  %connection_.i = getelementptr inbounds %"class.net::QuicSession", ptr %1, i64 0, i32 2
+  %connection_.i = getelementptr inbounds i8, ptr %1, i64 56
   %2 = load ptr, ptr %connection_.i, align 8
-  %connection_id_.i = getelementptr inbounds %"class.net::QuicConnection", ptr %2, i64 0, i32 14
+  %connection_id_.i = getelementptr inbounds i8, ptr %2, i64 496
   %3 = load i64, ptr %connection_id_.i, align 8
   %vtable = load ptr, ptr %0, align 8
-  %vfn = getelementptr inbounds ptr, ptr %vtable, i64 2
+  %vfn = getelementptr inbounds i8, ptr %vtable, i64 16
   %4 = load ptr, ptr %vfn, align 8
   %call4 = tail call noundef i64 %4(ptr noundef nonnull align 8 dereferenceable(8) %0, i64 noundef %3)
   br label %return
@@ -1947,7 +1733,7 @@ define dso_local void @_ZN3net22QuicCryptoServerStream16ValidateCallbackC2EPS0_(
 entry:
   tail call void @_ZN3net33ValidateClientHelloResultCallbackC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this)
   store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN3net22QuicCryptoServerStream16ValidateCallbackE, i64 0, inrange i32 0, i64 2), ptr %this, align 8
-  %parent_ = getelementptr inbounds %"class.net::QuicCryptoServerStream::ValidateCallback", ptr %this, i64 0, i32 1
+  %parent_ = getelementptr inbounds i8, ptr %this, i64 8
   store ptr %parent, ptr %parent_, align 8
   ret void
 }
@@ -1958,7 +1744,7 @@ declare void @_ZN3net33ValidateClientHelloResultCallbackC2Ev(ptr noundef nonnull
 define dso_local void @_ZN3net22QuicCryptoServerStream16ValidateCallback3RunESt10unique_ptrINS_33ValidateClientHelloResultCallback6ResultESt14default_deleteIS4_EES2_INS_11ProofSource7DetailsES5_IS9_EE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %this, ptr nocapture noundef readonly %result, ptr nocapture noundef %details) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %agg.tmp = alloca %"class.std::unique_ptr.275", align 8
-  %parent_ = getelementptr inbounds %"class.net::QuicCryptoServerStream::ValidateCallback", ptr %this, i64 0, i32 1
+  %parent_ = getelementptr inbounds i8, ptr %this, i64 8
   %0 = load ptr, ptr %parent_, align 8
   %cmp.not = icmp eq ptr %0, null
   br i1 %cmp.not, label %if.end, label %if.then
@@ -1978,7 +1764,7 @@ invoke.cont:                                      ; preds = %if.then
 
 _ZNKSt14default_deleteIN3net11ProofSource7DetailsEEclEPS2_.exit.i: ; preds = %invoke.cont
   %vtable.i.i = load ptr, ptr %3, align 8
-  %vfn.i.i = getelementptr inbounds ptr, ptr %vtable.i.i, i64 1
+  %vfn.i.i = getelementptr inbounds i8, ptr %vtable.i.i, i64 8
   %4 = load ptr, ptr %vfn.i.i, align 8
   tail call void %4(ptr noundef nonnull align 8 dereferenceable(8) %3) #15
   br label %if.end
@@ -1992,7 +1778,7 @@ lpad:                                             ; preds = %if.then
 
 _ZNKSt14default_deleteIN3net11ProofSource7DetailsEEclEPS2_.exit.i2: ; preds = %lpad
   %vtable.i.i3 = load ptr, ptr %6, align 8
-  %vfn.i.i4 = getelementptr inbounds ptr, ptr %vtable.i.i3, i64 1
+  %vfn.i.i4 = getelementptr inbounds i8, ptr %vtable.i.i3, i64 8
   %7 = load ptr, ptr %vfn.i.i4, align 8
   tail call void %7(ptr noundef nonnull align 8 dereferenceable(8) %6) #15
   br label %_ZNSt10unique_ptrIN3net11ProofSource7DetailsESt14default_deleteIS2_EED2Ev.exit5
@@ -2068,9 +1854,9 @@ entry:
   store ptr getelementptr inbounds ({ [19 x ptr], [6 x ptr] }, ptr @_ZTVN3net16QuicCryptoStreamE, i64 0, inrange i32 0, i64 2), ptr %this, align 8
   %add.ptr.i = getelementptr inbounds i8, ptr %this, i64 384
   store ptr getelementptr inbounds ({ [19 x ptr], [6 x ptr] }, ptr @_ZTVN3net16QuicCryptoStreamE, i64 0, inrange i32 1, i64 2), ptr %add.ptr.i, align 8
-  %crypto_framer_.i = getelementptr inbounds %"class.net::QuicCryptoStream", ptr %this, i64 0, i32 6
+  %crypto_framer_.i = getelementptr inbounds i8, ptr %this, i64 840
   tail call void @_ZN3net12CryptoFramerD1Ev(ptr noundef nonnull align 8 dereferenceable(208) %crypto_framer_.i) #15
-  %crypto_negotiated_params_.i = getelementptr inbounds %"class.net::QuicCryptoStream", ptr %this, i64 0, i32 5
+  %crypto_negotiated_params_.i = getelementptr inbounds i8, ptr %this, i64 400
   tail call void @_ZN3net30QuicCryptoNegotiatedParametersD1Ev(ptr noundef nonnull align 8 dereferenceable(433) %crypto_negotiated_params_.i) #15
   tail call void @_ZN3net18ReliableQuicStreamD2Ev(ptr noundef nonnull align 8 dereferenceable(377) %this) #15
   ret void

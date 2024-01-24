@@ -4,8 +4,6 @@ target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:
 target triple = "x86_64-unknown-linux-gnu"
 
 %struct.cache_bin_info_s = type { i16 }
-%struct.cache_bin_s = type { ptr, %struct.cache_bin_stats_s, i16, i16, i16 }
-%struct.cache_bin_stats_s = type { i64 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
 define hidden void @cache_bin_info_init(ptr nocapture noundef writeonly %info, i16 noundef zeroext %ncached_max) local_unnamed_addr #0 {
@@ -86,12 +84,12 @@ entry:
   %3 = inttoptr i64 %add4 to ptr
   store ptr %3, ptr %bin, align 8
   %conv6 = trunc i64 %add4 to i16
-  %low_bits_low_water = getelementptr inbounds %struct.cache_bin_s, ptr %bin, i64 0, i32 2
+  %low_bits_low_water = getelementptr inbounds i8, ptr %bin, i64 16
   store i16 %conv6, ptr %low_bits_low_water, align 8
   %conv7 = trunc i64 %add to i16
-  %low_bits_full = getelementptr inbounds %struct.cache_bin_s, ptr %bin, i64 0, i32 3
+  %low_bits_full = getelementptr inbounds i8, ptr %bin, i64 18
   store i16 %conv7, ptr %low_bits_full, align 2
-  %low_bits_empty = getelementptr inbounds %struct.cache_bin_s, ptr %bin, i64 0, i32 4
+  %low_bits_empty = getelementptr inbounds i8, ptr %bin, i64 20
   store i16 %conv6, ptr %low_bits_empty, align 4
   ret void
 }

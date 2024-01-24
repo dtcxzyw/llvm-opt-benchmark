@@ -9,7 +9,6 @@ target triple = "x86_64-unknown-linux-gnu"
 %"class.cvc5::internal::NodeTemplate" = type { ptr }
 %"class.cvc5::internal::NodeTemplate.0" = type { ptr }
 %"struct.cvc5::internal::theory::TrustRewriteResponse" = type { i32, %"class.cvc5::internal::TrustNode" }
-%"class.cvc5::internal::expr::NodeValue" = type { i64, i16, i32, [0 x ptr] }
 %"struct.cvc5::internal::theory::RewriteResponse" = type { i32, %"class.cvc5::internal::NodeTemplate" }
 
 $_ZN4cvc58internal9TrustNodeD2Ev = comdat any
@@ -109,7 +108,7 @@ entry:
   %agg.tmp = alloca %"class.cvc5::internal::NodeTemplate.0", align 8
   %agg.tmp2 = alloca %"class.cvc5::internal::NodeTemplate", align 8
   store i32 %status, ptr %this, align 8
-  %d_node = getelementptr inbounds %"struct.cvc5::internal::theory::TrustRewriteResponse", ptr %this, i64 0, i32 1
+  %d_node = getelementptr inbounds i8, ptr %this, i64 8
   store i32 4, ptr %d_node, align 8
   %0 = load atomic i8, ptr @_ZGVZN4cvc58internal4expr9NodeValue4nullEvE6s_null acquire, align 8
   %guard.uninitialized.i.i.i = icmp eq i8 %0, 0
@@ -126,9 +125,9 @@ init.i.i.i:                                       ; preds = %init.check.i.i.i
 
 invoke.cont.i.i.i:                                ; preds = %init.i.i.i
   store i64 1152920405095219200, ptr %call.i.i.i, align 8
-  %d_kind.i.i.i.i = getelementptr inbounds %"class.cvc5::internal::expr::NodeValue", ptr %call.i.i.i, i64 0, i32 1
+  %d_kind.i.i.i.i = getelementptr inbounds i8, ptr %call.i.i.i, i64 8
   store i16 0, ptr %d_kind.i.i.i.i, align 8
-  %d_nchildren.i.i.i.i = getelementptr inbounds %"class.cvc5::internal::expr::NodeValue", ptr %call.i.i.i, i64 0, i32 2
+  %d_nchildren.i.i.i.i = getelementptr inbounds i8, ptr %call.i.i.i, i64 12
   store i32 0, ptr %d_nchildren.i.i.i.i, align 4
   store ptr %call.i.i.i, ptr @_ZZN4cvc58internal4expr9NodeValue4nullEvE6s_null, align 8
   tail call void @__cxa_guard_release(ptr nonnull @_ZGVZN4cvc58internal4expr9NodeValue4nullEvE6s_null) #11
@@ -145,10 +144,10 @@ lpad.i.i.i:                                       ; preds = %init.i.i.i
   br label %common.resume
 
 _ZN4cvc58internal9TrustNodeC2Ev.exit:             ; preds = %entry, %init.check.i.i.i, %invoke.cont.i.i.i
-  %d_proven.i = getelementptr inbounds %"struct.cvc5::internal::theory::TrustRewriteResponse", ptr %this, i64 0, i32 1, i32 1
+  %d_proven.i = getelementptr inbounds i8, ptr %this, i64 16
   %3 = load ptr, ptr @_ZZN4cvc58internal4expr9NodeValue4nullEvE6s_null, align 8
   store ptr %3, ptr %d_proven.i, align 8
-  %d_gen.i = getelementptr inbounds %"struct.cvc5::internal::theory::TrustRewriteResponse", ptr %this, i64 0, i32 1, i32 2
+  %d_gen.i = getelementptr inbounds i8, ptr %this, i64 24
   store ptr null, ptr %d_gen.i, align 8
   %4 = load ptr, ptr %n, align 8
   store ptr %4, ptr %agg.tmp, align 8
@@ -186,7 +185,7 @@ invoke.cont4:                                     ; preds = %if.else.i.i, %if.th
 invoke.cont6:                                     ; preds = %invoke.cont4
   %7 = load i32, ptr %ref.tmp, align 8
   store i32 %7, ptr %d_node, align 8
-  %d_proven3.i = getelementptr inbounds %"class.cvc5::internal::TrustNode", ptr %ref.tmp, i64 0, i32 1
+  %d_proven3.i = getelementptr inbounds i8, ptr %ref.tmp, i64 8
   %8 = load ptr, ptr %d_proven.i, align 8
   %9 = load ptr, ptr %d_proven3.i, align 8
   %cmp.not.i.i = icmp eq ptr %8, %9
@@ -240,7 +239,7 @@ if.then13.i4.i.i:                                 ; preds = %if.else.i.i.i
           to label %invoke.cont9 unwind label %lpad8
 
 invoke.cont9:                                     ; preds = %if.else.i.i.i, %if.then.i5.i.i, %invoke.cont6, %if.then13.i4.i.i
-  %d_gen.i5 = getelementptr inbounds %"class.cvc5::internal::TrustNode", ptr %ref.tmp, i64 0, i32 2
+  %d_gen.i5 = getelementptr inbounds i8, ptr %ref.tmp, i64 16
   %13 = load ptr, ptr %d_gen.i5, align 8
   store ptr %13, ptr %d_gen.i, align 8
   %14 = load ptr, ptr %d_proven3.i, align 8
@@ -331,7 +330,7 @@ declare void @_ZN4cvc58internal9TrustNode14mkTrustRewriteENS0_12NodeTemplateILb0
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN4cvc58internal9TrustNodeD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %this) unnamed_addr #5 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  %d_proven = getelementptr inbounds %"class.cvc5::internal::TrustNode", ptr %this, i64 0, i32 1
+  %d_proven = getelementptr inbounds i8, ptr %this, i64 8
   %0 = load ptr, ptr %d_proven, align 8
   %bf.load.i.i = load i64, ptr %0, align 8
   %1 = and i64 %bf.load.i.i, 1152920405095219200
@@ -405,7 +404,7 @@ entry:
   %0 = load ptr, ptr %node, align 8
   store ptr %0, ptr %agg.tmp, align 8
   %vtable = load ptr, ptr %this, align 8
-  %vfn = getelementptr inbounds ptr, ptr %vtable, i64 3
+  %vfn = getelementptr inbounds i8, ptr %vtable, i64 24
   %1 = load ptr, ptr %vfn, align 8
   call void %1(ptr nonnull sret(%"struct.cvc5::internal::theory::RewriteResponse") align 8 %response, ptr noundef nonnull align 8 dereferenceable(8) %this, ptr noundef nonnull %agg.tmp)
   %2 = load i32, ptr %response, align 8
@@ -437,7 +436,7 @@ if.then13.i.i:                                    ; preds = %if.else.i.i
           to label %invoke.cont4 unwind label %lpad3
 
 invoke.cont4:                                     ; preds = %if.else.i.i, %if.then.i.i, %if.then13.i.i
-  %d_node = getelementptr inbounds %"struct.cvc5::internal::theory::RewriteResponse", ptr %response, i64 0, i32 1
+  %d_node = getelementptr inbounds i8, ptr %response, i64 8
   %5 = load ptr, ptr %d_node, align 8
   store ptr %5, ptr %agg.tmp5, align 8
   %bf.load.i.i4 = load i64, ptr %5, align 8
@@ -581,7 +580,7 @@ ehcleanup10:                                      ; preds = %ehcleanup, %lpad3
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN4cvc58internal6theory15RewriteResponseD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %this) unnamed_addr #5 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  %d_node = getelementptr inbounds %"struct.cvc5::internal::theory::RewriteResponse", ptr %this, i64 0, i32 1
+  %d_node = getelementptr inbounds i8, ptr %this, i64 8
   %0 = load ptr, ptr %d_node, align 8
   %bf.load.i.i = load i64, ptr %0, align 8
   %1 = and i64 %bf.load.i.i, 1152920405095219200
@@ -622,7 +621,7 @@ entry:
   %0 = load ptr, ptr %node, align 8
   store ptr %0, ptr %agg.tmp, align 8
   %vtable = load ptr, ptr %this, align 8
-  %vfn = getelementptr inbounds ptr, ptr %vtable, i64 5
+  %vfn = getelementptr inbounds i8, ptr %vtable, i64 40
   %1 = load ptr, ptr %vfn, align 8
   call void %1(ptr nonnull sret(%"struct.cvc5::internal::theory::RewriteResponse") align 8 %response, ptr noundef nonnull align 8 dereferenceable(8) %this, ptr noundef nonnull %agg.tmp)
   %2 = load i32, ptr %response, align 8
@@ -654,7 +653,7 @@ if.then13.i.i:                                    ; preds = %if.else.i.i
           to label %invoke.cont4 unwind label %lpad3
 
 invoke.cont4:                                     ; preds = %if.else.i.i, %if.then.i.i, %if.then13.i.i
-  %d_node = getelementptr inbounds %"struct.cvc5::internal::theory::RewriteResponse", ptr %response, i64 0, i32 1
+  %d_node = getelementptr inbounds i8, ptr %response, i64 8
   %5 = load ptr, ptr %d_node, align 8
   store ptr %5, ptr %agg.tmp5, align 8
   %bf.load.i.i4 = load i64, ptr %5, align 8
@@ -865,7 +864,7 @@ if.then13.i.i:                                    ; preds = %if.else.i.i
 
 _ZN4cvc58internal12NodeTemplateILb1EEC2ERKS2_.exit: ; preds = %if.then.i.i, %if.else.i.i, %if.then13.i.i
   %vtable = load ptr, ptr %this, align 8
-  %vfn = getelementptr inbounds ptr, ptr %vtable, i64 7
+  %vfn = getelementptr inbounds i8, ptr %vtable, i64 56
   %2 = load ptr, ptr %vfn, align 8
   invoke void %2(ptr nonnull sret(%"class.cvc5::internal::NodeTemplate") align 8 %nodeRew, ptr noundef nonnull align 8 dereferenceable(8) %this, ptr noundef nonnull %agg.tmp)
           to label %invoke.cont unwind label %lpad

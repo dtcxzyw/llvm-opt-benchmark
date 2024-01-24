@@ -7,12 +7,12 @@ target triple = "x86_64-unknown-linux-gnu"
 define hidden zeroext i1 @"_ZN5serde9__private2de19flat_map_take_entry28_$u7b$$u7b$closure$u7d$$u7d$17hc547820fde46ebefE"(ptr readonly align 8 %0, ptr align 1 %1, i64 %2) unnamed_addr #0 {
   %4 = alloca { ptr, i64 }, align 8
   store ptr %1, ptr %4, align 8
-  %5 = getelementptr inbounds { ptr, i64 }, ptr %4, i64 0, i32 1
+  %5 = getelementptr inbounds i8, ptr %4, i64 8
   store i64 %2, ptr %5, align 8
   %6 = icmp ne ptr %0, null
   tail call void @llvm.assume(i1 %6)
   %7 = load ptr, ptr %0, align 8, !nonnull !5, !align !6, !noundef !5
-  %8 = getelementptr inbounds { ptr, i64 }, ptr %0, i64 0, i32 1
+  %8 = getelementptr inbounds i8, ptr %0, i64 8
   %9 = load i64, ptr %8, align 8, !noundef !5
   %10 = call zeroext i1 @"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$8contains17h44f7215ed106ac52E"(ptr nonnull align 8 %7, i64 %9, ptr nonnull align 8 %4)
   ret i1 %10

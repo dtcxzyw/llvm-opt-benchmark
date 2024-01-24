@@ -32,13 +32,13 @@ define void @_ZN22serde_derive_internals9internals4case10RenameRule8from_str17h5
   %4 = alloca { ptr, ptr }, align 8
   %5 = alloca { ptr, i64 }, align 8
   store ptr %1, ptr %5, align 8
-  %6 = getelementptr inbounds { ptr, i64 }, ptr %5, i64 0, i32 1
+  %6 = getelementptr inbounds i8, ptr %5, i64 8
   store i64 %2, ptr %6, align 8
   %7 = tail call { ptr, ptr } @"_ZN4core5slice4iter87_$LT$impl$u20$core..iter..traits..collect..IntoIterator$u20$for$u20$$RF$$u5b$T$u5d$$GT$9into_iter17hded1ee71afece836E"(ptr nonnull align 8 @anon.4f5ca46e2768476a0d4f9aa6361af144.8, i64 8)
   %8 = extractvalue { ptr, ptr } %7, 0
   %9 = extractvalue { ptr, ptr } %7, 1
   store ptr %8, ptr %4, align 8
-  %10 = getelementptr inbounds { ptr, ptr }, ptr %4, i64 0, i32 1
+  %10 = getelementptr inbounds i8, ptr %4, i64 8
   store ptr %9, ptr %10, align 8
   br label %11
 
@@ -51,7 +51,7 @@ define void @_ZN22serde_derive_internals9internals4case10RenameRule8from_str17h5
   %15 = load ptr, ptr %5, align 8, !nonnull !5, !align !6, !noundef !5
   %16 = load i64, ptr %6, align 8, !noundef !5
   store ptr %15, ptr %0, align 8
-  %17 = getelementptr inbounds { ptr, i64 }, ptr %0, i64 0, i32 1
+  %17 = getelementptr inbounds i8, ptr %0, i64 8
   store i64 %16, ptr %17, align 8
   br label %20
 
@@ -63,9 +63,9 @@ define void @_ZN22serde_derive_internals9internals4case10RenameRule8from_str17h5
   ret void
 
 21:                                               ; preds = %18
-  %22 = getelementptr inbounds { { ptr, i64 }, i8, [7 x i8] }, ptr %12, i64 0, i32 1
+  %22 = getelementptr inbounds i8, ptr %12, i64 16
   %23 = load i8, ptr %22, align 8, !range !7, !noundef !5
-  %24 = getelementptr inbounds { [8 x i8], i8 }, ptr %0, i64 0, i32 1
+  %24 = getelementptr inbounds i8, ptr %0, i64 8
   store i8 %23, ptr %24, align 8
   store ptr null, ptr %0, align 8
   br label %20
@@ -354,7 +354,7 @@ define void @_ZN22serde_derive_internals9internals4case10RenameRule14apply_to_fi
   %29 = extractvalue { ptr, ptr } %27, 0
   %30 = extractvalue { ptr, ptr } %27, 1
   store ptr %29, ptr %9, align 8
-  %31 = getelementptr inbounds { ptr, ptr }, ptr %9, i64 0, i32 1
+  %31 = getelementptr inbounds i8, ptr %9, i64 8
   store ptr %30, ptr %31, align 8
   br label %.backedge
 
@@ -477,7 +477,7 @@ define zeroext i1 @"_ZN90_$LT$serde_derive_internals..internals..case..ParseErro
 
 8:                                                ; preds = %2
   %9 = load ptr, ptr %0, align 8, !nonnull !5, !align !6, !noundef !5
-  %10 = getelementptr inbounds { ptr, i64 }, ptr %0, i64 0, i32 1
+  %10 = getelementptr inbounds i8, ptr %0, i64 8
   %11 = load i64, ptr %10, align 8, !noundef !5
   %12 = tail call zeroext i1 @"_ZN40_$LT$str$u20$as$u20$core..fmt..Debug$GT$3fmt17hbe74cc6117d709ffE"(ptr nonnull align 1 %9, i64 %11, ptr align 8 %1)
   %13 = tail call zeroext i1 @"_ZN79_$LT$core..result..Result$LT$T$C$E$GT$$u20$as$u20$core..ops..try_trait..Try$GT$6branch17hd21e0fe5e69d699fE"(i1 zeroext %12)

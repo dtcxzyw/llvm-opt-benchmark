@@ -11,17 +11,14 @@ target triple = "x86_64-unknown-linux-gnu"
 %class.__gmp_expr = type { [1 x %struct.__mpq_struct] }
 %struct.__mpq_struct = type { %struct.__mpz_struct, %struct.__mpz_struct }
 %struct.__mpz_struct = type { i32, i32, ptr }
-%"class.cvc5::internal::expr::NodeValue" = type { i64, i16, i32, [0 x ptr] }
 %"class.cvc5::internal::NodeTemplate" = type { ptr }
 %"class.cvc5::internal::NodeBuilder" = type <{ %"class.cvc5::internal::expr::NodeValue", [10 x ptr], ptr, ptr, i32, [4 x i8] }>
+%"class.cvc5::internal::expr::NodeValue" = type { i64, i16, i32, [0 x ptr] }
 %"struct.std::pair.75" = type { %"class.cvc5::internal::NodeTemplate.0", %"class.cvc5::internal::Integer" }
 %"class.cvc5::internal::Integer" = type { %class.__gmp_expr.74 }
 %class.__gmp_expr.74 = type { [1 x %struct.__mpz_struct] }
 %"struct.std::pair" = type { %"class.cvc5::internal::NodeTemplate.0", %"class.cvc5::internal::RealAlgebraicNumber" }
 %"struct.std::pair.72" = type { %"class.cvc5::internal::NodeTemplate.0", %"class.cvc5::internal::RealAlgebraicNumber" }
-%"struct.std::_Rb_tree_node" = type { %"struct.std::_Rb_tree_node_base", %"struct.__gnu_cxx::__aligned_membuf" }
-%"struct.std::_Rb_tree_node_base" = type { i32, ptr, ptr, ptr }
-%"struct.__gnu_cxx::__aligned_membuf" = type { [40 x i8] }
 
 $_ZNK4cvc58internal12NodeTemplateILb0EE11getOperatorEv = comdat any
 
@@ -149,7 +146,7 @@ _ZN4cvc58internal6theory5arith8rewriter12_GLOBAL__N_116evaluateRelationINS0_8Rat
   br label %return
 
 if.else:                                          ; preds = %if.then
-  %d_kind.i = getelementptr inbounds %"class.cvc5::internal::expr::NodeValue", ptr %1, i64 0, i32 1
+  %d_kind.i = getelementptr inbounds i8, ptr %1, i64 8
   %bf.load.i = load i16, ptr %d_kind.i, align 8
   %bf.clear.i = and i16 %bf.load.i, 1023
   %cmp = icmp eq i16 %bf.clear.i, 69
@@ -223,7 +220,7 @@ terminate.lpad.i.i.i14:                           ; preds = %lpad13
   unreachable
 
 if.else18:                                        ; preds = %entry
-  %d_kind.i16 = getelementptr inbounds %"class.cvc5::internal::expr::NodeValue", ptr %0, i64 0, i32 1
+  %d_kind.i16 = getelementptr inbounds i8, ptr %0, i64 8
   %bf.load.i17 = load i16, ptr %d_kind.i16, align 8
   %bf.clear.i18 = and i16 %bf.load.i17, 1023
   %cmp20 = icmp eq i16 %bf.clear.i18, 69
@@ -303,7 +300,7 @@ terminate.lpad.i.i.i40:                           ; preds = %lpad33
   unreachable
 
 if.else37:                                        ; preds = %_ZN4cvc58internal12NodeTemplateILb1EED2Ev.exit34
-  %d_kind.i42 = getelementptr inbounds %"class.cvc5::internal::expr::NodeValue", ptr %19, i64 0, i32 1
+  %d_kind.i42 = getelementptr inbounds i8, ptr %19, i64 8
   %bf.load.i43 = load i16, ptr %d_kind.i42, align 8
   %bf.clear.i44 = and i16 %bf.load.i43, 1023
   %cmp39 = icmp eq i16 %bf.clear.i44, 69
@@ -376,7 +373,7 @@ define linkonce_odr hidden void @_ZNK4cvc58internal12NodeTemplateILb0EE11getOper
 entry:
   %ref.tmp = alloca %"class.cvc5::internal::NodeTemplate", align 8
   %0 = load ptr, ptr %this, align 8
-  %d_kind.i.i = getelementptr inbounds %"class.cvc5::internal::expr::NodeValue", ptr %0, i64 0, i32 1
+  %d_kind.i.i = getelementptr inbounds i8, ptr %0, i64 8
   %bf.load.i.i = load i16, ptr %d_kind.i.i, align 8
   %bf.clear.i.i = and i16 %bf.load.i.i, 1023
   %bf.cast.i.i = zext nneg i16 %bf.clear.i.i to i32
@@ -387,7 +384,7 @@ entry:
 if.then:                                          ; preds = %entry
   %call2 = tail call noundef ptr @_ZN4cvc58internal11NodeManager9currentNMEv()
   %1 = load ptr, ptr %this, align 8
-  %d_kind.i = getelementptr inbounds %"class.cvc5::internal::expr::NodeValue", ptr %1, i64 0, i32 1
+  %d_kind.i = getelementptr inbounds i8, ptr %1, i64 8
   %bf.load.i = load i16, ptr %d_kind.i, align 8
   %bf.clear.i = and i16 %bf.load.i, 1023
   %bf.cast.i = zext nneg i16 %bf.clear.i to i32
@@ -421,7 +418,7 @@ if.then13.i.i:                                    ; preds = %if.else.i.i
 
 if.end:                                           ; preds = %entry
   %4 = load ptr, ptr %this, align 8
-  %d_children = getelementptr inbounds %"class.cvc5::internal::expr::NodeValue", ptr %4, i64 0, i32 3
+  %d_children = getelementptr inbounds i8, ptr %4, i64 16
   %5 = load ptr, ptr %d_children, align 8
   store ptr %5, ptr %agg.result, align 8
   %bf.load.i.i3 = load i64, ptr %5, align 8
@@ -825,14 +822,14 @@ cond.end16:
   %call5 = tail call fastcc noundef zeroext i1 @_ZN4cvc58internal6theory5arith8rewriter12_GLOBAL__N_115normalizeGCDLCMERSt3mapINS0_12NodeTemplateILb1EEENS0_19RealAlgebraicNumberENS3_14TermComparatorESaISt4pairIKS7_S8_EEEb(ptr noundef nonnull align 8 dereferenceable(48) %sum, i1 noundef zeroext false)
   %_M_left.i.i = getelementptr inbounds i8, ptr %sum, i64 24
   %0 = load ptr, ptr %_M_left.i.i, align 8
-  %_M_storage.i.i = getelementptr inbounds %"struct.std::_Rb_tree_node", ptr %0, i64 0, i32 1
+  %_M_storage.i.i = getelementptr inbounds i8, ptr %0, i64 32
   %call20 = tail call noundef zeroext i1 @_ZNK4cvc58internal12NodeTemplateILb1EE7isConstEv(ptr noundef nonnull align 8 dereferenceable(8) %_M_storage.i.i)
   br i1 %call20, label %invoke.cont, label %if.end34
 
 invoke.cont:                                      ; preds = %cond.end16
-  %second = getelementptr inbounds %"struct.std::_Rb_tree_node", ptr %0, i64 0, i32 1, i32 0, i64 8
+  %second = getelementptr inbounds i8, ptr %0, i64 40
   call void @_ZNK4cvc58internal19RealAlgebraicNumber10toRationalEv(ptr nonnull sret(%"class.cvc5::internal::Rational") align 8 %ref.tmp21, ptr noundef nonnull align 8 dereferenceable(32) %second)
-  %_mp_den.i.i = getelementptr inbounds %struct.__mpq_struct, ptr %ref.tmp21, i64 0, i32 1
+  %_mp_den.i.i = getelementptr inbounds i8, ptr %ref.tmp21, i64 16
   %call2.i = call i32 @__gmpz_cmp_ui(ptr noundef nonnull %_mp_den.i.i, i64 noundef 1) #13
   invoke void @__gmpq_clear(ptr noundef nonnull %ref.tmp21)
           to label %_ZN4cvc58internal8RationalD2Ev.exit unwind label %terminate.lpad.i.i
@@ -866,7 +863,7 @@ if.end34:                                         ; preds = %_ZN4cvc58internal8R
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %ref.tmp27.i)
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %res.i)
   %sum.val.i = load ptr, ptr %_M_left.i.i, align 8, !noalias !22
-  %_M_storage.i.i.i.i = getelementptr inbounds %"struct.std::_Rb_tree_node", ptr %sum.val.i, i64 0, i32 1
+  %_M_storage.i.i.i.i = getelementptr inbounds i8, ptr %sum.val.i, i64 32
   %call2.i.i = call noundef zeroext i1 @_ZNK4cvc58internal12NodeTemplateILb1EE7isConstEv(ptr noundef nonnull align 8 dereferenceable(8) %_M_storage.i.i.i.i), !noalias !22
   br i1 %call2.i.i, label %if.then.i.i, label %_ZN4cvc58internal6theory5arith8rewriter12_GLOBAL__N_110getLTermItERSt3mapINS0_12NodeTemplateILb1EEENS0_19RealAlgebraicNumberENS3_14TermComparatorESaISt4pairIKS7_S8_EEE.exit.i
 
@@ -883,14 +880,14 @@ _ZN4cvc58internal6theory5arith8rewriter12_GLOBAL__N_110getLTermItERSt3mapINS0_12
 for.body.i170:                                    ; preds = %_ZN4cvc58internal6theory5arith8rewriter12_GLOBAL__N_110getLTermItERSt3mapINS0_12NodeTemplateILb1EEENS0_19RealAlgebraicNumberENS3_14TermComparatorESaISt4pairIKS7_S8_EEE.exit.i, %for.inc.i
   %minit.sroa.0.066.i = phi ptr [ %minit.sroa.0.1.i, %for.inc.i ], [ %retval.sroa.0.0.i.i, %_ZN4cvc58internal6theory5arith8rewriter12_GLOBAL__N_110getLTermItERSt3mapINS0_12NodeTemplateILb1EEENS0_19RealAlgebraicNumberENS3_14TermComparatorESaISt4pairIKS7_S8_EEE.exit.i ]
   %it.sroa.0.065.i = phi ptr [ %call.i.i173, %for.inc.i ], [ %retval.sroa.0.0.i.i, %_ZN4cvc58internal6theory5arith8rewriter12_GLOBAL__N_110getLTermItERSt3mapINS0_12NodeTemplateILb1EEENS0_19RealAlgebraicNumberENS3_14TermComparatorESaISt4pairIKS7_S8_EEE.exit.i ]
-  %_M_storage.i.i.i = getelementptr inbounds %"struct.std::_Rb_tree_node", ptr %it.sroa.0.065.i, i64 0, i32 1
+  %_M_storage.i.i.i = getelementptr inbounds i8, ptr %it.sroa.0.065.i, i64 32
   %call5.i = call noundef zeroext i1 @_ZNK4cvc58internal12NodeTemplateILb1EE7isConstEv(ptr noundef nonnull align 8 dereferenceable(8) %_M_storage.i.i.i), !noalias !22
   br i1 %call5.i, label %for.inc.i, label %if.end.i171
 
 if.end.i171:                                      ; preds = %for.body.i170
-  %second.i = getelementptr inbounds %"struct.std::_Rb_tree_node", ptr %it.sroa.0.065.i, i64 0, i32 1, i32 0, i64 8
+  %second.i = getelementptr inbounds i8, ptr %it.sroa.0.065.i, i64 40
   call void @_ZNK4cvc58internal19RealAlgebraicNumber10toRationalEv(ptr nonnull sret(%"class.cvc5::internal::Rational") align 8 %ref.tmp6.i, ptr noundef nonnull align 8 dereferenceable(32) %second.i), !noalias !22
-  %second10.i = getelementptr inbounds %"struct.std::_Rb_tree_node", ptr %minit.sroa.0.066.i, i64 0, i32 1, i32 0, i64 8
+  %second10.i = getelementptr inbounds i8, ptr %minit.sroa.0.066.i, i64 40
   invoke void @_ZNK4cvc58internal19RealAlgebraicNumber10toRationalEv(ptr nonnull sret(%"class.cvc5::internal::Rational") align 8 %ref.tmp8.i, ptr noundef nonnull align 8 dereferenceable(32) %second10.i)
           to label %invoke.cont.i unwind label %lpad.i, !noalias !22
 
@@ -1002,7 +999,7 @@ if.then13.i.i.i.i.i:                              ; preds = %if.else.i.i.i.i.i
           to label %_ZN4cvc58internal12NodeTemplateILb1EEC2ERKS2_.exit.i.i.i unwind label %lpad30.i, !noalias !22
 
 _ZN4cvc58internal12NodeTemplateILb1EEC2ERKS2_.exit.i.i.i: ; preds = %if.then13.i.i.i.i.i, %if.else.i.i.i.i.i, %if.then.i.i.i.i.i
-  %second.i.i.i = getelementptr inbounds %"struct.std::pair.75", ptr %ref.tmp22.i, i64 0, i32 1
+  %second.i.i.i = getelementptr inbounds i8, ptr %ref.tmp22.i, i64 8
   invoke void @__gmpz_init_set(ptr noundef nonnull %second.i.i.i, ptr noundef nonnull %ref.tmp27.i)
           to label %invoke.cont31.i unwind label %lpad.i.i.i, !noalias !22
 
@@ -1041,7 +1038,7 @@ if.then13.i.i.i.i:                                ; preds = %if.else.i.i.i.i
           to label %_ZN4cvc58internal12NodeTemplateILb1EEC2ERKS2_.exit.i.i unwind label %lpad32.i, !noalias !22
 
 _ZN4cvc58internal12NodeTemplateILb1EEC2ERKS2_.exit.i.i: ; preds = %if.then13.i.i.i.i, %if.else.i.i.i.i, %if.then.i.i.i.i
-  %second.i.i = getelementptr inbounds %"struct.std::pair.72", ptr %minabscoeff, i64 0, i32 1
+  %second.i.i = getelementptr inbounds i8, ptr %minabscoeff, i64 8
   invoke void @_ZN4cvc58internal19RealAlgebraicNumberC1ERKNS0_7IntegerE(ptr noundef nonnull align 8 dereferenceable(32) %second.i.i, ptr noundef nonnull align 8 dereferenceable(16) %second.i.i.i)
           to label %invoke.cont33.i unwind label %lpad.i.i
 
@@ -1187,14 +1184,14 @@ terminate.lpad.i.i37.i:                           ; preds = %ehcleanup37.i
   unreachable
 
 invoke.cont42.i:                                  ; preds = %for.end.i
-  %_M_storage.i.i39.i = getelementptr inbounds %"struct.std::_Rb_tree_node", ptr %minit.sroa.0.0.lcssa.i, i64 0, i32 1
+  %_M_storage.i.i39.i = getelementptr inbounds i8, ptr %minit.sroa.0.0.lcssa.i, i64 32
   call void @_ZNSt4pairIKN4cvc58internal12NodeTemplateILb1EEENS1_19RealAlgebraicNumberEEC2ERKS6_(ptr noundef nonnull align 8 dereferenceable(40) %res.i, ptr noundef nonnull align 8 dereferenceable(40) %_M_storage.i.i39.i), !noalias !22
   call void @_ZNSt8_Rb_treeIN4cvc58internal12NodeTemplateILb1EEESt4pairIKS3_NS1_19RealAlgebraicNumberEESt10_Select1stIS7_ENS1_6theory5arith8rewriter14TermComparatorESaIS7_EE12_M_erase_auxESt23_Rb_tree_const_iteratorIS7_E(ptr noundef nonnull align 8 dereferenceable(48) %sum, ptr %minit.sroa.0.0.lcssa.i), !noalias !22
   invoke void @_ZNSt4pairIN4cvc58internal12NodeTemplateILb1EEENS1_19RealAlgebraicNumberEEC2IKS3_S4_TnNSt9enable_ifIXaaclsr6_PCCFPIT_T0_EE22_MoveConstructiblePairIS9_SA_EEclsr6_PCCFPIS9_SA_EE30_ImplicitlyMoveConvertiblePairIS9_SA_EEEbE4typeELb1EEEOS_IS9_SA_E(ptr noundef nonnull align 8 dereferenceable(40) %minabscoeff, ptr noundef nonnull align 8 dereferenceable(40) %res.i)
           to label %invoke.cont45.i unwind label %lpad41.i
 
 invoke.cont45.i:                                  ; preds = %invoke.cont42.i
-  %second.i40.i = getelementptr inbounds %"struct.std::pair", ptr %res.i, i64 0, i32 1
+  %second.i40.i = getelementptr inbounds i8, ptr %res.i, i64 8
   invoke void @__gmpq_clear(ptr noundef nonnull %second.i40.i)
           to label %_ZN4cvc58internal19RealAlgebraicNumberD2Ev.exit.i.i unwind label %terminate.lpad.i.i.i.i.i
 
@@ -1250,7 +1247,7 @@ cond.true39:                                      ; preds = %if.then13.i.i.i49.i
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %ref.tmp24.i)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %ref.tmp27.i)
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %res.i)
-  %second57 = getelementptr inbounds %"struct.std::pair.72", ptr %minabscoeff, i64 0, i32 1
+  %second57 = getelementptr inbounds i8, ptr %minabscoeff, i64 8
   %call59 = invoke noundef i32 @_ZNK4cvc58internal19RealAlgebraicNumber3sgnEv(ptr noundef nonnull align 8 dereferenceable(32) %second57)
           to label %invoke.cont58 unwind label %lpad36.loopexit.split-lp
 
@@ -1307,7 +1304,7 @@ if.else:                                          ; preds = %invoke.cont58
 
 for.body:                                         ; preds = %if.else, %_ZN4cvc58internal19RealAlgebraicNumberD2Ev.exit300
   %__begin4.sroa.0.0546 = phi ptr [ %call.i301, %_ZN4cvc58internal19RealAlgebraicNumberD2Ev.exit300 ], [ %52, %if.else ]
-  %second75 = getelementptr inbounds %"struct.std::_Rb_tree_node", ptr %__begin4.sroa.0.0546, i64 0, i32 1, i32 0, i64 8
+  %second75 = getelementptr inbounds i8, ptr %__begin4.sroa.0.0546, i64 40
   invoke void @_ZNK4cvc58internal19RealAlgebraicNumberngEv(ptr nonnull sret(%"class.cvc5::internal::RealAlgebraicNumber") align 8 %ref.tmp74, ptr noundef nonnull align 8 dereferenceable(32) %second75)
           to label %invoke.cont76 unwind label %lpad36.loopexit
 
@@ -1642,7 +1639,7 @@ invoke.cont:                                      ; preds = %entry
   call void @__gmpz_init(ptr noundef nonnull %numGCD) #15
   %_M_left.i.i = getelementptr inbounds i8, ptr %sum, i64 24
   %1 = load ptr, ptr %_M_left.i.i, align 8
-  %_M_storage.i.i = getelementptr inbounds %"struct.std::_Rb_tree_node", ptr %1, i64 0, i32 1
+  %_M_storage.i.i = getelementptr inbounds i8, ptr %1, i64 32
   %call5 = invoke noundef zeroext i1 @_ZNK4cvc58internal12NodeTemplateILb1EE7isConstEv(ptr noundef nonnull align 8 dereferenceable(8) %_M_storage.i.i)
           to label %invoke.cont4 unwind label %lpad3.loopexit.split-lp
 
@@ -1650,12 +1647,12 @@ invoke.cont4:                                     ; preds = %invoke.cont
   br i1 %call5, label %if.end23, label %if.then6
 
 if.then6:                                         ; preds = %invoke.cont4
-  %second = getelementptr inbounds %"struct.std::_Rb_tree_node", ptr %1, i64 0, i32 1, i32 0, i64 8
+  %second = getelementptr inbounds i8, ptr %1, i64 40
   invoke void @_ZNK4cvc58internal19RealAlgebraicNumber10toRationalEv(ptr nonnull sret(%"class.cvc5::internal::Rational") align 8 %r, ptr noundef nonnull align 8 dereferenceable(32) %second)
           to label %invoke.cont8 unwind label %lpad3.loopexit.split-lp
 
 invoke.cont8:                                     ; preds = %if.then6
-  %_mp_den.i.i = getelementptr inbounds %struct.__mpq_struct, ptr %r, i64 0, i32 1
+  %_mp_den.i.i = getelementptr inbounds i8, ptr %r, i64 16
   invoke void @__gmpz_init_set(ptr noundef nonnull %ref.tmp, ptr noundef nonnull %_mp_den.i.i)
           to label %invoke.cont10 unwind label %lpad9
 
@@ -1796,12 +1793,12 @@ if.end23:                                         ; preds = %_ZN4cvc58internal7I
   br i1 %cmp.i.not133, label %for.end, label %for.body.lr.ph
 
 for.body.lr.ph:                                   ; preds = %if.end23
-  %_mp_den.i.i36 = getelementptr inbounds %struct.__mpq_struct, ptr %r35, i64 0, i32 1
+  %_mp_den.i.i36 = getelementptr inbounds i8, ptr %r35, i64 16
   br label %for.body
 
 for.body:                                         ; preds = %for.body.lr.ph, %for.inc
   %it.sroa.0.0134 = phi ptr [ %call.i, %for.body.lr.ph ], [ %call.i70, %for.inc ]
-  %_M_storage.i.i34 = getelementptr inbounds %"struct.std::_Rb_tree_node", ptr %it.sroa.0.0134, i64 0, i32 1
+  %_M_storage.i.i34 = getelementptr inbounds i8, ptr %it.sroa.0.0134, i64 32
   %call32 = invoke noundef zeroext i1 @_ZNK4cvc58internal12NodeTemplateILb1EE7isConstEv(ptr noundef nonnull align 8 dereferenceable(8) %_M_storage.i.i34)
           to label %invoke.cont31 unwind label %lpad3.loopexit
 
@@ -1809,7 +1806,7 @@ invoke.cont31:                                    ; preds = %for.body
   br i1 %call32, label %for.inc, label %if.end34
 
 if.end34:                                         ; preds = %invoke.cont31
-  %second37 = getelementptr inbounds %"struct.std::_Rb_tree_node", ptr %it.sroa.0.0134, i64 0, i32 1, i32 0, i64 8
+  %second37 = getelementptr inbounds i8, ptr %it.sroa.0.0134, i64 40
   invoke void @_ZNK4cvc58internal19RealAlgebraicNumber10toRationalEv(ptr nonnull sret(%"class.cvc5::internal::Rational") align 8 %r35, ptr noundef nonnull align 8 dereferenceable(32) %second37)
           to label %invoke.cont38 unwind label %lpad3.loopexit
 
@@ -2089,7 +2086,7 @@ if.end83:                                         ; preds = %invoke.cont80
           to label %.noexc unwind label %lpad3.loopexit.split-lp
 
 .noexc:                                           ; preds = %if.end83
-  %_mp_den.i.i73 = getelementptr inbounds %struct.__mpq_struct, ptr %mult, i64 0, i32 1
+  %_mp_den.i.i73 = getelementptr inbounds i8, ptr %mult, i64 16
   invoke void @__gmpz_init_set(ptr noundef nonnull %_mp_den.i.i73, ptr noundef nonnull %numGCD)
           to label %.noexc75 unwind label %lpad3.loopexit.split-lp
 
@@ -2115,7 +2112,7 @@ invoke.cont84:                                    ; preds = %.noexc75
 
 if.then85:                                        ; preds = %invoke.cont84
   %sum.val = load ptr, ptr %_M_left.i.i, align 8
-  %_M_storage.i.i.i.i = getelementptr inbounds %"struct.std::_Rb_tree_node", ptr %sum.val, i64 0, i32 1
+  %_M_storage.i.i.i.i = getelementptr inbounds i8, ptr %sum.val, i64 32
   %call2.i.i76 = invoke noundef zeroext i1 @_ZNK4cvc58internal12NodeTemplateILb1EE7isConstEv(ptr noundef nonnull align 8 dereferenceable(8) %_M_storage.i.i.i.i)
           to label %call2.i.i.noexc unwind label %lpad86.loopexit.split-lp
 
@@ -2128,7 +2125,7 @@ if.then.i.i:                                      ; preds = %call2.i.i.noexc
 
 invoke.cont87:                                    ; preds = %if.then.i.i, %call2.i.i.noexc
   %retval.sroa.0.0.i.i = phi ptr [ %call.i.i.i, %if.then.i.i ], [ %sum.val, %call2.i.i.noexc ]
-  %second89 = getelementptr inbounds %"struct.std::_Rb_tree_node", ptr %retval.sroa.0.0.i.i, i64 0, i32 1, i32 0, i64 8
+  %second89 = getelementptr inbounds i8, ptr %retval.sroa.0.0.i.i, i64 40
   %call91 = invoke noundef i32 @_ZNK4cvc58internal19RealAlgebraicNumber3sgnEv(ptr noundef nonnull align 8 dereferenceable(32) %second89)
           to label %invoke.cont90 unwind label %lpad86.loopexit.split-lp
 
@@ -2190,7 +2187,7 @@ for.body107:                                      ; preds = %if.end100, %_ZN4cvc
           to label %invoke.cont110 unwind label %lpad86.loopexit
 
 invoke.cont110:                                   ; preds = %for.body107
-  %second111 = getelementptr inbounds %"struct.std::_Rb_tree_node", ptr %__begin4.sroa.0.0136, i64 0, i32 1, i32 0, i64 8
+  %second111 = getelementptr inbounds i8, ptr %__begin4.sroa.0.0136, i64 40
   %call114 = invoke noundef nonnull align 8 dereferenceable(32) ptr @_ZN4cvc58internal19RealAlgebraicNumbermLERKS1_(ptr noundef nonnull align 8 dereferenceable(32) %second111, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp109)
           to label %invoke.cont113 unwind label %lpad112
 
@@ -2315,7 +2312,7 @@ declare void @_ZN4cvc58internal6theory5arith8rewriter10collectSumERKSt3mapINS0_1
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZNSt4pairIN4cvc58internal12NodeTemplateILb1EEENS1_19RealAlgebraicNumberEED2Ev(ptr noundef nonnull align 8 dereferenceable(40) %this) unnamed_addr #4 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  %second = getelementptr inbounds %"struct.std::pair.72", ptr %this, i64 0, i32 1
+  %second = getelementptr inbounds i8, ptr %this, i64 8
   invoke void @__gmpq_clear(ptr noundef nonnull %second)
           to label %_ZN4cvc58internal19RealAlgebraicNumberD2Ev.exit unwind label %terminate.lpad.i.i.i
 
@@ -2387,7 +2384,7 @@ cond.end:
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %res.i)
   %0 = getelementptr inbounds i8, ptr %sum, i64 24
   %sum.val.i = load ptr, ptr %0, align 8, !noalias !32
-  %_M_storage.i.i.i.i = getelementptr inbounds %"struct.std::_Rb_tree_node", ptr %sum.val.i, i64 0, i32 1
+  %_M_storage.i.i.i.i = getelementptr inbounds i8, ptr %sum.val.i, i64 32
   %call2.i.i = tail call noundef zeroext i1 @_ZNK4cvc58internal12NodeTemplateILb1EE7isConstEv(ptr noundef nonnull align 8 dereferenceable(8) %_M_storage.i.i.i.i), !noalias !32
   br i1 %call2.i.i, label %if.then.i.i, label %_ZN4cvc58internal6theory5arith8rewriter12_GLOBAL__N_110getLTermItERSt3mapINS0_12NodeTemplateILb1EEENS0_19RealAlgebraicNumberENS3_14TermComparatorESaISt4pairIKS7_S8_EEE.exit.i
 
@@ -2437,7 +2434,7 @@ if.then13.i.i.i.i.i:                              ; preds = %if.else.i.i.i.i.i
           to label %_ZN4cvc58internal12NodeTemplateILb1EEC2ERKS2_.exit.i.i.i unwind label %lpad10.i, !noalias !32
 
 _ZN4cvc58internal12NodeTemplateILb1EEC2ERKS2_.exit.i.i.i: ; preds = %if.then13.i.i.i.i.i, %if.else.i.i.i.i.i, %if.then.i.i.i.i.i
-  %second.i.i.i = getelementptr inbounds %"struct.std::pair.75", ptr %ref.tmp4.i, i64 0, i32 1
+  %second.i.i.i = getelementptr inbounds i8, ptr %ref.tmp4.i, i64 8
   invoke void @__gmpz_init_set(ptr noundef nonnull %second.i.i.i, ptr noundef nonnull %ref.tmp7.i)
           to label %invoke.cont11.i unwind label %lpad.i.i.i, !noalias !32
 
@@ -2476,7 +2473,7 @@ if.then13.i.i.i.i:                                ; preds = %if.else.i.i.i.i
           to label %_ZN4cvc58internal12NodeTemplateILb1EEC2ERKS2_.exit.i.i unwind label %lpad12.i, !noalias !32
 
 _ZN4cvc58internal12NodeTemplateILb1EEC2ERKS2_.exit.i.i: ; preds = %if.then13.i.i.i.i, %if.else.i.i.i.i, %if.then.i.i.i.i
-  %second.i.i = getelementptr inbounds %"struct.std::pair.72", ptr %lterm, i64 0, i32 1
+  %second.i.i = getelementptr inbounds i8, ptr %lterm, i64 8
   invoke void @_ZN4cvc58internal19RealAlgebraicNumberC1ERKNS0_7IntegerE(ptr noundef nonnull align 8 dereferenceable(32) %second.i.i, ptr noundef nonnull align 8 dereferenceable(16) %second.i.i.i)
           to label %invoke.cont13.i unwind label %lpad.i.i
 
@@ -2622,14 +2619,14 @@ terminate.lpad.i.i23.i:                           ; preds = %ehcleanup15.i
   unreachable
 
 invoke.cont19.i:                                  ; preds = %_ZN4cvc58internal6theory5arith8rewriter12_GLOBAL__N_110getLTermItERSt3mapINS0_12NodeTemplateILb1EEENS0_19RealAlgebraicNumberENS3_14TermComparatorESaISt4pairIKS7_S8_EEE.exit.i
-  %_M_storage.i.i.i = getelementptr inbounds %"struct.std::_Rb_tree_node", ptr %retval.sroa.0.0.i.i, i64 0, i32 1
+  %_M_storage.i.i.i = getelementptr inbounds i8, ptr %retval.sroa.0.0.i.i, i64 32
   call void @_ZNSt4pairIKN4cvc58internal12NodeTemplateILb1EEENS1_19RealAlgebraicNumberEEC2ERKS6_(ptr noundef nonnull align 8 dereferenceable(40) %res.i, ptr noundef nonnull align 8 dereferenceable(40) %_M_storage.i.i.i), !noalias !32
   call void @_ZNSt8_Rb_treeIN4cvc58internal12NodeTemplateILb1EEESt4pairIKS3_NS1_19RealAlgebraicNumberEESt10_Select1stIS7_ENS1_6theory5arith8rewriter14TermComparatorESaIS7_EE12_M_erase_auxESt23_Rb_tree_const_iteratorIS7_E(ptr noundef nonnull align 8 dereferenceable(48) %sum, ptr %retval.sroa.0.0.i.i), !noalias !32
   invoke void @_ZNSt4pairIN4cvc58internal12NodeTemplateILb1EEENS1_19RealAlgebraicNumberEEC2IKS3_S4_TnNSt9enable_ifIXaaclsr6_PCCFPIT_T0_EE22_MoveConstructiblePairIS9_SA_EEclsr6_PCCFPIS9_SA_EE30_ImplicitlyMoveConvertiblePairIS9_SA_EEEbE4typeELb1EEEOS_IS9_SA_E(ptr noundef nonnull align 8 dereferenceable(40) %lterm, ptr noundef nonnull align 8 dereferenceable(40) %res.i)
           to label %invoke.cont22.i unwind label %lpad18.i
 
 invoke.cont22.i:                                  ; preds = %invoke.cont19.i
-  %second.i25.i = getelementptr inbounds %"struct.std::pair", ptr %res.i, i64 0, i32 1
+  %second.i25.i = getelementptr inbounds i8, ptr %res.i, i64 8
   invoke void @__gmpq_clear(ptr noundef nonnull %second.i25.i)
           to label %_ZN4cvc58internal19RealAlgebraicNumberD2Ev.exit.i.i unwind label %terminate.lpad.i.i.i.i.i
 
@@ -2683,7 +2680,7 @@ _ZN4cvc58internal6theory5arith8rewriter12_GLOBAL__N_111removeLTermERSt3mapINS0_1
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %ref.tmp6.i)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %ref.tmp7.i)
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %res.i)
-  %second = getelementptr inbounds %"struct.std::pair.72", ptr %lterm, i64 0, i32 1
+  %second = getelementptr inbounds i8, ptr %lterm, i64 8
   %call5 = invoke noundef zeroext i1 @_ZNK4cvc58internal19RealAlgebraicNumber6isZeroEv(ptr noundef nonnull align 8 dereferenceable(32) %second)
           to label %invoke.cont unwind label %lpad
 
@@ -2817,7 +2814,7 @@ invoke.cont17:                                    ; preds = %if.end
 
 for.body:                                         ; preds = %invoke.cont17, %_ZN4cvc58internal19RealAlgebraicNumberD2Ev.exit
   %__begin3.sroa.0.0255 = phi ptr [ %call.i76, %_ZN4cvc58internal19RealAlgebraicNumberD2Ev.exit ], [ %51, %invoke.cont17 ]
-  %second24 = getelementptr inbounds %"struct.std::_Rb_tree_node", ptr %__begin3.sroa.0.0255, i64 0, i32 1, i32 0, i64 8
+  %second24 = getelementptr inbounds i8, ptr %__begin3.sroa.0.0255, i64 40
   invoke void @_ZNK4cvc58internal19RealAlgebraicNumberdvERKS1_(ptr nonnull sret(%"class.cvc5::internal::RealAlgebraicNumber") align 8 %ref.tmp23, ptr noundef nonnull align 8 dereferenceable(32) %second24, ptr noundef nonnull align 8 dereferenceable(32) %lcoeff)
           to label %invoke.cont26 unwind label %lpad25.loopexit
 
@@ -3461,7 +3458,7 @@ terminate.lpad.i.i:                               ; preds = %invoke.cont8
   unreachable
 
 invoke.cont10:                                    ; preds = %invoke.cont8
-  %_mp_den.i.i = getelementptr inbounds %struct.__mpq_struct, ptr %rhs, i64 0, i32 1
+  %_mp_den.i.i = getelementptr inbounds i8, ptr %rhs, i64 16
   %call2.i = call i32 @__gmpz_cmp_ui(ptr noundef nonnull %_mp_den.i.i, i64 noundef 1) #13
   %cmp.i = icmp eq i32 %call2.i, 0
   %cmp12.v = select i1 %call5, i32 73, i32 72
@@ -3783,7 +3780,7 @@ _ZN4cvc58internal19RealAlgebraicNumberD2Ev.exit87: ; preds = %ehcleanup40
 define internal fastcc void @_ZN4cvc58internal6theory5arith8rewriter12_GLOBAL__N_114removeConstantERSt3mapINS0_12NodeTemplateILb1EEENS0_19RealAlgebraicNumberENS3_14TermComparatorESaISt4pairIKS7_S8_EEE(ptr noalias align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(48) %sum) unnamed_addr #3 personality ptr @__gxx_personality_v0 {
 entry:
   tail call void @__gmpq_init(ptr noundef nonnull %agg.result)
-  %_mp_size.i.i.i.i.i.i.i = getelementptr inbounds %struct.__mpz_struct, ptr %agg.result, i64 0, i32 1
+  %_mp_size.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %agg.result, i64 4
   store i32 0, ptr %_mp_size.i.i.i.i.i.i.i, align 4
   invoke void @__gmpq_canonicalize(ptr noundef nonnull %agg.result)
           to label %_ZN4cvc58internal19RealAlgebraicNumberC2Ev.exit unwind label %lpad.i.i
@@ -3814,7 +3811,7 @@ _ZN4cvc58internal19RealAlgebraicNumberC2Ev.exit:  ; preds = %entry
 if.then:                                          ; preds = %_ZN4cvc58internal19RealAlgebraicNumberC2Ev.exit
   %_M_left.i.i = getelementptr inbounds i8, ptr %sum, i64 24
   %4 = load ptr, ptr %_M_left.i.i, align 8
-  %_M_storage.i.i = getelementptr inbounds %"struct.std::_Rb_tree_node", ptr %4, i64 0, i32 1
+  %_M_storage.i.i = getelementptr inbounds i8, ptr %4, i64 32
   %call3 = invoke noundef zeroext i1 @_ZNK4cvc58internal12NodeTemplateILb1EE7isConstEv(ptr noundef nonnull align 8 dereferenceable(8) %_M_storage.i.i)
           to label %invoke.cont unwind label %lpad
 
@@ -3822,7 +3819,7 @@ invoke.cont:                                      ; preds = %if.then
   br i1 %call3, label %if.then4, label %nrvo.skipdtor
 
 if.then4:                                         ; preds = %invoke.cont
-  %second = getelementptr inbounds %"struct.std::_Rb_tree_node", ptr %4, i64 0, i32 1, i32 0, i64 8
+  %second = getelementptr inbounds i8, ptr %4, i64 40
   %cmp.i.i4 = icmp eq ptr %second, %agg.result
   br i1 %cmp.i.i4, label %invoke.cont6, label %if.end.i.i
 
@@ -3861,8 +3858,8 @@ entry:
           to label %.noexc unwind label %lpad
 
 .noexc:                                           ; preds = %entry
-  %_mp_den.i.i = getelementptr inbounds %struct.__mpq_struct, ptr %agg.result, i64 0, i32 1
-  %_mp_den10.i.i = getelementptr inbounds %struct.__mpq_struct, ptr %ref.tmp, i64 0, i32 1
+  %_mp_den.i.i = getelementptr inbounds i8, ptr %agg.result, i64 16
+  %_mp_den10.i.i = getelementptr inbounds i8, ptr %ref.tmp, i64 16
   invoke void @__gmpz_init_set(ptr noundef nonnull %_mp_den.i.i, ptr noundef nonnull %_mp_den10.i.i)
           to label %invoke.cont unwind label %lpad
 
@@ -3912,7 +3909,7 @@ invoke.cont:                                      ; preds = %entry
           to label %.noexc unwind label %lpad3
 
 .noexc:                                           ; preds = %invoke.cont
-  %_mp_den.i = getelementptr inbounds %struct.__mpq_struct, ptr %this, i64 0, i32 1
+  %_mp_den.i = getelementptr inbounds i8, ptr %this, i64 16
   invoke void @__gmpz_init_set(ptr noundef nonnull %_mp_den.i, ptr noundef nonnull %ref.tmp2)
           to label %invoke.cont4 unwind label %lpad3
 
@@ -4023,7 +4020,7 @@ cond.end:
 if.then2.i44:                                     ; preds = %cond.end
   %_M_left.i.i.i = getelementptr inbounds i8, ptr %sum, i64 24
   %1 = load ptr, ptr %_M_left.i.i.i, align 8
-  %second.i = getelementptr inbounds %"struct.std::_Rb_tree_node", ptr %1, i64 0, i32 1, i32 0, i64 8
+  %second.i = getelementptr inbounds i8, ptr %1, i64 40
   %call7.i45 = tail call noundef i32 @_ZNK4cvc58internal19RealAlgebraicNumber3sgnEv(ptr noundef nonnull align 8 dereferenceable(32) %second.i)
   %cmp8.inv.i = icmp slt i32 %call7.i45, 1
   %cond.i = select i1 %cmp8.inv.i, i64 -1, i64 1
@@ -4094,7 +4091,7 @@ terminate.lpad.i.i16.i:                           ; preds = %ehcleanup.i
 if.end13.i:                                       ; preds = %cond.end
   %12 = getelementptr inbounds i8, ptr %sum, i64 24
   %sum.val.i = load ptr, ptr %12, align 8
-  %_M_storage.i.i.i.i.i = getelementptr inbounds %"struct.std::_Rb_tree_node", ptr %sum.val.i, i64 0, i32 1
+  %_M_storage.i.i.i.i.i = getelementptr inbounds i8, ptr %sum.val.i, i64 32
   %call2.i.i.i = tail call noundef zeroext i1 @_ZNK4cvc58internal12NodeTemplateILb1EE7isConstEv(ptr noundef nonnull align 8 dereferenceable(8) %_M_storage.i.i.i.i.i)
   br i1 %call2.i.i.i, label %if.then.i.i.i, label %_ZN4cvc58internal6theory5arith8rewriter12_GLOBAL__N_18getLTermERSt3mapINS0_12NodeTemplateILb1EEENS0_19RealAlgebraicNumberENS3_14TermComparatorESaISt4pairIKS7_S8_EEE.exit.i
 
@@ -4104,10 +4101,10 @@ if.then.i.i.i:                                    ; preds = %if.end13.i
 
 _ZN4cvc58internal6theory5arith8rewriter12_GLOBAL__N_18getLTermERSt3mapINS0_12NodeTemplateILb1EEENS0_19RealAlgebraicNumberENS3_14TermComparatorESaISt4pairIKS7_S8_EEE.exit.i: ; preds = %if.then.i.i.i, %if.end13.i
   %retval.sroa.0.0.i.i.i = phi ptr [ %call.i.i.i.i, %if.then.i.i.i ], [ %sum.val.i, %if.end13.i ]
-  %second15.i = getelementptr inbounds %"struct.std::_Rb_tree_node", ptr %retval.sroa.0.0.i.i.i, i64 0, i32 1, i32 0, i64 8
+  %second15.i = getelementptr inbounds i8, ptr %retval.sroa.0.0.i.i.i, i64 40
   call void @__gmpz_init_set(ptr noundef nonnull %lcoeff.i, ptr noundef nonnull %second15.i)
-  %_mp_den.i.i.i.i = getelementptr inbounds %struct.__mpq_struct, ptr %lcoeff.i, i64 0, i32 1
-  %_mp_den10.i.i.i.i = getelementptr inbounds %"struct.std::_Rb_tree_node", ptr %retval.sroa.0.0.i.i.i, i64 0, i32 1, i32 0, i64 24
+  %_mp_den.i.i.i.i = getelementptr inbounds i8, ptr %lcoeff.i, i64 16
+  %_mp_den10.i.i.i.i = getelementptr inbounds i8, ptr %retval.sroa.0.0.i.i.i, i64 56
   call void @__gmpz_init_set(ptr noundef nonnull %_mp_den.i.i.i.i, ptr noundef nonnull %_mp_den10.i.i.i.i)
   invoke void @__gmpq_canonicalize(ptr noundef nonnull %lcoeff.i)
           to label %_ZN4cvc58internal19RealAlgebraicNumberC2ERKS1_.exit.i unwind label %lpad.i.i.i
@@ -4194,7 +4191,7 @@ if.end31.i:                                       ; preds = %invoke.cont28.i
 
 for.body.i46:                                     ; preds = %if.end31.i, %_ZN4cvc58internal19RealAlgebraicNumberD2Ev.exit33.i
   %__begin4.sroa.0.043.i = phi ptr [ %call.i.i47, %_ZN4cvc58internal19RealAlgebraicNumberD2Ev.exit33.i ], [ %21, %if.end31.i ]
-  %second39.i = getelementptr inbounds %"struct.std::_Rb_tree_node", ptr %__begin4.sroa.0.043.i, i64 0, i32 1, i32 0, i64 8
+  %second39.i = getelementptr inbounds i8, ptr %__begin4.sroa.0.043.i, i64 40
   invoke void @_ZNK4cvc58internal19RealAlgebraicNumberdvERKS1_(ptr nonnull sret(%"class.cvc5::internal::RealAlgebraicNumber") align 8 %ref.tmp38.i, ptr noundef nonnull align 8 dereferenceable(32) %second39.i, ptr noundef nonnull align 8 dereferenceable(32) %lcoeff.i)
           to label %invoke.cont40.i unwind label %lpad16.loopexit.i
 
@@ -4529,7 +4526,7 @@ declare noundef i32 @_ZNK4cvc58internal8Rational6absCmpERKS1_(ptr noundef nonnul
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZNSt4pairIN4cvc58internal12NodeTemplateILb1EEENS1_7IntegerEED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %this) unnamed_addr #4 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  %second = getelementptr inbounds %"struct.std::pair.75", ptr %this, i64 0, i32 1
+  %second = getelementptr inbounds i8, ptr %this, i64 8
   invoke void @__gmpz_clear(ptr noundef nonnull %second)
           to label %_ZN4cvc58internal7IntegerD2Ev.exit unwind label %terminate.lpad.i.i
 
@@ -4602,14 +4599,14 @@ if.then13.i.i:                                    ; preds = %if.else.i.i
   br label %_ZN4cvc58internal12NodeTemplateILb1EEC2ERKS2_.exit
 
 _ZN4cvc58internal12NodeTemplateILb1EEC2ERKS2_.exit: ; preds = %if.then.i.i, %if.else.i.i, %if.then13.i.i
-  %second = getelementptr inbounds %"struct.std::pair", ptr %this, i64 0, i32 1
-  %second3 = getelementptr inbounds %"struct.std::pair", ptr %0, i64 0, i32 1
+  %second = getelementptr inbounds i8, ptr %this, i64 8
+  %second3 = getelementptr inbounds i8, ptr %0, i64 8
   invoke void @__gmpz_init_set(ptr noundef nonnull %second, ptr noundef nonnull %second3)
           to label %.noexc unwind label %lpad
 
 .noexc:                                           ; preds = %_ZN4cvc58internal12NodeTemplateILb1EEC2ERKS2_.exit
-  %_mp_den.i.i.i = getelementptr inbounds %"struct.std::pair", ptr %this, i64 0, i32 1, i32 0, i32 0, i32 0, i64 0, i32 1
-  %_mp_den10.i.i.i = getelementptr inbounds %"struct.std::pair", ptr %0, i64 0, i32 1, i32 0, i32 0, i32 0, i64 0, i32 1
+  %_mp_den.i.i.i = getelementptr inbounds i8, ptr %this, i64 24
+  %_mp_den10.i.i.i = getelementptr inbounds i8, ptr %0, i64 24
   invoke void @__gmpz_init_set(ptr noundef nonnull %_mp_den.i.i.i, ptr noundef nonnull %_mp_den10.i.i.i)
           to label %.noexc2 unwind label %lpad
 
@@ -4675,14 +4672,14 @@ if.then13.i.i:                                    ; preds = %if.else.i.i
   br label %_ZN4cvc58internal12NodeTemplateILb1EEC2ERKS2_.exit
 
 _ZN4cvc58internal12NodeTemplateILb1EEC2ERKS2_.exit: ; preds = %if.then.i.i, %if.else.i.i, %if.then13.i.i
-  %second = getelementptr inbounds %"struct.std::pair.72", ptr %this, i64 0, i32 1
-  %second3 = getelementptr inbounds %"struct.std::pair", ptr %__p, i64 0, i32 1
+  %second = getelementptr inbounds i8, ptr %this, i64 8
+  %second3 = getelementptr inbounds i8, ptr %__p, i64 8
   invoke void @__gmpz_init_set(ptr noundef nonnull %second, ptr noundef nonnull %second3)
           to label %.noexc unwind label %lpad
 
 .noexc:                                           ; preds = %_ZN4cvc58internal12NodeTemplateILb1EEC2ERKS2_.exit
-  %_mp_den.i.i.i = getelementptr inbounds %"struct.std::pair.72", ptr %this, i64 0, i32 1, i32 0, i32 0, i32 0, i64 0, i32 1
-  %_mp_den10.i.i.i = getelementptr inbounds %"struct.std::pair", ptr %__p, i64 0, i32 1, i32 0, i32 0, i32 0, i64 0, i32 1
+  %_mp_den.i.i.i = getelementptr inbounds i8, ptr %this, i64 24
+  %_mp_den10.i.i.i = getelementptr inbounds i8, ptr %__p, i64 24
   invoke void @__gmpz_init_set(ptr noundef nonnull %_mp_den.i.i.i, ptr noundef nonnull %_mp_den10.i.i.i)
           to label %.noexc2 unwind label %lpad
 
@@ -4720,7 +4717,7 @@ lpad.body:                                        ; preds = %lpad.i.i, %lpad
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZNSt4pairIKN4cvc58internal12NodeTemplateILb1EEENS1_19RealAlgebraicNumberEED2Ev(ptr noundef nonnull align 8 dereferenceable(40) %this) unnamed_addr #4 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  %second = getelementptr inbounds %"struct.std::pair", ptr %this, i64 0, i32 1
+  %second = getelementptr inbounds i8, ptr %this, i64 8
   invoke void @__gmpq_clear(ptr noundef nonnull %second)
           to label %_ZN4cvc58internal19RealAlgebraicNumberD2Ev.exit unwind label %terminate.lpad.i.i.i
 
@@ -4769,7 +4766,7 @@ define linkonce_odr hidden void @_ZNSt8_Rb_treeIN4cvc58internal12NodeTemplateILb
 entry:
   %add.ptr = getelementptr inbounds i8, ptr %this, i64 8
   %call = tail call noundef nonnull ptr @_ZSt28_Rb_tree_rebalance_for_erasePSt18_Rb_tree_node_baseRS_(ptr noundef %__position.coerce, ptr noundef nonnull align 8 dereferenceable(32) %add.ptr) #15
-  %second.i.i.i.i.i = getelementptr inbounds %"struct.std::_Rb_tree_node", ptr %call, i64 0, i32 1, i32 0, i64 8
+  %second.i.i.i.i.i = getelementptr inbounds i8, ptr %call, i64 40
   invoke void @__gmpq_clear(ptr noundef nonnull %second.i.i.i.i.i)
           to label %_ZN4cvc58internal19RealAlgebraicNumberD2Ev.exit.i.i.i.i.i unwind label %terminate.lpad.i.i.i.i.i.i.i.i
 
@@ -4781,7 +4778,7 @@ terminate.lpad.i.i.i.i.i.i.i.i:                   ; preds = %entry
   unreachable
 
 _ZN4cvc58internal19RealAlgebraicNumberD2Ev.exit.i.i.i.i.i: ; preds = %entry
-  %_M_storage.i.i.i = getelementptr inbounds %"struct.std::_Rb_tree_node", ptr %call, i64 0, i32 1
+  %_M_storage.i.i.i = getelementptr inbounds i8, ptr %call, i64 32
   %2 = load ptr, ptr %_M_storage.i.i.i, align 8
   %bf.load.i.i.i.i.i.i.i = load i64, ptr %2, align 8
   %3 = and i64 %bf.load.i.i.i.i.i.i.i, 1152920405095219200

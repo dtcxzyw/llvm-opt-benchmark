@@ -4,39 +4,6 @@ target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:
 target triple = "x86_64-unknown-linux-gnu"
 
 %struct.Curl_cftype = type { ptr, i32, i32, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr }
-%struct.Curl_easy = type { i32, i64, ptr, ptr, ptr, %struct.Curl_llist_element, %struct.Curl_llist_element, i32, i32, %struct.Curl_message, %struct.easy_pollset, %struct.Names, ptr, ptr, ptr, ptr, %struct.SingleRequest, %struct.UserDefined, ptr, ptr, ptr, %struct.Progress, %struct.UrlState, ptr, %struct.PureInfo, %struct.curl_tlssessioninfo }
-%struct.Curl_llist_element = type { ptr, ptr, ptr }
-%struct.Curl_message = type { %struct.Curl_llist_element, %struct.CURLMsg }
-%struct.CURLMsg = type { i32, ptr, %union.anon }
-%union.anon = type { ptr }
-%struct.easy_pollset = type { [5 x i32], i32, [5 x i8] }
-%struct.Names = type { ptr, i32 }
-%struct.SingleRequest = type <{ i64, i64, i64, i64, i64, %struct.curltime, i32, i32, i32, i32, i64, i32, i32, %struct.curltime, i32, i32, ptr, i64, i64, ptr, ptr, i64, ptr, %union.anon.0, ptr, [2 x i8], i8, i16, [3 x i8] }>
-%struct.curltime = type { i64, i32 }
-%union.anon.0 = type { ptr }
-%struct.UserDefined = type <{ ptr, ptr, ptr, ptr, ptr, ptr, i16, [6 x i8], i64, i64, i64, ptr, ptr, i64, i16, i16, [4 x i8], ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, i32, i32, i32, i32, i64, i64, i64, i64, i64, i64, i64, i64, i64, ptr, ptr, %struct.curl_mimepart, ptr, ptr, ptr, i64, i8, i8, i8, [5 x i8], %struct.ssl_config_data, %struct.ssl_config_data, ptr, i16, i8, i8, [4 x i8], %struct.ssl_general_config, i32, i32, i32, [4 x i8], ptr, ptr, i8, [7 x i8], i64, i8, i8, i8, i8, i32, ptr, ptr, ptr, i8, i8, [2 x i8], i32, [80 x ptr], [8 x ptr], i32, i32, i32, [4 x i8], ptr, i32, [4 x i8], ptr, ptr, ptr, ptr, ptr, i8, [3 x i8], i32, i32, [4 x i8], i64, ptr, ptr, i64, ptr, ptr, ptr, ptr, ptr, i8, [7 x i8], ptr, i8, [3 x i8], i32, i8, i8, i56, [6 x i8] }>
-%struct.curl_mimepart = type { ptr, ptr, i32, i32, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, i64, %struct.mime_state, ptr, %struct.mime_encoder_state, i64 }
-%struct.mime_state = type { i32, ptr, i64 }
-%struct.mime_encoder_state = type { i64, i64, i64, [256 x i8] }
-%struct.ssl_config_data = type { %struct.ssl_primary_config, i64, ptr, ptr, ptr, ptr, ptr, ptr, ptr, i8 }
-%struct.ssl_primary_config = type { ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, i8, i32, i8, i8 }
-%struct.ssl_general_config = type { i64, i32 }
-%struct.Progress = type { i64, i64, i64, i64, i64, i64, i32, i32, i64, i64, i64, i64, i64, i64, i64, i64, i64, i64, %struct.curltime, %struct.curltime, %struct.curltime, %struct.curltime, %struct.curltime, i64, %struct.curltime, i64, [6 x i64], [6 x %struct.curltime], i32, i8 }
-%struct.UrlState = type { ptr, %struct.curltime, i64, i64, %struct.dynbuf, ptr, ptr, ptr, i64, ptr, i32, i32, i32, ptr, i64, [3 x %struct.tempbuf], i32, i32, ptr, i64, i32, ptr, %struct.digestdata, %struct.digestdata, %struct.auth, %struct.auth, %struct.Curl_async, ptr, %struct.curltime, %struct.Curl_tree, %struct.Curl_llist, [15 x %struct.time_node], ptr, i8, i64, ptr, i64, i64, i64, i64, [32 x i8], i64, ptr, ptr, ptr, %struct.urlpieces, ptr, ptr, ptr, ptr, ptr, i64, %struct.dynbuf, %struct.Curl_llist, [2 x %struct.curl_header], ptr, i32, ptr, %struct.dynamically_allocated_data, i8, i8, i8, i8, i24 }
-%struct.tempbuf = type { %struct.dynbuf, i32, i8 }
-%struct.digestdata = type { ptr, ptr, ptr, ptr, ptr, ptr, i32, i8, i8 }
-%struct.auth = type { i64, i64, i64, i8 }
-%struct.Curl_async = type { ptr, ptr, ptr, ptr, i32, i32, i8 }
-%struct.Curl_tree = type { ptr, ptr, ptr, ptr, %struct.curltime, ptr }
-%struct.time_node = type { %struct.Curl_llist_element, %struct.curltime, i32 }
-%struct.urlpieces = type { ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr }
-%struct.dynbuf = type { ptr, i64, i64, i64 }
-%struct.Curl_llist = type { ptr, ptr, ptr, i64 }
-%struct.curl_header = type { ptr, ptr, i64, i64, i32, ptr }
-%struct.dynamically_allocated_data = type { ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr }
-%struct.PureInfo = type { i32, i32, i32, i64, i64, i64, i64, i64, ptr, ptr, i64, i32, [46 x i8], i32, i32, [46 x i8], i32, ptr, i32, %struct.curl_certinfo, i32, i8 }
-%struct.curl_certinfo = type { i32, ptr }
-%struct.curl_tlssessioninfo = type { i32, ptr }
 %struct.__va_list_tag = type { i32, i32, ptr, ptr }
 
 @Curl_debug.s_infotype = internal constant [7 x [3 x i8]] [[3 x i8] c"* \00", [3 x i8] c"< \00", [3 x i8] c"> \00", [3 x i8] c"{ \00", [3 x i8] c"} \00", [3 x i8] c"{ \00", [3 x i8] c"} \00"], align 16
@@ -63,15 +30,15 @@ target triple = "x86_64-unknown-linux-gnu"
 ; Function Attrs: nounwind uwtable
 define hidden void @Curl_debug(ptr noundef %data, i32 noundef %type, ptr noundef %ptr, i64 noundef %size) local_unnamed_addr #0 {
 entry:
-  %set = getelementptr inbounds %struct.Curl_easy, ptr %data, i64 0, i32 17
-  %verbose = getelementptr inbounds %struct.Curl_easy, ptr %data, i64 0, i32 17, i32 129
+  %set = getelementptr inbounds i8, ptr %data, i64 416
+  %verbose = getelementptr inbounds i8, ptr %data, i64 2706
   %bf.load = load i64, ptr %verbose, align 2
   %0 = and i64 %bf.load, 536870912
   %tobool.not = icmp eq i64 %0, 0
   br i1 %tobool.not, label %if.end14, label %if.then
 
 if.then:                                          ; preds = %entry
-  %fdebug = getelementptr inbounds %struct.Curl_easy, ptr %data, i64 0, i32 17, i32 23
+  %fdebug = getelementptr inbounds i8, ptr %data, i64 576
   %1 = load ptr, ptr %fdebug, align 8
   %tobool2.not = icmp eq ptr %1, null
   br i1 %tobool2.not, label %if.else, label %if.then3
@@ -80,7 +47,7 @@ if.then3:                                         ; preds = %if.then
   %call = tail call zeroext i1 @Curl_is_in_callback(ptr noundef nonnull %data) #7
   tail call void @Curl_set_in_callback(ptr noundef nonnull %data, i1 noundef zeroext true) #7
   %2 = load ptr, ptr %fdebug, align 8
-  %debugdata = getelementptr inbounds %struct.Curl_easy, ptr %data, i64 0, i32 17, i32 1
+  %debugdata = getelementptr inbounds i8, ptr %data, i64 424
   %3 = load ptr, ptr %debugdata, align 8
   %call7 = tail call i32 %2(ptr noundef nonnull %data, i32 noundef %type, ptr noundef %ptr, i64 noundef %size, ptr noundef %3) #7
   tail call void @Curl_set_in_callback(ptr noundef nonnull %data, i1 noundef zeroext %call) #7
@@ -115,14 +82,14 @@ define hidden void @Curl_failf(ptr noundef %data, ptr noundef %fmt, ...) local_u
 entry:
   %ap = alloca [1 x %struct.__va_list_tag], align 16
   %error = alloca [258 x i8], align 16
-  %verbose = getelementptr inbounds %struct.Curl_easy, ptr %data, i64 0, i32 17, i32 129
+  %verbose = getelementptr inbounds i8, ptr %data, i64 2706
   %bf.load = load i64, ptr %verbose, align 2
   %0 = and i64 %bf.load, 536870912
   %tobool.not = icmp eq i64 %0, 0
   br i1 %tobool.not, label %lor.lhs.false, label %if.then
 
 lor.lhs.false:                                    ; preds = %entry
-  %errorbuffer = getelementptr inbounds %struct.Curl_easy, ptr %data, i64 0, i32 17, i32 2
+  %errorbuffer = getelementptr inbounds i8, ptr %data, i64 432
   %1 = load ptr, ptr %errorbuffer, align 8
   %tobool2.not = icmp eq ptr %1, null
   br i1 %tobool2.not, label %if.end25, label %if.then
@@ -130,13 +97,13 @@ lor.lhs.false:                                    ; preds = %entry
 if.then:                                          ; preds = %lor.lhs.false, %entry
   call void @llvm.va_start(ptr nonnull %ap)
   %call = call i32 @curl_mvsnprintf(ptr noundef nonnull %error, i64 noundef 256, ptr noundef %fmt, ptr noundef nonnull %ap) #7
-  %errorbuffer6 = getelementptr inbounds %struct.Curl_easy, ptr %data, i64 0, i32 17, i32 2
+  %errorbuffer6 = getelementptr inbounds i8, ptr %data, i64 432
   %2 = load ptr, ptr %errorbuffer6, align 8
   %tobool7.not = icmp eq ptr %2, null
   br i1 %tobool7.not, label %if.end, label %land.lhs.true
 
 land.lhs.true:                                    ; preds = %if.then
-  %errorbuf = getelementptr inbounds %struct.Curl_easy, ptr %data, i64 0, i32 22, i32 63
+  %errorbuf = getelementptr inbounds i8, ptr %data, i64 5044
   %bf.load8 = load i32, ptr %errorbuf, align 4
   %3 = and i32 %bf.load8, 8
   %tobool11.not = icmp eq i32 %3, 0
@@ -185,7 +152,7 @@ entry:
   br i1 %tobool.not, label %if.end, label %land.lhs.true
 
 land.lhs.true:                                    ; preds = %entry
-  %verbose = getelementptr inbounds %struct.Curl_easy, ptr %data, i64 0, i32 17, i32 129
+  %verbose = getelementptr inbounds i8, ptr %data, i64 2706
   %bf.load = load i64, ptr %verbose, align 2
   %0 = and i64 %bf.load, 536870912
   %tobool1.not = icmp eq i64 %0, 0
@@ -218,7 +185,7 @@ entry:
   br i1 %tobool.not, label %if.end, label %land.lhs.true
 
 land.lhs.true:                                    ; preds = %entry
-  %verbose = getelementptr inbounds %struct.Curl_easy, ptr %data, i64 0, i32 17, i32 129
+  %verbose = getelementptr inbounds i8, ptr %data, i64 2706
   %bf.load = load i64, ptr %verbose, align 2
   %0 = and i64 %bf.load, 536870912
   %tobool1 = icmp ne i64 %0, 0
@@ -228,7 +195,7 @@ land.lhs.true:                                    ; preds = %entry
 
 land.lhs.true4:                                   ; preds = %land.lhs.true
   %1 = load ptr, ptr %cf, align 8
-  %log_level = getelementptr inbounds %struct.Curl_cftype, ptr %1, i64 0, i32 2
+  %log_level = getelementptr inbounds i8, ptr %1, i64 12
   %2 = load i32, ptr %log_level, align 4
   %cmp = icmp sgt i32 %2, 0
   br i1 %cmp, label %if.then, label %if.end
@@ -304,7 +271,7 @@ for.body:                                         ; preds = %sw.epilog, %for.inc
   br i1 %tobool7.not, label %if.else, label %if.then8
 
 if.then8:                                         ; preds = %for.body
-  %log_level = getelementptr inbounds %struct.Curl_cftype, ptr %2, i64 0, i32 2
+  %log_level = getelementptr inbounds i8, ptr %2, i64 12
   store i32 %lvl.0, ptr %log_level, align 4
   br label %for.inc
 
@@ -315,7 +282,7 @@ if.else:                                          ; preds = %for.body
   br i1 %tobool12.not, label %for.inc, label %if.then13
 
 if.then13:                                        ; preds = %if.else
-  %log_level15 = getelementptr inbounds %struct.Curl_cftype, ptr %2, i64 0, i32 2
+  %log_level15 = getelementptr inbounds i8, ptr %2, i64 12
   store i32 %lvl.0, ptr %log_level15, align 4
   br label %for.end
 

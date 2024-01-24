@@ -51,7 +51,7 @@ define zeroext i1 @"_ZN42_$LT$$RF$T$u20$as$u20$core..fmt..Debug$GT$3fmt17h348372
   %3 = alloca ptr, align 8
   %4 = load ptr, ptr %0, align 8, !nonnull !5, !align !6, !noundef !5
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3)
-  %5 = getelementptr inbounds { { { ptr, i64 }, i64 }, i8, [7 x i8] }, ptr %4, i64 0, i32 1
+  %5 = getelementptr inbounds i8, ptr %4, i64 24
   store ptr %5, ptr %3, align 8
   %6 = call zeroext i1 @_ZN4core3fmt9Formatter26debug_struct_field2_finish17h976633cb9325d9dfE(ptr align 8 %1, ptr nonnull align 1 @anon.5730b8ac6d1373450c164ab04b6a2ddd.38, i64 11, ptr nonnull align 1 @anon.5730b8ac6d1373450c164ab04b6a2ddd.39, i64 6, ptr nonnull align 1 %4, ptr nonnull align 8 @anon.5730b8ac6d1373450c164ab04b6a2ddd.43, ptr nonnull align 1 @anon.5730b8ac6d1373450c164ab04b6a2ddd.41, i64 6, ptr nonnull align 1 %3, ptr nonnull align 8 @anon.5730b8ac6d1373450c164ab04b6a2ddd.42)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3)
@@ -63,7 +63,7 @@ define zeroext i1 @"_ZN42_$LT$$RF$T$u20$as$u20$core..fmt..Debug$GT$3fmt17hff5879
   %3 = alloca ptr, align 8
   %4 = load ptr, ptr %0, align 8, !nonnull !5, !align !6, !noundef !5
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3)
-  %5 = getelementptr inbounds { { { ptr, i64 }, i64 }, i8, [7 x i8] }, ptr %4, i64 0, i32 1
+  %5 = getelementptr inbounds i8, ptr %4, i64 24
   store ptr %5, ptr %3, align 8
   %6 = call zeroext i1 @_ZN4core3fmt9Formatter26debug_struct_field2_finish17h976633cb9325d9dfE(ptr align 8 %1, ptr nonnull align 1 @anon.5730b8ac6d1373450c164ab04b6a2ddd.38, i64 11, ptr nonnull align 1 @anon.5730b8ac6d1373450c164ab04b6a2ddd.39, i64 6, ptr nonnull align 1 %4, ptr nonnull align 8 @anon.5730b8ac6d1373450c164ab04b6a2ddd.40, ptr nonnull align 1 @anon.5730b8ac6d1373450c164ab04b6a2ddd.41, i64 6, ptr nonnull align 1 %3, ptr nonnull align 8 @anon.5730b8ac6d1373450c164ab04b6a2ddd.42)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3)
@@ -95,7 +95,7 @@ define void @"_ZN12regex_syntax3hir8interval20IntervalSet$LT$I$GT$3new17h1dde69d
 
 10:                                               ; preds = %3
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %4, ptr noundef nonnull align 8 dereferenceable(24) %5, i64 24, i1 false)
-  %11 = getelementptr inbounds { { { ptr, i64 }, i64 }, i8, [7 x i8] }, ptr %4, i64 0, i32 1
+  %11 = getelementptr inbounds i8, ptr %4, i64 24
   %12 = zext i1 %9 to i8
   store i8 %12, ptr %11, align 8
   invoke void @"_ZN12regex_syntax3hir8interval20IntervalSet$LT$I$GT$12canonicalize17h83c4bb673dc273c6E"(ptr nonnull align 8 %4)
@@ -141,7 +141,7 @@ define void @"_ZN12regex_syntax3hir8interval20IntervalSet$LT$I$GT$3new17h282defc
 
 10:                                               ; preds = %3
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %4, ptr noundef nonnull align 8 dereferenceable(24) %5, i64 24, i1 false)
-  %11 = getelementptr inbounds { { { ptr, i64 }, i64 }, i8, [7 x i8] }, ptr %4, i64 0, i32 1
+  %11 = getelementptr inbounds i8, ptr %4, i64 24
   %12 = zext i1 %9 to i8
   store i8 %12, ptr %11, align 8
   invoke void @"_ZN12regex_syntax3hir8interval20IntervalSet$LT$I$GT$12canonicalize17h1109f7bca268ebf5E"(ptr nonnull align 8 %4)
@@ -186,7 +186,7 @@ define void @"_ZN12regex_syntax3hir8interval20IntervalSet$LT$I$GT$3new17h28720cf
 
 7:                                                ; preds = %2
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %3, ptr noundef nonnull align 8 dereferenceable(24) %5, i64 24, i1 false)
-  %8 = getelementptr inbounds { { { ptr, i64 }, i64 }, i8, [7 x i8] }, ptr %3, i64 0, i32 1
+  %8 = getelementptr inbounds i8, ptr %3, i64 24
   %9 = zext i1 %6 to i8
   store i8 %9, ptr %8, align 8
   invoke void @"_ZN12regex_syntax3hir8interval20IntervalSet$LT$I$GT$12canonicalize17h1109f7bca268ebf5E"(ptr nonnull align 8 %3)
@@ -231,7 +231,7 @@ define void @"_ZN12regex_syntax3hir8interval20IntervalSet$LT$I$GT$3new17h6211ee5
 
 7:                                                ; preds = %2
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %3, ptr noundef nonnull align 8 dereferenceable(24) %5, i64 24, i1 false)
-  %8 = getelementptr inbounds { { { ptr, i64 }, i64 }, i8, [7 x i8] }, ptr %3, i64 0, i32 1
+  %8 = getelementptr inbounds i8, ptr %3, i64 24
   %9 = zext i1 %6 to i8
   store i8 %9, ptr %8, align 8
   invoke void @"_ZN12regex_syntax3hir8interval20IntervalSet$LT$I$GT$12canonicalize17h1109f7bca268ebf5E"(ptr nonnull align 8 %3)
@@ -276,7 +276,7 @@ define void @"_ZN12regex_syntax3hir8interval20IntervalSet$LT$I$GT$3new17h9d7af4b
 
 7:                                                ; preds = %2
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %3, ptr noundef nonnull align 8 dereferenceable(24) %5, i64 24, i1 false)
-  %8 = getelementptr inbounds { { { ptr, i64 }, i64 }, i8, [7 x i8] }, ptr %3, i64 0, i32 1
+  %8 = getelementptr inbounds i8, ptr %3, i64 24
   %9 = zext i1 %6 to i8
   store i8 %9, ptr %8, align 8
   invoke void @"_ZN12regex_syntax3hir8interval20IntervalSet$LT$I$GT$12canonicalize17h83c4bb673dc273c6E"(ptr nonnull align 8 %3)
@@ -322,7 +322,7 @@ define void @"_ZN12regex_syntax3hir8interval20IntervalSet$LT$I$GT$3new17hb6232db
 
 10:                                               ; preds = %3
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %4, ptr noundef nonnull align 8 dereferenceable(24) %5, i64 24, i1 false)
-  %11 = getelementptr inbounds { { { ptr, i64 }, i64 }, i8, [7 x i8] }, ptr %4, i64 0, i32 1
+  %11 = getelementptr inbounds i8, ptr %4, i64 24
   %12 = zext i1 %9 to i8
   store i8 %12, ptr %11, align 8
   invoke void @"_ZN12regex_syntax3hir8interval20IntervalSet$LT$I$GT$12canonicalize17h1109f7bca268ebf5E"(ptr nonnull align 8 %4)
@@ -367,7 +367,7 @@ define void @"_ZN12regex_syntax3hir8interval20IntervalSet$LT$I$GT$3new17hdbe9858
 
 7:                                                ; preds = %2
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %3, ptr noundef nonnull align 8 dereferenceable(24) %5, i64 24, i1 false)
-  %8 = getelementptr inbounds { { { ptr, i64 }, i64 }, i8, [7 x i8] }, ptr %3, i64 0, i32 1
+  %8 = getelementptr inbounds i8, ptr %3, i64 24
   %9 = zext i1 %6 to i8
   store i8 %9, ptr %8, align 8
   invoke void @"_ZN12regex_syntax3hir8interval20IntervalSet$LT$I$GT$12canonicalize17h83c4bb673dc273c6E"(ptr nonnull align 8 %3)
@@ -413,7 +413,7 @@ define void @"_ZN12regex_syntax3hir8interval20IntervalSet$LT$I$GT$3new17he3ea376
 
 10:                                               ; preds = %3
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %4, ptr noundef nonnull align 8 dereferenceable(24) %5, i64 24, i1 false)
-  %11 = getelementptr inbounds { { { ptr, i64 }, i64 }, i8, [7 x i8] }, ptr %4, i64 0, i32 1
+  %11 = getelementptr inbounds i8, ptr %4, i64 24
   %12 = zext i1 %9 to i8
   store i8 %12, ptr %11, align 8
   invoke void @"_ZN12regex_syntax3hir8interval20IntervalSet$LT$I$GT$12canonicalize17h83c4bb673dc273c6E"(ptr nonnull align 8 %4)
@@ -458,7 +458,7 @@ define void @"_ZN12regex_syntax3hir8interval20IntervalSet$LT$I$GT$3new17hf5dde87
 
 7:                                                ; preds = %2
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %3, ptr noundef nonnull align 8 dereferenceable(24) %5, i64 24, i1 false)
-  %8 = getelementptr inbounds { { { ptr, i64 }, i64 }, i8, [7 x i8] }, ptr %3, i64 0, i32 1
+  %8 = getelementptr inbounds i8, ptr %3, i64 24
   %9 = zext i1 %6 to i8
   store i8 %9, ptr %8, align 8
   invoke void @"_ZN12regex_syntax3hir8interval20IntervalSet$LT$I$GT$12canonicalize17h1109f7bca268ebf5E"(ptr nonnull align 8 %3)
@@ -503,7 +503,7 @@ define void @"_ZN12regex_syntax3hir8interval20IntervalSet$LT$I$GT$3new17hf9f8538
 
 7:                                                ; preds = %2
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %3, ptr noundef nonnull align 8 dereferenceable(24) %5, i64 24, i1 false)
-  %8 = getelementptr inbounds { { { ptr, i64 }, i64 }, i8, [7 x i8] }, ptr %3, i64 0, i32 1
+  %8 = getelementptr inbounds i8, ptr %3, i64 24
   %9 = zext i1 %6 to i8
   store i8 %9, ptr %8, align 8
   invoke void @"_ZN12regex_syntax3hir8interval20IntervalSet$LT$I$GT$12canonicalize17h83c4bb673dc273c6E"(ptr nonnull align 8 %3)
@@ -540,7 +540,7 @@ define void @"_ZN12regex_syntax3hir8interval20IntervalSet$LT$I$GT$3new17hf9f8538
 define hidden void @"_ZN12regex_syntax3hir8interval20IntervalSet$LT$I$GT$4push17h1a533ab4c4201222E"(ptr align 8 %0, i8 %1, i8 %2) unnamed_addr #0 {
   tail call void @"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17h1b156bfbc95161cfE"(ptr align 8 %0, i8 %1, i8 %2)
   tail call void @"_ZN12regex_syntax3hir8interval20IntervalSet$LT$I$GT$12canonicalize17h83c4bb673dc273c6E"(ptr align 8 %0)
-  %4 = getelementptr inbounds { { { ptr, i64 }, i64 }, i8, [7 x i8] }, ptr %0, i64 0, i32 1
+  %4 = getelementptr inbounds i8, ptr %0, i64 24
   store i8 0, ptr %4, align 8
   ret void
 }
@@ -549,7 +549,7 @@ define hidden void @"_ZN12regex_syntax3hir8interval20IntervalSet$LT$I$GT$4push17
 define hidden void @"_ZN12regex_syntax3hir8interval20IntervalSet$LT$I$GT$4push17ha481db88025a9c67E"(ptr align 8 %0, i32 %1, i32 %2) unnamed_addr #0 {
   tail call void @"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17h94c6bf1db8a92336E"(ptr align 8 %0, i32 %1, i32 %2)
   tail call void @"_ZN12regex_syntax3hir8interval20IntervalSet$LT$I$GT$12canonicalize17h1109f7bca268ebf5E"(ptr align 8 %0)
-  %4 = getelementptr inbounds { { { ptr, i64 }, i64 }, i8, [7 x i8] }, ptr %0, i64 0, i32 1
+  %4 = getelementptr inbounds i8, ptr %0, i64 24
   store i8 0, ptr %4, align 8
   ret void
 }
@@ -594,7 +594,7 @@ define hidden { ptr, i64 } @"_ZN12regex_syntax3hir8interval20IntervalSet$LT$I$GT
 define hidden noundef zeroext i1 @"_ZN12regex_syntax3hir8interval20IntervalSet$LT$I$GT$16case_fold_simple17h59e893c83c13e2efE"(ptr align 8 %0) unnamed_addr #0 {
   %2 = alloca { i32, i32 }, align 8
   %3 = alloca { i64, i64 }, align 8
-  %4 = getelementptr inbounds { { { ptr, i64 }, i64 }, i8, [7 x i8] }, ptr %0, i64 0, i32 1
+  %4 = getelementptr inbounds i8, ptr %0, i64 24
   %5 = load i8, ptr %4, align 8, !range !7, !noundef !5
   %.not = icmp eq i8 %5, 0
   br i1 %.not, label %6, label %20
@@ -605,7 +605,7 @@ define hidden noundef zeroext i1 @"_ZN12regex_syntax3hir8interval20IntervalSet$L
   %9 = extractvalue { i64, i64 } %8, 0
   %10 = extractvalue { i64, i64 } %8, 1
   store i64 %9, ptr %3, align 8
-  %11 = getelementptr inbounds { i64, i64 }, ptr %3, i64 0, i32 1
+  %11 = getelementptr inbounds i8, ptr %3, i64 8
   store i64 %10, ptr %11, align 8
   br label %12
 
@@ -641,7 +641,7 @@ define hidden noundef zeroext i1 @"_ZN12regex_syntax3hir8interval20IntervalSet$L
 define hidden noundef zeroext i1 @"_ZN12regex_syntax3hir8interval20IntervalSet$LT$I$GT$16case_fold_simple17hcf0e8a51225189a6E"(ptr align 8 %0) unnamed_addr #0 {
   %2 = alloca { i8, i8 }, align 1
   %3 = alloca { i64, i64 }, align 8
-  %4 = getelementptr inbounds { { { ptr, i64 }, i64 }, i8, [7 x i8] }, ptr %0, i64 0, i32 1
+  %4 = getelementptr inbounds i8, ptr %0, i64 24
   %5 = load i8, ptr %4, align 8, !range !7, !noundef !5
   %.not = icmp eq i8 %5, 0
   br i1 %.not, label %6, label %23
@@ -652,9 +652,9 @@ define hidden noundef zeroext i1 @"_ZN12regex_syntax3hir8interval20IntervalSet$L
   %9 = extractvalue { i64, i64 } %8, 0
   %10 = extractvalue { i64, i64 } %8, 1
   store i64 %9, ptr %3, align 8
-  %11 = getelementptr inbounds { i64, i64 }, ptr %3, i64 0, i32 1
+  %11 = getelementptr inbounds i8, ptr %3, i64 8
   store i64 %10, ptr %11, align 8
-  %12 = getelementptr inbounds { i8, i8 }, ptr %2, i64 0, i32 1
+  %12 = getelementptr inbounds i8, ptr %2, i64 1
   br label %13
 
 13:                                               ; preds = %17, %6
@@ -672,7 +672,7 @@ define hidden noundef zeroext i1 @"_ZN12regex_syntax3hir8interval20IntervalSet$L
   %.fca.1.extract = extractvalue { i64, i64 } %14, 1
   %18 = call align 1 ptr @"_ZN81_$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$core..ops..index..Index$LT$I$GT$$GT$5index17hf5810e296eb7412cE"(ptr align 8 %0, i64 %.fca.1.extract, ptr nonnull align 8 @anon.5730b8ac6d1373450c164ab04b6a2ddd.1)
   %19 = load i8, ptr %18, align 1, !noundef !5
-  %20 = getelementptr inbounds { i8, i8 }, ptr %18, i64 0, i32 1
+  %20 = getelementptr inbounds i8, ptr %18, i64 1
   %21 = load i8, ptr %20, align 1, !noundef !5
   store i8 %19, ptr %2, align 1
   store i8 %21, ptr %12, align 1
@@ -703,13 +703,13 @@ define hidden void @"_ZN12regex_syntax3hir8interval20IntervalSet$LT$I$GT$5union1
 7:                                                ; preds = %4
   tail call void @"_ZN97_$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$core..iter..traits..collect..Extend$LT$$RF$T$GT$$GT$6extend17h1ec76585aa5565b4E"(ptr align 8 %0, ptr align 8 %1)
   tail call void @"_ZN12regex_syntax3hir8interval20IntervalSet$LT$I$GT$12canonicalize17h1109f7bca268ebf5E"(ptr align 8 %0)
-  %8 = getelementptr inbounds { { { ptr, i64 }, i64 }, i8, [7 x i8] }, ptr %0, i64 0, i32 1
+  %8 = getelementptr inbounds i8, ptr %0, i64 24
   %9 = load i8, ptr %8, align 8, !range !7, !noundef !5
   %.not = icmp eq i8 %9, 0
   br i1 %.not, label %13, label %10
 
 10:                                               ; preds = %7
-  %11 = getelementptr inbounds { { { ptr, i64 }, i64 }, i8, [7 x i8] }, ptr %1, i64 0, i32 1
+  %11 = getelementptr inbounds i8, ptr %1, i64 24
   %12 = load i8, ptr %11, align 8, !range !7, !noundef !5
   br label %13
 
@@ -734,13 +734,13 @@ define hidden void @"_ZN12regex_syntax3hir8interval20IntervalSet$LT$I$GT$5union1
 7:                                                ; preds = %4
   tail call void @"_ZN97_$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$core..iter..traits..collect..Extend$LT$$RF$T$GT$$GT$6extend17h5f606b125891b29eE"(ptr align 8 %0, ptr align 8 %1)
   tail call void @"_ZN12regex_syntax3hir8interval20IntervalSet$LT$I$GT$12canonicalize17h83c4bb673dc273c6E"(ptr align 8 %0)
-  %8 = getelementptr inbounds { { { ptr, i64 }, i64 }, i8, [7 x i8] }, ptr %0, i64 0, i32 1
+  %8 = getelementptr inbounds i8, ptr %0, i64 24
   %9 = load i8, ptr %8, align 8, !range !7, !noundef !5
   %.not = icmp eq i8 %9, 0
   br i1 %.not, label %13, label %10
 
 10:                                               ; preds = %7
-  %11 = getelementptr inbounds { { { ptr, i64 }, i64 }, i8, [7 x i8] }, ptr %1, i64 0, i32 1
+  %11 = getelementptr inbounds i8, ptr %1, i64 24
   %12 = load i8, ptr %11, align 8, !range !7, !noundef !5
   br label %13
 
@@ -768,11 +768,11 @@ define hidden void @"_ZN12regex_syntax3hir8interval20IntervalSet$LT$I$GT$9inters
 10:                                               ; preds = %7
   %11 = tail call i64 @"_ZN5alloc3vec16Vec$LT$T$C$A$GT$3len17hf81783bf3860ee5dE"(ptr align 8 %0)
   store i64 0, ptr %5, align 8
-  %12 = getelementptr inbounds { i64, i64 }, ptr %5, i64 0, i32 1
+  %12 = getelementptr inbounds i8, ptr %5, i64 8
   store i64 %11, ptr %12, align 8
   %13 = tail call i64 @"_ZN5alloc3vec16Vec$LT$T$C$A$GT$3len17hf81783bf3860ee5dE"(ptr align 8 %1)
   store i64 0, ptr %4, align 8
-  %14 = getelementptr inbounds { i64, i64 }, ptr %4, i64 0, i32 1
+  %14 = getelementptr inbounds i8, ptr %4, i64 8
   store i64 %13, ptr %14, align 8
   %15 = call { i64, i64 } @"_ZN4core4iter5range101_$LT$impl$u20$core..iter..traits..iterator..Iterator$u20$for$u20$core..ops..range..Range$LT$A$GT$$GT$4next17h3e2ead23d801baa3E"(ptr nonnull align 8 %5)
   %16 = extractvalue { i64, i64 } %15, 0
@@ -786,7 +786,7 @@ define hidden void @"_ZN12regex_syntax3hir8interval20IntervalSet$LT$I$GT$9inters
 
 23:                                               ; preds = %7
   tail call void @"_ZN5alloc3vec16Vec$LT$T$C$A$GT$5clear17hb592e8ba5f51422cE"(ptr align 8 %0)
-  %24 = getelementptr inbounds { { { ptr, i64 }, i64 }, i8, [7 x i8] }, ptr %0, i64 0, i32 1
+  %24 = getelementptr inbounds i8, ptr %0, i64 24
   store i8 1, ptr %24, align 8
   br label %9
 
@@ -820,7 +820,7 @@ define hidden void @"_ZN12regex_syntax3hir8interval20IntervalSet$LT$I$GT$9inters
 38:                                               ; preds = %30
   call void @"_ZN5alloc3vec16Vec$LT$T$C$A$GT$5drain17hdb990528cb3e4ed7E"(ptr nonnull sret({ { ptr, ptr }, ptr, i64, i64 }) align 8 %3, ptr align 8 %0, i64 %11)
   call void @"_ZN4core3ptr89drop_in_place$LT$alloc..vec..drain..Drain$LT$regex_syntax..hir..ClassUnicodeRange$GT$$GT$17h67367bb7732bfcd9E"(ptr nonnull align 8 %3)
-  %39 = getelementptr inbounds { { { ptr, i64 }, i64 }, i8, [7 x i8] }, ptr %0, i64 0, i32 1
+  %39 = getelementptr inbounds i8, ptr %0, i64 24
   %40 = load i8, ptr %39, align 8, !range !7, !noundef !5
   %.not13 = icmp eq i8 %40, 0
   br i1 %.not13, label %44, label %41
@@ -832,7 +832,7 @@ define hidden void @"_ZN12regex_syntax3hir8interval20IntervalSet$LT$I$GT$9inters
   br label %25
 
 41:                                               ; preds = %38
-  %42 = getelementptr inbounds { { { ptr, i64 }, i64 }, i8, [7 x i8] }, ptr %1, i64 0, i32 1
+  %42 = getelementptr inbounds i8, ptr %1, i64 24
   %43 = load i8, ptr %42, align 8, !range !7, !noundef !5
   br label %44
 
@@ -860,11 +860,11 @@ define hidden void @"_ZN12regex_syntax3hir8interval20IntervalSet$LT$I$GT$9inters
 10:                                               ; preds = %7
   %11 = tail call i64 @"_ZN5alloc3vec16Vec$LT$T$C$A$GT$3len17h4ceb5468ca146ab0E"(ptr align 8 %0)
   store i64 0, ptr %5, align 8
-  %12 = getelementptr inbounds { i64, i64 }, ptr %5, i64 0, i32 1
+  %12 = getelementptr inbounds i8, ptr %5, i64 8
   store i64 %11, ptr %12, align 8
   %13 = tail call i64 @"_ZN5alloc3vec16Vec$LT$T$C$A$GT$3len17h4ceb5468ca146ab0E"(ptr align 8 %1)
   store i64 0, ptr %4, align 8
-  %14 = getelementptr inbounds { i64, i64 }, ptr %4, i64 0, i32 1
+  %14 = getelementptr inbounds i8, ptr %4, i64 8
   store i64 %13, ptr %14, align 8
   %15 = call { i64, i64 } @"_ZN4core4iter5range101_$LT$impl$u20$core..iter..traits..iterator..Iterator$u20$for$u20$core..ops..range..Range$LT$A$GT$$GT$4next17h3e2ead23d801baa3E"(ptr nonnull align 8 %5)
   %16 = extractvalue { i64, i64 } %15, 0
@@ -878,7 +878,7 @@ define hidden void @"_ZN12regex_syntax3hir8interval20IntervalSet$LT$I$GT$9inters
 
 23:                                               ; preds = %7
   tail call void @"_ZN5alloc3vec16Vec$LT$T$C$A$GT$5clear17hec88a8759518f573E"(ptr align 8 %0)
-  %24 = getelementptr inbounds { { { ptr, i64 }, i64 }, i8, [7 x i8] }, ptr %0, i64 0, i32 1
+  %24 = getelementptr inbounds i8, ptr %0, i64 24
   store i8 1, ptr %24, align 8
   br label %9
 
@@ -915,7 +915,7 @@ define hidden void @"_ZN12regex_syntax3hir8interval20IntervalSet$LT$I$GT$9inters
 39:                                               ; preds = %31
   call void @"_ZN5alloc3vec16Vec$LT$T$C$A$GT$5drain17h6989ae004f502eafE"(ptr nonnull sret({ { ptr, ptr }, ptr, i64, i64 }) align 8 %3, ptr align 8 %0, i64 %11)
   call void @"_ZN4core3ptr87drop_in_place$LT$alloc..vec..drain..Drain$LT$regex_syntax..hir..ClassBytesRange$GT$$GT$17hec9eacc719914310E"(ptr nonnull align 8 %3)
-  %40 = getelementptr inbounds { { { ptr, i64 }, i64 }, i8, [7 x i8] }, ptr %0, i64 0, i32 1
+  %40 = getelementptr inbounds i8, ptr %0, i64 24
   %41 = load i8, ptr %40, align 8, !range !7, !noundef !5
   %.not14 = icmp eq i8 %41, 0
   br i1 %.not14, label %45, label %42
@@ -927,7 +927,7 @@ define hidden void @"_ZN12regex_syntax3hir8interval20IntervalSet$LT$I$GT$9inters
   br label %25
 
 42:                                               ; preds = %39
-  %43 = getelementptr inbounds { { { ptr, i64 }, i64 }, i8, [7 x i8] }, ptr %1, i64 0, i32 1
+  %43 = getelementptr inbounds i8, ptr %1, i64 24
   %44 = load i8, ptr %43, align 8, !range !7, !noundef !5
   br label %45
 
@@ -958,8 +958,8 @@ define hidden void @"_ZN12regex_syntax3hir8interval20IntervalSet$LT$I$GT$10diffe
   br i1 %.not75, label %.preheader, label %.lr.ph.lr.ph
 
 .lr.ph.lr.ph:                                     ; preds = %10
-  %12 = getelementptr inbounds { i8, i8 }, ptr %5, i64 0, i32 1
-  %13 = getelementptr inbounds { i8, i8 }, ptr %4, i64 0, i32 1
+  %12 = getelementptr inbounds i8, ptr %5, i64 1
+  %13 = getelementptr inbounds i8, ptr %4, i64 1
   br label %.lr.ph
 
 .lr.ph:                                           ; preds = %.lr.ph.lr.ph, %.outer.backedge
@@ -989,7 +989,7 @@ define hidden void @"_ZN12regex_syntax3hir8interval20IntervalSet$LT$I$GT$10diffe
 ._crit_edge74:                                    ; preds = %.lr.ph73, %.preheader
   call void @"_ZN5alloc3vec16Vec$LT$T$C$A$GT$5drain17h6989ae004f502eafE"(ptr nonnull sret({ { ptr, ptr }, ptr, i64, i64 }) align 8 %3, ptr align 8 %0, i64 %11)
   call void @"_ZN4core3ptr87drop_in_place$LT$alloc..vec..drain..Drain$LT$regex_syntax..hir..ClassBytesRange$GT$$GT$17hec9eacc719914310E"(ptr nonnull align 8 %3)
-  %24 = getelementptr inbounds { { { ptr, i64 }, i64 }, i8, [7 x i8] }, ptr %0, i64 0, i32 1
+  %24 = getelementptr inbounds i8, ptr %0, i64 24
   %25 = load i8, ptr %24, align 8, !range !7, !noundef !5
   %.not = icmp eq i8 %25, 0
   br i1 %.not, label %34, label %31
@@ -998,7 +998,7 @@ define hidden void @"_ZN12regex_syntax3hir8interval20IntervalSet$LT$I$GT$10diffe
   %.172 = phi i64 [ %30, %.lr.ph73 ], [ %.0.lcssa, %.preheader ]
   %26 = call align 1 ptr @"_ZN81_$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$core..ops..index..Index$LT$I$GT$$GT$5index17hf5810e296eb7412cE"(ptr align 8 %0, i64 %.172, ptr nonnull align 8 @anon.5730b8ac6d1373450c164ab04b6a2ddd.8)
   %27 = load i8, ptr %26, align 1, !noundef !5
-  %28 = getelementptr inbounds { i8, i8 }, ptr %26, i64 0, i32 1
+  %28 = getelementptr inbounds i8, ptr %26, i64 1
   %29 = load i8, ptr %28, align 1, !noundef !5
   call void @"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17h1b156bfbc95161cfE"(ptr align 8 %0, i8 %27, i8 %29)
   %30 = add i64 %.172, 1
@@ -1006,7 +1006,7 @@ define hidden void @"_ZN12regex_syntax3hir8interval20IntervalSet$LT$I$GT$10diffe
   br i1 %exitcond.not, label %._crit_edge74, label %.lr.ph73
 
 31:                                               ; preds = %._crit_edge74
-  %32 = getelementptr inbounds { { { ptr, i64 }, i64 }, i8, [7 x i8] }, ptr %1, i64 0, i32 1
+  %32 = getelementptr inbounds i8, ptr %1, i64 24
   %33 = load i8, ptr %32, align 8, !range !7, !noundef !5
   br label %34
 
@@ -1042,7 +1042,7 @@ define hidden void @"_ZN12regex_syntax3hir8interval20IntervalSet$LT$I$GT$10diffe
 48:                                               ; preds = %35
   %49 = call align 1 ptr @"_ZN81_$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$core..ops..index..Index$LT$I$GT$$GT$5index17hf5810e296eb7412cE"(ptr align 8 %0, i64 %.058, ptr nonnull align 8 @anon.5730b8ac6d1373450c164ab04b6a2ddd.21)
   %50 = load i8, ptr %49, align 1, !noundef !5
-  %51 = getelementptr inbounds { i8, i8 }, ptr %49, i64 0, i32 1
+  %51 = getelementptr inbounds i8, ptr %49, i64 1
   %52 = load i8, ptr %51, align 1, !noundef !5
   call void @"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17h1b156bfbc95161cfE"(ptr align 8 %0, i8 %50, i8 %52)
   %53 = add nuw i64 %.058, 1
@@ -1052,7 +1052,7 @@ define hidden void @"_ZN12regex_syntax3hir8interval20IntervalSet$LT$I$GT$10diffe
 55:                                               ; preds = %44
   %56 = call align 1 ptr @"_ZN81_$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$core..ops..index..Index$LT$I$GT$$GT$5index17hf5810e296eb7412cE"(ptr align 8 %0, i64 %.058, ptr nonnull align 8 @anon.5730b8ac6d1373450c164ab04b6a2ddd.15)
   %57 = load i8, ptr %56, align 1, !noundef !5
-  %58 = getelementptr inbounds { i8, i8 }, ptr %56, i64 0, i32 1
+  %58 = getelementptr inbounds i8, ptr %56, i64 1
   %59 = load i8, ptr %58, align 1, !noundef !5
   store i8 %57, ptr %5, align 1
   store i8 %59, ptr %12, align 1
@@ -1153,10 +1153,10 @@ define hidden void @"_ZN12regex_syntax3hir8interval20IntervalSet$LT$I$GT$10diffe
   br i1 %.not66, label %.preheader, label %.lr.ph.lr.ph
 
 .lr.ph.lr.ph:                                     ; preds = %11
-  %13 = getelementptr inbounds { i32, i32 }, ptr %6, i64 0, i32 1
-  %14 = getelementptr inbounds { { i32, i32 }, { i32, i32 } }, ptr %4, i64 0, i32 1
-  %15 = getelementptr inbounds { i32, i32 }, ptr %4, i64 0, i32 1
-  %16 = getelementptr inbounds { { i32, i32 }, { i32, i32 } }, ptr %4, i64 0, i32 1, i32 1
+  %13 = getelementptr inbounds i8, ptr %6, i64 4
+  %14 = getelementptr inbounds i8, ptr %4, i64 8
+  %15 = getelementptr inbounds i8, ptr %4, i64 4
+  %16 = getelementptr inbounds i8, ptr %4, i64 12
   br label %.lr.ph
 
 .lr.ph:                                           ; preds = %.lr.ph.lr.ph, %.outer.backedge
@@ -1186,7 +1186,7 @@ define hidden void @"_ZN12regex_syntax3hir8interval20IntervalSet$LT$I$GT$10diffe
 ._crit_edge65:                                    ; preds = %.lr.ph64, %.preheader
   call void @"_ZN5alloc3vec16Vec$LT$T$C$A$GT$5drain17hdb990528cb3e4ed7E"(ptr nonnull sret({ { ptr, ptr }, ptr, i64, i64 }) align 8 %3, ptr align 8 %0, i64 %12)
   call void @"_ZN4core3ptr89drop_in_place$LT$alloc..vec..drain..Drain$LT$regex_syntax..hir..ClassUnicodeRange$GT$$GT$17h67367bb7732bfcd9E"(ptr nonnull align 8 %3)
-  %27 = getelementptr inbounds { { { ptr, i64 }, i64 }, i8, [7 x i8] }, ptr %0, i64 0, i32 1
+  %27 = getelementptr inbounds i8, ptr %0, i64 24
   %28 = load i8, ptr %27, align 8, !range !7, !noundef !5
   %.not = icmp eq i8 %28, 0
   br i1 %.not, label %37, label %34
@@ -1195,7 +1195,7 @@ define hidden void @"_ZN12regex_syntax3hir8interval20IntervalSet$LT$I$GT$10diffe
   %.163 = phi i64 [ %33, %.lr.ph64 ], [ %.0.lcssa, %.preheader ]
   %29 = call align 4 ptr @"_ZN81_$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$core..ops..index..Index$LT$I$GT$$GT$5index17h421d36b99b56fee2E"(ptr align 8 %0, i64 %.163, ptr nonnull align 8 @anon.5730b8ac6d1373450c164ab04b6a2ddd.8)
   %30 = load i32, ptr %29, align 4, !range !8, !noundef !5
-  %31 = getelementptr inbounds { i32, i32 }, ptr %29, i64 0, i32 1
+  %31 = getelementptr inbounds i8, ptr %29, i64 4
   %32 = load i32, ptr %31, align 4, !range !8, !noundef !5
   call void @"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17h94c6bf1db8a92336E"(ptr align 8 %0, i32 %30, i32 %32)
   %33 = add i64 %.163, 1
@@ -1203,7 +1203,7 @@ define hidden void @"_ZN12regex_syntax3hir8interval20IntervalSet$LT$I$GT$10diffe
   br i1 %exitcond.not, label %._crit_edge65, label %.lr.ph64
 
 34:                                               ; preds = %._crit_edge65
-  %35 = getelementptr inbounds { { { ptr, i64 }, i64 }, i8, [7 x i8] }, ptr %1, i64 0, i32 1
+  %35 = getelementptr inbounds i8, ptr %1, i64 24
   %36 = load i8, ptr %35, align 8, !range !7, !noundef !5
   br label %37
 
@@ -1239,7 +1239,7 @@ define hidden void @"_ZN12regex_syntax3hir8interval20IntervalSet$LT$I$GT$10diffe
 51:                                               ; preds = %38
   %52 = call align 4 ptr @"_ZN81_$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$core..ops..index..Index$LT$I$GT$$GT$5index17h421d36b99b56fee2E"(ptr align 8 %0, i64 %.049, ptr nonnull align 8 @anon.5730b8ac6d1373450c164ab04b6a2ddd.21)
   %53 = load i32, ptr %52, align 4, !range !8, !noundef !5
-  %54 = getelementptr inbounds { i32, i32 }, ptr %52, i64 0, i32 1
+  %54 = getelementptr inbounds i8, ptr %52, i64 4
   %55 = load i32, ptr %54, align 4, !range !8, !noundef !5
   call void @"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17h94c6bf1db8a92336E"(ptr align 8 %0, i32 %53, i32 %55)
   %56 = add nuw i64 %.049, 1
@@ -1325,9 +1325,9 @@ define hidden void @"_ZN12regex_syntax3hir8interval20IntervalSet$LT$I$GT$10diffe
 define hidden void @"_ZN12regex_syntax3hir8interval20IntervalSet$LT$I$GT$20symmetric_difference17h114740c59fd5e7e5E"(ptr align 8 %0, ptr align 8 %1) unnamed_addr #0 personality ptr @rust_eh_personality {
   %3 = alloca { { { ptr, i64 }, i64 }, i8, [7 x i8] }, align 8
   call void @"_ZN67_$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$core..clone..Clone$GT$5clone17hd062dccf31727c10E"(ptr nonnull sret({ { ptr, i64 }, i64 }) align 8 %3, ptr align 8 %0)
-  %4 = getelementptr inbounds { { { ptr, i64 }, i64 }, i8, [7 x i8] }, ptr %0, i64 0, i32 1
+  %4 = getelementptr inbounds i8, ptr %0, i64 24
   %5 = load i8, ptr %4, align 8, !range !7, !noundef !5
-  %6 = getelementptr inbounds { { { ptr, i64 }, i64 }, i8, [7 x i8] }, ptr %3, i64 0, i32 1
+  %6 = getelementptr inbounds i8, ptr %3, i64 24
   store i8 %5, ptr %6, align 8
   invoke void @"_ZN12regex_syntax3hir8interval20IntervalSet$LT$I$GT$9intersect17hca80e162d7df2b5bE"(ptr nonnull align 8 %3, ptr align 8 %1)
           to label %9 unwind label %7
@@ -1366,7 +1366,7 @@ define hidden void @"_ZN12regex_syntax3hir8interval20IntervalSet$LT$I$GT$20symme
   br i1 %.not.i, label %18, label %15
 
 15:                                               ; preds = %.noexc3
-  %16 = getelementptr inbounds { { { ptr, i64 }, i64 }, i8, [7 x i8] }, ptr %1, i64 0, i32 1
+  %16 = getelementptr inbounds i8, ptr %1, i64 24
   %17 = load i8, ptr %16, align 8, !range !7, !noundef !5
   br label %18
 
@@ -1397,9 +1397,9 @@ define hidden void @"_ZN12regex_syntax3hir8interval20IntervalSet$LT$I$GT$20symme
 define hidden void @"_ZN12regex_syntax3hir8interval20IntervalSet$LT$I$GT$20symmetric_difference17h58fb49efdf93a7a0E"(ptr align 8 %0, ptr align 8 %1) unnamed_addr #0 personality ptr @rust_eh_personality {
   %3 = alloca { { { ptr, i64 }, i64 }, i8, [7 x i8] }, align 8
   call void @"_ZN67_$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$core..clone..Clone$GT$5clone17h4bab0186503ce3fdE"(ptr nonnull sret({ { ptr, i64 }, i64 }) align 8 %3, ptr align 8 %0)
-  %4 = getelementptr inbounds { { { ptr, i64 }, i64 }, i8, [7 x i8] }, ptr %0, i64 0, i32 1
+  %4 = getelementptr inbounds i8, ptr %0, i64 24
   %5 = load i8, ptr %4, align 8, !range !7, !noundef !5
-  %6 = getelementptr inbounds { { { ptr, i64 }, i64 }, i8, [7 x i8] }, ptr %3, i64 0, i32 1
+  %6 = getelementptr inbounds i8, ptr %3, i64 24
   store i8 %5, ptr %6, align 8
   invoke void @"_ZN12regex_syntax3hir8interval20IntervalSet$LT$I$GT$9intersect17h7e6c10e1e4556bf5E"(ptr nonnull align 8 %3, ptr align 8 %1)
           to label %9 unwind label %7
@@ -1438,7 +1438,7 @@ define hidden void @"_ZN12regex_syntax3hir8interval20IntervalSet$LT$I$GT$20symme
   br i1 %.not.i, label %18, label %15
 
 15:                                               ; preds = %.noexc3
-  %16 = getelementptr inbounds { { { ptr, i64 }, i64 }, i8, [7 x i8] }, ptr %1, i64 0, i32 1
+  %16 = getelementptr inbounds i8, ptr %1, i64 24
   %17 = load i8, ptr %16, align 8, !range !7, !noundef !5
   br label %18
 
@@ -1487,7 +1487,7 @@ define hidden void @"_ZN12regex_syntax3hir8interval20IntervalSet$LT$I$GT$6negate
   %15 = extractvalue { i8, i8 } %14, 0
   %16 = extractvalue { i8, i8 } %14, 1
   tail call void @"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17h1b156bfbc95161cfE"(ptr align 8 %0, i8 %15, i8 %16)
-  %17 = getelementptr inbounds { { { ptr, i64 }, i64 }, i8, [7 x i8] }, ptr %0, i64 0, i32 1
+  %17 = getelementptr inbounds i8, ptr %0, i64 24
   store i8 1, ptr %17, align 8
   br label %60
 
@@ -1496,7 +1496,7 @@ define hidden void @"_ZN12regex_syntax3hir8interval20IntervalSet$LT$I$GT$6negate
   %20 = extractvalue { i64, i64 } %19, 0
   %21 = extractvalue { i64, i64 } %19, 1
   store i64 %20, ptr %3, align 8
-  %22 = getelementptr inbounds { i64, i64 }, ptr %3, i64 0, i32 1
+  %22 = getelementptr inbounds i8, ptr %3, i64 8
   store i64 %21, ptr %22, align 8
   %23 = call { i64, i64 } @"_ZN4core4iter5range101_$LT$impl$u20$core..iter..traits..iterator..Iterator$u20$for$u20$core..ops..range..Range$LT$A$GT$$GT$4next17h3e2ead23d801baa3E"(ptr nonnull align 8 %3)
   %.fca.0.extract8 = extractvalue { i64, i64 } %23, 0
@@ -1583,7 +1583,7 @@ define hidden void @"_ZN12regex_syntax3hir8interval20IntervalSet$LT$I$GT$6negate
   %15 = extractvalue { i32, i32 } %14, 0
   %16 = extractvalue { i32, i32 } %14, 1
   tail call void @"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17h94c6bf1db8a92336E"(ptr align 8 %0, i32 %15, i32 %16)
-  %17 = getelementptr inbounds { { { ptr, i64 }, i64 }, i8, [7 x i8] }, ptr %0, i64 0, i32 1
+  %17 = getelementptr inbounds i8, ptr %0, i64 24
   store i8 1, ptr %17, align 8
   br label %60
 
@@ -1592,7 +1592,7 @@ define hidden void @"_ZN12regex_syntax3hir8interval20IntervalSet$LT$I$GT$6negate
   %20 = extractvalue { i64, i64 } %19, 0
   %21 = extractvalue { i64, i64 } %19, 1
   store i64 %20, ptr %3, align 8
-  %22 = getelementptr inbounds { i64, i64 }, ptr %3, i64 0, i32 1
+  %22 = getelementptr inbounds i8, ptr %3, i64 8
   store i64 %21, ptr %22, align 8
   %23 = call { i64, i64 } @"_ZN4core4iter5range101_$LT$impl$u20$core..iter..traits..iterator..Iterator$u20$for$u20$core..ops..range..Range$LT$A$GT$$GT$4next17h3e2ead23d801baa3E"(ptr nonnull align 8 %3)
   %.fca.0.extract8 = extractvalue { i64, i64 } %23, 0
@@ -1683,7 +1683,7 @@ define void @"_ZN12regex_syntax3hir8interval20IntervalSet$LT$I$GT$12canonicalize
   %16 = extractvalue { i64, i64 } %15, 0
   %17 = extractvalue { i64, i64 } %15, 1
   store i64 %16, ptr %5, align 8
-  %18 = getelementptr inbounds { i64, i64 }, ptr %5, i64 0, i32 1
+  %18 = getelementptr inbounds i8, ptr %5, i64 8
   store i64 %17, ptr %18, align 8
   %19 = call { i64, i64 } @"_ZN4core4iter5range101_$LT$impl$u20$core..iter..traits..iterator..Iterator$u20$for$u20$core..ops..range..Range$LT$A$GT$$GT$4next17h3e2ead23d801baa3E"(ptr nonnull align 8 %5)
   %.fca.0.extract13 = extractvalue { i64, i64 } %19, 0
@@ -1691,8 +1691,8 @@ define void @"_ZN12regex_syntax3hir8interval20IntervalSet$LT$I$GT$12canonicalize
   br i1 %20, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %13
-  %21 = getelementptr inbounds { ptr, { ptr, i64 } }, ptr %4, i64 0, i32 1, i32 1
-  %22 = getelementptr inbounds { ptr, { ptr, i64 } }, ptr %4, i64 0, i32 1
+  %21 = getelementptr inbounds i8, ptr %4, i64 16
+  %22 = getelementptr inbounds i8, ptr %4, i64 8
   br label %24
 
 23:                                               ; preds = %7
@@ -1714,7 +1714,7 @@ define void @"_ZN12regex_syntax3hir8interval20IntervalSet$LT$I$GT$12canonicalize
 27:                                               ; preds = %41, %24
   %28 = call align 4 ptr @"_ZN81_$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$core..ops..index..Index$LT$I$GT$$GT$5index17h421d36b99b56fee2E"(ptr align 8 %0, i64 %.fca.1.extract15, ptr nonnull align 8 @anon.5730b8ac6d1373450c164ab04b6a2ddd.30)
   %29 = load i32, ptr %28, align 4, !range !8, !noundef !5
-  %30 = getelementptr inbounds { i32, i32 }, ptr %28, i64 0, i32 1
+  %30 = getelementptr inbounds i8, ptr %28, i64 4
   %31 = load i32, ptr %30, align 4, !range !8, !noundef !5
   call void @"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17h94c6bf1db8a92336E"(ptr align 8 %0, i32 %29, i32 %31)
   br label %.backedge
@@ -1751,7 +1751,7 @@ define void @"_ZN12regex_syntax3hir8interval20IntervalSet$LT$I$GT$12canonicalize
 46:                                               ; preds = %41
   %.fca.1.extract4 = extractvalue { i32, i32 } %44, 1
   store i32 %.fca.0.extract3, ptr %38, align 4
-  %47 = getelementptr inbounds { i32, i32 }, ptr %38, i64 0, i32 1
+  %47 = getelementptr inbounds i8, ptr %38, i64 4
   store i32 %.fca.1.extract4, ptr %47, align 4
   br label %.backedge
 }
@@ -1782,7 +1782,7 @@ define void @"_ZN12regex_syntax3hir8interval20IntervalSet$LT$I$GT$12canonicalize
   %16 = extractvalue { i64, i64 } %15, 0
   %17 = extractvalue { i64, i64 } %15, 1
   store i64 %16, ptr %5, align 8
-  %18 = getelementptr inbounds { i64, i64 }, ptr %5, i64 0, i32 1
+  %18 = getelementptr inbounds i8, ptr %5, i64 8
   store i64 %17, ptr %18, align 8
   %19 = call { i64, i64 } @"_ZN4core4iter5range101_$LT$impl$u20$core..iter..traits..iterator..Iterator$u20$for$u20$core..ops..range..Range$LT$A$GT$$GT$4next17h3e2ead23d801baa3E"(ptr nonnull align 8 %5)
   %.fca.0.extract14 = extractvalue { i64, i64 } %19, 0
@@ -1790,8 +1790,8 @@ define void @"_ZN12regex_syntax3hir8interval20IntervalSet$LT$I$GT$12canonicalize
   br i1 %20, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %13
-  %21 = getelementptr inbounds { ptr, { ptr, i64 } }, ptr %4, i64 0, i32 1, i32 1
-  %22 = getelementptr inbounds { ptr, { ptr, i64 } }, ptr %4, i64 0, i32 1
+  %21 = getelementptr inbounds i8, ptr %4, i64 16
+  %22 = getelementptr inbounds i8, ptr %4, i64 8
   br label %24
 
 23:                                               ; preds = %7
@@ -1813,7 +1813,7 @@ define void @"_ZN12regex_syntax3hir8interval20IntervalSet$LT$I$GT$12canonicalize
 27:                                               ; preds = %41, %24
   %28 = call align 1 ptr @"_ZN81_$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$core..ops..index..Index$LT$I$GT$$GT$5index17hf5810e296eb7412cE"(ptr align 8 %0, i64 %.fca.1.extract16, ptr nonnull align 8 @anon.5730b8ac6d1373450c164ab04b6a2ddd.30)
   %29 = load i8, ptr %28, align 1, !noundef !5
-  %30 = getelementptr inbounds { i8, i8 }, ptr %28, i64 0, i32 1
+  %30 = getelementptr inbounds i8, ptr %28, i64 1
   %31 = load i8, ptr %30, align 1, !noundef !5
   call void @"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17h1b156bfbc95161cfE"(ptr align 8 %0, i8 %29, i8 %31)
   br label %.backedge
@@ -1853,7 +1853,7 @@ define void @"_ZN12regex_syntax3hir8interval20IntervalSet$LT$I$GT$12canonicalize
   %.sroa.27.0.extract.shift = lshr i24 %44, 8
   %.sroa.27.0.extract.trunc = trunc i24 %.sroa.27.0.extract.shift to i8
   store i8 %.sroa.27.0.extract.trunc, ptr %38, align 1
-  %48 = getelementptr inbounds { i8, i8 }, ptr %38, i64 0, i32 1
+  %48 = getelementptr inbounds i8, ptr %38, i64 1
   store i8 %.sroa.38.0.extract.trunc, ptr %48, align 1
   br label %.backedge
 }
@@ -1892,7 +1892,7 @@ define noundef zeroext i1 @"_ZN12regex_syntax3hir8interval20IntervalSet$LT$I$GT$
   unreachable
 
 14:                                               ; preds = %11
-  %15 = getelementptr inbounds [0 x { i8, i8 }], ptr %.fca.0.extract, i64 0, i64 1
+  %15 = getelementptr inbounds i8, ptr %.fca.0.extract, i64 2
   %16 = call zeroext i1 @_ZN4core3cmp10PartialOrd2ge17hb740de1f493fcd40E(ptr nonnull align 1 %.fca.0.extract, ptr nonnull align 1 %15)
   br i1 %16, label %12, label %18
 
@@ -1939,7 +1939,7 @@ define noundef zeroext i1 @"_ZN12regex_syntax3hir8interval20IntervalSet$LT$I$GT$
   unreachable
 
 14:                                               ; preds = %11
-  %15 = getelementptr inbounds [0 x { i32, i32 }], ptr %.fca.0.extract, i64 0, i64 1
+  %15 = getelementptr inbounds i8, ptr %.fca.0.extract, i64 8
   %16 = call zeroext i1 @_ZN4core3cmp10PartialOrd2ge17he47f7e1fd1580c8cE(ptr nonnull align 4 %.fca.0.extract, ptr nonnull align 4 %15)
   br i1 %16, label %12, label %18
 
@@ -1968,10 +1968,10 @@ define align 4 ptr @"_ZN112_$LT$regex_syntax..hir..interval..IntervalSetIter$LT$
 define void @"_ZN88_$LT$regex_syntax..hir..interval..IntervalSet$LT$I$GT$$u20$as$u20$core..clone..Clone$GT$5clone17h7ea0f538ceecb1acE"(ptr nocapture writeonly sret({ { { ptr, i64 }, i64 }, i8, [7 x i8] }) align 8 %0, ptr align 8 %1) unnamed_addr #1 {
   %3 = alloca { { ptr, i64 }, i64 }, align 8
   call void @"_ZN67_$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$core..clone..Clone$GT$5clone17hd062dccf31727c10E"(ptr nonnull sret({ { ptr, i64 }, i64 }) align 8 %3, ptr align 8 %1)
-  %4 = getelementptr inbounds { { { ptr, i64 }, i64 }, i8, [7 x i8] }, ptr %1, i64 0, i32 1
+  %4 = getelementptr inbounds i8, ptr %1, i64 24
   %5 = load i8, ptr %4, align 8, !range !7, !noundef !5
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr noundef nonnull align 8 dereferenceable(24) %3, i64 24, i1 false)
-  %6 = getelementptr inbounds { { { ptr, i64 }, i64 }, i8, [7 x i8] }, ptr %0, i64 0, i32 1
+  %6 = getelementptr inbounds i8, ptr %0, i64 24
   store i8 %5, ptr %6, align 8
   ret void
 }
@@ -1980,10 +1980,10 @@ define void @"_ZN88_$LT$regex_syntax..hir..interval..IntervalSet$LT$I$GT$$u20$as
 define void @"_ZN88_$LT$regex_syntax..hir..interval..IntervalSet$LT$I$GT$$u20$as$u20$core..clone..Clone$GT$5clone17hef57531f8926cc1cE"(ptr nocapture writeonly sret({ { { ptr, i64 }, i64 }, i8, [7 x i8] }) align 8 %0, ptr align 8 %1) unnamed_addr #1 {
   %3 = alloca { { ptr, i64 }, i64 }, align 8
   call void @"_ZN67_$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$core..clone..Clone$GT$5clone17h4bab0186503ce3fdE"(ptr nonnull sret({ { ptr, i64 }, i64 }) align 8 %3, ptr align 8 %1)
-  %4 = getelementptr inbounds { { { ptr, i64 }, i64 }, i8, [7 x i8] }, ptr %1, i64 0, i32 1
+  %4 = getelementptr inbounds i8, ptr %1, i64 24
   %5 = load i8, ptr %4, align 8, !range !7, !noundef !5
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr noundef nonnull align 8 dereferenceable(24) %3, i64 24, i1 false)
-  %6 = getelementptr inbounds { { { ptr, i64 }, i64 }, i8, [7 x i8] }, ptr %0, i64 0, i32 1
+  %6 = getelementptr inbounds i8, ptr %0, i64 24
   store i8 %5, ptr %6, align 8
   ret void
 }
@@ -1991,7 +1991,7 @@ define void @"_ZN88_$LT$regex_syntax..hir..interval..IntervalSet$LT$I$GT$$u20$as
 ; Function Attrs: inlinehint nonlazybind uwtable
 define zeroext i1 @"_ZN86_$LT$regex_syntax..hir..interval..IntervalSet$LT$I$GT$$u20$as$u20$core..fmt..Debug$GT$3fmt17h558ea77cc924221cE"(ptr align 8 %0, ptr align 8 %1) unnamed_addr #1 {
   %3 = alloca ptr, align 8
-  %4 = getelementptr inbounds { { { ptr, i64 }, i64 }, i8, [7 x i8] }, ptr %0, i64 0, i32 1
+  %4 = getelementptr inbounds i8, ptr %0, i64 24
   store ptr %4, ptr %3, align 8
   %5 = call zeroext i1 @_ZN4core3fmt9Formatter26debug_struct_field2_finish17h976633cb9325d9dfE(ptr align 8 %1, ptr nonnull align 1 @anon.5730b8ac6d1373450c164ab04b6a2ddd.38, i64 11, ptr nonnull align 1 @anon.5730b8ac6d1373450c164ab04b6a2ddd.39, i64 6, ptr align 1 %0, ptr nonnull align 8 @anon.5730b8ac6d1373450c164ab04b6a2ddd.40, ptr nonnull align 1 @anon.5730b8ac6d1373450c164ab04b6a2ddd.41, i64 6, ptr nonnull align 1 %3, ptr nonnull align 8 @anon.5730b8ac6d1373450c164ab04b6a2ddd.42)
   ret i1 %5
@@ -2000,7 +2000,7 @@ define zeroext i1 @"_ZN86_$LT$regex_syntax..hir..interval..IntervalSet$LT$I$GT$$
 ; Function Attrs: inlinehint nonlazybind uwtable
 define zeroext i1 @"_ZN86_$LT$regex_syntax..hir..interval..IntervalSet$LT$I$GT$$u20$as$u20$core..fmt..Debug$GT$3fmt17hc56e5e6c06da0f22E"(ptr align 8 %0, ptr align 8 %1) unnamed_addr #1 {
   %3 = alloca ptr, align 8
-  %4 = getelementptr inbounds { { { ptr, i64 }, i64 }, i8, [7 x i8] }, ptr %0, i64 0, i32 1
+  %4 = getelementptr inbounds i8, ptr %0, i64 24
   store ptr %4, ptr %3, align 8
   %5 = call zeroext i1 @_ZN4core3fmt9Formatter26debug_struct_field2_finish17h976633cb9325d9dfE(ptr align 8 %1, ptr nonnull align 1 @anon.5730b8ac6d1373450c164ab04b6a2ddd.38, i64 11, ptr nonnull align 1 @anon.5730b8ac6d1373450c164ab04b6a2ddd.39, i64 6, ptr align 1 %0, ptr nonnull align 8 @anon.5730b8ac6d1373450c164ab04b6a2ddd.43, ptr nonnull align 1 @anon.5730b8ac6d1373450c164ab04b6a2ddd.41, i64 6, ptr nonnull align 1 %3, ptr nonnull align 8 @anon.5730b8ac6d1373450c164ab04b6a2ddd.42)
   ret i1 %5

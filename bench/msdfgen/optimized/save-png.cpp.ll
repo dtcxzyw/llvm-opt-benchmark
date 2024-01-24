@@ -3,13 +3,7 @@ source_filename = "bench/msdfgen/original/save-png.cpp.ll"
 target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:128-n8:16:32:64-S128"
 target triple = "x86_64-unknown-linux-gnu"
 
-%"struct.msdfgen::BitmapConstRef" = type { ptr, i32, i32 }
 %"class.msdfgen::PngGuard" = type { ptr, ptr, ptr }
-%"struct.msdfgen::BitmapConstRef.0" = type { ptr, i32, i32 }
-%"struct.msdfgen::BitmapConstRef.1" = type { ptr, i32, i32 }
-%"struct.msdfgen::BitmapConstRef.2" = type { ptr, i32, i32 }
-%"struct.msdfgen::BitmapConstRef.3" = type { ptr, i32, i32 }
-%"struct.msdfgen::BitmapConstRef.4" = type { ptr, i32, i32 }
 
 $_ZN7msdfgen8PngGuardD2Ev = comdat any
 
@@ -24,9 +18,9 @@ $__clang_call_terminate = comdat any
 define dso_local noundef zeroext i1 @_ZN7msdfgen7savePngERKNS_14BitmapConstRefIhLi1EEEPKc(ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %bitmap, ptr nocapture noundef readonly %filename) local_unnamed_addr #0 {
 entry:
   %0 = load ptr, ptr %bitmap, align 8
-  %width = getelementptr inbounds %"struct.msdfgen::BitmapConstRef", ptr %bitmap, i64 0, i32 1
+  %width = getelementptr inbounds i8, ptr %bitmap, i64 8
   %1 = load i32, ptr %width, align 8
-  %height = getelementptr inbounds %"struct.msdfgen::BitmapConstRef", ptr %bitmap, i64 0, i32 2
+  %height = getelementptr inbounds i8, ptr %bitmap, i64 12
   %2 = load i32, ptr %height, align 4
   %call = tail call fastcc noundef zeroext i1 @_ZN7msdfgenL7pngSaveEPKhiiiiPKc(ptr noundef %0, i32 noundef %1, i32 noundef %2, i32 noundef 1, i32 noundef 0, ptr noundef %filename)
   ret i1 %call
@@ -51,9 +45,9 @@ if.end:                                           ; preds = %entry
 if.end6:                                          ; preds = %if.end
   %call7 = call noalias ptr @png_create_info_struct(ptr noundef nonnull %call)
   store ptr %call, ptr %guard, align 8
-  %info3.i = getelementptr inbounds %"class.msdfgen::PngGuard", ptr %guard, i64 0, i32 1
+  %info3.i = getelementptr inbounds i8, ptr %guard, i64 8
   store ptr %call7, ptr %info3.i, align 8
-  %file.i = getelementptr inbounds %"class.msdfgen::PngGuard", ptr %guard, i64 0, i32 2
+  %file.i = getelementptr inbounds i8, ptr %guard, i64 16
   store ptr null, ptr %file.i, align 8
   %tobool8.not = icmp eq ptr %call7, null
   br i1 %tobool8.not, label %cleanup35, label %if.end10
@@ -87,7 +81,7 @@ call5.i.i.i.i2.i.i.noexc:                         ; preds = %if.then.i.i.i.i.i
   br i1 %cmp.i.i.i.i.i.i.i, label %for.body.lr.ph, label %if.end.i.i.i.i.i.i.i
 
 if.end.i.i.i.i.i.i.i:                             ; preds = %call5.i.i.i.i2.i.i.noexc
-  %incdec.ptr.i.i.i.i.i = getelementptr ptr, ptr %call5.i.i.i.i2.i.i27, i64 1
+  %incdec.ptr.i.i.i.i.i = getelementptr i8, ptr %call5.i.i.i.i2.i.i27, i64 8
   %0 = add nsw i64 %mul.i.i.i.i.i.i, -8
   call void @llvm.memset.p0.i64(ptr align 8 %incdec.ptr.i.i.i.i.i, i8 0, i64 %0, i1 false)
   br label %for.body.lr.ph
@@ -186,9 +180,9 @@ return:                                           ; preds = %if.end, %entry, %_Z
 define dso_local noundef zeroext i1 @_ZN7msdfgen7savePngERKNS_14BitmapConstRefIhLi3EEEPKc(ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %bitmap, ptr nocapture noundef readonly %filename) local_unnamed_addr #0 {
 entry:
   %0 = load ptr, ptr %bitmap, align 8
-  %width = getelementptr inbounds %"struct.msdfgen::BitmapConstRef.0", ptr %bitmap, i64 0, i32 1
+  %width = getelementptr inbounds i8, ptr %bitmap, i64 8
   %1 = load i32, ptr %width, align 8
-  %height = getelementptr inbounds %"struct.msdfgen::BitmapConstRef.0", ptr %bitmap, i64 0, i32 2
+  %height = getelementptr inbounds i8, ptr %bitmap, i64 12
   %2 = load i32, ptr %height, align 4
   %call = tail call fastcc noundef zeroext i1 @_ZN7msdfgenL7pngSaveEPKhiiiiPKc(ptr noundef %0, i32 noundef %1, i32 noundef %2, i32 noundef 3, i32 noundef 2, ptr noundef %filename)
   ret i1 %call
@@ -198,9 +192,9 @@ entry:
 define dso_local noundef zeroext i1 @_ZN7msdfgen7savePngERKNS_14BitmapConstRefIhLi4EEEPKc(ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %bitmap, ptr nocapture noundef readonly %filename) local_unnamed_addr #0 {
 entry:
   %0 = load ptr, ptr %bitmap, align 8
-  %width = getelementptr inbounds %"struct.msdfgen::BitmapConstRef.1", ptr %bitmap, i64 0, i32 1
+  %width = getelementptr inbounds i8, ptr %bitmap, i64 8
   %1 = load i32, ptr %width, align 8
-  %height = getelementptr inbounds %"struct.msdfgen::BitmapConstRef.1", ptr %bitmap, i64 0, i32 2
+  %height = getelementptr inbounds i8, ptr %bitmap, i64 12
   %2 = load i32, ptr %height, align 4
   %call = tail call fastcc noundef zeroext i1 @_ZN7msdfgenL7pngSaveEPKhiiiiPKc(ptr noundef %0, i32 noundef %1, i32 noundef %2, i32 noundef 4, i32 noundef 6, ptr noundef %filename)
   ret i1 %call
@@ -210,9 +204,9 @@ entry:
 define dso_local noundef zeroext i1 @_ZN7msdfgen7savePngERKNS_14BitmapConstRefIfLi1EEEPKc(ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %bitmap, ptr nocapture noundef readonly %filename) local_unnamed_addr #0 {
 entry:
   %0 = load ptr, ptr %bitmap, align 8
-  %width = getelementptr inbounds %"struct.msdfgen::BitmapConstRef.2", ptr %bitmap, i64 0, i32 1
+  %width = getelementptr inbounds i8, ptr %bitmap, i64 8
   %1 = load i32, ptr %width, align 8
-  %height = getelementptr inbounds %"struct.msdfgen::BitmapConstRef.2", ptr %bitmap, i64 0, i32 2
+  %height = getelementptr inbounds i8, ptr %bitmap, i64 12
   %2 = load i32, ptr %height, align 4
   %call = tail call fastcc noundef zeroext i1 @_ZN7msdfgenL7pngSaveEPKfiiiiPKc(ptr noundef %0, i32 noundef %1, i32 noundef %2, i32 noundef 1, i32 noundef 0, ptr noundef %filename)
   ret i1 %call
@@ -317,9 +311,9 @@ eh.resume:                                        ; preds = %if.then.i.i.i, %lpa
 define dso_local noundef zeroext i1 @_ZN7msdfgen7savePngERKNS_14BitmapConstRefIfLi3EEEPKc(ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %bitmap, ptr nocapture noundef readonly %filename) local_unnamed_addr #0 {
 entry:
   %0 = load ptr, ptr %bitmap, align 8
-  %width = getelementptr inbounds %"struct.msdfgen::BitmapConstRef.3", ptr %bitmap, i64 0, i32 1
+  %width = getelementptr inbounds i8, ptr %bitmap, i64 8
   %1 = load i32, ptr %width, align 8
-  %height = getelementptr inbounds %"struct.msdfgen::BitmapConstRef.3", ptr %bitmap, i64 0, i32 2
+  %height = getelementptr inbounds i8, ptr %bitmap, i64 12
   %2 = load i32, ptr %height, align 4
   %call = tail call fastcc noundef zeroext i1 @_ZN7msdfgenL7pngSaveEPKfiiiiPKc(ptr noundef %0, i32 noundef %1, i32 noundef %2, i32 noundef 3, i32 noundef 2, ptr noundef %filename)
   ret i1 %call
@@ -329,9 +323,9 @@ entry:
 define dso_local noundef zeroext i1 @_ZN7msdfgen7savePngERKNS_14BitmapConstRefIfLi4EEEPKc(ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %bitmap, ptr nocapture noundef readonly %filename) local_unnamed_addr #0 {
 entry:
   %0 = load ptr, ptr %bitmap, align 8
-  %width = getelementptr inbounds %"struct.msdfgen::BitmapConstRef.4", ptr %bitmap, i64 0, i32 1
+  %width = getelementptr inbounds i8, ptr %bitmap, i64 8
   %1 = load i32, ptr %width, align 8
-  %height = getelementptr inbounds %"struct.msdfgen::BitmapConstRef.4", ptr %bitmap, i64 0, i32 2
+  %height = getelementptr inbounds i8, ptr %bitmap, i64 12
   %2 = load i32, ptr %height, align 4
   %call = tail call fastcc noundef zeroext i1 @_ZN7msdfgenL7pngSaveEPKfiiiiPKc(ptr noundef %0, i32 noundef %1, i32 noundef %2, i32 noundef 4, i32 noundef 6, ptr noundef %filename)
   ret i1 %call
@@ -397,12 +391,12 @@ declare void @png_write_png(ptr noundef, ptr noundef, i32 noundef, ptr noundef) 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr dso_local void @_ZN7msdfgen8PngGuardD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %this) unnamed_addr #6 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  %info = getelementptr inbounds %"class.msdfgen::PngGuard", ptr %this, i64 0, i32 1
+  %info = getelementptr inbounds i8, ptr %this, i64 8
   invoke void @png_destroy_write_struct(ptr noundef nonnull %this, ptr noundef nonnull %info)
           to label %invoke.cont unwind label %terminate.lpad
 
 invoke.cont:                                      ; preds = %entry
-  %file = getelementptr inbounds %"class.msdfgen::PngGuard", ptr %this, i64 0, i32 2
+  %file = getelementptr inbounds i8, ptr %this, i64 16
   %0 = load ptr, ptr %file, align 8
   %call = tail call i32 @fclose(ptr noundef %0)
   ret void

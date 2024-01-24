@@ -27,9 +27,9 @@ define void @_ZN14regex_automata4util11interpolate6string17hcbee1d873cf67c98E(pt
   br i1 %9, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %5
-  %10 = getelementptr inbounds { [1 x i64], { { ptr, [1 x i64] }, i64 } }, ptr %6, i64 0, i32 1
-  %.sroa.3.0..sroa_idx = getelementptr inbounds { [1 x i64], { { ptr, [1 x i64] }, i64 } }, ptr %6, i64 0, i32 1, i32 0, i32 1
-  %.sroa.5.0..sroa_idx = getelementptr inbounds { [1 x i64], { { ptr, [1 x i64] }, i64 } }, ptr %6, i64 0, i32 1, i32 1
+  %10 = getelementptr inbounds i8, ptr %6, i64 8
+  %.sroa.3.0..sroa_idx = getelementptr inbounds i8, ptr %6, i64 16
+  %.sroa.5.0..sroa_idx = getelementptr inbounds i8, ptr %6, i64 24
   %11 = icmp ne ptr %4, null
   br label %12
 
@@ -131,9 +131,9 @@ define void @_ZN14regex_automata4util11interpolate5bytes17h4e7bda715f88b051E(ptr
   br i1 %9, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %5
-  %10 = getelementptr inbounds { [1 x i64], { { ptr, [1 x i64] }, i64 } }, ptr %6, i64 0, i32 1
-  %.sroa.3.0..sroa_idx = getelementptr inbounds { [1 x i64], { { ptr, [1 x i64] }, i64 } }, ptr %6, i64 0, i32 1, i32 0, i32 1
-  %.sroa.5.0..sroa_idx = getelementptr inbounds { [1 x i64], { { ptr, [1 x i64] }, i64 } }, ptr %6, i64 0, i32 1, i32 1
+  %10 = getelementptr inbounds i8, ptr %6, i64 8
+  %.sroa.3.0..sroa_idx = getelementptr inbounds i8, ptr %6, i64 16
+  %.sroa.5.0..sroa_idx = getelementptr inbounds i8, ptr %6, i64 24
   %11 = icmp ne ptr %4, null
   br label %12
 

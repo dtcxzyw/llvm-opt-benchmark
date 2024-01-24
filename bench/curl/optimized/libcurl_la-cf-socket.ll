@@ -4,64 +4,13 @@ target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:
 target triple = "x86_64-unknown-linux-gnu"
 
 %struct.Curl_cftype = type { ptr, i32, i32, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr }
-%struct.Curl_addrinfo = type { i32, i32, i32, i32, i32, ptr, ptr, ptr }
 %struct.Curl_sockaddr_ex = type { i32, i32, i32, i32, %union.anon }
 %union.anon = type { %struct.Curl_sockaddr_storage }
 %struct.Curl_sockaddr_storage = type { %union.anon.0 }
 %union.anon.0 = type { %struct.sockaddr_storage }
 %struct.sockaddr_storage = type { i16, [118 x i8], i64 }
-%struct.Curl_easy = type { i32, i64, ptr, ptr, ptr, %struct.Curl_llist_element, %struct.Curl_llist_element, i32, i32, %struct.Curl_message, %struct.easy_pollset, %struct.Names, ptr, ptr, ptr, ptr, %struct.SingleRequest, %struct.UserDefined, ptr, ptr, ptr, %struct.Progress, %struct.UrlState, ptr, %struct.PureInfo, %struct.curl_tlssessioninfo }
-%struct.Curl_llist_element = type { ptr, ptr, ptr }
-%struct.Curl_message = type { %struct.Curl_llist_element, %struct.CURLMsg }
-%struct.CURLMsg = type { i32, ptr, %union.anon.3 }
-%union.anon.3 = type { ptr }
-%struct.easy_pollset = type { [5 x i32], i32, [5 x i8] }
-%struct.Names = type { ptr, i32 }
-%struct.SingleRequest = type <{ i64, i64, i64, i64, i64, %struct.curltime, i32, i32, i32, i32, i64, i32, i32, %struct.curltime, i32, i32, ptr, i64, i64, ptr, ptr, i64, ptr, %union.anon.4, ptr, [2 x i8], i8, i16, [3 x i8] }>
-%struct.curltime = type { i64, i32 }
-%union.anon.4 = type { ptr }
-%struct.UserDefined = type <{ ptr, ptr, ptr, ptr, ptr, ptr, i16, [6 x i8], i64, i64, i64, ptr, ptr, i64, i16, i16, [4 x i8], ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, i32, i32, i32, i32, i64, i64, i64, i64, i64, i64, i64, i64, i64, ptr, ptr, %struct.curl_mimepart, ptr, ptr, ptr, i64, i8, i8, i8, [5 x i8], %struct.ssl_config_data, %struct.ssl_config_data, ptr, i16, i8, i8, [4 x i8], %struct.ssl_general_config, i32, i32, i32, [4 x i8], ptr, ptr, i8, [7 x i8], i64, i8, i8, i8, i8, i32, ptr, ptr, ptr, i8, i8, [2 x i8], i32, [80 x ptr], [8 x ptr], i32, i32, i32, [4 x i8], ptr, i32, [4 x i8], ptr, ptr, ptr, ptr, ptr, i8, [3 x i8], i32, i32, [4 x i8], i64, ptr, ptr, i64, ptr, ptr, ptr, ptr, ptr, i8, [7 x i8], ptr, i8, [3 x i8], i32, i8, i8, i56, [6 x i8] }>
-%struct.curl_mimepart = type { ptr, ptr, i32, i32, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, i64, %struct.mime_state, ptr, %struct.mime_encoder_state, i64 }
-%struct.mime_state = type { i32, ptr, i64 }
-%struct.mime_encoder_state = type { i64, i64, i64, [256 x i8] }
-%struct.ssl_config_data = type { %struct.ssl_primary_config, i64, ptr, ptr, ptr, ptr, ptr, ptr, ptr, i8 }
-%struct.ssl_primary_config = type { ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, i8, i32, i8, i8 }
-%struct.ssl_general_config = type { i64, i32 }
-%struct.Progress = type { i64, i64, i64, i64, i64, i64, i32, i32, i64, i64, i64, i64, i64, i64, i64, i64, i64, i64, %struct.curltime, %struct.curltime, %struct.curltime, %struct.curltime, %struct.curltime, i64, %struct.curltime, i64, [6 x i64], [6 x %struct.curltime], i32, i8 }
-%struct.UrlState = type { ptr, %struct.curltime, i64, i64, %struct.dynbuf, ptr, ptr, ptr, i64, ptr, i32, i32, i32, ptr, i64, [3 x %struct.tempbuf], i32, i32, ptr, i64, i32, ptr, %struct.digestdata, %struct.digestdata, %struct.auth, %struct.auth, %struct.Curl_async, ptr, %struct.curltime, %struct.Curl_tree, %struct.Curl_llist, [15 x %struct.time_node], ptr, i8, i64, ptr, i64, i64, i64, i64, [32 x i8], i64, ptr, ptr, ptr, %struct.urlpieces, ptr, ptr, ptr, ptr, ptr, i64, %struct.dynbuf, %struct.Curl_llist, [2 x %struct.curl_header], ptr, i32, ptr, %struct.dynamically_allocated_data, i8, i8, i8, i8, i24 }
-%struct.tempbuf = type { %struct.dynbuf, i32, i8 }
-%struct.digestdata = type { ptr, ptr, ptr, ptr, ptr, ptr, i32, i8, i8 }
-%struct.auth = type { i64, i64, i64, i8 }
-%struct.Curl_async = type { ptr, ptr, ptr, ptr, i32, i32, i8 }
-%struct.Curl_tree = type { ptr, ptr, ptr, ptr, %struct.curltime, ptr }
-%struct.time_node = type { %struct.Curl_llist_element, %struct.curltime, i32 }
-%struct.urlpieces = type { ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr }
-%struct.dynbuf = type { ptr, i64, i64, i64 }
-%struct.Curl_llist = type { ptr, ptr, ptr, i64 }
-%struct.curl_header = type { ptr, ptr, i64, i64, i32, ptr }
-%struct.dynamically_allocated_data = type { ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr }
-%struct.PureInfo = type { i32, i32, i32, i64, i64, i64, i64, i64, ptr, ptr, i64, i32, [46 x i8], i32, i32, [46 x i8], i32, ptr, i32, %struct.curl_certinfo, i32, i8 }
-%struct.curl_certinfo = type { i32, ptr }
-%struct.curl_tlssessioninfo = type { i32, ptr }
-%struct.connectdata = type { %struct.Curl_llist_element, ptr, ptr, i64, ptr, ptr, %struct.hostname, ptr, ptr, %struct.hostname, %struct.proxy_info, %struct.proxy_info, [46 x i8], ptr, ptr, ptr, ptr, ptr, %struct.curltime, %struct.curltime, %struct.curltime, [2 x i32], [2 x ptr], [2 x ptr], [2 x ptr], %struct.ssl_primary_config, %struct.ssl_primary_config, %struct.ConnectBits, ptr, ptr, %struct.curltime, i32, i32, %struct.Curl_llist, ptr, ptr, i32, i32, %struct.ntlmdata, %struct.ntlmdata, %union.anon.2, ptr, ptr, ptr, i16, i32, i32, i32, i32, i32, i16, i16, i8, i8, i8, i8, i8, i8, i8 }
-%struct.hostname = type { ptr, ptr, ptr, ptr }
-%struct.proxy_info = type { %struct.hostname, i32, i8, ptr, ptr }
-%struct.ConnectBits = type { i32 }
-%struct.ntlmdata = type { i32, [8 x i8], i32, ptr }
-%union.anon.2 = type { %struct.ftp_conn }
-%struct.ftp_conn = type { %struct.pingpong, ptr, ptr, ptr, ptr, ptr, ptr, ptr, i8, i64, ptr, i64, i32, i32, i32, i32, i32, i16, i8, i8, i8, i8, i8 }
-%struct.pingpong = type { ptr, i64, i64, ptr, i8, ptr, i64, i64, %struct.curltime, i64, %struct.dynbuf, ptr, ptr }
-%struct.Curl_cfilter = type { ptr, ptr, ptr, ptr, i32, i8 }
-%struct.cf_socket_ctx = type { i32, %struct.Curl_sockaddr_ex, i32, %struct.bufq, [46 x i8], i32, [46 x i8], i32, %struct.curltime, %struct.curltime, %struct.curltime, i32, i8 }
-%struct.bufq = type { ptr, ptr, ptr, ptr, i64, i64, i64, i32 }
 %struct.reader_ctx = type { ptr, ptr }
 %struct.pollfd = type { i32, i16, i16 }
-%struct.Curl_handler = type { ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, i32, i32, i32, i32 }
-%struct.sockaddr_in6 = type { i16, i16, i32, %struct.in6_addr, i32 }
-%struct.in6_addr = type { %union.anon.1 }
-%union.anon.1 = type { [4 x i32] }
-%struct.sockaddr_in = type { i16, i16, %struct.in_addr, [8 x i8] }
-%struct.in_addr = type { i32 }
 
 @.str = private unnamed_addr constant [4 x i8] c"TCP\00", align 1
 @Curl_cft_tcp = hidden global %struct.Curl_cftype { ptr @.str, i32 1, i32 0, ptr @cf_socket_destroy, ptr @cf_tcp_connect, ptr @cf_socket_close, ptr @cf_socket_get_host, ptr @cf_socket_adjust_pollset, ptr @cf_socket_data_pending, ptr @cf_socket_send, ptr @cf_socket_recv, ptr @cf_socket_cntrl, ptr @cf_socket_conn_is_alive, ptr @Curl_cf_def_conn_keep_alive, ptr @cf_socket_query }, align 8
@@ -128,7 +77,7 @@ target triple = "x86_64-unknown-linux-gnu"
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
 define hidden void @Curl_sock_assign_addr(ptr nocapture noundef writeonly %dest, ptr nocapture noundef readonly %ai, i32 noundef %transport) local_unnamed_addr #0 {
 entry:
-  %ai_family = getelementptr inbounds %struct.Curl_addrinfo, ptr %ai, i64 0, i32 1
+  %ai_family = getelementptr inbounds i8, ptr %ai, i64 4
   %0 = load i32, ptr %ai_family, align 4
   store i32 %0, ptr %dest, align 8
   switch i32 %transport, label %sw.default [
@@ -144,15 +93,15 @@ sw.default:                                       ; preds = %entry
 
 sw.epilog:                                        ; preds = %entry, %sw.default, %sw.bb1
   %1 = phi <2 x i32> [ <i32 2, i32 17>, %sw.default ], [ <i32 1, i32 0>, %sw.bb1 ], [ <i32 1, i32 6>, %entry ]
-  %socktype4 = getelementptr inbounds %struct.Curl_sockaddr_ex, ptr %dest, i64 0, i32 1
+  %socktype4 = getelementptr inbounds i8, ptr %dest, i64 4
   store <2 x i32> %1, ptr %socktype4, align 4
-  %ai_addrlen = getelementptr inbounds %struct.Curl_addrinfo, ptr %ai, i64 0, i32 4
+  %ai_addrlen = getelementptr inbounds i8, ptr %ai, i64 16
   %2 = load i32, ptr %ai_addrlen, align 8
   %spec.select = tail call i32 @llvm.umin.i32(i32 %2, i32 128)
-  %addrlen = getelementptr inbounds %struct.Curl_sockaddr_ex, ptr %dest, i64 0, i32 3
+  %addrlen = getelementptr inbounds i8, ptr %dest, i64 12
   store i32 %spec.select, ptr %addrlen, align 4
-  %_sa_ex_u = getelementptr inbounds %struct.Curl_sockaddr_ex, ptr %dest, i64 0, i32 4
-  %ai_addr = getelementptr inbounds %struct.Curl_addrinfo, ptr %ai, i64 0, i32 6
+  %_sa_ex_u = getelementptr inbounds i8, ptr %dest, i64 16
+  %ai_addr = getelementptr inbounds i8, ptr %ai, i64 32
   %3 = load ptr, ptr %ai_addr, align 8
   %conv10 = zext nneg i32 %spec.select to i64
   tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %_sa_ex_u, ptr align 2 %3, i64 %conv10, i1 false)
@@ -168,7 +117,7 @@ entry:
   %dummy = alloca %struct.Curl_sockaddr_ex, align 8
   %tobool.not = icmp eq ptr %addr, null
   %spec.select = select i1 %tobool.not, ptr %dummy, ptr %addr
-  %ai_family.i = getelementptr inbounds %struct.Curl_addrinfo, ptr %ai, i64 0, i32 1
+  %ai_family.i = getelementptr inbounds i8, ptr %ai, i64 4
   %0 = load i32, ptr %ai_family.i, align 4
   store i32 %0, ptr %spec.select, align 8
   switch i32 %transport, label %sw.default.i [
@@ -185,29 +134,25 @@ sw.default.i:                                     ; preds = %entry
 Curl_sock_assign_addr.exit:                       ; preds = %entry, %sw.bb1.i, %sw.default.i
   %.sink14.i = phi i32 [ 2, %sw.default.i ], [ 1, %sw.bb1.i ], [ 1, %entry ]
   %.sink.i = phi i32 [ 17, %sw.default.i ], [ 0, %sw.bb1.i ], [ 6, %entry ]
-  %dummy.sroa.gep = getelementptr inbounds %struct.Curl_sockaddr_ex, ptr %dummy, i64 0, i32 2
-  %addr.sroa.gep = getelementptr inbounds %struct.Curl_sockaddr_ex, ptr %addr, i64 0, i32 2
-  %spec.select.sroa.sel = select i1 %tobool.not, ptr %dummy.sroa.gep, ptr %addr.sroa.gep
-  %dummy.sroa.gep3 = getelementptr inbounds %struct.Curl_sockaddr_ex, ptr %dummy, i64 0, i32 1
-  %addr.sroa.gep4 = getelementptr inbounds %struct.Curl_sockaddr_ex, ptr %addr, i64 0, i32 1
-  %spec.select.sroa.sel5 = select i1 %tobool.not, ptr %dummy.sroa.gep3, ptr %addr.sroa.gep4
-  store i32 %.sink14.i, ptr %spec.select.sroa.sel5, align 4
-  store i32 %.sink.i, ptr %spec.select.sroa.sel, align 8
-  %ai_addrlen.i = getelementptr inbounds %struct.Curl_addrinfo, ptr %ai, i64 0, i32 4
+  %spec.select.sroa.sel.v.sroa.sel.v.sroa.sel.v = select i1 %tobool.not, ptr %dummy, ptr %addr
+  %spec.select.sroa.sel.v.sroa.sel.v.sroa.sel = getelementptr inbounds i8, ptr %spec.select.sroa.sel.v.sroa.sel.v.sroa.sel.v, i64 8
+  %spec.select.sroa.sel5.v.sroa.sel.v.sroa.sel.v = select i1 %tobool.not, ptr %dummy, ptr %addr
+  %spec.select.sroa.sel5.v.sroa.sel.v.sroa.sel = getelementptr inbounds i8, ptr %spec.select.sroa.sel5.v.sroa.sel.v.sroa.sel.v, i64 4
+  store i32 %.sink14.i, ptr %spec.select.sroa.sel5.v.sroa.sel.v.sroa.sel, align 4
+  store i32 %.sink.i, ptr %spec.select.sroa.sel.v.sroa.sel.v.sroa.sel, align 8
+  %ai_addrlen.i = getelementptr inbounds i8, ptr %ai, i64 16
   %1 = load i32, ptr %ai_addrlen.i, align 8
   %spec.select.i = tail call i32 @llvm.umin.i32(i32 %1, i32 128)
-  %dummy.sroa.gep6 = getelementptr inbounds %struct.Curl_sockaddr_ex, ptr %dummy, i64 0, i32 3
-  %addr.sroa.gep7 = getelementptr inbounds %struct.Curl_sockaddr_ex, ptr %addr, i64 0, i32 3
-  %spec.select.sroa.sel8 = select i1 %tobool.not, ptr %dummy.sroa.gep6, ptr %addr.sroa.gep7
-  store i32 %spec.select.i, ptr %spec.select.sroa.sel8, align 4
-  %dummy.sroa.gep9 = getelementptr inbounds %struct.Curl_sockaddr_ex, ptr %dummy, i64 0, i32 4
-  %addr.sroa.gep10 = getelementptr inbounds %struct.Curl_sockaddr_ex, ptr %addr, i64 0, i32 4
-  %spec.select.sroa.sel11 = select i1 %tobool.not, ptr %dummy.sroa.gep9, ptr %addr.sroa.gep10
-  %ai_addr.i = getelementptr inbounds %struct.Curl_addrinfo, ptr %ai, i64 0, i32 6
+  %spec.select.sroa.sel8.v.sroa.sel.v.sroa.sel.v = select i1 %tobool.not, ptr %dummy, ptr %addr
+  %spec.select.sroa.sel8.v.sroa.sel.v.sroa.sel = getelementptr inbounds i8, ptr %spec.select.sroa.sel8.v.sroa.sel.v.sroa.sel.v, i64 12
+  store i32 %spec.select.i, ptr %spec.select.sroa.sel8.v.sroa.sel.v.sroa.sel, align 4
+  %spec.select.sroa.sel11.v.sroa.sel.v.sroa.sel.v = select i1 %tobool.not, ptr %dummy, ptr %addr
+  %spec.select.sroa.sel11.v.sroa.sel.v.sroa.sel = getelementptr inbounds i8, ptr %spec.select.sroa.sel11.v.sroa.sel.v.sroa.sel.v, i64 16
+  %ai_addr.i = getelementptr inbounds i8, ptr %ai, i64 32
   %2 = load ptr, ptr %ai_addr.i, align 8
   %conv10.i = zext nneg i32 %spec.select.i to i64
-  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %spec.select.sroa.sel11, ptr align 2 %2, i64 %conv10.i, i1 false)
-  %fopensocket.i = getelementptr inbounds %struct.Curl_easy, ptr %data, i64 0, i32 17, i32 27
+  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %spec.select.sroa.sel11.v.sroa.sel.v.sroa.sel, ptr align 2 %2, i64 %conv10.i, i1 false)
+  %fopensocket.i = getelementptr inbounds i8, ptr %data, i64 608
   %3 = load ptr, ptr %fopensocket.i, align 8
   %tobool.not.i = icmp eq ptr %3, null
   br i1 %tobool.not.i, label %if.else.i, label %if.then.i
@@ -215,7 +160,7 @@ Curl_sock_assign_addr.exit:                       ; preds = %entry, %sw.bb1.i, %
 if.then.i:                                        ; preds = %Curl_sock_assign_addr.exit
   tail call void @Curl_set_in_callback(ptr noundef nonnull %data, i1 noundef zeroext true) #13
   %4 = load ptr, ptr %fopensocket.i, align 8
-  %opensocket_client.i = getelementptr inbounds %struct.Curl_easy, ptr %data, i64 0, i32 17, i32 28
+  %opensocket_client.i = getelementptr inbounds i8, ptr %data, i64 616
   %5 = load ptr, ptr %opensocket_client.i, align 8
   %call.i = call i32 %4(ptr noundef %5, i32 noundef 0, ptr noundef nonnull %spec.select) #13
   store i32 %call.i, ptr %sockfd, align 4
@@ -234,9 +179,9 @@ if.end.i:                                         ; preds = %if.else.i, %if.then
   br i1 %cmp.i, label %socket_open.exit, label %if.end8.i
 
 if.end8.i:                                        ; preds = %if.end.i
-  %conn.i = getelementptr inbounds %struct.Curl_easy, ptr %data, i64 0, i32 4
+  %conn.i = getelementptr inbounds i8, ptr %data, i64 32
   %7 = load ptr, ptr %conn.i, align 8
-  %scope_id.i = getelementptr inbounds %struct.connectdata, ptr %7, i64 0, i32 49
+  %scope_id.i = getelementptr inbounds i8, ptr %7, i64 1156
   %8 = load i32, ptr %scope_id.i, align 4
   %tobool9.not.i = icmp eq i32 %8, 0
   br i1 %tobool9.not.i, label %socket_open.exit, label %land.lhs.true.i
@@ -247,10 +192,9 @@ land.lhs.true.i:                                  ; preds = %if.end8.i
   br i1 %cmp11.i, label %if.then12.i, label %socket_open.exit
 
 if.then12.i:                                      ; preds = %land.lhs.true.i
-  %dummy.sroa.gep12 = getelementptr inbounds %struct.Curl_sockaddr_ex, ptr %dummy, i64 0, i32 4, i32 0, i32 0, i32 0, i32 1, i64 22
-  %addr.sroa.gep13 = getelementptr inbounds %struct.Curl_sockaddr_ex, ptr %addr, i64 0, i32 4, i32 0, i32 0, i32 0, i32 1, i64 22
-  %spec.select.sroa.sel14 = select i1 %tobool.not, ptr %dummy.sroa.gep12, ptr %addr.sroa.gep13
-  store i32 %8, ptr %spec.select.sroa.sel14, align 4
+  %spec.select.sroa.sel14.v.sroa.sel.v.sroa.sel.v = select i1 %tobool.not, ptr %dummy, ptr %addr
+  %spec.select.sroa.sel14.v.sroa.sel.v.sroa.sel = getelementptr inbounds i8, ptr %spec.select.sroa.sel14.v.sroa.sel.v.sroa.sel.v, i64 40
+  store i32 %8, ptr %spec.select.sroa.sel14.v.sroa.sel.v.sroa.sel, align 4
   br label %socket_open.exit
 
 socket_open.exit:                                 ; preds = %if.end.i, %if.end8.i, %land.lhs.true.i, %if.then12.i
@@ -276,14 +220,14 @@ socket_close.exit:                                ; preds = %entry, %if.then6.i
 ; Function Attrs: nounwind uwtable
 define internal void @cf_socket_destroy(ptr noundef %cf, ptr noundef %data) #2 {
 entry:
-  %ctx1 = getelementptr inbounds %struct.Curl_cfilter, ptr %cf, i64 0, i32 2
+  %ctx1 = getelementptr inbounds i8, ptr %cf, i64 16
   %0 = load ptr, ptr %ctx1, align 8
   tail call void @cf_socket_close(ptr noundef %cf, ptr noundef %data)
   %tobool.not = icmp eq ptr %data, null
   br i1 %tobool.not, label %do.end, label %land.lhs.true
 
 land.lhs.true:                                    ; preds = %entry
-  %verbose = getelementptr inbounds %struct.Curl_easy, ptr %data, i64 0, i32 17, i32 129
+  %verbose = getelementptr inbounds i8, ptr %data, i64 2706
   %bf.load = load i64, ptr %verbose, align 2
   %1 = and i64 %bf.load, 536870912
   %tobool2.not = icmp eq i64 %1, 0
@@ -291,7 +235,7 @@ land.lhs.true:                                    ; preds = %entry
 
 land.lhs.true5:                                   ; preds = %land.lhs.true
   %2 = load ptr, ptr %cf, align 8
-  %log_level = getelementptr inbounds %struct.Curl_cftype, ptr %2, i64 0, i32 2
+  %log_level = getelementptr inbounds i8, ptr %2, i64 12
   %3 = load i32, ptr %log_level, align 4
   %cmp = icmp sgt i32 %3, 0
   br i1 %cmp, label %if.then, label %do.end
@@ -301,7 +245,7 @@ if.then:                                          ; preds = %land.lhs.true5
   br label %do.end
 
 do.end:                                           ; preds = %entry, %land.lhs.true, %land.lhs.true5, %if.then
-  %recvbuf = getelementptr inbounds %struct.cf_socket_ctx, ptr %0, i64 0, i32 3
+  %recvbuf = getelementptr inbounds i8, ptr %0, i64 160
   tail call void @Curl_bufq_free(ptr noundef nonnull %recvbuf) #13
   %4 = load ptr, ptr @Curl_cfree, align 8
   tail call void %4(ptr noundef %0) #13
@@ -315,9 +259,9 @@ entry:
   %err.i = alloca i32, align 4
   %errSize.i = alloca i32, align 4
   %buffer = alloca [256 x i8], align 16
-  %ctx1 = getelementptr inbounds %struct.Curl_cfilter, ptr %cf, i64 0, i32 2
+  %ctx1 = getelementptr inbounds i8, ptr %cf, i64 16
   %0 = load ptr, ptr %ctx1, align 8
-  %connected = getelementptr inbounds %struct.Curl_cfilter, ptr %cf, i64 0, i32 5
+  %connected = getelementptr inbounds i8, ptr %cf, i64 36
   %bf.load = load i8, ptr %connected, align 4
   %bf.clear = and i8 %bf.load, 1
   %tobool.not = icmp eq i8 %bf.clear, 0
@@ -332,7 +276,7 @@ if.end:                                           ; preds = %entry
 
 if.end4:                                          ; preds = %if.end
   store i8 0, ptr %done, align 1
-  %sock = getelementptr inbounds %struct.cf_socket_ctx, ptr %0, i64 0, i32 2
+  %sock = getelementptr inbounds i8, ptr %0, i64 152
   %1 = load i32, ptr %sock, align 8
   %cmp = icmp eq i32 %1, -1
   br i1 %cmp, label %if.then5, label %if.end39
@@ -353,9 +297,9 @@ if.then14:                                        ; preds = %if.end8
   br label %return
 
 if.end15:                                         ; preds = %if.end8
-  %conn = getelementptr inbounds %struct.Curl_cfilter, ptr %cf, i64 0, i32 3
+  %conn = getelementptr inbounds i8, ptr %cf, i64 24
   %2 = load ptr, ptr %conn, align 8
-  %bits = getelementptr inbounds %struct.connectdata, ptr %2, i64 0, i32 27
+  %bits = getelementptr inbounds i8, ptr %2, i64 704
   %bf.load16 = load i32, ptr %bits, align 8
   %3 = and i32 %bf.load16, 16777216
   %tobool18 = icmp ne i32 %3, 0
@@ -369,7 +313,7 @@ if.end15:                                         ; preds = %if.end8
   br i1 %tobool22.not, label %do.end, label %land.lhs.true
 
 land.lhs.true:                                    ; preds = %if.end15
-  %verbose = getelementptr inbounds %struct.Curl_easy, ptr %data, i64 0, i32 17, i32 129
+  %verbose = getelementptr inbounds i8, ptr %data, i64 2706
   %bf.load23 = load i64, ptr %verbose, align 2
   %5 = and i64 %bf.load23, 536870912
   %tobool27.not = icmp eq i64 %5, 0
@@ -377,14 +321,14 @@ land.lhs.true:                                    ; preds = %if.end15
 
 land.lhs.true30:                                  ; preds = %land.lhs.true
   %6 = load ptr, ptr %cf, align 8
-  %log_level = getelementptr inbounds %struct.Curl_cftype, ptr %6, i64 0, i32 2
+  %log_level = getelementptr inbounds i8, ptr %6, i64 12
   %7 = load i32, ptr %log_level, align 4
   %cmp31 = icmp sgt i32 %7, 0
   br i1 %cmp31, label %if.then32, label %do.end
 
 if.then32:                                        ; preds = %land.lhs.true30
-  %l_ip = getelementptr inbounds %struct.cf_socket_ctx, ptr %0, i64 0, i32 6
-  %l_port = getelementptr inbounds %struct.cf_socket_ctx, ptr %0, i64 0, i32 7
+  %l_ip = getelementptr inbounds i8, ptr %0, i64 276
+  %l_port = getelementptr inbounds i8, ptr %0, i64 324
   %8 = load i32, ptr %l_port, align 4
   tail call void (ptr, ptr, ptr, ...) @Curl_trc_cf_infof(ptr noundef nonnull %data, ptr noundef nonnull %cf, ptr noundef nonnull @.str.7, ptr noundef nonnull %l_ip, i32 noundef %8) #13
   br label %do.end
@@ -398,7 +342,7 @@ do.end.if.end39_crit_edge:                        ; preds = %do.end
   br label %if.end39
 
 if.then35:                                        ; preds = %do.end
-  %r_ip = getelementptr inbounds %struct.cf_socket_ctx, ptr %0, i64 0, i32 4
+  %r_ip = getelementptr inbounds i8, ptr %0, i64 224
   %call37 = tail call fastcc i32 @socket_connect_result(ptr noundef %data, ptr noundef nonnull %r_ip, i32 noundef %4), !range !4
   br label %out
 
@@ -416,7 +360,7 @@ do.body44:                                        ; preds = %if.end39
   br i1 %tobool45.not, label %return, label %land.lhs.true46
 
 land.lhs.true46:                                  ; preds = %do.body44
-  %verbose48 = getelementptr inbounds %struct.Curl_easy, ptr %data, i64 0, i32 17, i32 129
+  %verbose48 = getelementptr inbounds i8, ptr %data, i64 2706
   %bf.load49 = load i64, ptr %verbose48, align 2
   %10 = and i64 %bf.load49, 536870912
   %tobool53.not = icmp eq i64 %10, 0
@@ -424,7 +368,7 @@ land.lhs.true46:                                  ; preds = %do.body44
 
 land.lhs.true56:                                  ; preds = %land.lhs.true46
   %11 = load ptr, ptr %cf, align 8
-  %log_level58 = getelementptr inbounds %struct.Curl_cftype, ptr %11, i64 0, i32 2
+  %log_level58 = getelementptr inbounds i8, ptr %11, i64 12
   %12 = load i32, ptr %log_level58, align 4
   %cmp59 = icmp sgt i32 %12, 0
   br i1 %cmp59, label %if.then60, label %return
@@ -434,9 +378,9 @@ if.then60:                                        ; preds = %land.lhs.true56
   br label %return
 
 lor.lhs.false:                                    ; preds = %if.end39
-  %conn64 = getelementptr inbounds %struct.Curl_cfilter, ptr %cf, i64 0, i32 3
+  %conn64 = getelementptr inbounds i8, ptr %cf, i64 24
   %13 = load ptr, ptr %conn64, align 8
-  %bits65 = getelementptr inbounds %struct.connectdata, ptr %13, i64 0, i32 27
+  %bits65 = getelementptr inbounds i8, ptr %13, i64 704
   %bf.load66 = load i32, ptr %bits65, align 8
   %14 = and i32 %bf.load66, 16777216
   %tobool69.not = icmp eq i32 %14, 0
@@ -444,7 +388,7 @@ lor.lhs.false:                                    ; preds = %if.end39
 
 if.then70:                                        ; preds = %if.end39, %lor.lhs.false
   %15 = load i32, ptr %sock, align 8
-  %error72 = getelementptr inbounds %struct.cf_socket_ctx, ptr %0, i64 0, i32 11
+  %error72 = getelementptr inbounds i8, ptr %0, i64 376
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %err.i)
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %errSize.i)
   store i32 0, ptr %err.i, align 4
@@ -469,12 +413,12 @@ verifyconnect.exit:                               ; preds = %if.then70, %if.then
   ]
 
 if.then74:                                        ; preds = %verifyconnect.exit, %verifyconnect.exit
-  %connected_at = getelementptr inbounds %struct.cf_socket_ctx, ptr %0, i64 0, i32 9
+  %connected_at = getelementptr inbounds i8, ptr %0, i64 344
   %call75 = call { i64, i32 } @Curl_now() #13
   %17 = extractvalue { i64, i32 } %call75, 0
   %18 = extractvalue { i64, i32 } %call75, 1
   store i64 %17, ptr %connected_at, align 8
-  %tmp.sroa.2.0.connected_at.sroa_idx = getelementptr inbounds %struct.cf_socket_ctx, ptr %0, i64 0, i32 9, i32 1
+  %tmp.sroa.2.0.connected_at.sroa_idx = getelementptr inbounds i8, ptr %0, i64 352
   store i32 %18, ptr %tmp.sroa.2.0.connected_at.sroa_idx, align 8
   %cf.val71 = load ptr, ptr %ctx1, align 8
   call fastcc void @set_local_ip(ptr %cf.val71, ptr noundef %data)
@@ -486,7 +430,7 @@ if.then74:                                        ; preds = %verifyconnect.exit,
   br i1 %tobool81.not, label %return, label %land.lhs.true82
 
 land.lhs.true82:                                  ; preds = %if.then74
-  %verbose84 = getelementptr inbounds %struct.Curl_easy, ptr %data, i64 0, i32 17, i32 129
+  %verbose84 = getelementptr inbounds i8, ptr %data, i64 2706
   %bf.load85 = load i64, ptr %verbose84, align 2
   %19 = and i64 %bf.load85, 536870912
   %tobool89.not = icmp eq i64 %19, 0
@@ -494,7 +438,7 @@ land.lhs.true82:                                  ; preds = %if.then74
 
 land.lhs.true92:                                  ; preds = %land.lhs.true82
   %20 = load ptr, ptr %cf, align 8
-  %log_level94 = getelementptr inbounds %struct.Curl_cftype, ptr %20, i64 0, i32 2
+  %log_level94 = getelementptr inbounds i8, ptr %20, i64 12
   %21 = load i32, ptr %log_level94, align 4
   %cmp95 = icmp sgt i32 %21, 0
   br i1 %cmp95, label %if.then96, label %return
@@ -510,7 +454,7 @@ if.else100:                                       ; preds = %lor.lhs.false
 
 if.then102:                                       ; preds = %if.else100
   %22 = load i32, ptr %sock, align 8
-  %error104 = getelementptr inbounds %struct.cf_socket_ctx, ptr %0, i64 0, i32 11
+  %error104 = getelementptr inbounds i8, ptr %0, i64 376
   tail call fastcc void @verifyconnect(i32 noundef %22, ptr noundef nonnull %error104)
   br label %if.then110
 
@@ -521,7 +465,7 @@ out:                                              ; preds = %verifyconnect.exit,
 
 if.then110:                                       ; preds = %if.then102, %if.then5, %out
   %result.178 = phi i32 [ %result.1, %out ], [ 7, %if.then102 ], [ %call, %if.then5 ]
-  %error111 = getelementptr inbounds %struct.cf_socket_ctx, ptr %0, i64 0, i32 11
+  %error111 = getelementptr inbounds i8, ptr %0, i64 376
   %23 = load i32, ptr %error111, align 8
   %tobool112.not = icmp eq i32 %23, 0
   br i1 %tobool112.not, label %if.end139, label %land.lhs.true120
@@ -530,22 +474,22 @@ land.lhs.true120:                                 ; preds = %if.then110
   %cf.val72 = load ptr, ptr %ctx1, align 8
   call fastcc void @set_local_ip(ptr %cf.val72, ptr noundef %data)
   %24 = load i32, ptr %error111, align 8
-  %os_errno = getelementptr inbounds %struct.Curl_easy, ptr %data, i64 0, i32 22, i32 17
+  %os_errno = getelementptr inbounds i8, ptr %data, i64 3412
   store i32 %24, ptr %os_errno, align 4
   %call117 = tail call ptr @__errno_location() #14
   store i32 %24, ptr %call117, align 4
-  %verbose122 = getelementptr inbounds %struct.Curl_easy, ptr %data, i64 0, i32 17, i32 129
+  %verbose122 = getelementptr inbounds i8, ptr %data, i64 2706
   %bf.load123 = load i64, ptr %verbose122, align 2
   %25 = and i64 %bf.load123, 536870912
   %tobool127.not = icmp eq i64 %25, 0
   br i1 %tobool127.not, label %if.end139, label %if.then128
 
 if.then128:                                       ; preds = %land.lhs.true120
-  %r_ip129 = getelementptr inbounds %struct.cf_socket_ctx, ptr %0, i64 0, i32 4
-  %r_port = getelementptr inbounds %struct.cf_socket_ctx, ptr %0, i64 0, i32 5
+  %r_ip129 = getelementptr inbounds i8, ptr %0, i64 224
+  %r_port = getelementptr inbounds i8, ptr %0, i64 272
   %26 = load i32, ptr %r_port, align 8
-  %l_ip131 = getelementptr inbounds %struct.cf_socket_ctx, ptr %0, i64 0, i32 6
-  %l_port133 = getelementptr inbounds %struct.cf_socket_ctx, ptr %0, i64 0, i32 7
+  %l_ip131 = getelementptr inbounds i8, ptr %0, i64 276
+  %l_port133 = getelementptr inbounds i8, ptr %0, i64 324
   %27 = load i32, ptr %l_port133, align 4
   %28 = load i32, ptr %error111, align 8
   %call136 = call ptr @Curl_strerror(i32 noundef %28, ptr noundef nonnull %buffer, i64 noundef 256) #13
@@ -558,13 +502,13 @@ if.end139:                                        ; preds = %if.then128, %land.l
   br i1 %cmp141.not, label %if.end147, label %if.then142
 
 if.then142:                                       ; preds = %if.end139
-  %conn143 = getelementptr inbounds %struct.Curl_cfilter, ptr %cf, i64 0, i32 3
+  %conn143 = getelementptr inbounds i8, ptr %cf, i64 24
   %30 = load ptr, ptr %conn143, align 8
   %tobool1.i.not = icmp eq ptr %30, null
   br i1 %tobool1.i.not, label %if.end7.i, label %land.lhs.true2.i
 
 land.lhs.true2.i:                                 ; preds = %if.then142
-  %fclosesocket.i = getelementptr inbounds %struct.connectdata, ptr %30, i64 0, i32 1
+  %fclosesocket.i = getelementptr inbounds i8, ptr %30, i64 24
   %31 = load ptr, ptr %fclosesocket.i, align 8
   %tobool3.not.i = icmp eq ptr %31, null
   call void @Curl_multi_closed(ptr noundef %data, i32 noundef %29) #13
@@ -573,7 +517,7 @@ land.lhs.true2.i:                                 ; preds = %if.then142
 if.then.i74:                                      ; preds = %land.lhs.true2.i
   call void @Curl_set_in_callback(ptr noundef %data, i1 noundef zeroext true) #13
   %32 = load ptr, ptr %fclosesocket.i, align 8
-  %closesocket_client.i = getelementptr inbounds %struct.connectdata, ptr %30, i64 0, i32 2
+  %closesocket_client.i = getelementptr inbounds i8, ptr %30, i64 32
   %33 = load ptr, ptr %closesocket_client.i, align 8
   %call.i75 = call i32 %32(ptr noundef %33, i32 noundef %29) #13
   call void @Curl_set_in_callback(ptr noundef %data, i1 noundef zeroext false) #13
@@ -599,13 +543,13 @@ return:                                           ; preds = %out, %if.end147, %i
 ; Function Attrs: nounwind uwtable
 define internal void @cf_socket_close(ptr noundef %cf, ptr noundef %data) #2 {
 entry:
-  %ctx1 = getelementptr inbounds %struct.Curl_cfilter, ptr %cf, i64 0, i32 2
+  %ctx1 = getelementptr inbounds i8, ptr %cf, i64 16
   %0 = load ptr, ptr %ctx1, align 8
   %tobool.not = icmp eq ptr %0, null
   br i1 %tobool.not, label %if.end46, label %land.lhs.true
 
 land.lhs.true:                                    ; preds = %entry
-  %sock = getelementptr inbounds %struct.cf_socket_ctx, ptr %0, i64 0, i32 2
+  %sock = getelementptr inbounds i8, ptr %0, i64 152
   %1 = load i32, ptr %sock, align 8
   %cmp.not = icmp eq i32 %1, -1
   br i1 %cmp.not, label %if.end46, label %do.body
@@ -615,7 +559,7 @@ do.body:                                          ; preds = %land.lhs.true
   br i1 %tobool2.not, label %do.end, label %land.lhs.true3
 
 land.lhs.true3:                                   ; preds = %do.body
-  %verbose = getelementptr inbounds %struct.Curl_easy, ptr %data, i64 0, i32 17, i32 129
+  %verbose = getelementptr inbounds i8, ptr %data, i64 2706
   %bf.load = load i64, ptr %verbose, align 2
   %2 = and i64 %bf.load, 536870912
   %tobool4.not = icmp eq i64 %2, 0
@@ -623,7 +567,7 @@ land.lhs.true3:                                   ; preds = %do.body
 
 land.lhs.true7:                                   ; preds = %land.lhs.true3
   %3 = load ptr, ptr %cf, align 8
-  %log_level = getelementptr inbounds %struct.Curl_cftype, ptr %3, i64 0, i32 2
+  %log_level = getelementptr inbounds i8, ptr %3, i64 12
   %4 = load i32, ptr %log_level, align 4
   %cmp8 = icmp sgt i32 %4, 0
   br i1 %cmp8, label %if.then9, label %do.end
@@ -635,12 +579,13 @@ if.then9:                                         ; preds = %land.lhs.true7
 
 do.end:                                           ; preds = %do.body, %land.lhs.true3, %land.lhs.true7, %if.then9
   %5 = phi i32 [ %1, %do.body ], [ %1, %land.lhs.true3 ], [ %1, %land.lhs.true7 ], [ %.pre, %if.then9 ]
-  %conn = getelementptr inbounds %struct.Curl_cfilter, ptr %cf, i64 0, i32 3
+  %conn = getelementptr inbounds i8, ptr %cf, i64 24
   %6 = load ptr, ptr %conn, align 8
-  %sockindex = getelementptr inbounds %struct.Curl_cfilter, ptr %cf, i64 0, i32 4
+  %sock12 = getelementptr inbounds i8, ptr %6, i64 392
+  %sockindex = getelementptr inbounds i8, ptr %cf, i64 32
   %7 = load i32, ptr %sockindex, align 8
   %idxprom = sext i32 %7 to i64
-  %arrayidx = getelementptr inbounds %struct.connectdata, ptr %6, i64 0, i32 21, i64 %idxprom
+  %arrayidx = getelementptr inbounds [2 x i32], ptr %sock12, i64 0, i64 %idxprom
   %8 = load i32, ptr %arrayidx, align 4
   %cmp13 = icmp eq i32 %5, %8
   br i1 %cmp13, label %if.then14, label %if.end20
@@ -654,7 +599,7 @@ if.then14:                                        ; preds = %do.end
 if.end20:                                         ; preds = %if.then14, %do.end
   %9 = phi i32 [ %.pre29, %if.then14 ], [ %5, %do.end ]
   %10 = phi ptr [ %.pre28, %if.then14 ], [ %6, %do.end ]
-  %accepted = getelementptr inbounds %struct.cf_socket_ctx, ptr %0, i64 0, i32 12
+  %accepted = getelementptr inbounds i8, ptr %0, i64 380
   %bf.load22 = load i8, ptr %accepted, align 4
   %11 = and i8 %bf.load22, 2
   %tobool26.not = icmp eq i8 %11, 0
@@ -663,7 +608,7 @@ if.end20:                                         ; preds = %if.then14, %do.end
   br i1 %or.cond.i, label %land.lhs.true2.i, label %if.end.i
 
 land.lhs.true2.i:                                 ; preds = %if.end20
-  %fclosesocket.i = getelementptr inbounds %struct.connectdata, ptr %10, i64 0, i32 1
+  %fclosesocket.i = getelementptr inbounds i8, ptr %10, i64 24
   %12 = load ptr, ptr %fclosesocket.i, align 8
   %tobool3.not.i = icmp eq ptr %12, null
   br i1 %tobool3.not.i, label %if.then6.i, label %if.then.i
@@ -672,7 +617,7 @@ if.then.i:                                        ; preds = %land.lhs.true2.i
   tail call void @Curl_multi_closed(ptr noundef %data, i32 noundef %9) #13
   tail call void @Curl_set_in_callback(ptr noundef %data, i1 noundef zeroext true) #13
   %13 = load ptr, ptr %fclosesocket.i, align 8
-  %closesocket_client.i = getelementptr inbounds %struct.connectdata, ptr %10, i64 0, i32 2
+  %closesocket_client.i = getelementptr inbounds i8, ptr %10, i64 32
   %14 = load ptr, ptr %closesocket_client.i, align 8
   %call.i = tail call i32 %13(ptr noundef %14, i32 noundef %9) #13
   tail call void @Curl_set_in_callback(ptr noundef %data, i1 noundef zeroext false) #13
@@ -703,22 +648,22 @@ land.lhs.true34:                                  ; preds = %socket_close.exit
 
 if.then37:                                        ; preds = %land.lhs.true34
   %17 = load ptr, ptr %conn, align 8
-  %remote_addr = getelementptr inbounds %struct.connectdata, ptr %17, i64 0, i32 5
+  %remote_addr = getelementptr inbounds i8, ptr %17, i64 56
   store ptr null, ptr %remote_addr, align 8
   br label %if.end39
 
 if.end39:                                         ; preds = %if.then37, %land.lhs.true34, %socket_close.exit
-  %recvbuf = getelementptr inbounds %struct.cf_socket_ctx, ptr %0, i64 0, i32 3
+  %recvbuf = getelementptr inbounds i8, ptr %0, i64 160
   tail call void @Curl_bufq_reset(ptr noundef nonnull %recvbuf) #13
   %bf.load41 = load i8, ptr %accepted, align 4
   %bf.clear44 = and i8 %bf.load41, -25
   store i8 %bf.clear44, ptr %accepted, align 4
-  %started_at = getelementptr inbounds %struct.cf_socket_ctx, ptr %0, i64 0, i32 8
+  %started_at = getelementptr inbounds i8, ptr %0, i64 328
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %started_at, i8 0, i64 32, i1 false)
   br label %if.end46
 
 if.end46:                                         ; preds = %if.end39, %land.lhs.true, %entry
-  %connected = getelementptr inbounds %struct.Curl_cfilter, ptr %cf, i64 0, i32 5
+  %connected = getelementptr inbounds i8, ptr %cf, i64 36
   %bf.load47 = load i8, ptr %connected, align 4
   %bf.clear48 = and i8 %bf.load47, -2
   store i8 %bf.clear48, ptr %connected, align 4
@@ -728,17 +673,17 @@ if.end46:                                         ; preds = %if.end39, %land.lhs
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
 define internal void @cf_socket_get_host(ptr nocapture noundef readonly %cf, ptr nocapture readnone %data, ptr nocapture noundef writeonly %phost, ptr nocapture noundef writeonly %pdisplay_host, ptr nocapture noundef writeonly %pport) #3 {
 entry:
-  %conn = getelementptr inbounds %struct.Curl_cfilter, ptr %cf, i64 0, i32 3
+  %conn = getelementptr inbounds i8, ptr %cf, i64 24
   %0 = load ptr, ptr %conn, align 8
-  %name = getelementptr inbounds %struct.connectdata, ptr %0, i64 0, i32 6, i32 2
+  %name = getelementptr inbounds i8, ptr %0, i64 80
   %1 = load ptr, ptr %name, align 8
   store ptr %1, ptr %phost, align 8
   %2 = load ptr, ptr %conn, align 8
-  %dispname = getelementptr inbounds %struct.connectdata, ptr %2, i64 0, i32 6, i32 3
+  %dispname = getelementptr inbounds i8, ptr %2, i64 88
   %3 = load ptr, ptr %dispname, align 8
   store ptr %3, ptr %pdisplay_host, align 8
   %4 = load ptr, ptr %conn, align 8
-  %port = getelementptr inbounds %struct.connectdata, ptr %4, i64 0, i32 46
+  %port = getelementptr inbounds i8, ptr %4, i64 1144
   %5 = load i32, ptr %port, align 8
   store i32 %5, ptr %pport, align 4
   ret void
@@ -747,15 +692,15 @@ entry:
 ; Function Attrs: nounwind uwtable
 define internal void @cf_socket_adjust_pollset(ptr noundef %cf, ptr noundef %data, ptr noundef %ps) #2 {
 entry:
-  %ctx1 = getelementptr inbounds %struct.Curl_cfilter, ptr %cf, i64 0, i32 2
+  %ctx1 = getelementptr inbounds i8, ptr %cf, i64 16
   %0 = load ptr, ptr %ctx1, align 8
-  %sock = getelementptr inbounds %struct.cf_socket_ctx, ptr %0, i64 0, i32 2
+  %sock = getelementptr inbounds i8, ptr %0, i64 152
   %1 = load i32, ptr %sock, align 8
   %cmp.not = icmp eq i32 %1, -1
   br i1 %cmp.not, label %if.end43, label %if.then
 
 if.then:                                          ; preds = %entry
-  %connected = getelementptr inbounds %struct.Curl_cfilter, ptr %cf, i64 0, i32 5
+  %connected = getelementptr inbounds i8, ptr %cf, i64 36
   %bf.load = load i8, ptr %connected, align 4
   %bf.clear = and i8 %bf.load, 1
   %tobool.not = icmp eq i8 %bf.clear, 0
@@ -767,7 +712,7 @@ if.then2:                                         ; preds = %if.then
   br i1 %tobool4.not, label %if.end43, label %land.lhs.true
 
 land.lhs.true:                                    ; preds = %if.then2
-  %verbose = getelementptr inbounds %struct.Curl_easy, ptr %data, i64 0, i32 17, i32 129
+  %verbose = getelementptr inbounds i8, ptr %data, i64 2706
   %bf.load5 = load i64, ptr %verbose, align 2
   %2 = and i64 %bf.load5, 536870912
   %tobool8.not = icmp eq i64 %2, 0
@@ -775,13 +720,13 @@ land.lhs.true:                                    ; preds = %if.then2
 
 land.lhs.true11:                                  ; preds = %land.lhs.true
   %3 = load ptr, ptr %cf, align 8
-  %log_level = getelementptr inbounds %struct.Curl_cftype, ptr %3, i64 0, i32 2
+  %log_level = getelementptr inbounds i8, ptr %3, i64 12
   %4 = load i32, ptr %log_level, align 4
   %cmp12 = icmp sgt i32 %4, 0
   br i1 %cmp12, label %if.end43.sink.split, label %if.end43
 
 if.else:                                          ; preds = %if.then
-  %active = getelementptr inbounds %struct.cf_socket_ctx, ptr %0, i64 0, i32 12
+  %active = getelementptr inbounds i8, ptr %0, i64 380
   %bf.load14 = load i8, ptr %active, align 4
   %5 = and i8 %bf.load14, 8
   %tobool18.not = icmp eq i8 %5, 0
@@ -793,7 +738,7 @@ if.then19:                                        ; preds = %if.else
   br i1 %tobool22.not, label %if.end43, label %land.lhs.true23
 
 land.lhs.true23:                                  ; preds = %if.then19
-  %verbose25 = getelementptr inbounds %struct.Curl_easy, ptr %data, i64 0, i32 17, i32 129
+  %verbose25 = getelementptr inbounds i8, ptr %data, i64 2706
   %bf.load26 = load i64, ptr %verbose25, align 2
   %6 = and i64 %bf.load26, 536870912
   %tobool30.not = icmp eq i64 %6, 0
@@ -801,14 +746,14 @@ land.lhs.true23:                                  ; preds = %if.then19
 
 land.lhs.true33:                                  ; preds = %land.lhs.true23
   %7 = load ptr, ptr %cf, align 8
-  %log_level35 = getelementptr inbounds %struct.Curl_cftype, ptr %7, i64 0, i32 2
+  %log_level35 = getelementptr inbounds i8, ptr %7, i64 12
   %8 = load i32, ptr %log_level35, align 4
   %cmp36 = icmp sgt i32 %8, 0
   br i1 %cmp36, label %if.end43.sink.split, label %if.end43
 
 if.end43.sink.split:                              ; preds = %land.lhs.true33, %land.lhs.true11
   %.str.33.sink = phi ptr [ @.str.33, %land.lhs.true11 ], [ @.str.34, %land.lhs.true33 ]
-  %num = getelementptr inbounds %struct.easy_pollset, ptr %ps, i64 0, i32 1
+  %num = getelementptr inbounds i8, ptr %ps, i64 20
   %9 = load i32, ptr %num, align 4
   tail call void (ptr, ptr, ptr, ...) @Curl_trc_cf_infof(ptr noundef nonnull %data, ptr noundef nonnull %cf, ptr noundef nonnull %.str.33.sink, i32 noundef %9) #13
   br label %if.end43
@@ -820,14 +765,14 @@ if.end43:                                         ; preds = %if.end43.sink.split
 ; Function Attrs: nounwind uwtable
 define internal zeroext i1 @cf_socket_data_pending(ptr nocapture noundef readonly %cf, ptr nocapture readnone %data) #2 {
 entry:
-  %ctx1 = getelementptr inbounds %struct.Curl_cfilter, ptr %cf, i64 0, i32 2
+  %ctx1 = getelementptr inbounds i8, ptr %cf, i64 16
   %0 = load ptr, ptr %ctx1, align 8
-  %recvbuf = getelementptr inbounds %struct.cf_socket_ctx, ptr %0, i64 0, i32 3
+  %recvbuf = getelementptr inbounds i8, ptr %0, i64 160
   %call = tail call zeroext i1 @Curl_bufq_is_empty(ptr noundef nonnull %recvbuf) #13
   br i1 %call, label %if.end, label %return
 
 if.end:                                           ; preds = %entry
-  %sock = getelementptr inbounds %struct.cf_socket_ctx, ptr %0, i64 0, i32 2
+  %sock = getelementptr inbounds i8, ptr %0, i64 152
   %1 = load i32, ptr %sock, align 8
   %call2 = tail call i32 @Curl_socket_check(i32 noundef %1, i32 noundef -1, i32 noundef -1, i64 noundef 0) #13
   %cmp = icmp sgt i32 %call2, 0
@@ -845,17 +790,18 @@ return:                                           ; preds = %entry, %if.end
 define internal i64 @cf_socket_send(ptr noundef %cf, ptr noundef %data, ptr noundef %buf, i64 noundef %len, ptr nocapture noundef %err) #2 {
 entry:
   %buffer = alloca [256 x i8], align 16
-  %ctx1 = getelementptr inbounds %struct.Curl_cfilter, ptr %cf, i64 0, i32 2
+  %ctx1 = getelementptr inbounds i8, ptr %cf, i64 16
   %0 = load ptr, ptr %ctx1, align 8
   store i32 0, ptr %err, align 4
-  %conn = getelementptr inbounds %struct.Curl_cfilter, ptr %cf, i64 0, i32 3
+  %conn = getelementptr inbounds i8, ptr %cf, i64 24
   %1 = load ptr, ptr %conn, align 8
-  %sockindex = getelementptr inbounds %struct.Curl_cfilter, ptr %cf, i64 0, i32 4
+  %sock = getelementptr inbounds i8, ptr %1, i64 392
+  %sockindex = getelementptr inbounds i8, ptr %cf, i64 32
   %2 = load i32, ptr %sockindex, align 8
   %idxprom = sext i32 %2 to i64
-  %arrayidx = getelementptr inbounds %struct.connectdata, ptr %1, i64 0, i32 21, i64 %idxprom
+  %arrayidx = getelementptr inbounds [2 x i32], ptr %sock, i64 0, i64 %idxprom
   %3 = load i32, ptr %arrayidx, align 4
-  %sock2 = getelementptr inbounds %struct.cf_socket_ctx, ptr %0, i64 0, i32 2
+  %sock2 = getelementptr inbounds i8, ptr %0, i64 152
   %4 = load i32, ptr %sock2, align 8
   store i32 %4, ptr %arrayidx, align 4
   %call = tail call i64 @send(i32 noundef %4, ptr noundef %buf, i64 noundef %len, i32 noundef 16384) #13
@@ -878,7 +824,7 @@ if.then16:                                        ; preds = %if.then, %if.then, 
 do.body.thread:                                   ; preds = %if.then
   %call17 = call ptr @Curl_strerror(i32 noundef %5, ptr noundef nonnull %buffer, i64 noundef 256) #13
   call void (ptr, ptr, ...) @Curl_failf(ptr noundef %data, ptr noundef nonnull @.str.35, ptr noundef %call17) #13
-  %os_errno = getelementptr inbounds %struct.Curl_easy, ptr %data, i64 0, i32 22, i32 17
+  %os_errno = getelementptr inbounds i8, ptr %data, i64 3412
   store i32 %5, ptr %os_errno, align 4
   store i32 55, ptr %err, align 4
   br label %land.lhs.true
@@ -888,7 +834,7 @@ do.body:                                          ; preds = %entry, %if.then16
   br i1 %tobool.not, label %do.end, label %land.lhs.true
 
 land.lhs.true:                                    ; preds = %do.body.thread, %do.body
-  %verbose = getelementptr inbounds %struct.Curl_easy, ptr %data, i64 0, i32 17, i32 129
+  %verbose = getelementptr inbounds i8, ptr %data, i64 2706
   %bf.load = load i64, ptr %verbose, align 2
   %6 = and i64 %bf.load, 536870912
   %tobool19.not = icmp eq i64 %6, 0
@@ -896,7 +842,7 @@ land.lhs.true:                                    ; preds = %do.body.thread, %do
 
 land.lhs.true22:                                  ; preds = %land.lhs.true
   %7 = load ptr, ptr %cf, align 8
-  %log_level = getelementptr inbounds %struct.Curl_cftype, ptr %7, i64 0, i32 2
+  %log_level = getelementptr inbounds i8, ptr %7, i64 12
   %8 = load i32, ptr %log_level, align 4
   %cmp23 = icmp sgt i32 %8, 0
   br i1 %cmp23, label %if.then24, label %do.end
@@ -909,9 +855,10 @@ if.then24:                                        ; preds = %land.lhs.true22
 
 do.end:                                           ; preds = %do.body, %land.lhs.true, %land.lhs.true22, %if.then24
   %10 = load ptr, ptr %conn, align 8
+  %sock27 = getelementptr inbounds i8, ptr %10, i64 392
   %11 = load i32, ptr %sockindex, align 8
   %idxprom29 = sext i32 %11 to i64
-  %arrayidx30 = getelementptr inbounds %struct.connectdata, ptr %10, i64 0, i32 21, i64 %idxprom29
+  %arrayidx30 = getelementptr inbounds [2 x i32], ptr %sock27, i64 0, i64 %idxprom29
   store i32 %3, ptr %arrayidx30, align 4
   ret i64 %call
 }
@@ -920,20 +867,21 @@ do.end:                                           ; preds = %do.body, %land.lhs.
 define internal i64 @cf_socket_recv(ptr noundef %cf, ptr noundef %data, ptr noundef %buf, i64 noundef %len, ptr noundef %err) #2 {
 entry:
   %rctx = alloca %struct.reader_ctx, align 8
-  %ctx1 = getelementptr inbounds %struct.Curl_cfilter, ptr %cf, i64 0, i32 2
+  %ctx1 = getelementptr inbounds i8, ptr %cf, i64 16
   %0 = load ptr, ptr %ctx1, align 8
   store i32 0, ptr %err, align 4
-  %conn = getelementptr inbounds %struct.Curl_cfilter, ptr %cf, i64 0, i32 3
+  %conn = getelementptr inbounds i8, ptr %cf, i64 24
   %1 = load ptr, ptr %conn, align 8
-  %sockindex = getelementptr inbounds %struct.Curl_cfilter, ptr %cf, i64 0, i32 4
+  %sock = getelementptr inbounds i8, ptr %1, i64 392
+  %sockindex = getelementptr inbounds i8, ptr %cf, i64 32
   %2 = load i32, ptr %sockindex, align 8
   %idxprom = sext i32 %2 to i64
-  %arrayidx = getelementptr inbounds %struct.connectdata, ptr %1, i64 0, i32 21, i64 %idxprom
+  %arrayidx = getelementptr inbounds [2 x i32], ptr %sock, i64 0, i64 %idxprom
   %3 = load i32, ptr %arrayidx, align 4
-  %sock2 = getelementptr inbounds %struct.cf_socket_ctx, ptr %0, i64 0, i32 2
+  %sock2 = getelementptr inbounds i8, ptr %0, i64 152
   %4 = load i32, ptr %sock2, align 8
   store i32 %4, ptr %arrayidx, align 4
-  %buffer_recv = getelementptr inbounds %struct.cf_socket_ctx, ptr %0, i64 0, i32 12
+  %buffer_recv = getelementptr inbounds i8, ptr %0, i64 380
   %bf.load = load i8, ptr %buffer_recv, align 4
   %5 = and i8 %bf.load, 16
   %tobool.not = icmp eq i8 %5, 0
@@ -941,12 +889,12 @@ entry:
 
 if.else.thread:                                   ; preds = %entry
   store ptr %cf, ptr %rctx, align 8
-  %data2269 = getelementptr inbounds %struct.reader_ctx, ptr %rctx, i64 0, i32 1
+  %data2269 = getelementptr inbounds i8, ptr %rctx, i64 8
   store ptr %data, ptr %data2269, align 8
   br label %if.else91
 
 land.lhs.true:                                    ; preds = %entry
-  %recvbuf = getelementptr inbounds %struct.cf_socket_ctx, ptr %0, i64 0, i32 3
+  %recvbuf = getelementptr inbounds i8, ptr %0, i64 160
   %call = tail call zeroext i1 @Curl_bufq_is_empty(ptr noundef nonnull %recvbuf) #13
   br i1 %call, label %if.else, label %do.body
 
@@ -955,7 +903,7 @@ do.body:                                          ; preds = %land.lhs.true
   br i1 %tobool8.not, label %do.end, label %land.lhs.true9
 
 land.lhs.true9:                                   ; preds = %do.body
-  %verbose = getelementptr inbounds %struct.Curl_easy, ptr %data, i64 0, i32 17, i32 129
+  %verbose = getelementptr inbounds i8, ptr %data, i64 2706
   %bf.load10 = load i64, ptr %verbose, align 2
   %6 = and i64 %bf.load10, 536870912
   %tobool14.not = icmp eq i64 %6, 0
@@ -963,7 +911,7 @@ land.lhs.true9:                                   ; preds = %do.body
 
 land.lhs.true17:                                  ; preds = %land.lhs.true9
   %7 = load ptr, ptr %cf, align 8
-  %log_level = getelementptr inbounds %struct.Curl_cftype, ptr %7, i64 0, i32 2
+  %log_level = getelementptr inbounds i8, ptr %7, i64 12
   %8 = load i32, ptr %log_level, align 4
   %cmp = icmp sgt i32 %8, 0
   br i1 %cmp, label %if.then18, label %do.end
@@ -981,14 +929,14 @@ if.else:                                          ; preds = %land.lhs.true
   %.pre = and i8 %bf.load24.pre, 16
   %9 = icmp ne i8 %.pre, 0
   store ptr %cf, ptr %rctx, align 8
-  %data22 = getelementptr inbounds %struct.reader_ctx, ptr %rctx, i64 0, i32 1
+  %data22 = getelementptr inbounds i8, ptr %rctx, i64 8
   store ptr %data, ptr %data22, align 8
   %cmp30 = icmp ult i64 %len, 1024
   %or.cond1 = and i1 %cmp30, %9
   br i1 %or.cond1, label %if.then31, label %if.else91
 
 if.then31:                                        ; preds = %if.else
-  %recvbuf32 = getelementptr inbounds %struct.cf_socket_ctx, ptr %0, i64 0, i32 3
+  %recvbuf32 = getelementptr inbounds i8, ptr %0, i64 160
   %call33 = call i64 @Curl_bufq_slurp(ptr noundef nonnull %recvbuf32, ptr noundef nonnull @nw_in_read, ptr noundef nonnull %rctx, ptr noundef nonnull %err) #13
   %cmp34 = icmp slt i64 %call33, 0
   br i1 %cmp34, label %land.lhs.true35, label %if.else63
@@ -1002,7 +950,7 @@ do.body39:                                        ; preds = %land.lhs.true35
   br i1 %tobool40.not, label %do.end57, label %land.lhs.true41
 
 land.lhs.true41:                                  ; preds = %do.body39
-  %verbose43 = getelementptr inbounds %struct.Curl_easy, ptr %data, i64 0, i32 17, i32 129
+  %verbose43 = getelementptr inbounds i8, ptr %data, i64 2706
   %bf.load44 = load i64, ptr %verbose43, align 2
   %10 = and i64 %bf.load44, 536870912
   %tobool48.not = icmp eq i64 %10, 0
@@ -1010,7 +958,7 @@ land.lhs.true41:                                  ; preds = %do.body39
 
 land.lhs.true51:                                  ; preds = %land.lhs.true41
   %11 = load ptr, ptr %cf, align 8
-  %log_level53 = getelementptr inbounds %struct.Curl_cftype, ptr %11, i64 0, i32 2
+  %log_level53 = getelementptr inbounds i8, ptr %11, i64 12
   %12 = load i32, ptr %log_level53, align 4
   %cmp54 = icmp sgt i32 %12, 0
   br i1 %cmp54, label %if.then55, label %do.end57
@@ -1036,7 +984,7 @@ do.body67:                                        ; preds = %if.else63
   br i1 %tobool68.not, label %do.end85, label %land.lhs.true69
 
 land.lhs.true69:                                  ; preds = %do.body67
-  %verbose71 = getelementptr inbounds %struct.Curl_easy, ptr %data, i64 0, i32 17, i32 129
+  %verbose71 = getelementptr inbounds i8, ptr %data, i64 2706
   %bf.load72 = load i64, ptr %verbose71, align 2
   %13 = and i64 %bf.load72, 536870912
   %tobool76.not = icmp eq i64 %13, 0
@@ -1044,7 +992,7 @@ land.lhs.true69:                                  ; preds = %do.body67
 
 land.lhs.true79:                                  ; preds = %land.lhs.true69
   %14 = load ptr, ptr %cf, align 8
-  %log_level81 = getelementptr inbounds %struct.Curl_cftype, ptr %14, i64 0, i32 2
+  %log_level81 = getelementptr inbounds i8, ptr %14, i64 12
   %15 = load i32, ptr %log_level81, align 4
   %cmp82 = icmp sgt i32 %15, 0
   br i1 %cmp82, label %if.then83, label %do.end85
@@ -1067,7 +1015,7 @@ do.body95:                                        ; preds = %land.lhs.true35, %i
   br i1 %tobool96.not, label %do.end113, label %land.lhs.true97
 
 land.lhs.true97:                                  ; preds = %do.body95
-  %verbose99 = getelementptr inbounds %struct.Curl_easy, ptr %data, i64 0, i32 17, i32 129
+  %verbose99 = getelementptr inbounds i8, ptr %data, i64 2706
   %bf.load100 = load i64, ptr %verbose99, align 2
   %16 = and i64 %bf.load100, 536870912
   %tobool104.not = icmp eq i64 %16, 0
@@ -1075,7 +1023,7 @@ land.lhs.true97:                                  ; preds = %do.body95
 
 land.lhs.true107:                                 ; preds = %land.lhs.true97
   %17 = load ptr, ptr %cf, align 8
-  %log_level109 = getelementptr inbounds %struct.Curl_cftype, ptr %17, i64 0, i32 2
+  %log_level109 = getelementptr inbounds i8, ptr %17, i64 12
   %18 = load i32, ptr %log_level109, align 4
   %cmp110 = icmp sgt i32 %18, 0
   br i1 %cmp110, label %if.then111, label %do.end113
@@ -1097,12 +1045,12 @@ land.lhs.true116:                                 ; preds = %do.end113
   br i1 %tobool120.not, label %if.then121, label %if.end126
 
 if.then121:                                       ; preds = %land.lhs.true116
-  %first_byte_at = getelementptr inbounds %struct.cf_socket_ctx, ptr %0, i64 0, i32 10
+  %first_byte_at = getelementptr inbounds i8, ptr %0, i64 360
   %call122 = call { i64, i32 } @Curl_now() #13
   %20 = extractvalue { i64, i32 } %call122, 0
   %21 = extractvalue { i64, i32 } %call122, 1
   store i64 %20, ptr %first_byte_at, align 8
-  %tmp.sroa.2.0.first_byte_at.sroa_idx = getelementptr inbounds %struct.cf_socket_ctx, ptr %0, i64 0, i32 10, i32 1
+  %tmp.sroa.2.0.first_byte_at.sroa_idx = getelementptr inbounds i8, ptr %0, i64 368
   store i32 %21, ptr %tmp.sroa.2.0.first_byte_at.sroa_idx, align 8
   %bf.load124 = load i8, ptr %buffer_recv, align 4
   %bf.set = or i8 %bf.load124, 1
@@ -1111,9 +1059,10 @@ if.then121:                                       ; preds = %land.lhs.true116
 
 if.end126:                                        ; preds = %if.then121, %land.lhs.true116, %do.end113
   %22 = load ptr, ptr %conn, align 8
+  %sock128 = getelementptr inbounds i8, ptr %22, i64 392
   %23 = load i32, ptr %sockindex, align 8
   %idxprom130 = sext i32 %23 to i64
-  %arrayidx131 = getelementptr inbounds %struct.connectdata, ptr %22, i64 0, i32 21, i64 %idxprom130
+  %arrayidx131 = getelementptr inbounds [2 x i32], ptr %sock128, i64 0, i64 %idxprom130
   store i32 %3, ptr %arrayidx131, align 4
   ret i64 %nread.0
 }
@@ -1121,7 +1070,7 @@ if.end126:                                        ; preds = %if.then121, %land.l
 ; Function Attrs: nounwind uwtable
 define internal noundef i32 @cf_socket_cntrl(ptr nocapture noundef readonly %cf, ptr noundef %data, i32 noundef %event, i32 %arg1, ptr nocapture readnone %arg2) #2 {
 entry:
-  %ctx1 = getelementptr inbounds %struct.Curl_cfilter, ptr %cf, i64 0, i32 2
+  %ctx1 = getelementptr inbounds i8, ptr %cf, i64 16
   %0 = load ptr, ptr %ctx1, align 8
   switch i32 %event, label %sw.epilog [
     i32 256, label %sw.bb
@@ -1130,33 +1079,34 @@ entry:
   ]
 
 sw.bb:                                            ; preds = %entry
-  %sock.i = getelementptr inbounds %struct.cf_socket_ctx, ptr %0, i64 0, i32 2
+  %sock.i = getelementptr inbounds i8, ptr %0, i64 152
   %1 = load i32, ptr %sock.i, align 8
-  %conn.i = getelementptr inbounds %struct.Curl_cfilter, ptr %cf, i64 0, i32 3
+  %conn.i = getelementptr inbounds i8, ptr %cf, i64 24
   %2 = load ptr, ptr %conn.i, align 8
-  %sockindex.i = getelementptr inbounds %struct.Curl_cfilter, ptr %cf, i64 0, i32 4
+  %sock2.i = getelementptr inbounds i8, ptr %2, i64 392
+  %sockindex.i = getelementptr inbounds i8, ptr %cf, i64 32
   %3 = load i32, ptr %sockindex.i, align 8
   %idxprom.i = sext i32 %3 to i64
-  %arrayidx.i = getelementptr inbounds %struct.connectdata, ptr %2, i64 0, i32 21, i64 %idxprom.i
+  %arrayidx.i = getelementptr inbounds [2 x i32], ptr %sock2.i, i64 0, i64 %idxprom.i
   store i32 %1, ptr %arrayidx.i, align 4
   %4 = load i32, ptr %sockindex.i, align 8
   %cmp.i = icmp eq i32 %4, 0
   br i1 %cmp.i, label %if.then.i, label %entry.if.end_crit_edge.i
 
 entry.if.end_crit_edge.i:                         ; preds = %sw.bb
-  %active.phi.trans.insert.i = getelementptr inbounds %struct.cf_socket_ctx, ptr %0, i64 0, i32 12
+  %active.phi.trans.insert.i = getelementptr inbounds i8, ptr %0, i64 380
   %bf.load12.pre.i = load i8, ptr %active.phi.trans.insert.i, align 4
   br label %cf_socket_active.exit
 
 if.then.i:                                        ; preds = %sw.bb
-  %addr.i = getelementptr inbounds %struct.cf_socket_ctx, ptr %0, i64 0, i32 1
+  %addr.i = getelementptr inbounds i8, ptr %0, i64 8
   %5 = load ptr, ptr %conn.i, align 8
-  %remote_addr.i = getelementptr inbounds %struct.connectdata, ptr %5, i64 0, i32 5
+  %remote_addr.i = getelementptr inbounds i8, ptr %5, i64 56
   store ptr %addr.i, ptr %remote_addr.i, align 8
   %6 = load i32, ptr %addr.i, align 8
   %cmp6.i = icmp eq i32 %6, 10
   %7 = load ptr, ptr %conn.i, align 8
-  %bits.i = getelementptr inbounds %struct.connectdata, ptr %7, i64 0, i32 27
+  %bits.i = getelementptr inbounds i8, ptr %7, i64 704
   %bf.load.i = load i32, ptr %bits.i, align 8
   %bf.shl.i = select i1 %cmp6.i, i32 4096, i32 0
   %bf.clear.i = and i32 %bf.load.i, -4097
@@ -1164,39 +1114,39 @@ if.then.i:                                        ; preds = %sw.bb
   store i32 %bf.set.i, ptr %bits.i, align 8
   %cf.val.i = load ptr, ptr %ctx1, align 8
   %cf.val17.i = load ptr, ptr %conn.i, align 8
-  %primary_ip.i.i = getelementptr inbounds %struct.connectdata, ptr %cf.val17.i, i64 0, i32 12
-  %r_ip.i.i = getelementptr inbounds %struct.cf_socket_ctx, ptr %cf.val.i, i64 0, i32 4
+  %primary_ip.i.i = getelementptr inbounds i8, ptr %cf.val17.i, i64 256
+  %r_ip.i.i = getelementptr inbounds i8, ptr %cf.val.i, i64 224
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(46) %primary_ip.i.i, ptr noundef nonnull align 8 dereferenceable(46) %r_ip.i.i, i64 46, i1 false)
   %cf.val18.i = load ptr, ptr %ctx1, align 8
   tail call fastcc void @set_local_ip(ptr %cf.val18.i, ptr noundef %data)
   %8 = load ptr, ptr %conn.i, align 8
-  %l_ip.i = getelementptr inbounds %struct.cf_socket_ctx, ptr %0, i64 0, i32 6
-  %l_port.i = getelementptr inbounds %struct.cf_socket_ctx, ptr %0, i64 0, i32 7
+  %l_ip.i = getelementptr inbounds i8, ptr %0, i64 276
+  %l_port.i = getelementptr inbounds i8, ptr %0, i64 324
   %9 = load i32, ptr %l_port.i, align 4
   tail call void @Curl_persistconninfo(ptr noundef %data, ptr noundef %8, ptr noundef nonnull %l_ip.i, i32 noundef %9) #13
-  %buffer_recv.i = getelementptr inbounds %struct.cf_socket_ctx, ptr %0, i64 0, i32 12
+  %buffer_recv.i = getelementptr inbounds i8, ptr %0, i64 380
   %bf.load9.i = load i8, ptr %buffer_recv.i, align 4
   %bf.clear10.i = and i8 %bf.load9.i, -17
   br label %cf_socket_active.exit
 
 cf_socket_active.exit:                            ; preds = %entry.if.end_crit_edge.i, %if.then.i
   %bf.load12.i = phi i8 [ %bf.load12.pre.i, %entry.if.end_crit_edge.i ], [ %bf.clear10.i, %if.then.i ]
-  %active.i = getelementptr inbounds %struct.cf_socket_ctx, ptr %0, i64 0, i32 12
+  %active.i = getelementptr inbounds i8, ptr %0, i64 380
   %bf.set14.i = or i8 %bf.load12.i, 8
   store i8 %bf.set14.i, ptr %active.i, align 4
   br label %sw.epilog
 
 sw.bb2:                                           ; preds = %entry
-  %conn = getelementptr inbounds %struct.Curl_cfilter, ptr %cf, i64 0, i32 3
+  %conn = getelementptr inbounds i8, ptr %cf, i64 24
   %10 = load ptr, ptr %conn, align 8
-  %l_ip = getelementptr inbounds %struct.cf_socket_ctx, ptr %0, i64 0, i32 6
-  %l_port = getelementptr inbounds %struct.cf_socket_ctx, ptr %0, i64 0, i32 7
+  %l_ip = getelementptr inbounds i8, ptr %0, i64 276
+  %l_port = getelementptr inbounds i8, ptr %0, i64 324
   %11 = load i32, ptr %l_port, align 4
   tail call void @Curl_persistconninfo(ptr noundef %data, ptr noundef %10, ptr noundef nonnull %l_ip, i32 noundef %11) #13
   br label %sw.epilog
 
 sw.bb3:                                           ; preds = %entry
-  %sock = getelementptr inbounds %struct.cf_socket_ctx, ptr %0, i64 0, i32 2
+  %sock = getelementptr inbounds i8, ptr %0, i64 152
   store i32 -1, ptr %sock, align 8
   br label %sw.epilog
 
@@ -1208,23 +1158,23 @@ sw.epilog:                                        ; preds = %sw.bb3, %sw.bb2, %c
 define internal noundef zeroext i1 @cf_socket_conn_is_alive(ptr noundef %cf, ptr noundef %data, ptr nocapture noundef writeonly %input_pending) #2 {
 entry:
   %pfd = alloca [1 x %struct.pollfd], align 4
-  %ctx1 = getelementptr inbounds %struct.Curl_cfilter, ptr %cf, i64 0, i32 2
+  %ctx1 = getelementptr inbounds i8, ptr %cf, i64 16
   %0 = load ptr, ptr %ctx1, align 8
   store i8 0, ptr %input_pending, align 1
   %tobool.not = icmp eq ptr %0, null
   br i1 %tobool.not, label %return, label %lor.lhs.false
 
 lor.lhs.false:                                    ; preds = %entry
-  %sock = getelementptr inbounds %struct.cf_socket_ctx, ptr %0, i64 0, i32 2
+  %sock = getelementptr inbounds i8, ptr %0, i64 152
   %1 = load i32, ptr %sock, align 8
   %cmp = icmp eq i32 %1, -1
   br i1 %cmp, label %return, label %if.end
 
 if.end:                                           ; preds = %lor.lhs.false
   store i32 %1, ptr %pfd, align 4
-  %events = getelementptr inbounds %struct.pollfd, ptr %pfd, i64 0, i32 1
+  %events = getelementptr inbounds i8, ptr %pfd, i64 4
   store i16 195, ptr %events, align 4
-  %revents = getelementptr inbounds %struct.pollfd, ptr %pfd, i64 0, i32 2
+  %revents = getelementptr inbounds i8, ptr %pfd, i64 6
   store i16 0, ptr %revents, align 2
   %call = call i32 @Curl_poll(ptr noundef nonnull %pfd, i32 noundef 1, i64 noundef 0) #13
   %cmp5 = icmp slt i32 %call, 0
@@ -1235,7 +1185,7 @@ do.body:                                          ; preds = %if.end
   br i1 %tobool7.not, label %return, label %land.lhs.true
 
 land.lhs.true:                                    ; preds = %do.body
-  %verbose = getelementptr inbounds %struct.Curl_easy, ptr %data, i64 0, i32 17, i32 129
+  %verbose = getelementptr inbounds i8, ptr %data, i64 2706
   %bf.load = load i64, ptr %verbose, align 2
   %2 = and i64 %bf.load, 536870912
   %tobool8.not = icmp eq i64 %2, 0
@@ -1243,7 +1193,7 @@ land.lhs.true:                                    ; preds = %do.body
 
 land.lhs.true11:                                  ; preds = %land.lhs.true
   %3 = load ptr, ptr %cf, align 8
-  %log_level = getelementptr inbounds %struct.Curl_cftype, ptr %3, i64 0, i32 2
+  %log_level = getelementptr inbounds i8, ptr %3, i64 12
   %4 = load i32, ptr %log_level, align 4
   %cmp12 = icmp sgt i32 %4, 0
   br i1 %cmp12, label %if.then13, label %return
@@ -1261,7 +1211,7 @@ do.body17:                                        ; preds = %if.else
   br i1 %tobool18.not, label %return, label %land.lhs.true19
 
 land.lhs.true19:                                  ; preds = %do.body17
-  %verbose21 = getelementptr inbounds %struct.Curl_easy, ptr %data, i64 0, i32 17, i32 129
+  %verbose21 = getelementptr inbounds i8, ptr %data, i64 2706
   %bf.load22 = load i64, ptr %verbose21, align 2
   %5 = and i64 %bf.load22, 536870912
   %tobool26.not = icmp eq i64 %5, 0
@@ -1269,7 +1219,7 @@ land.lhs.true19:                                  ; preds = %do.body17
 
 land.lhs.true29:                                  ; preds = %land.lhs.true19
   %6 = load ptr, ptr %cf, align 8
-  %log_level31 = getelementptr inbounds %struct.Curl_cftype, ptr %6, i64 0, i32 2
+  %log_level31 = getelementptr inbounds i8, ptr %6, i64 12
   %7 = load i32, ptr %log_level31, align 4
   %cmp32 = icmp sgt i32 %7, 0
   br i1 %cmp32, label %if.then33, label %return
@@ -1289,7 +1239,7 @@ do.body41:                                        ; preds = %if.else36
   br i1 %tobool65.not, label %return, label %land.lhs.true43
 
 land.lhs.true43:                                  ; preds = %do.body41
-  %verbose45 = getelementptr inbounds %struct.Curl_easy, ptr %data, i64 0, i32 17, i32 129
+  %verbose45 = getelementptr inbounds i8, ptr %data, i64 2706
   %bf.load46 = load i64, ptr %verbose45, align 2
   %10 = and i64 %bf.load46, 536870912
   %tobool50.not = icmp eq i64 %10, 0
@@ -1297,7 +1247,7 @@ land.lhs.true43:                                  ; preds = %do.body41
 
 land.lhs.true53:                                  ; preds = %land.lhs.true43
   %11 = load ptr, ptr %cf, align 8
-  %log_level55 = getelementptr inbounds %struct.Curl_cftype, ptr %11, i64 0, i32 2
+  %log_level55 = getelementptr inbounds i8, ptr %11, i64 12
   %12 = load i32, ptr %log_level55, align 4
   %cmp56 = icmp sgt i32 %12, 0
   br i1 %cmp56, label %if.then58, label %return
@@ -1310,7 +1260,7 @@ do.body64:                                        ; preds = %if.else36
   br i1 %tobool65.not, label %do.end83, label %land.lhs.true66
 
 land.lhs.true66:                                  ; preds = %do.body64
-  %verbose68 = getelementptr inbounds %struct.Curl_easy, ptr %data, i64 0, i32 17, i32 129
+  %verbose68 = getelementptr inbounds i8, ptr %data, i64 2706
   %bf.load69 = load i64, ptr %verbose68, align 2
   %13 = and i64 %bf.load69, 536870912
   %tobool73.not = icmp eq i64 %13, 0
@@ -1318,7 +1268,7 @@ land.lhs.true66:                                  ; preds = %do.body64
 
 land.lhs.true76:                                  ; preds = %land.lhs.true66
   %14 = load ptr, ptr %cf, align 8
-  %log_level78 = getelementptr inbounds %struct.Curl_cftype, ptr %14, i64 0, i32 2
+  %log_level78 = getelementptr inbounds i8, ptr %14, i64 12
   %15 = load i32, ptr %log_level78, align 4
   %cmp79 = icmp sgt i32 %15, 0
   br i1 %cmp79, label %if.then81, label %do.end83
@@ -1341,7 +1291,7 @@ declare i32 @Curl_cf_def_conn_keep_alive(ptr noundef, ptr noundef) #4
 ; Function Attrs: nounwind uwtable
 define internal i32 @cf_socket_query(ptr nocapture noundef readonly %cf, ptr noundef %data, i32 noundef %query, ptr noundef %pres1, ptr noundef %pres2) #2 {
 entry:
-  %ctx1 = getelementptr inbounds %struct.Curl_cfilter, ptr %cf, i64 0, i32 2
+  %ctx1 = getelementptr inbounds i8, ptr %cf, i64 16
   %0 = load ptr, ptr %ctx1, align 8
   switch i32 %query, label %sw.epilog14 [
     i32 3, label %do.end
@@ -1350,26 +1300,26 @@ entry:
   ]
 
 do.end:                                           ; preds = %entry
-  %sock = getelementptr inbounds %struct.cf_socket_ctx, ptr %0, i64 0, i32 2
+  %sock = getelementptr inbounds i8, ptr %0, i64 152
   %1 = load i32, ptr %sock, align 8
   store i32 %1, ptr %pres2, align 4
   br label %return
 
 sw.bb2:                                           ; preds = %entry
-  %got_first_byte = getelementptr inbounds %struct.cf_socket_ctx, ptr %0, i64 0, i32 12
+  %got_first_byte = getelementptr inbounds i8, ptr %0, i64 380
   %bf.load = load i8, ptr %got_first_byte, align 4
   %bf.clear = and i8 %bf.load, 1
   %tobool.not = icmp eq i8 %bf.clear, 0
   br i1 %tobool.not, label %if.end, label %if.then
 
 if.then:                                          ; preds = %sw.bb2
-  %first_byte_at = getelementptr inbounds %struct.cf_socket_ctx, ptr %0, i64 0, i32 10
-  %started_at = getelementptr inbounds %struct.cf_socket_ctx, ptr %0, i64 0, i32 8
+  %first_byte_at = getelementptr inbounds i8, ptr %0, i64 360
+  %started_at = getelementptr inbounds i8, ptr %0, i64 328
   %2 = load i64, ptr %first_byte_at, align 8
-  %3 = getelementptr inbounds %struct.cf_socket_ctx, ptr %0, i64 0, i32 10, i32 1
+  %3 = getelementptr inbounds i8, ptr %0, i64 368
   %4 = load i32, ptr %3, align 8
   %5 = load i64, ptr %started_at, align 8
-  %6 = getelementptr inbounds %struct.cf_socket_ctx, ptr %0, i64 0, i32 8, i32 1
+  %6 = getelementptr inbounds i8, ptr %0, i64 336
   %7 = load i32, ptr %6, align 8
   %call = tail call i64 @Curl_timediff(i64 %2, i32 %4, i64 %5, i32 %7) #13
   %cond18 = tail call i64 @llvm.smin.i64(i64 %call, i64 2147483647)
@@ -1388,31 +1338,31 @@ sw.bb3:                                           ; preds = %entry
   br i1 %switch, label %sw.bb4, label %sw.default
 
 sw.bb4:                                           ; preds = %sw.bb3
-  %got_first_byte5 = getelementptr inbounds %struct.cf_socket_ctx, ptr %0, i64 0, i32 12
+  %got_first_byte5 = getelementptr inbounds i8, ptr %0, i64 380
   %bf.load6 = load i8, ptr %got_first_byte5, align 4
   %bf.clear7 = and i8 %bf.load6, 1
   %tobool9.not = icmp eq i8 %bf.clear7, 0
   br i1 %tobool9.not, label %sw.default, label %if.then10
 
 if.then10:                                        ; preds = %sw.bb4
-  %first_byte_at11 = getelementptr inbounds %struct.cf_socket_ctx, ptr %0, i64 0, i32 10
+  %first_byte_at11 = getelementptr inbounds i8, ptr %0, i64 360
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %pres2, ptr noundef nonnull align 8 dereferenceable(16) %first_byte_at11, i64 16, i1 false)
   br label %return
 
 sw.default:                                       ; preds = %sw.bb3, %sw.bb4
-  %connected_at = getelementptr inbounds %struct.cf_socket_ctx, ptr %0, i64 0, i32 9
+  %connected_at = getelementptr inbounds i8, ptr %0, i64 344
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %pres2, ptr noundef nonnull align 8 dereferenceable(16) %connected_at, i64 16, i1 false)
   br label %return
 
 sw.epilog14:                                      ; preds = %entry
-  %next = getelementptr inbounds %struct.Curl_cfilter, ptr %cf, i64 0, i32 1
+  %next = getelementptr inbounds i8, ptr %cf, i64 8
   %10 = load ptr, ptr %next, align 8
   %tobool15.not = icmp eq ptr %10, null
   br i1 %tobool15.not, label %return, label %cond.true16
 
 cond.true16:                                      ; preds = %sw.epilog14
   %11 = load ptr, ptr %10, align 8
-  %query18 = getelementptr inbounds %struct.Curl_cftype, ptr %11, i64 0, i32 14
+  %query18 = getelementptr inbounds i8, ptr %11, i64 104
   %12 = load ptr, ptr %query18, align 8
   %call20 = tail call i32 %12(ptr noundef nonnull %10, ptr noundef %data, i32 noundef %query, ptr noundef %pres1, ptr noundef %pres2) #13
   br label %return
@@ -1438,11 +1388,11 @@ out.thread:                                       ; preds = %entry
 
 if.end:                                           ; preds = %entry
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(384) %call, i8 0, i64 384, i1 false)
-  %sock.i = getelementptr inbounds %struct.cf_socket_ctx, ptr %call, i64 0, i32 2
+  %sock.i = getelementptr inbounds i8, ptr %call, i64 152
   store i32 -1, ptr %sock.i, align 8
   store i32 %transport, ptr %call, align 8
-  %addr.i = getelementptr inbounds %struct.cf_socket_ctx, ptr %call, i64 0, i32 1
-  %ai_family.i.i = getelementptr inbounds %struct.Curl_addrinfo, ptr %ai, i64 0, i32 1
+  %addr.i = getelementptr inbounds i8, ptr %call, i64 8
+  %ai_family.i.i = getelementptr inbounds i8, ptr %ai, i64 4
   %1 = load i32, ptr %ai_family.i.i, align 4
   store i32 %1, ptr %addr.i, align 8
   switch i32 %transport, label %sw.default.i.i [
@@ -1458,19 +1408,19 @@ sw.default.i.i:                                   ; preds = %if.end
 
 out:                                              ; preds = %sw.default.i.i, %sw.bb1.i.i, %if.end
   %2 = phi <2 x i32> [ <i32 2, i32 17>, %sw.default.i.i ], [ <i32 1, i32 0>, %sw.bb1.i.i ], [ <i32 1, i32 6>, %if.end ]
-  %socktype4.i.i = getelementptr inbounds %struct.cf_socket_ctx, ptr %call, i64 0, i32 1, i32 1
+  %socktype4.i.i = getelementptr inbounds i8, ptr %call, i64 12
   store <2 x i32> %2, ptr %socktype4.i.i, align 4
-  %ai_addrlen.i.i = getelementptr inbounds %struct.Curl_addrinfo, ptr %ai, i64 0, i32 4
+  %ai_addrlen.i.i = getelementptr inbounds i8, ptr %ai, i64 16
   %3 = load i32, ptr %ai_addrlen.i.i, align 8
   %spec.select.i.i = tail call i32 @llvm.umin.i32(i32 %3, i32 128)
-  %addrlen.i.i = getelementptr inbounds %struct.cf_socket_ctx, ptr %call, i64 0, i32 1, i32 3
+  %addrlen.i.i = getelementptr inbounds i8, ptr %call, i64 20
   store i32 %spec.select.i.i, ptr %addrlen.i.i, align 4
-  %_sa_ex_u.i.i = getelementptr inbounds %struct.cf_socket_ctx, ptr %call, i64 0, i32 1, i32 4
-  %ai_addr.i.i = getelementptr inbounds %struct.Curl_addrinfo, ptr %ai, i64 0, i32 6
+  %_sa_ex_u.i.i = getelementptr inbounds i8, ptr %call, i64 24
+  %ai_addr.i.i = getelementptr inbounds i8, ptr %ai, i64 32
   %4 = load ptr, ptr %ai_addr.i.i, align 8
   %conv10.i.i = zext nneg i32 %spec.select.i.i to i64
   tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %_sa_ex_u.i.i, ptr align 2 %4, i64 %conv10.i.i, i1 false)
-  %recvbuf.i = getelementptr inbounds %struct.cf_socket_ctx, ptr %call, i64 0, i32 3
+  %recvbuf.i = getelementptr inbounds i8, ptr %call, i64 160
   tail call void @Curl_bufq_init(ptr noundef nonnull %recvbuf.i, i64 noundef 65536, i64 noundef 1) #13
   %call1 = call i32 @Curl_cf_create(ptr noundef nonnull %cf, ptr noundef nonnull @Curl_cft_tcp, ptr noundef nonnull %call) #13
   %tobool2.not = icmp eq i32 %call1, 0
@@ -1502,9 +1452,9 @@ entry:
   %buffer.i.i = alloca [256 x i8], align 16
   %val.i = alloca i32, align 4
   %val28.i = alloca i32, align 4
-  %ctx1 = getelementptr inbounds %struct.Curl_cfilter, ptr %cf, i64 0, i32 2
+  %ctx1 = getelementptr inbounds i8, ptr %cf, i64 16
   %0 = load ptr, ptr %ctx1, align 8
-  %connected = getelementptr inbounds %struct.Curl_cfilter, ptr %cf, i64 0, i32 5
+  %connected = getelementptr inbounds i8, ptr %cf, i64 36
   %bf.load = load i8, ptr %connected, align 4
   %bf.clear = and i8 %bf.load, 1
   %tobool2.not = icmp eq i8 %bf.clear, 0
@@ -1516,7 +1466,7 @@ if.then:                                          ; preds = %entry
 
 if.end:                                           ; preds = %entry
   store i8 0, ptr %done, align 1
-  %sock = getelementptr inbounds %struct.cf_socket_ctx, ptr %0, i64 0, i32 2
+  %sock = getelementptr inbounds i8, ptr %0, i64 152
   %1 = load i32, ptr %sock, align 8
   %cmp = icmp eq i32 %1, -1
   br i1 %cmp, label %if.then3, label %return
@@ -1531,7 +1481,7 @@ do.body:                                          ; preds = %if.then3
   br i1 %tobool6.not, label %return, label %land.lhs.true
 
 land.lhs.true:                                    ; preds = %do.body
-  %verbose = getelementptr inbounds %struct.Curl_easy, ptr %data, i64 0, i32 17, i32 129
+  %verbose = getelementptr inbounds i8, ptr %data, i64 2706
   %bf.load7 = load i64, ptr %verbose, align 2
   %2 = and i64 %bf.load7, 536870912
   %tobool10.not = icmp eq i64 %2, 0
@@ -1539,7 +1489,7 @@ land.lhs.true:                                    ; preds = %do.body
 
 land.lhs.true13:                                  ; preds = %land.lhs.true
   %3 = load ptr, ptr %cf, align 8
-  %log_level = getelementptr inbounds %struct.Curl_cftype, ptr %3, i64 0, i32 2
+  %log_level = getelementptr inbounds i8, ptr %3, i64 12
   %4 = load i32, ptr %log_level, align 4
   %cmp14 = icmp sgt i32 %4, 0
   br i1 %cmp14, label %if.then15, label %return
@@ -1557,18 +1507,18 @@ if.then19:                                        ; preds = %if.end17
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %val.i)
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %val28.i)
   %6 = load ptr, ptr %ctx1, align 8
-  %sock.i = getelementptr inbounds %struct.cf_socket_ctx, ptr %6, i64 0, i32 2
+  %sock.i = getelementptr inbounds i8, ptr %6, i64 152
   %7 = load i32, ptr %sock.i, align 8
-  %addr.i = getelementptr inbounds %struct.cf_socket_ctx, ptr %6, i64 0, i32 1
-  %_sa_ex_u.i = getelementptr inbounds %struct.cf_socket_ctx, ptr %6, i64 0, i32 1, i32 4
-  %addrlen.i = getelementptr inbounds %struct.cf_socket_ctx, ptr %6, i64 0, i32 1, i32 3
+  %addr.i = getelementptr inbounds i8, ptr %6, i64 8
+  %_sa_ex_u.i = getelementptr inbounds i8, ptr %6, i64 24
+  %addrlen.i = getelementptr inbounds i8, ptr %6, i64 20
   %8 = load i32, ptr %addrlen.i, align 4
   %call.i = tail call i32 @connect(i32 noundef %7, ptr noundef nonnull %_sa_ex_u.i, i32 noundef %8) #13
   %cmp.i = icmp eq i32 %call.i, -1
   br i1 %cmp.i, label %if.then.i, label %if.end.i
 
 if.then.i:                                        ; preds = %if.then19
-  %r_ip.i = getelementptr inbounds %struct.cf_socket_ctx, ptr %6, i64 0, i32 4
+  %r_ip.i = getelementptr inbounds i8, ptr %6, i64 224
   %call3.i = tail call ptr @__errno_location() #14
   %9 = load i32, ptr %call3.i, align 4
   call void @llvm.lifetime.start.p0(i64 256, ptr nonnull %buffer.i.i)
@@ -1582,7 +1532,7 @@ do.body.i.i:                                      ; preds = %if.then.i
   br i1 %tobool.not.i.i, label %cf_udp_setup_quic.exit, label %land.lhs.true.i.i
 
 land.lhs.true.i.i:                                ; preds = %do.body.i.i
-  %verbose.i.i = getelementptr inbounds %struct.Curl_easy, ptr %data, i64 0, i32 17, i32 129
+  %verbose.i.i = getelementptr inbounds i8, ptr %data, i64 2706
   %bf.load.i.i = load i64, ptr %verbose.i.i, align 2
   %10 = and i64 %bf.load.i.i, 536870912
   %tobool1.not.i.i = icmp eq i64 %10, 0
@@ -1594,7 +1544,7 @@ if.then.i.i:                                      ; preds = %land.lhs.true.i.i
   br label %cf_udp_setup_quic.exit
 
 if.end.i:                                         ; preds = %if.then19
-  %sock_connected.i = getelementptr inbounds %struct.cf_socket_ctx, ptr %6, i64 0, i32 12
+  %sock_connected.i = getelementptr inbounds i8, ptr %6, i64 380
   %bf.load.i = load i8, ptr %sock_connected.i, align 4
   %bf.set.i = or i8 %bf.load.i, 4
   store i8 %bf.set.i, ptr %sock_connected.i, align 4
@@ -1604,7 +1554,7 @@ if.end.i:                                         ; preds = %if.then19
   br i1 %tobool.not.i, label %do.end21.i, label %land.lhs.true.i
 
 land.lhs.true.i:                                  ; preds = %if.end.i
-  %verbose.i = getelementptr inbounds %struct.Curl_easy, ptr %data, i64 0, i32 17, i32 129
+  %verbose.i = getelementptr inbounds i8, ptr %data, i64 2706
   %bf.load7.i = load i64, ptr %verbose.i, align 2
   %11 = and i64 %bf.load7.i, 536870912
   %tobool9.not.i = icmp eq i64 %11, 0
@@ -1612,7 +1562,7 @@ land.lhs.true.i:                                  ; preds = %if.end.i
 
 land.lhs.true12.i:                                ; preds = %land.lhs.true.i
   %12 = load ptr, ptr %cf, align 8
-  %log_level.i = getelementptr inbounds %struct.Curl_cftype, ptr %12, i64 0, i32 2
+  %log_level.i = getelementptr inbounds i8, ptr %12, i64 12
   %13 = load i32, ptr %log_level.i, align 4
   %cmp13.i = icmp sgt i32 %13, 0
   br i1 %cmp13.i, label %if.then14.i, label %do.end21.i
@@ -1622,11 +1572,11 @@ if.then14.i:                                      ; preds = %land.lhs.true12.i
   %cmp15.i = icmp eq i32 %14, 5
   %cond.i = select i1 %cmp15.i, ptr @.str.51, ptr @.str.1
   %15 = load i32, ptr %sock.i, align 8
-  %l_ip.i = getelementptr inbounds %struct.cf_socket_ctx, ptr %6, i64 0, i32 6
-  %l_port.i = getelementptr inbounds %struct.cf_socket_ctx, ptr %6, i64 0, i32 7
+  %l_ip.i = getelementptr inbounds i8, ptr %6, i64 276
+  %l_port.i = getelementptr inbounds i8, ptr %6, i64 324
   %16 = load i32, ptr %l_port.i, align 4
-  %r_ip18.i = getelementptr inbounds %struct.cf_socket_ctx, ptr %6, i64 0, i32 4
-  %r_port.i = getelementptr inbounds %struct.cf_socket_ctx, ptr %6, i64 0, i32 5
+  %r_ip18.i = getelementptr inbounds i8, ptr %6, i64 224
+  %r_port.i = getelementptr inbounds i8, ptr %6, i64 272
   %17 = load i32, ptr %r_port.i, align 8
   tail call void (ptr, ptr, ptr, ...) @Curl_trc_cf_infof(ptr noundef nonnull %data, ptr noundef nonnull %cf, ptr noundef nonnull @.str.50, ptr noundef nonnull %cond.i, i32 noundef %15, ptr noundef nonnull %l_ip.i, i32 noundef %16, ptr noundef nonnull %r_ip18.i, i32 noundef %17) #13
   br label %do.end21.i
@@ -1664,7 +1614,7 @@ cf_udp_setup_quic.exit.thread39:                  ; preds = %if.then.i, %if.then
   br label %do.body24
 
 cf_udp_setup_quic.exit:                           ; preds = %do.body.i.i, %land.lhs.true.i.i, %if.then.i.i
-  %os_errno.i.i = getelementptr inbounds %struct.Curl_easy, ptr %data, i64 0, i32 22, i32 17
+  %os_errno.i.i = getelementptr inbounds i8, ptr %data, i64 3412
   store i32 %9, ptr %os_errno.i.i, align 4
   call void @llvm.lifetime.end.p0(i64 256, ptr nonnull %buffer.i.i)
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %val.i)
@@ -1676,7 +1626,7 @@ do.body24:                                        ; preds = %cf_udp_setup_quic.e
   br i1 %tobool25.not, label %if.end64, label %land.lhs.true26
 
 land.lhs.true26:                                  ; preds = %do.body24
-  %verbose28 = getelementptr inbounds %struct.Curl_easy, ptr %data, i64 0, i32 17, i32 129
+  %verbose28 = getelementptr inbounds i8, ptr %data, i64 2706
   %bf.load29 = load i64, ptr %verbose28, align 2
   %22 = and i64 %bf.load29, 536870912
   %tobool33.not = icmp eq i64 %22, 0
@@ -1684,15 +1634,15 @@ land.lhs.true26:                                  ; preds = %do.body24
 
 land.lhs.true36:                                  ; preds = %land.lhs.true26
   %23 = load ptr, ptr %cf, align 8
-  %log_level38 = getelementptr inbounds %struct.Curl_cftype, ptr %23, i64 0, i32 2
+  %log_level38 = getelementptr inbounds i8, ptr %23, i64 12
   %24 = load i32, ptr %log_level38, align 4
   %cmp39 = icmp sgt i32 %24, 0
   br i1 %cmp39, label %if.then40, label %if.end64
 
 if.then40:                                        ; preds = %land.lhs.true36
   %25 = load i32, ptr %sock, align 8
-  %l_ip = getelementptr inbounds %struct.cf_socket_ctx, ptr %0, i64 0, i32 6
-  %l_port = getelementptr inbounds %struct.cf_socket_ctx, ptr %0, i64 0, i32 7
+  %l_ip = getelementptr inbounds i8, ptr %0, i64 276
+  %l_port = getelementptr inbounds i8, ptr %0, i64 324
   %26 = load i32, ptr %l_port, align 4
   call void (ptr, ptr, ptr, ...) @Curl_trc_cf_infof(ptr noundef nonnull %data, ptr noundef nonnull %cf, ptr noundef nonnull @.str.48, i32 noundef %25, ptr noundef nonnull %l_ip, i32 noundef %26) #13
   br label %if.end64
@@ -1702,7 +1652,7 @@ do.body44:                                        ; preds = %if.end17
   br i1 %tobool45.not, label %if.end64, label %land.lhs.true46
 
 land.lhs.true46:                                  ; preds = %do.body44
-  %verbose48 = getelementptr inbounds %struct.Curl_easy, ptr %data, i64 0, i32 17, i32 129
+  %verbose48 = getelementptr inbounds i8, ptr %data, i64 2706
   %bf.load49 = load i64, ptr %verbose48, align 2
   %27 = and i64 %bf.load49, 536870912
   %tobool53.not = icmp eq i64 %27, 0
@@ -1710,7 +1660,7 @@ land.lhs.true46:                                  ; preds = %do.body44
 
 land.lhs.true56:                                  ; preds = %land.lhs.true46
   %28 = load ptr, ptr %cf, align 8
-  %log_level58 = getelementptr inbounds %struct.Curl_cftype, ptr %28, i64 0, i32 2
+  %log_level58 = getelementptr inbounds i8, ptr %28, i64 12
   %29 = load i32, ptr %log_level58, align 4
   %cmp59 = icmp sgt i32 %29, 0
   br i1 %cmp59, label %if.then60, label %if.end64
@@ -1748,11 +1698,11 @@ out.thread:                                       ; preds = %entry
 
 if.end:                                           ; preds = %entry
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(384) %call, i8 0, i64 384, i1 false)
-  %sock.i = getelementptr inbounds %struct.cf_socket_ctx, ptr %call, i64 0, i32 2
+  %sock.i = getelementptr inbounds i8, ptr %call, i64 152
   store i32 -1, ptr %sock.i, align 8
   store i32 %transport, ptr %call, align 8
-  %addr.i = getelementptr inbounds %struct.cf_socket_ctx, ptr %call, i64 0, i32 1
-  %ai_family.i.i = getelementptr inbounds %struct.Curl_addrinfo, ptr %ai, i64 0, i32 1
+  %addr.i = getelementptr inbounds i8, ptr %call, i64 8
+  %ai_family.i.i = getelementptr inbounds i8, ptr %ai, i64 4
   %1 = load i32, ptr %ai_family.i.i, align 4
   store i32 %1, ptr %addr.i, align 8
   switch i32 %transport, label %sw.default.i.i [
@@ -1768,19 +1718,19 @@ sw.default.i.i:                                   ; preds = %if.end
 
 out:                                              ; preds = %sw.default.i.i, %sw.bb1.i.i, %if.end
   %2 = phi <2 x i32> [ <i32 2, i32 17>, %sw.default.i.i ], [ <i32 1, i32 0>, %sw.bb1.i.i ], [ <i32 1, i32 6>, %if.end ]
-  %socktype4.i.i = getelementptr inbounds %struct.cf_socket_ctx, ptr %call, i64 0, i32 1, i32 1
+  %socktype4.i.i = getelementptr inbounds i8, ptr %call, i64 12
   store <2 x i32> %2, ptr %socktype4.i.i, align 4
-  %ai_addrlen.i.i = getelementptr inbounds %struct.Curl_addrinfo, ptr %ai, i64 0, i32 4
+  %ai_addrlen.i.i = getelementptr inbounds i8, ptr %ai, i64 16
   %3 = load i32, ptr %ai_addrlen.i.i, align 8
   %spec.select.i.i = tail call i32 @llvm.umin.i32(i32 %3, i32 128)
-  %addrlen.i.i = getelementptr inbounds %struct.cf_socket_ctx, ptr %call, i64 0, i32 1, i32 3
+  %addrlen.i.i = getelementptr inbounds i8, ptr %call, i64 20
   store i32 %spec.select.i.i, ptr %addrlen.i.i, align 4
-  %_sa_ex_u.i.i = getelementptr inbounds %struct.cf_socket_ctx, ptr %call, i64 0, i32 1, i32 4
-  %ai_addr.i.i = getelementptr inbounds %struct.Curl_addrinfo, ptr %ai, i64 0, i32 6
+  %_sa_ex_u.i.i = getelementptr inbounds i8, ptr %call, i64 24
+  %ai_addr.i.i = getelementptr inbounds i8, ptr %ai, i64 32
   %4 = load ptr, ptr %ai_addr.i.i, align 8
   %conv10.i.i = zext nneg i32 %spec.select.i.i to i64
   tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %_sa_ex_u.i.i, ptr align 2 %4, i64 %conv10.i.i, i1 false)
-  %recvbuf.i = getelementptr inbounds %struct.cf_socket_ctx, ptr %call, i64 0, i32 3
+  %recvbuf.i = getelementptr inbounds i8, ptr %call, i64 160
   tail call void @Curl_bufq_init(ptr noundef nonnull %recvbuf.i, i64 noundef 65536, i64 noundef 1) #13
   %call1 = call i32 @Curl_cf_create(ptr noundef nonnull %cf, ptr noundef nonnull @Curl_cft_udp, ptr noundef nonnull %call) #13
   %tobool2.not = icmp eq i32 %call1, 0
@@ -1820,11 +1770,11 @@ out.thread:                                       ; preds = %entry
 
 if.end:                                           ; preds = %entry
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(384) %call, i8 0, i64 384, i1 false)
-  %sock.i = getelementptr inbounds %struct.cf_socket_ctx, ptr %call, i64 0, i32 2
+  %sock.i = getelementptr inbounds i8, ptr %call, i64 152
   store i32 -1, ptr %sock.i, align 8
   store i32 %transport, ptr %call, align 8
-  %addr.i = getelementptr inbounds %struct.cf_socket_ctx, ptr %call, i64 0, i32 1
-  %ai_family.i.i = getelementptr inbounds %struct.Curl_addrinfo, ptr %ai, i64 0, i32 1
+  %addr.i = getelementptr inbounds i8, ptr %call, i64 8
+  %ai_family.i.i = getelementptr inbounds i8, ptr %ai, i64 4
   %1 = load i32, ptr %ai_family.i.i, align 4
   store i32 %1, ptr %addr.i, align 8
   switch i32 %transport, label %sw.default.i.i [
@@ -1840,19 +1790,19 @@ sw.default.i.i:                                   ; preds = %if.end
 
 out:                                              ; preds = %sw.default.i.i, %sw.bb1.i.i, %if.end
   %2 = phi <2 x i32> [ <i32 2, i32 17>, %sw.default.i.i ], [ <i32 1, i32 0>, %sw.bb1.i.i ], [ <i32 1, i32 6>, %if.end ]
-  %socktype4.i.i = getelementptr inbounds %struct.cf_socket_ctx, ptr %call, i64 0, i32 1, i32 1
+  %socktype4.i.i = getelementptr inbounds i8, ptr %call, i64 12
   store <2 x i32> %2, ptr %socktype4.i.i, align 4
-  %ai_addrlen.i.i = getelementptr inbounds %struct.Curl_addrinfo, ptr %ai, i64 0, i32 4
+  %ai_addrlen.i.i = getelementptr inbounds i8, ptr %ai, i64 16
   %3 = load i32, ptr %ai_addrlen.i.i, align 8
   %spec.select.i.i = tail call i32 @llvm.umin.i32(i32 %3, i32 128)
-  %addrlen.i.i = getelementptr inbounds %struct.cf_socket_ctx, ptr %call, i64 0, i32 1, i32 3
+  %addrlen.i.i = getelementptr inbounds i8, ptr %call, i64 20
   store i32 %spec.select.i.i, ptr %addrlen.i.i, align 4
-  %_sa_ex_u.i.i = getelementptr inbounds %struct.cf_socket_ctx, ptr %call, i64 0, i32 1, i32 4
-  %ai_addr.i.i = getelementptr inbounds %struct.Curl_addrinfo, ptr %ai, i64 0, i32 6
+  %_sa_ex_u.i.i = getelementptr inbounds i8, ptr %call, i64 24
+  %ai_addr.i.i = getelementptr inbounds i8, ptr %ai, i64 32
   %4 = load ptr, ptr %ai_addr.i.i, align 8
   %conv10.i.i = zext nneg i32 %spec.select.i.i to i64
   tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %_sa_ex_u.i.i, ptr align 2 %4, i64 %conv10.i.i, i1 false)
-  %recvbuf.i = getelementptr inbounds %struct.cf_socket_ctx, ptr %call, i64 0, i32 3
+  %recvbuf.i = getelementptr inbounds i8, ptr %call, i64 160
   tail call void @Curl_bufq_init(ptr noundef nonnull %recvbuf.i, i64 noundef 65536, i64 noundef 1) #13
   %call1 = call i32 @Curl_cf_create(ptr noundef nonnull %cf, ptr noundef nonnull @Curl_cft_unix, ptr noundef nonnull %call) #13
   %tobool2.not = icmp eq i32 %call1, 0
@@ -1879,7 +1829,7 @@ if.end9:                                          ; preds = %do.body5, %out
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
 define internal noundef i32 @cf_tcp_accept_connect(ptr nocapture noundef readonly %cf, ptr nocapture readnone %data, i1 zeroext %blocking, ptr nocapture noundef writeonly %done) #5 {
 entry:
-  %connected = getelementptr inbounds %struct.Curl_cfilter, ptr %cf, i64 0, i32 5
+  %connected = getelementptr inbounds i8, ptr %cf, i64 36
   %bf.load = load i8, ptr %connected, align 4
   %bf.clear = and i8 %bf.load, 1
   %tobool1.not = icmp eq i8 %bf.clear, 0
@@ -1906,14 +1856,14 @@ entry:
   br i1 %tobool.not, label %do.body31, label %if.end
 
 if.end:                                           ; preds = %entry
-  %transport = getelementptr inbounds %struct.connectdata, ptr %conn, i64 0, i32 54
+  %transport = getelementptr inbounds i8, ptr %conn, i64 1166
   %1 = load i8, ptr %transport, align 2
   %conv = zext i8 %1 to i32
   store i32 %conv, ptr %call, align 8
   %2 = load i32, ptr %s, align 4
-  %sock = getelementptr inbounds %struct.cf_socket_ctx, ptr %call, i64 0, i32 2
+  %sock = getelementptr inbounds i8, ptr %call, i64 152
   store i32 %2, ptr %sock, align 8
-  %accepted = getelementptr inbounds %struct.cf_socket_ctx, ptr %call, i64 0, i32 12
+  %accepted = getelementptr inbounds i8, ptr %call, i64 380
   %bf.load = load i8, ptr %accepted, align 4
   %bf.clear = and i8 %bf.load, -3
   store i8 %bf.clear, ptr %accepted, align 4
@@ -1925,8 +1875,9 @@ if.end:                                           ; preds = %entry
 if.end5:                                          ; preds = %if.end
   call void @Curl_conn_cf_add(ptr noundef %data, ptr noundef nonnull %conn, i32 noundef %sockindex, ptr noundef %.pre) #13
   %3 = load i32, ptr %sock, align 8
+  %sock7 = getelementptr inbounds i8, ptr %conn, i64 392
   %idxprom = sext i32 %sockindex to i64
-  %arrayidx = getelementptr inbounds %struct.connectdata, ptr %conn, i64 0, i32 21, i64 %idxprom
+  %arrayidx = getelementptr inbounds [2 x i32], ptr %sock7, i64 0, i64 %idxprom
   store i32 %3, ptr %arrayidx, align 4
   %4 = load ptr, ptr %cf, align 8
   %5 = getelementptr i8, ptr %4, i64 16
@@ -1935,15 +1886,15 @@ if.end5:                                          ; preds = %if.end
   %bf.load9 = load i8, ptr %accepted, align 4
   %bf.set11 = or i8 %bf.load9, 8
   store i8 %bf.set11, ptr %accepted, align 4
-  %connected_at = getelementptr inbounds %struct.cf_socket_ctx, ptr %call, i64 0, i32 9
+  %connected_at = getelementptr inbounds i8, ptr %call, i64 344
   %call12 = call { i64, i32 } @Curl_now() #13
   %6 = extractvalue { i64, i32 } %call12, 0
   %7 = extractvalue { i64, i32 } %call12, 1
   store i64 %6, ptr %connected_at, align 8
-  %tmp.sroa.2.0.connected_at.sroa_idx = getelementptr inbounds %struct.cf_socket_ctx, ptr %call, i64 0, i32 9, i32 1
+  %tmp.sroa.2.0.connected_at.sroa_idx = getelementptr inbounds i8, ptr %call, i64 352
   store i32 %7, ptr %tmp.sroa.2.0.connected_at.sroa_idx, align 8
   %8 = load ptr, ptr %cf, align 8
-  %connected = getelementptr inbounds %struct.Curl_cfilter, ptr %8, i64 0, i32 5
+  %connected = getelementptr inbounds i8, ptr %8, i64 36
   %bf.load13 = load i8, ptr %connected, align 4
   %bf.set15 = or i8 %bf.load13, 1
   store i8 %bf.set15, ptr %connected, align 4
@@ -1951,7 +1902,7 @@ if.end5:                                          ; preds = %if.end
   br i1 %tobool17.not, label %if.end35, label %land.lhs.true
 
 land.lhs.true:                                    ; preds = %if.end5
-  %verbose = getelementptr inbounds %struct.Curl_easy, ptr %data, i64 0, i32 17, i32 129
+  %verbose = getelementptr inbounds i8, ptr %data, i64 2706
   %bf.load18 = load i64, ptr %verbose, align 2
   %9 = and i64 %bf.load18, 536870912
   %tobool20.not = icmp eq i64 %9, 0
@@ -1959,7 +1910,7 @@ land.lhs.true:                                    ; preds = %if.end5
 
 land.lhs.true23:                                  ; preds = %land.lhs.true
   %10 = load ptr, ptr %8, align 8
-  %log_level = getelementptr inbounds %struct.Curl_cftype, ptr %10, i64 0, i32 2
+  %log_level = getelementptr inbounds i8, ptr %10, i64 12
   %11 = load i32, ptr %log_level, align 4
   %cmp = icmp sgt i32 %11, 0
   br i1 %cmp, label %if.then25, label %if.end35
@@ -1994,11 +1945,11 @@ entry:
   %buffer = alloca [256 x i8], align 16
   %ssloc = alloca %struct.Curl_sockaddr_storage, align 8
   %slen = alloca i32, align 4
-  %conn = getelementptr inbounds %struct.Curl_easy, ptr %data, i64 0, i32 4
+  %conn = getelementptr inbounds i8, ptr %data, i64 32
   %0 = load ptr, ptr %conn, align 8
-  %handler = getelementptr inbounds %struct.connectdata, ptr %0, i64 0, i32 28
+  %handler = getelementptr inbounds i8, ptr %0, i64 712
   %1 = load ptr, ptr %handler, align 8
-  %protocol = getelementptr inbounds %struct.Curl_handler, ptr %1, i64 0, i32 17
+  %protocol = getelementptr inbounds i8, ptr %1, i64 132
   %2 = load i32, ptr %protocol, align 4
   %and = and i32 %2, 2048
   %tobool.not = icmp eq i32 %and, 0
@@ -2007,7 +1958,7 @@ entry:
 if.then:                                          ; preds = %entry
   store i32 128, ptr %slen, align 4
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(128) %ssloc, i8 0, i64 128, i1 false)
-  %sock = getelementptr inbounds %struct.cf_socket_ctx, ptr %cf.16.val, i64 0, i32 2
+  %sock = getelementptr inbounds i8, ptr %cf.16.val, i64 152
   %3 = load i32, ptr %sock, align 8
   %call = call i32 @getsockname(i32 noundef %3, ptr noundef nonnull %ssloc, ptr noundef nonnull %slen) #13
   %tobool2.not = icmp eq i32 %call, 0
@@ -2022,8 +1973,8 @@ if.then3:                                         ; preds = %if.then
 
 if.end:                                           ; preds = %if.then
   %5 = load i32, ptr %slen, align 4
-  %l_ip = getelementptr inbounds %struct.cf_socket_ctx, ptr %cf.16.val, i64 0, i32 6
-  %l_port = getelementptr inbounds %struct.cf_socket_ctx, ptr %cf.16.val, i64 0, i32 7
+  %l_ip = getelementptr inbounds i8, ptr %cf.16.val, i64 276
+  %l_port = getelementptr inbounds i8, ptr %cf.16.val, i64 324
   %call7 = call zeroext i1 @Curl_addr2string(ptr noundef nonnull %ssloc, i32 noundef %5, ptr noundef nonnull %l_ip, ptr noundef nonnull %l_port) #13
   br i1 %call7, label %return, label %if.then8
 
@@ -2048,8 +1999,9 @@ entry:
   %buffer.i = alloca [256 x i8], align 16
   %ssrem.i = alloca %struct.Curl_sockaddr_storage, align 8
   %plen.i = alloca i32, align 4
+  %cfilter = getelementptr inbounds i8, ptr %conn, i64 432
   %idxprom = sext i32 %sockindex to i64
-  %arrayidx = getelementptr inbounds %struct.connectdata, ptr %conn, i64 0, i32 24, i64 %idxprom
+  %arrayidx = getelementptr inbounds [2 x ptr], ptr %cfilter, i64 0, i64 %idxprom
   %0 = load ptr, ptr %arrayidx, align 8
   %tobool.not = icmp eq ptr %0, null
   br i1 %tobool.not, label %return, label %lor.lhs.false
@@ -2060,11 +2012,11 @@ lor.lhs.false:                                    ; preds = %entry
   br i1 %cmp.not, label %land.lhs.true2.i, label %return
 
 land.lhs.true2.i:                                 ; preds = %lor.lhs.false
-  %ctx1 = getelementptr inbounds %struct.Curl_cfilter, ptr %0, i64 0, i32 2
+  %ctx1 = getelementptr inbounds i8, ptr %0, i64 16
   %2 = load ptr, ptr %ctx1, align 8
-  %sock = getelementptr inbounds %struct.cf_socket_ctx, ptr %2, i64 0, i32 2
+  %sock = getelementptr inbounds i8, ptr %2, i64 152
   %3 = load i32, ptr %sock, align 8
-  %fclosesocket.i = getelementptr inbounds %struct.connectdata, ptr %conn, i64 0, i32 1
+  %fclosesocket.i = getelementptr inbounds i8, ptr %conn, i64 24
   %4 = load ptr, ptr %fclosesocket.i, align 8
   %tobool3.not.i = icmp eq ptr %4, null
   tail call void @Curl_multi_closed(ptr noundef %data, i32 noundef %3) #13
@@ -2073,7 +2025,7 @@ land.lhs.true2.i:                                 ; preds = %lor.lhs.false
 if.then.i:                                        ; preds = %land.lhs.true2.i
   tail call void @Curl_set_in_callback(ptr noundef %data, i1 noundef zeroext true) #13
   %5 = load ptr, ptr %fclosesocket.i, align 8
-  %closesocket_client.i = getelementptr inbounds %struct.connectdata, ptr %conn, i64 0, i32 2
+  %closesocket_client.i = getelementptr inbounds i8, ptr %conn, i64 32
   %6 = load ptr, ptr %closesocket_client.i, align 8
   %call.i = tail call i32 %5(ptr noundef %6, i32 noundef %3) #13
   tail call void @Curl_set_in_callback(ptr noundef %data, i1 noundef zeroext false) #13
@@ -2086,19 +2038,20 @@ if.end7.i:                                        ; preds = %land.lhs.true2.i
 socket_close.exit:                                ; preds = %if.then.i, %if.end7.i
   %7 = load i32, ptr %s, align 4
   store i32 %7, ptr %sock, align 8
-  %arrayidx6 = getelementptr inbounds %struct.connectdata, ptr %conn, i64 0, i32 21, i64 %idxprom
+  %sock4 = getelementptr inbounds i8, ptr %conn, i64 392
+  %arrayidx6 = getelementptr inbounds [2 x i32], ptr %sock4, i64 0, i64 %idxprom
   store i32 %7, ptr %arrayidx6, align 4
   %.val25 = load ptr, ptr %ctx1, align 8
   call void @llvm.lifetime.start.p0(i64 256, ptr nonnull %buffer.i)
   call void @llvm.lifetime.start.p0(i64 128, ptr nonnull %ssrem.i)
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %plen.i)
-  %r_ip.i = getelementptr inbounds %struct.cf_socket_ctx, ptr %.val25, i64 0, i32 4
+  %r_ip.i = getelementptr inbounds i8, ptr %.val25, i64 224
   store i8 0, ptr %r_ip.i, align 8
-  %r_port.i = getelementptr inbounds %struct.cf_socket_ctx, ptr %.val25, i64 0, i32 5
+  %r_port.i = getelementptr inbounds i8, ptr %.val25, i64 272
   store i32 0, ptr %r_port.i, align 8
   store i32 128, ptr %plen.i, align 4
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(128) %ssrem.i, i8 0, i64 128, i1 false)
-  %sock.i = getelementptr inbounds %struct.cf_socket_ctx, ptr %.val25, i64 0, i32 2
+  %sock.i = getelementptr inbounds i8, ptr %.val25, i64 152
   %8 = load i32, ptr %sock.i, align 8
   %call.i26 = call i32 @getpeername(i32 noundef %8, ptr noundef nonnull %ssrem.i, ptr noundef nonnull %plen.i) #13
   %tobool.not.i = icmp eq i32 %call.i26, 0
@@ -2129,18 +2082,18 @@ set_accepted_remote_ip.exit:                      ; preds = %if.then.i27, %if.en
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %plen.i)
   %.val = load ptr, ptr %ctx1, align 8
   call fastcc void @set_local_ip(ptr %.val, ptr noundef %data)
-  %active = getelementptr inbounds %struct.cf_socket_ctx, ptr %2, i64 0, i32 12
+  %active = getelementptr inbounds i8, ptr %2, i64 380
   %bf.load = load i8, ptr %active, align 4
   %bf.set10 = or i8 %bf.load, 10
   store i8 %bf.set10, ptr %active, align 4
-  %connected_at = getelementptr inbounds %struct.cf_socket_ctx, ptr %2, i64 0, i32 9
+  %connected_at = getelementptr inbounds i8, ptr %2, i64 344
   %call11 = call { i64, i32 } @Curl_now() #13
   %12 = extractvalue { i64, i32 } %call11, 0
   %13 = extractvalue { i64, i32 } %call11, 1
   store i64 %12, ptr %connected_at, align 8
-  %tmp.sroa.2.0.connected_at.sroa_idx = getelementptr inbounds %struct.cf_socket_ctx, ptr %2, i64 0, i32 9, i32 1
+  %tmp.sroa.2.0.connected_at.sroa_idx = getelementptr inbounds i8, ptr %2, i64 352
   store i32 %13, ptr %tmp.sroa.2.0.connected_at.sroa_idx, align 8
-  %connected = getelementptr inbounds %struct.Curl_cfilter, ptr %0, i64 0, i32 5
+  %connected = getelementptr inbounds i8, ptr %0, i64 36
   %bf.load12 = load i8, ptr %connected, align 4
   %bf.set14 = or i8 %bf.load12, 1
   store i8 %bf.set14, ptr %connected, align 4
@@ -2148,7 +2101,7 @@ set_accepted_remote_ip.exit:                      ; preds = %if.then.i27, %if.en
   br i1 %tobool15.not, label %return, label %land.lhs.true
 
 land.lhs.true:                                    ; preds = %set_accepted_remote_ip.exit
-  %verbose = getelementptr inbounds %struct.Curl_easy, ptr %data, i64 0, i32 17, i32 129
+  %verbose = getelementptr inbounds i8, ptr %data, i64 2706
   %bf.load16 = load i64, ptr %verbose, align 2
   %14 = and i64 %bf.load16, 536870912
   %tobool18.not = icmp eq i64 %14, 0
@@ -2156,15 +2109,15 @@ land.lhs.true:                                    ; preds = %set_accepted_remote
 
 land.lhs.true21:                                  ; preds = %land.lhs.true
   %15 = load ptr, ptr %0, align 8
-  %log_level = getelementptr inbounds %struct.Curl_cftype, ptr %15, i64 0, i32 2
+  %log_level = getelementptr inbounds i8, ptr %15, i64 12
   %16 = load i32, ptr %log_level, align 4
   %cmp23 = icmp sgt i32 %16, 0
   br i1 %cmp23, label %if.then24, label %return
 
 if.then24:                                        ; preds = %land.lhs.true21
   %17 = load i32, ptr %sock, align 8
-  %r_ip = getelementptr inbounds %struct.cf_socket_ctx, ptr %2, i64 0, i32 4
-  %r_port = getelementptr inbounds %struct.cf_socket_ctx, ptr %2, i64 0, i32 5
+  %r_ip = getelementptr inbounds i8, ptr %2, i64 224
+  %r_port = getelementptr inbounds i8, ptr %2, i64 272
   %18 = load i32, ptr %r_port, align 8
   call void (ptr, ptr, ptr, ...) @Curl_trc_cf_infof(ptr noundef nonnull %data, ptr noundef nonnull %0, ptr noundef nonnull @.str.5, i32 noundef %17, ptr noundef nonnull %r_ip, i32 noundef %18) #13
   br label %return
@@ -2192,7 +2145,7 @@ cf_is_socket.exit:                                ; preds = %entry
   br i1 %spec.select.i, label %land.lhs.true, label %return
 
 land.lhs.true:                                    ; preds = %cf_is_socket.exit
-  %ctx = getelementptr inbounds %struct.Curl_cfilter, ptr %cf, i64 0, i32 2
+  %ctx = getelementptr inbounds i8, ptr %cf, i64 16
   %1 = load ptr, ptr %ctx, align 8
   %tobool.not = icmp eq ptr %1, null
   br i1 %tobool.not, label %return, label %if.then
@@ -2202,7 +2155,7 @@ if.then:                                          ; preds = %land.lhs.true
   br i1 %tobool3.not, label %if.end, label %if.then4
 
 if.then4:                                         ; preds = %if.then
-  %sock = getelementptr inbounds %struct.cf_socket_ctx, ptr %1, i64 0, i32 2
+  %sock = getelementptr inbounds i8, ptr %1, i64 152
   %2 = load i32, ptr %sock, align 8
   store i32 %2, ptr %psock, align 4
   br label %if.end
@@ -2212,7 +2165,7 @@ if.end:                                           ; preds = %if.then4, %if.then
   br i1 %tobool5.not, label %if.end7, label %if.then6
 
 if.then6:                                         ; preds = %if.end
-  %addr = getelementptr inbounds %struct.cf_socket_ctx, ptr %1, i64 0, i32 1
+  %addr = getelementptr inbounds i8, ptr %1, i64 8
   store ptr %addr, ptr %paddr, align 8
   br label %if.end7
 
@@ -2221,7 +2174,7 @@ if.end7:                                          ; preds = %if.then6, %if.end
   br i1 %tobool8.not, label %if.end10, label %if.then9
 
 if.then9:                                         ; preds = %if.end7
-  %r_ip = getelementptr inbounds %struct.cf_socket_ctx, ptr %1, i64 0, i32 4
+  %r_ip = getelementptr inbounds i8, ptr %1, i64 224
   store ptr %r_ip, ptr %pr_ip_str, align 8
   br label %if.end10
 
@@ -2230,7 +2183,7 @@ if.end10:                                         ; preds = %if.then9, %if.end7
   br i1 %tobool11.not, label %if.end13, label %if.then12
 
 if.then12:                                        ; preds = %if.end10
-  %r_port = getelementptr inbounds %struct.cf_socket_ctx, ptr %1, i64 0, i32 5
+  %r_port = getelementptr inbounds i8, ptr %1, i64 272
   %3 = load i32, ptr %r_port, align 8
   store i32 %3, ptr %pr_port, align 4
   br label %if.end13
@@ -2247,7 +2200,7 @@ if.then16:                                        ; preds = %if.end13
   br i1 %tobool15, label %if.then19, label %if.end21
 
 if.then19:                                        ; preds = %if.then16
-  %l_ip = getelementptr inbounds %struct.cf_socket_ctx, ptr %1, i64 0, i32 6
+  %l_ip = getelementptr inbounds i8, ptr %1, i64 276
   store ptr %l_ip, ptr %pl_ip_str, align 8
   br label %if.end21
 
@@ -2255,7 +2208,7 @@ if.end21:                                         ; preds = %if.then19, %if.then
   br i1 %tobool14, label %if.then23, label %return
 
 if.then23:                                        ; preds = %if.end21
-  %l_port = getelementptr inbounds %struct.cf_socket_ctx, ptr %1, i64 0, i32 7
+  %l_port = getelementptr inbounds i8, ptr %1, i64 324
   %4 = load i32, ptr %l_port, align 4
   store i32 %4, ptr %pl_port, align 4
   br label %return
@@ -2290,18 +2243,18 @@ entry:
   %onoff.i = alloca i32, align 4
   %buffer.i73 = alloca [256 x i8], align 16
   %buffer.i = alloca [256 x i8], align 16
-  %ctx1 = getelementptr inbounds %struct.Curl_cfilter, ptr %cf, i64 0, i32 2
+  %ctx1 = getelementptr inbounds i8, ptr %cf, i64 16
   %0 = load ptr, ptr %ctx1, align 8
-  %started_at = getelementptr inbounds %struct.cf_socket_ctx, ptr %0, i64 0, i32 8
+  %started_at = getelementptr inbounds i8, ptr %0, i64 328
   %call = tail call { i64, i32 } @Curl_now() #13
   %1 = extractvalue { i64, i32 } %call, 0
   %2 = extractvalue { i64, i32 } %call, 1
   store i64 %1, ptr %started_at, align 8
-  %tmp.sroa.2.0.started_at.sroa_idx = getelementptr inbounds %struct.cf_socket_ctx, ptr %0, i64 0, i32 8, i32 1
+  %tmp.sroa.2.0.started_at.sroa_idx = getelementptr inbounds i8, ptr %0, i64 336
   store i32 %2, ptr %tmp.sroa.2.0.started_at.sroa_idx, align 8
-  %addr = getelementptr inbounds %struct.cf_socket_ctx, ptr %0, i64 0, i32 1
-  %sock = getelementptr inbounds %struct.cf_socket_ctx, ptr %0, i64 0, i32 2
-  %fopensocket.i = getelementptr inbounds %struct.Curl_easy, ptr %data, i64 0, i32 17, i32 27
+  %addr = getelementptr inbounds i8, ptr %0, i64 8
+  %sock = getelementptr inbounds i8, ptr %0, i64 152
+  %fopensocket.i = getelementptr inbounds i8, ptr %data, i64 608
   %3 = load ptr, ptr %fopensocket.i, align 8
   %tobool.not.i = icmp eq ptr %3, null
   br i1 %tobool.not.i, label %if.else.i, label %if.then.i
@@ -2309,7 +2262,7 @@ entry:
 if.then.i:                                        ; preds = %entry
   tail call void @Curl_set_in_callback(ptr noundef nonnull %data, i1 noundef zeroext true) #13
   %4 = load ptr, ptr %fopensocket.i, align 8
-  %opensocket_client.i = getelementptr inbounds %struct.Curl_easy, ptr %data, i64 0, i32 17, i32 28
+  %opensocket_client.i = getelementptr inbounds i8, ptr %data, i64 616
   %5 = load ptr, ptr %opensocket_client.i, align 8
   %call.i = tail call i32 %4(ptr noundef %5, i32 noundef 0, ptr noundef nonnull %addr) #13
   store i32 %call.i, ptr %sock, align 4
@@ -2319,9 +2272,9 @@ if.then.i:                                        ; preds = %entry
 
 if.else.i:                                        ; preds = %entry
   %6 = load i32, ptr %addr, align 8
-  %socktype.i = getelementptr inbounds %struct.cf_socket_ctx, ptr %0, i64 0, i32 1, i32 1
+  %socktype.i = getelementptr inbounds i8, ptr %0, i64 12
   %7 = load i32, ptr %socktype.i, align 4
-  %protocol.i = getelementptr inbounds %struct.cf_socket_ctx, ptr %0, i64 0, i32 1, i32 2
+  %protocol.i = getelementptr inbounds i8, ptr %0, i64 16
   %8 = load i32, ptr %protocol.i, align 8
   %call6.i = tail call i32 @socket(i32 noundef %6, i32 noundef %7, i32 noundef %8) #13
   store i32 %call6.i, ptr %sock, align 4
@@ -2333,9 +2286,9 @@ if.end.i:                                         ; preds = %if.else.i, %if.then
   br i1 %cmp.i, label %if.then111, label %if.end8.i
 
 if.end8.i:                                        ; preds = %if.end.i
-  %conn.i = getelementptr inbounds %struct.Curl_easy, ptr %data, i64 0, i32 4
+  %conn.i = getelementptr inbounds i8, ptr %data, i64 32
   %10 = load ptr, ptr %conn.i, align 8
-  %scope_id.i = getelementptr inbounds %struct.connectdata, ptr %10, i64 0, i32 49
+  %scope_id.i = getelementptr inbounds i8, ptr %10, i64 1156
   %11 = load i32, ptr %scope_id.i, align 4
   %tobool9.not.i = icmp eq i32 %11, 0
   br i1 %tobool9.not.i, label %if.end, label %land.lhs.true.i
@@ -2346,25 +2299,25 @@ land.lhs.true.i:                                  ; preds = %if.end8.i
   br i1 %cmp11.i, label %if.then12.i, label %if.end
 
 if.then12.i:                                      ; preds = %land.lhs.true.i
-  %sin6_scope_id.i = getelementptr inbounds %struct.cf_socket_ctx, ptr %0, i64 0, i32 1, i32 4, i32 0, i32 0, i32 0, i32 1, i64 22
+  %sin6_scope_id.i = getelementptr inbounds i8, ptr %0, i64 48
   store i32 %11, ptr %sin6_scope_id.i, align 4
   br label %if.end
 
 if.end:                                           ; preds = %if.then12.i, %land.lhs.true.i, %if.end8.i
   %cf.val69 = load ptr, ptr %ctx1, align 8
   call void @llvm.lifetime.start.p0(i64 256, ptr nonnull %buffer.i)
-  %_sa_ex_u.i = getelementptr inbounds %struct.cf_socket_ctx, ptr %cf.val69, i64 0, i32 1, i32 4
-  %addrlen.i = getelementptr inbounds %struct.cf_socket_ctx, ptr %cf.val69, i64 0, i32 1, i32 3
+  %_sa_ex_u.i = getelementptr inbounds i8, ptr %cf.val69, i64 24
+  %addrlen.i = getelementptr inbounds i8, ptr %cf.val69, i64 20
   %13 = load i32, ptr %addrlen.i, align 4
-  %r_ip.i = getelementptr inbounds %struct.cf_socket_ctx, ptr %cf.val69, i64 0, i32 4
-  %r_port.i = getelementptr inbounds %struct.cf_socket_ctx, ptr %cf.val69, i64 0, i32 5
+  %r_ip.i = getelementptr inbounds i8, ptr %cf.val69, i64 224
+  %r_port.i = getelementptr inbounds i8, ptr %cf.val69, i64 272
   %call.i70 = tail call zeroext i1 @Curl_addr2string(ptr noundef nonnull %_sa_ex_u.i, i32 noundef %13, ptr noundef nonnull %r_ip.i, ptr noundef nonnull %r_port.i) #13
   br i1 %call.i70, label %if.end6, label %set_remote_ip.exit
 
 set_remote_ip.exit:                               ; preds = %if.end
   %call3.i = tail call ptr @__errno_location() #14
   %14 = load i32, ptr %call3.i, align 4
-  %error.i = getelementptr inbounds %struct.cf_socket_ctx, ptr %cf.val69, i64 0, i32 11
+  %error.i = getelementptr inbounds i8, ptr %cf.val69, i64 376
   store i32 %14, ptr %error.i, align 8
   %call7.i = call ptr @Curl_strerror(i32 noundef %14, ptr noundef nonnull %buffer.i, i64 noundef 256) #13
   call void (ptr, ptr, ...) @Curl_failf(ptr noundef nonnull %data, ptr noundef nonnull @.str.14, i32 noundef %14, ptr noundef %call7.i) #13
@@ -2373,7 +2326,7 @@ set_remote_ip.exit:                               ; preds = %if.end
 
 if.end6:                                          ; preds = %if.end
   call void @llvm.lifetime.end.p0(i64 256, ptr nonnull %buffer.i)
-  %verbose = getelementptr inbounds %struct.Curl_easy, ptr %data, i64 0, i32 17, i32 129
+  %verbose = getelementptr inbounds i8, ptr %data, i64 2706
   %bf.load = load i64, ptr %verbose, align 2
   %15 = and i64 %bf.load, 536870912
   %tobool11.not = icmp eq i64 %15, 0
@@ -2383,8 +2336,8 @@ if.end31.sink.split:                              ; preds = %if.end6
   %16 = load i32, ptr %addr, align 8
   %cmp = icmp eq i32 %16, 10
   %.str.11..str.12 = select i1 %cmp, ptr @.str.11, ptr @.str.12
-  %r_ip26 = getelementptr inbounds %struct.cf_socket_ctx, ptr %0, i64 0, i32 4
-  %r_port28 = getelementptr inbounds %struct.cf_socket_ctx, ptr %0, i64 0, i32 5
+  %r_ip26 = getelementptr inbounds i8, ptr %0, i64 224
+  %r_port28 = getelementptr inbounds i8, ptr %0, i64 272
   %17 = load i32, ptr %r_port28, align 8
   tail call void (ptr, ptr, ...) @Curl_infof(ptr noundef nonnull %data, ptr noundef nonnull %.str.11..str.12, ptr noundef nonnull %r_ip26, i32 noundef %17) #13
   br label %if.end31
@@ -2397,13 +2350,13 @@ if.end31:                                         ; preds = %if.end6, %if.end31.
   ]
 
 land.end:                                         ; preds = %if.end31, %if.end31
-  %socktype = getelementptr inbounds %struct.cf_socket_ctx, ptr %0, i64 0, i32 1, i32 1
+  %socktype = getelementptr inbounds i8, ptr %0, i64 12
   %19 = load i32, ptr %socktype, align 4
   %cmp39 = icmp eq i32 %19, 1
   br i1 %cmp39, label %land.lhs.true41, label %if.end65
 
 land.lhs.true41:                                  ; preds = %land.end
-  %tcp_nodelay = getelementptr inbounds %struct.Curl_easy, ptr %data, i64 0, i32 17, i32 129
+  %tcp_nodelay = getelementptr inbounds i8, ptr %data, i64 2706
   %bf.load43 = load i64, ptr %tcp_nodelay, align 2
   %20 = and i64 %bf.load43, 17179869184
   %tobool47.not = icmp eq i64 %20, 0
@@ -2448,7 +2401,7 @@ if.then63:                                        ; preds = %land.lhs.true56
   br label %if.end65
 
 if.end65:                                         ; preds = %if.end31, %land.end, %if.then63, %land.lhs.true56
-  %fsockopt = getelementptr inbounds %struct.Curl_easy, ptr %data, i64 0, i32 17, i32 25
+  %fsockopt = getelementptr inbounds i8, ptr %data, i64 592
   %26 = load ptr, ptr %fsockopt, align 8
   %tobool67.not = icmp eq ptr %26, null
   br i1 %tobool67.not, label %if.end81, label %if.then68
@@ -2456,7 +2409,7 @@ if.end65:                                         ; preds = %if.end31, %land.end
 if.then68:                                        ; preds = %if.end65
   call void @Curl_set_in_callback(ptr noundef nonnull %data, i1 noundef zeroext true) #13
   %27 = load ptr, ptr %fsockopt, align 8
-  %sockopt_client = getelementptr inbounds %struct.Curl_easy, ptr %data, i64 0, i32 17, i32 26
+  %sockopt_client = getelementptr inbounds i8, ptr %data, i64 600
   %28 = load ptr, ptr %sockopt_client, align 8
   %29 = load i32, ptr %sock, align 8
   %call73 = call i32 %27(ptr noundef %28, i32 noundef %29, i32 noundef 0) #13
@@ -2478,10 +2431,10 @@ if.end81:                                         ; preds = %if.then68, %if.end8
   ]
 
 if.then89:                                        ; preds = %if.end81, %if.end81
-  %conn = getelementptr inbounds %struct.Curl_cfilter, ptr %cf, i64 0, i32 3
+  %conn = getelementptr inbounds i8, ptr %cf, i64 24
   %31 = load ptr, ptr %conn, align 8
   %32 = load i32, ptr %sock, align 8
-  %_sa_ex_u = getelementptr inbounds %struct.cf_socket_ctx, ptr %0, i64 0, i32 1, i32 4
+  %_sa_ex_u = getelementptr inbounds i8, ptr %0, i64 24
   %call94 = call i32 @Curl_ipv6_scope(ptr noundef nonnull %_sa_ex_u) #13
   call void @llvm.lifetime.start.p0(i64 128, ptr nonnull %sa.i)
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %h.i)
@@ -2492,12 +2445,12 @@ if.then89:                                        ; preds = %if.end81, %if.end81
   call void @llvm.lifetime.start.p0(i64 256, ptr nonnull %buffer.i78)
   call void @llvm.lifetime.start.p0(i64 256, ptr nonnull %buffer237.i)
   store ptr null, ptr %h.i, align 8
-  %localport.i = getelementptr inbounds %struct.Curl_easy, ptr %data, i64 0, i32 17, i32 14
+  %localport.i = getelementptr inbounds i8, ptr %data, i64 520
   %33 = load i16, ptr %localport.i, align 8
-  %localportrange.i = getelementptr inbounds %struct.Curl_easy, ptr %data, i64 0, i32 17, i32 15
+  %localportrange.i = getelementptr inbounds i8, ptr %data, i64 522
   %34 = load i16, ptr %localportrange.i, align 2
   %conv.i = zext i16 %34 to i32
-  %arrayidx.i = getelementptr inbounds %struct.Curl_easy, ptr %data, i64 0, i32 17, i32 93, i64 8
+  %arrayidx.i = getelementptr inbounds i8, ptr %data, i64 1880
   %35 = load ptr, ptr %arrayidx.i, align 8
   store i32 1, ptr %on.i, align 4
   %tobool.i79 = icmp ne ptr %35, null
@@ -2540,7 +2493,7 @@ if.then24.i:                                      ; preds = %if.end22.i, %if.end
   br i1 %cmp28.i, label %land.lhs.true32.i, label %if.end37.i
 
 land.lhs.true32.i:                                ; preds = %if.then24.i
-  %verbose.i87 = getelementptr inbounds %struct.Curl_easy, ptr %data, i64 0, i32 17, i32 129
+  %verbose.i87 = getelementptr inbounds i8, ptr %data, i64 2706
   %bf.load.i88 = load i64, ptr %verbose.i87, align 2
   %36 = and i64 %bf.load.i88, 536870912
   %tobool34.not.i = icmp eq i64 %36, 0
@@ -2551,7 +2504,7 @@ if.then35.i:                                      ; preds = %land.lhs.true32.i
   br label %bindlocal.exit
 
 if.end37.i:                                       ; preds = %if.then24.i
-  %scope_id.i85 = getelementptr inbounds %struct.connectdata, ptr %31, i64 0, i32 49
+  %scope_id.i85 = getelementptr inbounds i8, ptr %31, i64 1156
   %37 = load i32, ptr %scope_id.i85, align 4
   %call38.i = call i32 @Curl_if2ip(i32 noundef %30, i32 noundef %call94, i32 noundef %37, ptr noundef nonnull %dev.096.i, ptr noundef nonnull %myhost.i, i32 noundef 256) #13
   switch i32 %call38.i, label %if.end58.i [
@@ -2568,7 +2521,7 @@ if.then40.i:                                      ; preds = %sw.bb.i
   br label %if.then97.thread
 
 land.lhs.true46.i:                                ; preds = %if.end37.i
-  %verbose48.i = getelementptr inbounds %struct.Curl_easy, ptr %data, i64 0, i32 17, i32 129
+  %verbose48.i = getelementptr inbounds i8, ptr %data, i64 2706
   %bf.load49.i = load i64, ptr %verbose48.i, align 2
   %38 = and i64 %bf.load49.i, 536870912
   %tobool53.not.i = icmp eq i64 %38, 0
@@ -2583,7 +2536,7 @@ if.end58.i:                                       ; preds = %if.end37.i
 
 if.then60.i:                                      ; preds = %if.end58.i, %sw.bb.i, %if.end22.i
   %dev.097109.i = phi ptr [ %dev.096.i, %if.end58.i ], [ %add.ptr20.i, %if.end22.i ], [ %dev.096.i, %sw.bb.i ]
-  %ip_version.i = getelementptr inbounds %struct.connectdata, ptr %31, i64 0, i32 55
+  %ip_version.i = getelementptr inbounds i8, ptr %31, i64 1167
   %39 = load i8, ptr %ip_version.i, align 1
   switch i32 %30, label %if.end71.i [
     i32 2, label %if.end71.sink.split.i
@@ -2616,7 +2569,7 @@ if.end77.i:                                       ; preds = %if.then75.i, %if.en
 land.lhs.true84.i:                                ; preds = %if.end77.i
   %41 = load ptr, ptr %40, align 8
   call void @Curl_printable_address(ptr noundef %41, ptr noundef nonnull %myhost.i, i64 noundef 256) #13
-  %verbose86.i = getelementptr inbounds %struct.Curl_easy, ptr %data, i64 0, i32 17, i32 129
+  %verbose86.i = getelementptr inbounds i8, ptr %data, i64 2706
   %bf.load87.i = load i64, ptr %verbose86.i, align 2
   %42 = and i64 %bf.load87.i, 536870912
   %tobool91.not.i = icmp eq i64 %42, 0
@@ -2625,7 +2578,7 @@ land.lhs.true84.i:                                ; preds = %if.end77.i
 if.then92.i:                                      ; preds = %land.lhs.true84.i
   %43 = load ptr, ptr %h.i, align 8
   %44 = load ptr, ptr %43, align 8
-  %ai_family.i = getelementptr inbounds %struct.Curl_addrinfo, ptr %44, i64 0, i32 1
+  %ai_family.i = getelementptr inbounds i8, ptr %44, i64 4
   %45 = load i32, ptr %ai_family.i, align 4
   call void (ptr, ptr, ...) @Curl_infof(ptr noundef nonnull %data, ptr noundef nonnull @.str.24, ptr noundef nonnull %dev.097109.i, i32 noundef %30, ptr noundef nonnull %myhost.i, i32 noundef %45) #13
   br label %do.end96.i
@@ -2635,7 +2588,7 @@ do.end96.i:                                       ; preds = %if.then92.i, %land.
   call void @Curl_resolv_unlock(ptr noundef nonnull %data, ptr noundef %46) #13
   %47 = load ptr, ptr %h.i, align 8
   %48 = load ptr, ptr %47, align 8
-  %ai_family98.i = getelementptr inbounds %struct.Curl_addrinfo, ptr %48, i64 0, i32 1
+  %ai_family98.i = getelementptr inbounds i8, ptr %48, i64 4
   %49 = load i32, ptr %ai_family98.i, align 4
   %cmp99.not.i = icmp eq i32 %49, %30
   br i1 %cmp99.not.i, label %if.then108.i, label %55
@@ -2658,7 +2611,7 @@ if.then115.i:                                     ; preds = %if.then111.i
 
 if.end116.i:                                      ; preds = %if.then115.i, %if.then111.i
   %scope_ptr.0.i = phi ptr [ %incdec.ptr.i, %if.then115.i ], [ null, %if.then111.i ]
-  %sin6_addr.i = getelementptr inbounds %struct.sockaddr_in6, ptr %sa.i, i64 0, i32 3
+  %sin6_addr.i = getelementptr inbounds i8, ptr %sa.i, i64 8
   %call118.i = call i32 @inet_pton(i32 noundef 10, ptr noundef nonnull %myhost.i, ptr noundef nonnull %sin6_addr.i) #13
   %cmp119.i = icmp sgt i32 %call118.i, 0
   br i1 %cmp119.i, label %if.then121.i, label %if.end169.i
@@ -2666,7 +2619,7 @@ if.end116.i:                                      ; preds = %if.then115.i, %if.t
 if.then121.i:                                     ; preds = %if.end116.i
   store i16 10, ptr %sa.i, align 8
   %call122.i = call zeroext i16 @htons(i16 noundef zeroext %33) #14
-  %sin6_port.i = getelementptr inbounds %struct.sockaddr_in6, ptr %sa.i, i64 0, i32 1
+  %sin6_port.i = getelementptr inbounds i8, ptr %sa.i, i64 2
   store i16 %call122.i, ptr %sin6_port.i, align 2
   %tobool123.not.i = icmp eq ptr %scope_ptr.0.i, null
   br i1 %tobool123.not.i, label %if.end169.i, label %if.then124.i
@@ -2678,12 +2631,12 @@ if.then124.i:                                     ; preds = %if.then121.i
 
 if.end130.i:                                      ; preds = %if.then124.i
   %conv131.i = trunc i64 %call126.i to i32
-  %sin6_scope_id.i86 = getelementptr inbounds %struct.sockaddr_in6, ptr %sa.i, i64 0, i32 4
+  %sin6_scope_id.i86 = getelementptr inbounds i8, ptr %sa.i, i64 24
   store i32 %conv131.i, ptr %sin6_scope_id.i86, align 8
   br label %if.end169.i
 
 land.lhs.true137.i:                               ; preds = %if.then108.i
-  %sin_addr.i = getelementptr inbounds %struct.sockaddr_in, ptr %sa.i, i64 0, i32 2
+  %sin_addr.i = getelementptr inbounds i8, ptr %sa.i, i64 4
   %call139.i = call i32 @inet_pton(i32 noundef 2, ptr noundef nonnull %myhost.i, ptr noundef nonnull %sin_addr.i) #13
   %cmp140.i = icmp sgt i32 %call139.i, 0
   br i1 %cmp140.i, label %if.then142.i, label %if.end169.i
@@ -2691,13 +2644,13 @@ land.lhs.true137.i:                               ; preds = %if.then108.i
 if.then142.i:                                     ; preds = %land.lhs.true137.i
   store i16 2, ptr %sa.i, align 8
   %call143.i = call zeroext i16 @htons(i16 noundef zeroext %33) #14
-  %sin_port.i = getelementptr inbounds %struct.sockaddr_in, ptr %sa.i, i64 0, i32 1
+  %sin_port.i = getelementptr inbounds i8, ptr %sa.i, i64 2
   store i16 %call143.i, ptr %sin_port.i, align 2
   br label %if.end169.i
 
 if.then149.i:                                     ; preds = %if.end77.i, %if.end58.i
   %dev.097103113.i = phi ptr [ %dev.096.i, %if.end58.i ], [ %dev.097109.i, %if.end77.i ]
-  %errorbuf.i = getelementptr inbounds %struct.Curl_easy, ptr %data, i64 0, i32 22, i32 63
+  %errorbuf.i = getelementptr inbounds i8, ptr %data, i64 5044
   %bf.load150.i = load i32, ptr %errorbuf.i, align 4
   %bf.clear151.i = and i32 %bf.load150.i, -9
   store i32 %bf.clear151.i, ptr %errorbuf.i, align 4
@@ -2713,14 +2666,14 @@ if.else153.i:                                     ; preds = %land.lhs.true5.i, %
 if.then156.i:                                     ; preds = %if.else153.i
   store i16 10, ptr %sa.i, align 8
   %call158.i = call zeroext i16 @htons(i16 noundef zeroext %33) #14
-  %sin6_port159.i = getelementptr inbounds %struct.sockaddr_in6, ptr %sa.i, i64 0, i32 1
+  %sin6_port159.i = getelementptr inbounds i8, ptr %sa.i, i64 2
   store i16 %call158.i, ptr %sin6_port159.i, align 2
   br label %if.end169.i
 
 if.then163.i:                                     ; preds = %if.else153.i
   store i16 2, ptr %sa.i, align 8
   %call165.i = call zeroext i16 @htons(i16 noundef zeroext %33) #14
-  %sin_port166.i = getelementptr inbounds %struct.sockaddr_in, ptr %sa.i, i64 0, i32 1
+  %sin_port166.i = getelementptr inbounds i8, ptr %sa.i, i64 2
   store i16 %call165.i, ptr %sin_port166.i, align 2
   br label %if.end169.i
 
@@ -2732,8 +2685,8 @@ if.end169.i:                                      ; preds = %if.then163.i, %if.t
   br i1 %cmp172123.i, label %if.then174.i, label %if.end202.preheader.i
 
 if.end202.preheader.i:                            ; preds = %if.end169.i
-  %verbose215.i = getelementptr inbounds %struct.Curl_easy, ptr %data, i64 0, i32 17, i32 129
-  %sin6_port233.i = getelementptr inbounds %struct.sockaddr_in6, ptr %sa.i, i64 0, i32 1
+  %verbose215.i = getelementptr inbounds i8, ptr %data, i64 2706
+  %sin6_port233.i = getelementptr inbounds i8, ptr %sa.i, i64 2
   %50 = zext i16 %33 to i32
   br label %if.end202.i
 
@@ -2748,14 +2701,14 @@ if.then174.i:                                     ; preds = %do.end224.i, %if.en
 if.then179.i:                                     ; preds = %if.then174.i
   %call180.i = tail call ptr @__errno_location() #14
   %51 = load i32, ptr %call180.i, align 4
-  %os_errno.i = getelementptr inbounds %struct.Curl_easy, ptr %data, i64 0, i32 22, i32 17
+  %os_errno.i = getelementptr inbounds i8, ptr %data, i64 3412
   store i32 %51, ptr %os_errno.i, align 4
   %call183.i = call ptr @Curl_strerror(i32 noundef %51, ptr noundef nonnull %buffer.i78, i64 noundef 256) #13
   call void (ptr, ptr, ...) @Curl_failf(ptr noundef nonnull %data, ptr noundef nonnull @.str.26, i32 noundef %51, ptr noundef %call183.i) #13
   br label %if.then97.thread
 
 land.lhs.true187.i:                               ; preds = %if.then174.i
-  %verbose189.i = getelementptr inbounds %struct.Curl_easy, ptr %data, i64 0, i32 17, i32 129
+  %verbose189.i = getelementptr inbounds i8, ptr %data, i64 2706
   %bf.load190.i = load i64, ptr %verbose189.i, align 2
   %52 = and i64 %bf.load190.i, 536870912
   %tobool194.not.i = icmp eq i64 %52, 0
@@ -2767,7 +2720,7 @@ if.then195.i:                                     ; preds = %land.lhs.true187.i
   br label %do.end198.i
 
 do.end198.i:                                      ; preds = %if.then195.i, %land.lhs.true187.i
-  %bits.i = getelementptr inbounds %struct.connectdata, ptr %31, i64 0, i32 27
+  %bits.i = getelementptr inbounds i8, ptr %31, i64 704
   %bf.load199.i = load i32, ptr %bits.i, align 8
   %bf.set201.i = or i32 %bf.load199.i, 4194304
   store i32 %bf.set201.i, ptr %bits.i, align 8
@@ -2808,7 +2761,7 @@ do.end224.i:                                      ; preds = %if.then221.i, %do.b
 for.end.i:                                        ; preds = %if.then205.i, %if.end202.i
   %call238.i = tail call ptr @__errno_location() #14
   %54 = load i32, ptr %call238.i, align 4
-  %os_errno240.i = getelementptr inbounds %struct.Curl_easy, ptr %data, i64 0, i32 22, i32 17
+  %os_errno240.i = getelementptr inbounds i8, ptr %data, i64 3412
   store i32 %54, ptr %os_errno240.i, align 4
   %call242.i = call ptr @Curl_strerror(i32 noundef %54, ptr noundef nonnull %buffer237.i, i64 noundef 256) #13
   call void (ptr, ptr, ...) @Curl_failf(ptr noundef nonnull %data, ptr noundef nonnull @.str.29, i32 noundef %54, ptr noundef %call242.i) #13
@@ -2854,13 +2807,13 @@ if.then111:                                       ; preds = %set_remote_ip.exit,
   br i1 %cmp113.not, label %land.lhs.true134, label %if.then115
 
 if.then115:                                       ; preds = %if.then111
-  %conn116 = getelementptr inbounds %struct.Curl_cfilter, ptr %cf, i64 0, i32 3
+  %conn116 = getelementptr inbounds i8, ptr %cf, i64 24
   %57 = load ptr, ptr %conn116, align 8
   %tobool1.i.not = icmp eq ptr %57, null
   br i1 %tobool1.i.not, label %if.end7.i, label %land.lhs.true2.i
 
 land.lhs.true2.i:                                 ; preds = %if.then115
-  %fclosesocket.i = getelementptr inbounds %struct.connectdata, ptr %57, i64 0, i32 1
+  %fclosesocket.i = getelementptr inbounds i8, ptr %57, i64 24
   %58 = load ptr, ptr %fclosesocket.i, align 8
   %tobool3.not.i = icmp eq ptr %58, null
   call void @Curl_multi_closed(ptr noundef nonnull %data, i32 noundef %56) #13
@@ -2869,7 +2822,7 @@ land.lhs.true2.i:                                 ; preds = %if.then115
 if.then.i91:                                      ; preds = %land.lhs.true2.i
   call void @Curl_set_in_callback(ptr noundef nonnull %data, i1 noundef zeroext true) #13
   %59 = load ptr, ptr %fclosesocket.i, align 8
-  %closesocket_client.i = getelementptr inbounds %struct.connectdata, ptr %57, i64 0, i32 2
+  %closesocket_client.i = getelementptr inbounds i8, ptr %57, i64 32
   %60 = load ptr, ptr %closesocket_client.i, align 8
   %call.i92 = call i32 %59(ptr noundef %60, i32 noundef %56) #13
   call void @Curl_set_in_callback(ptr noundef nonnull %data, i1 noundef zeroext false) #13
@@ -2886,10 +2839,10 @@ socket_close.exit:                                ; preds = %if.then.i91, %if.en
 if.else121:                                       ; preds = %bindlocal.exit, %if.end81
   %61 = load i32, ptr %sock, align 8
   %call104 = call i32 @curlx_nonblock(i32 noundef %61, i32 noundef 1) #13
-  %socktype106 = getelementptr inbounds %struct.cf_socket_ctx, ptr %0, i64 0, i32 1, i32 1
+  %socktype106 = getelementptr inbounds i8, ptr %0, i64 12
   %62 = load i32, ptr %socktype106, align 4
   %cmp107.not = icmp eq i32 %62, 2
-  %sock_connected = getelementptr inbounds %struct.cf_socket_ctx, ptr %0, i64 0, i32 12
+  %sock_connected = getelementptr inbounds i8, ptr %0, i64 380
   %bf.load108 = load i8, ptr %sock_connected, align 4
   %bf.shl = select i1 %cmp107.not, i8 0, i8 4
   %bf.clear109 = and i8 %bf.load108, -5
@@ -2900,14 +2853,14 @@ if.else121:                                       ; preds = %bindlocal.exit, %if
 if.then123:                                       ; preds = %if.else121
   %cf.val = load ptr, ptr %ctx1, align 8
   call fastcc void @set_local_ip(ptr %cf.val, ptr noundef nonnull %data)
-  %connected_at = getelementptr inbounds %struct.cf_socket_ctx, ptr %0, i64 0, i32 9
+  %connected_at = getelementptr inbounds i8, ptr %0, i64 344
   %call126 = call { i64, i32 } @Curl_now() #13
   %63 = extractvalue { i64, i32 } %call126, 0
   %64 = extractvalue { i64, i32 } %call126, 1
   store i64 %63, ptr %connected_at, align 8
-  %tmp125.sroa.2.0.connected_at.sroa_idx = getelementptr inbounds %struct.cf_socket_ctx, ptr %0, i64 0, i32 9, i32 1
+  %tmp125.sroa.2.0.connected_at.sroa_idx = getelementptr inbounds i8, ptr %0, i64 352
   store i32 %64, ptr %tmp125.sroa.2.0.connected_at.sroa_idx, align 8
-  %connected = getelementptr inbounds %struct.Curl_cfilter, ptr %cf, i64 0, i32 5
+  %connected = getelementptr inbounds i8, ptr %cf, i64 36
   %bf.load127 = load i8, ptr %connected, align 4
   %bf.set129 = or i8 %bf.load127, 1
   store i8 %bf.set129, ptr %connected, align 4
@@ -2915,7 +2868,7 @@ if.then123:                                       ; preds = %if.else121
 
 land.lhs.true134:                                 ; preds = %if.else121, %if.then123, %if.then111, %socket_close.exit
   %result.1105 = phi i32 [ %result.1.ph, %socket_close.exit ], [ %result.1.ph, %if.then111 ], [ 0, %if.then123 ], [ 0, %if.else121 ]
-  %verbose136 = getelementptr inbounds %struct.Curl_easy, ptr %data, i64 0, i32 17, i32 129
+  %verbose136 = getelementptr inbounds i8, ptr %data, i64 2706
   %bf.load137 = load i64, ptr %verbose136, align 2
   %65 = and i64 %bf.load137, 536870912
   %tobool141 = icmp ne i64 %65, 0
@@ -2925,7 +2878,7 @@ land.lhs.true134:                                 ; preds = %if.else121, %if.the
 
 land.lhs.true144:                                 ; preds = %land.lhs.true134
   %66 = load ptr, ptr %cf, align 8
-  %log_level = getelementptr inbounds %struct.Curl_cftype, ptr %66, i64 0, i32 2
+  %log_level = getelementptr inbounds i8, ptr %66, i64 12
   %67 = load i32, ptr %log_level, align 4
   %cmp145 = icmp sgt i32 %67, 0
   br i1 %cmp145, label %if.then147, label %do.end150
@@ -2944,7 +2897,7 @@ define internal fastcc i32 @do_connect(ptr %cf.16.val, ptr noundef %data, i1 nou
 entry:
   %optval = alloca i32, align 4
   store i32 1, ptr %optval, align 4
-  %sock = getelementptr inbounds %struct.cf_socket_ctx, ptr %cf.16.val, i64 0, i32 2
+  %sock = getelementptr inbounds i8, ptr %cf.16.val, i64 152
   %0 = load i32, ptr %sock, align 8
   br i1 %is_tcp_fastopen, label %if.then, label %if.else
 
@@ -2956,7 +2909,7 @@ if.then:                                          ; preds = %entry
   br i1 %or.cond, label %land.lhs.true, label %if.end7
 
 land.lhs.true:                                    ; preds = %if.then
-  %verbose = getelementptr inbounds %struct.Curl_easy, ptr %data, i64 0, i32 17, i32 129
+  %verbose = getelementptr inbounds i8, ptr %data, i64 2706
   %bf.load = load i64, ptr %verbose, align 2
   %1 = and i64 %bf.load, 536870912
   %tobool4.not = icmp eq i64 %1, 0
@@ -2969,15 +2922,15 @@ if.then5:                                         ; preds = %land.lhs.true
 
 if.end7:                                          ; preds = %if.then5, %land.lhs.true, %if.then
   %3 = load i32, ptr %sock, align 8
-  %_sa_ex_u = getelementptr inbounds %struct.cf_socket_ctx, ptr %cf.16.val, i64 0, i32 1, i32 4
-  %addrlen = getelementptr inbounds %struct.cf_socket_ctx, ptr %cf.16.val, i64 0, i32 1, i32 3
+  %_sa_ex_u = getelementptr inbounds i8, ptr %cf.16.val, i64 24
+  %addrlen = getelementptr inbounds i8, ptr %cf.16.val, i64 20
   %4 = load i32, ptr %addrlen, align 4
   %call10 = call i32 @connect(i32 noundef %3, ptr noundef nonnull %_sa_ex_u, i32 noundef %4) #13
   br label %if.end17
 
 if.else:                                          ; preds = %entry
-  %_sa_ex_u13 = getelementptr inbounds %struct.cf_socket_ctx, ptr %cf.16.val, i64 0, i32 1, i32 4
-  %addrlen15 = getelementptr inbounds %struct.cf_socket_ctx, ptr %cf.16.val, i64 0, i32 1, i32 3
+  %_sa_ex_u13 = getelementptr inbounds i8, ptr %cf.16.val, i64 24
+  %addrlen15 = getelementptr inbounds i8, ptr %cf.16.val, i64 20
   %5 = load i32, ptr %addrlen15, align 4
   %call16 = tail call i32 @connect(i32 noundef %0, ptr noundef nonnull %_sa_ex_u13, i32 noundef %5) #13
   br label %if.end17
@@ -3004,7 +2957,7 @@ do.body:                                          ; preds = %entry
   br i1 %tobool.not, label %do.end, label %land.lhs.true
 
 land.lhs.true:                                    ; preds = %do.body
-  %verbose = getelementptr inbounds %struct.Curl_easy, ptr %data, i64 0, i32 17, i32 129
+  %verbose = getelementptr inbounds i8, ptr %data, i64 2706
   %bf.load = load i64, ptr %verbose, align 2
   %0 = and i64 %bf.load, 536870912
   %tobool1.not = icmp eq i64 %0, 0
@@ -3016,7 +2969,7 @@ if.then:                                          ; preds = %land.lhs.true
   br label %do.end
 
 do.end:                                           ; preds = %do.body, %land.lhs.true, %if.then
-  %os_errno = getelementptr inbounds %struct.Curl_easy, ptr %data, i64 0, i32 22, i32 17
+  %os_errno = getelementptr inbounds i8, ptr %data, i64 3412
   store i32 %error, ptr %os_errno, align 4
   br label %return
 
@@ -3064,7 +3017,7 @@ declare ptr @Curl_strerror(i32 noundef, ptr noundef, i64 noundef) local_unnamed_
 define internal fastcc void @tcpkeepalive(ptr noundef %data, i32 noundef %sockfd) unnamed_addr #2 {
 entry:
   %optval = alloca i32, align 4
-  %tcp_keepalive = getelementptr inbounds %struct.Curl_easy, ptr %data, i64 0, i32 17, i32 129
+  %tcp_keepalive = getelementptr inbounds i8, ptr %data, i64 2706
   %bf.load = load i64, ptr %tcp_keepalive, align 2
   %0 = lshr i64 %bf.load, 40
   %1 = trunc i64 %0 to i32
@@ -3081,7 +3034,7 @@ land.lhs.true:                                    ; preds = %entry
   br i1 %tobool7.not, label %if.end53, label %if.end53.sink.split
 
 if.else:                                          ; preds = %entry
-  %tcp_keepidle = getelementptr inbounds %struct.Curl_easy, ptr %data, i64 0, i32 17, i32 109
+  %tcp_keepidle = getelementptr inbounds i8, ptr %data, i64 2596
   %3 = load i32, ptr %tcp_keepidle, align 4
   %conv = sext i32 %3 to i64
   %call11 = call i32 @curlx_sltosi(i64 noundef %conv) #13
@@ -3103,7 +3056,7 @@ if.then26:                                        ; preds = %land.lhs.true18
   br label %if.end30
 
 if.end30:                                         ; preds = %if.then26, %land.lhs.true18, %if.else
-  %tcp_keepintvl = getelementptr inbounds %struct.Curl_easy, ptr %data, i64 0, i32 17, i32 110
+  %tcp_keepintvl = getelementptr inbounds i8, ptr %data, i64 2600
   %6 = load i32, ptr %tcp_keepintvl, align 8
   %conv32 = sext i32 %6 to i64
   %call33 = call i32 @curlx_sltosi(i64 noundef %conv32) #13
@@ -3204,10 +3157,10 @@ define internal i64 @nw_in_read(ptr nocapture noundef readonly %reader_ctx, ptr 
 entry:
   %buffer = alloca [256 x i8], align 16
   %0 = load ptr, ptr %reader_ctx, align 8
-  %ctx1 = getelementptr inbounds %struct.Curl_cfilter, ptr %0, i64 0, i32 2
+  %ctx1 = getelementptr inbounds i8, ptr %0, i64 16
   %1 = load ptr, ptr %ctx1, align 8
   store i32 0, ptr %err, align 4
-  %sock = getelementptr inbounds %struct.cf_socket_ctx, ptr %1, i64 0, i32 2
+  %sock = getelementptr inbounds i8, ptr %1, i64 152
   %2 = load i32, ptr %sock, align 8
   %call = tail call i64 @recv(i32 noundef %2, ptr noundef %buf, i64 noundef %len, i32 noundef 0) #13
   %cmp = icmp eq i64 %call, -1
@@ -3222,12 +3175,12 @@ if.then:                                          ; preds = %entry
   ]
 
 if.else:                                          ; preds = %if.then
-  %data = getelementptr inbounds %struct.reader_ctx, ptr %reader_ctx, i64 0, i32 1
+  %data = getelementptr inbounds i8, ptr %reader_ctx, i64 8
   %4 = load ptr, ptr %data, align 8
   %call8 = call ptr @Curl_strerror(i32 noundef %3, ptr noundef nonnull %buffer, i64 noundef 256) #13
   call void (ptr, ptr, ...) @Curl_failf(ptr noundef %4, ptr noundef nonnull @.str.41, ptr noundef %call8) #13
   %5 = load ptr, ptr %data, align 8
-  %os_errno = getelementptr inbounds %struct.Curl_easy, ptr %5, i64 0, i32 22, i32 17
+  %os_errno = getelementptr inbounds i8, ptr %5, i64 3412
   store i32 %3, ptr %os_errno, align 4
   br label %do.body.sink.split
 
@@ -3237,13 +3190,13 @@ do.body.sink.split:                               ; preds = %if.then, %if.then, 
   br label %do.body
 
 do.body:                                          ; preds = %do.body.sink.split, %entry
-  %data11 = getelementptr inbounds %struct.reader_ctx, ptr %reader_ctx, i64 0, i32 1
+  %data11 = getelementptr inbounds i8, ptr %reader_ctx, i64 8
   %6 = load ptr, ptr %data11, align 8
   %tobool.not = icmp eq ptr %6, null
   br i1 %tobool.not, label %do.end, label %land.lhs.true
 
 land.lhs.true:                                    ; preds = %do.body
-  %verbose = getelementptr inbounds %struct.Curl_easy, ptr %6, i64 0, i32 17, i32 129
+  %verbose = getelementptr inbounds i8, ptr %6, i64 2706
   %bf.load = load i64, ptr %verbose, align 2
   %7 = and i64 %bf.load, 536870912
   %tobool13.not = icmp eq i64 %7, 0
@@ -3256,7 +3209,7 @@ land.lhs.true14:                                  ; preds = %land.lhs.true
 
 land.lhs.true17:                                  ; preds = %land.lhs.true14
   %9 = load ptr, ptr %8, align 8
-  %log_level = getelementptr inbounds %struct.Curl_cftype, ptr %9, i64 0, i32 2
+  %log_level = getelementptr inbounds i8, ptr %9, i64 12
   %10 = load i32, ptr %log_level, align 4
   %cmp19 = icmp sgt i32 %10, 0
   br i1 %cmp19, label %if.then20, label %do.end

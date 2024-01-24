@@ -41,7 +41,7 @@ if.then3:                                         ; preds = %if.else
   %2 = extractvalue { i64, i64 } %call4, 1
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %ts.i)
   store i64 %1, ptr %ts.i, align 8
-  %tv_nsec7.i.i = getelementptr inbounds %"struct.absl::synchronization_internal::FutexTimespec", ptr %ts.i, i64 0, i32 1
+  %tv_nsec7.i.i = getelementptr inbounds i8, ptr %ts.i, i64 8
   store i64 %2, ptr %tv_nsec7.i.i, align 8
   %call1.i = call i64 (i64, ...) @syscall(i64 noundef 202, ptr noundef %v, i32 noundef 128, i32 noundef %val, ptr noundef nonnull %ts.i) #5
   %cmp.not.i = icmp eq i64 %call1.i, 0
@@ -64,7 +64,7 @@ if.else6:                                         ; preds = %if.else
   %5 = extractvalue { i64, i64 } %call7, 1
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %ts.i7)
   store i64 %4, ptr %ts.i7, align 8
-  %tv_nsec7.i.i9 = getelementptr inbounds %"struct.absl::synchronization_internal::FutexTimespec", ptr %ts.i7, i64 0, i32 1
+  %tv_nsec7.i.i9 = getelementptr inbounds i8, ptr %ts.i7, i64 8
   store i64 %5, ptr %tv_nsec7.i.i9, align 8
   %call1.i11 = call i64 (i64, ...) @syscall(i64 noundef 202, ptr noundef %v, i32 noundef 393, i32 noundef %val, ptr noundef nonnull %ts.i7, ptr null, i32 noundef -1) #5
   %cmp.not.i12 = icmp eq i64 %call1.i11, 0

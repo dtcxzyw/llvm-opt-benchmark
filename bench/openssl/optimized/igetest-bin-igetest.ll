@@ -43,7 +43,7 @@ target triple = "x86_64-unknown-linux-gnu"
 @bi_ige_test_vectors = internal constant <{ { <{ [16 x i8], [16 x i8] }>, <{ [16 x i8], [16 x i8] }>, [64 x i8], [64 x i8], <{ [32 x i8], [32 x i8] }>, i64, i64, i32 }, %struct.bi_ige_test }> <{ { <{ [16 x i8], [16 x i8] }>, <{ [16 x i8], [16 x i8] }>, [64 x i8], [64 x i8], <{ [32 x i8], [32 x i8] }>, i64, i64, i32 } { <{ [16 x i8], [16 x i8] }> <{ [16 x i8] c"\00\01\02\03\04\05\06\07\08\09\0A\0B\0C\0D\0E\0F", [16 x i8] zeroinitializer }>, <{ [16 x i8], [16 x i8] }> <{ [16 x i8] c"\10\11\12\13\14\15\16\17\18\19\1A\1B\1C\1D\1E\1F", [16 x i8] zeroinitializer }>, [64 x i8] c"\00\01\02\03\04\05\06\07\08\09\0A\0B\0C\0D\0E\0F\10\11\12\13\14\15\16\17\18\19\1A\1B\1C\1D\1E\1F !\22#$%&'()*+,-./0123456789:;<=>?", [64 x i8] zeroinitializer, <{ [32 x i8], [32 x i8] }> <{ [32 x i8] c"\14@o\AE\A2y\F2V\1F\86\EB;}\FFS\DCN'\0C\03\DE|\E5\16j\9C 3\9D3\FE\12", [32 x i8] zeroinitializer }>, i64 16, i64 32, i32 1 }, %struct.bi_ige_test { [32 x i8] c"X\0A\06\E9\97\07Y\\\9E\19\D2\A7\BB@+z\C7\D8\11\9ELQ5ud(\0F#\ADt\AC7", [32 x i8] c"\D1\80\A01G\A3\11\13\86&\9Em\FF\AFrt[\A25\81\D2\A6=!g{X\A8\18\F9r\E4", [64 x i8] c"\80=\BDL\E6{\06\A9S5\D5~q\C1ppt\9A\00(\0C\BFlB\9B\A4\DDe\11w|g\FEv\0A\F0\D5\C6nj\E7^L\F2~\9E\F9 \0ETo-\8A\8D~\BDHy7\99\FF'\93\A3", [64 x i8] c"\F1T=\CA\FE\B5\EF\1CO\A6C\F6\E6HW\F0\EE\15\7F\E3\E7/\D0/\11\95z\17\00\AB\A7\0B\BED\09\9C\CD\AC\A8R\A1\8E{u\BC\A4\92Z\ABF\D3:\A0\D55\1CU\A4\B3\A8@\81\A5\0B", [64 x i8] c"B\E5(01\C2\A0#hIN\B3$Y\92y\C1\A5\CC\E6vS\B1\CF \86#\E8rU\99\92\0D\16\1CZ/\CE\CBQ\E2g\FA\10\EC\CD=g\A5\E6\F71&\B0\0Dv^(\DC\7F\01\C5\A5L", i64 32, i64 64, i32 1 } }>, align 16
 
 ; Function Attrs: nounwind uwtable
-define dso_local i32 @setup_tests() local_unnamed_addr #0 {
+define dso_local noundef i32 @setup_tests() local_unnamed_addr #0 {
 entry:
   %call = tail call i32 @RAND_bytes(ptr noundef nonnull @rkey, i32 noundef 16) #3
   %call1 = tail call i32 @RAND_bytes(ptr noundef nonnull @rkey2, i32 noundef 16) #3
@@ -133,7 +133,7 @@ entry:
   %call = call i32 @AES_set_encrypt_key(ptr noundef nonnull @rkey, i32 noundef 128, ptr noundef nonnull %key) #3
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(64) %iv, ptr noundef nonnull align 16 dereferenceable(64) @saved_iv, i64 64, i1 false)
   call void @AES_ige_encrypt(ptr noundef nonnull @plaintext, ptr noundef nonnull %ciphertext, i64 noundef 10240, ptr noundef nonnull %key, ptr noundef nonnull %iv, i32 noundef 1) #3
-  %arrayidx = getelementptr inbounds [10240 x i8], ptr %ciphertext, i64 0, i64 5120
+  %arrayidx = getelementptr inbounds i8, ptr %ciphertext, i64 5120
   %0 = load i8, ptr %arrayidx, align 16
   %inc = add i8 %0, 1
   store i8 %inc, ptr %arrayidx, align 16
@@ -197,7 +197,7 @@ entry:
   %call = call i32 @AES_set_encrypt_key(ptr noundef nonnull @rkey, i32 noundef 128, ptr noundef nonnull %key) #3
   %call1 = call i32 @AES_set_encrypt_key(ptr noundef nonnull @rkey2, i32 noundef 128, ptr noundef nonnull %key2) #3
   call void @AES_ige_encrypt(ptr noundef nonnull @plaintext, ptr noundef nonnull %ciphertext, i64 noundef 10240, ptr noundef nonnull %key, ptr noundef nonnull %iv, i32 noundef 1) #3
-  %arrayidx = getelementptr inbounds [10240 x i8], ptr %ciphertext, i64 0, i64 5120
+  %arrayidx = getelementptr inbounds i8, ptr %ciphertext, i64 5120
   %0 = load i8, ptr %arrayidx, align 16
   %inc = add i8 %0, 1
   store i8 %inc, ptr %arrayidx, align 16
@@ -237,7 +237,7 @@ entry:
   %call = call i32 @AES_set_encrypt_key(ptr noundef nonnull @rkey, i32 noundef 128, ptr noundef nonnull %key) #3
   %call1 = call i32 @AES_set_encrypt_key(ptr noundef nonnull @rkey2, i32 noundef 128, ptr noundef nonnull %key2) #3
   call void @AES_ige_encrypt(ptr noundef nonnull @plaintext, ptr noundef nonnull %ciphertext, i64 noundef 10240, ptr noundef nonnull %key, ptr noundef nonnull %iv, i32 noundef 1) #3
-  %arrayidx = getelementptr inbounds [10240 x i8], ptr %ciphertext, i64 0, i64 10239
+  %arrayidx = getelementptr inbounds i8, ptr %ciphertext, i64 10239
   %0 = load i8, ptr %arrayidx, align 1
   %inc = add i8 %0, 1
   store i8 %inc, ptr %arrayidx, align 1
@@ -307,7 +307,7 @@ for.end:                                          ; preds = %for.body
 declare void @add_all_tests(ptr noundef, ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @test_ige_vectors(i32 noundef %n) #0 {
+define internal noundef i32 @test_ige_vectors(i32 noundef %n) #0 {
 entry:
   %key = alloca %struct.aes_key_st, align 4
   %buf = alloca [64 x i8], align 16
@@ -319,7 +319,7 @@ entry:
   br i1 %tobool.not, label %return, label %if.end
 
 if.end:                                           ; preds = %entry
-  %encrypt = getelementptr inbounds [2 x %struct.ige_test], ptr @ige_test_vectors, i64 0, i64 %idxprom, i32 5
+  %encrypt = getelementptr inbounds i8, ptr %arrayidx, i64 184
   %0 = load i32, ptr %encrypt, align 8
   %cmp = icmp eq i32 %0, 1
   br i1 %cmp, label %if.then2, label %if.else
@@ -333,11 +333,11 @@ if.else:                                          ; preds = %if.end
   br label %if.end8
 
 if.end8:                                          ; preds = %if.else, %if.then2
-  %iv10 = getelementptr inbounds [2 x %struct.ige_test], ptr @ige_test_vectors, i64 0, i64 %idxprom, i32 1
+  %iv10 = getelementptr inbounds i8, ptr %arrayidx, i64 16
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(32) %iv, ptr noundef nonnull align 16 dereferenceable(32) %iv10, i64 32, i1 false)
-  %in = getelementptr inbounds [2 x %struct.ige_test], ptr @ige_test_vectors, i64 0, i64 %idxprom, i32 2
+  %in = getelementptr inbounds i8, ptr %arrayidx, i64 48
   call void @AES_ige_encrypt(ptr noundef nonnull %in, ptr noundef nonnull %buf, i64 noundef 32, ptr noundef nonnull %key, ptr noundef nonnull %iv, i32 noundef %0) #3
-  %out = getelementptr inbounds [2 x %struct.ige_test], ptr @ige_test_vectors, i64 0, i64 %idxprom, i32 3
+  %out = getelementptr inbounds i8, ptr %arrayidx, i64 112
   %call21 = call i32 @test_mem_eq(ptr noundef nonnull @.str.10, i32 noundef 167, ptr noundef nonnull @.str.19, ptr noundef nonnull @.str.20, ptr noundef nonnull %out, i64 noundef 32, ptr noundef nonnull %buf, i64 noundef 32) #3
   %tobool22.not = icmp eq i32 %call21, 0
   br i1 %tobool22.not, label %if.then23, label %if.end31
@@ -371,14 +371,14 @@ return:                                           ; preds = %if.end31, %if.then5
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @test_bi_ige_vectors(i32 noundef %n) #0 {
+define internal noundef i32 @test_bi_ige_vectors(i32 noundef %n) #0 {
 entry:
   %key1 = alloca %struct.aes_key_st, align 4
   %key2 = alloca %struct.aes_key_st, align 4
   %buf = alloca [64 x i8], align 16
   %idxprom = sext i32 %n to i64
   %arrayidx = getelementptr inbounds [2 x %struct.bi_ige_test], ptr @bi_ige_test_vectors, i64 0, i64 %idxprom
-  %length = getelementptr inbounds [2 x %struct.bi_ige_test], ptr @bi_ige_test_vectors, i64 0, i64 %idxprom, i32 6
+  %length = getelementptr inbounds i8, ptr %arrayidx, i64 264
   %0 = load i64, ptr %length, align 8
   %conv = trunc i64 %0 to i32
   %call = tail call i32 @test_int_le(ptr noundef nonnull @.str.10, i32 noundef 198, ptr noundef nonnull @.str.17, ptr noundef nonnull @.str.18, i32 noundef %conv, i32 noundef 64) #3
@@ -386,17 +386,17 @@ entry:
   br i1 %tobool.not, label %return, label %if.then2
 
 if.then2:                                         ; preds = %entry
-  %keysize = getelementptr inbounds [2 x %struct.bi_ige_test], ptr @bi_ige_test_vectors, i64 0, i64 %idxprom, i32 5
+  %keysize = getelementptr inbounds i8, ptr %arrayidx, i64 256
   %1 = load i64, ptr %keysize, align 8
   %.tr23 = trunc i64 %1 to i32
   %conv4 = shl i32 %.tr23, 3
   %call5 = call i32 @AES_set_encrypt_key(ptr noundef nonnull %arrayidx, i32 noundef %conv4, ptr noundef nonnull %key1) #3
-  %key26 = getelementptr inbounds [2 x %struct.bi_ige_test], ptr @bi_ige_test_vectors, i64 0, i64 %idxprom, i32 1
+  %key26 = getelementptr inbounds i8, ptr %arrayidx, i64 32
   %call11 = call i32 @AES_set_encrypt_key(ptr noundef nonnull %key26, i32 noundef %conv4, ptr noundef nonnull %key2) #3
-  %in = getelementptr inbounds [2 x %struct.bi_ige_test], ptr @bi_ige_test_vectors, i64 0, i64 %idxprom, i32 3
-  %iv = getelementptr inbounds [2 x %struct.bi_ige_test], ptr @bi_ige_test_vectors, i64 0, i64 %idxprom, i32 2
+  %in = getelementptr inbounds i8, ptr %arrayidx, i64 128
+  %iv = getelementptr inbounds i8, ptr %arrayidx, i64 64
   call void @AES_bi_ige_encrypt(ptr noundef nonnull %in, ptr noundef nonnull %buf, i64 noundef %0, ptr noundef nonnull %key1, ptr noundef nonnull %key2, ptr noundef nonnull %iv, i32 noundef 1) #3
-  %out = getelementptr inbounds [2 x %struct.bi_ige_test], ptr @bi_ige_test_vectors, i64 0, i64 %idxprom, i32 4
+  %out = getelementptr inbounds i8, ptr %arrayidx, i64 192
   %call34 = call i32 @test_mem_eq(ptr noundef nonnull @.str.10, i32 noundef 212, ptr noundef nonnull @.str.19, ptr noundef nonnull @.str.20, ptr noundef nonnull %out, i64 noundef %0, ptr noundef nonnull %buf, i64 noundef %0) #3
   %tobool35.not = icmp eq i32 %call34, 0
   br i1 %tobool35.not, label %if.then36, label %return

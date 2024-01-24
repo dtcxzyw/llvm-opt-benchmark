@@ -3,9 +3,6 @@ source_filename = "bench/msdfgen/original/Projection.cpp.ll"
 target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:128-n8:16:32:64-S128"
 target triple = "x86_64-unknown-linux-gnu"
 
-%"class.msdfgen::Projection" = type { %"struct.msdfgen::Vector2", %"struct.msdfgen::Vector2" }
-%"struct.msdfgen::Vector2" = type { double, double }
-
 @_ZN7msdfgen10ProjectionC1Ev = dso_local unnamed_addr alias void (ptr), ptr @_ZN7msdfgen10ProjectionC2Ev
 @_ZN7msdfgen10ProjectionC1ERKNS_7Vector2ES3_ = dso_local unnamed_addr alias void (ptr, ptr, ptr), ptr @_ZN7msdfgen10ProjectionC2ERKNS_7Vector2ES3_
 
@@ -13,7 +10,7 @@ target triple = "x86_64-unknown-linux-gnu"
 define dso_local void @_ZN7msdfgen10ProjectionC2Ev(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(32) %this) unnamed_addr #0 align 2 {
 entry:
   store <2 x double> <double 1.000000e+00, double 1.000000e+00>, ptr %this, align 8
-  %translate = getelementptr inbounds %"class.msdfgen::Projection", ptr %this, i64 0, i32 1
+  %translate = getelementptr inbounds i8, ptr %this, i64 16
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %translate, i8 0, i64 16, i1 false)
   ret void
 }
@@ -22,7 +19,7 @@ entry:
 define dso_local void @_ZN7msdfgen10ProjectionC2ERKNS_7Vector2ES3_(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(32) %this, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %scale, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %translate) unnamed_addr #1 align 2 {
 entry:
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %this, ptr noundef nonnull align 8 dereferenceable(16) %scale, i64 16, i1 false)
-  %translate3 = getelementptr inbounds %"class.msdfgen::Projection", ptr %this, i64 0, i32 1
+  %translate3 = getelementptr inbounds i8, ptr %this, i64 16
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %translate3, ptr noundef nonnull align 8 dereferenceable(16) %translate, i64 16, i1 false)
   ret void
 }
@@ -33,7 +30,7 @@ declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
 define dso_local { double, double } @_ZNK7msdfgen10Projection7projectERKNS_7Vector2E(ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %this, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %coord) local_unnamed_addr #3 align 2 {
 entry:
-  %translate = getelementptr inbounds %"class.msdfgen::Projection", ptr %this, i64 0, i32 1
+  %translate = getelementptr inbounds i8, ptr %this, i64 16
   %0 = load <2 x double>, ptr %this, align 8
   %1 = load <2 x double>, ptr %coord, align 8
   %2 = load <2 x double>, ptr %translate, align 8
@@ -49,7 +46,7 @@ entry:
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
 define dso_local { double, double } @_ZNK7msdfgen10Projection9unprojectERKNS_7Vector2E(ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %this, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %coord) local_unnamed_addr #3 align 2 {
 entry:
-  %translate = getelementptr inbounds %"class.msdfgen::Projection", ptr %this, i64 0, i32 1
+  %translate = getelementptr inbounds i8, ptr %this, i64 16
   %0 = load <2 x double>, ptr %coord, align 8
   %1 = load <2 x double>, ptr %this, align 8
   %2 = fdiv <2 x double> %0, %1
@@ -92,7 +89,7 @@ entry:
 define dso_local noundef double @_ZNK7msdfgen10Projection8projectXEd(ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %this, double noundef %x) local_unnamed_addr #3 align 2 {
 entry:
   %0 = load double, ptr %this, align 8
-  %translate = getelementptr inbounds %"class.msdfgen::Projection", ptr %this, i64 0, i32 1
+  %translate = getelementptr inbounds i8, ptr %this, i64 16
   %1 = load double, ptr %translate, align 8
   %add = fadd double %1, %x
   %mul = fmul double %0, %add
@@ -102,9 +99,9 @@ entry:
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
 define dso_local noundef double @_ZNK7msdfgen10Projection8projectYEd(ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %this, double noundef %y) local_unnamed_addr #3 align 2 {
 entry:
-  %y2 = getelementptr inbounds %"struct.msdfgen::Vector2", ptr %this, i64 0, i32 1
+  %y2 = getelementptr inbounds i8, ptr %this, i64 8
   %0 = load double, ptr %y2, align 8
-  %y3 = getelementptr inbounds %"class.msdfgen::Projection", ptr %this, i64 0, i32 1, i32 1
+  %y3 = getelementptr inbounds i8, ptr %this, i64 24
   %1 = load double, ptr %y3, align 8
   %add = fadd double %1, %y
   %mul = fmul double %0, %add
@@ -116,7 +113,7 @@ define dso_local noundef double @_ZNK7msdfgen10Projection10unprojectXEd(ptr noca
 entry:
   %0 = load double, ptr %this, align 8
   %div = fdiv double %x, %0
-  %translate = getelementptr inbounds %"class.msdfgen::Projection", ptr %this, i64 0, i32 1
+  %translate = getelementptr inbounds i8, ptr %this, i64 16
   %1 = load double, ptr %translate, align 8
   %sub = fsub double %div, %1
   ret double %sub
@@ -125,10 +122,10 @@ entry:
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
 define dso_local noundef double @_ZNK7msdfgen10Projection10unprojectYEd(ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %this, double noundef %y) local_unnamed_addr #3 align 2 {
 entry:
-  %y2 = getelementptr inbounds %"struct.msdfgen::Vector2", ptr %this, i64 0, i32 1
+  %y2 = getelementptr inbounds i8, ptr %this, i64 8
   %0 = load double, ptr %y2, align 8
   %div = fdiv double %y, %0
-  %y3 = getelementptr inbounds %"class.msdfgen::Projection", ptr %this, i64 0, i32 1, i32 1
+  %y3 = getelementptr inbounds i8, ptr %this, i64 24
   %1 = load double, ptr %y3, align 8
   %sub = fsub double %div, %1
   ret double %sub

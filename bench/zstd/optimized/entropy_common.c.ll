@@ -4,13 +4,13 @@ target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:
 target triple = "x86_64-unknown-linux-gnu"
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define i32 @FSE_versionNumber() local_unnamed_addr #0 {
+define noundef i32 @FSE_versionNumber() local_unnamed_addr #0 {
 entry:
   ret i32 900
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define i32 @FSE_isError(i64 noundef %code) local_unnamed_addr #0 {
+define noundef i32 @FSE_isError(i64 noundef %code) local_unnamed_addr #0 {
 entry:
   %cmp.i = icmp ugt i64 %code, -120
   %conv.i = zext i1 %cmp.i to i32
@@ -29,7 +29,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define i32 @HUF_isError(i64 noundef %code) local_unnamed_addr #0 {
+define noundef i32 @HUF_isError(i64 noundef %code) local_unnamed_addr #0 {
 entry:
   %cmp.i = icmp ugt i64 %code, -120
   %conv.i = zext i1 %cmp.i to i32
@@ -223,7 +223,7 @@ if.end107.i.i:                                    ; preds = %if.else97.i.i, %if.
   %remaining.i.1.i.p = select i1 %cmp108.i.i, i32 %3, i32 %dec.i.i
   %remaining.i.1.i = add i32 %remaining.i.1.i.p, %remaining.i.0.i
   %conv115.i.i = trunc i32 %dec.i.i to i16
-  %inc116.i.i = add i32 %charnum.i.2.i, 1
+  %inc116.i.i = add nuw i32 %charnum.i.2.i, 1
   %idxprom.i.i = zext i32 %charnum.i.2.i to i64
   %arrayidx.i.i = getelementptr inbounds i16, ptr %normalizedCounter, i64 %idxprom.i.i
   store i16 %conv115.i.i, ptr %arrayidx.i.i, align 2
@@ -482,7 +482,7 @@ if.end107.i:                                      ; preds = %if.else97.i, %if.th
   %remaining.i.1.p = select i1 %cmp108.i, i32 %3, i32 %dec.i
   %remaining.i.1 = add i32 %remaining.i.1.p, %remaining.i.0
   %conv115.i = trunc i32 %dec.i to i16
-  %inc116.i = add i32 %charnum.i.2, 1
+  %inc116.i = add nuw i32 %charnum.i.2, 1
   %idxprom.i = zext i32 %charnum.i.2 to i64
   %arrayidx.i = getelementptr inbounds i16, ptr %normalizedCounter, i64 %idxprom.i
   store i16 %conv115.i, ptr %arrayidx.i, align 2
@@ -717,7 +717,7 @@ if.end86.i.i:                                     ; preds = %if.end76.i.i
   %13 = load i32, ptr %arrayidx90.i.i, align 4
   %inc91.i.i = add i32 %13, 1
   store i32 %inc91.i.i, ptr %arrayidx90.i.i, align 4
-  %arrayidx92.i.i = getelementptr inbounds i32, ptr %rankStats, i64 1
+  %arrayidx92.i.i = getelementptr inbounds i8, ptr %rankStats, i64 4
   %14 = load i32, ptr %arrayidx92.i.i, align 4
   %cmp93.i.i = icmp ugt i32 %14, 1
   %and96.i.i = and i32 %14, 1
@@ -865,7 +865,7 @@ if.end86.i:                                       ; preds = %if.end76.i
   %13 = load i32, ptr %arrayidx90.i, align 4
   %inc91.i = add i32 %13, 1
   store i32 %inc91.i, ptr %arrayidx90.i, align 4
-  %arrayidx92.i = getelementptr inbounds i32, ptr %rankStats, i64 1
+  %arrayidx92.i = getelementptr inbounds i8, ptr %rankStats, i64 4
   %14 = load i32, ptr %arrayidx92.i, align 4
   %cmp93.i = icmp ugt i32 %14, 1
   %and96.i = and i32 %14, 1

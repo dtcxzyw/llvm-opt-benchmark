@@ -3,13 +3,10 @@ source_filename = "bench/abseil-cpp/original/output.cc.ll"
 target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:128-n8:16:32:64-S128"
 target triple = "x86_64-unknown-linux-gnu"
 
-%"class.absl::str_format_internal::BufferRawSink" = type { ptr, i64, i64 }
-%"class.absl::str_format_internal::FILERawSink" = type { ptr, i32, i64 }
-
-; Function Attrs: mustprogress nofree nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
 define dso_local void @_ZN4absl19str_format_internal13BufferRawSink5WriteESt17basic_string_viewIcSt11char_traitsIcEE(ptr nocapture noundef nonnull align 8 dereferenceable(24) %this, i64 %v.coerce0, ptr nocapture readonly %v.coerce1) local_unnamed_addr #0 align 2 {
 entry:
-  %size_ = getelementptr inbounds %"class.absl::str_format_internal::BufferRawSink", ptr %this, i64 0, i32 1
+  %size_ = getelementptr inbounds i8, ptr %this, i64 8
   %0 = load i64, ptr %size_, align 8
   %.sroa.speculated = tail call i64 @llvm.umin.i64(i64 %0, i64 %v.coerce0)
   %1 = load ptr, ptr %this, align 8
@@ -20,7 +17,7 @@ entry:
   %3 = load i64, ptr %size_, align 8
   %sub = sub i64 %3, %.sroa.speculated
   store i64 %sub, ptr %size_, align 8
-  %total_written_ = getelementptr inbounds %"class.absl::str_format_internal::BufferRawSink", ptr %this, i64 0, i32 2
+  %total_written_ = getelementptr inbounds i8, ptr %this, i64 16
   %4 = load i64, ptr %total_written_, align 8
   %add = add i64 %4, %v.coerce0
   store i64 %add, ptr %total_written_, align 8
@@ -33,12 +30,12 @@ declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias
 ; Function Attrs: mustprogress nofree nounwind uwtable
 define dso_local void @_ZN4absl19str_format_internal11FILERawSink5WriteESt17basic_string_viewIcSt11char_traitsIcEE(ptr nocapture noundef nonnull align 8 dereferenceable(24) %this, i64 %v.coerce0, ptr nocapture %v.coerce1) local_unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  %error_ = getelementptr inbounds %"class.absl::str_format_internal::FILERawSink", ptr %this, i64 0, i32 1
+  %error_ = getelementptr inbounds i8, ptr %this, i64 8
   %cmp.i19 = icmp eq i64 %v.coerce0, 0
   br i1 %cmp.i19, label %while.end, label %land.rhs.lr.ph
 
 land.rhs.lr.ph:                                   ; preds = %entry
-  %count_ = getelementptr inbounds %"class.absl::str_format_internal::FILERawSink", ptr %this, i64 0, i32 2
+  %count_ = getelementptr inbounds i8, ptr %this, i64 16
   br label %land.rhs
 
 land.rhs:                                         ; preds = %land.rhs.lr.ph, %_ZN4absl19str_format_internal12_GLOBAL__N_115ClearErrnoGuardD2Ev.exit
@@ -123,7 +120,7 @@ declare noundef i32 @ferror(ptr nocapture noundef) local_unnamed_addr #5
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i64 @llvm.umin.i64(i64, i64) #6
 
-attributes #0 = { mustprogress nofree nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #0 = { mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
 attributes #2 = { mustprogress nofree nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #3 = { nofree nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

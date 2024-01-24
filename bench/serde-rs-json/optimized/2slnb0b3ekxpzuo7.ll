@@ -28,7 +28,7 @@ define align 8 ptr @"_ZN57_$LT$usize$u20$as$u20$serde_json..value..index..Index$
   br i1 %4, label %5, label %12
 
 5:                                                ; preds = %2
-  %6 = getelementptr inbounds { [1 x i64], { { ptr, i64 }, i64 } }, ptr %1, i64 0, i32 1
+  %6 = getelementptr inbounds i8, ptr %1, i64 8
   %7 = tail call { ptr, i64 } @"_ZN72_$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$core..ops..deref..Deref$GT$5deref17h31100a62071fe5ebE"(ptr nonnull align 8 %6)
   %8 = extractvalue { ptr, i64 } %7, 0
   %9 = extractvalue { ptr, i64 } %7, 1
@@ -48,7 +48,7 @@ define align 8 ptr @"_ZN57_$LT$usize$u20$as$u20$serde_json..value..index..Index$
   br i1 %4, label %5, label %12
 
 5:                                                ; preds = %2
-  %6 = getelementptr inbounds { [1 x i64], { { ptr, i64 }, i64 } }, ptr %1, i64 0, i32 1
+  %6 = getelementptr inbounds i8, ptr %1, i64 8
   %7 = tail call { ptr, i64 } @"_ZN75_$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$core..ops..deref..DerefMut$GT$9deref_mut17h76980adf94a178f4E"(ptr nonnull align 8 %6)
   %8 = extractvalue { ptr, i64 } %7, 0
   %9 = extractvalue { ptr, i64 } %7, 1
@@ -74,7 +74,7 @@ define align 8 ptr @"_ZN57_$LT$usize$u20$as$u20$serde_json..value..index..Index$
   br i1 %9, label %10, label %19
 
 10:                                               ; preds = %2
-  %11 = getelementptr inbounds { [1 x i64], { { ptr, i64 }, i64 } }, ptr %1, i64 0, i32 1
+  %11 = getelementptr inbounds i8, ptr %1, i64 8
   %12 = tail call i64 @"_ZN5alloc3vec16Vec$LT$T$C$A$GT$3len17hdee3cdedc2a892e7E"(ptr nonnull align 8 %11)
   store i64 %12, ptr %6, align 8
   %13 = tail call { ptr, i64 } @"_ZN75_$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$core..ops..deref..DerefMut$GT$9deref_mut17h76980adf94a178f4E"(ptr nonnull align 8 %11)
@@ -88,11 +88,11 @@ define align 8 ptr @"_ZN57_$LT$usize$u20$as$u20$serde_json..value..index..Index$
 19:                                               ; preds = %2
   store ptr %1, ptr %3, align 8
   store ptr %7, ptr %4, align 8
-  %20 = getelementptr inbounds { ptr, ptr }, ptr %4, i64 0, i32 1
+  %20 = getelementptr inbounds i8, ptr %4, i64 8
   store ptr @"_ZN44_$LT$$RF$T$u20$as$u20$core..fmt..Display$GT$3fmt17hc1a8b644385902c5E", ptr %20, align 8
-  %21 = getelementptr inbounds [2 x { ptr, ptr }], ptr %4, i64 0, i64 1
+  %21 = getelementptr inbounds i8, ptr %4, i64 16
   store ptr %3, ptr %21, align 8
-  %22 = getelementptr inbounds [2 x { ptr, ptr }], ptr %4, i64 0, i64 1, i32 1
+  %22 = getelementptr inbounds i8, ptr %4, i64 24
   store ptr @"_ZN69_$LT$serde_json..value..index..Type$u20$as$u20$core..fmt..Display$GT$3fmt17h88e5f0f4b5898b4fE", ptr %22, align 8
   call void @_ZN4core3fmt9Arguments6new_v117h68cb99eea9c8258bE(ptr nonnull sret({ { ptr, i64 }, { ptr, i64 }, { ptr, i64 } }) align 8 %5, ptr nonnull align 8 @anon.088c3c6696be550bc4d273a5946ef725.4, i64 2, ptr nonnull align 8 %4, i64 2)
   call void @_ZN4core9panicking9panic_fmt17hbf0e066aabfa482cE(ptr nonnull align 8 %5, ptr nonnull align 8 @anon.088c3c6696be550bc4d273a5946ef725.5) #4
@@ -106,7 +106,7 @@ define align 8 ptr @"_ZN55_$LT$str$u20$as$u20$serde_json..value..index..Index$GT
   br i1 %5, label %6, label %9
 
 6:                                                ; preds = %3
-  %7 = getelementptr inbounds { [1 x i64], { { { ptr, i64 }, i64, { {} }, {} } } }, ptr %2, i64 0, i32 1
+  %7 = getelementptr inbounds i8, ptr %2, i64 8
   %8 = tail call align 8 ptr @"_ZN10serde_json3map59Map$LT$alloc..string..String$C$serde_json..value..Value$GT$3get17hdc671c2a5286bec4E"(ptr nonnull align 8 %7, ptr align 1 %0, i64 %1)
   br label %9
 
@@ -122,7 +122,7 @@ define align 8 ptr @"_ZN55_$LT$str$u20$as$u20$serde_json..value..index..Index$GT
   br i1 %5, label %6, label %9
 
 6:                                                ; preds = %3
-  %7 = getelementptr inbounds { [1 x i64], { { { ptr, i64 }, i64, { {} }, {} } } }, ptr %2, i64 0, i32 1
+  %7 = getelementptr inbounds i8, ptr %2, i64 8
   %8 = tail call align 8 ptr @"_ZN10serde_json3map59Map$LT$alloc..string..String$C$serde_json..value..Value$GT$7get_mut17h605f7ed66937a366E"(ptr nonnull align 8 %7, ptr align 1 %0, i64 %1)
   br label %9
 
@@ -143,7 +143,7 @@ define align 8 ptr @"_ZN55_$LT$str$u20$as$u20$serde_json..value..index..Index$GT
   %.sroa.3 = alloca [31 x i8], align 1
   %11 = alloca { ptr, i64 }, align 8
   store ptr %0, ptr %11, align 8
-  %12 = getelementptr inbounds { ptr, i64 }, ptr %11, i64 0, i32 1
+  %12 = getelementptr inbounds i8, ptr %11, i64 8
   store i64 %1, ptr %12, align 8
   %13 = load i8, ptr %2, align 8, !range !5, !noundef !6
   switch i8 %13, label %20 [
@@ -173,7 +173,7 @@ define align 8 ptr @"_ZN55_$LT$str$u20$as$u20$serde_json..value..index..Index$GT
   br label %17
 
 17:                                               ; preds = %3, %.thread
-  %18 = getelementptr inbounds { [1 x i64], { { { ptr, i64 }, i64, { {} }, {} } } }, ptr %2, i64 0, i32 1
+  %18 = getelementptr inbounds i8, ptr %2, i64 8
   call void @"_ZN5alloc3str56_$LT$impl$u20$alloc..borrow..ToOwned$u20$for$u20$str$GT$8to_owned17hc1405e2624829f2aE"(ptr nonnull sret({ { { ptr, i64 }, i64 } }) align 8 %8, ptr nonnull align 1 %0, i64 %1)
   call void @"_ZN10serde_json3map59Map$LT$alloc..string..String$C$serde_json..value..Value$GT$5entry17hc644fd9a006db3bfE"(ptr nonnull sret({ ptr, [6 x i64] }) align 8 %9, ptr nonnull align 8 %18, ptr nonnull align 8 %8)
   store i8 0, ptr %7, align 8
@@ -183,11 +183,11 @@ define align 8 ptr @"_ZN55_$LT$str$u20$as$u20$serde_json..value..index..Index$GT
 20:                                               ; preds = %3
   store ptr %2, ptr %4, align 8
   store ptr %11, ptr %5, align 8
-  %21 = getelementptr inbounds { ptr, ptr }, ptr %5, i64 0, i32 1
+  %21 = getelementptr inbounds i8, ptr %5, i64 8
   store ptr @"_ZN42_$LT$$RF$T$u20$as$u20$core..fmt..Debug$GT$3fmt17hf551df884004fee5E", ptr %21, align 8
-  %22 = getelementptr inbounds [2 x { ptr, ptr }], ptr %5, i64 0, i64 1
+  %22 = getelementptr inbounds i8, ptr %5, i64 16
   store ptr %4, ptr %22, align 8
-  %23 = getelementptr inbounds [2 x { ptr, ptr }], ptr %5, i64 0, i64 1, i32 1
+  %23 = getelementptr inbounds i8, ptr %5, i64 24
   store ptr @"_ZN69_$LT$serde_json..value..index..Type$u20$as$u20$core..fmt..Display$GT$3fmt17h88e5f0f4b5898b4fE", ptr %23, align 8
   call void @_ZN4core3fmt9Arguments6new_v117h68cb99eea9c8258bE(ptr nonnull sret({ { ptr, i64 }, { ptr, i64 }, { ptr, i64 } }) align 8 %6, ptr nonnull align 8 @anon.088c3c6696be550bc4d273a5946ef725.8, i64 2, ptr nonnull align 8 %5, i64 2)
   call void @_ZN4core9panicking9panic_fmt17hbf0e066aabfa482cE(ptr nonnull align 8 %6, ptr nonnull align 8 @anon.088c3c6696be550bc4d273a5946ef725.9) #4

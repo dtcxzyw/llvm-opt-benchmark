@@ -89,7 +89,7 @@ define hidden void @_ZN3syn6derive7parsing11data_struct17h8e88cf67947d9d55E(ptr 
           to label %47 unwind label %45
 
 43:                                               ; preds = %40
-  %44 = getelementptr inbounds { [1 x i64], { { { { ptr, i64 }, i64 } } } }, ptr %29, i64 0, i32 1
+  %44 = getelementptr inbounds i8, ptr %29, i64 8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %27, ptr noundef nonnull align 8 dereferenceable(24) %44, i64 24, i1 false)
   br label %.invoke
 
@@ -160,7 +160,7 @@ define hidden void @_ZN3syn6derive7parsing11data_struct17h8e88cf67947d9d55E(ptr 
           to label %68 unwind label %.thread61
 
 66:                                               ; preds = %64
-  %67 = getelementptr inbounds { [1 x i64], { { { ptr, i64 }, i64 } } }, ptr %0, i64 0, i32 1
+  %67 = getelementptr inbounds i8, ptr %0, i64 8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %67, ptr noundef nonnull align 8 dereferenceable(24) %4, i64 24, i1 false)
   store i64 3, ptr %0, align 8
   br label %128
@@ -175,7 +175,7 @@ define hidden void @_ZN3syn6derive7parsing11data_struct17h8e88cf67947d9d55E(ptr 
   br i1 %71, label %72, label %74
 
 72:                                               ; preds = %69
-  %73 = getelementptr inbounds { [2 x i32], { [1 x i32] } }, ptr %7, i64 0, i32 1
+  %73 = getelementptr inbounds i8, ptr %7, i64 8
   %.sroa.017.0.copyload = load i32, ptr %73, align 8
   store i64 2, ptr %0, align 8
   %.sroa.323.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 56
@@ -214,7 +214,7 @@ define hidden void @_ZN3syn6derive7parsing11data_struct17h8e88cf67947d9d55E(ptr 
   br label %.thread73.sink.split
 
 80:                                               ; preds = %77
-  %81 = getelementptr inbounds { [1 x i64], { { { { ptr, i64 }, i64 } } } }, ptr %10, i64 0, i32 1
+  %81 = getelementptr inbounds i8, ptr %10, i64 8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %8, ptr noundef nonnull align 8 dereferenceable(24) %81, i64 24, i1 false)
   br label %.invoke
 
@@ -233,7 +233,7 @@ define hidden void @_ZN3syn6derive7parsing11data_struct17h8e88cf67947d9d55E(ptr 
           to label %93 unwind label %91
 
 86:                                               ; preds = %83
-  %87 = getelementptr inbounds { [1 x i64], { { { { ptr, i64 }, i64 } } } }, ptr %24, i64 0, i32 1
+  %87 = getelementptr inbounds i8, ptr %24, i64 8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %22, ptr noundef nonnull align 8 dereferenceable(24) %87, i64 24, i1 false)
   br label %.invoke
 
@@ -296,7 +296,7 @@ define hidden void @_ZN3syn6derive7parsing11data_struct17h8e88cf67947d9d55E(ptr 
           to label %110 unwind label %108
 
 106:                                              ; preds = %103
-  %107 = getelementptr inbounds { [1 x i64], { { { { ptr, i64 }, i64 } } } }, ptr %19, i64 0, i32 1
+  %107 = getelementptr inbounds i8, ptr %19, i64 8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %17, ptr noundef nonnull align 8 dereferenceable(24) %107, i64 24, i1 false)
   br label %.invoke81
 
@@ -347,7 +347,7 @@ define hidden void @_ZN3syn6derive7parsing11data_struct17h8e88cf67947d9d55E(ptr 
   br i1 %121, label %.thread70, label %123
 
 .thread70:                                        ; preds = %119
-  %122 = getelementptr inbounds { [2 x i32], { [1 x i32] } }, ptr %15, i64 0, i32 1
+  %122 = getelementptr inbounds i8, ptr %15, i64 8
   %.sroa.0.0.copyload = load i32, ptr %122, align 8
   store i64 1, ptr %0, align 8
   %.sroa.24.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 8
@@ -371,7 +371,7 @@ define hidden void @_ZN3syn6derive7parsing11data_struct17h8e88cf67947d9d55E(ptr 
           to label %132 unwind label %91
 
 126:                                              ; preds = %116
-  %127 = getelementptr inbounds { [1 x i64], { { { ptr, i64 }, i64 } } }, ptr %0, i64 0, i32 1
+  %127 = getelementptr inbounds i8, ptr %0, i64 8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %127, ptr noundef nonnull align 8 dereferenceable(24) %12, i64 24, i1 false)
   store i64 3, ptr %0, align 8
   invoke void @"_ZN4core3ptr45drop_in_place$LT$syn..data..FieldsUnnamed$GT$17hcf4d069ebfd90715E"(ptr nonnull align 8 %25)
@@ -443,105 +443,103 @@ define hidden void @_ZN3syn6derive7parsing9data_enum17h494821d5fd898f32E(ptr sre
   call void @"_ZN79_$LT$core..result..Result$LT$T$C$E$GT$$u20$as$u20$core..ops..try_trait..Try$GT$6branch17ha0f576b719580f01E"(ptr nonnull sret({ i64, [5 x i64] }) align 8 %12, ptr nonnull align 8 %11)
   %15 = load i64, ptr %12, align 8, !range !6, !noundef !5
   %16 = icmp eq i64 %15, 0
-  br i1 %16, label %17, label %19
+  %17 = getelementptr inbounds i8, ptr %12, i64 8
+  br i1 %16, label %18, label %19
 
-17:                                               ; preds = %2
-  %18 = getelementptr inbounds { [1 x i64], { ptr, [4 x i64] } }, ptr %12, i64 0, i32 1
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %13, ptr noundef nonnull align 8 dereferenceable(40) %18, i64 40, i1 false)
+18:                                               ; preds = %2
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %13, ptr noundef nonnull align 8 dereferenceable(40) %17, i64 40, i1 false)
   invoke void @_ZN3syn5group12parse_braces17h607691e4d3bf5b29E(ptr nonnull sret({ i64, [6 x i64] }) align 8 %8, ptr nonnull align 8 %1)
-          to label %22 unwind label %21
+          to label %21 unwind label %20
 
 19:                                               ; preds = %2
-  %20 = getelementptr inbounds { [1 x i64], { { { { ptr, i64 }, i64 } } } }, ptr %12, i64 0, i32 1
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %10, ptr noundef nonnull align 8 dereferenceable(24) %20, i64 24, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %10, ptr noundef nonnull align 8 dereferenceable(24) %17, i64 24, i1 false)
   call void @"_ZN153_$LT$core..result..Result$LT$T$C$F$GT$$u20$as$u20$core..ops..try_trait..FromResidual$LT$core..result..Result$LT$core..convert..Infallible$C$E$GT$$GT$$GT$13from_residual17he9aada7ff789186eE"(ptr sret({ [7 x i64], ptr, [3 x i64] }) align 8 %0, ptr nonnull align 8 %10, ptr nonnull align 8 @anon.606a9f67259985b9f2e88ceabcc30b94.8)
-  br label %36
+  br label %35
 
-21:                                               ; preds = %17
+20:                                               ; preds = %18
   %lpad.thr_comm.split-lp = landingpad { ptr, i32 }
           cleanup
   br label %.thread13
 
-22:                                               ; preds = %17
-  %23 = load i64, ptr %8, align 8, !range !6, !noundef !5
-  %24 = icmp eq i64 %23, 0
-  br i1 %24, label %25, label %37
+21:                                               ; preds = %18
+  %22 = load i64, ptr %8, align 8, !range !6, !noundef !5
+  %23 = icmp eq i64 %22, 0
+  %24 = getelementptr inbounds i8, ptr %8, i64 8
+  br i1 %23, label %25, label %36
 
-25:                                               ; preds = %22
-  %26 = getelementptr inbounds { [1 x i64], { { { ptr, ptr }, ptr, i32, {}, [4 x i8] }, { { { [2 x i32], i32 }, {} } }, [1 x i32] } }, ptr %8, i64 0, i32 1
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %7, ptr noundef nonnull align 8 dereferenceable(48) %26, i64 48, i1 false)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %9, ptr noundef nonnull align 8 dereferenceable(32) %26, i64 32, i1 false)
-  %27 = getelementptr inbounds { { { ptr, ptr }, ptr, i32, {}, [4 x i8] }, { { { [2 x i32], i32 }, {} } }, [1 x i32] }, ptr %7, i64 0, i32 1
+25:                                               ; preds = %21
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %7, ptr noundef nonnull align 8 dereferenceable(48) %24, i64 48, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %9, ptr noundef nonnull align 8 dereferenceable(32) %24, i64 32, i1 false)
+  %26 = getelementptr inbounds i8, ptr %7, i64 32
   invoke void @_ZN3syn5parse11ParseBuffer16parse_terminated17h6736a5baee18d030E(ptr nonnull sret({ ptr, [3 x i64] }) align 8 %5, ptr nonnull align 8 %9, ptr nonnull @"_ZN3syn4data7parsing66_$LT$impl$u20$syn..parse..Parse$u20$for$u20$syn..data..Variant$GT$5parse17hc3ec5b29d8f941c3E")
-          to label %28 unwind label %43
+          to label %27 unwind label %41
 
-28:                                               ; preds = %25
+27:                                               ; preds = %25
   invoke void @"_ZN79_$LT$core..result..Result$LT$T$C$E$GT$$u20$as$u20$core..ops..try_trait..Try$GT$6branch17hc1ade0cd0a952d3fE"(ptr nonnull sret({ ptr, [3 x i64] }) align 8 %6, ptr nonnull align 8 %5)
-          to label %29 unwind label %43
+          to label %28 unwind label %41
 
-29:                                               ; preds = %28
-  %30 = load ptr, ptr %6, align 8, !noundef !5
-  %.not = icmp eq ptr %30, null
-  br i1 %.not, label %34, label %31
+28:                                               ; preds = %27
+  %29 = load ptr, ptr %6, align 8, !noundef !5
+  %.not = icmp eq ptr %29, null
+  br i1 %.not, label %33, label %30
 
-31:                                               ; preds = %29
-  %32 = getelementptr inbounds { { ptr, [4 x i64] }, { { { [2 x i32], i32 }, {} } }, [1 x i32], { { { ptr, i64 }, i64 }, ptr } }, ptr %3, i64 0, i32 3
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %32, ptr noundef nonnull align 8 dereferenceable(32) %6, i64 32, i1 false)
+30:                                               ; preds = %28
+  %31 = getelementptr inbounds i8, ptr %3, i64 56
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %31, ptr noundef nonnull align 8 dereferenceable(32) %6, i64 32, i1 false)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %3, ptr noundef nonnull align 8 dereferenceable(40) %13, i64 40, i1 false)
-  %33 = getelementptr inbounds { { ptr, [4 x i64] }, { { { [2 x i32], i32 }, {} } }, [1 x i32], { { { ptr, i64 }, i64 }, ptr } }, ptr %3, i64 0, i32 1
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(12) %33, ptr noundef nonnull align 8 dereferenceable(12) %27, i64 12, i1 false)
+  %32 = getelementptr inbounds i8, ptr %3, i64 40
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(12) %32, ptr noundef nonnull align 8 dereferenceable(12) %26, i64 12, i1 false)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(88) %0, ptr noundef nonnull align 8 dereferenceable(88) %3, i64 88, i1 false)
   call void @"_ZN4core3ptr44drop_in_place$LT$syn..parse..ParseBuffer$GT$17hf31d22ddbfffc18dE"(ptr nonnull align 8 %9)
-  br label %36
+  br label %35
 
-34:                                               ; preds = %29
-  %35 = getelementptr inbounds { [1 x i64], { { { { ptr, i64 }, i64 } } } }, ptr %6, i64 0, i32 1
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %4, ptr noundef nonnull align 8 dereferenceable(24) %35, i64 24, i1 false)
+33:                                               ; preds = %28
+  %34 = getelementptr inbounds i8, ptr %6, i64 8
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %4, ptr noundef nonnull align 8 dereferenceable(24) %34, i64 24, i1 false)
   invoke void @"_ZN153_$LT$core..result..Result$LT$T$C$F$GT$$u20$as$u20$core..ops..try_trait..FromResidual$LT$core..result..Result$LT$core..convert..Infallible$C$E$GT$$GT$$GT$13from_residual17he9aada7ff789186eE"(ptr sret({ [7 x i64], ptr, [3 x i64] }) align 8 %0, ptr nonnull align 8 %4, ptr nonnull align 8 @anon.606a9f67259985b9f2e88ceabcc30b94.7)
-          to label %41 unwind label %43
+          to label %39 unwind label %41
 
-36:                                               ; preds = %31, %19, %40
+35:                                               ; preds = %30, %19, %38
   ret void
 
-37:                                               ; preds = %22
-  %38 = getelementptr inbounds { [1 x i64], { { { ptr, i64 }, i64 } } }, ptr %8, i64 0, i32 1
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr noundef nonnull align 8 dereferenceable(24) %38, i64 24, i1 false)
-  %39 = getelementptr inbounds { [7 x i64], ptr, [3 x i64] }, ptr %0, i64 0, i32 1
-  store ptr null, ptr %39, align 8
-  br label %40
+36:                                               ; preds = %21
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr noundef nonnull align 8 dereferenceable(24) %24, i64 24, i1 false)
+  %37 = getelementptr inbounds i8, ptr %0, i64 56
+  store ptr null, ptr %37, align 8
+  br label %38
 
-40:                                               ; preds = %37, %41
+38:                                               ; preds = %36, %39
   call void @"_ZN4core3ptr75drop_in_place$LT$core..option..Option$LT$syn..generics..WhereClause$GT$$GT$17h6b6e350748ad4792E"(ptr nonnull align 8 %13)
-  br label %36
+  br label %35
 
-41:                                               ; preds = %34
+39:                                               ; preds = %33
   invoke void @"_ZN4core3ptr44drop_in_place$LT$syn..parse..ParseBuffer$GT$17hf31d22ddbfffc18dE"(ptr nonnull align 8 %9)
-          to label %40 unwind label %.thread18
+          to label %38 unwind label %.thread18
 
-.thread18:                                        ; preds = %41
-  %42 = landingpad { ptr, i32 }
+.thread18:                                        ; preds = %39
+  %40 = landingpad { ptr, i32 }
           cleanup
   br label %.thread13
 
-43:                                               ; preds = %34, %28, %25
+41:                                               ; preds = %33, %27, %25
   %lpad.thr_comm = landingpad { ptr, i32 }
           cleanup
   invoke void @"_ZN4core3ptr44drop_in_place$LT$syn..parse..ParseBuffer$GT$17hf31d22ddbfffc18dE"(ptr nonnull align 8 %9) #5
-          to label %.thread13 unwind label %44
+          to label %.thread13 unwind label %42
 
-44:                                               ; preds = %.thread13, %43
-  %45 = landingpad { ptr, i32 }
+42:                                               ; preds = %.thread13, %41
+  %43 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
   call void @_ZN4core9panicking16panic_in_cleanup17hd44bb2114362504eE() #6
   unreachable
 
-46:                                               ; preds = %.thread13
+44:                                               ; preds = %.thread13
   resume { ptr, i32 } %.pn17
 
-.thread13:                                        ; preds = %21, %43, %.thread18
-  %.pn17 = phi { ptr, i32 } [ %42, %.thread18 ], [ %lpad.thr_comm.split-lp, %21 ], [ %lpad.thr_comm, %43 ]
+.thread13:                                        ; preds = %20, %41, %.thread18
+  %.pn17 = phi { ptr, i32 } [ %40, %.thread18 ], [ %lpad.thr_comm.split-lp, %20 ], [ %lpad.thr_comm, %41 ]
   invoke void @"_ZN4core3ptr75drop_in_place$LT$core..option..Option$LT$syn..generics..WhereClause$GT$$GT$17h6b6e350748ad4792E"(ptr nonnull align 8 %13) #5
-          to label %46 unwind label %44
+          to label %44 unwind label %42
 }
 
 ; Function Attrs: nonlazybind uwtable
@@ -558,63 +556,62 @@ define hidden void @_ZN3syn6derive7parsing10data_union17h5886fe5c8654011dE(ptr s
   call void @"_ZN79_$LT$core..result..Result$LT$T$C$E$GT$$u20$as$u20$core..ops..try_trait..Try$GT$6branch17ha0f576b719580f01E"(ptr nonnull sret({ i64, [5 x i64] }) align 8 %9, ptr nonnull align 8 %8)
   %11 = load i64, ptr %9, align 8, !range !6, !noundef !5
   %12 = icmp eq i64 %11, 0
-  br i1 %12, label %13, label %15
+  %13 = getelementptr inbounds i8, ptr %9, i64 8
+  br i1 %12, label %14, label %15
 
-13:                                               ; preds = %2
-  %14 = getelementptr inbounds { [1 x i64], { ptr, [4 x i64] } }, ptr %9, i64 0, i32 1
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %10, ptr noundef nonnull align 8 dereferenceable(40) %14, i64 40, i1 false)
+14:                                               ; preds = %2
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %10, ptr noundef nonnull align 8 dereferenceable(40) %13, i64 40, i1 false)
   invoke void @_ZN3syn5parse11ParseBuffer5parse17h4c5a049e8e1f000cE(ptr nonnull sret({ ptr, [5 x i64] }) align 8 %5, ptr align 8 %1)
-          to label %19 unwind label %17
+          to label %18 unwind label %16
 
 15:                                               ; preds = %2
-  %16 = getelementptr inbounds { [1 x i64], { { { { ptr, i64 }, i64 } } } }, ptr %9, i64 0, i32 1
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %7, ptr noundef nonnull align 8 dereferenceable(24) %16, i64 24, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %7, ptr noundef nonnull align 8 dereferenceable(24) %13, i64 24, i1 false)
   call void @"_ZN153_$LT$core..result..Result$LT$T$C$F$GT$$u20$as$u20$core..ops..try_trait..FromResidual$LT$core..result..Result$LT$core..convert..Infallible$C$E$GT$$GT$$GT$13from_residual17h1954d83e1a8b40bfE"(ptr sret({ [5 x i64], ptr, [5 x i64] }) align 8 %0, ptr nonnull align 8 %7, ptr nonnull align 8 @anon.606a9f67259985b9f2e88ceabcc30b94.10)
-  br label %26
+  br label %25
 
-17:                                               ; preds = %24, %19, %13
-  %18 = landingpad { ptr, i32 }
+16:                                               ; preds = %23, %18, %14
+  %17 = landingpad { ptr, i32 }
           cleanup
   invoke void @"_ZN4core3ptr75drop_in_place$LT$core..option..Option$LT$syn..generics..WhereClause$GT$$GT$17h6b6e350748ad4792E"(ptr nonnull align 8 %10) #5
-          to label %30 unwind label %28
+          to label %29 unwind label %27
 
-19:                                               ; preds = %13
+18:                                               ; preds = %14
   invoke void @"_ZN79_$LT$core..result..Result$LT$T$C$E$GT$$u20$as$u20$core..ops..try_trait..Try$GT$6branch17hadc1a8e6d36e60f5E"(ptr nonnull sret({ ptr, [5 x i64] }) align 8 %6, ptr nonnull align 8 %5)
-          to label %20 unwind label %17
+          to label %19 unwind label %16
 
-20:                                               ; preds = %19
-  %21 = load ptr, ptr %6, align 8, !noundef !5
-  %.not = icmp eq ptr %21, null
-  br i1 %.not, label %24, label %22
+19:                                               ; preds = %18
+  %20 = load ptr, ptr %6, align 8, !noundef !5
+  %.not = icmp eq ptr %20, null
+  br i1 %.not, label %23, label %21
 
-22:                                               ; preds = %20
-  %23 = getelementptr inbounds { { ptr, [4 x i64] }, { { { { ptr, i64 }, i64 }, ptr }, { { { [2 x i32], i32 }, {} } }, [1 x i32] } }, ptr %3, i64 0, i32 1
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %23, ptr noundef nonnull align 8 dereferenceable(48) %6, i64 48, i1 false)
+21:                                               ; preds = %19
+  %22 = getelementptr inbounds i8, ptr %3, i64 40
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %22, ptr noundef nonnull align 8 dereferenceable(48) %6, i64 48, i1 false)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %3, ptr noundef nonnull align 8 dereferenceable(40) %10, i64 40, i1 false)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(88) %0, ptr noundef nonnull align 8 dereferenceable(88) %3, i64 88, i1 false)
-  br label %26
+  br label %25
 
-24:                                               ; preds = %20
-  %25 = getelementptr inbounds { [1 x i64], { { { { ptr, i64 }, i64 } } } }, ptr %6, i64 0, i32 1
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %4, ptr noundef nonnull align 8 dereferenceable(24) %25, i64 24, i1 false)
+23:                                               ; preds = %19
+  %24 = getelementptr inbounds i8, ptr %6, i64 8
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %4, ptr noundef nonnull align 8 dereferenceable(24) %24, i64 24, i1 false)
   invoke void @"_ZN153_$LT$core..result..Result$LT$T$C$F$GT$$u20$as$u20$core..ops..try_trait..FromResidual$LT$core..result..Result$LT$core..convert..Infallible$C$E$GT$$GT$$GT$13from_residual17h1954d83e1a8b40bfE"(ptr sret({ [5 x i64], ptr, [5 x i64] }) align 8 %0, ptr nonnull align 8 %4, ptr nonnull align 8 @anon.606a9f67259985b9f2e88ceabcc30b94.9)
-          to label %27 unwind label %17
+          to label %26 unwind label %16
 
-26:                                               ; preds = %27, %22, %15
+25:                                               ; preds = %26, %21, %15
   ret void
 
-27:                                               ; preds = %24
+26:                                               ; preds = %23
   call void @"_ZN4core3ptr75drop_in_place$LT$core..option..Option$LT$syn..generics..WhereClause$GT$$GT$17h6b6e350748ad4792E"(ptr nonnull align 8 %10)
-  br label %26
+  br label %25
 
-28:                                               ; preds = %17
-  %29 = landingpad { ptr, i32 }
+27:                                               ; preds = %16
+  %28 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
   call void @_ZN4core9panicking16panic_in_cleanup17hd44bb2114362504eE() #6
   unreachable
 
-30:                                               ; preds = %17
-  resume { ptr, i32 } %18
+29:                                               ; preds = %16
+  resume { ptr, i32 } %17
 }
 
 ; Function Attrs: nonlazybind uwtable

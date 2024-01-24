@@ -3,12 +3,10 @@ source_filename = "bench/cpython/original/rotatingtree.ll"
 target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:128-n8:16:32:64-S128"
 target triple = "x86_64-unknown-linux-gnu"
 
-%struct.rotating_node_s = type { ptr, ptr, ptr }
-
 @random_stream = internal unnamed_addr global i32 0, align 4
 @random_value = internal unnamed_addr global i32 1, align 4
 
-; Function Attrs: nofree nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
 define hidden void @RotatingTree_Add(ptr nocapture noundef %root, ptr noundef %node) local_unnamed_addr #0 {
 entry:
   %0 = load ptr, ptr %root, align 8
@@ -23,23 +21,26 @@ while.body:                                       ; preds = %while.body.lr.ph, %
   %2 = phi ptr [ %0, %while.body.lr.ph ], [ %4, %while.body ]
   %3 = load ptr, ptr %2, align 8
   %cmp2 = icmp ult ptr %1, %3
-  %left = getelementptr inbounds %struct.rotating_node_s, ptr %2, i64 0, i32 1
-  %right = getelementptr inbounds %struct.rotating_node_s, ptr %2, i64 0, i32 2
-  %root.addr.1 = select i1 %cmp2, ptr %left, ptr %right
+  %root.addr.1.v = select i1 %cmp2, i64 8, i64 16
+  %root.addr.1 = getelementptr inbounds i8, ptr %2, i64 %root.addr.1.v
   %4 = load ptr, ptr %root.addr.1, align 8
   %cmp.not = icmp eq ptr %4, null
-  br i1 %cmp.not, label %while.end, label %while.body, !llvm.loop !4
+  br i1 %cmp.not, label %while.end.loopexit, label %while.body, !llvm.loop !4
 
-while.end:                                        ; preds = %while.body, %entry
-  %root.addr.0.lcssa = phi ptr [ %root, %entry ], [ %root.addr.1, %while.body ]
-  %left3 = getelementptr inbounds %struct.rotating_node_s, ptr %node, i64 0, i32 1
+while.end.loopexit:                               ; preds = %while.body
+  %root.addr.1.le = getelementptr inbounds i8, ptr %2, i64 %root.addr.1.v
+  br label %while.end
+
+while.end:                                        ; preds = %while.end.loopexit, %entry
+  %root.addr.0.lcssa = phi ptr [ %root, %entry ], [ %root.addr.1.le, %while.end.loopexit ]
+  %left3 = getelementptr inbounds i8, ptr %node, i64 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %left3, i8 0, i64 16, i1 false)
   store ptr %node, ptr %root.addr.0.lcssa, align 8
   ret void
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define hidden ptr @RotatingTree_Get(ptr nocapture noundef %root, ptr noundef readnone %key) local_unnamed_addr #1 {
+define hidden ptr @RotatingTree_Get(ptr nocapture noundef %root, ptr noundef readnone %key) local_unnamed_addr #0 {
 entry:
   %0 = load i32, ptr @random_stream, align 4
   %cmp.i = icmp ult i32 %0, 8
@@ -72,9 +73,8 @@ while.body:                                       ; preds = %while.cond.preheade
 
 if.end:                                           ; preds = %while.body
   %cmp6 = icmp ugt ptr %4, %key
-  %left = getelementptr inbounds %struct.rotating_node_s, ptr %node.045, i64 0, i32 1
-  %right = getelementptr inbounds %struct.rotating_node_s, ptr %node.045, i64 0, i32 2
-  %node.1.in = select i1 %cmp6, ptr %left, ptr %right
+  %node.1.in.v = select i1 %cmp6, i64 8, i64 16
+  %node.1.in = getelementptr inbounds i8, ptr %node.045, i64 %node.1.in.v
   %node.0 = load ptr, ptr %node.1.in, align 8
   %cmp1.not = icmp eq ptr %node.0, null
   br i1 %cmp1.not, label %return, label %while.body, !llvm.loop !6
@@ -115,7 +115,7 @@ randombits.exit40:                                ; preds = %if.end19, %if.then.
   br i1 %cmp22, label %if.then23, label %if.else36
 
 if.then23:                                        ; preds = %randombits.exit40
-  %left24 = getelementptr inbounds %struct.rotating_node_s, ptr %node10.054, i64 0, i32 1
+  %left24 = getelementptr inbounds i8, ptr %node10.054, i64 8
   %8 = load ptr, ptr %left24, align 8
   %cmp25 = icmp eq ptr %8, null
   br i1 %cmp25, label %return.sink.split, label %if.end27
@@ -124,11 +124,11 @@ if.end27:                                         ; preds = %if.then23
   br i1 %tobool.not, label %if.then29, label %if.end49
 
 if.then29:                                        ; preds = %if.end27
-  %right30 = getelementptr inbounds %struct.rotating_node_s, ptr %8, i64 0, i32 2
+  %right30 = getelementptr inbounds i8, ptr %8, i64 16
   br label %if.end49.sink.split
 
 if.else36:                                        ; preds = %randombits.exit40
-  %right37 = getelementptr inbounds %struct.rotating_node_s, ptr %node10.054, i64 0, i32 2
+  %right37 = getelementptr inbounds i8, ptr %node10.054, i64 16
   %9 = load ptr, ptr %right37, align 8
   %cmp38 = icmp eq ptr %9, null
   br i1 %cmp38, label %return.sink.split, label %if.end40
@@ -137,7 +137,7 @@ if.end40:                                         ; preds = %if.else36
   br i1 %tobool.not, label %if.then42, label %if.end49
 
 if.then42:                                        ; preds = %if.end40
-  %left43 = getelementptr inbounds %struct.rotating_node_s, ptr %9, i64 0, i32 1
+  %left43 = getelementptr inbounds i8, ptr %9, i64 8
   br label %if.end49.sink.split
 
 if.end49.sink.split:                              ; preds = %if.then29, %if.then42
@@ -168,7 +168,7 @@ return:                                           ; preds = %while.body, %if.end
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden i32 @RotatingTree_Enum(ptr noundef %root, ptr nocapture noundef readonly %enumfn, ptr noundef %arg) local_unnamed_addr #2 {
+define hidden i32 @RotatingTree_Enum(ptr noundef %root, ptr nocapture noundef readonly %enumfn, ptr noundef %arg) local_unnamed_addr #1 {
 entry:
   br label %while.cond
 
@@ -178,16 +178,16 @@ while.cond:                                       ; preds = %if.end, %entry
   br i1 %cmp.not, label %return, label %while.body
 
 while.body:                                       ; preds = %while.cond
-  %left = getelementptr inbounds %struct.rotating_node_s, ptr %root.addr.0, i64 0, i32 1
+  %left = getelementptr inbounds i8, ptr %root.addr.0, i64 8
   %0 = load ptr, ptr %left, align 8
   %call = tail call i32 @RotatingTree_Enum(ptr noundef %0, ptr noundef %enumfn, ptr noundef %arg)
   %cmp1.not = icmp eq i32 %call, 0
   br i1 %cmp1.not, label %if.end, label %return
 
 if.end:                                           ; preds = %while.body
-  %right = getelementptr inbounds %struct.rotating_node_s, ptr %root.addr.0, i64 0, i32 2
+  %right = getelementptr inbounds i8, ptr %root.addr.0, i64 16
   %1 = load ptr, ptr %right, align 8
-  %call2 = tail call i32 %enumfn(ptr noundef nonnull %root.addr.0, ptr noundef %arg) #4
+  %call2 = tail call i32 %enumfn(ptr noundef nonnull %root.addr.0, ptr noundef %arg) #3
   %cmp3.not = icmp eq i32 %call2, 0
   br i1 %cmp3.not, label %while.cond, label %return, !llvm.loop !7
 
@@ -197,13 +197,12 @@ return:                                           ; preds = %while.cond, %if.end
 }
 
 ; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #3
+declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #2
 
-attributes #0 = { nofree nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #1 = { nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #2 = { nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #3 = { nocallback nofree nounwind willreturn memory(argmem: write) }
-attributes #4 = { nounwind }
+attributes #0 = { nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #1 = { nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #2 = { nocallback nofree nounwind willreturn memory(argmem: write) }
+attributes #3 = { nounwind }
 
 !llvm.module.flags = !{!0, !1, !2, !3}
 

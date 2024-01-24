@@ -25,9 +25,9 @@ while.cond.preheader:                             ; preds = %entry
   br i1 %tobool2.not26, label %while.end, label %while.body.lr.ph
 
 while.body.lr.ph:                                 ; preds = %while.cond.preheader
-  %arrayidx8 = getelementptr inbounds [4 x i8], ptr %itmp, i64 0, i64 1
-  %arrayidx12 = getelementptr inbounds [4 x i8], ptr %itmp, i64 0, i64 2
-  %arrayidx15 = getelementptr inbounds [4 x i8], ptr %itmp, i64 0, i64 3
+  %arrayidx8 = getelementptr inbounds i8, ptr %itmp, i64 1
+  %arrayidx12 = getelementptr inbounds i8, ptr %itmp, i64 2
+  %arrayidx15 = getelementptr inbounds i8, ptr %itmp, i64 3
   %cmp3124 = icmp ugt i32 %iterations, 1
   br i1 %cmp3124, label %while.body.us.preheader, label %while.body
 

@@ -464,15 +464,15 @@ entry:
   %bits.i = alloca [2 x i32], align 4
   %v.i = alloca [2 x i64], align 16
   %xvec.addr.i.0.vec.extract = load i64, ptr %x, align 16
-  %0 = getelementptr inbounds <2 x i64>, ptr %x, i64 0, i64 1
+  %0 = getelementptr inbounds i8, ptr %x, i64 8
   %xvec.addr.i.8.vec.extract = load i64, ptr %0, align 8
   %mvec.addr.i.0.vec.extract = load i64, ptr %m, align 16
-  %1 = getelementptr inbounds <2 x i64>, ptr %m, i64 0, i64 1
+  %1 = getelementptr inbounds i8, ptr %m, i64 8
   %mvec.addr.i.8.vec.extract = load i64, ptr %1, align 8
   %2 = tail call i64 @llvm.ctpop.i64(i64 %mvec.addr.i.0.vec.extract), !range !12
   %cast.i = trunc i64 %2 to i32
   store i32 %cast.i, ptr %bits.i, align 4
-  %arrayinit.element.i = getelementptr inbounds i32, ptr %bits.i, i64 1
+  %arrayinit.element.i = getelementptr inbounds i8, ptr %bits.i, i64 4
   %3 = tail call i64 @llvm.ctpop.i64(i64 %mvec.addr.i.8.vec.extract), !range !12
   %cast.i10 = trunc i64 %3 to i32
   store i32 %cast.i10, ptr %arrayinit.element.i, align 4
@@ -521,7 +521,7 @@ for.body.i31.i:                                   ; preds = %if.end.i24.i, %for.
 compress64.exit60.i:                              ; preds = %for.body.i31.i, %entry
   %retval.i14.i.0 = phi i64 [ 0, %entry ], [ %or22.i55.i, %for.body.i31.i ]
   store i64 %retval.i14.i.0, ptr %v.i, align 16
-  %arrayinit.element8.i = getelementptr inbounds i64, ptr %v.i, i64 1
+  %arrayinit.element8.i = getelementptr inbounds i8, ptr %v.i, i64 8
   %and.i.i = and i64 %mvec.addr.i.8.vec.extract, %xvec.addr.i.8.vec.extract
   %cmp.i.i = icmp eq i64 %and.i.i, 0
   br i1 %cmp.i.i, label %storecompressed128_64bit.exit, label %if.end.i.i
@@ -697,7 +697,7 @@ entry:
   %1 = tail call i64 @llvm.ctpop.i64(i64 %vecext.i), !range !12
   %cast.i5 = trunc i64 %1 to i32
   store i32 %cast.i5, ptr %bits.i, align 4
-  %arrayinit.element5.i = getelementptr inbounds i32, ptr %bits.i, i64 1
+  %arrayinit.element5.i = getelementptr inbounds i8, ptr %bits.i, i64 4
   %2 = tail call i64 @llvm.ctpop.i64(i64 %vecext.i16), !range !12
   %cast.i8 = trunc i64 %2 to i32
   store i32 %cast.i8, ptr %arrayinit.element5.i, align 4
@@ -836,7 +836,7 @@ for.end31.i43.i:                                  ; preds = %for.body20.i45.i
 
 expand64.exit80.i:                                ; preds = %unpack_bits_64.exit, %for.end31.i43.i
   %retval.i20.i.0 = phi i64 [ %and32.i44.i, %for.end31.i43.i ], [ 0, %unpack_bits_64.exit ]
-  %arrayidx14.i = getelementptr inbounds [2 x i64], ptr %v.i, i64 0, i64 1
+  %arrayidx14.i = getelementptr inbounds i8, ptr %v.i, i64 8
   %9 = load i64, ptr %arrayidx14.i, align 8
   %tobool.i.i = icmp ne i64 %9, 0
   %tobool1.i.i = icmp ne i64 %vecext.i16, 0
@@ -930,15 +930,15 @@ entry:
   %0 = tail call i64 @llvm.ctpop.i64(i64 %.sroa.0.0.copyload), !range !12
   %cast.i = trunc i64 %0 to i32
   store i32 %cast.i, ptr %bits.i, align 16
-  %arrayinit.element.i = getelementptr inbounds i32, ptr %bits.i, i64 1
+  %arrayinit.element.i = getelementptr inbounds i8, ptr %bits.i, i64 4
   %1 = tail call i64 @llvm.ctpop.i64(i64 %.sroa.2.0.copyload), !range !12
   %cast.i16 = trunc i64 %1 to i32
   store i32 %cast.i16, ptr %arrayinit.element.i, align 4
-  %arrayinit.element4.i = getelementptr inbounds i32, ptr %bits.i, i64 2
+  %arrayinit.element4.i = getelementptr inbounds i8, ptr %bits.i, i64 8
   %2 = tail call i64 @llvm.ctpop.i64(i64 %.sroa.3.0.copyload), !range !12
   %cast.i19 = trunc i64 %2 to i32
   store i32 %cast.i19, ptr %arrayinit.element4.i, align 8
-  %arrayinit.element7.i = getelementptr inbounds i32, ptr %bits.i, i64 3
+  %arrayinit.element7.i = getelementptr inbounds i8, ptr %bits.i, i64 12
   %3 = tail call i64 @llvm.ctpop.i64(i64 %.sroa.4.0.copyload), !range !12
   %cast.i22 = trunc i64 %3 to i32
   store i32 %cast.i22, ptr %arrayinit.element7.i, align 4
@@ -987,7 +987,7 @@ for.body.i139.i:                                  ; preds = %if.end.i132.i, %for
 compress64.exit168.i:                             ; preds = %for.body.i139.i, %entry
   %retval.i122.i.0 = phi i64 [ 0, %entry ], [ %or22.i163.i, %for.body.i139.i ]
   store i64 %retval.i122.i.0, ptr %v.i, align 16
-  %arrayinit.element14.i = getelementptr inbounds i64, ptr %v.i, i64 1
+  %arrayinit.element14.i = getelementptr inbounds i8, ptr %v.i, i64 8
   %and.i83.i = and i64 %.sroa.26.0.copyload, %.sroa.2.0.copyload
   %cmp.i84.i = icmp eq i64 %and.i83.i, 0
   br i1 %cmp.i84.i, label %compress64.exit121.i, label %if.end.i85.i
@@ -1033,7 +1033,7 @@ for.body.i92.i:                                   ; preds = %if.end.i85.i, %for.
 compress64.exit121.i:                             ; preds = %for.body.i92.i, %compress64.exit168.i
   %retval.i75.i.0 = phi i64 [ 0, %compress64.exit168.i ], [ %or22.i116.i, %for.body.i92.i ]
   store i64 %retval.i75.i.0, ptr %arrayinit.element14.i, align 8
-  %arrayinit.element18.i = getelementptr inbounds i64, ptr %v.i, i64 2
+  %arrayinit.element18.i = getelementptr inbounds i8, ptr %v.i, i64 16
   %and.i36.i = and i64 %.sroa.37.0.copyload, %.sroa.3.0.copyload
   %cmp.i37.i = icmp eq i64 %and.i36.i, 0
   br i1 %cmp.i37.i, label %compress64.exit74.i, label %if.end.i38.i
@@ -1079,7 +1079,7 @@ for.body.i45.i:                                   ; preds = %if.end.i38.i, %for.
 compress64.exit74.i:                              ; preds = %for.body.i45.i, %compress64.exit121.i
   %retval.i28.i.0 = phi i64 [ 0, %compress64.exit121.i ], [ %or22.i69.i, %for.body.i45.i ]
   store i64 %retval.i28.i.0, ptr %arrayinit.element18.i, align 16
-  %arrayinit.element22.i = getelementptr inbounds i64, ptr %v.i, i64 3
+  %arrayinit.element22.i = getelementptr inbounds i8, ptr %v.i, i64 24
   %and.i.i = and i64 %.sroa.48.0.copyload, %.sroa.4.0.copyload
   %cmp.i.i = icmp eq i64 %and.i.i, 0
   br i1 %cmp.i.i, label %storecompressed256_64bit.exit, label %if.end.i.i
@@ -1262,15 +1262,15 @@ entry:
   %0 = tail call i64 @llvm.ctpop.i64(i64 %.sroa.0.0.copyload), !range !12
   %cast.i = trunc i64 %0 to i32
   store i32 %cast.i, ptr %bits.i, align 16, !noalias !16
-  %arrayinit.element.i = getelementptr inbounds i32, ptr %bits.i, i64 1
+  %arrayinit.element.i = getelementptr inbounds i8, ptr %bits.i, i64 4
   %1 = tail call i64 @llvm.ctpop.i64(i64 %.sroa.2.0.copyload), !range !12
   %cast.i13 = trunc i64 %1 to i32
   store i32 %cast.i13, ptr %arrayinit.element.i, align 4, !noalias !16
-  %arrayinit.element3.i = getelementptr inbounds i32, ptr %bits.i, i64 2
+  %arrayinit.element3.i = getelementptr inbounds i8, ptr %bits.i, i64 8
   %2 = tail call i64 @llvm.ctpop.i64(i64 %.sroa.3.0.copyload), !range !12
   %cast.i16 = trunc i64 %2 to i32
   store i32 %cast.i16, ptr %arrayinit.element3.i, align 8, !noalias !16
-  %arrayinit.element6.i = getelementptr inbounds i32, ptr %bits.i, i64 3
+  %arrayinit.element6.i = getelementptr inbounds i8, ptr %bits.i, i64 12
   %3 = tail call i64 @llvm.ctpop.i64(i64 %.sroa.4.0.copyload), !range !12
   %cast.i19 = trunc i64 %3 to i32
   store i32 %cast.i19, ptr %arrayinit.element6.i, align 4, !noalias !16
@@ -1410,7 +1410,7 @@ for.end31.i178.i:                                 ; preds = %for.body20.i180.i
 
 expand64.exit215.i:                               ; preds = %unpack_bits_64.exit, %for.end31.i178.i
   %retval.i155.i.0 = phi i64 [ %and32.i179.i, %for.end31.i178.i ], [ 0, %unpack_bits_64.exit ]
-  %arrayidx16.i = getelementptr inbounds [4 x i64], ptr %v.i, i64 0, i64 1
+  %arrayidx16.i = getelementptr inbounds i8, ptr %v.i, i64 8
   %10 = load i64, ptr %arrayidx16.i, align 8, !noalias !16
   %tobool.i105.i = icmp ne i64 %10, 0
   %tobool1.i108.i = icmp ne i64 %.sroa.2.0.copyload, 0
@@ -1476,7 +1476,7 @@ for.end31.i117.i:                                 ; preds = %for.body20.i119.i
 
 expand64.exit154.i:                               ; preds = %expand64.exit215.i, %for.end31.i117.i
   %retval.i94.i.0 = phi i64 [ %and32.i118.i, %for.end31.i117.i ], [ 0, %expand64.exit215.i ]
-  %arrayidx20.i = getelementptr inbounds [4 x i64], ptr %v.i, i64 0, i64 2
+  %arrayidx20.i = getelementptr inbounds i8, ptr %v.i, i64 16
   %14 = load i64, ptr %arrayidx20.i, align 16, !noalias !16
   %tobool.i44.i = icmp ne i64 %14, 0
   %tobool1.i47.i = icmp ne i64 %.sroa.3.0.copyload, 0
@@ -1542,7 +1542,7 @@ for.end31.i56.i:                                  ; preds = %for.body20.i58.i
 
 expand64.exit93.i:                                ; preds = %expand64.exit154.i, %for.end31.i56.i
   %retval.i33.i.0 = phi i64 [ %and32.i57.i, %for.end31.i56.i ], [ 0, %expand64.exit154.i ]
-  %arrayidx24.i = getelementptr inbounds [4 x i64], ptr %v.i, i64 0, i64 3
+  %arrayidx24.i = getelementptr inbounds i8, ptr %v.i, i64 24
   %18 = load i64, ptr %arrayidx24.i, align 8, !noalias !16
   %tobool.i.i = icmp ne i64 %18, 0
   %tobool1.i.i = icmp ne i64 %.sroa.4.0.copyload, 0
@@ -1648,23 +1648,23 @@ entry:
   %0 = tail call i64 @llvm.ctpop.i64(i64 %.sroa.0.0.copyload), !range !12
   %cast.i = trunc i64 %0 to i32
   store i32 %cast.i, ptr %bits.i, align 16
-  %arrayinit.element.i = getelementptr inbounds i32, ptr %bits.i, i64 1
+  %arrayinit.element.i = getelementptr inbounds i8, ptr %bits.i, i64 4
   %1 = tail call i64 @llvm.ctpop.i64(i64 %.sroa.2.0.copyload), !range !12
   %cast.i22 = trunc i64 %1 to i32
   store i32 %cast.i22, ptr %arrayinit.element.i, align 4
-  %arrayinit.element4.i = getelementptr inbounds i32, ptr %bits.i, i64 2
+  %arrayinit.element4.i = getelementptr inbounds i8, ptr %bits.i, i64 8
   %2 = tail call i64 @llvm.ctpop.i64(i64 %.sroa.3.0.copyload), !range !12
   %cast.i25 = trunc i64 %2 to i32
   store i32 %cast.i25, ptr %arrayinit.element4.i, align 8
-  %arrayinit.element7.i = getelementptr inbounds i32, ptr %bits.i, i64 3
+  %arrayinit.element7.i = getelementptr inbounds i8, ptr %bits.i, i64 12
   %3 = tail call i64 @llvm.ctpop.i64(i64 %.sroa.4.0.copyload), !range !12
   %cast.i28 = trunc i64 %3 to i32
   store i32 %cast.i28, ptr %arrayinit.element7.i, align 4
-  %arrayinit.element10.i = getelementptr inbounds i32, ptr %bits.i, i64 4
+  %arrayinit.element10.i = getelementptr inbounds i8, ptr %bits.i, i64 16
   %4 = tail call i64 @llvm.ctpop.i64(i64 %.sroa.5.0.copyload), !range !12
   %cast.i31 = trunc i64 %4 to i32
   store i32 %cast.i31, ptr %arrayinit.element10.i, align 16
-  %arrayinit.element13.i = getelementptr inbounds i32, ptr %bits.i, i64 5
+  %arrayinit.element13.i = getelementptr inbounds i8, ptr %bits.i, i64 20
   %5 = tail call i64 @llvm.ctpop.i64(i64 %.sroa.6.0.copyload), !range !12
   %cast.i34 = trunc i64 %5 to i32
   store i32 %cast.i34, ptr %arrayinit.element13.i, align 4
@@ -1713,7 +1713,7 @@ for.body.i247.i:                                  ; preds = %if.end.i240.i, %for
 compress64.exit276.i:                             ; preds = %for.body.i247.i, %entry
   %retval.i230.i.0 = phi i64 [ 0, %entry ], [ %or22.i271.i, %for.body.i247.i ]
   store i64 %retval.i230.i.0, ptr %v.i, align 16
-  %arrayinit.element20.i = getelementptr inbounds i64, ptr %v.i, i64 1
+  %arrayinit.element20.i = getelementptr inbounds i8, ptr %v.i, i64 8
   %and.i191.i = and i64 %.sroa.28.0.copyload, %.sroa.2.0.copyload
   %cmp.i192.i = icmp eq i64 %and.i191.i, 0
   br i1 %cmp.i192.i, label %compress64.exit229.i, label %if.end.i193.i
@@ -1759,7 +1759,7 @@ for.body.i200.i:                                  ; preds = %if.end.i193.i, %for
 compress64.exit229.i:                             ; preds = %for.body.i200.i, %compress64.exit276.i
   %retval.i183.i.0 = phi i64 [ 0, %compress64.exit276.i ], [ %or22.i224.i, %for.body.i200.i ]
   store i64 %retval.i183.i.0, ptr %arrayinit.element20.i, align 8
-  %arrayinit.element24.i = getelementptr inbounds i64, ptr %v.i, i64 2
+  %arrayinit.element24.i = getelementptr inbounds i8, ptr %v.i, i64 16
   %and.i144.i = and i64 %.sroa.39.0.copyload, %.sroa.3.0.copyload
   %cmp.i145.i = icmp eq i64 %and.i144.i, 0
   br i1 %cmp.i145.i, label %compress64.exit182.i, label %if.end.i146.i
@@ -1805,7 +1805,7 @@ for.body.i153.i:                                  ; preds = %if.end.i146.i, %for
 compress64.exit182.i:                             ; preds = %for.body.i153.i, %compress64.exit229.i
   %retval.i136.i.0 = phi i64 [ 0, %compress64.exit229.i ], [ %or22.i177.i, %for.body.i153.i ]
   store i64 %retval.i136.i.0, ptr %arrayinit.element24.i, align 16
-  %arrayinit.element28.i = getelementptr inbounds i64, ptr %v.i, i64 3
+  %arrayinit.element28.i = getelementptr inbounds i8, ptr %v.i, i64 24
   %and.i97.i = and i64 %.sroa.410.0.copyload, %.sroa.4.0.copyload
   %cmp.i98.i = icmp eq i64 %and.i97.i, 0
   br i1 %cmp.i98.i, label %compress64.exit135.i, label %if.end.i99.i
@@ -1851,7 +1851,7 @@ for.body.i106.i:                                  ; preds = %if.end.i99.i, %for.
 compress64.exit135.i:                             ; preds = %for.body.i106.i, %compress64.exit182.i
   %retval.i89.i.0 = phi i64 [ 0, %compress64.exit182.i ], [ %or22.i130.i, %for.body.i106.i ]
   store i64 %retval.i89.i.0, ptr %arrayinit.element28.i, align 8
-  %arrayinit.element32.i = getelementptr inbounds i64, ptr %v.i, i64 4
+  %arrayinit.element32.i = getelementptr inbounds i8, ptr %v.i, i64 32
   %and.i50.i = and i64 %.sroa.511.0.copyload, %.sroa.5.0.copyload
   %cmp.i51.i = icmp eq i64 %and.i50.i, 0
   br i1 %cmp.i51.i, label %compress64.exit88.i, label %if.end.i52.i
@@ -1897,7 +1897,7 @@ for.body.i59.i:                                   ; preds = %if.end.i52.i, %for.
 compress64.exit88.i:                              ; preds = %for.body.i59.i, %compress64.exit135.i
   %retval.i42.i.0 = phi i64 [ 0, %compress64.exit135.i ], [ %or22.i83.i, %for.body.i59.i ]
   store i64 %retval.i42.i.0, ptr %arrayinit.element32.i, align 16
-  %arrayinit.element36.i = getelementptr inbounds i64, ptr %v.i, i64 5
+  %arrayinit.element36.i = getelementptr inbounds i8, ptr %v.i, i64 40
   %and.i.i = and i64 %.sroa.612.0.copyload, %.sroa.6.0.copyload
   %cmp.i.i = icmp eq i64 %and.i.i, 0
   br i1 %cmp.i.i, label %storecompressed384_64bit.exit, label %if.end.i.i
@@ -2086,23 +2086,23 @@ entry:
   %0 = tail call i64 @llvm.ctpop.i64(i64 %.sroa.0.0.copyload), !range !12
   %cast.i = trunc i64 %0 to i32
   store i32 %cast.i, ptr %bits.i, align 16, !noalias !19
-  %arrayinit.element.i = getelementptr inbounds i32, ptr %bits.i, i64 1
+  %arrayinit.element.i = getelementptr inbounds i8, ptr %bits.i, i64 4
   %1 = tail call i64 @llvm.ctpop.i64(i64 %.sroa.2.0.copyload), !range !12
   %cast.i19 = trunc i64 %1 to i32
   store i32 %cast.i19, ptr %arrayinit.element.i, align 4, !noalias !19
-  %arrayinit.element3.i = getelementptr inbounds i32, ptr %bits.i, i64 2
+  %arrayinit.element3.i = getelementptr inbounds i8, ptr %bits.i, i64 8
   %2 = tail call i64 @llvm.ctpop.i64(i64 %.sroa.3.0.copyload), !range !12
   %cast.i22 = trunc i64 %2 to i32
   store i32 %cast.i22, ptr %arrayinit.element3.i, align 8, !noalias !19
-  %arrayinit.element6.i = getelementptr inbounds i32, ptr %bits.i, i64 3
+  %arrayinit.element6.i = getelementptr inbounds i8, ptr %bits.i, i64 12
   %3 = tail call i64 @llvm.ctpop.i64(i64 %.sroa.4.0.copyload), !range !12
   %cast.i25 = trunc i64 %3 to i32
   store i32 %cast.i25, ptr %arrayinit.element6.i, align 4, !noalias !19
-  %arrayinit.element9.i = getelementptr inbounds i32, ptr %bits.i, i64 4
+  %arrayinit.element9.i = getelementptr inbounds i8, ptr %bits.i, i64 16
   %4 = tail call i64 @llvm.ctpop.i64(i64 %.sroa.5.0.copyload), !range !12
   %cast.i28 = trunc i64 %4 to i32
   store i32 %cast.i28, ptr %arrayinit.element9.i, align 16, !noalias !19
-  %arrayinit.element12.i = getelementptr inbounds i32, ptr %bits.i, i64 5
+  %arrayinit.element12.i = getelementptr inbounds i8, ptr %bits.i, i64 20
   %5 = tail call i64 @llvm.ctpop.i64(i64 %.sroa.6.0.copyload), !range !12
   %cast.i31 = trunc i64 %5 to i32
   store i32 %cast.i31, ptr %arrayinit.element12.i, align 4, !noalias !19
@@ -2242,7 +2242,7 @@ for.end31.i317.i:                                 ; preds = %for.body20.i319.i
 
 expand64.exit354.i:                               ; preds = %unpack_bits_64.exit, %for.end31.i317.i
   %retval.i294.i.0 = phi i64 [ %and32.i318.i, %for.end31.i317.i ], [ 0, %unpack_bits_64.exit ]
-  %arrayidx22.i = getelementptr inbounds [6 x i64], ptr %v.i, i64 0, i64 1
+  %arrayidx22.i = getelementptr inbounds i8, ptr %v.i, i64 8
   %12 = load i64, ptr %arrayidx22.i, align 8, !noalias !19
   %tobool.i244.i = icmp ne i64 %12, 0
   %tobool1.i247.i = icmp ne i64 %.sroa.2.0.copyload, 0
@@ -2308,7 +2308,7 @@ for.end31.i256.i:                                 ; preds = %for.body20.i258.i
 
 expand64.exit293.i:                               ; preds = %expand64.exit354.i, %for.end31.i256.i
   %retval.i233.i.0 = phi i64 [ %and32.i257.i, %for.end31.i256.i ], [ 0, %expand64.exit354.i ]
-  %arrayidx26.i = getelementptr inbounds [6 x i64], ptr %v.i, i64 0, i64 2
+  %arrayidx26.i = getelementptr inbounds i8, ptr %v.i, i64 16
   %16 = load i64, ptr %arrayidx26.i, align 16, !noalias !19
   %tobool.i183.i = icmp ne i64 %16, 0
   %tobool1.i186.i = icmp ne i64 %.sroa.3.0.copyload, 0
@@ -2374,7 +2374,7 @@ for.end31.i195.i:                                 ; preds = %for.body20.i197.i
 
 expand64.exit232.i:                               ; preds = %expand64.exit293.i, %for.end31.i195.i
   %retval.i172.i.0 = phi i64 [ %and32.i196.i, %for.end31.i195.i ], [ 0, %expand64.exit293.i ]
-  %arrayidx30.i = getelementptr inbounds [6 x i64], ptr %v.i, i64 0, i64 3
+  %arrayidx30.i = getelementptr inbounds i8, ptr %v.i, i64 24
   %20 = load i64, ptr %arrayidx30.i, align 8, !noalias !19
   %tobool.i122.i = icmp ne i64 %20, 0
   %tobool1.i125.i = icmp ne i64 %.sroa.4.0.copyload, 0
@@ -2440,7 +2440,7 @@ for.end31.i134.i:                                 ; preds = %for.body20.i136.i
 
 expand64.exit171.i:                               ; preds = %expand64.exit232.i, %for.end31.i134.i
   %retval.i111.i.0 = phi i64 [ %and32.i135.i, %for.end31.i134.i ], [ 0, %expand64.exit232.i ]
-  %arrayidx34.i = getelementptr inbounds [6 x i64], ptr %v.i, i64 0, i64 4
+  %arrayidx34.i = getelementptr inbounds i8, ptr %v.i, i64 32
   %24 = load i64, ptr %arrayidx34.i, align 16, !noalias !19
   %tobool.i61.i = icmp ne i64 %24, 0
   %tobool1.i64.i = icmp ne i64 %.sroa.5.0.copyload, 0
@@ -2506,7 +2506,7 @@ for.end31.i73.i:                                  ; preds = %for.body20.i75.i
 
 expand64.exit110.i:                               ; preds = %expand64.exit171.i, %for.end31.i73.i
   %retval.i50.i.0 = phi i64 [ %and32.i74.i, %for.end31.i73.i ], [ 0, %expand64.exit171.i ]
-  %arrayidx38.i = getelementptr inbounds [6 x i64], ptr %v.i, i64 0, i64 5
+  %arrayidx38.i = getelementptr inbounds i8, ptr %v.i, i64 40
   %28 = load i64, ptr %arrayidx38.i, align 8, !noalias !19
   %tobool.i.i = icmp ne i64 %28, 0
   %tobool1.i.i = icmp ne i64 %.sroa.6.0.copyload, 0
@@ -2624,31 +2624,31 @@ entry:
   %0 = tail call i64 @llvm.ctpop.i64(i64 %.sroa.09.0.copyload), !range !12
   %cast.i = trunc i64 %0 to i32
   store i32 %cast.i, ptr %bits.i, align 16
-  %arrayinit.element.i = getelementptr inbounds i32, ptr %bits.i, i64 1
+  %arrayinit.element.i = getelementptr inbounds i8, ptr %bits.i, i64 4
   %1 = tail call i64 @llvm.ctpop.i64(i64 %.sroa.210.0.copyload), !range !12
   %cast.i28 = trunc i64 %1 to i32
   store i32 %cast.i28, ptr %arrayinit.element.i, align 4
-  %arrayinit.element4.i = getelementptr inbounds i32, ptr %bits.i, i64 2
+  %arrayinit.element4.i = getelementptr inbounds i8, ptr %bits.i, i64 8
   %2 = tail call i64 @llvm.ctpop.i64(i64 %.sroa.311.0.copyload), !range !12
   %cast.i31 = trunc i64 %2 to i32
   store i32 %cast.i31, ptr %arrayinit.element4.i, align 8
-  %arrayinit.element7.i = getelementptr inbounds i32, ptr %bits.i, i64 3
+  %arrayinit.element7.i = getelementptr inbounds i8, ptr %bits.i, i64 12
   %3 = tail call i64 @llvm.ctpop.i64(i64 %.sroa.412.0.copyload), !range !12
   %cast.i34 = trunc i64 %3 to i32
   store i32 %cast.i34, ptr %arrayinit.element7.i, align 4
-  %arrayinit.element10.i = getelementptr inbounds i32, ptr %bits.i, i64 4
+  %arrayinit.element10.i = getelementptr inbounds i8, ptr %bits.i, i64 16
   %4 = tail call i64 @llvm.ctpop.i64(i64 %.sroa.513.0.copyload), !range !12
   %cast.i37 = trunc i64 %4 to i32
   store i32 %cast.i37, ptr %arrayinit.element10.i, align 16
-  %arrayinit.element13.i = getelementptr inbounds i32, ptr %bits.i, i64 5
+  %arrayinit.element13.i = getelementptr inbounds i8, ptr %bits.i, i64 20
   %5 = tail call i64 @llvm.ctpop.i64(i64 %.sroa.614.0.copyload), !range !12
   %cast.i40 = trunc i64 %5 to i32
   store i32 %cast.i40, ptr %arrayinit.element13.i, align 4
-  %arrayinit.element16.i = getelementptr inbounds i32, ptr %bits.i, i64 6
+  %arrayinit.element16.i = getelementptr inbounds i8, ptr %bits.i, i64 24
   %6 = tail call i64 @llvm.ctpop.i64(i64 %.sroa.715.0.copyload), !range !12
   %cast.i43 = trunc i64 %6 to i32
   store i32 %cast.i43, ptr %arrayinit.element16.i, align 8
-  %arrayinit.element19.i = getelementptr inbounds i32, ptr %bits.i, i64 7
+  %arrayinit.element19.i = getelementptr inbounds i8, ptr %bits.i, i64 28
   %7 = tail call i64 @llvm.ctpop.i64(i64 %.sroa.816.0.copyload), !range !12
   %cast.i46 = trunc i64 %7 to i32
   store i32 %cast.i46, ptr %arrayinit.element19.i, align 4
@@ -2697,7 +2697,7 @@ for.body.i355.i:                                  ; preds = %if.end.i348.i, %for
 compress64.exit384.i:                             ; preds = %for.body.i355.i, %entry
   %retval.i338.i.0 = phi i64 [ 0, %entry ], [ %or22.i379.i, %for.body.i355.i ]
   store i64 %retval.i338.i.0, ptr %v.i, align 16
-  %arrayinit.element26.i = getelementptr inbounds i64, ptr %v.i, i64 1
+  %arrayinit.element26.i = getelementptr inbounds i8, ptr %v.i, i64 8
   %and.i299.i = and i64 %.sroa.2.0.copyload, %.sroa.210.0.copyload
   %cmp.i300.i = icmp eq i64 %and.i299.i, 0
   br i1 %cmp.i300.i, label %compress64.exit337.i, label %if.end.i301.i
@@ -2743,7 +2743,7 @@ for.body.i308.i:                                  ; preds = %if.end.i301.i, %for
 compress64.exit337.i:                             ; preds = %for.body.i308.i, %compress64.exit384.i
   %retval.i291.i.0 = phi i64 [ 0, %compress64.exit384.i ], [ %or22.i332.i, %for.body.i308.i ]
   store i64 %retval.i291.i.0, ptr %arrayinit.element26.i, align 8
-  %arrayinit.element30.i = getelementptr inbounds i64, ptr %v.i, i64 2
+  %arrayinit.element30.i = getelementptr inbounds i8, ptr %v.i, i64 16
   %and.i252.i = and i64 %.sroa.3.0.copyload, %.sroa.311.0.copyload
   %cmp.i253.i = icmp eq i64 %and.i252.i, 0
   br i1 %cmp.i253.i, label %compress64.exit290.i, label %if.end.i254.i
@@ -2789,7 +2789,7 @@ for.body.i261.i:                                  ; preds = %if.end.i254.i, %for
 compress64.exit290.i:                             ; preds = %for.body.i261.i, %compress64.exit337.i
   %retval.i244.i.0 = phi i64 [ 0, %compress64.exit337.i ], [ %or22.i285.i, %for.body.i261.i ]
   store i64 %retval.i244.i.0, ptr %arrayinit.element30.i, align 16
-  %arrayinit.element34.i = getelementptr inbounds i64, ptr %v.i, i64 3
+  %arrayinit.element34.i = getelementptr inbounds i8, ptr %v.i, i64 24
   %and.i205.i = and i64 %.sroa.4.0.copyload, %.sroa.412.0.copyload
   %cmp.i206.i = icmp eq i64 %and.i205.i, 0
   br i1 %cmp.i206.i, label %compress64.exit243.i, label %if.end.i207.i
@@ -2835,7 +2835,7 @@ for.body.i214.i:                                  ; preds = %if.end.i207.i, %for
 compress64.exit243.i:                             ; preds = %for.body.i214.i, %compress64.exit290.i
   %retval.i197.i.0 = phi i64 [ 0, %compress64.exit290.i ], [ %or22.i238.i, %for.body.i214.i ]
   store i64 %retval.i197.i.0, ptr %arrayinit.element34.i, align 8
-  %arrayinit.element38.i = getelementptr inbounds i64, ptr %v.i, i64 4
+  %arrayinit.element38.i = getelementptr inbounds i8, ptr %v.i, i64 32
   %and.i158.i = and i64 %.sroa.5.0.copyload, %.sroa.513.0.copyload
   %cmp.i159.i = icmp eq i64 %and.i158.i, 0
   br i1 %cmp.i159.i, label %compress64.exit196.i, label %if.end.i160.i
@@ -2881,7 +2881,7 @@ for.body.i167.i:                                  ; preds = %if.end.i160.i, %for
 compress64.exit196.i:                             ; preds = %for.body.i167.i, %compress64.exit243.i
   %retval.i150.i.0 = phi i64 [ 0, %compress64.exit243.i ], [ %or22.i191.i, %for.body.i167.i ]
   store i64 %retval.i150.i.0, ptr %arrayinit.element38.i, align 16
-  %arrayinit.element42.i = getelementptr inbounds i64, ptr %v.i, i64 5
+  %arrayinit.element42.i = getelementptr inbounds i8, ptr %v.i, i64 40
   %and.i111.i = and i64 %.sroa.6.0.copyload, %.sroa.614.0.copyload
   %cmp.i112.i = icmp eq i64 %and.i111.i, 0
   br i1 %cmp.i112.i, label %compress64.exit149.i, label %if.end.i113.i
@@ -2927,7 +2927,7 @@ for.body.i120.i:                                  ; preds = %if.end.i113.i, %for
 compress64.exit149.i:                             ; preds = %for.body.i120.i, %compress64.exit196.i
   %retval.i103.i.0 = phi i64 [ 0, %compress64.exit196.i ], [ %or22.i144.i, %for.body.i120.i ]
   store i64 %retval.i103.i.0, ptr %arrayinit.element42.i, align 8
-  %arrayinit.element46.i = getelementptr inbounds i64, ptr %v.i, i64 6
+  %arrayinit.element46.i = getelementptr inbounds i8, ptr %v.i, i64 48
   %and.i64.i = and i64 %.sroa.7.0.copyload, %.sroa.715.0.copyload
   %cmp.i65.i = icmp eq i64 %and.i64.i, 0
   br i1 %cmp.i65.i, label %compress64.exit102.i, label %if.end.i66.i
@@ -2973,7 +2973,7 @@ for.body.i73.i:                                   ; preds = %if.end.i66.i, %for.
 compress64.exit102.i:                             ; preds = %for.body.i73.i, %compress64.exit149.i
   %retval.i56.i.0 = phi i64 [ 0, %compress64.exit149.i ], [ %or22.i97.i, %for.body.i73.i ]
   store i64 %retval.i56.i.0, ptr %arrayinit.element46.i, align 16
-  %arrayinit.element50.i = getelementptr inbounds i64, ptr %v.i, i64 7
+  %arrayinit.element50.i = getelementptr inbounds i8, ptr %v.i, i64 56
   %and.i.i = and i64 %.sroa.8.0.copyload, %.sroa.816.0.copyload
   %cmp.i.i = icmp eq i64 %and.i.i, 0
   br i1 %cmp.i.i, label %storecompressed512_64bit.exit, label %if.end.i.i
@@ -3168,31 +3168,31 @@ entry:
   %0 = tail call i64 @llvm.ctpop.i64(i64 %.sroa.0.0.copyload), !range !12
   %cast.i = trunc i64 %0 to i32
   store i32 %cast.i, ptr %bits.i, align 16, !noalias !22
-  %arrayinit.element.i = getelementptr inbounds i32, ptr %bits.i, i64 1
+  %arrayinit.element.i = getelementptr inbounds i8, ptr %bits.i, i64 4
   %1 = tail call i64 @llvm.ctpop.i64(i64 %.sroa.2.0.copyload), !range !12
   %cast.i25 = trunc i64 %1 to i32
   store i32 %cast.i25, ptr %arrayinit.element.i, align 4, !noalias !22
-  %arrayinit.element3.i = getelementptr inbounds i32, ptr %bits.i, i64 2
+  %arrayinit.element3.i = getelementptr inbounds i8, ptr %bits.i, i64 8
   %2 = tail call i64 @llvm.ctpop.i64(i64 %.sroa.3.0.copyload), !range !12
   %cast.i28 = trunc i64 %2 to i32
   store i32 %cast.i28, ptr %arrayinit.element3.i, align 8, !noalias !22
-  %arrayinit.element6.i = getelementptr inbounds i32, ptr %bits.i, i64 3
+  %arrayinit.element6.i = getelementptr inbounds i8, ptr %bits.i, i64 12
   %3 = tail call i64 @llvm.ctpop.i64(i64 %.sroa.4.0.copyload), !range !12
   %cast.i31 = trunc i64 %3 to i32
   store i32 %cast.i31, ptr %arrayinit.element6.i, align 4, !noalias !22
-  %arrayinit.element9.i = getelementptr inbounds i32, ptr %bits.i, i64 4
+  %arrayinit.element9.i = getelementptr inbounds i8, ptr %bits.i, i64 16
   %4 = tail call i64 @llvm.ctpop.i64(i64 %.sroa.5.0.copyload), !range !12
   %cast.i34 = trunc i64 %4 to i32
   store i32 %cast.i34, ptr %arrayinit.element9.i, align 16, !noalias !22
-  %arrayinit.element12.i = getelementptr inbounds i32, ptr %bits.i, i64 5
+  %arrayinit.element12.i = getelementptr inbounds i8, ptr %bits.i, i64 20
   %5 = tail call i64 @llvm.ctpop.i64(i64 %.sroa.6.0.copyload), !range !12
   %cast.i37 = trunc i64 %5 to i32
   store i32 %cast.i37, ptr %arrayinit.element12.i, align 4, !noalias !22
-  %arrayinit.element15.i = getelementptr inbounds i32, ptr %bits.i, i64 6
+  %arrayinit.element15.i = getelementptr inbounds i8, ptr %bits.i, i64 24
   %6 = tail call i64 @llvm.ctpop.i64(i64 %.sroa.7.0.copyload), !range !12
   %cast.i40 = trunc i64 %6 to i32
   store i32 %cast.i40, ptr %arrayinit.element15.i, align 8
-  %arrayinit.element18.i = getelementptr inbounds i32, ptr %bits.i, i64 7
+  %arrayinit.element18.i = getelementptr inbounds i8, ptr %bits.i, i64 28
   %7 = tail call i64 @llvm.ctpop.i64(i64 %.sroa.8.0.copyload), !range !12
   %cast.i43 = trunc i64 %7 to i32
   store i32 %cast.i43, ptr %arrayinit.element18.i, align 4
@@ -3332,7 +3332,7 @@ for.end31.i460.i:                                 ; preds = %for.body20.i462.i
 
 expand64.exit497.i:                               ; preds = %unpack_bits_64.exit, %for.end31.i460.i
   %retval.i437.i.0 = phi i64 [ %and32.i461.i, %for.end31.i460.i ], [ 0, %unpack_bits_64.exit ]
-  %arrayidx28.i = getelementptr inbounds [8 x i64], ptr %v.i, i64 0, i64 1
+  %arrayidx28.i = getelementptr inbounds i8, ptr %v.i, i64 8
   %14 = load i64, ptr %arrayidx28.i, align 8, !noalias !22
   %tobool.i387.i = icmp ne i64 %14, 0
   %tobool1.i390.i = icmp ne i64 %.sroa.2.0.copyload, 0
@@ -3398,7 +3398,7 @@ for.end31.i399.i:                                 ; preds = %for.body20.i401.i
 
 expand64.exit436.i:                               ; preds = %expand64.exit497.i, %for.end31.i399.i
   %retval.i376.i.0 = phi i64 [ %and32.i400.i, %for.end31.i399.i ], [ 0, %expand64.exit497.i ]
-  %arrayidx32.i = getelementptr inbounds [8 x i64], ptr %v.i, i64 0, i64 2
+  %arrayidx32.i = getelementptr inbounds i8, ptr %v.i, i64 16
   %18 = load i64, ptr %arrayidx32.i, align 16, !noalias !22
   %tobool.i326.i = icmp ne i64 %18, 0
   %tobool1.i329.i = icmp ne i64 %.sroa.3.0.copyload, 0
@@ -3464,7 +3464,7 @@ for.end31.i338.i:                                 ; preds = %for.body20.i340.i
 
 expand64.exit375.i:                               ; preds = %expand64.exit436.i, %for.end31.i338.i
   %retval.i315.i.0 = phi i64 [ %and32.i339.i, %for.end31.i338.i ], [ 0, %expand64.exit436.i ]
-  %arrayidx36.i = getelementptr inbounds [8 x i64], ptr %v.i, i64 0, i64 3
+  %arrayidx36.i = getelementptr inbounds i8, ptr %v.i, i64 24
   %22 = load i64, ptr %arrayidx36.i, align 8, !noalias !22
   %tobool.i265.i = icmp ne i64 %22, 0
   %tobool1.i268.i = icmp ne i64 %.sroa.4.0.copyload, 0
@@ -3530,7 +3530,7 @@ for.end31.i277.i:                                 ; preds = %for.body20.i279.i
 
 expand64.exit314.i:                               ; preds = %expand64.exit375.i, %for.end31.i277.i
   %retval.i254.i.0 = phi i64 [ %and32.i278.i, %for.end31.i277.i ], [ 0, %expand64.exit375.i ]
-  %arrayidx40.i = getelementptr inbounds [8 x i64], ptr %v.i, i64 0, i64 4
+  %arrayidx40.i = getelementptr inbounds i8, ptr %v.i, i64 32
   %26 = load i64, ptr %arrayidx40.i, align 16, !noalias !22
   %tobool.i204.i = icmp ne i64 %26, 0
   %tobool1.i207.i = icmp ne i64 %.sroa.5.0.copyload, 0
@@ -3596,7 +3596,7 @@ for.end31.i216.i:                                 ; preds = %for.body20.i218.i
 
 expand64.exit253.i:                               ; preds = %expand64.exit314.i, %for.end31.i216.i
   %retval.i193.i.0 = phi i64 [ %and32.i217.i, %for.end31.i216.i ], [ 0, %expand64.exit314.i ]
-  %arrayidx44.i = getelementptr inbounds [8 x i64], ptr %v.i, i64 0, i64 5
+  %arrayidx44.i = getelementptr inbounds i8, ptr %v.i, i64 40
   %30 = load i64, ptr %arrayidx44.i, align 8, !noalias !22
   %tobool.i143.i = icmp ne i64 %30, 0
   %tobool1.i146.i = icmp ne i64 %.sroa.6.0.copyload, 0
@@ -3662,7 +3662,7 @@ for.end31.i155.i:                                 ; preds = %for.body20.i157.i
 
 expand64.exit192.i:                               ; preds = %expand64.exit253.i, %for.end31.i155.i
   %retval.i132.i.0 = phi i64 [ %and32.i156.i, %for.end31.i155.i ], [ 0, %expand64.exit253.i ]
-  %arrayidx48.i = getelementptr inbounds [8 x i64], ptr %v.i, i64 0, i64 6
+  %arrayidx48.i = getelementptr inbounds i8, ptr %v.i, i64 48
   %34 = load i64, ptr %arrayidx48.i, align 16, !noalias !22
   %tobool.i82.i = icmp ne i64 %34, 0
   %tobool1.i85.i = icmp ne i64 %.sroa.7.0.copyload, 0
@@ -3728,7 +3728,7 @@ for.end31.i94.i:                                  ; preds = %for.body20.i96.i
 
 expand64.exit131.i:                               ; preds = %expand64.exit192.i, %for.end31.i94.i
   %retval.i71.i.0 = phi i64 [ %and32.i95.i, %for.end31.i94.i ], [ 0, %expand64.exit192.i ]
-  %arrayidx52.i = getelementptr inbounds [8 x i64], ptr %v.i, i64 0, i64 7
+  %arrayidx52.i = getelementptr inbounds i8, ptr %v.i, i64 56
   %38 = load i64, ptr %arrayidx52.i, align 8, !noalias !22
   %tobool.i.i = icmp ne i64 %38, 0
   %tobool1.i.i = icmp ne i64 %.sroa.8.0.copyload, 0

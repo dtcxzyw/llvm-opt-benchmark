@@ -3,10 +3,6 @@ source_filename = "bench/openssl/original/libcrypto-shlib-cms_smime.ll"
 target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:128-n8:16:32:64-S128"
 target triple = "x86_64-unknown-linux-gnu"
 
-%struct.CMS_SignerInfo_st = type { i32, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr }
-%struct.asn1_string_st = type { i32, i32, ptr, i64 }
-%struct.CMS_EncryptedContentInfo_st = type { ptr, ptr, ptr, ptr, ptr, i64, ptr, i64, i32, i32 }
-
 @.str = private unnamed_addr constant [34 x i8] c"../openssl/crypto/cms/cms_smime.c\00", align 1
 @__func__.CMS_data = private unnamed_addr constant [9 x i8] c"CMS_data\00", align 1
 @__func__.CMS_digest_verify = private unnamed_addr constant [18 x i8] c"CMS_digest_verify\00", align 1
@@ -31,7 +27,7 @@ target triple = "x86_64-unknown-linux-gnu"
 @.str.2 = private unnamed_addr constant [17 x i8] c"Verify error: %s\00", align 1
 
 ; Function Attrs: nounwind uwtable
-define i32 @CMS_data(ptr noundef %cms, ptr noundef %out, i32 noundef %flags) local_unnamed_addr #0 {
+define noundef i32 @CMS_data(ptr noundef %cms, ptr noundef %out, i32 noundef %flags) local_unnamed_addr #0 {
 entry:
   %call = tail call ptr @CMS_get0_type(ptr noundef %cms) #4
   %call1 = tail call i32 @OBJ_obj2nid(ptr noundef %call) #4
@@ -72,7 +68,7 @@ declare void @ERR_set_error(i32 noundef, i32 noundef, ptr noundef, ...) local_un
 declare ptr @CMS_dataInit(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @cms_copy_content(ptr noundef %out, ptr noundef %in, i32 noundef %flags) unnamed_addr #0 {
+define internal fastcc noundef i32 @cms_copy_content(ptr noundef %out, ptr noundef %in, i32 noundef %flags) unnamed_addr #0 {
 entry:
   %buf = alloca [4096 x i8], align 16
   %cmp.i = icmp eq ptr %out, null
@@ -196,7 +192,7 @@ return:                                           ; preds = %if.end, %lor.lhs.fa
 declare ptr @ossl_cms_Data_create(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define i32 @CMS_final(ptr noundef %cms, ptr noundef %data, ptr noundef %dcont, i32 noundef %flags) local_unnamed_addr #0 {
+define noundef i32 @CMS_final(ptr noundef %cms, ptr noundef %data, ptr noundef %dcont, i32 noundef %flags) local_unnamed_addr #0 {
 entry:
   %call = tail call ptr @CMS_dataInit(ptr noundef %cms, ptr noundef %dcont) #4
   %cmp = icmp eq ptr %call, null
@@ -443,7 +439,7 @@ CMS_digest_create_ex.exit:                        ; preds = %if.end.i, %if.end7.
 }
 
 ; Function Attrs: nounwind uwtable
-define i32 @CMS_EncryptedData_decrypt(ptr noundef %cms, ptr noundef %key, i64 noundef %keylen, ptr noundef %dcont, ptr noundef %out, i32 noundef %flags) local_unnamed_addr #0 {
+define noundef i32 @CMS_EncryptedData_decrypt(ptr noundef %cms, ptr noundef %key, i64 noundef %keylen, ptr noundef %dcont, ptr noundef %out, i32 noundef %flags) local_unnamed_addr #0 {
 entry:
   %call = tail call ptr @CMS_get0_type(ptr noundef %cms) #4
   %call1 = tail call i32 @OBJ_obj2nid(ptr noundef %call) #4
@@ -570,7 +566,7 @@ entry:
 }
 
 ; Function Attrs: nounwind uwtable
-define i32 @CMS_verify(ptr noundef %cms, ptr noundef %certs, ptr noundef %store, ptr noundef %dcont, ptr noundef %out, i32 noundef %flags) local_unnamed_addr #0 {
+define noundef i32 @CMS_verify(ptr noundef %cms, ptr noundef %certs, ptr noundef %store, ptr noundef %dcont, ptr noundef %out, i32 noundef %flags) local_unnamed_addr #0 {
 entry:
   %signer.i = alloca ptr, align 8
   %signer = alloca ptr, align 8
@@ -1275,7 +1271,7 @@ if.then:                                          ; preds = %entry
   br label %return
 
 if.end:                                           ; preds = %entry
-  %cms_ctx = getelementptr inbounds %struct.CMS_SignerInfo_st, ptr %si, i64 0, i32 11
+  %cms_ctx = getelementptr inbounds i8, ptr %si, i64 88
   %0 = load ptr, ptr %cms_ctx, align 8
   %call = tail call ptr @ossl_cms_ctx_get0_libctx(ptr noundef %0) #4
   %call2 = tail call ptr @ossl_cms_ctx_get0_propq(ptr noundef %0) #4
@@ -1306,7 +1302,7 @@ if.end14:                                         ; preds = %if.end10
   br i1 %cmp16, label %if.end38, label %if.end18
 
 if.end18:                                         ; preds = %if.end14
-  %data = getelementptr inbounds %struct.asn1_string_st, ptr %call15, i64 0, i32 2
+  %data = getelementptr inbounds i8, ptr %call15, i64 8
   %1 = load ptr, ptr %data, align 8
   %2 = load i32, ptr %call15, align 8
   %call19 = tail call ptr @BIO_new_mem_buf(ptr noundef %1, i32 noundef %2) #4
@@ -1461,9 +1457,9 @@ entry:
   br i1 %cmp.not, label %if.end8, label %if.end
 
 if.end:                                           ; preds = %entry
-  %key = getelementptr inbounds %struct.CMS_EncryptedContentInfo_st, ptr %call1, i64 0, i32 4
+  %key = getelementptr inbounds i8, ptr %call1, i64 32
   %0 = load ptr, ptr %key, align 8
-  %keylen = getelementptr inbounds %struct.CMS_EncryptedContentInfo_st, ptr %call1, i64 0, i32 5
+  %keylen = getelementptr inbounds i8, ptr %call1, i64 40
   %1 = load i64, ptr %keylen, align 8
   tail call void @CRYPTO_clear_free(ptr noundef %0, i64 noundef %1, ptr noundef nonnull @.str, i32 noundef 715) #4
   %cmp4.not = icmp eq ptr %call, null
@@ -1471,7 +1467,7 @@ if.end:                                           ; preds = %entry
   br i1 %cmp4.not, label %if.end8, label %if.then6
 
 if.then6:                                         ; preds = %if.end
-  %debug7 = getelementptr inbounds %struct.CMS_EncryptedContentInfo_st, ptr %call1, i64 0, i32 8
+  %debug7 = getelementptr inbounds i8, ptr %call1, i64 64
   %2 = load i32, ptr %debug7, align 8
   %3 = icmp ne i32 %2, 0
   br label %if.end8
@@ -1647,7 +1643,7 @@ declare i32 @CMS_RecipientInfo_decrypt(ptr noundef, ptr noundef) local_unnamed_a
 declare void @ERR_clear_error() local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define i32 @CMS_decrypt_set1_key(ptr noundef %cms, ptr noundef %key, i64 noundef %keylen, ptr noundef %id, i64 noundef %idlen) local_unnamed_addr #0 {
+define noundef i32 @CMS_decrypt_set1_key(ptr noundef %cms, ptr noundef %key, i64 noundef %keylen, ptr noundef %id, i64 noundef %idlen) local_unnamed_addr #0 {
 entry:
   %call = tail call ptr @CMS_get0_RecipientInfos(ptr noundef %cms) #4
   %call213 = tail call i32 @OPENSSL_sk_num(ptr noundef %call) #4
@@ -1731,7 +1727,7 @@ declare i32 @CMS_RecipientInfo_kekri_id_cmp(ptr noundef, ptr noundef, i64 nounde
 declare i32 @CMS_RecipientInfo_set0_key(ptr noundef, ptr noundef, i64 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define i32 @CMS_decrypt_set1_password(ptr noundef %cms, ptr noundef %pass, i64 noundef %passlen) local_unnamed_addr #0 {
+define noundef i32 @CMS_decrypt_set1_password(ptr noundef %cms, ptr noundef %pass, i64 noundef %passlen) local_unnamed_addr #0 {
 entry:
   %call = tail call ptr @CMS_get0_RecipientInfos(ptr noundef %cms) #4
   %call1 = tail call ptr @ossl_cms_get0_env_enc_content(ptr noundef %cms) #4
@@ -1739,9 +1735,9 @@ entry:
   br i1 %cmp.not, label %if.end, label %if.then
 
 if.then:                                          ; preds = %entry
-  %key = getelementptr inbounds %struct.CMS_EncryptedContentInfo_st, ptr %call1, i64 0, i32 4
+  %key = getelementptr inbounds i8, ptr %call1, i64 32
   %0 = load ptr, ptr %key, align 8
-  %keylen = getelementptr inbounds %struct.CMS_EncryptedContentInfo_st, ptr %call1, i64 0, i32 5
+  %keylen = getelementptr inbounds i8, ptr %call1, i64 40
   %1 = load i64, ptr %keylen, align 8
   tail call void @CRYPTO_clear_free(ptr noundef %0, i64 noundef %1, ptr noundef nonnull @.str, i32 noundef 835) #4
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %key, i8 0, i64 16, i1 false)
@@ -1792,7 +1788,7 @@ return:                                           ; preds = %if.end12, %for.end,
 declare i32 @CMS_RecipientInfo_set0_password(ptr noundef, ptr noundef, i64 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define i32 @CMS_decrypt(ptr noundef %cms, ptr noundef %pk, ptr noundef %cert, ptr noundef %dcont, ptr noundef %out, i32 noundef %flags) local_unnamed_addr #0 {
+define noundef i32 @CMS_decrypt(ptr noundef %cms, ptr noundef %pk, ptr noundef %cert, ptr noundef %dcont, ptr noundef %out, i32 noundef %flags) local_unnamed_addr #0 {
 entry:
   %call = tail call ptr @CMS_get0_type(ptr noundef %cms) #4
   %call1 = tail call i32 @OBJ_obj2nid(ptr noundef %call) #4
@@ -1831,11 +1827,11 @@ if.end7:                                          ; preds = %lor.lhs.false.i, %i
   %call8 = tail call ptr @ossl_cms_get0_env_enc_content(ptr noundef %cms) #4
   %and = lshr i32 %flags, 17
   %and.lobit = and i32 %and, 1
-  %debug = getelementptr inbounds %struct.CMS_EncryptedContentInfo_st, ptr %call8, i64 0, i32 8
+  %debug = getelementptr inbounds i8, ptr %call8, i64 64
   store i32 %and.lobit, ptr %debug, align 8
   %cmp10 = icmp eq ptr %cert, null
   %conv11 = zext i1 %cmp10 to i32
-  %havenocert = getelementptr inbounds %struct.CMS_EncryptedContentInfo_st, ptr %call8, i64 0, i32 9
+  %havenocert = getelementptr inbounds i8, ptr %call8, i64 68
   store i32 %conv11, ptr %havenocert, align 4
   %cmp12 = icmp eq ptr %pk, null
   %cmp21 = icmp eq ptr %out, null
@@ -1882,7 +1878,7 @@ return:                                           ; preds = %do.body.i, %if.else
 declare i32 @CMS_dataFinal(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define i32 @CMS_final_digest(ptr noundef %cms, ptr noundef %md, i32 noundef %mdlen, ptr noundef %dcont, i32 noundef %flags) local_unnamed_addr #0 {
+define noundef i32 @CMS_final_digest(ptr noundef %cms, ptr noundef %md, i32 noundef %mdlen, ptr noundef %dcont, i32 noundef %flags) local_unnamed_addr #0 {
 entry:
   %call = tail call ptr @CMS_dataInit(ptr noundef %cms, ptr noundef %dcont) #4
   %cmp = icmp eq ptr %call, null
@@ -1932,7 +1928,7 @@ return:                                           ; preds = %do.body.i, %if.else
 declare i32 @ossl_cms_DataFinal(ptr noundef, ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define i32 @CMS_uncompress(ptr nocapture noundef readnone %cms, ptr nocapture noundef readnone %dcont, ptr nocapture noundef readnone %out, i32 noundef %flags) local_unnamed_addr #0 {
+define noundef i32 @CMS_uncompress(ptr nocapture noundef readnone %cms, ptr nocapture noundef readnone %dcont, ptr nocapture noundef readnone %out, i32 noundef %flags) local_unnamed_addr #0 {
 entry:
   tail call void @ERR_new() #4
   tail call void @ERR_set_debug(ptr noundef nonnull @.str, i32 noundef 994, ptr noundef nonnull @__func__.CMS_uncompress) #4
@@ -1941,7 +1937,7 @@ entry:
 }
 
 ; Function Attrs: nounwind uwtable
-define noalias ptr @CMS_compress(ptr nocapture noundef readnone %in, i32 noundef %comp_nid, i32 noundef %flags) local_unnamed_addr #0 {
+define noalias noundef ptr @CMS_compress(ptr nocapture noundef readnone %in, i32 noundef %comp_nid, i32 noundef %flags) local_unnamed_addr #0 {
 entry:
   tail call void @ERR_new() #4
   tail call void @ERR_set_debug(ptr noundef nonnull @.str, i32 noundef 1000, ptr noundef nonnull @__func__.CMS_compress) #4

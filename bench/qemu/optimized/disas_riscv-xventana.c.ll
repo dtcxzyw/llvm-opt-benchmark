@@ -4,7 +4,6 @@ target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:
 target triple = "x86_64-unknown-linux-gnu"
 
 %struct.rv_opcode_data = type { ptr, i32, ptr, ptr, i16, i16, i16, i16 }
-%struct.rv_decode = type { ptr, i64, i64, ptr, i32, i32, i16, i8, i8, i8, i8, i8, i8, i8, i8, i8, i8, i8, i8, i8, i32, i8 }
 
 @.str = private unnamed_addr constant [11 x i8] c"vt.illegal\00", align 1
 @.str.1 = private unnamed_addr constant [3 x i8] c"O\09\00", align 1
@@ -16,7 +15,7 @@ target triple = "x86_64-unknown-linux-gnu"
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(argmem: readwrite) uwtable
 define dso_local void @decode_xventanacondops(ptr nocapture noundef %dec, i32 noundef %isa) local_unnamed_addr #0 {
 entry:
-  %inst1 = getelementptr inbounds %struct.rv_decode, ptr %dec, i64 0, i32 2
+  %inst1 = getelementptr inbounds i8, ptr %dec, i64 16
   %0 = load i64, ptr %inst1, align 8
   %1 = and i64 %0, 127
   %or.cond = icmp eq i64 %1, 123
@@ -36,7 +35,7 @@ sw.bb4:                                           ; preds = %entry
 
 sw.epilog12:                                      ; preds = %sw.bb4, %entry
   %op.0 = phi i16 [ 0, %entry ], [ %switch.select7, %sw.bb4 ]
-  %op13 = getelementptr inbounds %struct.rv_decode, ptr %dec, i64 0, i32 6
+  %op13 = getelementptr inbounds i8, ptr %dec, i64 40
   store i16 %op.0, ptr %op13, align 8
   ret void
 }

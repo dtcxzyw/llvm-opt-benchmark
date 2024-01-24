@@ -22,7 +22,7 @@ entry:
 define i32 @crypto_onetimeauth_poly1305_verify(ptr noundef nonnull %h, ptr noundef %in, i64 noundef %inlen, ptr noundef nonnull %k) local_unnamed_addr #0 {
 entry:
   %0 = load ptr, ptr @implementation, align 8
-  %onetimeauth_verify = getelementptr inbounds %struct.crypto_onetimeauth_poly1305_implementation, ptr %0, i64 0, i32 1
+  %onetimeauth_verify = getelementptr inbounds i8, ptr %0, i64 8
   %1 = load ptr, ptr %onetimeauth_verify, align 8
   %call = tail call i32 %1(ptr noundef nonnull %h, ptr noundef %in, i64 noundef %inlen, ptr noundef nonnull %k) #3
   ret i32 %call
@@ -32,7 +32,7 @@ entry:
 define i32 @crypto_onetimeauth_poly1305_init(ptr noundef nonnull %state, ptr noundef nonnull %key) local_unnamed_addr #0 {
 entry:
   %0 = load ptr, ptr @implementation, align 8
-  %onetimeauth_init = getelementptr inbounds %struct.crypto_onetimeauth_poly1305_implementation, ptr %0, i64 0, i32 2
+  %onetimeauth_init = getelementptr inbounds i8, ptr %0, i64 16
   %1 = load ptr, ptr %onetimeauth_init, align 8
   %call = tail call i32 %1(ptr noundef nonnull %state, ptr noundef nonnull %key) #3
   ret i32 %call
@@ -42,7 +42,7 @@ entry:
 define i32 @crypto_onetimeauth_poly1305_update(ptr noundef nonnull %state, ptr noundef %in, i64 noundef %inlen) local_unnamed_addr #0 {
 entry:
   %0 = load ptr, ptr @implementation, align 8
-  %onetimeauth_update = getelementptr inbounds %struct.crypto_onetimeauth_poly1305_implementation, ptr %0, i64 0, i32 3
+  %onetimeauth_update = getelementptr inbounds i8, ptr %0, i64 24
   %1 = load ptr, ptr %onetimeauth_update, align 8
   %call = tail call i32 %1(ptr noundef nonnull %state, ptr noundef %in, i64 noundef %inlen) #3
   ret i32 %call
@@ -52,7 +52,7 @@ entry:
 define i32 @crypto_onetimeauth_poly1305_final(ptr noundef nonnull %state, ptr noundef nonnull %out) local_unnamed_addr #0 {
 entry:
   %0 = load ptr, ptr @implementation, align 8
-  %onetimeauth_final = getelementptr inbounds %struct.crypto_onetimeauth_poly1305_implementation, ptr %0, i64 0, i32 4
+  %onetimeauth_final = getelementptr inbounds i8, ptr %0, i64 32
   %1 = load ptr, ptr %onetimeauth_final, align 8
   %call = tail call i32 %1(ptr noundef nonnull %state, ptr noundef nonnull %out) #3
   ret i32 %call

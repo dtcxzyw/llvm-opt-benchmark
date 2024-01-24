@@ -20,7 +20,7 @@ default.unreachable8:                             ; preds = %2
 5:                                                ; preds = %2
   %6 = lshr i64 %3, 32
   %7 = trunc i64 %6 to i32
-  %8 = getelementptr inbounds { [1 x i32], i32 }, ptr %0, i64 0, i32 1
+  %8 = getelementptr inbounds i8, ptr %0, i64 4
   store i32 %7, ptr %8, align 4
   br label %21
 
@@ -30,12 +30,12 @@ default.unreachable8:                             ; preds = %2
   %12 = tail call i8 @_ZN3std2io5error14repr_bitpacked14kind_from_prim17h214e4e4ff2977a7fE(i32 %11), !range !5
   %13 = icmp ne i8 %12, 41
   tail call void @llvm.assume(i1 %13)
-  %14 = getelementptr inbounds { [1 x i8], i8 }, ptr %0, i64 0, i32 1
+  %14 = getelementptr inbounds i8, ptr %0, i64 1
   store i8 %12, ptr %14, align 1
   br label %21
 
 15:                                               ; preds = %2
-  %16 = getelementptr inbounds { [1 x i64], ptr }, ptr %0, i64 0, i32 1
+  %16 = getelementptr inbounds i8, ptr %0, i64 8
   store ptr %1, ptr %16, align 8
   br label %21
 
@@ -43,7 +43,7 @@ default.unreachable8:                             ; preds = %2
   %18 = getelementptr i8, ptr %1, i64 -1
   %19 = icmp ne ptr %18, null
   tail call void @llvm.assume(i1 %19)
-  %20 = getelementptr inbounds { [1 x i64], ptr }, ptr %0, i64 0, i32 1
+  %20 = getelementptr inbounds i8, ptr %0, i64 8
   store ptr %18, ptr %20, align 8
   br label %21
 
@@ -70,7 +70,7 @@ default.unreachable8:                             ; preds = %2
 5:                                                ; preds = %2
   %6 = lshr i64 %3, 32
   %7 = trunc i64 %6 to i32
-  %8 = getelementptr inbounds { [1 x i32], i32 }, ptr %0, i64 0, i32 1
+  %8 = getelementptr inbounds i8, ptr %0, i64 4
   store i32 %7, ptr %8, align 4
   br label %20
 
@@ -80,18 +80,18 @@ default.unreachable8:                             ; preds = %2
   %12 = tail call i8 @_ZN3std2io5error14repr_bitpacked14kind_from_prim17h214e4e4ff2977a7fE(i32 %11), !range !5
   %13 = icmp ne i8 %12, 41
   tail call void @llvm.assume(i1 %13)
-  %14 = getelementptr inbounds { [1 x i8], i8 }, ptr %0, i64 0, i32 1
+  %14 = getelementptr inbounds i8, ptr %0, i64 1
   store i8 %12, ptr %14, align 1
   br label %20
 
 15:                                               ; preds = %2
-  %16 = getelementptr inbounds { [1 x i64], ptr }, ptr %0, i64 0, i32 1
+  %16 = getelementptr inbounds i8, ptr %0, i64 8
   store ptr %1, ptr %16, align 8
   br label %20
 
 17:                                               ; preds = %2
   %18 = getelementptr i8, ptr %1, i64 -1
-  %19 = getelementptr inbounds { [1 x i64], ptr }, ptr %0, i64 0, i32 1
+  %19 = getelementptr inbounds i8, ptr %0, i64 8
   store ptr %18, ptr %19, align 8
   br label %20
 

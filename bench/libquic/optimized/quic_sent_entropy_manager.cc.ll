@@ -3,17 +3,6 @@ source_filename = "bench/libquic/original/quic_sent_entropy_manager.cc.ll"
 target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:128-n8:16:32:64-S128"
 target triple = "x86_64-unknown-linux-gnu"
 
-%"class.net::QuicSentEntropyManager" = type { ptr, %"class.std::deque", i64, %"struct.net::QuicSentEntropyManager::CumulativeEntropy", %"struct.net::QuicSentEntropyManager::CumulativeEntropy" }
-%"class.std::deque" = type { %"class.std::_Deque_base" }
-%"class.std::_Deque_base" = type { %"struct.std::_Deque_base<unsigned char, std::allocator<unsigned char>>::_Deque_impl" }
-%"struct.std::_Deque_base<unsigned char, std::allocator<unsigned char>>::_Deque_impl" = type { %"struct.std::_Deque_base<unsigned char, std::allocator<unsigned char>>::_Deque_impl_data" }
-%"struct.std::_Deque_base<unsigned char, std::allocator<unsigned char>>::_Deque_impl_data" = type { ptr, i64, %"struct.std::_Deque_iterator", %"struct.std::_Deque_iterator" }
-%"struct.std::_Deque_iterator" = type { ptr, ptr, ptr, ptr }
-%"struct.net::QuicSentEntropyManager::CumulativeEntropy" = type <{ i64, i8, [7 x i8] }>
-%"struct.std::_Rb_tree_node" = type { %"struct.std::_Rb_tree_node_base", %"struct.__gnu_cxx::__aligned_membuf" }
-%"struct.std::_Rb_tree_node_base" = type { i32, ptr, ptr, ptr }
-%"struct.__gnu_cxx::__aligned_membuf" = type { [16 x i8] }
-
 $_ZNSt11_Deque_baseIhSaIhEE17_M_initialize_mapEm = comdat any
 
 $__clang_call_terminate = comdat any
@@ -35,18 +24,18 @@ $_ZNSt5dequeIhSaIhEE17_M_reallocate_mapEmb = comdat any
 define dso_local void @_ZN3net22QuicSentEntropyManagerC2Ev(ptr noundef nonnull align 8 dereferenceable(128) %this) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN3net22QuicSentEntropyManagerE, i64 0, inrange i32 0, i64 2), ptr %this, align 8
-  %packets_entropy_ = getelementptr inbounds %"class.net::QuicSentEntropyManager", ptr %this, i64 0, i32 1
+  %packets_entropy_ = getelementptr inbounds i8, ptr %this, i64 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(80) %packets_entropy_, i8 0, i64 80, i1 false)
   tail call void @_ZNSt11_Deque_baseIhSaIhEE17_M_initialize_mapEm(ptr noundef nonnull align 8 dereferenceable(80) %packets_entropy_, i64 noundef 0)
-  %map_offset_ = getelementptr inbounds %"class.net::QuicSentEntropyManager", ptr %this, i64 0, i32 2
+  %map_offset_ = getelementptr inbounds i8, ptr %this, i64 88
   store i64 1, ptr %map_offset_, align 8
-  %last_valid_entropy_ = getelementptr inbounds %"class.net::QuicSentEntropyManager", ptr %this, i64 0, i32 3
+  %last_valid_entropy_ = getelementptr inbounds i8, ptr %this, i64 96
   store i64 0, ptr %last_valid_entropy_, align 8
-  %entropy.i = getelementptr inbounds %"class.net::QuicSentEntropyManager", ptr %this, i64 0, i32 3, i32 1
+  %entropy.i = getelementptr inbounds i8, ptr %this, i64 104
   store i8 0, ptr %entropy.i, align 8
-  %last_cumulative_entropy_ = getelementptr inbounds %"class.net::QuicSentEntropyManager", ptr %this, i64 0, i32 4
+  %last_cumulative_entropy_ = getelementptr inbounds i8, ptr %this, i64 112
   store i64 0, ptr %last_cumulative_entropy_, align 8
-  %entropy.i1 = getelementptr inbounds %"class.net::QuicSentEntropyManager", ptr %this, i64 0, i32 4, i32 1
+  %entropy.i1 = getelementptr inbounds i8, ptr %this, i64 120
   store i8 0, ptr %entropy.i1, align 8
   ret void
 }
@@ -57,17 +46,17 @@ declare i32 @__gxx_personality_v0(...)
 define dso_local void @_ZN3net22QuicSentEntropyManagerD2Ev(ptr nocapture noundef nonnull align 8 dereferenceable(128) %this) unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN3net22QuicSentEntropyManagerE, i64 0, inrange i32 0, i64 2), ptr %this, align 8
-  %packets_entropy_ = getelementptr inbounds %"class.net::QuicSentEntropyManager", ptr %this, i64 0, i32 1
+  %packets_entropy_ = getelementptr inbounds i8, ptr %this, i64 8
   %0 = load ptr, ptr %packets_entropy_, align 8
   %tobool.not.i.i = icmp eq ptr %0, null
   br i1 %tobool.not.i.i, label %_ZNSt5dequeIhSaIhEED2Ev.exit, label %if.then.i.i
 
 if.then.i.i:                                      ; preds = %entry
-  %_M_node5.i.i6.i = getelementptr inbounds %"class.net::QuicSentEntropyManager", ptr %this, i64 0, i32 1, i32 0, i32 0, i32 0, i32 3, i32 3
-  %_M_node5.i.i.i = getelementptr inbounds %"class.net::QuicSentEntropyManager", ptr %this, i64 0, i32 1, i32 0, i32 0, i32 0, i32 2, i32 3
+  %_M_node5.i.i6.i = getelementptr inbounds i8, ptr %this, i64 80
+  %_M_node5.i.i.i = getelementptr inbounds i8, ptr %this, i64 48
   %1 = load ptr, ptr %_M_node5.i.i.i, align 8
   %2 = load ptr, ptr %_M_node5.i.i6.i, align 8
-  %add.ptr.i.i = getelementptr inbounds ptr, ptr %2, i64 1
+  %add.ptr.i.i = getelementptr inbounds i8, ptr %2, i64 8
   %cmp3.i.i.i = icmp ult ptr %1, %add.ptr.i.i
   br i1 %cmp3.i.i.i, label %for.body.i.i.i, label %_ZNSt11_Deque_baseIhSaIhEE16_M_destroy_nodesEPPhS3_.exit.i.i
 
@@ -75,7 +64,7 @@ for.body.i.i.i:                                   ; preds = %if.then.i.i, %for.b
   %__n.04.i.i.i = phi ptr [ %incdec.ptr.i.i.i, %for.body.i.i.i ], [ %1, %if.then.i.i ]
   %3 = load ptr, ptr %__n.04.i.i.i, align 8
   tail call void @_ZdlPv(ptr noundef %3) #14
-  %incdec.ptr.i.i.i = getelementptr inbounds ptr, ptr %__n.04.i.i.i, i64 1
+  %incdec.ptr.i.i.i = getelementptr inbounds i8, ptr %__n.04.i.i.i, i64 8
   %cmp.i.i.i = icmp ult ptr %__n.04.i.i.i, %2
   br i1 %cmp.i.i.i, label %for.body.i.i.i, label %_ZNSt11_Deque_baseIhSaIhEE16_M_destroy_nodesEPPhS3_.exit.loopexit.i.i, !llvm.loop !5
 
@@ -96,17 +85,17 @@ _ZNSt5dequeIhSaIhEED2Ev.exit:                     ; preds = %entry, %_ZNSt11_Deq
 define dso_local void @_ZN3net22QuicSentEntropyManagerD0Ev(ptr noundef nonnull align 8 dereferenceable(128) %this) unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN3net22QuicSentEntropyManagerE, i64 0, inrange i32 0, i64 2), ptr %this, align 8
-  %packets_entropy_.i = getelementptr inbounds %"class.net::QuicSentEntropyManager", ptr %this, i64 0, i32 1
+  %packets_entropy_.i = getelementptr inbounds i8, ptr %this, i64 8
   %0 = load ptr, ptr %packets_entropy_.i, align 8
   %tobool.not.i.i.i = icmp eq ptr %0, null
   br i1 %tobool.not.i.i.i, label %_ZN3net22QuicSentEntropyManagerD2Ev.exit, label %if.then.i.i.i
 
 if.then.i.i.i:                                    ; preds = %entry
-  %_M_node5.i.i6.i.i = getelementptr inbounds %"class.net::QuicSentEntropyManager", ptr %this, i64 0, i32 1, i32 0, i32 0, i32 0, i32 3, i32 3
-  %_M_node5.i.i.i.i = getelementptr inbounds %"class.net::QuicSentEntropyManager", ptr %this, i64 0, i32 1, i32 0, i32 0, i32 0, i32 2, i32 3
+  %_M_node5.i.i6.i.i = getelementptr inbounds i8, ptr %this, i64 80
+  %_M_node5.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 48
   %1 = load ptr, ptr %_M_node5.i.i.i.i, align 8
   %2 = load ptr, ptr %_M_node5.i.i6.i.i, align 8
-  %add.ptr.i.i.i = getelementptr inbounds ptr, ptr %2, i64 1
+  %add.ptr.i.i.i = getelementptr inbounds i8, ptr %2, i64 8
   %cmp3.i.i.i.i = icmp ult ptr %1, %add.ptr.i.i.i
   br i1 %cmp3.i.i.i.i, label %for.body.i.i.i.i, label %_ZNSt11_Deque_baseIhSaIhEE16_M_destroy_nodesEPPhS3_.exit.i.i.i
 
@@ -114,7 +103,7 @@ for.body.i.i.i.i:                                 ; preds = %if.then.i.i.i, %for
   %__n.04.i.i.i.i = phi ptr [ %incdec.ptr.i.i.i.i, %for.body.i.i.i.i ], [ %1, %if.then.i.i.i ]
   %3 = load ptr, ptr %__n.04.i.i.i.i, align 8
   tail call void @_ZdlPv(ptr noundef %3) #14
-  %incdec.ptr.i.i.i.i = getelementptr inbounds ptr, ptr %__n.04.i.i.i.i, i64 1
+  %incdec.ptr.i.i.i.i = getelementptr inbounds i8, ptr %__n.04.i.i.i.i, i64 8
   %cmp.i.i.i.i = icmp ult ptr %__n.04.i.i.i.i, %2
   br i1 %cmp.i.i.i.i, label %for.body.i.i.i.i, label %_ZNSt11_Deque_baseIhSaIhEE16_M_destroy_nodesEPPhS3_.exit.loopexit.i.i.i, !llvm.loop !5
 
@@ -138,14 +127,14 @@ declare void @_ZdlPv(ptr noundef) local_unnamed_addr #2
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
 define dso_local noundef zeroext i8 @_ZNK3net22QuicSentEntropyManager16GetPacketEntropyEm(ptr nocapture noundef nonnull readonly align 8 dereferenceable(128) %this, i64 noundef %packet_number) local_unnamed_addr #3 align 2 {
 entry:
-  %map_offset_ = getelementptr inbounds %"class.net::QuicSentEntropyManager", ptr %this, i64 0, i32 2
+  %map_offset_ = getelementptr inbounds i8, ptr %this, i64 88
   %0 = load i64, ptr %map_offset_, align 8
   %sub = sub i64 %packet_number, %0
-  %_M_start.i = getelementptr inbounds %"class.net::QuicSentEntropyManager", ptr %this, i64 0, i32 1, i32 0, i32 0, i32 0, i32 2
+  %_M_start.i = getelementptr inbounds i8, ptr %this, i64 24
   %1 = load ptr, ptr %_M_start.i, align 8, !noalias !7
-  %_M_first3.i.i.i.i = getelementptr inbounds %"class.net::QuicSentEntropyManager", ptr %this, i64 0, i32 1, i32 0, i32 0, i32 0, i32 2, i32 1
+  %_M_first3.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 32
   %2 = load ptr, ptr %_M_first3.i.i.i.i, align 8, !noalias !7
-  %_M_node5.i.i.i.i = getelementptr inbounds %"class.net::QuicSentEntropyManager", ptr %this, i64 0, i32 1, i32 0, i32 0, i32 0, i32 2, i32 3
+  %_M_node5.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 48
   %3 = load ptr, ptr %_M_node5.i.i.i.i, align 8, !noalias !7
   %sub.ptr.lhs.cast.i.i.i.i = ptrtoint ptr %1 to i64
   %sub.ptr.rhs.cast.i.i.i.i = ptrtoint ptr %2 to i64
@@ -188,13 +177,13 @@ _ZNKSt5dequeIhSaIhEEixEm.exit:                    ; preds = %if.then.i.i.i.i, %c
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
 define dso_local noundef i64 @_ZNK3net22QuicSentEntropyManager27GetLargestPacketWithEntropyEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(128) %this) local_unnamed_addr #4 align 2 {
 entry:
-  %map_offset_ = getelementptr inbounds %"class.net::QuicSentEntropyManager", ptr %this, i64 0, i32 2
+  %map_offset_ = getelementptr inbounds i8, ptr %this, i64 88
   %0 = load i64, ptr %map_offset_, align 8
-  %_M_finish.i = getelementptr inbounds %"class.net::QuicSentEntropyManager", ptr %this, i64 0, i32 1, i32 0, i32 0, i32 0, i32 3
-  %_M_start.i = getelementptr inbounds %"class.net::QuicSentEntropyManager", ptr %this, i64 0, i32 1, i32 0, i32 0, i32 0, i32 2
-  %_M_node.i.i = getelementptr inbounds %"class.net::QuicSentEntropyManager", ptr %this, i64 0, i32 1, i32 0, i32 0, i32 0, i32 3, i32 3
+  %_M_finish.i = getelementptr inbounds i8, ptr %this, i64 56
+  %_M_start.i = getelementptr inbounds i8, ptr %this, i64 24
+  %_M_node.i.i = getelementptr inbounds i8, ptr %this, i64 80
   %1 = load ptr, ptr %_M_node.i.i, align 8
-  %_M_node1.i.i = getelementptr inbounds %"class.net::QuicSentEntropyManager", ptr %this, i64 0, i32 1, i32 0, i32 0, i32 0, i32 2, i32 3
+  %_M_node1.i.i = getelementptr inbounds i8, ptr %this, i64 48
   %2 = load ptr, ptr %_M_node1.i.i, align 8
   %sub.ptr.lhs.cast.i.i = ptrtoint ptr %1 to i64
   %sub.ptr.rhs.cast.i.i = ptrtoint ptr %2 to i64
@@ -205,11 +194,11 @@ entry:
   %sub.i.i = add nsw i64 %sub.ptr.div.i.i, %conv.neg.i.i
   %mul.i.i = shl nsw i64 %sub.i.i, 9
   %3 = load ptr, ptr %_M_finish.i, align 8
-  %_M_first.i.i = getelementptr inbounds %"class.net::QuicSentEntropyManager", ptr %this, i64 0, i32 1, i32 0, i32 0, i32 0, i32 3, i32 1
+  %_M_first.i.i = getelementptr inbounds i8, ptr %this, i64 64
   %4 = load ptr, ptr %_M_first.i.i, align 8
   %sub.ptr.lhs.cast3.i.i = ptrtoint ptr %3 to i64
   %sub.ptr.rhs.cast4.i.i = ptrtoint ptr %4 to i64
-  %_M_last.i.i = getelementptr inbounds %"class.net::QuicSentEntropyManager", ptr %this, i64 0, i32 1, i32 0, i32 0, i32 0, i32 2, i32 2
+  %_M_last.i.i = getelementptr inbounds i8, ptr %this, i64 40
   %5 = load ptr, ptr %_M_last.i.i, align 8
   %6 = load ptr, ptr %_M_start.i, align 8
   %sub.ptr.lhs.cast7.i.i = ptrtoint ptr %5 to i64
@@ -226,7 +215,7 @@ entry:
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
 define dso_local noundef i64 @_ZNK3net22QuicSentEntropyManager28GetSmallestPacketWithEntropyEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(128) %this) local_unnamed_addr #4 align 2 {
 entry:
-  %map_offset_ = getelementptr inbounds %"class.net::QuicSentEntropyManager", ptr %this, i64 0, i32 2
+  %map_offset_ = getelementptr inbounds i8, ptr %this, i64 88
   %0 = load i64, ptr %map_offset_, align 8
   ret i64 %0
 }
@@ -239,11 +228,11 @@ entry:
   br i1 %cmp6, label %while.body.lr.ph, label %while.end
 
 while.body.lr.ph:                                 ; preds = %entry
-  %map_offset_.i = getelementptr inbounds %"class.net::QuicSentEntropyManager", ptr %this, i64 0, i32 2
-  %_M_start.i.i = getelementptr inbounds %"class.net::QuicSentEntropyManager", ptr %this, i64 0, i32 1, i32 0, i32 0, i32 0, i32 2
-  %_M_first3.i.i.i.i.i = getelementptr inbounds %"class.net::QuicSentEntropyManager", ptr %this, i64 0, i32 1, i32 0, i32 0, i32 0, i32 2, i32 1
-  %_M_node5.i.i.i.i.i = getelementptr inbounds %"class.net::QuicSentEntropyManager", ptr %this, i64 0, i32 1, i32 0, i32 0, i32 0, i32 2, i32 3
-  %entropy = getelementptr inbounds %"struct.net::QuicSentEntropyManager::CumulativeEntropy", ptr %cumulative, i64 0, i32 1
+  %map_offset_.i = getelementptr inbounds i8, ptr %this, i64 88
+  %_M_start.i.i = getelementptr inbounds i8, ptr %this, i64 24
+  %_M_first3.i.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 32
+  %_M_node5.i.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 48
+  %entropy = getelementptr inbounds i8, ptr %cumulative, i64 8
   br label %while.body
 
 while.body:                                       ; preds = %while.body.lr.ph, %_ZNK3net22QuicSentEntropyManager16GetPacketEntropyEm.exit
@@ -305,9 +294,9 @@ define dso_local void @_ZN3net22QuicSentEntropyManager23RecordPacketEntropyHashE
 entry:
   %entropy_hash.addr = alloca i8, align 1
   store i8 %entropy_hash, ptr %entropy_hash.addr, align 1
-  %_M_finish.i = getelementptr inbounds %"class.net::QuicSentEntropyManager", ptr %this, i64 0, i32 1, i32 0, i32 0, i32 0, i32 3
+  %_M_finish.i = getelementptr inbounds i8, ptr %this, i64 56
   %0 = load ptr, ptr %_M_finish.i, align 8
-  %_M_last.i = getelementptr inbounds %"class.net::QuicSentEntropyManager", ptr %this, i64 0, i32 1, i32 0, i32 0, i32 0, i32 3, i32 2
+  %_M_last.i = getelementptr inbounds i8, ptr %this, i64 72
   %1 = load ptr, ptr %_M_last.i, align 8
   %add.ptr.i = getelementptr inbounds i8, ptr %1, i64 -1
   %cmp.not.i = icmp eq ptr %0, %add.ptr.i
@@ -321,7 +310,7 @@ if.then.i:                                        ; preds = %entry
   br label %_ZNSt5dequeIhSaIhEE9push_backERKh.exit
 
 if.else.i:                                        ; preds = %entry
-  %packets_entropy_ = getelementptr inbounds %"class.net::QuicSentEntropyManager", ptr %this, i64 0, i32 1
+  %packets_entropy_ = getelementptr inbounds i8, ptr %this, i64 8
   call void @_ZNSt5dequeIhSaIhEE16_M_push_back_auxIJRKhEEEvDpOT_(ptr noundef nonnull align 8 dereferenceable(80) %packets_entropy_, ptr noundef nonnull align 1 dereferenceable(1) %entropy_hash.addr)
   br label %_ZNSt5dequeIhSaIhEE9push_backERKh.exit
 
@@ -332,22 +321,22 @@ _ZNSt5dequeIhSaIhEE9push_backERKh.exit:           ; preds = %if.then.i, %if.else
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
 define dso_local noundef zeroext i8 @_ZN3net22QuicSentEntropyManager20GetCumulativeEntropyEm(ptr nocapture noundef nonnull align 8 dereferenceable(128) %this, i64 noundef %packet_number) local_unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
 if.end13:
-  %last_cumulative_entropy_ = getelementptr inbounds %"class.net::QuicSentEntropyManager", ptr %this, i64 0, i32 4
+  %last_cumulative_entropy_ = getelementptr inbounds i8, ptr %this, i64 112
   %cumulative.promoted.i = load i64, ptr %last_cumulative_entropy_, align 8
   %cmp6.i = icmp ult i64 %cumulative.promoted.i, %packet_number
   br i1 %cmp6.i, label %while.body.lr.ph.i, label %if.end13._ZNK3net22QuicSentEntropyManager23UpdateCumulativeEntropyEmPNS0_17CumulativeEntropyE.exit_crit_edge
 
 if.end13._ZNK3net22QuicSentEntropyManager23UpdateCumulativeEntropyEmPNS0_17CumulativeEntropyE.exit_crit_edge: ; preds = %if.end13
-  %entropy.phi.trans.insert = getelementptr inbounds %"class.net::QuicSentEntropyManager", ptr %this, i64 0, i32 4, i32 1
+  %entropy.phi.trans.insert = getelementptr inbounds i8, ptr %this, i64 120
   %.pre = load i8, ptr %entropy.phi.trans.insert, align 8
   br label %_ZNK3net22QuicSentEntropyManager23UpdateCumulativeEntropyEmPNS0_17CumulativeEntropyE.exit
 
 while.body.lr.ph.i:                               ; preds = %if.end13
-  %map_offset_.i.i = getelementptr inbounds %"class.net::QuicSentEntropyManager", ptr %this, i64 0, i32 2
-  %_M_start.i.i.i = getelementptr inbounds %"class.net::QuicSentEntropyManager", ptr %this, i64 0, i32 1, i32 0, i32 0, i32 0, i32 2
-  %_M_first3.i.i.i.i.i.i = getelementptr inbounds %"class.net::QuicSentEntropyManager", ptr %this, i64 0, i32 1, i32 0, i32 0, i32 0, i32 2, i32 1
-  %_M_node5.i.i.i.i.i.i = getelementptr inbounds %"class.net::QuicSentEntropyManager", ptr %this, i64 0, i32 1, i32 0, i32 0, i32 0, i32 2, i32 3
-  %entropy.i = getelementptr inbounds %"class.net::QuicSentEntropyManager", ptr %this, i64 0, i32 4, i32 1
+  %map_offset_.i.i = getelementptr inbounds i8, ptr %this, i64 88
+  %_M_start.i.i.i = getelementptr inbounds i8, ptr %this, i64 24
+  %_M_first3.i.i.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 32
+  %_M_node5.i.i.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 48
+  %entropy.i = getelementptr inbounds i8, ptr %this, i64 120
   %0 = load i64, ptr %map_offset_.i.i, align 8
   %1 = load ptr, ptr %_M_start.i.i.i, align 8, !noalias !14
   %2 = load ptr, ptr %_M_first3.i.i.i.i.i.i, align 8, !noalias !14
@@ -409,13 +398,13 @@ _ZNK3net22QuicSentEntropyManager23UpdateCumulativeEntropyEmPNS0_17CumulativeEntr
 ; Function Attrs: mustprogress uwtable
 define dso_local noundef zeroext i1 @_ZN3net22QuicSentEntropyManager14IsValidEntropyEmRKNS_17PacketNumberQueueEh(ptr nocapture noundef nonnull align 8 dereferenceable(128) %this, i64 noundef %largest_observed, ptr noundef nonnull align 8 dereferenceable(48) %missing_packets, i8 noundef zeroext %entropy_hash) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 if.end:
-  %map_offset_.i = getelementptr inbounds %"class.net::QuicSentEntropyManager", ptr %this, i64 0, i32 2
+  %map_offset_.i = getelementptr inbounds i8, ptr %this, i64 88
   %0 = load i64, ptr %map_offset_.i, align 8
-  %_M_finish.i.i = getelementptr inbounds %"class.net::QuicSentEntropyManager", ptr %this, i64 0, i32 1, i32 0, i32 0, i32 0, i32 3
-  %_M_start.i.i = getelementptr inbounds %"class.net::QuicSentEntropyManager", ptr %this, i64 0, i32 1, i32 0, i32 0, i32 0, i32 2
-  %_M_node.i.i.i = getelementptr inbounds %"class.net::QuicSentEntropyManager", ptr %this, i64 0, i32 1, i32 0, i32 0, i32 0, i32 3, i32 3
+  %_M_finish.i.i = getelementptr inbounds i8, ptr %this, i64 56
+  %_M_start.i.i = getelementptr inbounds i8, ptr %this, i64 24
+  %_M_node.i.i.i = getelementptr inbounds i8, ptr %this, i64 80
   %1 = load ptr, ptr %_M_node.i.i.i, align 8
-  %_M_node1.i.i.i = getelementptr inbounds %"class.net::QuicSentEntropyManager", ptr %this, i64 0, i32 1, i32 0, i32 0, i32 0, i32 2, i32 3
+  %_M_node1.i.i.i = getelementptr inbounds i8, ptr %this, i64 48
   %2 = load ptr, ptr %_M_node1.i.i.i, align 8
   %sub.ptr.lhs.cast.i.i.i = ptrtoint ptr %1 to i64
   %sub.ptr.rhs.cast.i.i.i = ptrtoint ptr %2 to i64
@@ -426,11 +415,11 @@ if.end:
   %sub.i.i.i = add nsw i64 %sub.ptr.div.i.i.i, %conv.neg.i.i.i
   %mul.i.i.i = shl nsw i64 %sub.i.i.i, 9
   %3 = load ptr, ptr %_M_finish.i.i, align 8
-  %_M_first.i.i.i = getelementptr inbounds %"class.net::QuicSentEntropyManager", ptr %this, i64 0, i32 1, i32 0, i32 0, i32 0, i32 3, i32 1
+  %_M_first.i.i.i = getelementptr inbounds i8, ptr %this, i64 64
   %4 = load ptr, ptr %_M_first.i.i.i, align 8
   %sub.ptr.lhs.cast3.i.i.i = ptrtoint ptr %3 to i64
   %sub.ptr.rhs.cast4.i.i.i = ptrtoint ptr %4 to i64
-  %_M_last.i.i.i = getelementptr inbounds %"class.net::QuicSentEntropyManager", ptr %this, i64 0, i32 1, i32 0, i32 0, i32 0, i32 2, i32 2
+  %_M_last.i.i.i = getelementptr inbounds i8, ptr %this, i64 40
   %5 = load ptr, ptr %_M_last.i.i.i, align 8
   %6 = load ptr, ptr %_M_start.i.i, align 8
   %sub.ptr.lhs.cast7.i.i.i = ptrtoint ptr %5 to i64
@@ -455,19 +444,19 @@ land.lhs.true:                                    ; preds = %if.end6
   br i1 %cmp10, label %return, label %if.end12
 
 if.end12:                                         ; preds = %land.lhs.true, %if.end6
-  %last_valid_entropy_ = getelementptr inbounds %"class.net::QuicSentEntropyManager", ptr %this, i64 0, i32 3
+  %last_valid_entropy_ = getelementptr inbounds i8, ptr %this, i64 96
   %cumulative.promoted.i = load i64, ptr %last_valid_entropy_, align 8
   %cmp6.i = icmp ult i64 %cumulative.promoted.i, %largest_observed
   br i1 %cmp6.i, label %while.body.lr.ph.i, label %if.end12._ZNK3net22QuicSentEntropyManager23UpdateCumulativeEntropyEmPNS0_17CumulativeEntropyE.exit_crit_edge
 
 if.end12._ZNK3net22QuicSentEntropyManager23UpdateCumulativeEntropyEmPNS0_17CumulativeEntropyE.exit_crit_edge: ; preds = %if.end12
-  %entropy.phi.trans.insert = getelementptr inbounds %"class.net::QuicSentEntropyManager", ptr %this, i64 0, i32 3, i32 1
+  %entropy.phi.trans.insert = getelementptr inbounds i8, ptr %this, i64 104
   %.pre = load i8, ptr %entropy.phi.trans.insert, align 8
   br label %_ZNK3net22QuicSentEntropyManager23UpdateCumulativeEntropyEmPNS0_17CumulativeEntropyE.exit
 
 while.body.lr.ph.i:                               ; preds = %if.end12
-  %_M_first3.i.i.i.i.i.i = getelementptr inbounds %"class.net::QuicSentEntropyManager", ptr %this, i64 0, i32 1, i32 0, i32 0, i32 0, i32 2, i32 1
-  %entropy.i = getelementptr inbounds %"class.net::QuicSentEntropyManager", ptr %this, i64 0, i32 3, i32 1
+  %_M_first3.i.i.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 32
+  %entropy.i = getelementptr inbounds i8, ptr %this, i64 104
   %8 = load i64, ptr %map_offset_.i, align 8
   %9 = load ptr, ptr %_M_start.i.i, align 8, !noalias !17
   %10 = load ptr, ptr %_M_first3.i.i.i.i.i.i, align 8, !noalias !17
@@ -531,7 +520,7 @@ _ZNK3net22QuicSentEntropyManager23UpdateCumulativeEntropyEmPNS0_17CumulativeEntr
 for.body.lr.ph:                                   ; preds = %_ZNK3net22QuicSentEntropyManager23UpdateCumulativeEntropyEmPNS0_17CumulativeEntropyE.exit
   %16 = load i64, ptr %map_offset_.i, align 8
   %17 = load ptr, ptr %_M_start.i.i, align 8
-  %_M_first3.i.i.i.i.i = getelementptr inbounds %"class.net::QuicSentEntropyManager", ptr %this, i64 0, i32 1, i32 0, i32 0, i32 0, i32 2, i32 1
+  %_M_first3.i.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 32
   %18 = load ptr, ptr %_M_first3.i.i.i.i.i, align 8
   %19 = load ptr, ptr %_M_node1.i.i.i, align 8
   %sub.ptr.lhs.cast.i.i.i.i.i = ptrtoint ptr %17 to i64
@@ -542,9 +531,9 @@ for.body.lr.ph:                                   ; preds = %_ZNK3net22QuicSentE
 for.body:                                         ; preds = %for.body.lr.ph, %for.inc27
   %expected_entropy_hash.022 = phi i8 [ %15, %for.body.lr.ph ], [ %expected_entropy_hash.1.lcssa, %for.inc27 ]
   %__begin1.sroa.0.021 = phi ptr [ %call14, %for.body.lr.ph ], [ %call.i, %for.inc27 ]
-  %_M_storage.i.i = getelementptr inbounds %"struct.std::_Rb_tree_node", ptr %__begin1.sroa.0.021, i64 0, i32 1
+  %_M_storage.i.i = getelementptr inbounds i8, ptr %__begin1.sroa.0.021, i64 32
   %20 = load i64, ptr %_M_storage.i.i, align 8
-  %max_.i = getelementptr inbounds %"struct.std::_Rb_tree_node", ptr %__begin1.sroa.0.021, i64 0, i32 1, i32 0, i64 8
+  %max_.i = getelementptr inbounds i8, ptr %__begin1.sroa.0.021, i64 40
   %21 = load i64, ptr %max_.i, align 8
   %cmp2217 = icmp ult i64 %20, %21
   br i1 %cmp2217, label %for.body23, label %for.inc27
@@ -617,17 +606,17 @@ declare ptr @_ZNK3net17PacketNumberQueue3endEv(ptr noundef nonnull align 8 deref
 ; Function Attrs: mustprogress nounwind uwtable
 define dso_local void @_ZN3net22QuicSentEntropyManager18ClearEntropyBeforeEm(ptr nocapture noundef nonnull align 8 dereferenceable(128) %this, i64 noundef %packet_number) local_unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  %last_cumulative_entropy_ = getelementptr inbounds %"class.net::QuicSentEntropyManager", ptr %this, i64 0, i32 4
+  %last_cumulative_entropy_ = getelementptr inbounds i8, ptr %this, i64 112
   %0 = load i64, ptr %last_cumulative_entropy_, align 8
   %cmp = icmp ult i64 %0, %packet_number
   br i1 %cmp, label %while.body.lr.ph.i, label %if.end
 
 while.body.lr.ph.i:                               ; preds = %entry
-  %map_offset_.i.i = getelementptr inbounds %"class.net::QuicSentEntropyManager", ptr %this, i64 0, i32 2
-  %_M_start.i.i.i = getelementptr inbounds %"class.net::QuicSentEntropyManager", ptr %this, i64 0, i32 1, i32 0, i32 0, i32 0, i32 2
-  %_M_first3.i.i.i.i.i.i = getelementptr inbounds %"class.net::QuicSentEntropyManager", ptr %this, i64 0, i32 1, i32 0, i32 0, i32 0, i32 2, i32 1
-  %_M_node5.i.i.i.i.i.i = getelementptr inbounds %"class.net::QuicSentEntropyManager", ptr %this, i64 0, i32 1, i32 0, i32 0, i32 0, i32 2, i32 3
-  %entropy.i = getelementptr inbounds %"class.net::QuicSentEntropyManager", ptr %this, i64 0, i32 4, i32 1
+  %map_offset_.i.i = getelementptr inbounds i8, ptr %this, i64 88
+  %_M_start.i.i.i = getelementptr inbounds i8, ptr %this, i64 24
+  %_M_first3.i.i.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 32
+  %_M_node5.i.i.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 48
+  %entropy.i = getelementptr inbounds i8, ptr %this, i64 120
   %1 = load i64, ptr %map_offset_.i.i, align 8
   %2 = load ptr, ptr %_M_start.i.i.i, align 8
   %3 = load ptr, ptr %_M_first3.i.i.i.i.i.i, align 8, !noalias !24
@@ -682,10 +671,10 @@ _ZNK3net22QuicSentEntropyManager16GetPacketEntropyEm.exit.i: ; preds = %cond.end
   br i1 %exitcond.not.i, label %if.end, label %while.body.i, !llvm.loop !13
 
 if.end:                                           ; preds = %_ZNK3net22QuicSentEntropyManager16GetPacketEntropyEm.exit.i, %entry
-  %last_valid_entropy_ = getelementptr inbounds %"class.net::QuicSentEntropyManager", ptr %this, i64 0, i32 3
+  %last_valid_entropy_ = getelementptr inbounds i8, ptr %this, i64 96
   %8 = load i64, ptr %last_valid_entropy_, align 8
   %cmp5 = icmp ult i64 %8, %packet_number
-  %map_offset_.i.i8 = getelementptr inbounds %"class.net::QuicSentEntropyManager", ptr %this, i64 0, i32 2
+  %map_offset_.i.i8 = getelementptr inbounds i8, ptr %this, i64 88
   br i1 %cmp5, label %while.body.lr.ph.i7, label %if.end.if.end8_crit_edge
 
 if.end.if.end8_crit_edge:                         ; preds = %if.end
@@ -693,10 +682,10 @@ if.end.if.end8_crit_edge:                         ; preds = %if.end
   br label %if.end8
 
 while.body.lr.ph.i7:                              ; preds = %if.end
-  %_M_start.i.i.i9 = getelementptr inbounds %"class.net::QuicSentEntropyManager", ptr %this, i64 0, i32 1, i32 0, i32 0, i32 0, i32 2
-  %_M_first3.i.i.i.i.i.i10 = getelementptr inbounds %"class.net::QuicSentEntropyManager", ptr %this, i64 0, i32 1, i32 0, i32 0, i32 0, i32 2, i32 1
-  %_M_node5.i.i.i.i.i.i11 = getelementptr inbounds %"class.net::QuicSentEntropyManager", ptr %this, i64 0, i32 1, i32 0, i32 0, i32 0, i32 2, i32 3
-  %entropy.i12 = getelementptr inbounds %"class.net::QuicSentEntropyManager", ptr %this, i64 0, i32 3, i32 1
+  %_M_start.i.i.i9 = getelementptr inbounds i8, ptr %this, i64 24
+  %_M_first3.i.i.i.i.i.i10 = getelementptr inbounds i8, ptr %this, i64 32
+  %_M_node5.i.i.i.i.i.i11 = getelementptr inbounds i8, ptr %this, i64 48
+  %entropy.i12 = getelementptr inbounds i8, ptr %this, i64 104
   %9 = load i64, ptr %map_offset_.i.i8, align 8
   %10 = load ptr, ptr %_M_start.i.i.i9, align 8
   %11 = load ptr, ptr %_M_first3.i.i.i.i.i.i10, align 8, !noalias !27
@@ -752,15 +741,15 @@ _ZNK3net22QuicSentEntropyManager16GetPacketEntropyEm.exit.i30: ; preds = %cond.e
 
 if.end8:                                          ; preds = %_ZNK3net22QuicSentEntropyManager16GetPacketEntropyEm.exit.i30, %if.end.if.end8_crit_edge
   %16 = phi i64 [ %.pre, %if.end.if.end8_crit_edge ], [ %9, %_ZNK3net22QuicSentEntropyManager16GetPacketEntropyEm.exit.i30 ]
-  %map_offset_ = getelementptr inbounds %"class.net::QuicSentEntropyManager", ptr %this, i64 0, i32 2
+  %map_offset_ = getelementptr inbounds i8, ptr %this, i64 88
   %cmp941 = icmp ult i64 %16, %packet_number
   br i1 %cmp941, label %while.body.lr.ph, label %while.end
 
 while.body.lr.ph:                                 ; preds = %if.end8
-  %_M_start.i = getelementptr inbounds %"class.net::QuicSentEntropyManager", ptr %this, i64 0, i32 1, i32 0, i32 0, i32 0, i32 2
-  %_M_last.i = getelementptr inbounds %"class.net::QuicSentEntropyManager", ptr %this, i64 0, i32 1, i32 0, i32 0, i32 0, i32 2, i32 2
-  %_M_first.i.i = getelementptr inbounds %"class.net::QuicSentEntropyManager", ptr %this, i64 0, i32 1, i32 0, i32 0, i32 0, i32 2, i32 1
-  %_M_node.i.i = getelementptr inbounds %"class.net::QuicSentEntropyManager", ptr %this, i64 0, i32 1, i32 0, i32 0, i32 0, i32 2, i32 3
+  %_M_start.i = getelementptr inbounds i8, ptr %this, i64 24
+  %_M_last.i = getelementptr inbounds i8, ptr %this, i64 40
+  %_M_first.i.i = getelementptr inbounds i8, ptr %this, i64 32
+  %_M_node.i.i = getelementptr inbounds i8, ptr %this, i64 48
   %.pre42 = load ptr, ptr %_M_start.i, align 8
   %.pre43 = load ptr, ptr %_M_last.i, align 8
   br label %while.body
@@ -781,7 +770,7 @@ if.else.i:                                        ; preds = %while.body
   %20 = load ptr, ptr %_M_first.i.i, align 8
   tail call void @_ZdlPv(ptr noundef %20) #14
   %21 = load ptr, ptr %_M_node.i.i, align 8
-  %add.ptr.i.i = getelementptr inbounds ptr, ptr %21, i64 1
+  %add.ptr.i.i = getelementptr inbounds i8, ptr %21, i64 8
   store ptr %add.ptr.i.i, ptr %_M_node.i.i, align 8
   %22 = load ptr, ptr %add.ptr.i.i, align 8
   store ptr %22, ptr %_M_first.i.i, align 8
@@ -811,7 +800,7 @@ entry:
   %add = add nuw nsw i64 %div16, 1
   %0 = tail call i64 @llvm.umax.i64(i64 %div16, i64 5)
   %.sroa.speculated = add nuw nsw i64 %0, 3
-  %_M_map_size = getelementptr inbounds %"struct.std::_Deque_base<unsigned char, std::allocator<unsigned char>>::_Deque_impl_data", ptr %this, i64 0, i32 1
+  %_M_map_size = getelementptr inbounds i8, ptr %this, i64 8
   store i64 %.sroa.speculated, ptr %_M_map_size, align 8
   %mul.i.i.i = shl nuw nsw i64 %.sroa.speculated, 3
   %call5.i.i2.i = tail call noalias noundef nonnull ptr @_Znwm(i64 noundef %mul.i.i.i) #16
@@ -829,7 +818,7 @@ for.body.i:                                       ; preds = %entry, %invoke.cont
 
 invoke.cont.i:                                    ; preds = %for.body.i
   store ptr %call5.i.i.i5.i, ptr %__cur.08.i, align 8
-  %incdec.ptr.i = getelementptr inbounds ptr, ptr %__cur.08.i, i64 1
+  %incdec.ptr.i = getelementptr inbounds i8, ptr %__cur.08.i, i64 8
   %cmp.i8 = icmp ult ptr %incdec.ptr.i, %add.ptr14
   br i1 %cmp.i8, label %for.body.i, label %try.cont, !llvm.loop !31
 
@@ -845,7 +834,7 @@ for.body.i.i:                                     ; preds = %lpad.i, %for.body.i
   %__n.04.i.i = phi ptr [ %incdec.ptr.i.i, %for.body.i.i ], [ %add.ptr, %lpad.i ]
   %4 = load ptr, ptr %__n.04.i.i, align 8
   tail call void @_ZdlPv(ptr noundef %4) #14
-  %incdec.ptr.i.i = getelementptr inbounds ptr, ptr %__n.04.i.i, i64 1
+  %incdec.ptr.i.i = getelementptr inbounds i8, ptr %__n.04.i.i, i64 8
   %cmp.i.i = icmp ult ptr %incdec.ptr.i.i, %__cur.08.i
   br i1 %cmp.i.i, label %for.body.i.i, label %_ZNSt11_Deque_baseIhSaIhEE16_M_destroy_nodesEPPhS3_.exit.i, !llvm.loop !5
 
@@ -885,24 +874,24 @@ lpad23:                                           ; preds = %lpad.body
           to label %eh.resume unwind label %terminate.lpad
 
 try.cont:                                         ; preds = %invoke.cont.i
-  %_M_start = getelementptr inbounds %"struct.std::_Deque_base<unsigned char, std::allocator<unsigned char>>::_Deque_impl_data", ptr %this, i64 0, i32 2
-  %_M_node.i = getelementptr inbounds %"struct.std::_Deque_base<unsigned char, std::allocator<unsigned char>>::_Deque_impl_data", ptr %this, i64 0, i32 2, i32 3
+  %_M_start = getelementptr inbounds i8, ptr %this, i64 16
+  %_M_node.i = getelementptr inbounds i8, ptr %this, i64 40
   store ptr %add.ptr, ptr %_M_node.i, align 8
   %12 = load ptr, ptr %add.ptr, align 8
-  %_M_first.i = getelementptr inbounds %"struct.std::_Deque_base<unsigned char, std::allocator<unsigned char>>::_Deque_impl_data", ptr %this, i64 0, i32 2, i32 1
+  %_M_first.i = getelementptr inbounds i8, ptr %this, i64 24
   store ptr %12, ptr %_M_first.i, align 8
   %add.ptr.i = getelementptr inbounds i8, ptr %12, i64 512
-  %_M_last.i = getelementptr inbounds %"struct.std::_Deque_base<unsigned char, std::allocator<unsigned char>>::_Deque_impl_data", ptr %this, i64 0, i32 2, i32 2
+  %_M_last.i = getelementptr inbounds i8, ptr %this, i64 32
   store ptr %add.ptr.i, ptr %_M_last.i, align 8
-  %_M_finish = getelementptr inbounds %"struct.std::_Deque_base<unsigned char, std::allocator<unsigned char>>::_Deque_impl_data", ptr %this, i64 0, i32 3
-  %add.ptr27 = getelementptr inbounds ptr, ptr %add.ptr, i64 %div16
-  %_M_node.i10 = getelementptr inbounds %"struct.std::_Deque_base<unsigned char, std::allocator<unsigned char>>::_Deque_impl_data", ptr %this, i64 0, i32 3, i32 3
+  %_M_finish = getelementptr inbounds i8, ptr %this, i64 48
+  %add.ptr27 = getelementptr inbounds i8, ptr %add.ptr14, i64 -8
+  %_M_node.i10 = getelementptr inbounds i8, ptr %this, i64 72
   store ptr %add.ptr27, ptr %_M_node.i10, align 8
   %13 = load ptr, ptr %add.ptr27, align 8
-  %_M_first.i11 = getelementptr inbounds %"struct.std::_Deque_base<unsigned char, std::allocator<unsigned char>>::_Deque_impl_data", ptr %this, i64 0, i32 3, i32 1
+  %_M_first.i11 = getelementptr inbounds i8, ptr %this, i64 56
   store ptr %13, ptr %_M_first.i11, align 8
   %add.ptr.i12 = getelementptr inbounds i8, ptr %13, i64 512
-  %_M_last.i13 = getelementptr inbounds %"struct.std::_Deque_base<unsigned char, std::allocator<unsigned char>>::_Deque_impl_data", ptr %this, i64 0, i32 3, i32 2
+  %_M_last.i13 = getelementptr inbounds i8, ptr %this, i64 64
   store ptr %add.ptr.i12, ptr %_M_last.i13, align 8
   store ptr %12, ptr %_M_start, align 8
   %rem = and i64 %__num_elements, 511
@@ -951,11 +940,11 @@ declare noundef nonnull ptr @_Znwm(i64 noundef) local_unnamed_addr #9
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr dso_local void @_ZNSt5dequeIhSaIhEE16_M_push_back_auxIJRKhEEEvDpOT_(ptr noundef nonnull align 8 dereferenceable(80) %this, ptr noundef nonnull align 1 dereferenceable(1) %__args) local_unnamed_addr #0 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  %_M_finish.i = getelementptr inbounds %"struct.std::_Deque_base<unsigned char, std::allocator<unsigned char>>::_Deque_impl_data", ptr %this, i64 0, i32 3
-  %_M_start.i = getelementptr inbounds %"struct.std::_Deque_base<unsigned char, std::allocator<unsigned char>>::_Deque_impl_data", ptr %this, i64 0, i32 2
-  %_M_node.i.i = getelementptr inbounds %"struct.std::_Deque_base<unsigned char, std::allocator<unsigned char>>::_Deque_impl_data", ptr %this, i64 0, i32 3, i32 3
+  %_M_finish.i = getelementptr inbounds i8, ptr %this, i64 48
+  %_M_start.i = getelementptr inbounds i8, ptr %this, i64 16
+  %_M_node.i.i = getelementptr inbounds i8, ptr %this, i64 72
   %0 = load ptr, ptr %_M_node.i.i, align 8
-  %_M_node1.i.i = getelementptr inbounds %"struct.std::_Deque_base<unsigned char, std::allocator<unsigned char>>::_Deque_impl_data", ptr %this, i64 0, i32 2, i32 3
+  %_M_node1.i.i = getelementptr inbounds i8, ptr %this, i64 40
   %1 = load ptr, ptr %_M_node1.i.i, align 8
   %sub.ptr.lhs.cast.i.i = ptrtoint ptr %0 to i64
   %sub.ptr.rhs.cast.i.i = ptrtoint ptr %1 to i64
@@ -966,11 +955,11 @@ entry:
   %sub.i.i = add nsw i64 %sub.ptr.div.i.i, %conv.neg.i.i
   %mul.i.i = shl nsw i64 %sub.i.i, 9
   %2 = load ptr, ptr %_M_finish.i, align 8
-  %_M_first.i.i = getelementptr inbounds %"struct.std::_Deque_base<unsigned char, std::allocator<unsigned char>>::_Deque_impl_data", ptr %this, i64 0, i32 3, i32 1
+  %_M_first.i.i = getelementptr inbounds i8, ptr %this, i64 56
   %3 = load ptr, ptr %_M_first.i.i, align 8
   %sub.ptr.lhs.cast3.i.i = ptrtoint ptr %2 to i64
   %sub.ptr.rhs.cast4.i.i = ptrtoint ptr %3 to i64
-  %_M_last.i.i = getelementptr inbounds %"struct.std::_Deque_base<unsigned char, std::allocator<unsigned char>>::_Deque_impl_data", ptr %this, i64 0, i32 2, i32 2
+  %_M_last.i.i = getelementptr inbounds i8, ptr %this, i64 32
   %4 = load ptr, ptr %_M_last.i.i, align 8
   %5 = load ptr, ptr %_M_start.i, align 8
   %sub.ptr.lhs.cast7.i.i = ptrtoint ptr %4 to i64
@@ -987,7 +976,7 @@ if.then:                                          ; preds = %entry
   unreachable
 
 if.end:                                           ; preds = %entry
-  %_M_map_size.i = getelementptr inbounds %"struct.std::_Deque_base<unsigned char, std::allocator<unsigned char>>::_Deque_impl_data", ptr %this, i64 0, i32 1
+  %_M_map_size.i = getelementptr inbounds i8, ptr %this, i64 8
   %6 = load i64, ptr %_M_map_size.i, align 8
   %7 = load ptr, ptr %this, align 8
   %sub.ptr.rhs.cast.i = ptrtoint ptr %7 to i64
@@ -1005,18 +994,18 @@ if.then.i:                                        ; preds = %if.end
 _ZNSt5dequeIhSaIhEE22_M_reserve_map_at_backEm.exit: ; preds = %if.end, %if.then.i
   %8 = phi ptr [ %0, %if.end ], [ %.pre, %if.then.i ]
   %call5.i.i.i = tail call noalias noundef nonnull dereferenceable(512) ptr @_Znwm(i64 noundef 512) #16
-  %add.ptr = getelementptr inbounds ptr, ptr %8, i64 1
+  %add.ptr = getelementptr inbounds i8, ptr %8, i64 8
   store ptr %call5.i.i.i, ptr %add.ptr, align 8
   %9 = load ptr, ptr %_M_finish.i, align 8
   %10 = load i8, ptr %__args, align 1
   store i8 %10, ptr %9, align 1
   %11 = load ptr, ptr %_M_node.i.i, align 8
-  %add.ptr12 = getelementptr inbounds ptr, ptr %11, i64 1
+  %add.ptr12 = getelementptr inbounds i8, ptr %11, i64 8
   store ptr %add.ptr12, ptr %_M_node.i.i, align 8
   %12 = load ptr, ptr %add.ptr12, align 8
   store ptr %12, ptr %_M_first.i.i, align 8
   %add.ptr.i = getelementptr inbounds i8, ptr %12, i64 512
-  %_M_last.i = getelementptr inbounds %"struct.std::_Deque_base<unsigned char, std::allocator<unsigned char>>::_Deque_impl_data", ptr %this, i64 0, i32 3, i32 2
+  %_M_last.i = getelementptr inbounds i8, ptr %this, i64 64
   store ptr %add.ptr.i, ptr %_M_last.i, align 8
   store ptr %12, ptr %_M_finish.i, align 8
   ret void
@@ -1028,9 +1017,9 @@ declare void @_ZSt20__throw_length_errorPKc(ptr noundef) local_unnamed_addr #8
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr dso_local void @_ZNSt5dequeIhSaIhEE17_M_reallocate_mapEmb(ptr noundef nonnull align 8 dereferenceable(80) %this, i64 noundef %__nodes_to_add, i1 noundef zeroext %__add_at_front) local_unnamed_addr #0 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  %_M_node = getelementptr inbounds %"struct.std::_Deque_base<unsigned char, std::allocator<unsigned char>>::_Deque_impl_data", ptr %this, i64 0, i32 3, i32 3
+  %_M_node = getelementptr inbounds i8, ptr %this, i64 72
   %0 = load ptr, ptr %_M_node, align 8
-  %_M_node3 = getelementptr inbounds %"struct.std::_Deque_base<unsigned char, std::allocator<unsigned char>>::_Deque_impl_data", ptr %this, i64 0, i32 2, i32 3
+  %_M_node3 = getelementptr inbounds i8, ptr %this, i64 40
   %1 = load ptr, ptr %_M_node3, align 8
   %sub.ptr.lhs.cast = ptrtoint ptr %0 to i64
   %sub.ptr.rhs.cast = ptrtoint ptr %1 to i64
@@ -1038,7 +1027,7 @@ entry:
   %sub.ptr.div = ashr exact i64 %sub.ptr.sub, 3
   %add = add nsw i64 %sub.ptr.div, 1
   %add4 = add i64 %add, %__nodes_to_add
-  %_M_map_size = getelementptr inbounds %"struct.std::_Deque_base<unsigned char, std::allocator<unsigned char>>::_Deque_impl_data", ptr %this, i64 0, i32 1
+  %_M_map_size = getelementptr inbounds i8, ptr %this, i64 8
   %2 = load i64, ptr %_M_map_size, align 8
   %mul = shl i64 %add4, 1
   %cmp = icmp ugt i64 %2, %mul
@@ -1052,7 +1041,7 @@ if.then:                                          ; preds = %entry
   %cond = select i1 %__add_at_front, i64 %__nodes_to_add, i64 0
   %add.ptr9 = getelementptr inbounds ptr, ptr %add.ptr, i64 %cond
   %cmp13 = icmp ult ptr %add.ptr9, %1
-  %add.ptr21 = getelementptr inbounds ptr, ptr %0, i64 1
+  %add.ptr21 = getelementptr inbounds i8, ptr %0, i64 8
   %tobool.not.i.i.i.i.i = icmp eq ptr %add.ptr21, %1
   br i1 %cmp13, label %if.then14, label %if.else
 
@@ -1105,7 +1094,7 @@ _ZNSt11_Deque_baseIhSaIhEE15_M_allocate_mapEm.exit: ; preds = %if.else31
   %add.ptr42 = getelementptr inbounds ptr, ptr %call5.i.i2.i, i64 %div4116
   %cond47 = select i1 %__add_at_front, i64 %__nodes_to_add, i64 0
   %add.ptr48 = getelementptr inbounds ptr, ptr %add.ptr42, i64 %cond47
-  %add.ptr55 = getelementptr inbounds ptr, ptr %0, i64 1
+  %add.ptr55 = getelementptr inbounds i8, ptr %0, i64 8
   %tobool.not.i.i.i.i.i27 = icmp eq ptr %add.ptr55, %1
   br i1 %tobool.not.i.i.i.i.i27, label %_ZSt4copyIPPhS1_ET0_T_S3_S2_.exit30, label %if.then.i.i.i.i.i28
 
@@ -1126,19 +1115,19 @@ if.end65:                                         ; preds = %if.then.i.i.i.i.i22
   %__new_nstart.0 = phi ptr [ %add.ptr48, %_ZSt4copyIPPhS1_ET0_T_S3_S2_.exit30 ], [ %add.ptr9, %if.then14 ], [ %add.ptr9, %if.then.i.i.i.i.i ], [ %add.ptr9, %if.else ], [ %add.ptr9, %if.then.i.i.i.i.i22 ]
   store ptr %__new_nstart.0, ptr %_M_node3, align 8
   %5 = load ptr, ptr %__new_nstart.0, align 8
-  %_M_first.i = getelementptr inbounds %"struct.std::_Deque_base<unsigned char, std::allocator<unsigned char>>::_Deque_impl_data", ptr %this, i64 0, i32 2, i32 1
+  %_M_first.i = getelementptr inbounds i8, ptr %this, i64 24
   store ptr %5, ptr %_M_first.i, align 8
   %add.ptr.i = getelementptr inbounds i8, ptr %5, i64 512
-  %_M_last.i = getelementptr inbounds %"struct.std::_Deque_base<unsigned char, std::allocator<unsigned char>>::_Deque_impl_data", ptr %this, i64 0, i32 2, i32 2
+  %_M_last.i = getelementptr inbounds i8, ptr %this, i64 32
   store ptr %add.ptr.i, ptr %_M_last.i, align 8
   %add.ptr70 = getelementptr inbounds ptr, ptr %__new_nstart.0, i64 %add
-  %add.ptr71 = getelementptr inbounds ptr, ptr %add.ptr70, i64 -1
+  %add.ptr71 = getelementptr inbounds i8, ptr %add.ptr70, i64 -8
   store ptr %add.ptr71, ptr %_M_node, align 8
   %6 = load ptr, ptr %add.ptr71, align 8
-  %_M_first.i32 = getelementptr inbounds %"struct.std::_Deque_base<unsigned char, std::allocator<unsigned char>>::_Deque_impl_data", ptr %this, i64 0, i32 3, i32 1
+  %_M_first.i32 = getelementptr inbounds i8, ptr %this, i64 56
   store ptr %6, ptr %_M_first.i32, align 8
   %add.ptr.i33 = getelementptr inbounds i8, ptr %6, i64 512
-  %_M_last.i34 = getelementptr inbounds %"struct.std::_Deque_base<unsigned char, std::allocator<unsigned char>>::_Deque_impl_data", ptr %this, i64 0, i32 3, i32 2
+  %_M_last.i34 = getelementptr inbounds i8, ptr %this, i64 64
   store ptr %add.ptr.i33, ptr %_M_last.i34, align 8
   ret void
 }

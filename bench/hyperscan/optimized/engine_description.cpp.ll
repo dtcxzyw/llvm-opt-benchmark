@@ -3,7 +3,6 @@ source_filename = "bench/hyperscan/original/engine_description.cpp.ll"
 target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:128-n8:16:32:64-S128"
 target triple = "x86_64-unknown-linux-gnu"
 
-%"class.ue2::EngineDescription" = type <{ ptr, i32, [4 x i8], %"struct.ue2::target_t", i32, [4 x i8] }>
 %"struct.ue2::target_t" = type { i32, i64 }
 %struct.hs_platform_info = type { i32, i64, i64, i64 }
 
@@ -33,7 +32,7 @@ declare void @llvm.trap() #2
 ; Function Attrs: mustprogress uwtable
 define hidden noundef zeroext i1 @_ZNK3ue217EngineDescription15isValidOnTargetERKNS_8target_tE(ptr noundef nonnull align 8 dereferenceable(36) %this, ptr noundef nonnull align 8 dereferenceable(16) %target_in) local_unnamed_addr #3 align 2 {
 entry:
-  %code_target = getelementptr inbounds %"class.ue2::EngineDescription", ptr %this, i64 0, i32 3
+  %code_target = getelementptr inbounds i8, ptr %this, i64 16
   %call = tail call noundef zeroext i1 @_ZNK3ue28target_t25can_run_on_code_built_forERKS0_(ptr noundef nonnull align 8 dereferenceable(16) %target_in, ptr noundef nonnull align 8 dereferenceable(16) %code_target)
   ret i1 %call
 }
@@ -46,12 +45,12 @@ entry:
   %retval = alloca %"struct.ue2::target_t", align 8
   %p = alloca %struct.hs_platform_info, align 8
   store i32 0, ptr %p, align 8
-  %cpu_features1 = getelementptr inbounds %struct.hs_platform_info, ptr %p, i64 0, i32 1
+  %cpu_features1 = getelementptr inbounds i8, ptr %p, i64 8
   store i64 %cpu_features, ptr %cpu_features1, align 8
   call void @_ZN3ue28target_tC1ERK16hs_platform_info(ptr noundef nonnull align 8 dereferenceable(16) %retval, ptr noundef nonnull align 8 dereferenceable(32) %p)
   %.fca.0.load = load i32, ptr %retval, align 8
   %.fca.0.insert = insertvalue { i32, i64 } poison, i32 %.fca.0.load, 0
-  %.fca.1.gep = getelementptr inbounds { i32, i64 }, ptr %retval, i64 0, i32 1
+  %.fca.1.gep = getelementptr inbounds i8, ptr %retval, i64 8
   %.fca.1.load = load i64, ptr %.fca.1.gep, align 8
   %.fca.1.insert = insertvalue { i32, i64 } %.fca.0.insert, i64 %.fca.1.load, 1
   ret { i32, i64 } %.fca.1.insert

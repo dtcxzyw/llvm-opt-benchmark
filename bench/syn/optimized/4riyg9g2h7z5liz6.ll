@@ -7,7 +7,7 @@ target triple = "x86_64-unknown-linux-gnu"
 define hidden void @"_ZN3syn4expr8printing76_$LT$impl$u20$quote..to_tokens..ToTokens$u20$for$u20$syn..expr..ExprCall$GT$9to_tokens28_$u7b$$u7b$closure$u7d$$u7d$17h0cfd480c6e188d2dE"(ptr align 8 %0, ptr align 8 %1) unnamed_addr #0 {
   %3 = icmp ne ptr %0, null
   tail call void @llvm.assume(i1 %3)
-  %4 = getelementptr inbounds { { { ptr, i64 }, i64 }, ptr, { { { ptr, i64 }, i64 }, ptr }, { { { [2 x i32], i32 }, {} } }, [1 x i32] }, ptr %0, i64 0, i32 2
+  %4 = getelementptr inbounds i8, ptr %0, i64 32
   tail call void @"_ZN3syn10punctuated8printing97_$LT$impl$u20$quote..to_tokens..ToTokens$u20$for$u20$syn..punctuated..Punctuated$LT$T$C$P$GT$$GT$9to_tokens17h63324ab3e9c3c10eE"(ptr nonnull align 8 %4, ptr align 8 %1)
   ret void
 }
@@ -16,7 +16,7 @@ define hidden void @"_ZN3syn4expr8printing76_$LT$impl$u20$quote..to_tokens..ToTo
 define hidden void @"_ZN3syn4expr8printing77_$LT$impl$u20$quote..to_tokens..ToTokens$u20$for$u20$syn..expr..ExprGroup$GT$9to_tokens28_$u7b$$u7b$closure$u7d$$u7d$17hd4a8f7b595b9cf89E"(ptr align 8 %0, ptr align 8 %1) unnamed_addr #0 {
   %3 = icmp ne ptr %0, null
   tail call void @llvm.assume(i1 %3)
-  %4 = getelementptr inbounds { { { ptr, i64 }, i64 }, ptr, i32, [1 x i32] }, ptr %0, i64 0, i32 1
+  %4 = getelementptr inbounds i8, ptr %0, i64 24
   tail call void @"_ZN73_$LT$alloc..boxed..Box$LT$T$GT$$u20$as$u20$quote..to_tokens..ToTokens$GT$9to_tokens17hd336b0264847eff2E"(ptr nonnull align 8 %4, ptr align 8 %1)
   ret void
 }
@@ -25,7 +25,7 @@ define hidden void @"_ZN3syn4expr8printing77_$LT$impl$u20$quote..to_tokens..ToTo
 define hidden void @"_ZN3syn4expr8printing77_$LT$impl$u20$quote..to_tokens..ToTokens$u20$for$u20$syn..expr..ExprIndex$GT$9to_tokens28_$u7b$$u7b$closure$u7d$$u7d$17h4241f8ee37b47f5cE"(ptr align 8 %0, ptr align 8 %1) unnamed_addr #0 {
   %3 = icmp ne ptr %0, null
   tail call void @llvm.assume(i1 %3)
-  %4 = getelementptr inbounds { { { ptr, i64 }, i64 }, ptr, ptr, { { { [2 x i32], i32 }, {} } }, [1 x i32] }, ptr %0, i64 0, i32 2
+  %4 = getelementptr inbounds i8, ptr %0, i64 32
   tail call void @"_ZN73_$LT$alloc..boxed..Box$LT$T$GT$$u20$as$u20$quote..to_tokens..ToTokens$GT$9to_tokens17hd336b0264847eff2E"(ptr nonnull align 8 %4, ptr align 8 %1)
   ret void
 }
@@ -42,7 +42,7 @@ define hidden void @"_ZN3syn4expr8printing82_$LT$impl$u20$quote..to_tokens..ToTo
 define hidden void @"_ZN3syn4expr8printing77_$LT$impl$u20$quote..to_tokens..ToTokens$u20$for$u20$syn..expr..ExprParen$GT$9to_tokens28_$u7b$$u7b$closure$u7d$$u7d$17hf91a22ac4c64cb7fE"(ptr align 8 %0, ptr align 8 %1) unnamed_addr #0 {
   %3 = icmp ne ptr %0, null
   tail call void @llvm.assume(i1 %3)
-  %4 = getelementptr inbounds { { { ptr, i64 }, i64 }, ptr, { { { [2 x i32], i32 }, {} } }, [1 x i32] }, ptr %0, i64 0, i32 1
+  %4 = getelementptr inbounds i8, ptr %0, i64 24
   tail call void @"_ZN73_$LT$alloc..boxed..Box$LT$T$GT$$u20$as$u20$quote..to_tokens..ToTokens$GT$9to_tokens17hd336b0264847eff2E"(ptr nonnull align 8 %4, ptr align 8 %1)
   ret void
 }
@@ -53,23 +53,23 @@ define hidden void @"_ZN3syn4expr8printing78_$LT$impl$u20$quote..to_tokens..ToTo
   %4 = icmp ne ptr %0, null
   tail call void @llvm.assume(i1 %4)
   tail call void @"_ZN3syn10punctuated8printing97_$LT$impl$u20$quote..to_tokens..ToTokens$u20$for$u20$syn..punctuated..Punctuated$LT$T$C$P$GT$$GT$9to_tokens17h8a1f2063a2a383d1E"(ptr nonnull align 8 %0, ptr align 8 %1)
-  %5 = getelementptr inbounds { { { { ptr, i64 }, i64 }, ptr }, { i32, [7 x i32] }, ptr, { { ptr, i64 }, i64 }, { { { { ptr, i64 }, i64 }, ptr }, { i32, [2 x i32] }, [1 x i32] }, { { { [2 x i32], i32 }, {} } }, { i32, [2 x i32] } }, ptr %0, i64 0, i32 6
+  %5 = getelementptr inbounds i8, ptr %0, i64 156
   %6 = load i32, ptr %5, align 4, !range !5, !noundef !6
   %.not = icmp eq i32 %6, 0
   br i1 %.not, label %9, label %7
 
 7:                                                ; preds = %2
-  %8 = getelementptr inbounds { { { { ptr, i64 }, i64 }, ptr }, { i32, [7 x i32] }, ptr, { { ptr, i64 }, i64 }, { { { { ptr, i64 }, i64 }, ptr }, { i32, [2 x i32] }, [1 x i32] }, { { { [2 x i32], i32 }, {} } }, { i32, [2 x i32] } }, ptr %0, i64 0, i32 6, i32 1
+  %8 = getelementptr inbounds i8, ptr %0, i64 160
   tail call void @"_ZN65_$LT$syn..token..DotDot$u20$as$u20$quote..to_tokens..ToTokens$GT$9to_tokens17h5467827c27ea2544E"(ptr nonnull align 4 %8, ptr align 8 %1)
   br label %12
 
 9:                                                ; preds = %2
-  %10 = getelementptr inbounds { { { { ptr, i64 }, i64 }, ptr }, { i32, [7 x i32] }, ptr, { { ptr, i64 }, i64 }, { { { { ptr, i64 }, i64 }, ptr }, { i32, [2 x i32] }, [1 x i32] }, { { { [2 x i32], i32 }, {} } }, { i32, [2 x i32] } }, ptr %0, i64 0, i32 2
+  %10 = getelementptr inbounds i8, ptr %0, i64 64
   %11 = tail call zeroext i1 @"_ZN4core6option15Option$LT$T$GT$7is_some17h52bbb1c65d709559E"(ptr nonnull align 8 %10)
   br i1 %11, label %14, label %12
 
 12:                                               ; preds = %14, %9, %7
-  %13 = getelementptr inbounds { { { { ptr, i64 }, i64 }, ptr }, { i32, [7 x i32] }, ptr, { { ptr, i64 }, i64 }, { { { { ptr, i64 }, i64 }, ptr }, { i32, [2 x i32] }, [1 x i32] }, { { { [2 x i32], i32 }, {} } }, { i32, [2 x i32] } }, ptr %0, i64 0, i32 2
+  %13 = getelementptr inbounds i8, ptr %0, i64 64
   call void @"_ZN76_$LT$core..option..Option$LT$T$GT$$u20$as$u20$quote..to_tokens..ToTokens$GT$9to_tokens17hbe94f9d2bbaf5e0eE"(ptr nonnull align 8 %13, ptr align 8 %1)
   ret void
 

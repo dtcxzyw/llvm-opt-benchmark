@@ -4,7 +4,6 @@ target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:
 target triple = "x86_64-unknown-linux-gnu"
 
 %struct.ErrorPropagator = type { ptr, ptr }
-%struct.NBDTLSHandshakeData = type { ptr, i8, ptr }
 %struct.timeval = type { i64, i64 }
 
 @.str = private unnamed_addr constant [12 x i8] c"export name\00", align 1
@@ -80,7 +79,7 @@ target triple = "x86_64-unknown-linux-gnu"
 @switch.table.nbd_mode_lookup = private unnamed_addr constant [5 x ptr] [ptr @.str.53, ptr @.str.54, ptr @.str.55, ptr @.str.56, ptr @.str.9], align 8
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local i32 @nbd_drop(ptr noundef %ioc, i64 noundef %size, ptr noundef %errp) local_unnamed_addr #0 {
+define dso_local noundef i32 @nbd_drop(ptr noundef %ioc, i64 noundef %size, ptr noundef %errp) local_unnamed_addr #0 {
 entry:
   %_auto_errp_prop.i = alloca %struct.ErrorPropagator, align 8
   %small = alloca [1024 x i8], align 16
@@ -98,7 +97,7 @@ cond.end4:                                        ; preds = %entry
 
 while.body.lr.ph:                                 ; preds = %cond.end4.thread, %cond.end4
   %cond520 = phi ptr [ %call, %cond.end4.thread ], [ %small, %cond.end4 ]
-  %errp1.i = getelementptr inbounds %struct.ErrorPropagator, ptr %_auto_errp_prop.i, i64 0, i32 1
+  %errp1.i = getelementptr inbounds i8, ptr %_auto_errp_prop.i, i64 8
   %tobool.i = icmp eq ptr %errp, null
   %cmp.i = icmp eq ptr %errp, @error_fatal
   %or.cond.i = or i1 %tobool.i, %cmp.i
@@ -146,9 +145,9 @@ declare void @g_free(ptr noundef) local_unnamed_addr #2
 ; Function Attrs: nounwind sspstrong uwtable
 define dso_local void @nbd_tls_handshake(ptr noundef %task, ptr noundef %opaque) local_unnamed_addr #0 {
 entry:
-  %error = getelementptr inbounds %struct.NBDTLSHandshakeData, ptr %opaque, i64 0, i32 2
+  %error = getelementptr inbounds i8, ptr %opaque, i64 16
   %call = tail call zeroext i1 @qio_task_propagate_error(ptr noundef %task, ptr noundef nonnull %error) #8
-  %complete = getelementptr inbounds %struct.NBDTLSHandshakeData, ptr %opaque, i64 0, i32 1
+  %complete = getelementptr inbounds i8, ptr %opaque, i64 8
   store i8 1, ptr %complete, align 8
   %0 = load ptr, ptr %opaque, align 8
   tail call void @g_main_loop_quit(ptr noundef %0) #8
@@ -160,7 +159,7 @@ declare zeroext i1 @qio_task_propagate_error(ptr noundef, ptr noundef) local_unn
 declare void @g_main_loop_quit(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(none) uwtable
-define dso_local nonnull ptr @nbd_opt_lookup(i32 noundef %opt) local_unnamed_addr #3 {
+define dso_local noundef nonnull ptr @nbd_opt_lookup(i32 noundef %opt) local_unnamed_addr #3 {
 entry:
   %switch.tableidx = add i32 %opt, -1
   %0 = icmp ult i32 %switch.tableidx, 11
@@ -178,7 +177,7 @@ return:                                           ; preds = %entry, %switch.look
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(none) uwtable
-define dso_local nonnull ptr @nbd_rep_lookup(i32 noundef %rep) local_unnamed_addr #3 {
+define dso_local noundef nonnull ptr @nbd_rep_lookup(i32 noundef %rep) local_unnamed_addr #3 {
 entry:
   switch i32 %rep, label %sw.default [
     i32 1, label %return
@@ -245,7 +244,7 @@ return:                                           ; preds = %entry, %sw.default,
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(none) uwtable
-define dso_local nonnull ptr @nbd_info_lookup(i16 noundef zeroext %info) local_unnamed_addr #3 {
+define dso_local noundef nonnull ptr @nbd_info_lookup(i16 noundef zeroext %info) local_unnamed_addr #3 {
 entry:
   %0 = icmp ult i16 %info, 4
   br i1 %0, label %switch.lookup, label %return
@@ -262,7 +261,7 @@ return:                                           ; preds = %entry, %switch.look
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(none) uwtable
-define dso_local nonnull ptr @nbd_cmd_lookup(i16 noundef zeroext %cmd) local_unnamed_addr #3 {
+define dso_local noundef nonnull ptr @nbd_cmd_lookup(i16 noundef zeroext %cmd) local_unnamed_addr #3 {
 entry:
   %0 = icmp ult i16 %cmd, 8
   br i1 %0, label %switch.lookup, label %return
@@ -279,7 +278,7 @@ return:                                           ; preds = %entry, %switch.look
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(none) uwtable
-define dso_local nonnull ptr @nbd_reply_type_lookup(i16 noundef zeroext %type) local_unnamed_addr #3 {
+define dso_local noundef nonnull ptr @nbd_reply_type_lookup(i16 noundef zeroext %type) local_unnamed_addr #3 {
 entry:
   switch i16 %type, label %sw.default [
     i16 0, label %return
@@ -320,7 +319,7 @@ return:                                           ; preds = %sw.default, %entry,
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(none) uwtable
-define dso_local nonnull ptr @nbd_err_lookup(i32 noundef %err) local_unnamed_addr #3 {
+define dso_local noundef nonnull ptr @nbd_err_lookup(i32 noundef %err) local_unnamed_addr #3 {
 entry:
   switch i32 %err, label %sw.default [
     i32 0, label %return
@@ -367,7 +366,7 @@ return:                                           ; preds = %entry, %sw.default,
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local i32 @nbd_errno_to_system_errno(i32 noundef %err) local_unnamed_addr #0 {
+define dso_local noundef i32 @nbd_errno_to_system_errno(i32 noundef %err) local_unnamed_addr #0 {
 entry:
   %_now.i.i = alloca %struct.timeval, align 8
   switch i32 %err, label %sw.default [
@@ -407,7 +406,7 @@ if.then8.i.i:                                     ; preds = %if.then.i.i
   %call9.i.i = call i32 @gettimeofday(ptr noundef nonnull %_now.i.i, ptr noundef null) #8
   %call10.i.i = tail call i32 @qemu_get_thread_id() #8
   %5 = load i64, ptr %_now.i.i, align 8
-  %tv_usec.i.i = getelementptr inbounds %struct.timeval, ptr %_now.i.i, i64 0, i32 1
+  %tv_usec.i.i = getelementptr inbounds i8, ptr %_now.i.i, i64 8
   %6 = load i64, ptr %tv_usec.i.i, align 8
   tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.58, i32 noundef %call10.i.i, i64 noundef %5, i64 noundef %6, i32 noundef %err) #8
   br label %trace_nbd_unknown_error.exit
@@ -429,7 +428,7 @@ sw.epilog:                                        ; preds = %entry, %entry, %ent
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(none) uwtable
-define dso_local nonnull ptr @nbd_mode_lookup(i32 noundef %mode) local_unnamed_addr #3 {
+define dso_local noundef nonnull ptr @nbd_mode_lookup(i32 noundef %mode) local_unnamed_addr #3 {
 entry:
   %0 = icmp ult i32 %mode, 5
   br i1 %0, label %switch.lookup, label %return

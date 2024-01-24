@@ -25,7 +25,7 @@ define zeroext i1 @"_ZN4core4iter6traits8iterator8Iterator3all5check28_$u7b$$u7b
 define { i64, ptr } @"_ZN4core4iter6traits8iterator8Iterator4find5check28_$u7b$$u7b$closure$u7d$$u7d$17h609455584eac14c4E"(ptr align 8 %0, i64 %1, ptr align 4 %2) unnamed_addr #0 personality ptr @rust_eh_personality {
   %4 = alloca { i64, ptr }, align 8
   store i64 %1, ptr %4, align 8
-  %5 = getelementptr inbounds { i64, ptr }, ptr %4, i64 0, i32 1
+  %5 = getelementptr inbounds i8, ptr %4, i64 8
   store ptr %2, ptr %5, align 8
   %6 = call zeroext i1 @"_ZN4core3ops8function5impls79_$LT$impl$u20$core..ops..function..FnMut$LT$A$GT$$u20$for$u20$$RF$mut$u20$F$GT$8call_mut17h8c3190a0e96172e7E"(ptr align 8 %0, ptr nonnull align 8 %4)
   %7 = load i64, ptr %4, align 8

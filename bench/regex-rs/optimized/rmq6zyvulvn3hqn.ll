@@ -23,7 +23,7 @@ define { ptr, i64 } @"_ZN5alloc4sync12Arc$LT$T$GT$19allocate_for_layout17h76eda0
   %8 = load i64, ptr %2, align 8, !noundef !5
   %9 = insertvalue { ptr, i64 } %5, i64 %8, 1
   store i64 1, ptr %.fca.0.extract1, align 8
-  %10 = getelementptr inbounds { { i64 }, { i64 }, [0 x { { { ptr, i64 }, i64 } }] }, ptr %.fca.0.extract1, i64 0, i32 1
+  %10 = getelementptr inbounds i8, ptr %.fca.0.extract1, i64 8
   store i64 1, ptr %10, align 8
   ret { ptr, i64 } %9
 
@@ -40,7 +40,7 @@ define { ptr, i64 } @"_ZN5alloc4sync12Arc$LT$T$GT$19initialize_arcinner17hec1ebf
   %8 = insertvalue { ptr, i64 } poison, ptr %0, 0
   %9 = insertvalue { ptr, i64 } %8, i64 %7, 1
   store i64 1, ptr %0, align 8
-  %10 = getelementptr inbounds { { i64 }, { i64 }, [0 x { { { ptr, i64 }, i64 } }] }, ptr %0, i64 0, i32 1
+  %10 = getelementptr inbounds i8, ptr %0, i64 8
   store i64 1, ptr %10, align 8
   ret { ptr, i64 } %9
 }
@@ -49,17 +49,17 @@ define { ptr, i64 } @"_ZN5alloc4sync12Arc$LT$T$GT$19initialize_arcinner17hec1ebf
 define void @"_ZN5alloc4sync16Arc$LT$T$C$A$GT$9drop_slow17hce750a2bd937c728E"(ptr align 8 %0) unnamed_addr #0 {
   %2 = alloca { { ptr, i64 }, ptr }, align 8
   %3 = load ptr, ptr %0, align 8, !nonnull !5, !noundef !5
-  %4 = getelementptr inbounds { ptr, i64 }, ptr %0, i64 0, i32 1
+  %4 = getelementptr inbounds i8, ptr %0, i64 8
   %5 = load i64, ptr %4, align 8, !noundef !5
-  %6 = getelementptr inbounds { { i64 }, { i64 }, [0 x { { { ptr, i64 }, i64 } }] }, ptr %3, i64 0, i32 2
+  %6 = getelementptr inbounds i8, ptr %3, i64 16
   tail call void @"_ZN4core3ptr52drop_in_place$LT$$u5b$alloc..string..String$u5d$$GT$17h06fea04bfa501c3fE"(ptr nonnull align 8 %6, i64 %5)
   %7 = load ptr, ptr %0, align 8, !nonnull !5, !noundef !5
   %8 = load i64, ptr %4, align 8, !noundef !5
   %9 = getelementptr i8, ptr %0, i64 16
   store ptr %7, ptr %2, align 8
-  %10 = getelementptr inbounds { ptr, i64 }, ptr %2, i64 0, i32 1
+  %10 = getelementptr inbounds i8, ptr %2, i64 8
   store i64 %8, ptr %10, align 8
-  %11 = getelementptr inbounds { { ptr, i64 }, ptr }, ptr %2, i64 0, i32 1
+  %11 = getelementptr inbounds i8, ptr %2, i64 16
   store ptr %9, ptr %11, align 8
   call void @"_ZN4core3ptr104drop_in_place$LT$alloc..sync..Weak$LT$$u5b$alloc..string..String$u5d$$C$$RF$alloc..alloc..Global$GT$$GT$17h6a526ddd9a71addbE"(ptr nonnull align 8 %2)
   ret void
@@ -91,20 +91,20 @@ define { ptr, i64 } @"_ZN5alloc4sync22Arc$LT$$u5b$T$u5d$$GT$15from_iter_exact17h
 
 "_ZN5alloc4sync22Arc$LT$$u5b$T$u5d$$GT$18allocate_for_slice17hcb6844d97dd25099E.exit": ; preds = %3
   store i64 1, ptr %.fca.0.extract1.i.i, align 8
-  %17 = getelementptr inbounds { { i64 }, { i64 }, [0 x { { { ptr, i64 }, i64 } }] }, ptr %.fca.0.extract1.i.i, i64 0, i32 1
+  %17 = getelementptr inbounds i8, ptr %.fca.0.extract1.i.i, i64 8
   store i64 1, ptr %17, align 8
   %18 = mul nsw i64 %2, 24
   %19 = add i64 %18, 23
   %20 = and i64 %19, -8
-  %21 = getelementptr inbounds { { i64 }, { i64 }, [0 x { { { ptr, i64 }, i64 } }] }, ptr %.fca.0.extract1.i.i, i64 0, i32 2
-  %22 = getelementptr inbounds { { i64, i64 }, ptr, ptr, i64 }, ptr %7, i64 0, i32 1
+  %21 = getelementptr inbounds i8, ptr %.fca.0.extract1.i.i, i64 16
+  %22 = getelementptr inbounds i8, ptr %7, i64 16
   store ptr %.fca.0.extract1.i.i, ptr %22, align 8
-  %23 = getelementptr inbounds { { i64, i64 }, ptr, ptr, i64 }, ptr %7, i64 0, i32 2
+  %23 = getelementptr inbounds i8, ptr %7, i64 24
   store ptr %21, ptr %23, align 8
   store i64 8, ptr %7, align 8
-  %24 = getelementptr inbounds { i64, i64 }, ptr %7, i64 0, i32 1
+  %24 = getelementptr inbounds i8, ptr %7, i64 8
   store i64 %20, ptr %24, align 8
-  %25 = getelementptr inbounds { { i64, i64 }, ptr, ptr, i64 }, ptr %7, i64 0, i32 3
+  %25 = getelementptr inbounds i8, ptr %7, i64 32
   store i64 0, ptr %25, align 8
   invoke void @_ZN4core4iter6traits8iterator8Iterator9enumerate17hb57ceef6050a6e6bE(ptr nonnull sret({ { ptr, ptr }, i64 }) align 8 %6, ptr %0, ptr %1)
           to label %28 unwind label %26
@@ -116,7 +116,7 @@ define { ptr, i64 } @"_ZN5alloc4sync22Arc$LT$$u5b$T$u5d$$GT$15from_iter_exact17h
 
 28:                                               ; preds = %"_ZN5alloc4sync22Arc$LT$$u5b$T$u5d$$GT$18allocate_for_slice17hcb6844d97dd25099E.exit"
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %5, ptr noundef nonnull align 8 dereferenceable(24) %6, i64 24, i1 false)
-  %29 = getelementptr inbounds { [1 x i64], ptr, [2 x i64] }, ptr %4, i64 0, i32 1
+  %29 = getelementptr inbounds i8, ptr %4, i64 8
   br label %30
 
 30:                                               ; preds = %36, %28
@@ -184,7 +184,7 @@ define { ptr, i64 } @"_ZN5alloc4sync22Arc$LT$$u5b$T$u5d$$GT$18allocate_for_slice
 "_ZN5alloc4sync12Arc$LT$T$GT$19allocate_for_layout17h76eda01c908dc586E.exit": ; preds = %1
   %11 = insertvalue { ptr, i64 } %9, i64 %0, 1
   store i64 1, ptr %.fca.0.extract1.i, align 8
-  %12 = getelementptr inbounds { { i64 }, { i64 }, [0 x { { { ptr, i64 }, i64 } }] }, ptr %.fca.0.extract1.i, i64 0, i32 1
+  %12 = getelementptr inbounds i8, ptr %.fca.0.extract1.i, i64 8
   store i64 1, ptr %12, align 8
   ret { ptr, i64 } %11
 }
@@ -208,9 +208,9 @@ define { ptr, i64 } @"_ZN5alloc4sync22Arc$LT$$u5b$T$u5d$$GT$18allocate_for_slice
 ; Function Attrs: inlinehint mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: read) uwtable
 define { ptr, i64 } @"_ZN73_$LT$alloc..sync..Arc$LT$T$C$A$GT$$u20$as$u20$core..ops..deref..Deref$GT$5deref17h2b4b2f0584f23a1cE"(ptr nocapture readonly align 8 %0) unnamed_addr #4 {
   %2 = load ptr, ptr %0, align 8, !nonnull !5, !noundef !5
-  %3 = getelementptr inbounds { ptr, i64 }, ptr %0, i64 0, i32 1
+  %3 = getelementptr inbounds i8, ptr %0, i64 8
   %4 = load i64, ptr %3, align 8, !noundef !5
-  %5 = getelementptr inbounds { { i64 }, { i64 }, [0 x { { { ptr, i64 }, i64 } }] }, ptr %2, i64 0, i32 2
+  %5 = getelementptr inbounds i8, ptr %2, i64 16
   %6 = insertvalue { ptr, i64 } poison, ptr %5, 0
   %7 = insertvalue { ptr, i64 } %6, i64 %4, 1
   ret { ptr, i64 } %7

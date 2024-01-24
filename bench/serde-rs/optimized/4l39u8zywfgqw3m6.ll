@@ -11,9 +11,9 @@ target triple = "x86_64-unknown-linux-gnu"
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: write) uwtable
 define void @_ZN5serde2de6format3Buf3new17h87cd1ce9c376c8cfE(ptr nocapture writeonly sret({ { ptr, i64 }, i64 }) align 8 %0, ptr align 1 %1, i64 %2) unnamed_addr #0 {
   store ptr %1, ptr %0, align 8
-  %4 = getelementptr inbounds { ptr, i64 }, ptr %0, i64 0, i32 1
+  %4 = getelementptr inbounds i8, ptr %0, i64 8
   store i64 %2, ptr %4, align 8
-  %5 = getelementptr inbounds { { ptr, i64 }, i64 }, ptr %0, i64 0, i32 1
+  %5 = getelementptr inbounds i8, ptr %0, i64 16
   store i64 0, ptr %5, align 8
   ret void
 }
@@ -21,9 +21,9 @@ define void @_ZN5serde2de6format3Buf3new17h87cd1ce9c376c8cfE(ptr nocapture write
 ; Function Attrs: nonlazybind uwtable
 define { ptr, i64 } @_ZN5serde2de6format3Buf6as_str17h906658bd174ce8b9E(ptr nocapture readonly align 8 %0) unnamed_addr #1 {
   %2 = load ptr, ptr %0, align 8, !nonnull !5, !align !6, !noundef !5
-  %3 = getelementptr inbounds { ptr, i64 }, ptr %0, i64 0, i32 1
+  %3 = getelementptr inbounds i8, ptr %0, i64 8
   %4 = load i64, ptr %3, align 8, !noundef !5
-  %5 = getelementptr inbounds { { ptr, i64 }, i64 }, ptr %0, i64 0, i32 1
+  %5 = getelementptr inbounds i8, ptr %0, i64 16
   %6 = load i64, ptr %5, align 8, !noundef !5
   %7 = tail call { ptr, i64 } @"_ZN4core5slice5index74_$LT$impl$u20$core..ops..index..Index$LT$I$GT$$u20$for$u20$$u5b$T$u5d$$GT$5index17h143c2ffd8d068541E"(ptr nonnull align 1 %2, i64 %4, i64 %6, ptr nonnull align 8 @anon.53feeaa95d8137611bee619981b5331c.1)
   %8 = extractvalue { ptr, i64 } %7, 0
@@ -34,11 +34,11 @@ define { ptr, i64 } @_ZN5serde2de6format3Buf6as_str17h906658bd174ce8b9E(ptr noca
 
 ; Function Attrs: nonlazybind uwtable
 define noundef zeroext i1 @"_ZN59_$LT$serde..de..format..Buf$u20$as$u20$core..fmt..Write$GT$9write_str17h715e05aa576e049bE"(ptr nocapture align 8 %0, ptr align 1 %1, i64 %2) unnamed_addr #1 {
-  %4 = getelementptr inbounds { { ptr, i64 }, i64 }, ptr %0, i64 0, i32 1
+  %4 = getelementptr inbounds i8, ptr %0, i64 16
   %5 = load i64, ptr %4, align 8, !noundef !5
   %6 = tail call i64 @"_ZN4core3str21_$LT$impl$u20$str$GT$3len17h5bca6e12b13bc8c6E"(ptr align 1 %1, i64 %2)
   %7 = add i64 %6, %5
-  %8 = getelementptr inbounds { ptr, i64 }, ptr %0, i64 0, i32 1
+  %8 = getelementptr inbounds i8, ptr %0, i64 8
   %9 = load i64, ptr %8, align 8, !noundef !5
   %10 = icmp ugt i64 %7, %9
   br i1 %10, label %22, label %11

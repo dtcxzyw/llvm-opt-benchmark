@@ -3,49 +3,6 @@ source_filename = "bench/curl/original/libcurl_la-ftplistparser.ll"
 target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:128-n8:16:32:64-S128"
 target triple = "x86_64-unknown-linux-gnu"
 
-%struct.WildcardData = type { ptr, ptr, %struct.Curl_llist, ptr, ptr, i8 }
-%struct.Curl_llist = type { ptr, ptr, ptr, i64 }
-%struct.ftp_parselist_data = type { i32, %union.anon, i32, ptr, i32, i64, %struct.anon.1 }
-%union.anon = type { %struct.anon }
-%struct.anon = type { i32, %union.pl_unix_substate }
-%union.pl_unix_substate = type { i32 }
-%struct.anon.1 = type { i64, i64, i64, i64, i64, i64 }
-%struct.Curl_easy = type { i32, i64, ptr, ptr, ptr, %struct.Curl_llist_element, %struct.Curl_llist_element, i32, i32, %struct.Curl_message, %struct.easy_pollset, %struct.Names, ptr, ptr, ptr, ptr, %struct.SingleRequest, %struct.UserDefined, ptr, ptr, ptr, %struct.Progress, %struct.UrlState, ptr, %struct.PureInfo, %struct.curl_tlssessioninfo }
-%struct.Curl_llist_element = type { ptr, ptr, ptr }
-%struct.Curl_message = type { %struct.Curl_llist_element, %struct.CURLMsg }
-%struct.CURLMsg = type { i32, ptr, %union.anon.2 }
-%union.anon.2 = type { ptr }
-%struct.easy_pollset = type { [5 x i32], i32, [5 x i8] }
-%struct.Names = type { ptr, i32 }
-%struct.SingleRequest = type <{ i64, i64, i64, i64, i64, %struct.curltime, i32, i32, i32, i32, i64, i32, i32, %struct.curltime, i32, i32, ptr, i64, i64, ptr, ptr, i64, ptr, %union.anon.3, ptr, [2 x i8], i8, i16, [3 x i8] }>
-%struct.curltime = type { i64, i32 }
-%union.anon.3 = type { ptr }
-%struct.UserDefined = type <{ ptr, ptr, ptr, ptr, ptr, ptr, i16, [6 x i8], i64, i64, i64, ptr, ptr, i64, i16, i16, [4 x i8], ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, i32, i32, i32, i32, i64, i64, i64, i64, i64, i64, i64, i64, i64, ptr, ptr, %struct.curl_mimepart, ptr, ptr, ptr, i64, i8, i8, i8, [5 x i8], %struct.ssl_config_data, %struct.ssl_config_data, ptr, i16, i8, i8, [4 x i8], %struct.ssl_general_config, i32, i32, i32, [4 x i8], ptr, ptr, i8, [7 x i8], i64, i8, i8, i8, i8, i32, ptr, ptr, ptr, i8, i8, [2 x i8], i32, [80 x ptr], [8 x ptr], i32, i32, i32, [4 x i8], ptr, i32, [4 x i8], ptr, ptr, ptr, ptr, ptr, i8, [3 x i8], i32, i32, [4 x i8], i64, ptr, ptr, i64, ptr, ptr, ptr, ptr, ptr, i8, [7 x i8], ptr, i8, [3 x i8], i32, i8, i8, i56, [6 x i8] }>
-%struct.curl_mimepart = type { ptr, ptr, i32, i32, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, i64, %struct.mime_state, ptr, %struct.mime_encoder_state, i64 }
-%struct.mime_state = type { i32, ptr, i64 }
-%struct.mime_encoder_state = type { i64, i64, i64, [256 x i8] }
-%struct.ssl_config_data = type { %struct.ssl_primary_config, i64, ptr, ptr, ptr, ptr, ptr, ptr, ptr, i8 }
-%struct.ssl_primary_config = type { ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, i8, i32, i8, i8 }
-%struct.ssl_general_config = type { i64, i32 }
-%struct.Progress = type { i64, i64, i64, i64, i64, i64, i32, i32, i64, i64, i64, i64, i64, i64, i64, i64, i64, i64, %struct.curltime, %struct.curltime, %struct.curltime, %struct.curltime, %struct.curltime, i64, %struct.curltime, i64, [6 x i64], [6 x %struct.curltime], i32, i8 }
-%struct.UrlState = type { ptr, %struct.curltime, i64, i64, %struct.dynbuf, ptr, ptr, ptr, i64, ptr, i32, i32, i32, ptr, i64, [3 x %struct.tempbuf], i32, i32, ptr, i64, i32, ptr, %struct.digestdata, %struct.digestdata, %struct.auth, %struct.auth, %struct.Curl_async, ptr, %struct.curltime, %struct.Curl_tree, %struct.Curl_llist, [15 x %struct.time_node], ptr, i8, i64, ptr, i64, i64, i64, i64, [32 x i8], i64, ptr, ptr, ptr, %struct.urlpieces, ptr, ptr, ptr, ptr, ptr, i64, %struct.dynbuf, %struct.Curl_llist, [2 x %struct.curl_header], ptr, i32, ptr, %struct.dynamically_allocated_data, i8, i8, i8, i8, i24 }
-%struct.tempbuf = type { %struct.dynbuf, i32, i8 }
-%struct.digestdata = type { ptr, ptr, ptr, ptr, ptr, ptr, i32, i8, i8 }
-%struct.auth = type { i64, i64, i64, i8 }
-%struct.Curl_async = type { ptr, ptr, ptr, ptr, i32, i32, i8 }
-%struct.Curl_tree = type { ptr, ptr, ptr, ptr, %struct.curltime, ptr }
-%struct.time_node = type { %struct.Curl_llist_element, %struct.curltime, i32 }
-%struct.urlpieces = type { ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr }
-%struct.dynbuf = type { ptr, i64, i64, i64 }
-%struct.curl_header = type { ptr, ptr, i64, i64, i32, ptr }
-%struct.dynamically_allocated_data = type { ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr }
-%struct.PureInfo = type { i32, i32, i32, i64, i64, i64, i64, i64, ptr, ptr, i64, i32, [46 x i8], i32, i32, [46 x i8], i32, ptr, i32, %struct.curl_certinfo, i32, i8 }
-%struct.curl_certinfo = type { i32, ptr }
-%struct.curl_tlssessioninfo = type { i32, ptr }
-%struct.fileinfo = type { %struct.curl_fileinfo, %struct.Curl_llist_element, %struct.dynbuf }
-%struct.curl_fileinfo = type { ptr, i32, i64, i32, i32, i32, i64, i64, %struct.anon.5, i32, ptr, i64, i64 }
-%struct.anon.5 = type { ptr, ptr, ptr, ptr, ptr }
-
 @Curl_cfree = external local_unnamed_addr global ptr, align 8
 @Curl_ccalloc = external local_unnamed_addr global ptr, align 8
 @.str = private unnamed_addr constant [7 x i8] c"total \00", align 1
@@ -57,9 +14,9 @@ target triple = "x86_64-unknown-linux-gnu"
 ; Function Attrs: nounwind uwtable
 define hidden noundef i32 @Curl_wildcard_init(ptr noundef %wc) local_unnamed_addr #0 {
 entry:
-  %filelist = getelementptr inbounds %struct.WildcardData, ptr %wc, i64 0, i32 2
+  %filelist = getelementptr inbounds i8, ptr %wc, i64 16
   tail call void @Curl_llist_init(ptr noundef nonnull %filelist, ptr noundef nonnull @fileinfo_dtor) #7
-  %state = getelementptr inbounds %struct.WildcardData, ptr %wc, i64 0, i32 5
+  %state = getelementptr inbounds i8, ptr %wc, i64 64
   store i8 1, ptr %state, align 8
   ret i32 0
 }
@@ -81,31 +38,31 @@ entry:
   br i1 %tobool.not, label %return, label %if.end
 
 if.end:                                           ; preds = %entry
-  %dtor = getelementptr inbounds %struct.WildcardData, ptr %0, i64 0, i32 4
+  %dtor = getelementptr inbounds i8, ptr %0, i64 56
   %1 = load ptr, ptr %dtor, align 8
   %tobool1.not = icmp eq ptr %1, null
   br i1 %tobool1.not, label %do.end, label %if.then2
 
 if.then2:                                         ; preds = %if.end
-  %ftpwc = getelementptr inbounds %struct.WildcardData, ptr %0, i64 0, i32 3
+  %ftpwc = getelementptr inbounds i8, ptr %0, i64 48
   %2 = load ptr, ptr %ftpwc, align 8
   tail call void %1(ptr noundef %2) #7
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %ftpwc, i8 0, i64 16, i1 false)
   br label %do.end
 
 do.end:                                           ; preds = %if.then2, %if.end
-  %filelist = getelementptr inbounds %struct.WildcardData, ptr %0, i64 0, i32 2
+  %filelist = getelementptr inbounds i8, ptr %0, i64 16
   tail call void @Curl_llist_destroy(ptr noundef nonnull %filelist, ptr noundef null) #7
   %3 = load ptr, ptr @Curl_cfree, align 8
   %4 = load ptr, ptr %0, align 8
   tail call void %3(ptr noundef %4) #7
   store ptr null, ptr %0, align 8
   %5 = load ptr, ptr @Curl_cfree, align 8
-  %pattern = getelementptr inbounds %struct.WildcardData, ptr %0, i64 0, i32 1
+  %pattern = getelementptr inbounds i8, ptr %0, i64 8
   %6 = load ptr, ptr %pattern, align 8
   tail call void %5(ptr noundef %6) #7
   store ptr null, ptr %pattern, align 8
-  %state = getelementptr inbounds %struct.WildcardData, ptr %0, i64 0, i32 5
+  %state = getelementptr inbounds i8, ptr %0, i64 64
   store i8 1, ptr %state, align 8
   %7 = load ptr, ptr @Curl_cfree, align 8
   tail call void %7(ptr noundef nonnull %0) #7
@@ -134,7 +91,7 @@ entry:
   br i1 %tobool.not, label %if.end, label %if.then
 
 if.then:                                          ; preds = %entry
-  %file_data = getelementptr inbounds %struct.ftp_parselist_data, ptr %0, i64 0, i32 3
+  %file_data = getelementptr inbounds i8, ptr %0, i64 16
   %1 = load ptr, ptr %file_data, align 8
   tail call void @Curl_fileinfo_cleanup(ptr noundef %1) #7
   br label %if.end
@@ -151,7 +108,7 @@ declare void @Curl_fileinfo_cleanup(ptr noundef) local_unnamed_addr #1
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
 define hidden i32 @Curl_ftp_parselist_geterror(ptr nocapture noundef readonly %pl_data) local_unnamed_addr #2 {
 entry:
-  %error = getelementptr inbounds %struct.ftp_parselist_data, ptr %pl_data, i64 0, i32 2
+  %error = getelementptr inbounds i8, ptr %pl_data, i64 12
   %0 = load i32, ptr %error, align 4
   ret i32 %0
 }
@@ -165,12 +122,12 @@ entry:
   %fsize = alloca i64, align 8
   %endptr1050 = alloca ptr, align 8
   %mul = mul i64 %nmemb, %size
-  %wildcard = getelementptr inbounds %struct.Curl_easy, ptr %connptr, i64 0, i32 23
+  %wildcard = getelementptr inbounds i8, ptr %connptr, i64 5048
   %0 = load ptr, ptr %wildcard, align 8
-  %ftpwc1 = getelementptr inbounds %struct.WildcardData, ptr %0, i64 0, i32 3
+  %ftpwc1 = getelementptr inbounds i8, ptr %0, i64 48
   %1 = load ptr, ptr %ftpwc1, align 8
   %2 = load ptr, ptr %1, align 8
-  %error = getelementptr inbounds %struct.ftp_parselist_data, ptr %2, i64 0, i32 2
+  %error = getelementptr inbounds i8, ptr %2, i64 12
   %3 = load i32, ptr %error, align 4
   %tobool.not = icmp eq i32 %3, 0
   br i1 %tobool.not, label %if.end, label %fail
@@ -194,17 +151,17 @@ if.end12:                                         ; preds = %if.end
   br i1 %cmp3, label %while.body.lr.ph.lr.ph, label %return
 
 while.body.lr.ph.lr.ph:                           ; preds = %if.end12.thread, %if.end12
-  %file_data = getelementptr inbounds %struct.ftp_parselist_data, ptr %2, i64 0, i32 3
-  %item_offset = getelementptr inbounds %struct.ftp_parselist_data, ptr %2, i64 0, i32 5
-  %item_length = getelementptr inbounds %struct.ftp_parselist_data, ptr %2, i64 0, i32 4
-  %state = getelementptr inbounds %struct.ftp_parselist_data, ptr %2, i64 0, i32 1
-  %sub = getelementptr inbounds %struct.ftp_parselist_data, ptr %2, i64 0, i32 1, i32 0, i32 1
-  %offsets1126 = getelementptr inbounds %struct.ftp_parselist_data, ptr %2, i64 0, i32 6
-  %time993 = getelementptr inbounds %struct.ftp_parselist_data, ptr %2, i64 0, i32 6, i32 3
-  %symlink_target920 = getelementptr inbounds %struct.ftp_parselist_data, ptr %2, i64 0, i32 6, i32 5
-  %group = getelementptr inbounds %struct.ftp_parselist_data, ptr %2, i64 0, i32 6, i32 2
-  %user = getelementptr inbounds %struct.ftp_parselist_data, ptr %2, i64 0, i32 6, i32 1
-  %perm167 = getelementptr inbounds %struct.ftp_parselist_data, ptr %2, i64 0, i32 6, i32 4
+  %file_data = getelementptr inbounds i8, ptr %2, i64 16
+  %item_offset = getelementptr inbounds i8, ptr %2, i64 32
+  %item_length = getelementptr inbounds i8, ptr %2, i64 24
+  %state = getelementptr inbounds i8, ptr %2, i64 4
+  %sub = getelementptr inbounds i8, ptr %2, i64 8
+  %offsets1126 = getelementptr inbounds i8, ptr %2, i64 40
+  %time993 = getelementptr inbounds i8, ptr %2, i64 64
+  %symlink_target920 = getelementptr inbounds i8, ptr %2, i64 80
+  %group = getelementptr inbounds i8, ptr %2, i64 56
+  %user = getelementptr inbounds i8, ptr %2, i64 48
+  %perm167 = getelementptr inbounds i8, ptr %2, i64 72
   br label %while.body.lr.ph
 
 while.body.lr.ph:                                 ; preds = %while.body.lr.ph.lr.ph, %sw.epilog1144
@@ -229,14 +186,14 @@ if.then17.us:                                     ; preds = %while.body.us
 if.end23.us:                                      ; preds = %if.then17.us
   store i64 0, ptr %item_offset, align 8
   store i32 0, ptr %item_length, align 8
-  %buf.us = getelementptr inbounds %struct.fileinfo, ptr %call.us, i64 0, i32 2
+  %buf.us = getelementptr inbounds i8, ptr %call.us, i64 152
   call void @Curl_dyn_init(ptr noundef nonnull %buf.us, i64 noundef 10000) #7
   %.pre618 = load ptr, ptr %file_data, align 8
   br label %if.end25.us
 
 if.end25.us:                                      ; preds = %if.end23.us, %while.body.us
   %9 = phi ptr [ %.pre618, %if.end23.us ], [ %8, %while.body.us ]
-  %buf27.us = getelementptr inbounds %struct.fileinfo, ptr %9, i64 0, i32 2
+  %buf27.us = getelementptr inbounds i8, ptr %9, i64 152
   %call28.us = call i32 @Curl_dyn_addn(ptr noundef nonnull %buf27.us, ptr noundef nonnull %c, i64 noundef 1) #7
   %tobool29.not.us = icmp eq i32 %call28.us, 0
   br i1 %tobool29.not.us, label %if.end32.us, label %if.then30
@@ -302,14 +259,14 @@ if.then21:                                        ; preds = %if.then17, %if.then
 if.end23:                                         ; preds = %if.then17
   store i64 0, ptr %item_offset, align 8
   store i32 0, ptr %item_length, align 8
-  %buf = getelementptr inbounds %struct.fileinfo, ptr %call, i64 0, i32 2
+  %buf = getelementptr inbounds i8, ptr %call, i64 152
   call void @Curl_dyn_init(ptr noundef nonnull %buf, i64 noundef 10000) #7
   %.pre = load ptr, ptr %file_data, align 8
   br label %if.end25
 
 if.end25:                                         ; preds = %if.end23, %while.body.lr.ph.split
   %16 = phi ptr [ %.pre, %if.end23 ], [ %15, %while.body.lr.ph.split ]
-  %buf27 = getelementptr inbounds %struct.fileinfo, ptr %16, i64 0, i32 2
+  %buf27 = getelementptr inbounds i8, ptr %16, i64 152
   %call28 = call i32 @Curl_dyn_addn(ptr noundef nonnull %buf27, ptr noundef nonnull %c, i64 noundef 1) #7
   %tobool29.not = icmp eq i32 %call28, 0
   br i1 %tobool29.not, label %if.end32, label %if.then30
@@ -481,7 +438,7 @@ sw.default:                                       ; preds = %sw.bb106
 
 sw.epilog124:                                     ; preds = %sw.bb106, %sw.bb121, %sw.bb119, %sw.bb117, %sw.bb115, %sw.bb113, %sw.bb111, %sw.bb109
   %.sink = phi i32 [ 7, %sw.bb121 ], [ 3, %sw.bb119 ], [ 4, %sw.bb117 ], [ 6, %sw.bb115 ], [ 5, %sw.bb113 ], [ 2, %sw.bb111 ], [ 1, %sw.bb109 ], [ 0, %sw.bb106 ]
-  %filetype122 = getelementptr inbounds %struct.curl_fileinfo, ptr %.us-phi482, i64 0, i32 1
+  %filetype122 = getelementptr inbounds i8, ptr %.us-phi482, i64 8
   store i32 %.sink, ptr %filetype122, align 8
   store i32 2, ptr %state, align 4
   store i32 0, ptr %item_length, align 8
@@ -701,12 +658,12 @@ if.then158:                                       ; preds = %if.end147.i, %ftp_p
 
 if.end160:                                        ; preds = %ftp_pl_get_permission.exit
   %41 = load ptr, ptr %file_data, align 8
-  %flags = getelementptr inbounds %struct.curl_fileinfo, ptr %41, i64 0, i32 9
+  %flags = getelementptr inbounds i8, ptr %41, i64 96
   %42 = load i32, ptr %flags, align 8
   %or = or i32 %42, 8
   store i32 %or, ptr %flags, align 8
   %43 = load ptr, ptr %file_data, align 8
-  %perm165 = getelementptr inbounds %struct.curl_fileinfo, ptr %43, i64 0, i32 3
+  %perm165 = getelementptr inbounds i8, ptr %43, i64 24
   store i32 %permissions.8.i, ptr %perm165, align 8
   %44 = load i64, ptr %item_offset, align 8
   store i64 %44, ptr %perm167, align 8
@@ -774,12 +731,12 @@ if.then206:                                       ; preds = %sw.bb200
 
 if.then225:                                       ; preds = %if.then206
   %56 = load ptr, ptr %file_data, align 8
-  %flags228 = getelementptr inbounds %struct.curl_fileinfo, ptr %56, i64 0, i32 9
+  %flags228 = getelementptr inbounds i8, ptr %56, i64 96
   %57 = load i32, ptr %flags228, align 8
   %or229 = or i32 %57, 128
   store i32 %or229, ptr %flags228, align 8
   %58 = load ptr, ptr %file_data, align 8
-  %hardlinks = getelementptr inbounds %struct.curl_fileinfo, ptr %58, i64 0, i32 7
+  %hardlinks = getelementptr inbounds i8, ptr %58, i64 48
   store i64 %call214, ptr %hardlinks, align 8
   br label %if.end232
 
@@ -951,12 +908,12 @@ if.then369:                                       ; preds = %if.then357
 
 if.then380:                                       ; preds = %if.then369
   %88 = load ptr, ptr %file_data, align 8
-  %flags383 = getelementptr inbounds %struct.curl_fileinfo, ptr %88, i64 0, i32 9
+  %flags383 = getelementptr inbounds i8, ptr %88, i64 96
   %89 = load i32, ptr %flags383, align 8
   %or384 = or i32 %89, 64
   store i32 %or384, ptr %flags383, align 8
   %90 = load ptr, ptr %file_data, align 8
-  %size387 = getelementptr inbounds %struct.curl_fileinfo, ptr %90, i64 0, i32 6
+  %size387 = getelementptr inbounds i8, ptr %90, i64 40
   store i64 %87, ptr %size387, align 8
   br label %if.end388
 
@@ -1145,7 +1102,7 @@ if.then611:                                       ; preds = %sw.bb605
   store i8 0, ptr %arrayidx617, align 1
   %125 = load i64, ptr %item_offset, align 8
   store i64 %125, ptr %time993, align 8
-  %filetype620 = getelementptr inbounds %struct.curl_fileinfo, ptr %.us-phi503, i64 0, i32 1
+  %filetype620 = getelementptr inbounds i8, ptr %.us-phi503, i64 8
   %126 = load i32, ptr %filetype620, align 8
   %cmp621 = icmp eq i32 %126, 2
   br i1 %cmp621, label %if.then623, label %if.else628
@@ -1591,14 +1548,14 @@ if.then1034:                                      ; preds = %sw.bb1028
   br i1 %cmp1044, label %if.then1046, label %if.else1049
 
 if.then1046:                                      ; preds = %if.then1034
-  %filetype1047 = getelementptr inbounds %struct.curl_fileinfo, ptr %.us-phi479, i64 0, i32 1
+  %filetype1047 = getelementptr inbounds i8, ptr %.us-phi479, i64 8
   store i32 1, ptr %filetype1047, align 8
-  %size1048 = getelementptr inbounds %struct.curl_fileinfo, ptr %.us-phi479, i64 0, i32 6
+  %size1048 = getelementptr inbounds i8, ptr %.us-phi479, i64 40
   store i64 0, ptr %size1048, align 8
   br label %if.end1062
 
 if.else1049:                                      ; preds = %if.then1034
-  %size1053 = getelementptr inbounds %struct.curl_fileinfo, ptr %.us-phi479, i64 0, i32 6
+  %size1053 = getelementptr inbounds i8, ptr %.us-phi479, i64 40
   %call1054 = call i32 @curlx_strtoofft(ptr noundef nonnull %add.ptr1042, ptr noundef nonnull %endptr1050, i32 noundef 10, ptr noundef nonnull %size1053) #7
   %tobool1055.not = icmp eq i32 %call1054, 0
   br i1 %tobool1055.not, label %if.end1058, label %if.then1056
@@ -1609,13 +1566,13 @@ if.then1056:                                      ; preds = %if.else1049
 
 if.end1058:                                       ; preds = %if.else1049
   %193 = load ptr, ptr %file_data, align 8
-  %filetype1061 = getelementptr inbounds %struct.curl_fileinfo, ptr %193, i64 0, i32 1
+  %filetype1061 = getelementptr inbounds i8, ptr %193, i64 8
   store i32 0, ptr %filetype1061, align 8
   br label %if.end1062
 
 if.end1062:                                       ; preds = %if.end1058, %if.then1046
   %194 = load ptr, ptr %file_data, align 8
-  %flags1065 = getelementptr inbounds %struct.curl_fileinfo, ptr %194, i64 0, i32 9
+  %flags1065 = getelementptr inbounds i8, ptr %194, i64 96
   %195 = load i32, ptr %flags1065, align 8
   %or1066 = or i32 %195, 64
   store i32 %or1066, ptr %flags1065, align 8
@@ -1701,7 +1658,7 @@ sw.epilog1144:                                    ; preds = %sw.bb38.us, %sw.bb.
 
 fail:                                             ; preds = %entry, %sw.default1142, %if.else1137, %if.then1056, %if.then1009, %if.else965, %if.else962, %if.then946, %if.else928, %if.else873, %if.then852, %if.then817, %if.then793, %if.then772, %if.else737, %if.then666, %if.else601, %if.then564, %if.else523, %if.then486, %if.else445, %if.then404, %if.else347, %if.then247, %if.else196, %if.then158, %if.then150, %if.then139, %sw.default, %if.else101, %if.then95, %if.then30, %if.then21
   %retsize.0 = phi i64 [ %mul, %entry ], [ %mul, %if.then30 ], [ %add1143, %sw.default1142 ], [ %mul, %if.else1137 ], [ %mul, %if.then1056 ], [ %mul, %if.then1009 ], [ %mul, %if.then946 ], [ %mul, %if.else962 ], [ %mul, %if.else965 ], [ %mul, %if.else928 ], [ %mul, %if.else873 ], [ %mul, %if.then852 ], [ %mul, %if.then817 ], [ %mul, %if.then793 ], [ %mul, %if.then772 ], [ %mul, %if.else737 ], [ %mul, %if.then666 ], [ %mul, %if.else601 ], [ %mul, %if.then564 ], [ %mul, %if.else523 ], [ %mul, %if.then486 ], [ %mul, %if.else445 ], [ %mul, %if.then404 ], [ %mul, %if.else347 ], [ %mul, %if.then247 ], [ %mul, %if.else196 ], [ %mul, %if.then139 ], [ %mul, %if.then150 ], [ %mul, %if.then158 ], [ %mul, %sw.default ], [ %mul, %if.else101 ], [ %mul, %if.then95 ], [ %mul, %if.then21 ]
-  %file_data1147 = getelementptr inbounds %struct.ftp_parselist_data, ptr %2, i64 0, i32 3
+  %file_data1147 = getelementptr inbounds i8, ptr %2, i64 16
   %205 = load ptr, ptr %file_data1147, align 8
   %tobool1148.not = icmp eq ptr %205, null
   br i1 %tobool1148.not, label %return, label %if.then1149
@@ -1741,59 +1698,59 @@ declare i32 @curlx_strtoofft(ptr noundef, ptr noundef, i32 noundef, ptr noundef)
 ; Function Attrs: nounwind uwtable
 define internal fastcc void @ftp_pl_insert_finfo(ptr noundef %data, ptr noundef %infop) unnamed_addr #0 {
 entry:
-  %wildcard = getelementptr inbounds %struct.Curl_easy, ptr %data, i64 0, i32 23
+  %wildcard = getelementptr inbounds i8, ptr %data, i64 5048
   %0 = load ptr, ptr %wildcard, align 8
-  %ftpwc1 = getelementptr inbounds %struct.WildcardData, ptr %0, i64 0, i32 3
+  %ftpwc1 = getelementptr inbounds i8, ptr %0, i64 48
   %1 = load ptr, ptr %ftpwc1, align 8
-  %filelist = getelementptr inbounds %struct.WildcardData, ptr %0, i64 0, i32 2
+  %filelist = getelementptr inbounds i8, ptr %0, i64 16
   %2 = load ptr, ptr %1, align 8
-  %buf = getelementptr inbounds %struct.fileinfo, ptr %infop, i64 0, i32 2
+  %buf = getelementptr inbounds i8, ptr %infop, i64 152
   %call = tail call ptr @Curl_dyn_ptr(ptr noundef nonnull %buf) #7
-  %offsets = getelementptr inbounds %struct.ftp_parselist_data, ptr %2, i64 0, i32 6
+  %offsets = getelementptr inbounds i8, ptr %2, i64 40
   %3 = load i64, ptr %offsets, align 8
   %add.ptr = getelementptr inbounds i8, ptr %call, i64 %3
   store ptr %add.ptr, ptr %infop, align 8
-  %group = getelementptr inbounds %struct.ftp_parselist_data, ptr %2, i64 0, i32 6, i32 2
+  %group = getelementptr inbounds i8, ptr %2, i64 56
   %4 = load i64, ptr %group, align 8
   %tobool.not = icmp eq i64 %4, 0
   %add.ptr7 = getelementptr inbounds i8, ptr %call, i64 %4
   %spec.select = select i1 %tobool.not, ptr null, ptr %add.ptr7
-  %strings = getelementptr inbounds %struct.curl_fileinfo, ptr %infop, i64 0, i32 8
-  %group8 = getelementptr inbounds %struct.curl_fileinfo, ptr %infop, i64 0, i32 8, i32 3
+  %strings = getelementptr inbounds i8, ptr %infop, i64 56
+  %group8 = getelementptr inbounds i8, ptr %infop, i64 80
   store ptr %spec.select, ptr %group8, align 8
-  %perm = getelementptr inbounds %struct.ftp_parselist_data, ptr %2, i64 0, i32 6, i32 4
+  %perm = getelementptr inbounds i8, ptr %2, i64 72
   %5 = load i64, ptr %perm, align 8
   %tobool10.not = icmp eq i64 %5, 0
   %add.ptr14 = getelementptr inbounds i8, ptr %call, i64 %5
   %cond17 = select i1 %tobool10.not, ptr null, ptr %add.ptr14
-  %perm19 = getelementptr inbounds %struct.curl_fileinfo, ptr %infop, i64 0, i32 8, i32 1
+  %perm19 = getelementptr inbounds i8, ptr %infop, i64 64
   store ptr %cond17, ptr %perm19, align 8
-  %symlink_target = getelementptr inbounds %struct.ftp_parselist_data, ptr %2, i64 0, i32 6, i32 5
+  %symlink_target = getelementptr inbounds i8, ptr %2, i64 80
   %6 = load i64, ptr %symlink_target, align 8
   %tobool21.not = icmp eq i64 %6, 0
   %add.ptr25 = getelementptr inbounds i8, ptr %call, i64 %6
   %cond28 = select i1 %tobool21.not, ptr null, ptr %add.ptr25
-  %target = getelementptr inbounds %struct.curl_fileinfo, ptr %infop, i64 0, i32 8, i32 4
+  %target = getelementptr inbounds i8, ptr %infop, i64 88
   store ptr %cond28, ptr %target, align 8
-  %time = getelementptr inbounds %struct.ftp_parselist_data, ptr %2, i64 0, i32 6, i32 3
+  %time = getelementptr inbounds i8, ptr %2, i64 64
   %7 = load i64, ptr %time, align 8
   %add.ptr31 = getelementptr inbounds i8, ptr %call, i64 %7
   store ptr %add.ptr31, ptr %strings, align 8
-  %user = getelementptr inbounds %struct.ftp_parselist_data, ptr %2, i64 0, i32 6, i32 1
+  %user = getelementptr inbounds i8, ptr %2, i64 48
   %8 = load i64, ptr %user, align 8
   %tobool35.not = icmp eq i64 %8, 0
   %add.ptr39 = getelementptr inbounds i8, ptr %call, i64 %8
   %cond42 = select i1 %tobool35.not, ptr null, ptr %add.ptr39
-  %user44 = getelementptr inbounds %struct.curl_fileinfo, ptr %infop, i64 0, i32 8, i32 2
+  %user44 = getelementptr inbounds i8, ptr %infop, i64 72
   store ptr %cond42, ptr %user44, align 8
-  %fnmatch = getelementptr inbounds %struct.Curl_easy, ptr %data, i64 0, i32 17, i32 104
+  %fnmatch = getelementptr inbounds i8, ptr %data, i64 2568
   %9 = load ptr, ptr %fnmatch, align 8
   %tobool45.not = icmp eq ptr %9, null
   %spec.store.select = select i1 %tobool45.not, ptr @Curl_fnmatch, ptr %9
   tail call void @Curl_set_in_callback(ptr noundef %data, i1 noundef zeroext true) #7
-  %fnmatch_data = getelementptr inbounds %struct.Curl_easy, ptr %data, i64 0, i32 17, i32 105
+  %fnmatch_data = getelementptr inbounds i8, ptr %data, i64 2576
   %10 = load ptr, ptr %fnmatch_data, align 8
-  %pattern = getelementptr inbounds %struct.WildcardData, ptr %0, i64 0, i32 1
+  %pattern = getelementptr inbounds i8, ptr %0, i64 8
   %11 = load ptr, ptr %pattern, align 8
   %12 = load ptr, ptr %infop, align 8
   %call48 = tail call i32 %spec.store.select(ptr noundef %10, ptr noundef %11, ptr noundef %12) #7
@@ -1801,7 +1758,7 @@ entry:
   br i1 %cmp, label %if.then49, label %if.else64.critedge
 
 if.then49:                                        ; preds = %entry
-  %filetype = getelementptr inbounds %struct.curl_fileinfo, ptr %infop, i64 0, i32 1
+  %filetype = getelementptr inbounds i8, ptr %infop, i64 8
   %13 = load i32, ptr %filetype, align 8
   %cmp50 = icmp eq i32 %13, 2
   br i1 %cmp50, label %land.lhs.true, label %if.then63.critedge
@@ -1822,9 +1779,9 @@ if.then63.critedge:                               ; preds = %if.then49, %land.lh
   br label %if.then63
 
 if.then63:                                        ; preds = %if.then63.critedge, %land.lhs.true54
-  %tail = getelementptr inbounds %struct.WildcardData, ptr %0, i64 0, i32 2, i32 1
+  %tail = getelementptr inbounds i8, ptr %0, i64 24
   %15 = load ptr, ptr %tail, align 8
-  %list = getelementptr inbounds %struct.fileinfo, ptr %infop, i64 0, i32 1
+  %list = getelementptr inbounds i8, ptr %infop, i64 128
   tail call void @Curl_llist_insert_next(ptr noundef nonnull %filelist, ptr noundef %15, ptr noundef nonnull %infop, ptr noundef nonnull %list) #7
   br label %if.end65
 
@@ -1838,7 +1795,7 @@ if.else64:                                        ; preds = %if.else64.critedge,
 
 if.end65:                                         ; preds = %if.else64, %if.then63
   %16 = load ptr, ptr %1, align 8
-  %file_data = getelementptr inbounds %struct.ftp_parselist_data, ptr %16, i64 0, i32 3
+  %file_data = getelementptr inbounds i8, ptr %16, i64 16
   store ptr null, ptr %file_data, align 8
   ret void
 }

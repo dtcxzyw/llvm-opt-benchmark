@@ -16,8 +16,8 @@ $_ZNK8facebook4yoga17CachedMeasurementeqES1_ = comdat any
 define hidden noundef zeroext i1 @_ZNK8facebook4yoga13LayoutResultseqES1_(ptr noundef nonnull align 4 dereferenceable(320) %this, ptr nocapture noundef readonly byval(%"struct.facebook::yoga::LayoutResults") align 8 %layout) local_unnamed_addr #0 align 2 {
 entry:
   %agg.tmp = alloca %"struct.facebook::yoga::CachedMeasurement", align 8
-  %position_ = getelementptr inbounds %"struct.facebook::yoga::LayoutResults", ptr %this, i64 0, i32 10
-  %position_2 = getelementptr inbounds %"struct.facebook::yoga::LayoutResults", ptr %layout, i64 0, i32 10
+  %position_ = getelementptr inbounds i8, ptr %this, i64 256
+  %position_2 = getelementptr inbounds i8, ptr %layout, i64 256
   br label %for.body.i
 
 for.body.i:                                       ; preds = %_ZN8facebook4yoga13inexactEqualsEff.exit.i, %entry
@@ -54,8 +54,8 @@ _ZN8facebook4yoga13inexactEqualsILm4EfEEbRKSt5arrayIT0_XT_EES6_.exit: ; preds = 
   br i1 %retval.0.i.i, label %land.lhs.true, label %for.end
 
 land.lhs.true:                                    ; preds = %_ZN8facebook4yoga13inexactEqualsILm4EfEEbRKSt5arrayIT0_XT_EES6_.exit
-  %dimensions_ = getelementptr inbounds %"struct.facebook::yoga::LayoutResults", ptr %this, i64 0, i32 8
-  %dimensions_3 = getelementptr inbounds %"struct.facebook::yoga::LayoutResults", ptr %layout, i64 0, i32 8
+  %dimensions_ = getelementptr inbounds i8, ptr %this, i64 240
+  %dimensions_3 = getelementptr inbounds i8, ptr %layout, i64 240
   br label %for.body.i8
 
 for.body.i8:                                      ; preds = %_ZN8facebook4yoga13inexactEqualsEff.exit.i19, %land.lhs.true
@@ -91,8 +91,8 @@ _ZN8facebook4yoga13inexactEqualsILm2EfEEbRKSt5arrayIT0_XT_EES6_.exit: ; preds = 
   br i1 %retval.0.i.i20, label %land.lhs.true5, label %for.end
 
 land.lhs.true5:                                   ; preds = %_ZN8facebook4yoga13inexactEqualsILm2EfEEbRKSt5arrayIT0_XT_EES6_.exit
-  %margin_ = getelementptr inbounds %"struct.facebook::yoga::LayoutResults", ptr %this, i64 0, i32 11
-  %margin_6 = getelementptr inbounds %"struct.facebook::yoga::LayoutResults", ptr %layout, i64 0, i32 11
+  %margin_ = getelementptr inbounds i8, ptr %this, i64 272
+  %margin_6 = getelementptr inbounds i8, ptr %layout, i64 272
   br label %for.body.i24
 
 for.body.i24:                                     ; preds = %_ZN8facebook4yoga13inexactEqualsEff.exit.i34, %land.lhs.true5
@@ -129,8 +129,8 @@ _ZN8facebook4yoga13inexactEqualsILm4EfEEbRKSt5arrayIT0_XT_EES6_.exit41: ; preds 
   br i1 %retval.0.i.i35, label %land.lhs.true8, label %for.end
 
 land.lhs.true8:                                   ; preds = %_ZN8facebook4yoga13inexactEqualsILm4EfEEbRKSt5arrayIT0_XT_EES6_.exit41
-  %border_ = getelementptr inbounds %"struct.facebook::yoga::LayoutResults", ptr %this, i64 0, i32 12
-  %border_9 = getelementptr inbounds %"struct.facebook::yoga::LayoutResults", ptr %layout, i64 0, i32 12
+  %border_ = getelementptr inbounds i8, ptr %this, i64 288
+  %border_9 = getelementptr inbounds i8, ptr %layout, i64 288
   br label %for.body.i42
 
 for.body.i42:                                     ; preds = %_ZN8facebook4yoga13inexactEqualsEff.exit.i52, %land.lhs.true8
@@ -167,8 +167,8 @@ _ZN8facebook4yoga13inexactEqualsILm4EfEEbRKSt5arrayIT0_XT_EES6_.exit59: ; preds 
   br i1 %retval.0.i.i53, label %land.lhs.true11, label %for.end
 
 land.lhs.true11:                                  ; preds = %_ZN8facebook4yoga13inexactEqualsILm4EfEEbRKSt5arrayIT0_XT_EES6_.exit59
-  %padding_ = getelementptr inbounds %"struct.facebook::yoga::LayoutResults", ptr %this, i64 0, i32 13
-  %padding_12 = getelementptr inbounds %"struct.facebook::yoga::LayoutResults", ptr %layout, i64 0, i32 13
+  %padding_ = getelementptr inbounds i8, ptr %this, i64 304
+  %padding_12 = getelementptr inbounds i8, ptr %layout, i64 304
   br label %for.body.i60
 
 for.body.i60:                                     ; preds = %_ZN8facebook4yoga13inexactEqualsEff.exit.i70, %land.lhs.true11
@@ -205,9 +205,9 @@ _ZN8facebook4yoga13inexactEqualsILm4EfEEbRKSt5arrayIT0_XT_EES6_.exit77: ; preds 
   br i1 %retval.0.i.i71, label %land.lhs.true14, label %for.end
 
 land.lhs.true14:                                  ; preds = %_ZN8facebook4yoga13inexactEqualsILm4EfEEbRKSt5arrayIT0_XT_EES6_.exit77
-  %direction_.i = getelementptr inbounds %"struct.facebook::yoga::LayoutResults", ptr %this, i64 0, i32 7
+  %direction_.i = getelementptr inbounds i8, ptr %this, i64 236
   %bf.load.i = load i8, ptr %direction_.i, align 4
-  %direction_.i78 = getelementptr inbounds %"struct.facebook::yoga::LayoutResults", ptr %layout, i64 0, i32 7
+  %direction_.i78 = getelementptr inbounds i8, ptr %layout, i64 236
   %bf.load.i79 = load i8, ptr %direction_.i78, align 4
   %20 = xor i8 %bf.load.i79, %bf.load.i
   %21 = and i8 %20, 3
@@ -223,32 +223,32 @@ land.lhs.true17:                                  ; preds = %land.lhs.true14
   br i1 %24, label %for.end, label %land.lhs.true22
 
 land.lhs.true22:                                  ; preds = %land.lhs.true17
-  %lastOwnerDirection = getelementptr inbounds %"struct.facebook::yoga::LayoutResults", ptr %this, i64 0, i32 3
+  %lastOwnerDirection = getelementptr inbounds i8, ptr %this, i64 12
   %25 = load i8, ptr %lastOwnerDirection, align 4
-  %lastOwnerDirection23 = getelementptr inbounds %"struct.facebook::yoga::LayoutResults", ptr %layout, i64 0, i32 3
+  %lastOwnerDirection23 = getelementptr inbounds i8, ptr %layout, i64 12
   %26 = load i8, ptr %lastOwnerDirection23, align 4
   %cmp24 = icmp eq i8 %25, %26
   br i1 %cmp24, label %land.lhs.true25, label %for.end
 
 land.lhs.true25:                                  ; preds = %land.lhs.true22
-  %nextCachedMeasurementsIndex = getelementptr inbounds %"struct.facebook::yoga::LayoutResults", ptr %this, i64 0, i32 4
+  %nextCachedMeasurementsIndex = getelementptr inbounds i8, ptr %this, i64 16
   %27 = load i32, ptr %nextCachedMeasurementsIndex, align 4
-  %nextCachedMeasurementsIndex26 = getelementptr inbounds %"struct.facebook::yoga::LayoutResults", ptr %layout, i64 0, i32 4
+  %nextCachedMeasurementsIndex26 = getelementptr inbounds i8, ptr %layout, i64 16
   %28 = load i32, ptr %nextCachedMeasurementsIndex26, align 8
   %cmp27 = icmp eq i32 %27, %28
   br i1 %cmp27, label %land.lhs.true28, label %for.end
 
 land.lhs.true28:                                  ; preds = %land.lhs.true25
-  %cachedLayout = getelementptr inbounds %"struct.facebook::yoga::LayoutResults", ptr %this, i64 0, i32 6
-  %cachedLayout29 = getelementptr inbounds %"struct.facebook::yoga::LayoutResults", ptr %layout, i64 0, i32 6
+  %cachedLayout = getelementptr inbounds i8, ptr %this, i64 212
+  %cachedLayout29 = getelementptr inbounds i8, ptr %layout, i64 212
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %agg.tmp, ptr noundef nonnull align 4 dereferenceable(24) %cachedLayout29, i64 24, i1 false)
   %call30 = tail call noundef zeroext i1 @_ZNK8facebook4yoga17CachedMeasurementeqES1_(ptr noundef nonnull align 4 dereferenceable(24) %cachedLayout, ptr noundef nonnull byval(%"struct.facebook::yoga::CachedMeasurement") align 8 %agg.tmp)
   br i1 %call30, label %land.rhs, label %for.end
 
 land.rhs:                                         ; preds = %land.lhs.true28
-  %computedFlexBasis = getelementptr inbounds %"struct.facebook::yoga::LayoutResults", ptr %this, i64 0, i32 1
+  %computedFlexBasis = getelementptr inbounds i8, ptr %this, i64 4
   %agg.tmp31.sroa.0.0.copyload = load float, ptr %computedFlexBasis, align 4
-  %computedFlexBasis33 = getelementptr inbounds %"struct.facebook::yoga::LayoutResults", ptr %layout, i64 0, i32 1
+  %computedFlexBasis33 = getelementptr inbounds i8, ptr %layout, i64 4
   %agg.tmp32.sroa.0.0.copyload = load float, ptr %computedFlexBasis33, align 4
   %cmp.i85 = fcmp oeq float %agg.tmp31.sroa.0.0.copyload, %agg.tmp32.sroa.0.0.copyload
   br i1 %cmp.i85, label %land.rhs40.lr.ph, label %lor.rhs.i
@@ -260,8 +260,8 @@ lor.rhs.i:                                        ; preds = %land.rhs
   br i1 %or.cond133, label %for.end, label %land.rhs40.lr.ph
 
 land.rhs40.lr.ph:                                 ; preds = %lor.rhs.i, %land.rhs
-  %cachedMeasurements = getelementptr inbounds %"struct.facebook::yoga::LayoutResults", ptr %this, i64 0, i32 5
-  %cachedMeasurements44 = getelementptr inbounds %"struct.facebook::yoga::LayoutResults", ptr %layout, i64 0, i32 5
+  %cachedMeasurements = getelementptr inbounds i8, ptr %this, i64 20
+  %cachedMeasurements44 = getelementptr inbounds i8, ptr %layout, i64 20
   br label %land.rhs40
 
 land.rhs40:                                       ; preds = %land.rhs40.lr.ph, %_ZNK8facebook4yoga17CachedMeasurementeqES1_.exit
@@ -276,7 +276,7 @@ land.rhs40:                                       ; preds = %land.rhs40.lr.ph, %
   %agg.tmp43.sroa.5.0.copyload = load float, ptr %agg.tmp43.sroa.5.0.arrayidx.i.i87.sroa_idx, align 4
   %agg.tmp43.sroa.6.0.arrayidx.i.i87.sroa_idx = getelementptr inbounds i8, ptr %arrayidx.i.i87, i64 20
   %agg.tmp43.sroa.6.0.copyload = load float, ptr %agg.tmp43.sroa.6.0.arrayidx.i.i87.sroa_idx, align 8
-  %widthSizingMode.i = getelementptr inbounds [8 x %"struct.facebook::yoga::CachedMeasurement"], ptr %cachedMeasurements, i64 0, i64 %indvars.iv, i32 2
+  %widthSizingMode.i = getelementptr inbounds i8, ptr %arrayidx.i.i, i64 8
   %29 = load <2 x i32>, ptr %agg.tmp43.sroa.3.0.arrayidx.i.i87.sroa_idx, align 4
   %30 = load <2 x i32>, ptr %widthSizingMode.i, align 4
   %31 = icmp eq <2 x i32> %30, %29
@@ -296,7 +296,7 @@ if.then.i:                                        ; preds = %land.rhs40
 
 if.end.i:                                         ; preds = %if.then.i, %land.rhs40
   %isEqual.0.in.i = phi i1 [ %narrow.i, %if.then.i ], [ %34, %land.rhs40 ]
-  %availableHeight.i = getelementptr inbounds [8 x %"struct.facebook::yoga::CachedMeasurement"], ptr %cachedMeasurements, i64 0, i64 %indvars.iv, i32 1
+  %availableHeight.i = getelementptr inbounds i8, ptr %arrayidx.i.i, i64 4
   %36 = load float, ptr %availableHeight.i, align 4
   %cmp.i6.i = fcmp uno float %36, 0.000000e+00
   %cmp.i7.i = fcmp uno float %agg.tmp43.sroa.2.0.copyload, 0.000000e+00
@@ -310,7 +310,7 @@ if.then17.i:                                      ; preds = %if.end.i
 
 if.end25.i:                                       ; preds = %if.then17.i, %if.end.i
   %isEqual.1.in.i = phi i1 [ %narrow14.i, %if.then17.i ], [ %isEqual.0.in.i, %if.end.i ]
-  %computedWidth.i = getelementptr inbounds [8 x %"struct.facebook::yoga::CachedMeasurement"], ptr %cachedMeasurements, i64 0, i64 %indvars.iv, i32 4
+  %computedWidth.i = getelementptr inbounds i8, ptr %arrayidx.i.i, i64 16
   %37 = load float, ptr %computedWidth.i, align 4
   %cmp.i8.i = fcmp uno float %37, 0.000000e+00
   %cmp.i9.i = fcmp uno float %agg.tmp43.sroa.5.0.copyload, 0.000000e+00
@@ -324,7 +324,7 @@ if.then30.i:                                      ; preds = %if.end25.i
 
 if.end38.i:                                       ; preds = %if.then30.i, %if.end25.i
   %isEqual.2.in.i = phi i1 [ %narrow15.i, %if.then30.i ], [ %isEqual.1.in.i, %if.end25.i ]
-  %computedHeight.i = getelementptr inbounds [8 x %"struct.facebook::yoga::CachedMeasurement"], ptr %cachedMeasurements, i64 0, i64 %indvars.iv, i32 5
+  %computedHeight.i = getelementptr inbounds i8, ptr %arrayidx.i.i, i64 20
   %38 = load float, ptr %computedHeight.i, align 4
   %cmp.i10.i = fcmp uno float %38, 0.000000e+00
   %cmp.i11.i = fcmp uno float %agg.tmp43.sroa.6.0.copyload, 0.000000e+00
@@ -350,13 +350,13 @@ for.end.loopexit:                                 ; preds = %_ZNK8facebook4yoga1
 for.end:                                          ; preds = %if.end.i.i, %if.end.i.i14, %if.end.i.i29, %if.end.i.i47, %if.end.i.i65, %lor.rhs.i, %_ZN8facebook4yoga13inexactEqualsILm4EfEEbRKSt5arrayIT0_XT_EES6_.exit, %_ZN8facebook4yoga13inexactEqualsILm2EfEEbRKSt5arrayIT0_XT_EES6_.exit, %_ZN8facebook4yoga13inexactEqualsILm4EfEEbRKSt5arrayIT0_XT_EES6_.exit41, %_ZN8facebook4yoga13inexactEqualsILm4EfEEbRKSt5arrayIT0_XT_EES6_.exit59, %_ZN8facebook4yoga13inexactEqualsILm4EfEEbRKSt5arrayIT0_XT_EES6_.exit77, %land.lhs.true14, %land.lhs.true17, %land.lhs.true22, %land.lhs.true25, %land.lhs.true28, %for.end.loopexit
   %isEqual.0.lcssa = phi i8 [ %frombool49, %for.end.loopexit ], [ 0, %land.lhs.true28 ], [ 0, %land.lhs.true25 ], [ 0, %land.lhs.true22 ], [ 0, %land.lhs.true17 ], [ 0, %land.lhs.true14 ], [ 0, %_ZN8facebook4yoga13inexactEqualsILm4EfEEbRKSt5arrayIT0_XT_EES6_.exit77 ], [ 0, %_ZN8facebook4yoga13inexactEqualsILm4EfEEbRKSt5arrayIT0_XT_EES6_.exit59 ], [ 0, %_ZN8facebook4yoga13inexactEqualsILm4EfEEbRKSt5arrayIT0_XT_EES6_.exit41 ], [ 0, %_ZN8facebook4yoga13inexactEqualsILm2EfEEbRKSt5arrayIT0_XT_EES6_.exit ], [ 0, %_ZN8facebook4yoga13inexactEqualsILm4EfEEbRKSt5arrayIT0_XT_EES6_.exit ], [ 0, %lor.rhs.i ], [ 0, %if.end.i.i65 ], [ 0, %if.end.i.i47 ], [ 0, %if.end.i.i29 ], [ 0, %if.end.i.i14 ], [ 0, %if.end.i.i ]
   %tobool.lcssa = phi i1 [ %isEqual.3.in.i, %for.end.loopexit ], [ false, %land.lhs.true28 ], [ false, %land.lhs.true25 ], [ false, %land.lhs.true22 ], [ false, %land.lhs.true17 ], [ false, %land.lhs.true14 ], [ false, %_ZN8facebook4yoga13inexactEqualsILm4EfEEbRKSt5arrayIT0_XT_EES6_.exit77 ], [ false, %_ZN8facebook4yoga13inexactEqualsILm4EfEEbRKSt5arrayIT0_XT_EES6_.exit59 ], [ false, %_ZN8facebook4yoga13inexactEqualsILm4EfEEbRKSt5arrayIT0_XT_EES6_.exit41 ], [ false, %_ZN8facebook4yoga13inexactEqualsILm2EfEEbRKSt5arrayIT0_XT_EES6_.exit ], [ false, %_ZN8facebook4yoga13inexactEqualsILm4EfEEbRKSt5arrayIT0_XT_EES6_.exit ], [ false, %lor.rhs.i ], [ false, %if.end.i.i65 ], [ false, %if.end.i.i47 ], [ false, %if.end.i.i29 ], [ false, %if.end.i.i14 ], [ false, %if.end.i.i ]
-  %measuredDimensions_ = getelementptr inbounds %"struct.facebook::yoga::LayoutResults", ptr %this, i64 0, i32 9
+  %measuredDimensions_ = getelementptr inbounds i8, ptr %this, i64 248
   %40 = load float, ptr %measuredDimensions_, align 4
   %cmp.i91 = fcmp uno float %40, 0.000000e+00
   br i1 %cmp.i91, label %lor.lhs.false, label %if.then
 
 lor.lhs.false:                                    ; preds = %for.end
-  %measuredDimensions_52 = getelementptr inbounds %"struct.facebook::yoga::LayoutResults", ptr %layout, i64 0, i32 9
+  %measuredDimensions_52 = getelementptr inbounds i8, ptr %layout, i64 248
   %41 = load float, ptr %measuredDimensions_52, align 8
   %cmp.i92 = fcmp ord float %41, 0.000000e+00
   %brmerge.not = and i1 %tobool.lcssa, %cmp.i92
@@ -367,7 +367,7 @@ if.then:                                          ; preds = %for.end
   br i1 %tobool.lcssa, label %if.then.land.rhs56_crit_edge, label %if.end81
 
 if.then.land.rhs56_crit_edge:                     ; preds = %if.then
-  %measuredDimensions_59.phi.trans.insert = getelementptr inbounds %"struct.facebook::yoga::LayoutResults", ptr %layout, i64 0, i32 9
+  %measuredDimensions_59.phi.trans.insert = getelementptr inbounds i8, ptr %layout, i64 248
   %.pre = load float, ptr %measuredDimensions_59.phi.trans.insert, align 8
   br label %land.rhs56
 
@@ -379,10 +379,10 @@ land.rhs56:                                       ; preds = %if.then.land.rhs56_
 
 if.end:                                           ; preds = %lor.lhs.false, %land.rhs56
   %isEqual.1 = phi i8 [ %isEqual.0.mux, %lor.lhs.false ], [ %43, %land.rhs56 ]
-  %arrayidx.i.i93 = getelementptr inbounds %"struct.facebook::yoga::LayoutResults", ptr %this, i64 0, i32 9, i32 0, i64 1
+  %arrayidx.i.i93 = getelementptr inbounds i8, ptr %this, i64 252
   %44 = load float, ptr %arrayidx.i.i93, align 4
   %cmp.i94 = fcmp uno float %44, 0.000000e+00
-  %arrayidx.i.i95 = getelementptr inbounds %"struct.facebook::yoga::LayoutResults", ptr %layout, i64 0, i32 9, i32 0, i64 1
+  %arrayidx.i.i95 = getelementptr inbounds i8, ptr %layout, i64 252
   %45 = load float, ptr %arrayidx.i.i95, align 4
   %cmp.i96 = fcmp uno float %45, 0.000000e+00
   %or.cond = select i1 %cmp.i94, i1 %cmp.i96, i1 false
@@ -406,8 +406,8 @@ if.end81:                                         ; preds = %if.then, %if.end, %
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr hidden noundef zeroext i1 @_ZNK8facebook4yoga17CachedMeasurementeqES1_(ptr noundef nonnull align 4 dereferenceable(24) %this, ptr noundef byval(%"struct.facebook::yoga::CachedMeasurement") align 8 %measurement) local_unnamed_addr #0 comdat align 2 {
 entry:
-  %widthSizingMode = getelementptr inbounds %"struct.facebook::yoga::CachedMeasurement", ptr %this, i64 0, i32 2
-  %widthSizingMode2 = getelementptr inbounds %"struct.facebook::yoga::CachedMeasurement", ptr %measurement, i64 0, i32 2
+  %widthSizingMode = getelementptr inbounds i8, ptr %this, i64 8
+  %widthSizingMode2 = getelementptr inbounds i8, ptr %measurement, i64 8
   %0 = load <2 x i32>, ptr %widthSizingMode, align 4
   %1 = load <2 x i32>, ptr %widthSizingMode2, align 8
   %2 = icmp eq <2 x i32> %0, %1
@@ -428,10 +428,10 @@ if.then:                                          ; preds = %entry
 
 if.end:                                           ; preds = %entry, %if.then
   %isEqual.0.in = phi i1 [ %narrow, %if.then ], [ %5, %entry ]
-  %availableHeight = getelementptr inbounds %"struct.facebook::yoga::CachedMeasurement", ptr %this, i64 0, i32 1
+  %availableHeight = getelementptr inbounds i8, ptr %this, i64 4
   %8 = load float, ptr %availableHeight, align 4
   %cmp.i6 = fcmp uno float %8, 0.000000e+00
-  %availableHeight15 = getelementptr inbounds %"struct.facebook::yoga::CachedMeasurement", ptr %measurement, i64 0, i32 1
+  %availableHeight15 = getelementptr inbounds i8, ptr %measurement, i64 4
   %9 = load float, ptr %availableHeight15, align 4
   %cmp.i7 = fcmp uno float %9, 0.000000e+00
   %or.cond = select i1 %cmp.i6, i1 %cmp.i7, i1 false
@@ -444,10 +444,10 @@ if.then17:                                        ; preds = %if.end
 
 if.end25:                                         ; preds = %if.end, %if.then17
   %isEqual.1.in = phi i1 [ %narrow14, %if.then17 ], [ %isEqual.0.in, %if.end ]
-  %computedWidth = getelementptr inbounds %"struct.facebook::yoga::CachedMeasurement", ptr %this, i64 0, i32 4
+  %computedWidth = getelementptr inbounds i8, ptr %this, i64 16
   %10 = load float, ptr %computedWidth, align 4
   %cmp.i8 = fcmp uno float %10, 0.000000e+00
-  %computedWidth28 = getelementptr inbounds %"struct.facebook::yoga::CachedMeasurement", ptr %measurement, i64 0, i32 4
+  %computedWidth28 = getelementptr inbounds i8, ptr %measurement, i64 16
   %11 = load float, ptr %computedWidth28, align 8
   %cmp.i9 = fcmp uno float %11, 0.000000e+00
   %or.cond12 = select i1 %cmp.i8, i1 %cmp.i9, i1 false
@@ -460,10 +460,10 @@ if.then30:                                        ; preds = %if.end25
 
 if.end38:                                         ; preds = %if.end25, %if.then30
   %isEqual.2.in = phi i1 [ %narrow15, %if.then30 ], [ %isEqual.1.in, %if.end25 ]
-  %computedHeight = getelementptr inbounds %"struct.facebook::yoga::CachedMeasurement", ptr %this, i64 0, i32 5
+  %computedHeight = getelementptr inbounds i8, ptr %this, i64 20
   %12 = load float, ptr %computedHeight, align 4
   %cmp.i10 = fcmp uno float %12, 0.000000e+00
-  %computedHeight41 = getelementptr inbounds %"struct.facebook::yoga::CachedMeasurement", ptr %measurement, i64 0, i32 5
+  %computedHeight41 = getelementptr inbounds i8, ptr %measurement, i64 20
   %13 = load float, ptr %computedHeight41, align 4
   %cmp.i11 = fcmp uno float %13, 0.000000e+00
   %or.cond13 = select i1 %cmp.i10, i1 %cmp.i11, i1 false

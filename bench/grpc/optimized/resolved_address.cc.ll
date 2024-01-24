@@ -57,7 +57,7 @@ entry:
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
 define noundef i32 @_ZNK17grpc_event_engine12experimental11EventEngine15ResolvedAddress4sizeEv(ptr nocapture noundef nonnull readonly align 4 dereferenceable(132) %this) local_unnamed_addr #7 align 2 {
 entry:
-  %size_ = getelementptr inbounds %"class.grpc_event_engine::experimental::EventEngine::ResolvedAddress", ptr %this, i64 0, i32 1
+  %size_ = getelementptr inbounds i8, ptr %this, i64 128
   %0 = load i32, ptr %size_, align 4
   ret i32 %0
 }
@@ -65,16 +65,16 @@ entry:
 ; Function Attrs: mustprogress uwtable
 define void @_ZN17grpc_event_engine12experimental21CreateResolvedAddressERK21grpc_resolved_address(ptr noalias sret(%"class.grpc_event_engine::experimental::EventEngine::ResolvedAddress") align 4 %agg.result, ptr noundef nonnull align 4 dereferenceable(132) %addr) local_unnamed_addr #3 {
 entry:
-  %len = getelementptr inbounds %struct.grpc_resolved_address, ptr %addr, i64 0, i32 1
+  %len = getelementptr inbounds i8, ptr %addr, i64 128
   %0 = load i32, ptr %len, align 4
   tail call void @_ZN17grpc_event_engine12experimental11EventEngine15ResolvedAddressC1EPK8sockaddrj(ptr noundef nonnull align 4 dereferenceable(132) %agg.result, ptr noundef nonnull %addr, i32 noundef %0)
   ret void
 }
 
-; Function Attrs: mustprogress nofree nosync nounwind willreturn memory(argmem: readwrite) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
 define void @_ZN17grpc_event_engine12experimental25CreateGRPCResolvedAddressERKNS0_11EventEngine15ResolvedAddressE(ptr noalias nocapture writeonly sret(%struct.grpc_resolved_address) align 4 %agg.result, ptr nocapture noundef nonnull readonly align 4 dereferenceable(132) %ra) local_unnamed_addr #8 {
 entry:
-  %size_.i = getelementptr inbounds %"class.grpc_event_engine::experimental::EventEngine::ResolvedAddress", ptr %ra, i64 0, i32 1
+  %size_.i = getelementptr inbounds i8, ptr %ra, i64 128
   %0 = load i32, ptr %size_.i, align 4
   %conv = zext i32 %0 to i64
   %1 = icmp ugt i32 %0, 131
@@ -83,7 +83,7 @@ entry:
   %4 = getelementptr i8, ptr %agg.result, i64 %conv
   tail call void @llvm.memset.p0.i64(ptr align 1 %4, i8 0, i64 %3, i1 false)
   tail call void @llvm.memcpy.p0.p0.i64(ptr align 4 %agg.result, ptr nonnull align 4 %ra, i64 %conv, i1 false)
-  %len = getelementptr inbounds %struct.grpc_resolved_address, ptr %agg.result, i64 0, i32 1
+  %len = getelementptr inbounds i8, ptr %agg.result, i64 128
   store i32 %0, ptr %len, align 4
   ret void
 }
@@ -107,7 +107,7 @@ attributes #4 = { noreturn "frame-pointer"="all" "no-trapping-math"="true" "stac
 attributes #5 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
 attributes #6 = { mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #7 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #8 = { mustprogress nofree nosync nounwind willreturn memory(argmem: readwrite) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #8 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #9 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: write) }
 attributes #10 = { uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #11 = { noreturn }

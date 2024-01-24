@@ -56,7 +56,7 @@ if.then1:                                         ; preds = %do.end
   unreachable
 
 if.end2:                                          ; preds = %do.end
-  %arrayidx = getelementptr inbounds ptr, ptr %argv, i64 2
+  %arrayidx = getelementptr inbounds i8, ptr %argv, i64 16
   %0 = load ptr, ptr %arrayidx, align 8
   call void @llvm.lifetime.start.p0(i64 4096, ptr nonnull %buffer.i)
   %1 = load ptr, ptr @stdin, align 8
@@ -140,11 +140,11 @@ if.then22.i:                                      ; preds = %do.body.i.i
   %call24.i = call i32 @fflush(ptr noundef %10)
   call void @llvm.lifetime.start.p0(i64 120, ptr nonnull %child.i.i)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(120) %child.i.i, ptr noundef nonnull align 8 dereferenceable(120) @__const.run_child.child, i64 120, i1 false)
-  %in.i.i = getelementptr inbounds %struct.child_process, ptr %child.i.i, i64 0, i32 7
+  %in.i.i = getelementptr inbounds i8, ptr %child.i.i, i64 80
   store i32 -1, ptr %in.i.i, align 8
-  %out.i.i = getelementptr inbounds %struct.child_process, ptr %child.i.i, i64 0, i32 8
+  %out.i.i = getelementptr inbounds i8, ptr %child.i.i, i64 84
   store i32 -1, ptr %out.i.i, align 4
-  %err.i.i = getelementptr inbounds %struct.child_process, ptr %child.i.i, i64 0, i32 9
+  %err.i.i = getelementptr inbounds i8, ptr %child.i.i, i64 88
   store i32 0, ptr %err.i.i, align 8
   %11 = load i8, ptr %0, align 1
   %tobool.not12.i.i.i = icmp eq i8 %11, 0
@@ -152,8 +152,8 @@ if.then22.i:                                      ; preds = %do.body.i.i
 
 while.body.lr.ph.i.i.i:                           ; preds = %if.then22.i
   %scevgep.i.i.i.i = getelementptr inbounds i8, ptr %buffer.i, i64 12
-  %len.i.i.i.i.i.i = getelementptr inbounds %struct.strbuf, ptr %ret.i.i.i.i, i64 0, i32 1
-  %buf.i.i.i.i.i = getelementptr inbounds %struct.strbuf, ptr %ret.i.i.i.i, i64 0, i32 2
+  %len.i.i.i.i.i.i = getelementptr inbounds i8, ptr %ret.i.i.i.i, i64 8
+  %buf.i.i.i.i.i = getelementptr inbounds i8, ptr %ret.i.i.i.i, i64 16
   br label %while.body.i.i.i
 
 while.body.i.i.i:                                 ; preds = %if.end.i.i.i, %while.body.lr.ph.i.i.i

@@ -50,7 +50,7 @@ if.then:                                          ; preds = %entry
   br i1 %cmp225224, label %for.body.lr.ph, label %for.end
 
 for.body.lr.ph:                                   ; preds = %if.then
-  %arrayidx55 = getelementptr inbounds [2 x i64], ptr %tin, i64 0, i64 1
+  %arrayidx55 = getelementptr inbounds i8, ptr %tin, i64 8
   br label %for.body
 
 for.body:                                         ; preds = %for.body.lr.ph, %for.body
@@ -248,7 +248,7 @@ sw.epilog:                                        ; preds = %sw.bb122, %if.then8
   %xor127 = xor i64 %tin0.3, %tout0.0.lcssa
   %xor128 = xor i64 %tin1.7, %tout1.0.lcssa
   store i64 %xor127, ptr %tin, align 16
-  %arrayidx130 = getelementptr inbounds [2 x i64], ptr %tin, i64 0, i64 1
+  %arrayidx130 = getelementptr inbounds i8, ptr %tin, i64 8
   store i64 %xor128, ptr %arrayidx130, align 8
   call void @IDEA_encrypt(ptr noundef nonnull %tin, ptr noundef %ks)
   %25 = load i64, ptr %tin, align 16
@@ -306,7 +306,7 @@ if.else:                                          ; preds = %entry
   br i1 %cmp225224, label %for.body227.lr.ph, label %for.end295
 
 for.body227.lr.ph:                                ; preds = %if.else
-  %arrayidx257 = getelementptr inbounds [2 x i64], ptr %tin, i64 0, i64 1
+  %arrayidx257 = getelementptr inbounds i8, ptr %tin, i64 8
   br label %for.body227
 
 for.body227:                                      ; preds = %for.body227.lr.ph, %for.body227
@@ -438,7 +438,7 @@ if.then298:                                       ; preds = %for.end295
   %44 = load i8, ptr %incdec.ptr321, align 1
   %conv326 = zext i8 %44 to i64
   %or327 = or disjoint i64 %or324, %conv326
-  %arrayidx328 = getelementptr inbounds [2 x i64], ptr %tin, i64 0, i64 1
+  %arrayidx328 = getelementptr inbounds i8, ptr %tin, i64 8
   store i64 %or327, ptr %arrayidx328, align 8
   call void @IDEA_encrypt(ptr noundef nonnull %tin, ptr noundef %ks)
   %45 = load i64, ptr %tin, align 16
@@ -547,7 +547,7 @@ define void @IDEA_encrypt(ptr nocapture noundef %d, ptr noundef readonly %key) l
 entry:
   %0 = load i64, ptr %d, align 8
   %shr = lshr i64 %0, 16
-  %arrayidx1 = getelementptr inbounds i64, ptr %d, i64 1
+  %arrayidx1 = getelementptr inbounds i8, ptr %d, i64 8
   %1 = load i64, ptr %arrayidx1, align 8
   %shr2 = lshr i64 %1, 16
   %and = and i64 %shr, 65535
@@ -574,12 +574,12 @@ if.else:                                          ; preds = %entry
 
 if.end:                                           ; preds = %if.else, %if.then
   %x1.0 = phi i64 [ %sub9, %if.then ], [ %conv13, %if.else ]
-  %incdec.ptr = getelementptr inbounds i32, ptr %key, i64 1
-  %incdec.ptr14 = getelementptr inbounds i32, ptr %key, i64 2
+  %incdec.ptr = getelementptr inbounds i8, ptr %key, i64 4
+  %incdec.ptr14 = getelementptr inbounds i8, ptr %key, i64 8
   %4 = load i32, ptr %incdec.ptr, align 4
   %conv15 = zext i32 %4 to i64
   %add16 = add i64 %0, %conv15
-  %incdec.ptr17 = getelementptr inbounds i32, ptr %key, i64 3
+  %incdec.ptr17 = getelementptr inbounds i8, ptr %key, i64 12
   %5 = load i32, ptr %incdec.ptr14, align 4
   %conv18 = zext i32 %5 to i64
   %add19 = add nuw nsw i64 %shr2, %conv18
@@ -607,7 +607,7 @@ if.else31:                                        ; preds = %if.end
 
 if.end37:                                         ; preds = %if.else31, %if.then25
   %x4.0 = phi i64 [ %sub30, %if.then25 ], [ %conv36, %if.else31 ]
-  %incdec.ptr38 = getelementptr inbounds i32, ptr %key, i64 4
+  %incdec.ptr38 = getelementptr inbounds i8, ptr %key, i64 16
   %xor = xor i64 %add19, %x1.0
   %and39 = and i64 %xor, 65535
   %8 = load i32, ptr %incdec.ptr38, align 4
@@ -633,7 +633,7 @@ if.else50:                                        ; preds = %if.end37
 
 if.end56:                                         ; preds = %if.else50, %if.then44
   %t0.0 = phi i64 [ %sub49, %if.then44 ], [ %conv55, %if.else50 ]
-  %incdec.ptr57 = getelementptr inbounds i32, ptr %key, i64 5
+  %incdec.ptr57 = getelementptr inbounds i8, ptr %key, i64 20
   %xor58 = xor i64 %x4.0, %add16
   %add59 = add i64 %t0.0, %xor58
   %and60 = and i64 %add59, 65535
@@ -660,7 +660,7 @@ if.else71:                                        ; preds = %if.end56
 
 if.end77:                                         ; preds = %if.else71, %if.then65
   %t1.0 = phi i64 [ %sub70, %if.then65 ], [ %conv76, %if.else71 ]
-  %incdec.ptr78 = getelementptr inbounds i32, ptr %key, i64 6
+  %incdec.ptr78 = getelementptr inbounds i8, ptr %key, i64 24
   %add79 = add nsw i64 %t1.0, %t0.0
   %xor80 = xor i64 %t1.0, %x1.0
   %xor81 = xor i64 %add79, %x4.0
@@ -690,12 +690,12 @@ if.else95:                                        ; preds = %if.end77
 
 if.end101:                                        ; preds = %if.else95, %if.then89
   %x1.1 = phi i64 [ %sub94, %if.then89 ], [ %conv100, %if.else95 ]
-  %incdec.ptr102 = getelementptr inbounds i32, ptr %key, i64 7
-  %incdec.ptr103 = getelementptr inbounds i32, ptr %key, i64 8
+  %incdec.ptr102 = getelementptr inbounds i8, ptr %key, i64 28
+  %incdec.ptr103 = getelementptr inbounds i8, ptr %key, i64 32
   %14 = load i32, ptr %incdec.ptr102, align 4
   %conv104 = zext i32 %14 to i64
   %add105 = add nsw i64 %xor83, %conv104
-  %incdec.ptr106 = getelementptr inbounds i32, ptr %key, i64 9
+  %incdec.ptr106 = getelementptr inbounds i8, ptr %key, i64 36
   %15 = load i32, ptr %incdec.ptr103, align 4
   %conv107 = zext i32 %15 to i64
   %add108 = add i64 %xor82, %conv107
@@ -723,7 +723,7 @@ if.else120:                                       ; preds = %if.end101
 
 if.end126:                                        ; preds = %if.else120, %if.then114
   %x4.1 = phi i64 [ %sub119, %if.then114 ], [ %conv125, %if.else120 ]
-  %incdec.ptr127 = getelementptr inbounds i32, ptr %key, i64 10
+  %incdec.ptr127 = getelementptr inbounds i8, ptr %key, i64 40
   %xor128 = xor i64 %add108, %x1.1
   %and129 = and i64 %xor128, 65535
   %18 = load i32, ptr %incdec.ptr127, align 4
@@ -749,7 +749,7 @@ if.else140:                                       ; preds = %if.end126
 
 if.end146:                                        ; preds = %if.else140, %if.then134
   %t0.1 = phi i64 [ %sub139, %if.then134 ], [ %conv145, %if.else140 ]
-  %incdec.ptr147 = getelementptr inbounds i32, ptr %key, i64 11
+  %incdec.ptr147 = getelementptr inbounds i8, ptr %key, i64 44
   %xor148 = xor i64 %x4.1, %add105
   %add149 = add i64 %t0.1, %xor148
   %and150 = and i64 %add149, 65535
@@ -776,7 +776,7 @@ if.else161:                                       ; preds = %if.end146
 
 if.end167:                                        ; preds = %if.else161, %if.then155
   %t1.1 = phi i64 [ %sub160, %if.then155 ], [ %conv166, %if.else161 ]
-  %incdec.ptr168 = getelementptr inbounds i32, ptr %key, i64 12
+  %incdec.ptr168 = getelementptr inbounds i8, ptr %key, i64 48
   %add169 = add nsw i64 %t1.1, %t0.1
   %xor170 = xor i64 %t1.1, %x1.1
   %xor171 = xor i64 %add169, %x4.1
@@ -806,12 +806,12 @@ if.else185:                                       ; preds = %if.end167
 
 if.end191:                                        ; preds = %if.else185, %if.then179
   %x1.2 = phi i64 [ %sub184, %if.then179 ], [ %conv190, %if.else185 ]
-  %incdec.ptr192 = getelementptr inbounds i32, ptr %key, i64 13
-  %incdec.ptr193 = getelementptr inbounds i32, ptr %key, i64 14
+  %incdec.ptr192 = getelementptr inbounds i8, ptr %key, i64 52
+  %incdec.ptr193 = getelementptr inbounds i8, ptr %key, i64 56
   %24 = load i32, ptr %incdec.ptr192, align 4
   %conv194 = zext i32 %24 to i64
   %add195 = add i64 %xor173, %conv194
-  %incdec.ptr196 = getelementptr inbounds i32, ptr %key, i64 15
+  %incdec.ptr196 = getelementptr inbounds i8, ptr %key, i64 60
   %25 = load i32, ptr %incdec.ptr193, align 4
   %conv197 = zext i32 %25 to i64
   %add198 = add i64 %xor172, %conv197
@@ -839,7 +839,7 @@ if.else210:                                       ; preds = %if.end191
 
 if.end216:                                        ; preds = %if.else210, %if.then204
   %x4.2 = phi i64 [ %sub209, %if.then204 ], [ %conv215, %if.else210 ]
-  %incdec.ptr217 = getelementptr inbounds i32, ptr %key, i64 16
+  %incdec.ptr217 = getelementptr inbounds i8, ptr %key, i64 64
   %xor218 = xor i64 %add198, %x1.2
   %and219 = and i64 %xor218, 65535
   %28 = load i32, ptr %incdec.ptr217, align 4
@@ -865,7 +865,7 @@ if.else230:                                       ; preds = %if.end216
 
 if.end236:                                        ; preds = %if.else230, %if.then224
   %t0.2 = phi i64 [ %sub229, %if.then224 ], [ %conv235, %if.else230 ]
-  %incdec.ptr237 = getelementptr inbounds i32, ptr %key, i64 17
+  %incdec.ptr237 = getelementptr inbounds i8, ptr %key, i64 68
   %xor238 = xor i64 %x4.2, %add195
   %add239 = add i64 %t0.2, %xor238
   %and240 = and i64 %add239, 65535
@@ -892,7 +892,7 @@ if.else251:                                       ; preds = %if.end236
 
 if.end257:                                        ; preds = %if.else251, %if.then245
   %t1.2 = phi i64 [ %sub250, %if.then245 ], [ %conv256, %if.else251 ]
-  %incdec.ptr258 = getelementptr inbounds i32, ptr %key, i64 18
+  %incdec.ptr258 = getelementptr inbounds i8, ptr %key, i64 72
   %add259 = add nsw i64 %t1.2, %t0.2
   %xor260 = xor i64 %t1.2, %x1.2
   %xor261 = xor i64 %add259, %x4.2
@@ -922,12 +922,12 @@ if.else275:                                       ; preds = %if.end257
 
 if.end281:                                        ; preds = %if.else275, %if.then269
   %x1.3 = phi i64 [ %sub274, %if.then269 ], [ %conv280, %if.else275 ]
-  %incdec.ptr282 = getelementptr inbounds i32, ptr %key, i64 19
-  %incdec.ptr283 = getelementptr inbounds i32, ptr %key, i64 20
+  %incdec.ptr282 = getelementptr inbounds i8, ptr %key, i64 76
+  %incdec.ptr283 = getelementptr inbounds i8, ptr %key, i64 80
   %34 = load i32, ptr %incdec.ptr282, align 4
   %conv284 = zext i32 %34 to i64
   %add285 = add i64 %xor263, %conv284
-  %incdec.ptr286 = getelementptr inbounds i32, ptr %key, i64 21
+  %incdec.ptr286 = getelementptr inbounds i8, ptr %key, i64 84
   %35 = load i32, ptr %incdec.ptr283, align 4
   %conv287 = zext i32 %35 to i64
   %add288 = add i64 %xor262, %conv287
@@ -955,7 +955,7 @@ if.else300:                                       ; preds = %if.end281
 
 if.end306:                                        ; preds = %if.else300, %if.then294
   %x4.3 = phi i64 [ %sub299, %if.then294 ], [ %conv305, %if.else300 ]
-  %incdec.ptr307 = getelementptr inbounds i32, ptr %key, i64 22
+  %incdec.ptr307 = getelementptr inbounds i8, ptr %key, i64 88
   %xor308 = xor i64 %add288, %x1.3
   %and309 = and i64 %xor308, 65535
   %38 = load i32, ptr %incdec.ptr307, align 4
@@ -981,7 +981,7 @@ if.else320:                                       ; preds = %if.end306
 
 if.end326:                                        ; preds = %if.else320, %if.then314
   %t0.3 = phi i64 [ %sub319, %if.then314 ], [ %conv325, %if.else320 ]
-  %incdec.ptr327 = getelementptr inbounds i32, ptr %key, i64 23
+  %incdec.ptr327 = getelementptr inbounds i8, ptr %key, i64 92
   %xor328 = xor i64 %x4.3, %add285
   %add329 = add i64 %t0.3, %xor328
   %and330 = and i64 %add329, 65535
@@ -1008,7 +1008,7 @@ if.else341:                                       ; preds = %if.end326
 
 if.end347:                                        ; preds = %if.else341, %if.then335
   %t1.3 = phi i64 [ %sub340, %if.then335 ], [ %conv346, %if.else341 ]
-  %incdec.ptr348 = getelementptr inbounds i32, ptr %key, i64 24
+  %incdec.ptr348 = getelementptr inbounds i8, ptr %key, i64 96
   %add349 = add nsw i64 %t1.3, %t0.3
   %xor350 = xor i64 %t1.3, %x1.3
   %xor351 = xor i64 %add349, %x4.3
@@ -1038,12 +1038,12 @@ if.else365:                                       ; preds = %if.end347
 
 if.end371:                                        ; preds = %if.else365, %if.then359
   %x1.4 = phi i64 [ %sub364, %if.then359 ], [ %conv370, %if.else365 ]
-  %incdec.ptr372 = getelementptr inbounds i32, ptr %key, i64 25
-  %incdec.ptr373 = getelementptr inbounds i32, ptr %key, i64 26
+  %incdec.ptr372 = getelementptr inbounds i8, ptr %key, i64 100
+  %incdec.ptr373 = getelementptr inbounds i8, ptr %key, i64 104
   %44 = load i32, ptr %incdec.ptr372, align 4
   %conv374 = zext i32 %44 to i64
   %add375 = add i64 %xor353, %conv374
-  %incdec.ptr376 = getelementptr inbounds i32, ptr %key, i64 27
+  %incdec.ptr376 = getelementptr inbounds i8, ptr %key, i64 108
   %45 = load i32, ptr %incdec.ptr373, align 4
   %conv377 = zext i32 %45 to i64
   %add378 = add i64 %xor352, %conv377
@@ -1071,7 +1071,7 @@ if.else390:                                       ; preds = %if.end371
 
 if.end396:                                        ; preds = %if.else390, %if.then384
   %x4.4 = phi i64 [ %sub389, %if.then384 ], [ %conv395, %if.else390 ]
-  %incdec.ptr397 = getelementptr inbounds i32, ptr %key, i64 28
+  %incdec.ptr397 = getelementptr inbounds i8, ptr %key, i64 112
   %xor398 = xor i64 %add378, %x1.4
   %and399 = and i64 %xor398, 65535
   %48 = load i32, ptr %incdec.ptr397, align 4
@@ -1097,7 +1097,7 @@ if.else410:                                       ; preds = %if.end396
 
 if.end416:                                        ; preds = %if.else410, %if.then404
   %t0.4 = phi i64 [ %sub409, %if.then404 ], [ %conv415, %if.else410 ]
-  %incdec.ptr417 = getelementptr inbounds i32, ptr %key, i64 29
+  %incdec.ptr417 = getelementptr inbounds i8, ptr %key, i64 116
   %xor418 = xor i64 %x4.4, %add375
   %add419 = add i64 %t0.4, %xor418
   %and420 = and i64 %add419, 65535
@@ -1124,7 +1124,7 @@ if.else431:                                       ; preds = %if.end416
 
 if.end437:                                        ; preds = %if.else431, %if.then425
   %t1.4 = phi i64 [ %sub430, %if.then425 ], [ %conv436, %if.else431 ]
-  %incdec.ptr438 = getelementptr inbounds i32, ptr %key, i64 30
+  %incdec.ptr438 = getelementptr inbounds i8, ptr %key, i64 120
   %add439 = add nsw i64 %t1.4, %t0.4
   %xor440 = xor i64 %t1.4, %x1.4
   %xor441 = xor i64 %add439, %x4.4
@@ -1154,12 +1154,12 @@ if.else455:                                       ; preds = %if.end437
 
 if.end461:                                        ; preds = %if.else455, %if.then449
   %x1.5 = phi i64 [ %sub454, %if.then449 ], [ %conv460, %if.else455 ]
-  %incdec.ptr462 = getelementptr inbounds i32, ptr %key, i64 31
-  %incdec.ptr463 = getelementptr inbounds i32, ptr %key, i64 32
+  %incdec.ptr462 = getelementptr inbounds i8, ptr %key, i64 124
+  %incdec.ptr463 = getelementptr inbounds i8, ptr %key, i64 128
   %54 = load i32, ptr %incdec.ptr462, align 4
   %conv464 = zext i32 %54 to i64
   %add465 = add i64 %xor443, %conv464
-  %incdec.ptr466 = getelementptr inbounds i32, ptr %key, i64 33
+  %incdec.ptr466 = getelementptr inbounds i8, ptr %key, i64 132
   %55 = load i32, ptr %incdec.ptr463, align 4
   %conv467 = zext i32 %55 to i64
   %add468 = add i64 %xor442, %conv467
@@ -1187,7 +1187,7 @@ if.else480:                                       ; preds = %if.end461
 
 if.end486:                                        ; preds = %if.else480, %if.then474
   %x4.5 = phi i64 [ %sub479, %if.then474 ], [ %conv485, %if.else480 ]
-  %incdec.ptr487 = getelementptr inbounds i32, ptr %key, i64 34
+  %incdec.ptr487 = getelementptr inbounds i8, ptr %key, i64 136
   %xor488 = xor i64 %add468, %x1.5
   %and489 = and i64 %xor488, 65535
   %58 = load i32, ptr %incdec.ptr487, align 4
@@ -1213,7 +1213,7 @@ if.else500:                                       ; preds = %if.end486
 
 if.end506:                                        ; preds = %if.else500, %if.then494
   %t0.5 = phi i64 [ %sub499, %if.then494 ], [ %conv505, %if.else500 ]
-  %incdec.ptr507 = getelementptr inbounds i32, ptr %key, i64 35
+  %incdec.ptr507 = getelementptr inbounds i8, ptr %key, i64 140
   %xor508 = xor i64 %x4.5, %add465
   %add509 = add i64 %t0.5, %xor508
   %and510 = and i64 %add509, 65535
@@ -1240,7 +1240,7 @@ if.else521:                                       ; preds = %if.end506
 
 if.end527:                                        ; preds = %if.else521, %if.then515
   %t1.5 = phi i64 [ %sub520, %if.then515 ], [ %conv526, %if.else521 ]
-  %incdec.ptr528 = getelementptr inbounds i32, ptr %key, i64 36
+  %incdec.ptr528 = getelementptr inbounds i8, ptr %key, i64 144
   %add529 = add nsw i64 %t1.5, %t0.5
   %xor530 = xor i64 %t1.5, %x1.5
   %xor531 = xor i64 %add529, %x4.5
@@ -1270,12 +1270,12 @@ if.else545:                                       ; preds = %if.end527
 
 if.end551:                                        ; preds = %if.else545, %if.then539
   %x1.6 = phi i64 [ %sub544, %if.then539 ], [ %conv550, %if.else545 ]
-  %incdec.ptr552 = getelementptr inbounds i32, ptr %key, i64 37
-  %incdec.ptr553 = getelementptr inbounds i32, ptr %key, i64 38
+  %incdec.ptr552 = getelementptr inbounds i8, ptr %key, i64 148
+  %incdec.ptr553 = getelementptr inbounds i8, ptr %key, i64 152
   %64 = load i32, ptr %incdec.ptr552, align 4
   %conv554 = zext i32 %64 to i64
   %add555 = add i64 %xor533, %conv554
-  %incdec.ptr556 = getelementptr inbounds i32, ptr %key, i64 39
+  %incdec.ptr556 = getelementptr inbounds i8, ptr %key, i64 156
   %65 = load i32, ptr %incdec.ptr553, align 4
   %conv557 = zext i32 %65 to i64
   %add558 = add i64 %xor532, %conv557
@@ -1303,7 +1303,7 @@ if.else570:                                       ; preds = %if.end551
 
 if.end576:                                        ; preds = %if.else570, %if.then564
   %x4.6 = phi i64 [ %sub569, %if.then564 ], [ %conv575, %if.else570 ]
-  %incdec.ptr577 = getelementptr inbounds i32, ptr %key, i64 40
+  %incdec.ptr577 = getelementptr inbounds i8, ptr %key, i64 160
   %xor578 = xor i64 %add558, %x1.6
   %and579 = and i64 %xor578, 65535
   %68 = load i32, ptr %incdec.ptr577, align 4
@@ -1329,7 +1329,7 @@ if.else590:                                       ; preds = %if.end576
 
 if.end596:                                        ; preds = %if.else590, %if.then584
   %t0.6 = phi i64 [ %sub589, %if.then584 ], [ %conv595, %if.else590 ]
-  %incdec.ptr597 = getelementptr inbounds i32, ptr %key, i64 41
+  %incdec.ptr597 = getelementptr inbounds i8, ptr %key, i64 164
   %xor598 = xor i64 %x4.6, %add555
   %add599 = add i64 %t0.6, %xor598
   %and600 = and i64 %add599, 65535
@@ -1356,7 +1356,7 @@ if.else611:                                       ; preds = %if.end596
 
 if.end617:                                        ; preds = %if.else611, %if.then605
   %t1.6 = phi i64 [ %sub610, %if.then605 ], [ %conv616, %if.else611 ]
-  %incdec.ptr618 = getelementptr inbounds i32, ptr %key, i64 42
+  %incdec.ptr618 = getelementptr inbounds i8, ptr %key, i64 168
   %add619 = add nsw i64 %t1.6, %t0.6
   %xor620 = xor i64 %t1.6, %x1.6
   %xor621 = xor i64 %add619, %x4.6
@@ -1386,12 +1386,12 @@ if.else635:                                       ; preds = %if.end617
 
 if.end641:                                        ; preds = %if.else635, %if.then629
   %x1.7 = phi i64 [ %sub634, %if.then629 ], [ %conv640, %if.else635 ]
-  %incdec.ptr642 = getelementptr inbounds i32, ptr %key, i64 43
-  %incdec.ptr643 = getelementptr inbounds i32, ptr %key, i64 44
+  %incdec.ptr642 = getelementptr inbounds i8, ptr %key, i64 172
+  %incdec.ptr643 = getelementptr inbounds i8, ptr %key, i64 176
   %74 = load i32, ptr %incdec.ptr642, align 4
   %conv644 = zext i32 %74 to i64
   %add645 = add i64 %xor623, %conv644
-  %incdec.ptr646 = getelementptr inbounds i32, ptr %key, i64 45
+  %incdec.ptr646 = getelementptr inbounds i8, ptr %key, i64 180
   %75 = load i32, ptr %incdec.ptr643, align 4
   %conv647 = zext i32 %75 to i64
   %add648 = add i64 %xor622, %conv647
@@ -1419,7 +1419,7 @@ if.else660:                                       ; preds = %if.end641
 
 if.end666:                                        ; preds = %if.else660, %if.then654
   %x4.7 = phi i64 [ %sub659, %if.then654 ], [ %conv665, %if.else660 ]
-  %incdec.ptr667 = getelementptr inbounds i32, ptr %key, i64 46
+  %incdec.ptr667 = getelementptr inbounds i8, ptr %key, i64 184
   %xor668 = xor i64 %add648, %x1.7
   %and669 = and i64 %xor668, 65535
   %78 = load i32, ptr %incdec.ptr667, align 4
@@ -1445,7 +1445,7 @@ if.else680:                                       ; preds = %if.end666
 
 if.end686:                                        ; preds = %if.else680, %if.then674
   %t0.7 = phi i64 [ %sub679, %if.then674 ], [ %conv685, %if.else680 ]
-  %incdec.ptr687 = getelementptr inbounds i32, ptr %key, i64 47
+  %incdec.ptr687 = getelementptr inbounds i8, ptr %key, i64 188
   %xor688 = xor i64 %x4.7, %add645
   %add689 = add i64 %t0.7, %xor688
   %and690 = and i64 %add689, 65535
@@ -1472,7 +1472,7 @@ if.else701:                                       ; preds = %if.end686
 
 if.end707:                                        ; preds = %if.else701, %if.then695
   %t1.7 = phi i64 [ %sub700, %if.then695 ], [ %conv706, %if.else701 ]
-  %incdec.ptr708 = getelementptr inbounds i32, ptr %key, i64 48
+  %incdec.ptr708 = getelementptr inbounds i8, ptr %key, i64 192
   %add709 = add nsw i64 %t1.7, %t0.7
   %xor710 = xor i64 %t1.7, %x1.7
   %xor711 = xor i64 %add709, %x4.7
@@ -1500,10 +1500,10 @@ if.else725:                                       ; preds = %if.end707
 
 if.end731:                                        ; preds = %if.else725, %if.then719
   %x1.8 = phi i64 [ %sub724, %if.then719 ], [ %conv730, %if.else725 ]
-  %incdec.ptr732 = getelementptr inbounds i32, ptr %key, i64 49
-  %incdec.ptr733 = getelementptr inbounds i32, ptr %key, i64 50
+  %incdec.ptr732 = getelementptr inbounds i8, ptr %key, i64 196
+  %incdec.ptr733 = getelementptr inbounds i8, ptr %key, i64 200
   %84 = load i32, ptr %incdec.ptr732, align 4
-  %incdec.ptr736 = getelementptr inbounds i32, ptr %key, i64 51
+  %incdec.ptr736 = getelementptr inbounds i8, ptr %key, i64 204
   %85 = load i32, ptr %incdec.ptr733, align 4
   %and739 = and i64 %xor711, 65535
   %86 = load i32, ptr %incdec.ptr736, align 4

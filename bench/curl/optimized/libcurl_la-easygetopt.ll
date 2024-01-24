@@ -25,27 +25,27 @@ do.body4.us.i:                                    ; preds = %if.end14.us.i, %do.
   br i1 %tobool8.not.us.i, label %if.end14.us.i, label %lookup.exit
 
 if.end14.us.i:                                    ; preds = %do.body4.us.i
-  %incdec.ptr.us.i = getelementptr inbounds %struct.curl_easyoption, ptr %o.0.us.i, i64 1
+  %incdec.ptr.us.i = getelementptr inbounds i8, ptr %o.0.us.i, i64 24
   %1 = load ptr, ptr %incdec.ptr.us.i, align 8
   %tobool16.not.us.i = icmp eq ptr %1, null
   br i1 %tobool16.not.us.i, label %lookup.exit, label %do.body4.us.i, !llvm.loop !4
 
 do.body4.i:                                       ; preds = %entry, %if.end14.i
   %o.0.i = phi ptr [ %incdec.ptr.i, %if.end14.i ], [ @Curl_easyopts, %entry ]
-  %id10.i = getelementptr inbounds %struct.curl_easyoption, ptr %o.0.i, i64 0, i32 1
+  %id10.i = getelementptr inbounds i8, ptr %o.0.i, i64 8
   %2 = load i32, ptr %id10.i, align 8
   %cmp.i = icmp eq i32 %2, 325
   br i1 %cmp.i, label %land.lhs.true.i, label %if.end14.i
 
 land.lhs.true.i:                                  ; preds = %do.body4.i
-  %flags.i = getelementptr inbounds %struct.curl_easyoption, ptr %o.0.i, i64 0, i32 3
+  %flags.i = getelementptr inbounds i8, ptr %o.0.i, i64 16
   %3 = load i32, ptr %flags.i, align 8
   %and.i = and i32 %3, 1
   %tobool11.not.i = icmp eq i32 %and.i, 0
   br i1 %tobool11.not.i, label %lookup.exit, label %if.end14.i
 
 if.end14.i:                                       ; preds = %land.lhs.true.i, %do.body4.i
-  %incdec.ptr.i = getelementptr inbounds %struct.curl_easyoption, ptr %o.0.i, i64 1
+  %incdec.ptr.i = getelementptr inbounds i8, ptr %o.0.i, i64 24
   %4 = load ptr, ptr %incdec.ptr.i, align 8
   %tobool16.not.i = icmp eq ptr %4, null
   br i1 %tobool16.not.i, label %lookup.exit, label %do.body4.i, !llvm.loop !4
@@ -63,20 +63,20 @@ entry:
 
 do.body4.i:                                       ; preds = %entry, %if.end14.i
   %o.0.i = phi ptr [ %incdec.ptr.i, %if.end14.i ], [ @Curl_easyopts, %entry ]
-  %id10.i = getelementptr inbounds %struct.curl_easyoption, ptr %o.0.i, i64 0, i32 1
+  %id10.i = getelementptr inbounds i8, ptr %o.0.i, i64 8
   %0 = load i32, ptr %id10.i, align 8
   %cmp.i = icmp eq i32 %0, %id
   br i1 %cmp.i, label %land.lhs.true.i, label %if.end14.i
 
 land.lhs.true.i:                                  ; preds = %do.body4.i
-  %flags.i = getelementptr inbounds %struct.curl_easyoption, ptr %o.0.i, i64 0, i32 3
+  %flags.i = getelementptr inbounds i8, ptr %o.0.i, i64 16
   %1 = load i32, ptr %flags.i, align 8
   %and.i = and i32 %1, 1
   %tobool11.not.i = icmp eq i32 %and.i, 0
   br i1 %tobool11.not.i, label %lookup.exit, label %if.end14.i
 
 if.end14.i:                                       ; preds = %land.lhs.true.i, %do.body4.i
-  %incdec.ptr.i = getelementptr inbounds %struct.curl_easyoption, ptr %o.0.i, i64 1
+  %incdec.ptr.i = getelementptr inbounds i8, ptr %o.0.i, i64 24
   %2 = load ptr, ptr %incdec.ptr.i, align 8
   %tobool16.not.i = icmp eq ptr %2, null
   br i1 %tobool16.not.i, label %lookup.exit, label %do.body4.i, !llvm.loop !4
@@ -98,7 +98,7 @@ land.lhs.true:                                    ; preds = %entry
   br i1 %tobool1.not, label %if.end8, label %if.then
 
 if.then:                                          ; preds = %land.lhs.true
-  %incdec.ptr = getelementptr inbounds %struct.curl_easyoption, ptr %prev, i64 1
+  %incdec.ptr = getelementptr inbounds i8, ptr %prev, i64 24
   %1 = load ptr, ptr %incdec.ptr, align 8
   %tobool3.not = icmp eq ptr %1, null
   br i1 %tobool3.not, label %if.end8, label %return

@@ -19,9 +19,9 @@ if.then:                                          ; preds = %entry
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %counts.i.i)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(24) %counts.i.i, i8 0, i64 24, i1 false)
   %cmp4.not.i.i = icmp eq i64 %len, 0
-  br i1 %cmp4.not.i.i, label %DecideMultiByteStatsLevel.exit.thread.i, label %for.body.i.i
+  br i1 %cmp4.not.i.i, label %for.cond8.preheader.thread.i, label %for.body.i.i
 
-DecideMultiByteStatsLevel.exit.thread.i:          ; preds = %if.then
+for.cond8.preheader.thread.i:                     ; preds = %if.then
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %counts.i.i)
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(6144) %histogram, i8 0, i64 6144, i1 false)
   br label %EstimateBitCostsForLiteralsUTF8.exit
@@ -54,12 +54,12 @@ UTF8Position.exit.i.i:                            ; preds = %if.else3.i.i.i, %if
   store i64 %inc.i.i, ptr %arrayidx1.i.i, align 8
   %inc2.i.i = add nuw i64 %i.06.i.i, 1
   %exitcond.not.i.i = icmp eq i64 %inc2.i.i, %len
-  br i1 %exitcond.not.i.i, label %DecideMultiByteStatsLevel.exit.i, label %for.body.i.i, !llvm.loop !4
+  br i1 %exitcond.not.i.i, label %for.body.preheader.i, label %for.body.i.i, !llvm.loop !4
 
-DecideMultiByteStatsLevel.exit.i:                 ; preds = %UTF8Position.exit.i.i
-  %arrayidx3.phi.trans.insert.i.i = getelementptr inbounds [3 x i64], ptr %counts.i.i, i64 0, i64 2
+for.body.preheader.i:                             ; preds = %UTF8Position.exit.i.i
+  %arrayidx3.phi.trans.insert.i.i = getelementptr inbounds i8, ptr %counts.i.i, i64 16
   %.pre.i.i = load i64, ptr %arrayidx3.phi.trans.insert.i.i, align 16
-  %arrayidx6.phi.trans.insert.i.i = getelementptr inbounds [3 x i64], ptr %counts.i.i, i64 0, i64 1
+  %arrayidx6.phi.trans.insert.i.i = getelementptr inbounds i8, ptr %counts.i.i, i64 8
   %.pre7.i.i = load i64, ptr %arrayidx6.phi.trans.insert.i.i, align 8
   %2 = add i64 %.pre7.i.i, %.pre.i.i
   %3 = icmp ugt i64 %2, 24
@@ -78,10 +78,10 @@ for.body11.lr.ph.i:                               ; preds = %UTF8Position.exit.i
   %add100.i = add i64 %pos, -2
   br label %for.body11.i
 
-for.body.i:                                       ; preds = %DecideMultiByteStatsLevel.exit.i, %UTF8Position.exit.i
-  %i.0138.i = phi i64 [ %inc7.i, %UTF8Position.exit.i ], [ 0, %DecideMultiByteStatsLevel.exit.i ]
-  %last_c.0137.i = phi i64 [ %conv.i55, %UTF8Position.exit.i ], [ 0, %DecideMultiByteStatsLevel.exit.i ]
-  %utf8_pos.0136.i = phi i64 [ %retval.0.i.i, %UTF8Position.exit.i ], [ 0, %DecideMultiByteStatsLevel.exit.i ]
+for.body.i:                                       ; preds = %UTF8Position.exit.i, %for.body.preheader.i
+  %i.0138.i = phi i64 [ %inc7.i, %UTF8Position.exit.i ], [ 0, %for.body.preheader.i ]
+  %last_c.0137.i = phi i64 [ %conv.i55, %UTF8Position.exit.i ], [ 0, %for.body.preheader.i ]
+  %utf8_pos.0136.i = phi i64 [ %retval.0.i.i, %UTF8Position.exit.i ], [ 0, %for.body.preheader.i ]
   %add.i = add i64 %i.0138.i, %pos
   %and.i = and i64 %add.i, %mask
   %arrayidx.i54 = getelementptr inbounds i8, ptr %data, i64 %and.i
@@ -323,7 +323,7 @@ if.end139.i:                                      ; preds = %if.then134.i, %Fast
   %exitcond142.not.i = icmp eq i64 %inc143.i, %len
   br i1 %exitcond142.not.i, label %EstimateBitCostsForLiteralsUTF8.exit, label %for.body11.i, !llvm.loop !7
 
-EstimateBitCostsForLiteralsUTF8.exit:             ; preds = %if.end139.i, %DecideMultiByteStatsLevel.exit.thread.i
+EstimateBitCostsForLiteralsUTF8.exit:             ; preds = %if.end139.i, %for.cond8.preheader.thread.i
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %in_window_utf8.i)
   br label %if.end47
 

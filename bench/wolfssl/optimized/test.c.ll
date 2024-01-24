@@ -3,7 +3,6 @@ source_filename = "bench/wolfssl/original/test.c.ll"
 target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:128-n8:16:32:64-S128"
 target triple = "x86_64-unknown-linux-gnu"
 
-%struct.func_args = type { i32, ptr, i32 }
 %struct.tm = type { i32, i32, i32, i32, i32, i32, i32, i32, i32, i64, ptr }
 %struct.wc_Md5 = type { i32, i32, i32, [16 x i32], [4 x i32], ptr }
 %struct.testVector = type { ptr, ptr, i64, i64 }
@@ -14,7 +13,6 @@ target triple = "x86_64-unknown-linux-gnu"
 %union.wc_HashAlg = type { %struct.wc_Sha3 }
 %struct.Hmac = type { %union.wc_HmacHash, [36 x i32], [36 x i32], [16 x i32], ptr, i8, i8 }
 %union.wc_HmacHash = type { %struct.wc_Sha3 }
-%struct.Tls13KdfTestVector = type { i32, i32, i32, [40 x i8], [40 x i8], [64 x i8], [64 x i8], [64 x i8], [64 x i8], [64 x i8], [64 x i8], [64 x i8], [64 x i8], [64 x i8], [64 x i8], [64 x i8], [64 x i8] }
 %struct.Gmac = type { %struct.Aes }
 %struct.Aes = type { [60 x i32], i32, i32, [8 x i8], [4 x i32], [4 x i32], [2 x i32], i32, [4 x i8], %struct.Gcm, ptr, [8 x i8] }
 %struct.Gcm = type { [16 x i8], [32 x [16 x i8]] }
@@ -31,9 +29,8 @@ target triple = "x86_64-unknown-linux-gnu"
 %union.pthread_mutex_t = type { %struct.__pthread_mutex_s }
 %struct.__pthread_mutex_s = type { i32, i32, i32, i32, i32, i16, i16, %struct.__pthread_internal_list }
 %struct.__pthread_internal_list = type { ptr, ptr }
+%struct.func_args = type { i32, ptr, i32 }
 %struct.dh_pubvalue_test = type { ptr, i32 }
-%struct.DhParams = type { ptr, i32, ptr, i32 }
-%struct.ecc_set_type = type { i32, i32, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, i32, i32, i32 }
 
 @const_byte_array = dso_local local_unnamed_addr constant [8 x i8] c"A+Gd\00\00\00\00", align 1
 @stdout = external local_unnamed_addr global ptr, align 8
@@ -505,7 +502,7 @@ entry:
   br i1 %tobool.not, label %if.end, label %if.then
 
 if.then:                                          ; preds = %entry
-  %return_code = getelementptr inbounds %struct.func_args, ptr %args, i64 0, i32 2
+  %return_code = getelementptr inbounds i8, ptr %args, i64 16
   store i32 -1, ptr %return_code, align 8
   br label %if.end
 
@@ -1021,7 +1018,7 @@ if.else669:                                       ; preds = %if.else653
   br i1 %tobool.not, label %if.end683, label %if.then681
 
 if.then681:                                       ; preds = %if.else669
-  %return_code682 = getelementptr inbounds %struct.func_args, ptr %args, i64 0, i32 2
+  %return_code682 = getelementptr inbounds i8, ptr %args, i64 16
   store i32 0, ptr %return_code682, align 8
   br label %if.end683
 
@@ -1830,35 +1827,35 @@ entry:
   store ptr @.str.94, ptr %a.sroa.3.0.arrayidx.sroa_idx, align 8
   %a.sroa.4.0.arrayidx.sroa_idx = getelementptr inbounds i8, ptr %test_md5, i64 16
   store i64 0, ptr %a.sroa.4.0.arrayidx.sroa_idx, align 16
-  %arrayidx32 = getelementptr inbounds [6 x %struct.testVector], ptr %test_md5, i64 0, i64 1
+  %arrayidx32 = getelementptr inbounds i8, ptr %test_md5, i64 32
   store ptr @.str.95, ptr %arrayidx32, align 16
-  %b.sroa.3.0.arrayidx32.sroa_idx = getelementptr inbounds [6 x %struct.testVector], ptr %test_md5, i64 0, i64 1, i32 1
+  %b.sroa.3.0.arrayidx32.sroa_idx = getelementptr inbounds i8, ptr %test_md5, i64 40
   store ptr @.str.96, ptr %b.sroa.3.0.arrayidx32.sroa_idx, align 8
-  %b.sroa.4.0.arrayidx32.sroa_idx = getelementptr inbounds [6 x %struct.testVector], ptr %test_md5, i64 0, i64 1, i32 2
+  %b.sroa.4.0.arrayidx32.sroa_idx = getelementptr inbounds i8, ptr %test_md5, i64 48
   store i64 3, ptr %b.sroa.4.0.arrayidx32.sroa_idx, align 16
-  %arrayidx33 = getelementptr inbounds [6 x %struct.testVector], ptr %test_md5, i64 0, i64 2
+  %arrayidx33 = getelementptr inbounds i8, ptr %test_md5, i64 64
   store ptr @.str.97, ptr %arrayidx33, align 16
-  %c.sroa.3.0.arrayidx33.sroa_idx = getelementptr inbounds [6 x %struct.testVector], ptr %test_md5, i64 0, i64 2, i32 1
+  %c.sroa.3.0.arrayidx33.sroa_idx = getelementptr inbounds i8, ptr %test_md5, i64 72
   store ptr @.str.98, ptr %c.sroa.3.0.arrayidx33.sroa_idx, align 8
-  %c.sroa.4.0.arrayidx33.sroa_idx = getelementptr inbounds [6 x %struct.testVector], ptr %test_md5, i64 0, i64 2, i32 2
+  %c.sroa.4.0.arrayidx33.sroa_idx = getelementptr inbounds i8, ptr %test_md5, i64 80
   store i64 14, ptr %c.sroa.4.0.arrayidx33.sroa_idx, align 16
-  %arrayidx34 = getelementptr inbounds [6 x %struct.testVector], ptr %test_md5, i64 0, i64 3
+  %arrayidx34 = getelementptr inbounds i8, ptr %test_md5, i64 96
   store ptr @.str.99, ptr %arrayidx34, align 16
-  %d.sroa.3.0.arrayidx34.sroa_idx = getelementptr inbounds [6 x %struct.testVector], ptr %test_md5, i64 0, i64 3, i32 1
+  %d.sroa.3.0.arrayidx34.sroa_idx = getelementptr inbounds i8, ptr %test_md5, i64 104
   store ptr @.str.100, ptr %d.sroa.3.0.arrayidx34.sroa_idx, align 8
-  %d.sroa.4.0.arrayidx34.sroa_idx = getelementptr inbounds [6 x %struct.testVector], ptr %test_md5, i64 0, i64 3, i32 2
+  %d.sroa.4.0.arrayidx34.sroa_idx = getelementptr inbounds i8, ptr %test_md5, i64 112
   store i64 26, ptr %d.sroa.4.0.arrayidx34.sroa_idx, align 16
-  %arrayidx35 = getelementptr inbounds [6 x %struct.testVector], ptr %test_md5, i64 0, i64 4
+  %arrayidx35 = getelementptr inbounds i8, ptr %test_md5, i64 128
   store ptr @.str.101, ptr %arrayidx35, align 16
-  %e.sroa.3.0.arrayidx35.sroa_idx = getelementptr inbounds [6 x %struct.testVector], ptr %test_md5, i64 0, i64 4, i32 1
+  %e.sroa.3.0.arrayidx35.sroa_idx = getelementptr inbounds i8, ptr %test_md5, i64 136
   store ptr @.str.102, ptr %e.sroa.3.0.arrayidx35.sroa_idx, align 8
-  %e.sroa.4.0.arrayidx35.sroa_idx = getelementptr inbounds [6 x %struct.testVector], ptr %test_md5, i64 0, i64 4, i32 2
+  %e.sroa.4.0.arrayidx35.sroa_idx = getelementptr inbounds i8, ptr %test_md5, i64 144
   store i64 62, ptr %e.sroa.4.0.arrayidx35.sroa_idx, align 16
-  %arrayidx36 = getelementptr inbounds [6 x %struct.testVector], ptr %test_md5, i64 0, i64 5
+  %arrayidx36 = getelementptr inbounds i8, ptr %test_md5, i64 160
   store ptr @.str.103, ptr %arrayidx36, align 16
-  %f.sroa.3.0.arrayidx36.sroa_idx = getelementptr inbounds [6 x %struct.testVector], ptr %test_md5, i64 0, i64 5, i32 1
+  %f.sroa.3.0.arrayidx36.sroa_idx = getelementptr inbounds i8, ptr %test_md5, i64 168
   store ptr @.str.104, ptr %f.sroa.3.0.arrayidx36.sroa_idx, align 8
-  %f.sroa.4.0.arrayidx36.sroa_idx = getelementptr inbounds [6 x %struct.testVector], ptr %test_md5, i64 0, i64 5, i32 2
+  %f.sroa.4.0.arrayidx36.sroa_idx = getelementptr inbounds i8, ptr %test_md5, i64 176
   store i64 80, ptr %f.sroa.4.0.arrayidx36.sroa_idx, align 16
   %call37 = call i32 @wc_InitMd5_ex(ptr noundef nonnull %md5, ptr noundef null, i32 noundef -2) #19
   %cmp.not = icmp eq i32 %call37, 0
@@ -1888,7 +1885,7 @@ for.body:                                         ; preds = %if.end, %for.inc
   %indvars.iv = phi i64 [ %indvars.iv.next, %for.inc ], [ 0, %if.end ]
   %arrayidx60 = getelementptr inbounds [6 x %struct.testVector], ptr %test_md5, i64 0, i64 %indvars.iv
   %2 = load ptr, ptr %arrayidx60, align 16
-  %inLen64 = getelementptr inbounds [6 x %struct.testVector], ptr %test_md5, i64 0, i64 %indvars.iv, i32 2
+  %inLen64 = getelementptr inbounds i8, ptr %arrayidx60, i64 16
   %3 = load i64, ptr %inLen64, align 16
   %conv65 = trunc i64 %3 to i32
   %call66 = call i32 @wc_Md5Update(ptr noundef nonnull %md5, ptr noundef %2, i32 noundef %conv65) #19
@@ -1936,7 +1933,7 @@ do.body117:                                       ; preds = %if.end111
 
 if.end128:                                        ; preds = %if.end111
   call void @wc_Md5Free(ptr noundef nonnull %md5Copy) #19
-  %output132 = getelementptr inbounds [6 x %struct.testVector], ptr %test_md5, i64 0, i64 %indvars.iv, i32 1
+  %output132 = getelementptr inbounds i8, ptr %arrayidx60, i64 8
   %8 = load ptr, ptr %output132, align 8
   %bcmp35 = call i32 @bcmp(ptr noundef nonnull dereferenceable(16) %hash, ptr noundef nonnull dereferenceable(16) %8, i64 16)
   %cmp134.not = icmp eq i32 %bcmp35, 0
@@ -2034,29 +2031,29 @@ entry:
   store ptr @.str.106, ptr %a.sroa.3.0.arrayidx.sroa_idx, align 8
   %a.sroa.4.0.arrayidx.sroa_idx = getelementptr inbounds i8, ptr %test_sha, i64 16
   store i64 0, ptr %a.sroa.4.0.arrayidx.sroa_idx, align 16
-  %arrayidx26 = getelementptr inbounds [5 x %struct.testVector], ptr %test_sha, i64 0, i64 1
+  %arrayidx26 = getelementptr inbounds i8, ptr %test_sha, i64 32
   store ptr @.str.95, ptr %arrayidx26, align 16
-  %b.sroa.3.0.arrayidx26.sroa_idx = getelementptr inbounds [5 x %struct.testVector], ptr %test_sha, i64 0, i64 1, i32 1
+  %b.sroa.3.0.arrayidx26.sroa_idx = getelementptr inbounds i8, ptr %test_sha, i64 40
   store ptr @.str.107, ptr %b.sroa.3.0.arrayidx26.sroa_idx, align 8
-  %b.sroa.4.0.arrayidx26.sroa_idx = getelementptr inbounds [5 x %struct.testVector], ptr %test_sha, i64 0, i64 1, i32 2
+  %b.sroa.4.0.arrayidx26.sroa_idx = getelementptr inbounds i8, ptr %test_sha, i64 48
   store i64 3, ptr %b.sroa.4.0.arrayidx26.sroa_idx, align 16
-  %arrayidx27 = getelementptr inbounds [5 x %struct.testVector], ptr %test_sha, i64 0, i64 2
+  %arrayidx27 = getelementptr inbounds i8, ptr %test_sha, i64 64
   store ptr @.str.108, ptr %arrayidx27, align 16
-  %c.sroa.3.0.arrayidx27.sroa_idx = getelementptr inbounds [5 x %struct.testVector], ptr %test_sha, i64 0, i64 2, i32 1
+  %c.sroa.3.0.arrayidx27.sroa_idx = getelementptr inbounds i8, ptr %test_sha, i64 72
   store ptr @.str.109, ptr %c.sroa.3.0.arrayidx27.sroa_idx, align 8
-  %c.sroa.4.0.arrayidx27.sroa_idx = getelementptr inbounds [5 x %struct.testVector], ptr %test_sha, i64 0, i64 2, i32 2
+  %c.sroa.4.0.arrayidx27.sroa_idx = getelementptr inbounds i8, ptr %test_sha, i64 80
   store i64 56, ptr %c.sroa.4.0.arrayidx27.sroa_idx, align 16
-  %arrayidx28 = getelementptr inbounds [5 x %struct.testVector], ptr %test_sha, i64 0, i64 3
+  %arrayidx28 = getelementptr inbounds i8, ptr %test_sha, i64 96
   store ptr @.str.110, ptr %arrayidx28, align 16
-  %d.sroa.3.0.arrayidx28.sroa_idx = getelementptr inbounds [5 x %struct.testVector], ptr %test_sha, i64 0, i64 3, i32 1
+  %d.sroa.3.0.arrayidx28.sroa_idx = getelementptr inbounds i8, ptr %test_sha, i64 104
   store ptr @.str.111, ptr %d.sroa.3.0.arrayidx28.sroa_idx, align 8
-  %d.sroa.4.0.arrayidx28.sroa_idx = getelementptr inbounds [5 x %struct.testVector], ptr %test_sha, i64 0, i64 3, i32 2
+  %d.sroa.4.0.arrayidx28.sroa_idx = getelementptr inbounds i8, ptr %test_sha, i64 112
   store i64 64, ptr %d.sroa.4.0.arrayidx28.sroa_idx, align 16
-  %arrayidx29 = getelementptr inbounds [5 x %struct.testVector], ptr %test_sha, i64 0, i64 4
+  %arrayidx29 = getelementptr inbounds i8, ptr %test_sha, i64 128
   store ptr @.str.112, ptr %arrayidx29, align 16
-  %e.sroa.3.0.arrayidx29.sroa_idx = getelementptr inbounds [5 x %struct.testVector], ptr %test_sha, i64 0, i64 4, i32 1
+  %e.sroa.3.0.arrayidx29.sroa_idx = getelementptr inbounds i8, ptr %test_sha, i64 136
   store ptr @.str.113, ptr %e.sroa.3.0.arrayidx29.sroa_idx, align 8
-  %e.sroa.4.0.arrayidx29.sroa_idx = getelementptr inbounds [5 x %struct.testVector], ptr %test_sha, i64 0, i64 4, i32 2
+  %e.sroa.4.0.arrayidx29.sroa_idx = getelementptr inbounds i8, ptr %test_sha, i64 144
   store i64 128, ptr %e.sroa.4.0.arrayidx29.sroa_idx, align 16
   %call30 = call i32 @wc_InitSha_ex(ptr noundef nonnull %sha, ptr noundef null, i32 noundef -2) #19
   %cmp.not = icmp eq i32 %call30, 0
@@ -2086,7 +2083,7 @@ for.body:                                         ; preds = %if.end, %for.inc
   %indvars.iv = phi i64 [ %indvars.iv.next, %for.inc ], [ 0, %if.end ]
   %arrayidx53 = getelementptr inbounds [5 x %struct.testVector], ptr %test_sha, i64 0, i64 %indvars.iv
   %2 = load ptr, ptr %arrayidx53, align 16
-  %inLen57 = getelementptr inbounds [5 x %struct.testVector], ptr %test_sha, i64 0, i64 %indvars.iv, i32 2
+  %inLen57 = getelementptr inbounds i8, ptr %arrayidx53, i64 16
   %3 = load i64, ptr %inLen57, align 16
   %conv58 = trunc i64 %3 to i32
   %call59 = call i32 @wc_ShaUpdate(ptr noundef nonnull %sha, ptr noundef %2, i32 noundef %conv58) #19
@@ -2134,7 +2131,7 @@ do.body110:                                       ; preds = %if.end104
 
 if.end121:                                        ; preds = %if.end104
   call void @wc_ShaFree(ptr noundef nonnull %shaCopy) #19
-  %output125 = getelementptr inbounds [5 x %struct.testVector], ptr %test_sha, i64 0, i64 %indvars.iv, i32 1
+  %output125 = getelementptr inbounds i8, ptr %arrayidx53, i64 8
   %8 = load ptr, ptr %output125, align 8
   %bcmp35 = call i32 @bcmp(ptr noundef nonnull dereferenceable(20) %hash, ptr noundef nonnull dereferenceable(20) %8, i64 20)
   %cmp127.not = icmp eq i32 %bcmp35, 0
@@ -2231,17 +2228,17 @@ entry:
   store ptr @.str.115, ptr %a.sroa.3.0.arrayidx.sroa_idx, align 8
   %a.sroa.4.0.arrayidx.sroa_idx = getelementptr inbounds i8, ptr %test_sha, i64 16
   store i64 0, ptr %a.sroa.4.0.arrayidx.sroa_idx, align 16
-  %arrayidx14 = getelementptr inbounds [3 x %struct.testVector], ptr %test_sha, i64 0, i64 1
+  %arrayidx14 = getelementptr inbounds i8, ptr %test_sha, i64 32
   store ptr @.str.95, ptr %arrayidx14, align 16
-  %b.sroa.3.0.arrayidx14.sroa_idx = getelementptr inbounds [3 x %struct.testVector], ptr %test_sha, i64 0, i64 1, i32 1
+  %b.sroa.3.0.arrayidx14.sroa_idx = getelementptr inbounds i8, ptr %test_sha, i64 40
   store ptr @.str.116, ptr %b.sroa.3.0.arrayidx14.sroa_idx, align 8
-  %b.sroa.4.0.arrayidx14.sroa_idx = getelementptr inbounds [3 x %struct.testVector], ptr %test_sha, i64 0, i64 1, i32 2
+  %b.sroa.4.0.arrayidx14.sroa_idx = getelementptr inbounds i8, ptr %test_sha, i64 48
   store i64 3, ptr %b.sroa.4.0.arrayidx14.sroa_idx, align 16
-  %arrayidx15 = getelementptr inbounds [3 x %struct.testVector], ptr %test_sha, i64 0, i64 2
+  %arrayidx15 = getelementptr inbounds i8, ptr %test_sha, i64 64
   store ptr @.str.108, ptr %arrayidx15, align 16
-  %c.sroa.3.0.arrayidx15.sroa_idx = getelementptr inbounds [3 x %struct.testVector], ptr %test_sha, i64 0, i64 2, i32 1
+  %c.sroa.3.0.arrayidx15.sroa_idx = getelementptr inbounds i8, ptr %test_sha, i64 72
   store ptr @.str.117, ptr %c.sroa.3.0.arrayidx15.sroa_idx, align 8
-  %c.sroa.4.0.arrayidx15.sroa_idx = getelementptr inbounds [3 x %struct.testVector], ptr %test_sha, i64 0, i64 2, i32 2
+  %c.sroa.4.0.arrayidx15.sroa_idx = getelementptr inbounds i8, ptr %test_sha, i64 80
   store i64 56, ptr %c.sroa.4.0.arrayidx15.sroa_idx, align 16
   %call16 = call i32 @wc_InitSha224_ex(ptr noundef nonnull %sha, ptr noundef null, i32 noundef -2) #19
   %cmp.not = icmp eq i32 %call16, 0
@@ -2271,7 +2268,7 @@ for.body:                                         ; preds = %if.end, %for.inc
   %indvars.iv = phi i64 [ %indvars.iv.next, %for.inc ], [ 0, %if.end ]
   %arrayidx39 = getelementptr inbounds [3 x %struct.testVector], ptr %test_sha, i64 0, i64 %indvars.iv
   %2 = load ptr, ptr %arrayidx39, align 16
-  %inLen43 = getelementptr inbounds [3 x %struct.testVector], ptr %test_sha, i64 0, i64 %indvars.iv, i32 2
+  %inLen43 = getelementptr inbounds i8, ptr %arrayidx39, i64 16
   %3 = load i64, ptr %inLen43, align 16
   %conv44 = trunc i64 %3 to i32
   %call45 = call i32 @wc_Sha224Update(ptr noundef nonnull %sha, ptr noundef %2, i32 noundef %conv44) #19
@@ -2319,7 +2316,7 @@ do.body96:                                        ; preds = %if.end90
 
 if.end107:                                        ; preds = %if.end90
   call void @wc_Sha224Free(ptr noundef nonnull %shaCopy) #19
-  %output111 = getelementptr inbounds [3 x %struct.testVector], ptr %test_sha, i64 0, i64 %indvars.iv, i32 1
+  %output111 = getelementptr inbounds i8, ptr %arrayidx39, i64 8
   %8 = load ptr, ptr %output111, align 8
   %bcmp = call i32 @bcmp(ptr noundef nonnull dereferenceable(28) %hash, ptr noundef nonnull dereferenceable(28) %8, i64 28)
   %cmp113.not = icmp eq i32 %bcmp, 0
@@ -2372,17 +2369,17 @@ entry:
   store ptr @.str.118, ptr %a.sroa.3.0.arrayidx.sroa_idx, align 8
   %a.sroa.4.0.arrayidx.sroa_idx = getelementptr inbounds i8, ptr %test_sha, i64 16
   store i64 0, ptr %a.sroa.4.0.arrayidx.sroa_idx, align 16
-  %arrayidx14 = getelementptr inbounds [3 x %struct.testVector], ptr %test_sha, i64 0, i64 1
+  %arrayidx14 = getelementptr inbounds i8, ptr %test_sha, i64 32
   store ptr @.str.95, ptr %arrayidx14, align 16
-  %b.sroa.3.0.arrayidx14.sroa_idx = getelementptr inbounds [3 x %struct.testVector], ptr %test_sha, i64 0, i64 1, i32 1
+  %b.sroa.3.0.arrayidx14.sroa_idx = getelementptr inbounds i8, ptr %test_sha, i64 40
   store ptr @.str.119, ptr %b.sroa.3.0.arrayidx14.sroa_idx, align 8
-  %b.sroa.4.0.arrayidx14.sroa_idx = getelementptr inbounds [3 x %struct.testVector], ptr %test_sha, i64 0, i64 1, i32 2
+  %b.sroa.4.0.arrayidx14.sroa_idx = getelementptr inbounds i8, ptr %test_sha, i64 48
   store i64 3, ptr %b.sroa.4.0.arrayidx14.sroa_idx, align 16
-  %arrayidx15 = getelementptr inbounds [3 x %struct.testVector], ptr %test_sha, i64 0, i64 2
+  %arrayidx15 = getelementptr inbounds i8, ptr %test_sha, i64 64
   store ptr @.str.108, ptr %arrayidx15, align 16
-  %c.sroa.3.0.arrayidx15.sroa_idx = getelementptr inbounds [3 x %struct.testVector], ptr %test_sha, i64 0, i64 2, i32 1
+  %c.sroa.3.0.arrayidx15.sroa_idx = getelementptr inbounds i8, ptr %test_sha, i64 72
   store ptr @.str.120, ptr %c.sroa.3.0.arrayidx15.sroa_idx, align 8
-  %c.sroa.4.0.arrayidx15.sroa_idx = getelementptr inbounds [3 x %struct.testVector], ptr %test_sha, i64 0, i64 2, i32 2
+  %c.sroa.4.0.arrayidx15.sroa_idx = getelementptr inbounds i8, ptr %test_sha, i64 80
   store i64 56, ptr %c.sroa.4.0.arrayidx15.sroa_idx, align 16
   %call16 = call i32 @wc_InitSha256_ex(ptr noundef nonnull %sha, ptr noundef null, i32 noundef -2) #19
   %cmp.not = icmp eq i32 %call16, 0
@@ -2412,7 +2409,7 @@ for.body:                                         ; preds = %if.end, %for.inc
   %indvars.iv = phi i64 [ %indvars.iv.next, %for.inc ], [ 0, %if.end ]
   %arrayidx39 = getelementptr inbounds [3 x %struct.testVector], ptr %test_sha, i64 0, i64 %indvars.iv
   %2 = load ptr, ptr %arrayidx39, align 16
-  %inLen43 = getelementptr inbounds [3 x %struct.testVector], ptr %test_sha, i64 0, i64 %indvars.iv, i32 2
+  %inLen43 = getelementptr inbounds i8, ptr %arrayidx39, i64 16
   %3 = load i64, ptr %inLen43, align 16
   %conv44 = trunc i64 %3 to i32
   %call45 = call i32 @wc_Sha256Update(ptr noundef nonnull %sha, ptr noundef %2, i32 noundef %conv44) #19
@@ -2460,7 +2457,7 @@ do.body96:                                        ; preds = %if.end90
 
 if.end107:                                        ; preds = %if.end90
   call void @wc_Sha256Free(ptr noundef nonnull %shaCopy) #19
-  %output111 = getelementptr inbounds [3 x %struct.testVector], ptr %test_sha, i64 0, i64 %indvars.iv, i32 1
+  %output111 = getelementptr inbounds i8, ptr %arrayidx39, i64 8
   %8 = load ptr, ptr %output111, align 8
   %bcmp35 = call i32 @bcmp(ptr noundef nonnull dereferenceable(32) %hash, ptr noundef nonnull dereferenceable(32) %8, i64 32)
   %cmp113.not = icmp eq i32 %bcmp35, 0
@@ -2558,17 +2555,17 @@ entry:
   store ptr @.str.135, ptr %a.sroa.3.0.arrayidx.sroa_idx, align 8
   %a.sroa.4.0.arrayidx.sroa_idx = getelementptr inbounds i8, ptr %test_sha, i64 16
   store i64 0, ptr %a.sroa.4.0.arrayidx.sroa_idx, align 16
-  %arrayidx14 = getelementptr inbounds [3 x %struct.testVector], ptr %test_sha, i64 0, i64 1
+  %arrayidx14 = getelementptr inbounds i8, ptr %test_sha, i64 32
   store ptr @.str.95, ptr %arrayidx14, align 16
-  %b.sroa.3.0.arrayidx14.sroa_idx = getelementptr inbounds [3 x %struct.testVector], ptr %test_sha, i64 0, i64 1, i32 1
+  %b.sroa.3.0.arrayidx14.sroa_idx = getelementptr inbounds i8, ptr %test_sha, i64 40
   store ptr @.str.136, ptr %b.sroa.3.0.arrayidx14.sroa_idx, align 8
-  %b.sroa.4.0.arrayidx14.sroa_idx = getelementptr inbounds [3 x %struct.testVector], ptr %test_sha, i64 0, i64 1, i32 2
+  %b.sroa.4.0.arrayidx14.sroa_idx = getelementptr inbounds i8, ptr %test_sha, i64 48
   store i64 3, ptr %b.sroa.4.0.arrayidx14.sroa_idx, align 16
-  %arrayidx15 = getelementptr inbounds [3 x %struct.testVector], ptr %test_sha, i64 0, i64 2
+  %arrayidx15 = getelementptr inbounds i8, ptr %test_sha, i64 64
   store ptr @.str.124, ptr %arrayidx15, align 16
-  %c.sroa.3.0.arrayidx15.sroa_idx = getelementptr inbounds [3 x %struct.testVector], ptr %test_sha, i64 0, i64 2, i32 1
+  %c.sroa.3.0.arrayidx15.sroa_idx = getelementptr inbounds i8, ptr %test_sha, i64 72
   store ptr @.str.137, ptr %c.sroa.3.0.arrayidx15.sroa_idx, align 8
-  %c.sroa.4.0.arrayidx15.sroa_idx = getelementptr inbounds [3 x %struct.testVector], ptr %test_sha, i64 0, i64 2, i32 2
+  %c.sroa.4.0.arrayidx15.sroa_idx = getelementptr inbounds i8, ptr %test_sha, i64 80
   store i64 112, ptr %c.sroa.4.0.arrayidx15.sroa_idx, align 16
   %call16 = call i32 @wc_InitSha384_ex(ptr noundef nonnull %sha, ptr noundef null, i32 noundef -2) #19
   %cmp.not = icmp eq i32 %call16, 0
@@ -2598,7 +2595,7 @@ for.body:                                         ; preds = %if.end, %for.inc
   %indvars.iv = phi i64 [ %indvars.iv.next, %for.inc ], [ 0, %if.end ]
   %arrayidx39 = getelementptr inbounds [3 x %struct.testVector], ptr %test_sha, i64 0, i64 %indvars.iv
   %2 = load ptr, ptr %arrayidx39, align 16
-  %inLen43 = getelementptr inbounds [3 x %struct.testVector], ptr %test_sha, i64 0, i64 %indvars.iv, i32 2
+  %inLen43 = getelementptr inbounds i8, ptr %arrayidx39, i64 16
   %3 = load i64, ptr %inLen43, align 16
   %conv44 = trunc i64 %3 to i32
   %call45 = call i32 @wc_Sha384Update(ptr noundef nonnull %sha, ptr noundef %2, i32 noundef %conv44) #19
@@ -2646,7 +2643,7 @@ do.body96:                                        ; preds = %if.end90
 
 if.end107:                                        ; preds = %if.end90
   call void @wc_Sha384Free(ptr noundef nonnull %shaCopy) #19
-  %output111 = getelementptr inbounds [3 x %struct.testVector], ptr %test_sha, i64 0, i64 %indvars.iv, i32 1
+  %output111 = getelementptr inbounds i8, ptr %arrayidx39, i64 8
   %8 = load ptr, ptr %output111, align 8
   %bcmp35 = call i32 @bcmp(ptr noundef nonnull dereferenceable(48) %hash, ptr noundef nonnull dereferenceable(48) %8, i64 48)
   %cmp113.not = icmp eq i32 %bcmp35, 0
@@ -2744,17 +2741,17 @@ entry:
   store ptr @.str.122, ptr %a.sroa.3.0.arrayidx.sroa_idx, align 8
   %a.sroa.4.0.arrayidx.sroa_idx = getelementptr inbounds i8, ptr %test_sha, i64 16
   store i64 0, ptr %a.sroa.4.0.arrayidx.sroa_idx, align 16
-  %arrayidx14 = getelementptr inbounds [3 x %struct.testVector], ptr %test_sha, i64 0, i64 1
+  %arrayidx14 = getelementptr inbounds i8, ptr %test_sha, i64 32
   store ptr @.str.95, ptr %arrayidx14, align 16
-  %b.sroa.3.0.arrayidx14.sroa_idx = getelementptr inbounds [3 x %struct.testVector], ptr %test_sha, i64 0, i64 1, i32 1
+  %b.sroa.3.0.arrayidx14.sroa_idx = getelementptr inbounds i8, ptr %test_sha, i64 40
   store ptr @.str.123, ptr %b.sroa.3.0.arrayidx14.sroa_idx, align 8
-  %b.sroa.4.0.arrayidx14.sroa_idx = getelementptr inbounds [3 x %struct.testVector], ptr %test_sha, i64 0, i64 1, i32 2
+  %b.sroa.4.0.arrayidx14.sroa_idx = getelementptr inbounds i8, ptr %test_sha, i64 48
   store i64 3, ptr %b.sroa.4.0.arrayidx14.sroa_idx, align 16
-  %arrayidx15 = getelementptr inbounds [3 x %struct.testVector], ptr %test_sha, i64 0, i64 2
+  %arrayidx15 = getelementptr inbounds i8, ptr %test_sha, i64 64
   store ptr @.str.124, ptr %arrayidx15, align 16
-  %c.sroa.3.0.arrayidx15.sroa_idx = getelementptr inbounds [3 x %struct.testVector], ptr %test_sha, i64 0, i64 2, i32 1
+  %c.sroa.3.0.arrayidx15.sroa_idx = getelementptr inbounds i8, ptr %test_sha, i64 72
   store ptr @.str.125, ptr %c.sroa.3.0.arrayidx15.sroa_idx, align 8
-  %c.sroa.4.0.arrayidx15.sroa_idx = getelementptr inbounds [3 x %struct.testVector], ptr %test_sha, i64 0, i64 2, i32 2
+  %c.sroa.4.0.arrayidx15.sroa_idx = getelementptr inbounds i8, ptr %test_sha, i64 80
   store i64 112, ptr %c.sroa.4.0.arrayidx15.sroa_idx, align 16
   %call16 = call i32 @wc_InitSha512_ex(ptr noundef nonnull %sha, ptr noundef null, i32 noundef -2) #19
   %cmp.not = icmp eq i32 %call16, 0
@@ -2784,7 +2781,7 @@ for.body:                                         ; preds = %if.end, %for.inc
   %indvars.iv = phi i64 [ %indvars.iv.next, %for.inc ], [ 0, %if.end ]
   %arrayidx39 = getelementptr inbounds [3 x %struct.testVector], ptr %test_sha, i64 0, i64 %indvars.iv
   %2 = load ptr, ptr %arrayidx39, align 16
-  %inLen43 = getelementptr inbounds [3 x %struct.testVector], ptr %test_sha, i64 0, i64 %indvars.iv, i32 2
+  %inLen43 = getelementptr inbounds i8, ptr %arrayidx39, i64 16
   %3 = load i64, ptr %inLen43, align 16
   %conv44 = trunc i64 %3 to i32
   %call45 = call i32 @wc_Sha512Update(ptr noundef nonnull %sha, ptr noundef %2, i32 noundef %conv44) #19
@@ -2832,7 +2829,7 @@ do.body96:                                        ; preds = %if.end90
 
 if.end107:                                        ; preds = %if.end90
   call void @wc_Sha512Free(ptr noundef nonnull %shaCopy) #19
-  %output111 = getelementptr inbounds [3 x %struct.testVector], ptr %test_sha, i64 0, i64 %indvars.iv, i32 1
+  %output111 = getelementptr inbounds i8, ptr %arrayidx39, i64 8
   %8 = load ptr, ptr %output111, align 8
   %bcmp44 = call i32 @bcmp(ptr noundef nonnull dereferenceable(64) %hash, ptr noundef nonnull dereferenceable(64) %8, i64 64)
   %cmp113.not = icmp eq i32 %bcmp44, 0
@@ -2951,17 +2948,17 @@ entry:
   store ptr @.str.127, ptr %a.sroa.3.0.arrayidx.sroa_idx, align 8
   %a.sroa.4.0.arrayidx.sroa_idx = getelementptr inbounds i8, ptr %test_sha, i64 16
   store i64 0, ptr %a.sroa.4.0.arrayidx.sroa_idx, align 16
-  %arrayidx14 = getelementptr inbounds [3 x %struct.testVector], ptr %test_sha, i64 0, i64 1
+  %arrayidx14 = getelementptr inbounds i8, ptr %test_sha, i64 32
   store ptr @.str.95, ptr %arrayidx14, align 16
-  %b.sroa.3.0.arrayidx14.sroa_idx = getelementptr inbounds [3 x %struct.testVector], ptr %test_sha, i64 0, i64 1, i32 1
+  %b.sroa.3.0.arrayidx14.sroa_idx = getelementptr inbounds i8, ptr %test_sha, i64 40
   store ptr @.str.128, ptr %b.sroa.3.0.arrayidx14.sroa_idx, align 8
-  %b.sroa.4.0.arrayidx14.sroa_idx = getelementptr inbounds [3 x %struct.testVector], ptr %test_sha, i64 0, i64 1, i32 2
+  %b.sroa.4.0.arrayidx14.sroa_idx = getelementptr inbounds i8, ptr %test_sha, i64 48
   store i64 3, ptr %b.sroa.4.0.arrayidx14.sroa_idx, align 16
-  %arrayidx15 = getelementptr inbounds [3 x %struct.testVector], ptr %test_sha, i64 0, i64 2
+  %arrayidx15 = getelementptr inbounds i8, ptr %test_sha, i64 64
   store ptr @.str.124, ptr %arrayidx15, align 16
-  %c.sroa.3.0.arrayidx15.sroa_idx = getelementptr inbounds [3 x %struct.testVector], ptr %test_sha, i64 0, i64 2, i32 1
+  %c.sroa.3.0.arrayidx15.sroa_idx = getelementptr inbounds i8, ptr %test_sha, i64 72
   store ptr @.str.129, ptr %c.sroa.3.0.arrayidx15.sroa_idx, align 8
-  %c.sroa.4.0.arrayidx15.sroa_idx = getelementptr inbounds [3 x %struct.testVector], ptr %test_sha, i64 0, i64 2, i32 2
+  %c.sroa.4.0.arrayidx15.sroa_idx = getelementptr inbounds i8, ptr %test_sha, i64 80
   store i64 112, ptr %c.sroa.4.0.arrayidx15.sroa_idx, align 16
   %call16 = call i32 @wc_InitSha512_224_ex(ptr noundef nonnull %sha, ptr noundef null, i32 noundef -2) #19
   %cmp.not = icmp eq i32 %call16, 0
@@ -2991,7 +2988,7 @@ for.body:                                         ; preds = %if.end, %for.inc
   %indvars.iv = phi i64 [ %indvars.iv.next, %for.inc ], [ 0, %if.end ]
   %arrayidx39 = getelementptr inbounds [3 x %struct.testVector], ptr %test_sha, i64 0, i64 %indvars.iv
   %2 = load ptr, ptr %arrayidx39, align 16
-  %inLen43 = getelementptr inbounds [3 x %struct.testVector], ptr %test_sha, i64 0, i64 %indvars.iv, i32 2
+  %inLen43 = getelementptr inbounds i8, ptr %arrayidx39, i64 16
   %3 = load i64, ptr %inLen43, align 16
   %conv44 = trunc i64 %3 to i32
   %call45 = call i32 @wc_Sha512_224Update(ptr noundef nonnull %sha, ptr noundef %2, i32 noundef %conv44) #19
@@ -3039,7 +3036,7 @@ do.body96:                                        ; preds = %if.end90
 
 if.end107:                                        ; preds = %if.end90
   call void @wc_Sha512_224Free(ptr noundef nonnull %shaCopy) #19
-  %output111 = getelementptr inbounds [3 x %struct.testVector], ptr %test_sha, i64 0, i64 %indvars.iv, i32 1
+  %output111 = getelementptr inbounds i8, ptr %arrayidx39, i64 8
   %8 = load ptr, ptr %output111, align 8
   %bcmp44 = call i32 @bcmp(ptr noundef nonnull dereferenceable(28) %hash, ptr noundef nonnull dereferenceable(28) %8, i64 28)
   %cmp113.not = icmp eq i32 %bcmp44, 0
@@ -3158,17 +3155,17 @@ entry:
   store ptr @.str.131, ptr %a.sroa.3.0.arrayidx.sroa_idx, align 8
   %a.sroa.4.0.arrayidx.sroa_idx = getelementptr inbounds i8, ptr %test_sha, i64 16
   store i64 0, ptr %a.sroa.4.0.arrayidx.sroa_idx, align 16
-  %arrayidx14 = getelementptr inbounds [3 x %struct.testVector], ptr %test_sha, i64 0, i64 1
+  %arrayidx14 = getelementptr inbounds i8, ptr %test_sha, i64 32
   store ptr @.str.95, ptr %arrayidx14, align 16
-  %b.sroa.3.0.arrayidx14.sroa_idx = getelementptr inbounds [3 x %struct.testVector], ptr %test_sha, i64 0, i64 1, i32 1
+  %b.sroa.3.0.arrayidx14.sroa_idx = getelementptr inbounds i8, ptr %test_sha, i64 40
   store ptr @.str.132, ptr %b.sroa.3.0.arrayidx14.sroa_idx, align 8
-  %b.sroa.4.0.arrayidx14.sroa_idx = getelementptr inbounds [3 x %struct.testVector], ptr %test_sha, i64 0, i64 1, i32 2
+  %b.sroa.4.0.arrayidx14.sroa_idx = getelementptr inbounds i8, ptr %test_sha, i64 48
   store i64 3, ptr %b.sroa.4.0.arrayidx14.sroa_idx, align 16
-  %arrayidx15 = getelementptr inbounds [3 x %struct.testVector], ptr %test_sha, i64 0, i64 2
+  %arrayidx15 = getelementptr inbounds i8, ptr %test_sha, i64 64
   store ptr @.str.124, ptr %arrayidx15, align 16
-  %c.sroa.3.0.arrayidx15.sroa_idx = getelementptr inbounds [3 x %struct.testVector], ptr %test_sha, i64 0, i64 2, i32 1
+  %c.sroa.3.0.arrayidx15.sroa_idx = getelementptr inbounds i8, ptr %test_sha, i64 72
   store ptr @.str.133, ptr %c.sroa.3.0.arrayidx15.sroa_idx, align 8
-  %c.sroa.4.0.arrayidx15.sroa_idx = getelementptr inbounds [3 x %struct.testVector], ptr %test_sha, i64 0, i64 2, i32 2
+  %c.sroa.4.0.arrayidx15.sroa_idx = getelementptr inbounds i8, ptr %test_sha, i64 80
   store i64 112, ptr %c.sroa.4.0.arrayidx15.sroa_idx, align 16
   %call16 = call i32 @wc_InitSha512_256_ex(ptr noundef nonnull %sha, ptr noundef null, i32 noundef -2) #19
   %cmp.not = icmp eq i32 %call16, 0
@@ -3198,7 +3195,7 @@ for.body:                                         ; preds = %if.end, %for.inc
   %indvars.iv = phi i64 [ %indvars.iv.next, %for.inc ], [ 0, %if.end ]
   %arrayidx39 = getelementptr inbounds [3 x %struct.testVector], ptr %test_sha, i64 0, i64 %indvars.iv
   %2 = load ptr, ptr %arrayidx39, align 16
-  %inLen43 = getelementptr inbounds [3 x %struct.testVector], ptr %test_sha, i64 0, i64 %indvars.iv, i32 2
+  %inLen43 = getelementptr inbounds i8, ptr %arrayidx39, i64 16
   %3 = load i64, ptr %inLen43, align 16
   %conv44 = trunc i64 %3 to i32
   %call45 = call i32 @wc_Sha512_256Update(ptr noundef nonnull %sha, ptr noundef %2, i32 noundef %conv44) #19
@@ -3246,7 +3243,7 @@ do.body96:                                        ; preds = %if.end90
 
 if.end107:                                        ; preds = %if.end90
   call void @wc_Sha512_256Free(ptr noundef nonnull %shaCopy) #19
-  %output111 = getelementptr inbounds [3 x %struct.testVector], ptr %test_sha, i64 0, i64 %indvars.iv, i32 1
+  %output111 = getelementptr inbounds i8, ptr %arrayidx39, i64 8
   %8 = load ptr, ptr %output111, align 8
   %bcmp44 = call i32 @bcmp(ptr noundef nonnull dereferenceable(32) %hash, ptr noundef nonnull dereferenceable(32) %8, i64 32)
   %cmp113.not = icmp eq i32 %bcmp44, 0
@@ -3385,17 +3382,17 @@ entry:
   store ptr @.str.208, ptr %a.sroa.3.0.arrayidx.sroa_idx.i, align 8
   %a.sroa.4.0.arrayidx.sroa_idx.i = getelementptr inbounds i8, ptr %test_sha.i, i64 16
   store i64 0, ptr %a.sroa.4.0.arrayidx.sroa_idx.i, align 16
-  %arrayidx14.i = getelementptr inbounds [3 x %struct.testVector], ptr %test_sha.i, i64 0, i64 1
+  %arrayidx14.i = getelementptr inbounds i8, ptr %test_sha.i, i64 32
   store ptr @.str.95, ptr %arrayidx14.i, align 16
-  %b.sroa.3.0.arrayidx14.sroa_idx.i = getelementptr inbounds [3 x %struct.testVector], ptr %test_sha.i, i64 0, i64 1, i32 1
+  %b.sroa.3.0.arrayidx14.sroa_idx.i = getelementptr inbounds i8, ptr %test_sha.i, i64 40
   store ptr @.str.209, ptr %b.sroa.3.0.arrayidx14.sroa_idx.i, align 8
-  %b.sroa.4.0.arrayidx14.sroa_idx.i = getelementptr inbounds [3 x %struct.testVector], ptr %test_sha.i, i64 0, i64 1, i32 2
+  %b.sroa.4.0.arrayidx14.sroa_idx.i = getelementptr inbounds i8, ptr %test_sha.i, i64 48
   store i64 3, ptr %b.sroa.4.0.arrayidx14.sroa_idx.i, align 16
-  %arrayidx15.i = getelementptr inbounds [3 x %struct.testVector], ptr %test_sha.i, i64 0, i64 2
+  %arrayidx15.i = getelementptr inbounds i8, ptr %test_sha.i, i64 64
   store ptr @.str.108, ptr %arrayidx15.i, align 16
-  %c.sroa.3.0.arrayidx15.sroa_idx.i = getelementptr inbounds [3 x %struct.testVector], ptr %test_sha.i, i64 0, i64 2, i32 1
+  %c.sroa.3.0.arrayidx15.sroa_idx.i = getelementptr inbounds i8, ptr %test_sha.i, i64 72
   store ptr @.str.210, ptr %c.sroa.3.0.arrayidx15.sroa_idx.i, align 8
-  %c.sroa.4.0.arrayidx15.sroa_idx.i = getelementptr inbounds [3 x %struct.testVector], ptr %test_sha.i, i64 0, i64 2, i32 2
+  %c.sroa.4.0.arrayidx15.sroa_idx.i = getelementptr inbounds i8, ptr %test_sha.i, i64 80
   store i64 56, ptr %c.sroa.4.0.arrayidx15.sroa_idx.i, align 16
   %call16.i = call i32 @wc_InitSha3_224(ptr noundef nonnull %sha.i, ptr noundef null, i32 noundef -2) #19
   %cmp.not.i = icmp eq i32 %call16.i, 0
@@ -3417,7 +3414,7 @@ for.body.i:                                       ; preds = %entry, %for.inc.i
   %indvars.iv.i = phi i64 [ %indvars.iv.next.i, %for.inc.i ], [ 0, %entry ]
   %arrayidx24.i = getelementptr inbounds [3 x %struct.testVector], ptr %test_sha.i, i64 0, i64 %indvars.iv.i
   %1 = load ptr, ptr %arrayidx24.i, align 16
-  %inLen28.i = getelementptr inbounds [3 x %struct.testVector], ptr %test_sha.i, i64 0, i64 %indvars.iv.i, i32 2
+  %inLen28.i = getelementptr inbounds i8, ptr %arrayidx24.i, i64 16
   %2 = load i64, ptr %inLen28.i, align 16
   %conv29.i = trunc i64 %2 to i32
   %call30.i = call i32 @wc_Sha3_224_Update(ptr noundef nonnull %sha.i, ptr noundef %1, i32 noundef %conv29.i) #19
@@ -3453,7 +3450,7 @@ do.body65.i:                                      ; preds = %if.end59.i
   br label %sha3_224_test.exit.thread216
 
 if.end76.i:                                       ; preds = %if.end59.i
-  %output80.i = getelementptr inbounds [3 x %struct.testVector], ptr %test_sha.i, i64 0, i64 %indvars.iv.i, i32 1
+  %output80.i = getelementptr inbounds i8, ptr %arrayidx24.i, i64 8
   %6 = load ptr, ptr %output80.i, align 8
   %bcmp31.i = call i32 @bcmp(ptr noundef nonnull dereferenceable(28) %hash.i, ptr noundef nonnull dereferenceable(28) %6, i64 28)
   %cmp82.not.i = icmp eq i32 %bcmp31.i, 0
@@ -3562,17 +3559,17 @@ if.end:                                           ; preds = %sha3_224_test.exit.
   store ptr @.str.213, ptr %a.sroa.3.0.arrayidx.sroa_idx.i9, align 8
   %a.sroa.4.0.arrayidx.sroa_idx.i10 = getelementptr inbounds i8, ptr %test_sha.i7, i64 16
   store i64 0, ptr %a.sroa.4.0.arrayidx.sroa_idx.i10, align 16
-  %arrayidx14.i11 = getelementptr inbounds [3 x %struct.testVector], ptr %test_sha.i7, i64 0, i64 1
+  %arrayidx14.i11 = getelementptr inbounds i8, ptr %test_sha.i7, i64 32
   store ptr @.str.95, ptr %arrayidx14.i11, align 16
-  %b.sroa.3.0.arrayidx14.sroa_idx.i12 = getelementptr inbounds [3 x %struct.testVector], ptr %test_sha.i7, i64 0, i64 1, i32 1
+  %b.sroa.3.0.arrayidx14.sroa_idx.i12 = getelementptr inbounds i8, ptr %test_sha.i7, i64 40
   store ptr @.str.214, ptr %b.sroa.3.0.arrayidx14.sroa_idx.i12, align 8
-  %b.sroa.4.0.arrayidx14.sroa_idx.i13 = getelementptr inbounds [3 x %struct.testVector], ptr %test_sha.i7, i64 0, i64 1, i32 2
+  %b.sroa.4.0.arrayidx14.sroa_idx.i13 = getelementptr inbounds i8, ptr %test_sha.i7, i64 48
   store i64 3, ptr %b.sroa.4.0.arrayidx14.sroa_idx.i13, align 16
-  %arrayidx15.i14 = getelementptr inbounds [3 x %struct.testVector], ptr %test_sha.i7, i64 0, i64 2
+  %arrayidx15.i14 = getelementptr inbounds i8, ptr %test_sha.i7, i64 64
   store ptr @.str.108, ptr %arrayidx15.i14, align 16
-  %c.sroa.3.0.arrayidx15.sroa_idx.i15 = getelementptr inbounds [3 x %struct.testVector], ptr %test_sha.i7, i64 0, i64 2, i32 1
+  %c.sroa.3.0.arrayidx15.sroa_idx.i15 = getelementptr inbounds i8, ptr %test_sha.i7, i64 72
   store ptr @.str.215, ptr %c.sroa.3.0.arrayidx15.sroa_idx.i15, align 8
-  %c.sroa.4.0.arrayidx15.sroa_idx.i16 = getelementptr inbounds [3 x %struct.testVector], ptr %test_sha.i7, i64 0, i64 2, i32 2
+  %c.sroa.4.0.arrayidx15.sroa_idx.i16 = getelementptr inbounds i8, ptr %test_sha.i7, i64 80
   store i64 56, ptr %c.sroa.4.0.arrayidx15.sroa_idx.i16, align 16
   %call16.i17 = call i32 @wc_InitSha3_256(ptr noundef nonnull %sha.i4, ptr noundef null, i32 noundef -2) #19
   %cmp.not.i18 = icmp eq i32 %call16.i17, 0
@@ -3594,7 +3591,7 @@ for.body.i24:                                     ; preds = %if.end, %for.inc.i6
   %indvars.iv.i25 = phi i64 [ %indvars.iv.next.i62, %for.inc.i61 ], [ 0, %if.end ]
   %arrayidx24.i26 = getelementptr inbounds [3 x %struct.testVector], ptr %test_sha.i7, i64 0, i64 %indvars.iv.i25
   %12 = load ptr, ptr %arrayidx24.i26, align 16
-  %inLen28.i27 = getelementptr inbounds [3 x %struct.testVector], ptr %test_sha.i7, i64 0, i64 %indvars.iv.i25, i32 2
+  %inLen28.i27 = getelementptr inbounds i8, ptr %arrayidx24.i26, i64 16
   %13 = load i64, ptr %inLen28.i27, align 16
   %conv29.i28 = trunc i64 %13 to i32
   %call30.i29 = call i32 @wc_Sha3_256_Update(ptr noundef nonnull %sha.i4, ptr noundef %12, i32 noundef %conv29.i28) #19
@@ -3630,7 +3627,7 @@ do.body65.i45:                                    ; preds = %if.end59.i42
   br label %sha3_256_test.exit.thread225
 
 if.end76.i48:                                     ; preds = %if.end59.i42
-  %output80.i49 = getelementptr inbounds [3 x %struct.testVector], ptr %test_sha.i7, i64 0, i64 %indvars.iv.i25, i32 1
+  %output80.i49 = getelementptr inbounds i8, ptr %arrayidx24.i26, i64 8
   %17 = load ptr, ptr %output80.i49, align 8
   %bcmp31.i50 = call i32 @bcmp(ptr noundef nonnull dereferenceable(32) %hash.i5, ptr noundef nonnull dereferenceable(32) %17, i64 32)
   %cmp82.not.i51 = icmp eq i32 %bcmp31.i50, 0
@@ -3730,17 +3727,17 @@ if.end4:                                          ; preds = %if.end168.i88
   store ptr @.str.216, ptr %a.sroa.3.0.arrayidx.sroa_idx.i97, align 8
   %a.sroa.4.0.arrayidx.sroa_idx.i98 = getelementptr inbounds i8, ptr %test_sha.i95, i64 16
   store i64 0, ptr %a.sroa.4.0.arrayidx.sroa_idx.i98, align 16
-  %arrayidx14.i99 = getelementptr inbounds [3 x %struct.testVector], ptr %test_sha.i95, i64 0, i64 1
+  %arrayidx14.i99 = getelementptr inbounds i8, ptr %test_sha.i95, i64 32
   store ptr @.str.95, ptr %arrayidx14.i99, align 16
-  %b.sroa.3.0.arrayidx14.sroa_idx.i100 = getelementptr inbounds [3 x %struct.testVector], ptr %test_sha.i95, i64 0, i64 1, i32 1
+  %b.sroa.3.0.arrayidx14.sroa_idx.i100 = getelementptr inbounds i8, ptr %test_sha.i95, i64 40
   store ptr @.str.217, ptr %b.sroa.3.0.arrayidx14.sroa_idx.i100, align 8
-  %b.sroa.4.0.arrayidx14.sroa_idx.i101 = getelementptr inbounds [3 x %struct.testVector], ptr %test_sha.i95, i64 0, i64 1, i32 2
+  %b.sroa.4.0.arrayidx14.sroa_idx.i101 = getelementptr inbounds i8, ptr %test_sha.i95, i64 48
   store i64 3, ptr %b.sroa.4.0.arrayidx14.sroa_idx.i101, align 16
-  %arrayidx15.i102 = getelementptr inbounds [3 x %struct.testVector], ptr %test_sha.i95, i64 0, i64 2
+  %arrayidx15.i102 = getelementptr inbounds i8, ptr %test_sha.i95, i64 64
   store ptr @.str.108, ptr %arrayidx15.i102, align 16
-  %c.sroa.3.0.arrayidx15.sroa_idx.i103 = getelementptr inbounds [3 x %struct.testVector], ptr %test_sha.i95, i64 0, i64 2, i32 1
+  %c.sroa.3.0.arrayidx15.sroa_idx.i103 = getelementptr inbounds i8, ptr %test_sha.i95, i64 72
   store ptr @.str.218, ptr %c.sroa.3.0.arrayidx15.sroa_idx.i103, align 8
-  %c.sroa.4.0.arrayidx15.sroa_idx.i104 = getelementptr inbounds [3 x %struct.testVector], ptr %test_sha.i95, i64 0, i64 2, i32 2
+  %c.sroa.4.0.arrayidx15.sroa_idx.i104 = getelementptr inbounds i8, ptr %test_sha.i95, i64 80
   store i64 56, ptr %c.sroa.4.0.arrayidx15.sroa_idx.i104, align 16
   %call16.i105 = call i32 @wc_InitSha3_384(ptr noundef nonnull %sha.i92, ptr noundef null, i32 noundef -2) #19
   %cmp.not.i106 = icmp eq i32 %call16.i105, 0
@@ -3763,7 +3760,7 @@ for.body.i111:                                    ; preds = %if.end4, %for.inc.i
   %indvars.iv.i112 = phi i64 [ %indvars.iv.next.i120, %for.inc.i119 ], [ 0, %if.end4 ]
   %arrayidx24.i113 = getelementptr inbounds [3 x %struct.testVector], ptr %test_sha.i95, i64 0, i64 %indvars.iv.i112
   %23 = load ptr, ptr %arrayidx24.i113, align 16
-  %inLen28.i114 = getelementptr inbounds [3 x %struct.testVector], ptr %test_sha.i95, i64 0, i64 %indvars.iv.i112, i32 2
+  %inLen28.i114 = getelementptr inbounds i8, ptr %arrayidx24.i113, i64 16
   %24 = load i64, ptr %inLen28.i114, align 16
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 16 %buf.i, ptr align 1 %23, i64 %24, i1 false)
   %conv33.i = trunc i64 %24 to i32
@@ -3800,7 +3797,7 @@ do.body70.i:                                      ; preds = %if.end64.i
   br label %sha3_384_test.exit.thread231
 
 if.end81.i:                                       ; preds = %if.end64.i
-  %output85.i = getelementptr inbounds [3 x %struct.testVector], ptr %test_sha.i95, i64 0, i64 %indvars.iv.i112, i32 1
+  %output85.i = getelementptr inbounds i8, ptr %arrayidx24.i113, i64 8
   %28 = load ptr, ptr %output85.i, align 8
   %bcmp32.i118 = call i32 @bcmp(ptr noundef nonnull dereferenceable(48) %hash.i93, ptr noundef nonnull dereferenceable(48) %28, i64 48)
   %cmp87.not.i = icmp eq i32 %bcmp32.i118, 0
@@ -3901,17 +3898,17 @@ if.end8:                                          ; preds = %if.end173.i
   store ptr @.str.220, ptr %a.sroa.3.0.arrayidx.sroa_idx.i131, align 8
   %a.sroa.4.0.arrayidx.sroa_idx.i132 = getelementptr inbounds i8, ptr %test_sha.i129, i64 16
   store i64 0, ptr %a.sroa.4.0.arrayidx.sroa_idx.i132, align 16
-  %arrayidx14.i133 = getelementptr inbounds [3 x %struct.testVector], ptr %test_sha.i129, i64 0, i64 1
+  %arrayidx14.i133 = getelementptr inbounds i8, ptr %test_sha.i129, i64 32
   store ptr @.str.95, ptr %arrayidx14.i133, align 16
-  %b.sroa.3.0.arrayidx14.sroa_idx.i134 = getelementptr inbounds [3 x %struct.testVector], ptr %test_sha.i129, i64 0, i64 1, i32 1
+  %b.sroa.3.0.arrayidx14.sroa_idx.i134 = getelementptr inbounds i8, ptr %test_sha.i129, i64 40
   store ptr @.str.221, ptr %b.sroa.3.0.arrayidx14.sroa_idx.i134, align 8
-  %b.sroa.4.0.arrayidx14.sroa_idx.i135 = getelementptr inbounds [3 x %struct.testVector], ptr %test_sha.i129, i64 0, i64 1, i32 2
+  %b.sroa.4.0.arrayidx14.sroa_idx.i135 = getelementptr inbounds i8, ptr %test_sha.i129, i64 48
   store i64 3, ptr %b.sroa.4.0.arrayidx14.sroa_idx.i135, align 16
-  %arrayidx15.i136 = getelementptr inbounds [3 x %struct.testVector], ptr %test_sha.i129, i64 0, i64 2
+  %arrayidx15.i136 = getelementptr inbounds i8, ptr %test_sha.i129, i64 64
   store ptr @.str.108, ptr %arrayidx15.i136, align 16
-  %c.sroa.3.0.arrayidx15.sroa_idx.i137 = getelementptr inbounds [3 x %struct.testVector], ptr %test_sha.i129, i64 0, i64 2, i32 1
+  %c.sroa.3.0.arrayidx15.sroa_idx.i137 = getelementptr inbounds i8, ptr %test_sha.i129, i64 72
   store ptr @.str.222, ptr %c.sroa.3.0.arrayidx15.sroa_idx.i137, align 8
-  %c.sroa.4.0.arrayidx15.sroa_idx.i138 = getelementptr inbounds [3 x %struct.testVector], ptr %test_sha.i129, i64 0, i64 2, i32 2
+  %c.sroa.4.0.arrayidx15.sroa_idx.i138 = getelementptr inbounds i8, ptr %test_sha.i129, i64 80
   store i64 56, ptr %c.sroa.4.0.arrayidx15.sroa_idx.i138, align 16
   %call16.i139 = call i32 @wc_InitSha3_512(ptr noundef nonnull %sha.i126, ptr noundef null, i32 noundef -2) #19
   %cmp.not.i140 = icmp eq i32 %call16.i139, 0
@@ -3928,7 +3925,7 @@ for.body.i146:                                    ; preds = %if.end8, %for.inc.i
   %indvars.iv.i147 = phi i64 [ %indvars.iv.next.i184, %for.inc.i183 ], [ 0, %if.end8 ]
   %arrayidx24.i148 = getelementptr inbounds [3 x %struct.testVector], ptr %test_sha.i129, i64 0, i64 %indvars.iv.i147
   %34 = load ptr, ptr %arrayidx24.i148, align 16
-  %inLen28.i149 = getelementptr inbounds [3 x %struct.testVector], ptr %test_sha.i129, i64 0, i64 %indvars.iv.i147, i32 2
+  %inLen28.i149 = getelementptr inbounds i8, ptr %arrayidx24.i148, i64 16
   %35 = load i64, ptr %inLen28.i149, align 16
   %conv29.i150 = trunc i64 %35 to i32
   %call30.i151 = call i32 @wc_Sha3_512_Update(ptr noundef nonnull %sha.i126, ptr noundef %34, i32 noundef %conv29.i150) #19
@@ -3964,7 +3961,7 @@ do.body65.i167:                                   ; preds = %if.end59.i164
   br label %exit.i156
 
 if.end76.i170:                                    ; preds = %if.end59.i164
-  %output80.i171 = getelementptr inbounds [3 x %struct.testVector], ptr %test_sha.i129, i64 0, i64 %indvars.iv.i147, i32 1
+  %output80.i171 = getelementptr inbounds i8, ptr %arrayidx24.i148, i64 8
   %39 = load ptr, ptr %output80.i171, align 8
   %bcmp31.i172 = call i32 @bcmp(ptr noundef nonnull dereferenceable(64) %hash.i127, ptr noundef nonnull dereferenceable(64) %39, i64 64)
   %cmp82.not.i173 = icmp eq i32 %bcmp31.i172, 0
@@ -4558,17 +4555,17 @@ entry:
   store ptr @.str.143, ptr %a.sroa.3.0.arrayidx.sroa_idx, align 8
   %a.sroa.4.0.arrayidx.sroa_idx = getelementptr inbounds i8, ptr %test_hmac, i64 16
   store i64 8, ptr %a.sroa.4.0.arrayidx.sroa_idx, align 16
-  %arrayidx14 = getelementptr inbounds [3 x %struct.testVector], ptr %test_hmac, i64 0, i64 1
+  %arrayidx14 = getelementptr inbounds i8, ptr %test_hmac, i64 32
   store ptr @.str.144, ptr %arrayidx14, align 16
-  %b.sroa.3.0.arrayidx14.sroa_idx = getelementptr inbounds [3 x %struct.testVector], ptr %test_hmac, i64 0, i64 1, i32 1
+  %b.sroa.3.0.arrayidx14.sroa_idx = getelementptr inbounds i8, ptr %test_hmac, i64 40
   store ptr @.str.145, ptr %b.sroa.3.0.arrayidx14.sroa_idx, align 8
-  %b.sroa.4.0.arrayidx14.sroa_idx = getelementptr inbounds [3 x %struct.testVector], ptr %test_hmac, i64 0, i64 1, i32 2
+  %b.sroa.4.0.arrayidx14.sroa_idx = getelementptr inbounds i8, ptr %test_hmac, i64 48
   store i64 28, ptr %b.sroa.4.0.arrayidx14.sroa_idx, align 16
-  %arrayidx15 = getelementptr inbounds [3 x %struct.testVector], ptr %test_hmac, i64 0, i64 2
+  %arrayidx15 = getelementptr inbounds i8, ptr %test_hmac, i64 64
   store ptr @.str.146, ptr %arrayidx15, align 16
-  %c.sroa.3.0.arrayidx15.sroa_idx = getelementptr inbounds [3 x %struct.testVector], ptr %test_hmac, i64 0, i64 2, i32 1
+  %c.sroa.3.0.arrayidx15.sroa_idx = getelementptr inbounds i8, ptr %test_hmac, i64 72
   store ptr @.str.147, ptr %c.sroa.3.0.arrayidx15.sroa_idx, align 8
-  %c.sroa.4.0.arrayidx15.sroa_idx = getelementptr inbounds [3 x %struct.testVector], ptr %test_hmac, i64 0, i64 2, i32 2
+  %c.sroa.4.0.arrayidx15.sroa_idx = getelementptr inbounds i8, ptr %test_hmac, i64 80
   store i64 50, ptr %c.sroa.4.0.arrayidx15.sroa_idx, align 16
   br label %for.body
 
@@ -4604,7 +4601,7 @@ if.then31:                                        ; preds = %if.end
 if.end42:                                         ; preds = %if.end
   %arrayidx44 = getelementptr inbounds [3 x %struct.testVector], ptr %test_hmac, i64 0, i64 %indvars.iv
   %3 = load ptr, ptr %arrayidx44, align 16
-  %inLen48 = getelementptr inbounds [3 x %struct.testVector], ptr %test_hmac, i64 0, i64 %indvars.iv, i32 2
+  %inLen48 = getelementptr inbounds i8, ptr %arrayidx44, i64 16
   %4 = load i64, ptr %inLen48, align 16
   %conv49 = trunc i64 %4 to i32
   %call50 = call i32 @wc_HmacUpdate(ptr noundef nonnull %hmac, ptr noundef %3, i32 noundef %conv49) #19
@@ -4631,7 +4628,7 @@ if.then68:                                        ; preds = %if.end64
   br label %return
 
 if.end79:                                         ; preds = %if.end64
-  %output83 = getelementptr inbounds [3 x %struct.testVector], ptr %test_hmac, i64 0, i64 %indvars.iv, i32 1
+  %output83 = getelementptr inbounds i8, ptr %arrayidx44, i64 8
   %7 = load ptr, ptr %output83, align 8
   %bcmp = call i32 @bcmp(ptr noundef nonnull dereferenceable(16) %hash, ptr noundef nonnull dereferenceable(16) %7, i64 16)
   %cmp85.not = icmp eq i32 %bcmp, 0
@@ -4677,17 +4674,17 @@ entry:
   store ptr @.str.150, ptr %a.sroa.3.0.arrayidx.sroa_idx, align 8
   %a.sroa.4.0.arrayidx.sroa_idx = getelementptr inbounds i8, ptr %test_hmac, i64 16
   store i64 8, ptr %a.sroa.4.0.arrayidx.sroa_idx, align 16
-  %arrayidx14 = getelementptr inbounds [3 x %struct.testVector], ptr %test_hmac, i64 0, i64 1
+  %arrayidx14 = getelementptr inbounds i8, ptr %test_hmac, i64 32
   store ptr @.str.144, ptr %arrayidx14, align 16
-  %b.sroa.3.0.arrayidx14.sroa_idx = getelementptr inbounds [3 x %struct.testVector], ptr %test_hmac, i64 0, i64 1, i32 1
+  %b.sroa.3.0.arrayidx14.sroa_idx = getelementptr inbounds i8, ptr %test_hmac, i64 40
   store ptr @.str.151, ptr %b.sroa.3.0.arrayidx14.sroa_idx, align 8
-  %b.sroa.4.0.arrayidx14.sroa_idx = getelementptr inbounds [3 x %struct.testVector], ptr %test_hmac, i64 0, i64 1, i32 2
+  %b.sroa.4.0.arrayidx14.sroa_idx = getelementptr inbounds i8, ptr %test_hmac, i64 48
   store i64 28, ptr %b.sroa.4.0.arrayidx14.sroa_idx, align 16
-  %arrayidx15 = getelementptr inbounds [3 x %struct.testVector], ptr %test_hmac, i64 0, i64 2
+  %arrayidx15 = getelementptr inbounds i8, ptr %test_hmac, i64 64
   store ptr @.str.146, ptr %arrayidx15, align 16
-  %c.sroa.3.0.arrayidx15.sroa_idx = getelementptr inbounds [3 x %struct.testVector], ptr %test_hmac, i64 0, i64 2, i32 1
+  %c.sroa.3.0.arrayidx15.sroa_idx = getelementptr inbounds i8, ptr %test_hmac, i64 72
   store ptr @.str.152, ptr %c.sroa.3.0.arrayidx15.sroa_idx, align 8
-  %c.sroa.4.0.arrayidx15.sroa_idx = getelementptr inbounds [3 x %struct.testVector], ptr %test_hmac, i64 0, i64 2, i32 2
+  %c.sroa.4.0.arrayidx15.sroa_idx = getelementptr inbounds i8, ptr %test_hmac, i64 80
   store i64 50, ptr %c.sroa.4.0.arrayidx15.sroa_idx, align 16
   br label %for.body
 
@@ -4723,7 +4720,7 @@ if.then31:                                        ; preds = %if.end
 if.end42:                                         ; preds = %if.end
   %arrayidx44 = getelementptr inbounds [3 x %struct.testVector], ptr %test_hmac, i64 0, i64 %indvars.iv
   %3 = load ptr, ptr %arrayidx44, align 16
-  %inLen48 = getelementptr inbounds [3 x %struct.testVector], ptr %test_hmac, i64 0, i64 %indvars.iv, i32 2
+  %inLen48 = getelementptr inbounds i8, ptr %arrayidx44, i64 16
   %4 = load i64, ptr %inLen48, align 16
   %conv49 = trunc i64 %4 to i32
   %call50 = call i32 @wc_HmacUpdate(ptr noundef nonnull %hmac, ptr noundef %3, i32 noundef %conv49) #19
@@ -4750,7 +4747,7 @@ if.then68:                                        ; preds = %if.end64
   br label %return
 
 if.end79:                                         ; preds = %if.end64
-  %output83 = getelementptr inbounds [3 x %struct.testVector], ptr %test_hmac, i64 0, i64 %indvars.iv, i32 1
+  %output83 = getelementptr inbounds i8, ptr %arrayidx44, i64 8
   %7 = load ptr, ptr %output83, align 8
   %bcmp = call i32 @bcmp(ptr noundef nonnull dereferenceable(20) %hash, ptr noundef nonnull dereferenceable(20) %7, i64 20)
   %cmp85.not = icmp eq i32 %bcmp, 0
@@ -4796,23 +4793,23 @@ entry:
   store ptr @.str.154, ptr %a.sroa.3.0.arrayidx.sroa_idx, align 8
   %a.sroa.4.0.arrayidx.sroa_idx = getelementptr inbounds i8, ptr %test_hmac, i64 16
   store i64 8, ptr %a.sroa.4.0.arrayidx.sroa_idx, align 16
-  %arrayidx20 = getelementptr inbounds [4 x %struct.testVector], ptr %test_hmac, i64 0, i64 1
+  %arrayidx20 = getelementptr inbounds i8, ptr %test_hmac, i64 32
   store ptr @.str.144, ptr %arrayidx20, align 16
-  %b.sroa.3.0.arrayidx20.sroa_idx = getelementptr inbounds [4 x %struct.testVector], ptr %test_hmac, i64 0, i64 1, i32 1
+  %b.sroa.3.0.arrayidx20.sroa_idx = getelementptr inbounds i8, ptr %test_hmac, i64 40
   store ptr @.str.155, ptr %b.sroa.3.0.arrayidx20.sroa_idx, align 8
-  %b.sroa.4.0.arrayidx20.sroa_idx = getelementptr inbounds [4 x %struct.testVector], ptr %test_hmac, i64 0, i64 1, i32 2
+  %b.sroa.4.0.arrayidx20.sroa_idx = getelementptr inbounds i8, ptr %test_hmac, i64 48
   store i64 28, ptr %b.sroa.4.0.arrayidx20.sroa_idx, align 16
-  %arrayidx21 = getelementptr inbounds [4 x %struct.testVector], ptr %test_hmac, i64 0, i64 2
+  %arrayidx21 = getelementptr inbounds i8, ptr %test_hmac, i64 64
   store ptr @.str.146, ptr %arrayidx21, align 16
-  %c.sroa.3.0.arrayidx21.sroa_idx = getelementptr inbounds [4 x %struct.testVector], ptr %test_hmac, i64 0, i64 2, i32 1
+  %c.sroa.3.0.arrayidx21.sroa_idx = getelementptr inbounds i8, ptr %test_hmac, i64 72
   store ptr @.str.156, ptr %c.sroa.3.0.arrayidx21.sroa_idx, align 8
-  %c.sroa.4.0.arrayidx21.sroa_idx = getelementptr inbounds [4 x %struct.testVector], ptr %test_hmac, i64 0, i64 2, i32 2
+  %c.sroa.4.0.arrayidx21.sroa_idx = getelementptr inbounds i8, ptr %test_hmac, i64 80
   store i64 50, ptr %c.sroa.4.0.arrayidx21.sroa_idx, align 16
-  %arrayidx22 = getelementptr inbounds [4 x %struct.testVector], ptr %test_hmac, i64 0, i64 3
+  %arrayidx22 = getelementptr inbounds i8, ptr %test_hmac, i64 96
   store ptr @.str.157, ptr %arrayidx22, align 16
-  %d.sroa.3.0.arrayidx22.sroa_idx = getelementptr inbounds [4 x %struct.testVector], ptr %test_hmac, i64 0, i64 3, i32 1
+  %d.sroa.3.0.arrayidx22.sroa_idx = getelementptr inbounds i8, ptr %test_hmac, i64 104
   store ptr @.str.158, ptr %d.sroa.3.0.arrayidx22.sroa_idx, align 8
-  %d.sroa.4.0.arrayidx22.sroa_idx = getelementptr inbounds [4 x %struct.testVector], ptr %test_hmac, i64 0, i64 3, i32 2
+  %d.sroa.4.0.arrayidx22.sroa_idx = getelementptr inbounds i8, ptr %test_hmac, i64 112
   store i64 13, ptr %d.sroa.4.0.arrayidx22.sroa_idx, align 16
   br label %for.body
 
@@ -4848,7 +4845,7 @@ if.then38:                                        ; preds = %if.end
 if.end49:                                         ; preds = %if.end
   %arrayidx51 = getelementptr inbounds [4 x %struct.testVector], ptr %test_hmac, i64 0, i64 %indvars.iv
   %3 = load ptr, ptr %arrayidx51, align 16
-  %inLen55 = getelementptr inbounds [4 x %struct.testVector], ptr %test_hmac, i64 0, i64 %indvars.iv, i32 2
+  %inLen55 = getelementptr inbounds i8, ptr %arrayidx51, i64 16
   %4 = load i64, ptr %inLen55, align 16
   %conv56 = trunc i64 %4 to i32
   %call57 = call i32 @wc_HmacUpdate(ptr noundef nonnull %hmac, ptr noundef %3, i32 noundef %conv56) #19
@@ -4875,7 +4872,7 @@ if.then75:                                        ; preds = %if.end71
   br label %return
 
 if.end86:                                         ; preds = %if.end71
-  %output90 = getelementptr inbounds [4 x %struct.testVector], ptr %test_hmac, i64 0, i64 %indvars.iv, i32 1
+  %output90 = getelementptr inbounds i8, ptr %arrayidx51, i64 8
   %7 = load ptr, ptr %output90, align 8
   %bcmp = call i32 @bcmp(ptr noundef nonnull dereferenceable(28) %hash, ptr noundef nonnull dereferenceable(28) %7, i64 28)
   %cmp92.not = icmp eq i32 %bcmp, 0
@@ -4921,23 +4918,23 @@ entry:
   store ptr @.str.159, ptr %a.sroa.3.0.arrayidx.sroa_idx, align 8
   %a.sroa.4.0.arrayidx.sroa_idx = getelementptr inbounds i8, ptr %test_hmac, i64 16
   store i64 8, ptr %a.sroa.4.0.arrayidx.sroa_idx, align 16
-  %arrayidx18 = getelementptr inbounds [4 x %struct.testVector], ptr %test_hmac, i64 0, i64 1
+  %arrayidx18 = getelementptr inbounds i8, ptr %test_hmac, i64 32
   store ptr @.str.144, ptr %arrayidx18, align 16
-  %b.sroa.3.0.arrayidx18.sroa_idx = getelementptr inbounds [4 x %struct.testVector], ptr %test_hmac, i64 0, i64 1, i32 1
+  %b.sroa.3.0.arrayidx18.sroa_idx = getelementptr inbounds i8, ptr %test_hmac, i64 40
   store ptr @.str.160, ptr %b.sroa.3.0.arrayidx18.sroa_idx, align 8
-  %b.sroa.4.0.arrayidx18.sroa_idx = getelementptr inbounds [4 x %struct.testVector], ptr %test_hmac, i64 0, i64 1, i32 2
+  %b.sroa.4.0.arrayidx18.sroa_idx = getelementptr inbounds i8, ptr %test_hmac, i64 48
   store i64 28, ptr %b.sroa.4.0.arrayidx18.sroa_idx, align 16
-  %arrayidx19 = getelementptr inbounds [4 x %struct.testVector], ptr %test_hmac, i64 0, i64 2
+  %arrayidx19 = getelementptr inbounds i8, ptr %test_hmac, i64 64
   store ptr @.str.146, ptr %arrayidx19, align 16
-  %c.sroa.3.0.arrayidx19.sroa_idx = getelementptr inbounds [4 x %struct.testVector], ptr %test_hmac, i64 0, i64 2, i32 1
+  %c.sroa.3.0.arrayidx19.sroa_idx = getelementptr inbounds i8, ptr %test_hmac, i64 72
   store ptr @.str.161, ptr %c.sroa.3.0.arrayidx19.sroa_idx, align 8
-  %c.sroa.4.0.arrayidx19.sroa_idx = getelementptr inbounds [4 x %struct.testVector], ptr %test_hmac, i64 0, i64 2, i32 2
+  %c.sroa.4.0.arrayidx19.sroa_idx = getelementptr inbounds i8, ptr %test_hmac, i64 80
   store i64 50, ptr %c.sroa.4.0.arrayidx19.sroa_idx, align 16
-  %arrayidx20 = getelementptr inbounds [4 x %struct.testVector], ptr %test_hmac, i64 0, i64 3
+  %arrayidx20 = getelementptr inbounds i8, ptr %test_hmac, i64 96
   store ptr null, ptr %arrayidx20, align 16
-  %d.sroa.2.0.arrayidx20.sroa_idx = getelementptr inbounds [4 x %struct.testVector], ptr %test_hmac, i64 0, i64 3, i32 1
+  %d.sroa.2.0.arrayidx20.sroa_idx = getelementptr inbounds i8, ptr %test_hmac, i64 104
   store ptr @.str.162, ptr %d.sroa.2.0.arrayidx20.sroa_idx, align 8
-  %d.sroa.3.0.arrayidx20.sroa_idx = getelementptr inbounds [4 x %struct.testVector], ptr %test_hmac, i64 0, i64 3, i32 2
+  %d.sroa.3.0.arrayidx20.sroa_idx = getelementptr inbounds i8, ptr %test_hmac, i64 112
   store i64 0, ptr %d.sroa.3.0.arrayidx20.sroa_idx, align 16
   br label %for.body
 
@@ -4975,7 +4972,7 @@ if.end45:                                         ; preds = %if.end
   br i1 %cmp49.not, label %if.end73, label %if.then51
 
 if.then51:                                        ; preds = %if.end45
-  %inLen57 = getelementptr inbounds [4 x %struct.testVector], ptr %test_hmac, i64 0, i64 %indvars.iv, i32 2
+  %inLen57 = getelementptr inbounds i8, ptr %arrayidx47, i64 16
   %4 = load i64, ptr %inLen57, align 16
   %conv58 = trunc i64 %4 to i32
   %call59 = call i32 @wc_HmacUpdate(ptr noundef nonnull %hmac, ptr noundef nonnull %3, i32 noundef %conv58) #19
@@ -5000,7 +4997,7 @@ if.then77:                                        ; preds = %if.end73
   br label %return
 
 if.end87:                                         ; preds = %if.end73
-  %output91 = getelementptr inbounds [4 x %struct.testVector], ptr %test_hmac, i64 0, i64 %indvars.iv, i32 1
+  %output91 = getelementptr inbounds i8, ptr %arrayidx47, i64 8
   %7 = load ptr, ptr %output91, align 8
   %bcmp = call i32 @bcmp(ptr noundef nonnull dereferenceable(32) %hash, ptr noundef nonnull dereferenceable(32) %7, i64 32)
   %cmp93.not = icmp eq i32 %bcmp, 0
@@ -5070,23 +5067,23 @@ entry:
   store ptr @.str.164, ptr %a.sroa.3.0.arrayidx.sroa_idx, align 8
   %a.sroa.4.0.arrayidx.sroa_idx = getelementptr inbounds i8, ptr %test_hmac, i64 16
   store i64 8, ptr %a.sroa.4.0.arrayidx.sroa_idx, align 16
-  %arrayidx20 = getelementptr inbounds [4 x %struct.testVector], ptr %test_hmac, i64 0, i64 1
+  %arrayidx20 = getelementptr inbounds i8, ptr %test_hmac, i64 32
   store ptr @.str.144, ptr %arrayidx20, align 16
-  %b.sroa.3.0.arrayidx20.sroa_idx = getelementptr inbounds [4 x %struct.testVector], ptr %test_hmac, i64 0, i64 1, i32 1
+  %b.sroa.3.0.arrayidx20.sroa_idx = getelementptr inbounds i8, ptr %test_hmac, i64 40
   store ptr @.str.165, ptr %b.sroa.3.0.arrayidx20.sroa_idx, align 8
-  %b.sroa.4.0.arrayidx20.sroa_idx = getelementptr inbounds [4 x %struct.testVector], ptr %test_hmac, i64 0, i64 1, i32 2
+  %b.sroa.4.0.arrayidx20.sroa_idx = getelementptr inbounds i8, ptr %test_hmac, i64 48
   store i64 28, ptr %b.sroa.4.0.arrayidx20.sroa_idx, align 16
-  %arrayidx21 = getelementptr inbounds [4 x %struct.testVector], ptr %test_hmac, i64 0, i64 2
+  %arrayidx21 = getelementptr inbounds i8, ptr %test_hmac, i64 64
   store ptr @.str.146, ptr %arrayidx21, align 16
-  %c.sroa.3.0.arrayidx21.sroa_idx = getelementptr inbounds [4 x %struct.testVector], ptr %test_hmac, i64 0, i64 2, i32 1
+  %c.sroa.3.0.arrayidx21.sroa_idx = getelementptr inbounds i8, ptr %test_hmac, i64 72
   store ptr @.str.166, ptr %c.sroa.3.0.arrayidx21.sroa_idx, align 8
-  %c.sroa.4.0.arrayidx21.sroa_idx = getelementptr inbounds [4 x %struct.testVector], ptr %test_hmac, i64 0, i64 2, i32 2
+  %c.sroa.4.0.arrayidx21.sroa_idx = getelementptr inbounds i8, ptr %test_hmac, i64 80
   store i64 50, ptr %c.sroa.4.0.arrayidx21.sroa_idx, align 16
-  %arrayidx22 = getelementptr inbounds [4 x %struct.testVector], ptr %test_hmac, i64 0, i64 3
+  %arrayidx22 = getelementptr inbounds i8, ptr %test_hmac, i64 96
   store ptr @.str.157, ptr %arrayidx22, align 16
-  %d.sroa.3.0.arrayidx22.sroa_idx = getelementptr inbounds [4 x %struct.testVector], ptr %test_hmac, i64 0, i64 3, i32 1
+  %d.sroa.3.0.arrayidx22.sroa_idx = getelementptr inbounds i8, ptr %test_hmac, i64 104
   store ptr @.str.167, ptr %d.sroa.3.0.arrayidx22.sroa_idx, align 8
-  %d.sroa.4.0.arrayidx22.sroa_idx = getelementptr inbounds [4 x %struct.testVector], ptr %test_hmac, i64 0, i64 3, i32 2
+  %d.sroa.4.0.arrayidx22.sroa_idx = getelementptr inbounds i8, ptr %test_hmac, i64 112
   store i64 13, ptr %d.sroa.4.0.arrayidx22.sroa_idx, align 16
   br label %for.body
 
@@ -5122,7 +5119,7 @@ if.then38:                                        ; preds = %if.end
 if.end49:                                         ; preds = %if.end
   %arrayidx51 = getelementptr inbounds [4 x %struct.testVector], ptr %test_hmac, i64 0, i64 %indvars.iv
   %3 = load ptr, ptr %arrayidx51, align 16
-  %inLen55 = getelementptr inbounds [4 x %struct.testVector], ptr %test_hmac, i64 0, i64 %indvars.iv, i32 2
+  %inLen55 = getelementptr inbounds i8, ptr %arrayidx51, i64 16
   %4 = load i64, ptr %inLen55, align 16
   %conv56 = trunc i64 %4 to i32
   %call57 = call i32 @wc_HmacUpdate(ptr noundef nonnull %hmac, ptr noundef %3, i32 noundef %conv56) #19
@@ -5149,7 +5146,7 @@ if.then75:                                        ; preds = %if.end71
   br label %return
 
 if.end86:                                         ; preds = %if.end71
-  %output90 = getelementptr inbounds [4 x %struct.testVector], ptr %test_hmac, i64 0, i64 %indvars.iv, i32 1
+  %output90 = getelementptr inbounds i8, ptr %arrayidx51, i64 8
   %7 = load ptr, ptr %output90, align 8
   %bcmp = call i32 @bcmp(ptr noundef nonnull dereferenceable(48) %hash, ptr noundef nonnull dereferenceable(48) %7, i64 48)
   %cmp92.not = icmp eq i32 %bcmp, 0
@@ -5195,23 +5192,23 @@ entry:
   store ptr @.str.168, ptr %a.sroa.3.0.arrayidx.sroa_idx, align 8
   %a.sroa.4.0.arrayidx.sroa_idx = getelementptr inbounds i8, ptr %test_hmac, i64 16
   store i64 8, ptr %a.sroa.4.0.arrayidx.sroa_idx, align 16
-  %arrayidx20 = getelementptr inbounds [4 x %struct.testVector], ptr %test_hmac, i64 0, i64 1
+  %arrayidx20 = getelementptr inbounds i8, ptr %test_hmac, i64 32
   store ptr @.str.144, ptr %arrayidx20, align 16
-  %b.sroa.3.0.arrayidx20.sroa_idx = getelementptr inbounds [4 x %struct.testVector], ptr %test_hmac, i64 0, i64 1, i32 1
+  %b.sroa.3.0.arrayidx20.sroa_idx = getelementptr inbounds i8, ptr %test_hmac, i64 40
   store ptr @.str.169, ptr %b.sroa.3.0.arrayidx20.sroa_idx, align 8
-  %b.sroa.4.0.arrayidx20.sroa_idx = getelementptr inbounds [4 x %struct.testVector], ptr %test_hmac, i64 0, i64 1, i32 2
+  %b.sroa.4.0.arrayidx20.sroa_idx = getelementptr inbounds i8, ptr %test_hmac, i64 48
   store i64 28, ptr %b.sroa.4.0.arrayidx20.sroa_idx, align 16
-  %arrayidx21 = getelementptr inbounds [4 x %struct.testVector], ptr %test_hmac, i64 0, i64 2
+  %arrayidx21 = getelementptr inbounds i8, ptr %test_hmac, i64 64
   store ptr @.str.146, ptr %arrayidx21, align 16
-  %c.sroa.3.0.arrayidx21.sroa_idx = getelementptr inbounds [4 x %struct.testVector], ptr %test_hmac, i64 0, i64 2, i32 1
+  %c.sroa.3.0.arrayidx21.sroa_idx = getelementptr inbounds i8, ptr %test_hmac, i64 72
   store ptr @.str.170, ptr %c.sroa.3.0.arrayidx21.sroa_idx, align 8
-  %c.sroa.4.0.arrayidx21.sroa_idx = getelementptr inbounds [4 x %struct.testVector], ptr %test_hmac, i64 0, i64 2, i32 2
+  %c.sroa.4.0.arrayidx21.sroa_idx = getelementptr inbounds i8, ptr %test_hmac, i64 80
   store i64 50, ptr %c.sroa.4.0.arrayidx21.sroa_idx, align 16
-  %arrayidx22 = getelementptr inbounds [4 x %struct.testVector], ptr %test_hmac, i64 0, i64 3
+  %arrayidx22 = getelementptr inbounds i8, ptr %test_hmac, i64 96
   store ptr @.str.157, ptr %arrayidx22, align 16
-  %d.sroa.3.0.arrayidx22.sroa_idx = getelementptr inbounds [4 x %struct.testVector], ptr %test_hmac, i64 0, i64 3, i32 1
+  %d.sroa.3.0.arrayidx22.sroa_idx = getelementptr inbounds i8, ptr %test_hmac, i64 104
   store ptr @.str.171, ptr %d.sroa.3.0.arrayidx22.sroa_idx, align 8
-  %d.sroa.4.0.arrayidx22.sroa_idx = getelementptr inbounds [4 x %struct.testVector], ptr %test_hmac, i64 0, i64 3, i32 2
+  %d.sroa.4.0.arrayidx22.sroa_idx = getelementptr inbounds i8, ptr %test_hmac, i64 112
   store i64 13, ptr %d.sroa.4.0.arrayidx22.sroa_idx, align 16
   br label %for.body
 
@@ -5247,7 +5244,7 @@ if.then38:                                        ; preds = %if.end
 if.end49:                                         ; preds = %if.end
   %arrayidx51 = getelementptr inbounds [4 x %struct.testVector], ptr %test_hmac, i64 0, i64 %indvars.iv
   %3 = load ptr, ptr %arrayidx51, align 16
-  %inLen55 = getelementptr inbounds [4 x %struct.testVector], ptr %test_hmac, i64 0, i64 %indvars.iv, i32 2
+  %inLen55 = getelementptr inbounds i8, ptr %arrayidx51, i64 16
   %4 = load i64, ptr %inLen55, align 16
   %conv56 = trunc i64 %4 to i32
   %call57 = call i32 @wc_HmacUpdate(ptr noundef nonnull %hmac, ptr noundef %3, i32 noundef %conv56) #19
@@ -5274,7 +5271,7 @@ if.then75:                                        ; preds = %if.end71
   br label %return
 
 if.end86:                                         ; preds = %if.end71
-  %output90 = getelementptr inbounds [4 x %struct.testVector], ptr %test_hmac, i64 0, i64 %indvars.iv, i32 1
+  %output90 = getelementptr inbounds i8, ptr %arrayidx51, i64 8
   %7 = load ptr, ptr %output90, align 8
   %bcmp = call i32 @bcmp(ptr noundef nonnull dereferenceable(64) %hash, ptr noundef nonnull dereferenceable(64) %7, i64 64)
   %cmp92.not = icmp eq i32 %bcmp, 0
@@ -5578,23 +5575,23 @@ if.end:                                           ; preds = %for.body
   br i1 %cmp5.not, label %if.end7, label %for.end
 
 if.end7:                                          ; preds = %if.end
-  %pskSz = getelementptr inbounds %struct.Tls13KdfTestVector, ptr %tv.0104, i64 0, i32 1
+  %pskSz = getelementptr inbounds i8, ptr %tv.0104, i64 4
   %1 = load i32, ptr %pskSz, align 4
   %cmp9 = icmp eq i32 %1, 0
-  %psk = getelementptr inbounds %struct.Tls13KdfTestVector, ptr %tv.0104, i64 0, i32 3
+  %psk = getelementptr inbounds i8, ptr %tv.0104, i64 12
   %cond = select i1 %cmp9, ptr %zeroes, ptr %psk
   %call14 = call i32 @wc_Tls13_HKDF_Extract(ptr noundef nonnull %secret, ptr noundef null, i32 noundef 0, ptr noundef nonnull %cond, i32 noundef %1, i32 noundef %0) #19
   %cmp15.not = icmp eq i32 %call14, 0
   br i1 %cmp15.not, label %if.end17, label %for.end
 
 if.end17:                                         ; preds = %if.end7
-  %hashHello1 = getelementptr inbounds %struct.Tls13KdfTestVector, ptr %tv.0104, i64 0, i32 5
+  %hashHello1 = getelementptr inbounds i8, ptr %tv.0104, i64 92
   %call22 = call i32 @wc_Tls13_HKDF_Expand_Label(ptr noundef nonnull %output, i32 noundef %call, ptr noundef nonnull %secret, i32 noundef %call, ptr noundef nonnull @protocolLabel, i32 noundef 6, ptr noundef nonnull @ceTrafficLabel, i32 noundef 11, ptr noundef nonnull %hashHello1, i32 noundef %call, i32 noundef %0) #19
   %cmp23.not = icmp eq i32 %call22, 0
   br i1 %cmp23.not, label %if.end25, label %for.end
 
 if.end25:                                         ; preds = %if.end17
-  %clientEarlyTrafficSecret = getelementptr inbounds %struct.Tls13KdfTestVector, ptr %tv.0104, i64 0, i32 9
+  %clientEarlyTrafficSecret = getelementptr inbounds i8, ptr %tv.0104, i64 348
   %conv = sext i32 %call to i64
   %call28 = call i32 @memcmp(ptr noundef nonnull %clientEarlyTrafficSecret, ptr noundef nonnull %output, i64 noundef %conv) #20
   %cmp29.not = icmp eq i32 %call28, 0
@@ -5606,7 +5603,7 @@ if.end32:                                         ; preds = %if.end25
   br i1 %cmp39.not, label %if.end42, label %for.end
 
 if.end42:                                         ; preds = %if.end32
-  %earlyExporterMasterSecret = getelementptr inbounds %struct.Tls13KdfTestVector, ptr %tv.0104, i64 0, i32 10
+  %earlyExporterMasterSecret = getelementptr inbounds i8, ptr %tv.0104, i64 412
   %call46 = call i32 @memcmp(ptr noundef nonnull %earlyExporterMasterSecret, ptr noundef nonnull %output, i64 noundef %conv) #20
   %cmp47.not = icmp eq i32 %call46, 0
   br i1 %cmp47.not, label %if.end50, label %for.end
@@ -5617,23 +5614,23 @@ if.end50:                                         ; preds = %if.end42
   br i1 %cmp56.not, label %if.end59, label %for.end
 
 if.end59:                                         ; preds = %if.end50
-  %dheSz = getelementptr inbounds %struct.Tls13KdfTestVector, ptr %tv.0104, i64 0, i32 2
+  %dheSz = getelementptr inbounds i8, ptr %tv.0104, i64 8
   %2 = load i32, ptr %dheSz, align 4
   %cmp62 = icmp eq i32 %2, 0
-  %dhe = getelementptr inbounds %struct.Tls13KdfTestVector, ptr %tv.0104, i64 0, i32 4
+  %dhe = getelementptr inbounds i8, ptr %tv.0104, i64 52
   %cond69 = select i1 %cmp62, ptr %zeroes, ptr %dhe
   %call72 = call i32 @wc_Tls13_HKDF_Extract(ptr noundef nonnull %secret, ptr noundef nonnull %salt, i32 noundef %call, ptr noundef nonnull %cond69, i32 noundef %2, i32 noundef %0) #19
   %cmp73.not = icmp eq i32 %call72, 0
   br i1 %cmp73.not, label %if.end76, label %for.end
 
 if.end76:                                         ; preds = %if.end59
-  %hashHello2 = getelementptr inbounds %struct.Tls13KdfTestVector, ptr %tv.0104, i64 0, i32 6
+  %hashHello2 = getelementptr inbounds i8, ptr %tv.0104, i64 156
   %call81 = call i32 @wc_Tls13_HKDF_Expand_Label(ptr noundef nonnull %output, i32 noundef %call, ptr noundef nonnull %secret, i32 noundef %call, ptr noundef nonnull @protocolLabel, i32 noundef 6, ptr noundef nonnull @cHsTrafficLabel, i32 noundef 12, ptr noundef nonnull %hashHello2, i32 noundef %call, i32 noundef %0) #19
   %cmp82.not = icmp eq i32 %call81, 0
   br i1 %cmp82.not, label %if.end85, label %for.end
 
 if.end85:                                         ; preds = %if.end76
-  %clientHandshakeTrafficSecret = getelementptr inbounds %struct.Tls13KdfTestVector, ptr %tv.0104, i64 0, i32 11
+  %clientHandshakeTrafficSecret = getelementptr inbounds i8, ptr %tv.0104, i64 476
   %call89 = call i32 @memcmp(ptr noundef nonnull %clientHandshakeTrafficSecret, ptr noundef nonnull %output, i64 noundef %conv) #20
   %cmp90.not = icmp eq i32 %call89, 0
   br i1 %cmp90.not, label %if.end93, label %for.end
@@ -5644,7 +5641,7 @@ if.end93:                                         ; preds = %if.end85
   br i1 %cmp100.not, label %if.end103, label %for.end
 
 if.end103:                                        ; preds = %if.end93
-  %serverHandshakeTrafficSecret = getelementptr inbounds %struct.Tls13KdfTestVector, ptr %tv.0104, i64 0, i32 12
+  %serverHandshakeTrafficSecret = getelementptr inbounds i8, ptr %tv.0104, i64 540
   %call107 = call i32 @memcmp(ptr noundef nonnull %serverHandshakeTrafficSecret, ptr noundef nonnull %output, i64 noundef %conv) #20
   %cmp108.not = icmp eq i32 %call107, 0
   br i1 %cmp108.not, label %if.end111, label %for.end
@@ -5660,13 +5657,13 @@ if.end120:                                        ; preds = %if.end111
   br i1 %cmp126.not, label %if.end129, label %for.end
 
 if.end129:                                        ; preds = %if.end120
-  %hashFinished1 = getelementptr inbounds %struct.Tls13KdfTestVector, ptr %tv.0104, i64 0, i32 7
+  %hashFinished1 = getelementptr inbounds i8, ptr %tv.0104, i64 220
   %call134 = call i32 @wc_Tls13_HKDF_Expand_Label(ptr noundef nonnull %output, i32 noundef %call, ptr noundef nonnull %secret, i32 noundef %call, ptr noundef nonnull @protocolLabel, i32 noundef 6, ptr noundef nonnull @cAppTrafficLabel, i32 noundef 12, ptr noundef nonnull %hashFinished1, i32 noundef %call, i32 noundef %0) #19
   %cmp135.not = icmp eq i32 %call134, 0
   br i1 %cmp135.not, label %if.end138, label %for.end
 
 if.end138:                                        ; preds = %if.end129
-  %clientApplicationTrafficSecret = getelementptr inbounds %struct.Tls13KdfTestVector, ptr %tv.0104, i64 0, i32 13
+  %clientApplicationTrafficSecret = getelementptr inbounds i8, ptr %tv.0104, i64 604
   %call142 = call i32 @memcmp(ptr noundef nonnull %clientApplicationTrafficSecret, ptr noundef nonnull %output, i64 noundef %conv) #20
   %cmp143.not = icmp eq i32 %call142, 0
   br i1 %cmp143.not, label %if.end146, label %for.end
@@ -5677,7 +5674,7 @@ if.end146:                                        ; preds = %if.end138
   br i1 %cmp153.not, label %if.end156, label %for.end
 
 if.end156:                                        ; preds = %if.end146
-  %serverApplicationTrafficSecret = getelementptr inbounds %struct.Tls13KdfTestVector, ptr %tv.0104, i64 0, i32 14
+  %serverApplicationTrafficSecret = getelementptr inbounds i8, ptr %tv.0104, i64 668
   %call160 = call i32 @memcmp(ptr noundef nonnull %serverApplicationTrafficSecret, ptr noundef nonnull %output, i64 noundef %conv) #20
   %cmp161.not = icmp eq i32 %call160, 0
   br i1 %cmp161.not, label %if.end164, label %for.end
@@ -5688,26 +5685,26 @@ if.end164:                                        ; preds = %if.end156
   br i1 %cmp171.not, label %if.end174, label %for.end
 
 if.end174:                                        ; preds = %if.end164
-  %exporterMasterSecret = getelementptr inbounds %struct.Tls13KdfTestVector, ptr %tv.0104, i64 0, i32 15
+  %exporterMasterSecret = getelementptr inbounds i8, ptr %tv.0104, i64 732
   %call178 = call i32 @memcmp(ptr noundef nonnull %exporterMasterSecret, ptr noundef nonnull %output, i64 noundef %conv) #20
   %cmp179.not = icmp eq i32 %call178, 0
   br i1 %cmp179.not, label %if.end182, label %for.end
 
 if.end182:                                        ; preds = %if.end174
-  %hashFinished2 = getelementptr inbounds %struct.Tls13KdfTestVector, ptr %tv.0104, i64 0, i32 8
+  %hashFinished2 = getelementptr inbounds i8, ptr %tv.0104, i64 284
   %call187 = call i32 @wc_Tls13_HKDF_Expand_Label(ptr noundef nonnull %output, i32 noundef %call, ptr noundef nonnull %secret, i32 noundef %call, ptr noundef nonnull @protocolLabel, i32 noundef 6, ptr noundef nonnull @resMasterLabel, i32 noundef 10, ptr noundef nonnull %hashFinished2, i32 noundef %call, i32 noundef %0) #19
   %cmp188.not = icmp eq i32 %call187, 0
   br i1 %cmp188.not, label %if.end191, label %for.end
 
 if.end191:                                        ; preds = %if.end182
-  %resumptionMasterSecret = getelementptr inbounds %struct.Tls13KdfTestVector, ptr %tv.0104, i64 0, i32 16
+  %resumptionMasterSecret = getelementptr inbounds i8, ptr %tv.0104, i64 796
   %call195 = call i32 @memcmp(ptr noundef nonnull %resumptionMasterSecret, ptr noundef nonnull %output, i64 noundef %conv) #20
   %cmp196.not = icmp eq i32 %call195, 0
   br i1 %cmp196.not, label %for.inc, label %for.end
 
 for.inc:                                          ; preds = %if.end191
   %inc = add nuw nsw i32 %i.0103, 1
-  %incdec.ptr = getelementptr inbounds %struct.Tls13KdfTestVector, ptr %tv.0104, i64 1
+  %incdec.ptr = getelementptr inbounds i8, ptr %tv.0104, i64 860
   %exitcond.not = icmp eq i32 %inc, 6
   br i1 %exitcond.not, label %for.end, label %for.body, !llvm.loop !75
 
@@ -5873,22 +5870,22 @@ entry:
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(32) %key3, i8 0, i64 32, i1 false)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(16) %key4, i8 0, i64 16, i1 false)
   store ptr %key1, ptr %keys, align 16
-  %arrayinit.element = getelementptr inbounds ptr, ptr %keys, i64 1
+  %arrayinit.element = getelementptr inbounds i8, ptr %keys, i64 8
   store ptr %key2, ptr %arrayinit.element, align 8
-  %arrayinit.element2 = getelementptr inbounds ptr, ptr %keys, i64 2
+  %arrayinit.element2 = getelementptr inbounds i8, ptr %keys, i64 16
   store ptr %key3, ptr %arrayinit.element2, align 16
-  %arrayinit.element4 = getelementptr inbounds ptr, ptr %keys, i64 3
+  %arrayinit.element4 = getelementptr inbounds i8, ptr %keys, i64 24
   store ptr %key4, ptr %arrayinit.element4, align 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(12) %ivs1, i8 0, i64 12, i1 false)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(12) %ivs2, i8 0, i64 12, i1 false)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(12) %ivs3, ptr noundef nonnull align 1 dereferenceable(12) @__const.chacha_test.ivs3, i64 12, i1 false)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(12) %ivs4, i8 0, i64 12, i1 false)
   store ptr %ivs1, ptr %ivs, align 16
-  %arrayinit.element8 = getelementptr inbounds ptr, ptr %ivs, i64 1
+  %arrayinit.element8 = getelementptr inbounds i8, ptr %ivs, i64 8
   store ptr %ivs2, ptr %arrayinit.element8, align 8
-  %arrayinit.element10 = getelementptr inbounds ptr, ptr %ivs, i64 2
+  %arrayinit.element10 = getelementptr inbounds i8, ptr %ivs, i64 16
   store ptr %ivs3, ptr %arrayinit.element10, align 16
-  %arrayinit.element12 = getelementptr inbounds ptr, ptr %ivs, i64 3
+  %arrayinit.element12 = getelementptr inbounds i8, ptr %ivs, i64 24
   store ptr %ivs4, ptr %arrayinit.element12, align 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(1305) %cipher_big, i8 0, i64 1305, i1 false)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(1305) %plain_big, i8 0, i64 1305, i1 false)
@@ -5898,11 +5895,11 @@ entry:
   store i64 -747924146855699234, ptr %c, align 8
   store i64 -187880834726271095, ptr %d, align 8
   store ptr %a, ptr %test_chacha, align 16
-  %arrayidx16 = getelementptr inbounds [4 x ptr], ptr %test_chacha, i64 0, i64 1
+  %arrayidx16 = getelementptr inbounds i8, ptr %test_chacha, i64 8
   store ptr %b, ptr %arrayidx16, align 8
-  %arrayidx18 = getelementptr inbounds [4 x ptr], ptr %test_chacha, i64 0, i64 2
+  %arrayidx18 = getelementptr inbounds i8, ptr %test_chacha, i64 16
   store ptr %c, ptr %arrayidx18, align 16
-  %arrayidx20 = getelementptr inbounds [4 x ptr], ptr %test_chacha, i64 0, i64 3
+  %arrayidx20 = getelementptr inbounds i8, ptr %test_chacha, i64 24
   store ptr %d, ptr %arrayidx20, align 8
   %add.ptr = getelementptr inbounds i8, ptr %cipher, i64 4
   br label %for.body
@@ -6266,37 +6263,37 @@ entry:
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(32) %key4, ptr noundef nonnull align 16 dereferenceable(32) @__const.poly1305_test.key4, i64 32, i1 false)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(32) %key5, ptr noundef nonnull align 16 dereferenceable(32) @__const.poly1305_test.key5, i64 32, i1 false)
   store ptr null, ptr %msgs, align 16
-  %arrayinit.element = getelementptr inbounds ptr, ptr %msgs, i64 1
+  %arrayinit.element = getelementptr inbounds i8, ptr %msgs, i64 8
   store ptr %msg1, ptr %arrayinit.element, align 8
-  %arrayinit.element1 = getelementptr inbounds ptr, ptr %msgs, i64 2
+  %arrayinit.element1 = getelementptr inbounds i8, ptr %msgs, i64 16
   store ptr %msg2, ptr %arrayinit.element1, align 16
-  %arrayinit.element3 = getelementptr inbounds ptr, ptr %msgs, i64 3
+  %arrayinit.element3 = getelementptr inbounds i8, ptr %msgs, i64 24
   store ptr %msg3, ptr %arrayinit.element3, align 8
-  %arrayinit.element5 = getelementptr inbounds ptr, ptr %msgs, i64 4
+  %arrayinit.element5 = getelementptr inbounds i8, ptr %msgs, i64 32
   store ptr %msg5, ptr %arrayinit.element5, align 16
-  %arrayinit.element7 = getelementptr inbounds ptr, ptr %msgs, i64 5
+  %arrayinit.element7 = getelementptr inbounds i8, ptr %msgs, i64 40
   store ptr %msg6, ptr %arrayinit.element7, align 8
   store ptr %key, ptr %keys, align 16
-  %arrayinit.element11 = getelementptr inbounds ptr, ptr %keys, i64 1
+  %arrayinit.element11 = getelementptr inbounds i8, ptr %keys, i64 8
   store ptr %key, ptr %arrayinit.element11, align 8
-  %arrayinit.element13 = getelementptr inbounds ptr, ptr %keys, i64 2
+  %arrayinit.element13 = getelementptr inbounds i8, ptr %keys, i64 16
   store ptr %key2, ptr %arrayinit.element13, align 16
-  %arrayinit.element15 = getelementptr inbounds ptr, ptr %keys, i64 3
+  %arrayinit.element15 = getelementptr inbounds i8, ptr %keys, i64 24
   store ptr %key2, ptr %arrayinit.element15, align 8
-  %arrayinit.element17 = getelementptr inbounds ptr, ptr %keys, i64 4
+  %arrayinit.element17 = getelementptr inbounds i8, ptr %keys, i64 32
   store ptr %key5, ptr %arrayinit.element17, align 16
-  %arrayinit.element19 = getelementptr inbounds ptr, ptr %keys, i64 5
+  %arrayinit.element19 = getelementptr inbounds i8, ptr %keys, i64 40
   store ptr %key, ptr %arrayinit.element19, align 8
   store ptr %correct0, ptr %tests, align 16
-  %arrayinit.element23 = getelementptr inbounds ptr, ptr %tests, i64 1
+  %arrayinit.element23 = getelementptr inbounds i8, ptr %tests, i64 8
   store ptr %correct1, ptr %arrayinit.element23, align 8
-  %arrayinit.element25 = getelementptr inbounds ptr, ptr %tests, i64 2
+  %arrayinit.element25 = getelementptr inbounds i8, ptr %tests, i64 16
   store ptr %correct2, ptr %arrayinit.element25, align 16
-  %arrayinit.element27 = getelementptr inbounds ptr, ptr %tests, i64 3
+  %arrayinit.element27 = getelementptr inbounds i8, ptr %tests, i64 24
   store ptr %correct3, ptr %arrayinit.element27, align 8
-  %arrayinit.element29 = getelementptr inbounds ptr, ptr %tests, i64 4
+  %arrayinit.element29 = getelementptr inbounds i8, ptr %tests, i64 32
   store ptr %correct5, ptr %arrayinit.element29, align 16
-  %arrayinit.element31 = getelementptr inbounds ptr, ptr %tests, i64 5
+  %arrayinit.element31 = getelementptr inbounds i8, ptr %tests, i64 40
   store ptr %correct6, ptr %arrayinit.element31, align 8
   br label %for.body
 
@@ -6773,7 +6770,7 @@ if.then469:                                       ; preds = %if.end465
   br label %return
 
 if.end480:                                        ; preds = %if.end465
-  %state = getelementptr inbounds %struct.ChaChaPoly_Aead, ptr %aead, i64 0, i32 4
+  %state = getelementptr inbounds i8, ptr %aead, i64 176
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(184) %aead, i8 0, i64 184, i1 false)
   %call482 = call i32 @wc_ChaCha20Poly1305_UpdateAad(ptr noundef nonnull %aead, ptr noundef nonnull %aad1, i32 noundef 12) #19
   %cmp483.not = icmp eq i32 %call482, -192
@@ -9802,7 +9799,7 @@ do.end.i:                                         ; preds = %do.end54.i.i
   call void @llvm.lifetime.start.p0(i64 128, ptr nonnull %out.i26.i)
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %outLen.i.i)
   store i32 128, ptr %outLen.i.i, align 4
-  %pubkey.i.i = getelementptr inbounds %struct.ecc_key, ptr %key.i, i64 0, i32 6
+  %pubkey.i.i = getelementptr inbounds i8, ptr %key.i, i64 32
   %call.i27.i = call i32 @wc_ecc_shared_secret_ex(ptr noundef null, ptr noundef nonnull %pubkey.i.i, ptr noundef nonnull %out.i26.i, ptr noundef nonnull %outLen.i.i) #19
   %cmp.not.i28.i = icmp eq i32 %call.i27.i, -173
   br i1 %cmp.not.i28.i, label %if.end.i31.i, label %ecc_ssh_test.exit.thread.i
@@ -10262,7 +10259,7 @@ entry:
   %args = alloca %struct.func_args, align 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %args, i8 0, i64 24, i1 false)
   store i32 %argc, ptr %args, align 8
-  %argv2 = getelementptr inbounds %struct.func_args, ptr %args, i64 0, i32 1
+  %argv2 = getelementptr inbounds i8, ptr %args, i64 8
   store ptr %argv, ptr %argv2, align 8
   %call = tail call i32 @wolfCrypt_Init() #19
   %cmp.not = icmp eq i32 %call, 0
@@ -10297,7 +10294,7 @@ if.then15:                                        ; preds = %if.end
   br label %if.end29
 
 if.end29:                                         ; preds = %if.then15, %if.end
-  %return_code = getelementptr inbounds %struct.func_args, ptr %args, i64 0, i32 2
+  %return_code = getelementptr inbounds i8, ptr %args, i64 16
   %4 = load i32, ptr %return_code, align 8
   %conv30 = sext i32 %4 to i64
   %call31 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.91, i64 noundef %conv30)
@@ -10619,7 +10616,7 @@ do.body120:                                       ; preds = %if.end112
   br label %out
 
 if.end132:                                        ; preds = %if.end112
-  %rounds = getelementptr inbounds %struct.Aes, ptr %aes, i64 0, i32 1
+  %rounds = getelementptr inbounds i8, ptr %aes, i64 240
   store i32 16, ptr %rounds, align 16
   %call135 = call i32 @wc_AesGetKeySize(ptr noundef nonnull %aes, ptr noundef nonnull %keySize) #19
   %cmp136.not = icmp eq i32 %call135, -173
@@ -12845,47 +12842,47 @@ entry:
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(3) %pubValTooBig1, i8 1, i64 3, i1 false)
   store i32 16777217, ptr %pubValTooLong, align 4
   store ptr %prime, ptr %dh_pubval_fail, align 16
-  %len = getelementptr inbounds %struct.dh_pubvalue_test, ptr %dh_pubval_fail, i64 0, i32 1
+  %len = getelementptr inbounds i8, ptr %dh_pubval_fail, i64 8
   store i32 3, ptr %len, align 8
-  %arrayinit.element = getelementptr inbounds %struct.dh_pubvalue_test, ptr %dh_pubval_fail, i64 1
+  %arrayinit.element = getelementptr inbounds i8, ptr %dh_pubval_fail, i64 16
   store ptr %pubValZero, ptr %arrayinit.element, align 16
-  %len3 = getelementptr inbounds %struct.dh_pubvalue_test, ptr %dh_pubval_fail, i64 1, i32 1
+  %len3 = getelementptr inbounds i8, ptr %dh_pubval_fail, i64 24
   store i32 1, ptr %len3, align 8
-  %arrayinit.element4 = getelementptr inbounds %struct.dh_pubvalue_test, ptr %dh_pubval_fail, i64 2
+  %arrayinit.element4 = getelementptr inbounds i8, ptr %dh_pubval_fail, i64 32
   store ptr %pubValZeroLong, ptr %arrayinit.element4, align 16
-  %len7 = getelementptr inbounds %struct.dh_pubvalue_test, ptr %dh_pubval_fail, i64 2, i32 1
+  %len7 = getelementptr inbounds i8, ptr %dh_pubval_fail, i64 40
   store i32 3, ptr %len7, align 8
-  %arrayinit.element8 = getelementptr inbounds %struct.dh_pubvalue_test, ptr %dh_pubval_fail, i64 3
+  %arrayinit.element8 = getelementptr inbounds i8, ptr %dh_pubval_fail, i64 48
   store ptr %pubValOne, ptr %arrayinit.element8, align 16
-  %len11 = getelementptr inbounds %struct.dh_pubvalue_test, ptr %dh_pubval_fail, i64 3, i32 1
+  %len11 = getelementptr inbounds i8, ptr %dh_pubval_fail, i64 56
   store i32 1, ptr %len11, align 8
-  %arrayinit.element12 = getelementptr inbounds %struct.dh_pubvalue_test, ptr %dh_pubval_fail, i64 4
+  %arrayinit.element12 = getelementptr inbounds i8, ptr %dh_pubval_fail, i64 64
   store ptr %pubValOneLong, ptr %arrayinit.element12, align 16
-  %len15 = getelementptr inbounds %struct.dh_pubvalue_test, ptr %dh_pubval_fail, i64 4, i32 1
+  %len15 = getelementptr inbounds i8, ptr %dh_pubval_fail, i64 72
   store i32 3, ptr %len15, align 8
-  %arrayinit.element16 = getelementptr inbounds %struct.dh_pubvalue_test, ptr %dh_pubval_fail, i64 5
+  %arrayinit.element16 = getelementptr inbounds i8, ptr %dh_pubval_fail, i64 80
   store ptr %pubValPrimeMinusOne, ptr %arrayinit.element16, align 16
-  %len19 = getelementptr inbounds %struct.dh_pubvalue_test, ptr %dh_pubval_fail, i64 5, i32 1
+  %len19 = getelementptr inbounds i8, ptr %dh_pubval_fail, i64 88
   store i32 3, ptr %len19, align 8
-  %arrayinit.element20 = getelementptr inbounds %struct.dh_pubvalue_test, ptr %dh_pubval_fail, i64 6
+  %arrayinit.element20 = getelementptr inbounds i8, ptr %dh_pubval_fail, i64 96
   store ptr %pubValPrimeLong, ptr %arrayinit.element20, align 16
-  %len23 = getelementptr inbounds %struct.dh_pubvalue_test, ptr %dh_pubval_fail, i64 6, i32 1
+  %len23 = getelementptr inbounds i8, ptr %dh_pubval_fail, i64 104
   store i32 4, ptr %len23, align 8
-  %arrayinit.element24 = getelementptr inbounds %struct.dh_pubvalue_test, ptr %dh_pubval_fail, i64 7
+  %arrayinit.element24 = getelementptr inbounds i8, ptr %dh_pubval_fail, i64 112
   store ptr %pubValPrimePlusOne, ptr %arrayinit.element24, align 16
-  %len27 = getelementptr inbounds %struct.dh_pubvalue_test, ptr %dh_pubval_fail, i64 7, i32 1
+  %len27 = getelementptr inbounds i8, ptr %dh_pubval_fail, i64 120
   store i32 3, ptr %len27, align 8
-  %arrayinit.element28 = getelementptr inbounds %struct.dh_pubvalue_test, ptr %dh_pubval_fail, i64 8
+  %arrayinit.element28 = getelementptr inbounds i8, ptr %dh_pubval_fail, i64 128
   store ptr %pubValTooBig0, ptr %arrayinit.element28, align 16
-  %len31 = getelementptr inbounds %struct.dh_pubvalue_test, ptr %dh_pubval_fail, i64 8, i32 1
+  %len31 = getelementptr inbounds i8, ptr %dh_pubval_fail, i64 136
   store i32 3, ptr %len31, align 8
-  %arrayinit.element32 = getelementptr inbounds %struct.dh_pubvalue_test, ptr %dh_pubval_fail, i64 9
+  %arrayinit.element32 = getelementptr inbounds i8, ptr %dh_pubval_fail, i64 144
   store ptr %pubValTooBig1, ptr %arrayinit.element32, align 16
-  %len35 = getelementptr inbounds %struct.dh_pubvalue_test, ptr %dh_pubval_fail, i64 9, i32 1
+  %len35 = getelementptr inbounds i8, ptr %dh_pubval_fail, i64 152
   store i32 3, ptr %len35, align 8
-  %arrayinit.element36 = getelementptr inbounds %struct.dh_pubvalue_test, ptr %dh_pubval_fail, i64 10
+  %arrayinit.element36 = getelementptr inbounds i8, ptr %dh_pubval_fail, i64 160
   store ptr %pubValTooLong, ptr %arrayinit.element36, align 16
-  %len39 = getelementptr inbounds %struct.dh_pubvalue_test, ptr %dh_pubval_fail, i64 10, i32 1
+  %len39 = getelementptr inbounds i8, ptr %dh_pubval_fail, i64 168
   store i32 4, ptr %len39, align 8
   store i8 2, ptr %pubValTwo, align 1
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(3) %pubValTwoLong, ptr noundef nonnull align 1 dereferenceable(3) @__const.dh_test_check_pubvalue.pubValTwoLong, i64 3, i1 false)
@@ -12893,23 +12890,23 @@ entry:
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(3) %pubValGoodLen, ptr noundef nonnull align 1 dereferenceable(3) @__const.dh_test_check_pubvalue.pubValGoodLen, i64 3, i1 false)
   store i32 873594880, ptr %pubValGoodLong, align 4
   store ptr %pubValTwo, ptr %dh_pubval_pass, align 16
-  %len43 = getelementptr inbounds %struct.dh_pubvalue_test, ptr %dh_pubval_pass, i64 0, i32 1
+  %len43 = getelementptr inbounds i8, ptr %dh_pubval_pass, i64 8
   store i32 1, ptr %len43, align 8
-  %arrayinit.element44 = getelementptr inbounds %struct.dh_pubvalue_test, ptr %dh_pubval_pass, i64 1
+  %arrayinit.element44 = getelementptr inbounds i8, ptr %dh_pubval_pass, i64 16
   store ptr %pubValTwoLong, ptr %arrayinit.element44, align 16
-  %len47 = getelementptr inbounds %struct.dh_pubvalue_test, ptr %dh_pubval_pass, i64 1, i32 1
+  %len47 = getelementptr inbounds i8, ptr %dh_pubval_pass, i64 24
   store i32 3, ptr %len47, align 8
-  %arrayinit.element48 = getelementptr inbounds %struct.dh_pubvalue_test, ptr %dh_pubval_pass, i64 2
+  %arrayinit.element48 = getelementptr inbounds i8, ptr %dh_pubval_pass, i64 32
   store ptr %pubValGood, ptr %arrayinit.element48, align 16
-  %len51 = getelementptr inbounds %struct.dh_pubvalue_test, ptr %dh_pubval_pass, i64 2, i32 1
+  %len51 = getelementptr inbounds i8, ptr %dh_pubval_pass, i64 40
   store i32 2, ptr %len51, align 8
-  %arrayinit.element52 = getelementptr inbounds %struct.dh_pubvalue_test, ptr %dh_pubval_pass, i64 3
+  %arrayinit.element52 = getelementptr inbounds i8, ptr %dh_pubval_pass, i64 48
   store ptr %pubValGoodLen, ptr %arrayinit.element52, align 16
-  %len55 = getelementptr inbounds %struct.dh_pubvalue_test, ptr %dh_pubval_pass, i64 3, i32 1
+  %len55 = getelementptr inbounds i8, ptr %dh_pubval_pass, i64 56
   store i32 3, ptr %len55, align 8
-  %arrayinit.element56 = getelementptr inbounds %struct.dh_pubvalue_test, ptr %dh_pubval_pass, i64 4
+  %arrayinit.element56 = getelementptr inbounds i8, ptr %dh_pubval_pass, i64 64
   store ptr %pubValGoodLong, ptr %arrayinit.element56, align 16
-  %len59 = getelementptr inbounds %struct.dh_pubvalue_test, ptr %dh_pubval_pass, i64 4, i32 1
+  %len59 = getelementptr inbounds i8, ptr %dh_pubval_pass, i64 72
   store i32 4, ptr %len59, align 8
   br label %for.body
 
@@ -12917,7 +12914,7 @@ for.body:                                         ; preds = %entry, %for.inc
   %indvars.iv = phi i64 [ 0, %entry ], [ %indvars.iv.next, %for.inc ]
   %arrayidx = getelementptr inbounds [11 x %struct.dh_pubvalue_test], ptr %dh_pubval_fail, i64 0, i64 %indvars.iv
   %0 = load ptr, ptr %arrayidx, align 16
-  %len65 = getelementptr inbounds [11 x %struct.dh_pubvalue_test], ptr %dh_pubval_fail, i64 0, i64 %indvars.iv, i32 1
+  %len65 = getelementptr inbounds i8, ptr %arrayidx, i64 8
   %1 = load i32, ptr %len65, align 8
   %call = call i32 @wc_DhCheckPubValue(ptr noundef nonnull %prime, i32 noundef 3, ptr noundef %0, i32 noundef %1) #19
   %cmp66.not = icmp eq i32 %call, -3
@@ -12938,7 +12935,7 @@ for.body77:                                       ; preds = %for.inc, %for.inc99
   %indvars.iv23 = phi i64 [ %indvars.iv.next24, %for.inc99 ], [ 0, %for.inc ]
   %arrayidx80 = getelementptr inbounds [5 x %struct.dh_pubvalue_test], ptr %dh_pubval_pass, i64 0, i64 %indvars.iv23
   %3 = load ptr, ptr %arrayidx80, align 16
-  %len84 = getelementptr inbounds [5 x %struct.dh_pubvalue_test], ptr %dh_pubval_pass, i64 0, i64 %indvars.iv23, i32 1
+  %len84 = getelementptr inbounds i8, ptr %arrayidx80, i64 8
   %4 = load i32, ptr %len84, align 8
   %call85 = call i32 @wc_DhCheckPubValue(ptr noundef nonnull %prime, i32 noundef 3, ptr noundef %3, i32 noundef %4) #19
   %cmp86.not = icmp eq i32 %call85, 0
@@ -13010,11 +13007,11 @@ do.body13:                                        ; preds = %if.end
 
 if.end25:                                         ; preds = %if.end
   %2 = load ptr, ptr %params, align 8
-  %p_len = getelementptr inbounds %struct.DhParams, ptr %params, i64 0, i32 1
+  %p_len = getelementptr inbounds i8, ptr %params, i64 8
   %3 = load i32, ptr %p_len, align 8
-  %g = getelementptr inbounds %struct.DhParams, ptr %params, i64 0, i32 2
+  %g = getelementptr inbounds i8, ptr %params, i64 16
   %4 = load ptr, ptr %g, align 8
-  %g_len = getelementptr inbounds %struct.DhParams, ptr %params, i64 0, i32 3
+  %g_len = getelementptr inbounds i8, ptr %params, i64 24
   %5 = load i32, ptr %g_len, align 8
   %call27 = call i32 @wc_DhSetKey(ptr noundef nonnull %key, ptr noundef %2, i32 noundef %3, ptr noundef %4, i32 noundef %5) #19
   %cmp28.not = icmp eq i32 %call27, 0
@@ -13348,9 +13345,9 @@ do.end68.i:                                       ; preds = %if.end44.i
   br i1 %cmp70.not.i, label %if.end84.i, label %if.then72.i
 
 if.then72.i:                                      ; preds = %do.end68.i
-  %dp74.i = getelementptr inbounds %struct.ecc_key, ptr %userA.i, i64 0, i32 4
+  %dp74.i = getelementptr inbounds i8, ptr %userA.i, i64 16
   %4 = load ptr, ptr %dp74.i, align 16
-  %id.i = getelementptr inbounds %struct.ecc_set_type, ptr %4, i64 0, i32 1
+  %id.i = getelementptr inbounds i8, ptr %4, i64 4
   %5 = load i32, ptr %id.i, align 4
   %call75.i = call i32 @wc_ecc_get_curve_size_from_id(i32 noundef %5) #19
   %6 = load ptr, ptr %dp74.i, align 16
@@ -14856,9 +14853,9 @@ if.then:                                          ; preds = %entry
 
 if.end:                                           ; preds = %entry
   store i32 130, ptr %pubLen, align 4
-  %idx = getelementptr inbounds %struct.ecc_key, ptr %key, i64 0, i32 1
+  %idx = getelementptr inbounds i8, ptr %key, i64 4
   %1 = load i32, ptr %idx, align 4
-  %pubkey = getelementptr inbounds %struct.ecc_key, ptr %key, i64 0, i32 6
+  %pubkey = getelementptr inbounds i8, ptr %key, i64 32
   %call9 = call i32 @wc_ecc_export_point_der(i32 noundef %1, ptr noundef nonnull %pubkey, ptr noundef nonnull %pub, ptr noundef nonnull %pubLen) #19
   %cmp10.not = icmp eq i32 %call9, 0
   br i1 %cmp10.not, label %if.end23, label %if.then12
@@ -14931,7 +14928,7 @@ if.end101:                                        ; preds = %if.end84
   %call105 = call i32 @wc_ecc_init_ex(ptr noundef nonnull %keyImp, ptr noundef null, i32 noundef -2) #19
   store i32 32, ptr %pubLenY, align 4
   store i32 32, ptr %pubLenX, align 4
-  %arrayidx = getelementptr inbounds [130 x i8], ptr %pub, i64 0, i64 32
+  %arrayidx = getelementptr inbounds i8, ptr %pub, i64 32
   %call107 = call i32 @wc_ecc_export_public_raw(ptr noundef nonnull %key, ptr noundef nonnull %pub, ptr noundef nonnull %pubLenX, ptr noundef nonnull %arrayidx, ptr noundef nonnull %pubLenY) #19
   %cmp108.not = icmp eq i32 %call107, 0
   br i1 %cmp108.not, label %if.end121, label %if.then110
@@ -14997,13 +14994,13 @@ entry:
   %key3 = alloca [1 x %struct.ecc_key], align 16
   %call = call i32 @wc_ecc_init_ex(ptr noundef nonnull %key2, ptr noundef null, i32 noundef -2) #19
   %call2 = call i32 @wc_ecc_init_ex(ptr noundef nonnull %key3, ptr noundef null, i32 noundef -2) #19
-  %dp = getelementptr inbounds %struct.ecc_key, ptr %key1, i64 0, i32 4
+  %dp = getelementptr inbounds i8, ptr %key1, i64 16
   %0 = load ptr, ptr %dp, align 8
-  %Gx = getelementptr inbounds %struct.ecc_set_type, ptr %0, i64 0, i32 7
+  %Gx = getelementptr inbounds i8, ptr %0, i64 48
   %1 = load ptr, ptr %Gx, align 8
-  %Gy = getelementptr inbounds %struct.ecc_set_type, ptr %0, i64 0, i32 8
+  %Gy = getelementptr inbounds i8, ptr %0, i64 56
   %2 = load ptr, ptr %Gy, align 8
-  %Af = getelementptr inbounds %struct.ecc_set_type, ptr %0, i64 0, i32 4
+  %Af = getelementptr inbounds i8, ptr %0, i64 24
   %3 = load ptr, ptr %Af, align 8
   %call6 = call i32 @wc_ecc_import_raw_ex(ptr noundef nonnull %key2, ptr noundef %1, ptr noundef %2, ptr noundef %3, i32 noundef 7) #19
   %cmp.not = icmp eq i32 %call6, 0
@@ -15011,22 +15008,22 @@ entry:
 
 if.end:                                           ; preds = %entry
   %4 = load ptr, ptr %dp, align 8
-  %Gx9 = getelementptr inbounds %struct.ecc_set_type, ptr %4, i64 0, i32 7
+  %Gx9 = getelementptr inbounds i8, ptr %4, i64 48
   %5 = load ptr, ptr %Gx9, align 8
-  %Gy11 = getelementptr inbounds %struct.ecc_set_type, ptr %4, i64 0, i32 8
+  %Gy11 = getelementptr inbounds i8, ptr %4, i64 56
   %6 = load ptr, ptr %Gy11, align 8
-  %prime = getelementptr inbounds %struct.ecc_set_type, ptr %4, i64 0, i32 3
+  %prime = getelementptr inbounds i8, ptr %4, i64 16
   %7 = load ptr, ptr %prime, align 8
   %call13 = call i32 @wc_ecc_import_raw_ex(ptr noundef nonnull %key3, ptr noundef %5, ptr noundef %6, ptr noundef %7, i32 noundef 7) #19
   %cmp14.not = icmp eq i32 %call13, 0
   br i1 %cmp14.not, label %if.end16, label %done
 
 if.end16:                                         ; preds = %if.end
-  %k = getelementptr inbounds %struct.ecc_key, ptr %key1, i64 0, i32 7
-  %pubkey = getelementptr inbounds %struct.ecc_key, ptr %key2, i64 0, i32 6
-  %pubkey20 = getelementptr inbounds %struct.ecc_key, ptr %key3, i64 0, i32 6
-  %k22 = getelementptr inbounds %struct.ecc_key, ptr %key2, i64 0, i32 7
-  %k25 = getelementptr inbounds %struct.ecc_key, ptr %key3, i64 0, i32 7
+  %k = getelementptr inbounds i8, ptr %key1, i64 3152
+  %pubkey = getelementptr inbounds i8, ptr %key2, i64 32
+  %pubkey20 = getelementptr inbounds i8, ptr %key3, i64 32
+  %k22 = getelementptr inbounds i8, ptr %key2, i64 3152
+  %k25 = getelementptr inbounds i8, ptr %key3, i64 3152
   %call27 = call i32 @wc_ecc_mulmod(ptr noundef nonnull %k, ptr noundef nonnull %pubkey, ptr noundef nonnull %pubkey20, ptr noundef nonnull %k22, ptr noundef nonnull %k25, i32 noundef 1) #19
   %cmp28.not = icmp eq i32 %call27, 0
   br i1 %cmp28.not, label %done, label %if.then29

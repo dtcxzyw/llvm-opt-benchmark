@@ -3,7 +3,6 @@ source_filename = "bench/libquic/original/random.c.ll"
 target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:128-n8:16:32:64-S128"
 target triple = "x86_64-unknown-linux-gnu"
 
-%struct.bignum_st = type { ptr, i32, i32, i32, i32 }
 %struct.sha512_state_st = type { [8 x i64], i64, i64, %union.anon, i32, i32 }
 %union.anon = type { [16 x i64] }
 
@@ -144,7 +143,7 @@ entry:
 ; Function Attrs: nounwind uwtable
 define hidden noundef i32 @BN_rand_range(ptr noundef %r, ptr noundef %range) local_unnamed_addr #0 {
 entry:
-  %neg = getelementptr inbounds %struct.bignum_st, ptr %range, i64 0, i32 3
+  %neg = getelementptr inbounds i8, ptr %range, i64 16
   %0 = load i32, ptr %neg, align 8
   %tobool.not = icmp eq i32 %0, 0
   br i1 %tobool.not, label %lor.lhs.false, label %if.then
@@ -304,7 +303,7 @@ if.then8:                                         ; preds = %if.end5
   br label %err
 
 if.end9:                                          ; preds = %if.end5
-  %top = getelementptr inbounds %struct.bignum_st, ptr %priv, i64 0, i32 1
+  %top = getelementptr inbounds i8, ptr %priv, i64 8
   %0 = load i32, ptr %top, align 8
   %conv10 = sext i32 %0 to i64
   %mul = shl nsw i64 %conv10, 3

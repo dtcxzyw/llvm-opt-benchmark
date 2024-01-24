@@ -15,80 +15,7 @@ target triple = "x86_64-unknown-linux-gnu"
 %"struct.google::LogMessageTime" = type { %struct.tm, i64, i32, i64 }
 %struct.tm = type { i32, i32, i32, i32, i32, i32, i32, i32, i32, i64, ptr }
 %"class.std::allocator" = type { i8 }
-%"class.proxygen::HeaderDecodeInfo" = type <{ %"class.std::unique_ptr", %"class.proxygen::HTTPRequestVerifier", %"class.std::__cxx11::basic_string", %"class.std::__cxx11::basic_string", i8, i8, i8, i8, i8, i8, i8, i8, i8, [3 x i8], %"class.folly::Optional", [4 x i8] }>
-%"class.std::unique_ptr" = type { %"struct.std::__uniq_ptr_data" }
-%"struct.std::__uniq_ptr_data" = type { %"class.std::__uniq_ptr_impl" }
-%"class.std::__uniq_ptr_impl" = type { %"class.std::tuple" }
-%"class.std::tuple" = type { %"struct.std::_Tuple_impl" }
-%"struct.std::_Tuple_impl" = type { %"struct.std::_Head_base.1" }
-%"struct.std::_Head_base.1" = type { ptr }
-%"class.proxygen::HTTPRequestVerifier" = type <{ %"class.std::__cxx11::basic_string", ptr, i8, i8, i8, i8, i8, [3 x i8] }>
-%"class.folly::Optional" = type { %"struct.folly::Optional<unsigned int>::StorageTriviallyDestructible" }
-%"struct.folly::Optional<unsigned int>::StorageTriviallyDestructible" = type <{ %union.anon.2, i8, [3 x i8] }>
-%union.anon.2 = type { i32 }
-%"struct.folly::fbstring_core<char>::MediumLarge" = type { ptr, i64, i64 }
-%"class.proxygen::HTTPMessage" = type { %"class.std::chrono::time_point", %"class.folly::SocketAddress", %"class.std::__cxx11::basic_string", %"class.std::__cxx11::basic_string", %"class.std::__cxx11::basic_string", %"class.std::__cxx11::basic_string", %"struct.proxygen::HTTPMessage::Fields", %"class.std::map", %"class.std::map.21", %"class.proxygen::HTTPHeaders", %"class.std::unique_ptr.37", %"struct.proxygen::HTTPHeaderSize", i32, %"class.std::unique_ptr.37", i32, i32, ptr, ptr, %"class.std::unique_ptr.10", i8, [7 x i8], %"class.folly::Optional.45", %"struct.std::pair", i8, i32 }
-%"class.std::chrono::time_point" = type { %"class.std::chrono::duration" }
-%"class.std::chrono::duration" = type { i64 }
-%"class.folly::SocketAddress" = type <{ %"union.folly::SocketAddress::AddrStorage", i16, i8, [5 x i8] }>
-%"union.folly::SocketAddress::AddrStorage" = type { %"struct.folly::SocketAddress::ExternalUnixAddr", [8 x i8] }
-%"struct.folly::SocketAddress::ExternalUnixAddr" = type { ptr, i32 }
-%"struct.proxygen::HTTPMessage::Fields" = type { i8, %"union.proxygen::HTTPMessage::Fields::Data" }
-%"union.proxygen::HTTPMessage::Fields::Data" = type { %"struct.proxygen::HTTPMessage::Response", [136 x i8] }
-%"struct.proxygen::HTTPMessage::Response" = type { i16, %"class.std::__cxx11::basic_string", %"class.std::__cxx11::basic_string" }
-%"class.std::map" = type { %"class.std::_Rb_tree" }
-%"class.std::_Rb_tree" = type { %"struct.std::_Rb_tree<folly::Range<const char *>, std::pair<const folly::Range<const char *>, folly::Range<const char *>>, std::_Select1st<std::pair<const folly::Range<const char *>, folly::Range<const char *>>>, std::less<folly::Range<const char *>>>::_Rb_tree_impl" }
-%"struct.std::_Rb_tree<folly::Range<const char *>, std::pair<const folly::Range<const char *>, folly::Range<const char *>>, std::_Select1st<std::pair<const folly::Range<const char *>, folly::Range<const char *>>>, std::less<folly::Range<const char *>>>::_Rb_tree_impl" = type { %"struct.std::_Rb_tree_key_compare", %"struct.std::_Rb_tree_header" }
-%"struct.std::_Rb_tree_key_compare" = type { %"struct.std::less" }
-%"struct.std::less" = type { i8 }
-%"struct.std::_Rb_tree_header" = type { %"struct.std::_Rb_tree_node_base", i64 }
-%"struct.std::_Rb_tree_node_base" = type { i32, ptr, ptr, ptr }
-%"class.std::map.21" = type { %"class.std::_Rb_tree.22" }
-%"class.std::_Rb_tree.22" = type { %"struct.std::_Rb_tree<std::__cxx11::basic_string<char>, std::pair<const std::__cxx11::basic_string<char>, std::__cxx11::basic_string<char>>, std::_Select1st<std::pair<const std::__cxx11::basic_string<char>, std::__cxx11::basic_string<char>>>, std::less<std::__cxx11::basic_string<char>>>::_Rb_tree_impl" }
-%"struct.std::_Rb_tree<std::__cxx11::basic_string<char>, std::pair<const std::__cxx11::basic_string<char>, std::__cxx11::basic_string<char>>, std::_Select1st<std::pair<const std::__cxx11::basic_string<char>, std::__cxx11::basic_string<char>>>, std::less<std::__cxx11::basic_string<char>>>::_Rb_tree_impl" = type { %"struct.std::_Rb_tree_key_compare.26", %"struct.std::_Rb_tree_header" }
-%"struct.std::_Rb_tree_key_compare.26" = type { %"struct.std::less.27" }
-%"struct.std::less.27" = type { i8 }
-%"class.proxygen::HTTPHeaders" = type { %"class.std::unique_ptr.29", i64, i64, i64 }
-%"class.std::unique_ptr.29" = type { %"struct.std::__uniq_ptr_data.30" }
-%"struct.std::__uniq_ptr_data.30" = type { %"class.std::__uniq_ptr_impl.31" }
-%"class.std::__uniq_ptr_impl.31" = type { %"class.std::tuple.32" }
-%"class.std::tuple.32" = type { %"struct.std::_Tuple_impl.33" }
-%"struct.std::_Tuple_impl.33" = type { %"struct.std::_Head_base.36" }
-%"struct.std::_Head_base.36" = type { ptr }
-%"struct.proxygen::HTTPHeaderSize" = type { i32, i32, i32 }
-%"class.std::unique_ptr.37" = type { %"struct.std::__uniq_ptr_data.38" }
-%"struct.std::__uniq_ptr_data.38" = type { %"class.std::__uniq_ptr_impl.39" }
-%"class.std::__uniq_ptr_impl.39" = type { %"class.std::tuple.40" }
-%"class.std::tuple.40" = type { %"struct.std::_Tuple_impl.41" }
-%"struct.std::_Tuple_impl.41" = type { %"struct.std::_Head_base.44" }
-%"struct.std::_Head_base.44" = type { ptr }
-%"class.std::unique_ptr.10" = type { %"struct.std::__uniq_ptr_data.11" }
-%"struct.std::__uniq_ptr_data.11" = type { %"class.std::__uniq_ptr_impl.12" }
-%"class.std::__uniq_ptr_impl.12" = type { %"class.std::tuple.13" }
-%"class.std::tuple.13" = type { %"struct.std::_Tuple_impl.14" }
-%"struct.std::_Tuple_impl.14" = type { %"struct.std::_Head_base.17" }
-%"struct.std::_Head_base.17" = type { ptr }
-%"class.folly::Optional.45" = type { %"struct.folly::Optional<std::tuple<unsigned long, bool, unsigned char>>::StorageTriviallyDestructible" }
-%"struct.folly::Optional<std::tuple<unsigned long, bool, unsigned char>>::StorageTriviallyDestructible" = type <{ %union.anon.46, i8, [7 x i8] }>
-%union.anon.46 = type { %"class.std::tuple.47" }
-%"class.std::tuple.47" = type { %"struct.std::_Tuple_impl.48" }
-%"struct.std::_Tuple_impl.48" = type { %"struct.std::_Tuple_impl.49", %"struct.std::_Head_base.53" }
-%"struct.std::_Tuple_impl.49" = type { %"struct.std::_Tuple_impl.50", %"struct.std::_Head_base.52" }
-%"struct.std::_Tuple_impl.50" = type { %"struct.std::_Head_base.51" }
-%"struct.std::_Head_base.51" = type { i8 }
-%"struct.std::_Head_base.52" = type { i8 }
-%"struct.std::_Head_base.53" = type { i64 }
-%"struct.std::pair" = type { i8, i8 }
 %"class.proxygen::ParseURL" = type <{ %"class.folly::Range", %"class.folly::Range", %"class.std::__cxx11::basic_string", %"class.folly::Range", %"class.folly::Range", %"class.folly::Range", %"class.folly::Range", %"class.folly::Range", i16, i8, i8, [4 x i8] }>
-%"struct.proxygen::HTTPMessage::Request" = type <{ %"class.folly::SocketAddress", %"class.folly::Optional.8", %"class.boost::variant", %"class.folly::Range", %"class.folly::Range", %"class.std::unique_ptr.10", %"class.std::unique_ptr.10", %"class.std::__cxx11::basic_string", i16, [6 x i8] }>
-%"class.folly::Optional.8" = type { %"struct.folly::Optional<proxygen::HTTPMessage::IPPort>::StorageNonTriviallyDestructible" }
-%"struct.folly::Optional<proxygen::HTTPMessage::IPPort>::StorageNonTriviallyDestructible" = type <{ %union.anon.9, i8, [7 x i8] }>
-%union.anon.9 = type { %"struct.proxygen::HTTPMessage::IPPort" }
-%"struct.proxygen::HTTPMessage::IPPort" = type { %"class.std::__cxx11::basic_string", %"class.std::__cxx11::basic_string" }
-%"class.boost::variant" = type { i32, [4 x i8], %"class.boost::aligned_storage" }
-%"class.boost::aligned_storage" = type { %"struct.boost::detail::aligned_storage::aligned_storage_imp" }
-%"struct.boost::detail::aligned_storage::aligned_storage_imp" = type { %"union.boost::detail::aligned_storage::aligned_storage_imp<8, 8>::data_t" }
-%"union.boost::detail::aligned_storage::aligned_storage_imp<8, 8>::data_t" = type { [8 x i8] }
 %"class.folly::Optional.70" = type { %"struct.folly::Optional<proxygen::HTTPMethod>::StorageTriviallyDestructible" }
 %"struct.folly::Optional<proxygen::HTTPMethod>::StorageTriviallyDestructible" = type <{ %union.anon.71, i8, [3 x i8] }>
 %union.anon.71 = type { i32 }
@@ -228,13 +155,13 @@ entry:
   %ref.tmp141 = alloca %"class.std::allocator", align 1
   %ref.tmp176 = alloca %"class.std::__cxx11::basic_string", align 8
   %ref.tmp199 = alloca i8, align 1
-  %decodeError = getelementptr inbounds %"class.proxygen::HeaderDecodeInfo", ptr %this, i64 0, i32 4
+  %decodeError = getelementptr inbounds i8, ptr %this, i64 120
   %0 = load i8, ptr %decodeError, align 8
   %cmp.not = icmp eq i8 %0, 0
   br i1 %cmp.not, label %lor.lhs.false, label %if.then
 
 lor.lhs.false:                                    ; preds = %entry
-  %parsingError = getelementptr inbounds %"class.proxygen::HeaderDecodeInfo", ptr %this, i64 0, i32 2
+  %parsingError = getelementptr inbounds i8, ptr %this, i64 56
   %call = tail call noundef zeroext i1 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5emptyEv(ptr noundef nonnull align 8 dereferenceable(32) %parsingError) #18
   br i1 %call, label %if.end, label %if.then
 
@@ -272,11 +199,11 @@ invoke.cont11:                                    ; preds = %invoke.cont9
 
 invoke.cont13:                                    ; preds = %invoke.cont11
   %4 = load ptr, ptr %value, align 8
-  %arrayidx.i.i.i.i.i = getelementptr inbounds [24 x i8], ptr %value, i64 0, i64 23
+  %arrayidx.i.i.i.i.i = getelementptr inbounds i8, ptr %value, i64 23
   %5 = load i8, ptr %arrayidx.i.i.i.i.i, align 1
   %cmp.i.i.i.i = icmp ult i8 %5, 64
   %cond.i.i.i.i = select i1 %cmp.i.i.i.i, ptr %value, ptr %4
-  %size_.i.i.i = getelementptr inbounds %"struct.folly::fbstring_core<char>::MediumLarge", ptr %value, i64 0, i32 1
+  %size_.i.i.i = getelementptr inbounds i8, ptr %value, i64 8
   %6 = load i64, ptr %size_.i.i.i, align 8
   %conv.i.i.i = zext i8 %5 to i64
   %sub.i.i.i = sub nsw i64 23, %conv.i.i.i
@@ -290,7 +217,7 @@ invoke.cont15:                                    ; preds = %invoke.cont13
           to label %invoke.cont17 unwind label %lpad
 
 invoke.cont17:                                    ; preds = %invoke.cont15
-  %parsingError19 = getelementptr inbounds %"class.proxygen::HeaderDecodeInfo", ptr %this, i64 0, i32 2
+  %parsingError19 = getelementptr inbounds i8, ptr %this, i64 56
   %call21 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsIcSt11char_traitsIcESaIcEERSt13basic_ostreamIT_T0_ES7_RKNSt7__cxx1112basic_stringIS4_S5_T1_EE(ptr noundef nonnull align 8 dereferenceable(8) %call18, ptr noundef nonnull align 8 dereferenceable(32) %parsingError19)
           to label %cleanup.action unwind label %lpad
 
@@ -318,23 +245,23 @@ if.end:                                           ; preds = %lor.lhs.false
   %.pre = load ptr, ptr %name, align 8
   %call.i = tail call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4dataEv(ptr noundef nonnull align 8 dereferenceable(32) %.pre) #18
   store ptr %call.i, ptr %nameSp, align 8
-  %e_.i = getelementptr inbounds %"class.folly::Range", ptr %nameSp, i64 0, i32 1
+  %e_.i = getelementptr inbounds i8, ptr %nameSp, i64 8
   %call3.i = tail call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4sizeEv(ptr noundef nonnull align 8 dereferenceable(32) %.pre) #18
   %add.ptr.i = getelementptr inbounds i8, ptr %call.i, i64 %call3.i
   store ptr %add.ptr.i, ptr %e_.i, align 8
   %10 = load ptr, ptr %value, align 8
-  %arrayidx.i.i.i.i.i17 = getelementptr inbounds [24 x i8], ptr %value, i64 0, i64 23
+  %arrayidx.i.i.i.i.i17 = getelementptr inbounds i8, ptr %value, i64 23
   %11 = load i8, ptr %arrayidx.i.i.i.i.i17, align 1
   %cmp.i.i.i.i18 = icmp ult i8 %11, 64
   %cond.i.i.i.i19 = select i1 %cmp.i.i.i.i18, ptr %value, ptr %10
-  %size_.i.i.i20 = getelementptr inbounds %"struct.folly::fbstring_core<char>::MediumLarge", ptr %value, i64 0, i32 1
+  %size_.i.i.i20 = getelementptr inbounds i8, ptr %value, i64 8
   %12 = load i64, ptr %size_.i.i.i20, align 8
   %conv.i.i.i21 = zext i8 %11 to i64
   %sub.i.i.i22 = sub nsw i64 23, %conv.i.i.i21
   %cmp.i.i.i23 = icmp ult i8 %11, 24
   %cond.i.i.i24 = select i1 %cmp.i.i.i23, i64 %sub.i.i.i22, i64 %12
   store ptr %cond.i.i.i.i19, ptr %valueSp, align 8
-  %e_.i.i = getelementptr inbounds %"class.folly::Range", ptr %valueSp, i64 0, i32 1
+  %e_.i.i = getelementptr inbounds i8, ptr %valueSp, i64 8
   %add.ptr.i.i = getelementptr inbounds i8, ptr %cond.i.i.i.i19, i64 %cond.i.i.i24
   store ptr %add.ptr.i.i, ptr %e_.i.i, align 8
   %cmp.i.i26 = icmp eq i64 %call3.i, 0
@@ -346,9 +273,9 @@ _ZNK5folly5RangeIPKcE10startsWithEc.exit:         ; preds = %if.end
   br i1 %cmp.i, label %if.then30, label %if.else114
 
 if.then30:                                        ; preds = %_ZNK5folly5RangeIPKcE10startsWithEc.exit
-  %pseudoHeaderSeen_ = getelementptr inbounds %"class.proxygen::HeaderDecodeInfo", ptr %this, i64 0, i32 10
+  %pseudoHeaderSeen_ = getelementptr inbounds i8, ptr %this, i64 126
   store i8 1, ptr %pseudoHeaderSeen_, align 2
-  %regularHeaderSeen_ = getelementptr inbounds %"class.proxygen::HeaderDecodeInfo", ptr %this, i64 0, i32 9
+  %regularHeaderSeen_ = getelementptr inbounds i8, ptr %this, i64 125
   %14 = load i8, ptr %regularHeaderSeen_, align 1
   %15 = and i8 %14, 1
   %tobool31.not = icmp eq i8 %15, 0
@@ -358,9 +285,9 @@ if.then32:                                        ; preds = %if.then30
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp33) #18
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %sizes.i.i.i.i), !noalias !5
   store i64 28, ptr %sizes.i.i.i.i, align 16, !noalias !5
-  %arrayinit.element.i.i.i.i = getelementptr inbounds i64, ptr %sizes.i.i.i.i, i64 1
+  %arrayinit.element.i.i.i.i = getelementptr inbounds i8, ptr %sizes.i.i.i.i, i64 8
   store i64 %call3.i, ptr %arrayinit.element.i.i.i.i, align 8, !noalias !5
-  %arrayinit.element7.i.i.i.i = getelementptr inbounds i64, ptr %sizes.i.i.i.i, i64 2
+  %arrayinit.element7.i.i.i.i = getelementptr inbounds i8, ptr %sizes.i.i.i.i, i64 16
   store i64 0, ptr %arrayinit.element7.i.i.i.i, align 16, !noalias !5
   br label %for.body.i.i.i.i
 
@@ -403,7 +330,7 @@ _ZN5folly2toINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEJA28_cNS_5Range
   br label %return
 
 if.end36:                                         ; preds = %if.then30
-  %isRequest_ = getelementptr inbounds %"class.proxygen::HeaderDecodeInfo", ptr %this, i64 0, i32 5
+  %isRequest_ = getelementptr inbounds i8, ptr %this, i64 121
   %18 = load i8, ptr %isRequest_, align 1
   %19 = and i8 %18, 1
   %tobool37.not = icmp eq i8 %19, 0
@@ -419,17 +346,17 @@ if.then38:                                        ; preds = %if.end36
   ]
 
 sw.bb41:                                          ; preds = %if.then38
-  %verifier42 = getelementptr inbounds %"class.proxygen::HeaderDecodeInfo", ptr %this, i64 0, i32 1
+  %verifier42 = getelementptr inbounds i8, ptr %this, i64 8
   %call44 = tail call noundef zeroext i1 @_ZN8proxygen19HTTPRequestVerifier9setSchemeEN5folly5RangeIPKcEE(ptr noundef nonnull align 8 dereferenceable(45) %verifier42, ptr %cond.i.i.i.i19, ptr %add.ptr.i.i)
   br i1 %call44, label %if.end212, label %return
 
 sw.bb46:                                          ; preds = %if.then38
-  %verifier47 = getelementptr inbounds %"class.proxygen::HeaderDecodeInfo", ptr %this, i64 0, i32 1
-  %validate_ = getelementptr inbounds %"class.proxygen::HeaderDecodeInfo", ptr %this, i64 0, i32 7
+  %verifier47 = getelementptr inbounds i8, ptr %this, i64 8
+  %validate_ = getelementptr inbounds i8, ptr %this, i64 123
   %20 = load i8, ptr %validate_, align 1
   %21 = and i8 %20, 1
   %tobool49 = icmp ne i8 %21, 0
-  %strictValidation_ = getelementptr inbounds %"class.proxygen::HeaderDecodeInfo", ptr %this, i64 0, i32 11
+  %strictValidation_ = getelementptr inbounds i8, ptr %this, i64 127
   %22 = load i8, ptr %strictValidation_, align 1
   %23 = and i8 %22, 1
   %tobool50 = icmp ne i8 %23, 0
@@ -437,12 +364,12 @@ sw.bb46:                                          ; preds = %if.then38
   br i1 %call51, label %if.end212, label %return
 
 sw.bb53:                                          ; preds = %if.then38
-  %verifier54 = getelementptr inbounds %"class.proxygen::HeaderDecodeInfo", ptr %this, i64 0, i32 1
-  %strictValidation_56 = getelementptr inbounds %"class.proxygen::HeaderDecodeInfo", ptr %this, i64 0, i32 11
+  %verifier54 = getelementptr inbounds i8, ptr %this, i64 8
+  %strictValidation_56 = getelementptr inbounds i8, ptr %this, i64 127
   %24 = load i8, ptr %strictValidation_56, align 1
   %25 = and i8 %24, 1
   %tobool57 = icmp ne i8 %25, 0
-  %allowEmptyPath_ = getelementptr inbounds %"class.proxygen::HeaderDecodeInfo", ptr %this, i64 0, i32 12
+  %allowEmptyPath_ = getelementptr inbounds i8, ptr %this, i64 128
   %26 = load i8, ptr %allowEmptyPath_, align 8
   %27 = and i8 %26, 1
   %tobool58 = icmp ne i8 %27, 0
@@ -450,8 +377,8 @@ sw.bb53:                                          ; preds = %if.then38
   br i1 %call59, label %if.end212, label %return
 
 sw.bb61:                                          ; preds = %if.then38
-  %verifier62 = getelementptr inbounds %"class.proxygen::HeaderDecodeInfo", ptr %this, i64 0, i32 1
-  %strictValidation_64 = getelementptr inbounds %"class.proxygen::HeaderDecodeInfo", ptr %this, i64 0, i32 11
+  %verifier62 = getelementptr inbounds i8, ptr %this, i64 8
+  %strictValidation_64 = getelementptr inbounds i8, ptr %this, i64 127
   %28 = load i8, ptr %strictValidation_64, align 1
   %29 = and i8 %28, 1
   %tobool65 = icmp ne i8 %29, 0
@@ -465,7 +392,7 @@ sw.default:                                       ; preds = %if.then38
   br label %return
 
 sw.epilog:                                        ; preds = %if.then38
-  %verifier = getelementptr inbounds %"class.proxygen::HeaderDecodeInfo", ptr %this, i64 0, i32 1
+  %verifier = getelementptr inbounds i8, ptr %this, i64 8
   %call39 = tail call noundef zeroext i1 @_ZN8proxygen19HTTPRequestVerifier9setMethodEN5folly5RangeIPKcEE(ptr noundef nonnull align 8 dereferenceable(45) %verifier, ptr %cond.i.i.i.i19, ptr %add.ptr.i.i)
   br i1 %call39, label %if.end212, label %return
 
@@ -474,7 +401,7 @@ if.else:                                          ; preds = %if.end36
   br i1 %cmp75, label %if.then76, label %if.else108
 
 if.then76:                                        ; preds = %if.else
-  %hasStatus_ = getelementptr inbounds %"class.proxygen::HeaderDecodeInfo", ptr %this, i64 0, i32 8
+  %hasStatus_ = getelementptr inbounds i8, ptr %this, i64 124
   %30 = load i8, ptr %hasStatus_, align 4
   %31 = and i8 %30, 1
   %tobool77.not = icmp eq i8 %31, 0
@@ -532,7 +459,7 @@ if.else108:                                       ; preds = %if.else
   br label %return
 
 if.else114:                                       ; preds = %if.end, %_ZNK5folly5RangeIPKcE10startsWithEc.exit
-  %regularHeaderSeen_115 = getelementptr inbounds %"class.proxygen::HeaderDecodeInfo", ptr %this, i64 0, i32 9
+  %regularHeaderSeen_115 = getelementptr inbounds i8, ptr %this, i64 125
   store i8 1, ptr %regularHeaderSeen_115, align 1
   switch i8 %spec.select.i.i, label %sw.epilog150 [
     i8 25, label %sw.bb117
@@ -577,7 +504,7 @@ lpad120.body:                                     ; preds = %lpad.i31, %lpad120
 sw.bb124:                                         ; preds = %if.else114
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %src.i.i)
   store ptr %cond.i.i.i.i19, ptr %src.i.i, align 8, !noalias !8
-  %39 = getelementptr inbounds { ptr, ptr }, ptr %src.i.i, i64 0, i32 1
+  %39 = getelementptr inbounds i8, ptr %src.i.i, i64 8
   store ptr %add.ptr.i.i, ptr %39, align 8, !noalias !8
   %call.i.i.i = call i64 @_ZN5folly6detail15str_to_integralIjEENS_8ExpectedIT_NS_14ConversionCodeEEEPNS_5RangeIPKcEE(ptr noundef nonnull %src.i.i) #18, !noalias !8
   %40 = and i64 %call.i.i.i, 255
@@ -626,8 +553,8 @@ _ZN5folly5tryToIjEENSt9enable_ifIXntsr3std7is_sameINS_5RangeIPKcEET_EE5valueENS_
   %44 = and i64 %retval.sroa.3.0.insert.insert.i.i.i, 255
   %cmp.i.i34 = icmp eq i64 %44, 1
   %cl.0 = select i1 %cmp.i.i34, i32 %ref.tmp125.sroa.383.0.extract.trunc, i32 0
-  %contentLength_ = getelementptr inbounds %"class.proxygen::HeaderDecodeInfo", ptr %this, i64 0, i32 14
-  %hasValue.i.i = getelementptr inbounds %"class.proxygen::HeaderDecodeInfo", ptr %this, i64 0, i32 14, i32 0, i32 1
+  %contentLength_ = getelementptr inbounds i8, ptr %this, i64 132
+  %hasValue.i.i = getelementptr inbounds i8, ptr %this, i64 136
   %45 = load i8, ptr %hasValue.i.i, align 8
   %46 = and i8 %45, 1
   %tobool.i.i.not = icmp eq i8 %46, 0
@@ -664,7 +591,7 @@ _ZN5folly8OptionalIjEaSIRjEERS1_OT_.exit:         ; preds = %_ZNR5folly8Optional
   br label %sw.epilog150
 
 sw.epilog150:                                     ; preds = %if.else114, %_ZN5folly8OptionalIjEaSIRjEERS1_OT_.exit
-  %validate_151 = getelementptr inbounds %"class.proxygen::HeaderDecodeInfo", ptr %this, i64 0, i32 7
+  %validate_151 = getelementptr inbounds i8, ptr %this, i64 123
   %49 = load i8, ptr %validate_151, align 1
   %50 = and i8 %49, 1
   %tobool152.not12 = icmp eq i8 %50, 0
@@ -676,7 +603,7 @@ lor.rhs:                                          ; preds = %sw.epilog150
   br i1 %cmp.i.i26, label %lor.rhs164, label %for.cond.preheader.i
 
 for.cond.preheader.i:                             ; preds = %lor.rhs
-  %strictValidation_157 = getelementptr inbounds %"class.proxygen::HeaderDecodeInfo", ptr %this, i64 0, i32 11
+  %strictValidation_157 = getelementptr inbounds i8, ptr %this, i64 127
   %51 = load i8, ptr %strictValidation_157, align 1
   %52 = and i8 %51, 1
   %cmp4.i = icmp eq i8 %52, 0
@@ -726,7 +653,7 @@ lor.rhs164:                                       ; preds = %lor.rhs, %lor.end
   %58 = phi i1 [ %57, %lor.end ], [ false, %lor.rhs ]
   %59 = load ptr, ptr %valueSp, align 8
   %60 = load ptr, ptr %e_.i.i, align 8
-  %strictValidation_166 = getelementptr inbounds %"class.proxygen::HeaderDecodeInfo", ptr %this, i64 0, i32 11
+  %strictValidation_166 = getelementptr inbounds i8, ptr %this, i64 127
   %61 = load i8, ptr %strictValidation_166, align 1
   %62 = and i8 %61, 1
   %tobool167.not = icmp eq i8 %62, 0
@@ -746,9 +673,9 @@ if.then175:                                       ; preds = %lor.end170
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp176) #18
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %sizes.i.i.i.i52), !noalias !16
   store i64 21, ptr %sizes.i.i.i.i52, align 16, !noalias !16
-  %arrayinit.element.i.i.i.i53 = getelementptr inbounds i64, ptr %sizes.i.i.i.i52, i64 1
+  %arrayinit.element.i.i.i.i53 = getelementptr inbounds i8, ptr %sizes.i.i.i.i52, i64 8
   store i64 %call3.i, ptr %arrayinit.element.i.i.i.i53, align 8, !noalias !16
-  %arrayinit.element7.i.i.i.i60 = getelementptr inbounds i64, ptr %sizes.i.i.i.i52, i64 2
+  %arrayinit.element7.i.i.i.i60 = getelementptr inbounds i8, ptr %sizes.i.i.i.i52, i64 16
   store i64 0, ptr %arrayinit.element7.i.i.i.i60, align 16, !noalias !16
   br label %for.body.i.i.i.i61
 
@@ -784,7 +711,7 @@ lpad.i68:                                         ; preds = %call.i.i.i.i.noexc.
 _ZN5folly2toINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEJA21_cNS_5RangeIPKcEEEEENSt9enable_ifIXaasr12IsSomeStringIT_EE5valueoonesZT0_Li1Entsr3std7is_sameISD_19__type_pack_elementIXmisPvDpT0_ELi1EEJvSG_EEEE5valueESD_E4typeEDpRKSF_.exit: ; preds = %call.i.i.i.i.noexc.i71
   %call178 = call noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEaSEOS4_(ptr noundef nonnull align 8 dereferenceable(32) %parsingError, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp176) #18
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp176) #18
-  %headerErrorValue = getelementptr inbounds %"class.proxygen::HeaderDecodeInfo", ptr %this, i64 0, i32 3
+  %headerErrorValue = getelementptr inbounds i8, ptr %this, i64 88
   %67 = load ptr, ptr %valueSp, align 8
   %68 = load ptr, ptr %e_.i.i, align 8
   %sub.ptr.lhs.cast.i.i.i.i.i.i78 = ptrtoint ptr %68 to i64
@@ -801,14 +728,14 @@ if.end180:                                        ; preds = %lor.end170
 
 if.then183:                                       ; preds = %if.end180
   %69 = load ptr, ptr %this, align 8
-  %headers_.i = getelementptr inbounds %"class.proxygen::HTTPMessage", ptr %69, i64 0, i32 9
+  %headers_.i = getelementptr inbounds i8, ptr %69, i64 480
   %agg.tmp188.sroa.0.0.copyload = load ptr, ptr %valueSp, align 8
   %agg.tmp188.sroa.2.0.copyload = load ptr, ptr %e_.i.i, align 8
   call void @_ZN8proxygen11HTTPHeaders3addEN5folly5RangeIPKcEES5_(ptr noundef nonnull align 8 dereferenceable(32) %headers_.i, ptr %call.i, ptr %add.ptr.i, ptr %agg.tmp188.sroa.0.0.copyload, ptr %agg.tmp188.sroa.2.0.copyload)
   br label %if.end212
 
 land.lhs.true192:                                 ; preds = %if.end180
-  %hasAuthority_.i = getelementptr inbounds %"class.proxygen::HeaderDecodeInfo", ptr %this, i64 0, i32 1, i32 5
+  %hasAuthority_.i = getelementptr inbounds i8, ptr %this, i64 51
   %70 = load i8, ptr %hasAuthority_.i, align 1
   %71 = and i8 %70, 1
   %tobool.i.not = icmp eq i8 %71, 0
@@ -816,7 +743,7 @@ land.lhs.true192:                                 ; preds = %if.end180
 
 if.then195:                                       ; preds = %land.lhs.true192
   %72 = load ptr, ptr %this, align 8
-  %headers_.i81 = getelementptr inbounds %"class.proxygen::HTTPMessage", ptr %72, i64 0, i32 9
+  %headers_.i81 = getelementptr inbounds i8, ptr %72, i64 480
   store i8 38, ptr %ref.tmp199, align 1
   %call200 = call noundef nonnull align 8 dereferenceable(32) ptr @_ZNK8proxygen11HTTPHeaders16getSingleOrEmptyINS_14HTTPHeaderCodeEEERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKT_(ptr noundef nonnull align 8 dereferenceable(32) %headers_.i81, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp199)
   %call201 = call noundef zeroext i1 @_ZN5follyneINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS_5RangeIPKcEEEENSt9enable_ifIXsr6detail23ComparableAsStringPieceIT_T0_EE5valueEbE4typeERKSC_RKSD_(ptr noundef nonnull align 8 dereferenceable(32) %call200, ptr noundef nonnull align 8 dereferenceable(16) %valueSp)
@@ -828,7 +755,7 @@ if.then202:                                       ; preds = %if.then195
 
 if.else206:                                       ; preds = %if.end180, %land.lhs.true192
   %73 = load ptr, ptr %this, align 8
-  %headers_.i82 = getelementptr inbounds %"class.proxygen::HTTPMessage", ptr %73, i64 0, i32 9
+  %headers_.i82 = getelementptr inbounds i8, ptr %73, i64 480
   call void @_ZN8proxygen11HTTPHeaders3addIRN5folly5RangeIPKcEEEEvNS_14HTTPHeaderCodeEOT_(ptr noundef nonnull align 8 dereferenceable(32) %headers_.i82, i8 noundef zeroext %spec.select.i.i, ptr noundef nonnull align 8 dereferenceable(16) %valueSp)
   br label %if.end212
 
@@ -869,7 +796,7 @@ define linkonce_odr noundef zeroext i1 @_ZN8proxygen19HTTPRequestVerifier9setMet
 entry:
   %sizes.i.i.i.i = alloca [3 x i64], align 16
   %ref.tmp = alloca %"class.std::__cxx11::basic_string", align 8
-  %hasMethod_ = getelementptr inbounds %"class.proxygen::HTTPRequestVerifier", ptr %this, i64 0, i32 2
+  %hasMethod_ = getelementptr inbounds i8, ptr %this, i64 40
   %0 = load i8, ptr %hasMethod_, align 8
   %1 = and i8 %0, 1
   %tobool.not = icmp eq i8 %1, 0
@@ -909,12 +836,12 @@ if.then3:                                         ; preds = %if.end.i, %land.lhs
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp) #18
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %sizes.i.i.i.i), !noalias !21
   store i64 17, ptr %sizes.i.i.i.i, align 16, !noalias !21
-  %arrayinit.element.i.i.i.i = getelementptr inbounds i64, ptr %sizes.i.i.i.i, i64 1
+  %arrayinit.element.i.i.i.i = getelementptr inbounds i8, ptr %sizes.i.i.i.i, i64 8
   %sub.ptr.lhs.cast.i.i.i.i.i.i = ptrtoint ptr %method.coerce1 to i64
   %sub.ptr.rhs.cast.i.i.i.i.i.i = ptrtoint ptr %method.coerce0 to i64
   %sub.ptr.sub.i.i.i.i.i.i = sub i64 %sub.ptr.lhs.cast.i.i.i.i.i.i, %sub.ptr.rhs.cast.i.i.i.i.i.i
   store i64 %sub.ptr.sub.i.i.i.i.i.i, ptr %arrayinit.element.i.i.i.i, align 8, !noalias !21
-  %arrayinit.element7.i.i.i.i = getelementptr inbounds i64, ptr %sizes.i.i.i.i, i64 2
+  %arrayinit.element7.i.i.i.i = getelementptr inbounds i8, ptr %sizes.i.i.i.i, i64 16
   store i64 0, ptr %arrayinit.element7.i.i.i.i, align 16, !noalias !21
   br label %for.body.i.i.i.i
 
@@ -954,7 +881,7 @@ _ZN5folly2toINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEJA17_cNS_5Range
 
 if.end6:                                          ; preds = %for.inc.i, %if.end
   store i8 1, ptr %hasMethod_, align 8
-  %msg_ = getelementptr inbounds %"class.proxygen::HTTPRequestVerifier", ptr %this, i64 0, i32 1
+  %msg_ = getelementptr inbounds i8, ptr %this, i64 32
   %6 = load ptr, ptr %msg_, align 8
   tail call void @_ZN8proxygen11HTTPMessage9setMethodEN5folly5RangeIPKcEE(ptr noundef nonnull align 8 dereferenceable(616) %6, ptr %method.coerce0, ptr %method.coerce1)
   br label %return
@@ -972,7 +899,7 @@ define linkonce_odr noundef zeroext i1 @_ZN8proxygen19HTTPRequestVerifier9setSch
 entry:
   %sizes.i.i.i.i = alloca [3 x i64], align 16
   %ref.tmp = alloca %"class.std::__cxx11::basic_string", align 8
-  %hasScheme_ = getelementptr inbounds %"class.proxygen::HTTPRequestVerifier", ptr %this, i64 0, i32 4
+  %hasScheme_ = getelementptr inbounds i8, ptr %this, i64 42
   %0 = load i8, ptr %hasScheme_, align 2
   %1 = and i8 %0, 1
   %tobool.not = icmp eq i8 %1, 0
@@ -1004,12 +931,12 @@ if.then3:                                         ; preds = %for.body.i
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp) #18
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %sizes.i.i.i.i), !noalias !24
   store i64 17, ptr %sizes.i.i.i.i, align 16, !noalias !24
-  %arrayinit.element.i.i.i.i = getelementptr inbounds i64, ptr %sizes.i.i.i.i, i64 1
+  %arrayinit.element.i.i.i.i = getelementptr inbounds i8, ptr %sizes.i.i.i.i, i64 8
   %sub.ptr.lhs.cast.i.i.i.i.i.i = ptrtoint ptr %scheme.coerce1 to i64
   %sub.ptr.rhs.cast.i.i.i.i.i.i = ptrtoint ptr %scheme.coerce0 to i64
   %sub.ptr.sub.i.i.i.i.i.i = sub i64 %sub.ptr.lhs.cast.i.i.i.i.i.i, %sub.ptr.rhs.cast.i.i.i.i.i.i
   store i64 %sub.ptr.sub.i.i.i.i.i.i, ptr %arrayinit.element.i.i.i.i, align 8, !noalias !24
-  %arrayinit.element7.i.i.i.i = getelementptr inbounds i64, ptr %sizes.i.i.i.i, i64 2
+  %arrayinit.element7.i.i.i.i = getelementptr inbounds i8, ptr %sizes.i.i.i.i, i64 16
   store i64 0, ptr %arrayinit.element7.i.i.i.i, align 16, !noalias !24
   br label %for.body.i.i.i.i
 
@@ -1067,9 +994,9 @@ _ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i.i: ; preds = %land.rhs.i.i
   br i1 %cmp.i.i.i, label %if.then9, label %if.else
 
 if.then9:                                         ; preds = %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i.i, %land.rhs.i.i
-  %msg_ = getelementptr inbounds %"class.proxygen::HTTPRequestVerifier", ptr %this, i64 0, i32 1
+  %msg_ = getelementptr inbounds i8, ptr %this, i64 32
   %6 = load ptr, ptr %msg_, align 8
-  %scheme_.i = getelementptr inbounds %"class.proxygen::HTTPMessage", ptr %6, i64 0, i32 24
+  %scheme_.i = getelementptr inbounds i8, ptr %6, i64 612
   %7 = load i32, ptr %scheme_.i, align 4
   %cmp.not.i2 = icmp eq i32 %7, 2
   br i1 %cmp.not.i2, label %return, label %if.end6.sink.split.i
@@ -1094,9 +1021,9 @@ _ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i.i14: ; preds = %land.rhs.i.i12
   br i1 %cmp.i.i.i16, label %if.then11, label %return
 
 if.then11:                                        ; preds = %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i.i14, %land.rhs.i.i12
-  %msg_12 = getelementptr inbounds %"class.proxygen::HTTPRequestVerifier", ptr %this, i64 0, i32 1
+  %msg_12 = getelementptr inbounds i8, ptr %this, i64 32
   %8 = load ptr, ptr %msg_12, align 8
-  %scheme_.i19 = getelementptr inbounds %"class.proxygen::HTTPMessage", ptr %8, i64 0, i32 24
+  %scheme_.i19 = getelementptr inbounds i8, ptr %8, i64 612
   store i32 2, ptr %scheme_.i19, align 4
   br label %return
 
@@ -1112,9 +1039,9 @@ entry:
   %authority = alloca %"class.folly::Range", align 8
   %ref.tmp = alloca %"class.std::__cxx11::basic_string", align 8
   store ptr %authority.coerce0, ptr %authority, align 8
-  %0 = getelementptr inbounds { ptr, ptr }, ptr %authority, i64 0, i32 1
+  %0 = getelementptr inbounds i8, ptr %authority, i64 8
   store ptr %authority.coerce1, ptr %0, align 8
-  %hasAuthority_ = getelementptr inbounds %"class.proxygen::HTTPRequestVerifier", ptr %this, i64 0, i32 5
+  %hasAuthority_ = getelementptr inbounds i8, ptr %this, i64 43
   %1 = load i8, ptr %hasAuthority_, align 1
   %2 = and i8 %1, 1
   %tobool.not = icmp eq i8 %2, 0
@@ -1136,12 +1063,12 @@ if.then6:                                         ; preds = %land.lhs.true
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp) #18
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %sizes.i.i.i.i), !noalias !27
   store i64 20, ptr %sizes.i.i.i.i, align 16, !noalias !27
-  %arrayinit.element.i.i.i.i = getelementptr inbounds i64, ptr %sizes.i.i.i.i, i64 1
+  %arrayinit.element.i.i.i.i = getelementptr inbounds i8, ptr %sizes.i.i.i.i, i64 8
   %sub.ptr.lhs.cast.i.i.i.i.i.i = ptrtoint ptr %authority.coerce1 to i64
   %sub.ptr.rhs.cast.i.i.i.i.i.i = ptrtoint ptr %authority.coerce0 to i64
   %sub.ptr.sub.i.i.i.i.i.i = sub i64 %sub.ptr.lhs.cast.i.i.i.i.i.i, %sub.ptr.rhs.cast.i.i.i.i.i.i
   store i64 %sub.ptr.sub.i.i.i.i.i.i, ptr %arrayinit.element.i.i.i.i, align 8, !noalias !27
-  %arrayinit.element7.i.i.i.i = getelementptr inbounds i64, ptr %sizes.i.i.i.i, i64 2
+  %arrayinit.element7.i.i.i.i = getelementptr inbounds i8, ptr %sizes.i.i.i.i, i64 16
   store i64 0, ptr %arrayinit.element7.i.i.i.i, align 16, !noalias !27
   br label %for.body.i.i.i.i
 
@@ -1181,11 +1108,11 @@ _ZN5folly2toINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEJA20_cNS_5Range
 
 if.end9:                                          ; preds = %land.lhs.true, %if.end
   store i8 1, ptr %hasAuthority_, align 1
-  %msg_ = getelementptr inbounds %"class.proxygen::HTTPRequestVerifier", ptr %this, i64 0, i32 1
+  %msg_ = getelementptr inbounds i8, ptr %this, i64 32
   %5 = load ptr, ptr %msg_, align 8
-  %headers_.i = getelementptr inbounds %"class.proxygen::HTTPMessage", ptr %5, i64 0, i32 9
+  %headers_.i = getelementptr inbounds i8, ptr %5, i64 480
   %call.i.i = tail call noundef ptr @_ZN8proxygen17HTTPCommonHeaders17getPointerToTableB5cxx11ENS_25HTTPCommonHeaderTableTypeE(i8 noundef zeroext 0)
-  %add.ptr.i.i = getelementptr inbounds %"class.std::__cxx11::basic_string", ptr %call.i.i, i64 38
+  %add.ptr.i.i = getelementptr inbounds i8, ptr %call.i.i, i64 1216
   call void @_ZN8proxygen11HTTPHeaders17emplace_back_implIRN5folly5RangeIPKcEEEEvNS_14HTTPHeaderCodeEPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEOT_(ptr noundef nonnull align 8 dereferenceable(32) %headers_.i, i8 noundef zeroext 38, ptr noundef nonnull %add.ptr.i.i, ptr noundef nonnull align 8 dereferenceable(16) %authority)
   br label %return
 
@@ -1204,7 +1131,7 @@ entry:
   %parseUrl = alloca %"class.proxygen::ParseURL", align 8
   %ref.tmp16 = alloca %"class.std::__cxx11::basic_string", align 8
   %ref.tmp23 = alloca %"class.std::__cxx11::basic_string", align 8
-  %hasPath_ = getelementptr inbounds %"class.proxygen::HTTPRequestVerifier", ptr %this, i64 0, i32 3
+  %hasPath_ = getelementptr inbounds i8, ptr %this, i64 41
   %0 = load i8, ptr %hasPath_, align 1
   %1 = and i8 %0, 1
   %tobool.not = icmp eq i8 %1, 0
@@ -1257,12 +1184,12 @@ if.then5:                                         ; preds = %for.body.us.i.i, %f
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp) #18
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %sizes.i.i.i.i), !noalias !30
   store i64 14, ptr %sizes.i.i.i.i, align 16, !noalias !30
-  %arrayinit.element.i.i.i.i = getelementptr inbounds i64, ptr %sizes.i.i.i.i, i64 1
+  %arrayinit.element.i.i.i.i = getelementptr inbounds i8, ptr %sizes.i.i.i.i, i64 8
   %sub.ptr.lhs.cast.i.i.i.i.i.i = ptrtoint ptr %path.coerce1 to i64
   %sub.ptr.rhs.cast.i.i.i.i.i.i = ptrtoint ptr %path.coerce0 to i64
   %sub.ptr.sub.i.i.i.i.i.i = sub i64 %sub.ptr.lhs.cast.i.i.i.i.i.i, %sub.ptr.rhs.cast.i.i.i.i.i.i
   store i64 %sub.ptr.sub.i.i.i.i.i.i, ptr %arrayinit.element.i.i.i.i, align 8, !noalias !30
-  %arrayinit.element7.i.i.i.i = getelementptr inbounds i64, ptr %sizes.i.i.i.i, i64 2
+  %arrayinit.element7.i.i.i.i = getelementptr inbounds i8, ptr %sizes.i.i.i.i, i64 16
   store i64 0, ptr %arrayinit.element7.i.i.i.i, align 16, !noalias !30
   br label %for.body.i.i.i.i
 
@@ -1309,7 +1236,7 @@ if.end8:                                          ; preds = %lor.lhs.false5.us.i
   %not.allowEmptyPath = xor i1 %allowEmptyPath, true
   %spec.select = or i1 %cmp.not7.i.i, %not.allowEmptyPath
   %tobool14 = and i1 %spec.select, %strictValidation
-  %msg_ = getelementptr inbounds %"class.proxygen::HTTPRequestVerifier", ptr %this, i64 0, i32 1
+  %msg_ = getelementptr inbounds i8, ptr %this, i64 32
   %8 = load ptr, ptr %msg_, align 8
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %ref.tmp.i.i), !noalias !33
   %sub.ptr.lhs.cast.i.i.i.i.i = ptrtoint ptr %path.coerce1 to i64
@@ -1332,7 +1259,7 @@ _ZNK5folly5RangeIPKcE3strB5cxx11Ev.exit:          ; preds = %if.end8
           to label %call.i.i.noexc unwind label %lpad
 
 call.i.i.noexc:                                   ; preds = %_ZNK5folly5RangeIPKcE3strB5cxx11Ev.exit
-  %url_.i.i = getelementptr inbounds %"struct.proxygen::HTTPMessage::Request", ptr %call.i.i8, i64 0, i32 7
+  %url_.i.i = getelementptr inbounds i8, ptr %call.i.i8, i64 168
   %call3.i.i = call noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEaSEOS4_(ptr noundef nonnull align 8 dereferenceable(32) %url_.i.i, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp16) #18, !noalias !39
   invoke void @_ZN8proxygen11HTTPMessage18setURLImplInternalEbb(ptr nonnull sret(%"class.proxygen::ParseURL") align 8 %parseUrl, ptr noundef nonnull align 8 dereferenceable(616) %8, i1 noundef zeroext true, i1 noundef zeroext %tobool14)
           to label %invoke.cont unwind label %lpad
@@ -1342,7 +1269,7 @@ invoke.cont:                                      ; preds = %call.i.i.noexc
   br i1 %tobool14, label %land.lhs.true, label %cleanup
 
 land.lhs.true:                                    ; preds = %invoke.cont
-  %valid_.i = getelementptr inbounds %"class.proxygen::ParseURL", ptr %parseUrl, i64 0, i32 9
+  %valid_.i = getelementptr inbounds i8, ptr %parseUrl, i64 146
   %10 = load i8, ptr %valid_.i, align 2
   %11 = and i8 %10, 1
   %tobool.i.not = icmp eq i8 %11, 0
@@ -1352,9 +1279,9 @@ if.then22:                                        ; preds = %land.lhs.true
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp23) #18
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %sizes.i.i.i.i9), !noalias !44
   store i64 14, ptr %sizes.i.i.i.i9, align 16, !noalias !44
-  %arrayinit.element.i.i.i.i10 = getelementptr inbounds i64, ptr %sizes.i.i.i.i9, i64 1
+  %arrayinit.element.i.i.i.i10 = getelementptr inbounds i8, ptr %sizes.i.i.i.i9, i64 8
   store i64 %sub.ptr.sub.i.i.i.i.i, ptr %arrayinit.element.i.i.i.i10, align 8, !noalias !44
-  %arrayinit.element7.i.i.i.i17 = getelementptr inbounds i64, ptr %sizes.i.i.i.i9, i64 2
+  %arrayinit.element7.i.i.i.i17 = getelementptr inbounds i8, ptr %sizes.i.i.i.i9, i64 16
   store i64 0, ptr %arrayinit.element7.i.i.i.i17, align 16, !noalias !44
   br label %for.body.i.i.i.i18
 
@@ -1385,7 +1312,7 @@ lpad.i26:                                         ; preds = %call.i.i.i.i.noexc.
   %13 = landingpad { ptr, i32 }
           cleanup
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp23) #18
-  %authority_.i = getelementptr inbounds %"class.proxygen::ParseURL", ptr %parseUrl, i64 0, i32 2
+  %authority_.i = getelementptr inbounds i8, ptr %parseUrl, i64 32
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %authority_.i) #18
   br label %common.resume
 
@@ -1402,7 +1329,7 @@ lpad:                                             ; preds = %call.i.i.noexc, %_Z
 
 cleanup:                                          ; preds = %land.lhs.true, %invoke.cont, %invoke.cont24
   %retval.0 = phi i1 [ false, %invoke.cont24 ], [ true, %invoke.cont ], [ true, %land.lhs.true ]
-  %authority_.i39 = getelementptr inbounds %"class.proxygen::ParseURL", ptr %parseUrl, i64 0, i32 2
+  %authority_.i39 = getelementptr inbounds i8, ptr %parseUrl, i64 32
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %authority_.i39) #18
   br label %return
 
@@ -1418,7 +1345,7 @@ entry:
   %sizes.i.i.i.i = alloca [3 x i64], align 16
   %ref.tmp = alloca %"class.std::__cxx11::basic_string", align 8
   %agg.tmp8 = alloca %"class.std::__cxx11::basic_string", align 8
-  %hasUpgradeProtocol_ = getelementptr inbounds %"class.proxygen::HTTPRequestVerifier", ptr %this, i64 0, i32 6
+  %hasUpgradeProtocol_ = getelementptr inbounds i8, ptr %this, i64 44
   %0 = load i8, ptr %hasUpgradeProtocol_, align 4
   %1 = and i8 %0, 1
   %tobool.not = icmp eq i8 %1, 0
@@ -1522,12 +1449,12 @@ if.then4:                                         ; preds = %sw.bb30.i, %sw.bb25
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp) #18
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %sizes.i.i.i.i), !noalias !48
   store i64 19, ptr %sizes.i.i.i.i, align 16, !noalias !48
-  %arrayinit.element.i.i.i.i = getelementptr inbounds i64, ptr %sizes.i.i.i.i, i64 1
+  %arrayinit.element.i.i.i.i = getelementptr inbounds i8, ptr %sizes.i.i.i.i, i64 8
   %sub.ptr.lhs.cast.i.i.i.i.i.i = ptrtoint ptr %protocol.coerce1 to i64
   %sub.ptr.rhs.cast.i.i.i.i.i.i = ptrtoint ptr %protocol.coerce0 to i64
   %sub.ptr.sub.i.i.i.i.i.i = sub i64 %sub.ptr.lhs.cast.i.i.i.i.i.i, %sub.ptr.rhs.cast.i.i.i.i.i.i
   store i64 %sub.ptr.sub.i.i.i.i.i.i, ptr %arrayinit.element.i.i.i.i, align 8, !noalias !48
-  %arrayinit.element7.i.i.i.i = getelementptr inbounds i64, ptr %sizes.i.i.i.i, i64 2
+  %arrayinit.element7.i.i.i.i = getelementptr inbounds i8, ptr %sizes.i.i.i.i, i64 16
   store i64 0, ptr %arrayinit.element7.i.i.i.i, align 16, !noalias !48
   br label %for.body.i.i.i.i
 
@@ -1572,7 +1499,7 @@ _ZN5folly2toINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEJA19_cNS_5Range
 
 if.end7:                                          ; preds = %_ZN8proxygen9CodecUtil19validateHeaderValueEN5folly5RangeIPKhEENS0_13CtlEscapeModeE.exit, %_ZN8proxygen9CodecUtil19validateHeaderValueEN5folly5RangeIPKhEENS0_13CtlEscapeModeE.exit, %if.end
   store i8 1, ptr %hasUpgradeProtocol_, align 4
-  %msg_ = getelementptr inbounds %"class.proxygen::HTTPRequestVerifier", ptr %this, i64 0, i32 1
+  %msg_ = getelementptr inbounds i8, ptr %this, i64 32
   %13 = load ptr, ptr %msg_, align 8
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %result.i)
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(32) %result.i) #18, !noalias !51
@@ -1597,7 +1524,7 @@ _ZN5folly2toINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEENSt9enable_if
 
 call.i.i.noexc:                                   ; preds = %_ZN5folly2toINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEENSt9enable_ifIXntsr3std7is_sameINS_5RangeIPKcEET_EE5valueESC_E4typeESB_.exit
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EOS4_(ptr noundef nonnull align 8 dereferenceable(32) %call.i.i2, ptr noundef nonnull align 8 dereferenceable(32) %agg.tmp8) #18, !noalias !61
-  %upgradeProtocol_.i = getelementptr inbounds %"class.proxygen::HTTPMessage", ptr %13, i64 0, i32 18
+  %upgradeProtocol_.i = getelementptr inbounds i8, ptr %13, i64 568
   %15 = load ptr, ptr %upgradeProtocol_.i, align 8
   store ptr %call.i.i2, ptr %upgradeProtocol_.i, align 8
   %tobool.not.i.i.i.i.i = icmp eq ptr %15, null
@@ -1629,7 +1556,7 @@ entry:
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(32) %agg.result) #18
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %sizes.i.i.i)
   store i64 25, ptr %sizes.i.i.i, align 16
-  %arrayinit.element.i.i.i = getelementptr inbounds i64, ptr %sizes.i.i.i, i64 1
+  %arrayinit.element.i.i.i = getelementptr inbounds i8, ptr %sizes.i.i.i, i64 8
   %agg.tmp.i.sroa.0.0.copyload.i.i.i = load ptr, ptr %vs1, align 8
   %agg.tmp.i.sroa.2.0..sroa_idx.i.i.i = getelementptr inbounds i8, ptr %vs1, i64 8
   %agg.tmp.i.sroa.2.0.copyload.i.i.i = load ptr, ptr %agg.tmp.i.sroa.2.0..sroa_idx.i.i.i, align 8
@@ -1637,7 +1564,7 @@ entry:
   %sub.ptr.rhs.cast.i.i.i.i.i = ptrtoint ptr %agg.tmp.i.sroa.0.0.copyload.i.i.i to i64
   %sub.ptr.sub.i.i.i.i.i = sub i64 %sub.ptr.lhs.cast.i.i.i.i.i, %sub.ptr.rhs.cast.i.i.i.i.i
   store i64 %sub.ptr.sub.i.i.i.i.i, ptr %arrayinit.element.i.i.i, align 8
-  %arrayinit.element7.i.i.i = getelementptr inbounds i64, ptr %sizes.i.i.i, i64 2
+  %arrayinit.element7.i.i.i = getelementptr inbounds i8, ptr %sizes.i.i.i, i64 16
   store i64 0, ptr %arrayinit.element7.i.i.i, align 16
   br label %for.body.i.i.i
 
@@ -1722,7 +1649,7 @@ entry:
   %src.i = alloca %"class.folly::Range", align 8
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %src.i)
   store ptr %src.coerce0, ptr %src.i, align 8, !noalias !64
-  %0 = getelementptr inbounds { ptr, ptr }, ptr %src.i, i64 0, i32 1
+  %0 = getelementptr inbounds i8, ptr %src.i, i64 8
   store ptr %src.coerce1, ptr %0, align 8, !noalias !64
   %call.i.i = call i64 @_ZN5folly6detail15str_to_integralIiEENS_8ExpectedIT_NS_14ConversionCodeEEEPNS_5RangeIPKcEE(ptr noundef nonnull %src.i) #18, !noalias !64
   %1 = and i64 %call.i.i, 255
@@ -1775,7 +1702,7 @@ declare void @_ZN8proxygen11HTTPMessage13setStatusCodeEt(ptr noundef nonnull ali
 define linkonce_odr void @_ZN8proxygen11HTTPMessage16setStatusMessageIPKcEEvOT_(ptr noundef nonnull align 8 dereferenceable(616) %this, ptr noundef nonnull align 8 dereferenceable(8) %msg) local_unnamed_addr #3 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %0 = load ptr, ptr %msg, align 8
-  %fields_15.i = getelementptr inbounds %"class.proxygen::HTTPMessage", ptr %this, i64 0, i32 6
+  %fields_15.i = getelementptr inbounds i8, ptr %this, i64 168
   %1 = load i8, ptr %fields_15.i, align 8
   switch i8 %1, label %_ZN8proxygen11HTTPMessage8responseEv.exit [
     i8 0, label %if.then.i
@@ -1784,11 +1711,11 @@ entry:
 
 if.then.i:                                        ; preds = %entry
   store i8 2, ptr %fields_15.i, align 8
-  %data_.i = getelementptr inbounds %"class.proxygen::HTTPMessage", ptr %this, i64 0, i32 6, i32 1
+  %data_.i = getelementptr inbounds i8, ptr %this, i64 176
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(72) %data_.i, i8 0, i64 72, i1 false)
-  %statusStr_.i.i = getelementptr inbounds %"class.proxygen::HTTPMessage", ptr %this, i64 0, i32 6, i32 1, i32 0, i32 1
+  %statusStr_.i.i = getelementptr inbounds i8, ptr %this, i64 184
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(32) %statusStr_.i.i) #18
-  %statusMsg_.i.i = getelementptr inbounds %"class.proxygen::HTTPMessage", ptr %this, i64 0, i32 6, i32 1, i32 0, i32 2
+  %statusMsg_.i.i = getelementptr inbounds i8, ptr %this, i64 216
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(32) %statusMsg_.i.i) #18
   br label %_ZN8proxygen11HTTPMessage8responseEv.exit
 
@@ -1808,7 +1735,7 @@ lpad25.i:                                         ; preds = %if.then24.i
   resume { ptr, i32 } %2
 
 _ZN8proxygen11HTTPMessage8responseEv.exit:        ; preds = %entry, %if.then.i
-  %statusMsg_ = getelementptr inbounds %"class.proxygen::HTTPMessage", ptr %this, i64 0, i32 6, i32 1, i32 0, i32 2
+  %statusMsg_ = getelementptr inbounds i8, ptr %this, i64 216
   %call2 = tail call noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEaSEPKc(ptr noundef nonnull align 8 dereferenceable(32) %statusMsg_, ptr noundef %0)
   ret void
 }
@@ -1822,7 +1749,7 @@ entry:
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(32) %agg.result) #18
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %sizes.i.i.i)
   store i64 23, ptr %sizes.i.i.i, align 16
-  %arrayinit.element.i.i.i = getelementptr inbounds i64, ptr %sizes.i.i.i, i64 1
+  %arrayinit.element.i.i.i = getelementptr inbounds i8, ptr %sizes.i.i.i, i64 8
   %agg.tmp.i.sroa.0.0.copyload.i.i.i = load ptr, ptr %vs1, align 8
   %agg.tmp.i.sroa.2.0..sroa_idx.i.i.i = getelementptr inbounds i8, ptr %vs1, i64 8
   %agg.tmp.i.sroa.2.0.copyload.i.i.i = load ptr, ptr %agg.tmp.i.sroa.2.0..sroa_idx.i.i.i, align 8
@@ -1830,7 +1757,7 @@ entry:
   %sub.ptr.rhs.cast.i.i.i.i.i = ptrtoint ptr %agg.tmp.i.sroa.0.0.copyload.i.i.i to i64
   %sub.ptr.sub.i.i.i.i.i = sub i64 %sub.ptr.lhs.cast.i.i.i.i.i, %sub.ptr.rhs.cast.i.i.i.i.i
   store i64 %sub.ptr.sub.i.i.i.i.i, ptr %arrayinit.element.i.i.i, align 8
-  %arrayinit.element7.i.i.i = getelementptr inbounds i64, ptr %sizes.i.i.i, i64 2
+  %arrayinit.element7.i.i.i = getelementptr inbounds i8, ptr %sizes.i.i.i, i64 16
   store i64 0, ptr %arrayinit.element7.i.i.i, align 16
   br label %for.body.i.i.i
 
@@ -1879,7 +1806,7 @@ entry:
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(32) %agg.result) #18
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %sizes.i.i.i)
   store i64 26, ptr %sizes.i.i.i, align 16
-  %arrayinit.element.i.i.i = getelementptr inbounds i64, ptr %sizes.i.i.i, i64 1
+  %arrayinit.element.i.i.i = getelementptr inbounds i8, ptr %sizes.i.i.i, i64 8
   %agg.tmp.i.sroa.0.0.copyload.i.i.i = load ptr, ptr %vs1, align 8
   %agg.tmp.i.sroa.2.0..sroa_idx.i.i.i = getelementptr inbounds i8, ptr %vs1, i64 8
   %agg.tmp.i.sroa.2.0.copyload.i.i.i = load ptr, ptr %agg.tmp.i.sroa.2.0..sroa_idx.i.i.i, align 8
@@ -1887,7 +1814,7 @@ entry:
   %sub.ptr.rhs.cast.i.i.i.i.i = ptrtoint ptr %agg.tmp.i.sroa.0.0.copyload.i.i.i to i64
   %sub.ptr.sub.i.i.i.i.i = sub i64 %sub.ptr.lhs.cast.i.i.i.i.i, %sub.ptr.rhs.cast.i.i.i.i.i
   store i64 %sub.ptr.sub.i.i.i.i.i, ptr %arrayinit.element.i.i.i, align 8
-  %arrayinit.element7.i.i.i = getelementptr inbounds i64, ptr %sizes.i.i.i, i64 2
+  %arrayinit.element7.i.i.i = getelementptr inbounds i8, ptr %sizes.i.i.i, i64 16
   store i64 0, ptr %arrayinit.element7.i.i.i, align 16
   br label %for.body.i.i.i
 
@@ -2227,8 +2154,8 @@ entry:
   br i1 %tobool.not12.i, label %_ZNK8proxygen11HTTPHeaders20forEachValueOfHeaderIZNKS0_16getSingleOrEmptyINS_14HTTPHeaderCodeEEERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKT_EUlSB_E_EEbS3_SC_.exit, label %while.body.preheader.i
 
 while.body.preheader.i:                           ; preds = %entry
-  %length_.i = getelementptr inbounds %"class.proxygen::HTTPHeaders", ptr %this, i64 0, i32 1
-  %capacity_.i.i = getelementptr inbounds %"class.proxygen::HTTPHeaders", ptr %this, i64 0, i32 2
+  %length_.i = getelementptr inbounds i8, ptr %this, i64 8
+  %capacity_.i.i = getelementptr inbounds i8, ptr %this, i64 16
   %2 = load i64, ptr %capacity_.i.i, align 8
   %mul.i.i.i = mul i64 %2, 40
   %add.ptr.i.i.i = getelementptr inbounds i8, ptr %1, i64 %mul.i.i.i
@@ -2285,15 +2212,15 @@ entry:
   %ref.tmp4 = alloca %"class.std::__cxx11::basic_string", align 8
   %ref.tmp5 = alloca %"class.std::allocator", align 1
   %0 = load ptr, ptr %this, align 8
-  %headers_.i = getelementptr inbounds %"class.proxygen::HTTPMessage", ptr %0, i64 0, i32 9
-  %isRequest_ = getelementptr inbounds %"class.proxygen::HeaderDecodeInfo", ptr %this, i64 0, i32 5
+  %headers_.i = getelementptr inbounds i8, ptr %0, i64 480
+  %isRequest_ = getelementptr inbounds i8, ptr %this, i64 121
   %1 = load i8, ptr %isRequest_, align 1
   %2 = and i8 %1, 1
   %tobool.not = icmp eq i8 %2, 0
   br i1 %tobool.not, label %if.end20, label %land.lhs.true
 
 land.lhs.true:                                    ; preds = %entry
-  %isRequestTrailers_ = getelementptr inbounds %"class.proxygen::HeaderDecodeInfo", ptr %this, i64 0, i32 6
+  %isRequestTrailers_ = getelementptr inbounds i8, ptr %this, i64 122
   %3 = load i8, ptr %isRequestTrailers_, align 2
   %4 = and i8 %3, 1
   %tobool3.not = icmp eq i8 %4, 0
@@ -2360,7 +2287,7 @@ lpad10:                                           ; preds = %call.i.noexc6, %if.
   br label %eh.resume
 
 if.end:                                           ; preds = %call.i.noexc6, %invoke.cont7
-  %verifier = getelementptr inbounds %"class.proxygen::HeaderDecodeInfo", ptr %this, i64 0, i32 1
+  %verifier = getelementptr inbounds i8, ptr %this, i64 8
   %call13 = invoke noundef zeroext i1 @_ZN8proxygen19HTTPRequestVerifier8validateEv(ptr noundef nonnull align 8 dereferenceable(45) %verifier)
           to label %invoke.cont12 unwind label %lpad10
 
@@ -2375,7 +2302,7 @@ cleanup.thread:                                   ; preds = %invoke.cont12
   br label %if.end20
 
 if.then14:                                        ; preds = %invoke.cont12
-  %parsingError = getelementptr inbounds %"class.proxygen::HeaderDecodeInfo", ptr %this, i64 0, i32 2
+  %parsingError = getelementptr inbounds i8, ptr %this, i64 56
   %call17 = invoke noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEaSERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %parsingError, ptr noundef nonnull align 8 dereferenceable(32) %verifier)
           to label %cleanup unwind label %lpad10
 
@@ -2385,12 +2312,12 @@ cleanup:                                          ; preds = %if.then14
 
 if.end20:                                         ; preds = %cleanup.thread, %land.lhs.true, %entry
   %.pre-phi = phi i1 [ %9, %cleanup.thread ], [ false, %land.lhs.true ], [ true, %entry ]
-  %hasStatus_ = getelementptr inbounds %"class.proxygen::HeaderDecodeInfo", ptr %this, i64 0, i32 8
+  %hasStatus_ = getelementptr inbounds i8, ptr %this, i64 124
   %10 = load i8, ptr %hasStatus_, align 4
   %11 = and i8 %10, 1
   %tobool23.not = icmp eq i8 %11, 0
   %12 = select i1 %.pre-phi, i1 %tobool23.not, i1 false
-  %isRequestTrailers_24 = getelementptr inbounds %"class.proxygen::HeaderDecodeInfo", ptr %this, i64 0, i32 6
+  %isRequestTrailers_24 = getelementptr inbounds i8, ptr %this, i64 122
   %13 = load i8, ptr %isRequestTrailers_24, align 2
   %14 = and i8 %13, 1
   %tobool25.not = icmp ne i8 %14, 0
@@ -2398,14 +2325,14 @@ if.end20:                                         ; preds = %cleanup.thread, %la
   br i1 %brmerge, label %land.lhs.true27, label %if.end32
 
 land.lhs.true27:                                  ; preds = %if.end20
-  %pseudoHeaderSeen_ = getelementptr inbounds %"class.proxygen::HeaderDecodeInfo", ptr %this, i64 0, i32 10
+  %pseudoHeaderSeen_ = getelementptr inbounds i8, ptr %this, i64 126
   %15 = load i8, ptr %pseudoHeaderSeen_, align 2
   %16 = and i8 %15, 1
   %tobool28.not = icmp eq i8 %16, 0
   br i1 %tobool28.not, label %if.end32, label %if.then29
 
 if.then29:                                        ; preds = %land.lhs.true27
-  %parsingError30 = getelementptr inbounds %"class.proxygen::HeaderDecodeInfo", ptr %this, i64 0, i32 2
+  %parsingError30 = getelementptr inbounds i8, ptr %this, i64 56
   %call31 = call noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEaSEPKc(ptr noundef nonnull align 8 dereferenceable(32) %parsingError30, ptr noundef nonnull @.str.14)
   br label %return
 
@@ -2413,9 +2340,9 @@ if.end32:                                         ; preds = %if.end20, %land.lhs
   %17 = load ptr, ptr %this, align 8
   call void @_ZN8proxygen11HTTPMessage14setHTTPVersionEhh(ptr noundef nonnull align 8 dereferenceable(616) %17, i8 noundef zeroext 1, i8 noundef zeroext 1)
   %18 = load ptr, ptr %this, align 8
-  %size_.i = getelementptr inbounds %"class.proxygen::HTTPMessage", ptr %18, i64 0, i32 11
+  %size_.i = getelementptr inbounds i8, ptr %18, i64 520
   store i64 %decodedSize.coerce0, ptr %size_.i, align 8
-  %decodedSize.sroa.2.0.size_.i.sroa_idx = getelementptr inbounds %"class.proxygen::HTTPMessage", ptr %18, i64 0, i32 11, i32 2
+  %decodedSize.sroa.2.0.size_.i.sroa_idx = getelementptr inbounds i8, ptr %18, i64 528
   store i32 %decodedSize.coerce1, ptr %decodedSize.sroa.2.0.size_.i.sroa_idx, align 8
   br label %return
 
@@ -2453,9 +2380,9 @@ invoke.cont:                                      ; preds = %.noexc
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp) #18
   %1 = load i8, ptr %header, align 1
   %2 = load ptr, ptr %this, align 8
-  %capacity_.i.i = getelementptr inbounds %"class.proxygen::HTTPHeaders", ptr %this, i64 0, i32 2
+  %capacity_.i.i = getelementptr inbounds i8, ptr %this, i64 16
   %conv.i = zext i8 %1 to i32
-  %length_.i = getelementptr inbounds %"class.proxygen::HTTPHeaders", ptr %this, i64 0, i32 1
+  %length_.i = getelementptr inbounds i8, ptr %this, i64 8
   %tobool.not13.i = icmp eq ptr %2, null
   br i1 %tobool.not13.i, label %nrvo.skipdtor, label %while.body.preheader.i
 
@@ -2543,17 +2470,17 @@ entry:
   br i1 %tobool.not, label %if.end, label %return
 
 if.end:                                           ; preds = %entry
-  %msg_ = getelementptr inbounds %"class.proxygen::HTTPRequestVerifier", ptr %this, i64 0, i32 1
+  %msg_ = getelementptr inbounds i8, ptr %this, i64 32
   %0 = load ptr, ptr %msg_, align 8
   call void @_ZNK8proxygen11HTTPMessage9getMethodEv(ptr nonnull sret(%"class.folly::Optional.70") align 4 %ref.tmp, ptr noundef nonnull align 8 dereferenceable(616) %0)
-  %hasValue.i.i.i = getelementptr inbounds %"struct.folly::Optional<proxygen::HTTPMethod>::StorageTriviallyDestructible", ptr %ref.tmp, i64 0, i32 1
+  %hasValue.i.i.i = getelementptr inbounds i8, ptr %ref.tmp, i64 4
   %1 = load i8, ptr %hasValue.i.i.i, align 4
   %2 = and i8 %1, 1
   %tobool.i.i.i = icmp ne i8 %2, 0
   %3 = load i32, ptr %ref.tmp, align 4
   %cmp.i = icmp eq i32 %3, 5
   %4 = select i1 %tobool.i.i.i, i1 %cmp.i, i1 false
-  %hasUpgradeProtocol_ = getelementptr inbounds %"class.proxygen::HTTPRequestVerifier", ptr %this, i64 0, i32 6
+  %hasUpgradeProtocol_ = getelementptr inbounds i8, ptr %this, i64 44
   %5 = load i8, ptr %hasUpgradeProtocol_, align 4
   %6 = and i8 %5, 1
   %tobool5.not = icmp eq i8 %6, 0
@@ -2563,52 +2490,52 @@ if.then4:                                         ; preds = %if.end
   br i1 %tobool5.not, label %land.lhs.true, label %land.lhs.true15
 
 land.lhs.true:                                    ; preds = %if.then4
-  %hasMethod_ = getelementptr inbounds %"class.proxygen::HTTPRequestVerifier", ptr %this, i64 0, i32 2
+  %hasMethod_ = getelementptr inbounds i8, ptr %this, i64 40
   %7 = load i8, ptr %hasMethod_, align 8
   %8 = and i8 %7, 1
   %tobool6.not = icmp eq i8 %8, 0
   br i1 %tobool6.not, label %if.then21, label %lor.lhs.false
 
 lor.lhs.false:                                    ; preds = %land.lhs.true
-  %hasAuthority_ = getelementptr inbounds %"class.proxygen::HTTPRequestVerifier", ptr %this, i64 0, i32 5
+  %hasAuthority_ = getelementptr inbounds i8, ptr %this, i64 43
   %9 = load i8, ptr %hasAuthority_, align 1
   %10 = and i8 %9, 1
   %tobool7.not = icmp eq i8 %10, 0
   br i1 %tobool7.not, label %if.then21, label %lor.lhs.false8
 
 lor.lhs.false8:                                   ; preds = %lor.lhs.false
-  %hasScheme_ = getelementptr inbounds %"class.proxygen::HTTPRequestVerifier", ptr %this, i64 0, i32 4
+  %hasScheme_ = getelementptr inbounds i8, ptr %this, i64 42
   %11 = load i8, ptr %hasScheme_, align 2
   %12 = and i8 %11, 1
   %tobool9.not = icmp eq i8 %12, 0
   br i1 %tobool9.not, label %lor.lhs.false10, label %if.then21
 
 lor.lhs.false10:                                  ; preds = %lor.lhs.false8
-  %hasPath_ = getelementptr inbounds %"class.proxygen::HTTPRequestVerifier", ptr %this, i64 0, i32 3
+  %hasPath_ = getelementptr inbounds i8, ptr %this, i64 41
   %13 = load i8, ptr %hasPath_, align 1
   %14 = and i8 %13, 1
   %tobool11.not = icmp eq i8 %14, 0
   br i1 %tobool11.not, label %if.end52, label %if.then21
 
 land.lhs.true15:                                  ; preds = %if.then4
-  %hasScheme_16 = getelementptr inbounds %"class.proxygen::HTTPRequestVerifier", ptr %this, i64 0, i32 4
+  %hasScheme_16 = getelementptr inbounds i8, ptr %this, i64 42
   %15 = load i8, ptr %hasScheme_16, align 2
   %16 = and i8 %15, 1
   %tobool17.not = icmp eq i8 %16, 0
   br i1 %tobool17.not, label %if.then21, label %lor.lhs.false18
 
 lor.lhs.false18:                                  ; preds = %land.lhs.true15
-  %hasPath_19 = getelementptr inbounds %"class.proxygen::HTTPRequestVerifier", ptr %this, i64 0, i32 3
+  %hasPath_19 = getelementptr inbounds i8, ptr %this, i64 41
   %17 = load i8, ptr %hasPath_19, align 1
   %18 = and i8 %17, 1
   %tobool20.not = icmp eq i8 %18, 0
   br i1 %tobool20.not, label %if.then21, label %if.end52
 
 if.then21:                                        ; preds = %lor.lhs.false18, %land.lhs.true15, %lor.lhs.false10, %lor.lhs.false8, %lor.lhs.false, %land.lhs.true
-  %hasMethod_23 = getelementptr inbounds %"class.proxygen::HTTPRequestVerifier", ptr %this, i64 0, i32 2
-  %hasAuthority_24 = getelementptr inbounds %"class.proxygen::HTTPRequestVerifier", ptr %this, i64 0, i32 5
-  %hasScheme_25 = getelementptr inbounds %"class.proxygen::HTTPRequestVerifier", ptr %this, i64 0, i32 4
-  %hasPath_26 = getelementptr inbounds %"class.proxygen::HTTPRequestVerifier", ptr %this, i64 0, i32 3
+  %hasMethod_23 = getelementptr inbounds i8, ptr %this, i64 40
+  %hasAuthority_24 = getelementptr inbounds i8, ptr %this, i64 43
+  %hasScheme_25 = getelementptr inbounds i8, ptr %this, i64 42
+  %hasPath_26 = getelementptr inbounds i8, ptr %this, i64 41
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %ref.tmp.i)
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp22) #18
   store ptr %ref.tmp22, ptr %ref.tmp.i, align 8, !noalias !72
@@ -2642,31 +2569,31 @@ if.else:                                          ; preds = %if.end
   br i1 %tobool5.not, label %lor.lhs.false33, label %if.then42
 
 lor.lhs.false33:                                  ; preds = %if.else
-  %hasMethod_34 = getelementptr inbounds %"class.proxygen::HTTPRequestVerifier", ptr %this, i64 0, i32 2
+  %hasMethod_34 = getelementptr inbounds i8, ptr %this, i64 40
   %20 = load i8, ptr %hasMethod_34, align 8
   %21 = and i8 %20, 1
   %tobool35.not = icmp eq i8 %21, 0
   br i1 %tobool35.not, label %if.then42, label %lor.lhs.false36
 
 lor.lhs.false36:                                  ; preds = %lor.lhs.false33
-  %hasScheme_37 = getelementptr inbounds %"class.proxygen::HTTPRequestVerifier", ptr %this, i64 0, i32 4
+  %hasScheme_37 = getelementptr inbounds i8, ptr %this, i64 42
   %22 = load i8, ptr %hasScheme_37, align 2
   %23 = and i8 %22, 1
   %tobool38.not = icmp eq i8 %23, 0
   br i1 %tobool38.not, label %if.then42, label %lor.lhs.false39
 
 lor.lhs.false39:                                  ; preds = %lor.lhs.false36
-  %hasPath_40 = getelementptr inbounds %"class.proxygen::HTTPRequestVerifier", ptr %this, i64 0, i32 3
+  %hasPath_40 = getelementptr inbounds i8, ptr %this, i64 41
   %24 = load i8, ptr %hasPath_40, align 1
   %25 = and i8 %24, 1
   %tobool41.not = icmp eq i8 %25, 0
   br i1 %tobool41.not, label %if.then42, label %if.end52
 
 if.then42:                                        ; preds = %lor.lhs.false39, %lor.lhs.false36, %lor.lhs.false33, %if.else
-  %hasMethod_44 = getelementptr inbounds %"class.proxygen::HTTPRequestVerifier", ptr %this, i64 0, i32 2
-  %hasAuthority_45 = getelementptr inbounds %"class.proxygen::HTTPRequestVerifier", ptr %this, i64 0, i32 5
-  %hasScheme_46 = getelementptr inbounds %"class.proxygen::HTTPRequestVerifier", ptr %this, i64 0, i32 4
-  %hasPath_47 = getelementptr inbounds %"class.proxygen::HTTPRequestVerifier", ptr %this, i64 0, i32 3
+  %hasMethod_44 = getelementptr inbounds i8, ptr %this, i64 40
+  %hasAuthority_45 = getelementptr inbounds i8, ptr %this, i64 43
+  %hasScheme_46 = getelementptr inbounds i8, ptr %this, i64 42
+  %hasPath_47 = getelementptr inbounds i8, ptr %this, i64 41
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %ref.tmp.i1)
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp43) #18
   store ptr %ref.tmp43, ptr %ref.tmp.i1, align 8, !noalias !75
@@ -2712,7 +2639,7 @@ declare void @_ZN8proxygen11HTTPMessage14setHTTPVersionEhh(ptr noundef nonnull a
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
 define noundef zeroext i1 @_ZNK8proxygen16HeaderDecodeInfo9hasStatusEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(140) %this) local_unnamed_addr #5 align 2 {
 entry:
-  %hasStatus_ = getelementptr inbounds %"class.proxygen::HeaderDecodeInfo", ptr %this, i64 0, i32 8
+  %hasStatus_ = getelementptr inbounds i8, ptr %this, i64 124
   %0 = load i8, ptr %hasStatus_, align 4
   %1 = and i8 %0, 1
   %tobool = icmp ne i8 %1, 0
@@ -2735,7 +2662,7 @@ declare noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_st
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr noundef nonnull align 8 dereferenceable(202) ptr @_ZN8proxygen11HTTPMessage7requestEv(ptr noundef nonnull align 8 dereferenceable(616) %this) local_unnamed_addr #3 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  %fields_15 = getelementptr inbounds %"class.proxygen::HTTPMessage", ptr %this, i64 0, i32 6
+  %fields_15 = getelementptr inbounds i8, ptr %this, i64 168
   %0 = load i8, ptr %fields_15, align 8
   switch i8 %0, label %if.end27 [
     i8 0, label %if.then
@@ -2744,19 +2671,19 @@ entry:
 
 if.then:                                          ; preds = %entry
   store i8 1, ptr %fields_15, align 8
-  %data_ = getelementptr inbounds %"class.proxygen::HTTPMessage", ptr %this, i64 0, i32 6, i32 1
+  %data_ = getelementptr inbounds i8, ptr %this, i64 176
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(208) %data_, i8 0, i64 208, i1 false)
   tail call void @_ZN5folly9IPAddressC1Ev(ptr noundef nonnull align 4 dereferenceable(22) %data_)
-  %port_.i.i = getelementptr inbounds %"class.proxygen::HTTPMessage", ptr %this, i64 0, i32 6, i32 1, i32 0, i32 1, i32 2
+  %port_.i.i = getelementptr inbounds i8, ptr %this, i64 200
   store i16 0, ptr %port_.i.i, align 8
   %external_.i.i = getelementptr inbounds i8, ptr %this, i64 202
   store i8 0, ptr %external_.i.i, align 2
-  %hasValue.i.i.i = getelementptr inbounds %"class.proxygen::HTTPMessage", ptr %this, i64 0, i32 6, i32 1, i32 1, i64 24
+  %hasValue.i.i.i = getelementptr inbounds i8, ptr %this, i64 272
   store i8 0, ptr %hasValue.i.i.i, align 8
-  %method_.i = getelementptr inbounds %"class.proxygen::HTTPMessage", ptr %this, i64 0, i32 6, i32 1, i32 1, i64 32
+  %method_.i = getelementptr inbounds i8, ptr %this, i64 280
   store i32 0, ptr %method_.i, align 8
-  %path_.i = getelementptr inbounds %"class.proxygen::HTTPMessage", ptr %this, i64 0, i32 6, i32 1, i32 1, i64 48
-  %url_.i = getelementptr inbounds %"class.proxygen::HTTPMessage", ptr %this, i64 0, i32 6, i32 1, i32 1, i64 96
+  %path_.i = getelementptr inbounds i8, ptr %this, i64 296
+  %url_.i = getelementptr inbounds i8, ptr %this, i64 344
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %path_.i, i8 0, i64 48, i1 false)
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(32) %url_.i) #18
   br label %if.end27
@@ -2777,7 +2704,7 @@ lpad25:                                           ; preds = %if.then24
   resume { ptr, i32 } %1
 
 if.end27:                                         ; preds = %entry, %if.then
-  %data_29 = getelementptr inbounds %"class.proxygen::HTTPMessage", ptr %this, i64 0, i32 6, i32 1
+  %data_29 = getelementptr inbounds i8, ptr %this, i64 176
   ret ptr %data_29
 }
 
@@ -2835,9 +2762,9 @@ entry:
   %add.ptr.i = getelementptr inbounds %"class.std::__cxx11::basic_string", ptr %call.i, i64 %idx.ext.i
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %savedValue.i)
   %0 = load ptr, ptr %this, align 8
-  %length_.i = getelementptr inbounds %"class.proxygen::HTTPHeaders", ptr %this, i64 0, i32 1
+  %length_.i = getelementptr inbounds i8, ptr %this, i64 8
   %1 = load i64, ptr %length_.i, align 8
-  %capacity_.i = getelementptr inbounds %"class.proxygen::HTTPHeaders", ptr %this, i64 0, i32 2
+  %capacity_.i = getelementptr inbounds i8, ptr %this, i64 16
   %2 = load i64, ptr %capacity_.i, align 8
   %cmp.i = icmp eq i64 %1, %2
   %cmp2.not.i = icmp ule ptr %0, %value
@@ -2878,10 +2805,10 @@ define linkonce_odr void @_ZN8proxygen11HTTPHeaders17emplace_back_implINSt7__cxx
 entry:
   %agg.tmp.i = alloca %"struct.std::__cxx11::basic_string<char>::__sv_wrapper", align 8
   %ref.tmp9 = alloca %"class.std::allocator", align 1
-  %length_ = getelementptr inbounds %"class.proxygen::HTTPHeaders", ptr %this, i64 0, i32 1
+  %length_ = getelementptr inbounds i8, ptr %this, i64 8
   %0 = load i64, ptr %length_, align 8
   %add = add i64 %0, 1
-  %capacity_.i = getelementptr inbounds %"class.proxygen::HTTPHeaders", ptr %this, i64 0, i32 2
+  %capacity_.i = getelementptr inbounds i8, ptr %this, i64 16
   %1 = load i64, ptr %capacity_.i, align 8
   %cmp.not.i = icmp ult i64 %1, %add
   br i1 %cmp.not.i, label %if.end.i, label %_ZN8proxygen11HTTPHeaders6ensureEm.exit
@@ -2991,7 +2918,7 @@ _ZN8proxygen11HTTPHeaders6ensureEm.exit:          ; preds = %entry, %_ZNSt10uniq
   %18 = extractvalue { i64, ptr } %call4.i, 1
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12__sv_wrapperC1ESt17basic_string_viewIcS2_E(ptr noundef nonnull align 8 dereferenceable(16) %agg.tmp.i, i64 %17, ptr %18) #18
   %19 = load i64, ptr %agg.tmp.i, align 8
-  %20 = getelementptr inbounds { i64, ptr }, ptr %agg.tmp.i, i64 0, i32 1
+  %20 = getelementptr inbounds i8, ptr %agg.tmp.i, i64 8
   %21 = load ptr, ptr %20, align 8
   invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2ENS4_12__sv_wrapperERKS3_(ptr noundef nonnull align 8 dereferenceable(32) %add.ptr, i64 %19, ptr %21, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp9)
           to label %invoke.cont unwind label %lpad
@@ -3013,10 +2940,10 @@ define linkonce_odr void @_ZN8proxygen11HTTPHeaders17emplace_back_implIRKNSt7__c
 entry:
   %agg.tmp.i = alloca %"struct.std::__cxx11::basic_string<char>::__sv_wrapper", align 8
   %ref.tmp9 = alloca %"class.std::allocator", align 1
-  %length_ = getelementptr inbounds %"class.proxygen::HTTPHeaders", ptr %this, i64 0, i32 1
+  %length_ = getelementptr inbounds i8, ptr %this, i64 8
   %0 = load i64, ptr %length_, align 8
   %add = add i64 %0, 1
-  %capacity_.i = getelementptr inbounds %"class.proxygen::HTTPHeaders", ptr %this, i64 0, i32 2
+  %capacity_.i = getelementptr inbounds i8, ptr %this, i64 16
   %1 = load i64, ptr %capacity_.i, align 8
   %cmp.not.i = icmp ult i64 %1, %add
   br i1 %cmp.not.i, label %if.end.i, label %_ZN8proxygen11HTTPHeaders6ensureEm.exit
@@ -3126,7 +3053,7 @@ _ZN8proxygen11HTTPHeaders6ensureEm.exit:          ; preds = %entry, %_ZNSt10uniq
   %18 = extractvalue { i64, ptr } %call4.i, 1
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12__sv_wrapperC1ESt17basic_string_viewIcS2_E(ptr noundef nonnull align 8 dereferenceable(16) %agg.tmp.i, i64 %17, ptr %18) #18
   %19 = load i64, ptr %agg.tmp.i, align 8
-  %20 = getelementptr inbounds { i64, ptr }, ptr %agg.tmp.i, i64 0, i32 1
+  %20 = getelementptr inbounds i8, ptr %agg.tmp.i, i64 8
   %21 = load ptr, ptr %20, align 8
   invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2ENS4_12__sv_wrapperERKS3_(ptr noundef nonnull align 8 dereferenceable(32) %add.ptr, i64 %19, ptr %21, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp9)
           to label %invoke.cont unwind label %lpad
@@ -3171,7 +3098,7 @@ define linkonce_odr noundef i64 @_ZN5folly6detail25EstimateSpaceToReserveAllISt1
 entry:
   %sizes = alloca [7 x i64], align 16
   store i64 39, ptr %sizes, align 16
-  %arrayinit.element = getelementptr inbounds i64, ptr %sizes, i64 1
+  %arrayinit.element = getelementptr inbounds i8, ptr %sizes, i64 8
   %0 = load i8, ptr %v1, align 1
   %1 = and i8 %0, 1
   %conv.i = zext nneg i8 %1 to i64
@@ -3198,7 +3125,7 @@ if.end.i.i.i.i.i:                                 ; preds = %for.body.i.i.i.i.i
 _ZN5folly19estimateSpaceNeededIbEENSt9enable_ifIXaaaa13is_integral_vIT_EltstS2_Li4Entsr3std7is_sameIS2_cEE5valueEmE4typeES2_.exit: ; preds = %if.end.i.i.i.i.i, %if.then.i.i.i.i.i
   %retval.i.0.i.i.i.i = phi i64 [ %add.i.i.i.i.i, %if.then.i.i.i.i.i ], [ 20, %if.end.i.i.i.i.i ]
   store i64 %retval.i.0.i.i.i.i, ptr %arrayinit.element, align 8
-  %arrayinit.element15 = getelementptr inbounds i64, ptr %sizes, i64 2
+  %arrayinit.element15 = getelementptr inbounds i8, ptr %sizes, i64 16
   %3 = load i8, ptr %v3, align 1
   %4 = and i8 %3, 1
   %conv.i5 = zext nneg i8 %4 to i64
@@ -3225,7 +3152,7 @@ if.end.i.i.i.i.i10:                               ; preds = %for.body.i.i.i.i.i6
 _ZN5folly19estimateSpaceNeededIbEENSt9enable_ifIXaaaa13is_integral_vIT_EltstS2_Li4Entsr3std7is_sameIS2_cEE5valueEmE4typeES2_.exit18: ; preds = %if.end.i.i.i.i.i10, %if.then.i.i.i.i.i14
   %retval.i.0.i.i.i.i13 = phi i64 [ %add.i.i.i.i.i17, %if.then.i.i.i.i.i14 ], [ 20, %if.end.i.i.i.i.i10 ]
   store i64 %retval.i.0.i.i.i.i13, ptr %arrayinit.element15, align 16
-  %arrayinit.element18 = getelementptr inbounds i64, ptr %sizes, i64 3
+  %arrayinit.element18 = getelementptr inbounds i8, ptr %sizes, i64 24
   %6 = load i8, ptr %v5, align 1
   %7 = and i8 %6, 1
   %conv.i19 = zext nneg i8 %7 to i64
@@ -3252,7 +3179,7 @@ if.end.i.i.i.i.i24:                               ; preds = %for.body.i.i.i.i.i2
 _ZN5folly19estimateSpaceNeededIbEENSt9enable_ifIXaaaa13is_integral_vIT_EltstS2_Li4Entsr3std7is_sameIS2_cEE5valueEmE4typeES2_.exit32: ; preds = %if.end.i.i.i.i.i24, %if.then.i.i.i.i.i28
   %retval.i.0.i.i.i.i27 = phi i64 [ %add.i.i.i.i.i31, %if.then.i.i.i.i.i28 ], [ 20, %if.end.i.i.i.i.i24 ]
   store i64 %retval.i.0.i.i.i.i27, ptr %arrayinit.element18, align 8
-  %arrayinit.element21 = getelementptr inbounds i64, ptr %sizes, i64 4
+  %arrayinit.element21 = getelementptr inbounds i8, ptr %sizes, i64 32
   %9 = load i8, ptr %v7, align 1
   %10 = and i8 %9, 1
   %conv.i33 = zext nneg i8 %10 to i64
@@ -3279,7 +3206,7 @@ if.end.i.i.i.i.i38:                               ; preds = %for.body.i.i.i.i.i3
 _ZN5folly19estimateSpaceNeededIbEENSt9enable_ifIXaaaa13is_integral_vIT_EltstS2_Li4Entsr3std7is_sameIS2_cEE5valueEmE4typeES2_.exit46: ; preds = %if.end.i.i.i.i.i38, %if.then.i.i.i.i.i42
   %retval.i.0.i.i.i.i41 = phi i64 [ %add.i.i.i.i.i45, %if.then.i.i.i.i.i42 ], [ 20, %if.end.i.i.i.i.i38 ]
   store i64 %retval.i.0.i.i.i.i41, ptr %arrayinit.element21, align 16
-  %arrayinit.element24 = getelementptr inbounds i64, ptr %sizes, i64 5
+  %arrayinit.element24 = getelementptr inbounds i8, ptr %sizes, i64 40
   %12 = load i8, ptr %v9, align 1
   %13 = and i8 %12, 1
   %conv.i47 = zext nneg i8 %13 to i64
@@ -3306,7 +3233,7 @@ if.end.i.i.i.i.i52:                               ; preds = %for.body.i.i.i.i.i4
 _ZN5folly19estimateSpaceNeededIbEENSt9enable_ifIXaaaa13is_integral_vIT_EltstS2_Li4Entsr3std7is_sameIS2_cEE5valueEmE4typeES2_.exit60: ; preds = %if.end.i.i.i.i.i52, %if.then.i.i.i.i.i56
   %retval.i.0.i.i.i.i55 = phi i64 [ %add.i.i.i.i.i59, %if.then.i.i.i.i.i56 ], [ 20, %if.end.i.i.i.i.i52 ]
   store i64 %retval.i.0.i.i.i.i55, ptr %arrayinit.element24, align 8
-  %arrayinit.element27 = getelementptr inbounds i64, ptr %sizes, i64 6
+  %arrayinit.element27 = getelementptr inbounds i8, ptr %sizes, i64 48
   store i64 0, ptr %arrayinit.element27, align 16
   br label %for.body
 
@@ -3652,7 +3579,7 @@ define linkonce_odr noundef i64 @_ZN5folly6detail25EstimateSpaceToReserveAllISt1
 entry:
   %sizes = alloca [7 x i64], align 16
   store i64 31, ptr %sizes, align 16
-  %arrayinit.element = getelementptr inbounds i64, ptr %sizes, i64 1
+  %arrayinit.element = getelementptr inbounds i8, ptr %sizes, i64 8
   %0 = load i8, ptr %v1, align 1
   %1 = and i8 %0, 1
   %conv.i = zext nneg i8 %1 to i64
@@ -3679,7 +3606,7 @@ if.end.i.i.i.i.i:                                 ; preds = %for.body.i.i.i.i.i
 _ZN5folly19estimateSpaceNeededIbEENSt9enable_ifIXaaaa13is_integral_vIT_EltstS2_Li4Entsr3std7is_sameIS2_cEE5valueEmE4typeES2_.exit: ; preds = %if.end.i.i.i.i.i, %if.then.i.i.i.i.i
   %retval.i.0.i.i.i.i = phi i64 [ %add.i.i.i.i.i, %if.then.i.i.i.i.i ], [ 20, %if.end.i.i.i.i.i ]
   store i64 %retval.i.0.i.i.i.i, ptr %arrayinit.element, align 8
-  %arrayinit.element15 = getelementptr inbounds i64, ptr %sizes, i64 2
+  %arrayinit.element15 = getelementptr inbounds i8, ptr %sizes, i64 16
   %3 = load i8, ptr %v3, align 1
   %4 = and i8 %3, 1
   %conv.i5 = zext nneg i8 %4 to i64
@@ -3706,7 +3633,7 @@ if.end.i.i.i.i.i10:                               ; preds = %for.body.i.i.i.i.i6
 _ZN5folly19estimateSpaceNeededIbEENSt9enable_ifIXaaaa13is_integral_vIT_EltstS2_Li4Entsr3std7is_sameIS2_cEE5valueEmE4typeES2_.exit18: ; preds = %if.end.i.i.i.i.i10, %if.then.i.i.i.i.i14
   %retval.i.0.i.i.i.i13 = phi i64 [ %add.i.i.i.i.i17, %if.then.i.i.i.i.i14 ], [ 20, %if.end.i.i.i.i.i10 ]
   store i64 %retval.i.0.i.i.i.i13, ptr %arrayinit.element15, align 16
-  %arrayinit.element18 = getelementptr inbounds i64, ptr %sizes, i64 3
+  %arrayinit.element18 = getelementptr inbounds i8, ptr %sizes, i64 24
   %6 = load i8, ptr %v5, align 1
   %7 = and i8 %6, 1
   %conv.i19 = zext nneg i8 %7 to i64
@@ -3733,7 +3660,7 @@ if.end.i.i.i.i.i24:                               ; preds = %for.body.i.i.i.i.i2
 _ZN5folly19estimateSpaceNeededIbEENSt9enable_ifIXaaaa13is_integral_vIT_EltstS2_Li4Entsr3std7is_sameIS2_cEE5valueEmE4typeES2_.exit32: ; preds = %if.end.i.i.i.i.i24, %if.then.i.i.i.i.i28
   %retval.i.0.i.i.i.i27 = phi i64 [ %add.i.i.i.i.i31, %if.then.i.i.i.i.i28 ], [ 20, %if.end.i.i.i.i.i24 ]
   store i64 %retval.i.0.i.i.i.i27, ptr %arrayinit.element18, align 8
-  %arrayinit.element21 = getelementptr inbounds i64, ptr %sizes, i64 4
+  %arrayinit.element21 = getelementptr inbounds i8, ptr %sizes, i64 32
   %9 = load i8, ptr %v7, align 1
   %10 = and i8 %9, 1
   %conv.i33 = zext nneg i8 %10 to i64
@@ -3760,7 +3687,7 @@ if.end.i.i.i.i.i38:                               ; preds = %for.body.i.i.i.i.i3
 _ZN5folly19estimateSpaceNeededIbEENSt9enable_ifIXaaaa13is_integral_vIT_EltstS2_Li4Entsr3std7is_sameIS2_cEE5valueEmE4typeES2_.exit46: ; preds = %if.end.i.i.i.i.i38, %if.then.i.i.i.i.i42
   %retval.i.0.i.i.i.i41 = phi i64 [ %add.i.i.i.i.i45, %if.then.i.i.i.i.i42 ], [ 20, %if.end.i.i.i.i.i38 ]
   store i64 %retval.i.0.i.i.i.i41, ptr %arrayinit.element21, align 16
-  %arrayinit.element24 = getelementptr inbounds i64, ptr %sizes, i64 5
+  %arrayinit.element24 = getelementptr inbounds i8, ptr %sizes, i64 40
   %12 = load i8, ptr %v9, align 1
   %13 = and i8 %12, 1
   %conv.i47 = zext nneg i8 %13 to i64
@@ -3787,7 +3714,7 @@ if.end.i.i.i.i.i52:                               ; preds = %for.body.i.i.i.i.i4
 _ZN5folly19estimateSpaceNeededIbEENSt9enable_ifIXaaaa13is_integral_vIT_EltstS2_Li4Entsr3std7is_sameIS2_cEE5valueEmE4typeES2_.exit60: ; preds = %if.end.i.i.i.i.i52, %if.then.i.i.i.i.i56
   %retval.i.0.i.i.i.i55 = phi i64 [ %add.i.i.i.i.i59, %if.then.i.i.i.i.i56 ], [ 20, %if.end.i.i.i.i.i52 ]
   store i64 %retval.i.0.i.i.i.i55, ptr %arrayinit.element24, align 8
-  %arrayinit.element27 = getelementptr inbounds i64, ptr %sizes, i64 6
+  %arrayinit.element27 = getelementptr inbounds i8, ptr %sizes, i64 48
   store i64 0, ptr %arrayinit.element27, align 16
   br label %for.body
 
@@ -4238,10 +4165,10 @@ define linkonce_odr void @_ZN8proxygen11HTTPHeaders17emplace_back_implIRN5folly5
 entry:
   %agg.tmp.i = alloca %"struct.std::__cxx11::basic_string<char>::__sv_wrapper", align 8
   %ref.tmp9 = alloca %"class.std::allocator", align 1
-  %length_ = getelementptr inbounds %"class.proxygen::HTTPHeaders", ptr %this, i64 0, i32 1
+  %length_ = getelementptr inbounds i8, ptr %this, i64 8
   %0 = load i64, ptr %length_, align 8
   %add = add i64 %0, 1
-  %capacity_.i = getelementptr inbounds %"class.proxygen::HTTPHeaders", ptr %this, i64 0, i32 2
+  %capacity_.i = getelementptr inbounds i8, ptr %this, i64 16
   %1 = load i64, ptr %capacity_.i, align 8
   %cmp.not.i = icmp ult i64 %1, %add
   br i1 %cmp.not.i, label %if.end.i, label %_ZN8proxygen11HTTPHeaders6ensureEm.exit
@@ -4351,7 +4278,7 @@ _ZN8proxygen11HTTPHeaders6ensureEm.exit:          ; preds = %entry, %_ZNSt10uniq
   %18 = extractvalue { i64, ptr } %call4.i, 1
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12__sv_wrapperC1ESt17basic_string_viewIcS2_E(ptr noundef nonnull align 8 dereferenceable(16) %agg.tmp.i, i64 %17, ptr %18) #18
   %19 = load i64, ptr %agg.tmp.i, align 8
-  %20 = getelementptr inbounds { i64, ptr }, ptr %agg.tmp.i, i64 0, i32 1
+  %20 = getelementptr inbounds i8, ptr %agg.tmp.i, i64 8
   %21 = load ptr, ptr %20, align 8
   invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2ENS4_12__sv_wrapperERKS3_(ptr noundef nonnull align 8 dereferenceable(32) %add.ptr, i64 %19, ptr %21, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp9)
           to label %invoke.cont unwind label %lpad

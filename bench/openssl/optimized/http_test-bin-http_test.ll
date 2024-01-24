@@ -145,13 +145,13 @@ entry:
 declare void @X509_free(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define dso_local nonnull ptr @test_get_options() local_unnamed_addr #2 {
+define dso_local noundef nonnull ptr @test_get_options() local_unnamed_addr #2 {
 entry:
   ret ptr @test_get_options.options
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local i32 @setup_tests() local_unnamed_addr #0 {
+define dso_local noundef i32 @setup_tests() local_unnamed_addr #0 {
 entry:
   %call = tail call i32 @test_skip_common_options() #7
   %tobool.not = icmp eq i32 %call, 0
@@ -257,14 +257,14 @@ entry:
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @test_http_url_invalid_prefix() #0 {
+define internal noundef i32 @test_http_url_invalid_prefix() #0 {
 entry:
   %call = tail call fastcc i32 @test_http_url_invalid(ptr noundef nonnull @.str.81), !range !5
   ret i32 %call
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @test_http_url_invalid_port() #0 {
+define internal noundef i32 @test_http_url_invalid_port() #0 {
 entry:
   %call = tail call fastcc i32 @test_http_url_invalid(ptr noundef nonnull @.str.83), !range !5
   %tobool.not = icmp eq i32 %call, 0
@@ -280,7 +280,7 @@ land.end:                                         ; preds = %land.rhs, %entry
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @test_http_url_invalid_path() #0 {
+define internal noundef i32 @test_http_url_invalid_path() #0 {
 entry:
   %call = tail call fastcc i32 @test_http_url_invalid(ptr noundef nonnull @.str.85), !range !5
   ret i32 %call
@@ -315,56 +315,56 @@ entry:
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @test_http_keep_alive_0_no_no() #0 {
+define internal noundef i32 @test_http_keep_alive_0_no_no() #0 {
 entry:
   %call = tail call fastcc i32 @test_http_keep_alive(i8 noundef signext 48, i32 noundef 0, i32 noundef 0), !range !5
   ret i32 %call
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @test_http_keep_alive_1_no_no() #0 {
+define internal noundef i32 @test_http_keep_alive_1_no_no() #0 {
 entry:
   %call = tail call fastcc i32 @test_http_keep_alive(i8 noundef signext 49, i32 noundef 0, i32 noundef 0), !range !5
   ret i32 %call
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @test_http_keep_alive_0_prefer_yes() #0 {
+define internal noundef i32 @test_http_keep_alive_0_prefer_yes() #0 {
 entry:
   %call = tail call fastcc i32 @test_http_keep_alive(i8 noundef signext 48, i32 noundef 1, i32 noundef 1), !range !5
   ret i32 %call
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @test_http_keep_alive_1_prefer_yes() #0 {
+define internal noundef i32 @test_http_keep_alive_1_prefer_yes() #0 {
 entry:
   %call = tail call fastcc i32 @test_http_keep_alive(i8 noundef signext 49, i32 noundef 1, i32 noundef 1), !range !5
   ret i32 %call
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @test_http_keep_alive_0_require_yes() #0 {
+define internal noundef i32 @test_http_keep_alive_0_require_yes() #0 {
 entry:
   %call = tail call fastcc i32 @test_http_keep_alive(i8 noundef signext 48, i32 noundef 2, i32 noundef 1), !range !5
   ret i32 %call
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @test_http_keep_alive_1_require_yes() #0 {
+define internal noundef i32 @test_http_keep_alive_1_require_yes() #0 {
 entry:
   %call = tail call fastcc i32 @test_http_keep_alive(i8 noundef signext 49, i32 noundef 2, i32 noundef 1), !range !5
   ret i32 %call
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @test_http_keep_alive_0_require_no() #0 {
+define internal noundef i32 @test_http_keep_alive_0_require_no() #0 {
 entry:
   %call = tail call fastcc i32 @test_http_keep_alive(i8 noundef signext 48, i32 noundef 2, i32 noundef 0), !range !5
   ret i32 %call
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @test_http_keep_alive_1_require_no() #0 {
+define internal noundef i32 @test_http_keep_alive_1_require_no() #0 {
 entry:
   %call = tail call fastcc i32 @test_http_keep_alive(i8 noundef signext 49, i32 noundef 2, i32 noundef 0), !range !5
   ret i32 %call
@@ -529,7 +529,7 @@ land.end:                                         ; preds = %land.rhs, %land.lhs
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @test_http_url_invalid(ptr noundef %url) unnamed_addr #0 {
+define internal fastcc noundef i32 @test_http_url_invalid(ptr noundef %url) unnamed_addr #0 {
 entry:
   %host = alloca ptr, align 8
   %port = alloca ptr, align 8
@@ -627,7 +627,7 @@ if.end19:                                         ; preds = %lor.lhs.false10, %i
   %.sink = phi ptr [ null, %if.else ], [ @.str.87, %if.then15 ], [ @.str.87, %lor.lhs.false10 ]
   %content_type.0 = phi ptr [ @.str.89, %if.else ], [ @.str.86, %if.then15 ], [ @.str.86, %lor.lhs.false10 ]
   %req.1 = phi ptr [ %call17, %if.else ], [ null, %if.then15 ], [ %call6, %lor.lhs.false10 ]
-  %txt18 = getelementptr inbounds %struct.server_args, ptr %mock_args, i64 0, i32 2
+  %txt18 = getelementptr inbounds i8, ptr %mock_args, i64 16
   store ptr %.sink, ptr %txt18, align 8
   %cmp20 = icmp eq ptr %call1, null
   %cmp23 = icmp eq ptr %call3, null
@@ -638,7 +638,7 @@ if.end19:                                         ; preds = %lor.lhs.false10, %i
 
 if.end29:                                         ; preds = %if.end19
   store ptr %call3, ptr %mock_args, align 8
-  %content_type30 = getelementptr inbounds %struct.server_args, ptr %mock_args, i64 0, i32 1
+  %content_type30 = getelementptr inbounds i8, ptr %mock_args, i64 8
   store ptr %content_type.0, ptr %content_type30, align 8
   tail call void @BIO_set_callback_ex(ptr noundef nonnull %call1, ptr noundef nonnull @http_bio_cb_ex) #7
   call void @BIO_set_callback_arg(ptr noundef nonnull %call1, ptr noundef nonnull %mock_args) #7
@@ -736,13 +736,13 @@ entry:
 
 if.then:                                          ; preds = %entry
   %0 = load ptr, ptr %call, align 8
-  %version = getelementptr inbounds %struct.server_args, ptr %call, i64 0, i32 3
+  %version = getelementptr inbounds i8, ptr %call, i64 24
   %1 = load i8, ptr %version, align 8
-  %keep_alive = getelementptr inbounds %struct.server_args, ptr %call, i64 0, i32 4
+  %keep_alive = getelementptr inbounds i8, ptr %call, i64 28
   %2 = load i32, ptr %keep_alive, align 4
-  %content_type = getelementptr inbounds %struct.server_args, ptr %call, i64 0, i32 1
+  %content_type = getelementptr inbounds i8, ptr %call, i64 8
   %3 = load ptr, ptr %content_type, align 8
-  %txt = getelementptr inbounds %struct.server_args, ptr %call, i64 0, i32 2
+  %txt = getelementptr inbounds i8, ptr %call, i64 16
   %4 = load ptr, ptr %txt, align 8
   %5 = load ptr, ptr @x509, align 8
   %6 = load ptr, ptr @x509_it, align 8
@@ -976,7 +976,7 @@ declare ptr @strstr(ptr noundef, ptr nocapture noundef) local_unnamed_addr #5
 declare i32 @BIO_write(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @test_http_keep_alive(i8 noundef signext %version, i32 noundef %keep_alive, i32 noundef %kept_alive) unnamed_addr #0 {
+define internal fastcc noundef i32 @test_http_keep_alive(i8 noundef signext %version, i32 noundef %keep_alive, i32 noundef %kept_alive) unnamed_addr #0 {
 entry:
   %mock_args = alloca %struct.server_args, align 8
   %rctx = alloca ptr, align 8
@@ -993,11 +993,11 @@ entry:
 
 if.end:                                           ; preds = %entry
   store ptr %call3, ptr %mock_args, align 8
-  %content_type5 = getelementptr inbounds %struct.server_args, ptr %mock_args, i64 0, i32 1
+  %content_type5 = getelementptr inbounds i8, ptr %mock_args, i64 8
   store ptr @.str.89, ptr %content_type5, align 8
-  %version6 = getelementptr inbounds %struct.server_args, ptr %mock_args, i64 0, i32 3
+  %version6 = getelementptr inbounds i8, ptr %mock_args, i64 24
   store i8 %version, ptr %version6, align 8
-  %keep_alive7 = getelementptr inbounds %struct.server_args, ptr %mock_args, i64 0, i32 4
+  %keep_alive7 = getelementptr inbounds i8, ptr %mock_args, i64 28
   store i32 %kept_alive, ptr %keep_alive7, align 4
   tail call void @BIO_set_callback_ex(ptr noundef nonnull %call1, ptr noundef nonnull @http_bio_cb_ex) #7
   call void @BIO_set_callback_arg(ptr noundef nonnull %call1, ptr noundef nonnull %mock_args) #7

@@ -8,7 +8,7 @@ target triple = "x86_64-unknown-linux-gnu"
 @powers_ten = internal unnamed_addr constant [87 x %struct.Fp] [%struct.Fp { i64 -391859759250406776, i32 -1220 }, %struct.Fp { i64 -4994806998408183946, i32 -1193 }, %struct.Fp { i64 -8424269937281487754, i32 -1166 }, %struct.Fp { i64 -3512093806901185046, i32 -1140 }, %struct.Fp { i64 -7319562523736982739, i32 -1113 }, %struct.Fp { i64 -1865951482774665761, i32 -1087 }, %struct.Fp { i64 -6093090917745768758, i32 -1060 }, %struct.Fp { i64 -38366372719436721, i32 -1034 }, %struct.Fp { i64 -4731433901725329908, i32 -1007 }, %struct.Fp { i64 -8228041688891786180, i32 -980 }, %struct.Fp { i64 -3219690930897053053, i32 -954 }, %struct.Fp { i64 -7101705404292871755, i32 -927 }, %struct.Fp { i64 -1541319077368263733, i32 -901 }, %struct.Fp { i64 -5851220927660403859, i32 -874 }, %struct.Fp { i64 -9062348037703676329, i32 -847 }, %struct.Fp { i64 -4462904269766699465, i32 -821 }, %struct.Fp { i64 -8027971522334779313, i32 -794 }, %struct.Fp { i64 -2921563150702462265, i32 -768 }, %struct.Fp { i64 -6879582898840692748, i32 -741 }, %struct.Fp { i64 -1210330751515841307, i32 -715 }, %struct.Fp { i64 -5604615407819967858, i32 -688 }, %struct.Fp { i64 -8878612607581929669, i32 -661 }, %struct.Fp { i64 -4189117143640191558, i32 -635 }, %struct.Fp { i64 -7823984217374209642, i32 -608 }, %struct.Fp { i64 -2617598379430861436, i32 -582 }, %struct.Fp { i64 -6653111496142234890, i32 -555 }, %struct.Fp { i64 -872862063775190746, i32 -529 }, %struct.Fp { i64 -5353181642124984136, i32 -502 }, %struct.Fp { i64 -8691279853972075893, i32 -475 }, %struct.Fp { i64 -3909969587797413805, i32 -449 }, %struct.Fp { i64 -7616003081050118571, i32 -422 }, %struct.Fp { i64 -2307682335666372931, i32 -396 }, %struct.Fp { i64 -6422206049907525489, i32 -369 }, %struct.Fp { i64 -528786136287117932, i32 -343 }, %struct.Fp { i64 -5096825099203863601, i32 -316 }, %struct.Fp { i64 -8500279345513818773, i32 -289 }, %struct.Fp { i64 -3625356651333078602, i32 -263 }, %struct.Fp { i64 -7403949918844649556, i32 -236 }, %struct.Fp { i64 -1991698500497491194, i32 -210 }, %struct.Fp { i64 -6186779746782440749, i32 -183 }, %struct.Fp { i64 -177973607073265138, i32 -157 }, %struct.Fp { i64 -4835449396872013077, i32 -130 }, %struct.Fp { i64 -8305539271883716404, i32 -103 }, %struct.Fp { i64 -3335171328526686932, i32 -77 }, %struct.Fp { i64 -7187745005283311616, i32 -50 }, %struct.Fp { i64 -1669528073709551616, i32 -24 }, %struct.Fp { i64 -5946744073709551616, i32 3 }, %struct.Fp { i64 -9133518327554766460, i32 30 }, %struct.Fp { i64 -4568956265895094861, i32 56 }, %struct.Fp { i64 -8106986416796705680, i32 83 }, %struct.Fp { i64 -3039304518611664792, i32 109 }, %struct.Fp { i64 -6967307053960650171, i32 136 }, %struct.Fp { i64 -1341049929119499481, i32 162 }, %struct.Fp { i64 -5702008784649933400, i32 189 }, %struct.Fp { i64 -8951176327949752869, i32 216 }, %struct.Fp { i64 -4297245513042813542, i32 242 }, %struct.Fp { i64 -7904546130479028392, i32 269 }, %struct.Fp { i64 -2737644984756826646, i32 295 }, %struct.Fp { i64 -6742553186979055798, i32 322 }, %struct.Fp { i64 -1006140569036166267, i32 348 }, %struct.Fp { i64 -5452481866653427593, i32 375 }, %struct.Fp { i64 -8765264286586255934, i32 402 }, %struct.Fp { i64 -4020214983419339459, i32 428 }, %struct.Fp { i64 -7698142301602209613, i32 455 }, %struct.Fp { i64 -2430079312244744221, i32 481 }, %struct.Fp { i64 -6513398903789220827, i32 508 }, %struct.Fp { i64 -664674077828931748, i32 534 }, %struct.Fp { i64 -5198069505264599346, i32 561 }, %struct.Fp { i64 -8575712306248138270, i32 588 }, %struct.Fp { i64 -3737760522056206171, i32 614 }, %struct.Fp { i64 -7487697328667536417, i32 641 }, %struct.Fp { i64 -2116491865831296966, i32 667 }, %struct.Fp { i64 -6279758049420528746, i32 694 }, %struct.Fp { i64 -316522074587315140, i32 720 }, %struct.Fp { i64 -4938676049251384304, i32 747 }, %struct.Fp { i64 -8382449121214030822, i32 774 }, %struct.Fp { i64 -3449775934753242068, i32 800 }, %struct.Fp { i64 -7273132090830278359, i32 827 }, %struct.Fp { i64 -1796764746270372707, i32 853 }, %struct.Fp { i64 -6041542782089432023, i32 880 }, %struct.Fp { i64 -9204148869281624187, i32 907 }, %struct.Fp { i64 -4674203974643163859, i32 933 }, %struct.Fp { i64 -8185402070463610993, i32 960 }, %struct.Fp { i64 -3156152948152813503, i32 986 }, %struct.Fp { i64 -7054365918152680535, i32 1013 }, %struct.Fp { i64 -1470777745987373095, i32 1039 }, %struct.Fp { i64 -5798663540173640085, i32 1066 }], align 16
 @tens = internal unnamed_addr constant [20 x i64] [i64 -8446744073709551616, i64 1000000000000000000, i64 100000000000000000, i64 10000000000000000, i64 1000000000000000, i64 100000000000000, i64 10000000000000, i64 1000000000000, i64 100000000000, i64 10000000000, i64 1000000000, i64 100000000, i64 10000000, i64 1000000, i64 100000, i64 10000, i64 1000, i64 100, i64 10, i64 1], align 16
 
-; Function Attrs: nofree nosync nounwind memory(argmem: readwrite) uwtable
+; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
 define dso_local i32 @fpconv_dtoa(double noundef %d, ptr nocapture noundef writeonly %dest) local_unnamed_addr #0 {
 entry:
   %digits = alloca [18 x i8], align 16
@@ -103,7 +103,8 @@ get_normalized_boundaries.exit.i:                 ; preds = %while.body.lr.ph.i.
 while.body.i.i:                                   ; preds = %while.body.backedge.i.i, %get_normalized_boundaries.exit.i
   %idx.0.i.i = phi i32 [ %div.i.i, %get_normalized_boundaries.exit.i ], [ %inc.i.i, %while.body.backedge.i.i ]
   %idxprom.i.i = sext i32 %idx.0.i.i to i64
-  %exp3.i.i = getelementptr inbounds [87 x %struct.Fp], ptr @powers_ten, i64 0, i64 %idxprom.i.i, i32 1
+  %arrayidx.i.i = getelementptr inbounds [87 x %struct.Fp], ptr @powers_ten, i64 0, i64 %idxprom.i.i
+  %exp3.i.i = getelementptr inbounds i8, ptr %arrayidx.i.i, i64 8
   %5 = load i32, ptr %exp3.i.i, align 8
   %add4.i.i = add nsw i32 %sub10.i.i, %5
   %cmp.i.i = icmp slt i32 %add4.i.i, -124
@@ -126,7 +127,6 @@ find_cachedpow10.exit.i:                          ; preds = %if.end.i.i
   %sub17.i.i = add nsw i64 %shl16.i.i, -1
   %shl27.i.i = shl i64 %sub17.i.i, %sh_prom26.i.i
   %shl3.i.i = shl i64 %.lcssa.i16.i, 11
-  %arrayidx.i.i = getelementptr inbounds [87 x %struct.Fp], ptr @powers_ten, i64 0, i64 %idxprom.i.i
   %mul11.i.i = shl nsw i32 %idx.0.i.i, 3
   %retval.sroa.0.0.copyload.i.i = load i64, ptr %arrayidx.i.i, align 16
   %shr.i.i = lshr i64 %shl3.i.i, 32
@@ -199,7 +199,7 @@ find_cachedpow10.exit.i:                          ; preds = %if.end.i.i
   br label %for.body.i.i
 
 for.cond.i.i:                                     ; preds = %if.end.i83.i
-  %incdec.ptr.i.i = getelementptr inbounds i64, ptr %divp.06.i.i, i64 1
+  %incdec.ptr.i.i = getelementptr inbounds i8, ptr %divp.06.i.i, i64 8
   %cmp.i86.i = icmp ugt i32 %kappa.05.i.i, 1
   br i1 %cmp.i86.i, label %for.body.i.i, label %while.body.i87.i, !llvm.loop !7
 
@@ -300,7 +300,7 @@ if.end53.i.i:                                     ; preds = %if.then47.i.i, %whi
   %idx.3.i.i = phi i32 [ %inc50.i.i, %if.then47.i.i ], [ 0, %while.body.i87.i ]
   %and56.i.i = and i64 %mul35.i.i, %sub15.i.i
   %cmp57.i.i = icmp ult i64 %and56.i.i, %mul36.i.i
-  %incdec.ptr64.i.i = getelementptr inbounds i64, ptr %unit.0.i.i, i64 -1
+  %incdec.ptr64.i.i = getelementptr inbounds i8, ptr %unit.0.i.i, i64 -8
   br i1 %cmp57.i.i, label %if.then59.i.i, label %while.body.i87.i
 
 if.then59.i.i:                                    ; preds = %if.end53.i.i
@@ -507,7 +507,7 @@ declare i32 @llvm.smin.i32(i32, i32) #3
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i64 @llvm.ctlz.i64(i64, i1 immarg) #3
 
-attributes #0 = { nofree nosync nounwind memory(argmem: readwrite) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #0 = { nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
 attributes #2 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: write) }
 attributes #3 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }

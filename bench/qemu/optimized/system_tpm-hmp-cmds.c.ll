@@ -4,12 +4,6 @@ target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:
 target triple = "x86_64-unknown-linux-gnu"
 
 %struct.QEnumLookup = type { ptr, ptr, i32 }
-%struct.TPMInfoList = type { ptr, ptr }
-%struct.TPMInfo = type { ptr, i32, ptr }
-%struct.TpmTypeOptions = type { i32, %union.anon }
-%union.anon = type { %struct.TPMPassthroughOptionsWrapper }
-%struct.TPMPassthroughOptionsWrapper = type { ptr }
-%struct.TPMPassthroughOptions = type { ptr, ptr }
 
 @.str = private unnamed_addr constant [26 x i8] c"TPM device not supported\0A\00", align 1
 @.str.1 = private unnamed_addr constant [13 x i8] c"TPM device:\0A\00", align 1
@@ -51,14 +45,14 @@ if.then3:                                         ; preds = %if.end
 for.body:                                         ; preds = %if.then3, %sw.epilog
   %info.022 = phi ptr [ %14, %sw.epilog ], [ %call, %if.then3 ]
   %c.021 = phi i32 [ %inc, %sw.epilog ], [ 0, %if.then3 ]
-  %value = getelementptr inbounds %struct.TPMInfoList, ptr %info.022, i64 0, i32 1
+  %value = getelementptr inbounds i8, ptr %info.022, i64 8
   %2 = load ptr, ptr %value, align 8
-  %model = getelementptr inbounds %struct.TPMInfo, ptr %2, i64 0, i32 1
+  %model = getelementptr inbounds i8, ptr %2, i64 8
   %3 = load i32, ptr %model, align 8
   %call7 = call ptr @qapi_enum_lookup(ptr noundef nonnull @TpmModel_lookup, i32 noundef %3) #2
   %call8 = call i32 (ptr, ptr, ...) @monitor_printf(ptr noundef %mon, ptr noundef nonnull @.str.2, i32 noundef %c.021, ptr noundef %call7) #2
   %4 = load ptr, ptr %2, align 8
-  %options = getelementptr inbounds %struct.TPMInfo, ptr %2, i64 0, i32 2
+  %options = getelementptr inbounds i8, ptr %2, i64 16
   %5 = load ptr, ptr %options, align 8
   %6 = load i32, ptr %5, align 8
   %call9 = call ptr @qapi_enum_lookup(ptr noundef nonnull @TpmType_lookup, i32 noundef %6) #2
@@ -71,13 +65,13 @@ for.body:                                         ; preds = %if.then3, %sw.epilo
   ]
 
 sw.bb:                                            ; preds = %for.body
-  %u = getelementptr inbounds %struct.TpmTypeOptions, ptr %7, i64 0, i32 1
+  %u = getelementptr inbounds i8, ptr %7, i64 8
   %9 = load ptr, ptr %u, align 8
   %10 = load ptr, ptr %9, align 8
   %tobool14.not = icmp eq ptr %10, null
   %cond = select i1 %tobool14.not, ptr @.str.6, ptr @.str.5
   %..str.6 = select i1 %tobool14.not, ptr @.str.6, ptr %10
-  %cancel_path = getelementptr inbounds %struct.TPMPassthroughOptions, ptr %9, i64 0, i32 1
+  %cancel_path = getelementptr inbounds i8, ptr %9, i64 8
   %11 = load ptr, ptr %cancel_path, align 8
   %tobool18.not = icmp eq ptr %11, null
   %cond19 = select i1 %tobool18.not, ptr @.str.6, ptr @.str.7
@@ -86,7 +80,7 @@ sw.bb:                                            ; preds = %for.body
   br label %sw.epilog
 
 sw.bb27:                                          ; preds = %for.body
-  %u29 = getelementptr inbounds %struct.TpmTypeOptions, ptr %7, i64 0, i32 1
+  %u29 = getelementptr inbounds i8, ptr %7, i64 8
   %12 = load ptr, ptr %u29, align 8
   %13 = load ptr, ptr %12, align 8
   %call31 = call i32 (ptr, ptr, ...) @monitor_printf(ptr noundef %mon, ptr noundef nonnull @.str.8, ptr noundef %13) #2

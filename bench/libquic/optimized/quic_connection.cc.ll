@@ -17,171 +17,28 @@ target triple = "x86_64-unknown-linux-gnu"
 %"struct.std::ios_base::_Words" = type { ptr, i64 }
 %"class.net::QuicArenaScopedPtr.85" = type { ptr }
 %"class.net::QuicArenaScopedPtr.88" = type { ptr }
-%"class.net::QuicConnection" = type <{ %"class.net::QuicFramerVisitorInterface", %"class.net::QuicBlockedWriterInterface", %"class.net::QuicPacketGenerator::DelegateInterface", %"class.net::QuicSentPacketManagerInterface::NetworkChangeVisitor", %"class.net::QuicFramer", ptr, ptr, ptr, ptr, i8, i8, [6 x i8], ptr, ptr, i64, %"class.net::IPEndPoint", %"class.net::IPEndPoint", i32, [4 x i8], i64, i8, [7 x i8], i64, ptr, i8, [7 x i8], %"struct.net::QuicPacketHeader", %"struct.net::QuicStopWaitingFrame", i8, [7 x i8], i64, i64, %"class.std::deque", i64, i8, [7 x i8], %"class.std::__cxx11::list", i8, [7 x i8], %"class.std::unique_ptr.42", i32, i8, [3 x i8], %"class.net::QuicReceivedPacketManager", %"class.net::QuicSentEntropyManager", i8, [7 x i8], i64, i8, [7 x i8], i64, i32, i32, float, i8, i8, i8, i8, %"class.net::QuicTime::Delta", %"class.net::QuicOneBlockArena", %"class.net::QuicArenaScopedPtr", %"class.net::QuicArenaScopedPtr", %"class.net::QuicArenaScopedPtr", %"class.net::QuicArenaScopedPtr", %"class.net::QuicArenaScopedPtr", %"class.net::QuicArenaScopedPtr", %"class.net::QuicArenaScopedPtr", ptr, ptr, %"class.net::QuicPacketGenerator", %"class.net::QuicTime::Delta", %"class.net::QuicTime::Delta", %"struct.net::QuicConnectionStats", %"class.net::QuicTime", %"class.net::QuicTime", %"class.net::QuicTime", i64, %"class.std::unique_ptr.77", i32, i32, i8, [7 x i8], %"class.net::IPEndPoint", %"class.net::IPEndPoint", i8, [7 x i8], %"class.std::vector.21", i64, i64, i64, i64, i64, i64, i64, i8, i8, i8, i8, [4 x i8] }>
-%"class.net::QuicFramerVisitorInterface" = type { ptr }
-%"class.net::QuicBlockedWriterInterface" = type { ptr }
-%"class.net::QuicPacketGenerator::DelegateInterface" = type { %"class.net::QuicPacketCreator::DelegateInterface" }
-%"class.net::QuicPacketCreator::DelegateInterface" = type { %"class.net::QuicConnectionCloseDelegateInterface" }
-%"class.net::QuicConnectionCloseDelegateInterface" = type { ptr }
-%"class.net::QuicSentPacketManagerInterface::NetworkChangeVisitor" = type { ptr }
-%"class.net::QuicFramer" = type { ptr, %"class.std::__cxx11::basic_string", ptr, ptr, i32, %"class.std::unordered_set", %"class.std::unordered_map", i64, %"class.std::unordered_map", i64, i8, i64, i32, i32, %"class.std::vector.21", %"class.std::unique_ptr", %"class.std::unique_ptr", i8, i8, i8, [3 x %"class.std::unique_ptr.28"], i32, i8, %"class.net::QuicTime", %"class.net::QuicTime::Delta", %"struct.std::array" }
-%"class.std::unordered_set" = type { %"class.std::_Hashtable" }
-%"class.std::_Hashtable" = type { ptr, i64, %"struct.std::__detail::_Hash_node_base", i64, %"struct.std::__detail::_Prime_rehash_policy", ptr }
-%"struct.std::__detail::_Hash_node_base" = type { ptr }
-%"struct.std::__detail::_Prime_rehash_policy" = type { float, i64 }
-%"class.std::unordered_map" = type { %"class.std::_Hashtable.8" }
-%"class.std::_Hashtable.8" = type { ptr, i64, %"struct.std::__detail::_Hash_node_base", i64, %"struct.std::__detail::_Prime_rehash_policy", ptr }
-%"class.std::unique_ptr" = type { %"struct.std::__uniq_ptr_data" }
-%"struct.std::__uniq_ptr_data" = type { %"class.std::__uniq_ptr_impl" }
-%"class.std::__uniq_ptr_impl" = type { %"class.std::tuple" }
-%"class.std::tuple" = type { %"struct.std::_Tuple_impl" }
-%"struct.std::_Tuple_impl" = type { %"struct.std::_Head_base.27" }
-%"struct.std::_Head_base.27" = type { ptr }
-%"class.std::unique_ptr.28" = type { %"struct.std::__uniq_ptr_data.29" }
-%"struct.std::__uniq_ptr_data.29" = type { %"class.std::__uniq_ptr_impl.30" }
-%"class.std::__uniq_ptr_impl.30" = type { %"class.std::tuple.31" }
-%"class.std::tuple.31" = type { %"struct.std::_Tuple_impl.32" }
-%"struct.std::_Tuple_impl.32" = type { %"struct.std::_Head_base.35" }
-%"struct.std::_Head_base.35" = type { ptr }
-%"struct.std::array" = type { [32 x i8] }
-%"struct.net::QuicPacketHeader" = type <{ %"struct.net::QuicPacketPublicHeader", i64, i8, i8, i8, i8, [4 x i8] }>
-%"struct.net::QuicPacketPublicHeader" = type { i64, i32, i8, i8, i8, i8, %"class.std::vector.21", ptr }
-%"struct.net::QuicStopWaitingFrame" = type { i8, i8, i64 }
-%"class.std::deque" = type { %"class.std::_Deque_base" }
-%"class.std::_Deque_base" = type { %"struct.std::_Deque_base<net::QuicEncryptedPacket *, std::allocator<net::QuicEncryptedPacket *>>::_Deque_impl" }
-%"struct.std::_Deque_base<net::QuicEncryptedPacket *, std::allocator<net::QuicEncryptedPacket *>>::_Deque_impl" = type { %"struct.std::_Deque_base<net::QuicEncryptedPacket *, std::allocator<net::QuicEncryptedPacket *>>::_Deque_impl_data" }
-%"struct.std::_Deque_base<net::QuicEncryptedPacket *, std::allocator<net::QuicEncryptedPacket *>>::_Deque_impl_data" = type { ptr, i64, %"struct.std::_Deque_iterator", %"struct.std::_Deque_iterator" }
-%"struct.std::_Deque_iterator" = type { ptr, ptr, ptr, ptr }
-%"class.std::__cxx11::list" = type { %"class.std::__cxx11::_List_base" }
-%"class.std::__cxx11::_List_base" = type { %"struct.std::__cxx11::_List_base<net::SerializedPacket, std::allocator<net::SerializedPacket>>::_List_impl" }
-%"struct.std::__cxx11::_List_base<net::SerializedPacket, std::allocator<net::SerializedPacket>>::_List_impl" = type { %"struct.std::__detail::_List_node_header" }
-%"struct.std::__detail::_List_node_header" = type { %"struct.std::__detail::_List_node_base", i64 }
-%"struct.std::__detail::_List_node_base" = type { ptr, ptr }
-%"class.std::unique_ptr.42" = type { %"struct.std::__uniq_ptr_data.43" }
-%"struct.std::__uniq_ptr_data.43" = type { %"class.std::__uniq_ptr_impl.44" }
-%"class.std::__uniq_ptr_impl.44" = type { %"class.std::tuple.45" }
-%"class.std::tuple.45" = type { %"struct.std::_Tuple_impl.46" }
-%"struct.std::_Tuple_impl.46" = type { %"struct.std::_Head_base.49" }
-%"struct.std::_Head_base.49" = type { ptr }
-%"class.net::QuicReceivedPacketManager" = type { %"class.net::QuicReceivedEntropyHashCalculatorInterface", %"class.net::QuicReceivedPacketManager::EntropyTracker", i64, %"struct.net::QuicAckFrame", i8, %"class.net::QuicTime", ptr }
-%"class.net::QuicReceivedEntropyHashCalculatorInterface" = type { ptr }
-%"class.net::QuicReceivedPacketManager::EntropyTracker" = type { %"class.std::deque.50", i8, i64, i64 }
-%"class.std::deque.50" = type { %"class.std::_Deque_base.51" }
-%"class.std::_Deque_base.51" = type { %"struct.std::_Deque_base<std::pair<unsigned char, bool>, std::allocator<std::pair<unsigned char, bool>>>::_Deque_impl" }
-%"struct.std::_Deque_base<std::pair<unsigned char, bool>, std::allocator<std::pair<unsigned char, bool>>>::_Deque_impl" = type { %"struct.std::_Deque_base<std::pair<unsigned char, bool>, std::allocator<std::pair<unsigned char, bool>>>::_Deque_impl_data" }
-%"struct.std::_Deque_base<std::pair<unsigned char, bool>, std::allocator<std::pair<unsigned char, bool>>>::_Deque_impl_data" = type { ptr, i64, %"struct.std::_Deque_iterator.55", %"struct.std::_Deque_iterator.55" }
-%"struct.std::_Deque_iterator.55" = type { ptr, ptr, ptr, ptr }
-%"struct.net::QuicAckFrame" = type <{ i64, %"class.net::QuicTime::Delta", %"class.std::vector.56", %"class.net::PacketNumberQueue", i8, i8, i8, i8, [4 x i8] }>
-%"class.std::vector.56" = type { %"struct.std::_Vector_base.57" }
-%"struct.std::_Vector_base.57" = type { %"struct.std::_Vector_base<std::pair<unsigned long, net::QuicTime>, std::allocator<std::pair<unsigned long, net::QuicTime>>>::_Vector_impl" }
-%"struct.std::_Vector_base<std::pair<unsigned long, net::QuicTime>, std::allocator<std::pair<unsigned long, net::QuicTime>>>::_Vector_impl" = type { %"struct.std::_Vector_base<std::pair<unsigned long, net::QuicTime>, std::allocator<std::pair<unsigned long, net::QuicTime>>>::_Vector_impl_data" }
-%"struct.std::_Vector_base<std::pair<unsigned long, net::QuicTime>, std::allocator<std::pair<unsigned long, net::QuicTime>>>::_Vector_impl_data" = type { ptr, ptr, ptr }
-%"class.net::PacketNumberQueue" = type { %"class.net::IntervalSet" }
-%"class.net::IntervalSet" = type { %"class.std::set" }
-%"class.std::set" = type { %"class.std::_Rb_tree" }
-%"class.std::_Rb_tree" = type { %"struct.std::_Rb_tree<net::Interval<unsigned long>, net::Interval<unsigned long>, std::_Identity<net::Interval<unsigned long>>, net::IntervalSet<unsigned long>::IntervalComparator>::_Rb_tree_impl" }
-%"struct.std::_Rb_tree<net::Interval<unsigned long>, net::Interval<unsigned long>, std::_Identity<net::Interval<unsigned long>>, net::IntervalSet<unsigned long>::IntervalComparator>::_Rb_tree_impl" = type { %"struct.std::_Rb_tree_key_compare", %"struct.std::_Rb_tree_header" }
-%"struct.std::_Rb_tree_key_compare" = type { %"struct.net::IntervalSet<unsigned long>::IntervalComparator" }
-%"struct.net::IntervalSet<unsigned long>::IntervalComparator" = type { i8 }
-%"struct.std::_Rb_tree_header" = type { %"struct.std::_Rb_tree_node_base", i64 }
-%"struct.std::_Rb_tree_node_base" = type { i32, ptr, ptr, ptr }
-%"class.net::QuicSentEntropyManager" = type { ptr, %"class.std::deque.64", i64, %"struct.net::QuicSentEntropyManager::CumulativeEntropy", %"struct.net::QuicSentEntropyManager::CumulativeEntropy" }
-%"class.std::deque.64" = type { %"class.std::_Deque_base.65" }
-%"class.std::_Deque_base.65" = type { %"struct.std::_Deque_base<unsigned char, std::allocator<unsigned char>>::_Deque_impl" }
-%"struct.std::_Deque_base<unsigned char, std::allocator<unsigned char>>::_Deque_impl" = type { %"struct.std::_Deque_base<unsigned char, std::allocator<unsigned char>>::_Deque_impl_data" }
-%"struct.std::_Deque_base<unsigned char, std::allocator<unsigned char>>::_Deque_impl_data" = type { ptr, i64, %"struct.std::_Deque_iterator.66", %"struct.std::_Deque_iterator.66" }
-%"struct.std::_Deque_iterator.66" = type { ptr, ptr, ptr, ptr }
-%"struct.net::QuicSentEntropyManager::CumulativeEntropy" = type <{ i64, i8, [7 x i8] }>
-%"class.net::QuicOneBlockArena" = type { [1024 x i8], i32, [4 x i8] }
 %"class.net::QuicArenaScopedPtr" = type { ptr }
-%"class.net::QuicPacketGenerator" = type { ptr, %"class.net::QuicPacketCreator", %"class.std::vector.67", i8, i8, i8, [5 x i8], %"struct.net::QuicAckFrame", %"struct.net::QuicStopWaitingFrame" }
-%"class.net::QuicPacketCreator" = type { ptr, ptr, ptr, %"class.net::QuicPacketCreator::QuicRandomBoolSource", ptr, i8, i8, i8, i8, %"struct.std::array", i64, i64, i32, %"class.std::vector.67", i64, i64, %"struct.net::SerializedPacket", %"class.std::unordered_map" }
-%"class.net::QuicPacketCreator::QuicRandomBoolSource" = type { ptr, i64, i64 }
-%"struct.net::SerializedPacket" = type { ptr, i16, %"class.std::vector.67", i8, i16, i8, i64, i8, i8, i8, i8, i8, i8, i8, i64, %"class.std::__cxx11::list.72" }
-%"class.std::__cxx11::list.72" = type { %"class.std::__cxx11::_List_base.73" }
-%"class.std::__cxx11::_List_base.73" = type { %"struct.std::__cxx11::_List_base<net::AckListenerWrapper, std::allocator<net::AckListenerWrapper>>::_List_impl" }
-%"struct.std::__cxx11::_List_base<net::AckListenerWrapper, std::allocator<net::AckListenerWrapper>>::_List_impl" = type { %"struct.std::__detail::_List_node_header" }
-%"class.std::vector.67" = type { %"struct.std::_Vector_base.68" }
-%"struct.std::_Vector_base.68" = type { %"struct.std::_Vector_base<net::QuicFrame, std::allocator<net::QuicFrame>>::_Vector_impl" }
-%"struct.std::_Vector_base<net::QuicFrame, std::allocator<net::QuicFrame>>::_Vector_impl" = type { %"struct.std::_Vector_base<net::QuicFrame, std::allocator<net::QuicFrame>>::_Vector_impl_data" }
-%"struct.std::_Vector_base<net::QuicFrame, std::allocator<net::QuicFrame>>::_Vector_impl_data" = type { ptr, ptr, ptr }
-%"class.net::QuicTime::Delta" = type { %"class.base::TimeDelta", i64 }
-%"class.base::TimeDelta" = type { i64 }
-%"struct.net::QuicConnectionStats" = type { i64, i64, i64, i64, i64, i64, i64, i64, i64, i64, i64, i64, i64, i64, i64, i64, i64, i64, i64, i64, i64, i64, i64, i64, i64, %"class.net::QuicBandwidth", i64, i64, i64, i32, %"class.net::QuicTime" }
-%"class.net::QuicBandwidth" = type { i64 }
-%"class.net::QuicTime" = type { i64 }
-%"class.std::unique_ptr.77" = type { %"struct.std::__uniq_ptr_data.78" }
-%"struct.std::__uniq_ptr_data.78" = type { %"class.std::__uniq_ptr_impl.79" }
-%"class.std::__uniq_ptr_impl.79" = type { %"class.std::tuple.80" }
-%"class.std::tuple.80" = type { %"struct.std::_Tuple_impl.81" }
-%"struct.std::_Tuple_impl.81" = type { %"struct.std::_Head_base.84" }
-%"struct.std::_Head_base.84" = type { ptr }
-%"class.net::IPEndPoint" = type <{ %"class.net::IPAddress", i16, [6 x i8] }>
+%"class.std::allocator.0" = type { i8 }
 %"class.net::IPAddress" = type { %"class.std::vector" }
 %"class.std::vector" = type { %"struct.std::_Vector_base" }
 %"struct.std::_Vector_base" = type { %"struct.std::_Vector_base<unsigned char, std::allocator<unsigned char>>::_Vector_impl" }
 %"struct.std::_Vector_base<unsigned char, std::allocator<unsigned char>>::_Vector_impl" = type { %"struct.std::_Vector_base<unsigned char, std::allocator<unsigned char>>::_Vector_impl_data" }
 %"struct.std::_Vector_base<unsigned char, std::allocator<unsigned char>>::_Vector_impl_data" = type { ptr, ptr, ptr }
-%"class.std::vector.21" = type { %"struct.std::_Vector_base.22" }
-%"struct.std::_Vector_base.22" = type { %"struct.std::_Vector_base<net::QuicVersion, std::allocator<net::QuicVersion>>::_Vector_impl" }
-%"struct.std::_Vector_base<net::QuicVersion, std::allocator<net::QuicVersion>>::_Vector_impl" = type { %"struct.std::_Vector_base<net::QuicVersion, std::allocator<net::QuicVersion>>::_Vector_impl_data" }
-%"struct.std::_Vector_base<net::QuicVersion, std::allocator<net::QuicVersion>>::_Vector_impl_data" = type { ptr, ptr, ptr }
-%"class.net::(anonymous namespace)::RetransmissionAlarmDelegate" = type { %"class.net::QuicAlarm::Delegate", ptr }
-%"class.net::QuicAlarm::Delegate" = type { ptr }
-%"class.net::(anonymous namespace)::TimeoutAlarmDelegate" = type { %"class.net::QuicAlarm::Delegate", ptr }
-%"class.net::(anonymous namespace)::PingAlarmDelegate" = type { %"class.net::QuicAlarm::Delegate", ptr }
-%"class.net::(anonymous namespace)::MtuDiscoveryAlarmDelegate" = type { %"class.net::QuicAlarm::Delegate", ptr }
-%"class.net::(anonymous namespace)::SendAlarmDelegate" = type { %"class.net::QuicAlarm::Delegate", ptr }
-%"struct.std::_Vector_base<std::unique_ptr<net::QuicEncryptedPacket>, std::allocator<std::unique_ptr<net::QuicEncryptedPacket>>>::_Vector_impl_data" = type { ptr, ptr, ptr }
-%"class.std::unique_ptr.155" = type { %"struct.std::__uniq_ptr_data.156" }
-%"struct.std::__uniq_ptr_data.156" = type { %"class.std::__uniq_ptr_impl.157" }
-%"class.std::__uniq_ptr_impl.157" = type { %"class.std::tuple.158" }
-%"class.std::tuple.158" = type { %"struct.std::_Tuple_impl.159" }
-%"struct.std::_Tuple_impl.159" = type { %"struct.std::_Head_base.162" }
-%"struct.std::_Head_base.162" = type { ptr }
-%"struct.std::_List_node" = type { %"struct.std::__detail::_List_node_base", %"struct.__gnu_cxx::__aligned_membuf" }
-%"struct.__gnu_cxx::__aligned_membuf" = type { [96 x i8] }
-%"class.net::QuicConfig" = type { %"class.net::QuicTime::Delta", %"class.net::QuicTime::Delta", i64, %"class.net::QuicFixedTagVector", %"class.net::QuicNegotiableUint32", %"class.net::QuicNegotiableUint32", %"class.net::QuicNegotiableUint32", %"class.net::QuicFixedUint32", %"class.net::QuicFixedUint32", %"class.net::QuicFixedUint32", %"class.net::QuicFixedUint32", %"class.net::QuicFixedUint32", %"class.net::QuicFixedUint32", %"class.net::QuicNegotiableUint32", %"class.net::QuicFixedUint32", %"class.net::QuicFixedIPEndPoint", %"class.net::QuicFixedUint32" }
-%"class.net::QuicFixedTagVector" = type <{ %"class.net::QuicConfigValue", %"class.std::vector.141", i8, [7 x i8], %"class.std::vector.141", i8, [7 x i8] }>
-%"class.net::QuicConfigValue" = type { ptr, i32, i32 }
-%"class.std::vector.141" = type { %"struct.std::_Vector_base.142" }
-%"struct.std::_Vector_base.142" = type { %"struct.std::_Vector_base<unsigned int, std::allocator<unsigned int>>::_Vector_impl" }
-%"struct.std::_Vector_base<unsigned int, std::allocator<unsigned int>>::_Vector_impl" = type { %"struct.std::_Vector_base<unsigned int, std::allocator<unsigned int>>::_Vector_impl_data" }
-%"struct.std::_Vector_base<unsigned int, std::allocator<unsigned int>>::_Vector_impl_data" = type { ptr, ptr, ptr }
-%"class.net::QuicNegotiableUint32" = type { %"class.net::QuicNegotiableValue.base", i32, i32, i32 }
-%"class.net::QuicNegotiableValue.base" = type <{ %"class.net::QuicConfigValue", i8 }>
-%"class.net::QuicFixedIPEndPoint" = type <{ %"class.net::QuicConfigValue", %"class.net::IPEndPoint", i8, [7 x i8], %"class.net::IPEndPoint", i8, [7 x i8] }>
-%"class.net::QuicFixedUint32" = type <{ %"class.net::QuicConfigValue", i32, i8, [3 x i8], i32, i8, [3 x i8] }>
-%"class.std::allocator.0" = type { i8 }
-%"class.net::QuicData" = type <{ ptr, ptr, i64, i8, [7 x i8] }>
-%"struct.net::QuicStreamFrame" = type { i32, i8, i16, ptr, i64, %"class.std::unique_ptr.146" }
-%"class.std::unique_ptr.146" = type { %"struct.std::__uniq_ptr_data.147" }
-%"struct.std::__uniq_ptr_data.147" = type { %"class.std::__uniq_ptr_impl.148" }
-%"class.std::__uniq_ptr_impl.148" = type { %"class.std::tuple.149" }
-%"class.std::tuple.149" = type { %"struct.std::_Tuple_impl.150" }
-%"struct.std::_Tuple_impl.150" = type { %"struct.std::_Tuple_impl.151", %"struct.std::_Head_base.153" }
-%"struct.std::_Tuple_impl.151" = type { %"struct.std::_Head_base.152" }
-%"struct.std::_Head_base.152" = type { %"class.net::StreamBufferDeleter" }
-%"class.net::StreamBufferDeleter" = type { ptr }
-%"struct.std::_Head_base.153" = type { ptr }
-%"struct.net::QuicConnectionCloseFrame" = type { i32, %"class.std::__cxx11::basic_string" }
-%"class.net::RttStats" = type { %"class.net::QuicTime::Delta", %"class.net::QuicTime::Delta", %"class.net::QuicTime::Delta", %"class.net::QuicTime::Delta", %"class.net::QuicTime::Delta", i64, %"class.net::QuicTime::Delta", %"class.net::QuicTime", i32, %"class.net::WindowedFilter" }
-%"class.net::WindowedFilter" = type { %"class.net::QuicTime::Delta", %"class.net::QuicTime::Delta", [3 x %"struct.net::WindowedFilter<net::QuicTime::Delta, net::MinFilter<net::QuicTime::Delta>, net::QuicTime, net::QuicTime::Delta>::Sample"] }
-%"struct.net::WindowedFilter<net::QuicTime::Delta, net::MinFilter<net::QuicTime::Delta>, net::QuicTime, net::QuicTime::Delta>::Sample" = type { %"class.net::QuicTime::Delta", %"class.net::QuicTime" }
-%"class.net::QuicAlarm" = type { ptr, %"class.net::QuicArenaScopedPtr.85", %"class.net::QuicTime" }
 %"class.net::QuicConnection::ScopedPacketBundler" = type <{ ptr, i8, [7 x i8] }>
 %"struct.net::QuicIOVector" = type { ptr, i32, i64 }
 %"struct.net::QuicConsumedData" = type <{ i64, i8, [7 x i8] }>
 %"class.net::QuicConnection::ScopedRetransmissionScheduler" = type <{ ptr, i8, [7 x i8] }>
 %"struct.net::QuicFrame" = type { i32, %union.anon.154 }
 %union.anon.154 = type { ptr }
-%"class.net::QuicReceivedPacket" = type <{ %"class.net::QuicEncryptedPacket.base", [7 x i8], %"class.net::QuicTime", i32, i8, [3 x i8] }>
-%"class.net::QuicEncryptedPacket.base" = type { %"class.net::QuicData.base" }
-%"class.net::QuicData.base" = type <{ ptr, ptr, i64, i8 }>
 %"struct.net::PendingRetransmission" = type <{ i64, ptr, i8, i8, i8, i8, i32, i8, i8, [6 x i8] }>
+%"class.std::unique_ptr.155" = type { %"struct.std::__uniq_ptr_data.156" }
+%"struct.std::__uniq_ptr_data.156" = type { %"class.std::__uniq_ptr_impl.157" }
+%"class.std::__uniq_ptr_impl.157" = type { %"class.std::tuple.158" }
+%"class.std::tuple.158" = type { %"struct.std::_Tuple_impl.159" }
+%"struct.std::_Tuple_impl.159" = type { %"struct.std::_Head_base.162" }
+%"struct.std::_Head_base.162" = type { ptr }
 %"class.base::BasicStringPiece" = type { ptr, i64 }
 %struct._Guard = type { ptr }
-%"class.net::(anonymous namespace)::AckAlarmDelegate" = type { %"class.net::QuicAlarm::Delegate", ptr }
 
 $_ZNSt10unique_ptrISt6vectorIS_IN3net19QuicEncryptedPacketESt14default_deleteIS2_EESaIS5_EES3_IS7_EED2Ev = comdat any
 
@@ -387,140 +244,140 @@ entry:
   store ptr getelementptr inbounds ({ [50 x ptr], [5 x ptr], [9 x ptr], [7 x ptr] }, ptr @_ZTVN3net14QuicConnectionE, i64 0, inrange i32 1, i64 2), ptr %0, align 8
   store ptr getelementptr inbounds ({ [50 x ptr], [5 x ptr], [9 x ptr], [7 x ptr] }, ptr @_ZTVN3net14QuicConnectionE, i64 0, inrange i32 2, i64 2), ptr %1, align 8
   store ptr getelementptr inbounds ({ [50 x ptr], [5 x ptr], [9 x ptr], [7 x ptr] }, ptr @_ZTVN3net14QuicConnectionE, i64 0, inrange i32 3, i64 2), ptr %2, align 8
-  %framer_ = getelementptr inbounds %"class.net::QuicConnection", ptr %this, i64 0, i32 4
+  %framer_ = getelementptr inbounds i8, ptr %this, i64 32
   %vtable = load ptr, ptr %helper, align 8
-  %vfn = getelementptr inbounds ptr, ptr %vtable, i64 2
+  %vfn = getelementptr inbounds i8, ptr %vtable, i64 16
   %3 = load ptr, ptr %vfn, align 8
   %call = tail call noundef ptr %3(ptr noundef nonnull align 8 dereferenceable(8) %helper)
   %vtable4 = load ptr, ptr %call, align 8
-  %vfn5 = getelementptr inbounds ptr, ptr %vtable4, i64 2
+  %vfn5 = getelementptr inbounds i8, ptr %vtable4, i64 16
   %4 = load ptr, ptr %vfn5, align 8
   %call7 = tail call i64 %4(ptr noundef nonnull align 8 dereferenceable(8) %call)
   tail call void @_ZN3net10QuicFramerC1ERKSt6vectorINS_11QuicVersionESaIS2_EENS_8QuicTimeENS_11PerspectiveE(ptr noundef nonnull align 8 dereferenceable(408) %framer_, ptr noundef nonnull align 8 dereferenceable(24) %supported_versions, i64 %call7, i32 noundef %perspective)
-  %helper_ = getelementptr inbounds %"class.net::QuicConnection", ptr %this, i64 0, i32 5
+  %helper_ = getelementptr inbounds i8, ptr %this, i64 440
   store ptr %helper, ptr %helper_, align 8
-  %alarm_factory_ = getelementptr inbounds %"class.net::QuicConnection", ptr %this, i64 0, i32 6
+  %alarm_factory_ = getelementptr inbounds i8, ptr %this, i64 448
   store ptr %alarm_factory, ptr %alarm_factory_, align 8
-  %per_packet_options_ = getelementptr inbounds %"class.net::QuicConnection", ptr %this, i64 0, i32 7
+  %per_packet_options_ = getelementptr inbounds i8, ptr %this, i64 456
   store ptr null, ptr %per_packet_options_, align 8
-  %writer_ = getelementptr inbounds %"class.net::QuicConnection", ptr %this, i64 0, i32 8
+  %writer_ = getelementptr inbounds i8, ptr %this, i64 464
   store ptr %writer, ptr %writer_, align 8
-  %owns_writer_ = getelementptr inbounds %"class.net::QuicConnection", ptr %this, i64 0, i32 9
+  %owns_writer_ = getelementptr inbounds i8, ptr %this, i64 472
   store i8 %frombool, ptr %owns_writer_, align 8
-  %encryption_level_ = getelementptr inbounds %"class.net::QuicConnection", ptr %this, i64 0, i32 10
+  %encryption_level_ = getelementptr inbounds i8, ptr %this, i64 473
   store i8 0, ptr %encryption_level_, align 1
-  %clock_ = getelementptr inbounds %"class.net::QuicConnection", ptr %this, i64 0, i32 12
+  %clock_ = getelementptr inbounds i8, ptr %this, i64 480
   %vtable11 = load ptr, ptr %helper, align 8
-  %vfn12 = getelementptr inbounds ptr, ptr %vtable11, i64 2
+  %vfn12 = getelementptr inbounds i8, ptr %vtable11, i64 16
   %5 = load ptr, ptr %vfn12, align 8
   %call15 = invoke noundef ptr %5(ptr noundef nonnull align 8 dereferenceable(8) %helper)
           to label %invoke.cont14 unwind label %lpad13
 
 invoke.cont14:                                    ; preds = %entry
   store ptr %call15, ptr %clock_, align 8
-  %random_generator_ = getelementptr inbounds %"class.net::QuicConnection", ptr %this, i64 0, i32 13
+  %random_generator_ = getelementptr inbounds i8, ptr %this, i64 488
   %vtable16 = load ptr, ptr %helper, align 8
-  %vfn17 = getelementptr inbounds ptr, ptr %vtable16, i64 3
+  %vfn17 = getelementptr inbounds i8, ptr %vtable16, i64 24
   %6 = load ptr, ptr %vfn17, align 8
   %call19 = invoke noundef ptr %6(ptr noundef nonnull align 8 dereferenceable(8) %helper)
           to label %invoke.cont18 unwind label %lpad13
 
 invoke.cont18:                                    ; preds = %invoke.cont14
   store ptr %call19, ptr %random_generator_, align 8
-  %connection_id_ = getelementptr inbounds %"class.net::QuicConnection", ptr %this, i64 0, i32 14
+  %connection_id_ = getelementptr inbounds i8, ptr %this, i64 496
   store i64 %connection_id, ptr %connection_id_, align 8
-  %self_address_ = getelementptr inbounds %"class.net::QuicConnection", ptr %this, i64 0, i32 15
+  %self_address_ = getelementptr inbounds i8, ptr %this, i64 504
   invoke void @_ZN3net10IPEndPointC1Ev(ptr noundef nonnull align 8 dereferenceable(26) %self_address_)
           to label %invoke.cont20 unwind label %lpad13
 
 invoke.cont20:                                    ; preds = %invoke.cont18
-  %peer_address_ = getelementptr inbounds %"class.net::QuicConnection", ptr %this, i64 0, i32 16
+  %peer_address_ = getelementptr inbounds i8, ptr %this, i64 536
   invoke void @_ZN3net10IPEndPointC1ERKS0_(ptr noundef nonnull align 8 dereferenceable(26) %peer_address_, ptr noundef nonnull align 8 dereferenceable(26) %address)
           to label %invoke.cont22 unwind label %lpad21
 
 invoke.cont22:                                    ; preds = %invoke.cont20
-  %active_peer_migration_type_ = getelementptr inbounds %"class.net::QuicConnection", ptr %this, i64 0, i32 17
+  %active_peer_migration_type_ = getelementptr inbounds i8, ptr %this, i64 568
   store i32 0, ptr %active_peer_migration_type_, align 8
-  %highest_packet_sent_before_peer_migration_ = getelementptr inbounds %"class.net::QuicConnection", ptr %this, i64 0, i32 19
+  %highest_packet_sent_before_peer_migration_ = getelementptr inbounds i8, ptr %this, i64 576
   store i64 0, ptr %highest_packet_sent_before_peer_migration_, align 8
-  %last_packet_decrypted_ = getelementptr inbounds %"class.net::QuicConnection", ptr %this, i64 0, i32 20
+  %last_packet_decrypted_ = getelementptr inbounds i8, ptr %this, i64 584
   store i8 0, ptr %last_packet_decrypted_, align 8
-  %last_size_ = getelementptr inbounds %"class.net::QuicConnection", ptr %this, i64 0, i32 22
-  %last_header_ = getelementptr inbounds %"class.net::QuicConnection", ptr %this, i64 0, i32 26
+  %last_size_ = getelementptr inbounds i8, ptr %this, i64 592
+  %last_header_ = getelementptr inbounds i8, ptr %this, i64 616
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(17) %last_size_, i8 0, i64 17, i1 false)
   invoke void @_ZN3net16QuicPacketHeaderC1Ev(ptr noundef nonnull align 8 dereferenceable(60) %last_header_)
           to label %invoke.cont24 unwind label %lpad23
 
 invoke.cont24:                                    ; preds = %invoke.cont22
-  %last_stop_waiting_frame_ = getelementptr inbounds %"class.net::QuicConnection", ptr %this, i64 0, i32 27
+  %last_stop_waiting_frame_ = getelementptr inbounds i8, ptr %this, i64 680
   invoke void @_ZN3net20QuicStopWaitingFrameC1Ev(ptr noundef nonnull align 8 dereferenceable(16) %last_stop_waiting_frame_)
           to label %invoke.cont26 unwind label %lpad25
 
 invoke.cont26:                                    ; preds = %invoke.cont24
-  %should_last_packet_instigate_acks_ = getelementptr inbounds %"class.net::QuicConnection", ptr %this, i64 0, i32 28
+  %should_last_packet_instigate_acks_ = getelementptr inbounds i8, ptr %this, i64 696
   store i8 0, ptr %should_last_packet_instigate_acks_, align 8
-  %largest_seen_packet_with_ack_ = getelementptr inbounds %"class.net::QuicConnection", ptr %this, i64 0, i32 30
-  %undecryptable_packets_ = getelementptr inbounds %"class.net::QuicConnection", ptr %this, i64 0, i32 32
+  %largest_seen_packet_with_ack_ = getelementptr inbounds i8, ptr %this, i64 704
+  %undecryptable_packets_ = getelementptr inbounds i8, ptr %this, i64 720
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(96) %largest_seen_packet_with_ack_, i8 0, i64 96, i1 false)
   invoke void @_ZNSt11_Deque_baseIPN3net19QuicEncryptedPacketESaIS2_EE17_M_initialize_mapEm(ptr noundef nonnull align 8 dereferenceable(80) %undecryptable_packets_, i64 noundef 0)
           to label %invoke.cont28 unwind label %lpad27
 
 invoke.cont28:                                    ; preds = %invoke.cont26
-  %max_undecryptable_packets_ = getelementptr inbounds %"class.net::QuicConnection", ptr %this, i64 0, i32 33
+  %max_undecryptable_packets_ = getelementptr inbounds i8, ptr %this, i64 800
   store i64 0, ptr %max_undecryptable_packets_, align 8
-  %pending_version_negotiation_packet_ = getelementptr inbounds %"class.net::QuicConnection", ptr %this, i64 0, i32 34
+  %pending_version_negotiation_packet_ = getelementptr inbounds i8, ptr %this, i64 808
   store i8 0, ptr %pending_version_negotiation_packet_, align 8
-  %queued_packets_ = getelementptr inbounds %"class.net::QuicConnection", ptr %this, i64 0, i32 36
-  %_M_prev.i.i.i.i.i = getelementptr inbounds %"class.net::QuicConnection", ptr %this, i64 0, i32 36, i32 0, i32 0, i32 0, i32 0, i32 1
+  %queued_packets_ = getelementptr inbounds i8, ptr %this, i64 816
+  %_M_prev.i.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 824
   store ptr %queued_packets_, ptr %_M_prev.i.i.i.i.i, align 8
   store ptr %queued_packets_, ptr %queued_packets_, align 8
-  %_M_size.i.i.i.i.i = getelementptr inbounds %"class.net::QuicConnection", ptr %this, i64 0, i32 36, i32 0, i32 0, i32 0, i32 1
+  %_M_size.i.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 832
   store i64 0, ptr %_M_size.i.i.i.i.i, align 8
-  %save_crypto_packets_as_termination_packets_ = getelementptr inbounds %"class.net::QuicConnection", ptr %this, i64 0, i32 37
+  %save_crypto_packets_as_termination_packets_ = getelementptr inbounds i8, ptr %this, i64 840
   store i8 0, ptr %save_crypto_packets_as_termination_packets_, align 8
-  %termination_packets_ = getelementptr inbounds %"class.net::QuicConnection", ptr %this, i64 0, i32 39
+  %termination_packets_ = getelementptr inbounds i8, ptr %this, i64 848
   store ptr null, ptr %termination_packets_, align 8
-  %idle_timeout_connection_close_behavior_ = getelementptr inbounds %"class.net::QuicConnection", ptr %this, i64 0, i32 40
+  %idle_timeout_connection_close_behavior_ = getelementptr inbounds i8, ptr %this, i64 856
   store i32 1, ptr %idle_timeout_connection_close_behavior_, align 8
-  %close_connection_after_five_rtos_ = getelementptr inbounds %"class.net::QuicConnection", ptr %this, i64 0, i32 41
+  %close_connection_after_five_rtos_ = getelementptr inbounds i8, ptr %this, i64 860
   store i8 0, ptr %close_connection_after_five_rtos_, align 4
-  %received_packet_manager_ = getelementptr inbounds %"class.net::QuicConnection", ptr %this, i64 0, i32 43
-  %stats_ = getelementptr inbounds %"class.net::QuicConnection", ptr %this, i64 0, i32 72
+  %received_packet_manager_ = getelementptr inbounds i8, ptr %this, i64 864
+  %stats_ = getelementptr inbounds i8, ptr %this, i64 2912
   invoke void @_ZN3net25QuicReceivedPacketManagerC1EPNS_19QuicConnectionStatsE(ptr noundef nonnull align 8 dereferenceable(248) %received_packet_manager_, ptr noundef nonnull %stats_)
           to label %invoke.cont30 unwind label %lpad29
 
 invoke.cont30:                                    ; preds = %invoke.cont28
-  %sent_entropy_manager_ = getelementptr inbounds %"class.net::QuicConnection", ptr %this, i64 0, i32 44
+  %sent_entropy_manager_ = getelementptr inbounds i8, ptr %this, i64 1112
   invoke void @_ZN3net22QuicSentEntropyManagerC1Ev(ptr noundef nonnull align 8 dereferenceable(128) %sent_entropy_manager_)
           to label %invoke.cont41 unwind label %lpad31
 
 invoke.cont41:                                    ; preds = %invoke.cont30
-  %ack_queued_ = getelementptr inbounds %"class.net::QuicConnection", ptr %this, i64 0, i32 45
+  %ack_queued_ = getelementptr inbounds i8, ptr %this, i64 1240
   store i8 0, ptr %ack_queued_, align 8
-  %num_retransmittable_packets_received_since_last_ack_sent_ = getelementptr inbounds %"class.net::QuicConnection", ptr %this, i64 0, i32 47
+  %num_retransmittable_packets_received_since_last_ack_sent_ = getelementptr inbounds i8, ptr %this, i64 1248
   store i64 0, ptr %num_retransmittable_packets_received_since_last_ack_sent_, align 8
-  %last_ack_had_missing_packets_ = getelementptr inbounds %"class.net::QuicConnection", ptr %this, i64 0, i32 48
+  %last_ack_had_missing_packets_ = getelementptr inbounds i8, ptr %this, i64 1256
   store i8 0, ptr %last_ack_had_missing_packets_, align 8
-  %num_packets_received_since_last_ack_sent_ = getelementptr inbounds %"class.net::QuicConnection", ptr %this, i64 0, i32 50
-  %ack_decimation_delay_ = getelementptr inbounds %"class.net::QuicConnection", ptr %this, i64 0, i32 53
+  %num_packets_received_since_last_ack_sent_ = getelementptr inbounds i8, ptr %this, i64 1264
+  %ack_decimation_delay_ = getelementptr inbounds i8, ptr %this, i64 1280
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %num_packets_received_since_last_ack_sent_, i8 0, i64 16, i1 false)
   store float 2.500000e-01, ptr %ack_decimation_delay_, align 8
-  %delay_setting_retransmission_alarm_ = getelementptr inbounds %"class.net::QuicConnection", ptr %this, i64 0, i32 54
+  %delay_setting_retransmission_alarm_ = getelementptr inbounds i8, ptr %this, i64 1284
   store i8 0, ptr %delay_setting_retransmission_alarm_, align 4
-  %pending_retransmission_alarm_ = getelementptr inbounds %"class.net::QuicConnection", ptr %this, i64 0, i32 55
+  %pending_retransmission_alarm_ = getelementptr inbounds i8, ptr %this, i64 1285
   store i8 0, ptr %pending_retransmission_alarm_, align 1
-  %defer_send_in_response_to_packets_ = getelementptr inbounds %"class.net::QuicConnection", ptr %this, i64 0, i32 56
+  %defer_send_in_response_to_packets_ = getelementptr inbounds i8, ptr %this, i64 1286
   store i8 0, ptr %defer_send_in_response_to_packets_, align 2
-  %ping_timeout_ = getelementptr inbounds %"class.net::QuicConnection", ptr %this, i64 0, i32 58
+  %ping_timeout_ = getelementptr inbounds i8, ptr %this, i64 1288
   store i64 0, ptr %ping_timeout_, align 8
-  %7 = getelementptr inbounds %"class.net::QuicConnection", ptr %this, i64 0, i32 58, i32 1
+  %7 = getelementptr inbounds i8, ptr %this, i64 1296
   store i64 15000000, ptr %7, align 8
-  %arena_ = getelementptr inbounds %"class.net::QuicConnection", ptr %this, i64 0, i32 59
-  %offset_.i = getelementptr inbounds %"class.net::QuicConnection", ptr %this, i64 0, i32 59, i32 1
-  %ack_alarm_ = getelementptr inbounds %"class.net::QuicConnection", ptr %this, i64 0, i32 60
+  %arena_ = getelementptr inbounds i8, ptr %this, i64 1304
+  %offset_.i = getelementptr inbounds i8, ptr %this, i64 2328
+  %ack_alarm_ = getelementptr inbounds i8, ptr %this, i64 2336
   %8 = load ptr, ptr %alarm_factory_, align 8
   store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN3net12_GLOBAL__N_116AckAlarmDelegateE, i64 0, inrange i32 0, i64 2), ptr %arena_, align 8, !noalias !5
-  %connection_.i5.i = getelementptr inbounds %"class.net::QuicConnection", ptr %this, i64 0, i32 59, i32 0, i64 8
+  %connection_.i5.i = getelementptr inbounds i8, ptr %this, i64 1312
   store ptr %this, ptr %connection_.i5.i, align 8, !noalias !5
   store i32 16, ptr %offset_.i, align 8, !noalias !5
   %9 = ptrtoint ptr %arena_ to i64
@@ -528,7 +385,7 @@ invoke.cont41:                                    ; preds = %invoke.cont30
   %10 = inttoptr i64 %or.i.i to ptr
   store ptr %10, ptr %agg.tmp38, align 8
   %vtable45 = load ptr, ptr %8, align 8
-  %vfn46 = getelementptr inbounds ptr, ptr %vtable45, i64 3
+  %vfn46 = getelementptr inbounds i8, ptr %vtable45, i64 24
   %11 = load ptr, ptr %vfn46, align 8
   invoke void %11(ptr nonnull sret(%"class.net::QuicArenaScopedPtr") align 8 %ack_alarm_, ptr noundef nonnull align 8 dereferenceable(8) %8, ptr noundef nonnull %agg.tmp38, ptr noundef nonnull %arena_)
           to label %invoke.cont48 unwind label %lpad47
@@ -552,7 +409,7 @@ if.then2.i.i:                                     ; preds = %if.then.i.i
 
 delete.notnull.i.i:                               ; preds = %if.then.i.i
   %vtable5.i.i = load ptr, ptr %12, align 8
-  %vfn6.i.i = getelementptr inbounds ptr, ptr %vtable5.i.i, i64 1
+  %vfn6.i.i = getelementptr inbounds i8, ptr %vtable5.i.i, i64 8
   br label %if.end13.sink.split.i.i
 
 if.end13.sink.split.i.i:                          ; preds = %delete.notnull.i.i, %if.then2.i.i
@@ -564,7 +421,7 @@ if.end13.sink.split.i.i:                          ; preds = %delete.notnull.i.i,
 
 _ZN3net18QuicArenaScopedPtrINS_12_GLOBAL__N_116AckAlarmDelegateEED2Ev.exit: ; preds = %if.end13.sink.split.i.i, %invoke.cont48
   store ptr null, ptr %agg.tmp38, align 8
-  %retransmission_alarm_ = getelementptr inbounds %"class.net::QuicConnection", ptr %this, i64 0, i32 61
+  %retransmission_alarm_ = getelementptr inbounds i8, ptr %this, i64 2344
   %16 = load ptr, ptr %alarm_factory_, align 8
   call void @llvm.lifetime.start.p0(i64 408, ptr nonnull %ref.tmp9.i43)
   %17 = load i32, ptr %offset_.i, align 8, !noalias !8
@@ -583,7 +440,7 @@ cond.false.i56:                                   ; preds = %call7.i.noexc75
           to label %.noexc77 unwind label %lpad54
 
 .noexc77:                                         ; preds = %cond.false.i56
-  %stream_.i4.i57 = getelementptr inbounds %"class.logging::LogMessage", ptr %ref.tmp9.i43, i64 0, i32 2
+  %stream_.i4.i57 = getelementptr inbounds i8, ptr %ref.tmp9.i43, i64 8
   %call13.i58 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc(ptr noundef nonnull align 8 dereferenceable(8) %stream_.i4.i57, ptr noundef nonnull @.str.64)
           to label %invoke.cont12.i60 unwind label %eh.resume.i59, !noalias !8
 
@@ -626,7 +483,7 @@ cleanup.done.i54:                                 ; preds = %cleanup.action.i74,
 
 call34.i.noexc78:                                 ; preds = %cleanup.done.i54
   store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN3net12_GLOBAL__N_127RetransmissionAlarmDelegateE, i64 0, inrange i32 0, i64 2), ptr %call34.i79, align 8, !noalias !8
-  %connection_.i.i55 = getelementptr inbounds %"class.net::(anonymous namespace)::RetransmissionAlarmDelegate", ptr %call34.i79, i64 0, i32 1
+  %connection_.i.i55 = getelementptr inbounds i8, ptr %call34.i79, i64 8
   store ptr %this, ptr %connection_.i.i55, align 8, !noalias !8
   br label %invoke.cont55
 
@@ -634,7 +491,7 @@ if.end37.i46:                                     ; preds = %_ZN3net18QuicArenaS
   %idxprom.i47 = zext nneg i32 %17 to i64
   %arrayidx.i48 = getelementptr inbounds [1024 x i8], ptr %arena_, i64 0, i64 %idxprom.i47
   store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN3net12_GLOBAL__N_127RetransmissionAlarmDelegateE, i64 0, inrange i32 0, i64 2), ptr %arrayidx.i48, align 8, !noalias !8
-  %connection_.i5.i49 = getelementptr inbounds %"class.net::(anonymous namespace)::RetransmissionAlarmDelegate", ptr %arrayidx.i48, i64 0, i32 1
+  %connection_.i5.i49 = getelementptr inbounds i8, ptr %arrayidx.i48, i64 8
   store ptr %this, ptr %connection_.i5.i49, align 8, !noalias !8
   %19 = load i32, ptr %offset_.i, align 8, !noalias !8
   %add.i50 = add i32 %19, 16
@@ -655,7 +512,7 @@ invoke.cont55:                                    ; preds = %if.end37.i46, %call
   call void @llvm.lifetime.end.p0(i64 408, ptr nonnull %ref.tmp9.i43)
   store ptr %storemerge.i52, ptr %agg.tmp50, align 8
   %vtable59 = load ptr, ptr %16, align 8
-  %vfn60 = getelementptr inbounds ptr, ptr %vtable59, i64 3
+  %vfn60 = getelementptr inbounds i8, ptr %vtable59, i64 24
   %23 = load ptr, ptr %vfn60, align 8
   invoke void %23(ptr nonnull sret(%"class.net::QuicArenaScopedPtr") align 8 %retransmission_alarm_, ptr noundef nonnull align 8 dereferenceable(8) %16, ptr noundef nonnull %agg.tmp50, ptr noundef nonnull %arena_)
           to label %invoke.cont62 unwind label %lpad61
@@ -679,7 +536,7 @@ if.then2.i.i85:                                   ; preds = %if.then.i.i82
 
 delete.notnull.i.i91:                             ; preds = %if.then.i.i82
   %vtable5.i.i92 = load ptr, ptr %24, align 8
-  %vfn6.i.i93 = getelementptr inbounds ptr, ptr %vtable5.i.i92, i64 1
+  %vfn6.i.i93 = getelementptr inbounds i8, ptr %vtable5.i.i92, i64 8
   br label %if.end13.sink.split.i.i88
 
 if.end13.sink.split.i.i88:                        ; preds = %delete.notnull.i.i91, %if.then2.i.i85
@@ -691,7 +548,7 @@ if.end13.sink.split.i.i88:                        ; preds = %delete.notnull.i.i9
 
 _ZN3net18QuicArenaScopedPtrINS_12_GLOBAL__N_127RetransmissionAlarmDelegateEED2Ev.exit: ; preds = %if.end13.sink.split.i.i88, %invoke.cont62
   store ptr null, ptr %agg.tmp50, align 8
-  %send_alarm_ = getelementptr inbounds %"class.net::QuicConnection", ptr %this, i64 0, i32 62
+  %send_alarm_ = getelementptr inbounds i8, ptr %this, i64 2352
   %28 = load ptr, ptr %alarm_factory_, align 8
   store ptr %this, ptr %ref.tmp69, align 8
   invoke fastcc void @_ZN3net17QuicOneBlockArenaILj1024EE3NewINS_12_GLOBAL__N_117SendAlarmDelegateEJPNS_14QuicConnectionEEEENS_18QuicArenaScopedPtrIT_EEDpOT0_(ptr noalias nonnull align 8 %ref.tmp67, ptr noundef nonnull align 8 dereferenceable(1028) %arena_, ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp69)
@@ -701,7 +558,7 @@ invoke.cont71:                                    ; preds = %_ZN3net18QuicArenaS
   %29 = load ptr, ptr %ref.tmp67, align 8
   store ptr %29, ptr %agg.tmp66, align 8
   %vtable75 = load ptr, ptr %28, align 8
-  %vfn76 = getelementptr inbounds ptr, ptr %vtable75, i64 3
+  %vfn76 = getelementptr inbounds i8, ptr %vtable75, i64 24
   %30 = load ptr, ptr %vfn76, align 8
   invoke void %30(ptr nonnull sret(%"class.net::QuicArenaScopedPtr") align 8 %send_alarm_, ptr noundef nonnull align 8 dereferenceable(8) %28, ptr noundef nonnull %agg.tmp66, ptr noundef nonnull %arena_)
           to label %invoke.cont78 unwind label %lpad77
@@ -725,7 +582,7 @@ if.then2.i.i112:                                  ; preds = %if.then.i.i109
 
 delete.notnull.i.i118:                            ; preds = %if.then.i.i109
   %vtable5.i.i119 = load ptr, ptr %31, align 8
-  %vfn6.i.i120 = getelementptr inbounds ptr, ptr %vtable5.i.i119, i64 1
+  %vfn6.i.i120 = getelementptr inbounds i8, ptr %vtable5.i.i119, i64 8
   br label %if.end13.sink.split.i.i115
 
 if.end13.sink.split.i.i115:                       ; preds = %delete.notnull.i.i118, %if.then2.i.i112
@@ -738,7 +595,7 @@ if.end13.sink.split.i.i115:                       ; preds = %delete.notnull.i.i1
 _ZN3net18QuicArenaScopedPtrINS_12_GLOBAL__N_117SendAlarmDelegateEED2Ev.exit: ; preds = %if.end13.sink.split.i.i115, %invoke.cont78
   store ptr null, ptr %agg.tmp66, align 8
   store ptr null, ptr %ref.tmp67, align 8
-  %resume_writes_alarm_ = getelementptr inbounds %"class.net::QuicConnection", ptr %this, i64 0, i32 63
+  %resume_writes_alarm_ = getelementptr inbounds i8, ptr %this, i64 2360
   %35 = load ptr, ptr %alarm_factory_, align 8
   store ptr %this, ptr %ref.tmp85, align 8
   invoke fastcc void @_ZN3net17QuicOneBlockArenaILj1024EE3NewINS_12_GLOBAL__N_117SendAlarmDelegateEJPNS_14QuicConnectionEEEENS_18QuicArenaScopedPtrIT_EEDpOT0_(ptr noalias nonnull align 8 %ref.tmp83, ptr noundef nonnull align 8 dereferenceable(1028) %arena_, ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp85)
@@ -748,7 +605,7 @@ invoke.cont87:                                    ; preds = %_ZN3net18QuicArenaS
   %36 = load ptr, ptr %ref.tmp83, align 8
   store ptr %36, ptr %agg.tmp82, align 8
   %vtable91 = load ptr, ptr %35, align 8
-  %vfn92 = getelementptr inbounds ptr, ptr %vtable91, i64 3
+  %vfn92 = getelementptr inbounds i8, ptr %vtable91, i64 24
   %37 = load ptr, ptr %vfn92, align 8
   invoke void %37(ptr nonnull sret(%"class.net::QuicArenaScopedPtr") align 8 %resume_writes_alarm_, ptr noundef nonnull align 8 dereferenceable(8) %35, ptr noundef nonnull %agg.tmp82, ptr noundef nonnull %arena_)
           to label %invoke.cont94 unwind label %lpad93
@@ -772,7 +629,7 @@ if.then2.i.i139:                                  ; preds = %if.then.i.i136
 
 delete.notnull.i.i145:                            ; preds = %if.then.i.i136
   %vtable5.i.i146 = load ptr, ptr %38, align 8
-  %vfn6.i.i147 = getelementptr inbounds ptr, ptr %vtable5.i.i146, i64 1
+  %vfn6.i.i147 = getelementptr inbounds i8, ptr %vtable5.i.i146, i64 8
   br label %if.end13.sink.split.i.i142
 
 if.end13.sink.split.i.i142:                       ; preds = %delete.notnull.i.i145, %if.then2.i.i139
@@ -785,7 +642,7 @@ if.end13.sink.split.i.i142:                       ; preds = %delete.notnull.i.i1
 _ZN3net18QuicArenaScopedPtrINS_12_GLOBAL__N_117SendAlarmDelegateEED2Ev.exit162: ; preds = %if.end13.sink.split.i.i142, %invoke.cont94
   store ptr null, ptr %agg.tmp82, align 8
   store ptr null, ptr %ref.tmp83, align 8
-  %timeout_alarm_ = getelementptr inbounds %"class.net::QuicConnection", ptr %this, i64 0, i32 64
+  %timeout_alarm_ = getelementptr inbounds i8, ptr %this, i64 2368
   %42 = load ptr, ptr %alarm_factory_, align 8
   call void @llvm.lifetime.start.p0(i64 408, ptr nonnull %ref.tmp9.i163)
   %43 = load i32, ptr %offset_.i, align 8, !noalias !11
@@ -804,7 +661,7 @@ cond.false.i176:                                  ; preds = %call7.i.noexc195
           to label %.noexc197 unwind label %lpad102
 
 .noexc197:                                        ; preds = %cond.false.i176
-  %stream_.i4.i177 = getelementptr inbounds %"class.logging::LogMessage", ptr %ref.tmp9.i163, i64 0, i32 2
+  %stream_.i4.i177 = getelementptr inbounds i8, ptr %ref.tmp9.i163, i64 8
   %call13.i178 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc(ptr noundef nonnull align 8 dereferenceable(8) %stream_.i4.i177, ptr noundef nonnull @.str.64)
           to label %invoke.cont12.i180 unwind label %eh.resume.i179, !noalias !11
 
@@ -847,7 +704,7 @@ cleanup.done.i174:                                ; preds = %cleanup.action.i194
 
 call34.i.noexc198:                                ; preds = %cleanup.done.i174
   store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN3net12_GLOBAL__N_120TimeoutAlarmDelegateE, i64 0, inrange i32 0, i64 2), ptr %call34.i199, align 8, !noalias !11
-  %connection_.i.i175 = getelementptr inbounds %"class.net::(anonymous namespace)::TimeoutAlarmDelegate", ptr %call34.i199, i64 0, i32 1
+  %connection_.i.i175 = getelementptr inbounds i8, ptr %call34.i199, i64 8
   store ptr %this, ptr %connection_.i.i175, align 8, !noalias !11
   br label %invoke.cont103
 
@@ -855,7 +712,7 @@ if.end37.i166:                                    ; preds = %_ZN3net18QuicArenaS
   %idxprom.i167 = zext nneg i32 %43 to i64
   %arrayidx.i168 = getelementptr inbounds [1024 x i8], ptr %arena_, i64 0, i64 %idxprom.i167
   store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN3net12_GLOBAL__N_120TimeoutAlarmDelegateE, i64 0, inrange i32 0, i64 2), ptr %arrayidx.i168, align 8, !noalias !11
-  %connection_.i5.i169 = getelementptr inbounds %"class.net::(anonymous namespace)::TimeoutAlarmDelegate", ptr %arrayidx.i168, i64 0, i32 1
+  %connection_.i5.i169 = getelementptr inbounds i8, ptr %arrayidx.i168, i64 8
   store ptr %this, ptr %connection_.i5.i169, align 8, !noalias !11
   %45 = load i32, ptr %offset_.i, align 8, !noalias !11
   %add.i170 = add i32 %45, 16
@@ -876,7 +733,7 @@ invoke.cont103:                                   ; preds = %if.end37.i166, %cal
   call void @llvm.lifetime.end.p0(i64 408, ptr nonnull %ref.tmp9.i163)
   store ptr %storemerge.i172, ptr %agg.tmp98, align 8
   %vtable107 = load ptr, ptr %42, align 8
-  %vfn108 = getelementptr inbounds ptr, ptr %vtable107, i64 3
+  %vfn108 = getelementptr inbounds i8, ptr %vtable107, i64 24
   %49 = load ptr, ptr %vfn108, align 8
   invoke void %49(ptr nonnull sret(%"class.net::QuicArenaScopedPtr") align 8 %timeout_alarm_, ptr noundef nonnull align 8 dereferenceable(8) %42, ptr noundef nonnull %agg.tmp98, ptr noundef nonnull %arena_)
           to label %invoke.cont110 unwind label %lpad109
@@ -900,7 +757,7 @@ if.then2.i.i205:                                  ; preds = %if.then.i.i202
 
 delete.notnull.i.i211:                            ; preds = %if.then.i.i202
   %vtable5.i.i212 = load ptr, ptr %50, align 8
-  %vfn6.i.i213 = getelementptr inbounds ptr, ptr %vtable5.i.i212, i64 1
+  %vfn6.i.i213 = getelementptr inbounds i8, ptr %vtable5.i.i212, i64 8
   br label %if.end13.sink.split.i.i208
 
 if.end13.sink.split.i.i208:                       ; preds = %delete.notnull.i.i211, %if.then2.i.i205
@@ -912,7 +769,7 @@ if.end13.sink.split.i.i208:                       ; preds = %delete.notnull.i.i2
 
 _ZN3net18QuicArenaScopedPtrINS_12_GLOBAL__N_120TimeoutAlarmDelegateEED2Ev.exit: ; preds = %if.end13.sink.split.i.i208, %invoke.cont110
   store ptr null, ptr %agg.tmp98, align 8
-  %ping_alarm_ = getelementptr inbounds %"class.net::QuicConnection", ptr %this, i64 0, i32 65
+  %ping_alarm_ = getelementptr inbounds i8, ptr %this, i64 2376
   %54 = load ptr, ptr %alarm_factory_, align 8
   call void @llvm.lifetime.start.p0(i64 408, ptr nonnull %ref.tmp9.i228)
   %55 = load i32, ptr %offset_.i, align 8, !noalias !14
@@ -931,7 +788,7 @@ cond.false.i241:                                  ; preds = %call7.i.noexc260
           to label %.noexc262 unwind label %lpad118
 
 .noexc262:                                        ; preds = %cond.false.i241
-  %stream_.i4.i242 = getelementptr inbounds %"class.logging::LogMessage", ptr %ref.tmp9.i228, i64 0, i32 2
+  %stream_.i4.i242 = getelementptr inbounds i8, ptr %ref.tmp9.i228, i64 8
   %call13.i243 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc(ptr noundef nonnull align 8 dereferenceable(8) %stream_.i4.i242, ptr noundef nonnull @.str.64)
           to label %invoke.cont12.i245 unwind label %eh.resume.i244, !noalias !14
 
@@ -974,7 +831,7 @@ cleanup.done.i239:                                ; preds = %cleanup.action.i259
 
 call34.i.noexc263:                                ; preds = %cleanup.done.i239
   store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN3net12_GLOBAL__N_117PingAlarmDelegateE, i64 0, inrange i32 0, i64 2), ptr %call34.i264, align 8, !noalias !14
-  %connection_.i.i240 = getelementptr inbounds %"class.net::(anonymous namespace)::PingAlarmDelegate", ptr %call34.i264, i64 0, i32 1
+  %connection_.i.i240 = getelementptr inbounds i8, ptr %call34.i264, i64 8
   store ptr %this, ptr %connection_.i.i240, align 8, !noalias !14
   br label %invoke.cont119
 
@@ -982,7 +839,7 @@ if.end37.i231:                                    ; preds = %_ZN3net18QuicArenaS
   %idxprom.i232 = zext nneg i32 %55 to i64
   %arrayidx.i233 = getelementptr inbounds [1024 x i8], ptr %arena_, i64 0, i64 %idxprom.i232
   store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN3net12_GLOBAL__N_117PingAlarmDelegateE, i64 0, inrange i32 0, i64 2), ptr %arrayidx.i233, align 8, !noalias !14
-  %connection_.i5.i234 = getelementptr inbounds %"class.net::(anonymous namespace)::PingAlarmDelegate", ptr %arrayidx.i233, i64 0, i32 1
+  %connection_.i5.i234 = getelementptr inbounds i8, ptr %arrayidx.i233, i64 8
   store ptr %this, ptr %connection_.i5.i234, align 8, !noalias !14
   %57 = load i32, ptr %offset_.i, align 8, !noalias !14
   %add.i235 = add i32 %57, 16
@@ -1003,7 +860,7 @@ invoke.cont119:                                   ; preds = %if.end37.i231, %cal
   call void @llvm.lifetime.end.p0(i64 408, ptr nonnull %ref.tmp9.i228)
   store ptr %storemerge.i237, ptr %agg.tmp114, align 8
   %vtable123 = load ptr, ptr %54, align 8
-  %vfn124 = getelementptr inbounds ptr, ptr %vtable123, i64 3
+  %vfn124 = getelementptr inbounds i8, ptr %vtable123, i64 24
   %61 = load ptr, ptr %vfn124, align 8
   invoke void %61(ptr nonnull sret(%"class.net::QuicArenaScopedPtr") align 8 %ping_alarm_, ptr noundef nonnull align 8 dereferenceable(8) %54, ptr noundef nonnull %agg.tmp114, ptr noundef nonnull %arena_)
           to label %invoke.cont126 unwind label %lpad125
@@ -1027,7 +884,7 @@ if.then2.i.i270:                                  ; preds = %if.then.i.i267
 
 delete.notnull.i.i276:                            ; preds = %if.then.i.i267
   %vtable5.i.i277 = load ptr, ptr %62, align 8
-  %vfn6.i.i278 = getelementptr inbounds ptr, ptr %vtable5.i.i277, i64 1
+  %vfn6.i.i278 = getelementptr inbounds i8, ptr %vtable5.i.i277, i64 8
   br label %if.end13.sink.split.i.i273
 
 if.end13.sink.split.i.i273:                       ; preds = %delete.notnull.i.i276, %if.then2.i.i270
@@ -1039,7 +896,7 @@ if.end13.sink.split.i.i273:                       ; preds = %delete.notnull.i.i2
 
 _ZN3net18QuicArenaScopedPtrINS_12_GLOBAL__N_117PingAlarmDelegateEED2Ev.exit: ; preds = %if.end13.sink.split.i.i273, %invoke.cont126
   store ptr null, ptr %agg.tmp114, align 8
-  %mtu_discovery_alarm_ = getelementptr inbounds %"class.net::QuicConnection", ptr %this, i64 0, i32 66
+  %mtu_discovery_alarm_ = getelementptr inbounds i8, ptr %this, i64 2384
   %66 = load ptr, ptr %alarm_factory_, align 8
   call void @llvm.lifetime.start.p0(i64 408, ptr nonnull %ref.tmp9.i293)
   %67 = load i32, ptr %offset_.i, align 8, !noalias !17
@@ -1058,7 +915,7 @@ cond.false.i306:                                  ; preds = %call7.i.noexc325
           to label %.noexc327 unwind label %lpad134
 
 .noexc327:                                        ; preds = %cond.false.i306
-  %stream_.i4.i307 = getelementptr inbounds %"class.logging::LogMessage", ptr %ref.tmp9.i293, i64 0, i32 2
+  %stream_.i4.i307 = getelementptr inbounds i8, ptr %ref.tmp9.i293, i64 8
   %call13.i308 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc(ptr noundef nonnull align 8 dereferenceable(8) %stream_.i4.i307, ptr noundef nonnull @.str.64)
           to label %invoke.cont12.i310 unwind label %eh.resume.i309, !noalias !17
 
@@ -1101,7 +958,7 @@ cleanup.done.i304:                                ; preds = %cleanup.action.i324
 
 call34.i.noexc328:                                ; preds = %cleanup.done.i304
   store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN3net12_GLOBAL__N_125MtuDiscoveryAlarmDelegateE, i64 0, inrange i32 0, i64 2), ptr %call34.i329, align 8, !noalias !17
-  %connection_.i.i305 = getelementptr inbounds %"class.net::(anonymous namespace)::MtuDiscoveryAlarmDelegate", ptr %call34.i329, i64 0, i32 1
+  %connection_.i.i305 = getelementptr inbounds i8, ptr %call34.i329, i64 8
   store ptr %this, ptr %connection_.i.i305, align 8, !noalias !17
   br label %invoke.cont135
 
@@ -1109,7 +966,7 @@ if.end37.i296:                                    ; preds = %_ZN3net18QuicArenaS
   %idxprom.i297 = zext nneg i32 %67 to i64
   %arrayidx.i298 = getelementptr inbounds [1024 x i8], ptr %arena_, i64 0, i64 %idxprom.i297
   store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN3net12_GLOBAL__N_125MtuDiscoveryAlarmDelegateE, i64 0, inrange i32 0, i64 2), ptr %arrayidx.i298, align 8, !noalias !17
-  %connection_.i5.i299 = getelementptr inbounds %"class.net::(anonymous namespace)::MtuDiscoveryAlarmDelegate", ptr %arrayidx.i298, i64 0, i32 1
+  %connection_.i5.i299 = getelementptr inbounds i8, ptr %arrayidx.i298, i64 8
   store ptr %this, ptr %connection_.i5.i299, align 8, !noalias !17
   %69 = load i32, ptr %offset_.i, align 8, !noalias !17
   %add.i300 = add i32 %69, 16
@@ -1130,7 +987,7 @@ invoke.cont135:                                   ; preds = %if.end37.i296, %cal
   call void @llvm.lifetime.end.p0(i64 408, ptr nonnull %ref.tmp9.i293)
   store ptr %storemerge.i302, ptr %agg.tmp130, align 8
   %vtable139 = load ptr, ptr %66, align 8
-  %vfn140 = getelementptr inbounds ptr, ptr %vtable139, i64 3
+  %vfn140 = getelementptr inbounds i8, ptr %vtable139, i64 24
   %73 = load ptr, ptr %vfn140, align 8
   invoke void %73(ptr nonnull sret(%"class.net::QuicArenaScopedPtr") align 8 %mtu_discovery_alarm_, ptr noundef nonnull align 8 dereferenceable(8) %66, ptr noundef nonnull %agg.tmp130, ptr noundef nonnull %arena_)
           to label %invoke.cont142 unwind label %lpad141
@@ -1154,7 +1011,7 @@ if.then2.i.i335:                                  ; preds = %if.then.i.i332
 
 delete.notnull.i.i341:                            ; preds = %if.then.i.i332
   %vtable5.i.i342 = load ptr, ptr %74, align 8
-  %vfn6.i.i343 = getelementptr inbounds ptr, ptr %vtable5.i.i342, i64 1
+  %vfn6.i.i343 = getelementptr inbounds i8, ptr %vtable5.i.i342, i64 8
   br label %if.end13.sink.split.i.i338
 
 if.end13.sink.split.i.i338:                       ; preds = %delete.notnull.i.i341, %if.then2.i.i335
@@ -1166,13 +1023,13 @@ if.end13.sink.split.i.i338:                       ; preds = %delete.notnull.i.i3
 
 _ZN3net18QuicArenaScopedPtrINS_12_GLOBAL__N_125MtuDiscoveryAlarmDelegateEED2Ev.exit: ; preds = %if.end13.sink.split.i.i338, %invoke.cont142
   store ptr null, ptr %agg.tmp130, align 8
-  %visitor_ = getelementptr inbounds %"class.net::QuicConnection", ptr %this, i64 0, i32 67
-  %packet_generator_ = getelementptr inbounds %"class.net::QuicConnection", ptr %this, i64 0, i32 69
+  %visitor_ = getelementptr inbounds i8, ptr %this, i64 2392
+  %packet_generator_ = getelementptr inbounds i8, ptr %this, i64 2408
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %visitor_, i8 0, i64 16, i1 false)
   %78 = load i64, ptr %connection_id_, align 8
   %79 = load ptr, ptr %random_generator_, align 8
   %vtable148 = load ptr, ptr %helper, align 8
-  %vfn149 = getelementptr inbounds ptr, ptr %vtable148, i64 4
+  %vfn149 = getelementptr inbounds i8, ptr %vtable148, i64 32
   %80 = load ptr, ptr %vfn149, align 8
   %call152 = invoke noundef ptr %80(ptr noundef nonnull align 8 dereferenceable(8) %helper)
           to label %invoke.cont151 unwind label %lpad150
@@ -1182,13 +1039,13 @@ invoke.cont151:                                   ; preds = %_ZN3net18QuicArenaS
           to label %invoke.cont158 unwind label %lpad150
 
 invoke.cont158:                                   ; preds = %invoke.cont151
-  %idle_network_timeout_ = getelementptr inbounds %"class.net::QuicConnection", ptr %this, i64 0, i32 70
+  %idle_network_timeout_ = getelementptr inbounds i8, ptr %this, i64 2880
   store i64 0, ptr %idle_network_timeout_, align 8
-  %81 = getelementptr inbounds %"class.net::QuicConnection", ptr %this, i64 0, i32 70, i32 1
+  %81 = getelementptr inbounds i8, ptr %this, i64 2888
   store i64 9223372036854775807, ptr %81, align 8
-  %handshake_timeout_ = getelementptr inbounds %"class.net::QuicConnection", ptr %this, i64 0, i32 71
+  %handshake_timeout_ = getelementptr inbounds i8, ptr %this, i64 2896
   store i64 0, ptr %handshake_timeout_, align 8
-  %82 = getelementptr inbounds %"class.net::QuicConnection", ptr %this, i64 0, i32 71, i32 1
+  %82 = getelementptr inbounds i8, ptr %this, i64 2904
   store i64 9223372036854775807, ptr %82, align 8
   invoke void @_ZN3net19QuicConnectionStatsC1Ev(ptr noundef nonnull align 8 dereferenceable(248) %stats_)
           to label %invoke.cont161 unwind label %lpad155
@@ -1196,37 +1053,37 @@ invoke.cont158:                                   ; preds = %invoke.cont151
 invoke.cont161:                                   ; preds = %invoke.cont158
   %83 = load ptr, ptr %clock_, align 8
   %vtable163 = load ptr, ptr %83, align 8
-  %vfn164 = getelementptr inbounds ptr, ptr %vtable163, i64 2
+  %vfn164 = getelementptr inbounds i8, ptr %vtable163, i64 16
   %84 = load ptr, ptr %vfn164, align 8
   %call167 = invoke i64 %84(ptr noundef nonnull align 8 dereferenceable(8) %83)
           to label %invoke.cont166 unwind label %lpad165
 
 invoke.cont166:                                   ; preds = %invoke.cont161
-  %time_of_last_received_packet_ = getelementptr inbounds %"class.net::QuicConnection", ptr %this, i64 0, i32 73
+  %time_of_last_received_packet_ = getelementptr inbounds i8, ptr %this, i64 3160
   store i64 %call167, ptr %time_of_last_received_packet_, align 8
   %85 = load ptr, ptr %clock_, align 8
   %vtable170 = load ptr, ptr %85, align 8
-  %vfn171 = getelementptr inbounds ptr, ptr %vtable170, i64 2
+  %vfn171 = getelementptr inbounds i8, ptr %vtable170, i64 16
   %86 = load ptr, ptr %vfn171, align 8
   %call173 = invoke i64 %86(ptr noundef nonnull align 8 dereferenceable(8) %85)
           to label %invoke.cont172 unwind label %lpad165
 
 invoke.cont172:                                   ; preds = %invoke.cont166
-  %time_of_last_sent_new_packet_ = getelementptr inbounds %"class.net::QuicConnection", ptr %this, i64 0, i32 74
+  %time_of_last_sent_new_packet_ = getelementptr inbounds i8, ptr %this, i64 3168
   store i64 %call173, ptr %time_of_last_sent_new_packet_, align 8
   %87 = load ptr, ptr %clock_, align 8
   %vtable176 = load ptr, ptr %87, align 8
-  %vfn177 = getelementptr inbounds ptr, ptr %vtable176, i64 2
+  %vfn177 = getelementptr inbounds i8, ptr %vtable176, i64 16
   %88 = load ptr, ptr %vfn177, align 8
   %call179 = invoke i64 %88(ptr noundef nonnull align 8 dereferenceable(8) %87)
           to label %invoke.cont178 unwind label %lpad165
 
 invoke.cont178:                                   ; preds = %invoke.cont172
-  %last_send_for_timeout_ = getelementptr inbounds %"class.net::QuicConnection", ptr %this, i64 0, i32 75
+  %last_send_for_timeout_ = getelementptr inbounds i8, ptr %this, i64 3176
   store i64 %call179, ptr %last_send_for_timeout_, align 8
-  %packet_number_of_last_sent_packet_ = getelementptr inbounds %"class.net::QuicConnection", ptr %this, i64 0, i32 76
+  %packet_number_of_last_sent_packet_ = getelementptr inbounds i8, ptr %this, i64 3184
   store i64 0, ptr %packet_number_of_last_sent_packet_, align 8
-  %sent_packet_manager_ = getelementptr inbounds %"class.net::QuicConnection", ptr %this, i64 0, i32 77
+  %sent_packet_manager_ = getelementptr inbounds i8, ptr %this, i64 3192
   %call182 = invoke noalias noundef nonnull dereferenceable(776) ptr @_Znwm(i64 noundef 776) #23
           to label %invoke.cont181 unwind label %lpad165
 
@@ -1237,51 +1094,51 @@ invoke.cont181:                                   ; preds = %invoke.cont178
 
 invoke.cont186:                                   ; preds = %invoke.cont181
   store ptr %call182, ptr %sent_packet_manager_, align 8
-  %version_negotiation_state_ = getelementptr inbounds %"class.net::QuicConnection", ptr %this, i64 0, i32 78
+  %version_negotiation_state_ = getelementptr inbounds i8, ptr %this, i64 3200
   store i32 0, ptr %version_negotiation_state_, align 8
-  %perspective_ = getelementptr inbounds %"class.net::QuicConnection", ptr %this, i64 0, i32 79
+  %perspective_ = getelementptr inbounds i8, ptr %this, i64 3204
   store i32 %perspective, ptr %perspective_, align 4
-  %connected_ = getelementptr inbounds %"class.net::QuicConnection", ptr %this, i64 0, i32 80
+  %connected_ = getelementptr inbounds i8, ptr %this, i64 3208
   store i8 1, ptr %connected_, align 8
-  %last_packet_destination_address_ = getelementptr inbounds %"class.net::QuicConnection", ptr %this, i64 0, i32 82
+  %last_packet_destination_address_ = getelementptr inbounds i8, ptr %this, i64 3216
   invoke void @_ZN3net10IPEndPointC1Ev(ptr noundef nonnull align 8 dereferenceable(26) %last_packet_destination_address_)
           to label %invoke.cont189 unwind label %lpad188
 
 invoke.cont189:                                   ; preds = %invoke.cont186
-  %last_packet_source_address_ = getelementptr inbounds %"class.net::QuicConnection", ptr %this, i64 0, i32 83
+  %last_packet_source_address_ = getelementptr inbounds i8, ptr %this, i64 3248
   invoke void @_ZN3net10IPEndPointC1Ev(ptr noundef nonnull align 8 dereferenceable(26) %last_packet_source_address_)
           to label %invoke.cont191 unwind label %lpad190
 
 invoke.cont191:                                   ; preds = %invoke.cont189
-  %can_truncate_connection_ids_ = getelementptr inbounds %"class.net::QuicConnection", ptr %this, i64 0, i32 84
+  %can_truncate_connection_ids_ = getelementptr inbounds i8, ptr %this, i64 3280
   store i8 1, ptr %can_truncate_connection_ids_, align 8
-  %server_supported_versions_ = getelementptr inbounds %"class.net::QuicConnection", ptr %this, i64 0, i32 86
-  %packets_between_mtu_probes_ = getelementptr inbounds %"class.net::QuicConnection", ptr %this, i64 0, i32 89
+  %server_supported_versions_ = getelementptr inbounds i8, ptr %this, i64 3288
+  %packets_between_mtu_probes_ = getelementptr inbounds i8, ptr %this, i64 3328
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %server_supported_versions_, i8 0, i64 40, i1 false)
   store i64 100, ptr %packets_between_mtu_probes_, align 8
-  %next_mtu_probe_at_ = getelementptr inbounds %"class.net::QuicConnection", ptr %this, i64 0, i32 90
+  %next_mtu_probe_at_ = getelementptr inbounds i8, ptr %this, i64 3336
   store i64 100, ptr %next_mtu_probe_at_, align 8
-  %largest_received_packet_size_ = getelementptr inbounds %"class.net::QuicConnection", ptr %this, i64 0, i32 92
+  %largest_received_packet_size_ = getelementptr inbounds i8, ptr %this, i64 3352
   store i64 0, ptr %largest_received_packet_size_, align 8
-  %largest_packet_size_supported_ = getelementptr inbounds %"class.net::QuicConnection", ptr %this, i64 0, i32 93
+  %largest_packet_size_supported_ = getelementptr inbounds i8, ptr %this, i64 3360
   store i64 -1, ptr %largest_packet_size_supported_, align 8
-  %goaway_sent_ = getelementptr inbounds %"class.net::QuicConnection", ptr %this, i64 0, i32 94
-  %visitor_.i = getelementptr inbounds %"class.net::QuicConnection", ptr %this, i64 0, i32 4, i32 2
+  %goaway_sent_ = getelementptr inbounds i8, ptr %this, i64 3368
+  %visitor_.i = getelementptr inbounds i8, ptr %this, i64 72
   store i32 0, ptr %goaway_sent_, align 8
   store ptr %this, ptr %visitor_.i, align 8
-  %entropy_calculator_.i = getelementptr inbounds %"class.net::QuicConnection", ptr %this, i64 0, i32 4, i32 3
+  %entropy_calculator_.i = getelementptr inbounds i8, ptr %this, i64 80
   store ptr %received_packet_manager_, ptr %entropy_calculator_.i, align 8
-  %least_unacked = getelementptr inbounds %"class.net::QuicConnection", ptr %this, i64 0, i32 27, i32 2
+  %least_unacked = getelementptr inbounds i8, ptr %this, i64 688
   store i64 0, ptr %least_unacked, align 8
   %90 = load ptr, ptr %clock_, align 8
   %vtable202 = load ptr, ptr %90, align 8
-  %vfn203 = getelementptr inbounds ptr, ptr %vtable202, i64 2
+  %vfn203 = getelementptr inbounds i8, ptr %vtable202, i64 16
   %91 = load ptr, ptr %vfn203, align 8
   %call205 = invoke i64 %91(ptr noundef nonnull align 8 dereferenceable(8) %90)
           to label %invoke.cont204 unwind label %lpad194
 
 invoke.cont204:                                   ; preds = %invoke.cont191
-  %connection_creation_time = getelementptr inbounds %"class.net::QuicConnection", ptr %this, i64 0, i32 72, i32 30
+  %connection_creation_time = getelementptr inbounds i8, ptr %this, i64 3152
   store i64 %call205, ptr %connection_creation_time, align 8
   %92 = load i8, ptr @FLAGS_quic_enable_multipath, align 1
   %93 = and i8 %92, 1
@@ -1306,7 +1163,7 @@ invoke.cont216:                                   ; preds = %invoke.cont210
 
 _ZNKSt14default_deleteIN3net30QuicSentPacketManagerInterfaceEEclEPS1_.exit.i.i: ; preds = %invoke.cont216
   %vtable.i.i.i = load ptr, ptr %95, align 8
-  %vfn.i.i.i = getelementptr inbounds ptr, ptr %vtable.i.i.i, i64 1
+  %vfn.i.i.i = getelementptr inbounds i8, ptr %vtable.i.i.i, i64 8
   %96 = load ptr, ptr %vfn.i.i.i, align 8
   call void %96(ptr noundef nonnull align 8 dereferenceable(8) %95) #22
   br label %if.end
@@ -1367,7 +1224,7 @@ if.then2.i.i362:                                  ; preds = %if.then.i.i359
 
 delete.notnull.i.i368:                            ; preds = %if.then.i.i359
   %vtable5.i.i369 = load ptr, ptr %105, align 8
-  %vfn6.i.i370 = getelementptr inbounds ptr, ptr %vtable5.i.i369, i64 1
+  %vfn6.i.i370 = getelementptr inbounds i8, ptr %vtable5.i.i369, i64 8
   br label %if.end13.sink.split.i.i365
 
 if.end13.sink.split.i.i365:                       ; preds = %delete.notnull.i.i368, %if.then2.i.i362
@@ -1407,7 +1264,7 @@ if.then2.i.i390:                                  ; preds = %if.then.i.i387
 
 delete.notnull.i.i396:                            ; preds = %if.then.i.i387
   %vtable5.i.i397 = load ptr, ptr %111, align 8
-  %vfn6.i.i398 = getelementptr inbounds ptr, ptr %vtable5.i.i397, i64 1
+  %vfn6.i.i398 = getelementptr inbounds i8, ptr %vtable5.i.i397, i64 8
   br label %if.end13.sink.split.i.i393
 
 if.end13.sink.split.i.i393:                       ; preds = %delete.notnull.i.i396, %if.then2.i.i390
@@ -1447,7 +1304,7 @@ if.then2.i.i418:                                  ; preds = %if.then.i.i415
 
 delete.notnull.i.i424:                            ; preds = %if.then.i.i415
   %vtable5.i.i425 = load ptr, ptr %117, align 8
-  %vfn6.i.i426 = getelementptr inbounds ptr, ptr %vtable5.i.i425, i64 1
+  %vfn6.i.i426 = getelementptr inbounds i8, ptr %vtable5.i.i425, i64 8
   br label %if.end13.sink.split.i.i421
 
 if.end13.sink.split.i.i421:                       ; preds = %delete.notnull.i.i424, %if.then2.i.i418
@@ -1487,7 +1344,7 @@ if.then2.i.i446:                                  ; preds = %if.then.i.i443
 
 delete.notnull.i.i452:                            ; preds = %if.then.i.i443
   %vtable5.i.i453 = load ptr, ptr %123, align 8
-  %vfn6.i.i454 = getelementptr inbounds ptr, ptr %vtable5.i.i453, i64 1
+  %vfn6.i.i454 = getelementptr inbounds i8, ptr %vtable5.i.i453, i64 8
   br label %if.end13.sink.split.i.i449
 
 if.end13.sink.split.i.i449:                       ; preds = %delete.notnull.i.i452, %if.then2.i.i446
@@ -1527,7 +1384,7 @@ if.then2.i.i474:                                  ; preds = %if.then.i.i471
 
 delete.notnull.i.i480:                            ; preds = %if.then.i.i471
   %vtable5.i.i481 = load ptr, ptr %129, align 8
-  %vfn6.i.i482 = getelementptr inbounds ptr, ptr %vtable5.i.i481, i64 1
+  %vfn6.i.i482 = getelementptr inbounds i8, ptr %vtable5.i.i481, i64 8
   br label %if.end13.sink.split.i.i477
 
 if.end13.sink.split.i.i477:                       ; preds = %delete.notnull.i.i480, %if.then2.i.i474
@@ -1567,7 +1424,7 @@ if.then2.i.i502:                                  ; preds = %if.then.i.i499
 
 delete.notnull.i.i508:                            ; preds = %if.then.i.i499
   %vtable5.i.i509 = load ptr, ptr %135, align 8
-  %vfn6.i.i510 = getelementptr inbounds ptr, ptr %vtable5.i.i509, i64 1
+  %vfn6.i.i510 = getelementptr inbounds i8, ptr %vtable5.i.i509, i64 8
   br label %if.end13.sink.split.i.i505
 
 if.end13.sink.split.i.i505:                       ; preds = %delete.notnull.i.i508, %if.then2.i.i502
@@ -1607,7 +1464,7 @@ if.then2.i.i530:                                  ; preds = %if.then.i.i527
 
 delete.notnull.i.i536:                            ; preds = %if.then.i.i527
   %vtable5.i.i537 = load ptr, ptr %141, align 8
-  %vfn6.i.i538 = getelementptr inbounds ptr, ptr %vtable5.i.i537, i64 1
+  %vfn6.i.i538 = getelementptr inbounds i8, ptr %vtable5.i.i537, i64 8
   br label %if.end13.sink.split.i.i533
 
 if.end13.sink.split.i.i533:                       ; preds = %delete.notnull.i.i536, %if.then2.i.i530
@@ -1666,7 +1523,7 @@ lpad215:                                          ; preds = %invoke.cont210
 if.end:                                           ; preds = %_ZNKSt14default_deleteIN3net30QuicSentPacketManagerInterfaceEEclEPS1_.exit.i.i, %invoke.cont216, %invoke.cont204
   %153 = load ptr, ptr %sent_packet_manager_, align 8
   %vtable221 = load ptr, ptr %153, align 8
-  %vfn222 = getelementptr inbounds ptr, ptr %vtable221, i64 34
+  %vfn222 = getelementptr inbounds i8, ptr %vtable221, i64 272
   %154 = load ptr, ptr %vfn222, align 8
   invoke void %154(ptr noundef nonnull align 8 dereferenceable(8) %153, ptr noundef nonnull %2)
           to label %invoke.cont223 unwind label %lpad194
@@ -1675,7 +1532,7 @@ invoke.cont223:                                   ; preds = %if.end
   %155 = load i32, ptr %perspective_, align 4
   %cmp = icmp eq i32 %155, 0
   %cond = select i1 %cmp, i64 1000, i64 1350
-  %long_term_mtu_.i = getelementptr inbounds %"class.net::QuicConnection", ptr %this, i64 0, i32 91
+  %long_term_mtu_.i = getelementptr inbounds i8, ptr %this, i64 3344
   store i64 %cond, ptr %long_term_mtu_.i, align 8
   %call.i554 = invoke noundef i64 @_ZN3net14QuicConnection23GetLimitedMaxPacketSizeEm(ptr noundef nonnull align 8 dereferenceable(3372) %this, i64 noundef %cond)
           to label %call.i.noexc unwind label %lpad194
@@ -1685,7 +1542,7 @@ call.i.noexc:                                     ; preds = %invoke.cont223
           to label %invoke.cont227 unwind label %lpad194
 
 invoke.cont227:                                   ; preds = %call.i.noexc
-  %quic_version_.i.i = getelementptr inbounds %"class.net::QuicConnection", ptr %this, i64 0, i32 4, i32 13
+  %quic_version_.i.i = getelementptr inbounds i8, ptr %this, i64 300
   %156 = load i32, ptr %quic_version_.i.i, align 4
   invoke void @_ZN3net25QuicReceivedPacketManager10SetVersionENS_11QuicVersionE(ptr noundef nonnull align 8 dereferenceable(248) %received_packet_manager_, i32 noundef %156)
           to label %invoke.cont229 unwind label %lpad194
@@ -1720,7 +1577,7 @@ ehcleanup233:                                     ; preds = %ehcleanup232, %lpad
 
 _ZNKSt14default_deleteIN3net30QuicSentPacketManagerInterfaceEEclEPS1_.exit.i: ; preds = %ehcleanup233
   %vtable.i.i556 = load ptr, ptr %158, align 8
-  %vfn.i.i = getelementptr inbounds ptr, ptr %vtable.i.i556, i64 1
+  %vfn.i.i = getelementptr inbounds i8, ptr %vtable.i.i556, i64 8
   %159 = load ptr, ptr %vfn.i.i, align 8
   call void %159(ptr noundef nonnull align 8 dereferenceable(8) %158) #22
   br label %_ZNSt10unique_ptrIN3net30QuicSentPacketManagerInterfaceESt14default_deleteIS1_EED2Ev.exit
@@ -1759,7 +1616,7 @@ if.then2.i.i561:                                  ; preds = %if.then.i.i558
 
 delete.notnull.i.i567:                            ; preds = %if.then.i.i558
   %vtable5.i.i568 = load ptr, ptr %160, align 8
-  %vfn6.i.i569 = getelementptr inbounds ptr, ptr %vtable5.i.i568, i64 1
+  %vfn6.i.i569 = getelementptr inbounds i8, ptr %vtable5.i.i568, i64 8
   br label %if.end13.sink.split.i.i564
 
 if.end13.sink.split.i.i564:                       ; preds = %delete.notnull.i.i567, %if.then2.i.i561
@@ -1793,7 +1650,7 @@ if.then2.i.i574:                                  ; preds = %if.then.i.i571
 
 delete.notnull.i.i580:                            ; preds = %if.then.i.i571
   %vtable5.i.i581 = load ptr, ptr %164, align 8
-  %vfn6.i.i582 = getelementptr inbounds ptr, ptr %vtable5.i.i581, i64 1
+  %vfn6.i.i582 = getelementptr inbounds i8, ptr %vtable5.i.i581, i64 8
   br label %if.end13.sink.split.i.i577
 
 if.end13.sink.split.i.i577:                       ; preds = %delete.notnull.i.i580, %if.then2.i.i574
@@ -1827,7 +1684,7 @@ if.then2.i.i588:                                  ; preds = %if.then.i.i585
 
 delete.notnull.i.i594:                            ; preds = %if.then.i.i585
   %vtable5.i.i595 = load ptr, ptr %168, align 8
-  %vfn6.i.i596 = getelementptr inbounds ptr, ptr %vtable5.i.i595, i64 1
+  %vfn6.i.i596 = getelementptr inbounds i8, ptr %vtable5.i.i595, i64 8
   br label %if.end13.sink.split.i.i591
 
 if.end13.sink.split.i.i591:                       ; preds = %delete.notnull.i.i594, %if.then2.i.i588
@@ -1861,7 +1718,7 @@ if.then2.i.i602:                                  ; preds = %if.then.i.i599
 
 delete.notnull.i.i608:                            ; preds = %if.then.i.i599
   %vtable5.i.i609 = load ptr, ptr %172, align 8
-  %vfn6.i.i610 = getelementptr inbounds ptr, ptr %vtable5.i.i609, i64 1
+  %vfn6.i.i610 = getelementptr inbounds i8, ptr %vtable5.i.i609, i64 8
   br label %if.end13.sink.split.i.i605
 
 if.end13.sink.split.i.i605:                       ; preds = %delete.notnull.i.i608, %if.then2.i.i602
@@ -1895,7 +1752,7 @@ if.then2.i.i616:                                  ; preds = %if.then.i.i613
 
 delete.notnull.i.i622:                            ; preds = %if.then.i.i613
   %vtable5.i.i623 = load ptr, ptr %176, align 8
-  %vfn6.i.i624 = getelementptr inbounds ptr, ptr %vtable5.i.i623, i64 1
+  %vfn6.i.i624 = getelementptr inbounds i8, ptr %vtable5.i.i623, i64 8
   br label %if.end13.sink.split.i.i619
 
 if.end13.sink.split.i.i619:                       ; preds = %delete.notnull.i.i622, %if.then2.i.i616
@@ -1929,7 +1786,7 @@ if.then2.i.i630:                                  ; preds = %if.then.i.i627
 
 delete.notnull.i.i636:                            ; preds = %if.then.i.i627
   %vtable5.i.i637 = load ptr, ptr %180, align 8
-  %vfn6.i.i638 = getelementptr inbounds ptr, ptr %vtable5.i.i637, i64 1
+  %vfn6.i.i638 = getelementptr inbounds i8, ptr %vtable5.i.i637, i64 8
   br label %if.end13.sink.split.i.i633
 
 if.end13.sink.split.i.i633:                       ; preds = %delete.notnull.i.i636, %if.then2.i.i630
@@ -1963,7 +1820,7 @@ if.then2.i.i644:                                  ; preds = %if.then.i.i641
 
 delete.notnull.i.i650:                            ; preds = %if.then.i.i641
   %vtable5.i.i651 = load ptr, ptr %184, align 8
-  %vfn6.i.i652 = getelementptr inbounds ptr, ptr %vtable5.i.i651, i64 1
+  %vfn6.i.i652 = getelementptr inbounds i8, ptr %vtable5.i.i651, i64 8
   br label %if.end13.sink.split.i.i647
 
 if.end13.sink.split.i.i647:                       ; preds = %delete.notnull.i.i650, %if.then2.i.i644
@@ -2040,7 +1897,7 @@ declare void @_ZN3net22QuicSentEntropyManagerC1Ev(ptr noundef nonnull align 8 de
 define internal fastcc void @_ZN3net17QuicOneBlockArenaILj1024EE3NewINS_12_GLOBAL__N_117SendAlarmDelegateEJPNS_14QuicConnectionEEEENS_18QuicArenaScopedPtrIT_EEDpOT0_(ptr noalias nocapture writeonly align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(1028) %this, ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %args) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 if.end:
   %ref.tmp9 = alloca %"class.logging::LogMessage", align 8
-  %offset_ = getelementptr inbounds %"class.net::QuicOneBlockArena", ptr %this, i64 0, i32 1
+  %offset_ = getelementptr inbounds i8, ptr %this, i64 1024
   %0 = load i32, ptr %offset_, align 8
   %cmp = icmp ugt i32 %0, 1008
   br i1 %cmp, label %if.then6, label %if.end37
@@ -2051,7 +1908,7 @@ if.then6:                                         ; preds = %if.end
 
 cond.false:                                       ; preds = %if.then6
   call void @_ZN7logging10LogMessageC1EPKcii(ptr noundef nonnull align 8 dereferenceable(404) %ref.tmp9, ptr noundef nonnull @.str.62, i32 noundef 62, i32 noundef 2)
-  %stream_.i4 = getelementptr inbounds %"class.logging::LogMessage", ptr %ref.tmp9, i64 0, i32 2
+  %stream_.i4 = getelementptr inbounds i8, ptr %ref.tmp9, i64 8
   %call13 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc(ptr noundef nonnull align 8 dereferenceable(8) %stream_.i4, ptr noundef nonnull @.str.64)
           to label %invoke.cont12 unwind label %eh.resume
 
@@ -2092,7 +1949,7 @@ cleanup.done:                                     ; preds = %if.then6, %cleanup.
   %call34 = call noalias noundef nonnull dereferenceable(16) ptr @_Znwm(i64 noundef 16) #23
   %2 = load ptr, ptr %args, align 8
   store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN3net12_GLOBAL__N_117SendAlarmDelegateE, i64 0, inrange i32 0, i64 2), ptr %call34, align 8
-  %connection_.i = getelementptr inbounds %"class.net::(anonymous namespace)::SendAlarmDelegate", ptr %call34, i64 0, i32 1
+  %connection_.i = getelementptr inbounds i8, ptr %call34, i64 8
   store ptr %2, ptr %connection_.i, align 8
   br label %return
 
@@ -2101,7 +1958,7 @@ if.end37:                                         ; preds = %if.end
   %arrayidx = getelementptr inbounds [1024 x i8], ptr %this, i64 0, i64 %idxprom
   %3 = load ptr, ptr %args, align 8
   store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN3net12_GLOBAL__N_117SendAlarmDelegateE, i64 0, inrange i32 0, i64 2), ptr %arrayidx, align 8
-  %connection_.i5 = getelementptr inbounds %"class.net::(anonymous namespace)::SendAlarmDelegate", ptr %arrayidx, i64 0, i32 1
+  %connection_.i5 = getelementptr inbounds i8, ptr %arrayidx, i64 8
   store ptr %3, ptr %connection_.i5, align 8
   %4 = load i32, ptr %offset_, align 8
   %add = add i32 %4, 16
@@ -2143,9 +2000,9 @@ declare void @_ZN3net30QuicMultipathSentPacketManagerC1EPNS_30QuicSentPacketMana
 ; Function Attrs: mustprogress uwtable
 define dso_local void @_ZN3net14QuicConnection18SetMaxPacketLengthEm(ptr noundef nonnull align 8 dereferenceable(3372) %this, i64 noundef %length) local_unnamed_addr #0 align 2 {
 entry:
-  %long_term_mtu_ = getelementptr inbounds %"class.net::QuicConnection", ptr %this, i64 0, i32 91
+  %long_term_mtu_ = getelementptr inbounds i8, ptr %this, i64 3344
   store i64 %length, ptr %long_term_mtu_, align 8
-  %packet_generator_ = getelementptr inbounds %"class.net::QuicConnection", ptr %this, i64 0, i32 69
+  %packet_generator_ = getelementptr inbounds i8, ptr %this, i64 2408
   %call = tail call noundef i64 @_ZN3net14QuicConnection23GetLimitedMaxPacketSizeEm(ptr noundef nonnull align 8 dereferenceable(3372) %this, i64 noundef %length)
   tail call void @_ZN3net19QuicPacketGenerator18SetMaxPacketLengthEm(ptr noundef nonnull align 8 dereferenceable(472) %packet_generator_, i64 noundef %call)
   ret void
@@ -2177,7 +2034,7 @@ entry:
 
 delete.notnull.i:                                 ; preds = %entry
   %1 = load ptr, ptr %0, align 8
-  %_M_finish.i.i = getelementptr inbounds %"struct.std::_Vector_base<std::unique_ptr<net::QuicEncryptedPacket>, std::allocator<std::unique_ptr<net::QuicEncryptedPacket>>>::_Vector_impl_data", ptr %0, i64 0, i32 1
+  %_M_finish.i.i = getelementptr inbounds i8, ptr %0, i64 8
   %2 = load ptr, ptr %_M_finish.i.i, align 8
   %cmp.not3.i.i.i.i.i = icmp eq ptr %1, %2
   br i1 %cmp.not3.i.i.i.i.i, label %invoke.cont.i.i, label %for.body.i.i.i.i.i
@@ -2190,14 +2047,14 @@ for.body.i.i.i.i.i:                               ; preds = %delete.notnull.i, %
 
 _ZNKSt14default_deleteIN3net19QuicEncryptedPacketEEclEPS1_.exit.i.i.i.i.i.i.i: ; preds = %for.body.i.i.i.i.i
   %vtable.i.i.i.i.i.i.i.i = load ptr, ptr %3, align 8
-  %vfn.i.i.i.i.i.i.i.i = getelementptr inbounds ptr, ptr %vtable.i.i.i.i.i.i.i.i, i64 1
+  %vfn.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %vtable.i.i.i.i.i.i.i.i, i64 8
   %4 = load ptr, ptr %vfn.i.i.i.i.i.i.i.i, align 8
   tail call void %4(ptr noundef nonnull align 8 dereferenceable(25) %3) #22
   br label %_ZSt8_DestroyISt10unique_ptrIN3net19QuicEncryptedPacketESt14default_deleteIS2_EEEvPT_.exit.i.i.i.i.i
 
 _ZSt8_DestroyISt10unique_ptrIN3net19QuicEncryptedPacketESt14default_deleteIS2_EEEvPT_.exit.i.i.i.i.i: ; preds = %_ZNKSt14default_deleteIN3net19QuicEncryptedPacketEEclEPS1_.exit.i.i.i.i.i.i.i, %for.body.i.i.i.i.i
   store ptr null, ptr %__first.addr.04.i.i.i.i.i, align 8
-  %incdec.ptr.i.i.i.i.i = getelementptr inbounds %"class.std::unique_ptr.155", ptr %__first.addr.04.i.i.i.i.i, i64 1
+  %incdec.ptr.i.i.i.i.i = getelementptr inbounds i8, ptr %__first.addr.04.i.i.i.i.i, i64 8
   %cmp.not.i.i.i.i.i = icmp eq ptr %incdec.ptr.i.i.i.i.i, %2
   br i1 %cmp.not.i.i.i.i.i, label %invoke.contthread-pre-split.i.i, label %for.body.i.i.i.i.i, !llvm.loop !20
 
@@ -2233,7 +2090,7 @@ entry:
 while.body.i.i:                                   ; preds = %entry, %while.body.i.i
   %__cur.05.i.i = phi ptr [ %1, %while.body.i.i ], [ %0, %entry ]
   %1 = load ptr, ptr %__cur.05.i.i, align 8
-  %_M_storage.i.i.i = getelementptr inbounds %"struct.std::_List_node", ptr %__cur.05.i.i, i64 0, i32 1
+  %_M_storage.i.i.i = getelementptr inbounds i8, ptr %__cur.05.i.i, i64 16
   tail call void @_ZN3net16SerializedPacketD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %_M_storage.i.i.i) #22
   tail call void @_ZdlPv(ptr noundef %__cur.05.i.i) #24
   %cmp.not.i.i = icmp eq ptr %1, %this
@@ -2251,11 +2108,11 @@ entry:
   br i1 %tobool.not.i, label %_ZNSt11_Deque_baseIPN3net19QuicEncryptedPacketESaIS2_EED2Ev.exit, label %if.then.i
 
 if.then.i:                                        ; preds = %entry
-  %_M_node5.i.i6 = getelementptr inbounds %"struct.std::_Deque_base<net::QuicEncryptedPacket *, std::allocator<net::QuicEncryptedPacket *>>::_Deque_impl_data", ptr %this, i64 0, i32 3, i32 3
-  %_M_node5.i.i = getelementptr inbounds %"struct.std::_Deque_base<net::QuicEncryptedPacket *, std::allocator<net::QuicEncryptedPacket *>>::_Deque_impl_data", ptr %this, i64 0, i32 2, i32 3
+  %_M_node5.i.i6 = getelementptr inbounds i8, ptr %this, i64 72
+  %_M_node5.i.i = getelementptr inbounds i8, ptr %this, i64 40
   %1 = load ptr, ptr %_M_node5.i.i, align 8
   %2 = load ptr, ptr %_M_node5.i.i6, align 8
-  %add.ptr.i = getelementptr inbounds ptr, ptr %2, i64 1
+  %add.ptr.i = getelementptr inbounds i8, ptr %2, i64 8
   %cmp3.i.i = icmp ult ptr %1, %add.ptr.i
   br i1 %cmp3.i.i, label %for.body.i.i, label %_ZNSt11_Deque_baseIPN3net19QuicEncryptedPacketESaIS2_EE16_M_destroy_nodesEPPS2_S6_.exit.i
 
@@ -2263,7 +2120,7 @@ for.body.i.i:                                     ; preds = %if.then.i, %for.bod
   %__n.04.i.i = phi ptr [ %incdec.ptr.i.i, %for.body.i.i ], [ %1, %if.then.i ]
   %3 = load ptr, ptr %__n.04.i.i, align 8
   tail call void @_ZdlPv(ptr noundef %3) #24
-  %incdec.ptr.i.i = getelementptr inbounds ptr, ptr %__n.04.i.i, i64 1
+  %incdec.ptr.i.i = getelementptr inbounds i8, ptr %__n.04.i.i, i64 8
   %cmp.i.i = icmp ult ptr %__n.04.i.i, %2
   br i1 %cmp.i.i, label %for.body.i.i, label %_ZNSt11_Deque_baseIPN3net19QuicEncryptedPacketESaIS2_EE16_M_destroy_nodesEPPS2_S6_.exit.loopexit.i, !llvm.loop !23
 
@@ -2296,39 +2153,39 @@ entry:
   store ptr getelementptr inbounds ({ [50 x ptr], [5 x ptr], [9 x ptr], [7 x ptr] }, ptr @_ZTVN3net14QuicConnectionE, i64 0, inrange i32 2, i64 2), ptr %add.ptr2, align 8
   %add.ptr3 = getelementptr inbounds i8, ptr %this, i64 24
   store ptr getelementptr inbounds ({ [50 x ptr], [5 x ptr], [9 x ptr], [7 x ptr] }, ptr @_ZTVN3net14QuicConnectionE, i64 0, inrange i32 3, i64 2), ptr %add.ptr3, align 8
-  %owns_writer_ = getelementptr inbounds %"class.net::QuicConnection", ptr %this, i64 0, i32 9
+  %owns_writer_ = getelementptr inbounds i8, ptr %this, i64 472
   %0 = load i8, ptr %owns_writer_, align 8
   %1 = and i8 %0, 1
   %tobool.not = icmp eq i8 %1, 0
   br i1 %tobool.not, label %if.end, label %if.then
 
 if.then:                                          ; preds = %entry
-  %writer_ = getelementptr inbounds %"class.net::QuicConnection", ptr %this, i64 0, i32 8
+  %writer_ = getelementptr inbounds i8, ptr %this, i64 464
   %2 = load ptr, ptr %writer_, align 8
   %isnull = icmp eq ptr %2, null
   br i1 %isnull, label %if.end, label %delete.notnull
 
 delete.notnull:                                   ; preds = %if.then
   %vtable = load ptr, ptr %2, align 8
-  %vfn = getelementptr inbounds ptr, ptr %vtable, i64 1
+  %vfn = getelementptr inbounds i8, ptr %vtable, i64 8
   %3 = load ptr, ptr %vfn, align 8
   tail call void %3(ptr noundef nonnull align 8 dereferenceable(8) %2) #22
   br label %if.end
 
 if.end:                                           ; preds = %if.then, %delete.notnull, %entry
-  %undecryptable_packets_ = getelementptr inbounds %"class.net::QuicConnection", ptr %this, i64 0, i32 32
-  %_M_start.i.i = getelementptr inbounds %"class.net::QuicConnection", ptr %this, i64 0, i32 32, i32 0, i32 0, i32 0, i32 2
+  %undecryptable_packets_ = getelementptr inbounds i8, ptr %this, i64 720
+  %_M_start.i.i = getelementptr inbounds i8, ptr %this, i64 736
   %4 = load ptr, ptr %_M_start.i.i, align 8, !noalias !24
-  %_M_first3.i.i.i = getelementptr inbounds %"class.net::QuicConnection", ptr %this, i64 0, i32 32, i32 0, i32 0, i32 0, i32 2, i32 1
-  %_M_last4.i.i.i = getelementptr inbounds %"class.net::QuicConnection", ptr %this, i64 0, i32 32, i32 0, i32 0, i32 0, i32 2, i32 2
+  %_M_first3.i.i.i = getelementptr inbounds i8, ptr %this, i64 744
+  %_M_last4.i.i.i = getelementptr inbounds i8, ptr %this, i64 752
   %5 = load ptr, ptr %_M_last4.i.i.i, align 8, !noalias !24
-  %_M_node5.i.i.i = getelementptr inbounds %"class.net::QuicConnection", ptr %this, i64 0, i32 32, i32 0, i32 0, i32 0, i32 2, i32 3
+  %_M_node5.i.i.i = getelementptr inbounds i8, ptr %this, i64 760
   %6 = load ptr, ptr %_M_node5.i.i.i, align 8, !noalias !24
-  %_M_finish.i.i = getelementptr inbounds %"class.net::QuicConnection", ptr %this, i64 0, i32 32, i32 0, i32 0, i32 0, i32 3
+  %_M_finish.i.i = getelementptr inbounds i8, ptr %this, i64 768
   %7 = load ptr, ptr %_M_finish.i.i, align 8, !noalias !25
-  %_M_first3.i.i5.i = getelementptr inbounds %"class.net::QuicConnection", ptr %this, i64 0, i32 32, i32 0, i32 0, i32 0, i32 3, i32 1
-  %_M_last4.i.i7.i = getelementptr inbounds %"class.net::QuicConnection", ptr %this, i64 0, i32 32, i32 0, i32 0, i32 0, i32 3, i32 2
-  %_M_node5.i.i9.i = getelementptr inbounds %"class.net::QuicConnection", ptr %this, i64 0, i32 32, i32 0, i32 0, i32 0, i32 3, i32 3
+  %_M_first3.i.i5.i = getelementptr inbounds i8, ptr %this, i64 776
+  %_M_last4.i.i7.i = getelementptr inbounds i8, ptr %this, i64 784
+  %_M_node5.i.i9.i = getelementptr inbounds i8, ptr %this, i64 792
   %cmp.i.i.not3.i.i = icmp eq ptr %4, %7
   br i1 %cmp.i.i.not3.i.i, label %_ZN4base26STLDeleteContainerPointersISt15_Deque_iteratorIPN3net19QuicEncryptedPacketERS4_PS4_EEEvT_S8_.exit.i, label %while.body.i.i
 
@@ -2336,14 +2193,14 @@ while.body.i.i:                                   ; preds = %if.end, %delete.end
   %agg.tmp.sroa.7.0.i = phi ptr [ %agg.tmp.sroa.7.1.i, %delete.end.i.i ], [ %5, %if.end ]
   %agg.tmp.sroa.10.0.i = phi ptr [ %agg.tmp.sroa.10.1.i, %delete.end.i.i ], [ %6, %if.end ]
   %8 = phi ptr [ %agg.tmp.sroa.0.0.i, %delete.end.i.i ], [ %4, %if.end ]
-  %incdec.ptr.i.i.i = getelementptr inbounds ptr, ptr %8, i64 1
+  %incdec.ptr.i.i.i = getelementptr inbounds i8, ptr %8, i64 8
   %cmp.i.i.i = icmp eq ptr %incdec.ptr.i.i.i, %agg.tmp.sroa.7.0.i
   br i1 %cmp.i.i.i, label %if.then.i.i.i, label %_ZNSt15_Deque_iteratorIPN3net19QuicEncryptedPacketERS2_PS2_EppEv.exit.i.i
 
 if.then.i.i.i:                                    ; preds = %while.body.i.i
-  %add.ptr.i.i.i = getelementptr inbounds ptr, ptr %agg.tmp.sroa.10.0.i, i64 1
+  %add.ptr.i.i.i = getelementptr inbounds i8, ptr %agg.tmp.sroa.10.0.i, i64 8
   %9 = load ptr, ptr %add.ptr.i.i.i, align 8
-  %add.ptr.i.i.i.i = getelementptr inbounds ptr, ptr %9, i64 64
+  %add.ptr.i.i.i.i = getelementptr inbounds i8, ptr %9, i64 512
   br label %_ZNSt15_Deque_iteratorIPN3net19QuicEncryptedPacketERS2_PS2_EppEv.exit.i.i
 
 _ZNSt15_Deque_iteratorIPN3net19QuicEncryptedPacketERS2_PS2_EppEv.exit.i.i: ; preds = %if.then.i.i.i, %while.body.i.i
@@ -2356,7 +2213,7 @@ _ZNSt15_Deque_iteratorIPN3net19QuicEncryptedPacketERS2_PS2_EppEv.exit.i.i: ; pre
 
 delete.notnull.i.i:                               ; preds = %_ZNSt15_Deque_iteratorIPN3net19QuicEncryptedPacketERS2_PS2_EppEv.exit.i.i
   %vtable.i.i = load ptr, ptr %10, align 8
-  %vfn.i.i = getelementptr inbounds ptr, ptr %vtable.i.i, i64 1
+  %vfn.i.i = getelementptr inbounds i8, ptr %vtable.i.i, i64 8
   %11 = load ptr, ptr %vfn.i.i, align 8
   tail call void %11(ptr noundef nonnull align 8 dereferenceable(25) %10) #22
   br label %delete.end.i.i
@@ -2382,7 +2239,7 @@ _ZN4base26STLDeleteContainerPointersISt15_Deque_iteratorIPN3net19QuicEncryptedPa
 
 for.body.i.i.i.i:                                 ; preds = %_ZN4base26STLDeleteContainerPointersISt15_Deque_iteratorIPN3net19QuicEncryptedPacketERS4_PS4_EEEvT_S8_.exit.i, %for.body.i.i.i.i
   %__n.04.i.pn.i.i.i = phi ptr [ %__n.04.i.i.i.i, %for.body.i.i.i.i ], [ %12, %_ZN4base26STLDeleteContainerPointersISt15_Deque_iteratorIPN3net19QuicEncryptedPacketERS4_PS4_EEEvT_S8_.exit.i ]
-  %__n.04.i.i.i.i = getelementptr inbounds ptr, ptr %__n.04.i.pn.i.i.i, i64 1
+  %__n.04.i.i.i.i = getelementptr inbounds i8, ptr %__n.04.i.pn.i.i.i, i64 8
   %17 = load ptr, ptr %__n.04.i.i.i.i, align 8
   tail call void @_ZdlPv(ptr noundef %17) #24
   %cmp.i.i.i.i = icmp ult ptr %__n.04.i.i.i.i, %16
@@ -2393,14 +2250,14 @@ invoke.cont:                                      ; preds = %for.body.i.i.i.i, %
   store ptr %15, ptr %_M_first3.i.i5.i, align 8
   store ptr %13, ptr %_M_last4.i.i7.i, align 8
   store ptr %12, ptr %_M_node5.i.i9.i, align 8
-  %queued_packets_.i = getelementptr inbounds %"class.net::QuicConnection", ptr %this, i64 0, i32 36
+  %queued_packets_.i = getelementptr inbounds i8, ptr %this, i64 816
   %it.sroa.0.05.i = load ptr, ptr %queued_packets_.i, align 8
   %cmp.i.not6.i = icmp eq ptr %it.sroa.0.05.i, %queued_packets_.i
   br i1 %cmp.i.not6.i, label %invoke.cont4, label %for.body.i
 
 for.body.i:                                       ; preds = %invoke.cont, %.noexc
   %it.sroa.0.07.i = phi ptr [ %it.sroa.0.0.i, %.noexc ], [ %it.sroa.0.05.i, %invoke.cont ]
-  %_M_storage.i.i.i = getelementptr inbounds %"struct.std::_List_node", ptr %it.sroa.0.07.i, i64 0, i32 1
+  %_M_storage.i.i.i = getelementptr inbounds i8, ptr %it.sroa.0.07.i, i64 16
   %18 = load ptr, ptr %_M_storage.i.i.i, align 8
   %isnull.i = icmp eq ptr %18, null
   br i1 %isnull.i, label %delete.end.i, label %delete.notnull.i
@@ -2426,19 +2283,19 @@ for.end.i:                                        ; preds = %.noexc
 while.body.i.i.i:                                 ; preds = %for.end.i, %while.body.i.i.i
   %__cur.05.i.i.i = phi ptr [ %19, %while.body.i.i.i ], [ %.pre.i1, %for.end.i ]
   %19 = load ptr, ptr %__cur.05.i.i.i, align 8
-  %_M_storage.i.i.i.i = getelementptr inbounds %"struct.std::_List_node", ptr %__cur.05.i.i.i, i64 0, i32 1
+  %_M_storage.i.i.i.i = getelementptr inbounds i8, ptr %__cur.05.i.i.i, i64 16
   tail call void @_ZN3net16SerializedPacketD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %_M_storage.i.i.i.i) #22
   tail call void @_ZdlPv(ptr noundef %__cur.05.i.i.i) #24
   %cmp.not.i.i.i = icmp eq ptr %19, %queued_packets_.i
   br i1 %cmp.not.i.i.i, label %invoke.cont4, label %while.body.i.i.i, !llvm.loop !22
 
 invoke.cont4:                                     ; preds = %while.body.i.i.i, %for.end.i, %invoke.cont
-  %_M_prev.i.i.i.i = getelementptr inbounds %"class.net::QuicConnection", ptr %this, i64 0, i32 36, i32 0, i32 0, i32 0, i32 0, i32 1
+  %_M_prev.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 824
   store ptr %queued_packets_.i, ptr %_M_prev.i.i.i.i, align 8
   store ptr %queued_packets_.i, ptr %queued_packets_.i, align 8
-  %_M_size.i.i.i.i = getelementptr inbounds %"class.net::QuicConnection", ptr %this, i64 0, i32 36, i32 0, i32 0, i32 0, i32 1
+  %_M_size.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 832
   store i64 0, ptr %_M_size.i.i.i.i, align 8
-  %server_supported_versions_ = getelementptr inbounds %"class.net::QuicConnection", ptr %this, i64 0, i32 86
+  %server_supported_versions_ = getelementptr inbounds i8, ptr %this, i64 3288
   %20 = load ptr, ptr %server_supported_versions_, align 8
   %tobool.not.i.i.i = icmp eq ptr %20, null
   br i1 %tobool.not.i.i.i, label %_ZNSt6vectorIN3net11QuicVersionESaIS1_EED2Ev.exit, label %if.then.i.i.i2
@@ -2448,29 +2305,29 @@ if.then.i.i.i2:                                   ; preds = %invoke.cont4
   br label %_ZNSt6vectorIN3net11QuicVersionESaIS1_EED2Ev.exit
 
 _ZNSt6vectorIN3net11QuicVersionESaIS1_EED2Ev.exit: ; preds = %invoke.cont4, %if.then.i.i.i2
-  %last_packet_source_address_ = getelementptr inbounds %"class.net::QuicConnection", ptr %this, i64 0, i32 83
+  %last_packet_source_address_ = getelementptr inbounds i8, ptr %this, i64 3248
   tail call void @_ZN3net10IPEndPointD1Ev(ptr noundef nonnull align 8 dereferenceable(26) %last_packet_source_address_) #22
-  %last_packet_destination_address_ = getelementptr inbounds %"class.net::QuicConnection", ptr %this, i64 0, i32 82
+  %last_packet_destination_address_ = getelementptr inbounds i8, ptr %this, i64 3216
   tail call void @_ZN3net10IPEndPointD1Ev(ptr noundef nonnull align 8 dereferenceable(26) %last_packet_destination_address_) #22
-  %sent_packet_manager_ = getelementptr inbounds %"class.net::QuicConnection", ptr %this, i64 0, i32 77
+  %sent_packet_manager_ = getelementptr inbounds i8, ptr %this, i64 3192
   %21 = load ptr, ptr %sent_packet_manager_, align 8
   %cmp.not.i = icmp eq ptr %21, null
   br i1 %cmp.not.i, label %_ZNSt10unique_ptrIN3net30QuicSentPacketManagerInterfaceESt14default_deleteIS1_EED2Ev.exit, label %_ZNKSt14default_deleteIN3net30QuicSentPacketManagerInterfaceEEclEPS1_.exit.i
 
 _ZNKSt14default_deleteIN3net30QuicSentPacketManagerInterfaceEEclEPS1_.exit.i: ; preds = %_ZNSt6vectorIN3net11QuicVersionESaIS1_EED2Ev.exit
   %vtable.i.i3 = load ptr, ptr %21, align 8
-  %vfn.i.i4 = getelementptr inbounds ptr, ptr %vtable.i.i3, i64 1
+  %vfn.i.i4 = getelementptr inbounds i8, ptr %vtable.i.i3, i64 8
   %22 = load ptr, ptr %vfn.i.i4, align 8
   tail call void %22(ptr noundef nonnull align 8 dereferenceable(8) %21) #22
   br label %_ZNSt10unique_ptrIN3net30QuicSentPacketManagerInterfaceESt14default_deleteIS1_EED2Ev.exit
 
 _ZNSt10unique_ptrIN3net30QuicSentPacketManagerInterfaceESt14default_deleteIS1_EED2Ev.exit: ; preds = %_ZNSt6vectorIN3net11QuicVersionESaIS1_EED2Ev.exit, %_ZNKSt14default_deleteIN3net30QuicSentPacketManagerInterfaceEEclEPS1_.exit.i
   store ptr null, ptr %sent_packet_manager_, align 8
-  %stats_ = getelementptr inbounds %"class.net::QuicConnection", ptr %this, i64 0, i32 72
+  %stats_ = getelementptr inbounds i8, ptr %this, i64 2912
   tail call void @_ZN3net19QuicConnectionStatsD1Ev(ptr noundef nonnull align 8 dereferenceable(248) %stats_) #22
-  %packet_generator_ = getelementptr inbounds %"class.net::QuicConnection", ptr %this, i64 0, i32 69
+  %packet_generator_ = getelementptr inbounds i8, ptr %this, i64 2408
   tail call void @_ZN3net19QuicPacketGeneratorD1Ev(ptr noundef nonnull align 8 dereferenceable(472) %packet_generator_) #22
-  %mtu_discovery_alarm_ = getelementptr inbounds %"class.net::QuicConnection", ptr %this, i64 0, i32 66
+  %mtu_discovery_alarm_ = getelementptr inbounds i8, ptr %this, i64 2384
   %23 = load ptr, ptr %mtu_discovery_alarm_, align 8
   %cmp.not.i.i = icmp eq ptr %23, null
   br i1 %cmp.not.i.i, label %_ZN3net18QuicArenaScopedPtrINS_9QuicAlarmEED2Ev.exit, label %if.then.i.i
@@ -2489,7 +2346,7 @@ if.then2.i.i:                                     ; preds = %if.then.i.i
 
 delete.notnull.i.i6:                              ; preds = %if.then.i.i
   %vtable5.i.i = load ptr, ptr %23, align 8
-  %vfn6.i.i = getelementptr inbounds ptr, ptr %vtable5.i.i, i64 1
+  %vfn6.i.i = getelementptr inbounds i8, ptr %vtable5.i.i, i64 8
   br label %if.end13.sink.split.i.i
 
 if.end13.sink.split.i.i:                          ; preds = %delete.notnull.i.i6, %if.then2.i.i
@@ -2501,7 +2358,7 @@ if.end13.sink.split.i.i:                          ; preds = %delete.notnull.i.i6
 
 _ZN3net18QuicArenaScopedPtrINS_9QuicAlarmEED2Ev.exit: ; preds = %_ZNSt10unique_ptrIN3net30QuicSentPacketManagerInterfaceESt14default_deleteIS1_EED2Ev.exit, %if.end13.sink.split.i.i
   store ptr null, ptr %mtu_discovery_alarm_, align 8
-  %ping_alarm_ = getelementptr inbounds %"class.net::QuicConnection", ptr %this, i64 0, i32 65
+  %ping_alarm_ = getelementptr inbounds i8, ptr %this, i64 2376
   %27 = load ptr, ptr %ping_alarm_, align 8
   %cmp.not.i.i7 = icmp eq ptr %27, null
   br i1 %cmp.not.i.i7, label %_ZN3net18QuicArenaScopedPtrINS_9QuicAlarmEED2Ev.exit20, label %if.then.i.i8
@@ -2520,7 +2377,7 @@ if.then2.i.i11:                                   ; preds = %if.then.i.i8
 
 delete.notnull.i.i17:                             ; preds = %if.then.i.i8
   %vtable5.i.i18 = load ptr, ptr %27, align 8
-  %vfn6.i.i19 = getelementptr inbounds ptr, ptr %vtable5.i.i18, i64 1
+  %vfn6.i.i19 = getelementptr inbounds i8, ptr %vtable5.i.i18, i64 8
   br label %if.end13.sink.split.i.i14
 
 if.end13.sink.split.i.i14:                        ; preds = %delete.notnull.i.i17, %if.then2.i.i11
@@ -2532,7 +2389,7 @@ if.end13.sink.split.i.i14:                        ; preds = %delete.notnull.i.i1
 
 _ZN3net18QuicArenaScopedPtrINS_9QuicAlarmEED2Ev.exit20: ; preds = %_ZN3net18QuicArenaScopedPtrINS_9QuicAlarmEED2Ev.exit, %if.end13.sink.split.i.i14
   store ptr null, ptr %ping_alarm_, align 8
-  %timeout_alarm_ = getelementptr inbounds %"class.net::QuicConnection", ptr %this, i64 0, i32 64
+  %timeout_alarm_ = getelementptr inbounds i8, ptr %this, i64 2368
   %31 = load ptr, ptr %timeout_alarm_, align 8
   %cmp.not.i.i21 = icmp eq ptr %31, null
   br i1 %cmp.not.i.i21, label %_ZN3net18QuicArenaScopedPtrINS_9QuicAlarmEED2Ev.exit34, label %if.then.i.i22
@@ -2551,7 +2408,7 @@ if.then2.i.i25:                                   ; preds = %if.then.i.i22
 
 delete.notnull.i.i31:                             ; preds = %if.then.i.i22
   %vtable5.i.i32 = load ptr, ptr %31, align 8
-  %vfn6.i.i33 = getelementptr inbounds ptr, ptr %vtable5.i.i32, i64 1
+  %vfn6.i.i33 = getelementptr inbounds i8, ptr %vtable5.i.i32, i64 8
   br label %if.end13.sink.split.i.i28
 
 if.end13.sink.split.i.i28:                        ; preds = %delete.notnull.i.i31, %if.then2.i.i25
@@ -2563,7 +2420,7 @@ if.end13.sink.split.i.i28:                        ; preds = %delete.notnull.i.i3
 
 _ZN3net18QuicArenaScopedPtrINS_9QuicAlarmEED2Ev.exit34: ; preds = %_ZN3net18QuicArenaScopedPtrINS_9QuicAlarmEED2Ev.exit20, %if.end13.sink.split.i.i28
   store ptr null, ptr %timeout_alarm_, align 8
-  %resume_writes_alarm_ = getelementptr inbounds %"class.net::QuicConnection", ptr %this, i64 0, i32 63
+  %resume_writes_alarm_ = getelementptr inbounds i8, ptr %this, i64 2360
   %35 = load ptr, ptr %resume_writes_alarm_, align 8
   %cmp.not.i.i35 = icmp eq ptr %35, null
   br i1 %cmp.not.i.i35, label %_ZN3net18QuicArenaScopedPtrINS_9QuicAlarmEED2Ev.exit48, label %if.then.i.i36
@@ -2582,7 +2439,7 @@ if.then2.i.i39:                                   ; preds = %if.then.i.i36
 
 delete.notnull.i.i45:                             ; preds = %if.then.i.i36
   %vtable5.i.i46 = load ptr, ptr %35, align 8
-  %vfn6.i.i47 = getelementptr inbounds ptr, ptr %vtable5.i.i46, i64 1
+  %vfn6.i.i47 = getelementptr inbounds i8, ptr %vtable5.i.i46, i64 8
   br label %if.end13.sink.split.i.i42
 
 if.end13.sink.split.i.i42:                        ; preds = %delete.notnull.i.i45, %if.then2.i.i39
@@ -2594,7 +2451,7 @@ if.end13.sink.split.i.i42:                        ; preds = %delete.notnull.i.i4
 
 _ZN3net18QuicArenaScopedPtrINS_9QuicAlarmEED2Ev.exit48: ; preds = %_ZN3net18QuicArenaScopedPtrINS_9QuicAlarmEED2Ev.exit34, %if.end13.sink.split.i.i42
   store ptr null, ptr %resume_writes_alarm_, align 8
-  %send_alarm_ = getelementptr inbounds %"class.net::QuicConnection", ptr %this, i64 0, i32 62
+  %send_alarm_ = getelementptr inbounds i8, ptr %this, i64 2352
   %39 = load ptr, ptr %send_alarm_, align 8
   %cmp.not.i.i49 = icmp eq ptr %39, null
   br i1 %cmp.not.i.i49, label %_ZN3net18QuicArenaScopedPtrINS_9QuicAlarmEED2Ev.exit62, label %if.then.i.i50
@@ -2613,7 +2470,7 @@ if.then2.i.i53:                                   ; preds = %if.then.i.i50
 
 delete.notnull.i.i59:                             ; preds = %if.then.i.i50
   %vtable5.i.i60 = load ptr, ptr %39, align 8
-  %vfn6.i.i61 = getelementptr inbounds ptr, ptr %vtable5.i.i60, i64 1
+  %vfn6.i.i61 = getelementptr inbounds i8, ptr %vtable5.i.i60, i64 8
   br label %if.end13.sink.split.i.i56
 
 if.end13.sink.split.i.i56:                        ; preds = %delete.notnull.i.i59, %if.then2.i.i53
@@ -2625,7 +2482,7 @@ if.end13.sink.split.i.i56:                        ; preds = %delete.notnull.i.i5
 
 _ZN3net18QuicArenaScopedPtrINS_9QuicAlarmEED2Ev.exit62: ; preds = %_ZN3net18QuicArenaScopedPtrINS_9QuicAlarmEED2Ev.exit48, %if.end13.sink.split.i.i56
   store ptr null, ptr %send_alarm_, align 8
-  %retransmission_alarm_ = getelementptr inbounds %"class.net::QuicConnection", ptr %this, i64 0, i32 61
+  %retransmission_alarm_ = getelementptr inbounds i8, ptr %this, i64 2344
   %43 = load ptr, ptr %retransmission_alarm_, align 8
   %cmp.not.i.i63 = icmp eq ptr %43, null
   br i1 %cmp.not.i.i63, label %_ZN3net18QuicArenaScopedPtrINS_9QuicAlarmEED2Ev.exit76, label %if.then.i.i64
@@ -2644,7 +2501,7 @@ if.then2.i.i67:                                   ; preds = %if.then.i.i64
 
 delete.notnull.i.i73:                             ; preds = %if.then.i.i64
   %vtable5.i.i74 = load ptr, ptr %43, align 8
-  %vfn6.i.i75 = getelementptr inbounds ptr, ptr %vtable5.i.i74, i64 1
+  %vfn6.i.i75 = getelementptr inbounds i8, ptr %vtable5.i.i74, i64 8
   br label %if.end13.sink.split.i.i70
 
 if.end13.sink.split.i.i70:                        ; preds = %delete.notnull.i.i73, %if.then2.i.i67
@@ -2656,7 +2513,7 @@ if.end13.sink.split.i.i70:                        ; preds = %delete.notnull.i.i7
 
 _ZN3net18QuicArenaScopedPtrINS_9QuicAlarmEED2Ev.exit76: ; preds = %_ZN3net18QuicArenaScopedPtrINS_9QuicAlarmEED2Ev.exit62, %if.end13.sink.split.i.i70
   store ptr null, ptr %retransmission_alarm_, align 8
-  %ack_alarm_ = getelementptr inbounds %"class.net::QuicConnection", ptr %this, i64 0, i32 60
+  %ack_alarm_ = getelementptr inbounds i8, ptr %this, i64 2336
   %47 = load ptr, ptr %ack_alarm_, align 8
   %cmp.not.i.i77 = icmp eq ptr %47, null
   br i1 %cmp.not.i.i77, label %_ZN3net18QuicArenaScopedPtrINS_9QuicAlarmEED2Ev.exit90, label %if.then.i.i78
@@ -2675,7 +2532,7 @@ if.then2.i.i81:                                   ; preds = %if.then.i.i78
 
 delete.notnull.i.i87:                             ; preds = %if.then.i.i78
   %vtable5.i.i88 = load ptr, ptr %47, align 8
-  %vfn6.i.i89 = getelementptr inbounds ptr, ptr %vtable5.i.i88, i64 1
+  %vfn6.i.i89 = getelementptr inbounds i8, ptr %vtable5.i.i88, i64 8
   br label %if.end13.sink.split.i.i84
 
 if.end13.sink.split.i.i84:                        ; preds = %delete.notnull.i.i87, %if.then2.i.i81
@@ -2687,18 +2544,18 @@ if.end13.sink.split.i.i84:                        ; preds = %delete.notnull.i.i8
 
 _ZN3net18QuicArenaScopedPtrINS_9QuicAlarmEED2Ev.exit90: ; preds = %_ZN3net18QuicArenaScopedPtrINS_9QuicAlarmEED2Ev.exit76, %if.end13.sink.split.i.i84
   store ptr null, ptr %ack_alarm_, align 8
-  %sent_entropy_manager_ = getelementptr inbounds %"class.net::QuicConnection", ptr %this, i64 0, i32 44
+  %sent_entropy_manager_ = getelementptr inbounds i8, ptr %this, i64 1112
   tail call void @_ZN3net22QuicSentEntropyManagerD1Ev(ptr noundef nonnull align 8 dereferenceable(128) %sent_entropy_manager_) #22
-  %received_packet_manager_ = getelementptr inbounds %"class.net::QuicConnection", ptr %this, i64 0, i32 43
+  %received_packet_manager_ = getelementptr inbounds i8, ptr %this, i64 864
   tail call void @_ZN3net25QuicReceivedPacketManagerD1Ev(ptr noundef nonnull align 8 dereferenceable(248) %received_packet_manager_) #22
-  %termination_packets_ = getelementptr inbounds %"class.net::QuicConnection", ptr %this, i64 0, i32 39
+  %termination_packets_ = getelementptr inbounds i8, ptr %this, i64 848
   %51 = load ptr, ptr %termination_packets_, align 8
   %cmp.not.i91 = icmp eq ptr %51, null
   br i1 %cmp.not.i91, label %_ZNSt10unique_ptrISt6vectorIS_IN3net19QuicEncryptedPacketESt14default_deleteIS2_EESaIS5_EES3_IS7_EED2Ev.exit, label %delete.notnull.i.i92
 
 delete.notnull.i.i92:                             ; preds = %_ZN3net18QuicArenaScopedPtrINS_9QuicAlarmEED2Ev.exit90
   %52 = load ptr, ptr %51, align 8
-  %_M_finish.i.i.i = getelementptr inbounds %"struct.std::_Vector_base<std::unique_ptr<net::QuicEncryptedPacket>, std::allocator<std::unique_ptr<net::QuicEncryptedPacket>>>::_Vector_impl_data", ptr %51, i64 0, i32 1
+  %_M_finish.i.i.i = getelementptr inbounds i8, ptr %51, i64 8
   %53 = load ptr, ptr %_M_finish.i.i.i, align 8
   %cmp.not3.i.i.i.i.i.i = icmp eq ptr %52, %53
   br i1 %cmp.not3.i.i.i.i.i.i, label %invoke.cont.i.i.i, label %for.body.i.i.i.i.i.i
@@ -2711,14 +2568,14 @@ for.body.i.i.i.i.i.i:                             ; preds = %delete.notnull.i.i9
 
 _ZNKSt14default_deleteIN3net19QuicEncryptedPacketEEclEPS1_.exit.i.i.i.i.i.i.i.i: ; preds = %for.body.i.i.i.i.i.i
   %vtable.i.i.i.i.i.i.i.i.i = load ptr, ptr %54, align 8
-  %vfn.i.i.i.i.i.i.i.i.i = getelementptr inbounds ptr, ptr %vtable.i.i.i.i.i.i.i.i.i, i64 1
+  %vfn.i.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %vtable.i.i.i.i.i.i.i.i.i, i64 8
   %55 = load ptr, ptr %vfn.i.i.i.i.i.i.i.i.i, align 8
   tail call void %55(ptr noundef nonnull align 8 dereferenceable(25) %54) #22
   br label %_ZSt8_DestroyISt10unique_ptrIN3net19QuicEncryptedPacketESt14default_deleteIS2_EEEvPT_.exit.i.i.i.i.i.i
 
 _ZSt8_DestroyISt10unique_ptrIN3net19QuicEncryptedPacketESt14default_deleteIS2_EEEvPT_.exit.i.i.i.i.i.i: ; preds = %_ZNKSt14default_deleteIN3net19QuicEncryptedPacketEEclEPS1_.exit.i.i.i.i.i.i.i.i, %for.body.i.i.i.i.i.i
   store ptr null, ptr %__first.addr.04.i.i.i.i.i.i, align 8
-  %incdec.ptr.i.i.i.i.i.i = getelementptr inbounds %"class.std::unique_ptr.155", ptr %__first.addr.04.i.i.i.i.i.i, i64 1
+  %incdec.ptr.i.i.i.i.i.i = getelementptr inbounds i8, ptr %__first.addr.04.i.i.i.i.i.i, i64 8
   %cmp.not.i.i.i.i.i.i = icmp eq ptr %incdec.ptr.i.i.i.i.i.i, %53
   br i1 %cmp.not.i.i.i.i.i.i, label %invoke.contthread-pre-split.i.i.i, label %for.body.i.i.i.i.i.i, !llvm.loop !20
 
@@ -2748,7 +2605,7 @@ _ZNSt10unique_ptrISt6vectorIS_IN3net19QuicEncryptedPacketESt14default_deleteIS2_
 while.body.i.i.i94:                               ; preds = %_ZNSt10unique_ptrISt6vectorIS_IN3net19QuicEncryptedPacketESt14default_deleteIS2_EESaIS5_EES3_IS7_EED2Ev.exit, %while.body.i.i.i94
   %__cur.05.i.i.i95 = phi ptr [ %58, %while.body.i.i.i94 ], [ %57, %_ZNSt10unique_ptrISt6vectorIS_IN3net19QuicEncryptedPacketESt14default_deleteIS2_EESaIS5_EES3_IS7_EED2Ev.exit ]
   %58 = load ptr, ptr %__cur.05.i.i.i95, align 8
-  %_M_storage.i.i.i.i96 = getelementptr inbounds %"struct.std::_List_node", ptr %__cur.05.i.i.i95, i64 0, i32 1
+  %_M_storage.i.i.i.i96 = getelementptr inbounds i8, ptr %__cur.05.i.i.i95, i64 16
   tail call void @_ZN3net16SerializedPacketD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %_M_storage.i.i.i.i96) #22
   tail call void @_ZdlPv(ptr noundef %__cur.05.i.i.i95) #24
   %cmp.not.i.i.i97 = icmp eq ptr %58, %queued_packets_.i
@@ -2762,7 +2619,7 @@ _ZNSt7__cxx114listIN3net16SerializedPacketESaIS2_EED2Ev.exit: ; preds = %while.b
 if.then.i.i98:                                    ; preds = %_ZNSt7__cxx114listIN3net16SerializedPacketESaIS2_EED2Ev.exit
   %60 = load ptr, ptr %_M_node5.i.i.i, align 8
   %61 = load ptr, ptr %_M_node5.i.i9.i, align 8
-  %add.ptr.i.i = getelementptr inbounds ptr, ptr %61, i64 1
+  %add.ptr.i.i = getelementptr inbounds i8, ptr %61, i64 8
   %cmp3.i.i.i = icmp ult ptr %60, %add.ptr.i.i
   br i1 %cmp3.i.i.i, label %for.body.i.i.i, label %_ZNSt11_Deque_baseIPN3net19QuicEncryptedPacketESaIS2_EE16_M_destroy_nodesEPPS2_S6_.exit.i.i
 
@@ -2770,7 +2627,7 @@ for.body.i.i.i:                                   ; preds = %if.then.i.i98, %for
   %__n.04.i.i.i = phi ptr [ %incdec.ptr.i.i.i100, %for.body.i.i.i ], [ %60, %if.then.i.i98 ]
   %62 = load ptr, ptr %__n.04.i.i.i, align 8
   tail call void @_ZdlPv(ptr noundef %62) #24
-  %incdec.ptr.i.i.i100 = getelementptr inbounds ptr, ptr %__n.04.i.i.i, i64 1
+  %incdec.ptr.i.i.i100 = getelementptr inbounds i8, ptr %__n.04.i.i.i, i64 8
   %cmp.i.i.i101 = icmp ult ptr %__n.04.i.i.i, %61
   br i1 %cmp.i.i.i101, label %for.body.i.i.i, label %_ZNSt11_Deque_baseIPN3net19QuicEncryptedPacketESaIS2_EE16_M_destroy_nodesEPPS2_S6_.exit.loopexit.i.i, !llvm.loop !23
 
@@ -2784,15 +2641,15 @@ _ZNSt11_Deque_baseIPN3net19QuicEncryptedPacketESaIS2_EE16_M_destroy_nodesEPPS2_S
   br label %_ZNSt5dequeIPN3net19QuicEncryptedPacketESaIS2_EED2Ev.exit
 
 _ZNSt5dequeIPN3net19QuicEncryptedPacketESaIS2_EED2Ev.exit: ; preds = %_ZNSt7__cxx114listIN3net16SerializedPacketESaIS2_EED2Ev.exit, %_ZNSt11_Deque_baseIPN3net19QuicEncryptedPacketESaIS2_EE16_M_destroy_nodesEPPS2_S6_.exit.i.i
-  %last_stop_waiting_frame_ = getelementptr inbounds %"class.net::QuicConnection", ptr %this, i64 0, i32 27
+  %last_stop_waiting_frame_ = getelementptr inbounds i8, ptr %this, i64 680
   tail call void @_ZN3net20QuicStopWaitingFrameD1Ev(ptr noundef nonnull align 8 dereferenceable(16) %last_stop_waiting_frame_) #22
-  %last_header_ = getelementptr inbounds %"class.net::QuicConnection", ptr %this, i64 0, i32 26
+  %last_header_ = getelementptr inbounds i8, ptr %this, i64 616
   tail call void @_ZN3net22QuicPacketPublicHeaderD1Ev(ptr noundef nonnull align 8 dereferenceable(48) %last_header_) #22
-  %peer_address_ = getelementptr inbounds %"class.net::QuicConnection", ptr %this, i64 0, i32 16
+  %peer_address_ = getelementptr inbounds i8, ptr %this, i64 536
   tail call void @_ZN3net10IPEndPointD1Ev(ptr noundef nonnull align 8 dereferenceable(26) %peer_address_) #22
-  %self_address_ = getelementptr inbounds %"class.net::QuicConnection", ptr %this, i64 0, i32 15
+  %self_address_ = getelementptr inbounds i8, ptr %this, i64 504
   tail call void @_ZN3net10IPEndPointD1Ev(ptr noundef nonnull align 8 dereferenceable(26) %self_address_) #22
-  %framer_ = getelementptr inbounds %"class.net::QuicConnection", ptr %this, i64 0, i32 4
+  %framer_ = getelementptr inbounds i8, ptr %this, i64 32
   tail call void @_ZN3net10QuicFramerD1Ev(ptr noundef nonnull align 8 dereferenceable(408) %framer_) #22
   ret void
 
@@ -2818,14 +2675,14 @@ declare void @_ZSt9terminatev() local_unnamed_addr
 ; Function Attrs: mustprogress uwtable
 define dso_local void @_ZN3net14QuicConnection18ClearQueuedPacketsEv(ptr noundef nonnull align 8 dereferenceable(3372) %this) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  %queued_packets_ = getelementptr inbounds %"class.net::QuicConnection", ptr %this, i64 0, i32 36
+  %queued_packets_ = getelementptr inbounds i8, ptr %this, i64 816
   %it.sroa.0.05 = load ptr, ptr %queued_packets_, align 8
   %cmp.i.not6 = icmp eq ptr %it.sroa.0.05, %queued_packets_
   br i1 %cmp.i.not6, label %_ZNSt7__cxx114listIN3net16SerializedPacketESaIS2_EE5clearEv.exit, label %for.body
 
 for.body:                                         ; preds = %entry, %delete.end
   %it.sroa.0.07 = phi ptr [ %it.sroa.0.0, %delete.end ], [ %it.sroa.0.05, %entry ]
-  %_M_storage.i.i = getelementptr inbounds %"struct.std::_List_node", ptr %it.sroa.0.07, i64 0, i32 1
+  %_M_storage.i.i = getelementptr inbounds i8, ptr %it.sroa.0.07, i64 16
   %0 = load ptr, ptr %_M_storage.i.i, align 8
   %isnull = icmp eq ptr %0, null
   br i1 %isnull, label %delete.end, label %delete.notnull
@@ -2848,17 +2705,17 @@ for.end:                                          ; preds = %delete.end
 while.body.i.i:                                   ; preds = %for.end, %while.body.i.i
   %__cur.05.i.i = phi ptr [ %1, %while.body.i.i ], [ %.pre, %for.end ]
   %1 = load ptr, ptr %__cur.05.i.i, align 8
-  %_M_storage.i.i.i = getelementptr inbounds %"struct.std::_List_node", ptr %__cur.05.i.i, i64 0, i32 1
+  %_M_storage.i.i.i = getelementptr inbounds i8, ptr %__cur.05.i.i, i64 16
   tail call void @_ZN3net16SerializedPacketD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %_M_storage.i.i.i) #22
   tail call void @_ZdlPv(ptr noundef %__cur.05.i.i) #24
   %cmp.not.i.i = icmp eq ptr %1, %queued_packets_
   br i1 %cmp.not.i.i, label %_ZNSt7__cxx114listIN3net16SerializedPacketESaIS2_EE5clearEv.exit, label %while.body.i.i, !llvm.loop !22
 
 _ZNSt7__cxx114listIN3net16SerializedPacketESaIS2_EE5clearEv.exit: ; preds = %while.body.i.i, %entry, %for.end
-  %_M_prev.i.i.i = getelementptr inbounds %"class.net::QuicConnection", ptr %this, i64 0, i32 36, i32 0, i32 0, i32 0, i32 0, i32 1
+  %_M_prev.i.i.i = getelementptr inbounds i8, ptr %this, i64 824
   store ptr %queued_packets_, ptr %_M_prev.i.i.i, align 8
   store ptr %queued_packets_, ptr %queued_packets_, align 8
-  %_M_size.i.i.i = getelementptr inbounds %"class.net::QuicConnection", ptr %this, i64 0, i32 36, i32 0, i32 0, i32 0, i32 1
+  %_M_size.i.i.i = getelementptr inbounds i8, ptr %this, i64 832
   store i64 0, ptr %_M_size.i.i.i, align 8
   ret void
 }
@@ -2942,7 +2799,7 @@ if.then:                                          ; preds = %entry
   br i1 %call5, label %if.then6, label %if.end
 
 if.then6:                                         ; preds = %if.then
-  %idle_timeout_connection_close_behavior_ = getelementptr inbounds %"class.net::QuicConnection", ptr %this, i64 0, i32 40
+  %idle_timeout_connection_close_behavior_ = getelementptr inbounds i8, ptr %this, i64 856
   store i32 0, ptr %idle_timeout_connection_close_behavior_, align 8
   br label %if.end
 
@@ -2957,7 +2814,7 @@ land.lhs.true:                                    ; preds = %if.end
   br i1 %call7, label %if.then8, label %if.end14
 
 if.then8:                                         ; preds = %land.lhs.true
-  %multipath_enabled_ = getelementptr inbounds %"class.net::QuicConnection", ptr %this, i64 0, i32 96
+  %multipath_enabled_ = getelementptr inbounds i8, ptr %this, i64 3370
   store i8 1, ptr %multipath_enabled_, align 2
   br label %if.end14
 
@@ -2965,49 +2822,49 @@ if.else:                                          ; preds = %entry
   %retval.sroa.0.0.copyload.i = load i64, ptr %config, align 8
   %retval.sroa.2.0.max_time_before_crypto_handshake_.sroa_idx.i = getelementptr inbounds i8, ptr %config, i64 8
   %retval.sroa.2.0.copyload.i = load i64, ptr %retval.sroa.2.0.max_time_before_crypto_handshake_.sroa_idx.i, align 8
-  %max_idle_time_before_crypto_handshake_.i = getelementptr inbounds %"class.net::QuicConfig", ptr %config, i64 0, i32 1
+  %max_idle_time_before_crypto_handshake_.i = getelementptr inbounds i8, ptr %config, i64 16
   %retval.sroa.0.0.copyload.i18 = load i64, ptr %max_idle_time_before_crypto_handshake_.i, align 8
-  %retval.sroa.2.0.max_idle_time_before_crypto_handshake_.sroa_idx.i = getelementptr inbounds %"class.net::QuicConfig", ptr %config, i64 0, i32 1, i32 1
+  %retval.sroa.2.0.max_idle_time_before_crypto_handshake_.sroa_idx.i = getelementptr inbounds i8, ptr %config, i64 24
   %retval.sroa.2.0.copyload.i19 = load i64, ptr %retval.sroa.2.0.max_idle_time_before_crypto_handshake_.sroa_idx.i, align 8
   tail call void @_ZN3net14QuicConnection18SetNetworkTimeoutsENS_8QuicTime5DeltaES2_(ptr noundef nonnull align 8 dereferenceable(3372) %this, i64 %retval.sroa.0.0.copyload.i, i64 %retval.sroa.2.0.copyload.i, i64 %retval.sroa.0.0.copyload.i18, i64 %retval.sroa.2.0.copyload.i19)
   br label %if.end14
 
 if.end14:                                         ; preds = %if.end, %land.lhs.true, %if.then8, %if.else
-  %sent_packet_manager_ = getelementptr inbounds %"class.net::QuicConnection", ptr %this, i64 0, i32 77
+  %sent_packet_manager_ = getelementptr inbounds i8, ptr %this, i64 3192
   %4 = load ptr, ptr %sent_packet_manager_, align 8
   %vtable = load ptr, ptr %4, align 8
-  %vfn = getelementptr inbounds ptr, ptr %vtable, i64 2
+  %vfn = getelementptr inbounds i8, ptr %vtable, i64 16
   %5 = load ptr, ptr %vfn, align 8
   tail call void %5(ptr noundef nonnull align 8 dereferenceable(8) %4, ptr noundef nonnull align 8 dereferenceable(600) %config)
   %call16 = tail call noundef zeroext i1 @_ZNK3net10QuicConfig31HasReceivedBytesForConnectionIdEv(ptr noundef nonnull align 8 dereferenceable(600) %config)
   br i1 %call16, label %land.lhs.true17, label %if.end21
 
 land.lhs.true17:                                  ; preds = %if.end14
-  %can_truncate_connection_ids_ = getelementptr inbounds %"class.net::QuicConnection", ptr %this, i64 0, i32 84
+  %can_truncate_connection_ids_ = getelementptr inbounds i8, ptr %this, i64 3280
   %6 = load i8, ptr %can_truncate_connection_ids_, align 8
   %7 = and i8 %6, 1
   %tobool18.not = icmp eq i8 %7, 0
   br i1 %tobool18.not, label %if.end21, label %if.then19
 
 if.then19:                                        ; preds = %land.lhs.true17
-  %packet_generator_ = getelementptr inbounds %"class.net::QuicConnection", ptr %this, i64 0, i32 69
+  %packet_generator_ = getelementptr inbounds i8, ptr %this, i64 2408
   %call20 = tail call noundef i32 @_ZNK3net10QuicConfig28ReceivedBytesForConnectionIdEv(ptr noundef nonnull align 8 dereferenceable(600) %config)
   tail call void @_ZN3net19QuicPacketGenerator21SetConnectionIdLengthEj(ptr noundef nonnull align 8 dereferenceable(472) %packet_generator_, i32 noundef %call20)
   br label %if.end21
 
 if.end21:                                         ; preds = %if.then19, %land.lhs.true17, %if.end14
-  %max_undecryptable_packets_.i = getelementptr inbounds %"class.net::QuicConfig", ptr %config, i64 0, i32 2
+  %max_undecryptable_packets_.i = getelementptr inbounds i8, ptr %config, i64 32
   %8 = load i64, ptr %max_undecryptable_packets_.i, align 8
-  %max_undecryptable_packets_ = getelementptr inbounds %"class.net::QuicConnection", ptr %this, i64 0, i32 33
+  %max_undecryptable_packets_ = getelementptr inbounds i8, ptr %this, i64 800
   store i64 %8, ptr %max_undecryptable_packets_, align 8
-  %perspective_ = getelementptr inbounds %"class.net::QuicConnection", ptr %this, i64 0, i32 79
+  %perspective_ = getelementptr inbounds i8, ptr %this, i64 3204
   %9 = load i32, ptr %perspective_, align 4
   %call23 = tail call noundef zeroext i1 @_ZNK3net10QuicConfig29HasClientSentConnectionOptionEjNS_11PerspectiveE(ptr noundef nonnull align 8 dereferenceable(600) %config, i32 noundef 1213551693, i32 noundef %9)
   br i1 %call23, label %if.then24, label %if.end25
 
 if.then24:                                        ; preds = %if.end21
   %call.i = tail call noundef i64 @_ZN3net14QuicConnection23GetLimitedMaxPacketSizeEm(ptr noundef nonnull align 8 dereferenceable(3372) %this, i64 noundef 1450)
-  %mtu_discovery_target_.i = getelementptr inbounds %"class.net::QuicConnection", ptr %this, i64 0, i32 87
+  %mtu_discovery_target_.i = getelementptr inbounds i8, ptr %this, i64 3312
   store i64 %call.i, ptr %mtu_discovery_target_.i, align 8
   br label %if.end25
 
@@ -3018,19 +2875,19 @@ if.end25:                                         ; preds = %if.then24, %if.end2
 
 if.then28:                                        ; preds = %if.end25
   %call.i22 = tail call noundef i64 @_ZN3net14QuicConnection23GetLimitedMaxPacketSizeEm(ptr noundef nonnull align 8 dereferenceable(3372) %this, i64 noundef 1430)
-  %mtu_discovery_target_.i23 = getelementptr inbounds %"class.net::QuicConnection", ptr %this, i64 0, i32 87
+  %mtu_discovery_target_.i23 = getelementptr inbounds i8, ptr %this, i64 3312
   store i64 %call.i22, ptr %mtu_discovery_target_.i23, align 8
   br label %if.end29
 
 if.end29:                                         ; preds = %if.then28, %if.end25
-  %debug_visitor_ = getelementptr inbounds %"class.net::QuicConnection", ptr %this, i64 0, i32 68
+  %debug_visitor_ = getelementptr inbounds i8, ptr %this, i64 2400
   %11 = load ptr, ptr %debug_visitor_, align 8
   %cmp.not = icmp eq ptr %11, null
   br i1 %cmp.not, label %if.end34, label %if.then30
 
 if.then30:                                        ; preds = %if.end29
   %vtable32 = load ptr, ptr %11, align 8
-  %vfn33 = getelementptr inbounds ptr, ptr %vtable32, i64 31
+  %vfn33 = getelementptr inbounds i8, ptr %vtable32, i64 248
   %12 = load ptr, ptr %vfn33, align 8
   tail call void %12(ptr noundef nonnull align 8 dereferenceable(8) %11, ptr noundef nonnull align 8 dereferenceable(600) %config)
   br label %if.end34
@@ -3041,7 +2898,7 @@ if.end34:                                         ; preds = %if.then30, %if.end2
   br i1 %call36, label %if.then37, label %if.end38
 
 if.then37:                                        ; preds = %if.end34
-  %ack_mode_ = getelementptr inbounds %"class.net::QuicConnection", ptr %this, i64 0, i32 52
+  %ack_mode_ = getelementptr inbounds i8, ptr %this, i64 1276
   store i32 1, ptr %ack_mode_, align 4
   br label %if.end38
 
@@ -3051,7 +2908,7 @@ if.end38:                                         ; preds = %if.then37, %if.end3
   br i1 %call40, label %if.then41, label %if.end43
 
 if.then41:                                        ; preds = %if.end38
-  %ack_mode_42 = getelementptr inbounds %"class.net::QuicConnection", ptr %this, i64 0, i32 52
+  %ack_mode_42 = getelementptr inbounds i8, ptr %this, i64 1276
   store i32 2, ptr %ack_mode_42, align 4
   br label %if.end43
 
@@ -3061,9 +2918,9 @@ if.end43:                                         ; preds = %if.then41, %if.end3
   br i1 %call45, label %if.then46, label %if.end48
 
 if.then46:                                        ; preds = %if.end43
-  %ack_mode_47 = getelementptr inbounds %"class.net::QuicConnection", ptr %this, i64 0, i32 52
+  %ack_mode_47 = getelementptr inbounds i8, ptr %this, i64 1276
   store i32 1, ptr %ack_mode_47, align 4
-  %ack_decimation_delay_ = getelementptr inbounds %"class.net::QuicConnection", ptr %this, i64 0, i32 53
+  %ack_decimation_delay_ = getelementptr inbounds i8, ptr %this, i64 1280
   store float 1.250000e-01, ptr %ack_decimation_delay_, align 8
   br label %if.end48
 
@@ -3073,9 +2930,9 @@ if.end48:                                         ; preds = %if.then46, %if.end4
   br i1 %call50, label %if.then51, label %if.end54
 
 if.then51:                                        ; preds = %if.end48
-  %ack_mode_52 = getelementptr inbounds %"class.net::QuicConnection", ptr %this, i64 0, i32 52
+  %ack_mode_52 = getelementptr inbounds i8, ptr %this, i64 1276
   store i32 2, ptr %ack_mode_52, align 4
-  %ack_decimation_delay_53 = getelementptr inbounds %"class.net::QuicConnection", ptr %this, i64 0, i32 53
+  %ack_decimation_delay_53 = getelementptr inbounds i8, ptr %this, i64 1280
   store float 1.250000e-01, ptr %ack_decimation_delay_53, align 8
   br label %if.end54
 
@@ -3085,7 +2942,7 @@ if.end54:                                         ; preds = %if.then51, %if.end4
   br i1 %call56, label %if.then57, label %if.end58
 
 if.then57:                                        ; preds = %if.end54
-  %close_connection_after_five_rtos_ = getelementptr inbounds %"class.net::QuicConnection", ptr %this, i64 0, i32 41
+  %close_connection_after_five_rtos_ = getelementptr inbounds i8, ptr %this, i64 860
   store i8 1, ptr %close_connection_after_five_rtos_, align 4
   br label %if.end58
 
@@ -3106,7 +2963,7 @@ entry:
 
 cond.false:                                       ; preds = %entry
   call void @_ZN7logging10LogMessageC1EPKcii(ptr noundef nonnull align 8 dereferenceable(404) %ref.tmp4, ptr noundef nonnull @.str, i32 noundef 2165, i32 noundef 2)
-  %stream_.i = getelementptr inbounds %"class.logging::LogMessage", ptr %ref.tmp4, i64 0, i32 2
+  %stream_.i = getelementptr inbounds i8, ptr %ref.tmp4, i64 8
   %call7 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc(ptr noundef nonnull align 8 dereferenceable(8) %stream_.i, ptr noundef nonnull @.str.53)
           to label %invoke.cont6 unwind label %lpad
 
@@ -3129,7 +2986,7 @@ invoke.cont16:                                    ; preds = %invoke.cont12
   br label %cleanup.done
 
 cleanup.done:                                     ; preds = %entry, %invoke.cont16
-  %perspective_ = getelementptr inbounds %"class.net::QuicConnection", ptr %this, i64 0, i32 79
+  %perspective_ = getelementptr inbounds i8, ptr %this, i64 3204
   %0 = load i32, ptr %perspective_, align 4
   %cmp = icmp eq i32 %0, 0
   br i1 %cmp, label %if.then, label %if.else
@@ -3154,16 +3011,16 @@ if.else:                                          ; preds = %cleanup.done
 if.end39:                                         ; preds = %if.else, %if.then
   %idle_timeout.sroa.0.0 = phi i64 [ 0, %if.then ], [ %spec.select, %if.else ]
   %idle_timeout.sroa.8.0 = phi i64 [ %add.i, %if.then ], [ %spec.select28, %if.else ]
-  %handshake_timeout_ = getelementptr inbounds %"class.net::QuicConnection", ptr %this, i64 0, i32 71
+  %handshake_timeout_ = getelementptr inbounds i8, ptr %this, i64 2896
   store i64 %handshake_timeout.coerce0, ptr %handshake_timeout_, align 8
-  %time_offset_3.i11 = getelementptr inbounds %"class.net::QuicConnection", ptr %this, i64 0, i32 71, i32 1
+  %time_offset_3.i11 = getelementptr inbounds i8, ptr %this, i64 2904
   store i64 %handshake_timeout.coerce1, ptr %time_offset_3.i11, align 8
-  %idle_network_timeout_ = getelementptr inbounds %"class.net::QuicConnection", ptr %this, i64 0, i32 70
+  %idle_network_timeout_ = getelementptr inbounds i8, ptr %this, i64 2880
   store i64 %idle_timeout.sroa.0.0, ptr %idle_network_timeout_, align 8
-  %time_offset_3.i14 = getelementptr inbounds %"class.net::QuicConnection", ptr %this, i64 0, i32 70, i32 1
+  %time_offset_3.i14 = getelementptr inbounds i8, ptr %this, i64 2888
   store i64 %idle_timeout.sroa.8.0, ptr %time_offset_3.i14, align 8
-  %time_of_last_received_packet_.i = getelementptr inbounds %"class.net::QuicConnection", ptr %this, i64 0, i32 73
-  %time_of_last_sent_new_packet_.i = getelementptr inbounds %"class.net::QuicConnection", ptr %this, i64 0, i32 74
+  %time_of_last_received_packet_.i = getelementptr inbounds i8, ptr %this, i64 3160
+  %time_of_last_sent_new_packet_.i = getelementptr inbounds i8, ptr %this, i64 3168
   %agg.tmp.sroa.0.0.copyload.i.i = load i64, ptr %time_of_last_received_packet_.i, align 8
   %agg.tmp1.sroa.0.0.copyload.i.i = load i64, ptr %time_of_last_sent_new_packet_.i, align 8
   %cmp.i.i.i = icmp slt i64 %agg.tmp.sroa.0.0.copyload.i.i, %agg.tmp1.sroa.0.0.copyload.i.i
@@ -3171,7 +3028,7 @@ if.end39:                                         ; preds = %if.else, %if.then
   %2 = load i8, ptr @FLAGS_quic_better_last_send_for_timeout, align 1
   %3 = and i8 %2, 1
   %tobool.not.i = icmp eq i8 %3, 0
-  %last_send_for_timeout_.i = getelementptr inbounds %"class.net::QuicConnection", ptr %this, i64 0, i32 75
+  %last_send_for_timeout_.i = getelementptr inbounds i8, ptr %this, i64 3176
   %agg.tmp1.sroa.0.0.copyload.i3.i = load i64, ptr %last_send_for_timeout_.i, align 8
   %cmp.i.i4.i = icmp slt i64 %agg.tmp.sroa.0.0.copyload.i.i, %agg.tmp1.sroa.0.0.copyload.i3.i
   %__b.__a.i5.i = select i1 %cmp.i.i4.i, ptr %last_send_for_timeout_.i, ptr %time_of_last_received_packet_.i
@@ -3182,7 +3039,7 @@ if.end39:                                         ; preds = %if.else, %if.then
   br i1 %cmp.i.i15, label %_ZN3net14QuicConnection15SetTimeoutAlarmEv.exit, label %if.then8.i
 
 if.then8.i:                                       ; preds = %if.end39
-  %connection_creation_time.i = getelementptr inbounds %"class.net::QuicConnection", ptr %this, i64 0, i32 72, i32 30
+  %connection_creation_time.i = getelementptr inbounds i8, ptr %this, i64 3152
   %agg.tmp9.sroa.0.0.copyload.i = load i64, ptr %connection_creation_time.i, align 8
   %add.i6.i = add nsw i64 %agg.tmp9.sroa.0.0.copyload.i, %handshake_timeout.coerce1
   %.sroa.speculated.i = call i64 @llvm.smin.i64(i64 %add.i6.i, i64 %add.i.i)
@@ -3190,7 +3047,7 @@ if.then8.i:                                       ; preds = %if.end39
 
 _ZN3net14QuicConnection15SetTimeoutAlarmEv.exit:  ; preds = %if.end39, %if.then8.i
   %deadline.sroa.0.0.i = phi i64 [ %add.i.i, %if.end39 ], [ %.sroa.speculated.i, %if.then8.i ]
-  %timeout_alarm_.i = getelementptr inbounds %"class.net::QuicConnection", ptr %this, i64 0, i32 64
+  %timeout_alarm_.i = getelementptr inbounds i8, ptr %this, i64 2368
   %4 = load ptr, ptr %timeout_alarm_.i, align 8
   %5 = ptrtoint ptr %4 to i64
   %and.i.i.i = and i64 %5, -2
@@ -3217,7 +3074,7 @@ declare noundef zeroext i1 @_ZNK3net10QuicConfig29HasClientSentConnectionOptionE
 define dso_local void @_ZN3net14QuicConnection21SetMtuDiscoveryTargetEm(ptr noundef nonnull align 8 dereferenceable(3372) %this, i64 noundef %target) local_unnamed_addr #0 align 2 {
 entry:
   %call = tail call noundef i64 @_ZN3net14QuicConnection23GetLimitedMaxPacketSizeEm(ptr noundef nonnull align 8 dereferenceable(3372) %this, i64 noundef %target)
-  %mtu_discovery_target_ = getelementptr inbounds %"class.net::QuicConnection", ptr %this, i64 0, i32 87
+  %mtu_discovery_target_ = getelementptr inbounds i8, ptr %this, i64 3312
   store i64 %call, ptr %mtu_discovery_target_, align 8
   ret void
 }
@@ -3225,14 +3082,14 @@ entry:
 ; Function Attrs: mustprogress uwtable
 define dso_local void @_ZN3net14QuicConnection21OnSendConnectionStateERKNS_23CachedNetworkParametersE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(3372) %this, ptr noundef nonnull align 8 dereferenceable(72) %cached_network_params) unnamed_addr #0 align 2 {
 entry:
-  %debug_visitor_ = getelementptr inbounds %"class.net::QuicConnection", ptr %this, i64 0, i32 68
+  %debug_visitor_ = getelementptr inbounds i8, ptr %this, i64 2400
   %0 = load ptr, ptr %debug_visitor_, align 8
   %cmp.not = icmp eq ptr %0, null
   br i1 %cmp.not, label %if.end, label %if.then
 
 if.then:                                          ; preds = %entry
   %vtable = load ptr, ptr %0, align 8
-  %vfn = getelementptr inbounds ptr, ptr %vtable, i64 29
+  %vfn = getelementptr inbounds i8, ptr %vtable, i64 232
   %1 = load ptr, ptr %vfn, align 8
   tail call void %1(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef nonnull align 8 dereferenceable(72) %cached_network_params)
   br label %if.end
@@ -3244,14 +3101,14 @@ if.end:                                           ; preds = %if.then, %entry
 ; Function Attrs: mustprogress uwtable
 define dso_local void @_ZN3net14QuicConnection24OnReceiveConnectionStateERKNS_23CachedNetworkParametersE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(3372) %this, ptr noundef nonnull align 8 dereferenceable(72) %cached_network_params) unnamed_addr #0 align 2 {
 entry:
-  %debug_visitor_ = getelementptr inbounds %"class.net::QuicConnection", ptr %this, i64 0, i32 68
+  %debug_visitor_ = getelementptr inbounds i8, ptr %this, i64 2400
   %0 = load ptr, ptr %debug_visitor_, align 8
   %cmp.not = icmp eq ptr %0, null
   br i1 %cmp.not, label %if.end, label %if.then
 
 if.then:                                          ; preds = %entry
   %vtable = load ptr, ptr %0, align 8
-  %vfn = getelementptr inbounds ptr, ptr %vtable, i64 30
+  %vfn = getelementptr inbounds i8, ptr %vtable, i64 240
   %1 = load ptr, ptr %vfn, align 8
   tail call void %1(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef nonnull align 8 dereferenceable(72) %cached_network_params)
   br label %if.end
@@ -3263,10 +3120,10 @@ if.end:                                           ; preds = %if.then, %entry
 ; Function Attrs: mustprogress uwtable
 define dso_local void @_ZN3net14QuicConnection21ResumeConnectionStateERKNS_23CachedNetworkParametersEb(ptr nocapture noundef nonnull readonly align 8 dereferenceable(3372) %this, ptr noundef nonnull align 8 dereferenceable(72) %cached_network_params, i1 noundef zeroext %max_bandwidth_resumption) unnamed_addr #0 align 2 {
 entry:
-  %sent_packet_manager_ = getelementptr inbounds %"class.net::QuicConnection", ptr %this, i64 0, i32 77
+  %sent_packet_manager_ = getelementptr inbounds i8, ptr %this, i64 3192
   %0 = load ptr, ptr %sent_packet_manager_, align 8
   %vtable = load ptr, ptr %0, align 8
-  %vfn = getelementptr inbounds ptr, ptr %vtable, i64 3
+  %vfn = getelementptr inbounds i8, ptr %vtable, i64 24
   %1 = load ptr, ptr %vfn, align 8
   tail call void %1(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef nonnull align 8 dereferenceable(72) %cached_network_params, i1 noundef zeroext %max_bandwidth_resumption)
   ret void
@@ -3275,10 +3132,10 @@ entry:
 ; Function Attrs: mustprogress uwtable
 define dso_local void @_ZN3net14QuicConnection16SetMaxPacingRateENS_13QuicBandwidthE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(3372) %this, i64 %max_pacing_rate.coerce) unnamed_addr #0 align 2 {
 entry:
-  %sent_packet_manager_ = getelementptr inbounds %"class.net::QuicConnection", ptr %this, i64 0, i32 77
+  %sent_packet_manager_ = getelementptr inbounds i8, ptr %this, i64 3192
   %0 = load ptr, ptr %sent_packet_manager_, align 8
   %vtable = load ptr, ptr %0, align 8
-  %vfn = getelementptr inbounds ptr, ptr %vtable, i64 5
+  %vfn = getelementptr inbounds i8, ptr %vtable, i64 40
   %1 = load ptr, ptr %vfn, align 8
   tail call void %1(ptr noundef nonnull align 8 dereferenceable(8) %0, i64 %max_pacing_rate.coerce)
   ret void
@@ -3287,10 +3144,10 @@ entry:
 ; Function Attrs: mustprogress uwtable
 define dso_local void @_ZN3net14QuicConnection17SetNumOpenStreamsEm(ptr nocapture noundef nonnull readonly align 8 dereferenceable(3372) %this, i64 noundef %num_streams) local_unnamed_addr #0 align 2 {
 entry:
-  %sent_packet_manager_ = getelementptr inbounds %"class.net::QuicConnection", ptr %this, i64 0, i32 77
+  %sent_packet_manager_ = getelementptr inbounds i8, ptr %this, i64 3192
   %0 = load ptr, ptr %sent_packet_manager_, align 8
   %vtable = load ptr, ptr %0, align 8
-  %vfn = getelementptr inbounds ptr, ptr %vtable, i64 4
+  %vfn = getelementptr inbounds i8, ptr %vtable, i64 32
   %1 = load ptr, ptr %vfn, align 8
   tail call void %1(ptr noundef nonnull align 8 dereferenceable(8) %0, i64 noundef %num_streams)
   ret void
@@ -3299,9 +3156,9 @@ entry:
 ; Function Attrs: mustprogress uwtable
 define dso_local noundef zeroext i1 @_ZN3net14QuicConnection19SelectMutualVersionERKSt6vectorINS_11QuicVersionESaIS2_EE(ptr noundef nonnull align 8 dereferenceable(3372) %this, ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %available_versions) local_unnamed_addr #0 align 2 {
 entry:
-  %framer_ = getelementptr inbounds %"class.net::QuicConnection", ptr %this, i64 0, i32 4
-  %supported_versions_.i = getelementptr inbounds %"class.net::QuicConnection", ptr %this, i64 0, i32 4, i32 14
-  %_M_finish.i = getelementptr inbounds %"class.net::QuicConnection", ptr %this, i64 0, i32 4, i32 14, i32 0, i32 0, i32 0, i32 1
+  %framer_ = getelementptr inbounds i8, ptr %this, i64 32
+  %supported_versions_.i = getelementptr inbounds i8, ptr %this, i64 304
+  %_M_finish.i = getelementptr inbounds i8, ptr %this, i64 312
   %0 = load ptr, ptr %_M_finish.i, align 8
   %1 = load ptr, ptr %supported_versions_.i, align 8
   %sub.ptr.lhs.cast.i = ptrtoint ptr %0 to i64
@@ -3313,7 +3170,7 @@ entry:
 
 for.body.lr.ph:                                   ; preds = %entry
   %2 = load ptr, ptr %available_versions, align 8
-  %_M_finish.i.i = getelementptr inbounds %"struct.std::_Vector_base<net::QuicVersion, std::allocator<net::QuicVersion>>::_Vector_impl_data", ptr %available_versions, i64 0, i32 1
+  %_M_finish.i.i = getelementptr inbounds i8, ptr %available_versions, i64 8
   %3 = load ptr, ptr %_M_finish.i.i, align 8
   %sub.ptr.lhs.cast.i.i.i.i.i = ptrtoint ptr %3 to i64
   %sub.ptr.rhs.cast.i.i.i.i.i = ptrtoint ptr %2 to i64
@@ -3328,7 +3185,7 @@ for.body.lr.ph.split.us:                          ; preds = %for.body.lr.ph
   %.pre58.i.i.i.i = ptrtoint ptr %scevgep.i.i.i.i to i64
   %.pre59.i.i.i.i = sub i64 %sub.ptr.lhs.cast.i.i.i.i.i, %.pre58.i.i.i.i
   %sub.ptr.div.i18.i.i.i.i.us = ashr exact i64 %.pre59.i.i.i.i, 2
-  %incdec.ptr.i20.i.i.i.i.us = getelementptr inbounds i32, ptr %scevgep.i.i.i.i, i64 1
+  %incdec.ptr.i20.i.i.i.i.us = getelementptr inbounds i8, ptr %scevgep.i.i.i.i, i64 4
   %umax137 = tail call i64 @llvm.umax.i64(i64 %sub.ptr.div.i, i64 1)
   br label %for.body.us
 
@@ -3347,25 +3204,25 @@ for.body.i.i.i.i.us:                              ; preds = %if.end22.i.i.i.i.us
   br i1 %cmp.i.i.i.i.i.us, label %_ZN4base13ContainsValueISt6vectorIN3net11QuicVersionESaIS3_EES3_EEbRKT_RKT0_.exit.us, label %if.end.i.i.i.i.us
 
 if.end.i.i.i.i.us:                                ; preds = %for.body.i.i.i.i.us
-  %incdec.ptr.i.i.i.i.i.us = getelementptr inbounds i32, ptr %__first.sroa.0.051.i.i.i.i.us, i64 1
+  %incdec.ptr.i.i.i.i.i.us = getelementptr inbounds i8, ptr %__first.sroa.0.051.i.i.i.i.us, i64 4
   %7 = load i32, ptr %incdec.ptr.i.i.i.i.i.us, align 4
   %cmp.i9.i.i.i.i.us = icmp eq i32 %7, %5
   br i1 %cmp.i9.i.i.i.i.us, label %_ZN4base13ContainsValueISt6vectorIN3net11QuicVersionESaIS3_EES3_EEbRKT_RKT0_.exit.us.loopexit.split.loop.exit155, label %if.end10.i.i.i.i.us
 
 if.end10.i.i.i.i.us:                              ; preds = %if.end.i.i.i.i.us
-  %incdec.ptr.i10.i.i.i.i.us = getelementptr inbounds i32, ptr %__first.sroa.0.051.i.i.i.i.us, i64 2
+  %incdec.ptr.i10.i.i.i.i.us = getelementptr inbounds i8, ptr %__first.sroa.0.051.i.i.i.i.us, i64 8
   %8 = load i32, ptr %incdec.ptr.i10.i.i.i.i.us, align 4
   %cmp.i11.i.i.i.i.us = icmp eq i32 %8, %5
   br i1 %cmp.i11.i.i.i.i.us, label %_ZN4base13ContainsValueISt6vectorIN3net11QuicVersionESaIS3_EES3_EEbRKT_RKT0_.exit.us.loopexit.split.loop.exit157, label %if.end16.i.i.i.i.us
 
 if.end16.i.i.i.i.us:                              ; preds = %if.end10.i.i.i.i.us
-  %incdec.ptr.i12.i.i.i.i.us = getelementptr inbounds i32, ptr %__first.sroa.0.051.i.i.i.i.us, i64 3
+  %incdec.ptr.i12.i.i.i.i.us = getelementptr inbounds i8, ptr %__first.sroa.0.051.i.i.i.i.us, i64 12
   %9 = load i32, ptr %incdec.ptr.i12.i.i.i.i.us, align 4
   %cmp.i13.i.i.i.i.us = icmp eq i32 %9, %5
   br i1 %cmp.i13.i.i.i.i.us, label %_ZN4base13ContainsValueISt6vectorIN3net11QuicVersionESaIS3_EES3_EEbRKT_RKT0_.exit.us.loopexit.split.loop.exit159, label %if.end22.i.i.i.i.us
 
 if.end22.i.i.i.i.us:                              ; preds = %if.end16.i.i.i.i.us
-  %incdec.ptr.i14.i.i.i.i.us = getelementptr inbounds i32, ptr %__first.sroa.0.051.i.i.i.i.us, i64 4
+  %incdec.ptr.i14.i.i.i.i.us = getelementptr inbounds i8, ptr %__first.sroa.0.051.i.i.i.i.us, i64 16
   %dec.i.i.i.i.us = add nsw i64 %__trip_count.052.i.i.i.i.us, -1
   %cmp.i.i.i.i.us = icmp sgt i64 %__trip_count.052.i.i.i.i.us, 1
   br i1 %cmp.i.i.i.i.us, label %for.body.i.i.i.i.us, label %for.end.loopexit.i.i.i.i.us, !llvm.loop !33
@@ -3389,7 +3246,7 @@ sw.bb31.i.i.i.i.us:                               ; preds = %for.end.loopexit.i.
   br i1 %cmp.i21.i.i.i.i.us, label %_ZN4base13ContainsValueISt6vectorIN3net11QuicVersionESaIS3_EES3_EEbRKT_RKT0_.exit.us, label %if.end36.i.i.i.i.us
 
 if.end36.i.i.i.i.us:                              ; preds = %sw.bb31.i.i.i.i.us
-  %incdec.ptr.i22.i.i.i.i.us = getelementptr inbounds i32, ptr %__first.sroa.0.1.i.i.i.i.us, i64 1
+  %incdec.ptr.i22.i.i.i.i.us = getelementptr inbounds i8, ptr %__first.sroa.0.1.i.i.i.i.us, i64 4
   br label %sw.bb38.i.i.i.i.us
 
 sw.bb38.i.i.i.i.us:                               ; preds = %for.end.loopexit.i.i.i.i.us, %if.end36.i.i.i.i.us
@@ -3400,15 +3257,15 @@ sw.bb38.i.i.i.i.us:                               ; preds = %for.end.loopexit.i.
   br label %_ZN4base13ContainsValueISt6vectorIN3net11QuicVersionESaIS3_EES3_EEbRKT_RKT0_.exit.us
 
 _ZN4base13ContainsValueISt6vectorIN3net11QuicVersionESaIS3_EES3_EEbRKT_RKT0_.exit.us.loopexit.split.loop.exit155: ; preds = %if.end.i.i.i.i.us
-  %incdec.ptr.i.i.i.i.i.us.le = getelementptr inbounds i32, ptr %__first.sroa.0.051.i.i.i.i.us, i64 1
+  %incdec.ptr.i.i.i.i.i.us.le = getelementptr inbounds i8, ptr %__first.sroa.0.051.i.i.i.i.us, i64 4
   br label %_ZN4base13ContainsValueISt6vectorIN3net11QuicVersionESaIS3_EES3_EEbRKT_RKT0_.exit.us
 
 _ZN4base13ContainsValueISt6vectorIN3net11QuicVersionESaIS3_EES3_EEbRKT_RKT0_.exit.us.loopexit.split.loop.exit157: ; preds = %if.end10.i.i.i.i.us
-  %incdec.ptr.i10.i.i.i.i.us.le = getelementptr inbounds i32, ptr %__first.sroa.0.051.i.i.i.i.us, i64 2
+  %incdec.ptr.i10.i.i.i.i.us.le = getelementptr inbounds i8, ptr %__first.sroa.0.051.i.i.i.i.us, i64 8
   br label %_ZN4base13ContainsValueISt6vectorIN3net11QuicVersionESaIS3_EES3_EEbRKT_RKT0_.exit.us
 
 _ZN4base13ContainsValueISt6vectorIN3net11QuicVersionESaIS3_EES3_EEbRKT_RKT0_.exit.us.loopexit.split.loop.exit159: ; preds = %if.end16.i.i.i.i.us
-  %incdec.ptr.i12.i.i.i.i.us.le = getelementptr inbounds i32, ptr %__first.sroa.0.051.i.i.i.i.us, i64 3
+  %incdec.ptr.i12.i.i.i.i.us.le = getelementptr inbounds i8, ptr %__first.sroa.0.051.i.i.i.i.us, i64 12
   br label %_ZN4base13ContainsValueISt6vectorIN3net11QuicVersionESaIS3_EES3_EEbRKT_RKT0_.exit.us
 
 _ZN4base13ContainsValueISt6vectorIN3net11QuicVersionESaIS3_EES3_EEbRKT_RKT0_.exit.us: ; preds = %for.body.i.i.i.i.us, %_ZN4base13ContainsValueISt6vectorIN3net11QuicVersionESaIS3_EES3_EEbRKT_RKT0_.exit.us.loopexit.split.loop.exit155, %_ZN4base13ContainsValueISt6vectorIN3net11QuicVersionESaIS3_EES3_EEbRKT_RKT0_.exit.us.loopexit.split.loop.exit157, %_ZN4base13ContainsValueISt6vectorIN3net11QuicVersionESaIS3_EES3_EEbRKT_RKT0_.exit.us.loopexit.split.loop.exit159, %sw.bb38.i.i.i.i.us, %sw.bb31.i.i.i.i.us, %sw.bb.i.i.i.i.us
@@ -3424,7 +3281,7 @@ for.inc.us:                                       ; preds = %_ZN4base13ContainsV
 
 for.body.lr.ph.split:                             ; preds = %for.body.lr.ph
   %sub.ptr.div.i18.i.i.i.i = ashr exact i64 %sub.ptr.sub.i.i.i.i.i, 2
-  %incdec.ptr.i20.i.i.i.i = getelementptr inbounds i32, ptr %2, i64 1
+  %incdec.ptr.i20.i.i.i.i = getelementptr inbounds i8, ptr %2, i64 4
   switch i64 %sub.ptr.div.i18.i.i.i.i, label %for.body.preheader [
     i64 3, label %for.body.lr.ph.split.split.us
     i64 2, label %for.body.lr.ph.split.split.us50
@@ -3437,7 +3294,7 @@ for.body.preheader:                               ; preds = %for.body.lr.ph.spli
 
 for.body.lr.ph.split.split.us:                    ; preds = %for.body.lr.ph.split
   %13 = load i32, ptr %2, align 4
-  %incdec.ptr.i22.i.i.i.i.us33 = getelementptr inbounds i32, ptr %2, i64 2
+  %incdec.ptr.i22.i.i.i.i.us33 = getelementptr inbounds i8, ptr %2, i64 8
   %umax133 = tail call i64 @llvm.umax.i64(i64 %sub.ptr.div.i, i64 1)
   br label %for.body.us22
 
@@ -3561,25 +3418,25 @@ declare void @_ZN3net10QuicFramer11set_versionENS_11QuicVersionE(ptr noundef non
 ; Function Attrs: mustprogress uwtable
 define dso_local void @_ZN3net14QuicConnection7OnErrorEPNS_10QuicFramerE(ptr noundef nonnull align 8 dereferenceable(3372) %this, ptr noundef %framer) unnamed_addr #0 align 2 {
 entry:
-  %connected_ = getelementptr inbounds %"class.net::QuicConnection", ptr %this, i64 0, i32 80
+  %connected_ = getelementptr inbounds i8, ptr %this, i64 3208
   %0 = load i8, ptr %connected_, align 8
   %1 = and i8 %0, 1
   %tobool.not = icmp eq i8 %1, 0
   br i1 %tobool.not, label %return, label %lor.lhs.false
 
 lor.lhs.false:                                    ; preds = %entry
-  %last_packet_decrypted_ = getelementptr inbounds %"class.net::QuicConnection", ptr %this, i64 0, i32 20
+  %last_packet_decrypted_ = getelementptr inbounds i8, ptr %this, i64 584
   %2 = load i8, ptr %last_packet_decrypted_, align 8
   %3 = and i8 %2, 1
   %cmp = icmp eq i8 %3, 0
   br i1 %cmp, label %return, label %if.end
 
 if.end:                                           ; preds = %lor.lhs.false
-  %error_.i = getelementptr inbounds %"class.net::QuicFramer", ptr %framer, i64 0, i32 4
+  %error_.i = getelementptr inbounds i8, ptr %framer, i64 56
   %4 = load i32, ptr %error_.i, align 8
-  %detailed_error_.i = getelementptr inbounds %"class.net::QuicFramer", ptr %framer, i64 0, i32 1
+  %detailed_error_.i = getelementptr inbounds i8, ptr %framer, i64 8
   %vtable = load ptr, ptr %this, align 8
-  %vfn = getelementptr inbounds ptr, ptr %vtable, i64 32
+  %vfn = getelementptr inbounds i8, ptr %vtable, i64 256
   %5 = load ptr, ptr %vfn, align 8
   tail call void %5(ptr noundef nonnull align 8 dereferenceable(3372) %this, i32 noundef %4, ptr noundef nonnull align 8 dereferenceable(32) %detailed_error_.i, i32 noundef 1)
   br label %return
@@ -3591,7 +3448,7 @@ return:                                           ; preds = %entry, %lor.lhs.fal
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
 define dso_local void @_ZN3net14QuicConnection8OnPacketEv(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(3372) %this) unnamed_addr #9 align 2 {
 entry:
-  %last_packet_decrypted_ = getelementptr inbounds %"class.net::QuicConnection", ptr %this, i64 0, i32 20
+  %last_packet_decrypted_ = getelementptr inbounds i8, ptr %this, i64 584
   store i8 0, ptr %last_packet_decrypted_, align 8
   ret void
 }
@@ -3601,14 +3458,14 @@ define dso_local void @_ZN3net14QuicConnection19OnPublicResetPacketERKNS_21QuicP
 if.end:
   %error_details = alloca %"class.std::__cxx11::basic_string", align 8
   %ref.tmp7 = alloca %"class.std::allocator.0", align 1
-  %debug_visitor_ = getelementptr inbounds %"class.net::QuicConnection", ptr %this, i64 0, i32 68
+  %debug_visitor_ = getelementptr inbounds i8, ptr %this, i64 2400
   %0 = load ptr, ptr %debug_visitor_, align 8
   %cmp.not = icmp eq ptr %0, null
   br i1 %cmp.not, label %if.end6, label %if.then4
 
 if.then4:                                         ; preds = %if.end
   %vtable = load ptr, ptr %0, align 8
-  %vfn = getelementptr inbounds ptr, ptr %vtable, i64 25
+  %vfn = getelementptr inbounds i8, ptr %vtable, i64 200
   %1 = load ptr, ptr %vfn, align 8
   tail call void %1(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef nonnull align 8 dereferenceable(96) %packet)
   br label %if.end6
@@ -3705,7 +3562,7 @@ declare void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1)) unnam
 ; Function Attrs: mustprogress uwtable
 define dso_local void @_ZN3net14QuicConnection28TearDownLocalConnectionStateENS_13QuicErrorCodeERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS_21ConnectionCloseSourceE(ptr nocapture noundef nonnull align 8 dereferenceable(3372) %this, i32 noundef %error, ptr noundef nonnull align 8 dereferenceable(32) %error_details, i32 noundef %source) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  %connected_ = getelementptr inbounds %"class.net::QuicConnection", ptr %this, i64 0, i32 80
+  %connected_ = getelementptr inbounds i8, ptr %this, i64 3208
   %0 = load i8, ptr %connected_, align 8
   %1 = and i8 %0, 1
   %tobool.not = icmp eq i8 %1, 0
@@ -3713,14 +3570,14 @@ entry:
 
 if.end:                                           ; preds = %entry
   store i8 0, ptr %connected_, align 8
-  %visitor_ = getelementptr inbounds %"class.net::QuicConnection", ptr %this, i64 0, i32 67
+  %visitor_ = getelementptr inbounds i8, ptr %this, i64 2392
   %2 = load ptr, ptr %visitor_, align 8
   %cmp.not = icmp eq ptr %2, null
   br i1 %cmp.not, label %do.body5, label %if.then3
 
 if.then3:                                         ; preds = %if.end
   %vtable = load ptr, ptr %2, align 8
-  %vfn = getelementptr inbounds ptr, ptr %vtable, i64 7
+  %vfn = getelementptr inbounds i8, ptr %vtable, i64 56
   %3 = load ptr, ptr %vfn, align 8
   tail call void %3(ptr noundef nonnull align 8 dereferenceable(8) %2, i32 noundef %error, ptr noundef nonnull align 8 dereferenceable(32) %error_details, i32 noundef %source)
   br label %if.end11
@@ -3743,56 +3600,56 @@ if.end9:                                          ; preds = %if.then7, %do.body5
   br label %if.end11
 
 if.end11:                                         ; preds = %if.end9, %if.then3
-  %debug_visitor_ = getelementptr inbounds %"class.net::QuicConnection", ptr %this, i64 0, i32 68
+  %debug_visitor_ = getelementptr inbounds i8, ptr %this, i64 2400
   %7 = load ptr, ptr %debug_visitor_, align 8
   %cmp12.not = icmp eq ptr %7, null
   br i1 %cmp12.not, label %if.end17, label %if.then13
 
 if.then13:                                        ; preds = %if.end11
   %vtable15 = load ptr, ptr %7, align 8
-  %vfn16 = getelementptr inbounds ptr, ptr %vtable15, i64 27
+  %vfn16 = getelementptr inbounds i8, ptr %vtable15, i64 216
   %8 = load ptr, ptr %vfn16, align 8
   tail call void %8(ptr noundef nonnull align 8 dereferenceable(8) %7, i32 noundef %error, ptr noundef nonnull align 8 dereferenceable(32) %error_details, i32 noundef %source)
   br label %if.end17
 
 if.end17:                                         ; preds = %if.then13, %if.end11
-  %ack_alarm_.i = getelementptr inbounds %"class.net::QuicConnection", ptr %this, i64 0, i32 60
+  %ack_alarm_.i = getelementptr inbounds i8, ptr %this, i64 2336
   %9 = load ptr, ptr %ack_alarm_.i, align 8
   %10 = ptrtoint ptr %9 to i64
   %and.i.i.i = and i64 %10, -2
   %11 = inttoptr i64 %and.i.i.i to ptr
   tail call void @_ZN3net9QuicAlarm6CancelEv(ptr noundef nonnull align 8 dereferenceable(24) %11)
-  %ping_alarm_.i = getelementptr inbounds %"class.net::QuicConnection", ptr %this, i64 0, i32 65
+  %ping_alarm_.i = getelementptr inbounds i8, ptr %this, i64 2376
   %12 = load ptr, ptr %ping_alarm_.i, align 8
   %13 = ptrtoint ptr %12 to i64
   %and.i.i1.i = and i64 %13, -2
   %14 = inttoptr i64 %and.i.i1.i to ptr
   tail call void @_ZN3net9QuicAlarm6CancelEv(ptr noundef nonnull align 8 dereferenceable(24) %14)
-  %resume_writes_alarm_.i = getelementptr inbounds %"class.net::QuicConnection", ptr %this, i64 0, i32 63
+  %resume_writes_alarm_.i = getelementptr inbounds i8, ptr %this, i64 2360
   %15 = load ptr, ptr %resume_writes_alarm_.i, align 8
   %16 = ptrtoint ptr %15 to i64
   %and.i.i2.i = and i64 %16, -2
   %17 = inttoptr i64 %and.i.i2.i to ptr
   tail call void @_ZN3net9QuicAlarm6CancelEv(ptr noundef nonnull align 8 dereferenceable(24) %17)
-  %retransmission_alarm_.i = getelementptr inbounds %"class.net::QuicConnection", ptr %this, i64 0, i32 61
+  %retransmission_alarm_.i = getelementptr inbounds i8, ptr %this, i64 2344
   %18 = load ptr, ptr %retransmission_alarm_.i, align 8
   %19 = ptrtoint ptr %18 to i64
   %and.i.i3.i = and i64 %19, -2
   %20 = inttoptr i64 %and.i.i3.i to ptr
   tail call void @_ZN3net9QuicAlarm6CancelEv(ptr noundef nonnull align 8 dereferenceable(24) %20)
-  %send_alarm_.i = getelementptr inbounds %"class.net::QuicConnection", ptr %this, i64 0, i32 62
+  %send_alarm_.i = getelementptr inbounds i8, ptr %this, i64 2352
   %21 = load ptr, ptr %send_alarm_.i, align 8
   %22 = ptrtoint ptr %21 to i64
   %and.i.i4.i = and i64 %22, -2
   %23 = inttoptr i64 %and.i.i4.i to ptr
   tail call void @_ZN3net9QuicAlarm6CancelEv(ptr noundef nonnull align 8 dereferenceable(24) %23)
-  %timeout_alarm_.i = getelementptr inbounds %"class.net::QuicConnection", ptr %this, i64 0, i32 64
+  %timeout_alarm_.i = getelementptr inbounds i8, ptr %this, i64 2368
   %24 = load ptr, ptr %timeout_alarm_.i, align 8
   %25 = ptrtoint ptr %24 to i64
   %and.i.i5.i = and i64 %25, -2
   %26 = inttoptr i64 %and.i.i5.i to ptr
   tail call void @_ZN3net9QuicAlarm6CancelEv(ptr noundef nonnull align 8 dereferenceable(24) %26)
-  %mtu_discovery_alarm_.i = getelementptr inbounds %"class.net::QuicConnection", ptr %this, i64 0, i32 66
+  %mtu_discovery_alarm_.i = getelementptr inbounds i8, ptr %this, i64 2384
   %27 = load ptr, ptr %mtu_discovery_alarm_.i, align 8
   %28 = ptrtoint ptr %27 to i64
   %and.i.i6.i = and i64 %28, -2
@@ -3815,7 +3672,7 @@ entry:
   %ref.tmp = alloca %"class.std::allocator.0", align 1
   %ref.tmp6 = alloca %"class.logging::LogMessage", align 8
   store i32 %received_version, ptr %received_version.addr, align 4
-  %perspective_ = getelementptr inbounds %"class.net::QuicConnection", ptr %this, i64 0, i32 79
+  %perspective_ = getelementptr inbounds i8, ptr %this, i64 3204
   %0 = load i32, ptr %perspective_, align 4
   %cmp = icmp eq i32 %0, 1
   br i1 %cmp, label %if.then, label %if.end33
@@ -3852,7 +3709,7 @@ cond.false:                                       ; preds = %invoke.cont3
           to label %invoke.cont7 unwind label %lpad2
 
 invoke.cont7:                                     ; preds = %cond.false
-  %stream_.i = getelementptr inbounds %"class.logging::LogMessage", ptr %ref.tmp6, i64 0, i32 2
+  %stream_.i = getelementptr inbounds i8, ptr %ref.tmp6, i64 8
   %2 = load i32, ptr %perspective_, align 4
   %cmp12 = icmp eq i32 %2, 0
   %cond-lvalue = select i1 %cmp12, ptr @.str.3, ptr @.str.4
@@ -3902,20 +3759,20 @@ ehcleanup:                                        ; preds = %lpad8, %lpad2
   br label %eh.resume
 
 if.end33:                                         ; preds = %entry
-  %debug_visitor_ = getelementptr inbounds %"class.net::QuicConnection", ptr %this, i64 0, i32 68
+  %debug_visitor_ = getelementptr inbounds i8, ptr %this, i64 2400
   %6 = load ptr, ptr %debug_visitor_, align 8
   %cmp34.not = icmp eq ptr %6, null
   br i1 %cmp34.not, label %if.end37, label %if.then35
 
 if.then35:                                        ; preds = %if.end33
   %vtable = load ptr, ptr %6, align 8
-  %vfn = getelementptr inbounds ptr, ptr %vtable, i64 12
+  %vfn = getelementptr inbounds i8, ptr %vtable, i64 96
   %7 = load ptr, ptr %vfn, align 8
   tail call void %7(ptr noundef nonnull align 8 dereferenceable(8) %6, i32 noundef %received_version)
   br label %if.end37
 
 if.end37:                                         ; preds = %if.then35, %if.end33
-  %version_negotiation_state_ = getelementptr inbounds %"class.net::QuicConnection", ptr %this, i64 0, i32 78
+  %version_negotiation_state_ = getelementptr inbounds i8, ptr %this, i64 3200
   %8 = load i32, ptr %version_negotiation_state_, align 8
   switch i32 %8, label %sw.epilog [
     i32 0, label %sw.bb
@@ -3924,7 +3781,7 @@ if.end37:                                         ; preds = %if.then35, %if.end3
   ]
 
 sw.bb:                                            ; preds = %if.end37
-  %framer_ = getelementptr inbounds %"class.net::QuicConnection", ptr %this, i64 0, i32 4
+  %framer_ = getelementptr inbounds i8, ptr %this, i64 32
   %call38 = tail call noundef zeroext i1 @_ZNK3net10QuicFramer18IsSupportedVersionENS_11QuicVersionE(ptr noundef nonnull align 8 dereferenceable(408) %framer_, i32 noundef %received_version)
   br i1 %call38, label %sw.epilog, label %if.then39
 
@@ -3934,7 +3791,7 @@ if.then39:                                        ; preds = %sw.bb
   br label %return
 
 sw.bb42:                                          ; preds = %if.end37
-  %framer_43 = getelementptr inbounds %"class.net::QuicConnection", ptr %this, i64 0, i32 4
+  %framer_43 = getelementptr inbounds i8, ptr %this, i64 32
   %call44 = tail call noundef zeroext i1 @_ZNK3net10QuicFramer18IsSupportedVersionENS_11QuicVersionE(ptr noundef nonnull align 8 dereferenceable(408) %framer_43, i32 noundef %received_version)
   br i1 %call44, label %sw.epilog, label %if.then45
 
@@ -3944,12 +3801,12 @@ if.then45:                                        ; preds = %sw.bb42
 
 sw.epilog:                                        ; preds = %if.end37, %sw.bb42, %sw.bb
   store i32 2, ptr %version_negotiation_state_, align 8
-  %received_packet_manager_ = getelementptr inbounds %"class.net::QuicConnection", ptr %this, i64 0, i32 43
+  %received_packet_manager_ = getelementptr inbounds i8, ptr %this, i64 864
   tail call void @_ZN3net25QuicReceivedPacketManager10SetVersionENS_11QuicVersionE(ptr noundef nonnull align 8 dereferenceable(248) %received_packet_manager_, i32 noundef %received_version)
-  %visitor_ = getelementptr inbounds %"class.net::QuicConnection", ptr %this, i64 0, i32 67
+  %visitor_ = getelementptr inbounds i8, ptr %this, i64 2392
   %9 = load ptr, ptr %visitor_, align 8
   %vtable49 = load ptr, ptr %9, align 8
-  %vfn50 = getelementptr inbounds ptr, ptr %vtable49, i64 9
+  %vfn50 = getelementptr inbounds i8, ptr %vtable49, i64 72
   %10 = load ptr, ptr %vfn50, align 8
   call void %10(ptr noundef nonnull align 8 dereferenceable(8) %9, ptr noundef nonnull align 4 dereferenceable(4) %received_version.addr)
   %11 = load ptr, ptr %debug_visitor_, align 8
@@ -3958,13 +3815,13 @@ sw.epilog:                                        ; preds = %if.end37, %sw.bb42,
 
 if.then53:                                        ; preds = %sw.epilog
   %vtable55 = load ptr, ptr %11, align 8
-  %vfn56 = getelementptr inbounds ptr, ptr %vtable55, i64 28
+  %vfn56 = getelementptr inbounds i8, ptr %vtable55, i64 224
   %12 = load ptr, ptr %vfn56, align 8
   call void %12(ptr noundef nonnull align 8 dereferenceable(8) %11, ptr noundef nonnull align 4 dereferenceable(4) %received_version.addr)
   br label %if.end57
 
 if.end57:                                         ; preds = %if.then53, %sw.epilog
-  %framer_58 = getelementptr inbounds %"class.net::QuicConnection", ptr %this, i64 0, i32 4
+  %framer_58 = getelementptr inbounds i8, ptr %this, i64 32
   %13 = load i32, ptr %received_version.addr, align 4
   call void @_ZN3net10QuicFramer11set_versionENS_11QuicVersionE(ptr noundef nonnull align 8 dereferenceable(408) %framer_58, i32 noundef %13)
   br label %return
@@ -3991,40 +3848,40 @@ declare noundef zeroext i1 @_ZNK3net10QuicFramer18IsSupportedVersionENS_11QuicVe
 ; Function Attrs: mustprogress uwtable
 define dso_local void @_ZN3net14QuicConnection28SendVersionNegotiationPacketEv(ptr noundef nonnull align 8 dereferenceable(3372) %this) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  %pending_version_negotiation_packet_ = getelementptr inbounds %"class.net::QuicConnection", ptr %this, i64 0, i32 34
+  %pending_version_negotiation_packet_ = getelementptr inbounds i8, ptr %this, i64 808
   store i8 1, ptr %pending_version_negotiation_packet_, align 8
-  %writer_ = getelementptr inbounds %"class.net::QuicConnection", ptr %this, i64 0, i32 8
+  %writer_ = getelementptr inbounds i8, ptr %this, i64 464
   %0 = load ptr, ptr %writer_, align 8
   %vtable = load ptr, ptr %0, align 8
-  %vfn = getelementptr inbounds ptr, ptr %vtable, i64 4
+  %vfn = getelementptr inbounds i8, ptr %vtable, i64 32
   %1 = load ptr, ptr %vfn, align 8
   %call = tail call noundef zeroext i1 %1(ptr noundef nonnull align 8 dereferenceable(8) %0)
   br i1 %call, label %if.then, label %if.end
 
 if.then:                                          ; preds = %entry
-  %visitor_ = getelementptr inbounds %"class.net::QuicConnection", ptr %this, i64 0, i32 67
+  %visitor_ = getelementptr inbounds i8, ptr %this, i64 2392
   %2 = load ptr, ptr %visitor_, align 8
   %vtable2 = load ptr, ptr %2, align 8
-  %vfn3 = getelementptr inbounds ptr, ptr %vtable2, i64 8
+  %vfn3 = getelementptr inbounds i8, ptr %vtable2, i64 64
   %3 = load ptr, ptr %vfn3, align 8
   tail call void %3(ptr noundef nonnull align 8 dereferenceable(8) %2)
   br label %cleanup.cont
 
 if.end:                                           ; preds = %entry
-  %packet_generator_ = getelementptr inbounds %"class.net::QuicConnection", ptr %this, i64 0, i32 69
-  %supported_versions_.i = getelementptr inbounds %"class.net::QuicConnection", ptr %this, i64 0, i32 4, i32 14
+  %packet_generator_ = getelementptr inbounds i8, ptr %this, i64 2408
+  %supported_versions_.i = getelementptr inbounds i8, ptr %this, i64 304
   %call5 = tail call noundef ptr @_ZN3net19QuicPacketGenerator33SerializeVersionNegotiationPacketERKSt6vectorINS_11QuicVersionESaIS2_EE(ptr noundef nonnull align 8 dereferenceable(472) %packet_generator_, ptr noundef nonnull align 8 dereferenceable(24) %supported_versions_.i)
   %4 = load ptr, ptr %writer_, align 8
-  %buffer_.i = getelementptr inbounds %"class.net::QuicData", ptr %call5, i64 0, i32 1
+  %buffer_.i = getelementptr inbounds i8, ptr %call5, i64 8
   %5 = load ptr, ptr %buffer_.i, align 8
-  %length_.i = getelementptr inbounds %"class.net::QuicData", ptr %call5, i64 0, i32 2
+  %length_.i = getelementptr inbounds i8, ptr %call5, i64 16
   %6 = load i64, ptr %length_.i, align 8
-  %self_address_.i = getelementptr inbounds %"class.net::QuicConnection", ptr %this, i64 0, i32 15
-  %peer_address_.i = getelementptr inbounds %"class.net::QuicConnection", ptr %this, i64 0, i32 16
-  %per_packet_options_ = getelementptr inbounds %"class.net::QuicConnection", ptr %this, i64 0, i32 7
+  %self_address_.i = getelementptr inbounds i8, ptr %this, i64 504
+  %peer_address_.i = getelementptr inbounds i8, ptr %this, i64 536
+  %per_packet_options_ = getelementptr inbounds i8, ptr %this, i64 456
   %7 = load ptr, ptr %per_packet_options_, align 8
   %vtable18 = load ptr, ptr %4, align 8
-  %vfn19 = getelementptr inbounds ptr, ptr %vtable18, i64 2
+  %vfn19 = getelementptr inbounds i8, ptr %vtable18, i64 16
   %8 = load ptr, ptr %vfn19, align 8
   %call21 = invoke i64 %8(ptr noundef nonnull align 8 dereferenceable(8) %4, ptr noundef %5, i64 noundef %6, ptr noundef nonnull align 8 dereferenceable(24) %self_address_.i, ptr noundef nonnull align 8 dereferenceable(26) %peer_address_.i, ptr noundef %7)
           to label %invoke.cont20 unwind label %_ZNSt10unique_ptrIN3net19QuicEncryptedPacketESt14default_deleteIS1_EED2Ev.exit
@@ -4046,16 +3903,16 @@ _ZNSt10unique_ptrIN3net19QuicEncryptedPacketESt14default_deleteIS1_EED2Ev.exit: 
   %9 = landingpad { ptr, i32 }
           cleanup
   %vtable.i.i = load ptr, ptr %call5, align 8
-  %vfn.i.i = getelementptr inbounds ptr, ptr %vtable.i.i, i64 1
+  %vfn.i.i = getelementptr inbounds i8, ptr %vtable.i.i, i64 8
   %10 = load ptr, ptr %vfn.i.i, align 8
   tail call void %10(ptr noundef nonnull align 8 dereferenceable(25) %call5) #22
   resume { ptr, i32 } %9
 
 if.then27:                                        ; preds = %invoke.cont20
-  %visitor_28 = getelementptr inbounds %"class.net::QuicConnection", ptr %this, i64 0, i32 67
+  %visitor_28 = getelementptr inbounds i8, ptr %this, i64 2392
   %11 = load ptr, ptr %visitor_28, align 8
   %vtable29 = load ptr, ptr %11, align 8
-  %vfn30 = getelementptr inbounds ptr, ptr %vtable29, i64 8
+  %vfn30 = getelementptr inbounds i8, ptr %vtable29, i64 64
   %12 = load ptr, ptr %vfn30, align 8
   invoke void %12(ptr noundef nonnull align 8 dereferenceable(8) %11)
           to label %invoke.cont31 unwind label %_ZNSt10unique_ptrIN3net19QuicEncryptedPacketESt14default_deleteIS1_EED2Ev.exit
@@ -4063,7 +3920,7 @@ if.then27:                                        ; preds = %invoke.cont20
 invoke.cont31:                                    ; preds = %if.then27
   %13 = load ptr, ptr %writer_, align 8
   %vtable33 = load ptr, ptr %13, align 8
-  %vfn34 = getelementptr inbounds ptr, ptr %vtable33, i64 3
+  %vfn34 = getelementptr inbounds i8, ptr %vtable33, i64 24
   %14 = load ptr, ptr %vfn34, align 8
   %call36 = invoke noundef zeroext i1 %14(ptr noundef nonnull align 8 dereferenceable(8) %13)
           to label %invoke.cont35 unwind label %_ZNSt10unique_ptrIN3net19QuicEncryptedPacketESt14default_deleteIS1_EED2Ev.exit
@@ -4077,7 +3934,7 @@ _ZNSt10unique_ptrIN3net19QuicEncryptedPacketESt14default_deleteIS1_EED2Ev.exit6.
 
 _ZNSt10unique_ptrIN3net19QuicEncryptedPacketESt14default_deleteIS1_EED2Ev.exit6: ; preds = %_ZNSt10unique_ptrIN3net19QuicEncryptedPacketESt14default_deleteIS1_EED2Ev.exit6.sink.split, %invoke.cont35, %if.then22
   %vtable.i.i4 = load ptr, ptr %call5, align 8
-  %vfn.i.i5 = getelementptr inbounds ptr, ptr %vtable.i.i4, i64 1
+  %vfn.i.i5 = getelementptr inbounds i8, ptr %vtable.i.i4, i64 8
   %15 = load ptr, ptr %vfn.i.i5, align 8
   tail call void %15(ptr noundef nonnull align 8 dereferenceable(25) %call5) #22
   br label %cleanup.cont
@@ -4100,7 +3957,7 @@ if.end:
   %ref.tmp52 = alloca %"class.std::__cxx11::basic_string", align 8
   %ref.tmp53 = alloca %"class.std::__cxx11::basic_string", align 8
   %ref.tmp59 = alloca %"class.std::__cxx11::basic_string", align 8
-  %perspective_ = getelementptr inbounds %"class.net::QuicConnection", ptr %this, i64 0, i32 79
+  %perspective_ = getelementptr inbounds i8, ptr %this, i64 3204
   %0 = load i32, ptr %perspective_, align 4
   %cmp = icmp eq i32 %0, 0
   br i1 %cmp, label %if.then4, label %if.end25
@@ -4137,7 +3994,7 @@ cond.false:                                       ; preds = %invoke.cont9
           to label %invoke.cont14 unwind label %lpad8
 
 invoke.cont14:                                    ; preds = %cond.false
-  %stream_.i14 = getelementptr inbounds %"class.logging::LogMessage", ptr %ref.tmp13, i64 0, i32 2
+  %stream_.i14 = getelementptr inbounds i8, ptr %ref.tmp13, i64 8
   %call19 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsIcSt11char_traitsIcESaIcEERSt13basic_ostreamIT_T0_ES7_RKNSt7__cxx1112basic_stringIS4_S5_T1_EE(ptr noundef nonnull align 8 dereferenceable(8) %stream_.i14, ptr noundef nonnull align 8 dereferenceable(32) %error_details)
           to label %cleanup.action unwind label %lpad15
 
@@ -4180,30 +4037,30 @@ ehcleanup:                                        ; preds = %lpad15, %lpad8
   br label %eh.resume
 
 if.end25:                                         ; preds = %if.end
-  %debug_visitor_ = getelementptr inbounds %"class.net::QuicConnection", ptr %this, i64 0, i32 68
+  %debug_visitor_ = getelementptr inbounds i8, ptr %this, i64 2400
   %5 = load ptr, ptr %debug_visitor_, align 8
   %cmp26.not = icmp eq ptr %5, null
   br i1 %cmp26.not, label %if.end29, label %if.then27
 
 if.then27:                                        ; preds = %if.end25
   %vtable = load ptr, ptr %5, align 8
-  %vfn = getelementptr inbounds ptr, ptr %vtable, i64 26
+  %vfn = getelementptr inbounds i8, ptr %vtable, i64 208
   %6 = load ptr, ptr %vfn, align 8
   tail call void %6(ptr noundef nonnull align 8 dereferenceable(8) %5, ptr noundef nonnull align 8 dereferenceable(48) %packet)
   br label %if.end29
 
 if.end29:                                         ; preds = %if.then27, %if.end25
-  %version_negotiation_state_ = getelementptr inbounds %"class.net::QuicConnection", ptr %this, i64 0, i32 78
+  %version_negotiation_state_ = getelementptr inbounds i8, ptr %this, i64 3200
   %7 = load i32, ptr %version_negotiation_state_, align 8
   %cmp30.not = icmp eq i32 %7, 0
   br i1 %cmp30.not, label %if.end32, label %return
 
 if.end32:                                         ; preds = %if.end29
-  %versions = getelementptr inbounds %"struct.net::QuicPacketPublicHeader", ptr %packet, i64 0, i32 6
-  %quic_version_.i.i = getelementptr inbounds %"class.net::QuicConnection", ptr %this, i64 0, i32 4, i32 13
+  %versions = getelementptr inbounds i8, ptr %packet, i64 16
+  %quic_version_.i.i = getelementptr inbounds i8, ptr %this, i64 300
   %8 = load i32, ptr %quic_version_.i.i, align 4
   %9 = load ptr, ptr %versions, align 8
-  %_M_finish.i.i = getelementptr inbounds %"struct.net::QuicPacketPublicHeader", ptr %packet, i64 0, i32 6, i32 0, i32 0, i32 0, i32 1
+  %_M_finish.i.i = getelementptr inbounds i8, ptr %packet, i64 24
   %10 = load ptr, ptr %_M_finish.i.i, align 8
   %sub.ptr.lhs.cast.i.i.i.i.i = ptrtoint ptr %10 to i64
   %sub.ptr.rhs.cast.i.i.i.i.i = ptrtoint ptr %9 to i64
@@ -4225,25 +4082,25 @@ for.body.i.i.i.i:                                 ; preds = %if.end22.i.i.i.i, %
   br i1 %cmp.i.i.i.i.i, label %_ZN4base13ContainsValueISt6vectorIN3net11QuicVersionESaIS3_EES3_EEbRKT_RKT0_.exit, label %if.end.i.i.i.i
 
 if.end.i.i.i.i:                                   ; preds = %for.body.i.i.i.i
-  %incdec.ptr.i.i.i.i.i = getelementptr inbounds i32, ptr %__first.sroa.0.051.i.i.i.i, i64 1
+  %incdec.ptr.i.i.i.i.i = getelementptr inbounds i8, ptr %__first.sroa.0.051.i.i.i.i, i64 4
   %13 = load i32, ptr %incdec.ptr.i.i.i.i.i, align 4
   %cmp.i9.i.i.i.i = icmp eq i32 %13, %8
   br i1 %cmp.i9.i.i.i.i, label %_ZN4base13ContainsValueISt6vectorIN3net11QuicVersionESaIS3_EES3_EEbRKT_RKT0_.exit.loopexit.split.loop.exit, label %if.end10.i.i.i.i
 
 if.end10.i.i.i.i:                                 ; preds = %if.end.i.i.i.i
-  %incdec.ptr.i10.i.i.i.i = getelementptr inbounds i32, ptr %__first.sroa.0.051.i.i.i.i, i64 2
+  %incdec.ptr.i10.i.i.i.i = getelementptr inbounds i8, ptr %__first.sroa.0.051.i.i.i.i, i64 8
   %14 = load i32, ptr %incdec.ptr.i10.i.i.i.i, align 4
   %cmp.i11.i.i.i.i = icmp eq i32 %14, %8
   br i1 %cmp.i11.i.i.i.i, label %_ZN4base13ContainsValueISt6vectorIN3net11QuicVersionESaIS3_EES3_EEbRKT_RKT0_.exit.loopexit.split.loop.exit52, label %if.end16.i.i.i.i
 
 if.end16.i.i.i.i:                                 ; preds = %if.end10.i.i.i.i
-  %incdec.ptr.i12.i.i.i.i = getelementptr inbounds i32, ptr %__first.sroa.0.051.i.i.i.i, i64 3
+  %incdec.ptr.i12.i.i.i.i = getelementptr inbounds i8, ptr %__first.sroa.0.051.i.i.i.i, i64 12
   %15 = load i32, ptr %incdec.ptr.i12.i.i.i.i, align 4
   %cmp.i13.i.i.i.i = icmp eq i32 %15, %8
   br i1 %cmp.i13.i.i.i.i, label %_ZN4base13ContainsValueISt6vectorIN3net11QuicVersionESaIS3_EES3_EEbRKT_RKT0_.exit.loopexit.split.loop.exit54, label %if.end22.i.i.i.i
 
 if.end22.i.i.i.i:                                 ; preds = %if.end16.i.i.i.i
-  %incdec.ptr.i14.i.i.i.i = getelementptr inbounds i32, ptr %__first.sroa.0.051.i.i.i.i, i64 4
+  %incdec.ptr.i14.i.i.i.i = getelementptr inbounds i8, ptr %__first.sroa.0.051.i.i.i.i, i64 16
   %dec.i.i.i.i = add nsw i64 %__trip_count.052.i.i.i.i, -1
   %cmp.i.i.i.i = icmp sgt i64 %__trip_count.052.i.i.i.i, 1
   br i1 %cmp.i.i.i.i, label %for.body.i.i.i.i, label %for.end.loopexit.i.i.i.i, !llvm.loop !33
@@ -4269,7 +4126,7 @@ sw.bb.i.i.i.i:                                    ; preds = %for.end.i.i.i.i
   br i1 %cmp.i19.i.i.i.i, label %_ZN4base13ContainsValueISt6vectorIN3net11QuicVersionESaIS3_EES3_EEbRKT_RKT0_.exit, label %if.end29.i.i.i.i
 
 if.end29.i.i.i.i:                                 ; preds = %sw.bb.i.i.i.i
-  %incdec.ptr.i20.i.i.i.i = getelementptr inbounds i32, ptr %__first.sroa.0.0.lcssa.i.i.i.i, i64 1
+  %incdec.ptr.i20.i.i.i.i = getelementptr inbounds i8, ptr %__first.sroa.0.0.lcssa.i.i.i.i, i64 4
   br label %sw.bb31.i.i.i.i
 
 sw.bb31.i.i.i.i:                                  ; preds = %for.end.i.i.i.i, %if.end29.i.i.i.i
@@ -4279,7 +4136,7 @@ sw.bb31.i.i.i.i:                                  ; preds = %for.end.i.i.i.i, %i
   br i1 %cmp.i21.i.i.i.i, label %_ZN4base13ContainsValueISt6vectorIN3net11QuicVersionESaIS3_EES3_EEbRKT_RKT0_.exit, label %if.end36.i.i.i.i
 
 if.end36.i.i.i.i:                                 ; preds = %sw.bb31.i.i.i.i
-  %incdec.ptr.i22.i.i.i.i = getelementptr inbounds i32, ptr %__first.sroa.0.1.i.i.i.i, i64 1
+  %incdec.ptr.i22.i.i.i.i = getelementptr inbounds i8, ptr %__first.sroa.0.1.i.i.i.i, i64 4
   br label %sw.bb38.i.i.i.i
 
 sw.bb38.i.i.i.i:                                  ; preds = %for.end.i.i.i.i, %if.end36.i.i.i.i
@@ -4290,15 +4147,15 @@ sw.bb38.i.i.i.i:                                  ; preds = %for.end.i.i.i.i, %i
   br label %_ZN4base13ContainsValueISt6vectorIN3net11QuicVersionESaIS3_EES3_EEbRKT_RKT0_.exit
 
 _ZN4base13ContainsValueISt6vectorIN3net11QuicVersionESaIS3_EES3_EEbRKT_RKT0_.exit.loopexit.split.loop.exit: ; preds = %if.end.i.i.i.i
-  %incdec.ptr.i.i.i.i.i.le = getelementptr inbounds i32, ptr %__first.sroa.0.051.i.i.i.i, i64 1
+  %incdec.ptr.i.i.i.i.i.le = getelementptr inbounds i8, ptr %__first.sroa.0.051.i.i.i.i, i64 4
   br label %_ZN4base13ContainsValueISt6vectorIN3net11QuicVersionESaIS3_EES3_EEbRKT_RKT0_.exit
 
 _ZN4base13ContainsValueISt6vectorIN3net11QuicVersionESaIS3_EES3_EEbRKT_RKT0_.exit.loopexit.split.loop.exit52: ; preds = %if.end10.i.i.i.i
-  %incdec.ptr.i10.i.i.i.i.le = getelementptr inbounds i32, ptr %__first.sroa.0.051.i.i.i.i, i64 2
+  %incdec.ptr.i10.i.i.i.i.le = getelementptr inbounds i8, ptr %__first.sroa.0.051.i.i.i.i, i64 8
   br label %_ZN4base13ContainsValueISt6vectorIN3net11QuicVersionESaIS3_EES3_EEbRKT_RKT0_.exit
 
 _ZN4base13ContainsValueISt6vectorIN3net11QuicVersionESaIS3_EES3_EEbRKT_RKT0_.exit.loopexit.split.loop.exit54: ; preds = %if.end16.i.i.i.i
-  %incdec.ptr.i12.i.i.i.i.le = getelementptr inbounds i32, ptr %__first.sroa.0.051.i.i.i.i, i64 3
+  %incdec.ptr.i12.i.i.i.i.le = getelementptr inbounds i8, ptr %__first.sroa.0.051.i.i.i.i, i64 12
   br label %_ZN4base13ContainsValueISt6vectorIN3net11QuicVersionESaIS3_EES3_EEbRKT_RKT0_.exit
 
 _ZN4base13ContainsValueISt6vectorIN3net11QuicVersionESaIS3_EES3_EEbRKT_RKT0_.exit: ; preds = %for.body.i.i.i.i, %_ZN4base13ContainsValueISt6vectorIN3net11QuicVersionESaIS3_EES3_EEbRKT_RKT0_.exit.loopexit.split.loop.exit, %_ZN4base13ContainsValueISt6vectorIN3net11QuicVersionESaIS3_EES3_EEbRKT_RKT0_.exit.loopexit.split.loop.exit52, %_ZN4base13ContainsValueISt6vectorIN3net11QuicVersionESaIS3_EES3_EEbRKT_RKT0_.exit.loopexit.split.loop.exit54, %sw.bb.i.i.i.i, %sw.bb31.i.i.i.i, %sw.bb38.i.i.i.i
@@ -4355,7 +4212,7 @@ if.end45:                                         ; preds = %for.end.i.i.i.i, %_
   br i1 %call47, label %if.end77, label %if.then48
 
 if.then48:                                        ; preds = %if.end45
-  %supported_versions_.i = getelementptr inbounds %"class.net::QuicConnection", ptr %this, i64 0, i32 4, i32 14
+  %supported_versions_.i = getelementptr inbounds i8, ptr %this, i64 304
   call void @_ZN3net25QuicVersionVectorToStringB5cxx11ERKSt6vectorINS_11QuicVersionESaIS1_EE(ptr nonnull sret(%"class.std::__cxx11::basic_string") align 8 %ref.tmp53, ptr noundef nonnull align 8 dereferenceable(24) %supported_versions_.i)
   %call.i24 = invoke noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6insertEmPKc(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp53, i64 noundef 0, ptr noundef nonnull @.str.7)
           to label %invoke.cont56 unwind label %lpad55
@@ -4400,7 +4257,7 @@ invoke.cont64:                                    ; preds = %if.then5.i, %if.end
 invoke.cont66:                                    ; preds = %invoke.cont64
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EOS4_(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp49, ptr noundef nonnull align 8 dereferenceable(32) %call.i2930) #22
   %vtable67 = load ptr, ptr %this, align 8
-  %vfn68 = getelementptr inbounds ptr, ptr %vtable67, i64 32
+  %vfn68 = getelementptr inbounds i8, ptr %vtable67, i64 256
   %22 = load ptr, ptr %vfn68, align 8
   invoke void %22(ptr noundef nonnull align 8 dereferenceable(3372) %this, i32 noundef 20, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp49, i32 noundef 1)
           to label %invoke.cont70 unwind label %lpad69
@@ -4471,29 +4328,29 @@ ehcleanup76:                                      ; preds = %ehcleanup75, %lpad5
   br label %eh.resume
 
 if.end77:                                         ; preds = %if.end45
-  %received_packet_manager_ = getelementptr inbounds %"class.net::QuicConnection", ptr %this, i64 0, i32 43
+  %received_packet_manager_ = getelementptr inbounds i8, ptr %this, i64 864
   %29 = load i32, ptr %quic_version_.i.i, align 4
   tail call void @_ZN3net25QuicReceivedPacketManager10SetVersionENS_11QuicVersionE(ptr noundef nonnull align 8 dereferenceable(248) %received_packet_manager_, i32 noundef %29)
-  %server_supported_versions_ = getelementptr inbounds %"class.net::QuicConnection", ptr %this, i64 0, i32 86
+  %server_supported_versions_ = getelementptr inbounds i8, ptr %this, i64 3288
   %call80 = tail call noundef nonnull align 8 dereferenceable(24) ptr @_ZNSt6vectorIN3net11QuicVersionESaIS1_EEaSERKS3_(ptr noundef nonnull align 8 dereferenceable(24) %server_supported_versions_, ptr noundef nonnull align 8 dereferenceable(24) %versions)
   store i32 1, ptr %version_negotiation_state_, align 8
-  %sent_packet_manager_.i = getelementptr inbounds %"class.net::QuicConnection", ptr %this, i64 0, i32 77
+  %sent_packet_manager_.i = getelementptr inbounds i8, ptr %this, i64 3192
   %30 = load ptr, ptr %sent_packet_manager_.i, align 8
   %vtable.i = load ptr, ptr %30, align 8
-  %vfn.i = getelementptr inbounds ptr, ptr %vtable.i, i64 8
+  %vfn.i = getelementptr inbounds i8, ptr %vtable.i, i64 64
   %31 = load ptr, ptr %vfn.i, align 8
   tail call void %31(ptr noundef nonnull align 8 dereferenceable(8) %30, i8 noundef signext 2)
-  %writer_.i.i = getelementptr inbounds %"class.net::QuicConnection", ptr %this, i64 0, i32 8
+  %writer_.i.i = getelementptr inbounds i8, ptr %this, i64 464
   %32 = load ptr, ptr %writer_.i.i, align 8
   %vtable.i.i = load ptr, ptr %32, align 8
-  %vfn.i.i = getelementptr inbounds ptr, ptr %vtable.i.i, i64 4
+  %vfn.i.i = getelementptr inbounds i8, ptr %vtable.i.i, i64 32
   %33 = load ptr, ptr %vfn.i.i, align 8
   %call.i.i33 = tail call noundef zeroext i1 %33(ptr noundef nonnull align 8 dereferenceable(8) %32)
   br i1 %call.i.i33, label %return, label %if.then.i.i
 
 if.then.i.i:                                      ; preds = %if.end77
   %vtable2.i.i = load ptr, ptr %this, align 8
-  %vfn3.i.i = getelementptr inbounds ptr, ptr %vtable2.i.i, i64 35
+  %vfn3.i.i = getelementptr inbounds i8, ptr %vtable2.i.i, i64 280
   %34 = load ptr, ptr %vfn3.i.i, align 8
   tail call void %34(ptr noundef nonnull align 8 dereferenceable(3372) %this)
   br label %return
@@ -4515,13 +4372,13 @@ entry:
   br i1 %cmp.not, label %if.end75, label %if.then
 
 if.then:                                          ; preds = %entry
-  %_M_finish.i = getelementptr inbounds %"struct.std::_Vector_base<net::QuicVersion, std::allocator<net::QuicVersion>>::_Vector_impl_data", ptr %__x, i64 0, i32 1
+  %_M_finish.i = getelementptr inbounds i8, ptr %__x, i64 8
   %0 = load ptr, ptr %_M_finish.i, align 8
   %1 = load ptr, ptr %__x, align 8
   %sub.ptr.lhs.cast.i = ptrtoint ptr %0 to i64
   %sub.ptr.rhs.cast.i = ptrtoint ptr %1 to i64
   %sub.ptr.sub.i = sub i64 %sub.ptr.lhs.cast.i, %sub.ptr.rhs.cast.i
-  %_M_end_of_storage.i = getelementptr inbounds %"struct.std::_Vector_base<net::QuicVersion, std::allocator<net::QuicVersion>>::_Vector_impl_data", ptr %this, i64 0, i32 2
+  %_M_end_of_storage.i = getelementptr inbounds i8, ptr %this, i64 16
   %2 = load ptr, ptr %_M_end_of_storage.i, align 8
   %3 = load ptr, ptr %this, align 8
   %sub.ptr.lhs.cast.i14 = ptrtoint ptr %2 to i64
@@ -4562,7 +4419,7 @@ _ZNSt12_Vector_baseIN3net11QuicVersionESaIS1_EE13_M_deallocateEPS1_m.exit: ; pre
   br label %if.end69
 
 if.else:                                          ; preds = %if.then
-  %_M_finish.i19 = getelementptr inbounds %"struct.std::_Vector_base<net::QuicVersion, std::allocator<net::QuicVersion>>::_Vector_impl_data", ptr %this, i64 0, i32 1
+  %_M_finish.i19 = getelementptr inbounds i8, ptr %this, i64 8
   %4 = load ptr, ptr %_M_finish.i19, align 8
   %sub.ptr.lhs.cast.i20 = ptrtoint ptr %4 to i64
   %sub.ptr.sub.i22 = sub i64 %sub.ptr.lhs.cast.i20, %sub.ptr.rhs.cast.i15
@@ -4612,7 +4469,7 @@ if.then.i.i.i.i.i.i.i.i:                          ; preds = %_ZSt4copyIPN3net11Q
 if.end69:                                         ; preds = %if.then.i.i.i.i.i.i.i.i, %_ZSt4copyIPN3net11QuicVersionES2_ET0_T_S4_S3_.exit, %if.then.i.i.i.i.i, %if.then27, %_ZNSt12_Vector_baseIN3net11QuicVersionESaIS1_EE13_M_deallocateEPS1_m.exit
   %8 = load ptr, ptr %this, align 8
   %add.ptr72 = getelementptr inbounds i8, ptr %8, i64 %sub.ptr.sub.i
-  %_M_finish74 = getelementptr inbounds %"struct.std::_Vector_base<net::QuicVersion, std::allocator<net::QuicVersion>>::_Vector_impl_data", ptr %this, i64 0, i32 1
+  %_M_finish74 = getelementptr inbounds i8, ptr %this, i64 8
   store ptr %add.ptr72, ptr %_M_finish74, align 8
   br label %if.end75
 
@@ -4623,23 +4480,23 @@ if.end75:                                         ; preds = %if.end69, %entry
 ; Function Attrs: mustprogress uwtable
 define dso_local void @_ZN3net14QuicConnection24RetransmitUnackedPacketsENS_16TransmissionTypeE(ptr noundef nonnull align 8 dereferenceable(3372) %this, i8 noundef signext %retransmission_type) local_unnamed_addr #0 align 2 {
 entry:
-  %sent_packet_manager_ = getelementptr inbounds %"class.net::QuicConnection", ptr %this, i64 0, i32 77
+  %sent_packet_manager_ = getelementptr inbounds i8, ptr %this, i64 3192
   %0 = load ptr, ptr %sent_packet_manager_, align 8
   %vtable = load ptr, ptr %0, align 8
-  %vfn = getelementptr inbounds ptr, ptr %vtable, i64 8
+  %vfn = getelementptr inbounds i8, ptr %vtable, i64 64
   %1 = load ptr, ptr %vfn, align 8
   tail call void %1(ptr noundef nonnull align 8 dereferenceable(8) %0, i8 noundef signext %retransmission_type)
-  %writer_.i = getelementptr inbounds %"class.net::QuicConnection", ptr %this, i64 0, i32 8
+  %writer_.i = getelementptr inbounds i8, ptr %this, i64 464
   %2 = load ptr, ptr %writer_.i, align 8
   %vtable.i = load ptr, ptr %2, align 8
-  %vfn.i = getelementptr inbounds ptr, ptr %vtable.i, i64 4
+  %vfn.i = getelementptr inbounds i8, ptr %vtable.i, i64 32
   %3 = load ptr, ptr %vfn.i, align 8
   %call.i = tail call noundef zeroext i1 %3(ptr noundef nonnull align 8 dereferenceable(8) %2)
   br i1 %call.i, label %_ZN3net14QuicConnection17WriteIfNotBlockedEv.exit, label %if.then.i
 
 if.then.i:                                        ; preds = %entry
   %vtable2.i = load ptr, ptr %this, align 8
-  %vfn3.i = getelementptr inbounds ptr, ptr %vtable2.i, i64 35
+  %vfn3.i = getelementptr inbounds i8, ptr %vtable2.i, i64 280
   %4 = load ptr, ptr %vfn3.i, align 8
   tail call void %4(ptr noundef nonnull align 8 dereferenceable(3372) %this)
   br label %_ZN3net14QuicConnection17WriteIfNotBlockedEv.exit
@@ -4652,17 +4509,17 @@ _ZN3net14QuicConnection17WriteIfNotBlockedEv.exit: ; preds = %entry, %if.then.i
 define dso_local noundef zeroext i1 @_ZN3net14QuicConnection29OnUnauthenticatedPublicHeaderERKNS_22QuicPacketPublicHeaderE(ptr nocapture noundef nonnull align 8 dereferenceable(3372) %this, ptr nocapture noundef nonnull readonly align 8 dereferenceable(48) %header) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %0 = load i64, ptr %header, align 8
-  %connection_id_ = getelementptr inbounds %"class.net::QuicConnection", ptr %this, i64 0, i32 14
+  %connection_id_ = getelementptr inbounds i8, ptr %this, i64 496
   %1 = load i64, ptr %connection_id_, align 8
   %cmp = icmp eq i64 %0, %1
   br i1 %cmp, label %return, label %if.end
 
 if.end:                                           ; preds = %entry
-  %packets_dropped = getelementptr inbounds %"class.net::QuicConnection", ptr %this, i64 0, i32 72, i32 16
+  %packets_dropped = getelementptr inbounds i8, ptr %this, i64 3040
   %2 = load i64, ptr %packets_dropped, align 8
   %inc = add i64 %2, 1
   store i64 %inc, ptr %packets_dropped, align 8
-  %debug_visitor_ = getelementptr inbounds %"class.net::QuicConnection", ptr %this, i64 0, i32 68
+  %debug_visitor_ = getelementptr inbounds i8, ptr %this, i64 2400
   %3 = load ptr, ptr %debug_visitor_, align 8
   %cmp2.not = icmp eq ptr %3, null
   br i1 %cmp2.not, label %return, label %if.then3
@@ -4670,7 +4527,7 @@ if.end:                                           ; preds = %entry
 if.then3:                                         ; preds = %if.end
   %4 = load i64, ptr %header, align 8
   %vtable = load ptr, ptr %3, align 8
-  %vfn = getelementptr inbounds ptr, ptr %vtable, i64 9
+  %vfn = getelementptr inbounds i8, ptr %vtable, i64 72
   %5 = load ptr, ptr %vfn, align 8
   tail call void %5(ptr noundef nonnull align 8 dereferenceable(8) %3, i64 noundef %4)
   br label %return
@@ -4688,14 +4545,14 @@ entry:
   %error_details37 = alloca %"class.std::__cxx11::basic_string", align 8
   %ref.tmp38 = alloca %"class.std::allocator.0", align 1
   %ref.tmp49 = alloca %"class.logging::LogMessage", align 8
-  %debug_visitor_ = getelementptr inbounds %"class.net::QuicConnection", ptr %this, i64 0, i32 68
+  %debug_visitor_ = getelementptr inbounds i8, ptr %this, i64 2400
   %0 = load ptr, ptr %debug_visitor_, align 8
   %cmp.not = icmp eq ptr %0, null
   br i1 %cmp.not, label %if.end6, label %if.then
 
 if.then:                                          ; preds = %entry
   %vtable = load ptr, ptr %0, align 8
-  %vfn = getelementptr inbounds ptr, ptr %vtable, i64 8
+  %vfn = getelementptr inbounds i8, ptr %vtable, i64 64
   %1 = load ptr, ptr %vfn, align 8
   tail call void %1(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef nonnull align 8 dereferenceable(60) %header)
   br label %if.end6
@@ -4707,14 +4564,14 @@ if.end6:                                          ; preds = %entry, %if.then
   br i1 %tobool.not, label %if.then7, label %if.end34
 
 if.then7:                                         ; preds = %if.end6
-  %multipath_enabled_ = getelementptr inbounds %"class.net::QuicConnection", ptr %this, i64 0, i32 96
+  %multipath_enabled_ = getelementptr inbounds i8, ptr %this, i64 3370
   %4 = load i8, ptr %multipath_enabled_, align 2
   %5 = and i8 %4, 1
   %tobool8.not = icmp eq i8 %5, 0
   br i1 %tobool8.not, label %land.lhs.true, label %if.end34
 
 land.lhs.true:                                    ; preds = %if.then7
-  %multipath_flag = getelementptr inbounds %"struct.net::QuicPacketPublicHeader", ptr %header, i64 0, i32 2
+  %multipath_flag = getelementptr inbounds i8, ptr %header, i64 12
   %6 = load i8, ptr %multipath_flag, align 4
   %7 = and i8 %6, 1
   %tobool9.not = icmp eq i8 %7, 0
@@ -4752,7 +4609,7 @@ cond.false:                                       ; preds = %invoke.cont15
           to label %invoke.cont20 unwind label %lpad14
 
 invoke.cont20:                                    ; preds = %cond.false
-  %stream_.i10 = getelementptr inbounds %"class.logging::LogMessage", ptr %ref.tmp19, i64 0, i32 2
+  %stream_.i10 = getelementptr inbounds i8, ptr %ref.tmp19, i64 8
   %call25 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsIcSt11char_traitsIcESaIcEERSt13basic_ostreamIT_T0_ES7_RKNSt7__cxx1112basic_stringIS4_S5_T1_EE(ptr noundef nonnull align 8 dereferenceable(8) %stream_.i10, ptr noundef nonnull align 8 dereferenceable(32) %error_details)
           to label %cleanup.action unwind label %lpad21
 
@@ -4762,7 +4619,7 @@ cleanup.action:                                   ; preds = %invoke.cont20
 
 cleanup.done:                                     ; preds = %invoke.cont15, %cleanup.action
   %vtable30 = load ptr, ptr %this, align 8
-  %vfn31 = getelementptr inbounds ptr, ptr %vtable30, i64 32
+  %vfn31 = getelementptr inbounds i8, ptr %vtable30, i64 256
   %9 = load ptr, ptr %vfn31, align 8
   invoke void %9(ptr noundef nonnull align 8 dereferenceable(3372) %this, i32 noundef 79, ptr noundef nonnull align 8 dereferenceable(32) %error_details, i32 noundef 1)
           to label %invoke.cont32 unwind label %lpad14
@@ -4798,7 +4655,7 @@ ehcleanup:                                        ; preds = %lpad21, %lpad14
   br label %eh.resume
 
 if.end34:                                         ; preds = %if.then7, %land.lhs.true, %if.end6
-  %packet_generator_ = getelementptr inbounds %"class.net::QuicConnection", ptr %this, i64 0, i32 69
+  %packet_generator_ = getelementptr inbounds i8, ptr %this, i64 2408
   %call35 = tail call noundef zeroext i1 @_ZNK3net19QuicPacketGenerator20IsPendingPacketEmptyEv(ptr noundef nonnull align 8 dereferenceable(472) %packet_generator_)
   br i1 %call35, label %if.end70, label %if.then36
 
@@ -4834,7 +4691,7 @@ cond.false46:                                     ; preds = %invoke.cont43
           to label %invoke.cont50 unwind label %lpad42
 
 invoke.cont50:                                    ; preds = %cond.false46
-  %stream_.i19 = getelementptr inbounds %"class.logging::LogMessage", ptr %ref.tmp49, i64 0, i32 2
+  %stream_.i19 = getelementptr inbounds i8, ptr %ref.tmp49, i64 8
   %call56 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsIcSt11char_traitsIcESaIcEERSt13basic_ostreamIT_T0_ES7_RKNSt7__cxx1112basic_stringIS4_S5_T1_EE(ptr noundef nonnull align 8 dereferenceable(8) %stream_.i19, ptr noundef nonnull align 8 dereferenceable(32) %error_details37)
           to label %cleanup.action60 unwind label %lpad52
 
@@ -4844,7 +4701,7 @@ cleanup.action60:                                 ; preds = %invoke.cont50
 
 cleanup.done61:                                   ; preds = %invoke.cont43, %cleanup.action60
   %vtable66 = load ptr, ptr %this, align 8
-  %vfn67 = getelementptr inbounds ptr, ptr %vtable66, i64 32
+  %vfn67 = getelementptr inbounds i8, ptr %vtable66, i64 256
   %14 = load ptr, ptr %vfn67, align 8
   invoke void %14(ptr noundef nonnull align 8 dereferenceable(3372) %this, i32 noundef 1, ptr noundef nonnull align 8 dereferenceable(32) %error_details37, i32 noundef 1)
           to label %invoke.cont68 unwind label %lpad42
@@ -4880,8 +4737,8 @@ ehcleanup69:                                      ; preds = %lpad52, %lpad42
   br label %eh.resume
 
 if.end70:                                         ; preds = %if.end34
-  %received_packet_manager_ = getelementptr inbounds %"class.net::QuicConnection", ptr %this, i64 0, i32 43
-  %packet_number = getelementptr inbounds %"struct.net::QuicPacketHeader", ptr %header, i64 0, i32 1
+  %received_packet_manager_ = getelementptr inbounds i8, ptr %this, i64 864
+  %packet_number = getelementptr inbounds i8, ptr %header, i64 48
   %18 = load i64, ptr %packet_number, align 8
   %call71 = tail call noundef zeroext i1 @_ZN3net25QuicReceivedPacketManager16IsAwaitingPacketEm(ptr noundef nonnull align 8 dereferenceable(248) %received_packet_manager_, i64 noundef %18)
   br i1 %call71, label %return, label %if.then72
@@ -4894,13 +4751,13 @@ if.then72:                                        ; preds = %if.end70
 if.then75:                                        ; preds = %if.then72
   %20 = load i64, ptr %packet_number, align 8
   %vtable78 = load ptr, ptr %19, align 8
-  %vfn79 = getelementptr inbounds ptr, ptr %vtable78, i64 11
+  %vfn79 = getelementptr inbounds i8, ptr %vtable78, i64 88
   %21 = load ptr, ptr %vfn79, align 8
   tail call void %21(ptr noundef nonnull align 8 dereferenceable(8) %19, i64 noundef %20)
   br label %if.end80
 
 if.end80:                                         ; preds = %if.then75, %if.then72
-  %packets_dropped = getelementptr inbounds %"class.net::QuicConnection", ptr %this, i64 0, i32 72, i32 16
+  %packets_dropped = getelementptr inbounds i8, ptr %this, i64 3040
   %22 = load i64, ptr %packets_dropped, align 8
   %inc = add i64 %22, 1
   store i64 %inc, ptr %packets_dropped, align 8
@@ -4922,22 +4779,22 @@ declare noundef zeroext i1 @_ZN3net25QuicReceivedPacketManager16IsAwaitingPacket
 ; Function Attrs: mustprogress uwtable
 define dso_local void @_ZN3net14QuicConnection17OnDecryptedPacketENS_15EncryptionLevelE(ptr nocapture noundef nonnull align 8 dereferenceable(3372) %this, i8 noundef signext %level) unnamed_addr #0 align 2 {
 entry:
-  %last_decrypted_packet_level_ = getelementptr inbounds %"class.net::QuicConnection", ptr %this, i64 0, i32 24
+  %last_decrypted_packet_level_ = getelementptr inbounds i8, ptr %this, i64 608
   store i8 %level, ptr %last_decrypted_packet_level_, align 8
-  %last_packet_decrypted_ = getelementptr inbounds %"class.net::QuicConnection", ptr %this, i64 0, i32 20
+  %last_packet_decrypted_ = getelementptr inbounds i8, ptr %this, i64 584
   store i8 1, ptr %last_packet_decrypted_, align 8
   %cmp = icmp eq i8 %level, 2
-  %perspective_ = getelementptr inbounds %"class.net::QuicConnection", ptr %this, i64 0, i32 79
+  %perspective_ = getelementptr inbounds i8, ptr %this, i64 3204
   %0 = load i32, ptr %perspective_, align 4
   %cmp2 = icmp eq i32 %0, 0
   %or.cond = select i1 %cmp, i1 %cmp2, i1 false
   br i1 %or.cond, label %if.then, label %if.end
 
 if.then:                                          ; preds = %entry
-  %sent_packet_manager_ = getelementptr inbounds %"class.net::QuicConnection", ptr %this, i64 0, i32 77
+  %sent_packet_manager_ = getelementptr inbounds i8, ptr %this, i64 3192
   %1 = load ptr, ptr %sent_packet_manager_, align 8
   %vtable = load ptr, ptr %1, align 8
-  %vfn = getelementptr inbounds ptr, ptr %vtable, i64 6
+  %vfn = getelementptr inbounds i8, ptr %vtable, i64 48
   %2 = load ptr, ptr %vfn, align 8
   tail call void %2(ptr noundef nonnull align 8 dereferenceable(8) %1)
   br label %if.end
@@ -4949,20 +4806,20 @@ if.end:                                           ; preds = %if.then, %entry
 ; Function Attrs: mustprogress uwtable
 define dso_local noundef zeroext i1 @_ZN3net14QuicConnection14OnPacketHeaderERKNS_16QuicPacketHeaderE(ptr noundef nonnull align 8 dereferenceable(3372) %this, ptr noundef nonnull align 8 dereferenceable(60) %header) unnamed_addr #0 align 2 {
 entry:
-  %debug_visitor_ = getelementptr inbounds %"class.net::QuicConnection", ptr %this, i64 0, i32 68
+  %debug_visitor_ = getelementptr inbounds i8, ptr %this, i64 2400
   %0 = load ptr, ptr %debug_visitor_, align 8
   %cmp.not = icmp eq ptr %0, null
   br i1 %cmp.not, label %if.end, label %if.then
 
 if.then:                                          ; preds = %entry
   %vtable = load ptr, ptr %0, align 8
-  %vfn = getelementptr inbounds ptr, ptr %vtable, i64 13
+  %vfn = getelementptr inbounds i8, ptr %vtable, i64 104
   %1 = load ptr, ptr %vfn, align 8
   tail call void %1(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef nonnull align 8 dereferenceable(60) %header)
   br label %if.end
 
 if.end:                                           ; preds = %if.then, %entry
-  %packets_dropped = getelementptr inbounds %"class.net::QuicConnection", ptr %this, i64 0, i32 72, i32 16
+  %packets_dropped = getelementptr inbounds i8, ptr %this, i64 3040
   %2 = load i64, ptr %packets_dropped, align 8
   %inc = add i64 %2, 1
   store i64 %inc, ptr %packets_dropped, align 8
@@ -4970,10 +4827,10 @@ if.end:                                           ; preds = %if.then, %entry
   br i1 %call, label %if.end4, label %return
 
 if.end4:                                          ; preds = %if.end
-  %peer_address_ = getelementptr inbounds %"class.net::QuicConnection", ptr %this, i64 0, i32 16
-  %last_packet_source_address_ = getelementptr inbounds %"class.net::QuicConnection", ptr %this, i64 0, i32 83
+  %peer_address_ = getelementptr inbounds i8, ptr %this, i64 536
+  %last_packet_source_address_ = getelementptr inbounds i8, ptr %this, i64 3248
   %call5 = tail call noundef i32 @_ZN3net9QuicUtils26DetermineAddressChangeTypeERKNS_10IPEndPointES3_(ptr noundef nonnull align 8 dereferenceable(26) %peer_address_, ptr noundef nonnull align 8 dereferenceable(26) %last_packet_source_address_)
-  %active_peer_migration_type_ = getelementptr inbounds %"class.net::QuicConnection", ptr %this, i64 0, i32 17
+  %active_peer_migration_type_ = getelementptr inbounds i8, ptr %this, i64 568
   %3 = load i32, ptr %active_peer_migration_type_, align 8
   %cmp6 = icmp eq i32 %3, 0
   %cmp7 = icmp ne i32 %call5, 0
@@ -4981,18 +4838,18 @@ if.end4:                                          ; preds = %if.end
   br i1 %or.cond, label %land.lhs.true8, label %if.end14
 
 land.lhs.true8:                                   ; preds = %if.end4
-  %packet_number = getelementptr inbounds %"struct.net::QuicPacketHeader", ptr %header, i64 0, i32 1
+  %packet_number = getelementptr inbounds i8, ptr %header, i64 48
   %4 = load i64, ptr %packet_number, align 8
-  %received_packet_manager_ = getelementptr inbounds %"class.net::QuicConnection", ptr %this, i64 0, i32 43
+  %received_packet_manager_ = getelementptr inbounds i8, ptr %this, i64 864
   %call9 = tail call noundef i64 @_ZNK3net25QuicReceivedPacketManager18GetLargestObservedEv(ptr noundef nonnull align 8 dereferenceable(248) %received_packet_manager_)
   %cmp10 = icmp ugt i64 %4, %call9
   br i1 %cmp10, label %if.then11, label %if.end14
 
 if.then11:                                        ; preds = %land.lhs.true8
-  %path_id = getelementptr inbounds %"struct.net::QuicPacketHeader", ptr %header, i64 0, i32 2
+  %path_id = getelementptr inbounds i8, ptr %header, i64 56
   %5 = load i8, ptr %path_id, align 8
   %vtable12 = load ptr, ptr %this, align 8
-  %vfn13 = getelementptr inbounds ptr, ptr %vtable12, i64 45
+  %vfn13 = getelementptr inbounds i8, ptr %vtable12, i64 360
   %6 = load ptr, ptr %vfn13, align 8
   tail call void %6(ptr noundef nonnull align 8 dereferenceable(3372) %this, i8 noundef zeroext %5, i32 noundef %call5)
   br label %if.end14
@@ -5001,17 +4858,17 @@ if.end14:                                         ; preds = %if.then11, %land.lh
   %7 = load i64, ptr %packets_dropped, align 8
   %dec = add i64 %7, -1
   store i64 %dec, ptr %packets_dropped, align 8
-  %last_header_ = getelementptr inbounds %"class.net::QuicConnection", ptr %this, i64 0, i32 26
+  %last_header_ = getelementptr inbounds i8, ptr %this, i64 616
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %last_header_, ptr noundef nonnull align 8 dereferenceable(16) %header, i64 16, i1 false)
-  %versions.i.i = getelementptr inbounds %"class.net::QuicConnection", ptr %this, i64 0, i32 26, i32 0, i32 6
-  %versions3.i.i = getelementptr inbounds %"struct.net::QuicPacketPublicHeader", ptr %header, i64 0, i32 6
+  %versions.i.i = getelementptr inbounds i8, ptr %this, i64 632
+  %versions3.i.i = getelementptr inbounds i8, ptr %header, i64 16
   %call.i.i = tail call noundef nonnull align 8 dereferenceable(24) ptr @_ZNSt6vectorIN3net11QuicVersionESaIS1_EEaSERKS3_(ptr noundef nonnull align 8 dereferenceable(24) %versions.i.i, ptr noundef nonnull align 8 dereferenceable(24) %versions3.i.i)
-  %nonce.i.i = getelementptr inbounds %"struct.net::QuicPacketPublicHeader", ptr %header, i64 0, i32 7
+  %nonce.i.i = getelementptr inbounds i8, ptr %header, i64 40
   %8 = load ptr, ptr %nonce.i.i, align 8
-  %nonce4.i.i = getelementptr inbounds %"class.net::QuicConnection", ptr %this, i64 0, i32 26, i32 0, i32 7
+  %nonce4.i.i = getelementptr inbounds i8, ptr %this, i64 656
   store ptr %8, ptr %nonce4.i.i, align 8
-  %packet_number.i = getelementptr inbounds %"class.net::QuicConnection", ptr %this, i64 0, i32 26, i32 1
-  %packet_number3.i = getelementptr inbounds %"struct.net::QuicPacketHeader", ptr %header, i64 0, i32 1
+  %packet_number.i = getelementptr inbounds i8, ptr %this, i64 664
+  %packet_number3.i = getelementptr inbounds i8, ptr %header, i64 48
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(12) %packet_number.i, ptr noundef nonnull align 8 dereferenceable(12) %packet_number3.i, i64 12, i1 false)
   br label %return
 
@@ -5040,26 +4897,26 @@ entry:
   %ref.tmp172 = alloca i32, align 4
   %ref.tmp183 = alloca i32, align 4
   %ref.tmp191 = alloca i32, align 4
-  %fec_flag = getelementptr inbounds %"struct.net::QuicPacketHeader", ptr %header, i64 0, i32 5
+  %fec_flag = getelementptr inbounds i8, ptr %header, i64 59
   %0 = load i8, ptr %fec_flag, align 1
   %1 = and i8 %0, 1
   %tobool.not = icmp eq i8 %1, 0
   br i1 %tobool.not, label %if.end, label %return
 
 if.end:                                           ; preds = %entry
-  %perspective_ = getelementptr inbounds %"class.net::QuicConnection", ptr %this, i64 0, i32 79
+  %perspective_ = getelementptr inbounds i8, ptr %this, i64 3204
   %2 = load i32, ptr %perspective_, align 4
   %cmp = icmp eq i32 %2, 0
   br i1 %cmp, label %land.lhs.true, label %if.end72
 
 land.lhs.true:                                    ; preds = %if.end
-  %self_address_ = getelementptr inbounds %"class.net::QuicConnection", ptr %this, i64 0, i32 15
+  %self_address_ = getelementptr inbounds i8, ptr %this, i64 504
   %call1.i = tail call noundef i32 @_ZN3net16GetAddressFamilyERKNS_9IPAddressE(ptr noundef nonnull align 8 dereferenceable(24) %self_address_)
   %cmp.i.not = icmp eq i32 %call1.i, 0
   br i1 %cmp.i.not, label %if.end72, label %land.lhs.true2
 
 land.lhs.true2:                                   ; preds = %land.lhs.true
-  %last_packet_destination_address_ = getelementptr inbounds %"class.net::QuicConnection", ptr %this, i64 0, i32 82
+  %last_packet_destination_address_ = getelementptr inbounds i8, ptr %this, i64 3216
   %call1.i18 = tail call noundef i32 @_ZN3net16GetAddressFamilyERKNS_9IPAddressE(ptr noundef nonnull align 8 dereferenceable(24) %last_packet_destination_address_)
   %cmp.i19.not = icmp eq i32 %call1.i18, 0
   br i1 %cmp.i19.not, label %if.end72, label %land.lhs.true4
@@ -5081,7 +4938,7 @@ if.then10:                                        ; preds = %if.then8
 
 invoke.cont:                                      ; preds = %if.then10
   %vtable = load ptr, ptr %this, align 8
-  %vfn = getelementptr inbounds ptr, ptr %vtable, i64 32
+  %vfn = getelementptr inbounds i8, ptr %vtable, i64 256
   %5 = load ptr, ptr %vfn, align 8
   invoke void %5(ptr noundef nonnull align 8 dereferenceable(3372) %this, i32 noundef 26, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp, i32 noundef 1)
           to label %invoke.cont13 unwind label %lpad12
@@ -5173,9 +5030,9 @@ lpad38:                                           ; preds = %invoke.cont37
   br label %ehcleanup69
 
 if.end42:                                         ; preds = %invoke.cont39, %invoke.cont33
-  %port_.i = getelementptr inbounds %"class.net::QuicConnection", ptr %this, i64 0, i32 15, i32 1
+  %port_.i = getelementptr inbounds i8, ptr %this, i64 528
   %12 = load i16, ptr %port_.i, align 8
-  %port_.i23 = getelementptr inbounds %"class.net::QuicConnection", ptr %this, i64 0, i32 82, i32 1
+  %port_.i23 = getelementptr inbounds i8, ptr %this, i64 3240
   %13 = load i16, ptr %port_.i23, align 8
   %cmp50.not = icmp eq i16 %12, %13
   br i1 %cmp50.not, label %lor.lhs.false, label %if.then53
@@ -5194,7 +5051,7 @@ if.then53:                                        ; preds = %invoke.cont51, %if.
 
 invoke.cont57:                                    ; preds = %if.then53
   %vtable58 = load ptr, ptr %this, align 8
-  %vfn59 = getelementptr inbounds ptr, ptr %vtable58, i64 32
+  %vfn59 = getelementptr inbounds i8, ptr %vtable58, i64 256
   %14 = load ptr, ptr %vfn59, align 8
   invoke void %14(ptr noundef nonnull align 8 dereferenceable(3372) %this, i32 noundef 26, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp54, i32 noundef 1)
           to label %invoke.cont61 unwind label %lpad60
@@ -5244,9 +5101,9 @@ ehcleanup71:                                      ; preds = %ehcleanup69, %lpad2
   br label %eh.resume
 
 if.end72:                                         ; preds = %_ZN3net10IPEndPointaSERKS0_.exit, %land.lhs.true4, %land.lhs.true2, %land.lhs.true, %if.end
-  %packet_number = getelementptr inbounds %"struct.net::QuicPacketHeader", ptr %header, i64 0, i32 1
+  %packet_number = getelementptr inbounds i8, ptr %header, i64 48
   %18 = load i64, ptr %packet_number, align 8
-  %packet_number73 = getelementptr inbounds %"class.net::QuicConnection", ptr %this, i64 0, i32 26, i32 1
+  %packet_number73 = getelementptr inbounds i8, ptr %this, i64 664
   %19 = load i64, ptr %packet_number73, align 8
   %cmp.i26 = icmp ugt i64 %18, %19
   %sub.i = sub i64 %18, %19
@@ -5276,7 +5133,7 @@ lpad.i:                                           ; preds = %.noexc
 
 invoke.cont79:                                    ; preds = %.noexc
   %vtable80 = load ptr, ptr %this, align 8
-  %vfn81 = getelementptr inbounds ptr, ptr %vtable80, i64 32
+  %vfn81 = getelementptr inbounds i8, ptr %vtable80, i64 256
   %21 = load ptr, ptr %vfn81, align 8
   invoke void %21(ptr noundef nonnull align 8 dereferenceable(3372) %this, i32 noundef 3, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp76, i32 noundef 1)
           to label %invoke.cont83 unwind label %lpad82
@@ -5309,14 +5166,14 @@ if.end86:                                         ; preds = %if.end72
   br i1 %tobool87.not, label %if.end120, label %if.then88
 
 if.then88:                                        ; preds = %if.end86
-  %multipath_enabled_ = getelementptr inbounds %"class.net::QuicConnection", ptr %this, i64 0, i32 96
+  %multipath_enabled_ = getelementptr inbounds i8, ptr %this, i64 3370
   %26 = load i8, ptr %multipath_enabled_, align 2
   %27 = and i8 %26, 1
   %tobool89.not = icmp eq i8 %27, 0
   br i1 %tobool89.not, label %land.lhs.true90, label %if.end120
 
 land.lhs.true90:                                  ; preds = %if.then88
-  %multipath_flag = getelementptr inbounds %"struct.net::QuicPacketPublicHeader", ptr %header, i64 0, i32 2
+  %multipath_flag = getelementptr inbounds i8, ptr %header, i64 12
   %28 = load i8, ptr %multipath_flag, align 4
   %29 = and i8 %28, 1
   %tobool91.not = icmp eq i8 %29, 0
@@ -5354,7 +5211,7 @@ cond.false:                                       ; preds = %invoke.cont98
           to label %invoke.cont103 unwind label %lpad97
 
 invoke.cont103:                                   ; preds = %cond.false
-  %stream_.i = getelementptr inbounds %"class.logging::LogMessage", ptr %ref.tmp102, i64 0, i32 2
+  %stream_.i = getelementptr inbounds i8, ptr %ref.tmp102, i64 8
   %call108 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsIcSt11char_traitsIcESaIcEERSt13basic_ostreamIT_T0_ES7_RKNSt7__cxx1112basic_stringIS4_S5_T1_EE(ptr noundef nonnull align 8 dereferenceable(8) %stream_.i, ptr noundef nonnull align 8 dereferenceable(32) %error_details)
           to label %cleanup.action unwind label %lpad104
 
@@ -5364,7 +5221,7 @@ cleanup.action:                                   ; preds = %invoke.cont103
 
 cleanup.done:                                     ; preds = %invoke.cont98, %cleanup.action
   %vtable114 = load ptr, ptr %this, align 8
-  %vfn115 = getelementptr inbounds ptr, ptr %vtable114, i64 32
+  %vfn115 = getelementptr inbounds i8, ptr %vtable114, i64 256
   %31 = load ptr, ptr %vfn115, align 8
   invoke void %31(ptr noundef nonnull align 8 dereferenceable(3372) %this, i32 noundef 79, ptr noundef nonnull align 8 dereferenceable(32) %error_details, i32 noundef 1)
           to label %invoke.cont116 unwind label %lpad97
@@ -5400,7 +5257,7 @@ ehcleanup118:                                     ; preds = %lpad104, %lpad97
   br label %eh.resume
 
 if.end120:                                        ; preds = %if.then88, %land.lhs.true90, %if.end86
-  %version_negotiation_state_ = getelementptr inbounds %"class.net::QuicConnection", ptr %this, i64 0, i32 78
+  %version_negotiation_state_ = getelementptr inbounds i8, ptr %this, i64 3200
   %35 = load i32, ptr %version_negotiation_state_, align 8
   %cmp121.not = icmp eq i32 %35, 2
   br i1 %cmp121.not, label %if.end208, label %if.then122
@@ -5411,7 +5268,7 @@ if.then122:                                       ; preds = %if.end120
   br i1 %cmp124, label %if.then125, label %if.else178
 
 if.then125:                                       ; preds = %if.then122
-  %version_flag = getelementptr inbounds %"struct.net::QuicPacketPublicHeader", ptr %header, i64 0, i32 4
+  %version_flag = getelementptr inbounds i8, ptr %header, i64 14
   %37 = load i8, ptr %version_flag, align 2
   %38 = and i8 %37, 1
   %tobool127.not = icmp eq i8 %38, 0
@@ -5420,7 +5277,7 @@ if.then125:                                       ; preds = %if.then122
 if.then128:                                       ; preds = %if.then125
   call void (ptr, ptr, ...) @_ZN4base12StringPrintfB5cxx11EPKcz(ptr nonnull sret(%"class.std::__cxx11::basic_string") align 8 %error_details129, ptr noundef nonnull @.str.42, ptr noundef nonnull @.str.3, i64 noundef %18)
   %vtable136 = load ptr, ptr %this, align 8
-  %vfn137 = getelementptr inbounds ptr, ptr %vtable136, i64 32
+  %vfn137 = getelementptr inbounds i8, ptr %vtable136, i64 256
   %39 = load ptr, ptr %vfn137, align 8
   invoke void %39(ptr noundef nonnull align 8 dereferenceable(3372) %this, i32 noundef 20, ptr noundef nonnull align 8 dereferenceable(32) %error_details129, i32 noundef 1)
           to label %invoke.cont139 unwind label %lpad138
@@ -5437,19 +5294,19 @@ lpad138:                                          ; preds = %if.then128
 
 if.end162:                                        ; preds = %if.then125
   store i32 2, ptr %version_negotiation_state_, align 8
-  %received_packet_manager_ = getelementptr inbounds %"class.net::QuicConnection", ptr %this, i64 0, i32 43
-  %quic_version_.i.i = getelementptr inbounds %"class.net::QuicConnection", ptr %this, i64 0, i32 4, i32 13
+  %received_packet_manager_ = getelementptr inbounds i8, ptr %this, i64 864
+  %quic_version_.i.i = getelementptr inbounds i8, ptr %this, i64 300
   %41 = load i32, ptr %quic_version_.i.i, align 4
   call void @_ZN3net25QuicReceivedPacketManager10SetVersionENS_11QuicVersionE(ptr noundef nonnull align 8 dereferenceable(248) %received_packet_manager_, i32 noundef %41)
-  %visitor_ = getelementptr inbounds %"class.net::QuicConnection", ptr %this, i64 0, i32 67
+  %visitor_ = getelementptr inbounds i8, ptr %this, i64 2392
   %42 = load ptr, ptr %visitor_, align 8
   %43 = load i32, ptr %quic_version_.i.i, align 4
   store i32 %43, ptr %ref.tmp165, align 4
   %vtable167 = load ptr, ptr %42, align 8
-  %vfn168 = getelementptr inbounds ptr, ptr %vtable167, i64 9
+  %vfn168 = getelementptr inbounds i8, ptr %vtable167, i64 72
   %44 = load ptr, ptr %vfn168, align 8
   call void %44(ptr noundef nonnull align 8 dereferenceable(8) %42, ptr noundef nonnull align 4 dereferenceable(4) %ref.tmp165)
-  %debug_visitor_ = getelementptr inbounds %"class.net::QuicConnection", ptr %this, i64 0, i32 68
+  %debug_visitor_ = getelementptr inbounds i8, ptr %this, i64 2400
   %45 = load ptr, ptr %debug_visitor_, align 8
   %cmp169.not = icmp eq ptr %45, null
   br i1 %cmp169.not, label %if.end208, label %if.then170
@@ -5458,28 +5315,28 @@ if.then170:                                       ; preds = %if.end162
   %46 = load i32, ptr %quic_version_.i.i, align 4
   store i32 %46, ptr %ref.tmp172, align 4
   %vtable174 = load ptr, ptr %45, align 8
-  %vfn175 = getelementptr inbounds ptr, ptr %vtable174, i64 28
+  %vfn175 = getelementptr inbounds i8, ptr %vtable174, i64 224
   %47 = load ptr, ptr %vfn175, align 8
   call void %47(ptr noundef nonnull align 8 dereferenceable(8) %45, ptr noundef nonnull align 4 dereferenceable(4) %ref.tmp172)
   br label %if.end208
 
 if.else178:                                       ; preds = %if.then122
-  %packet_generator_ = getelementptr inbounds %"class.net::QuicConnection", ptr %this, i64 0, i32 69
+  %packet_generator_ = getelementptr inbounds i8, ptr %this, i64 2408
   call void @_ZN3net19QuicPacketGenerator18StopSendingVersionEv(ptr noundef nonnull align 8 dereferenceable(472) %packet_generator_)
   store i32 2, ptr %version_negotiation_state_, align 8
-  %received_packet_manager_180 = getelementptr inbounds %"class.net::QuicConnection", ptr %this, i64 0, i32 43
-  %quic_version_.i.i41 = getelementptr inbounds %"class.net::QuicConnection", ptr %this, i64 0, i32 4, i32 13
+  %received_packet_manager_180 = getelementptr inbounds i8, ptr %this, i64 864
+  %quic_version_.i.i41 = getelementptr inbounds i8, ptr %this, i64 300
   %48 = load i32, ptr %quic_version_.i.i41, align 4
   call void @_ZN3net25QuicReceivedPacketManager10SetVersionENS_11QuicVersionE(ptr noundef nonnull align 8 dereferenceable(248) %received_packet_manager_180, i32 noundef %48)
-  %visitor_182 = getelementptr inbounds %"class.net::QuicConnection", ptr %this, i64 0, i32 67
+  %visitor_182 = getelementptr inbounds i8, ptr %this, i64 2392
   %49 = load ptr, ptr %visitor_182, align 8
   %50 = load i32, ptr %quic_version_.i.i41, align 4
   store i32 %50, ptr %ref.tmp183, align 4
   %vtable185 = load ptr, ptr %49, align 8
-  %vfn186 = getelementptr inbounds ptr, ptr %vtable185, i64 9
+  %vfn186 = getelementptr inbounds i8, ptr %vtable185, i64 72
   %51 = load ptr, ptr %vfn186, align 8
   call void %51(ptr noundef nonnull align 8 dereferenceable(8) %49, ptr noundef nonnull align 4 dereferenceable(4) %ref.tmp183)
-  %debug_visitor_187 = getelementptr inbounds %"class.net::QuicConnection", ptr %this, i64 0, i32 68
+  %debug_visitor_187 = getelementptr inbounds i8, ptr %this, i64 2400
   %52 = load ptr, ptr %debug_visitor_187, align 8
   %cmp188.not = icmp eq ptr %52, null
   br i1 %cmp188.not, label %if.end208, label %if.then189
@@ -5488,15 +5345,15 @@ if.then189:                                       ; preds = %if.else178
   %53 = load i32, ptr %quic_version_.i.i41, align 4
   store i32 %53, ptr %ref.tmp191, align 4
   %vtable193 = load ptr, ptr %52, align 8
-  %vfn194 = getelementptr inbounds ptr, ptr %vtable193, i64 28
+  %vfn194 = getelementptr inbounds i8, ptr %vtable193, i64 224
   %54 = load ptr, ptr %vfn194, align 8
   call void %54(ptr noundef nonnull align 8 dereferenceable(8) %52, ptr noundef nonnull align 4 dereferenceable(4) %ref.tmp191)
   br label %if.end208
 
 if.end208:                                        ; preds = %if.end120, %if.else178, %if.then189, %if.then170, %if.end162
-  %last_size_ = getelementptr inbounds %"class.net::QuicConnection", ptr %this, i64 0, i32 22
+  %last_size_ = getelementptr inbounds i8, ptr %this, i64 592
   %55 = load i64, ptr %last_size_, align 8
-  %largest_received_packet_size_ = getelementptr inbounds %"class.net::QuicConnection", ptr %this, i64 0, i32 92
+  %largest_received_packet_size_ = getelementptr inbounds i8, ptr %this, i64 3352
   %56 = load i64, ptr %largest_received_packet_size_, align 8
   %cmp209 = icmp ugt i64 %55, %56
   br i1 %cmp209, label %if.then210, label %if.end213
@@ -5508,21 +5365,21 @@ if.then210:                                       ; preds = %if.end208
 if.end213:                                        ; preds = %if.then210, %if.end208
   %57 = load i32, ptr %perspective_, align 4
   %cmp215 = icmp eq i32 %57, 0
-  %encryption_level_ = getelementptr inbounds %"class.net::QuicConnection", ptr %this, i64 0, i32 10
+  %encryption_level_ = getelementptr inbounds i8, ptr %this, i64 473
   %58 = load i8, ptr %encryption_level_, align 1
   %cmp218 = icmp eq i8 %58, 0
   %or.cond = select i1 %cmp215, i1 %cmp218, i1 false
   br i1 %or.cond, label %land.lhs.true219, label %return
 
 land.lhs.true219:                                 ; preds = %if.end213
-  %packet_generator_221 = getelementptr inbounds %"class.net::QuicConnection", ptr %this, i64 0, i32 69
+  %packet_generator_221 = getelementptr inbounds i8, ptr %this, i64 2408
   %call222 = call noundef i64 @_ZNK3net19QuicPacketGenerator25GetCurrentMaxPacketLengthEv(ptr noundef nonnull align 8 dereferenceable(472) %packet_generator_221)
   %cmp223 = icmp ugt i64 %55, %call222
   br i1 %cmp223, label %if.then224, label %return
 
 if.then224:                                       ; preds = %land.lhs.true219
   %59 = load i64, ptr %last_size_, align 8
-  %long_term_mtu_.i = getelementptr inbounds %"class.net::QuicConnection", ptr %this, i64 0, i32 91
+  %long_term_mtu_.i = getelementptr inbounds i8, ptr %this, i64 3344
   store i64 %59, ptr %long_term_mtu_.i, align 8
   %call.i = call noundef i64 @_ZN3net14QuicConnection23GetLimitedMaxPacketSizeEm(ptr noundef nonnull align 8 dereferenceable(3372) %this, i64 noundef %59)
   call void @_ZN3net19QuicPacketGenerator18SetMaxPacketLengthEm(ptr noundef nonnull align 8 dereferenceable(472) %packet_generator_221, i64 noundef %call.i)
@@ -5549,14 +5406,14 @@ entry:
   %ref.tmp15 = alloca %"class.logging::LogMessage", align 8
   %ref.tmp47 = alloca %"class.std::__cxx11::basic_string", align 8
   %ref.tmp48 = alloca %"class.std::allocator.0", align 1
-  %debug_visitor_ = getelementptr inbounds %"class.net::QuicConnection", ptr %this, i64 0, i32 68
+  %debug_visitor_ = getelementptr inbounds i8, ptr %this, i64 2400
   %0 = load ptr, ptr %debug_visitor_, align 8
   %cmp.not = icmp eq ptr %0, null
   br i1 %cmp.not, label %if.end, label %if.then
 
 if.then:                                          ; preds = %entry
   %vtable = load ptr, ptr %0, align 8
-  %vfn = getelementptr inbounds ptr, ptr %vtable, i64 14
+  %vfn = getelementptr inbounds i8, ptr %vtable, i64 112
   %1 = load ptr, ptr %vfn, align 8
   tail call void %1(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef nonnull align 8 dereferenceable(40) %frame)
   br label %if.end
@@ -5564,24 +5421,24 @@ if.then:                                          ; preds = %entry
 if.end:                                           ; preds = %if.then, %entry
   %2 = load i32, ptr %frame, align 8
   %cmp3.not = icmp ne i32 %2, 1
-  %last_decrypted_packet_level_ = getelementptr inbounds %"class.net::QuicConnection", ptr %this, i64 0, i32 24
+  %last_decrypted_packet_level_ = getelementptr inbounds i8, ptr %this, i64 608
   %3 = load i8, ptr %last_decrypted_packet_level_, align 8
   %cmp4 = icmp eq i8 %3, 0
   %or.cond = select i1 %cmp3.not, i1 %cmp4, i1 false
   br i1 %or.cond, label %if.end.i, label %if.end57
 
 if.end.i:                                         ; preds = %if.end
-  %perspective_.i = getelementptr inbounds %"class.net::QuicConnection", ptr %this, i64 0, i32 79
+  %perspective_.i = getelementptr inbounds i8, ptr %this, i64 3204
   %4 = load i32, ptr %perspective_.i, align 4
   %cmp3.i = icmp eq i32 %4, 0
-  %data_length.i = getelementptr inbounds %"struct.net::QuicStreamFrame", ptr %frame, i64 0, i32 2
+  %data_length.i = getelementptr inbounds i8, ptr %frame, i64 6
   %5 = load i16, ptr %data_length.i, align 2
   %cmp5.i = icmp ugt i16 %5, 3
   %or.cond5.i = select i1 %cmp3.i, i1 %cmp5.i, i1 false
   br i1 %or.cond5.i, label %land.lhs.true6.i, label %if.end9.i
 
 land.lhs.true6.i:                                 ; preds = %if.end.i
-  %data_buffer.i = getelementptr inbounds %"struct.net::QuicStreamFrame", ptr %frame, i64 0, i32 3
+  %data_buffer.i = getelementptr inbounds i8, ptr %frame, i64 8
   %6 = load ptr, ptr %data_buffer.i, align 8
   %call.i = tail call i32 @strncmp(ptr noundef nonnull dereferenceable(1) %6, ptr noundef nonnull dereferenceable(5) @_ZN3netL5kCHLOE, i64 noundef 4) #27
   %cmp7.i = icmp eq i32 %call.i, 0
@@ -5593,7 +5450,7 @@ if.end9.i:                                        ; preds = %if.end.i
   br i1 %or.cond6.i, label %land.lhs.true16.i, label %if.end12
 
 land.lhs.true16.i:                                ; preds = %if.end9.i
-  %data_buffer17.i = getelementptr inbounds %"struct.net::QuicStreamFrame", ptr %frame, i64 0, i32 3
+  %data_buffer17.i = getelementptr inbounds i8, ptr %frame, i64 8
   %7 = load ptr, ptr %data_buffer17.i, align 8
   %call18.i = tail call i32 @strncmp(ptr noundef nonnull dereferenceable(1) %7, ptr noundef nonnull dereferenceable(4) @_ZN3netL4kREJE, i64 noundef 4) #27
   %cmp19.i = icmp eq i32 %call18.i, 0
@@ -5620,7 +5477,7 @@ lpad.i:                                           ; preds = %.noexc
 
 invoke.cont:                                      ; preds = %.noexc
   %vtable8 = load ptr, ptr %this, align 8
-  %vfn9 = getelementptr inbounds ptr, ptr %vtable8, i64 32
+  %vfn9 = getelementptr inbounds i8, ptr %vtable8, i64 256
   %9 = load ptr, ptr %vfn9, align 8
   invoke void %9(ptr noundef nonnull align 8 dereferenceable(3372) %this, i32 noundef 89, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp, i32 noundef 1)
           to label %invoke.cont11 unwind label %lpad10
@@ -5652,7 +5509,7 @@ if.end12:                                         ; preds = %land.lhs.true16.i, 
 
 cond.false:                                       ; preds = %if.end12
   call void @_ZN7logging10LogMessageC1EPKcii(ptr noundef nonnull align 8 dereferenceable(404) %ref.tmp15, ptr noundef nonnull @.str, i32 noundef 691, i32 noundef 2)
-  %stream_.i = getelementptr inbounds %"class.logging::LogMessage", ptr %ref.tmp15, i64 0, i32 2
+  %stream_.i = getelementptr inbounds i8, ptr %ref.tmp15, i64 8
   %12 = load i32, ptr %perspective_.i, align 4
   %cmp19 = icmp eq i32 %12, 0
   %cond-lvalue = select i1 %cmp19, ptr @.str.3, ptr @.str.4
@@ -5668,7 +5525,7 @@ invoke.cont24:                                    ; preds = %invoke.cont22
           to label %invoke.cont26 unwind label %lpad16
 
 invoke.cont26:                                    ; preds = %invoke.cont24
-  %packet_number = getelementptr inbounds %"class.net::QuicConnection", ptr %this, i64 0, i32 26, i32 1
+  %packet_number = getelementptr inbounds i8, ptr %this, i64 664
   %13 = load i64, ptr %packet_number, align 8
   %call29 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZNSolsEm(ptr noundef nonnull align 8 dereferenceable(8) %call27, i64 noundef %13)
           to label %invoke.cont28 unwind label %lpad16
@@ -5687,7 +5544,7 @@ invoke.cont33:                                    ; preds = %invoke.cont30
           to label %invoke.cont35 unwind label %lpad16
 
 invoke.cont35:                                    ; preds = %invoke.cont33
-  %ack_frame_.i = getelementptr inbounds %"class.net::QuicConnection", ptr %this, i64 0, i32 43, i32 3
+  %ack_frame_.i = getelementptr inbounds i8, ptr %this, i64 984
   %call40 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZN3netlsERSoRKNS_12QuicAckFrameE(ptr noundef nonnull align 8 dereferenceable(8) %call36, ptr noundef nonnull align 8 dereferenceable(100) %ack_frame_.i)
           to label %cleanup.action unwind label %lpad16
 
@@ -5716,7 +5573,7 @@ lpad.i17:                                         ; preds = %.noexc19
 
 invoke.cont50:                                    ; preds = %.noexc19
   %vtable51 = load ptr, ptr %this, align 8
-  %vfn52 = getelementptr inbounds ptr, ptr %vtable51, i64 32
+  %vfn52 = getelementptr inbounds i8, ptr %vtable51, i64 256
   %16 = load ptr, ptr %vfn52, align 8
   invoke void %16(ptr noundef nonnull align 8 dereferenceable(3372) %this, i32 noundef 61, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp47, i32 noundef 1)
           to label %invoke.cont54 unwind label %lpad53
@@ -5749,27 +5606,27 @@ ehcleanup56:                                      ; preds = %lpad49, %lpad.i17, 
   br label %eh.resume
 
 if.end57:                                         ; preds = %if.end
-  %visitor_ = getelementptr inbounds %"class.net::QuicConnection", ptr %this, i64 0, i32 67
+  %visitor_ = getelementptr inbounds i8, ptr %this, i64 2392
   %20 = load ptr, ptr %visitor_, align 8
   %vtable58 = load ptr, ptr %20, align 8
-  %vfn59 = getelementptr inbounds ptr, ptr %vtable58, i64 2
+  %vfn59 = getelementptr inbounds i8, ptr %vtable58, i64 16
   %21 = load ptr, ptr %vfn59, align 8
   tail call void %21(ptr noundef nonnull align 8 dereferenceable(8) %20, ptr noundef nonnull align 8 dereferenceable(40) %frame)
   %22 = load ptr, ptr %visitor_, align 8
   %vtable61 = load ptr, ptr %22, align 8
-  %vfn62 = getelementptr inbounds ptr, ptr %vtable61, i64 14
+  %vfn62 = getelementptr inbounds i8, ptr %vtable61, i64 112
   %23 = load ptr, ptr %vfn62, align 8
   tail call void %23(ptr noundef nonnull align 8 dereferenceable(8) %22)
-  %data_length = getelementptr inbounds %"struct.net::QuicStreamFrame", ptr %frame, i64 0, i32 2
+  %data_length = getelementptr inbounds i8, ptr %frame, i64 6
   %24 = load i16, ptr %data_length, align 2
   %conv63 = zext i16 %24 to i64
-  %stream_bytes_received = getelementptr inbounds %"class.net::QuicConnection", ptr %this, i64 0, i32 72, i32 7
+  %stream_bytes_received = getelementptr inbounds i8, ptr %this, i64 2968
   %25 = load i64, ptr %stream_bytes_received, align 8
   %add = add i64 %25, %conv63
   store i64 %add, ptr %stream_bytes_received, align 8
-  %should_last_packet_instigate_acks_ = getelementptr inbounds %"class.net::QuicConnection", ptr %this, i64 0, i32 28
+  %should_last_packet_instigate_acks_ = getelementptr inbounds i8, ptr %this, i64 696
   store i8 1, ptr %should_last_packet_instigate_acks_, align 8
-  %connected_ = getelementptr inbounds %"class.net::QuicConnection", ptr %this, i64 0, i32 80
+  %connected_ = getelementptr inbounds i8, ptr %this, i64 3208
   %26 = load i8, ptr %connected_, align 8
   %27 = and i8 %26, 1
   %tobool = icmp ne i8 %27, 0
@@ -5789,24 +5646,24 @@ define dso_local noundef zeroext i1 @_ZN3net14QuicConnection31MaybeConsiderAsMem
 entry:
   %0 = load i32, ptr %frame, align 8
   %cmp = icmp ne i32 %0, 1
-  %last_decrypted_packet_level_ = getelementptr inbounds %"class.net::QuicConnection", ptr %this, i64 0, i32 24
+  %last_decrypted_packet_level_ = getelementptr inbounds i8, ptr %this, i64 608
   %1 = load i8, ptr %last_decrypted_packet_level_, align 8
   %cmp2.not = icmp eq i8 %1, 0
   %or.cond = select i1 %cmp, i1 %cmp2.not, i1 false
   br i1 %or.cond, label %if.end, label %return
 
 if.end:                                           ; preds = %entry
-  %perspective_ = getelementptr inbounds %"class.net::QuicConnection", ptr %this, i64 0, i32 79
+  %perspective_ = getelementptr inbounds i8, ptr %this, i64 3204
   %2 = load i32, ptr %perspective_, align 4
   %cmp3 = icmp eq i32 %2, 0
-  %data_length = getelementptr inbounds %"struct.net::QuicStreamFrame", ptr %frame, i64 0, i32 2
+  %data_length = getelementptr inbounds i8, ptr %frame, i64 6
   %3 = load i16, ptr %data_length, align 2
   %cmp5 = icmp ugt i16 %3, 3
   %or.cond5 = select i1 %cmp3, i1 %cmp5, i1 false
   br i1 %or.cond5, label %land.lhs.true6, label %if.end9
 
 land.lhs.true6:                                   ; preds = %if.end
-  %data_buffer = getelementptr inbounds %"struct.net::QuicStreamFrame", ptr %frame, i64 0, i32 3
+  %data_buffer = getelementptr inbounds i8, ptr %frame, i64 8
   %4 = load ptr, ptr %data_buffer, align 8
   %call = tail call i32 @strncmp(ptr noundef nonnull dereferenceable(1) %4, ptr noundef nonnull dereferenceable(5) @_ZN3netL5kCHLOE, i64 noundef 4) #27
   %cmp7 = icmp eq i32 %call, 0
@@ -5818,7 +5675,7 @@ if.end9:                                          ; preds = %if.end
   br i1 %or.cond6, label %land.lhs.true16, label %if.end21
 
 land.lhs.true16:                                  ; preds = %if.end9
-  %data_buffer17 = getelementptr inbounds %"struct.net::QuicStreamFrame", ptr %frame, i64 0, i32 3
+  %data_buffer17 = getelementptr inbounds i8, ptr %frame, i64 8
   %5 = load ptr, ptr %data_buffer17, align 8
   %call18 = tail call i32 @strncmp(ptr noundef nonnull dereferenceable(1) %5, ptr noundef nonnull dereferenceable(4) @_ZN3netL4kREJE, i64 noundef 4) #27
   %cmp19 = icmp eq i32 %call18, 0
@@ -5843,22 +5700,22 @@ define dso_local noundef zeroext i1 @_ZN3net14QuicConnection10OnAckFrameERKNS_12
 entry:
   %ref.tmp = alloca %"class.std::__cxx11::basic_string", align 8
   %ref.tmp8 = alloca %"class.std::allocator.0", align 1
-  %debug_visitor_ = getelementptr inbounds %"class.net::QuicConnection", ptr %this, i64 0, i32 68
+  %debug_visitor_ = getelementptr inbounds i8, ptr %this, i64 2400
   %0 = load ptr, ptr %debug_visitor_, align 8
   %cmp.not = icmp eq ptr %0, null
   br i1 %cmp.not, label %if.end, label %if.then
 
 if.then:                                          ; preds = %entry
   %vtable = load ptr, ptr %0, align 8
-  %vfn = getelementptr inbounds ptr, ptr %vtable, i64 15
+  %vfn = getelementptr inbounds i8, ptr %vtable, i64 120
   %1 = load ptr, ptr %vfn, align 8
   tail call void %1(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef nonnull align 8 dereferenceable(100) %incoming_ack)
   br label %if.end
 
 if.end:                                           ; preds = %if.then, %entry
-  %packet_number = getelementptr inbounds %"class.net::QuicConnection", ptr %this, i64 0, i32 26, i32 1
+  %packet_number = getelementptr inbounds i8, ptr %this, i64 664
   %2 = load i64, ptr %packet_number, align 8
-  %largest_seen_packet_with_ack_ = getelementptr inbounds %"class.net::QuicConnection", ptr %this, i64 0, i32 30
+  %largest_seen_packet_with_ack_ = getelementptr inbounds i8, ptr %this, i64 704
   %3 = load i64, ptr %largest_seen_packet_with_ack_, align 8
   %cmp3.not = icmp ugt i64 %2, %3
   br i1 %cmp3.not, label %if.end5, label %return
@@ -5891,7 +5748,7 @@ if.end.i:                                         ; preds = %call.i.noexc
 
 invoke.cont:                                      ; preds = %if.end.i
   %vtable9 = load ptr, ptr %this, align 8
-  %vfn10 = getelementptr inbounds ptr, ptr %vtable9, i64 32
+  %vfn10 = getelementptr inbounds i8, ptr %vtable9, i64 256
   %5 = load ptr, ptr %vfn10, align 8
   invoke void %5(ptr noundef nonnull align 8 dereferenceable(3372) %this, i32 noundef 9, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp, i32 noundef 1)
           to label %invoke.cont12 unwind label %lpad11
@@ -5918,7 +5775,7 @@ ehcleanup:                                        ; preds = %lpad, %lpad.i, %lpa
   resume { ptr, i32 } %.pn
 
 if.end13:                                         ; preds = %if.end5
-  %send_alarm_ = getelementptr inbounds %"class.net::QuicConnection", ptr %this, i64 0, i32 62
+  %send_alarm_ = getelementptr inbounds i8, ptr %this, i64 2352
   %8 = load ptr, ptr %send_alarm_, align 8
   %9 = ptrtoint ptr %8 to i64
   %and.i.i = and i64 %9, -2
@@ -5937,26 +5794,26 @@ if.then16:                                        ; preds = %if.end13
 if.end19:                                         ; preds = %if.then16, %if.end13
   %14 = load i64, ptr %packet_number, align 8
   store i64 %14, ptr %largest_seen_packet_with_ack_, align 8
-  %sent_packet_manager_.i = getelementptr inbounds %"class.net::QuicConnection", ptr %this, i64 0, i32 77
+  %sent_packet_manager_.i = getelementptr inbounds i8, ptr %this, i64 3192
   %15 = load ptr, ptr %sent_packet_manager_.i, align 8
-  %time_of_last_received_packet_.i = getelementptr inbounds %"class.net::QuicConnection", ptr %this, i64 0, i32 73
+  %time_of_last_received_packet_.i = getelementptr inbounds i8, ptr %this, i64 3160
   %agg.tmp.sroa.0.0.copyload.i = load i64, ptr %time_of_last_received_packet_.i, align 8
   %vtable.i = load ptr, ptr %15, align 8
-  %vfn.i = getelementptr inbounds ptr, ptr %vtable.i, i64 7
+  %vfn.i = getelementptr inbounds i8, ptr %vtable.i, i64 56
   %16 = load ptr, ptr %vfn.i, align 8
   tail call void %16(ptr noundef nonnull align 8 dereferenceable(8) %15, ptr noundef nonnull align 8 dereferenceable(100) %incoming_ack, i64 %agg.tmp.sroa.0.0.copyload.i)
-  %quic_version_.i.i.i = getelementptr inbounds %"class.net::QuicConnection", ptr %this, i64 0, i32 4, i32 13
+  %quic_version_.i.i.i = getelementptr inbounds i8, ptr %this, i64 300
   %17 = load i32, ptr %quic_version_.i.i.i, align 4
   %cmp.i11 = icmp slt i32 %17, 34
   br i1 %cmp.i11, label %if.then.i13, label %if.end.i12
 
 if.then.i13:                                      ; preds = %if.end19
-  %sent_entropy_manager_.i = getelementptr inbounds %"class.net::QuicConnection", ptr %this, i64 0, i32 44
+  %sent_entropy_manager_.i = getelementptr inbounds i8, ptr %this, i64 1112
   %18 = load ptr, ptr %sent_packet_manager_.i, align 8
-  %path_id.i = getelementptr inbounds %"struct.net::QuicAckFrame", ptr %incoming_ack, i64 0, i32 4
+  %path_id.i = getelementptr inbounds i8, ptr %incoming_ack, i64 96
   %19 = load i8, ptr %path_id.i, align 8
   %vtable5.i = load ptr, ptr %18, align 8
-  %vfn6.i = getelementptr inbounds ptr, ptr %vtable5.i, i64 33
+  %vfn6.i = getelementptr inbounds i8, ptr %vtable5.i, i64 264
   %20 = load ptr, ptr %vfn6.i, align 8
   %call7.i = tail call noundef i64 %20(ptr noundef nonnull align 8 dereferenceable(8) %18, i8 noundef zeroext %19)
   %sub.i = add i64 %call7.i, -1
@@ -5964,24 +5821,24 @@ if.then.i13:                                      ; preds = %if.end19
   br label %if.end.i12
 
 if.end.i12:                                       ; preds = %if.then.i13, %if.end19
-  %delay_setting_retransmission_alarm_.i.i = getelementptr inbounds %"class.net::QuicConnection", ptr %this, i64 0, i32 54
+  %delay_setting_retransmission_alarm_.i.i = getelementptr inbounds i8, ptr %this, i64 1284
   %21 = load i8, ptr %delay_setting_retransmission_alarm_.i.i, align 4
   %22 = and i8 %21, 1
   %tobool.not.i.i = icmp eq i8 %22, 0
   br i1 %tobool.not.i.i, label %if.end.i.i, label %if.then.i.i
 
 if.then.i.i:                                      ; preds = %if.end.i12
-  %pending_retransmission_alarm_.i.i = getelementptr inbounds %"class.net::QuicConnection", ptr %this, i64 0, i32 55
+  %pending_retransmission_alarm_.i.i = getelementptr inbounds i8, ptr %this, i64 1285
   store i8 1, ptr %pending_retransmission_alarm_.i.i, align 1
   br label %_ZN3net14QuicConnection15ProcessAckFrameERKNS_12QuicAckFrameE.exit
 
 if.end.i.i:                                       ; preds = %if.end.i12
   %23 = load ptr, ptr %sent_packet_manager_.i, align 8
   %vtable.i.i = load ptr, ptr %23, align 8
-  %vfn.i.i = getelementptr inbounds ptr, ptr %vtable.i.i, i64 18
+  %vfn.i.i = getelementptr inbounds i8, ptr %vtable.i.i, i64 144
   %24 = load ptr, ptr %vfn.i.i, align 8
   %call2.i.i = tail call i64 %24(ptr noundef nonnull align 8 dereferenceable(8) %23)
-  %retransmission_alarm_.i.i = getelementptr inbounds %"class.net::QuicConnection", ptr %this, i64 0, i32 61
+  %retransmission_alarm_.i.i = getelementptr inbounds i8, ptr %this, i64 2344
   %25 = load ptr, ptr %retransmission_alarm_.i.i, align 8
   %26 = ptrtoint ptr %25 to i64
   %and.i.i.i.i = and i64 %26, -2
@@ -5990,28 +5847,28 @@ if.end.i.i:                                       ; preds = %if.end.i12
   br label %_ZN3net14QuicConnection15ProcessAckFrameERKNS_12QuicAckFrameE.exit
 
 _ZN3net14QuicConnection15ProcessAckFrameERKNS_12QuicAckFrameE.exit: ; preds = %if.then.i.i, %if.end.i.i
-  %is_truncated = getelementptr inbounds %"struct.net::QuicAckFrame", ptr %incoming_ack, i64 0, i32 6
+  %is_truncated = getelementptr inbounds i8, ptr %incoming_ack, i64 98
   %28 = load i8, ptr %is_truncated, align 2
   %29 = and i8 %28, 1
   %tobool.not = icmp eq i8 %29, 0
   br i1 %tobool.not, label %if.end21, label %if.then20
 
 if.then20:                                        ; preds = %_ZN3net14QuicConnection15ProcessAckFrameERKNS_12QuicAckFrameE.exit
-  %should_last_packet_instigate_acks_ = getelementptr inbounds %"class.net::QuicConnection", ptr %this, i64 0, i32 28
+  %should_last_packet_instigate_acks_ = getelementptr inbounds i8, ptr %this, i64 696
   store i8 1, ptr %should_last_packet_instigate_acks_, align 8
   br label %if.end21
 
 if.end21:                                         ; preds = %if.then20, %_ZN3net14QuicConnection15ProcessAckFrameERKNS_12QuicAckFrameE.exit
-  %packets = getelementptr inbounds %"struct.net::QuicAckFrame", ptr %incoming_ack, i64 0, i32 3
+  %packets = getelementptr inbounds i8, ptr %incoming_ack, i64 48
   %call22 = tail call noundef zeroext i1 @_ZNK3net17PacketNumberQueue5EmptyEv(ptr noundef nonnull align 8 dereferenceable(48) %packets)
   br i1 %call22, label %if.else, label %land.lhs.true
 
 land.lhs.true:                                    ; preds = %if.end21
-  %path_id = getelementptr inbounds %"struct.net::QuicAckFrame", ptr %incoming_ack, i64 0, i32 4
+  %path_id = getelementptr inbounds i8, ptr %incoming_ack, i64 96
   %30 = load i8, ptr %path_id, align 8
   %31 = load ptr, ptr %sent_packet_manager_.i, align 8
   %vtable.i15 = load ptr, ptr %31, align 8
-  %vfn.i16 = getelementptr inbounds ptr, ptr %vtable.i15, i64 14
+  %vfn.i16 = getelementptr inbounds i8, ptr %vtable.i15, i64 112
   %32 = load ptr, ptr %vfn.i16, align 8
   %call2.i = tail call noundef i64 %32(ptr noundef nonnull align 8 dereferenceable(8) %31, i8 noundef zeroext %30)
   %call25 = tail call noundef i64 @_ZNK3net17PacketNumberQueue3MinEv(ptr noundef nonnull align 8 dereferenceable(48) %packets)
@@ -6019,19 +5876,19 @@ land.lhs.true:                                    ; preds = %if.end21
   br i1 %cmp26, label %if.then27, label %if.else
 
 if.then27:                                        ; preds = %land.lhs.true
-  %stop_waiting_count_ = getelementptr inbounds %"class.net::QuicConnection", ptr %this, i64 0, i32 51
+  %stop_waiting_count_ = getelementptr inbounds i8, ptr %this, i64 1272
   %33 = load i32, ptr %stop_waiting_count_, align 8
   %inc = add nsw i32 %33, 1
   store i32 %inc, ptr %stop_waiting_count_, align 8
   br label %if.end29
 
 if.else:                                          ; preds = %land.lhs.true, %if.end21
-  %stop_waiting_count_28 = getelementptr inbounds %"class.net::QuicConnection", ptr %this, i64 0, i32 51
+  %stop_waiting_count_28 = getelementptr inbounds i8, ptr %this, i64 1272
   store i32 0, ptr %stop_waiting_count_28, align 8
   br label %if.end29
 
 if.end29:                                         ; preds = %if.else, %if.then27
-  %connected_ = getelementptr inbounds %"class.net::QuicConnection", ptr %this, i64 0, i32 80
+  %connected_ = getelementptr inbounds i8, ptr %this, i64 3208
   %34 = load i8, ptr %connected_, align 8
   %35 = and i8 %34, 1
   %tobool30 = icmp ne i8 %35, 0
@@ -6050,19 +5907,19 @@ entry:
   %ref.tmp115 = alloca %"class.logging::LogMessage", align 8
   %ref.tmp173 = alloca %"class.logging::LogMessage", align 8
   %0 = load i64, ptr %incoming_ack, align 8
-  %packet_generator_ = getelementptr inbounds %"class.net::QuicConnection", ptr %this, i64 0, i32 69
+  %packet_generator_ = getelementptr inbounds i8, ptr %this, i64 2408
   %call = tail call noundef i64 @_ZNK3net19QuicPacketGenerator13packet_numberEv(ptr noundef nonnull align 8 dereferenceable(472) %packet_generator_)
   %cmp = icmp ugt i64 %0, %call
   br i1 %cmp, label %return, label %if.end
 
 if.end:                                           ; preds = %entry
   %1 = load i64, ptr %incoming_ack, align 8
-  %sent_packet_manager_ = getelementptr inbounds %"class.net::QuicConnection", ptr %this, i64 0, i32 77
+  %sent_packet_manager_ = getelementptr inbounds i8, ptr %this, i64 3192
   %2 = load ptr, ptr %sent_packet_manager_, align 8
-  %path_id = getelementptr inbounds %"struct.net::QuicAckFrame", ptr %incoming_ack, i64 0, i32 4
+  %path_id = getelementptr inbounds i8, ptr %incoming_ack, i64 96
   %3 = load i8, ptr %path_id, align 8
   %vtable = load ptr, ptr %2, align 8
-  %vfn = getelementptr inbounds ptr, ptr %vtable, i64 31
+  %vfn = getelementptr inbounds i8, ptr %vtable, i64 248
   %4 = load ptr, ptr %vfn, align 8
   %call4 = tail call noundef i64 %4(ptr noundef nonnull align 8 dereferenceable(8) %2, i8 noundef zeroext %3)
   %cmp5 = icmp ult i64 %1, %call4
@@ -6075,8 +5932,8 @@ if.then6:                                         ; preds = %if.end
 
 cond.false:                                       ; preds = %if.then6
   call void @_ZN7logging10LogMessageC1EPKcii(ptr noundef nonnull align 8 dereferenceable(404) %ref.tmp9, ptr noundef nonnull @.str, i32 noundef 822, i32 noundef -1)
-  %stream_.i = getelementptr inbounds %"class.logging::LogMessage", ptr %ref.tmp9, i64 0, i32 2
-  %perspective_ = getelementptr inbounds %"class.net::QuicConnection", ptr %this, i64 0, i32 79
+  %stream_.i = getelementptr inbounds i8, ptr %ref.tmp9, i64 8
+  %perspective_ = getelementptr inbounds i8, ptr %this, i64 3204
   %5 = load i32, ptr %perspective_, align 4
   %cmp11 = icmp eq i32 %5, 0
   %cond-lvalue = select i1 %cmp11, ptr @.str.3, ptr @.str.4
@@ -6100,7 +5957,7 @@ invoke.cont21:                                    ; preds = %invoke.cont19
   %7 = load ptr, ptr %sent_packet_manager_, align 8
   %8 = load i8, ptr %path_id, align 8
   %vtable26 = load ptr, ptr %7, align 8
-  %vfn27 = getelementptr inbounds ptr, ptr %vtable26, i64 31
+  %vfn27 = getelementptr inbounds i8, ptr %vtable26, i64 248
   %9 = load ptr, ptr %vfn27, align 8
   %call29 = invoke noundef i64 %9(ptr noundef nonnull align 8 dereferenceable(8) %7, i8 noundef zeroext %8)
           to label %invoke.cont28 unwind label %lpad
@@ -6114,7 +5971,7 @@ invoke.cont30:                                    ; preds = %invoke.cont28
           to label %invoke.cont32 unwind label %lpad
 
 invoke.cont32:                                    ; preds = %invoke.cont30
-  %packet_number = getelementptr inbounds %"class.net::QuicConnection", ptr %this, i64 0, i32 26, i32 1
+  %packet_number = getelementptr inbounds i8, ptr %this, i64 664
   %10 = load i64, ptr %packet_number, align 8
   %call35 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZNSolsEm(ptr noundef nonnull align 8 dereferenceable(8) %call33, i64 noundef %10)
           to label %invoke.cont34 unwind label %lpad
@@ -6124,7 +5981,7 @@ invoke.cont34:                                    ; preds = %invoke.cont32
           to label %invoke.cont36 unwind label %lpad
 
 invoke.cont36:                                    ; preds = %invoke.cont34
-  %largest_seen_packet_with_ack_ = getelementptr inbounds %"class.net::QuicConnection", ptr %this, i64 0, i32 30
+  %largest_seen_packet_with_ack_ = getelementptr inbounds i8, ptr %this, i64 704
   %11 = load i64, ptr %largest_seen_packet_with_ack_, align 8
   %call39 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZNSolsEm(ptr noundef nonnull align 8 dereferenceable(8) %call37, i64 noundef %11)
           to label %invoke.cont38 unwind label %lpad
@@ -6134,7 +5991,7 @@ invoke.cont38:                                    ; preds = %invoke.cont36
           to label %invoke.cont40 unwind label %lpad
 
 invoke.cont40:                                    ; preds = %invoke.cont38
-  %connection_id_ = getelementptr inbounds %"class.net::QuicConnection", ptr %this, i64 0, i32 14
+  %connection_id_ = getelementptr inbounds i8, ptr %this, i64 496
   %12 = load i64, ptr %connection_id_, align 8
   %call43 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZNSolsEm(ptr noundef nonnull align 8 dereferenceable(8) %call41, i64 noundef %12)
           to label %cleanup.action unwind label %lpad
@@ -6149,10 +6006,10 @@ lpad:                                             ; preds = %invoke.cont40, %inv
   br label %eh.resume
 
 if.end49:                                         ; preds = %if.end
-  %quic_version_.i.i = getelementptr inbounds %"class.net::QuicConnection", ptr %this, i64 0, i32 4, i32 13
+  %quic_version_.i.i = getelementptr inbounds i8, ptr %this, i64 300
   %14 = load i32, ptr %quic_version_.i.i, align 4
   %cmp51 = icmp slt i32 %14, 34
-  %packets = getelementptr inbounds %"struct.net::QuicAckFrame", ptr %incoming_ack, i64 0, i32 3
+  %packets = getelementptr inbounds i8, ptr %incoming_ack, i64 48
   %call53 = tail call noundef zeroext i1 @_ZNK3net17PacketNumberQueue5EmptyEv(ptr noundef nonnull align 8 dereferenceable(48) %packets)
   br i1 %cmp51, label %if.then52, label %if.else
 
@@ -6171,8 +6028,8 @@ if.then58:                                        ; preds = %land.lhs.true
 
 cond.false61:                                     ; preds = %if.then58
   call void @_ZN7logging10LogMessageC1EPKcii(ptr noundef nonnull align 8 dereferenceable(404) %ref.tmp63, ptr noundef nonnull @.str, i32 noundef 836, i32 noundef 1)
-  %stream_.i24 = getelementptr inbounds %"class.logging::LogMessage", ptr %ref.tmp63, i64 0, i32 2
-  %perspective_68 = getelementptr inbounds %"class.net::QuicConnection", ptr %this, i64 0, i32 79
+  %stream_.i24 = getelementptr inbounds i8, ptr %ref.tmp63, i64 8
+  %perspective_68 = getelementptr inbounds i8, ptr %this, i64 3204
   %16 = load i32, ptr %perspective_68, align 4
   %cmp69 = icmp eq i32 %16, 0
   %cond-lvalue73 = select i1 %cmp69, ptr @.str.3, ptr @.str.4
@@ -6218,7 +6075,7 @@ land.lhs.true100:                                 ; preds = %if.end97
   %19 = load ptr, ptr %sent_packet_manager_, align 8
   %20 = load i8, ptr %path_id, align 8
   %vtable106 = load ptr, ptr %19, align 8
-  %vfn107 = getelementptr inbounds ptr, ptr %vtable106, i64 33
+  %vfn107 = getelementptr inbounds i8, ptr %vtable106, i64 264
   %21 = load ptr, ptr %vfn107, align 8
   %call108 = tail call noundef i64 %21(ptr noundef nonnull align 8 dereferenceable(8) %19, i8 noundef zeroext %20)
   %cmp109 = icmp ult i64 %call102, %call108
@@ -6230,8 +6087,8 @@ if.then110:                                       ; preds = %land.lhs.true100
 
 cond.false113:                                    ; preds = %if.then110
   call void @_ZN7logging10LogMessageC1EPKcii(ptr noundef nonnull align 8 dereferenceable(404) %ref.tmp115, ptr noundef nonnull @.str, i32 noundef 847, i32 noundef 1)
-  %stream_.i25 = getelementptr inbounds %"class.logging::LogMessage", ptr %ref.tmp115, i64 0, i32 2
-  %perspective_120 = getelementptr inbounds %"class.net::QuicConnection", ptr %this, i64 0, i32 79
+  %stream_.i25 = getelementptr inbounds i8, ptr %ref.tmp115, i64 8
+  %perspective_120 = getelementptr inbounds i8, ptr %this, i64 3204
   %22 = load i32, ptr %perspective_120, align 4
   %cmp121 = icmp eq i32 %22, 0
   %cond-lvalue125 = select i1 %cmp121, ptr @.str.3, ptr @.str.4
@@ -6258,7 +6115,7 @@ invoke.cont136:                                   ; preds = %invoke.cont134
   %23 = load ptr, ptr %sent_packet_manager_, align 8
   %24 = load i8, ptr %path_id, align 8
   %vtable141 = load ptr, ptr %23, align 8
-  %vfn142 = getelementptr inbounds ptr, ptr %vtable141, i64 33
+  %vfn142 = getelementptr inbounds i8, ptr %vtable141, i64 264
   %25 = load ptr, ptr %vfn142, align 8
   %call144 = invoke noundef i64 %25(ptr noundef nonnull align 8 dereferenceable(8) %23, i8 noundef zeroext %24)
           to label %invoke.cont143 unwind label %lpad117
@@ -6277,9 +6134,9 @@ lpad117:                                          ; preds = %invoke.cont143, %in
   br label %eh.resume
 
 if.end155:                                        ; preds = %land.lhs.true100, %if.end97
-  %sent_entropy_manager_ = getelementptr inbounds %"class.net::QuicConnection", ptr %this, i64 0, i32 44
+  %sent_entropy_manager_ = getelementptr inbounds i8, ptr %this, i64 1112
   %27 = load i64, ptr %incoming_ack, align 8
-  %entropy_hash = getelementptr inbounds %"struct.net::QuicAckFrame", ptr %incoming_ack, i64 0, i32 5
+  %entropy_hash = getelementptr inbounds i8, ptr %incoming_ack, i64 97
   %28 = load i8, ptr %entropy_hash, align 1
   %call158 = tail call noundef zeroext i1 @_ZN3net22QuicSentEntropyManager14IsValidEntropyEmRKNS_17PacketNumberQueueEh(ptr noundef nonnull align 8 dereferenceable(128) %sent_entropy_manager_, i64 noundef %27, ptr noundef nonnull align 8 dereferenceable(48) %packets, i8 noundef zeroext %28)
   br i1 %call158, label %if.end208, label %return
@@ -6299,8 +6156,8 @@ if.then168:                                       ; preds = %land.lhs.true163
 
 cond.false171:                                    ; preds = %if.then168
   call void @_ZN7logging10LogMessageC1EPKcii(ptr noundef nonnull align 8 dereferenceable(404) %ref.tmp173, ptr noundef nonnull @.str, i32 noundef 865, i32 noundef 2)
-  %stream_.i26 = getelementptr inbounds %"class.logging::LogMessage", ptr %ref.tmp173, i64 0, i32 2
-  %perspective_178 = getelementptr inbounds %"class.net::QuicConnection", ptr %this, i64 0, i32 79
+  %stream_.i26 = getelementptr inbounds i8, ptr %ref.tmp173, i64 8
+  %perspective_178 = getelementptr inbounds i8, ptr %this, i64 3204
   %30 = load i32, ptr %perspective_178, align 4
   %cmp179 = icmp eq i32 %30, 0
   %cond-lvalue183 = select i1 %cmp179, ptr @.str.3, ptr @.str.4
@@ -6358,30 +6215,30 @@ declare void @_ZN3net9QuicAlarm6CancelEv(ptr noundef nonnull align 8 dereference
 ; Function Attrs: mustprogress uwtable
 define dso_local void @_ZN3net14QuicConnection15ProcessAckFrameERKNS_12QuicAckFrameE(ptr noundef nonnull align 8 dereferenceable(3372) %this, ptr noundef nonnull align 8 dereferenceable(100) %incoming_ack) local_unnamed_addr #0 align 2 {
 entry:
-  %packet_number = getelementptr inbounds %"class.net::QuicConnection", ptr %this, i64 0, i32 26, i32 1
+  %packet_number = getelementptr inbounds i8, ptr %this, i64 664
   %0 = load i64, ptr %packet_number, align 8
-  %largest_seen_packet_with_ack_ = getelementptr inbounds %"class.net::QuicConnection", ptr %this, i64 0, i32 30
+  %largest_seen_packet_with_ack_ = getelementptr inbounds i8, ptr %this, i64 704
   store i64 %0, ptr %largest_seen_packet_with_ack_, align 8
-  %sent_packet_manager_ = getelementptr inbounds %"class.net::QuicConnection", ptr %this, i64 0, i32 77
+  %sent_packet_manager_ = getelementptr inbounds i8, ptr %this, i64 3192
   %1 = load ptr, ptr %sent_packet_manager_, align 8
-  %time_of_last_received_packet_ = getelementptr inbounds %"class.net::QuicConnection", ptr %this, i64 0, i32 73
+  %time_of_last_received_packet_ = getelementptr inbounds i8, ptr %this, i64 3160
   %agg.tmp.sroa.0.0.copyload = load i64, ptr %time_of_last_received_packet_, align 8
   %vtable = load ptr, ptr %1, align 8
-  %vfn = getelementptr inbounds ptr, ptr %vtable, i64 7
+  %vfn = getelementptr inbounds i8, ptr %vtable, i64 56
   %2 = load ptr, ptr %vfn, align 8
   tail call void %2(ptr noundef nonnull align 8 dereferenceable(8) %1, ptr noundef nonnull align 8 dereferenceable(100) %incoming_ack, i64 %agg.tmp.sroa.0.0.copyload)
-  %quic_version_.i.i = getelementptr inbounds %"class.net::QuicConnection", ptr %this, i64 0, i32 4, i32 13
+  %quic_version_.i.i = getelementptr inbounds i8, ptr %this, i64 300
   %3 = load i32, ptr %quic_version_.i.i, align 4
   %cmp = icmp slt i32 %3, 34
   br i1 %cmp, label %if.then, label %if.end
 
 if.then:                                          ; preds = %entry
-  %sent_entropy_manager_ = getelementptr inbounds %"class.net::QuicConnection", ptr %this, i64 0, i32 44
+  %sent_entropy_manager_ = getelementptr inbounds i8, ptr %this, i64 1112
   %4 = load ptr, ptr %sent_packet_manager_, align 8
-  %path_id = getelementptr inbounds %"struct.net::QuicAckFrame", ptr %incoming_ack, i64 0, i32 4
+  %path_id = getelementptr inbounds i8, ptr %incoming_ack, i64 96
   %5 = load i8, ptr %path_id, align 8
   %vtable5 = load ptr, ptr %4, align 8
-  %vfn6 = getelementptr inbounds ptr, ptr %vtable5, i64 33
+  %vfn6 = getelementptr inbounds i8, ptr %vtable5, i64 264
   %6 = load ptr, ptr %vfn6, align 8
   %call7 = tail call noundef i64 %6(ptr noundef nonnull align 8 dereferenceable(8) %4, i8 noundef zeroext %5)
   %sub = add i64 %call7, -1
@@ -6389,24 +6246,24 @@ if.then:                                          ; preds = %entry
   br label %if.end
 
 if.end:                                           ; preds = %if.then, %entry
-  %delay_setting_retransmission_alarm_.i = getelementptr inbounds %"class.net::QuicConnection", ptr %this, i64 0, i32 54
+  %delay_setting_retransmission_alarm_.i = getelementptr inbounds i8, ptr %this, i64 1284
   %7 = load i8, ptr %delay_setting_retransmission_alarm_.i, align 4
   %8 = and i8 %7, 1
   %tobool.not.i = icmp eq i8 %8, 0
   br i1 %tobool.not.i, label %if.end.i, label %if.then.i
 
 if.then.i:                                        ; preds = %if.end
-  %pending_retransmission_alarm_.i = getelementptr inbounds %"class.net::QuicConnection", ptr %this, i64 0, i32 55
+  %pending_retransmission_alarm_.i = getelementptr inbounds i8, ptr %this, i64 1285
   store i8 1, ptr %pending_retransmission_alarm_.i, align 1
   br label %_ZN3net14QuicConnection22SetRetransmissionAlarmEv.exit
 
 if.end.i:                                         ; preds = %if.end
   %9 = load ptr, ptr %sent_packet_manager_, align 8
   %vtable.i = load ptr, ptr %9, align 8
-  %vfn.i = getelementptr inbounds ptr, ptr %vtable.i, i64 18
+  %vfn.i = getelementptr inbounds i8, ptr %vtable.i, i64 144
   %10 = load ptr, ptr %vfn.i, align 8
   %call2.i = tail call i64 %10(ptr noundef nonnull align 8 dereferenceable(8) %9)
-  %retransmission_alarm_.i = getelementptr inbounds %"class.net::QuicConnection", ptr %this, i64 0, i32 61
+  %retransmission_alarm_.i = getelementptr inbounds i8, ptr %this, i64 2344
   %11 = load ptr, ptr %retransmission_alarm_.i, align 8
   %12 = ptrtoint ptr %11 to i64
   %and.i.i.i = and i64 %12, -2
@@ -6423,10 +6280,10 @@ declare noundef zeroext i1 @_ZNK3net17PacketNumberQueue5EmptyEv(ptr noundef nonn
 ; Function Attrs: mustprogress uwtable
 define dso_local noundef i64 @_ZNK3net14QuicConnection15GetLeastUnackedEh(ptr nocapture noundef nonnull readonly align 8 dereferenceable(3372) %this, i8 noundef zeroext %path_id) local_unnamed_addr #0 align 2 {
 entry:
-  %sent_packet_manager_ = getelementptr inbounds %"class.net::QuicConnection", ptr %this, i64 0, i32 77
+  %sent_packet_manager_ = getelementptr inbounds i8, ptr %this, i64 3192
   %0 = load ptr, ptr %sent_packet_manager_, align 8
   %vtable = load ptr, ptr %0, align 8
-  %vfn = getelementptr inbounds ptr, ptr %vtable, i64 14
+  %vfn = getelementptr inbounds i8, ptr %vtable, i64 112
   %1 = load ptr, ptr %vfn, align 8
   %call2 = tail call noundef i64 %1(ptr noundef nonnull align 8 dereferenceable(8) %0, i8 noundef zeroext %path_id)
   ret i64 %call2
@@ -6439,25 +6296,25 @@ declare void @_ZN3net22QuicSentEntropyManager18ClearEntropyBeforeEm(ptr noundef 
 ; Function Attrs: mustprogress uwtable
 define dso_local void @_ZN3net14QuicConnection22SetRetransmissionAlarmEv(ptr nocapture noundef nonnull align 8 dereferenceable(3372) %this) local_unnamed_addr #0 align 2 {
 entry:
-  %delay_setting_retransmission_alarm_ = getelementptr inbounds %"class.net::QuicConnection", ptr %this, i64 0, i32 54
+  %delay_setting_retransmission_alarm_ = getelementptr inbounds i8, ptr %this, i64 1284
   %0 = load i8, ptr %delay_setting_retransmission_alarm_, align 4
   %1 = and i8 %0, 1
   %tobool.not = icmp eq i8 %1, 0
   br i1 %tobool.not, label %if.end, label %if.then
 
 if.then:                                          ; preds = %entry
-  %pending_retransmission_alarm_ = getelementptr inbounds %"class.net::QuicConnection", ptr %this, i64 0, i32 55
+  %pending_retransmission_alarm_ = getelementptr inbounds i8, ptr %this, i64 1285
   store i8 1, ptr %pending_retransmission_alarm_, align 1
   br label %return
 
 if.end:                                           ; preds = %entry
-  %sent_packet_manager_ = getelementptr inbounds %"class.net::QuicConnection", ptr %this, i64 0, i32 77
+  %sent_packet_manager_ = getelementptr inbounds i8, ptr %this, i64 3192
   %2 = load ptr, ptr %sent_packet_manager_, align 8
   %vtable = load ptr, ptr %2, align 8
-  %vfn = getelementptr inbounds ptr, ptr %vtable, i64 18
+  %vfn = getelementptr inbounds i8, ptr %vtable, i64 144
   %3 = load ptr, ptr %vfn, align 8
   %call2 = tail call i64 %3(ptr noundef nonnull align 8 dereferenceable(8) %2)
-  %retransmission_alarm_ = getelementptr inbounds %"class.net::QuicConnection", ptr %this, i64 0, i32 61
+  %retransmission_alarm_ = getelementptr inbounds i8, ptr %this, i64 2344
   %4 = load ptr, ptr %retransmission_alarm_, align 8
   %5 = ptrtoint ptr %4 to i64
   %and.i.i = and i64 %5, -2
@@ -6472,11 +6329,11 @@ return:                                           ; preds = %if.end, %if.then
 ; Function Attrs: mustprogress uwtable
 define dso_local void @_ZN3net14QuicConnection23ProcessStopWaitingFrameERKNS_20QuicStopWaitingFrameE(ptr noundef nonnull align 8 dereferenceable(3372) %this, ptr noundef nonnull align 8 dereferenceable(16) %stop_waiting) local_unnamed_addr #0 align 2 {
 entry:
-  %packet_number = getelementptr inbounds %"class.net::QuicConnection", ptr %this, i64 0, i32 26, i32 1
+  %packet_number = getelementptr inbounds i8, ptr %this, i64 664
   %0 = load i64, ptr %packet_number, align 8
-  %largest_seen_packet_with_stop_waiting_ = getelementptr inbounds %"class.net::QuicConnection", ptr %this, i64 0, i32 31
+  %largest_seen_packet_with_stop_waiting_ = getelementptr inbounds i8, ptr %this, i64 712
   store i64 %0, ptr %largest_seen_packet_with_stop_waiting_, align 8
-  %received_packet_manager_ = getelementptr inbounds %"class.net::QuicConnection", ptr %this, i64 0, i32 43
+  %received_packet_manager_ = getelementptr inbounds i8, ptr %this, i64 864
   tail call void @_ZN3net25QuicReceivedPacketManager33UpdatePacketInformationSentByPeerERKNS_20QuicStopWaitingFrameE(ptr noundef nonnull align 8 dereferenceable(248) %received_packet_manager_, ptr noundef nonnull align 8 dereferenceable(16) %stop_waiting)
   ret void
 }
@@ -6488,17 +6345,17 @@ define dso_local noundef zeroext i1 @_ZN3net14QuicConnection18OnStopWaitingFrame
 entry:
   %ref.tmp = alloca %"class.std::__cxx11::basic_string", align 8
   %ref.tmp4 = alloca %"class.std::allocator.0", align 1
-  %packet_number = getelementptr inbounds %"class.net::QuicConnection", ptr %this, i64 0, i32 26, i32 1
+  %packet_number = getelementptr inbounds i8, ptr %this, i64 664
   %0 = load i64, ptr %packet_number, align 8
-  %largest_seen_packet_with_stop_waiting_ = getelementptr inbounds %"class.net::QuicConnection", ptr %this, i64 0, i32 31
+  %largest_seen_packet_with_stop_waiting_ = getelementptr inbounds i8, ptr %this, i64 712
   %1 = load i64, ptr %largest_seen_packet_with_stop_waiting_, align 8
   %cmp.not = icmp ugt i64 %0, %1
   br i1 %cmp.not, label %if.end, label %return
 
 if.end:                                           ; preds = %entry
-  %least_unacked.i = getelementptr inbounds %"struct.net::QuicStopWaitingFrame", ptr %frame, i64 0, i32 2
+  %least_unacked.i = getelementptr inbounds i8, ptr %frame, i64 8
   %2 = load i64, ptr %least_unacked.i, align 8
-  %peer_least_packet_awaiting_ack_.i.i = getelementptr inbounds %"class.net::QuicConnection", ptr %this, i64 0, i32 43, i32 2
+  %peer_least_packet_awaiting_ack_.i.i = getelementptr inbounds i8, ptr %this, i64 976
   %3 = load i64, ptr %peer_least_packet_awaiting_ack_.i.i, align 8
   %cmp.i = icmp ult i64 %2, %3
   %cmp3.i = icmp ugt i64 %2, %0
@@ -6530,7 +6387,7 @@ if.end.i:                                         ; preds = %call.i.noexc
 
 invoke.cont:                                      ; preds = %if.end.i
   %vtable = load ptr, ptr %this, align 8
-  %vfn = getelementptr inbounds ptr, ptr %vtable, i64 32
+  %vfn = getelementptr inbounds i8, ptr %vtable, i64 256
   %5 = load ptr, ptr %vfn, align 8
   invoke void %5(ptr noundef nonnull align 8 dereferenceable(3372) %this, i32 noundef 60, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp, i32 noundef 1)
           to label %invoke.cont6 unwind label %lpad5
@@ -6557,22 +6414,22 @@ ehcleanup:                                        ; preds = %lpad, %lpad.i, %lpa
   resume { ptr, i32 } %.pn
 
 if.end7:                                          ; preds = %if.end
-  %debug_visitor_ = getelementptr inbounds %"class.net::QuicConnection", ptr %this, i64 0, i32 68
+  %debug_visitor_ = getelementptr inbounds i8, ptr %this, i64 2400
   %8 = load ptr, ptr %debug_visitor_, align 8
   %cmp8.not = icmp eq ptr %8, null
   br i1 %cmp8.not, label %if.end13, label %if.then9
 
 if.then9:                                         ; preds = %if.end7
   %vtable11 = load ptr, ptr %8, align 8
-  %vfn12 = getelementptr inbounds ptr, ptr %vtable11, i64 16
+  %vfn12 = getelementptr inbounds i8, ptr %vtable11, i64 128
   %9 = load ptr, ptr %vfn12, align 8
   tail call void %9(ptr noundef nonnull align 8 dereferenceable(8) %8, ptr noundef nonnull align 8 dereferenceable(16) %frame)
   br label %if.end13
 
 if.end13:                                         ; preds = %if.then9, %if.end7
-  %last_stop_waiting_frame_ = getelementptr inbounds %"class.net::QuicConnection", ptr %this, i64 0, i32 27
+  %last_stop_waiting_frame_ = getelementptr inbounds i8, ptr %this, i64 680
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %last_stop_waiting_frame_, ptr noundef nonnull align 8 dereferenceable(16) %frame, i64 16, i1 false)
-  %connected_ = getelementptr inbounds %"class.net::QuicConnection", ptr %this, i64 0, i32 80
+  %connected_ = getelementptr inbounds i8, ptr %this, i64 3208
   %10 = load i8, ptr %connected_, align 8
   %11 = and i8 %10, 1
   %tobool = icmp ne i8 %11, 0
@@ -6586,12 +6443,12 @@ return:                                           ; preds = %entry, %if.end13, %
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
 define dso_local noundef ptr @_ZN3net14QuicConnection24ValidateStopWaitingFrameERKNS_20QuicStopWaitingFrameE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(3372) %this, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %stop_waiting) local_unnamed_addr #11 align 2 {
 entry:
-  %least_unacked = getelementptr inbounds %"struct.net::QuicStopWaitingFrame", ptr %stop_waiting, i64 0, i32 2
+  %least_unacked = getelementptr inbounds i8, ptr %stop_waiting, i64 8
   %0 = load i64, ptr %least_unacked, align 8
-  %peer_least_packet_awaiting_ack_.i = getelementptr inbounds %"class.net::QuicConnection", ptr %this, i64 0, i32 43, i32 2
+  %peer_least_packet_awaiting_ack_.i = getelementptr inbounds i8, ptr %this, i64 976
   %1 = load i64, ptr %peer_least_packet_awaiting_ack_.i, align 8
   %cmp = icmp ult i64 %0, %1
-  %packet_number = getelementptr inbounds %"class.net::QuicConnection", ptr %this, i64 0, i32 26, i32 1
+  %packet_number = getelementptr inbounds i8, ptr %this, i64 664
   %2 = load i64, ptr %packet_number, align 8
   %cmp3 = icmp ugt i64 %0, %2
   %.str.34. = select i1 %cmp3, ptr @.str.34, ptr null
@@ -6602,14 +6459,14 @@ entry:
 ; Function Attrs: mustprogress uwtable
 define dso_local noundef zeroext i1 @_ZN3net14QuicConnection14OnPaddingFrameERKNS_16QuicPaddingFrameE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(3372) %this, ptr noundef nonnull align 4 dereferenceable(4) %frame) unnamed_addr #0 align 2 {
 entry:
-  %debug_visitor_ = getelementptr inbounds %"class.net::QuicConnection", ptr %this, i64 0, i32 68
+  %debug_visitor_ = getelementptr inbounds i8, ptr %this, i64 2400
   %0 = load ptr, ptr %debug_visitor_, align 8
   %cmp.not = icmp eq ptr %0, null
   br i1 %cmp.not, label %if.end, label %if.then
 
 if.then:                                          ; preds = %entry
   %vtable = load ptr, ptr %0, align 8
-  %vfn = getelementptr inbounds ptr, ptr %vtable, i64 17
+  %vfn = getelementptr inbounds i8, ptr %vtable, i64 136
   %1 = load ptr, ptr %vfn, align 8
   tail call void %1(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef nonnull align 4 dereferenceable(4) %frame)
   br label %if.end
@@ -6621,20 +6478,20 @@ if.end:                                           ; preds = %if.then, %entry
 ; Function Attrs: mustprogress uwtable
 define dso_local noundef zeroext i1 @_ZN3net14QuicConnection11OnPingFrameERKNS_13QuicPingFrameE(ptr nocapture noundef nonnull align 8 dereferenceable(3372) %this, ptr noundef nonnull align 1 dereferenceable(1) %frame) unnamed_addr #0 align 2 {
 entry:
-  %debug_visitor_ = getelementptr inbounds %"class.net::QuicConnection", ptr %this, i64 0, i32 68
+  %debug_visitor_ = getelementptr inbounds i8, ptr %this, i64 2400
   %0 = load ptr, ptr %debug_visitor_, align 8
   %cmp.not = icmp eq ptr %0, null
   br i1 %cmp.not, label %if.end, label %if.then
 
 if.then:                                          ; preds = %entry
   %vtable = load ptr, ptr %0, align 8
-  %vfn = getelementptr inbounds ptr, ptr %vtable, i64 18
+  %vfn = getelementptr inbounds i8, ptr %vtable, i64 144
   %1 = load ptr, ptr %vfn, align 8
   tail call void %1(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef nonnull align 1 dereferenceable(1) %frame)
   br label %if.end
 
 if.end:                                           ; preds = %if.then, %entry
-  %should_last_packet_instigate_acks_ = getelementptr inbounds %"class.net::QuicConnection", ptr %this, i64 0, i32 28
+  %should_last_packet_instigate_acks_ = getelementptr inbounds i8, ptr %this, i64 696
   store i8 1, ptr %should_last_packet_instigate_acks_, align 8
   ret i1 true
 }
@@ -6648,33 +6505,33 @@ declare noundef zeroext i1 @_ZN3net22QuicSentEntropyManager14IsValidEntropyEmRKN
 ; Function Attrs: mustprogress uwtable
 define dso_local noundef zeroext i1 @_ZN3net14QuicConnection16OnRstStreamFrameERKNS_18QuicRstStreamFrameE(ptr nocapture noundef nonnull align 8 dereferenceable(3372) %this, ptr noundef nonnull align 8 dereferenceable(16) %frame) unnamed_addr #0 align 2 {
 entry:
-  %debug_visitor_ = getelementptr inbounds %"class.net::QuicConnection", ptr %this, i64 0, i32 68
+  %debug_visitor_ = getelementptr inbounds i8, ptr %this, i64 2400
   %0 = load ptr, ptr %debug_visitor_, align 8
   %cmp.not = icmp eq ptr %0, null
   br i1 %cmp.not, label %if.end, label %if.then
 
 if.then:                                          ; preds = %entry
   %vtable = load ptr, ptr %0, align 8
-  %vfn = getelementptr inbounds ptr, ptr %vtable, i64 20
+  %vfn = getelementptr inbounds i8, ptr %vtable, i64 160
   %1 = load ptr, ptr %vfn, align 8
   tail call void %1(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef nonnull align 8 dereferenceable(16) %frame)
   br label %if.end
 
 if.end:                                           ; preds = %if.then, %entry
-  %visitor_ = getelementptr inbounds %"class.net::QuicConnection", ptr %this, i64 0, i32 67
+  %visitor_ = getelementptr inbounds i8, ptr %this, i64 2392
   %2 = load ptr, ptr %visitor_, align 8
   %vtable3 = load ptr, ptr %2, align 8
-  %vfn4 = getelementptr inbounds ptr, ptr %vtable3, i64 5
+  %vfn4 = getelementptr inbounds i8, ptr %vtable3, i64 40
   %3 = load ptr, ptr %vfn4, align 8
   tail call void %3(ptr noundef nonnull align 8 dereferenceable(8) %2, ptr noundef nonnull align 8 dereferenceable(16) %frame)
   %4 = load ptr, ptr %visitor_, align 8
   %vtable6 = load ptr, ptr %4, align 8
-  %vfn7 = getelementptr inbounds ptr, ptr %vtable6, i64 14
+  %vfn7 = getelementptr inbounds i8, ptr %vtable6, i64 112
   %5 = load ptr, ptr %vfn7, align 8
   tail call void %5(ptr noundef nonnull align 8 dereferenceable(8) %4)
-  %should_last_packet_instigate_acks_ = getelementptr inbounds %"class.net::QuicConnection", ptr %this, i64 0, i32 28
+  %should_last_packet_instigate_acks_ = getelementptr inbounds i8, ptr %this, i64 696
   store i8 1, ptr %should_last_packet_instigate_acks_, align 8
-  %connected_ = getelementptr inbounds %"class.net::QuicConnection", ptr %this, i64 0, i32 80
+  %connected_ = getelementptr inbounds i8, ptr %this, i64 3208
   %6 = load i8, ptr %connected_, align 8
   %7 = and i8 %6, 1
   %tobool = icmp ne i8 %7, 0
@@ -6685,14 +6542,14 @@ if.end:                                           ; preds = %if.then, %entry
 define dso_local noundef zeroext i1 @_ZN3net14QuicConnection22OnConnectionCloseFrameERKNS_24QuicConnectionCloseFrameE(ptr noundef nonnull align 8 dereferenceable(3372) %this, ptr noundef nonnull align 8 dereferenceable(40) %frame) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp5 = alloca %"class.logging::LogMessage", align 8
-  %debug_visitor_ = getelementptr inbounds %"class.net::QuicConnection", ptr %this, i64 0, i32 68
+  %debug_visitor_ = getelementptr inbounds i8, ptr %this, i64 2400
   %0 = load ptr, ptr %debug_visitor_, align 8
   %cmp.not = icmp eq ptr %0, null
   br i1 %cmp.not, label %if.end, label %if.then
 
 if.then:                                          ; preds = %entry
   %vtable = load ptr, ptr %0, align 8
-  %vfn = getelementptr inbounds ptr, ptr %vtable, i64 21
+  %vfn = getelementptr inbounds i8, ptr %vtable, i64 168
   %1 = load ptr, ptr %vfn, align 8
   tail call void %1(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef nonnull align 8 dereferenceable(40) %frame)
   br label %if.end
@@ -6708,12 +6565,12 @@ if.then4:                                         ; preds = %if.end
 
 cond.false:                                       ; preds = %if.then4
   call void @_ZN7logging10LogMessageC1EPKcii(ptr noundef nonnull align 8 dereferenceable(404) %ref.tmp5, ptr noundef nonnull @.str, i32 noundef 924, i32 noundef 2)
-  %stream_.i = getelementptr inbounds %"class.logging::LogMessage", ptr %ref.tmp5, i64 0, i32 2
+  %stream_.i = getelementptr inbounds i8, ptr %ref.tmp5, i64 8
   %call8 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc(ptr noundef nonnull align 8 dereferenceable(8) %stream_.i, ptr noundef nonnull @.str.35)
           to label %invoke.cont9 unwind label %lpad
 
 invoke.cont9:                                     ; preds = %cond.false
-  %quic_version_.i.i = getelementptr inbounds %"class.net::QuicConnection", ptr %this, i64 0, i32 4, i32 13
+  %quic_version_.i.i = getelementptr inbounds i8, ptr %this, i64 300
   %3 = load i32, ptr %quic_version_.i.i, align 4
   %call12 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZNSolsEi(ptr noundef nonnull align 8 dereferenceable(8) %call8, i32 noundef %3)
           to label %invoke.cont11 unwind label %lpad
@@ -6723,7 +6580,7 @@ invoke.cont11:                                    ; preds = %invoke.cont9
           to label %invoke.cont13 unwind label %lpad
 
 invoke.cont13:                                    ; preds = %invoke.cont11
-  %last_header_ = getelementptr inbounds %"class.net::QuicConnection", ptr %this, i64 0, i32 26
+  %last_header_ = getelementptr inbounds i8, ptr %this, i64 616
   %call16 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZN3netlsERSoRKNS_16QuicPacketHeaderE(ptr noundef nonnull align 8 dereferenceable(8) %call14, ptr noundef nonnull align 8 dereferenceable(60) %last_header_)
           to label %invoke.cont15 unwind label %lpad
 
@@ -6732,7 +6589,7 @@ invoke.cont15:                                    ; preds = %invoke.cont13
           to label %invoke.cont17 unwind label %lpad
 
 invoke.cont17:                                    ; preds = %invoke.cont15
-  %encryption_level_ = getelementptr inbounds %"class.net::QuicConnection", ptr %this, i64 0, i32 10
+  %encryption_level_ = getelementptr inbounds i8, ptr %this, i64 473
   %4 = load i8, ptr %encryption_level_, align 1
   %call20 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_a(ptr noundef nonnull align 8 dereferenceable(8) %call18, i8 noundef signext %4)
           to label %cleanup.action unwind label %lpad
@@ -6749,9 +6606,9 @@ lpad:                                             ; preds = %invoke.cont17, %inv
 
 if.end25:                                         ; preds = %if.then4, %cleanup.action, %if.end
   %6 = load i32, ptr %frame, align 8
-  %error_details = getelementptr inbounds %"struct.net::QuicConnectionCloseFrame", ptr %frame, i64 0, i32 1
+  %error_details = getelementptr inbounds i8, ptr %frame, i64 8
   call void @_ZN3net14QuicConnection28TearDownLocalConnectionStateENS_13QuicErrorCodeERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS_21ConnectionCloseSourceE(ptr noundef nonnull align 8 dereferenceable(3372) %this, i32 noundef %6, ptr noundef nonnull align 8 dereferenceable(32) %error_details, i32 noundef 0)
-  %connected_ = getelementptr inbounds %"class.net::QuicConnection", ptr %this, i64 0, i32 80
+  %connected_ = getelementptr inbounds i8, ptr %this, i64 3208
   %7 = load i8, ptr %connected_, align 8
   %8 = and i8 %7, 1
   %tobool = icmp ne i8 %8, 0
@@ -6767,35 +6624,35 @@ declare noundef nonnull align 8 dereferenceable(8) ptr @_ZNSolsEi(ptr noundef no
 ; Function Attrs: mustprogress uwtable
 define dso_local noundef zeroext i1 @_ZN3net14QuicConnection13OnGoAwayFrameERKNS_15QuicGoAwayFrameE(ptr nocapture noundef nonnull align 8 dereferenceable(3372) %this, ptr noundef nonnull align 8 dereferenceable(40) %frame) unnamed_addr #0 align 2 {
 entry:
-  %debug_visitor_ = getelementptr inbounds %"class.net::QuicConnection", ptr %this, i64 0, i32 68
+  %debug_visitor_ = getelementptr inbounds i8, ptr %this, i64 2400
   %0 = load ptr, ptr %debug_visitor_, align 8
   %cmp.not = icmp eq ptr %0, null
   br i1 %cmp.not, label %if.end, label %if.then
 
 if.then:                                          ; preds = %entry
   %vtable = load ptr, ptr %0, align 8
-  %vfn = getelementptr inbounds ptr, ptr %vtable, i64 19
+  %vfn = getelementptr inbounds i8, ptr %vtable, i64 152
   %1 = load ptr, ptr %vfn, align 8
   tail call void %1(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef nonnull align 8 dereferenceable(40) %frame)
   br label %if.end
 
 if.end:                                           ; preds = %if.then, %entry
-  %goaway_received_ = getelementptr inbounds %"class.net::QuicConnection", ptr %this, i64 0, i32 95
+  %goaway_received_ = getelementptr inbounds i8, ptr %this, i64 3369
   store i8 1, ptr %goaway_received_, align 1
-  %visitor_ = getelementptr inbounds %"class.net::QuicConnection", ptr %this, i64 0, i32 67
+  %visitor_ = getelementptr inbounds i8, ptr %this, i64 2392
   %2 = load ptr, ptr %visitor_, align 8
   %vtable3 = load ptr, ptr %2, align 8
-  %vfn4 = getelementptr inbounds ptr, ptr %vtable3, i64 6
+  %vfn4 = getelementptr inbounds i8, ptr %vtable3, i64 48
   %3 = load ptr, ptr %vfn4, align 8
   tail call void %3(ptr noundef nonnull align 8 dereferenceable(8) %2, ptr noundef nonnull align 8 dereferenceable(40) %frame)
   %4 = load ptr, ptr %visitor_, align 8
   %vtable6 = load ptr, ptr %4, align 8
-  %vfn7 = getelementptr inbounds ptr, ptr %vtable6, i64 14
+  %vfn7 = getelementptr inbounds i8, ptr %vtable6, i64 112
   %5 = load ptr, ptr %vfn7, align 8
   tail call void %5(ptr noundef nonnull align 8 dereferenceable(8) %4)
-  %should_last_packet_instigate_acks_ = getelementptr inbounds %"class.net::QuicConnection", ptr %this, i64 0, i32 28
+  %should_last_packet_instigate_acks_ = getelementptr inbounds i8, ptr %this, i64 696
   store i8 1, ptr %should_last_packet_instigate_acks_, align 8
-  %connected_ = getelementptr inbounds %"class.net::QuicConnection", ptr %this, i64 0, i32 80
+  %connected_ = getelementptr inbounds i8, ptr %this, i64 3208
   %6 = load i8, ptr %connected_, align 8
   %7 = and i8 %6, 1
   %tobool = icmp ne i8 %7, 0
@@ -6805,33 +6662,33 @@ if.end:                                           ; preds = %if.then, %entry
 ; Function Attrs: mustprogress uwtable
 define dso_local noundef zeroext i1 @_ZN3net14QuicConnection19OnWindowUpdateFrameERKNS_21QuicWindowUpdateFrameE(ptr nocapture noundef nonnull align 8 dereferenceable(3372) %this, ptr noundef nonnull align 8 dereferenceable(16) %frame) unnamed_addr #0 align 2 {
 entry:
-  %debug_visitor_ = getelementptr inbounds %"class.net::QuicConnection", ptr %this, i64 0, i32 68
+  %debug_visitor_ = getelementptr inbounds i8, ptr %this, i64 2400
   %0 = load ptr, ptr %debug_visitor_, align 8
   %cmp.not = icmp eq ptr %0, null
   br i1 %cmp.not, label %if.end, label %if.then
 
 if.then:                                          ; preds = %entry
   %vtable = load ptr, ptr %0, align 8
-  %vfn = getelementptr inbounds ptr, ptr %vtable, i64 22
+  %vfn = getelementptr inbounds i8, ptr %vtable, i64 176
   %1 = load ptr, ptr %vfn, align 8
   tail call void %1(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef nonnull align 8 dereferenceable(16) %frame)
   br label %if.end
 
 if.end:                                           ; preds = %if.then, %entry
-  %visitor_ = getelementptr inbounds %"class.net::QuicConnection", ptr %this, i64 0, i32 67
+  %visitor_ = getelementptr inbounds i8, ptr %this, i64 2392
   %2 = load ptr, ptr %visitor_, align 8
   %vtable3 = load ptr, ptr %2, align 8
-  %vfn4 = getelementptr inbounds ptr, ptr %vtable3, i64 3
+  %vfn4 = getelementptr inbounds i8, ptr %vtable3, i64 24
   %3 = load ptr, ptr %vfn4, align 8
   tail call void %3(ptr noundef nonnull align 8 dereferenceable(8) %2, ptr noundef nonnull align 8 dereferenceable(16) %frame)
   %4 = load ptr, ptr %visitor_, align 8
   %vtable6 = load ptr, ptr %4, align 8
-  %vfn7 = getelementptr inbounds ptr, ptr %vtable6, i64 14
+  %vfn7 = getelementptr inbounds i8, ptr %vtable6, i64 112
   %5 = load ptr, ptr %vfn7, align 8
   tail call void %5(ptr noundef nonnull align 8 dereferenceable(8) %4)
-  %should_last_packet_instigate_acks_ = getelementptr inbounds %"class.net::QuicConnection", ptr %this, i64 0, i32 28
+  %should_last_packet_instigate_acks_ = getelementptr inbounds i8, ptr %this, i64 696
   store i8 1, ptr %should_last_packet_instigate_acks_, align 8
-  %connected_ = getelementptr inbounds %"class.net::QuicConnection", ptr %this, i64 0, i32 80
+  %connected_ = getelementptr inbounds i8, ptr %this, i64 3208
   %6 = load i8, ptr %connected_, align 8
   %7 = and i8 %6, 1
   %tobool = icmp ne i8 %7, 0
@@ -6841,33 +6698,33 @@ if.end:                                           ; preds = %if.then, %entry
 ; Function Attrs: mustprogress uwtable
 define dso_local noundef zeroext i1 @_ZN3net14QuicConnection14OnBlockedFrameERKNS_16QuicBlockedFrameE(ptr nocapture noundef nonnull align 8 dereferenceable(3372) %this, ptr noundef nonnull align 4 dereferenceable(4) %frame) unnamed_addr #0 align 2 {
 entry:
-  %debug_visitor_ = getelementptr inbounds %"class.net::QuicConnection", ptr %this, i64 0, i32 68
+  %debug_visitor_ = getelementptr inbounds i8, ptr %this, i64 2400
   %0 = load ptr, ptr %debug_visitor_, align 8
   %cmp.not = icmp eq ptr %0, null
   br i1 %cmp.not, label %if.end, label %if.then
 
 if.then:                                          ; preds = %entry
   %vtable = load ptr, ptr %0, align 8
-  %vfn = getelementptr inbounds ptr, ptr %vtable, i64 23
+  %vfn = getelementptr inbounds i8, ptr %vtable, i64 184
   %1 = load ptr, ptr %vfn, align 8
   tail call void %1(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef nonnull align 4 dereferenceable(4) %frame)
   br label %if.end
 
 if.end:                                           ; preds = %if.then, %entry
-  %visitor_ = getelementptr inbounds %"class.net::QuicConnection", ptr %this, i64 0, i32 67
+  %visitor_ = getelementptr inbounds i8, ptr %this, i64 2392
   %2 = load ptr, ptr %visitor_, align 8
   %vtable3 = load ptr, ptr %2, align 8
-  %vfn4 = getelementptr inbounds ptr, ptr %vtable3, i64 4
+  %vfn4 = getelementptr inbounds i8, ptr %vtable3, i64 32
   %3 = load ptr, ptr %vfn4, align 8
   tail call void %3(ptr noundef nonnull align 8 dereferenceable(8) %2, ptr noundef nonnull align 4 dereferenceable(4) %frame)
   %4 = load ptr, ptr %visitor_, align 8
   %vtable6 = load ptr, ptr %4, align 8
-  %vfn7 = getelementptr inbounds ptr, ptr %vtable6, i64 14
+  %vfn7 = getelementptr inbounds i8, ptr %vtable6, i64 112
   %5 = load ptr, ptr %vfn7, align 8
   tail call void %5(ptr noundef nonnull align 8 dereferenceable(8) %4)
-  %should_last_packet_instigate_acks_ = getelementptr inbounds %"class.net::QuicConnection", ptr %this, i64 0, i32 28
+  %should_last_packet_instigate_acks_ = getelementptr inbounds i8, ptr %this, i64 696
   store i8 1, ptr %should_last_packet_instigate_acks_, align 8
-  %connected_ = getelementptr inbounds %"class.net::QuicConnection", ptr %this, i64 0, i32 80
+  %connected_ = getelementptr inbounds i8, ptr %this, i64 3208
   %6 = load i8, ptr %connected_, align 8
   %7 = and i8 %6, 1
   %tobool = icmp ne i8 %7, 0
@@ -6877,23 +6734,23 @@ if.end:                                           ; preds = %if.then, %entry
 ; Function Attrs: mustprogress uwtable
 define dso_local noundef zeroext i1 @_ZN3net14QuicConnection16OnPathCloseFrameERKNS_18QuicPathCloseFrameE(ptr noundef nonnull align 8 dereferenceable(3372) %this, ptr noundef nonnull align 1 dereferenceable(1) %frame) unnamed_addr #0 align 2 {
 entry:
-  %debug_visitor_ = getelementptr inbounds %"class.net::QuicConnection", ptr %this, i64 0, i32 68
+  %debug_visitor_ = getelementptr inbounds i8, ptr %this, i64 2400
   %0 = load ptr, ptr %debug_visitor_, align 8
   %cmp.not = icmp eq ptr %0, null
   br i1 %cmp.not, label %if.end, label %if.then
 
 if.then:                                          ; preds = %entry
   %vtable = load ptr, ptr %0, align 8
-  %vfn = getelementptr inbounds ptr, ptr %vtable, i64 24
+  %vfn = getelementptr inbounds i8, ptr %vtable, i64 192
   %1 = load ptr, ptr %vfn, align 8
   tail call void %1(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef nonnull align 1 dereferenceable(1) %frame)
   br label %if.end
 
 if.end:                                           ; preds = %if.then, %entry
   %2 = load i8, ptr %frame, align 1
-  %framer_.i = getelementptr inbounds %"class.net::QuicConnection", ptr %this, i64 0, i32 4
+  %framer_.i = getelementptr inbounds i8, ptr %this, i64 32
   tail call void @_ZN3net10QuicFramer12OnPathClosedEh(ptr noundef nonnull align 8 dereferenceable(408) %framer_.i, i8 noundef zeroext %2)
-  %connected_ = getelementptr inbounds %"class.net::QuicConnection", ptr %this, i64 0, i32 80
+  %connected_ = getelementptr inbounds i8, ptr %this, i64 3208
   %3 = load i8, ptr %connected_, align 8
   %4 = and i8 %3, 1
   %tobool = icmp ne i8 %4, 0
@@ -6903,7 +6760,7 @@ if.end:                                           ; preds = %if.then, %entry
 ; Function Attrs: mustprogress uwtable
 define dso_local void @_ZN3net14QuicConnection12OnPathClosedEh(ptr noundef nonnull align 8 dereferenceable(3372) %this, i8 noundef zeroext %path_id) local_unnamed_addr #0 align 2 {
 entry:
-  %framer_ = getelementptr inbounds %"class.net::QuicConnection", ptr %this, i64 0, i32 4
+  %framer_ = getelementptr inbounds i8, ptr %this, i64 32
   tail call void @_ZN3net10QuicFramer12OnPathClosedEh(ptr noundef nonnull align 8 dereferenceable(408) %framer_, i8 noundef zeroext %path_id)
   ret void
 }
@@ -6911,16 +6768,16 @@ entry:
 ; Function Attrs: mustprogress uwtable
 define dso_local void @_ZN3net14QuicConnection16OnPacketCompleteEv(ptr noundef nonnull align 8 dereferenceable(3372) %this) unnamed_addr #0 align 2 {
 entry:
-  %connected_ = getelementptr inbounds %"class.net::QuicConnection", ptr %this, i64 0, i32 80
+  %connected_ = getelementptr inbounds i8, ptr %this, i64 3208
   %0 = load i8, ptr %connected_, align 8
   %1 = and i8 %0, 1
   %tobool.not = icmp eq i8 %1, 0
-  %should_last_packet_instigate_acks_.i = getelementptr inbounds %"class.net::QuicConnection", ptr %this, i64 0, i32 28
+  %should_last_packet_instigate_acks_.i = getelementptr inbounds i8, ptr %this, i64 696
   br i1 %tobool.not, label %if.then, label %if.end
 
 if.then:                                          ; preds = %entry
   store i8 0, ptr %should_last_packet_instigate_acks_.i, align 8
-  %least_unacked.i = getelementptr inbounds %"class.net::QuicConnection", ptr %this, i64 0, i32 27, i32 2
+  %least_unacked.i = getelementptr inbounds i8, ptr %this, i64 688
   store i64 0, ptr %least_unacked.i, align 8
   br label %return
 
@@ -6931,31 +6788,31 @@ if.end:                                           ; preds = %entry
   br i1 %tobool2.not, label %land.end, label %land.rhs
 
 land.rhs:                                         ; preds = %if.end
-  %received_packet_manager_ = getelementptr inbounds %"class.net::QuicConnection", ptr %this, i64 0, i32 43
-  %packet_number = getelementptr inbounds %"class.net::QuicConnection", ptr %this, i64 0, i32 26, i32 1
+  %received_packet_manager_ = getelementptr inbounds i8, ptr %this, i64 864
+  %packet_number = getelementptr inbounds i8, ptr %this, i64 664
   %4 = load i64, ptr %packet_number, align 8
   %call = tail call noundef zeroext i1 @_ZN3net25QuicReceivedPacketManager9IsMissingEm(ptr noundef nonnull align 8 dereferenceable(248) %received_packet_manager_, i64 noundef %4)
   br label %land.end
 
 land.end:                                         ; preds = %land.rhs, %if.end
   %5 = phi i1 [ false, %if.end ], [ %call, %land.rhs ]
-  %received_packet_manager_3 = getelementptr inbounds %"class.net::QuicConnection", ptr %this, i64 0, i32 43
-  %last_size_ = getelementptr inbounds %"class.net::QuicConnection", ptr %this, i64 0, i32 22
+  %received_packet_manager_3 = getelementptr inbounds i8, ptr %this, i64 864
+  %last_size_ = getelementptr inbounds i8, ptr %this, i64 592
   %6 = load i64, ptr %last_size_, align 8
-  %last_header_4 = getelementptr inbounds %"class.net::QuicConnection", ptr %this, i64 0, i32 26
-  %time_of_last_received_packet_ = getelementptr inbounds %"class.net::QuicConnection", ptr %this, i64 0, i32 73
+  %last_header_4 = getelementptr inbounds i8, ptr %this, i64 616
+  %time_of_last_received_packet_ = getelementptr inbounds i8, ptr %this, i64 3160
   %agg.tmp.sroa.0.0.copyload = load i64, ptr %time_of_last_received_packet_, align 8
   tail call void @_ZN3net25QuicReceivedPacketManager20RecordPacketReceivedEmRKNS_16QuicPacketHeaderENS_8QuicTimeE(ptr noundef nonnull align 8 dereferenceable(248) %received_packet_manager_3, i64 noundef %6, ptr noundef nonnull align 8 dereferenceable(60) %last_header_4, i64 %agg.tmp.sroa.0.0.copyload)
-  %least_unacked = getelementptr inbounds %"class.net::QuicConnection", ptr %this, i64 0, i32 27, i32 2
+  %least_unacked = getelementptr inbounds i8, ptr %this, i64 688
   %7 = load i64, ptr %least_unacked, align 8
   %cmp.not = icmp eq i64 %7, 0
   br i1 %cmp.not, label %if.end11, label %if.then5
 
 if.then5:                                         ; preds = %land.end
-  %last_stop_waiting_frame_ = getelementptr inbounds %"class.net::QuicConnection", ptr %this, i64 0, i32 27
-  %packet_number.i = getelementptr inbounds %"class.net::QuicConnection", ptr %this, i64 0, i32 26, i32 1
+  %last_stop_waiting_frame_ = getelementptr inbounds i8, ptr %this, i64 680
+  %packet_number.i = getelementptr inbounds i8, ptr %this, i64 664
   %8 = load i64, ptr %packet_number.i, align 8
-  %largest_seen_packet_with_stop_waiting_.i = getelementptr inbounds %"class.net::QuicConnection", ptr %this, i64 0, i32 31
+  %largest_seen_packet_with_stop_waiting_.i = getelementptr inbounds i8, ptr %this, i64 712
   store i64 %8, ptr %largest_seen_packet_with_stop_waiting_.i, align 8
   tail call void @_ZN3net25QuicReceivedPacketManager33UpdatePacketInformationSentByPeerERKNS_20QuicStopWaitingFrameE(ptr noundef nonnull align 8 dereferenceable(248) %received_packet_manager_3, ptr noundef nonnull align 8 dereferenceable(16) %last_stop_waiting_frame_)
   %9 = load i8, ptr %connected_, align 8
@@ -6977,9 +6834,9 @@ return:                                           ; preds = %if.then5, %if.end11
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
 define dso_local void @_ZN3net14QuicConnection15ClearLastFramesEv(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(3372) %this) local_unnamed_addr #9 align 2 {
 entry:
-  %should_last_packet_instigate_acks_ = getelementptr inbounds %"class.net::QuicConnection", ptr %this, i64 0, i32 28
+  %should_last_packet_instigate_acks_ = getelementptr inbounds i8, ptr %this, i64 696
   store i8 0, ptr %should_last_packet_instigate_acks_, align 8
-  %least_unacked = getelementptr inbounds %"class.net::QuicConnection", ptr %this, i64 0, i32 27, i32 2
+  %least_unacked = getelementptr inbounds i8, ptr %this, i64 688
   store i64 0, ptr %least_unacked, align 8
   ret void
 }
@@ -6991,7 +6848,7 @@ declare void @_ZN3net25QuicReceivedPacketManager20RecordPacketReceivedEmRKNS_16Q
 ; Function Attrs: mustprogress uwtable
 define dso_local void @_ZN3net14QuicConnection13MaybeQueueAckEb(ptr noundef nonnull align 8 dereferenceable(3372) %this, i1 noundef zeroext %was_missing) local_unnamed_addr #0 align 2 {
 entry:
-  %num_packets_received_since_last_ack_sent_ = getelementptr inbounds %"class.net::QuicConnection", ptr %this, i64 0, i32 50
+  %num_packets_received_since_last_ack_sent_ = getelementptr inbounds i8, ptr %this, i64 1264
   %0 = load i64, ptr %num_packets_received_since_last_ack_sent_, align 8
   %inc = add i64 %0, 1
   store i64 %inc, ptr %num_packets_received_since_last_ack_sent_, align 8
@@ -6999,7 +6856,7 @@ entry:
   br i1 %cmp, label %if.then, label %if.end
 
 if.then:                                          ; preds = %entry
-  %ack_queued_ = getelementptr inbounds %"class.net::QuicConnection", ptr %this, i64 0, i32 45
+  %ack_queued_ = getelementptr inbounds i8, ptr %this, i64 1240
   store i8 1, ptr %ack_queued_, align 8
   br label %if.end
 
@@ -7007,46 +6864,46 @@ if.end:                                           ; preds = %if.then, %entry
   br i1 %was_missing, label %land.lhs.true, label %if.end7
 
 land.lhs.true:                                    ; preds = %if.end
-  %ack_mode_ = getelementptr inbounds %"class.net::QuicConnection", ptr %this, i64 0, i32 52
+  %ack_mode_ = getelementptr inbounds i8, ptr %this, i64 1276
   %1 = load i32, ptr %ack_mode_, align 4
   %cmp3.not = icmp eq i32 %1, 2
   br i1 %cmp3.not, label %lor.lhs.false, label %if.then5
 
 lor.lhs.false:                                    ; preds = %land.lhs.true
-  %last_ack_had_missing_packets_ = getelementptr inbounds %"class.net::QuicConnection", ptr %this, i64 0, i32 48
+  %last_ack_had_missing_packets_ = getelementptr inbounds i8, ptr %this, i64 1256
   %2 = load i8, ptr %last_ack_had_missing_packets_, align 8
   %3 = and i8 %2, 1
   %tobool4.not = icmp eq i8 %3, 0
   br i1 %tobool4.not, label %if.end7, label %if.then5
 
 if.then5:                                         ; preds = %lor.lhs.false, %land.lhs.true
-  %ack_queued_6 = getelementptr inbounds %"class.net::QuicConnection", ptr %this, i64 0, i32 45
+  %ack_queued_6 = getelementptr inbounds i8, ptr %this, i64 1240
   store i8 1, ptr %ack_queued_6, align 8
   br label %if.end7
 
 if.end7:                                          ; preds = %if.then5, %lor.lhs.false, %if.end
-  %should_last_packet_instigate_acks_ = getelementptr inbounds %"class.net::QuicConnection", ptr %this, i64 0, i32 28
+  %should_last_packet_instigate_acks_ = getelementptr inbounds i8, ptr %this, i64 696
   %4 = load i8, ptr %should_last_packet_instigate_acks_, align 8
   %5 = and i8 %4, 1
   %tobool8.not = icmp eq i8 %5, 0
   br i1 %tobool8.not, label %if.end122, label %land.lhs.true9
 
 land.lhs.true9:                                   ; preds = %if.end7
-  %ack_queued_10 = getelementptr inbounds %"class.net::QuicConnection", ptr %this, i64 0, i32 45
+  %ack_queued_10 = getelementptr inbounds i8, ptr %this, i64 1240
   %6 = load i8, ptr %ack_queued_10, align 8
   %7 = and i8 %6, 1
   %tobool11.not = icmp eq i8 %7, 0
   br i1 %tobool11.not, label %if.then12, label %if.end122
 
 if.then12:                                        ; preds = %land.lhs.true9
-  %num_retransmittable_packets_received_since_last_ack_sent_ = getelementptr inbounds %"class.net::QuicConnection", ptr %this, i64 0, i32 47
+  %num_retransmittable_packets_received_since_last_ack_sent_ = getelementptr inbounds i8, ptr %this, i64 1248
   %8 = load i64, ptr %num_retransmittable_packets_received_since_last_ack_sent_, align 8
   %inc13 = add i64 %8, 1
   store i64 %inc13, ptr %num_retransmittable_packets_received_since_last_ack_sent_, align 8
-  %ack_mode_14 = getelementptr inbounds %"class.net::QuicConnection", ptr %this, i64 0, i32 52
+  %ack_mode_14 = getelementptr inbounds i8, ptr %this, i64 1276
   %9 = load i32, ptr %ack_mode_14, align 4
   %cmp15.not = icmp ne i32 %9, 0
-  %packet_number = getelementptr inbounds %"class.net::QuicConnection", ptr %this, i64 0, i32 26, i32 1
+  %packet_number = getelementptr inbounds i8, ptr %this, i64 664
   %10 = load i64, ptr %packet_number, align 8
   %cmp17 = icmp ugt i64 %10, 100
   %or.cond = select i1 %cmp15.not, i1 %cmp17, i1 false
@@ -7061,7 +6918,7 @@ if.then21:                                        ; preds = %if.then18
   br label %if.end73
 
 if.else:                                          ; preds = %if.then18
-  %ack_alarm_ = getelementptr inbounds %"class.net::QuicConnection", ptr %this, i64 0, i32 60
+  %ack_alarm_ = getelementptr inbounds i8, ptr %this, i64 2336
   %11 = load ptr, ptr %ack_alarm_, align 8
   %12 = ptrtoint ptr %11 to i64
   %and.i.i = and i64 %12, -2
@@ -7070,15 +6927,15 @@ if.else:                                          ; preds = %if.then18
   br i1 %call23, label %if.end73, label %if.then24
 
 if.then24:                                        ; preds = %if.else
-  %sent_packet_manager_ = getelementptr inbounds %"class.net::QuicConnection", ptr %this, i64 0, i32 77
+  %sent_packet_manager_ = getelementptr inbounds i8, ptr %this, i64 3192
   %14 = load ptr, ptr %sent_packet_manager_, align 8
   %vtable = load ptr, ptr %14, align 8
-  %vfn = getelementptr inbounds ptr, ptr %vtable, i64 19
+  %vfn = getelementptr inbounds i8, ptr %vtable, i64 152
   %15 = load ptr, ptr %vfn, align 8
   %call28 = tail call noundef ptr %15(ptr noundef nonnull align 8 dereferenceable(8) %14)
-  %retval.sroa.2.0.min_rtt_.sroa_idx.i = getelementptr inbounds %"class.net::RttStats", ptr %call28, i64 0, i32 1, i32 1
+  %retval.sroa.2.0.min_rtt_.sroa_idx.i = getelementptr inbounds i8, ptr %call28, i64 24
   %retval.sroa.2.0.copyload.i = load i64, ptr %retval.sroa.2.0.min_rtt_.sroa_idx.i, align 8
-  %ack_decimation_delay_ = getelementptr inbounds %"class.net::QuicConnection", ptr %this, i64 0, i32 53
+  %ack_decimation_delay_ = getelementptr inbounds i8, ptr %this, i64 1280
   %16 = load float, ptr %ack_decimation_delay_, align 8
   %conv = fpext float %16 to double
   %conv.i = sitofp i64 %retval.sroa.2.0.copyload.i to double
@@ -7089,10 +6946,10 @@ if.then24:                                        ; preds = %if.else
   %18 = ptrtoint ptr %17 to i64
   %and.i.i3 = and i64 %18, -2
   %19 = inttoptr i64 %and.i.i3 to ptr
-  %clock_ = getelementptr inbounds %"class.net::QuicConnection", ptr %this, i64 0, i32 12
+  %clock_ = getelementptr inbounds i8, ptr %this, i64 480
   %20 = load ptr, ptr %clock_, align 8
   %vtable36 = load ptr, ptr %20, align 8
-  %vfn37 = getelementptr inbounds ptr, ptr %vtable36, i64 2
+  %vfn37 = getelementptr inbounds i8, ptr %vtable36, i64 16
   %21 = load ptr, ptr %vfn37, align 8
   %call38 = tail call i64 %21(ptr noundef nonnull align 8 dereferenceable(8) %20)
   %add.i = add nsw i64 %call38, %ack_delay.sroa.2.0.copyload.sroa.speculated
@@ -7108,7 +6965,7 @@ if.then49:                                        ; preds = %if.else46
   br label %if.end73
 
 if.else51:                                        ; preds = %if.else46
-  %ack_alarm_52 = getelementptr inbounds %"class.net::QuicConnection", ptr %this, i64 0, i32 60
+  %ack_alarm_52 = getelementptr inbounds i8, ptr %this, i64 2336
   %22 = load ptr, ptr %ack_alarm_52, align 8
   %23 = ptrtoint ptr %22 to i64
   %and.i.i4 = and i64 %23, -2
@@ -7121,10 +6978,10 @@ if.then55:                                        ; preds = %if.else51
   %26 = ptrtoint ptr %25 to i64
   %and.i.i5 = and i64 %26, -2
   %27 = inttoptr i64 %and.i.i5 to ptr
-  %clock_60 = getelementptr inbounds %"class.net::QuicConnection", ptr %this, i64 0, i32 12
+  %clock_60 = getelementptr inbounds i8, ptr %this, i64 480
   %28 = load ptr, ptr %clock_60, align 8
   %vtable61 = load ptr, ptr %28, align 8
-  %vfn62 = getelementptr inbounds ptr, ptr %vtable61, i64 2
+  %vfn62 = getelementptr inbounds i8, ptr %vtable61, i64 16
   %29 = load ptr, ptr %vfn62, align 8
   %call63 = tail call i64 %29(ptr noundef nonnull align 8 dereferenceable(8) %28)
   %add.i6 = add nsw i64 %call63, 25000
@@ -7132,7 +6989,7 @@ if.then55:                                        ; preds = %if.else51
   br label %if.end73
 
 if.end73:                                         ; preds = %if.then49, %if.then55, %if.else51, %if.then21, %if.then24, %if.else
-  %received_packet_manager_ = getelementptr inbounds %"class.net::QuicConnection", ptr %this, i64 0, i32 43
+  %received_packet_manager_ = getelementptr inbounds i8, ptr %this, i64 864
   %call74 = tail call noundef zeroext i1 @_ZNK3net25QuicReceivedPacketManager20HasNewMissingPacketsEv(ptr noundef nonnull align 8 dereferenceable(248) %received_packet_manager_)
   br i1 %call74, label %if.then75, label %if.end122
 
@@ -7142,25 +6999,25 @@ if.then75:                                        ; preds = %if.end73
   br i1 %cmp77, label %if.then78, label %if.else118
 
 if.then78:                                        ; preds = %if.then75
-  %clock_80 = getelementptr inbounds %"class.net::QuicConnection", ptr %this, i64 0, i32 12
+  %clock_80 = getelementptr inbounds i8, ptr %this, i64 480
   %31 = load ptr, ptr %clock_80, align 8
   %vtable81 = load ptr, ptr %31, align 8
-  %vfn82 = getelementptr inbounds ptr, ptr %vtable81, i64 2
+  %vfn82 = getelementptr inbounds i8, ptr %vtable81, i64 16
   %32 = load ptr, ptr %vfn82, align 8
   %call83 = tail call i64 %32(ptr noundef nonnull align 8 dereferenceable(8) %31)
-  %sent_packet_manager_87 = getelementptr inbounds %"class.net::QuicConnection", ptr %this, i64 0, i32 77
+  %sent_packet_manager_87 = getelementptr inbounds i8, ptr %this, i64 3192
   %33 = load ptr, ptr %sent_packet_manager_87, align 8
   %vtable89 = load ptr, ptr %33, align 8
-  %vfn90 = getelementptr inbounds ptr, ptr %vtable89, i64 19
+  %vfn90 = getelementptr inbounds i8, ptr %vtable89, i64 152
   %34 = load ptr, ptr %vfn90, align 8
   %call91 = tail call noundef ptr %34(ptr noundef nonnull align 8 dereferenceable(8) %33)
-  %retval.sroa.2.0.min_rtt_.sroa_idx.i9 = getelementptr inbounds %"class.net::RttStats", ptr %call91, i64 0, i32 1, i32 1
+  %retval.sroa.2.0.min_rtt_.sroa_idx.i9 = getelementptr inbounds i8, ptr %call91, i64 24
   %retval.sroa.2.0.copyload.i10 = load i64, ptr %retval.sroa.2.0.min_rtt_.sroa_idx.i9, align 8
   %conv.i.i = sitofp i64 %retval.sroa.2.0.copyload.i10 to double
   %mul.i.i = fmul double %conv.i.i, 1.250000e-01
   %call.i.i = tail call i64 @llround(double noundef %mul.i.i) #22
   %add.i13 = add nsw i64 %call.i.i, %call83
-  %ack_alarm_97 = getelementptr inbounds %"class.net::QuicConnection", ptr %this, i64 0, i32 60
+  %ack_alarm_97 = getelementptr inbounds i8, ptr %this, i64 2336
   %35 = load ptr, ptr %ack_alarm_97, align 8
   %36 = ptrtoint ptr %35 to i64
   %and.i.i14 = and i64 %36, -2
@@ -7173,7 +7030,7 @@ if.then78:                                        ; preds = %if.then75
   br i1 %call99, label %lor.lhs.false100, label %if.then110
 
 lor.lhs.false100:                                 ; preds = %if.then78
-  %deadline_.i = getelementptr inbounds %"class.net::QuicAlarm", ptr %39, i64 0, i32 2
+  %deadline_.i = getelementptr inbounds i8, ptr %39, i64 16
   %retval.sroa.0.0.copyload.i16 = load i64, ptr %deadline_.i, align 8
   %cmp.i.i17 = icmp slt i64 %add.i13, %retval.sroa.0.0.copyload.i16
   br i1 %cmp.i.i17, label %if.then110, label %if.end122
@@ -7187,14 +7044,14 @@ if.else118:                                       ; preds = %if.then75
   br label %if.end122
 
 if.end122:                                        ; preds = %if.end73, %lor.lhs.false100, %if.then110, %if.else118, %land.lhs.true9, %if.end7
-  %ack_queued_123 = getelementptr inbounds %"class.net::QuicConnection", ptr %this, i64 0, i32 45
+  %ack_queued_123 = getelementptr inbounds i8, ptr %this, i64 1240
   %40 = load i8, ptr %ack_queued_123, align 8
   %41 = and i8 %40, 1
   %tobool124.not = icmp eq i8 %41, 0
   br i1 %tobool124.not, label %if.end128, label %if.then125
 
 if.then125:                                       ; preds = %if.end122
-  %ack_alarm_126 = getelementptr inbounds %"class.net::QuicConnection", ptr %this, i64 0, i32 60
+  %ack_alarm_126 = getelementptr inbounds i8, ptr %this, i64 2336
   %42 = load ptr, ptr %ack_alarm_126, align 8
   %43 = ptrtoint ptr %42 to i64
   %and.i.i19 = and i64 %43, -2
@@ -7211,24 +7068,24 @@ define dso_local void @_ZN3net14QuicConnection37MaybeCloseIfTooManyOutstandingPa
 entry:
   %ref.tmp = alloca %"class.std::__cxx11::basic_string", align 8
   %ref.tmp19 = alloca %"class.std::__cxx11::basic_string", align 8
-  %quic_version_.i.i = getelementptr inbounds %"class.net::QuicConnection", ptr %this, i64 0, i32 4, i32 13
+  %quic_version_.i.i = getelementptr inbounds i8, ptr %this, i64 300
   %0 = load i32, ptr %quic_version_.i.i, align 4
   %cmp = icmp sgt i32 %0, 33
   br i1 %cmp, label %if.end24, label %if.end
 
 if.end:                                           ; preds = %entry
-  %sent_packet_manager_ = getelementptr inbounds %"class.net::QuicConnection", ptr %this, i64 0, i32 77
+  %sent_packet_manager_ = getelementptr inbounds i8, ptr %this, i64 3192
   %1 = load ptr, ptr %sent_packet_manager_, align 8
-  %path_id = getelementptr inbounds %"class.net::QuicConnection", ptr %this, i64 0, i32 26, i32 2
+  %path_id = getelementptr inbounds i8, ptr %this, i64 672
   %2 = load i8, ptr %path_id, align 8
   %vtable = load ptr, ptr %1, align 8
-  %vfn = getelementptr inbounds ptr, ptr %vtable, i64 31
+  %vfn = getelementptr inbounds i8, ptr %vtable, i64 248
   %3 = load ptr, ptr %vfn, align 8
   %call3 = tail call noundef i64 %3(ptr noundef nonnull align 8 dereferenceable(8) %1, i8 noundef zeroext %2)
   %4 = load ptr, ptr %sent_packet_manager_, align 8
   %5 = load i8, ptr %path_id, align 8
   %vtable8 = load ptr, ptr %4, align 8
-  %vfn9 = getelementptr inbounds ptr, ptr %vtable8, i64 14
+  %vfn9 = getelementptr inbounds i8, ptr %vtable8, i64 112
   %6 = load ptr, ptr %vfn9, align 8
   %call10 = tail call noundef i64 %6(ptr noundef nonnull align 8 dereferenceable(8) %4, i8 noundef zeroext %5)
   %add = add i64 %call10, 10000
@@ -7238,7 +7095,7 @@ if.end:                                           ; preds = %entry
 if.then12:                                        ; preds = %if.end
   call void (ptr, ptr, ...) @_ZN4base12StringPrintfB5cxx11EPKcz(ptr nonnull sret(%"class.std::__cxx11::basic_string") align 8 %ref.tmp, ptr noundef nonnull @.str.38, i64 noundef 10000)
   %vtable13 = load ptr, ptr %this, align 8
-  %vfn14 = getelementptr inbounds ptr, ptr %vtable13, i64 32
+  %vfn14 = getelementptr inbounds i8, ptr %vtable13, i64 256
   %7 = load ptr, ptr %vfn14, align 8
   invoke void %7(ptr noundef nonnull align 8 dereferenceable(3372) %this, i32 noundef 68, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp, i32 noundef 1)
           to label %invoke.cont unwind label %lpad
@@ -7253,7 +7110,7 @@ lpad:                                             ; preds = %if.then12
   br label %eh.resume
 
 if.end15:                                         ; preds = %invoke.cont, %if.end
-  %received_packet_manager_ = getelementptr inbounds %"class.net::QuicConnection", ptr %this, i64 0, i32 43
+  %received_packet_manager_ = getelementptr inbounds i8, ptr %this, i64 864
   %call16 = call noundef i64 @_ZNK3net25QuicReceivedPacketManager17NumTrackedPacketsEv(ptr noundef nonnull align 8 dereferenceable(248) %received_packet_manager_)
   %cmp17 = icmp ugt i64 %call16, 10000
   br i1 %cmp17, label %if.then18, label %if.end24
@@ -7261,7 +7118,7 @@ if.end15:                                         ; preds = %invoke.cont, %if.en
 if.then18:                                        ; preds = %if.end15
   call void (ptr, ptr, ...) @_ZN4base12StringPrintfB5cxx11EPKcz(ptr nonnull sret(%"class.std::__cxx11::basic_string") align 8 %ref.tmp19, ptr noundef nonnull @.str.38, i64 noundef 10000)
   %vtable20 = load ptr, ptr %this, align 8
-  %vfn21 = getelementptr inbounds ptr, ptr %vtable20, i64 32
+  %vfn21 = getelementptr inbounds i8, ptr %vtable20, i64 256
   %9 = load ptr, ptr %vfn21, align 8
   invoke void %9(ptr noundef nonnull align 8 dereferenceable(3372) %this, i32 noundef 69, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp19, i32 noundef 1)
           to label %invoke.cont23 unwind label %lpad22
@@ -7304,11 +7161,11 @@ declare noundef i64 @_ZNK3net25QuicReceivedPacketManager17NumTrackedPacketsEv(pt
 ; Function Attrs: mustprogress uwtable
 define dso_local { i32, ptr } @_ZN3net14QuicConnection18GetUpdatedAckFrameEv(ptr noundef nonnull align 8 dereferenceable(3372) %this) unnamed_addr #0 align 2 {
 entry:
-  %received_packet_manager_ = getelementptr inbounds %"class.net::QuicConnection", ptr %this, i64 0, i32 43
-  %clock_ = getelementptr inbounds %"class.net::QuicConnection", ptr %this, i64 0, i32 12
+  %received_packet_manager_ = getelementptr inbounds i8, ptr %this, i64 864
+  %clock_ = getelementptr inbounds i8, ptr %this, i64 480
   %0 = load ptr, ptr %clock_, align 8
   %vtable = load ptr, ptr %0, align 8
-  %vfn = getelementptr inbounds ptr, ptr %vtable, i64 2
+  %vfn = getelementptr inbounds i8, ptr %vtable, i64 16
   %1 = load ptr, ptr %vfn, align 8
   %call = tail call i64 %1(ptr noundef nonnull align 8 dereferenceable(8) %0)
   %call3 = tail call { i32, ptr } @_ZN3net25QuicReceivedPacketManager18GetUpdatedAckFrameENS_8QuicTimeE(ptr noundef nonnull align 8 dereferenceable(248) %received_packet_manager_, i64 %call)
@@ -7324,7 +7181,7 @@ entry:
   %clock_.i = getelementptr inbounds i8, ptr %this, i64 464
   %0 = load ptr, ptr %clock_.i, align 8
   %vtable.i = load ptr, ptr %0, align 8
-  %vfn.i = getelementptr inbounds ptr, ptr %vtable.i, i64 2
+  %vfn.i = getelementptr inbounds i8, ptr %vtable.i, i64 16
   %1 = load ptr, ptr %vfn.i, align 8
   %call.i = tail call i64 %1(ptr noundef nonnull align 8 dereferenceable(8) %0)
   %call3.i = tail call { i32, ptr } @_ZN3net25QuicReceivedPacketManager18GetUpdatedAckFrameENS_8QuicTimeE(ptr noundef nonnull align 8 dereferenceable(248) %received_packet_manager_.i, i64 %call.i)
@@ -7335,24 +7192,24 @@ entry:
 define dso_local void @_ZN3net14QuicConnection24PopulateStopWaitingFrameEPNS_20QuicStopWaitingFrameE(ptr noundef nonnull align 8 dereferenceable(3372) %this, ptr nocapture noundef %stop_waiting) unnamed_addr #0 align 2 {
 entry:
   %0 = load i8, ptr %stop_waiting, align 8
-  %sent_packet_manager_.i = getelementptr inbounds %"class.net::QuicConnection", ptr %this, i64 0, i32 77
+  %sent_packet_manager_.i = getelementptr inbounds i8, ptr %this, i64 3192
   %1 = load ptr, ptr %sent_packet_manager_.i, align 8
   %vtable.i = load ptr, ptr %1, align 8
-  %vfn.i = getelementptr inbounds ptr, ptr %vtable.i, i64 14
+  %vfn.i = getelementptr inbounds i8, ptr %vtable.i, i64 112
   %2 = load ptr, ptr %vfn.i, align 8
   %call2.i = tail call noundef i64 %2(ptr noundef nonnull align 8 dereferenceable(8) %1, i8 noundef zeroext %0)
-  %least_unacked = getelementptr inbounds %"struct.net::QuicStopWaitingFrame", ptr %stop_waiting, i64 0, i32 2
+  %least_unacked = getelementptr inbounds i8, ptr %stop_waiting, i64 8
   store i64 %call2.i, ptr %least_unacked, align 8
-  %quic_version_.i.i = getelementptr inbounds %"class.net::QuicConnection", ptr %this, i64 0, i32 4, i32 13
+  %quic_version_.i.i = getelementptr inbounds i8, ptr %this, i64 300
   %3 = load i32, ptr %quic_version_.i.i, align 4
   %cmp = icmp slt i32 %3, 34
   br i1 %cmp, label %if.then, label %if.end
 
 if.then:                                          ; preds = %entry
-  %sent_entropy_manager_ = getelementptr inbounds %"class.net::QuicConnection", ptr %this, i64 0, i32 44
+  %sent_entropy_manager_ = getelementptr inbounds i8, ptr %this, i64 1112
   %sub = add i64 %call2.i, -1
   %call4 = tail call noundef zeroext i8 @_ZN3net22QuicSentEntropyManager20GetCumulativeEntropyEm(ptr noundef nonnull align 8 dereferenceable(128) %sent_entropy_manager_, i64 noundef %sub)
-  %entropy_hash = getelementptr inbounds %"struct.net::QuicStopWaitingFrame", ptr %stop_waiting, i64 0, i32 1
+  %entropy_hash = getelementptr inbounds i8, ptr %stop_waiting, i64 1
   store i8 %call4, ptr %entropy_hash, align 1
   br label %if.end
 
@@ -7369,10 +7226,10 @@ entry:
   %sent_packet_manager_.i.i = getelementptr inbounds i8, ptr %this, i64 3176
   %1 = load ptr, ptr %sent_packet_manager_.i.i, align 8
   %vtable.i.i = load ptr, ptr %1, align 8
-  %vfn.i.i = getelementptr inbounds ptr, ptr %vtable.i.i, i64 14
+  %vfn.i.i = getelementptr inbounds i8, ptr %vtable.i.i, i64 112
   %2 = load ptr, ptr %vfn.i.i, align 8
   %call2.i.i = tail call noundef i64 %2(ptr noundef nonnull align 8 dereferenceable(8) %1, i8 noundef zeroext %0)
-  %least_unacked.i = getelementptr inbounds %"struct.net::QuicStopWaitingFrame", ptr %stop_waiting, i64 0, i32 2
+  %least_unacked.i = getelementptr inbounds i8, ptr %stop_waiting, i64 8
   store i64 %call2.i.i, ptr %least_unacked.i, align 8
   %quic_version_.i.i.i = getelementptr inbounds i8, ptr %this, i64 284
   %3 = load i32, ptr %quic_version_.i.i.i, align 4
@@ -7383,7 +7240,7 @@ if.then.i:                                        ; preds = %entry
   %sent_entropy_manager_.i = getelementptr inbounds i8, ptr %this, i64 1096
   %sub.i = add i64 %call2.i.i, -1
   %call4.i = tail call noundef zeroext i8 @_ZN3net22QuicSentEntropyManager20GetCumulativeEntropyEm(ptr noundef nonnull align 8 dereferenceable(128) %sent_entropy_manager_.i, i64 noundef %sub.i)
-  %entropy_hash.i = getelementptr inbounds %"struct.net::QuicStopWaitingFrame", ptr %stop_waiting, i64 0, i32 1
+  %entropy_hash.i = getelementptr inbounds i8, ptr %stop_waiting, i64 1
   store i8 %call4.i, ptr %entropy_hash.i, align 1
   br label %_ZN3net14QuicConnection24PopulateStopWaitingFrameEPNS_20QuicStopWaitingFrameE.exit
 
@@ -7394,29 +7251,29 @@ _ZN3net14QuicConnection24PopulateStopWaitingFrameEPNS_20QuicStopWaitingFrameE.ex
 ; Function Attrs: mustprogress uwtable
 define dso_local void @_ZN3net14QuicConnection27MaybeSendInResponseToPacketEv(ptr noundef nonnull align 8 dereferenceable(3372) %this) local_unnamed_addr #0 align 2 {
 entry:
-  %connected_ = getelementptr inbounds %"class.net::QuicConnection", ptr %this, i64 0, i32 80
+  %connected_ = getelementptr inbounds i8, ptr %this, i64 3208
   %0 = load i8, ptr %connected_, align 8
   %1 = and i8 %0, 1
   %tobool.not = icmp eq i8 %1, 0
   br i1 %tobool.not, label %if.end8, label %if.end
 
 if.end:                                           ; preds = %entry
-  %defer_send_in_response_to_packets_ = getelementptr inbounds %"class.net::QuicConnection", ptr %this, i64 0, i32 56
+  %defer_send_in_response_to_packets_ = getelementptr inbounds i8, ptr %this, i64 1286
   %2 = load i8, ptr %defer_send_in_response_to_packets_, align 2
   %3 = and i8 %2, 1
   %tobool2.not = icmp eq i8 %3, 0
   br i1 %tobool2.not, label %if.else, label %if.then3
 
 if.then3:                                         ; preds = %if.end
-  %send_alarm_ = getelementptr inbounds %"class.net::QuicConnection", ptr %this, i64 0, i32 62
+  %send_alarm_ = getelementptr inbounds i8, ptr %this, i64 2352
   %4 = load ptr, ptr %send_alarm_, align 8
   %5 = ptrtoint ptr %4 to i64
   %and.i.i = and i64 %5, -2
   %6 = inttoptr i64 %and.i.i to ptr
-  %clock_ = getelementptr inbounds %"class.net::QuicConnection", ptr %this, i64 0, i32 12
+  %clock_ = getelementptr inbounds i8, ptr %this, i64 480
   %7 = load ptr, ptr %clock_, align 8
   %vtable = load ptr, ptr %7, align 8
-  %vfn = getelementptr inbounds ptr, ptr %vtable, i64 2
+  %vfn = getelementptr inbounds i8, ptr %vtable, i64 16
   %8 = load ptr, ptr %vfn, align 8
   %call4 = tail call i64 %8(ptr noundef nonnull align 8 dereferenceable(8) %7)
   tail call void @_ZN3net9QuicAlarm6UpdateENS_8QuicTimeENS1_5DeltaE(ptr noundef nonnull align 8 dereferenceable(24) %6, i64 %call4, i64 0, i64 0)
@@ -7434,10 +7291,10 @@ if.end8:                                          ; preds = %entry, %if.else, %i
 define dso_local void @_ZN3net14QuicConnection30WriteAndBundleAcksIfNotBlockedEv(ptr noundef nonnull align 8 dereferenceable(3372) %this) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %bundler = alloca %"class.net::QuicConnection::ScopedPacketBundler", align 8
-  %writer_ = getelementptr inbounds %"class.net::QuicConnection", ptr %this, i64 0, i32 8
+  %writer_ = getelementptr inbounds i8, ptr %this, i64 464
   %0 = load ptr, ptr %writer_, align 8
   %vtable = load ptr, ptr %0, align 8
-  %vfn = getelementptr inbounds ptr, ptr %vtable, i64 4
+  %vfn = getelementptr inbounds i8, ptr %vtable, i64 32
   %1 = load ptr, ptr %vfn, align 8
   %call = tail call noundef zeroext i1 %1(ptr noundef nonnull align 8 dereferenceable(8) %0)
   br i1 %call, label %if.end, label %if.then
@@ -7445,7 +7302,7 @@ entry:
 if.then:                                          ; preds = %entry
   call void @_ZN3net14QuicConnection19ScopedPacketBundlerC2EPS0_NS0_11AckBundlingE(ptr noundef nonnull align 8 dereferenceable(9) %bundler, ptr noundef nonnull %this, i32 noundef 0)
   %vtable2 = load ptr, ptr %this, align 8
-  %vfn3 = getelementptr inbounds ptr, ptr %vtable2, i64 35
+  %vfn3 = getelementptr inbounds i8, ptr %vtable2, i64 280
   %2 = load ptr, ptr %vfn3, align 8
   invoke void %2(ptr noundef nonnull align 8 dereferenceable(3372) %this)
           to label %invoke.cont unwind label %lpad
@@ -7456,28 +7313,28 @@ invoke.cont:                                      ; preds = %if.then
   br i1 %cmp.i, label %if.end, label %if.end.i
 
 if.end.i:                                         ; preds = %invoke.cont
-  %already_in_batch_mode_.i = getelementptr inbounds %"class.net::QuicConnection::ScopedPacketBundler", ptr %bundler, i64 0, i32 1
+  %already_in_batch_mode_.i = getelementptr inbounds i8, ptr %bundler, i64 8
   %4 = load i8, ptr %already_in_batch_mode_.i, align 8
   %5 = and i8 %4, 1
   %tobool.not.i = icmp eq i8 %5, 0
   br i1 %tobool.not.i, label %if.then2.i, label %if.end
 
 if.then2.i:                                       ; preds = %if.end.i
-  %packet_generator_.i = getelementptr inbounds %"class.net::QuicConnection", ptr %3, i64 0, i32 69
+  %packet_generator_.i = getelementptr inbounds i8, ptr %3, i64 2408
   invoke void @_ZN3net19QuicPacketGenerator21FinishBatchOperationsEv(ptr noundef nonnull align 8 dereferenceable(472) %packet_generator_.i)
           to label %invoke.cont.i unwind label %terminate.lpad.i
 
 invoke.cont.i:                                    ; preds = %if.then2.i
-  %queued_packets_.i.i = getelementptr inbounds %"class.net::QuicConnection", ptr %3, i64 0, i32 36
+  %queued_packets_.i.i = getelementptr inbounds i8, ptr %3, i64 816
   %6 = load ptr, ptr %queued_packets_.i.i, align 8
   %cmp.i.i.i = icmp eq ptr %6, %queued_packets_.i.i
   br i1 %cmp.i.i.i, label %land.lhs.true.i.i, label %if.end
 
 land.lhs.true.i.i:                                ; preds = %invoke.cont.i
-  %sent_packet_manager_.i.i = getelementptr inbounds %"class.net::QuicConnection", ptr %3, i64 0, i32 77
+  %sent_packet_manager_.i.i = getelementptr inbounds i8, ptr %3, i64 3192
   %7 = load ptr, ptr %sent_packet_manager_.i.i, align 8
   %vtable.i.i = load ptr, ptr %7, align 8
-  %vfn.i.i = getelementptr inbounds ptr, ptr %vtable.i.i, i64 11
+  %vfn.i.i = getelementptr inbounds i8, ptr %vtable.i.i, i64 88
   %8 = load ptr, ptr %vfn.i.i, align 8
   %call3.i1.i = invoke noundef zeroext i1 %8(ptr noundef nonnull align 8 dereferenceable(8) %7)
           to label %call3.i.noexc.i unwind label %terminate.lpad.i
@@ -7486,10 +7343,10 @@ call3.i.noexc.i:                                  ; preds = %land.lhs.true.i.i
   br i1 %call3.i1.i, label %if.end, label %land.lhs.true4.i.i
 
 land.lhs.true4.i.i:                               ; preds = %call3.i.noexc.i
-  %visitor_.i.i = getelementptr inbounds %"class.net::QuicConnection", ptr %3, i64 0, i32 67
+  %visitor_.i.i = getelementptr inbounds i8, ptr %3, i64 2392
   %9 = load ptr, ptr %visitor_.i.i, align 8
   %vtable5.i.i = load ptr, ptr %9, align 8
-  %vfn6.i.i = getelementptr inbounds ptr, ptr %vtable5.i.i, i64 15
+  %vfn6.i.i = getelementptr inbounds i8, ptr %vtable5.i.i, i64 120
   %10 = load ptr, ptr %vfn6.i.i, align 8
   %call7.i2.i = invoke noundef zeroext i1 %10(ptr noundef nonnull align 8 dereferenceable(8) %9)
           to label %call7.i.noexc.i unwind label %terminate.lpad.i
@@ -7500,7 +7357,7 @@ call7.i.noexc.i:                                  ; preds = %land.lhs.true4.i.i
 if.then.i.i:                                      ; preds = %call7.i.noexc.i
   %11 = load ptr, ptr %sent_packet_manager_.i.i, align 8
   %vtable10.i.i = load ptr, ptr %11, align 8
-  %vfn11.i.i = getelementptr inbounds ptr, ptr %vtable10.i.i, i64 38
+  %vfn11.i.i = getelementptr inbounds i8, ptr %vtable10.i.i, i64 304
   %12 = load ptr, ptr %vfn11.i.i, align 8
   invoke void %12(ptr noundef nonnull align 8 dereferenceable(8) %11)
           to label %if.end unwind label %terminate.lpad.i
@@ -7539,14 +7396,14 @@ entry:
   br i1 %tobool.not, label %if.end, label %land.lhs.true
 
 land.lhs.true:                                    ; preds = %entry
-  %write_error_occured_ = getelementptr inbounds %"class.net::QuicConnection", ptr %this, i64 0, i32 97
+  %write_error_occured_ = getelementptr inbounds i8, ptr %this, i64 3371
   %2 = load i8, ptr %write_error_occured_, align 1
   %3 = and i8 %2, 1
   %tobool2.not = icmp eq i8 %3, 0
   br i1 %tobool2.not, label %if.end, label %return
 
 if.end:                                           ; preds = %land.lhs.true, %entry
-  %write_error_occured_3 = getelementptr inbounds %"class.net::QuicConnection", ptr %this, i64 0, i32 97
+  %write_error_occured_3 = getelementptr inbounds i8, ptr %this, i64 3371
   store i8 1, ptr %write_error_occured_3, align 1
   call void @_ZN4base11IntToStringB5cxx11Ei(ptr nonnull sret(%"class.std::__cxx11::basic_string") align 8 %ref.tmp6, i32 noundef %error_code)
   %call.i10 = invoke noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6insertEmPKc(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp6, i64 noundef 0, ptr noundef nonnull @.str.46)
@@ -7652,7 +7509,7 @@ if.then20:                                        ; preds = %sw.bb
   %tobool21.not = icmp eq i8 %12, 0
   %cond = select i1 %tobool21.not, i32 1, i32 2
   %vtable = load ptr, ptr %this, align 8
-  %vfn = getelementptr inbounds ptr, ptr %vtable, i64 32
+  %vfn = getelementptr inbounds i8, ptr %vtable, i64 256
   %13 = load ptr, ptr %vfn, align 8
   invoke void %13(ptr noundef nonnull align 8 dereferenceable(3372) %this, i32 noundef 27, ptr noundef nonnull align 8 dereferenceable(32) %error_details, i32 noundef %cond)
           to label %sw.epilog unwind label %lpad22
@@ -7687,7 +7544,7 @@ entry:
   %ref.tmp2 = alloca %"class.logging::LogMessage", align 8
   %alarm_delayer = alloca %"class.net::QuicConnection::ScopedRetransmissionScheduler", align 8
   %ack_bundler = alloca %"class.net::QuicConnection::ScopedPacketBundler", align 8
-  %total_length = getelementptr inbounds %"struct.net::QuicIOVector", ptr %iov, i64 0, i32 2
+  %total_length = getelementptr inbounds i8, ptr %iov, i64 16
   %0 = load i64, ptr %total_length, align 8
   %cmp = icmp ne i64 %0, 0
   %or.cond.not = select i1 %fin, i1 true, i1 %cmp
@@ -7699,7 +7556,7 @@ if.then:                                          ; preds = %entry
 
 cond.false:                                       ; preds = %if.then
   call void @_ZN7logging10LogMessageC1EPKcii(ptr noundef nonnull align 8 dereferenceable(404) %ref.tmp2, ptr noundef nonnull @.str, i32 noundef 1184, i32 noundef 2)
-  %stream_.i = getelementptr inbounds %"class.logging::LogMessage", ptr %ref.tmp2, i64 0, i32 2
+  %stream_.i = getelementptr inbounds i8, ptr %ref.tmp2, i64 8
   %call5 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc(ptr noundef nonnull align 8 dereferenceable(8) %stream_.i, ptr noundef nonnull @.str.39)
           to label %cleanup.action unwind label %lpad
 
@@ -7710,7 +7567,7 @@ cleanup.action:                                   ; preds = %cond.false
 cleanup.done:                                     ; preds = %if.then, %cleanup.action
   call void @_ZN3net16QuicConsumedDataC1Emb(ptr noundef nonnull align 8 dereferenceable(9) %retval, i64 noundef 0, i1 noundef zeroext false)
   %.fca.0.load.pre = load i64, ptr %retval, align 8
-  %.fca.1.gep.phi.trans.insert = getelementptr inbounds { i64, i8 }, ptr %retval, i64 0, i32 1
+  %.fca.1.gep.phi.trans.insert = getelementptr inbounds i8, ptr %retval, i64 8
   %.fca.1.load.pre = load i8, ptr %.fca.1.gep.phi.trans.insert, align 8
   br label %return
 
@@ -7722,8 +7579,8 @@ lpad:                                             ; preds = %cond.false
 
 if.end:                                           ; preds = %entry
   store ptr %this, ptr %alarm_delayer, align 8
-  %already_delayed_.i = getelementptr inbounds %"class.net::QuicConnection::ScopedRetransmissionScheduler", ptr %alarm_delayer, i64 0, i32 1
-  %delay_setting_retransmission_alarm_.i = getelementptr inbounds %"class.net::QuicConnection", ptr %this, i64 0, i32 54
+  %already_delayed_.i = getelementptr inbounds i8, ptr %alarm_delayer, i64 8
+  %delay_setting_retransmission_alarm_.i = getelementptr inbounds i8, ptr %this, i64 1284
   %2 = load i8, ptr %delay_setting_retransmission_alarm_.i, align 4
   %3 = and i8 %2, 1
   store i8 %3, ptr %already_delayed_.i, align 8
@@ -7736,7 +7593,7 @@ invoke.cont11:                                    ; preds = %if.end
   br i1 %cmp12.not, label %if.end25, label %land.lhs.true13
 
 land.lhs.true13:                                  ; preds = %invoke.cont11
-  %packet_generator_ = getelementptr inbounds %"class.net::QuicConnection", ptr %this, i64 0, i32 69
+  %packet_generator_ = getelementptr inbounds i8, ptr %this, i64 2408
   %call16 = invoke noundef zeroext i1 @_ZNK3net19QuicPacketGenerator15HasQueuedFramesEv(ptr noundef nonnull align 8 dereferenceable(472) %packet_generator_)
           to label %invoke.cont15 unwind label %lpad14
 
@@ -7752,7 +7609,7 @@ if.then20:                                        ; preds = %invoke.cont15
 invoke.cont23:                                    ; preds = %if.then20
   %4 = extractvalue { i64, i8 } %call24, 0
   store i64 %4, ptr %retval, align 8
-  %5 = getelementptr inbounds { i64, i8 }, ptr %retval, i64 0, i32 1
+  %5 = getelementptr inbounds i8, ptr %retval, i64 8
   %6 = extractvalue { i64, i8 } %call24, 1
   store i8 %6, ptr %5, align 8
   br label %cleanup
@@ -7769,14 +7626,14 @@ lpad14:                                           ; preds = %if.end25, %if.then2
   br label %ehcleanup
 
 if.end25:                                         ; preds = %invoke.cont15, %invoke.cont11
-  %packet_generator_26 = getelementptr inbounds %"class.net::QuicConnection", ptr %this, i64 0, i32 69
+  %packet_generator_26 = getelementptr inbounds i8, ptr %this, i64 2408
   %call29 = invoke { i64, i8 } @_ZN3net19QuicPacketGenerator11ConsumeDataEjNS_12QuicIOVectorEmbPNS_24QuicAckListenerInterfaceE(ptr noundef nonnull align 8 dereferenceable(472) %packet_generator_26, i32 noundef %id, ptr noundef nonnull byval(%"struct.net::QuicIOVector") align 8 %iov, i64 noundef %offset, i1 noundef zeroext %fin, ptr noundef %listener)
           to label %invoke.cont28 unwind label %lpad14
 
 invoke.cont28:                                    ; preds = %if.end25
   %9 = extractvalue { i64, i8 } %call29, 0
   store i64 %9, ptr %retval, align 8
-  %10 = getelementptr inbounds { i64, i8 }, ptr %retval, i64 0, i32 1
+  %10 = getelementptr inbounds i8, ptr %retval, i64 8
   %11 = extractvalue { i64, i8 } %call29, 1
   store i8 %11, ptr %10, align 8
   br label %cleanup
@@ -7789,28 +7646,28 @@ cleanup:                                          ; preds = %invoke.cont28, %inv
   br i1 %cmp.i, label %_ZN3net14QuicConnection19ScopedPacketBundlerD2Ev.exit, label %if.end.i
 
 if.end.i:                                         ; preds = %cleanup
-  %already_in_batch_mode_.i = getelementptr inbounds %"class.net::QuicConnection::ScopedPacketBundler", ptr %ack_bundler, i64 0, i32 1
+  %already_in_batch_mode_.i = getelementptr inbounds i8, ptr %ack_bundler, i64 8
   %13 = load i8, ptr %already_in_batch_mode_.i, align 8
   %14 = and i8 %13, 1
   %tobool.not.i = icmp eq i8 %14, 0
   br i1 %tobool.not.i, label %if.then2.i, label %_ZN3net14QuicConnection19ScopedPacketBundlerD2Ev.exit
 
 if.then2.i:                                       ; preds = %if.end.i
-  %packet_generator_.i = getelementptr inbounds %"class.net::QuicConnection", ptr %12, i64 0, i32 69
+  %packet_generator_.i = getelementptr inbounds i8, ptr %12, i64 2408
   invoke void @_ZN3net19QuicPacketGenerator21FinishBatchOperationsEv(ptr noundef nonnull align 8 dereferenceable(472) %packet_generator_.i)
           to label %invoke.cont.i unwind label %terminate.lpad.i
 
 invoke.cont.i:                                    ; preds = %if.then2.i
-  %queued_packets_.i.i = getelementptr inbounds %"class.net::QuicConnection", ptr %12, i64 0, i32 36
+  %queued_packets_.i.i = getelementptr inbounds i8, ptr %12, i64 816
   %15 = load ptr, ptr %queued_packets_.i.i, align 8
   %cmp.i.i.i = icmp eq ptr %15, %queued_packets_.i.i
   br i1 %cmp.i.i.i, label %land.lhs.true.i.i, label %_ZN3net14QuicConnection19ScopedPacketBundlerD2Ev.exit
 
 land.lhs.true.i.i:                                ; preds = %invoke.cont.i
-  %sent_packet_manager_.i.i = getelementptr inbounds %"class.net::QuicConnection", ptr %12, i64 0, i32 77
+  %sent_packet_manager_.i.i = getelementptr inbounds i8, ptr %12, i64 3192
   %16 = load ptr, ptr %sent_packet_manager_.i.i, align 8
   %vtable.i.i = load ptr, ptr %16, align 8
-  %vfn.i.i = getelementptr inbounds ptr, ptr %vtable.i.i, i64 11
+  %vfn.i.i = getelementptr inbounds i8, ptr %vtable.i.i, i64 88
   %17 = load ptr, ptr %vfn.i.i, align 8
   %call3.i1.i = invoke noundef zeroext i1 %17(ptr noundef nonnull align 8 dereferenceable(8) %16)
           to label %call3.i.noexc.i unwind label %terminate.lpad.i
@@ -7819,10 +7676,10 @@ call3.i.noexc.i:                                  ; preds = %land.lhs.true.i.i
   br i1 %call3.i1.i, label %_ZN3net14QuicConnection19ScopedPacketBundlerD2Ev.exit, label %land.lhs.true4.i.i
 
 land.lhs.true4.i.i:                               ; preds = %call3.i.noexc.i
-  %visitor_.i.i = getelementptr inbounds %"class.net::QuicConnection", ptr %12, i64 0, i32 67
+  %visitor_.i.i = getelementptr inbounds i8, ptr %12, i64 2392
   %18 = load ptr, ptr %visitor_.i.i, align 8
   %vtable5.i.i = load ptr, ptr %18, align 8
-  %vfn6.i.i = getelementptr inbounds ptr, ptr %vtable5.i.i, i64 15
+  %vfn6.i.i = getelementptr inbounds i8, ptr %vtable5.i.i, i64 120
   %19 = load ptr, ptr %vfn6.i.i, align 8
   %call7.i2.i = invoke noundef zeroext i1 %19(ptr noundef nonnull align 8 dereferenceable(8) %18)
           to label %call7.i.noexc.i unwind label %terminate.lpad.i
@@ -7833,7 +7690,7 @@ call7.i.noexc.i:                                  ; preds = %land.lhs.true4.i.i
 if.then.i.i:                                      ; preds = %call7.i.noexc.i
   %20 = load ptr, ptr %sent_packet_manager_.i.i, align 8
   %vtable10.i.i = load ptr, ptr %20, align 8
-  %vfn11.i.i = getelementptr inbounds ptr, ptr %vtable10.i.i, i64 38
+  %vfn11.i.i = getelementptr inbounds i8, ptr %vtable10.i.i, i64 304
   %21 = load ptr, ptr %vfn11.i.i, align 8
   invoke void %21(ptr noundef nonnull align 8 dereferenceable(8) %20)
           to label %_ZN3net14QuicConnection19ScopedPacketBundlerD2Ev.exit unwind label %terminate.lpad.i
@@ -7851,23 +7708,23 @@ _ZN3net14QuicConnection19ScopedPacketBundlerD2Ev.exit: ; preds = %cleanup, %if.e
 
 if.end.i13:                                       ; preds = %_ZN3net14QuicConnection19ScopedPacketBundlerD2Ev.exit
   store i8 0, ptr %delay_setting_retransmission_alarm_.i, align 4
-  %pending_retransmission_alarm_.i = getelementptr inbounds %"class.net::QuicConnection", ptr %this, i64 0, i32 55
+  %pending_retransmission_alarm_.i = getelementptr inbounds i8, ptr %this, i64 1285
   %24 = load i8, ptr %pending_retransmission_alarm_.i, align 1
   %25 = and i8 %24, 1
   %tobool3.not.i = icmp eq i8 %25, 0
   br i1 %tobool3.not.i, label %return, label %if.end.i.i
 
 if.end.i.i:                                       ; preds = %if.end.i13
-  %sent_packet_manager_.i.i17 = getelementptr inbounds %"class.net::QuicConnection", ptr %this, i64 0, i32 77
+  %sent_packet_manager_.i.i17 = getelementptr inbounds i8, ptr %this, i64 3192
   %26 = load ptr, ptr %sent_packet_manager_.i.i17, align 8
   %vtable.i.i18 = load ptr, ptr %26, align 8
-  %vfn.i.i19 = getelementptr inbounds ptr, ptr %vtable.i.i18, i64 18
+  %vfn.i.i19 = getelementptr inbounds i8, ptr %vtable.i.i18, i64 144
   %27 = load ptr, ptr %vfn.i.i19, align 8
   %call2.i1.i = invoke i64 %27(ptr noundef nonnull align 8 dereferenceable(8) %26)
           to label %call2.i.noexc.i unwind label %terminate.lpad.i20
 
 call2.i.noexc.i:                                  ; preds = %if.end.i.i
-  %retransmission_alarm_.i.i = getelementptr inbounds %"class.net::QuicConnection", ptr %this, i64 0, i32 61
+  %retransmission_alarm_.i.i = getelementptr inbounds i8, ptr %this, i64 2344
   %28 = load ptr, ptr %retransmission_alarm_.i.i, align 8
   %29 = ptrtoint ptr %28 to i64
   %and.i.i.i.i = and i64 %29, -2
@@ -7917,12 +7774,12 @@ entry:
   %ack_bundler = alloca %"class.net::QuicConnection::ScopedPacketBundler", align 8
   %ref.tmp = alloca %"struct.net::QuicFrame", align 8
   call void @_ZN3net14QuicConnection19ScopedPacketBundlerC2EPS0_NS0_11AckBundlingE(ptr noundef nonnull align 8 dereferenceable(9) %ack_bundler, ptr noundef nonnull %this, i32 noundef 2)
-  %packet_generator_ = getelementptr inbounds %"class.net::QuicConnection", ptr %this, i64 0, i32 69
+  %packet_generator_ = getelementptr inbounds i8, ptr %this, i64 2408
   %call = invoke noalias noundef nonnull dereferenceable(16) ptr @_Znwm(i64 noundef 16) #23
           to label %invoke.cont3 unwind label %lpad.loopexit.split-lp
 
 invoke.cont3:                                     ; preds = %entry
-  %quic_version_.i.i = getelementptr inbounds %"class.net::QuicConnection", ptr %this, i64 0, i32 4, i32 13
+  %quic_version_.i.i = getelementptr inbounds i8, ptr %this, i64 300
   %0 = load i32, ptr %quic_version_.i.i, align 4
   %call6 = invoke noundef i32 @_ZN3net21AdjustErrorForVersionENS_22QuicRstStreamErrorCodeENS_11QuicVersionE(i32 noundef %error, i32 noundef %0)
           to label %invoke.cont5 unwind label %lpad2
@@ -7960,30 +7817,30 @@ lpad2:                                            ; preds = %invoke.cont5, %invo
   br label %ehcleanup
 
 if.end:                                           ; preds = %invoke.cont9
-  %sent_packet_manager_ = getelementptr inbounds %"class.net::QuicConnection", ptr %this, i64 0, i32 77
+  %sent_packet_manager_ = getelementptr inbounds i8, ptr %this, i64 3192
   %2 = load ptr, ptr %sent_packet_manager_, align 8
   %vtable = load ptr, ptr %2, align 8
-  %vfn = getelementptr inbounds ptr, ptr %vtable, i64 27
+  %vfn = getelementptr inbounds i8, ptr %vtable, i64 216
   %3 = load ptr, ptr %vfn, align 8
   invoke void %3(ptr noundef nonnull align 8 dereferenceable(8) %2, i32 noundef %id)
           to label %invoke.cont11 unwind label %lpad.loopexit.split-lp
 
 invoke.cont11:                                    ; preds = %if.end
-  %queued_packets_ = getelementptr inbounds %"class.net::QuicConnection", ptr %this, i64 0, i32 36
+  %queued_packets_ = getelementptr inbounds i8, ptr %this, i64 816
   %4 = load ptr, ptr %queued_packets_, align 8
   %cmp.i.not20 = icmp eq ptr %4, %queued_packets_
   br i1 %cmp.i.not20, label %cleanup, label %while.body.lr.ph
 
 while.body.lr.ph:                                 ; preds = %invoke.cont11
-  %_M_size.i.i.i = getelementptr inbounds %"class.net::QuicConnection", ptr %this, i64 0, i32 36, i32 0, i32 0, i32 0, i32 1
+  %_M_size.i.i.i = getelementptr inbounds i8, ptr %this, i64 832
   br label %while.body
 
 while.body:                                       ; preds = %while.body.lr.ph, %while.cond.backedge
   %packet_iterator.sroa.0.021 = phi ptr [ %4, %while.body.lr.ph ], [ %packet_iterator.sroa.0.0.be, %while.cond.backedge ]
-  %_M_storage.i.i = getelementptr inbounds %"struct.std::_List_node", ptr %packet_iterator.sroa.0.021, i64 0, i32 1
-  %retransmittable_frames19 = getelementptr inbounds %"struct.std::_List_node", ptr %packet_iterator.sroa.0.021, i64 0, i32 1, i32 0, i64 16
+  %_M_storage.i.i = getelementptr inbounds i8, ptr %packet_iterator.sroa.0.021, i64 16
+  %retransmittable_frames19 = getelementptr inbounds i8, ptr %packet_iterator.sroa.0.021, i64 32
   %5 = load ptr, ptr %retransmittable_frames19, align 8
-  %_M_finish.i.i = getelementptr inbounds %"struct.std::_List_node", ptr %packet_iterator.sroa.0.021, i64 0, i32 1, i32 0, i64 24
+  %_M_finish.i.i = getelementptr inbounds i8, ptr %packet_iterator.sroa.0.021, i64 40
   %6 = load ptr, ptr %_M_finish.i.i, align 8
   %cmp.i.i = icmp eq ptr %5, %6
   br i1 %cmp.i.i, label %if.then21, label %if.end23
@@ -8040,28 +7897,28 @@ cleanup:                                          ; preds = %while.cond.backedge
   br i1 %cmp.i11, label %_ZN3net14QuicConnection19ScopedPacketBundlerD2Ev.exit, label %if.end.i
 
 if.end.i:                                         ; preds = %cleanup
-  %already_in_batch_mode_.i = getelementptr inbounds %"class.net::QuicConnection::ScopedPacketBundler", ptr %ack_bundler, i64 0, i32 1
+  %already_in_batch_mode_.i = getelementptr inbounds i8, ptr %ack_bundler, i64 8
   %15 = load i8, ptr %already_in_batch_mode_.i, align 8
   %16 = and i8 %15, 1
   %tobool.not.i = icmp eq i8 %16, 0
   br i1 %tobool.not.i, label %if.then2.i, label %_ZN3net14QuicConnection19ScopedPacketBundlerD2Ev.exit
 
 if.then2.i:                                       ; preds = %if.end.i
-  %packet_generator_.i = getelementptr inbounds %"class.net::QuicConnection", ptr %14, i64 0, i32 69
+  %packet_generator_.i = getelementptr inbounds i8, ptr %14, i64 2408
   invoke void @_ZN3net19QuicPacketGenerator21FinishBatchOperationsEv(ptr noundef nonnull align 8 dereferenceable(472) %packet_generator_.i)
           to label %invoke.cont.i unwind label %terminate.lpad.i
 
 invoke.cont.i:                                    ; preds = %if.then2.i
-  %queued_packets_.i.i = getelementptr inbounds %"class.net::QuicConnection", ptr %14, i64 0, i32 36
+  %queued_packets_.i.i = getelementptr inbounds i8, ptr %14, i64 816
   %17 = load ptr, ptr %queued_packets_.i.i, align 8
   %cmp.i.i.i = icmp eq ptr %17, %queued_packets_.i.i
   br i1 %cmp.i.i.i, label %land.lhs.true.i.i, label %_ZN3net14QuicConnection19ScopedPacketBundlerD2Ev.exit
 
 land.lhs.true.i.i:                                ; preds = %invoke.cont.i
-  %sent_packet_manager_.i.i = getelementptr inbounds %"class.net::QuicConnection", ptr %14, i64 0, i32 77
+  %sent_packet_manager_.i.i = getelementptr inbounds i8, ptr %14, i64 3192
   %18 = load ptr, ptr %sent_packet_manager_.i.i, align 8
   %vtable.i.i = load ptr, ptr %18, align 8
-  %vfn.i.i = getelementptr inbounds ptr, ptr %vtable.i.i, i64 11
+  %vfn.i.i = getelementptr inbounds i8, ptr %vtable.i.i, i64 88
   %19 = load ptr, ptr %vfn.i.i, align 8
   %call3.i1.i = invoke noundef zeroext i1 %19(ptr noundef nonnull align 8 dereferenceable(8) %18)
           to label %call3.i.noexc.i unwind label %terminate.lpad.i
@@ -8070,10 +7927,10 @@ call3.i.noexc.i:                                  ; preds = %land.lhs.true.i.i
   br i1 %call3.i1.i, label %_ZN3net14QuicConnection19ScopedPacketBundlerD2Ev.exit, label %land.lhs.true4.i.i
 
 land.lhs.true4.i.i:                               ; preds = %call3.i.noexc.i
-  %visitor_.i.i = getelementptr inbounds %"class.net::QuicConnection", ptr %14, i64 0, i32 67
+  %visitor_.i.i = getelementptr inbounds i8, ptr %14, i64 2392
   %20 = load ptr, ptr %visitor_.i.i, align 8
   %vtable5.i.i = load ptr, ptr %20, align 8
-  %vfn6.i.i = getelementptr inbounds ptr, ptr %vtable5.i.i, i64 15
+  %vfn6.i.i = getelementptr inbounds i8, ptr %vtable5.i.i, i64 120
   %21 = load ptr, ptr %vfn6.i.i, align 8
   %call7.i2.i = invoke noundef zeroext i1 %21(ptr noundef nonnull align 8 dereferenceable(8) %20)
           to label %call7.i.noexc.i unwind label %terminate.lpad.i
@@ -8084,7 +7941,7 @@ call7.i.noexc.i:                                  ; preds = %land.lhs.true4.i.i
 if.then.i.i:                                      ; preds = %call7.i.noexc.i
   %22 = load ptr, ptr %sent_packet_manager_.i.i, align 8
   %vtable10.i.i = load ptr, ptr %22, align 8
-  %vfn11.i.i = getelementptr inbounds ptr, ptr %vtable10.i.i, i64 38
+  %vfn11.i.i = getelementptr inbounds i8, ptr %vtable10.i.i, i64 304
   %23 = load ptr, ptr %vfn11.i.i, align 8
   invoke void %23(ptr noundef nonnull align 8 dereferenceable(8) %22)
           to label %_ZN3net14QuicConnection19ScopedPacketBundlerD2Ev.exit unwind label %terminate.lpad.i
@@ -8121,7 +7978,7 @@ entry:
   %ack_bundler = alloca %"class.net::QuicConnection::ScopedPacketBundler", align 8
   %ref.tmp = alloca %"struct.net::QuicFrame", align 8
   call void @_ZN3net14QuicConnection19ScopedPacketBundlerC2EPS0_NS0_11AckBundlingE(ptr noundef nonnull align 8 dereferenceable(9) %ack_bundler, ptr noundef nonnull %this, i32 noundef 2)
-  %packet_generator_ = getelementptr inbounds %"class.net::QuicConnection", ptr %this, i64 0, i32 69
+  %packet_generator_ = getelementptr inbounds i8, ptr %this, i64 2408
   %call = invoke noalias noundef nonnull dereferenceable(16) ptr @_Znwm(i64 noundef 16) #23
           to label %invoke.cont unwind label %lpad
 
@@ -8143,28 +8000,28 @@ invoke.cont5:                                     ; preds = %invoke.cont4
   br i1 %cmp.i, label %_ZN3net14QuicConnection19ScopedPacketBundlerD2Ev.exit, label %if.end.i
 
 if.end.i:                                         ; preds = %invoke.cont5
-  %already_in_batch_mode_.i = getelementptr inbounds %"class.net::QuicConnection::ScopedPacketBundler", ptr %ack_bundler, i64 0, i32 1
+  %already_in_batch_mode_.i = getelementptr inbounds i8, ptr %ack_bundler, i64 8
   %1 = load i8, ptr %already_in_batch_mode_.i, align 8
   %2 = and i8 %1, 1
   %tobool.not.i = icmp eq i8 %2, 0
   br i1 %tobool.not.i, label %if.then2.i, label %_ZN3net14QuicConnection19ScopedPacketBundlerD2Ev.exit
 
 if.then2.i:                                       ; preds = %if.end.i
-  %packet_generator_.i = getelementptr inbounds %"class.net::QuicConnection", ptr %0, i64 0, i32 69
+  %packet_generator_.i = getelementptr inbounds i8, ptr %0, i64 2408
   invoke void @_ZN3net19QuicPacketGenerator21FinishBatchOperationsEv(ptr noundef nonnull align 8 dereferenceable(472) %packet_generator_.i)
           to label %invoke.cont.i unwind label %terminate.lpad.i
 
 invoke.cont.i:                                    ; preds = %if.then2.i
-  %queued_packets_.i.i = getelementptr inbounds %"class.net::QuicConnection", ptr %0, i64 0, i32 36
+  %queued_packets_.i.i = getelementptr inbounds i8, ptr %0, i64 816
   %3 = load ptr, ptr %queued_packets_.i.i, align 8
   %cmp.i.i.i = icmp eq ptr %3, %queued_packets_.i.i
   br i1 %cmp.i.i.i, label %land.lhs.true.i.i, label %_ZN3net14QuicConnection19ScopedPacketBundlerD2Ev.exit
 
 land.lhs.true.i.i:                                ; preds = %invoke.cont.i
-  %sent_packet_manager_.i.i = getelementptr inbounds %"class.net::QuicConnection", ptr %0, i64 0, i32 77
+  %sent_packet_manager_.i.i = getelementptr inbounds i8, ptr %0, i64 3192
   %4 = load ptr, ptr %sent_packet_manager_.i.i, align 8
   %vtable.i.i = load ptr, ptr %4, align 8
-  %vfn.i.i = getelementptr inbounds ptr, ptr %vtable.i.i, i64 11
+  %vfn.i.i = getelementptr inbounds i8, ptr %vtable.i.i, i64 88
   %5 = load ptr, ptr %vfn.i.i, align 8
   %call3.i1.i = invoke noundef zeroext i1 %5(ptr noundef nonnull align 8 dereferenceable(8) %4)
           to label %call3.i.noexc.i unwind label %terminate.lpad.i
@@ -8173,10 +8030,10 @@ call3.i.noexc.i:                                  ; preds = %land.lhs.true.i.i
   br i1 %call3.i1.i, label %_ZN3net14QuicConnection19ScopedPacketBundlerD2Ev.exit, label %land.lhs.true4.i.i
 
 land.lhs.true4.i.i:                               ; preds = %call3.i.noexc.i
-  %visitor_.i.i = getelementptr inbounds %"class.net::QuicConnection", ptr %0, i64 0, i32 67
+  %visitor_.i.i = getelementptr inbounds i8, ptr %0, i64 2392
   %6 = load ptr, ptr %visitor_.i.i, align 8
   %vtable5.i.i = load ptr, ptr %6, align 8
-  %vfn6.i.i = getelementptr inbounds ptr, ptr %vtable5.i.i, i64 15
+  %vfn6.i.i = getelementptr inbounds i8, ptr %vtable5.i.i, i64 120
   %7 = load ptr, ptr %vfn6.i.i, align 8
   %call7.i2.i = invoke noundef zeroext i1 %7(ptr noundef nonnull align 8 dereferenceable(8) %6)
           to label %call7.i.noexc.i unwind label %terminate.lpad.i
@@ -8187,7 +8044,7 @@ call7.i.noexc.i:                                  ; preds = %land.lhs.true4.i.i
 if.then.i.i:                                      ; preds = %call7.i.noexc.i
   %8 = load ptr, ptr %sent_packet_manager_.i.i, align 8
   %vtable10.i.i = load ptr, ptr %8, align 8
-  %vfn11.i.i = getelementptr inbounds ptr, ptr %vtable10.i.i, i64 38
+  %vfn11.i.i = getelementptr inbounds i8, ptr %vtable10.i.i, i64 304
   %9 = load ptr, ptr %vfn11.i.i, align 8
   invoke void %9(ptr noundef nonnull align 8 dereferenceable(8) %8)
           to label %_ZN3net14QuicConnection19ScopedPacketBundlerD2Ev.exit unwind label %terminate.lpad.i
@@ -8229,7 +8086,7 @@ entry:
   %ack_bundler = alloca %"class.net::QuicConnection::ScopedPacketBundler", align 8
   %ref.tmp = alloca %"struct.net::QuicFrame", align 8
   call void @_ZN3net14QuicConnection19ScopedPacketBundlerC2EPS0_NS0_11AckBundlingE(ptr noundef nonnull align 8 dereferenceable(9) %ack_bundler, ptr noundef nonnull %this, i32 noundef 2)
-  %packet_generator_ = getelementptr inbounds %"class.net::QuicConnection", ptr %this, i64 0, i32 69
+  %packet_generator_ = getelementptr inbounds i8, ptr %this, i64 2408
   %call = invoke noalias noundef nonnull dereferenceable(4) ptr @_Znwm(i64 noundef 4) #23
           to label %invoke.cont unwind label %lpad
 
@@ -8251,28 +8108,28 @@ invoke.cont5:                                     ; preds = %invoke.cont4
   br i1 %cmp.i, label %_ZN3net14QuicConnection19ScopedPacketBundlerD2Ev.exit, label %if.end.i
 
 if.end.i:                                         ; preds = %invoke.cont5
-  %already_in_batch_mode_.i = getelementptr inbounds %"class.net::QuicConnection::ScopedPacketBundler", ptr %ack_bundler, i64 0, i32 1
+  %already_in_batch_mode_.i = getelementptr inbounds i8, ptr %ack_bundler, i64 8
   %1 = load i8, ptr %already_in_batch_mode_.i, align 8
   %2 = and i8 %1, 1
   %tobool.not.i = icmp eq i8 %2, 0
   br i1 %tobool.not.i, label %if.then2.i, label %_ZN3net14QuicConnection19ScopedPacketBundlerD2Ev.exit
 
 if.then2.i:                                       ; preds = %if.end.i
-  %packet_generator_.i = getelementptr inbounds %"class.net::QuicConnection", ptr %0, i64 0, i32 69
+  %packet_generator_.i = getelementptr inbounds i8, ptr %0, i64 2408
   invoke void @_ZN3net19QuicPacketGenerator21FinishBatchOperationsEv(ptr noundef nonnull align 8 dereferenceable(472) %packet_generator_.i)
           to label %invoke.cont.i unwind label %terminate.lpad.i
 
 invoke.cont.i:                                    ; preds = %if.then2.i
-  %queued_packets_.i.i = getelementptr inbounds %"class.net::QuicConnection", ptr %0, i64 0, i32 36
+  %queued_packets_.i.i = getelementptr inbounds i8, ptr %0, i64 816
   %3 = load ptr, ptr %queued_packets_.i.i, align 8
   %cmp.i.i.i = icmp eq ptr %3, %queued_packets_.i.i
   br i1 %cmp.i.i.i, label %land.lhs.true.i.i, label %_ZN3net14QuicConnection19ScopedPacketBundlerD2Ev.exit
 
 land.lhs.true.i.i:                                ; preds = %invoke.cont.i
-  %sent_packet_manager_.i.i = getelementptr inbounds %"class.net::QuicConnection", ptr %0, i64 0, i32 77
+  %sent_packet_manager_.i.i = getelementptr inbounds i8, ptr %0, i64 3192
   %4 = load ptr, ptr %sent_packet_manager_.i.i, align 8
   %vtable.i.i = load ptr, ptr %4, align 8
-  %vfn.i.i = getelementptr inbounds ptr, ptr %vtable.i.i, i64 11
+  %vfn.i.i = getelementptr inbounds i8, ptr %vtable.i.i, i64 88
   %5 = load ptr, ptr %vfn.i.i, align 8
   %call3.i1.i = invoke noundef zeroext i1 %5(ptr noundef nonnull align 8 dereferenceable(8) %4)
           to label %call3.i.noexc.i unwind label %terminate.lpad.i
@@ -8281,10 +8138,10 @@ call3.i.noexc.i:                                  ; preds = %land.lhs.true.i.i
   br i1 %call3.i1.i, label %_ZN3net14QuicConnection19ScopedPacketBundlerD2Ev.exit, label %land.lhs.true4.i.i
 
 land.lhs.true4.i.i:                               ; preds = %call3.i.noexc.i
-  %visitor_.i.i = getelementptr inbounds %"class.net::QuicConnection", ptr %0, i64 0, i32 67
+  %visitor_.i.i = getelementptr inbounds i8, ptr %0, i64 2392
   %6 = load ptr, ptr %visitor_.i.i, align 8
   %vtable5.i.i = load ptr, ptr %6, align 8
-  %vfn6.i.i = getelementptr inbounds ptr, ptr %vtable5.i.i, i64 15
+  %vfn6.i.i = getelementptr inbounds i8, ptr %vtable5.i.i, i64 120
   %7 = load ptr, ptr %vfn6.i.i, align 8
   %call7.i2.i = invoke noundef zeroext i1 %7(ptr noundef nonnull align 8 dereferenceable(8) %6)
           to label %call7.i.noexc.i unwind label %terminate.lpad.i
@@ -8295,7 +8152,7 @@ call7.i.noexc.i:                                  ; preds = %land.lhs.true4.i.i
 if.then.i.i:                                      ; preds = %call7.i.noexc.i
   %8 = load ptr, ptr %sent_packet_manager_.i.i, align 8
   %vtable10.i.i = load ptr, ptr %8, align 8
-  %vfn11.i.i = getelementptr inbounds ptr, ptr %vtable10.i.i, i64 38
+  %vfn11.i.i = getelementptr inbounds i8, ptr %vtable10.i.i, i64 304
   %9 = load ptr, ptr %vfn11.i.i, align 8
   invoke void %9(ptr noundef nonnull align 8 dereferenceable(8) %8)
           to label %_ZN3net14QuicConnection19ScopedPacketBundlerD2Ev.exit unwind label %terminate.lpad.i
@@ -8337,7 +8194,7 @@ entry:
   %ack_bundler = alloca %"class.net::QuicConnection::ScopedPacketBundler", align 8
   %ref.tmp = alloca %"struct.net::QuicFrame", align 8
   call void @_ZN3net14QuicConnection19ScopedPacketBundlerC2EPS0_NS0_11AckBundlingE(ptr noundef nonnull align 8 dereferenceable(9) %ack_bundler, ptr noundef nonnull %this, i32 noundef 2)
-  %packet_generator_ = getelementptr inbounds %"class.net::QuicConnection", ptr %this, i64 0, i32 69
+  %packet_generator_ = getelementptr inbounds i8, ptr %this, i64 2408
   %call = invoke noalias noundef nonnull dereferenceable(1) ptr @_Znwm(i64 noundef 1) #23
           to label %invoke.cont unwind label %lpad
 
@@ -8354,7 +8211,7 @@ invoke.cont4:                                     ; preds = %invoke.cont3
           to label %invoke.cont5 unwind label %lpad
 
 invoke.cont5:                                     ; preds = %invoke.cont4
-  %framer_.i = getelementptr inbounds %"class.net::QuicConnection", ptr %this, i64 0, i32 4
+  %framer_.i = getelementptr inbounds i8, ptr %this, i64 32
   invoke void @_ZN3net10QuicFramer12OnPathClosedEh(ptr noundef nonnull align 8 dereferenceable(408) %framer_.i, i8 noundef zeroext %path_id)
           to label %invoke.cont6 unwind label %lpad
 
@@ -8364,28 +8221,28 @@ invoke.cont6:                                     ; preds = %invoke.cont5
   br i1 %cmp.i, label %_ZN3net14QuicConnection19ScopedPacketBundlerD2Ev.exit, label %if.end.i
 
 if.end.i:                                         ; preds = %invoke.cont6
-  %already_in_batch_mode_.i = getelementptr inbounds %"class.net::QuicConnection::ScopedPacketBundler", ptr %ack_bundler, i64 0, i32 1
+  %already_in_batch_mode_.i = getelementptr inbounds i8, ptr %ack_bundler, i64 8
   %1 = load i8, ptr %already_in_batch_mode_.i, align 8
   %2 = and i8 %1, 1
   %tobool.not.i = icmp eq i8 %2, 0
   br i1 %tobool.not.i, label %if.then2.i, label %_ZN3net14QuicConnection19ScopedPacketBundlerD2Ev.exit
 
 if.then2.i:                                       ; preds = %if.end.i
-  %packet_generator_.i = getelementptr inbounds %"class.net::QuicConnection", ptr %0, i64 0, i32 69
+  %packet_generator_.i = getelementptr inbounds i8, ptr %0, i64 2408
   invoke void @_ZN3net19QuicPacketGenerator21FinishBatchOperationsEv(ptr noundef nonnull align 8 dereferenceable(472) %packet_generator_.i)
           to label %invoke.cont.i unwind label %terminate.lpad.i
 
 invoke.cont.i:                                    ; preds = %if.then2.i
-  %queued_packets_.i.i = getelementptr inbounds %"class.net::QuicConnection", ptr %0, i64 0, i32 36
+  %queued_packets_.i.i = getelementptr inbounds i8, ptr %0, i64 816
   %3 = load ptr, ptr %queued_packets_.i.i, align 8
   %cmp.i.i.i = icmp eq ptr %3, %queued_packets_.i.i
   br i1 %cmp.i.i.i, label %land.lhs.true.i.i, label %_ZN3net14QuicConnection19ScopedPacketBundlerD2Ev.exit
 
 land.lhs.true.i.i:                                ; preds = %invoke.cont.i
-  %sent_packet_manager_.i.i = getelementptr inbounds %"class.net::QuicConnection", ptr %0, i64 0, i32 77
+  %sent_packet_manager_.i.i = getelementptr inbounds i8, ptr %0, i64 3192
   %4 = load ptr, ptr %sent_packet_manager_.i.i, align 8
   %vtable.i.i = load ptr, ptr %4, align 8
-  %vfn.i.i = getelementptr inbounds ptr, ptr %vtable.i.i, i64 11
+  %vfn.i.i = getelementptr inbounds i8, ptr %vtable.i.i, i64 88
   %5 = load ptr, ptr %vfn.i.i, align 8
   %call3.i1.i = invoke noundef zeroext i1 %5(ptr noundef nonnull align 8 dereferenceable(8) %4)
           to label %call3.i.noexc.i unwind label %terminate.lpad.i
@@ -8394,10 +8251,10 @@ call3.i.noexc.i:                                  ; preds = %land.lhs.true.i.i
   br i1 %call3.i1.i, label %_ZN3net14QuicConnection19ScopedPacketBundlerD2Ev.exit, label %land.lhs.true4.i.i
 
 land.lhs.true4.i.i:                               ; preds = %call3.i.noexc.i
-  %visitor_.i.i = getelementptr inbounds %"class.net::QuicConnection", ptr %0, i64 0, i32 67
+  %visitor_.i.i = getelementptr inbounds i8, ptr %0, i64 2392
   %6 = load ptr, ptr %visitor_.i.i, align 8
   %vtable5.i.i = load ptr, ptr %6, align 8
-  %vfn6.i.i = getelementptr inbounds ptr, ptr %vtable5.i.i, i64 15
+  %vfn6.i.i = getelementptr inbounds i8, ptr %vtable5.i.i, i64 120
   %7 = load ptr, ptr %vfn6.i.i, align 8
   %call7.i2.i = invoke noundef zeroext i1 %7(ptr noundef nonnull align 8 dereferenceable(8) %6)
           to label %call7.i.noexc.i unwind label %terminate.lpad.i
@@ -8408,7 +8265,7 @@ call7.i.noexc.i:                                  ; preds = %land.lhs.true4.i.i
 if.then.i.i:                                      ; preds = %call7.i.noexc.i
   %8 = load ptr, ptr %sent_packet_manager_.i.i, align 8
   %vtable10.i.i = load ptr, ptr %8, align 8
-  %vfn11.i.i = getelementptr inbounds ptr, ptr %vtable10.i.i, i64 38
+  %vfn11.i.i = getelementptr inbounds i8, ptr %vtable10.i.i, i64 304
   %9 = load ptr, ptr %vfn11.i.i, align 8
   invoke void %9(ptr noundef nonnull align 8 dereferenceable(8) %8)
           to label %_ZN3net14QuicConnection19ScopedPacketBundlerD2Ev.exit unwind label %terminate.lpad.i
@@ -8447,55 +8304,55 @@ declare void @_ZN3net9QuicFrameC1EPNS_18QuicPathCloseFrameE(ptr noundef nonnull 
 ; Function Attrs: mustprogress uwtable
 define dso_local noundef nonnull align 8 dereferenceable(248) ptr @_ZN3net14QuicConnection8GetStatsEv(ptr noundef nonnull align 8 dereferenceable(3372) %this) local_unnamed_addr #0 align 2 {
 entry:
-  %sent_packet_manager_ = getelementptr inbounds %"class.net::QuicConnection", ptr %this, i64 0, i32 77
+  %sent_packet_manager_ = getelementptr inbounds i8, ptr %this, i64 3192
   %0 = load ptr, ptr %sent_packet_manager_, align 8
   %vtable = load ptr, ptr %0, align 8
-  %vfn = getelementptr inbounds ptr, ptr %vtable, i64 19
+  %vfn = getelementptr inbounds i8, ptr %vtable, i64 152
   %1 = load ptr, ptr %vfn, align 8
   %call2 = tail call noundef ptr %1(ptr noundef nonnull align 8 dereferenceable(8) %0)
-  %retval.sroa.2.0.min_rtt_.sroa_idx.i = getelementptr inbounds %"class.net::RttStats", ptr %call2, i64 0, i32 1, i32 1
+  %retval.sroa.2.0.min_rtt_.sroa_idx.i = getelementptr inbounds i8, ptr %call2, i64 24
   %retval.sroa.2.0.copyload.i = load i64, ptr %retval.sroa.2.0.min_rtt_.sroa_idx.i, align 8
   %cmp.i = icmp eq i64 %retval.sroa.2.0.copyload.i, 0
   br i1 %cmp.i, label %if.then, label %if.end
 
 if.then:                                          ; preds = %entry
-  %initial_rtt_us_.i = getelementptr inbounds %"class.net::RttStats", ptr %call2, i64 0, i32 5
+  %initial_rtt_us_.i = getelementptr inbounds i8, ptr %call2, i64 80
   %2 = load i64, ptr %initial_rtt_us_.i, align 8
   br label %if.end
 
 if.end:                                           ; preds = %if.then, %entry
   %min_rtt.sroa.2.0 = phi i64 [ %2, %if.then ], [ %retval.sroa.2.0.copyload.i, %entry ]
-  %min_rtt_us = getelementptr inbounds %"class.net::QuicConnection", ptr %this, i64 0, i32 72, i32 21
+  %min_rtt_us = getelementptr inbounds i8, ptr %this, i64 3080
   store i64 %min_rtt.sroa.2.0, ptr %min_rtt_us, align 8
-  %retval.sroa.2.0.smoothed_rtt_.sroa_idx.i = getelementptr inbounds %"class.net::RttStats", ptr %call2, i64 0, i32 2, i32 1
+  %retval.sroa.2.0.smoothed_rtt_.sroa_idx.i = getelementptr inbounds i8, ptr %call2, i64 40
   %retval.sroa.2.0.copyload.i8 = load i64, ptr %retval.sroa.2.0.smoothed_rtt_.sroa_idx.i, align 8
   %cmp.i12 = icmp eq i64 %retval.sroa.2.0.copyload.i8, 0
   br i1 %cmp.i12, label %if.then11, label %if.end16
 
 if.then11:                                        ; preds = %if.end
-  %initial_rtt_us_.i13 = getelementptr inbounds %"class.net::RttStats", ptr %call2, i64 0, i32 5
+  %initial_rtt_us_.i13 = getelementptr inbounds i8, ptr %call2, i64 80
   %3 = load i64, ptr %initial_rtt_us_.i13, align 8
   br label %if.end16
 
 if.end16:                                         ; preds = %if.then11, %if.end
   %srtt.sroa.2.0 = phi i64 [ %3, %if.then11 ], [ %retval.sroa.2.0.copyload.i8, %if.end ]
-  %stats_ = getelementptr inbounds %"class.net::QuicConnection", ptr %this, i64 0, i32 72
-  %srtt_us = getelementptr inbounds %"class.net::QuicConnection", ptr %this, i64 0, i32 72, i32 22
+  %stats_ = getelementptr inbounds i8, ptr %this, i64 2912
+  %srtt_us = getelementptr inbounds i8, ptr %this, i64 3088
   store i64 %srtt.sroa.2.0, ptr %srtt_us, align 8
   %4 = load ptr, ptr %sent_packet_manager_, align 8
   %vtable22 = load ptr, ptr %4, align 8
-  %vfn23 = getelementptr inbounds ptr, ptr %vtable22, i64 20
+  %vfn23 = getelementptr inbounds i8, ptr %vtable22, i64 160
   %5 = load ptr, ptr %vfn23, align 8
   %call24 = tail call i64 %5(ptr noundef nonnull align 8 dereferenceable(8) %4)
-  %estimated_bandwidth = getelementptr inbounds %"class.net::QuicConnection", ptr %this, i64 0, i32 72, i32 25
+  %estimated_bandwidth = getelementptr inbounds i8, ptr %this, i64 3112
   store i64 %call24, ptr %estimated_bandwidth, align 8
-  %packet_generator_ = getelementptr inbounds %"class.net::QuicConnection", ptr %this, i64 0, i32 69
+  %packet_generator_ = getelementptr inbounds i8, ptr %this, i64 2408
   %call26 = tail call noundef i64 @_ZNK3net19QuicPacketGenerator25GetCurrentMaxPacketLengthEv(ptr noundef nonnull align 8 dereferenceable(472) %packet_generator_)
-  %max_packet_size = getelementptr inbounds %"class.net::QuicConnection", ptr %this, i64 0, i32 72, i32 23
+  %max_packet_size = getelementptr inbounds i8, ptr %this, i64 3096
   store i64 %call26, ptr %max_packet_size, align 8
-  %largest_received_packet_size_ = getelementptr inbounds %"class.net::QuicConnection", ptr %this, i64 0, i32 92
+  %largest_received_packet_size_ = getelementptr inbounds i8, ptr %this, i64 3352
   %6 = load i64, ptr %largest_received_packet_size_, align 8
-  %max_received_packet_size = getelementptr inbounds %"class.net::QuicConnection", ptr %this, i64 0, i32 72, i32 24
+  %max_received_packet_size = getelementptr inbounds i8, ptr %this, i64 3104
   store i64 %6, ptr %max_received_packet_size, align 8
   ret ptr %stats_
 }
@@ -8507,47 +8364,47 @@ define dso_local void @_ZN3net14QuicConnection16ProcessUdpPacketERKNS_10IPEndPoi
 entry:
   %ref.tmp.i = alloca ptr, align 8
   %alarm_delayer = alloca %"class.net::QuicConnection::ScopedRetransmissionScheduler", align 8
-  %connected_ = getelementptr inbounds %"class.net::QuicConnection", ptr %this, i64 0, i32 80
+  %connected_ = getelementptr inbounds i8, ptr %this, i64 3208
   %0 = load i8, ptr %connected_, align 8
   %1 = and i8 %0, 1
   %tobool.not = icmp eq i8 %1, 0
   br i1 %tobool.not, label %cleanup.cont, label %if.end
 
 if.end:                                           ; preds = %entry
-  %debug_visitor_ = getelementptr inbounds %"class.net::QuicConnection", ptr %this, i64 0, i32 68
+  %debug_visitor_ = getelementptr inbounds i8, ptr %this, i64 2400
   %2 = load ptr, ptr %debug_visitor_, align 8
   %cmp.not = icmp eq ptr %2, null
   br i1 %cmp.not, label %if.end4, label %if.then2
 
 if.then2:                                         ; preds = %if.end
   %vtable = load ptr, ptr %2, align 8
-  %vfn = getelementptr inbounds ptr, ptr %vtable, i64 7
+  %vfn = getelementptr inbounds i8, ptr %vtable, i64 56
   %3 = load ptr, ptr %vfn, align 8
   tail call void %3(ptr noundef nonnull align 8 dereferenceable(8) %2, ptr noundef nonnull align 8 dereferenceable(26) %self_address, ptr noundef nonnull align 8 dereferenceable(26) %peer_address, ptr noundef nonnull align 8 dereferenceable(25) %packet)
   br label %if.end4
 
 if.end4:                                          ; preds = %if.then2, %if.end
-  %length_.i = getelementptr inbounds %"class.net::QuicData", ptr %packet, i64 0, i32 2
+  %length_.i = getelementptr inbounds i8, ptr %packet, i64 16
   %4 = load i64, ptr %length_.i, align 8
-  %last_size_ = getelementptr inbounds %"class.net::QuicConnection", ptr %this, i64 0, i32 22
+  %last_size_ = getelementptr inbounds i8, ptr %this, i64 592
   store i64 %4, ptr %last_size_, align 8
-  %buffer_.i = getelementptr inbounds %"class.net::QuicData", ptr %packet, i64 0, i32 1
+  %buffer_.i = getelementptr inbounds i8, ptr %packet, i64 8
   %5 = load ptr, ptr %buffer_.i, align 8
-  %current_packet_data_ = getelementptr inbounds %"class.net::QuicConnection", ptr %this, i64 0, i32 23
+  %current_packet_data_ = getelementptr inbounds i8, ptr %this, i64 600
   store ptr %5, ptr %current_packet_data_, align 8
-  %last_packet_destination_address_ = getelementptr inbounds %"class.net::QuicConnection", ptr %this, i64 0, i32 82
+  %last_packet_destination_address_ = getelementptr inbounds i8, ptr %this, i64 3216
   %call.i.i = tail call noundef nonnull align 8 dereferenceable(24) ptr @_ZNSt6vectorIhSaIhEEaSERKS1_(ptr noundef nonnull align 8 dereferenceable(24) %last_packet_destination_address_, ptr noundef nonnull align 8 dereferenceable(24) %self_address)
-  %port_.i = getelementptr inbounds %"class.net::IPEndPoint", ptr %self_address, i64 0, i32 1
+  %port_.i = getelementptr inbounds i8, ptr %self_address, i64 24
   %6 = load i16, ptr %port_.i, align 8
-  %port_3.i = getelementptr inbounds %"class.net::QuicConnection", ptr %this, i64 0, i32 82, i32 1
+  %port_3.i = getelementptr inbounds i8, ptr %this, i64 3240
   store i16 %6, ptr %port_3.i, align 8
-  %last_packet_source_address_ = getelementptr inbounds %"class.net::QuicConnection", ptr %this, i64 0, i32 83
+  %last_packet_source_address_ = getelementptr inbounds i8, ptr %this, i64 3248
   %call.i.i10 = tail call noundef nonnull align 8 dereferenceable(24) ptr @_ZNSt6vectorIhSaIhEEaSERKS1_(ptr noundef nonnull align 8 dereferenceable(24) %last_packet_source_address_, ptr noundef nonnull align 8 dereferenceable(24) %peer_address)
-  %port_.i11 = getelementptr inbounds %"class.net::IPEndPoint", ptr %peer_address, i64 0, i32 1
+  %port_.i11 = getelementptr inbounds i8, ptr %peer_address, i64 24
   %7 = load i16, ptr %port_.i11, align 8
-  %port_3.i12 = getelementptr inbounds %"class.net::QuicConnection", ptr %this, i64 0, i32 83, i32 1
+  %port_3.i12 = getelementptr inbounds i8, ptr %this, i64 3272
   store i16 %7, ptr %port_3.i12, align 8
-  %self_address_ = getelementptr inbounds %"class.net::QuicConnection", ptr %this, i64 0, i32 15
+  %self_address_ = getelementptr inbounds i8, ptr %this, i64 504
   %call1.i = tail call noundef i32 @_ZN3net16GetAddressFamilyERKNS_9IPAddressE(ptr noundef nonnull align 8 dereferenceable(24) %self_address_)
   %cmp.i.not = icmp eq i32 %call1.i, 0
   br i1 %cmp.i.not, label %if.then9, label %if.end13
@@ -8555,12 +8412,12 @@ if.end4:                                          ; preds = %if.then2, %if.end
 if.then9:                                         ; preds = %if.end4
   %call.i.i13 = tail call noundef nonnull align 8 dereferenceable(24) ptr @_ZNSt6vectorIhSaIhEEaSERKS1_(ptr noundef nonnull align 8 dereferenceable(24) %self_address_, ptr noundef nonnull align 8 dereferenceable(24) %last_packet_destination_address_)
   %8 = load i16, ptr %port_3.i, align 8
-  %port_3.i15 = getelementptr inbounds %"class.net::QuicConnection", ptr %this, i64 0, i32 15, i32 1
+  %port_3.i15 = getelementptr inbounds i8, ptr %this, i64 528
   store i16 %8, ptr %port_3.i15, align 8
   br label %if.end13
 
 if.end13:                                         ; preds = %if.then9, %if.end4
-  %peer_address_ = getelementptr inbounds %"class.net::QuicConnection", ptr %this, i64 0, i32 16
+  %peer_address_ = getelementptr inbounds i8, ptr %this, i64 536
   %call1.i16 = tail call noundef i32 @_ZN3net16GetAddressFamilyERKNS_9IPAddressE(ptr noundef nonnull align 8 dereferenceable(24) %peer_address_)
   %cmp.i17.not = icmp eq i32 %call1.i16, 0
   br i1 %cmp.i17.not, label %if.then15, label %if.end19
@@ -8568,29 +8425,29 @@ if.end13:                                         ; preds = %if.then9, %if.end4
 if.then15:                                        ; preds = %if.end13
   %call.i.i18 = tail call noundef nonnull align 8 dereferenceable(24) ptr @_ZNSt6vectorIhSaIhEEaSERKS1_(ptr noundef nonnull align 8 dereferenceable(24) %peer_address_, ptr noundef nonnull align 8 dereferenceable(24) %last_packet_source_address_)
   %9 = load i16, ptr %port_3.i12, align 8
-  %port_3.i20 = getelementptr inbounds %"class.net::QuicConnection", ptr %this, i64 0, i32 16, i32 1
+  %port_3.i20 = getelementptr inbounds i8, ptr %this, i64 560
   store i16 %9, ptr %port_3.i20, align 8
   br label %if.end19
 
 if.end19:                                         ; preds = %if.then15, %if.end13
   %10 = load i64, ptr %length_.i, align 8
-  %bytes_received = getelementptr inbounds %"class.net::QuicConnection", ptr %this, i64 0, i32 72, i32 4
+  %bytes_received = getelementptr inbounds i8, ptr %this, i64 2944
   %11 = load <2 x i64>, ptr %bytes_received, align 8
   %12 = insertelement <2 x i64> <i64 poison, i64 1>, i64 %10, i64 0
   %13 = add <2 x i64> %11, %12
   store <2 x i64> %13, ptr %bytes_received, align 8
-  %receipt_time_.i = getelementptr inbounds %"class.net::QuicReceivedPacket", ptr %packet, i64 0, i32 2
+  %receipt_time_.i = getelementptr inbounds i8, ptr %packet, i64 32
   %retval.sroa.0.0.copyload.i = load i64, ptr %receipt_time_.i, align 8
-  %time_of_last_received_packet_ = getelementptr inbounds %"class.net::QuicConnection", ptr %this, i64 0, i32 73
+  %time_of_last_received_packet_ = getelementptr inbounds i8, ptr %this, i64 3160
   store i64 %retval.sroa.0.0.copyload.i, ptr %time_of_last_received_packet_, align 8
   store ptr %this, ptr %alarm_delayer, align 8
-  %already_delayed_.i = getelementptr inbounds %"class.net::QuicConnection::ScopedRetransmissionScheduler", ptr %alarm_delayer, i64 0, i32 1
-  %delay_setting_retransmission_alarm_.i = getelementptr inbounds %"class.net::QuicConnection", ptr %this, i64 0, i32 54
+  %already_delayed_.i = getelementptr inbounds i8, ptr %alarm_delayer, i64 8
+  %delay_setting_retransmission_alarm_.i = getelementptr inbounds i8, ptr %this, i64 1284
   %14 = load i8, ptr %delay_setting_retransmission_alarm_.i, align 4
   %15 = and i8 %14, 1
   store i8 %15, ptr %already_delayed_.i, align 8
   store i8 1, ptr %delay_setting_retransmission_alarm_.i, align 4
-  %framer_ = getelementptr inbounds %"class.net::QuicConnection", ptr %this, i64 0, i32 4
+  %framer_ = getelementptr inbounds i8, ptr %this, i64 32
   %call23 = invoke noundef zeroext i1 @_ZN3net10QuicFramer13ProcessPacketERKNS_19QuicEncryptedPacketE(ptr noundef nonnull align 8 dereferenceable(408) %framer_, ptr noundef nonnull align 8 dereferenceable(25) %packet)
           to label %invoke.cont unwind label %lpad
 
@@ -8598,24 +8455,24 @@ invoke.cont:                                      ; preds = %if.end19
   br i1 %call23, label %if.end46, label %if.then24
 
 if.then24:                                        ; preds = %invoke.cont
-  %error_.i = getelementptr inbounds %"class.net::QuicConnection", ptr %this, i64 0, i32 4, i32 4
+  %error_.i = getelementptr inbounds i8, ptr %this, i64 88
   %16 = load i32, ptr %error_.i, align 8
   %cmp28 = icmp eq i32 %16, 12
   br i1 %cmp28, label %if.then29, label %cleanup
 
 if.then29:                                        ; preds = %if.then24
-  %encryption_level_ = getelementptr inbounds %"class.net::QuicConnection", ptr %this, i64 0, i32 10
+  %encryption_level_ = getelementptr inbounds i8, ptr %this, i64 473
   %17 = load i8, ptr %encryption_level_, align 1
   %cmp30.not = icmp eq i8 %17, 2
   br i1 %cmp30.not, label %if.else, label %land.lhs.true
 
 land.lhs.true:                                    ; preds = %if.then29
-  %undecryptable_packets_ = getelementptr inbounds %"class.net::QuicConnection", ptr %this, i64 0, i32 32
-  %_M_finish.i = getelementptr inbounds %"class.net::QuicConnection", ptr %this, i64 0, i32 32, i32 0, i32 0, i32 0, i32 3
-  %_M_start.i = getelementptr inbounds %"class.net::QuicConnection", ptr %this, i64 0, i32 32, i32 0, i32 0, i32 0, i32 2
-  %_M_node.i.i = getelementptr inbounds %"class.net::QuicConnection", ptr %this, i64 0, i32 32, i32 0, i32 0, i32 0, i32 3, i32 3
+  %undecryptable_packets_ = getelementptr inbounds i8, ptr %this, i64 720
+  %_M_finish.i = getelementptr inbounds i8, ptr %this, i64 768
+  %_M_start.i = getelementptr inbounds i8, ptr %this, i64 736
+  %_M_node.i.i = getelementptr inbounds i8, ptr %this, i64 792
   %18 = load ptr, ptr %_M_node.i.i, align 8
-  %_M_node1.i.i = getelementptr inbounds %"class.net::QuicConnection", ptr %this, i64 0, i32 32, i32 0, i32 0, i32 0, i32 2, i32 3
+  %_M_node1.i.i = getelementptr inbounds i8, ptr %this, i64 760
   %19 = load ptr, ptr %_M_node1.i.i, align 8
   %sub.ptr.lhs.cast.i.i = ptrtoint ptr %18 to i64
   %sub.ptr.rhs.cast.i.i = ptrtoint ptr %19 to i64
@@ -8626,14 +8483,14 @@ land.lhs.true:                                    ; preds = %if.then29
   %sub.i.i = add nsw i64 %sub.ptr.div.i.i, %conv.neg.i.i
   %mul.i.i = shl nsw i64 %sub.i.i, 6
   %20 = load ptr, ptr %_M_finish.i, align 8
-  %_M_first.i.i = getelementptr inbounds %"class.net::QuicConnection", ptr %this, i64 0, i32 32, i32 0, i32 0, i32 0, i32 3, i32 1
+  %_M_first.i.i = getelementptr inbounds i8, ptr %this, i64 776
   %21 = load ptr, ptr %_M_first.i.i, align 8
   %sub.ptr.lhs.cast3.i.i = ptrtoint ptr %20 to i64
   %sub.ptr.rhs.cast4.i.i = ptrtoint ptr %21 to i64
   %sub.ptr.sub5.i.i = sub i64 %sub.ptr.lhs.cast3.i.i, %sub.ptr.rhs.cast4.i.i
   %sub.ptr.div6.i.i = ashr exact i64 %sub.ptr.sub5.i.i, 3
   %add.i.i = add nsw i64 %mul.i.i, %sub.ptr.div6.i.i
-  %_M_last.i.i = getelementptr inbounds %"class.net::QuicConnection", ptr %this, i64 0, i32 32, i32 0, i32 0, i32 0, i32 2, i32 2
+  %_M_last.i.i = getelementptr inbounds i8, ptr %this, i64 752
   %22 = load ptr, ptr %_M_last.i.i, align 8
   %23 = load ptr, ptr %_M_start.i, align 8
   %sub.ptr.lhs.cast8.i.i = ptrtoint ptr %22 to i64
@@ -8641,7 +8498,7 @@ land.lhs.true:                                    ; preds = %if.then29
   %sub.ptr.sub10.i.i = sub i64 %sub.ptr.lhs.cast8.i.i, %sub.ptr.rhs.cast9.i.i
   %sub.ptr.div11.i.i = ashr exact i64 %sub.ptr.sub10.i.i, 3
   %add12.i.i = add nsw i64 %add.i.i, %sub.ptr.div11.i.i
-  %max_undecryptable_packets_ = getelementptr inbounds %"class.net::QuicConnection", ptr %this, i64 0, i32 33
+  %max_undecryptable_packets_ = getelementptr inbounds i8, ptr %this, i64 800
   %24 = load i64, ptr %max_undecryptable_packets_, align 8
   %cmp32 = icmp ult i64 %add12.i.i, %24
   br i1 %cmp32, label %if.then33, label %if.else
@@ -8654,16 +8511,16 @@ if.then33:                                        ; preds = %land.lhs.true
 call.i.noexc:                                     ; preds = %if.then33
   store ptr %call.i22, ptr %ref.tmp.i, align 8
   %25 = load ptr, ptr %_M_finish.i, align 8
-  %_M_last.i.i.i = getelementptr inbounds %"class.net::QuicConnection", ptr %this, i64 0, i32 32, i32 0, i32 0, i32 0, i32 3, i32 2
+  %_M_last.i.i.i = getelementptr inbounds i8, ptr %this, i64 784
   %26 = load ptr, ptr %_M_last.i.i.i, align 8
-  %add.ptr.i.i.i = getelementptr inbounds ptr, ptr %26, i64 -1
+  %add.ptr.i.i.i = getelementptr inbounds i8, ptr %26, i64 -8
   %cmp.not.i.i.i = icmp eq ptr %25, %add.ptr.i.i.i
   br i1 %cmp.not.i.i.i, label %if.else.i.i.i, label %if.then.i.i.i
 
 if.then.i.i.i:                                    ; preds = %call.i.noexc
   store ptr %call.i22, ptr %25, align 8
   %27 = load ptr, ptr %_M_finish.i, align 8
-  %incdec.ptr.i.i.i = getelementptr inbounds ptr, ptr %27, i64 1
+  %incdec.ptr.i.i.i = getelementptr inbounds i8, ptr %27, i64 8
   store ptr %incdec.ptr.i.i.i, ptr %_M_finish.i, align 8
   br label %_ZN3net14QuicConnection24QueueUndecryptablePacketERKNS_19QuicEncryptedPacketE.exit
 
@@ -8688,34 +8545,34 @@ if.else:                                          ; preds = %land.lhs.true, %if.
 
 if.then37:                                        ; preds = %if.else
   %vtable39 = load ptr, ptr %29, align 8
-  %vfn40 = getelementptr inbounds ptr, ptr %vtable39, i64 10
+  %vfn40 = getelementptr inbounds i8, ptr %vtable39, i64 80
   %30 = load ptr, ptr %vfn40, align 8
   invoke void %30(ptr noundef nonnull align 8 dereferenceable(8) %29)
           to label %cleanup unwind label %lpad
 
 if.end46:                                         ; preds = %invoke.cont
-  %packets_processed = getelementptr inbounds %"class.net::QuicConnection", ptr %this, i64 0, i32 72, i32 6
+  %packets_processed = getelementptr inbounds i8, ptr %this, i64 2960
   %31 = load i64, ptr %packets_processed, align 8
   %inc48 = add i64 %31, 1
   store i64 %inc48, ptr %packets_processed, align 8
-  %active_peer_migration_type_ = getelementptr inbounds %"class.net::QuicConnection", ptr %this, i64 0, i32 17
+  %active_peer_migration_type_ = getelementptr inbounds i8, ptr %this, i64 568
   %32 = load i32, ptr %active_peer_migration_type_, align 8
   %cmp49.not = icmp eq i32 %32, 0
   br i1 %cmp49.not, label %if.end63, label %land.lhs.true50
 
 land.lhs.true50:                                  ; preds = %if.end46
-  %sent_packet_manager_ = getelementptr inbounds %"class.net::QuicConnection", ptr %this, i64 0, i32 77
+  %sent_packet_manager_ = getelementptr inbounds i8, ptr %this, i64 3192
   %33 = load ptr, ptr %sent_packet_manager_, align 8
-  %path_id = getelementptr inbounds %"class.net::QuicConnection", ptr %this, i64 0, i32 26, i32 2
+  %path_id = getelementptr inbounds i8, ptr %this, i64 672
   %34 = load i8, ptr %path_id, align 8
   %vtable52 = load ptr, ptr %33, align 8
-  %vfn53 = getelementptr inbounds ptr, ptr %vtable52, i64 31
+  %vfn53 = getelementptr inbounds i8, ptr %vtable52, i64 248
   %35 = load ptr, ptr %vfn53, align 8
   %call55 = invoke noundef i64 %35(ptr noundef nonnull align 8 dereferenceable(8) %33, i8 noundef zeroext %34)
           to label %invoke.cont54 unwind label %lpad
 
 invoke.cont54:                                    ; preds = %land.lhs.true50
-  %highest_packet_sent_before_peer_migration_ = getelementptr inbounds %"class.net::QuicConnection", ptr %this, i64 0, i32 19
+  %highest_packet_sent_before_peer_migration_ = getelementptr inbounds i8, ptr %this, i64 576
   %36 = load i64, ptr %highest_packet_sent_before_peer_migration_, align 8
   %cmp56 = icmp ugt i64 %call55, %36
   br i1 %cmp56, label %if.then57, label %if.end63
@@ -8723,7 +8580,7 @@ invoke.cont54:                                    ; preds = %land.lhs.true50
 if.then57:                                        ; preds = %invoke.cont54
   %37 = load i8, ptr %path_id, align 8
   %vtable60 = load ptr, ptr %this, align 8
-  %vfn61 = getelementptr inbounds ptr, ptr %vtable60, i64 46
+  %vfn61 = getelementptr inbounds i8, ptr %vtable60, i64 368
   %38 = load ptr, ptr %vfn61, align 8
   invoke void %38(ptr noundef nonnull align 8 dereferenceable(3372) %this, i8 noundef zeroext %37)
           to label %if.end63 unwind label %lpad
@@ -8739,19 +8596,19 @@ invoke.cont64:                                    ; preds = %if.end63
   br i1 %tobool.not.i, label %invoke.cont65, label %if.end.i
 
 if.end.i:                                         ; preds = %invoke.cont64
-  %defer_send_in_response_to_packets_.i = getelementptr inbounds %"class.net::QuicConnection", ptr %this, i64 0, i32 56
+  %defer_send_in_response_to_packets_.i = getelementptr inbounds i8, ptr %this, i64 1286
   %41 = load i8, ptr %defer_send_in_response_to_packets_.i, align 2
   %42 = and i8 %41, 1
   %tobool2.not.i = icmp eq i8 %42, 0
   br i1 %tobool2.not.i, label %if.else.i, label %if.then3.i
 
 if.then3.i:                                       ; preds = %if.end.i
-  %send_alarm_.i = getelementptr inbounds %"class.net::QuicConnection", ptr %this, i64 0, i32 62
+  %send_alarm_.i = getelementptr inbounds i8, ptr %this, i64 2352
   %43 = load ptr, ptr %send_alarm_.i, align 8
-  %clock_.i = getelementptr inbounds %"class.net::QuicConnection", ptr %this, i64 0, i32 12
+  %clock_.i = getelementptr inbounds i8, ptr %this, i64 480
   %44 = load ptr, ptr %clock_.i, align 8
   %vtable.i = load ptr, ptr %44, align 8
-  %vfn.i = getelementptr inbounds ptr, ptr %vtable.i, i64 2
+  %vfn.i = getelementptr inbounds i8, ptr %vtable.i, i64 16
   %45 = load ptr, ptr %vfn.i, align 8
   %call4.i23 = invoke i64 %45(ptr noundef nonnull align 8 dereferenceable(8) %44)
           to label %call4.i.noexc unwind label %lpad
@@ -8768,22 +8625,22 @@ if.else.i:                                        ; preds = %if.end.i
           to label %invoke.cont65 unwind label %lpad
 
 invoke.cont65:                                    ; preds = %invoke.cont64, %call4.i.noexc, %if.else.i
-  %perspective_.i = getelementptr inbounds %"class.net::QuicConnection", ptr %this, i64 0, i32 79
+  %perspective_.i = getelementptr inbounds i8, ptr %this, i64 3204
   %48 = load i32, ptr %perspective_.i, align 4
   %cmp.i26 = icmp eq i32 %48, 0
   br i1 %cmp.i26, label %cleanup, label %if.end.i27
 
 if.end.i27:                                       ; preds = %invoke.cont65
-  %visitor_.i = getelementptr inbounds %"class.net::QuicConnection", ptr %this, i64 0, i32 67
+  %visitor_.i = getelementptr inbounds i8, ptr %this, i64 2392
   %49 = load ptr, ptr %visitor_.i, align 8
   %vtable.i28 = load ptr, ptr %49, align 8
-  %vfn.i29 = getelementptr inbounds ptr, ptr %vtable.i28, i64 17
+  %vfn.i29 = getelementptr inbounds i8, ptr %vtable.i28, i64 136
   %50 = load ptr, ptr %vfn.i29, align 8
   %call.i33 = invoke noundef zeroext i1 %50(ptr noundef nonnull align 8 dereferenceable(8) %49)
           to label %call.i.noexc32 unwind label %lpad
 
 call.i.noexc32:                                   ; preds = %if.end.i27
-  %ping_alarm_5.i = getelementptr inbounds %"class.net::QuicConnection", ptr %this, i64 0, i32 65
+  %ping_alarm_5.i = getelementptr inbounds i8, ptr %this, i64 2376
   %51 = load ptr, ptr %ping_alarm_5.i, align 8
   %52 = ptrtoint ptr %51 to i64
   %and.i.i1.i = and i64 %52, -2
@@ -8795,16 +8652,16 @@ if.then2.i:                                       ; preds = %call.i.noexc32
           to label %cleanup unwind label %lpad
 
 if.end4.i:                                        ; preds = %call.i.noexc32
-  %clock_.i30 = getelementptr inbounds %"class.net::QuicConnection", ptr %this, i64 0, i32 12
+  %clock_.i30 = getelementptr inbounds i8, ptr %this, i64 480
   %54 = load ptr, ptr %clock_.i30, align 8
   %vtable8.i = load ptr, ptr %54, align 8
-  %vfn9.i = getelementptr inbounds ptr, ptr %vtable8.i, i64 2
+  %vfn9.i = getelementptr inbounds i8, ptr %vtable8.i, i64 16
   %55 = load ptr, ptr %vfn9.i, align 8
   %call10.i35 = invoke i64 %55(ptr noundef nonnull align 8 dereferenceable(8) %54)
           to label %call10.i.noexc unwind label %lpad
 
 call10.i.noexc:                                   ; preds = %if.end4.i
-  %agg.tmp11.sroa.2.0.ping_timeout_.sroa_idx.i = getelementptr inbounds %"class.net::QuicConnection", ptr %this, i64 0, i32 58, i32 1
+  %agg.tmp11.sroa.2.0.ping_timeout_.sroa_idx.i = getelementptr inbounds i8, ptr %this, i64 1296
   %agg.tmp11.sroa.2.0.copyload.i = load i64, ptr %agg.tmp11.sroa.2.0.ping_timeout_.sroa_idx.i, align 8
   %add.i.i31 = add nsw i64 %agg.tmp11.sroa.2.0.copyload.i, %call10.i35
   invoke void @_ZN3net9QuicAlarm6UpdateENS_8QuicTimeENS1_5DeltaE(ptr noundef nonnull align 8 dereferenceable(24) %53, i64 %add.i.i31, i64 0, i64 1000000)
@@ -8817,23 +8674,23 @@ cleanup:                                          ; preds = %invoke.cont65, %if.
 
 if.end.i39:                                       ; preds = %cleanup
   store i8 0, ptr %delay_setting_retransmission_alarm_.i, align 4
-  %pending_retransmission_alarm_.i = getelementptr inbounds %"class.net::QuicConnection", ptr %this, i64 0, i32 55
+  %pending_retransmission_alarm_.i = getelementptr inbounds i8, ptr %this, i64 1285
   %56 = load i8, ptr %pending_retransmission_alarm_.i, align 1
   %57 = and i8 %56, 1
   %tobool3.not.i = icmp eq i8 %57, 0
   br i1 %tobool3.not.i, label %cleanup.cont, label %if.end.i.i
 
 if.end.i.i:                                       ; preds = %if.end.i39
-  %sent_packet_manager_.i.i = getelementptr inbounds %"class.net::QuicConnection", ptr %this, i64 0, i32 77
+  %sent_packet_manager_.i.i = getelementptr inbounds i8, ptr %this, i64 3192
   %58 = load ptr, ptr %sent_packet_manager_.i.i, align 8
   %vtable.i.i = load ptr, ptr %58, align 8
-  %vfn.i.i = getelementptr inbounds ptr, ptr %vtable.i.i, i64 18
+  %vfn.i.i = getelementptr inbounds i8, ptr %vtable.i.i, i64 144
   %59 = load ptr, ptr %vfn.i.i, align 8
   %call2.i1.i = invoke i64 %59(ptr noundef nonnull align 8 dereferenceable(8) %58)
           to label %call2.i.noexc.i unwind label %terminate.lpad.i
 
 call2.i.noexc.i:                                  ; preds = %if.end.i.i
-  %retransmission_alarm_.i.i = getelementptr inbounds %"class.net::QuicConnection", ptr %this, i64 0, i32 61
+  %retransmission_alarm_.i.i = getelementptr inbounds i8, ptr %this, i64 2344
   %60 = load ptr, ptr %retransmission_alarm_.i.i, align 8
   %61 = ptrtoint ptr %60 to i64
   %and.i.i.i.i = and i64 %61, -2
@@ -8864,23 +8721,23 @@ entry:
   %ref.tmp = alloca ptr, align 8
   %call = tail call noundef ptr @_ZNK3net19QuicEncryptedPacket5CloneEv(ptr noundef nonnull align 8 dereferenceable(25) %packet)
   store ptr %call, ptr %ref.tmp, align 8
-  %_M_finish.i.i = getelementptr inbounds %"class.net::QuicConnection", ptr %this, i64 0, i32 32, i32 0, i32 0, i32 0, i32 3
+  %_M_finish.i.i = getelementptr inbounds i8, ptr %this, i64 768
   %0 = load ptr, ptr %_M_finish.i.i, align 8
-  %_M_last.i.i = getelementptr inbounds %"class.net::QuicConnection", ptr %this, i64 0, i32 32, i32 0, i32 0, i32 0, i32 3, i32 2
+  %_M_last.i.i = getelementptr inbounds i8, ptr %this, i64 784
   %1 = load ptr, ptr %_M_last.i.i, align 8
-  %add.ptr.i.i = getelementptr inbounds ptr, ptr %1, i64 -1
+  %add.ptr.i.i = getelementptr inbounds i8, ptr %1, i64 -8
   %cmp.not.i.i = icmp eq ptr %0, %add.ptr.i.i
   br i1 %cmp.not.i.i, label %if.else.i.i, label %if.then.i.i
 
 if.then.i.i:                                      ; preds = %entry
   store ptr %call, ptr %0, align 8
   %2 = load ptr, ptr %_M_finish.i.i, align 8
-  %incdec.ptr.i.i = getelementptr inbounds ptr, ptr %2, i64 1
+  %incdec.ptr.i.i = getelementptr inbounds i8, ptr %2, i64 8
   store ptr %incdec.ptr.i.i, ptr %_M_finish.i.i, align 8
   br label %_ZNSt5dequeIPN3net19QuicEncryptedPacketESaIS2_EE9push_backEOS2_.exit
 
 if.else.i.i:                                      ; preds = %entry
-  %undecryptable_packets_ = getelementptr inbounds %"class.net::QuicConnection", ptr %this, i64 0, i32 32
+  %undecryptable_packets_ = getelementptr inbounds i8, ptr %this, i64 720
   call void @_ZNSt5dequeIPN3net19QuicEncryptedPacketESaIS2_EE16_M_push_back_auxIJS2_EEEvDpOT_(ptr noundef nonnull align 8 dereferenceable(80) %undecryptable_packets_, ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp)
   br label %_ZNSt5dequeIPN3net19QuicEncryptedPacketESaIS2_EE9push_backEOS2_.exit
 
@@ -8891,33 +8748,33 @@ _ZNSt5dequeIPN3net19QuicEncryptedPacketESaIS2_EE9push_backEOS2_.exit: ; preds = 
 ; Function Attrs: mustprogress uwtable
 define dso_local void @_ZN3net14QuicConnection32MaybeProcessUndecryptablePacketsEv(ptr noundef nonnull align 8 dereferenceable(3372) %this) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  %_M_finish.i = getelementptr inbounds %"class.net::QuicConnection", ptr %this, i64 0, i32 32, i32 0, i32 0, i32 0, i32 3
-  %_M_start.i = getelementptr inbounds %"class.net::QuicConnection", ptr %this, i64 0, i32 32, i32 0, i32 0, i32 0, i32 2
+  %_M_finish.i = getelementptr inbounds i8, ptr %this, i64 768
+  %_M_start.i = getelementptr inbounds i8, ptr %this, i64 736
   %0 = load ptr, ptr %_M_finish.i, align 8
   %1 = load ptr, ptr %_M_start.i, align 8
   %cmp.i.i = icmp eq ptr %0, %1
   br i1 %cmp.i.i, label %if.end28, label %lor.lhs.false
 
 lor.lhs.false:                                    ; preds = %entry
-  %encryption_level_ = getelementptr inbounds %"class.net::QuicConnection", ptr %this, i64 0, i32 10
+  %encryption_level_ = getelementptr inbounds i8, ptr %this, i64 473
   %2 = load i8, ptr %encryption_level_, align 1
   %cmp = icmp eq i8 %2, 0
   br i1 %cmp, label %if.end28, label %while.cond.preheader
 
 while.cond.preheader:                             ; preds = %lor.lhs.false
-  %connected_ = getelementptr inbounds %"class.net::QuicConnection", ptr %this, i64 0, i32 80
+  %connected_ = getelementptr inbounds i8, ptr %this, i64 3208
   %3 = load i8, ptr %connected_, align 8
   %4 = and i8 %3, 1
   %tobool.not13 = icmp eq i8 %4, 0
   br i1 %tobool.not13, label %while.end, label %land.rhs.lr.ph
 
 land.rhs.lr.ph:                                   ; preds = %while.cond.preheader
-  %framer_ = getelementptr inbounds %"class.net::QuicConnection", ptr %this, i64 0, i32 4
-  %error_.i = getelementptr inbounds %"class.net::QuicConnection", ptr %this, i64 0, i32 4, i32 4
-  %packets_processed = getelementptr inbounds %"class.net::QuicConnection", ptr %this, i64 0, i32 72, i32 6
-  %_M_last.i = getelementptr inbounds %"class.net::QuicConnection", ptr %this, i64 0, i32 32, i32 0, i32 0, i32 0, i32 2, i32 2
-  %_M_first.i.i = getelementptr inbounds %"class.net::QuicConnection", ptr %this, i64 0, i32 32, i32 0, i32 0, i32 0, i32 2, i32 1
-  %_M_node.i.i = getelementptr inbounds %"class.net::QuicConnection", ptr %this, i64 0, i32 32, i32 0, i32 0, i32 0, i32 2, i32 3
+  %framer_ = getelementptr inbounds i8, ptr %this, i64 32
+  %error_.i = getelementptr inbounds i8, ptr %this, i64 88
+  %packets_processed = getelementptr inbounds i8, ptr %this, i64 2960
+  %_M_last.i = getelementptr inbounds i8, ptr %this, i64 752
+  %_M_first.i.i = getelementptr inbounds i8, ptr %this, i64 744
+  %_M_node.i.i = getelementptr inbounds i8, ptr %this, i64 760
   br label %land.rhs
 
 land.rhs:                                         ; preds = %land.rhs.lr.ph, %_ZNSt5dequeIPN3net19QuicEncryptedPacketESaIS2_EE9pop_frontEv.exit
@@ -8939,28 +8796,28 @@ if.end11:                                         ; preds = %while.body
   %inc = add i64 %9, 1
   store i64 %inc, ptr %packets_processed, align 8
   %vtable = load ptr, ptr %7, align 8
-  %vfn = getelementptr inbounds ptr, ptr %vtable, i64 1
+  %vfn = getelementptr inbounds i8, ptr %vtable, i64 8
   %10 = load ptr, ptr %vfn, align 8
   tail call void %10(ptr noundef nonnull align 8 dereferenceable(25) %7) #22
   %11 = load ptr, ptr %_M_start.i, align 8
   %12 = load ptr, ptr %_M_last.i, align 8
-  %add.ptr.i = getelementptr inbounds ptr, ptr %12, i64 -1
+  %add.ptr.i = getelementptr inbounds i8, ptr %12, i64 -8
   %cmp.not.i = icmp eq ptr %11, %add.ptr.i
   br i1 %cmp.not.i, label %if.else.i, label %if.then.i
 
 if.then.i:                                        ; preds = %if.end11
-  %incdec.ptr.i = getelementptr inbounds ptr, ptr %11, i64 1
+  %incdec.ptr.i = getelementptr inbounds i8, ptr %11, i64 8
   br label %_ZNSt5dequeIPN3net19QuicEncryptedPacketESaIS2_EE9pop_frontEv.exit
 
 if.else.i:                                        ; preds = %if.end11
   %13 = load ptr, ptr %_M_first.i.i, align 8
   tail call void @_ZdlPv(ptr noundef %13) #24
   %14 = load ptr, ptr %_M_node.i.i, align 8
-  %add.ptr.i.i = getelementptr inbounds ptr, ptr %14, i64 1
+  %add.ptr.i.i = getelementptr inbounds i8, ptr %14, i64 8
   store ptr %add.ptr.i.i, ptr %_M_node.i.i, align 8
   %15 = load ptr, ptr %add.ptr.i.i, align 8
   store ptr %15, ptr %_M_first.i.i, align 8
-  %add.ptr.i.i.i = getelementptr inbounds ptr, ptr %15, i64 64
+  %add.ptr.i.i.i = getelementptr inbounds i8, ptr %15, i64 512
   store ptr %add.ptr.i.i.i, ptr %_M_last.i, align 8
   br label %_ZNSt5dequeIPN3net19QuicEncryptedPacketESaIS2_EE9pop_frontEv.exit
 
@@ -8982,25 +8839,25 @@ while.end:                                        ; preds = %while.end.loopexit,
   br i1 %cmp15, label %if.then16, label %if.end28
 
 if.then16:                                        ; preds = %while.end
-  %debug_visitor_ = getelementptr inbounds %"class.net::QuicConnection", ptr %this, i64 0, i32 68
+  %debug_visitor_ = getelementptr inbounds i8, ptr %this, i64 2400
   %19 = load ptr, ptr %debug_visitor_, align 8
   %cmp17.not = icmp eq ptr %19, null
   br i1 %cmp17.not, label %if.then16.if.end26_crit_edge, label %for.cond.preheader
 
 if.then16.if.end26_crit_edge:                     ; preds = %if.then16
   %.pre14 = load ptr, ptr %_M_start.i, align 8, !noalias !24
-  %_M_last4.i.i.i.phi.trans.insert = getelementptr inbounds %"class.net::QuicConnection", ptr %this, i64 0, i32 32, i32 0, i32 0, i32 0, i32 2, i32 2
+  %_M_last4.i.i.i.phi.trans.insert = getelementptr inbounds i8, ptr %this, i64 752
   %.pre15 = load ptr, ptr %_M_last4.i.i.i.phi.trans.insert, align 8, !noalias !24
-  %_M_node5.i.i.i.phi.trans.insert = getelementptr inbounds %"class.net::QuicConnection", ptr %this, i64 0, i32 32, i32 0, i32 0, i32 0, i32 2, i32 3
+  %_M_node5.i.i.i.phi.trans.insert = getelementptr inbounds i8, ptr %this, i64 760
   %.pre16 = load ptr, ptr %_M_node5.i.i.i.phi.trans.insert, align 8, !noalias !24
   %.pre17 = load ptr, ptr %_M_finish.i, align 8, !noalias !43
   br label %if.end26
 
 for.cond.preheader:                               ; preds = %if.then16
-  %_M_node.i.i9 = getelementptr inbounds %"class.net::QuicConnection", ptr %this, i64 0, i32 32, i32 0, i32 0, i32 0, i32 3, i32 3
-  %_M_node1.i.i = getelementptr inbounds %"class.net::QuicConnection", ptr %this, i64 0, i32 32, i32 0, i32 0, i32 0, i32 2, i32 3
-  %_M_first.i.i10 = getelementptr inbounds %"class.net::QuicConnection", ptr %this, i64 0, i32 32, i32 0, i32 0, i32 0, i32 3, i32 1
-  %_M_last.i.i = getelementptr inbounds %"class.net::QuicConnection", ptr %this, i64 0, i32 32, i32 0, i32 0, i32 0, i32 2, i32 2
+  %_M_node.i.i9 = getelementptr inbounds i8, ptr %this, i64 792
+  %_M_node1.i.i = getelementptr inbounds i8, ptr %this, i64 760
+  %_M_first.i.i10 = getelementptr inbounds i8, ptr %this, i64 776
+  %_M_last.i.i = getelementptr inbounds i8, ptr %this, i64 752
   br label %for.cond
 
 for.cond:                                         ; preds = %for.cond.preheader, %for.body
@@ -9035,7 +8892,7 @@ for.cond:                                         ; preds = %for.cond.preheader,
 for.body:                                         ; preds = %for.cond
   %26 = load ptr, ptr %debug_visitor_, align 8
   %vtable23 = load ptr, ptr %26, align 8
-  %vfn24 = getelementptr inbounds ptr, ptr %vtable23, i64 10
+  %vfn24 = getelementptr inbounds i8, ptr %vtable23, i64 80
   %27 = load ptr, ptr %vfn24, align 8
   tail call void %27(ptr noundef nonnull align 8 dereferenceable(8) %26)
   %inc25 = add nuw i64 %i.0, 1
@@ -9046,12 +8903,12 @@ if.end26:                                         ; preds = %for.cond, %if.then1
   %29 = phi ptr [ %.pre16, %if.then16.if.end26_crit_edge ], [ %21, %for.cond ]
   %30 = phi ptr [ %.pre15, %if.then16.if.end26_crit_edge ], [ %24, %for.cond ]
   %31 = phi ptr [ %.pre14, %if.then16.if.end26_crit_edge ], [ %25, %for.cond ]
-  %_M_first3.i.i.i = getelementptr inbounds %"class.net::QuicConnection", ptr %this, i64 0, i32 32, i32 0, i32 0, i32 0, i32 2, i32 1
-  %_M_last4.i.i.i = getelementptr inbounds %"class.net::QuicConnection", ptr %this, i64 0, i32 32, i32 0, i32 0, i32 0, i32 2, i32 2
-  %_M_node5.i.i.i = getelementptr inbounds %"class.net::QuicConnection", ptr %this, i64 0, i32 32, i32 0, i32 0, i32 0, i32 2, i32 3
-  %_M_first3.i.i5.i = getelementptr inbounds %"class.net::QuicConnection", ptr %this, i64 0, i32 32, i32 0, i32 0, i32 0, i32 3, i32 1
-  %_M_last4.i.i7.i = getelementptr inbounds %"class.net::QuicConnection", ptr %this, i64 0, i32 32, i32 0, i32 0, i32 0, i32 3, i32 2
-  %_M_node5.i.i9.i = getelementptr inbounds %"class.net::QuicConnection", ptr %this, i64 0, i32 32, i32 0, i32 0, i32 0, i32 3, i32 3
+  %_M_first3.i.i.i = getelementptr inbounds i8, ptr %this, i64 744
+  %_M_last4.i.i.i = getelementptr inbounds i8, ptr %this, i64 752
+  %_M_node5.i.i.i = getelementptr inbounds i8, ptr %this, i64 760
+  %_M_first3.i.i5.i = getelementptr inbounds i8, ptr %this, i64 776
+  %_M_last4.i.i7.i = getelementptr inbounds i8, ptr %this, i64 784
+  %_M_node5.i.i9.i = getelementptr inbounds i8, ptr %this, i64 792
   %cmp.i.i.not3.i.i = icmp eq ptr %31, %28
   br i1 %cmp.i.i.not3.i.i, label %_ZN4base26STLDeleteContainerPointersISt15_Deque_iteratorIPN3net19QuicEncryptedPacketERS4_PS4_EEEvT_S8_.exit.i, label %while.body.i.i
 
@@ -9059,14 +8916,14 @@ while.body.i.i:                                   ; preds = %if.end26, %delete.e
   %agg.tmp.sroa.7.0.i = phi ptr [ %agg.tmp.sroa.7.1.i, %delete.end.i.i ], [ %30, %if.end26 ]
   %agg.tmp.sroa.10.0.i = phi ptr [ %agg.tmp.sroa.10.1.i, %delete.end.i.i ], [ %29, %if.end26 ]
   %32 = phi ptr [ %agg.tmp.sroa.0.0.i, %delete.end.i.i ], [ %31, %if.end26 ]
-  %incdec.ptr.i.i.i = getelementptr inbounds ptr, ptr %32, i64 1
+  %incdec.ptr.i.i.i = getelementptr inbounds i8, ptr %32, i64 8
   %cmp.i.i.i = icmp eq ptr %incdec.ptr.i.i.i, %agg.tmp.sroa.7.0.i
   br i1 %cmp.i.i.i, label %if.then.i.i.i, label %_ZNSt15_Deque_iteratorIPN3net19QuicEncryptedPacketERS2_PS2_EppEv.exit.i.i
 
 if.then.i.i.i:                                    ; preds = %while.body.i.i
-  %add.ptr.i.i.i12 = getelementptr inbounds ptr, ptr %agg.tmp.sroa.10.0.i, i64 1
+  %add.ptr.i.i.i12 = getelementptr inbounds i8, ptr %agg.tmp.sroa.10.0.i, i64 8
   %33 = load ptr, ptr %add.ptr.i.i.i12, align 8
-  %add.ptr.i.i.i.i = getelementptr inbounds ptr, ptr %33, i64 64
+  %add.ptr.i.i.i.i = getelementptr inbounds i8, ptr %33, i64 512
   br label %_ZNSt15_Deque_iteratorIPN3net19QuicEncryptedPacketERS2_PS2_EppEv.exit.i.i
 
 _ZNSt15_Deque_iteratorIPN3net19QuicEncryptedPacketERS2_PS2_EppEv.exit.i.i: ; preds = %if.then.i.i.i, %while.body.i.i
@@ -9079,7 +8936,7 @@ _ZNSt15_Deque_iteratorIPN3net19QuicEncryptedPacketERS2_PS2_EppEv.exit.i.i: ; pre
 
 delete.notnull.i.i:                               ; preds = %_ZNSt15_Deque_iteratorIPN3net19QuicEncryptedPacketERS2_PS2_EppEv.exit.i.i
   %vtable.i.i = load ptr, ptr %34, align 8
-  %vfn.i.i = getelementptr inbounds ptr, ptr %vtable.i.i, i64 1
+  %vfn.i.i = getelementptr inbounds i8, ptr %vtable.i.i, i64 8
   %35 = load ptr, ptr %vfn.i.i, align 8
   tail call void %35(ptr noundef nonnull align 8 dereferenceable(25) %34) #22
   br label %delete.end.i.i
@@ -9105,7 +8962,7 @@ _ZN4base26STLDeleteContainerPointersISt15_Deque_iteratorIPN3net19QuicEncryptedPa
 
 for.body.i.i.i.i:                                 ; preds = %_ZN4base26STLDeleteContainerPointersISt15_Deque_iteratorIPN3net19QuicEncryptedPacketERS4_PS4_EEEvT_S8_.exit.i, %for.body.i.i.i.i
   %__n.04.i.pn.i.i.i = phi ptr [ %__n.04.i.i.i.i, %for.body.i.i.i.i ], [ %36, %_ZN4base26STLDeleteContainerPointersISt15_Deque_iteratorIPN3net19QuicEncryptedPacketERS4_PS4_EEEvT_S8_.exit.i ]
-  %__n.04.i.i.i.i = getelementptr inbounds ptr, ptr %__n.04.i.pn.i.i.i, i64 1
+  %__n.04.i.i.i.i = getelementptr inbounds i8, ptr %__n.04.i.pn.i.i.i, i64 8
   %41 = load ptr, ptr %__n.04.i.i.i.i, align 8
   tail call void @_ZdlPv(ptr noundef %41) #24
   %cmp.i.i.i.i = icmp ult ptr %__n.04.i.i.i.i, %40
@@ -9125,19 +8982,19 @@ if.end28:                                         ; preds = %entry, %lor.lhs.fal
 ; Function Attrs: mustprogress uwtable
 define dso_local void @_ZN3net14QuicConnection12SetPingAlarmEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(3372) %this) local_unnamed_addr #0 align 2 {
 entry:
-  %perspective_ = getelementptr inbounds %"class.net::QuicConnection", ptr %this, i64 0, i32 79
+  %perspective_ = getelementptr inbounds i8, ptr %this, i64 3204
   %0 = load i32, ptr %perspective_, align 4
   %cmp = icmp eq i32 %0, 0
   br i1 %cmp, label %return, label %if.end
 
 if.end:                                           ; preds = %entry
-  %visitor_ = getelementptr inbounds %"class.net::QuicConnection", ptr %this, i64 0, i32 67
+  %visitor_ = getelementptr inbounds i8, ptr %this, i64 2392
   %1 = load ptr, ptr %visitor_, align 8
   %vtable = load ptr, ptr %1, align 8
-  %vfn = getelementptr inbounds ptr, ptr %vtable, i64 17
+  %vfn = getelementptr inbounds i8, ptr %vtable, i64 136
   %2 = load ptr, ptr %vfn, align 8
   %call = tail call noundef zeroext i1 %2(ptr noundef nonnull align 8 dereferenceable(8) %1)
-  %ping_alarm_5 = getelementptr inbounds %"class.net::QuicConnection", ptr %this, i64 0, i32 65
+  %ping_alarm_5 = getelementptr inbounds i8, ptr %this, i64 2376
   %3 = load ptr, ptr %ping_alarm_5, align 8
   %4 = ptrtoint ptr %3 to i64
   %and.i.i1 = and i64 %4, -2
@@ -9149,13 +9006,13 @@ if.then2:                                         ; preds = %if.end
   br label %return
 
 if.end4:                                          ; preds = %if.end
-  %clock_ = getelementptr inbounds %"class.net::QuicConnection", ptr %this, i64 0, i32 12
+  %clock_ = getelementptr inbounds i8, ptr %this, i64 480
   %6 = load ptr, ptr %clock_, align 8
   %vtable8 = load ptr, ptr %6, align 8
-  %vfn9 = getelementptr inbounds ptr, ptr %vtable8, i64 2
+  %vfn9 = getelementptr inbounds i8, ptr %vtable8, i64 16
   %7 = load ptr, ptr %vfn9, align 8
   %call10 = tail call i64 %7(ptr noundef nonnull align 8 dereferenceable(8) %6)
-  %agg.tmp11.sroa.2.0.ping_timeout_.sroa_idx = getelementptr inbounds %"class.net::QuicConnection", ptr %this, i64 0, i32 58, i32 1
+  %agg.tmp11.sroa.2.0.ping_timeout_.sroa_idx = getelementptr inbounds i8, ptr %this, i64 1296
   %agg.tmp11.sroa.2.0.copyload = load i64, ptr %agg.tmp11.sroa.2.0.ping_timeout_.sroa_idx, align 8
   %add.i = add nsw i64 %agg.tmp11.sroa.2.0.copyload, %call10
   tail call void @_ZN3net9QuicAlarm6UpdateENS_8QuicTimeENS1_5DeltaE(ptr noundef nonnull align 8 dereferenceable(24) %5, i64 %add.i, i64 0, i64 1000000)
@@ -9174,22 +9031,22 @@ entry:
   tail call void @_ZN3net14QuicConnection18WriteQueuedPacketsEv(ptr noundef nonnull align 8 dereferenceable(3372) %this)
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %pending.i)
   call void @llvm.lifetime.start.p0(i64 1452, ptr nonnull %buffer.i)
-  %sent_packet_manager_.i = getelementptr inbounds %"class.net::QuicConnection", ptr %this, i64 0, i32 77
+  %sent_packet_manager_.i = getelementptr inbounds i8, ptr %this, i64 3192
   %0 = load ptr, ptr %sent_packet_manager_.i, align 8
   %vtable1.i = load ptr, ptr %0, align 8
-  %vfn2.i = getelementptr inbounds ptr, ptr %vtable1.i, i64 11
+  %vfn2.i = getelementptr inbounds i8, ptr %vtable1.i, i64 88
   %1 = load ptr, ptr %vfn2.i, align 8
   %call23.i = tail call noundef zeroext i1 %1(ptr noundef nonnull align 8 dereferenceable(8) %0)
   br i1 %call23.i, label %while.body.lr.ph.i, label %_ZN3net14QuicConnection27WritePendingRetransmissionsEv.exit
 
 while.body.lr.ph.i:                               ; preds = %entry
-  %packet_generator_.i = getelementptr inbounds %"class.net::QuicConnection", ptr %this, i64 0, i32 69
+  %packet_generator_.i = getelementptr inbounds i8, ptr %this, i64 2408
   br label %while.body.i
 
 while.body.i:                                     ; preds = %if.end.i, %while.body.lr.ph.i
   %2 = load ptr, ptr %sent_packet_manager_.i, align 8
   %vtable5.i = load ptr, ptr %2, align 8
-  %vfn6.i = getelementptr inbounds ptr, ptr %vtable5.i, i64 12
+  %vfn6.i = getelementptr inbounds i8, ptr %vtable5.i, i64 96
   %3 = load ptr, ptr %vfn6.i, align 8
   call void %3(ptr nonnull sret(%"struct.net::PendingRetransmission") align 8 %pending.i, ptr noundef nonnull align 8 dereferenceable(8) %2)
   %call7.i = call noundef zeroext i1 @_ZN3net14QuicConnection8CanWriteENS_22HasRetransmittableDataE(ptr noundef nonnull align 8 dereferenceable(3372) %this, i8 noundef signext 1)
@@ -9200,7 +9057,7 @@ if.end.i:                                         ; preds = %while.body.i
   call void @_ZN3net19QuicPacketGenerator20ReserializeAllFramesERKNS_21PendingRetransmissionEPcm(ptr noundef nonnull align 8 dereferenceable(472) %packet_generator_.i, ptr noundef nonnull align 8 dereferenceable(26) %pending.i, ptr noundef nonnull %buffer.i, i64 noundef 1452)
   %4 = load ptr, ptr %sent_packet_manager_.i, align 8
   %vtable.i = load ptr, ptr %4, align 8
-  %vfn.i = getelementptr inbounds ptr, ptr %vtable.i, i64 11
+  %vfn.i = getelementptr inbounds i8, ptr %vtable.i, i64 88
   %5 = load ptr, ptr %vfn.i, align 8
   %call2.i = call noundef zeroext i1 %5(ptr noundef nonnull align 8 dereferenceable(8) %4)
   br i1 %call2.i, label %while.body.i, label %_ZN3net14QuicConnection27WritePendingRetransmissionsEv.exit, !llvm.loop !50
@@ -9213,10 +9070,10 @@ _ZN3net14QuicConnection27WritePendingRetransmissionsEv.exit: ; preds = %while.bo
 
 if.end:                                           ; preds = %_ZN3net14QuicConnection27WritePendingRetransmissionsEv.exit
   call void @_ZN3net14QuicConnection19ScopedPacketBundlerC2EPS0_NS0_11AckBundlingE(ptr noundef nonnull align 8 dereferenceable(9) %bundler, ptr noundef nonnull %this, i32 noundef 0)
-  %visitor_ = getelementptr inbounds %"class.net::QuicConnection", ptr %this, i64 0, i32 67
+  %visitor_ = getelementptr inbounds i8, ptr %this, i64 2392
   %6 = load ptr, ptr %visitor_, align 8
   %vtable = load ptr, ptr %6, align 8
-  %vfn = getelementptr inbounds ptr, ptr %vtable, i64 10
+  %vfn = getelementptr inbounds i8, ptr %vtable, i64 80
   %7 = load ptr, ptr %vfn, align 8
   invoke void %7(ptr noundef nonnull align 8 dereferenceable(8) %6)
           to label %invoke.cont unwind label %lpad
@@ -9224,7 +9081,7 @@ if.end:                                           ; preds = %_ZN3net14QuicConnec
 invoke.cont:                                      ; preds = %if.end
   %8 = load ptr, ptr %visitor_, align 8
   %vtable3 = load ptr, ptr %8, align 8
-  %vfn4 = getelementptr inbounds ptr, ptr %vtable3, i64 14
+  %vfn4 = getelementptr inbounds i8, ptr %vtable3, i64 112
   %9 = load ptr, ptr %vfn4, align 8
   invoke void %9(ptr noundef nonnull align 8 dereferenceable(8) %8)
           to label %invoke.cont5 unwind label %lpad
@@ -9235,28 +9092,28 @@ invoke.cont5:                                     ; preds = %invoke.cont
   br i1 %cmp.i, label %_ZN3net14QuicConnection19ScopedPacketBundlerD2Ev.exit, label %if.end.i1
 
 if.end.i1:                                        ; preds = %invoke.cont5
-  %already_in_batch_mode_.i = getelementptr inbounds %"class.net::QuicConnection::ScopedPacketBundler", ptr %bundler, i64 0, i32 1
+  %already_in_batch_mode_.i = getelementptr inbounds i8, ptr %bundler, i64 8
   %11 = load i8, ptr %already_in_batch_mode_.i, align 8
   %12 = and i8 %11, 1
   %tobool.not.i = icmp eq i8 %12, 0
   br i1 %tobool.not.i, label %if.then2.i, label %_ZN3net14QuicConnection19ScopedPacketBundlerD2Ev.exit
 
 if.then2.i:                                       ; preds = %if.end.i1
-  %packet_generator_.i2 = getelementptr inbounds %"class.net::QuicConnection", ptr %10, i64 0, i32 69
+  %packet_generator_.i2 = getelementptr inbounds i8, ptr %10, i64 2408
   invoke void @_ZN3net19QuicPacketGenerator21FinishBatchOperationsEv(ptr noundef nonnull align 8 dereferenceable(472) %packet_generator_.i2)
           to label %invoke.cont.i unwind label %terminate.lpad.i
 
 invoke.cont.i:                                    ; preds = %if.then2.i
-  %queued_packets_.i.i = getelementptr inbounds %"class.net::QuicConnection", ptr %10, i64 0, i32 36
+  %queued_packets_.i.i = getelementptr inbounds i8, ptr %10, i64 816
   %13 = load ptr, ptr %queued_packets_.i.i, align 8
   %cmp.i.i.i = icmp eq ptr %13, %queued_packets_.i.i
   br i1 %cmp.i.i.i, label %land.lhs.true.i.i, label %_ZN3net14QuicConnection19ScopedPacketBundlerD2Ev.exit
 
 land.lhs.true.i.i:                                ; preds = %invoke.cont.i
-  %sent_packet_manager_.i.i = getelementptr inbounds %"class.net::QuicConnection", ptr %10, i64 0, i32 77
+  %sent_packet_manager_.i.i = getelementptr inbounds i8, ptr %10, i64 3192
   %14 = load ptr, ptr %sent_packet_manager_.i.i, align 8
   %vtable.i.i = load ptr, ptr %14, align 8
-  %vfn.i.i = getelementptr inbounds ptr, ptr %vtable.i.i, i64 11
+  %vfn.i.i = getelementptr inbounds i8, ptr %vtable.i.i, i64 88
   %15 = load ptr, ptr %vfn.i.i, align 8
   %call3.i1.i = invoke noundef zeroext i1 %15(ptr noundef nonnull align 8 dereferenceable(8) %14)
           to label %call3.i.noexc.i unwind label %terminate.lpad.i
@@ -9265,10 +9122,10 @@ call3.i.noexc.i:                                  ; preds = %land.lhs.true.i.i
   br i1 %call3.i1.i, label %_ZN3net14QuicConnection19ScopedPacketBundlerD2Ev.exit, label %land.lhs.true4.i.i
 
 land.lhs.true4.i.i:                               ; preds = %call3.i.noexc.i
-  %visitor_.i.i = getelementptr inbounds %"class.net::QuicConnection", ptr %10, i64 0, i32 67
+  %visitor_.i.i = getelementptr inbounds i8, ptr %10, i64 2392
   %16 = load ptr, ptr %visitor_.i.i, align 8
   %vtable5.i.i = load ptr, ptr %16, align 8
-  %vfn6.i.i = getelementptr inbounds ptr, ptr %vtable5.i.i, i64 15
+  %vfn6.i.i = getelementptr inbounds i8, ptr %vtable5.i.i, i64 120
   %17 = load ptr, ptr %vfn6.i.i, align 8
   %call7.i2.i = invoke noundef zeroext i1 %17(ptr noundef nonnull align 8 dereferenceable(8) %16)
           to label %call7.i.noexc.i unwind label %terminate.lpad.i
@@ -9279,7 +9136,7 @@ call7.i.noexc.i:                                  ; preds = %land.lhs.true4.i.i
 if.then.i.i:                                      ; preds = %call7.i.noexc.i
   %18 = load ptr, ptr %sent_packet_manager_.i.i, align 8
   %vtable10.i.i = load ptr, ptr %18, align 8
-  %vfn11.i.i = getelementptr inbounds ptr, ptr %vtable10.i.i, i64 38
+  %vfn11.i.i = getelementptr inbounds i8, ptr %vtable10.i.i, i64 304
   %19 = load ptr, ptr %vfn11.i.i, align 8
   invoke void %19(ptr noundef nonnull align 8 dereferenceable(8) %18)
           to label %_ZN3net14QuicConnection19ScopedPacketBundlerD2Ev.exit unwind label %terminate.lpad.i
@@ -9294,13 +9151,13 @@ terminate.lpad.i:                                 ; preds = %if.then.i.i, %land.
 _ZN3net14QuicConnection19ScopedPacketBundlerD2Ev.exit: ; preds = %invoke.cont5, %if.end.i1, %invoke.cont.i, %call3.i.noexc.i, %call7.i.noexc.i, %if.then.i.i
   %22 = load ptr, ptr %visitor_, align 8
   %vtable7 = load ptr, ptr %22, align 8
-  %vfn8 = getelementptr inbounds ptr, ptr %vtable7, i64 15
+  %vfn8 = getelementptr inbounds i8, ptr %vtable7, i64 120
   %23 = load ptr, ptr %vfn8, align 8
   %call9 = call noundef zeroext i1 %23(ptr noundef nonnull align 8 dereferenceable(8) %22)
   br i1 %call9, label %land.lhs.true, label %if.end21
 
 land.lhs.true:                                    ; preds = %_ZN3net14QuicConnection19ScopedPacketBundlerD2Ev.exit
-  %resume_writes_alarm_ = getelementptr inbounds %"class.net::QuicConnection", ptr %this, i64 0, i32 63
+  %resume_writes_alarm_ = getelementptr inbounds i8, ptr %this, i64 2360
   %24 = load ptr, ptr %resume_writes_alarm_, align 8
   %25 = ptrtoint ptr %24 to i64
   %and.i.i = and i64 %25, -2
@@ -9317,10 +9174,10 @@ if.then14:                                        ; preds = %land.lhs.true12
   %28 = ptrtoint ptr %27 to i64
   %and.i.i3 = and i64 %28, -2
   %29 = inttoptr i64 %and.i.i3 to ptr
-  %clock_ = getelementptr inbounds %"class.net::QuicConnection", ptr %this, i64 0, i32 12
+  %clock_ = getelementptr inbounds i8, ptr %this, i64 480
   %30 = load ptr, ptr %clock_, align 8
   %vtable17 = load ptr, ptr %30, align 8
-  %vfn18 = getelementptr inbounds ptr, ptr %vtable17, i64 2
+  %vfn18 = getelementptr inbounds i8, ptr %vtable17, i64 16
   %31 = load ptr, ptr %vfn18, align 8
   %call19 = call i64 %31(ptr noundef nonnull align 8 dereferenceable(8) %30)
   call void @_ZN3net9QuicAlarm3SetENS_8QuicTimeE(ptr noundef nonnull align 8 dereferenceable(24) %29, i64 %call19)
@@ -9339,7 +9196,7 @@ if.end21:                                         ; preds = %_ZN3net14QuicConnec
 ; Function Attrs: mustprogress uwtable
 define dso_local void @_ZN3net14QuicConnection18WriteQueuedPacketsEv(ptr noundef nonnull align 8 dereferenceable(3372) %this) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  %pending_version_negotiation_packet_ = getelementptr inbounds %"class.net::QuicConnection", ptr %this, i64 0, i32 34
+  %pending_version_negotiation_packet_ = getelementptr inbounds i8, ptr %this, i64 808
   %0 = load i8, ptr %pending_version_negotiation_packet_, align 8
   %1 = and i8 %0, 1
   %tobool.not = icmp eq i8 %1, 0
@@ -9350,18 +9207,18 @@ if.then:                                          ; preds = %entry
   br label %if.end
 
 if.end:                                           ; preds = %if.then, %entry
-  %queued_packets_ = getelementptr inbounds %"class.net::QuicConnection", ptr %this, i64 0, i32 36
+  %queued_packets_ = getelementptr inbounds i8, ptr %this, i64 816
   %2 = load ptr, ptr %queued_packets_, align 8
   %cmp.i.not7 = icmp eq ptr %2, %queued_packets_
   br i1 %cmp.i.not7, label %while.end, label %land.rhs.lr.ph
 
 land.rhs.lr.ph:                                   ; preds = %if.end
-  %_M_size.i.i.i = getelementptr inbounds %"class.net::QuicConnection", ptr %this, i64 0, i32 36, i32 0, i32 0, i32 0, i32 1
+  %_M_size.i.i.i = getelementptr inbounds i8, ptr %this, i64 832
   br label %land.rhs
 
 land.rhs:                                         ; preds = %land.rhs.lr.ph, %delete.end
   %storemerge8 = phi ptr [ %2, %land.rhs.lr.ph ], [ %4, %delete.end ]
-  %_M_storage.i.i = getelementptr inbounds %"struct.std::_List_node", ptr %storemerge8, i64 0, i32 1
+  %_M_storage.i.i = getelementptr inbounds i8, ptr %storemerge8, i64 16
   %call7 = tail call noundef zeroext i1 @_ZN3net14QuicConnection11WritePacketEPNS_16SerializedPacketE(ptr noundef nonnull align 8 dereferenceable(3372) %this, ptr noundef nonnull %_M_storage.i.i)
   br i1 %call7, label %while.body, label %while.end
 
@@ -9395,22 +9252,22 @@ define dso_local void @_ZN3net14QuicConnection27WritePendingRetransmissionsEv(pt
 entry:
   %pending = alloca %"struct.net::PendingRetransmission", align 8
   %buffer = alloca [1452 x i8], align 16
-  %sent_packet_manager_ = getelementptr inbounds %"class.net::QuicConnection", ptr %this, i64 0, i32 77
+  %sent_packet_manager_ = getelementptr inbounds i8, ptr %this, i64 3192
   %0 = load ptr, ptr %sent_packet_manager_, align 8
   %vtable1 = load ptr, ptr %0, align 8
-  %vfn2 = getelementptr inbounds ptr, ptr %vtable1, i64 11
+  %vfn2 = getelementptr inbounds i8, ptr %vtable1, i64 88
   %1 = load ptr, ptr %vfn2, align 8
   %call23 = tail call noundef zeroext i1 %1(ptr noundef nonnull align 8 dereferenceable(8) %0)
   br i1 %call23, label %while.body.lr.ph, label %while.end
 
 while.body.lr.ph:                                 ; preds = %entry
-  %packet_generator_ = getelementptr inbounds %"class.net::QuicConnection", ptr %this, i64 0, i32 69
+  %packet_generator_ = getelementptr inbounds i8, ptr %this, i64 2408
   br label %while.body
 
 while.body:                                       ; preds = %while.body.lr.ph, %if.end
   %2 = load ptr, ptr %sent_packet_manager_, align 8
   %vtable5 = load ptr, ptr %2, align 8
-  %vfn6 = getelementptr inbounds ptr, ptr %vtable5, i64 12
+  %vfn6 = getelementptr inbounds i8, ptr %vtable5, i64 96
   %3 = load ptr, ptr %vfn6, align 8
   call void %3(ptr nonnull sret(%"struct.net::PendingRetransmission") align 8 %pending, ptr noundef nonnull align 8 dereferenceable(8) %2)
   %call7 = call noundef zeroext i1 @_ZN3net14QuicConnection8CanWriteENS_22HasRetransmittableDataE(ptr noundef nonnull align 8 dereferenceable(3372) %this, i8 noundef signext 1)
@@ -9421,7 +9278,7 @@ if.end:                                           ; preds = %while.body
   call void @_ZN3net19QuicPacketGenerator20ReserializeAllFramesERKNS_21PendingRetransmissionEPcm(ptr noundef nonnull align 8 dereferenceable(472) %packet_generator_, ptr noundef nonnull align 8 dereferenceable(26) %pending, ptr noundef nonnull %buffer, i64 noundef 1452)
   %4 = load ptr, ptr %sent_packet_manager_, align 8
   %vtable = load ptr, ptr %4, align 8
-  %vfn = getelementptr inbounds ptr, ptr %vtable, i64 11
+  %vfn = getelementptr inbounds i8, ptr %vtable, i64 88
   %5 = load ptr, ptr %vfn, align 8
   %call2 = call noundef zeroext i1 %5(ptr noundef nonnull align 8 dereferenceable(8) %4)
   br i1 %call2, label %while.body, label %while.end, !llvm.loop !50
@@ -9434,26 +9291,26 @@ while.end:                                        ; preds = %if.end, %while.body
 define dso_local noundef zeroext i1 @_ZN3net14QuicConnection8CanWriteENS_22HasRetransmittableDataE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(3372) %this, i8 noundef signext %retransmittable) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %path_id = alloca i8, align 1
-  %connected_ = getelementptr inbounds %"class.net::QuicConnection", ptr %this, i64 0, i32 80
+  %connected_ = getelementptr inbounds i8, ptr %this, i64 3208
   %0 = load i8, ptr %connected_, align 8
   %1 = and i8 %0, 1
   %tobool.not = icmp eq i8 %1, 0
   br i1 %tobool.not, label %return, label %if.end
 
 if.end:                                           ; preds = %entry
-  %writer_ = getelementptr inbounds %"class.net::QuicConnection", ptr %this, i64 0, i32 8
+  %writer_ = getelementptr inbounds i8, ptr %this, i64 464
   %2 = load ptr, ptr %writer_, align 8
   %vtable = load ptr, ptr %2, align 8
-  %vfn = getelementptr inbounds ptr, ptr %vtable, i64 4
+  %vfn = getelementptr inbounds i8, ptr %vtable, i64 32
   %3 = load ptr, ptr %vfn, align 8
   %call = tail call noundef zeroext i1 %3(ptr noundef nonnull align 8 dereferenceable(8) %2)
   br i1 %call, label %if.then2, label %if.end5
 
 if.then2:                                         ; preds = %if.end
-  %visitor_ = getelementptr inbounds %"class.net::QuicConnection", ptr %this, i64 0, i32 67
+  %visitor_ = getelementptr inbounds i8, ptr %this, i64 2392
   %4 = load ptr, ptr %visitor_, align 8
   %vtable3 = load ptr, ptr %4, align 8
-  %vfn4 = getelementptr inbounds ptr, ptr %vtable3, i64 8
+  %vfn4 = getelementptr inbounds i8, ptr %vtable3, i64 64
   %5 = load ptr, ptr %vfn4, align 8
   tail call void %5(ptr noundef nonnull align 8 dereferenceable(8) %4)
   br label %return
@@ -9463,7 +9320,7 @@ if.end5:                                          ; preds = %if.end
   br i1 %cmp, label %return, label %if.end7
 
 if.end7:                                          ; preds = %if.end5
-  %send_alarm_ = getelementptr inbounds %"class.net::QuicConnection", ptr %this, i64 0, i32 62
+  %send_alarm_ = getelementptr inbounds i8, ptr %this, i64 2352
   %6 = load ptr, ptr %send_alarm_, align 8
   %7 = ptrtoint ptr %6 to i64
   %and.i.i = and i64 %7, -2
@@ -9473,16 +9330,16 @@ if.end7:                                          ; preds = %if.end5
 
 if.end11:                                         ; preds = %if.end7
   store i8 -1, ptr %path_id, align 1
-  %clock_ = getelementptr inbounds %"class.net::QuicConnection", ptr %this, i64 0, i32 12
+  %clock_ = getelementptr inbounds i8, ptr %this, i64 480
   %9 = load ptr, ptr %clock_, align 8
   %vtable12 = load ptr, ptr %9, align 8
-  %vfn13 = getelementptr inbounds ptr, ptr %vtable12, i64 3
+  %vfn13 = getelementptr inbounds i8, ptr %vtable12, i64 24
   %10 = load ptr, ptr %vfn13, align 8
   %call14 = tail call i64 %10(ptr noundef nonnull align 8 dereferenceable(8) %9)
-  %sent_packet_manager_ = getelementptr inbounds %"class.net::QuicConnection", ptr %this, i64 0, i32 77
+  %sent_packet_manager_ = getelementptr inbounds i8, ptr %this, i64 3192
   %11 = load ptr, ptr %sent_packet_manager_, align 8
   %vtable17 = load ptr, ptr %11, align 8
-  %vfn18 = getelementptr inbounds ptr, ptr %vtable17, i64 17
+  %vfn18 = getelementptr inbounds i8, ptr %vtable17, i64 136
   %12 = load ptr, ptr %vfn18, align 8
   %call19 = call { i64, i64 } %12(ptr noundef nonnull align 8 dereferenceable(8) %11, i64 %call14, ptr noundef nonnull %path_id)
   %13 = extractvalue { i64, i64 } %call19, 1
@@ -9524,17 +9381,17 @@ entry:
 ; Function Attrs: mustprogress uwtable
 define dso_local void @_ZN3net14QuicConnection17WriteIfNotBlockedEv(ptr noundef nonnull align 8 dereferenceable(3372) %this) local_unnamed_addr #0 align 2 {
 entry:
-  %writer_ = getelementptr inbounds %"class.net::QuicConnection", ptr %this, i64 0, i32 8
+  %writer_ = getelementptr inbounds i8, ptr %this, i64 464
   %0 = load ptr, ptr %writer_, align 8
   %vtable = load ptr, ptr %0, align 8
-  %vfn = getelementptr inbounds ptr, ptr %vtable, i64 4
+  %vfn = getelementptr inbounds i8, ptr %vtable, i64 32
   %1 = load ptr, ptr %vfn, align 8
   %call = tail call noundef zeroext i1 %1(ptr noundef nonnull align 8 dereferenceable(8) %0)
   br i1 %call, label %if.end, label %if.then
 
 if.then:                                          ; preds = %entry
   %vtable2 = load ptr, ptr %this, align 8
-  %vfn3 = getelementptr inbounds ptr, ptr %vtable2, i64 35
+  %vfn3 = getelementptr inbounds i8, ptr %vtable2, i64 280
   %2 = load ptr, ptr %vfn3, align 8
   tail call void %2(ptr noundef nonnull align 8 dereferenceable(3372) %this)
   br label %if.end
@@ -9564,14 +9421,14 @@ entry:
   %ref.tmp4 = alloca %"class.logging::LogMessage", align 8
   %ref.tmp26 = alloca %"class.std::__cxx11::basic_string", align 8
   %ref.tmp27 = alloca %"class.std::allocator.0", align 1
-  %packet_number = getelementptr inbounds %"struct.net::SerializedPacket", ptr %packet, i64 0, i32 6
+  %packet_number = getelementptr inbounds i8, ptr %packet, i64 48
   %0 = load i64, ptr %packet_number, align 8
-  %sent_packet_manager_ = getelementptr inbounds %"class.net::QuicConnection", ptr %this, i64 0, i32 77
+  %sent_packet_manager_ = getelementptr inbounds i8, ptr %this, i64 3192
   %1 = load ptr, ptr %sent_packet_manager_, align 8
-  %path_id = getelementptr inbounds %"struct.net::SerializedPacket", ptr %packet, i64 0, i32 5
+  %path_id = getelementptr inbounds i8, ptr %packet, i64 44
   %2 = load i8, ptr %path_id, align 4
   %vtable = load ptr, ptr %1, align 8
-  %vfn = getelementptr inbounds ptr, ptr %vtable, i64 32
+  %vfn = getelementptr inbounds i8, ptr %vtable, i64 256
   %3 = load ptr, ptr %vfn, align 8
   %call2 = tail call noundef i64 %3(ptr noundef nonnull align 8 dereferenceable(8) %1, i8 noundef zeroext %2)
   %cmp = icmp ult i64 %0, %call2
@@ -9583,7 +9440,7 @@ if.then:                                          ; preds = %entry
 
 cond.false:                                       ; preds = %if.then
   call void @_ZN7logging10LogMessageC1EPKcii(ptr noundef nonnull align 8 dereferenceable(404) %ref.tmp4, ptr noundef nonnull @.str, i32 noundef 1604, i32 noundef 2)
-  %stream_.i = getelementptr inbounds %"class.logging::LogMessage", ptr %ref.tmp4, i64 0, i32 2
+  %stream_.i = getelementptr inbounds i8, ptr %ref.tmp4, i64 8
   %call7 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc(ptr noundef nonnull align 8 dereferenceable(8) %stream_.i, ptr noundef nonnull @.str.43)
           to label %invoke.cont6 unwind label %lpad
 
@@ -9600,7 +9457,7 @@ invoke.cont11:                                    ; preds = %invoke.cont9
   %5 = load ptr, ptr %sent_packet_manager_, align 8
   %6 = load i8, ptr %path_id, align 4
   %vtable16 = load ptr, ptr %5, align 8
-  %vfn17 = getelementptr inbounds ptr, ptr %vtable16, i64 32
+  %vfn17 = getelementptr inbounds i8, ptr %vtable16, i64 256
   %7 = load ptr, ptr %vfn17, align 8
   %call19 = invoke noundef i64 %7(ptr noundef nonnull align 8 dereferenceable(8) %5, i8 noundef zeroext %6)
           to label %invoke.cont18 unwind label %lpad
@@ -9634,7 +9491,7 @@ lpad.i:                                           ; preds = %.noexc
 
 invoke.cont29:                                    ; preds = %.noexc
   %vtable30 = load ptr, ptr %this, align 8
-  %vfn31 = getelementptr inbounds ptr, ptr %vtable30, i64 32
+  %vfn31 = getelementptr inbounds i8, ptr %vtable30, i64 256
   %9 = load ptr, ptr %vfn31, align 8
   invoke void %9(ptr noundef nonnull align 8 dereferenceable(3372) %this, i32 noundef 1, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp26, i32 noundef 1)
           to label %invoke.cont33 unwind label %lpad32
@@ -9667,39 +9524,39 @@ ehcleanup:                                        ; preds = %lpad28, %lpad.i, %l
   br label %eh.resume
 
 if.end:                                           ; preds = %entry
-  %connected_.i = getelementptr inbounds %"class.net::QuicConnection", ptr %this, i64 0, i32 80
+  %connected_.i = getelementptr inbounds i8, ptr %this, i64 3208
   %13 = load i8, ptr %connected_.i, align 8
   %14 = and i8 %13, 1
   %tobool.not.i = icmp eq i8 %14, 0
   br i1 %tobool.not.i, label %if.then35, label %_ZN3net14QuicConnection19ShouldDiscardPacketERKNS_16SerializedPacketE.exit
 
 _ZN3net14QuicConnection19ShouldDiscardPacketERKNS_16SerializedPacketE.exit: ; preds = %if.end
-  %encryption_level_.i = getelementptr inbounds %"class.net::QuicConnection", ptr %this, i64 0, i32 10
+  %encryption_level_.i = getelementptr inbounds i8, ptr %this, i64 473
   %15 = load i8, ptr %encryption_level_.i, align 1
   %cmp.i = icmp eq i8 %15, 2
-  %encryption_level.i = getelementptr inbounds %"struct.net::SerializedPacket", ptr %packet, i64 0, i32 8
+  %encryption_level.i = getelementptr inbounds i8, ptr %packet, i64 57
   %16 = load i8, ptr %encryption_level.i, align 1
   %cmp4.i = icmp eq i8 %16, 0
   %or.cond.i = select i1 %cmp.i, i1 %cmp4.i, i1 false
   br i1 %or.cond.i, label %if.then35, label %if.end36
 
 if.then35:                                        ; preds = %if.end, %_ZN3net14QuicConnection19ShouldDiscardPacketERKNS_16SerializedPacketE.exit
-  %packets_discarded = getelementptr inbounds %"class.net::QuicConnection", ptr %this, i64 0, i32 72, i32 3
+  %packets_discarded = getelementptr inbounds i8, ptr %this, i64 2936
   %17 = load i64, ptr %packets_discarded, align 8
   %inc = add i64 %17, 1
   store i64 %inc, ptr %packets_discarded, align 8
   br label %return
 
 if.end36:                                         ; preds = %_ZN3net14QuicConnection19ShouldDiscardPacketERKNS_16SerializedPacketE.exit
-  %retransmittable_frames.i = getelementptr inbounds %"struct.net::SerializedPacket", ptr %packet, i64 0, i32 2
+  %retransmittable_frames.i = getelementptr inbounds i8, ptr %packet, i64 16
   %18 = load ptr, ptr %retransmittable_frames.i, align 8
-  %_M_finish.i.i.i = getelementptr inbounds %"struct.net::SerializedPacket", ptr %packet, i64 0, i32 2, i32 0, i32 0, i32 0, i32 1
+  %_M_finish.i.i.i = getelementptr inbounds i8, ptr %packet, i64 24
   %19 = load ptr, ptr %_M_finish.i.i.i, align 8
   %cmp.i.i.i = icmp eq ptr %18, %19
   br i1 %cmp.i.i.i, label %_ZN3net14QuicConnection19IsTerminationPacketERKNS_16SerializedPacketE.exit, label %for.cond.preheader.i
 
 for.cond.preheader.i:                             ; preds = %if.end36
-  %save_crypto_packets_as_termination_packets_.i = getelementptr inbounds %"class.net::QuicConnection", ptr %this, i64 0, i32 37
+  %save_crypto_packets_as_termination_packets_.i = getelementptr inbounds i8, ptr %this, i64 840
   %20 = load i8, ptr %save_crypto_packets_as_termination_packets_.i, align 8
   %.fr8.i = freeze i8 %20
   %21 = and i8 %.fr8.i, 1
@@ -9710,7 +9567,7 @@ for.body.us.i:                                    ; preds = %for.cond.preheader.
   %__begin1.sroa.0.07.us.i = phi ptr [ %incdec.ptr.i.us.i, %for.body.us.i ], [ %18, %for.cond.preheader.i ]
   %22 = load i32, ptr %__begin1.sroa.0.07.us.i, align 8
   %cmp.us.i = icmp eq i32 %22, 2
-  %incdec.ptr.i.us.i = getelementptr inbounds %"struct.net::QuicFrame", ptr %__begin1.sroa.0.07.us.i, i64 1
+  %incdec.ptr.i.us.i = getelementptr inbounds i8, ptr %__begin1.sroa.0.07.us.i, i64 16
   %cmp.i.not.us.i = icmp eq ptr %incdec.ptr.i.us.i, %19
   %or.cond = select i1 %cmp.us.i, i1 true, i1 %cmp.i.not.us.i
   br i1 %or.cond, label %_ZN3net14QuicConnection19IsTerminationPacketERKNS_16SerializedPacketE.exit, label %for.body.us.i
@@ -9724,23 +9581,23 @@ for.body.i:                                       ; preds = %for.cond.preheader.
   ]
 
 land.lhs.true12.i:                                ; preds = %for.body.i
-  %24 = getelementptr inbounds %"struct.net::QuicFrame", ptr %__begin1.sroa.0.07.i, i64 0, i32 1
+  %24 = getelementptr inbounds i8, ptr %__begin1.sroa.0.07.i, i64 8
   %25 = load ptr, ptr %24, align 8
   %26 = load i32, ptr %25, align 8
   %cmp13.i = icmp eq i32 %26, 1
   br i1 %cmp13.i, label %_ZN3net14QuicConnection19IsTerminationPacketERKNS_16SerializedPacketE.exit, label %for.inc.i
 
 for.inc.i:                                        ; preds = %land.lhs.true12.i, %for.body.i
-  %incdec.ptr.i.i = getelementptr inbounds %"struct.net::QuicFrame", ptr %__begin1.sroa.0.07.i, i64 1
+  %incdec.ptr.i.i = getelementptr inbounds i8, ptr %__begin1.sroa.0.07.i, i64 16
   %cmp.i.not.i = icmp eq ptr %incdec.ptr.i.i, %19
   br i1 %cmp.i.not.i, label %_ZN3net14QuicConnection19IsTerminationPacketERKNS_16SerializedPacketE.exit, label %for.body.i
 
 _ZN3net14QuicConnection19IsTerminationPacketERKNS_16SerializedPacketE.exit: ; preds = %for.body.i, %land.lhs.true12.i, %for.inc.i, %for.body.us.i, %if.end36
   %retval.0.i44 = phi i1 [ false, %if.end36 ], [ %cmp.us.i, %for.body.us.i ], [ true, %for.body.i ], [ true, %land.lhs.true12.i ], [ false, %for.inc.i ]
-  %writer_ = getelementptr inbounds %"class.net::QuicConnection", ptr %this, i64 0, i32 8
+  %writer_ = getelementptr inbounds i8, ptr %this, i64 464
   %27 = load ptr, ptr %writer_, align 8
   %vtable38 = load ptr, ptr %27, align 8
-  %vfn39 = getelementptr inbounds ptr, ptr %vtable38, i64 4
+  %vfn39 = getelementptr inbounds i8, ptr %vtable38, i64 32
   %28 = load ptr, ptr %vfn39, align 8
   %call40 = tail call noundef zeroext i1 %28(ptr noundef nonnull align 8 dereferenceable(8) %27)
   %call40.not = xor i1 %call40, true
@@ -9749,9 +9606,9 @@ _ZN3net14QuicConnection19IsTerminationPacketERKNS_16SerializedPacketE.exit: ; pr
 
 if.end53:                                         ; preds = %_ZN3net14QuicConnection19IsTerminationPacketERKNS_16SerializedPacketE.exit
   %29 = load i64, ptr %packet_number, align 8
-  %packet_number_of_last_sent_packet_ = getelementptr inbounds %"class.net::QuicConnection", ptr %this, i64 0, i32 76
+  %packet_number_of_last_sent_packet_ = getelementptr inbounds i8, ptr %this, i64 3184
   store i64 %29, ptr %packet_number_of_last_sent_packet_, align 8
-  %encrypted_length54 = getelementptr inbounds %"struct.net::SerializedPacket", ptr %packet, i64 0, i32 1
+  %encrypted_length54 = getelementptr inbounds i8, ptr %packet, i64 8
   %30 = load i16, ptr %encrypted_length54, align 8
   br i1 %retval.0.i44, label %if.then56, label %if.end53.if.end104_crit_edge
 
@@ -9760,7 +9617,7 @@ if.end53.if.end104_crit_edge:                     ; preds = %if.end53
   br label %if.end104
 
 if.then56:                                        ; preds = %if.end53
-  %termination_packets_ = getelementptr inbounds %"class.net::QuicConnection", ptr %this, i64 0, i32 39
+  %termination_packets_ = getelementptr inbounds i8, ptr %this, i64 848
   %31 = load ptr, ptr %termination_packets_, align 8
   %cmp58 = icmp eq ptr %31, null
   br i1 %cmp58, label %if.then59, label %if.end62
@@ -9780,9 +9637,9 @@ if.end62:                                         ; preds = %if.then59, %if.then
           to label %invoke.cont69 unwind label %lpad68
 
 invoke.cont69:                                    ; preds = %if.end62
-  %_M_finish.i.i = getelementptr inbounds %"struct.std::_Vector_base<std::unique_ptr<net::QuicEncryptedPacket>, std::allocator<std::unique_ptr<net::QuicEncryptedPacket>>>::_Vector_impl_data", ptr %32, i64 0, i32 1
+  %_M_finish.i.i = getelementptr inbounds i8, ptr %32, i64 8
   %33 = load ptr, ptr %_M_finish.i.i, align 8
-  %_M_end_of_storage.i.i = getelementptr inbounds %"struct.std::_Vector_base<std::unique_ptr<net::QuicEncryptedPacket>, std::allocator<std::unique_ptr<net::QuicEncryptedPacket>>>::_Vector_impl_data", ptr %32, i64 0, i32 2
+  %_M_end_of_storage.i.i = getelementptr inbounds i8, ptr %32, i64 16
   %34 = load ptr, ptr %_M_end_of_storage.i.i, align 8
   %cmp.not.i.i = icmp eq ptr %33, %34
   br i1 %cmp.not.i.i, label %if.else.i.i, label %if.then.i.i
@@ -9791,7 +9648,7 @@ if.then.i.i:                                      ; preds = %invoke.cont69
   %35 = ptrtoint ptr %call67 to i64
   store i64 %35, ptr %33, align 8
   %36 = load ptr, ptr %_M_finish.i.i, align 8
-  %incdec.ptr.i.i47 = getelementptr inbounds %"class.std::unique_ptr.155", ptr %36, i64 1
+  %incdec.ptr.i.i47 = getelementptr inbounds i8, ptr %36, i64 8
   store ptr %incdec.ptr.i.i47, ptr %_M_finish.i.i, align 8
   br label %_ZNSt10unique_ptrIN3net19QuicEncryptedPacketESt14default_deleteIS1_EED2Ev.exit
 
@@ -9841,14 +9698,14 @@ for.body.i.i.i.i:                                 ; preds = %_ZNSt12_Vector_base
   %40 = load i64, ptr %__first.addr.06.i.i.i.i, align 8, !alias.scope !55, !noalias !52
   store i64 %40, ptr %__cur.07.i.i.i.i, align 8, !alias.scope !52, !noalias !55
   store ptr null, ptr %__first.addr.06.i.i.i.i, align 8, !alias.scope !55, !noalias !52
-  %incdec.ptr.i.i.i.i = getelementptr inbounds %"class.std::unique_ptr.155", ptr %__first.addr.06.i.i.i.i, i64 1
-  %incdec.ptr1.i.i.i.i = getelementptr inbounds %"class.std::unique_ptr.155", ptr %__cur.07.i.i.i.i, i64 1
+  %incdec.ptr.i.i.i.i = getelementptr inbounds i8, ptr %__first.addr.06.i.i.i.i, i64 8
+  %incdec.ptr1.i.i.i.i = getelementptr inbounds i8, ptr %__cur.07.i.i.i.i, i64 8
   %cmp.not.i.i.i.i = icmp eq ptr %incdec.ptr.i.i.i.i, %33
   br i1 %cmp.not.i.i.i.i, label %_ZNSt6vectorISt10unique_ptrIN3net19QuicEncryptedPacketESt14default_deleteIS2_EESaIS5_EE11_S_relocateEPS5_S8_S8_RS6_.exit19.i, label %for.body.i.i.i.i, !llvm.loop !57
 
 _ZNSt6vectorISt10unique_ptrIN3net19QuicEncryptedPacketESt14default_deleteIS2_EESaIS5_EE11_S_relocateEPS5_S8_S8_RS6_.exit19.i: ; preds = %for.body.i.i.i.i, %_ZNSt12_Vector_baseISt10unique_ptrIN3net19QuicEncryptedPacketESt14default_deleteIS2_EESaIS5_EE11_M_allocateEm.exit.i
   %__cur.0.lcssa.i.i.i.i = phi ptr [ %cond.i10.i, %_ZNSt12_Vector_baseISt10unique_ptrIN3net19QuicEncryptedPacketESt14default_deleteIS2_EESaIS5_EE11_M_allocateEm.exit.i ], [ %incdec.ptr1.i.i.i.i, %for.body.i.i.i.i ]
-  %incdec.ptr.i = getelementptr %"class.std::unique_ptr.155", ptr %__cur.0.lcssa.i.i.i.i, i64 1
+  %incdec.ptr.i = getelementptr i8, ptr %__cur.0.lcssa.i.i.i.i, i64 8
   %tobool.not.i.i108 = icmp eq ptr %37, null
   br i1 %tobool.not.i.i108, label %.noexc48, label %if.then.i20.i
 
@@ -9866,16 +9723,16 @@ if.then.i20.i:                                    ; preds = %_ZNSt6vectorISt10un
 _ZNSt10unique_ptrIN3net19QuicEncryptedPacketESt14default_deleteIS1_EED2Ev.exit: ; preds = %if.then.i.i, %.noexc48
   %41 = load ptr, ptr %writer_, align 8
   %vtable75 = load ptr, ptr %41, align 8
-  %vfn76 = getelementptr inbounds ptr, ptr %vtable75, i64 4
+  %vfn76 = getelementptr inbounds i8, ptr %vtable75, i64 32
   %42 = load ptr, ptr %vfn76, align 8
   %call77 = tail call noundef zeroext i1 %42(ptr noundef nonnull align 8 dereferenceable(8) %41)
   br i1 %call77, label %if.then78, label %if.end104
 
 if.then78:                                        ; preds = %_ZNSt10unique_ptrIN3net19QuicEncryptedPacketESt14default_deleteIS1_EED2Ev.exit
-  %visitor_ = getelementptr inbounds %"class.net::QuicConnection", ptr %this, i64 0, i32 67
+  %visitor_ = getelementptr inbounds i8, ptr %this, i64 2392
   %43 = load ptr, ptr %visitor_, align 8
   %vtable79 = load ptr, ptr %43, align 8
-  %vfn80 = getelementptr inbounds ptr, ptr %vtable79, i64 8
+  %vfn80 = getelementptr inbounds i8, ptr %vtable79, i64 64
   %44 = load ptr, ptr %vfn80, align 8
   tail call void %44(ptr noundef nonnull align 8 dereferenceable(8) %43)
   br label %return
@@ -9890,27 +9747,27 @@ _ZNSt10unique_ptrIN3net19QuicEncryptedPacketESt14default_deleteIS1_EED2Ev.exit55
   %46 = landingpad { ptr, i32 }
           cleanup
   %vtable.i.i52 = load ptr, ptr %call67, align 8
-  %vfn.i.i53 = getelementptr inbounds ptr, ptr %vtable.i.i52, i64 1
+  %vfn.i.i53 = getelementptr inbounds i8, ptr %vtable.i.i52, i64 8
   %47 = load ptr, ptr %vfn.i.i53, align 8
   tail call void %47(ptr noundef nonnull align 8 dereferenceable(25) %call67) #22
   br label %eh.resume
 
 if.end104:                                        ; preds = %if.end53.if.end104_crit_edge, %_ZNSt10unique_ptrIN3net19QuicEncryptedPacketESt14default_deleteIS1_EED2Ev.exit
   %conv109.pre-phi = phi i64 [ %.pre123, %if.end53.if.end104_crit_edge ], [ %conv, %_ZNSt10unique_ptrIN3net19QuicEncryptedPacketESt14default_deleteIS1_EED2Ev.exit ]
-  %clock_ = getelementptr inbounds %"class.net::QuicConnection", ptr %this, i64 0, i32 12
+  %clock_ = getelementptr inbounds i8, ptr %this, i64 480
   %48 = load ptr, ptr %clock_, align 8
   %vtable105 = load ptr, ptr %48, align 8
-  %vfn106 = getelementptr inbounds ptr, ptr %vtable105, i64 3
+  %vfn106 = getelementptr inbounds i8, ptr %vtable105, i64 24
   %49 = load ptr, ptr %vfn106, align 8
   %call107 = tail call i64 %49(ptr noundef nonnull align 8 dereferenceable(8) %48)
   %50 = load ptr, ptr %writer_, align 8
   %51 = load ptr, ptr %packet, align 8
-  %self_address_.i = getelementptr inbounds %"class.net::QuicConnection", ptr %this, i64 0, i32 15
-  %peer_address_.i = getelementptr inbounds %"class.net::QuicConnection", ptr %this, i64 0, i32 16
-  %per_packet_options_ = getelementptr inbounds %"class.net::QuicConnection", ptr %this, i64 0, i32 7
+  %self_address_.i = getelementptr inbounds i8, ptr %this, i64 504
+  %peer_address_.i = getelementptr inbounds i8, ptr %this, i64 536
+  %per_packet_options_ = getelementptr inbounds i8, ptr %this, i64 456
   %52 = load ptr, ptr %per_packet_options_, align 8
   %vtable113 = load ptr, ptr %50, align 8
-  %vfn114 = getelementptr inbounds ptr, ptr %vtable113, i64 2
+  %vfn114 = getelementptr inbounds i8, ptr %vtable113, i64 16
   %53 = load ptr, ptr %vfn114, align 8
   %call115 = tail call i64 %53(ptr noundef nonnull align 8 dereferenceable(8) %50, ptr noundef %51, i64 noundef %conv109.pre-phi, ptr noundef nonnull align 8 dereferenceable(24) %self_address_.i, ptr noundef nonnull align 8 dereferenceable(26) %peer_address_.i, ptr noundef %52)
   %result.sroa.0.0.extract.trunc = trunc i64 %call115 to i32
@@ -9922,47 +9779,47 @@ if.end104:                                        ; preds = %if.end53.if.end104_
   ]
 
 if.then131:                                       ; preds = %if.end104
-  %visitor_132 = getelementptr inbounds %"class.net::QuicConnection", ptr %this, i64 0, i32 67
+  %visitor_132 = getelementptr inbounds i8, ptr %this, i64 2392
   %54 = load ptr, ptr %visitor_132, align 8
   %vtable133 = load ptr, ptr %54, align 8
-  %vfn134 = getelementptr inbounds ptr, ptr %vtable133, i64 8
+  %vfn134 = getelementptr inbounds i8, ptr %vtable133, i64 64
   %55 = load ptr, ptr %vfn134, align 8
   tail call void %55(ptr noundef nonnull align 8 dereferenceable(8) %54)
   %56 = load ptr, ptr %writer_, align 8
   %vtable136 = load ptr, ptr %56, align 8
-  %vfn137 = getelementptr inbounds ptr, ptr %vtable136, i64 3
+  %vfn137 = getelementptr inbounds i8, ptr %vtable136, i64 24
   %57 = load ptr, ptr %vfn137, align 8
   %call138 = tail call noundef zeroext i1 %57(ptr noundef nonnull align 8 dereferenceable(8) %56)
   br i1 %call138, label %land.lhs.true144, label %return
 
 land.lhs.true144:                                 ; preds = %if.then131, %if.end104
-  %debug_visitor_ = getelementptr inbounds %"class.net::QuicConnection", ptr %this, i64 0, i32 68
+  %debug_visitor_ = getelementptr inbounds i8, ptr %this, i64 2400
   %58 = load ptr, ptr %debug_visitor_, align 8
   %cmp145.not = icmp eq ptr %58, null
   br i1 %cmp145.not, label %if.end151, label %if.then146
 
 if.then146:                                       ; preds = %land.lhs.true144
-  %original_path_id = getelementptr inbounds %"struct.net::SerializedPacket", ptr %packet, i64 0, i32 13
+  %original_path_id = getelementptr inbounds i8, ptr %packet, i64 62
   %59 = load i8, ptr %original_path_id, align 2
-  %original_packet_number = getelementptr inbounds %"struct.net::SerializedPacket", ptr %packet, i64 0, i32 14
+  %original_packet_number = getelementptr inbounds i8, ptr %packet, i64 64
   %60 = load i64, ptr %original_packet_number, align 8
-  %transmission_type = getelementptr inbounds %"struct.net::SerializedPacket", ptr %packet, i64 0, i32 12
+  %transmission_type = getelementptr inbounds i8, ptr %packet, i64 61
   %61 = load i8, ptr %transmission_type, align 1
   %vtable149 = load ptr, ptr %58, align 8
-  %vfn150 = getelementptr inbounds ptr, ptr %vtable149, i64 5
+  %vfn150 = getelementptr inbounds i8, ptr %vtable149, i64 40
   %62 = load ptr, ptr %vfn150, align 8
   tail call void %62(ptr noundef nonnull align 8 dereferenceable(8) %58, ptr noundef nonnull align 8 dereferenceable(96) %packet, i8 noundef zeroext %59, i64 noundef %60, i8 noundef signext %61, i64 %call107)
   br label %if.end151
 
 if.end151:                                        ; preds = %if.end104, %if.then146, %land.lhs.true144
-  %transmission_type152 = getelementptr inbounds %"struct.net::SerializedPacket", ptr %packet, i64 0, i32 12
+  %transmission_type152 = getelementptr inbounds i8, ptr %packet, i64 61
   %63 = load i8, ptr %transmission_type152, align 1
   %cmp154 = icmp eq i8 %63, 0
   %.pre = load i8, ptr @FLAGS_quic_better_last_send_for_timeout, align 1
   br i1 %cmp154, label %if.then155, label %if.end171
 
 if.then155:                                       ; preds = %if.end151
-  %time_of_last_sent_new_packet_ = getelementptr inbounds %"class.net::QuicConnection", ptr %this, i64 0, i32 74
+  %time_of_last_sent_new_packet_ = getelementptr inbounds i8, ptr %this, i64 3168
   store i64 %call107, ptr %time_of_last_sent_new_packet_, align 8
   %64 = and i8 %.pre, 1
   %tobool156.not = icmp eq i8 %64, 0
@@ -9978,9 +9835,9 @@ if.then157:                                       ; preds = %if.then155
   br i1 %narrow.i.not, label %if.end188, label %land.lhs.true161
 
 land.lhs.true161:                                 ; preds = %if.then157
-  %last_send_for_timeout_ = getelementptr inbounds %"class.net::QuicConnection", ptr %this, i64 0, i32 75
+  %last_send_for_timeout_ = getelementptr inbounds i8, ptr %this, i64 3176
   %agg.tmp162.sroa.0.0.copyload = load i64, ptr %last_send_for_timeout_, align 8
-  %time_of_last_received_packet_ = getelementptr inbounds %"class.net::QuicConnection", ptr %this, i64 0, i32 73
+  %time_of_last_received_packet_ = getelementptr inbounds i8, ptr %this, i64 3160
   %agg.tmp163.sroa.0.0.copyload = load i64, ptr %time_of_last_received_packet_, align 8
   %cmp.i.i.not = icmp slt i64 %agg.tmp163.sroa.0.0.copyload, %agg.tmp162.sroa.0.0.copyload
   br i1 %cmp.i.i.not, label %if.end188, label %if.end188.sink.split
@@ -10000,9 +9857,9 @@ if.then173:                                       ; preds = %if.then155, %if.end
   br i1 %narrow.i72.not, label %if.end188, label %land.lhs.true177
 
 land.lhs.true177:                                 ; preds = %if.then173
-  %last_send_for_timeout_179 = getelementptr inbounds %"class.net::QuicConnection", ptr %this, i64 0, i32 75
+  %last_send_for_timeout_179 = getelementptr inbounds i8, ptr %this, i64 3176
   %agg.tmp178.sroa.0.0.copyload = load i64, ptr %last_send_for_timeout_179, align 8
-  %time_of_last_received_packet_181 = getelementptr inbounds %"class.net::QuicConnection", ptr %this, i64 0, i32 73
+  %time_of_last_received_packet_181 = getelementptr inbounds i8, ptr %this, i64 3160
   %agg.tmp180.sroa.0.0.copyload = load i64, ptr %time_of_last_received_packet_181, align 8
   %cmp.i.i74.not = icmp slt i64 %agg.tmp180.sroa.0.0.copyload, %agg.tmp178.sroa.0.0.copyload
   br i1 %cmp.i.i74.not, label %if.end188, label %if.end188.sink.split
@@ -10013,19 +9870,19 @@ if.end188.sink.split:                             ; preds = %land.lhs.true177, %
   br label %if.end188
 
 if.end188:                                        ; preds = %if.end188.sink.split, %if.then157, %land.lhs.true161, %if.then173, %land.lhs.true177, %if.end171
-  %perspective_.i = getelementptr inbounds %"class.net::QuicConnection", ptr %this, i64 0, i32 79
+  %perspective_.i = getelementptr inbounds i8, ptr %this, i64 3204
   %72 = load i32, ptr %perspective_.i, align 4
   %cmp.i75 = icmp eq i32 %72, 0
   br i1 %cmp.i75, label %_ZN3net14QuicConnection12SetPingAlarmEv.exit, label %if.end.i76
 
 if.end.i76:                                       ; preds = %if.end188
-  %visitor_.i = getelementptr inbounds %"class.net::QuicConnection", ptr %this, i64 0, i32 67
+  %visitor_.i = getelementptr inbounds i8, ptr %this, i64 2392
   %73 = load ptr, ptr %visitor_.i, align 8
   %vtable.i = load ptr, ptr %73, align 8
-  %vfn.i = getelementptr inbounds ptr, ptr %vtable.i, i64 17
+  %vfn.i = getelementptr inbounds i8, ptr %vtable.i, i64 136
   %74 = load ptr, ptr %vfn.i, align 8
   %call.i = tail call noundef zeroext i1 %74(ptr noundef nonnull align 8 dereferenceable(8) %73)
-  %ping_alarm_5.i = getelementptr inbounds %"class.net::QuicConnection", ptr %this, i64 0, i32 65
+  %ping_alarm_5.i = getelementptr inbounds i8, ptr %this, i64 2376
   %75 = load ptr, ptr %ping_alarm_5.i, align 8
   %76 = ptrtoint ptr %75 to i64
   %and.i.i1.i = and i64 %76, -2
@@ -10039,29 +9896,29 @@ if.then2.i:                                       ; preds = %if.end.i76
 if.end4.i:                                        ; preds = %if.end.i76
   %78 = load ptr, ptr %clock_, align 8
   %vtable8.i = load ptr, ptr %78, align 8
-  %vfn9.i = getelementptr inbounds ptr, ptr %vtable8.i, i64 2
+  %vfn9.i = getelementptr inbounds i8, ptr %vtable8.i, i64 16
   %79 = load ptr, ptr %vfn9.i, align 8
   %call10.i = tail call i64 %79(ptr noundef nonnull align 8 dereferenceable(8) %78)
-  %agg.tmp11.sroa.2.0.ping_timeout_.sroa_idx.i = getelementptr inbounds %"class.net::QuicConnection", ptr %this, i64 0, i32 58, i32 1
+  %agg.tmp11.sroa.2.0.ping_timeout_.sroa_idx.i = getelementptr inbounds i8, ptr %this, i64 1296
   %agg.tmp11.sroa.2.0.copyload.i = load i64, ptr %agg.tmp11.sroa.2.0.ping_timeout_.sroa_idx.i, align 8
   %add.i.i = add nsw i64 %agg.tmp11.sroa.2.0.copyload.i, %call10.i
   tail call void @_ZN3net9QuicAlarm6UpdateENS_8QuicTimeENS1_5DeltaE(ptr noundef nonnull align 8 dereferenceable(24) %77, i64 %add.i.i, i64 0, i64 1000000)
   br label %_ZN3net14QuicConnection12SetPingAlarmEv.exit
 
 _ZN3net14QuicConnection12SetPingAlarmEv.exit:     ; preds = %if.end188, %if.then2.i, %if.end4.i
-  %mtu_discovery_target_.i = getelementptr inbounds %"class.net::QuicConnection", ptr %this, i64 0, i32 87
+  %mtu_discovery_target_.i = getelementptr inbounds i8, ptr %this, i64 3312
   %80 = load i64, ptr %mtu_discovery_target_.i, align 8
-  %packet_generator_.i.i = getelementptr inbounds %"class.net::QuicConnection", ptr %this, i64 0, i32 69
+  %packet_generator_.i.i = getelementptr inbounds i8, ptr %this, i64 2408
   %call.i.i77 = tail call noundef i64 @_ZNK3net19QuicPacketGenerator25GetCurrentMaxPacketLengthEv(ptr noundef nonnull align 8 dereferenceable(472) %packet_generator_.i.i)
   %cmp.not.i78 = icmp ule i64 %80, %call.i.i77
-  %mtu_probe_count_.i = getelementptr inbounds %"class.net::QuicConnection", ptr %this, i64 0, i32 88
+  %mtu_probe_count_.i = getelementptr inbounds i8, ptr %this, i64 3320
   %81 = load i64, ptr %mtu_probe_count_.i, align 8
   %cmp2.i = icmp ugt i64 %81, 2
   %or.cond.i79 = select i1 %cmp.not.i78, i1 true, i1 %cmp2.i
   br i1 %or.cond.i79, label %_ZN3net14QuicConnection16MaybeSetMtuAlarmEv.exit, label %if.end4.i80
 
 if.end4.i80:                                      ; preds = %_ZN3net14QuicConnection12SetPingAlarmEv.exit
-  %mtu_discovery_alarm_.i = getelementptr inbounds %"class.net::QuicConnection", ptr %this, i64 0, i32 66
+  %mtu_discovery_alarm_.i = getelementptr inbounds i8, ptr %this, i64 2384
   %82 = load ptr, ptr %mtu_discovery_alarm_.i, align 8
   %83 = ptrtoint ptr %82 to i64
   %and.i.i.i = and i64 %83, -2
@@ -10071,7 +9928,7 @@ if.end4.i80:                                      ; preds = %_ZN3net14QuicConnec
 
 if.end8.i:                                        ; preds = %if.end4.i80
   %85 = load i64, ptr %packet_number_of_last_sent_packet_, align 8
-  %next_mtu_probe_at_.i = getelementptr inbounds %"class.net::QuicConnection", ptr %this, i64 0, i32 90
+  %next_mtu_probe_at_.i = getelementptr inbounds i8, ptr %this, i64 3336
   %86 = load i64, ptr %next_mtu_probe_at_.i, align 8
   %cmp9.not.i = icmp ult i64 %85, %86
   br i1 %cmp9.not.i, label %_ZN3net14QuicConnection16MaybeSetMtuAlarmEv.exit, label %if.then10.i
@@ -10083,7 +9940,7 @@ if.then10.i:                                      ; preds = %if.end8.i
   %89 = inttoptr i64 %and.i.i1.i81 to ptr
   %90 = load ptr, ptr %clock_, align 8
   %vtable.i83 = load ptr, ptr %90, align 8
-  %vfn.i84 = getelementptr inbounds ptr, ptr %vtable.i83, i64 2
+  %vfn.i84 = getelementptr inbounds i8, ptr %vtable.i83, i64 16
   %91 = load ptr, ptr %vfn.i84, align 8
   %call13.i = tail call i64 %91(ptr noundef nonnull align 8 dereferenceable(8) %90)
   tail call void @_ZN3net9QuicAlarm3SetENS_8QuicTimeE(ptr noundef nonnull align 8 dereferenceable(24) %89, i64 %call13.i)
@@ -10099,13 +9956,13 @@ if.then190:                                       ; preds = %_ZN3net14QuicConnec
   %94 = load ptr, ptr %sent_packet_manager_, align 8
   %95 = load i8, ptr %path_id, align 4
   %vtable194 = load ptr, ptr %94, align 8
-  %vfn195 = getelementptr inbounds ptr, ptr %vtable194, i64 14
+  %vfn195 = getelementptr inbounds i8, ptr %vtable194, i64 112
   %96 = load ptr, ptr %vfn195, align 8
   %call196 = tail call noundef i64 %96(ptr noundef nonnull align 8 dereferenceable(8) %94, i8 noundef zeroext %95)
   %97 = load ptr, ptr %sent_packet_manager_, align 8
   %call.i85 = tail call noundef i64 @_ZNK3net19QuicPacketGenerator25GetCurrentMaxPacketLengthEv(ptr noundef nonnull align 8 dereferenceable(472) %packet_generator_.i.i)
   %vtable200 = load ptr, ptr %97, align 8
-  %vfn201 = getelementptr inbounds ptr, ptr %vtable200, i64 23
+  %vfn201 = getelementptr inbounds i8, ptr %vtable200, i64 184
   %98 = load ptr, ptr %vfn201, align 8
   %call202 = tail call noundef i64 %98(ptr noundef nonnull align 8 dereferenceable(8) %97, i64 noundef %call.i85)
   tail call void @_ZN3net19QuicPacketGenerator26UpdateSequenceNumberLengthEmm(ptr noundef nonnull align 8 dereferenceable(472) %packet_generator_.i.i, i64 noundef %call196, i64 noundef %call202)
@@ -10113,9 +9970,9 @@ if.then190:                                       ; preds = %_ZN3net14QuicConnec
 
 if.end203:                                        ; preds = %if.then190, %_ZN3net14QuicConnection16MaybeSetMtuAlarmEv.exit
   %99 = load ptr, ptr %sent_packet_manager_, align 8
-  %original_path_id206 = getelementptr inbounds %"struct.net::SerializedPacket", ptr %packet, i64 0, i32 13
+  %original_path_id206 = getelementptr inbounds i8, ptr %packet, i64 62
   %100 = load i8, ptr %original_path_id206, align 2
-  %original_packet_number207 = getelementptr inbounds %"struct.net::SerializedPacket", ptr %packet, i64 0, i32 14
+  %original_packet_number207 = getelementptr inbounds i8, ptr %packet, i64 64
   %101 = load i64, ptr %original_packet_number207, align 8
   %102 = load i8, ptr %transmission_type152, align 1
   %cmp.not.i87 = icmp ne i8 %102, 0
@@ -10125,13 +9982,13 @@ if.end203:                                        ; preds = %if.then190, %_ZN3ne
   %narrow.i91 = select i1 %cmp.not.i87, i1 true, i1 %cmp.i.i.i90
   %retval.0.i92 = zext i1 %narrow.i91 to i8
   %vtable212 = load ptr, ptr %99, align 8
-  %vfn213 = getelementptr inbounds ptr, ptr %vtable212, i64 15
+  %vfn213 = getelementptr inbounds i8, ptr %vtable212, i64 120
   %105 = load ptr, ptr %vfn213, align 8
   %call214 = tail call noundef zeroext i1 %105(ptr noundef nonnull align 8 dereferenceable(8) %99, ptr noundef nonnull %packet, i8 noundef zeroext %100, i64 noundef %101, i64 %call107, i8 noundef signext %102, i8 noundef signext %retval.0.i92)
   br i1 %call214, label %if.then219, label %lor.lhs.false
 
 lor.lhs.false:                                    ; preds = %if.end203
-  %retransmission_alarm_ = getelementptr inbounds %"class.net::QuicConnection", ptr %this, i64 0, i32 61
+  %retransmission_alarm_ = getelementptr inbounds i8, ptr %this, i64 2344
   %106 = load ptr, ptr %retransmission_alarm_, align 8
   %107 = ptrtoint ptr %106 to i64
   %and.i.i = and i64 %107, -2
@@ -10140,24 +9997,24 @@ lor.lhs.false:                                    ; preds = %if.end203
   br i1 %call218, label %if.end220, label %if.then219
 
 if.then219:                                       ; preds = %lor.lhs.false, %if.end203
-  %delay_setting_retransmission_alarm_.i = getelementptr inbounds %"class.net::QuicConnection", ptr %this, i64 0, i32 54
+  %delay_setting_retransmission_alarm_.i = getelementptr inbounds i8, ptr %this, i64 1284
   %109 = load i8, ptr %delay_setting_retransmission_alarm_.i, align 4
   %110 = and i8 %109, 1
   %tobool.not.i93 = icmp eq i8 %110, 0
   br i1 %tobool.not.i93, label %if.end.i94, label %if.then.i
 
 if.then.i:                                        ; preds = %if.then219
-  %pending_retransmission_alarm_.i = getelementptr inbounds %"class.net::QuicConnection", ptr %this, i64 0, i32 55
+  %pending_retransmission_alarm_.i = getelementptr inbounds i8, ptr %this, i64 1285
   store i8 1, ptr %pending_retransmission_alarm_.i, align 1
   br label %if.end220
 
 if.end.i94:                                       ; preds = %if.then219
   %111 = load ptr, ptr %sent_packet_manager_, align 8
   %vtable.i95 = load ptr, ptr %111, align 8
-  %vfn.i96 = getelementptr inbounds ptr, ptr %vtable.i95, i64 18
+  %vfn.i96 = getelementptr inbounds i8, ptr %vtable.i95, i64 144
   %112 = load ptr, ptr %vfn.i96, align 8
   %call2.i = tail call i64 %112(ptr noundef nonnull align 8 dereferenceable(8) %111)
-  %retransmission_alarm_.i = getelementptr inbounds %"class.net::QuicConnection", ptr %this, i64 0, i32 61
+  %retransmission_alarm_.i = getelementptr inbounds i8, ptr %this, i64 2344
   %113 = load ptr, ptr %retransmission_alarm_.i, align 8
   %114 = ptrtoint ptr %113 to i64
   %and.i.i.i97 = and i64 %114, -2
@@ -10175,13 +10032,13 @@ if.then222:                                       ; preds = %if.end220
   %118 = load ptr, ptr %sent_packet_manager_, align 8
   %119 = load i8, ptr %path_id, align 4
   %vtable227 = load ptr, ptr %118, align 8
-  %vfn228 = getelementptr inbounds ptr, ptr %vtable227, i64 14
+  %vfn228 = getelementptr inbounds i8, ptr %vtable227, i64 112
   %120 = load ptr, ptr %vfn228, align 8
   %call229 = tail call noundef i64 %120(ptr noundef nonnull align 8 dereferenceable(8) %118, i8 noundef zeroext %119)
   %121 = load ptr, ptr %sent_packet_manager_, align 8
   %call.i99 = tail call noundef i64 @_ZNK3net19QuicPacketGenerator25GetCurrentMaxPacketLengthEv(ptr noundef nonnull align 8 dereferenceable(472) %packet_generator_.i.i)
   %vtable233 = load ptr, ptr %121, align 8
-  %vfn234 = getelementptr inbounds ptr, ptr %vtable233, i64 23
+  %vfn234 = getelementptr inbounds i8, ptr %vtable233, i64 184
   %122 = load ptr, ptr %vfn234, align 8
   %call235 = tail call noundef i64 %122(ptr noundef nonnull align 8 dereferenceable(8) %121, i64 noundef %call.i99)
   tail call void @_ZN3net19QuicPacketGenerator26UpdateSequenceNumberLengthEmm(ptr noundef nonnull align 8 dereferenceable(472) %packet_generator_.i.i, i64 noundef %call229, i64 noundef %call235)
@@ -10189,7 +10046,7 @@ if.then222:                                       ; preds = %if.end220
 
 if.end236:                                        ; preds = %if.then222, %if.end220
   %conv237 = ashr i64 %call115, 32
-  %stats_238 = getelementptr inbounds %"class.net::QuicConnection", ptr %this, i64 0, i32 72
+  %stats_238 = getelementptr inbounds i8, ptr %this, i64 2912
   %123 = load <2 x i64>, ptr %stats_238, align 8
   %124 = insertelement <2 x i64> <i64 poison, i64 1>, i64 %conv237, i64 0
   %125 = add <2 x i64> %123, %124
@@ -10199,7 +10056,7 @@ if.end236:                                        ; preds = %if.then222, %if.end
   br i1 %cmp243.not, label %if.end250, label %if.then244
 
 if.then244:                                       ; preds = %if.end236
-  %bytes_retransmitted = getelementptr inbounds %"class.net::QuicConnection", ptr %this, i64 0, i32 72, i32 8
+  %bytes_retransmitted = getelementptr inbounds i8, ptr %this, i64 2976
   %127 = load <2 x i64>, ptr %bytes_retransmitted, align 8
   %128 = add <2 x i64> %127, %124
   store <2 x i64> %128, ptr %bytes_retransmitted, align 8
@@ -10224,14 +10081,14 @@ land.lhs.true257:                                 ; preds = %if.end250
 land.lhs.true259:                                 ; preds = %land.lhs.true257
   %134 = load i16, ptr %encrypted_length54, align 8
   %conv261 = zext i16 %134 to i64
-  %long_term_mtu_ = getelementptr inbounds %"class.net::QuicConnection", ptr %this, i64 0, i32 91
+  %long_term_mtu_ = getelementptr inbounds i8, ptr %this, i64 3344
   %135 = load i64, ptr %long_term_mtu_, align 8
   %cmp262 = icmp ult i64 %135, %conv261
   br i1 %cmp262, label %if.then263, label %if.then268
 
 if.then263:                                       ; preds = %land.lhs.true259
   store i64 0, ptr %mtu_discovery_target_.i, align 8
-  %mtu_discovery_alarm_ = getelementptr inbounds %"class.net::QuicConnection", ptr %this, i64 0, i32 66
+  %mtu_discovery_alarm_ = getelementptr inbounds i8, ptr %this, i64 2384
   %136 = load ptr, ptr %mtu_discovery_alarm_, align 8
   %137 = ptrtoint ptr %136 to i64
   %and.i.i102 = and i64 %137, -2
@@ -10262,30 +10119,30 @@ declare void @_ZN3net19QuicPacketGenerator20ReserializeAllFramesERKNS_21PendingR
 ; Function Attrs: mustprogress uwtable
 define dso_local void @_ZN3net14QuicConnection24NeuterUnencryptedPacketsEv(ptr nocapture noundef nonnull align 8 dereferenceable(3372) %this) local_unnamed_addr #0 align 2 {
 entry:
-  %sent_packet_manager_ = getelementptr inbounds %"class.net::QuicConnection", ptr %this, i64 0, i32 77
+  %sent_packet_manager_ = getelementptr inbounds i8, ptr %this, i64 3192
   %0 = load ptr, ptr %sent_packet_manager_, align 8
   %vtable = load ptr, ptr %0, align 8
-  %vfn = getelementptr inbounds ptr, ptr %vtable, i64 10
+  %vfn = getelementptr inbounds i8, ptr %vtable, i64 80
   %1 = load ptr, ptr %vfn, align 8
   tail call void %1(ptr noundef nonnull align 8 dereferenceable(8) %0)
-  %delay_setting_retransmission_alarm_.i = getelementptr inbounds %"class.net::QuicConnection", ptr %this, i64 0, i32 54
+  %delay_setting_retransmission_alarm_.i = getelementptr inbounds i8, ptr %this, i64 1284
   %2 = load i8, ptr %delay_setting_retransmission_alarm_.i, align 4
   %3 = and i8 %2, 1
   %tobool.not.i = icmp eq i8 %3, 0
   br i1 %tobool.not.i, label %if.end.i, label %if.then.i
 
 if.then.i:                                        ; preds = %entry
-  %pending_retransmission_alarm_.i = getelementptr inbounds %"class.net::QuicConnection", ptr %this, i64 0, i32 55
+  %pending_retransmission_alarm_.i = getelementptr inbounds i8, ptr %this, i64 1285
   store i8 1, ptr %pending_retransmission_alarm_.i, align 1
   br label %_ZN3net14QuicConnection22SetRetransmissionAlarmEv.exit
 
 if.end.i:                                         ; preds = %entry
   %4 = load ptr, ptr %sent_packet_manager_, align 8
   %vtable.i = load ptr, ptr %4, align 8
-  %vfn.i = getelementptr inbounds ptr, ptr %vtable.i, i64 18
+  %vfn.i = getelementptr inbounds i8, ptr %vtable.i, i64 144
   %5 = load ptr, ptr %vfn.i, align 8
   %call2.i = tail call i64 %5(ptr noundef nonnull align 8 dereferenceable(8) %4)
-  %retransmission_alarm_.i = getelementptr inbounds %"class.net::QuicConnection", ptr %this, i64 0, i32 61
+  %retransmission_alarm_.i = getelementptr inbounds i8, ptr %this, i64 2344
   %6 = load ptr, ptr %retransmission_alarm_.i, align 8
   %7 = ptrtoint ptr %6 to i64
   %and.i.i.i = and i64 %7, -2
@@ -10331,17 +10188,17 @@ _ZN3net14QuicConnection20ShouldGeneratePacketENS_22HasRetransmittableDataENS_11I
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
 define dso_local noundef zeroext i1 @_ZN3net14QuicConnection19ShouldDiscardPacketERKNS_16SerializedPacketE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(3372) %this, ptr nocapture noundef nonnull readonly align 8 dereferenceable(96) %packet) local_unnamed_addr #11 align 2 {
 entry:
-  %connected_ = getelementptr inbounds %"class.net::QuicConnection", ptr %this, i64 0, i32 80
+  %connected_ = getelementptr inbounds i8, ptr %this, i64 3208
   %0 = load i8, ptr %connected_, align 8
   %1 = and i8 %0, 1
   %tobool.not = icmp eq i8 %1, 0
   br i1 %tobool.not, label %return, label %if.end
 
 if.end:                                           ; preds = %entry
-  %encryption_level_ = getelementptr inbounds %"class.net::QuicConnection", ptr %this, i64 0, i32 10
+  %encryption_level_ = getelementptr inbounds i8, ptr %this, i64 473
   %2 = load i8, ptr %encryption_level_, align 1
   %cmp = icmp eq i8 %2, 2
-  %encryption_level = getelementptr inbounds %"struct.net::SerializedPacket", ptr %packet, i64 0, i32 8
+  %encryption_level = getelementptr inbounds i8, ptr %packet, i64 57
   %3 = load i8, ptr %encryption_level, align 1
   %cmp4 = icmp eq i8 %3, 0
   %or.cond = select i1 %cmp, i1 %cmp4, i1 false
@@ -10355,15 +10212,15 @@ return:                                           ; preds = %if.end, %entry
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
 define dso_local noundef zeroext i1 @_ZN3net14QuicConnection19IsTerminationPacketERKNS_16SerializedPacketE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(3372) %this, ptr nocapture noundef nonnull readonly align 8 dereferenceable(96) %packet) local_unnamed_addr #14 align 2 {
 entry:
-  %retransmittable_frames = getelementptr inbounds %"struct.net::SerializedPacket", ptr %packet, i64 0, i32 2
+  %retransmittable_frames = getelementptr inbounds i8, ptr %packet, i64 16
   %0 = load ptr, ptr %retransmittable_frames, align 8
-  %_M_finish.i.i = getelementptr inbounds %"struct.net::SerializedPacket", ptr %packet, i64 0, i32 2, i32 0, i32 0, i32 0, i32 1
+  %_M_finish.i.i = getelementptr inbounds i8, ptr %packet, i64 24
   %1 = load ptr, ptr %_M_finish.i.i, align 8
   %cmp.i.i = icmp eq ptr %0, %1
   br i1 %cmp.i.i, label %return, label %for.cond.preheader
 
 for.cond.preheader:                               ; preds = %entry
-  %save_crypto_packets_as_termination_packets_ = getelementptr inbounds %"class.net::QuicConnection", ptr %this, i64 0, i32 37
+  %save_crypto_packets_as_termination_packets_ = getelementptr inbounds i8, ptr %this, i64 840
   %2 = load i8, ptr %save_crypto_packets_as_termination_packets_, align 8
   %.fr8 = freeze i8 %2
   %3 = and i8 %.fr8, 1
@@ -10374,7 +10231,7 @@ for.body.us:                                      ; preds = %for.cond.preheader,
   %__begin1.sroa.0.07.us = phi ptr [ %incdec.ptr.i.us, %for.body.us ], [ %0, %for.cond.preheader ]
   %4 = load i32, ptr %__begin1.sroa.0.07.us, align 8
   %cmp.us = icmp eq i32 %4, 2
-  %incdec.ptr.i.us = getelementptr inbounds %"struct.net::QuicFrame", ptr %__begin1.sroa.0.07.us, i64 1
+  %incdec.ptr.i.us = getelementptr inbounds i8, ptr %__begin1.sroa.0.07.us, i64 16
   %cmp.i.not.us = icmp eq ptr %incdec.ptr.i.us, %1
   %or.cond = select i1 %cmp.us, i1 true, i1 %cmp.i.not.us
   br i1 %or.cond, label %return, label %for.body.us
@@ -10388,14 +10245,14 @@ for.body:                                         ; preds = %for.cond.preheader,
   ]
 
 land.lhs.true12:                                  ; preds = %for.body
-  %6 = getelementptr inbounds %"struct.net::QuicFrame", ptr %__begin1.sroa.0.07, i64 0, i32 1
+  %6 = getelementptr inbounds i8, ptr %__begin1.sroa.0.07, i64 8
   %7 = load ptr, ptr %6, align 8
   %8 = load i32, ptr %7, align 8
   %cmp13 = icmp eq i32 %8, 1
   br i1 %cmp13, label %return, label %for.inc
 
 for.inc:                                          ; preds = %for.body, %land.lhs.true12
-  %incdec.ptr.i = getelementptr inbounds %"struct.net::QuicFrame", ptr %__begin1.sroa.0.07, i64 1
+  %incdec.ptr.i = getelementptr inbounds i8, ptr %__begin1.sroa.0.07, i64 16
   %cmp.i.not = icmp eq ptr %incdec.ptr.i, %1
   br i1 %cmp.i.not, label %return, label %for.body
 
@@ -10411,12 +10268,12 @@ declare void @_ZN3net19QuicEncryptedPacketC1EPKcmb(ptr noundef nonnull align 8 d
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
 define dso_local noundef signext i8 @_ZN3net14QuicConnection17IsRetransmittableERKNS_16SerializedPacketE(ptr nocapture noundef nonnull readnone align 8 dereferenceable(3372) %this, ptr nocapture noundef nonnull readonly align 8 dereferenceable(96) %packet) local_unnamed_addr #11 align 2 {
 entry:
-  %transmission_type = getelementptr inbounds %"struct.net::SerializedPacket", ptr %packet, i64 0, i32 12
+  %transmission_type = getelementptr inbounds i8, ptr %packet, i64 61
   %0 = load i8, ptr %transmission_type, align 1
   %cmp.not = icmp ne i8 %0, 0
-  %retransmittable_frames = getelementptr inbounds %"struct.net::SerializedPacket", ptr %packet, i64 0, i32 2
+  %retransmittable_frames = getelementptr inbounds i8, ptr %packet, i64 16
   %1 = load ptr, ptr %retransmittable_frames, align 8
-  %_M_finish.i.i = getelementptr inbounds %"struct.net::SerializedPacket", ptr %packet, i64 0, i32 2, i32 0, i32 0, i32 0, i32 1
+  %_M_finish.i.i = getelementptr inbounds i8, ptr %packet, i64 24
   %2 = load ptr, ptr %_M_finish.i.i, align 8
   %cmp.i.i = icmp ne ptr %1, %2
   %narrow = select i1 %cmp.not, i1 true, i1 %cmp.i.i
@@ -10427,19 +10284,19 @@ entry:
 ; Function Attrs: mustprogress uwtable
 define dso_local void @_ZN3net14QuicConnection16MaybeSetMtuAlarmEv(ptr noundef nonnull align 8 dereferenceable(3372) %this) local_unnamed_addr #0 align 2 {
 entry:
-  %mtu_discovery_target_ = getelementptr inbounds %"class.net::QuicConnection", ptr %this, i64 0, i32 87
+  %mtu_discovery_target_ = getelementptr inbounds i8, ptr %this, i64 3312
   %0 = load i64, ptr %mtu_discovery_target_, align 8
-  %packet_generator_.i = getelementptr inbounds %"class.net::QuicConnection", ptr %this, i64 0, i32 69
+  %packet_generator_.i = getelementptr inbounds i8, ptr %this, i64 2408
   %call.i = tail call noundef i64 @_ZNK3net19QuicPacketGenerator25GetCurrentMaxPacketLengthEv(ptr noundef nonnull align 8 dereferenceable(472) %packet_generator_.i)
   %cmp.not = icmp ule i64 %0, %call.i
-  %mtu_probe_count_ = getelementptr inbounds %"class.net::QuicConnection", ptr %this, i64 0, i32 88
+  %mtu_probe_count_ = getelementptr inbounds i8, ptr %this, i64 3320
   %1 = load i64, ptr %mtu_probe_count_, align 8
   %cmp2 = icmp ugt i64 %1, 2
   %or.cond = select i1 %cmp.not, i1 true, i1 %cmp2
   br i1 %or.cond, label %if.end15, label %if.end4
 
 if.end4:                                          ; preds = %entry
-  %mtu_discovery_alarm_ = getelementptr inbounds %"class.net::QuicConnection", ptr %this, i64 0, i32 66
+  %mtu_discovery_alarm_ = getelementptr inbounds i8, ptr %this, i64 2384
   %2 = load ptr, ptr %mtu_discovery_alarm_, align 8
   %3 = ptrtoint ptr %2 to i64
   %and.i.i = and i64 %3, -2
@@ -10448,9 +10305,9 @@ if.end4:                                          ; preds = %entry
   br i1 %call6, label %if.end15, label %if.end8
 
 if.end8:                                          ; preds = %if.end4
-  %packet_number_of_last_sent_packet_ = getelementptr inbounds %"class.net::QuicConnection", ptr %this, i64 0, i32 76
+  %packet_number_of_last_sent_packet_ = getelementptr inbounds i8, ptr %this, i64 3184
   %5 = load i64, ptr %packet_number_of_last_sent_packet_, align 8
-  %next_mtu_probe_at_ = getelementptr inbounds %"class.net::QuicConnection", ptr %this, i64 0, i32 90
+  %next_mtu_probe_at_ = getelementptr inbounds i8, ptr %this, i64 3336
   %6 = load i64, ptr %next_mtu_probe_at_, align 8
   %cmp9.not = icmp ult i64 %5, %6
   br i1 %cmp9.not, label %if.end15, label %if.then10
@@ -10460,10 +10317,10 @@ if.then10:                                        ; preds = %if.end8
   %8 = ptrtoint ptr %7 to i64
   %and.i.i1 = and i64 %8, -2
   %9 = inttoptr i64 %and.i.i1 to ptr
-  %clock_ = getelementptr inbounds %"class.net::QuicConnection", ptr %this, i64 0, i32 12
+  %clock_ = getelementptr inbounds i8, ptr %this, i64 480
   %10 = load ptr, ptr %clock_, align 8
   %vtable = load ptr, ptr %10, align 8
-  %vfn = getelementptr inbounds ptr, ptr %vtable, i64 2
+  %vfn = getelementptr inbounds i8, ptr %vtable, i64 16
   %11 = load ptr, ptr %vfn, align 8
   %call13 = tail call i64 %11(ptr noundef nonnull align 8 dereferenceable(8) %10)
   tail call void @_ZN3net9QuicAlarm3SetENS_8QuicTimeE(ptr noundef nonnull align 8 dereferenceable(24) %9, i64 %call13)
@@ -10478,7 +10335,7 @@ declare void @_ZN3net19QuicPacketGenerator26UpdateSequenceNumberLengthEmm(ptr no
 ; Function Attrs: mustprogress uwtable
 define dso_local noundef i64 @_ZNK3net14QuicConnection17max_packet_lengthEv(ptr noundef nonnull align 8 dereferenceable(3372) %this) local_unnamed_addr #0 align 2 {
 entry:
-  %packet_generator_ = getelementptr inbounds %"class.net::QuicConnection", ptr %this, i64 0, i32 69
+  %packet_generator_ = getelementptr inbounds i8, ptr %this, i64 2408
   %call = tail call noundef i64 @_ZNK3net19QuicPacketGenerator25GetCurrentMaxPacketLengthEv(ptr noundef nonnull align 8 dereferenceable(472) %packet_generator_)
   ret i64 %call
 }
@@ -10542,7 +10399,7 @@ ehcleanup:                                        ; preds = %lpad7, %lpad.i, %lp
 
 if.end11:                                         ; preds = %if.end
   %vtable = load ptr, ptr %this, align 8
-  %vfn = getelementptr inbounds ptr, ptr %vtable, i64 44
+  %vfn = getelementptr inbounds i8, ptr %vtable, i64 352
   %4 = load ptr, ptr %vfn, align 8
   tail call void %4(ptr noundef nonnull align 8 dereferenceable(3372) %this, ptr noundef nonnull %serialized_packet)
   br label %return
@@ -10577,27 +10434,27 @@ entry:
 ; Function Attrs: mustprogress uwtable
 define dso_local void @_ZN3net14QuicConnection18OnCongestionChangeEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(3372) %this) unnamed_addr #0 align 2 {
 entry:
-  %visitor_ = getelementptr inbounds %"class.net::QuicConnection", ptr %this, i64 0, i32 67
+  %visitor_ = getelementptr inbounds i8, ptr %this, i64 2392
   %0 = load ptr, ptr %visitor_, align 8
-  %clock_ = getelementptr inbounds %"class.net::QuicConnection", ptr %this, i64 0, i32 12
+  %clock_ = getelementptr inbounds i8, ptr %this, i64 480
   %1 = load ptr, ptr %clock_, align 8
   %vtable = load ptr, ptr %1, align 8
-  %vfn = getelementptr inbounds ptr, ptr %vtable, i64 2
+  %vfn = getelementptr inbounds i8, ptr %vtable, i64 16
   %2 = load ptr, ptr %vfn, align 8
   %call = tail call i64 %2(ptr noundef nonnull align 8 dereferenceable(8) %1)
   %vtable3 = load ptr, ptr %0, align 8
-  %vfn4 = getelementptr inbounds ptr, ptr %vtable3, i64 11
+  %vfn4 = getelementptr inbounds i8, ptr %vtable3, i64 88
   %3 = load ptr, ptr %vfn4, align 8
   tail call void %3(ptr noundef nonnull align 8 dereferenceable(8) %0, i64 %call)
-  %sent_packet_manager_ = getelementptr inbounds %"class.net::QuicConnection", ptr %this, i64 0, i32 77
+  %sent_packet_manager_ = getelementptr inbounds i8, ptr %this, i64 3192
   %4 = load ptr, ptr %sent_packet_manager_, align 8
   %vtable6 = load ptr, ptr %4, align 8
-  %vfn7 = getelementptr inbounds ptr, ptr %vtable6, i64 19
+  %vfn7 = getelementptr inbounds i8, ptr %vtable6, i64 152
   %5 = load ptr, ptr %vfn7, align 8
   %call8 = tail call noundef ptr %5(ptr noundef nonnull align 8 dereferenceable(8) %4)
-  %smoothed_rtt_.i = getelementptr inbounds %"class.net::RttStats", ptr %call8, i64 0, i32 2
+  %smoothed_rtt_.i = getelementptr inbounds i8, ptr %call8, i64 32
   %retval.sroa.0.0.copyload.i = load i64, ptr %smoothed_rtt_.i, align 8
-  %retval.sroa.2.0.smoothed_rtt_.sroa_idx.i = getelementptr inbounds %"class.net::RttStats", ptr %call8, i64 0, i32 2, i32 1
+  %retval.sroa.2.0.smoothed_rtt_.sroa_idx.i = getelementptr inbounds i8, ptr %call8, i64 40
   %retval.sroa.2.0.copyload.i = load i64, ptr %retval.sroa.2.0.smoothed_rtt_.sroa_idx.i, align 8
   %cmp.i = icmp eq i64 %retval.sroa.2.0.copyload.i, 0
   br i1 %cmp.i, label %if.then, label %if.end
@@ -10605,24 +10462,24 @@ entry:
 if.then:                                          ; preds = %entry
   %6 = load ptr, ptr %sent_packet_manager_, align 8
   %vtable13 = load ptr, ptr %6, align 8
-  %vfn14 = getelementptr inbounds ptr, ptr %vtable13, i64 19
+  %vfn14 = getelementptr inbounds i8, ptr %vtable13, i64 152
   %7 = load ptr, ptr %vfn14, align 8
   %call15 = tail call noundef ptr %7(ptr noundef nonnull align 8 dereferenceable(8) %6)
-  %initial_rtt_us_.i = getelementptr inbounds %"class.net::RttStats", ptr %call15, i64 0, i32 5
+  %initial_rtt_us_.i = getelementptr inbounds i8, ptr %call15, i64 80
   %8 = load i64, ptr %initial_rtt_us_.i, align 8
   br label %if.end
 
 if.end:                                           ; preds = %if.then, %entry
   %rtt.sroa.0.0 = phi i64 [ 0, %if.then ], [ %retval.sroa.0.0.copyload.i, %entry ]
   %rtt.sroa.3.0 = phi i64 [ %8, %if.then ], [ %retval.sroa.2.0.copyload.i, %entry ]
-  %debug_visitor_ = getelementptr inbounds %"class.net::QuicConnection", ptr %this, i64 0, i32 68
+  %debug_visitor_ = getelementptr inbounds i8, ptr %this, i64 2400
   %9 = load ptr, ptr %debug_visitor_, align 8
   %tobool.not = icmp eq ptr %9, null
   br i1 %tobool.not, label %if.end24, label %if.then19
 
 if.then19:                                        ; preds = %if.end
   %vtable22 = load ptr, ptr %9, align 8
-  %vfn23 = getelementptr inbounds ptr, ptr %vtable22, i64 32
+  %vfn23 = getelementptr inbounds i8, ptr %vtable22, i64 256
   %10 = load ptr, ptr %vfn23, align 8
   tail call void %10(ptr noundef nonnull align 8 dereferenceable(8) %9, i64 %rtt.sroa.0.0, i64 %rtt.sroa.3.0)
   br label %if.end24
@@ -10639,22 +10496,22 @@ entry:
   %clock_.i = getelementptr inbounds i8, ptr %this, i64 456
   %1 = load ptr, ptr %clock_.i, align 8
   %vtable.i = load ptr, ptr %1, align 8
-  %vfn.i = getelementptr inbounds ptr, ptr %vtable.i, i64 2
+  %vfn.i = getelementptr inbounds i8, ptr %vtable.i, i64 16
   %2 = load ptr, ptr %vfn.i, align 8
   %call.i = tail call i64 %2(ptr noundef nonnull align 8 dereferenceable(8) %1)
   %vtable3.i = load ptr, ptr %0, align 8
-  %vfn4.i = getelementptr inbounds ptr, ptr %vtable3.i, i64 11
+  %vfn4.i = getelementptr inbounds i8, ptr %vtable3.i, i64 88
   %3 = load ptr, ptr %vfn4.i, align 8
   tail call void %3(ptr noundef nonnull align 8 dereferenceable(8) %0, i64 %call.i)
   %sent_packet_manager_.i = getelementptr inbounds i8, ptr %this, i64 3168
   %4 = load ptr, ptr %sent_packet_manager_.i, align 8
   %vtable6.i = load ptr, ptr %4, align 8
-  %vfn7.i = getelementptr inbounds ptr, ptr %vtable6.i, i64 19
+  %vfn7.i = getelementptr inbounds i8, ptr %vtable6.i, i64 152
   %5 = load ptr, ptr %vfn7.i, align 8
   %call8.i = tail call noundef ptr %5(ptr noundef nonnull align 8 dereferenceable(8) %4)
-  %smoothed_rtt_.i.i = getelementptr inbounds %"class.net::RttStats", ptr %call8.i, i64 0, i32 2
+  %smoothed_rtt_.i.i = getelementptr inbounds i8, ptr %call8.i, i64 32
   %retval.sroa.0.0.copyload.i.i = load i64, ptr %smoothed_rtt_.i.i, align 8
-  %retval.sroa.2.0.smoothed_rtt_.sroa_idx.i.i = getelementptr inbounds %"class.net::RttStats", ptr %call8.i, i64 0, i32 2, i32 1
+  %retval.sroa.2.0.smoothed_rtt_.sroa_idx.i.i = getelementptr inbounds i8, ptr %call8.i, i64 40
   %retval.sroa.2.0.copyload.i.i = load i64, ptr %retval.sroa.2.0.smoothed_rtt_.sroa_idx.i.i, align 8
   %cmp.i.i = icmp eq i64 %retval.sroa.2.0.copyload.i.i, 0
   br i1 %cmp.i.i, label %if.then.i, label %if.end.i
@@ -10662,10 +10519,10 @@ entry:
 if.then.i:                                        ; preds = %entry
   %6 = load ptr, ptr %sent_packet_manager_.i, align 8
   %vtable13.i = load ptr, ptr %6, align 8
-  %vfn14.i = getelementptr inbounds ptr, ptr %vtable13.i, i64 19
+  %vfn14.i = getelementptr inbounds i8, ptr %vtable13.i, i64 152
   %7 = load ptr, ptr %vfn14.i, align 8
   %call15.i = tail call noundef ptr %7(ptr noundef nonnull align 8 dereferenceable(8) %6)
-  %initial_rtt_us_.i.i = getelementptr inbounds %"class.net::RttStats", ptr %call15.i, i64 0, i32 5
+  %initial_rtt_us_.i.i = getelementptr inbounds i8, ptr %call15.i, i64 80
   %8 = load i64, ptr %initial_rtt_us_.i.i, align 8
   br label %if.end.i
 
@@ -10679,7 +10536,7 @@ if.end.i:                                         ; preds = %if.then.i, %entry
 
 if.then19.i:                                      ; preds = %if.end.i
   %vtable22.i = load ptr, ptr %9, align 8
-  %vfn23.i = getelementptr inbounds ptr, ptr %vtable22.i, i64 32
+  %vfn23.i = getelementptr inbounds i8, ptr %vtable22.i, i64 256
   %10 = load ptr, ptr %vfn23.i, align 8
   tail call void %10(ptr noundef nonnull align 8 dereferenceable(8) %9, i64 %rtt.sroa.0.0.i, i64 %rtt.sroa.3.0.i)
   br label %_ZN3net14QuicConnection18OnCongestionChangeEv.exit
@@ -10691,10 +10548,10 @@ _ZN3net14QuicConnection18OnCongestionChangeEv.exit: ; preds = %if.end.i, %if.the
 ; Function Attrs: mustprogress uwtable
 define dso_local void @_ZN3net14QuicConnection15OnPathDegradingEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(3372) %this) unnamed_addr #0 align 2 {
 entry:
-  %visitor_ = getelementptr inbounds %"class.net::QuicConnection", ptr %this, i64 0, i32 67
+  %visitor_ = getelementptr inbounds i8, ptr %this, i64 2392
   %0 = load ptr, ptr %visitor_, align 8
   %vtable = load ptr, ptr %0, align 8
-  %vfn = getelementptr inbounds ptr, ptr %vtable, i64 13
+  %vfn = getelementptr inbounds i8, ptr %vtable, i64 104
   %1 = load ptr, ptr %vfn, align 8
   tail call void %1(ptr noundef nonnull align 8 dereferenceable(8) %0)
   ret void
@@ -10706,7 +10563,7 @@ entry:
   %visitor_.i = getelementptr inbounds i8, ptr %this, i64 2368
   %0 = load ptr, ptr %visitor_.i, align 8
   %vtable.i = load ptr, ptr %0, align 8
-  %vfn.i = getelementptr inbounds ptr, ptr %vtable.i, i64 13
+  %vfn.i = getelementptr inbounds i8, ptr %vtable.i, i64 104
   %1 = load ptr, ptr %vfn.i, align 8
   tail call void %1(ptr noundef nonnull align 8 dereferenceable(8) %0)
   ret void
@@ -10716,13 +10573,13 @@ entry:
 define dso_local void @_ZN3net14QuicConnection18OnPathMtuIncreasedEt(ptr noundef nonnull align 8 dereferenceable(3372) %this, i16 noundef zeroext %packet_size) unnamed_addr #0 align 2 {
 entry:
   %conv = zext i16 %packet_size to i64
-  %packet_generator_.i = getelementptr inbounds %"class.net::QuicConnection", ptr %this, i64 0, i32 69
+  %packet_generator_.i = getelementptr inbounds i8, ptr %this, i64 2408
   %call.i = tail call noundef i64 @_ZNK3net19QuicPacketGenerator25GetCurrentMaxPacketLengthEv(ptr noundef nonnull align 8 dereferenceable(472) %packet_generator_.i)
   %cmp = icmp ult i64 %call.i, %conv
   br i1 %cmp, label %if.then, label %if.end
 
 if.then:                                          ; preds = %entry
-  %long_term_mtu_.i = getelementptr inbounds %"class.net::QuicConnection", ptr %this, i64 0, i32 91
+  %long_term_mtu_.i = getelementptr inbounds i8, ptr %this, i64 3344
   store i64 %conv, ptr %long_term_mtu_.i, align 8
   %call.i3 = tail call noundef i64 @_ZN3net14QuicConnection23GetLimitedMaxPacketSizeEm(ptr noundef nonnull align 8 dereferenceable(3372) %this, i64 noundef %conv)
   tail call void @_ZN3net19QuicPacketGenerator18SetMaxPacketLengthEm(ptr noundef nonnull align 8 dereferenceable(472) %packet_generator_.i, i64 noundef %call.i3)
@@ -10756,39 +10613,39 @@ _ZN3net14QuicConnection18OnPathMtuIncreasedEt.exit: ; preds = %entry, %if.then.i
 ; Function Attrs: mustprogress uwtable
 define dso_local void @_ZN3net14QuicConnection19OnHandshakeCompleteEv(ptr noundef nonnull align 8 dereferenceable(3372) %this) local_unnamed_addr #0 align 2 {
 entry:
-  %sent_packet_manager_ = getelementptr inbounds %"class.net::QuicConnection", ptr %this, i64 0, i32 77
+  %sent_packet_manager_ = getelementptr inbounds i8, ptr %this, i64 3192
   %0 = load ptr, ptr %sent_packet_manager_, align 8
   %vtable = load ptr, ptr %0, align 8
-  %vfn = getelementptr inbounds ptr, ptr %vtable, i64 6
+  %vfn = getelementptr inbounds i8, ptr %vtable, i64 48
   %1 = load ptr, ptr %vfn, align 8
   tail call void %1(ptr noundef nonnull align 8 dereferenceable(8) %0)
-  %perspective_ = getelementptr inbounds %"class.net::QuicConnection", ptr %this, i64 0, i32 79
+  %perspective_ = getelementptr inbounds i8, ptr %this, i64 3204
   %2 = load i32, ptr %perspective_, align 4
   %cmp = icmp eq i32 %2, 1
   br i1 %cmp, label %land.lhs.true, label %if.end
 
 land.lhs.true:                                    ; preds = %entry
-  %ack_queued_ = getelementptr inbounds %"class.net::QuicConnection", ptr %this, i64 0, i32 45
+  %ack_queued_ = getelementptr inbounds i8, ptr %this, i64 1240
   %3 = load i8, ptr %ack_queued_, align 8
   %4 = and i8 %3, 1
   %tobool.not = icmp eq i8 %4, 0
   br i1 %tobool.not, label %land.lhs.true2, label %if.end
 
 land.lhs.true2:                                   ; preds = %land.lhs.true
-  %received_packet_manager_.i = getelementptr inbounds %"class.net::QuicConnection", ptr %this, i64 0, i32 43
+  %received_packet_manager_.i = getelementptr inbounds i8, ptr %this, i64 864
   %call.i = tail call noundef zeroext i1 @_ZNK3net25QuicReceivedPacketManager17ack_frame_updatedEv(ptr noundef nonnull align 8 dereferenceable(248) %received_packet_manager_.i)
   br i1 %call.i, label %if.then, label %if.end
 
 if.then:                                          ; preds = %land.lhs.true2
-  %ack_alarm_ = getelementptr inbounds %"class.net::QuicConnection", ptr %this, i64 0, i32 60
+  %ack_alarm_ = getelementptr inbounds i8, ptr %this, i64 2336
   %5 = load ptr, ptr %ack_alarm_, align 8
   %6 = ptrtoint ptr %5 to i64
   %and.i.i = and i64 %6, -2
   %7 = inttoptr i64 %and.i.i to ptr
-  %clock_ = getelementptr inbounds %"class.net::QuicConnection", ptr %this, i64 0, i32 12
+  %clock_ = getelementptr inbounds i8, ptr %this, i64 480
   %8 = load ptr, ptr %clock_, align 8
   %vtable5 = load ptr, ptr %8, align 8
-  %vfn6 = getelementptr inbounds ptr, ptr %vtable5, i64 2
+  %vfn6 = getelementptr inbounds i8, ptr %vtable5, i64 16
   %9 = load ptr, ptr %vfn6, align 8
   %call7 = tail call i64 %9(ptr noundef nonnull align 8 dereferenceable(8) %8)
   tail call void @_ZN3net9QuicAlarm6UpdateENS_8QuicTimeENS1_5DeltaE(ptr noundef nonnull align 8 dereferenceable(24) %7, i64 %call7, i64 0, i64 0)
@@ -10801,7 +10658,7 @@ if.end:                                           ; preds = %if.then, %land.lhs.
 ; Function Attrs: mustprogress uwtable
 define dso_local noundef zeroext i1 @_ZNK3net14QuicConnection17ack_frame_updatedEv(ptr noundef nonnull align 8 dereferenceable(3372) %this) local_unnamed_addr #0 align 2 {
 entry:
-  %received_packet_manager_ = getelementptr inbounds %"class.net::QuicConnection", ptr %this, i64 0, i32 43
+  %received_packet_manager_ = getelementptr inbounds i8, ptr %this, i64 864
   %call = tail call noundef zeroext i1 @_ZNK3net25QuicReceivedPacketManager17ack_frame_updatedEv(ptr noundef nonnull align 8 dereferenceable(248) %received_packet_manager_)
   ret i1 %call
 }
@@ -10820,7 +10677,7 @@ if.then:                                          ; preds = %entry
 
 cond.false:                                       ; preds = %if.then
   call void @_ZN7logging10LogMessageC1EPKcii(ptr noundef nonnull align 8 dereferenceable(404) %ref.tmp2, ptr noundef nonnull @.str, i32 noundef 1878, i32 noundef 2)
-  %stream_.i = getelementptr inbounds %"class.logging::LogMessage", ptr %ref.tmp2, i64 0, i32 2
+  %stream_.i = getelementptr inbounds i8, ptr %ref.tmp2, i64 8
   %call5 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc(ptr noundef nonnull align 8 dereferenceable(8) %stream_.i, ptr noundef nonnull @.str.50)
           to label %cleanup.action unwind label %lpad
 
@@ -10839,22 +10696,22 @@ lpad:                                             ; preds = %cond.false
   br label %common.resume
 
 if.end:                                           ; preds = %entry
-  %quic_version_.i.i = getelementptr inbounds %"class.net::QuicConnection", ptr %this, i64 0, i32 4, i32 13
+  %quic_version_.i.i = getelementptr inbounds i8, ptr %this, i64 300
   %2 = load i32, ptr %quic_version_.i.i, align 4
   %cmp11 = icmp slt i32 %2, 34
   br i1 %cmp11, label %if.then12, label %if.end13
 
 if.then12:                                        ; preds = %if.end
-  %sent_entropy_manager_ = getelementptr inbounds %"class.net::QuicConnection", ptr %this, i64 0, i32 44
-  %packet_number = getelementptr inbounds %"struct.net::SerializedPacket", ptr %packet, i64 0, i32 6
+  %sent_entropy_manager_ = getelementptr inbounds i8, ptr %this, i64 1112
+  %packet_number = getelementptr inbounds i8, ptr %packet, i64 48
   %3 = load i64, ptr %packet_number, align 8
-  %entropy_hash = getelementptr inbounds %"struct.net::SerializedPacket", ptr %packet, i64 0, i32 9
+  %entropy_hash = getelementptr inbounds i8, ptr %packet, i64 58
   %4 = load i8, ptr %entropy_hash, align 2
   tail call void @_ZN3net22QuicSentEntropyManager23RecordPacketEntropyHashEmh(ptr noundef nonnull align 8 dereferenceable(128) %sent_entropy_manager_, i64 noundef %3, i8 noundef zeroext %4)
   br label %if.end13
 
 if.end13:                                         ; preds = %if.then12, %if.end
-  %queued_packets_ = getelementptr inbounds %"class.net::QuicConnection", ptr %this, i64 0, i32 36
+  %queued_packets_ = getelementptr inbounds i8, ptr %this, i64 816
   %5 = load ptr, ptr %queued_packets_, align 8
   %cmp.i = icmp eq ptr %5, %queued_packets_
   br i1 %cmp.i, label %lor.lhs.false, label %if.then16
@@ -10867,7 +10724,7 @@ if.then16:                                        ; preds = %lor.lhs.false, %if.
   %call17 = tail call noundef ptr @_ZN3net9QuicUtils10CopyBufferERKNS_16SerializedPacketE(ptr noundef nonnull align 8 dereferenceable(96) %packet)
   store ptr %call17, ptr %packet, align 8
   %call5.i.i.i.i.i.i = tail call noalias noundef nonnull dereferenceable(112) ptr @_Znwm(i64 noundef 112) #23
-  %_M_storage.i.i.i.i = getelementptr inbounds %"struct.std::_List_node", ptr %call5.i.i.i.i.i.i, i64 0, i32 1
+  %_M_storage.i.i.i.i = getelementptr inbounds i8, ptr %call5.i.i.i.i.i.i, i64 16
   invoke void @_ZN3net16SerializedPacketC1ERKS0_(ptr noundef nonnull align 8 dereferenceable(96) %_M_storage.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(96) %packet)
           to label %_ZNSt7__cxx114listIN3net16SerializedPacketESaIS2_EE9push_backERKS2_.exit unwind label %_ZNSt15__allocated_ptrISaISt10_List_nodeIN3net16SerializedPacketEEEED2Ev.exit9.i.i.i
 
@@ -10879,13 +10736,13 @@ _ZNSt15__allocated_ptrISaISt10_List_nodeIN3net16SerializedPacketEEEED2Ev.exit9.i
 
 _ZNSt7__cxx114listIN3net16SerializedPacketESaIS2_EE9push_backERKS2_.exit: ; preds = %if.then16
   tail call void @_ZNSt8__detail15_List_node_base7_M_hookEPS0_(ptr noundef nonnull align 8 dereferenceable(16) %call5.i.i.i.i.i.i, ptr noundef nonnull %queued_packets_) #22
-  %_M_size.i.i.i = getelementptr inbounds %"class.net::QuicConnection", ptr %this, i64 0, i32 36, i32 0, i32 0, i32 0, i32 1
+  %_M_size.i.i.i = getelementptr inbounds i8, ptr %this, i64 832
   %7 = load i64, ptr %_M_size.i.i.i, align 8
   %add.i.i.i = add i64 %7, 1
   store i64 %add.i.i.i, ptr %_M_size.i.i.i, align 8
-  %retransmittable_frames = getelementptr inbounds %"struct.net::SerializedPacket", ptr %packet, i64 0, i32 2
+  %retransmittable_frames = getelementptr inbounds i8, ptr %packet, i64 16
   %8 = load ptr, ptr %retransmittable_frames, align 8
-  %_M_finish.i.i = getelementptr inbounds %"struct.net::SerializedPacket", ptr %packet, i64 0, i32 2, i32 0, i32 0, i32 0, i32 1
+  %_M_finish.i.i = getelementptr inbounds i8, ptr %packet, i64 24
   %9 = load ptr, ptr %_M_finish.i.i, align 8
   %tobool.not.i.i = icmp eq ptr %9, %8
   br i1 %tobool.not.i.i, label %if.end20, label %invoke.cont.i.i
@@ -10907,7 +10764,7 @@ declare void @_ZN3net22QuicSentEntropyManager23RecordPacketEntropyHashEmh(ptr no
 ; Function Attrs: mustprogress uwtable
 define dso_local void @_ZN3net14QuicConnection13OnPingTimeoutEv(ptr noundef nonnull align 8 dereferenceable(3372) %this) local_unnamed_addr #0 align 2 {
 entry:
-  %retransmission_alarm_ = getelementptr inbounds %"class.net::QuicConnection", ptr %this, i64 0, i32 61
+  %retransmission_alarm_ = getelementptr inbounds i8, ptr %this, i64 2344
   %0 = load ptr, ptr %retransmission_alarm_, align 8
   %1 = ptrtoint ptr %0 to i64
   %and.i.i = and i64 %1, -2
@@ -10929,7 +10786,7 @@ entry:
   %bundler = alloca %"class.net::QuicConnection::ScopedPacketBundler", align 8
   %ref.tmp = alloca %"struct.net::QuicFrame", align 8
   call void @_ZN3net14QuicConnection19ScopedPacketBundlerC2EPS0_NS0_11AckBundlingE(ptr noundef nonnull align 8 dereferenceable(9) %bundler, ptr noundef nonnull %this, i32 noundef 0)
-  %packet_generator_ = getelementptr inbounds %"class.net::QuicConnection", ptr %this, i64 0, i32 69
+  %packet_generator_ = getelementptr inbounds i8, ptr %this, i64 2408
   invoke void @_ZN3net9QuicFrameC1ENS_13QuicPingFrameE(ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp)
           to label %invoke.cont unwind label %lpad
 
@@ -10942,14 +10799,14 @@ invoke.cont2:                                     ; preds = %invoke.cont
           to label %invoke.cont4 unwind label %lpad
 
 invoke.cont4:                                     ; preds = %invoke.cont2
-  %debug_visitor_ = getelementptr inbounds %"class.net::QuicConnection", ptr %this, i64 0, i32 68
+  %debug_visitor_ = getelementptr inbounds i8, ptr %this, i64 2400
   %0 = load ptr, ptr %debug_visitor_, align 8
   %cmp.not = icmp eq ptr %0, null
   br i1 %cmp.not, label %if.end, label %if.then
 
 if.then:                                          ; preds = %invoke.cont4
   %vtable = load ptr, ptr %0, align 8
-  %vfn = getelementptr inbounds ptr, ptr %vtable, i64 6
+  %vfn = getelementptr inbounds i8, ptr %vtable, i64 48
   %1 = load ptr, ptr %vfn, align 8
   invoke void %1(ptr noundef nonnull align 8 dereferenceable(8) %0)
           to label %if.end unwind label %lpad
@@ -10966,28 +10823,28 @@ if.end:                                           ; preds = %if.then, %invoke.co
   br i1 %cmp.i, label %_ZN3net14QuicConnection19ScopedPacketBundlerD2Ev.exit, label %if.end.i
 
 if.end.i:                                         ; preds = %if.end
-  %already_in_batch_mode_.i = getelementptr inbounds %"class.net::QuicConnection::ScopedPacketBundler", ptr %bundler, i64 0, i32 1
+  %already_in_batch_mode_.i = getelementptr inbounds i8, ptr %bundler, i64 8
   %4 = load i8, ptr %already_in_batch_mode_.i, align 8
   %5 = and i8 %4, 1
   %tobool.not.i = icmp eq i8 %5, 0
   br i1 %tobool.not.i, label %if.then2.i, label %_ZN3net14QuicConnection19ScopedPacketBundlerD2Ev.exit
 
 if.then2.i:                                       ; preds = %if.end.i
-  %packet_generator_.i = getelementptr inbounds %"class.net::QuicConnection", ptr %3, i64 0, i32 69
+  %packet_generator_.i = getelementptr inbounds i8, ptr %3, i64 2408
   invoke void @_ZN3net19QuicPacketGenerator21FinishBatchOperationsEv(ptr noundef nonnull align 8 dereferenceable(472) %packet_generator_.i)
           to label %invoke.cont.i unwind label %terminate.lpad.i
 
 invoke.cont.i:                                    ; preds = %if.then2.i
-  %queued_packets_.i.i = getelementptr inbounds %"class.net::QuicConnection", ptr %3, i64 0, i32 36
+  %queued_packets_.i.i = getelementptr inbounds i8, ptr %3, i64 816
   %6 = load ptr, ptr %queued_packets_.i.i, align 8
   %cmp.i.i.i = icmp eq ptr %6, %queued_packets_.i.i
   br i1 %cmp.i.i.i, label %land.lhs.true.i.i, label %_ZN3net14QuicConnection19ScopedPacketBundlerD2Ev.exit
 
 land.lhs.true.i.i:                                ; preds = %invoke.cont.i
-  %sent_packet_manager_.i.i = getelementptr inbounds %"class.net::QuicConnection", ptr %3, i64 0, i32 77
+  %sent_packet_manager_.i.i = getelementptr inbounds i8, ptr %3, i64 3192
   %7 = load ptr, ptr %sent_packet_manager_.i.i, align 8
   %vtable.i.i = load ptr, ptr %7, align 8
-  %vfn.i.i = getelementptr inbounds ptr, ptr %vtable.i.i, i64 11
+  %vfn.i.i = getelementptr inbounds i8, ptr %vtable.i.i, i64 88
   %8 = load ptr, ptr %vfn.i.i, align 8
   %call3.i1.i = invoke noundef zeroext i1 %8(ptr noundef nonnull align 8 dereferenceable(8) %7)
           to label %call3.i.noexc.i unwind label %terminate.lpad.i
@@ -10996,10 +10853,10 @@ call3.i.noexc.i:                                  ; preds = %land.lhs.true.i.i
   br i1 %call3.i1.i, label %_ZN3net14QuicConnection19ScopedPacketBundlerD2Ev.exit, label %land.lhs.true4.i.i
 
 land.lhs.true4.i.i:                               ; preds = %call3.i.noexc.i
-  %visitor_.i.i = getelementptr inbounds %"class.net::QuicConnection", ptr %3, i64 0, i32 67
+  %visitor_.i.i = getelementptr inbounds i8, ptr %3, i64 2392
   %9 = load ptr, ptr %visitor_.i.i, align 8
   %vtable5.i.i = load ptr, ptr %9, align 8
-  %vfn6.i.i = getelementptr inbounds ptr, ptr %vtable5.i.i, i64 15
+  %vfn6.i.i = getelementptr inbounds i8, ptr %vtable5.i.i, i64 120
   %10 = load ptr, ptr %vfn6.i.i, align 8
   %call7.i2.i = invoke noundef zeroext i1 %10(ptr noundef nonnull align 8 dereferenceable(8) %9)
           to label %call7.i.noexc.i unwind label %terminate.lpad.i
@@ -11010,7 +10867,7 @@ call7.i.noexc.i:                                  ; preds = %land.lhs.true4.i.i
 if.then.i.i:                                      ; preds = %call7.i.noexc.i
   %11 = load ptr, ptr %sent_packet_manager_.i.i, align 8
   %vtable10.i.i = load ptr, ptr %11, align 8
-  %vfn11.i.i = getelementptr inbounds ptr, ptr %vtable10.i.i, i64 38
+  %vfn11.i.i = getelementptr inbounds i8, ptr %vtable10.i.i, i64 304
   %12 = load ptr, ptr %vfn11.i.i, align 8
   invoke void %12(ptr noundef nonnull align 8 dereferenceable(8) %11)
           to label %_ZN3net14QuicConnection19ScopedPacketBundlerD2Ev.exit unwind label %terminate.lpad.i
@@ -11031,26 +10888,26 @@ declare void @_ZN3net9QuicFrameC1ENS_13QuicPingFrameE(ptr noundef nonnull align 
 ; Function Attrs: mustprogress uwtable
 define dso_local void @_ZN3net14QuicConnection7SendAckEv(ptr noundef nonnull align 8 dereferenceable(3372) %this) local_unnamed_addr #0 align 2 {
 entry:
-  %ack_alarm_ = getelementptr inbounds %"class.net::QuicConnection", ptr %this, i64 0, i32 60
+  %ack_alarm_ = getelementptr inbounds i8, ptr %this, i64 2336
   %0 = load ptr, ptr %ack_alarm_, align 8
   %1 = ptrtoint ptr %0 to i64
   %and.i.i = and i64 %1, -2
   %2 = inttoptr i64 %and.i.i to ptr
   tail call void @_ZN3net9QuicAlarm6CancelEv(ptr noundef nonnull align 8 dereferenceable(24) %2)
-  %ack_queued_ = getelementptr inbounds %"class.net::QuicConnection", ptr %this, i64 0, i32 45
+  %ack_queued_ = getelementptr inbounds i8, ptr %this, i64 1240
   store i8 0, ptr %ack_queued_, align 8
-  %stop_waiting_count_ = getelementptr inbounds %"class.net::QuicConnection", ptr %this, i64 0, i32 51
+  %stop_waiting_count_ = getelementptr inbounds i8, ptr %this, i64 1272
   store i32 0, ptr %stop_waiting_count_, align 8
-  %num_retransmittable_packets_received_since_last_ack_sent_ = getelementptr inbounds %"class.net::QuicConnection", ptr %this, i64 0, i32 47
+  %num_retransmittable_packets_received_since_last_ack_sent_ = getelementptr inbounds i8, ptr %this, i64 1248
   store i64 0, ptr %num_retransmittable_packets_received_since_last_ack_sent_, align 8
-  %received_packet_manager_ = getelementptr inbounds %"class.net::QuicConnection", ptr %this, i64 0, i32 43
+  %received_packet_manager_ = getelementptr inbounds i8, ptr %this, i64 864
   %call2 = tail call noundef zeroext i1 @_ZNK3net25QuicReceivedPacketManager17HasMissingPacketsEv(ptr noundef nonnull align 8 dereferenceable(248) %received_packet_manager_)
-  %last_ack_had_missing_packets_ = getelementptr inbounds %"class.net::QuicConnection", ptr %this, i64 0, i32 48
+  %last_ack_had_missing_packets_ = getelementptr inbounds i8, ptr %this, i64 1256
   %frombool = zext i1 %call2 to i8
   store i8 %frombool, ptr %last_ack_had_missing_packets_, align 8
-  %num_packets_received_since_last_ack_sent_ = getelementptr inbounds %"class.net::QuicConnection", ptr %this, i64 0, i32 50
+  %num_packets_received_since_last_ack_sent_ = getelementptr inbounds i8, ptr %this, i64 1264
   store i64 0, ptr %num_packets_received_since_last_ack_sent_, align 8
-  %packet_generator_ = getelementptr inbounds %"class.net::QuicConnection", ptr %this, i64 0, i32 69
+  %packet_generator_ = getelementptr inbounds i8, ptr %this, i64 2408
   tail call void @_ZN3net19QuicPacketGenerator16SetShouldSendAckEb(ptr noundef nonnull align 8 dereferenceable(472) %packet_generator_, i1 noundef zeroext true)
   ret void
 }
@@ -11064,17 +10921,17 @@ define dso_local void @_ZN3net14QuicConnection23OnRetransmissionTimeoutEv(ptr no
 entry:
   %ref.tmp = alloca %"class.std::__cxx11::basic_string", align 8
   %ref.tmp3 = alloca %"class.std::allocator.0", align 1
-  %close_connection_after_five_rtos_ = getelementptr inbounds %"class.net::QuicConnection", ptr %this, i64 0, i32 41
+  %close_connection_after_five_rtos_ = getelementptr inbounds i8, ptr %this, i64 860
   %0 = load i8, ptr %close_connection_after_five_rtos_, align 4
   %1 = and i8 %0, 1
   %tobool.not = icmp eq i8 %1, 0
   br i1 %tobool.not, label %if.end, label %land.lhs.true
 
 land.lhs.true:                                    ; preds = %entry
-  %sent_packet_manager_ = getelementptr inbounds %"class.net::QuicConnection", ptr %this, i64 0, i32 77
+  %sent_packet_manager_ = getelementptr inbounds i8, ptr %this, i64 3192
   %2 = load ptr, ptr %sent_packet_manager_, align 8
   %vtable = load ptr, ptr %2, align 8
-  %vfn = getelementptr inbounds ptr, ptr %vtable, i64 36
+  %vfn = getelementptr inbounds i8, ptr %vtable, i64 288
   %3 = load ptr, ptr %vfn, align 8
   %call2 = tail call noundef i64 %3(ptr noundef nonnull align 8 dereferenceable(8) %2)
   %cmp = icmp ugt i64 %call2, 3
@@ -11101,7 +10958,7 @@ lpad.i:                                           ; preds = %.noexc
 
 invoke.cont:                                      ; preds = %.noexc
   %vtable4 = load ptr, ptr %this, align 8
-  %vfn5 = getelementptr inbounds ptr, ptr %vtable4, i64 32
+  %vfn5 = getelementptr inbounds i8, ptr %vtable4, i64 256
   %5 = load ptr, ptr %vfn5, align 8
   invoke void %5(ptr noundef nonnull align 8 dereferenceable(3372) %this, i32 noundef 85, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp, i32 noundef 1)
           to label %invoke.cont7 unwind label %lpad6
@@ -11128,29 +10985,29 @@ ehcleanup:                                        ; preds = %lpad, %lpad.i, %lpa
   resume { ptr, i32 } %.pn
 
 if.end:                                           ; preds = %land.lhs.true, %entry
-  %sent_packet_manager_8 = getelementptr inbounds %"class.net::QuicConnection", ptr %this, i64 0, i32 77
+  %sent_packet_manager_8 = getelementptr inbounds i8, ptr %this, i64 3192
   %8 = load ptr, ptr %sent_packet_manager_8, align 8
   %vtable10 = load ptr, ptr %8, align 8
-  %vfn11 = getelementptr inbounds ptr, ptr %vtable10, i64 16
+  %vfn11 = getelementptr inbounds i8, ptr %vtable10, i64 128
   %9 = load ptr, ptr %vfn11, align 8
   tail call void %9(ptr noundef nonnull align 8 dereferenceable(8) %8)
-  %writer_.i = getelementptr inbounds %"class.net::QuicConnection", ptr %this, i64 0, i32 8
+  %writer_.i = getelementptr inbounds i8, ptr %this, i64 464
   %10 = load ptr, ptr %writer_.i, align 8
   %vtable.i = load ptr, ptr %10, align 8
-  %vfn.i = getelementptr inbounds ptr, ptr %vtable.i, i64 4
+  %vfn.i = getelementptr inbounds i8, ptr %vtable.i, i64 32
   %11 = load ptr, ptr %vfn.i, align 8
   %call.i = tail call noundef zeroext i1 %11(ptr noundef nonnull align 8 dereferenceable(8) %10)
   br i1 %call.i, label %_ZN3net14QuicConnection17WriteIfNotBlockedEv.exit, label %if.then.i
 
 if.then.i:                                        ; preds = %if.end
   %vtable2.i = load ptr, ptr %this, align 8
-  %vfn3.i = getelementptr inbounds ptr, ptr %vtable2.i, i64 35
+  %vfn3.i = getelementptr inbounds i8, ptr %vtable2.i, i64 280
   %12 = load ptr, ptr %vfn3.i, align 8
   tail call void %12(ptr noundef nonnull align 8 dereferenceable(3372) %this)
   br label %_ZN3net14QuicConnection17WriteIfNotBlockedEv.exit
 
 _ZN3net14QuicConnection17WriteIfNotBlockedEv.exit: ; preds = %if.end, %if.then.i
-  %connected_ = getelementptr inbounds %"class.net::QuicConnection", ptr %this, i64 0, i32 80
+  %connected_ = getelementptr inbounds i8, ptr %this, i64 3208
   %13 = load i8, ptr %connected_, align 8
   %14 = and i8 %13, 1
   %tobool12.not = icmp eq i8 %14, 0
@@ -11159,7 +11016,7 @@ _ZN3net14QuicConnection17WriteIfNotBlockedEv.exit: ; preds = %if.end, %if.then.i
 if.end14:                                         ; preds = %_ZN3net14QuicConnection17WriteIfNotBlockedEv.exit
   %15 = load ptr, ptr %sent_packet_manager_8, align 8
   %vtable17 = load ptr, ptr %15, align 8
-  %vfn18 = getelementptr inbounds ptr, ptr %vtable17, i64 9
+  %vfn18 = getelementptr inbounds i8, ptr %vtable17, i64 72
   %16 = load ptr, ptr %vfn18, align 8
   %call19 = tail call noundef zeroext i1 %16(ptr noundef nonnull align 8 dereferenceable(8) %15)
   br i1 %call19, label %if.then20, label %if.end21
@@ -11167,36 +11024,36 @@ if.end14:                                         ; preds = %_ZN3net14QuicConnec
 if.then20:                                        ; preds = %if.end14
   %17 = load ptr, ptr %writer_.i, align 8
   %vtable.i4 = load ptr, ptr %17, align 8
-  %vfn.i5 = getelementptr inbounds ptr, ptr %vtable.i4, i64 4
+  %vfn.i5 = getelementptr inbounds i8, ptr %vtable.i4, i64 32
   %18 = load ptr, ptr %vfn.i5, align 8
   %call.i6 = tail call noundef zeroext i1 %18(ptr noundef nonnull align 8 dereferenceable(8) %17)
   br i1 %call.i6, label %if.end21, label %if.then.i7
 
 if.then.i7:                                       ; preds = %if.then20
   %vtable2.i8 = load ptr, ptr %this, align 8
-  %vfn3.i9 = getelementptr inbounds ptr, ptr %vtable2.i8, i64 35
+  %vfn3.i9 = getelementptr inbounds i8, ptr %vtable2.i8, i64 280
   %19 = load ptr, ptr %vfn3.i9, align 8
   tail call void %19(ptr noundef nonnull align 8 dereferenceable(3372) %this)
   br label %if.end21
 
 if.end21:                                         ; preds = %if.then.i7, %if.then20, %if.end14
-  %pending_version_negotiation_packet_.i = getelementptr inbounds %"class.net::QuicConnection", ptr %this, i64 0, i32 34
+  %pending_version_negotiation_packet_.i = getelementptr inbounds i8, ptr %this, i64 808
   %20 = load i8, ptr %pending_version_negotiation_packet_.i, align 8
   %21 = and i8 %20, 1
   %tobool.not.i = icmp eq i8 %21, 0
-  %queued_packets_.i = getelementptr inbounds %"class.net::QuicConnection", ptr %this, i64 0, i32 36
+  %queued_packets_.i = getelementptr inbounds i8, ptr %this, i64 816
   %22 = load ptr, ptr %queued_packets_.i, align 8
   %cmp.i.i = icmp eq ptr %22, %queued_packets_.i
   %or.cond.i = select i1 %tobool.not.i, i1 %cmp.i.i, i1 false
   br i1 %or.cond.i, label %_ZNK3net14QuicConnection13HasQueuedDataEv.exit, label %if.end27
 
 _ZNK3net14QuicConnection13HasQueuedDataEv.exit:   ; preds = %if.end21
-  %packet_generator_.i = getelementptr inbounds %"class.net::QuicConnection", ptr %this, i64 0, i32 69
+  %packet_generator_.i = getelementptr inbounds i8, ptr %this, i64 2408
   %call2.i = tail call noundef zeroext i1 @_ZNK3net19QuicPacketGenerator15HasQueuedFramesEv(ptr noundef nonnull align 8 dereferenceable(472) %packet_generator_.i)
   br i1 %call2.i, label %if.end27, label %land.lhs.true23
 
 land.lhs.true23:                                  ; preds = %_ZNK3net14QuicConnection13HasQueuedDataEv.exit
-  %retransmission_alarm_ = getelementptr inbounds %"class.net::QuicConnection", ptr %this, i64 0, i32 61
+  %retransmission_alarm_ = getelementptr inbounds i8, ptr %this, i64 2344
   %23 = load ptr, ptr %retransmission_alarm_, align 8
   %24 = ptrtoint ptr %23 to i64
   %and.i.i = and i64 %24, -2
@@ -11205,21 +11062,21 @@ land.lhs.true23:                                  ; preds = %_ZNK3net14QuicConne
   br i1 %call25, label %if.end27, label %if.then26
 
 if.then26:                                        ; preds = %land.lhs.true23
-  %delay_setting_retransmission_alarm_.i = getelementptr inbounds %"class.net::QuicConnection", ptr %this, i64 0, i32 54
+  %delay_setting_retransmission_alarm_.i = getelementptr inbounds i8, ptr %this, i64 1284
   %26 = load i8, ptr %delay_setting_retransmission_alarm_.i, align 4
   %27 = and i8 %26, 1
   %tobool.not.i11 = icmp eq i8 %27, 0
   br i1 %tobool.not.i11, label %if.end.i, label %if.then.i12
 
 if.then.i12:                                      ; preds = %if.then26
-  %pending_retransmission_alarm_.i = getelementptr inbounds %"class.net::QuicConnection", ptr %this, i64 0, i32 55
+  %pending_retransmission_alarm_.i = getelementptr inbounds i8, ptr %this, i64 1285
   store i8 1, ptr %pending_retransmission_alarm_.i, align 1
   br label %if.end27
 
 if.end.i:                                         ; preds = %if.then26
   %28 = load ptr, ptr %sent_packet_manager_8, align 8
   %vtable.i13 = load ptr, ptr %28, align 8
-  %vfn.i14 = getelementptr inbounds ptr, ptr %vtable.i13, i64 18
+  %vfn.i14 = getelementptr inbounds i8, ptr %vtable.i13, i64 144
   %29 = load ptr, ptr %vfn.i14, align 8
   %call2.i15 = tail call i64 %29(ptr noundef nonnull align 8 dereferenceable(8) %28)
   %30 = load ptr, ptr %retransmission_alarm_, align 8
@@ -11236,18 +11093,18 @@ if.end27:                                         ; preds = %if.end21, %if.end.i
 ; Function Attrs: mustprogress uwtable
 define dso_local noundef zeroext i1 @_ZNK3net14QuicConnection13HasQueuedDataEv(ptr noundef nonnull align 8 dereferenceable(3372) %this) local_unnamed_addr #0 align 2 {
 entry:
-  %pending_version_negotiation_packet_ = getelementptr inbounds %"class.net::QuicConnection", ptr %this, i64 0, i32 34
+  %pending_version_negotiation_packet_ = getelementptr inbounds i8, ptr %this, i64 808
   %0 = load i8, ptr %pending_version_negotiation_packet_, align 8
   %1 = and i8 %0, 1
   %tobool.not = icmp eq i8 %1, 0
-  %queued_packets_ = getelementptr inbounds %"class.net::QuicConnection", ptr %this, i64 0, i32 36
+  %queued_packets_ = getelementptr inbounds i8, ptr %this, i64 816
   %2 = load ptr, ptr %queued_packets_, align 8
   %cmp.i = icmp eq ptr %2, %queued_packets_
   %or.cond = select i1 %tobool.not, i1 %cmp.i, i1 false
   br i1 %or.cond, label %lor.rhs, label %lor.end
 
 lor.rhs:                                          ; preds = %entry
-  %packet_generator_ = getelementptr inbounds %"class.net::QuicConnection", ptr %this, i64 0, i32 69
+  %packet_generator_ = getelementptr inbounds i8, ptr %this, i64 2408
   %call2 = tail call noundef zeroext i1 @_ZNK3net19QuicPacketGenerator15HasQueuedFramesEv(ptr noundef nonnull align 8 dereferenceable(472) %packet_generator_)
   br label %lor.end
 
@@ -11259,7 +11116,7 @@ lor.end:                                          ; preds = %lor.rhs, %entry
 ; Function Attrs: mustprogress uwtable
 define dso_local void @_ZN3net14QuicConnection12SetEncrypterENS_15EncryptionLevelEPNS_13QuicEncrypterE(ptr noundef nonnull align 8 dereferenceable(3372) %this, i8 noundef signext %level, ptr noundef %encrypter) local_unnamed_addr #0 align 2 {
 entry:
-  %packet_generator_ = getelementptr inbounds %"class.net::QuicConnection", ptr %this, i64 0, i32 69
+  %packet_generator_ = getelementptr inbounds i8, ptr %this, i64 2408
   tail call void @_ZN3net19QuicPacketGenerator12SetEncrypterENS_15EncryptionLevelEPNS_13QuicEncrypterE(ptr noundef nonnull align 8 dereferenceable(472) %packet_generator_, i8 noundef signext %level, ptr noundef %encrypter)
   ret void
 }
@@ -11269,7 +11126,7 @@ declare void @_ZN3net19QuicPacketGenerator12SetEncrypterENS_15EncryptionLevelEPN
 ; Function Attrs: mustprogress uwtable
 define dso_local void @_ZN3net14QuicConnection23SetDiversificationNonceERKSt5arrayIcLm32EE(ptr noundef nonnull align 8 dereferenceable(3372) %this, ptr noundef nonnull align 1 dereferenceable(32) %nonce) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 if.end:
-  %packet_generator_ = getelementptr inbounds %"class.net::QuicConnection", ptr %this, i64 0, i32 69
+  %packet_generator_ = getelementptr inbounds i8, ptr %this, i64 2408
   tail call void @_ZN3net19QuicPacketGenerator23SetDiversificationNonceERKSt5arrayIcLm32EE(ptr noundef nonnull align 8 dereferenceable(472) %packet_generator_, ptr noundef nonnull align 1 dereferenceable(32) %nonce)
   ret void
 }
@@ -11279,9 +11136,9 @@ declare void @_ZN3net19QuicPacketGenerator23SetDiversificationNonceERKSt5arrayIc
 ; Function Attrs: mustprogress uwtable
 define dso_local void @_ZN3net14QuicConnection25SetDefaultEncryptionLevelENS_15EncryptionLevelE(ptr noundef nonnull align 8 dereferenceable(3372) %this, i8 noundef signext %level) local_unnamed_addr #0 align 2 {
 entry:
-  %encryption_level_ = getelementptr inbounds %"class.net::QuicConnection", ptr %this, i64 0, i32 10
+  %encryption_level_ = getelementptr inbounds i8, ptr %this, i64 473
   store i8 %level, ptr %encryption_level_, align 1
-  %packet_generator_ = getelementptr inbounds %"class.net::QuicConnection", ptr %this, i64 0, i32 69
+  %packet_generator_ = getelementptr inbounds i8, ptr %this, i64 2408
   tail call void @_ZN3net19QuicPacketGenerator20set_encryption_levelENS_15EncryptionLevelE(ptr noundef nonnull align 8 dereferenceable(472) %packet_generator_, i8 noundef signext %level)
   ret void
 }
@@ -11291,7 +11148,7 @@ declare void @_ZN3net19QuicPacketGenerator20set_encryption_levelENS_15Encryption
 ; Function Attrs: mustprogress uwtable
 define dso_local void @_ZN3net14QuicConnection12SetDecrypterENS_15EncryptionLevelEPNS_13QuicDecrypterE(ptr noundef nonnull align 8 dereferenceable(3372) %this, i8 noundef signext %level, ptr noundef %decrypter) local_unnamed_addr #0 align 2 {
 entry:
-  %framer_ = getelementptr inbounds %"class.net::QuicConnection", ptr %this, i64 0, i32 4
+  %framer_ = getelementptr inbounds i8, ptr %this, i64 32
   tail call void @_ZN3net10QuicFramer12SetDecrypterENS_15EncryptionLevelEPNS_13QuicDecrypterE(ptr noundef nonnull align 8 dereferenceable(408) %framer_, i8 noundef signext %level, ptr noundef %decrypter)
   ret void
 }
@@ -11301,7 +11158,7 @@ declare void @_ZN3net10QuicFramer12SetDecrypterENS_15EncryptionLevelEPNS_13QuicD
 ; Function Attrs: mustprogress uwtable
 define dso_local void @_ZN3net14QuicConnection23SetAlternativeDecrypterENS_15EncryptionLevelEPNS_13QuicDecrypterEb(ptr noundef nonnull align 8 dereferenceable(3372) %this, i8 noundef signext %level, ptr noundef %decrypter, i1 noundef zeroext %latch_once_used) local_unnamed_addr #0 align 2 {
 entry:
-  %framer_ = getelementptr inbounds %"class.net::QuicConnection", ptr %this, i64 0, i32 4
+  %framer_ = getelementptr inbounds i8, ptr %this, i64 32
   tail call void @_ZN3net10QuicFramer23SetAlternativeDecrypterENS_15EncryptionLevelEPNS_13QuicDecrypterEb(ptr noundef nonnull align 8 dereferenceable(408) %framer_, i8 noundef signext %level, ptr noundef %decrypter, i1 noundef zeroext %latch_once_used)
   ret void
 }
@@ -11311,7 +11168,7 @@ declare void @_ZN3net10QuicFramer23SetAlternativeDecrypterENS_15EncryptionLevelE
 ; Function Attrs: mustprogress uwtable
 define dso_local noundef ptr @_ZNK3net14QuicConnection9decrypterEv(ptr noundef nonnull align 8 dereferenceable(3372) %this) local_unnamed_addr #0 align 2 {
 entry:
-  %framer_ = getelementptr inbounds %"class.net::QuicConnection", ptr %this, i64 0, i32 4
+  %framer_ = getelementptr inbounds i8, ptr %this, i64 32
   %call = tail call noundef ptr @_ZNK3net10QuicFramer9decrypterEv(ptr noundef nonnull align 8 dereferenceable(408) %framer_)
   ret ptr %call
 }
@@ -11321,7 +11178,7 @@ declare noundef ptr @_ZNK3net10QuicFramer9decrypterEv(ptr noundef nonnull align 
 ; Function Attrs: mustprogress uwtable
 define dso_local noundef ptr @_ZNK3net14QuicConnection21alternative_decrypterEv(ptr noundef nonnull align 8 dereferenceable(3372) %this) local_unnamed_addr #0 align 2 {
 entry:
-  %framer_ = getelementptr inbounds %"class.net::QuicConnection", ptr %this, i64 0, i32 4
+  %framer_ = getelementptr inbounds i8, ptr %this, i64 32
   %call = tail call noundef ptr @_ZNK3net10QuicFramer21alternative_decrypterEv(ptr noundef nonnull align 8 dereferenceable(408) %framer_)
   ret ptr %call
 }
@@ -11333,7 +11190,7 @@ declare noundef ptr @_ZNK3net19QuicEncryptedPacket5CloneEv(ptr noundef nonnull a
 ; Function Attrs: mustprogress uwtable
 define dso_local void @_ZN3net14QuicConnection15CloseConnectionENS_13QuicErrorCodeERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS_23ConnectionCloseBehaviorE(ptr noundef nonnull align 8 dereferenceable(3372) %this, i32 noundef %error, ptr noundef nonnull align 8 dereferenceable(32) %error_details, i32 noundef %connection_close_behavior) unnamed_addr #0 align 2 {
 entry:
-  %connected_ = getelementptr inbounds %"class.net::QuicConnection", ptr %this, i64 0, i32 80
+  %connected_ = getelementptr inbounds i8, ptr %this, i64 3208
   %0 = load i8, ptr %connected_, align 8
   %1 = and i8 %0, 1
   %tobool.not = icmp eq i8 %1, 0
@@ -11351,7 +11208,7 @@ if.then4:                                         ; preds = %if.end
 if.end8.sink.split:                               ; preds = %if.end, %if.then4
   %.sink = phi i32 [ 3, %if.then4 ], [ %connection_close_behavior, %if.end ]
   %vtable5 = load ptr, ptr %this, align 8
-  %vfn6 = getelementptr inbounds ptr, ptr %vtable5, i64 47
+  %vfn6 = getelementptr inbounds i8, ptr %vtable5, i64 376
   %2 = load ptr, ptr %vfn6, align 8
   tail call void %2(ptr noundef nonnull align 8 dereferenceable(3372) %this, i32 noundef %error, ptr noundef nonnull align 8 dereferenceable(32) %error_details, i32 noundef %.sink)
   br label %if.end8
@@ -11369,14 +11226,14 @@ define dso_local void @_ZN3net14QuicConnection25SendConnectionClosePacketENS_13Q
 entry:
   %ack_bundler = alloca %"class.net::QuicConnection::ScopedPacketBundler", align 8
   %ref.tmp = alloca %"struct.net::QuicFrame", align 8
-  %queued_packets_.i = getelementptr inbounds %"class.net::QuicConnection", ptr %this, i64 0, i32 36
+  %queued_packets_.i = getelementptr inbounds i8, ptr %this, i64 816
   %it.sroa.0.05.i = load ptr, ptr %queued_packets_.i, align 8
   %cmp.i.not6.i = icmp eq ptr %it.sroa.0.05.i, %queued_packets_.i
   br i1 %cmp.i.not6.i, label %_ZN3net14QuicConnection18ClearQueuedPacketsEv.exit, label %for.body.i
 
 for.body.i:                                       ; preds = %entry, %delete.end.i
   %it.sroa.0.07.i = phi ptr [ %it.sroa.0.0.i, %delete.end.i ], [ %it.sroa.0.05.i, %entry ]
-  %_M_storage.i.i.i = getelementptr inbounds %"struct.std::_List_node", ptr %it.sroa.0.07.i, i64 0, i32 1
+  %_M_storage.i.i.i = getelementptr inbounds i8, ptr %it.sroa.0.07.i, i64 16
   %0 = load ptr, ptr %_M_storage.i.i.i, align 8
   %isnull.i = icmp eq ptr %0, null
   br i1 %isnull.i, label %delete.end.i, label %delete.notnull.i
@@ -11399,17 +11256,17 @@ for.end.i:                                        ; preds = %delete.end.i
 while.body.i.i.i:                                 ; preds = %for.end.i, %while.body.i.i.i
   %__cur.05.i.i.i = phi ptr [ %1, %while.body.i.i.i ], [ %.pre.i, %for.end.i ]
   %1 = load ptr, ptr %__cur.05.i.i.i, align 8
-  %_M_storage.i.i.i.i = getelementptr inbounds %"struct.std::_List_node", ptr %__cur.05.i.i.i, i64 0, i32 1
+  %_M_storage.i.i.i.i = getelementptr inbounds i8, ptr %__cur.05.i.i.i, i64 16
   tail call void @_ZN3net16SerializedPacketD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %_M_storage.i.i.i.i) #22
   tail call void @_ZdlPv(ptr noundef %__cur.05.i.i.i) #24
   %cmp.not.i.i.i = icmp eq ptr %1, %queued_packets_.i
   br i1 %cmp.not.i.i.i, label %_ZN3net14QuicConnection18ClearQueuedPacketsEv.exit, label %while.body.i.i.i, !llvm.loop !22
 
 _ZN3net14QuicConnection18ClearQueuedPacketsEv.exit: ; preds = %while.body.i.i.i, %entry, %for.end.i
-  %_M_prev.i.i.i.i = getelementptr inbounds %"class.net::QuicConnection", ptr %this, i64 0, i32 36, i32 0, i32 0, i32 0, i32 0, i32 1
+  %_M_prev.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 824
   store ptr %queued_packets_.i, ptr %_M_prev.i.i.i.i, align 8
   store ptr %queued_packets_.i, ptr %queued_packets_.i, align 8
-  %_M_size.i.i.i.i = getelementptr inbounds %"class.net::QuicConnection", ptr %this, i64 0, i32 36, i32 0, i32 0, i32 0, i32 1
+  %_M_size.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 832
   store i64 0, ptr %_M_size.i.i.i.i, align 8
   call void @_ZN3net14QuicConnection19ScopedPacketBundlerC2EPS0_NS0_11AckBundlingE(ptr noundef nonnull align 8 dereferenceable(9) %ack_bundler, ptr noundef nonnull %this, i32 noundef %ack_mode)
   %call = invoke noalias noundef nonnull dereferenceable(40) ptr @_Znwm(i64 noundef 40) #23
@@ -11421,12 +11278,12 @@ invoke.cont:                                      ; preds = %_ZN3net14QuicConnec
 
 invoke.cont3:                                     ; preds = %invoke.cont
   store i32 %error, ptr %call, align 8
-  %error_details = getelementptr inbounds %"struct.net::QuicConnectionCloseFrame", ptr %call, i64 0, i32 1
+  %error_details = getelementptr inbounds i8, ptr %call, i64 8
   %call5 = invoke noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEaSERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %error_details, ptr noundef nonnull align 8 dereferenceable(32) %details)
           to label %invoke.cont4 unwind label %lpad
 
 invoke.cont4:                                     ; preds = %invoke.cont3
-  %packet_generator_ = getelementptr inbounds %"class.net::QuicConnection", ptr %this, i64 0, i32 69
+  %packet_generator_ = getelementptr inbounds i8, ptr %this, i64 2408
   invoke void @_ZN3net9QuicFrameC1EPNS_24QuicConnectionCloseFrameE(ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp, ptr noundef nonnull %call)
           to label %invoke.cont6 unwind label %lpad
 
@@ -11444,28 +11301,28 @@ invoke.cont9:                                     ; preds = %invoke.cont7
   br i1 %cmp.i, label %_ZN3net14QuicConnection19ScopedPacketBundlerD2Ev.exit, label %if.end.i
 
 if.end.i:                                         ; preds = %invoke.cont9
-  %already_in_batch_mode_.i = getelementptr inbounds %"class.net::QuicConnection::ScopedPacketBundler", ptr %ack_bundler, i64 0, i32 1
+  %already_in_batch_mode_.i = getelementptr inbounds i8, ptr %ack_bundler, i64 8
   %3 = load i8, ptr %already_in_batch_mode_.i, align 8
   %4 = and i8 %3, 1
   %tobool.not.i = icmp eq i8 %4, 0
   br i1 %tobool.not.i, label %if.then2.i, label %_ZN3net14QuicConnection19ScopedPacketBundlerD2Ev.exit
 
 if.then2.i:                                       ; preds = %if.end.i
-  %packet_generator_.i = getelementptr inbounds %"class.net::QuicConnection", ptr %2, i64 0, i32 69
+  %packet_generator_.i = getelementptr inbounds i8, ptr %2, i64 2408
   invoke void @_ZN3net19QuicPacketGenerator21FinishBatchOperationsEv(ptr noundef nonnull align 8 dereferenceable(472) %packet_generator_.i)
           to label %invoke.cont.i unwind label %terminate.lpad.i
 
 invoke.cont.i:                                    ; preds = %if.then2.i
-  %queued_packets_.i.i = getelementptr inbounds %"class.net::QuicConnection", ptr %2, i64 0, i32 36
+  %queued_packets_.i.i = getelementptr inbounds i8, ptr %2, i64 816
   %5 = load ptr, ptr %queued_packets_.i.i, align 8
   %cmp.i.i.i = icmp eq ptr %5, %queued_packets_.i.i
   br i1 %cmp.i.i.i, label %land.lhs.true.i.i, label %_ZN3net14QuicConnection19ScopedPacketBundlerD2Ev.exit
 
 land.lhs.true.i.i:                                ; preds = %invoke.cont.i
-  %sent_packet_manager_.i.i = getelementptr inbounds %"class.net::QuicConnection", ptr %2, i64 0, i32 77
+  %sent_packet_manager_.i.i = getelementptr inbounds i8, ptr %2, i64 3192
   %6 = load ptr, ptr %sent_packet_manager_.i.i, align 8
   %vtable.i.i = load ptr, ptr %6, align 8
-  %vfn.i.i = getelementptr inbounds ptr, ptr %vtable.i.i, i64 11
+  %vfn.i.i = getelementptr inbounds i8, ptr %vtable.i.i, i64 88
   %7 = load ptr, ptr %vfn.i.i, align 8
   %call3.i1.i = invoke noundef zeroext i1 %7(ptr noundef nonnull align 8 dereferenceable(8) %6)
           to label %call3.i.noexc.i unwind label %terminate.lpad.i
@@ -11474,10 +11331,10 @@ call3.i.noexc.i:                                  ; preds = %land.lhs.true.i.i
   br i1 %call3.i1.i, label %_ZN3net14QuicConnection19ScopedPacketBundlerD2Ev.exit, label %land.lhs.true4.i.i
 
 land.lhs.true4.i.i:                               ; preds = %call3.i.noexc.i
-  %visitor_.i.i = getelementptr inbounds %"class.net::QuicConnection", ptr %2, i64 0, i32 67
+  %visitor_.i.i = getelementptr inbounds i8, ptr %2, i64 2392
   %8 = load ptr, ptr %visitor_.i.i, align 8
   %vtable5.i.i = load ptr, ptr %8, align 8
-  %vfn6.i.i = getelementptr inbounds ptr, ptr %vtable5.i.i, i64 15
+  %vfn6.i.i = getelementptr inbounds i8, ptr %vtable5.i.i, i64 120
   %9 = load ptr, ptr %vfn6.i.i, align 8
   %call7.i2.i = invoke noundef zeroext i1 %9(ptr noundef nonnull align 8 dereferenceable(8) %8)
           to label %call7.i.noexc.i unwind label %terminate.lpad.i
@@ -11488,7 +11345,7 @@ call7.i.noexc.i:                                  ; preds = %land.lhs.true4.i.i
 if.then.i.i:                                      ; preds = %call7.i.noexc.i
   %10 = load ptr, ptr %sent_packet_manager_.i.i, align 8
   %vtable10.i.i = load ptr, ptr %10, align 8
-  %vfn11.i.i = getelementptr inbounds ptr, ptr %vtable10.i.i, i64 38
+  %vfn11.i.i = getelementptr inbounds i8, ptr %vtable10.i.i, i64 304
   %11 = load ptr, ptr %vfn11.i.i, align 8
   invoke void %11(ptr noundef nonnull align 8 dereferenceable(8) %10)
           to label %_ZN3net14QuicConnection19ScopedPacketBundlerD2Ev.exit unwind label %terminate.lpad.i
@@ -11533,43 +11390,43 @@ declare void @_ZN4base13HistogramBase10AddBooleanEb(ptr noundef nonnull align 8 
 ; Function Attrs: mustprogress uwtable
 define dso_local void @_ZN3net14QuicConnection15CancelAllAlarmsEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(3372) %this) local_unnamed_addr #0 align 2 {
 entry:
-  %ack_alarm_ = getelementptr inbounds %"class.net::QuicConnection", ptr %this, i64 0, i32 60
+  %ack_alarm_ = getelementptr inbounds i8, ptr %this, i64 2336
   %0 = load ptr, ptr %ack_alarm_, align 8
   %1 = ptrtoint ptr %0 to i64
   %and.i.i = and i64 %1, -2
   %2 = inttoptr i64 %and.i.i to ptr
   tail call void @_ZN3net9QuicAlarm6CancelEv(ptr noundef nonnull align 8 dereferenceable(24) %2)
-  %ping_alarm_ = getelementptr inbounds %"class.net::QuicConnection", ptr %this, i64 0, i32 65
+  %ping_alarm_ = getelementptr inbounds i8, ptr %this, i64 2376
   %3 = load ptr, ptr %ping_alarm_, align 8
   %4 = ptrtoint ptr %3 to i64
   %and.i.i1 = and i64 %4, -2
   %5 = inttoptr i64 %and.i.i1 to ptr
   tail call void @_ZN3net9QuicAlarm6CancelEv(ptr noundef nonnull align 8 dereferenceable(24) %5)
-  %resume_writes_alarm_ = getelementptr inbounds %"class.net::QuicConnection", ptr %this, i64 0, i32 63
+  %resume_writes_alarm_ = getelementptr inbounds i8, ptr %this, i64 2360
   %6 = load ptr, ptr %resume_writes_alarm_, align 8
   %7 = ptrtoint ptr %6 to i64
   %and.i.i2 = and i64 %7, -2
   %8 = inttoptr i64 %and.i.i2 to ptr
   tail call void @_ZN3net9QuicAlarm6CancelEv(ptr noundef nonnull align 8 dereferenceable(24) %8)
-  %retransmission_alarm_ = getelementptr inbounds %"class.net::QuicConnection", ptr %this, i64 0, i32 61
+  %retransmission_alarm_ = getelementptr inbounds i8, ptr %this, i64 2344
   %9 = load ptr, ptr %retransmission_alarm_, align 8
   %10 = ptrtoint ptr %9 to i64
   %and.i.i3 = and i64 %10, -2
   %11 = inttoptr i64 %and.i.i3 to ptr
   tail call void @_ZN3net9QuicAlarm6CancelEv(ptr noundef nonnull align 8 dereferenceable(24) %11)
-  %send_alarm_ = getelementptr inbounds %"class.net::QuicConnection", ptr %this, i64 0, i32 62
+  %send_alarm_ = getelementptr inbounds i8, ptr %this, i64 2352
   %12 = load ptr, ptr %send_alarm_, align 8
   %13 = ptrtoint ptr %12 to i64
   %and.i.i4 = and i64 %13, -2
   %14 = inttoptr i64 %and.i.i4 to ptr
   tail call void @_ZN3net9QuicAlarm6CancelEv(ptr noundef nonnull align 8 dereferenceable(24) %14)
-  %timeout_alarm_ = getelementptr inbounds %"class.net::QuicConnection", ptr %this, i64 0, i32 64
+  %timeout_alarm_ = getelementptr inbounds i8, ptr %this, i64 2368
   %15 = load ptr, ptr %timeout_alarm_, align 8
   %16 = ptrtoint ptr %15 to i64
   %and.i.i5 = and i64 %16, -2
   %17 = inttoptr i64 %and.i.i5 to ptr
   tail call void @_ZN3net9QuicAlarm6CancelEv(ptr noundef nonnull align 8 dereferenceable(24) %17)
-  %mtu_discovery_alarm_ = getelementptr inbounds %"class.net::QuicConnection", ptr %this, i64 0, i32 66
+  %mtu_discovery_alarm_ = getelementptr inbounds i8, ptr %this, i64 2384
   %18 = load ptr, ptr %mtu_discovery_alarm_, align 8
   %19 = ptrtoint ptr %18 to i64
   %and.i.i6 = and i64 %19, -2
@@ -11583,7 +11440,7 @@ define dso_local void @_ZN3net14QuicConnection10SendGoAwayENS_13QuicErrorCodeEjR
 entry:
   %ack_bundler = alloca %"class.net::QuicConnection::ScopedPacketBundler", align 8
   %ref.tmp = alloca %"struct.net::QuicFrame", align 8
-  %goaway_sent_ = getelementptr inbounds %"class.net::QuicConnection", ptr %this, i64 0, i32 94
+  %goaway_sent_ = getelementptr inbounds i8, ptr %this, i64 3368
   %0 = load i8, ptr %goaway_sent_, align 8
   %1 = and i8 %0, 1
   %tobool.not = icmp eq i8 %1, 0
@@ -11592,7 +11449,7 @@ entry:
 if.end:                                           ; preds = %entry
   store i8 1, ptr %goaway_sent_, align 8
   call void @_ZN3net14QuicConnection19ScopedPacketBundlerC2EPS0_NS0_11AckBundlingE(ptr noundef nonnull align 8 dereferenceable(9) %ack_bundler, ptr noundef nonnull %this, i32 noundef 2)
-  %packet_generator_ = getelementptr inbounds %"class.net::QuicConnection", ptr %this, i64 0, i32 69
+  %packet_generator_ = getelementptr inbounds i8, ptr %this, i64 2408
   %call = invoke noalias noundef nonnull dereferenceable(40) ptr @_Znwm(i64 noundef 40) #23
           to label %invoke.cont unwind label %lpad
 
@@ -11614,28 +11471,28 @@ invoke.cont6:                                     ; preds = %invoke.cont5
   br i1 %cmp.i, label %return, label %if.end.i
 
 if.end.i:                                         ; preds = %invoke.cont6
-  %already_in_batch_mode_.i = getelementptr inbounds %"class.net::QuicConnection::ScopedPacketBundler", ptr %ack_bundler, i64 0, i32 1
+  %already_in_batch_mode_.i = getelementptr inbounds i8, ptr %ack_bundler, i64 8
   %3 = load i8, ptr %already_in_batch_mode_.i, align 8
   %4 = and i8 %3, 1
   %tobool.not.i = icmp eq i8 %4, 0
   br i1 %tobool.not.i, label %if.then2.i, label %return
 
 if.then2.i:                                       ; preds = %if.end.i
-  %packet_generator_.i = getelementptr inbounds %"class.net::QuicConnection", ptr %2, i64 0, i32 69
+  %packet_generator_.i = getelementptr inbounds i8, ptr %2, i64 2408
   invoke void @_ZN3net19QuicPacketGenerator21FinishBatchOperationsEv(ptr noundef nonnull align 8 dereferenceable(472) %packet_generator_.i)
           to label %invoke.cont.i unwind label %terminate.lpad.i
 
 invoke.cont.i:                                    ; preds = %if.then2.i
-  %queued_packets_.i.i = getelementptr inbounds %"class.net::QuicConnection", ptr %2, i64 0, i32 36
+  %queued_packets_.i.i = getelementptr inbounds i8, ptr %2, i64 816
   %5 = load ptr, ptr %queued_packets_.i.i, align 8
   %cmp.i.i.i = icmp eq ptr %5, %queued_packets_.i.i
   br i1 %cmp.i.i.i, label %land.lhs.true.i.i, label %return
 
 land.lhs.true.i.i:                                ; preds = %invoke.cont.i
-  %sent_packet_manager_.i.i = getelementptr inbounds %"class.net::QuicConnection", ptr %2, i64 0, i32 77
+  %sent_packet_manager_.i.i = getelementptr inbounds i8, ptr %2, i64 3192
   %6 = load ptr, ptr %sent_packet_manager_.i.i, align 8
   %vtable.i.i = load ptr, ptr %6, align 8
-  %vfn.i.i = getelementptr inbounds ptr, ptr %vtable.i.i, i64 11
+  %vfn.i.i = getelementptr inbounds i8, ptr %vtable.i.i, i64 88
   %7 = load ptr, ptr %vfn.i.i, align 8
   %call3.i1.i = invoke noundef zeroext i1 %7(ptr noundef nonnull align 8 dereferenceable(8) %6)
           to label %call3.i.noexc.i unwind label %terminate.lpad.i
@@ -11644,10 +11501,10 @@ call3.i.noexc.i:                                  ; preds = %land.lhs.true.i.i
   br i1 %call3.i1.i, label %return, label %land.lhs.true4.i.i
 
 land.lhs.true4.i.i:                               ; preds = %call3.i.noexc.i
-  %visitor_.i.i = getelementptr inbounds %"class.net::QuicConnection", ptr %2, i64 0, i32 67
+  %visitor_.i.i = getelementptr inbounds i8, ptr %2, i64 2392
   %8 = load ptr, ptr %visitor_.i.i, align 8
   %vtable5.i.i = load ptr, ptr %8, align 8
-  %vfn6.i.i = getelementptr inbounds ptr, ptr %vtable5.i.i, i64 15
+  %vfn6.i.i = getelementptr inbounds i8, ptr %vtable5.i.i, i64 120
   %9 = load ptr, ptr %vfn6.i.i, align 8
   %call7.i2.i = invoke noundef zeroext i1 %9(ptr noundef nonnull align 8 dereferenceable(8) %8)
           to label %call7.i.noexc.i unwind label %terminate.lpad.i
@@ -11658,7 +11515,7 @@ call7.i.noexc.i:                                  ; preds = %land.lhs.true4.i.i
 if.then.i.i:                                      ; preds = %call7.i.noexc.i
   %10 = load ptr, ptr %sent_packet_manager_.i.i, align 8
   %vtable10.i.i = load ptr, ptr %10, align 8
-  %vfn11.i.i = getelementptr inbounds ptr, ptr %vtable10.i.i, i64 38
+  %vfn11.i.i = getelementptr inbounds i8, ptr %vtable10.i.i, i64 304
   %11 = load ptr, ptr %vfn11.i.i, align 8
   invoke void %11(ptr noundef nonnull align 8 dereferenceable(8) %10)
           to label %return unwind label %terminate.lpad.i
@@ -11701,9 +11558,9 @@ define dso_local noundef i64 @_ZN3net14QuicConnection23GetLimitedMaxPacketSizeEm
 entry:
   %ref.tmp4 = alloca %"class.logging::LogMessage", align 8
   %ref.tmp14 = alloca [4 x i64], align 8
-  %peer_address_ = getelementptr inbounds %"class.net::QuicConnection", ptr %this, i64 0, i32 16
+  %peer_address_ = getelementptr inbounds i8, ptr %this, i64 536
   %0 = load ptr, ptr %peer_address_, align 8
-  %_M_finish.i.i.i = getelementptr inbounds %"class.net::QuicConnection", ptr %this, i64 0, i32 16, i32 0, i32 0, i32 0, i32 0, i32 0, i32 1
+  %_M_finish.i.i.i = getelementptr inbounds i8, ptr %this, i64 544
   %1 = load ptr, ptr %_M_finish.i.i.i, align 8
   %cmp.i.i.i = icmp eq ptr %0, %1
   br i1 %cmp.i.i.i, label %if.then, label %if.end
@@ -11714,7 +11571,7 @@ if.then:                                          ; preds = %entry
 
 cond.false:                                       ; preds = %if.then
   call void @_ZN7logging10LogMessageC1EPKcii(ptr noundef nonnull align 8 dereferenceable(404) %ref.tmp4, ptr noundef nonnull @.str, i32 noundef 2414, i32 noundef 2)
-  %stream_.i = getelementptr inbounds %"class.logging::LogMessage", ptr %ref.tmp4, i64 0, i32 2
+  %stream_.i = getelementptr inbounds i8, ptr %ref.tmp4, i64 8
   %call7 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc(ptr noundef nonnull align 8 dereferenceable(8) %stream_.i, ptr noundef nonnull @.str.58)
           to label %cleanup.action unwind label %lpad
 
@@ -11729,19 +11586,19 @@ lpad:                                             ; preds = %cond.false
   resume { ptr, i32 } %2
 
 if.end:                                           ; preds = %entry
-  %writer_ = getelementptr inbounds %"class.net::QuicConnection", ptr %this, i64 0, i32 8
+  %writer_ = getelementptr inbounds i8, ptr %this, i64 464
   %3 = load ptr, ptr %writer_, align 8
   %vtable = load ptr, ptr %3, align 8
-  %vfn = getelementptr inbounds ptr, ptr %vtable, i64 6
+  %vfn = getelementptr inbounds i8, ptr %vtable, i64 48
   %4 = load ptr, ptr %vfn, align 8
   %call13 = tail call noundef i64 %4(ptr noundef nonnull align 8 dereferenceable(8) %3, ptr noundef nonnull align 8 dereferenceable(26) %peer_address_)
   store i64 %suggested_max_packet_size, ptr %ref.tmp14, align 8
   %arrayinit.element.ptr = getelementptr inbounds i8, ptr %ref.tmp14, i64 8
   store i64 %call13, ptr %arrayinit.element.ptr, align 8
-  %arrayinit.element15 = getelementptr inbounds i64, ptr %ref.tmp14, i64 2
+  %arrayinit.element15 = getelementptr inbounds i8, ptr %ref.tmp14, i64 16
   store i64 1452, ptr %arrayinit.element15, align 8
-  %arrayinit.element16 = getelementptr inbounds i64, ptr %ref.tmp14, i64 3
-  %largest_packet_size_supported_ = getelementptr inbounds %"class.net::QuicConnection", ptr %this, i64 0, i32 93
+  %arrayinit.element16 = getelementptr inbounds i8, ptr %ref.tmp14, i64 24
+  %largest_packet_size_supported_ = getelementptr inbounds i8, ptr %this, i64 3360
   %5 = load i64, ptr %largest_packet_size_supported_, align 8
   store i64 %5, ptr %arrayinit.element16, align 8
   br label %while.body.i.i
@@ -11771,7 +11628,7 @@ return:                                           ; preds = %cleanup.action, %if
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
 define dso_local void @_ZN3net14QuicConnection25EnableSavingCryptoPacketsEv(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(3372) %this) local_unnamed_addr #9 align 2 {
 entry:
-  %save_crypto_packets_as_termination_packets_ = getelementptr inbounds %"class.net::QuicConnection", ptr %this, i64 0, i32 37
+  %save_crypto_packets_as_termination_packets_ = getelementptr inbounds i8, ptr %this, i64 840
   store i8 1, ptr %save_crypto_packets_as_termination_packets_, align 8
   ret void
 }
@@ -11779,26 +11636,26 @@ entry:
 ; Function Attrs: mustprogress uwtable
 define dso_local noundef zeroext i1 @_ZN3net14QuicConnection18CanWriteStreamDataEv(ptr noundef nonnull align 8 dereferenceable(3372) %this) local_unnamed_addr #0 align 2 {
 entry:
-  %pending_version_negotiation_packet_ = getelementptr inbounds %"class.net::QuicConnection", ptr %this, i64 0, i32 34
+  %pending_version_negotiation_packet_ = getelementptr inbounds i8, ptr %this, i64 808
   %0 = load i8, ptr %pending_version_negotiation_packet_, align 8
   %1 = and i8 %0, 1
   %tobool.not = icmp eq i8 %1, 0
-  %queued_packets_ = getelementptr inbounds %"class.net::QuicConnection", ptr %this, i64 0, i32 36
+  %queued_packets_ = getelementptr inbounds i8, ptr %this, i64 816
   %2 = load ptr, ptr %queued_packets_, align 8
   %cmp.i = icmp eq ptr %2, %queued_packets_
   %or.cond = select i1 %tobool.not, i1 %cmp.i, i1 false
   br i1 %or.cond, label %if.end, label %return
 
 if.end:                                           ; preds = %entry
-  %visitor_ = getelementptr inbounds %"class.net::QuicConnection", ptr %this, i64 0, i32 67
+  %visitor_ = getelementptr inbounds i8, ptr %this, i64 2392
   %3 = load ptr, ptr %visitor_, align 8
   %vtable = load ptr, ptr %3, align 8
-  %vfn = getelementptr inbounds ptr, ptr %vtable, i64 16
+  %vfn = getelementptr inbounds i8, ptr %vtable, i64 128
   %4 = load ptr, ptr %vfn, align 8
   %call2 = tail call noundef zeroext i1 %4(ptr noundef nonnull align 8 dereferenceable(8) %3)
   %cond = zext i1 %call2 to i8
   %vtable3 = load ptr, ptr %this, align 8
-  %vfn4 = getelementptr inbounds ptr, ptr %vtable3, i64 37
+  %vfn4 = getelementptr inbounds i8, ptr %vtable3, i64 296
   %5 = load ptr, ptr %vfn4, align 8
   %call5 = tail call noundef zeroext i1 %5(ptr noundef nonnull align 8 dereferenceable(3372) %this, i8 noundef signext 1, i8 noundef signext %cond)
   br label %return
@@ -11813,8 +11670,8 @@ declare noundef nonnull align 8 dereferenceable(8) ptr @_ZNSolsEl(ptr noundef no
 ; Function Attrs: mustprogress uwtable
 define dso_local void @_ZN3net14QuicConnection15SetTimeoutAlarmEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(3372) %this) local_unnamed_addr #0 align 2 {
 entry:
-  %time_of_last_received_packet_ = getelementptr inbounds %"class.net::QuicConnection", ptr %this, i64 0, i32 73
-  %time_of_last_sent_new_packet_ = getelementptr inbounds %"class.net::QuicConnection", ptr %this, i64 0, i32 74
+  %time_of_last_received_packet_ = getelementptr inbounds i8, ptr %this, i64 3160
+  %time_of_last_sent_new_packet_ = getelementptr inbounds i8, ptr %this, i64 3168
   %agg.tmp.sroa.0.0.copyload.i = load i64, ptr %time_of_last_received_packet_, align 8
   %agg.tmp1.sroa.0.0.copyload.i = load i64, ptr %time_of_last_sent_new_packet_, align 8
   %cmp.i.i = icmp slt i64 %agg.tmp.sroa.0.0.copyload.i, %agg.tmp1.sroa.0.0.copyload.i
@@ -11822,22 +11679,22 @@ entry:
   %0 = load i8, ptr @FLAGS_quic_better_last_send_for_timeout, align 1
   %1 = and i8 %0, 1
   %tobool.not = icmp eq i8 %1, 0
-  %last_send_for_timeout_ = getelementptr inbounds %"class.net::QuicConnection", ptr %this, i64 0, i32 75
+  %last_send_for_timeout_ = getelementptr inbounds i8, ptr %this, i64 3176
   %agg.tmp1.sroa.0.0.copyload.i3 = load i64, ptr %last_send_for_timeout_, align 8
   %cmp.i.i4 = icmp slt i64 %agg.tmp.sroa.0.0.copyload.i, %agg.tmp1.sroa.0.0.copyload.i3
   %__b.__a.i5 = select i1 %cmp.i.i4, ptr %last_send_for_timeout_, ptr %time_of_last_received_packet_
   %time_of_last_packet.sroa.0.0.in = select i1 %tobool.not, ptr %__b.__a.i, ptr %__b.__a.i5
   %time_of_last_packet.sroa.0.0 = load i64, ptr %time_of_last_packet.sroa.0.0.in, align 8
-  %agg.tmp4.sroa.2.0.idle_network_timeout_.sroa_idx = getelementptr inbounds %"class.net::QuicConnection", ptr %this, i64 0, i32 70, i32 1
+  %agg.tmp4.sroa.2.0.idle_network_timeout_.sroa_idx = getelementptr inbounds i8, ptr %this, i64 2888
   %agg.tmp4.sroa.2.0.copyload = load i64, ptr %agg.tmp4.sroa.2.0.idle_network_timeout_.sroa_idx, align 8
   %add.i = add nsw i64 %agg.tmp4.sroa.2.0.copyload, %time_of_last_packet.sroa.0.0
-  %time_offset_.i = getelementptr inbounds %"class.net::QuicConnection", ptr %this, i64 0, i32 71, i32 1
+  %time_offset_.i = getelementptr inbounds i8, ptr %this, i64 2904
   %2 = load i64, ptr %time_offset_.i, align 8
   %cmp.i = icmp eq i64 %2, 9223372036854775807
   br i1 %cmp.i, label %if.end16, label %if.then8
 
 if.then8:                                         ; preds = %entry
-  %connection_creation_time = getelementptr inbounds %"class.net::QuicConnection", ptr %this, i64 0, i32 72, i32 30
+  %connection_creation_time = getelementptr inbounds i8, ptr %this, i64 3152
   %agg.tmp9.sroa.0.0.copyload = load i64, ptr %connection_creation_time, align 8
   %add.i6 = add nsw i64 %2, %agg.tmp9.sroa.0.0.copyload
   %.sroa.speculated = tail call i64 @llvm.smin.i64(i64 %add.i6, i64 %add.i)
@@ -11845,7 +11702,7 @@ if.then8:                                         ; preds = %entry
 
 if.end16:                                         ; preds = %if.then8, %entry
   %deadline.sroa.0.0 = phi i64 [ %add.i, %entry ], [ %.sroa.speculated, %if.then8 ]
-  %timeout_alarm_ = getelementptr inbounds %"class.net::QuicConnection", ptr %this, i64 0, i32 64
+  %timeout_alarm_ = getelementptr inbounds i8, ptr %this, i64 2368
   %3 = load ptr, ptr %timeout_alarm_, align 8
   %4 = ptrtoint ptr %3 to i64
   %and.i.i = and i64 %4, -2
@@ -11861,21 +11718,21 @@ entry:
   %ref.tmp = alloca %"class.std::allocator.0", align 1
   %error_details26 = alloca %"class.std::__cxx11::basic_string", align 8
   %ref.tmp27 = alloca %"class.std::allocator.0", align 1
-  %clock_ = getelementptr inbounds %"class.net::QuicConnection", ptr %this, i64 0, i32 12
+  %clock_ = getelementptr inbounds i8, ptr %this, i64 480
   %0 = load ptr, ptr %clock_, align 8
   %vtable = load ptr, ptr %0, align 8
-  %vfn = getelementptr inbounds ptr, ptr %vtable, i64 2
+  %vfn = getelementptr inbounds i8, ptr %vtable, i64 16
   %1 = load ptr, ptr %vfn, align 8
   %call = tail call i64 %1(ptr noundef nonnull align 8 dereferenceable(8) %0)
-  %time_of_last_received_packet_ = getelementptr inbounds %"class.net::QuicConnection", ptr %this, i64 0, i32 73
-  %last_send_for_timeout_ = getelementptr inbounds %"class.net::QuicConnection", ptr %this, i64 0, i32 75
+  %time_of_last_received_packet_ = getelementptr inbounds i8, ptr %this, i64 3160
+  %last_send_for_timeout_ = getelementptr inbounds i8, ptr %this, i64 3176
   %agg.tmp.sroa.0.0.copyload.i = load i64, ptr %time_of_last_received_packet_, align 8
   %agg.tmp1.sroa.0.0.copyload.i = load i64, ptr %last_send_for_timeout_, align 8
   %cmp.i.i = icmp slt i64 %agg.tmp.sroa.0.0.copyload.i, %agg.tmp1.sroa.0.0.copyload.i
   %2 = tail call i64 @llvm.smax.i64(i64 %agg.tmp.sroa.0.0.copyload.i, i64 %agg.tmp1.sroa.0.0.copyload.i)
   %__b.__a.i = select i1 %cmp.i.i, ptr %last_send_for_timeout_, ptr %time_of_last_received_packet_
   %sub.i = sub nsw i64 %call, %2
-  %agg.tmp8.sroa.2.0.idle_network_timeout_.sroa_idx = getelementptr inbounds %"class.net::QuicConnection", ptr %this, i64 0, i32 70, i32 1
+  %agg.tmp8.sroa.2.0.idle_network_timeout_.sroa_idx = getelementptr inbounds i8, ptr %this, i64 2888
   %agg.tmp8.sroa.2.0.copyload = load i64, ptr %agg.tmp8.sroa.2.0.idle_network_timeout_.sroa_idx, align 8
   %cmp.i.i3.not = icmp slt i64 %sub.i, %agg.tmp8.sroa.2.0.copyload
   br i1 %cmp.i.i3.not, label %if.end, label %if.then
@@ -11901,10 +11758,10 @@ lpad.i:                                           ; preds = %.noexc
 
 invoke.cont:                                      ; preds = %.noexc
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp) #22
-  %idle_timeout_connection_close_behavior_ = getelementptr inbounds %"class.net::QuicConnection", ptr %this, i64 0, i32 40
+  %idle_timeout_connection_close_behavior_ = getelementptr inbounds i8, ptr %this, i64 856
   %4 = load i32, ptr %idle_timeout_connection_close_behavior_, align 8
   %vtable10 = load ptr, ptr %this, align 8
-  %vfn11 = getelementptr inbounds ptr, ptr %vtable10, i64 32
+  %vfn11 = getelementptr inbounds i8, ptr %vtable10, i64 256
   %5 = load ptr, ptr %vfn11, align 8
   invoke void %5(ptr noundef nonnull align 8 dereferenceable(3372) %this, i32 noundef 25, ptr noundef nonnull align 8 dereferenceable(32) %error_details, i32 noundef %4)
           to label %invoke.cont13 unwind label %lpad12
@@ -11930,13 +11787,13 @@ lpad12:                                           ; preds = %invoke.cont
   br label %eh.resume
 
 if.end:                                           ; preds = %entry
-  %time_offset_.i = getelementptr inbounds %"class.net::QuicConnection", ptr %this, i64 0, i32 71, i32 1
+  %time_offset_.i = getelementptr inbounds i8, ptr %this, i64 2904
   %8 = load i64, ptr %time_offset_.i, align 8
   %cmp.i = icmp eq i64 %8, 9223372036854775807
   br i1 %cmp.i, label %if.end35, label %if.then15
 
 if.then15:                                        ; preds = %if.end
-  %connection_creation_time = getelementptr inbounds %"class.net::QuicConnection", ptr %this, i64 0, i32 72, i32 30
+  %connection_creation_time = getelementptr inbounds i8, ptr %this, i64 3152
   %agg.tmp17.sroa.0.0.copyload = load i64, ptr %connection_creation_time, align 8
   %sub.i5 = sub nsw i64 %call, %agg.tmp17.sroa.0.0.copyload
   %cmp.i.i7.not = icmp slt i64 %sub.i5, %8
@@ -11964,7 +11821,7 @@ lpad.i10:                                         ; preds = %.noexc13
 invoke.cont29:                                    ; preds = %.noexc13
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp27) #22
   %vtable30 = load ptr, ptr %this, align 8
-  %vfn31 = getelementptr inbounds ptr, ptr %vtable30, i64 32
+  %vfn31 = getelementptr inbounds i8, ptr %vtable30, i64 256
   %10 = load ptr, ptr %vfn31, align 8
   invoke void %10(ptr noundef nonnull align 8 dereferenceable(3372) %this, i32 noundef 67, ptr noundef nonnull align 8 dereferenceable(32) %error_details26, i32 noundef 1)
           to label %invoke.cont33 unwind label %lpad32
@@ -11990,7 +11847,7 @@ lpad32:                                           ; preds = %invoke.cont29
   br label %eh.resume
 
 if.end35:                                         ; preds = %if.then15, %if.end
-  %time_of_last_sent_new_packet_.i = getelementptr inbounds %"class.net::QuicConnection", ptr %this, i64 0, i32 74
+  %time_of_last_sent_new_packet_.i = getelementptr inbounds i8, ptr %this, i64 3168
   %agg.tmp1.sroa.0.0.copyload.i.i = load i64, ptr %time_of_last_sent_new_packet_.i, align 8
   %cmp.i.i.i = icmp slt i64 %agg.tmp.sroa.0.0.copyload.i, %agg.tmp1.sroa.0.0.copyload.i.i
   %__b.__a.i.i = select i1 %cmp.i.i.i, ptr %time_of_last_sent_new_packet_.i, ptr %time_of_last_received_packet_
@@ -12003,7 +11860,7 @@ if.end35:                                         ; preds = %if.then15, %if.end
   br i1 %cmp.i, label %_ZN3net14QuicConnection15SetTimeoutAlarmEv.exit, label %if.then8.i
 
 if.then8.i:                                       ; preds = %if.end35
-  %connection_creation_time.i = getelementptr inbounds %"class.net::QuicConnection", ptr %this, i64 0, i32 72, i32 30
+  %connection_creation_time.i = getelementptr inbounds i8, ptr %this, i64 3152
   %agg.tmp9.sroa.0.0.copyload.i = load i64, ptr %connection_creation_time.i, align 8
   %add.i6.i = add nsw i64 %agg.tmp9.sroa.0.0.copyload.i, %8
   %.sroa.speculated.i = tail call i64 @llvm.smin.i64(i64 %add.i6.i, i64 %add.i.i)
@@ -12011,7 +11868,7 @@ if.then8.i:                                       ; preds = %if.end35
 
 _ZN3net14QuicConnection15SetTimeoutAlarmEv.exit:  ; preds = %if.end35, %if.then8.i
   %deadline.sroa.0.0.i = phi i64 [ %add.i.i, %if.end35 ], [ %.sroa.speculated.i, %if.then8.i ]
-  %timeout_alarm_.i = getelementptr inbounds %"class.net::QuicConnection", ptr %this, i64 0, i32 64
+  %timeout_alarm_.i = getelementptr inbounds i8, ptr %this, i64 2368
   %15 = load ptr, ptr %timeout_alarm_.i, align 8
   %16 = ptrtoint ptr %15 to i64
   %and.i.i.i = and i64 %16, -2
@@ -12031,7 +11888,7 @@ eh.resume:                                        ; preds = %lpad32, %lpad28.bod
 define dso_local void @_ZN3net14QuicConnection19ScopedPacketBundlerC2EPS0_NS0_11AckBundlingE(ptr nocapture noundef nonnull align 8 dereferenceable(9) %this, ptr noundef %connection, i32 noundef %ack_mode) unnamed_addr #0 align 2 {
 entry:
   store ptr %connection, ptr %this, align 8
-  %already_in_batch_mode_ = getelementptr inbounds %"class.net::QuicConnection::ScopedPacketBundler", ptr %this, i64 0, i32 1
+  %already_in_batch_mode_ = getelementptr inbounds i8, ptr %this, i64 8
   %cmp.not = icmp eq ptr %connection, null
   br i1 %cmp.not, label %land.end.thread, label %land.end
 
@@ -12040,7 +11897,7 @@ land.end.thread:                                  ; preds = %entry
   br label %if.end12
 
 land.end:                                         ; preds = %entry
-  %packet_generator_ = getelementptr inbounds %"class.net::QuicConnection", ptr %connection, i64 0, i32 69
+  %packet_generator_ = getelementptr inbounds i8, ptr %connection, i64 2408
   %call = tail call noundef zeroext i1 @_ZN3net19QuicPacketGenerator11InBatchModeEv(ptr noundef nonnull align 8 dereferenceable(472) %packet_generator_)
   %.pr = load ptr, ptr %this, align 8
   %frombool = zext i1 %call to i8
@@ -12052,7 +11909,7 @@ if.end:                                           ; preds = %land.end
   br i1 %call, label %if.end8, label %if.then5
 
 if.then5:                                         ; preds = %if.end
-  %packet_generator_7 = getelementptr inbounds %"class.net::QuicConnection", ptr %.pr, i64 0, i32 69
+  %packet_generator_7 = getelementptr inbounds i8, ptr %.pr, i64 2408
   tail call void @_ZN3net19QuicPacketGenerator20StartBatchOperationsEv(ptr noundef nonnull align 8 dereferenceable(472) %packet_generator_7)
   br label %if.end8
 
@@ -12062,26 +11919,26 @@ if.end8:                                          ; preds = %if.then5, %if.end
 
 if.then10:                                        ; preds = %if.end8
   %0 = load ptr, ptr %this, align 8
-  %ack_alarm_.i = getelementptr inbounds %"class.net::QuicConnection", ptr %0, i64 0, i32 60
+  %ack_alarm_.i = getelementptr inbounds i8, ptr %0, i64 2336
   %1 = load ptr, ptr %ack_alarm_.i, align 8
   %2 = ptrtoint ptr %1 to i64
   %and.i.i.i = and i64 %2, -2
   %3 = inttoptr i64 %and.i.i.i to ptr
   tail call void @_ZN3net9QuicAlarm6CancelEv(ptr noundef nonnull align 8 dereferenceable(24) %3)
-  %ack_queued_.i = getelementptr inbounds %"class.net::QuicConnection", ptr %0, i64 0, i32 45
+  %ack_queued_.i = getelementptr inbounds i8, ptr %0, i64 1240
   store i8 0, ptr %ack_queued_.i, align 8
-  %stop_waiting_count_.i = getelementptr inbounds %"class.net::QuicConnection", ptr %0, i64 0, i32 51
+  %stop_waiting_count_.i = getelementptr inbounds i8, ptr %0, i64 1272
   store i32 0, ptr %stop_waiting_count_.i, align 8
-  %num_retransmittable_packets_received_since_last_ack_sent_.i = getelementptr inbounds %"class.net::QuicConnection", ptr %0, i64 0, i32 47
+  %num_retransmittable_packets_received_since_last_ack_sent_.i = getelementptr inbounds i8, ptr %0, i64 1248
   store i64 0, ptr %num_retransmittable_packets_received_since_last_ack_sent_.i, align 8
-  %received_packet_manager_.i = getelementptr inbounds %"class.net::QuicConnection", ptr %0, i64 0, i32 43
+  %received_packet_manager_.i = getelementptr inbounds i8, ptr %0, i64 864
   %call2.i = tail call noundef zeroext i1 @_ZNK3net25QuicReceivedPacketManager17HasMissingPacketsEv(ptr noundef nonnull align 8 dereferenceable(248) %received_packet_manager_.i)
-  %last_ack_had_missing_packets_.i = getelementptr inbounds %"class.net::QuicConnection", ptr %0, i64 0, i32 48
+  %last_ack_had_missing_packets_.i = getelementptr inbounds i8, ptr %0, i64 1256
   %frombool.i = zext i1 %call2.i to i8
   store i8 %frombool.i, ptr %last_ack_had_missing_packets_.i, align 8
-  %num_packets_received_since_last_ack_sent_.i = getelementptr inbounds %"class.net::QuicConnection", ptr %0, i64 0, i32 50
+  %num_packets_received_since_last_ack_sent_.i = getelementptr inbounds i8, ptr %0, i64 1264
   store i64 0, ptr %num_packets_received_since_last_ack_sent_.i, align 8
-  %packet_generator_.i = getelementptr inbounds %"class.net::QuicConnection", ptr %0, i64 0, i32 69
+  %packet_generator_.i = getelementptr inbounds i8, ptr %0, i64 2408
   tail call void @_ZN3net19QuicPacketGenerator16SetShouldSendAckEb(ptr noundef nonnull align 8 dereferenceable(472) %packet_generator_.i, i1 noundef zeroext true)
   br label %if.end12
 
@@ -12106,7 +11963,7 @@ entry:
 
 sw.bb2:                                           ; preds = %entry
   %0 = load ptr, ptr %this, align 8
-  %ack_queued_.i = getelementptr inbounds %"class.net::QuicConnection", ptr %0, i64 0, i32 45
+  %ack_queued_.i = getelementptr inbounds i8, ptr %0, i64 1240
   %1 = load i8, ptr %ack_queued_.i, align 8
   %2 = and i8 %1, 1
   %tobool.i = icmp ne i8 %2, 0
@@ -12114,7 +11971,7 @@ sw.bb2:                                           ; preds = %entry
 
 sw.bb3:                                           ; preds = %entry
   %3 = load ptr, ptr %this, align 8
-  %ack_alarm_ = getelementptr inbounds %"class.net::QuicConnection", ptr %3, i64 0, i32 60
+  %ack_alarm_ = getelementptr inbounds i8, ptr %3, i64 2336
   %4 = load ptr, ptr %ack_alarm_, align 8
   %5 = ptrtoint ptr %4 to i64
   %and.i.i = and i64 %5, -2
@@ -12124,7 +11981,7 @@ sw.bb3:                                           ; preds = %entry
 
 lor.rhs:                                          ; preds = %sw.bb3
   %7 = load ptr, ptr %this, align 8
-  %stop_waiting_count_ = getelementptr inbounds %"class.net::QuicConnection", ptr %7, i64 0, i32 51
+  %stop_waiting_count_ = getelementptr inbounds i8, ptr %7, i64 1272
   %8 = load i32, ptr %stop_waiting_count_, align 8
   %cmp = icmp sgt i32 %8, 1
   br label %return
@@ -12138,7 +11995,7 @@ sw.default:                                       ; preds = %entry
 
 cond.false:                                       ; preds = %sw.default
   call void @_ZN7logging10LogMessageC1EPKcii(ptr noundef nonnull align 8 dereferenceable(404) %ref.tmp10, ptr noundef nonnull @.str, i32 noundef 2321, i32 noundef 2)
-  %stream_.i = getelementptr inbounds %"class.logging::LogMessage", ptr %ref.tmp10, i64 0, i32 2
+  %stream_.i = getelementptr inbounds i8, ptr %ref.tmp10, i64 8
   %call13 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc(ptr noundef nonnull align 8 dereferenceable(8) %stream_.i, ptr noundef nonnull @.str.57)
           to label %cleanup.action unwind label %lpad
 
@@ -12165,29 +12022,29 @@ entry:
   br i1 %cmp, label %if.end15, label %if.end
 
 if.end:                                           ; preds = %entry
-  %already_in_batch_mode_ = getelementptr inbounds %"class.net::QuicConnection::ScopedPacketBundler", ptr %this, i64 0, i32 1
+  %already_in_batch_mode_ = getelementptr inbounds i8, ptr %this, i64 8
   %1 = load i8, ptr %already_in_batch_mode_, align 8
   %2 = and i8 %1, 1
   %tobool.not = icmp eq i8 %2, 0
   br i1 %tobool.not, label %if.then2, label %if.end15
 
 if.then2:                                         ; preds = %if.end
-  %packet_generator_ = getelementptr inbounds %"class.net::QuicConnection", ptr %0, i64 0, i32 69
+  %packet_generator_ = getelementptr inbounds i8, ptr %0, i64 2408
   invoke void @_ZN3net19QuicPacketGenerator21FinishBatchOperationsEv(ptr noundef nonnull align 8 dereferenceable(472) %packet_generator_)
           to label %invoke.cont unwind label %terminate.lpad
 
 invoke.cont:                                      ; preds = %if.then2
   %3 = load ptr, ptr %this, align 8
-  %queued_packets_.i = getelementptr inbounds %"class.net::QuicConnection", ptr %3, i64 0, i32 36
+  %queued_packets_.i = getelementptr inbounds i8, ptr %3, i64 816
   %4 = load ptr, ptr %queued_packets_.i, align 8
   %cmp.i.i = icmp eq ptr %4, %queued_packets_.i
   br i1 %cmp.i.i, label %land.lhs.true.i, label %if.end15
 
 land.lhs.true.i:                                  ; preds = %invoke.cont
-  %sent_packet_manager_.i = getelementptr inbounds %"class.net::QuicConnection", ptr %3, i64 0, i32 77
+  %sent_packet_manager_.i = getelementptr inbounds i8, ptr %3, i64 3192
   %5 = load ptr, ptr %sent_packet_manager_.i, align 8
   %vtable.i = load ptr, ptr %5, align 8
-  %vfn.i = getelementptr inbounds ptr, ptr %vtable.i, i64 11
+  %vfn.i = getelementptr inbounds i8, ptr %vtable.i, i64 88
   %6 = load ptr, ptr %vfn.i, align 8
   %call3.i1 = invoke noundef zeroext i1 %6(ptr noundef nonnull align 8 dereferenceable(8) %5)
           to label %call3.i.noexc unwind label %terminate.lpad
@@ -12196,10 +12053,10 @@ call3.i.noexc:                                    ; preds = %land.lhs.true.i
   br i1 %call3.i1, label %if.end15, label %land.lhs.true4.i
 
 land.lhs.true4.i:                                 ; preds = %call3.i.noexc
-  %visitor_.i = getelementptr inbounds %"class.net::QuicConnection", ptr %3, i64 0, i32 67
+  %visitor_.i = getelementptr inbounds i8, ptr %3, i64 2392
   %7 = load ptr, ptr %visitor_.i, align 8
   %vtable5.i = load ptr, ptr %7, align 8
-  %vfn6.i = getelementptr inbounds ptr, ptr %vtable5.i, i64 15
+  %vfn6.i = getelementptr inbounds i8, ptr %vtable5.i, i64 120
   %8 = load ptr, ptr %vfn6.i, align 8
   %call7.i2 = invoke noundef zeroext i1 %8(ptr noundef nonnull align 8 dereferenceable(8) %7)
           to label %call7.i.noexc unwind label %terminate.lpad
@@ -12210,7 +12067,7 @@ call7.i.noexc:                                    ; preds = %land.lhs.true4.i
 if.then.i:                                        ; preds = %call7.i.noexc
   %9 = load ptr, ptr %sent_packet_manager_.i, align 8
   %vtable10.i = load ptr, ptr %9, align 8
-  %vfn11.i = getelementptr inbounds ptr, ptr %vtable10.i, i64 38
+  %vfn11.i = getelementptr inbounds i8, ptr %vtable10.i, i64 304
   %10 = load ptr, ptr %vfn11.i, align 8
   invoke void %10(ptr noundef nonnull align 8 dereferenceable(8) %9)
           to label %if.end15 unwind label %terminate.lpad
@@ -12231,25 +12088,25 @@ declare void @_ZN3net19QuicPacketGenerator21FinishBatchOperationsEv(ptr noundef 
 ; Function Attrs: mustprogress uwtable
 define dso_local void @_ZN3net14QuicConnection25CheckIfApplicationLimitedEv(ptr noundef nonnull readonly align 8 dereferenceable(3372) %this) local_unnamed_addr #0 align 2 {
 entry:
-  %queued_packets_ = getelementptr inbounds %"class.net::QuicConnection", ptr %this, i64 0, i32 36
+  %queued_packets_ = getelementptr inbounds i8, ptr %this, i64 816
   %0 = load ptr, ptr %queued_packets_, align 8
   %cmp.i = icmp eq ptr %0, %queued_packets_
   br i1 %cmp.i, label %land.lhs.true, label %if.end
 
 land.lhs.true:                                    ; preds = %entry
-  %sent_packet_manager_ = getelementptr inbounds %"class.net::QuicConnection", ptr %this, i64 0, i32 77
+  %sent_packet_manager_ = getelementptr inbounds i8, ptr %this, i64 3192
   %1 = load ptr, ptr %sent_packet_manager_, align 8
   %vtable = load ptr, ptr %1, align 8
-  %vfn = getelementptr inbounds ptr, ptr %vtable, i64 11
+  %vfn = getelementptr inbounds i8, ptr %vtable, i64 88
   %2 = load ptr, ptr %vfn, align 8
   %call3 = tail call noundef zeroext i1 %2(ptr noundef nonnull align 8 dereferenceable(8) %1)
   br i1 %call3, label %if.end, label %land.lhs.true4
 
 land.lhs.true4:                                   ; preds = %land.lhs.true
-  %visitor_ = getelementptr inbounds %"class.net::QuicConnection", ptr %this, i64 0, i32 67
+  %visitor_ = getelementptr inbounds i8, ptr %this, i64 2392
   %3 = load ptr, ptr %visitor_, align 8
   %vtable5 = load ptr, ptr %3, align 8
-  %vfn6 = getelementptr inbounds ptr, ptr %vtable5, i64 15
+  %vfn6 = getelementptr inbounds i8, ptr %vtable5, i64 120
   %4 = load ptr, ptr %vfn6, align 8
   %call7 = tail call noundef zeroext i1 %4(ptr noundef nonnull align 8 dereferenceable(8) %3)
   br i1 %call7, label %if.end, label %if.then
@@ -12257,7 +12114,7 @@ land.lhs.true4:                                   ; preds = %land.lhs.true
 if.then:                                          ; preds = %land.lhs.true4
   %5 = load ptr, ptr %sent_packet_manager_, align 8
   %vtable10 = load ptr, ptr %5, align 8
-  %vfn11 = getelementptr inbounds ptr, ptr %vtable10, i64 38
+  %vfn11 = getelementptr inbounds i8, ptr %vtable10, i64 304
   %6 = load ptr, ptr %vfn11, align 8
   tail call void %6(ptr noundef nonnull align 8 dereferenceable(8) %5)
   br label %if.end
@@ -12270,8 +12127,8 @@ if.end:                                           ; preds = %if.then, %land.lhs.
 define dso_local void @_ZN3net14QuicConnection29ScopedRetransmissionSchedulerC2EPS0_(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(9) %this, ptr noundef %connection) unnamed_addr #15 align 2 {
 entry:
   store ptr %connection, ptr %this, align 8
-  %already_delayed_ = getelementptr inbounds %"class.net::QuicConnection::ScopedRetransmissionScheduler", ptr %this, i64 0, i32 1
-  %delay_setting_retransmission_alarm_ = getelementptr inbounds %"class.net::QuicConnection", ptr %connection, i64 0, i32 54
+  %already_delayed_ = getelementptr inbounds i8, ptr %this, i64 8
+  %delay_setting_retransmission_alarm_ = getelementptr inbounds i8, ptr %connection, i64 1284
   %0 = load i8, ptr %delay_setting_retransmission_alarm_, align 4
   %1 = and i8 %0, 1
   store i8 %1, ptr %already_delayed_, align 8
@@ -12282,7 +12139,7 @@ entry:
 ; Function Attrs: mustprogress nounwind uwtable
 define dso_local void @_ZN3net14QuicConnection29ScopedRetransmissionSchedulerD2Ev(ptr nocapture noundef nonnull readonly align 8 dereferenceable(9) %this) unnamed_addr #6 align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  %already_delayed_ = getelementptr inbounds %"class.net::QuicConnection::ScopedRetransmissionScheduler", ptr %this, i64 0, i32 1
+  %already_delayed_ = getelementptr inbounds i8, ptr %this, i64 8
   %0 = load i8, ptr %already_delayed_, align 8
   %1 = and i8 %0, 1
   %tobool.not = icmp eq i8 %1, 0
@@ -12290,17 +12147,17 @@ entry:
 
 if.end:                                           ; preds = %entry
   %2 = load ptr, ptr %this, align 8
-  %delay_setting_retransmission_alarm_ = getelementptr inbounds %"class.net::QuicConnection", ptr %2, i64 0, i32 54
+  %delay_setting_retransmission_alarm_ = getelementptr inbounds i8, ptr %2, i64 1284
   store i8 0, ptr %delay_setting_retransmission_alarm_, align 4
   %3 = load ptr, ptr %this, align 8
-  %pending_retransmission_alarm_ = getelementptr inbounds %"class.net::QuicConnection", ptr %3, i64 0, i32 55
+  %pending_retransmission_alarm_ = getelementptr inbounds i8, ptr %3, i64 1285
   %4 = load i8, ptr %pending_retransmission_alarm_, align 1
   %5 = and i8 %4, 1
   %tobool3.not = icmp eq i8 %5, 0
   br i1 %tobool3.not, label %if.end8, label %if.then4
 
 if.then4:                                         ; preds = %if.end
-  %delay_setting_retransmission_alarm_.i = getelementptr inbounds %"class.net::QuicConnection", ptr %3, i64 0, i32 54
+  %delay_setting_retransmission_alarm_.i = getelementptr inbounds i8, ptr %3, i64 1284
   %6 = load i8, ptr %delay_setting_retransmission_alarm_.i, align 4
   %7 = and i8 %6, 1
   %tobool.not.i = icmp eq i8 %7, 0
@@ -12311,16 +12168,16 @@ if.then.i:                                        ; preds = %if.then4
   br label %invoke.cont
 
 if.end.i:                                         ; preds = %if.then4
-  %sent_packet_manager_.i = getelementptr inbounds %"class.net::QuicConnection", ptr %3, i64 0, i32 77
+  %sent_packet_manager_.i = getelementptr inbounds i8, ptr %3, i64 3192
   %8 = load ptr, ptr %sent_packet_manager_.i, align 8
   %vtable.i = load ptr, ptr %8, align 8
-  %vfn.i = getelementptr inbounds ptr, ptr %vtable.i, i64 18
+  %vfn.i = getelementptr inbounds i8, ptr %vtable.i, i64 144
   %9 = load ptr, ptr %vfn.i, align 8
   %call2.i1 = invoke i64 %9(ptr noundef nonnull align 8 dereferenceable(8) %8)
           to label %call2.i.noexc unwind label %terminate.lpad
 
 call2.i.noexc:                                    ; preds = %if.end.i
-  %retransmission_alarm_.i = getelementptr inbounds %"class.net::QuicConnection", ptr %3, i64 0, i32 61
+  %retransmission_alarm_.i = getelementptr inbounds i8, ptr %3, i64 2344
   %10 = load ptr, ptr %retransmission_alarm_.i, align 8
   %11 = ptrtoint ptr %10 to i64
   %and.i.i.i = and i64 %11, -2
@@ -12330,7 +12187,7 @@ call2.i.noexc:                                    ; preds = %if.end.i
 
 invoke.cont:                                      ; preds = %if.then.i, %call2.i.noexc
   %13 = load ptr, ptr %this, align 8
-  %pending_retransmission_alarm_7 = getelementptr inbounds %"class.net::QuicConnection", ptr %13, i64 0, i32 55
+  %pending_retransmission_alarm_7 = getelementptr inbounds i8, ptr %13, i64 1285
   store i8 0, ptr %pending_retransmission_alarm_7, align 1
   br label %if.end8
 
@@ -12348,7 +12205,7 @@ terminate.lpad:                                   ; preds = %call2.i.noexc, %if.
 ; Function Attrs: mustprogress uwtable
 define dso_local void @_ZN3net14QuicConnection22SendMtuDiscoveryPacketEm(ptr noundef nonnull align 8 dereferenceable(3372) %this, i64 noundef %target_mtu) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 if.end:
-  %packet_generator_ = getelementptr inbounds %"class.net::QuicConnection", ptr %this, i64 0, i32 69
+  %packet_generator_ = getelementptr inbounds i8, ptr %this, i64 2408
   tail call void @_ZN3net19QuicPacketGenerator26GenerateMtuDiscoveryPacketEmPNS_24QuicAckListenerInterfaceE(ptr noundef nonnull align 8 dereferenceable(472) %packet_generator_, i64 noundef %target_mtu, ptr noundef null)
   ret void
 }
@@ -12358,25 +12215,25 @@ declare void @_ZN3net19QuicPacketGenerator26GenerateMtuDiscoveryPacketEmPNS_24Qu
 ; Function Attrs: mustprogress uwtable
 define dso_local void @_ZN3net14QuicConnection11DiscoverMtuEv(ptr noundef nonnull align 8 dereferenceable(3372) %this) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  %mtu_discovery_target_ = getelementptr inbounds %"class.net::QuicConnection", ptr %this, i64 0, i32 87
+  %mtu_discovery_target_ = getelementptr inbounds i8, ptr %this, i64 3312
   %0 = load i64, ptr %mtu_discovery_target_, align 8
-  %packet_generator_.i = getelementptr inbounds %"class.net::QuicConnection", ptr %this, i64 0, i32 69
+  %packet_generator_.i = getelementptr inbounds i8, ptr %this, i64 2408
   %call.i = tail call noundef i64 @_ZNK3net19QuicPacketGenerator25GetCurrentMaxPacketLengthEv(ptr noundef nonnull align 8 dereferenceable(472) %packet_generator_.i)
   %cmp.not = icmp ugt i64 %0, %call.i
   br i1 %cmp.not, label %if.end, label %return
 
 if.end:                                           ; preds = %entry
-  %packets_between_mtu_probes_ = getelementptr inbounds %"class.net::QuicConnection", ptr %this, i64 0, i32 89
+  %packets_between_mtu_probes_ = getelementptr inbounds i8, ptr %this, i64 3328
   %1 = load i64, ptr %packets_between_mtu_probes_, align 8
   %mul = shl i64 %1, 1
   store i64 %mul, ptr %packets_between_mtu_probes_, align 8
-  %packet_number_of_last_sent_packet_ = getelementptr inbounds %"class.net::QuicConnection", ptr %this, i64 0, i32 76
+  %packet_number_of_last_sent_packet_ = getelementptr inbounds i8, ptr %this, i64 3184
   %2 = load i64, ptr %packet_number_of_last_sent_packet_, align 8
   %add = or disjoint i64 %mul, 1
   %add3 = add i64 %add, %2
-  %next_mtu_probe_at_ = getelementptr inbounds %"class.net::QuicConnection", ptr %this, i64 0, i32 90
+  %next_mtu_probe_at_ = getelementptr inbounds i8, ptr %this, i64 3336
   store i64 %add3, ptr %next_mtu_probe_at_, align 8
-  %mtu_probe_count_ = getelementptr inbounds %"class.net::QuicConnection", ptr %this, i64 0, i32 88
+  %mtu_probe_count_ = getelementptr inbounds i8, ptr %this, i64 3320
   %3 = load i64, ptr %mtu_probe_count_, align 8
   %inc = add i64 %3, 1
   store i64 %inc, ptr %mtu_probe_count_, align 8
@@ -12392,7 +12249,7 @@ return:                                           ; preds = %entry, %if.end
 define dso_local void @_ZN3net14QuicConnection24OnPeerMigrationValidatedEh(ptr nocapture noundef nonnull align 8 dereferenceable(3372) %this, i8 zeroext %path_id) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp2 = alloca %"class.logging::LogMessage", align 8
-  %active_peer_migration_type_ = getelementptr inbounds %"class.net::QuicConnection", ptr %this, i64 0, i32 17
+  %active_peer_migration_type_ = getelementptr inbounds i8, ptr %this, i64 568
   %0 = load i32, ptr %active_peer_migration_type_, align 8
   %cmp = icmp eq i32 %0, 0
   br i1 %cmp, label %if.then, label %if.end
@@ -12403,7 +12260,7 @@ if.then:                                          ; preds = %entry
 
 cond.false:                                       ; preds = %if.then
   call void @_ZN7logging10LogMessageC1EPKcii(ptr noundef nonnull align 8 dereferenceable(404) %ref.tmp2, ptr noundef nonnull @.str, i32 noundef 2457, i32 noundef 2)
-  %stream_.i = getelementptr inbounds %"class.logging::LogMessage", ptr %ref.tmp2, i64 0, i32 2
+  %stream_.i = getelementptr inbounds i8, ptr %ref.tmp2, i64 8
   %call5 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc(ptr noundef nonnull align 8 dereferenceable(8) %stream_.i, ptr noundef nonnull @.str.59)
           to label %cleanup.action unwind label %lpad
 
@@ -12418,7 +12275,7 @@ lpad:                                             ; preds = %cond.false
   resume { ptr, i32 } %1
 
 if.end:                                           ; preds = %entry
-  %highest_packet_sent_before_peer_migration_ = getelementptr inbounds %"class.net::QuicConnection", ptr %this, i64 0, i32 19
+  %highest_packet_sent_before_peer_migration_ = getelementptr inbounds i8, ptr %this, i64 576
   store i64 0, ptr %highest_packet_sent_before_peer_migration_, align 8
   store i32 0, ptr %active_peer_migration_type_, align 8
   br label %return
@@ -12431,7 +12288,7 @@ return:                                           ; preds = %if.then, %cleanup.a
 define dso_local void @_ZN3net14QuicConnection18StartPeerMigrationEhNS_21PeerAddressChangeTypeE(ptr noundef nonnull align 8 dereferenceable(3372) %this, i8 noundef zeroext %path_id, i32 noundef %peer_migration_type) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp3 = alloca %"class.logging::LogMessage", align 8
-  %active_peer_migration_type_ = getelementptr inbounds %"class.net::QuicConnection", ptr %this, i64 0, i32 17
+  %active_peer_migration_type_ = getelementptr inbounds i8, ptr %this, i64 568
   %0 = load i32, ptr %active_peer_migration_type_, align 8
   %cmp = icmp ne i32 %0, 0
   %cmp2 = icmp eq i32 %peer_migration_type, 0
@@ -12444,7 +12301,7 @@ if.then:                                          ; preds = %entry
 
 cond.false:                                       ; preds = %if.then
   call void @_ZN7logging10LogMessageC1EPKcii(ptr noundef nonnull align 8 dereferenceable(404) %ref.tmp3, ptr noundef nonnull @.str, i32 noundef 2476, i32 noundef 2)
-  %stream_.i = getelementptr inbounds %"class.logging::LogMessage", ptr %ref.tmp3, i64 0, i32 2
+  %stream_.i = getelementptr inbounds i8, ptr %ref.tmp3, i64 8
   %call6 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc(ptr noundef nonnull align 8 dereferenceable(8) %stream_.i, ptr noundef nonnull @.str.60)
           to label %cleanup.action unwind label %lpad
 
@@ -12459,28 +12316,28 @@ lpad:                                             ; preds = %cond.false
   resume { ptr, i32 } %1
 
 if.end:                                           ; preds = %entry
-  %packet_number_of_last_sent_packet_ = getelementptr inbounds %"class.net::QuicConnection", ptr %this, i64 0, i32 76
+  %packet_number_of_last_sent_packet_ = getelementptr inbounds i8, ptr %this, i64 3184
   %2 = load i64, ptr %packet_number_of_last_sent_packet_, align 8
-  %highest_packet_sent_before_peer_migration_ = getelementptr inbounds %"class.net::QuicConnection", ptr %this, i64 0, i32 19
+  %highest_packet_sent_before_peer_migration_ = getelementptr inbounds i8, ptr %this, i64 576
   store i64 %2, ptr %highest_packet_sent_before_peer_migration_, align 8
-  %last_packet_source_address_ = getelementptr inbounds %"class.net::QuicConnection", ptr %this, i64 0, i32 83
-  %peer_address_ = getelementptr inbounds %"class.net::QuicConnection", ptr %this, i64 0, i32 16
+  %last_packet_source_address_ = getelementptr inbounds i8, ptr %this, i64 3248
+  %peer_address_ = getelementptr inbounds i8, ptr %this, i64 536
   %call.i.i = tail call noundef nonnull align 8 dereferenceable(24) ptr @_ZNSt6vectorIhSaIhEEaSERKS1_(ptr noundef nonnull align 8 dereferenceable(24) %peer_address_, ptr noundef nonnull align 8 dereferenceable(24) %last_packet_source_address_)
-  %port_.i = getelementptr inbounds %"class.net::QuicConnection", ptr %this, i64 0, i32 83, i32 1
+  %port_.i = getelementptr inbounds i8, ptr %this, i64 3272
   %3 = load i16, ptr %port_.i, align 8
-  %port_3.i = getelementptr inbounds %"class.net::QuicConnection", ptr %this, i64 0, i32 16, i32 1
+  %port_3.i = getelementptr inbounds i8, ptr %this, i64 560
   store i16 %3, ptr %port_3.i, align 8
   store i32 %peer_migration_type, ptr %active_peer_migration_type_, align 8
-  %visitor_ = getelementptr inbounds %"class.net::QuicConnection", ptr %this, i64 0, i32 67
+  %visitor_ = getelementptr inbounds i8, ptr %this, i64 2392
   %4 = load ptr, ptr %visitor_, align 8
   %vtable = load ptr, ptr %4, align 8
-  %vfn = getelementptr inbounds ptr, ptr %vtable, i64 12
+  %vfn = getelementptr inbounds i8, ptr %vtable, i64 96
   %5 = load ptr, ptr %vfn, align 8
   tail call void %5(ptr noundef nonnull align 8 dereferenceable(8) %4, i32 noundef %peer_migration_type)
-  %sent_packet_manager_ = getelementptr inbounds %"class.net::QuicConnection", ptr %this, i64 0, i32 77
+  %sent_packet_manager_ = getelementptr inbounds i8, ptr %this, i64 3192
   %6 = load ptr, ptr %sent_packet_manager_, align 8
   %vtable14 = load ptr, ptr %6, align 8
-  %vfn15 = getelementptr inbounds ptr, ptr %vtable14, i64 28
+  %vfn15 = getelementptr inbounds i8, ptr %vtable14, i64 224
   %7 = load ptr, ptr %vfn15, align 8
   tail call void %7(ptr noundef nonnull align 8 dereferenceable(8) %6, i8 noundef zeroext %path_id, i32 noundef %peer_migration_type)
   br label %return
@@ -12497,7 +12354,7 @@ declare noundef zeroext i1 @_ZNK3net25QuicReceivedPacketManager17ack_frame_updat
 define dso_local { ptr, i64 } @_ZN3net14QuicConnection16GetCurrentPacketB5cxx11Ev(ptr nocapture noundef nonnull readonly align 8 dereferenceable(3372) %this) local_unnamed_addr #0 align 2 {
 entry:
   %retval = alloca %"class.base::BasicStringPiece", align 8
-  %current_packet_data_ = getelementptr inbounds %"class.net::QuicConnection", ptr %this, i64 0, i32 23
+  %current_packet_data_ = getelementptr inbounds i8, ptr %this, i64 600
   %0 = load ptr, ptr %current_packet_data_, align 8
   %cmp = icmp eq ptr %0, null
   br i1 %cmp, label %if.then, label %if.end
@@ -12507,7 +12364,7 @@ if.then:                                          ; preds = %entry
   br label %return
 
 if.end:                                           ; preds = %entry
-  %last_size_ = getelementptr inbounds %"class.net::QuicConnection", ptr %this, i64 0, i32 22
+  %last_size_ = getelementptr inbounds i8, ptr %this, i64 592
   %1 = load i64, ptr %last_size_, align 8
   call void @_ZN4base16BasicStringPieceINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEC1EPKcm(ptr noundef nonnull align 8 dereferenceable(16) %retval, ptr noundef nonnull %0, i64 noundef %1)
   br label %return
@@ -12515,7 +12372,7 @@ if.end:                                           ; preds = %entry
 return:                                           ; preds = %if.end, %if.then
   %.fca.0.load = load ptr, ptr %retval, align 8
   %.fca.0.insert = insertvalue { ptr, i64 } poison, ptr %.fca.0.load, 0
-  %.fca.1.gep = getelementptr inbounds { ptr, i64 }, ptr %retval, i64 0, i32 1
+  %.fca.1.gep = getelementptr inbounds i8, ptr %retval, i64 8
   %.fca.1.load = load i64, ptr %.fca.1.gep, align 8
   %.fca.1.insert = insertvalue { ptr, i64 } %.fca.0.insert, i64 %.fca.1.load, 1
   ret { ptr, i64 } %.fca.1.insert
@@ -12535,7 +12392,7 @@ entry:
   %add = add nuw nsw i64 %div16, 1
   %0 = tail call i64 @llvm.umax.i64(i64 %div16, i64 5)
   %.sroa.speculated = add nuw nsw i64 %0, 3
-  %_M_map_size = getelementptr inbounds %"struct.std::_Deque_base<net::QuicEncryptedPacket *, std::allocator<net::QuicEncryptedPacket *>>::_Deque_impl_data", ptr %this, i64 0, i32 1
+  %_M_map_size = getelementptr inbounds i8, ptr %this, i64 8
   store i64 %.sroa.speculated, ptr %_M_map_size, align 8
   %mul.i.i.i = shl nuw nsw i64 %.sroa.speculated, 3
   %call5.i.i2.i = tail call noalias noundef nonnull ptr @_Znwm(i64 noundef %mul.i.i.i) #23
@@ -12553,7 +12410,7 @@ for.body.i:                                       ; preds = %entry, %invoke.cont
 
 invoke.cont.i:                                    ; preds = %for.body.i
   store ptr %call5.i.i.i5.i, ptr %__cur.08.i, align 8
-  %incdec.ptr.i = getelementptr inbounds ptr, ptr %__cur.08.i, i64 1
+  %incdec.ptr.i = getelementptr inbounds i8, ptr %__cur.08.i, i64 8
   %cmp.i8 = icmp ult ptr %incdec.ptr.i, %add.ptr14
   br i1 %cmp.i8, label %for.body.i, label %try.cont, !llvm.loop !59
 
@@ -12569,7 +12426,7 @@ for.body.i.i:                                     ; preds = %lpad.i, %for.body.i
   %__n.04.i.i = phi ptr [ %incdec.ptr.i.i, %for.body.i.i ], [ %add.ptr, %lpad.i ]
   %4 = load ptr, ptr %__n.04.i.i, align 8
   tail call void @_ZdlPv(ptr noundef %4) #24
-  %incdec.ptr.i.i = getelementptr inbounds ptr, ptr %__n.04.i.i, i64 1
+  %incdec.ptr.i.i = getelementptr inbounds i8, ptr %__n.04.i.i, i64 8
   %cmp.i.i = icmp ult ptr %incdec.ptr.i.i, %__cur.08.i
   br i1 %cmp.i.i, label %for.body.i.i, label %_ZNSt11_Deque_baseIPN3net19QuicEncryptedPacketESaIS2_EE16_M_destroy_nodesEPPS2_S6_.exit.i, !llvm.loop !23
 
@@ -12609,24 +12466,24 @@ lpad23:                                           ; preds = %lpad.body
           to label %eh.resume unwind label %terminate.lpad
 
 try.cont:                                         ; preds = %invoke.cont.i
-  %_M_start = getelementptr inbounds %"struct.std::_Deque_base<net::QuicEncryptedPacket *, std::allocator<net::QuicEncryptedPacket *>>::_Deque_impl_data", ptr %this, i64 0, i32 2
-  %_M_node.i = getelementptr inbounds %"struct.std::_Deque_base<net::QuicEncryptedPacket *, std::allocator<net::QuicEncryptedPacket *>>::_Deque_impl_data", ptr %this, i64 0, i32 2, i32 3
+  %_M_start = getelementptr inbounds i8, ptr %this, i64 16
+  %_M_node.i = getelementptr inbounds i8, ptr %this, i64 40
   store ptr %add.ptr, ptr %_M_node.i, align 8
   %12 = load ptr, ptr %add.ptr, align 8
-  %_M_first.i = getelementptr inbounds %"struct.std::_Deque_base<net::QuicEncryptedPacket *, std::allocator<net::QuicEncryptedPacket *>>::_Deque_impl_data", ptr %this, i64 0, i32 2, i32 1
+  %_M_first.i = getelementptr inbounds i8, ptr %this, i64 24
   store ptr %12, ptr %_M_first.i, align 8
-  %add.ptr.i = getelementptr inbounds ptr, ptr %12, i64 64
-  %_M_last.i = getelementptr inbounds %"struct.std::_Deque_base<net::QuicEncryptedPacket *, std::allocator<net::QuicEncryptedPacket *>>::_Deque_impl_data", ptr %this, i64 0, i32 2, i32 2
+  %add.ptr.i = getelementptr inbounds i8, ptr %12, i64 512
+  %_M_last.i = getelementptr inbounds i8, ptr %this, i64 32
   store ptr %add.ptr.i, ptr %_M_last.i, align 8
-  %_M_finish = getelementptr inbounds %"struct.std::_Deque_base<net::QuicEncryptedPacket *, std::allocator<net::QuicEncryptedPacket *>>::_Deque_impl_data", ptr %this, i64 0, i32 3
-  %add.ptr27 = getelementptr inbounds ptr, ptr %add.ptr, i64 %div16
-  %_M_node.i10 = getelementptr inbounds %"struct.std::_Deque_base<net::QuicEncryptedPacket *, std::allocator<net::QuicEncryptedPacket *>>::_Deque_impl_data", ptr %this, i64 0, i32 3, i32 3
+  %_M_finish = getelementptr inbounds i8, ptr %this, i64 48
+  %add.ptr27 = getelementptr inbounds i8, ptr %add.ptr14, i64 -8
+  %_M_node.i10 = getelementptr inbounds i8, ptr %this, i64 72
   store ptr %add.ptr27, ptr %_M_node.i10, align 8
   %13 = load ptr, ptr %add.ptr27, align 8
-  %_M_first.i11 = getelementptr inbounds %"struct.std::_Deque_base<net::QuicEncryptedPacket *, std::allocator<net::QuicEncryptedPacket *>>::_Deque_impl_data", ptr %this, i64 0, i32 3, i32 1
+  %_M_first.i11 = getelementptr inbounds i8, ptr %this, i64 56
   store ptr %13, ptr %_M_first.i11, align 8
-  %add.ptr.i12 = getelementptr inbounds ptr, ptr %13, i64 64
-  %_M_last.i13 = getelementptr inbounds %"struct.std::_Deque_base<net::QuicEncryptedPacket *, std::allocator<net::QuicEncryptedPacket *>>::_Deque_impl_data", ptr %this, i64 0, i32 3, i32 2
+  %add.ptr.i12 = getelementptr inbounds i8, ptr %13, i64 512
+  %_M_last.i13 = getelementptr inbounds i8, ptr %this, i64 64
   store ptr %add.ptr.i12, ptr %_M_last.i13, align 8
   store ptr %12, ptr %_M_start, align 8
   %rem = and i64 %__num_elements, 63
@@ -12679,13 +12536,13 @@ entry:
   br i1 %cmp.not, label %if.end75, label %if.then
 
 if.then:                                          ; preds = %entry
-  %_M_finish.i = getelementptr inbounds %"struct.std::_Vector_base<unsigned char, std::allocator<unsigned char>>::_Vector_impl_data", ptr %__x, i64 0, i32 1
+  %_M_finish.i = getelementptr inbounds i8, ptr %__x, i64 8
   %0 = load ptr, ptr %_M_finish.i, align 8
   %1 = load ptr, ptr %__x, align 8
   %sub.ptr.lhs.cast.i = ptrtoint ptr %0 to i64
   %sub.ptr.rhs.cast.i = ptrtoint ptr %1 to i64
   %sub.ptr.sub.i = sub i64 %sub.ptr.lhs.cast.i, %sub.ptr.rhs.cast.i
-  %_M_end_of_storage.i = getelementptr inbounds %"struct.std::_Vector_base<unsigned char, std::allocator<unsigned char>>::_Vector_impl_data", ptr %this, i64 0, i32 2
+  %_M_end_of_storage.i = getelementptr inbounds i8, ptr %this, i64 16
   %2 = load ptr, ptr %_M_end_of_storage.i, align 8
   %3 = load ptr, ptr %this, align 8
   %sub.ptr.lhs.cast.i14 = ptrtoint ptr %2 to i64
@@ -12726,7 +12583,7 @@ _ZNSt12_Vector_baseIhSaIhEE13_M_deallocateEPhm.exit: ; preds = %_ZNSt6vectorIhSa
   br label %if.end69
 
 if.else:                                          ; preds = %if.then
-  %_M_finish.i18 = getelementptr inbounds %"struct.std::_Vector_base<unsigned char, std::allocator<unsigned char>>::_Vector_impl_data", ptr %this, i64 0, i32 1
+  %_M_finish.i18 = getelementptr inbounds i8, ptr %this, i64 8
   %4 = load ptr, ptr %_M_finish.i18, align 8
   %sub.ptr.lhs.cast.i19 = ptrtoint ptr %4 to i64
   %sub.ptr.sub.i21 = sub i64 %sub.ptr.lhs.cast.i19, %sub.ptr.rhs.cast.i15
@@ -12776,7 +12633,7 @@ if.then.i.i.i.i.i.i.i.i:                          ; preds = %_ZSt4copyIPhS0_ET0_
 if.end69:                                         ; preds = %if.then.i.i.i.i.i.i.i.i, %_ZSt4copyIPhS0_ET0_T_S2_S1_.exit, %if.then.i.i.i.i.i, %if.then27, %_ZNSt12_Vector_baseIhSaIhEE13_M_deallocateEPhm.exit
   %8 = load ptr, ptr %this, align 8
   %add.ptr72 = getelementptr inbounds i8, ptr %8, i64 %sub.ptr.sub.i
-  %_M_finish74 = getelementptr inbounds %"struct.std::_Vector_base<unsigned char, std::allocator<unsigned char>>::_Vector_impl_data", ptr %this, i64 0, i32 1
+  %_M_finish74 = getelementptr inbounds i8, ptr %this, i64 8
   store ptr %add.ptr72, ptr %_M_finish74, align 8
   br label %if.end75
 
@@ -12923,7 +12780,7 @@ entry:
 define internal void @_ZN3net12_GLOBAL__N_116AckAlarmDelegate7OnAlarmEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %this) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %bundler = alloca %"class.net::QuicConnection::ScopedPacketBundler", align 8
-  %connection_ = getelementptr inbounds %"class.net::(anonymous namespace)::AckAlarmDelegate", ptr %this, i64 0, i32 1
+  %connection_ = getelementptr inbounds i8, ptr %this, i64 8
   %0 = load ptr, ptr %connection_, align 8
   call void @_ZN3net14QuicConnection19ScopedPacketBundlerC2EPS0_NS0_11AckBundlingE(ptr noundef nonnull align 8 dereferenceable(9) %bundler, ptr noundef %0, i32 noundef 1)
   %1 = load ptr, ptr %bundler, align 8
@@ -12931,28 +12788,28 @@ entry:
   br i1 %cmp.i, label %_ZN3net14QuicConnection19ScopedPacketBundlerD2Ev.exit, label %if.end.i
 
 if.end.i:                                         ; preds = %entry
-  %already_in_batch_mode_.i = getelementptr inbounds %"class.net::QuicConnection::ScopedPacketBundler", ptr %bundler, i64 0, i32 1
+  %already_in_batch_mode_.i = getelementptr inbounds i8, ptr %bundler, i64 8
   %2 = load i8, ptr %already_in_batch_mode_.i, align 8
   %3 = and i8 %2, 1
   %tobool.not.i = icmp eq i8 %3, 0
   br i1 %tobool.not.i, label %if.then2.i, label %_ZN3net14QuicConnection19ScopedPacketBundlerD2Ev.exit
 
 if.then2.i:                                       ; preds = %if.end.i
-  %packet_generator_.i = getelementptr inbounds %"class.net::QuicConnection", ptr %1, i64 0, i32 69
+  %packet_generator_.i = getelementptr inbounds i8, ptr %1, i64 2408
   invoke void @_ZN3net19QuicPacketGenerator21FinishBatchOperationsEv(ptr noundef nonnull align 8 dereferenceable(472) %packet_generator_.i)
           to label %invoke.cont.i unwind label %terminate.lpad.i
 
 invoke.cont.i:                                    ; preds = %if.then2.i
-  %queued_packets_.i.i = getelementptr inbounds %"class.net::QuicConnection", ptr %1, i64 0, i32 36
+  %queued_packets_.i.i = getelementptr inbounds i8, ptr %1, i64 816
   %4 = load ptr, ptr %queued_packets_.i.i, align 8
   %cmp.i.i.i = icmp eq ptr %4, %queued_packets_.i.i
   br i1 %cmp.i.i.i, label %land.lhs.true.i.i, label %_ZN3net14QuicConnection19ScopedPacketBundlerD2Ev.exit
 
 land.lhs.true.i.i:                                ; preds = %invoke.cont.i
-  %sent_packet_manager_.i.i = getelementptr inbounds %"class.net::QuicConnection", ptr %1, i64 0, i32 77
+  %sent_packet_manager_.i.i = getelementptr inbounds i8, ptr %1, i64 3192
   %5 = load ptr, ptr %sent_packet_manager_.i.i, align 8
   %vtable.i.i = load ptr, ptr %5, align 8
-  %vfn.i.i = getelementptr inbounds ptr, ptr %vtable.i.i, i64 11
+  %vfn.i.i = getelementptr inbounds i8, ptr %vtable.i.i, i64 88
   %6 = load ptr, ptr %vfn.i.i, align 8
   %call3.i1.i = invoke noundef zeroext i1 %6(ptr noundef nonnull align 8 dereferenceable(8) %5)
           to label %call3.i.noexc.i unwind label %terminate.lpad.i
@@ -12961,10 +12818,10 @@ call3.i.noexc.i:                                  ; preds = %land.lhs.true.i.i
   br i1 %call3.i1.i, label %_ZN3net14QuicConnection19ScopedPacketBundlerD2Ev.exit, label %land.lhs.true4.i.i
 
 land.lhs.true4.i.i:                               ; preds = %call3.i.noexc.i
-  %visitor_.i.i = getelementptr inbounds %"class.net::QuicConnection", ptr %1, i64 0, i32 67
+  %visitor_.i.i = getelementptr inbounds i8, ptr %1, i64 2392
   %7 = load ptr, ptr %visitor_.i.i, align 8
   %vtable5.i.i = load ptr, ptr %7, align 8
-  %vfn6.i.i = getelementptr inbounds ptr, ptr %vtable5.i.i, i64 15
+  %vfn6.i.i = getelementptr inbounds i8, ptr %vtable5.i.i, i64 120
   %8 = load ptr, ptr %vfn6.i.i, align 8
   %call7.i2.i = invoke noundef zeroext i1 %8(ptr noundef nonnull align 8 dereferenceable(8) %7)
           to label %call7.i.noexc.i unwind label %terminate.lpad.i
@@ -12975,7 +12832,7 @@ call7.i.noexc.i:                                  ; preds = %land.lhs.true4.i.i
 if.then.i.i:                                      ; preds = %call7.i.noexc.i
   %9 = load ptr, ptr %sent_packet_manager_.i.i, align 8
   %vtable10.i.i = load ptr, ptr %9, align 8
-  %vfn11.i.i = getelementptr inbounds ptr, ptr %vtable10.i.i, i64 38
+  %vfn11.i.i = getelementptr inbounds i8, ptr %vtable10.i.i, i64 304
   %10 = load ptr, ptr %vfn11.i.i, align 8
   invoke void %10(ptr noundef nonnull align 8 dereferenceable(8) %9)
           to label %_ZN3net14QuicConnection19ScopedPacketBundlerD2Ev.exit unwind label %terminate.lpad.i
@@ -13007,7 +12864,7 @@ entry:
 ; Function Attrs: mustprogress uwtable
 define internal void @_ZN3net12_GLOBAL__N_127RetransmissionAlarmDelegate7OnAlarmEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %this) unnamed_addr #0 align 2 {
 entry:
-  %connection_ = getelementptr inbounds %"class.net::(anonymous namespace)::RetransmissionAlarmDelegate", ptr %this, i64 0, i32 1
+  %connection_ = getelementptr inbounds i8, ptr %this, i64 8
   %0 = load ptr, ptr %connection_, align 8
   tail call void @_ZN3net14QuicConnection23OnRetransmissionTimeoutEv(ptr noundef nonnull align 8 dereferenceable(3372) %0)
   ret void
@@ -13029,7 +12886,7 @@ entry:
 ; Function Attrs: mustprogress uwtable
 define internal void @_ZN3net12_GLOBAL__N_117SendAlarmDelegate7OnAlarmEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %this) unnamed_addr #0 align 2 {
 entry:
-  %connection_ = getelementptr inbounds %"class.net::(anonymous namespace)::SendAlarmDelegate", ptr %this, i64 0, i32 1
+  %connection_ = getelementptr inbounds i8, ptr %this, i64 8
   %0 = load ptr, ptr %connection_, align 8
   tail call void @_ZN3net14QuicConnection30WriteAndBundleAcksIfNotBlockedEv(ptr noundef nonnull align 8 dereferenceable(3372) %0)
   ret void
@@ -13051,7 +12908,7 @@ entry:
 ; Function Attrs: mustprogress uwtable
 define internal void @_ZN3net12_GLOBAL__N_120TimeoutAlarmDelegate7OnAlarmEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %this) unnamed_addr #0 align 2 {
 entry:
-  %connection_ = getelementptr inbounds %"class.net::(anonymous namespace)::TimeoutAlarmDelegate", ptr %this, i64 0, i32 1
+  %connection_ = getelementptr inbounds i8, ptr %this, i64 8
   %0 = load ptr, ptr %connection_, align 8
   tail call void @_ZN3net14QuicConnection15CheckForTimeoutEv(ptr noundef nonnull align 8 dereferenceable(3372) %0)
   ret void
@@ -13073,9 +12930,9 @@ entry:
 ; Function Attrs: mustprogress uwtable
 define internal void @_ZN3net12_GLOBAL__N_117PingAlarmDelegate7OnAlarmEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %this) unnamed_addr #0 align 2 {
 entry:
-  %connection_ = getelementptr inbounds %"class.net::(anonymous namespace)::PingAlarmDelegate", ptr %this, i64 0, i32 1
+  %connection_ = getelementptr inbounds i8, ptr %this, i64 8
   %0 = load ptr, ptr %connection_, align 8
-  %retransmission_alarm_.i = getelementptr inbounds %"class.net::QuicConnection", ptr %0, i64 0, i32 61
+  %retransmission_alarm_.i = getelementptr inbounds i8, ptr %0, i64 2344
   %1 = load ptr, ptr %retransmission_alarm_.i, align 8
   %2 = ptrtoint ptr %1 to i64
   %and.i.i.i = and i64 %2, -2
@@ -13107,27 +12964,27 @@ entry:
 ; Function Attrs: mustprogress uwtable
 define internal void @_ZN3net12_GLOBAL__N_125MtuDiscoveryAlarmDelegate7OnAlarmEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %this) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  %connection_ = getelementptr inbounds %"class.net::(anonymous namespace)::MtuDiscoveryAlarmDelegate", ptr %this, i64 0, i32 1
+  %connection_ = getelementptr inbounds i8, ptr %this, i64 8
   %0 = load ptr, ptr %connection_, align 8
-  %mtu_discovery_target_.i = getelementptr inbounds %"class.net::QuicConnection", ptr %0, i64 0, i32 87
+  %mtu_discovery_target_.i = getelementptr inbounds i8, ptr %0, i64 3312
   %1 = load i64, ptr %mtu_discovery_target_.i, align 8
-  %packet_generator_.i.i = getelementptr inbounds %"class.net::QuicConnection", ptr %0, i64 0, i32 69
+  %packet_generator_.i.i = getelementptr inbounds i8, ptr %0, i64 2408
   %call.i.i = tail call noundef i64 @_ZNK3net19QuicPacketGenerator25GetCurrentMaxPacketLengthEv(ptr noundef nonnull align 8 dereferenceable(472) %packet_generator_.i.i)
   %cmp.not.i = icmp ugt i64 %1, %call.i.i
   br i1 %cmp.not.i, label %if.end.i, label %_ZN3net14QuicConnection11DiscoverMtuEv.exit
 
 if.end.i:                                         ; preds = %entry
-  %packets_between_mtu_probes_.i = getelementptr inbounds %"class.net::QuicConnection", ptr %0, i64 0, i32 89
+  %packets_between_mtu_probes_.i = getelementptr inbounds i8, ptr %0, i64 3328
   %2 = load i64, ptr %packets_between_mtu_probes_.i, align 8
   %mul.i = shl i64 %2, 1
   store i64 %mul.i, ptr %packets_between_mtu_probes_.i, align 8
-  %packet_number_of_last_sent_packet_.i = getelementptr inbounds %"class.net::QuicConnection", ptr %0, i64 0, i32 76
+  %packet_number_of_last_sent_packet_.i = getelementptr inbounds i8, ptr %0, i64 3184
   %3 = load i64, ptr %packet_number_of_last_sent_packet_.i, align 8
   %add.i = or disjoint i64 %mul.i, 1
   %add3.i = add i64 %add.i, %3
-  %next_mtu_probe_at_.i = getelementptr inbounds %"class.net::QuicConnection", ptr %0, i64 0, i32 90
+  %next_mtu_probe_at_.i = getelementptr inbounds i8, ptr %0, i64 3336
   store i64 %add3.i, ptr %next_mtu_probe_at_.i, align 8
-  %mtu_probe_count_.i = getelementptr inbounds %"class.net::QuicConnection", ptr %0, i64 0, i32 88
+  %mtu_probe_count_.i = getelementptr inbounds i8, ptr %0, i64 3320
   %4 = load i64, ptr %mtu_probe_count_.i, align 8
   %inc.i = add i64 %4, 1
   store i64 %inc.i, ptr %mtu_probe_count_.i, align 8
@@ -13157,11 +13014,11 @@ declare void @_ZN3net16SerializedPacketC1ERKS0_(ptr noundef nonnull align 8 dere
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr dso_local void @_ZNSt5dequeIPN3net19QuicEncryptedPacketESaIS2_EE16_M_push_back_auxIJS2_EEEvDpOT_(ptr noundef nonnull align 8 dereferenceable(80) %this, ptr noundef nonnull align 8 dereferenceable(8) %__args) local_unnamed_addr #0 comdat align 2 {
 entry:
-  %_M_finish.i = getelementptr inbounds %"struct.std::_Deque_base<net::QuicEncryptedPacket *, std::allocator<net::QuicEncryptedPacket *>>::_Deque_impl_data", ptr %this, i64 0, i32 3
-  %_M_start.i = getelementptr inbounds %"struct.std::_Deque_base<net::QuicEncryptedPacket *, std::allocator<net::QuicEncryptedPacket *>>::_Deque_impl_data", ptr %this, i64 0, i32 2
-  %_M_node.i.i = getelementptr inbounds %"struct.std::_Deque_base<net::QuicEncryptedPacket *, std::allocator<net::QuicEncryptedPacket *>>::_Deque_impl_data", ptr %this, i64 0, i32 3, i32 3
+  %_M_finish.i = getelementptr inbounds i8, ptr %this, i64 48
+  %_M_start.i = getelementptr inbounds i8, ptr %this, i64 16
+  %_M_node.i.i = getelementptr inbounds i8, ptr %this, i64 72
   %0 = load ptr, ptr %_M_node.i.i, align 8
-  %_M_node1.i.i = getelementptr inbounds %"struct.std::_Deque_base<net::QuicEncryptedPacket *, std::allocator<net::QuicEncryptedPacket *>>::_Deque_impl_data", ptr %this, i64 0, i32 2, i32 3
+  %_M_node1.i.i = getelementptr inbounds i8, ptr %this, i64 40
   %1 = load ptr, ptr %_M_node1.i.i, align 8
   %sub.ptr.lhs.cast.i.i = ptrtoint ptr %0 to i64
   %sub.ptr.rhs.cast.i.i = ptrtoint ptr %1 to i64
@@ -13172,14 +13029,14 @@ entry:
   %sub.i.i = add nsw i64 %sub.ptr.div.i.i, %conv.neg.i.i
   %mul.i.i = shl nsw i64 %sub.i.i, 6
   %2 = load ptr, ptr %_M_finish.i, align 8
-  %_M_first.i.i = getelementptr inbounds %"struct.std::_Deque_base<net::QuicEncryptedPacket *, std::allocator<net::QuicEncryptedPacket *>>::_Deque_impl_data", ptr %this, i64 0, i32 3, i32 1
+  %_M_first.i.i = getelementptr inbounds i8, ptr %this, i64 56
   %3 = load ptr, ptr %_M_first.i.i, align 8
   %sub.ptr.lhs.cast3.i.i = ptrtoint ptr %2 to i64
   %sub.ptr.rhs.cast4.i.i = ptrtoint ptr %3 to i64
   %sub.ptr.sub5.i.i = sub i64 %sub.ptr.lhs.cast3.i.i, %sub.ptr.rhs.cast4.i.i
   %sub.ptr.div6.i.i = ashr exact i64 %sub.ptr.sub5.i.i, 3
   %add.i.i = add nsw i64 %mul.i.i, %sub.ptr.div6.i.i
-  %_M_last.i.i = getelementptr inbounds %"struct.std::_Deque_base<net::QuicEncryptedPacket *, std::allocator<net::QuicEncryptedPacket *>>::_Deque_impl_data", ptr %this, i64 0, i32 2, i32 2
+  %_M_last.i.i = getelementptr inbounds i8, ptr %this, i64 32
   %4 = load ptr, ptr %_M_last.i.i, align 8
   %5 = load ptr, ptr %_M_start.i, align 8
   %sub.ptr.lhs.cast8.i.i = ptrtoint ptr %4 to i64
@@ -13195,7 +13052,7 @@ if.then:                                          ; preds = %entry
   unreachable
 
 if.end:                                           ; preds = %entry
-  %_M_map_size.i = getelementptr inbounds %"struct.std::_Deque_base<net::QuicEncryptedPacket *, std::allocator<net::QuicEncryptedPacket *>>::_Deque_impl_data", ptr %this, i64 0, i32 1
+  %_M_map_size.i = getelementptr inbounds i8, ptr %this, i64 8
   %6 = load i64, ptr %_M_map_size.i, align 8
   %7 = load ptr, ptr %this, align 8
   %sub.ptr.rhs.cast.i = ptrtoint ptr %7 to i64
@@ -13213,18 +13070,18 @@ if.then.i:                                        ; preds = %if.end
 _ZNSt5dequeIPN3net19QuicEncryptedPacketESaIS2_EE22_M_reserve_map_at_backEm.exit: ; preds = %if.end, %if.then.i
   %8 = phi ptr [ %0, %if.end ], [ %.pre, %if.then.i ]
   %call5.i.i.i = tail call noalias noundef nonnull dereferenceable(512) ptr @_Znwm(i64 noundef 512) #23
-  %add.ptr = getelementptr inbounds ptr, ptr %8, i64 1
+  %add.ptr = getelementptr inbounds i8, ptr %8, i64 8
   store ptr %call5.i.i.i, ptr %add.ptr, align 8
   %9 = load ptr, ptr %_M_finish.i, align 8
   %10 = load ptr, ptr %__args, align 8
   store ptr %10, ptr %9, align 8
   %11 = load ptr, ptr %_M_node.i.i, align 8
-  %add.ptr12 = getelementptr inbounds ptr, ptr %11, i64 1
+  %add.ptr12 = getelementptr inbounds i8, ptr %11, i64 8
   store ptr %add.ptr12, ptr %_M_node.i.i, align 8
   %12 = load ptr, ptr %add.ptr12, align 8
   store ptr %12, ptr %_M_first.i.i, align 8
-  %add.ptr.i = getelementptr inbounds ptr, ptr %12, i64 64
-  %_M_last.i = getelementptr inbounds %"struct.std::_Deque_base<net::QuicEncryptedPacket *, std::allocator<net::QuicEncryptedPacket *>>::_Deque_impl_data", ptr %this, i64 0, i32 3, i32 2
+  %add.ptr.i = getelementptr inbounds i8, ptr %12, i64 512
+  %_M_last.i = getelementptr inbounds i8, ptr %this, i64 64
   store ptr %add.ptr.i, ptr %_M_last.i, align 8
   store ptr %12, ptr %_M_finish.i, align 8
   ret void
@@ -13233,9 +13090,9 @@ _ZNSt5dequeIPN3net19QuicEncryptedPacketESaIS2_EE22_M_reserve_map_at_backEm.exit:
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr dso_local void @_ZNSt5dequeIPN3net19QuicEncryptedPacketESaIS2_EE17_M_reallocate_mapEmb(ptr noundef nonnull align 8 dereferenceable(80) %this, i64 noundef %__nodes_to_add, i1 noundef zeroext %__add_at_front) local_unnamed_addr #0 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  %_M_node = getelementptr inbounds %"struct.std::_Deque_base<net::QuicEncryptedPacket *, std::allocator<net::QuicEncryptedPacket *>>::_Deque_impl_data", ptr %this, i64 0, i32 3, i32 3
+  %_M_node = getelementptr inbounds i8, ptr %this, i64 72
   %0 = load ptr, ptr %_M_node, align 8
-  %_M_node3 = getelementptr inbounds %"struct.std::_Deque_base<net::QuicEncryptedPacket *, std::allocator<net::QuicEncryptedPacket *>>::_Deque_impl_data", ptr %this, i64 0, i32 2, i32 3
+  %_M_node3 = getelementptr inbounds i8, ptr %this, i64 40
   %1 = load ptr, ptr %_M_node3, align 8
   %sub.ptr.lhs.cast = ptrtoint ptr %0 to i64
   %sub.ptr.rhs.cast = ptrtoint ptr %1 to i64
@@ -13243,7 +13100,7 @@ entry:
   %sub.ptr.div = ashr exact i64 %sub.ptr.sub, 3
   %add = add nsw i64 %sub.ptr.div, 1
   %add4 = add i64 %add, %__nodes_to_add
-  %_M_map_size = getelementptr inbounds %"struct.std::_Deque_base<net::QuicEncryptedPacket *, std::allocator<net::QuicEncryptedPacket *>>::_Deque_impl_data", ptr %this, i64 0, i32 1
+  %_M_map_size = getelementptr inbounds i8, ptr %this, i64 8
   %2 = load i64, ptr %_M_map_size, align 8
   %mul = shl i64 %add4, 1
   %cmp = icmp ugt i64 %2, %mul
@@ -13257,7 +13114,7 @@ if.then:                                          ; preds = %entry
   %cond = select i1 %__add_at_front, i64 %__nodes_to_add, i64 0
   %add.ptr9 = getelementptr inbounds ptr, ptr %add.ptr, i64 %cond
   %cmp13 = icmp ult ptr %add.ptr9, %1
-  %add.ptr21 = getelementptr inbounds ptr, ptr %0, i64 1
+  %add.ptr21 = getelementptr inbounds i8, ptr %0, i64 8
   %tobool.not.i.i.i.i.i = icmp eq ptr %add.ptr21, %1
   br i1 %cmp13, label %if.then14, label %if.else
 
@@ -13310,7 +13167,7 @@ _ZNSt11_Deque_baseIPN3net19QuicEncryptedPacketESaIS2_EE15_M_allocate_mapEm.exit:
   %add.ptr42 = getelementptr inbounds ptr, ptr %call5.i.i2.i, i64 %div4116
   %cond47 = select i1 %__add_at_front, i64 %__nodes_to_add, i64 0
   %add.ptr48 = getelementptr inbounds ptr, ptr %add.ptr42, i64 %cond47
-  %add.ptr55 = getelementptr inbounds ptr, ptr %0, i64 1
+  %add.ptr55 = getelementptr inbounds i8, ptr %0, i64 8
   %tobool.not.i.i.i.i.i27 = icmp eq ptr %add.ptr55, %1
   br i1 %tobool.not.i.i.i.i.i27, label %_ZSt4copyIPPPN3net19QuicEncryptedPacketES4_ET0_T_S6_S5_.exit30, label %if.then.i.i.i.i.i28
 
@@ -13331,19 +13188,19 @@ if.end65:                                         ; preds = %if.then.i.i.i.i.i22
   %__new_nstart.0 = phi ptr [ %add.ptr48, %_ZSt4copyIPPPN3net19QuicEncryptedPacketES4_ET0_T_S6_S5_.exit30 ], [ %add.ptr9, %if.then14 ], [ %add.ptr9, %if.then.i.i.i.i.i ], [ %add.ptr9, %if.else ], [ %add.ptr9, %if.then.i.i.i.i.i22 ]
   store ptr %__new_nstart.0, ptr %_M_node3, align 8
   %5 = load ptr, ptr %__new_nstart.0, align 8
-  %_M_first.i = getelementptr inbounds %"struct.std::_Deque_base<net::QuicEncryptedPacket *, std::allocator<net::QuicEncryptedPacket *>>::_Deque_impl_data", ptr %this, i64 0, i32 2, i32 1
+  %_M_first.i = getelementptr inbounds i8, ptr %this, i64 24
   store ptr %5, ptr %_M_first.i, align 8
-  %add.ptr.i = getelementptr inbounds ptr, ptr %5, i64 64
-  %_M_last.i = getelementptr inbounds %"struct.std::_Deque_base<net::QuicEncryptedPacket *, std::allocator<net::QuicEncryptedPacket *>>::_Deque_impl_data", ptr %this, i64 0, i32 2, i32 2
+  %add.ptr.i = getelementptr inbounds i8, ptr %5, i64 512
+  %_M_last.i = getelementptr inbounds i8, ptr %this, i64 32
   store ptr %add.ptr.i, ptr %_M_last.i, align 8
   %add.ptr70 = getelementptr inbounds ptr, ptr %__new_nstart.0, i64 %add
-  %add.ptr71 = getelementptr inbounds ptr, ptr %add.ptr70, i64 -1
+  %add.ptr71 = getelementptr inbounds i8, ptr %add.ptr70, i64 -8
   store ptr %add.ptr71, ptr %_M_node, align 8
   %6 = load ptr, ptr %add.ptr71, align 8
-  %_M_first.i32 = getelementptr inbounds %"struct.std::_Deque_base<net::QuicEncryptedPacket *, std::allocator<net::QuicEncryptedPacket *>>::_Deque_impl_data", ptr %this, i64 0, i32 3, i32 1
+  %_M_first.i32 = getelementptr inbounds i8, ptr %this, i64 56
   store ptr %6, ptr %_M_first.i32, align 8
-  %add.ptr.i33 = getelementptr inbounds ptr, ptr %6, i64 64
-  %_M_last.i34 = getelementptr inbounds %"struct.std::_Deque_base<net::QuicEncryptedPacket *, std::allocator<net::QuicEncryptedPacket *>>::_Deque_impl_data", ptr %this, i64 0, i32 3, i32 2
+  %add.ptr.i33 = getelementptr inbounds i8, ptr %6, i64 512
+  %_M_last.i34 = getelementptr inbounds i8, ptr %this, i64 64
   store ptr %add.ptr.i33, ptr %_M_last.i34, align 8
   ret void
 }

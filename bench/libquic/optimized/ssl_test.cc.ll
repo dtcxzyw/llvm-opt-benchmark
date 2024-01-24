@@ -17,10 +17,6 @@ target triple = "x86_64-unknown-linux-gnu"
 %"class.std::tuple" = type { %"struct.std::_Tuple_impl" }
 %"struct.std::_Tuple_impl" = type { %"struct.std::_Head_base.1" }
 %"struct.std::_Head_base.1" = type { ptr }
-%struct.ssl_ctx_st = type { ptr, %union.crypto_mutex_st, i16, i16, ptr, ptr, ptr, ptr, ptr, ptr, i64, ptr, ptr, i32, i32, i64, ptr, ptr, ptr, i32, ptr, ptr, ptr, ptr, ptr, ptr, %struct.crypto_ex_data_st, ptr, ptr, ptr, ptr, i32, i32, i32, ptr, ptr, ptr, i32, i32, [32 x i8], ptr, ptr, ptr, ptr, i16, ptr, ptr, [16 x i8], [16 x i8], [16 x i8], ptr, ptr, ptr, ptr, i8, ptr, ptr, ptr, ptr, ptr, ptr, ptr, i32, ptr, i64, ptr, ptr, ptr, i64, ptr, i64, ptr, ptr, i8, ptr, i32 }
-%union.crypto_mutex_st = type { double, [48 x i8] }
-%struct.crypto_ex_data_st = type { ptr }
-%struct.ssl_cipher_preference_list_st = type { ptr, ptr }
 %"class.std::vector.2" = type { %"struct.std::_Vector_base.3" }
 %"struct.std::_Vector_base.3" = type { %"struct.std::_Vector_base<unsigned char, std::allocator<unsigned char>>::_Vector_impl" }
 %"struct.std::_Vector_base<unsigned char, std::allocator<unsigned char>>::_Vector_impl" = type { %"struct.std::_Vector_base<unsigned char, std::allocator<unsigned char>>::_Vector_impl_data" }
@@ -48,7 +44,6 @@ target triple = "x86_64-unknown-linux-gnu"
 %"struct.std::_Vector_base.60" = type { %"struct.std::_Vector_base<ssl_session_st *, std::allocator<ssl_session_st *>>::_Vector_impl" }
 %"struct.std::_Vector_base<ssl_session_st *, std::allocator<ssl_session_st *>>::_Vector_impl" = type { %"struct.std::_Vector_base<ssl_session_st *, std::allocator<ssl_session_st *>>::_Vector_impl_data" }
 %"struct.std::_Vector_base<ssl_session_st *, std::allocator<ssl_session_st *>>::_Vector_impl_data" = type { ptr, ptr, ptr }
-%struct.ssl_session_st = type { i32, i32, i32, i32, [48 x i8], i32, [32 x i8], i32, [32 x i8], ptr, ptr, ptr, i64, i64, i64, ptr, %struct.crypto_ex_data_st, ptr, ptr, ptr, ptr, i64, i64, ptr, i64, ptr, [32 x i8], [64 x i8], i32, i32, i8 }
 %"class.std::unique_ptr.44" = type { %"struct.std::__uniq_ptr_data.45" }
 %"struct.std::__uniq_ptr_data.45" = type { %"class.std::__uniq_ptr_impl.46" }
 %"class.std::__uniq_ptr_impl.46" = type { %"class.std::tuple.47" }
@@ -223,8 +218,8 @@ entry:
 
 arraydestroy.body:                                ; preds = %_ZN10CipherTestD2Ev.exit, %entry
   %arraydestroy.elementPast = phi ptr [ getelementptr inbounds ([13 x %struct.CipherTest], ptr @_ZL12kCipherTests, i64 1, i64 0), %entry ], [ %arraydestroy.element, %_ZN10CipherTestD2Ev.exit ]
-  %arraydestroy.element = getelementptr inbounds %struct.CipherTest, ptr %arraydestroy.elementPast, i64 -1
-  %expected.i = getelementptr %struct.CipherTest, ptr %arraydestroy.elementPast, i64 -1, i32 1
+  %arraydestroy.element = getelementptr inbounds i8, ptr %arraydestroy.elementPast, i64 -32
+  %expected.i = getelementptr inbounds i8, ptr %arraydestroy.elementPast, i64 -24
   %1 = load ptr, ptr %expected.i, align 8
   %tobool.not.i.i.i.i = icmp eq ptr %1, null
   br i1 %tobool.not.i.i.i.i, label %_ZN10CipherTestD2Ev.exit, label %if.then.i.i.i.i
@@ -310,15 +305,15 @@ common.resume.i:                                  ; preds = %lpad.loopexit.split
   resume { ptr, i32 } %common.resume.op.i
 
 if.end9.i.i:                                      ; preds = %invoke.cont.i.i
-  %cipher_list.i.i = getelementptr inbounds %struct.ssl_ctx_st, ptr %call1.i.i, i64 0, i32 4
+  %cipher_list.i.i = getelementptr inbounds i8, ptr %call1.i.i, i64 72
   %3 = load ptr, ptr %cipher_list.i.i, align 8
   %4 = load ptr, ptr %3, align 8
   %call12.i.i = invoke i64 @sk_num(ptr noundef %4)
           to label %invoke.cont11.i.i unwind label %lpad.loopexit.split-lp.i.loopexit.split-lp.i
 
 invoke.cont11.i.i:                                ; preds = %if.end9.i.i
-  %expected.i.i = getelementptr inbounds %struct.CipherTest, ptr %__begin1.0.ptr.i, i64 0, i32 1
-  %_M_finish.i.i.i = getelementptr inbounds %struct.CipherTest, ptr %__begin1.0.ptr.i, i64 0, i32 1, i32 0, i32 0, i32 0, i32 1
+  %expected.i.i = getelementptr inbounds i8, ptr %__begin1.0.ptr.i, i64 8
+  %_M_finish.i.i.i = getelementptr inbounds i8, ptr %__begin1.0.ptr.i, i64 16
   %5 = load ptr, ptr %_M_finish.i.i.i, align 16
   %6 = load ptr, ptr %expected.i.i, align 8
   %sub.ptr.lhs.cast.i.i.i = ptrtoint ptr %5 to i64
@@ -350,7 +345,7 @@ call12.i32.noexc.i:                               ; preds = %if.then14.invoke.i.
   br i1 %cmp13.not.i.i, label %if.then.i.i.i, label %for.body.lr.ph.i.i
 
 for.body.lr.ph.i.i:                               ; preds = %call12.i32.noexc.i
-  %in_group_flags.i33.i = getelementptr inbounds %struct.ssl_cipher_preference_list_st, ptr %9, i64 0, i32 1
+  %in_group_flags.i33.i = getelementptr inbounds i8, ptr %9, i64 8
   br label %for.body.i34.i
 
 for.body.i34.i:                                   ; preds = %call.i39.noexc.i, %for.body.lr.ph.i.i
@@ -458,7 +453,7 @@ lor.lhs.false.i.i:                                ; preds = %invoke.cont32.i.i
   %in_group_flag.i.i = getelementptr inbounds %struct.ExpectedCipher, ptr %32, i64 %i.029.i.i, i32 1
   %33 = load i32, ptr %in_group_flag.i.i, align 8
   %34 = load ptr, ptr %cipher_list.i.i, align 8
-  %in_group_flags.i.i = getelementptr inbounds %struct.ssl_cipher_preference_list_st, ptr %34, i64 0, i32 1
+  %in_group_flags.i.i = getelementptr inbounds i8, ptr %34, i64 8
   %35 = load ptr, ptr %in_group_flags.i.i, align 8
   %arrayidx.i.i = getelementptr inbounds i8, ptr %35, i64 %i.029.i.i
   %36 = load i8, ptr %arrayidx.i.i, align 1
@@ -563,7 +558,7 @@ invoke.cont.i20.i:                                ; preds = %if.end.i15.i
   br i1 %tobool.not.i21.i, label %if.then.i.sink.split.i.i, label %for.cond.preheader.i22.i
 
 for.cond.preheader.i22.i:                         ; preds = %invoke.cont.i20.i
-  %cipher_list.i23.i = getelementptr inbounds %struct.ssl_ctx_st, ptr %call1.i13.i, i64 0, i32 4
+  %cipher_list.i23.i = getelementptr inbounds i8, ptr %call1.i13.i, i64 72
   br label %for.cond.i24.i
 
 lpad.loopexit.i25.i:                              ; preds = %invoke.cont15.i.i, %for.body.i30.i, %for.cond.i24.i
@@ -660,13 +655,13 @@ lor.lhs.false12:                                  ; preds = %lor.lhs.false10
   br i1 %cmp.i.not.i1, label %if.then, label %if.end.i
 
 if.end.i:                                         ; preds = %lor.lhs.false12
-  %min_version.i = getelementptr inbounds %struct.ssl_ctx_st, ptr %call1.i, i64 0, i32 3
+  %min_version.i = getelementptr inbounds i8, ptr %call1.i, i64 66
   %52 = load i16, ptr %min_version.i, align 2
   %cmp.i = icmp eq i16 %52, 0
   br i1 %cmp.i, label %land.rhs.i, label %if.then.i.i2
 
 land.rhs.i:                                       ; preds = %if.end.i
-  %max_version.i = getelementptr inbounds %struct.ssl_ctx_st, ptr %call1.i, i64 0, i32 2
+  %max_version.i = getelementptr inbounds i8, ptr %call1.i, i64 64
   %53 = load i16, ptr %max_version.i, align 8
   %cmp8.i = icmp eq i16 %53, 0
   br label %if.then.i.i2
@@ -693,13 +688,13 @@ lor.lhs.false14:                                  ; preds = %_ZL18TestDefaultVer
   br i1 %cmp.i.not.i7, label %if.then, label %if.end.i8
 
 if.end.i8:                                        ; preds = %lor.lhs.false14
-  %min_version.i9 = getelementptr inbounds %struct.ssl_ctx_st, ptr %call1.i6, i64 0, i32 3
+  %min_version.i9 = getelementptr inbounds i8, ptr %call1.i6, i64 66
   %56 = load i16, ptr %min_version.i9, align 2
   %cmp.i10 = icmp eq i16 %56, 768
   br i1 %cmp.i10, label %land.rhs.i16, label %if.then.i.i11
 
 land.rhs.i16:                                     ; preds = %if.end.i8
-  %max_version.i17 = getelementptr inbounds %struct.ssl_ctx_st, ptr %call1.i6, i64 0, i32 2
+  %max_version.i17 = getelementptr inbounds i8, ptr %call1.i6, i64 64
   %57 = load i16, ptr %max_version.i17, align 8
   %cmp8.i18 = icmp eq i16 %57, 768
   br label %if.then.i.i11
@@ -726,13 +721,13 @@ lor.lhs.false16:                                  ; preds = %_ZL18TestDefaultVer
   br i1 %cmp.i.not.i22, label %if.then, label %if.end.i23
 
 if.end.i23:                                       ; preds = %lor.lhs.false16
-  %min_version.i24 = getelementptr inbounds %struct.ssl_ctx_st, ptr %call1.i21, i64 0, i32 3
+  %min_version.i24 = getelementptr inbounds i8, ptr %call1.i21, i64 66
   %60 = load i16, ptr %min_version.i24, align 2
   %cmp.i25 = icmp eq i16 %60, 769
   br i1 %cmp.i25, label %land.rhs.i31, label %if.then.i.i26
 
 land.rhs.i31:                                     ; preds = %if.end.i23
-  %max_version.i32 = getelementptr inbounds %struct.ssl_ctx_st, ptr %call1.i21, i64 0, i32 2
+  %max_version.i32 = getelementptr inbounds i8, ptr %call1.i21, i64 64
   %61 = load i16, ptr %max_version.i32, align 8
   %cmp8.i33 = icmp eq i16 %61, 769
   br label %if.then.i.i26
@@ -759,13 +754,13 @@ lor.lhs.false18:                                  ; preds = %_ZL18TestDefaultVer
   br i1 %cmp.i.not.i37, label %if.then, label %if.end.i38
 
 if.end.i38:                                       ; preds = %lor.lhs.false18
-  %min_version.i39 = getelementptr inbounds %struct.ssl_ctx_st, ptr %call1.i36, i64 0, i32 3
+  %min_version.i39 = getelementptr inbounds i8, ptr %call1.i36, i64 66
   %64 = load i16, ptr %min_version.i39, align 2
   %cmp.i40 = icmp eq i16 %64, 770
   br i1 %cmp.i40, label %land.rhs.i46, label %if.then.i.i41
 
 land.rhs.i46:                                     ; preds = %if.end.i38
-  %max_version.i47 = getelementptr inbounds %struct.ssl_ctx_st, ptr %call1.i36, i64 0, i32 2
+  %max_version.i47 = getelementptr inbounds i8, ptr %call1.i36, i64 64
   %65 = load i16, ptr %max_version.i47, align 8
   %cmp8.i48 = icmp eq i16 %65, 770
   br label %if.then.i.i41
@@ -792,13 +787,13 @@ lor.lhs.false20:                                  ; preds = %_ZL18TestDefaultVer
   br i1 %cmp.i.not.i52, label %if.then, label %if.end.i53
 
 if.end.i53:                                       ; preds = %lor.lhs.false20
-  %min_version.i54 = getelementptr inbounds %struct.ssl_ctx_st, ptr %call1.i51, i64 0, i32 3
+  %min_version.i54 = getelementptr inbounds i8, ptr %call1.i51, i64 66
   %68 = load i16, ptr %min_version.i54, align 2
   %cmp.i55 = icmp eq i16 %68, 771
   br i1 %cmp.i55, label %land.rhs.i61, label %if.then.i.i56
 
 land.rhs.i61:                                     ; preds = %if.end.i53
-  %max_version.i62 = getelementptr inbounds %struct.ssl_ctx_st, ptr %call1.i51, i64 0, i32 2
+  %max_version.i62 = getelementptr inbounds i8, ptr %call1.i51, i64 64
   %69 = load i16, ptr %max_version.i62, align 8
   %cmp8.i63 = icmp eq i16 %69, 771
   br label %if.then.i.i56
@@ -825,13 +820,13 @@ lor.lhs.false22:                                  ; preds = %_ZL18TestDefaultVer
   br i1 %cmp.i.not.i67, label %if.then, label %if.end.i68
 
 if.end.i68:                                       ; preds = %lor.lhs.false22
-  %min_version.i69 = getelementptr inbounds %struct.ssl_ctx_st, ptr %call1.i66, i64 0, i32 3
+  %min_version.i69 = getelementptr inbounds i8, ptr %call1.i66, i64 66
   %72 = load i16, ptr %min_version.i69, align 2
   %cmp.i70 = icmp eq i16 %72, 0
   br i1 %cmp.i70, label %land.rhs.i76, label %if.then.i.i71
 
 land.rhs.i76:                                     ; preds = %if.end.i68
-  %max_version.i77 = getelementptr inbounds %struct.ssl_ctx_st, ptr %call1.i66, i64 0, i32 2
+  %max_version.i77 = getelementptr inbounds i8, ptr %call1.i66, i64 64
   %73 = load i16, ptr %max_version.i77, align 8
   %cmp8.i78 = icmp eq i16 %73, 0
   br label %if.then.i.i71
@@ -858,13 +853,13 @@ lor.lhs.false24:                                  ; preds = %_ZL18TestDefaultVer
   br i1 %cmp.i.not.i82, label %if.then, label %if.end.i83
 
 if.end.i83:                                       ; preds = %lor.lhs.false24
-  %min_version.i84 = getelementptr inbounds %struct.ssl_ctx_st, ptr %call1.i81, i64 0, i32 3
+  %min_version.i84 = getelementptr inbounds i8, ptr %call1.i81, i64 66
   %76 = load i16, ptr %min_version.i84, align 2
   %cmp.i85 = icmp eq i16 %76, -257
   br i1 %cmp.i85, label %land.rhs.i91, label %if.then.i.i86
 
 land.rhs.i91:                                     ; preds = %if.end.i83
-  %max_version.i92 = getelementptr inbounds %struct.ssl_ctx_st, ptr %call1.i81, i64 0, i32 2
+  %max_version.i92 = getelementptr inbounds i8, ptr %call1.i81, i64 64
   %77 = load i16, ptr %max_version.i92, align 8
   %cmp8.i93 = icmp eq i16 %77, -257
   br label %if.then.i.i86
@@ -891,13 +886,13 @@ lor.lhs.false26:                                  ; preds = %_ZL18TestDefaultVer
   br i1 %cmp.i.not.i97, label %if.then, label %if.end.i98
 
 if.end.i98:                                       ; preds = %lor.lhs.false26
-  %min_version.i99 = getelementptr inbounds %struct.ssl_ctx_st, ptr %call1.i96, i64 0, i32 3
+  %min_version.i99 = getelementptr inbounds i8, ptr %call1.i96, i64 66
   %80 = load i16, ptr %min_version.i99, align 2
   %cmp.i100 = icmp eq i16 %80, -259
   br i1 %cmp.i100, label %land.rhs.i106, label %if.then.i.i101
 
 land.rhs.i106:                                    ; preds = %if.end.i98
-  %max_version.i107 = getelementptr inbounds %struct.ssl_ctx_st, ptr %call1.i96, i64 0, i32 2
+  %max_version.i107 = getelementptr inbounds i8, ptr %call1.i96, i64 64
   %81 = load i16, ptr %max_version.i107, align 8
   %cmp8.i108 = icmp eq i16 %81, -259
   br label %if.then.i.i101
@@ -980,7 +975,7 @@ lpad:                                             ; preds = %if.end, %entry
 
 if.end:                                           ; preds = %invoke.cont
   %1 = load ptr, ptr %input, align 8
-  %_M_finish.i = getelementptr inbounds %"struct.std::_Vector_base<unsigned char, std::allocator<unsigned char>>::_Vector_impl_data", ptr %input, i64 0, i32 1
+  %_M_finish.i = getelementptr inbounds i8, ptr %input, i64 8
   %2 = load ptr, ptr %_M_finish.i, align 8
   %sub.ptr.lhs.cast.i = ptrtoint ptr %2 to i64
   %sub.ptr.rhs.cast.i = ptrtoint ptr %1 to i64
@@ -1268,7 +1263,7 @@ lpad:                                             ; preds = %if.end, %entry
 
 if.end:                                           ; preds = %invoke.cont
   %1 = load ptr, ptr %input, align 8
-  %_M_finish.i = getelementptr inbounds %"struct.std::_Vector_base<unsigned char, std::allocator<unsigned char>>::_Vector_impl_data", ptr %input, i64 0, i32 1
+  %_M_finish.i = getelementptr inbounds i8, ptr %input, i64 8
   %2 = load ptr, ptr %_M_finish.i, align 8
   %sub.ptr.lhs.cast.i = ptrtoint ptr %2 to i64
   %sub.ptr.rhs.cast.i = ptrtoint ptr %1 to i64
@@ -1402,7 +1397,7 @@ lpad.body:                                        ; preds = %_ZNSt10unique_ptrIc
 
 invoke.cont4:                                     ; preds = %if.end4.i
   call void @free(ptr noundef nonnull %call1.i6) #26
-  %rfc_name3 = getelementptr inbounds [15 x %struct.CIPHER_RFC_NAME_TEST], ptr @_ZL19kCipherRFCNameTests, i64 0, i64 %i.017, i32 1
+  %rfc_name3 = getelementptr inbounds i8, ptr %arrayidx, i64 8
   %5 = load ptr, ptr %rfc_name3, align 8
   %call.i.i = call noundef i32 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE7compareEPKc(ptr noundef nonnull align 8 dereferenceable(32) %rfc_name, ptr noundef %5) #26
   %cmp.i.i.not = icmp eq i32 %call.i.i, 0
@@ -1459,7 +1454,7 @@ if.end5:                                          ; preds = %for.body
   %reass.sub = sub i64 %0, %call
   %sub = add i64 %reass.sub, 1
   %call7 = tail call fastcc noundef i64 @_ZL17GetClientHelloLenm(i64 noundef %sub), !range !12
-  %padded_len8 = getelementptr inbounds %struct.PaddingTest, ptr %__begin1.0.ptr14, i64 0, i32 1
+  %padded_len8 = getelementptr inbounds i8, ptr %__begin1.0.ptr14, i64 8
   %3 = load i64, ptr %padded_len8, align 8
   %cmp9.not = icmp eq i64 %call7, %3
   br i1 %cmp9.not, label %for.cond, label %if.then10
@@ -1580,8 +1575,8 @@ entry:
 
 if.end:                                           ; preds = %entry
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %sessions, i8 0, i64 24, i1 false)
-  %_M_finish.i.i = getelementptr inbounds %"struct.std::_Vector_base<std::unique_ptr<ssl_session_st, OpenSSLDeleter<ssl_session_st, &SSL_SESSION_free>>, std::allocator<std::unique_ptr<ssl_session_st, OpenSSLDeleter<ssl_session_st, &SSL_SESSION_free>>>>::_Vector_impl_data", ptr %sessions, i64 0, i32 1
-  %_M_end_of_storage.i.i = getelementptr inbounds %"struct.std::_Vector_base<std::unique_ptr<ssl_session_st, OpenSSLDeleter<ssl_session_st, &SSL_SESSION_free>>, std::allocator<std::unique_ptr<ssl_session_st, OpenSSLDeleter<ssl_session_st, &SSL_SESSION_free>>>>::_Vector_impl_data", ptr %sessions, i64 0, i32 2
+  %_M_finish.i.i = getelementptr inbounds i8, ptr %sessions, i64 8
+  %_M_end_of_storage.i.i = getelementptr inbounds i8, ptr %sessions, i64 16
   br label %for.body
 
 for.body:                                         ; preds = %if.end, %for.inc
@@ -1611,10 +1606,10 @@ lpad.loopexit.split-lp.loopexit.split-lp:         ; preds = %for.end
   br label %ehcleanup151
 
 if.end5:                                          ; preds = %call.i.noexc
-  %session_id_length.i = getelementptr inbounds %struct.ssl_session_st, ptr %call.i7, i64 0, i32 5
+  %session_id_length.i = getelementptr inbounds i8, ptr %call.i7, i64 64
   store i32 32, ptr %session_id_length.i, align 8, !noalias !13
-  %session_id.i = getelementptr inbounds %struct.ssl_session_st, ptr %call.i7, i64 0, i32 6
-  %1 = getelementptr inbounds %struct.ssl_session_st, ptr %call.i7, i64 0, i32 6, i64 4
+  %session_id.i = getelementptr inbounds i8, ptr %call.i7, i64 68
+  %1 = getelementptr inbounds i8, ptr %call.i7, i64 72
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(32) %1, i8 0, i64 28, i1 false), !noalias !13
   store i32 %i.080, ptr %session_id.i, align 4, !noalias !13
   store ptr %call.i7, ptr %session, align 8, !alias.scope !13
@@ -1626,7 +1621,7 @@ if.end5:                                          ; preds = %call.i.noexc
 cleanup.thread:                                   ; preds = %if.end5
   store i64 %3, ptr %0, align 8
   %4 = load ptr, ptr %_M_finish.i.i, align 8
-  %incdec.ptr.i.i = getelementptr inbounds %"class.std::unique_ptr.7", ptr %4, i64 1
+  %incdec.ptr.i.i = getelementptr inbounds i8, ptr %4, i64 8
   store ptr %incdec.ptr.i.i, ptr %_M_finish.i.i, align 8
   br label %for.inc
 
@@ -1675,14 +1670,14 @@ for.body.i.i.i.i.i:                               ; preds = %_ZNSt12_Vector_base
   %7 = load i64, ptr %__first.addr.06.i.i.i.i.i, align 8, !alias.scope !19, !noalias !16
   store i64 %7, ptr %__cur.07.i.i.i.i.i, align 8, !alias.scope !16, !noalias !19
   store ptr null, ptr %__first.addr.06.i.i.i.i.i, align 8, !alias.scope !19, !noalias !16
-  %incdec.ptr.i.i.i.i.i = getelementptr inbounds %"class.std::unique_ptr.7", ptr %__first.addr.06.i.i.i.i.i, i64 1
-  %incdec.ptr1.i.i.i.i.i = getelementptr inbounds %"class.std::unique_ptr.7", ptr %__cur.07.i.i.i.i.i, i64 1
+  %incdec.ptr.i.i.i.i.i = getelementptr inbounds i8, ptr %__first.addr.06.i.i.i.i.i, i64 8
+  %incdec.ptr1.i.i.i.i.i = getelementptr inbounds i8, ptr %__cur.07.i.i.i.i.i, i64 8
   %cmp.not.i.i.i.i.i = icmp eq ptr %incdec.ptr.i.i.i.i.i, %0
   br i1 %cmp.not.i.i.i.i.i, label %_ZNSt6vectorISt10unique_ptrI14ssl_session_st14OpenSSLDeleterIS1_XadL_Z16SSL_SESSION_freeEEEESaIS4_EE11_S_relocateEPS4_S7_S7_RS5_.exit19.i, label %for.body.i.i.i.i.i, !llvm.loop !21
 
 _ZNSt6vectorISt10unique_ptrI14ssl_session_st14OpenSSLDeleterIS1_XadL_Z16SSL_SESSION_freeEEEESaIS4_EE11_S_relocateEPS4_S7_S7_RS5_.exit19.i: ; preds = %for.body.i.i.i.i.i, %_ZNSt12_Vector_baseISt10unique_ptrI14ssl_session_st14OpenSSLDeleterIS1_XadL_Z16SSL_SESSION_freeEEEESaIS4_EE11_M_allocateEm.exit.i
   %__cur.0.lcssa.i.i.i.i.i = phi ptr [ %cond.i10.i, %_ZNSt12_Vector_baseISt10unique_ptrI14ssl_session_st14OpenSSLDeleterIS1_XadL_Z16SSL_SESSION_freeEEEESaIS4_EE11_M_allocateEm.exit.i ], [ %incdec.ptr1.i.i.i.i.i, %for.body.i.i.i.i.i ]
-  %incdec.ptr.i59 = getelementptr %"class.std::unique_ptr.7", ptr %__cur.0.lcssa.i.i.i.i.i, i64 1
+  %incdec.ptr.i59 = getelementptr i8, ptr %__cur.0.lcssa.i.i.i.i.i, i64 8
   %tobool.not.i.i = icmp eq ptr %5, null
   br i1 %tobool.not.i.i, label %cleanup, label %if.then.i20.i
 
@@ -1730,7 +1725,7 @@ invoke.cont9:                                     ; preds = %for.end
   br i1 %cmp.i10.not81, label %for.end27, label %for.body16
 
 for.cond14:                                       ; preds = %invoke.cont21
-  %incdec.ptr.i = getelementptr inbounds %"class.std::unique_ptr.7", ptr %__begin1.sroa.0.082, i64 1
+  %incdec.ptr.i = getelementptr inbounds i8, ptr %__begin1.sroa.0.082, i64 8
   %cmp.i10.not = icmp eq ptr %incdec.ptr.i, %8
   br i1 %cmp.i10.not, label %for.end27, label %for.body16
 
@@ -1745,12 +1740,12 @@ invoke.cont21:                                    ; preds = %for.body16
   br i1 %tobool.not, label %cleanup150, label %for.cond14
 
 for.end27:                                        ; preds = %for.cond14, %invoke.cont9
-  %add.ptr.i11 = getelementptr inbounds %"class.std::unique_ptr.7", ptr %10, i64 8
+  %add.ptr.i11 = getelementptr inbounds i8, ptr %10, i64 64
   %12 = load <2 x ptr>, ptr %add.ptr.i11, align 8
-  %add.ptr.i12 = getelementptr inbounds %"class.std::unique_ptr.7", ptr %10, i64 7
-  %add.ptr.i13 = getelementptr inbounds %"class.std::unique_ptr.7", ptr %10, i64 6
+  %add.ptr.i12 = getelementptr inbounds i8, ptr %10, i64 56
+  %add.ptr.i13 = getelementptr inbounds i8, ptr %10, i64 48
   %13 = load <2 x ptr>, ptr %add.ptr.i13, align 8
-  %add.ptr.i14 = getelementptr inbounds %"class.std::unique_ptr.7", ptr %10, i64 5
+  %add.ptr.i14 = getelementptr inbounds i8, ptr %10, i64 40
   %14 = load ptr, ptr %add.ptr.i14, align 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %expected, i8 0, i64 24, i1 false)
   %call5.i.i.i.i2.i = invoke noalias noundef nonnull dereferenceable(40) ptr @_Znwm(i64 noundef 40) #30
@@ -1764,7 +1759,7 @@ lpad.i:                                           ; preds = %for.end27
 invoke.cont43:                                    ; preds = %for.end27
   store ptr %call5.i.i.i.i2.i, ptr %expected, align 8
   %add.ptr.i1.i = getelementptr inbounds i8, ptr %call5.i.i.i.i2.i, i64 40
-  %_M_end_of_storage.i.i15 = getelementptr inbounds %"struct.std::_Vector_base<ssl_session_st *, std::allocator<ssl_session_st *>>::_Vector_impl_data", ptr %expected, i64 0, i32 2
+  %_M_end_of_storage.i.i15 = getelementptr inbounds i8, ptr %expected, i64 16
   store ptr %add.ptr.i1.i, ptr %_M_end_of_storage.i.i15, align 8
   %16 = shufflevector <2 x ptr> %12, <2 x ptr> poison, <2 x i32> <i32 1, i32 0>
   store <2 x ptr> %16, ptr %call5.i.i.i.i2.i, align 8
@@ -1773,7 +1768,7 @@ invoke.cont43:                                    ; preds = %for.end27
   store <2 x ptr> %17, ptr %ref.tmp.sroa.3.0.call5.i.i.i.i2.i.sroa_idx, align 8
   %ref.tmp.sroa.5.0.call5.i.i.i.i2.i.sroa_idx = getelementptr inbounds i8, ptr %call5.i.i.i.i2.i, i64 32
   store ptr %14, ptr %ref.tmp.sroa.5.0.call5.i.i.i.i2.i.sroa_idx, align 8
-  %_M_finish.i.i16 = getelementptr inbounds %"struct.std::_Vector_base<ssl_session_st *, std::allocator<ssl_session_st *>>::_Vector_impl_data", ptr %expected, i64 0, i32 1
+  %_M_finish.i.i16 = getelementptr inbounds i8, ptr %expected, i64 8
   store ptr %add.ptr.i1.i, ptr %_M_finish.i.i16, align 8
   %call47 = invoke fastcc noundef zeroext i1 @_ZL11ExpectCacheP10ssl_ctx_stRKSt6vectorIP14ssl_session_stSaIS3_EE(ptr noundef %9, ptr noundef nonnull align 8 dereferenceable(24) %expected)
           to label %invoke.cont46 unwind label %lpad45
@@ -1816,10 +1811,10 @@ invoke.cont61:                                    ; preds = %call.i.noexc22
   br label %cleanup148
 
 lor.lhs.false63:                                  ; preds = %call.i.noexc22
-  %session_id_length.i20 = getelementptr inbounds %struct.ssl_session_st, ptr %call.i23, i64 0, i32 5
+  %session_id_length.i20 = getelementptr inbounds i8, ptr %call.i23, i64 64
   store i32 32, ptr %session_id_length.i20, align 8, !noalias !23
-  %session_id.i21 = getelementptr inbounds %struct.ssl_session_st, ptr %call.i23, i64 0, i32 6
-  %20 = getelementptr inbounds %struct.ssl_session_st, ptr %call.i23, i64 0, i32 6, i64 4
+  %session_id.i21 = getelementptr inbounds i8, ptr %call.i23, i64 68
+  %20 = getelementptr inbounds i8, ptr %call.i23, i64 72
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(32) %20, i8 0, i64 28, i1 false), !noalias !23
   store i32 7, ptr %session_id.i21, align 4, !noalias !23
   store ptr %call.i23, ptr %collision, align 8, !alias.scope !23
@@ -1839,15 +1834,15 @@ lpad66:                                           ; preds = %if.end105, %if.end7
 if.end71:                                         ; preds = %invoke.cont67
   %22 = load ptr, ptr %collision, align 8
   store ptr %22, ptr %ref.tmp73, align 8
-  %arrayinit.element76 = getelementptr inbounds ptr, ptr %ref.tmp73, i64 1
+  %arrayinit.element76 = getelementptr inbounds i8, ptr %ref.tmp73, i64 8
   %23 = load <2 x ptr>, ptr %add.ptr.i11, align 8
   %24 = shufflevector <2 x ptr> %23, <2 x ptr> poison, <2 x i32> <i32 1, i32 0>
   store <2 x ptr> %24, ptr %arrayinit.element76, align 8
-  %arrayinit.element82 = getelementptr inbounds ptr, ptr %ref.tmp73, i64 3
+  %arrayinit.element82 = getelementptr inbounds i8, ptr %ref.tmp73, i64 24
   %25 = load <2 x ptr>, ptr %add.ptr.i14, align 8
   %26 = shufflevector <2 x ptr> %25, <2 x ptr> poison, <2 x i32> <i32 1, i32 0>
   store <2 x ptr> %26, ptr %arrayinit.element82, align 8
-  %add.ptr.i.i = getelementptr inbounds ptr, ptr %ref.tmp73, i64 5
+  %add.ptr.i.i = getelementptr inbounds i8, ptr %ref.tmp73, i64 40
   invoke void @_ZNSt6vectorIP14ssl_session_stSaIS1_EE13_M_assign_auxIPKS1_EEvT_S7_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(24) %expected, ptr noundef nonnull %ref.tmp73, ptr noundef nonnull %add.ptr.i.i)
           to label %invoke.cont91 unwind label %lpad66
 
@@ -1870,14 +1865,14 @@ invoke.cont101:                                   ; preds = %if.end97
 if.end105:                                        ; preds = %invoke.cont101
   %28 = load ptr, ptr %collision, align 8
   store ptr %28, ptr %ref.tmp107, align 8
-  %arrayinit.element110 = getelementptr inbounds ptr, ptr %ref.tmp107, i64 1
+  %arrayinit.element110 = getelementptr inbounds i8, ptr %ref.tmp107, i64 8
   %29 = load <2 x ptr>, ptr %add.ptr.i11, align 8
   %30 = shufflevector <2 x ptr> %29, <2 x ptr> poison, <2 x i32> <i32 1, i32 0>
   store <2 x ptr> %30, ptr %arrayinit.element110, align 8
-  %arrayinit.element116 = getelementptr inbounds ptr, ptr %ref.tmp107, i64 3
+  %arrayinit.element116 = getelementptr inbounds i8, ptr %ref.tmp107, i64 24
   %31 = load ptr, ptr %add.ptr.i14, align 8
   store ptr %31, ptr %arrayinit.element116, align 8
-  %add.ptr.i.i35 = getelementptr inbounds ptr, ptr %ref.tmp107, i64 4
+  %add.ptr.i.i35 = getelementptr inbounds i8, ptr %ref.tmp107, i64 32
   invoke void @_ZNSt6vectorIP14ssl_session_stSaIS1_EE13_M_assign_auxIPKS1_EEvT_S7_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(24) %expected, ptr noundef nonnull %ref.tmp107, ptr noundef nonnull %add.ptr.i.i35)
           to label %invoke.cont122 unwind label %lpad66
 
@@ -1966,7 +1961,7 @@ terminate.lpad.i.i.i.i.i.i:                       ; preds = %if.then.i.i.i.i.i.i
 
 _ZSt8_DestroyISt10unique_ptrI14ssl_session_st14OpenSSLDeleterIS1_XadL_Z16SSL_SESSION_freeEEEEEvPT_.exit.i.i.i.i: ; preds = %if.then.i.i.i.i.i.i, %for.body.i.i.i.i
   store ptr null, ptr %__first.addr.04.i.i.i.i, align 8
-  %incdec.ptr.i.i.i.i = getelementptr inbounds %"class.std::unique_ptr.7", ptr %__first.addr.04.i.i.i.i, i64 1
+  %incdec.ptr.i.i.i.i = getelementptr inbounds i8, ptr %__first.addr.04.i.i.i.i, i64 8
   %cmp.not.i.i.i.i = icmp eq ptr %incdec.ptr.i.i.i.i, %36
   br i1 %cmp.not.i.i.i.i, label %invoke.cont.i, label %for.body.i.i.i.i, !llvm.loop !26
 
@@ -2676,7 +2671,7 @@ declare i64 @strlen(ptr nocapture noundef) local_unnamed_addr #10
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr dso_local void @_ZNSt6vectorIhSaIhEE6resizeEm(ptr noundef nonnull align 8 dereferenceable(24) %this, i64 noundef %__new_size) local_unnamed_addr #11 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  %_M_finish.i = getelementptr inbounds %"struct.std::_Vector_base<unsigned char, std::allocator<unsigned char>>::_Vector_impl_data", ptr %this, i64 0, i32 1
+  %_M_finish.i = getelementptr inbounds i8, ptr %this, i64 8
   %0 = load ptr, ptr %_M_finish.i, align 8
   %1 = load ptr, ptr %this, align 8
   %sub.ptr.lhs.cast.i = ptrtoint ptr %0 to i64
@@ -2687,7 +2682,7 @@ entry:
 
 if.then:                                          ; preds = %entry
   %sub = sub i64 %__new_size, %sub.ptr.sub.i
-  %_M_end_of_storage.i = getelementptr inbounds %"struct.std::_Vector_base<unsigned char, std::allocator<unsigned char>>::_Vector_impl_data", ptr %this, i64 0, i32 2
+  %_M_end_of_storage.i = getelementptr inbounds i8, ptr %this, i64 16
   %2 = load ptr, ptr %_M_end_of_storage.i, align 8
   %sub.ptr.lhs.cast.i8 = ptrtoint ptr %2 to i64
   %sub.ptr.sub.i9 = sub i64 %sub.ptr.lhs.cast.i8, %sub.ptr.lhs.cast.i
@@ -2858,7 +2853,7 @@ if.then.i.i.i.i:                                  ; preds = %lpad.i
 
 if.end.i:                                         ; preds = %invoke.cont.i
   %2 = load ptr, ptr %der.i, align 8, !noalias !34
-  %_M_finish.i.i = getelementptr inbounds %"struct.std::_Vector_base<unsigned char, std::allocator<unsigned char>>::_Vector_impl_data", ptr %der.i, i64 0, i32 1
+  %_M_finish.i.i = getelementptr inbounds i8, ptr %der.i, i64 8
   %3 = load ptr, ptr %_M_finish.i.i, align 8, !noalias !34
   %sub.ptr.lhs.cast.i.i = ptrtoint ptr %3 to i64
   %sub.ptr.rhs.cast.i.i = ptrtoint ptr %2 to i64
@@ -2875,7 +2870,7 @@ if.then6.i:                                       ; preds = %invoke.cont3.i
   br label %cleanup21.i
 
 if.end7.i:                                        ; preds = %invoke.cont3.i
-  %tlsext_tick.i = getelementptr inbounds %struct.ssl_session_st, ptr %call4.i, i64 0, i32 20
+  %tlsext_tick.i = getelementptr inbounds i8, ptr %call4.i, i64 224
   %4 = load ptr, ptr %tlsext_tick.i, align 8, !noalias !34
   call void @free(ptr noundef %4) #26, !noalias !34
   %call9.i = call noalias ptr @malloc(i64 noundef %ticket_len) #28
@@ -2885,10 +2880,10 @@ if.end7.i:                                        ; preds = %invoke.cont3.i
 
 if.end15.i:                                       ; preds = %if.end7.i
   call void @llvm.memset.p0.i64(ptr nonnull align 1 %call9.i, i8 97, i64 %ticket_len, i1 false), !noalias !34
-  %tlsext_ticklen.i = getelementptr inbounds %struct.ssl_session_st, ptr %call4.i, i64 0, i32 21
+  %tlsext_ticklen.i = getelementptr inbounds i8, ptr %call4.i, i64 232
   store i64 %ticket_len, ptr %tlsext_ticklen.i, align 8, !noalias !34
   %call19.i = call i64 @time(ptr noundef null) #26, !noalias !34
-  %time.i = getelementptr inbounds %struct.ssl_session_st, ptr %call4.i, i64 0, i32 14
+  %time.i = getelementptr inbounds i8, ptr %call4.i, i64 176
   store i64 %call19.i, ptr %time.i, align 8, !noalias !34
   %5 = ptrtoint ptr %call4.i to i64
   store i64 %5, ptr %session, align 8, !alias.scope !34
@@ -3186,16 +3181,16 @@ declare i32 @SSL_CTX_add_session(ptr noundef, ptr noundef) local_unnamed_addr #4
 define internal fastcc noundef zeroext i1 @_ZL11ExpectCacheP10ssl_ctx_stRKSt6vectorIP14ssl_session_stSaIS3_EE(ptr noundef %ctx, ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %expected) unnamed_addr #3 personality ptr @__gxx_personality_v0 {
 entry:
   %actual = alloca %"class.std::vector.59", align 8
-  %session_cache_head = getelementptr inbounds %struct.ssl_ctx_st, ptr %ctx, i64 0, i32 11
+  %session_cache_head = getelementptr inbounds i8, ptr %ctx, i64 128
   %0 = load ptr, ptr %session_cache_head, align 8
   %1 = load ptr, ptr %expected, align 8
-  %_M_finish.i = getelementptr inbounds %"struct.std::_Vector_base<ssl_session_st *, std::allocator<ssl_session_st *>>::_Vector_impl_data", ptr %expected, i64 0, i32 1
+  %_M_finish.i = getelementptr inbounds i8, ptr %expected, i64 8
   %2 = load ptr, ptr %_M_finish.i, align 8
   %cmp.i.not31 = icmp eq ptr %1, %2
   br i1 %cmp.i.not31, label %for.end, label %for.body.lr.ph
 
 for.body.lr.ph:                                   ; preds = %entry
-  %session_cache_tail = getelementptr inbounds %struct.ssl_ctx_st, ptr %ctx, i64 0, i32 12
+  %session_cache_tail = getelementptr inbounds i8, ptr %ctx, i64 136
   br label %for.body
 
 for.body:                                         ; preds = %for.body.lr.ph, %if.end
@@ -3206,11 +3201,11 @@ for.body:                                         ; preds = %for.body.lr.ph, %if
   br i1 %cmp.not, label %if.end, label %return
 
 if.end:                                           ; preds = %for.body
-  %next = getelementptr inbounds %struct.ssl_session_st, ptr %ptr.033, i64 0, i32 18
+  %next = getelementptr inbounds i8, ptr %ptr.033, i64 208
   %4 = load ptr, ptr %next, align 8
   %cmp5 = icmp eq ptr %4, %session_cache_tail
   %. = select i1 %cmp5, ptr null, ptr %4
-  %incdec.ptr.i = getelementptr inbounds ptr, ptr %__begin1.sroa.0.032, i64 1
+  %incdec.ptr.i = getelementptr inbounds i8, ptr %__begin1.sroa.0.032, i64 8
   %cmp.i.not = icmp eq ptr %incdec.ptr.i, %2
   br i1 %cmp.i.not, label %for.end, label %for.body
 
@@ -3263,7 +3258,7 @@ if.then.i.i.i.i.i.i.i.i.i.i:                      ; preds = %call5.i.i.i.i.i.noe
 if.end69.i:                                       ; preds = %if.then.i, %if.then.i.i.i.i.i.i.i.i.i.i, %call5.i.i.i.i.i.noexc
   %expected_copy.sroa.0.0 = phi ptr [ %call5.i.i.i.i.i8, %call5.i.i.i.i.i.noexc ], [ %call5.i.i.i.i.i8, %if.then.i.i.i.i.i.i.i.i.i.i ], [ null, %if.then.i ]
   %7 = load ptr, ptr %actual, align 8
-  %_M_finish.i9 = getelementptr inbounds %"struct.std::_Vector_base<ssl_session_st *, std::allocator<ssl_session_st *>>::_Vector_impl_data", ptr %actual, i64 0, i32 1
+  %_M_finish.i9 = getelementptr inbounds i8, ptr %actual, i64 8
   %8 = load ptr, ptr %_M_finish.i9, align 8
   invoke void @_ZSt6__sortIN9__gnu_cxx17__normal_iteratorIPP14ssl_session_stSt6vectorIS3_SaIS3_EEEENS0_5__ops15_Iter_less_iterEEvT_SB_T0_(ptr %7, ptr %8)
           to label %invoke.cont24 unwind label %lpad
@@ -3349,7 +3344,7 @@ declare i32 @SSL_CTX_remove_session(ptr noundef, ptr noundef) local_unnamed_addr
 define linkonce_odr hidden void @_ZNSt6vectorISt10unique_ptrI14ssl_session_st14OpenSSLDeleterIS1_XadL_Z16SSL_SESSION_freeEEEESaIS4_EED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %this) unnamed_addr #8 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %0 = load ptr, ptr %this, align 8
-  %_M_finish = getelementptr inbounds %"struct.std::_Vector_base<std::unique_ptr<ssl_session_st, OpenSSLDeleter<ssl_session_st, &SSL_SESSION_free>>, std::allocator<std::unique_ptr<ssl_session_st, OpenSSLDeleter<ssl_session_st, &SSL_SESSION_free>>>>::_Vector_impl_data", ptr %this, i64 0, i32 1
+  %_M_finish = getelementptr inbounds i8, ptr %this, i64 8
   %1 = load ptr, ptr %_M_finish, align 8
   %cmp.not3.i.i.i = icmp eq ptr %0, %1
   br i1 %cmp.not3.i.i.i, label %invoke.cont, label %for.body.i.i.i
@@ -3373,7 +3368,7 @@ terminate.lpad.i.i.i.i.i:                         ; preds = %if.then.i.i.i.i.i
 
 _ZSt8_DestroyISt10unique_ptrI14ssl_session_st14OpenSSLDeleterIS1_XadL_Z16SSL_SESSION_freeEEEEEvPT_.exit.i.i.i: ; preds = %if.then.i.i.i.i.i, %for.body.i.i.i
   store ptr null, ptr %__first.addr.04.i.i.i, align 8
-  %incdec.ptr.i.i.i = getelementptr inbounds %"class.std::unique_ptr.7", ptr %__first.addr.04.i.i.i, i64 1
+  %incdec.ptr.i.i.i = getelementptr inbounds i8, ptr %__first.addr.04.i.i.i, i64 8
   %cmp.not.i.i.i = icmp eq ptr %incdec.ptr.i.i.i, %1
   br i1 %cmp.not.i.i.i, label %invoke.contthread-pre-split, label %for.body.i.i.i, !llvm.loop !26
 
@@ -3403,9 +3398,9 @@ declare ptr @SSL_CTX_sessions(ptr noundef) local_unnamed_addr #4
 ; Function Attrs: mustprogress uwtable
 define internal void @_ZL13AppendSessionP14ssl_session_stPv(ptr noundef %session, ptr nocapture noundef %arg) #11 {
 entry:
-  %_M_finish.i = getelementptr inbounds %"struct.std::_Vector_base<ssl_session_st *, std::allocator<ssl_session_st *>>::_Vector_impl_data", ptr %arg, i64 0, i32 1
+  %_M_finish.i = getelementptr inbounds i8, ptr %arg, i64 8
   %0 = load ptr, ptr %_M_finish.i, align 8
-  %_M_end_of_storage.i = getelementptr inbounds %"struct.std::_Vector_base<ssl_session_st *, std::allocator<ssl_session_st *>>::_Vector_impl_data", ptr %arg, i64 0, i32 2
+  %_M_end_of_storage.i = getelementptr inbounds i8, ptr %arg, i64 16
   %1 = load ptr, ptr %_M_end_of_storage.i, align 8
   %cmp.not.i = icmp eq ptr %0, %1
   br i1 %cmp.not.i, label %if.else.i, label %if.then.i
@@ -3413,7 +3408,7 @@ entry:
 if.then.i:                                        ; preds = %entry
   store ptr %session, ptr %0, align 8
   %2 = load ptr, ptr %_M_finish.i, align 8
-  %incdec.ptr.i = getelementptr inbounds ptr, ptr %2, i64 1
+  %incdec.ptr.i = getelementptr inbounds i8, ptr %2, i64 8
   store ptr %incdec.ptr.i, ptr %_M_finish.i, align 8
   br label %_ZNSt6vectorIP14ssl_session_stSaIS1_EE9push_backERKS1_.exit
 
@@ -3457,7 +3452,7 @@ if.then.i.i.i.i.i.i:                              ; preds = %_ZNSt12_Vector_base
 
 _ZNSt6vectorIP14ssl_session_stSaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit17.i.i: ; preds = %if.then.i.i.i.i.i.i, %_ZNSt12_Vector_baseIP14ssl_session_stSaIS1_EE11_M_allocateEm.exit.i.i
   %add.ptr.i.i.i.i.i.i = getelementptr inbounds i8, ptr %cond.i10.i.i, i64 %sub.ptr.sub.i.i.i.i
-  %incdec.ptr.i.i = getelementptr inbounds ptr, ptr %add.ptr.i.i.i.i.i.i, i64 1
+  %incdec.ptr.i.i = getelementptr inbounds i8, ptr %add.ptr.i.i.i.i.i.i, i64 8
   %tobool.not.i.i.i = icmp eq ptr %3, null
   br i1 %tobool.not.i.i.i, label %_ZNSt6vectorIP14ssl_session_stSaIS1_EE17_M_realloc_insertIJRKS1_EEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_.exit.i, label %if.then.i18.i.i
 
@@ -3492,15 +3487,12 @@ if.then:                                          ; preds = %entry
   %mul = xor i64 %sub.i, 126
   tail call void @_ZSt16__introsort_loopIN9__gnu_cxx17__normal_iteratorIPP14ssl_session_stSt6vectorIS3_SaIS3_EEEElNS0_5__ops15_Iter_less_iterEEvT_SB_T0_T1_(ptr %__first.coerce, ptr %__last.coerce, i64 noundef %mul)
   %cmp.i1 = icmp sgt i64 %sub.ptr.sub.i, 128
-  br i1 %cmp.i1, label %for.body.lr.ph.i.i, label %if.else.i
-
-for.body.lr.ph.i.i:                               ; preds = %if.then
   %scevgep.i = getelementptr i8, ptr %__first.coerce, i64 8
-  br label %for.body.i.i
+  br i1 %cmp.i1, label %for.body.i.i, label %if.else.i
 
-for.body.i.i:                                     ; preds = %for.inc.i.i, %for.body.lr.ph.i.i
-  %__i.sroa.0.013.i.idx.i = phi i64 [ 8, %for.body.lr.ph.i.i ], [ %__i.sroa.0.013.i.add.i, %for.inc.i.i ]
-  %__first.coerce.pn12.i.i = phi ptr [ %__first.coerce, %for.body.lr.ph.i.i ], [ %__i.sroa.0.013.i.ptr.i, %for.inc.i.i ]
+for.body.i.i:                                     ; preds = %if.then, %for.inc.i.i
+  %__i.sroa.0.013.i.idx.i = phi i64 [ %__i.sroa.0.013.i.add.i, %for.inc.i.i ], [ 8, %if.then ]
+  %__first.coerce.pn12.i.i = phi ptr [ %__i.sroa.0.013.i.ptr.i, %for.inc.i.i ], [ %__first.coerce, %if.then ]
   %__i.sroa.0.013.i.ptr.i = getelementptr inbounds i8, ptr %__first.coerce, i64 %__i.sroa.0.013.i.idx.i
   %1 = load ptr, ptr %__i.sroa.0.013.i.ptr.i, align 8
   %2 = load ptr, ptr %__first.coerce, align 8
@@ -3521,7 +3513,7 @@ while.body.i.i.i:                                 ; preds = %if.else.i.i, %while
   %__next.sroa.0.010.i.i.i = phi ptr [ %__next.sroa.0.0.i.i.i, %while.body.i.i.i ], [ %__first.coerce.pn12.i.i, %if.else.i.i ]
   %__last.sroa.0.09.i.i.i = phi ptr [ %__next.sroa.0.010.i.i.i, %while.body.i.i.i ], [ %__i.sroa.0.013.i.ptr.i, %if.else.i.i ]
   store ptr %4, ptr %__last.sroa.0.09.i.i.i, align 8
-  %__next.sroa.0.0.i.i.i = getelementptr inbounds ptr, ptr %__next.sroa.0.010.i.i.i, i64 -1
+  %__next.sroa.0.0.i.i.i = getelementptr inbounds i8, ptr %__next.sroa.0.010.i.i.i, i64 -8
   %5 = load ptr, ptr %__next.sroa.0.0.i.i.i, align 8
   %cmp.i.i.i.i = icmp ult ptr %1, %5
   br i1 %cmp.i.i.i.i, label %while.body.i.i.i, label %for.inc.i.i, !llvm.loop !38
@@ -3534,14 +3526,14 @@ for.inc.i.i:                                      ; preds = %while.body.i.i.i, %
   br i1 %cmp.i1.not.i.i, label %_ZSt16__insertion_sortIN9__gnu_cxx17__normal_iteratorIPP14ssl_session_stSt6vectorIS3_SaIS3_EEEENS0_5__ops15_Iter_less_iterEEvT_SB_T0_.exit.i, label %for.body.i.i, !llvm.loop !39
 
 _ZSt16__insertion_sortIN9__gnu_cxx17__normal_iteratorIPP14ssl_session_stSt6vectorIS3_SaIS3_EEEENS0_5__ops15_Iter_less_iterEEvT_SB_T0_.exit.i: ; preds = %for.inc.i.i
-  %add.ptr.i.i = getelementptr inbounds ptr, ptr %__first.coerce, i64 16
+  %add.ptr.i.i = getelementptr inbounds i8, ptr %__first.coerce, i64 128
   %cmp.i.not2.i.i = icmp eq ptr %add.ptr.i.i, %__last.coerce
   br i1 %cmp.i.not2.i.i, label %if.end, label %for.body.i2.i
 
 for.body.i2.i:                                    ; preds = %_ZSt16__insertion_sortIN9__gnu_cxx17__normal_iteratorIPP14ssl_session_stSt6vectorIS3_SaIS3_EEEENS0_5__ops15_Iter_less_iterEEvT_SB_T0_.exit.i, %_ZSt25__unguarded_linear_insertIN9__gnu_cxx17__normal_iteratorIPP14ssl_session_stSt6vectorIS3_SaIS3_EEEENS0_5__ops14_Val_less_iterEEvT_T0_.exit.i.i
   %__i.sroa.0.03.i.i = phi ptr [ %incdec.ptr.i.i.i, %_ZSt25__unguarded_linear_insertIN9__gnu_cxx17__normal_iteratorIPP14ssl_session_stSt6vectorIS3_SaIS3_EEEENS0_5__ops14_Val_less_iterEEvT_T0_.exit.i.i ], [ %add.ptr.i.i, %_ZSt16__insertion_sortIN9__gnu_cxx17__normal_iteratorIPP14ssl_session_stSt6vectorIS3_SaIS3_EEEENS0_5__ops15_Iter_less_iterEEvT_SB_T0_.exit.i ]
   %6 = load ptr, ptr %__i.sroa.0.03.i.i, align 8
-  %__next.sroa.0.07.i.i.i = getelementptr inbounds ptr, ptr %__i.sroa.0.03.i.i, i64 -1
+  %__next.sroa.0.07.i.i.i = getelementptr inbounds i8, ptr %__i.sroa.0.03.i.i, i64 -8
   %7 = load ptr, ptr %__next.sroa.0.07.i.i.i, align 8
   %cmp.i8.i.i3.i = icmp ult ptr %6, %7
   br i1 %cmp.i8.i.i3.i, label %while.body.i.i4.i, label %_ZSt25__unguarded_linear_insertIN9__gnu_cxx17__normal_iteratorIPP14ssl_session_stSt6vectorIS3_SaIS3_EEEENS0_5__ops14_Val_less_iterEEvT_T0_.exit.i.i
@@ -3551,7 +3543,7 @@ while.body.i.i4.i:                                ; preds = %for.body.i2.i, %whi
   %__next.sroa.0.010.i.i5.i = phi ptr [ %__next.sroa.0.0.i.i7.i, %while.body.i.i4.i ], [ %__next.sroa.0.07.i.i.i, %for.body.i2.i ]
   %__last.sroa.0.09.i.i6.i = phi ptr [ %__next.sroa.0.010.i.i5.i, %while.body.i.i4.i ], [ %__i.sroa.0.03.i.i, %for.body.i2.i ]
   store ptr %8, ptr %__last.sroa.0.09.i.i6.i, align 8
-  %__next.sroa.0.0.i.i7.i = getelementptr inbounds ptr, ptr %__next.sroa.0.010.i.i5.i, i64 -1
+  %__next.sroa.0.0.i.i7.i = getelementptr inbounds i8, ptr %__next.sroa.0.010.i.i5.i, i64 -8
   %9 = load ptr, ptr %__next.sroa.0.0.i.i7.i, align 8
   %cmp.i.i.i8.i = icmp ult ptr %6, %9
   br i1 %cmp.i.i.i8.i, label %while.body.i.i4.i, label %_ZSt25__unguarded_linear_insertIN9__gnu_cxx17__normal_iteratorIPP14ssl_session_stSt6vectorIS3_SaIS3_EEEENS0_5__ops14_Val_less_iterEEvT_T0_.exit.i.i, !llvm.loop !38
@@ -3559,17 +3551,16 @@ while.body.i.i4.i:                                ; preds = %for.body.i2.i, %whi
 _ZSt25__unguarded_linear_insertIN9__gnu_cxx17__normal_iteratorIPP14ssl_session_stSt6vectorIS3_SaIS3_EEEENS0_5__ops14_Val_less_iterEEvT_T0_.exit.i.i: ; preds = %while.body.i.i4.i, %for.body.i2.i
   %__last.sroa.0.0.lcssa.i.i.i = phi ptr [ %__i.sroa.0.03.i.i, %for.body.i2.i ], [ %__next.sroa.0.010.i.i5.i, %while.body.i.i4.i ]
   store ptr %6, ptr %__last.sroa.0.0.lcssa.i.i.i, align 8
-  %incdec.ptr.i.i.i = getelementptr inbounds ptr, ptr %__i.sroa.0.03.i.i, i64 1
+  %incdec.ptr.i.i.i = getelementptr inbounds i8, ptr %__i.sroa.0.03.i.i, i64 8
   %cmp.i.not.i.i = icmp eq ptr %incdec.ptr.i.i.i, %__last.coerce
   br i1 %cmp.i.not.i.i, label %if.end, label %for.body.i2.i, !llvm.loop !40
 
 if.else.i:                                        ; preds = %if.then
-  %__i.sroa.0.010.i11.i = getelementptr inbounds ptr, ptr %__first.coerce, i64 1
-  %cmp.i1.not11.i12.i = icmp eq ptr %__i.sroa.0.010.i11.i, %__last.coerce
+  %cmp.i1.not11.i12.i = icmp eq ptr %scevgep.i, %__last.coerce
   br i1 %cmp.i1.not11.i12.i, label %if.end, label %for.body.i15.i
 
 for.body.i15.i:                                   ; preds = %if.else.i, %for.inc.i21.i
-  %__i.sroa.0.013.i16.i = phi ptr [ %__i.sroa.0.0.i23.i, %for.inc.i21.i ], [ %__i.sroa.0.010.i11.i, %if.else.i ]
+  %__i.sroa.0.013.i16.i = phi ptr [ %__i.sroa.0.0.i23.i, %for.inc.i21.i ], [ %scevgep.i, %if.else.i ]
   %__first.coerce.pn12.i17.i = phi ptr [ %__i.sroa.0.013.i16.i, %for.inc.i21.i ], [ %__first.coerce, %if.else.i ]
   %10 = load ptr, ptr %__i.sroa.0.013.i16.i, align 8
   %11 = load ptr, ptr %__first.coerce, align 8
@@ -3577,7 +3568,7 @@ for.body.i15.i:                                   ; preds = %if.else.i, %for.inc
   br i1 %cmp.i2.i18.i, label %_ZSt13move_backwardIN9__gnu_cxx17__normal_iteratorIPP14ssl_session_stSt6vectorIS3_SaIS3_EEEES8_ET0_T_SA_S9_.exit.i30.i, label %if.else.i19.i
 
 _ZSt13move_backwardIN9__gnu_cxx17__normal_iteratorIPP14ssl_session_stSt6vectorIS3_SaIS3_EEEES8_ET0_T_SA_S9_.exit.i30.i: ; preds = %for.body.i15.i
-  %add.ptr.i3.i31.i = getelementptr inbounds ptr, ptr %__first.coerce.pn12.i17.i, i64 2
+  %add.ptr.i3.i31.i = getelementptr inbounds i8, ptr %__first.coerce.pn12.i17.i, i64 16
   %sub.ptr.lhs.cast.i.i.i.i.i.i32.i = ptrtoint ptr %__i.sroa.0.013.i16.i to i64
   %sub.ptr.sub.i.i.i.i.i.i33.i = sub i64 %sub.ptr.lhs.cast.i.i.i.i.i.i32.i, %sub.ptr.rhs.cast.i
   %sub.ptr.div.i.i.i.i.i.i34.i = ashr exact i64 %sub.ptr.sub.i.i.i.i.i.i33.i, 3
@@ -3596,7 +3587,7 @@ while.body.i.i25.i:                               ; preds = %if.else.i19.i, %whi
   %__next.sroa.0.010.i.i26.i = phi ptr [ %__next.sroa.0.0.i.i28.i, %while.body.i.i25.i ], [ %__first.coerce.pn12.i17.i, %if.else.i19.i ]
   %__last.sroa.0.09.i.i27.i = phi ptr [ %__next.sroa.0.010.i.i26.i, %while.body.i.i25.i ], [ %__i.sroa.0.013.i16.i, %if.else.i19.i ]
   store ptr %13, ptr %__last.sroa.0.09.i.i27.i, align 8
-  %__next.sroa.0.0.i.i28.i = getelementptr inbounds ptr, ptr %__next.sroa.0.010.i.i26.i, i64 -1
+  %__next.sroa.0.0.i.i28.i = getelementptr inbounds i8, ptr %__next.sroa.0.010.i.i26.i, i64 -8
   %14 = load ptr, ptr %__next.sroa.0.0.i.i28.i, align 8
   %cmp.i.i.i29.i = icmp ult ptr %10, %14
   br i1 %cmp.i.i.i29.i, label %while.body.i.i25.i, label %for.inc.i21.i, !llvm.loop !38
@@ -3604,7 +3595,7 @@ while.body.i.i25.i:                               ; preds = %if.else.i19.i, %whi
 for.inc.i21.i:                                    ; preds = %while.body.i.i25.i, %if.else.i19.i, %_ZSt13move_backwardIN9__gnu_cxx17__normal_iteratorIPP14ssl_session_stSt6vectorIS3_SaIS3_EEEES8_ET0_T_SA_S9_.exit.i30.i
   %__first.coerce.sink.i22.i = phi ptr [ %__first.coerce, %_ZSt13move_backwardIN9__gnu_cxx17__normal_iteratorIPP14ssl_session_stSt6vectorIS3_SaIS3_EEEES8_ET0_T_SA_S9_.exit.i30.i ], [ %__i.sroa.0.013.i16.i, %if.else.i19.i ], [ %__next.sroa.0.010.i.i26.i, %while.body.i.i25.i ]
   store ptr %10, ptr %__first.coerce.sink.i22.i, align 8
-  %__i.sroa.0.0.i23.i = getelementptr inbounds ptr, ptr %__i.sroa.0.013.i16.i, i64 1
+  %__i.sroa.0.0.i23.i = getelementptr inbounds i8, ptr %__i.sroa.0.013.i16.i, i64 8
   %cmp.i1.not.i24.i = icmp eq ptr %__i.sroa.0.0.i23.i, %__last.coerce
   br i1 %cmp.i1.not.i24.i, label %if.end, label %for.body.i15.i, !llvm.loop !39
 
@@ -3624,7 +3615,7 @@ entry:
   br i1 %cmp14, label %while.body.lr.ph, label %while.end
 
 while.body.lr.ph:                                 ; preds = %entry
-  %add.ptr.i1.i = getelementptr inbounds ptr, ptr %__first.coerce, i64 1
+  %add.ptr.i1.i = getelementptr inbounds i8, ptr %__first.coerce, i64 8
   br label %while.body
 
 while.body:                                       ; preds = %while.body.lr.ph, %_ZSt27__unguarded_partition_pivotIN9__gnu_cxx17__normal_iteratorIPP14ssl_session_stSt6vectorIS3_SaIS3_EEEENS0_5__ops15_Iter_less_iterEET_SB_SB_T0_.exit
@@ -3642,7 +3633,7 @@ if.then:                                          ; preds = %while.body
 
 while.body.i.i:                                   ; preds = %if.then, %_ZSt10__pop_heapIN9__gnu_cxx17__normal_iteratorIPP14ssl_session_stSt6vectorIS3_SaIS3_EEEENS0_5__ops15_Iter_less_iterEEvT_SB_SB_RT0_.exit.i.i
   %__last.sroa.0.05.i.i = phi ptr [ %incdec.ptr.i.i.i, %_ZSt10__pop_heapIN9__gnu_cxx17__normal_iteratorIPP14ssl_session_stSt6vectorIS3_SaIS3_EEEENS0_5__ops15_Iter_less_iterEEvT_SB_SB_RT0_.exit.i.i ], [ %storemerge15, %if.then ]
-  %incdec.ptr.i.i.i = getelementptr inbounds ptr, ptr %__last.sroa.0.05.i.i, i64 -1
+  %incdec.ptr.i.i.i = getelementptr inbounds i8, ptr %__last.sroa.0.05.i.i, i64 -8
   %0 = load ptr, ptr %incdec.ptr.i.i.i, align 8
   %1 = load ptr, ptr %__first.coerce, align 8
   store ptr %1, ptr %incdec.ptr.i.i.i, align 8
@@ -3724,7 +3715,7 @@ if.end:                                           ; preds = %while.body
   %dec = add nsw i64 %__depth_limit.addr.016, -1
   %div.i56 = lshr i64 %sub.ptr.div.i17, 1
   %add.ptr.i.i = getelementptr inbounds ptr, ptr %__first.coerce, i64 %div.i56
-  %add.ptr.i2.i = getelementptr inbounds ptr, ptr %storemerge15, i64 -1
+  %add.ptr.i2.i = getelementptr inbounds i8, ptr %storemerge15, i64 -8
   %8 = load ptr, ptr %add.ptr.i1.i, align 8
   %9 = load ptr, ptr %add.ptr.i.i, align 8
   %cmp.i.i.i = icmp ult ptr %8, %9
@@ -3794,12 +3785,12 @@ while.cond3.i.i:                                  ; preds = %while.cond3.i.i, %w
   %__first.sroa.0.1.i.i = phi ptr [ %__first.sroa.0.0.i.i, %while.body.i.i3 ], [ %incdec.ptr.i.i.i4, %while.cond3.i.i ]
   %16 = load ptr, ptr %__first.sroa.0.1.i.i, align 8
   %cmp.i.i4.i = icmp ult ptr %16, %15
-  %incdec.ptr.i.i.i4 = getelementptr inbounds ptr, ptr %__first.sroa.0.1.i.i, i64 1
+  %incdec.ptr.i.i.i4 = getelementptr inbounds i8, ptr %__first.sroa.0.1.i.i, i64 8
   br i1 %cmp.i.i4.i, label %while.cond3.i.i, label %while.cond10.i.i, !llvm.loop !44
 
 while.cond10.i.i:                                 ; preds = %while.cond3.i.i, %while.cond10.i.i
   %__last.sroa.0.0.pn.i.i = phi ptr [ %__last.sroa.0.1.i.i, %while.cond10.i.i ], [ %__last.sroa.0.0.i.i, %while.cond3.i.i ]
-  %__last.sroa.0.1.i.i = getelementptr inbounds ptr, ptr %__last.sroa.0.0.pn.i.i, i64 -1
+  %__last.sroa.0.1.i.i = getelementptr inbounds i8, ptr %__last.sroa.0.0.pn.i.i, i64 -8
   %17 = load ptr, ptr %__last.sroa.0.1.i.i, align 8
   %cmp.i2.i5.i = icmp ult ptr %15, %17
   br i1 %cmp.i2.i5.i, label %while.cond10.i.i, label %while.end18.i.i, !llvm.loop !45
@@ -3980,7 +3971,7 @@ entry:
   %sub.ptr.lhs.cast.i.i = ptrtoint ptr %__last to i64
   %sub.ptr.rhs.cast.i.i = ptrtoint ptr %__first to i64
   %sub.ptr.sub.i.i = sub i64 %sub.ptr.lhs.cast.i.i, %sub.ptr.rhs.cast.i.i
-  %_M_end_of_storage.i = getelementptr inbounds %"struct.std::_Vector_base<ssl_session_st *, std::allocator<ssl_session_st *>>::_Vector_impl_data", ptr %this, i64 0, i32 2
+  %_M_end_of_storage.i = getelementptr inbounds i8, ptr %this, i64 16
   %0 = load ptr, ptr %_M_end_of_storage.i, align 8
   %1 = load ptr, ptr %this, align 8
   %sub.ptr.lhs.cast.i = ptrtoint ptr %0 to i64
@@ -4007,7 +3998,7 @@ if.then.i.i.i.i.i.i.i.i.i:                        ; preds = %_ZNSt12_Vector_base
   br label %_ZNSt6vectorIP14ssl_session_stSaIS1_EE20_M_allocate_and_copyIPKS1_EEPS1_mT_S8_.exit
 
 _ZNSt6vectorIP14ssl_session_stSaIS1_EE20_M_allocate_and_copyIPKS1_EEPS1_mT_S8_.exit: ; preds = %_ZNSt12_Vector_baseIP14ssl_session_stSaIS1_EE11_M_allocateEm.exit.i, %if.then.i.i.i.i.i.i.i.i.i
-  %_M_finish = getelementptr inbounds %"struct.std::_Vector_base<ssl_session_st *, std::allocator<ssl_session_st *>>::_Vector_impl_data", ptr %this, i64 0, i32 1
+  %_M_finish = getelementptr inbounds i8, ptr %this, i64 8
   %tobool.not.i = icmp eq ptr %1, null
   br i1 %tobool.not.i, label %_ZNSt12_Vector_baseIP14ssl_session_stSaIS1_EE13_M_deallocateEPS1_m.exit, label %if.then.i13
 
@@ -4023,7 +4014,7 @@ _ZNSt12_Vector_baseIP14ssl_session_stSaIS1_EE13_M_deallocateEPS1_m.exit: ; preds
   br label %if.end41
 
 if.else:                                          ; preds = %entry
-  %_M_finish.i = getelementptr inbounds %"struct.std::_Vector_base<ssl_session_st *, std::allocator<ssl_session_st *>>::_Vector_impl_data", ptr %this, i64 0, i32 1
+  %_M_finish.i = getelementptr inbounds i8, ptr %this, i64 8
   %2 = load ptr, ptr %_M_finish.i, align 8
   %sub.ptr.lhs.cast.i14 = ptrtoint ptr %2 to i64
   %sub.ptr.sub.i16 = sub i64 %sub.ptr.lhs.cast.i14, %sub.ptr.rhs.cast.i
@@ -4056,7 +4047,7 @@ _ZSt7advanceIPKP14ssl_session_stmEvRT_T0_.exit:   ; preds = %if.else
   br i1 %tobool.not.i.i.i.i.i28, label %_ZSt4copyIPKP14ssl_session_stPS1_ET0_T_S6_S5_.exit31, label %if.then.i.i.i.i.i29
 
 if.then.i.i.i.i.i29:                              ; preds = %_ZSt7advanceIPKP14ssl_session_stmEvRT_T0_.exit
-  tail call void @llvm.memmove.p0.p0.i64(ptr align 8 %1, ptr align 8 %__first, i64 %sub.ptr.sub.i16, i1 false)
+  tail call void @llvm.memmove.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(1) %1, ptr noundef nonnull align 8 dereferenceable(1) %__first, i64 %sub.ptr.sub.i16, i1 false)
   %.pre49 = load ptr, ptr %_M_finish.i, align 8
   br label %_ZSt4copyIPKP14ssl_session_stPS1_ET0_T_S6_S5_.exit31
 
@@ -4367,8 +4358,8 @@ ehcleanup124.i:                                   ; preds = %lpad.i113.i, %lpad.
 
 arraydestroy.body.i:                              ; preds = %_ZN10CipherTestD2Ev.exit.i, %ehcleanup124.i
   %arraydestroy.elementPast.i = phi ptr [ %arraydestroy.element.i, %_ZN10CipherTestD2Ev.exit.i ], [ %arrayinit.endOfInit.11.i, %ehcleanup124.i ]
-  %arraydestroy.element.i = getelementptr inbounds %struct.CipherTest, ptr %arraydestroy.elementPast.i, i64 -1
-  %expected.i.i = getelementptr %struct.CipherTest, ptr %arraydestroy.elementPast.i, i64 -1, i32 1
+  %arraydestroy.element.i = getelementptr inbounds i8, ptr %arraydestroy.elementPast.i, i64 -32
+  %expected.i.i = getelementptr inbounds i8, ptr %arraydestroy.elementPast.i, i64 -24
   %12 = load ptr, ptr %expected.i.i, align 8
   %tobool.not.i.i.i.i.i = icmp eq ptr %12, null
   br i1 %tobool.not.i.i.i.i.i, label %_ZN10CipherTestD2Ev.exit.i, label %if.then.i.i.i.i.i

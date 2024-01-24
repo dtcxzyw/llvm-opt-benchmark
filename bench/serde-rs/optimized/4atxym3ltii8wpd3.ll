@@ -16,7 +16,7 @@ define void @_ZN22serde_derive_internals9internals4ctxt4Ctxt16error_spanned_by17
   %.fca.0.extract = extractvalue { ptr, ptr } %8, 0
   store ptr %.fca.0.extract, ptr %7, align 8
   %.fca.1.extract = extractvalue { ptr, ptr } %8, 1
-  %.fca.1.gep = getelementptr inbounds { ptr, ptr }, ptr %7, i64 0, i32 1
+  %.fca.1.gep = getelementptr inbounds i8, ptr %7, i64 8
   store ptr %.fca.1.extract, ptr %.fca.1.gep, align 8
   %9 = invoke align 8 ptr @"_ZN74_$LT$core..cell..RefMut$LT$T$GT$$u20$as$u20$core..ops..deref..DerefMut$GT$9deref_mut17heef58d0dc59a1b01E"(ptr nonnull align 8 %7)
           to label %12 unwind label %10
@@ -82,7 +82,7 @@ define void @_ZN22serde_derive_internals9internals4ctxt4Ctxt16error_spanned_by17
   %.fca.0.extract = extractvalue { ptr, ptr } %8, 0
   store ptr %.fca.0.extract, ptr %7, align 8
   %.fca.1.extract = extractvalue { ptr, ptr } %8, 1
-  %.fca.1.gep = getelementptr inbounds { ptr, ptr }, ptr %7, i64 0, i32 1
+  %.fca.1.gep = getelementptr inbounds i8, ptr %7, i64 8
   store ptr %.fca.1.extract, ptr %.fca.1.gep, align 8
   %12 = invoke align 8 ptr @"_ZN74_$LT$core..cell..RefMut$LT$T$GT$$u20$as$u20$core..ops..deref..DerefMut$GT$9deref_mut17heef58d0dc59a1b01E"(ptr nonnull align 8 %7)
           to label %15 unwind label %13
@@ -156,7 +156,7 @@ define void @_ZN22serde_derive_internals9internals4ctxt4Ctxt16error_spanned_by17
   %.fca.0.extract = extractvalue { ptr, ptr } %8, 0
   store ptr %.fca.0.extract, ptr %7, align 8
   %.fca.1.extract = extractvalue { ptr, ptr } %8, 1
-  %.fca.1.gep = getelementptr inbounds { ptr, ptr }, ptr %7, i64 0, i32 1
+  %.fca.1.gep = getelementptr inbounds i8, ptr %7, i64 8
   store ptr %.fca.1.extract, ptr %.fca.1.gep, align 8
   %12 = invoke align 8 ptr @"_ZN74_$LT$core..cell..RefMut$LT$T$GT$$u20$as$u20$core..ops..deref..DerefMut$GT$9deref_mut17heef58d0dc59a1b01E"(ptr nonnull align 8 %7)
           to label %15 unwind label %13
@@ -218,7 +218,7 @@ define void @_ZN22serde_derive_internals9internals4ctxt4Ctxt16error_spanned_by17
   %.fca.0.extract = extractvalue { ptr, ptr } %8, 0
   store ptr %.fca.0.extract, ptr %7, align 8
   %.fca.1.extract = extractvalue { ptr, ptr } %8, 1
-  %.fca.1.gep = getelementptr inbounds { ptr, ptr }, ptr %7, i64 0, i32 1
+  %.fca.1.gep = getelementptr inbounds i8, ptr %7, i64 8
   store ptr %.fca.1.extract, ptr %.fca.1.gep, align 8
   %9 = invoke align 8 ptr @"_ZN74_$LT$core..cell..RefMut$LT$T$GT$$u20$as$u20$core..ops..deref..DerefMut$GT$9deref_mut17heef58d0dc59a1b01E"(ptr nonnull align 8 %7)
           to label %12 unwind label %10
@@ -281,7 +281,7 @@ define void @_ZN22serde_derive_internals9internals4ctxt4Ctxt16error_spanned_by17
   %.fca.0.extract = extractvalue { ptr, ptr } %9, 0
   store ptr %.fca.0.extract, ptr %8, align 8
   %.fca.1.extract = extractvalue { ptr, ptr } %9, 1
-  %.fca.1.gep = getelementptr inbounds { ptr, ptr }, ptr %8, i64 0, i32 1
+  %.fca.1.gep = getelementptr inbounds i8, ptr %8, i64 8
   store ptr %.fca.1.extract, ptr %.fca.1.gep, align 8
   %12 = invoke align 8 ptr @"_ZN74_$LT$core..cell..RefMut$LT$T$GT$$u20$as$u20$core..ops..deref..DerefMut$GT$9deref_mut17heef58d0dc59a1b01E"(ptr nonnull align 8 %8)
           to label %15 unwind label %13
@@ -346,7 +346,7 @@ define void @_ZN22serde_derive_internals9internals4ctxt4Ctxt16error_spanned_by17
   %.fca.0.extract = extractvalue { ptr, ptr } %8, 0
   store ptr %.fca.0.extract, ptr %7, align 8
   %.fca.1.extract = extractvalue { ptr, ptr } %8, 1
-  %.fca.1.gep = getelementptr inbounds { ptr, ptr }, ptr %7, i64 0, i32 1
+  %.fca.1.gep = getelementptr inbounds i8, ptr %7, i64 8
   store ptr %.fca.1.extract, ptr %.fca.1.gep, align 8
   %9 = invoke align 8 ptr @"_ZN74_$LT$core..cell..RefMut$LT$T$GT$$u20$as$u20$core..ops..deref..DerefMut$GT$9deref_mut17heef58d0dc59a1b01E"(ptr nonnull align 8 %7)
           to label %12 unwind label %10
@@ -400,7 +400,7 @@ define void @_ZN22serde_derive_internals9internals4ctxt4Ctxt16error_spanned_by17
   %.fca.0.extract = extractvalue { ptr, ptr } %8, 0
   store ptr %.fca.0.extract, ptr %7, align 8
   %.fca.1.extract = extractvalue { ptr, ptr } %8, 1
-  %.fca.1.gep = getelementptr inbounds { ptr, ptr }, ptr %7, i64 0, i32 1
+  %.fca.1.gep = getelementptr inbounds i8, ptr %7, i64 8
   store ptr %.fca.1.extract, ptr %.fca.1.gep, align 8
   %9 = invoke align 8 ptr @"_ZN74_$LT$core..cell..RefMut$LT$T$GT$$u20$as$u20$core..ops..deref..DerefMut$GT$9deref_mut17heef58d0dc59a1b01E"(ptr nonnull align 8 %7)
           to label %12 unwind label %10
@@ -466,7 +466,7 @@ define void @_ZN22serde_derive_internals9internals4ctxt4Ctxt16error_spanned_by17
   %.fca.0.extract = extractvalue { ptr, ptr } %8, 0
   store ptr %.fca.0.extract, ptr %7, align 8
   %.fca.1.extract = extractvalue { ptr, ptr } %8, 1
-  %.fca.1.gep = getelementptr inbounds { ptr, ptr }, ptr %7, i64 0, i32 1
+  %.fca.1.gep = getelementptr inbounds i8, ptr %7, i64 8
   store ptr %.fca.1.extract, ptr %.fca.1.gep, align 8
   %12 = invoke align 8 ptr @"_ZN74_$LT$core..cell..RefMut$LT$T$GT$$u20$as$u20$core..ops..deref..DerefMut$GT$9deref_mut17heef58d0dc59a1b01E"(ptr nonnull align 8 %7)
           to label %15 unwind label %13
@@ -528,7 +528,7 @@ define void @_ZN22serde_derive_internals9internals4ctxt4Ctxt16error_spanned_by17
   %.fca.0.extract = extractvalue { ptr, ptr } %8, 0
   store ptr %.fca.0.extract, ptr %7, align 8
   %.fca.1.extract = extractvalue { ptr, ptr } %8, 1
-  %.fca.1.gep = getelementptr inbounds { ptr, ptr }, ptr %7, i64 0, i32 1
+  %.fca.1.gep = getelementptr inbounds i8, ptr %7, i64 8
   store ptr %.fca.1.extract, ptr %.fca.1.gep, align 8
   %9 = invoke align 8 ptr @"_ZN74_$LT$core..cell..RefMut$LT$T$GT$$u20$as$u20$core..ops..deref..DerefMut$GT$9deref_mut17heef58d0dc59a1b01E"(ptr nonnull align 8 %7)
           to label %12 unwind label %10
@@ -600,7 +600,7 @@ define void @_ZN22serde_derive_internals9internals4ctxt4Ctxt16error_spanned_by17
   %.fca.0.extract = extractvalue { ptr, ptr } %9, 0
   store ptr %.fca.0.extract, ptr %8, align 8
   %.fca.1.extract = extractvalue { ptr, ptr } %9, 1
-  %.fca.1.gep = getelementptr inbounds { ptr, ptr }, ptr %8, i64 0, i32 1
+  %.fca.1.gep = getelementptr inbounds i8, ptr %8, i64 8
   store ptr %.fca.1.extract, ptr %.fca.1.gep, align 8
   %14 = invoke align 8 ptr @"_ZN74_$LT$core..cell..RefMut$LT$T$GT$$u20$as$u20$core..ops..deref..DerefMut$GT$9deref_mut17heef58d0dc59a1b01E"(ptr nonnull align 8 %8)
           to label %17 unwind label %15
@@ -683,7 +683,7 @@ define void @_ZN22serde_derive_internals9internals4ctxt4Ctxt16error_spanned_by17
   %.fca.0.extract = extractvalue { ptr, ptr } %9, 0
   store ptr %.fca.0.extract, ptr %7, align 8
   %.fca.1.extract = extractvalue { ptr, ptr } %9, 1
-  %.fca.1.gep = getelementptr inbounds { ptr, ptr }, ptr %7, i64 0, i32 1
+  %.fca.1.gep = getelementptr inbounds i8, ptr %7, i64 8
   store ptr %.fca.1.extract, ptr %.fca.1.gep, align 8
   %12 = invoke align 8 ptr @"_ZN74_$LT$core..cell..RefMut$LT$T$GT$$u20$as$u20$core..ops..deref..DerefMut$GT$9deref_mut17heef58d0dc59a1b01E"(ptr nonnull align 8 %7)
           to label %15 unwind label %13
@@ -759,7 +759,7 @@ define void @_ZN22serde_derive_internals9internals4ctxt4Ctxt16error_spanned_by17
   %.fca.0.extract = extractvalue { ptr, ptr } %8, 0
   store ptr %.fca.0.extract, ptr %7, align 8
   %.fca.1.extract = extractvalue { ptr, ptr } %8, 1
-  %.fca.1.gep = getelementptr inbounds { ptr, ptr }, ptr %7, i64 0, i32 1
+  %.fca.1.gep = getelementptr inbounds i8, ptr %7, i64 8
   store ptr %.fca.1.extract, ptr %.fca.1.gep, align 8
   %12 = invoke align 8 ptr @"_ZN74_$LT$core..cell..RefMut$LT$T$GT$$u20$as$u20$core..ops..deref..DerefMut$GT$9deref_mut17heef58d0dc59a1b01E"(ptr nonnull align 8 %7)
           to label %15 unwind label %13
@@ -839,7 +839,7 @@ define void @_ZN22serde_derive_internals9internals4ctxt4Ctxt16error_spanned_by17
   %.fca.0.extract = extractvalue { ptr, ptr } %9, 0
   store ptr %.fca.0.extract, ptr %8, align 8
   %.fca.1.extract = extractvalue { ptr, ptr } %9, 1
-  %.fca.1.gep = getelementptr inbounds { ptr, ptr }, ptr %8, i64 0, i32 1
+  %.fca.1.gep = getelementptr inbounds i8, ptr %8, i64 8
   store ptr %.fca.1.extract, ptr %.fca.1.gep, align 8
   %14 = invoke align 8 ptr @"_ZN74_$LT$core..cell..RefMut$LT$T$GT$$u20$as$u20$core..ops..deref..DerefMut$GT$9deref_mut17heef58d0dc59a1b01E"(ptr nonnull align 8 %8)
           to label %17 unwind label %15
@@ -922,7 +922,7 @@ define void @_ZN22serde_derive_internals9internals4ctxt4Ctxt16error_spanned_by17
   %.fca.0.extract = extractvalue { ptr, ptr } %9, 0
   store ptr %.fca.0.extract, ptr %7, align 8
   %.fca.1.extract = extractvalue { ptr, ptr } %9, 1
-  %.fca.1.gep = getelementptr inbounds { ptr, ptr }, ptr %7, i64 0, i32 1
+  %.fca.1.gep = getelementptr inbounds i8, ptr %7, i64 8
   store ptr %.fca.1.extract, ptr %.fca.1.gep, align 8
   %12 = invoke align 8 ptr @"_ZN74_$LT$core..cell..RefMut$LT$T$GT$$u20$as$u20$core..ops..deref..DerefMut$GT$9deref_mut17heef58d0dc59a1b01E"(ptr nonnull align 8 %7)
           to label %15 unwind label %13
@@ -998,7 +998,7 @@ define void @_ZN22serde_derive_internals9internals4ctxt4Ctxt16error_spanned_by17
   %.fca.0.extract = extractvalue { ptr, ptr } %8, 0
   store ptr %.fca.0.extract, ptr %7, align 8
   %.fca.1.extract = extractvalue { ptr, ptr } %8, 1
-  %.fca.1.gep = getelementptr inbounds { ptr, ptr }, ptr %7, i64 0, i32 1
+  %.fca.1.gep = getelementptr inbounds i8, ptr %7, i64 8
   store ptr %.fca.1.extract, ptr %.fca.1.gep, align 8
   %12 = invoke align 8 ptr @"_ZN74_$LT$core..cell..RefMut$LT$T$GT$$u20$as$u20$core..ops..deref..DerefMut$GT$9deref_mut17heef58d0dc59a1b01E"(ptr nonnull align 8 %7)
           to label %15 unwind label %13
@@ -1079,7 +1079,7 @@ define void @_ZN22serde_derive_internals9internals4ctxt4Ctxt16error_spanned_by17
   %.fca.0.extract = extractvalue { ptr, ptr } %9, 0
   store ptr %.fca.0.extract, ptr %7, align 8
   %.fca.1.extract = extractvalue { ptr, ptr } %9, 1
-  %.fca.1.gep = getelementptr inbounds { ptr, ptr }, ptr %7, i64 0, i32 1
+  %.fca.1.gep = getelementptr inbounds i8, ptr %7, i64 8
   store ptr %.fca.1.extract, ptr %.fca.1.gep, align 8
   %14 = invoke align 8 ptr @"_ZN74_$LT$core..cell..RefMut$LT$T$GT$$u20$as$u20$core..ops..deref..DerefMut$GT$9deref_mut17heef58d0dc59a1b01E"(ptr nonnull align 8 %7)
           to label %17 unwind label %15
@@ -1151,7 +1151,7 @@ define void @_ZN22serde_derive_internals9internals4ctxt4Ctxt16error_spanned_by17
   %.fca.0.extract = extractvalue { ptr, ptr } %8, 0
   store ptr %.fca.0.extract, ptr %7, align 8
   %.fca.1.extract = extractvalue { ptr, ptr } %8, 1
-  %.fca.1.gep = getelementptr inbounds { ptr, ptr }, ptr %7, i64 0, i32 1
+  %.fca.1.gep = getelementptr inbounds i8, ptr %7, i64 8
   store ptr %.fca.1.extract, ptr %.fca.1.gep, align 8
   %9 = invoke align 8 ptr @"_ZN74_$LT$core..cell..RefMut$LT$T$GT$$u20$as$u20$core..ops..deref..DerefMut$GT$9deref_mut17heef58d0dc59a1b01E"(ptr nonnull align 8 %7)
           to label %12 unwind label %10
@@ -1205,7 +1205,7 @@ define void @_ZN22serde_derive_internals9internals4ctxt4Ctxt16error_spanned_by17
   %.fca.0.extract = extractvalue { ptr, ptr } %8, 0
   store ptr %.fca.0.extract, ptr %7, align 8
   %.fca.1.extract = extractvalue { ptr, ptr } %8, 1
-  %.fca.1.gep = getelementptr inbounds { ptr, ptr }, ptr %7, i64 0, i32 1
+  %.fca.1.gep = getelementptr inbounds i8, ptr %7, i64 8
   store ptr %.fca.1.extract, ptr %.fca.1.gep, align 8
   %9 = invoke align 8 ptr @"_ZN74_$LT$core..cell..RefMut$LT$T$GT$$u20$as$u20$core..ops..deref..DerefMut$GT$9deref_mut17heef58d0dc59a1b01E"(ptr nonnull align 8 %7)
           to label %12 unwind label %10
@@ -1259,7 +1259,7 @@ define void @_ZN22serde_derive_internals9internals4ctxt4Ctxt16error_spanned_by17
   %.fca.0.extract = extractvalue { ptr, ptr } %8, 0
   store ptr %.fca.0.extract, ptr %7, align 8
   %.fca.1.extract = extractvalue { ptr, ptr } %8, 1
-  %.fca.1.gep = getelementptr inbounds { ptr, ptr }, ptr %7, i64 0, i32 1
+  %.fca.1.gep = getelementptr inbounds i8, ptr %7, i64 8
   store ptr %.fca.1.extract, ptr %.fca.1.gep, align 8
   %9 = invoke align 8 ptr @"_ZN74_$LT$core..cell..RefMut$LT$T$GT$$u20$as$u20$core..ops..deref..DerefMut$GT$9deref_mut17heef58d0dc59a1b01E"(ptr nonnull align 8 %7)
           to label %12 unwind label %10

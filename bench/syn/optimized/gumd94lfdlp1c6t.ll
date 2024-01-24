@@ -22,7 +22,7 @@ define hidden void @"_ZN3syn4data7parsing25scan_lenient_discriminant28_$u7b$$u7b
   %4 = alloca { i64, [6 x i64] }, align 8
   %5 = tail call align 8 ptr @"_ZN66_$LT$syn..parse..StepCursor$u20$as$u20$core..ops..deref..Deref$GT$5deref17h53f065b65b32a41aE"(ptr align 8 %2)
   %6 = load ptr, ptr %5, align 8, !noundef !5
-  %7 = getelementptr inbounds { ptr, ptr }, ptr %5, i64 0, i32 1
+  %7 = getelementptr inbounds i8, ptr %5, i64 8
   %8 = load ptr, ptr %7, align 8, !noundef !5
   %9 = icmp ne ptr %1, null
   tail call void @llvm.assume(i1 %9)
@@ -35,13 +35,13 @@ define hidden void @"_ZN3syn4data7parsing25scan_lenient_discriminant28_$u7b$$u7b
 13:                                               ; preds = %3
   %14 = call align 8 ptr @"_ZN66_$LT$syn..parse..StepCursor$u20$as$u20$core..ops..deref..Deref$GT$5deref17h53f065b65b32a41aE"(ptr align 8 %2)
   %15 = load ptr, ptr %14, align 8, !noundef !5
-  %16 = getelementptr inbounds { ptr, ptr }, ptr %14, i64 0, i32 1
+  %16 = getelementptr inbounds i8, ptr %14, i64 8
   br label %21
 
 17:                                               ; preds = %3
-  %18 = getelementptr inbounds { [1 x i64], { { ptr, ptr }, { { [2 x i32], i32 }, {} }, [1 x i32], { ptr, ptr } } }, ptr %4, i64 0, i32 1, i32 3
+  %18 = getelementptr inbounds i8, ptr %4, i64 40
   %19 = load ptr, ptr %18, align 8, !noundef !5
-  %20 = getelementptr inbounds { [1 x i64], { { ptr, ptr }, { { [2 x i32], i32 }, {} }, [1 x i32], { ptr, ptr } } }, ptr %4, i64 0, i32 1, i32 3, i32 1
+  %20 = getelementptr inbounds i8, ptr %4, i64 48
   br label %21
 
 21:                                               ; preds = %17, %13
@@ -49,11 +49,11 @@ define hidden void @"_ZN3syn4data7parsing25scan_lenient_discriminant28_$u7b$$u7b
   %.sink11 = phi i8 [ 1, %17 ], [ 0, %13 ]
   %.sink10 = phi ptr [ %19, %17 ], [ %15, %13 ]
   %22 = load ptr, ptr %.sink12, align 8, !noundef !5
-  %23 = getelementptr inbounds { [1 x i64], { i8, [7 x i8], { ptr, ptr } } }, ptr %0, i64 0, i32 1
+  %23 = getelementptr inbounds i8, ptr %0, i64 8
   store i8 %.sink11, ptr %23, align 8
-  %24 = getelementptr inbounds { [1 x i64], { i8, [7 x i8], { ptr, ptr } } }, ptr %0, i64 0, i32 1, i32 2
+  %24 = getelementptr inbounds i8, ptr %0, i64 16
   store ptr %.sink10, ptr %24, align 8
-  %25 = getelementptr inbounds { [1 x i64], { i8, [7 x i8], { ptr, ptr } } }, ptr %0, i64 0, i32 1, i32 2, i32 1
+  %25 = getelementptr inbounds i8, ptr %0, i64 24
   store ptr %22, ptr %25, align 8
   store i64 0, ptr %0, align 8
   ret void

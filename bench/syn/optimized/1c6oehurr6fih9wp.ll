@@ -39,13 +39,13 @@ define void @_ZN3syn5token8printing5punct17h7f580e26278ed053E(ptr align 1 %0, i6
   %.fca.0.extract = extractvalue { ptr, ptr } %22, 0
   store ptr %.fca.0.extract, ptr %14, align 8
   %.fca.1.extract = extractvalue { ptr, ptr } %22, 1
-  %.fca.1.gep = getelementptr inbounds { ptr, ptr }, ptr %14, i64 0, i32 1
+  %.fca.1.gep = getelementptr inbounds i8, ptr %14, i64 8
   store ptr %.fca.1.extract, ptr %.fca.1.gep, align 8
   %23 = tail call { ptr, ptr } @"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$4iter17h357bb96852576375E"(ptr align 4 %2, i64 %3)
   %.fca.0.extract1 = extractvalue { ptr, ptr } %23, 0
   store ptr %.fca.0.extract1, ptr %13, align 8
   %.fca.1.extract3 = extractvalue { ptr, ptr } %23, 1
-  %.fca.1.gep4 = getelementptr inbounds { ptr, ptr }, ptr %13, i64 0, i32 1
+  %.fca.1.gep4 = getelementptr inbounds i8, ptr %13, i64 8
   store ptr %.fca.1.extract3, ptr %.fca.1.gep4, align 8
   %24 = call i32 @"_ZN96_$LT$core..str..iter..Chars$u20$as$u20$core..iter..traits..double_ended..DoubleEndedIterator$GT$9next_back17hf5d43e9cd4e36cb5E"(ptr nonnull align 8 %14), !range !5
   %25 = call i32 @"_ZN4core6option15Option$LT$T$GT$6unwrap17h66cdc5ce65ec7e5bE"(i32 %24, ptr nonnull align 8 @anon.add284342e141497acc5cb35fd8844b3.2), !range !6

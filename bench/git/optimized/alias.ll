@@ -4,7 +4,6 @@ target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:
 target triple = "x86_64-unknown-linux-gnu"
 
 %struct.config_alias_data = type { ptr, ptr, ptr }
-%struct.strbuf = type { i64, i64, ptr }
 
 @sane_ctype = external local_unnamed_addr constant [256 x i8], align 16
 @split_cmdline_errors = internal unnamed_addr constant [3 x ptr] [ptr @.str.2, ptr @.str.3, ptr @.str.4], align 16
@@ -19,7 +18,7 @@ define dso_local ptr @alias_lookup(ptr noundef %alias) local_unnamed_addr #0 {
 entry:
   %data = alloca %struct.config_alias_data, align 8
   store ptr %alias, ptr %data, align 8
-  %v = getelementptr inbounds %struct.config_alias_data, ptr %data, i64 0, i32 1
+  %v = getelementptr inbounds i8, ptr %data, i64 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %v, i8 0, i64 16, i1 false)
   call void @read_early_config(ptr noundef nonnull @config_alias_cb, ptr noundef nonnull %data) #8
   %0 = load ptr, ptr %v, align 8
@@ -64,12 +63,12 @@ if.then1:                                         ; preds = %if.end
   br i1 %tobool4.not, label %if.then5, label %return
 
 if.then5:                                         ; preds = %if.then1
-  %v = getelementptr inbounds %struct.config_alias_data, ptr %d, i64 0, i32 1
+  %v = getelementptr inbounds i8, ptr %d, i64 8
   %call6 = tail call i32 @git_config_string(ptr noundef nonnull %v, ptr noundef %key, ptr noundef %value) #8
   br label %return
 
 if.else:                                          ; preds = %if.end
-  %list = getelementptr inbounds %struct.config_alias_data, ptr %d, i64 0, i32 2
+  %list = getelementptr inbounds i8, ptr %d, i64 16
   %3 = load ptr, ptr %list, align 8
   %tobool8.not = icmp eq ptr %3, null
   br i1 %tobool8.not, label %return, label %if.then9
@@ -87,7 +86,7 @@ return:                                           ; preds = %if.then1, %if.then9
 define dso_local void @list_aliases(ptr noundef %list) local_unnamed_addr #0 {
 entry:
   %data = alloca %struct.config_alias_data, align 8
-  %list1 = getelementptr inbounds %struct.config_alias_data, ptr %data, i64 0, i32 2
+  %list1 = getelementptr inbounds i8, ptr %data, i64 16
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %data, i8 0, i64 16, i1 false)
   store ptr %list, ptr %list1, align 8
   call void @read_early_config(ptr noundef nonnull @config_alias_cb, ptr noundef nonnull %data) #8
@@ -102,8 +101,8 @@ entry:
   br i1 %tobool.not73, label %for.end14, label %for.body.lr.ph
 
 for.body.lr.ph:                                   ; preds = %entry
-  %len.i.i = getelementptr inbounds %struct.strbuf, ptr %buf, i64 0, i32 1
-  %buf.i = getelementptr inbounds %struct.strbuf, ptr %buf, i64 0, i32 2
+  %len.i.i = getelementptr inbounds i8, ptr %buf, i64 8
+  %buf.i = getelementptr inbounds i8, ptr %buf, i64 16
   br label %for.body
 
 for.body:                                         ; preds = %for.body.lr.ph, %strbuf_addch.exit72
@@ -270,7 +269,7 @@ strbuf_addch.exit72:                              ; preds = %strbuf_avail.exit.i
   %32 = load i64, ptr %len.i.i, align 8
   %arrayidx3.i67 = getelementptr inbounds i8, ptr %31, i64 %32
   store i8 0, ptr %arrayidx3.i67, align 1
-  %incdec.ptr13 = getelementptr inbounds ptr, ptr %argp.074, i64 1
+  %incdec.ptr13 = getelementptr inbounds i8, ptr %argp.074, i64 8
   %33 = load ptr, ptr %incdec.ptr13, align 8
   %tobool.not = icmp eq ptr %33, null
   br i1 %tobool.not, label %for.end14, label %for.body, !llvm.loop !8

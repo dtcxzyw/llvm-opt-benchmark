@@ -4,15 +4,6 @@ target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:
 target triple = "x86_64-unknown-linux-gnu"
 
 %struct.timespec = type { i64, i64 }
-%"class.folly::detail::CancellationState" = type { ptr, %"struct.std::atomic", ptr, %"class.std::thread::id" }
-%"struct.std::atomic" = type { %"struct.std::__atomic_base" }
-%"struct.std::__atomic_base" = type { i64 }
-%"class.std::thread::id" = type { i64 }
-%"class.folly::CancellationCallback" = type <{ ptr, ptr, ptr, [8 x i8], %"class.folly::Function", ptr, %"struct.std::atomic.0", [7 x i8] }>
-%"class.folly::Function" = type { %"union.folly::detail::function::Data", ptr, ptr }
-%"union.folly::detail::function::Data" = type { ptr, [40 x i8] }
-%"struct.std::atomic.0" = type { %"struct.std::__atomic_base.1" }
-%"struct.std::__atomic_base.1" = type { i8 }
 
 $__clang_call_terminate = comdat any
 
@@ -64,19 +55,19 @@ declare void @_ZdlPv(ptr noundef) local_unnamed_addr #4
 define noundef zeroext i1 @_ZN5folly6detail17CancellationState14tryAddCallbackEPNS_20CancellationCallbackEb(ptr noundef nonnull align 8 dereferenceable(32) %this, ptr noundef %callback, i1 noundef zeroext %incrementRefCountIfSuccessful) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %__ts.i.i.i = alloca %struct.timespec, align 8
-  %state_.i = getelementptr inbounds %"class.folly::detail::CancellationState", ptr %this, i64 0, i32 1
+  %state_.i = getelementptr inbounds i8, ptr %this, i64 8
   %0 = load atomic i64, ptr %state_.i acquire, align 8
   %and.i.i29.i = and i64 %0, 1
   %cmp.i.not.i30.i = icmp eq i64 %and.i.i29.i, 0
   br i1 %cmp.i.not.i30.i, label %"_ZZN5folly6detail17CancellationState14tryAddCallbackEPNS_20CancellationCallbackEbENK3$_0clEm.exit.lr.ph.i", label %if.then.i.i
 
 "_ZZN5folly6detail17CancellationState14tryAddCallbackEPNS_20CancellationCallbackEbENK3$_0clEm.exit.lr.ph.i": ; preds = %entry
-  %tv_nsec.i.i.i = getelementptr inbounds %struct.timespec, ptr %__ts.i.i.i, i64 0, i32 1
+  %tv_nsec.i.i.i = getelementptr inbounds i8, ptr %__ts.i.i.i, i64 8
   br label %"_ZZN5folly6detail17CancellationState14tryAddCallbackEPNS_20CancellationCallbackEbENK3$_0clEm.exit.i"
 
 if.then.i.i:                                      ; preds = %if.end12.i, %entry
-  %callback_.i.i.i = getelementptr inbounds %"class.folly::CancellationCallback", ptr %callback, i64 0, i32 4
-  %call_.i.i.i.i = getelementptr inbounds %"class.folly::CancellationCallback", ptr %callback, i64 0, i32 4, i32 1
+  %callback_.i.i.i = getelementptr inbounds i8, ptr %callback, i64 32
+  %call_.i.i.i.i = getelementptr inbounds i8, ptr %callback, i64 80
   %1 = load ptr, ptr %call_.i.i.i.i, align 16, !tbaa !10
   invoke void %1(ptr noundef nonnull align 16 dereferenceable(48) %callback_.i.i.i)
           to label %return unwind label %terminate.lpad.i.i.i
@@ -163,19 +154,19 @@ if.end12.i:                                       ; preds = %_ZNSt13__atomic_bas
   br i1 %cmp.i.not.i.i, label %"_ZZN5folly6detail17CancellationState14tryAddCallbackEPNS_20CancellationCallbackEbENK3$_0clEm.exit.i", label %if.then.i.i, !llvm.loop !23
 
 if.end:                                           ; preds = %acquire_fail10.i.i
-  %head_ = getelementptr inbounds %"class.folly::detail::CancellationState", ptr %this, i64 0, i32 2
+  %head_ = getelementptr inbounds i8, ptr %this, i64 16
   %12 = load ptr, ptr %head_, align 8, !tbaa !24
   %cmp.not = icmp eq ptr %12, null
   br i1 %cmp.not, label %if.end4, label %if.then2
 
 if.then2:                                         ; preds = %if.end
-  %prevNext_ = getelementptr inbounds %"class.folly::CancellationCallback", ptr %12, i64 0, i32 1
+  %prevNext_ = getelementptr inbounds i8, ptr %12, i64 8
   store ptr %callback, ptr %prevNext_, align 8, !tbaa !29
   br label %if.end4
 
 if.end4:                                          ; preds = %if.then2, %if.end
   store ptr %12, ptr %callback, align 16, !tbaa !34
-  %prevNext_8 = getelementptr inbounds %"class.folly::CancellationCallback", ptr %callback, i64 0, i32 1
+  %prevNext_8 = getelementptr inbounds i8, ptr %callback, i64 8
   store ptr %head_, ptr %prevNext_8, align 8, !tbaa !29
   store ptr %callback, ptr %head_, align 8, !tbaa !24
   %. = select i1 %incrementRefCountIfSuccessful, i64 -6, i64 2
@@ -190,7 +181,7 @@ return:                                           ; preds = %"_ZZN5folly6detail1
 ; Function Attrs: mustprogress nofree norecurse nounwind willreturn memory(argmem: readwrite) uwtable
 define void @_ZN5folly6detail17CancellationState28unlockAndIncrementTokenCountEv(ptr nocapture noundef nonnull align 8 dereferenceable(32) %this) local_unnamed_addr #5 align 2 {
 entry:
-  %state_ = getelementptr inbounds %"class.folly::detail::CancellationState", ptr %this, i64 0, i32 1
+  %state_ = getelementptr inbounds i8, ptr %this, i64 8
   %0 = atomicrmw sub ptr %state_, i64 -6 release, align 8
   ret void
 }
@@ -198,7 +189,7 @@ entry:
 ; Function Attrs: mustprogress nofree norecurse nounwind willreturn memory(argmem: readwrite) uwtable
 define void @_ZN5folly6detail17CancellationState6unlockEv(ptr nocapture noundef nonnull align 8 dereferenceable(32) %this) local_unnamed_addr #5 align 2 {
 entry:
-  %state_ = getelementptr inbounds %"class.folly::detail::CancellationState", ptr %this, i64 0, i32 1
+  %state_ = getelementptr inbounds i8, ptr %this, i64 8
   %0 = atomicrmw sub ptr %state_, i64 2 release, align 8
   ret void
 }
@@ -213,9 +204,9 @@ define void @_ZN5folly6detail17CancellationState14removeCallbackEPNS_20Cancellat
 entry:
   %__ts.i.i = alloca %struct.timespec, align 8
   %__ts.i.i.i = alloca %struct.timespec, align 8
-  %state_.i = getelementptr inbounds %"class.folly::detail::CancellationState", ptr %this, i64 0, i32 1
+  %state_.i = getelementptr inbounds i8, ptr %this, i64 8
   %0 = load atomic i64, ptr %state_.i monotonic, align 8
-  %tv_nsec.i.i.i = getelementptr inbounds %struct.timespec, ptr %__ts.i.i.i, i64 0, i32 1
+  %tv_nsec.i.i.i = getelementptr inbounds i8, ptr %__ts.i.i.i, i64 8
   br label %do.body.i
 
 do.body.i:                                        ; preds = %_ZNSt13__atomic_baseImE21compare_exchange_weakERmmSt12memory_orderS2_.exit.i, %entry
@@ -286,7 +277,7 @@ _ZNSt13__atomic_baseImE21compare_exchange_weakERmmSt12memory_orderS2_.exit.i: ; 
   br label %do.body.i
 
 _ZN5folly6detail17CancellationState4lockEv.exit:  ; preds = %do.cond.i
-  %prevNext_ = getelementptr inbounds %"class.folly::CancellationCallback", ptr %callback, i64 0, i32 1
+  %prevNext_ = getelementptr inbounds i8, ptr %callback, i64 8
   %8 = load ptr, ptr %prevNext_, align 8, !tbaa !29
   %cmp11.not = icmp eq ptr %8, null
   br i1 %cmp11.not, label %if.end19, label %if.then
@@ -299,7 +290,7 @@ if.then:                                          ; preds = %_ZN5folly6detail17C
 
 if.then15:                                        ; preds = %if.then
   %10 = load ptr, ptr %prevNext_, align 8, !tbaa !29
-  %prevNext_18 = getelementptr inbounds %"class.folly::CancellationCallback", ptr %9, i64 0, i32 1
+  %prevNext_18 = getelementptr inbounds i8, ptr %9, i64 8
   store ptr %10, ptr %prevNext_18, align 8, !tbaa !29
   br label %if.end
 
@@ -310,25 +301,25 @@ if.end:                                           ; preds = %if.then15, %if.then
 
 if.end19:                                         ; preds = %_ZN5folly6detail17CancellationState4lockEv.exit
   %12 = atomicrmw sub ptr %state_.i, i64 2 release, align 8
-  %signallingThreadId_ = getelementptr inbounds %"class.folly::detail::CancellationState", ptr %this, i64 0, i32 3
+  %signallingThreadId_ = getelementptr inbounds i8, ptr %this, i64 24
   %agg.tmp.sroa.0.0.copyload = load i64, ptr %signallingThreadId_, align 8, !tbaa.struct !38
   %call.i = tail call i64 @pthread_self() #11
   %cmp.i48 = icmp eq i64 %agg.tmp.sroa.0.0.copyload, %call.i
   br i1 %cmp.i48, label %if.then25, label %while.cond30.preheader
 
 while.cond30.preheader:                           ; preds = %if.end19
-  %callbackCompleted_ = getelementptr inbounds %"class.folly::CancellationCallback", ptr %callback, i64 0, i32 6
+  %callbackCompleted_ = getelementptr inbounds i8, ptr %callback, i64 104
   %13 = load atomic i8, ptr %callbackCompleted_ acquire, align 1
   %14 = and i8 %13, 1
   %tobool.i.i.not55 = icmp eq i8 %14, 0
   br i1 %tobool.i.i.not55, label %while.body33.lr.ph, label %if.end35
 
 while.body33.lr.ph:                               ; preds = %while.cond30.preheader
-  %tv_nsec.i.i = getelementptr inbounds %struct.timespec, ptr %__ts.i.i, i64 0, i32 1
+  %tv_nsec.i.i = getelementptr inbounds i8, ptr %__ts.i.i, i64 8
   br label %while.body33
 
 if.then25:                                        ; preds = %if.end19
-  %destructorHasRunInsideCallback_ = getelementptr inbounds %"class.folly::CancellationCallback", ptr %callback, i64 0, i32 5
+  %destructorHasRunInsideCallback_ = getelementptr inbounds i8, ptr %callback, i64 96
   %15 = load ptr, ptr %destructorHasRunInsideCallback_, align 16, !tbaa !40
   %cmp26.not = icmp eq ptr %15, null
   br i1 %cmp26.not, label %if.end35, label %if.then27
@@ -392,7 +383,7 @@ if.end35:                                         ; preds = %_ZN5folly6detail7Sl
 
 return.sink.split:                                ; preds = %if.end35, %if.end
   %vtable.i53 = load ptr, ptr %this, align 8, !tbaa !7
-  %vfn.i54 = getelementptr inbounds ptr, ptr %vtable.i53, i64 1
+  %vfn.i54 = getelementptr inbounds i8, ptr %vtable.i53, i64 8
   %22 = load ptr, ptr %vfn.i54, align 8
   call void %22(ptr noundef nonnull align 8 dereferenceable(32) %this) #8
   br label %return
@@ -405,9 +396,9 @@ return:                                           ; preds = %return.sink.split, 
 define void @_ZN5folly6detail17CancellationState4lockEv(ptr nocapture noundef nonnull align 8 dereferenceable(32) %this) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %__ts.i.i = alloca %struct.timespec, align 8
-  %state_ = getelementptr inbounds %"class.folly::detail::CancellationState", ptr %this, i64 0, i32 1
+  %state_ = getelementptr inbounds i8, ptr %this, i64 8
   %0 = load atomic i64, ptr %state_ monotonic, align 8
-  %tv_nsec.i.i = getelementptr inbounds %struct.timespec, ptr %__ts.i.i, i64 0, i32 1
+  %tv_nsec.i.i = getelementptr inbounds i8, ptr %__ts.i.i, i64 8
   br label %do.body
 
 do.body:                                          ; preds = %_ZNSt13__atomic_baseImE21compare_exchange_weakERmmSt12memory_orderS2_.exit, %entry
@@ -484,14 +475,14 @@ do.end:                                           ; preds = %do.cond
 ; Function Attrs: mustprogress nounwind uwtable
 define void @_ZN5folly6detail17CancellationState28unlockAndDecrementTokenCountEv(ptr noundef nonnull align 8 dereferenceable(32) %this) local_unnamed_addr #0 align 2 {
 entry:
-  %state_ = getelementptr inbounds %"class.folly::detail::CancellationState", ptr %this, i64 0, i32 1
+  %state_ = getelementptr inbounds i8, ptr %this, i64 8
   %0 = atomicrmw sub ptr %state_, i64 10 acq_rel, align 8
   %cmp = icmp ugt i64 %0, 17
   br i1 %cmp, label %if.end, label %delete.notnull
 
 delete.notnull:                                   ; preds = %entry
   %vtable = load ptr, ptr %this, align 8, !tbaa !7
-  %vfn = getelementptr inbounds ptr, ptr %vtable, i64 1
+  %vfn = getelementptr inbounds i8, ptr %vtable, i64 8
   %1 = load ptr, ptr %vfn, align 8
   tail call void %1(ptr noundef nonnull align 8 dereferenceable(32) %this) #8
   br label %if.end
@@ -509,14 +500,14 @@ entry:
   %__ts.i.i.i29 = alloca %struct.timespec, align 8
   %__ts.i.i.i = alloca %struct.timespec, align 8
   %destructorHasRunInsideCallback = alloca i8, align 1
-  %state_.i = getelementptr inbounds %"class.folly::detail::CancellationState", ptr %this, i64 0, i32 1
+  %state_.i = getelementptr inbounds i8, ptr %this, i64 8
   %0 = load atomic i64, ptr %state_.i acquire, align 8
   %and.i25.i = and i64 %0, 1
   %cmp.i.not26.i = icmp eq i64 %and.i25.i, 0
   br i1 %cmp.i.not26.i, label %if.else.lr.ph.i, label %return
 
 if.else.lr.ph.i:                                  ; preds = %entry
-  %tv_nsec.i.i.i = getelementptr inbounds %struct.timespec, ptr %__ts.i.i.i, i64 0, i32 1
+  %tv_nsec.i.i.i = getelementptr inbounds i8, ptr %__ts.i.i.i, i64 8
   br label %if.else.i
 
 if.else.i:                                        ; preds = %if.end13.i, %if.else.lr.ph.i
@@ -590,10 +581,10 @@ if.end13.i:                                       ; preds = %_ZNSt13__atomic_bas
 
 if.end:                                           ; preds = %if.else7.i
   %call.i = tail call i64 @pthread_self() #11
-  %signallingThreadId_ = getelementptr inbounds %"class.folly::detail::CancellationState", ptr %this, i64 0, i32 3
+  %signallingThreadId_ = getelementptr inbounds i8, ptr %this, i64 24
   store i64 %call.i, ptr %signallingThreadId_, align 8, !tbaa.struct !38
-  %head_ = getelementptr inbounds %"class.folly::detail::CancellationState", ptr %this, i64 0, i32 2
-  %tv_nsec.i.i.i31 = getelementptr inbounds %struct.timespec, ptr %__ts.i.i.i29, i64 0, i32 1
+  %head_ = getelementptr inbounds i8, ptr %this, i64 16
+  %tv_nsec.i.i.i31 = getelementptr inbounds i8, ptr %__ts.i.i.i29, i64 8
   %8 = load ptr, ptr %head_, align 8, !tbaa !24
   %cmp.not54 = icmp eq ptr %8, null
   br i1 %cmp.not54, label %while.end, label %while.body
@@ -606,20 +597,20 @@ while.body:                                       ; preds = %if.end, %cleanup
   br i1 %cmp6.not.not, label %if.end10, label %if.then7
 
 if.then7:                                         ; preds = %while.body
-  %prevNext_ = getelementptr inbounds %"class.folly::CancellationCallback", ptr %10, i64 0, i32 1
+  %prevNext_ = getelementptr inbounds i8, ptr %10, i64 8
   store ptr %head_, ptr %prevNext_, align 8, !tbaa !29
   br label %if.end10
 
 if.end10:                                         ; preds = %if.then7, %while.body
-  %prevNext_11 = getelementptr inbounds %"class.folly::CancellationCallback", ptr %9, i64 0, i32 1
+  %prevNext_11 = getelementptr inbounds i8, ptr %9, i64 8
   store ptr null, ptr %prevNext_11, align 8, !tbaa !29
   %11 = atomicrmw sub ptr %state_.i, i64 2 release, align 8
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %destructorHasRunInsideCallback) #8
   store i8 0, ptr %destructorHasRunInsideCallback, align 1, !tbaa !41
-  %destructorHasRunInsideCallback_ = getelementptr inbounds %"class.folly::CancellationCallback", ptr %9, i64 0, i32 5
+  %destructorHasRunInsideCallback_ = getelementptr inbounds i8, ptr %9, i64 96
   store ptr %destructorHasRunInsideCallback, ptr %destructorHasRunInsideCallback_, align 16, !tbaa !40
-  %callback_.i = getelementptr inbounds %"class.folly::CancellationCallback", ptr %9, i64 0, i32 4
-  %call_.i.i = getelementptr inbounds %"class.folly::CancellationCallback", ptr %9, i64 0, i32 4, i32 1
+  %callback_.i = getelementptr inbounds i8, ptr %9, i64 32
+  %call_.i.i = getelementptr inbounds i8, ptr %9, i64 80
   %12 = load ptr, ptr %call_.i.i, align 16, !tbaa !10
   invoke void %12(ptr noundef nonnull align 16 dereferenceable(48) %callback_.i)
           to label %_ZN5folly20CancellationCallback14invokeCallbackEv.exit unwind label %terminate.lpad.i
@@ -638,7 +629,7 @@ _ZN5folly20CancellationCallback14invokeCallbackEv.exit: ; preds = %if.end10
 
 if.then13:                                        ; preds = %_ZN5folly20CancellationCallback14invokeCallbackEv.exit
   store ptr null, ptr %destructorHasRunInsideCallback_, align 16, !tbaa !40
-  %callbackCompleted_ = getelementptr inbounds %"class.folly::CancellationCallback", ptr %9, i64 0, i32 6
+  %callbackCompleted_ = getelementptr inbounds i8, ptr %9, i64 104
   store atomic i8 1, ptr %callbackCompleted_ release, align 1
   br label %if.end15
 
@@ -739,14 +730,14 @@ return:                                           ; preds = %if.end13.i, %while.
 define noundef zeroext i1 @_ZN5folly6detail17CancellationState31tryLockAndCancelUnlessCancelledEv(ptr nocapture noundef nonnull align 8 dereferenceable(32) %this) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %__ts.i.i = alloca %struct.timespec, align 8
-  %state_ = getelementptr inbounds %"class.folly::detail::CancellationState", ptr %this, i64 0, i32 1
+  %state_ = getelementptr inbounds i8, ptr %this, i64 8
   %0 = load atomic i64, ptr %state_ acquire, align 8
   %and.i25 = and i64 %0, 1
   %cmp.i.not26 = icmp eq i64 %and.i25, 0
   br i1 %cmp.i.not26, label %if.else.lr.ph, label %cleanup
 
 if.else.lr.ph:                                    ; preds = %entry
-  %tv_nsec.i.i = getelementptr inbounds %struct.timespec, ptr %__ts.i.i, i64 0, i32 1
+  %tv_nsec.i.i = getelementptr inbounds i8, ptr %__ts.i.i, i64 8
   br label %if.else
 
 if.else:                                          ; preds = %if.end13, %if.else.lr.ph

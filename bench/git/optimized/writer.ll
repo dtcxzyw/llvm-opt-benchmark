@@ -7,11 +7,6 @@ target triple = "x86_64-unknown-linux-gnu"
 %struct.reftable_index_record = type { i64, %struct.strbuf }
 %struct.obj_index_tree_node = type { %struct.strbuf, ptr, i64, i64 }
 %struct.common_prefix_arg = type { ptr, i32 }
-%struct.reftable_writer = type { ptr, ptr, i32, %struct.strbuf, i64, i64, i64, %struct.reftable_write_options, ptr, ptr, %struct.block_writer, ptr, i64, i64, ptr, %struct.reftable_stats }
-%struct.reftable_write_options = type { i8, i32, i8, i32, i32, i32, i8 }
-%struct.block_writer = type { ptr, i32, i32, i32, i32, i32, ptr, i32, i32, %struct.strbuf, i32 }
-%struct.reftable_stats = type { i32, %struct.reftable_block_stats, %struct.reftable_block_stats, %struct.reftable_block_stats, %struct.reftable_block_stats, i32 }
-%struct.reftable_block_stats = type { i32, i32, i32, i32, i32, i64, i64 }
 %struct.reftable_record = type { i8, %union.anon }
 %union.anon = type { %struct.reftable_ref_record }
 %struct.reftable_ref_record = type { ptr, i64, i32, %union.anon.0 }
@@ -34,9 +29,9 @@ target triple = "x86_64-unknown-linux-gnu"
 define dso_local ptr @reftable_new_writer(ptr noundef %writer_func, ptr noundef %writer_arg, ptr nocapture noundef %opts) local_unnamed_addr #0 {
 entry:
   %call = tail call ptr @reftable_calloc(i64 noundef 408) #13
-  %last_key = getelementptr inbounds %struct.reftable_writer, ptr %call, i64 0, i32 10, i32 9
+  %last_key = getelementptr inbounds i8, ptr %call, i64 168
   tail call void @strbuf_init(ptr noundef nonnull %last_key, i64 noundef 0) #13
-  %restart_interval.i = getelementptr inbounds %struct.reftable_write_options, ptr %opts, i64 0, i32 3
+  %restart_interval.i = getelementptr inbounds i8, ptr %opts, i64 12
   %0 = load i32, ptr %restart_interval.i, align 4
   %cmp.i = icmp eq i32 %0, 0
   br i1 %cmp.i, label %if.then.i, label %if.end.i
@@ -46,7 +41,7 @@ if.then.i:                                        ; preds = %entry
   br label %if.end.i
 
 if.end.i:                                         ; preds = %if.then.i, %entry
-  %hash_id.i = getelementptr inbounds %struct.reftable_write_options, ptr %opts, i64 0, i32 4
+  %hash_id.i = getelementptr inbounds i8, ptr %opts, i64 16
   %1 = load i32, ptr %hash_id.i, align 4
   %cmp2.i = icmp eq i32 %1, 0
   br i1 %cmp2.i, label %if.then3.i, label %if.end5.i
@@ -56,7 +51,7 @@ if.then3.i:                                       ; preds = %if.end.i
   br label %if.end5.i
 
 if.end5.i:                                        ; preds = %if.then3.i, %if.end.i
-  %block_size.i = getelementptr inbounds %struct.reftable_write_options, ptr %opts, i64 0, i32 1
+  %block_size.i = getelementptr inbounds i8, ptr %opts, i64 4
   %2 = load i32, ptr %block_size.i, align 4
   %cmp6.i = icmp eq i32 %2, 0
   br i1 %cmp6.i, label %options_set_defaults.exit.thread, label %options_set_defaults.exit
@@ -74,19 +69,19 @@ if.then:                                          ; preds = %options_set_default
   unreachable
 
 if.end:                                           ; preds = %options_set_defaults.exit.thread, %options_set_defaults.exit
-  %last_key1 = getelementptr inbounds %struct.reftable_writer, ptr %call, i64 0, i32 3
+  %last_key1 = getelementptr inbounds i8, ptr %call, i64 24
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %last_key1, ptr noundef nonnull align 8 dereferenceable(24) @__const.writer_add_record.key, i64 24, i1 false)
   %3 = load i32, ptr %block_size.i, align 4
   %conv = zext i32 %3 to i64
   %call3 = tail call ptr @reftable_calloc(i64 noundef %conv) #13
-  %block = getelementptr inbounds %struct.reftable_writer, ptr %call, i64 0, i32 8
+  %block = getelementptr inbounds i8, ptr %call, i64 104
   store ptr %call3, ptr %block, align 8
   store ptr %writer_func, ptr %call, align 8
-  %write_arg = getelementptr inbounds %struct.reftable_writer, ptr %call, i64 0, i32 1
+  %write_arg = getelementptr inbounds i8, ptr %call, i64 8
   store ptr %writer_arg, ptr %write_arg, align 8
-  %opts4 = getelementptr inbounds %struct.reftable_writer, ptr %call, i64 0, i32 7
+  %opts4 = getelementptr inbounds i8, ptr %call, i64 72
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(28) %opts4, ptr noundef nonnull align 4 dereferenceable(28) %opts, i64 28, i1 false)
-  %next.i = getelementptr inbounds %struct.reftable_writer, ptr %call, i64 0, i32 4
+  %next.i = getelementptr inbounds i8, ptr %call, i64 48
   %4 = load i64, ptr %next.i, align 8
   %cmp.i11 = icmp eq i64 %4, 0
   br i1 %cmp.i11, label %if.then.i16, label %writer_reinit_block_writer.exit
@@ -104,19 +99,19 @@ if.then.i16:                                      ; preds = %if.end
 writer_reinit_block_writer.exit:                  ; preds = %if.end, %if.then.i16
   %block_start.0.i = phi i32 [ %call1.i, %if.then.i16 ], [ 0, %if.end ]
   tail call void @strbuf_release(ptr noundef nonnull %last_key1) #13
-  %block_writer_data.i = getelementptr inbounds %struct.reftable_writer, ptr %call, i64 0, i32 10
+  %block_writer_data.i = getelementptr inbounds i8, ptr %call, i64 120
   %7 = load ptr, ptr %block, align 8
-  %block_size.i13 = getelementptr inbounds %struct.reftable_writer, ptr %call, i64 0, i32 7, i32 1
+  %block_size.i13 = getelementptr inbounds i8, ptr %call, i64 76
   %8 = load i32, ptr %block_size.i13, align 4
-  %hash_id.i14 = getelementptr inbounds %struct.reftable_writer, ptr %call, i64 0, i32 7, i32 4
+  %hash_id.i14 = getelementptr inbounds i8, ptr %call, i64 88
   %9 = load i32, ptr %hash_id.i14, align 8
   %call3.i = tail call i32 @hash_size(i32 noundef %9) #13
   tail call void @block_writer_init(ptr noundef nonnull %block_writer_data.i, i8 noundef zeroext 114, ptr noundef %7, i32 noundef %8, i32 noundef %block_start.0.i, i32 noundef %call3.i) #13
-  %block_writer.i = getelementptr inbounds %struct.reftable_writer, ptr %call, i64 0, i32 9
+  %block_writer.i = getelementptr inbounds i8, ptr %call, i64 112
   store ptr %block_writer_data.i, ptr %block_writer.i, align 8
-  %restart_interval.i15 = getelementptr inbounds %struct.reftable_writer, ptr %call, i64 0, i32 7, i32 3
+  %restart_interval.i15 = getelementptr inbounds i8, ptr %call, i64 84
   %10 = load i32, ptr %restart_interval.i15, align 4
-  %restart_interval7.i = getelementptr inbounds %struct.reftable_writer, ptr %call, i64 0, i32 10, i32 3
+  %restart_interval7.i = getelementptr inbounds i8, ptr %call, i64 136
   store i32 %10, ptr %restart_interval7.i, align 8
   ret ptr %call
 }
@@ -134,9 +129,9 @@ declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
 define dso_local void @reftable_writer_set_limits(ptr nocapture noundef writeonly %w, i64 noundef %min, i64 noundef %max) local_unnamed_addr #4 {
 entry:
-  %min_update_index = getelementptr inbounds %struct.reftable_writer, ptr %w, i64 0, i32 5
+  %min_update_index = getelementptr inbounds i8, ptr %w, i64 56
   store i64 %min, ptr %min_update_index, align 8
-  %max_update_index = getelementptr inbounds %struct.reftable_writer, ptr %w, i64 0, i32 6
+  %max_update_index = getelementptr inbounds i8, ptr %w, i64 64
   store i64 %max, ptr %max_update_index, align 8
   ret void
 }
@@ -148,7 +143,7 @@ entry:
   br i1 %tobool.not, label %return, label %if.end
 
 if.end:                                           ; preds = %entry
-  %block = getelementptr inbounds %struct.reftable_writer, ptr %w, i64 0, i32 8
+  %block = getelementptr inbounds i8, ptr %w, i64 104
   %0 = load ptr, ptr %block, align 8
   tail call void @reftable_free(ptr noundef %0) #13
   tail call void @reftable_free(ptr noundef nonnull %w) #13
@@ -167,28 +162,28 @@ entry:
   %h = alloca %struct.strbuf, align 8
   %h29 = alloca %struct.strbuf, align 8
   store i8 114, ptr %rec, align 8
-  %u = getelementptr inbounds %struct.reftable_record, ptr %rec, i64 0, i32 1
+  %u = getelementptr inbounds i8, ptr %rec, i64 8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(88) %u, ptr noundef nonnull align 8 dereferenceable(88) %ref, i64 88, i1 false)
   %0 = load ptr, ptr %ref, align 8
   %tobool.not = icmp eq ptr %0, null
   br i1 %tobool.not, label %return, label %if.end
 
 if.end:                                           ; preds = %entry
-  %update_index = getelementptr inbounds %struct.reftable_ref_record, ptr %ref, i64 0, i32 1
+  %update_index = getelementptr inbounds i8, ptr %ref, i64 8
   %1 = load i64, ptr %update_index, align 8
-  %min_update_index = getelementptr inbounds %struct.reftable_writer, ptr %w, i64 0, i32 5
+  %min_update_index = getelementptr inbounds i8, ptr %w, i64 56
   %2 = load i64, ptr %min_update_index, align 8
   %cmp = icmp ult i64 %1, %2
   br i1 %cmp, label %return, label %lor.lhs.false
 
 lor.lhs.false:                                    ; preds = %if.end
-  %max_update_index = getelementptr inbounds %struct.reftable_writer, ptr %w, i64 0, i32 6
+  %max_update_index = getelementptr inbounds i8, ptr %w, i64 64
   %3 = load i64, ptr %max_update_index, align 8
   %cmp2 = icmp ugt i64 %1, %3
   br i1 %cmp2, label %return, label %if.end4
 
 if.end4:                                          ; preds = %lor.lhs.false
-  %update_index7 = getelementptr inbounds %struct.reftable_record, ptr %rec, i64 0, i32 1, i32 0, i32 1
+  %update_index7 = getelementptr inbounds i8, ptr %rec, i64 16
   %4 = load i64, ptr %update_index7, align 8
   %sub = sub i64 %4, %2
   store i64 %sub, ptr %update_index7, align 8
@@ -197,7 +192,7 @@ if.end4:                                          ; preds = %lor.lhs.false
   br i1 %cmp8, label %return, label %if.end10
 
 if.end10:                                         ; preds = %if.end4
-  %skip_index_objects = getelementptr inbounds %struct.reftable_writer, ptr %w, i64 0, i32 7, i32 2
+  %skip_index_objects = getelementptr inbounds i8, ptr %w, i64 80
   %bf.load = load i8, ptr %skip_index_objects, align 8
   %bf.clear = and i8 %bf.load, 1
   %tobool11.not = icmp eq i8 %bf.clear, 0
@@ -211,7 +206,7 @@ land.lhs.true:                                    ; preds = %if.end10
 if.then14:                                        ; preds = %land.lhs.true
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %h, ptr noundef nonnull align 8 dereferenceable(24) @__const.writer_add_record.key, i64 24, i1 false)
   %call15 = call ptr @reftable_ref_record_val1(ptr noundef nonnull %ref) #13
-  %hash_id = getelementptr inbounds %struct.reftable_writer, ptr %w, i64 0, i32 7, i32 4
+  %hash_id = getelementptr inbounds i8, ptr %w, i64 88
   %5 = load i32, ptr %hash_id, align 8
   %call17 = call i32 @hash_size(i32 noundef %5) #13
   %conv = sext i32 %call17 to i64
@@ -234,7 +229,7 @@ land.lhs.true25:                                  ; preds = %if.end18
 if.then28:                                        ; preds = %land.lhs.true25
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %h29, ptr noundef nonnull align 8 dereferenceable(24) @__const.writer_add_record.key, i64 24, i1 false)
   %call30 = call ptr @reftable_ref_record_val2(ptr noundef nonnull %ref) #13
-  %hash_id32 = getelementptr inbounds %struct.reftable_writer, ptr %w, i64 0, i32 7, i32 4
+  %hash_id32 = getelementptr inbounds i8, ptr %w, i64 88
   %6 = load i32, ptr %hash_id32, align 8
   %call33 = call i32 @hash_size(i32 noundef %6) #13
   %conv34 = sext i32 %call33 to i64
@@ -254,15 +249,15 @@ entry:
   %key = alloca %struct.strbuf, align 8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %key, ptr noundef nonnull align 8 dereferenceable(24) @__const.writer_add_record.key, i64 24, i1 false)
   call void @reftable_record_key(ptr noundef %rec, ptr noundef nonnull %key) #13
-  %last_key = getelementptr inbounds %struct.reftable_writer, ptr %w, i64 0, i32 3
+  %last_key = getelementptr inbounds i8, ptr %w, i64 24
   %call = call i32 @strbuf_cmp(ptr noundef nonnull %last_key, ptr noundef nonnull %key) #13
   %cmp = icmp sgt i32 %call, -1
   br i1 %cmp, label %done, label %if.end
 
 if.end:                                           ; preds = %entry
-  %len2.i = getelementptr inbounds %struct.reftable_writer, ptr %w, i64 0, i32 3, i32 1
+  %len2.i = getelementptr inbounds i8, ptr %w, i64 32
   store i64 0, ptr %len2.i, align 8
-  %buf.i = getelementptr inbounds %struct.reftable_writer, ptr %w, i64 0, i32 3, i32 2
+  %buf.i = getelementptr inbounds i8, ptr %w, i64 40
   %0 = load ptr, ptr %buf.i, align 8
   %cmp3.not.i = icmp eq ptr %0, @strbuf_slopbuf
   br i1 %cmp3.not.i, label %strbuf_setlen.exit, label %if.then4.i
@@ -273,14 +268,14 @@ if.then4.i:                                       ; preds = %if.end
 
 strbuf_setlen.exit:                               ; preds = %if.end, %if.then4.i
   call void @strbuf_addbuf(ptr noundef nonnull %last_key, ptr noundef nonnull %key) #13
-  %block_writer = getelementptr inbounds %struct.reftable_writer, ptr %w, i64 0, i32 9
+  %block_writer = getelementptr inbounds i8, ptr %w, i64 112
   %1 = load ptr, ptr %block_writer, align 8
   %tobool.not = icmp eq ptr %1, null
   br i1 %tobool.not, label %if.then3, label %if.end5
 
 if.then3:                                         ; preds = %strbuf_setlen.exit
   %call4 = call zeroext i8 @reftable_record_type(ptr noundef %rec) #13
-  %next.i = getelementptr inbounds %struct.reftable_writer, ptr %w, i64 0, i32 4
+  %next.i = getelementptr inbounds i8, ptr %w, i64 48
   %2 = load i64, ptr %next.i, align 8
   %cmp.i = icmp eq i64 %2, 0
   br i1 %cmp.i, label %if.then.i, label %writer_reinit_block_writer.exit
@@ -298,19 +293,19 @@ if.then.i:                                        ; preds = %if.then3
 writer_reinit_block_writer.exit:                  ; preds = %if.then3, %if.then.i
   %block_start.0.i = phi i32 [ %call1.i, %if.then.i ], [ 0, %if.then3 ]
   call void @strbuf_release(ptr noundef nonnull %last_key) #13
-  %block_writer_data.i = getelementptr inbounds %struct.reftable_writer, ptr %w, i64 0, i32 10
-  %block.i = getelementptr inbounds %struct.reftable_writer, ptr %w, i64 0, i32 8
+  %block_writer_data.i = getelementptr inbounds i8, ptr %w, i64 120
+  %block.i = getelementptr inbounds i8, ptr %w, i64 104
   %5 = load ptr, ptr %block.i, align 8
-  %block_size.i = getelementptr inbounds %struct.reftable_writer, ptr %w, i64 0, i32 7, i32 1
+  %block_size.i = getelementptr inbounds i8, ptr %w, i64 76
   %6 = load i32, ptr %block_size.i, align 4
-  %hash_id.i = getelementptr inbounds %struct.reftable_writer, ptr %w, i64 0, i32 7, i32 4
+  %hash_id.i = getelementptr inbounds i8, ptr %w, i64 88
   %7 = load i32, ptr %hash_id.i, align 8
   %call3.i = call i32 @hash_size(i32 noundef %7) #13
   call void @block_writer_init(ptr noundef nonnull %block_writer_data.i, i8 noundef zeroext %call4, ptr noundef %5, i32 noundef %6, i32 noundef %block_start.0.i, i32 noundef %call3.i) #13
   store ptr %block_writer_data.i, ptr %block_writer, align 8
-  %restart_interval.i = getelementptr inbounds %struct.reftable_writer, ptr %w, i64 0, i32 7, i32 3
+  %restart_interval.i = getelementptr inbounds i8, ptr %w, i64 84
   %8 = load i32, ptr %restart_interval.i, align 4
-  %restart_interval7.i = getelementptr inbounds %struct.reftable_writer, ptr %w, i64 0, i32 10, i32 3
+  %restart_interval7.i = getelementptr inbounds i8, ptr %w, i64 136
   store i32 %8, ptr %restart_interval7.i, align 8
   br label %if.end5
 
@@ -327,7 +322,7 @@ if.end10:                                         ; preds = %if.end5
 
 if.end14:                                         ; preds = %if.end10
   %call15 = call zeroext i8 @reftable_record_type(ptr noundef %rec) #13
-  %next.i15 = getelementptr inbounds %struct.reftable_writer, ptr %w, i64 0, i32 4
+  %next.i15 = getelementptr inbounds i8, ptr %w, i64 48
   %10 = load i64, ptr %next.i15, align 8
   %cmp.i16 = icmp eq i64 %10, 0
   br i1 %cmp.i16, label %if.then.i27, label %writer_reinit_block_writer.exit33
@@ -345,19 +340,19 @@ if.then.i27:                                      ; preds = %if.end14
 writer_reinit_block_writer.exit33:                ; preds = %if.end14, %if.then.i27
   %block_start.0.i17 = phi i32 [ %call1.i32, %if.then.i27 ], [ 0, %if.end14 ]
   call void @strbuf_release(ptr noundef nonnull %last_key) #13
-  %block_writer_data.i19 = getelementptr inbounds %struct.reftable_writer, ptr %w, i64 0, i32 10
-  %block.i20 = getelementptr inbounds %struct.reftable_writer, ptr %w, i64 0, i32 8
+  %block_writer_data.i19 = getelementptr inbounds i8, ptr %w, i64 120
+  %block.i20 = getelementptr inbounds i8, ptr %w, i64 104
   %13 = load ptr, ptr %block.i20, align 8
-  %block_size.i21 = getelementptr inbounds %struct.reftable_writer, ptr %w, i64 0, i32 7, i32 1
+  %block_size.i21 = getelementptr inbounds i8, ptr %w, i64 76
   %14 = load i32, ptr %block_size.i21, align 4
-  %hash_id.i22 = getelementptr inbounds %struct.reftable_writer, ptr %w, i64 0, i32 7, i32 4
+  %hash_id.i22 = getelementptr inbounds i8, ptr %w, i64 88
   %15 = load i32, ptr %hash_id.i22, align 8
   %call3.i23 = call i32 @hash_size(i32 noundef %15) #13
   call void @block_writer_init(ptr noundef nonnull %block_writer_data.i19, i8 noundef zeroext %call15, ptr noundef %13, i32 noundef %14, i32 noundef %block_start.0.i17, i32 noundef %call3.i23) #13
   store ptr %block_writer_data.i19, ptr %block_writer, align 8
-  %restart_interval.i25 = getelementptr inbounds %struct.reftable_writer, ptr %w, i64 0, i32 7, i32 3
+  %restart_interval.i25 = getelementptr inbounds i8, ptr %w, i64 84
   %16 = load i32, ptr %restart_interval.i25, align 4
-  %restart_interval7.i26 = getelementptr inbounds %struct.reftable_writer, ptr %w, i64 0, i32 10, i32 3
+  %restart_interval7.i26 = getelementptr inbounds i8, ptr %w, i64 136
   store i32 %16, ptr %restart_interval7.i26, align 8
   %call17 = call i32 @block_writer_add(ptr noundef nonnull %block_writer_data.i19, ptr noundef %rec) #13
   %cmp18 = icmp eq i32 %call17, -1
@@ -380,11 +375,11 @@ declare i32 @hash_size(i32 noundef) local_unnamed_addr #1
 define internal fastcc void @writer_index_hash(ptr noundef %w, ptr noundef %hash) unnamed_addr #0 {
 entry:
   %want = alloca %struct.obj_index_tree_node, align 8
-  %next = getelementptr inbounds %struct.reftable_writer, ptr %w, i64 0, i32 4
+  %next = getelementptr inbounds i8, ptr %w, i64 48
   %0 = load i64, ptr %next, align 8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %want, ptr noundef nonnull align 8 dereferenceable(24) %hash, i64 24, i1 false)
-  %offsets = getelementptr inbounds %struct.obj_index_tree_node, ptr %want, i64 0, i32 1
-  %obj_index_tree = getelementptr inbounds %struct.reftable_writer, ptr %w, i64 0, i32 14
+  %offsets = getelementptr inbounds i8, ptr %want, i64 24
+  %obj_index_tree = getelementptr inbounds i8, ptr %w, i64 224
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %offsets, i8 0, i64 24, i1 false)
   %call = call ptr @tree_search(ptr noundef nonnull %want, ptr noundef nonnull %obj_index_tree, ptr noundef nonnull @obj_index_tree_node_compare, i32 noundef 0) #13
   %tobool.not = icmp eq ptr %call, null
@@ -393,7 +388,7 @@ entry:
 strbuf_setlen.exit:                               ; preds = %entry
   %call2 = call ptr @reftable_malloc(i64 noundef 48) #13
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %call2, ptr noundef nonnull align 8 dereferenceable(48) @__const.writer_index_hash.empty, i64 48, i1 false)
-  %len2.i = getelementptr inbounds %struct.strbuf, ptr %call2, i64 0, i32 1
+  %len2.i = getelementptr inbounds i8, ptr %call2, i64 8
   store i64 0, ptr %len2.i, align 8
   call void @strbuf_addbuf(ptr noundef nonnull %call2, ptr noundef nonnull %hash) #13
   %call6 = call ptr @tree_search(ptr noundef nonnull %call2, ptr noundef nonnull %obj_index_tree, ptr noundef nonnull @obj_index_tree_node_compare, i32 noundef 1) #13
@@ -405,28 +400,28 @@ if.else:                                          ; preds = %entry
 
 if.end:                                           ; preds = %if.else, %strbuf_setlen.exit
   %key.0 = phi ptr [ %1, %if.else ], [ %call2, %strbuf_setlen.exit ]
-  %offset_len8 = getelementptr inbounds %struct.obj_index_tree_node, ptr %key.0, i64 0, i32 2
+  %offset_len8 = getelementptr inbounds i8, ptr %key.0, i64 32
   %2 = load i64, ptr %offset_len8, align 8
   %cmp.not = icmp eq i64 %2, 0
   br i1 %cmp.not, label %if.end13, label %land.lhs.true
 
 land.lhs.true:                                    ; preds = %if.end
-  %offsets9 = getelementptr inbounds %struct.obj_index_tree_node, ptr %key.0, i64 0, i32 1
+  %offsets9 = getelementptr inbounds i8, ptr %key.0, i64 24
   %3 = load ptr, ptr %offsets9, align 8
   %4 = getelementptr i64, ptr %3, i64 %2
-  %arrayidx = getelementptr i64, ptr %4, i64 -1
+  %arrayidx = getelementptr i8, ptr %4, i64 -8
   %5 = load i64, ptr %arrayidx, align 8
   %cmp11 = icmp eq i64 %5, %0
   br i1 %cmp11, label %return, label %if.end13
 
 if.end13:                                         ; preds = %land.lhs.true, %if.end
-  %offset_cap15 = getelementptr inbounds %struct.obj_index_tree_node, ptr %key.0, i64 0, i32 3
+  %offset_cap15 = getelementptr inbounds i8, ptr %key.0, i64 40
   %6 = load i64, ptr %offset_cap15, align 8
   %cmp16 = icmp eq i64 %2, %6
   br i1 %cmp16, label %if.then17, label %if.end13.if.end25_crit_edge
 
 if.end13.if.end25_crit_edge:                      ; preds = %if.end13
-  %offsets26.phi.trans.insert = getelementptr inbounds %struct.obj_index_tree_node, ptr %key.0, i64 0, i32 1
+  %offsets26.phi.trans.insert = getelementptr inbounds i8, ptr %key.0, i64 24
   %.pre = load ptr, ptr %offsets26.phi.trans.insert, align 8
   br label %if.end25
 
@@ -434,7 +429,7 @@ if.then17:                                        ; preds = %if.end13
   %mul = shl i64 %2, 1
   %add = or disjoint i64 %mul, 1
   store i64 %add, ptr %offset_cap15, align 8
-  %offsets20 = getelementptr inbounds %struct.obj_index_tree_node, ptr %key.0, i64 0, i32 1
+  %offsets20 = getelementptr inbounds i8, ptr %key.0, i64 24
   %7 = load ptr, ptr %offsets20, align 8
   %mul22 = shl i64 %add, 3
   %call23 = call ptr @reftable_realloc(ptr noundef %7, i64 noundef %mul22) #13
@@ -502,7 +497,7 @@ entry:
   %rec.i = alloca %struct.reftable_record, align 8
   %cleaned_message = alloca %struct.strbuf, align 8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %cleaned_message, ptr noundef nonnull align 8 dereferenceable(24) @__const.writer_add_record.key, i64 24, i1 false)
-  %value_type = getelementptr inbounds %struct.reftable_log_record, ptr %log, i64 0, i32 2
+  %value_type = getelementptr inbounds i8, ptr %log, i64 16
   %0 = load i32, ptr %value_type, align 8
   %cmp = icmp eq i32 %0, 0
   br i1 %cmp, label %if.then, label %if.end
@@ -510,9 +505,9 @@ entry:
 if.then:                                          ; preds = %entry
   call void @llvm.lifetime.start.p0(i64 96, ptr nonnull %rec.i)
   store i8 103, ptr %rec.i, align 8
-  %u.i = getelementptr inbounds %struct.reftable_record, ptr %rec.i, i64 0, i32 1
+  %u.i = getelementptr inbounds i8, ptr %rec.i, i64 8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(80) %u.i, ptr noundef nonnull align 8 dereferenceable(80) %log, i64 80, i1 false)
-  %block_writer.i = getelementptr inbounds %struct.reftable_writer, ptr %w, i64 0, i32 9
+  %block_writer.i = getelementptr inbounds i8, ptr %w, i64 112
   %1 = load ptr, ptr %block_writer.i, align 8
   %tobool.not.i = icmp eq ptr %1, null
   br i1 %tobool.not.i, label %if.end7.i, label %land.lhs.true.i
@@ -528,10 +523,10 @@ if.then.i:                                        ; preds = %land.lhs.true.i
   br i1 %cmp4.i, label %reftable_writer_add_log_verbatim.exit, label %if.end7.i
 
 if.end7.i:                                        ; preds = %if.then.i, %land.lhs.true.i, %if.then
-  %pending_padding.i = getelementptr inbounds %struct.reftable_writer, ptr %w, i64 0, i32 2
+  %pending_padding.i = getelementptr inbounds i8, ptr %w, i64 16
   %2 = load i32, ptr %pending_padding.i, align 8
   %conv8.i = sext i32 %2 to i64
-  %next.i = getelementptr inbounds %struct.reftable_writer, ptr %w, i64 0, i32 4
+  %next.i = getelementptr inbounds i8, ptr %w, i64 48
   %3 = load i64, ptr %next.i, align 8
   %sub.i = sub i64 %3, %conv8.i
   store i64 %sub.i, ptr %next.i, align 8
@@ -550,9 +545,9 @@ if.end:                                           ; preds = %entry
   br i1 %tobool.not, label %return, label %if.end2
 
 if.end2:                                          ; preds = %if.end
-  %message = getelementptr inbounds %struct.reftable_log_record, ptr %log, i64 0, i32 3, i32 0, i32 6
+  %message = getelementptr inbounds i8, ptr %log, i64 72
   %5 = load ptr, ptr %message, align 8
-  %exact_log_message = getelementptr inbounds %struct.reftable_writer, ptr %w, i64 0, i32 7, i32 6
+  %exact_log_message = getelementptr inbounds i8, ptr %w, i64 96
   %bf.load = load i8, ptr %exact_log_message, align 8
   %6 = and i8 %bf.load, 2
   %tobool3.not = icmp ne i8 %6, 0
@@ -563,13 +558,13 @@ if.end2:                                          ; preds = %if.end
 if.then7:                                         ; preds = %if.end2
   %call.i12 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %5) #15
   call void @strbuf_add(ptr noundef nonnull %cleaned_message, ptr noundef nonnull %5, i64 noundef %call.i12) #13
-  %len = getelementptr inbounds %struct.strbuf, ptr %cleaned_message, i64 0, i32 1
+  %len = getelementptr inbounds i8, ptr %cleaned_message, i64 8
   %7 = load i64, ptr %len, align 8
   %tobool10.not34 = icmp eq i64 %7, 0
   br i1 %tobool10.not34, label %while.end, label %land.rhs.lr.ph
 
 land.rhs.lr.ph:                                   ; preds = %if.then7
-  %buf = getelementptr inbounds %struct.strbuf, ptr %cleaned_message, i64 0, i32 2
+  %buf = getelementptr inbounds i8, ptr %cleaned_message, i64 16
   br label %land.rhs
 
 land.rhs:                                         ; preds = %land.rhs.lr.ph, %strbuf_setlen.exit
@@ -607,7 +602,7 @@ strbuf_setlen.exit:                               ; preds = %if.end.i, %if.then4
   br i1 %tobool10.not, label %while.end, label %land.rhs, !llvm.loop !8
 
 while.end:                                        ; preds = %land.rhs, %strbuf_setlen.exit, %if.then7
-  %buf16 = getelementptr inbounds %struct.strbuf, ptr %cleaned_message, i64 0, i32 2
+  %buf16 = getelementptr inbounds i8, ptr %cleaned_message, i64 16
   %13 = load ptr, ptr %buf16, align 8
   %call17 = call ptr @strchr(ptr noundef nonnull dereferenceable(1) %13, i32 noundef 10) #15
   %tobool18.not = icmp eq ptr %call17, null
@@ -622,9 +617,9 @@ if.end20:                                         ; preds = %while.end
 if.end24:                                         ; preds = %if.end20, %if.end2
   call void @llvm.lifetime.start.p0(i64 96, ptr nonnull %rec.i16)
   store i8 103, ptr %rec.i16, align 8
-  %u.i17 = getelementptr inbounds %struct.reftable_record, ptr %rec.i16, i64 0, i32 1
+  %u.i17 = getelementptr inbounds i8, ptr %rec.i16, i64 8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(80) %u.i17, ptr noundef nonnull align 8 dereferenceable(80) %log, i64 80, i1 false)
-  %block_writer.i18 = getelementptr inbounds %struct.reftable_writer, ptr %w, i64 0, i32 9
+  %block_writer.i18 = getelementptr inbounds i8, ptr %w, i64 112
   %15 = load ptr, ptr %block_writer.i18, align 8
   %tobool.not.i19 = icmp eq ptr %15, null
   br i1 %tobool.not.i19, label %if.end7.i23, label %land.lhs.true.i20
@@ -640,10 +635,10 @@ if.then.i30:                                      ; preds = %land.lhs.true.i20
   br i1 %cmp4.i32, label %reftable_writer_add_log_verbatim.exit33, label %if.end7.i23
 
 if.end7.i23:                                      ; preds = %if.then.i30, %land.lhs.true.i20, %if.end24
-  %pending_padding.i24 = getelementptr inbounds %struct.reftable_writer, ptr %w, i64 0, i32 2
+  %pending_padding.i24 = getelementptr inbounds i8, ptr %w, i64 16
   %16 = load i32, ptr %pending_padding.i24, align 8
   %conv8.i25 = sext i32 %16 to i64
-  %next.i26 = getelementptr inbounds %struct.reftable_writer, ptr %w, i64 0, i32 4
+  %next.i26 = getelementptr inbounds i8, ptr %w, i64 48
   %17 = load i64, ptr %next.i26, align 8
   %sub.i27 = sub i64 %17, %conv8.i25
   store i64 %sub.i27, ptr %next.i26, align 8
@@ -712,14 +707,14 @@ entry:
   %footer = alloca [72 x i8], align 16
   %header = alloca [28 x i8], align 16
   %call = tail call fastcc i32 @writer_finish_public_section(ptr noundef %w), !range !5
-  %next = getelementptr inbounds %struct.reftable_writer, ptr %w, i64 0, i32 4
+  %next = getelementptr inbounds i8, ptr %w, i64 48
   %0 = load i64, ptr %next, align 8
   %cmp = icmp eq i64 %0, 0
   %cmp1.not = icmp eq i32 %call, 0
   br i1 %cmp1.not, label %if.end, label %done
 
 if.end:                                           ; preds = %entry
-  %pending_padding = getelementptr inbounds %struct.reftable_writer, ptr %w, i64 0, i32 2
+  %pending_padding = getelementptr inbounds i8, ptr %w, i64 16
   store i32 0, ptr %pending_padding, align 8
   br i1 %cmp, label %if.then3, label %if.end13
 
@@ -734,7 +729,7 @@ if.then.i:                                        ; preds = %if.then3
   %conv.i = zext nneg i32 %1 to i64
   %call.i = call ptr @reftable_calloc(i64 noundef %conv.i) #13
   %2 = load ptr, ptr %w, align 8
-  %write_arg.i = getelementptr inbounds %struct.reftable_writer, ptr %w, i64 0, i32 1
+  %write_arg.i = getelementptr inbounds i8, ptr %w, i64 8
   %3 = load ptr, ptr %write_arg.i, align 8
   %4 = load i32, ptr %pending_padding, align 8
   %conv4.i = sext i32 %4 to i64
@@ -751,7 +746,7 @@ if.end.i:                                         ; preds = %if.then.i
 padded_write.exit:                                ; preds = %if.then3, %if.end.i
   store i32 0, ptr %pending_padding, align 8
   %5 = load ptr, ptr %w, align 8
-  %write_arg14.i = getelementptr inbounds %struct.reftable_writer, ptr %w, i64 0, i32 1
+  %write_arg14.i = getelementptr inbounds i8, ptr %w, i64 8
   %6 = load ptr, ptr %write_arg14.i, align 8
   %call15.i = call i64 %5(ptr noundef %6, ptr noundef nonnull %header, i64 noundef %conv7) #13
   %conv16.i = trunc i64 %call15.i to i32
@@ -763,7 +758,7 @@ if.end13:                                         ; preds = %padded_write.exit, 
   %call15 = call fastcc i32 @writer_write_header(ptr noundef nonnull %w, ptr noundef nonnull %footer)
   %idx.ext = sext i32 %call15 to i64
   %add.ptr = getelementptr inbounds i8, ptr %footer, i64 %idx.ext
-  %index_offset = getelementptr inbounds %struct.reftable_writer, ptr %w, i64 0, i32 15, i32 1, i32 6
+  %index_offset = getelementptr inbounds i8, ptr %w, i64 272
   %7 = load i64, ptr %index_offset, align 8
   %shr.i = lshr i64 %7, 56
   %conv.i34 = trunc i64 %shr.i to i8
@@ -796,10 +791,10 @@ if.end13:                                         ; preds = %padded_write.exit, 
   %arrayidx21.i = getelementptr inbounds i8, ptr %add.ptr, i64 7
   store i8 %conv20.i, ptr %arrayidx21.i, align 1
   %add.ptr16 = getelementptr inbounds i8, ptr %add.ptr, i64 8
-  %offset = getelementptr inbounds %struct.reftable_writer, ptr %w, i64 0, i32 15, i32 2, i32 5
+  %offset = getelementptr inbounds i8, ptr %w, i64 304
   %8 = load i64, ptr %offset, align 8
   %shl = shl i64 %8, 5
-  %object_id_len = getelementptr inbounds %struct.reftable_writer, ptr %w, i64 0, i32 15, i32 5
+  %object_id_len = getelementptr inbounds i8, ptr %w, i64 400
   %9 = load i32, ptr %object_id_len, align 8
   %conv19 = sext i32 %9 to i64
   %or = or i64 %shl, %conv19
@@ -834,7 +829,7 @@ if.end13:                                         ; preds = %padded_write.exit, 
   %arrayidx21.i56 = getelementptr inbounds i8, ptr %add.ptr, i64 15
   store i8 %conv20.i55, ptr %arrayidx21.i56, align 1
   %add.ptr20 = getelementptr inbounds i8, ptr %add.ptr, i64 16
-  %index_offset23 = getelementptr inbounds %struct.reftable_writer, ptr %w, i64 0, i32 15, i32 2, i32 6
+  %index_offset23 = getelementptr inbounds i8, ptr %w, i64 312
   %10 = load i64, ptr %index_offset23, align 8
   %shr.i57 = lshr i64 %10, 56
   %conv.i58 = trunc i64 %shr.i57 to i8
@@ -867,7 +862,7 @@ if.end13:                                         ; preds = %padded_write.exit, 
   %arrayidx21.i78 = getelementptr inbounds i8, ptr %add.ptr, i64 23
   store i8 %conv20.i77, ptr %arrayidx21.i78, align 1
   %add.ptr24 = getelementptr inbounds i8, ptr %add.ptr, i64 24
-  %offset26 = getelementptr inbounds %struct.reftable_writer, ptr %w, i64 0, i32 15, i32 4, i32 5
+  %offset26 = getelementptr inbounds i8, ptr %w, i64 384
   %11 = load i64, ptr %offset26, align 8
   %shr.i79 = lshr i64 %11, 56
   %conv.i80 = trunc i64 %shr.i79 to i8
@@ -900,7 +895,7 @@ if.end13:                                         ; preds = %padded_write.exit, 
   %arrayidx21.i100 = getelementptr inbounds i8, ptr %add.ptr, i64 31
   store i8 %conv20.i99, ptr %arrayidx21.i100, align 1
   %add.ptr27 = getelementptr inbounds i8, ptr %add.ptr, i64 32
-  %index_offset30 = getelementptr inbounds %struct.reftable_writer, ptr %w, i64 0, i32 15, i32 4, i32 6
+  %index_offset30 = getelementptr inbounds i8, ptr %w, i64 392
   %12 = load i64, ptr %index_offset30, align 8
   %shr.i101 = lshr i64 %12, 56
   %conv.i102 = trunc i64 %shr.i101 to i8
@@ -968,7 +963,7 @@ if.then.i142:                                     ; preds = %if.end13
   %conv.i143 = zext nneg i32 %15 to i64
   %call.i144 = call ptr @reftable_calloc(i64 noundef %conv.i143) #13
   %16 = load ptr, ptr %w, align 8
-  %write_arg.i145 = getelementptr inbounds %struct.reftable_writer, ptr %w, i64 0, i32 1
+  %write_arg.i145 = getelementptr inbounds i8, ptr %w, i64 8
   %17 = load ptr, ptr %write_arg.i145, align 8
   %18 = load i32, ptr %pending_padding, align 8
   %conv4.i146 = sext i32 %18 to i64
@@ -985,7 +980,7 @@ if.end.i150:                                      ; preds = %if.then.i142
 if.end11.i136:                                    ; preds = %if.end.i150, %if.end13
   store i32 0, ptr %pending_padding, align 8
   %19 = load ptr, ptr %w, align 8
-  %write_arg14.i137 = getelementptr inbounds %struct.reftable_writer, ptr %w, i64 0, i32 1
+  %write_arg14.i137 = getelementptr inbounds i8, ptr %w, i64 8
   %20 = load ptr, ptr %write_arg14.i137, align 8
   %call15.i138 = call i64 %19(ptr noundef %20, ptr noundef nonnull %footer, i64 noundef %conv41) #13
   %conv16.i139 = trunc i64 %call15.i138 to i32
@@ -1001,15 +996,15 @@ padded_write.exit151:                             ; preds = %if.then.i142, %if.e
 
 done:                                             ; preds = %if.then.i, %padded_write.exit151, %padded_write.exit, %entry
   %err.0 = phi i32 [ %call, %entry ], [ %conv16..i, %padded_write.exit ], [ %spec.store.select, %padded_write.exit151 ], [ %conv6.i, %if.then.i ]
-  %block_writer_data = getelementptr inbounds %struct.reftable_writer, ptr %w, i64 0, i32 10
+  %block_writer_data = getelementptr inbounds i8, ptr %w, i64 120
   call void @block_writer_release(ptr noundef nonnull %block_writer_data) #13
-  %index_len.i = getelementptr inbounds %struct.reftable_writer, ptr %w, i64 0, i32 12
+  %index_len.i = getelementptr inbounds i8, ptr %w, i64 208
   %21 = load i64, ptr %index_len.i, align 8
   %cmp8.not.i = icmp eq i64 %21, 0
   br i1 %cmp8.not.i, label %writer_clear_index.exit, label %for.body.lr.ph.i
 
 for.body.lr.ph.i:                                 ; preds = %done
-  %index.i = getelementptr inbounds %struct.reftable_writer, ptr %w, i64 0, i32 11
+  %index.i = getelementptr inbounds i8, ptr %w, i64 200
   br label %for.body.i
 
 for.body.i:                                       ; preds = %for.body.i, %for.body.lr.ph.i
@@ -1023,11 +1018,11 @@ for.body.i:                                       ; preds = %for.body.i, %for.bo
   br i1 %cmp.i152, label %for.body.i, label %writer_clear_index.exit, !llvm.loop !10
 
 writer_clear_index.exit:                          ; preds = %for.body.i, %done
-  %index2.i = getelementptr inbounds %struct.reftable_writer, ptr %w, i64 0, i32 11
+  %index2.i = getelementptr inbounds i8, ptr %w, i64 200
   %24 = load ptr, ptr %index2.i, align 8
   call void @free(ptr noundef %24) #13
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %index2.i, i8 0, i64 24, i1 false)
-  %last_key = getelementptr inbounds %struct.reftable_writer, ptr %w, i64 0, i32 3
+  %last_key = getelementptr inbounds i8, ptr %w, i64 24
   call void @strbuf_release(ptr noundef nonnull %last_key) #13
   ret i32 %err.0
 }
@@ -1037,7 +1032,7 @@ define internal fastcc i32 @writer_finish_public_section(ptr noundef %w) unnamed
 entry:
   %closure.i = alloca %struct.write_record_arg, align 8
   %common.i = alloca %struct.common_prefix_arg, align 8
-  %block_writer = getelementptr inbounds %struct.reftable_writer, ptr %w, i64 0, i32 9
+  %block_writer = getelementptr inbounds i8, ptr %w, i64 112
   %0 = load ptr, ptr %block_writer, align 8
   %tobool.not = icmp eq ptr %0, null
   br i1 %tobool.not, label %return, label %if.end
@@ -1053,14 +1048,14 @@ if.end4:                                          ; preds = %if.end
   br i1 %cmp5, label %land.lhs.true, label %if.end17
 
 land.lhs.true:                                    ; preds = %if.end4
-  %skip_index_objects = getelementptr inbounds %struct.reftable_writer, ptr %w, i64 0, i32 7, i32 2
+  %skip_index_objects = getelementptr inbounds i8, ptr %w, i64 80
   %bf.load = load i8, ptr %skip_index_objects, align 8
   %bf.clear = and i8 %bf.load, 1
   %tobool7.not = icmp eq i8 %bf.clear, 0
   br i1 %tobool7.not, label %land.lhs.true8, label %if.end17
 
 land.lhs.true8:                                   ; preds = %land.lhs.true
-  %index_blocks = getelementptr inbounds %struct.reftable_writer, ptr %w, i64 0, i32 15, i32 1, i32 3
+  %index_blocks = getelementptr inbounds i8, ptr %w, i64 252
   %1 = load i32, ptr %index_blocks, align 4
   %cmp9 = icmp sgt i32 %1, 0
   br i1 %cmp9, label %if.then11, label %if.end17
@@ -1069,26 +1064,26 @@ if.then11:                                        ; preds = %land.lhs.true8
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %closure.i)
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %common.i)
   store ptr %w, ptr %closure.i, align 8
-  %err.i = getelementptr inbounds %struct.write_record_arg, ptr %closure.i, i64 0, i32 1
+  %err.i = getelementptr inbounds i8, ptr %closure.i, i64 8
   store i32 0, ptr %err.i, align 8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %common.i, ptr noundef nonnull align 8 dereferenceable(16) @__const.writer_dump_object_index.common, i64 16, i1 false)
-  %obj_index_tree.i = getelementptr inbounds %struct.reftable_writer, ptr %w, i64 0, i32 14
+  %obj_index_tree.i = getelementptr inbounds i8, ptr %w, i64 224
   %2 = load ptr, ptr %obj_index_tree.i, align 8
   %tobool.not.i = icmp eq ptr %2, null
   br i1 %tobool.not.i, label %if.end.i, label %if.then.i
 
 if.then.i:                                        ; preds = %if.then11
   call void @infix_walk(ptr noundef nonnull %2, ptr noundef nonnull @update_common, ptr noundef nonnull %common.i) #13
-  %max.phi.trans.insert.i = getelementptr inbounds %struct.common_prefix_arg, ptr %common.i, i64 0, i32 1
+  %max.phi.trans.insert.i = getelementptr inbounds i8, ptr %common.i, i64 8
   %.pre.i = load i32, ptr %max.phi.trans.insert.i, align 8
   %3 = add nsw i32 %.pre.i, 1
   br label %if.end.i
 
 if.end.i:                                         ; preds = %if.then.i, %if.then11
   %add.i = phi i32 [ %3, %if.then.i ], [ 2, %if.then11 ]
-  %object_id_len.i = getelementptr inbounds %struct.reftable_writer, ptr %w, i64 0, i32 15, i32 5
+  %object_id_len.i = getelementptr inbounds i8, ptr %w, i64 400
   store i32 %add.i, ptr %object_id_len.i, align 8
-  %next.i.i = getelementptr inbounds %struct.reftable_writer, ptr %w, i64 0, i32 4
+  %next.i.i = getelementptr inbounds i8, ptr %w, i64 48
   %4 = load i64, ptr %next.i.i, align 8
   %cmp.i.i = icmp eq i64 %4, 0
   br i1 %cmp.i.i, label %if.then.i.i, label %writer_reinit_block_writer.exit.i
@@ -1105,21 +1100,21 @@ if.then.i.i:                                      ; preds = %if.end.i
 
 writer_reinit_block_writer.exit.i:                ; preds = %if.then.i.i, %if.end.i
   %block_start.0.i.i = phi i32 [ %call1.i.i, %if.then.i.i ], [ 0, %if.end.i ]
-  %last_key.i.i = getelementptr inbounds %struct.reftable_writer, ptr %w, i64 0, i32 3
+  %last_key.i.i = getelementptr inbounds i8, ptr %w, i64 24
   call void @strbuf_release(ptr noundef nonnull %last_key.i.i) #13
-  %block_writer_data.i.i = getelementptr inbounds %struct.reftable_writer, ptr %w, i64 0, i32 10
-  %block.i.i = getelementptr inbounds %struct.reftable_writer, ptr %w, i64 0, i32 8
+  %block_writer_data.i.i = getelementptr inbounds i8, ptr %w, i64 120
+  %block.i.i = getelementptr inbounds i8, ptr %w, i64 104
   %7 = load ptr, ptr %block.i.i, align 8
-  %block_size.i.i = getelementptr inbounds %struct.reftable_writer, ptr %w, i64 0, i32 7, i32 1
+  %block_size.i.i = getelementptr inbounds i8, ptr %w, i64 76
   %8 = load i32, ptr %block_size.i.i, align 4
-  %hash_id.i.i = getelementptr inbounds %struct.reftable_writer, ptr %w, i64 0, i32 7, i32 4
+  %hash_id.i.i = getelementptr inbounds i8, ptr %w, i64 88
   %9 = load i32, ptr %hash_id.i.i, align 8
   %call3.i.i = call i32 @hash_size(i32 noundef %9) #13
   call void @block_writer_init(ptr noundef nonnull %block_writer_data.i.i, i8 noundef zeroext 111, ptr noundef %7, i32 noundef %8, i32 noundef %block_start.0.i.i, i32 noundef %call3.i.i) #13
   store ptr %block_writer_data.i.i, ptr %block_writer, align 8
-  %restart_interval.i.i = getelementptr inbounds %struct.reftable_writer, ptr %w, i64 0, i32 7, i32 3
+  %restart_interval.i.i = getelementptr inbounds i8, ptr %w, i64 84
   %10 = load i32, ptr %restart_interval.i.i, align 4
-  %restart_interval7.i.i = getelementptr inbounds %struct.reftable_writer, ptr %w, i64 0, i32 10, i32 3
+  %restart_interval7.i.i = getelementptr inbounds i8, ptr %w, i64 136
   store i32 %10, ptr %restart_interval7.i.i, align 8
   %11 = load ptr, ptr %obj_index_tree.i, align 8
   %tobool4.not.i = icmp eq ptr %11, null
@@ -1144,7 +1139,7 @@ writer_dump_object_index.exit:                    ; preds = %writer_reinit_block
   br i1 %cmp13, label %return, label %if.end17
 
 if.end17:                                         ; preds = %writer_dump_object_index.exit, %land.lhs.true8, %land.lhs.true, %if.end4
-  %obj_index_tree = getelementptr inbounds %struct.reftable_writer, ptr %w, i64 0, i32 14
+  %obj_index_tree = getelementptr inbounds i8, ptr %w, i64 224
   %12 = load ptr, ptr %obj_index_tree, align 8
   %tobool18.not = icmp eq ptr %12, null
   br i1 %tobool18.not, label %if.end23, label %if.then19
@@ -1178,11 +1173,11 @@ entry:
   %arrayidx = getelementptr inbounds i8, ptr %dest, i64 4
   store i8 %conv, ptr %arrayidx, align 1
   %add.ptr = getelementptr inbounds i8, ptr %dest, i64 5
-  %block_size = getelementptr inbounds %struct.reftable_writer, ptr %w, i64 0, i32 7, i32 1
+  %block_size = getelementptr inbounds i8, ptr %w, i64 76
   %2 = load i32, ptr %block_size, align 4
   tail call void @put_be24(ptr noundef nonnull %add.ptr, i32 noundef %2) #13
   %add.ptr1 = getelementptr inbounds i8, ptr %dest, i64 8
-  %min_update_index = getelementptr inbounds %struct.reftable_writer, ptr %w, i64 0, i32 5
+  %min_update_index = getelementptr inbounds i8, ptr %w, i64 56
   %3 = load i64, ptr %min_update_index, align 8
   %shr.i = lshr i64 %3, 56
   %conv.i = trunc i64 %shr.i to i8
@@ -1215,7 +1210,7 @@ entry:
   %arrayidx21.i = getelementptr inbounds i8, ptr %dest, i64 15
   store i8 %conv20.i, ptr %arrayidx21.i, align 1
   %add.ptr2 = getelementptr inbounds i8, ptr %dest, i64 16
-  %max_update_index = getelementptr inbounds %struct.reftable_writer, ptr %w, i64 0, i32 6
+  %max_update_index = getelementptr inbounds i8, ptr %w, i64 64
   %4 = load i64, ptr %max_update_index, align 8
   %shr.i14 = lshr i64 %4, 56
   %conv.i15 = trunc i64 %shr.i14 to i8
@@ -1291,7 +1286,7 @@ declare void @block_writer_release(ptr noundef) local_unnamed_addr #1
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
 define dso_local nonnull ptr @reftable_writer_stats(ptr noundef readnone %w) local_unnamed_addr #6 {
 entry:
-  %stats = getelementptr inbounds %struct.reftable_writer, ptr %w, i64 0, i32 15
+  %stats = getelementptr inbounds i8, ptr %w, i64 232
   ret ptr %stats
 }
 
@@ -1313,13 +1308,13 @@ declare i32 @block_writer_add(ptr noundef, ptr noundef) local_unnamed_addr #1
 define internal fastcc i32 @writer_flush_block(ptr nocapture noundef %w) unnamed_addr #0 {
 entry:
   %ir.i = alloca %struct.reftable_index_record, align 8
-  %block_writer = getelementptr inbounds %struct.reftable_writer, ptr %w, i64 0, i32 9
+  %block_writer = getelementptr inbounds i8, ptr %w, i64 112
   %0 = load ptr, ptr %block_writer, align 8
   %tobool.not = icmp eq ptr %0, null
   br i1 %tobool.not, label %return, label %if.end
 
 if.end:                                           ; preds = %entry
-  %entries = getelementptr inbounds %struct.block_writer, ptr %0, i64 0, i32 10
+  %entries = getelementptr inbounds i8, ptr %0, i64 72
   %1 = load i32, ptr %entries, align 8
   %cmp = icmp eq i32 %1, 0
   br i1 %cmp, label %return, label %if.end3
@@ -1328,41 +1323,35 @@ if.end3:                                          ; preds = %if.end
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %ir.i)
   %call.i = tail call zeroext i8 @block_writer_type(ptr noundef nonnull %0) #13
   switch i8 %call.i, label %sw.epilog.i.i [
-    i8 114, label %sw.bb.i.i
+    i8 114, label %writer_reftable_block_stats.exit.i
     i8 111, label %sw.bb1.i.i
     i8 105, label %sw.bb3.i.i
     i8 103, label %sw.bb5.i.i
   ]
 
-sw.bb.i.i:                                        ; preds = %if.end3
-  %ref_stats.i.i = getelementptr inbounds %struct.reftable_writer, ptr %w, i64 0, i32 15, i32 1
-  br label %writer_reftable_block_stats.exit.i
-
 sw.bb1.i.i:                                       ; preds = %if.end3
-  %obj_stats.i.i = getelementptr inbounds %struct.reftable_writer, ptr %w, i64 0, i32 15, i32 2
   br label %writer_reftable_block_stats.exit.i
 
 sw.bb3.i.i:                                       ; preds = %if.end3
-  %idx_stats.i.i = getelementptr inbounds %struct.reftable_writer, ptr %w, i64 0, i32 15, i32 3
   br label %writer_reftable_block_stats.exit.i
 
 sw.bb5.i.i:                                       ; preds = %if.end3
-  %log_stats.i.i = getelementptr inbounds %struct.reftable_writer, ptr %w, i64 0, i32 15, i32 4
   br label %writer_reftable_block_stats.exit.i
 
 sw.epilog.i.i:                                    ; preds = %if.end3
   tail call void @abort() #14
   unreachable
 
-writer_reftable_block_stats.exit.i:               ; preds = %sw.bb5.i.i, %sw.bb3.i.i, %sw.bb1.i.i, %sw.bb.i.i
-  %retval.0.i.i = phi ptr [ %log_stats.i.i, %sw.bb5.i.i ], [ %idx_stats.i.i, %sw.bb3.i.i ], [ %obj_stats.i.i, %sw.bb1.i.i ], [ %ref_stats.i.i, %sw.bb.i.i ]
-  %blocks.i = getelementptr inbounds %struct.reftable_block_stats, ptr %retval.0.i.i, i64 0, i32 2
+writer_reftable_block_stats.exit.i:               ; preds = %sw.bb5.i.i, %sw.bb3.i.i, %sw.bb1.i.i, %if.end3
+  %.sink.i.i = phi i64 [ 360, %sw.bb5.i.i ], [ 320, %sw.bb3.i.i ], [ 280, %sw.bb1.i.i ], [ 240, %if.end3 ]
+  %log_stats.i.i = getelementptr inbounds i8, ptr %w, i64 %.sink.i.i
+  %blocks.i = getelementptr inbounds i8, ptr %log_stats.i.i, i64 8
   %2 = load i32, ptr %blocks.i, align 8
   %cmp.i = icmp eq i32 %2, 0
   br i1 %cmp.i, label %cond.true.i, label %cond.end.i
 
 cond.true.i:                                      ; preds = %writer_reftable_block_stats.exit.i
-  %next.i = getelementptr inbounds %struct.reftable_writer, ptr %w, i64 0, i32 4
+  %next.i = getelementptr inbounds i8, ptr %w, i64 48
   %3 = load i64, ptr %next.i, align 8
   br label %cond.end.i
 
@@ -1375,7 +1364,7 @@ cond.end.i:                                       ; preds = %cond.true.i, %write
   br i1 %cmp4.i, label %writer_flush_nonempty_block.exit, label %if.end.i
 
 if.end.i:                                         ; preds = %cond.end.i
-  %opts.i = getelementptr inbounds %struct.reftable_writer, ptr %w, i64 0, i32 7
+  %opts.i = getelementptr inbounds i8, ptr %w, i64 72
   %bf.load.i = load i8, ptr %opts.i, align 8
   %bf.clear.i = and i8 %bf.load.i, 1
   %tobool.i = icmp eq i8 %bf.clear.i, 0
@@ -1384,7 +1373,7 @@ if.end.i:                                         ; preds = %cond.end.i
   br i1 %or.cond.i, label %if.then7.i, label %if.end9.i
 
 if.then7.i:                                       ; preds = %if.end.i
-  %block_size.i = getelementptr inbounds %struct.reftable_writer, ptr %w, i64 0, i32 7, i32 1
+  %block_size.i = getelementptr inbounds i8, ptr %w, i64 76
   %5 = load i32, ptr %block_size.i, align 4
   %sub.i = sub i32 %5, %call3.i
   br label %if.end9.i
@@ -1395,57 +1384,58 @@ if.end9.i:                                        ; preds = %if.then7.i, %if.end
   br i1 %cmp10.not.i, label %if.end13.i, label %if.then12.i
 
 if.then12.i:                                      ; preds = %if.end9.i
-  %offset.i = getelementptr inbounds %struct.reftable_block_stats, ptr %retval.0.i.i, i64 0, i32 5
+  %offset.i = getelementptr inbounds i8, ptr %log_stats.i.i, i64 24
   store i64 %cond.i, ptr %offset.i, align 8
   br label %if.end13.i
 
 if.end13.i:                                       ; preds = %if.then12.i, %if.end9.i
   %6 = load ptr, ptr %block_writer, align 8
-  %entries.i = getelementptr inbounds %struct.block_writer, ptr %6, i64 0, i32 10
+  %entries.i = getelementptr inbounds i8, ptr %6, i64 72
   %7 = load i32, ptr %entries.i, align 8
-  %8 = load i32, ptr %retval.0.i.i, align 8
+  %8 = load i32, ptr %log_stats.i.i, align 8
   %add.i = add nsw i32 %8, %7
-  store i32 %add.i, ptr %retval.0.i.i, align 8
-  %restart_len.i = getelementptr inbounds %struct.block_writer, ptr %6, i64 0, i32 7
-  %9 = load i32, ptr %restart_len.i, align 8
-  %restarts.i = getelementptr inbounds %struct.reftable_block_stats, ptr %retval.0.i.i, i64 0, i32 1
-  %10 = load <2 x i32>, ptr %restarts.i, align 4
-  %11 = insertelement <2 x i32> <i32 poison, i32 1>, i32 %9, i64 0
-  %12 = add <2 x i32> %10, %11
-  store <2 x i32> %12, ptr %restarts.i, align 4
-  %stats.i = getelementptr inbounds %struct.reftable_writer, ptr %w, i64 0, i32 15
-  %13 = load i32, ptr %stats.i, align 8
-  %inc20.i = add nsw i32 %13, 1
+  store i32 %add.i, ptr %log_stats.i.i, align 8
+  %9 = load ptr, ptr %block_writer, align 8
+  %restart_len.i = getelementptr inbounds i8, ptr %9, i64 40
+  %10 = load i32, ptr %restart_len.i, align 8
+  %restarts.i = getelementptr inbounds i8, ptr %log_stats.i.i, i64 4
+  %11 = load <2 x i32>, ptr %restarts.i, align 4
+  %12 = insertelement <2 x i32> <i32 poison, i32 1>, i32 %10, i64 0
+  %13 = add <2 x i32> %11, %12
+  store <2 x i32> %13, ptr %restarts.i, align 4
+  %stats.i = getelementptr inbounds i8, ptr %w, i64 232
+  %14 = load i32, ptr %stats.i, align 8
+  %inc20.i = add nsw i32 %14, 1
   store i32 %inc20.i, ptr %stats.i, align 8
-  %next21.i = getelementptr inbounds %struct.reftable_writer, ptr %w, i64 0, i32 4
-  %14 = load i64, ptr %next21.i, align 8
-  %cmp22.i = icmp eq i64 %14, 0
+  %next21.i = getelementptr inbounds i8, ptr %w, i64 48
+  %15 = load i64, ptr %next21.i, align 8
+  %cmp22.i = icmp eq i64 %15, 0
   br i1 %cmp22.i, label %if.then24.i, label %if.end26.i
 
 if.then24.i:                                      ; preds = %if.end13.i
-  %block.i = getelementptr inbounds %struct.reftable_writer, ptr %w, i64 0, i32 8
-  %15 = load ptr, ptr %block.i, align 8
-  %call25.i = tail call fastcc i32 @writer_write_header(ptr noundef nonnull %w, ptr noundef %15)
+  %block.i = getelementptr inbounds i8, ptr %w, i64 104
+  %16 = load ptr, ptr %block.i, align 8
+  %call25.i = tail call fastcc i32 @writer_write_header(ptr noundef nonnull %w, ptr noundef %16)
   br label %if.end26.i
 
 if.end26.i:                                       ; preds = %if.then24.i, %if.end13.i
-  %block27.i = getelementptr inbounds %struct.reftable_writer, ptr %w, i64 0, i32 8
-  %16 = load ptr, ptr %block27.i, align 8
+  %block27.i = getelementptr inbounds i8, ptr %w, i64 104
+  %17 = load ptr, ptr %block27.i, align 8
   %conv28.i = zext nneg i32 %call3.i to i64
-  %pending_padding.i.i = getelementptr inbounds %struct.reftable_writer, ptr %w, i64 0, i32 2
-  %17 = load i32, ptr %pending_padding.i.i, align 8
-  %cmp.i.i = icmp sgt i32 %17, 0
+  %pending_padding.i.i = getelementptr inbounds i8, ptr %w, i64 16
+  %18 = load i32, ptr %pending_padding.i.i, align 8
+  %cmp.i.i = icmp sgt i32 %18, 0
   br i1 %cmp.i.i, label %if.then.i.i, label %padded_write.exit.i
 
 if.then.i.i:                                      ; preds = %if.end26.i
-  %conv.i.i = zext nneg i32 %17 to i64
+  %conv.i.i = zext nneg i32 %18 to i64
   %call.i.i = tail call ptr @reftable_calloc(i64 noundef %conv.i.i) #13
-  %18 = load ptr, ptr %w, align 8
-  %write_arg.i.i = getelementptr inbounds %struct.reftable_writer, ptr %w, i64 0, i32 1
-  %19 = load ptr, ptr %write_arg.i.i, align 8
-  %20 = load i32, ptr %pending_padding.i.i, align 8
-  %conv4.i.i = sext i32 %20 to i64
-  %call5.i.i = tail call i64 %18(ptr noundef %19, ptr noundef %call.i.i, i64 noundef %conv4.i.i) #13
+  %19 = load ptr, ptr %w, align 8
+  %write_arg.i.i = getelementptr inbounds i8, ptr %w, i64 8
+  %20 = load ptr, ptr %write_arg.i.i, align 8
+  %21 = load i32, ptr %pending_padding.i.i, align 8
+  %conv4.i.i = sext i32 %21 to i64
+  %call5.i.i = tail call i64 %19(ptr noundef %20, ptr noundef %call.i.i, i64 noundef %conv4.i.i) #13
   %conv6.i.i = trunc i64 %call5.i.i to i32
   %cmp7.i.i = icmp slt i32 %conv6.i.i, 0
   br i1 %cmp7.i.i, label %writer_flush_nonempty_block.exit, label %if.end.i.i
@@ -1457,55 +1447,55 @@ if.end.i.i:                                       ; preds = %if.then.i.i
 
 padded_write.exit.i:                              ; preds = %if.end.i.i, %if.end26.i
   store i32 %padding.0.i, ptr %pending_padding.i.i, align 8
-  %21 = load ptr, ptr %w, align 8
-  %write_arg14.i.i = getelementptr inbounds %struct.reftable_writer, ptr %w, i64 0, i32 1
-  %22 = load ptr, ptr %write_arg14.i.i, align 8
-  %call15.i.i = tail call i64 %21(ptr noundef %22, ptr noundef %16, i64 noundef %conv28.i) #13
+  %22 = load ptr, ptr %w, align 8
+  %write_arg14.i.i = getelementptr inbounds i8, ptr %w, i64 8
+  %23 = load ptr, ptr %write_arg14.i.i, align 8
+  %call15.i.i = tail call i64 %22(ptr noundef %23, ptr noundef %17, i64 noundef %conv28.i) #13
   %conv16.i.i = trunc i64 %call15.i.i to i32
   %conv16..i.i = tail call i32 @llvm.smin.i32(i32 %conv16.i.i, i32 0)
   %cmp30.i = icmp slt i32 %conv16.i.i, 0
   br i1 %cmp30.i, label %writer_flush_nonempty_block.exit, label %if.end33.i
 
 if.end33.i:                                       ; preds = %padded_write.exit.i
-  %index_cap.i = getelementptr inbounds %struct.reftable_writer, ptr %w, i64 0, i32 13
-  %23 = load i64, ptr %index_cap.i, align 8
-  %index_len.i = getelementptr inbounds %struct.reftable_writer, ptr %w, i64 0, i32 12
-  %24 = load i64, ptr %index_len.i, align 8
-  %cmp34.i = icmp eq i64 %23, %24
+  %index_cap.i = getelementptr inbounds i8, ptr %w, i64 216
+  %24 = load i64, ptr %index_cap.i, align 8
+  %index_len.i = getelementptr inbounds i8, ptr %w, i64 208
+  %25 = load i64, ptr %index_len.i, align 8
+  %cmp34.i = icmp eq i64 %24, %25
   br i1 %cmp34.i, label %if.then36.i, label %strbuf_setlen.exit.i
 
 if.then36.i:                                      ; preds = %if.end33.i
-  %mul.i = shl i64 %23, 1
+  %mul.i = shl i64 %24, 1
   %add38.i = or disjoint i64 %mul.i, 1
   store i64 %add38.i, ptr %index_cap.i, align 8
-  %index.i = getelementptr inbounds %struct.reftable_writer, ptr %w, i64 0, i32 11
-  %25 = load ptr, ptr %index.i, align 8
+  %index.i = getelementptr inbounds i8, ptr %w, i64 200
+  %26 = load ptr, ptr %index.i, align 8
   %mul41.i = shl i64 %add38.i, 5
-  %call42.i = tail call ptr @reftable_realloc(ptr noundef %25, i64 noundef %mul41.i) #13
+  %call42.i = tail call ptr @reftable_realloc(ptr noundef %26, i64 noundef %mul41.i) #13
   store ptr %call42.i, ptr %index.i, align 8
   br label %strbuf_setlen.exit.i
 
 strbuf_setlen.exit.i:                             ; preds = %if.then36.i, %if.end33.i
-  %26 = load i64, ptr %next21.i, align 8
-  store i64 %26, ptr %ir.i, align 8
-  %len2.i.i = getelementptr inbounds %struct.reftable_index_record, ptr %ir.i, i64 0, i32 1, i32 1
+  %27 = load i64, ptr %next21.i, align 8
+  store i64 %27, ptr %ir.i, align 8
+  %len2.i.i = getelementptr inbounds i8, ptr %ir.i, i64 16
   store i64 0, ptr %len2.i.i, align 8
-  %last_key.i = getelementptr inbounds %struct.reftable_index_record, ptr %ir.i, i64 0, i32 1
-  %27 = load ptr, ptr %block_writer, align 8
-  %last_key49.i = getelementptr inbounds %struct.block_writer, ptr %27, i64 0, i32 9
+  %last_key.i = getelementptr inbounds i8, ptr %ir.i, i64 8
+  %28 = load ptr, ptr %block_writer, align 8
+  %last_key49.i = getelementptr inbounds i8, ptr %28, i64 48
   call void @strbuf_addbuf(ptr noundef nonnull %last_key.i, ptr noundef nonnull %last_key49.i) #13
-  %index50.i = getelementptr inbounds %struct.reftable_writer, ptr %w, i64 0, i32 11
-  %28 = load ptr, ptr %index50.i, align 8
-  %29 = load i64, ptr %index_len.i, align 8
-  %arrayidx.i = getelementptr inbounds %struct.reftable_index_record, ptr %28, i64 %29
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %arrayidx.i, ptr noundef nonnull align 8 dereferenceable(32) %ir.i, i64 32, i1 false)
+  %index50.i = getelementptr inbounds i8, ptr %w, i64 200
+  %29 = load ptr, ptr %index50.i, align 8
   %30 = load i64, ptr %index_len.i, align 8
-  %inc53.i = add i64 %30, 1
+  %arrayidx.i = getelementptr inbounds %struct.reftable_index_record, ptr %29, i64 %30
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %arrayidx.i, ptr noundef nonnull align 8 dereferenceable(32) %ir.i, i64 32, i1 false)
+  %31 = load i64, ptr %index_len.i, align 8
+  %inc53.i = add i64 %31, 1
   store i64 %inc53.i, ptr %index_len.i, align 8
   %add54.i = add nsw i32 %padding.0.i, %call3.i
   %conv55.i = sext i32 %add54.i to i64
-  %31 = load i64, ptr %next21.i, align 8
-  %add57.i = add i64 %31, %conv55.i
+  %32 = load i64, ptr %next21.i, align 8
+  %add57.i = add i64 %32, %conv55.i
   store i64 %add57.i, ptr %next21.i, align 8
   store ptr null, ptr %block_writer, align 8
   br label %writer_flush_nonempty_block.exit
@@ -1550,12 +1540,12 @@ declare void @BUG_fl(ptr noundef, i32 noundef, ptr noundef, ...) local_unnamed_a
 define internal fastcc i32 @writer_finish_section(ptr noundef %w) unnamed_addr #0 {
 entry:
   %rec = alloca %struct.reftable_record, align 8
-  %block_writer = getelementptr inbounds %struct.reftable_writer, ptr %w, i64 0, i32 9
+  %block_writer = getelementptr inbounds i8, ptr %w, i64 112
   %0 = load ptr, ptr %block_writer, align 8
   %call = tail call zeroext i8 @block_writer_type(ptr noundef %0) #13
-  %opts = getelementptr inbounds %struct.reftable_writer, ptr %w, i64 0, i32 7
+  %opts = getelementptr inbounds i8, ptr %w, i64 72
   %bf.load = load i8, ptr %opts, align 8
-  %blocks = getelementptr inbounds %struct.reftable_writer, ptr %w, i64 0, i32 15, i32 3, i32 2
+  %blocks = getelementptr inbounds i8, ptr %w, i64 328
   %1 = load i32, ptr %blocks, align 8
   %call1 = tail call fastcc i32 @writer_flush_block(ptr noundef %w), !range !5
   %cmp = icmp slt i32 %call1, 0
@@ -1564,23 +1554,23 @@ entry:
 while.cond.preheader:                             ; preds = %entry
   %bf.clear = and i8 %bf.load, 1
   %tobool.not = icmp eq i8 %bf.clear, 0
-  %index_len = getelementptr inbounds %struct.reftable_writer, ptr %w, i64 0, i32 12
+  %index_len = getelementptr inbounds i8, ptr %w, i64 208
   %conv = select i1 %tobool.not, i64 3, i64 1
   %2 = load i64, ptr %index_len, align 8
   %cmp270 = icmp ugt i64 %2, %conv
   br i1 %cmp270, label %while.body.lr.ph, label %while.end
 
 while.body.lr.ph:                                 ; preds = %while.cond.preheader
-  %next = getelementptr inbounds %struct.reftable_writer, ptr %w, i64 0, i32 4
+  %next = getelementptr inbounds i8, ptr %w, i64 48
   %3 = getelementptr i8, ptr %w, i64 88
-  %last_key.i = getelementptr inbounds %struct.reftable_writer, ptr %w, i64 0, i32 3
-  %block_writer_data.i = getelementptr inbounds %struct.reftable_writer, ptr %w, i64 0, i32 10
-  %block.i = getelementptr inbounds %struct.reftable_writer, ptr %w, i64 0, i32 8
-  %block_size.i = getelementptr inbounds %struct.reftable_writer, ptr %w, i64 0, i32 7, i32 1
-  %restart_interval.i = getelementptr inbounds %struct.reftable_writer, ptr %w, i64 0, i32 7, i32 3
-  %restart_interval7.i = getelementptr inbounds %struct.reftable_writer, ptr %w, i64 0, i32 10, i32 3
-  %index = getelementptr inbounds %struct.reftable_writer, ptr %w, i64 0, i32 11
-  %u = getelementptr inbounds %struct.reftable_record, ptr %rec, i64 0, i32 1
+  %last_key.i = getelementptr inbounds i8, ptr %w, i64 24
+  %block_writer_data.i = getelementptr inbounds i8, ptr %w, i64 120
+  %block.i = getelementptr inbounds i8, ptr %w, i64 104
+  %block_size.i = getelementptr inbounds i8, ptr %w, i64 76
+  %restart_interval.i = getelementptr inbounds i8, ptr %w, i64 84
+  %restart_interval7.i = getelementptr inbounds i8, ptr %w, i64 136
+  %index = getelementptr inbounds i8, ptr %w, i64 200
+  %u = getelementptr inbounds i8, ptr %rec, i64 8
   br label %while.body
 
 while.body:                                       ; preds = %while.body.lr.ph, %for.end36
@@ -1708,7 +1698,7 @@ if.end41:                                         ; preds = %while.end
   br i1 %cmp8.not.i, label %writer_clear_index.exit, label %for.body.lr.ph.i
 
 for.body.lr.ph.i:                                 ; preds = %if.end41
-  %index.i = getelementptr inbounds %struct.reftable_writer, ptr %w, i64 0, i32 11
+  %index.i = getelementptr inbounds i8, ptr %w, i64 200
   br label %for.body.i
 
 for.body.i:                                       ; preds = %for.body.i, %for.body.lr.ph.i
@@ -1722,48 +1712,42 @@ for.body.i:                                       ; preds = %for.body.i, %for.bo
   br i1 %cmp.i58, label %for.body.i, label %writer_clear_index.exit, !llvm.loop !10
 
 writer_clear_index.exit:                          ; preds = %for.body.i, %if.end41
-  %index2.i = getelementptr inbounds %struct.reftable_writer, ptr %w, i64 0, i32 11
+  %index2.i = getelementptr inbounds i8, ptr %w, i64 200
   %23 = load ptr, ptr %index2.i, align 8
   call void @free(ptr noundef %23) #13
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %index2.i, i8 0, i64 24, i1 false)
   switch i8 %call, label %sw.epilog.i [
-    i8 114, label %sw.bb.i
+    i8 114, label %writer_reftable_block_stats.exit
     i8 111, label %sw.bb1.i
     i8 105, label %sw.bb3.i
     i8 103, label %sw.bb5.i
   ]
 
-sw.bb.i:                                          ; preds = %writer_clear_index.exit
-  %ref_stats.i = getelementptr inbounds %struct.reftable_writer, ptr %w, i64 0, i32 15, i32 1
-  br label %writer_reftable_block_stats.exit
-
 sw.bb1.i:                                         ; preds = %writer_clear_index.exit
-  %obj_stats.i = getelementptr inbounds %struct.reftable_writer, ptr %w, i64 0, i32 15, i32 2
   br label %writer_reftable_block_stats.exit
 
 sw.bb3.i:                                         ; preds = %writer_clear_index.exit
-  %idx_stats.i = getelementptr inbounds %struct.reftable_writer, ptr %w, i64 0, i32 15, i32 3
   br label %writer_reftable_block_stats.exit
 
 sw.bb5.i:                                         ; preds = %writer_clear_index.exit
-  %log_stats.i = getelementptr inbounds %struct.reftable_writer, ptr %w, i64 0, i32 15, i32 4
   br label %writer_reftable_block_stats.exit
 
 sw.epilog.i:                                      ; preds = %writer_clear_index.exit
   call void @abort() #14
   unreachable
 
-writer_reftable_block_stats.exit:                 ; preds = %sw.bb.i, %sw.bb1.i, %sw.bb3.i, %sw.bb5.i
-  %retval.0.i = phi ptr [ %log_stats.i, %sw.bb5.i ], [ %idx_stats.i, %sw.bb3.i ], [ %obj_stats.i, %sw.bb1.i ], [ %ref_stats.i, %sw.bb.i ]
+writer_reftable_block_stats.exit:                 ; preds = %writer_clear_index.exit, %sw.bb1.i, %sw.bb3.i, %sw.bb5.i
+  %.sink.i = phi i64 [ 360, %sw.bb5.i ], [ 320, %sw.bb3.i ], [ 280, %sw.bb1.i ], [ 240, %writer_clear_index.exit ]
+  %log_stats.i = getelementptr inbounds i8, ptr %w, i64 %.sink.i
   %24 = load i32, ptr %blocks, align 8
   %sub = sub nsw i32 %24, %1
-  %index_blocks = getelementptr inbounds %struct.reftable_block_stats, ptr %retval.0.i, i64 0, i32 3
+  %index_blocks = getelementptr inbounds i8, ptr %log_stats.i, i64 12
   store i32 %sub, ptr %index_blocks, align 4
-  %index_offset = getelementptr inbounds %struct.reftable_block_stats, ptr %retval.0.i, i64 0, i32 6
+  %index_offset = getelementptr inbounds i8, ptr %log_stats.i, i64 32
   store i64 %index_start.0.lcssa, ptr %index_offset, align 8
-  %max_index_level = getelementptr inbounds %struct.reftable_block_stats, ptr %retval.0.i, i64 0, i32 4
+  %max_index_level = getelementptr inbounds i8, ptr %log_stats.i, i64 16
   store i32 %max_level.0.lcssa, ptr %max_index_level, align 8
-  %len = getelementptr inbounds %struct.reftable_writer, ptr %w, i64 0, i32 3, i32 1
+  %len = getelementptr inbounds i8, ptr %w, i64 32
   store i64 0, ptr %len, align 8
   br label %return
 
@@ -1777,7 +1761,7 @@ declare void @infix_walk(ptr noundef, ptr noundef, ptr noundef) local_unnamed_ad
 ; Function Attrs: nounwind uwtable
 define internal void @object_record_free(ptr nocapture readnone %void_arg, ptr noundef %key) #0 {
 entry:
-  %offsets = getelementptr inbounds %struct.obj_index_tree_node, ptr %key, i64 0, i32 1
+  %offsets = getelementptr inbounds i8, ptr %key, i64 24
   %0 = load ptr, ptr %offsets, align 8
   tail call void @free(ptr noundef %0) #13
   store ptr null, ptr %offsets, align 8
@@ -1797,7 +1781,7 @@ entry:
 
 if.then:                                          ; preds = %entry
   %call = tail call i32 @common_prefix_size(ptr noundef %key, ptr noundef nonnull %0) #13
-  %max = getelementptr inbounds %struct.common_prefix_arg, ptr %void_arg, i64 0, i32 1
+  %max = getelementptr inbounds i8, ptr %void_arg, i64 8
   %1 = load i32, ptr %max, align 8
   %cmp = icmp sgt i32 %call, %1
   br i1 %cmp, label %if.then3, label %if.end5
@@ -1816,31 +1800,31 @@ define internal void @write_object_record(ptr nocapture noundef %void_arg, ptr n
 entry:
   %rec = alloca %struct.reftable_record, align 8
   store i8 111, ptr %rec, align 8
-  %u = getelementptr inbounds %struct.reftable_record, ptr %rec, i64 0, i32 1
-  %buf = getelementptr inbounds %struct.strbuf, ptr %key, i64 0, i32 2
+  %u = getelementptr inbounds i8, ptr %rec, i64 8
+  %buf = getelementptr inbounds i8, ptr %key, i64 16
   %0 = load ptr, ptr %buf, align 8
   store ptr %0, ptr %u, align 8
-  %hash_prefix_len = getelementptr inbounds %struct.reftable_record, ptr %rec, i64 0, i32 1, i32 0, i32 1
+  %hash_prefix_len = getelementptr inbounds i8, ptr %rec, i64 16
   %1 = load ptr, ptr %void_arg, align 8
-  %object_id_len = getelementptr inbounds %struct.reftable_writer, ptr %1, i64 0, i32 15, i32 5
+  %object_id_len = getelementptr inbounds i8, ptr %1, i64 400
   %2 = load i32, ptr %object_id_len, align 8
   store i32 %2, ptr %hash_prefix_len, align 8
-  %offsets = getelementptr inbounds %struct.reftable_record, ptr %rec, i64 0, i32 1, i32 0, i32 2
-  %offsets2 = getelementptr inbounds %struct.obj_index_tree_node, ptr %key, i64 0, i32 1
+  %offsets = getelementptr inbounds i8, ptr %rec, i64 24
+  %offsets2 = getelementptr inbounds i8, ptr %key, i64 24
   %3 = load ptr, ptr %offsets2, align 8
   store ptr %3, ptr %offsets, align 8
-  %offset_len = getelementptr inbounds %struct.reftable_record, ptr %rec, i64 0, i32 1, i32 0, i32 3
-  %offset_len3 = getelementptr inbounds %struct.obj_index_tree_node, ptr %key, i64 0, i32 2
+  %offset_len = getelementptr inbounds i8, ptr %rec, i64 32
+  %offset_len3 = getelementptr inbounds i8, ptr %key, i64 32
   %4 = load i64, ptr %offset_len3, align 8
   %conv = trunc i64 %4 to i32
   store i32 %conv, ptr %offset_len, align 8
-  %err = getelementptr inbounds %struct.write_record_arg, ptr %void_arg, i64 0, i32 1
+  %err = getelementptr inbounds i8, ptr %void_arg, i64 8
   %5 = load i32, ptr %err, align 8
   %cmp = icmp slt i32 %5, 0
   br i1 %cmp, label %done, label %if.end
 
 if.end:                                           ; preds = %entry
-  %block_writer = getelementptr inbounds %struct.reftable_writer, ptr %1, i64 0, i32 9
+  %block_writer = getelementptr inbounds i8, ptr %1, i64 112
   %6 = load ptr, ptr %block_writer, align 8
   %call = call i32 @block_writer_add(ptr noundef %6, ptr noundef nonnull %rec) #13
   store i32 %call, ptr %err, align 8
@@ -1856,7 +1840,7 @@ if.end11:                                         ; preds = %if.end
 
 if.end19:                                         ; preds = %if.end11
   %8 = load ptr, ptr %void_arg, align 8
-  %next.i = getelementptr inbounds %struct.reftable_writer, ptr %8, i64 0, i32 4
+  %next.i = getelementptr inbounds i8, ptr %8, i64 48
   %9 = load i64, ptr %next.i, align 8
   %cmp.i = icmp eq i64 %9, 0
   br i1 %cmp.i, label %if.then.i, label %writer_reinit_block_writer.exit
@@ -1873,25 +1857,25 @@ if.then.i:                                        ; preds = %if.end19
 
 writer_reinit_block_writer.exit:                  ; preds = %if.end19, %if.then.i
   %block_start.0.i = phi i32 [ %call1.i, %if.then.i ], [ 0, %if.end19 ]
-  %last_key.i = getelementptr inbounds %struct.reftable_writer, ptr %8, i64 0, i32 3
+  %last_key.i = getelementptr inbounds i8, ptr %8, i64 24
   call void @strbuf_release(ptr noundef nonnull %last_key.i) #13
-  %block_writer_data.i = getelementptr inbounds %struct.reftable_writer, ptr %8, i64 0, i32 10
-  %block.i = getelementptr inbounds %struct.reftable_writer, ptr %8, i64 0, i32 8
+  %block_writer_data.i = getelementptr inbounds i8, ptr %8, i64 120
+  %block.i = getelementptr inbounds i8, ptr %8, i64 104
   %12 = load ptr, ptr %block.i, align 8
-  %block_size.i = getelementptr inbounds %struct.reftable_writer, ptr %8, i64 0, i32 7, i32 1
+  %block_size.i = getelementptr inbounds i8, ptr %8, i64 76
   %13 = load i32, ptr %block_size.i, align 4
-  %hash_id.i = getelementptr inbounds %struct.reftable_writer, ptr %8, i64 0, i32 7, i32 4
+  %hash_id.i = getelementptr inbounds i8, ptr %8, i64 88
   %14 = load i32, ptr %hash_id.i, align 8
   %call3.i = call i32 @hash_size(i32 noundef %14) #13
   call void @block_writer_init(ptr noundef nonnull %block_writer_data.i, i8 noundef zeroext 111, ptr noundef %12, i32 noundef %13, i32 noundef %block_start.0.i, i32 noundef %call3.i) #13
-  %block_writer.i = getelementptr inbounds %struct.reftable_writer, ptr %8, i64 0, i32 9
+  %block_writer.i = getelementptr inbounds i8, ptr %8, i64 112
   store ptr %block_writer_data.i, ptr %block_writer.i, align 8
-  %restart_interval.i = getelementptr inbounds %struct.reftable_writer, ptr %8, i64 0, i32 7, i32 3
+  %restart_interval.i = getelementptr inbounds i8, ptr %8, i64 84
   %15 = load i32, ptr %restart_interval.i, align 4
-  %restart_interval7.i = getelementptr inbounds %struct.reftable_writer, ptr %8, i64 0, i32 10, i32 3
+  %restart_interval7.i = getelementptr inbounds i8, ptr %8, i64 136
   store i32 %15, ptr %restart_interval7.i, align 8
   %16 = load ptr, ptr %void_arg, align 8
-  %block_writer22 = getelementptr inbounds %struct.reftable_writer, ptr %16, i64 0, i32 9
+  %block_writer22 = getelementptr inbounds i8, ptr %16, i64 112
   %17 = load ptr, ptr %block_writer22, align 8
   %call23 = call i32 @block_writer_add(ptr noundef %17, ptr noundef nonnull %rec) #13
   store i32 %call23, ptr %err, align 8
@@ -1901,7 +1885,7 @@ writer_reinit_block_writer.exit:                  ; preds = %if.end19, %if.then.
 if.end29:                                         ; preds = %writer_reinit_block_writer.exit
   store i32 0, ptr %offset_len, align 8
   %18 = load ptr, ptr %void_arg, align 8
-  %block_writer33 = getelementptr inbounds %struct.reftable_writer, ptr %18, i64 0, i32 9
+  %block_writer33 = getelementptr inbounds i8, ptr %18, i64 112
   %19 = load ptr, ptr %block_writer33, align 8
   %call34 = call i32 @block_writer_add(ptr noundef %19, ptr noundef nonnull %rec) #13
   store i32 %call34, ptr %err, align 8

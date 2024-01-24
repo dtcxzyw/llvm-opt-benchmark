@@ -7,9 +7,6 @@ target triple = "x86_64-unknown-linux-gnu"
 %struct.protocol_capability = type { ptr, ptr, ptr, ptr }
 %struct.git_hash_algo = type { ptr, i32, i64, i64, i64, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr }
 %struct.packet_reader = type { i32, ptr, i64, ptr, i32, i32, i32, i32, ptr, i32, i8, ptr, ptr, %struct.strbuf }
-%struct.repository = type { ptr, ptr, ptr, ptr, ptr, %struct.repo_path_cache, ptr, ptr, ptr, ptr, %struct.repo_settings, ptr, ptr, ptr, ptr, ptr, i32, i32, i32, ptr, ptr, i32, i8 }
-%struct.repo_path_cache = type { ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr }
-%struct.repo_settings = type { i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, ptr, i32, i32, i32, i32, i32, i32 }
 
 @strbuf_slopbuf = external global [0 x i8], align 1
 @__const.protocol_v2_advertise_capabilities.value = private unnamed_addr constant %struct.strbuf { i64 0, i64 0, ptr @strbuf_slopbuf }, align 8
@@ -51,15 +48,16 @@ entry:
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %capability, ptr noundef nonnull align 8 dereferenceable(24) @__const.protocol_v2_advertise_capabilities.value, i64 24, i1 false)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %value, ptr noundef nonnull align 8 dereferenceable(24) @__const.protocol_v2_advertise_capabilities.value, i64 24, i1 false)
   tail call void (i32, ptr, ...) @packet_write_fmt(i32 noundef 1, ptr noundef nonnull @.str) #6
-  %len = getelementptr inbounds %struct.strbuf, ptr %value, i64 0, i32 1
-  %len.i.i = getelementptr inbounds %struct.strbuf, ptr %capability, i64 0, i32 1
-  %buf.i = getelementptr inbounds %struct.strbuf, ptr %capability, i64 0, i32 2
-  %buf.i21 = getelementptr inbounds %struct.strbuf, ptr %value, i64 0, i32 2
+  %len = getelementptr inbounds i8, ptr %value, i64 8
+  %len.i.i = getelementptr inbounds i8, ptr %capability, i64 8
+  %buf.i = getelementptr inbounds i8, ptr %capability, i64 16
+  %buf.i21 = getelementptr inbounds i8, ptr %value, i64 16
   br label %for.body
 
 for.body:                                         ; preds = %entry, %strbuf_setlen.exit24
   %indvars.iv = phi i64 [ 0, %entry ], [ %indvars.iv.next, %strbuf_setlen.exit24 ]
-  %advertise = getelementptr inbounds [8 x %struct.protocol_capability], ptr @capabilities, i64 0, i64 %indvars.iv, i32 1
+  %arrayidx = getelementptr inbounds [8 x %struct.protocol_capability], ptr @capabilities, i64 0, i64 %indvars.iv
+  %advertise = getelementptr inbounds i8, ptr %arrayidx, i64 8
   %0 = load ptr, ptr %advertise, align 8
   %1 = load ptr, ptr @the_repository, align 8
   %call = call i32 %0(ptr noundef %1, ptr noundef nonnull %value) #6
@@ -67,7 +65,6 @@ for.body:                                         ; preds = %entry, %strbuf_setl
   br i1 %tobool.not, label %if.end5, label %if.then
 
 if.then:                                          ; preds = %for.body
-  %arrayidx = getelementptr inbounds [8 x %struct.protocol_capability], ptr @capabilities, i64 0, i64 %indvars.iv
   %2 = load ptr, ptr %arrayidx, align 16
   %call.i = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %2) #7
   call void @strbuf_add(ptr noundef nonnull %capability, ptr noundef %2, i64 noundef %call.i) #6
@@ -217,11 +214,11 @@ entry:
   br i1 %cmp, label %return, label %if.end
 
 if.end:                                           ; preds = %entry
-  %options = getelementptr inbounds %struct.packet_reader, ptr %reader, i64 0, i32 5
+  %options = getelementptr inbounds i8, ptr %reader, i64 36
   %0 = load i32, ptr %options, align 4
   %and = and i32 %0, -2
   store i32 %and, ptr %options, align 4
-  %line = getelementptr inbounds %struct.packet_reader, ptr %reader, i64 0, i32 8
+  %line = getelementptr inbounds i8, ptr %reader, i64 48
   br label %while.body.outer
 
 while.body.outer:                                 ; preds = %if.then8, %if.end
@@ -318,7 +315,7 @@ if.end.i:                                         ; preds = %get_capability.exit
   br i1 %tobool3.not.i, label %if.then11.i, label %lor.lhs.false.i
 
 lor.lhs.false.i:                                  ; preds = %if.end.i
-  %advertise.i = getelementptr inbounds %struct.protocol_capability, ptr %retval.0.i.i, i64 0, i32 1
+  %advertise.i = getelementptr inbounds i8, ptr %retval.0.i.i, i64 8
   %9 = load ptr, ptr %advertise.i, align 8
   %10 = load ptr, ptr @the_repository, align 8
   %call4.i = call i32 %9(ptr noundef %10, ptr noundef null) #6
@@ -326,7 +323,7 @@ lor.lhs.false.i:                                  ; preds = %if.end.i
   br i1 %tobool5.not.i, label %if.then11.i, label %lor.lhs.false6.i
 
 lor.lhs.false6.i:                                 ; preds = %lor.lhs.false.i
-  %command7.i = getelementptr inbounds %struct.protocol_capability, ptr %retval.0.i.i, i64 0, i32 2
+  %command7.i = getelementptr inbounds i8, ptr %retval.0.i.i, i64 16
   %11 = load ptr, ptr %command7.i, align 8
   %tobool8.i = icmp eq ptr %11, null
   %or.cond.i = or i1 %value.0.i, %tobool8.i
@@ -378,16 +375,16 @@ for.inc.i.i12:                                    ; preds = %do.cond.i.i.i8, %if
 
 lor.lhs.false.i18:                                ; preds = %if.end3.i.i16, %if.then10.i.i
   %value.0.i19 = phi ptr [ %incdec.ptr.i.i17, %if.then10.i.i ], [ null, %if.end3.i.i16 ]
-  %16 = lshr i64 57, %indvars.iv.i.i2
-  %17 = and i64 %16, 1
-  %tobool1.not.i.not = icmp eq i64 %17, 0
-  br i1 %tobool1.not.i.not, label %if.else, label %lor.lhs.false2.i
+  %command.i = getelementptr inbounds i8, ptr %arrayidx.i.i3, i64 16
+  %16 = load ptr, ptr %command.i, align 8
+  %tobool1.not.i = icmp eq ptr %16, null
+  br i1 %tobool1.not.i, label %lor.lhs.false2.i, label %if.else
 
 lor.lhs.false2.i:                                 ; preds = %lor.lhs.false.i18
-  %advertise.i20 = getelementptr inbounds [8 x %struct.protocol_capability], ptr @capabilities, i64 0, i64 %indvars.iv.i.i2, i32 1
-  %18 = load ptr, ptr %advertise.i20, align 8
-  %19 = load ptr, ptr @the_repository, align 8
-  %call3.i = call i32 %18(ptr noundef %19, ptr noundef null) #6
+  %advertise.i20 = getelementptr inbounds i8, ptr %arrayidx.i.i3, i64 8
+  %17 = load ptr, ptr %advertise.i20, align 8
+  %18 = load ptr, ptr @the_repository, align 8
+  %call3.i = call i32 %17(ptr noundef %18, ptr noundef null) #6
   %tobool4.not.i = icmp eq i32 %call3.i, 0
   br i1 %tobool4.not.i, label %lor.lhs.false2.i.if.else.loopexit57_crit_edge, label %if.end.i21
 
@@ -396,15 +393,14 @@ lor.lhs.false2.i.if.else.loopexit57_crit_edge:    ; preds = %lor.lhs.false2.i
   br label %if.else
 
 if.end.i21:                                       ; preds = %lor.lhs.false2.i
-  %20 = add nsw i64 %indvars.iv.i.i2, -6
-  %tobool5.not.i22 = icmp ult i64 %20, -2
+  %receive.i = getelementptr inbounds i8, ptr %arrayidx.i.i3, i64 24
+  %19 = load ptr, ptr %receive.i, align 8
+  %tobool5.not.i22 = icmp eq ptr %19, null
   br i1 %tobool5.not.i22, label %if.then8, label %if.then6.i
 
 if.then6.i:                                       ; preds = %if.end.i21
-  %receive.i = getelementptr inbounds [8 x %struct.protocol_capability], ptr @capabilities, i64 0, i64 %indvars.iv.i.i2, i32 3
-  %21 = load ptr, ptr %receive.i, align 8
-  %22 = load ptr, ptr @the_repository, align 8
-  call void %21(ptr noundef %22, ptr noundef %value.0.i19) #6
+  %20 = load ptr, ptr @the_repository, align 8
+  call void %19(ptr noundef %20, ptr noundef %value.0.i19) #6
   br label %if.then8
 
 if.then8:                                         ; preds = %if.then6.i, %if.end.i21, %lor.lhs.false6.i
@@ -413,8 +409,8 @@ if.then8:                                         ; preds = %if.then6.i, %if.end
   br label %while.body.outer, !llvm.loop !8
 
 if.else:                                          ; preds = %lor.lhs.false.i18, %lor.lhs.false, %for.inc.i.i12, %lor.lhs.false2.i.if.else.loopexit57_crit_edge
-  %23 = phi ptr [ %.pre.pre, %lor.lhs.false2.i.if.else.loopexit57_crit_edge ], [ %1, %for.inc.i.i12 ], [ null, %lor.lhs.false ], [ %1, %lor.lhs.false.i18 ]
-  call void (ptr, ...) @die(ptr noundef nonnull @.str.19, ptr noundef %23) #8
+  %21 = phi ptr [ %.pre.pre, %lor.lhs.false2.i.if.else.loopexit57_crit_edge ], [ %1, %for.inc.i.i12 ], [ null, %lor.lhs.false ], [ %1, %lor.lhs.false.i18 ]
+  call void (ptr, ...) @die(ptr noundef nonnull @.str.19, ptr noundef %21) #8
   unreachable
 
 sw.bb12:                                          ; preds = %while.body
@@ -437,29 +433,29 @@ if.then20:                                        ; preds = %while.end
   unreachable
 
 if.end21:                                         ; preds = %while.end
-  %24 = load i32, ptr @client_hash_algo, align 4
-  %25 = load ptr, ptr @the_repository, align 8
-  %hash_algo = getelementptr inbounds %struct.repository, ptr %25, i64 0, i32 15
-  %26 = load ptr, ptr %hash_algo, align 8
-  %sub.ptr.lhs.cast.i = ptrtoint ptr %26 to i64
+  %22 = load i32, ptr @client_hash_algo, align 4
+  %23 = load ptr, ptr @the_repository, align 8
+  %hash_algo = getelementptr inbounds i8, ptr %23, i64 256
+  %24 = load ptr, ptr %hash_algo, align 8
+  %sub.ptr.lhs.cast.i = ptrtoint ptr %24 to i64
   %sub.ptr.sub.i = sub i64 %sub.ptr.lhs.cast.i, ptrtoint (ptr @hash_algos to i64)
   %sub.ptr.div.i = sdiv exact i64 %sub.ptr.sub.i, 104
   %conv.i = trunc i64 %sub.ptr.div.i to i32
-  %cmp23.not = icmp eq i32 %24, %conv.i
+  %cmp23.not = icmp eq i32 %22, %conv.i
   br i1 %cmp23.not, label %if.end27, label %if.then24
 
 if.then24:                                        ; preds = %if.end21
-  %27 = load ptr, ptr %26, align 8
-  %idxprom = sext i32 %24 to i64
+  %25 = load ptr, ptr %24, align 8
+  %idxprom = sext i32 %22 to i64
   %arrayidx = getelementptr inbounds [3 x %struct.git_hash_algo], ptr @hash_algos, i64 0, i64 %idxprom
-  %28 = load ptr, ptr %arrayidx, align 8
-  call void (ptr, ...) @die(ptr noundef nonnull @.str.22, ptr noundef %27, ptr noundef %28) #8
+  %26 = load ptr, ptr %arrayidx, align 8
+  call void (ptr, ...) @die(ptr noundef nonnull @.str.22, ptr noundef %25, ptr noundef %26) #8
   unreachable
 
 if.end27:                                         ; preds = %if.end21
-  %command28 = getelementptr inbounds %struct.protocol_capability, ptr %command.054.ph, i64 0, i32 2
-  %29 = load ptr, ptr %command28, align 8
-  %call29 = call i32 %29(ptr noundef nonnull %25, ptr noundef nonnull %reader) #6
+  %command28 = getelementptr inbounds i8, ptr %command.054.ph, i64 16
+  %27 = load ptr, ptr %command28, align 8
+  %call29 = call i32 %27(ptr noundef nonnull %23, ptr noundef nonnull %reader) #6
   br label %return
 
 return:                                           ; preds = %sw.bb12, %entry, %if.end27
@@ -504,7 +500,7 @@ entry:
   br i1 %tobool.not, label %if.end, label %if.then
 
 if.then:                                          ; preds = %entry
-  %hash_algo = getelementptr inbounds %struct.repository, ptr %r, i64 0, i32 15
+  %hash_algo = getelementptr inbounds i8, ptr %r, i64 256
   %0 = load ptr, ptr %hash_algo, align 8
   %1 = load ptr, ptr %0, align 8
   %call.i = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %1) #7

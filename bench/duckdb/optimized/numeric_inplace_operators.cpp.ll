@@ -3,18 +3,6 @@ source_filename = "bench/duckdb/original/numeric_inplace_operators.cpp.ll"
 target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:128-n8:16:32:64-S128"
 target triple = "x86_64-unknown-linux-gnu"
 
-%"class.duckdb::Vector" = type { i8, %"struct.duckdb::LogicalType", ptr, %"struct.duckdb::ValidityMask", %"class.std::shared_ptr.3", %"class.std::shared_ptr.3" }
-%"struct.duckdb::LogicalType" = type { i8, i8, %"class.std::shared_ptr" }
-%"class.std::shared_ptr" = type { %"class.std::__shared_ptr" }
-%"class.std::__shared_ptr" = type { ptr, %"class.std::__shared_count" }
-%"class.std::__shared_count" = type { ptr }
-%"struct.duckdb::ValidityMask" = type { %"struct.duckdb::TemplatedValidityMask" }
-%"struct.duckdb::TemplatedValidityMask" = type { ptr, %"class.std::shared_ptr.0", i64 }
-%"class.std::shared_ptr.0" = type { %"class.std::__shared_ptr.1" }
-%"class.std::__shared_ptr.1" = type { ptr, %"class.std::__shared_count" }
-%"class.std::shared_ptr.3" = type { %"class.std::__shared_ptr.4" }
-%"class.std::__shared_ptr.4" = type { ptr, %"class.std::__shared_count" }
-
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
 define void @_ZN6duckdb16VectorOperations10AddInPlaceERNS_6VectorElm(ptr nocapture noundef nonnull readonly align 8 dereferenceable(104) %input, i64 noundef %right, i64 noundef %count) local_unnamed_addr #0 align 2 {
 entry:
@@ -24,7 +12,7 @@ entry:
 if.end:                                           ; preds = %entry
   %0 = load i8, ptr %input, align 8, !tbaa !3
   %cond = icmp eq i8 %0, 2
-  %data.i.i = getelementptr inbounds %"class.duckdb::Vector", ptr %input, i64 0, i32 2
+  %data.i.i = getelementptr inbounds i8, ptr %input, i64 32
   %1 = load ptr, ptr %data.i.i, align 8, !tbaa !22
   br i1 %cond, label %sw.bb, label %sw.default
 
@@ -52,7 +40,7 @@ vector.body:                                      ; preds = %vector.body, %vecto
   %index = phi i64 [ 0, %vector.ph ], [ %index.next, %vector.body ]
   %3 = getelementptr inbounds i64, ptr %1, i64 %index
   %wide.load = load <2 x i64>, ptr %3, align 8, !tbaa !23
-  %4 = getelementptr inbounds i64, ptr %3, i64 2
+  %4 = getelementptr inbounds i8, ptr %3, i64 16
   %wide.load14 = load <2 x i64>, ptr %4, align 8, !tbaa !23
   %5 = add <2 x i64> %wide.load, %broadcast.splat
   %6 = add <2 x i64> %wide.load14, %broadcast.splat

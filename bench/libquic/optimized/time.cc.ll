@@ -5,7 +5,6 @@ target triple = "x86_64-unknown-linux-gnu"
 
 %"class.base::LazyInstance" = type { i64, %"class.base::AlignedMemory" }
 %"class.base::AlignedMemory" = type { [8 x i8] }
-%struct.timespec = type { i64, i64 }
 %"class.base::Time" = type { %"class.base::time_internal::TimeBase" }
 %"class.base::time_internal::TimeBase" = type { i64 }
 %"struct.base::Time::Exploded" = type { i32, i32, i32, i32, i32, i32, i32, i32 }
@@ -311,7 +310,7 @@ define dso_local i64 @_ZN4base4Time12FromTimeSpecERK8timespec(ptr nocapture noun
 entry:
   %0 = load i64, ptr %ts, align 8
   %conv = sitofp i64 %0 to double
-  %tv_nsec = getelementptr inbounds %struct.timespec, ptr %ts, i64 0, i32 1
+  %tv_nsec = getelementptr inbounds i8, ptr %ts, i64 8
   %1 = load i64, ptr %tv_nsec, align 8
   %conv1 = sitofp i64 %1 to double
   %div = fdiv double %conv1, 1.000000e+09
@@ -441,7 +440,7 @@ entry:
   %retval.i = alloca %"class.base::Time", align 8
   %exploded = alloca %"struct.base::Time::Exploded", align 4
   call void @_ZNK4base4Time7ExplodeEbPNS0_8ExplodedE(ptr noundef nonnull align 8 dereferenceable(8) %this, i1 noundef zeroext true, ptr noundef nonnull %exploded)
-  %hour = getelementptr inbounds %"struct.base::Time::Exploded", ptr %exploded, i64 0, i32 4
+  %hour = getelementptr inbounds i8, ptr %exploded, i64 16
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %hour, i8 0, i64 16, i1 false)
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %retval.i)
   store i64 0, ptr %retval.i, align 8
@@ -490,49 +489,49 @@ entry:
   br i1 %cmp, label %land.lhs.true, label %land.end
 
 land.lhs.true:                                    ; preds = %entry
-  %month = getelementptr inbounds %"struct.base::Time::Exploded", ptr %lhs, i64 0, i32 1
+  %month = getelementptr inbounds i8, ptr %lhs, i64 4
   %2 = load i32, ptr %month, align 4
-  %month2 = getelementptr inbounds %"struct.base::Time::Exploded", ptr %rhs, i64 0, i32 1
+  %month2 = getelementptr inbounds i8, ptr %rhs, i64 4
   %3 = load i32, ptr %month2, align 4
   %cmp3 = icmp eq i32 %2, %3
   br i1 %cmp3, label %land.lhs.true4, label %land.end
 
 land.lhs.true4:                                   ; preds = %land.lhs.true
-  %day_of_month = getelementptr inbounds %"struct.base::Time::Exploded", ptr %lhs, i64 0, i32 3
+  %day_of_month = getelementptr inbounds i8, ptr %lhs, i64 12
   %4 = load i32, ptr %day_of_month, align 4
-  %day_of_month5 = getelementptr inbounds %"struct.base::Time::Exploded", ptr %rhs, i64 0, i32 3
+  %day_of_month5 = getelementptr inbounds i8, ptr %rhs, i64 12
   %5 = load i32, ptr %day_of_month5, align 4
   %cmp6 = icmp eq i32 %4, %5
   br i1 %cmp6, label %land.lhs.true7, label %land.end
 
 land.lhs.true7:                                   ; preds = %land.lhs.true4
-  %hour = getelementptr inbounds %"struct.base::Time::Exploded", ptr %lhs, i64 0, i32 4
+  %hour = getelementptr inbounds i8, ptr %lhs, i64 16
   %6 = load i32, ptr %hour, align 4
-  %hour8 = getelementptr inbounds %"struct.base::Time::Exploded", ptr %rhs, i64 0, i32 4
+  %hour8 = getelementptr inbounds i8, ptr %rhs, i64 16
   %7 = load i32, ptr %hour8, align 4
   %cmp9 = icmp eq i32 %6, %7
   br i1 %cmp9, label %land.lhs.true10, label %land.end
 
 land.lhs.true10:                                  ; preds = %land.lhs.true7
-  %minute = getelementptr inbounds %"struct.base::Time::Exploded", ptr %lhs, i64 0, i32 5
+  %minute = getelementptr inbounds i8, ptr %lhs, i64 20
   %8 = load i32, ptr %minute, align 4
-  %minute11 = getelementptr inbounds %"struct.base::Time::Exploded", ptr %rhs, i64 0, i32 5
+  %minute11 = getelementptr inbounds i8, ptr %rhs, i64 20
   %9 = load i32, ptr %minute11, align 4
   %cmp12 = icmp eq i32 %8, %9
   br i1 %cmp12, label %land.lhs.true13, label %land.end
 
 land.lhs.true13:                                  ; preds = %land.lhs.true10
-  %second = getelementptr inbounds %"struct.base::Time::Exploded", ptr %lhs, i64 0, i32 6
+  %second = getelementptr inbounds i8, ptr %lhs, i64 24
   %10 = load i32, ptr %second, align 4
-  %second14 = getelementptr inbounds %"struct.base::Time::Exploded", ptr %rhs, i64 0, i32 6
+  %second14 = getelementptr inbounds i8, ptr %rhs, i64 24
   %11 = load i32, ptr %second14, align 4
   %cmp15 = icmp eq i32 %10, %11
   br i1 %cmp15, label %land.rhs, label %land.end
 
 land.rhs:                                         ; preds = %land.lhs.true13
-  %millisecond = getelementptr inbounds %"struct.base::Time::Exploded", ptr %lhs, i64 0, i32 7
+  %millisecond = getelementptr inbounds i8, ptr %lhs, i64 28
   %12 = load i32, ptr %millisecond, align 4
-  %millisecond16 = getelementptr inbounds %"struct.base::Time::Exploded", ptr %rhs, i64 0, i32 7
+  %millisecond16 = getelementptr inbounds i8, ptr %rhs, i64 28
   %13 = load i32, ptr %millisecond16, align 4
   %cmp17 = icmp eq i32 %12, %13
   br label %land.end
@@ -551,17 +550,17 @@ entry:
   store i64 %time.coerce, ptr %time, align 8
   call void @_ZNK4base4Time7ExplodeEbPNS0_8ExplodedE(ptr noundef nonnull align 8 dereferenceable(8) %time, i1 noundef zeroext false, ptr noundef nonnull %exploded)
   %0 = load i32, ptr %exploded, align 4
-  %month = getelementptr inbounds %"struct.base::Time::Exploded", ptr %exploded, i64 0, i32 1
+  %month = getelementptr inbounds i8, ptr %exploded, i64 4
   %1 = load i32, ptr %month, align 4
-  %day_of_month = getelementptr inbounds %"struct.base::Time::Exploded", ptr %exploded, i64 0, i32 3
+  %day_of_month = getelementptr inbounds i8, ptr %exploded, i64 12
   %2 = load i32, ptr %day_of_month, align 4
-  %hour = getelementptr inbounds %"struct.base::Time::Exploded", ptr %exploded, i64 0, i32 4
+  %hour = getelementptr inbounds i8, ptr %exploded, i64 16
   %3 = load i32, ptr %hour, align 4
-  %minute = getelementptr inbounds %"struct.base::Time::Exploded", ptr %exploded, i64 0, i32 5
+  %minute = getelementptr inbounds i8, ptr %exploded, i64 20
   %4 = load i32, ptr %minute, align 4
-  %second = getelementptr inbounds %"struct.base::Time::Exploded", ptr %exploded, i64 0, i32 6
+  %second = getelementptr inbounds i8, ptr %exploded, i64 24
   %5 = load i32, ptr %second, align 4
-  %millisecond = getelementptr inbounds %"struct.base::Time::Exploded", ptr %exploded, i64 0, i32 7
+  %millisecond = getelementptr inbounds i8, ptr %exploded, i64 28
   %6 = load i32, ptr %millisecond, align 4
   call void (ptr, ptr, ...) @_ZN4base12StringPrintfB5cxx11EPKcz(ptr nonnull sret(%"class.std::__cxx11::basic_string") align 8 %ref.tmp, ptr noundef nonnull @.str.1, i32 noundef %0, i32 noundef %1, i32 noundef %2, i32 noundef %3, i32 noundef %4, i32 noundef %5, i32 noundef %6)
   %call = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsIcSt11char_traitsIcESaIcEERSt13basic_ostreamIT_T0_ES7_RKNSt7__cxx1112basic_stringIS4_S5_T1_EE(ptr noundef nonnull align 8 dereferenceable(8) %os, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp)
@@ -613,8 +612,8 @@ if.then.i.i:                                      ; preds = %land.lhs.true.i.i
   %spec.select.i.i.i.i.i.i.i.i = select i1 %cmp.i.i.i.i.i.i.i.i, i64 -9223372036854775807, i64 9223372036854775807
   %retval.0.i.i.i.i.i.i.i.i = select i1 %tobool.i.i.i.i.inv.i.i.i.i.i.i.i, i64 %spec.select.i.i.i.i.i.i.i.i, i64 %sub.i.i.i.i.i.i.i.i.i.i
   %sub.i1.i.i.i.i.i = sub nsw i64 0, %retval.0.i.i.i.i.i.i.i.i
-  store i64 %sub.i1.i.i.i.i.i, ptr getelementptr inbounds (%"class.base::LazyInstance", ptr @_ZN4baseL35leaky_unix_epoch_singleton_instanceE, i64 0, i32 1), align 8
-  tail call void @_ZN4base8internal20CompleteLazyInstanceEPllPvPFvS2_E(ptr noundef nonnull @_ZN4baseL35leaky_unix_epoch_singleton_instanceE, i64 noundef ptrtoint (ptr getelementptr inbounds (%"class.base::LazyInstance", ptr @_ZN4baseL35leaky_unix_epoch_singleton_instanceE, i64 0, i32 1) to i64), ptr noundef nonnull @_ZN4baseL35leaky_unix_epoch_singleton_instanceE, ptr noundef null)
+  store i64 %sub.i1.i.i.i.i.i, ptr getelementptr inbounds (%"class.base::LazyInstance", ptr @_ZN4baseL35leaky_unix_epoch_singleton_instanceE, i64 0, i32 1, i32 0, i64 0), align 8
+  tail call void @_ZN4base8internal20CompleteLazyInstanceEPllPvPFvS2_E(ptr noundef nonnull @_ZN4baseL35leaky_unix_epoch_singleton_instanceE, i64 noundef ptrtoint (ptr getelementptr inbounds (%"class.base::LazyInstance", ptr @_ZN4baseL35leaky_unix_epoch_singleton_instanceE, i64 0, i32 1, i32 0, i64 0) to i64), ptr noundef nonnull @_ZN4baseL35leaky_unix_epoch_singleton_instanceE, ptr noundef null)
   br label %_ZN4base12LazyInstanceINS_18UnixEpochSingletonENS_8internal23LeakyLazyInstanceTraitsIS1_EEE3GetEv.exit
 
 _ZN4base12LazyInstanceINS_18UnixEpochSingletonENS_8internal23LeakyLazyInstanceTraitsIS1_EEE3GetEv.exit: ; preds = %entry, %land.lhs.true.i.i, %if.then.i.i
@@ -684,37 +683,37 @@ entry:
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
 define dso_local noundef zeroext i1 @_ZNK4base4Time8Exploded14HasValidValuesEv(ptr nocapture noundef nonnull readonly align 4 dereferenceable(32) %this) local_unnamed_addr #1 align 2 {
 entry:
-  %month = getelementptr inbounds %"struct.base::Time::Exploded", ptr %this, i64 0, i32 1
+  %month = getelementptr inbounds i8, ptr %this, i64 4
   %0 = load i32, ptr %month, align 4
   %1 = add i32 %0, -1
   %2 = icmp ult i32 %1, 12
-  %day_of_week = getelementptr inbounds %"struct.base::Time::Exploded", ptr %this, i64 0, i32 2
+  %day_of_week = getelementptr inbounds i8, ptr %this, i64 8
   %3 = load i32, ptr %day_of_week, align 4
   %4 = icmp ult i32 %3, 7
   %or.cond = select i1 %2, i1 %4, i1 false
   br i1 %or.cond, label %land.lhs.true3, label %land.end
 
 land.lhs.true3:                                   ; preds = %entry
-  %day_of_month = getelementptr inbounds %"struct.base::Time::Exploded", ptr %this, i64 0, i32 3
+  %day_of_month = getelementptr inbounds i8, ptr %this, i64 12
   %5 = load i32, ptr %day_of_month, align 4
   %6 = add i32 %5, -1
   %7 = icmp ult i32 %6, 31
-  %hour = getelementptr inbounds %"struct.base::Time::Exploded", ptr %this, i64 0, i32 4
+  %hour = getelementptr inbounds i8, ptr %this, i64 16
   %8 = load i32, ptr %hour, align 4
   %9 = icmp ult i32 %8, 24
   %or.cond15 = select i1 %7, i1 %9, i1 false
-  %minute = getelementptr inbounds %"struct.base::Time::Exploded", ptr %this, i64 0, i32 5
+  %minute = getelementptr inbounds i8, ptr %this, i64 20
   %10 = load i32, ptr %minute, align 4
   %11 = icmp ult i32 %10, 60
   %or.cond17 = select i1 %or.cond15, i1 %11, i1 false
-  %second = getelementptr inbounds %"struct.base::Time::Exploded", ptr %this, i64 0, i32 6
+  %second = getelementptr inbounds i8, ptr %this, i64 24
   %12 = load i32, ptr %second, align 4
   %13 = icmp ult i32 %12, 61
   %or.cond19 = select i1 %or.cond17, i1 %13, i1 false
   br i1 %or.cond19, label %land.rhs, label %land.end
 
 land.rhs:                                         ; preds = %land.lhs.true3
-  %millisecond = getelementptr inbounds %"struct.base::Time::Exploded", ptr %this, i64 0, i32 7
+  %millisecond = getelementptr inbounds i8, ptr %this, i64 28
   %14 = load i32, ptr %millisecond, align 4
   %15 = icmp ult i32 %14, 1000
   br label %land.end

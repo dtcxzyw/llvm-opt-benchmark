@@ -37,9 +37,9 @@ if.then:                                          ; preds = %entry
   br label %return
 
 if.end:                                           ; preds = %entry
-  %arrayidx1 = getelementptr inbounds ptr, ptr %argv, i64 1
+  %arrayidx1 = getelementptr inbounds i8, ptr %argv, i64 8
   %2 = load ptr, ptr %arrayidx1, align 8
-  %arrayidx2 = getelementptr inbounds ptr, ptr %argv, i64 2
+  %arrayidx2 = getelementptr inbounds i8, ptr %argv, i64 16
   %3 = load ptr, ptr %arrayidx2, align 8
   %call3 = tail call i32 @access(ptr noundef %3, i32 noundef 0) #12
   %cmp4.not = icmp eq i32 %call3, 0

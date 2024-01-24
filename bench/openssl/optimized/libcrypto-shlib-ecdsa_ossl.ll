@@ -3,14 +3,6 @@ source_filename = "bench/openssl/original/libcrypto-shlib-ecdsa_ossl.ll"
 target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:128-n8:16:32:64-S128"
 target triple = "x86_64-unknown-linux-gnu"
 
-%struct.ec_key_st = type { ptr, ptr, i32, ptr, ptr, ptr, i32, i32, %struct.CRYPTO_REF_COUNT, i32, %struct.crypto_ex_data_st, ptr, ptr, i64 }
-%struct.CRYPTO_REF_COUNT = type { i32 }
-%struct.crypto_ex_data_st = type { ptr, ptr }
-%struct.ec_method_st = type { i32, i32, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr }
-%struct.ECDSA_SIG_st = type { ptr, ptr }
-%struct.ec_group_st = type { ptr, ptr, ptr, ptr, i32, i32, i32, i32, ptr, i64, ptr, [6 x i32], ptr, ptr, i32, ptr, ptr, ptr, ptr, i32, %union.anon, ptr, ptr }
-%union.anon = type { ptr }
-
 @.str = private unnamed_addr constant [34 x i8] c"../openssl/crypto/ec/ecdsa_ossl.c\00", align 1
 @__func__.ossl_ecdsa_sign_setup = private unnamed_addr constant [22 x i8] c"ossl_ecdsa_sign_setup\00", align 1
 @__func__.ossl_ecdsa_sign_sig = private unnamed_addr constant [20 x i8] c"ossl_ecdsa_sign_sig\00", align 1
@@ -22,10 +14,10 @@ target triple = "x86_64-unknown-linux-gnu"
 ; Function Attrs: nounwind uwtable
 define i32 @ossl_ecdsa_sign_setup(ptr noundef %eckey, ptr noundef %ctx_in, ptr noundef %kinvp, ptr noundef %rp) local_unnamed_addr #0 {
 entry:
-  %group = getelementptr inbounds %struct.ec_key_st, ptr %eckey, i64 0, i32 3
+  %group = getelementptr inbounds i8, ptr %eckey, i64 24
   %0 = load ptr, ptr %group, align 8
   %1 = load ptr, ptr %0, align 8
-  %ecdsa_sign_setup = getelementptr inbounds %struct.ec_method_st, ptr %1, i64 0, i32 48
+  %ecdsa_sign_setup = getelementptr inbounds i8, ptr %1, i64 376
   %2 = load ptr, ptr %ecdsa_sign_setup, align 8
   %cmp = icmp eq ptr %2, null
   br i1 %cmp, label %if.then, label %if.end
@@ -54,10 +46,10 @@ declare void @ERR_set_error(i32 noundef, i32 noundef, ptr noundef, ...) local_un
 ; Function Attrs: nounwind uwtable
 define ptr @ossl_ecdsa_sign_sig(ptr noundef %dgst, i32 noundef %dgst_len, ptr noundef %in_kinv, ptr noundef %in_r, ptr noundef %eckey) local_unnamed_addr #0 {
 entry:
-  %group = getelementptr inbounds %struct.ec_key_st, ptr %eckey, i64 0, i32 3
+  %group = getelementptr inbounds i8, ptr %eckey, i64 24
   %0 = load ptr, ptr %group, align 8
   %1 = load ptr, ptr %0, align 8
-  %ecdsa_sign_sig = getelementptr inbounds %struct.ec_method_st, ptr %1, i64 0, i32 49
+  %ecdsa_sign_sig = getelementptr inbounds i8, ptr %1, i64 384
   %2 = load ptr, ptr %ecdsa_sign_sig, align 8
   %cmp = icmp eq ptr %2, null
   br i1 %cmp, label %if.then, label %if.end
@@ -80,10 +72,10 @@ return:                                           ; preds = %if.end, %if.then
 ; Function Attrs: nounwind uwtable
 define i32 @ossl_ecdsa_verify_sig(ptr noundef %dgst, i32 noundef %dgst_len, ptr noundef %sig, ptr noundef %eckey) local_unnamed_addr #0 {
 entry:
-  %group = getelementptr inbounds %struct.ec_key_st, ptr %eckey, i64 0, i32 3
+  %group = getelementptr inbounds i8, ptr %eckey, i64 24
   %0 = load ptr, ptr %group, align 8
   %1 = load ptr, ptr %0, align 8
-  %ecdsa_verify_sig = getelementptr inbounds %struct.ec_method_st, ptr %1, i64 0, i32 50
+  %ecdsa_verify_sig = getelementptr inbounds i8, ptr %1, i64 392
   %2 = load ptr, ptr %ecdsa_verify_sig, align 8
   %cmp = icmp eq ptr %2, null
   br i1 %cmp, label %if.then, label %if.end
@@ -104,7 +96,7 @@ return:                                           ; preds = %if.end, %if.then
 }
 
 ; Function Attrs: nounwind uwtable
-define i32 @ossl_ecdsa_sign(i32 noundef %type, ptr noundef %dgst, i32 noundef %dlen, ptr noundef %sig, ptr nocapture noundef writeonly %siglen, ptr noundef %kinv, ptr noundef %r, ptr noundef %eckey) local_unnamed_addr #0 {
+define noundef i32 @ossl_ecdsa_sign(i32 noundef %type, ptr noundef %dgst, i32 noundef %dlen, ptr noundef %sig, ptr nocapture noundef writeonly %siglen, ptr noundef %kinv, ptr noundef %r, ptr noundef %eckey) local_unnamed_addr #0 {
 entry:
   %sig.addr = alloca ptr, align 8
   store ptr %sig, ptr %sig.addr, align 8
@@ -136,7 +128,7 @@ declare i32 @i2d_ECDSA_SIG(ptr noundef, ptr noundef) local_unnamed_addr #1
 declare void @ECDSA_SIG_free(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define i32 @ossl_ecdsa_deterministic_sign(ptr noundef %dgst, i32 noundef %dlen, ptr noundef %sig, ptr nocapture noundef writeonly %siglen, ptr noundef %eckey, i32 noundef %nonce_type, ptr noundef %digestname, ptr noundef %libctx, ptr noundef %propq) local_unnamed_addr #0 {
+define noundef i32 @ossl_ecdsa_deterministic_sign(ptr noundef %dgst, i32 noundef %dlen, ptr noundef %sig, ptr nocapture noundef writeonly %siglen, ptr noundef %eckey, i32 noundef %nonce_type, ptr noundef %digestname, ptr noundef %libctx, ptr noundef %propq) local_unnamed_addr #0 {
 entry:
   %sig.addr = alloca ptr, align 8
   %kinv = alloca ptr, align 8
@@ -176,7 +168,7 @@ return:                                           ; preds = %entry, %end
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @ecdsa_sign_setup(ptr noundef %eckey, ptr noundef %ctx_in, ptr nocapture noundef %kinvp, ptr nocapture noundef %rp, ptr noundef %dgst, i32 noundef %dlen, i32 noundef %nonce_type, ptr noundef %digestname, ptr noundef %libctx, ptr noundef %propq) unnamed_addr #0 {
+define internal fastcc noundef i32 @ecdsa_sign_setup(ptr noundef %eckey, ptr noundef %ctx_in, ptr nocapture noundef %kinvp, ptr nocapture noundef %rp, ptr noundef %dgst, i32 noundef %dlen, i32 noundef %nonce_type, ptr noundef %digestname, ptr noundef %libctx, ptr noundef %propq) unnamed_addr #0 {
 entry:
   %cmp = icmp eq ptr %eckey, null
   br i1 %cmp, label %if.then, label %lor.lhs.false
@@ -219,7 +211,7 @@ if.end8:                                          ; preds = %if.end5
   br i1 %cmp9, label %if.then10, label %if.end16
 
 if.then10:                                        ; preds = %if.end8
-  %libctx11 = getelementptr inbounds %struct.ec_key_st, ptr %eckey, i64 0, i32 11
+  %libctx11 = getelementptr inbounds i8, ptr %eckey, i64 80
   %0 = load ptr, ptr %libctx11, align 8
   %call12 = tail call ptr @BN_CTX_new_ex(ptr noundef %0) #3
   %cmp13 = icmp eq ptr %call12, null
@@ -429,7 +421,7 @@ return:                                           ; preds = %if.end88, %if.then1
 declare void @BN_clear_free(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define i32 @ossl_ecdsa_simple_sign_setup(ptr noundef %eckey, ptr noundef %ctx_in, ptr nocapture noundef %kinvp, ptr nocapture noundef %rp) local_unnamed_addr #0 {
+define noundef i32 @ossl_ecdsa_simple_sign_setup(ptr noundef %eckey, ptr noundef %ctx_in, ptr nocapture noundef %kinvp, ptr nocapture noundef %rp) local_unnamed_addr #0 {
 entry:
   %call = tail call fastcc i32 @ecdsa_sign_setup(ptr noundef %eckey, ptr noundef %ctx_in, ptr noundef %kinvp, ptr noundef %rp, ptr noundef null, i32 noundef 0, i32 noundef 0, ptr noundef null, ptr noundef null, ptr noundef null), !range !4
   ret i32 %call
@@ -487,7 +479,7 @@ if.end11:                                         ; preds = %if.end7
   %call12 = tail call ptr @BN_new() #3
   store ptr %call12, ptr %call8, align 8
   %call13 = tail call ptr @BN_new() #3
-  %s14 = getelementptr inbounds %struct.ECDSA_SIG_st, ptr %call8, i64 0, i32 1
+  %s14 = getelementptr inbounds i8, ptr %call8, i64 8
   store ptr %call13, ptr %s14, align 8
   %0 = load ptr, ptr %call8, align 8
   %cmp16 = icmp eq ptr %0, null
@@ -502,7 +494,7 @@ if.then19:                                        ; preds = %if.end11
   br label %if.then95
 
 if.end20:                                         ; preds = %if.end11
-  %libctx = getelementptr inbounds %struct.ec_key_st, ptr %eckey, i64 0, i32 11
+  %libctx = getelementptr inbounds i8, ptr %eckey, i64 80
   %1 = load ptr, ptr %libctx, align 8
   %call22 = tail call ptr @BN_CTX_new_ex(ptr noundef %1) #3
   %cmp23 = icmp eq ptr %call22, null
@@ -565,7 +557,7 @@ if.end43:                                         ; preds = %land.lhs.true, %if.
   %cmp44 = icmp eq ptr %in_kinv, null
   %cmp46 = icmp eq ptr %in_r, null
   %or.cond = or i1 %cmp44, %cmp46
-  %mont_data = getelementptr inbounds %struct.ec_group_st, ptr %call, i64 0, i32 18
+  %mont_data = getelementptr inbounds i8, ptr %call, i64 144
   %cmp84 = icmp ne ptr %in_kinv, null
   %cmp86 = icmp ne ptr %in_r, null
   %or.cond1 = and i1 %cmp84, %cmp86
@@ -827,7 +819,7 @@ if.then8:                                         ; preds = %if.end
   br label %return
 
 if.end9:                                          ; preds = %if.end
-  %libctx = getelementptr inbounds %struct.ec_key_st, ptr %eckey, i64 0, i32 11
+  %libctx = getelementptr inbounds i8, ptr %eckey, i64 80
   %0 = load ptr, ptr %libctx, align 8
   %call10 = tail call ptr @BN_CTX_new_ex(ptr noundef %0) #3
   %cmp11 = icmp eq ptr %call10, null
@@ -884,7 +876,7 @@ lor.lhs.false31:                                  ; preds = %lor.lhs.false27
   br i1 %cmp34, label %if.then46, label %lor.lhs.false35
 
 lor.lhs.false35:                                  ; preds = %lor.lhs.false31
-  %s = getelementptr inbounds %struct.ECDSA_SIG_st, ptr %sig, i64 0, i32 1
+  %s = getelementptr inbounds i8, ptr %sig, i64 8
   %4 = load ptr, ptr %s, align 8
   %call36 = tail call i32 @BN_is_zero(ptr noundef %4) #3
   %tobool37.not = icmp eq i32 %call36, 0

@@ -3,7 +3,6 @@ source_filename = "bench/libquic/original/md5.cc.ll"
 target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:128-n8:16:32:64-S128"
 target triple = "x86_64-unknown-linux-gnu"
 
-%"struct.(anonymous namespace)::Context" = type { [4 x i32], [2 x i32], [64 x i8] }
 %"class.std::__cxx11::basic_string" = type { %"struct.std::__cxx11::basic_string<char>::_Alloc_hider", i64, %union.anon }
 %"struct.std::__cxx11::basic_string<char>::_Alloc_hider" = type { ptr }
 %union.anon = type { i64, [8 x i8] }
@@ -16,9 +15,9 @@ target triple = "x86_64-unknown-linux-gnu"
 define dso_local void @_ZN4base7MD5InitEPA88_c(ptr nocapture noundef writeonly %context) local_unnamed_addr #0 {
 entry:
   store <4 x i32> <i32 1732584193, i32 -271733879, i32 -1732584194, i32 271733878>, ptr %context, align 4
-  %bits = getelementptr inbounds %"struct.(anonymous namespace)::Context", ptr %context, i64 0, i32 1
+  %bits = getelementptr inbounds i8, ptr %context, i64 16
   store i32 0, ptr %bits, align 4
-  %arrayidx9 = getelementptr inbounds %"struct.(anonymous namespace)::Context", ptr %context, i64 0, i32 1, i64 1
+  %arrayidx9 = getelementptr inbounds i8, ptr %context, i64 20
   store i32 0, ptr %arrayidx9, align 4
   ret void
 }
@@ -28,20 +27,20 @@ define dso_local void @_ZN4base9MD5UpdateEPA88_cRKNS_16BasicStringPieceINSt7__cx
 entry:
   %call = tail call noundef ptr @_ZNK4base16BasicStringPieceINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE4dataEv(ptr noundef nonnull align 8 dereferenceable(16) %data)
   %call1 = tail call noundef i64 @_ZNK4base16BasicStringPieceINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %data)
-  %bits = getelementptr inbounds %"struct.(anonymous namespace)::Context", ptr %context, i64 0, i32 1
+  %bits = getelementptr inbounds i8, ptr %context, i64 16
   %0 = load i32, ptr %bits, align 4
   %conv = trunc i64 %call1 to i32
   %shl = shl i32 %conv, 3
   %add = add i32 %shl, %0
   store i32 %add, ptr %bits, align 4
   %cmp = icmp ult i32 %add, %0
-  %arrayidx5 = getelementptr inbounds %"struct.(anonymous namespace)::Context", ptr %context, i64 0, i32 1, i64 1
+  %arrayidx5 = getelementptr inbounds i8, ptr %context, i64 20
   %1 = load i32, ptr %arrayidx5, align 4
   %inc = zext i1 %cmp to i32
   %2 = add i32 %1, %inc
   %shr = lshr i64 %call1, 29
   %conv6 = trunc i64 %shr to i32
-  %arrayidx8 = getelementptr inbounds %"struct.(anonymous namespace)::Context", ptr %context, i64 0, i32 1, i64 1
+  %arrayidx8 = getelementptr inbounds i8, ptr %context, i64 20
   %add9 = add i32 %2, %conv6
   store i32 %add9, ptr %arrayidx8, align 4
   %shr10 = lshr i32 %0, 3
@@ -50,7 +49,7 @@ entry:
   br i1 %tobool.not, label %if.end27, label %if.then11
 
 if.then11:                                        ; preds = %entry
-  %in = getelementptr inbounds %"struct.(anonymous namespace)::Context", ptr %context, i64 0, i32 2
+  %in = getelementptr inbounds i8, ptr %context, i64 24
   %idx.ext = zext nneg i32 %and to i64
   %add.ptr = getelementptr inbounds i8, ptr %in, i64 %idx.ext
   %sub = sub nuw nsw i32 64, %and
@@ -76,7 +75,7 @@ if.end27:                                         ; preds = %if.end15, %entry
   br i1 %cmp2844, label %while.body.lr.ph, label %while.end
 
 while.body.lr.ph:                                 ; preds = %if.end27
-  %in29 = getelementptr inbounds %"struct.(anonymous namespace)::Context", ptr %context, i64 0, i32 2
+  %in29 = getelementptr inbounds i8, ptr %context, i64 24
   br label %while.body
 
 while.body:                                       ; preds = %while.body.lr.ph, %while.body
@@ -92,7 +91,7 @@ while.body:                                       ; preds = %while.body.lr.ph, %
 while.end:                                        ; preds = %while.body, %if.end27
   %len.1.lcssa = phi i64 [ %len.0, %if.end27 ], [ %sub38, %while.body ]
   %buf.1.lcssa = phi ptr [ %buf.0, %if.end27 ], [ %add.ptr37, %while.body ]
-  %in39 = getelementptr inbounds %"struct.(anonymous namespace)::Context", ptr %context, i64 0, i32 2
+  %in39 = getelementptr inbounds i8, ptr %context, i64 24
   tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 4 %in39, ptr align 1 %buf.1.lcssa, i64 %len.1.lcssa, i1 false)
   br label %return
 
@@ -111,11 +110,11 @@ declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias
 define internal fastcc void @_ZN12_GLOBAL__N_112MD5TransformEPjPKj(ptr nocapture noundef %buf, ptr nocapture noundef readonly %in) unnamed_addr #4 {
 entry:
   %0 = load i32, ptr %buf, align 4
-  %arrayidx1 = getelementptr inbounds i32, ptr %buf, i64 1
+  %arrayidx1 = getelementptr inbounds i8, ptr %buf, i64 4
   %1 = load i32, ptr %arrayidx1, align 4
-  %arrayidx2 = getelementptr inbounds i32, ptr %buf, i64 2
+  %arrayidx2 = getelementptr inbounds i8, ptr %buf, i64 8
   %2 = load i32, ptr %arrayidx2, align 4
-  %arrayidx3 = getelementptr inbounds i32, ptr %buf, i64 3
+  %arrayidx3 = getelementptr inbounds i8, ptr %buf, i64 12
   %3 = load i32, ptr %arrayidx3, align 4
   %xor = xor i32 %3, %2
   %and = and i32 %xor, %1
@@ -129,7 +128,7 @@ entry:
   %xor9 = xor i32 %2, %1
   %and10 = and i32 %add8, %xor9
   %xor11 = xor i32 %and10, %2
-  %arrayidx12 = getelementptr inbounds i32, ptr %in, i64 1
+  %arrayidx12 = getelementptr inbounds i8, ptr %in, i64 4
   %5 = load i32, ptr %arrayidx12, align 4
   %add13 = add i32 %3, -389564586
   %add14 = add i32 %add13, %5
@@ -139,7 +138,7 @@ entry:
   %xor20 = xor i32 %add8, %1
   %and21 = and i32 %add19, %xor20
   %xor22 = xor i32 %and21, %1
-  %arrayidx23 = getelementptr inbounds i32, ptr %in, i64 2
+  %arrayidx23 = getelementptr inbounds i8, ptr %in, i64 8
   %6 = load i32, ptr %arrayidx23, align 4
   %add24 = add i32 %2, 606105819
   %add25 = add i32 %add24, %6
@@ -149,7 +148,7 @@ entry:
   %xor31 = xor i32 %add19, %add8
   %and32 = and i32 %add30, %xor31
   %xor33 = xor i32 %and32, %add8
-  %arrayidx34 = getelementptr inbounds i32, ptr %in, i64 3
+  %arrayidx34 = getelementptr inbounds i8, ptr %in, i64 12
   %7 = load i32, ptr %arrayidx34, align 4
   %add35 = add i32 %1, -1044525330
   %add36 = add i32 %add35, %7
@@ -159,7 +158,7 @@ entry:
   %xor42 = xor i32 %add30, %add19
   %and43 = and i32 %add41, %xor42
   %xor44 = xor i32 %and43, %add19
-  %arrayidx45 = getelementptr inbounds i32, ptr %in, i64 4
+  %arrayidx45 = getelementptr inbounds i8, ptr %in, i64 16
   %8 = load i32, ptr %arrayidx45, align 4
   %add46 = add i32 %8, -176418897
   %add47 = add i32 %add46, %add8
@@ -169,7 +168,7 @@ entry:
   %xor53 = xor i32 %add41, %add30
   %and54 = and i32 %add52, %xor53
   %xor55 = xor i32 %and54, %add30
-  %arrayidx56 = getelementptr inbounds i32, ptr %in, i64 5
+  %arrayidx56 = getelementptr inbounds i8, ptr %in, i64 20
   %9 = load i32, ptr %arrayidx56, align 4
   %add57 = add i32 %9, 1200080426
   %add58 = add i32 %add57, %add19
@@ -179,7 +178,7 @@ entry:
   %xor64 = xor i32 %add52, %add41
   %and65 = and i32 %add63, %xor64
   %xor66 = xor i32 %and65, %add41
-  %arrayidx67 = getelementptr inbounds i32, ptr %in, i64 6
+  %arrayidx67 = getelementptr inbounds i8, ptr %in, i64 24
   %10 = load i32, ptr %arrayidx67, align 4
   %add68 = add i32 %10, -1473231341
   %add69 = add i32 %add68, %add30
@@ -189,7 +188,7 @@ entry:
   %xor75 = xor i32 %add63, %add52
   %and76 = and i32 %add74, %xor75
   %xor77 = xor i32 %and76, %add52
-  %arrayidx78 = getelementptr inbounds i32, ptr %in, i64 7
+  %arrayidx78 = getelementptr inbounds i8, ptr %in, i64 28
   %11 = load i32, ptr %arrayidx78, align 4
   %add79 = add i32 %11, -45705983
   %add80 = add i32 %add79, %add41
@@ -199,7 +198,7 @@ entry:
   %xor86 = xor i32 %add74, %add63
   %and87 = and i32 %add85, %xor86
   %xor88 = xor i32 %and87, %add63
-  %arrayidx89 = getelementptr inbounds i32, ptr %in, i64 8
+  %arrayidx89 = getelementptr inbounds i8, ptr %in, i64 32
   %12 = load i32, ptr %arrayidx89, align 4
   %add90 = add i32 %12, 1770035416
   %add91 = add i32 %add90, %add52
@@ -209,7 +208,7 @@ entry:
   %xor97 = xor i32 %add85, %add74
   %and98 = and i32 %add96, %xor97
   %xor99 = xor i32 %and98, %add74
-  %arrayidx100 = getelementptr inbounds i32, ptr %in, i64 9
+  %arrayidx100 = getelementptr inbounds i8, ptr %in, i64 36
   %13 = load i32, ptr %arrayidx100, align 4
   %add101 = add i32 %13, -1958414417
   %add102 = add i32 %add101, %add63
@@ -219,7 +218,7 @@ entry:
   %xor108 = xor i32 %add96, %add85
   %and109 = and i32 %add107, %xor108
   %xor110 = xor i32 %and109, %add85
-  %arrayidx111 = getelementptr inbounds i32, ptr %in, i64 10
+  %arrayidx111 = getelementptr inbounds i8, ptr %in, i64 40
   %14 = load i32, ptr %arrayidx111, align 4
   %add112 = add i32 %14, -42063
   %add113 = add i32 %add112, %add74
@@ -229,7 +228,7 @@ entry:
   %xor119 = xor i32 %add107, %add96
   %and120 = and i32 %add118, %xor119
   %xor121 = xor i32 %and120, %add96
-  %arrayidx122 = getelementptr inbounds i32, ptr %in, i64 11
+  %arrayidx122 = getelementptr inbounds i8, ptr %in, i64 44
   %15 = load i32, ptr %arrayidx122, align 4
   %add123 = add i32 %15, -1990404162
   %add124 = add i32 %add123, %add85
@@ -239,7 +238,7 @@ entry:
   %xor130 = xor i32 %add118, %add107
   %and131 = and i32 %add129, %xor130
   %xor132 = xor i32 %and131, %add107
-  %arrayidx133 = getelementptr inbounds i32, ptr %in, i64 12
+  %arrayidx133 = getelementptr inbounds i8, ptr %in, i64 48
   %16 = load i32, ptr %arrayidx133, align 4
   %add134 = add i32 %16, 1804603682
   %add135 = add i32 %add134, %add96
@@ -249,7 +248,7 @@ entry:
   %xor141 = xor i32 %add129, %add118
   %and142 = and i32 %add140, %xor141
   %xor143 = xor i32 %and142, %add118
-  %arrayidx144 = getelementptr inbounds i32, ptr %in, i64 13
+  %arrayidx144 = getelementptr inbounds i8, ptr %in, i64 52
   %17 = load i32, ptr %arrayidx144, align 4
   %add145 = add i32 %17, -40341101
   %add146 = add i32 %add145, %add107
@@ -259,7 +258,7 @@ entry:
   %xor152 = xor i32 %add140, %add129
   %and153 = and i32 %add151, %xor152
   %xor154 = xor i32 %and153, %add129
-  %arrayidx155 = getelementptr inbounds i32, ptr %in, i64 14
+  %arrayidx155 = getelementptr inbounds i8, ptr %in, i64 56
   %18 = load i32, ptr %arrayidx155, align 4
   %add156 = add i32 %18, -1502002290
   %add157 = add i32 %add156, %add118
@@ -269,7 +268,7 @@ entry:
   %xor163 = xor i32 %add151, %add140
   %and164 = and i32 %add162, %xor163
   %xor165 = xor i32 %and164, %add140
-  %arrayidx166 = getelementptr inbounds i32, ptr %in, i64 15
+  %arrayidx166 = getelementptr inbounds i8, ptr %in, i64 60
   %19 = load i32, ptr %arrayidx166, align 4
   %add167 = add i32 %19, 1236535329
   %add168 = add i32 %add167, %add129
@@ -657,11 +656,11 @@ entry:
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
 define dso_local void @_ZN4base8MD5FinalEPNS_9MD5DigestEPA88_c(ptr nocapture noundef writeonly %digest, ptr nocapture noundef %context) local_unnamed_addr #4 {
 entry:
-  %bits = getelementptr inbounds %"struct.(anonymous namespace)::Context", ptr %context, i64 0, i32 1
+  %bits = getelementptr inbounds i8, ptr %context, i64 16
   %0 = load i32, ptr %bits, align 4
   %shr = lshr i32 %0, 3
   %and = and i32 %shr, 63
-  %in = getelementptr inbounds %"struct.(anonymous namespace)::Context", ptr %context, i64 0, i32 2
+  %in = getelementptr inbounds i8, ptr %context, i64 24
   %idx.ext = zext nneg i32 %and to i64
   %add.ptr = getelementptr inbounds i8, ptr %in, i64 %idx.ext
   %incdec.ptr = getelementptr inbounds i8, ptr %add.ptr, i64 1
@@ -684,7 +683,7 @@ if.else:                                          ; preds = %entry
   br label %if.end
 
 if.end:                                           ; preds = %if.else, %if.then
-  %arrayidx13 = getelementptr inbounds %"struct.(anonymous namespace)::Context", ptr %context, i64 0, i32 2, i64 56
+  %arrayidx13 = getelementptr inbounds i8, ptr %context, i64 80
   %1 = load <2 x i32>, ptr %bits, align 4
   store <2 x i32> %1, ptr %arrayidx13, align 4
   tail call fastcc void @_ZN12_GLOBAL__N_112MD5TransformEPjPKj(ptr noundef nonnull %context, ptr noundef nonnull %in)
@@ -701,11 +700,11 @@ define dso_local void @_ZN4base20MD5IntermediateFinalEPNS_9MD5DigestEPA88_Kc(ptr
 entry:
   %context_copy = alloca [88 x i8], align 16
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(88) %context_copy, ptr noundef nonnull align 1 dereferenceable(88) %context, i64 88, i1 false)
-  %bits.i = getelementptr inbounds %"struct.(anonymous namespace)::Context", ptr %context_copy, i64 0, i32 1
+  %bits.i = getelementptr inbounds i8, ptr %context_copy, i64 16
   %0 = load i32, ptr %bits.i, align 16
   %shr.i = lshr i32 %0, 3
   %and.i = and i32 %shr.i, 63
-  %in.i = getelementptr inbounds %"struct.(anonymous namespace)::Context", ptr %context_copy, i64 0, i32 2
+  %in.i = getelementptr inbounds i8, ptr %context_copy, i64 24
   %idx.ext.i = zext nneg i32 %and.i to i64
   %add.ptr.i = getelementptr inbounds i8, ptr %in.i, i64 %idx.ext.i
   %incdec.ptr.i = getelementptr inbounds i8, ptr %add.ptr.i, i64 1
@@ -728,7 +727,7 @@ if.else.i:                                        ; preds = %entry
   br label %_ZN4base8MD5FinalEPNS_9MD5DigestEPA88_c.exit
 
 _ZN4base8MD5FinalEPNS_9MD5DigestEPA88_c.exit:     ; preds = %if.then.i, %if.else.i
-  %arrayidx13.i = getelementptr inbounds %"struct.(anonymous namespace)::Context", ptr %context_copy, i64 0, i32 2, i64 56
+  %arrayidx13.i = getelementptr inbounds i8, ptr %context_copy, i64 80
   %1 = load <2 x i32>, ptr %bits.i, align 16
   store <2 x i32> %1, ptr %arrayidx13.i, align 16
   call fastcc void @_ZN12_GLOBAL__N_112MD5TransformEPjPKj(ptr noundef nonnull %context_copy, ptr noundef nonnull %in.i)
@@ -810,16 +809,16 @@ entry:
   %ctx = alloca [88 x i8], align 16
   %ref.tmp = alloca %"class.base::BasicStringPiece", align 8
   store <4 x i32> <i32 1732584193, i32 -271733879, i32 -1732584194, i32 271733878>, ptr %ctx, align 16
-  %bits.i = getelementptr inbounds %"struct.(anonymous namespace)::Context", ptr %ctx, i64 0, i32 1
+  %bits.i = getelementptr inbounds i8, ptr %ctx, i64 16
   store i32 0, ptr %bits.i, align 16
-  %arrayidx9.i = getelementptr inbounds %"struct.(anonymous namespace)::Context", ptr %ctx, i64 0, i32 1, i64 1
+  %arrayidx9.i = getelementptr inbounds i8, ptr %ctx, i64 20
   store i32 0, ptr %arrayidx9.i, align 4
   call void @_ZN4base16BasicStringPieceINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEC1EPKcm(ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp, ptr noundef %data, i64 noundef %length)
   call void @_ZN4base9MD5UpdateEPA88_cRKNS_16BasicStringPieceINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEE(ptr noundef nonnull %ctx, ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp)
   %0 = load i32, ptr %bits.i, align 16
   %shr.i = lshr i32 %0, 3
   %and.i = and i32 %shr.i, 63
-  %in.i = getelementptr inbounds %"struct.(anonymous namespace)::Context", ptr %ctx, i64 0, i32 2
+  %in.i = getelementptr inbounds i8, ptr %ctx, i64 24
   %idx.ext.i = zext nneg i32 %and.i to i64
   %add.ptr.i = getelementptr inbounds i8, ptr %in.i, i64 %idx.ext.i
   %incdec.ptr.i = getelementptr inbounds i8, ptr %add.ptr.i, i64 1
@@ -842,7 +841,7 @@ if.else.i:                                        ; preds = %entry
   br label %_ZN4base8MD5FinalEPNS_9MD5DigestEPA88_c.exit
 
 _ZN4base8MD5FinalEPNS_9MD5DigestEPA88_c.exit:     ; preds = %if.then.i, %if.else.i
-  %arrayidx13.i = getelementptr inbounds %"struct.(anonymous namespace)::Context", ptr %ctx, i64 0, i32 2, i64 56
+  %arrayidx13.i = getelementptr inbounds i8, ptr %ctx, i64 80
   %1 = load <2 x i32>, ptr %bits.i, align 16
   store <2 x i32> %1, ptr %arrayidx13.i, align 16
   call fastcc void @_ZN12_GLOBAL__N_112MD5TransformEPjPKj(ptr noundef nonnull %ctx, ptr noundef nonnull %in.i)
@@ -863,16 +862,16 @@ entry:
   call void @llvm.lifetime.start.p0(i64 88, ptr nonnull %ctx.i)
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %ref.tmp.i)
   store <4 x i32> <i32 1732584193, i32 -271733879, i32 -1732584194, i32 271733878>, ptr %ctx.i, align 16
-  %bits.i.i = getelementptr inbounds %"struct.(anonymous namespace)::Context", ptr %ctx.i, i64 0, i32 1
+  %bits.i.i = getelementptr inbounds i8, ptr %ctx.i, i64 16
   store i32 0, ptr %bits.i.i, align 16
-  %arrayidx9.i.i = getelementptr inbounds %"struct.(anonymous namespace)::Context", ptr %ctx.i, i64 0, i32 1, i64 1
+  %arrayidx9.i.i = getelementptr inbounds i8, ptr %ctx.i, i64 20
   store i32 0, ptr %arrayidx9.i.i, align 4
   call void @_ZN4base16BasicStringPieceINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEC1EPKcm(ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp.i, ptr noundef %call, i64 noundef %call1)
   call void @_ZN4base9MD5UpdateEPA88_cRKNS_16BasicStringPieceINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEE(ptr noundef nonnull %ctx.i, ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp.i)
   %0 = load i32, ptr %bits.i.i, align 16
   %shr.i.i = lshr i32 %0, 3
   %and.i.i = and i32 %shr.i.i, 63
-  %in.i.i = getelementptr inbounds %"struct.(anonymous namespace)::Context", ptr %ctx.i, i64 0, i32 2
+  %in.i.i = getelementptr inbounds i8, ptr %ctx.i, i64 24
   %idx.ext.i.i = zext nneg i32 %and.i.i to i64
   %add.ptr.i.i = getelementptr inbounds i8, ptr %in.i.i, i64 %idx.ext.i.i
   %incdec.ptr.i.i = getelementptr inbounds i8, ptr %add.ptr.i.i, i64 1
@@ -895,7 +894,7 @@ if.else.i.i:                                      ; preds = %entry
   br label %_ZN4base6MD5SumEPKvmPNS_9MD5DigestE.exit
 
 _ZN4base6MD5SumEPKvmPNS_9MD5DigestE.exit:         ; preds = %if.then.i.i, %if.else.i.i
-  %arrayidx13.i.i = getelementptr inbounds %"struct.(anonymous namespace)::Context", ptr %ctx.i, i64 0, i32 2, i64 56
+  %arrayidx13.i.i = getelementptr inbounds i8, ptr %ctx.i, i64 80
   %1 = load <2 x i32>, ptr %bits.i.i, align 16
   store <2 x i32> %1, ptr %arrayidx13.i.i, align 16
   call fastcc void @_ZN12_GLOBAL__N_112MD5TransformEPjPKj(ptr noundef nonnull %ctx.i, ptr noundef nonnull %in.i.i)

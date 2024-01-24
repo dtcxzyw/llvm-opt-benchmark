@@ -4,12 +4,8 @@ target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:
 target triple = "x86_64-unknown-linux-gnu"
 
 %struct.strbuf = type { i64, i64, ptr }
-%struct.option = type { i32, i32, ptr, ptr, ptr, ptr, i32, ptr, i64, ptr, i64, ptr }
-%struct.repository = type { ptr, ptr, ptr, ptr, ptr, %struct.repo_path_cache, ptr, ptr, ptr, ptr, %struct.repo_settings, ptr, ptr, ptr, ptr, ptr, i32, i32, i32, ptr, ptr, i32, i8 }
-%struct.repo_path_cache = type { ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr }
-%struct.repo_settings = type { i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, ptr, i32, i32, i32, i32, i32, i32 }
-%struct.git_hash_algo = type { ptr, i32, i64, i64, i64, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr }
 %struct.object_id = type { [32 x i8], i32 }
+%struct.option = type { i32, i32, ptr, ptr, ptr, ptr, i32, ptr, i64, ptr, i64, ptr }
 
 @default_abbrev = external local_unnamed_addr global i32, align 4
 @.str = private unnamed_addr constant [38 x i8] c"option `%s' expects a numerical value\00", align 1
@@ -68,7 +64,7 @@ if.end3.i:                                        ; preds = %if.then3
 
 _.exit:                                           ; preds = %if.then3, %if.end3.i
   %retval.0.i = phi ptr [ %call.i, %if.end3.i ], [ @.str, %if.then3 ]
-  %long_name = getelementptr inbounds %struct.option, ptr %opt, i64 0, i32 2
+  %long_name = getelementptr inbounds i8, ptr %opt, i64 8
   %3 = load ptr, ptr %long_name, align 8
   %call4 = tail call i32 (ptr, ...) @error(ptr noundef %retval.0.i, ptr noundef %3) #10
   br label %return
@@ -92,7 +88,7 @@ if.end3.i8:                                       ; preds = %if.then8
 
 _.exit11:                                         ; preds = %if.then8, %if.end3.i8
   %retval.0.i10 = phi ptr [ %call.i9, %if.end3.i8 ], [ @.str, %if.then8 ]
-  %long_name10 = getelementptr inbounds %struct.option, ptr %opt, i64 0, i32 2
+  %long_name10 = getelementptr inbounds i8, ptr %opt, i64 8
   %7 = load ptr, ptr %long_name10, align 8
   %call11 = tail call i32 (ptr, ...) @error(ptr noundef %retval.0.i10, ptr noundef %7) #10
   br label %return
@@ -108,9 +104,9 @@ if.else17:                                        ; preds = %if.end13
   %sext = shl i64 %call6, 32
   %conv18 = ashr exact i64 %sext, 32
   %9 = load ptr, ptr @the_repository, align 8
-  %hash_algo = getelementptr inbounds %struct.repository, ptr %9, i64 0, i32 15
+  %hash_algo = getelementptr inbounds i8, ptr %9, i64 256
   %10 = load ptr, ptr %hash_algo, align 8
-  %hexsz = getelementptr inbounds %struct.git_hash_algo, ptr %10, i64 0, i32 3
+  %hexsz = getelementptr inbounds i8, ptr %10, i64 24
   %11 = load i64, ptr %hexsz, align 8
   %cmp19 = icmp ugt i64 %conv18, %11
   %conv24 = trunc i64 %11 to i32
@@ -119,7 +115,7 @@ if.else17:                                        ; preds = %if.end13
 
 if.end27:                                         ; preds = %if.else17, %if.end13, %if.then
   %v.0 = phi i32 [ %cond, %if.then ], [ %spec.select, %if.else17 ], [ %8, %if.end13 ]
-  %value = getelementptr inbounds %struct.option, ptr %opt, i64 0, i32 3
+  %value = getelementptr inbounds i8, ptr %opt, i64 16
   %12 = load ptr, ptr %value, align 8
   store i32 %v.0, ptr %12, align 4
   br label %return
@@ -160,7 +156,7 @@ define dso_local noundef i32 @parse_opt_expiry_date_cb(ptr nocapture noundef rea
 entry:
   %tobool.not = icmp eq i32 %unset, 0
   %spec.select = select i1 %tobool.not, ptr %arg, ptr @.str.1
-  %value = getelementptr inbounds %struct.option, ptr %opt, i64 0, i32 3
+  %value = getelementptr inbounds i8, ptr %opt, i64 16
   %0 = load ptr, ptr %value, align 8
   %call = tail call i32 @parse_expiry_date(ptr noundef %spec.select, ptr noundef %0) #10
   %tobool1.not = icmp eq i32 %call, 0
@@ -191,7 +187,7 @@ if.then:                                          ; preds = %entry
   br i1 %tobool1.not, label %cond.false, label %if.end
 
 cond.false:                                       ; preds = %if.then
-  %defval = getelementptr inbounds %struct.option, ptr %opt, i64 0, i32 8
+  %defval = getelementptr inbounds i8, ptr %opt, i64 56
   %0 = load i64, ptr %defval, align 8
   %1 = inttoptr i64 %0 to ptr
   br label %if.end
@@ -213,13 +209,13 @@ if.end3.i:                                        ; preds = %if.then2
 
 _.exit:                                           ; preds = %if.then2, %if.end3.i
   %retval.0.i = phi ptr [ %call.i, %if.end3.i ], [ @.str.3, %if.then2 ]
-  %long_name = getelementptr inbounds %struct.option, ptr %opt, i64 0, i32 2
+  %long_name = getelementptr inbounds i8, ptr %opt, i64 8
   %3 = load ptr, ptr %long_name, align 8
   %call4 = tail call i32 (ptr, ...) @error(ptr noundef %retval.0.i, ptr noundef %3) #10
   br label %return
 
 if.end6:                                          ; preds = %if.end
-  %value7 = getelementptr inbounds %struct.option, ptr %opt, i64 0, i32 3
+  %value7 = getelementptr inbounds i8, ptr %opt, i64 16
   %4 = load ptr, ptr %value7, align 8
   store i32 %call, ptr %4, align 4
   br label %return
@@ -234,7 +230,7 @@ declare i32 @git_config_colorbool(ptr noundef, ptr noundef) local_unnamed_addr #
 ; Function Attrs: nounwind uwtable
 define dso_local noundef i32 @parse_opt_verbosity_cb(ptr nocapture noundef readonly %opt, ptr noundef readnone %arg, i32 noundef %unset) local_unnamed_addr #0 {
 entry:
-  %value = getelementptr inbounds %struct.option, ptr %opt, i64 0, i32 3
+  %value = getelementptr inbounds i8, ptr %opt, i64 16
   %0 = load ptr, ptr %value, align 8
   %tobool.not = icmp eq ptr %arg, null
   br i1 %tobool.not, label %do.end, label %if.then
@@ -248,7 +244,7 @@ do.end:                                           ; preds = %entry
   br i1 %tobool1.not, label %if.else, label %if.end14
 
 if.else:                                          ; preds = %do.end
-  %short_name = getelementptr inbounds %struct.option, ptr %opt, i64 0, i32 1
+  %short_name = getelementptr inbounds i8, ptr %opt, i64 4
   %1 = load i32, ptr %short_name, align 4
   %cmp = icmp eq i32 %1, 118
   %2 = load i32, ptr %0, align 4
@@ -311,7 +307,7 @@ if.then11:                                        ; preds = %if.end8
   br label %return
 
 if.end14:                                         ; preds = %if.end8
-  %value = getelementptr inbounds %struct.option, ptr %opt, i64 0, i32 3
+  %value = getelementptr inbounds i8, ptr %opt, i64 16
   %2 = load ptr, ptr %value, align 8
   %call15 = call ptr @commit_list_insert(ptr noundef nonnull %call9, ptr noundef %2) #10
   br label %return
@@ -331,7 +327,7 @@ declare ptr @commit_list_insert(ptr noundef, ptr noundef) local_unnamed_addr #1
 define dso_local noundef i32 @parse_opt_commit(ptr nocapture noundef readonly %opt, ptr noundef %arg, i32 noundef %unset) local_unnamed_addr #0 {
 entry:
   %oid = alloca %struct.object_id, align 4
-  %value = getelementptr inbounds %struct.option, ptr %opt, i64 0, i32 3
+  %value = getelementptr inbounds i8, ptr %opt, i64 16
   %0 = load ptr, ptr %value, align 8
   %tobool.not = icmp eq i32 %unset, 0
   br i1 %tobool.not, label %do.end, label %if.then
@@ -381,7 +377,7 @@ entry:
   br i1 %tobool.not, label %if.end, label %if.then
 
 if.then:                                          ; preds = %entry
-  %value = getelementptr inbounds %struct.option, ptr %opt, i64 0, i32 3
+  %value = getelementptr inbounds i8, ptr %opt, i64 16
   %0 = load ptr, ptr %value, align 8
   tail call void @oid_array_clear(ptr noundef %0) #10
   br label %return
@@ -411,7 +407,7 @@ _.exit:                                           ; preds = %if.then5, %if.end3.
   br label %return
 
 if.end9:                                          ; preds = %if.end3
-  %value10 = getelementptr inbounds %struct.option, ptr %opt, i64 0, i32 3
+  %value10 = getelementptr inbounds i8, ptr %opt, i64 16
   %3 = load ptr, ptr %value10, align 8
   call void @oid_array_append(ptr noundef %3, ptr noundef nonnull %oid) #10
   br label %return
@@ -429,7 +425,7 @@ declare void @oid_array_append(ptr noundef, ptr noundef) local_unnamed_addr #1
 define dso_local noundef i32 @parse_opt_object_id(ptr nocapture noundef readonly %opt, ptr noundef %arg, i32 noundef %unset) local_unnamed_addr #0 {
 entry:
   %oid = alloca %struct.object_id, align 4
-  %value = getelementptr inbounds %struct.option, ptr %opt, i64 0, i32 3
+  %value = getelementptr inbounds i8, ptr %opt, i64 16
   %0 = load ptr, ptr %value, align 8
   %tobool.not = icmp eq i32 %unset, 0
   br i1 %tobool.not, label %if.end, label %if.then
@@ -437,9 +433,9 @@ entry:
 if.then:                                          ; preds = %entry
   %call = tail call ptr @null_oid() #10
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(32) %0, ptr noundef nonnull align 4 dereferenceable(32) %call, i64 32, i1 false)
-  %algo.i = getelementptr inbounds %struct.object_id, ptr %call, i64 0, i32 1
+  %algo.i = getelementptr inbounds i8, ptr %call, i64 32
   %1 = load i32, ptr %algo.i, align 4
-  %algo3.i = getelementptr inbounds %struct.object_id, ptr %0, i64 0, i32 1
+  %algo3.i = getelementptr inbounds i8, ptr %0, i64 32
   store i32 %1, ptr %algo3.i, align 4
   br label %return
 
@@ -492,7 +488,7 @@ if.then:                                          ; preds = %entry
   unreachable
 
 do.end:                                           ; preds = %entry
-  %value = getelementptr inbounds %struct.option, ptr %opt, i64 0, i32 3
+  %value = getelementptr inbounds i8, ptr %opt, i64 16
   %0 = load ptr, ptr %value, align 8
   %tobool1.not = icmp eq i32 %unset, 0
   %cond = select i1 %tobool1.not, i32 1, i32 2
@@ -527,7 +523,7 @@ for.body.i:                                       ; preds = %land.rhs.i.preheade
   %opt.addr.05.i39 = phi ptr [ %incdec.ptr.i, %for.body.i ], [ %a, %land.rhs.i.preheader ]
   %n.06.i38 = phi i64 [ %inc.i, %for.body.i ], [ 0, %land.rhs.i.preheader ]
   %inc.i = add i64 %n.06.i38, 1
-  %incdec.ptr.i = getelementptr inbounds %struct.option, ptr %opt.addr.05.i39, i64 1
+  %incdec.ptr.i = getelementptr inbounds i8, ptr %opt.addr.05.i39, i64 88
   %1 = load i32, ptr %incdec.ptr.i, align 8
   %cmp.not.i = icmp eq i32 %1, 0
   br i1 %cmp.not.i, label %parse_options_count.exit, label %for.body.i
@@ -546,7 +542,7 @@ for.body.i13:                                     ; preds = %land.rhs.i9.prehead
   %opt.addr.05.i1142 = phi ptr [ %incdec.ptr.i15, %for.body.i13 ], [ %b, %land.rhs.i9.preheader ]
   %n.06.i1041 = phi i64 [ %inc.i14, %for.body.i13 ], [ 0, %land.rhs.i9.preheader ]
   %inc.i14 = add i64 %n.06.i1041, 1
-  %incdec.ptr.i15 = getelementptr inbounds %struct.option, ptr %opt.addr.05.i1142, i64 1
+  %incdec.ptr.i15 = getelementptr inbounds i8, ptr %opt.addr.05.i1142, i64 88
   %3 = load i32, ptr %incdec.ptr.i15, align 8
   %cmp.not.i12 = icmp eq i32 %3, 0
   br i1 %cmp.not.i12, label %parse_options_count.exit17, label %for.body.i13
@@ -626,7 +622,7 @@ declare ptr @xmalloc(i64 noundef) local_unnamed_addr #1
 ; Function Attrs: nounwind uwtable
 define dso_local noundef i32 @parse_opt_string_list(ptr nocapture noundef readonly %opt, ptr noundef %arg, i32 noundef %unset) local_unnamed_addr #0 {
 entry:
-  %value = getelementptr inbounds %struct.option, ptr %opt, i64 0, i32 3
+  %value = getelementptr inbounds i8, ptr %opt, i64 16
   %0 = load ptr, ptr %value, align 8
   %tobool.not = icmp eq i32 %unset, 0
   br i1 %tobool.not, label %if.end, label %if.then
@@ -655,7 +651,7 @@ declare ptr @string_list_append(ptr noundef, ptr noundef) local_unnamed_addr #1
 ; Function Attrs: nounwind uwtable
 define dso_local noundef i32 @parse_opt_strvec(ptr nocapture noundef readonly %opt, ptr noundef %arg, i32 noundef %unset) local_unnamed_addr #0 {
 entry:
-  %value = getelementptr inbounds %struct.option, ptr %opt, i64 0, i32 3
+  %value = getelementptr inbounds i8, ptr %opt, i64 16
   %0 = load ptr, ptr %value, align 8
   %tobool.not = icmp eq i32 %unset, 0
   br i1 %tobool.not, label %if.end, label %if.then
@@ -690,7 +686,7 @@ entry:
 ; Function Attrs: nounwind uwtable
 define dso_local noundef i32 @parse_opt_passthru(ptr nocapture noundef readonly %opt, ptr noundef %arg, i32 noundef %unset) local_unnamed_addr #0 {
 entry:
-  %value = getelementptr inbounds %struct.option, ptr %opt, i64 0, i32 3
+  %value = getelementptr inbounds i8, ptr %opt, i64 16
   %0 = load ptr, ptr %value, align 8
   %call = tail call fastcc i32 @recreate_opt(ptr noundef nonnull @parse_opt_passthru.sb, ptr noundef %opt, ptr noundef %arg, i32 noundef %unset), !range !5
   %cmp = icmp slt i32 %call, 0
@@ -711,9 +707,9 @@ return:                                           ; preds = %entry, %if.end
 ; Function Attrs: nounwind uwtable
 define internal fastcc noundef i32 @recreate_opt(ptr noundef %sb, ptr nocapture noundef readonly %opt, ptr noundef %arg, i32 noundef %unset) unnamed_addr #0 {
 entry:
-  %len2.i = getelementptr inbounds %struct.strbuf, ptr %sb, i64 0, i32 1
+  %len2.i = getelementptr inbounds i8, ptr %sb, i64 8
   store i64 0, ptr %len2.i, align 8
-  %buf.i = getelementptr inbounds %struct.strbuf, ptr %sb, i64 0, i32 2
+  %buf.i = getelementptr inbounds i8, ptr %sb, i64 16
   %0 = load ptr, ptr %buf.i, align 8
   %cmp3.not.i = icmp eq ptr %0, @strbuf_slopbuf
   br i1 %cmp3.not.i, label %strbuf_setlen.exit, label %if.then4.i
@@ -723,7 +719,7 @@ if.then4.i:                                       ; preds = %entry
   br label %strbuf_setlen.exit
 
 strbuf_setlen.exit:                               ; preds = %entry, %if.then4.i
-  %long_name = getelementptr inbounds %struct.option, ptr %opt, i64 0, i32 2
+  %long_name = getelementptr inbounds i8, ptr %opt, i64 8
   %1 = load ptr, ptr %long_name, align 8
   %tobool.not = icmp eq ptr %1, null
   br i1 %tobool.not, label %if.else, label %if.then
@@ -770,7 +766,7 @@ strbuf_addch.exit:                                ; preds = %strbuf_avail.exit.i
   br label %return.sink.split
 
 if.else:                                          ; preds = %strbuf_setlen.exit
-  %short_name = getelementptr inbounds %struct.option, ptr %opt, i64 0, i32 1
+  %short_name = getelementptr inbounds i8, ptr %opt, i64 4
   %9 = load i32, ptr %short_name, align 4
   %tobool5 = icmp eq i32 %9, 0
   %tobool6 = icmp ne i32 %unset, 0
@@ -855,7 +851,7 @@ declare ptr @strbuf_detach(ptr noundef, ptr noundef) local_unnamed_addr #1
 ; Function Attrs: nounwind uwtable
 define dso_local noundef i32 @parse_opt_passthru_argv(ptr nocapture noundef readonly %opt, ptr noundef %arg, i32 noundef %unset) local_unnamed_addr #0 {
 entry:
-  %value = getelementptr inbounds %struct.option, ptr %opt, i64 0, i32 3
+  %value = getelementptr inbounds i8, ptr %opt, i64 16
   %0 = load ptr, ptr %value, align 8
   %call = tail call fastcc i32 @recreate_opt(ptr noundef nonnull @parse_opt_passthru_argv.sb, ptr noundef %opt, ptr noundef %arg, i32 noundef %unset), !range !5
   %cmp = icmp slt i32 %call, 0
@@ -878,7 +874,7 @@ entry:
   br i1 %tobool.not, label %if.else, label %if.then
 
 if.then:                                          ; preds = %entry
-  %value = getelementptr inbounds %struct.option, ptr %opt, i64 0, i32 3
+  %value = getelementptr inbounds i8, ptr %opt, i64 16
   %0 = load ptr, ptr %value, align 8
   store i32 0, ptr %0, align 4
   br label %return
@@ -893,7 +889,7 @@ lor.lhs.false:                                    ; preds = %if.else
   br i1 %tobool2.not, label %if.then3, label %if.else5
 
 if.then3:                                         ; preds = %lor.lhs.false, %if.else
-  %value4 = getelementptr inbounds %struct.option, ptr %opt, i64 0, i32 3
+  %value4 = getelementptr inbounds i8, ptr %opt, i64 16
   %1 = load ptr, ptr %value4, align 8
   store i32 3, ptr %1, align 4
   br label %return
@@ -904,7 +900,7 @@ if.else5:                                         ; preds = %lor.lhs.false
   br i1 %tobool7.not, label %if.then8, label %if.else10
 
 if.then8:                                         ; preds = %if.else5
-  %value9 = getelementptr inbounds %struct.option, ptr %opt, i64 0, i32 3
+  %value9 = getelementptr inbounds i8, ptr %opt, i64 16
   %2 = load ptr, ptr %value9, align 8
   store i32 5, ptr %2, align 4
   br label %return

@@ -3,8 +3,6 @@ source_filename = "bench/nghttp2/original/nghttp2_pq.c.ll"
 target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:128-n8:16:32:64-S128"
 target triple = "x86_64-unknown-linux-gnu"
 
-%struct.nghttp2_pq = type { ptr, ptr, i64, i64, ptr }
-
 @.str = private unnamed_addr constant [27 x i8] c"pq->q[item->index] == item\00", align 1
 @.str.1 = private unnamed_addr constant [110 x i8] c"generated/home/dtcxzyw/WorkSpace/Projects/compilers/llvm-opt-benchmark/bench/nghttp2/nghttp2/lib/nghttp2_pq.c\00", align 1
 @__PRETTY_FUNCTION__.nghttp2_pq_remove = private unnamed_addr constant [57 x i8] c"void nghttp2_pq_remove(nghttp2_pq *, nghttp2_pq_entry *)\00", align 1
@@ -12,11 +10,11 @@ target triple = "x86_64-unknown-linux-gnu"
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
 define hidden void @nghttp2_pq_init(ptr nocapture noundef writeonly %pq, ptr noundef %less, ptr noundef %mem) local_unnamed_addr #0 {
 entry:
-  %mem1 = getelementptr inbounds %struct.nghttp2_pq, ptr %pq, i64 0, i32 1
+  %mem1 = getelementptr inbounds i8, ptr %pq, i64 8
   store ptr %mem, ptr %mem1, align 8
   store ptr null, ptr %pq, align 8
-  %length = getelementptr inbounds %struct.nghttp2_pq, ptr %pq, i64 0, i32 2
-  %less2 = getelementptr inbounds %struct.nghttp2_pq, ptr %pq, i64 0, i32 4
+  %length = getelementptr inbounds i8, ptr %pq, i64 16
+  %less2 = getelementptr inbounds i8, ptr %pq, i64 32
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %length, i8 0, i64 16, i1 false)
   store ptr %less, ptr %less2, align 8
   ret void
@@ -25,7 +23,7 @@ entry:
 ; Function Attrs: nounwind uwtable
 define hidden void @nghttp2_pq_free(ptr nocapture noundef %pq) local_unnamed_addr #1 {
 entry:
-  %mem = getelementptr inbounds %struct.nghttp2_pq, ptr %pq, i64 0, i32 1
+  %mem = getelementptr inbounds i8, ptr %pq, i64 8
   %0 = load ptr, ptr %mem, align 8
   %1 = load ptr, ptr %pq, align 8
   tail call void @nghttp2_mem_free(ptr noundef %0, ptr noundef %1) #8
@@ -38,9 +36,9 @@ declare void @nghttp2_mem_free(ptr noundef, ptr noundef) local_unnamed_addr #2
 ; Function Attrs: nounwind uwtable
 define hidden noundef i32 @nghttp2_pq_push(ptr nocapture noundef %pq, ptr noundef %item) local_unnamed_addr #1 {
 entry:
-  %capacity = getelementptr inbounds %struct.nghttp2_pq, ptr %pq, i64 0, i32 3
+  %capacity = getelementptr inbounds i8, ptr %pq, i64 24
   %0 = load i64, ptr %capacity, align 8
-  %length = getelementptr inbounds %struct.nghttp2_pq, ptr %pq, i64 0, i32 2
+  %length = getelementptr inbounds i8, ptr %pq, i64 16
   %1 = load i64, ptr %length, align 8
   %cmp.not = icmp ugt i64 %0, %1
   %.pre = load ptr, ptr %pq, align 8
@@ -49,7 +47,7 @@ entry:
 if.then:                                          ; preds = %entry
   %mul = shl i64 %0, 1
   %spec.select = tail call i64 @llvm.umax.i64(i64 %mul, i64 4)
-  %mem = getelementptr inbounds %struct.nghttp2_pq, ptr %pq, i64 0, i32 1
+  %mem = getelementptr inbounds i8, ptr %pq, i64 8
   %2 = load ptr, ptr %mem, align 8
   %mul5 = shl i64 %spec.select, 3
   %call = tail call ptr @nghttp2_mem_realloc(ptr noundef %2, ptr noundef %.pre, i64 noundef %mul5) #8
@@ -75,7 +73,7 @@ if.end10:                                         ; preds = %if.end, %entry
   br i1 %cmp.not10.i, label %return, label %while.body.lr.ph.i
 
 while.body.lr.ph.i:                               ; preds = %if.end10
-  %less.i = getelementptr inbounds %struct.nghttp2_pq, ptr %pq, i64 0, i32 4
+  %less.i = getelementptr inbounds i8, ptr %pq, i64 32
   br label %while.body.i
 
 while.body.i:                                     ; preds = %if.end.i, %while.body.lr.ph.i
@@ -117,7 +115,7 @@ declare ptr @nghttp2_mem_realloc(ptr noundef, ptr noundef, i64 noundef) local_un
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
 define hidden ptr @nghttp2_pq_top(ptr nocapture noundef readonly %pq) local_unnamed_addr #3 {
 entry:
-  %length = getelementptr inbounds %struct.nghttp2_pq, ptr %pq, i64 0, i32 2
+  %length = getelementptr inbounds i8, ptr %pq, i64 16
   %0 = load i64, ptr %length, align 8
   %cmp = icmp eq i64 %0, 0
   br i1 %cmp, label %return, label %if.else
@@ -135,7 +133,7 @@ return:                                           ; preds = %entry, %if.else
 ; Function Attrs: nounwind uwtable
 define hidden void @nghttp2_pq_pop(ptr nocapture noundef %pq) local_unnamed_addr #1 {
 entry:
-  %length = getelementptr inbounds %struct.nghttp2_pq, ptr %pq, i64 0, i32 2
+  %length = getelementptr inbounds i8, ptr %pq, i64 16
   %0 = load i64, ptr %length, align 8
   %cmp.not = icmp eq i64 %0, 0
   br i1 %cmp.not, label %if.end, label %if.then
@@ -143,7 +141,7 @@ entry:
 if.then:                                          ; preds = %entry
   %1 = load ptr, ptr %pq, align 8
   %2 = getelementptr ptr, ptr %1, i64 %0
-  %arrayidx = getelementptr ptr, ptr %2, i64 -1
+  %arrayidx = getelementptr i8, ptr %2, i64 -8
   %3 = load ptr, ptr %arrayidx, align 8
   store ptr %3, ptr %1, align 8
   %4 = load ptr, ptr %pq, align 8
@@ -152,7 +150,7 @@ if.then:                                          ; preds = %entry
   %6 = load i64, ptr %length, align 8
   %dec = add i64 %6, -1
   store i64 %dec, ptr %length, align 8
-  %less.i = getelementptr inbounds %struct.nghttp2_pq, ptr %pq, i64 0, i32 4
+  %less.i = getelementptr inbounds i8, ptr %pq, i64 32
   br label %for.cond.i
 
 for.cond.i:                                       ; preds = %if.end10.i, %if.then
@@ -221,7 +219,7 @@ if.else:                                          ; preds = %entry
 
 if.end:                                           ; preds = %entry
   %cmp2 = icmp eq i64 %1, 0
-  %length.i = getelementptr inbounds %struct.nghttp2_pq, ptr %pq, i64 0, i32 2
+  %length.i = getelementptr inbounds i8, ptr %pq, i64 16
   %3 = load i64, ptr %length.i, align 8
   br i1 %cmp2, label %if.then3, label %if.end4
 
@@ -231,7 +229,7 @@ if.then3:                                         ; preds = %if.end
 
 if.then.i:                                        ; preds = %if.then3
   %4 = getelementptr ptr, ptr %0, i64 %3
-  %arrayidx.i = getelementptr ptr, ptr %4, i64 -1
+  %arrayidx.i = getelementptr i8, ptr %4, i64 -8
   %5 = load ptr, ptr %arrayidx.i, align 8
   store ptr %5, ptr %0, align 8
   %6 = load ptr, ptr %pq, align 8
@@ -240,7 +238,7 @@ if.then.i:                                        ; preds = %if.then3
   %8 = load i64, ptr %length.i, align 8
   %dec.i = add i64 %8, -1
   store i64 %dec.i, ptr %length.i, align 8
-  %less.i.i = getelementptr inbounds %struct.nghttp2_pq, ptr %pq, i64 0, i32 4
+  %less.i.i = getelementptr inbounds i8, ptr %pq, i64 32
   br label %for.cond.i.i
 
 for.cond.i.i:                                     ; preds = %if.end10.i.i, %if.then.i
@@ -310,7 +308,7 @@ if.end9:                                          ; preds = %if.end4
   %22 = load i64, ptr %length.i, align 8
   %dec23 = add i64 %22, -1
   store i64 %dec23, ptr %length.i, align 8
-  %less = getelementptr inbounds %struct.nghttp2_pq, ptr %pq, i64 0, i32 4
+  %less = getelementptr inbounds i8, ptr %pq, i64 32
   %23 = load ptr, ptr %less, align 8
   %24 = load ptr, ptr %pq, align 8
   %25 = load i64, ptr %item, align 8
@@ -410,7 +408,7 @@ declare void @__assert_fail(ptr noundef, ptr noundef, i32 noundef, ptr noundef) 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
 define hidden i32 @nghttp2_pq_empty(ptr nocapture noundef readonly %pq) local_unnamed_addr #5 {
 entry:
-  %length = getelementptr inbounds %struct.nghttp2_pq, ptr %pq, i64 0, i32 2
+  %length = getelementptr inbounds i8, ptr %pq, i64 16
   %0 = load i64, ptr %length, align 8
   %cmp = icmp eq i64 %0, 0
   %conv = zext i1 %cmp to i32
@@ -420,7 +418,7 @@ entry:
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
 define hidden i64 @nghttp2_pq_size(ptr nocapture noundef readonly %pq) local_unnamed_addr #5 {
 entry:
-  %length = getelementptr inbounds %struct.nghttp2_pq, ptr %pq, i64 0, i32 2
+  %length = getelementptr inbounds i8, ptr %pq, i64 16
   %0 = load i64, ptr %length, align 8
   ret i64 %0
 }
@@ -428,7 +426,7 @@ entry:
 ; Function Attrs: nounwind uwtable
 define hidden void @nghttp2_pq_update(ptr nocapture noundef readonly %pq, ptr nocapture noundef readonly %fun, ptr noundef %arg) local_unnamed_addr #1 {
 entry:
-  %length = getelementptr inbounds %struct.nghttp2_pq, ptr %pq, i64 0, i32 2
+  %length = getelementptr inbounds i8, ptr %pq, i64 16
   %0 = load i64, ptr %length, align 8
   %cmp = icmp eq i64 %0, 0
   br i1 %cmp, label %if.end10, label %for.body
@@ -453,7 +451,7 @@ for.end:                                          ; preds = %for.body
   br i1 %or.cond, label %if.end10, label %for.body7.lr.ph
 
 for.body7.lr.ph:                                  ; preds = %for.end
-  %less.i = getelementptr inbounds %struct.nghttp2_pq, ptr %pq, i64 0, i32 4
+  %less.i = getelementptr inbounds i8, ptr %pq, i64 32
   br label %for.body7
 
 for.cond5.loopexit:                               ; preds = %for.end.i
@@ -518,7 +516,7 @@ if.end10:                                         ; preds = %for.cond5.loopexit,
 ; Function Attrs: nounwind uwtable
 define hidden noundef i32 @nghttp2_pq_each(ptr nocapture noundef readonly %pq, ptr nocapture noundef readonly %fun, ptr noundef %arg) local_unnamed_addr #1 {
 entry:
-  %length = getelementptr inbounds %struct.nghttp2_pq, ptr %pq, i64 0, i32 2
+  %length = getelementptr inbounds i8, ptr %pq, i64 16
   %0 = load i64, ptr %length, align 8
   %cmp = icmp eq i64 %0, 0
   br i1 %cmp, label %return, label %for.body

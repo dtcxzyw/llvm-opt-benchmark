@@ -42,7 +42,7 @@ define void @"_ZN121_$LT$proc_macro2..imp..TokenStream$u20$as$u20$core..iter..tr
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %3, ptr noundef nonnull align 8 dereferenceable(48) %1, i64 48, i1 false)
   call void @"_ZN63_$LT$I$u20$as$u20$core..iter..traits..collect..IntoIterator$GT$9into_iter17hb7429b1af70d3491E"(ptr nonnull sret({ { { i64, [4 x i64] }, {} }, ptr }) align 8 %4, ptr nonnull align 8 %3)
   %12 = call ptr @_ZN4core4iter6traits8iterator8Iterator7collect17hcc4c9d7ef6c21cd5E(ptr nonnull align 8 %4)
-  %13 = getelementptr inbounds { [1 x i64], ptr }, ptr %0, i64 0, i32 1
+  %13 = getelementptr inbounds i8, ptr %0, i64 8
   store ptr %12, ptr %13, align 8
   store ptr null, ptr %0, align 8
   br label %16
@@ -93,7 +93,7 @@ define void @"_ZN121_$LT$proc_macro2..imp..TokenStream$u20$as$u20$core..iter..tr
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %3, ptr noundef nonnull align 8 dereferenceable(32) %1, i64 32, i1 false)
   call void @"_ZN63_$LT$I$u20$as$u20$core..iter..traits..collect..IntoIterator$GT$9into_iter17hbcef5a3d74a6bc41E"(ptr nonnull sret({ ptr, i64, ptr, ptr, {}, { {} } }) align 8 %4, ptr nonnull align 8 %3)
   %12 = call ptr @_ZN4core4iter6traits8iterator8Iterator7collect17h5d077c8d387b5eedE(ptr nonnull align 8 %4)
-  %13 = getelementptr inbounds { [1 x i64], ptr }, ptr %0, i64 0, i32 1
+  %13 = getelementptr inbounds i8, ptr %0, i64 8
   store ptr %12, ptr %13, align 8
   store ptr null, ptr %0, align 8
   br label %16
@@ -136,7 +136,7 @@ define void @"_ZN128_$LT$proc_macro2..imp..TokenStream$u20$as$u20$core..iter..tr
   %.fca.0.extract = extractvalue { ptr, ptr } %8, 0
   store ptr %.fca.0.extract, ptr %7, align 8
   %.fca.1.extract = extractvalue { ptr, ptr } %8, 1
-  %.fca.1.gep = getelementptr inbounds { ptr, ptr }, ptr %7, i64 0, i32 1
+  %.fca.1.gep = getelementptr inbounds i8, ptr %7, i64 8
   store ptr %.fca.1.extract, ptr %.fca.1.gep, align 8
   call void @"_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hdd672bbcde3b58a7E"(ptr nonnull sret({ i64, [4 x i64] }) align 8 %6, ptr nonnull align 8 %7)
   %9 = load i64, ptr %6, align 8, !range !6, !noundef !5
@@ -148,7 +148,7 @@ define void @"_ZN128_$LT$proc_macro2..imp..TokenStream$u20$as$u20$core..iter..tr
   br label %43
 
 12:                                               ; preds = %3
-  %13 = getelementptr inbounds { [1 x i64], { ptr, [3 x i64] } }, ptr %6, i64 0, i32 1
+  %13 = getelementptr inbounds i8, ptr %6, i64 8
   %14 = load ptr, ptr %13, align 8, !noundef !5
   %.not = icmp eq ptr %14, null
   br i1 %.not, label %16, label %15
@@ -159,7 +159,7 @@ define void @"_ZN128_$LT$proc_macro2..imp..TokenStream$u20$as$u20$core..iter..tr
           to label %24 unwind label %22
 
 16:                                               ; preds = %12
-  %17 = getelementptr inbounds { [1 x i64], { ptr, [3 x i64] } }, ptr %6, i64 0, i32 1, i32 1
+  %17 = getelementptr inbounds i8, ptr %6, i64 16
   %18 = load ptr, ptr %17, align 8, !nonnull !5, !noundef !5
   store ptr %18, ptr %4, align 8
   %19 = load ptr, ptr %7, align 8, !nonnull !5, !noundef !5
@@ -180,7 +180,7 @@ define void @"_ZN128_$LT$proc_macro2..imp..TokenStream$u20$as$u20$core..iter..tr
           to label %28 unwind label %22
 
 28:                                               ; preds = %24
-  %29 = getelementptr inbounds { { { ptr, i64 }, i64 }, i32, [1 x i32] }, ptr %5, i64 0, i32 1
+  %29 = getelementptr inbounds i8, ptr %5, i64 24
   %30 = extractvalue { ptr, ptr } %27, 0
   %31 = extractvalue { ptr, ptr } %27, 1
   invoke void @"_ZN110_$LT$proc_macro..TokenStream$u20$as$u20$core..iter..traits..collect..Extend$LT$proc_macro..TokenStream$GT$$GT$6extend17h3c2b0ef405d52075E"(ptr nonnull align 4 %29, ptr %30, ptr %31)
@@ -210,7 +210,7 @@ define void @"_ZN128_$LT$proc_macro2..imp..TokenStream$u20$as$u20$core..iter..tr
 
 40:                                               ; preds = %37
   %41 = load ptr, ptr %4, align 8, !nonnull !5, !noundef !5
-  %42 = getelementptr inbounds { [1 x i64], ptr }, ptr %0, i64 0, i32 1
+  %42 = getelementptr inbounds i8, ptr %0, i64 8
   store ptr %41, ptr %42, align 8
   store ptr null, ptr %0, align 8
   br label %43
@@ -234,7 +234,7 @@ define noundef nonnull ptr @"_ZN128_$LT$proc_macro2..imp..TokenStream$u20$as$u20
           to label %12 unwind label %8
 
 5:                                                ; preds = %2
-  %6 = getelementptr inbounds { [1 x i64], ptr }, ptr %1, i64 0, i32 1
+  %6 = getelementptr inbounds i8, ptr %1, i64 8
   %7 = load ptr, ptr %6, align 8, !nonnull !5, !noundef !5
   ret ptr %7
 
@@ -345,7 +345,7 @@ define noundef nonnull ptr @"_ZN4core3ops8function5impls80_$LT$impl$u20$core..op
   unreachable
 
 "_ZN128_$LT$proc_macro2..imp..TokenStream$u20$as$u20$core..iter..traits..collect..FromIterator$LT$proc_macro2..imp..TokenStream$GT$$GT$9from_iter28_$u7b$$u7b$closure$u7d$$u7d$17h0574591522c94a75E.exit": ; preds = %2
-  %12 = getelementptr inbounds { [1 x i64], ptr }, ptr %3, i64 0, i32 1
+  %12 = getelementptr inbounds i8, ptr %3, i64 8
   %13 = load ptr, ptr %12, align 8, !nonnull !5, !noundef !5
   ret ptr %13
 }
@@ -359,9 +359,9 @@ define zeroext i1 @"_ZN73_$LT$proc_macro2..imp..Ident$u20$as$u20$core..cmp..Part
   %.fca.0.extract = extractvalue { ptr, i64 } %6, 0
   store ptr %.fca.0.extract, ptr %5, align 8
   %.fca.1.extract = extractvalue { ptr, i64 } %6, 1
-  %.fca.1.gep = getelementptr inbounds { ptr, i64 }, ptr %5, i64 0, i32 1
+  %.fca.1.gep = getelementptr inbounds i8, ptr %5, i64 8
   store i64 %.fca.1.extract, ptr %.fca.1.gep, align 8
-  %7 = getelementptr inbounds { [24 x i8], i8, [7 x i8] }, ptr %0, i64 0, i32 1
+  %7 = getelementptr inbounds i8, ptr %0, i64 24
   %8 = load i8, ptr %7, align 8, !range !7, !noundef !5
   %9 = icmp eq i8 %8, 2
   br i1 %9, label %10, label %12

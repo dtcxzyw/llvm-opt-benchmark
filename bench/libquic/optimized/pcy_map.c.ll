@@ -3,16 +3,10 @@ source_filename = "bench/libquic/original/pcy_map.c.ll"
 target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:128-n8:16:32:64-S128"
 target triple = "x86_64-unknown-linux-gnu"
 
-%struct.x509_st = type { ptr, ptr, ptr, i32, i32, ptr, %struct.crypto_ex_data_st, i64, i64, i64, i64, i64, i64, ptr, ptr, ptr, ptr, ptr, ptr, [20 x i8], ptr }
-%struct.crypto_ex_data_st = type { ptr }
-%struct.X509_POLICY_CACHE_st = type { ptr, ptr, i64, i64, i64 }
-%struct.POLICY_MAPPING_st = type { ptr, ptr }
-%struct.X509_POLICY_DATA_st = type { i32, ptr, ptr, ptr }
-
 ; Function Attrs: nounwind uwtable
 define hidden noundef i32 @policy_cache_set_mapping(ptr nocapture noundef %x, ptr noundef %maps) local_unnamed_addr #0 {
 entry:
-  %policy_cache = getelementptr inbounds %struct.x509_st, ptr %x, i64 0, i32 15
+  %policy_cache = getelementptr inbounds i8, ptr %x, i64 112
   %0 = load ptr, ptr %policy_cache, align 8
   %call = tail call i64 @sk_num(ptr noundef %maps) #2
   %cmp = icmp eq i64 %call, 0
@@ -24,13 +18,13 @@ for.cond.preheader:                               ; preds = %entry
   br i1 %cmp230.not, label %if.end45, label %for.body.lr.ph
 
 for.body.lr.ph:                                   ; preds = %for.cond.preheader
-  %data28 = getelementptr inbounds %struct.X509_POLICY_CACHE_st, ptr %0, i64 0, i32 1
+  %data28 = getelementptr inbounds i8, ptr %0, i64 8
   br label %for.body
 
 for.body:                                         ; preds = %for.body.lr.ph, %for.inc
   %i.031 = phi i64 [ 0, %for.body.lr.ph ], [ %inc, %for.inc ]
   %call3 = tail call ptr @sk_value(ptr noundef %maps, i64 noundef %i.031) #2
-  %subjectDomainPolicy = getelementptr inbounds %struct.POLICY_MAPPING_st, ptr %call3, i64 0, i32 1
+  %subjectDomainPolicy = getelementptr inbounds i8, ptr %call3, i64 8
   %1 = load ptr, ptr %subjectDomainPolicy, align 8
   %call4 = tail call i32 @OBJ_obj2nid(ptr noundef %1) #2
   %cmp5 = icmp eq i32 %call4, 746
@@ -63,9 +57,9 @@ if.then16:                                        ; preds = %land.lhs.true
 
 if.end22:                                         ; preds = %if.then16
   %7 = load ptr, ptr %0, align 8
-  %qualifier_set = getelementptr inbounds %struct.X509_POLICY_DATA_st, ptr %7, i64 0, i32 2
+  %qualifier_set = getelementptr inbounds i8, ptr %7, i64 16
   %8 = load ptr, ptr %qualifier_set, align 8
-  %qualifier_set24 = getelementptr inbounds %struct.X509_POLICY_DATA_st, ptr %call19, i64 0, i32 2
+  %qualifier_set24 = getelementptr inbounds i8, ptr %call19, i64 16
   store ptr %8, ptr %qualifier_set24, align 8
   %9 = load i32, ptr %call19, align 8
   %or27 = or i32 %9, 6
@@ -87,7 +81,7 @@ if.else:                                          ; preds = %if.end9
 
 if.end35:                                         ; preds = %if.end22, %if.else
   %data.0 = phi ptr [ %call11, %if.else ], [ %call19, %if.end22 ]
-  %expected_policy_set = getelementptr inbounds %struct.X509_POLICY_DATA_st, ptr %data.0, i64 0, i32 3
+  %expected_policy_set = getelementptr inbounds i8, ptr %data.0, i64 24
   %12 = load ptr, ptr %expected_policy_set, align 8
   %13 = load ptr, ptr %subjectDomainPolicy, align 8
   %call37 = tail call i64 @sk_push(ptr noundef %12, ptr noundef %13) #2
@@ -105,7 +99,7 @@ for.inc:                                          ; preds = %land.lhs.true, %if.
   br i1 %cmp2, label %for.body, label %if.end45, !llvm.loop !7
 
 if.then43:                                        ; preds = %lor.lhs.false, %for.body, %entry
-  %ex_flags = getelementptr inbounds %struct.x509_st, ptr %x, i64 0, i32 9
+  %ex_flags = getelementptr inbounds i8, ptr %x, i64 64
   %14 = load i64, ptr %ex_flags, align 8
   %or44 = or i64 %14, 2048
   store i64 %or44, ptr %ex_flags, align 8

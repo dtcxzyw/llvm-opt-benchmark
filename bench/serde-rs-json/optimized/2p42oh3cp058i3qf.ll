@@ -121,13 +121,13 @@ define { ptr, i64 } @"_ZN106_$LT$core..ops..range..Range$LT$usize$GT$$u20$as$u20
 
 ; Function Attrs: inlinehint nonlazybind uwtable
 define { i64, i64 } @"_ZN107_$LT$core..ops..range..RangeInclusive$LT$T$GT$$u20$as$u20$core..iter..range..RangeInclusiveIteratorImpl$GT$9spec_next17h1e62e4af2924f2e1E"(ptr nocapture align 8 %0) unnamed_addr #1 {
-  %2 = getelementptr inbounds { i64, i64, i8, [7 x i8] }, ptr %0, i64 0, i32 2
+  %2 = getelementptr inbounds i8, ptr %0, i64 16
   %3 = load i8, ptr %2, align 8, !range !5, !noundef !6
   %.not = icmp eq i8 %3, 0
   br i1 %.not, label %4, label %.critedge
 
 4:                                                ; preds = %1
-  %5 = getelementptr inbounds { i64, i64, i8, [7 x i8] }, ptr %0, i64 0, i32 1
+  %5 = getelementptr inbounds i8, ptr %0, i64 8
   %6 = load i64, ptr %0, align 8, !noundef !6
   %7 = load i64, ptr %5, align 8, !noundef !6
   %.not4 = icmp ugt i64 %6, %7
@@ -178,7 +178,7 @@ define { ptr, i64 } @"_ZN108_$LT$core..ops..range..RangeTo$LT$usize$GT$$u20$as$u
 
 ; Function Attrs: inlinehint nonlazybind uwtable
 define { i64, i64 } @"_ZN4core4iter5range101_$LT$impl$u20$core..iter..traits..iterator..Iterator$u20$for$u20$core..ops..range..Range$LT$A$GT$$GT$4next17h30497a0e8cb9044cE"(ptr nocapture align 8 %0) unnamed_addr #1 {
-  %2 = getelementptr inbounds { i64, i64 }, ptr %0, i64 0, i32 1
+  %2 = getelementptr inbounds i8, ptr %0, i64 8
   %3 = load i64, ptr %0, align 8, !noundef !6
   %4 = load i64, ptr %2, align 8, !noundef !6
   %5 = icmp ult i64 %3, %4
@@ -198,7 +198,7 @@ define { i64, i64 } @"_ZN4core4iter5range101_$LT$impl$u20$core..iter..traits..it
 
 ; Function Attrs: inlinehint nonlazybind uwtable
 define { i32, i32 } @"_ZN4core4iter5range101_$LT$impl$u20$core..iter..traits..iterator..Iterator$u20$for$u20$core..ops..range..Range$LT$A$GT$$GT$4next17hf56574c53103f0b9E"(ptr nocapture align 4 %0) unnamed_addr #1 {
-  %2 = getelementptr inbounds { i32, i32 }, ptr %0, i64 0, i32 1
+  %2 = getelementptr inbounds i8, ptr %0, i64 4
   %3 = load i32, ptr %0, align 4, !noundef !6
   %4 = load i32, ptr %2, align 4, !noundef !6
   %5 = icmp slt i32 %3, %4
@@ -218,13 +218,13 @@ define { i32, i32 } @"_ZN4core4iter5range101_$LT$impl$u20$core..iter..traits..it
 
 ; Function Attrs: inlinehint nonlazybind uwtable
 define { i64, i64 } @"_ZN4core4iter5range110_$LT$impl$u20$core..iter..traits..iterator..Iterator$u20$for$u20$core..ops..range..RangeInclusive$LT$A$GT$$GT$4next17he9f6be8ba61934acE"(ptr nocapture align 8 %0) unnamed_addr #1 {
-  %2 = getelementptr inbounds { i64, i64, i8, [7 x i8] }, ptr %0, i64 0, i32 2
+  %2 = getelementptr inbounds i8, ptr %0, i64 16
   %3 = load i8, ptr %2, align 8, !range !5, !noundef !6
   %.not.i = icmp eq i8 %3, 0
   br i1 %.not.i, label %4, label %"_ZN107_$LT$core..ops..range..RangeInclusive$LT$T$GT$$u20$as$u20$core..iter..range..RangeInclusiveIteratorImpl$GT$9spec_next17h1e62e4af2924f2e1E.exit"
 
 4:                                                ; preds = %1
-  %5 = getelementptr inbounds { i64, i64, i8, [7 x i8] }, ptr %0, i64 0, i32 1
+  %5 = getelementptr inbounds i8, ptr %0, i64 8
   %6 = load i64, ptr %0, align 8, !noundef !6
   %7 = load i64, ptr %5, align 8, !noundef !6
   %.not4.i = icmp ugt i64 %6, %7
@@ -268,7 +268,7 @@ define { i64, i64 } @"_ZN63_$LT$I$u20$as$u20$core..iter..traits..collect..IntoIt
 
 ; Function Attrs: inlinehint nonlazybind uwtable
 define { i64, i64 } @"_ZN89_$LT$core..ops..range..Range$LT$T$GT$$u20$as$u20$core..iter..range..RangeIteratorImpl$GT$14spec_next_back17h1c92d10d55037841E"(ptr nocapture align 8 %0) unnamed_addr #1 {
-  %2 = getelementptr inbounds { i64, i64 }, ptr %0, i64 0, i32 1
+  %2 = getelementptr inbounds i8, ptr %0, i64 8
   %3 = load i64, ptr %0, align 8, !noundef !6
   %4 = load i64, ptr %2, align 8, !noundef !6
   %5 = icmp ult i64 %3, %4
@@ -289,7 +289,7 @@ define { i64, i64 } @"_ZN89_$LT$core..ops..range..Range$LT$T$GT$$u20$as$u20$core
 
 ; Function Attrs: inlinehint nonlazybind uwtable
 define { i32, i32 } @"_ZN89_$LT$core..ops..range..Range$LT$T$GT$$u20$as$u20$core..iter..range..RangeIteratorImpl$GT$9spec_next17h7d885023a6edc776E"(ptr nocapture align 4 %0) unnamed_addr #1 {
-  %2 = getelementptr inbounds { i32, i32 }, ptr %0, i64 0, i32 1
+  %2 = getelementptr inbounds i8, ptr %0, i64 4
   %3 = load i32, ptr %0, align 4, !noundef !6
   %4 = load i32, ptr %2, align 4, !noundef !6
   %5 = icmp slt i32 %3, %4
@@ -309,7 +309,7 @@ define { i32, i32 } @"_ZN89_$LT$core..ops..range..Range$LT$T$GT$$u20$as$u20$core
 
 ; Function Attrs: inlinehint nonlazybind uwtable
 define { i64, i64 } @"_ZN89_$LT$core..ops..range..Range$LT$T$GT$$u20$as$u20$core..iter..range..RangeIteratorImpl$GT$9spec_next17h8a6235df5a1169d3E"(ptr nocapture align 8 %0) unnamed_addr #1 {
-  %2 = getelementptr inbounds { i64, i64 }, ptr %0, i64 0, i32 1
+  %2 = getelementptr inbounds i8, ptr %0, i64 8
   %3 = load i64, ptr %0, align 8, !noundef !6
   %4 = load i64, ptr %2, align 8, !noundef !6
   %5 = icmp ult i64 %3, %4

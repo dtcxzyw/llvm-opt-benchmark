@@ -16,11 +16,10 @@ entry:
   %0 = getelementptr inbounds i8, ptr %ctx, i64 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %0, i8 0, i64 40, i1 false)
   store ptr %bio, ptr %ctx, align 8
-  %indent2 = getelementptr inbounds %struct.hexdump_ctx, ptr %ctx, i64 0, i32 4
+  %indent2 = getelementptr inbounds i8, ptr %ctx, i64 40
   store i32 %indent, ptr %indent2, align 8
   call void @llvm.lifetime.start.p0(i64 10, ptr nonnull %buf.i)
-  %right_chars.i = getelementptr inbounds %struct.hexdump_ctx, ptr %ctx, i64 0, i32 1
-  %arrayidx56.i = getelementptr inbounds %struct.hexdump_ctx, ptr %ctx, i64 0, i32 1, i64 16
+  %arrayidx56.i = getelementptr inbounds i8, ptr %ctx, i64 24
   %cmp57.not.i = icmp eq i64 %len, 0
   br i1 %cmp57.not.i, label %lor.lhs.false.thread, label %for.body.lr.ph.i
 
@@ -30,18 +29,19 @@ lor.lhs.false.thread:                             ; preds = %entry
   br label %finish.exit.thread15
 
 for.body.lr.ph.i:                                 ; preds = %entry
-  %used.i = getelementptr inbounds %struct.hexdump_ctx, ptr %ctx, i64 0, i32 2
-  %n.i = getelementptr inbounds %struct.hexdump_ctx, ptr %ctx, i64 0, i32 3
+  %used.i = getelementptr inbounds i8, ptr %ctx, i64 28
+  %n.i = getelementptr inbounds i8, ptr %ctx, i64 32
   %arrayidx5.i.i = getelementptr inbounds i8, ptr %buf.i, i64 1
-  %arrayidx2.i = getelementptr inbounds [10 x i8], ptr %buf.i, i64 0, i64 2
-  %arrayidx5.i32.i = getelementptr inbounds [10 x i8], ptr %buf.i, i64 0, i64 3
-  %arrayidx6.i = getelementptr inbounds [10 x i8], ptr %buf.i, i64 0, i64 4
-  %arrayidx5.i40.i = getelementptr inbounds [10 x i8], ptr %buf.i, i64 0, i64 5
-  %arrayidx10.i = getelementptr inbounds [10 x i8], ptr %buf.i, i64 0, i64 6
-  %arrayidx5.i48.i = getelementptr inbounds [10 x i8], ptr %buf.i, i64 0, i64 7
-  %arrayidx13.i = getelementptr inbounds [10 x i8], ptr %buf.i, i64 0, i64 9
-  %arrayidx14.i = getelementptr inbounds [10 x i8], ptr %buf.i, i64 0, i64 8
-  %arrayidx58.i = getelementptr inbounds %struct.hexdump_ctx, ptr %ctx, i64 0, i32 1, i64 17
+  %arrayidx2.i = getelementptr inbounds i8, ptr %buf.i, i64 2
+  %arrayidx5.i32.i = getelementptr inbounds i8, ptr %buf.i, i64 3
+  %arrayidx6.i = getelementptr inbounds i8, ptr %buf.i, i64 4
+  %arrayidx5.i40.i = getelementptr inbounds i8, ptr %buf.i, i64 5
+  %arrayidx10.i = getelementptr inbounds i8, ptr %buf.i, i64 6
+  %arrayidx5.i48.i = getelementptr inbounds i8, ptr %buf.i, i64 7
+  %arrayidx13.i = getelementptr inbounds i8, ptr %buf.i, i64 9
+  %arrayidx14.i = getelementptr inbounds i8, ptr %buf.i, i64 8
+  %right_chars.i = getelementptr inbounds i8, ptr %ctx, i64 8
+  %arrayidx58.i = getelementptr inbounds i8, ptr %ctx, i64 25
   br label %for.body.i
 
 for.body.i:                                       ; preds = %for.inc.i, %for.body.lr.ph.i
@@ -149,7 +149,7 @@ if.end43.i:                                       ; preds = %if.end36.i
   %.b.i.i = select i1 %or.cond.i.i, i8 46, i8 %22
   %24 = load i32, ptr %used.i, align 4
   %idxprom.i = zext i32 %24 to i64
-  %arrayidx47.i = getelementptr inbounds %struct.hexdump_ctx, ptr %ctx, i64 0, i32 1, i64 %idxprom.i
+  %arrayidx47.i = getelementptr inbounds [18 x i8], ptr %right_chars.i, i64 0, i64 %idxprom.i
   store i8 %.b.i.i, ptr %arrayidx47.i, align 1
   %25 = load i32, ptr %used.i, align 4
   %inc.i = add i32 %25, 1
@@ -185,7 +185,7 @@ hexdump_write.exit.thread:                        ; preds = %if.then54.i, %if.en
 lor.lhs.false:                                    ; preds = %for.inc.i
   call void @llvm.lifetime.end.p0(i64 10, ptr nonnull %buf.i)
   call void @llvm.lifetime.start.p0(i64 5, ptr nonnull %buf.i1)
-  %used.i2 = getelementptr inbounds %struct.hexdump_ctx, ptr %ctx, i64 0, i32 2
+  %used.i2 = getelementptr inbounds i8, ptr %ctx, i64 28
   %cmp.i = icmp eq i32 %28, 0
   br i1 %cmp.i, label %finish.exit.thread15, label %if.end.i
 
@@ -195,7 +195,7 @@ finish.exit.thread15:                             ; preds = %lor.lhs.false.threa
 
 if.end.i:                                         ; preds = %lor.lhs.false
   store i32 538976288, ptr %buf.i1, align 4
-  %arrayidx.i = getelementptr inbounds [5 x i8], ptr %buf.i1, i64 0, i64 4
+  %arrayidx.i = getelementptr inbounds i8, ptr %buf.i1, i64 4
   store i8 124, ptr %arrayidx.i, align 4
   %cmp216.i = icmp ult i32 %28, 16
   br i1 %cmp216.i, label %for.body.i6, label %finish.exit
@@ -223,16 +223,17 @@ for.inc.i8:                                       ; preds = %for.body.i6
   br i1 %cmp2.i, label %for.body.i6, label %finish.exit, !llvm.loop !9
 
 finish.exit:                                      ; preds = %for.inc.i8, %if.end.i
+  %right_chars.i3 = getelementptr inbounds i8, ptr %ctx, i64 8
   %idxprom.i4 = zext i32 %28 to i64
-  %arrayidx16.i = getelementptr inbounds %struct.hexdump_ctx, ptr %ctx, i64 0, i32 1, i64 %idxprom.i4
+  %arrayidx16.i = getelementptr inbounds [18 x i8], ptr %right_chars.i3, i64 0, i64 %idxprom.i4
   store i8 124, ptr %arrayidx16.i, align 1
   %add.i = add i32 %28, 1
   %idxprom18.i = zext i32 %add.i to i64
-  %arrayidx19.i = getelementptr inbounds %struct.hexdump_ctx, ptr %ctx, i64 0, i32 1, i64 %idxprom18.i
+  %arrayidx19.i = getelementptr inbounds [18 x i8], ptr %right_chars.i3, i64 0, i64 %idxprom18.i
   store i8 10, ptr %arrayidx19.i, align 1
   %32 = load ptr, ptr %ctx, align 8
   %add23.i = add i32 %28, 2
-  %call24.i = call i32 @BIO_write(ptr noundef %32, ptr noundef nonnull %right_chars.i, i32 noundef %add23.i) #4
+  %call24.i = call i32 @BIO_write(ptr noundef %32, ptr noundef nonnull %right_chars.i3, i32 noundef %add23.i) #4
   %call24.i.fr = freeze i32 %call24.i
   %cmp25.i = icmp slt i32 %call24.i.fr, 0
   call void @llvm.lifetime.end.p0(i64 5, ptr nonnull %buf.i1)

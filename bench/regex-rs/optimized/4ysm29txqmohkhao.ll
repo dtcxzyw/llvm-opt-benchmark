@@ -7,11 +7,11 @@ target triple = "x86_64-unknown-linux-gnu"
 define hidden void @_ZN6memchr6memmem6Finder10into_owned17h4e98f59155e3941aE(ptr nocapture writeonly sret({ { { [28 x i64] }, { i32, i32 }, ptr, [2 x i64] }, { { i64, [2 x i64] } }, [1 x i64] }) align 32 %0, ptr align 32 %1) unnamed_addr #0 personality ptr @rust_eh_personality {
   %3 = alloca { { [28 x i64] }, { i32, i32 }, ptr, [2 x i64] }, align 32
   %4 = alloca { { i64, [2 x i64] } }, align 8
-  %5 = getelementptr inbounds { { { [28 x i64] }, { i32, i32 }, ptr, [2 x i64] }, { { i64, [2 x i64] } }, [1 x i64] }, ptr %1, i64 0, i32 1
+  %5 = getelementptr inbounds i8, ptr %1, i64 256
   %.sroa.0.0.copyload = load i64, ptr %5, align 32
-  %.sroa.2.0..sroa_idx = getelementptr inbounds { { { [28 x i64] }, { i32, i32 }, ptr, [2 x i64] }, { { i64, [2 x i64] } }, [1 x i64] }, ptr %1, i64 0, i32 1, i32 0, i32 1
+  %.sroa.2.0..sroa_idx = getelementptr inbounds i8, ptr %1, i64 264
   %.sroa.2.0.copyload = load ptr, ptr %.sroa.2.0..sroa_idx, align 8, !nonnull !5, !noundef !5
-  %.sroa.4.0..sroa_idx = getelementptr inbounds { { { [28 x i64] }, { i32, i32 }, ptr, [2 x i64] }, { { i64, [2 x i64] } }, [1 x i64] }, ptr %1, i64 0, i32 1, i32 0, i32 1, i64 1
+  %.sroa.4.0..sroa_idx = getelementptr inbounds i8, ptr %1, i64 272
   %.sroa.4.0.copyload = load i64, ptr %.sroa.4.0..sroa_idx, align 16
   %6 = icmp eq i64 %.sroa.0.0.copyload, 0
   br i1 %6, label %7, label %11
@@ -40,7 +40,7 @@ define hidden void @_ZN6memchr6memmem6Finder10into_owned17h4e98f59155e3941aE(ptr
           to label %20 unwind label %18
 
 16:                                               ; preds = %11
-  %17 = getelementptr inbounds { { { [28 x i64] }, { i32, i32 }, ptr, [2 x i64] }, { { i64, [2 x i64] } }, [1 x i64] }, ptr %0, i64 0, i32 1
+  %17 = getelementptr inbounds i8, ptr %0, i64 256
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 32 dereferenceable(24) %17, ptr noundef nonnull align 8 dereferenceable(24) %4, i64 24, i1 false)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 32 dereferenceable(256) %0, ptr noundef nonnull align 32 dereferenceable(256) %3, i64 256, i1 false)
   ret void
@@ -62,17 +62,17 @@ define hidden { i64, i64 } @_ZN6memchr6memmem6Finder4find17hd7b6b77247396bb2E(pt
   %.fca.0.extract = extractvalue { i32, i32 } %5, 0
   store i32 %.fca.0.extract, ptr %4, align 4
   %.fca.1.extract = extractvalue { i32, i32 } %5, 1
-  %.fca.1.gep = getelementptr inbounds { i32, i32 }, ptr %4, i64 0, i32 1
+  %.fca.1.gep = getelementptr inbounds i8, ptr %4, i64 4
   store i32 %.fca.1.extract, ptr %.fca.1.gep, align 4
-  %.sroa.3.0.in = getelementptr inbounds { { { [28 x i64] }, { i32, i32 }, ptr, [2 x i64] }, { { i64, [2 x i64] } }, [1 x i64] }, ptr %0, i64 0, i32 1, i32 0, i32 1, i64 1
+  %.sroa.3.0.in = getelementptr inbounds i8, ptr %0, i64 272
   %.sroa.3.0 = load i64, ptr %.sroa.3.0.in, align 16, !noundef !5
   %6 = icmp ugt i64 %.sroa.3.0, %2
   br i1 %6, label %11, label %7
 
 7:                                                ; preds = %3
-  %.sroa.03.0.in = getelementptr inbounds { { { [28 x i64] }, { i32, i32 }, ptr, [2 x i64] }, { { i64, [2 x i64] } }, [1 x i64] }, ptr %0, i64 0, i32 1, i32 0, i32 1
+  %.sroa.03.0.in = getelementptr inbounds i8, ptr %0, i64 264
   %.sroa.03.0 = load ptr, ptr %.sroa.03.0.in, align 8, !nonnull !5, !align !6, !noundef !5
-  %8 = getelementptr inbounds { { [28 x i64] }, { i32, i32 }, ptr, [2 x i64] }, ptr %0, i64 0, i32 2
+  %8 = getelementptr inbounds i8, ptr %0, i64 232
   %9 = load ptr, ptr %8, align 8, !nonnull !5, !noundef !5
   %10 = call { i64, i64 } %9(ptr nonnull align 32 %0, ptr nonnull align 4 %4, ptr align 1 %1, i64 %2, ptr nonnull align 1 %.sroa.03.0, i64 %.sroa.3.0)
   %.fca.0.extract4 = extractvalue { i64, i64 } %10, 0
@@ -89,9 +89,9 @@ define hidden { i64, i64 } @_ZN6memchr6memmem6Finder4find17hd7b6b77247396bb2E(pt
 
 ; Function Attrs: inlinehint mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: read) uwtable
 define hidden { ptr, i64 } @_ZN6memchr6memmem6Finder6needle17h7fbb7f3bd60b53c5E(ptr nocapture readonly align 32 %0) unnamed_addr #1 {
-  %.sroa.3.0.in = getelementptr inbounds { { { [28 x i64] }, { i32, i32 }, ptr, [2 x i64] }, { { i64, [2 x i64] } }, [1 x i64] }, ptr %0, i64 0, i32 1, i32 0, i32 1, i64 1
+  %.sroa.3.0.in = getelementptr inbounds i8, ptr %0, i64 272
   %.sroa.3.0 = load i64, ptr %.sroa.3.0.in, align 16, !noundef !5
-  %.sroa.0.0.in = getelementptr inbounds { { { [28 x i64] }, { i32, i32 }, ptr, [2 x i64] }, { { i64, [2 x i64] } }, [1 x i64] }, ptr %0, i64 0, i32 1, i32 0, i32 1
+  %.sroa.0.0.in = getelementptr inbounds i8, ptr %0, i64 264
   %.sroa.0.0 = load ptr, ptr %.sroa.0.0.in, align 8, !nonnull !5, !align !6, !noundef !5
   %2 = insertvalue { ptr, i64 } poison, ptr %.sroa.0.0, 0
   %3 = insertvalue { ptr, i64 } %2, i64 %.sroa.3.0, 1

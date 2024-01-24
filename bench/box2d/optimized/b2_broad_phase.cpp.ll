@@ -3,8 +3,6 @@ source_filename = "bench/box2d/original/b2_broad_phase.cpp.ll"
 target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:128-n8:16:32:64-S128"
 target triple = "x86_64-unknown-linux-gnu"
 
-%class.b2BroadPhase = type <{ %class.b2DynamicTree, i32, [4 x i8], ptr, i32, i32, ptr, i32, i32, i32, [4 x i8] }>
-%class.b2DynamicTree = type { i32, ptr, i32, i32, i32, i32 }
 %struct.b2TreeNode = type <{ %struct.b2AABB, ptr, %union.anon, i32, i32, i32, i8, [7 x i8] }>
 %struct.b2AABB = type { %struct.b2Vec2, %struct.b2Vec2 }
 %struct.b2Vec2 = type { float, float }
@@ -20,27 +18,27 @@ $__clang_call_terminate = comdat any
 define void @_ZN12b2BroadPhaseC2Ev(ptr noundef nonnull align 8 dereferenceable(76) %this) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   tail call void @_ZN13b2DynamicTreeC1Ev(ptr noundef nonnull align 8 dereferenceable(32) %this)
-  %m_proxyCount = getelementptr inbounds %class.b2BroadPhase, ptr %this, i64 0, i32 1
+  %m_proxyCount = getelementptr inbounds i8, ptr %this, i64 32
   store i32 0, ptr %m_proxyCount, align 8
-  %m_pairCapacity = getelementptr inbounds %class.b2BroadPhase, ptr %this, i64 0, i32 7
+  %m_pairCapacity = getelementptr inbounds i8, ptr %this, i64 64
   store i32 16, ptr %m_pairCapacity, align 8
-  %m_pairCount = getelementptr inbounds %class.b2BroadPhase, ptr %this, i64 0, i32 8
+  %m_pairCount = getelementptr inbounds i8, ptr %this, i64 68
   store i32 0, ptr %m_pairCount, align 4
   %call.i1 = invoke noundef ptr @_Z15b2Alloc_Defaulti(i32 noundef 128)
           to label %invoke.cont unwind label %lpad
 
 invoke.cont:                                      ; preds = %entry
-  %m_pairBuffer = getelementptr inbounds %class.b2BroadPhase, ptr %this, i64 0, i32 6
+  %m_pairBuffer = getelementptr inbounds i8, ptr %this, i64 56
   store ptr %call.i1, ptr %m_pairBuffer, align 8
-  %m_moveCapacity = getelementptr inbounds %class.b2BroadPhase, ptr %this, i64 0, i32 4
+  %m_moveCapacity = getelementptr inbounds i8, ptr %this, i64 48
   store i32 16, ptr %m_moveCapacity, align 8
-  %m_moveCount = getelementptr inbounds %class.b2BroadPhase, ptr %this, i64 0, i32 5
+  %m_moveCount = getelementptr inbounds i8, ptr %this, i64 52
   store i32 0, ptr %m_moveCount, align 4
   %call.i2 = invoke noundef ptr @_Z15b2Alloc_Defaulti(i32 noundef 64)
           to label %invoke.cont8 unwind label %lpad
 
 invoke.cont8:                                     ; preds = %invoke.cont
-  %m_moveBuffer = getelementptr inbounds %class.b2BroadPhase, ptr %this, i64 0, i32 3
+  %m_moveBuffer = getelementptr inbounds i8, ptr %this, i64 40
   store ptr %call.i2, ptr %m_moveBuffer, align 8
   ret void
 
@@ -61,13 +59,13 @@ declare void @_ZN13b2DynamicTreeD1Ev(ptr noundef nonnull align 8 dereferenceable
 ; Function Attrs: mustprogress nounwind uwtable
 define void @_ZN12b2BroadPhaseD2Ev(ptr noundef nonnull align 8 dereferenceable(76) %this) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  %m_moveBuffer = getelementptr inbounds %class.b2BroadPhase, ptr %this, i64 0, i32 3
+  %m_moveBuffer = getelementptr inbounds i8, ptr %this, i64 40
   %0 = load ptr, ptr %m_moveBuffer, align 8
   invoke void @_Z14b2Free_DefaultPv(ptr noundef %0)
           to label %invoke.cont unwind label %terminate.lpad
 
 invoke.cont:                                      ; preds = %entry
-  %m_pairBuffer = getelementptr inbounds %class.b2BroadPhase, ptr %this, i64 0, i32 6
+  %m_pairBuffer = getelementptr inbounds i8, ptr %this, i64 56
   %1 = load ptr, ptr %m_pairBuffer, align 8
   invoke void @_Z14b2Free_DefaultPv(ptr noundef %1)
           to label %invoke.cont2 unwind label %terminate.lpad
@@ -99,19 +97,19 @@ declare void @_ZSt9terminatev() local_unnamed_addr
 define noundef i32 @_ZN12b2BroadPhase11CreateProxyERK6b2AABBPv(ptr noundef nonnull align 8 dereferenceable(76) %this, ptr noundef nonnull align 4 dereferenceable(16) %aabb, ptr noundef %userData) local_unnamed_addr #0 align 2 {
 entry:
   %call = tail call noundef i32 @_ZN13b2DynamicTree11CreateProxyERK6b2AABBPv(ptr noundef nonnull align 8 dereferenceable(32) %this, ptr noundef nonnull align 4 dereferenceable(16) %aabb, ptr noundef %userData)
-  %m_proxyCount = getelementptr inbounds %class.b2BroadPhase, ptr %this, i64 0, i32 1
+  %m_proxyCount = getelementptr inbounds i8, ptr %this, i64 32
   %0 = load i32, ptr %m_proxyCount, align 8
   %inc = add nsw i32 %0, 1
   store i32 %inc, ptr %m_proxyCount, align 8
-  %m_moveCount.i = getelementptr inbounds %class.b2BroadPhase, ptr %this, i64 0, i32 5
+  %m_moveCount.i = getelementptr inbounds i8, ptr %this, i64 52
   %1 = load i32, ptr %m_moveCount.i, align 4
-  %m_moveCapacity.i = getelementptr inbounds %class.b2BroadPhase, ptr %this, i64 0, i32 4
+  %m_moveCapacity.i = getelementptr inbounds i8, ptr %this, i64 48
   %2 = load i32, ptr %m_moveCapacity.i, align 8
   %cmp.i = icmp eq i32 %1, %2
   br i1 %cmp.i, label %if.then.i, label %_ZN12b2BroadPhase10BufferMoveEi.exit
 
 if.then.i:                                        ; preds = %entry
-  %m_moveBuffer.i = getelementptr inbounds %class.b2BroadPhase, ptr %this, i64 0, i32 3
+  %m_moveBuffer.i = getelementptr inbounds i8, ptr %this, i64 40
   %3 = load ptr, ptr %m_moveBuffer.i, align 8
   %mul.i = shl nsw i32 %1, 1
   store i32 %mul.i, ptr %m_moveCapacity.i, align 8
@@ -128,7 +126,7 @@ if.then.i:                                        ; preds = %entry
 
 _ZN12b2BroadPhase10BufferMoveEi.exit:             ; preds = %entry, %if.then.i
   %5 = phi i32 [ %.pre.i, %if.then.i ], [ %1, %entry ]
-  %m_moveBuffer11.i = getelementptr inbounds %class.b2BroadPhase, ptr %this, i64 0, i32 3
+  %m_moveBuffer11.i = getelementptr inbounds i8, ptr %this, i64 40
   %6 = load ptr, ptr %m_moveBuffer11.i, align 8
   %idxprom.i = sext i32 %5 to i64
   %arrayidx.i = getelementptr inbounds i32, ptr %6, i64 %idxprom.i
@@ -144,15 +142,15 @@ declare noundef i32 @_ZN13b2DynamicTree11CreateProxyERK6b2AABBPv(ptr noundef non
 ; Function Attrs: mustprogress uwtable
 define void @_ZN12b2BroadPhase10BufferMoveEi(ptr nocapture noundef nonnull align 8 dereferenceable(76) %this, i32 noundef %proxyId) local_unnamed_addr #0 align 2 {
 entry:
-  %m_moveCount = getelementptr inbounds %class.b2BroadPhase, ptr %this, i64 0, i32 5
+  %m_moveCount = getelementptr inbounds i8, ptr %this, i64 52
   %0 = load i32, ptr %m_moveCount, align 4
-  %m_moveCapacity = getelementptr inbounds %class.b2BroadPhase, ptr %this, i64 0, i32 4
+  %m_moveCapacity = getelementptr inbounds i8, ptr %this, i64 48
   %1 = load i32, ptr %m_moveCapacity, align 8
   %cmp = icmp eq i32 %0, %1
   br i1 %cmp, label %if.then, label %if.end
 
 if.then:                                          ; preds = %entry
-  %m_moveBuffer = getelementptr inbounds %class.b2BroadPhase, ptr %this, i64 0, i32 3
+  %m_moveBuffer = getelementptr inbounds i8, ptr %this, i64 40
   %2 = load ptr, ptr %m_moveBuffer, align 8
   %mul = shl nsw i32 %0, 1
   store i32 %mul, ptr %m_moveCapacity, align 8
@@ -169,7 +167,7 @@ if.then:                                          ; preds = %entry
 
 if.end:                                           ; preds = %if.then, %entry
   %4 = phi i32 [ %.pre, %if.then ], [ %0, %entry ]
-  %m_moveBuffer11 = getelementptr inbounds %class.b2BroadPhase, ptr %this, i64 0, i32 3
+  %m_moveBuffer11 = getelementptr inbounds i8, ptr %this, i64 40
   %5 = load ptr, ptr %m_moveBuffer11, align 8
   %idxprom = sext i32 %4 to i64
   %arrayidx = getelementptr inbounds i32, ptr %5, i64 %idxprom
@@ -183,13 +181,13 @@ if.end:                                           ; preds = %if.then, %entry
 ; Function Attrs: mustprogress uwtable
 define void @_ZN12b2BroadPhase12DestroyProxyEi(ptr noundef nonnull align 8 dereferenceable(76) %this, i32 noundef %proxyId) local_unnamed_addr #0 align 2 {
 entry:
-  %m_moveCount.i = getelementptr inbounds %class.b2BroadPhase, ptr %this, i64 0, i32 5
+  %m_moveCount.i = getelementptr inbounds i8, ptr %this, i64 52
   %0 = load i32, ptr %m_moveCount.i, align 4
   %cmp4.i = icmp sgt i32 %0, 0
   br i1 %cmp4.i, label %for.body.lr.ph.i, label %_ZN12b2BroadPhase12UnBufferMoveEi.exit
 
 for.body.lr.ph.i:                                 ; preds = %entry
-  %m_moveBuffer.i = getelementptr inbounds %class.b2BroadPhase, ptr %this, i64 0, i32 3
+  %m_moveBuffer.i = getelementptr inbounds i8, ptr %this, i64 40
   br label %for.body.i
 
 for.body.i:                                       ; preds = %for.inc.i, %for.body.lr.ph.i
@@ -214,7 +212,7 @@ for.inc.i:                                        ; preds = %if.then.i, %for.bod
   br i1 %cmp.i, label %for.body.i, label %_ZN12b2BroadPhase12UnBufferMoveEi.exit, !llvm.loop !4
 
 _ZN12b2BroadPhase12UnBufferMoveEi.exit:           ; preds = %for.inc.i, %entry
-  %m_proxyCount = getelementptr inbounds %class.b2BroadPhase, ptr %this, i64 0, i32 1
+  %m_proxyCount = getelementptr inbounds i8, ptr %this, i64 32
   %6 = load i32, ptr %m_proxyCount, align 8
   %dec = add nsw i32 %6, -1
   store i32 %dec, ptr %m_proxyCount, align 8
@@ -225,13 +223,13 @@ _ZN12b2BroadPhase12UnBufferMoveEi.exit:           ; preds = %for.inc.i, %entry
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
 define void @_ZN12b2BroadPhase12UnBufferMoveEi(ptr nocapture noundef nonnull readonly align 8 dereferenceable(76) %this, i32 noundef %proxyId) local_unnamed_addr #5 align 2 {
 entry:
-  %m_moveCount = getelementptr inbounds %class.b2BroadPhase, ptr %this, i64 0, i32 5
+  %m_moveCount = getelementptr inbounds i8, ptr %this, i64 52
   %0 = load i32, ptr %m_moveCount, align 4
   %cmp4 = icmp sgt i32 %0, 0
   br i1 %cmp4, label %for.body.lr.ph, label %for.end
 
 for.body.lr.ph:                                   ; preds = %entry
-  %m_moveBuffer = getelementptr inbounds %class.b2BroadPhase, ptr %this, i64 0, i32 3
+  %m_moveBuffer = getelementptr inbounds i8, ptr %this, i64 40
   br label %for.body
 
 for.body:                                         ; preds = %for.body.lr.ph, %for.inc
@@ -268,15 +266,15 @@ entry:
   br i1 %call, label %if.then, label %if.end
 
 if.then:                                          ; preds = %entry
-  %m_moveCount.i = getelementptr inbounds %class.b2BroadPhase, ptr %this, i64 0, i32 5
+  %m_moveCount.i = getelementptr inbounds i8, ptr %this, i64 52
   %0 = load i32, ptr %m_moveCount.i, align 4
-  %m_moveCapacity.i = getelementptr inbounds %class.b2BroadPhase, ptr %this, i64 0, i32 4
+  %m_moveCapacity.i = getelementptr inbounds i8, ptr %this, i64 48
   %1 = load i32, ptr %m_moveCapacity.i, align 8
   %cmp.i = icmp eq i32 %0, %1
   br i1 %cmp.i, label %if.then.i, label %_ZN12b2BroadPhase10BufferMoveEi.exit
 
 if.then.i:                                        ; preds = %if.then
-  %m_moveBuffer.i = getelementptr inbounds %class.b2BroadPhase, ptr %this, i64 0, i32 3
+  %m_moveBuffer.i = getelementptr inbounds i8, ptr %this, i64 40
   %2 = load ptr, ptr %m_moveBuffer.i, align 8
   %mul.i = shl nsw i32 %0, 1
   store i32 %mul.i, ptr %m_moveCapacity.i, align 8
@@ -293,7 +291,7 @@ if.then.i:                                        ; preds = %if.then
 
 _ZN12b2BroadPhase10BufferMoveEi.exit:             ; preds = %if.then, %if.then.i
   %4 = phi i32 [ %.pre.i, %if.then.i ], [ %0, %if.then ]
-  %m_moveBuffer11.i = getelementptr inbounds %class.b2BroadPhase, ptr %this, i64 0, i32 3
+  %m_moveBuffer11.i = getelementptr inbounds i8, ptr %this, i64 40
   %5 = load ptr, ptr %m_moveBuffer11.i, align 8
   %idxprom.i = sext i32 %4 to i64
   %arrayidx.i = getelementptr inbounds i32, ptr %5, i64 %idxprom.i
@@ -312,15 +310,15 @@ declare noundef zeroext i1 @_ZN13b2DynamicTree9MoveProxyEiRK6b2AABBRK6b2Vec2(ptr
 ; Function Attrs: mustprogress uwtable
 define void @_ZN12b2BroadPhase10TouchProxyEi(ptr nocapture noundef nonnull align 8 dereferenceable(76) %this, i32 noundef %proxyId) local_unnamed_addr #0 align 2 {
 entry:
-  %m_moveCount.i = getelementptr inbounds %class.b2BroadPhase, ptr %this, i64 0, i32 5
+  %m_moveCount.i = getelementptr inbounds i8, ptr %this, i64 52
   %0 = load i32, ptr %m_moveCount.i, align 4
-  %m_moveCapacity.i = getelementptr inbounds %class.b2BroadPhase, ptr %this, i64 0, i32 4
+  %m_moveCapacity.i = getelementptr inbounds i8, ptr %this, i64 48
   %1 = load i32, ptr %m_moveCapacity.i, align 8
   %cmp.i = icmp eq i32 %0, %1
   br i1 %cmp.i, label %if.then.i, label %_ZN12b2BroadPhase10BufferMoveEi.exit
 
 if.then.i:                                        ; preds = %entry
-  %m_moveBuffer.i = getelementptr inbounds %class.b2BroadPhase, ptr %this, i64 0, i32 3
+  %m_moveBuffer.i = getelementptr inbounds i8, ptr %this, i64 40
   %2 = load ptr, ptr %m_moveBuffer.i, align 8
   %mul.i = shl nsw i32 %0, 1
   store i32 %mul.i, ptr %m_moveCapacity.i, align 8
@@ -337,7 +335,7 @@ if.then.i:                                        ; preds = %entry
 
 _ZN12b2BroadPhase10BufferMoveEi.exit:             ; preds = %entry, %if.then.i
   %4 = phi i32 [ %.pre.i, %if.then.i ], [ %0, %entry ]
-  %m_moveBuffer11.i = getelementptr inbounds %class.b2BroadPhase, ptr %this, i64 0, i32 3
+  %m_moveBuffer11.i = getelementptr inbounds i8, ptr %this, i64 40
   %5 = load ptr, ptr %m_moveBuffer11.i, align 8
   %idxprom.i = sext i32 %4 to i64
   %arrayidx.i = getelementptr inbounds i32, ptr %5, i64 %idxprom.i
@@ -354,13 +352,13 @@ declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias
 ; Function Attrs: mustprogress uwtable
 define noundef zeroext i1 @_ZN12b2BroadPhase13QueryCallbackEi(ptr nocapture noundef nonnull align 8 dereferenceable(76) %this, i32 noundef %proxyId) local_unnamed_addr #0 align 2 {
 entry:
-  %m_queryProxyId = getelementptr inbounds %class.b2BroadPhase, ptr %this, i64 0, i32 9
+  %m_queryProxyId = getelementptr inbounds i8, ptr %this, i64 72
   %0 = load i32, ptr %m_queryProxyId, align 8
   %cmp = icmp eq i32 %0, %proxyId
   br i1 %cmp, label %return, label %if.end
 
 if.end:                                           ; preds = %entry
-  %m_nodes.i = getelementptr inbounds %class.b2DynamicTree, ptr %this, i64 0, i32 1
+  %m_nodes.i = getelementptr inbounds i8, ptr %this, i64 8
   %1 = load ptr, ptr %m_nodes.i, align 8
   %idxprom.i = sext i32 %proxyId to i64
   %moved.i = getelementptr inbounds %struct.b2TreeNode, ptr %1, i64 %idxprom.i, i32 6
@@ -372,15 +370,15 @@ if.end:                                           ; preds = %entry
   br i1 %or.cond, label %return, label %if.end5
 
 if.end5:                                          ; preds = %if.end
-  %m_pairCount = getelementptr inbounds %class.b2BroadPhase, ptr %this, i64 0, i32 8
+  %m_pairCount = getelementptr inbounds i8, ptr %this, i64 68
   %4 = load i32, ptr %m_pairCount, align 4
-  %m_pairCapacity = getelementptr inbounds %class.b2BroadPhase, ptr %this, i64 0, i32 7
+  %m_pairCapacity = getelementptr inbounds i8, ptr %this, i64 64
   %5 = load i32, ptr %m_pairCapacity, align 8
   %cmp6 = icmp eq i32 %4, %5
   br i1 %cmp6, label %if.then7, label %if.end19
 
 if.then7:                                         ; preds = %if.end5
-  %m_pairBuffer = getelementptr inbounds %class.b2BroadPhase, ptr %this, i64 0, i32 6
+  %m_pairBuffer = getelementptr inbounds i8, ptr %this, i64 56
   %6 = load ptr, ptr %m_pairBuffer, align 8
   %shr = ashr i32 %4, 1
   %add = add nsw i32 %shr, %4
@@ -401,7 +399,7 @@ if.end19:                                         ; preds = %if.then7, %if.end5
   %8 = phi i32 [ %.pre7, %if.then7 ], [ %4, %if.end5 ]
   %9 = phi i32 [ %.pre, %if.then7 ], [ %0, %if.end5 ]
   %cond.i = tail call noundef i32 @llvm.smin.i32(i32 %proxyId, i32 %9)
-  %m_pairBuffer22 = getelementptr inbounds %class.b2BroadPhase, ptr %this, i64 0, i32 6
+  %m_pairBuffer22 = getelementptr inbounds i8, ptr %this, i64 56
   %10 = load ptr, ptr %m_pairBuffer22, align 8
   %idxprom = sext i32 %8 to i64
   %arrayidx = getelementptr inbounds %struct.b2Pair, ptr %10, i64 %idxprom

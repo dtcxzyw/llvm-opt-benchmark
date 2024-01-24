@@ -15,7 +15,7 @@ define void @_ZN14regex_automata4util9prefilter7byteset7ByteSet3new17hc5d510ccb9
   %11 = extractvalue { ptr, ptr } %10, 0
   %12 = extractvalue { ptr, ptr } %10, 1
   store ptr %11, ptr %5, align 8
-  %13 = getelementptr inbounds { ptr, ptr }, ptr %5, i64 0, i32 1
+  %13 = getelementptr inbounds i8, ptr %5, i64 8
   store ptr %12, ptr %13, align 8
   %14 = call align 8 ptr @"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h724b670ee85a029aE"(ptr nonnull align 8 %5)
   %15 = icmp eq ptr %14, null
@@ -62,7 +62,7 @@ define void @_ZN14regex_automata4util9prefilter7byteset7ByteSet3new17hf31a66b976
   %11 = extractvalue { ptr, ptr } %10, 0
   %12 = extractvalue { ptr, ptr } %10, 1
   store ptr %11, ptr %5, align 8
-  %13 = getelementptr inbounds { ptr, ptr }, ptr %5, i64 0, i32 1
+  %13 = getelementptr inbounds i8, ptr %5, i64 8
   store ptr %12, ptr %13, align 8
   %14 = call align 8 ptr @"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h4255ddfad53635a3E"(ptr nonnull align 8 %5)
   %15 = icmp eq ptr %14, null

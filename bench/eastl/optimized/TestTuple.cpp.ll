@@ -466,64 +466,64 @@ _ZN10TestObjectD2Ev.exit395:                      ; preds = %land.end650
   %37 = load i64, ptr @_ZN10TestObject16sTOMoveCtorCountE, align 8
   %mId.i.i.i.i325 = getelementptr inbounds i8, ptr %arrayTup, i64 16
   store i64 %inc5.i.i.i.i323, ptr %mId.i.i.i.i325, align 16
-  %arrayinit.element = getelementptr inbounds %"class.eastl::tuple.35", ptr %arrayTup, i64 1
+  %arrayinit.element = getelementptr inbounds i8, ptr %arrayTup, i64 32
   store i32 2, ptr %arrayinit.element, align 16
-  %38 = getelementptr inbounds %"class.eastl::tuple.35", ptr %arrayTup, i64 1, i32 0, i32 1
+  %38 = getelementptr inbounds i8, ptr %arrayTup, i64 36
   store float 2.000000e+00, ptr %38, align 4
-  %39 = getelementptr inbounds %"class.eastl::tuple.35", ptr %arrayTup, i64 1, i32 0, i32 2
+  %39 = getelementptr inbounds i8, ptr %arrayTup, i64 40
   store i32 2, ptr %39, align 8
-  %mbThrowOnCopy.i.i.i.i332 = getelementptr inbounds %"class.eastl::tuple.35", ptr %arrayTup, i64 1, i32 0, i32 2, i32 0, i32 1
+  %mbThrowOnCopy.i.i.i.i332 = getelementptr inbounds i8, ptr %arrayTup, i64 44
   store i8 0, ptr %mbThrowOnCopy.i.i.i.i332, align 4
-  %mMagicValue.i.i.i.i334 = getelementptr inbounds %"class.eastl::tuple.35", ptr %arrayTup, i64 1, i32 0, i32 2, i32 0, i32 4
+  %mMagicValue.i.i.i.i334 = getelementptr inbounds i8, ptr %arrayTup, i64 56
   store i32 32623592, ptr %mMagicValue.i.i.i.i334, align 8
   %inc.i.i.i.i336 = add nsw i64 %32, 4
   %inc5.i.i.i.i337 = add nsw i64 %33, 4
-  %mId.i.i.i.i339 = getelementptr inbounds %"class.eastl::tuple.35", ptr %arrayTup, i64 1, i32 0, i32 2, i32 0, i32 3
+  %mId.i.i.i.i339 = getelementptr inbounds i8, ptr %arrayTup, i64 48
   store i64 %inc5.i.i.i.i337, ptr %mId.i.i.i.i339, align 16
-  %arrayinit.element780 = getelementptr inbounds %"class.eastl::tuple.35", ptr %arrayTup, i64 2
+  %arrayinit.element780 = getelementptr inbounds i8, ptr %arrayTup, i64 64
   store i32 3, ptr %arrayinit.element780, align 16
-  %40 = getelementptr inbounds %"class.eastl::tuple.35", ptr %arrayTup, i64 2, i32 0, i32 1
+  %40 = getelementptr inbounds i8, ptr %arrayTup, i64 68
   store float 3.000000e+00, ptr %40, align 4
-  %41 = getelementptr inbounds %"class.eastl::tuple.35", ptr %arrayTup, i64 2, i32 0, i32 2
+  %41 = getelementptr inbounds i8, ptr %arrayTup, i64 72
   store i32 3, ptr %41, align 8
-  %mbThrowOnCopy.i.i.i.i346 = getelementptr inbounds %"class.eastl::tuple.35", ptr %arrayTup, i64 2, i32 0, i32 2, i32 0, i32 1
+  %mbThrowOnCopy.i.i.i.i346 = getelementptr inbounds i8, ptr %arrayTup, i64 76
   store i8 0, ptr %mbThrowOnCopy.i.i.i.i346, align 4
-  %mMagicValue.i.i.i.i348 = getelementptr inbounds %"class.eastl::tuple.35", ptr %arrayTup, i64 2, i32 0, i32 2, i32 0, i32 4
+  %mMagicValue.i.i.i.i348 = getelementptr inbounds i8, ptr %arrayTup, i64 88
   store i32 32623592, ptr %mMagicValue.i.i.i.i348, align 8
   %inc5.i.i.i.i351 = add nsw i64 %33, 6
-  %mId.i.i.i.i353 = getelementptr inbounds %"class.eastl::tuple.35", ptr %arrayTup, i64 2, i32 0, i32 2, i32 0, i32 3
+  %mId.i.i.i.i353 = getelementptr inbounds i8, ptr %arrayTup, i64 80
   store i64 %inc5.i.i.i.i351, ptr %mId.i.i.i.i353, align 16
-  %arrayinit.element787 = getelementptr inbounds %"class.eastl::tuple.35", ptr %arrayTup, i64 3
+  %arrayinit.element787 = getelementptr inbounds i8, ptr %arrayTup, i64 96
   %inc4.i358 = add nsw i64 %34, 4
   store i64 %inc4.i358, ptr @_ZN10TestObject19sTODefaultCtorCountE, align 8
   store i32 4, ptr %arrayinit.element787, align 16
-  %42 = getelementptr inbounds %"class.eastl::tuple.35", ptr %arrayTup, i64 3, i32 0, i32 1
+  %42 = getelementptr inbounds i8, ptr %arrayTup, i64 100
   store float 4.000000e+00, ptr %42, align 4
-  %43 = getelementptr inbounds %"class.eastl::tuple.35", ptr %arrayTup, i64 3, i32 0, i32 2
+  %43 = getelementptr inbounds i8, ptr %arrayTup, i64 104
   store i32 4, ptr %43, align 8
-  %mbThrowOnCopy.i.i.i.i360 = getelementptr inbounds %"class.eastl::tuple.35", ptr %arrayTup, i64 3, i32 0, i32 2, i32 0, i32 1
+  %mbThrowOnCopy.i.i.i.i360 = getelementptr inbounds i8, ptr %arrayTup, i64 108
   store i8 0, ptr %mbThrowOnCopy.i.i.i.i360, align 4
-  %mMagicValue.i.i.i.i362 = getelementptr inbounds %"class.eastl::tuple.35", ptr %arrayTup, i64 3, i32 0, i32 2, i32 0, i32 4
+  %mMagicValue.i.i.i.i362 = getelementptr inbounds i8, ptr %arrayTup, i64 120
   store i32 32623592, ptr %mMagicValue.i.i.i.i362, align 8
   %inc5.i.i.i.i365 = add nsw i64 %33, 8
   store i64 %inc5.i.i.i.i365, ptr @_ZN10TestObject12sTOCtorCountE, align 8
   %inc6.i.i.i.i366 = add nsw i64 %37, 4
   store i64 %inc6.i.i.i.i366, ptr @_ZN10TestObject16sTOMoveCtorCountE, align 8
-  %mId.i.i.i.i367 = getelementptr inbounds %"class.eastl::tuple.35", ptr %arrayTup, i64 3, i32 0, i32 2, i32 0, i32 3
+  %mId.i.i.i.i367 = getelementptr inbounds i8, ptr %arrayTup, i64 112
   store i64 %inc5.i.i.i.i365, ptr %mId.i.i.i.i367, align 16
   %44 = load i64, ptr @_ZN10TestObject12sTODtorCountE, align 8
   store i64 %inc.i.i.i.i336, ptr @_ZN10TestObject8sTOCountE, align 8
   %inc3.i394 = add nsw i64 %44, 4
   store i64 %inc3.i394, ptr @_ZN10TestObject12sTODtorCountE, align 8
-  %45 = getelementptr inbounds %"class.eastl::tuple.35", ptr %arrayTup, i64 4
+  %45 = getelementptr inbounds i8, ptr %arrayTup, i64 128
   %_ZN10TestObject16sMagicErrorCountE.promoted = load i32, ptr @_ZN10TestObject16sMagicErrorCountE, align 4
   br label %arraydestroy.body800
 
 arraydestroy.body800:                             ; preds = %_ZN5eastl5tupleIJif10TestObjectEED2Ev.exit402, %_ZN10TestObjectD2Ev.exit395
   %inc.i.i.i.i399679 = phi i32 [ %_ZN10TestObject16sMagicErrorCountE.promoted, %_ZN10TestObjectD2Ev.exit395 ], [ %inc.i.i.i.i399678, %_ZN5eastl5tupleIJif10TestObjectEED2Ev.exit402 ]
   %arraydestroy.elementPast801 = phi ptr [ %45, %_ZN10TestObjectD2Ev.exit395 ], [ %arraydestroy.element802, %_ZN5eastl5tupleIJif10TestObjectEED2Ev.exit402 ]
-  %arraydestroy.element802 = getelementptr inbounds %"class.eastl::tuple.35", ptr %arraydestroy.elementPast801, i64 -1
-  %mMagicValue.i.i.i.i396 = getelementptr %"class.eastl::tuple.35", ptr %arraydestroy.elementPast801, i64 -1, i32 0, i32 2, i32 0, i32 4
+  %arraydestroy.element802 = getelementptr inbounds i8, ptr %arraydestroy.elementPast801, i64 -32
+  %mMagicValue.i.i.i.i396 = getelementptr inbounds i8, ptr %arraydestroy.elementPast801, i64 -8
   %46 = load i32, ptr %mMagicValue.i.i.i.i396, align 8
   %cmp.not.i.i.i.i397 = icmp eq i32 %46, 32623592
   br i1 %cmp.not.i.i.i.i397, label %_ZN5eastl5tupleIJif10TestObjectEED2Ev.exit402, label %if.then.i.i.i.i398

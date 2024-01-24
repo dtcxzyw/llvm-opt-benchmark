@@ -16,7 +16,7 @@ entry:
   br i1 %cmp.not, label %if.end5, label %if.then
 
 if.then:                                          ; preds = %entry
-  %length_ = getelementptr inbounds %"class.rocksdb::MemMapping", ptr %this, i64 0, i32 1
+  %length_ = getelementptr inbounds i8, ptr %this, i64 8
   %1 = load i64, ptr %length_, align 8
   %call = tail call i32 @munmap(ptr noundef nonnull %0, i64 noundef %1) #5
   br label %if.end5
@@ -70,7 +70,7 @@ declare i32 @__gxx_personality_v0(...)
 define void @_ZN7rocksdb10MemMapping17AllocateAnonymousEmb(ptr noalias nocapture writeonly sret(%"class.rocksdb::MemMapping") align 8 %agg.result, i64 noundef %length, i1 noundef zeroext %huge) local_unnamed_addr #0 align 2 {
 entry:
   store i64 0, ptr %agg.result, align 8
-  %length_ = getelementptr inbounds %"class.rocksdb::MemMapping", ptr %agg.result, i64 0, i32 1
+  %length_ = getelementptr inbounds i8, ptr %agg.result, i64 8
   store i64 %length, ptr %length_, align 8
   %cmp = icmp eq i64 %length, 0
   br i1 %cmp, label %nrvo.skipdtor, label %if.end
@@ -95,7 +95,7 @@ define void @_ZN7rocksdb10MemMapping12AllocateHugeEm(ptr noalias nocapture write
 entry:
   tail call void @llvm.experimental.noalias.scope.decl(metadata !4)
   store i64 0, ptr %agg.result, align 8, !alias.scope !4
-  %length_.i = getelementptr inbounds %"class.rocksdb::MemMapping", ptr %agg.result, i64 0, i32 1
+  %length_.i = getelementptr inbounds i8, ptr %agg.result, i64 8
   store i64 %length, ptr %length_.i, align 8, !alias.scope !4
   %cmp.i = icmp eq i64 %length, 0
   br i1 %cmp.i, label %_ZN7rocksdb10MemMapping17AllocateAnonymousEmb.exit, label %if.end.i
@@ -116,7 +116,7 @@ define void @_ZN7rocksdb10MemMapping18AllocateLazyZeroedEm(ptr noalias nocapture
 entry:
   tail call void @llvm.experimental.noalias.scope.decl(metadata !7)
   store i64 0, ptr %agg.result, align 8, !alias.scope !7
-  %length_.i = getelementptr inbounds %"class.rocksdb::MemMapping", ptr %agg.result, i64 0, i32 1
+  %length_.i = getelementptr inbounds i8, ptr %agg.result, i64 8
   store i64 %length, ptr %length_.i, align 8, !alias.scope !7
   %cmp.i = icmp eq i64 %length, 0
   br i1 %cmp.i, label %_ZN7rocksdb10MemMapping17AllocateAnonymousEmb.exit, label %if.end.i

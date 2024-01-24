@@ -4,47 +4,6 @@ target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:
 target triple = "x86_64-unknown-linux-gnu"
 
 %struct.MD5_params = type { ptr, ptr, ptr, i32, i32 }
-%struct.Curl_easy = type { i32, i64, ptr, ptr, ptr, %struct.Curl_llist_element, %struct.Curl_llist_element, i32, i32, %struct.Curl_message, %struct.easy_pollset, %struct.Names, ptr, ptr, ptr, ptr, %struct.SingleRequest, %struct.UserDefined, ptr, ptr, ptr, %struct.Progress, %struct.UrlState, ptr, %struct.PureInfo, %struct.curl_tlssessioninfo }
-%struct.Curl_llist_element = type { ptr, ptr, ptr }
-%struct.Curl_message = type { %struct.Curl_llist_element, %struct.CURLMsg }
-%struct.CURLMsg = type { i32, ptr, %union.anon.0 }
-%union.anon.0 = type { ptr }
-%struct.easy_pollset = type { [5 x i32], i32, [5 x i8] }
-%struct.Names = type { ptr, i32 }
-%struct.SingleRequest = type <{ i64, i64, i64, i64, i64, %struct.curltime, i32, i32, i32, i32, i64, i32, i32, %struct.curltime, i32, i32, ptr, i64, i64, ptr, ptr, i64, ptr, %union.anon.1, ptr, [2 x i8], i8, i16, [3 x i8] }>
-%struct.curltime = type { i64, i32 }
-%union.anon.1 = type { ptr }
-%struct.UserDefined = type <{ ptr, ptr, ptr, ptr, ptr, ptr, i16, [6 x i8], i64, i64, i64, ptr, ptr, i64, i16, i16, [4 x i8], ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, i32, i32, i32, i32, i64, i64, i64, i64, i64, i64, i64, i64, i64, ptr, ptr, %struct.curl_mimepart, ptr, ptr, ptr, i64, i8, i8, i8, [5 x i8], %struct.ssl_config_data, %struct.ssl_config_data, ptr, i16, i8, i8, [4 x i8], %struct.ssl_general_config, i32, i32, i32, [4 x i8], ptr, ptr, i8, [7 x i8], i64, i8, i8, i8, i8, i32, ptr, ptr, ptr, i8, i8, [2 x i8], i32, [80 x ptr], [8 x ptr], i32, i32, i32, [4 x i8], ptr, i32, [4 x i8], ptr, ptr, ptr, ptr, ptr, i8, [3 x i8], i32, i32, [4 x i8], i64, ptr, ptr, i64, ptr, ptr, ptr, ptr, ptr, i8, [7 x i8], ptr, i8, [3 x i8], i32, i8, i8, i56, [6 x i8] }>
-%struct.curl_mimepart = type { ptr, ptr, i32, i32, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, i64, %struct.mime_state, ptr, %struct.mime_encoder_state, i64 }
-%struct.mime_state = type { i32, ptr, i64 }
-%struct.mime_encoder_state = type { i64, i64, i64, [256 x i8] }
-%struct.ssl_config_data = type { %struct.ssl_primary_config, i64, ptr, ptr, ptr, ptr, ptr, ptr, ptr, i8 }
-%struct.ssl_primary_config = type { ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, i8, i32, i8, i8 }
-%struct.ssl_general_config = type { i64, i32 }
-%struct.Progress = type { i64, i64, i64, i64, i64, i64, i32, i32, i64, i64, i64, i64, i64, i64, i64, i64, i64, i64, %struct.curltime, %struct.curltime, %struct.curltime, %struct.curltime, %struct.curltime, i64, %struct.curltime, i64, [6 x i64], [6 x %struct.curltime], i32, i8 }
-%struct.UrlState = type { ptr, %struct.curltime, i64, i64, %struct.dynbuf, ptr, ptr, ptr, i64, ptr, i32, i32, i32, ptr, i64, [3 x %struct.tempbuf], i32, i32, ptr, i64, i32, ptr, %struct.digestdata, %struct.digestdata, %struct.auth, %struct.auth, %struct.Curl_async, ptr, %struct.curltime, %struct.Curl_tree, %struct.Curl_llist, [15 x %struct.time_node], ptr, i8, i64, ptr, i64, i64, i64, i64, [32 x i8], i64, ptr, ptr, ptr, %struct.urlpieces, ptr, ptr, ptr, ptr, ptr, i64, %struct.dynbuf, %struct.Curl_llist, [2 x %struct.curl_header], ptr, i32, ptr, %struct.dynamically_allocated_data, i8, i8, i8, i8, i24 }
-%struct.tempbuf = type { %struct.dynbuf, i32, i8 }
-%struct.digestdata = type { ptr, ptr, ptr, ptr, ptr, ptr, i32, i8, i8 }
-%struct.auth = type { i64, i64, i64, i8 }
-%struct.Curl_async = type { ptr, ptr, ptr, ptr, i32, i32, i8 }
-%struct.Curl_tree = type { ptr, ptr, ptr, ptr, %struct.curltime, ptr }
-%struct.time_node = type { %struct.Curl_llist_element, %struct.curltime, i32 }
-%struct.urlpieces = type { ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr }
-%struct.dynbuf = type { ptr, i64, i64, i64 }
-%struct.Curl_llist = type { ptr, ptr, ptr, i64 }
-%struct.curl_header = type { ptr, ptr, i64, i64, i32, ptr }
-%struct.dynamically_allocated_data = type { ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr }
-%struct.PureInfo = type { i32, i32, i32, i64, i64, i64, i64, i64, ptr, ptr, i64, i32, [46 x i8], i32, i32, [46 x i8], i32, ptr, i32, %struct.curl_certinfo, i32, i8 }
-%struct.curl_certinfo = type { i32, ptr }
-%struct.curl_tlssessioninfo = type { i32, ptr }
-%struct.connectdata = type { %struct.Curl_llist_element, ptr, ptr, i64, ptr, ptr, %struct.hostname, ptr, ptr, %struct.hostname, %struct.proxy_info, %struct.proxy_info, [46 x i8], ptr, ptr, ptr, ptr, ptr, %struct.curltime, %struct.curltime, %struct.curltime, [2 x i32], [2 x ptr], [2 x ptr], [2 x ptr], %struct.ssl_primary_config, %struct.ssl_primary_config, %struct.ConnectBits, ptr, ptr, %struct.curltime, i32, i32, %struct.Curl_llist, ptr, ptr, i32, i32, %struct.ntlmdata, %struct.ntlmdata, %union.anon, ptr, ptr, ptr, i16, i32, i32, i32, i32, i32, i16, i16, i8, i8, i8, i8, i8, i8, i8 }
-%struct.hostname = type { ptr, ptr, ptr, ptr }
-%struct.proxy_info = type { %struct.hostname, i32, i8, ptr, ptr }
-%struct.ConnectBits = type { i32 }
-%struct.ntlmdata = type { i32, [8 x i8], i32, ptr }
-%union.anon = type { %struct.ftp_conn }
-%struct.ftp_conn = type { %struct.pingpong, ptr, ptr, ptr, ptr, ptr, ptr, ptr, i8, i64, ptr, i64, i32, i32, i32, i32, i32, i16, i8, i8, i8, i8, i8 }
-%struct.pingpong = type { ptr, i64, i64, ptr, i8, ptr, i64, i64, %struct.curltime, i64, %struct.dynbuf, ptr, ptr }
 
 @__const.Curl_auth_create_digest_md5_message.nonceCount = private unnamed_addr constant [9 x i8] c"00000001\00", align 1
 @__const.Curl_auth_create_digest_md5_message.method = private unnamed_addr constant [13 x i8] c"AUTHENTICATE\00", align 1
@@ -519,9 +478,9 @@ for.body:                                         ; preds = %if.end43, %for.body
   br i1 %exitcond.not, label %for.end, label %for.body, !llvm.loop !8
 
 for.end:                                          ; preds = %for.body
-  %conn = getelementptr inbounds %struct.Curl_easy, ptr %data, i64 0, i32 4
+  %conn = getelementptr inbounds i8, ptr %data, i64 32
   %18 = load ptr, ptr %conn, align 8
-  %name = getelementptr inbounds %struct.connectdata, ptr %18, i64 0, i32 6, i32 2
+  %name = getelementptr inbounds i8, ptr %18, i64 80
   %19 = load ptr, ptr %name, align 8
   %call63 = call ptr @Curl_auth_build_spn(ptr noundef %service, ptr noundef %19, ptr noundef null) #10
   %tobool64.not = icmp eq ptr %call63, null
@@ -662,35 +621,35 @@ entry:
   tail call void %1(ptr noundef %0) #10
   store ptr null, ptr %digest, align 8
   %2 = load ptr, ptr @Curl_cfree, align 8
-  %cnonce.i = getelementptr inbounds %struct.digestdata, ptr %digest, i64 0, i32 1
+  %cnonce.i = getelementptr inbounds i8, ptr %digest, i64 8
   %3 = load ptr, ptr %cnonce.i, align 8
   tail call void %2(ptr noundef %3) #10
   store ptr null, ptr %cnonce.i, align 8
   %4 = load ptr, ptr @Curl_cfree, align 8
-  %realm.i = getelementptr inbounds %struct.digestdata, ptr %digest, i64 0, i32 2
+  %realm.i = getelementptr inbounds i8, ptr %digest, i64 16
   %5 = load ptr, ptr %realm.i, align 8
   tail call void %4(ptr noundef %5) #10
   store ptr null, ptr %realm.i, align 8
   %6 = load ptr, ptr @Curl_cfree, align 8
-  %opaque.i = getelementptr inbounds %struct.digestdata, ptr %digest, i64 0, i32 3
+  %opaque.i = getelementptr inbounds i8, ptr %digest, i64 24
   %7 = load ptr, ptr %opaque.i, align 8
   tail call void %6(ptr noundef %7) #10
   store ptr null, ptr %opaque.i, align 8
   %8 = load ptr, ptr @Curl_cfree, align 8
-  %qop.i = getelementptr inbounds %struct.digestdata, ptr %digest, i64 0, i32 4
+  %qop.i = getelementptr inbounds i8, ptr %digest, i64 32
   %9 = load ptr, ptr %qop.i, align 8
   tail call void %8(ptr noundef %9) #10
   store ptr null, ptr %qop.i, align 8
   %10 = load ptr, ptr @Curl_cfree, align 8
-  %algorithm.i = getelementptr inbounds %struct.digestdata, ptr %digest, i64 0, i32 5
+  %algorithm.i = getelementptr inbounds i8, ptr %digest, i64 40
   %11 = load ptr, ptr %algorithm.i, align 8
   tail call void %10(ptr noundef %11) #10
   store ptr null, ptr %algorithm.i, align 8
-  %nc.i = getelementptr inbounds %struct.digestdata, ptr %digest, i64 0, i32 6
+  %nc.i = getelementptr inbounds i8, ptr %digest, i64 48
   store i32 0, ptr %nc.i, align 8
-  %algo.i = getelementptr inbounds %struct.digestdata, ptr %digest, i64 0, i32 7
+  %algo.i = getelementptr inbounds i8, ptr %digest, i64 52
   store i8 0, ptr %algo.i, align 4
-  %stale.i = getelementptr inbounds %struct.digestdata, ptr %digest, i64 0, i32 8
+  %stale.i = getelementptr inbounds i8, ptr %digest, i64 53
   %bf.load.i = load i8, ptr %stale.i, align 1
   %bf.clear18.i = and i8 %bf.load.i, -4
   store i8 %bf.clear18.i, ptr %stale.i, align 1
@@ -1022,35 +981,35 @@ entry:
   tail call void %0(ptr noundef %1) #10
   store ptr null, ptr %digest, align 8
   %2 = load ptr, ptr @Curl_cfree, align 8
-  %cnonce = getelementptr inbounds %struct.digestdata, ptr %digest, i64 0, i32 1
+  %cnonce = getelementptr inbounds i8, ptr %digest, i64 8
   %3 = load ptr, ptr %cnonce, align 8
   tail call void %2(ptr noundef %3) #10
   store ptr null, ptr %cnonce, align 8
   %4 = load ptr, ptr @Curl_cfree, align 8
-  %realm = getelementptr inbounds %struct.digestdata, ptr %digest, i64 0, i32 2
+  %realm = getelementptr inbounds i8, ptr %digest, i64 16
   %5 = load ptr, ptr %realm, align 8
   tail call void %4(ptr noundef %5) #10
   store ptr null, ptr %realm, align 8
   %6 = load ptr, ptr @Curl_cfree, align 8
-  %opaque = getelementptr inbounds %struct.digestdata, ptr %digest, i64 0, i32 3
+  %opaque = getelementptr inbounds i8, ptr %digest, i64 24
   %7 = load ptr, ptr %opaque, align 8
   tail call void %6(ptr noundef %7) #10
   store ptr null, ptr %opaque, align 8
   %8 = load ptr, ptr @Curl_cfree, align 8
-  %qop = getelementptr inbounds %struct.digestdata, ptr %digest, i64 0, i32 4
+  %qop = getelementptr inbounds i8, ptr %digest, i64 32
   %9 = load ptr, ptr %qop, align 8
   tail call void %8(ptr noundef %9) #10
   store ptr null, ptr %qop, align 8
   %10 = load ptr, ptr @Curl_cfree, align 8
-  %algorithm = getelementptr inbounds %struct.digestdata, ptr %digest, i64 0, i32 5
+  %algorithm = getelementptr inbounds i8, ptr %digest, i64 40
   %11 = load ptr, ptr %algorithm, align 8
   tail call void %10(ptr noundef %11) #10
   store ptr null, ptr %algorithm, align 8
-  %nc = getelementptr inbounds %struct.digestdata, ptr %digest, i64 0, i32 6
+  %nc = getelementptr inbounds i8, ptr %digest, i64 48
   store i32 0, ptr %nc, align 8
-  %algo = getelementptr inbounds %struct.digestdata, ptr %digest, i64 0, i32 7
+  %algo = getelementptr inbounds i8, ptr %digest, i64 52
   store i8 0, ptr %algo, align 4
-  %stale = getelementptr inbounds %struct.digestdata, ptr %digest, i64 0, i32 8
+  %stale = getelementptr inbounds i8, ptr %digest, i64 53
   %bf.load = load i8, ptr %stale, align 1
   %bf.clear18 = and i8 %bf.load, -4
   store i8 %bf.clear18, ptr %stale, align 1
@@ -1083,10 +1042,10 @@ entry:
   %cnonce_sz.i = alloca i64, align 8
   %cnoncebuf.i = alloca [33 x i8], align 16
   %hashed.i = alloca [65 x i8], align 16
-  %algo = getelementptr inbounds %struct.digestdata, ptr %digest, i64 0, i32 7
+  %algo = getelementptr inbounds i8, ptr %digest, i64 52
   %0 = load i8, ptr %algo, align 4
   %cmp = icmp ult i8 %0, 2
-  %nc.i = getelementptr inbounds %struct.digestdata, ptr %digest, i64 0, i32 6
+  %nc.i = getelementptr inbounds i8, ptr %digest, i64 48
   br i1 %cmp, label %if.then, label %do.end
 
 if.then:                                          ; preds = %entry
@@ -1111,7 +1070,7 @@ if.then.i:                                        ; preds = %if.then
   br label %if.end.i
 
 if.end.i:                                         ; preds = %if.then.i, %if.then
-  %cnonce2.i = getelementptr inbounds %struct.digestdata, ptr %digest, i64 0, i32 1
+  %cnonce2.i = getelementptr inbounds i8, ptr %digest, i64 8
   %2 = load ptr, ptr %cnonce2.i, align 8
   %tobool3.not.i = icmp eq ptr %2, null
   br i1 %tobool3.not.i, label %if.then4.i, label %if.end17.i
@@ -1133,14 +1092,14 @@ if.end15.i:                                       ; preds = %if.end8.i
   br label %if.end17.i
 
 if.end17.i:                                       ; preds = %if.end15.i, %if.end.i
-  %userhash.i = getelementptr inbounds %struct.digestdata, ptr %digest, i64 0, i32 8
+  %userhash.i = getelementptr inbounds i8, ptr %digest, i64 53
   %bf.load.i = load i8, ptr %userhash.i, align 1
   %4 = and i8 %bf.load.i, 2
   %tobool18.not.i = icmp eq i8 %4, 0
   br i1 %tobool18.not.i, label %if.end31.i, label %if.then19.i
 
 if.then19.i:                                      ; preds = %if.end17.i
-  %realm.i = getelementptr inbounds %struct.digestdata, ptr %digest, i64 0, i32 2
+  %realm.i = getelementptr inbounds i8, ptr %digest, i64 16
   %5 = load ptr, ptr %realm.i, align 8
   %tobool20.not.i = icmp eq ptr %5, null
   %spec.select.i = select i1 %tobool20.not.i, ptr @.str.23, ptr %5
@@ -1168,7 +1127,7 @@ for.body.i252:                                    ; preds = %for.body.i252, %if.
   br i1 %exitcond.not.i259, label %if.end31.i, label %for.body.i252, !llvm.loop !16
 
 if.end31.i:                                       ; preds = %for.body.i252, %if.end17.i
-  %realm32.i = getelementptr inbounds %struct.digestdata, ptr %digest, i64 0, i32 2
+  %realm32.i = getelementptr inbounds i8, ptr %digest, i64 16
   %9 = load ptr, ptr %realm32.i, align 8
   %tobool33.not.i = icmp eq ptr %9, null
   %spec.select110.i = select i1 %tobool33.not.i, ptr @.str.23, ptr %9
@@ -1233,7 +1192,7 @@ if.end61.i:                                       ; preds = %for.body.i234, %aut
   br i1 %tobool63.not.i, label %auth_create_digest_http_message.exit, label %if.end65.i
 
 if.end65.i:                                       ; preds = %if.end61.i
-  %qop.i = getelementptr inbounds %struct.digestdata, ptr %digest, i64 0, i32 4
+  %qop.i = getelementptr inbounds i8, ptr %digest, i64 32
   %20 = load ptr, ptr %qop.i, align 8
   %tobool66.not.i = icmp eq ptr %20, null
   br i1 %tobool66.not.i, label %if.end80.i, label %land.lhs.true.i
@@ -1554,7 +1513,7 @@ if.end155.i:                                      ; preds = %if.else152.i, %if.t
   br i1 %tobool156.not.i, label %auth_create_digest_http_message.exit, label %if.end158.i
 
 if.end158.i:                                      ; preds = %if.end155.i
-  %opaque.i = getelementptr inbounds %struct.digestdata, ptr %digest, i64 0, i32 3
+  %opaque.i = getelementptr inbounds i8, ptr %digest, i64 24
   %60 = load ptr, ptr %opaque.i, align 8
   %tobool159.not.i = icmp eq ptr %60, null
   br i1 %tobool159.not.i, label %if.end170.i, label %if.then160.i
@@ -1580,7 +1539,7 @@ if.end165.i:                                      ; preds = %if.then160.i
 
 if.end170.i:                                      ; preds = %if.end165.i, %if.end158.i
   %response.1.i = phi ptr [ %response.0.i, %if.end158.i ], [ %call166.i, %if.end165.i ]
-  %algorithm.i = getelementptr inbounds %struct.digestdata, ptr %digest, i64 0, i32 5
+  %algorithm.i = getelementptr inbounds i8, ptr %digest, i64 40
   %64 = load ptr, ptr %algorithm.i, align 8
   %tobool171.not.i = icmp eq ptr %64, null
   br i1 %tobool171.not.i, label %if.end178.i, label %if.then172.i
@@ -1648,7 +1607,7 @@ if.then.i213:                                     ; preds = %do.end
   br label %if.end.i21
 
 if.end.i21:                                       ; preds = %if.then.i213, %do.end
-  %cnonce2.i22 = getelementptr inbounds %struct.digestdata, ptr %digest, i64 0, i32 1
+  %cnonce2.i22 = getelementptr inbounds i8, ptr %digest, i64 8
   %69 = load ptr, ptr %cnonce2.i22, align 8
   %tobool3.not.i23 = icmp eq ptr %69, null
   br i1 %tobool3.not.i23, label %if.then4.i205, label %if.end17.i24
@@ -1670,14 +1629,14 @@ if.end15.i212:                                    ; preds = %if.end8.i208
   br label %if.end17.i24
 
 if.end17.i24:                                     ; preds = %if.end15.i212, %if.end.i21
-  %userhash.i25 = getelementptr inbounds %struct.digestdata, ptr %digest, i64 0, i32 8
+  %userhash.i25 = getelementptr inbounds i8, ptr %digest, i64 53
   %bf.load.i26 = load i8, ptr %userhash.i25, align 1
   %71 = and i8 %bf.load.i26, 2
   %tobool18.not.i27 = icmp eq i8 %71, 0
   br i1 %tobool18.not.i27, label %if.end31.i37, label %if.then19.i28
 
 if.then19.i28:                                    ; preds = %if.end17.i24
-  %realm.i29 = getelementptr inbounds %struct.digestdata, ptr %digest, i64 0, i32 2
+  %realm.i29 = getelementptr inbounds i8, ptr %digest, i64 16
   %72 = load ptr, ptr %realm.i29, align 8
   %tobool20.not.i30 = icmp eq ptr %72, null
   %spec.select.i31 = select i1 %tobool20.not.i30, ptr @.str.23, ptr %72
@@ -1705,7 +1664,7 @@ for.body.i305:                                    ; preds = %for.body.i305, %if.
   br i1 %exitcond.not.i312, label %if.end31.i37, label %for.body.i305, !llvm.loop !19
 
 if.end31.i37:                                     ; preds = %for.body.i305, %if.end17.i24
-  %realm32.i38 = getelementptr inbounds %struct.digestdata, ptr %digest, i64 0, i32 2
+  %realm32.i38 = getelementptr inbounds i8, ptr %digest, i64 16
   %76 = load ptr, ptr %realm32.i38, align 8
   %tobool33.not.i39 = icmp eq ptr %76, null
   %spec.select110.i40 = select i1 %tobool33.not.i39, ptr @.str.23, ptr %76
@@ -1770,7 +1729,7 @@ if.end61.i54:                                     ; preds = %for.body.i287, %aut
   br i1 %tobool63.not.i56, label %auth_create_digest_http_message.exit214, label %if.end65.i57
 
 if.end65.i57:                                     ; preds = %if.end61.i54
-  %qop.i58 = getelementptr inbounds %struct.digestdata, ptr %digest, i64 0, i32 4
+  %qop.i58 = getelementptr inbounds i8, ptr %digest, i64 32
   %87 = load ptr, ptr %qop.i58, align 8
   %tobool66.not.i59 = icmp eq ptr %87, null
   br i1 %tobool66.not.i59, label %if.end80.i67, label %land.lhs.true.i60
@@ -2091,7 +2050,7 @@ if.end155.i156:                                   ; preds = %if.else152.i187, %i
   br i1 %tobool156.not.i158, label %auth_create_digest_http_message.exit214, label %if.end158.i159
 
 if.end158.i159:                                   ; preds = %if.end155.i156
-  %opaque.i160 = getelementptr inbounds %struct.digestdata, ptr %digest, i64 0, i32 3
+  %opaque.i160 = getelementptr inbounds i8, ptr %digest, i64 24
   %127 = load ptr, ptr %opaque.i160, align 8
   %tobool159.not.i161 = icmp eq ptr %127, null
   br i1 %tobool159.not.i161, label %if.end170.i168, label %if.then160.i162
@@ -2117,7 +2076,7 @@ if.end165.i165:                                   ; preds = %if.then160.i162
 
 if.end170.i168:                                   ; preds = %if.end165.i165, %if.end158.i159
   %response.1.i169 = phi ptr [ %response.0.i157, %if.end158.i159 ], [ %call166.i166, %if.end165.i165 ]
-  %algorithm.i170 = getelementptr inbounds %struct.digestdata, ptr %digest, i64 0, i32 5
+  %algorithm.i170 = getelementptr inbounds i8, ptr %digest, i64 40
   %131 = load ptr, ptr %algorithm.i170, align 8
   %tobool171.not.i171 = icmp eq ptr %131, null
   br i1 %tobool171.not.i171, label %if.end178.i175, label %if.then172.i172

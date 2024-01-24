@@ -5,7 +5,6 @@ target triple = "x86_64-unknown-linux-gnu"
 
 %struct.strbuf = type { i64, i64, ptr }
 %struct.volatile_list_head = type { ptr, ptr }
-%struct.tempfile = type { %struct.volatile_list_head, i32, ptr, i32, %struct.strbuf, ptr }
 
 @.str = private unnamed_addr constant [33 x i8] c"cannot fix permission bits on %s\00", align 1
 @.str.1 = private unnamed_addr constant [7 x i8] c"TMPDIR\00", align 1
@@ -35,22 +34,22 @@ define dso_local ptr @create_tempfile_mode(ptr noundef %path, i32 noundef %mode)
 entry:
   %tempfile = alloca ptr, align 8
   %call.i = tail call ptr @xmalloc(i64 noundef 72) #14
-  %fd.i = getelementptr inbounds %struct.tempfile, ptr %call.i, i64 0, i32 1
+  %fd.i = getelementptr inbounds i8, ptr %call.i, i64 16
   store volatile i32 -1, ptr %fd.i, align 8
-  %fp.i = getelementptr inbounds %struct.tempfile, ptr %call.i, i64 0, i32 2
+  %fp.i = getelementptr inbounds i8, ptr %call.i, i64 24
   store volatile ptr null, ptr %fp.i, align 8
-  %owner.i = getelementptr inbounds %struct.tempfile, ptr %call.i, i64 0, i32 3
+  %owner.i = getelementptr inbounds i8, ptr %call.i, i64 32
   store volatile i32 0, ptr %owner.i, align 8
-  %prev.i = getelementptr inbounds %struct.volatile_list_head, ptr %call.i, i64 0, i32 1
+  %prev.i = getelementptr inbounds i8, ptr %call.i, i64 8
   store volatile ptr %call.i, ptr %prev.i, align 8
   store volatile ptr %call.i, ptr %call.i, align 8
-  %filename.i = getelementptr inbounds %struct.tempfile, ptr %call.i, i64 0, i32 4
+  %filename.i = getelementptr inbounds i8, ptr %call.i, i64 40
   tail call void @strbuf_init(ptr noundef nonnull %filename.i, i64 noundef 0) #14
-  %directory.i = getelementptr inbounds %struct.tempfile, ptr %call.i, i64 0, i32 5
+  %directory.i = getelementptr inbounds i8, ptr %call.i, i64 64
   store ptr null, ptr %directory.i, align 8
   store ptr %call.i, ptr %tempfile, align 8
   tail call void @strbuf_add_absolute_path(ptr noundef nonnull %filename.i, ptr noundef %path) #14
-  %buf = getelementptr inbounds %struct.tempfile, ptr %call.i, i64 0, i32 4, i32 2
+  %buf = getelementptr inbounds i8, ptr %call.i, i64 56
   %0 = load ptr, ptr %buf, align 8
   %call2 = tail call i32 (ptr, i32, ...) @open64(ptr noundef %0, i32 noundef 524482, i32 noundef %mode) #14
   store volatile i32 %call2, ptr %fd.i, align 8
@@ -78,7 +77,7 @@ if.end:                                           ; preds = %if.then, %land.lhs.
 if.then12:                                        ; preds = %if.end
   %5 = load volatile ptr, ptr %prev.i, align 8
   %6 = load volatile ptr, ptr %call.i, align 8
-  %prev1.i.i.i = getelementptr inbounds %struct.volatile_list_head, ptr %6, i64 0, i32 1
+  %prev1.i.i.i = getelementptr inbounds i8, ptr %6, i64 8
   store volatile ptr %5, ptr %prev1.i.i.i, align 8
   store volatile ptr %6, ptr %5, align 8
   tail call void @strbuf_release(ptr noundef nonnull %filename.i) #14
@@ -99,7 +98,7 @@ if.then.i:                                        ; preds = %if.end13
 
 activate_tempfile.exit:                           ; preds = %if.end13, %if.then.i
   %8 = load volatile ptr, ptr @tempfile_list, align 8
-  %prev.i.i5 = getelementptr inbounds %struct.volatile_list_head, ptr %8, i64 0, i32 1
+  %prev.i.i5 = getelementptr inbounds i8, ptr %8, i64 8
   store volatile ptr %call.i, ptr %prev.i.i5, align 8
   %9 = load volatile ptr, ptr @tempfile_list, align 8
   store volatile ptr %9, ptr %call.i, align 8
@@ -146,14 +145,14 @@ entry:
   br i1 %tobool.i.not, label %return, label %lor.lhs.false.i
 
 lor.lhs.false.i:                                  ; preds = %entry
-  %fd1.i = getelementptr inbounds %struct.tempfile, ptr %0, i64 0, i32 1
+  %fd1.i = getelementptr inbounds i8, ptr %0, i64 16
   %1 = load volatile i32, ptr %fd1.i, align 8
   %cmp.i = icmp slt i32 %1, 0
   br i1 %cmp.i, label %close_tempfile_gently.exit, label %if.end.i
 
 if.end.i:                                         ; preds = %lor.lhs.false.i
   %2 = load volatile i32, ptr %fd1.i, align 8
-  %fp3.i = getelementptr inbounds %struct.tempfile, ptr %0, i64 0, i32 2
+  %fp3.i = getelementptr inbounds i8, ptr %0, i64 24
   %3 = load volatile ptr, ptr %fp3.i, align 8
   store volatile i32 -1, ptr %fd1.i, align 8
   %tobool5.not.i = icmp eq ptr %3, null
@@ -178,7 +177,7 @@ if.else18.i:                                      ; preds = %if.end.i
   br label %close_tempfile_gently.exit
 
 close_tempfile_gently.exit:                       ; preds = %if.then6.i, %if.then13.i, %if.else18.i, %lor.lhs.false.i
-  %buf = getelementptr inbounds %struct.tempfile, ptr %0, i64 0, i32 4, i32 2
+  %buf = getelementptr inbounds i8, ptr %0, i64 56
   %4 = load ptr, ptr %buf, align 8
   %call2 = tail call i32 @unlink_or_warn(ptr noundef %4) #14
   %5 = getelementptr i8, ptr %0, i64 64
@@ -191,13 +190,13 @@ if.then.i:                                        ; preds = %close_tempfile_gent
   br label %remove_template_directory.exit
 
 remove_template_directory.exit:                   ; preds = %close_tempfile_gently.exit, %if.then.i
-  %prev.i.i = getelementptr inbounds %struct.volatile_list_head, ptr %0, i64 0, i32 1
+  %prev.i.i = getelementptr inbounds i8, ptr %0, i64 8
   %6 = load volatile ptr, ptr %prev.i.i, align 8
   %7 = load volatile ptr, ptr %0, align 8
-  %prev1.i.i.i = getelementptr inbounds %struct.volatile_list_head, ptr %7, i64 0, i32 1
+  %prev1.i.i.i = getelementptr inbounds i8, ptr %7, i64 8
   store volatile ptr %6, ptr %prev1.i.i.i, align 8
   store volatile ptr %7, ptr %6, align 8
-  %filename.i = getelementptr inbounds %struct.tempfile, ptr %0, i64 0, i32 4
+  %filename.i = getelementptr inbounds i8, ptr %0, i64 40
   tail call void @strbuf_release(ptr noundef nonnull %filename.i) #14
   %8 = load ptr, ptr %5, align 8
   tail call void @free(ptr noundef %8) #14
@@ -213,18 +212,18 @@ return:                                           ; preds = %entry, %remove_temp
 define dso_local ptr @register_tempfile(ptr noundef %path) local_unnamed_addr #0 {
 entry:
   %call.i = tail call ptr @xmalloc(i64 noundef 72) #14
-  %fd.i = getelementptr inbounds %struct.tempfile, ptr %call.i, i64 0, i32 1
+  %fd.i = getelementptr inbounds i8, ptr %call.i, i64 16
   store volatile i32 -1, ptr %fd.i, align 8
-  %fp.i = getelementptr inbounds %struct.tempfile, ptr %call.i, i64 0, i32 2
+  %fp.i = getelementptr inbounds i8, ptr %call.i, i64 24
   store volatile ptr null, ptr %fp.i, align 8
-  %owner.i = getelementptr inbounds %struct.tempfile, ptr %call.i, i64 0, i32 3
+  %owner.i = getelementptr inbounds i8, ptr %call.i, i64 32
   store volatile i32 0, ptr %owner.i, align 8
-  %prev.i = getelementptr inbounds %struct.volatile_list_head, ptr %call.i, i64 0, i32 1
+  %prev.i = getelementptr inbounds i8, ptr %call.i, i64 8
   store volatile ptr %call.i, ptr %prev.i, align 8
   store volatile ptr %call.i, ptr %call.i, align 8
-  %filename.i = getelementptr inbounds %struct.tempfile, ptr %call.i, i64 0, i32 4
+  %filename.i = getelementptr inbounds i8, ptr %call.i, i64 40
   tail call void @strbuf_init(ptr noundef nonnull %filename.i, i64 noundef 0) #14
-  %directory.i = getelementptr inbounds %struct.tempfile, ptr %call.i, i64 0, i32 5
+  %directory.i = getelementptr inbounds i8, ptr %call.i, i64 64
   store ptr null, ptr %directory.i, align 8
   tail call void @strbuf_add_absolute_path(ptr noundef nonnull %filename.i, ptr noundef %path) #14
   %.b.i = load i1, ptr @activate_tempfile.initialized, align 4
@@ -238,7 +237,7 @@ if.then.i:                                        ; preds = %entry
 
 activate_tempfile.exit:                           ; preds = %entry, %if.then.i
   %0 = load volatile ptr, ptr @tempfile_list, align 8
-  %prev.i.i = getelementptr inbounds %struct.volatile_list_head, ptr %0, i64 0, i32 1
+  %prev.i.i = getelementptr inbounds i8, ptr %0, i64 8
   store volatile ptr %call.i, ptr %prev.i.i, align 8
   %1 = load volatile ptr, ptr @tempfile_list, align 8
   store volatile ptr %1, ptr %call.i, align 8
@@ -253,21 +252,21 @@ activate_tempfile.exit:                           ; preds = %entry, %if.then.i
 define dso_local ptr @mks_tempfile_sm(ptr noundef %filename_template, i32 noundef %suffixlen, i32 noundef %mode) local_unnamed_addr #0 {
 entry:
   %call.i = tail call ptr @xmalloc(i64 noundef 72) #14
-  %fd.i = getelementptr inbounds %struct.tempfile, ptr %call.i, i64 0, i32 1
+  %fd.i = getelementptr inbounds i8, ptr %call.i, i64 16
   store volatile i32 -1, ptr %fd.i, align 8
-  %fp.i = getelementptr inbounds %struct.tempfile, ptr %call.i, i64 0, i32 2
+  %fp.i = getelementptr inbounds i8, ptr %call.i, i64 24
   store volatile ptr null, ptr %fp.i, align 8
-  %owner.i = getelementptr inbounds %struct.tempfile, ptr %call.i, i64 0, i32 3
+  %owner.i = getelementptr inbounds i8, ptr %call.i, i64 32
   store volatile i32 0, ptr %owner.i, align 8
-  %prev.i = getelementptr inbounds %struct.volatile_list_head, ptr %call.i, i64 0, i32 1
+  %prev.i = getelementptr inbounds i8, ptr %call.i, i64 8
   store volatile ptr %call.i, ptr %prev.i, align 8
   store volatile ptr %call.i, ptr %call.i, align 8
-  %filename.i = getelementptr inbounds %struct.tempfile, ptr %call.i, i64 0, i32 4
+  %filename.i = getelementptr inbounds i8, ptr %call.i, i64 40
   tail call void @strbuf_init(ptr noundef nonnull %filename.i, i64 noundef 0) #14
-  %directory.i = getelementptr inbounds %struct.tempfile, ptr %call.i, i64 0, i32 5
+  %directory.i = getelementptr inbounds i8, ptr %call.i, i64 64
   store ptr null, ptr %directory.i, align 8
   tail call void @strbuf_add_absolute_path(ptr noundef nonnull %filename.i, ptr noundef %filename_template) #14
-  %buf = getelementptr inbounds %struct.tempfile, ptr %call.i, i64 0, i32 4, i32 2
+  %buf = getelementptr inbounds i8, ptr %call.i, i64 56
   %0 = load ptr, ptr %buf, align 8
   %call2 = tail call i32 @git_mkstemps_mode(ptr noundef %0, i32 noundef %suffixlen, i32 noundef %mode) #14
   store volatile i32 %call2, ptr %fd.i, align 8
@@ -278,7 +277,7 @@ entry:
 if.then:                                          ; preds = %entry
   %2 = load volatile ptr, ptr %prev.i, align 8
   %3 = load volatile ptr, ptr %call.i, align 8
-  %prev1.i.i.i = getelementptr inbounds %struct.volatile_list_head, ptr %3, i64 0, i32 1
+  %prev1.i.i.i = getelementptr inbounds i8, ptr %3, i64 8
   store volatile ptr %2, ptr %prev1.i.i.i, align 8
   store volatile ptr %3, ptr %2, align 8
   tail call void @strbuf_release(ptr noundef nonnull %filename.i) #14
@@ -299,7 +298,7 @@ if.then.i:                                        ; preds = %if.end
 
 activate_tempfile.exit:                           ; preds = %if.end, %if.then.i
   %5 = load volatile ptr, ptr @tempfile_list, align 8
-  %prev.i.i10 = getelementptr inbounds %struct.volatile_list_head, ptr %5, i64 0, i32 1
+  %prev.i.i10 = getelementptr inbounds i8, ptr %5, i64 8
   store volatile ptr %call.i, ptr %prev.i.i10, align 8
   %6 = load volatile ptr, ptr @tempfile_list, align 8
   store volatile ptr %6, ptr %call.i, align 8
@@ -320,24 +319,24 @@ declare i32 @git_mkstemps_mode(ptr noundef, i32 noundef, i32 noundef) local_unna
 define dso_local ptr @mks_tempfile_tsm(ptr noundef %filename_template, i32 noundef %suffixlen, i32 noundef %mode) local_unnamed_addr #0 {
 entry:
   %call.i = tail call ptr @xmalloc(i64 noundef 72) #14
-  %fd.i = getelementptr inbounds %struct.tempfile, ptr %call.i, i64 0, i32 1
+  %fd.i = getelementptr inbounds i8, ptr %call.i, i64 16
   store volatile i32 -1, ptr %fd.i, align 8
-  %fp.i = getelementptr inbounds %struct.tempfile, ptr %call.i, i64 0, i32 2
+  %fp.i = getelementptr inbounds i8, ptr %call.i, i64 24
   store volatile ptr null, ptr %fp.i, align 8
-  %owner.i = getelementptr inbounds %struct.tempfile, ptr %call.i, i64 0, i32 3
+  %owner.i = getelementptr inbounds i8, ptr %call.i, i64 32
   store volatile i32 0, ptr %owner.i, align 8
-  %prev.i = getelementptr inbounds %struct.volatile_list_head, ptr %call.i, i64 0, i32 1
+  %prev.i = getelementptr inbounds i8, ptr %call.i, i64 8
   store volatile ptr %call.i, ptr %prev.i, align 8
   store volatile ptr %call.i, ptr %call.i, align 8
-  %filename.i = getelementptr inbounds %struct.tempfile, ptr %call.i, i64 0, i32 4
+  %filename.i = getelementptr inbounds i8, ptr %call.i, i64 40
   tail call void @strbuf_init(ptr noundef nonnull %filename.i, i64 noundef 0) #14
-  %directory.i = getelementptr inbounds %struct.tempfile, ptr %call.i, i64 0, i32 5
+  %directory.i = getelementptr inbounds i8, ptr %call.i, i64 64
   store ptr null, ptr %directory.i, align 8
   %call1 = tail call ptr @getenv(ptr noundef nonnull @.str.1) #14
   %tobool.not = icmp eq ptr %call1, null
   %spec.store.select = select i1 %tobool.not, ptr @.str.2, ptr %call1
   tail call void (ptr, ptr, ...) @strbuf_addf(ptr noundef nonnull %filename.i, ptr noundef nonnull @.str.3, ptr noundef nonnull %spec.store.select, ptr noundef %filename_template) #14
-  %buf = getelementptr inbounds %struct.tempfile, ptr %call.i, i64 0, i32 4, i32 2
+  %buf = getelementptr inbounds i8, ptr %call.i, i64 56
   %0 = load ptr, ptr %buf, align 8
   %call3 = tail call i32 @git_mkstemps_mode(ptr noundef %0, i32 noundef %suffixlen, i32 noundef %mode) #14
   store volatile i32 %call3, ptr %fd.i, align 8
@@ -348,7 +347,7 @@ entry:
 if.then5:                                         ; preds = %entry
   %2 = load volatile ptr, ptr %prev.i, align 8
   %3 = load volatile ptr, ptr %call.i, align 8
-  %prev1.i.i.i = getelementptr inbounds %struct.volatile_list_head, ptr %3, i64 0, i32 1
+  %prev1.i.i.i = getelementptr inbounds i8, ptr %3, i64 8
   store volatile ptr %2, ptr %prev1.i.i.i, align 8
   store volatile ptr %3, ptr %2, align 8
   tail call void @strbuf_release(ptr noundef nonnull %filename.i) #14
@@ -369,7 +368,7 @@ if.then.i:                                        ; preds = %if.end6
 
 activate_tempfile.exit:                           ; preds = %if.end6, %if.then.i
   %5 = load volatile ptr, ptr @tempfile_list, align 8
-  %prev.i.i11 = getelementptr inbounds %struct.volatile_list_head, ptr %5, i64 0, i32 1
+  %prev.i.i11 = getelementptr inbounds i8, ptr %5, i64 8
   store volatile ptr %call.i, ptr %prev.i.i11, align 8
   %6 = load volatile ptr, ptr @tempfile_list, align 8
   store volatile ptr %6, ptr %call.i, align 8
@@ -416,9 +415,9 @@ if.end:                                           ; preds = %ends_with.exit
   %tobool3.not = icmp eq ptr %call2, null
   %spec.store.select = select i1 %tobool3.not, ptr @.str.2, ptr %call2
   call void (ptr, ptr, ...) @strbuf_addf(ptr noundef nonnull %sb, ptr noundef nonnull @.str.3, ptr noundef nonnull %spec.store.select, ptr noundef %directory_template) #14
-  %len = getelementptr inbounds %struct.strbuf, ptr %sb, i64 0, i32 1
+  %len = getelementptr inbounds i8, ptr %sb, i64 8
   %1 = load i64, ptr %len, align 8
-  %buf = getelementptr inbounds %struct.strbuf, ptr %sb, i64 0, i32 2
+  %buf = getelementptr inbounds i8, ptr %sb, i64 16
   %2 = load ptr, ptr %buf, align 8
   %call6 = call ptr @mkdtemp(ptr noundef %2) #14
   %tobool7.not = icmp eq ptr %call6, null
@@ -471,25 +470,25 @@ strbuf_setlen.exit:                               ; preds = %if.end.i, %if.then4
 
 if.end20:                                         ; preds = %if.end11
   %call.i = call ptr @xmalloc(i64 noundef 72) #14
-  %fd.i = getelementptr inbounds %struct.tempfile, ptr %call.i, i64 0, i32 1
+  %fd.i = getelementptr inbounds i8, ptr %call.i, i64 16
   store volatile i32 -1, ptr %fd.i, align 8
-  %fp.i = getelementptr inbounds %struct.tempfile, ptr %call.i, i64 0, i32 2
+  %fp.i = getelementptr inbounds i8, ptr %call.i, i64 24
   store volatile ptr null, ptr %fp.i, align 8
-  %owner.i = getelementptr inbounds %struct.tempfile, ptr %call.i, i64 0, i32 3
+  %owner.i = getelementptr inbounds i8, ptr %call.i, i64 32
   store volatile i32 0, ptr %owner.i, align 8
-  %prev.i = getelementptr inbounds %struct.volatile_list_head, ptr %call.i, i64 0, i32 1
+  %prev.i = getelementptr inbounds i8, ptr %call.i, i64 8
   store volatile ptr %call.i, ptr %prev.i, align 8
   store volatile ptr %call.i, ptr %call.i, align 8
-  %filename.i = getelementptr inbounds %struct.tempfile, ptr %call.i, i64 0, i32 4
+  %filename.i = getelementptr inbounds i8, ptr %call.i, i64 40
   call void @strbuf_init(ptr noundef nonnull %filename.i, i64 noundef 0) #14
-  %directory.i = getelementptr inbounds %struct.tempfile, ptr %call.i, i64 0, i32 5
+  %directory.i = getelementptr inbounds i8, ptr %call.i, i64 64
   store ptr null, ptr %directory.i, align 8
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %_swap_buffer.i)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(24) %_swap_buffer.i, ptr noundef nonnull align 1 dereferenceable(24) %filename.i, i64 24, i1 false)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(24) %filename.i, ptr noundef nonnull align 8 dereferenceable(24) %sb, i64 24, i1 false)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %sb, ptr noundef nonnull align 16 dereferenceable(24) %_swap_buffer.i, i64 24, i1 false)
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %_swap_buffer.i)
-  %buf24 = getelementptr inbounds %struct.tempfile, ptr %call.i, i64 0, i32 4, i32 2
+  %buf24 = getelementptr inbounds i8, ptr %call.i, i64 56
   %9 = load ptr, ptr %buf24, align 8
   %call25 = call ptr @xmemdupz(ptr noundef %9, i64 noundef %1) #14
   store ptr %call25, ptr %directory.i, align 8
@@ -505,7 +504,7 @@ if.then.i10:                                      ; preds = %if.end20
 
 activate_tempfile.exit:                           ; preds = %if.end20, %if.then.i10
   %10 = load volatile ptr, ptr @tempfile_list, align 8
-  %prev.i.i = getelementptr inbounds %struct.volatile_list_head, ptr %10, i64 0, i32 1
+  %prev.i.i = getelementptr inbounds i8, ptr %10, i64 8
   store volatile ptr %call.i, ptr %prev.i.i, align 8
   %11 = load volatile ptr, ptr @tempfile_list, align 8
   store volatile ptr %11, ptr %call.i, align 8
@@ -538,7 +537,7 @@ entry:
   %full_template = alloca %struct.strbuf, align 8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %full_template, ptr noundef nonnull align 8 dereferenceable(24) @__const.xmks_tempfile_m.full_template, i64 24, i1 false)
   call void @strbuf_add_absolute_path(ptr noundef nonnull %full_template, ptr noundef %filename_template) #14
-  %buf = getelementptr inbounds %struct.strbuf, ptr %full_template, i64 0, i32 2
+  %buf = getelementptr inbounds i8, ptr %full_template, i64 16
   %0 = load ptr, ptr %buf, align 8
   %call.i = call ptr @mks_tempfile_sm(ptr noundef %0, i32 noundef 0, i32 noundef %mode)
   %tobool.not = icmp eq ptr %call.i, null
@@ -568,7 +567,7 @@ if.then:                                          ; preds = %entry
   unreachable
 
 if.end:                                           ; preds = %entry
-  %fp = getelementptr inbounds %struct.tempfile, ptr %tempfile, i64 0, i32 2
+  %fp = getelementptr inbounds i8, ptr %tempfile, i64 24
   %0 = load volatile ptr, ptr %fp, align 8
   %tobool1.not = icmp eq ptr %0, null
   br i1 %tobool1.not, label %if.end3, label %if.then2
@@ -578,7 +577,7 @@ if.then2:                                         ; preds = %if.end
   unreachable
 
 if.end3:                                          ; preds = %if.end
-  %fd = getelementptr inbounds %struct.tempfile, ptr %tempfile, i64 0, i32 1
+  %fd = getelementptr inbounds i8, ptr %tempfile, i64 16
   %1 = load volatile i32, ptr %fd, align 8
   %call4 = tail call noalias ptr @fdopen(i32 noundef %1, ptr noundef %mode) #14
   store volatile ptr %call4, ptr %fp, align 8
@@ -603,7 +602,7 @@ if.then:                                          ; preds = %entry
   unreachable
 
 if.end:                                           ; preds = %entry
-  %buf = getelementptr inbounds %struct.tempfile, ptr %tempfile, i64 0, i32 4, i32 2
+  %buf = getelementptr inbounds i8, ptr %tempfile, i64 56
   %0 = load ptr, ptr %buf, align 8
   ret ptr %0
 }
@@ -619,7 +618,7 @@ if.then:                                          ; preds = %entry
   unreachable
 
 if.end:                                           ; preds = %entry
-  %fd = getelementptr inbounds %struct.tempfile, ptr %tempfile, i64 0, i32 1
+  %fd = getelementptr inbounds i8, ptr %tempfile, i64 16
   %0 = load volatile i32, ptr %fd, align 8
   ret i32 %0
 }
@@ -635,7 +634,7 @@ if.then:                                          ; preds = %entry
   unreachable
 
 if.end:                                           ; preds = %entry
-  %fp = getelementptr inbounds %struct.tempfile, ptr %tempfile, i64 0, i32 2
+  %fp = getelementptr inbounds i8, ptr %tempfile, i64 24
   %0 = load volatile ptr, ptr %fp, align 8
   ret ptr %0
 }
@@ -647,14 +646,14 @@ entry:
   br i1 %tobool.i.not, label %return, label %lor.lhs.false
 
 lor.lhs.false:                                    ; preds = %entry
-  %fd1 = getelementptr inbounds %struct.tempfile, ptr %tempfile, i64 0, i32 1
+  %fd1 = getelementptr inbounds i8, ptr %tempfile, i64 16
   %0 = load volatile i32, ptr %fd1, align 8
   %cmp = icmp slt i32 %0, 0
   br i1 %cmp, label %return, label %if.end
 
 if.end:                                           ; preds = %lor.lhs.false
   %1 = load volatile i32, ptr %fd1, align 8
-  %fp3 = getelementptr inbounds %struct.tempfile, ptr %tempfile, i64 0, i32 2
+  %fp3 = getelementptr inbounds i8, ptr %tempfile, i64 24
   %2 = load volatile ptr, ptr %fp3, align 8
   store volatile i32 -1, ptr %fd1, align 8
   %tobool5.not = icmp eq ptr %2, null
@@ -710,7 +709,7 @@ if.then:                                          ; preds = %entry
   unreachable
 
 if.end:                                           ; preds = %entry
-  %fd = getelementptr inbounds %struct.tempfile, ptr %tempfile, i64 0, i32 1
+  %fd = getelementptr inbounds i8, ptr %tempfile, i64 16
   %0 = load volatile i32, ptr %fd, align 8
   %cmp = icmp sgt i32 %0, -1
   br i1 %cmp, label %if.then1, label %if.end2
@@ -720,7 +719,7 @@ if.then1:                                         ; preds = %if.end
   unreachable
 
 if.end2:                                          ; preds = %if.end
-  %buf = getelementptr inbounds %struct.tempfile, ptr %tempfile, i64 0, i32 4, i32 2
+  %buf = getelementptr inbounds i8, ptr %tempfile, i64 56
   %1 = load ptr, ptr %buf, align 8
   %call3 = tail call i32 (ptr, i32, ...) @open64(ptr noundef %1, i32 noundef 513) #14
   store volatile i32 %call3, ptr %fd, align 8
@@ -740,14 +739,14 @@ if.then:                                          ; preds = %entry
   unreachable
 
 lor.lhs.false.i:                                  ; preds = %entry
-  %fd1.i = getelementptr inbounds %struct.tempfile, ptr %0, i64 0, i32 1
+  %fd1.i = getelementptr inbounds i8, ptr %0, i64 16
   %1 = load volatile i32, ptr %fd1.i, align 8
   %cmp.i = icmp slt i32 %1, 0
   br i1 %cmp.i, label %if.end4, label %if.end.i
 
 if.end.i:                                         ; preds = %lor.lhs.false.i
   %2 = load volatile i32, ptr %fd1.i, align 8
-  %fp3.i = getelementptr inbounds %struct.tempfile, ptr %0, i64 0, i32 2
+  %fp3.i = getelementptr inbounds i8, ptr %0, i64 24
   %3 = load volatile ptr, ptr %fp3.i, align 8
   store volatile i32 -1, ptr %fd1.i, align 8
   %tobool5.not.i = icmp eq ptr %3, null
@@ -783,7 +782,7 @@ if.then3:                                         ; preds = %if.then13.i, %if.th
   br label %return
 
 if.end4:                                          ; preds = %lor.lhs.false.i, %close_tempfile_gently.exit
-  %buf = getelementptr inbounds %struct.tempfile, ptr %0, i64 0, i32 4, i32 2
+  %buf = getelementptr inbounds i8, ptr %0, i64 56
   %4 = load ptr, ptr %buf, align 8
   %call5 = tail call i32 @rename(ptr noundef %4, ptr noundef %path) #14
   %tobool6.not = icmp eq i32 %call5, 0
@@ -797,15 +796,15 @@ if.then7:                                         ; preds = %if.end4
   br label %return
 
 if.end10:                                         ; preds = %if.end4
-  %prev.i.i = getelementptr inbounds %struct.volatile_list_head, ptr %0, i64 0, i32 1
+  %prev.i.i = getelementptr inbounds i8, ptr %0, i64 8
   %6 = load volatile ptr, ptr %prev.i.i, align 8
   %7 = load volatile ptr, ptr %0, align 8
-  %prev1.i.i.i = getelementptr inbounds %struct.volatile_list_head, ptr %7, i64 0, i32 1
+  %prev1.i.i.i = getelementptr inbounds i8, ptr %7, i64 8
   store volatile ptr %6, ptr %prev1.i.i.i, align 8
   store volatile ptr %7, ptr %6, align 8
-  %filename.i = getelementptr inbounds %struct.tempfile, ptr %0, i64 0, i32 4
+  %filename.i = getelementptr inbounds i8, ptr %0, i64 40
   tail call void @strbuf_release(ptr noundef nonnull %filename.i) #14
-  %directory.i = getelementptr inbounds %struct.tempfile, ptr %0, i64 0, i32 5
+  %directory.i = getelementptr inbounds i8, ptr %0, i64 64
   %8 = load ptr, ptr %directory.i, align 8
   tail call void @free(ptr noundef %8) #14
   tail call void @free(ptr noundef nonnull %0) #14
@@ -845,13 +844,13 @@ for.body.i:                                       ; preds = %entry, %for.inc.i
   br i1 %tobool.i.not.i, label %for.inc.i, label %lor.lhs.false.i
 
 lor.lhs.false.i:                                  ; preds = %for.body.i
-  %owner.i = getelementptr inbounds %struct.tempfile, ptr %pos.016.i, i64 0, i32 3
+  %owner.i = getelementptr inbounds i8, ptr %pos.016.i, i64 32
   %0 = load volatile i32, ptr %owner.i, align 8
   %cmp2.not.i = icmp eq i32 %0, %call.i
   br i1 %cmp2.not.i, label %if.end.i, label %for.inc.i
 
 if.end.i:                                         ; preds = %lor.lhs.false.i
-  %fd.i = getelementptr inbounds %struct.tempfile, ptr %pos.016.i, i64 0, i32 1
+  %fd.i = getelementptr inbounds i8, ptr %pos.016.i, i64 16
   %1 = load volatile i32, ptr %fd.i, align 8
   %cmp3.i = icmp sgt i32 %1, -1
   br i1 %cmp3.i, label %if.then4.i, label %if.end7.i
@@ -862,7 +861,7 @@ if.then4.i:                                       ; preds = %if.end.i
   br label %if.end7.i
 
 if.end7.i:                                        ; preds = %if.then4.i, %if.end.i
-  %buf.i = getelementptr inbounds %struct.tempfile, ptr %pos.016.i, i64 0, i32 4, i32 2
+  %buf.i = getelementptr inbounds i8, ptr %pos.016.i, i64 56
   %3 = load ptr, ptr %buf.i, align 8
   %call10.i = tail call i32 @unlink(ptr noundef %3) #14
   %4 = getelementptr i8, ptr %pos.016.i, i64 64
@@ -902,13 +901,13 @@ for.body.us.i:                                    ; preds = %entry, %for.inc.us.
   br i1 %tobool.i.not.us.i, label %for.inc.us.i, label %lor.lhs.false.us.i
 
 lor.lhs.false.us.i:                               ; preds = %for.body.us.i
-  %owner.us.i = getelementptr inbounds %struct.tempfile, ptr %pos.016.us.i, i64 0, i32 3
+  %owner.us.i = getelementptr inbounds i8, ptr %pos.016.us.i, i64 32
   %0 = load volatile i32, ptr %owner.us.i, align 8
   %cmp2.not.us.i = icmp eq i32 %0, %call.i
   br i1 %cmp2.not.us.i, label %if.end.us.i, label %for.inc.us.i
 
 if.end.us.i:                                      ; preds = %lor.lhs.false.us.i
-  %fd.us.i = getelementptr inbounds %struct.tempfile, ptr %pos.016.us.i, i64 0, i32 1
+  %fd.us.i = getelementptr inbounds i8, ptr %pos.016.us.i, i64 16
   %1 = load volatile i32, ptr %fd.us.i, align 8
   %cmp3.us.i = icmp sgt i32 %1, -1
   br i1 %cmp3.us.i, label %if.then4.us.i, label %if.end7.us.i
@@ -919,7 +918,7 @@ if.then4.us.i:                                    ; preds = %if.end.us.i
   br label %if.end7.us.i
 
 if.end7.us.i:                                     ; preds = %if.then4.us.i, %if.end.us.i
-  %buf12.us.i = getelementptr inbounds %struct.tempfile, ptr %pos.016.us.i, i64 0, i32 4, i32 2
+  %buf12.us.i = getelementptr inbounds i8, ptr %pos.016.us.i, i64 56
   %3 = load ptr, ptr %buf12.us.i, align 8
   %call13.us.i = tail call i32 @unlink_or_warn(ptr noundef %3) #14
   %4 = getelementptr i8, ptr %pos.016.us.i, i64 64

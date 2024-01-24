@@ -6,9 +6,9 @@ target triple = "x86_64-unknown-linux-gnu"
 %"struct.eastl::array.1" = type { [5 x i32] }
 %"class.eastl::reverse_iterator" = type { ptr }
 %"class.eastl::reverse_iterator.0" = type { ptr }
-%struct.Align32 = type { i32, [28 x i8] }
 %"class.eastl::reverse_iterator.3" = type { ptr }
 %"class.eastl::reverse_iterator.4" = type { ptr }
+%struct.Align32 = type { i32, [28 x i8] }
 
 $_ZN5eastl5arrayIiLm0EE4fillERKi = comdat any
 
@@ -466,7 +466,7 @@ for.body.i:                                       ; preds = %for.body.i, %entry
   store i32 %1, ptr %first1.addr.06.i.ptr, align 4
   store i32 %0, ptr %first2.addr.07.i, align 4
   %first1.addr.06.i.add = add nuw nsw i64 %first1.addr.06.i.idx, 4
-  %incdec.ptr1.i = getelementptr inbounds i32, ptr %first2.addr.07.i, i64 1
+  %incdec.ptr1.i = getelementptr inbounds i8, ptr %first2.addr.07.i, i64 4
   %cmp.not.i = icmp eq i64 %first1.addr.06.i.add, 20
   br i1 %cmp.not.i, label %invoke.cont, label %for.body.i, !llvm.loop !6
 
@@ -495,28 +495,28 @@ entry:
 ; Function Attrs: mustprogress nounwind uwtable
 define weak_odr dso_local noundef ptr @_ZN5eastl5arrayIiLm5EE3endEv(ptr noundef nonnull align 4 dereferenceable(20) %this) local_unnamed_addr #0 comdat align 2 {
 entry:
-  %arrayidx = getelementptr inbounds [5 x i32], ptr %this, i64 0, i64 5
+  %arrayidx = getelementptr inbounds i8, ptr %this, i64 20
   ret ptr %arrayidx
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
 define weak_odr dso_local noundef ptr @_ZNK5eastl5arrayIiLm5EE3endEv(ptr noundef nonnull align 4 dereferenceable(20) %this) local_unnamed_addr #0 comdat align 2 {
 entry:
-  %arrayidx = getelementptr inbounds [5 x i32], ptr %this, i64 0, i64 5
+  %arrayidx = getelementptr inbounds i8, ptr %this, i64 20
   ret ptr %arrayidx
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
 define weak_odr dso_local noundef ptr @_ZNK5eastl5arrayIiLm5EE4cendEv(ptr noundef nonnull align 4 dereferenceable(20) %this) local_unnamed_addr #0 comdat align 2 {
 entry:
-  %arrayidx = getelementptr inbounds [5 x i32], ptr %this, i64 0, i64 5
+  %arrayidx = getelementptr inbounds i8, ptr %this, i64 20
   ret ptr %arrayidx
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
 define weak_odr dso_local void @_ZN5eastl5arrayIiLm5EE6rbeginEv(ptr noalias sret(%"class.eastl::reverse_iterator") align 8 %agg.result, ptr noundef nonnull align 4 dereferenceable(20) %this) local_unnamed_addr #0 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  %arrayidx = getelementptr inbounds [5 x i32], ptr %this, i64 0, i64 5
+  %arrayidx = getelementptr inbounds i8, ptr %this, i64 20
   store ptr %arrayidx, ptr %agg.result, align 8
   ret void
 }
@@ -524,7 +524,7 @@ entry:
 ; Function Attrs: mustprogress nounwind uwtable
 define weak_odr dso_local void @_ZNK5eastl5arrayIiLm5EE6rbeginEv(ptr noalias sret(%"class.eastl::reverse_iterator.0") align 8 %agg.result, ptr noundef nonnull align 4 dereferenceable(20) %this) local_unnamed_addr #0 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  %arrayidx = getelementptr inbounds [5 x i32], ptr %this, i64 0, i64 5
+  %arrayidx = getelementptr inbounds i8, ptr %this, i64 20
   store ptr %arrayidx, ptr %agg.result, align 8
   ret void
 }
@@ -532,7 +532,7 @@ entry:
 ; Function Attrs: mustprogress nounwind uwtable
 define weak_odr dso_local void @_ZNK5eastl5arrayIiLm5EE7crbeginEv(ptr noalias sret(%"class.eastl::reverse_iterator.0") align 8 %agg.result, ptr noundef nonnull align 4 dereferenceable(20) %this) local_unnamed_addr #0 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  %arrayidx = getelementptr inbounds [5 x i32], ptr %this, i64 0, i64 5
+  %arrayidx = getelementptr inbounds i8, ptr %this, i64 20
   store ptr %arrayidx, ptr %agg.result, align 8
   ret void
 }
@@ -631,14 +631,14 @@ entry:
 ; Function Attrs: mustprogress nounwind uwtable
 define weak_odr dso_local noundef nonnull align 4 dereferenceable(4) ptr @_ZN5eastl5arrayIiLm5EE4backEv(ptr noundef nonnull align 4 dereferenceable(20) %this) local_unnamed_addr #0 comdat align 2 {
 entry:
-  %arrayidx = getelementptr inbounds [5 x i32], ptr %this, i64 0, i64 4
+  %arrayidx = getelementptr inbounds i8, ptr %this, i64 16
   ret ptr %arrayidx
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
 define weak_odr dso_local noundef nonnull align 4 dereferenceable(4) ptr @_ZNK5eastl5arrayIiLm5EE4backEv(ptr noundef nonnull align 4 dereferenceable(20) %this) local_unnamed_addr #0 comdat align 2 {
 entry:
-  %arrayidx = getelementptr inbounds [5 x i32], ptr %this, i64 0, i64 4
+  %arrayidx = getelementptr inbounds i8, ptr %this, i64 16
   ret ptr %arrayidx
 }
 
@@ -655,7 +655,7 @@ entry:
   br i1 %cmp.not, label %if.end12, label %if.then
 
 if.then:                                          ; preds = %entry
-  %add.ptr = getelementptr inbounds i32, ptr %this, i64 5
+  %add.ptr = getelementptr inbounds i8, ptr %this, i64 20
   %cmp4 = icmp ugt ptr %add.ptr, %i
   br i1 %cmp4, label %return, label %if.end
 
@@ -682,7 +682,7 @@ for.body.i.i:                                     ; preds = %for.body.i.i, %entr
   %n.addr.04.i.i = phi i64 [ %dec.i.i, %for.body.i.i ], [ 5, %entry ]
   %dec.i.i = add nsw i64 %n.addr.04.i.i, -1
   store i32 %.pre.i.i, ptr %first.addr.05.i.i, align 32
-  %incdec.ptr.i.i = getelementptr inbounds %struct.Align32, ptr %first.addr.05.i.i, i64 1
+  %incdec.ptr.i.i = getelementptr inbounds i8, ptr %first.addr.05.i.i, i64 32
   %cmp.not.i.i = icmp eq i64 %dec.i.i, 0
   br i1 %cmp.not.i.i, label %_ZN5eastl6fill_nIP7Align32mS1_EET_S3_T0_RKT1_.exit, label %for.body.i.i, !llvm.loop !8
 
@@ -704,7 +704,7 @@ for.body.i:                                       ; preds = %for.body.i, %entry
   store i32 %0, ptr %first1.addr.06.i.ptr, align 32
   store i32 %temp.sroa.0.0.copyload.i.i.i.i, ptr %first2.addr.07.i, align 32
   %first1.addr.06.i.add = add nuw nsw i64 %first1.addr.06.i.idx, 32
-  %incdec.ptr1.i = getelementptr inbounds %struct.Align32, ptr %first2.addr.07.i, i64 1
+  %incdec.ptr1.i = getelementptr inbounds i8, ptr %first2.addr.07.i, i64 32
   %cmp.not.i = icmp eq i64 %first1.addr.06.i.add, 160
   br i1 %cmp.not.i, label %invoke.cont, label %for.body.i, !llvm.loop !9
 
@@ -733,28 +733,28 @@ entry:
 ; Function Attrs: mustprogress nounwind uwtable
 define weak_odr dso_local noundef ptr @_ZN5eastl5arrayI7Align32Lm5EE3endEv(ptr noundef nonnull align 32 dereferenceable(160) %this) local_unnamed_addr #0 comdat align 2 {
 entry:
-  %arrayidx = getelementptr inbounds [5 x %struct.Align32], ptr %this, i64 0, i64 5
+  %arrayidx = getelementptr inbounds i8, ptr %this, i64 160
   ret ptr %arrayidx
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
 define weak_odr dso_local noundef ptr @_ZNK5eastl5arrayI7Align32Lm5EE3endEv(ptr noundef nonnull align 32 dereferenceable(160) %this) local_unnamed_addr #0 comdat align 2 {
 entry:
-  %arrayidx = getelementptr inbounds [5 x %struct.Align32], ptr %this, i64 0, i64 5
+  %arrayidx = getelementptr inbounds i8, ptr %this, i64 160
   ret ptr %arrayidx
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
 define weak_odr dso_local noundef ptr @_ZNK5eastl5arrayI7Align32Lm5EE4cendEv(ptr noundef nonnull align 32 dereferenceable(160) %this) local_unnamed_addr #0 comdat align 2 {
 entry:
-  %arrayidx = getelementptr inbounds [5 x %struct.Align32], ptr %this, i64 0, i64 5
+  %arrayidx = getelementptr inbounds i8, ptr %this, i64 160
   ret ptr %arrayidx
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
 define weak_odr dso_local void @_ZN5eastl5arrayI7Align32Lm5EE6rbeginEv(ptr noalias sret(%"class.eastl::reverse_iterator.3") align 8 %agg.result, ptr noundef nonnull align 32 dereferenceable(160) %this) local_unnamed_addr #0 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  %arrayidx = getelementptr inbounds [5 x %struct.Align32], ptr %this, i64 0, i64 5
+  %arrayidx = getelementptr inbounds i8, ptr %this, i64 160
   store ptr %arrayidx, ptr %agg.result, align 8
   ret void
 }
@@ -762,7 +762,7 @@ entry:
 ; Function Attrs: mustprogress nounwind uwtable
 define weak_odr dso_local void @_ZNK5eastl5arrayI7Align32Lm5EE6rbeginEv(ptr noalias sret(%"class.eastl::reverse_iterator.4") align 8 %agg.result, ptr noundef nonnull align 32 dereferenceable(160) %this) local_unnamed_addr #0 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  %arrayidx = getelementptr inbounds [5 x %struct.Align32], ptr %this, i64 0, i64 5
+  %arrayidx = getelementptr inbounds i8, ptr %this, i64 160
   store ptr %arrayidx, ptr %agg.result, align 8
   ret void
 }
@@ -770,7 +770,7 @@ entry:
 ; Function Attrs: mustprogress nounwind uwtable
 define weak_odr dso_local void @_ZNK5eastl5arrayI7Align32Lm5EE7crbeginEv(ptr noalias sret(%"class.eastl::reverse_iterator.4") align 8 %agg.result, ptr noundef nonnull align 32 dereferenceable(160) %this) local_unnamed_addr #0 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  %arrayidx = getelementptr inbounds [5 x %struct.Align32], ptr %this, i64 0, i64 5
+  %arrayidx = getelementptr inbounds i8, ptr %this, i64 160
   store ptr %arrayidx, ptr %agg.result, align 8
   ret void
 }
@@ -869,14 +869,14 @@ entry:
 ; Function Attrs: mustprogress nounwind uwtable
 define weak_odr dso_local noundef nonnull align 32 dereferenceable(4) ptr @_ZN5eastl5arrayI7Align32Lm5EE4backEv(ptr noundef nonnull align 32 dereferenceable(160) %this) local_unnamed_addr #0 comdat align 2 {
 entry:
-  %arrayidx = getelementptr inbounds [5 x %struct.Align32], ptr %this, i64 0, i64 4
+  %arrayidx = getelementptr inbounds i8, ptr %this, i64 128
   ret ptr %arrayidx
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
 define weak_odr dso_local noundef nonnull align 32 dereferenceable(4) ptr @_ZNK5eastl5arrayI7Align32Lm5EE4backEv(ptr noundef nonnull align 32 dereferenceable(160) %this) local_unnamed_addr #0 comdat align 2 {
 entry:
-  %arrayidx = getelementptr inbounds [5 x %struct.Align32], ptr %this, i64 0, i64 4
+  %arrayidx = getelementptr inbounds i8, ptr %this, i64 128
   ret ptr %arrayidx
 }
 
@@ -893,7 +893,7 @@ entry:
   br i1 %cmp.not, label %if.end12, label %if.then
 
 if.then:                                          ; preds = %entry
-  %add.ptr = getelementptr inbounds %struct.Align32, ptr %this, i64 5
+  %add.ptr = getelementptr inbounds i8, ptr %this, i64 160
   %cmp4 = icmp ugt ptr %add.ptr, %i
   br i1 %cmp4, label %return, label %if.end
 
@@ -923,7 +923,7 @@ entry:
   %call1 = call noundef i32 @_ZN2EA8UnitTest12TestInternal17EATEST_VERIFY_IMPEbRiPKciS4_(i1 noundef zeroext true, ptr noundef nonnull align 4 dereferenceable(4) %nErrorCount, ptr noundef nonnull @.str, i32 noundef 44, ptr noundef nonnull @.str.1)
   %call3 = call noundef i32 @_ZN2EA8UnitTest12TestInternal17EATEST_VERIFY_IMPEbRiPKciS4_(i1 noundef zeroext true, ptr noundef nonnull align 4 dereferenceable(4) %nErrorCount, ptr noundef nonnull @.str, i32 noundef 45, ptr noundef nonnull @.str.2)
   %call6 = call noundef i32 @_ZN2EA8UnitTest12TestInternal17EATEST_VERIFY_IMPEbRiPKciS4_(i1 noundef zeroext true, ptr noundef nonnull align 4 dereferenceable(4) %nErrorCount, ptr noundef nonnull @.str, i32 noundef 46, ptr noundef nonnull @.str.3)
-  %arrayidx.i = getelementptr inbounds [5 x i32], ptr %a, i64 0, i64 4
+  %arrayidx.i = getelementptr inbounds i8, ptr %a, i64 16
   %call9 = call noundef i32 @_ZN2EA8UnitTest12TestInternal17EATEST_VERIFY_IMPEbRiPKciS4_(i1 noundef zeroext true, ptr noundef nonnull align 4 dereferenceable(4) %nErrorCount, ptr noundef nonnull @.str, i32 noundef 47, ptr noundef nonnull @.str.4)
   %call12 = call noundef i32 @_ZN2EA8UnitTest12TestInternal17EATEST_VERIFY_IMPEbRiPKciS4_(i1 noundef zeroext true, ptr noundef nonnull align 4 dereferenceable(4) %nErrorCount, ptr noundef nonnull @.str, i32 noundef 49, ptr noundef nonnull @.str.5)
   %call15 = call noundef i32 @_ZN2EA8UnitTest12TestInternal17EATEST_VERIFY_IMPEbRiPKciS4_(i1 noundef zeroext true, ptr noundef nonnull align 4 dereferenceable(4) %nErrorCount, ptr noundef nonnull @.str, i32 noundef 50, ptr noundef nonnull @.str.6)
@@ -942,7 +942,7 @@ for.body.i.i:                                     ; preds = %for.body.i.i, %entr
   store i32 %1, ptr %first1.addr.06.i.ptr.i, align 4
   store i32 %0, ptr %first2.addr.07.i.i, align 4
   %first1.addr.06.i.add.i = add nuw nsw i64 %first1.addr.06.i.idx.i, 4
-  %incdec.ptr1.i.i = getelementptr inbounds i32, ptr %first2.addr.07.i.i, i64 1
+  %incdec.ptr1.i.i = getelementptr inbounds i8, ptr %first2.addr.07.i.i, i64 4
   %cmp.not.i.i = icmp eq i64 %first1.addr.06.i.add.i, 20
   br i1 %cmp.not.i.i, label %_ZNK5eastl5arrayIiLm5EE17validate_iteratorEPKi.exit, label %for.body.i.i, !llvm.loop !6
 
@@ -955,11 +955,11 @@ _ZNK5eastl5arrayIiLm5EE17validate_iteratorEPKi.exit: ; preds = %for.body.i.i
   %call32 = call noundef i32 @_ZN2EA8UnitTest12TestInternal17EATEST_VERIFY_IMPEbRiPKciS4_(i1 noundef zeroext %cmp31, ptr noundef nonnull align 4 dereferenceable(4) %nErrorCount, ptr noundef nonnull @.str, i32 noundef 60, ptr noundef nonnull @.str.12)
   %call36 = call noundef i32 @_ZN2EA8UnitTest12TestInternal17EATEST_VERIFY_IMPEbRiPKciS4_(i1 noundef zeroext true, ptr noundef nonnull align 4 dereferenceable(4) %nErrorCount, ptr noundef nonnull @.str, i32 noundef 64, ptr noundef nonnull @.str.13)
   %call38 = call noundef i32 @_ZN2EA8UnitTest12TestInternal17EATEST_VERIFY_IMPEbRiPKciS4_(i1 noundef zeroext %cmp28, ptr noundef nonnull align 4 dereferenceable(4) %nErrorCount, ptr noundef nonnull @.str, i32 noundef 65, ptr noundef nonnull @.str.14)
-  %incdec.ptr = getelementptr inbounds i32, ptr %a, i64 1
+  %incdec.ptr = getelementptr inbounds i8, ptr %a, i64 4
   %4 = load i32, ptr %incdec.ptr, align 4
   %cmp39 = icmp eq i32 %4, 3
   %call40 = call noundef i32 @_ZN2EA8UnitTest12TestInternal17EATEST_VERIFY_IMPEbRiPKciS4_(i1 noundef zeroext %cmp39, ptr noundef nonnull align 4 dereferenceable(4) %nErrorCount, ptr noundef nonnull @.str, i32 noundef 68, ptr noundef nonnull @.str.15)
-  %incdec.ptr41 = getelementptr inbounds i32, ptr %a, i64 2
+  %incdec.ptr41 = getelementptr inbounds i8, ptr %a, i64 8
   %5 = load i32, ptr %incdec.ptr41, align 8
   %cmp42 = icmp eq i32 %5, 2
   %call43 = call noundef i32 @_ZN2EA8UnitTest12TestInternal17EATEST_VERIFY_IMPEbRiPKciS4_(i1 noundef zeroext %cmp42, ptr noundef nonnull align 4 dereferenceable(4) %nErrorCount, ptr noundef nonnull @.str, i32 noundef 71, ptr noundef nonnull @.str.16)
@@ -973,7 +973,7 @@ _ZNK5eastl5arrayIiLm5EE17validate_iteratorEPKi.exit: ; preds = %for.body.i.i
   %call62 = call noundef i32 @_ZN2EA8UnitTest12TestInternal17EATEST_VERIFY_IMPEbRiPKciS4_(i1 noundef zeroext true, ptr noundef nonnull align 4 dereferenceable(4) %nErrorCount, ptr noundef nonnull @.str, i32 noundef 83, ptr noundef nonnull @.str.20)
   %call67 = call noundef i32 @_ZN2EA8UnitTest12TestInternal17EATEST_VERIFY_IMPEbRiPKciS4_(i1 noundef zeroext true, ptr noundef nonnull align 4 dereferenceable(4) %nErrorCount, ptr noundef nonnull @.str, i32 noundef 87, ptr noundef nonnull @.str.21)
   %call70 = call noundef i32 @_ZN2EA8UnitTest12TestInternal17EATEST_VERIFY_IMPEbRiPKciS4_(i1 noundef zeroext %cmp51, ptr noundef nonnull align 4 dereferenceable(4) %nErrorCount, ptr noundef nonnull @.str, i32 noundef 88, ptr noundef nonnull @.str.22)
-  %incdec.ptr.i42 = getelementptr inbounds i32, ptr %a, i64 3
+  %incdec.ptr.i42 = getelementptr inbounds i8, ptr %a, i64 12
   %7 = load i32, ptr %incdec.ptr.i42, align 4
   %cmp72 = icmp eq i32 %7, 1
   %call73 = call noundef i32 @_ZN2EA8UnitTest12TestInternal17EATEST_VERIFY_IMPEbRiPKciS4_(i1 noundef zeroext %cmp72, ptr noundef nonnull align 4 dereferenceable(4) %nErrorCount, ptr noundef nonnull @.str, i32 noundef 91, ptr noundef nonnull @.str.23)
@@ -984,10 +984,10 @@ _ZNK5eastl5arrayIiLm5EE17validate_iteratorEPKi.exit: ; preds = %for.body.i.i
   store <4 x i32> <i32 0, i32 1, i32 2, i32 3>, ptr %a, align 16
   store i32 4, ptr %arrayidx.i, align 16
   store <4 x i32> <i32 0, i32 1, i32 2, i32 3>, ptr %b, align 16
-  %arrayidx.i51 = getelementptr inbounds [5 x i32], ptr %b, i64 0, i64 4
+  %arrayidx.i51 = getelementptr inbounds i8, ptr %b, i64 16
   store i32 4, ptr %arrayidx.i51, align 16
   store <4 x i32> <i32 0, i32 1, i32 2, i32 3>, ptr %c, align 16
-  %arrayidx.i55 = getelementptr inbounds [5 x i32], ptr %c, i64 0, i64 4
+  %arrayidx.i55 = getelementptr inbounds i8, ptr %c, i64 16
   store i32 9, ptr %arrayidx.i55, align 16
   br label %for.body.i.i56
 
@@ -999,7 +999,7 @@ for.body.i.i56:                                   ; preds = %for.body.i.i56, %_Z
   %9 = load i32, ptr %first2.addr.06.i.i, align 4
   %cmp1.i.i = icmp eq i32 %8, %9
   %first1.addr.05.i.add.i = add nuw nsw i64 %first1.addr.05.i.idx.i, 4
-  %incdec.ptr2.i.i = getelementptr inbounds i32, ptr %first2.addr.06.i.i, i64 1
+  %incdec.ptr2.i.i = getelementptr inbounds i8, ptr %first2.addr.06.i.i, i64 4
   %cmp.not.i.i57 = icmp ne i64 %first1.addr.05.i.add.i, 20
   %or.cond.not.i = select i1 %cmp1.i.i, i1 %cmp.not.i.i57, i1 false
   br i1 %or.cond.not.i, label %for.body.i.i56, label %_ZN5eastleqIiLm5EEEbRKNS_5arrayIT_XT0_EEES5_.exit, !llvm.loop !10
@@ -1016,7 +1016,7 @@ for.body.i.i58:                                   ; preds = %for.body.i.i58, %_Z
   %11 = load i32, ptr %first2.addr.06.i.i59, align 4
   %cmp1.i.i62 = icmp ne i32 %10, %11
   %first1.addr.05.i.add.i63 = add nuw nsw i64 %first1.addr.05.i.idx.i60, 4
-  %incdec.ptr2.i.i64 = getelementptr inbounds i32, ptr %first2.addr.06.i.i59, i64 1
+  %incdec.ptr2.i.i64 = getelementptr inbounds i8, ptr %first2.addr.06.i.i59, i64 4
   %cmp.not.i.i65 = icmp eq i64 %first1.addr.05.i.add.i63, 20
   %or.cond.i = select i1 %cmp1.i.i62, i1 true, i1 %cmp.not.i.i65
   br i1 %or.cond.i, label %_ZN5eastlneIiLm5EEEbRKNS_5arrayIT_XT0_EEES5_.exit, label %for.body.i.i58, !llvm.loop !10
@@ -1114,7 +1114,7 @@ for.body.i.i97:                                   ; preds = %for.body.i.i97, %_Z
   %21 = load i32, ptr %first2.addr.06.i.i98, align 4
   %cmp1.i.i101 = icmp eq i32 %20, %21
   %first1.addr.05.i.add.i102 = add nuw nsw i64 %first1.addr.05.i.idx.i99, 4
-  %incdec.ptr2.i.i103 = getelementptr inbounds i32, ptr %first2.addr.06.i.i98, i64 1
+  %incdec.ptr2.i.i103 = getelementptr inbounds i8, ptr %first2.addr.06.i.i98, i64 4
   %cmp.not.i.i104 = icmp ne i64 %first1.addr.05.i.add.i102, 20
   %or.cond.not.i105 = select i1 %cmp1.i.i101, i1 %cmp.not.i.i104, i1 false
   br i1 %or.cond.not.i105, label %for.body.i.i97, label %_ZN5eastleqIiLm5EEEbRKNS_5arrayIT_XT0_EEES5_.exit106, !llvm.loop !10
@@ -1132,7 +1132,7 @@ for.body.i.i107:                                  ; preds = %for.body.i.i107, %_
   %23 = load i32, ptr %first2.addr.06.i.i108, align 4
   %cmp1.i.i111 = icmp ne i32 %22, %23
   %first1.addr.05.i.add.i112 = add nuw nsw i64 %first1.addr.05.i.idx.i109, 4
-  %incdec.ptr2.i.i113 = getelementptr inbounds i32, ptr %first2.addr.06.i.i108, i64 1
+  %incdec.ptr2.i.i113 = getelementptr inbounds i8, ptr %first2.addr.06.i.i108, i64 4
   %cmp.not.i.i114 = icmp eq i64 %first1.addr.05.i.add.i112, 20
   %or.cond.i115 = select i1 %cmp1.i.i111, i1 true, i1 %cmp.not.i.i114
   br i1 %or.cond.i115, label %_ZN5eastlneIiLm5EEEbRKNS_5arrayIT_XT0_EEES5_.exit116, label %for.body.i.i107, !llvm.loop !10

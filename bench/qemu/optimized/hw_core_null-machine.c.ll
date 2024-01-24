@@ -4,13 +4,6 @@ target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:
 target triple = "x86_64-unknown-linux-gnu"
 
 %struct.TypeInfo = type { ptr, ptr, i64, i64, ptr, ptr, ptr, i8, i64, ptr, ptr, ptr, ptr }
-%struct.MachineClass = type { %struct.ObjectClass, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, i32, i32, i32, i32, i32, i8, i8, ptr, ptr, ptr, ptr, ptr, ptr, i64, ptr, i8, i8, i8, i32, i8, i8, i32, ptr, ptr, i8, i8, i8, i8, i8, i8, i8, i8, %struct.SMPCompatProps, ptr, ptr, ptr, ptr, ptr, ptr, ptr }
-%struct.ObjectClass = type { ptr, ptr, [4 x ptr], [4 x ptr], ptr, ptr }
-%struct.SMPCompatProps = type { i8, i8, i8, i8, i8, i8 }
-%struct.MachineState = type { %struct.Object, ptr, ptr, ptr, i32, ptr, i8, i8, i8, i8, ptr, i8, i8, i8, ptr, ptr, ptr, ptr, ptr, i64, i64, i64, %struct.BootConfiguration, ptr, ptr, ptr, ptr, ptr, ptr, %struct.CpuTopology, ptr, ptr }
-%struct.Object = type { ptr, ptr, ptr, i32, ptr }
-%struct.BootConfiguration = type { ptr, ptr, i8, i8, ptr, i8, i64, i8, i64, i8, i8 }
-%struct.CpuTopology = type { i32, i32, i32, i32, i32, i32, i32, i32, i32 }
 
 @machine_none_machine_init_typeinfo = internal constant %struct.TypeInfo { ptr @.str, ptr @.str.1, i64 0, i64 0, ptr null, ptr null, ptr null, i8 0, i64 0, ptr @machine_none_machine_init_class_init, ptr null, ptr null, ptr null }, align 8
 @.str = private unnamed_addr constant [13 x i8] c"none-machine\00", align 1
@@ -45,17 +38,17 @@ declare ptr @type_register_static(ptr noundef) local_unnamed_addr #1
 define internal void @machine_none_machine_init_class_init(ptr noundef %oc, ptr nocapture readnone %data) #0 {
 entry:
   %call.i = tail call ptr @object_class_dynamic_cast_assert(ptr noundef %oc, ptr noundef nonnull @.str.1, ptr noundef nonnull @.str.2, i32 noundef 23, ptr noundef nonnull @__func__.MACHINE_CLASS) #3
-  %desc.i = getelementptr inbounds %struct.MachineClass, ptr %call.i, i64 0, i32 4
+  %desc.i = getelementptr inbounds i8, ptr %call.i, i64 120
   store ptr @.str.3, ptr %desc.i, align 8
-  %init.i = getelementptr inbounds %struct.MachineClass, ptr %call.i, i64 0, i32 6
+  %init.i = getelementptr inbounds i8, ptr %call.i, i64 136
   store ptr @machine_none_init, ptr %init.i, align 8
-  %max_cpus.i = getelementptr inbounds %struct.MachineClass, ptr %call.i, i64 0, i32 12
+  %max_cpus.i = getelementptr inbounds i8, ptr %call.i, i64 176
   store i32 1, ptr %max_cpus.i, align 8
-  %default_ram_size.i = getelementptr inbounds %struct.MachineClass, ptr %call.i, i64 0, i32 23
+  %default_ram_size.i = getelementptr inbounds i8, ptr %call.i, i64 240
   store i64 0, ptr %default_ram_size.i, align 8
-  %default_ram_id.i = getelementptr inbounds %struct.MachineClass, ptr %call.i, i64 0, i32 43
+  %default_ram_id.i = getelementptr inbounds i8, ptr %call.i, i64 304
   store ptr @.str.4, ptr %default_ram_id.i, align 8
-  %no_serial.i = getelementptr inbounds %struct.MachineClass, ptr %call.i, i64 0, i32 15
+  %no_serial.i = getelementptr inbounds i8, ptr %call.i, i64 188
   %bf.load.i = load i8, ptr %no_serial.i, align 4
   %bf.set12.i = or i8 %bf.load.i, 31
   store i8 %bf.set12.i, ptr %no_serial.i, align 4
@@ -67,7 +60,7 @@ declare ptr @object_class_dynamic_cast_assert(ptr noundef, ptr noundef, ptr noun
 ; Function Attrs: nounwind sspstrong uwtable
 define internal void @machine_none_init(ptr nocapture noundef readonly %mch) #0 {
 entry:
-  %cpu_type = getelementptr inbounds %struct.MachineState, ptr %mch, i64 0, i32 26
+  %cpu_type = getelementptr inbounds i8, ptr %mch, i64 264
   %0 = load ptr, ptr %cpu_type, align 8
   %tobool.not = icmp eq ptr %0, null
   br i1 %tobool.not, label %if.end4, label %if.then
@@ -83,7 +76,7 @@ if.then3:                                         ; preds = %if.then
   unreachable
 
 if.end4:                                          ; preds = %if.then, %entry
-  %ram = getelementptr inbounds %struct.MachineState, ptr %mch, i64 0, i32 16
+  %ram = getelementptr inbounds i8, ptr %mch, i64 120
   %1 = load ptr, ptr %ram, align 8
   %tobool5.not = icmp eq ptr %1, null
   br i1 %tobool5.not, label %if.end9, label %if.then6
@@ -95,7 +88,7 @@ if.then6:                                         ; preds = %if.end4
   br label %if.end9
 
 if.end9:                                          ; preds = %if.then6, %if.end4
-  %kernel_filename = getelementptr inbounds %struct.MachineState, ptr %mch, i64 0, i32 23
+  %kernel_filename = getelementptr inbounds i8, ptr %mch, i64 240
   %3 = load ptr, ptr %kernel_filename, align 8
   %tobool10.not = icmp eq ptr %3, null
   br i1 %tobool10.not, label %if.end12, label %if.then11

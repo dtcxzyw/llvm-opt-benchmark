@@ -27,7 +27,7 @@ define { i32, i32 } @_ZN14regex_automata4meta5error10BuildError7pattern17h3ddf96
   br i1 %3, label %4, label %7
 
 4:                                                ; preds = %1
-  %5 = getelementptr inbounds { [1 x i32], i32, { i32, [31 x i32] } }, ptr %0, i64 0, i32 1
+  %5 = getelementptr inbounds i8, ptr %0, i64 4
   %6 = load i32, ptr %5, align 4, !noundef !6
   br label %7
 
@@ -46,7 +46,7 @@ define { i64, i64 } @_ZN14regex_automata4meta5error10BuildError10size_limit17hc1
   br i1 %.not, label %6, label %3
 
 3:                                                ; preds = %1
-  %4 = getelementptr inbounds { [1 x i64], { { i32, [31 x i32] } } }, ptr %0, i64 0, i32 1
+  %4 = getelementptr inbounds i8, ptr %0, i64 8
   %5 = tail call { i64, i64 } @_ZN14regex_automata3nfa8thompson5error10BuildError10size_limit17h27b718f7c76a9299E(ptr nonnull align 8 %4)
   %.fca.0.extract = extractvalue { i64, i64 } %5, 0
   %.fca.1.extract = extractvalue { i64, i64 } %5, 1
@@ -64,7 +64,7 @@ define { i64, i64 } @_ZN14regex_automata4meta5error10BuildError10size_limit17hc1
 define align 8 ptr @_ZN14regex_automata4meta5error10BuildError12syntax_error17h45184505610eda06E(ptr readonly align 8 %0) unnamed_addr #0 {
   %2 = load i32, ptr %0, align 8, !range !5, !noundef !6
   %3 = icmp eq i32 %2, 0
-  %4 = getelementptr inbounds { [1 x i32], i32, { i32, [31 x i32] } }, ptr %0, i64 0, i32 2
+  %4 = getelementptr inbounds i8, ptr %0, i64 8
   %.0 = select i1 %3, ptr %4, ptr null
   ret ptr %.0
 }
@@ -108,11 +108,11 @@ define hidden void @_ZN14regex_automata4meta5error10BuildError3nfa17h2be5411089b
 define { ptr, ptr } @"_ZN78_$LT$regex_automata..meta..error..BuildError$u20$as$u20$core..error..Error$GT$6source17h1bbb4dbec71e7f3bE"(ptr align 8 %0) unnamed_addr #0 {
   %2 = load i32, ptr %0, align 8, !range !5, !noundef !6
   %3 = icmp eq i32 %2, 0
-  %4 = getelementptr inbounds { [1 x i32], i32, { i32, [31 x i32] } }, ptr %0, i64 0, i32 2
-  %.sroa.3.0 = select i1 %3, ptr @anon.31811365384757583a4aecc704754ec7.1, ptr @anon.31811365384757583a4aecc704754ec7.3
-  %5 = insertvalue { ptr, ptr } poison, ptr %4, 0
-  %6 = insertvalue { ptr, ptr } %5, ptr %.sroa.3.0, 1
-  ret { ptr, ptr } %6
+  %anon.31811365384757583a4aecc704754ec7.1.anon.31811365384757583a4aecc704754ec7.3 = select i1 %3, ptr @anon.31811365384757583a4aecc704754ec7.1, ptr @anon.31811365384757583a4aecc704754ec7.3
+  %.sroa.0.0 = getelementptr inbounds i8, ptr %0, i64 8
+  %4 = insertvalue { ptr, ptr } poison, ptr %.sroa.0.0, 0
+  %5 = insertvalue { ptr, ptr } %4, ptr %anon.31811365384757583a4aecc704754ec7.1.anon.31811365384757583a4aecc704754ec7.3, 1
+  ret { ptr, ptr } %5
 }
 
 ; Function Attrs: nonlazybind uwtable
@@ -127,13 +127,13 @@ define zeroext i1 @"_ZN78_$LT$regex_automata..meta..error..BuildError$u20$as$u20
   br i1 %9, label %10, label %15
 
 10:                                               ; preds = %2
-  %11 = getelementptr inbounds { [1 x i32], i32, { i32, [31 x i32] } }, ptr %0, i64 0, i32 1
+  %11 = getelementptr inbounds i8, ptr %0, i64 4
   %12 = load i32, ptr %11, align 4, !noundef !6
   store i32 %12, ptr %7, align 4
   %13 = call i64 @_ZN14regex_automata4util10primitives9PatternID8as_usize17h6305b4db36aefa30E(ptr nonnull align 4 %7)
   store i64 %13, ptr %4, align 8
   store ptr %4, ptr %5, align 8
-  %14 = getelementptr inbounds { ptr, ptr }, ptr %5, i64 0, i32 1
+  %14 = getelementptr inbounds i8, ptr %5, i64 8
   store ptr @"_ZN4core3fmt3num3imp54_$LT$impl$u20$core..fmt..Display$u20$for$u20$usize$GT$3fmt17ha1a895f323c363e4E", ptr %14, align 8
   call void @_ZN4core3fmt9Arguments6new_v117h051e31f362cb8353E(ptr nonnull sret({ { ptr, i64 }, { ptr, i64 }, { ptr, i64 } }) align 8 %6, ptr nonnull align 8 @anon.31811365384757583a4aecc704754ec7.5, i64 1, ptr nonnull align 8 %5, i64 1)
   br label %16
@@ -165,11 +165,11 @@ define zeroext i1 @"_ZN78_$LT$regex_automata..meta..error..RetryError$u20$as$u20
   br label %14
 
 10:                                               ; preds = %2
-  %11 = getelementptr inbounds { i64, i64 }, ptr %0, i64 0, i32 1
+  %11 = getelementptr inbounds i8, ptr %0, i64 8
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %3)
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %4)
   store ptr %11, ptr %3, align 8
-  %12 = getelementptr inbounds { ptr, ptr }, ptr %3, i64 0, i32 1
+  %12 = getelementptr inbounds i8, ptr %3, i64 8
   store ptr @"_ZN4core3fmt3num52_$LT$impl$u20$core..fmt..Debug$u20$for$u20$usize$GT$3fmt17h88cfa37c04fce35fE", ptr %12, align 8
   call void @_ZN4core3fmt9Arguments6new_v117h051e31f362cb8353E(ptr nonnull sret({ { ptr, i64 }, { ptr, i64 }, { ptr, i64 } }) align 8 %4, ptr nonnull align 8 @anon.31811365384757583a4aecc704754ec7.11, i64 1, ptr nonnull align 8 %3, i64 1)
   %13 = call zeroext i1 @_ZN4core3fmt9Formatter9write_fmt17h0cba6524210e2a11E(ptr align 8 %1, ptr nonnull align 8 %4)
@@ -214,7 +214,7 @@ define zeroext i1 @"_ZN82_$LT$regex_automata..meta..error..RetryFailError$u20$as
   %5 = icmp ne ptr %0, null
   tail call void @llvm.assume(i1 %5)
   store ptr %0, ptr %3, align 8
-  %6 = getelementptr inbounds { ptr, ptr }, ptr %3, i64 0, i32 1
+  %6 = getelementptr inbounds i8, ptr %3, i64 8
   store ptr @"_ZN4core3fmt3num52_$LT$impl$u20$core..fmt..Debug$u20$for$u20$usize$GT$3fmt17h88cfa37c04fce35fE", ptr %6, align 8
   call void @_ZN4core3fmt9Arguments6new_v117h051e31f362cb8353E(ptr nonnull sret({ { ptr, i64 }, { ptr, i64 }, { ptr, i64 } }) align 8 %4, ptr nonnull align 8 @anon.31811365384757583a4aecc704754ec7.11, i64 1, ptr nonnull align 8 %3, i64 1)
   %7 = call zeroext i1 @_ZN4core3fmt9Formatter9write_fmt17h0cba6524210e2a11E(ptr align 8 %1, ptr nonnull align 8 %4)
@@ -236,59 +236,44 @@ define noundef i64 @"_ZN131_$LT$regex_automata..meta..error..RetryFailError$u20$
   %5 = invoke align 8 ptr @_ZN14regex_automata4util6search10MatchError4kind17h814bed0b73ff88f3E(ptr nonnull align 8 %4)
           to label %8 unwind label %6
 
-6:                                                ; preds = %17, %14, %1
+6:                                                ; preds = %13, %10, %1
   %7 = landingpad { ptr, i32 }
           cleanup
   invoke void @"_ZN4core3ptr61drop_in_place$LT$regex_automata..util..search..MatchError$GT$17h5cb466956abcf680E"(ptr nonnull align 8 %4) #10
-          to label %21 unwind label %19
+          to label %17 unwind label %15
 
 8:                                                ; preds = %1
   %9 = load i8, ptr %5, align 8, !range !8, !noundef !6
-  switch i8 %9, label %default.unreachable3 [
-    i8 0, label %10
-    i8 1, label %12
-    i8 2, label %14
-    i8 3, label %14
-  ]
-
-default.unreachable3:                             ; preds = %8
-  unreachable
+  %switch = icmp ult i8 %9, 2
+  br i1 %switch, label %12, label %10
 
 10:                                               ; preds = %8
-  %11 = getelementptr inbounds { [1 x i8], i8, [6 x i8], i64 }, ptr %5, i64 0, i32 3
-  br label %16
+  store ptr %4, ptr %2, align 8
+  %11 = getelementptr inbounds i8, ptr %2, i64 8
+  store ptr @"_ZN79_$LT$regex_automata..util..search..MatchError$u20$as$u20$core..fmt..Display$GT$3fmt17h54302e8c2d18b22bE", ptr %11, align 8
+  invoke void @_ZN4core3fmt9Arguments6new_v117h051e31f362cb8353E(ptr nonnull sret({ { ptr, i64 }, { ptr, i64 }, { ptr, i64 } }) align 8 %3, ptr nonnull align 8 @anon.31811365384757583a4aecc704754ec7.13, i64 1, ptr nonnull align 8 %2, i64 1)
+          to label %13 unwind label %6
 
 12:                                               ; preds = %8
-  %13 = getelementptr inbounds { [1 x i64], i64 }, ptr %5, i64 0, i32 1
-  br label %16
-
-14:                                               ; preds = %8, %8
-  store ptr %4, ptr %2, align 8
-  %15 = getelementptr inbounds { ptr, ptr }, ptr %2, i64 0, i32 1
-  store ptr @"_ZN79_$LT$regex_automata..util..search..MatchError$u20$as$u20$core..fmt..Display$GT$3fmt17h54302e8c2d18b22bE", ptr %15, align 8
-  invoke void @_ZN4core3fmt9Arguments6new_v117h051e31f362cb8353E(ptr nonnull sret({ { ptr, i64 }, { ptr, i64 }, { ptr, i64 } }) align 8 %3, ptr nonnull align 8 @anon.31811365384757583a4aecc704754ec7.13, i64 1, ptr nonnull align 8 %2, i64 1)
-          to label %17 unwind label %6
-
-16:                                               ; preds = %12, %10
-  %.0.in = phi ptr [ %11, %10 ], [ %13, %12 ]
+  %.0.in = getelementptr inbounds i8, ptr %5, i64 8
   %.0 = load i64, ptr %.0.in, align 8, !noundef !6
   call void @"_ZN4core3ptr61drop_in_place$LT$regex_automata..util..search..MatchError$GT$17h5cb466956abcf680E"(ptr nonnull align 8 %4)
   ret i64 %.0
 
-17:                                               ; preds = %14
+13:                                               ; preds = %10
   invoke void @_ZN4core9panicking9panic_fmt17hbf0e066aabfa482cE(ptr nonnull align 8 %3, ptr nonnull align 8 @anon.31811365384757583a4aecc704754ec7.15) #11
-          to label %18 unwind label %6
+          to label %14 unwind label %6
 
-18:                                               ; preds = %17
+14:                                               ; preds = %13
   unreachable
 
-19:                                               ; preds = %6
-  %20 = landingpad { ptr, i32 }
+15:                                               ; preds = %6
+  %16 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
   call void @_ZN4core9panicking16panic_in_cleanup17hd44bb2114362504eE() #12
   unreachable
 
-21:                                               ; preds = %6
+17:                                               ; preds = %6
   resume { ptr, i32 } %7
 }
 

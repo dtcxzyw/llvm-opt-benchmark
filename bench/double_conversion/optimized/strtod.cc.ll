@@ -360,7 +360,7 @@ _ZN17double_conversionL11DiyFpStrtodENS_6VectorIKcEEiPd.exit.thread: ; preds = %
 
 if.end.i15:                                       ; preds = %_ZN17double_conversion5DiyFp9NormalizeEv.exit.i
   store i64 0, ptr %cached_power.i, align 8
-  %e_.i38.i = getelementptr inbounds %"class.double_conversion::DiyFp", ptr %cached_power.i, i64 0, i32 1
+  %e_.i38.i = getelementptr inbounds i8, ptr %cached_power.i, i64 8
   store i32 0, ptr %e_.i38.i, align 8
   call void @_ZN17double_conversion16PowersOfTenCache32GetCachedPowerForDecimalExponentEiPNS_5DiyFpEPi(i32 noundef %add124.i, ptr noundef nonnull %cached_power.i, ptr noundef nonnull %cached_decimal_exponent.i)
   %22 = load i32, ptr %cached_decimal_exponent.i, align 4
@@ -581,10 +581,10 @@ entry:
   %buffer_bignum = alloca %"class.double_conversion::Bignum", align 4
   %diy_fp_bignum = alloca %"class.double_conversion::Bignum", align 4
   store i16 0, ptr %buffer_bignum, align 4
-  %exponent_.i = getelementptr inbounds %"class.double_conversion::Bignum", ptr %buffer_bignum, i64 0, i32 1
+  %exponent_.i = getelementptr inbounds i8, ptr %buffer_bignum, i64 2
   store i16 0, ptr %exponent_.i, align 2
   store i16 0, ptr %diy_fp_bignum, align 4
-  %exponent_.i3 = getelementptr inbounds %"class.double_conversion::Bignum", ptr %diy_fp_bignum, i64 0, i32 1
+  %exponent_.i3 = getelementptr inbounds i8, ptr %diy_fp_bignum, i64 2
   store i16 0, ptr %exponent_.i3, align 2
   call void @_ZN17double_conversion6Bignum19AssignDecimalStringENS_6VectorIKcEE(ptr noundef nonnull align 4 dereferenceable(516) %buffer_bignum, ptr %buffer.coerce0, i32 %buffer.coerce1)
   call void @_ZN17double_conversion6Bignum12AssignUInt64Em(ptr noundef nonnull align 4 dereferenceable(516) %diy_fp_bignum, i64 noundef %diy_fp.coerce0)

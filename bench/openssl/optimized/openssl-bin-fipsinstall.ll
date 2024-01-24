@@ -136,7 +136,7 @@ target triple = "x86_64-unknown-linux-gnu"
 @.str.117 = private unnamed_addr constant [4 x i8] c"%s \00", align 1
 
 ; Function Attrs: nounwind uwtable
-define dso_local i32 @fipsinstall_main(i32 noundef %argc, ptr noundef %argv) local_unnamed_addr #0 {
+define dso_local noundef i32 @fipsinstall_main(i32 noundef %argc, ptr noundef %argv) local_unnamed_addr #0 {
 entry:
   %module_mac = alloca [64 x i8], align 16
   %module_mac_len = alloca i64, align 8
@@ -703,46 +703,46 @@ declare i32 @OSSL_PROVIDER_set_default_search_path(ptr noundef, ptr noundef) loc
 declare void @OSSL_SELF_TEST_set_callback(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @self_test_events(ptr noundef %params, ptr nocapture readnone %arg) #0 {
+define internal noundef i32 @self_test_events(ptr noundef %params, ptr nocapture readnone %arg) #0 {
 entry:
   %call = tail call ptr @OSSL_PARAM_locate_const(ptr noundef %params, ptr noundef nonnull @.str.108) #5
   %cmp = icmp eq ptr %call, null
   br i1 %cmp, label %err, label %lor.lhs.false
 
 lor.lhs.false:                                    ; preds = %entry
-  %data_type = getelementptr inbounds %struct.ossl_param_st, ptr %call, i64 0, i32 1
+  %data_type = getelementptr inbounds i8, ptr %call, i64 8
   %0 = load i32, ptr %data_type, align 8
   %cmp1.not = icmp eq i32 %0, 4
   br i1 %cmp1.not, label %if.end, label %err
 
 if.end:                                           ; preds = %lor.lhs.false
-  %data = getelementptr inbounds %struct.ossl_param_st, ptr %call, i64 0, i32 2
+  %data = getelementptr inbounds i8, ptr %call, i64 16
   %1 = load ptr, ptr %data, align 8
   %call2 = tail call ptr @OSSL_PARAM_locate_const(ptr noundef %params, ptr noundef nonnull @.str.109) #5
   %cmp3 = icmp eq ptr %call2, null
   br i1 %cmp3, label %err, label %lor.lhs.false4
 
 lor.lhs.false4:                                   ; preds = %if.end
-  %data_type5 = getelementptr inbounds %struct.ossl_param_st, ptr %call2, i64 0, i32 1
+  %data_type5 = getelementptr inbounds i8, ptr %call2, i64 8
   %2 = load i32, ptr %data_type5, align 8
   %cmp6.not = icmp eq i32 %2, 4
   br i1 %cmp6.not, label %if.end8, label %err
 
 if.end8:                                          ; preds = %lor.lhs.false4
-  %data9 = getelementptr inbounds %struct.ossl_param_st, ptr %call2, i64 0, i32 2
+  %data9 = getelementptr inbounds i8, ptr %call2, i64 16
   %3 = load ptr, ptr %data9, align 8
   %call10 = tail call ptr @OSSL_PARAM_locate_const(ptr noundef %params, ptr noundef nonnull @.str.110) #5
   %cmp11 = icmp eq ptr %call10, null
   br i1 %cmp11, label %err, label %lor.lhs.false12
 
 lor.lhs.false12:                                  ; preds = %if.end8
-  %data_type13 = getelementptr inbounds %struct.ossl_param_st, ptr %call10, i64 0, i32 1
+  %data_type13 = getelementptr inbounds i8, ptr %call10, i64 8
   %4 = load i32, ptr %data_type13, align 8
   %cmp14.not = icmp eq i32 %4, 4
   br i1 %cmp14.not, label %if.end16, label %err
 
 if.end16:                                         ; preds = %lor.lhs.false12
-  %data17 = getelementptr inbounds %struct.ossl_param_st, ptr %call10, i64 0, i32 2
+  %data17 = getelementptr inbounds i8, ptr %call10, i64 16
   %5 = load ptr, ptr %data17, align 8
   %.b = load i1, ptr @self_test_log, align 4
   br i1 %.b, label %if.end32, label %if.then18
@@ -878,7 +878,7 @@ err:                                              ; preds = %while.body, %lor.lh
 declare ptr @BIO_new_mem_buf(ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @verify_config(ptr noundef %infile, ptr noundef %section, ptr nocapture noundef readonly %module_mac, i64 noundef %module_mac_len, ptr noundef readonly %install_mac, i64 noundef %install_mac_len) unnamed_addr #0 {
+define internal fastcc noundef i32 @verify_config(ptr noundef %infile, ptr noundef %section, ptr nocapture noundef readonly %module_mac, i64 noundef %module_mac_len, ptr noundef readonly %install_mac, i64 noundef %install_mac_len) unnamed_addr #0 {
 entry:
   %len = alloca i64, align 8
   %call = tail call ptr @app_load_config_internal(ptr noundef %infile, i32 noundef 0) #5
@@ -1051,7 +1051,7 @@ return:                                           ; preds = %return.sink.split, 
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @load_fips_prov_and_run_self_test(ptr noundef %prov_name) unnamed_addr #0 {
+define internal fastcc noundef i32 @load_fips_prov_and_run_self_test(ptr noundef %prov_name) unnamed_addr #0 {
 entry:
   %params = alloca [4 x %struct.ossl_param_st], align 16
   %name = alloca ptr, align 8
@@ -1078,13 +1078,13 @@ if.end:                                           ; preds = %entry
   br i1 %.b, label %end, label %if.then2
 
 if.then2:                                         ; preds = %if.end
-  %incdec.ptr = getelementptr inbounds %struct.ossl_param_st, ptr %params, i64 1
+  %incdec.ptr = getelementptr inbounds i8, ptr %params, i64 40
   call void @OSSL_PARAM_construct_utf8_ptr(ptr nonnull sret(%struct.ossl_param_st) align 8 %tmp, ptr noundef nonnull @.str.92, ptr noundef nonnull %name, i64 noundef 8) #5
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(40) %params, ptr noundef nonnull align 8 dereferenceable(40) %tmp, i64 40, i1 false)
-  %incdec.ptr3 = getelementptr inbounds %struct.ossl_param_st, ptr %params, i64 2
+  %incdec.ptr3 = getelementptr inbounds i8, ptr %params, i64 80
   call void @OSSL_PARAM_construct_utf8_ptr(ptr nonnull sret(%struct.ossl_param_st) align 8 %tmp4, ptr noundef nonnull @.str.93, ptr noundef nonnull %vers, i64 noundef 8) #5
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %incdec.ptr, ptr noundef nonnull align 8 dereferenceable(40) %tmp4, i64 40, i1 false)
-  %incdec.ptr5 = getelementptr inbounds %struct.ossl_param_st, ptr %params, i64 3
+  %incdec.ptr5 = getelementptr inbounds i8, ptr %params, i64 120
   call void @OSSL_PARAM_construct_utf8_ptr(ptr nonnull sret(%struct.ossl_param_st) align 8 %tmp6, ptr noundef nonnull @.str.94, ptr noundef nonnull %build, i64 noundef 8) #5
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(40) %incdec.ptr3, ptr noundef nonnull align 8 dereferenceable(40) %tmp6, i64 40, i1 false)
   call void @OSSL_PARAM_construct_end(ptr nonnull sret(%struct.ossl_param_st) align 8 %tmp7) #5
@@ -1140,7 +1140,7 @@ end:                                              ; preds = %if.end, %if.then30,
 declare ptr @dup_bio_out(i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @write_config_fips_section(ptr noundef %out, ptr noundef %section, ptr noundef %module_mac, i64 noundef %module_mac_len, ptr noundef %install_mac, i64 noundef %install_mac_len) unnamed_addr #0 {
+define internal fastcc noundef i32 @write_config_fips_section(ptr noundef %out, ptr noundef %section, ptr noundef %module_mac, i64 noundef %module_mac_len, ptr noundef %install_mac, i64 noundef %install_mac_len) unnamed_addr #0 {
 entry:
   %call = tail call i32 (ptr, ptr, ...) @BIO_printf(ptr noundef %out, ptr noundef nonnull @.str.100, ptr noundef %section) #5
   %cmp = icmp slt i32 %call, 1

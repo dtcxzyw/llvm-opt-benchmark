@@ -13,7 +13,7 @@ target triple = "x86_64-unknown-linux-gnu"
 @_ZTVN6icu_7513UnicodeStringE = external unnamed_addr constant { [13 x ptr] }, align 8
 
 ; Function Attrs: mustprogress uwtable
-define ptr @vzone_openID_75(ptr noundef %ID, i32 noundef %idLength) local_unnamed_addr #0 personality ptr @__gxx_personality_v0 {
+define noundef ptr @vzone_openID_75(ptr noundef %ID, i32 noundef %idLength) local_unnamed_addr #0 personality ptr @__gxx_personality_v0 {
 entry:
   %s = alloca %"class.icu_75::UnicodeString", align 8
   %agg.tmp = alloca %"class.icu_75::ConstChar16Ptr", align 8
@@ -61,7 +61,7 @@ declare noundef ptr @_ZN6icu_759VTimeZone19createVTimeZoneByIDERKNS_13UnicodeStr
 declare void @_ZN6icu_7513UnicodeStringD1Ev(ptr noundef nonnull align 8 dereferenceable(64)) unnamed_addr #2
 
 ; Function Attrs: mustprogress uwtable
-define ptr @vzone_openData_75(ptr noundef %vtzdata, i32 noundef %vtzdataLength, ptr noundef nonnull align 4 dereferenceable(4) %status) local_unnamed_addr #0 personality ptr @__gxx_personality_v0 {
+define noundef ptr @vzone_openData_75(ptr noundef %vtzdata, i32 noundef %vtzdataLength, ptr noundef nonnull align 4 dereferenceable(4) %status) local_unnamed_addr #0 personality ptr @__gxx_personality_v0 {
 entry:
   %s = alloca %"class.icu_75::UnicodeString", align 8
   %agg.tmp = alloca %"class.icu_75::ConstChar16Ptr", align 8
@@ -109,7 +109,7 @@ entry:
 
 delete.notnull:                                   ; preds = %entry
   %vtable = load ptr, ptr %zone, align 8
-  %vfn = getelementptr inbounds ptr, ptr %vtable, i64 1
+  %vfn = getelementptr inbounds i8, ptr %vtable, i64 8
   %0 = load ptr, ptr %vfn, align 8
   tail call void %0(ptr noundef nonnull align 8 dereferenceable(288) %zone) #6
   br label %delete.end
@@ -119,7 +119,7 @@ delete.end:                                       ; preds = %delete.notnull, %en
 }
 
 ; Function Attrs: mustprogress uwtable
-define ptr @vzone_clone_75(ptr noundef nonnull %zone) local_unnamed_addr #0 {
+define noundef ptr @vzone_clone_75(ptr noundef nonnull %zone) local_unnamed_addr #0 {
 entry:
   %call = tail call noundef ptr @_ZNK6icu_759VTimeZone5cloneEv(ptr noundef nonnull align 8 dereferenceable(288) %zone)
   ret ptr %call
@@ -128,10 +128,10 @@ entry:
 declare noundef ptr @_ZNK6icu_759VTimeZone5cloneEv(ptr noundef nonnull align 8 dereferenceable(288)) unnamed_addr #1
 
 ; Function Attrs: mustprogress uwtable
-define signext i8 @vzone_equals_75(ptr noundef %zone1, ptr noundef %zone2) local_unnamed_addr #0 {
+define noundef signext i8 @vzone_equals_75(ptr noundef %zone1, ptr noundef %zone2) local_unnamed_addr #0 {
 entry:
   %vtable = load ptr, ptr %zone1, align 8
-  %vfn = getelementptr inbounds ptr, ptr %vtable, i64 3
+  %vfn = getelementptr inbounds i8, ptr %vtable, i64 24
   %0 = load ptr, ptr %vfn, align 8
   %call = tail call noundef zeroext i1 %0(ptr noundef nonnull align 8 dereferenceable(288) %zone1, ptr noundef nonnull align 8 dereferenceable(72) %zone2)
   %conv = zext i1 %call to i8
@@ -139,11 +139,11 @@ entry:
 }
 
 ; Function Attrs: mustprogress uwtable
-define signext i8 @vzone_getTZURL_75(ptr noundef nonnull %zone, ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %url, ptr nocapture noundef nonnull writeonly align 4 dereferenceable(4) %urlLength) local_unnamed_addr #0 personality ptr @__gxx_personality_v0 {
+define noundef signext i8 @vzone_getTZURL_75(ptr noundef nonnull %zone, ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %url, ptr nocapture noundef nonnull writeonly align 4 dereferenceable(4) %urlLength) local_unnamed_addr #0 personality ptr @__gxx_personality_v0 {
 entry:
   %s = alloca %"class.icu_75::UnicodeString", align 8
   store ptr getelementptr inbounds ({ [13 x ptr] }, ptr @_ZTVN6icu_7513UnicodeStringE, i64 0, inrange i32 0, i64 2), ptr %s, align 8
-  %fUnion2.i = getelementptr inbounds %"class.icu_75::UnicodeString", ptr %s, i64 0, i32 1
+  %fUnion2.i = getelementptr inbounds i8, ptr %s, i64 8
   store i16 2, ptr %fUnion2.i, align 8
   %call = invoke noundef signext i8 @_ZNK6icu_759VTimeZone8getTZURLERNS_13UnicodeStringE(ptr noundef nonnull align 8 dereferenceable(288) %zone, ptr noundef nonnull align 8 dereferenceable(64) %s)
           to label %invoke.cont1 unwind label %lpad
@@ -153,7 +153,7 @@ invoke.cont1:                                     ; preds = %entry
   %cmp.i.i = icmp slt i16 %0, 0
   %1 = ashr i16 %0, 5
   %shr.i.i = sext i16 %1 to i32
-  %fLength.i = getelementptr inbounds %"class.icu_75::UnicodeString", ptr %s, i64 0, i32 1, i32 0, i32 1
+  %fLength.i = getelementptr inbounds i8, ptr %s, i64 12
   %2 = load i32, ptr %fLength.i, align 4
   %cond.i = select i1 %cmp.i.i, i32 %2, i32 %shr.i.i
   store i32 %cond.i, ptr %urlLength, align 4
@@ -173,7 +173,7 @@ if.then7.i:                                       ; preds = %if.else.i
   br label %_ZNK6icu_7513UnicodeString9getBufferEv.exit
 
 if.else9.i:                                       ; preds = %if.else.i
-  %fArray.i = getelementptr inbounds %"class.icu_75::UnicodeString", ptr %s, i64 0, i32 1, i32 0, i32 3
+  %fArray.i = getelementptr inbounds i8, ptr %s, i64 24
   %4 = load ptr, ptr %fArray.i, align 8
   br label %_ZNK6icu_7513UnicodeString9getBufferEv.exit
 
@@ -238,7 +238,7 @@ eh.resume:                                        ; preds = %lpad1, %lpad
 declare void @_ZN6icu_759VTimeZone8setTZURLERKNS_13UnicodeStringE(ptr noundef nonnull align 8 dereferenceable(288), ptr noundef nonnull align 8 dereferenceable(64)) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress uwtable
-define signext i8 @vzone_getLastModified_75(ptr noundef nonnull %zone, ptr noundef nonnull align 8 dereferenceable(8) %lastModified) local_unnamed_addr #0 {
+define noundef signext i8 @vzone_getLastModified_75(ptr noundef nonnull %zone, ptr noundef nonnull align 8 dereferenceable(8) %lastModified) local_unnamed_addr #0 {
 entry:
   %call = tail call noundef signext i8 @_ZNK6icu_759VTimeZone15getLastModifiedERd(ptr noundef nonnull align 8 dereferenceable(288) %zone, ptr noundef nonnull align 8 dereferenceable(8) %lastModified)
   ret i8 %call
@@ -260,7 +260,7 @@ define void @vzone_write_75(ptr noundef nonnull %zone, ptr nocapture noundef non
 entry:
   %s = alloca %"class.icu_75::UnicodeString", align 8
   store ptr getelementptr inbounds ({ [13 x ptr] }, ptr @_ZTVN6icu_7513UnicodeStringE, i64 0, inrange i32 0, i64 2), ptr %s, align 8
-  %fUnion2.i = getelementptr inbounds %"class.icu_75::UnicodeString", ptr %s, i64 0, i32 1
+  %fUnion2.i = getelementptr inbounds i8, ptr %s, i64 8
   store i16 2, ptr %fUnion2.i, align 8
   invoke void @_ZNK6icu_759VTimeZone5writeERNS_13UnicodeStringER10UErrorCode(ptr noundef nonnull align 8 dereferenceable(288) %zone, ptr noundef nonnull align 8 dereferenceable(64) %s, ptr noundef nonnull align 4 dereferenceable(4) %status)
           to label %invoke.cont1 unwind label %lpad
@@ -270,7 +270,7 @@ invoke.cont1:                                     ; preds = %entry
   %cmp.i.i = icmp slt i16 %0, 0
   %1 = ashr i16 %0, 5
   %shr.i.i = sext i16 %1 to i32
-  %fLength.i = getelementptr inbounds %"class.icu_75::UnicodeString", ptr %s, i64 0, i32 1, i32 0, i32 1
+  %fLength.i = getelementptr inbounds i8, ptr %s, i64 12
   %2 = load i32, ptr %fLength.i, align 4
   %cond.i = select i1 %cmp.i.i, i32 %2, i32 %shr.i.i
   store i32 %cond.i, ptr %resultLength, align 4
@@ -296,7 +296,7 @@ if.then7.i:                                       ; preds = %if.else.i
   br label %_ZNK6icu_7513UnicodeString9getBufferEv.exit
 
 if.else9.i:                                       ; preds = %if.else.i
-  %fArray.i = getelementptr inbounds %"class.icu_75::UnicodeString", ptr %s, i64 0, i32 1, i32 0, i32 3
+  %fArray.i = getelementptr inbounds i8, ptr %s, i64 24
   %4 = load ptr, ptr %fArray.i, align 8
   br label %_ZNK6icu_7513UnicodeString9getBufferEv.exit
 
@@ -325,7 +325,7 @@ define void @vzone_writeFromStart_75(ptr noundef nonnull %zone, double noundef %
 entry:
   %s = alloca %"class.icu_75::UnicodeString", align 8
   store ptr getelementptr inbounds ({ [13 x ptr] }, ptr @_ZTVN6icu_7513UnicodeStringE, i64 0, inrange i32 0, i64 2), ptr %s, align 8
-  %fUnion2.i = getelementptr inbounds %"class.icu_75::UnicodeString", ptr %s, i64 0, i32 1
+  %fUnion2.i = getelementptr inbounds i8, ptr %s, i64 8
   store i16 2, ptr %fUnion2.i, align 8
   invoke void @_ZNK6icu_759VTimeZone5writeEdRNS_13UnicodeStringER10UErrorCode(ptr noundef nonnull align 8 dereferenceable(288) %zone, double noundef %start, ptr noundef nonnull align 8 dereferenceable(64) %s, ptr noundef nonnull align 4 dereferenceable(4) %status)
           to label %invoke.cont1 unwind label %lpad
@@ -335,7 +335,7 @@ invoke.cont1:                                     ; preds = %entry
   %cmp.i.i = icmp slt i16 %0, 0
   %1 = ashr i16 %0, 5
   %shr.i.i = sext i16 %1 to i32
-  %fLength.i = getelementptr inbounds %"class.icu_75::UnicodeString", ptr %s, i64 0, i32 1, i32 0, i32 1
+  %fLength.i = getelementptr inbounds i8, ptr %s, i64 12
   %2 = load i32, ptr %fLength.i, align 4
   %cond.i = select i1 %cmp.i.i, i32 %2, i32 %shr.i.i
   store i32 %cond.i, ptr %resultLength, align 4
@@ -361,7 +361,7 @@ if.then7.i:                                       ; preds = %if.else.i
   br label %_ZNK6icu_7513UnicodeString9getBufferEv.exit
 
 if.else9.i:                                       ; preds = %if.else.i
-  %fArray.i = getelementptr inbounds %"class.icu_75::UnicodeString", ptr %s, i64 0, i32 1, i32 0, i32 3
+  %fArray.i = getelementptr inbounds i8, ptr %s, i64 24
   %4 = load ptr, ptr %fArray.i, align 8
   br label %_ZNK6icu_7513UnicodeString9getBufferEv.exit
 
@@ -387,7 +387,7 @@ define void @vzone_writeSimple_75(ptr noundef nonnull %zone, double noundef %tim
 entry:
   %s = alloca %"class.icu_75::UnicodeString", align 8
   store ptr getelementptr inbounds ({ [13 x ptr] }, ptr @_ZTVN6icu_7513UnicodeStringE, i64 0, inrange i32 0, i64 2), ptr %s, align 8
-  %fUnion2.i = getelementptr inbounds %"class.icu_75::UnicodeString", ptr %s, i64 0, i32 1
+  %fUnion2.i = getelementptr inbounds i8, ptr %s, i64 8
   store i16 2, ptr %fUnion2.i, align 8
   invoke void @_ZNK6icu_759VTimeZone11writeSimpleEdRNS_13UnicodeStringER10UErrorCode(ptr noundef nonnull align 8 dereferenceable(288) %zone, double noundef %time, ptr noundef nonnull align 8 dereferenceable(64) %s, ptr noundef nonnull align 4 dereferenceable(4) %status)
           to label %invoke.cont1 unwind label %lpad
@@ -397,7 +397,7 @@ invoke.cont1:                                     ; preds = %entry
   %cmp.i.i = icmp slt i16 %0, 0
   %1 = ashr i16 %0, 5
   %shr.i.i = sext i16 %1 to i32
-  %fLength.i = getelementptr inbounds %"class.icu_75::UnicodeString", ptr %s, i64 0, i32 1, i32 0, i32 1
+  %fLength.i = getelementptr inbounds i8, ptr %s, i64 12
   %2 = load i32, ptr %fLength.i, align 4
   %cond.i = select i1 %cmp.i.i, i32 %2, i32 %shr.i.i
   store i32 %cond.i, ptr %resultLength, align 4
@@ -423,7 +423,7 @@ if.then7.i:                                       ; preds = %if.else.i
   br label %_ZNK6icu_7513UnicodeString9getBufferEv.exit
 
 if.else9.i:                                       ; preds = %if.else.i
-  %fArray.i = getelementptr inbounds %"class.icu_75::UnicodeString", ptr %s, i64 0, i32 1, i32 0, i32 3
+  %fArray.i = getelementptr inbounds i8, ptr %s, i64 24
   %4 = load ptr, ptr %fArray.i, align 8
   br label %_ZNK6icu_7513UnicodeString9getBufferEv.exit
 
@@ -445,7 +445,7 @@ lpad:                                             ; preds = %invoke.cont1, %entr
 declare void @_ZNK6icu_759VTimeZone11writeSimpleEdRNS_13UnicodeStringER10UErrorCode(ptr noundef nonnull align 8 dereferenceable(288), double noundef, ptr noundef nonnull align 8 dereferenceable(64), ptr noundef nonnull align 4 dereferenceable(4)) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress uwtable
-define i32 @vzone_getOffset_75(ptr noundef nonnull %zone, i8 noundef zeroext %era, i32 noundef %year, i32 noundef %month, i32 noundef %day, i8 noundef zeroext %dayOfWeek, i32 noundef %millis, ptr noundef nonnull align 4 dereferenceable(4) %status) local_unnamed_addr #0 {
+define noundef i32 @vzone_getOffset_75(ptr noundef nonnull %zone, i8 noundef zeroext %era, i32 noundef %year, i32 noundef %month, i32 noundef %day, i8 noundef zeroext %dayOfWeek, i32 noundef %millis, ptr noundef nonnull align 4 dereferenceable(4) %status) local_unnamed_addr #0 {
 entry:
   %call = tail call noundef i32 @_ZNK6icu_759VTimeZone9getOffsetEhiiihiR10UErrorCode(ptr noundef nonnull align 8 dereferenceable(288) %zone, i8 noundef zeroext %era, i32 noundef %year, i32 noundef %month, i32 noundef %day, i8 noundef zeroext %dayOfWeek, i32 noundef %millis, ptr noundef nonnull align 4 dereferenceable(4) %status)
   ret i32 %call
@@ -454,7 +454,7 @@ entry:
 declare noundef i32 @_ZNK6icu_759VTimeZone9getOffsetEhiiihiR10UErrorCode(ptr noundef nonnull align 8 dereferenceable(288), i8 noundef zeroext, i32 noundef, i32 noundef, i32 noundef, i8 noundef zeroext, i32 noundef, ptr noundef nonnull align 4 dereferenceable(4)) unnamed_addr #1
 
 ; Function Attrs: mustprogress uwtable
-define i32 @vzone_getOffset2_75(ptr noundef nonnull %zone, i8 noundef zeroext %era, i32 noundef %year, i32 noundef %month, i32 noundef %day, i8 noundef zeroext %dayOfWeek, i32 noundef %millis, i32 noundef %monthLength, ptr noundef nonnull align 4 dereferenceable(4) %status) local_unnamed_addr #0 {
+define noundef i32 @vzone_getOffset2_75(ptr noundef nonnull %zone, i8 noundef zeroext %era, i32 noundef %year, i32 noundef %month, i32 noundef %day, i8 noundef zeroext %dayOfWeek, i32 noundef %millis, i32 noundef %monthLength, ptr noundef nonnull align 4 dereferenceable(4) %status) local_unnamed_addr #0 {
 entry:
   %call = tail call noundef i32 @_ZNK6icu_759VTimeZone9getOffsetEhiiihiiR10UErrorCode(ptr noundef nonnull align 8 dereferenceable(288) %zone, i8 noundef zeroext %era, i32 noundef %year, i32 noundef %month, i32 noundef %day, i8 noundef zeroext %dayOfWeek, i32 noundef %millis, i32 noundef %monthLength, ptr noundef nonnull align 4 dereferenceable(4) %status)
   ret i32 %call
@@ -481,7 +481,7 @@ entry:
 declare void @_ZN6icu_759VTimeZone12setRawOffsetEi(ptr noundef nonnull align 8 dereferenceable(288), i32 noundef) unnamed_addr #1
 
 ; Function Attrs: mustprogress uwtable
-define i32 @vzone_getRawOffset_75(ptr noundef nonnull %zone) local_unnamed_addr #0 {
+define noundef i32 @vzone_getRawOffset_75(ptr noundef nonnull %zone) local_unnamed_addr #0 {
 entry:
   %call = tail call noundef i32 @_ZNK6icu_759VTimeZone12getRawOffsetEv(ptr noundef nonnull align 8 dereferenceable(288) %zone)
   ret i32 %call
@@ -490,7 +490,7 @@ entry:
 declare noundef i32 @_ZNK6icu_759VTimeZone12getRawOffsetEv(ptr noundef nonnull align 8 dereferenceable(288)) unnamed_addr #1
 
 ; Function Attrs: mustprogress uwtable
-define signext i8 @vzone_useDaylightTime_75(ptr noundef nonnull %zone) local_unnamed_addr #0 {
+define noundef signext i8 @vzone_useDaylightTime_75(ptr noundef nonnull %zone) local_unnamed_addr #0 {
 entry:
   %call = tail call noundef signext i8 @_ZNK6icu_759VTimeZone15useDaylightTimeEv(ptr noundef nonnull align 8 dereferenceable(288) %zone)
   ret i8 %call
@@ -499,7 +499,7 @@ entry:
 declare noundef signext i8 @_ZNK6icu_759VTimeZone15useDaylightTimeEv(ptr noundef nonnull align 8 dereferenceable(288)) unnamed_addr #1
 
 ; Function Attrs: mustprogress uwtable
-define signext i8 @vzone_inDaylightTime_75(ptr noundef nonnull %zone, double noundef %date, ptr noundef nonnull align 4 dereferenceable(4) %status) local_unnamed_addr #0 {
+define noundef signext i8 @vzone_inDaylightTime_75(ptr noundef nonnull %zone, double noundef %date, ptr noundef nonnull align 4 dereferenceable(4) %status) local_unnamed_addr #0 {
 entry:
   %call = tail call noundef signext i8 @_ZNK6icu_759VTimeZone14inDaylightTimeEdR10UErrorCode(ptr noundef nonnull align 8 dereferenceable(288) %zone, double noundef %date, ptr noundef nonnull align 4 dereferenceable(4) %status)
   ret i8 %call
@@ -508,7 +508,7 @@ entry:
 declare noundef signext i8 @_ZNK6icu_759VTimeZone14inDaylightTimeEdR10UErrorCode(ptr noundef nonnull align 8 dereferenceable(288), double noundef, ptr noundef nonnull align 4 dereferenceable(4)) unnamed_addr #1
 
 ; Function Attrs: mustprogress uwtable
-define signext i8 @vzone_hasSameRules_75(ptr noundef nonnull %zone, ptr noundef nonnull %other) local_unnamed_addr #0 {
+define noundef signext i8 @vzone_hasSameRules_75(ptr noundef nonnull %zone, ptr noundef nonnull %other) local_unnamed_addr #0 {
 entry:
   %call = tail call noundef signext i8 @_ZNK6icu_759VTimeZone12hasSameRulesERKNS_8TimeZoneE(ptr noundef nonnull align 8 dereferenceable(288) %zone, ptr noundef nonnull align 8 dereferenceable(72) %other)
   ret i8 %call
@@ -517,7 +517,7 @@ entry:
 declare noundef signext i8 @_ZNK6icu_759VTimeZone12hasSameRulesERKNS_8TimeZoneE(ptr noundef nonnull align 8 dereferenceable(288), ptr noundef nonnull align 8 dereferenceable(72)) unnamed_addr #1
 
 ; Function Attrs: mustprogress uwtable
-define signext i8 @vzone_getNextTransition_75(ptr noundef nonnull %zone, double noundef %base, i8 noundef signext %inclusive, ptr noundef nonnull %result) local_unnamed_addr #0 {
+define noundef signext i8 @vzone_getNextTransition_75(ptr noundef nonnull %zone, double noundef %base, i8 noundef signext %inclusive, ptr noundef nonnull %result) local_unnamed_addr #0 {
 entry:
   %call = tail call noundef signext i8 @_ZNK6icu_759VTimeZone17getNextTransitionEdaRNS_18TimeZoneTransitionE(ptr noundef nonnull align 8 dereferenceable(288) %zone, double noundef %base, i8 noundef signext %inclusive, ptr noundef nonnull align 8 dereferenceable(32) %result)
   ret i8 %call
@@ -526,7 +526,7 @@ entry:
 declare noundef signext i8 @_ZNK6icu_759VTimeZone17getNextTransitionEdaRNS_18TimeZoneTransitionE(ptr noundef nonnull align 8 dereferenceable(288), double noundef, i8 noundef signext, ptr noundef nonnull align 8 dereferenceable(32)) unnamed_addr #1
 
 ; Function Attrs: mustprogress uwtable
-define signext i8 @vzone_getPreviousTransition_75(ptr noundef nonnull %zone, double noundef %base, i8 noundef signext %inclusive, ptr noundef nonnull %result) local_unnamed_addr #0 {
+define noundef signext i8 @vzone_getPreviousTransition_75(ptr noundef nonnull %zone, double noundef %base, i8 noundef signext %inclusive, ptr noundef nonnull %result) local_unnamed_addr #0 {
 entry:
   %call = tail call noundef signext i8 @_ZNK6icu_759VTimeZone21getPreviousTransitionEdaRNS_18TimeZoneTransitionE(ptr noundef nonnull align 8 dereferenceable(288) %zone, double noundef %base, i8 noundef signext %inclusive, ptr noundef nonnull align 8 dereferenceable(32) %result)
   ret i8 %call
@@ -535,7 +535,7 @@ entry:
 declare noundef signext i8 @_ZNK6icu_759VTimeZone21getPreviousTransitionEdaRNS_18TimeZoneTransitionE(ptr noundef nonnull align 8 dereferenceable(288), double noundef, i8 noundef signext, ptr noundef nonnull align 8 dereferenceable(32)) unnamed_addr #1
 
 ; Function Attrs: mustprogress uwtable
-define i32 @vzone_countTransitionRules_75(ptr noundef nonnull %zone, ptr noundef nonnull align 4 dereferenceable(4) %status) local_unnamed_addr #0 {
+define noundef i32 @vzone_countTransitionRules_75(ptr noundef nonnull %zone, ptr noundef nonnull align 4 dereferenceable(4) %status) local_unnamed_addr #0 {
 entry:
   %call = tail call noundef i32 @_ZNK6icu_759VTimeZone20countTransitionRulesER10UErrorCode(ptr noundef nonnull align 8 dereferenceable(288) %zone, ptr noundef nonnull align 4 dereferenceable(4) %status)
   ret i32 %call
@@ -544,7 +544,7 @@ entry:
 declare noundef i32 @_ZNK6icu_759VTimeZone20countTransitionRulesER10UErrorCode(ptr noundef nonnull align 8 dereferenceable(288), ptr noundef nonnull align 4 dereferenceable(4)) unnamed_addr #1
 
 ; Function Attrs: mustprogress uwtable
-define ptr @vzone_getStaticClassID_75(ptr nocapture noundef readnone %zone) local_unnamed_addr #0 {
+define noundef ptr @vzone_getStaticClassID_75(ptr nocapture noundef readnone %zone) local_unnamed_addr #0 {
 entry:
   %call = tail call noundef ptr @_ZN6icu_759VTimeZone16getStaticClassIDEv()
   ret ptr %call
@@ -553,7 +553,7 @@ entry:
 declare noundef ptr @_ZN6icu_759VTimeZone16getStaticClassIDEv() local_unnamed_addr #1
 
 ; Function Attrs: mustprogress uwtable
-define ptr @vzone_getDynamicClassID_75(ptr noundef nonnull %zone) local_unnamed_addr #0 {
+define noundef ptr @vzone_getDynamicClassID_75(ptr noundef nonnull %zone) local_unnamed_addr #0 {
 entry:
   %call = tail call noundef ptr @_ZNK6icu_759VTimeZone17getDynamicClassIDEv(ptr noundef nonnull align 8 dereferenceable(288) %zone)
   ret ptr %call

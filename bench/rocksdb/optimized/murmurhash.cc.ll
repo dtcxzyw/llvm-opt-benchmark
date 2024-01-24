@@ -20,7 +20,7 @@ entry:
 while.body:                                       ; preds = %entry, %while.body
   %h.033 = phi i64 [ %mul6, %while.body ], [ %xor, %entry ]
   %data.032 = phi ptr [ %incdec.ptr, %while.body ], [ %key, %entry ]
-  %incdec.ptr = getelementptr inbounds i64, ptr %data.032, i64 1
+  %incdec.ptr = getelementptr inbounds i8, ptr %data.032, i64 8
   %0 = load i64, ptr %data.032, align 8
   %mul2 = mul i64 %0, -4132994306676758123
   %shr = lshr i64 %mul2, 47

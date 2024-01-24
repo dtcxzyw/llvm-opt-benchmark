@@ -11,45 +11,6 @@ target triple = "x86_64-unknown-linux-gnu"
 %struct.VMStateInfo = type { ptr, ptr, ptr }
 %struct.VMStateField = type { ptr, ptr, i64, i64, i64, i32, i64, i64, ptr, i32, ptr, i32, i32, ptr }
 %struct.PropertyInfo = type { ptr, ptr, ptr, i8, ptr, ptr, ptr, ptr, ptr, ptr }
-%struct.PCIDeviceClass = type { %struct.DeviceClass, ptr, ptr, ptr, ptr, i16, i16, i8, i16, i16, i16, ptr }
-%struct.DeviceClass = type { %struct.ObjectClass, [1 x i64], ptr, ptr, ptr, i8, i8, ptr, ptr, ptr, ptr, ptr }
-%struct.ObjectClass = type { ptr, ptr, [4 x ptr], [4 x ptr], ptr, ptr }
-%struct.HotplugHandlerClass = type { %struct.InterfaceClass, ptr, ptr, ptr, ptr, ptr }
-%struct.InterfaceClass = type { %struct.ObjectClass, ptr, ptr }
-%struct.PCIDevice = type { %struct.DeviceState, i8, i8, ptr, ptr, ptr, ptr, ptr, i32, %struct.PCIReqIDCache, [64 x i8], [7 x %struct.PCIIORegion], %struct.AddressSpace, %struct.MemoryRegion, %struct.MemoryRegion, ptr, ptr, [3 x ptr], i8, i8, i32, i8, i32, ptr, ptr, ptr, ptr, ptr, ptr, %struct.MemoryRegion, %struct.MemoryRegion, %struct.MemoryRegion, ptr, i8, i32, i8, %struct.PCIExpressDevice, ptr, ptr, i32, i8, %struct.MemoryRegion, i32, ptr, ptr, ptr, ptr, ptr, i32 }
-%struct.DeviceState = type { %struct.Object, ptr, ptr, i8, i8, i64, ptr, i32, i8, ptr, %struct.NamedGPIOListHead, %struct.NamedClockListHead, %struct.BusStateHead, i32, i32, i32, %struct.ResettableState, ptr, %struct.MemReentrancyGuard }
-%struct.Object = type { ptr, ptr, ptr, i32, ptr }
-%struct.NamedGPIOListHead = type { ptr }
-%struct.NamedClockListHead = type { ptr }
-%struct.BusStateHead = type { ptr }
-%struct.ResettableState = type { i32, i8, i8 }
-%struct.MemReentrancyGuard = type { i8 }
-%struct.PCIReqIDCache = type { ptr, i32 }
-%struct.PCIIORegion = type { i64, i64, i8, ptr, ptr }
-%struct.AddressSpace = type { %struct.rcu_head, ptr, ptr, ptr, i32, i32, ptr, %union.anon.0, %union.anon.1 }
-%struct.rcu_head = type { ptr, ptr }
-%union.anon.0 = type { %struct.QTailQLink }
-%struct.QTailQLink = type { ptr, ptr }
-%union.anon.1 = type { %struct.QTailQLink }
-%struct.PCIExpressDevice = type { i8, i8, i8, i16, %struct.PCIEAERLog, i16, i16, i16, %struct.PCIESriovPF, %struct.PCIESriovVF }
-%struct.PCIEAERLog = type { i16, i16, ptr }
-%struct.PCIESriovPF = type { i16, [7 x i8], ptr, ptr }
-%struct.PCIESriovVF = type { ptr, i16 }
-%struct.MemoryRegion = type { %struct.Object, i8, i8, i8, i8, i8, i8, i8, i8, i8, i8, ptr, ptr, ptr, ptr, ptr, ptr, i32, i128, i64, ptr, i64, i8, i8, i8, i8, i8, ptr, i64, i32, %union.anon.2, %union.anon.3, %union.anon.4, ptr, i32, ptr, ptr, i8 }
-%union.anon.2 = type { %struct.QTailQLink }
-%union.anon.3 = type { %struct.QTailQLink }
-%union.anon.4 = type { %struct.QTailQLink }
-%struct.PCIEPCIBridge = type { %struct.PCIBridge, i32, %struct.MemoryRegion }
-%struct.PCIBridge = type { %struct.PCIDevice, %struct.PCIBus, %struct.MemoryRegion, %struct.MemoryRegion, %struct.PCIBridgeWindows, ptr, ptr, i8 }
-%struct.PCIBus = type { %struct.BusState, i32, ptr, ptr, i8, i32, ptr, ptr, ptr, ptr, [256 x ptr], ptr, ptr, ptr, %struct.anon, %struct.anon.5, i32, ptr, %struct.Notifier }
-%struct.BusState = type { %struct.Object, ptr, ptr, ptr, i32, i8, i8, i32, %union.BusChildHead, %struct.BusStateEntry, %struct.ResettableState }
-%union.BusChildHead = type { %struct.QTailQLink }
-%struct.BusStateEntry = type { ptr, ptr }
-%struct.anon = type { ptr }
-%struct.anon.5 = type { ptr, ptr }
-%struct.Notifier = type { ptr, %struct.anon.6 }
-%struct.anon.6 = type { ptr, ptr }
-%struct.PCIBridgeWindows = type { %struct.MemoryRegion, %struct.MemoryRegion, %struct.MemoryRegion, [3 x %struct.MemoryRegion] }
 
 @pcie_pci_bridge_info = internal constant %struct.TypeInfo { ptr @.str, ptr @.str.1, i64 7424, i64 0, ptr null, ptr null, ptr null, i8 0, i64 0, ptr @pcie_pci_bridge_class_init, ptr null, ptr null, ptr @.compoundliteral }, align 8
 @.str = private unnamed_addr constant [16 x i8] c"pcie-pci-bridge\00", align 1
@@ -109,30 +70,30 @@ entry:
   %call.i = tail call ptr @object_class_dynamic_cast_assert(ptr noundef %klass, ptr noundef nonnull @.str.4, ptr noundef nonnull @.str.5, i32 noundef 10, ptr noundef nonnull @__func__.PCI_DEVICE_CLASS) #3
   %call.i12 = tail call ptr @object_class_dynamic_cast_assert(ptr noundef %klass, ptr noundef nonnull @.str.6, ptr noundef nonnull @.str.7, i32 noundef 77, ptr noundef nonnull @__func__.DEVICE_CLASS) #3
   %call.i13 = tail call ptr @object_class_dynamic_cast_assert(ptr noundef %klass, ptr noundef nonnull @.str.2, ptr noundef nonnull @.str.8, i32 noundef 21, ptr noundef nonnull @__func__.HOTPLUG_HANDLER_CLASS) #3
-  %vendor_id = getelementptr inbounds %struct.PCIDeviceClass, ptr %call.i, i64 0, i32 5
+  %vendor_id = getelementptr inbounds i8, ptr %call.i, i64 208
   store i16 6966, ptr %vendor_id, align 8
-  %device_id = getelementptr inbounds %struct.PCIDeviceClass, ptr %call.i, i64 0, i32 6
+  %device_id = getelementptr inbounds i8, ptr %call.i, i64 210
   store i16 14, ptr %device_id, align 2
-  %realize = getelementptr inbounds %struct.PCIDeviceClass, ptr %call.i, i64 0, i32 1
+  %realize = getelementptr inbounds i8, ptr %call.i, i64 176
   store ptr @pcie_pci_bridge_realize, ptr %realize, align 8
-  %exit = getelementptr inbounds %struct.PCIDeviceClass, ptr %call.i, i64 0, i32 2
+  %exit = getelementptr inbounds i8, ptr %call.i, i64 184
   store ptr @pcie_pci_bridge_exit, ptr %exit, align 8
-  %config_write = getelementptr inbounds %struct.PCIDeviceClass, ptr %call.i, i64 0, i32 4
+  %config_write = getelementptr inbounds i8, ptr %call.i, i64 200
   store ptr @pcie_pci_bridge_write_config, ptr %config_write, align 8
-  %vmsd = getelementptr inbounds %struct.DeviceClass, ptr %call.i12, i64 0, i32 10
+  %vmsd = getelementptr inbounds i8, ptr %call.i12, i64 160
   store ptr @pcie_pci_bridge_dev_vmstate, ptr %vmsd, align 8
   tail call void @device_class_set_props(ptr noundef %call.i12, ptr noundef nonnull @pcie_pci_bridge_dev_properties) #3
-  %reset = getelementptr inbounds %struct.DeviceClass, ptr %call.i12, i64 0, i32 7
+  %reset = getelementptr inbounds i8, ptr %call.i12, i64 136
   store ptr @pcie_pci_bridge_reset, ptr %reset, align 8
-  %categories = getelementptr inbounds %struct.DeviceClass, ptr %call.i12, i64 0, i32 1
+  %categories = getelementptr inbounds i8, ptr %call.i12, i64 96
   %0 = load i64, ptr %categories, align 8
   %or.i = or i64 %0, 1
   store i64 %or.i, ptr %categories, align 8
-  %plug = getelementptr inbounds %struct.HotplugHandlerClass, ptr %call.i13, i64 0, i32 2
+  %plug = getelementptr inbounds i8, ptr %call.i13, i64 120
   store ptr @pci_bridge_dev_plug_cb, ptr %plug, align 8
-  %unplug = getelementptr inbounds %struct.HotplugHandlerClass, ptr %call.i13, i64 0, i32 4
+  %unplug = getelementptr inbounds i8, ptr %call.i13, i64 136
   store ptr @pci_bridge_dev_unplug_cb, ptr %unplug, align 8
-  %unplug_request = getelementptr inbounds %struct.HotplugHandlerClass, ptr %call.i13, i64 0, i32 3
+  %unplug_request = getelementptr inbounds i8, ptr %call.i13, i64 128
   store ptr @pci_bridge_dev_unplug_request_cb, ptr %unplug_request, align 8
   ret void
 }
@@ -144,15 +105,15 @@ entry:
   %call.i = tail call ptr @object_dynamic_cast_assert(ptr noundef %d, ptr noundef nonnull @.str.1, ptr noundef nonnull @.str.13, i32 noundef 55, ptr noundef nonnull @__func__.PCI_BRIDGE) #3
   %call.i35 = tail call ptr @object_dynamic_cast_assert(ptr noundef %d, ptr noundef nonnull @.str, ptr noundef nonnull @.str.12, i32 noundef 32, ptr noundef nonnull @__func__.PCIE_PCI_BRIDGE_DEV) #3
   tail call void @pci_bridge_initfn(ptr noundef %d, ptr noundef nonnull @.str.9) #3
-  %config = getelementptr inbounds %struct.PCIDevice, ptr %d, i64 0, i32 3
+  %config = getelementptr inbounds i8, ptr %d, i64 168
   %0 = load ptr, ptr %config, align 8
   %arrayidx = getelementptr i8, ptr %0, i64 61
   store i8 1, ptr %arrayidx, align 1
-  %shpc_bar = getelementptr inbounds %struct.PCIEPCIBridge, ptr %call.i35, i64 0, i32 2
+  %shpc_bar = getelementptr inbounds i8, ptr %call.i35, i64 7152
   %call2 = tail call i32 @shpc_bar_size(ptr noundef %d) #3
   %conv = sext i32 %call2 to i64
   tail call void @memory_region_init(ptr noundef nonnull %shpc_bar, ptr noundef %d, ptr noundef nonnull @.str.10, i64 noundef %conv) #3
-  %sec_bus = getelementptr inbounds %struct.PCIBridge, ptr %call.i, i64 0, i32 1
+  %sec_bus = getelementptr inbounds i8, ptr %call.i, i64 2608
   %call4 = tail call i32 @shpc_init(ptr noundef %d, ptr noundef nonnull %sec_bus, ptr noundef nonnull %shpc_bar, i32 noundef 0, ptr noundef %errp) #3
   %tobool.not = icmp eq i32 %call4, 0
   br i1 %tobool.not, label %if.end, label %error
@@ -169,7 +130,7 @@ if.end8:                                          ; preds = %if.end
 
 if.end13:                                         ; preds = %if.end8
   %conv14 = trunc i32 %call9 to i8
-  %pm_cap = getelementptr inbounds %struct.PCIDevice, ptr %d, i64 0, i32 36, i32 1
+  %pm_cap = getelementptr inbounds i8, ptr %d, i64 2169
   store i8 %conv14, ptr %pm_cap, align 1
   %1 = load ptr, ptr %config, align 8
   %idx.ext = zext nneg i32 %call9 to i64
@@ -184,7 +145,7 @@ if.end13:                                         ; preds = %if.end8
 
 if.end21:                                         ; preds = %if.end13
   store ptr null, ptr %local_err, align 8
-  %msi = getelementptr inbounds %struct.PCIEPCIBridge, ptr %call.i35, i64 0, i32 1
+  %msi = getelementptr inbounds i8, ptr %call.i35, i64 7136
   %2 = load i32, ptr %msi, align 16
   %cmp22.not = icmp eq i32 %2, 2
   br i1 %cmp22.not, label %if.end40, label %if.then24
@@ -242,7 +203,7 @@ define internal void @pcie_pci_bridge_exit(ptr noundef %d) #0 {
 entry:
   %call.i = tail call ptr @object_dynamic_cast_assert(ptr noundef %d, ptr noundef nonnull @.str, ptr noundef nonnull @.str.12, i32 noundef 32, ptr noundef nonnull @__func__.PCIE_PCI_BRIDGE_DEV) #3
   tail call void @pcie_cap_exit(ptr noundef %d) #3
-  %shpc_bar = getelementptr inbounds %struct.PCIEPCIBridge, ptr %call.i, i64 0, i32 2
+  %shpc_bar = getelementptr inbounds i8, ptr %call.i, i64 7152
   tail call void @shpc_cleanup(ptr noundef %d, ptr noundef nonnull %shpc_bar) #3
   tail call void @pci_bridge_exitfn(ptr noundef %d) #3
   ret void

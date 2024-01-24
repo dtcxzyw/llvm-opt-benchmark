@@ -13,70 +13,66 @@ define zeroext i1 @"_ZN44_$LT$$RF$T$u20$as$u20$core..fmt..Display$GT$3fmt17h665d
 ; Function Attrs: inlinehint nonlazybind uwtable
 define align 8 ptr @"_ZN68_$LT$serde_json..number..Number$u20$as$u20$serde..ser..Serialize$GT$9serialize17hc85b2ec8ee3c162cE"(ptr nocapture readonly align 8 %0, ptr align 8 %1) unnamed_addr #1 {
   %3 = load i64, ptr %0, align 8, !range !7, !noundef !5
+  %4 = getelementptr inbounds i8, ptr %0, i64 8
   switch i64 %3, label %default.unreachable1 [
-    i64 0, label %4
+    i64 0, label %5
     i64 1, label %8
-    i64 2, label %12
+    i64 2, label %11
   ]
 
 default.unreachable1:                             ; preds = %2
   unreachable
 
-4:                                                ; preds = %2
-  %5 = getelementptr inbounds { [1 x i64], i64 }, ptr %0, i64 0, i32 1
-  %6 = load i64, ptr %5, align 8, !noundef !5
+5:                                                ; preds = %2
+  %6 = load i64, ptr %4, align 8, !noundef !5
   %7 = tail call align 8 ptr @"_ZN95_$LT$$RF$mut$u20$serde_json..ser..Serializer$LT$W$C$F$GT$$u20$as$u20$serde..ser..Serializer$GT$13serialize_u6417hc14e2b45e4e1dcc1E"(ptr align 8 %1, i64 %6)
-  br label %16
+  br label %14
 
 8:                                                ; preds = %2
-  %9 = getelementptr inbounds { [1 x i64], i64 }, ptr %0, i64 0, i32 1
-  %10 = load i64, ptr %9, align 8, !noundef !5
-  %11 = tail call align 8 ptr @"_ZN95_$LT$$RF$mut$u20$serde_json..ser..Serializer$LT$W$C$F$GT$$u20$as$u20$serde..ser..Serializer$GT$13serialize_i6417h34b490c3252ef28eE"(ptr align 8 %1, i64 %10)
-  br label %16
+  %9 = load i64, ptr %4, align 8, !noundef !5
+  %10 = tail call align 8 ptr @"_ZN95_$LT$$RF$mut$u20$serde_json..ser..Serializer$LT$W$C$F$GT$$u20$as$u20$serde..ser..Serializer$GT$13serialize_i6417h34b490c3252ef28eE"(ptr align 8 %1, i64 %9)
+  br label %14
 
-12:                                               ; preds = %2
-  %13 = getelementptr inbounds { [1 x i64], double }, ptr %0, i64 0, i32 1
-  %14 = load double, ptr %13, align 8, !noundef !5
-  %15 = tail call align 8 ptr @"_ZN95_$LT$$RF$mut$u20$serde_json..ser..Serializer$LT$W$C$F$GT$$u20$as$u20$serde..ser..Serializer$GT$13serialize_f6417h09770053c384e631E"(ptr align 8 %1, double %14)
-  br label %16
+11:                                               ; preds = %2
+  %12 = load double, ptr %4, align 8, !noundef !5
+  %13 = tail call align 8 ptr @"_ZN95_$LT$$RF$mut$u20$serde_json..ser..Serializer$LT$W$C$F$GT$$u20$as$u20$serde..ser..Serializer$GT$13serialize_f6417h09770053c384e631E"(ptr align 8 %1, double %12)
+  br label %14
 
-16:                                               ; preds = %12, %8, %4
-  %.0 = phi ptr [ %15, %12 ], [ %11, %8 ], [ %7, %4 ]
+14:                                               ; preds = %11, %8, %5
+  %.0 = phi ptr [ %13, %11 ], [ %10, %8 ], [ %7, %5 ]
   ret ptr %.0
 }
 
 ; Function Attrs: inlinehint nonlazybind uwtable
 define align 8 ptr @"_ZN68_$LT$serde_json..number..Number$u20$as$u20$serde..ser..Serialize$GT$9serialize17hda62fb7f69ad97ccE"(ptr nocapture readonly align 8 %0, ptr align 8 %1) unnamed_addr #1 {
   %3 = load i64, ptr %0, align 8, !range !7, !noundef !5
+  %4 = getelementptr inbounds i8, ptr %0, i64 8
   switch i64 %3, label %default.unreachable1 [
-    i64 0, label %4
+    i64 0, label %5
     i64 1, label %8
-    i64 2, label %12
+    i64 2, label %11
   ]
 
 default.unreachable1:                             ; preds = %2
   unreachable
 
-4:                                                ; preds = %2
-  %5 = getelementptr inbounds { [1 x i64], i64 }, ptr %0, i64 0, i32 1
-  %6 = load i64, ptr %5, align 8, !noundef !5
+5:                                                ; preds = %2
+  %6 = load i64, ptr %4, align 8, !noundef !5
   %7 = tail call align 8 ptr @"_ZN95_$LT$$RF$mut$u20$serde_json..ser..Serializer$LT$W$C$F$GT$$u20$as$u20$serde..ser..Serializer$GT$13serialize_u6417h7e5808bec9ed0ccaE"(ptr align 8 %1, i64 %6)
-  br label %16
+  br label %14
 
 8:                                                ; preds = %2
-  %9 = getelementptr inbounds { [1 x i64], i64 }, ptr %0, i64 0, i32 1
-  %10 = load i64, ptr %9, align 8, !noundef !5
-  %11 = tail call align 8 ptr @"_ZN95_$LT$$RF$mut$u20$serde_json..ser..Serializer$LT$W$C$F$GT$$u20$as$u20$serde..ser..Serializer$GT$13serialize_i6417h5bb50907d2a58574E"(ptr align 8 %1, i64 %10)
-  br label %16
+  %9 = load i64, ptr %4, align 8, !noundef !5
+  %10 = tail call align 8 ptr @"_ZN95_$LT$$RF$mut$u20$serde_json..ser..Serializer$LT$W$C$F$GT$$u20$as$u20$serde..ser..Serializer$GT$13serialize_i6417h5bb50907d2a58574E"(ptr align 8 %1, i64 %9)
+  br label %14
 
-12:                                               ; preds = %2
-  %13 = getelementptr inbounds { [1 x i64], double }, ptr %0, i64 0, i32 1
-  %14 = load double, ptr %13, align 8, !noundef !5
-  %15 = tail call align 8 ptr @"_ZN95_$LT$$RF$mut$u20$serde_json..ser..Serializer$LT$W$C$F$GT$$u20$as$u20$serde..ser..Serializer$GT$13serialize_f6417h7d3c20bca6d0b32bE"(ptr align 8 %1, double %14)
-  br label %16
+11:                                               ; preds = %2
+  %12 = load double, ptr %4, align 8, !noundef !5
+  %13 = tail call align 8 ptr @"_ZN95_$LT$$RF$mut$u20$serde_json..ser..Serializer$LT$W$C$F$GT$$u20$as$u20$serde..ser..Serializer$GT$13serialize_f6417h7d3c20bca6d0b32bE"(ptr align 8 %1, double %12)
+  br label %14
 
-16:                                               ; preds = %12, %8, %4
-  %.0 = phi ptr [ %15, %12 ], [ %11, %8 ], [ %7, %4 ]
+14:                                               ; preds = %11, %8, %5
+  %.0 = phi ptr [ %13, %11 ], [ %10, %8 ], [ %7, %5 ]
   ret ptr %.0
 }
 

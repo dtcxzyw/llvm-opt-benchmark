@@ -40,26 +40,26 @@ define void @_ZN12regex_syntax3hir7visitor11HeapVisitor6induct17h14fbc85a68be080
   br label %20
 
 10:                                               ; preds = %3
-  %11 = getelementptr inbounds { [1 x i64], { { i32, i32 }, ptr, i32, i8, [3 x i8] } }, ptr %4, i64 0, i32 1
+  %11 = getelementptr inbounds i8, ptr %4, i64 8
   store i64 0, ptr %0, align 8
   %.sroa.2.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 8
   store ptr %11, ptr %.sroa.2.0..sroa_idx, align 8
   br label %20
 
 12:                                               ; preds = %3
-  %13 = getelementptr inbounds { [1 x i64], { ptr, { ptr, i64 }, i32, [1 x i32] } }, ptr %4, i64 0, i32 1
+  %13 = getelementptr inbounds i8, ptr %4, i64 8
   store i64 1, ptr %0, align 8
   %.sroa.22.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 8
   store ptr %13, ptr %.sroa.22.0..sroa_idx, align 8
   br label %20
 
 14:                                               ; preds = %3
-  %15 = getelementptr inbounds { [1 x i64], { { ptr, i64 }, i64 } }, ptr %4, i64 0, i32 1
+  %15 = getelementptr inbounds i8, ptr %4, i64 8
   %16 = tail call zeroext i1 @"_ZN5alloc3vec16Vec$LT$T$C$A$GT$8is_empty17h6c0f177ec0b85b03E"(ptr nonnull align 8 %15)
   br i1 %16, label %26, label %21
 
 17:                                               ; preds = %3
-  %18 = getelementptr inbounds { [1 x i64], { { ptr, i64 }, i64 } }, ptr %4, i64 0, i32 1
+  %18 = getelementptr inbounds i8, ptr %4, i64 8
   %19 = tail call zeroext i1 @"_ZN5alloc3vec16Vec$LT$T$C$A$GT$8is_empty17h6c0f177ec0b85b03E"(ptr nonnull align 8 %18)
   br i1 %19, label %32, label %27
 
@@ -125,17 +125,17 @@ default.unreachable12:                            ; preds = %3
   br label %19
 
 7:                                                ; preds = %3
-  %8 = getelementptr inbounds { [1 x i64], ptr, { ptr, i64 } }, ptr %2, i64 0, i32 2
+  %8 = getelementptr inbounds i8, ptr %2, i64 16
   %9 = load ptr, ptr %8, align 8, !nonnull !6, !align !8, !noundef !6
-  %10 = getelementptr inbounds { [1 x i64], ptr, { ptr, i64 } }, ptr %2, i64 0, i32 2, i32 1
+  %10 = getelementptr inbounds i8, ptr %2, i64 24
   %11 = load i64, ptr %10, align 8, !noundef !6
   %12 = tail call zeroext i1 @"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$8is_empty17h03cda7c2053ca4ddE"(ptr nonnull align 8 %9, i64 %11)
   br i1 %12, label %21, label %20
 
 13:                                               ; preds = %3
-  %14 = getelementptr inbounds { [1 x i64], ptr, { ptr, i64 } }, ptr %2, i64 0, i32 2
+  %14 = getelementptr inbounds i8, ptr %2, i64 16
   %15 = load ptr, ptr %14, align 8, !nonnull !6, !align !8, !noundef !6
-  %16 = getelementptr inbounds { [1 x i64], ptr, { ptr, i64 } }, ptr %2, i64 0, i32 2, i32 1
+  %16 = getelementptr inbounds i8, ptr %2, i64 24
   %17 = load i64, ptr %16, align 8, !noundef !6
   %18 = tail call zeroext i1 @"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$8is_empty17h03cda7c2053ca4ddE"(ptr nonnull align 8 %15, i64 %17)
   br i1 %18, label %28, label %27
@@ -197,37 +197,28 @@ default.unreachable12:                            ; preds = %3
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(read, inaccessiblemem: none) uwtable
 define noundef nonnull align 8 ptr @_ZN12regex_syntax3hir7visitor5Frame5child17h14b3aa4e0b9a5a51E(ptr nocapture readonly align 8 %0) unnamed_addr #1 {
   %2 = load i64, ptr %0, align 8, !range !7, !noundef !6
+  %3 = getelementptr inbounds i8, ptr %0, i64 8
   switch i64 %2, label %default.unreachable1 [
-    i64 0, label %3
+    i64 0, label %4
     i64 1, label %7
-    i64 2, label %10
-    i64 3, label %12
+    i64 2, label %9
+    i64 3, label %9
   ]
 
 default.unreachable1:                             ; preds = %1
   unreachable
 
-3:                                                ; preds = %1
-  %4 = getelementptr inbounds { [1 x i64], ptr }, ptr %0, i64 0, i32 1
-  %5 = load ptr, ptr %4, align 8, !nonnull !6, !align !8, !noundef !6
-  %6 = getelementptr inbounds { { i32, i32 }, ptr, i32, i8, [3 x i8] }, ptr %5, i64 0, i32 1
-  br label %14
+4:                                                ; preds = %1
+  %5 = load ptr, ptr %3, align 8, !nonnull !6, !align !8, !noundef !6
+  %6 = getelementptr inbounds i8, ptr %5, i64 8
+  br label %9
 
 7:                                                ; preds = %1
-  %8 = getelementptr inbounds { [1 x i64], ptr }, ptr %0, i64 0, i32 1
-  %9 = load ptr, ptr %8, align 8, !nonnull !6, !align !8, !noundef !6
-  br label %14
+  %8 = load ptr, ptr %3, align 8, !nonnull !6, !align !8, !noundef !6
+  br label %9
 
-10:                                               ; preds = %1
-  %11 = getelementptr inbounds { [1 x i64], ptr, { ptr, i64 } }, ptr %0, i64 0, i32 1
-  br label %14
-
-12:                                               ; preds = %1
-  %13 = getelementptr inbounds { [1 x i64], ptr, { ptr, i64 } }, ptr %0, i64 0, i32 1
-  br label %14
-
-14:                                               ; preds = %12, %10, %7, %3
-  %.0.in = phi ptr [ %13, %12 ], [ %11, %10 ], [ %9, %7 ], [ %6, %3 ]
+9:                                                ; preds = %1, %1, %7, %4
+  %.0.in = phi ptr [ %8, %7 ], [ %6, %4 ], [ %3, %1 ], [ %3, %1 ]
   %.0 = load ptr, ptr %.0.in, align 8, !nonnull !6, !align !8, !noundef !6
   ret ptr %.0
 }

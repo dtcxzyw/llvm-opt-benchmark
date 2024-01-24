@@ -30,7 +30,7 @@ target triple = "x86_64-unknown-linux-gnu"
 @.str.19 = private unnamed_addr constant [61 x i8] c"OPENSSL_buf2hexstr_ex(out, sizeof(out), NULL, buf, len, ':')\00", align 1
 
 ; Function Attrs: nounwind uwtable
-define dso_local i32 @setup_tests() local_unnamed_addr #0 {
+define dso_local noundef i32 @setup_tests() local_unnamed_addr #0 {
 entry:
   tail call void @add_all_tests(ptr noundef nonnull @.str, ptr noundef nonnull @test_hexstr_sep_to_from, i32 noundef 6, i32 noundef 1) #2
   tail call void @add_all_tests(ptr noundef nonnull @.str.1, ptr noundef nonnull @test_hexstr_to_from, i32 noundef 6, i32 noundef 1) #2
@@ -48,7 +48,7 @@ entry:
   %idxprom = sext i32 %test_index to i64
   %arrayidx = getelementptr inbounds [6 x %struct.testdata], ptr @tbl_testdata, i64 0, i64 %idxprom
   %0 = load ptr, ptr %arrayidx, align 16
-  %sep = getelementptr inbounds [6 x %struct.testdata], ptr @tbl_testdata, i64 0, i64 %idxprom, i32 3
+  %sep = getelementptr inbounds i8, ptr %arrayidx, i64 24
   %1 = load i8, ptr %sep, align 8
   %call = call ptr @ossl_hexstr2buf_sep(ptr noundef %0, ptr noundef nonnull %len, i8 noundef signext %1) #2
   %call1 = call i32 @test_ptr(ptr noundef nonnull @.str.3, i32 noundef 71, ptr noundef nonnull @.str.4, ptr noundef %call) #2
@@ -57,9 +57,9 @@ entry:
 
 lor.lhs.false:                                    ; preds = %entry
   %2 = load i64, ptr %len, align 8
-  %expected = getelementptr inbounds [6 x %struct.testdata], ptr @tbl_testdata, i64 0, i64 %idxprom, i32 1
+  %expected = getelementptr inbounds i8, ptr %arrayidx, i64 8
   %3 = load ptr, ptr %expected, align 8
-  %expected_len = getelementptr inbounds [6 x %struct.testdata], ptr @tbl_testdata, i64 0, i64 %idxprom, i32 2
+  %expected_len = getelementptr inbounds i8, ptr %arrayidx, i64 16
   %4 = load i64, ptr %expected_len, align 16
   %call2 = call i32 @test_mem_eq(ptr noundef nonnull @.str.3, i32 noundef 72, ptr noundef nonnull @.str.5, ptr noundef nonnull @.str.6, ptr noundef %call, i64 noundef %2, ptr noundef %3, i64 noundef %4) #2
   %tobool3.not = icmp eq i32 %call2, 0
@@ -87,14 +87,15 @@ err:                                              ; preds = %lor.lhs.false9, %en
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @test_hexstr_to_from(i32 noundef %test_index) #0 {
+define internal noundef i32 @test_hexstr_to_from(i32 noundef %test_index) #0 {
 entry:
   %len = alloca i64, align 8
   store i64 0, ptr %len, align 8
   %idxprom = sext i32 %test_index to i64
   %arrayidx = getelementptr inbounds [6 x %struct.testdata], ptr @tbl_testdata, i64 0, i64 %idxprom
-  %0 = and i32 %test_index, -2
-  %cmp.not = icmp eq i32 %0, 2
+  %sep = getelementptr inbounds i8, ptr %arrayidx, i64 24
+  %0 = load i8, ptr %sep, align 8
+  %cmp.not = icmp eq i8 %0, 95
   %1 = load ptr, ptr %arrayidx, align 16
   %call28 = call ptr @OPENSSL_hexstr2buf(ptr noundef %1, ptr noundef nonnull %len) #2
   br i1 %cmp.not, label %if.else26, label %if.then
@@ -106,9 +107,9 @@ if.then:                                          ; preds = %entry
 
 lor.lhs.false:                                    ; preds = %if.then
   %2 = load i64, ptr %len, align 8
-  %expected = getelementptr inbounds [6 x %struct.testdata], ptr @tbl_testdata, i64 0, i64 %idxprom, i32 1
+  %expected = getelementptr inbounds i8, ptr %arrayidx, i64 8
   %3 = load ptr, ptr %expected, align 8
-  %expected_len = getelementptr inbounds [6 x %struct.testdata], ptr @tbl_testdata, i64 0, i64 %idxprom, i32 2
+  %expected_len = getelementptr inbounds i8, ptr %arrayidx, i64 16
   %4 = load i64, ptr %expected_len, align 16
   %call3 = call i32 @test_mem_eq(ptr noundef nonnull @.str.3, i32 noundef 94, ptr noundef nonnull @.str.5, ptr noundef nonnull @.str.6, ptr noundef %call28, i64 noundef %2, ptr noundef %3, i64 noundef %4) #2
   %tobool4.not = icmp eq i32 %call3, 0
@@ -122,7 +123,7 @@ lor.lhs.false5:                                   ; preds = %lor.lhs.false
   br i1 %tobool8.not, label %err, label %if.end
 
 if.end:                                           ; preds = %lor.lhs.false5
-  %cmp12 = icmp ult i32 %test_index, 2
+  %cmp12 = icmp eq i8 %0, 58
   br i1 %cmp12, label %if.then14, label %if.else
 
 if.then14:                                        ; preds = %if.end
@@ -171,9 +172,9 @@ entry:
 
 land.lhs.true:                                    ; preds = %entry
   %1 = load i64, ptr %len, align 8
-  %expected = getelementptr inbounds [6 x %struct.testdata], ptr @tbl_testdata, i64 0, i64 %idxprom, i32 1
+  %expected = getelementptr inbounds i8, ptr %arrayidx, i64 8
   %2 = load ptr, ptr %expected, align 8
-  %expected_len = getelementptr inbounds [6 x %struct.testdata], ptr @tbl_testdata, i64 0, i64 %idxprom, i32 2
+  %expected_len = getelementptr inbounds i8, ptr %arrayidx, i64 16
   %3 = load i64, ptr %expected_len, align 16
   %call3 = call i32 @test_mem_eq(ptr noundef nonnull @.str.3, i32 noundef 122, ptr noundef nonnull @.str.5, ptr noundef nonnull @.str.6, ptr noundef nonnull %buf, i64 noundef %1, ptr noundef %2, i64 noundef %3) #2
   %tobool4.not = icmp eq i32 %call3, 0

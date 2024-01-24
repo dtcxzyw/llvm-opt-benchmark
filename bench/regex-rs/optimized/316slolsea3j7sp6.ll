@@ -21,10 +21,10 @@ define void @_ZN4core3mem4swap17h51eaa0284b27f781E(ptr align 8 %0, ptr align 8 %
 ; Function Attrs: inlinehint mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: readwrite) uwtable
 define void @_ZN4core3mem4swap17h8dfc9eb63ce9d4e9E(ptr nocapture align 1 %0, ptr nocapture align 1 %1) unnamed_addr #0 {
   %3 = load i8, ptr %0, align 1, !noundef !5
-  %4 = getelementptr inbounds { i8, i8 }, ptr %0, i64 0, i32 1
+  %4 = getelementptr inbounds i8, ptr %0, i64 1
   %5 = load i8, ptr %4, align 1, !noundef !5
   %6 = load i8, ptr %1, align 1, !noundef !5
-  %7 = getelementptr inbounds { i8, i8 }, ptr %1, i64 0, i32 1
+  %7 = getelementptr inbounds i8, ptr %1, i64 1
   %8 = load i8, ptr %7, align 1, !noundef !5
   store i8 %6, ptr %0, align 1
   store i8 %8, ptr %4, align 1
@@ -36,10 +36,10 @@ define void @_ZN4core3mem4swap17h8dfc9eb63ce9d4e9E(ptr nocapture align 1 %0, ptr
 ; Function Attrs: inlinehint mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: readwrite) uwtable
 define void @_ZN4core3mem4swap17hdb98bf3364a50676E(ptr nocapture align 1 %0, ptr nocapture align 1 %1) unnamed_addr #0 {
   %3 = load i8, ptr %0, align 1, !noundef !5
-  %4 = getelementptr inbounds { i8, i8 }, ptr %0, i64 0, i32 1
+  %4 = getelementptr inbounds i8, ptr %0, i64 1
   %5 = load i8, ptr %4, align 1, !noundef !5
   %6 = load i8, ptr %1, align 1, !noundef !5
-  %7 = getelementptr inbounds { i8, i8 }, ptr %1, i64 0, i32 1
+  %7 = getelementptr inbounds i8, ptr %1, i64 1
   %8 = load i8, ptr %7, align 1, !noundef !5
   store i8 %6, ptr %0, align 1
   store i8 %8, ptr %4, align 1
@@ -101,7 +101,7 @@ define void @_ZN4core3mem7replace17he62dff4fc7127f88E(ptr nocapture writeonly sr
 ; Function Attrs: inlinehint mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: readwrite) uwtable
 define { i64, ptr } @_ZN4core3mem7replace17he692360a4ae64ce2E(ptr nocapture align 8 %0, i64 %1, ptr %2) unnamed_addr #0 {
   %4 = load i64, ptr %0, align 8, !range !7, !noundef !5
-  %5 = getelementptr inbounds { i64, ptr }, ptr %0, i64 0, i32 1
+  %5 = getelementptr inbounds i8, ptr %0, i64 8
   %6 = load ptr, ptr %5, align 8, !noundef !5
   store i64 %1, ptr %0, align 8
   store ptr %2, ptr %5, align 8

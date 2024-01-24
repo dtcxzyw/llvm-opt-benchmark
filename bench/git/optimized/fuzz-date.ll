@@ -3,8 +3,6 @@ source_filename = "bench/git/original/fuzz-date.ll"
 target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:128-n8:16:32:64-S128"
 target triple = "x86_64-unknown-linux-gnu"
 
-%struct.date_mode = type { i32, ptr, i32 }
-
 ; Function Attrs: nounwind uwtable
 define dso_local noundef i32 @LLVMFuzzerTestOneInput(ptr noundef %data, i64 noundef %size) local_unnamed_addr #0 {
 entry:
@@ -39,7 +37,7 @@ if.end:                                           ; preds = %entry
   %call15 = call i64 @approxidate_careful(ptr noundef %call, ptr noundef nonnull %num) #3
   call void @free(ptr noundef %call) #3
   %call16 = call ptr @date_mode_from_type(i32 noundef %spec.select) #3
-  %local17 = getelementptr inbounds %struct.date_mode, ptr %call16, i64 0, i32 2
+  %local17 = getelementptr inbounds i8, ptr %call16, i64 16
   store i32 %lnot.ext, ptr %local17, align 8
   %conv18 = sext i16 %or to i32
   %call19 = call ptr @show_date(i64 noundef %call15, i32 noundef %conv18, ptr noundef %call16) #3

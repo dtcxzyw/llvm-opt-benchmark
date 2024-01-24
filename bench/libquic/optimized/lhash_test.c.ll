@@ -3,8 +3,6 @@ source_filename = "bench/libquic/original/lhash_test.c.ll"
 target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:128-n8:16:32:64-S128"
 target triple = "x86_64-unknown-linux-gnu"
 
-%struct.dummy_lhash_node = type { ptr, ptr }
-
 @stderr = external local_unnamed_addr global ptr, align 8
 @.str = private unnamed_addr constant [17 x i8] c"Length mismatch\0A\00", align 1
 @.str.1 = private unnamed_addr constant [21 x i8] c"lh_retrieve failure\0A\00", align 1
@@ -36,7 +34,7 @@ for.body.i:                                       ; preds = %for.body, %for.body
   %cur.06.i = phi ptr [ %cur.0.i, %for.body.i ], [ %dummy_lh.sroa.0.0.dummy_lh.sroa.0.0.dummy_lh.sroa.0.0.cur.03.i, %for.body ]
   %count.05.i = phi i64 [ %inc.i, %for.body.i ], [ 0, %for.body ]
   %inc.i = add i64 %count.05.i, 1
-  %next.i = getelementptr inbounds %struct.dummy_lhash_node, ptr %cur.06.i, i64 0, i32 1
+  %next.i = getelementptr inbounds i8, ptr %cur.06.i, i64 8
   %cur.0.i = load ptr, ptr %next.i, align 8
   %cmp.not.i = icmp eq ptr %cur.0.i, null
   br i1 %cmp.not.i, label %dummy_lh_num_items.exit, label %for.body.i, !llvm.loop !7
@@ -96,7 +94,7 @@ rand_string.exit:                                 ; preds = %for.body.i22, %sw.b
   br i1 %cmp.not4.i, label %dummy_lh_retrieve.exit, label %for.body.i23
 
 for.cond.i:                                       ; preds = %for.body.i23
-  %next.i26 = getelementptr inbounds %struct.dummy_lhash_node, ptr %cur.06.i24, i64 0, i32 1
+  %next.i26 = getelementptr inbounds i8, ptr %cur.06.i24, i64 8
   %cur.0.i27 = load ptr, ptr %next.i26, align 8
   %cmp.not.i28 = icmp eq ptr %cur.0.i27, null
   br i1 %cmp.not.i28, label %dummy_lh_retrieve.exit, label %for.body.i23, !llvm.loop !10
@@ -174,7 +172,7 @@ for.body.i49:                                     ; preds = %rand_string.exit48,
   br i1 %cmp2.i51, label %dummy_lh_insert.exit, label %for.inc.i
 
 for.inc.i:                                        ; preds = %for.body.i49
-  %next.i52 = getelementptr inbounds %struct.dummy_lhash_node, ptr %cur.015.i, i64 0, i32 1
+  %next.i52 = getelementptr inbounds i8, ptr %cur.015.i, i64 8
   %cur.0.i53 = load ptr, ptr %next.i52, align 8
   %cmp.not.i54 = icmp eq ptr %cur.0.i53, null
   br i1 %cmp.not.i54, label %dummy_lh_insert.exit.thread, label %for.body.i49, !llvm.loop !11
@@ -189,7 +187,7 @@ dummy_lh_insert.exit:                             ; preds = %for.body.i49
 dummy_lh_insert.exit.thread:                      ; preds = %for.inc.i, %rand_string.exit48
   %call5.i = call noalias dereferenceable_or_null(16) ptr @malloc(i64 noundef 16) #11
   store ptr %call22, ptr %call5.i, align 8
-  %next8.i = getelementptr inbounds %struct.dummy_lhash_node, ptr %call5.i, i64 0, i32 1
+  %next8.i = getelementptr inbounds i8, ptr %call5.i, i64 8
   store ptr %dummy_lh.sroa.0.0.dummy_lh.sroa.0.0.dummy_lh.sroa.0.0.cur.03.i, ptr %next8.i, align 8
   store ptr %call5.i, ptr %dummy_lh.sroa.0, align 8
   %11 = load ptr, ptr %s1, align 8
@@ -269,20 +267,20 @@ for.body.i76:                                     ; preds = %if.end.i
 
 if.end.i:                                         ; preds = %for.body.i76.preheader, %for.body.i76
   %cur.013.i77133 = phi ptr [ %cur.0.i79, %for.body.i76 ], [ %dummy_lh.sroa.0.0.dummy_lh.sroa.0.0.dummy_lh.sroa.0.0.cur.03.i, %for.body.i76.preheader ]
-  %next5.i = getelementptr inbounds %struct.dummy_lhash_node, ptr %cur.013.i77133, i64 0, i32 1
+  %next5.i = getelementptr inbounds i8, ptr %cur.013.i77133, i64 8
   %cur.0.i79 = load ptr, ptr %next5.i, align 8
   %cmp.not.i80 = icmp eq ptr %cur.0.i79, null
   br i1 %cmp.not.i80, label %dummy_lh_delete.exit.thread144, label %for.body.i76, !llvm.loop !12
 
 dummy_lh_delete.exit.loopexit:                    ; preds = %for.body.i76
-  %next5.i.le = getelementptr inbounds %struct.dummy_lhash_node, ptr %cur.013.i77133, i64 0, i32 1
+  %next5.i.le = getelementptr inbounds i8, ptr %cur.013.i77133, i64 8
   br label %dummy_lh_delete.exit
 
 dummy_lh_delete.exit:                             ; preds = %dummy_lh_delete.exit.loopexit, %for.body.i76.preheader
   %cur.013.i77.lcssa = phi ptr [ %dummy_lh.sroa.0.0.dummy_lh.sroa.0.0.dummy_lh.sroa.0.0.cur.03.i, %for.body.i76.preheader ], [ %cur.0.i79, %dummy_lh_delete.exit.loopexit ]
   %next_ptr.012.i.lcssa = phi ptr [ %dummy_lh.sroa.0, %for.body.i76.preheader ], [ %next5.i.le, %dummy_lh_delete.exit.loopexit ]
   %.lcssa = phi ptr [ %16, %for.body.i76.preheader ], [ %17, %dummy_lh_delete.exit.loopexit ]
-  %next.i83 = getelementptr inbounds %struct.dummy_lhash_node, ptr %cur.013.i77.lcssa, i64 0, i32 1
+  %next.i83 = getelementptr inbounds i8, ptr %cur.013.i77.lcssa, i64 8
   %18 = load ptr, ptr %next.i83, align 8
   store ptr %18, ptr %next_ptr.012.i.lcssa, align 8
   call void @free(ptr noundef nonnull %cur.013.i77.lcssa) #9
@@ -346,7 +344,7 @@ for.end:                                          ; preds = %for.inc
 
 for.body.i84:                                     ; preds = %for.end, %for.body.i84
   %cur.02.i = phi ptr [ %21, %for.body.i84 ], [ %dummy_lh.sroa.0.0.dummy_lh.sroa.0.0.dummy_lh.sroa.0.0.dummy_lh.sroa.0.0.dummy_lh.val, %for.end ]
-  %next1.i = getelementptr inbounds %struct.dummy_lhash_node, ptr %cur.02.i, i64 0, i32 1
+  %next1.i = getelementptr inbounds i8, ptr %cur.02.i, i64 8
   %21 = load ptr, ptr %next1.i, align 8
   %22 = load ptr, ptr %cur.02.i, align 8
   call void @free(ptr noundef %22) #9

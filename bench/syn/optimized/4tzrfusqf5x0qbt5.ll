@@ -147,25 +147,25 @@ define hidden void @_ZN3syn4data7parsing25scan_lenient_discriminant17hb7e4d6aba2
   %101 = alloca { i32, [1 x i32] }, align 8
   %102 = alloca ptr, align 8
   store ptr %1, ptr %102, align 8
-  %.fca.1.gep = getelementptr inbounds { i32, i32 }, ptr %96, i64 0, i32 1
-  %.fca.1.gep8 = getelementptr inbounds { i32, i32 }, ptr %94, i64 0, i32 1
-  %.fca.1.gep12 = getelementptr inbounds { i32, i32 }, ptr %92, i64 0, i32 1
-  %.fca.1.gep22 = getelementptr inbounds { i32, i32 }, ptr %86, i64 0, i32 1
-  %.fca.1.gep26 = getelementptr inbounds { i32, i32 }, ptr %84, i64 0, i32 1
-  %.fca.1.gep30 = getelementptr inbounds { i32, i32 }, ptr %82, i64 0, i32 1
-  %.fca.1.gep34 = getelementptr inbounds { i32, i32 }, ptr %80, i64 0, i32 1
-  %.fca.1.gep40 = getelementptr inbounds { i32, i32 }, ptr %78, i64 0, i32 1
-  %103 = getelementptr inbounds { [24 x i8], i8, [15 x i8] }, ptr %47, i64 0, i32 1
-  %104 = getelementptr inbounds { [16 x i32], i32, [3 x i32] }, ptr %40, i64 0, i32 1
-  %.fca.1.gep44 = getelementptr inbounds { i32, i32 }, ptr %72, i64 0, i32 1
-  %.fca.1.gep48 = getelementptr inbounds { i32, i32 }, ptr %70, i64 0, i32 1
-  %105 = getelementptr inbounds { [16 x i32], i32, [3 x i32] }, ptr %51, i64 0, i32 1
-  %.fca.1.gep61 = getelementptr inbounds { i32, i32 }, ptr %35, i64 0, i32 1
-  %.fca.1.gep67 = getelementptr inbounds { i32, i32 }, ptr %33, i64 0, i32 1
-  %.fca.1.gep71 = getelementptr inbounds { i32, i32 }, ptr %9, i64 0, i32 1
-  %106 = getelementptr inbounds { [1 x i64], ptr }, ptr %23, i64 0, i32 1
-  %107 = getelementptr inbounds { [24 x i8], i8, [7 x i8] }, ptr %19, i64 0, i32 1
-  %108 = getelementptr inbounds { [10 x i32], i32, [3 x i32] }, ptr %13, i64 0, i32 1
+  %.fca.1.gep = getelementptr inbounds i8, ptr %96, i64 4
+  %.fca.1.gep8 = getelementptr inbounds i8, ptr %94, i64 4
+  %.fca.1.gep12 = getelementptr inbounds i8, ptr %92, i64 4
+  %.fca.1.gep22 = getelementptr inbounds i8, ptr %86, i64 4
+  %.fca.1.gep26 = getelementptr inbounds i8, ptr %84, i64 4
+  %.fca.1.gep30 = getelementptr inbounds i8, ptr %82, i64 4
+  %.fca.1.gep34 = getelementptr inbounds i8, ptr %80, i64 4
+  %.fca.1.gep40 = getelementptr inbounds i8, ptr %78, i64 4
+  %103 = getelementptr inbounds i8, ptr %47, i64 24
+  %104 = getelementptr inbounds i8, ptr %40, i64 64
+  %.fca.1.gep44 = getelementptr inbounds i8, ptr %72, i64 4
+  %.fca.1.gep48 = getelementptr inbounds i8, ptr %70, i64 4
+  %105 = getelementptr inbounds i8, ptr %51, i64 64
+  %.fca.1.gep61 = getelementptr inbounds i8, ptr %35, i64 4
+  %.fca.1.gep67 = getelementptr inbounds i8, ptr %33, i64 4
+  %.fca.1.gep71 = getelementptr inbounds i8, ptr %9, i64 4
+  %106 = getelementptr inbounds i8, ptr %23, i64 8
+  %107 = getelementptr inbounds i8, ptr %19, i64 24
+  %108 = getelementptr inbounds i8, ptr %13, i64 40
   br label %.backedge101
 
 .backedge101:                                     ; preds = %.backedge101.backedge, %2
@@ -291,7 +291,7 @@ define hidden void @_ZN3syn4data7parsing25scan_lenient_discriminant17hb7e4d6aba2
   br label %.backedge101.backedge
 
 152:                                              ; preds = %144
-  %153 = getelementptr inbounds { [1 x i64], { { { { ptr, i64 }, i64 } } } }, ptr %6, i64 0, i32 1
+  %153 = getelementptr inbounds i8, ptr %6, i64 8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %4, ptr noundef nonnull align 8 dereferenceable(24) %153, i64 24, i1 false)
   call void @"_ZN153_$LT$core..result..Result$LT$T$C$F$GT$$u20$as$u20$core..ops..try_trait..FromResidual$LT$core..result..Result$LT$core..convert..Infallible$C$E$GT$$GT$$GT$13from_residual17h44c1ea017bed57a2E"(ptr sret({ ptr, [2 x i64] }) align 8 %0, ptr nonnull align 8 %4, ptr nonnull align 8 @anon.71a97f57c0ab95c74ca826d77e88fcb7.5)
   br label %154
@@ -453,7 +453,7 @@ define hidden void @_ZN3syn4data7parsing25scan_lenient_discriminant17hb7e4d6aba2
           to label %208 unwind label %206
 
 204:                                              ; preds = %200
-  %205 = getelementptr inbounds { [1 x i64], { { { { ptr, i64 }, i64 } } } }, ptr %89, i64 0, i32 1
+  %205 = getelementptr inbounds i8, ptr %89, i64 8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %87, ptr noundef nonnull align 8 dereferenceable(24) %205, i64 24, i1 false)
   call void @"_ZN153_$LT$core..result..Result$LT$T$C$F$GT$$u20$as$u20$core..ops..try_trait..FromResidual$LT$core..result..Result$LT$core..convert..Infallible$C$E$GT$$GT$$GT$13from_residual17h44c1ea017bed57a2E"(ptr sret({ ptr, [2 x i64] }) align 8 %0, ptr nonnull align 8 %87, ptr nonnull align 8 @anon.71a97f57c0ab95c74ca826d77e88fcb7.38)
   br label %154
@@ -690,7 +690,7 @@ define hidden void @_ZN3syn4data7parsing25scan_lenient_discriminant17hb7e4d6aba2
           to label %286 unwind label %284
 
 282:                                              ; preds = %278
-  %283 = getelementptr inbounds { [1 x i64], { { { { ptr, i64 }, i64 } } } }, ptr %63, i64 0, i32 1
+  %283 = getelementptr inbounds i8, ptr %63, i64 8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %61, ptr noundef nonnull align 8 dereferenceable(24) %283, i64 24, i1 false)
   call void @"_ZN153_$LT$core..result..Result$LT$T$C$F$GT$$u20$as$u20$core..ops..try_trait..FromResidual$LT$core..result..Result$LT$core..convert..Infallible$C$E$GT$$GT$$GT$13from_residual17h44c1ea017bed57a2E"(ptr sret({ ptr, [2 x i64] }) align 8 %0, ptr nonnull align 8 %61, ptr nonnull align 8 @anon.71a97f57c0ab95c74ca826d77e88fcb7.36)
   br label %154

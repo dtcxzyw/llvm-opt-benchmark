@@ -3,15 +3,7 @@ source_filename = "bench/libquic/original/thread_checker_impl.cc.ll"
 target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:128-n8:16:32:64-S128"
 target triple = "x86_64-unknown-linux-gnu"
 
-%"class.base::ThreadCheckerImpl" = type { %"class.base::Lock", %"class.base::PlatformThreadRef", %"class.base::TaskToken", %"class.base::SequenceToken" }
-%"class.base::Lock" = type { %"class.base::internal::LockImpl" }
-%"class.base::internal::LockImpl" = type { %union.pthread_mutex_t }
-%union.pthread_mutex_t = type { %struct.__pthread_mutex_s }
-%struct.__pthread_mutex_s = type { i32, i32, i32, i32, i32, i16, i16, %struct.__pthread_internal_list }
-%struct.__pthread_internal_list = type { ptr, ptr }
-%"class.base::PlatformThreadRef" = type { i64 }
 %"class.base::TaskToken" = type { i32 }
-%"class.base::SequenceToken" = type { i32 }
 
 $__clang_call_terminate = comdat any
 
@@ -22,11 +14,11 @@ $__clang_call_terminate = comdat any
 define dso_local void @_ZN4base17ThreadCheckerImplC2Ev(ptr noundef nonnull align 8 dereferenceable(56) %this) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   tail call void @_ZN4base8internal8LockImplC1Ev(ptr noundef nonnull align 8 dereferenceable(40) %this)
-  %thread_id_ = getelementptr inbounds %"class.base::ThreadCheckerImpl", ptr %this, i64 0, i32 1
+  %thread_id_ = getelementptr inbounds i8, ptr %this, i64 40
   store i64 0, ptr %thread_id_, align 8
-  %task_token_ = getelementptr inbounds %"class.base::ThreadCheckerImpl", ptr %this, i64 0, i32 2
+  %task_token_ = getelementptr inbounds i8, ptr %this, i64 48
   store i32 -1, ptr %task_token_, align 8
-  %sequence_token_ = getelementptr inbounds %"class.base::ThreadCheckerImpl", ptr %this, i64 0, i32 3
+  %sequence_token_ = getelementptr inbounds i8, ptr %this, i64 52
   store i32 -1, ptr %sequence_token_, align 4
   invoke void @_ZN4base8internal8LockImpl4LockEv(ptr noundef nonnull align 8 dereferenceable(40) %this)
           to label %invoke.cont3 unwind label %lpad
@@ -97,7 +89,7 @@ declare i32 @__gxx_personality_v0(...)
 ; Function Attrs: mustprogress uwtable
 define dso_local void @_ZNK4base17ThreadCheckerImpl14EnsureAssignedEv(ptr nocapture noundef nonnull align 8 dereferenceable(56) %this) local_unnamed_addr #0 align 2 {
 entry:
-  %thread_id_ = getelementptr inbounds %"class.base::ThreadCheckerImpl", ptr %this, i64 0, i32 1
+  %thread_id_ = getelementptr inbounds i8, ptr %this, i64 40
   %0 = load i64, ptr %thread_id_, align 8
   %cmp.i = icmp eq i64 %0, 0
   br i1 %cmp.i, label %if.end, label %return
@@ -106,10 +98,10 @@ if.end:                                           ; preds = %entry
   %call2 = tail call i64 @_ZN4base14PlatformThread10CurrentRefEv()
   store i64 %call2, ptr %thread_id_, align 8
   %call5 = tail call i32 @_ZN4base9TaskToken19GetForCurrentThreadEv()
-  %task_token_ = getelementptr inbounds %"class.base::ThreadCheckerImpl", ptr %this, i64 0, i32 2
+  %task_token_ = getelementptr inbounds i8, ptr %this, i64 48
   store i32 %call5, ptr %task_token_, align 8
   %call8 = tail call i32 @_ZN4base13SequenceToken19GetForCurrentThreadEv()
-  %sequence_token_ = getelementptr inbounds %"class.base::ThreadCheckerImpl", ptr %this, i64 0, i32 3
+  %sequence_token_ = getelementptr inbounds i8, ptr %this, i64 52
   store i32 %call8, ptr %sequence_token_, align 4
   br label %return
 
@@ -129,7 +121,7 @@ define dso_local noundef zeroext i1 @_ZNK4base17ThreadCheckerImpl19CalledOnValid
 entry:
   %ref.tmp = alloca %"class.base::TaskToken", align 4
   tail call void @_ZN4base8internal8LockImpl4LockEv(ptr noundef nonnull align 8 dereferenceable(40) %this)
-  %thread_id_.i = getelementptr inbounds %"class.base::ThreadCheckerImpl", ptr %this, i64 0, i32 1
+  %thread_id_.i = getelementptr inbounds i8, ptr %this, i64 40
   %0 = load i64, ptr %thread_id_.i, align 8
   %cmp.i.i = icmp eq i64 %0, 0
   br i1 %cmp.i.i, label %if.end.i, label %invoke.cont
@@ -144,13 +136,13 @@ call2.i.noexc:                                    ; preds = %if.end.i
           to label %call5.i.noexc unwind label %lpad
 
 call5.i.noexc:                                    ; preds = %call2.i.noexc
-  %task_token_.i = getelementptr inbounds %"class.base::ThreadCheckerImpl", ptr %this, i64 0, i32 2
+  %task_token_.i = getelementptr inbounds i8, ptr %this, i64 48
   store i32 %call5.i2, ptr %task_token_.i, align 8
   %call8.i3 = invoke i32 @_ZN4base13SequenceToken19GetForCurrentThreadEv()
           to label %call8.i.noexc unwind label %lpad
 
 call8.i.noexc:                                    ; preds = %call5.i.noexc
-  %sequence_token_.i = getelementptr inbounds %"class.base::ThreadCheckerImpl", ptr %this, i64 0, i32 3
+  %sequence_token_.i = getelementptr inbounds i8, ptr %this, i64 52
   store i32 %call8.i3, ptr %sequence_token_.i, align 4
   br label %invoke.cont
 
@@ -159,7 +151,7 @@ invoke.cont:                                      ; preds = %call8.i.noexc, %ent
           to label %invoke.cont2 unwind label %lpad
 
 invoke.cont2:                                     ; preds = %invoke.cont
-  %task_token_ = getelementptr inbounds %"class.base::ThreadCheckerImpl", ptr %this, i64 0, i32 2
+  %task_token_ = getelementptr inbounds i8, ptr %this, i64 48
   store i32 %call, ptr %ref.tmp, align 4
   %call4 = invoke noundef zeroext i1 @_ZNK4base9TaskTokeneqERKS0_(ptr noundef nonnull align 4 dereferenceable(4) %task_token_, ptr noundef nonnull align 4 dereferenceable(4) %ref.tmp)
           to label %invoke.cont3 unwind label %lpad
@@ -218,11 +210,11 @@ declare i64 @_ZN4base14PlatformThread10CurrentRefEv() local_unnamed_addr #2
 define dso_local void @_ZN4base17ThreadCheckerImpl16DetachFromThreadEv(ptr noundef nonnull align 8 dereferenceable(56) %this) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   tail call void @_ZN4base8internal8LockImpl4LockEv(ptr noundef nonnull align 8 dereferenceable(40) %this)
-  %thread_id_ = getelementptr inbounds %"class.base::ThreadCheckerImpl", ptr %this, i64 0, i32 1
+  %thread_id_ = getelementptr inbounds i8, ptr %this, i64 40
   store i64 0, ptr %thread_id_, align 8
-  %task_token_ = getelementptr inbounds %"class.base::ThreadCheckerImpl", ptr %this, i64 0, i32 2
+  %task_token_ = getelementptr inbounds i8, ptr %this, i64 48
   store i32 -1, ptr %task_token_, align 8
-  %sequence_token_ = getelementptr inbounds %"class.base::ThreadCheckerImpl", ptr %this, i64 0, i32 3
+  %sequence_token_ = getelementptr inbounds i8, ptr %this, i64 52
   store i32 -1, ptr %sequence_token_, align 4
   invoke void @_ZN4base8internal8LockImpl6UnlockEv(ptr noundef nonnull align 8 dereferenceable(40) %this)
           to label %_ZN4base8AutoLockD2Ev.exit unwind label %terminate.lpad.i

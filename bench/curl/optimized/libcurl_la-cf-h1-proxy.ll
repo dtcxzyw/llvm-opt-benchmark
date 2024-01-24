@@ -4,55 +4,6 @@ target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:
 target triple = "x86_64-unknown-linux-gnu"
 
 %struct.Curl_cftype = type { ptr, i32, i32, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr }
-%struct.Curl_easy = type { i32, i64, ptr, ptr, ptr, %struct.Curl_llist_element, %struct.Curl_llist_element, i32, i32, %struct.Curl_message, %struct.easy_pollset, %struct.Names, ptr, ptr, ptr, ptr, %struct.SingleRequest, %struct.UserDefined, ptr, ptr, ptr, %struct.Progress, %struct.UrlState, ptr, %struct.PureInfo, %struct.curl_tlssessioninfo }
-%struct.Curl_llist_element = type { ptr, ptr, ptr }
-%struct.Curl_message = type { %struct.Curl_llist_element, %struct.CURLMsg }
-%struct.CURLMsg = type { i32, ptr, %union.anon }
-%union.anon = type { ptr }
-%struct.easy_pollset = type { [5 x i32], i32, [5 x i8] }
-%struct.Names = type { ptr, i32 }
-%struct.SingleRequest = type <{ i64, i64, i64, i64, i64, %struct.curltime, i32, i32, i32, i32, i64, i32, i32, %struct.curltime, i32, i32, ptr, i64, i64, ptr, ptr, i64, ptr, %union.anon.0, ptr, [2 x i8], i8, i16, [3 x i8] }>
-%struct.curltime = type { i64, i32 }
-%union.anon.0 = type { ptr }
-%struct.UserDefined = type <{ ptr, ptr, ptr, ptr, ptr, ptr, i16, [6 x i8], i64, i64, i64, ptr, ptr, i64, i16, i16, [4 x i8], ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, i32, i32, i32, i32, i64, i64, i64, i64, i64, i64, i64, i64, i64, ptr, ptr, %struct.curl_mimepart, ptr, ptr, ptr, i64, i8, i8, i8, [5 x i8], %struct.ssl_config_data, %struct.ssl_config_data, ptr, i16, i8, i8, [4 x i8], %struct.ssl_general_config, i32, i32, i32, [4 x i8], ptr, ptr, i8, [7 x i8], i64, i8, i8, i8, i8, i32, ptr, ptr, ptr, i8, i8, [2 x i8], i32, [80 x ptr], [8 x ptr], i32, i32, i32, [4 x i8], ptr, i32, [4 x i8], ptr, ptr, ptr, ptr, ptr, i8, [3 x i8], i32, i32, [4 x i8], i64, ptr, ptr, i64, ptr, ptr, ptr, ptr, ptr, i8, [7 x i8], ptr, i8, [3 x i8], i32, i8, i8, i56, [6 x i8] }>
-%struct.curl_mimepart = type { ptr, ptr, i32, i32, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, i64, %struct.mime_state, ptr, %struct.mime_encoder_state, i64 }
-%struct.mime_state = type { i32, ptr, i64 }
-%struct.mime_encoder_state = type { i64, i64, i64, [256 x i8] }
-%struct.ssl_config_data = type { %struct.ssl_primary_config, i64, ptr, ptr, ptr, ptr, ptr, ptr, ptr, i8 }
-%struct.ssl_primary_config = type { ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, i8, i32, i8, i8 }
-%struct.ssl_general_config = type { i64, i32 }
-%struct.Progress = type { i64, i64, i64, i64, i64, i64, i32, i32, i64, i64, i64, i64, i64, i64, i64, i64, i64, i64, %struct.curltime, %struct.curltime, %struct.curltime, %struct.curltime, %struct.curltime, i64, %struct.curltime, i64, [6 x i64], [6 x %struct.curltime], i32, i8 }
-%struct.UrlState = type { ptr, %struct.curltime, i64, i64, %struct.dynbuf, ptr, ptr, ptr, i64, ptr, i32, i32, i32, ptr, i64, [3 x %struct.tempbuf], i32, i32, ptr, i64, i32, ptr, %struct.digestdata, %struct.digestdata, %struct.auth, %struct.auth, %struct.Curl_async, ptr, %struct.curltime, %struct.Curl_tree, %struct.Curl_llist, [15 x %struct.time_node], ptr, i8, i64, ptr, i64, i64, i64, i64, [32 x i8], i64, ptr, ptr, ptr, %struct.urlpieces, ptr, ptr, ptr, ptr, ptr, i64, %struct.dynbuf, %struct.Curl_llist, [2 x %struct.curl_header], ptr, i32, ptr, %struct.dynamically_allocated_data, i8, i8, i8, i8, i24 }
-%struct.tempbuf = type { %struct.dynbuf, i32, i8 }
-%struct.digestdata = type { ptr, ptr, ptr, ptr, ptr, ptr, i32, i8, i8 }
-%struct.auth = type { i64, i64, i64, i8 }
-%struct.Curl_async = type { ptr, ptr, ptr, ptr, i32, i32, i8 }
-%struct.Curl_tree = type { ptr, ptr, ptr, ptr, %struct.curltime, ptr }
-%struct.time_node = type { %struct.Curl_llist_element, %struct.curltime, i32 }
-%struct.urlpieces = type { ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr }
-%struct.dynbuf = type { ptr, i64, i64, i64 }
-%struct.Curl_llist = type { ptr, ptr, ptr, i64 }
-%struct.curl_header = type { ptr, ptr, i64, i64, i32, ptr }
-%struct.dynamically_allocated_data = type { ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr }
-%struct.PureInfo = type { i32, i32, i32, i64, i64, i64, i64, i64, ptr, ptr, i64, i32, [46 x i8], i32, i32, [46 x i8], i32, ptr, i32, %struct.curl_certinfo, i32, i8 }
-%struct.curl_certinfo = type { i32, ptr }
-%struct.curl_tlssessioninfo = type { i32, ptr }
-%struct.Curl_cfilter = type { ptr, ptr, ptr, ptr, i32, i8 }
-%struct.connectdata = type { %struct.Curl_llist_element, ptr, ptr, i64, ptr, ptr, %struct.hostname, ptr, ptr, %struct.hostname, %struct.proxy_info, %struct.proxy_info, [46 x i8], ptr, ptr, ptr, ptr, ptr, %struct.curltime, %struct.curltime, %struct.curltime, [2 x i32], [2 x ptr], [2 x ptr], [2 x ptr], %struct.ssl_primary_config, %struct.ssl_primary_config, %struct.ConnectBits, ptr, ptr, %struct.curltime, i32, i32, %struct.Curl_llist, ptr, ptr, i32, i32, %struct.ntlmdata, %struct.ntlmdata, %union.anon.1, ptr, ptr, ptr, i16, i32, i32, i32, i32, i32, i16, i16, i8, i8, i8, i8, i8, i8, i8 }
-%struct.hostname = type { ptr, ptr, ptr, ptr }
-%struct.proxy_info = type { %struct.hostname, i32, i8, ptr, ptr }
-%struct.ConnectBits = type { i32 }
-%struct.ntlmdata = type { i32, [8 x i8], i32, ptr }
-%union.anon.1 = type { %struct.ftp_conn }
-%struct.ftp_conn = type { %struct.pingpong, ptr, ptr, ptr, ptr, ptr, ptr, ptr, i8, i64, ptr, i64, i32, i32, i32, i32, i32, i16, i8, i8, i8, i8, i8 }
-%struct.pingpong = type { ptr, i64, i64, ptr, i8, ptr, i64, i64, %struct.curltime, i64, %struct.dynbuf, ptr, ptr }
-%struct.Curl_handler = type { ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, i32, i32, i32, i32 }
-%struct.h1_tunnel_state = type { %struct.HTTP, %struct.dynbuf, %struct.dynbuf, i64, i64, %struct.Curl_chunker, i32, i64, i32, i8 }
-%struct.HTTP = type { i64, ptr, %struct.back, i32, ptr, ptr, %struct.dynbuf }
-%struct.back = type { ptr, ptr, ptr, i64, ptr }
-%struct.Curl_chunker = type { i64, i32, i32, %struct.dynbuf, i8, [17 x i8], i8 }
-%struct.httpreq = type { [24 x i8], ptr, ptr, ptr, %struct.dynhds, %struct.dynhds }
-%struct.dynhds = type { ptr, i64, i64, i64, i64, i64, i32 }
 
 @.str = private unnamed_addr constant [9 x i8] c"H1-PROXY\00", align 1
 @Curl_cft_h1_proxy = hidden global %struct.Curl_cftype { ptr @.str, i32 1, i32 0, ptr @cf_h1_proxy_destroy, ptr @cf_h1_proxy_connect, ptr @cf_h1_proxy_close, ptr @Curl_cf_http_proxy_get_host, ptr @cf_h1_proxy_adjust_pollset, ptr @Curl_cf_def_data_pending, ptr @Curl_cf_def_send, ptr @Curl_cf_def_recv, ptr @Curl_cf_def_cntrl, ptr @Curl_cf_def_conn_is_alive, ptr @Curl_cf_def_conn_keep_alive, ptr @Curl_cf_def_query }, align 8
@@ -108,7 +59,7 @@ entry:
   br i1 %tobool.not, label %do.end, label %land.lhs.true
 
 land.lhs.true:                                    ; preds = %entry
-  %verbose = getelementptr inbounds %struct.Curl_easy, ptr %data, i64 0, i32 17, i32 129
+  %verbose = getelementptr inbounds i8, ptr %data, i64 2706
   %bf.load = load i64, ptr %verbose, align 2
   %0 = and i64 %bf.load, 536870912
   %tobool1 = icmp ne i64 %0, 0
@@ -118,7 +69,7 @@ land.lhs.true:                                    ; preds = %entry
 
 land.lhs.true4:                                   ; preds = %land.lhs.true
   %1 = load ptr, ptr %cf, align 8
-  %log_level = getelementptr inbounds %struct.Curl_cftype, ptr %1, i64 0, i32 2
+  %log_level = getelementptr inbounds i8, ptr %1, i64 12
   %2 = load i32, ptr %log_level, align 4
   %cmp = icmp sgt i32 %2, 0
   br i1 %cmp, label %if.then, label %do.end
@@ -141,9 +92,9 @@ entry:
   %result.i.i = alloca i32, align 4
   %req.i.i = alloca ptr, align 8
   %done.i = alloca i8, align 1
-  %ctx = getelementptr inbounds %struct.Curl_cfilter, ptr %cf, i64 0, i32 2
+  %ctx = getelementptr inbounds i8, ptr %cf, i64 16
   %0 = load ptr, ptr %ctx, align 8
-  %connected = getelementptr inbounds %struct.Curl_cfilter, ptr %cf, i64 0, i32 5
+  %connected = getelementptr inbounds i8, ptr %cf, i64 36
   %bf.load = load i8, ptr %connected, align 4
   %bf.clear = and i8 %bf.load, 1
   %tobool.not = icmp eq i8 %bf.clear, 0
@@ -158,7 +109,7 @@ do.body:                                          ; preds = %entry
   br i1 %tobool1.not, label %do.end, label %land.lhs.true
 
 land.lhs.true:                                    ; preds = %do.body
-  %verbose = getelementptr inbounds %struct.Curl_easy, ptr %data, i64 0, i32 17, i32 129
+  %verbose = getelementptr inbounds i8, ptr %data, i64 2706
   %bf.load2 = load i64, ptr %verbose, align 2
   %1 = and i64 %bf.load2, 536870912
   %tobool5.not = icmp eq i64 %1, 0
@@ -166,7 +117,7 @@ land.lhs.true:                                    ; preds = %do.body
 
 land.lhs.true8:                                   ; preds = %land.lhs.true
   %2 = load ptr, ptr %cf, align 8
-  %log_level = getelementptr inbounds %struct.Curl_cftype, ptr %2, i64 0, i32 2
+  %log_level = getelementptr inbounds i8, ptr %2, i64 12
   %3 = load i32, ptr %log_level, align 4
   %cmp = icmp sgt i32 %3, 0
   br i1 %cmp, label %if.then9, label %do.end
@@ -176,10 +127,10 @@ if.then9:                                         ; preds = %land.lhs.true8
   br label %do.end
 
 do.end:                                           ; preds = %do.body, %land.lhs.true, %land.lhs.true8, %if.then9
-  %next = getelementptr inbounds %struct.Curl_cfilter, ptr %cf, i64 0, i32 1
+  %next = getelementptr inbounds i8, ptr %cf, i64 8
   %4 = load ptr, ptr %next, align 8
   %5 = load ptr, ptr %4, align 8
-  %do_connect = getelementptr inbounds %struct.Curl_cftype, ptr %5, i64 0, i32 4
+  %do_connect = getelementptr inbounds i8, ptr %5, i64 24
   %6 = load ptr, ptr %do_connect, align 8
   %call = tail call i32 %6(ptr noundef nonnull %4, ptr noundef %data, i1 noundef zeroext %blocking, ptr noundef %done) #5
   %tobool14.not = icmp eq i32 %call, 0
@@ -197,11 +148,11 @@ if.end17:                                         ; preds = %lor.lhs.false
   br i1 %tobool18.not, label %if.then19, label %tunnel_is_established.exit.i
 
 if.then19:                                        ; preds = %if.end17
-  %conn.i = getelementptr inbounds %struct.Curl_cfilter, ptr %cf, i64 0, i32 3
+  %conn.i = getelementptr inbounds i8, ptr %cf, i64 24
   %9 = load ptr, ptr %conn.i, align 8
-  %handler.i = getelementptr inbounds %struct.connectdata, ptr %9, i64 0, i32 28
+  %handler.i = getelementptr inbounds i8, ptr %9, i64 712
   %10 = load ptr, ptr %handler.i, align 8
-  %flags.i = getelementptr inbounds %struct.Curl_handler, ptr %10, i64 0, i32 19
+  %flags.i = getelementptr inbounds i8, ptr %10, i64 140
   %11 = load i32, ptr %flags.i, align 4
   %and.i = and i32 %11, 16384
   %tobool.not.i = icmp eq i32 %and.i, 0
@@ -227,7 +178,7 @@ do.body.i:                                        ; preds = %if.end5.i
   br i1 %tobool1.not, label %if.end23, label %land.lhs.true.i
 
 land.lhs.true.i:                                  ; preds = %do.body.i
-  %verbose.i = getelementptr inbounds %struct.Curl_easy, ptr %data, i64 0, i32 17, i32 129
+  %verbose.i = getelementptr inbounds i8, ptr %data, i64 2706
   %bf.load.i = load i64, ptr %verbose.i, align 2
   %14 = and i64 %bf.load.i, 536870912
   %tobool11.not.i = icmp eq i64 %14, 0
@@ -238,23 +189,23 @@ if.then12.i:                                      ; preds = %land.lhs.true.i
   br label %if.end23
 
 if.end23:                                         ; preds = %if.then12.i, %land.lhs.true.i, %do.body.i
-  %rcvbuf.i = getelementptr inbounds %struct.h1_tunnel_state, ptr %call6.i, i64 0, i32 1
+  %rcvbuf.i = getelementptr inbounds i8, ptr %call6.i, i64 112
   tail call void @Curl_dyn_init(ptr noundef nonnull %rcvbuf.i, i64 noundef 16384) #5
-  %request_data.i = getelementptr inbounds %struct.h1_tunnel_state, ptr %call6.i, i64 0, i32 2
+  %request_data.i = getelementptr inbounds i8, ptr %call6.i, i64 144
   tail call void @Curl_dyn_init(ptr noundef nonnull %request_data.i, i64 noundef 1048576) #5
-  %ch.i = getelementptr inbounds %struct.h1_tunnel_state, ptr %call6.i, i64 0, i32 5
+  %ch.i = getelementptr inbounds i8, ptr %call6.i, i64 192
   tail call void @Curl_httpchunk_init(ptr noundef %data, ptr noundef nonnull %ch.i, i1 noundef zeroext true) #5
   %15 = load ptr, ptr %conn.i, align 8
   tail call void @Curl_conncontrol(ptr noundef %15, i32 noundef 0) #5
   tail call void @Curl_dyn_reset(ptr noundef nonnull %rcvbuf.i) #5
   tail call void @Curl_dyn_reset(ptr noundef nonnull %request_data.i) #5
-  %tunnel_state.i.i = getelementptr inbounds %struct.h1_tunnel_state, ptr %call6.i, i64 0, i32 8
+  %tunnel_state.i.i = getelementptr inbounds i8, ptr %call6.i, i64 280
   store i32 0, ptr %tunnel_state.i.i, align 8
-  %keepon.i.i = getelementptr inbounds %struct.h1_tunnel_state, ptr %call6.i, i64 0, i32 6
+  %keepon.i.i = getelementptr inbounds i8, ptr %call6.i, i64 264
   store i32 1, ptr %keepon.i.i, align 8
-  %cl.i.i = getelementptr inbounds %struct.h1_tunnel_state, ptr %call6.i, i64 0, i32 7
+  %cl.i.i = getelementptr inbounds i8, ptr %call6.i, i64 272
   store i64 0, ptr %cl.i.i, align 8
-  %close_connection.i.i = getelementptr inbounds %struct.h1_tunnel_state, ptr %call6.i, i64 0, i32 9
+  %close_connection.i.i = getelementptr inbounds i8, ptr %call6.i, i64 284
   %bf.load.i.i = load i8, ptr %close_connection.i.i, align 4
   %bf.clear.i.i = and i8 %bf.load.i.i, -3
   store i8 %bf.clear.i.i, ptr %close_connection.i.i, align 4
@@ -264,9 +215,9 @@ if.end23:                                         ; preds = %if.then12.i, %land.
 tunnel_is_established.exit.i:                     ; preds = %if.end17, %if.end23
   %ts.1 = phi ptr [ %call6.i, %if.end23 ], [ %0, %if.end17 ]
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %done.i)
-  %conn1.i = getelementptr inbounds %struct.Curl_cfilter, ptr %cf, i64 0, i32 3
+  %conn1.i = getelementptr inbounds i8, ptr %cf, i64 24
   %16 = load ptr, ptr %conn1.i, align 8
-  %tunnel_state.i.i38 = getelementptr inbounds %struct.h1_tunnel_state, ptr %ts.1, i64 0, i32 8
+  %tunnel_state.i.i38 = getelementptr inbounds i8, ptr %ts.1, i64 280
   %17 = load i32, ptr %tunnel_state.i.i38, align 8
   switch i32 %17, label %do.body.preheader.i [
     i32 4, label %do.body30
@@ -274,24 +225,24 @@ tunnel_is_established.exit.i:                     ; preds = %if.end17, %if.end23
   ]
 
 do.body.preheader.i:                              ; preds = %tunnel_is_established.exit.i
-  %verbose.i40 = getelementptr inbounds %struct.Curl_easy, ptr %data, i64 0, i32 17, i32 129
-  %newurl.i.i = getelementptr inbounds %struct.Curl_easy, ptr %data, i64 0, i32 16, i32 20
-  %request_data.i.i = getelementptr inbounds %struct.h1_tunnel_state, ptr %ts.1, i64 0, i32 2
-  %nsent.i.i = getelementptr inbounds %struct.h1_tunnel_state, ptr %ts.1, i64 0, i32 3
-  %keepon.i.i41 = getelementptr inbounds %struct.h1_tunnel_state, ptr %ts.1, i64 0, i32 6
-  %rcvbuf.i.i = getelementptr inbounds %struct.h1_tunnel_state, ptr %ts.1, i64 0, i32 1
-  %sockindex.i.i = getelementptr inbounds %struct.Curl_cfilter, ptr %cf, i64 0, i32 4
-  %headerlines.i.i = getelementptr inbounds %struct.h1_tunnel_state, ptr %ts.1, i64 0, i32 4
-  %httpcode.i.i = getelementptr inbounds %struct.Curl_easy, ptr %data, i64 0, i32 16, i32 11
-  %authproblem.i.i = getelementptr inbounds %struct.Curl_easy, ptr %data, i64 0, i32 22, i32 63
-  %cl115.i.i = getelementptr inbounds %struct.h1_tunnel_state, ptr %ts.1, i64 0, i32 7
-  %chunked_encoding133.i.i = getelementptr inbounds %struct.h1_tunnel_state, ptr %ts.1, i64 0, i32 9
-  %ch.i.i.i = getelementptr inbounds %struct.h1_tunnel_state, ptr %ts.1, i64 0, i32 5
-  %httpproxycode.i.i.i = getelementptr inbounds %struct.Curl_easy, ptr %data, i64 0, i32 24, i32 1
-  %proxyauth.i.i = getelementptr inbounds %struct.Curl_easy, ptr %data, i64 0, i32 17, i32 9
-  %avail.i.i = getelementptr inbounds %struct.Curl_easy, ptr %data, i64 0, i32 22, i32 25, i32 2
-  %aptr.i.i = getelementptr inbounds %struct.Curl_easy, ptr %data, i64 0, i32 22, i32 58
-  %bits.i = getelementptr inbounds %struct.connectdata, ptr %16, i64 0, i32 27
+  %verbose.i40 = getelementptr inbounds i8, ptr %data, i64 2706
+  %newurl.i.i = getelementptr inbounds i8, ptr %data, i64 368
+  %request_data.i.i = getelementptr inbounds i8, ptr %ts.1, i64 144
+  %nsent.i.i = getelementptr inbounds i8, ptr %ts.1, i64 176
+  %keepon.i.i41 = getelementptr inbounds i8, ptr %ts.1, i64 264
+  %rcvbuf.i.i = getelementptr inbounds i8, ptr %ts.1, i64 112
+  %sockindex.i.i = getelementptr inbounds i8, ptr %cf, i64 32
+  %headerlines.i.i = getelementptr inbounds i8, ptr %ts.1, i64 184
+  %httpcode.i.i = getelementptr inbounds i8, ptr %data, i64 304
+  %authproblem.i.i = getelementptr inbounds i8, ptr %data, i64 5044
+  %cl115.i.i = getelementptr inbounds i8, ptr %ts.1, i64 272
+  %chunked_encoding133.i.i = getelementptr inbounds i8, ptr %ts.1, i64 284
+  %ch.i.i.i = getelementptr inbounds i8, ptr %ts.1, i64 192
+  %httpproxycode.i.i.i = getelementptr inbounds i8, ptr %data, i64 5060
+  %proxyauth.i.i = getelementptr inbounds i8, ptr %data, i64 480
+  %avail.i.i = getelementptr inbounds i8, ptr %data, i64 3608
+  %aptr.i.i = getelementptr inbounds i8, ptr %data, i64 4928
+  %bits.i = getelementptr inbounds i8, ptr %16, i64 704
   br label %do.body.i42
 
 do.body.i42:                                      ; preds = %do.cond.i, %do.body.preheader.i
@@ -323,7 +274,7 @@ land.lhs.true.i43:                                ; preds = %do.body8.i
 
 land.lhs.true12.i:                                ; preds = %land.lhs.true.i43
   %20 = load ptr, ptr %cf, align 8
-  %log_level.i = getelementptr inbounds %struct.Curl_cftype, ptr %20, i64 0, i32 2
+  %log_level.i = getelementptr inbounds i8, ptr %20, i64 12
   %21 = load i32, ptr %log_level.i, align 4
   %cmp13.i = icmp sgt i32 %21, 0
   br i1 %cmp13.i, label %if.then14.i, label %do.end.i45
@@ -351,7 +302,7 @@ land.lhs.true.i.i:                                ; preds = %do.end.i45
 
 if.then7.i.i:                                     ; preds = %land.lhs.true.i.i
   %25 = load ptr, ptr %req.i.i, align 8
-  %authority.i.i = getelementptr inbounds %struct.httpreq, ptr %25, i64 0, i32 2
+  %authority.i.i = getelementptr inbounds i8, ptr %25, i64 32
   %26 = load ptr, ptr %authority.i.i, align 8
   call void (ptr, ptr, ...) @Curl_infof(ptr noundef nonnull %data, ptr noundef nonnull @.str.21, ptr noundef %26) #5
   br label %out.i.i
@@ -360,7 +311,7 @@ out.i.i:                                          ; preds = %if.then7.i.i, %land
   call void @Curl_dyn_reset(ptr noundef nonnull %request_data.i.i) #5
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %nsent.i.i, i8 0, i64 16, i1 false)
   %27 = load ptr, ptr %conn1.i, align 8
-  %proxytype.i.i = getelementptr inbounds %struct.connectdata, ptr %27, i64 0, i32 11, i32 2
+  %proxytype.i.i = getelementptr inbounds i8, ptr %27, i64 236
   %28 = load i8, ptr %proxytype.i.i, align 4
   %cmp.i99.i = icmp ne i8 %28, 1
   %cond.i.i = zext i1 %cmp.i99.i to i32
@@ -402,7 +353,7 @@ land.lhs.true11.i.i:                              ; preds = %if.end19.i
 
 land.lhs.true21.i.i:                              ; preds = %land.lhs.true11.i.i
   %33 = load ptr, ptr %cf, align 8
-  %log_level23.i.i = getelementptr inbounds %struct.Curl_cftype, ptr %33, i64 0, i32 2
+  %log_level23.i.i = getelementptr inbounds i8, ptr %33, i64 12
   %34 = load i32, ptr %log_level23.i.i, align 4
   %cmp24.i.i = icmp sgt i32 %34, 0
   br i1 %cmp24.i.i, label %if.then25.i.i, label %do.end27.i.i
@@ -428,7 +379,7 @@ land.lhs.true23.i:                                ; preds = %do.body21.i, %do.en
 
 land.lhs.true33.i:                                ; preds = %land.lhs.true23.i
   %36 = load ptr, ptr %cf, align 8
-  %log_level35.i = getelementptr inbounds %struct.Curl_cftype, ptr %36, i64 0, i32 2
+  %log_level35.i = getelementptr inbounds i8, ptr %36, i64 12
   %37 = load i32, ptr %log_level35.i, align 4
   %cmp36.i = icmp sgt i32 %37, 0
   br i1 %cmp36.i, label %if.then37.i, label %do.end39.i
@@ -452,7 +403,7 @@ if.end.i107.i:                                    ; preds = %do.end39.i
   %add.ptr.i.i = getelementptr inbounds i8, ptr %call.i104.i, i64 %38
   %39 = load ptr, ptr %next, align 8
   %40 = load ptr, ptr %39, align 8
-  %do_send.i.i = getelementptr inbounds %struct.Curl_cftype, ptr %40, i64 0, i32 9
+  %do_send.i.i = getelementptr inbounds i8, ptr %40, i64 64
   %41 = load ptr, ptr %do_send.i.i, align 8
   %call6.i.i = call i64 %41(ptr noundef nonnull %39, ptr noundef %data, ptr noundef %add.ptr.i.i, i64 noundef %sub.i.i, ptr noundef nonnull %result.i.i) #5
   %cmp7.i.i = icmp slt i64 %call6.i.i, 0
@@ -509,7 +460,7 @@ land.lhs.true32.i.i:                              ; preds = %if.end.i114.i
 
 land.lhs.true42.i.i:                              ; preds = %land.lhs.true32.i.i
   %48 = load ptr, ptr %cf, align 8
-  %log_level44.i.i = getelementptr inbounds %struct.Curl_cftype, ptr %48, i64 0, i32 2
+  %log_level44.i.i = getelementptr inbounds i8, ptr %48, i64 12
   %49 = load i32, ptr %log_level44.i.i, align 4
   %cmp45.i.i = icmp sgt i32 %49, 0
   br i1 %cmp45.i.i, label %if.then46.i.i, label %do.end48.i.i
@@ -533,7 +484,7 @@ land.lhs.true48.i:                                ; preds = %do.body46.i
 
 land.lhs.true58.i:                                ; preds = %land.lhs.true48.i
   %51 = load ptr, ptr %cf, align 8
-  %log_level60.i = getelementptr inbounds %struct.Curl_cftype, ptr %51, i64 0, i32 2
+  %log_level60.i = getelementptr inbounds i8, ptr %51, i64 12
   %52 = load i32, ptr %log_level60.i, align 4
   %cmp61.i = icmp sgt i32 %52, 0
   br i1 %cmp61.i, label %if.then62.i, label %do.end64.i
@@ -742,7 +693,7 @@ land.lhs.true155.i.i:                             ; preds = %if.else132.i.i
 
 land.lhs.true165.i.i:                             ; preds = %land.lhs.true155.i.i
   %72 = load ptr, ptr %cf, align 8
-  %log_level.i.i = getelementptr inbounds %struct.Curl_cftype, ptr %72, i64 0, i32 2
+  %log_level.i.i = getelementptr inbounds i8, ptr %72, i64 12
   %73 = load i32, ptr %log_level.i.i, align 4
   %cmp166.i.i = icmp sgt i32 %73, 0
   br i1 %cmp166.i.i, label %if.then168.i.i, label %land.lhs.true195.sink.split.i.i
@@ -785,7 +736,7 @@ land.lhs.true13.i.i.i:                            ; preds = %if.then.i.i.i
 
 land.lhs.true17.i.i.i:                            ; preds = %land.lhs.true13.i.i.i
   %77 = load ptr, ptr %cf, align 8
-  %log_level.i.i.i = getelementptr inbounds %struct.Curl_cftype, ptr %77, i64 0, i32 2
+  %log_level.i.i.i = getelementptr inbounds i8, ptr %77, i64 12
   %78 = load i32, ptr %log_level.i.i.i, align 4
   %cmp18.i.i.i = icmp sgt i32 %78, 0
   br i1 %cmp18.i.i.i, label %if.then19.i.i.i, label %do.end.i.i.i
@@ -1011,7 +962,7 @@ land.lhs.true53.i.i:                              ; preds = %if.end.i131.i
 
 land.lhs.true63.i.i:                              ; preds = %land.lhs.true53.i.i
   %101 = load ptr, ptr %cf, align 8
-  %log_level65.i.i = getelementptr inbounds %struct.Curl_cftype, ptr %101, i64 0, i32 2
+  %log_level65.i.i = getelementptr inbounds i8, ptr %101, i64 12
   %102 = load i32, ptr %log_level65.i.i, align 4
   %cmp66.i.i = icmp sgt i32 %102, 0
   br i1 %cmp66.i.i, label %if.then67.i.i, label %do.end69.i.i
@@ -1035,7 +986,7 @@ land.lhs.true78.i:                                ; preds = %do.body76.i
 
 land.lhs.true88.i:                                ; preds = %land.lhs.true78.i
   %104 = load ptr, ptr %cf, align 8
-  %log_level90.i = getelementptr inbounds %struct.Curl_cftype, ptr %104, i64 0, i32 2
+  %log_level90.i = getelementptr inbounds i8, ptr %104, i64 12
   %105 = load i32, ptr %log_level90.i, align 4
   %cmp91.i = icmp sgt i32 %105, 0
   br i1 %cmp91.i, label %if.then92.i, label %do.end94.i
@@ -1069,7 +1020,7 @@ land.lhs.true110.i:                               ; preds = %lor.lhs.false102.i,
 
 land.lhs.true120.i:                               ; preds = %land.lhs.true110.i
   %110 = load ptr, ptr %cf, align 8
-  %log_level122.i = getelementptr inbounds %struct.Curl_cftype, ptr %110, i64 0, i32 2
+  %log_level122.i = getelementptr inbounds i8, ptr %110, i64 12
   %111 = load i32, ptr %log_level122.i, align 4
   %cmp123.i = icmp sgt i32 %111, 0
   br i1 %cmp123.i, label %land.lhs.true129.i, label %if.then137.i
@@ -1098,7 +1049,7 @@ land.lhs.true.i138.i:                             ; preds = %if.else.i
 
 land.lhs.true4.i.i:                               ; preds = %land.lhs.true.i138.i
   %115 = load ptr, ptr %cf, align 8
-  %log_level.i143.i = getelementptr inbounds %struct.Curl_cftype, ptr %115, i64 0, i32 2
+  %log_level.i143.i = getelementptr inbounds i8, ptr %115, i64 12
   %116 = load i32, ptr %log_level.i143.i, align 4
   %cmp5.i.i = icmp sgt i32 %116, 0
   br i1 %cmp5.i.i, label %if.then6.i.i, label %do.end.i141.i
@@ -1146,7 +1097,7 @@ land.lhs.true116.i.i:                             ; preds = %do.body152.i
 
 land.lhs.true126.i.i:                             ; preds = %land.lhs.true116.i.i
   %121 = load ptr, ptr %cf, align 8
-  %log_level128.i.i = getelementptr inbounds %struct.Curl_cftype, ptr %121, i64 0, i32 2
+  %log_level128.i.i = getelementptr inbounds i8, ptr %121, i64 12
   %122 = load i32, ptr %log_level128.i.i, align 4
   %cmp129.i.i = icmp sgt i32 %122, 0
   br i1 %cmp129.i.i, label %if.then130.i.i, label %if.end133.i.i
@@ -1159,7 +1110,7 @@ if.end133.i.i:                                    ; preds = %if.then130.i.i, %la
   store i32 5, ptr %tunnel_state.i.i38, align 8
   call void @Curl_dyn_reset(ptr noundef nonnull %rcvbuf.i.i) #5
   call void @Curl_dyn_reset(ptr noundef nonnull %request_data.i.i) #5
-  %info.i.i = getelementptr inbounds %struct.Curl_easy, ptr %data, i64 0, i32 24
+  %info.i.i = getelementptr inbounds i8, ptr %data, i64 5056
   store i32 0, ptr %info.i.i, align 8
   %123 = load ptr, ptr @Curl_cfree, align 8
   %124 = load ptr, ptr %aptr.i.i, align 8
@@ -1209,7 +1160,7 @@ land.lhs.true116.i156.i:                          ; preds = %if.end.i154.i
 
 land.lhs.true126.i167.i:                          ; preds = %land.lhs.true116.i156.i
   %131 = load ptr, ptr %cf, align 8
-  %log_level128.i168.i = getelementptr inbounds %struct.Curl_cftype, ptr %131, i64 0, i32 2
+  %log_level128.i168.i = getelementptr inbounds i8, ptr %131, i64 12
   %132 = load i32, ptr %log_level128.i168.i, align 4
   %cmp129.i169.i = icmp sgt i32 %132, 0
   br i1 %cmp129.i169.i, label %if.then130.i170.i, label %if.end133.i162.i
@@ -1222,7 +1173,7 @@ if.end133.i162.i:                                 ; preds = %if.then130.i170.i, 
   store i32 5, ptr %tunnel_state.i.i38, align 8
   call void @Curl_dyn_reset(ptr noundef nonnull %rcvbuf.i.i) #5
   call void @Curl_dyn_reset(ptr noundef nonnull %request_data.i.i) #5
-  %info.i165.i = getelementptr inbounds %struct.Curl_easy, ptr %data, i64 0, i32 24
+  %info.i165.i = getelementptr inbounds i8, ptr %data, i64 5056
   store i32 0, ptr %info.i165.i, align 8
   %133 = load ptr, ptr @Curl_cfree, align 8
   %134 = load ptr, ptr %aptr.i.i, align 8
@@ -1233,7 +1184,7 @@ if.end133.i162.i:                                 ; preds = %if.then130.i170.i, 
 do.body30:                                        ; preds = %lor.lhs.false71.i, %lor.lhs.false.i, %tunnel_is_established.exit.i, %out.i, %land.lhs.true163.i, %if.then171.i
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %done.i)
   %135 = load ptr, ptr @Curl_cfree, align 8
-  %aptr = getelementptr inbounds %struct.Curl_easy, ptr %data, i64 0, i32 22, i32 58
+  %aptr = getelementptr inbounds i8, ptr %data, i64 4928
   %136 = load ptr, ptr %aptr, align 8
   call void %135(ptr noundef %136) #5
   store ptr null, ptr %aptr, align 8
@@ -1246,7 +1197,7 @@ tunnel_is_established.exit.thread:                ; preds = %do.body30
   br label %return
 
 tunnel_is_established.exit:                       ; preds = %do.body30
-  %tunnel_state.i48 = getelementptr inbounds %struct.h1_tunnel_state, ptr %137, i64 0, i32 8
+  %tunnel_state.i48 = getelementptr inbounds i8, ptr %137, i64 280
   %138 = load i32, ptr %tunnel_state.i48, align 8
   %cmp.i49 = icmp eq i32 %138, 4
   %frombool38 = zext i1 %cmp.i49 to i8
@@ -1257,9 +1208,9 @@ if.then40:                                        ; preds = %tunnel_is_establish
   %bf.load42 = load i8, ptr %connected, align 4
   %bf.set = or i8 %bf.load42, 1
   store i8 %bf.set, ptr %connected, align 4
-  %header = getelementptr inbounds %struct.Curl_easy, ptr %data, i64 0, i32 16, i32 27
+  %header = getelementptr inbounds i8, ptr %data, i64 411
   %bf.load44 = load i16, ptr %header, align 1
-  %bytecount = getelementptr inbounds %struct.Curl_easy, ptr %data, i64 0, i32 16, i32 2
+  %bytecount = getelementptr inbounds i8, ptr %data, i64 240
   store i64 0, ptr %bytecount, align 8
   %bf.set46 = and i16 %bf.load44, -34
   %bf.clear50 = or disjoint i16 %bf.set46, 1
@@ -1288,7 +1239,7 @@ entry:
   br i1 %tobool.not, label %do.end, label %land.lhs.true
 
 land.lhs.true:                                    ; preds = %entry
-  %verbose = getelementptr inbounds %struct.Curl_easy, ptr %data, i64 0, i32 17, i32 129
+  %verbose = getelementptr inbounds i8, ptr %data, i64 2706
   %bf.load = load i64, ptr %verbose, align 2
   %0 = and i64 %bf.load, 536870912
   %tobool1 = icmp ne i64 %0, 0
@@ -1298,7 +1249,7 @@ land.lhs.true:                                    ; preds = %entry
 
 land.lhs.true4:                                   ; preds = %land.lhs.true
   %1 = load ptr, ptr %cf, align 8
-  %log_level = getelementptr inbounds %struct.Curl_cftype, ptr %1, i64 0, i32 2
+  %log_level = getelementptr inbounds i8, ptr %1, i64 12
   %2 = load i32, ptr %log_level, align 4
   %cmp = icmp sgt i32 %2, 0
   br i1 %cmp, label %if.then, label %do.end
@@ -1308,17 +1259,17 @@ if.then:                                          ; preds = %land.lhs.true4
   br label %do.end
 
 do.end:                                           ; preds = %entry, %land.lhs.true, %land.lhs.true4, %if.then
-  %connected = getelementptr inbounds %struct.Curl_cfilter, ptr %cf, i64 0, i32 5
+  %connected = getelementptr inbounds i8, ptr %cf, i64 36
   %bf.load5 = load i8, ptr %connected, align 4
   %bf.clear6 = and i8 %bf.load5, -2
   store i8 %bf.clear6, ptr %connected, align 4
-  %ctx = getelementptr inbounds %struct.Curl_cfilter, ptr %cf, i64 0, i32 2
+  %ctx = getelementptr inbounds i8, ptr %cf, i64 16
   %3 = load ptr, ptr %ctx, align 8
   %tobool7.not = icmp eq ptr %3, null
   br i1 %tobool7.not, label %if.end10, label %if.then8
 
 if.then8:                                         ; preds = %do.end
-  %tunnel_state.i = getelementptr inbounds %struct.h1_tunnel_state, ptr %3, i64 0, i32 8
+  %tunnel_state.i = getelementptr inbounds i8, ptr %3, i64 280
   %4 = load i32, ptr %tunnel_state.i, align 8
   %cmp.i = icmp eq i32 %4, 0
   br i1 %cmp.i, label %if.end10, label %if.end.i
@@ -1327,7 +1278,7 @@ if.end.i:                                         ; preds = %if.then8
   br i1 %tobool.not, label %do.end.i, label %land.lhs.true.i
 
 land.lhs.true.i:                                  ; preds = %if.end.i
-  %verbose.i = getelementptr inbounds %struct.Curl_easy, ptr %data, i64 0, i32 17, i32 129
+  %verbose.i = getelementptr inbounds i8, ptr %data, i64 2706
   %bf.load.i = load i64, ptr %verbose.i, align 2
   %5 = and i64 %bf.load.i, 536870912
   %tobool1.i.not = icmp eq i64 %5, 0
@@ -1335,7 +1286,7 @@ land.lhs.true.i:                                  ; preds = %if.end.i
 
 land.lhs.true4.i:                                 ; preds = %land.lhs.true.i
   %6 = load ptr, ptr %cf, align 8
-  %log_level.i = getelementptr inbounds %struct.Curl_cftype, ptr %6, i64 0, i32 2
+  %log_level.i = getelementptr inbounds i8, ptr %6, i64 12
   %7 = load i32, ptr %log_level.i, align 4
   %cmp5.i = icmp sgt i32 %7, 0
   br i1 %cmp5.i, label %if.then6.i, label %do.end.i
@@ -1345,30 +1296,30 @@ if.then6.i:                                       ; preds = %land.lhs.true4.i
   br label %do.end.i
 
 do.end.i:                                         ; preds = %if.then6.i, %land.lhs.true4.i, %land.lhs.true.i, %if.end.i
-  %rcvbuf.i.i = getelementptr inbounds %struct.h1_tunnel_state, ptr %3, i64 0, i32 1
+  %rcvbuf.i.i = getelementptr inbounds i8, ptr %3, i64 112
   tail call void @Curl_dyn_reset(ptr noundef nonnull %rcvbuf.i.i) #5
-  %request_data.i.i = getelementptr inbounds %struct.h1_tunnel_state, ptr %3, i64 0, i32 2
+  %request_data.i.i = getelementptr inbounds i8, ptr %3, i64 144
   tail call void @Curl_dyn_reset(ptr noundef nonnull %request_data.i.i) #5
   store i32 0, ptr %tunnel_state.i, align 8
-  %keepon.i.i = getelementptr inbounds %struct.h1_tunnel_state, ptr %3, i64 0, i32 6
+  %keepon.i.i = getelementptr inbounds i8, ptr %3, i64 264
   store i32 1, ptr %keepon.i.i, align 8
-  %cl.i.i = getelementptr inbounds %struct.h1_tunnel_state, ptr %3, i64 0, i32 7
+  %cl.i.i = getelementptr inbounds i8, ptr %3, i64 272
   store i64 0, ptr %cl.i.i, align 8
-  %close_connection.i.i = getelementptr inbounds %struct.h1_tunnel_state, ptr %3, i64 0, i32 9
+  %close_connection.i.i = getelementptr inbounds i8, ptr %3, i64 284
   %bf.load.i.i = load i8, ptr %close_connection.i.i, align 4
   %bf.clear.i.i = and i8 %bf.load.i.i, -3
   store i8 %bf.clear.i.i, ptr %close_connection.i.i, align 4
   br label %if.end10
 
 if.end10:                                         ; preds = %do.end.i, %if.then8, %do.end
-  %next = getelementptr inbounds %struct.Curl_cfilter, ptr %cf, i64 0, i32 1
+  %next = getelementptr inbounds i8, ptr %cf, i64 8
   %8 = load ptr, ptr %next, align 8
   %tobool11.not = icmp eq ptr %8, null
   br i1 %tobool11.not, label %if.end16, label %if.then12
 
 if.then12:                                        ; preds = %if.end10
   %9 = load ptr, ptr %8, align 8
-  %do_close = getelementptr inbounds %struct.Curl_cftype, ptr %9, i64 0, i32 5
+  %do_close = getelementptr inbounds i8, ptr %9, i64 32
   %10 = load ptr, ptr %do_close, align 8
   tail call void %10(ptr noundef nonnull %8, ptr noundef %data) #5
   br label %if.end16
@@ -1382,9 +1333,9 @@ declare void @Curl_cf_http_proxy_get_host(ptr noundef, ptr noundef, ptr noundef,
 ; Function Attrs: nounwind uwtable
 define internal void @cf_h1_proxy_adjust_pollset(ptr noundef %cf, ptr noundef %data, ptr noundef %ps) #0 {
 entry:
-  %ctx = getelementptr inbounds %struct.Curl_cfilter, ptr %cf, i64 0, i32 2
+  %ctx = getelementptr inbounds i8, ptr %cf, i64 16
   %0 = load ptr, ptr %ctx, align 8
-  %connected = getelementptr inbounds %struct.Curl_cfilter, ptr %cf, i64 0, i32 5
+  %connected = getelementptr inbounds i8, ptr %cf, i64 36
   %bf.load = load i8, ptr %connected, align 4
   %bf.clear = and i8 %bf.load, 1
   %tobool.not = icmp eq i8 %bf.clear, 0
@@ -1396,7 +1347,7 @@ if.then:                                          ; preds = %entry
   br i1 %tobool1.not, label %if.else4, label %if.then2
 
 if.then2:                                         ; preds = %if.then
-  %sending = getelementptr inbounds %struct.HTTP, ptr %0, i64 0, i32 3
+  %sending = getelementptr inbounds i8, ptr %0, i64 56
   %1 = load i32, ptr %sending, align 8
   %cmp = icmp eq i32 %1, 1
   br i1 %cmp, label %if.then3, label %if.else
@@ -1457,13 +1408,13 @@ declare void @Curl_trc_cf_infof(ptr noundef, ptr noundef, ptr noundef, ...) loca
 ; Function Attrs: nounwind uwtable
 define internal fastcc void @tunnel_free(ptr noundef %cf, ptr noundef %data) unnamed_addr #0 {
 entry:
-  %ctx = getelementptr inbounds %struct.Curl_cfilter, ptr %cf, i64 0, i32 2
+  %ctx = getelementptr inbounds i8, ptr %cf, i64 16
   %0 = load ptr, ptr %ctx, align 8
   %tobool.not = icmp eq ptr %0, null
   br i1 %tobool.not, label %if.end, label %if.then
 
 if.then:                                          ; preds = %entry
-  %tunnel_state.i = getelementptr inbounds %struct.h1_tunnel_state, ptr %0, i64 0, i32 8
+  %tunnel_state.i = getelementptr inbounds i8, ptr %0, i64 280
   %1 = load i32, ptr %tunnel_state.i, align 8
   %cmp.i = icmp eq i32 %1, 5
   br i1 %cmp.i, label %h1_tunnel_go_state.exit, label %if.end.i
@@ -1473,7 +1424,7 @@ if.end.i:                                         ; preds = %if.then
   br i1 %tobool.not.i, label %if.end133.i, label %land.lhs.true116.i
 
 land.lhs.true116.i:                               ; preds = %if.end.i
-  %verbose118.i = getelementptr inbounds %struct.Curl_easy, ptr %data, i64 0, i32 17, i32 129
+  %verbose118.i = getelementptr inbounds i8, ptr %data, i64 2706
   %bf.load119.i = load i64, ptr %verbose118.i, align 2
   %2 = and i64 %bf.load119.i, 536870912
   %tobool123.i.not = icmp eq i64 %2, 0
@@ -1481,7 +1432,7 @@ land.lhs.true116.i:                               ; preds = %if.end.i
 
 land.lhs.true126.i:                               ; preds = %land.lhs.true116.i
   %3 = load ptr, ptr %cf, align 8
-  %log_level128.i = getelementptr inbounds %struct.Curl_cftype, ptr %3, i64 0, i32 2
+  %log_level128.i = getelementptr inbounds i8, ptr %3, i64 12
   %4 = load i32, ptr %log_level128.i, align 4
   %cmp129.i = icmp sgt i32 %4, 0
   br i1 %cmp129.i, label %if.then130.i, label %if.end133.i
@@ -1492,25 +1443,25 @@ if.then130.i:                                     ; preds = %land.lhs.true126.i
 
 if.end133.i:                                      ; preds = %if.then130.i, %land.lhs.true126.i, %land.lhs.true116.i, %if.end.i
   store i32 5, ptr %tunnel_state.i, align 8
-  %rcvbuf135.i = getelementptr inbounds %struct.h1_tunnel_state, ptr %0, i64 0, i32 1
+  %rcvbuf135.i = getelementptr inbounds i8, ptr %0, i64 112
   tail call void @Curl_dyn_reset(ptr noundef nonnull %rcvbuf135.i) #5
-  %request_data.i = getelementptr inbounds %struct.h1_tunnel_state, ptr %0, i64 0, i32 2
+  %request_data.i = getelementptr inbounds i8, ptr %0, i64 144
   tail call void @Curl_dyn_reset(ptr noundef nonnull %request_data.i) #5
-  %info.i = getelementptr inbounds %struct.Curl_easy, ptr %data, i64 0, i32 24
+  %info.i = getelementptr inbounds i8, ptr %data, i64 5056
   store i32 0, ptr %info.i, align 8
   %5 = load ptr, ptr @Curl_cfree, align 8
-  %aptr.i = getelementptr inbounds %struct.Curl_easy, ptr %data, i64 0, i32 22, i32 58
+  %aptr.i = getelementptr inbounds i8, ptr %data, i64 4928
   %6 = load ptr, ptr %aptr.i, align 8
   tail call void %5(ptr noundef %6) #5
   store ptr null, ptr %aptr.i, align 8
   br label %h1_tunnel_go_state.exit
 
 h1_tunnel_go_state.exit:                          ; preds = %if.then, %if.end133.i
-  %rcvbuf = getelementptr inbounds %struct.h1_tunnel_state, ptr %0, i64 0, i32 1
+  %rcvbuf = getelementptr inbounds i8, ptr %0, i64 112
   tail call void @Curl_dyn_free(ptr noundef nonnull %rcvbuf) #5
-  %request_data = getelementptr inbounds %struct.h1_tunnel_state, ptr %0, i64 0, i32 2
+  %request_data = getelementptr inbounds i8, ptr %0, i64 144
   tail call void @Curl_dyn_free(ptr noundef nonnull %request_data) #5
-  %ch = getelementptr inbounds %struct.h1_tunnel_state, ptr %0, i64 0, i32 5
+  %ch = getelementptr inbounds i8, ptr %0, i64 192
   tail call void @Curl_httpchunk_free(ptr noundef %data, ptr noundef nonnull %ch) #5
   %7 = load ptr, ptr @Curl_cfree, align 8
   tail call void %7(ptr noundef nonnull %0) #5
@@ -1524,7 +1475,7 @@ if.end:                                           ; preds = %h1_tunnel_go_state.
 ; Function Attrs: nounwind uwtable
 define internal fastcc void @h1_tunnel_go_state(ptr noundef %cf, ptr noundef %ts, i32 noundef %new_state, ptr noundef %data) unnamed_addr #0 {
 entry:
-  %tunnel_state = getelementptr inbounds %struct.h1_tunnel_state, ptr %ts, i64 0, i32 8
+  %tunnel_state = getelementptr inbounds i8, ptr %ts, i64 280
   %0 = load i32, ptr %tunnel_state, align 8
   %cmp = icmp eq i32 %0, %new_state
   br i1 %cmp, label %sw.epilog, label %if.end
@@ -1544,7 +1495,7 @@ do.body:                                          ; preds = %if.end
   br i1 %tobool.not, label %do.end, label %land.lhs.true
 
 land.lhs.true:                                    ; preds = %do.body
-  %verbose = getelementptr inbounds %struct.Curl_easy, ptr %data, i64 0, i32 17, i32 129
+  %verbose = getelementptr inbounds i8, ptr %data, i64 2706
   %bf.load = load i64, ptr %verbose, align 2
   %1 = and i64 %bf.load, 536870912
   %tobool1 = icmp ne i64 %1, 0
@@ -1554,7 +1505,7 @@ land.lhs.true:                                    ; preds = %do.body
 
 land.lhs.true4:                                   ; preds = %land.lhs.true
   %2 = load ptr, ptr %cf, align 8
-  %log_level = getelementptr inbounds %struct.Curl_cftype, ptr %2, i64 0, i32 2
+  %log_level = getelementptr inbounds i8, ptr %2, i64 12
   %3 = load i32, ptr %log_level, align 4
   %cmp5 = icmp sgt i32 %3, 0
   br i1 %cmp5, label %if.then6, label %do.end
@@ -1564,16 +1515,16 @@ if.then6:                                         ; preds = %land.lhs.true4
   br label %do.end
 
 do.end:                                           ; preds = %do.body, %land.lhs.true, %land.lhs.true4, %if.then6
-  %rcvbuf.i = getelementptr inbounds %struct.h1_tunnel_state, ptr %ts, i64 0, i32 1
+  %rcvbuf.i = getelementptr inbounds i8, ptr %ts, i64 112
   tail call void @Curl_dyn_reset(ptr noundef nonnull %rcvbuf.i) #5
-  %request_data.i = getelementptr inbounds %struct.h1_tunnel_state, ptr %ts, i64 0, i32 2
+  %request_data.i = getelementptr inbounds i8, ptr %ts, i64 144
   tail call void @Curl_dyn_reset(ptr noundef nonnull %request_data.i) #5
   store i32 0, ptr %tunnel_state, align 8
-  %keepon.i = getelementptr inbounds %struct.h1_tunnel_state, ptr %ts, i64 0, i32 6
+  %keepon.i = getelementptr inbounds i8, ptr %ts, i64 264
   store i32 1, ptr %keepon.i, align 8
-  %cl.i = getelementptr inbounds %struct.h1_tunnel_state, ptr %ts, i64 0, i32 7
+  %cl.i = getelementptr inbounds i8, ptr %ts, i64 272
   store i64 0, ptr %cl.i, align 8
-  %close_connection.i = getelementptr inbounds %struct.h1_tunnel_state, ptr %ts, i64 0, i32 9
+  %close_connection.i = getelementptr inbounds i8, ptr %ts, i64 284
   %bf.load.i = load i8, ptr %close_connection.i, align 4
   %bf.clear.i = and i8 %bf.load.i, -3
   store i8 %bf.clear.i, ptr %close_connection.i, align 4
@@ -1583,7 +1534,7 @@ do.body9:                                         ; preds = %if.end
   br i1 %tobool.not, label %do.end27, label %land.lhs.true11
 
 land.lhs.true11:                                  ; preds = %do.body9
-  %verbose13 = getelementptr inbounds %struct.Curl_easy, ptr %data, i64 0, i32 17, i32 129
+  %verbose13 = getelementptr inbounds i8, ptr %data, i64 2706
   %bf.load14 = load i64, ptr %verbose13, align 2
   %4 = and i64 %bf.load14, 536870912
   %tobool18 = icmp ne i64 %4, 0
@@ -1593,7 +1544,7 @@ land.lhs.true11:                                  ; preds = %do.body9
 
 land.lhs.true21:                                  ; preds = %land.lhs.true11
   %5 = load ptr, ptr %cf, align 8
-  %log_level23 = getelementptr inbounds %struct.Curl_cftype, ptr %5, i64 0, i32 2
+  %log_level23 = getelementptr inbounds i8, ptr %5, i64 12
   %6 = load i32, ptr %log_level23, align 4
   %cmp24 = icmp sgt i32 %6, 0
   br i1 %cmp24, label %if.then25, label %do.end27
@@ -1604,9 +1555,9 @@ if.then25:                                        ; preds = %land.lhs.true21
 
 do.end27:                                         ; preds = %do.body9, %land.lhs.true11, %land.lhs.true21, %if.then25
   store i32 1, ptr %tunnel_state, align 8
-  %keepon = getelementptr inbounds %struct.h1_tunnel_state, ptr %ts, i64 0, i32 6
+  %keepon = getelementptr inbounds i8, ptr %ts, i64 264
   store i32 1, ptr %keepon, align 8
-  %rcvbuf = getelementptr inbounds %struct.h1_tunnel_state, ptr %ts, i64 0, i32 1
+  %rcvbuf = getelementptr inbounds i8, ptr %ts, i64 112
   tail call void @Curl_dyn_reset(ptr noundef nonnull %rcvbuf) #5
   br label %sw.epilog
 
@@ -1614,7 +1565,7 @@ do.body30:                                        ; preds = %if.end
   br i1 %tobool.not, label %do.end48, label %land.lhs.true32
 
 land.lhs.true32:                                  ; preds = %do.body30
-  %verbose34 = getelementptr inbounds %struct.Curl_easy, ptr %data, i64 0, i32 17, i32 129
+  %verbose34 = getelementptr inbounds i8, ptr %data, i64 2706
   %bf.load35 = load i64, ptr %verbose34, align 2
   %7 = and i64 %bf.load35, 536870912
   %tobool39 = icmp ne i64 %7, 0
@@ -1624,7 +1575,7 @@ land.lhs.true32:                                  ; preds = %do.body30
 
 land.lhs.true42:                                  ; preds = %land.lhs.true32
   %8 = load ptr, ptr %cf, align 8
-  %log_level44 = getelementptr inbounds %struct.Curl_cftype, ptr %8, i64 0, i32 2
+  %log_level44 = getelementptr inbounds i8, ptr %8, i64 12
   %9 = load i32, ptr %log_level44, align 4
   %cmp45 = icmp sgt i32 %9, 0
   br i1 %cmp45, label %if.then46, label %do.end48
@@ -1641,7 +1592,7 @@ do.body51:                                        ; preds = %if.end
   br i1 %tobool.not, label %do.end69, label %land.lhs.true53
 
 land.lhs.true53:                                  ; preds = %do.body51
-  %verbose55 = getelementptr inbounds %struct.Curl_easy, ptr %data, i64 0, i32 17, i32 129
+  %verbose55 = getelementptr inbounds i8, ptr %data, i64 2706
   %bf.load56 = load i64, ptr %verbose55, align 2
   %10 = and i64 %bf.load56, 536870912
   %tobool60 = icmp ne i64 %10, 0
@@ -1651,7 +1602,7 @@ land.lhs.true53:                                  ; preds = %do.body51
 
 land.lhs.true63:                                  ; preds = %land.lhs.true53
   %11 = load ptr, ptr %cf, align 8
-  %log_level65 = getelementptr inbounds %struct.Curl_cftype, ptr %11, i64 0, i32 2
+  %log_level65 = getelementptr inbounds i8, ptr %11, i64 12
   %12 = load i32, ptr %log_level65, align 4
   %cmp66 = icmp sgt i32 %12, 0
   br i1 %cmp66, label %if.then67, label %do.end69
@@ -1668,7 +1619,7 @@ do.body72:                                        ; preds = %if.end
   br i1 %tobool.not, label %sw.bb111.thread, label %land.lhs.true74
 
 land.lhs.true74:                                  ; preds = %do.body72
-  %verbose76 = getelementptr inbounds %struct.Curl_easy, ptr %data, i64 0, i32 17, i32 129
+  %verbose76 = getelementptr inbounds i8, ptr %data, i64 2706
   %bf.load77 = load i64, ptr %verbose76, align 2
   %13 = and i64 %bf.load77, 536870912
   %tobool81 = icmp ne i64 %13, 0
@@ -1678,7 +1629,7 @@ land.lhs.true74:                                  ; preds = %do.body72
 
 land.lhs.true84:                                  ; preds = %land.lhs.true74
   %14 = load ptr, ptr %cf, align 8
-  %log_level86 = getelementptr inbounds %struct.Curl_cftype, ptr %14, i64 0, i32 2
+  %log_level86 = getelementptr inbounds i8, ptr %14, i64 12
   %15 = load i32, ptr %log_level86, align 4
   %cmp87 = icmp sgt i32 %15, 0
   br i1 %cmp87, label %if.then88, label %if.then101
@@ -1699,7 +1650,7 @@ if.then101:                                       ; preds = %land.lhs.true84, %l
   br label %sw.bb111.thread
 
 sw.bb111.thread:                                  ; preds = %if.then101, %land.lhs.true93, %do.body72
-  %done = getelementptr inbounds %struct.Curl_easy, ptr %data, i64 0, i32 22, i32 25, i32 3
+  %done = getelementptr inbounds i8, ptr %data, i64 3616
   %bf.load104 = load i8, ptr %done, align 8
   %bf.set = and i8 %bf.load104, -4
   %bf.clear109 = or disjoint i8 %bf.set, 1
@@ -1710,7 +1661,7 @@ sw.bb111:                                         ; preds = %if.end
   br i1 %tobool.not, label %if.end133, label %land.lhs.true116
 
 land.lhs.true116:                                 ; preds = %sw.bb111
-  %verbose118 = getelementptr inbounds %struct.Curl_easy, ptr %data, i64 0, i32 17, i32 129
+  %verbose118 = getelementptr inbounds i8, ptr %data, i64 2706
   %bf.load119 = load i64, ptr %verbose118, align 2
   %16 = and i64 %bf.load119, 536870912
   %tobool123 = icmp ne i64 %16, 0
@@ -1720,7 +1671,7 @@ land.lhs.true116:                                 ; preds = %sw.bb111
 
 land.lhs.true126:                                 ; preds = %land.lhs.true116
   %17 = load ptr, ptr %cf, align 8
-  %log_level128 = getelementptr inbounds %struct.Curl_cftype, ptr %17, i64 0, i32 2
+  %log_level128 = getelementptr inbounds i8, ptr %17, i64 12
   %18 = load i32, ptr %log_level128, align 4
   %cmp129 = icmp sgt i32 %18, 0
   br i1 %cmp129, label %if.then130, label %if.end133
@@ -1731,14 +1682,14 @@ if.then130:                                       ; preds = %land.lhs.true126
 
 if.end133:                                        ; preds = %sw.bb111.thread, %if.then130, %land.lhs.true126, %land.lhs.true116, %sw.bb111
   store i32 %new_state, ptr %tunnel_state, align 8
-  %rcvbuf135 = getelementptr inbounds %struct.h1_tunnel_state, ptr %ts, i64 0, i32 1
+  %rcvbuf135 = getelementptr inbounds i8, ptr %ts, i64 112
   tail call void @Curl_dyn_reset(ptr noundef nonnull %rcvbuf135) #5
-  %request_data = getelementptr inbounds %struct.h1_tunnel_state, ptr %ts, i64 0, i32 2
+  %request_data = getelementptr inbounds i8, ptr %ts, i64 144
   tail call void @Curl_dyn_reset(ptr noundef nonnull %request_data) #5
-  %info = getelementptr inbounds %struct.Curl_easy, ptr %data, i64 0, i32 24
+  %info = getelementptr inbounds i8, ptr %data, i64 5056
   store i32 0, ptr %info, align 8
   %19 = load ptr, ptr @Curl_cfree, align 8
-  %aptr = getelementptr inbounds %struct.Curl_easy, ptr %data, i64 0, i32 22, i32 58
+  %aptr = getelementptr inbounds i8, ptr %data, i64 4928
   %20 = load ptr, ptr %aptr, align 8
   tail call void %19(ptr noundef %20) #5
   store ptr null, ptr %aptr, align 8

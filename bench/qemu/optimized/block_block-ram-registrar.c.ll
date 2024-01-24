@@ -3,20 +3,16 @@ source_filename = "bench/qemu/original/block_block-ram-registrar.c.ll"
 target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:128-n8:16:32:64-S128"
 target triple = "x86_64-unknown-linux-gnu"
 
-%struct.BlockRAMRegistrar = type { ptr, %struct.RAMBlockNotifier, i8 }
-%struct.RAMBlockNotifier = type { ptr, ptr, ptr, %struct.anon }
-%struct.anon = type { ptr, ptr }
-
 ; Function Attrs: nounwind sspstrong uwtable
 define dso_local void @blk_ram_registrar_init(ptr noundef %r, ptr noundef %blk) local_unnamed_addr #0 {
 entry:
   store ptr %blk, ptr %r, align 8
-  %notifier = getelementptr inbounds %struct.BlockRAMRegistrar, ptr %r, i64 0, i32 1
+  %notifier = getelementptr inbounds i8, ptr %r, i64 8
   store ptr @ram_block_added, ptr %notifier, align 8
-  %.compoundliteral.sroa.2.0.notifier.sroa_idx = getelementptr inbounds %struct.BlockRAMRegistrar, ptr %r, i64 0, i32 1, i32 1
+  %.compoundliteral.sroa.2.0.notifier.sroa_idx = getelementptr inbounds i8, ptr %r, i64 16
   store ptr @ram_block_removed, ptr %.compoundliteral.sroa.2.0.notifier.sroa_idx, align 8
-  %.compoundliteral.sroa.3.0.notifier.sroa_idx = getelementptr inbounds %struct.BlockRAMRegistrar, ptr %r, i64 0, i32 1, i32 2
-  %ok = getelementptr inbounds %struct.BlockRAMRegistrar, ptr %r, i64 0, i32 2
+  %.compoundliteral.sroa.3.0.notifier.sroa_idx = getelementptr inbounds i8, ptr %r, i64 24
+  %ok = getelementptr inbounds i8, ptr %r, i64 48
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %.compoundliteral.sroa.3.0.notifier.sroa_idx, i8 0, i64 24, i1 false)
   store i8 1, ptr %ok, align 8
   tail call void @ram_block_notifier_add(ptr noundef nonnull %notifier) #3
@@ -68,14 +64,14 @@ declare void @ram_block_notifier_add(ptr noundef) local_unnamed_addr #2
 ; Function Attrs: nounwind sspstrong uwtable
 define dso_local void @blk_ram_registrar_destroy(ptr noundef %r) local_unnamed_addr #0 {
 entry:
-  %ok = getelementptr inbounds %struct.BlockRAMRegistrar, ptr %r, i64 0, i32 2
+  %ok = getelementptr inbounds i8, ptr %r, i64 48
   %0 = load i8, ptr %ok, align 8
   %1 = and i8 %0, 1
   %tobool.not = icmp eq i8 %1, 0
   br i1 %tobool.not, label %if.end, label %if.then
 
 if.then:                                          ; preds = %entry
-  %notifier = getelementptr inbounds %struct.BlockRAMRegistrar, ptr %r, i64 0, i32 1
+  %notifier = getelementptr inbounds i8, ptr %r, i64 8
   tail call void @ram_block_notifier_remove(ptr noundef nonnull %notifier) #3
   br label %if.end
 

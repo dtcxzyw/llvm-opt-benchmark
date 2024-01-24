@@ -5,8 +5,6 @@ target triple = "x86_64-unknown-linux-gnu"
 
 %struct.UCaseProps = type { ptr, ptr, ptr, ptr, %struct.UTrie2, [4 x i8] }
 %struct.UTrie2 = type { ptr, ptr, ptr, i32, i32, i16, i16, i32, i32, i32, i32, ptr, i32, i8, i8, i16, ptr }
-%struct.USetAdder = type { ptr, ptr, ptr, ptr, ptr, ptr }
-%"class.icu_75::FullCaseFoldingIterator" = type <{ ptr, i32, i32, i32, i32, i32, [4 x i8] }>
 %"class.icu_75::ConstChar16Ptr" = type { ptr }
 
 @_ZL21ucase_props_singleton = internal constant %struct.UCaseProps { ptr null, ptr @_ZL19ucase_props_indexes, ptr @_ZL22ucase_props_exceptions, ptr @_ZL18ucase_props_unfold, %struct.UTrie2 { ptr @_ZL21ucase_props_trieIndex, ptr getelementptr (i8, ptr @_ZL21ucase_props_trieIndex, i64 6824), ptr null, i32 3412, i32 9736, i16 392, i16 3536, i32 0, i32 0, i32 919552, i32 13144, ptr null, i32 0, i8 0, i8 0, i16 0, ptr null }, [4 x i8] c"\04\00\00\00" }, align 8
@@ -52,7 +50,7 @@ declare void @utrie2_enum_75(ptr noundef, ptr noundef, ptr noundef, ptr noundef)
 ; Function Attrs: mustprogress uwtable
 define internal noundef signext i8 @_ZL24_enumPropertyStartsRangePKviij(ptr nocapture noundef readonly %context, i32 noundef %start, i32 %0, i32 %1) #0 {
 entry:
-  %add = getelementptr inbounds %struct.USetAdder, ptr %context, i64 0, i32 1
+  %add = getelementptr inbounds i8, ptr %context, i64 8
   %2 = load ptr, ptr %add, align 8
   %3 = load ptr, ptr %context, align 8
   tail call void %2(ptr noundef %3, i32 noundef %start)
@@ -60,7 +58,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define nonnull ptr @ucase_getSingleton_75(ptr nocapture noundef writeonly %pExceptionsLength, ptr nocapture noundef writeonly %pUnfoldLength) local_unnamed_addr #2 {
+define noundef nonnull ptr @ucase_getSingleton_75(ptr nocapture noundef writeonly %pExceptionsLength, ptr nocapture noundef writeonly %pUnfoldLength) local_unnamed_addr #2 {
 entry:
   store i32 1664, ptr %pExceptionsLength, align 4
   store i32 370, ptr %pUnfoldLength, align 4
@@ -106,7 +104,7 @@ cond.false19:                                     ; preds = %cond.false16
   %shr20 = lshr i32 %c, 11
   %0 = zext nneg i32 %shr20 to i64
   %1 = getelementptr i16, ptr @_ZL21ucase_props_trieIndex, i64 %0
-  %arrayidx23 = getelementptr i16, ptr %1, i64 2080
+  %arrayidx23 = getelementptr i8, ptr %1, i64 4160
   %2 = load i16, ptr %arrayidx23, align 2
   %conv24 = zext i16 %2 to i32
   %shr25 = lshr i32 %c, 5
@@ -150,7 +148,7 @@ if.else:                                          ; preds = %cond.end39
   %shr53 = lshr i32 %conv43, 4
   %idx.ext = zext nneg i32 %shr53 to i64
   %add.ptr = getelementptr inbounds i16, ptr @_ZL22ucase_props_exceptions, i64 %idx.ext
-  %incdec.ptr = getelementptr inbounds i16, ptr %add.ptr, i64 1
+  %incdec.ptr = getelementptr inbounds i8, ptr %add.ptr, i64 2
   %7 = load i16, ptr %add.ptr, align 2
   %conv54 = zext i16 %7 to i32
   %and55 = and i32 %conv54, 16
@@ -179,7 +177,7 @@ if.then64:                                        ; preds = %do.body
 if.else73:                                        ; preds = %do.body
   %mul = shl nuw nsw i64 %idx.ext70, 1
   %add.ptr80 = getelementptr inbounds i16, ptr %incdec.ptr, i64 %mul
-  %incdec.ptr81 = getelementptr inbounds i16, ptr %add.ptr80, i64 1
+  %incdec.ptr81 = getelementptr inbounds i8, ptr %add.ptr80, i64 2
   %10 = load i16, ptr %add.ptr80, align 2
   %conv82 = zext i16 %10 to i32
   %shl83 = shl nuw i32 %conv82, 16
@@ -213,7 +211,7 @@ if.then103:                                       ; preds = %do.body99
   br label %return
 
 if.else112:                                       ; preds = %do.body99
-  %incdec.ptr121 = getelementptr inbounds i16, ptr %add.ptr, i64 2
+  %incdec.ptr121 = getelementptr inbounds i8, ptr %add.ptr, i64 4
   %14 = load i16, ptr %incdec.ptr, align 2
   %conv122 = zext i16 %14 to i32
   %shl123 = shl nuw i32 %conv122, 16
@@ -260,7 +258,7 @@ cond.false19:                                     ; preds = %cond.false16
   %shr20 = lshr i32 %c, 11
   %0 = zext nneg i32 %shr20 to i64
   %1 = getelementptr i16, ptr @_ZL21ucase_props_trieIndex, i64 %0
-  %arrayidx23 = getelementptr i16, ptr %1, i64 2080
+  %arrayidx23 = getelementptr i8, ptr %1, i64 4160
   %2 = load i16, ptr %arrayidx23, align 2
   %conv24 = zext i16 %2 to i32
   %shr25 = lshr i32 %c, 5
@@ -304,7 +302,7 @@ if.else:                                          ; preds = %cond.end39
   %shr53 = lshr i32 %conv43, 4
   %idx.ext = zext nneg i32 %shr53 to i64
   %add.ptr = getelementptr inbounds i16, ptr @_ZL22ucase_props_exceptions, i64 %idx.ext
-  %incdec.ptr = getelementptr inbounds i16, ptr %add.ptr, i64 1
+  %incdec.ptr = getelementptr inbounds i8, ptr %add.ptr, i64 2
   %7 = load i16, ptr %add.ptr, align 2
   %conv54 = zext i16 %7 to i32
   %and55 = and i32 %conv54, 16
@@ -333,7 +331,7 @@ if.then64:                                        ; preds = %do.body
 if.else73:                                        ; preds = %do.body
   %mul = shl nuw nsw i64 %idx.ext70, 1
   %add.ptr80 = getelementptr inbounds i16, ptr %incdec.ptr, i64 %mul
-  %incdec.ptr81 = getelementptr inbounds i16, ptr %add.ptr80, i64 1
+  %incdec.ptr81 = getelementptr inbounds i8, ptr %add.ptr80, i64 2
   %10 = load i16, ptr %add.ptr80, align 2
   %conv82 = zext i16 %10 to i32
   %shl83 = shl nuw i32 %conv82, 16
@@ -375,7 +373,7 @@ if.then103:                                       ; preds = %do.body99
 if.else112:                                       ; preds = %do.body99
   %mul118 = shl nuw nsw i64 %idx.ext109, 1
   %add.ptr120 = getelementptr inbounds i16, ptr %incdec.ptr, i64 %mul118
-  %incdec.ptr121 = getelementptr inbounds i16, ptr %add.ptr120, i64 1
+  %incdec.ptr121 = getelementptr inbounds i8, ptr %add.ptr120, i64 2
   %15 = load i16, ptr %add.ptr120, align 2
   %conv122 = zext i16 %15 to i32
   %shl123 = shl nuw i32 %conv122, 16
@@ -422,7 +420,7 @@ cond.false19:                                     ; preds = %cond.false16
   %shr20 = lshr i32 %c, 11
   %0 = zext nneg i32 %shr20 to i64
   %1 = getelementptr i16, ptr @_ZL21ucase_props_trieIndex, i64 %0
-  %arrayidx23 = getelementptr i16, ptr %1, i64 2080
+  %arrayidx23 = getelementptr i8, ptr %1, i64 4160
   %2 = load i16, ptr %arrayidx23, align 2
   %conv24 = zext i16 %2 to i32
   %shr25 = lshr i32 %c, 5
@@ -466,7 +464,7 @@ if.else:                                          ; preds = %cond.end39
   %shr53 = lshr i32 %conv43, 4
   %idx.ext = zext nneg i32 %shr53 to i64
   %add.ptr = getelementptr inbounds i16, ptr @_ZL22ucase_props_exceptions, i64 %idx.ext
-  %incdec.ptr = getelementptr inbounds i16, ptr %add.ptr, i64 1
+  %incdec.ptr = getelementptr inbounds i8, ptr %add.ptr, i64 2
   %7 = load i16, ptr %add.ptr, align 2
   %conv54 = zext i16 %7 to i32
   %and55 = and i32 %conv54, 16
@@ -495,7 +493,7 @@ if.then64:                                        ; preds = %do.body
 if.else73:                                        ; preds = %do.body
   %mul = shl nuw nsw i64 %idx.ext70, 1
   %add.ptr80 = getelementptr inbounds i16, ptr %incdec.ptr, i64 %mul
-  %incdec.ptr81 = getelementptr inbounds i16, ptr %add.ptr80, i64 1
+  %incdec.ptr81 = getelementptr inbounds i8, ptr %add.ptr80, i64 2
   %10 = load i16, ptr %add.ptr80, align 2
   %conv82 = zext i16 %10 to i32
   %shl83 = shl nuw i32 %conv82, 16
@@ -545,7 +543,7 @@ if.then111:                                       ; preds = %do.body107
 if.else122:                                       ; preds = %do.body107
   %mul130 = shl nuw nsw i64 %idx.ext119, 1
   %add.ptr132 = getelementptr inbounds i16, ptr %incdec.ptr, i64 %mul130
-  %incdec.ptr133 = getelementptr inbounds i16, ptr %add.ptr132, i64 1
+  %incdec.ptr133 = getelementptr inbounds i8, ptr %add.ptr132, i64 2
   %15 = load i16, ptr %add.ptr132, align 2
   %conv134 = zext i16 %15 to i32
   %shl135 = shl nuw i32 %conv134, 16
@@ -592,7 +590,7 @@ cond.false19:                                     ; preds = %cond.false16
   %shr20 = lshr i32 %c, 11
   %0 = zext nneg i32 %shr20 to i64
   %1 = getelementptr i16, ptr @_ZL21ucase_props_trieIndex, i64 %0
-  %arrayidx23 = getelementptr i16, ptr %1, i64 2080
+  %arrayidx23 = getelementptr i8, ptr %1, i64 4160
   %2 = load i16, ptr %arrayidx23, align 2
   %conv24 = zext i16 %2 to i32
   %shr25 = lshr i32 %c, 5
@@ -631,7 +629,7 @@ if.then:                                          ; preds = %cond.end39
 if.then52:                                        ; preds = %if.then
   %6 = ashr i16 %5, 7
   %shr50 = sext i16 %6 to i32
-  %add53 = getelementptr inbounds %struct.USetAdder, ptr %sa, i64 0, i32 1
+  %add53 = getelementptr inbounds i8, ptr %sa, i64 8
   %7 = load ptr, ptr %add53, align 8
   %8 = load ptr, ptr %sa, align 8
   %add54 = add nsw i32 %shr50, %c
@@ -642,7 +640,7 @@ if.else:                                          ; preds = %cond.end39
   %shr57 = lshr i32 %conv43, 4
   %idx.ext = zext nneg i32 %shr57 to i64
   %add.ptr = getelementptr inbounds i16, ptr @_ZL22ucase_props_exceptions, i64 %idx.ext
-  %incdec.ptr = getelementptr inbounds i16, ptr %add.ptr, i64 1
+  %incdec.ptr = getelementptr inbounds i8, ptr %add.ptr, i64 2
   %9 = load i16, ptr %add.ptr, align 2
   %.fr = freeze i16 %9
   %conv58 = zext i16 %.fr to i32
@@ -656,14 +654,14 @@ if.then61:                                        ; preds = %if.else
   ]
 
 if.then63:                                        ; preds = %if.then61
-  %add64 = getelementptr inbounds %struct.USetAdder, ptr %sa, i64 0, i32 1
+  %add64 = getelementptr inbounds i8, ptr %sa, i64 8
   %10 = load ptr, ptr %add64, align 8
   %11 = load ptr, ptr %sa, align 8
   tail call void %10(ptr noundef %11, i32 noundef 105)
   br label %if.end283
 
 if.then68:                                        ; preds = %if.then61
-  %addString = getelementptr inbounds %struct.USetAdder, ptr %sa, i64 0, i32 3
+  %addString = getelementptr inbounds i8, ptr %sa, i64 24
   %12 = load ptr, ptr %addString, align 8
   %13 = load ptr, ptr %sa, align 8
   tail call void %12(ptr noundef %13, ptr noundef nonnull @_ZL4iDot, i32 noundef 2)
@@ -676,7 +674,7 @@ if.else72:                                        ; preds = %if.else
   ]
 
 if.then74:                                        ; preds = %if.else72
-  %add75 = getelementptr inbounds %struct.USetAdder, ptr %sa, i64 0, i32 1
+  %add75 = getelementptr inbounds i8, ptr %sa, i64 8
   %14 = load ptr, ptr %add75, align 8
   %15 = load ptr, ptr %sa, align 8
   tail call void %14(ptr noundef %15, i32 noundef 73)
@@ -685,7 +683,7 @@ if.then74:                                        ; preds = %if.else72
 if.end82:                                         ; preds = %if.else72, %if.then61
   %and90 = and i32 %conv58, 256
   %cmp91 = icmp eq i32 %and90, 0
-  %add117 = getelementptr inbounds %struct.USetAdder, ptr %sa, i64 0, i32 1
+  %add117 = getelementptr inbounds i8, ptr %sa, i64 8
   br i1 %cmp91, label %for.body.us, label %for.body
 
 for.body.us:                                      ; preds = %if.end82, %for.inc.us
@@ -731,7 +729,7 @@ if.then88:                                        ; preds = %for.body
   %conv109 = zext i8 %20 to i64
   %mul = shl nuw nsw i64 %conv109, 1
   %add.ptr111 = getelementptr inbounds i16, ptr %incdec.ptr, i64 %mul
-  %incdec.ptr112 = getelementptr inbounds i16, ptr %add.ptr111, i64 1
+  %incdec.ptr112 = getelementptr inbounds i8, ptr %add.ptr111, i64 2
   %21 = load i16, ptr %add.ptr111, align 2
   %conv113 = zext i16 %21 to i32
   %shl114 = shl nuw i32 %conv113, 16
@@ -770,7 +768,7 @@ if.then129:                                       ; preds = %if.then123
 if.else138:                                       ; preds = %if.then123
   %mul144 = shl nuw nsw i64 %idx.ext135, 1
   %add.ptr146 = getelementptr inbounds i16, ptr %incdec.ptr, i64 %mul144
-  %incdec.ptr147 = getelementptr inbounds i16, ptr %add.ptr146, i64 1
+  %incdec.ptr147 = getelementptr inbounds i8, ptr %add.ptr146, i64 2
   %27 = load i16, ptr %add.ptr146, align 2
   %conv148 = zext i16 %27 to i32
   %shl149 = shl nuw i32 %conv148, 16
@@ -805,12 +803,12 @@ if.then169:                                       ; preds = %if.end165
   %add.ptr181 = getelementptr inbounds i16, ptr %incdec.ptr, i64 %idx.ext180
   %mul189 = shl nuw nsw i64 %idx.ext180, 1
   %add.ptr191 = getelementptr inbounds i16, ptr %incdec.ptr, i64 %mul189
-  %incdec.ptr192 = getelementptr inbounds i16, ptr %add.ptr191, i64 1
+  %incdec.ptr192 = getelementptr inbounds i8, ptr %add.ptr191, i64 2
   %pe.0 = select i1 %cmp91, ptr %add.ptr181, ptr %incdec.ptr192
   %closureLength.0.in = load i16, ptr %pe.0, align 2
   %33 = and i16 %closureLength.0.in, 15
   %and199 = zext nneg i16 %33 to i32
-  %add.ptr200 = getelementptr inbounds i16, ptr %pe.0, i64 1
+  %add.ptr200 = getelementptr inbounds i8, ptr %pe.0, i64 2
   br label %if.end202
 
 if.end202:                                        ; preds = %if.end165, %if.then169
@@ -829,11 +827,11 @@ if.then206:                                       ; preds = %if.end202
   %add.ptr218 = getelementptr inbounds i16, ptr %incdec.ptr, i64 %idx.ext217
   %mul226 = shl nuw nsw i64 %idx.ext217, 1
   %add.ptr228 = getelementptr inbounds i16, ptr %incdec.ptr, i64 %mul226
-  %incdec.ptr229 = getelementptr inbounds i16, ptr %add.ptr228, i64 1
+  %incdec.ptr229 = getelementptr inbounds i8, ptr %add.ptr228, i64 2
   %pe.1 = select i1 %cmp91, ptr %add.ptr218, ptr %incdec.ptr229
   %fullLength.0.in = load i16, ptr %pe.1, align 2
   %fullLength.0 = zext i16 %fullLength.0.in to i32
-  %incdec.ptr236 = getelementptr inbounds i16, ptr %pe.1, i64 1
+  %incdec.ptr236 = getelementptr inbounds i8, ptr %pe.1, i64 2
   %and238 = and i32 %fullLength.0, 15
   %idx.ext239 = zext nneg i32 %and238 to i64
   %add.ptr240 = getelementptr inbounds i16, ptr %incdec.ptr236, i64 %idx.ext239
@@ -843,7 +841,7 @@ if.then206:                                       ; preds = %if.end202
   br i1 %cmp243.not, label %if.end249, label %if.then244
 
 if.then244:                                       ; preds = %if.then206
-  %addString245 = getelementptr inbounds %struct.USetAdder, ptr %sa, i64 0, i32 3
+  %addString245 = getelementptr inbounds i8, ptr %sa, i64 24
   %35 = load ptr, ptr %addString245, align 8
   %36 = load ptr, ptr %sa, align 8
   tail call void %35(ptr noundef %36, ptr noundef nonnull %add.ptr240, i32 noundef %and242)
@@ -935,7 +933,7 @@ cond.false19:                                     ; preds = %cond.false16
   %shr20 = lshr i32 %c, 11
   %0 = zext nneg i32 %shr20 to i64
   %1 = getelementptr i16, ptr @_ZL21ucase_props_trieIndex, i64 %0
-  %arrayidx23 = getelementptr i16, ptr %1, i64 2080
+  %arrayidx23 = getelementptr i8, ptr %1, i64 4160
   %2 = load i16, ptr %arrayidx23, align 2
   %conv24 = zext i16 %2 to i32
   %shr25 = lshr i32 %c, 5
@@ -974,7 +972,7 @@ if.then:                                          ; preds = %cond.end39
 if.then52:                                        ; preds = %if.then
   %6 = ashr i16 %5, 7
   %shr50 = sext i16 %6 to i32
-  %add53 = getelementptr inbounds %struct.USetAdder, ptr %sa, i64 0, i32 1
+  %add53 = getelementptr inbounds i8, ptr %sa, i64 8
   %7 = load ptr, ptr %add53, align 8
   %8 = load ptr, ptr %sa, align 8
   %add54 = add nsw i32 %shr50, %c
@@ -985,7 +983,7 @@ if.else:                                          ; preds = %cond.end39
   %shr57 = lshr i32 %conv43, 4
   %idx.ext = zext nneg i32 %shr57 to i64
   %add.ptr = getelementptr inbounds i16, ptr @_ZL22ucase_props_exceptions, i64 %idx.ext
-  %incdec.ptr = getelementptr inbounds i16, ptr %add.ptr, i64 1
+  %incdec.ptr = getelementptr inbounds i8, ptr %add.ptr, i64 2
   %9 = load i16, ptr %add.ptr, align 2
   %.fr = freeze i16 %9
   %conv58 = zext i16 %.fr to i32
@@ -999,7 +997,7 @@ if.then61:                                        ; preds = %if.else
   ]
 
 if.then63:                                        ; preds = %if.then61
-  %add64 = getelementptr inbounds %struct.USetAdder, ptr %sa, i64 0, i32 1
+  %add64 = getelementptr inbounds i8, ptr %sa, i64 8
   %10 = load ptr, ptr %add64, align 8
   %11 = load ptr, ptr %sa, align 8
   tail call void %10(ptr noundef %11, i32 noundef 105)
@@ -1012,7 +1010,7 @@ if.else71:                                        ; preds = %if.else
   ]
 
 if.then73:                                        ; preds = %if.else71
-  %add74 = getelementptr inbounds %struct.USetAdder, ptr %sa, i64 0, i32 1
+  %add74 = getelementptr inbounds i8, ptr %sa, i64 8
   %12 = load ptr, ptr %add74, align 8
   %13 = load ptr, ptr %sa, align 8
   tail call void %12(ptr noundef %13, i32 noundef 73)
@@ -1021,7 +1019,7 @@ if.then73:                                        ; preds = %if.else71
 if.end81:                                         ; preds = %if.else71, %if.then61
   %and89 = and i32 %conv58, 256
   %cmp90 = icmp eq i32 %and89, 0
-  %add116 = getelementptr inbounds %struct.USetAdder, ptr %sa, i64 0, i32 1
+  %add116 = getelementptr inbounds i8, ptr %sa, i64 8
   br i1 %cmp90, label %for.body.us, label %for.body
 
 for.body.us:                                      ; preds = %if.end81, %for.inc.us
@@ -1067,7 +1065,7 @@ if.then87:                                        ; preds = %for.body
   %conv108 = zext i8 %18 to i64
   %mul = shl nuw nsw i64 %conv108, 1
   %add.ptr110 = getelementptr inbounds i16, ptr %incdec.ptr, i64 %mul
-  %incdec.ptr111 = getelementptr inbounds i16, ptr %add.ptr110, i64 1
+  %incdec.ptr111 = getelementptr inbounds i8, ptr %add.ptr110, i64 2
   %19 = load i16, ptr %add.ptr110, align 2
   %conv112 = zext i16 %19 to i32
   %shl113 = shl nuw i32 %conv112, 16
@@ -1106,7 +1104,7 @@ if.then128:                                       ; preds = %if.then122
 if.else137:                                       ; preds = %if.then122
   %mul143 = shl nuw nsw i64 %idx.ext134, 1
   %add.ptr145 = getelementptr inbounds i16, ptr %incdec.ptr, i64 %mul143
-  %incdec.ptr146 = getelementptr inbounds i16, ptr %add.ptr145, i64 1
+  %incdec.ptr146 = getelementptr inbounds i8, ptr %add.ptr145, i64 2
   %25 = load i16, ptr %add.ptr145, align 2
   %conv147 = zext i16 %25 to i32
   %shl148 = shl nuw i32 %conv147, 16
@@ -1144,7 +1142,7 @@ if.end202:                                        ; preds = %if.then169
   %add.ptr181 = getelementptr inbounds i16, ptr %incdec.ptr, i64 %idx.ext180
   %closureLength.0.in = load i16, ptr %add.ptr181, align 2
   %31 = and i16 %closureLength.0.in, 15
-  %add.ptr200 = getelementptr inbounds i16, ptr %add.ptr181, i64 1
+  %add.ptr200 = getelementptr inbounds i8, ptr %add.ptr181, i64 2
   %cmp203.not = icmp eq i16 %31, 0
   %and205 = and i32 %conv58, 128
   %tobool206.not = icmp eq i32 %and205, 0
@@ -1154,10 +1152,10 @@ if.end202:                                        ; preds = %if.then169
 if.end202.thread:                                 ; preds = %if.then169
   %mul189 = shl nuw nsw i64 %idx.ext180, 1
   %add.ptr191 = getelementptr inbounds i16, ptr %incdec.ptr, i64 %mul189
-  %incdec.ptr192 = getelementptr inbounds i16, ptr %add.ptr191, i64 1
+  %incdec.ptr192 = getelementptr inbounds i8, ptr %add.ptr191, i64 2
   %closureLength.0.in119 = load i16, ptr %incdec.ptr192, align 2
   %32 = and i16 %closureLength.0.in119, 15
-  %add.ptr200120 = getelementptr inbounds i16, ptr %add.ptr191, i64 2
+  %add.ptr200120 = getelementptr inbounds i8, ptr %add.ptr191, i64 4
   %cmp203.not121 = icmp eq i16 %32, 0
   %and205122 = and i32 %conv58, 128
   %tobool206.not123 = icmp eq i32 %and205122, 0
@@ -1181,7 +1179,7 @@ if.else221:                                       ; preds = %if.end202.thread
   %conv226 = zext i8 %34 to i64
   %mul227 = shl nuw nsw i64 %conv226, 1
   %add.ptr229 = getelementptr inbounds i16, ptr %incdec.ptr, i64 %mul227
-  %incdec.ptr230 = getelementptr inbounds i16, ptr %add.ptr229, i64 1
+  %incdec.ptr230 = getelementptr inbounds i8, ptr %add.ptr229, i64 2
   br label %if.end253.thread129
 
 if.end253.thread129:                              ; preds = %if.else221, %if.then212
@@ -1189,7 +1187,7 @@ if.end253.thread129:                              ; preds = %if.else221, %if.the
   %pe.1 = phi ptr [ %add.ptr219, %if.then212 ], [ %incdec.ptr230, %if.else221 ]
   %fullLength.0.in = load i16, ptr %pe.1, align 2
   %fullLength.0 = zext i16 %fullLength.0.in to i32
-  %incdec.ptr237 = getelementptr inbounds i16, ptr %pe.1, i64 1
+  %incdec.ptr237 = getelementptr inbounds i8, ptr %pe.1, i64 2
   %and239 = and i32 %fullLength.0, 15
   %idx.ext240 = zext nneg i32 %and239 to i64
   %add.ptr241 = getelementptr inbounds i16, ptr %incdec.ptr237, i64 %idx.ext240
@@ -1254,7 +1252,7 @@ if.end279:                                        ; preds = %do.end275, %if.end1
 }
 
 ; Function Attrs: mustprogress uwtable
-define signext i8 @ucase_addStringCaseClosure_75(ptr noundef readonly %s, i32 noundef %length, ptr nocapture noundef readonly %sa) local_unnamed_addr #0 {
+define noundef signext i8 @ucase_addStringCaseClosure_75(ptr noundef readonly %s, i32 noundef %length, ptr nocapture noundef readonly %sa) local_unnamed_addr #0 {
 entry:
   %cmp = icmp eq ptr %s, null
   %0 = add i32 %length, -4
@@ -1280,8 +1278,8 @@ do.body.i.us:                                     ; preds = %do.cond.i.us, %whil
   %s.addr.0.i.us = phi ptr [ %s, %while.body.us ], [ %incdec.ptr.i.us, %do.cond.i.us ]
   %length.addr.0.i.us = phi i32 [ 3, %while.body.us ], [ %dec.i.us, %do.cond.i.us ]
   %t.addr.0.i.us = phi ptr [ %add.ptr13.us, %while.body.us ], [ %incdec.ptr1.i.us, %do.cond.i.us ]
-  %incdec.ptr.i.us = getelementptr inbounds i16, ptr %s.addr.0.i.us, i64 1
-  %incdec.ptr1.i.us = getelementptr inbounds i16, ptr %t.addr.0.i.us, i64 1
+  %incdec.ptr.i.us = getelementptr inbounds i8, ptr %s.addr.0.i.us, i64 2
+  %incdec.ptr1.i.us = getelementptr inbounds i8, ptr %t.addr.0.i.us, i64 2
   %2 = load i16, ptr %t.addr.0.i.us, align 2
   %cmp.i.us = icmp eq i16 %2, 0
   br i1 %cmp.i.us, label %if.else.us, label %if.end.i.us
@@ -1322,8 +1320,8 @@ do.body.i:                                        ; preds = %do.cond.i, %while.b
   %s.addr.0.i = phi ptr [ %s, %while.body ], [ %incdec.ptr.i, %do.cond.i ]
   %length.addr.0.i = phi i32 [ %length, %while.body ], [ %dec.i, %do.cond.i ]
   %t.addr.0.i = phi ptr [ %add.ptr13, %while.body ], [ %incdec.ptr1.i, %do.cond.i ]
-  %incdec.ptr.i = getelementptr inbounds i16, ptr %s.addr.0.i, i64 1
-  %incdec.ptr1.i = getelementptr inbounds i16, ptr %t.addr.0.i, i64 1
+  %incdec.ptr.i = getelementptr inbounds i8, ptr %s.addr.0.i, i64 2
+  %incdec.ptr1.i = getelementptr inbounds i8, ptr %t.addr.0.i, i64 2
   %4 = load i16, ptr %t.addr.0.i, align 2
   %cmp.i = icmp eq i16 %4, 0
   br i1 %cmp.i, label %if.else, label %if.end.i
@@ -1354,7 +1352,7 @@ _ZL9strcmpMaxPKDsiS0_i.exit:                      ; preds = %if.end.i, %do.end.i
 
 for.cond.preheader:                               ; preds = %_ZL9strcmpMaxPKDsiS0_i.exit, %do.cond.i.us
   %.us-phi = phi ptr [ %add.ptr13.us, %do.cond.i.us ], [ %add.ptr13, %_ZL9strcmpMaxPKDsiS0_i.exit ]
-  %add31 = getelementptr inbounds %struct.USetAdder, ptr %sa, i64 0, i32 1
+  %add31 = getelementptr inbounds i8, ptr %sa, i64 8
   br label %land.rhs
 
 land.rhs:                                         ; preds = %for.cond.preheader, %do.end
@@ -1410,9 +1408,9 @@ return:                                           ; preds = %if.else, %if.else.u
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
 define void @_ZN6icu_7523FullCaseFoldingIteratorC2Ev(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(28) %this) unnamed_addr #2 align 2 {
 entry:
-  %unfoldRows = getelementptr inbounds %"class.icu_75::FullCaseFoldingIterator", ptr %this, i64 0, i32 1
+  %unfoldRows = getelementptr inbounds i8, ptr %this, i64 8
   store <4 x i32> <i32 73, i32 5, i32 3, i32 0>, ptr %unfoldRows, align 8
-  %rowCpIndex = getelementptr inbounds %"class.icu_75::FullCaseFoldingIterator", ptr %this, i64 0, i32 5
+  %rowCpIndex = getelementptr inbounds i8, ptr %this, i64 24
   store i32 3, ptr %rowCpIndex, align 8
   store ptr getelementptr inbounds ([370 x i16], ptr @_ZL18ucase_props_unfold, i64 0, i64 5), ptr %this, align 8
   ret void
@@ -1423,14 +1421,14 @@ define noundef i32 @_ZN6icu_7523FullCaseFoldingIterator4nextERNS_13UnicodeString
 entry:
   %agg.tmp = alloca %"class.icu_75::ConstChar16Ptr", align 8
   %0 = load ptr, ptr %this, align 8
-  %currentRow = getelementptr inbounds %"class.icu_75::FullCaseFoldingIterator", ptr %this, i64 0, i32 4
+  %currentRow = getelementptr inbounds i8, ptr %this, i64 20
   %1 = load i32, ptr %currentRow, align 4
-  %unfoldRowWidth = getelementptr inbounds %"class.icu_75::FullCaseFoldingIterator", ptr %this, i64 0, i32 2
+  %unfoldRowWidth = getelementptr inbounds i8, ptr %this, i64 12
   %2 = load i32, ptr %unfoldRowWidth, align 4
   %mul = mul nsw i32 %2, %1
   %idx.ext = sext i32 %mul to i64
   %add.ptr = getelementptr inbounds i16, ptr %0, i64 %idx.ext
-  %rowCpIndex = getelementptr inbounds %"class.icu_75::FullCaseFoldingIterator", ptr %this, i64 0, i32 5
+  %rowCpIndex = getelementptr inbounds i8, ptr %this, i64 24
   %3 = load i32, ptr %rowCpIndex, align 8
   %cmp.not = icmp slt i32 %3, %2
   br i1 %cmp.not, label %lor.lhs.false, label %if.then
@@ -1447,7 +1445,7 @@ if.then:                                          ; preds = %lor.lhs.false, %ent
   store i32 %inc, ptr %currentRow, align 4
   %idx.ext7 = sext i32 %2 to i64
   %add.ptr8 = getelementptr inbounds i16, ptr %add.ptr, i64 %idx.ext7
-  %unfoldStringWidth = getelementptr inbounds %"class.icu_75::FullCaseFoldingIterator", ptr %this, i64 0, i32 3
+  %unfoldStringWidth = getelementptr inbounds i8, ptr %this, i64 16
   %5 = load i32, ptr %unfoldStringWidth, align 8
   store i32 %5, ptr %rowCpIndex, align 8
   br label %if.end
@@ -1455,13 +1453,13 @@ if.then:                                          ; preds = %lor.lhs.false, %ent
 if.end:                                           ; preds = %if.then, %lor.lhs.false
   %6 = phi i32 [ %inc, %if.then ], [ %1, %lor.lhs.false ]
   %p.0 = phi ptr [ %add.ptr8, %if.then ], [ %add.ptr, %lor.lhs.false ]
-  %unfoldRows = getelementptr inbounds %"class.icu_75::FullCaseFoldingIterator", ptr %this, i64 0, i32 1
+  %unfoldRows = getelementptr inbounds i8, ptr %this, i64 8
   %7 = load i32, ptr %unfoldRows, align 8
   %cmp11.not = icmp slt i32 %6, %7
   br i1 %cmp11.not, label %if.end13, label %return
 
 if.end13:                                         ; preds = %if.end
-  %unfoldStringWidth14 = getelementptr inbounds %"class.icu_75::FullCaseFoldingIterator", ptr %this, i64 0, i32 3
+  %unfoldStringWidth14 = getelementptr inbounds i8, ptr %this, i64 16
   %8 = load i32, ptr %unfoldStringWidth14, align 8
   %9 = zext i32 %8 to i64
   %smin = tail call i32 @llvm.smin.i32(i32 %8, i32 0)
@@ -1561,7 +1559,7 @@ cond.false19:                                     ; preds = %cond.false16
   %shr20 = lshr i32 %c, 11
   %0 = zext nneg i32 %shr20 to i64
   %1 = getelementptr i16, ptr @_ZL21ucase_props_trieIndex, i64 %0
-  %arrayidx23 = getelementptr i16, ptr %1, i64 2080
+  %arrayidx23 = getelementptr i8, ptr %1, i64 4160
   %2 = load i16, ptr %arrayidx23, align 2
   %conv24 = zext i16 %2 to i32
   %shr25 = lshr i32 %c, 5
@@ -1623,7 +1621,7 @@ cond.false19:                                     ; preds = %cond.false16
   %shr20 = lshr i32 %c, 11
   %0 = zext nneg i32 %shr20 to i64
   %1 = getelementptr i16, ptr @_ZL21ucase_props_trieIndex, i64 %0
-  %arrayidx23 = getelementptr i16, ptr %1, i64 2080
+  %arrayidx23 = getelementptr i8, ptr %1, i64 4160
   %2 = load i16, ptr %arrayidx23, align 2
   %conv24 = zext i16 %2 to i32
   %shr25 = lshr i32 %c, 5
@@ -1685,7 +1683,7 @@ cond.false19.i:                                   ; preds = %cond.false16.i
   %shr20.i = lshr i32 %c, 11
   %0 = zext nneg i32 %shr20.i to i64
   %1 = getelementptr i16, ptr @_ZL21ucase_props_trieIndex, i64 %0
-  %arrayidx23.i = getelementptr i16, ptr %1, i64 2080
+  %arrayidx23.i = getelementptr i8, ptr %1, i64 4160
   %2 = load i16, ptr %arrayidx23.i, align 2
   %conv24.i = zext i16 %2 to i32
   %shr25.i = lshr i32 %c, 5
@@ -1768,7 +1766,7 @@ cond.false19:                                     ; preds = %cond.false16
   %shr20 = lshr i32 %c, 11
   %0 = zext nneg i32 %shr20 to i64
   %1 = getelementptr i16, ptr @_ZL21ucase_props_trieIndex, i64 %0
-  %arrayidx23 = getelementptr i16, ptr %1, i64 2080
+  %arrayidx23 = getelementptr i8, ptr %1, i64 4160
   %2 = load i16, ptr %arrayidx23, align 2
   %conv24 = zext i16 %2 to i32
   %shr25 = lshr i32 %c, 5
@@ -1818,7 +1816,7 @@ return:                                           ; preds = %if.else, %if.then
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define i32 @ucase_getCaseLocale_75(ptr nocapture noundef readonly %locale) local_unnamed_addr #4 {
+define noundef i32 @ucase_getCaseLocale_75(ptr nocapture noundef readonly %locale) local_unnamed_addr #4 {
 entry:
   %incdec.ptr = getelementptr inbounds i8, ptr %locale, i64 1
   %0 = load i8, ptr %locale, align 1
@@ -2208,7 +2206,7 @@ cond.false19:                                     ; preds = %cond.false16
   %shr20 = lshr i32 %c, 11
   %0 = zext nneg i32 %shr20 to i64
   %1 = getelementptr i16, ptr @_ZL21ucase_props_trieIndex, i64 %0
-  %arrayidx23 = getelementptr i16, ptr %1, i64 2080
+  %arrayidx23 = getelementptr i8, ptr %1, i64 4160
   %2 = load i16, ptr %arrayidx23, align 2
   %conv24 = zext i16 %2 to i32
   %shr25 = lshr i32 %c, 5
@@ -2252,7 +2250,7 @@ if.else:                                          ; preds = %cond.end39
   %shr53 = lshr i32 %conv43, 4
   %idx.ext = zext nneg i32 %shr53 to i64
   %add.ptr = getelementptr inbounds i16, ptr @_ZL22ucase_props_exceptions, i64 %idx.ext
-  %incdec.ptr = getelementptr inbounds i16, ptr %add.ptr, i64 1
+  %incdec.ptr = getelementptr inbounds i8, ptr %add.ptr, i64 2
   %6 = load i16, ptr %add.ptr, align 2
   %conv54 = zext i16 %6 to i32
   %and55 = and i32 %conv54, 16384
@@ -2646,7 +2644,7 @@ do.body:                                          ; preds = %if.else117
   %add.ptr132 = getelementptr inbounds i16, ptr %incdec.ptr, i64 %idx.ext131
   %mul = shl nuw nsw i64 %idx.ext131, 1
   %add.ptr141 = getelementptr inbounds i16, ptr %incdec.ptr, i64 %mul
-  %incdec.ptr142 = getelementptr inbounds i16, ptr %add.ptr141, i64 1
+  %incdec.ptr142 = getelementptr inbounds i8, ptr %add.ptr141, i64 2
   %pe.0 = select i1 %cmp124, ptr %add.ptr132, ptr %incdec.ptr142
   %full.0.in = load i16, ptr %pe.0, align 2
   %32 = and i16 %full.0.in, 15
@@ -2655,7 +2653,7 @@ do.body:                                          ; preds = %if.else117
 
 if.then149:                                       ; preds = %do.body
   %and147 = zext nneg i16 %32 to i32
-  %add.ptr150 = getelementptr inbounds i16, ptr %pe.0, i64 1
+  %add.ptr150 = getelementptr inbounds i8, ptr %pe.0, i64 2
   store ptr %add.ptr150, ptr %pString, align 8
   br label %return
 
@@ -2686,7 +2684,7 @@ if.then166:                                       ; preds = %do.body162
 if.else175:                                       ; preds = %do.body162
   %mul181 = shl nuw nsw i64 %idx.ext172, 1
   %add.ptr183 = getelementptr inbounds i16, ptr %incdec.ptr, i64 %mul181
-  %incdec.ptr184 = getelementptr inbounds i16, ptr %add.ptr183, i64 1
+  %incdec.ptr184 = getelementptr inbounds i8, ptr %add.ptr183, i64 2
   %35 = load i16, ptr %add.ptr183, align 2
   %conv185 = zext i16 %35 to i32
   %shl186 = shl nuw i32 %conv185, 16
@@ -2720,7 +2718,7 @@ if.then208:                                       ; preds = %do.body204
   br label %if.end234
 
 if.else217:                                       ; preds = %do.body204
-  %incdec.ptr226 = getelementptr inbounds i16, ptr %add.ptr, i64 2
+  %incdec.ptr226 = getelementptr inbounds i8, ptr %add.ptr, i64 4
   %39 = load i16, ptr %incdec.ptr, align 2
   %conv227 = zext i16 %39 to i32
   %shl228 = shl nuw i32 %conv227, 16
@@ -2822,7 +2820,7 @@ return:                                           ; preds = %for.cond, %if.else,
 }
 
 ; Function Attrs: mustprogress uwtable
-define i32 @ucase_toFullUpper_75(i32 noundef %c, ptr noundef %iter, ptr noundef %context, ptr nocapture noundef writeonly %pString, i32 noundef %caseLocale) local_unnamed_addr #0 {
+define noundef i32 @ucase_toFullUpper_75(i32 noundef %c, ptr noundef %iter, ptr noundef %context, ptr nocapture noundef writeonly %pString, i32 noundef %caseLocale) local_unnamed_addr #0 {
 entry:
   %call = tail call fastcc noundef i32 @_ZL14toUpperOrTitleiPFiPvaES_PPKDsia(i32 noundef %c, ptr noundef %iter, ptr noundef %context, ptr noundef %pString, i32 noundef %caseLocale, i8 noundef signext 1)
   ret i32 %call
@@ -2862,7 +2860,7 @@ cond.false19:                                     ; preds = %cond.false16
   %shr20 = lshr i32 %c, 11
   %0 = zext nneg i32 %shr20 to i64
   %1 = getelementptr i16, ptr @_ZL21ucase_props_trieIndex, i64 %0
-  %arrayidx23 = getelementptr i16, ptr %1, i64 2080
+  %arrayidx23 = getelementptr i8, ptr %1, i64 4160
   %2 = load i16, ptr %arrayidx23, align 2
   %conv24 = zext i16 %2 to i32
   %shr25 = lshr i32 %c, 5
@@ -2906,7 +2904,7 @@ if.else:                                          ; preds = %cond.end39
   %shr53 = lshr i32 %conv43, 4
   %idx.ext = zext nneg i32 %shr53 to i64
   %add.ptr = getelementptr inbounds i16, ptr @_ZL22ucase_props_exceptions, i64 %idx.ext
-  %incdec.ptr = getelementptr inbounds i16, ptr %add.ptr, i64 1
+  %incdec.ptr = getelementptr inbounds i8, ptr %add.ptr, i64 2
   %7 = load i16, ptr %add.ptr, align 2
   %conv54 = zext i16 %7 to i32
   %and55 = and i32 %conv54, 16384
@@ -3044,7 +3042,7 @@ do.body:                                          ; preds = %if.else89
   %add.ptr104 = getelementptr inbounds i16, ptr %incdec.ptr, i64 %idx.ext103
   %mul = shl nuw nsw i64 %idx.ext103, 1
   %add.ptr113 = getelementptr inbounds i16, ptr %incdec.ptr, i64 %mul
-  %incdec.ptr114 = getelementptr inbounds i16, ptr %add.ptr113, i64 1
+  %incdec.ptr114 = getelementptr inbounds i8, ptr %add.ptr113, i64 2
   %pe.0 = select i1 %cmp96, ptr %add.ptr104, ptr %incdec.ptr114
   %full.0.in = load i16, ptr %pe.0, align 2
   %full.0 = zext i16 %full.0.in to i32
@@ -3057,7 +3055,7 @@ do.body:                                          ; preds = %if.else89
   br i1 %cmp138.not, label %if.end142, label %if.then139
 
 if.then139:                                       ; preds = %do.body
-  %incdec.ptr119 = getelementptr inbounds i16, ptr %pe.0, i64 1
+  %incdec.ptr119 = getelementptr inbounds i8, ptr %pe.0, i64 2
   %and120 = and i32 %full.0, 15
   %idx.ext121 = zext nneg i32 %and120 to i64
   %add.ptr122 = getelementptr inbounds i16, ptr %incdec.ptr119, i64 %idx.ext121
@@ -3099,7 +3097,7 @@ if.then155:                                       ; preds = %do.body151
 if.else164:                                       ; preds = %do.body151
   %mul170 = shl nuw nsw i64 %idx.ext161, 1
   %add.ptr172 = getelementptr inbounds i16, ptr %incdec.ptr, i64 %mul170
-  %incdec.ptr173 = getelementptr inbounds i16, ptr %add.ptr172, i64 1
+  %incdec.ptr173 = getelementptr inbounds i8, ptr %add.ptr172, i64 2
   %19 = load i16, ptr %add.ptr172, align 2
   %conv174 = zext i16 %19 to i32
   %shl175 = shl nuw i32 %conv174, 16
@@ -3155,7 +3153,7 @@ if.then207:                                       ; preds = %do.body203
 if.else218:                                       ; preds = %do.body203
   %mul226 = shl nuw nsw i64 %idx.ext215, 1
   %add.ptr228 = getelementptr inbounds i16, ptr %incdec.ptr, i64 %mul226
-  %incdec.ptr229 = getelementptr inbounds i16, ptr %add.ptr228, i64 1
+  %incdec.ptr229 = getelementptr inbounds i8, ptr %add.ptr228, i64 2
   %24 = load i16, ptr %add.ptr228, align 2
   %conv230 = zext i16 %24 to i32
   %shl231 = shl nuw i32 %conv230, 16
@@ -3177,7 +3175,7 @@ return:                                           ; preds = %_ZL10getDotTypei.ex
 }
 
 ; Function Attrs: mustprogress uwtable
-define i32 @ucase_toFullTitle_75(i32 noundef %c, ptr noundef %iter, ptr noundef %context, ptr nocapture noundef writeonly %pString, i32 noundef %caseLocale) local_unnamed_addr #0 {
+define noundef i32 @ucase_toFullTitle_75(i32 noundef %c, ptr noundef %iter, ptr noundef %context, ptr nocapture noundef writeonly %pString, i32 noundef %caseLocale) local_unnamed_addr #0 {
 entry:
   %call = tail call fastcc noundef i32 @_ZL14toUpperOrTitleiPFiPvaES_PPKDsia(i32 noundef %c, ptr noundef %iter, ptr noundef %context, ptr noundef %pString, i32 noundef %caseLocale, i8 noundef signext 0)
   ret i32 %call
@@ -3216,7 +3214,7 @@ cond.false19:                                     ; preds = %cond.false16
   %shr20 = lshr i32 %c, 11
   %0 = zext nneg i32 %shr20 to i64
   %1 = getelementptr i16, ptr @_ZL21ucase_props_trieIndex, i64 %0
-  %arrayidx23 = getelementptr i16, ptr %1, i64 2080
+  %arrayidx23 = getelementptr i8, ptr %1, i64 4160
   %2 = load i16, ptr %arrayidx23, align 2
   %conv24 = zext i16 %2 to i32
   %shr25 = lshr i32 %c, 5
@@ -3260,7 +3258,7 @@ if.else:                                          ; preds = %cond.end39
   %shr53 = lshr i32 %conv43, 4
   %idx.ext = zext nneg i32 %shr53 to i64
   %add.ptr = getelementptr inbounds i16, ptr @_ZL22ucase_props_exceptions, i64 %idx.ext
-  %incdec.ptr = getelementptr inbounds i16, ptr %add.ptr, i64 1
+  %incdec.ptr = getelementptr inbounds i8, ptr %add.ptr, i64 2
   %7 = load i16, ptr %add.ptr, align 2
   %conv54 = zext i16 %7 to i32
   %tobool56.not = icmp sgt i16 %7, -1
@@ -3321,7 +3319,7 @@ if.then93:                                        ; preds = %do.body
 if.else102:                                       ; preds = %do.body
   %mul = shl nuw nsw i64 %idx.ext99, 1
   %add.ptr109 = getelementptr inbounds i16, ptr %incdec.ptr, i64 %mul
-  %incdec.ptr110 = getelementptr inbounds i16, ptr %add.ptr109, i64 1
+  %incdec.ptr110 = getelementptr inbounds i8, ptr %add.ptr109, i64 2
   %10 = load i16, ptr %add.ptr109, align 2
   %conv111 = zext i16 %10 to i32
   %shl112 = shl nuw i32 %conv111, 16
@@ -3371,7 +3369,7 @@ if.then140:                                       ; preds = %do.body136
 if.else151:                                       ; preds = %do.body136
   %mul159 = shl nuw nsw i64 %idx.ext148, 1
   %add.ptr161 = getelementptr inbounds i16, ptr %incdec.ptr, i64 %mul159
-  %incdec.ptr162 = getelementptr inbounds i16, ptr %add.ptr161, i64 1
+  %incdec.ptr162 = getelementptr inbounds i8, ptr %add.ptr161, i64 2
   %15 = load i16, ptr %add.ptr161, align 2
   %conv163 = zext i16 %15 to i32
   %shl164 = shl nuw i32 %conv163, 16
@@ -3419,7 +3417,7 @@ cond.false19:                                     ; preds = %cond.false16
   %shr20 = lshr i32 %c, 11
   %0 = zext nneg i32 %shr20 to i64
   %1 = getelementptr i16, ptr @_ZL21ucase_props_trieIndex, i64 %0
-  %arrayidx23 = getelementptr i16, ptr %1, i64 2080
+  %arrayidx23 = getelementptr i8, ptr %1, i64 4160
   %2 = load i16, ptr %arrayidx23, align 2
   %conv24 = zext i16 %2 to i32
   %shr25 = lshr i32 %c, 5
@@ -3463,7 +3461,7 @@ if.else:                                          ; preds = %cond.end39
   %shr53 = lshr i32 %conv43, 4
   %idx.ext = zext nneg i32 %shr53 to i64
   %add.ptr = getelementptr inbounds i16, ptr @_ZL22ucase_props_exceptions, i64 %idx.ext
-  %incdec.ptr = getelementptr inbounds i16, ptr %add.ptr, i64 1
+  %incdec.ptr = getelementptr inbounds i8, ptr %add.ptr, i64 2
   %7 = load i16, ptr %add.ptr, align 2
   %conv54 = zext i16 %7 to i32
   %tobool56.not = icmp sgt i16 %7, -1
@@ -3509,7 +3507,7 @@ do.body:                                          ; preds = %if.else77
   %add.ptr92 = getelementptr inbounds i16, ptr %incdec.ptr, i64 %idx.ext91
   %mul = shl nuw nsw i64 %idx.ext91, 1
   %add.ptr101 = getelementptr inbounds i16, ptr %incdec.ptr, i64 %mul
-  %incdec.ptr102 = getelementptr inbounds i16, ptr %add.ptr101, i64 1
+  %incdec.ptr102 = getelementptr inbounds i8, ptr %add.ptr101, i64 2
   %pe.0 = select i1 %cmp84, ptr %add.ptr92, ptr %incdec.ptr102
   %full.0.in = load i16, ptr %pe.0, align 2
   %full.0 = zext i16 %full.0.in to i32
@@ -3519,7 +3517,7 @@ do.body:                                          ; preds = %if.else77
   br i1 %cmp113.not, label %if.end117, label %if.then114
 
 if.then114:                                       ; preds = %do.body
-  %incdec.ptr107 = getelementptr inbounds i16, ptr %pe.0, i64 1
+  %incdec.ptr107 = getelementptr inbounds i8, ptr %pe.0, i64 2
   %and108 = and i32 %full.0, 15
   %idx.ext109 = zext nneg i32 %and108 to i64
   %add.ptr110 = getelementptr inbounds i16, ptr %incdec.ptr107, i64 %idx.ext109
@@ -3562,7 +3560,7 @@ if.then134:                                       ; preds = %do.body130
 if.else143:                                       ; preds = %do.body130
   %mul149 = shl nuw nsw i64 %idx.ext140, 1
   %add.ptr151 = getelementptr inbounds i16, ptr %incdec.ptr, i64 %mul149
-  %incdec.ptr152 = getelementptr inbounds i16, ptr %add.ptr151, i64 1
+  %incdec.ptr152 = getelementptr inbounds i8, ptr %add.ptr151, i64 2
   %11 = load i16, ptr %add.ptr151, align 2
   %conv153 = zext i16 %11 to i32
   %shl154 = shl nuw i32 %conv153, 16
@@ -3616,7 +3614,7 @@ if.then185:                                       ; preds = %do.body181
 if.else196:                                       ; preds = %do.body181
   %mul204 = shl nuw nsw i64 %idx.ext193, 1
   %add.ptr206 = getelementptr inbounds i16, ptr %incdec.ptr, i64 %mul204
-  %incdec.ptr207 = getelementptr inbounds i16, ptr %add.ptr206, i64 1
+  %incdec.ptr207 = getelementptr inbounds i8, ptr %add.ptr206, i64 2
   %16 = load i16, ptr %add.ptr206, align 2
   %conv208 = zext i16 %16 to i32
   %shl209 = shl nuw i32 %conv208, 16
@@ -3670,7 +3668,7 @@ cond.false19.i:                                   ; preds = %cond.false16.i
   %shr20.i = lshr i32 %c, 11
   %0 = zext nneg i32 %shr20.i to i64
   %1 = getelementptr i16, ptr @_ZL21ucase_props_trieIndex, i64 %0
-  %arrayidx23.i = getelementptr i16, ptr %1, i64 2080
+  %arrayidx23.i = getelementptr i8, ptr %1, i64 4160
   %2 = load i16, ptr %arrayidx23.i, align 2
   %conv24.i = zext i16 %2 to i32
   %shr25.i = lshr i32 %c, 5
@@ -3733,7 +3731,7 @@ cond.false19.i:                                   ; preds = %cond.false16.i
   %shr20.i = lshr i32 %c, 11
   %0 = zext nneg i32 %shr20.i to i64
   %1 = getelementptr i16, ptr @_ZL21ucase_props_trieIndex, i64 %0
-  %arrayidx23.i = getelementptr i16, ptr %1, i64 2080
+  %arrayidx23.i = getelementptr i8, ptr %1, i64 4160
   %2 = load i16, ptr %arrayidx23.i, align 2
   %conv24.i = zext i16 %2 to i32
   %shr25.i = lshr i32 %c, 5
@@ -3839,7 +3837,7 @@ cond.false19.i:                                   ; preds = %cond.false16.i
   %shr20.i = lshr i32 %c, 11
   %0 = zext nneg i32 %shr20.i to i64
   %1 = getelementptr i16, ptr @_ZL21ucase_props_trieIndex, i64 %0
-  %arrayidx23.i = getelementptr i16, ptr %1, i64 2080
+  %arrayidx23.i = getelementptr i8, ptr %1, i64 4160
   %2 = load i16, ptr %arrayidx23.i, align 2
   %conv24.i = zext i16 %2 to i32
   %shr25.i = lshr i32 %c, 5
@@ -3899,7 +3897,7 @@ cond.false19.i19:                                 ; preds = %cond.false16.i17
   %shr20.i20 = lshr i32 %c, 11
   %7 = zext nneg i32 %shr20.i20 to i64
   %8 = getelementptr i16, ptr @_ZL21ucase_props_trieIndex, i64 %7
-  %arrayidx23.i21 = getelementptr i16, ptr %8, i64 2080
+  %arrayidx23.i21 = getelementptr i8, ptr %8, i64 4160
   %9 = load i16, ptr %arrayidx23.i21, align 2
   %conv24.i22 = zext i16 %9 to i32
   %shr25.i23 = lshr i32 %c, 5
@@ -3959,7 +3957,7 @@ cond.false19.i.i:                                 ; preds = %cond.false16.i.i
   %shr20.i.i = lshr i32 %c, 11
   %14 = zext nneg i32 %shr20.i.i to i64
   %15 = getelementptr i16, ptr @_ZL21ucase_props_trieIndex, i64 %14
-  %arrayidx23.i.i = getelementptr i16, ptr %15, i64 2080
+  %arrayidx23.i.i = getelementptr i8, ptr %15, i64 4160
   %16 = load i16, ptr %arrayidx23.i.i, align 2
   %conv24.i.i = zext i16 %16 to i32
   %shr25.i.i = lshr i32 %c, 5
@@ -4039,7 +4037,7 @@ cond.false19.i53:                                 ; preds = %cond.false16.i51
   %shr20.i54 = lshr i32 %c, 11
   %23 = zext nneg i32 %shr20.i54 to i64
   %24 = getelementptr i16, ptr @_ZL21ucase_props_trieIndex, i64 %23
-  %arrayidx23.i55 = getelementptr i16, ptr %24, i64 2080
+  %arrayidx23.i55 = getelementptr i8, ptr %24, i64 4160
   %25 = load i16, ptr %arrayidx23.i55, align 2
   %conv24.i56 = zext i16 %25 to i32
   %shr25.i57 = lshr i32 %c, 5
@@ -4119,7 +4117,7 @@ cond.false19.i85:                                 ; preds = %cond.false16.i83
   %shr20.i86 = lshr i32 %c, 11
   %34 = zext nneg i32 %shr20.i86 to i64
   %35 = getelementptr i16, ptr @_ZL21ucase_props_trieIndex, i64 %34
-  %arrayidx23.i87 = getelementptr i16, ptr %35, i64 2080
+  %arrayidx23.i87 = getelementptr i8, ptr %35, i64 4160
   %36 = load i16, ptr %arrayidx23.i87, align 2
   %conv24.i88 = zext i16 %36 to i32
   %shr25.i89 = lshr i32 %c, 5
@@ -4179,7 +4177,7 @@ cond.false19.i119:                                ; preds = %cond.false16.i117
   %shr20.i120 = lshr i32 %c, 11
   %41 = zext nneg i32 %shr20.i120 to i64
   %42 = getelementptr i16, ptr @_ZL21ucase_props_trieIndex, i64 %41
-  %arrayidx23.i121 = getelementptr i16, ptr %42, i64 2080
+  %arrayidx23.i121 = getelementptr i8, ptr %42, i64 4160
   %43 = load i16, ptr %arrayidx23.i121, align 2
   %conv24.i122 = zext i16 %43 to i32
   %shr25.i123 = lshr i32 %c, 5

@@ -4,11 +4,7 @@ target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:
 target triple = "x86_64-unknown-linux-gnu"
 
 %struct.cbs_st = type { ptr, i64 }
-%struct.rsa_st = type { ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, %struct.crypto_ex_data_st, i32, i32, %union.crypto_mutex_st, ptr, ptr, ptr, i32, ptr, ptr }
-%struct.crypto_ex_data_st = type { ptr }
-%union.crypto_mutex_st = type { double, [48 x i8] }
 %struct.cbb_st = type { ptr, ptr, i64, i8, i8, i8 }
-%struct.RSA_additional_prime_st = type { ptr, ptr, ptr, ptr, ptr }
 
 @.str = private unnamed_addr constant [125 x i8] c"generated/home/dtcxzyw/WorkSpace/Projects/compilers/llvm-opt-benchmark/bench/libquic/libquic/boringssl/crypto/rsa/rsa_asn1.c\00", align 1
 
@@ -33,7 +29,7 @@ if.end:                                           ; preds = %entry
   br i1 %tobool.not, label %if.then10, label %lor.lhs.false
 
 lor.lhs.false:                                    ; preds = %if.end
-  %n = getelementptr inbounds %struct.rsa_st, ptr %call, i64 0, i32 1
+  %n = getelementptr inbounds i8, ptr %call, i64 8
   %call.i = call ptr @BN_new() #5
   store ptr %call.i, ptr %n, align 8
   %cmp.i = icmp eq ptr %call.i, null
@@ -57,7 +53,7 @@ parse_integer_buggy.exit:                         ; preds = %if.then1.i, %if.end
   br i1 %tobool3.not, label %if.then10, label %lor.lhs.false4
 
 lor.lhs.false4:                                   ; preds = %parse_integer_buggy.exit
-  %e = getelementptr inbounds %struct.rsa_st, ptr %call, i64 0, i32 2
+  %e = getelementptr inbounds i8, ptr %call, i64 16
   %call.i.i = call ptr @BN_new() #5
   store ptr %call.i.i, ptr %e, align 8
   %cmp.i.i = icmp eq ptr %call.i.i, null
@@ -150,7 +146,7 @@ entry:
   br i1 %tobool.not, label %if.then, label %lor.lhs.false
 
 lor.lhs.false:                                    ; preds = %entry
-  %n = getelementptr inbounds %struct.rsa_st, ptr %rsa, i64 0, i32 1
+  %n = getelementptr inbounds i8, ptr %rsa, i64 8
   %0 = load ptr, ptr %n, align 8
   %cmp.i = icmp eq ptr %0, null
   br i1 %cmp.i, label %if.then.sink.split, label %marshal_integer.exit
@@ -161,7 +157,7 @@ marshal_integer.exit:                             ; preds = %lor.lhs.false
   br i1 %tobool2.not, label %if.then, label %lor.lhs.false3
 
 lor.lhs.false3:                                   ; preds = %marshal_integer.exit
-  %e = getelementptr inbounds %struct.rsa_st, ptr %rsa, i64 0, i32 2
+  %e = getelementptr inbounds i8, ptr %rsa, i64 16
   %1 = load ptr, ptr %e, align 8
   %cmp.i3 = icmp eq ptr %1, null
   br i1 %cmp.i3, label %if.then.sink.split, label %marshal_integer.exit8
@@ -283,7 +279,7 @@ if.then8:                                         ; preds = %if.end5
   br label %err
 
 if.end9:                                          ; preds = %if.end5
-  %n = getelementptr inbounds %struct.rsa_st, ptr %call, i64 0, i32 1
+  %n = getelementptr inbounds i8, ptr %call, i64 8
   %call.i.i = call ptr @BN_new() #5
   store ptr %call.i.i, ptr %n, align 8
   %cmp.i.i = icmp eq ptr %call.i.i, null
@@ -295,7 +291,7 @@ parse_integer.exit:                               ; preds = %if.end9
   br i1 %tobool11.not, label %err, label %lor.lhs.false12
 
 lor.lhs.false12:                                  ; preds = %parse_integer.exit
-  %e = getelementptr inbounds %struct.rsa_st, ptr %call, i64 0, i32 2
+  %e = getelementptr inbounds i8, ptr %call, i64 16
   %call.i.i32 = call ptr @BN_new() #5
   store ptr %call.i.i32, ptr %e, align 8
   %cmp.i.i33 = icmp eq ptr %call.i.i32, null
@@ -307,7 +303,7 @@ parse_integer.exit37:                             ; preds = %lor.lhs.false12
   br i1 %tobool14.not, label %err, label %lor.lhs.false15
 
 lor.lhs.false15:                                  ; preds = %parse_integer.exit37
-  %d = getelementptr inbounds %struct.rsa_st, ptr %call, i64 0, i32 3
+  %d = getelementptr inbounds i8, ptr %call, i64 24
   %call.i.i38 = call ptr @BN_new() #5
   store ptr %call.i.i38, ptr %d, align 8
   %cmp.i.i39 = icmp eq ptr %call.i.i38, null
@@ -319,7 +315,7 @@ parse_integer.exit43:                             ; preds = %lor.lhs.false15
   br i1 %tobool17.not, label %err, label %lor.lhs.false18
 
 lor.lhs.false18:                                  ; preds = %parse_integer.exit43
-  %p = getelementptr inbounds %struct.rsa_st, ptr %call, i64 0, i32 4
+  %p = getelementptr inbounds i8, ptr %call, i64 32
   %call.i.i44 = call ptr @BN_new() #5
   store ptr %call.i.i44, ptr %p, align 8
   %cmp.i.i45 = icmp eq ptr %call.i.i44, null
@@ -331,25 +327,25 @@ parse_integer.exit49:                             ; preds = %lor.lhs.false18
   br i1 %tobool20.not, label %err, label %lor.lhs.false21
 
 lor.lhs.false21:                                  ; preds = %parse_integer.exit49
-  %q = getelementptr inbounds %struct.rsa_st, ptr %call, i64 0, i32 5
+  %q = getelementptr inbounds i8, ptr %call, i64 40
   %call22 = call fastcc i32 @parse_integer(ptr noundef nonnull %child, ptr noundef nonnull %q)
   %tobool23.not = icmp eq i32 %call22, 0
   br i1 %tobool23.not, label %err, label %lor.lhs.false24
 
 lor.lhs.false24:                                  ; preds = %lor.lhs.false21
-  %dmp1 = getelementptr inbounds %struct.rsa_st, ptr %call, i64 0, i32 6
+  %dmp1 = getelementptr inbounds i8, ptr %call, i64 48
   %call25 = call fastcc i32 @parse_integer(ptr noundef nonnull %child, ptr noundef nonnull %dmp1)
   %tobool26.not = icmp eq i32 %call25, 0
   br i1 %tobool26.not, label %err, label %lor.lhs.false27
 
 lor.lhs.false27:                                  ; preds = %lor.lhs.false24
-  %dmq1 = getelementptr inbounds %struct.rsa_st, ptr %call, i64 0, i32 7
+  %dmq1 = getelementptr inbounds i8, ptr %call, i64 56
   %call28 = call fastcc i32 @parse_integer(ptr noundef nonnull %child, ptr noundef nonnull %dmq1)
   %tobool29.not = icmp eq i32 %call28, 0
   br i1 %tobool29.not, label %err, label %lor.lhs.false30
 
 lor.lhs.false30:                                  ; preds = %lor.lhs.false27
-  %iqmp = getelementptr inbounds %struct.rsa_st, ptr %call, i64 0, i32 8
+  %iqmp = getelementptr inbounds i8, ptr %call, i64 64
   %call31 = call fastcc i32 @parse_integer(ptr noundef nonnull %child, ptr noundef nonnull %iqmp)
   %tobool32.not = icmp eq i32 %call31, 0
   br i1 %tobool32.not, label %err, label %if.end34
@@ -375,7 +371,7 @@ if.then42:                                        ; preds = %lor.lhs.false39, %i
 
 if.end43:                                         ; preds = %lor.lhs.false39
   %call44 = call ptr @sk_new_null() #5
-  %additional_primes = getelementptr inbounds %struct.rsa_st, ptr %call, i64 0, i32 9
+  %additional_primes = getelementptr inbounds i8, ptr %call, i64 72
   store ptr %call44, ptr %additional_primes, align 8
   %cmp46 = icmp eq ptr %call44, null
   br i1 %cmp46, label %if.then47, label %if.end48
@@ -422,7 +418,7 @@ if.then70:                                        ; preds = %if.end66
 
 if.end71:                                         ; preds = %if.end66
   %call72 = call ptr @BN_dup(ptr noundef %call50) #5
-  %r = getelementptr inbounds %struct.RSA_additional_prime_st, ptr %call63, i64 0, i32 3
+  %r = getelementptr inbounds i8, ptr %call63, i64 24
   store ptr %call72, ptr %r, align 8
   %cmp74 = icmp eq ptr %call72, null
   br i1 %cmp74, label %err, label %lor.lhs.false75
@@ -522,7 +518,7 @@ parse_integer.exit:                               ; preds = %lor.lhs.false
   br i1 %tobool3.not, label %if.then13, label %lor.lhs.false4
 
 lor.lhs.false4:                                   ; preds = %parse_integer.exit
-  %exp = getelementptr inbounds %struct.RSA_additional_prime_st, ptr %calloc, i64 0, i32 1
+  %exp = getelementptr inbounds i8, ptr %calloc, i64 8
   %call.i.i7 = call ptr @BN_new() #5
   store ptr %call.i.i7, ptr %exp, align 8
   %cmp.i.i8 = icmp eq ptr %call.i.i7, null
@@ -534,7 +530,7 @@ parse_integer.exit12:                             ; preds = %lor.lhs.false4
   br i1 %tobool6.not, label %if.then13, label %lor.lhs.false7
 
 lor.lhs.false7:                                   ; preds = %parse_integer.exit12
-  %coeff = getelementptr inbounds %struct.RSA_additional_prime_st, ptr %calloc, i64 0, i32 2
+  %coeff = getelementptr inbounds i8, ptr %calloc, i64 16
   %call.i.i13 = call ptr @BN_new() #5
   store ptr %call.i.i13, ptr %coeff, align 8
   %cmp.i.i14 = icmp eq ptr %call.i.i13, null
@@ -600,7 +596,7 @@ entry:
   %child = alloca %struct.cbb_st, align 8
   %other_prime_infos = alloca %struct.cbb_st, align 8
   %other_prime_info = alloca %struct.cbb_st, align 8
-  %additional_primes = getelementptr inbounds %struct.rsa_st, ptr %rsa, i64 0, i32 9
+  %additional_primes = getelementptr inbounds i8, ptr %rsa, i64 72
   %0 = load ptr, ptr %additional_primes, align 8
   %call = tail call i64 @sk_num(ptr noundef %0) #5
   %cmp.not = icmp ne i64 %call, 0
@@ -615,7 +611,7 @@ lor.lhs.false:                                    ; preds = %entry
   br i1 %tobool4.not, label %return.sink.split, label %lor.lhs.false5
 
 lor.lhs.false5:                                   ; preds = %lor.lhs.false
-  %n = getelementptr inbounds %struct.rsa_st, ptr %rsa, i64 0, i32 1
+  %n = getelementptr inbounds i8, ptr %rsa, i64 8
   %1 = load ptr, ptr %n, align 8
   %cmp.i = icmp eq ptr %1, null
   br i1 %cmp.i, label %return.sink.split.sink.split, label %marshal_integer.exit
@@ -626,7 +622,7 @@ marshal_integer.exit:                             ; preds = %lor.lhs.false5
   br i1 %tobool7.not, label %return.sink.split, label %lor.lhs.false8
 
 lor.lhs.false8:                                   ; preds = %marshal_integer.exit
-  %e = getelementptr inbounds %struct.rsa_st, ptr %rsa, i64 0, i32 2
+  %e = getelementptr inbounds i8, ptr %rsa, i64 16
   %2 = load ptr, ptr %e, align 8
   %cmp.i17 = icmp eq ptr %2, null
   br i1 %cmp.i17, label %return.sink.split.sink.split, label %marshal_integer.exit22
@@ -637,7 +633,7 @@ marshal_integer.exit22:                           ; preds = %lor.lhs.false8
   br i1 %tobool10.not, label %return.sink.split, label %lor.lhs.false11
 
 lor.lhs.false11:                                  ; preds = %marshal_integer.exit22
-  %d = getelementptr inbounds %struct.rsa_st, ptr %rsa, i64 0, i32 3
+  %d = getelementptr inbounds i8, ptr %rsa, i64 24
   %3 = load ptr, ptr %d, align 8
   %cmp.i23 = icmp eq ptr %3, null
   br i1 %cmp.i23, label %return.sink.split.sink.split, label %marshal_integer.exit28
@@ -648,7 +644,7 @@ marshal_integer.exit28:                           ; preds = %lor.lhs.false11
   br i1 %tobool13.not, label %return.sink.split, label %lor.lhs.false14
 
 lor.lhs.false14:                                  ; preds = %marshal_integer.exit28
-  %p = getelementptr inbounds %struct.rsa_st, ptr %rsa, i64 0, i32 4
+  %p = getelementptr inbounds i8, ptr %rsa, i64 32
   %4 = load ptr, ptr %p, align 8
   %cmp.i29 = icmp eq ptr %4, null
   br i1 %cmp.i29, label %return.sink.split.sink.split, label %marshal_integer.exit34
@@ -659,7 +655,7 @@ marshal_integer.exit34:                           ; preds = %lor.lhs.false14
   br i1 %tobool16.not, label %return.sink.split, label %lor.lhs.false17
 
 lor.lhs.false17:                                  ; preds = %marshal_integer.exit34
-  %q = getelementptr inbounds %struct.rsa_st, ptr %rsa, i64 0, i32 5
+  %q = getelementptr inbounds i8, ptr %rsa, i64 40
   %5 = load ptr, ptr %q, align 8
   %cmp.i35 = icmp eq ptr %5, null
   br i1 %cmp.i35, label %return.sink.split.sink.split, label %marshal_integer.exit40
@@ -670,7 +666,7 @@ marshal_integer.exit40:                           ; preds = %lor.lhs.false17
   br i1 %tobool19.not, label %return.sink.split, label %lor.lhs.false20
 
 lor.lhs.false20:                                  ; preds = %marshal_integer.exit40
-  %dmp1 = getelementptr inbounds %struct.rsa_st, ptr %rsa, i64 0, i32 6
+  %dmp1 = getelementptr inbounds i8, ptr %rsa, i64 48
   %6 = load ptr, ptr %dmp1, align 8
   %cmp.i41 = icmp eq ptr %6, null
   br i1 %cmp.i41, label %return.sink.split.sink.split, label %marshal_integer.exit46
@@ -681,7 +677,7 @@ marshal_integer.exit46:                           ; preds = %lor.lhs.false20
   br i1 %tobool22.not, label %return.sink.split, label %lor.lhs.false23
 
 lor.lhs.false23:                                  ; preds = %marshal_integer.exit46
-  %dmq1 = getelementptr inbounds %struct.rsa_st, ptr %rsa, i64 0, i32 7
+  %dmq1 = getelementptr inbounds i8, ptr %rsa, i64 56
   %7 = load ptr, ptr %dmq1, align 8
   %cmp.i47 = icmp eq ptr %7, null
   br i1 %cmp.i47, label %return.sink.split.sink.split, label %marshal_integer.exit52
@@ -692,7 +688,7 @@ marshal_integer.exit52:                           ; preds = %lor.lhs.false23
   br i1 %tobool25.not, label %return.sink.split, label %lor.lhs.false26
 
 lor.lhs.false26:                                  ; preds = %marshal_integer.exit52
-  %iqmp = getelementptr inbounds %struct.rsa_st, ptr %rsa, i64 0, i32 8
+  %iqmp = getelementptr inbounds i8, ptr %rsa, i64 64
   %8 = load ptr, ptr %iqmp, align 8
   %call27 = call fastcc i32 @marshal_integer(ptr noundef nonnull %child, ptr noundef %8)
   %tobool28.not = icmp eq i32 %call27, 0
@@ -738,7 +734,7 @@ marshal_integer.exit58:                           ; preds = %lor.lhs.false43
   br i1 %tobool45.not, label %return.sink.split, label %lor.lhs.false46
 
 lor.lhs.false46:                                  ; preds = %marshal_integer.exit58
-  %exp = getelementptr inbounds %struct.RSA_additional_prime_st, ptr %call40, i64 0, i32 1
+  %exp = getelementptr inbounds i8, ptr %call40, i64 8
   %13 = load ptr, ptr %exp, align 8
   %cmp.i59 = icmp eq ptr %13, null
   br i1 %cmp.i59, label %return.sink.split.sink.split, label %marshal_integer.exit64
@@ -749,7 +745,7 @@ marshal_integer.exit64:                           ; preds = %lor.lhs.false46
   br i1 %tobool48.not, label %return.sink.split, label %lor.lhs.false49
 
 lor.lhs.false49:                                  ; preds = %marshal_integer.exit64
-  %coeff = getelementptr inbounds %struct.RSA_additional_prime_st, ptr %call40, i64 0, i32 2
+  %coeff = getelementptr inbounds i8, ptr %call40, i64 16
   %14 = load ptr, ptr %coeff, align 8
   %cmp.i65 = icmp eq ptr %14, null
   br i1 %cmp.i65, label %return.sink.split.sink.split, label %marshal_integer.exit70

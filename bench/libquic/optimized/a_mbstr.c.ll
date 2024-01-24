@@ -3,8 +3,6 @@ source_filename = "bench/libquic/original/a_mbstr.c.ll"
 target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:128-n8:16:32:64-S128"
 target triple = "x86_64-unknown-linux-gnu"
 
-%struct.asn1_string_st = type { i32, i32, ptr, i64 }
-
 @.str = private unnamed_addr constant [125 x i8] c"generated/home/dtcxzyw/WorkSpace/Projects/compilers/llvm-opt-benchmark/bench/libquic/libquic/boringssl/crypto/asn1/a_mbstr.c\00", align 1
 @.str.1 = private unnamed_addr constant [4 x i8] c"%ld\00", align 1
 @.str.2 = private unnamed_addr constant [9 x i8] c"minsize=\00", align 1
@@ -188,7 +186,7 @@ if.end70:                                         ; preds = %if.end67
   br i1 %tobool71.not.not, label %if.else78, label %if.then72
 
 if.then72:                                        ; preds = %if.end70
-  %data = getelementptr inbounds %struct.asn1_string_st, ptr %1, i64 0, i32 2
+  %data = getelementptr inbounds i8, ptr %1, i64 8
   %2 = load ptr, ptr %data, align 8
   %tobool73.not = icmp eq ptr %2, null
   br i1 %tobool73.not, label %if.end77, label %if.then74
@@ -200,7 +198,7 @@ if.then74:                                        ; preds = %if.then72
   br label %if.end77
 
 if.end77:                                         ; preds = %if.then74, %if.then72
-  %type = getelementptr inbounds %struct.asn1_string_st, ptr %1, i64 0, i32 1
+  %type = getelementptr inbounds i8, ptr %1, i64 4
   store i32 %str_type.0, ptr %type, align 4
   br label %if.end83
 
@@ -282,7 +280,7 @@ if.end105:                                        ; preds = %if.then104, %if.the
 
 if.end106:                                        ; preds = %sw.epilog98
   store i32 %3, ptr %dest.0, align 8
-  %data108 = getelementptr inbounds %struct.asn1_string_st, ptr %dest.0, i64 0, i32 2
+  %data108 = getelementptr inbounds i8, ptr %dest.0, i64 8
   store ptr %call100, ptr %data108, align 8
   %idxprom = sext i32 %3 to i64
   %arrayidx = getelementptr inbounds i8, ptr %call100, i64 %idxprom

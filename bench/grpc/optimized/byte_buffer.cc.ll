@@ -6,10 +6,6 @@ target triple = "x86_64-unknown-linux-gnu"
 %"class.std::ios_base::Init" = type { i8 }
 %"struct.std::atomic.0" = type { %"struct.std::__atomic_base.1" }
 %"struct.std::__atomic_base.1" = type { i8 }
-%struct.grpc_byte_buffer = type { ptr, i32, %"union.grpc_byte_buffer::grpc_byte_buffer_data" }
-%"union.grpc_byte_buffer::grpc_byte_buffer_data" = type { %"struct.grpc_byte_buffer::grpc_byte_buffer_data::grpc_compressed_buffer" }
-%"struct.grpc_byte_buffer::grpc_byte_buffer_data::grpc_compressed_buffer" = type { i32, %struct.grpc_slice_buffer }
-%struct.grpc_slice_buffer = type { ptr, ptr, i64, i64, i64, [7 x %struct.grpc_slice] }
 %struct.grpc_slice = type { ptr, %"union.grpc_slice::grpc_slice_data" }
 %"union.grpc_slice::grpc_slice_data" = type { %"struct.grpc_slice::grpc_slice_data::grpc_slice_refcounted", [8 x i8] }
 %"struct.grpc_slice::grpc_slice_data::grpc_slice_refcounted" = type { i64, ptr }
@@ -85,11 +81,11 @@ declare i32 @__cxa_atexit(ptr, ptr, ptr) local_unnamed_addr #2
 define ptr @grpc_raw_byte_buffer_create(ptr noundef %slices, i64 noundef %nslices) local_unnamed_addr #3 {
 entry:
   %call.i = tail call ptr @gpr_malloc(i64 noundef 288)
-  %type.i = getelementptr inbounds %struct.grpc_byte_buffer, ptr %call.i, i64 0, i32 1
+  %type.i = getelementptr inbounds i8, ptr %call.i, i64 8
   store i32 0, ptr %type.i, align 8
-  %data.i = getelementptr inbounds %struct.grpc_byte_buffer, ptr %call.i, i64 0, i32 2
+  %data.i = getelementptr inbounds i8, ptr %call.i, i64 16
   store i32 0, ptr %data.i, align 8
-  %slice_buffer.i = getelementptr inbounds %struct.grpc_byte_buffer, ptr %call.i, i64 0, i32 2, i32 0, i32 1
+  %slice_buffer.i = getelementptr inbounds i8, ptr %call.i, i64 24
   tail call void @grpc_slice_buffer_init(ptr noundef nonnull %slice_buffer.i)
   %cmp9.not.i = icmp eq i64 %nslices, 0
   br i1 %cmp9.not.i, label %grpc_raw_compressed_byte_buffer_create.exit, label %for.body.i
@@ -119,11 +115,11 @@ grpc_raw_compressed_byte_buffer_create.exit:      ; preds = %_ZN9grpc_core9CSlic
 define ptr @grpc_raw_compressed_byte_buffer_create(ptr nocapture noundef readonly %slices, i64 noundef %nslices, i32 noundef %compression) local_unnamed_addr #3 {
 entry:
   %call = tail call ptr @gpr_malloc(i64 noundef 288)
-  %type = getelementptr inbounds %struct.grpc_byte_buffer, ptr %call, i64 0, i32 1
+  %type = getelementptr inbounds i8, ptr %call, i64 8
   store i32 0, ptr %type, align 8
-  %data = getelementptr inbounds %struct.grpc_byte_buffer, ptr %call, i64 0, i32 2
+  %data = getelementptr inbounds i8, ptr %call, i64 16
   store i32 %compression, ptr %data, align 8
-  %slice_buffer = getelementptr inbounds %struct.grpc_byte_buffer, ptr %call, i64 0, i32 2, i32 0, i32 1
+  %slice_buffer = getelementptr inbounds i8, ptr %call, i64 24
   tail call void @grpc_slice_buffer_init(ptr noundef nonnull %slice_buffer)
   %cmp9.not = icmp eq i64 %nslices, 0
   br i1 %cmp9.not, label %for.end, label %for.body
@@ -160,11 +156,11 @@ define ptr @grpc_raw_byte_buffer_from_reader(ptr noundef %reader) local_unnamed_
 entry:
   %slice = alloca %struct.grpc_slice, align 8
   %call = tail call ptr @gpr_malloc(i64 noundef 288)
-  %type = getelementptr inbounds %struct.grpc_byte_buffer, ptr %call, i64 0, i32 1
+  %type = getelementptr inbounds i8, ptr %call, i64 8
   store i32 0, ptr %type, align 8
-  %data = getelementptr inbounds %struct.grpc_byte_buffer, ptr %call, i64 0, i32 2
+  %data = getelementptr inbounds i8, ptr %call, i64 16
   store i32 0, ptr %data, align 8
-  %slice_buffer = getelementptr inbounds %struct.grpc_byte_buffer, ptr %call, i64 0, i32 2, i32 0, i32 1
+  %slice_buffer = getelementptr inbounds i8, ptr %call, i64 24
   tail call void @grpc_slice_buffer_init(ptr noundef nonnull %slice_buffer)
   %call25 = call i32 @grpc_byte_buffer_reader_next(ptr noundef %reader, ptr noundef nonnull %slice)
   %tobool.not6 = icmp eq i32 %call25, 0
@@ -185,24 +181,24 @@ declare i32 @grpc_byte_buffer_reader_next(ptr noundef, ptr noundef) local_unname
 ; Function Attrs: mustprogress uwtable
 define ptr @grpc_byte_buffer_copy(ptr nocapture noundef readonly %bb) local_unnamed_addr #3 {
 entry:
-  %type = getelementptr inbounds %struct.grpc_byte_buffer, ptr %bb, i64 0, i32 1
+  %type = getelementptr inbounds i8, ptr %bb, i64 8
   %0 = load i32, ptr %type, align 8
   %cond = icmp eq i32 %0, 0
   br i1 %cond, label %sw.bb, label %do.body
 
 sw.bb:                                            ; preds = %entry
-  %data = getelementptr inbounds %struct.grpc_byte_buffer, ptr %bb, i64 0, i32 2
-  %slices = getelementptr inbounds %struct.grpc_byte_buffer, ptr %bb, i64 0, i32 2, i32 0, i32 1, i32 1
+  %data = getelementptr inbounds i8, ptr %bb, i64 16
+  %slices = getelementptr inbounds i8, ptr %bb, i64 32
   %1 = load ptr, ptr %slices, align 8
-  %count = getelementptr inbounds %struct.grpc_byte_buffer, ptr %bb, i64 0, i32 2, i32 0, i32 1, i32 2
+  %count = getelementptr inbounds i8, ptr %bb, i64 40
   %2 = load i64, ptr %count, align 8
   %3 = load i32, ptr %data, align 8
   %call.i = tail call ptr @gpr_malloc(i64 noundef 288)
-  %type.i = getelementptr inbounds %struct.grpc_byte_buffer, ptr %call.i, i64 0, i32 1
+  %type.i = getelementptr inbounds i8, ptr %call.i, i64 8
   store i32 0, ptr %type.i, align 8
-  %data.i = getelementptr inbounds %struct.grpc_byte_buffer, ptr %call.i, i64 0, i32 2
+  %data.i = getelementptr inbounds i8, ptr %call.i, i64 16
   store i32 %3, ptr %data.i, align 8
-  %slice_buffer.i = getelementptr inbounds %struct.grpc_byte_buffer, ptr %call.i, i64 0, i32 2, i32 0, i32 1
+  %slice_buffer.i = getelementptr inbounds i8, ptr %call.i, i64 24
   tail call void @grpc_slice_buffer_init(ptr noundef nonnull %slice_buffer.i)
   %cmp9.not.i = icmp eq i64 %2, 0
   br i1 %cmp9.not.i, label %grpc_raw_compressed_byte_buffer_create.exit, label %for.body.i
@@ -244,12 +240,12 @@ entry:
 
 if.end:                                           ; preds = %entry
   store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN9grpc_core7ExecCtxE, i64 0, inrange i32 0, i64 2), ptr %exec_ctx, align 8
-  %closure_list_.i = getelementptr inbounds %"class.grpc_core::ExecCtx", ptr %exec_ctx, i64 0, i32 1
-  %flags_.i = getelementptr inbounds %"class.grpc_core::ExecCtx", ptr %exec_ctx, i64 0, i32 3
+  %closure_list_.i = getelementptr inbounds i8, ptr %exec_ctx, i64 8
+  %flags_.i = getelementptr inbounds i8, ptr %exec_ctx, i64 40
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %closure_list_.i, i8 0, i64 32, i1 false)
   store i64 1, ptr %flags_.i, align 8
-  %time_cache_.i = getelementptr inbounds %"class.grpc_core::ExecCtx", ptr %exec_ctx, i64 0, i32 4
-  %previous_.i.i.i = getelementptr inbounds %"class.grpc_core::ExecCtx", ptr %exec_ctx, i64 0, i32 4, i32 0, i32 1
+  %time_cache_.i = getelementptr inbounds i8, ptr %exec_ctx, i64 48
+  %previous_.i.i.i = getelementptr inbounds i8, ptr %exec_ctx, i64 56
   br i1 icmp ne (ptr @_ZTHN9grpc_core9Timestamp25thread_local_time_source_E, ptr null), label %0, label %_ZTWN9grpc_core9Timestamp25thread_local_time_source_E.exit.i.i.i
 
 0:                                                ; preds = %if.end
@@ -269,7 +265,7 @@ _ZTWN9grpc_core9Timestamp25thread_local_time_source_E.exit.i.i.i: ; preds = %0, 
 _ZN9grpc_core15ScopedTimeCacheC2Ev.exit.i:        ; preds = %3, %_ZTWN9grpc_core9Timestamp25thread_local_time_source_E.exit.i.i.i
   store ptr %time_cache_.i, ptr %1, align 8
   store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN9grpc_core15ScopedTimeCacheE, i64 0, inrange i32 0, i64 2), ptr %time_cache_.i, align 8
-  %_M_engaged.i.i.i.i.i.i = getelementptr inbounds %"class.grpc_core::ExecCtx", ptr %exec_ctx, i64 0, i32 4, i32 1, i32 0, i32 0, i32 0, i32 1
+  %_M_engaged.i.i.i.i.i.i = getelementptr inbounds i8, ptr %exec_ctx, i64 72
   store i8 0, ptr %_M_engaged.i.i.i.i.i.i, align 8
   br i1 icmp ne (ptr @_ZTHN9grpc_core7ExecCtx9exec_ctx_E, ptr null), label %4, label %invoke.cont.i
 
@@ -280,7 +276,7 @@ _ZN9grpc_core15ScopedTimeCacheC2Ev.exit.i:        ; preds = %3, %_ZTWN9grpc_core
 invoke.cont.i:                                    ; preds = %4, %_ZN9grpc_core15ScopedTimeCacheC2Ev.exit.i
   %5 = call noundef align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @_ZN9grpc_core7ExecCtx9exec_ctx_E)
   %6 = load ptr, ptr %5, align 8
-  %last_exec_ctx_.i = getelementptr inbounds %"class.grpc_core::ExecCtx", ptr %exec_ctx, i64 0, i32 5
+  %last_exec_ctx_.i = getelementptr inbounds i8, ptr %exec_ctx, i64 80
   store ptr %6, ptr %last_exec_ctx_.i, align 8
   %7 = load atomic i8, ptr @_ZN9grpc_core4Fork16support_enabled_E monotonic, align 1
   %8 = and i8 %7, 1
@@ -319,13 +315,13 @@ _ZN9grpc_core15ScopedTimeCacheD2Ev.exit.i:        ; preds = %12, %lpad.i
 
 _ZN9grpc_core7ExecCtxC2Ev.exit:                   ; preds = %invoke.cont2.i, %9
   store ptr %exec_ctx, ptr %5, align 8
-  %type = getelementptr inbounds %struct.grpc_byte_buffer, ptr %bb, i64 0, i32 1
+  %type = getelementptr inbounds i8, ptr %bb, i64 8
   %13 = load i32, ptr %type, align 8
   %cond = icmp eq i32 %13, 0
   br i1 %cond, label %sw.bb, label %sw.epilog
 
 sw.bb:                                            ; preds = %_ZN9grpc_core7ExecCtxC2Ev.exit
-  %slice_buffer = getelementptr inbounds %struct.grpc_byte_buffer, ptr %bb, i64 0, i32 2, i32 0, i32 1
+  %slice_buffer = getelementptr inbounds i8, ptr %bb, i64 24
   invoke void @grpc_slice_buffer_destroy(ptr noundef nonnull %slice_buffer)
           to label %sw.epilog unwind label %lpad
 
@@ -406,7 +402,7 @@ declare void @gpr_free(ptr noundef) local_unnamed_addr #0
 define linkonce_odr void @_ZN9grpc_core7ExecCtxD2Ev(ptr noundef nonnull align 8 dereferenceable(88) %this) unnamed_addr #6 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN9grpc_core7ExecCtxE, i64 0, inrange i32 0, i64 2), ptr %this, align 8
-  %flags_ = getelementptr inbounds %"class.grpc_core::ExecCtx", ptr %this, i64 0, i32 3
+  %flags_ = getelementptr inbounds i8, ptr %this, i64 40
   %0 = load i64, ptr %flags_, align 8
   %or = or i64 %0, 1
   store i64 %or, ptr %flags_, align 8
@@ -414,7 +410,7 @@ entry:
           to label %invoke.cont unwind label %terminate.lpad
 
 invoke.cont:                                      ; preds = %entry
-  %last_exec_ctx_ = getelementptr inbounds %"class.grpc_core::ExecCtx", ptr %this, i64 0, i32 5
+  %last_exec_ctx_ = getelementptr inbounds i8, ptr %this, i64 80
   %1 = load ptr, ptr %last_exec_ctx_, align 8
   br i1 icmp ne (ptr @_ZTHN9grpc_core7ExecCtx9exec_ctx_E, ptr null), label %2, label %invoke.cont2
 
@@ -441,9 +437,9 @@ if.then.i:                                        ; preds = %if.then
           to label %if.end unwind label %terminate.lpad
 
 if.end:                                           ; preds = %if.then, %if.then.i, %invoke.cont2
-  %time_cache_ = getelementptr inbounds %"class.grpc_core::ExecCtx", ptr %this, i64 0, i32 4
+  %time_cache_ = getelementptr inbounds i8, ptr %this, i64 48
   store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN9grpc_core9Timestamp12ScopedSourceE, i64 0, inrange i32 0, i64 2), ptr %time_cache_, align 8
-  %previous_.i.i = getelementptr inbounds %"class.grpc_core::ExecCtx", ptr %this, i64 0, i32 4, i32 0, i32 1
+  %previous_.i.i = getelementptr inbounds i8, ptr %this, i64 56
   %7 = load ptr, ptr %previous_.i.i, align 8
   br i1 icmp ne (ptr @_ZTHN9grpc_core9Timestamp25thread_local_time_source_E, ptr null), label %8, label %_ZN9grpc_core15ScopedTimeCacheD2Ev.exit
 
@@ -467,13 +463,13 @@ terminate.lpad:                                   ; preds = %if.then.i, %2, %ent
 ; Function Attrs: mustprogress uwtable
 define i64 @grpc_byte_buffer_length(ptr nocapture noundef readonly %bb) local_unnamed_addr #3 {
 entry:
-  %type = getelementptr inbounds %struct.grpc_byte_buffer, ptr %bb, i64 0, i32 1
+  %type = getelementptr inbounds i8, ptr %bb, i64 8
   %0 = load i32, ptr %type, align 8
   %cond = icmp eq i32 %0, 0
   br i1 %cond, label %sw.bb, label %do.body
 
 sw.bb:                                            ; preds = %entry
-  %length = getelementptr inbounds %struct.grpc_byte_buffer, ptr %bb, i64 0, i32 2, i32 0, i32 1, i32 4
+  %length = getelementptr inbounds i8, ptr %bb, i64 56
   %1 = load i64, ptr %length, align 8
   ret i64 %1
 
@@ -486,7 +482,7 @@ do.body:                                          ; preds = %entry
 define linkonce_odr void @_ZN9grpc_core7ExecCtxD0Ev(ptr noundef nonnull align 8 dereferenceable(88) %this) unnamed_addr #6 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN9grpc_core7ExecCtxE, i64 0, inrange i32 0, i64 2), ptr %this, align 8
-  %flags_.i = getelementptr inbounds %"class.grpc_core::ExecCtx", ptr %this, i64 0, i32 3
+  %flags_.i = getelementptr inbounds i8, ptr %this, i64 40
   %0 = load i64, ptr %flags_.i, align 8
   %or.i = or i64 %0, 1
   store i64 %or.i, ptr %flags_.i, align 8
@@ -494,7 +490,7 @@ entry:
           to label %invoke.cont.i unwind label %terminate.lpad.i
 
 invoke.cont.i:                                    ; preds = %entry
-  %last_exec_ctx_.i = getelementptr inbounds %"class.grpc_core::ExecCtx", ptr %this, i64 0, i32 5
+  %last_exec_ctx_.i = getelementptr inbounds i8, ptr %this, i64 80
   %1 = load ptr, ptr %last_exec_ctx_.i, align 8
   br i1 icmp ne (ptr @_ZTHN9grpc_core7ExecCtx9exec_ctx_E, ptr null), label %2, label %invoke.cont2.i
 
@@ -521,9 +517,9 @@ if.then.i.i:                                      ; preds = %if.then.i
           to label %if.end.i unwind label %terminate.lpad.i
 
 if.end.i:                                         ; preds = %if.then.i.i, %if.then.i, %invoke.cont2.i
-  %time_cache_.i = getelementptr inbounds %"class.grpc_core::ExecCtx", ptr %this, i64 0, i32 4
+  %time_cache_.i = getelementptr inbounds i8, ptr %this, i64 48
   store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN9grpc_core9Timestamp12ScopedSourceE, i64 0, inrange i32 0, i64 2), ptr %time_cache_.i, align 8
-  %previous_.i.i.i = getelementptr inbounds %"class.grpc_core::ExecCtx", ptr %this, i64 0, i32 4, i32 0, i32 1
+  %previous_.i.i.i = getelementptr inbounds i8, ptr %this, i64 56
   %7 = load ptr, ptr %previous_.i.i.i, align 8
   br i1 icmp ne (ptr @_ZTHN9grpc_core9Timestamp25thread_local_time_source_E, ptr null), label %8, label %_ZN9grpc_core7ExecCtxD2Ev.exit
 
@@ -556,10 +552,10 @@ declare void @__cxa_pure_virtual() unnamed_addr
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr void @_ZN9grpc_core9Timestamp12ScopedSource15InvalidateCacheEv(ptr noundef nonnull align 8 dereferenceable(16) %this) unnamed_addr #3 comdat align 2 {
 entry:
-  %previous_ = getelementptr inbounds %"class.grpc_core::Timestamp::ScopedSource", ptr %this, i64 0, i32 1
+  %previous_ = getelementptr inbounds i8, ptr %this, i64 8
   %0 = load ptr, ptr %previous_, align 8
   %vtable = load ptr, ptr %0, align 8
-  %vfn = getelementptr inbounds ptr, ptr %vtable, i64 1
+  %vfn = getelementptr inbounds i8, ptr %vtable, i64 8
   %1 = load ptr, ptr %vfn, align 8
   tail call void %1(ptr noundef nonnull align 8 dereferenceable(8) %0)
   ret void

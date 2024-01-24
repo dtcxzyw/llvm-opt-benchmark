@@ -3,17 +3,7 @@ source_filename = "bench/icu/original/schriter.ll"
 target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:128-n8:16:32:64-S128"
 target triple = "x86_64-unknown-linux-gnu"
 
-%"class.icu_75::StringCharacterIterator" = type { %"class.icu_75::UCharCharacterIterator", %"class.icu_75::UnicodeString" }
-%"class.icu_75::UCharCharacterIterator" = type { %"class.icu_75::CharacterIterator", ptr }
-%"class.icu_75::CharacterIterator" = type { %"class.icu_75::ForwardCharacterIterator", i32, i32, i32, i32 }
-%"class.icu_75::ForwardCharacterIterator" = type { %"class.icu_75::UObject" }
-%"class.icu_75::UObject" = type { ptr }
-%"class.icu_75::UnicodeString" = type { %"class.icu_75::Replaceable", %"union.icu_75::UnicodeString::StackBufferOrFields" }
-%"class.icu_75::Replaceable" = type { %"class.icu_75::UObject" }
-%"union.icu_75::UnicodeString::StackBufferOrFields" = type { %struct.anon.0, [32 x i8] }
-%struct.anon.0 = type { i16, i32, i32, ptr }
 %"class.icu_75::ConstChar16Ptr" = type { ptr }
-%"class.std::type_info" = type { ptr, ptr }
 
 @_ZZN6icu_7523StringCharacterIterator16getStaticClassIDEvE7classID = internal global i8 0, align 1
 @_ZTVN6icu_7523StringCharacterIteratorE = unnamed_addr constant { [29 x ptr] } { [29 x ptr] [ptr null, ptr @_ZTIN6icu_7523StringCharacterIteratorE, ptr @_ZN6icu_7523StringCharacterIteratorD1Ev, ptr @_ZN6icu_7523StringCharacterIteratorD0Ev, ptr @_ZNK6icu_7523StringCharacterIterator17getDynamicClassIDEv, ptr @_ZNK6icu_7523StringCharacterIteratoreqERKNS_24ForwardCharacterIteratorE, ptr @_ZNK6icu_7522UCharCharacterIterator8hashCodeEv, ptr @_ZN6icu_7522UCharCharacterIterator11nextPostIncEv, ptr @_ZN6icu_7522UCharCharacterIterator13next32PostIncEv, ptr @_ZN6icu_7522UCharCharacterIterator7hasNextEv, ptr @_ZNK6icu_7523StringCharacterIterator5cloneEv, ptr @_ZN6icu_7522UCharCharacterIterator5firstEv, ptr @_ZN6icu_7522UCharCharacterIterator12firstPostIncEv, ptr @_ZN6icu_7522UCharCharacterIterator7first32Ev, ptr @_ZN6icu_7522UCharCharacterIterator14first32PostIncEv, ptr @_ZN6icu_7522UCharCharacterIterator4lastEv, ptr @_ZN6icu_7522UCharCharacterIterator6last32Ev, ptr @_ZN6icu_7522UCharCharacterIterator8setIndexEi, ptr @_ZN6icu_7522UCharCharacterIterator10setIndex32Ei, ptr @_ZNK6icu_7522UCharCharacterIterator7currentEv, ptr @_ZNK6icu_7522UCharCharacterIterator9current32Ev, ptr @_ZN6icu_7522UCharCharacterIterator4nextEv, ptr @_ZN6icu_7522UCharCharacterIterator6next32Ev, ptr @_ZN6icu_7522UCharCharacterIterator8previousEv, ptr @_ZN6icu_7522UCharCharacterIterator10previous32Ev, ptr @_ZN6icu_7522UCharCharacterIterator11hasPreviousEv, ptr @_ZN6icu_7522UCharCharacterIterator4moveEiNS_17CharacterIterator7EOriginE, ptr @_ZN6icu_7522UCharCharacterIterator6move32EiNS_17CharacterIterator7EOriginE, ptr @_ZN6icu_7523StringCharacterIterator7getTextERNS_13UnicodeStringE] }, align 8
@@ -47,9 +37,9 @@ define void @_ZN6icu_7523StringCharacterIteratorC2Ev(ptr noundef nonnull align 8
 invoke.cont:
   tail call void @_ZN6icu_7522UCharCharacterIteratorC2Ev(ptr noundef nonnull align 8 dereferenceable(32) %this)
   store ptr getelementptr inbounds ({ [29 x ptr] }, ptr @_ZTVN6icu_7523StringCharacterIteratorE, i64 0, inrange i32 0, i64 2), ptr %this, align 8
-  %text = getelementptr inbounds %"class.icu_75::StringCharacterIterator", ptr %this, i64 0, i32 1
+  %text = getelementptr inbounds i8, ptr %this, i64 32
   store ptr getelementptr inbounds ({ [13 x ptr] }, ptr @_ZTVN6icu_7513UnicodeStringE, i64 0, inrange i32 0, i64 2), ptr %text, align 8
-  %fUnion2.i = getelementptr inbounds %"class.icu_75::StringCharacterIterator", ptr %this, i64 0, i32 1, i32 1
+  %fUnion2.i = getelementptr inbounds i8, ptr %this, i64 40
   store i16 2, ptr %fUnion2.i, align 8
   ret void
 }
@@ -65,7 +55,7 @@ declare void @_ZN6icu_7522UCharCharacterIteratorD2Ev(ptr noundef nonnull align 8
 define void @_ZN6icu_7523StringCharacterIteratorC2ERKNS_13UnicodeStringE(ptr noundef nonnull align 8 dereferenceable(96) %this, ptr noundef nonnull align 8 dereferenceable(64) %textStr) unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %agg.tmp = alloca %"class.icu_75::ConstChar16Ptr", align 8
-  %fUnion.i = getelementptr inbounds %"class.icu_75::UnicodeString", ptr %textStr, i64 0, i32 1
+  %fUnion.i = getelementptr inbounds i8, ptr %textStr, i64 8
   %0 = load i16, ptr %fUnion.i, align 8
   %conv1.i = zext i16 %0 to i32
   %and.i = and i32 %conv1.i, 17
@@ -82,7 +72,7 @@ if.then7.i:                                       ; preds = %if.else.i
   br label %invoke.cont
 
 if.else9.i:                                       ; preds = %if.else.i
-  %fArray.i = getelementptr inbounds %"class.icu_75::UnicodeString", ptr %textStr, i64 0, i32 1, i32 0, i32 3
+  %fArray.i = getelementptr inbounds i8, ptr %textStr, i64 24
   %1 = load ptr, ptr %fArray.i, align 8
   br label %invoke.cont
 
@@ -92,7 +82,7 @@ invoke.cont:                                      ; preds = %if.else9.i, %if.the
   %cmp.i.i = icmp slt i16 %0, 0
   %2 = ashr i16 %0, 5
   %shr.i.i = sext i16 %2 to i32
-  %fLength.i = getelementptr inbounds %"class.icu_75::UnicodeString", ptr %textStr, i64 0, i32 1, i32 0, i32 1
+  %fLength.i = getelementptr inbounds i8, ptr %textStr, i64 12
   %3 = load i32, ptr %fLength.i, align 4
   %cond.i = select i1 %cmp.i.i, i32 %3, i32 %shr.i.i
   invoke void @_ZN6icu_7522UCharCharacterIteratorC2ENS_14ConstChar16PtrEi(ptr noundef nonnull align 8 dereferenceable(32) %this, ptr noundef nonnull %agg.tmp, i32 noundef %cond.i)
@@ -102,12 +92,12 @@ invoke.cont3:                                     ; preds = %invoke.cont
   %4 = load ptr, ptr %agg.tmp, align 8
   call void asm sideeffect "", "rm,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr %4) #6, !srcloc !4
   store ptr getelementptr inbounds ({ [29 x ptr] }, ptr @_ZTVN6icu_7523StringCharacterIteratorE, i64 0, inrange i32 0, i64 2), ptr %this, align 8
-  %text = getelementptr inbounds %"class.icu_75::StringCharacterIterator", ptr %this, i64 0, i32 1
+  %text = getelementptr inbounds i8, ptr %this, i64 32
   invoke void @_ZN6icu_7513UnicodeStringC1ERKS0_(ptr noundef nonnull align 8 dereferenceable(64) %text, ptr noundef nonnull align 8 dereferenceable(64) %textStr)
           to label %invoke.cont5 unwind label %lpad4
 
 invoke.cont5:                                     ; preds = %invoke.cont3
-  %fUnion.i4 = getelementptr inbounds %"class.icu_75::StringCharacterIterator", ptr %this, i64 0, i32 1, i32 1
+  %fUnion.i4 = getelementptr inbounds i8, ptr %this, i64 40
   %5 = load i16, ptr %fUnion.i4, align 8
   %conv1.i5 = zext i16 %5 to i32
   %and.i6 = and i32 %conv1.i5, 17
@@ -124,13 +114,13 @@ if.then7.i12:                                     ; preds = %if.else.i9
   br label %_ZNK6icu_7513UnicodeString9getBufferEv.exit16
 
 if.else9.i14:                                     ; preds = %if.else.i9
-  %fArray.i15 = getelementptr inbounds %"class.icu_75::StringCharacterIterator", ptr %this, i64 0, i32 1, i32 1, i32 0, i32 3
+  %fArray.i15 = getelementptr inbounds i8, ptr %this, i64 56
   %6 = load ptr, ptr %fArray.i15, align 8
   br label %_ZNK6icu_7513UnicodeString9getBufferEv.exit16
 
 _ZNK6icu_7513UnicodeString9getBufferEv.exit16:    ; preds = %invoke.cont5, %if.then7.i12, %if.else9.i14
   %retval.0.i8 = phi ptr [ %fBuffer.i13, %if.then7.i12 ], [ %6, %if.else9.i14 ], [ null, %invoke.cont5 ]
-  %text10 = getelementptr inbounds %"class.icu_75::UCharCharacterIterator", ptr %this, i64 0, i32 1
+  %text10 = getelementptr inbounds i8, ptr %this, i64 24
   store ptr %retval.0.i8, ptr %text10, align 8
   ret void
 
@@ -163,7 +153,7 @@ declare void @_ZN6icu_7513UnicodeStringD1Ev(ptr noundef nonnull align 8 derefere
 define void @_ZN6icu_7523StringCharacterIteratorC2ERKNS_13UnicodeStringEi(ptr noundef nonnull align 8 dereferenceable(96) %this, ptr noundef nonnull align 8 dereferenceable(64) %textStr, i32 noundef %textPos) unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %agg.tmp = alloca %"class.icu_75::ConstChar16Ptr", align 8
-  %fUnion.i = getelementptr inbounds %"class.icu_75::UnicodeString", ptr %textStr, i64 0, i32 1
+  %fUnion.i = getelementptr inbounds i8, ptr %textStr, i64 8
   %0 = load i16, ptr %fUnion.i, align 8
   %conv1.i = zext i16 %0 to i32
   %and.i = and i32 %conv1.i, 17
@@ -180,7 +170,7 @@ if.then7.i:                                       ; preds = %if.else.i
   br label %invoke.cont
 
 if.else9.i:                                       ; preds = %if.else.i
-  %fArray.i = getelementptr inbounds %"class.icu_75::UnicodeString", ptr %textStr, i64 0, i32 1, i32 0, i32 3
+  %fArray.i = getelementptr inbounds i8, ptr %textStr, i64 24
   %1 = load ptr, ptr %fArray.i, align 8
   br label %invoke.cont
 
@@ -190,7 +180,7 @@ invoke.cont:                                      ; preds = %if.else9.i, %if.the
   %cmp.i.i = icmp slt i16 %0, 0
   %2 = ashr i16 %0, 5
   %shr.i.i = sext i16 %2 to i32
-  %fLength.i = getelementptr inbounds %"class.icu_75::UnicodeString", ptr %textStr, i64 0, i32 1, i32 0, i32 1
+  %fLength.i = getelementptr inbounds i8, ptr %textStr, i64 12
   %3 = load i32, ptr %fLength.i, align 4
   %cond.i = select i1 %cmp.i.i, i32 %3, i32 %shr.i.i
   invoke void @_ZN6icu_7522UCharCharacterIteratorC2ENS_14ConstChar16PtrEii(ptr noundef nonnull align 8 dereferenceable(32) %this, ptr noundef nonnull %agg.tmp, i32 noundef %cond.i, i32 noundef %textPos)
@@ -200,12 +190,12 @@ invoke.cont3:                                     ; preds = %invoke.cont
   %4 = load ptr, ptr %agg.tmp, align 8
   call void asm sideeffect "", "rm,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr %4) #6, !srcloc !4
   store ptr getelementptr inbounds ({ [29 x ptr] }, ptr @_ZTVN6icu_7523StringCharacterIteratorE, i64 0, inrange i32 0, i64 2), ptr %this, align 8
-  %text = getelementptr inbounds %"class.icu_75::StringCharacterIterator", ptr %this, i64 0, i32 1
+  %text = getelementptr inbounds i8, ptr %this, i64 32
   invoke void @_ZN6icu_7513UnicodeStringC1ERKS0_(ptr noundef nonnull align 8 dereferenceable(64) %text, ptr noundef nonnull align 8 dereferenceable(64) %textStr)
           to label %invoke.cont5 unwind label %lpad4
 
 invoke.cont5:                                     ; preds = %invoke.cont3
-  %fUnion.i4 = getelementptr inbounds %"class.icu_75::StringCharacterIterator", ptr %this, i64 0, i32 1, i32 1
+  %fUnion.i4 = getelementptr inbounds i8, ptr %this, i64 40
   %5 = load i16, ptr %fUnion.i4, align 8
   %conv1.i5 = zext i16 %5 to i32
   %and.i6 = and i32 %conv1.i5, 17
@@ -222,13 +212,13 @@ if.then7.i12:                                     ; preds = %if.else.i9
   br label %_ZNK6icu_7513UnicodeString9getBufferEv.exit16
 
 if.else9.i14:                                     ; preds = %if.else.i9
-  %fArray.i15 = getelementptr inbounds %"class.icu_75::StringCharacterIterator", ptr %this, i64 0, i32 1, i32 1, i32 0, i32 3
+  %fArray.i15 = getelementptr inbounds i8, ptr %this, i64 56
   %6 = load ptr, ptr %fArray.i15, align 8
   br label %_ZNK6icu_7513UnicodeString9getBufferEv.exit16
 
 _ZNK6icu_7513UnicodeString9getBufferEv.exit16:    ; preds = %invoke.cont5, %if.then7.i12, %if.else9.i14
   %retval.0.i8 = phi ptr [ %fBuffer.i13, %if.then7.i12 ], [ %6, %if.else9.i14 ], [ null, %invoke.cont5 ]
-  %text10 = getelementptr inbounds %"class.icu_75::UCharCharacterIterator", ptr %this, i64 0, i32 1
+  %text10 = getelementptr inbounds i8, ptr %this, i64 24
   store ptr %retval.0.i8, ptr %text10, align 8
   ret void
 
@@ -256,7 +246,7 @@ declare void @_ZN6icu_7522UCharCharacterIteratorC2ENS_14ConstChar16PtrEii(ptr no
 define void @_ZN6icu_7523StringCharacterIteratorC2ERKNS_13UnicodeStringEiii(ptr noundef nonnull align 8 dereferenceable(96) %this, ptr noundef nonnull align 8 dereferenceable(64) %textStr, i32 noundef %textBegin, i32 noundef %textEnd, i32 noundef %textPos) unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %agg.tmp = alloca %"class.icu_75::ConstChar16Ptr", align 8
-  %fUnion.i = getelementptr inbounds %"class.icu_75::UnicodeString", ptr %textStr, i64 0, i32 1
+  %fUnion.i = getelementptr inbounds i8, ptr %textStr, i64 8
   %0 = load i16, ptr %fUnion.i, align 8
   %conv1.i = zext i16 %0 to i32
   %and.i = and i32 %conv1.i, 17
@@ -273,7 +263,7 @@ if.then7.i:                                       ; preds = %if.else.i
   br label %invoke.cont
 
 if.else9.i:                                       ; preds = %if.else.i
-  %fArray.i = getelementptr inbounds %"class.icu_75::UnicodeString", ptr %textStr, i64 0, i32 1, i32 0, i32 3
+  %fArray.i = getelementptr inbounds i8, ptr %textStr, i64 24
   %1 = load ptr, ptr %fArray.i, align 8
   br label %invoke.cont
 
@@ -283,7 +273,7 @@ invoke.cont:                                      ; preds = %if.else9.i, %if.the
   %cmp.i.i = icmp slt i16 %0, 0
   %2 = ashr i16 %0, 5
   %shr.i.i = sext i16 %2 to i32
-  %fLength.i = getelementptr inbounds %"class.icu_75::UnicodeString", ptr %textStr, i64 0, i32 1, i32 0, i32 1
+  %fLength.i = getelementptr inbounds i8, ptr %textStr, i64 12
   %3 = load i32, ptr %fLength.i, align 4
   %cond.i = select i1 %cmp.i.i, i32 %3, i32 %shr.i.i
   invoke void @_ZN6icu_7522UCharCharacterIteratorC2ENS_14ConstChar16PtrEiiii(ptr noundef nonnull align 8 dereferenceable(32) %this, ptr noundef nonnull %agg.tmp, i32 noundef %cond.i, i32 noundef %textBegin, i32 noundef %textEnd, i32 noundef %textPos)
@@ -293,12 +283,12 @@ invoke.cont3:                                     ; preds = %invoke.cont
   %4 = load ptr, ptr %agg.tmp, align 8
   call void asm sideeffect "", "rm,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr %4) #6, !srcloc !4
   store ptr getelementptr inbounds ({ [29 x ptr] }, ptr @_ZTVN6icu_7523StringCharacterIteratorE, i64 0, inrange i32 0, i64 2), ptr %this, align 8
-  %text = getelementptr inbounds %"class.icu_75::StringCharacterIterator", ptr %this, i64 0, i32 1
+  %text = getelementptr inbounds i8, ptr %this, i64 32
   invoke void @_ZN6icu_7513UnicodeStringC1ERKS0_(ptr noundef nonnull align 8 dereferenceable(64) %text, ptr noundef nonnull align 8 dereferenceable(64) %textStr)
           to label %invoke.cont5 unwind label %lpad4
 
 invoke.cont5:                                     ; preds = %invoke.cont3
-  %fUnion.i4 = getelementptr inbounds %"class.icu_75::StringCharacterIterator", ptr %this, i64 0, i32 1, i32 1
+  %fUnion.i4 = getelementptr inbounds i8, ptr %this, i64 40
   %5 = load i16, ptr %fUnion.i4, align 8
   %conv1.i5 = zext i16 %5 to i32
   %and.i6 = and i32 %conv1.i5, 17
@@ -315,13 +305,13 @@ if.then7.i12:                                     ; preds = %if.else.i9
   br label %_ZNK6icu_7513UnicodeString9getBufferEv.exit16
 
 if.else9.i14:                                     ; preds = %if.else.i9
-  %fArray.i15 = getelementptr inbounds %"class.icu_75::StringCharacterIterator", ptr %this, i64 0, i32 1, i32 1, i32 0, i32 3
+  %fArray.i15 = getelementptr inbounds i8, ptr %this, i64 56
   %6 = load ptr, ptr %fArray.i15, align 8
   br label %_ZNK6icu_7513UnicodeString9getBufferEv.exit16
 
 _ZNK6icu_7513UnicodeString9getBufferEv.exit16:    ; preds = %invoke.cont5, %if.then7.i12, %if.else9.i14
   %retval.0.i8 = phi ptr [ %fBuffer.i13, %if.then7.i12 ], [ %6, %if.else9.i14 ], [ null, %invoke.cont5 ]
-  %text10 = getelementptr inbounds %"class.icu_75::UCharCharacterIterator", ptr %this, i64 0, i32 1
+  %text10 = getelementptr inbounds i8, ptr %this, i64 24
   store ptr %retval.0.i8, ptr %text10, align 8
   ret void
 
@@ -350,13 +340,13 @@ define void @_ZN6icu_7523StringCharacterIteratorC2ERKS0_(ptr noundef nonnull ali
 entry:
   tail call void @_ZN6icu_7522UCharCharacterIteratorC2ERKS0_(ptr noundef nonnull align 8 dereferenceable(32) %this, ptr noundef nonnull align 8 dereferenceable(32) %that)
   store ptr getelementptr inbounds ({ [29 x ptr] }, ptr @_ZTVN6icu_7523StringCharacterIteratorE, i64 0, inrange i32 0, i64 2), ptr %this, align 8
-  %text = getelementptr inbounds %"class.icu_75::StringCharacterIterator", ptr %this, i64 0, i32 1
-  %text2 = getelementptr inbounds %"class.icu_75::StringCharacterIterator", ptr %that, i64 0, i32 1
+  %text = getelementptr inbounds i8, ptr %this, i64 32
+  %text2 = getelementptr inbounds i8, ptr %that, i64 32
   invoke void @_ZN6icu_7513UnicodeStringC1ERKS0_(ptr noundef nonnull align 8 dereferenceable(64) %text, ptr noundef nonnull align 8 dereferenceable(64) %text2)
           to label %invoke.cont unwind label %lpad
 
 invoke.cont:                                      ; preds = %entry
-  %fUnion.i = getelementptr inbounds %"class.icu_75::StringCharacterIterator", ptr %this, i64 0, i32 1, i32 1
+  %fUnion.i = getelementptr inbounds i8, ptr %this, i64 40
   %0 = load i16, ptr %fUnion.i, align 8
   %conv1.i = zext i16 %0 to i32
   %and.i = and i32 %conv1.i, 17
@@ -373,13 +363,13 @@ if.then7.i:                                       ; preds = %if.else.i
   br label %_ZNK6icu_7513UnicodeString9getBufferEv.exit
 
 if.else9.i:                                       ; preds = %if.else.i
-  %fArray.i = getelementptr inbounds %"class.icu_75::StringCharacterIterator", ptr %this, i64 0, i32 1, i32 1, i32 0, i32 3
+  %fArray.i = getelementptr inbounds i8, ptr %this, i64 56
   %1 = load ptr, ptr %fArray.i, align 8
   br label %_ZNK6icu_7513UnicodeString9getBufferEv.exit
 
 _ZNK6icu_7513UnicodeString9getBufferEv.exit:      ; preds = %invoke.cont, %if.then7.i, %if.else9.i
   %retval.0.i = phi ptr [ %fBuffer.i, %if.then7.i ], [ %1, %if.else9.i ], [ null, %invoke.cont ]
-  %text6 = getelementptr inbounds %"class.icu_75::UCharCharacterIterator", ptr %this, i64 0, i32 1
+  %text6 = getelementptr inbounds i8, ptr %this, i64 24
   store ptr %retval.0.i, ptr %text6, align 8
   ret void
 
@@ -396,7 +386,7 @@ declare void @_ZN6icu_7522UCharCharacterIteratorC2ERKS0_(ptr noundef nonnull ali
 define void @_ZN6icu_7523StringCharacterIteratorD2Ev(ptr noundef nonnull align 8 dereferenceable(96) %this) unnamed_addr #4 align 2 {
 entry:
   store ptr getelementptr inbounds ({ [29 x ptr] }, ptr @_ZTVN6icu_7523StringCharacterIteratorE, i64 0, inrange i32 0, i64 2), ptr %this, align 8
-  %text = getelementptr inbounds %"class.icu_75::StringCharacterIterator", ptr %this, i64 0, i32 1
+  %text = getelementptr inbounds i8, ptr %this, i64 32
   tail call void @_ZN6icu_7513UnicodeStringD1Ev(ptr noundef nonnull align 8 dereferenceable(64) %text) #6
   tail call void @_ZN6icu_7522UCharCharacterIteratorD2Ev(ptr noundef nonnull align 8 dereferenceable(32) %this) #6
   ret void
@@ -417,10 +407,10 @@ declare void @_ZN6icu_757UMemorydlEPv(ptr noundef) local_unnamed_addr #3
 define noundef nonnull align 8 dereferenceable(96) ptr @_ZN6icu_7523StringCharacterIteratoraSERKS0_(ptr noundef nonnull returned align 8 dereferenceable(96) %this, ptr noundef nonnull align 8 dereferenceable(96) %that) local_unnamed_addr #1 align 2 {
 entry:
   %call = tail call noundef nonnull align 8 dereferenceable(32) ptr @_ZN6icu_7522UCharCharacterIteratoraSERKS0_(ptr noundef nonnull align 8 dereferenceable(32) %this, ptr noundef nonnull align 8 dereferenceable(32) %that)
-  %text = getelementptr inbounds %"class.icu_75::StringCharacterIterator", ptr %that, i64 0, i32 1
-  %text2 = getelementptr inbounds %"class.icu_75::StringCharacterIterator", ptr %this, i64 0, i32 1
+  %text = getelementptr inbounds i8, ptr %that, i64 32
+  %text2 = getelementptr inbounds i8, ptr %this, i64 32
   %call3 = tail call noundef nonnull align 8 dereferenceable(64) ptr @_ZN6icu_7513UnicodeStringaSERKS0_(ptr noundef nonnull align 8 dereferenceable(64) %text2, ptr noundef nonnull align 8 dereferenceable(64) %text)
-  %fUnion.i = getelementptr inbounds %"class.icu_75::StringCharacterIterator", ptr %this, i64 0, i32 1, i32 1
+  %fUnion.i = getelementptr inbounds i8, ptr %this, i64 40
   %0 = load i16, ptr %fUnion.i, align 8
   %conv1.i = zext i16 %0 to i32
   %and.i = and i32 %conv1.i, 17
@@ -437,13 +427,13 @@ if.then7.i:                                       ; preds = %if.else.i
   br label %_ZNK6icu_7513UnicodeString9getBufferEv.exit
 
 if.else9.i:                                       ; preds = %if.else.i
-  %fArray.i = getelementptr inbounds %"class.icu_75::StringCharacterIterator", ptr %this, i64 0, i32 1, i32 1, i32 0, i32 3
+  %fArray.i = getelementptr inbounds i8, ptr %this, i64 56
   %1 = load ptr, ptr %fArray.i, align 8
   br label %_ZNK6icu_7513UnicodeString9getBufferEv.exit
 
 _ZNK6icu_7513UnicodeString9getBufferEv.exit:      ; preds = %entry, %if.then7.i, %if.else9.i
   %retval.0.i = phi ptr [ %fBuffer.i, %if.then7.i ], [ %1, %if.else9.i ], [ null, %entry ]
-  %text6 = getelementptr inbounds %"class.icu_75::UCharCharacterIterator", ptr %this, i64 0, i32 1
+  %text6 = getelementptr inbounds i8, ptr %this, i64 24
   store ptr %retval.0.i, ptr %text6, align 8
   ret ptr %this
 }
@@ -460,14 +450,14 @@ entry:
 
 typeid.end:                                       ; preds = %entry
   %vtable = load ptr, ptr %this, align 8
-  %0 = getelementptr inbounds ptr, ptr %vtable, i64 -1
+  %0 = getelementptr inbounds i8, ptr %vtable, i64 -8
   %1 = load ptr, ptr %0, align 8
   %vtable2 = load ptr, ptr %that, align 8
-  %2 = getelementptr inbounds ptr, ptr %vtable2, i64 -1
+  %2 = getelementptr inbounds i8, ptr %vtable2, i64 -8
   %3 = load ptr, ptr %2, align 8
-  %__name.i.i = getelementptr inbounds %"class.std::type_info", ptr %1, i64 0, i32 1
+  %__name.i.i = getelementptr inbounds i8, ptr %1, i64 8
   %4 = load ptr, ptr %__name.i.i, align 8
-  %__name2.i.i = getelementptr inbounds %"class.std::type_info", ptr %3, i64 0, i32 1
+  %__name2.i.i = getelementptr inbounds i8, ptr %3, i64 8
   %5 = load ptr, ptr %__name2.i.i, align 8
   %cmp.i.i = icmp eq ptr %4, %5
   br i1 %cmp.i.i, label %if.end4, label %if.end.i.i
@@ -487,16 +477,16 @@ _ZNKSt9type_infoneERKS_.exit:                     ; preds = %if.end.i.i
   br i1 %cmp7.i.i.not, label %if.end4, label %return
 
 if.end4:                                          ; preds = %typeid.end, %_ZNKSt9type_infoneERKS_.exit
-  %text = getelementptr inbounds %"class.icu_75::StringCharacterIterator", ptr %this, i64 0, i32 1
-  %text5 = getelementptr inbounds %"class.icu_75::StringCharacterIterator", ptr %that, i64 0, i32 1
-  %fUnion.i.i = getelementptr inbounds %"class.icu_75::StringCharacterIterator", ptr %this, i64 0, i32 1, i32 1
+  %text = getelementptr inbounds i8, ptr %this, i64 32
+  %text5 = getelementptr inbounds i8, ptr %that, i64 32
+  %fUnion.i.i = getelementptr inbounds i8, ptr %this, i64 40
   %8 = load i16, ptr %fUnion.i.i, align 8
   %conv2.i14.i = and i16 %8, 1
   %tobool.not.i = icmp eq i16 %conv2.i14.i, 0
   br i1 %tobool.not.i, label %if.else.i, label %if.then.i
 
 if.then.i:                                        ; preds = %if.end4
-  %fUnion.i5.i = getelementptr inbounds %"class.icu_75::StringCharacterIterator", ptr %that, i64 0, i32 1, i32 1
+  %fUnion.i5.i = getelementptr inbounds i8, ptr %that, i64 40
   %9 = load i16, ptr %fUnion.i5.i, align 8
   %conv2.i615.i = and i16 %9, 1
   %tobool3.i.not = icmp eq i16 %conv2.i615.i, 0
@@ -506,15 +496,15 @@ if.else.i:                                        ; preds = %if.end4
   %cmp.i.i.i6 = icmp slt i16 %8, 0
   %10 = ashr i16 %8, 5
   %shr.i.i.i = sext i16 %10 to i32
-  %fLength.i.i = getelementptr inbounds %"class.icu_75::StringCharacterIterator", ptr %this, i64 0, i32 1, i32 1, i32 0, i32 1
+  %fLength.i.i = getelementptr inbounds i8, ptr %this, i64 44
   %11 = load i32, ptr %fLength.i.i, align 4
   %cond.i.i = select i1 %cmp.i.i.i6, i32 %11, i32 %shr.i.i.i
-  %fUnion.i.i7.i = getelementptr inbounds %"class.icu_75::StringCharacterIterator", ptr %that, i64 0, i32 1, i32 1
+  %fUnion.i.i7.i = getelementptr inbounds i8, ptr %that, i64 40
   %12 = load i16, ptr %fUnion.i.i7.i, align 8
   %cmp.i.i8.i = icmp slt i16 %12, 0
   %13 = ashr i16 %12, 5
   %shr.i.i9.i = sext i16 %13 to i32
-  %fLength.i10.i = getelementptr inbounds %"class.icu_75::StringCharacterIterator", ptr %that, i64 0, i32 1, i32 1, i32 0, i32 1
+  %fLength.i10.i = getelementptr inbounds i8, ptr %that, i64 44
   %14 = load i32, ptr %fLength.i10.i, align 4
   %cond.i11.i = select i1 %cmp.i.i8.i, i32 %14, i32 %shr.i.i9.i
   %conv2.i1316.i = and i16 %12, 1
@@ -529,25 +519,25 @@ _ZNK6icu_7513UnicodeStringeqERKS0_.exit:          ; preds = %if.else.i
   br i1 %tobool9.i.not, label %return, label %land.lhs.true
 
 land.lhs.true:                                    ; preds = %if.then.i, %_ZNK6icu_7513UnicodeStringeqERKS0_.exit
-  %pos = getelementptr inbounds %"class.icu_75::CharacterIterator", ptr %this, i64 0, i32 2
+  %pos = getelementptr inbounds i8, ptr %this, i64 12
   %15 = load i32, ptr %pos, align 4
-  %pos7 = getelementptr inbounds %"class.icu_75::CharacterIterator", ptr %that, i64 0, i32 2
+  %pos7 = getelementptr inbounds i8, ptr %that, i64 12
   %16 = load i32, ptr %pos7, align 4
   %cmp8 = icmp eq i32 %15, %16
   br i1 %cmp8, label %land.lhs.true9, label %return
 
 land.lhs.true9:                                   ; preds = %land.lhs.true
-  %begin = getelementptr inbounds %"class.icu_75::CharacterIterator", ptr %this, i64 0, i32 3
+  %begin = getelementptr inbounds i8, ptr %this, i64 16
   %17 = load i32, ptr %begin, align 8
-  %begin10 = getelementptr inbounds %"class.icu_75::CharacterIterator", ptr %that, i64 0, i32 3
+  %begin10 = getelementptr inbounds i8, ptr %that, i64 16
   %18 = load i32, ptr %begin10, align 8
   %cmp11 = icmp eq i32 %17, %18
   br i1 %cmp11, label %land.rhs, label %return
 
 land.rhs:                                         ; preds = %land.lhs.true9
-  %end = getelementptr inbounds %"class.icu_75::CharacterIterator", ptr %this, i64 0, i32 4
+  %end = getelementptr inbounds i8, ptr %this, i64 20
   %19 = load i32, ptr %end, align 4
-  %end12 = getelementptr inbounds %"class.icu_75::CharacterIterator", ptr %that, i64 0, i32 4
+  %end12 = getelementptr inbounds i8, ptr %that, i64 20
   %20 = load i32, ptr %end12, align 4
   %cmp13 = icmp eq i32 %19, %20
   br label %return
@@ -585,9 +575,9 @@ declare noundef ptr @_ZN6icu_757UMemorynwEm(i64 noundef) local_unnamed_addr #3
 define void @_ZN6icu_7523StringCharacterIterator7setTextERKNS_13UnicodeStringE(ptr noundef nonnull align 8 dereferenceable(96) %this, ptr noundef nonnull align 8 dereferenceable(64) %newText) local_unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %agg.tmp = alloca %"class.icu_75::ConstChar16Ptr", align 8
-  %text = getelementptr inbounds %"class.icu_75::StringCharacterIterator", ptr %this, i64 0, i32 1
+  %text = getelementptr inbounds i8, ptr %this, i64 32
   %call = tail call noundef nonnull align 8 dereferenceable(64) ptr @_ZN6icu_7513UnicodeStringaSERKS0_(ptr noundef nonnull align 8 dereferenceable(64) %text, ptr noundef nonnull align 8 dereferenceable(64) %newText)
-  %fUnion.i = getelementptr inbounds %"class.icu_75::StringCharacterIterator", ptr %this, i64 0, i32 1, i32 1
+  %fUnion.i = getelementptr inbounds i8, ptr %this, i64 40
   %0 = load i16, ptr %fUnion.i, align 8
   %conv1.i = zext i16 %0 to i32
   %and.i = and i32 %conv1.i, 17
@@ -604,7 +594,7 @@ if.then7.i:                                       ; preds = %if.else.i
   br label %invoke.cont
 
 if.else9.i:                                       ; preds = %if.else.i
-  %fArray.i = getelementptr inbounds %"class.icu_75::StringCharacterIterator", ptr %this, i64 0, i32 1, i32 1, i32 0, i32 3
+  %fArray.i = getelementptr inbounds i8, ptr %this, i64 56
   %1 = load ptr, ptr %fArray.i, align 8
   br label %invoke.cont
 
@@ -614,7 +604,7 @@ invoke.cont:                                      ; preds = %if.else9.i, %if.the
   %cmp.i.i = icmp slt i16 %0, 0
   %2 = ashr i16 %0, 5
   %shr.i.i = sext i16 %2 to i32
-  %fLength.i = getelementptr inbounds %"class.icu_75::StringCharacterIterator", ptr %this, i64 0, i32 1, i32 1, i32 0, i32 1
+  %fLength.i = getelementptr inbounds i8, ptr %this, i64 44
   %3 = load i32, ptr %fLength.i, align 4
   %cond.i = select i1 %cmp.i.i, i32 %3, i32 %shr.i.i
   invoke void @_ZN6icu_7522UCharCharacterIterator7setTextENS_14ConstChar16PtrEi(ptr noundef nonnull align 8 dereferenceable(32) %this, ptr noundef nonnull %agg.tmp, i32 noundef %cond.i)
@@ -638,7 +628,7 @@ declare void @_ZN6icu_7522UCharCharacterIterator7setTextENS_14ConstChar16PtrEi(p
 ; Function Attrs: mustprogress uwtable
 define void @_ZN6icu_7523StringCharacterIterator7getTextERNS_13UnicodeStringE(ptr noundef nonnull align 8 dereferenceable(96) %this, ptr noundef nonnull align 8 dereferenceable(64) %result) unnamed_addr #1 align 2 {
 entry:
-  %text = getelementptr inbounds %"class.icu_75::StringCharacterIterator", ptr %this, i64 0, i32 1
+  %text = getelementptr inbounds i8, ptr %this, i64 32
   %call = tail call noundef nonnull align 8 dereferenceable(64) ptr @_ZN6icu_7513UnicodeStringaSERKS0_(ptr noundef nonnull align 8 dereferenceable(64) %result, ptr noundef nonnull align 8 dereferenceable(64) %text)
   ret void
 }

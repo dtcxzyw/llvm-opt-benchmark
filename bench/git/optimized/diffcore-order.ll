@@ -6,9 +6,6 @@ target triple = "x86_64-unknown-linux-gnu"
 %struct.diff_queue_struct = type { ptr, i32, i32 }
 %struct.strbuf = type { i64, i64, ptr }
 %struct.obj_order = type { ptr, i32, i32 }
-%struct.diff_filepair = type { ptr, ptr, i16, i8, i8 }
-%struct.diff_filespec = type { %struct.object_id, ptr, ptr, ptr, i64, i32, i32, i16, i16, ptr }
-%struct.object_id = type { [32 x i8], i32 }
 
 @diff_queued_diff = external local_unnamed_addr global %struct.diff_queue_struct, align 8
 @strbuf_slopbuf = external global [0 x i8], align 1
@@ -193,7 +190,7 @@ for.body.preheader:                               ; preds = %prepare_order.exit
 for.body:                                         ; preds = %for.body.preheader, %match_order.exit
   %indvars.iv = phi i64 [ 0, %for.body.preheader ], [ %indvars.iv.next, %match_order.exit ]
   %arrayidx = getelementptr inbounds %struct.obj_order, ptr %objs, i64 %indvars.iv
-  %orig_order = getelementptr inbounds %struct.obj_order, ptr %objs, i64 %indvars.iv, i32 1
+  %orig_order = getelementptr inbounds i8, ptr %arrayidx, i64 8
   %7 = trunc i64 %indvars.iv to i32
   store i32 %7, ptr %orig_order, align 8
   %8 = load ptr, ptr %arrayidx, align 8
@@ -261,7 +258,7 @@ return.loopexit.i:                                ; preds = %while.body.i
 
 match_order.exit:                                 ; preds = %for.inc.i, %for.body, %return.loopexit.i
   %retval.0.i = phi i32 [ %9, %for.body ], [ %22, %return.loopexit.i ], [ %20, %for.inc.i ]
-  %order = getelementptr inbounds %struct.obj_order, ptr %objs, i64 %indvars.iv, i32 2
+  %order = getelementptr inbounds i8, ptr %arrayidx, i64 12
   store i32 %retval.0.i, ptr %order, align 4
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
@@ -283,9 +280,9 @@ return:                                           ; preds = %if.then.i, %for.end
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
 define internal i32 @compare_objs_order(ptr nocapture noundef readonly %a_, ptr nocapture noundef readonly %b_) #1 {
 entry:
-  %order = getelementptr inbounds %struct.obj_order, ptr %a_, i64 0, i32 2
+  %order = getelementptr inbounds i8, ptr %a_, i64 12
   %0 = load i32, ptr %order, align 4
-  %order1 = getelementptr inbounds %struct.obj_order, ptr %b_, i64 0, i32 2
+  %order1 = getelementptr inbounds i8, ptr %b_, i64 12
   %1 = load i32, ptr %order1, align 4
   %cmp.not = icmp eq i32 %0, %1
   br i1 %cmp.not, label %if.end, label %if.then
@@ -295,9 +292,9 @@ if.then:                                          ; preds = %entry
   br label %return
 
 if.end:                                           ; preds = %entry
-  %orig_order = getelementptr inbounds %struct.obj_order, ptr %a_, i64 0, i32 1
+  %orig_order = getelementptr inbounds i8, ptr %a_, i64 8
   %2 = load i32, ptr %orig_order, align 8
-  %orig_order4 = getelementptr inbounds %struct.obj_order, ptr %b_, i64 0, i32 1
+  %orig_order4 = getelementptr inbounds i8, ptr %b_, i64 8
   %3 = load i32, ptr %orig_order4, align 8
   %sub5 = sub nsw i32 %2, %3
   br label %return
@@ -376,9 +373,9 @@ declare ptr @xmalloc(i64 noundef) local_unnamed_addr #2
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
 define internal ptr @pair_pathtwo(ptr nocapture noundef readonly %obj) #3 {
 entry:
-  %two = getelementptr inbounds %struct.diff_filepair, ptr %obj, i64 0, i32 1
+  %two = getelementptr inbounds i8, ptr %obj, i64 8
   %0 = load ptr, ptr %two, align 8
-  %path = getelementptr inbounds %struct.diff_filespec, ptr %0, i64 0, i32 1
+  %path = getelementptr inbounds i8, ptr %0, i64 40
   %1 = load ptr, ptr %path, align 8
   ret ptr %1
 }

@@ -3,8 +3,6 @@ source_filename = "bench/hermes/original/ProcessStats.cpp.ll"
 target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:128-n8:16:32:64-S128"
 target triple = "x86_64-unknown-linux-gnu"
 
-%"class.llvh::raw_ostream" = type <{ ptr, ptr, ptr, ptr, i32, [4 x i8] }>
-%"struct.hermes::vm::ProcessStats::Info" = type { i64, i64 }
 %"class.std::basic_ifstream" = type { %"class.std::basic_istream.base", %"class.std::basic_filebuf", %"class.std::basic_ios" }
 %"class.std::basic_istream.base" = type { ptr, i64 }
 %"class.std::basic_filebuf" = type { %"class.std::basic_streambuf", %union.pthread_mutex_t, %"class.std::__basic_file", i32, %struct.__mbstate_t, %struct.__mbstate_t, %struct.__mbstate_t, ptr, i64, i8, i8, i8, i8, ptr, ptr, i8, ptr, ptr, i64, ptr, ptr }
@@ -19,10 +17,6 @@ target triple = "x86_64-unknown-linux-gnu"
 %"class.std::basic_ios" = type { %"class.std::ios_base", ptr, i8, i8, ptr, ptr, ptr, ptr }
 %"class.std::ios_base" = type { ptr, i64, i64, i32, i32, i32, ptr, %"struct.std::ios_base::_Words", [8 x %"struct.std::ios_base::_Words"], i32, ptr, %"class.std::locale" }
 %"struct.std::ios_base::_Words" = type { ptr, i64 }
-%"class.hermes::vm::ProcessStats" = type { %"class.std::chrono::time_point", %"struct.hermes::vm::ProcessStats::Info", %"class.hermes::vm::ApproxIntegral", %"class.hermes::vm::ApproxIntegral" }
-%"class.std::chrono::time_point" = type { %"class.std::chrono::duration" }
-%"class.std::chrono::duration" = type { i64 }
-%"class.hermes::vm::ApproxIntegral" = type { i64, i64, i64 }
 
 @.str = private unnamed_addr constant [4 x i8] c"{\0A \00", align 1
 @.str.1 = private unnamed_addr constant [26 x i8] c"\09\22Integral of RSS kBms\22: \00", align 1
@@ -37,9 +31,9 @@ target triple = "x86_64-unknown-linux-gnu"
 ; Function Attrs: mustprogress nounwind uwtable
 define hidden void @_ZN6hermes2vm12ProcessStats4Info9printJSONERN4llvh11raw_ostreamE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %this, ptr noundef nonnull align 8 dereferenceable(36) %os) local_unnamed_addr #0 align 2 {
 entry:
-  %OutBufEnd.i5.i = getelementptr inbounds %"class.llvh::raw_ostream", ptr %os, i64 0, i32 2
+  %OutBufEnd.i5.i = getelementptr inbounds i8, ptr %os, i64 16
   %0 = load ptr, ptr %OutBufEnd.i5.i, align 8
-  %OutBufCur.i6.i = getelementptr inbounds %"class.llvh::raw_ostream", ptr %os, i64 0, i32 3
+  %OutBufCur.i6.i = getelementptr inbounds i8, ptr %os, i64 24
   %1 = load ptr, ptr %OutBufCur.i6.i, align 8
   %sub.ptr.lhs.cast.i7.i = ptrtoint ptr %0 to i64
   %sub.ptr.rhs.cast.i8.i = ptrtoint ptr %1 to i64
@@ -49,7 +43,7 @@ entry:
 
 if.then.i.i:                                      ; preds = %entry
   %call3.i.i = tail call noundef nonnull align 8 dereferenceable(36) ptr @_ZN4llvh11raw_ostream5writeEPKcm(ptr noundef nonnull align 8 dereferenceable(36) %os, ptr noundef nonnull @.str, i64 noundef 3) #8
-  %OutBufCur.i6.i3.phi.trans.insert = getelementptr inbounds %"class.llvh::raw_ostream", ptr %call3.i.i, i64 0, i32 3
+  %OutBufCur.i6.i3.phi.trans.insert = getelementptr inbounds i8, ptr %call3.i.i, i64 24
   %.pre = load ptr, ptr %OutBufCur.i6.i3.phi.trans.insert, align 8
   br label %_ZN4llvh11raw_ostreamlsEPKc.exit
 
@@ -63,7 +57,7 @@ if.then4.i.i:                                     ; preds = %entry
 _ZN4llvh11raw_ostreamlsEPKc.exit:                 ; preds = %if.then.i.i, %if.then4.i.i
   %3 = phi ptr [ %.pre, %if.then.i.i ], [ %add.ptr.i.i, %if.then4.i.i ]
   %phi.call.i = phi ptr [ %call3.i.i, %if.then.i.i ], [ %os, %if.then4.i.i ]
-  %OutBufEnd.i5.i2 = getelementptr inbounds %"class.llvh::raw_ostream", ptr %phi.call.i, i64 0, i32 2
+  %OutBufEnd.i5.i2 = getelementptr inbounds i8, ptr %phi.call.i, i64 16
   %4 = load ptr, ptr %OutBufEnd.i5.i2, align 8
   %sub.ptr.lhs.cast.i7.i4 = ptrtoint ptr %4 to i64
   %sub.ptr.rhs.cast.i8.i5 = ptrtoint ptr %3 to i64
@@ -76,7 +70,7 @@ if.then.i.i13:                                    ; preds = %_ZN4llvh11raw_ostre
   br label %_ZN4llvh11raw_ostreamlsEPKc.exit15
 
 if.then4.i.i10:                                   ; preds = %_ZN4llvh11raw_ostreamlsEPKc.exit
-  %OutBufCur.i6.i3 = getelementptr inbounds %"class.llvh::raw_ostream", ptr %phi.call.i, i64 0, i32 3
+  %OutBufCur.i6.i3 = getelementptr inbounds i8, ptr %phi.call.i, i64 24
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(25) %3, ptr noundef nonnull align 1 dereferenceable(25) @.str.1, i64 25, i1 false)
   %5 = load ptr, ptr %OutBufCur.i6.i3, align 8
   %add.ptr.i.i11 = getelementptr inbounds i8, ptr %5, i64 25
@@ -87,9 +81,9 @@ _ZN4llvh11raw_ostreamlsEPKc.exit15:               ; preds = %if.then.i.i13, %if.
   %phi.call.i12 = phi ptr [ %call3.i.i14, %if.then.i.i13 ], [ %phi.call.i, %if.then4.i.i10 ]
   %6 = load i64, ptr %this, align 8
   %call3 = tail call noundef nonnull align 8 dereferenceable(36) ptr @_ZN4llvh11raw_ostreamlsEl(ptr noundef nonnull align 8 dereferenceable(36) %phi.call.i12, i64 noundef %6) #8
-  %OutBufEnd.i5.i17 = getelementptr inbounds %"class.llvh::raw_ostream", ptr %call3, i64 0, i32 2
+  %OutBufEnd.i5.i17 = getelementptr inbounds i8, ptr %call3, i64 16
   %7 = load ptr, ptr %OutBufEnd.i5.i17, align 8
-  %OutBufCur.i6.i18 = getelementptr inbounds %"class.llvh::raw_ostream", ptr %call3, i64 0, i32 3
+  %OutBufCur.i6.i18 = getelementptr inbounds i8, ptr %call3, i64 24
   %8 = load ptr, ptr %OutBufCur.i6.i18, align 8
   %sub.ptr.lhs.cast.i7.i19 = ptrtoint ptr %7 to i64
   %sub.ptr.rhs.cast.i8.i20 = ptrtoint ptr %8 to i64
@@ -99,7 +93,7 @@ _ZN4llvh11raw_ostreamlsEPKc.exit15:               ; preds = %if.then.i.i13, %if.
 
 if.then.i.i28:                                    ; preds = %_ZN4llvh11raw_ostreamlsEPKc.exit15
   %call3.i.i29 = tail call noundef nonnull align 8 dereferenceable(36) ptr @_ZN4llvh11raw_ostream5writeEPKcm(ptr noundef nonnull align 8 dereferenceable(36) %call3, ptr noundef nonnull @.str.2, i64 noundef 2) #8
-  %OutBufCur.i6.i33.phi.trans.insert = getelementptr inbounds %"class.llvh::raw_ostream", ptr %call3.i.i29, i64 0, i32 3
+  %OutBufCur.i6.i33.phi.trans.insert = getelementptr inbounds i8, ptr %call3.i.i29, i64 24
   %.pre76 = load ptr, ptr %OutBufCur.i6.i33.phi.trans.insert, align 8
   br label %_ZN4llvh11raw_ostreamlsEPKc.exit30
 
@@ -113,7 +107,7 @@ if.then4.i.i25:                                   ; preds = %_ZN4llvh11raw_ostre
 _ZN4llvh11raw_ostreamlsEPKc.exit30:               ; preds = %if.then.i.i28, %if.then4.i.i25
   %10 = phi ptr [ %.pre76, %if.then.i.i28 ], [ %add.ptr.i.i26, %if.then4.i.i25 ]
   %phi.call.i27 = phi ptr [ %call3.i.i29, %if.then.i.i28 ], [ %call3, %if.then4.i.i25 ]
-  %OutBufEnd.i5.i32 = getelementptr inbounds %"class.llvh::raw_ostream", ptr %phi.call.i27, i64 0, i32 2
+  %OutBufEnd.i5.i32 = getelementptr inbounds i8, ptr %phi.call.i27, i64 16
   %11 = load ptr, ptr %OutBufEnd.i5.i32, align 8
   %sub.ptr.lhs.cast.i7.i34 = ptrtoint ptr %11 to i64
   %sub.ptr.rhs.cast.i8.i35 = ptrtoint ptr %10 to i64
@@ -126,7 +120,7 @@ if.then.i.i43:                                    ; preds = %_ZN4llvh11raw_ostre
   br label %_ZN4llvh11raw_ostreamlsEPKc.exit45
 
 if.then4.i.i40:                                   ; preds = %_ZN4llvh11raw_ostreamlsEPKc.exit30
-  %OutBufCur.i6.i33 = getelementptr inbounds %"class.llvh::raw_ostream", ptr %phi.call.i27, i64 0, i32 3
+  %OutBufCur.i6.i33 = getelementptr inbounds i8, ptr %phi.call.i27, i64 24
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(24) %10, ptr noundef nonnull align 1 dereferenceable(24) @.str.3, i64 24, i1 false)
   %12 = load ptr, ptr %OutBufCur.i6.i33, align 8
   %add.ptr.i.i41 = getelementptr inbounds i8, ptr %12, i64 24
@@ -135,19 +129,19 @@ if.then4.i.i40:                                   ; preds = %_ZN4llvh11raw_ostre
 
 _ZN4llvh11raw_ostreamlsEPKc.exit45:               ; preds = %if.then.i.i43, %if.then4.i.i40
   %phi.call.i42 = phi ptr [ %call3.i.i44, %if.then.i.i43 ], [ %phi.call.i27, %if.then4.i.i40 ]
-  %VAkB = getelementptr inbounds %"struct.hermes::vm::ProcessStats::Info", ptr %this, i64 0, i32 1
+  %VAkB = getelementptr inbounds i8, ptr %this, i64 8
   %13 = load i64, ptr %VAkB, align 8
   %call6 = tail call noundef nonnull align 8 dereferenceable(36) ptr @_ZN4llvh11raw_ostreamlsEl(ptr noundef nonnull align 8 dereferenceable(36) %phi.call.i42, i64 noundef %13) #8
-  %OutBufEnd.i5.i47 = getelementptr inbounds %"class.llvh::raw_ostream", ptr %call6, i64 0, i32 2
+  %OutBufEnd.i5.i47 = getelementptr inbounds i8, ptr %call6, i64 16
   %14 = load ptr, ptr %OutBufEnd.i5.i47, align 8
-  %OutBufCur.i6.i48 = getelementptr inbounds %"class.llvh::raw_ostream", ptr %call6, i64 0, i32 3
+  %OutBufCur.i6.i48 = getelementptr inbounds i8, ptr %call6, i64 24
   %15 = load ptr, ptr %OutBufCur.i6.i48, align 8
   %cmp.i.i52 = icmp eq ptr %14, %15
   br i1 %cmp.i.i52, label %if.then.i.i58, label %if.then4.i.i55
 
 if.then.i.i58:                                    ; preds = %_ZN4llvh11raw_ostreamlsEPKc.exit45
   %call3.i.i59 = tail call noundef nonnull align 8 dereferenceable(36) ptr @_ZN4llvh11raw_ostream5writeEPKcm(ptr noundef nonnull align 8 dereferenceable(36) %call6, ptr noundef nonnull @.str.4, i64 noundef 1) #8
-  %OutBufCur.i6.i63.phi.trans.insert = getelementptr inbounds %"class.llvh::raw_ostream", ptr %call3.i.i59, i64 0, i32 3
+  %OutBufCur.i6.i63.phi.trans.insert = getelementptr inbounds i8, ptr %call3.i.i59, i64 24
   %.pre77 = load ptr, ptr %OutBufCur.i6.i63.phi.trans.insert, align 8
   br label %_ZN4llvh11raw_ostreamlsEPKc.exit60
 
@@ -161,7 +155,7 @@ if.then4.i.i55:                                   ; preds = %_ZN4llvh11raw_ostre
 _ZN4llvh11raw_ostreamlsEPKc.exit60:               ; preds = %if.then.i.i58, %if.then4.i.i55
   %17 = phi ptr [ %.pre77, %if.then.i.i58 ], [ %add.ptr.i.i56, %if.then4.i.i55 ]
   %phi.call.i57 = phi ptr [ %call3.i.i59, %if.then.i.i58 ], [ %call6, %if.then4.i.i55 ]
-  %OutBufEnd.i5.i62 = getelementptr inbounds %"class.llvh::raw_ostream", ptr %phi.call.i57, i64 0, i32 2
+  %OutBufEnd.i5.i62 = getelementptr inbounds i8, ptr %phi.call.i57, i64 16
   %18 = load ptr, ptr %OutBufEnd.i5.i62, align 8
   %sub.ptr.lhs.cast.i7.i64 = ptrtoint ptr %18 to i64
   %sub.ptr.rhs.cast.i8.i65 = ptrtoint ptr %17 to i64
@@ -174,7 +168,7 @@ if.then.i.i73:                                    ; preds = %_ZN4llvh11raw_ostre
   br label %_ZN4llvh11raw_ostreamlsEPKc.exit75
 
 if.then4.i.i70:                                   ; preds = %_ZN4llvh11raw_ostreamlsEPKc.exit60
-  %OutBufCur.i6.i63 = getelementptr inbounds %"class.llvh::raw_ostream", ptr %phi.call.i57, i64 0, i32 3
+  %OutBufCur.i6.i63 = getelementptr inbounds i8, ptr %phi.call.i57, i64 24
   store i16 2685, ptr %17, align 1
   %19 = load ptr, ptr %OutBufCur.i6.i63, align 8
   %add.ptr.i.i71 = getelementptr inbounds i8, ptr %19, i64 2
@@ -195,7 +189,7 @@ entry:
   %statm.i = alloca %"class.std::basic_ifstream", align 8
   %call = tail call i64 @_ZNSt6chrono3_V212steady_clock3nowEv() #8
   store i64 %call, ptr %this, align 8
-  %initInfo_ = getelementptr inbounds %"class.hermes::vm::ProcessStats", ptr %this, i64 0, i32 1
+  %initInfo_ = getelementptr inbounds i8, ptr %this, i64 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %rss.i)
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %va.i)
   call void @llvm.lifetime.start.p0(i64 520, ptr nonnull %statm.i)
@@ -216,9 +210,9 @@ entry:
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %va.i)
   call void @llvm.lifetime.end.p0(i64 520, ptr nonnull %statm.i)
   store i64 %mul.i, ptr %initInfo_, align 8
-  %2 = getelementptr inbounds %"class.hermes::vm::ProcessStats", ptr %this, i64 0, i32 1, i32 1
+  %2 = getelementptr inbounds i8, ptr %this, i64 16
   store i64 %mul4.i, ptr %2, align 8
-  %iRSSkBms_ = getelementptr inbounds %"class.hermes::vm::ProcessStats", ptr %this, i64 0, i32 2
+  %iRSSkBms_ = getelementptr inbounds i8, ptr %this, i64 24
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %iRSSkBms_, i8 0, i64 48, i1 false)
   ret void
 }
@@ -254,33 +248,33 @@ entry:
   %retval.sroa.0.0.copyload.i1.i = load i64, ptr %this, align 8
   %sub.i.i = sub nsw i64 %now.coerce, %retval.sroa.0.0.copyload.i1.i
   %div.i.i = sdiv i64 %sub.i.i, 1000000
-  %iRSSkBms_ = getelementptr inbounds %"class.hermes::vm::ProcessStats", ptr %this, i64 0, i32 2
-  %initInfo_ = getelementptr inbounds %"class.hermes::vm::ProcessStats", ptr %this, i64 0, i32 1
+  %iRSSkBms_ = getelementptr inbounds i8, ptr %this, i64 24
+  %initInfo_ = getelementptr inbounds i8, ptr %this, i64 8
   %2 = load i64, ptr %initInfo_, align 8
   %sub = sub nsw i64 %mul.i, %2
   %3 = load i64, ptr %iRSSkBms_, align 8
   %sub.i = sub nsw i64 %div.i.i, %3
-  %yLast_.i = getelementptr inbounds %"class.hermes::vm::ProcessStats", ptr %this, i64 0, i32 2, i32 1
+  %yLast_.i = getelementptr inbounds i8, ptr %this, i64 32
   %4 = load i64, ptr %yLast_.i, align 8
   %add.i = add nsw i64 %4, %sub
   %mul.i2 = mul nsw i64 %add.i, %sub.i
-  %total_.i = getelementptr inbounds %"class.hermes::vm::ProcessStats", ptr %this, i64 0, i32 2, i32 2
+  %total_.i = getelementptr inbounds i8, ptr %this, i64 40
   %5 = load i64, ptr %total_.i, align 8
   %add2.i = add nsw i64 %mul.i2, %5
   store i64 %add2.i, ptr %total_.i, align 8
   store i64 %div.i.i, ptr %iRSSkBms_, align 8
   store i64 %sub, ptr %yLast_.i, align 8
-  %iVAkBms_ = getelementptr inbounds %"class.hermes::vm::ProcessStats", ptr %this, i64 0, i32 3
-  %VAkB11 = getelementptr inbounds %"class.hermes::vm::ProcessStats", ptr %this, i64 0, i32 1, i32 1
+  %iVAkBms_ = getelementptr inbounds i8, ptr %this, i64 48
+  %VAkB11 = getelementptr inbounds i8, ptr %this, i64 16
   %6 = load i64, ptr %VAkB11, align 8
   %sub12 = sub nsw i64 %mul4.i, %6
   %7 = load i64, ptr %iVAkBms_, align 8
   %sub.i3 = sub nsw i64 %div.i.i, %7
-  %yLast_.i4 = getelementptr inbounds %"class.hermes::vm::ProcessStats", ptr %this, i64 0, i32 3, i32 1
+  %yLast_.i4 = getelementptr inbounds i8, ptr %this, i64 56
   %8 = load i64, ptr %yLast_.i4, align 8
   %add.i5 = add nsw i64 %8, %sub12
   %mul.i6 = mul nsw i64 %add.i5, %sub.i3
-  %total_.i7 = getelementptr inbounds %"class.hermes::vm::ProcessStats", ptr %this, i64 0, i32 3, i32 2
+  %total_.i7 = getelementptr inbounds i8, ptr %this, i64 64
   %9 = load i64, ptr %total_.i7, align 8
   %add2.i8 = add nsw i64 %mul.i6, %9
   store i64 %add2.i8, ptr %total_.i7, align 8
@@ -292,10 +286,10 @@ entry:
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
 define hidden { i64, i64 } @_ZNK6hermes2vm12ProcessStats17getIntegratedInfoEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(72) %this) local_unnamed_addr #3 align 2 {
 entry:
-  %total_.i = getelementptr inbounds %"class.hermes::vm::ProcessStats", ptr %this, i64 0, i32 2, i32 2
+  %total_.i = getelementptr inbounds i8, ptr %this, i64 40
   %0 = load i64, ptr %total_.i, align 8
   %div.i = sdiv i64 %0, 2
-  %total_.i1 = getelementptr inbounds %"class.hermes::vm::ProcessStats", ptr %this, i64 0, i32 3, i32 2
+  %total_.i1 = getelementptr inbounds i8, ptr %this, i64 64
   %1 = load i64, ptr %total_.i1, align 8
   %div.i2 = sdiv i64 %1, 2
   %.fca.0.insert = insertvalue { i64, i64 } poison, i64 %div.i, 0

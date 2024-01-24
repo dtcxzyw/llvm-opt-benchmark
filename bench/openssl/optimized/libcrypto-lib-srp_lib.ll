@@ -661,22 +661,22 @@ entry:
 
 for.body:                                         ; preds = %entry, %for.inc
   %i.07 = phi i64 [ %inc, %for.inc ], [ 0, %entry ]
-  %g3 = getelementptr inbounds [7 x %struct.SRP_gN_st], ptr @knowngN, i64 0, i64 %i.07, i32 1
+  %arrayidx = getelementptr inbounds [7 x %struct.SRP_gN_st], ptr @knowngN, i64 0, i64 %i.07
+  %g3 = getelementptr inbounds i8, ptr %arrayidx, i64 8
   %0 = load ptr, ptr %g3, align 8
   %call = tail call i32 @BN_cmp(ptr noundef %0, ptr noundef %g) #4
   %cmp4 = icmp eq i32 %call, 0
   br i1 %cmp4, label %land.lhs.true, label %for.inc
 
 land.lhs.true:                                    ; preds = %for.body
-  %N6 = getelementptr inbounds [7 x %struct.SRP_gN_st], ptr @knowngN, i64 0, i64 %i.07, i32 2
+  %N6 = getelementptr inbounds i8, ptr %arrayidx, i64 16
   %1 = load ptr, ptr %N6, align 8
   %call7 = tail call i32 @BN_cmp(ptr noundef %1, ptr noundef %N) #4
   %cmp8 = icmp eq i32 %call7, 0
   br i1 %cmp8, label %if.then9, label %for.inc
 
 if.then9:                                         ; preds = %land.lhs.true
-  %arrayidx.le = getelementptr inbounds [7 x %struct.SRP_gN_st], ptr @knowngN, i64 0, i64 %i.07
-  %2 = load ptr, ptr %arrayidx.le, align 8
+  %2 = load ptr, ptr %arrayidx, align 8
   br label %return
 
 for.inc:                                          ; preds = %for.body, %land.lhs.true
@@ -692,7 +692,7 @@ return:                                           ; preds = %for.inc, %entry, %i
 declare i32 @BN_cmp(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nofree nounwind memory(read, inaccessiblemem: none) uwtable
-define ptr @SRP_get_default_gN(ptr noundef readonly %id) local_unnamed_addr #3 {
+define noundef ptr @SRP_get_default_gN(ptr noundef readonly %id) local_unnamed_addr #3 {
 entry:
   %cmp = icmp eq ptr %id, null
   br i1 %cmp, label %return, label %for.body

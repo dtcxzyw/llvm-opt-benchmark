@@ -5,12 +5,6 @@ target triple = "x86_64-unknown-linux-gnu"
 
 %struct.ASN1_ITEM_st = type opaque
 %struct.v3_ext_method = type { i32, i32, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr }
-%struct.asn1_string_st = type { i32, i32, ptr, i64 }
-%struct.v3_ext_ctx = type { i32, ptr, ptr, ptr, ptr, ptr, ptr }
-%struct.X509_req_info_st = type { %struct.ASN1_ENCODING_st, ptr, ptr, ptr, ptr }
-%struct.ASN1_ENCODING_st = type { ptr, i64, i32 }
-%struct.x509_cinf_st = type { ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, %struct.ASN1_ENCODING_st }
-%struct.X509_pubkey_st = type { ptr, ptr, ptr }
 
 @ASN1_OCTET_STRING_it = external constant %struct.ASN1_ITEM_st, align 1
 @v3_skey_id = hidden local_unnamed_addr constant %struct.v3_ext_method { i32 82, i32 0, ptr @ASN1_OCTET_STRING_it, ptr null, ptr null, ptr null, ptr null, ptr @i2s_ASN1_OCTET_STRING, ptr @s2i_skey_id, ptr null, ptr null, ptr null, ptr null, ptr null }, align 8
@@ -20,7 +14,7 @@ target triple = "x86_64-unknown-linux-gnu"
 ; Function Attrs: nounwind uwtable
 define hidden ptr @i2s_ASN1_OCTET_STRING(ptr nocapture readnone %method, ptr nocapture noundef readonly %oct) #0 {
 entry:
-  %data = getelementptr inbounds %struct.asn1_string_st, ptr %oct, i64 0, i32 2
+  %data = getelementptr inbounds i8, ptr %oct, i64 8
   %0 = load ptr, ptr %data, align 8
   %1 = load i32, ptr %oct, align 8
   %conv = sext i32 %1 to i64
@@ -50,7 +44,7 @@ if.then.i:                                        ; preds = %if.then
 
 if.end.i:                                         ; preds = %if.then
   %call1.i = call ptr @string_to_hex(ptr noundef %str, ptr noundef nonnull %length.i) #4
-  %data.i = getelementptr inbounds %struct.asn1_string_st, ptr %call.i, i64 0, i32 2
+  %data.i = getelementptr inbounds i8, ptr %call.i, i64 8
   store ptr %call1.i, ptr %data.i, align 8
   %tobool2.not.i = icmp eq ptr %call1.i, null
   br i1 %tobool2.not.i, label %if.then3.i, label %if.end4.i
@@ -89,35 +83,28 @@ land.lhs.true:                                    ; preds = %if.end5
   br i1 %cmp, label %return, label %lor.lhs.false
 
 lor.lhs.false:                                    ; preds = %land.lhs.true
-  %subject_req = getelementptr inbounds %struct.v3_ext_ctx, ptr %ctx, i64 0, i32 3
+  %subject_req = getelementptr inbounds i8, ptr %ctx, i64 24
   %2 = load ptr, ptr %subject_req, align 8
   %tobool10.not = icmp eq ptr %2, null
-  br i1 %tobool10.not, label %land.lhs.true11, label %if.then17
+  br i1 %tobool10.not, label %land.lhs.true11, label %if.end21
 
 land.lhs.true11:                                  ; preds = %lor.lhs.false
-  %subject_cert = getelementptr inbounds %struct.v3_ext_ctx, ptr %ctx, i64 0, i32 2
+  %subject_cert = getelementptr inbounds i8, ptr %ctx, i64 16
   %3 = load ptr, ptr %subject_cert, align 8
   %tobool12.not = icmp eq ptr %3, null
-  br i1 %tobool12.not, label %if.then13, label %if.else
+  br i1 %tobool12.not, label %if.then13, label %if.end21
 
 if.then13:                                        ; preds = %if.end5, %land.lhs.true11
   tail call void @ERR_put_error(i32 noundef 20, i32 noundef 0, i32 noundef 144, ptr noundef nonnull @.str, i32 noundef 124) #4
   br label %err
 
-if.then17:                                        ; preds = %lor.lhs.false
-  %4 = load ptr, ptr %2, align 8
-  %pubkey = getelementptr inbounds %struct.X509_req_info_st, ptr %4, i64 0, i32 3
-  br label %if.end21
-
-if.else:                                          ; preds = %land.lhs.true11
-  %5 = load ptr, ptr %3, align 8
-  %key = getelementptr inbounds %struct.x509_cinf_st, ptr %5, i64 0, i32 6
-  br label %if.end21
-
-if.end21:                                         ; preds = %if.else, %if.then17
-  %.pn.in = phi ptr [ %pubkey, %if.then17 ], [ %key, %if.else ]
-  %.pn = load ptr, ptr %.pn.in, align 8
-  %pk.0.in = getelementptr inbounds %struct.X509_pubkey_st, ptr %.pn, i64 0, i32 1
+if.end21:                                         ; preds = %land.lhs.true11, %lor.lhs.false
+  %.sink16 = phi ptr [ %2, %lor.lhs.false ], [ %3, %land.lhs.true11 ]
+  %.sink15 = phi i64 [ 40, %lor.lhs.false ], [ 48, %land.lhs.true11 ]
+  %4 = load ptr, ptr %.sink16, align 8
+  %key = getelementptr inbounds i8, ptr %4, i64 %.sink15
+  %.pn = load ptr, ptr %key, align 8
+  %pk.0.in = getelementptr inbounds i8, ptr %.pn, i64 8
   %pk.0 = load ptr, ptr %pk.0.in, align 8
   %tobool22.not = icmp eq ptr %pk.0, null
   br i1 %tobool22.not, label %if.then23, label %if.end24
@@ -127,18 +114,18 @@ if.then23:                                        ; preds = %if.end21
   br label %err
 
 if.end24:                                         ; preds = %if.end21
-  %data = getelementptr inbounds %struct.asn1_string_st, ptr %pk.0, i64 0, i32 2
-  %6 = load ptr, ptr %data, align 8
-  %7 = load i32, ptr %pk.0, align 8
-  %conv = sext i32 %7 to i64
+  %data = getelementptr inbounds i8, ptr %pk.0, i64 8
+  %5 = load ptr, ptr %data, align 8
+  %6 = load i32, ptr %pk.0, align 8
+  %conv = sext i32 %6 to i64
   %call25 = tail call ptr @EVP_sha1() #4
-  %call26 = call i32 @EVP_Digest(ptr noundef %6, i64 noundef %conv, ptr noundef nonnull %pkey_dig, ptr noundef nonnull %diglen, ptr noundef %call25, ptr noundef null) #4
+  %call26 = call i32 @EVP_Digest(ptr noundef %5, i64 noundef %conv, ptr noundef nonnull %pkey_dig, ptr noundef nonnull %diglen, ptr noundef %call25, ptr noundef null) #4
   %tobool27.not = icmp eq i32 %call26, 0
   br i1 %tobool27.not, label %err, label %if.end29
 
 if.end29:                                         ; preds = %if.end24
-  %8 = load i32, ptr %diglen, align 4
-  %call31 = call i32 @ASN1_STRING_set(ptr noundef nonnull %call2, ptr noundef nonnull %pkey_dig, i32 noundef %8) #4
+  %7 = load i32, ptr %diglen, align 4
+  %call31 = call i32 @ASN1_STRING_set(ptr noundef nonnull %call2, ptr noundef nonnull %pkey_dig, i32 noundef %7) #4
   %tobool32.not = icmp eq i32 %call31, 0
   br i1 %tobool32.not, label %if.then33, label %return
 
@@ -171,7 +158,7 @@ if.then:                                          ; preds = %entry
 
 if.end:                                           ; preds = %entry
   %call1 = call ptr @string_to_hex(ptr noundef %str, ptr noundef nonnull %length) #4
-  %data = getelementptr inbounds %struct.asn1_string_st, ptr %call, i64 0, i32 2
+  %data = getelementptr inbounds i8, ptr %call, i64 8
   store ptr %call1, ptr %data, align 8
   %tobool2.not = icmp eq ptr %call1, null
   br i1 %tobool2.not, label %if.then3, label %if.end4

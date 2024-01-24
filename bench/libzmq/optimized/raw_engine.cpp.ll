@@ -16,38 +16,6 @@ target triple = "x86_64-unknown-linux-gnu"
 %struct.anon = type { ptr, [34 x i8], i8, i8, i32, %"union.zmq::msg_t::group_t" }
 %"union.zmq::msg_t::group_t" = type { %struct.anon.28 }
 %struct.anon.28 = type { i8, ptr }
-%"class.zmq::stream_engine_base_t" = type <{ %"class.zmq::io_object_t", %"struct.zmq::i_engine", %"struct.zmq::options_t", ptr, i64, ptr, ptr, i64, ptr, ptr, { i64, i64 }, { i64, i64 }, ptr, i8, i8, [6 x i8], %"struct.zmq::endpoint_uri_pair_t", i8, i8, i8, i8, [4 x i8], %"class.std::__cxx11::basic_string", i32, [4 x i8], ptr, i8, i8, [6 x i8], %"class.zmq::msg_t", i8, [7 x i8], ptr, ptr, i8, [7 x i8] }>
-%"class.zmq::io_object_t" = type { %"struct.zmq::i_poll_events", ptr }
-%"struct.zmq::i_poll_events" = type { ptr }
-%"struct.zmq::i_engine" = type { ptr }
-%"struct.zmq::options_t" = type { i32, i32, i64, i8, [256 x i8], i32, i32, i32, i32, i32, i32, i32, i32, i8, %"struct.zmq::atomic_value_t", i32, i32, i32, i32, i32, i32, i64, i32, i32, i8, i32, i8, i8, i8, i8, i8, %"class.std::__cxx11::basic_string", %"class.std::__cxx11::basic_string", %"class.std::__cxx11::basic_string", i32, i32, i32, i32, %"class.std::vector", %"class.std::set", %"class.std::set", %"class.std::set.6", i32, i32, %"class.std::__cxx11::basic_string", %"class.std::__cxx11::basic_string", %"class.std::__cxx11::basic_string", [32 x i8], [32 x i8], [32 x i8], %"class.std::__cxx11::basic_string", %"class.std::__cxx11::basic_string", i32, i32, i8, i32, i8, i32, i8, i16, i32, i32, i32, %"class.std::__cxx11::basic_string", i8, i8, i8, i32, i32, i8, i32, %"class.std::map", i32, %"class.std::__cxx11::basic_string", %"class.std::__cxx11::basic_string", %"class.std::__cxx11::basic_string", %"class.std::__cxx11::basic_string", i8, %"class.std::vector.21", i8, %"class.std::vector.21", i8, %"class.std::vector.21", i8, i32, i8, i32, i32, i32, i32, i32, i8, i32 }
-%"struct.zmq::atomic_value_t" = type { %"struct.std::atomic" }
-%"struct.std::atomic" = type { %"struct.std::__atomic_base" }
-%"struct.std::__atomic_base" = type { i32 }
-%"class.std::vector" = type { %"struct.std::_Vector_base" }
-%"struct.std::_Vector_base" = type { %"struct.std::_Vector_base<zmq::tcp_address_mask_t, std::allocator<zmq::tcp_address_mask_t>>::_Vector_impl" }
-%"struct.std::_Vector_base<zmq::tcp_address_mask_t, std::allocator<zmq::tcp_address_mask_t>>::_Vector_impl" = type { %"struct.std::_Vector_base<zmq::tcp_address_mask_t, std::allocator<zmq::tcp_address_mask_t>>::_Vector_impl_data" }
-%"struct.std::_Vector_base<zmq::tcp_address_mask_t, std::allocator<zmq::tcp_address_mask_t>>::_Vector_impl_data" = type { ptr, ptr, ptr }
-%"class.std::set" = type { %"class.std::_Rb_tree" }
-%"class.std::_Rb_tree" = type { %"struct.std::_Rb_tree<unsigned int, unsigned int, std::_Identity<unsigned int>, std::less<unsigned int>>::_Rb_tree_impl" }
-%"struct.std::_Rb_tree<unsigned int, unsigned int, std::_Identity<unsigned int>, std::less<unsigned int>>::_Rb_tree_impl" = type { %"struct.std::_Rb_tree_key_compare", %"struct.std::_Rb_tree_header" }
-%"struct.std::_Rb_tree_key_compare" = type { %"struct.std::less" }
-%"struct.std::less" = type { i8 }
-%"class.std::set.6" = type { %"class.std::_Rb_tree.7" }
-%"class.std::_Rb_tree.7" = type { %"struct.std::_Rb_tree<int, int, std::_Identity<int>, std::less<int>>::_Rb_tree_impl" }
-%"struct.std::_Rb_tree<int, int, std::_Identity<int>, std::less<int>>::_Rb_tree_impl" = type { %"struct.std::_Rb_tree_key_compare.11", %"struct.std::_Rb_tree_header" }
-%"struct.std::_Rb_tree_key_compare.11" = type { %"struct.std::less.12" }
-%"struct.std::less.12" = type { i8 }
-%"class.std::vector.21" = type { %"struct.std::_Vector_base.22" }
-%"struct.std::_Vector_base.22" = type { %"struct.std::_Vector_base<unsigned char, std::allocator<unsigned char>>::_Vector_impl" }
-%"struct.std::_Vector_base<unsigned char, std::allocator<unsigned char>>::_Vector_impl" = type { %"struct.std::_Vector_base<unsigned char, std::allocator<unsigned char>>::_Vector_impl_data" }
-%"struct.std::_Vector_base<unsigned char, std::allocator<unsigned char>>::_Vector_impl_data" = type { ptr, ptr, ptr }
-%"struct.zmq::endpoint_uri_pair_t" = type <{ %"class.std::__cxx11::basic_string", %"class.std::__cxx11::basic_string", i32, [4 x i8] }>
-%"class.std::__cxx11::basic_string" = type { %"struct.std::__cxx11::basic_string<char>::_Alloc_hider", i64, %union.anon }
-%"struct.std::__cxx11::basic_string<char>::_Alloc_hider" = type { ptr }
-%union.anon = type { i64, [8 x i8] }
-%"struct.std::_Rb_tree_node" = type { %"struct.std::_Rb_tree_node_base", %"struct.__gnu_cxx::__aligned_membuf" }
-%"struct.__gnu_cxx::__aligned_membuf" = type { [64 x i8] }
 
 $_ZNSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_St4lessIS5_ESaISt4pairIKS5_S5_EEED2Ev = comdat any
 
@@ -143,19 +111,19 @@ entry:
   br i1 %new.isnull, label %if.then, label %new.notnull
 
 new.notnull:                                      ; preds = %entry
-  %out_batch_size = getelementptr inbounds %"class.zmq::stream_engine_base_t", ptr %this, i64 0, i32 2, i32 68
+  %out_batch_size = getelementptr inbounds i8, ptr %this, i64 1024
   %0 = load i32, ptr %out_batch_size, align 8
   %conv = sext i32 %0 to i64
   invoke void @_ZN3zmq13raw_encoder_tC1Em(ptr noundef nonnull align 8 dereferenceable(72) %call, i64 noundef %conv)
           to label %new.cont unwind label %lpad
 
 new.cont:                                         ; preds = %new.notnull
-  %_encoder = getelementptr inbounds %"class.zmq::stream_engine_base_t", ptr %this, i64 0, i32 8
+  %_encoder = getelementptr inbounds i8, ptr %this, i64 1400
   store ptr %call, ptr %_encoder, align 8
   br label %do.end
 
 if.then:                                          ; preds = %entry
-  %_encoder10 = getelementptr inbounds %"class.zmq::stream_engine_base_t", ptr %this, i64 0, i32 8
+  %_encoder10 = getelementptr inbounds i8, ptr %this, i64 1400
   store ptr null, ptr %_encoder10, align 8
   %1 = load ptr, ptr @stderr, align 8
   %call4 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %1, ptr noundef nonnull @.str, ptr noundef nonnull @.str.1, i32 noundef 55) #14
@@ -176,19 +144,19 @@ do.end:                                           ; preds = %new.cont, %if.then
   br i1 %new.isnull7, label %if.then23, label %new.notnull8
 
 new.notnull8:                                     ; preds = %do.end
-  %in_batch_size = getelementptr inbounds %"class.zmq::stream_engine_base_t", ptr %this, i64 0, i32 2, i32 67
+  %in_batch_size = getelementptr inbounds i8, ptr %this, i64 1020
   %4 = load i32, ptr %in_batch_size, align 4
   %conv11 = sext i32 %4 to i64
   invoke void @_ZN3zmq13raw_decoder_tC1Em(ptr noundef nonnull align 8 dereferenceable(112) %call6, i64 noundef %conv11)
           to label %new.cont17 unwind label %lpad12
 
 new.cont17:                                       ; preds = %new.notnull8
-  %_decoder = getelementptr inbounds %"class.zmq::stream_engine_base_t", ptr %this, i64 0, i32 5
+  %_decoder = getelementptr inbounds i8, ptr %this, i64 1376
   store ptr %call6, ptr %_decoder, align 8
   br label %do.end27
 
 if.then23:                                        ; preds = %do.end
-  %_decoder12 = getelementptr inbounds %"class.zmq::stream_engine_base_t", ptr %this, i64 0, i32 5
+  %_decoder12 = getelementptr inbounds i8, ptr %this, i64 1376
   store ptr null, ptr %_decoder12, align 8
   %5 = load ptr, ptr @stderr, align 8
   %call24 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %5, ptr noundef nonnull @.str, ptr noundef nonnull @.str.1, i32 noundef 58) #14
@@ -204,13 +172,13 @@ lpad12:                                           ; preds = %new.notnull8
   br label %eh.resume
 
 do.end27:                                         ; preds = %new.cont17, %if.then23
-  %_next_msg = getelementptr inbounds %"class.zmq::stream_engine_base_t", ptr %this, i64 0, i32 10
+  %_next_msg = getelementptr inbounds i8, ptr %this, i64 1416
   store i64 ptrtoint (ptr @_ZN3zmq20stream_engine_base_t21pull_msg_from_sessionEPNS_5msg_tE to i64), ptr %_next_msg, align 8
-  %_next_msg.repack1 = getelementptr inbounds %"class.zmq::stream_engine_base_t", ptr %this, i64 0, i32 10, i32 1
+  %_next_msg.repack1 = getelementptr inbounds i8, ptr %this, i64 1424
   store i64 0, ptr %_next_msg.repack1, align 8
-  %_process_msg = getelementptr inbounds %"class.zmq::stream_engine_base_t", ptr %this, i64 0, i32 11
+  %_process_msg = getelementptr inbounds i8, ptr %this, i64 1432
   store i64 ptrtoint (ptr @_ZN3zmq12raw_engine_t23push_raw_msg_to_sessionEPNS_5msg_tE to i64), ptr %_process_msg, align 8
-  %_process_msg.repack2 = getelementptr inbounds %"class.zmq::stream_engine_base_t", ptr %this, i64 0, i32 11, i32 1
+  %_process_msg.repack2 = getelementptr inbounds i8, ptr %this, i64 1440
   store i64 0, ptr %_process_msg.repack2, align 8
   %8 = getelementptr inbounds i8, ptr %properties, i64 8
   store i32 0, ptr %8, align 8
@@ -229,7 +197,7 @@ invoke.cont29:                                    ; preds = %do.end27
   br i1 %call30, label %do.body32, label %if.end69
 
 do.body32:                                        ; preds = %invoke.cont29
-  %_metadata = getelementptr inbounds %"class.zmq::stream_engine_base_t", ptr %this, i64 0, i32 12
+  %_metadata = getelementptr inbounds i8, ptr %this, i64 1448
   %9 = load ptr, ptr %_metadata, align 8
   %cmp.not = icmp eq ptr %9, null
   br i1 %cmp.not, label %do.end42, label %if.then35
@@ -276,7 +244,7 @@ lpad48:                                           ; preds = %new.notnull45
   br label %ehcleanup
 
 if.end69:                                         ; preds = %new.cont53, %if.then60, %invoke.cont29
-  %raw_notify = getelementptr inbounds %"class.zmq::stream_engine_base_t", ptr %this, i64 0, i32 2, i32 30
+  %raw_notify = getelementptr inbounds i8, ptr %this, i64 396
   %16 = load i8, ptr %raw_notify, align 4
   %17 = and i8 %16, 1
   %tobool71.not = icmp eq i8 %17, 0
@@ -287,7 +255,7 @@ if.then72:                                        ; preds = %if.end69
           to label %invoke.cont73 unwind label %lpad28
 
 invoke.cont73:                                    ; preds = %if.then72
-  %_metadata.i = getelementptr inbounds %"class.zmq::stream_engine_base_t", ptr %this, i64 0, i32 12
+  %_metadata.i = getelementptr inbounds i8, ptr %this, i64 1448
   %18 = load ptr, ptr %_metadata.i, align 8
   %tobool.not.i = icmp eq ptr %18, null
   br i1 %tobool.not.i, label %if.end.i, label %land.lhs.true.i
@@ -314,13 +282,13 @@ invoke.cont75:                                    ; preds = %if.end.i
           to label %invoke.cont77 unwind label %lpad28
 
 invoke.cont77:                                    ; preds = %invoke.cont75
-  %_session.i = getelementptr inbounds %"class.zmq::stream_engine_base_t", ptr %this, i64 0, i32 32
+  %_session.i = getelementptr inbounds i8, ptr %this, i64 1672
   %20 = load ptr, ptr %_session.i, align 8
   invoke void @_ZN3zmq14session_base_t5flushEv(ptr noundef nonnull align 8 dereferenceable(1624) %20)
           to label %if.end82 unwind label %lpad28
 
 if.end82:                                         ; preds = %invoke.cont77, %if.end69
-  %_handle.i = getelementptr inbounds %"class.zmq::stream_engine_base_t", ptr %this, i64 0, i32 25
+  %_handle.i = getelementptr inbounds i8, ptr %this, i64 1584
   %21 = load ptr, ptr %_handle.i, align 8
   invoke void @_ZN3zmq11io_object_t10set_pollinEPv(ptr noundef nonnull align 8 dereferenceable(16) %this, ptr noundef %21)
           to label %invoke.cont83 unwind label %lpad28
@@ -384,7 +352,7 @@ declare noundef i32 @_ZN3zmq20stream_engine_base_t21pull_msg_from_sessionEPNS_5m
 ; Function Attrs: mustprogress uwtable
 define noundef i32 @_ZN3zmq12raw_engine_t23push_raw_msg_to_sessionEPNS_5msg_tE(ptr noundef nonnull align 8 dereferenceable(1696) %this, ptr noundef %msg_) #0 align 2 {
 entry:
-  %_metadata = getelementptr inbounds %"class.zmq::stream_engine_base_t", ptr %this, i64 0, i32 12
+  %_metadata = getelementptr inbounds i8, ptr %this, i64 1448
   %0 = load ptr, ptr %_metadata, align 8
   %tobool.not = icmp eq ptr %0, null
   br i1 %tobool.not, label %if.end, label %land.lhs.true
@@ -445,14 +413,14 @@ entry:
 define void @_ZN3zmq12raw_engine_t5errorENS_8i_engine14error_reason_tE(ptr noundef nonnull align 8 dereferenceable(1696) %this, i32 noundef %reason_) unnamed_addr #0 align 2 {
 entry:
   %terminator = alloca %"class.zmq::msg_t", align 8
-  %raw_socket = getelementptr inbounds %"class.zmq::stream_engine_base_t", ptr %this, i64 0, i32 2, i32 29
+  %raw_socket = getelementptr inbounds i8, ptr %this, i64 395
   %0 = load i8, ptr %raw_socket, align 1
   %1 = and i8 %0, 1
   %tobool.not = icmp eq i8 %1, 0
   br i1 %tobool.not, label %if.end, label %land.lhs.true
 
 land.lhs.true:                                    ; preds = %entry
-  %raw_notify = getelementptr inbounds %"class.zmq::stream_engine_base_t", ptr %this, i64 0, i32 2, i32 30
+  %raw_notify = getelementptr inbounds i8, ptr %this, i64 396
   %2 = load i8, ptr %raw_notify, align 4
   %3 = and i8 %2, 1
   %tobool3.not = icmp eq i8 %3, 0
@@ -460,7 +428,7 @@ land.lhs.true:                                    ; preds = %entry
 
 if.then:                                          ; preds = %land.lhs.true
   %call = call noundef i32 @_ZN3zmq5msg_t4initEv(ptr noundef nonnull align 8 dereferenceable(64) %terminator)
-  %_metadata.i = getelementptr inbounds %"class.zmq::stream_engine_base_t", ptr %this, i64 0, i32 12
+  %_metadata.i = getelementptr inbounds i8, ptr %this, i64 1448
   %4 = load ptr, ptr %_metadata.i, align 8
   %tobool.not.i = icmp eq ptr %4, null
   br i1 %tobool.not.i, label %_ZN3zmq12raw_engine_t23push_raw_msg_to_sessionEPNS_5msg_tE.exit, label %land.lhs.true.i
@@ -500,7 +468,7 @@ declare void @_ZN3zmq20stream_engine_base_t11timer_eventEi(ptr noundef nonnull a
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr noundef zeroext i1 @_ZN3zmq20stream_engine_base_t19has_handshake_stageEv(ptr noundef nonnull align 8 dereferenceable(1689) %this) unnamed_addr #2 comdat align 2 {
 entry:
-  %_has_handshake_stage = getelementptr inbounds %"class.zmq::stream_engine_base_t", ptr %this, i64 0, i32 34
+  %_has_handshake_stage = getelementptr inbounds i8, ptr %this, i64 1688
   %0 = load i8, ptr %_has_handshake_stage, align 8
   %1 = and i8 %0, 1
   %tobool = icmp ne i8 %1, 0
@@ -594,13 +562,13 @@ entry:
 
 while.body:                                       ; preds = %entry, %while.body
   %__x.addr.05 = phi ptr [ %1, %while.body ], [ %__x, %entry ]
-  %_M_right.i = getelementptr inbounds %"struct.std::_Rb_tree_node_base", ptr %__x.addr.05, i64 0, i32 3
+  %_M_right.i = getelementptr inbounds i8, ptr %__x.addr.05, i64 24
   %0 = load ptr, ptr %_M_right.i, align 8
   tail call void @_ZNSt8_Rb_treeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS5_S5_ESt10_Select1stIS8_ESt4lessIS5_ESaIS8_EE8_M_eraseEPSt13_Rb_tree_nodeIS8_E(ptr noundef nonnull align 8 dereferenceable(48) %this, ptr noundef %0)
-  %_M_left.i = getelementptr inbounds %"struct.std::_Rb_tree_node_base", ptr %__x.addr.05, i64 0, i32 2
+  %_M_left.i = getelementptr inbounds i8, ptr %__x.addr.05, i64 16
   %1 = load ptr, ptr %_M_left.i, align 8
-  %_M_storage.i.i.i = getelementptr inbounds %"struct.std::_Rb_tree_node", ptr %__x.addr.05, i64 0, i32 1
-  %second.i.i.i.i.i = getelementptr inbounds %"struct.std::_Rb_tree_node", ptr %__x.addr.05, i64 0, i32 1, i32 0, i64 32
+  %_M_storage.i.i.i = getelementptr inbounds i8, ptr %__x.addr.05, i64 32
+  %second.i.i.i.i.i = getelementptr inbounds i8, ptr %__x.addr.05, i64 64
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %second.i.i.i.i.i) #11
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %_M_storage.i.i.i) #11
   tail call void @_ZdlPv(ptr noundef nonnull %__x.addr.05) #12

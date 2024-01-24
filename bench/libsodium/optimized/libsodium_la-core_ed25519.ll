@@ -148,7 +148,7 @@ entry:
   br i1 %cmp1.not.i, label %for.cond.preheader.i, label %_string_to_points.exit
 
 for.cond.preheader.i:                             ; preds = %entry
-  %arrayidx11.i = getelementptr inbounds [64 x i8], ptr %h.i, i64 0, i64 48
+  %arrayidx11.i = getelementptr inbounds i8, ptr %h.i, i64 48
   br label %for.body7.i
 
 for.body7.i:                                      ; preds = %for.body7.i, %for.cond.preheader.i
@@ -190,7 +190,7 @@ entry:
   br i1 %cmp1.not.i, label %for.cond.preheader.i, label %_string_to_points.exit
 
 for.cond.preheader.i:                             ; preds = %entry
-  %arrayidx11.i = getelementptr inbounds [64 x i8], ptr %h.i, i64 0, i64 48
+  %arrayidx11.i = getelementptr inbounds i8, ptr %h.i, i64 48
   br label %for.cond5.preheader.i
 
 for.cond5.preheader.i:                            ; preds = %for.end.i, %for.cond.preheader.i
@@ -227,7 +227,7 @@ _string_to_points.exit:                           ; preds = %entry
 if.end:                                           ; preds = %for.end.i
   call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %h.i)
   call void @llvm.lifetime.end.p0(i64 96, ptr nonnull %h_be.i)
-  %arrayidx1 = getelementptr inbounds [64 x i8], ptr %px, i64 0, i64 32
+  %arrayidx1 = getelementptr inbounds i8, ptr %px, i64 32
   call void @llvm.lifetime.start.p0(i64 160, ptr nonnull %p_p3.i)
   call void @llvm.lifetime.start.p0(i64 160, ptr nonnull %q_p3.i)
   call void @llvm.lifetime.start.p0(i64 160, ptr nonnull %r_p3.i)

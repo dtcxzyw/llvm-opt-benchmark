@@ -871,9 +871,6 @@ target triple = "x86_64-unknown-linux-gnu"
 %struct._PyArg_Parser = type { ptr, ptr, ptr, ptr, %struct._PyOnceFlag, i32, i32, i32, i32, ptr, ptr }
 %struct.PyModuleDef = type { %struct.PyModuleDef_Base, ptr, ptr, i64, ptr, ptr, ptr, ptr, ptr }
 %struct.PyModuleDef_Base = type { %struct._object, ptr, i64, ptr }
-%struct.iobase = type { %struct._object, ptr, ptr }
-%struct._typeobject = type { %struct.PyVarObject, ptr, i64, i64, ptr, i64, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, i64, ptr, ptr, ptr, ptr, i64, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, i64, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, i32, ptr, ptr, i8 }
-%struct.PyByteArrayObject = type { %struct.PyVarObject, i64, ptr, ptr, i64 }
 
 @_Py_TrueStruct = external global %struct._longobject, align 8
 @_Py_NoneStruct = external global %struct._object, align 8
@@ -958,7 +955,7 @@ target triple = "x86_64-unknown-linux-gnu"
 @PyExc_NotImplementedError = external local_unnamed_addr global ptr, align 8
 
 ; Function Attrs: nounwind uwtable
-define hidden ptr @_PyIOBase_check_closed(ptr noundef %self, ptr nocapture readnone %args) #0 {
+define hidden noundef ptr @_PyIOBase_check_closed(ptr noundef %self, ptr nocapture readnone %args) #0 {
 entry:
   %res.i = alloca ptr, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %res.i)
@@ -1009,7 +1006,7 @@ iobase_check_closed.exit:                         ; preds = %entry, %Py_DECREF.e
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden noalias ptr @_PyIOBase_cannot_pickle(ptr nocapture noundef readonly %self, ptr nocapture noundef readnone %args) local_unnamed_addr #0 {
+define hidden noalias noundef ptr @_PyIOBase_cannot_pickle(ptr nocapture noundef readonly %self, ptr nocapture noundef readnone %args) local_unnamed_addr #0 {
 entry:
   %0 = load ptr, ptr @PyExc_TypeError, align 8
   %1 = getelementptr i8, ptr %self, i64 8
@@ -1048,7 +1045,7 @@ declare i32 @PyObject_CallFinalizerFromDealloc(ptr noundef) local_unnamed_addr #
 declare void @PyObject_CallFinalizer(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define hidden ptr @_PyIOBase_check_seekable(ptr nocapture noundef readonly %state, ptr noundef %self, ptr noundef readnone %args) local_unnamed_addr #0 {
+define hidden noundef ptr @_PyIOBase_check_seekable(ptr nocapture noundef readonly %state, ptr noundef %self, ptr noundef readnone %args) local_unnamed_addr #0 {
 entry:
   %self.addr.i = alloca ptr, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %self.addr.i)
@@ -1110,7 +1107,7 @@ return:                                           ; preds = %if.end7, %if.then9,
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden ptr @_PyIOBase_check_readable(ptr nocapture noundef readonly %state, ptr noundef %self, ptr noundef readnone %args) local_unnamed_addr #0 {
+define hidden noundef ptr @_PyIOBase_check_readable(ptr nocapture noundef readonly %state, ptr noundef %self, ptr noundef readnone %args) local_unnamed_addr #0 {
 entry:
   %self.addr.i = alloca ptr, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %self.addr.i)
@@ -1172,7 +1169,7 @@ return:                                           ; preds = %if.end7, %if.then9,
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden ptr @_PyIOBase_check_writable(ptr nocapture noundef readonly %state, ptr noundef %self, ptr noundef readnone %args) local_unnamed_addr #0 {
+define hidden noundef ptr @_PyIOBase_check_writable(ptr nocapture noundef readonly %state, ptr noundef %self, ptr noundef readnone %args) local_unnamed_addr #0 {
 entry:
   %self.addr.i = alloca ptr, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %self.addr.i)
@@ -1289,7 +1286,7 @@ if.end5:                                          ; preds = %_PyIOBase_finalize.
   %call.val6.i = load i64, ptr %add.ptr.i.i, align 8
   %7 = inttoptr i64 %call.val6.i to ptr
   store i64 %call.val6.i, ptr %6, align 8
-  %_gc_prev.i.i = getelementptr inbounds %struct.PyGC_Head, ptr %7, i64 0, i32 1
+  %_gc_prev.i.i = getelementptr inbounds i8, ptr %7, i64 8
   %8 = load i64, ptr %_gc_prev.i.i, align 8
   %and.i7.i = and i64 %8, 3
   %or.i.i = or disjoint i64 %and.i7.i, %and.i.i
@@ -1298,7 +1295,7 @@ if.end5:                                          ; preds = %_PyIOBase_finalize.
   %9 = load i64, ptr %5, align 8
   %and.i = and i64 %9, 1
   store i64 %and.i, ptr %5, align 8
-  %weakreflist = getelementptr inbounds %struct.iobase, ptr %self, i64 0, i32 2
+  %weakreflist = getelementptr inbounds i8, ptr %self, i64 24
   %10 = load ptr, ptr %weakreflist, align 8
   %cmp7.not = icmp eq ptr %10, null
   br i1 %cmp7.not, label %do.body, label %if.then8
@@ -1308,7 +1305,7 @@ if.then8:                                         ; preds = %if.end5
   br label %do.body
 
 do.body:                                          ; preds = %if.end5, %if.then8
-  %dict = getelementptr inbounds %struct.iobase, ptr %self, i64 0, i32 1
+  %dict = getelementptr inbounds i8, ptr %self, i64 16
   %11 = load ptr, ptr %dict, align 8
   %cmp10.not = icmp eq ptr %11, null
   br i1 %cmp10.not, label %do.end, label %if.then11
@@ -1331,7 +1328,7 @@ if.then1.i19:                                     ; preds = %if.end.i16
   br label %do.end
 
 do.end:                                           ; preds = %do.body, %if.then11, %if.then1.i19, %if.end.i16
-  %tp_free = getelementptr inbounds %struct._typeobject, ptr %self.val, i64 0, i32 38
+  %tp_free = getelementptr inbounds i8, ptr %self.val, i64 320
   %14 = load ptr, ptr %tp_free, align 8
   tail call void %14(ptr noundef nonnull %self) #6
   %15 = load i64, ptr %self.val, align 8
@@ -1367,7 +1364,7 @@ if.then:                                          ; preds = %entry
   br i1 %tobool3.not, label %do.body6, label %return
 
 do.body6:                                         ; preds = %if.then, %entry
-  %dict = getelementptr inbounds %struct.iobase, ptr %self, i64 0, i32 1
+  %dict = getelementptr inbounds i8, ptr %self, i64 16
   %1 = load ptr, ptr %dict, align 8
   %tobool7.not = icmp eq ptr %1, null
   br i1 %tobool7.not, label %do.end16, label %if.then8
@@ -1386,9 +1383,9 @@ return:                                           ; preds = %if.then8, %if.then,
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @iobase_clear(ptr nocapture noundef %self) #0 {
+define internal noundef i32 @iobase_clear(ptr nocapture noundef %self) #0 {
 entry:
-  %dict = getelementptr inbounds %struct.iobase, ptr %self, i64 0, i32 1
+  %dict = getelementptr inbounds i8, ptr %self, i64 16
   %0 = load ptr, ptr %dict, align 8
   %cmp.not = icmp eq ptr %0, null
   br i1 %cmp.not, label %do.end, label %if.then
@@ -1415,7 +1412,7 @@ do.end:                                           ; preds = %entry, %if.then, %i
 }
 
 ; Function Attrs: nounwind uwtable
-define internal ptr @iobase_iter(ptr noundef %self) #0 {
+define internal noundef ptr @iobase_iter(ptr noundef %self) #0 {
 entry:
   %res.i = alloca ptr, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %res.i)
@@ -1601,7 +1598,7 @@ declare void @PyObject_ClearWeakRefs(ptr noundef) local_unnamed_addr #1
 declare i64 @PyObject_Size(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal noalias ptr @_io__IOBase_seek(ptr nocapture readnone %self, ptr nocapture noundef readonly %cls, ptr noundef %args, i64 noundef %nargs, ptr noundef %kwnames) #0 {
+define internal noalias noundef ptr @_io__IOBase_seek(ptr nocapture readnone %self, ptr nocapture noundef readonly %cls, ptr noundef %args, i64 noundef %nargs, ptr noundef %kwnames) #0 {
 entry:
   %argsbuf = alloca [2 x ptr], align 16
   %cmp = icmp eq ptr %kwnames, null
@@ -1634,7 +1631,7 @@ if.end12:                                         ; preds = %land.lhs.true8, %if
   br i1 %cmp13, label %skip_optional_posonly, label %if.end15
 
 if.end15:                                         ; preds = %if.end12
-  %arrayidx16 = getelementptr ptr, ptr %cond16, i64 1
+  %arrayidx16 = getelementptr i8, ptr %cond16, i64 8
   %3 = load ptr, ptr %arrayidx16, align 8
   %call17 = call i32 @PyLong_AsInt(ptr noundef %3) #6
   %cmp18 = icmp eq i32 %call17, -1
@@ -1667,7 +1664,7 @@ entry:
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noalias ptr @_io__IOBase_truncate(ptr nocapture readnone %self, ptr nocapture noundef readonly %cls, ptr noundef %args, i64 noundef %nargs, ptr noundef %kwnames) #0 {
+define internal noalias noundef ptr @_io__IOBase_truncate(ptr nocapture readnone %self, ptr nocapture noundef readonly %cls, ptr noundef %args, i64 noundef %nargs, ptr noundef %kwnames) #0 {
 entry:
   %argsbuf = alloca [1 x ptr], align 8
   %cmp = icmp eq ptr %kwnames, null
@@ -1697,7 +1694,7 @@ exit:                                             ; preds = %cond.end, %skip_opt
 }
 
 ; Function Attrs: nounwind uwtable
-define internal ptr @_io__IOBase_flush(ptr noundef %self, ptr nocapture readnone %_unused_ignored) #0 {
+define internal noundef ptr @_io__IOBase_flush(ptr noundef %self, ptr nocapture readnone %_unused_ignored) #0 {
 entry:
   %call.i.i = tail call i32 @PyObject_HasAttrWithError(ptr noundef %self, ptr noundef nonnull getelementptr inbounds (%struct.pyruntimestate, ptr @_PyRuntime, i64 0, i32 37, i32 0, i32 3, i32 1, i32 11)) #6
   %tobool.not.i = icmp eq i32 %call.i.i, 0
@@ -1745,25 +1742,25 @@ _io__IOBase_close_impl.exit:                      ; preds = %entry, %if.end.i, %
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define internal nonnull ptr @_io__IOBase_seekable(ptr nocapture readnone %self, ptr nocapture readnone %_unused_ignored) #2 {
+define internal noundef nonnull ptr @_io__IOBase_seekable(ptr nocapture readnone %self, ptr nocapture readnone %_unused_ignored) #2 {
 entry:
   ret ptr @_Py_FalseStruct
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define internal nonnull ptr @_io__IOBase_readable(ptr nocapture readnone %self, ptr nocapture readnone %_unused_ignored) #2 {
+define internal noundef nonnull ptr @_io__IOBase_readable(ptr nocapture readnone %self, ptr nocapture readnone %_unused_ignored) #2 {
 entry:
   ret ptr @_Py_FalseStruct
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define internal nonnull ptr @_io__IOBase_writable(ptr nocapture readnone %self, ptr nocapture readnone %_unused_ignored) #2 {
+define internal noundef nonnull ptr @_io__IOBase_writable(ptr nocapture readnone %self, ptr nocapture readnone %_unused_ignored) #2 {
 entry:
   ret ptr @_Py_FalseStruct
 }
 
 ; Function Attrs: nounwind uwtable
-define internal ptr @iobase_check_seekable(ptr noundef %self, ptr noundef readnone %args) #0 {
+define internal noundef ptr @iobase_check_seekable(ptr noundef %self, ptr noundef readnone %args) #0 {
 entry:
   %self.addr.i.i = alloca ptr, align 8
   %0 = getelementptr i8, ptr %self, i64 8
@@ -1830,7 +1827,7 @@ _PyIOBase_check_seekable.exit:                    ; preds = %entry, %do.end.i, %
 }
 
 ; Function Attrs: nounwind uwtable
-define internal ptr @iobase_check_readable(ptr noundef %self, ptr noundef readnone %args) #0 {
+define internal noundef ptr @iobase_check_readable(ptr noundef %self, ptr noundef readnone %args) #0 {
 entry:
   %self.addr.i.i = alloca ptr, align 8
   %0 = getelementptr i8, ptr %self, i64 8
@@ -1897,7 +1894,7 @@ _PyIOBase_check_readable.exit:                    ; preds = %entry, %do.end.i, %
 }
 
 ; Function Attrs: nounwind uwtable
-define internal ptr @iobase_check_writable(ptr noundef %self, ptr noundef readnone %args) #0 {
+define internal noundef ptr @iobase_check_writable(ptr noundef %self, ptr noundef readnone %args) #0 {
 entry:
   %self.addr.i.i = alloca ptr, align 8
   %0 = getelementptr i8, ptr %self, i64 8
@@ -1964,7 +1961,7 @@ _PyIOBase_check_writable.exit:                    ; preds = %entry, %do.end.i, %
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noalias ptr @_io__IOBase_fileno(ptr nocapture readnone %self, ptr nocapture noundef readonly %cls, ptr nocapture readnone %args, i64 noundef %nargs, ptr nocapture readnone %kwnames) #0 {
+define internal noalias noundef ptr @_io__IOBase_fileno(ptr nocapture readnone %self, ptr nocapture noundef readonly %cls, ptr nocapture readnone %args, i64 noundef %nargs, ptr nocapture readnone %kwnames) #0 {
 entry:
   %tobool.not = icmp eq i64 %nargs, 0
   br i1 %tobool.not, label %if.end, label %return
@@ -1986,7 +1983,7 @@ return:                                           ; preds = %entry, %if.end
 }
 
 ; Function Attrs: nounwind uwtable
-define internal ptr @_io__IOBase_isatty(ptr noundef %self, ptr nocapture readnone %_unused_ignored) #0 {
+define internal noundef ptr @_io__IOBase_isatty(ptr noundef %self, ptr nocapture readnone %_unused_ignored) #0 {
 entry:
   %res.i.i = alloca ptr, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %res.i.i)
@@ -2037,7 +2034,7 @@ _io__IOBase_isatty_impl.exit:                     ; preds = %iobase_check_closed
 }
 
 ; Function Attrs: nounwind uwtable
-define internal ptr @iobase_enter(ptr noundef %self, ptr nocapture readnone %args) #0 {
+define internal noundef ptr @iobase_enter(ptr noundef %self, ptr nocapture readnone %args) #0 {
 entry:
   %res.i = alloca ptr, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %res.i)
@@ -2150,7 +2147,7 @@ while.cond.preheader.i:                           ; preds = %if.end.i
   %cmp5.i = icmp slt i64 %1, 0
   %2 = getelementptr i8, ptr %call1.i, i64 16
   %cmp29.i = icmp sgt i64 %1, -1
-  %ob_start.i.i = getelementptr inbounds %struct.PyByteArrayObject, ptr %call1.i, i64 0, i32 3
+  %ob_start.i.i = getelementptr inbounds i8, ptr %call1.i, i64 40
   br label %while.cond.i
 
 if.then3.i:                                       ; preds = %if.end.i
@@ -2204,7 +2201,7 @@ if.end17.i:                                       ; preds = %if.then9.i
 
 if.then21.i:                                      ; preds = %if.end17.i
   %10 = load ptr, ptr @PyExc_OSError, align 8
-  %tp_name.i = getelementptr inbounds %struct._typeobject, ptr %call11.val57.i, i64 0, i32 1
+  %tp_name.i = getelementptr inbounds i8, ptr %call11.val57.i, i64 24
   %11 = load ptr, ptr %tp_name.i, align 8
   %call23.i = call ptr (ptr, ptr, ...) @PyErr_Format(ptr noundef %10, ptr noundef nonnull @.str.29, ptr noundef %11) #6
   %12 = load i64, ptr %call11.i, align 8
@@ -2225,7 +2222,7 @@ if.end24.i:                                       ; preds = %if.end17.i
   br i1 %cmp26.i, label %if.then27.i, label %if.end56.i
 
 if.then27.i:                                      ; preds = %if.end24.i
-  %ob_sval.i.i = getelementptr inbounds %struct.PyBytesObject, ptr %call11.i, i64 0, i32 2
+  %ob_sval.i.i = getelementptr inbounds i8, ptr %call11.i, i64 32
   br i1 %cmp29.i, label %do.body.preheader.i, label %do.body40.i
 
 do.body.preheader.i:                              ; preds = %if.then27.i
@@ -2295,7 +2292,7 @@ if.end66.i:                                       ; preds = %if.end57.i
 
 if.then70.i:                                      ; preds = %if.end66.i
   %22 = load ptr, ptr @PyExc_OSError, align 8
-  %tp_name72.i = getelementptr inbounds %struct._typeobject, ptr %call58.val56.i, i64 0, i32 1
+  %tp_name72.i = getelementptr inbounds i8, ptr %call58.val56.i, i64 24
   %23 = load ptr, ptr %tp_name72.i, align 8
   %call73.i = call ptr (ptr, ptr, ...) @PyErr_Format(ptr noundef %22, ptr noundef nonnull @.str.31, ptr noundef %23) #6
   %24 = load i64, ptr %call58.i, align 8
@@ -2362,7 +2359,7 @@ if.then.i69.i:                                    ; preds = %if.end86.i
 PyByteArray_AS_STRING.exit.i:                     ; preds = %if.then.i69.i, %if.end86.i
   %retval.0.i.i = phi ptr [ %31, %if.then.i69.i ], [ @_PyByteArray_empty_string, %if.end86.i ]
   %add.ptr.i = getelementptr i8, ptr %retval.0.i.i, i64 %call1.val64.i
-  %ob_sval.i70.i = getelementptr inbounds %struct.PyBytesObject, ptr %call58.i, i64 0, i32 2
+  %ob_sval.i70.i = getelementptr inbounds i8, ptr %call58.i, i64 32
   %call58.val63.i = load i64, ptr %26, align 8
   call void @llvm.memcpy.p0.p0.i64(ptr align 1 %add.ptr.i, ptr nonnull align 1 %ob_sval.i70.i, i64 %call58.val63.i, i1 false)
   %32 = load i64, ptr %call58.i, align 8
@@ -2681,7 +2678,7 @@ exit:                                             ; preds = %skip_optional.threa
 }
 
 ; Function Attrs: nounwind uwtable
-define internal ptr @_io__IOBase_writelines(ptr noundef %self, ptr noundef %lines) #0 {
+define internal noundef ptr @_io__IOBase_writelines(ptr noundef %self, ptr noundef %lines) #0 {
 entry:
   %res.i = alloca ptr, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %res.i)
@@ -3272,7 +3269,7 @@ _io__RawIOBase_readall_impl.exit:                 ; preds = %entry, %if.end6.i, 
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noalias ptr @rawiobase_readinto(ptr nocapture readnone %self, ptr nocapture readnone %args) #0 {
+define internal noalias noundef ptr @rawiobase_readinto(ptr nocapture readnone %self, ptr nocapture readnone %args) #0 {
 entry:
   %0 = load ptr, ptr @PyExc_NotImplementedError, align 8
   tail call void @PyErr_SetNone(ptr noundef %0) #6
@@ -3280,7 +3277,7 @@ entry:
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noalias ptr @rawiobase_write(ptr nocapture readnone %self, ptr nocapture readnone %args) #0 {
+define internal noalias noundef ptr @rawiobase_write(ptr nocapture readnone %self, ptr nocapture readnone %args) #0 {
 entry:
   %0 = load ptr, ptr @PyExc_NotImplementedError, align 8
   tail call void @PyErr_SetNone(ptr noundef %0) #6

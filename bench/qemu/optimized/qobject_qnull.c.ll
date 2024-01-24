@@ -12,7 +12,7 @@ target triple = "x86_64-unknown-linux-gnu"
 @__PRETTY_FUNCTION__.qobject_unref_impl = private unnamed_addr constant [35 x i8] c"void qobject_unref_impl(QObject *)\00", align 1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(none) uwtable
-define dso_local zeroext i1 @qnull_is_equal(ptr nocapture noundef readnone %x, ptr nocapture noundef readnone %y) local_unnamed_addr #0 {
+define dso_local noundef zeroext i1 @qnull_is_equal(ptr nocapture noundef readnone %x, ptr nocapture noundef readnone %y) local_unnamed_addr #0 {
 entry:
   ret i1 true
 }
@@ -24,7 +24,7 @@ entry:
   br i1 %tobool.not, label %qobject_unref_impl.exit, label %lor.lhs.false.i
 
 lor.lhs.false.i:                                  ; preds = %entry
-  %refcnt.i = getelementptr inbounds %struct.QObjectBase_, ptr %q, i64 0, i32 1
+  %refcnt.i = getelementptr inbounds i8, ptr %q, i64 8
   %0 = load i64, ptr %refcnt.i, align 8
   %tobool1.not.i = icmp eq i64 %0, 0
   br i1 %tobool1.not.i, label %if.else.i, label %land.lhs.true.i

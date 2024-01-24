@@ -299,13 +299,13 @@ define zeroext i1 @"_ZN4core3cmp5impls69_$LT$impl$u20$core..cmp..PartialEq$LT$$R
   %3 = alloca { ptr, i64 }, align 8
   %4 = load ptr, ptr %0, align 8, !nonnull !5, !align !6, !noundef !5
   %5 = load ptr, ptr %1, align 8, !nonnull !5, !align !7, !noundef !5
-  %6 = getelementptr inbounds { ptr, i64 }, ptr %1, i64 0, i32 1
+  %6 = getelementptr inbounds i8, ptr %1, i64 8
   %7 = load i64, ptr %6, align 8, !noundef !5
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %3)
   store ptr %5, ptr %3, align 8
-  %.fca.1.gep.i = getelementptr inbounds { ptr, i64 }, ptr %3, i64 0, i32 1
+  %.fca.1.gep.i = getelementptr inbounds i8, ptr %3, i64 8
   store i64 %7, ptr %.fca.1.gep.i, align 8
-  %8 = getelementptr inbounds { { { { ptr, i64 }, i64 } }, i8, {}, [7 x i8] }, ptr %4, i64 0, i32 1
+  %8 = getelementptr inbounds i8, ptr %4, i64 24
   %9 = load i8, ptr %8, align 8, !range !8, !noundef !5
   %.not.i = icmp eq i8 %9, 0
   br i1 %.not.i, label %10, label %12
@@ -335,9 +335,9 @@ define zeroext i1 @"_ZN4core3cmp5impls69_$LT$impl$u20$core..cmp..PartialEq$LT$$R
 define zeroext i1 @"_ZN78_$LT$proc_macro2..fallback..Ident$u20$as$u20$core..cmp..PartialEq$LT$T$GT$$GT$2eq17hab619317d0c46548E"(ptr align 8 %0, ptr align 1 %1, i64 %2) unnamed_addr #1 {
   %4 = alloca { ptr, i64 }, align 8
   store ptr %1, ptr %4, align 8
-  %.fca.1.gep = getelementptr inbounds { ptr, i64 }, ptr %4, i64 0, i32 1
+  %.fca.1.gep = getelementptr inbounds i8, ptr %4, i64 8
   store i64 %2, ptr %.fca.1.gep, align 8
-  %5 = getelementptr inbounds { { { { ptr, i64 }, i64 } }, i8, {}, [7 x i8] }, ptr %0, i64 0, i32 1
+  %5 = getelementptr inbounds i8, ptr %0, i64 24
   %6 = load i8, ptr %5, align 8, !range !8, !noundef !5
   %.not = icmp eq i8 %6, 0
   br i1 %.not, label %7, label %9

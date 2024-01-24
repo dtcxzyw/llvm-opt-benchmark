@@ -3,17 +3,15 @@ source_filename = "bench/nghttp2/original/nghttp2_priority_spec.c.ll"
 target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:128-n8:16:32:64-S128"
 target triple = "x86_64-unknown-linux-gnu"
 
-%struct.nghttp2_priority_spec = type { i32, i32, i8 }
-
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
 define void @nghttp2_priority_spec_init(ptr nocapture noundef writeonly %pri_spec, i32 noundef %stream_id, i32 noundef %weight, i32 noundef %exclusive) local_unnamed_addr #0 {
 entry:
   store i32 %stream_id, ptr %pri_spec, align 4
-  %weight2 = getelementptr inbounds %struct.nghttp2_priority_spec, ptr %pri_spec, i64 0, i32 1
+  %weight2 = getelementptr inbounds i8, ptr %pri_spec, i64 4
   store i32 %weight, ptr %weight2, align 4
   %cmp = icmp ne i32 %exclusive, 0
   %conv3 = zext i1 %cmp to i8
-  %exclusive4 = getelementptr inbounds %struct.nghttp2_priority_spec, ptr %pri_spec, i64 0, i32 2
+  %exclusive4 = getelementptr inbounds i8, ptr %pri_spec, i64 8
   store i8 %conv3, ptr %exclusive4, align 4
   ret void
 }
@@ -22,9 +20,9 @@ entry:
 define void @nghttp2_priority_spec_default_init(ptr nocapture noundef writeonly %pri_spec) local_unnamed_addr #0 {
 entry:
   store i32 0, ptr %pri_spec, align 4
-  %weight = getelementptr inbounds %struct.nghttp2_priority_spec, ptr %pri_spec, i64 0, i32 1
+  %weight = getelementptr inbounds i8, ptr %pri_spec, i64 4
   store i32 16, ptr %weight, align 4
-  %exclusive = getelementptr inbounds %struct.nghttp2_priority_spec, ptr %pri_spec, i64 0, i32 2
+  %exclusive = getelementptr inbounds i8, ptr %pri_spec, i64 8
   store i8 0, ptr %exclusive, align 4
   ret void
 }
@@ -37,13 +35,13 @@ entry:
   br i1 %cmp, label %land.lhs.true, label %land.end
 
 land.lhs.true:                                    ; preds = %entry
-  %weight = getelementptr inbounds %struct.nghttp2_priority_spec, ptr %pri_spec, i64 0, i32 1
+  %weight = getelementptr inbounds i8, ptr %pri_spec, i64 4
   %1 = load i32, ptr %weight, align 4
   %cmp1 = icmp eq i32 %1, 16
   br i1 %cmp1, label %land.rhs, label %land.end
 
 land.rhs:                                         ; preds = %land.lhs.true
-  %exclusive = getelementptr inbounds %struct.nghttp2_priority_spec, ptr %pri_spec, i64 0, i32 2
+  %exclusive = getelementptr inbounds i8, ptr %pri_spec, i64 8
   %2 = load i8, ptr %exclusive, align 4
   %cmp2 = icmp eq i8 %2, 0
   %3 = zext i1 %cmp2 to i32
@@ -57,7 +55,7 @@ land.end:                                         ; preds = %land.rhs, %land.lhs
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
 define hidden void @nghttp2_priority_spec_normalize_weight(ptr nocapture noundef %pri_spec) local_unnamed_addr #2 {
 entry:
-  %weight = getelementptr inbounds %struct.nghttp2_priority_spec, ptr %pri_spec, i64 0, i32 1
+  %weight = getelementptr inbounds i8, ptr %pri_spec, i64 4
   %0 = load i32, ptr %weight, align 4
   %cmp = icmp slt i32 %0, 1
   br i1 %cmp, label %if.end6.sink.split, label %if.else

@@ -3,15 +3,12 @@ source_filename = "bench/node/original/libnode.inspector_permission.ll"
 target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:128-n8:16:32:64-S128"
 target triple = "x86_64-unknown-linux-gnu"
 
-%"class.node::permission::InspectorPermission" = type <{ %"class.node::permission::PermissionBase", i8, [7 x i8] }>
-%"class.node::permission::PermissionBase" = type { ptr }
-
 @_ZTVN4node10permission19InspectorPermissionE = dso_local unnamed_addr constant { [4 x ptr] } { [4 x ptr] [ptr null, ptr null, ptr @_ZN4node10permission19InspectorPermission5ApplyERKSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS8_EENS0_15PermissionScopeE, ptr @_ZNK4node10permission19InspectorPermission10is_grantedENS0_15PermissionScopeERKSt17basic_string_viewIcSt11char_traitsIcEE] }, align 8
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
 define dso_local void @_ZN4node10permission19InspectorPermission5ApplyERKSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS8_EENS0_15PermissionScopeE(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(16) %this, ptr nocapture nonnull readnone align 1 %allow, i32 %scope) unnamed_addr #0 align 2 {
 entry:
-  %deny_all_ = getelementptr inbounds %"class.node::permission::InspectorPermission", ptr %this, i64 0, i32 1
+  %deny_all_ = getelementptr inbounds i8, ptr %this, i64 8
   store i8 1, ptr %deny_all_, align 8
   ret void
 }
@@ -19,7 +16,7 @@ entry:
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
 define dso_local noundef zeroext i1 @_ZNK4node10permission19InspectorPermission10is_grantedENS0_15PermissionScopeERKSt17basic_string_viewIcSt11char_traitsIcEE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %this, i32 %perm, ptr nocapture nonnull readnone align 8 %param) unnamed_addr #1 align 2 {
 entry:
-  %deny_all_ = getelementptr inbounds %"class.node::permission::InspectorPermission", ptr %this, i64 0, i32 1
+  %deny_all_ = getelementptr inbounds i8, ptr %this, i64 8
   %0 = load i8, ptr %deny_all_, align 8
   %1 = and i8 %0, 1
   %cmp = icmp eq i8 %1, 0

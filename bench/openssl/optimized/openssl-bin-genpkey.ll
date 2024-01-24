@@ -77,7 +77,7 @@ target triple = "x86_64-unknown-linux-gnu"
 @switch.table.genpkey_main.1 = private unnamed_addr constant [5 x ptr] [ptr @.str.30, ptr @.str.30, ptr @.str.30, ptr @.str.30, ptr @.str.53], align 8
 
 ; Function Attrs: nounwind uwtable
-define dso_local i32 @genpkey_main(i32 noundef %argc, ptr noundef %argv) local_unnamed_addr #0 {
+define dso_local noundef i32 @genpkey_main(i32 noundef %argc, ptr noundef %argv) local_unnamed_addr #0 {
 entry:
   %ctx = alloca ptr, align 8
   %pass = alloca ptr, align 8
@@ -178,7 +178,8 @@ if.end11.i:                                       ; preds = %if.end7.i
 for.body.i:                                       ; preds = %if.end11.i, %for.inc.i
   %indvars.iv.i = phi i64 [ %indvars.iv.next.i, %for.inc.i ], [ 0, %if.end11.i ]
   %3 = phi ptr [ %9, %for.inc.i ], [ %2, %if.end11.i ]
-  %data_type.i = getelementptr inbounds %struct.ossl_param_st, ptr %call8.i, i64 %indvars.iv.i, i32 1
+  %arrayidx24.i = phi ptr [ %arrayidx.i, %for.inc.i ], [ %call8.i, %if.end11.i ]
+  %data_type.i = getelementptr inbounds i8, ptr %arrayidx24.i, i64 8
   %4 = load i32, ptr %data_type.i, align 8
   %switch.tableidx = add i32 %4, -1
   %5 = icmp ult i32 %switch.tableidx, 5
@@ -615,7 +616,7 @@ declare i32 @opt_provider(i32 noundef) local_unnamed_addr #1
 declare i32 @opt_check_rest_arg(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define dso_local i32 @init_gen_str(ptr nocapture noundef %pctx, ptr noundef %algname, ptr noundef %e, i32 noundef %do_param, ptr noundef %libctx, ptr noundef %propq) local_unnamed_addr #0 {
+define dso_local noundef i32 @init_gen_str(ptr nocapture noundef %pctx, ptr noundef %algname, ptr noundef %e, i32 noundef %do_param, ptr noundef %libctx, ptr noundef %propq) local_unnamed_addr #0 {
 entry:
   %0 = load ptr, ptr %pctx, align 8
   %tobool.not = icmp eq ptr %0, null

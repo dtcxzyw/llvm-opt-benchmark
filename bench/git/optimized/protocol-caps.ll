@@ -7,7 +7,6 @@ target triple = "x86_64-unknown-linux-gnu"
 %struct.object_id = type { [32 x i8], i32 }
 %struct.packet_writer = type { i32, i8 }
 %struct.string_list = type { ptr, i64, i64, i8, ptr }
-%struct.packet_reader = type { i32, ptr, i64, ptr, i32, i32, i32, i32, ptr, i32, i8, ptr, ptr, %struct.strbuf }
 %struct.string_list_item = type { ptr, ptr }
 
 @.str = private unnamed_addr constant [5 x i8] c"size\00", align 1
@@ -31,7 +30,7 @@ entry:
   %writer = alloca %struct.packet_writer, align 4
   %oid_str_list = alloca %struct.string_list, align 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %oid_str_list, i8 0, i64 40, i1 false)
-  %0 = getelementptr inbounds %struct.string_list, ptr %oid_str_list, i64 0, i32 3
+  %0 = getelementptr inbounds i8, ptr %oid_str_list, i64 24
   store i8 1, ptr %0, align 8
   call void @packet_writer_init(ptr noundef nonnull %writer, i32 noundef 1) #8
   %call811 = call i32 @packet_reader_read(ptr noundef %request) #8
@@ -39,7 +38,7 @@ entry:
   br i1 %cmp912, label %while.body.lr.ph.lr.ph, label %while.end
 
 while.body.lr.ph.lr.ph:                           ; preds = %entry
-  %line = getelementptr inbounds %struct.packet_reader, ptr %request, i64 0, i32 8
+  %line = getelementptr inbounds i8, ptr %request, i64 48
   br label %while.body.lr.ph
 
 while.body.lr.ph:                                 ; preds = %while.body.lr.ph.lr.ph, %if.then
@@ -95,7 +94,7 @@ while.cond.backedge:                              ; preds = %if.end6, %parse_oid
 
 while.end:                                        ; preds = %if.then, %while.cond.backedge, %entry
   %info.sroa.0.0.ph.lcssa = phi i1 [ true, %entry ], [ %1, %while.cond.backedge ], [ false, %if.then ]
-  %status = getelementptr inbounds %struct.packet_reader, ptr %request, i64 0, i32 6
+  %status = getelementptr inbounds i8, ptr %request, i64 40
   %5 = load i32, ptr %status, align 8
   %cmp8.not = icmp eq i32 %5, 2
   br i1 %cmp8.not, label %if.end11, label %if.then9
@@ -111,7 +110,7 @@ if.end11:                                         ; preds = %while.end
   call void @llvm.lifetime.start.p0(i64 36, ptr nonnull %oid.i)
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %object_size.i)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %send_buffer.i, ptr noundef nonnull align 8 dereferenceable(24) @__const.send_info.send_buffer, i64 24, i1 false)
-  %nr.i = getelementptr inbounds %struct.string_list, ptr %oid_str_list, i64 0, i32 1
+  %nr.i = getelementptr inbounds i8, ptr %oid_str_list, i64 8
   %6 = load i64, ptr %nr.i, align 8
   %tobool.not.i = icmp eq i64 %6, 0
   br i1 %tobool.not.i, label %send_info.exit, label %if.end.i5
@@ -129,8 +128,8 @@ if.end3.i:                                        ; preds = %if.then2.i, %if.end
   br i1 %tobool4.not13.i, label %for.end.i, label %land.rhs.lr.ph.i
 
 land.rhs.lr.ph.i:                                 ; preds = %if.end3.i
-  %buf.i = getelementptr inbounds %struct.strbuf, ptr %send_buffer.i, i64 0, i32 2
-  %len2.i.i = getelementptr inbounds %struct.strbuf, ptr %send_buffer.i, i64 0, i32 1
+  %buf.i = getelementptr inbounds i8, ptr %send_buffer.i, i64 16
+  %len2.i.i = getelementptr inbounds i8, ptr %send_buffer.i, i64 8
   %8 = load i64, ptr %nr.i, align 8
   %cmp.i16 = icmp sgt i64 %8, 0
   br i1 %cmp.i16, label %for.body.i.lr.ph, label %for.end.i
@@ -164,7 +163,7 @@ if.then8.i.us:                                    ; preds = %for.body.i.us
   br label %for.inc.i.us
 
 for.inc.i.us:                                     ; preds = %if.then8.i.us, %if.then4.i.i.us, %if.end9.i.us
-  %incdec.ptr.i.us = getelementptr inbounds %struct.string_list_item, ptr %item.014.i17.us, i64 1
+  %incdec.ptr.i.us = getelementptr inbounds i8, ptr %item.014.i17.us, i64 16
   %12 = load ptr, ptr %oid_str_list, align 8
   %13 = load i64, ptr %nr.i, align 8
   %add.ptr.i.us = getelementptr inbounds %struct.string_list_item, ptr %12, i64 %13
@@ -211,7 +210,7 @@ if.then4.i.i:                                     ; preds = %if.end19.i
   br label %for.inc.i
 
 for.inc.i:                                        ; preds = %if.then4.i.i, %if.end19.i, %if.then8.i
-  %incdec.ptr.i = getelementptr inbounds %struct.string_list_item, ptr %item.014.i17, i64 1
+  %incdec.ptr.i = getelementptr inbounds i8, ptr %item.014.i17, i64 16
   %18 = load ptr, ptr %oid_str_list, align 8
   %19 = load i64, ptr %nr.i, align 8
   %add.ptr.i = getelementptr inbounds %struct.string_list_item, ptr %18, i64 %19

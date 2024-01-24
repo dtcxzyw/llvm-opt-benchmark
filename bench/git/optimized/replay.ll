@@ -32,16 +32,6 @@ target triple = "x86_64-unknown-linux-gnu"
 %struct.merge_result = type { i32, ptr, ptr, ptr, i32 }
 %struct.option = type { i32, i32, ptr, ptr, ptr, ptr, i32, ptr, i64, ptr, i64, ptr }
 %struct.rev_cmdline_entry = type { ptr, ptr, i32, i32 }
-%struct.object = type { i32, %struct.object_id }
-%struct.strmap_entry = type { %struct.hashmap_entry, ptr, ptr }
-%struct.hashmap_entry = type { ptr, i32 }
-%struct.kh_oid_map = type { i32, i32, i32, i32, ptr, ptr, ptr }
-%struct.commit = type { %struct.object, i64, ptr, ptr, i32 }
-%struct.commit_list = type { ptr, ptr }
-%struct.repository = type { ptr, ptr, ptr, ptr, ptr, %struct.repo_path_cache, ptr, ptr, ptr, ptr, %struct.repo_settings, ptr, ptr, ptr, ptr, ptr, i32, i32, i32, ptr, ptr, i32, i8 }
-%struct.repo_path_cache = type { ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr }
-%struct.repo_settings = type { i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, ptr, i32, i32, i32, i32, i32, i32 }
-%struct.name_decoration = type { ptr, i32, [0 x i8] }
 
 @.str = private unnamed_addr constant [101 x i8] c"(EXPERIMENTAL!) git replay ([--contained] --onto <newbase> | --advance <branch>) <revision-range>...\00", align 1
 @__const.cmd_replay.replay_usage = private unnamed_addr constant [2 x ptr] [ptr @.str, ptr null], align 16
@@ -129,55 +119,55 @@ entry:
   store i32 0, ptr %contained, align 4
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(16) %replay_usage, ptr noundef nonnull align 16 dereferenceable(16) @__const.cmd_replay.replay_usage, i64 16, i1 false)
   store i32 10, ptr %replay_options, align 16
-  %short_name = getelementptr inbounds %struct.option, ptr %replay_options, i64 0, i32 1
+  %short_name = getelementptr inbounds i8, ptr %replay_options, i64 4
   store i32 0, ptr %short_name, align 4
-  %long_name = getelementptr inbounds %struct.option, ptr %replay_options, i64 0, i32 2
+  %long_name = getelementptr inbounds i8, ptr %replay_options, i64 8
   store ptr @.str.1, ptr %long_name, align 8
-  %value = getelementptr inbounds %struct.option, ptr %replay_options, i64 0, i32 3
+  %value = getelementptr inbounds i8, ptr %replay_options, i64 16
   store ptr %advance_name, ptr %value, align 16
-  %argh = getelementptr inbounds %struct.option, ptr %replay_options, i64 0, i32 4
+  %argh = getelementptr inbounds i8, ptr %replay_options, i64 24
   store ptr @.str.2, ptr %argh, align 8
-  %help = getelementptr inbounds %struct.option, ptr %replay_options, i64 0, i32 5
+  %help = getelementptr inbounds i8, ptr %replay_options, i64 32
   store ptr @.str.3, ptr %help, align 16
-  %flags = getelementptr inbounds %struct.option, ptr %replay_options, i64 0, i32 6
+  %flags = getelementptr inbounds i8, ptr %replay_options, i64 40
   store i32 0, ptr %flags, align 8
-  %callback = getelementptr inbounds %struct.option, ptr %replay_options, i64 0, i32 7
-  %arrayinit.element = getelementptr inbounds %struct.option, ptr %replay_options, i64 1
+  %callback = getelementptr inbounds i8, ptr %replay_options, i64 48
+  %arrayinit.element = getelementptr inbounds i8, ptr %replay_options, i64 88
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(40) %callback, i8 0, i64 40, i1 false)
   store i32 10, ptr %arrayinit.element, align 8
-  %short_name2 = getelementptr inbounds %struct.option, ptr %replay_options, i64 1, i32 1
+  %short_name2 = getelementptr inbounds i8, ptr %replay_options, i64 92
   store i32 0, ptr %short_name2, align 4
-  %long_name3 = getelementptr inbounds %struct.option, ptr %replay_options, i64 1, i32 2
+  %long_name3 = getelementptr inbounds i8, ptr %replay_options, i64 96
   store ptr @.str.4, ptr %long_name3, align 16
-  %value4 = getelementptr inbounds %struct.option, ptr %replay_options, i64 1, i32 3
+  %value4 = getelementptr inbounds i8, ptr %replay_options, i64 104
   store ptr %onto_name, ptr %value4, align 8
-  %argh5 = getelementptr inbounds %struct.option, ptr %replay_options, i64 1, i32 4
+  %argh5 = getelementptr inbounds i8, ptr %replay_options, i64 112
   store ptr @.str.5, ptr %argh5, align 16
-  %help6 = getelementptr inbounds %struct.option, ptr %replay_options, i64 1, i32 5
+  %help6 = getelementptr inbounds i8, ptr %replay_options, i64 120
   store ptr @.str.6, ptr %help6, align 8
-  %flags7 = getelementptr inbounds %struct.option, ptr %replay_options, i64 1, i32 6
+  %flags7 = getelementptr inbounds i8, ptr %replay_options, i64 128
   store i32 0, ptr %flags7, align 16
-  %callback8 = getelementptr inbounds %struct.option, ptr %replay_options, i64 1, i32 7
-  %arrayinit.element13 = getelementptr inbounds %struct.option, ptr %replay_options, i64 2
+  %callback8 = getelementptr inbounds i8, ptr %replay_options, i64 136
+  %arrayinit.element13 = getelementptr inbounds i8, ptr %replay_options, i64 176
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %callback8, i8 0, i64 40, i1 false)
   store i32 9, ptr %arrayinit.element13, align 16
-  %short_name15 = getelementptr inbounds %struct.option, ptr %replay_options, i64 2, i32 1
+  %short_name15 = getelementptr inbounds i8, ptr %replay_options, i64 180
   store i32 0, ptr %short_name15, align 4
-  %long_name16 = getelementptr inbounds %struct.option, ptr %replay_options, i64 2, i32 2
+  %long_name16 = getelementptr inbounds i8, ptr %replay_options, i64 184
   store ptr @.str.7, ptr %long_name16, align 8
-  %value17 = getelementptr inbounds %struct.option, ptr %replay_options, i64 2, i32 3
+  %value17 = getelementptr inbounds i8, ptr %replay_options, i64 192
   store ptr %contained, ptr %value17, align 16
-  %argh18 = getelementptr inbounds %struct.option, ptr %replay_options, i64 2, i32 4
+  %argh18 = getelementptr inbounds i8, ptr %replay_options, i64 200
   store ptr null, ptr %argh18, align 8
-  %help19 = getelementptr inbounds %struct.option, ptr %replay_options, i64 2, i32 5
+  %help19 = getelementptr inbounds i8, ptr %replay_options, i64 208
   store ptr @.str.8, ptr %help19, align 16
-  %flags20 = getelementptr inbounds %struct.option, ptr %replay_options, i64 2, i32 6
+  %flags20 = getelementptr inbounds i8, ptr %replay_options, i64 216
   store i32 2, ptr %flags20, align 8
-  %callback21 = getelementptr inbounds %struct.option, ptr %replay_options, i64 2, i32 7
+  %callback21 = getelementptr inbounds i8, ptr %replay_options, i64 224
   store ptr null, ptr %callback21, align 16
-  %defval22 = getelementptr inbounds %struct.option, ptr %replay_options, i64 2, i32 8
+  %defval22 = getelementptr inbounds i8, ptr %replay_options, i64 232
   store i64 1, ptr %defval22, align 8
-  %ll_callback23 = getelementptr inbounds %struct.option, ptr %replay_options, i64 2, i32 9
+  %ll_callback23 = getelementptr inbounds i8, ptr %replay_options, i64 240
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(112) %ll_callback23, i8 0, i64 112, i1 false)
   %call = call i32 @parse_options(i32 noundef %argc, ptr noundef %argv, ptr noundef %prefix, ptr noundef nonnull %replay_options, ptr noundef nonnull %replay_usage, i32 noundef 12) #14
   %0 = load ptr, ptr %onto_name, align 8
@@ -207,9 +197,9 @@ if.then49:                                        ; preds = %if.end
 if.end51:                                         ; preds = %if.end
   %3 = load ptr, ptr @the_repository, align 8
   call void @repo_init_revisions(ptr noundef %3, ptr noundef nonnull %revs, ptr noundef %prefix) #14
-  %reverse = getelementptr inbounds %struct.rev_info, ptr %revs, i64 0, i32 14
+  %reverse = getelementptr inbounds i8, ptr %revs, i64 280
   %bf.load = load i64, ptr %reverse, align 8
-  %sort_order = getelementptr inbounds %struct.rev_info, ptr %revs, i64 0, i32 12
+  %sort_order = getelementptr inbounds i8, ptr %revs, i64 272
   store i32 0, ptr %sort_order, align 8
   %bf.set54 = and i64 %bf.load, -2147484289
   %bf.clear56 = or disjoint i64 %bf.set54, 2147484160
@@ -229,7 +219,7 @@ if.end3.i:                                        ; preds = %if.then59
 
 _.exit:                                           ; preds = %if.then59, %if.end3.i
   %retval.0.i = phi ptr [ %call.i, %if.end3.i ], [ @.str.13, %if.then59 ]
-  %arrayidx = getelementptr inbounds ptr, ptr %argv, i64 1
+  %arrayidx = getelementptr inbounds i8, ptr %argv, i64 8
   %5 = load ptr, ptr %arrayidx, align 8
   %call61 = call i32 (ptr, ...) @error(ptr noundef %retval.0.i, ptr noundef %5) #14
   br label %cleanup.thread
@@ -326,7 +316,7 @@ _.exit49:                                         ; preds = %if.then100, %if.end
   br label %if.end106
 
 if.end106:                                        ; preds = %_.exit49, %if.end93
-  %cmdline = getelementptr inbounds %struct.rev_info, ptr %revs, i64 0, i32 4
+  %cmdline = getelementptr inbounds i8, ptr %revs, i64 48
   %14 = load ptr, ptr %onto_name, align 8
   call void @llvm.lifetime.start.p0(i64 144, ptr nonnull %rinfo.i)
   call void @llvm.lifetime.start.p0(i64 36, ptr nonnull %oid.i)
@@ -335,13 +325,13 @@ if.end106:                                        ; preds = %_.exit49, %if.end93
   call void @llvm.lifetime.start.p0(i64 36, ptr nonnull %oid.i.i)
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %fullname.i.i)
   store ptr null, ptr %rinfo.i, align 8
-  %positive_refs.i.i = getelementptr inbounds %struct.ref_info, ptr %rinfo.i, i64 0, i32 1
+  %positive_refs.i.i = getelementptr inbounds i8, ptr %rinfo.i, i64 8
   call void @strmap_init(ptr noundef nonnull %positive_refs.i.i) #14
-  %negative_refs.i.i = getelementptr inbounds %struct.ref_info, ptr %rinfo.i, i64 0, i32 2
+  %negative_refs.i.i = getelementptr inbounds i8, ptr %rinfo.i, i64 72
   call void @strmap_init(ptr noundef nonnull %negative_refs.i.i) #14
-  %positive_refexprs.i.i = getelementptr inbounds %struct.ref_info, ptr %rinfo.i, i64 0, i32 3
+  %positive_refexprs.i.i = getelementptr inbounds i8, ptr %rinfo.i, i64 136
   store i32 0, ptr %positive_refexprs.i.i, align 8
-  %negative_refexprs.i.i = getelementptr inbounds %struct.ref_info, ptr %rinfo.i, i64 0, i32 4
+  %negative_refexprs.i.i = getelementptr inbounds i8, ptr %rinfo.i, i64 140
   store i32 0, ptr %negative_refexprs.i.i, align 4
   %15 = load i32, ptr %cmdline, align 8
   %cmp20.not.i.i = icmp eq i32 %15, 0
@@ -353,14 +343,14 @@ get_ref_information.exit.thread.i:                ; preds = %if.end106
   br label %if.then.i
 
 for.body.lr.ph.i.i:                               ; preds = %if.end106
-  %rev.i.i = getelementptr inbounds %struct.rev_info, ptr %revs, i64 0, i32 4, i32 2
+  %rev.i.i = getelementptr inbounds i8, ptr %revs, i64 56
   br label %for.body.i.i
 
 for.body.i.i:                                     ; preds = %if.end30.i.i, %for.body.lr.ph.i.i
   %indvars.iv.i.i = phi i64 [ 0, %for.body.lr.ph.i.i ], [ %indvars.iv.next.i.i, %if.end30.i.i ]
   %16 = load ptr, ptr %rev.i.i, align 8
   %add.ptr.i.i = getelementptr inbounds %struct.rev_cmdline_entry, ptr %16, i64 %indvars.iv.i.i
-  %name.i.i = getelementptr inbounds %struct.rev_cmdline_entry, ptr %16, i64 %indvars.iv.i.i, i32 1
+  %name.i.i = getelementptr inbounds i8, ptr %add.ptr.i.i, i64 8
   %17 = load ptr, ptr %name.i.i, align 8
   store ptr null, ptr %fullname.i.i, align 8
   %18 = load i8, ptr %17, align 1
@@ -372,7 +362,7 @@ for.body.i.i:                                     ; preds = %if.end30.i.i, %for.
   %conv3.i.i = trunc i64 %call.i.i to i32
   %call4.i.i = call i32 @repo_dwim_ref(ptr noundef %19, ptr noundef nonnull %spec.select.i.i, i32 noundef %conv3.i.i, ptr noundef nonnull %oid.i.i, ptr noundef nonnull %fullname.i.i, i32 noundef 0) #14
   %cmp5.not.not.not.i.i = icmp eq i32 %call4.i.i, 1
-  %flags.i.i = getelementptr inbounds %struct.rev_cmdline_entry, ptr %16, i64 %indvars.iv.i.i, i32 3
+  %flags.i.i = getelementptr inbounds i8, ptr %add.ptr.i.i, i64 20
   %20 = load i32, ptr %flags.i.i, align 4
   %and.i.i = and i32 %20, 1024
   %tobool.not.i.i = icmp eq i32 %and.i.i, 0
@@ -394,7 +384,7 @@ if.end14.i.i:                                     ; preds = %if.then11.i.i, %if.
 if.then17.i.i:                                    ; preds = %if.end14.i.i
   %23 = load ptr, ptr @the_repository, align 8
   %24 = load ptr, ptr %add.ptr.i.i, align 8
-  %oid18.i.i = getelementptr inbounds %struct.object, ptr %24, i64 0, i32 1
+  %oid18.i.i = getelementptr inbounds i8, ptr %24, i64 4
   %call19.i.i = call ptr @lookup_commit_reference_gently(ptr noundef %23, ptr noundef nonnull %oid18.i.i, i32 noundef 1) #14
   store ptr %call19.i.i, ptr %rinfo.i, align 8
   %.pre.i.i = load i32, ptr %negative_refexprs.i.i, align 4
@@ -472,7 +462,7 @@ if.end.i.i:                                       ; preds = %if.then6.i
 peel_committish.exit.i:                           ; preds = %if.end.i.i, %if.then6.i
   %retval.0.i.i = phi ptr [ %call2.i.i, %if.end.i.i ], [ null, %if.then6.i ]
   call void @llvm.lifetime.end.p0(i64 36, ptr nonnull %oid.i19.i)
-  %35 = getelementptr inbounds %struct.ref_info, ptr %rinfo.i, i64 0, i32 1, i32 0, i32 0, i32 7
+  %35 = getelementptr inbounds i8, ptr %rinfo.i, i64 48
   %positive_refs.val16.i = load i8, ptr %35, align 8
   %bf.clear.i.i.i.i = and i8 %positive_refs.val16.i, 1
   %tobool.not.i.i.i.i = icmp eq i8 %bf.clear.i.i.i.i, 0
@@ -483,7 +473,7 @@ if.end.i.i.i.i:                                   ; preds = %peel_committish.exi
   unreachable
 
 strset_get_size.exit.i:                           ; preds = %peel_committish.exit.i
-  %36 = getelementptr inbounds %struct.ref_info, ptr %rinfo.i, i64 0, i32 1, i32 0, i32 0, i32 3
+  %36 = getelementptr inbounds i8, ptr %rinfo.i, i64 32
   %positive_refs.val.i = load i32, ptr %36, align 8
   %37 = load i32, ptr %positive_refexprs.i.i, align 8
   %cmp.i = icmp ult i32 %37, %positive_refs.val.i
@@ -541,9 +531,9 @@ if.then28.i:                                      ; preds = %if.then21.i
   unreachable
 
 if.else31.i:                                      ; preds = %if.else13.i
-  %45 = getelementptr inbounds %struct.ref_info, ptr %rinfo.i, i64 0, i32 1, i32 0, i32 0, i32 3
+  %45 = getelementptr inbounds i8, ptr %rinfo.i, i64 32
   %positive_refs33.val.i = load i32, ptr %45, align 8
-  %46 = getelementptr inbounds %struct.ref_info, ptr %rinfo.i, i64 0, i32 1, i32 0, i32 0, i32 7
+  %46 = getelementptr inbounds i8, ptr %rinfo.i, i64 48
   %positive_refs33.val17.i = load i8, ptr %46, align 8
   %bf.clear.i.i.i30.i = and i8 %positive_refs33.val17.i, 1
   %tobool.not.i.i.i31.i = icmp eq i8 %bf.clear.i.i.i30.i, 0
@@ -555,7 +545,7 @@ if.end.i.i.i32.i:                                 ; preds = %if.else31.i
 
 strset_get_size.exit33.i:                         ; preds = %if.else31.i
   %47 = load i32, ptr %negative_refexprs.i.i, align 4
-  %48 = getelementptr inbounds %struct.ref_info, ptr %rinfo.i, i64 0, i32 2, i32 0, i32 0, i32 7
+  %48 = getelementptr inbounds i8, ptr %rinfo.i, i64 112
   %negative_refs.val18.i = load i8, ptr %48, align 8
   %bf.clear.i.i.i34.i = and i8 %negative_refs.val18.i, 1
   %tobool.not.i.i.i35.i = icmp eq i8 %bf.clear.i.i.i34.i, 0
@@ -566,7 +556,7 @@ if.end.i.i.i36.i:                                 ; preds = %strset_get_size.exi
   unreachable
 
 strset_get_size.exit37.i:                         ; preds = %strset_get_size.exit33.i
-  %49 = getelementptr inbounds %struct.ref_info, ptr %rinfo.i, i64 0, i32 2, i32 0, i32 0, i32 3
+  %49 = getelementptr inbounds i8, ptr %rinfo.i, i64 96
   %negative_refs.val.i = load i32, ptr %49, align 8
   %cmp38.i = icmp eq i32 %47, %negative_refs.val.i
   %cmp41.i = icmp sgt i32 %47, 0
@@ -618,7 +608,7 @@ if.end71.i:                                       ; preds = %if.else63.i
 
 for.body.i:                                       ; preds = %if.end71.i, %for.body.i
   %entry51.042.i = phi ptr [ %call77.i, %for.body.i ], [ %call.i38.i, %if.end71.i ]
-  %key.i = getelementptr inbounds %struct.strmap_entry, ptr %entry51.042.i, i64 0, i32 1
+  %key.i = getelementptr inbounds i8, ptr %entry51.042.i, i64 16
   %51 = load ptr, ptr %key.i, align 8
   store ptr %51, ptr %advance_name, align 8
   %call77.i = call ptr @hashmap_iter_next(ptr noundef nonnull %iter.i) #14
@@ -695,7 +685,7 @@ if.end116:                                        ; preds = %if.end109
   %55 = load ptr, ptr @the_repository, align 8
   call void @init_merge_options(ptr noundef nonnull %merge_opt, ptr noundef %55) #14
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %result, i8 0, i64 40, i1 false)
-  %show_rename_progress = getelementptr inbounds %struct.merge_options, ptr %merge_opt, i64 0, i32 8
+  %show_rename_progress = getelementptr inbounds i8, ptr %merge_opt, i64 48
   store i32 0, ptr %show_rename_progress, align 8
   %call.i58 = call ptr @xcalloc(i64 noundef 1, i64 noundef 40) #14
   %call118139 = call ptr @get_revision(ptr noundef nonnull %revs) #14
@@ -703,25 +693,25 @@ if.end116:                                        ; preds = %if.end109
   br i1 %tobool119.not140, label %while.end171, label %while.body.lr.ph
 
 while.body.lr.ph:                                 ; preds = %if.end116
-  %flags.i.i.i = getelementptr inbounds %struct.kh_oid_map, ptr %call.i58, i64 0, i32 4
-  %keys.i.i.i = getelementptr inbounds %struct.kh_oid_map, ptr %call.i58, i64 0, i32 5
-  %algo.i.i.i.i.i = getelementptr inbounds %struct.object_id, ptr %byval-temp.i.i.i, i64 0, i32 1
-  %vals.i.i = getelementptr inbounds %struct.kh_oid_map, ptr %call.i58, i64 0, i32 6
-  %tree.i = getelementptr inbounds %struct.merge_result, ptr %result, i64 0, i32 1
-  %branch1.i = getelementptr inbounds %struct.merge_options, ptr %merge_opt, i64 0, i32 2
-  %branch2.i = getelementptr inbounds %struct.merge_options, ptr %merge_opt, i64 0, i32 3
-  %ancestor.i = getelementptr inbounds %struct.merge_options, ptr %merge_opt, i64 0, i32 1
-  %buf.i.i = getelementptr inbounds %struct.strbuf, ptr %msg.i.i, i64 0, i32 2
-  %len.i.i = getelementptr inbounds %struct.strbuf, ptr %msg.i.i, i64 0, i32 1
-  %n_occupied.i = getelementptr inbounds %struct.kh_oid_map, ptr %call.i58, i64 0, i32 2
-  %upper_bound.i = getelementptr inbounds %struct.kh_oid_map, ptr %call.i58, i64 0, i32 3
-  %size.i = getelementptr inbounds %struct.kh_oid_map, ptr %call.i58, i64 0, i32 1
-  %algo.i.i.i = getelementptr inbounds %struct.object_id, ptr %byval-temp.i, i64 0, i32 1
+  %flags.i.i.i = getelementptr inbounds i8, ptr %call.i58, i64 16
+  %keys.i.i.i = getelementptr inbounds i8, ptr %call.i58, i64 24
+  %algo.i.i.i.i.i = getelementptr inbounds i8, ptr %byval-temp.i.i.i, i64 32
+  %vals.i.i = getelementptr inbounds i8, ptr %call.i58, i64 32
+  %tree.i = getelementptr inbounds i8, ptr %result, i64 8
+  %branch1.i = getelementptr inbounds i8, ptr %merge_opt, i64 16
+  %branch2.i = getelementptr inbounds i8, ptr %merge_opt, i64 24
+  %ancestor.i = getelementptr inbounds i8, ptr %merge_opt, i64 8
+  %buf.i.i = getelementptr inbounds i8, ptr %msg.i.i, i64 16
+  %len.i.i = getelementptr inbounds i8, ptr %msg.i.i, i64 8
+  %n_occupied.i = getelementptr inbounds i8, ptr %call.i58, i64 8
+  %upper_bound.i = getelementptr inbounds i8, ptr %call.i58, i64 12
+  %size.i = getelementptr inbounds i8, ptr %call.i58, i64 4
+  %algo.i.i.i = getelementptr inbounds i8, ptr %byval-temp.i, i64 32
   br label %while.body
 
 while.body:                                       ; preds = %while.body.lr.ph, %while.cond.backedge
   %call118141 = phi ptr [ %call118139, %while.body.lr.ph ], [ %call118, %while.cond.backedge ]
-  %parents = getelementptr inbounds %struct.commit, ptr %call118141, i64 0, i32 2
+  %parents = getelementptr inbounds i8, ptr %call118141, i64 48
   %56 = load ptr, ptr %parents, align 8
   %tobool120.not = icmp eq ptr %56, null
   br i1 %tobool120.not, label %if.then121, label %if.end123
@@ -732,7 +722,7 @@ if.then121:                                       ; preds = %while.body
   unreachable
 
 if.end123:                                        ; preds = %while.body
-  %next = getelementptr inbounds %struct.commit_list, ptr %56, i64 0, i32 1
+  %next = getelementptr inbounds i8, ptr %56, i64 8
   %57 = load ptr, ptr %next, align 8
   %tobool125.not = icmp eq ptr %57, null
   br i1 %tobool125.not, label %if.end128, label %if.then126
@@ -744,7 +734,7 @@ if.then126:                                       ; preds = %if.end123
 
 if.end128:                                        ; preds = %if.end123
   %58 = load ptr, ptr %56, align 8
-  %oid.i.i59 = getelementptr inbounds %struct.object, ptr %58, i64 0, i32 1
+  %oid.i.i59 = getelementptr inbounds i8, ptr %58, i64 4
   call void @llvm.lifetime.start.p0(i64 36, ptr nonnull %byval-temp4.i.i)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(36) %byval-temp4.i.i, ptr noundef nonnull align 4 dereferenceable(36) %oid.i.i59, i64 36, i1 false)
   call void @llvm.lifetime.start.p0(i64 36, ptr nonnull %byval-temp.i.i.i)
@@ -758,7 +748,7 @@ if.then.i.i.i:                                    ; preds = %if.end128
   %and.i.i.i = and i32 %key.val.i.i.i, %sub.i.i.i
   %60 = load ptr, ptr %flags.i.i.i, align 8
   %61 = load ptr, ptr @the_repository, align 8
-  %hash_algo.i.i.i.i.i = getelementptr inbounds %struct.repository, ptr %61, i64 0, i32 15
+  %hash_algo.i.i.i.i.i = getelementptr inbounds i8, ptr %61, i64 256
   br label %while.cond.i.i.i
 
 while.cond.i.i.i:                                 ; preds = %while.body.i.i.i, %if.then.i.i.i
@@ -861,12 +851,12 @@ mapped_commit.exit.i:                             ; preds = %if.end.i.i61, %kh_g
   %73 = load ptr, ptr @the_repository, align 8
   %call3.i = call ptr @repo_get_commit_tree(ptr noundef %73, ptr noundef %58) #14
   %74 = load ptr, ptr @the_repository, align 8
-  %oid.i17.i = getelementptr inbounds %struct.object, ptr %retval.0.i.i62, i64 0, i32 1
+  %oid.i17.i = getelementptr inbounds i8, ptr %retval.0.i.i62, i64 4
   %75 = load i32, ptr @default_abbrev, align 4
   %call.i.i63 = call ptr @repo_find_unique_abbrev(ptr noundef %74, ptr noundef nonnull %oid.i17.i, i32 noundef %75) #14
   store ptr %call.i.i63, ptr %branch1.i, align 8
   %76 = load ptr, ptr @the_repository, align 8
-  %oid.i18.i = getelementptr inbounds %struct.object, ptr %call118141, i64 0, i32 1
+  %oid.i18.i = getelementptr inbounds i8, ptr %call118141, i64 4
   %77 = load i32, ptr @default_abbrev, align 4
   %call.i19.i = call ptr @repo_find_unique_abbrev(ptr noundef %76, ptr noundef nonnull %oid.i18.i, i32 noundef %77) #14
   store ptr %call.i19.i, ptr %branch2.i, align 8
@@ -917,7 +907,7 @@ get_author.exit.i.i:                              ; preds = %if.then.i.i22.i, %i
   call void @reset_ident_date() #14
   %85 = load ptr, ptr %buf.i.i, align 8
   %86 = load i64, ptr %len.i.i, align 8
-  %oid.i24.i = getelementptr inbounds %struct.object, ptr %81, i64 0, i32 1
+  %oid.i24.i = getelementptr inbounds i8, ptr %81, i64 4
   %87 = load ptr, ptr %parents.i.i, align 8
   %call6.i.i = call i32 @commit_tree_extended(ptr noundef %85, i64 noundef %86, ptr noundef nonnull %oid.i24.i, ptr noundef %87, ptr noundef nonnull %ret.i.i, ptr noundef %retval.0.i.i23.i, ptr noundef null, ptr noundef null, ptr noundef %call3.i.i) #14
   %tobool.not.i.i70 = icmp eq i32 %call6.i.i, 0
@@ -1200,7 +1190,7 @@ if.end5.i:                                        ; preds = %kh_resize_oid_map.e
 
 while.cond.preheader.i:                           ; preds = %if.end5.i
   %138 = load ptr, ptr @the_repository, align 8
-  %hash_algo.i.i.i = getelementptr inbounds %struct.repository, ptr %138, i64 0, i32 15
+  %hash_algo.i.i.i = getelementptr inbounds i8, ptr %138, i64 256
   br label %while.cond.i
 
 while.cond.i:                                     ; preds = %while.body.i, %while.cond.preheader.i
@@ -1372,12 +1362,12 @@ if.end143:                                        ; preds = %if.end139
   br i1 %tobool146.not, label %while.cond.backedge, label %while.body151.preheader
 
 while.body151.preheader:                          ; preds = %if.end143
-  %oid163 = getelementptr inbounds %struct.object, ptr %call10.i.i, i64 0, i32 1
+  %oid163 = getelementptr inbounds i8, ptr %call10.i.i, i64 4
   br label %while.body151
 
 while.body151:                                    ; preds = %while.body151.preheader, %if.end169
   %decoration.0 = phi ptr [ %161, %if.end169 ], [ %call145, %while.body151.preheader ]
-  %type152 = getelementptr inbounds %struct.name_decoration, ptr %decoration.0, i64 0, i32 1
+  %type152 = getelementptr inbounds i8, ptr %decoration.0, i64 8
   %159 = load i32, ptr %type152, align 8
   %cmp153 = icmp eq i32 %159, 1
   br i1 %cmp153, label %land.lhs.true154, label %if.end169
@@ -1388,13 +1378,13 @@ land.lhs.true154:                                 ; preds = %while.body151
   br i1 %tobool155.not, label %lor.lhs.false, label %if.then159
 
 lor.lhs.false:                                    ; preds = %land.lhs.true154
-  %name = getelementptr inbounds %struct.name_decoration, ptr %decoration.0, i64 0, i32 2
+  %name = getelementptr inbounds i8, ptr %decoration.0, i64 12
   %call.i85 = call i32 @strmap_contains(ptr noundef %update_refs.0, ptr noundef nonnull %name) #14
   %tobool158.not = icmp eq i32 %call.i85, 0
   br i1 %tobool158.not, label %if.end169, label %if.then159
 
 if.then159:                                       ; preds = %lor.lhs.false, %land.lhs.true154
-  %name160 = getelementptr inbounds %struct.name_decoration, ptr %decoration.0, i64 0, i32 2
+  %name160 = getelementptr inbounds i8, ptr %decoration.0, i64 12
   %call164 = call ptr @oid_to_hex(ptr noundef nonnull %oid163) #14
   %call167 = call ptr @oid_to_hex(ptr noundef nonnull %oid.i18.i) #14
   %call168 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.25, ptr noundef nonnull %name160, ptr noundef %call164, ptr noundef %call167)
@@ -1415,9 +1405,9 @@ while.end171:                                     ; preds = %while.cond.backedge
   br i1 %or.cond2, label %if.then175, label %if.end183
 
 if.then175:                                       ; preds = %while.end171
-  %oid177 = getelementptr inbounds %struct.object, ptr %last_commit.1, i64 0, i32 1
+  %oid177 = getelementptr inbounds i8, ptr %last_commit.1, i64 4
   %call178 = call ptr @oid_to_hex(ptr noundef nonnull %oid177) #14
-  %oid180 = getelementptr inbounds %struct.object, ptr %onto.1, i64 0, i32 1
+  %oid180 = getelementptr inbounds i8, ptr %onto.1, i64 4
   %call181 = call ptr @oid_to_hex(ptr noundef nonnull %oid180) #14
   %call182 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.25, ptr noundef nonnull %163, ptr noundef %call178, ptr noundef %call181)
   br label %if.end183
@@ -1428,13 +1418,13 @@ if.end183:                                        ; preds = %if.then175, %while.
   br i1 %tobool.not.i86, label %kh_destroy_oid_map.exit, label %if.then.i87
 
 if.then.i87:                                      ; preds = %if.end183
-  %flags.i.i88 = getelementptr inbounds %struct.kh_oid_map, ptr %call.i58, i64 0, i32 4
+  %flags.i.i88 = getelementptr inbounds i8, ptr %call.i58, i64 16
   %164 = load ptr, ptr %flags.i.i88, align 8
   call void @free(ptr noundef %164) #14
-  %keys.i.i = getelementptr inbounds %struct.kh_oid_map, ptr %call.i58, i64 0, i32 5
+  %keys.i.i = getelementptr inbounds i8, ptr %call.i58, i64 24
   %165 = load ptr, ptr %keys.i.i, align 8
   call void @free(ptr noundef %165) #14
-  %vals.i.i89 = getelementptr inbounds %struct.kh_oid_map, ptr %call.i58, i64 0, i32 6
+  %vals.i.i89 = getelementptr inbounds i8, ptr %call.i58, i64 32
   %166 = load ptr, ptr %vals.i.i89, align 8
   call void @free(ptr noundef %166) #14
   call void @free(ptr noundef nonnull %call.i58) #14

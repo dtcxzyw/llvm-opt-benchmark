@@ -3,12 +3,12 @@ source_filename = "bench/openssl/original/libcrypto-lib-qud_cksm.ll"
 target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:128-n8:16:32:64-S128"
 target triple = "x86_64-unknown-linux-gnu"
 
-; Function Attrs: nofree nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
 define i32 @DES_quad_cksum(ptr nocapture noundef readonly %input, ptr noundef writeonly %output, i64 noundef %length, i32 noundef %out_count, ptr nocapture noundef readonly %seed) local_unnamed_addr #0 {
 entry:
   %spec.store.select = tail call i32 @llvm.smax.i32(i32 %out_count, i32 1)
   %0 = load i32, ptr %seed, align 1
-  %arrayidx13 = getelementptr inbounds [8 x i8], ptr %seed, i64 0, i64 4
+  %arrayidx13 = getelementptr inbounds i8, ptr %seed, i64 4
   %1 = load i32, ptr %arrayidx13, align 1
   %invariant.umin = tail call i32 @llvm.umin.i32(i32 %spec.store.select, i32 4)
   %cmp3128 = icmp sgt i64 %length, 0
@@ -22,9 +22,9 @@ while.cond.preheader.us:                          ; preds = %entry, %for.inc.us
   br label %while.body.us
 
 if.then65.us:                                     ; preds = %while.cond.while.end_crit_edge.us
-  %incdec.ptr66.us = getelementptr inbounds i32, ptr %lp.037.us, i64 1
+  %incdec.ptr66.us = getelementptr inbounds i8, ptr %lp.037.us, i64 4
   store i32 %5, ptr %lp.037.us, align 4
-  %incdec.ptr67.us = getelementptr inbounds i32, ptr %lp.037.us, i64 2
+  %incdec.ptr67.us = getelementptr inbounds i8, ptr %lp.037.us, i64 8
   store i32 %6, ptr %incdec.ptr66.us, align 4
   br label %for.inc.us
 
@@ -82,9 +82,9 @@ while.cond.preheader:                             ; preds = %entry, %for.inc
   br i1 %cmp63.not, label %for.inc, label %if.then65
 
 if.then65:                                        ; preds = %while.cond.preheader
-  %incdec.ptr66 = getelementptr inbounds i32, ptr %lp.037, i64 1
+  %incdec.ptr66 = getelementptr inbounds i8, ptr %lp.037, i64 4
   store i32 %0, ptr %lp.037, align 4
-  %incdec.ptr67 = getelementptr inbounds i32, ptr %lp.037, i64 2
+  %incdec.ptr67 = getelementptr inbounds i8, ptr %lp.037, i64 8
   store i32 %1, ptr %incdec.ptr66, align 4
   br label %for.inc
 
@@ -105,7 +105,7 @@ declare i32 @llvm.smax.i32(i32, i32) #1
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i32 @llvm.umin.i32(i32, i32) #1
 
-attributes #0 = { nofree nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #0 = { nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
 
 !llvm.module.flags = !{!0, !1, !2, !3}

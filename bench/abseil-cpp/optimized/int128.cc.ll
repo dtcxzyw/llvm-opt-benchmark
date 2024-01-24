@@ -136,7 +136,7 @@ invoke.cont10:                                    ; preds = %sw.bb2, %sw.default
   %vbase.offset = load i64, ptr %vbase.offset.ptr, align 8
   %add.ptr = getelementptr inbounds i8, ptr %os, i64 %vbase.offset
   %and.i7 = and i32 %flags, 16970
-  %_M_flags.i = getelementptr inbounds %"class.std::ios_base", ptr %add.ptr, i64 0, i32 3
+  %_M_flags.i = getelementptr inbounds i8, ptr %add.ptr, i64 24
   %0 = load i32, ptr %_M_flags.i, align 8
   %and.i.i.i = and i32 %0, -16971
   %or.i.i.i = or disjoint i32 %and.i.i.i, %and.i7
@@ -361,14 +361,14 @@ entry:
   %vbase.offset.ptr = getelementptr i8, ptr %vtable, i64 -24
   %vbase.offset = load i64, ptr %vbase.offset.ptr, align 8
   %add.ptr = getelementptr inbounds i8, ptr %os, i64 %vbase.offset
-  %_M_flags.i = getelementptr inbounds %"class.std::ios_base", ptr %add.ptr, i64 0, i32 3
+  %_M_flags.i = getelementptr inbounds i8, ptr %add.ptr, i64 24
   %0 = load i32, ptr %_M_flags.i, align 8
   call fastcc void @_ZN4absl12_GLOBAL__N_124Uint128ToFormattedStringB5cxx11ENS_7uint128ESt13_Ios_Fmtflags(ptr noalias nonnull align 8 %rep, i64 %v.coerce0, i64 %v.coerce1, i32 noundef %0)
   %vtable1 = load ptr, ptr %os, align 8
   %vbase.offset.ptr2 = getelementptr i8, ptr %vtable1, i64 -24
   %vbase.offset3 = load i64, ptr %vbase.offset.ptr2, align 8
   %add.ptr4 = getelementptr inbounds i8, ptr %os, i64 %vbase.offset3
-  %_M_width.i = getelementptr inbounds %"class.std::ios_base", ptr %add.ptr4, i64 0, i32 2
+  %_M_width.i = getelementptr inbounds i8, ptr %add.ptr4, i64 16
   %1 = load i64, ptr %_M_width.i, align 8
   store i64 0, ptr %_M_width.i, align 8
   %call6 = call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4sizeEv(ptr noundef nonnull align 8 dereferenceable(32) %rep) #6
@@ -545,7 +545,7 @@ entry:
   %vbase.offset.ptr = getelementptr i8, ptr %vtable, i64 -24
   %vbase.offset = load i64, ptr %vbase.offset.ptr, align 8
   %add.ptr = getelementptr inbounds i8, ptr %os, i64 %vbase.offset
-  %_M_flags.i = getelementptr inbounds %"class.std::ios_base", ptr %add.ptr, i64 0, i32 3
+  %_M_flags.i = getelementptr inbounds i8, ptr %add.ptr, i64 24
   %0 = load i32, ptr %_M_flags.i, align 8
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(32) %rep) #6
   %and.i = and i32 %0, 74
@@ -595,7 +595,7 @@ cond.end:                                         ; preds = %cond.true.i, %if.el
   %vbase.offset.ptr27 = getelementptr i8, ptr %vtable26, i64 -24
   %vbase.offset28 = load i64, ptr %vbase.offset.ptr27, align 8
   %add.ptr29 = getelementptr inbounds i8, ptr %os, i64 %vbase.offset28
-  %_M_flags.i30 = getelementptr inbounds %"class.std::ios_base", ptr %add.ptr29, i64 0, i32 3
+  %_M_flags.i30 = getelementptr inbounds i8, ptr %add.ptr29, i64 24
   %3 = load i32, ptr %_M_flags.i30, align 8
   invoke fastcc void @_ZN4absl12_GLOBAL__N_124Uint128ToFormattedStringB5cxx11ENS_7uint128ESt13_Ios_Fmtflags(ptr noalias nonnull align 8 %ref.tmp, i64 %agg.tmp19.sroa.0.0, i64 %agg.tmp19.sroa.3.0, i32 noundef %3)
           to label %invoke.cont32 unwind label %lpad
@@ -610,7 +610,7 @@ invoke.cont34:                                    ; preds = %invoke.cont32
   %vbase.offset.ptr37 = getelementptr i8, ptr %vtable36, i64 -24
   %vbase.offset38 = load i64, ptr %vbase.offset.ptr37, align 8
   %add.ptr39 = getelementptr inbounds i8, ptr %os, i64 %vbase.offset38
-  %_M_width.i = getelementptr inbounds %"class.std::ios_base", ptr %add.ptr39, i64 0, i32 2
+  %_M_width.i = getelementptr inbounds i8, ptr %add.ptr39, i64 16
   %4 = load i64, ptr %_M_width.i, align 8
   store i64 0, ptr %_M_width.i, align 8
   %call42 = call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4sizeEv(ptr noundef nonnull align 8 dereferenceable(32) %rep) #6
@@ -738,7 +738,7 @@ declare noundef nonnull align 8 dereferenceable(8) ptr @_ZNSolsEPFRSt8ios_baseS0
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr dso_local noundef nonnull align 8 dereferenceable(216) ptr @_ZSt10noshowbaseRSt8ios_base(ptr noundef nonnull align 8 dereferenceable(216) %__base) #1 comdat {
 entry:
-  %_M_flags.i = getelementptr inbounds %"class.std::ios_base", ptr %__base, i64 0, i32 3
+  %_M_flags.i = getelementptr inbounds i8, ptr %__base, i64 24
   %0 = load i32, ptr %_M_flags.i, align 8
   %and.i.i.i = and i32 %0, -513
   store i32 %and.i.i.i, ptr %_M_flags.i, align 8

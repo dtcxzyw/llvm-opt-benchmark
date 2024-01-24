@@ -3,24 +3,20 @@ source_filename = "bench/libquic/original/gcm.c.ll"
 target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:128-n8:16:32:64-S128"
 target triple = "x86_64-unknown-linux-gnu"
 
-%struct.gcm128_context = type { %union.anon.0, %union.anon.0, %union.anon.0, %union.anon.0, %union.anon.0, %union.anon.0, [16 x %struct.u128], ptr, ptr, i32, i32, ptr }
-%union.anon.0 = type { [2 x i64] }
-%struct.u128 = type { i64, i64 }
-
 @OPENSSL_ia32cap_P = external local_unnamed_addr global [4 x i32], align 16
 
 ; Function Attrs: nounwind uwtable
 define hidden void @CRYPTO_gcm128_init(ptr noundef %ctx, ptr noundef %key, ptr noundef %block) local_unnamed_addr #0 {
 entry:
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(384) %ctx, i8 0, i64 376, i1 false)
-  %block1 = getelementptr inbounds %struct.gcm128_context, ptr %ctx, i64 0, i32 11
+  %block1 = getelementptr inbounds i8, ptr %ctx, i64 376
   store ptr %block, ptr %block1, align 8
-  %H = getelementptr inbounds %struct.gcm128_context, ptr %ctx, i64 0, i32 5
+  %H = getelementptr inbounds i8, ptr %ctx, i64 80
   tail call void %block(ptr noundef nonnull %H, ptr noundef nonnull %H, ptr noundef %key) #6
   %0 = load i64, ptr %H, align 8
   %1 = tail call i64 asm "bswapq $0", "=r,0,~{dirflag},~{fpsr},~{flags}"(i64 %0) #7, !srcloc !7
   store i64 %1, ptr %H, align 8
-  %arrayidx9 = getelementptr inbounds %struct.gcm128_context, ptr %ctx, i64 0, i32 5, i32 0, i64 1
+  %arrayidx9 = getelementptr inbounds i8, ptr %ctx, i64 88
   %2 = load i64, ptr %arrayidx9, align 8
   %3 = tail call i64 asm "bswapq $0", "=r,0,~{dirflag},~{fpsr},~{flags}"(i64 %2) #7, !srcloc !8
   store i64 %3, ptr %arrayidx9, align 8
@@ -36,9 +32,9 @@ entry:
 if.then14:                                        ; preds = %entry
   %6 = and i32 %5, 272629760
   %cmp = icmp eq i32 %6, 272629760
-  %Htable = getelementptr inbounds %struct.gcm128_context, ptr %ctx, i64 0, i32 6
-  %gmult = getelementptr inbounds %struct.gcm128_context, ptr %ctx, i64 0, i32 7
-  %ghash = getelementptr inbounds %struct.gcm128_context, ptr %ctx, i64 0, i32 8
+  %Htable = getelementptr inbounds i8, ptr %ctx, i64 96
+  %gmult = getelementptr inbounds i8, ptr %ctx, i64 352
+  %ghash = getelementptr inbounds i8, ptr %ctx, i64 360
   br i1 %cmp, label %if.then15, label %if.else
 
 if.then15:                                        ; preds = %if.then14
@@ -54,11 +50,11 @@ if.else:                                          ; preds = %if.then14
   br label %return
 
 if.end26:                                         ; preds = %entry
-  %Htable27 = getelementptr inbounds %struct.gcm128_context, ptr %ctx, i64 0, i32 6
+  %Htable27 = getelementptr inbounds i8, ptr %ctx, i64 96
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %Htable27, i8 0, i64 16, i1 false)
-  %arrayidx6.i = getelementptr inbounds %struct.gcm128_context, ptr %ctx, i64 0, i32 6, i64 8
+  %arrayidx6.i = getelementptr inbounds i8, ptr %ctx, i64 224
   store i64 %1, ptr %arrayidx6.i, align 8
-  %V.sroa.27.0.arrayidx6.sroa_idx.i = getelementptr inbounds %struct.gcm128_context, ptr %ctx, i64 0, i32 6, i64 8, i32 1
+  %V.sroa.27.0.arrayidx6.sroa_idx.i = getelementptr inbounds i8, ptr %ctx, i64 232
   store i64 %3, ptr %V.sroa.27.0.arrayidx6.sroa_idx.i, align 8
   %and.i23 = and i64 %3, 1
   %7 = icmp eq i64 %and.i23, 0
@@ -66,9 +62,9 @@ if.end26:                                         ; preds = %entry
   %or.i = tail call i64 @llvm.fshl.i64(i64 %1, i64 %3, i64 63)
   %shr13.i = lshr i64 %1, 1
   %xor.i = xor i64 %and8.i, %shr13.i
-  %arrayidx15.i = getelementptr inbounds %struct.gcm128_context, ptr %ctx, i64 0, i32 6, i64 4
+  %arrayidx15.i = getelementptr inbounds i8, ptr %ctx, i64 160
   store i64 %xor.i, ptr %arrayidx15.i, align 8
-  %V.sroa.27.0.arrayidx15.sroa_idx.i = getelementptr inbounds %struct.gcm128_context, ptr %ctx, i64 0, i32 6, i64 4, i32 1
+  %V.sroa.27.0.arrayidx15.sroa_idx.i = getelementptr inbounds i8, ptr %ctx, i64 168
   store i64 %or.i, ptr %V.sroa.27.0.arrayidx15.sroa_idx.i, align 8
   %and19.i = and i64 %or.i, 1
   %8 = icmp eq i64 %and19.i, 0
@@ -76,9 +72,9 @@ if.end26:                                         ; preds = %entry
   %or26.i = tail call i64 @llvm.fshl.i64(i64 %shr13.i, i64 %or.i, i64 63)
   %shr29.i = lshr i64 %xor.i, 1
   %xor30.i = xor i64 %shr29.i, %and21.i
-  %arrayidx33.i = getelementptr inbounds %struct.gcm128_context, ptr %ctx, i64 0, i32 6, i64 2
+  %arrayidx33.i = getelementptr inbounds i8, ptr %ctx, i64 128
   store i64 %xor30.i, ptr %arrayidx33.i, align 8
-  %V.sroa.27.0.arrayidx33.sroa_idx.i = getelementptr inbounds %struct.gcm128_context, ptr %ctx, i64 0, i32 6, i64 2, i32 1
+  %V.sroa.27.0.arrayidx33.sroa_idx.i = getelementptr inbounds i8, ptr %ctx, i64 136
   store i64 %or26.i, ptr %V.sroa.27.0.arrayidx33.sroa_idx.i, align 8
   %and37.i = and i64 %or26.i, 1
   %9 = icmp eq i64 %and37.i, 0
@@ -86,79 +82,79 @@ if.end26:                                         ; preds = %entry
   %or44.i = tail call i64 @llvm.fshl.i64(i64 %shr29.i, i64 %or26.i, i64 63)
   %shr47.i = lshr i64 %xor30.i, 1
   %xor48.i = xor i64 %shr47.i, %and39.i
-  %arrayidx51.i = getelementptr inbounds %struct.gcm128_context, ptr %ctx, i64 0, i32 6, i64 1
+  %arrayidx51.i = getelementptr inbounds i8, ptr %ctx, i64 112
   store i64 %xor48.i, ptr %arrayidx51.i, align 8
-  %V.sroa.27.0.arrayidx51.sroa_idx.i = getelementptr inbounds %struct.gcm128_context, ptr %ctx, i64 0, i32 6, i64 1, i32 1
+  %V.sroa.27.0.arrayidx51.sroa_idx.i = getelementptr inbounds i8, ptr %ctx, i64 120
   store i64 %or44.i, ptr %V.sroa.27.0.arrayidx51.sroa_idx.i, align 8
   %xor55.i = xor i64 %xor48.i, %xor30.i
-  %arrayidx56.i = getelementptr inbounds %struct.gcm128_context, ptr %ctx, i64 0, i32 6, i64 3
+  %arrayidx56.i = getelementptr inbounds i8, ptr %ctx, i64 144
   store i64 %xor55.i, ptr %arrayidx56.i, align 8
   %xor61.i = xor i64 %or44.i, %or26.i
-  %lo63.i = getelementptr inbounds %struct.gcm128_context, ptr %ctx, i64 0, i32 6, i64 3, i32 1
+  %lo63.i = getelementptr inbounds i8, ptr %ctx, i64 152
   store i64 %xor61.i, ptr %lo63.i, align 8
   %xor68.i = xor i64 %xor48.i, %xor.i
-  %arrayidx69.i = getelementptr inbounds %struct.gcm128_context, ptr %ctx, i64 0, i32 6, i64 5
+  %arrayidx69.i = getelementptr inbounds i8, ptr %ctx, i64 176
   store i64 %xor68.i, ptr %arrayidx69.i, align 8
   %xor74.i = xor i64 %or44.i, %or.i
-  %lo76.i = getelementptr inbounds %struct.gcm128_context, ptr %ctx, i64 0, i32 6, i64 5, i32 1
+  %lo76.i = getelementptr inbounds i8, ptr %ctx, i64 184
   store i64 %xor74.i, ptr %lo76.i, align 8
   %xor80.i = xor i64 %xor30.i, %xor.i
-  %arrayidx81.i = getelementptr inbounds %struct.gcm128_context, ptr %ctx, i64 0, i32 6, i64 6
+  %arrayidx81.i = getelementptr inbounds i8, ptr %ctx, i64 192
   store i64 %xor80.i, ptr %arrayidx81.i, align 8
   %xor86.i = xor i64 %or26.i, %or.i
-  %lo88.i = getelementptr inbounds %struct.gcm128_context, ptr %ctx, i64 0, i32 6, i64 6, i32 1
+  %lo88.i = getelementptr inbounds i8, ptr %ctx, i64 200
   store i64 %xor86.i, ptr %lo88.i, align 8
   %xor92.i = xor i64 %xor55.i, %xor.i
-  %arrayidx93.i = getelementptr inbounds %struct.gcm128_context, ptr %ctx, i64 0, i32 6, i64 7
+  %arrayidx93.i = getelementptr inbounds i8, ptr %ctx, i64 208
   store i64 %xor92.i, ptr %arrayidx93.i, align 8
   %xor98.i = xor i64 %xor61.i, %or.i
-  %lo100.i = getelementptr inbounds %struct.gcm128_context, ptr %ctx, i64 0, i32 6, i64 7, i32 1
+  %lo100.i = getelementptr inbounds i8, ptr %ctx, i64 216
   store i64 %xor98.i, ptr %lo100.i, align 8
   %xor105.i = xor i64 %xor48.i, %1
-  %arrayidx106.i = getelementptr inbounds %struct.gcm128_context, ptr %ctx, i64 0, i32 6, i64 9
+  %arrayidx106.i = getelementptr inbounds i8, ptr %ctx, i64 240
   store i64 %xor105.i, ptr %arrayidx106.i, align 8
   %xor111.i = xor i64 %or44.i, %3
-  %lo113.i = getelementptr inbounds %struct.gcm128_context, ptr %ctx, i64 0, i32 6, i64 9, i32 1
+  %lo113.i = getelementptr inbounds i8, ptr %ctx, i64 248
   store i64 %xor111.i, ptr %lo113.i, align 8
   %xor117.i = xor i64 %xor30.i, %1
-  %arrayidx118.i = getelementptr inbounds %struct.gcm128_context, ptr %ctx, i64 0, i32 6, i64 10
+  %arrayidx118.i = getelementptr inbounds i8, ptr %ctx, i64 256
   store i64 %xor117.i, ptr %arrayidx118.i, align 8
   %xor123.i = xor i64 %or26.i, %3
-  %lo125.i = getelementptr inbounds %struct.gcm128_context, ptr %ctx, i64 0, i32 6, i64 10, i32 1
+  %lo125.i = getelementptr inbounds i8, ptr %ctx, i64 264
   store i64 %xor123.i, ptr %lo125.i, align 8
   %xor129.i = xor i64 %xor55.i, %1
-  %arrayidx130.i = getelementptr inbounds %struct.gcm128_context, ptr %ctx, i64 0, i32 6, i64 11
+  %arrayidx130.i = getelementptr inbounds i8, ptr %ctx, i64 272
   store i64 %xor129.i, ptr %arrayidx130.i, align 8
   %xor135.i = xor i64 %xor61.i, %3
-  %lo137.i = getelementptr inbounds %struct.gcm128_context, ptr %ctx, i64 0, i32 6, i64 11, i32 1
+  %lo137.i = getelementptr inbounds i8, ptr %ctx, i64 280
   store i64 %xor135.i, ptr %lo137.i, align 8
   %xor141.i = xor i64 %xor.i, %1
-  %arrayidx142.i = getelementptr inbounds %struct.gcm128_context, ptr %ctx, i64 0, i32 6, i64 12
+  %arrayidx142.i = getelementptr inbounds i8, ptr %ctx, i64 288
   store i64 %xor141.i, ptr %arrayidx142.i, align 8
   %xor147.i = xor i64 %or.i, %3
-  %lo149.i = getelementptr inbounds %struct.gcm128_context, ptr %ctx, i64 0, i32 6, i64 12, i32 1
+  %lo149.i = getelementptr inbounds i8, ptr %ctx, i64 296
   store i64 %xor147.i, ptr %lo149.i, align 8
   %xor153.i = xor i64 %xor68.i, %1
-  %arrayidx154.i = getelementptr inbounds %struct.gcm128_context, ptr %ctx, i64 0, i32 6, i64 13
+  %arrayidx154.i = getelementptr inbounds i8, ptr %ctx, i64 304
   store i64 %xor153.i, ptr %arrayidx154.i, align 8
   %xor159.i = xor i64 %xor74.i, %3
-  %lo161.i = getelementptr inbounds %struct.gcm128_context, ptr %ctx, i64 0, i32 6, i64 13, i32 1
+  %lo161.i = getelementptr inbounds i8, ptr %ctx, i64 312
   store i64 %xor159.i, ptr %lo161.i, align 8
   %xor165.i = xor i64 %xor80.i, %1
-  %arrayidx166.i = getelementptr inbounds %struct.gcm128_context, ptr %ctx, i64 0, i32 6, i64 14
+  %arrayidx166.i = getelementptr inbounds i8, ptr %ctx, i64 320
   store i64 %xor165.i, ptr %arrayidx166.i, align 8
   %xor171.i = xor i64 %xor86.i, %3
-  %lo173.i = getelementptr inbounds %struct.gcm128_context, ptr %ctx, i64 0, i32 6, i64 14, i32 1
+  %lo173.i = getelementptr inbounds i8, ptr %ctx, i64 328
   store i64 %xor171.i, ptr %lo173.i, align 8
   %xor177.i = xor i64 %xor92.i, %1
-  %arrayidx178.i = getelementptr inbounds %struct.gcm128_context, ptr %ctx, i64 0, i32 6, i64 15
+  %arrayidx178.i = getelementptr inbounds i8, ptr %ctx, i64 336
   store i64 %xor177.i, ptr %arrayidx178.i, align 8
   %xor183.i = xor i64 %xor98.i, %3
-  %lo185.i = getelementptr inbounds %struct.gcm128_context, ptr %ctx, i64 0, i32 6, i64 15, i32 1
+  %lo185.i = getelementptr inbounds i8, ptr %ctx, i64 344
   store i64 %xor183.i, ptr %lo185.i, align 8
-  %gmult31 = getelementptr inbounds %struct.gcm128_context, ptr %ctx, i64 0, i32 7
+  %gmult31 = getelementptr inbounds i8, ptr %ctx, i64 352
   store ptr @gcm_gmult_4bit, ptr %gmult31, align 8
-  %ghash32 = getelementptr inbounds %struct.gcm128_context, ptr %ctx, i64 0, i32 8
+  %ghash32 = getelementptr inbounds i8, ptr %ctx, i64 360
   store ptr @gcm_ghash_4bit, ptr %ghash32, align 8
   br label %return
 
@@ -205,13 +201,13 @@ declare void @gcm_ghash_4bit(ptr noundef, ptr noundef, ptr noundef, i64 noundef)
 ; Function Attrs: nounwind uwtable
 define hidden void @CRYPTO_gcm128_setiv(ptr noundef %ctx, ptr noundef %key, ptr nocapture noundef readonly %iv, i64 noundef %len) local_unnamed_addr #0 {
 entry:
-  %gmult = getelementptr inbounds %struct.gcm128_context, ptr %ctx, i64 0, i32 7
+  %gmult = getelementptr inbounds i8, ptr %ctx, i64 352
   %0 = load ptr, ptr %gmult, align 8
-  %arrayidx2 = getelementptr inbounds [2 x i64], ptr %ctx, i64 0, i64 1
-  %len6 = getelementptr inbounds %struct.gcm128_context, ptr %ctx, i64 0, i32 3
-  %ares = getelementptr inbounds %struct.gcm128_context, ptr %ctx, i64 0, i32 10
+  %arrayidx2 = getelementptr inbounds i8, ptr %ctx, i64 8
+  %len6 = getelementptr inbounds i8, ptr %ctx, i64 48
+  %ares = getelementptr inbounds i8, ptr %ctx, i64 372
   store i32 0, ptr %ares, align 4
-  %mres = getelementptr inbounds %struct.gcm128_context, ptr %ctx, i64 0, i32 9
+  %mres = getelementptr inbounds i8, ptr %ctx, i64 368
   store i32 0, ptr %mres, align 8
   %cmp = icmp eq i64 %len, 12
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %ctx, i8 0, i64 16, i1 false)
@@ -223,12 +219,12 @@ while.cond.preheader:                             ; preds = %entry
   br i1 %cmp1364, label %for.cond.preheader.lr.ph, label %while.end
 
 for.cond.preheader.lr.ph:                         ; preds = %while.cond.preheader
-  %Htable = getelementptr inbounds %struct.gcm128_context, ptr %ctx, i64 0, i32 6
+  %Htable = getelementptr inbounds i8, ptr %ctx, i64 96
   br label %for.cond.preheader
 
 if.then:                                          ; preds = %entry
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(12) %ctx, ptr noundef nonnull align 1 dereferenceable(12) %iv, i64 12, i1 false)
-  %arrayidx12 = getelementptr inbounds [16 x i8], ptr %ctx, i64 0, i64 15
+  %arrayidx12 = getelementptr inbounds i8, ptr %ctx, i64 15
   store i8 1, ptr %arrayidx12, align 1
   br label %if.end87
 
@@ -275,7 +271,7 @@ for.body27:                                       ; preds = %while.end, %for.bod
   br i1 %exitcond69.not, label %for.end37, label %for.body27, !llvm.loop !12
 
 for.end37:                                        ; preds = %for.body27
-  %Htable40 = getelementptr inbounds %struct.gcm128_context, ptr %ctx, i64 0, i32 6
+  %Htable40 = getelementptr inbounds i8, ptr %ctx, i64 96
   tail call void %0(ptr noundef nonnull %ctx, ptr noundef nonnull %Htable40) #6
   br label %if.then43
 
@@ -285,8 +281,8 @@ if.then43:                                        ; preds = %while.end, %for.end
   %6 = load i64, ptr %arrayidx2, align 8
   %xor46 = xor i64 %6, %5
   store i64 %xor46, ptr %arrayidx2, align 8
-  %Htable54 = getelementptr inbounds %struct.gcm128_context, ptr %ctx, i64 0, i32 6
-  tail call void %0(ptr noundef nonnull %ctx, ptr noundef nonnull %Htable54) #6
+  %Htable54 = getelementptr inbounds i8, ptr %ctx, i64 96
+  tail call void %0(ptr noundef %ctx, ptr noundef nonnull %Htable54) #6
   %add.ptr60 = getelementptr inbounds i8, ptr %ctx, i64 12
   %7 = load i8, ptr %add.ptr60, align 1
   %conv62 = zext i8 %7 to i32
@@ -310,9 +306,9 @@ if.then43:                                        ; preds = %while.end, %for.end
 
 if.end87:                                         ; preds = %if.then43, %if.then
   %ctr.0 = phi i32 [ 2, %if.then ], [ %11, %if.then43 ]
-  %block = getelementptr inbounds %struct.gcm128_context, ptr %ctx, i64 0, i32 11
+  %block = getelementptr inbounds i8, ptr %ctx, i64 376
   %12 = load ptr, ptr %block, align 8
-  %EK0 = getelementptr inbounds %struct.gcm128_context, ptr %ctx, i64 0, i32 2
+  %EK0 = getelementptr inbounds i8, ptr %ctx, i64 32
   tail call void %12(ptr noundef nonnull %ctx, ptr noundef nonnull %EK0, ptr noundef %key) #6
   %shr = lshr i32 %ctr.0, 24
   %conv94 = trunc i32 %shr to i8
@@ -335,12 +331,12 @@ if.end87:                                         ; preds = %if.then43, %if.then
 ; Function Attrs: nounwind uwtable
 define hidden noundef i32 @CRYPTO_gcm128_aad(ptr noundef %ctx, ptr noundef %aad, i64 noundef %len) local_unnamed_addr #0 {
 entry:
-  %len1 = getelementptr inbounds %struct.gcm128_context, ptr %ctx, i64 0, i32 3
-  %gmult = getelementptr inbounds %struct.gcm128_context, ptr %ctx, i64 0, i32 7
+  %len1 = getelementptr inbounds i8, ptr %ctx, i64 48
+  %gmult = getelementptr inbounds i8, ptr %ctx, i64 352
   %0 = load ptr, ptr %gmult, align 8
-  %ghash = getelementptr inbounds %struct.gcm128_context, ptr %ctx, i64 0, i32 8
+  %ghash = getelementptr inbounds i8, ptr %ctx, i64 360
   %1 = load ptr, ptr %ghash, align 8
-  %arrayidx3 = getelementptr inbounds %struct.gcm128_context, ptr %ctx, i64 0, i32 3, i32 0, i64 1
+  %arrayidx3 = getelementptr inbounds i8, ptr %ctx, i64 56
   %2 = load i64, ptr %arrayidx3, align 8
   %tobool.not = icmp eq i64 %2, 0
   br i1 %tobool.not, label %if.end, label %return
@@ -355,7 +351,7 @@ if.end:                                           ; preds = %entry
 
 if.end6:                                          ; preds = %if.end
   store i64 %add, ptr %len1, align 8
-  %ares = getelementptr inbounds %struct.gcm128_context, ptr %ctx, i64 0, i32 10
+  %ares = getelementptr inbounds i8, ptr %ctx, i64 372
   %4 = load i32, ptr %ares, align 4
   %tobool9.not = icmp eq i32 %4, 0
   br i1 %tobool9.not, label %if.end24, label %while.cond.preheader
@@ -365,7 +361,7 @@ while.cond.preheader:                             ; preds = %if.end6
   br i1 %tobool1243.not, label %return.sink.split, label %while.body.lr.ph
 
 while.body.lr.ph:                                 ; preds = %while.cond.preheader
-  %Xi = getelementptr inbounds %struct.gcm128_context, ptr %ctx, i64 0, i32 4
+  %Xi = getelementptr inbounds i8, ptr %ctx, i64 64
   br label %while.body
 
 while.body:                                       ; preds = %while.body.lr.ph, %while.body
@@ -392,8 +388,8 @@ while.end:                                        ; preds = %while.body
   br i1 %cmp17, label %if.then19, label %return.sink.split
 
 if.then19:                                        ; preds = %while.end
-  %Xi20 = getelementptr inbounds %struct.gcm128_context, ptr %ctx, i64 0, i32 4
-  %Htable = getelementptr inbounds %struct.gcm128_context, ptr %ctx, i64 0, i32 6
+  %Xi20 = getelementptr inbounds i8, ptr %ctx, i64 64
+  %Htable = getelementptr inbounds i8, ptr %ctx, i64 96
   tail call void %0(ptr noundef nonnull %Xi20, ptr noundef nonnull %Htable) #6
   br label %if.end24
 
@@ -405,8 +401,8 @@ if.end24:                                         ; preds = %if.then19, %if.end6
   br i1 %cmp25.not, label %if.end32, label %if.then27
 
 if.then27:                                        ; preds = %if.end24
-  %Xi28 = getelementptr inbounds %struct.gcm128_context, ptr %ctx, i64 0, i32 4
-  %Htable30 = getelementptr inbounds %struct.gcm128_context, ptr %ctx, i64 0, i32 6
+  %Xi28 = getelementptr inbounds i8, ptr %ctx, i64 64
+  %Htable30 = getelementptr inbounds i8, ptr %ctx, i64 96
   tail call void %1(ptr noundef nonnull %Xi28, ptr noundef nonnull %Htable30, ptr noundef %aad.addr.1, i64 noundef %and) #6
   %add.ptr = getelementptr inbounds i8, ptr %aad.addr.1, i64 %and
   %sub = and i64 %len.addr.1, 15
@@ -419,7 +415,7 @@ if.end32:                                         ; preds = %if.then27, %if.end2
   br i1 %tobool33.not, label %return.sink.split, label %if.then34
 
 if.then34:                                        ; preds = %if.end32
-  %Xi40 = getelementptr inbounds %struct.gcm128_context, ptr %ctx, i64 0, i32 4
+  %Xi40 = getelementptr inbounds i8, ptr %ctx, i64 64
   br label %for.body
 
 for.body:                                         ; preds = %if.then34, %for.body
@@ -451,13 +447,13 @@ return:                                           ; preds = %return.sink.split, 
 ; Function Attrs: nounwind uwtable
 define hidden noundef i32 @CRYPTO_gcm128_encrypt(ptr noundef %ctx, ptr noundef %key, ptr nocapture noundef readonly %in, ptr noundef %out, i64 noundef %len) local_unnamed_addr #0 {
 entry:
-  %arrayidx = getelementptr inbounds %struct.gcm128_context, ptr %ctx, i64 0, i32 3, i32 0, i64 1
+  %arrayidx = getelementptr inbounds i8, ptr %ctx, i64 56
   %0 = load i64, ptr %arrayidx, align 8
-  %block2 = getelementptr inbounds %struct.gcm128_context, ptr %ctx, i64 0, i32 11
+  %block2 = getelementptr inbounds i8, ptr %ctx, i64 376
   %1 = load ptr, ptr %block2, align 8
-  %gmult = getelementptr inbounds %struct.gcm128_context, ptr %ctx, i64 0, i32 7
+  %gmult = getelementptr inbounds i8, ptr %ctx, i64 352
   %2 = load ptr, ptr %gmult, align 8
-  %ghash = getelementptr inbounds %struct.gcm128_context, ptr %ctx, i64 0, i32 8
+  %ghash = getelementptr inbounds i8, ptr %ctx, i64 360
   %3 = load ptr, ptr %ghash, align 8
   %add = add i64 %0, %len
   %cmp = icmp ugt i64 %add, 68719476704
@@ -467,14 +463,14 @@ entry:
 
 if.end:                                           ; preds = %entry
   store i64 %add, ptr %arrayidx, align 8
-  %ares = getelementptr inbounds %struct.gcm128_context, ptr %ctx, i64 0, i32 10
+  %ares = getelementptr inbounds i8, ptr %ctx, i64 372
   %4 = load i32, ptr %ares, align 4
   %tobool.not = icmp eq i32 %4, 0
   br i1 %tobool.not, label %if.then11, label %if.then6
 
 if.then6:                                         ; preds = %if.end
-  %Xi = getelementptr inbounds %struct.gcm128_context, ptr %ctx, i64 0, i32 4
-  %Htable = getelementptr inbounds %struct.gcm128_context, ptr %ctx, i64 0, i32 6
+  %Xi = getelementptr inbounds i8, ptr %ctx, i64 64
+  %Htable = getelementptr inbounds i8, ptr %ctx, i64 96
   tail call void %2(ptr noundef nonnull %Xi, ptr noundef nonnull %Htable) #6
   store i32 0, ptr %ares, align 4
   br label %if.then11
@@ -498,7 +494,7 @@ if.then11:                                        ; preds = %if.end, %if.then6
   %8 = load i8, ptr %arrayidx30, align 1
   %conv31 = zext i8 %8 to i32
   %or32 = or disjoint i32 %or26, %conv31
-  %mres = getelementptr inbounds %struct.gcm128_context, ptr %ctx, i64 0, i32 9
+  %mres = getelementptr inbounds i8, ptr %ctx, i64 368
   %9 = load i32, ptr %mres, align 8
   %tobool36.not = icmp eq i32 %9, 0
   br i1 %tobool36.not, label %if.end63, label %while.cond.preheader
@@ -508,8 +504,8 @@ while.cond.preheader:                             ; preds = %if.then11
   br i1 %tobool39129.not, label %return.sink.split, label %while.body.lr.ph
 
 while.body.lr.ph:                                 ; preds = %while.cond.preheader
-  %EKi = getelementptr inbounds %struct.gcm128_context, ptr %ctx, i64 0, i32 1
-  %Xi46 = getelementptr inbounds %struct.gcm128_context, ptr %ctx, i64 0, i32 4
+  %EKi = getelementptr inbounds i8, ptr %ctx, i64 16
+  %Xi46 = getelementptr inbounds i8, ptr %ctx, i64 64
   br label %while.body
 
 while.body:                                       ; preds = %while.body.lr.ph, %while.body
@@ -542,8 +538,8 @@ while.end:                                        ; preds = %while.body
   br i1 %cmp53, label %if.then55, label %return.sink.split
 
 if.then55:                                        ; preds = %while.end
-  %Xi56 = getelementptr inbounds %struct.gcm128_context, ptr %ctx, i64 0, i32 4
-  %Htable58 = getelementptr inbounds %struct.gcm128_context, ptr %ctx, i64 0, i32 6
+  %Xi56 = getelementptr inbounds i8, ptr %ctx, i64 64
+  %Htable58 = getelementptr inbounds i8, ptr %ctx, i64 96
   tail call void %2(ptr noundef nonnull %Xi56, ptr noundef nonnull %Htable58) #6
   br label %if.end63
 
@@ -555,10 +551,10 @@ if.end63:                                         ; preds = %if.then55, %if.then
   br i1 %cmp65142, label %while.cond68.preheader.lr.ph, label %while.end120
 
 while.cond68.preheader.lr.ph:                     ; preds = %if.end63
-  %EKi73 = getelementptr inbounds %struct.gcm128_context, ptr %ctx, i64 0, i32 1
-  %Xi114 = getelementptr inbounds %struct.gcm128_context, ptr %ctx, i64 0, i32 4
-  %Htable116 = getelementptr inbounds %struct.gcm128_context, ptr %ctx, i64 0, i32 6
-  %arrayidx107.c = getelementptr inbounds %struct.gcm128_context, ptr %ctx, i64 0, i32 1, i32 0, i64 1
+  %EKi73 = getelementptr inbounds i8, ptr %ctx, i64 16
+  %Xi114 = getelementptr inbounds i8, ptr %ctx, i64 64
+  %Htable116 = getelementptr inbounds i8, ptr %ctx, i64 96
+  %arrayidx107.c = getelementptr inbounds i8, ptr %ctx, i64 24
   br label %while.cond68.preheader
 
 while.cond68.preheader:                           ; preds = %while.cond68.preheader.lr.ph, %while.end113
@@ -590,11 +586,11 @@ while.body70:                                     ; preds = %while.cond68.prehea
   %15 = load i64, ptr %EKi73, align 8
   %xor108 = xor i64 %15, %14
   store i64 %xor108, ptr %out.addr.3140, align 8
-  %arrayidx105.c = getelementptr inbounds i64, ptr %in.addr.3141, i64 1
+  %arrayidx105.c = getelementptr inbounds i8, ptr %in.addr.3141, i64 8
   %16 = load i64, ptr %arrayidx105.c, align 8
   %17 = load i64, ptr %arrayidx107.c, align 8
   %xor108.c = xor i64 %17, %16
-  %arrayidx109.c = getelementptr inbounds i64, ptr %out.addr.3140, i64 1
+  %arrayidx109.c = getelementptr inbounds i8, ptr %out.addr.3140, i64 8
   store i64 %xor108.c, ptr %arrayidx109.c, align 8
   %add.ptr111 = getelementptr inbounds i8, ptr %out.addr.3140, i64 16
   %add.ptr112 = getelementptr inbounds i8, ptr %in.addr.3141, i64 16
@@ -619,8 +615,8 @@ while.end120:                                     ; preds = %while.end113, %if.e
   br i1 %tobool121.not, label %if.end185, label %while.body127.lr.ph
 
 while.body127.lr.ph:                              ; preds = %while.end120
-  %EKi132 = getelementptr inbounds %struct.gcm128_context, ptr %ctx, i64 0, i32 1
-  %arrayidx170.c = getelementptr inbounds %struct.gcm128_context, ptr %ctx, i64 0, i32 1, i32 0, i64 1
+  %EKi132 = getelementptr inbounds i8, ptr %ctx, i64 16
+  %arrayidx170.c = getelementptr inbounds i8, ptr %ctx, i64 24
   br label %while.body127
 
 while.body127:                                    ; preds = %while.body127.lr.ph, %while.body127
@@ -645,11 +641,11 @@ while.body127:                                    ; preds = %while.body127.lr.ph
   %19 = load i64, ptr %EKi132, align 8
   %xor171 = xor i64 %19, %18
   store i64 %xor171, ptr %out.addr.4155, align 8
-  %arrayidx168.c = getelementptr inbounds i64, ptr %in.addr.4156, i64 1
+  %arrayidx168.c = getelementptr inbounds i8, ptr %in.addr.4156, i64 8
   %20 = load i64, ptr %arrayidx168.c, align 8
   %21 = load i64, ptr %arrayidx170.c, align 8
   %xor171.c = xor i64 %21, %20
-  %arrayidx172.c = getelementptr inbounds i64, ptr %out.addr.4155, i64 1
+  %arrayidx172.c = getelementptr inbounds i8, ptr %out.addr.4155, i64 8
   store i64 %xor171.c, ptr %arrayidx172.c, align 8
   %add.ptr176 = getelementptr inbounds i8, ptr %out.addr.4155, i64 16
   %add.ptr177 = getelementptr inbounds i8, ptr %in.addr.4156, i64 16
@@ -658,8 +654,8 @@ while.body127:                                    ; preds = %while.body127.lr.ph
   br i1 %cmp125, label %while.body127, label %while.end179, !llvm.loop !19
 
 while.end179:                                     ; preds = %while.body127
-  %Xi180 = getelementptr inbounds %struct.gcm128_context, ptr %ctx, i64 0, i32 4
-  %Htable182 = getelementptr inbounds %struct.gcm128_context, ptr %ctx, i64 0, i32 6
+  %Xi180 = getelementptr inbounds i8, ptr %ctx, i64 64
+  %Htable182 = getelementptr inbounds i8, ptr %ctx, i64 96
   %idx.neg = sub nsw i64 0, %and
   %add.ptr184 = getelementptr inbounds i8, ptr %add.ptr176, i64 %idx.neg
   tail call void %3(ptr noundef nonnull %Xi180, ptr noundef nonnull %Htable182, ptr noundef nonnull %add.ptr184, i64 noundef %and) #6
@@ -674,7 +670,7 @@ if.end185:                                        ; preds = %while.end179, %whil
   br i1 %tobool186.not, label %return.sink.split, label %if.then187
 
 if.then187:                                       ; preds = %if.end185
-  %EKi190 = getelementptr inbounds %struct.gcm128_context, ptr %ctx, i64 0, i32 1
+  %EKi190 = getelementptr inbounds i8, ptr %ctx, i64 16
   tail call void %1(ptr noundef nonnull %ctx, ptr noundef nonnull %EKi190, ptr noundef %key) #6
   %inc192 = add i32 %ctr.4, 1
   %shr195 = lshr i32 %inc192, 24
@@ -688,7 +684,7 @@ if.then187:                                       ; preds = %if.end185
   store i8 %conv208, ptr %arrayidx23, align 1
   %conv213 = trunc i32 %inc192 to i8
   store i8 %conv213, ptr %arrayidx30, align 1
-  %Xi238 = getelementptr inbounds %struct.gcm128_context, ptr %ctx, i64 0, i32 4
+  %Xi238 = getelementptr inbounds i8, ptr %ctx, i64 64
   br label %while.body225
 
 while.body225:                                    ; preds = %if.then187, %while.body225
@@ -724,13 +720,13 @@ return:                                           ; preds = %return.sink.split, 
 ; Function Attrs: nounwind uwtable
 define hidden noundef i32 @CRYPTO_gcm128_decrypt(ptr noundef %ctx, ptr noundef %key, ptr noundef %in, ptr nocapture noundef writeonly %out, i64 noundef %len) local_unnamed_addr #0 {
 entry:
-  %arrayidx = getelementptr inbounds %struct.gcm128_context, ptr %ctx, i64 0, i32 3, i32 0, i64 1
+  %arrayidx = getelementptr inbounds i8, ptr %ctx, i64 56
   %0 = load i64, ptr %arrayidx, align 8
-  %block2 = getelementptr inbounds %struct.gcm128_context, ptr %ctx, i64 0, i32 11
+  %block2 = getelementptr inbounds i8, ptr %ctx, i64 376
   %1 = load ptr, ptr %block2, align 8
-  %gmult = getelementptr inbounds %struct.gcm128_context, ptr %ctx, i64 0, i32 7
+  %gmult = getelementptr inbounds i8, ptr %ctx, i64 352
   %2 = load ptr, ptr %gmult, align 8
-  %ghash = getelementptr inbounds %struct.gcm128_context, ptr %ctx, i64 0, i32 8
+  %ghash = getelementptr inbounds i8, ptr %ctx, i64 360
   %3 = load ptr, ptr %ghash, align 8
   %add = add i64 %0, %len
   %cmp = icmp ugt i64 %add, 68719476704
@@ -740,14 +736,14 @@ entry:
 
 if.end:                                           ; preds = %entry
   store i64 %add, ptr %arrayidx, align 8
-  %ares = getelementptr inbounds %struct.gcm128_context, ptr %ctx, i64 0, i32 10
+  %ares = getelementptr inbounds i8, ptr %ctx, i64 372
   %4 = load i32, ptr %ares, align 4
   %tobool.not = icmp eq i32 %4, 0
   br i1 %tobool.not, label %if.then11, label %if.then6
 
 if.then6:                                         ; preds = %if.end
-  %Xi = getelementptr inbounds %struct.gcm128_context, ptr %ctx, i64 0, i32 4
-  %Htable = getelementptr inbounds %struct.gcm128_context, ptr %ctx, i64 0, i32 6
+  %Xi = getelementptr inbounds i8, ptr %ctx, i64 64
+  %Htable = getelementptr inbounds i8, ptr %ctx, i64 96
   tail call void %2(ptr noundef nonnull %Xi, ptr noundef nonnull %Htable) #6
   store i32 0, ptr %ares, align 4
   br label %if.then11
@@ -771,7 +767,7 @@ if.then11:                                        ; preds = %if.end, %if.then6
   %8 = load i8, ptr %arrayidx30, align 1
   %conv31 = zext i8 %8 to i32
   %or32 = or disjoint i32 %or26, %conv31
-  %mres = getelementptr inbounds %struct.gcm128_context, ptr %ctx, i64 0, i32 9
+  %mres = getelementptr inbounds i8, ptr %ctx, i64 368
   %9 = load i32, ptr %mres, align 8
   %tobool36.not = icmp eq i32 %9, 0
   br i1 %tobool36.not, label %if.end63, label %while.cond.preheader
@@ -781,8 +777,8 @@ while.cond.preheader:                             ; preds = %if.then11
   br i1 %tobool39131.not, label %return.sink.split, label %while.body.lr.ph
 
 while.body.lr.ph:                                 ; preds = %while.cond.preheader
-  %EKi = getelementptr inbounds %struct.gcm128_context, ptr %ctx, i64 0, i32 1
-  %Xi46 = getelementptr inbounds %struct.gcm128_context, ptr %ctx, i64 0, i32 4
+  %EKi = getelementptr inbounds i8, ptr %ctx, i64 16
+  %Xi46 = getelementptr inbounds i8, ptr %ctx, i64 64
   br label %while.body
 
 while.body:                                       ; preds = %while.body.lr.ph, %while.body
@@ -815,8 +811,8 @@ while.end:                                        ; preds = %while.body
   br i1 %cmp53, label %if.then55, label %return.sink.split
 
 if.then55:                                        ; preds = %while.end
-  %Xi56 = getelementptr inbounds %struct.gcm128_context, ptr %ctx, i64 0, i32 4
-  %Htable58 = getelementptr inbounds %struct.gcm128_context, ptr %ctx, i64 0, i32 6
+  %Xi56 = getelementptr inbounds i8, ptr %ctx, i64 64
+  %Htable58 = getelementptr inbounds i8, ptr %ctx, i64 96
   tail call void %2(ptr noundef nonnull %Xi56, ptr noundef nonnull %Htable58) #6
   br label %if.end63
 
@@ -828,10 +824,10 @@ if.end63:                                         ; preds = %if.then55, %if.then
   br i1 %cmp65144, label %while.body67.lr.ph, label %while.end119
 
 while.body67.lr.ph:                               ; preds = %if.end63
-  %Xi68 = getelementptr inbounds %struct.gcm128_context, ptr %ctx, i64 0, i32 4
-  %Htable70 = getelementptr inbounds %struct.gcm128_context, ptr %ctx, i64 0, i32 6
-  %EKi77 = getelementptr inbounds %struct.gcm128_context, ptr %ctx, i64 0, i32 1
-  %arrayidx111.c = getelementptr inbounds %struct.gcm128_context, ptr %ctx, i64 0, i32 1, i32 0, i64 1
+  %Xi68 = getelementptr inbounds i8, ptr %ctx, i64 64
+  %Htable70 = getelementptr inbounds i8, ptr %ctx, i64 96
+  %EKi77 = getelementptr inbounds i8, ptr %ctx, i64 16
+  %arrayidx111.c = getelementptr inbounds i8, ptr %ctx, i64 24
   br label %while.body67
 
 while.body67:                                     ; preds = %while.body67.lr.ph, %while.end117
@@ -864,11 +860,11 @@ while.body74:                                     ; preds = %while.body67, %whil
   %15 = load i64, ptr %EKi77, align 8
   %xor112 = xor i64 %15, %14
   store i64 %xor112, ptr %out.addr.3142, align 8
-  %arrayidx109.c = getelementptr inbounds i64, ptr %in.addr.3143, i64 1
+  %arrayidx109.c = getelementptr inbounds i8, ptr %in.addr.3143, i64 8
   %16 = load i64, ptr %arrayidx109.c, align 8
   %17 = load i64, ptr %arrayidx111.c, align 8
   %xor112.c = xor i64 %17, %16
-  %arrayidx113.c = getelementptr inbounds i64, ptr %out.addr.3142, i64 1
+  %arrayidx113.c = getelementptr inbounds i8, ptr %out.addr.3142, i64 8
   store i64 %xor112.c, ptr %arrayidx113.c, align 8
   %add.ptr115 = getelementptr inbounds i8, ptr %out.addr.3142, i64 16
   %add.ptr116 = getelementptr inbounds i8, ptr %in.addr.3143, i64 16
@@ -891,11 +887,11 @@ while.end119:                                     ; preds = %while.end117, %if.e
   br i1 %cmp120.not, label %if.end183, label %while.body130.lr.ph
 
 while.body130.lr.ph:                              ; preds = %while.end119
-  %Xi123 = getelementptr inbounds %struct.gcm128_context, ptr %ctx, i64 0, i32 4
-  %Htable125 = getelementptr inbounds %struct.gcm128_context, ptr %ctx, i64 0, i32 6
+  %Xi123 = getelementptr inbounds i8, ptr %ctx, i64 64
+  %Htable125 = getelementptr inbounds i8, ptr %ctx, i64 96
   tail call void %3(ptr noundef nonnull %Xi123, ptr noundef nonnull %Htable125, ptr noundef %in.addr.2.lcssa, i64 noundef %and) #6
-  %EKi135 = getelementptr inbounds %struct.gcm128_context, ptr %ctx, i64 0, i32 1
-  %arrayidx173.c = getelementptr inbounds %struct.gcm128_context, ptr %ctx, i64 0, i32 1, i32 0, i64 1
+  %EKi135 = getelementptr inbounds i8, ptr %ctx, i64 16
+  %arrayidx173.c = getelementptr inbounds i8, ptr %ctx, i64 24
   br label %while.body130
 
 while.body130:                                    ; preds = %while.body130.lr.ph, %while.body130
@@ -920,11 +916,11 @@ while.body130:                                    ; preds = %while.body130.lr.ph
   %19 = load i64, ptr %EKi135, align 8
   %xor174 = xor i64 %19, %18
   store i64 %xor174, ptr %out.addr.4157, align 8
-  %arrayidx171.c = getelementptr inbounds i64, ptr %in.addr.4158, i64 1
+  %arrayidx171.c = getelementptr inbounds i8, ptr %in.addr.4158, i64 8
   %20 = load i64, ptr %arrayidx171.c, align 8
   %21 = load i64, ptr %arrayidx173.c, align 8
   %xor174.c = xor i64 %21, %20
-  %arrayidx175.c = getelementptr inbounds i64, ptr %out.addr.4157, i64 1
+  %arrayidx175.c = getelementptr inbounds i8, ptr %out.addr.4157, i64 8
   store i64 %xor174.c, ptr %arrayidx175.c, align 8
   %add.ptr179 = getelementptr inbounds i8, ptr %out.addr.4157, i64 16
   %add.ptr180 = getelementptr inbounds i8, ptr %in.addr.4158, i64 16
@@ -941,7 +937,7 @@ if.end183:                                        ; preds = %while.body130, %whi
   br i1 %tobool184.not, label %return.sink.split, label %if.then185
 
 if.then185:                                       ; preds = %if.end183
-  %EKi188 = getelementptr inbounds %struct.gcm128_context, ptr %ctx, i64 0, i32 1
+  %EKi188 = getelementptr inbounds i8, ptr %ctx, i64 16
   tail call void %1(ptr noundef nonnull %ctx, ptr noundef nonnull %EKi188, ptr noundef %key) #6
   %inc190 = add i32 %ctr.4, 1
   %shr193 = lshr i32 %inc190, 24
@@ -955,7 +951,7 @@ if.then185:                                       ; preds = %if.end183
   store i8 %conv206, ptr %arrayidx23, align 1
   %conv211 = trunc i32 %inc190 to i8
   store i8 %conv211, ptr %arrayidx30, align 1
-  %Xi228 = getelementptr inbounds %struct.gcm128_context, ptr %ctx, i64 0, i32 4
+  %Xi228 = getelementptr inbounds i8, ptr %ctx, i64 64
   br label %while.body223
 
 while.body223:                                    ; preds = %if.then185, %while.body223
@@ -991,11 +987,11 @@ return:                                           ; preds = %return.sink.split, 
 ; Function Attrs: nounwind uwtable
 define hidden noundef i32 @CRYPTO_gcm128_encrypt_ctr32(ptr noundef %ctx, ptr noundef %key, ptr noundef %in, ptr noundef %out, i64 noundef %len, ptr noundef readonly %stream) local_unnamed_addr #0 {
 entry:
-  %arrayidx = getelementptr inbounds %struct.gcm128_context, ptr %ctx, i64 0, i32 3, i32 0, i64 1
+  %arrayidx = getelementptr inbounds i8, ptr %ctx, i64 56
   %0 = load i64, ptr %arrayidx, align 8
-  %gmult = getelementptr inbounds %struct.gcm128_context, ptr %ctx, i64 0, i32 7
+  %gmult = getelementptr inbounds i8, ptr %ctx, i64 352
   %1 = load ptr, ptr %gmult, align 8
-  %ghash = getelementptr inbounds %struct.gcm128_context, ptr %ctx, i64 0, i32 8
+  %ghash = getelementptr inbounds i8, ptr %ctx, i64 360
   %2 = load ptr, ptr %ghash, align 8
   %add = add i64 %0, %len
   %cmp = icmp ugt i64 %add, 68719476704
@@ -1005,20 +1001,20 @@ entry:
 
 if.end:                                           ; preds = %entry
   store i64 %add, ptr %arrayidx, align 8
-  %ares = getelementptr inbounds %struct.gcm128_context, ptr %ctx, i64 0, i32 10
+  %ares = getelementptr inbounds i8, ptr %ctx, i64 372
   %3 = load i32, ptr %ares, align 4
   %tobool.not = icmp eq i32 %3, 0
   br i1 %tobool.not, label %if.end8, label %if.then5
 
 if.then5:                                         ; preds = %if.end
-  %Xi = getelementptr inbounds %struct.gcm128_context, ptr %ctx, i64 0, i32 4
-  %Htable = getelementptr inbounds %struct.gcm128_context, ptr %ctx, i64 0, i32 6
+  %Xi = getelementptr inbounds i8, ptr %ctx, i64 64
+  %Htable = getelementptr inbounds i8, ptr %ctx, i64 96
   tail call void %1(ptr noundef nonnull %Xi, ptr noundef nonnull %Htable) #6
   store i32 0, ptr %ares, align 4
   br label %if.end8
 
 if.end8:                                          ; preds = %if.then5, %if.end
-  %mres = getelementptr inbounds %struct.gcm128_context, ptr %ctx, i64 0, i32 9
+  %mres = getelementptr inbounds i8, ptr %ctx, i64 368
   %4 = load i32, ptr %mres, align 8
   %tobool9.not = icmp eq i32 %4, 0
   br i1 %tobool9.not, label %if.end34, label %while.cond.preheader
@@ -1028,8 +1024,8 @@ while.cond.preheader:                             ; preds = %if.end8
   br i1 %tobool12133.not, label %return.sink.split, label %while.body.lr.ph
 
 while.body.lr.ph:                                 ; preds = %while.cond.preheader
-  %EKi = getelementptr inbounds %struct.gcm128_context, ptr %ctx, i64 0, i32 1
-  %Xi18 = getelementptr inbounds %struct.gcm128_context, ptr %ctx, i64 0, i32 4
+  %EKi = getelementptr inbounds i8, ptr %ctx, i64 16
+  %Xi18 = getelementptr inbounds i8, ptr %ctx, i64 64
   br label %while.body
 
 while.body:                                       ; preds = %while.body.lr.ph, %while.body
@@ -1062,8 +1058,8 @@ while.end:                                        ; preds = %while.body
   br i1 %cmp25, label %if.then27, label %return.sink.split
 
 if.then27:                                        ; preds = %while.end
-  %Xi28 = getelementptr inbounds %struct.gcm128_context, ptr %ctx, i64 0, i32 4
-  %Htable30 = getelementptr inbounds %struct.gcm128_context, ptr %ctx, i64 0, i32 6
+  %Xi28 = getelementptr inbounds i8, ptr %ctx, i64 64
+  %Htable30 = getelementptr inbounds i8, ptr %ctx, i64 96
   tail call void %1(ptr noundef nonnull %Xi28, ptr noundef nonnull %Htable30) #6
   br label %if.end34
 
@@ -1080,7 +1076,7 @@ aesni_gcm_enabled.exit:                           ; preds = %if.end34
   br i1 %cmp1.i.not, label %if.then36, label %if.end72
 
 if.then36:                                        ; preds = %aesni_gcm_enabled.exit
-  %Xi38 = getelementptr inbounds %struct.gcm128_context, ptr %ctx, i64 0, i32 4
+  %Xi38 = getelementptr inbounds i8, ptr %ctx, i64 64
   %call40 = tail call i64 @aesni_gcm_encrypt(ptr noundef %in.addr.1, ptr noundef %out.addr.1, i64 noundef %len.addr.1, ptr noundef %key, ptr noundef nonnull %ctx, ptr noundef nonnull %Xi38) #6
   %add.ptr = getelementptr inbounds i8, ptr %in.addr.1, i64 %call40
   %add.ptr41 = getelementptr inbounds i8, ptr %out.addr.1, i64 %call40
@@ -1113,8 +1109,8 @@ if.end72:                                         ; preds = %if.end34, %if.then3
   br i1 %cmp74141, label %while.body76.lr.ph, label %while.end115
 
 while.body76.lr.ph:                               ; preds = %if.end72
-  %Xi108 = getelementptr inbounds %struct.gcm128_context, ptr %ctx, i64 0, i32 4
-  %Htable110 = getelementptr inbounds %struct.gcm128_context, ptr %ctx, i64 0, i32 6
+  %Xi108 = getelementptr inbounds i8, ptr %ctx, i64 64
+  %Htable110 = getelementptr inbounds i8, ptr %ctx, i64 96
   br label %while.body76
 
 while.body76:                                     ; preds = %while.body76.lr.ph, %while.body76
@@ -1169,8 +1165,8 @@ if.then118:                                       ; preds = %while.end115
   store i8 %conv143, ptr %arrayidx66, align 1
   %add.ptr152 = getelementptr inbounds i8, ptr %in.addr.3.lcssa, i64 %and
   %sub153 = and i64 %len.addr.3.lcssa, 15
-  %Xi154 = getelementptr inbounds %struct.gcm128_context, ptr %ctx, i64 0, i32 4
-  %Htable156 = getelementptr inbounds %struct.gcm128_context, ptr %ctx, i64 0, i32 6
+  %Xi154 = getelementptr inbounds i8, ptr %ctx, i64 64
+  %Htable156 = getelementptr inbounds i8, ptr %ctx, i64 96
   tail call void %2(ptr noundef nonnull %Xi154, ptr noundef nonnull %Htable156, ptr noundef %out.addr.3.lcssa, i64 noundef %and) #6
   %add.ptr158 = getelementptr inbounds i8, ptr %out.addr.3.lcssa, i64 %and
   br label %if.end159
@@ -1184,9 +1180,9 @@ if.end159:                                        ; preds = %if.then118, %while.
   br i1 %tobool160.not, label %return.sink.split, label %if.then161
 
 if.then161:                                       ; preds = %if.end159
-  %block = getelementptr inbounds %struct.gcm128_context, ptr %ctx, i64 0, i32 11
+  %block = getelementptr inbounds i8, ptr %ctx, i64 376
   %14 = load ptr, ptr %block, align 8
-  %EKi164 = getelementptr inbounds %struct.gcm128_context, ptr %ctx, i64 0, i32 1
+  %EKi164 = getelementptr inbounds i8, ptr %ctx, i64 16
   tail call void %14(ptr noundef nonnull %ctx, ptr noundef nonnull %EKi164, ptr noundef %key) #6
   %inc = add i32 %ctr.2, 1
   %shr168 = lshr i32 %inc, 24
@@ -1200,7 +1196,7 @@ if.then161:                                       ; preds = %if.end159
   store i8 %conv181, ptr %arrayidx59, align 1
   %conv186 = trunc i32 %inc to i8
   store i8 %conv186, ptr %arrayidx66, align 1
-  %Xi211 = getelementptr inbounds %struct.gcm128_context, ptr %ctx, i64 0, i32 4
+  %Xi211 = getelementptr inbounds i8, ptr %ctx, i64 64
   br label %while.body198
 
 while.body198:                                    ; preds = %if.then161, %while.body198
@@ -1238,11 +1234,11 @@ declare i64 @aesni_gcm_encrypt(ptr noundef, ptr noundef, i64 noundef, ptr nounde
 ; Function Attrs: nounwind uwtable
 define hidden noundef i32 @CRYPTO_gcm128_decrypt_ctr32(ptr noundef %ctx, ptr noundef %key, ptr noundef %in, ptr noundef %out, i64 noundef %len, ptr noundef readonly %stream) local_unnamed_addr #0 {
 entry:
-  %arrayidx = getelementptr inbounds %struct.gcm128_context, ptr %ctx, i64 0, i32 3, i32 0, i64 1
+  %arrayidx = getelementptr inbounds i8, ptr %ctx, i64 56
   %0 = load i64, ptr %arrayidx, align 8
-  %gmult = getelementptr inbounds %struct.gcm128_context, ptr %ctx, i64 0, i32 7
+  %gmult = getelementptr inbounds i8, ptr %ctx, i64 352
   %1 = load ptr, ptr %gmult, align 8
-  %ghash = getelementptr inbounds %struct.gcm128_context, ptr %ctx, i64 0, i32 8
+  %ghash = getelementptr inbounds i8, ptr %ctx, i64 360
   %2 = load ptr, ptr %ghash, align 8
   %add = add i64 %0, %len
   %cmp = icmp ugt i64 %add, 68719476704
@@ -1252,20 +1248,20 @@ entry:
 
 if.end:                                           ; preds = %entry
   store i64 %add, ptr %arrayidx, align 8
-  %ares = getelementptr inbounds %struct.gcm128_context, ptr %ctx, i64 0, i32 10
+  %ares = getelementptr inbounds i8, ptr %ctx, i64 372
   %3 = load i32, ptr %ares, align 4
   %tobool.not = icmp eq i32 %3, 0
   br i1 %tobool.not, label %if.end8, label %if.then5
 
 if.then5:                                         ; preds = %if.end
-  %Xi = getelementptr inbounds %struct.gcm128_context, ptr %ctx, i64 0, i32 4
-  %Htable = getelementptr inbounds %struct.gcm128_context, ptr %ctx, i64 0, i32 6
+  %Xi = getelementptr inbounds i8, ptr %ctx, i64 64
+  %Htable = getelementptr inbounds i8, ptr %ctx, i64 96
   tail call void %1(ptr noundef nonnull %Xi, ptr noundef nonnull %Htable) #6
   store i32 0, ptr %ares, align 4
   br label %if.end8
 
 if.end8:                                          ; preds = %if.then5, %if.end
-  %mres = getelementptr inbounds %struct.gcm128_context, ptr %ctx, i64 0, i32 9
+  %mres = getelementptr inbounds i8, ptr %ctx, i64 368
   %4 = load i32, ptr %mres, align 8
   %tobool9.not = icmp eq i32 %4, 0
   br i1 %tobool9.not, label %if.end34, label %while.cond.preheader
@@ -1275,8 +1271,8 @@ while.cond.preheader:                             ; preds = %if.end8
   br i1 %tobool12135.not, label %return.sink.split, label %while.body.lr.ph
 
 while.body.lr.ph:                                 ; preds = %while.cond.preheader
-  %EKi = getelementptr inbounds %struct.gcm128_context, ptr %ctx, i64 0, i32 1
-  %Xi18 = getelementptr inbounds %struct.gcm128_context, ptr %ctx, i64 0, i32 4
+  %EKi = getelementptr inbounds i8, ptr %ctx, i64 16
+  %Xi18 = getelementptr inbounds i8, ptr %ctx, i64 64
   br label %while.body
 
 while.body:                                       ; preds = %while.body.lr.ph, %while.body
@@ -1309,8 +1305,8 @@ while.end:                                        ; preds = %while.body
   br i1 %cmp25, label %if.then27, label %return.sink.split
 
 if.then27:                                        ; preds = %while.end
-  %Xi28 = getelementptr inbounds %struct.gcm128_context, ptr %ctx, i64 0, i32 4
-  %Htable30 = getelementptr inbounds %struct.gcm128_context, ptr %ctx, i64 0, i32 6
+  %Xi28 = getelementptr inbounds i8, ptr %ctx, i64 64
+  %Htable30 = getelementptr inbounds i8, ptr %ctx, i64 96
   tail call void %1(ptr noundef nonnull %Xi28, ptr noundef nonnull %Htable30) #6
   br label %if.end34
 
@@ -1327,7 +1323,7 @@ aesni_gcm_enabled.exit:                           ; preds = %if.end34
   br i1 %cmp1.i.not, label %if.then36, label %if.end72
 
 if.then36:                                        ; preds = %aesni_gcm_enabled.exit
-  %Xi38 = getelementptr inbounds %struct.gcm128_context, ptr %ctx, i64 0, i32 4
+  %Xi38 = getelementptr inbounds i8, ptr %ctx, i64 64
   %call40 = tail call i64 @aesni_gcm_decrypt(ptr noundef %in.addr.1, ptr noundef %out.addr.1, i64 noundef %len.addr.1, ptr noundef %key, ptr noundef nonnull %ctx, ptr noundef nonnull %Xi38) #6
   %add.ptr = getelementptr inbounds i8, ptr %in.addr.1, i64 %call40
   %add.ptr41 = getelementptr inbounds i8, ptr %out.addr.1, i64 %call40
@@ -1360,8 +1356,8 @@ if.end72:                                         ; preds = %if.end34, %if.then3
   br i1 %cmp74143, label %while.body76.lr.ph, label %while.end115
 
 while.body76.lr.ph:                               ; preds = %if.end72
-  %Xi77 = getelementptr inbounds %struct.gcm128_context, ptr %ctx, i64 0, i32 4
-  %Htable79 = getelementptr inbounds %struct.gcm128_context, ptr %ctx, i64 0, i32 6
+  %Xi77 = getelementptr inbounds i8, ptr %ctx, i64 64
+  %Htable79 = getelementptr inbounds i8, ptr %ctx, i64 96
   br label %while.body76
 
 while.body76:                                     ; preds = %while.body76.lr.ph, %while.body76
@@ -1400,8 +1396,8 @@ while.end115:                                     ; preds = %while.body76, %if.e
 
 if.then118:                                       ; preds = %while.end115
   %div128 = lshr i64 %len.addr.3.lcssa, 4
-  %Xi119 = getelementptr inbounds %struct.gcm128_context, ptr %ctx, i64 0, i32 4
-  %Htable121 = getelementptr inbounds %struct.gcm128_context, ptr %ctx, i64 0, i32 6
+  %Xi119 = getelementptr inbounds i8, ptr %ctx, i64 64
+  %Htable121 = getelementptr inbounds i8, ptr %ctx, i64 96
   tail call void %2(ptr noundef nonnull %Xi119, ptr noundef nonnull %Htable121, ptr noundef %in.addr.3.lcssa, i64 noundef %and) #6
   tail call void %stream(ptr noundef %in.addr.3.lcssa, ptr noundef %out.addr.3.lcssa, i64 noundef %div128, ptr noundef %key, ptr noundef nonnull %ctx) #6
   %conv125 = trunc i64 %div128 to i32
@@ -1431,9 +1427,9 @@ if.end159:                                        ; preds = %if.then118, %while.
   br i1 %tobool160.not, label %return.sink.split, label %if.then161
 
 if.then161:                                       ; preds = %if.end159
-  %block = getelementptr inbounds %struct.gcm128_context, ptr %ctx, i64 0, i32 11
+  %block = getelementptr inbounds i8, ptr %ctx, i64 376
   %14 = load ptr, ptr %block, align 8
-  %EKi164 = getelementptr inbounds %struct.gcm128_context, ptr %ctx, i64 0, i32 1
+  %EKi164 = getelementptr inbounds i8, ptr %ctx, i64 16
   tail call void %14(ptr noundef nonnull %ctx, ptr noundef nonnull %EKi164, ptr noundef %key) #6
   %inc = add i32 %ctr.2, 1
   %shr168 = lshr i32 %inc, 24
@@ -1447,7 +1443,7 @@ if.then161:                                       ; preds = %if.end159
   store i8 %conv181, ptr %arrayidx59, align 1
   %conv186 = trunc i32 %inc to i8
   store i8 %conv186, ptr %arrayidx66, align 1
-  %Xi203 = getelementptr inbounds %struct.gcm128_context, ptr %ctx, i64 0, i32 4
+  %Xi203 = getelementptr inbounds i8, ptr %ctx, i64 64
   br label %while.body198
 
 while.body198:                                    ; preds = %if.then161, %while.body198
@@ -1485,45 +1481,45 @@ declare i64 @aesni_gcm_decrypt(ptr noundef, ptr noundef, i64 noundef, ptr nounde
 ; Function Attrs: nounwind uwtable
 define hidden i32 @CRYPTO_gcm128_finish(ptr noundef %ctx, ptr noundef %tag, i64 noundef %len) local_unnamed_addr #0 {
 entry:
-  %len1 = getelementptr inbounds %struct.gcm128_context, ptr %ctx, i64 0, i32 3
+  %len1 = getelementptr inbounds i8, ptr %ctx, i64 48
   %0 = load i64, ptr %len1, align 8
   %shl = shl i64 %0, 3
-  %arrayidx3 = getelementptr inbounds %struct.gcm128_context, ptr %ctx, i64 0, i32 3, i32 0, i64 1
+  %arrayidx3 = getelementptr inbounds i8, ptr %ctx, i64 56
   %1 = load i64, ptr %arrayidx3, align 8
   %shl4 = shl i64 %1, 3
-  %gmult = getelementptr inbounds %struct.gcm128_context, ptr %ctx, i64 0, i32 7
+  %gmult = getelementptr inbounds i8, ptr %ctx, i64 352
   %2 = load ptr, ptr %gmult, align 8
-  %mres = getelementptr inbounds %struct.gcm128_context, ptr %ctx, i64 0, i32 9
+  %mres = getelementptr inbounds i8, ptr %ctx, i64 368
   %3 = load i32, ptr %mres, align 8
   %tobool.not = icmp eq i32 %3, 0
   br i1 %tobool.not, label %lor.lhs.false, label %if.then
 
 lor.lhs.false:                                    ; preds = %entry
-  %ares = getelementptr inbounds %struct.gcm128_context, ptr %ctx, i64 0, i32 10
+  %ares = getelementptr inbounds i8, ptr %ctx, i64 372
   %4 = load i32, ptr %ares, align 4
   %tobool5.not = icmp eq i32 %4, 0
   br i1 %tobool5.not, label %if.then8, label %if.then
 
 if.then:                                          ; preds = %lor.lhs.false, %entry
-  %Xi = getelementptr inbounds %struct.gcm128_context, ptr %ctx, i64 0, i32 4
-  %Htable = getelementptr inbounds %struct.gcm128_context, ptr %ctx, i64 0, i32 6
+  %Xi = getelementptr inbounds i8, ptr %ctx, i64 64
+  %Htable = getelementptr inbounds i8, ptr %ctx, i64 96
   tail call void %2(ptr noundef nonnull %Xi, ptr noundef nonnull %Htable) #6
   br label %if.then8
 
 if.then8:                                         ; preds = %lor.lhs.false, %if.then
   %5 = tail call i64 asm "bswapq $0", "=r,0,~{dirflag},~{fpsr},~{flags}"(i64 %shl) #7, !srcloc !32
   %6 = tail call i64 asm "bswapq $0", "=r,0,~{dirflag},~{fpsr},~{flags}"(i64 %shl4) #7, !srcloc !33
-  %Xi12 = getelementptr inbounds %struct.gcm128_context, ptr %ctx, i64 0, i32 4
+  %Xi12 = getelementptr inbounds i8, ptr %ctx, i64 64
   %7 = load i64, ptr %Xi12, align 8
   %xor = xor i64 %7, %5
   store i64 %xor, ptr %Xi12, align 8
-  %arrayidx15 = getelementptr inbounds %struct.gcm128_context, ptr %ctx, i64 0, i32 4, i32 0, i64 1
+  %arrayidx15 = getelementptr inbounds i8, ptr %ctx, i64 72
   %8 = load i64, ptr %arrayidx15, align 8
   %xor16 = xor i64 %8, %6
   store i64 %xor16, ptr %arrayidx15, align 8
-  %Htable19 = getelementptr inbounds %struct.gcm128_context, ptr %ctx, i64 0, i32 6
+  %Htable19 = getelementptr inbounds i8, ptr %ctx, i64 96
   tail call void %2(ptr noundef nonnull %Xi12, ptr noundef nonnull %Htable19) #6
-  %EK0 = getelementptr inbounds %struct.gcm128_context, ptr %ctx, i64 0, i32 2
+  %EK0 = getelementptr inbounds i8, ptr %ctx, i64 32
   %9 = load <2 x i64>, ptr %EK0, align 8
   %10 = load <2 x i64>, ptr %Xi12, align 8
   %11 = xor <2 x i64> %10, %9
@@ -1549,26 +1545,26 @@ declare i32 @CRYPTO_memcmp(ptr noundef, ptr noundef, i64 noundef) local_unnamed_
 ; Function Attrs: nounwind uwtable
 define hidden void @CRYPTO_gcm128_tag(ptr noundef %ctx, ptr nocapture noundef writeonly %tag, i64 noundef %len) local_unnamed_addr #0 {
 entry:
-  %len1.i = getelementptr inbounds %struct.gcm128_context, ptr %ctx, i64 0, i32 3
+  %len1.i = getelementptr inbounds i8, ptr %ctx, i64 48
   %0 = load i64, ptr %len1.i, align 8
-  %arrayidx3.i = getelementptr inbounds %struct.gcm128_context, ptr %ctx, i64 0, i32 3, i32 0, i64 1
+  %arrayidx3.i = getelementptr inbounds i8, ptr %ctx, i64 56
   %1 = load i64, ptr %arrayidx3.i, align 8
-  %gmult.i = getelementptr inbounds %struct.gcm128_context, ptr %ctx, i64 0, i32 7
+  %gmult.i = getelementptr inbounds i8, ptr %ctx, i64 352
   %2 = load ptr, ptr %gmult.i, align 8
-  %mres.i = getelementptr inbounds %struct.gcm128_context, ptr %ctx, i64 0, i32 9
+  %mres.i = getelementptr inbounds i8, ptr %ctx, i64 368
   %3 = load i32, ptr %mres.i, align 8
   %tobool.not.i = icmp eq i32 %3, 0
   br i1 %tobool.not.i, label %lor.lhs.false.i, label %if.then.i
 
 lor.lhs.false.i:                                  ; preds = %entry
-  %ares.i = getelementptr inbounds %struct.gcm128_context, ptr %ctx, i64 0, i32 10
+  %ares.i = getelementptr inbounds i8, ptr %ctx, i64 372
   %4 = load i32, ptr %ares.i, align 4
   %tobool5.not.i = icmp eq i32 %4, 0
   br i1 %tobool5.not.i, label %CRYPTO_gcm128_finish.exit, label %if.then.i
 
 if.then.i:                                        ; preds = %lor.lhs.false.i, %entry
-  %Xi.i = getelementptr inbounds %struct.gcm128_context, ptr %ctx, i64 0, i32 4
-  %Htable.i = getelementptr inbounds %struct.gcm128_context, ptr %ctx, i64 0, i32 6
+  %Xi.i = getelementptr inbounds i8, ptr %ctx, i64 64
+  %Htable.i = getelementptr inbounds i8, ptr %ctx, i64 96
   tail call void %2(ptr noundef nonnull %Xi.i, ptr noundef nonnull %Htable.i) #6
   br label %CRYPTO_gcm128_finish.exit
 
@@ -1577,17 +1573,17 @@ CRYPTO_gcm128_finish.exit:                        ; preds = %lor.lhs.false.i, %i
   %shl.i = shl i64 %0, 3
   %5 = tail call i64 asm "bswapq $0", "=r,0,~{dirflag},~{fpsr},~{flags}"(i64 %shl.i) #7, !srcloc !32
   %6 = tail call i64 asm "bswapq $0", "=r,0,~{dirflag},~{fpsr},~{flags}"(i64 %shl4.i) #7, !srcloc !33
-  %Xi12.i = getelementptr inbounds %struct.gcm128_context, ptr %ctx, i64 0, i32 4
+  %Xi12.i = getelementptr inbounds i8, ptr %ctx, i64 64
   %7 = load i64, ptr %Xi12.i, align 8
   %xor.i = xor i64 %7, %5
   store i64 %xor.i, ptr %Xi12.i, align 8
-  %arrayidx15.i = getelementptr inbounds %struct.gcm128_context, ptr %ctx, i64 0, i32 4, i32 0, i64 1
+  %arrayidx15.i = getelementptr inbounds i8, ptr %ctx, i64 72
   %8 = load i64, ptr %arrayidx15.i, align 8
   %xor16.i = xor i64 %8, %6
   store i64 %xor16.i, ptr %arrayidx15.i, align 8
-  %Htable19.i = getelementptr inbounds %struct.gcm128_context, ptr %ctx, i64 0, i32 6
+  %Htable19.i = getelementptr inbounds i8, ptr %ctx, i64 96
   tail call void %2(ptr noundef nonnull %Xi12.i, ptr noundef nonnull %Htable19.i) #6
-  %EK0.i = getelementptr inbounds %struct.gcm128_context, ptr %ctx, i64 0, i32 2
+  %EK0.i = getelementptr inbounds i8, ptr %ctx, i64 32
   %9 = load <2 x i64>, ptr %EK0.i, align 8
   %10 = load <2 x i64>, ptr %Xi12.i, align 8
   %11 = xor <2 x i64> %10, %9

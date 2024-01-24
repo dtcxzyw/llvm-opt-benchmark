@@ -3,8 +3,6 @@ source_filename = "bench/nghttp2/original/llhttp.c.ll"
 target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:128-n8:16:32:64-S128"
 target triple = "x86_64-unknown-linux-gnu"
 
-%struct.llhttp__internal_s = type { i32, ptr, ptr, i32, ptr, ptr, ptr, ptr, i64, i8, i8, i8, i8, i8, i8, i8, i8, i16, i16, i8, ptr }
-
 @.str = private unnamed_addr constant [25 x i8] c"Pause on CONNECT/Upgrade\00", align 1
 @llparse_blob0 = internal unnamed_addr constant [2 x i8] c"\0D\0A", align 1
 @.str.1 = private unnamed_addr constant [51 x i8] c"Invalid character in chunk extensions quoted value\00", align 1
@@ -151,7 +149,7 @@ target triple = "x86_64-unknown-linux-gnu"
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
 define i32 @llhttp__internal__c_load_initial_message_completed(ptr nocapture noundef readonly %state, ptr nocapture noundef readnone %p, ptr nocapture noundef readnone %endp) local_unnamed_addr #0 {
 entry:
-  %initial_message_completed = getelementptr inbounds %struct.llhttp__internal_s, ptr %state, i64 0, i32 19
+  %initial_message_completed = getelementptr inbounds i8, ptr %state, i64 84
   %0 = load i8, ptr %initial_message_completed, align 4
   %conv = zext i8 %0 to i32
   ret i32 %conv
@@ -160,7 +158,7 @@ entry:
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
 define noundef i32 @llhttp__internal__c_update_finish(ptr nocapture noundef writeonly %state, ptr nocapture noundef readnone %p, ptr nocapture noundef readnone %endp) local_unnamed_addr #1 {
 entry:
-  %finish = getelementptr inbounds %struct.llhttp__internal_s, ptr %state, i64 0, i32 16
+  %finish = getelementptr inbounds i8, ptr %state, i64 79
   store i8 2, ptr %finish, align 1
   ret i32 0
 }
@@ -168,7 +166,7 @@ entry:
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
 define i32 @llhttp__internal__c_load_type(ptr nocapture noundef readonly %state, ptr nocapture noundef readnone %p, ptr nocapture noundef readnone %endp) local_unnamed_addr #0 {
 entry:
-  %type = getelementptr inbounds %struct.llhttp__internal_s, ptr %state, i64 0, i32 9
+  %type = getelementptr inbounds i8, ptr %state, i64 72
   %0 = load i8, ptr %type, align 8
   %conv = zext i8 %0 to i32
   ret i32 %conv
@@ -178,7 +176,7 @@ entry:
 define noundef i32 @llhttp__internal__c_store_method(ptr nocapture noundef writeonly %state, ptr nocapture noundef readnone %p, ptr nocapture noundef readnone %endp, i32 noundef %match) local_unnamed_addr #1 {
 entry:
   %conv = trunc i32 %match to i8
-  %method = getelementptr inbounds %struct.llhttp__internal_s, ptr %state, i64 0, i32 10
+  %method = getelementptr inbounds i8, ptr %state, i64 73
   store i8 %conv, ptr %method, align 1
   ret i32 0
 }
@@ -186,7 +184,7 @@ entry:
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
 define i32 @llhttp__internal__c_is_equal_method(ptr nocapture noundef readonly %state, ptr nocapture noundef readnone %p, ptr nocapture noundef readnone %endp) local_unnamed_addr #0 {
 entry:
-  %method = getelementptr inbounds %struct.llhttp__internal_s, ptr %state, i64 0, i32 10
+  %method = getelementptr inbounds i8, ptr %state, i64 73
   %0 = load i8, ptr %method, align 1
   %cmp = icmp eq i8 %0, 5
   %conv1 = zext i1 %cmp to i32
@@ -196,7 +194,7 @@ entry:
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
 define noundef i32 @llhttp__internal__c_update_http_major(ptr nocapture noundef writeonly %state, ptr nocapture noundef readnone %p, ptr nocapture noundef readnone %endp) local_unnamed_addr #1 {
 entry:
-  %http_major = getelementptr inbounds %struct.llhttp__internal_s, ptr %state, i64 0, i32 11
+  %http_major = getelementptr inbounds i8, ptr %state, i64 74
   store i8 0, ptr %http_major, align 2
   ret i32 0
 }
@@ -204,7 +202,7 @@ entry:
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
 define noundef i32 @llhttp__internal__c_update_http_minor(ptr nocapture noundef writeonly %state, ptr nocapture noundef readnone %p, ptr nocapture noundef readnone %endp) local_unnamed_addr #1 {
 entry:
-  %http_minor = getelementptr inbounds %struct.llhttp__internal_s, ptr %state, i64 0, i32 12
+  %http_minor = getelementptr inbounds i8, ptr %state, i64 75
   store i8 9, ptr %http_minor, align 1
   ret i32 0
 }
@@ -212,7 +210,7 @@ entry:
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
 define i32 @llhttp__internal__c_test_lenient_flags(ptr nocapture noundef readonly %state, ptr nocapture noundef readnone %p, ptr nocapture noundef readnone %endp) local_unnamed_addr #0 {
 entry:
-  %lenient_flags = getelementptr inbounds %struct.llhttp__internal_s, ptr %state, i64 0, i32 14
+  %lenient_flags = getelementptr inbounds i8, ptr %state, i64 77
   %0 = load i8, ptr %lenient_flags, align 1
   %1 = and i8 %0, 1
   %conv1 = zext nneg i8 %1 to i32
@@ -222,7 +220,7 @@ entry:
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
 define noundef i32 @llhttp__internal__c_update_content_length(ptr nocapture noundef writeonly %state, ptr nocapture noundef readnone %p, ptr nocapture noundef readnone %endp) local_unnamed_addr #1 {
 entry:
-  %content_length = getelementptr inbounds %struct.llhttp__internal_s, ptr %state, i64 0, i32 8
+  %content_length = getelementptr inbounds i8, ptr %state, i64 64
   store i64 0, ptr %content_length, align 8
   ret i32 0
 }
@@ -230,7 +228,7 @@ entry:
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
 define noundef i32 @llhttp__internal__c_update_initial_message_completed(ptr nocapture noundef writeonly %state, ptr nocapture noundef readnone %p, ptr nocapture noundef readnone %endp) local_unnamed_addr #1 {
 entry:
-  %initial_message_completed = getelementptr inbounds %struct.llhttp__internal_s, ptr %state, i64 0, i32 19
+  %initial_message_completed = getelementptr inbounds i8, ptr %state, i64 84
   store i8 1, ptr %initial_message_completed, align 4
   ret i32 0
 }
@@ -238,7 +236,7 @@ entry:
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
 define noundef i32 @llhttp__internal__c_update_finish_1(ptr nocapture noundef writeonly %state, ptr nocapture noundef readnone %p, ptr nocapture noundef readnone %endp) local_unnamed_addr #1 {
 entry:
-  %finish = getelementptr inbounds %struct.llhttp__internal_s, ptr %state, i64 0, i32 16
+  %finish = getelementptr inbounds i8, ptr %state, i64 79
   store i8 0, ptr %finish, align 1
   ret i32 0
 }
@@ -246,7 +244,7 @@ entry:
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
 define i32 @llhttp__internal__c_test_lenient_flags_2(ptr nocapture noundef readonly %state, ptr nocapture noundef readnone %p, ptr nocapture noundef readnone %endp) local_unnamed_addr #0 {
 entry:
-  %lenient_flags = getelementptr inbounds %struct.llhttp__internal_s, ptr %state, i64 0, i32 14
+  %lenient_flags = getelementptr inbounds i8, ptr %state, i64 77
   %0 = load i8, ptr %lenient_flags, align 1
   %1 = lshr i8 %0, 2
   %.lobit = and i8 %1, 1
@@ -257,7 +255,7 @@ entry:
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
 define i32 @llhttp__internal__c_test_lenient_flags_3(ptr nocapture noundef readonly %state, ptr nocapture noundef readnone %p, ptr nocapture noundef readnone %endp) local_unnamed_addr #0 {
 entry:
-  %lenient_flags = getelementptr inbounds %struct.llhttp__internal_s, ptr %state, i64 0, i32 14
+  %lenient_flags = getelementptr inbounds i8, ptr %state, i64 77
   %0 = load i8, ptr %lenient_flags, align 1
   %1 = lshr i8 %0, 5
   %.lobit = and i8 %1, 1
@@ -268,7 +266,7 @@ entry:
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
 define noundef i32 @llhttp__internal__c_mul_add_content_length(ptr nocapture noundef %state, ptr nocapture noundef readnone %p, ptr nocapture noundef readnone %endp, i32 noundef %match) local_unnamed_addr #2 {
 entry:
-  %content_length = getelementptr inbounds %struct.llhttp__internal_s, ptr %state, i64 0, i32 8
+  %content_length = getelementptr inbounds i8, ptr %state, i64 64
   %0 = load i64, ptr %content_length, align 8
   %cmp = icmp ugt i64 %0, 1152921504606846975
   br i1 %cmp, label %return, label %if.end
@@ -309,7 +307,7 @@ return:                                           ; preds = %if.else, %if.then3,
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
 define i32 @llhttp__internal__c_is_equal_content_length(ptr nocapture noundef readonly %state, ptr nocapture noundef readnone %p, ptr nocapture noundef readnone %endp) local_unnamed_addr #0 {
 entry:
-  %content_length = getelementptr inbounds %struct.llhttp__internal_s, ptr %state, i64 0, i32 8
+  %content_length = getelementptr inbounds i8, ptr %state, i64 64
   %0 = load i64, ptr %content_length, align 8
   %cmp = icmp eq i64 %0, 0
   %conv = zext i1 %cmp to i32
@@ -319,7 +317,7 @@ entry:
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
 define i32 @llhttp__internal__c_test_lenient_flags_4(ptr nocapture noundef readonly %state, ptr nocapture noundef readnone %p, ptr nocapture noundef readnone %endp) local_unnamed_addr #0 {
 entry:
-  %lenient_flags = getelementptr inbounds %struct.llhttp__internal_s, ptr %state, i64 0, i32 14
+  %lenient_flags = getelementptr inbounds i8, ptr %state, i64 77
   %0 = load i8, ptr %lenient_flags, align 1
   %.lobit = lshr i8 %0, 7
   %conv1 = zext nneg i8 %.lobit to i32
@@ -329,7 +327,7 @@ entry:
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
 define noundef i32 @llhttp__internal__c_or_flags(ptr nocapture noundef %state, ptr nocapture noundef readnone %p, ptr nocapture noundef readnone %endp) local_unnamed_addr #2 {
 entry:
-  %flags = getelementptr inbounds %struct.llhttp__internal_s, ptr %state, i64 0, i32 17
+  %flags = getelementptr inbounds i8, ptr %state, i64 80
   %0 = load i16, ptr %flags, align 8
   %1 = or i16 %0, 128
   store i16 %1, ptr %flags, align 8
@@ -339,7 +337,7 @@ entry:
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
 define i32 @llhttp__internal__c_test_lenient_flags_5(ptr nocapture noundef readonly %state, ptr nocapture noundef readnone %p, ptr nocapture noundef readnone %endp) local_unnamed_addr #0 {
 entry:
-  %lenient_flags = getelementptr inbounds %struct.llhttp__internal_s, ptr %state, i64 0, i32 14
+  %lenient_flags = getelementptr inbounds i8, ptr %state, i64 77
   %0 = load i8, ptr %lenient_flags, align 1
   %1 = lshr i8 %0, 6
   %.lobit = and i8 %1, 1
@@ -350,7 +348,7 @@ entry:
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
 define i32 @llhttp__internal__c_is_equal_upgrade(ptr nocapture noundef readonly %state, ptr nocapture noundef readnone %p, ptr nocapture noundef readnone %endp) local_unnamed_addr #0 {
 entry:
-  %upgrade = getelementptr inbounds %struct.llhttp__internal_s, ptr %state, i64 0, i32 15
+  %upgrade = getelementptr inbounds i8, ptr %state, i64 78
   %0 = load i8, ptr %upgrade, align 2
   %cmp = icmp eq i8 %0, 1
   %conv1 = zext i1 %cmp to i32
@@ -360,7 +358,7 @@ entry:
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
 define noundef i32 @llhttp__internal__c_update_finish_3(ptr nocapture noundef writeonly %state, ptr nocapture noundef readnone %p, ptr nocapture noundef readnone %endp) local_unnamed_addr #1 {
 entry:
-  %finish = getelementptr inbounds %struct.llhttp__internal_s, ptr %state, i64 0, i32 16
+  %finish = getelementptr inbounds i8, ptr %state, i64 79
   store i8 1, ptr %finish, align 1
   ret i32 0
 }
@@ -368,7 +366,7 @@ entry:
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
 define i32 @llhttp__internal__c_test_flags(ptr nocapture noundef readonly %state, ptr nocapture noundef readnone %p, ptr nocapture noundef readnone %endp) local_unnamed_addr #0 {
 entry:
-  %flags = getelementptr inbounds %struct.llhttp__internal_s, ptr %state, i64 0, i32 17
+  %flags = getelementptr inbounds i8, ptr %state, i64 80
   %0 = load i16, ptr %flags, align 8
   %1 = lshr i16 %0, 7
   %.lobit = and i16 %1, 1
@@ -379,7 +377,7 @@ entry:
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
 define i32 @llhttp__internal__c_test_flags_1(ptr nocapture noundef readonly %state, ptr nocapture noundef readnone %p, ptr nocapture noundef readnone %endp) local_unnamed_addr #0 {
 entry:
-  %flags = getelementptr inbounds %struct.llhttp__internal_s, ptr %state, i64 0, i32 17
+  %flags = getelementptr inbounds i8, ptr %state, i64 80
   %0 = load i16, ptr %flags, align 8
   %1 = and i16 %0, 544
   %cmp = icmp eq i16 %1, 544
@@ -390,7 +388,7 @@ entry:
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
 define i32 @llhttp__internal__c_test_lenient_flags_6(ptr nocapture noundef readonly %state, ptr nocapture noundef readnone %p, ptr nocapture noundef readnone %endp) local_unnamed_addr #0 {
 entry:
-  %lenient_flags = getelementptr inbounds %struct.llhttp__internal_s, ptr %state, i64 0, i32 14
+  %lenient_flags = getelementptr inbounds i8, ptr %state, i64 77
   %0 = load i8, ptr %lenient_flags, align 1
   %1 = lshr i8 %0, 1
   %.lobit = and i8 %1, 1
@@ -401,7 +399,7 @@ entry:
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
 define noundef i32 @llhttp__internal__c_or_flags_1(ptr nocapture noundef %state, ptr nocapture noundef readnone %p, ptr nocapture noundef readnone %endp) local_unnamed_addr #2 {
 entry:
-  %flags = getelementptr inbounds %struct.llhttp__internal_s, ptr %state, i64 0, i32 17
+  %flags = getelementptr inbounds i8, ptr %state, i64 80
   %0 = load i16, ptr %flags, align 8
   %1 = or i16 %0, 64
   store i16 %1, ptr %flags, align 8
@@ -411,7 +409,7 @@ entry:
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
 define noundef i32 @llhttp__internal__c_update_upgrade(ptr nocapture noundef writeonly %state, ptr nocapture noundef readnone %p, ptr nocapture noundef readnone %endp) local_unnamed_addr #1 {
 entry:
-  %upgrade = getelementptr inbounds %struct.llhttp__internal_s, ptr %state, i64 0, i32 15
+  %upgrade = getelementptr inbounds i8, ptr %state, i64 78
   store i8 1, ptr %upgrade, align 2
   ret i32 0
 }
@@ -420,7 +418,7 @@ entry:
 define noundef i32 @llhttp__internal__c_store_header_state(ptr nocapture noundef writeonly %state, ptr nocapture noundef readnone %p, ptr nocapture noundef readnone %endp, i32 noundef %match) local_unnamed_addr #1 {
 entry:
   %conv = trunc i32 %match to i8
-  %header_state = getelementptr inbounds %struct.llhttp__internal_s, ptr %state, i64 0, i32 13
+  %header_state = getelementptr inbounds i8, ptr %state, i64 76
   store i8 %conv, ptr %header_state, align 4
   ret i32 0
 }
@@ -428,7 +426,7 @@ entry:
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
 define i32 @llhttp__internal__c_load_header_state(ptr nocapture noundef readonly %state, ptr nocapture noundef readnone %p, ptr nocapture noundef readnone %endp) local_unnamed_addr #0 {
 entry:
-  %header_state = getelementptr inbounds %struct.llhttp__internal_s, ptr %state, i64 0, i32 13
+  %header_state = getelementptr inbounds i8, ptr %state, i64 76
   %0 = load i8, ptr %header_state, align 4
   %conv = zext i8 %0 to i32
   ret i32 %conv
@@ -437,7 +435,7 @@ entry:
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
 define noundef i32 @llhttp__internal__c_or_flags_3(ptr nocapture noundef %state, ptr nocapture noundef readnone %p, ptr nocapture noundef readnone %endp) local_unnamed_addr #2 {
 entry:
-  %flags = getelementptr inbounds %struct.llhttp__internal_s, ptr %state, i64 0, i32 17
+  %flags = getelementptr inbounds i8, ptr %state, i64 80
   %0 = load i16, ptr %flags, align 8
   %1 = or i16 %0, 1
   store i16 %1, ptr %flags, align 8
@@ -447,7 +445,7 @@ entry:
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
 define noundef i32 @llhttp__internal__c_update_header_state(ptr nocapture noundef writeonly %state, ptr nocapture noundef readnone %p, ptr nocapture noundef readnone %endp) local_unnamed_addr #1 {
 entry:
-  %header_state = getelementptr inbounds %struct.llhttp__internal_s, ptr %state, i64 0, i32 13
+  %header_state = getelementptr inbounds i8, ptr %state, i64 76
   store i8 1, ptr %header_state, align 4
   ret i32 0
 }
@@ -455,7 +453,7 @@ entry:
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
 define noundef i32 @llhttp__internal__c_or_flags_4(ptr nocapture noundef %state, ptr nocapture noundef readnone %p, ptr nocapture noundef readnone %endp) local_unnamed_addr #2 {
 entry:
-  %flags = getelementptr inbounds %struct.llhttp__internal_s, ptr %state, i64 0, i32 17
+  %flags = getelementptr inbounds i8, ptr %state, i64 80
   %0 = load i16, ptr %flags, align 8
   %1 = or i16 %0, 2
   store i16 %1, ptr %flags, align 8
@@ -465,7 +463,7 @@ entry:
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
 define noundef i32 @llhttp__internal__c_or_flags_5(ptr nocapture noundef %state, ptr nocapture noundef readnone %p, ptr nocapture noundef readnone %endp) local_unnamed_addr #2 {
 entry:
-  %flags = getelementptr inbounds %struct.llhttp__internal_s, ptr %state, i64 0, i32 17
+  %flags = getelementptr inbounds i8, ptr %state, i64 80
   %0 = load i16, ptr %flags, align 8
   %1 = or i16 %0, 4
   store i16 %1, ptr %flags, align 8
@@ -475,7 +473,7 @@ entry:
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
 define noundef i32 @llhttp__internal__c_or_flags_6(ptr nocapture noundef %state, ptr nocapture noundef readnone %p, ptr nocapture noundef readnone %endp) local_unnamed_addr #2 {
 entry:
-  %flags = getelementptr inbounds %struct.llhttp__internal_s, ptr %state, i64 0, i32 17
+  %flags = getelementptr inbounds i8, ptr %state, i64 80
   %0 = load i16, ptr %flags, align 8
   %1 = or i16 %0, 8
   store i16 %1, ptr %flags, align 8
@@ -485,7 +483,7 @@ entry:
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
 define noundef i32 @llhttp__internal__c_update_header_state_3(ptr nocapture noundef writeonly %state, ptr nocapture noundef readnone %p, ptr nocapture noundef readnone %endp) local_unnamed_addr #1 {
 entry:
-  %header_state = getelementptr inbounds %struct.llhttp__internal_s, ptr %state, i64 0, i32 13
+  %header_state = getelementptr inbounds i8, ptr %state, i64 76
   store i8 6, ptr %header_state, align 4
   ret i32 0
 }
@@ -493,7 +491,7 @@ entry:
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
 define noundef i32 @llhttp__internal__c_update_header_state_1(ptr nocapture noundef writeonly %state, ptr nocapture noundef readnone %p, ptr nocapture noundef readnone %endp) local_unnamed_addr #1 {
 entry:
-  %header_state = getelementptr inbounds %struct.llhttp__internal_s, ptr %state, i64 0, i32 13
+  %header_state = getelementptr inbounds i8, ptr %state, i64 76
   store i8 0, ptr %header_state, align 4
   ret i32 0
 }
@@ -501,7 +499,7 @@ entry:
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
 define noundef i32 @llhttp__internal__c_update_header_state_6(ptr nocapture noundef writeonly %state, ptr nocapture noundef readnone %p, ptr nocapture noundef readnone %endp) local_unnamed_addr #1 {
 entry:
-  %header_state = getelementptr inbounds %struct.llhttp__internal_s, ptr %state, i64 0, i32 13
+  %header_state = getelementptr inbounds i8, ptr %state, i64 76
   store i8 5, ptr %header_state, align 4
   ret i32 0
 }
@@ -509,7 +507,7 @@ entry:
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
 define noundef i32 @llhttp__internal__c_update_header_state_7(ptr nocapture noundef writeonly %state, ptr nocapture noundef readnone %p, ptr nocapture noundef readnone %endp) local_unnamed_addr #1 {
 entry:
-  %header_state = getelementptr inbounds %struct.llhttp__internal_s, ptr %state, i64 0, i32 13
+  %header_state = getelementptr inbounds i8, ptr %state, i64 76
   store i8 7, ptr %header_state, align 4
   ret i32 0
 }
@@ -517,7 +515,7 @@ entry:
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
 define i32 @llhttp__internal__c_test_flags_2(ptr nocapture noundef readonly %state, ptr nocapture noundef readnone %p, ptr nocapture noundef readnone %endp) local_unnamed_addr #0 {
 entry:
-  %flags = getelementptr inbounds %struct.llhttp__internal_s, ptr %state, i64 0, i32 17
+  %flags = getelementptr inbounds i8, ptr %state, i64 80
   %0 = load i16, ptr %flags, align 8
   %1 = lshr i16 %0, 5
   %.lobit = and i16 %1, 1
@@ -528,7 +526,7 @@ entry:
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
 define noundef i32 @llhttp__internal__c_mul_add_content_length_1(ptr nocapture noundef %state, ptr nocapture noundef readnone %p, ptr nocapture noundef readnone %endp, i32 noundef %match) local_unnamed_addr #2 {
 entry:
-  %content_length = getelementptr inbounds %struct.llhttp__internal_s, ptr %state, i64 0, i32 8
+  %content_length = getelementptr inbounds i8, ptr %state, i64 64
   %0 = load i64, ptr %content_length, align 8
   %cmp = icmp ugt i64 %0, 1844674407370955161
   br i1 %cmp, label %return, label %if.end
@@ -569,7 +567,7 @@ return:                                           ; preds = %if.else, %if.then3,
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
 define noundef i32 @llhttp__internal__c_or_flags_15(ptr nocapture noundef %state, ptr nocapture noundef readnone %p, ptr nocapture noundef readnone %endp) local_unnamed_addr #2 {
 entry:
-  %flags = getelementptr inbounds %struct.llhttp__internal_s, ptr %state, i64 0, i32 17
+  %flags = getelementptr inbounds i8, ptr %state, i64 80
   %0 = load i16, ptr %flags, align 8
   %1 = or i16 %0, 32
   store i16 %1, ptr %flags, align 8
@@ -579,7 +577,7 @@ entry:
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
 define i32 @llhttp__internal__c_test_flags_3(ptr nocapture noundef readonly %state, ptr nocapture noundef readnone %p, ptr nocapture noundef readnone %endp) local_unnamed_addr #0 {
 entry:
-  %flags = getelementptr inbounds %struct.llhttp__internal_s, ptr %state, i64 0, i32 17
+  %flags = getelementptr inbounds i8, ptr %state, i64 80
   %0 = load i16, ptr %flags, align 8
   %1 = lshr i16 %0, 3
   %.lobit = and i16 %1, 1
@@ -590,7 +588,7 @@ entry:
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
 define i32 @llhttp__internal__c_test_lenient_flags_13(ptr nocapture noundef readonly %state, ptr nocapture noundef readnone %p, ptr nocapture noundef readnone %endp) local_unnamed_addr #0 {
 entry:
-  %lenient_flags = getelementptr inbounds %struct.llhttp__internal_s, ptr %state, i64 0, i32 14
+  %lenient_flags = getelementptr inbounds i8, ptr %state, i64 77
   %0 = load i8, ptr %lenient_flags, align 1
   %1 = lshr i8 %0, 3
   %.lobit = and i8 %1, 1
@@ -601,7 +599,7 @@ entry:
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
 define noundef i32 @llhttp__internal__c_or_flags_16(ptr nocapture noundef %state, ptr nocapture noundef readnone %p, ptr nocapture noundef readnone %endp) local_unnamed_addr #2 {
 entry:
-  %flags = getelementptr inbounds %struct.llhttp__internal_s, ptr %state, i64 0, i32 17
+  %flags = getelementptr inbounds i8, ptr %state, i64 80
   %0 = load i16, ptr %flags, align 8
   %1 = or i16 %0, 512
   store i16 %1, ptr %flags, align 8
@@ -611,7 +609,7 @@ entry:
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
 define noundef i32 @llhttp__internal__c_and_flags(ptr nocapture noundef %state, ptr nocapture noundef readnone %p, ptr nocapture noundef readnone %endp) local_unnamed_addr #2 {
 entry:
-  %flags = getelementptr inbounds %struct.llhttp__internal_s, ptr %state, i64 0, i32 17
+  %flags = getelementptr inbounds i8, ptr %state, i64 80
   %0 = load i16, ptr %flags, align 8
   %1 = and i16 %0, -9
   store i16 %1, ptr %flags, align 8
@@ -621,7 +619,7 @@ entry:
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
 define noundef i32 @llhttp__internal__c_update_header_state_8(ptr nocapture noundef writeonly %state, ptr nocapture noundef readnone %p, ptr nocapture noundef readnone %endp) local_unnamed_addr #1 {
 entry:
-  %header_state = getelementptr inbounds %struct.llhttp__internal_s, ptr %state, i64 0, i32 13
+  %header_state = getelementptr inbounds i8, ptr %state, i64 76
   store i8 8, ptr %header_state, align 4
   ret i32 0
 }
@@ -629,7 +627,7 @@ entry:
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
 define noundef i32 @llhttp__internal__c_or_flags_18(ptr nocapture noundef %state, ptr nocapture noundef readnone %p, ptr nocapture noundef readnone %endp) local_unnamed_addr #2 {
 entry:
-  %flags = getelementptr inbounds %struct.llhttp__internal_s, ptr %state, i64 0, i32 17
+  %flags = getelementptr inbounds i8, ptr %state, i64 80
   %0 = load i16, ptr %flags, align 8
   %1 = or i16 %0, 16
   store i16 %1, ptr %flags, align 8
@@ -639,7 +637,7 @@ entry:
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
 define i32 @llhttp__internal__c_load_method(ptr nocapture noundef readonly %state, ptr nocapture noundef readnone %p, ptr nocapture noundef readnone %endp) local_unnamed_addr #0 {
 entry:
-  %method = getelementptr inbounds %struct.llhttp__internal_s, ptr %state, i64 0, i32 10
+  %method = getelementptr inbounds i8, ptr %state, i64 73
   %0 = load i8, ptr %method, align 1
   %conv = zext i8 %0 to i32
   ret i32 %conv
@@ -649,7 +647,7 @@ entry:
 define noundef i32 @llhttp__internal__c_store_http_major(ptr nocapture noundef writeonly %state, ptr nocapture noundef readnone %p, ptr nocapture noundef readnone %endp, i32 noundef %match) local_unnamed_addr #1 {
 entry:
   %conv = trunc i32 %match to i8
-  %http_major = getelementptr inbounds %struct.llhttp__internal_s, ptr %state, i64 0, i32 11
+  %http_major = getelementptr inbounds i8, ptr %state, i64 74
   store i8 %conv, ptr %http_major, align 2
   ret i32 0
 }
@@ -658,7 +656,7 @@ entry:
 define noundef i32 @llhttp__internal__c_store_http_minor(ptr nocapture noundef writeonly %state, ptr nocapture noundef readnone %p, ptr nocapture noundef readnone %endp, i32 noundef %match) local_unnamed_addr #1 {
 entry:
   %conv = trunc i32 %match to i8
-  %http_minor = getelementptr inbounds %struct.llhttp__internal_s, ptr %state, i64 0, i32 12
+  %http_minor = getelementptr inbounds i8, ptr %state, i64 75
   store i8 %conv, ptr %http_minor, align 1
   ret i32 0
 }
@@ -666,7 +664,7 @@ entry:
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
 define i32 @llhttp__internal__c_test_lenient_flags_15(ptr nocapture noundef readonly %state, ptr nocapture noundef readnone %p, ptr nocapture noundef readnone %endp) local_unnamed_addr #0 {
 entry:
-  %lenient_flags = getelementptr inbounds %struct.llhttp__internal_s, ptr %state, i64 0, i32 14
+  %lenient_flags = getelementptr inbounds i8, ptr %state, i64 77
   %0 = load i8, ptr %lenient_flags, align 1
   %1 = lshr i8 %0, 4
   %.lobit = and i8 %1, 1
@@ -677,7 +675,7 @@ entry:
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
 define i32 @llhttp__internal__c_load_http_major(ptr nocapture noundef readonly %state, ptr nocapture noundef readnone %p, ptr nocapture noundef readnone %endp) local_unnamed_addr #0 {
 entry:
-  %http_major = getelementptr inbounds %struct.llhttp__internal_s, ptr %state, i64 0, i32 11
+  %http_major = getelementptr inbounds i8, ptr %state, i64 74
   %0 = load i8, ptr %http_major, align 2
   %conv = zext i8 %0 to i32
   ret i32 %conv
@@ -686,7 +684,7 @@ entry:
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
 define i32 @llhttp__internal__c_load_http_minor(ptr nocapture noundef readonly %state, ptr nocapture noundef readnone %p, ptr nocapture noundef readnone %endp) local_unnamed_addr #0 {
 entry:
-  %http_minor = getelementptr inbounds %struct.llhttp__internal_s, ptr %state, i64 0, i32 12
+  %http_minor = getelementptr inbounds i8, ptr %state, i64 75
   %0 = load i8, ptr %http_minor, align 1
   %conv = zext i8 %0 to i32
   ret i32 %conv
@@ -695,7 +693,7 @@ entry:
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
 define noundef i32 @llhttp__internal__c_update_status_code(ptr nocapture noundef writeonly %state, ptr nocapture noundef readnone %p, ptr nocapture noundef readnone %endp) local_unnamed_addr #1 {
 entry:
-  %status_code = getelementptr inbounds %struct.llhttp__internal_s, ptr %state, i64 0, i32 18
+  %status_code = getelementptr inbounds i8, ptr %state, i64 82
   store i16 0, ptr %status_code, align 2
   ret i32 0
 }
@@ -703,7 +701,7 @@ entry:
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
 define noundef i32 @llhttp__internal__c_mul_add_status_code(ptr nocapture noundef %state, ptr nocapture noundef readnone %p, ptr nocapture noundef readnone %endp, i32 noundef %match) local_unnamed_addr #2 {
 entry:
-  %status_code = getelementptr inbounds %struct.llhttp__internal_s, ptr %state, i64 0, i32 18
+  %status_code = getelementptr inbounds i8, ptr %state, i64 82
   %0 = load i16, ptr %status_code, align 2
   %cmp = icmp ugt i16 %0, 6553
   br i1 %cmp, label %return, label %if.end
@@ -739,7 +737,7 @@ return:                                           ; preds = %if.else, %if.then7,
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
 define noundef i32 @llhttp__internal__c_update_type(ptr nocapture noundef writeonly %state, ptr nocapture noundef readnone %p, ptr nocapture noundef readnone %endp) local_unnamed_addr #1 {
 entry:
-  %type = getelementptr inbounds %struct.llhttp__internal_s, ptr %state, i64 0, i32 9
+  %type = getelementptr inbounds i8, ptr %state, i64 72
   store i8 1, ptr %type, align 8
   ret i32 0
 }
@@ -747,7 +745,7 @@ entry:
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
 define noundef i32 @llhttp__internal__c_update_type_1(ptr nocapture noundef writeonly %state, ptr nocapture noundef readnone %p, ptr nocapture noundef readnone %endp) local_unnamed_addr #1 {
 entry:
-  %type = getelementptr inbounds %struct.llhttp__internal_s, ptr %state, i64 0, i32 9
+  %type = getelementptr inbounds i8, ptr %state, i64 72
   store i8 2, ptr %type, align 8
   ret i32 0
 }
@@ -756,7 +754,7 @@ entry:
 define noundef i32 @llhttp__internal_init(ptr nocapture noundef writeonly %state) local_unnamed_addr #1 {
 entry:
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(96) %state, i8 0, i64 96, i1 false)
-  %_current = getelementptr inbounds %struct.llhttp__internal_s, ptr %state, i64 0, i32 7
+  %_current = getelementptr inbounds i8, ptr %state, i64 56
   store ptr inttoptr (i64 226 to ptr), ptr %_current, align 8
   ret i32 0
 }
@@ -767,13 +765,13 @@ declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #3
 ; Function Attrs: nounwind uwtable
 define i32 @llhttp__internal_execute(ptr noundef %state, ptr noundef %p, ptr noundef %endp) local_unnamed_addr #4 {
 entry:
-  %error = getelementptr inbounds %struct.llhttp__internal_s, ptr %state, i64 0, i32 3
+  %error = getelementptr inbounds i8, ptr %state, i64 24
   %0 = load i32, ptr %error, align 8
   %cmp.not = icmp eq i32 %0, 0
   br i1 %cmp.not, label %if.end, label %return
 
 if.end:                                           ; preds = %entry
-  %_span_pos0 = getelementptr inbounds %struct.llhttp__internal_s, ptr %state, i64 0, i32 1
+  %_span_pos0 = getelementptr inbounds i8, ptr %state, i64 8
   %1 = load ptr, ptr %_span_pos0, align 8
   %cmp2.not = icmp eq ptr %1, null
   br i1 %cmp2.not, label %if.end5, label %if.then3
@@ -794,14 +792,14 @@ if.then7:                                         ; preds = %if.end5
 if.end9:                                          ; preds = %if.end5
   %conv = zext i32 %call to i64
   %3 = inttoptr i64 %conv to ptr
-  %_current = getelementptr inbounds %struct.llhttp__internal_s, ptr %state, i64 0, i32 7
+  %_current = getelementptr inbounds i8, ptr %state, i64 56
   store ptr %3, ptr %_current, align 8
   %4 = load ptr, ptr %_span_pos0, align 8
   %cmp11.not = icmp eq ptr %4, null
   br i1 %cmp11.not, label %return, label %if.then13
 
 if.then13:                                        ; preds = %if.end9
-  %_span_cb0 = getelementptr inbounds %struct.llhttp__internal_s, ptr %state, i64 0, i32 2
+  %_span_cb0 = getelementptr inbounds i8, ptr %state, i64 16
   %5 = load ptr, ptr %_span_cb0, align 8
   %call16 = tail call i32 %5(ptr noundef nonnull %state, ptr noundef nonnull %4, ptr noundef %endp) #8
   %cmp17.not = icmp eq i32 %call16, 0
@@ -809,7 +807,7 @@ if.then13:                                        ; preds = %if.end9
 
 if.then19:                                        ; preds = %if.then13
   store i32 %call16, ptr %error, align 8
-  %error_pos = getelementptr inbounds %struct.llhttp__internal_s, ptr %state, i64 0, i32 5
+  %error_pos = getelementptr inbounds i8, ptr %state, i64 40
   store ptr %endp, ptr %error_pos, align 8
   br label %return
 
@@ -821,7 +819,7 @@ return:                                           ; preds = %if.end9, %if.then13
 ; Function Attrs: nounwind uwtable
 define internal fastcc noundef i32 @llhttp__internal__run(ptr noundef %state, ptr noundef %p, ptr noundef %endp) unnamed_addr #4 {
 entry:
-  %_current = getelementptr inbounds %struct.llhttp__internal_s, ptr %state, i64 0, i32 7
+  %_current = getelementptr inbounds i8, ptr %state, i64 56
   %0 = load ptr, ptr %_current, align 8
   %1 = ptrtoint ptr %0 to i64
   %conv = trunc i64 %1 to i32
@@ -1101,7 +1099,7 @@ s_n_llhttp__internal__n_chunk_extension_quoted_value.preheader: ; preds = %sw.bb
 
 s_n_llhttp__internal__n_header_field_general.preheader.sink.split: ; preds = %if.end731, %if.end815, %s_n_llhttp__internal__n_invoke_update_header_state_11.sink.split, %if.end692
   %p.addr.67.ph.ph = phi ptr [ %p.addr.68, %if.end692 ], [ %p.addr.76, %if.end815 ], [ %p.addr.71, %if.end731 ], [ %p.addr.235.ph, %s_n_llhttp__internal__n_invoke_update_header_state_11.sink.split ]
-  %header_state.i4209 = getelementptr inbounds %struct.llhttp__internal_s, ptr %state, i64 0, i32 13
+  %header_state.i4209 = getelementptr inbounds i8, ptr %state, i64 76
   store i8 0, ptr %header_state.i4209, align 4
   br label %s_n_llhttp__internal__n_header_field_general.preheader
 
@@ -1125,7 +1123,7 @@ s_n_llhttp__internal__n_header_value_connection_ws.preheader.sink.split: ; preds
   %.sink = phi i8 [ 6, %if.then.i2756 ], [ 5, %if.then.i2781 ], [ 7, %if.then.i2808 ]
   store i32 0, ptr %state, align 8
   %incdec.ptr464 = getelementptr inbounds i8, ptr %scevgep25.i.sink, i64 1
-  %header_state.i2761 = getelementptr inbounds %struct.llhttp__internal_s, ptr %state, i64 0, i32 13
+  %header_state.i2761 = getelementptr inbounds i8, ptr %state, i64 76
   store i8 %.sink, ptr %header_state.i2761, align 4
   br label %s_n_llhttp__internal__n_header_value_connection_ws.preheader
 
@@ -1140,7 +1138,7 @@ s_n_llhttp__internal__n_closed.preheader:         ; preds = %entry, %s_n_llhttp_
   br i1 %cmp5298, label %return, label %if.end.lr.ph
 
 if.end.lr.ph:                                     ; preds = %s_n_llhttp__internal__n_closed.preheader
-  %lenient_flags.i = getelementptr inbounds %struct.llhttp__internal_s, ptr %state, i64 0, i32 14
+  %lenient_flags.i = getelementptr inbounds i8, ptr %state, i64 77
   br label %if.end
 
 if.end:                                           ; preds = %if.end.lr.ph, %s_n_llhttp__internal__n_closed.backedge
@@ -1170,11 +1168,11 @@ s_n_llhttp__internal__n_invoke_llhttp__after_message_complete: ; preds = %s_n_ll
 
 s_n_llhttp__internal__n_pause_1:                  ; preds = %s_n_llhttp__internal__n_invoke_llhttp__on_message_complete_1, %s_n_llhttp__internal__n_invoke_is_equal_upgrade, %entry
   %p.addr.2 = phi ptr [ %p.addr.27, %s_n_llhttp__internal__n_invoke_is_equal_upgrade ], [ %p.addr.33, %s_n_llhttp__internal__n_invoke_llhttp__on_message_complete_1 ], [ %p, %entry ]
-  %error = getelementptr inbounds %struct.llhttp__internal_s, ptr %state, i64 0, i32 3
+  %error = getelementptr inbounds i8, ptr %state, i64 24
   store i32 22, ptr %error, align 8
-  %reason = getelementptr inbounds %struct.llhttp__internal_s, ptr %state, i64 0, i32 4
+  %reason = getelementptr inbounds i8, ptr %state, i64 32
   store ptr @.str, ptr %reason, align 8
-  %error_pos = getelementptr inbounds %struct.llhttp__internal_s, ptr %state, i64 0, i32 5
+  %error_pos = getelementptr inbounds i8, ptr %state, i64 40
   store ptr %p.addr.2, ptr %error_pos, align 8
   store ptr inttoptr (i64 2 to ptr), ptr %_current, align 8
   br label %return
@@ -1234,7 +1232,7 @@ s_n_llhttp__internal__n_consume_content_length:   ; preds = %entry, %if.end33
   %sub.ptr.lhs.cast = ptrtoint ptr %endp to i64
   %sub.ptr.rhs.cast = ptrtoint ptr %p.addr.4 to i64
   %sub.ptr.sub = sub i64 %sub.ptr.lhs.cast, %sub.ptr.rhs.cast
-  %content_length = getelementptr inbounds %struct.llhttp__internal_s, ptr %state, i64 0, i32 8
+  %content_length = getelementptr inbounds i8, ptr %state, i64 64
   %14 = load i64, ptr %content_length, align 8
   %cmp23.not = icmp ult i64 %sub.ptr.sub, %14
   br i1 %cmp23.not, label %if.end27, label %if.then25
@@ -1242,7 +1240,7 @@ s_n_llhttp__internal__n_consume_content_length:   ; preds = %entry, %if.end33
 if.then25:                                        ; preds = %s_n_llhttp__internal__n_consume_content_length
   %add.ptr = getelementptr inbounds i8, ptr %p.addr.4, i64 %14
   store i64 0, ptr %content_length, align 8
-  %_span_pos02741 = getelementptr inbounds %struct.llhttp__internal_s, ptr %state, i64 0, i32 1
+  %_span_pos02741 = getelementptr inbounds i8, ptr %state, i64 8
   %15 = load ptr, ptr %_span_pos02741, align 8
   store ptr null, ptr %_span_pos02741, align 8
   %call2743 = tail call i32 @llhttp__on_body(ptr noundef nonnull %state, ptr noundef %15, ptr noundef %add.ptr) #8
@@ -1260,15 +1258,15 @@ s_n_llhttp__internal__n_span_start_llhttp__on_body: ; preds = %s_n_llhttp__inter
   br i1 %cmp30, label %return, label %if.end33
 
 if.end33:                                         ; preds = %s_n_llhttp__internal__n_span_start_llhttp__on_body
-  %_span_pos0 = getelementptr inbounds %struct.llhttp__internal_s, ptr %state, i64 0, i32 1
+  %_span_pos0 = getelementptr inbounds i8, ptr %state, i64 8
   store ptr %p.addr.5, ptr %_span_pos0, align 8
-  %_span_cb0 = getelementptr inbounds %struct.llhttp__internal_s, ptr %state, i64 0, i32 2
+  %_span_cb0 = getelementptr inbounds i8, ptr %state, i64 16
   store ptr @llhttp__on_body, ptr %_span_cb0, align 8
   br label %s_n_llhttp__internal__n_consume_content_length
 
 s_n_llhttp__internal__n_invoke_is_equal_content_length: ; preds = %s_n_llhttp__internal__n_invoke_llhttp__on_chunk_header, %entry
   %p.addr.6 = phi ptr [ %p.addr.228, %s_n_llhttp__internal__n_invoke_llhttp__on_chunk_header ], [ %p, %entry ]
-  %content_length.i = getelementptr inbounds %struct.llhttp__internal_s, ptr %state, i64 0, i32 8
+  %content_length.i = getelementptr inbounds i8, ptr %state, i64 64
   %16 = load i64, ptr %content_length.i, align 8
   %cmp.i.not = icmp eq i64 %16, 0
   br i1 %cmp.i.not, label %s_n_llhttp__internal__n_invoke_or_flags, label %s_n_llhttp__internal__n_span_start_llhttp__on_body
@@ -1341,11 +1339,11 @@ s_n_llhttp__internal__n_invoke_llhttp__on_chunk_extension_value_complete_1: ; pr
 
 s_n_llhttp__internal__n_error_21:                 ; preds = %entry, %if.end2882
   %p.addr.13 = phi ptr [ %incdec.ptr2883, %if.end2882 ], [ %p, %entry ]
-  %error79 = getelementptr inbounds %struct.llhttp__internal_s, ptr %state, i64 0, i32 3
+  %error79 = getelementptr inbounds i8, ptr %state, i64 24
   store i32 2, ptr %error79, align 8
-  %reason80 = getelementptr inbounds %struct.llhttp__internal_s, ptr %state, i64 0, i32 4
+  %reason80 = getelementptr inbounds i8, ptr %state, i64 32
   store ptr @.str.1, ptr %reason80, align 8
-  %error_pos81 = getelementptr inbounds %struct.llhttp__internal_s, ptr %state, i64 0, i32 5
+  %error_pos81 = getelementptr inbounds i8, ptr %state, i64 40
   store ptr %p.addr.13, ptr %error_pos81, align 8
   store ptr null, ptr %_current, align 8
   br label %return
@@ -1368,7 +1366,7 @@ sw.bb89:                                          ; preds = %if.end87
 
 sw.bb91:                                          ; preds = %if.end87
   %incdec.ptr92 = getelementptr inbounds i8, ptr %p.addr.145271, i64 1
-  %_span_pos02860 = getelementptr inbounds %struct.llhttp__internal_s, ptr %state, i64 0, i32 1
+  %_span_pos02860 = getelementptr inbounds i8, ptr %state, i64 8
   %21 = load ptr, ptr %_span_pos02860, align 8
   store ptr null, ptr %_span_pos02860, align 8
   %call2862 = tail call i32 @llhttp__on_chunk_extension_value(ptr noundef %state, ptr noundef %21, ptr noundef nonnull %incdec.ptr92) #8
@@ -1385,11 +1383,11 @@ s_n_llhttp__internal__n_invoke_llhttp__on_chunk_extension_value_complete_2: ; pr
 
 s_n_llhttp__internal__n_error_23:                 ; preds = %entry, %if.end2918
   %p.addr.16 = phi ptr [ %incdec.ptr2919, %if.end2918 ], [ %p, %entry ]
-  %error100 = getelementptr inbounds %struct.llhttp__internal_s, ptr %state, i64 0, i32 3
+  %error100 = getelementptr inbounds i8, ptr %state, i64 24
   store i32 2, ptr %error100, align 8
-  %reason101 = getelementptr inbounds %struct.llhttp__internal_s, ptr %state, i64 0, i32 4
+  %reason101 = getelementptr inbounds i8, ptr %state, i64 32
   store ptr @.str.2, ptr %reason101, align 8
-  %error_pos102 = getelementptr inbounds %struct.llhttp__internal_s, ptr %state, i64 0, i32 5
+  %error_pos102 = getelementptr inbounds i8, ptr %state, i64 40
   store ptr %p.addr.16, ptr %error_pos102, align 8
   store ptr null, ptr %_current, align 8
   br label %return
@@ -1422,9 +1420,9 @@ s_n_llhttp__internal__n_span_start_llhttp__on_chunk_extension_value: ; preds = %
   br i1 %cmp120, label %return, label %if.end123
 
 if.end123:                                        ; preds = %s_n_llhttp__internal__n_span_start_llhttp__on_chunk_extension_value
-  %_span_pos0124 = getelementptr inbounds %struct.llhttp__internal_s, ptr %state, i64 0, i32 1
+  %_span_pos0124 = getelementptr inbounds i8, ptr %state, i64 8
   store ptr %p.addr.18, ptr %_span_pos0124, align 8
-  %_span_cb0125 = getelementptr inbounds %struct.llhttp__internal_s, ptr %state, i64 0, i32 2
+  %_span_cb0125 = getelementptr inbounds i8, ptr %state, i64 16
   store ptr @llhttp__on_chunk_extension_value, ptr %_span_cb0125, align 8
   %call2928 = tail call i32 @llhttp__on_chunk_extension_name_complete(ptr noundef nonnull %state, ptr noundef %p.addr.18, ptr noundef %endp) #8
   switch i32 %call2928, label %sw.default2931 [
@@ -1439,11 +1437,11 @@ s_n_llhttp__internal__n_chunk_extension_value.preheader: ; preds = %entry, %if.e
 
 s_n_llhttp__internal__n_error_24:                 ; preds = %entry, %if.end2958
   %p.addr.19 = phi ptr [ %incdec.ptr2959, %if.end2958 ], [ %p, %entry ]
-  %error127 = getelementptr inbounds %struct.llhttp__internal_s, ptr %state, i64 0, i32 3
+  %error127 = getelementptr inbounds i8, ptr %state, i64 24
   store i32 2, ptr %error127, align 8
-  %reason128 = getelementptr inbounds %struct.llhttp__internal_s, ptr %state, i64 0, i32 4
+  %reason128 = getelementptr inbounds i8, ptr %state, i64 32
   store ptr @.str.4, ptr %reason128, align 8
-  %error_pos129 = getelementptr inbounds %struct.llhttp__internal_s, ptr %state, i64 0, i32 5
+  %error_pos129 = getelementptr inbounds i8, ptr %state, i64 40
   store ptr %p.addr.19, ptr %error_pos129, align 8
   store ptr null, ptr %_current, align 8
   br label %return
@@ -1472,9 +1470,9 @@ s_n_llhttp__internal__n_span_start_llhttp__on_chunk_extension_name: ; preds = %i
   br i1 %cmp146, label %return, label %if.end149
 
 if.end149:                                        ; preds = %s_n_llhttp__internal__n_span_start_llhttp__on_chunk_extension_name
-  %_span_pos0150 = getelementptr inbounds %struct.llhttp__internal_s, ptr %state, i64 0, i32 1
+  %_span_pos0150 = getelementptr inbounds i8, ptr %state, i64 8
   store ptr %p.addr.21, ptr %_span_pos0150, align 8
-  %_span_cb0151 = getelementptr inbounds %struct.llhttp__internal_s, ptr %state, i64 0, i32 2
+  %_span_cb0151 = getelementptr inbounds i8, ptr %state, i64 16
   store ptr @llhttp__on_chunk_extension_name, ptr %_span_cb0151, align 8
   br label %s_n_llhttp__internal__n_chunk_extension_name.preheader
 
@@ -1492,22 +1490,22 @@ if.end156:                                        ; preds = %s_n_llhttp__interna
 
 sw.bb158:                                         ; preds = %if.end156
   %incdec.ptr159 = getelementptr inbounds i8, ptr %p.addr.22, i64 1
-  %error2772 = getelementptr inbounds %struct.llhttp__internal_s, ptr %state, i64 0, i32 3
+  %error2772 = getelementptr inbounds i8, ptr %state, i64 24
   store i32 2, ptr %error2772, align 8
-  %reason2773 = getelementptr inbounds %struct.llhttp__internal_s, ptr %state, i64 0, i32 4
+  %reason2773 = getelementptr inbounds i8, ptr %state, i64 32
   store ptr @.str.37, ptr %reason2773, align 8
-  %error_pos2774 = getelementptr inbounds %struct.llhttp__internal_s, ptr %state, i64 0, i32 5
+  %error_pos2774 = getelementptr inbounds i8, ptr %state, i64 40
   store ptr %incdec.ptr159, ptr %error_pos2774, align 8
   store ptr null, ptr %_current, align 8
   br label %return
 
 sw.bb160:                                         ; preds = %if.end156
   %incdec.ptr161 = getelementptr inbounds i8, ptr %p.addr.22, i64 1
-  %error2776 = getelementptr inbounds %struct.llhttp__internal_s, ptr %state, i64 0, i32 3
+  %error2776 = getelementptr inbounds i8, ptr %state, i64 24
   store i32 2, ptr %error2776, align 8
-  %reason2777 = getelementptr inbounds %struct.llhttp__internal_s, ptr %state, i64 0, i32 4
+  %reason2777 = getelementptr inbounds i8, ptr %state, i64 32
   store ptr @.str.37, ptr %reason2777, align 8
-  %error_pos2778 = getelementptr inbounds %struct.llhttp__internal_s, ptr %state, i64 0, i32 5
+  %error_pos2778 = getelementptr inbounds i8, ptr %state, i64 40
   store ptr %incdec.ptr161, ptr %error_pos2778, align 8
   store ptr null, ptr %_current, align 8
   br label %return
@@ -1724,13 +1722,13 @@ sw.bb273:                                         ; preds = %if.end229
 
 s_n_llhttp__internal__n_invoke_update_content_length_1: ; preds = %s_n_llhttp__internal__n_invoke_llhttp__on_chunk_complete, %s_n_llhttp__internal__n_invoke_llhttp__after_headers_complete, %entry
   %p.addr.26 = phi ptr [ %p.addr.33, %s_n_llhttp__internal__n_invoke_llhttp__after_headers_complete ], [ %p.addr.227, %s_n_llhttp__internal__n_invoke_llhttp__on_chunk_complete ], [ %p, %entry ]
-  %content_length.i2742 = getelementptr inbounds %struct.llhttp__internal_s, ptr %state, i64 0, i32 8
+  %content_length.i2742 = getelementptr inbounds i8, ptr %state, i64 64
   store i64 0, ptr %content_length.i2742, align 8
   br label %s_n_llhttp__internal__n_chunk_size_digit
 
 s_n_llhttp__internal__n_invoke_is_equal_upgrade:  ; preds = %s_n_llhttp__internal__n_invoke_llhttp__on_message_complete_2, %entry
   %p.addr.27 = phi ptr [ %p.addr.28, %s_n_llhttp__internal__n_invoke_llhttp__on_message_complete_2 ], [ %p, %entry ]
-  %upgrade.i = getelementptr inbounds %struct.llhttp__internal_s, ptr %state, i64 0, i32 15
+  %upgrade.i = getelementptr inbounds i8, ptr %state, i64 78
   %30 = load i8, ptr %upgrade.i, align 2
   %cmp.i2743.not = icmp eq i8 %30, 1
   br i1 %cmp.i2743.not, label %s_n_llhttp__internal__n_pause_1, label %s_n_llhttp__internal__n_invoke_llhttp__after_message_complete
@@ -1748,7 +1746,7 @@ s_n_llhttp__internal__n_consume_content_length_1: ; preds = %entry, %if.end307
   %sub.ptr.lhs.cast291 = ptrtoint ptr %endp to i64
   %sub.ptr.rhs.cast292 = ptrtoint ptr %p.addr.29 to i64
   %sub.ptr.sub293 = sub i64 %sub.ptr.lhs.cast291, %sub.ptr.rhs.cast292
-  %content_length294 = getelementptr inbounds %struct.llhttp__internal_s, ptr %state, i64 0, i32 8
+  %content_length294 = getelementptr inbounds i8, ptr %state, i64 64
   %31 = load i64, ptr %content_length294, align 8
   %cmp295.not = icmp ult i64 %sub.ptr.sub293, %31
   br i1 %cmp295.not, label %if.end300, label %if.then297
@@ -1756,7 +1754,7 @@ s_n_llhttp__internal__n_consume_content_length_1: ; preds = %entry, %if.end307
 if.then297:                                       ; preds = %s_n_llhttp__internal__n_consume_content_length_1
   %add.ptr298 = getelementptr inbounds i8, ptr %p.addr.29, i64 %31
   store i64 0, ptr %content_length294, align 8
-  %_span_pos02981 = getelementptr inbounds %struct.llhttp__internal_s, ptr %state, i64 0, i32 1
+  %_span_pos02981 = getelementptr inbounds i8, ptr %state, i64 8
   %32 = load ptr, ptr %_span_pos02981, align 8
   store ptr null, ptr %_span_pos02981, align 8
   %call2983 = tail call i32 @llhttp__on_body(ptr noundef nonnull %state, ptr noundef %32, ptr noundef %add.ptr298) #8
@@ -1774,9 +1772,9 @@ s_n_llhttp__internal__n_span_start_llhttp__on_body_1: ; preds = %s_n_llhttp__int
   br i1 %cmp304, label %return, label %if.end307
 
 if.end307:                                        ; preds = %s_n_llhttp__internal__n_span_start_llhttp__on_body_1
-  %_span_pos0308 = getelementptr inbounds %struct.llhttp__internal_s, ptr %state, i64 0, i32 1
+  %_span_pos0308 = getelementptr inbounds i8, ptr %state, i64 8
   store ptr %p.addr.30, ptr %_span_pos0308, align 8
-  %_span_cb0309 = getelementptr inbounds %struct.llhttp__internal_s, ptr %state, i64 0, i32 2
+  %_span_cb0309 = getelementptr inbounds i8, ptr %state, i64 16
   store ptr @llhttp__on_body, ptr %_span_cb0309, align 8
   br label %s_n_llhttp__internal__n_consume_content_length_1
 
@@ -1786,9 +1784,9 @@ s_n_llhttp__internal__n_span_start_llhttp__on_body_2: ; preds = %entry, %s_n_llh
   br i1 %cmp317, label %return, label %if.end320
 
 if.end320:                                        ; preds = %s_n_llhttp__internal__n_span_start_llhttp__on_body_2
-  %_span_pos0321 = getelementptr inbounds %struct.llhttp__internal_s, ptr %state, i64 0, i32 1
+  %_span_pos0321 = getelementptr inbounds i8, ptr %state, i64 8
   store ptr %p.addr.32, ptr %_span_pos0321, align 8
-  %_span_cb0322 = getelementptr inbounds %struct.llhttp__internal_s, ptr %state, i64 0, i32 2
+  %_span_cb0322 = getelementptr inbounds i8, ptr %state, i64 16
   store ptr @llhttp__on_body, ptr %_span_cb0322, align 8
   br label %return
 
@@ -1811,11 +1809,11 @@ s_n_llhttp__internal__n_invoke_llhttp__after_headers_complete: ; preds = %s_n_ll
 
 s_n_llhttp__internal__n_error_5:                  ; preds = %sw.bb852, %entry, %if.end3078
   %p.addr.34 = phi ptr [ %incdec.ptr3079, %if.end3078 ], [ %incdec.ptr853, %sw.bb852 ], [ %p, %entry ]
-  %error332 = getelementptr inbounds %struct.llhttp__internal_s, ptr %state, i64 0, i32 3
+  %error332 = getelementptr inbounds i8, ptr %state, i64 24
   store i32 10, ptr %error332, align 8
-  %reason333 = getelementptr inbounds %struct.llhttp__internal_s, ptr %state, i64 0, i32 4
+  %reason333 = getelementptr inbounds i8, ptr %state, i64 32
   store ptr @.str.6, ptr %reason333, align 8
-  %error_pos334 = getelementptr inbounds %struct.llhttp__internal_s, ptr %state, i64 0, i32 5
+  %error_pos334 = getelementptr inbounds i8, ptr %state, i64 40
   store ptr %p.addr.34, ptr %error_pos334, align 8
   store ptr null, ptr %_current, align 8
   br label %return
@@ -1859,8 +1857,8 @@ s_n_llhttp__internal__n_span_start_llhttp__on_header_value: ; preds = %s_n_llhtt
   br i1 %cmp360, label %return, label %if.end363
 
 if.end363:                                        ; preds = %s_n_llhttp__internal__n_span_start_llhttp__on_header_value
-  %_span_pos0364 = getelementptr inbounds %struct.llhttp__internal_s, ptr %state, i64 0, i32 1
-  %_span_cb0365 = getelementptr inbounds %struct.llhttp__internal_s, ptr %state, i64 0, i32 2
+  %_span_pos0364 = getelementptr inbounds i8, ptr %state, i64 8
+  %_span_cb0365 = getelementptr inbounds i8, ptr %state, i64 16
   store ptr @llhttp__on_header_value, ptr %_span_cb0365, align 8
   store ptr null, ptr %_span_pos0364, align 8
   %call3106 = tail call i32 @llhttp__on_header_value(ptr noundef nonnull %state, ptr noundef %p.addr.38, ptr noundef %p.addr.38) #8
@@ -1934,11 +1932,11 @@ sw.default412:                                    ; preds = %if.end408
 
 s_n_llhttp__internal__n_error_41:                 ; preds = %sw.default3226, %entry
   %p.addr.44 = phi ptr [ %p.addr.45, %sw.default3226 ], [ %p, %entry ]
-  %error415 = getelementptr inbounds %struct.llhttp__internal_s, ptr %state, i64 0, i32 3
+  %error415 = getelementptr inbounds i8, ptr %state, i64 24
   store i32 10, ptr %error415, align 8
-  %reason416 = getelementptr inbounds %struct.llhttp__internal_s, ptr %state, i64 0, i32 4
+  %reason416 = getelementptr inbounds i8, ptr %state, i64 32
   store ptr @.str.7, ptr %reason416, align 8
-  %error_pos417 = getelementptr inbounds %struct.llhttp__internal_s, ptr %state, i64 0, i32 5
+  %error_pos417 = getelementptr inbounds i8, ptr %state, i64 40
   store ptr %p.addr.44, ptr %error_pos417, align 8
   store ptr null, ptr %_current, align 8
   br label %return
@@ -1990,7 +1988,7 @@ sw.bb448:                                         ; preds = %if.end444
 
 sw.bb450:                                         ; preds = %if.end444
   %incdec.ptr451 = getelementptr inbounds i8, ptr %p.addr.475291, i64 1
-  %header_state.i = getelementptr inbounds %struct.llhttp__internal_s, ptr %state, i64 0, i32 13
+  %header_state.i = getelementptr inbounds i8, ptr %state, i64 76
   %46 = load i8, ptr %header_state.i, align 4
   switch i8 %46, label %s_n_llhttp__internal__n_header_value_connection.preheader [
     i8 5, label %s_n_llhttp__internal__n_invoke_update_header_state_4
@@ -2188,22 +2186,22 @@ sw.bb519:                                         ; preds = %if.end502
 
 s_n_llhttp__internal__n_error_43:                 ; preds = %sw.bb3264, %entry
   %p.addr.52 = phi ptr [ %p.addr.232, %sw.bb3264 ], [ %p, %entry ]
-  %error523 = getelementptr inbounds %struct.llhttp__internal_s, ptr %state, i64 0, i32 3
+  %error523 = getelementptr inbounds i8, ptr %state, i64 24
   store i32 11, ptr %error523, align 8
-  %reason524 = getelementptr inbounds %struct.llhttp__internal_s, ptr %state, i64 0, i32 4
+  %reason524 = getelementptr inbounds i8, ptr %state, i64 32
   store ptr @.str.9, ptr %reason524, align 8
-  %error_pos525 = getelementptr inbounds %struct.llhttp__internal_s, ptr %state, i64 0, i32 5
+  %error_pos525 = getelementptr inbounds i8, ptr %state, i64 40
   store ptr %p.addr.52, ptr %error_pos525, align 8
   store ptr null, ptr %_current, align 8
   br label %return
 
 s_n_llhttp__internal__n_error_44:                 ; preds = %s_n_llhttp__internal__n_span_end_llhttp__on_header_value_6, %entry
   %p.addr.53 = phi ptr [ %p.addr.545287, %s_n_llhttp__internal__n_span_end_llhttp__on_header_value_6 ], [ %p, %entry ]
-  %error528 = getelementptr inbounds %struct.llhttp__internal_s, ptr %state, i64 0, i32 3
+  %error528 = getelementptr inbounds i8, ptr %state, i64 24
   store i32 11, ptr %error528, align 8
-  %reason529 = getelementptr inbounds %struct.llhttp__internal_s, ptr %state, i64 0, i32 4
+  %reason529 = getelementptr inbounds i8, ptr %state, i64 32
   store ptr @.str.10, ptr %reason529, align 8
-  %error_pos530 = getelementptr inbounds %struct.llhttp__internal_s, ptr %state, i64 0, i32 5
+  %error_pos530 = getelementptr inbounds i8, ptr %state, i64 40
   store ptr %p.addr.53, ptr %error_pos530, align 8
   store ptr null, ptr %_current, align 8
   br label %return
@@ -2236,22 +2234,22 @@ s_n_llhttp__internal__n_header_value_content_length_ws.preheader: ; preds = %if.
 
 s_n_llhttp__internal__n_error_46:                 ; preds = %entry, %if.end3299
   %p.addr.56 = phi ptr [ %incdec.ptr3300, %if.end3299 ], [ %p, %entry ]
-  %error571 = getelementptr inbounds %struct.llhttp__internal_s, ptr %state, i64 0, i32 3
+  %error571 = getelementptr inbounds i8, ptr %state, i64 24
   store i32 15, ptr %error571, align 8
-  %reason572 = getelementptr inbounds %struct.llhttp__internal_s, ptr %state, i64 0, i32 4
+  %reason572 = getelementptr inbounds i8, ptr %state, i64 32
   store ptr @.str.11, ptr %reason572, align 8
-  %error_pos573 = getelementptr inbounds %struct.llhttp__internal_s, ptr %state, i64 0, i32 5
+  %error_pos573 = getelementptr inbounds i8, ptr %state, i64 40
   store ptr %p.addr.56, ptr %error_pos573, align 8
   store ptr null, ptr %_current, align 8
   br label %return
 
 s_n_llhttp__internal__n_error_45:                 ; preds = %entry, %if.end3315
   %p.addr.57 = phi ptr [ %incdec.ptr3316, %if.end3315 ], [ %p, %entry ]
-  %error576 = getelementptr inbounds %struct.llhttp__internal_s, ptr %state, i64 0, i32 3
+  %error576 = getelementptr inbounds i8, ptr %state, i64 24
   store i32 15, ptr %error576, align 8
-  %reason577 = getelementptr inbounds %struct.llhttp__internal_s, ptr %state, i64 0, i32 4
+  %reason577 = getelementptr inbounds i8, ptr %state, i64 32
   store ptr @.str.11, ptr %reason577, align 8
-  %error_pos578 = getelementptr inbounds %struct.llhttp__internal_s, ptr %state, i64 0, i32 5
+  %error_pos578 = getelementptr inbounds i8, ptr %state, i64 40
   store ptr %p.addr.57, ptr %error_pos578, align 8
   store ptr null, ptr %_current, align 8
   br label %return
@@ -2381,11 +2379,11 @@ s_n_llhttp__internal__n_span_start_llhttp__on_header_value_1: ; preds = %if.end6
   br i1 %cmp643, label %return, label %if.end646
 
 if.end646:                                        ; preds = %s_n_llhttp__internal__n_span_start_llhttp__on_header_value_1
-  %_span_pos0647 = getelementptr inbounds %struct.llhttp__internal_s, ptr %state, i64 0, i32 1
+  %_span_pos0647 = getelementptr inbounds i8, ptr %state, i64 8
   store ptr %p.addr.63, ptr %_span_pos0647, align 8
-  %_span_cb0648 = getelementptr inbounds %struct.llhttp__internal_s, ptr %state, i64 0, i32 2
+  %_span_cb0648 = getelementptr inbounds i8, ptr %state, i64 16
   store ptr @llhttp__on_header_value, ptr %_span_cb0648, align 8
-  %header_state.i2832 = getelementptr inbounds %struct.llhttp__internal_s, ptr %state, i64 0, i32 13
+  %header_state.i2832 = getelementptr inbounds i8, ptr %state, i64 76
   %102 = load i8, ptr %header_state.i2832, align 4
   switch i8 %102, label %s_n_llhttp__internal__n_header_value.preheader [
     i8 1, label %s_n_llhttp__internal__n_header_value_connection.preheader
@@ -2421,7 +2419,7 @@ s_n_llhttp__internal__n_header_value_discard_ws.backedge: ; preds = %if.end653, 
 
 sw.bb657:                                         ; preds = %if.end653
   %incdec.ptr658 = getelementptr inbounds i8, ptr %p.addr.645277, i64 1
-  %lenient_flags.i2834 = getelementptr inbounds %struct.llhttp__internal_s, ptr %state, i64 0, i32 14
+  %lenient_flags.i2834 = getelementptr inbounds i8, ptr %state, i64 77
   %104 = load i8, ptr %lenient_flags.i2834, align 1
   %105 = and i8 %104, 1
   %cond31.not = icmp eq i8 %105, 0
@@ -2820,9 +2818,9 @@ s_n_llhttp__internal__n_span_start_llhttp__on_header_field: ; preds = %if.end850
   br i1 %cmp840, label %return, label %if.end843
 
 if.end843:                                        ; preds = %s_n_llhttp__internal__n_span_start_llhttp__on_header_field
-  %_span_pos0844 = getelementptr inbounds %struct.llhttp__internal_s, ptr %state, i64 0, i32 1
+  %_span_pos0844 = getelementptr inbounds i8, ptr %state, i64 8
   store ptr %p.addr.77, ptr %_span_pos0844, align 8
-  %_span_cb0845 = getelementptr inbounds %struct.llhttp__internal_s, ptr %state, i64 0, i32 2
+  %_span_cb0845 = getelementptr inbounds i8, ptr %state, i64 16
   store ptr @llhttp__on_header_field, ptr %_span_cb0845, align 8
   br label %s_n_llhttp__internal__n_header_field
 
@@ -2840,7 +2838,7 @@ if.end850:                                        ; preds = %s_n_llhttp__interna
 
 sw.bb852:                                         ; preds = %if.end850
   %incdec.ptr853 = getelementptr inbounds i8, ptr %p.addr.78, i64 1
-  %lenient_flags.i2992 = getelementptr inbounds %struct.llhttp__internal_s, ptr %state, i64 0, i32 14
+  %lenient_flags.i2992 = getelementptr inbounds i8, ptr %state, i64 77
   %183 = load i8, ptr %lenient_flags.i2992, align 1
   %184 = and i8 %183, 1
   %cond24.not = icmp eq i8 %184, 0
@@ -2862,7 +2860,7 @@ if.end861:                                        ; preds = %s_n_llhttp__interna
 
 sw.bb863:                                         ; preds = %if.end861
   %incdec.ptr864 = getelementptr inbounds i8, ptr %p.addr.79, i64 1
-  %lenient_flags.i2994 = getelementptr inbounds %struct.llhttp__internal_s, ptr %state, i64 0, i32 14
+  %lenient_flags.i2994 = getelementptr inbounds i8, ptr %state, i64 77
   %186 = load i8, ptr %lenient_flags.i2994, align 1
   %187 = and i8 %186, 1
   %cond46.not = icmp eq i8 %187, 0
@@ -2957,11 +2955,11 @@ if.end916:                                        ; preds = %s_n_llhttp__interna
 
 sw.bb921:                                         ; preds = %if.end916
   %incdec.ptr922 = getelementptr inbounds i8, ptr %193, i64 1
-  %error3445 = getelementptr inbounds %struct.llhttp__internal_s, ptr %state, i64 0, i32 3
+  %error3445 = getelementptr inbounds i8, ptr %state, i64 24
   store i32 23, ptr %error3445, align 8
-  %reason3446 = getelementptr inbounds %struct.llhttp__internal_s, ptr %state, i64 0, i32 4
+  %reason3446 = getelementptr inbounds i8, ptr %state, i64 32
   store ptr @.str.62, ptr %reason3446, align 8
-  %error_pos3447 = getelementptr inbounds %struct.llhttp__internal_s, ptr %state, i64 0, i32 5
+  %error_pos3447 = getelementptr inbounds i8, ptr %state, i64 40
   store ptr %incdec.ptr922, ptr %error_pos3447, align 8
   store ptr null, ptr %_current, align 8
   br label %return
@@ -2996,7 +2994,7 @@ sw.bb941:                                         ; preds = %if.end939
 
 s_n_llhttp__internal__n_invoke_load_method_1:     ; preds = %s_n_llhttp__internal__n_invoke_llhttp__on_version_complete, %entry
   %p.addr.87 = phi ptr [ %p.addr.88, %s_n_llhttp__internal__n_invoke_llhttp__on_version_complete ], [ %p, %entry ]
-  %method.i = getelementptr inbounds %struct.llhttp__internal_s, ptr %state, i64 0, i32 10
+  %method.i = getelementptr inbounds i8, ptr %state, i64 73
   %196 = load i8, ptr %method.i, align 1
   %cond56 = icmp eq i8 %196, 34
   br i1 %cond56, label %s_n_llhttp__internal__n_req_pri_upgrade, label %s_n_llhttp__internal__n_req_http_complete
@@ -3011,22 +3009,22 @@ s_n_llhttp__internal__n_invoke_llhttp__on_version_complete: ; preds = %s_n_llhtt
 
 s_n_llhttp__internal__n_error_51:                 ; preds = %s_n_llhttp__internal__n_span_end_llhttp__on_version, %entry
   %p.addr.89 = phi ptr [ %p.addr.237, %s_n_llhttp__internal__n_span_end_llhttp__on_version ], [ %p, %entry ]
-  %error954 = getelementptr inbounds %struct.llhttp__internal_s, ptr %state, i64 0, i32 3
+  %error954 = getelementptr inbounds i8, ptr %state, i64 24
   store i32 9, ptr %error954, align 8
-  %reason955 = getelementptr inbounds %struct.llhttp__internal_s, ptr %state, i64 0, i32 4
+  %reason955 = getelementptr inbounds i8, ptr %state, i64 32
   store ptr @.str.15, ptr %reason955, align 8
-  %error_pos956 = getelementptr inbounds %struct.llhttp__internal_s, ptr %state, i64 0, i32 5
+  %error_pos956 = getelementptr inbounds i8, ptr %state, i64 40
   store ptr %p.addr.89, ptr %error_pos956, align 8
   store ptr null, ptr %_current, align 8
   br label %return
 
 s_n_llhttp__internal__n_error_57:                 ; preds = %s_n_llhttp__internal__n_span_end_llhttp__on_version_2, %entry
   %p.addr.90 = phi ptr [ %p.addr.91, %s_n_llhttp__internal__n_span_end_llhttp__on_version_2 ], [ %p, %entry ]
-  %error959 = getelementptr inbounds %struct.llhttp__internal_s, ptr %state, i64 0, i32 3
+  %error959 = getelementptr inbounds i8, ptr %state, i64 24
   store i32 9, ptr %error959, align 8
-  %reason960 = getelementptr inbounds %struct.llhttp__internal_s, ptr %state, i64 0, i32 4
+  %reason960 = getelementptr inbounds i8, ptr %state, i64 32
   store ptr @.str.16, ptr %reason960, align 8
-  %error_pos961 = getelementptr inbounds %struct.llhttp__internal_s, ptr %state, i64 0, i32 5
+  %error_pos961 = getelementptr inbounds i8, ptr %state, i64 40
   store ptr %p.addr.90, ptr %error_pos961, align 8
   store ptr null, ptr %_current, align 8
   br label %return
@@ -3080,11 +3078,11 @@ sw.bb987:                                         ; preds = %if.end967
 
 s_n_llhttp__internal__n_error_58:                 ; preds = %s_n_llhttp__internal__n_span_end_llhttp__on_version_3, %entry
   %p.addr.92 = phi ptr [ %p.addr.93, %s_n_llhttp__internal__n_span_end_llhttp__on_version_3 ], [ %p, %entry ]
-  %error991 = getelementptr inbounds %struct.llhttp__internal_s, ptr %state, i64 0, i32 3
+  %error991 = getelementptr inbounds i8, ptr %state, i64 24
   store i32 9, ptr %error991, align 8
-  %reason992 = getelementptr inbounds %struct.llhttp__internal_s, ptr %state, i64 0, i32 4
+  %reason992 = getelementptr inbounds i8, ptr %state, i64 32
   store ptr @.str.17, ptr %reason992, align 8
-  %error_pos993 = getelementptr inbounds %struct.llhttp__internal_s, ptr %state, i64 0, i32 5
+  %error_pos993 = getelementptr inbounds i8, ptr %state, i64 40
   store ptr %p.addr.92, ptr %error_pos993, align 8
   store ptr null, ptr %_current, align 8
   br label %return
@@ -3105,11 +3103,11 @@ sw.bb1001:                                        ; preds = %if.end999
 
 s_n_llhttp__internal__n_error_59:                 ; preds = %s_n_llhttp__internal__n_span_end_llhttp__on_version_4, %entry
   %p.addr.94 = phi ptr [ %p.addr.95, %s_n_llhttp__internal__n_span_end_llhttp__on_version_4 ], [ %p, %entry ]
-  %error1005 = getelementptr inbounds %struct.llhttp__internal_s, ptr %state, i64 0, i32 3
+  %error1005 = getelementptr inbounds i8, ptr %state, i64 24
   store i32 9, ptr %error1005, align 8
-  %reason1006 = getelementptr inbounds %struct.llhttp__internal_s, ptr %state, i64 0, i32 4
+  %reason1006 = getelementptr inbounds i8, ptr %state, i64 32
   store ptr @.str.18, ptr %reason1006, align 8
-  %error_pos1007 = getelementptr inbounds %struct.llhttp__internal_s, ptr %state, i64 0, i32 5
+  %error_pos1007 = getelementptr inbounds i8, ptr %state, i64 40
   store ptr %p.addr.94, ptr %error_pos1007, align 8
   store ptr null, ptr %_current, align 8
   br label %return
@@ -3131,9 +3129,9 @@ s_n_llhttp__internal__n_span_start_llhttp__on_version: ; preds = %sw.bb1053, %sw
   br i1 %cmp1037, label %return, label %if.end1040
 
 if.end1040:                                       ; preds = %s_n_llhttp__internal__n_span_start_llhttp__on_version
-  %_span_pos01041 = getelementptr inbounds %struct.llhttp__internal_s, ptr %state, i64 0, i32 1
+  %_span_pos01041 = getelementptr inbounds i8, ptr %state, i64 8
   store ptr %p.addr.96, ptr %_span_pos01041, align 8
-  %_span_cb01042 = getelementptr inbounds %struct.llhttp__internal_s, ptr %state, i64 0, i32 2
+  %_span_cb01042 = getelementptr inbounds i8, ptr %state, i64 16
   store ptr @llhttp__on_version, ptr %_span_cb01042, align 8
   br label %s_n_llhttp__internal__n_req_http_major
 
@@ -3182,7 +3180,7 @@ llparse__match_sequence_id.exit3020.thread4423:   ; preds = %for.inc.i3017
 sw.bb1053:                                        ; preds = %if.then.i3014
   store i32 0, ptr %state, align 8
   %incdec.ptr1054 = getelementptr inbounds i8, ptr %scevgep22.i3002, i64 1
-  %method.i3021 = getelementptr inbounds %struct.llhttp__internal_s, ptr %state, i64 0, i32 10
+  %method.i3021 = getelementptr inbounds i8, ptr %state, i64 73
   %210 = load i8, ptr %method.i3021, align 1
   %switch = icmp ult i8 %210, 35
   br i1 %switch, label %s_n_llhttp__internal__n_span_start_llhttp__on_version, label %sw.default3594
@@ -3232,7 +3230,7 @@ llparse__match_sequence_id.exit3046.thread4435:   ; preds = %for.inc.i3043
 sw.bb1068:                                        ; preds = %if.then.i3040
   store i32 0, ptr %state, align 8
   %incdec.ptr1069 = getelementptr inbounds i8, ptr %scevgep22.i3028, i64 1
-  %method.i3047 = getelementptr inbounds %struct.llhttp__internal_s, ptr %state, i64 0, i32 10
+  %method.i3047 = getelementptr inbounds i8, ptr %state, i64 73
   %220 = load i8, ptr %method.i3047, align 1
   %cond61 = icmp eq i8 %220, 33
   br i1 %cond61, label %s_n_llhttp__internal__n_span_start_llhttp__on_version, label %sw.default3605
@@ -3282,7 +3280,7 @@ llparse__match_sequence_id.exit3072.thread4447:   ; preds = %for.inc.i3069
 sw.bb1083:                                        ; preds = %if.then.i3066
   store i32 0, ptr %state, align 8
   %incdec.ptr1084 = getelementptr inbounds i8, ptr %scevgep22.i3054, i64 1
-  %method.i3073 = getelementptr inbounds %struct.llhttp__internal_s, ptr %state, i64 0, i32 10
+  %method.i3073 = getelementptr inbounds i8, ptr %state, i64 73
   %230 = load i8, ptr %method.i3073, align 1
   switch i8 %230, label %sw.default3625 [
     i8 1, label %s_n_llhttp__internal__n_span_start_llhttp__on_version
@@ -3532,11 +3530,11 @@ sw.bb1230:                                        ; preds = %if.end1218
 
 sw.bb1232:                                        ; preds = %if.end1218
   %incdec.ptr1233 = getelementptr inbounds i8, ptr %p.addr.111, i64 1
-  %error3806 = getelementptr inbounds %struct.llhttp__internal_s, ptr %state, i64 0, i32 3
+  %error3806 = getelementptr inbounds i8, ptr %state, i64 24
   store i32 7, ptr %error3806, align 8
-  %reason3807 = getelementptr inbounds %struct.llhttp__internal_s, ptr %state, i64 0, i32 4
+  %reason3807 = getelementptr inbounds i8, ptr %state, i64 32
   store ptr @.str.74, ptr %reason3807, align 8
-  %error_pos3808 = getelementptr inbounds %struct.llhttp__internal_s, ptr %state, i64 0, i32 5
+  %error_pos3808 = getelementptr inbounds i8, ptr %state, i64 40
   store ptr %incdec.ptr1233, ptr %error_pos3808, align 8
   store ptr null, ptr %_current, align 8
   br label %return
@@ -3690,9 +3688,9 @@ s_n_llhttp__internal__n_span_start_llhttp__on_url_1: ; preds = %if.end1328, %ent
   br i1 %cmp1318, label %return, label %if.end1321
 
 if.end1321:                                       ; preds = %s_n_llhttp__internal__n_span_start_llhttp__on_url_1
-  %_span_pos01322 = getelementptr inbounds %struct.llhttp__internal_s, ptr %state, i64 0, i32 1
+  %_span_pos01322 = getelementptr inbounds i8, ptr %state, i64 8
   store ptr %p.addr.118, ptr %_span_pos01322, align 8
-  %_span_cb01323 = getelementptr inbounds %struct.llhttp__internal_s, ptr %state, i64 0, i32 2
+  %_span_cb01323 = getelementptr inbounds i8, ptr %state, i64 16
   store ptr @llhttp__on_url, ptr %_span_cb01323, align 8
   br label %s_n_llhttp__internal__n_url_start
 
@@ -3722,9 +3720,9 @@ s_n_llhttp__internal__n_span_start_llhttp__on_url: ; preds = %if.end1346, %entry
   br i1 %cmp1336, label %return, label %if.end1339
 
 if.end1339:                                       ; preds = %s_n_llhttp__internal__n_span_start_llhttp__on_url
-  %_span_pos01340 = getelementptr inbounds %struct.llhttp__internal_s, ptr %state, i64 0, i32 1
+  %_span_pos01340 = getelementptr inbounds i8, ptr %state, i64 8
   store ptr %p.addr.120, ptr %_span_pos01340, align 8
-  %_span_cb01341 = getelementptr inbounds %struct.llhttp__internal_s, ptr %state, i64 0, i32 2
+  %_span_cb01341 = getelementptr inbounds i8, ptr %state, i64 16
   store ptr @llhttp__on_url, ptr %_span_cb01341, align 8
   br label %s_n_llhttp__internal__n_url_server.preheader
 
@@ -6328,9 +6326,9 @@ s_n_llhttp__internal__n_span_start_llhttp__on_method_1: ; preds = %s_n_llhttp__i
   br i1 %cmp2335, label %return, label %if.end2338
 
 if.end2338:                                       ; preds = %s_n_llhttp__internal__n_span_start_llhttp__on_method_1
-  %_span_pos02339 = getelementptr inbounds %struct.llhttp__internal_s, ptr %state, i64 0, i32 1
+  %_span_pos02339 = getelementptr inbounds i8, ptr %state, i64 8
   store ptr %p.addr.195, ptr %_span_pos02339, align 8
-  %_span_cb02340 = getelementptr inbounds %struct.llhttp__internal_s, ptr %state, i64 0, i32 2
+  %_span_cb02340 = getelementptr inbounds i8, ptr %state, i64 16
   store ptr @llhttp__on_method, ptr %_span_cb02340, align 8
   br label %s_n_llhttp__internal__n_after_start_req
 
@@ -6373,9 +6371,9 @@ s_n_llhttp__internal__n_span_start_llhttp__on_status: ; preds = %if.end2373, %en
   br i1 %cmp2363, label %return, label %if.end2366
 
 if.end2366:                                       ; preds = %s_n_llhttp__internal__n_span_start_llhttp__on_status
-  %_span_pos02367 = getelementptr inbounds %struct.llhttp__internal_s, ptr %state, i64 0, i32 1
+  %_span_pos02367 = getelementptr inbounds i8, ptr %state, i64 8
   store ptr %p.addr.198, ptr %_span_pos02367, align 8
-  %_span_cb02368 = getelementptr inbounds %struct.llhttp__internal_s, ptr %state, i64 0, i32 2
+  %_span_cb02368 = getelementptr inbounds i8, ptr %state, i64 16
   store ptr @llhttp__on_status, ptr %_span_cb02368, align 8
   br label %s_n_llhttp__internal__n_res_status.preheader
 
@@ -6461,7 +6459,7 @@ if.end2476:                                       ; preds = %s_n_llhttp__interna
 
 sw.bb2478:                                        ; preds = %if.end2476
   %incdec.ptr2479 = getelementptr inbounds i8, ptr %p.addr.204, i64 1
-  %status_code.i = getelementptr inbounds %struct.llhttp__internal_s, ptr %state, i64 0, i32 18
+  %status_code.i = getelementptr inbounds i8, ptr %state, i64 82
   store i16 0, ptr %status_code.i, align 2
   br label %s_n_llhttp__internal__n_res_status_code_digit_1
 
@@ -6475,22 +6473,22 @@ s_n_llhttp__internal__n_invoke_llhttp__on_version_complete_1: ; preds = %s_n_llh
 
 s_n_llhttp__internal__n_error_73:                 ; preds = %s_n_llhttp__internal__n_span_end_llhttp__on_version_5, %entry
   %p.addr.206 = phi ptr [ %p.addr.247, %s_n_llhttp__internal__n_span_end_llhttp__on_version_5 ], [ %p, %entry ]
-  %error2487 = getelementptr inbounds %struct.llhttp__internal_s, ptr %state, i64 0, i32 3
+  %error2487 = getelementptr inbounds i8, ptr %state, i64 24
   store i32 9, ptr %error2487, align 8
-  %reason2488 = getelementptr inbounds %struct.llhttp__internal_s, ptr %state, i64 0, i32 4
+  %reason2488 = getelementptr inbounds i8, ptr %state, i64 32
   store ptr @.str.15, ptr %reason2488, align 8
-  %error_pos2489 = getelementptr inbounds %struct.llhttp__internal_s, ptr %state, i64 0, i32 5
+  %error_pos2489 = getelementptr inbounds i8, ptr %state, i64 40
   store ptr %p.addr.206, ptr %error_pos2489, align 8
   store ptr null, ptr %_current, align 8
   br label %return
 
 s_n_llhttp__internal__n_error_85:                 ; preds = %s_n_llhttp__internal__n_span_end_llhttp__on_version_7, %entry
   %p.addr.207 = phi ptr [ %p.addr.208, %s_n_llhttp__internal__n_span_end_llhttp__on_version_7 ], [ %p, %entry ]
-  %error2492 = getelementptr inbounds %struct.llhttp__internal_s, ptr %state, i64 0, i32 3
+  %error2492 = getelementptr inbounds i8, ptr %state, i64 24
   store i32 9, ptr %error2492, align 8
-  %reason2493 = getelementptr inbounds %struct.llhttp__internal_s, ptr %state, i64 0, i32 4
+  %reason2493 = getelementptr inbounds i8, ptr %state, i64 32
   store ptr @.str.16, ptr %reason2493, align 8
-  %error_pos2494 = getelementptr inbounds %struct.llhttp__internal_s, ptr %state, i64 0, i32 5
+  %error_pos2494 = getelementptr inbounds i8, ptr %state, i64 40
   store ptr %p.addr.207, ptr %error_pos2494, align 8
   store ptr null, ptr %_current, align 8
   br label %return
@@ -6544,11 +6542,11 @@ sw.bb2520:                                        ; preds = %if.end2500
 
 s_n_llhttp__internal__n_error_86:                 ; preds = %s_n_llhttp__internal__n_span_end_llhttp__on_version_8, %entry
   %p.addr.209 = phi ptr [ %p.addr.210, %s_n_llhttp__internal__n_span_end_llhttp__on_version_8 ], [ %p, %entry ]
-  %error2524 = getelementptr inbounds %struct.llhttp__internal_s, ptr %state, i64 0, i32 3
+  %error2524 = getelementptr inbounds i8, ptr %state, i64 24
   store i32 9, ptr %error2524, align 8
-  %reason2525 = getelementptr inbounds %struct.llhttp__internal_s, ptr %state, i64 0, i32 4
+  %reason2525 = getelementptr inbounds i8, ptr %state, i64 32
   store ptr @.str.17, ptr %reason2525, align 8
-  %error_pos2526 = getelementptr inbounds %struct.llhttp__internal_s, ptr %state, i64 0, i32 5
+  %error_pos2526 = getelementptr inbounds i8, ptr %state, i64 40
   store ptr %p.addr.209, ptr %error_pos2526, align 8
   store ptr null, ptr %_current, align 8
   br label %return
@@ -6569,11 +6567,11 @@ sw.bb2534:                                        ; preds = %if.end2532
 
 s_n_llhttp__internal__n_error_87:                 ; preds = %s_n_llhttp__internal__n_span_end_llhttp__on_version_9, %entry
   %p.addr.211 = phi ptr [ %p.addr.212, %s_n_llhttp__internal__n_span_end_llhttp__on_version_9 ], [ %p, %entry ]
-  %error2538 = getelementptr inbounds %struct.llhttp__internal_s, ptr %state, i64 0, i32 3
+  %error2538 = getelementptr inbounds i8, ptr %state, i64 24
   store i32 9, ptr %error2538, align 8
-  %reason2539 = getelementptr inbounds %struct.llhttp__internal_s, ptr %state, i64 0, i32 4
+  %reason2539 = getelementptr inbounds i8, ptr %state, i64 32
   store ptr @.str.18, ptr %reason2539, align 8
-  %error_pos2540 = getelementptr inbounds %struct.llhttp__internal_s, ptr %state, i64 0, i32 5
+  %error_pos2540 = getelementptr inbounds i8, ptr %state, i64 40
   store ptr %p.addr.211, ptr %error_pos2540, align 8
   store ptr null, ptr %_current, align 8
   br label %return
@@ -6595,9 +6593,9 @@ s_n_llhttp__internal__n_span_start_llhttp__on_version_1: ; preds = %entry, %s_n_
   br i1 %cmp2570, label %return, label %if.end2573
 
 if.end2573:                                       ; preds = %s_n_llhttp__internal__n_span_start_llhttp__on_version_1
-  %_span_pos02574 = getelementptr inbounds %struct.llhttp__internal_s, ptr %state, i64 0, i32 1
+  %_span_pos02574 = getelementptr inbounds i8, ptr %state, i64 8
   store ptr %p.addr.213, ptr %_span_pos02574, align 8
-  %_span_cb02575 = getelementptr inbounds %struct.llhttp__internal_s, ptr %state, i64 0, i32 2
+  %_span_cb02575 = getelementptr inbounds i8, ptr %state, i64 16
   store ptr @llhttp__on_version, ptr %_span_cb02575, align 8
   br label %s_n_llhttp__internal__n_res_http_major
 
@@ -6701,11 +6699,11 @@ llparse__match_sequence_id.exit4082.thread4951:   ; preds = %for.inc.i4079
 sw.bb2606:                                        ; preds = %if.then.i4076
   store i32 0, ptr %state, align 8
   %incdec.ptr2607 = getelementptr inbounds i8, ptr %scevgep22.i4064, i64 1
-  %method.i4083 = getelementptr inbounds %struct.llhttp__internal_s, ptr %state, i64 0, i32 10
+  %method.i4083 = getelementptr inbounds i8, ptr %state, i64 73
   store i8 2, ptr %method.i4083, align 1
-  %type.i = getelementptr inbounds %struct.llhttp__internal_s, ptr %state, i64 0, i32 9
+  %type.i = getelementptr inbounds i8, ptr %state, i64 72
   store i8 1, ptr %type.i, align 8
-  %_span_pos04057 = getelementptr inbounds %struct.llhttp__internal_s, ptr %state, i64 0, i32 1
+  %_span_pos04057 = getelementptr inbounds i8, ptr %state, i64 8
   %678 = load ptr, ptr %_span_pos04057, align 8
   store ptr null, ptr %_span_pos04057, align 8
   %call4059 = tail call i32 @llhttp__on_method(ptr noundef nonnull %state, ptr noundef %678, ptr noundef nonnull %incdec.ptr2607) #8
@@ -6714,7 +6712,7 @@ sw.bb2606:                                        ; preds = %if.then.i4076
 
 s_n_llhttp__internal__n_invoke_update_type_1:     ; preds = %sw.bb2624, %entry
   %p.addr.217 = phi ptr [ %incdec.ptr2625, %sw.bb2624 ], [ %p, %entry ]
-  %type.i4084 = getelementptr inbounds %struct.llhttp__internal_s, ptr %state, i64 0, i32 9
+  %type.i4084 = getelementptr inbounds i8, ptr %state, i64 72
   store i8 2, ptr %type.i4084, align 8
   br label %s_n_llhttp__internal__n_span_start_llhttp__on_version_1
 
@@ -6763,7 +6761,7 @@ llparse__match_sequence_id.exit4108.thread4963:   ; preds = %for.inc.i4105
 sw.bb2624:                                        ; preds = %if.then.i4102
   store i32 0, ptr %state, align 8
   %incdec.ptr2625 = getelementptr inbounds i8, ptr %scevgep22.i4090, i64 1
-  %_span_pos04077 = getelementptr inbounds %struct.llhttp__internal_s, ptr %state, i64 0, i32 1
+  %_span_pos04077 = getelementptr inbounds i8, ptr %state, i64 8
   %688 = load ptr, ptr %_span_pos04077, align 8
   store ptr null, ptr %_span_pos04077, align 8
   %call4079 = tail call i32 @llhttp__on_method(ptr noundef nonnull %state, ptr noundef %688, ptr noundef nonnull %incdec.ptr2625) #8
@@ -6810,9 +6808,9 @@ s_n_llhttp__internal__n_span_start_llhttp__on_method: ; preds = %if.end2660, %en
   br i1 %cmp2650, label %return, label %if.end2653
 
 if.end2653:                                       ; preds = %s_n_llhttp__internal__n_span_start_llhttp__on_method
-  %_span_pos02654 = getelementptr inbounds %struct.llhttp__internal_s, ptr %state, i64 0, i32 1
+  %_span_pos02654 = getelementptr inbounds i8, ptr %state, i64 8
   store ptr %p.addr.221, ptr %_span_pos02654, align 8
-  %_span_cb02655 = getelementptr inbounds %struct.llhttp__internal_s, ptr %state, i64 0, i32 2
+  %_span_cb02655 = getelementptr inbounds i8, ptr %state, i64 16
   store ptr @llhttp__on_method, ptr %_span_cb02655, align 8
   br label %s_n_llhttp__internal__n_req_or_res_method
 
@@ -6828,7 +6826,7 @@ if.end2660:                                       ; preds = %s_n_llhttp__interna
 
 s_n_llhttp__internal__n_invoke_load_type:         ; preds = %s_n_llhttp__internal__n_invoke_update_finish, %entry
   %p.addr.223 = phi ptr [ %p.addr.224, %s_n_llhttp__internal__n_invoke_update_finish ], [ %p, %entry ]
-  %type.i4109 = getelementptr inbounds %struct.llhttp__internal_s, ptr %state, i64 0, i32 9
+  %type.i4109 = getelementptr inbounds i8, ptr %state, i64 72
   %692 = load i8, ptr %type.i4109, align 8
   switch i8 %692, label %s_n_llhttp__internal__n_start_req_or_res [
     i8 1, label %s_n_llhttp__internal__n_span_start_llhttp__on_method_1
@@ -6837,7 +6835,7 @@ s_n_llhttp__internal__n_invoke_load_type:         ; preds = %s_n_llhttp__interna
 
 s_n_llhttp__internal__n_invoke_update_finish:     ; preds = %s_n_llhttp__internal__n_invoke_load_initial_message_completed, %sw.bb4114, %entry
   %p.addr.224 = phi ptr [ %p.addr.2255249, %sw.bb4114 ], [ %p.addr.2255249, %s_n_llhttp__internal__n_invoke_load_initial_message_completed ], [ %p, %entry ]
-  %finish.i = getelementptr inbounds %struct.llhttp__internal_s, ptr %state, i64 0, i32 16
+  %finish.i = getelementptr inbounds i8, ptr %state, i64 79
   store i8 2, ptr %finish.i, align 1
   %call4097 = tail call i32 @llhttp__on_message_begin(ptr noundef nonnull %state, ptr noundef %p.addr.224, ptr noundef %endp) #8
   switch i32 %call4097, label %sw.default4100 [
@@ -6864,41 +6862,41 @@ sw.default2683:                                   ; preds = %entry
 
 s_n_llhttp__internal__n_error_2:                  ; preds = %if.end1118, %if.end1118, %if.end881, %if.end881, %sw.bb1350, %sw.bb1348, %sw.bb1332, %sw.bb1330, %sw.bb1312, %sw.bb1298, %sw.bb1279, %sw.bb1277, %sw.bb1275, %sw.bb1273, %sw.bb1271, %sw.bb1243, %sw.bb1222, %sw.bb1191, %sw.bb1174, %sw.bb1171, %sw.bb1156, %sw.bb1134, %sw.bb1111, %sw.bb1109, %sw.bb906, %sw.bb904, %sw.bb874, %sw.bb872
   %p.addr.226 = phi ptr [ %incdec.ptr1112, %sw.bb1111 ], [ %incdec.ptr1110, %sw.bb1109 ], [ %incdec.ptr875, %sw.bb874 ], [ %incdec.ptr873, %sw.bb872 ], [ %incdec.ptr907, %sw.bb906 ], [ %incdec.ptr905, %sw.bb904 ], [ %incdec.ptr1135, %sw.bb1134 ], [ %incdec.ptr1157, %sw.bb1156 ], [ %incdec.ptr1175, %sw.bb1174 ], [ %incdec.ptr1172, %sw.bb1171 ], [ %incdec.ptr1192, %sw.bb1191 ], [ %incdec.ptr1223, %sw.bb1222 ], [ %incdec.ptr1244, %sw.bb1243 ], [ %incdec.ptr1280, %sw.bb1279 ], [ %incdec.ptr1278, %sw.bb1277 ], [ %incdec.ptr1276, %sw.bb1275 ], [ %incdec.ptr1274, %sw.bb1273 ], [ %incdec.ptr1272, %sw.bb1271 ], [ %incdec.ptr1299, %sw.bb1298 ], [ %incdec.ptr1313, %sw.bb1312 ], [ %incdec.ptr1333, %sw.bb1332 ], [ %incdec.ptr1331, %sw.bb1330 ], [ %incdec.ptr1351, %sw.bb1350 ], [ %incdec.ptr1349, %sw.bb1348 ], [ %incdec.ptr888, %if.end881 ], [ %incdec.ptr888, %if.end881 ], [ %incdec.ptr1125, %if.end1118 ], [ %incdec.ptr1125, %if.end1118 ]
-  %error2684 = getelementptr inbounds %struct.llhttp__internal_s, ptr %state, i64 0, i32 3
+  %error2684 = getelementptr inbounds i8, ptr %state, i64 24
   store i32 7, ptr %error2684, align 8
-  %reason2685 = getelementptr inbounds %struct.llhttp__internal_s, ptr %state, i64 0, i32 4
+  %reason2685 = getelementptr inbounds i8, ptr %state, i64 32
   store ptr @.str.26, ptr %reason2685, align 8
-  %error_pos2686 = getelementptr inbounds %struct.llhttp__internal_s, ptr %state, i64 0, i32 5
+  %error_pos2686 = getelementptr inbounds i8, ptr %state, i64 40
   store ptr %p.addr.226, ptr %error_pos2686, align 8
   store ptr null, ptr %_current, align 8
   br label %return
 
 s_n_llhttp__internal__n_invoke_update_initial_message_completed: ; preds = %s_n_llhttp__internal__n_invoke_update_finish_1, %s_n_llhttp__internal__n_invoke_update_content_length
-  %initial_message_completed.i = getelementptr inbounds %struct.llhttp__internal_s, ptr %state, i64 0, i32 19
+  %initial_message_completed.i = getelementptr inbounds i8, ptr %state, i64 84
   store i8 1, ptr %initial_message_completed.i, align 4
-  %finish.i4111 = getelementptr inbounds %struct.llhttp__internal_s, ptr %state, i64 0, i32 16
+  %finish.i4111 = getelementptr inbounds i8, ptr %state, i64 79
   store i8 0, ptr %finish.i4111, align 1
   br label %s_n_llhttp__internal__n_start.preheader
 
 s_n_llhttp__internal__n_invoke_update_content_length: ; preds = %s_n_llhttp__internal__n_invoke_llhttp__after_message_complete
-  %content_length.i4112 = getelementptr inbounds %struct.llhttp__internal_s, ptr %state, i64 0, i32 8
+  %content_length.i4112 = getelementptr inbounds i8, ptr %state, i64 64
   store i64 0, ptr %content_length.i4112, align 8
   br label %s_n_llhttp__internal__n_invoke_update_initial_message_completed
 
 sw.default2700:                                   ; preds = %sw.default
-  %error2694 = getelementptr inbounds %struct.llhttp__internal_s, ptr %state, i64 0, i32 3
+  %error2694 = getelementptr inbounds i8, ptr %state, i64 24
   store i32 5, ptr %error2694, align 8
-  %reason2695 = getelementptr inbounds %struct.llhttp__internal_s, ptr %state, i64 0, i32 4
+  %reason2695 = getelementptr inbounds i8, ptr %state, i64 32
   store ptr @.str.27, ptr %reason2695, align 8
-  %error_pos2696 = getelementptr inbounds %struct.llhttp__internal_s, ptr %state, i64 0, i32 5
+  %error_pos2696 = getelementptr inbounds i8, ptr %state, i64 40
   store ptr %incdec.ptr6, ptr %error_pos2696, align 8
   store ptr null, ptr %_current, align 8
   br label %return
 
 s_n_llhttp__internal__n_invoke_update_finish_1:   ; preds = %s_n_llhttp__internal__n_invoke_llhttp__after_message_complete
-  %finish.i4113 = getelementptr inbounds %struct.llhttp__internal_s, ptr %state, i64 0, i32 16
+  %finish.i4113 = getelementptr inbounds i8, ptr %state, i64 79
   store i8 0, ptr %finish.i4113, align 1
-  %lenient_flags.i4114 = getelementptr inbounds %struct.llhttp__internal_s, ptr %state, i64 0, i32 14
+  %lenient_flags.i4114 = getelementptr inbounds i8, ptr %state, i64 77
   %694 = load i8, ptr %lenient_flags.i4114, align 1
   %695 = and i8 %694, 4
   %cond16.not = icmp eq i8 %695, 0
@@ -6912,21 +6910,21 @@ s_n_llhttp__internal__n_invoke_llhttp__on_message_complete_1: ; preds = %s_n_llh
   ]
 
 sw.bb2716:                                        ; preds = %s_n_llhttp__internal__n_invoke_llhttp__on_message_complete_1
-  %error2706 = getelementptr inbounds %struct.llhttp__internal_s, ptr %state, i64 0, i32 3
+  %error2706 = getelementptr inbounds i8, ptr %state, i64 24
   store i32 21, ptr %error2706, align 8
-  %reason2707 = getelementptr inbounds %struct.llhttp__internal_s, ptr %state, i64 0, i32 4
+  %reason2707 = getelementptr inbounds i8, ptr %state, i64 32
   store ptr @.str.28, ptr %reason2707, align 8
-  %error_pos2708 = getelementptr inbounds %struct.llhttp__internal_s, ptr %state, i64 0, i32 5
+  %error_pos2708 = getelementptr inbounds i8, ptr %state, i64 40
   store ptr %p.addr.33, ptr %error_pos2708, align 8
   store ptr inttoptr (i64 3 to ptr), ptr %_current, align 8
   br label %return
 
 sw.default2717:                                   ; preds = %s_n_llhttp__internal__n_invoke_llhttp__on_message_complete_1
-  %error2710 = getelementptr inbounds %struct.llhttp__internal_s, ptr %state, i64 0, i32 3
+  %error2710 = getelementptr inbounds i8, ptr %state, i64 24
   store i32 18, ptr %error2710, align 8
-  %reason2711 = getelementptr inbounds %struct.llhttp__internal_s, ptr %state, i64 0, i32 4
+  %reason2711 = getelementptr inbounds i8, ptr %state, i64 32
   store ptr @.str.29, ptr %reason2711, align 8
-  %error_pos2712 = getelementptr inbounds %struct.llhttp__internal_s, ptr %state, i64 0, i32 5
+  %error_pos2712 = getelementptr inbounds i8, ptr %state, i64 40
   store ptr %p.addr.33, ptr %error_pos2712, align 8
   store ptr null, ptr %_current, align 8
   br label %return
@@ -6940,52 +6938,52 @@ s_n_llhttp__internal__n_invoke_llhttp__on_chunk_complete: ; preds = %s_n_llhttp_
   ]
 
 sw.bb2732:                                        ; preds = %s_n_llhttp__internal__n_invoke_llhttp__on_chunk_complete
-  %error2722 = getelementptr inbounds %struct.llhttp__internal_s, ptr %state, i64 0, i32 3
+  %error2722 = getelementptr inbounds i8, ptr %state, i64 24
   store i32 21, ptr %error2722, align 8
-  %reason2723 = getelementptr inbounds %struct.llhttp__internal_s, ptr %state, i64 0, i32 4
+  %reason2723 = getelementptr inbounds i8, ptr %state, i64 32
   store ptr @.str.31, ptr %reason2723, align 8
-  %error_pos2724 = getelementptr inbounds %struct.llhttp__internal_s, ptr %state, i64 0, i32 5
+  %error_pos2724 = getelementptr inbounds i8, ptr %state, i64 40
   store ptr %p.addr.227, ptr %error_pos2724, align 8
   store ptr inttoptr (i64 27 to ptr), ptr %_current, align 8
   br label %return
 
 sw.default2733:                                   ; preds = %s_n_llhttp__internal__n_invoke_llhttp__on_chunk_complete
-  %error2726 = getelementptr inbounds %struct.llhttp__internal_s, ptr %state, i64 0, i32 3
+  %error2726 = getelementptr inbounds i8, ptr %state, i64 24
   store i32 20, ptr %error2726, align 8
-  %reason2727 = getelementptr inbounds %struct.llhttp__internal_s, ptr %state, i64 0, i32 4
+  %reason2727 = getelementptr inbounds i8, ptr %state, i64 32
   store ptr @.str.32, ptr %reason2727, align 8
-  %error_pos2728 = getelementptr inbounds %struct.llhttp__internal_s, ptr %state, i64 0, i32 5
+  %error_pos2728 = getelementptr inbounds i8, ptr %state, i64 40
   store ptr %p.addr.227, ptr %error_pos2728, align 8
   store ptr null, ptr %_current, align 8
   br label %return
 
 s_n_llhttp__internal__n_invoke_test_lenient_flags_4: ; preds = %for.body.i
   store i32 0, ptr %state, align 8
-  %lenient_flags.i4117 = getelementptr inbounds %struct.llhttp__internal_s, ptr %state, i64 0, i32 14
+  %lenient_flags.i4117 = getelementptr inbounds i8, ptr %state, i64 77
   %696 = load i8, ptr %lenient_flags.i4117, align 1
   %cond22.not = icmp sgt i8 %696, -1
   br i1 %cond22.not, label %sw.default2740, label %s_n_llhttp__internal__n_invoke_llhttp__on_chunk_complete
 
 sw.default2740:                                   ; preds = %s_n_llhttp__internal__n_invoke_test_lenient_flags_4
-  %error2734 = getelementptr inbounds %struct.llhttp__internal_s, ptr %state, i64 0, i32 3
+  %error2734 = getelementptr inbounds i8, ptr %state, i64 24
   store i32 2, ptr %error2734, align 8
-  %reason2735 = getelementptr inbounds %struct.llhttp__internal_s, ptr %state, i64 0, i32 4
+  %reason2735 = getelementptr inbounds i8, ptr %state, i64 32
   store ptr @.str.33, ptr %reason2735, align 8
-  %error_pos2736 = getelementptr inbounds %struct.llhttp__internal_s, ptr %state, i64 0, i32 5
+  %error_pos2736 = getelementptr inbounds i8, ptr %state, i64 40
   store ptr %p.addr.010.i, ptr %error_pos2736, align 8
   store ptr null, ptr %_current, align 8
   br label %return
 
 if.then2746:                                      ; preds = %if.then25
-  %error2747 = getelementptr inbounds %struct.llhttp__internal_s, ptr %state, i64 0, i32 3
+  %error2747 = getelementptr inbounds i8, ptr %state, i64 24
   store i32 %call2743, ptr %error2747, align 8
-  %error_pos2748 = getelementptr inbounds %struct.llhttp__internal_s, ptr %state, i64 0, i32 5
+  %error_pos2748 = getelementptr inbounds i8, ptr %state, i64 40
   store ptr %add.ptr, ptr %error_pos2748, align 8
   store ptr inttoptr (i64 4 to ptr), ptr %_current, align 8
   br label %return
 
 s_n_llhttp__internal__n_invoke_or_flags:          ; preds = %s_n_llhttp__internal__n_invoke_is_equal_content_length
-  %flags.i = getelementptr inbounds %struct.llhttp__internal_s, ptr %state, i64 0, i32 17
+  %flags.i = getelementptr inbounds i8, ptr %state, i64 80
   %697 = load i16, ptr %flags.i, align 8
   %698 = or i16 %697, 128
   store i16 %698, ptr %flags.i, align 8
@@ -7000,64 +6998,64 @@ s_n_llhttp__internal__n_invoke_llhttp__on_chunk_header: ; preds = %s_n_llhttp__i
   ]
 
 sw.bb2763:                                        ; preds = %s_n_llhttp__internal__n_invoke_llhttp__on_chunk_header
-  %error2753 = getelementptr inbounds %struct.llhttp__internal_s, ptr %state, i64 0, i32 3
+  %error2753 = getelementptr inbounds i8, ptr %state, i64 24
   store i32 21, ptr %error2753, align 8
-  %reason2754 = getelementptr inbounds %struct.llhttp__internal_s, ptr %state, i64 0, i32 4
+  %reason2754 = getelementptr inbounds i8, ptr %state, i64 32
   store ptr @.str.34, ptr %reason2754, align 8
-  %error_pos2755 = getelementptr inbounds %struct.llhttp__internal_s, ptr %state, i64 0, i32 5
+  %error_pos2755 = getelementptr inbounds i8, ptr %state, i64 40
   store ptr %p.addr.228, ptr %error_pos2755, align 8
   store ptr inttoptr (i64 7 to ptr), ptr %_current, align 8
   br label %return
 
 sw.default2764:                                   ; preds = %s_n_llhttp__internal__n_invoke_llhttp__on_chunk_header
-  %error2757 = getelementptr inbounds %struct.llhttp__internal_s, ptr %state, i64 0, i32 3
+  %error2757 = getelementptr inbounds i8, ptr %state, i64 24
   store i32 19, ptr %error2757, align 8
-  %reason2758 = getelementptr inbounds %struct.llhttp__internal_s, ptr %state, i64 0, i32 4
+  %reason2758 = getelementptr inbounds i8, ptr %state, i64 32
   store ptr @.str.35, ptr %reason2758, align 8
-  %error_pos2759 = getelementptr inbounds %struct.llhttp__internal_s, ptr %state, i64 0, i32 5
+  %error_pos2759 = getelementptr inbounds i8, ptr %state, i64 40
   store ptr %p.addr.228, ptr %error_pos2759, align 8
   store ptr null, ptr %_current, align 8
   br label %return
 
 s_n_llhttp__internal__n_invoke_test_lenient_flags_5: ; preds = %if.end42
-  %lenient_flags.i4120 = getelementptr inbounds %struct.llhttp__internal_s, ptr %state, i64 0, i32 14
+  %lenient_flags.i4120 = getelementptr inbounds i8, ptr %state, i64 77
   %699 = load i8, ptr %lenient_flags.i4120, align 1
   %700 = and i8 %699, 64
   %cond20.not = icmp eq i8 %700, 0
   br i1 %cond20.not, label %sw.default2771, label %s_n_llhttp__internal__n_invoke_llhttp__on_chunk_header
 
 sw.default2771:                                   ; preds = %s_n_llhttp__internal__n_invoke_test_lenient_flags_5
-  %error2765 = getelementptr inbounds %struct.llhttp__internal_s, ptr %state, i64 0, i32 3
+  %error2765 = getelementptr inbounds i8, ptr %state, i64 24
   store i32 2, ptr %error2765, align 8
-  %reason2766 = getelementptr inbounds %struct.llhttp__internal_s, ptr %state, i64 0, i32 4
+  %reason2766 = getelementptr inbounds i8, ptr %state, i64 32
   store ptr @.str.36, ptr %reason2766, align 8
-  %error_pos2767 = getelementptr inbounds %struct.llhttp__internal_s, ptr %state, i64 0, i32 5
+  %error_pos2767 = getelementptr inbounds i8, ptr %state, i64 40
   store ptr %p.addr.7, ptr %error_pos2767, align 8
   store ptr null, ptr %_current, align 8
   br label %return
 
 s_n_llhttp__internal__n_pause_5:                  ; preds = %s_n_llhttp__internal__n_invoke_llhttp__on_chunk_extension_name_complete
-  %error2780 = getelementptr inbounds %struct.llhttp__internal_s, ptr %state, i64 0, i32 3
+  %error2780 = getelementptr inbounds i8, ptr %state, i64 24
   store i32 21, ptr %error2780, align 8
-  %reason2781 = getelementptr inbounds %struct.llhttp__internal_s, ptr %state, i64 0, i32 4
+  %reason2781 = getelementptr inbounds i8, ptr %state, i64 32
   store ptr @.str.38, ptr %reason2781, align 8
-  %error_pos2782 = getelementptr inbounds %struct.llhttp__internal_s, ptr %state, i64 0, i32 5
+  %error_pos2782 = getelementptr inbounds i8, ptr %state, i64 40
   store ptr %p.addr.8, ptr %error_pos2782, align 8
   store ptr inttoptr (i64 8 to ptr), ptr %_current, align 8
   br label %return
 
 s_n_llhttp__internal__n_error_15:                 ; preds = %s_n_llhttp__internal__n_invoke_llhttp__on_chunk_extension_name_complete
-  %error2784 = getelementptr inbounds %struct.llhttp__internal_s, ptr %state, i64 0, i32 3
+  %error2784 = getelementptr inbounds i8, ptr %state, i64 24
   store i32 34, ptr %error2784, align 8
-  %reason2785 = getelementptr inbounds %struct.llhttp__internal_s, ptr %state, i64 0, i32 4
+  %reason2785 = getelementptr inbounds i8, ptr %state, i64 32
   store ptr @.str.39, ptr %reason2785, align 8
-  %error_pos2786 = getelementptr inbounds %struct.llhttp__internal_s, ptr %state, i64 0, i32 5
+  %error_pos2786 = getelementptr inbounds i8, ptr %state, i64 40
   store ptr %p.addr.8, ptr %error_pos2786, align 8
   store ptr null, ptr %_current, align 8
   br label %return
 
 s_n_llhttp__internal__n_span_end_llhttp__on_chunk_extension_name: ; preds = %if.end135
-  %_span_pos02790 = getelementptr inbounds %struct.llhttp__internal_s, ptr %state, i64 0, i32 1
+  %_span_pos02790 = getelementptr inbounds i8, ptr %state, i64 8
   %701 = load ptr, ptr %_span_pos02790, align 8
   store ptr null, ptr %_span_pos02790, align 8
   %call2792 = tail call i32 @llhttp__on_chunk_extension_name(ptr noundef %state, ptr noundef %701, ptr noundef nonnull %p.addr.205267) #8
@@ -7065,10 +7063,10 @@ s_n_llhttp__internal__n_span_end_llhttp__on_chunk_extension_name: ; preds = %if.
   br i1 %cmp2793.not, label %if.end2800, label %if.then2795
 
 if.then2795:                                      ; preds = %s_n_llhttp__internal__n_span_end_llhttp__on_chunk_extension_name
-  %error2796 = getelementptr inbounds %struct.llhttp__internal_s, ptr %state, i64 0, i32 3
+  %error2796 = getelementptr inbounds i8, ptr %state, i64 24
   store i32 %call2792, ptr %error2796, align 8
   %add.ptr2797 = getelementptr inbounds i8, ptr %p.addr.205267, i64 1
-  %error_pos2798 = getelementptr inbounds %struct.llhttp__internal_s, ptr %state, i64 0, i32 5
+  %error_pos2798 = getelementptr inbounds i8, ptr %state, i64 40
   store ptr %add.ptr2797, ptr %error_pos2798, align 8
   store ptr inttoptr (i64 9 to ptr), ptr %_current, align 8
   br label %return
@@ -7078,27 +7076,27 @@ if.end2800:                                       ; preds = %s_n_llhttp__interna
   br label %s_n_llhttp__internal__n_invoke_llhttp__on_chunk_extension_name_complete
 
 s_n_llhttp__internal__n_pause_6:                  ; preds = %s_n_llhttp__internal__n_invoke_llhttp__on_chunk_extension_name_complete_1
-  %error2802 = getelementptr inbounds %struct.llhttp__internal_s, ptr %state, i64 0, i32 3
+  %error2802 = getelementptr inbounds i8, ptr %state, i64 24
   store i32 21, ptr %error2802, align 8
-  %reason2803 = getelementptr inbounds %struct.llhttp__internal_s, ptr %state, i64 0, i32 4
+  %reason2803 = getelementptr inbounds i8, ptr %state, i64 32
   store ptr @.str.38, ptr %reason2803, align 8
-  %error_pos2804 = getelementptr inbounds %struct.llhttp__internal_s, ptr %state, i64 0, i32 5
+  %error_pos2804 = getelementptr inbounds i8, ptr %state, i64 40
   store ptr %p.addr.9, ptr %error_pos2804, align 8
   store ptr inttoptr (i64 23 to ptr), ptr %_current, align 8
   br label %return
 
 s_n_llhttp__internal__n_error_16:                 ; preds = %s_n_llhttp__internal__n_invoke_llhttp__on_chunk_extension_name_complete_1
-  %error2806 = getelementptr inbounds %struct.llhttp__internal_s, ptr %state, i64 0, i32 3
+  %error2806 = getelementptr inbounds i8, ptr %state, i64 24
   store i32 34, ptr %error2806, align 8
-  %reason2807 = getelementptr inbounds %struct.llhttp__internal_s, ptr %state, i64 0, i32 4
+  %reason2807 = getelementptr inbounds i8, ptr %state, i64 32
   store ptr @.str.39, ptr %reason2807, align 8
-  %error_pos2808 = getelementptr inbounds %struct.llhttp__internal_s, ptr %state, i64 0, i32 5
+  %error_pos2808 = getelementptr inbounds i8, ptr %state, i64 40
   store ptr %p.addr.9, ptr %error_pos2808, align 8
   store ptr null, ptr %_current, align 8
   br label %return
 
 s_n_llhttp__internal__n_span_end_llhttp__on_chunk_extension_name_1: ; preds = %if.end135
-  %_span_pos02812 = getelementptr inbounds %struct.llhttp__internal_s, ptr %state, i64 0, i32 1
+  %_span_pos02812 = getelementptr inbounds i8, ptr %state, i64 8
   %702 = load ptr, ptr %_span_pos02812, align 8
   store ptr null, ptr %_span_pos02812, align 8
   %call2814 = tail call i32 @llhttp__on_chunk_extension_name(ptr noundef %state, ptr noundef %702, ptr noundef nonnull %p.addr.205267) #8
@@ -7106,10 +7104,10 @@ s_n_llhttp__internal__n_span_end_llhttp__on_chunk_extension_name_1: ; preds = %i
   br i1 %cmp2815.not, label %if.end2822, label %if.then2817
 
 if.then2817:                                      ; preds = %s_n_llhttp__internal__n_span_end_llhttp__on_chunk_extension_name_1
-  %error2818 = getelementptr inbounds %struct.llhttp__internal_s, ptr %state, i64 0, i32 3
+  %error2818 = getelementptr inbounds i8, ptr %state, i64 24
   store i32 %call2814, ptr %error2818, align 8
   %add.ptr2819 = getelementptr inbounds i8, ptr %p.addr.205267, i64 1
-  %error_pos2820 = getelementptr inbounds %struct.llhttp__internal_s, ptr %state, i64 0, i32 5
+  %error_pos2820 = getelementptr inbounds i8, ptr %state, i64 40
   store ptr %add.ptr2819, ptr %error_pos2820, align 8
   store ptr inttoptr (i64 10 to ptr), ptr %_current, align 8
   br label %return
@@ -7119,27 +7117,27 @@ if.end2822:                                       ; preds = %s_n_llhttp__interna
   br label %s_n_llhttp__internal__n_invoke_llhttp__on_chunk_extension_name_complete_1
 
 s_n_llhttp__internal__n_pause_7:                  ; preds = %s_n_llhttp__internal__n_invoke_llhttp__on_chunk_extension_value_complete
-  %error2824 = getelementptr inbounds %struct.llhttp__internal_s, ptr %state, i64 0, i32 3
+  %error2824 = getelementptr inbounds i8, ptr %state, i64 24
   store i32 21, ptr %error2824, align 8
-  %reason2825 = getelementptr inbounds %struct.llhttp__internal_s, ptr %state, i64 0, i32 4
+  %reason2825 = getelementptr inbounds i8, ptr %state, i64 32
   store ptr @.str.40, ptr %reason2825, align 8
-  %error_pos2826 = getelementptr inbounds %struct.llhttp__internal_s, ptr %state, i64 0, i32 5
+  %error_pos2826 = getelementptr inbounds i8, ptr %state, i64 40
   store ptr %p.addr.10, ptr %error_pos2826, align 8
   store ptr inttoptr (i64 8 to ptr), ptr %_current, align 8
   br label %return
 
 s_n_llhttp__internal__n_error_18:                 ; preds = %s_n_llhttp__internal__n_invoke_llhttp__on_chunk_extension_value_complete
-  %error2828 = getelementptr inbounds %struct.llhttp__internal_s, ptr %state, i64 0, i32 3
+  %error2828 = getelementptr inbounds i8, ptr %state, i64 24
   store i32 35, ptr %error2828, align 8
-  %reason2829 = getelementptr inbounds %struct.llhttp__internal_s, ptr %state, i64 0, i32 4
+  %reason2829 = getelementptr inbounds i8, ptr %state, i64 32
   store ptr @.str.41, ptr %reason2829, align 8
-  %error_pos2830 = getelementptr inbounds %struct.llhttp__internal_s, ptr %state, i64 0, i32 5
+  %error_pos2830 = getelementptr inbounds i8, ptr %state, i64 40
   store ptr %p.addr.10, ptr %error_pos2830, align 8
   store ptr null, ptr %_current, align 8
   br label %return
 
 s_n_llhttp__internal__n_span_end_llhttp__on_chunk_extension_value: ; preds = %if.end108
-  %_span_pos02834 = getelementptr inbounds %struct.llhttp__internal_s, ptr %state, i64 0, i32 1
+  %_span_pos02834 = getelementptr inbounds i8, ptr %state, i64 8
   %703 = load ptr, ptr %_span_pos02834, align 8
   store ptr null, ptr %_span_pos02834, align 8
   %call2836 = tail call i32 @llhttp__on_chunk_extension_value(ptr noundef %state, ptr noundef %703, ptr noundef nonnull %p.addr.175269) #8
@@ -7147,10 +7145,10 @@ s_n_llhttp__internal__n_span_end_llhttp__on_chunk_extension_value: ; preds = %if
   br i1 %cmp2837.not, label %if.end2844, label %if.then2839
 
 if.then2839:                                      ; preds = %s_n_llhttp__internal__n_span_end_llhttp__on_chunk_extension_value
-  %error2840 = getelementptr inbounds %struct.llhttp__internal_s, ptr %state, i64 0, i32 3
+  %error2840 = getelementptr inbounds i8, ptr %state, i64 24
   store i32 %call2836, ptr %error2840, align 8
   %add.ptr2841 = getelementptr inbounds i8, ptr %p.addr.175269, i64 1
-  %error_pos2842 = getelementptr inbounds %struct.llhttp__internal_s, ptr %state, i64 0, i32 5
+  %error_pos2842 = getelementptr inbounds i8, ptr %state, i64 40
   store ptr %add.ptr2841, ptr %error_pos2842, align 8
   store ptr inttoptr (i64 11 to ptr), ptr %_current, align 8
   br label %return
@@ -7160,45 +7158,45 @@ if.end2844:                                       ; preds = %s_n_llhttp__interna
   br label %s_n_llhttp__internal__n_invoke_llhttp__on_chunk_extension_value_complete
 
 s_n_llhttp__internal__n_error_20:                 ; preds = %if.end66
-  %error2846 = getelementptr inbounds %struct.llhttp__internal_s, ptr %state, i64 0, i32 3
+  %error2846 = getelementptr inbounds i8, ptr %state, i64 24
   store i32 2, ptr %error2846, align 8
-  %reason2847 = getelementptr inbounds %struct.llhttp__internal_s, ptr %state, i64 0, i32 4
+  %reason2847 = getelementptr inbounds i8, ptr %state, i64 32
   store ptr @.str.42, ptr %reason2847, align 8
-  %error_pos2848 = getelementptr inbounds %struct.llhttp__internal_s, ptr %state, i64 0, i32 5
+  %error_pos2848 = getelementptr inbounds i8, ptr %state, i64 40
   store ptr %p.addr.11, ptr %error_pos2848, align 8
   store ptr null, ptr %_current, align 8
   br label %return
 
 s_n_llhttp__internal__n_pause_8:                  ; preds = %s_n_llhttp__internal__n_invoke_llhttp__on_chunk_extension_value_complete_1
-  %error2850 = getelementptr inbounds %struct.llhttp__internal_s, ptr %state, i64 0, i32 3
+  %error2850 = getelementptr inbounds i8, ptr %state, i64 24
   store i32 21, ptr %error2850, align 8
-  %reason2851 = getelementptr inbounds %struct.llhttp__internal_s, ptr %state, i64 0, i32 4
+  %reason2851 = getelementptr inbounds i8, ptr %state, i64 32
   store ptr @.str.40, ptr %reason2851, align 8
-  %error_pos2852 = getelementptr inbounds %struct.llhttp__internal_s, ptr %state, i64 0, i32 5
+  %error_pos2852 = getelementptr inbounds i8, ptr %state, i64 40
   store ptr %p.addr.12, ptr %error_pos2852, align 8
   store ptr inttoptr (i64 12 to ptr), ptr %_current, align 8
   br label %return
 
 s_n_llhttp__internal__n_error_19:                 ; preds = %s_n_llhttp__internal__n_invoke_llhttp__on_chunk_extension_value_complete_1
-  %error2854 = getelementptr inbounds %struct.llhttp__internal_s, ptr %state, i64 0, i32 3
+  %error2854 = getelementptr inbounds i8, ptr %state, i64 24
   store i32 35, ptr %error2854, align 8
-  %reason2855 = getelementptr inbounds %struct.llhttp__internal_s, ptr %state, i64 0, i32 4
+  %reason2855 = getelementptr inbounds i8, ptr %state, i64 32
   store ptr @.str.41, ptr %reason2855, align 8
-  %error_pos2856 = getelementptr inbounds %struct.llhttp__internal_s, ptr %state, i64 0, i32 5
+  %error_pos2856 = getelementptr inbounds i8, ptr %state, i64 40
   store ptr %p.addr.12, ptr %error_pos2856, align 8
   store ptr null, ptr %_current, align 8
   br label %return
 
 if.then2865:                                      ; preds = %sw.bb91
-  %error2866 = getelementptr inbounds %struct.llhttp__internal_s, ptr %state, i64 0, i32 3
+  %error2866 = getelementptr inbounds i8, ptr %state, i64 24
   store i32 %call2862, ptr %error2866, align 8
-  %error_pos2867 = getelementptr inbounds %struct.llhttp__internal_s, ptr %state, i64 0, i32 5
+  %error_pos2867 = getelementptr inbounds i8, ptr %state, i64 40
   store ptr %incdec.ptr92, ptr %error_pos2867, align 8
   store ptr inttoptr (i64 13 to ptr), ptr %_current, align 8
   br label %return
 
 s_n_llhttp__internal__n_span_end_llhttp__on_chunk_extension_value_2: ; preds = %if.end87
-  %_span_pos02872 = getelementptr inbounds %struct.llhttp__internal_s, ptr %state, i64 0, i32 1
+  %_span_pos02872 = getelementptr inbounds i8, ptr %state, i64 8
   %704 = load ptr, ptr %_span_pos02872, align 8
   store ptr null, ptr %_span_pos02872, align 8
   %call2874 = tail call i32 @llhttp__on_chunk_extension_value(ptr noundef %state, ptr noundef %704, ptr noundef nonnull %p.addr.145271) #8
@@ -7206,10 +7204,10 @@ s_n_llhttp__internal__n_span_end_llhttp__on_chunk_extension_value_2: ; preds = %
   br i1 %cmp2875.not, label %if.end2882, label %if.then2877
 
 if.then2877:                                      ; preds = %s_n_llhttp__internal__n_span_end_llhttp__on_chunk_extension_value_2
-  %error2878 = getelementptr inbounds %struct.llhttp__internal_s, ptr %state, i64 0, i32 3
+  %error2878 = getelementptr inbounds i8, ptr %state, i64 24
   store i32 %call2874, ptr %error2878, align 8
   %add.ptr2879 = getelementptr inbounds i8, ptr %p.addr.145271, i64 1
-  %error_pos2880 = getelementptr inbounds %struct.llhttp__internal_s, ptr %state, i64 0, i32 5
+  %error_pos2880 = getelementptr inbounds i8, ptr %state, i64 40
   store ptr %add.ptr2879, ptr %error_pos2880, align 8
   store ptr inttoptr (i64 14 to ptr), ptr %_current, align 8
   br label %return
@@ -7219,27 +7217,27 @@ if.end2882:                                       ; preds = %s_n_llhttp__interna
   br label %s_n_llhttp__internal__n_error_21
 
 s_n_llhttp__internal__n_pause_9:                  ; preds = %s_n_llhttp__internal__n_invoke_llhttp__on_chunk_extension_value_complete_2
-  %error2884 = getelementptr inbounds %struct.llhttp__internal_s, ptr %state, i64 0, i32 3
+  %error2884 = getelementptr inbounds i8, ptr %state, i64 24
   store i32 21, ptr %error2884, align 8
-  %reason2885 = getelementptr inbounds %struct.llhttp__internal_s, ptr %state, i64 0, i32 4
+  %reason2885 = getelementptr inbounds i8, ptr %state, i64 32
   store ptr @.str.40, ptr %reason2885, align 8
-  %error_pos2886 = getelementptr inbounds %struct.llhttp__internal_s, ptr %state, i64 0, i32 5
+  %error_pos2886 = getelementptr inbounds i8, ptr %state, i64 40
   store ptr %p.addr.15, ptr %error_pos2886, align 8
   store ptr inttoptr (i64 24 to ptr), ptr %_current, align 8
   br label %return
 
 s_n_llhttp__internal__n_error_22:                 ; preds = %s_n_llhttp__internal__n_invoke_llhttp__on_chunk_extension_value_complete_2
-  %error2888 = getelementptr inbounds %struct.llhttp__internal_s, ptr %state, i64 0, i32 3
+  %error2888 = getelementptr inbounds i8, ptr %state, i64 24
   store i32 35, ptr %error2888, align 8
-  %reason2889 = getelementptr inbounds %struct.llhttp__internal_s, ptr %state, i64 0, i32 4
+  %reason2889 = getelementptr inbounds i8, ptr %state, i64 32
   store ptr @.str.41, ptr %reason2889, align 8
-  %error_pos2890 = getelementptr inbounds %struct.llhttp__internal_s, ptr %state, i64 0, i32 5
+  %error_pos2890 = getelementptr inbounds i8, ptr %state, i64 40
   store ptr %p.addr.15, ptr %error_pos2890, align 8
   store ptr null, ptr %_current, align 8
   br label %return
 
 s_n_llhttp__internal__n_span_end_llhttp__on_chunk_extension_value_3: ; preds = %if.end108
-  %_span_pos02894 = getelementptr inbounds %struct.llhttp__internal_s, ptr %state, i64 0, i32 1
+  %_span_pos02894 = getelementptr inbounds i8, ptr %state, i64 8
   %705 = load ptr, ptr %_span_pos02894, align 8
   store ptr null, ptr %_span_pos02894, align 8
   %call2896 = tail call i32 @llhttp__on_chunk_extension_value(ptr noundef %state, ptr noundef %705, ptr noundef nonnull %p.addr.175269) #8
@@ -7247,10 +7245,10 @@ s_n_llhttp__internal__n_span_end_llhttp__on_chunk_extension_value_3: ; preds = %
   br i1 %cmp2897.not, label %if.end2904, label %if.then2899
 
 if.then2899:                                      ; preds = %s_n_llhttp__internal__n_span_end_llhttp__on_chunk_extension_value_3
-  %error2900 = getelementptr inbounds %struct.llhttp__internal_s, ptr %state, i64 0, i32 3
+  %error2900 = getelementptr inbounds i8, ptr %state, i64 24
   store i32 %call2896, ptr %error2900, align 8
   %add.ptr2901 = getelementptr inbounds i8, ptr %p.addr.175269, i64 1
-  %error_pos2902 = getelementptr inbounds %struct.llhttp__internal_s, ptr %state, i64 0, i32 5
+  %error_pos2902 = getelementptr inbounds i8, ptr %state, i64 40
   store ptr %add.ptr2901, ptr %error_pos2902, align 8
   store ptr inttoptr (i64 16 to ptr), ptr %_current, align 8
   br label %return
@@ -7260,7 +7258,7 @@ if.end2904:                                       ; preds = %s_n_llhttp__interna
   br label %s_n_llhttp__internal__n_invoke_llhttp__on_chunk_extension_value_complete_2
 
 s_n_llhttp__internal__n_span_end_llhttp__on_chunk_extension_value_4: ; preds = %if.end108
-  %_span_pos02908 = getelementptr inbounds %struct.llhttp__internal_s, ptr %state, i64 0, i32 1
+  %_span_pos02908 = getelementptr inbounds i8, ptr %state, i64 8
   %706 = load ptr, ptr %_span_pos02908, align 8
   store ptr null, ptr %_span_pos02908, align 8
   %call2910 = tail call i32 @llhttp__on_chunk_extension_value(ptr noundef %state, ptr noundef %706, ptr noundef nonnull %p.addr.175269) #8
@@ -7268,10 +7266,10 @@ s_n_llhttp__internal__n_span_end_llhttp__on_chunk_extension_value_4: ; preds = %
   br i1 %cmp2911.not, label %if.end2918, label %if.then2913
 
 if.then2913:                                      ; preds = %s_n_llhttp__internal__n_span_end_llhttp__on_chunk_extension_value_4
-  %error2914 = getelementptr inbounds %struct.llhttp__internal_s, ptr %state, i64 0, i32 3
+  %error2914 = getelementptr inbounds i8, ptr %state, i64 24
   store i32 %call2910, ptr %error2914, align 8
   %add.ptr2915 = getelementptr inbounds i8, ptr %p.addr.175269, i64 1
-  %error_pos2916 = getelementptr inbounds %struct.llhttp__internal_s, ptr %state, i64 0, i32 5
+  %error_pos2916 = getelementptr inbounds i8, ptr %state, i64 40
   store ptr %add.ptr2915, ptr %error_pos2916, align 8
   store ptr inttoptr (i64 17 to ptr), ptr %_current, align 8
   br label %return
@@ -7281,27 +7279,27 @@ if.end2918:                                       ; preds = %s_n_llhttp__interna
   br label %s_n_llhttp__internal__n_error_23
 
 sw.bb2930:                                        ; preds = %if.end123
-  %error2920 = getelementptr inbounds %struct.llhttp__internal_s, ptr %state, i64 0, i32 3
+  %error2920 = getelementptr inbounds i8, ptr %state, i64 24
   store i32 21, ptr %error2920, align 8
-  %reason2921 = getelementptr inbounds %struct.llhttp__internal_s, ptr %state, i64 0, i32 4
+  %reason2921 = getelementptr inbounds i8, ptr %state, i64 32
   store ptr @.str.38, ptr %reason2921, align 8
-  %error_pos2922 = getelementptr inbounds %struct.llhttp__internal_s, ptr %state, i64 0, i32 5
+  %error_pos2922 = getelementptr inbounds i8, ptr %state, i64 40
   store ptr %p.addr.18, ptr %error_pos2922, align 8
   store ptr inttoptr (i64 18 to ptr), ptr %_current, align 8
   br label %return
 
 sw.default2931:                                   ; preds = %if.end123
-  %error2924 = getelementptr inbounds %struct.llhttp__internal_s, ptr %state, i64 0, i32 3
+  %error2924 = getelementptr inbounds i8, ptr %state, i64 24
   store i32 34, ptr %error2924, align 8
-  %reason2925 = getelementptr inbounds %struct.llhttp__internal_s, ptr %state, i64 0, i32 4
+  %reason2925 = getelementptr inbounds i8, ptr %state, i64 32
   store ptr @.str.39, ptr %reason2925, align 8
-  %error_pos2926 = getelementptr inbounds %struct.llhttp__internal_s, ptr %state, i64 0, i32 5
+  %error_pos2926 = getelementptr inbounds i8, ptr %state, i64 40
   store ptr %p.addr.18, ptr %error_pos2926, align 8
   store ptr null, ptr %_current, align 8
   br label %return
 
 s_n_llhttp__internal__n_span_end_llhttp__on_chunk_extension_name_2: ; preds = %if.end135
-  %_span_pos02934 = getelementptr inbounds %struct.llhttp__internal_s, ptr %state, i64 0, i32 1
+  %_span_pos02934 = getelementptr inbounds i8, ptr %state, i64 8
   %707 = load ptr, ptr %_span_pos02934, align 8
   store ptr null, ptr %_span_pos02934, align 8
   %call2936 = tail call i32 @llhttp__on_chunk_extension_name(ptr noundef %state, ptr noundef %707, ptr noundef nonnull %p.addr.205267) #8
@@ -7309,10 +7307,10 @@ s_n_llhttp__internal__n_span_end_llhttp__on_chunk_extension_name_2: ; preds = %i
   br i1 %cmp2937.not, label %if.end2944, label %if.then2939
 
 if.then2939:                                      ; preds = %s_n_llhttp__internal__n_span_end_llhttp__on_chunk_extension_name_2
-  %error2940 = getelementptr inbounds %struct.llhttp__internal_s, ptr %state, i64 0, i32 3
+  %error2940 = getelementptr inbounds i8, ptr %state, i64 24
   store i32 %call2936, ptr %error2940, align 8
   %add.ptr2941 = getelementptr inbounds i8, ptr %p.addr.205267, i64 1
-  %error_pos2942 = getelementptr inbounds %struct.llhttp__internal_s, ptr %state, i64 0, i32 5
+  %error_pos2942 = getelementptr inbounds i8, ptr %state, i64 40
   store ptr %add.ptr2941, ptr %error_pos2942, align 8
   store ptr inttoptr (i64 19 to ptr), ptr %_current, align 8
   br label %return
@@ -7322,7 +7320,7 @@ if.end2944:                                       ; preds = %s_n_llhttp__interna
   br label %s_n_llhttp__internal__n_span_start_llhttp__on_chunk_extension_value
 
 s_n_llhttp__internal__n_span_end_llhttp__on_chunk_extension_name_3: ; preds = %if.end135
-  %_span_pos02948 = getelementptr inbounds %struct.llhttp__internal_s, ptr %state, i64 0, i32 1
+  %_span_pos02948 = getelementptr inbounds i8, ptr %state, i64 8
   %708 = load ptr, ptr %_span_pos02948, align 8
   store ptr null, ptr %_span_pos02948, align 8
   %call2950 = tail call i32 @llhttp__on_chunk_extension_name(ptr noundef %state, ptr noundef %708, ptr noundef nonnull %p.addr.205267) #8
@@ -7330,10 +7328,10 @@ s_n_llhttp__internal__n_span_end_llhttp__on_chunk_extension_name_3: ; preds = %i
   br i1 %cmp2951.not, label %if.end2958, label %if.then2953
 
 if.then2953:                                      ; preds = %s_n_llhttp__internal__n_span_end_llhttp__on_chunk_extension_name_3
-  %error2954 = getelementptr inbounds %struct.llhttp__internal_s, ptr %state, i64 0, i32 3
+  %error2954 = getelementptr inbounds i8, ptr %state, i64 24
   store i32 %call2950, ptr %error2954, align 8
   %add.ptr2955 = getelementptr inbounds i8, ptr %p.addr.205267, i64 1
-  %error_pos2956 = getelementptr inbounds %struct.llhttp__internal_s, ptr %state, i64 0, i32 5
+  %error_pos2956 = getelementptr inbounds i8, ptr %state, i64 40
   store ptr %add.ptr2955, ptr %error_pos2956, align 8
   store ptr inttoptr (i64 20 to ptr), ptr %_current, align 8
   br label %return
@@ -7343,11 +7341,11 @@ if.end2958:                                       ; preds = %s_n_llhttp__interna
   br label %s_n_llhttp__internal__n_error_24
 
 s_n_llhttp__internal__n_error_25:                 ; preds = %if.end167
-  %error2960 = getelementptr inbounds %struct.llhttp__internal_s, ptr %state, i64 0, i32 3
+  %error2960 = getelementptr inbounds i8, ptr %state, i64 24
   store i32 12, ptr %error2960, align 8
-  %reason2961 = getelementptr inbounds %struct.llhttp__internal_s, ptr %state, i64 0, i32 4
+  %reason2961 = getelementptr inbounds i8, ptr %state, i64 32
   store ptr @.str.43, ptr %reason2961, align 8
-  %error_pos2962 = getelementptr inbounds %struct.llhttp__internal_s, ptr %state, i64 0, i32 5
+  %error_pos2962 = getelementptr inbounds i8, ptr %state, i64 40
   store ptr %p.addr.23, ptr %error_pos2962, align 8
   store ptr null, ptr %_current, align 8
   br label %return
@@ -7356,7 +7354,7 @@ s_n_llhttp__internal__n_invoke_mul_add_content_length: ; preds = %if.end229, %if
   %p.addr.25.sink = phi ptr [ %p.addr.25, %sw.bb273 ], [ %p.addr.25, %sw.bb271 ], [ %p.addr.25, %sw.bb269 ], [ %p.addr.25, %sw.bb267 ], [ %p.addr.25, %sw.bb265 ], [ %p.addr.25, %sw.bb263 ], [ %p.addr.25, %sw.bb261 ], [ %p.addr.25, %sw.bb259 ], [ %p.addr.25, %sw.bb257 ], [ %p.addr.25, %sw.bb255 ], [ %p.addr.25, %sw.bb253 ], [ %p.addr.25, %sw.bb251 ], [ %p.addr.25, %sw.bb249 ], [ %p.addr.25, %sw.bb247 ], [ %p.addr.25, %sw.bb245 ], [ %p.addr.25, %sw.bb243 ], [ %p.addr.25, %sw.bb241 ], [ %p.addr.25, %sw.bb239 ], [ %p.addr.25, %sw.bb237 ], [ %p.addr.25, %sw.bb235 ], [ %p.addr.25, %sw.bb233 ], [ %p.addr.24, %sw.bb222 ], [ %p.addr.24, %sw.bb220 ], [ %p.addr.24, %sw.bb218 ], [ %p.addr.24, %sw.bb216 ], [ %p.addr.24, %sw.bb214 ], [ %p.addr.24, %sw.bb212 ], [ %p.addr.24, %sw.bb210 ], [ %p.addr.24, %sw.bb208 ], [ %p.addr.24, %sw.bb206 ], [ %p.addr.24, %sw.bb204 ], [ %p.addr.24, %sw.bb202 ], [ %p.addr.24, %sw.bb200 ], [ %p.addr.24, %sw.bb198 ], [ %p.addr.24, %sw.bb196 ], [ %p.addr.24, %sw.bb194 ], [ %p.addr.24, %sw.bb192 ], [ %p.addr.24, %sw.bb190 ], [ %p.addr.24, %sw.bb188 ], [ %p.addr.24, %sw.bb186 ], [ %p.addr.24, %sw.bb184 ], [ %p.addr.24, %sw.bb182 ], [ %p.addr.24, %if.end178 ], [ %p.addr.25, %if.end229 ]
   %match.0 = phi i64 [ 15, %sw.bb273 ], [ 14, %sw.bb271 ], [ 13, %sw.bb269 ], [ 12, %sw.bb267 ], [ 11, %sw.bb265 ], [ 10, %sw.bb263 ], [ 15, %sw.bb261 ], [ 14, %sw.bb259 ], [ 13, %sw.bb257 ], [ 12, %sw.bb255 ], [ 11, %sw.bb253 ], [ 10, %sw.bb251 ], [ 9, %sw.bb249 ], [ 8, %sw.bb247 ], [ 7, %sw.bb245 ], [ 6, %sw.bb243 ], [ 5, %sw.bb241 ], [ 4, %sw.bb239 ], [ 3, %sw.bb237 ], [ 2, %sw.bb235 ], [ 1, %sw.bb233 ], [ 15, %sw.bb222 ], [ 14, %sw.bb220 ], [ 13, %sw.bb218 ], [ 12, %sw.bb216 ], [ 11, %sw.bb214 ], [ 10, %sw.bb212 ], [ 15, %sw.bb210 ], [ 14, %sw.bb208 ], [ 13, %sw.bb206 ], [ 12, %sw.bb204 ], [ 11, %sw.bb202 ], [ 10, %sw.bb200 ], [ 9, %sw.bb198 ], [ 8, %sw.bb196 ], [ 7, %sw.bb194 ], [ 6, %sw.bb192 ], [ 5, %sw.bb190 ], [ 4, %sw.bb188 ], [ 3, %sw.bb186 ], [ 2, %sw.bb184 ], [ 1, %sw.bb182 ], [ 0, %if.end178 ], [ 0, %if.end229 ]
   %incdec.ptr274 = getelementptr inbounds i8, ptr %p.addr.25.sink, i64 1
-  %content_length.i4123 = getelementptr inbounds %struct.llhttp__internal_s, ptr %state, i64 0, i32 8
+  %content_length.i4123 = getelementptr inbounds i8, ptr %state, i64 64
   %709 = load i64, ptr %content_length.i4123, align 8
   %cmp.i4124 = icmp ugt i64 %709, 1152921504606846975
   br i1 %cmp.i4124, label %sw.bb2965, label %if.end.i
@@ -7368,64 +7366,64 @@ if.end.i:                                         ; preds = %s_n_llhttp__interna
   br label %s_n_llhttp__internal__n_chunk_size
 
 sw.bb2965:                                        ; preds = %s_n_llhttp__internal__n_invoke_mul_add_content_length
-  %error2718 = getelementptr inbounds %struct.llhttp__internal_s, ptr %state, i64 0, i32 3
+  %error2718 = getelementptr inbounds i8, ptr %state, i64 24
   store i32 12, ptr %error2718, align 8
-  %reason2719 = getelementptr inbounds %struct.llhttp__internal_s, ptr %state, i64 0, i32 4
+  %reason2719 = getelementptr inbounds i8, ptr %state, i64 32
   store ptr @.str.30, ptr %reason2719, align 8
-  %error_pos2720 = getelementptr inbounds %struct.llhttp__internal_s, ptr %state, i64 0, i32 5
+  %error_pos2720 = getelementptr inbounds i8, ptr %state, i64 40
   store ptr %incdec.ptr274, ptr %error_pos2720, align 8
   store ptr null, ptr %_current, align 8
   br label %return
 
 s_n_llhttp__internal__n_error_27:                 ; preds = %if.end229
-  %error2967 = getelementptr inbounds %struct.llhttp__internal_s, ptr %state, i64 0, i32 3
+  %error2967 = getelementptr inbounds i8, ptr %state, i64 24
   store i32 12, ptr %error2967, align 8
-  %reason2968 = getelementptr inbounds %struct.llhttp__internal_s, ptr %state, i64 0, i32 4
+  %reason2968 = getelementptr inbounds i8, ptr %state, i64 32
   store ptr @.str.43, ptr %reason2968, align 8
-  %error_pos2969 = getelementptr inbounds %struct.llhttp__internal_s, ptr %state, i64 0, i32 5
+  %error_pos2969 = getelementptr inbounds i8, ptr %state, i64 40
   store ptr %p.addr.25, ptr %error_pos2969, align 8
   store ptr null, ptr %_current, align 8
   br label %return
 
 s_n_llhttp__internal__n_pause_11:                 ; preds = %s_n_llhttp__internal__n_invoke_llhttp__on_message_complete_2
-  %error2971 = getelementptr inbounds %struct.llhttp__internal_s, ptr %state, i64 0, i32 3
+  %error2971 = getelementptr inbounds i8, ptr %state, i64 24
   store i32 21, ptr %error2971, align 8
-  %reason2972 = getelementptr inbounds %struct.llhttp__internal_s, ptr %state, i64 0, i32 4
+  %reason2972 = getelementptr inbounds i8, ptr %state, i64 32
   store ptr @.str.28, ptr %reason2972, align 8
-  %error_pos2973 = getelementptr inbounds %struct.llhttp__internal_s, ptr %state, i64 0, i32 5
+  %error_pos2973 = getelementptr inbounds i8, ptr %state, i64 40
   store ptr %p.addr.28, ptr %error_pos2973, align 8
   store ptr inttoptr (i64 28 to ptr), ptr %_current, align 8
   br label %return
 
 s_n_llhttp__internal__n_error_28:                 ; preds = %s_n_llhttp__internal__n_invoke_llhttp__on_message_complete_2
-  %error2975 = getelementptr inbounds %struct.llhttp__internal_s, ptr %state, i64 0, i32 3
+  %error2975 = getelementptr inbounds i8, ptr %state, i64 24
   store i32 18, ptr %error2975, align 8
-  %reason2976 = getelementptr inbounds %struct.llhttp__internal_s, ptr %state, i64 0, i32 4
+  %reason2976 = getelementptr inbounds i8, ptr %state, i64 32
   store ptr @.str.29, ptr %reason2976, align 8
-  %error_pos2977 = getelementptr inbounds %struct.llhttp__internal_s, ptr %state, i64 0, i32 5
+  %error_pos2977 = getelementptr inbounds i8, ptr %state, i64 40
   store ptr %p.addr.28, ptr %error_pos2977, align 8
   store ptr null, ptr %_current, align 8
   br label %return
 
 if.then2986:                                      ; preds = %if.then297
-  %error2987 = getelementptr inbounds %struct.llhttp__internal_s, ptr %state, i64 0, i32 3
+  %error2987 = getelementptr inbounds i8, ptr %state, i64 24
   store i32 %call2983, ptr %error2987, align 8
-  %error_pos2988 = getelementptr inbounds %struct.llhttp__internal_s, ptr %state, i64 0, i32 5
+  %error_pos2988 = getelementptr inbounds i8, ptr %state, i64 40
   store ptr %add.ptr298, ptr %error_pos2988, align 8
   store ptr inttoptr (i64 29 to ptr), ptr %_current, align 8
   br label %return
 
 s_n_llhttp__internal__n_invoke_update_finish_3:   ; preds = %s_n_llhttp__internal__n_invoke_llhttp__after_headers_complete
-  %finish.i4126 = getelementptr inbounds %struct.llhttp__internal_s, ptr %state, i64 0, i32 16
+  %finish.i4126 = getelementptr inbounds i8, ptr %state, i64 79
   store i8 1, ptr %finish.i4126, align 1
   br label %s_n_llhttp__internal__n_span_start_llhttp__on_body_2
 
 s_n_llhttp__internal__n_error_29:                 ; preds = %s_n_llhttp__internal__n_invoke_llhttp__after_headers_complete
-  %error2993 = getelementptr inbounds %struct.llhttp__internal_s, ptr %state, i64 0, i32 3
+  %error2993 = getelementptr inbounds i8, ptr %state, i64 24
   store i32 15, ptr %error2993, align 8
-  %reason2994 = getelementptr inbounds %struct.llhttp__internal_s, ptr %state, i64 0, i32 4
+  %reason2994 = getelementptr inbounds i8, ptr %state, i64 32
   store ptr @.str.44, ptr %reason2994, align 8
-  %error_pos2995 = getelementptr inbounds %struct.llhttp__internal_s, ptr %state, i64 0, i32 5
+  %error_pos2995 = getelementptr inbounds i8, ptr %state, i64 40
   store ptr %p.addr.33, ptr %error_pos2995, align 8
   store ptr null, ptr %_current, align 8
   br label %return
@@ -7438,66 +7436,66 @@ s_n_llhttp__internal__n_invoke_llhttp__on_message_complete: ; preds = %s_n_llhtt
   ]
 
 sw.bb3007:                                        ; preds = %s_n_llhttp__internal__n_invoke_llhttp__on_message_complete
-  %error2997 = getelementptr inbounds %struct.llhttp__internal_s, ptr %state, i64 0, i32 3
+  %error2997 = getelementptr inbounds i8, ptr %state, i64 24
   store i32 21, ptr %error2997, align 8
-  %reason2998 = getelementptr inbounds %struct.llhttp__internal_s, ptr %state, i64 0, i32 4
+  %reason2998 = getelementptr inbounds i8, ptr %state, i64 32
   store ptr @.str.28, ptr %reason2998, align 8
-  %error_pos2999 = getelementptr inbounds %struct.llhttp__internal_s, ptr %state, i64 0, i32 5
+  %error_pos2999 = getelementptr inbounds i8, ptr %state, i64 40
   store ptr %p.addr.33, ptr %error_pos2999, align 8
   store ptr inttoptr (i64 2 to ptr), ptr %_current, align 8
   br label %return
 
 sw.default3008:                                   ; preds = %s_n_llhttp__internal__n_invoke_llhttp__on_message_complete
-  %error3001 = getelementptr inbounds %struct.llhttp__internal_s, ptr %state, i64 0, i32 3
+  %error3001 = getelementptr inbounds i8, ptr %state, i64 24
   store i32 18, ptr %error3001, align 8
-  %reason3002 = getelementptr inbounds %struct.llhttp__internal_s, ptr %state, i64 0, i32 4
+  %reason3002 = getelementptr inbounds i8, ptr %state, i64 32
   store ptr @.str.29, ptr %reason3002, align 8
-  %error_pos3003 = getelementptr inbounds %struct.llhttp__internal_s, ptr %state, i64 0, i32 5
+  %error_pos3003 = getelementptr inbounds i8, ptr %state, i64 40
   store ptr %p.addr.33, ptr %error_pos3003, align 8
   store ptr null, ptr %_current, align 8
   br label %return
 
 sw.bb3022:                                        ; preds = %sw.bb3057
-  %error3012 = getelementptr inbounds %struct.llhttp__internal_s, ptr %state, i64 0, i32 3
+  %error3012 = getelementptr inbounds i8, ptr %state, i64 24
   store i32 21, ptr %error3012, align 8
-  %reason3013 = getelementptr inbounds %struct.llhttp__internal_s, ptr %state, i64 0, i32 4
+  %reason3013 = getelementptr inbounds i8, ptr %state, i64 32
   store ptr @.str.31, ptr %reason3013, align 8
-  %error_pos3014 = getelementptr inbounds %struct.llhttp__internal_s, ptr %state, i64 0, i32 5
+  %error_pos3014 = getelementptr inbounds i8, ptr %state, i64 40
   store ptr %p.addr.230, ptr %error_pos3014, align 8
   store ptr inttoptr (i64 29 to ptr), ptr %_current, align 8
   br label %return
 
 sw.default3023:                                   ; preds = %sw.bb3057
-  %error3016 = getelementptr inbounds %struct.llhttp__internal_s, ptr %state, i64 0, i32 3
+  %error3016 = getelementptr inbounds i8, ptr %state, i64 24
   store i32 20, ptr %error3016, align 8
-  %reason3017 = getelementptr inbounds %struct.llhttp__internal_s, ptr %state, i64 0, i32 4
+  %reason3017 = getelementptr inbounds i8, ptr %state, i64 32
   store ptr @.str.32, ptr %reason3017, align 8
-  %error_pos3018 = getelementptr inbounds %struct.llhttp__internal_s, ptr %state, i64 0, i32 5
+  %error_pos3018 = getelementptr inbounds i8, ptr %state, i64 40
   store ptr %p.addr.230, ptr %error_pos3018, align 8
   store ptr null, ptr %_current, align 8
   br label %return
 
 sw.bb3045:                                        ; preds = %s_n_llhttp__internal__n_invoke_llhttp__before_headers_complete
-  %upgrade.i4128 = getelementptr inbounds %struct.llhttp__internal_s, ptr %state, i64 0, i32 15
+  %upgrade.i4128 = getelementptr inbounds i8, ptr %state, i64 78
   store i8 1, ptr %upgrade.i4128, align 2
   br label %s_n_llhttp__internal__n_invoke_llhttp__after_headers_complete.sink.split
 
 sw.bb3046:                                        ; preds = %s_n_llhttp__internal__n_invoke_llhttp__before_headers_complete
-  %error3034 = getelementptr inbounds %struct.llhttp__internal_s, ptr %state, i64 0, i32 3
+  %error3034 = getelementptr inbounds i8, ptr %state, i64 24
   store i32 21, ptr %error3034, align 8
-  %reason3035 = getelementptr inbounds %struct.llhttp__internal_s, ptr %state, i64 0, i32 4
+  %reason3035 = getelementptr inbounds i8, ptr %state, i64 32
   store ptr @.str.46, ptr %reason3035, align 8
-  %error_pos3036 = getelementptr inbounds %struct.llhttp__internal_s, ptr %state, i64 0, i32 5
+  %error_pos3036 = getelementptr inbounds i8, ptr %state, i64 40
   store ptr %p.addr.230, ptr %error_pos3036, align 8
   store ptr inttoptr (i64 34 to ptr), ptr %_current, align 8
   br label %return
 
 sw.default3047:                                   ; preds = %s_n_llhttp__internal__n_invoke_llhttp__before_headers_complete
-  %error3038 = getelementptr inbounds %struct.llhttp__internal_s, ptr %state, i64 0, i32 3
+  %error3038 = getelementptr inbounds i8, ptr %state, i64 24
   store i32 17, ptr %error3038, align 8
-  %reason3039 = getelementptr inbounds %struct.llhttp__internal_s, ptr %state, i64 0, i32 4
+  %reason3039 = getelementptr inbounds i8, ptr %state, i64 32
   store ptr @.str.47, ptr %reason3039, align 8
-  %error_pos3040 = getelementptr inbounds %struct.llhttp__internal_s, ptr %state, i64 0, i32 5
+  %error_pos3040 = getelementptr inbounds i8, ptr %state, i64 40
   store ptr %p.addr.230, ptr %error_pos3040, align 8
   store ptr null, ptr %_current, align 8
   br label %return
@@ -7513,17 +7511,17 @@ s_n_llhttp__internal__n_invoke_llhttp__before_headers_complete: ; preds = %sw.de
   ]
 
 sw.bb3051:                                        ; preds = %sw.bb3054
-  %error3024 = getelementptr inbounds %struct.llhttp__internal_s, ptr %state, i64 0, i32 3
+  %error3024 = getelementptr inbounds i8, ptr %state, i64 24
   store i32 4, ptr %error3024, align 8
-  %reason3025 = getelementptr inbounds %struct.llhttp__internal_s, ptr %state, i64 0, i32 4
+  %reason3025 = getelementptr inbounds i8, ptr %state, i64 32
   store ptr @.str.45, ptr %reason3025, align 8
-  %error_pos3026 = getelementptr inbounds %struct.llhttp__internal_s, ptr %state, i64 0, i32 5
+  %error_pos3026 = getelementptr inbounds i8, ptr %state, i64 40
   store ptr %p.addr.230, ptr %error_pos3026, align 8
   store ptr null, ptr %_current, align 8
   br label %return
 
 sw.bb3054:                                        ; preds = %sw.default3058
-  %lenient_flags.i4130 = getelementptr inbounds %struct.llhttp__internal_s, ptr %state, i64 0, i32 14
+  %lenient_flags.i4130 = getelementptr inbounds i8, ptr %state, i64 77
   %710 = load i8, ptr %lenient_flags.i4130, align 1
   %711 = and i8 %710, 2
   %cond23 = icmp eq i8 %711, 0
@@ -7531,7 +7529,7 @@ sw.bb3054:                                        ; preds = %sw.default3058
 
 s_n_llhttp__internal__n_invoke_test_flags:        ; preds = %s_n_llhttp__internal__n_invoke_test_lenient_flags_7, %sw.bb342
   %p.addr.230 = phi ptr [ %incdec.ptr343, %sw.bb342 ], [ %p.addr.35, %s_n_llhttp__internal__n_invoke_test_lenient_flags_7 ]
-  %flags.i4133 = getelementptr inbounds %struct.llhttp__internal_s, ptr %state, i64 0, i32 17
+  %flags.i4133 = getelementptr inbounds i8, ptr %state, i64 80
   %712 = load i16, ptr %flags.i4133, align 8
   %713 = and i16 %712, 128
   %cond12.not = icmp eq i16 %713, 0
@@ -7550,27 +7548,27 @@ sw.default3058:                                   ; preds = %s_n_llhttp__interna
   br i1 %cmp.i4137.not, label %sw.bb3054, label %s_n_llhttp__internal__n_invoke_llhttp__before_headers_complete
 
 s_n_llhttp__internal__n_invoke_test_lenient_flags_7: ; preds = %if.end340
-  %lenient_flags.i4139 = getelementptr inbounds %struct.llhttp__internal_s, ptr %state, i64 0, i32 14
+  %lenient_flags.i4139 = getelementptr inbounds i8, ptr %state, i64 77
   %715 = load i8, ptr %lenient_flags.i4139, align 1
   %716 = and i8 %715, 64
   %cond11.not = icmp eq i8 %716, 0
   br i1 %cond11.not, label %sw.default3065, label %s_n_llhttp__internal__n_invoke_test_flags
 
 sw.default3065:                                   ; preds = %s_n_llhttp__internal__n_invoke_test_lenient_flags_7
-  %error3059 = getelementptr inbounds %struct.llhttp__internal_s, ptr %state, i64 0, i32 3
+  %error3059 = getelementptr inbounds i8, ptr %state, i64 24
   store i32 2, ptr %error3059, align 8
-  %reason3060 = getelementptr inbounds %struct.llhttp__internal_s, ptr %state, i64 0, i32 4
+  %reason3060 = getelementptr inbounds i8, ptr %state, i64 32
   store ptr @.str.48, ptr %reason3060, align 8
-  %error_pos3061 = getelementptr inbounds %struct.llhttp__internal_s, ptr %state, i64 0, i32 5
+  %error_pos3061 = getelementptr inbounds i8, ptr %state, i64 40
   store ptr %p.addr.35, ptr %error_pos3061, align 8
   store ptr null, ptr %_current, align 8
   br label %return
 
 if.then3073:                                      ; preds = %sw.default3082
-  %error3074 = getelementptr inbounds %struct.llhttp__internal_s, ptr %state, i64 0, i32 3
+  %error3074 = getelementptr inbounds i8, ptr %state, i64 24
   store i32 %call3070, ptr %error3074, align 8
   %add.ptr3075 = getelementptr inbounds i8, ptr %p.addr.68, i64 1
-  %error_pos3076 = getelementptr inbounds %struct.llhttp__internal_s, ptr %state, i64 0, i32 5
+  %error_pos3076 = getelementptr inbounds i8, ptr %state, i64 40
   store ptr %add.ptr3075, ptr %error_pos3076, align 8
   store ptr inttoptr (i64 35 to ptr), ptr %_current, align 8
   br label %return
@@ -7580,7 +7578,7 @@ if.end3078:                                       ; preds = %sw.default3082
   br label %s_n_llhttp__internal__n_error_5
 
 s_n_llhttp__internal__n_invoke_test_lenient_flags_8: ; preds = %if.end692
-  %lenient_flags.i4142 = getelementptr inbounds %struct.llhttp__internal_s, ptr %state, i64 0, i32 14
+  %lenient_flags.i4142 = getelementptr inbounds i8, ptr %state, i64 77
   %717 = load i8, ptr %lenient_flags.i4142, align 1
   %718 = and i8 %717, 1
   %cond44.not = icmp eq i8 %718, 0
@@ -7592,7 +7590,7 @@ s_n_llhttp__internal__n_header_field_colon_discard_ws.preheader: ; preds = %entr
   br i1 %cmp3465272, label %return, label %if.end349
 
 sw.default3082:                                   ; preds = %s_n_llhttp__internal__n_invoke_test_lenient_flags_8
-  %_span_pos03068 = getelementptr inbounds %struct.llhttp__internal_s, ptr %state, i64 0, i32 1
+  %_span_pos03068 = getelementptr inbounds i8, ptr %state, i64 8
   %719 = load ptr, ptr %_span_pos03068, align 8
   store ptr null, ptr %_span_pos03068, align 8
   %call3070 = tail call i32 @llhttp__on_header_field(ptr noundef nonnull %state, ptr noundef %719, ptr noundef nonnull %p.addr.68) #8
@@ -7601,7 +7599,7 @@ sw.default3082:                                   ; preds = %s_n_llhttp__interna
 
 s_n_llhttp__internal__n_invoke_test_lenient_flags_10: ; preds = %if.end370, %if.end370
   %p.addr.231 = getelementptr inbounds i8, ptr %p.addr.39, i64 1
-  %lenient_flags.i4144 = getelementptr inbounds %struct.llhttp__internal_s, ptr %state, i64 0, i32 14
+  %lenient_flags.i4144 = getelementptr inbounds i8, ptr %state, i64 77
   %720 = load i8, ptr %lenient_flags.i4144, align 1
   %721 = and i8 %720, 1
   %cond29.not = icmp eq i8 %721, 0
@@ -7613,46 +7611,46 @@ s_n_llhttp__internal__n_header_value_discard_ws.preheader: ; preds = %entry, %s_
   br i1 %cmp6505276, label %return, label %if.end653
 
 sw.default3089:                                   ; preds = %s_n_llhttp__internal__n_invoke_test_lenient_flags_10
-  %error3083 = getelementptr inbounds %struct.llhttp__internal_s, ptr %state, i64 0, i32 3
+  %error3083 = getelementptr inbounds i8, ptr %state, i64 24
   store i32 10, ptr %error3083, align 8
-  %reason3084 = getelementptr inbounds %struct.llhttp__internal_s, ptr %state, i64 0, i32 4
+  %reason3084 = getelementptr inbounds i8, ptr %state, i64 32
   store ptr @.str.7, ptr %reason3084, align 8
-  %error_pos3085 = getelementptr inbounds %struct.llhttp__internal_s, ptr %state, i64 0, i32 5
+  %error_pos3085 = getelementptr inbounds i8, ptr %state, i64 40
   store ptr %p.addr.231, ptr %error_pos3085, align 8
   store ptr null, ptr %_current, align 8
   br label %return
 
 s_n_llhttp__internal__n_pause_14:                 ; preds = %s_n_llhttp__internal__n_invoke_llhttp__on_header_value_complete
-  %error3094 = getelementptr inbounds %struct.llhttp__internal_s, ptr %state, i64 0, i32 3
+  %error3094 = getelementptr inbounds i8, ptr %state, i64 24
   store i32 21, ptr %error3094, align 8
-  %reason3095 = getelementptr inbounds %struct.llhttp__internal_s, ptr %state, i64 0, i32 4
+  %reason3095 = getelementptr inbounds i8, ptr %state, i64 32
   store ptr @.str.50, ptr %reason3095, align 8
-  %error_pos3096 = getelementptr inbounds %struct.llhttp__internal_s, ptr %state, i64 0, i32 5
+  %error_pos3096 = getelementptr inbounds i8, ptr %state, i64 40
   store ptr %p.addr.37, ptr %error_pos3096, align 8
   store ptr inttoptr (i64 79 to ptr), ptr %_current, align 8
   br label %return
 
 s_n_llhttp__internal__n_error_37:                 ; preds = %s_n_llhttp__internal__n_invoke_llhttp__on_header_value_complete
-  %error3098 = getelementptr inbounds %struct.llhttp__internal_s, ptr %state, i64 0, i32 3
+  %error3098 = getelementptr inbounds i8, ptr %state, i64 24
   store i32 29, ptr %error3098, align 8
-  %reason3099 = getelementptr inbounds %struct.llhttp__internal_s, ptr %state, i64 0, i32 4
+  %reason3099 = getelementptr inbounds i8, ptr %state, i64 32
   store ptr @.str.51, ptr %reason3099, align 8
-  %error_pos3100 = getelementptr inbounds %struct.llhttp__internal_s, ptr %state, i64 0, i32 5
+  %error_pos3100 = getelementptr inbounds i8, ptr %state, i64 40
   store ptr %p.addr.37, ptr %error_pos3100, align 8
   store ptr null, ptr %_current, align 8
   br label %return
 
 if.then3109:                                      ; preds = %if.end363
-  %error3110 = getelementptr inbounds %struct.llhttp__internal_s, ptr %state, i64 0, i32 3
+  %error3110 = getelementptr inbounds i8, ptr %state, i64 24
   store i32 %call3106, ptr %error3110, align 8
-  %error_pos3111 = getelementptr inbounds %struct.llhttp__internal_s, ptr %state, i64 0, i32 5
+  %error_pos3111 = getelementptr inbounds i8, ptr %state, i64 40
   store ptr %p.addr.38, ptr %error_pos3111, align 8
   store ptr inttoptr (i64 38 to ptr), ptr %_current, align 8
   br label %return
 
 s_n_llhttp__internal__n_invoke_update_header_state: ; preds = %s_n_llhttp__internal__n_invoke_load_header_state, %sw.bb3127, %sw.bb3126
   %.sink5727 = phi i16 [ 4, %sw.bb3127 ], [ 2, %sw.bb3126 ], [ 1, %s_n_llhttp__internal__n_invoke_load_header_state ]
-  %flags.i4149 = getelementptr inbounds %struct.llhttp__internal_s, ptr %state, i64 0, i32 17
+  %flags.i4149 = getelementptr inbounds i8, ptr %state, i64 80
   %722 = load i16, ptr %flags.i4149, align 8
   %723 = or i16 %722, %.sink5727
   store i16 %723, ptr %flags.i4149, align 8
@@ -7666,14 +7664,14 @@ sw.bb3127:                                        ; preds = %s_n_llhttp__interna
   br label %s_n_llhttp__internal__n_invoke_update_header_state
 
 sw.bb3128:                                        ; preds = %s_n_llhttp__internal__n_invoke_load_header_state
-  %flags.i4150 = getelementptr inbounds %struct.llhttp__internal_s, ptr %state, i64 0, i32 17
+  %flags.i4150 = getelementptr inbounds i8, ptr %state, i64 80
   %724 = load i16, ptr %flags.i4150, align 8
   %725 = or i16 %724, 8
   store i16 %725, ptr %flags.i4150, align 8
   br label %s_n_llhttp__internal__n_span_start_llhttp__on_header_value
 
 s_n_llhttp__internal__n_invoke_load_header_state: ; preds = %if.end370
-  %header_state.i4151 = getelementptr inbounds %struct.llhttp__internal_s, ptr %state, i64 0, i32 13
+  %header_state.i4151 = getelementptr inbounds i8, ptr %state, i64 76
   %726 = load i8, ptr %header_state.i4151, align 4
   switch i8 %726, label %s_n_llhttp__internal__n_span_start_llhttp__on_header_value [
     i8 2, label %sw.bb3131
@@ -7684,44 +7682,44 @@ s_n_llhttp__internal__n_invoke_load_header_state: ; preds = %if.end370
   ]
 
 sw.bb3131:                                        ; preds = %s_n_llhttp__internal__n_invoke_load_header_state
-  %error3090 = getelementptr inbounds %struct.llhttp__internal_s, ptr %state, i64 0, i32 3
+  %error3090 = getelementptr inbounds i8, ptr %state, i64 24
   store i32 11, ptr %error3090, align 8
-  %reason3091 = getelementptr inbounds %struct.llhttp__internal_s, ptr %state, i64 0, i32 4
+  %reason3091 = getelementptr inbounds i8, ptr %state, i64 32
   store ptr @.str.49, ptr %reason3091, align 8
-  %error_pos3092 = getelementptr inbounds %struct.llhttp__internal_s, ptr %state, i64 0, i32 5
+  %error_pos3092 = getelementptr inbounds i8, ptr %state, i64 40
   store ptr %p.addr.39, ptr %error_pos3092, align 8
   store ptr null, ptr %_current, align 8
   br label %return
 
 sw.default3139:                                   ; preds = %sw.bb657
-  %error3133 = getelementptr inbounds %struct.llhttp__internal_s, ptr %state, i64 0, i32 3
+  %error3133 = getelementptr inbounds i8, ptr %state, i64 24
   store i32 10, ptr %error3133, align 8
-  %reason3134 = getelementptr inbounds %struct.llhttp__internal_s, ptr %state, i64 0, i32 4
+  %reason3134 = getelementptr inbounds i8, ptr %state, i64 32
   store ptr @.str.7, ptr %reason3134, align 8
-  %error_pos3135 = getelementptr inbounds %struct.llhttp__internal_s, ptr %state, i64 0, i32 5
+  %error_pos3135 = getelementptr inbounds i8, ptr %state, i64 40
   store ptr %incdec.ptr658, ptr %error_pos3135, align 8
   store ptr null, ptr %_current, align 8
   br label %return
 
 s_n_llhttp__internal__n_invoke_test_lenient_flags_11: ; preds = %if.end381
-  %lenient_flags.i4155 = getelementptr inbounds %struct.llhttp__internal_s, ptr %state, i64 0, i32 14
+  %lenient_flags.i4155 = getelementptr inbounds i8, ptr %state, i64 77
   %727 = load i8, ptr %lenient_flags.i4155, align 1
   %728 = and i8 %727, 1
   %cond28.not = icmp eq i8 %728, 0
   br i1 %cond28.not, label %sw.default3146, label %s_n_llhttp__internal__n_header_value_discard_lws
 
 sw.default3146:                                   ; preds = %s_n_llhttp__internal__n_invoke_test_lenient_flags_11
-  %error3140 = getelementptr inbounds %struct.llhttp__internal_s, ptr %state, i64 0, i32 3
+  %error3140 = getelementptr inbounds i8, ptr %state, i64 24
   store i32 2, ptr %error3140, align 8
-  %reason3141 = getelementptr inbounds %struct.llhttp__internal_s, ptr %state, i64 0, i32 4
+  %reason3141 = getelementptr inbounds i8, ptr %state, i64 32
   store ptr @.str.52, ptr %reason3141, align 8
-  %error_pos3142 = getelementptr inbounds %struct.llhttp__internal_s, ptr %state, i64 0, i32 5
+  %error_pos3142 = getelementptr inbounds i8, ptr %state, i64 40
   store ptr %p.addr.40, ptr %error_pos3142, align 8
   store ptr null, ptr %_current, align 8
   br label %return
 
 s_n_llhttp__internal__n_invoke_load_header_state_3: ; preds = %if.end390, %if.end390
-  %header_state.i4157 = getelementptr inbounds %struct.llhttp__internal_s, ptr %state, i64 0, i32 13
+  %header_state.i4157 = getelementptr inbounds i8, ptr %state, i64 76
   %729 = load i8, ptr %header_state.i4157, align 4
   %cond36 = icmp eq i8 %729, 8
   br i1 %cond36, label %sw.bb3150, label %s_n_llhttp__internal__n_span_start_llhttp__on_header_value_1
@@ -7732,7 +7730,7 @@ sw.bb3150:                                        ; preds = %s_n_llhttp__interna
 
 s_n_llhttp__internal__n_invoke_update_header_state_2: ; preds = %s_n_llhttp__internal__n_invoke_load_header_state_4, %sw.bb3165, %sw.bb3164
   %.sink5731 = phi i16 [ 4, %sw.bb3165 ], [ 2, %sw.bb3164 ], [ 1, %s_n_llhttp__internal__n_invoke_load_header_state_4 ]
-  %flags.i4165 = getelementptr inbounds %struct.llhttp__internal_s, ptr %state, i64 0, i32 17
+  %flags.i4165 = getelementptr inbounds i8, ptr %state, i64 80
   %730 = load i16, ptr %flags.i4165, align 8
   %731 = or i16 %730, %.sink5731
   store i16 %731, ptr %flags.i4165, align 8
@@ -7740,7 +7738,7 @@ s_n_llhttp__internal__n_invoke_update_header_state_2: ; preds = %s_n_llhttp__int
   br label %s_n_llhttp__internal__n_invoke_llhttp__on_header_value_complete
 
 s_n_llhttp__internal__n_invoke_load_header_state_4: ; preds = %if.end390
-  %header_state.i4161 = getelementptr inbounds %struct.llhttp__internal_s, ptr %state, i64 0, i32 13
+  %header_state.i4161 = getelementptr inbounds i8, ptr %state, i64 76
   %732 = load i8, ptr %header_state.i4161, align 4
   switch i8 %732, label %s_n_llhttp__internal__n_invoke_llhttp__on_header_value_complete [
     i8 5, label %s_n_llhttp__internal__n_invoke_update_header_state_2
@@ -7756,24 +7754,24 @@ sw.bb3165:                                        ; preds = %s_n_llhttp__interna
   br label %s_n_llhttp__internal__n_invoke_update_header_state_2
 
 sw.bb3166:                                        ; preds = %s_n_llhttp__internal__n_invoke_load_header_state_4
-  %flags.i4166 = getelementptr inbounds %struct.llhttp__internal_s, ptr %state, i64 0, i32 17
+  %flags.i4166 = getelementptr inbounds i8, ptr %state, i64 80
   %733 = load i16, ptr %flags.i4166, align 8
   %734 = or i16 %733, 8
   store i16 %734, ptr %flags.i4166, align 8
   br label %s_n_llhttp__internal__n_invoke_llhttp__on_header_value_complete
 
 s_n_llhttp__internal__n_error_40:                 ; preds = %if.end399
-  %error3168 = getelementptr inbounds %struct.llhttp__internal_s, ptr %state, i64 0, i32 3
+  %error3168 = getelementptr inbounds i8, ptr %state, i64 24
   store i32 3, ptr %error3168, align 8
-  %reason3169 = getelementptr inbounds %struct.llhttp__internal_s, ptr %state, i64 0, i32 4
+  %reason3169 = getelementptr inbounds i8, ptr %state, i64 32
   store ptr @.str.53, ptr %reason3169, align 8
-  %error_pos3170 = getelementptr inbounds %struct.llhttp__internal_s, ptr %state, i64 0, i32 5
+  %error_pos3170 = getelementptr inbounds i8, ptr %state, i64 40
   store ptr %p.addr.42, ptr %error_pos3170, align 8
   store ptr null, ptr %_current, align 8
   br label %return
 
 s_n_llhttp__internal__n_span_end_llhttp__on_header_value_1: ; preds = %if.end423
-  %_span_pos03174 = getelementptr inbounds %struct.llhttp__internal_s, ptr %state, i64 0, i32 1
+  %_span_pos03174 = getelementptr inbounds i8, ptr %state, i64 8
   %735 = load ptr, ptr %_span_pos03174, align 8
   store ptr null, ptr %_span_pos03174, align 8
   %call3176 = tail call i32 @llhttp__on_header_value(ptr noundef %state, ptr noundef %735, ptr noundef nonnull %p.addr.45) #8
@@ -7781,10 +7779,10 @@ s_n_llhttp__internal__n_span_end_llhttp__on_header_value_1: ; preds = %if.end423
   br i1 %cmp3177.not, label %if.end3184, label %if.then3179
 
 if.then3179:                                      ; preds = %s_n_llhttp__internal__n_span_end_llhttp__on_header_value_1
-  %error3180 = getelementptr inbounds %struct.llhttp__internal_s, ptr %state, i64 0, i32 3
+  %error3180 = getelementptr inbounds i8, ptr %state, i64 24
   store i32 %call3176, ptr %error3180, align 8
   %add.ptr3181 = getelementptr inbounds i8, ptr %p.addr.45, i64 1
-  %error_pos3182 = getelementptr inbounds %struct.llhttp__internal_s, ptr %state, i64 0, i32 5
+  %error_pos3182 = getelementptr inbounds i8, ptr %state, i64 40
   store ptr %add.ptr3181, ptr %error_pos3182, align 8
   store ptr inttoptr (i64 43 to ptr), ptr %_current, align 8
   br label %return
@@ -7794,7 +7792,7 @@ if.end3184:                                       ; preds = %s_n_llhttp__interna
   br label %s_n_llhttp__internal__n_header_value_almost_done
 
 s_n_llhttp__internal__n_span_end_llhttp__on_header_value_3: ; preds = %if.end408
-  %_span_pos03188 = getelementptr inbounds %struct.llhttp__internal_s, ptr %state, i64 0, i32 1
+  %_span_pos03188 = getelementptr inbounds i8, ptr %state, i64 8
   %736 = load ptr, ptr %_span_pos03188, align 8
   store ptr null, ptr %_span_pos03188, align 8
   %call3190 = tail call i32 @llhttp__on_header_value(ptr noundef %state, ptr noundef %736, ptr noundef nonnull %p.addr.435297) #8
@@ -7802,15 +7800,15 @@ s_n_llhttp__internal__n_span_end_llhttp__on_header_value_3: ; preds = %if.end408
   br i1 %cmp3191.not, label %s_n_llhttp__internal__n_header_value_almost_done, label %if.then3193
 
 if.then3193:                                      ; preds = %s_n_llhttp__internal__n_span_end_llhttp__on_header_value_3
-  %error3194 = getelementptr inbounds %struct.llhttp__internal_s, ptr %state, i64 0, i32 3
+  %error3194 = getelementptr inbounds i8, ptr %state, i64 24
   store i32 %call3190, ptr %error3194, align 8
-  %error_pos3195 = getelementptr inbounds %struct.llhttp__internal_s, ptr %state, i64 0, i32 5
+  %error_pos3195 = getelementptr inbounds i8, ptr %state, i64 40
   store ptr %p.addr.435297, ptr %error_pos3195, align 8
   store ptr inttoptr (i64 43 to ptr), ptr %_current, align 8
   br label %return
 
 s_n_llhttp__internal__n_span_end_llhttp__on_header_value_4: ; preds = %if.end408
-  %_span_pos03200 = getelementptr inbounds %struct.llhttp__internal_s, ptr %state, i64 0, i32 1
+  %_span_pos03200 = getelementptr inbounds i8, ptr %state, i64 8
   %737 = load ptr, ptr %_span_pos03200, align 8
   store ptr null, ptr %_span_pos03200, align 8
   %call3202 = tail call i32 @llhttp__on_header_value(ptr noundef %state, ptr noundef %737, ptr noundef nonnull %p.addr.435297) #8
@@ -7818,10 +7816,10 @@ s_n_llhttp__internal__n_span_end_llhttp__on_header_value_4: ; preds = %if.end408
   br i1 %cmp3203.not, label %if.end3210, label %if.then3205
 
 if.then3205:                                      ; preds = %s_n_llhttp__internal__n_span_end_llhttp__on_header_value_4
-  %error3206 = getelementptr inbounds %struct.llhttp__internal_s, ptr %state, i64 0, i32 3
+  %error3206 = getelementptr inbounds i8, ptr %state, i64 24
   store i32 %call3202, ptr %error3206, align 8
   %add.ptr3207 = getelementptr inbounds i8, ptr %p.addr.435297, i64 1
-  %error_pos3208 = getelementptr inbounds %struct.llhttp__internal_s, ptr %state, i64 0, i32 5
+  %error_pos3208 = getelementptr inbounds i8, ptr %state, i64 40
   store ptr %add.ptr3207, ptr %error_pos3208, align 8
   store ptr inttoptr (i64 43 to ptr), ptr %_current, align 8
   br label %return
@@ -7831,15 +7829,15 @@ if.end3210:                                       ; preds = %s_n_llhttp__interna
   br label %s_n_llhttp__internal__n_header_value_almost_done
 
 if.then3219:                                      ; preds = %sw.default3226
-  %error3220 = getelementptr inbounds %struct.llhttp__internal_s, ptr %state, i64 0, i32 3
+  %error3220 = getelementptr inbounds i8, ptr %state, i64 24
   store i32 %call3216, ptr %error3220, align 8
-  %error_pos3221 = getelementptr inbounds %struct.llhttp__internal_s, ptr %state, i64 0, i32 5
+  %error_pos3221 = getelementptr inbounds i8, ptr %state, i64 40
   store ptr %p.addr.45, ptr %error_pos3221, align 8
   store ptr inttoptr (i64 45 to ptr), ptr %_current, align 8
   br label %return
 
 s_n_llhttp__internal__n_invoke_test_lenient_flags_12: ; preds = %if.end423
-  %lenient_flags.i4167 = getelementptr inbounds %struct.llhttp__internal_s, ptr %state, i64 0, i32 14
+  %lenient_flags.i4167 = getelementptr inbounds i8, ptr %state, i64 77
   %738 = load i8, ptr %lenient_flags.i4167, align 1
   %739 = and i8 %738, 1
   %cond34.not = icmp eq i8 %739, 0
@@ -7851,7 +7849,7 @@ s_n_llhttp__internal__n_header_value_lenient.preheader: ; preds = %entry, %s_n_l
   br i1 %cmp4055296, label %return, label %if.end408
 
 sw.default3226:                                   ; preds = %s_n_llhttp__internal__n_invoke_test_lenient_flags_12
-  %_span_pos03214 = getelementptr inbounds %struct.llhttp__internal_s, ptr %state, i64 0, i32 1
+  %_span_pos03214 = getelementptr inbounds i8, ptr %state, i64 8
   %740 = load ptr, ptr %_span_pos03214, align 8
   store ptr null, ptr %_span_pos03214, align 8
   %call3216 = tail call i32 @llhttp__on_header_value(ptr noundef nonnull %state, ptr noundef %740, ptr noundef nonnull %p.addr.45) #8
@@ -7860,7 +7858,7 @@ sw.default3226:                                   ; preds = %s_n_llhttp__interna
 
 s_n_llhttp__internal__n_invoke_update_header_state_4: ; preds = %sw.bb450, %sw.bb3240, %sw.bb3239
   %.sink5735 = phi i16 [ 4, %sw.bb3240 ], [ 2, %sw.bb3239 ], [ 1, %sw.bb450 ]
-  %flags.i4172 = getelementptr inbounds %struct.llhttp__internal_s, ptr %state, i64 0, i32 17
+  %flags.i4172 = getelementptr inbounds i8, ptr %state, i64 80
   %741 = load i16, ptr %flags.i4172, align 8
   %742 = or i16 %741, %.sink5735
   store i16 %742, ptr %flags.i4172, align 8
@@ -7874,21 +7872,21 @@ sw.bb3240:                                        ; preds = %sw.bb450
   br label %s_n_llhttp__internal__n_invoke_update_header_state_4
 
 sw.bb3241:                                        ; preds = %sw.bb450
-  %flags.i4173 = getelementptr inbounds %struct.llhttp__internal_s, ptr %state, i64 0, i32 17
+  %flags.i4173 = getelementptr inbounds i8, ptr %state, i64 80
   %743 = load i16, ptr %flags.i4173, align 8
   %744 = or i16 %743, 8
   store i16 %744, ptr %flags.i4173, align 8
   br label %s_n_llhttp__internal__n_header_value_connection.preheader
 
 s_n_llhttp__internal__n_invoke_update_header_state_5: ; preds = %if.end444
-  %header_state.i4174 = getelementptr inbounds %struct.llhttp__internal_s, ptr %state, i64 0, i32 13
+  %header_state.i4174 = getelementptr inbounds i8, ptr %state, i64 76
   store i8 0, ptr %header_state.i4174, align 4
   br label %s_n_llhttp__internal__n_header_value_connection_token.preheader
 
 if.then3258:                                      ; preds = %sw.bb3264
-  %error3259 = getelementptr inbounds %struct.llhttp__internal_s, ptr %state, i64 0, i32 3
+  %error3259 = getelementptr inbounds i8, ptr %state, i64 24
   store i32 %call3255, ptr %error3259, align 8
-  %error_pos3260 = getelementptr inbounds %struct.llhttp__internal_s, ptr %state, i64 0, i32 5
+  %error_pos3260 = getelementptr inbounds i8, ptr %state, i64 40
   store ptr %p.addr.232, ptr %error_pos3260, align 8
   store ptr inttoptr (i64 53 to ptr), ptr %_current, align 8
   br label %return
@@ -7914,7 +7912,7 @@ llhttp__internal__c_mul_add_content_length_1.exit: ; preds = %if.end.i4177
   br i1 %cmp544, label %return, label %if.end547
 
 sw.bb3264:                                        ; preds = %switch.lookup, %if.end.i4177
-  %_span_pos03253 = getelementptr inbounds %struct.llhttp__internal_s, ptr %state, i64 0, i32 1
+  %_span_pos03253 = getelementptr inbounds i8, ptr %state, i64 8
   %746 = load ptr, ptr %_span_pos03253, align 8
   store ptr null, ptr %_span_pos03253, align 8
   %call3255 = tail call i32 @llhttp__on_header_value(ptr noundef nonnull %state, ptr noundef %746, ptr noundef nonnull %p.addr.232) #8
@@ -7922,14 +7920,14 @@ sw.bb3264:                                        ; preds = %switch.lookup, %if.
   br i1 %cmp3256.not, label %s_n_llhttp__internal__n_error_43, label %if.then3258
 
 s_n_llhttp__internal__n_invoke_or_flags_15:       ; preds = %if.end536, %if.end536
-  %flags.i4186 = getelementptr inbounds %struct.llhttp__internal_s, ptr %state, i64 0, i32 17
+  %flags.i4186 = getelementptr inbounds i8, ptr %state, i64 80
   %747 = load i16, ptr %flags.i4186, align 8
   %748 = or i16 %747, 32
   store i16 %748, ptr %flags.i4186, align 8
   br label %s_n_llhttp__internal__n_header_value_otherwise
 
 s_n_llhttp__internal__n_span_end_llhttp__on_header_value_6: ; preds = %if.end536
-  %_span_pos03270 = getelementptr inbounds %struct.llhttp__internal_s, ptr %state, i64 0, i32 1
+  %_span_pos03270 = getelementptr inbounds i8, ptr %state, i64 8
   %749 = load ptr, ptr %_span_pos03270, align 8
   store ptr null, ptr %_span_pos03270, align 8
   %call3272 = tail call i32 @llhttp__on_header_value(ptr noundef %state, ptr noundef %749, ptr noundef nonnull %p.addr.545287) #8
@@ -7937,28 +7935,28 @@ s_n_llhttp__internal__n_span_end_llhttp__on_header_value_6: ; preds = %if.end536
   br i1 %cmp3273.not, label %s_n_llhttp__internal__n_error_44, label %if.then3275
 
 if.then3275:                                      ; preds = %s_n_llhttp__internal__n_span_end_llhttp__on_header_value_6
-  %error3276 = getelementptr inbounds %struct.llhttp__internal_s, ptr %state, i64 0, i32 3
+  %error3276 = getelementptr inbounds i8, ptr %state, i64 24
   store i32 %call3272, ptr %error3276, align 8
-  %error_pos3277 = getelementptr inbounds %struct.llhttp__internal_s, ptr %state, i64 0, i32 5
+  %error_pos3277 = getelementptr inbounds i8, ptr %state, i64 40
   store ptr %p.addr.545287, ptr %error_pos3277, align 8
   store ptr inttoptr (i64 54 to ptr), ptr %_current, align 8
   br label %return
 
 sw.default3286:                                   ; preds = %sw.bb3344
-  %error3280 = getelementptr inbounds %struct.llhttp__internal_s, ptr %state, i64 0, i32 3
+  %error3280 = getelementptr inbounds i8, ptr %state, i64 24
   store i32 4, ptr %error3280, align 8
-  %reason3281 = getelementptr inbounds %struct.llhttp__internal_s, ptr %state, i64 0, i32 4
+  %reason3281 = getelementptr inbounds i8, ptr %state, i64 32
   store ptr @.str.54, ptr %reason3281, align 8
-  %error_pos3282 = getelementptr inbounds %struct.llhttp__internal_s, ptr %state, i64 0, i32 5
+  %error_pos3282 = getelementptr inbounds i8, ptr %state, i64 40
   store ptr %p.addr.63, ptr %error_pos3282, align 8
   store ptr null, ptr %_current, align 8
   br label %return
 
 if.then3294:                                      ; preds = %sw.bb3330
-  %error3295 = getelementptr inbounds %struct.llhttp__internal_s, ptr %state, i64 0, i32 3
+  %error3295 = getelementptr inbounds i8, ptr %state, i64 24
   store i32 %call3291, ptr %error3295, align 8
   %add.ptr3296 = getelementptr inbounds i8, ptr %p.addr.63, i64 1
-  %error_pos3297 = getelementptr inbounds %struct.llhttp__internal_s, ptr %state, i64 0, i32 5
+  %error_pos3297 = getelementptr inbounds i8, ptr %state, i64 40
   store ptr %add.ptr3296, ptr %error_pos3297, align 8
   store ptr inttoptr (i64 57 to ptr), ptr %_current, align 8
   br label %return
@@ -7968,15 +7966,15 @@ if.end3299:                                       ; preds = %sw.bb3330
   br label %s_n_llhttp__internal__n_error_46
 
 s_n_llhttp__internal__n_invoke_update_header_state_8: ; preds = %if.end619, %if.end619
-  %header_state.i4187 = getelementptr inbounds %struct.llhttp__internal_s, ptr %state, i64 0, i32 13
+  %header_state.i4187 = getelementptr inbounds i8, ptr %state, i64 76
   store i8 8, ptr %header_state.i4187, align 4
   br label %s_n_llhttp__internal__n_header_value_otherwise
 
 if.then3310:                                      ; preds = %sw.bb3318
-  %error3311 = getelementptr inbounds %struct.llhttp__internal_s, ptr %state, i64 0, i32 3
+  %error3311 = getelementptr inbounds i8, ptr %state, i64 24
   store i32 %call3307, ptr %error3311, align 8
   %add.ptr3312 = getelementptr inbounds i8, ptr %p.addr.615279, i64 1
-  %error_pos3313 = getelementptr inbounds %struct.llhttp__internal_s, ptr %state, i64 0, i32 5
+  %error_pos3313 = getelementptr inbounds i8, ptr %state, i64 40
   store ptr %add.ptr3312, ptr %error_pos3313, align 8
   store ptr inttoptr (i64 58 to ptr), ptr %_current, align 8
   br label %return
@@ -7986,7 +7984,7 @@ if.end3315:                                       ; preds = %sw.bb3318
   br label %s_n_llhttp__internal__n_error_45
 
 sw.bb3318:                                        ; preds = %sw.bb3321
-  %_span_pos03305 = getelementptr inbounds %struct.llhttp__internal_s, ptr %state, i64 0, i32 1
+  %_span_pos03305 = getelementptr inbounds i8, ptr %state, i64 8
   %750 = load ptr, ptr %_span_pos03305, align 8
   store ptr null, ptr %_span_pos03305, align 8
   %call3307 = tail call i32 @llhttp__on_header_value(ptr noundef nonnull %state, ptr noundef %750, ptr noundef nonnull %p.addr.615279) #8
@@ -7994,13 +7992,13 @@ sw.bb3318:                                        ; preds = %sw.bb3321
   br i1 %cmp3308.not, label %if.end3315, label %if.then3310
 
 s_n_llhttp__internal__n_invoke_load_type_1:       ; preds = %if.end619
-  %type.i4188 = getelementptr inbounds %struct.llhttp__internal_s, ptr %state, i64 0, i32 9
+  %type.i4188 = getelementptr inbounds i8, ptr %state, i64 72
   %751 = load i8, ptr %type.i4188, align 8
   %cond38 = icmp eq i8 %751, 1
   br i1 %cond38, label %sw.bb3321, label %s_n_llhttp__internal__n_header_value_te_chunked
 
 sw.bb3321:                                        ; preds = %s_n_llhttp__internal__n_invoke_load_type_1
-  %lenient_flags.i4190 = getelementptr inbounds %struct.llhttp__internal_s, ptr %state, i64 0, i32 14
+  %lenient_flags.i4190 = getelementptr inbounds i8, ptr %state, i64 77
   %752 = load i8, ptr %lenient_flags.i4190, align 1
   %753 = and i8 %752, 8
   %cond39 = icmp eq i8 %753, 0
@@ -8008,7 +8006,7 @@ sw.bb3321:                                        ; preds = %s_n_llhttp__interna
 
 s_n_llhttp__internal__n_invoke_update_header_state_9: ; preds = %if.end606, %sw.bb3346
   %p.addr.233 = phi ptr [ %p.addr.63, %sw.bb3346 ], [ %p.addr.605281, %if.end606 ]
-  %header_state.i4193 = getelementptr inbounds %struct.llhttp__internal_s, ptr %state, i64 0, i32 13
+  %header_state.i4193 = getelementptr inbounds i8, ptr %state, i64 76
   store i8 0, ptr %header_state.i4193, align 4
   br label %s_n_llhttp__internal__n_header_value.preheader
 
@@ -8025,20 +8023,20 @@ sw.bb3330:                                        ; preds = %sw.bb3333
   br i1 %cmp3292.not, label %if.end3299, label %if.then3294
 
 sw.bb3333:                                        ; preds = %sw.bb3338
-  %lenient_flags.i4196 = getelementptr inbounds %struct.llhttp__internal_s, ptr %state, i64 0, i32 14
+  %lenient_flags.i4196 = getelementptr inbounds i8, ptr %state, i64 77
   %755 = load i8, ptr %lenient_flags.i4196, align 1
   %756 = and i8 %755, 8
   %cond41 = icmp eq i8 %756, 0
   br i1 %cond41, label %sw.bb3330, label %s_n_llhttp__internal__n_invoke_and_flags
 
 sw.bb3338:                                        ; preds = %sw.bb3345
-  %type.i4199 = getelementptr inbounds %struct.llhttp__internal_s, ptr %state, i64 0, i32 9
+  %type.i4199 = getelementptr inbounds i8, ptr %state, i64 72
   %757 = load i8, ptr %type.i4199, align 8
   %cond40 = icmp eq i8 %757, 1
   br i1 %cond40, label %sw.bb3333, label %s_n_llhttp__internal__n_invoke_and_flags
 
 sw.bb3344:                                        ; preds = %if.end646
-  %flags.i4202 = getelementptr inbounds %struct.llhttp__internal_s, ptr %state, i64 0, i32 17
+  %flags.i4202 = getelementptr inbounds i8, ptr %state, i64 80
   %758 = load i16, ptr %flags.i4202, align 8
   %759 = and i16 %758, 32
   %cond42 = icmp eq i16 %759, 0
@@ -8050,45 +8048,45 @@ s_n_llhttp__internal__n_header_value_content_length.preheader: ; preds = %entry,
   br i1 %cmp5445284, label %return, label %if.end547.lr.ph
 
 if.end547.lr.ph:                                  ; preds = %s_n_llhttp__internal__n_header_value_content_length.preheader
-  %content_length.i4175 = getelementptr inbounds %struct.llhttp__internal_s, ptr %state, i64 0, i32 8
+  %content_length.i4175 = getelementptr inbounds i8, ptr %state, i64 64
   br label %if.end547
 
 sw.bb3345:                                        ; preds = %if.end646
-  %flags.i4205 = getelementptr inbounds %struct.llhttp__internal_s, ptr %state, i64 0, i32 17
+  %flags.i4205 = getelementptr inbounds i8, ptr %state, i64 80
   %760 = load i16, ptr %flags.i4205, align 8
   %761 = and i16 %760, 8
   %cond37.not = icmp eq i16 %761, 0
   br i1 %cond37.not, label %s_n_llhttp__internal__n_invoke_and_flags, label %sw.bb3338
 
 sw.bb3346:                                        ; preds = %if.end646
-  %flags.i4208 = getelementptr inbounds %struct.llhttp__internal_s, ptr %state, i64 0, i32 17
+  %flags.i4208 = getelementptr inbounds i8, ptr %state, i64 80
   %762 = load i16, ptr %flags.i4208, align 8
   %763 = or i16 %762, 16
   store i16 %763, ptr %flags.i4208, align 8
   br label %s_n_llhttp__internal__n_invoke_update_header_state_9
 
 s_n_llhttp__internal__n_pause_15:                 ; preds = %s_n_llhttp__internal__n_invoke_llhttp__on_header_field_complete
-  %error3348 = getelementptr inbounds %struct.llhttp__internal_s, ptr %state, i64 0, i32 3
+  %error3348 = getelementptr inbounds i8, ptr %state, i64 24
   store i32 21, ptr %error3348, align 8
-  %reason3349 = getelementptr inbounds %struct.llhttp__internal_s, ptr %state, i64 0, i32 4
+  %reason3349 = getelementptr inbounds i8, ptr %state, i64 32
   store ptr @.str.55, ptr %reason3349, align 8
-  %error_pos3350 = getelementptr inbounds %struct.llhttp__internal_s, ptr %state, i64 0, i32 5
+  %error_pos3350 = getelementptr inbounds i8, ptr %state, i64 40
   store ptr %p.addr.65, ptr %error_pos3350, align 8
   store ptr inttoptr (i64 65 to ptr), ptr %_current, align 8
   br label %return
 
 s_n_llhttp__internal__n_error_34:                 ; preds = %s_n_llhttp__internal__n_invoke_llhttp__on_header_field_complete
-  %error3352 = getelementptr inbounds %struct.llhttp__internal_s, ptr %state, i64 0, i32 3
+  %error3352 = getelementptr inbounds i8, ptr %state, i64 24
   store i32 28, ptr %error3352, align 8
-  %reason3353 = getelementptr inbounds %struct.llhttp__internal_s, ptr %state, i64 0, i32 4
+  %reason3353 = getelementptr inbounds i8, ptr %state, i64 32
   store ptr @.str.56, ptr %reason3353, align 8
-  %error_pos3354 = getelementptr inbounds %struct.llhttp__internal_s, ptr %state, i64 0, i32 5
+  %error_pos3354 = getelementptr inbounds i8, ptr %state, i64 40
   store ptr %p.addr.65, ptr %error_pos3354, align 8
   store ptr null, ptr %_current, align 8
   br label %return
 
 s_n_llhttp__internal__n_span_end_llhttp__on_header_field_1: ; preds = %if.end692
-  %_span_pos03358 = getelementptr inbounds %struct.llhttp__internal_s, ptr %state, i64 0, i32 1
+  %_span_pos03358 = getelementptr inbounds i8, ptr %state, i64 8
   %764 = load ptr, ptr %_span_pos03358, align 8
   store ptr null, ptr %_span_pos03358, align 8
   %call3360 = tail call i32 @llhttp__on_header_field(ptr noundef %state, ptr noundef %764, ptr noundef nonnull %p.addr.68) #8
@@ -8096,10 +8094,10 @@ s_n_llhttp__internal__n_span_end_llhttp__on_header_field_1: ; preds = %if.end692
   br i1 %cmp3361.not, label %if.end3368, label %if.then3363
 
 if.then3363:                                      ; preds = %s_n_llhttp__internal__n_span_end_llhttp__on_header_field_1
-  %error3364 = getelementptr inbounds %struct.llhttp__internal_s, ptr %state, i64 0, i32 3
+  %error3364 = getelementptr inbounds i8, ptr %state, i64 24
   store i32 %call3360, ptr %error3364, align 8
   %add.ptr3365 = getelementptr inbounds i8, ptr %p.addr.68, i64 1
-  %error_pos3366 = getelementptr inbounds %struct.llhttp__internal_s, ptr %state, i64 0, i32 5
+  %error_pos3366 = getelementptr inbounds i8, ptr %state, i64 40
   store ptr %add.ptr3365, ptr %error_pos3366, align 8
   store ptr inttoptr (i64 66 to ptr), ptr %_current, align 8
   br label %return
@@ -8109,7 +8107,7 @@ if.end3368:                                       ; preds = %s_n_llhttp__interna
   br label %s_n_llhttp__internal__n_invoke_llhttp__on_header_field_complete
 
 s_n_llhttp__internal__n_span_end_llhttp__on_header_field_2: ; preds = %if.end673
-  %_span_pos03372 = getelementptr inbounds %struct.llhttp__internal_s, ptr %state, i64 0, i32 1
+  %_span_pos03372 = getelementptr inbounds i8, ptr %state, i64 8
   %765 = load ptr, ptr %_span_pos03372, align 8
   store ptr null, ptr %_span_pos03372, align 8
   %call3374 = tail call i32 @llhttp__on_header_field(ptr noundef %state, ptr noundef %765, ptr noundef nonnull %p.addr.66) #8
@@ -8117,10 +8115,10 @@ s_n_llhttp__internal__n_span_end_llhttp__on_header_field_2: ; preds = %if.end673
   br i1 %cmp3375.not, label %if.end3382, label %if.then3377
 
 if.then3377:                                      ; preds = %s_n_llhttp__internal__n_span_end_llhttp__on_header_field_2
-  %error3378 = getelementptr inbounds %struct.llhttp__internal_s, ptr %state, i64 0, i32 3
+  %error3378 = getelementptr inbounds i8, ptr %state, i64 24
   store i32 %call3374, ptr %error3378, align 8
   %add.ptr3379 = getelementptr inbounds i8, ptr %p.addr.66, i64 1
-  %error_pos3380 = getelementptr inbounds %struct.llhttp__internal_s, ptr %state, i64 0, i32 5
+  %error_pos3380 = getelementptr inbounds i8, ptr %state, i64 40
   store ptr %add.ptr3379, ptr %error_pos3380, align 8
   store ptr inttoptr (i64 66 to ptr), ptr %_current, align 8
   br label %return
@@ -8130,11 +8128,11 @@ if.end3382:                                       ; preds = %s_n_llhttp__interna
   br label %s_n_llhttp__internal__n_invoke_llhttp__on_header_field_complete
 
 s_n_llhttp__internal__n_error_47:                 ; preds = %if.end673
-  %error3384 = getelementptr inbounds %struct.llhttp__internal_s, ptr %state, i64 0, i32 3
+  %error3384 = getelementptr inbounds i8, ptr %state, i64 24
   store i32 10, ptr %error3384, align 8
-  %reason3385 = getelementptr inbounds %struct.llhttp__internal_s, ptr %state, i64 0, i32 4
+  %reason3385 = getelementptr inbounds i8, ptr %state, i64 32
   store ptr @.str.57, ptr %reason3385, align 8
-  %error_pos3386 = getelementptr inbounds %struct.llhttp__internal_s, ptr %state, i64 0, i32 5
+  %error_pos3386 = getelementptr inbounds i8, ptr %state, i64 40
   store ptr %p.addr.66, ptr %error_pos3386, align 8
   store ptr null, ptr %_current, align 8
   br label %return
@@ -8144,7 +8142,7 @@ s_n_llhttp__internal__n_invoke_store_header_state: ; preds = %if.then.i2985, %if
   %match.2 = phi i8 [ 1, %if.then.i2855 ], [ 2, %if.then.i2881 ], [ 1, %if.then.i2933 ], [ 3, %if.then.i2959 ], [ 4, %if.then.i2985 ]
   store i32 0, ptr %state, align 8
   %incdec.ptr807 = getelementptr inbounds i8, ptr %scevgep25.i2971.sink, i64 1
-  %header_state.i4211 = getelementptr inbounds %struct.llhttp__internal_s, ptr %state, i64 0, i32 13
+  %header_state.i4211 = getelementptr inbounds i8, ptr %state, i64 76
   store i8 %match.2, ptr %header_state.i4211, align 4
   br label %s_n_llhttp__internal__n_header_field_colon
 
@@ -8154,39 +8152,39 @@ s_n_llhttp__internal__n_invoke_update_header_state_11.sink.split: ; preds = %for
   br label %s_n_llhttp__internal__n_header_field_general.preheader.sink.split
 
 sw.default3400:                                   ; preds = %sw.bb863
-  %error3394 = getelementptr inbounds %struct.llhttp__internal_s, ptr %state, i64 0, i32 3
+  %error3394 = getelementptr inbounds i8, ptr %state, i64 24
   store i32 30, ptr %error3394, align 8
-  %reason3395 = getelementptr inbounds %struct.llhttp__internal_s, ptr %state, i64 0, i32 4
+  %reason3395 = getelementptr inbounds i8, ptr %state, i64 32
   store ptr @.str.58, ptr %reason3395, align 8
-  %error_pos3396 = getelementptr inbounds %struct.llhttp__internal_s, ptr %state, i64 0, i32 5
+  %error_pos3396 = getelementptr inbounds i8, ptr %state, i64 40
   store ptr %incdec.ptr864, ptr %error_pos3396, align 8
   store ptr null, ptr %_current, align 8
   br label %return
 
 sw.bb3411:                                        ; preds = %s_n_llhttp__internal__n_invoke_update_http_major
-  %error3401 = getelementptr inbounds %struct.llhttp__internal_s, ptr %state, i64 0, i32 3
+  %error3401 = getelementptr inbounds i8, ptr %state, i64 24
   store i32 21, ptr %error3401, align 8
-  %reason3402 = getelementptr inbounds %struct.llhttp__internal_s, ptr %state, i64 0, i32 4
+  %reason3402 = getelementptr inbounds i8, ptr %state, i64 32
   store ptr @.str.59, ptr %reason3402, align 8
-  %error_pos3403 = getelementptr inbounds %struct.llhttp__internal_s, ptr %state, i64 0, i32 5
+  %error_pos3403 = getelementptr inbounds i8, ptr %state, i64 40
   store ptr %p.addr.80, ptr %error_pos3403, align 8
   store ptr inttoptr (i64 80 to ptr), ptr %_current, align 8
   br label %return
 
 sw.default3412:                                   ; preds = %s_n_llhttp__internal__n_invoke_update_http_major
-  %error3405 = getelementptr inbounds %struct.llhttp__internal_s, ptr %state, i64 0, i32 3
+  %error3405 = getelementptr inbounds i8, ptr %state, i64 24
   store i32 26, ptr %error3405, align 8
-  %reason3406 = getelementptr inbounds %struct.llhttp__internal_s, ptr %state, i64 0, i32 4
+  %reason3406 = getelementptr inbounds i8, ptr %state, i64 32
   store ptr @.str.60, ptr %reason3406, align 8
-  %error_pos3407 = getelementptr inbounds %struct.llhttp__internal_s, ptr %state, i64 0, i32 5
+  %error_pos3407 = getelementptr inbounds i8, ptr %state, i64 40
   store ptr %p.addr.80, ptr %error_pos3407, align 8
   store ptr null, ptr %_current, align 8
   br label %return
 
 s_n_llhttp__internal__n_invoke_update_http_major: ; preds = %if.end870
-  %http_major.i = getelementptr inbounds %struct.llhttp__internal_s, ptr %state, i64 0, i32 11
+  %http_major.i = getelementptr inbounds i8, ptr %state, i64 74
   store i8 0, ptr %http_major.i, align 2
-  %http_minor.i = getelementptr inbounds %struct.llhttp__internal_s, ptr %state, i64 0, i32 12
+  %http_minor.i = getelementptr inbounds i8, ptr %state, i64 75
   store i8 9, ptr %http_minor.i, align 1
   %call3409 = tail call i32 @llhttp__on_url_complete(ptr noundef nonnull %state, ptr noundef nonnull %p.addr.80, ptr noundef %endp) #8
   switch i32 %call3409, label %sw.default3412 [
@@ -8195,7 +8193,7 @@ s_n_llhttp__internal__n_invoke_update_http_major: ; preds = %if.end870
   ]
 
 s_n_llhttp__internal__n_span_end_llhttp__on_url_3: ; preds = %if.end1169
-  %_span_pos03419 = getelementptr inbounds %struct.llhttp__internal_s, ptr %state, i64 0, i32 1
+  %_span_pos03419 = getelementptr inbounds i8, ptr %state, i64 8
   %766 = load ptr, ptr %_span_pos03419, align 8
   store ptr null, ptr %_span_pos03419, align 8
   %call3421 = tail call i32 @llhttp__on_url(ptr noundef %state, ptr noundef %766, ptr noundef nonnull %p.addr.106) #8
@@ -8203,26 +8201,26 @@ s_n_llhttp__internal__n_span_end_llhttp__on_url_3: ; preds = %if.end1169
   br i1 %cmp3422.not, label %s_n_llhttp__internal__n_url_skip_to_http09, label %if.then3424
 
 if.then3424:                                      ; preds = %s_n_llhttp__internal__n_span_end_llhttp__on_url_3
-  %error3425 = getelementptr inbounds %struct.llhttp__internal_s, ptr %state, i64 0, i32 3
+  %error3425 = getelementptr inbounds i8, ptr %state, i64 24
   store i32 %call3421, ptr %error3425, align 8
-  %error_pos3426 = getelementptr inbounds %struct.llhttp__internal_s, ptr %state, i64 0, i32 5
+  %error_pos3426 = getelementptr inbounds i8, ptr %state, i64 40
   store ptr %p.addr.106, ptr %error_pos3426, align 8
   store ptr inttoptr (i64 82 to ptr), ptr %_current, align 8
   br label %return
 
 s_n_llhttp__internal__n_error_48:                 ; preds = %if.end902, %if.end893
   %p.addr.236 = phi ptr [ %p.addr.83, %if.end902 ], [ %p.addr.82, %if.end893 ]
-  %error3429 = getelementptr inbounds %struct.llhttp__internal_s, ptr %state, i64 0, i32 3
+  %error3429 = getelementptr inbounds i8, ptr %state, i64 24
   store i32 7, ptr %error3429, align 8
-  %reason3430 = getelementptr inbounds %struct.llhttp__internal_s, ptr %state, i64 0, i32 4
+  %reason3430 = getelementptr inbounds i8, ptr %state, i64 32
   store ptr @.str.61, ptr %reason3430, align 8
-  %error_pos3431 = getelementptr inbounds %struct.llhttp__internal_s, ptr %state, i64 0, i32 5
+  %error_pos3431 = getelementptr inbounds i8, ptr %state, i64 40
   store ptr %p.addr.236, ptr %error_pos3431, align 8
   store ptr null, ptr %_current, align 8
   br label %return
 
 s_n_llhttp__internal__n_span_end_llhttp__on_url_4: ; preds = %if.end1169
-  %_span_pos03435 = getelementptr inbounds %struct.llhttp__internal_s, ptr %state, i64 0, i32 1
+  %_span_pos03435 = getelementptr inbounds i8, ptr %state, i64 8
   %767 = load ptr, ptr %_span_pos03435, align 8
   store ptr null, ptr %_span_pos03435, align 8
   %call3437 = tail call i32 @llhttp__on_url(ptr noundef %state, ptr noundef %767, ptr noundef nonnull %p.addr.106) #8
@@ -8230,72 +8228,72 @@ s_n_llhttp__internal__n_span_end_llhttp__on_url_4: ; preds = %if.end1169
   br i1 %cmp3438.not, label %s_n_llhttp__internal__n_url_skip_lf_to_http09, label %if.then3440
 
 if.then3440:                                      ; preds = %s_n_llhttp__internal__n_span_end_llhttp__on_url_4
-  %error3441 = getelementptr inbounds %struct.llhttp__internal_s, ptr %state, i64 0, i32 3
+  %error3441 = getelementptr inbounds i8, ptr %state, i64 24
   store i32 %call3437, ptr %error3441, align 8
-  %error_pos3442 = getelementptr inbounds %struct.llhttp__internal_s, ptr %state, i64 0, i32 5
+  %error_pos3442 = getelementptr inbounds i8, ptr %state, i64 40
   store ptr %p.addr.106, ptr %error_pos3442, align 8
   store ptr inttoptr (i64 84 to ptr), ptr %_current, align 8
   br label %return
 
 s_n_llhttp__internal__n_error_56:                 ; preds = %if.end916
-  %error3449 = getelementptr inbounds %struct.llhttp__internal_s, ptr %state, i64 0, i32 3
+  %error3449 = getelementptr inbounds i8, ptr %state, i64 24
   store i32 9, ptr %error3449, align 8
-  %reason3450 = getelementptr inbounds %struct.llhttp__internal_s, ptr %state, i64 0, i32 4
+  %reason3450 = getelementptr inbounds i8, ptr %state, i64 32
   store ptr @.str.63, ptr %reason3450, align 8
-  %error_pos3451 = getelementptr inbounds %struct.llhttp__internal_s, ptr %state, i64 0, i32 5
+  %error_pos3451 = getelementptr inbounds i8, ptr %state, i64 40
   store ptr %193, ptr %error_pos3451, align 8
   store ptr null, ptr %_current, align 8
   br label %return
 
 s_n_llhttp__internal__n_invoke_test_lenient_flags_16: ; preds = %if.end930
-  %lenient_flags.i4213 = getelementptr inbounds %struct.llhttp__internal_s, ptr %state, i64 0, i32 14
+  %lenient_flags.i4213 = getelementptr inbounds i8, ptr %state, i64 77
   %768 = load i8, ptr %lenient_flags.i4213, align 1
   %769 = and i8 %768, 64
   %cond59.not = icmp eq i8 %769, 0
   br i1 %cond59.not, label %sw.default3459, label %s_n_llhttp__internal__n_headers_start
 
 sw.default3459:                                   ; preds = %s_n_llhttp__internal__n_invoke_test_lenient_flags_16
-  %error3453 = getelementptr inbounds %struct.llhttp__internal_s, ptr %state, i64 0, i32 3
+  %error3453 = getelementptr inbounds i8, ptr %state, i64 24
   store i32 2, ptr %error3453, align 8
-  %reason3454 = getelementptr inbounds %struct.llhttp__internal_s, ptr %state, i64 0, i32 4
+  %reason3454 = getelementptr inbounds i8, ptr %state, i64 32
   store ptr @.str.64, ptr %reason3454, align 8
-  %error_pos3455 = getelementptr inbounds %struct.llhttp__internal_s, ptr %state, i64 0, i32 5
+  %error_pos3455 = getelementptr inbounds i8, ptr %state, i64 40
   store ptr %p.addr.85, ptr %error_pos3455, align 8
   store ptr null, ptr %_current, align 8
   br label %return
 
 s_n_llhttp__internal__n_error_54:                 ; preds = %if.end939
-  %error3460 = getelementptr inbounds %struct.llhttp__internal_s, ptr %state, i64 0, i32 3
+  %error3460 = getelementptr inbounds i8, ptr %state, i64 24
   store i32 9, ptr %error3460, align 8
-  %reason3461 = getelementptr inbounds %struct.llhttp__internal_s, ptr %state, i64 0, i32 4
+  %reason3461 = getelementptr inbounds i8, ptr %state, i64 32
   store ptr @.str.64, ptr %reason3461, align 8
-  %error_pos3462 = getelementptr inbounds %struct.llhttp__internal_s, ptr %state, i64 0, i32 5
+  %error_pos3462 = getelementptr inbounds i8, ptr %state, i64 40
   store ptr %p.addr.86, ptr %error_pos3462, align 8
   store ptr null, ptr %_current, align 8
   br label %return
 
 s_n_llhttp__internal__n_pause_17:                 ; preds = %s_n_llhttp__internal__n_invoke_llhttp__on_version_complete
-  %error3464 = getelementptr inbounds %struct.llhttp__internal_s, ptr %state, i64 0, i32 3
+  %error3464 = getelementptr inbounds i8, ptr %state, i64 24
   store i32 21, ptr %error3464, align 8
-  %reason3465 = getelementptr inbounds %struct.llhttp__internal_s, ptr %state, i64 0, i32 4
+  %reason3465 = getelementptr inbounds i8, ptr %state, i64 32
   store ptr @.str.65, ptr %reason3465, align 8
-  %error_pos3466 = getelementptr inbounds %struct.llhttp__internal_s, ptr %state, i64 0, i32 5
+  %error_pos3466 = getelementptr inbounds i8, ptr %state, i64 40
   store ptr %p.addr.88, ptr %error_pos3466, align 8
   store ptr inttoptr (i64 88 to ptr), ptr %_current, align 8
   br label %return
 
 s_n_llhttp__internal__n_error_52:                 ; preds = %s_n_llhttp__internal__n_invoke_llhttp__on_version_complete
-  %error3468 = getelementptr inbounds %struct.llhttp__internal_s, ptr %state, i64 0, i32 3
+  %error3468 = getelementptr inbounds i8, ptr %state, i64 24
   store i32 33, ptr %error3468, align 8
-  %reason3469 = getelementptr inbounds %struct.llhttp__internal_s, ptr %state, i64 0, i32 4
+  %reason3469 = getelementptr inbounds i8, ptr %state, i64 32
   store ptr @.str.66, ptr %reason3469, align 8
-  %error_pos3470 = getelementptr inbounds %struct.llhttp__internal_s, ptr %state, i64 0, i32 5
+  %error_pos3470 = getelementptr inbounds i8, ptr %state, i64 40
   store ptr %p.addr.88, ptr %error_pos3470, align 8
   store ptr null, ptr %_current, align 8
   br label %return
 
 s_n_llhttp__internal__n_span_end_llhttp__on_version_1: ; preds = %sw.bb3508, %s_n_llhttp__internal__n_invoke_store_http_minor, %sw.bb3509, %sw.bb3507
-  %_span_pos03474 = getelementptr inbounds %struct.llhttp__internal_s, ptr %state, i64 0, i32 1
+  %_span_pos03474 = getelementptr inbounds i8, ptr %state, i64 8
   %770 = load ptr, ptr %_span_pos03474, align 8
   store ptr null, ptr %_span_pos03474, align 8
   %call3476 = tail call i32 @llhttp__on_version(ptr noundef nonnull %state, ptr noundef %770, ptr noundef nonnull %p.addr.237) #8
@@ -8303,15 +8301,15 @@ s_n_llhttp__internal__n_span_end_llhttp__on_version_1: ; preds = %sw.bb3508, %s_
   br i1 %cmp3477.not, label %s_n_llhttp__internal__n_invoke_llhttp__on_version_complete, label %if.then3479
 
 if.then3479:                                      ; preds = %s_n_llhttp__internal__n_span_end_llhttp__on_version_1
-  %error3480 = getelementptr inbounds %struct.llhttp__internal_s, ptr %state, i64 0, i32 3
+  %error3480 = getelementptr inbounds i8, ptr %state, i64 24
   store i32 %call3476, ptr %error3480, align 8
-  %error_pos3481 = getelementptr inbounds %struct.llhttp__internal_s, ptr %state, i64 0, i32 5
+  %error_pos3481 = getelementptr inbounds i8, ptr %state, i64 40
   store ptr %p.addr.237, ptr %error_pos3481, align 8
   store ptr inttoptr (i64 89 to ptr), ptr %_current, align 8
   br label %return
 
 s_n_llhttp__internal__n_span_end_llhttp__on_version: ; preds = %sw.bb3508, %sw.default3513, %sw.bb3509, %sw.bb3507
-  %_span_pos03486 = getelementptr inbounds %struct.llhttp__internal_s, ptr %state, i64 0, i32 1
+  %_span_pos03486 = getelementptr inbounds i8, ptr %state, i64 8
   %771 = load ptr, ptr %_span_pos03486, align 8
   store ptr null, ptr %_span_pos03486, align 8
   %call3488 = tail call i32 @llhttp__on_version(ptr noundef nonnull %state, ptr noundef %771, ptr noundef nonnull %p.addr.237) #8
@@ -8319,9 +8317,9 @@ s_n_llhttp__internal__n_span_end_llhttp__on_version: ; preds = %sw.bb3508, %sw.d
   br i1 %cmp3489.not, label %s_n_llhttp__internal__n_error_51, label %if.then3491
 
 if.then3491:                                      ; preds = %s_n_llhttp__internal__n_span_end_llhttp__on_version
-  %error3492 = getelementptr inbounds %struct.llhttp__internal_s, ptr %state, i64 0, i32 3
+  %error3492 = getelementptr inbounds i8, ptr %state, i64 24
   store i32 %call3488, ptr %error3492, align 8
-  %error_pos3493 = getelementptr inbounds %struct.llhttp__internal_s, ptr %state, i64 0, i32 5
+  %error_pos3493 = getelementptr inbounds i8, ptr %state, i64 40
   store ptr %p.addr.237, ptr %error_pos3493, align 8
   store ptr inttoptr (i64 90 to ptr), ptr %_current, align 8
   br label %return
@@ -8336,7 +8334,7 @@ sw.bb3509:                                        ; preds = %sw.default3513
   br i1 %cond55, label %s_n_llhttp__internal__n_span_end_llhttp__on_version_1, label %s_n_llhttp__internal__n_span_end_llhttp__on_version
 
 sw.default3513:                                   ; preds = %s_n_llhttp__internal__n_invoke_store_http_minor
-  %http_major.i4222 = getelementptr inbounds %struct.llhttp__internal_s, ptr %state, i64 0, i32 11
+  %http_major.i4222 = getelementptr inbounds i8, ptr %state, i64 74
   %772 = load i8, ptr %http_major.i4222, align 2
   switch i8 %772, label %s_n_llhttp__internal__n_span_end_llhttp__on_version [
     i8 0, label %sw.bb3507
@@ -8350,16 +8348,16 @@ s_n_llhttp__internal__n_invoke_store_http_minor:  ; preds = %if.end967, %sw.bb98
   %cond60 = phi i1 [ true, %sw.bb987 ], [ false, %sw.bb985 ], [ false, %sw.bb983 ], [ false, %sw.bb981 ], [ false, %sw.bb979 ], [ false, %sw.bb977 ], [ false, %sw.bb975 ], [ false, %sw.bb973 ], [ false, %sw.bb971 ], [ false, %if.end967 ]
   %match.3 = phi i8 [ 9, %sw.bb987 ], [ 8, %sw.bb985 ], [ 7, %sw.bb983 ], [ 6, %sw.bb981 ], [ 5, %sw.bb979 ], [ 4, %sw.bb977 ], [ 3, %sw.bb975 ], [ 2, %sw.bb973 ], [ 1, %sw.bb971 ], [ 0, %if.end967 ]
   %p.addr.237 = getelementptr inbounds i8, ptr %p.addr.91, i64 1
-  %http_minor.i4225 = getelementptr inbounds %struct.llhttp__internal_s, ptr %state, i64 0, i32 12
+  %http_minor.i4225 = getelementptr inbounds i8, ptr %state, i64 75
   store i8 %match.3, ptr %http_minor.i4225, align 1
-  %lenient_flags.i4226 = getelementptr inbounds %struct.llhttp__internal_s, ptr %state, i64 0, i32 14
+  %lenient_flags.i4226 = getelementptr inbounds i8, ptr %state, i64 77
   %773 = load i8, ptr %lenient_flags.i4226, align 1
   %774 = and i8 %773, 16
   %cond54.not = icmp eq i8 %774, 0
   br i1 %cond54.not, label %sw.default3513, label %s_n_llhttp__internal__n_span_end_llhttp__on_version_1
 
 s_n_llhttp__internal__n_span_end_llhttp__on_version_2: ; preds = %if.end967
-  %_span_pos03518 = getelementptr inbounds %struct.llhttp__internal_s, ptr %state, i64 0, i32 1
+  %_span_pos03518 = getelementptr inbounds i8, ptr %state, i64 8
   %775 = load ptr, ptr %_span_pos03518, align 8
   store ptr null, ptr %_span_pos03518, align 8
   %call3520 = tail call i32 @llhttp__on_version(ptr noundef nonnull %state, ptr noundef %775, ptr noundef nonnull %p.addr.91) #8
@@ -8367,15 +8365,15 @@ s_n_llhttp__internal__n_span_end_llhttp__on_version_2: ; preds = %if.end967
   br i1 %cmp3521.not, label %s_n_llhttp__internal__n_error_57, label %if.then3523
 
 if.then3523:                                      ; preds = %s_n_llhttp__internal__n_span_end_llhttp__on_version_2
-  %error3524 = getelementptr inbounds %struct.llhttp__internal_s, ptr %state, i64 0, i32 3
+  %error3524 = getelementptr inbounds i8, ptr %state, i64 24
   store i32 %call3520, ptr %error3524, align 8
-  %error_pos3525 = getelementptr inbounds %struct.llhttp__internal_s, ptr %state, i64 0, i32 5
+  %error_pos3525 = getelementptr inbounds i8, ptr %state, i64 40
   store ptr %p.addr.91, ptr %error_pos3525, align 8
   store ptr inttoptr (i64 91 to ptr), ptr %_current, align 8
   br label %return
 
 s_n_llhttp__internal__n_span_end_llhttp__on_version_3: ; preds = %if.end999
-  %_span_pos03530 = getelementptr inbounds %struct.llhttp__internal_s, ptr %state, i64 0, i32 1
+  %_span_pos03530 = getelementptr inbounds i8, ptr %state, i64 8
   %776 = load ptr, ptr %_span_pos03530, align 8
   store ptr null, ptr %_span_pos03530, align 8
   %call3532 = tail call i32 @llhttp__on_version(ptr noundef nonnull %state, ptr noundef %776, ptr noundef nonnull %p.addr.93) #8
@@ -8383,21 +8381,21 @@ s_n_llhttp__internal__n_span_end_llhttp__on_version_3: ; preds = %if.end999
   br i1 %cmp3533.not, label %s_n_llhttp__internal__n_error_58, label %if.then3535
 
 if.then3535:                                      ; preds = %s_n_llhttp__internal__n_span_end_llhttp__on_version_3
-  %error3536 = getelementptr inbounds %struct.llhttp__internal_s, ptr %state, i64 0, i32 3
+  %error3536 = getelementptr inbounds i8, ptr %state, i64 24
   store i32 %call3532, ptr %error3536, align 8
-  %error_pos3537 = getelementptr inbounds %struct.llhttp__internal_s, ptr %state, i64 0, i32 5
+  %error_pos3537 = getelementptr inbounds i8, ptr %state, i64 40
   store ptr %p.addr.93, ptr %error_pos3537, align 8
   store ptr inttoptr (i64 93 to ptr), ptr %_current, align 8
   br label %return
 
 s_n_llhttp__internal__n_invoke_store_http_major:  ; preds = %if.end1013
   %p.addr.238 = getelementptr inbounds i8, ptr %p.addr.95, i64 1
-  %http_major.i4230 = getelementptr inbounds %struct.llhttp__internal_s, ptr %state, i64 0, i32 11
+  %http_major.i4230 = getelementptr inbounds i8, ptr %state, i64 74
   store i8 %switch.tableidx6003, ptr %http_major.i4230, align 2
   br label %s_n_llhttp__internal__n_req_http_dot
 
 s_n_llhttp__internal__n_span_end_llhttp__on_version_4: ; preds = %if.end1013
-  %_span_pos03544 = getelementptr inbounds %struct.llhttp__internal_s, ptr %state, i64 0, i32 1
+  %_span_pos03544 = getelementptr inbounds i8, ptr %state, i64 8
   %777 = load ptr, ptr %_span_pos03544, align 8
   store ptr null, ptr %_span_pos03544, align 8
   %call3546 = tail call i32 @llhttp__on_version(ptr noundef nonnull %state, ptr noundef %777, ptr noundef nonnull %p.addr.95) #8
@@ -8405,19 +8403,19 @@ s_n_llhttp__internal__n_span_end_llhttp__on_version_4: ; preds = %if.end1013
   br i1 %cmp3547.not, label %s_n_llhttp__internal__n_error_59, label %if.then3549
 
 if.then3549:                                      ; preds = %s_n_llhttp__internal__n_span_end_llhttp__on_version_4
-  %error3550 = getelementptr inbounds %struct.llhttp__internal_s, ptr %state, i64 0, i32 3
+  %error3550 = getelementptr inbounds i8, ptr %state, i64 24
   store i32 %call3546, ptr %error3550, align 8
-  %error_pos3551 = getelementptr inbounds %struct.llhttp__internal_s, ptr %state, i64 0, i32 5
+  %error_pos3551 = getelementptr inbounds i8, ptr %state, i64 40
   store ptr %p.addr.95, ptr %error_pos3551, align 8
   store ptr inttoptr (i64 95 to ptr), ptr %_current, align 8
   br label %return
 
 sw.default3594:                                   ; preds = %sw.bb1053
-  %error3554 = getelementptr inbounds %struct.llhttp__internal_s, ptr %state, i64 0, i32 3
+  %error3554 = getelementptr inbounds i8, ptr %state, i64 24
   store i32 8, ptr %error3554, align 8
-  %reason3555 = getelementptr inbounds %struct.llhttp__internal_s, ptr %state, i64 0, i32 4
+  %reason3555 = getelementptr inbounds i8, ptr %state, i64 32
   store ptr @.str.67, ptr %reason3555, align 8
-  %error_pos3556 = getelementptr inbounds %struct.llhttp__internal_s, ptr %state, i64 0, i32 5
+  %error_pos3556 = getelementptr inbounds i8, ptr %state, i64 40
   store ptr %incdec.ptr1054, ptr %error_pos3556, align 8
   store ptr null, ptr %_current, align 8
   br label %return
@@ -8429,31 +8427,31 @@ s_n_llhttp__internal__n_error_62.sink.split:      ; preds = %for.body.i3055, %fo
 
 s_n_llhttp__internal__n_error_62:                 ; preds = %if.end1092, %s_n_llhttp__internal__n_error_62.sink.split
   %p.addr.239 = phi ptr [ %p.addr.239.ph, %s_n_llhttp__internal__n_error_62.sink.split ], [ %p.addr.1005265, %if.end1092 ]
-  %error3595 = getelementptr inbounds %struct.llhttp__internal_s, ptr %state, i64 0, i32 3
+  %error3595 = getelementptr inbounds i8, ptr %state, i64 24
   store i32 8, ptr %error3595, align 8
-  %reason3596 = getelementptr inbounds %struct.llhttp__internal_s, ptr %state, i64 0, i32 4
+  %reason3596 = getelementptr inbounds i8, ptr %state, i64 32
   store ptr @.str.68, ptr %reason3596, align 8
-  %error_pos3597 = getelementptr inbounds %struct.llhttp__internal_s, ptr %state, i64 0, i32 5
+  %error_pos3597 = getelementptr inbounds i8, ptr %state, i64 40
   store ptr %p.addr.239, ptr %error_pos3597, align 8
   store ptr null, ptr %_current, align 8
   br label %return
 
 sw.default3605:                                   ; preds = %sw.bb1068
-  %error3599 = getelementptr inbounds %struct.llhttp__internal_s, ptr %state, i64 0, i32 3
+  %error3599 = getelementptr inbounds i8, ptr %state, i64 24
   store i32 8, ptr %error3599, align 8
-  %reason3600 = getelementptr inbounds %struct.llhttp__internal_s, ptr %state, i64 0, i32 4
+  %reason3600 = getelementptr inbounds i8, ptr %state, i64 32
   store ptr @.str.69, ptr %reason3600, align 8
-  %error_pos3601 = getelementptr inbounds %struct.llhttp__internal_s, ptr %state, i64 0, i32 5
+  %error_pos3601 = getelementptr inbounds i8, ptr %state, i64 40
   store ptr %incdec.ptr1069, ptr %error_pos3601, align 8
   store ptr null, ptr %_current, align 8
   br label %return
 
 sw.default3625:                                   ; preds = %sw.bb1083
-  %error3606 = getelementptr inbounds %struct.llhttp__internal_s, ptr %state, i64 0, i32 3
+  %error3606 = getelementptr inbounds i8, ptr %state, i64 24
   store i32 8, ptr %error3606, align 8
-  %reason3607 = getelementptr inbounds %struct.llhttp__internal_s, ptr %state, i64 0, i32 4
+  %reason3607 = getelementptr inbounds i8, ptr %state, i64 32
   store ptr @.str.70, ptr %reason3607, align 8
-  %error_pos3608 = getelementptr inbounds %struct.llhttp__internal_s, ptr %state, i64 0, i32 5
+  %error_pos3608 = getelementptr inbounds i8, ptr %state, i64 40
   store ptr %incdec.ptr1084, ptr %error_pos3608, align 8
   store ptr null, ptr %_current, align 8
   br label %return
@@ -8471,27 +8469,27 @@ s_n_llhttp__internal__n_req_http_start.preheader: ; preds = %entry, %s_n_llhttp_
   br i1 %cmp10895264, label %return, label %if.end1092
 
 sw.bb3636:                                        ; preds = %s_n_llhttp__internal__n_invoke_llhttp__on_url_complete_1
-  %error3626 = getelementptr inbounds %struct.llhttp__internal_s, ptr %state, i64 0, i32 3
+  %error3626 = getelementptr inbounds i8, ptr %state, i64 24
   store i32 21, ptr %error3626, align 8
-  %reason3627 = getelementptr inbounds %struct.llhttp__internal_s, ptr %state, i64 0, i32 4
+  %reason3627 = getelementptr inbounds i8, ptr %state, i64 32
   store ptr @.str.59, ptr %reason3627, align 8
-  %error_pos3628 = getelementptr inbounds %struct.llhttp__internal_s, ptr %state, i64 0, i32 5
+  %error_pos3628 = getelementptr inbounds i8, ptr %state, i64 40
   store ptr %p.addr.101, ptr %error_pos3628, align 8
   store ptr inttoptr (i64 101 to ptr), ptr %_current, align 8
   br label %return
 
 sw.default3637:                                   ; preds = %s_n_llhttp__internal__n_invoke_llhttp__on_url_complete_1
-  %error3630 = getelementptr inbounds %struct.llhttp__internal_s, ptr %state, i64 0, i32 3
+  %error3630 = getelementptr inbounds i8, ptr %state, i64 24
   store i32 26, ptr %error3630, align 8
-  %reason3631 = getelementptr inbounds %struct.llhttp__internal_s, ptr %state, i64 0, i32 4
+  %reason3631 = getelementptr inbounds i8, ptr %state, i64 32
   store ptr @.str.60, ptr %reason3631, align 8
-  %error_pos3632 = getelementptr inbounds %struct.llhttp__internal_s, ptr %state, i64 0, i32 5
+  %error_pos3632 = getelementptr inbounds i8, ptr %state, i64 40
   store ptr %p.addr.101, ptr %error_pos3632, align 8
   store ptr null, ptr %_current, align 8
   br label %return
 
 s_n_llhttp__internal__n_span_end_llhttp__on_url_5: ; preds = %if.end1169
-  %_span_pos03640 = getelementptr inbounds %struct.llhttp__internal_s, ptr %state, i64 0, i32 1
+  %_span_pos03640 = getelementptr inbounds i8, ptr %state, i64 8
   %778 = load ptr, ptr %_span_pos03640, align 8
   store ptr null, ptr %_span_pos03640, align 8
   %call3642 = tail call i32 @llhttp__on_url(ptr noundef %state, ptr noundef %778, ptr noundef nonnull %p.addr.106) #8
@@ -8499,15 +8497,15 @@ s_n_llhttp__internal__n_span_end_llhttp__on_url_5: ; preds = %if.end1169
   br i1 %cmp3643.not, label %s_n_llhttp__internal__n_url_skip_to_http, label %if.then3645
 
 if.then3645:                                      ; preds = %s_n_llhttp__internal__n_span_end_llhttp__on_url_5
-  %error3646 = getelementptr inbounds %struct.llhttp__internal_s, ptr %state, i64 0, i32 3
+  %error3646 = getelementptr inbounds i8, ptr %state, i64 24
   store i32 %call3642, ptr %error3646, align 8
-  %error_pos3647 = getelementptr inbounds %struct.llhttp__internal_s, ptr %state, i64 0, i32 5
+  %error_pos3647 = getelementptr inbounds i8, ptr %state, i64 40
   store ptr %p.addr.106, ptr %error_pos3647, align 8
   store ptr inttoptr (i64 103 to ptr), ptr %_current, align 8
   br label %return
 
 s_n_llhttp__internal__n_span_end_llhttp__on_url_6: ; preds = %if.end1130
-  %_span_pos03652 = getelementptr inbounds %struct.llhttp__internal_s, ptr %state, i64 0, i32 1
+  %_span_pos03652 = getelementptr inbounds i8, ptr %state, i64 8
   %779 = load ptr, ptr %_span_pos03652, align 8
   store ptr null, ptr %_span_pos03652, align 8
   %call3654 = tail call i32 @llhttp__on_url(ptr noundef %state, ptr noundef %779, ptr noundef nonnull %p.addr.1035263) #8
@@ -8515,15 +8513,15 @@ s_n_llhttp__internal__n_span_end_llhttp__on_url_6: ; preds = %if.end1130
   br i1 %cmp3655.not, label %s_n_llhttp__internal__n_url_skip_to_http09, label %if.then3657
 
 if.then3657:                                      ; preds = %s_n_llhttp__internal__n_span_end_llhttp__on_url_6
-  %error3658 = getelementptr inbounds %struct.llhttp__internal_s, ptr %state, i64 0, i32 3
+  %error3658 = getelementptr inbounds i8, ptr %state, i64 24
   store i32 %call3654, ptr %error3658, align 8
-  %error_pos3659 = getelementptr inbounds %struct.llhttp__internal_s, ptr %state, i64 0, i32 5
+  %error_pos3659 = getelementptr inbounds i8, ptr %state, i64 40
   store ptr %p.addr.1035263, ptr %error_pos3659, align 8
   store ptr inttoptr (i64 82 to ptr), ptr %_current, align 8
   br label %return
 
 s_n_llhttp__internal__n_span_end_llhttp__on_url_7: ; preds = %if.end1130
-  %_span_pos03664 = getelementptr inbounds %struct.llhttp__internal_s, ptr %state, i64 0, i32 1
+  %_span_pos03664 = getelementptr inbounds i8, ptr %state, i64 8
   %780 = load ptr, ptr %_span_pos03664, align 8
   store ptr null, ptr %_span_pos03664, align 8
   %call3666 = tail call i32 @llhttp__on_url(ptr noundef %state, ptr noundef %780, ptr noundef nonnull %p.addr.1035263) #8
@@ -8531,15 +8529,15 @@ s_n_llhttp__internal__n_span_end_llhttp__on_url_7: ; preds = %if.end1130
   br i1 %cmp3667.not, label %s_n_llhttp__internal__n_url_skip_lf_to_http09, label %if.then3669
 
 if.then3669:                                      ; preds = %s_n_llhttp__internal__n_span_end_llhttp__on_url_7
-  %error3670 = getelementptr inbounds %struct.llhttp__internal_s, ptr %state, i64 0, i32 3
+  %error3670 = getelementptr inbounds i8, ptr %state, i64 24
   store i32 %call3666, ptr %error3670, align 8
-  %error_pos3671 = getelementptr inbounds %struct.llhttp__internal_s, ptr %state, i64 0, i32 5
+  %error_pos3671 = getelementptr inbounds i8, ptr %state, i64 40
   store ptr %p.addr.1035263, ptr %error_pos3671, align 8
   store ptr inttoptr (i64 84 to ptr), ptr %_current, align 8
   br label %return
 
 s_n_llhttp__internal__n_span_end_llhttp__on_url_8: ; preds = %if.end1130
-  %_span_pos03676 = getelementptr inbounds %struct.llhttp__internal_s, ptr %state, i64 0, i32 1
+  %_span_pos03676 = getelementptr inbounds i8, ptr %state, i64 8
   %781 = load ptr, ptr %_span_pos03676, align 8
   store ptr null, ptr %_span_pos03676, align 8
   %call3678 = tail call i32 @llhttp__on_url(ptr noundef %state, ptr noundef %781, ptr noundef nonnull %p.addr.1035263) #8
@@ -8547,25 +8545,25 @@ s_n_llhttp__internal__n_span_end_llhttp__on_url_8: ; preds = %if.end1130
   br i1 %cmp3679.not, label %s_n_llhttp__internal__n_url_skip_to_http, label %if.then3681
 
 if.then3681:                                      ; preds = %s_n_llhttp__internal__n_span_end_llhttp__on_url_8
-  %error3682 = getelementptr inbounds %struct.llhttp__internal_s, ptr %state, i64 0, i32 3
+  %error3682 = getelementptr inbounds i8, ptr %state, i64 24
   store i32 %call3678, ptr %error3682, align 8
-  %error_pos3683 = getelementptr inbounds %struct.llhttp__internal_s, ptr %state, i64 0, i32 5
+  %error_pos3683 = getelementptr inbounds i8, ptr %state, i64 40
   store ptr %p.addr.1035263, ptr %error_pos3683, align 8
   store ptr inttoptr (i64 103 to ptr), ptr %_current, align 8
   br label %return
 
 s_n_llhttp__internal__n_error_63:                 ; preds = %if.end1130
-  %error3686 = getelementptr inbounds %struct.llhttp__internal_s, ptr %state, i64 0, i32 3
+  %error3686 = getelementptr inbounds i8, ptr %state, i64 24
   store i32 7, ptr %error3686, align 8
-  %reason3687 = getelementptr inbounds %struct.llhttp__internal_s, ptr %state, i64 0, i32 4
+  %reason3687 = getelementptr inbounds i8, ptr %state, i64 32
   store ptr @.str.71, ptr %reason3687, align 8
-  %error_pos3688 = getelementptr inbounds %struct.llhttp__internal_s, ptr %state, i64 0, i32 5
+  %error_pos3688 = getelementptr inbounds i8, ptr %state, i64 40
   store ptr %p.addr.1035263, ptr %error_pos3688, align 8
   store ptr null, ptr %_current, align 8
   br label %return
 
 s_n_llhttp__internal__n_span_end_llhttp__on_url_9: ; preds = %if.end1152
-  %_span_pos03692 = getelementptr inbounds %struct.llhttp__internal_s, ptr %state, i64 0, i32 1
+  %_span_pos03692 = getelementptr inbounds i8, ptr %state, i64 8
   %782 = load ptr, ptr %_span_pos03692, align 8
   store ptr null, ptr %_span_pos03692, align 8
   %call3694 = tail call i32 @llhttp__on_url(ptr noundef %state, ptr noundef %782, ptr noundef nonnull %p.addr.1055261) #8
@@ -8573,15 +8571,15 @@ s_n_llhttp__internal__n_span_end_llhttp__on_url_9: ; preds = %if.end1152
   br i1 %cmp3695.not, label %s_n_llhttp__internal__n_url_skip_to_http09, label %if.then3697
 
 if.then3697:                                      ; preds = %s_n_llhttp__internal__n_span_end_llhttp__on_url_9
-  %error3698 = getelementptr inbounds %struct.llhttp__internal_s, ptr %state, i64 0, i32 3
+  %error3698 = getelementptr inbounds i8, ptr %state, i64 24
   store i32 %call3694, ptr %error3698, align 8
-  %error_pos3699 = getelementptr inbounds %struct.llhttp__internal_s, ptr %state, i64 0, i32 5
+  %error_pos3699 = getelementptr inbounds i8, ptr %state, i64 40
   store ptr %p.addr.1055261, ptr %error_pos3699, align 8
   store ptr inttoptr (i64 82 to ptr), ptr %_current, align 8
   br label %return
 
 s_n_llhttp__internal__n_span_end_llhttp__on_url_10: ; preds = %if.end1152
-  %_span_pos03704 = getelementptr inbounds %struct.llhttp__internal_s, ptr %state, i64 0, i32 1
+  %_span_pos03704 = getelementptr inbounds i8, ptr %state, i64 8
   %783 = load ptr, ptr %_span_pos03704, align 8
   store ptr null, ptr %_span_pos03704, align 8
   %call3706 = tail call i32 @llhttp__on_url(ptr noundef %state, ptr noundef %783, ptr noundef nonnull %p.addr.1055261) #8
@@ -8589,15 +8587,15 @@ s_n_llhttp__internal__n_span_end_llhttp__on_url_10: ; preds = %if.end1152
   br i1 %cmp3707.not, label %s_n_llhttp__internal__n_url_skip_lf_to_http09, label %if.then3709
 
 if.then3709:                                      ; preds = %s_n_llhttp__internal__n_span_end_llhttp__on_url_10
-  %error3710 = getelementptr inbounds %struct.llhttp__internal_s, ptr %state, i64 0, i32 3
+  %error3710 = getelementptr inbounds i8, ptr %state, i64 24
   store i32 %call3706, ptr %error3710, align 8
-  %error_pos3711 = getelementptr inbounds %struct.llhttp__internal_s, ptr %state, i64 0, i32 5
+  %error_pos3711 = getelementptr inbounds i8, ptr %state, i64 40
   store ptr %p.addr.1055261, ptr %error_pos3711, align 8
   store ptr inttoptr (i64 84 to ptr), ptr %_current, align 8
   br label %return
 
 s_n_llhttp__internal__n_span_end_llhttp__on_url_11: ; preds = %if.end1152
-  %_span_pos03716 = getelementptr inbounds %struct.llhttp__internal_s, ptr %state, i64 0, i32 1
+  %_span_pos03716 = getelementptr inbounds i8, ptr %state, i64 8
   %784 = load ptr, ptr %_span_pos03716, align 8
   store ptr null, ptr %_span_pos03716, align 8
   %call3718 = tail call i32 @llhttp__on_url(ptr noundef %state, ptr noundef %784, ptr noundef nonnull %p.addr.1055261) #8
@@ -8605,35 +8603,35 @@ s_n_llhttp__internal__n_span_end_llhttp__on_url_11: ; preds = %if.end1152
   br i1 %cmp3719.not, label %s_n_llhttp__internal__n_url_skip_to_http, label %if.then3721
 
 if.then3721:                                      ; preds = %s_n_llhttp__internal__n_span_end_llhttp__on_url_11
-  %error3722 = getelementptr inbounds %struct.llhttp__internal_s, ptr %state, i64 0, i32 3
+  %error3722 = getelementptr inbounds i8, ptr %state, i64 24
   store i32 %call3718, ptr %error3722, align 8
-  %error_pos3723 = getelementptr inbounds %struct.llhttp__internal_s, ptr %state, i64 0, i32 5
+  %error_pos3723 = getelementptr inbounds i8, ptr %state, i64 40
   store ptr %p.addr.1055261, ptr %error_pos3723, align 8
   store ptr inttoptr (i64 103 to ptr), ptr %_current, align 8
   br label %return
 
 s_n_llhttp__internal__n_error_64:                 ; preds = %if.end1152
-  %error3726 = getelementptr inbounds %struct.llhttp__internal_s, ptr %state, i64 0, i32 3
+  %error3726 = getelementptr inbounds i8, ptr %state, i64 24
   store i32 7, ptr %error3726, align 8
-  %reason3727 = getelementptr inbounds %struct.llhttp__internal_s, ptr %state, i64 0, i32 4
+  %reason3727 = getelementptr inbounds i8, ptr %state, i64 32
   store ptr @.str.72, ptr %reason3727, align 8
-  %error_pos3728 = getelementptr inbounds %struct.llhttp__internal_s, ptr %state, i64 0, i32 5
+  %error_pos3728 = getelementptr inbounds i8, ptr %state, i64 40
   store ptr %p.addr.1055261, ptr %error_pos3728, align 8
   store ptr null, ptr %_current, align 8
   br label %return
 
 s_n_llhttp__internal__n_error_65:                 ; preds = %if.end1169
-  %error3730 = getelementptr inbounds %struct.llhttp__internal_s, ptr %state, i64 0, i32 3
+  %error3730 = getelementptr inbounds i8, ptr %state, i64 24
   store i32 7, ptr %error3730, align 8
-  %reason3731 = getelementptr inbounds %struct.llhttp__internal_s, ptr %state, i64 0, i32 4
+  %reason3731 = getelementptr inbounds i8, ptr %state, i64 32
   store ptr @.str.73, ptr %reason3731, align 8
-  %error_pos3732 = getelementptr inbounds %struct.llhttp__internal_s, ptr %state, i64 0, i32 5
+  %error_pos3732 = getelementptr inbounds i8, ptr %state, i64 40
   store ptr %p.addr.106, ptr %error_pos3732, align 8
   store ptr null, ptr %_current, align 8
   br label %return
 
 s_n_llhttp__internal__n_span_end_llhttp__on_url:  ; preds = %if.end1239
-  %_span_pos03736 = getelementptr inbounds %struct.llhttp__internal_s, ptr %state, i64 0, i32 1
+  %_span_pos03736 = getelementptr inbounds i8, ptr %state, i64 8
   %785 = load ptr, ptr %_span_pos03736, align 8
   store ptr null, ptr %_span_pos03736, align 8
   %call3738 = tail call i32 @llhttp__on_url(ptr noundef %state, ptr noundef %785, ptr noundef nonnull %p.addr.1125257) #8
@@ -8641,15 +8639,15 @@ s_n_llhttp__internal__n_span_end_llhttp__on_url:  ; preds = %if.end1239
   br i1 %cmp3739.not, label %s_n_llhttp__internal__n_url_skip_to_http09, label %if.then3741
 
 if.then3741:                                      ; preds = %s_n_llhttp__internal__n_span_end_llhttp__on_url
-  %error3742 = getelementptr inbounds %struct.llhttp__internal_s, ptr %state, i64 0, i32 3
+  %error3742 = getelementptr inbounds i8, ptr %state, i64 24
   store i32 %call3738, ptr %error3742, align 8
-  %error_pos3743 = getelementptr inbounds %struct.llhttp__internal_s, ptr %state, i64 0, i32 5
+  %error_pos3743 = getelementptr inbounds i8, ptr %state, i64 40
   store ptr %p.addr.1125257, ptr %error_pos3743, align 8
   store ptr inttoptr (i64 82 to ptr), ptr %_current, align 8
   br label %return
 
 s_n_llhttp__internal__n_span_end_llhttp__on_url_1: ; preds = %if.end1239
-  %_span_pos03748 = getelementptr inbounds %struct.llhttp__internal_s, ptr %state, i64 0, i32 1
+  %_span_pos03748 = getelementptr inbounds i8, ptr %state, i64 8
   %786 = load ptr, ptr %_span_pos03748, align 8
   store ptr null, ptr %_span_pos03748, align 8
   %call3750 = tail call i32 @llhttp__on_url(ptr noundef %state, ptr noundef %786, ptr noundef nonnull %p.addr.1125257) #8
@@ -8657,15 +8655,15 @@ s_n_llhttp__internal__n_span_end_llhttp__on_url_1: ; preds = %if.end1239
   br i1 %cmp3751.not, label %s_n_llhttp__internal__n_url_skip_lf_to_http09, label %if.then3753
 
 if.then3753:                                      ; preds = %s_n_llhttp__internal__n_span_end_llhttp__on_url_1
-  %error3754 = getelementptr inbounds %struct.llhttp__internal_s, ptr %state, i64 0, i32 3
+  %error3754 = getelementptr inbounds i8, ptr %state, i64 24
   store i32 %call3750, ptr %error3754, align 8
-  %error_pos3755 = getelementptr inbounds %struct.llhttp__internal_s, ptr %state, i64 0, i32 5
+  %error_pos3755 = getelementptr inbounds i8, ptr %state, i64 40
   store ptr %p.addr.1125257, ptr %error_pos3755, align 8
   store ptr inttoptr (i64 84 to ptr), ptr %_current, align 8
   br label %return
 
 s_n_llhttp__internal__n_span_end_llhttp__on_url_2: ; preds = %if.end1239
-  %_span_pos03760 = getelementptr inbounds %struct.llhttp__internal_s, ptr %state, i64 0, i32 1
+  %_span_pos03760 = getelementptr inbounds i8, ptr %state, i64 8
   %787 = load ptr, ptr %_span_pos03760, align 8
   store ptr null, ptr %_span_pos03760, align 8
   %call3762 = tail call i32 @llhttp__on_url(ptr noundef %state, ptr noundef %787, ptr noundef nonnull %p.addr.1125257) #8
@@ -8673,15 +8671,15 @@ s_n_llhttp__internal__n_span_end_llhttp__on_url_2: ; preds = %if.end1239
   br i1 %cmp3763.not, label %s_n_llhttp__internal__n_url_skip_to_http, label %if.then3765
 
 if.then3765:                                      ; preds = %s_n_llhttp__internal__n_span_end_llhttp__on_url_2
-  %error3766 = getelementptr inbounds %struct.llhttp__internal_s, ptr %state, i64 0, i32 3
+  %error3766 = getelementptr inbounds i8, ptr %state, i64 24
   store i32 %call3762, ptr %error3766, align 8
-  %error_pos3767 = getelementptr inbounds %struct.llhttp__internal_s, ptr %state, i64 0, i32 5
+  %error_pos3767 = getelementptr inbounds i8, ptr %state, i64 40
   store ptr %p.addr.1125257, ptr %error_pos3767, align 8
   store ptr inttoptr (i64 103 to ptr), ptr %_current, align 8
   br label %return
 
 s_n_llhttp__internal__n_span_end_llhttp__on_url_12: ; preds = %if.end1218
-  %_span_pos03772 = getelementptr inbounds %struct.llhttp__internal_s, ptr %state, i64 0, i32 1
+  %_span_pos03772 = getelementptr inbounds i8, ptr %state, i64 8
   %788 = load ptr, ptr %_span_pos03772, align 8
   store ptr null, ptr %_span_pos03772, align 8
   %call3774 = tail call i32 @llhttp__on_url(ptr noundef %state, ptr noundef %788, ptr noundef nonnull %p.addr.111) #8
@@ -8689,15 +8687,15 @@ s_n_llhttp__internal__n_span_end_llhttp__on_url_12: ; preds = %if.end1218
   br i1 %cmp3775.not, label %s_n_llhttp__internal__n_url_skip_to_http09, label %if.then3777
 
 if.then3777:                                      ; preds = %s_n_llhttp__internal__n_span_end_llhttp__on_url_12
-  %error3778 = getelementptr inbounds %struct.llhttp__internal_s, ptr %state, i64 0, i32 3
+  %error3778 = getelementptr inbounds i8, ptr %state, i64 24
   store i32 %call3774, ptr %error3778, align 8
-  %error_pos3779 = getelementptr inbounds %struct.llhttp__internal_s, ptr %state, i64 0, i32 5
+  %error_pos3779 = getelementptr inbounds i8, ptr %state, i64 40
   store ptr %p.addr.111, ptr %error_pos3779, align 8
   store ptr inttoptr (i64 82 to ptr), ptr %_current, align 8
   br label %return
 
 s_n_llhttp__internal__n_span_end_llhttp__on_url_13: ; preds = %if.end1218
-  %_span_pos03784 = getelementptr inbounds %struct.llhttp__internal_s, ptr %state, i64 0, i32 1
+  %_span_pos03784 = getelementptr inbounds i8, ptr %state, i64 8
   %789 = load ptr, ptr %_span_pos03784, align 8
   store ptr null, ptr %_span_pos03784, align 8
   %call3786 = tail call i32 @llhttp__on_url(ptr noundef %state, ptr noundef %789, ptr noundef nonnull %p.addr.111) #8
@@ -8705,15 +8703,15 @@ s_n_llhttp__internal__n_span_end_llhttp__on_url_13: ; preds = %if.end1218
   br i1 %cmp3787.not, label %s_n_llhttp__internal__n_url_skip_lf_to_http09, label %if.then3789
 
 if.then3789:                                      ; preds = %s_n_llhttp__internal__n_span_end_llhttp__on_url_13
-  %error3790 = getelementptr inbounds %struct.llhttp__internal_s, ptr %state, i64 0, i32 3
+  %error3790 = getelementptr inbounds i8, ptr %state, i64 24
   store i32 %call3786, ptr %error3790, align 8
-  %error_pos3791 = getelementptr inbounds %struct.llhttp__internal_s, ptr %state, i64 0, i32 5
+  %error_pos3791 = getelementptr inbounds i8, ptr %state, i64 40
   store ptr %p.addr.111, ptr %error_pos3791, align 8
   store ptr inttoptr (i64 84 to ptr), ptr %_current, align 8
   br label %return
 
 s_n_llhttp__internal__n_span_end_llhttp__on_url_14: ; preds = %if.end1218
-  %_span_pos03796 = getelementptr inbounds %struct.llhttp__internal_s, ptr %state, i64 0, i32 1
+  %_span_pos03796 = getelementptr inbounds i8, ptr %state, i64 8
   %790 = load ptr, ptr %_span_pos03796, align 8
   store ptr null, ptr %_span_pos03796, align 8
   %call3798 = tail call i32 @llhttp__on_url(ptr noundef %state, ptr noundef %790, ptr noundef nonnull %p.addr.111) #8
@@ -8721,104 +8719,104 @@ s_n_llhttp__internal__n_span_end_llhttp__on_url_14: ; preds = %if.end1218
   br i1 %cmp3799.not, label %s_n_llhttp__internal__n_url_skip_to_http, label %if.then3801
 
 if.then3801:                                      ; preds = %s_n_llhttp__internal__n_span_end_llhttp__on_url_14
-  %error3802 = getelementptr inbounds %struct.llhttp__internal_s, ptr %state, i64 0, i32 3
+  %error3802 = getelementptr inbounds i8, ptr %state, i64 24
   store i32 %call3798, ptr %error3802, align 8
-  %error_pos3803 = getelementptr inbounds %struct.llhttp__internal_s, ptr %state, i64 0, i32 5
+  %error_pos3803 = getelementptr inbounds i8, ptr %state, i64 40
   store ptr %p.addr.111, ptr %error_pos3803, align 8
   store ptr inttoptr (i64 103 to ptr), ptr %_current, align 8
   br label %return
 
 s_n_llhttp__internal__n_error_67:                 ; preds = %if.end1218
-  %error3810 = getelementptr inbounds %struct.llhttp__internal_s, ptr %state, i64 0, i32 3
+  %error3810 = getelementptr inbounds i8, ptr %state, i64 24
   store i32 7, ptr %error3810, align 8
-  %reason3811 = getelementptr inbounds %struct.llhttp__internal_s, ptr %state, i64 0, i32 4
+  %reason3811 = getelementptr inbounds i8, ptr %state, i64 32
   store ptr @.str.75, ptr %reason3811, align 8
-  %error_pos3812 = getelementptr inbounds %struct.llhttp__internal_s, ptr %state, i64 0, i32 5
+  %error_pos3812 = getelementptr inbounds i8, ptr %state, i64 40
   store ptr %p.addr.111, ptr %error_pos3812, align 8
   store ptr null, ptr %_current, align 8
   br label %return
 
 s_n_llhttp__internal__n_error_68:                 ; preds = %if.end1239
-  %error3814 = getelementptr inbounds %struct.llhttp__internal_s, ptr %state, i64 0, i32 3
+  %error3814 = getelementptr inbounds i8, ptr %state, i64 24
   store i32 7, ptr %error3814, align 8
-  %reason3815 = getelementptr inbounds %struct.llhttp__internal_s, ptr %state, i64 0, i32 4
+  %reason3815 = getelementptr inbounds i8, ptr %state, i64 32
   store ptr @.str.75, ptr %reason3815, align 8
-  %error_pos3816 = getelementptr inbounds %struct.llhttp__internal_s, ptr %state, i64 0, i32 5
+  %error_pos3816 = getelementptr inbounds i8, ptr %state, i64 40
   store ptr %p.addr.1125257, ptr %error_pos3816, align 8
   store ptr null, ptr %_current, align 8
   br label %return
 
 s_n_llhttp__internal__n_error_69:                 ; preds = %if.end1269, %if.end1260
   %p.addr.240 = phi ptr [ %p.addr.114, %if.end1269 ], [ %p.addr.113, %if.end1260 ]
-  %error3818 = getelementptr inbounds %struct.llhttp__internal_s, ptr %state, i64 0, i32 3
+  %error3818 = getelementptr inbounds i8, ptr %state, i64 24
   store i32 7, ptr %error3818, align 8
-  %reason3819 = getelementptr inbounds %struct.llhttp__internal_s, ptr %state, i64 0, i32 4
+  %reason3819 = getelementptr inbounds i8, ptr %state, i64 32
   store ptr @.str.76, ptr %reason3819, align 8
-  %error_pos3820 = getelementptr inbounds %struct.llhttp__internal_s, ptr %state, i64 0, i32 5
+  %error_pos3820 = getelementptr inbounds i8, ptr %state, i64 40
   store ptr %p.addr.240, ptr %error_pos3820, align 8
   store ptr null, ptr %_current, align 8
   br label %return
 
 s_n_llhttp__internal__n_error_70:                 ; preds = %if.end1294
-  %error3822 = getelementptr inbounds %struct.llhttp__internal_s, ptr %state, i64 0, i32 3
+  %error3822 = getelementptr inbounds i8, ptr %state, i64 24
   store i32 7, ptr %error3822, align 8
-  %reason3823 = getelementptr inbounds %struct.llhttp__internal_s, ptr %state, i64 0, i32 4
+  %reason3823 = getelementptr inbounds i8, ptr %state, i64 32
   store ptr @.str.76, ptr %reason3823, align 8
-  %error_pos3824 = getelementptr inbounds %struct.llhttp__internal_s, ptr %state, i64 0, i32 5
+  %error_pos3824 = getelementptr inbounds i8, ptr %state, i64 40
   store ptr %p.addr.1165255, ptr %error_pos3824, align 8
   store ptr null, ptr %_current, align 8
   br label %return
 
 s_n_llhttp__internal__n_error_71:                 ; preds = %if.end1308
-  %error3826 = getelementptr inbounds %struct.llhttp__internal_s, ptr %state, i64 0, i32 3
+  %error3826 = getelementptr inbounds i8, ptr %state, i64 24
   store i32 7, ptr %error3826, align 8
-  %reason3827 = getelementptr inbounds %struct.llhttp__internal_s, ptr %state, i64 0, i32 4
+  %reason3827 = getelementptr inbounds i8, ptr %state, i64 32
   store ptr @.str.77, ptr %reason3827, align 8
-  %error_pos3828 = getelementptr inbounds %struct.llhttp__internal_s, ptr %state, i64 0, i32 5
+  %error_pos3828 = getelementptr inbounds i8, ptr %state, i64 40
   store ptr %p.addr.117, ptr %error_pos3828, align 8
   store ptr null, ptr %_current, align 8
   br label %return
 
 s_n_llhttp__internal__n_invoke_is_equal_method:   ; preds = %if.end1357
-  %method.i4231 = getelementptr inbounds %struct.llhttp__internal_s, ptr %state, i64 0, i32 10
+  %method.i4231 = getelementptr inbounds i8, ptr %state, i64 73
   %791 = load i8, ptr %method.i4231, align 1
   %cmp.i4232.not = icmp eq i8 %791, 5
   br i1 %cmp.i4232.not, label %s_n_llhttp__internal__n_url_entry_connect, label %s_n_llhttp__internal__n_url_entry_normal
 
 s_n_llhttp__internal__n_error_72:                 ; preds = %if.end1366
-  %error3833 = getelementptr inbounds %struct.llhttp__internal_s, ptr %state, i64 0, i32 3
+  %error3833 = getelementptr inbounds i8, ptr %state, i64 24
   store i32 6, ptr %error3833, align 8
-  %reason3834 = getelementptr inbounds %struct.llhttp__internal_s, ptr %state, i64 0, i32 4
+  %reason3834 = getelementptr inbounds i8, ptr %state, i64 32
   store ptr @.str.78, ptr %reason3834, align 8
-  %error_pos3835 = getelementptr inbounds %struct.llhttp__internal_s, ptr %state, i64 0, i32 5
+  %error_pos3835 = getelementptr inbounds i8, ptr %state, i64 40
   store ptr %p.addr.123, ptr %error_pos3835, align 8
   store ptr null, ptr %_current, align 8
   br label %return
 
 s_n_llhttp__internal__n_pause_22:                 ; preds = %s_n_llhttp__internal__n_invoke_llhttp__on_method_complete_1
-  %error3837 = getelementptr inbounds %struct.llhttp__internal_s, ptr %state, i64 0, i32 3
+  %error3837 = getelementptr inbounds i8, ptr %state, i64 24
   store i32 21, ptr %error3837, align 8
-  %reason3838 = getelementptr inbounds %struct.llhttp__internal_s, ptr %state, i64 0, i32 4
+  %reason3838 = getelementptr inbounds i8, ptr %state, i64 32
   store ptr @.str.79, ptr %reason3838, align 8
-  %error_pos3839 = getelementptr inbounds %struct.llhttp__internal_s, ptr %state, i64 0, i32 5
+  %error_pos3839 = getelementptr inbounds i8, ptr %state, i64 40
   store ptr %p.addr.124, ptr %error_pos3839, align 8
   store ptr inttoptr (i64 124 to ptr), ptr %_current, align 8
   br label %return
 
 s_n_llhttp__internal__n_error_89:                 ; preds = %s_n_llhttp__internal__n_invoke_llhttp__on_method_complete_1
-  %error3841 = getelementptr inbounds %struct.llhttp__internal_s, ptr %state, i64 0, i32 3
+  %error3841 = getelementptr inbounds i8, ptr %state, i64 24
   store i32 32, ptr %error3841, align 8
-  %reason3842 = getelementptr inbounds %struct.llhttp__internal_s, ptr %state, i64 0, i32 4
+  %reason3842 = getelementptr inbounds i8, ptr %state, i64 32
   store ptr @.str.80, ptr %reason3842, align 8
-  %error_pos3843 = getelementptr inbounds %struct.llhttp__internal_s, ptr %state, i64 0, i32 5
+  %error_pos3843 = getelementptr inbounds i8, ptr %state, i64 40
   store ptr %p.addr.124, ptr %error_pos3843, align 8
   store ptr null, ptr %_current, align 8
   br label %return
 
 if.then3852:                                      ; preds = %s_n_llhttp__internal__n_invoke_store_method_1
-  %error3853 = getelementptr inbounds %struct.llhttp__internal_s, ptr %state, i64 0, i32 3
+  %error3853 = getelementptr inbounds i8, ptr %state, i64 24
   store i32 %call3849, ptr %error3853, align 8
-  %error_pos3854 = getelementptr inbounds %struct.llhttp__internal_s, ptr %state, i64 0, i32 5
+  %error_pos3854 = getelementptr inbounds i8, ptr %state, i64 40
   store ptr %p.addr.241, ptr %error_pos3854, align 8
   store ptr inttoptr (i64 125 to ptr), ptr %_current, align 8
   br label %return
@@ -8826,9 +8824,9 @@ if.then3852:                                      ; preds = %s_n_llhttp__interna
 s_n_llhttp__internal__n_invoke_store_method_1:    ; preds = %if.end1571, %sw.bb2268, %sw.bb2242, %sw.bb2227, %sw.bb2212, %sw.bb2186, %sw.bb2171, %sw.bb2143, %sw.bb2128, %sw.bb2091, %sw.bb2078, %sw.bb2067, %sw.bb2028, %sw.bb2013, %sw.bb1998, %sw.bb1983, %sw.bb1953, %sw.bb1940, %sw.bb1925, %sw.bb1894, %sw.bb1879, %sw.bb1864, %sw.bb1849, %sw.bb1823, %sw.bb1808, %sw.bb1793, %sw.bb1778, %sw.bb1748, %sw.bb1713, %sw.bb1702, %sw.bb1687, %sw.bb1672, %sw.bb1657, %sw.bb1631, %sw.bb1616, %sw.bb1601, %sw.bb1562, %sw.bb1547, %sw.bb1512, %sw.bb1497, %sw.bb1462, %sw.bb1451, %sw.bb1436, %sw.bb1421, %sw.bb1395, %sw.bb1382
   %match.5 = phi i8 [ 27, %sw.bb2268 ], [ 15, %sw.bb2242 ], [ 32, %sw.bb2227 ], [ 18, %sw.bb2212 ], [ 7, %sw.bb2186 ], [ 40, %sw.bb2171 ], [ 26, %sw.bb2143 ], [ 33, %sw.bb2128 ], [ 42, %sw.bb2091 ], [ 37, %sw.bb2078 ], [ 14, %sw.bb2067 ], [ 20, %sw.bb2028 ], [ 43, %sw.bb2013 ], [ 44, %sw.bb1998 ], [ 17, %sw.bb1983 ], [ 4, %sw.bb1953 ], [ 29, %sw.bb1940 ], [ 13, %sw.bb1894 ], [ 12, %sw.bb1879 ], [ 34, %sw.bb1925 ], [ 3, %sw.bb1864 ], [ 38, %sw.bb1849 ], [ 39, %sw.bb1823 ], [ 28, %sw.bb1808 ], [ 6, %sw.bb1793 ], [ 25, %sw.bb1778 ], [ 11, %sw.bb1748 ], [ 10, %sw.bb1713 ], [ 30, %sw.bb1702 ], [ 21, %sw.bb1687 ], [ 23, %sw.bb1672 ], [ 24, %sw.bb1657 ], [ 9, %sw.bb1631 ], [ 31, %sw.bb1616 ], [ 2, %sw.bb1601 ], [ 41, %sw.bb1562 ], [ 45, %sw.bb1547 ], [ 35, %sw.bb1512 ], [ 0, %sw.bb1497 ], [ 8, %sw.bb1462 ], [ 5, %sw.bb1451 ], [ 22, %sw.bb1436 ], [ 16, %sw.bb1421 ], [ 36, %sw.bb1395 ], [ 19, %sw.bb1382 ], [ 1, %if.end1571 ]
   %p.addr.241 = phi ptr [ %incdec.ptr2269, %sw.bb2268 ], [ %incdec.ptr2243, %sw.bb2242 ], [ %incdec.ptr2228, %sw.bb2227 ], [ %incdec.ptr2213, %sw.bb2212 ], [ %incdec.ptr2187, %sw.bb2186 ], [ %incdec.ptr2172, %sw.bb2171 ], [ %incdec.ptr2144, %sw.bb2143 ], [ %incdec.ptr2129, %sw.bb2128 ], [ %incdec.ptr2092, %sw.bb2091 ], [ %incdec.ptr2079, %sw.bb2078 ], [ %incdec.ptr2068, %sw.bb2067 ], [ %incdec.ptr2029, %sw.bb2028 ], [ %incdec.ptr2014, %sw.bb2013 ], [ %incdec.ptr1999, %sw.bb1998 ], [ %incdec.ptr1984, %sw.bb1983 ], [ %incdec.ptr1954, %sw.bb1953 ], [ %incdec.ptr1941, %sw.bb1940 ], [ %incdec.ptr1895, %sw.bb1894 ], [ %incdec.ptr1880, %sw.bb1879 ], [ %incdec.ptr1926, %sw.bb1925 ], [ %incdec.ptr1865, %sw.bb1864 ], [ %incdec.ptr1850, %sw.bb1849 ], [ %incdec.ptr1824, %sw.bb1823 ], [ %incdec.ptr1809, %sw.bb1808 ], [ %incdec.ptr1794, %sw.bb1793 ], [ %incdec.ptr1779, %sw.bb1778 ], [ %incdec.ptr1749, %sw.bb1748 ], [ %incdec.ptr1714, %sw.bb1713 ], [ %incdec.ptr1703, %sw.bb1702 ], [ %incdec.ptr1688, %sw.bb1687 ], [ %incdec.ptr1673, %sw.bb1672 ], [ %incdec.ptr1658, %sw.bb1657 ], [ %incdec.ptr1632, %sw.bb1631 ], [ %incdec.ptr1617, %sw.bb1616 ], [ %incdec.ptr1602, %sw.bb1601 ], [ %incdec.ptr1563, %sw.bb1562 ], [ %incdec.ptr1548, %sw.bb1547 ], [ %incdec.ptr1513, %sw.bb1512 ], [ %incdec.ptr1498, %sw.bb1497 ], [ %incdec.ptr1463, %sw.bb1462 ], [ %incdec.ptr1452, %sw.bb1451 ], [ %incdec.ptr1437, %sw.bb1436 ], [ %incdec.ptr1422, %sw.bb1421 ], [ %incdec.ptr1396, %sw.bb1395 ], [ %incdec.ptr1383, %sw.bb1382 ], [ %p.addr.140, %if.end1571 ]
-  %method.i4235 = getelementptr inbounds %struct.llhttp__internal_s, ptr %state, i64 0, i32 10
+  %method.i4235 = getelementptr inbounds i8, ptr %state, i64 73
   store i8 %match.5, ptr %method.i4235, align 1
-  %_span_pos03847 = getelementptr inbounds %struct.llhttp__internal_s, ptr %state, i64 0, i32 1
+  %_span_pos03847 = getelementptr inbounds i8, ptr %state, i64 8
   %792 = load ptr, ptr %_span_pos03847, align 8
   store ptr null, ptr %_span_pos03847, align 8
   %call3849 = tail call i32 @llhttp__on_method(ptr noundef nonnull %state, ptr noundef %792, ptr noundef nonnull %p.addr.241) #8
@@ -8842,11 +8840,11 @@ s_n_llhttp__internal__n_error_90.sink.split:      ; preds = %for.body.i4017, %fo
 
 s_n_llhttp__internal__n_error_90:                 ; preds = %s_n_llhttp__internal__n_error_90.sink.split, %if.end2299, %if.end2290, %if.end2277, %if.end2251, %if.end2195, %if.end2152, %if.end2111, %if.end2100, %if.end2076, %if.end2052, %if.end2037, %if.end1960, %if.end1949, %if.end1923, %if.end1914, %if.end1903, %if.end1832, %if.end1757, %if.end1731, %if.end1720, %if.end1711, %if.end1640, %if.end1532, %if.end1521, %if.end1480, %if.end1469, %if.end1460, %if.end1404, %if.end1380
   %p.addr.242 = phi ptr [ %p.addr.194, %if.end2299 ], [ %p.addr.192, %if.end2277 ], [ %p.addr.190, %if.end2251 ], [ %p.addr.193, %if.end2290 ], [ %p.addr.186, %if.end2195 ], [ %p.addr.183, %if.end2152 ], [ %p.addr.180, %if.end2111 ], [ %p.addr.179, %if.end2100 ], [ %p.addr.177, %if.end2076 ], [ %p.addr.174, %if.end2037 ], [ %p.addr.175, %if.end2052 ], [ %p.addr.169, %if.end1960 ], [ %p.addr.168, %if.end1949 ], [ %p.addr.166, %if.end1923 ], [ %p.addr.164, %if.end1903 ], [ %p.addr.165, %if.end1914 ], [ %p.addr.159, %if.end1832 ], [ %p.addr.154, %if.end1757 ], [ %p.addr.152, %if.end1731 ], [ %p.addr.151, %if.end1720 ], [ %p.addr.150, %if.end1711 ], [ %p.addr.145, %if.end1640 ], [ %p.addr.136, %if.end1521 ], [ %p.addr.137, %if.end1532 ], [ %p.addr.133, %if.end1480 ], [ %p.addr.132, %if.end1469 ], [ %p.addr.131, %if.end1460 ], [ %p.addr.127, %if.end1404 ], [ %p.addr.125, %if.end1380 ], [ %p.addr.242.ph, %s_n_llhttp__internal__n_error_90.sink.split ]
-  %error3859 = getelementptr inbounds %struct.llhttp__internal_s, ptr %state, i64 0, i32 3
+  %error3859 = getelementptr inbounds i8, ptr %state, i64 24
   store i32 6, ptr %error3859, align 8
-  %reason3860 = getelementptr inbounds %struct.llhttp__internal_s, ptr %state, i64 0, i32 4
+  %reason3860 = getelementptr inbounds i8, ptr %state, i64 32
   store ptr @.str.81, ptr %reason3860, align 8
-  %error_pos3861 = getelementptr inbounds %struct.llhttp__internal_s, ptr %state, i64 0, i32 5
+  %error_pos3861 = getelementptr inbounds i8, ptr %state, i64 40
   store ptr %p.addr.242, ptr %error_pos3861, align 8
   store ptr null, ptr %_current, align 8
   br label %return
@@ -8860,44 +8858,44 @@ s_n_llhttp__internal__n_invoke_llhttp__on_status_complete: ; preds = %s_n_llhttp
   ]
 
 sw.bb3885:                                        ; preds = %s_n_llhttp__internal__n_invoke_llhttp__on_status_complete
-  %error3875 = getelementptr inbounds %struct.llhttp__internal_s, ptr %state, i64 0, i32 3
+  %error3875 = getelementptr inbounds i8, ptr %state, i64 24
   store i32 21, ptr %error3875, align 8
-  %reason3876 = getelementptr inbounds %struct.llhttp__internal_s, ptr %state, i64 0, i32 4
+  %reason3876 = getelementptr inbounds i8, ptr %state, i64 32
   store ptr @.str.83, ptr %reason3876, align 8
-  %error_pos3877 = getelementptr inbounds %struct.llhttp__internal_s, ptr %state, i64 0, i32 5
+  %error_pos3877 = getelementptr inbounds i8, ptr %state, i64 40
   store ptr %p.addr.243, ptr %error_pos3877, align 8
   store ptr inttoptr (i64 80 to ptr), ptr %_current, align 8
   br label %return
 
 sw.default3886:                                   ; preds = %s_n_llhttp__internal__n_invoke_llhttp__on_status_complete
-  %error3879 = getelementptr inbounds %struct.llhttp__internal_s, ptr %state, i64 0, i32 3
+  %error3879 = getelementptr inbounds i8, ptr %state, i64 24
   store i32 27, ptr %error3879, align 8
-  %reason3880 = getelementptr inbounds %struct.llhttp__internal_s, ptr %state, i64 0, i32 4
+  %reason3880 = getelementptr inbounds i8, ptr %state, i64 32
   store ptr @.str.84, ptr %reason3880, align 8
-  %error_pos3881 = getelementptr inbounds %struct.llhttp__internal_s, ptr %state, i64 0, i32 5
+  %error_pos3881 = getelementptr inbounds i8, ptr %state, i64 40
   store ptr %p.addr.243, ptr %error_pos3881, align 8
   store ptr null, ptr %_current, align 8
   br label %return
 
 s_n_llhttp__internal__n_invoke_test_lenient_flags_18: ; preds = %if.end2345
-  %lenient_flags.i4236 = getelementptr inbounds %struct.llhttp__internal_s, ptr %state, i64 0, i32 14
+  %lenient_flags.i4236 = getelementptr inbounds i8, ptr %state, i64 77
   %793 = load i8, ptr %lenient_flags.i4236, align 1
   %794 = and i8 %793, 64
   %cond47.not = icmp eq i8 %794, 0
   br i1 %cond47.not, label %sw.default3893, label %s_n_llhttp__internal__n_invoke_llhttp__on_status_complete
 
 sw.default3893:                                   ; preds = %s_n_llhttp__internal__n_invoke_test_lenient_flags_18
-  %error3887 = getelementptr inbounds %struct.llhttp__internal_s, ptr %state, i64 0, i32 3
+  %error3887 = getelementptr inbounds i8, ptr %state, i64 24
   store i32 2, ptr %error3887, align 8
-  %reason3888 = getelementptr inbounds %struct.llhttp__internal_s, ptr %state, i64 0, i32 4
+  %reason3888 = getelementptr inbounds i8, ptr %state, i64 32
   store ptr @.str.52, ptr %reason3888, align 8
-  %error_pos3889 = getelementptr inbounds %struct.llhttp__internal_s, ptr %state, i64 0, i32 5
+  %error_pos3889 = getelementptr inbounds i8, ptr %state, i64 40
   store ptr %p.addr.196, ptr %error_pos3889, align 8
   store ptr null, ptr %_current, align 8
   br label %return
 
 s_n_llhttp__internal__n_span_end_llhttp__on_status: ; preds = %if.end2356
-  %_span_pos03896 = getelementptr inbounds %struct.llhttp__internal_s, ptr %state, i64 0, i32 1
+  %_span_pos03896 = getelementptr inbounds i8, ptr %state, i64 8
   %795 = load ptr, ptr %_span_pos03896, align 8
   store ptr null, ptr %_span_pos03896, align 8
   %call3898 = tail call i32 @llhttp__on_status(ptr noundef %state, ptr noundef %795, ptr noundef nonnull %p.addr.1975251) #8
@@ -8905,10 +8903,10 @@ s_n_llhttp__internal__n_span_end_llhttp__on_status: ; preds = %if.end2356
   br i1 %cmp3899.not, label %if.end3906, label %if.then3901
 
 if.then3901:                                      ; preds = %s_n_llhttp__internal__n_span_end_llhttp__on_status
-  %error3902 = getelementptr inbounds %struct.llhttp__internal_s, ptr %state, i64 0, i32 3
+  %error3902 = getelementptr inbounds i8, ptr %state, i64 24
   store i32 %call3898, ptr %error3902, align 8
   %add.ptr3903 = getelementptr inbounds i8, ptr %p.addr.1975251, i64 1
-  %error_pos3904 = getelementptr inbounds %struct.llhttp__internal_s, ptr %state, i64 0, i32 5
+  %error_pos3904 = getelementptr inbounds i8, ptr %state, i64 40
   store ptr %add.ptr3903, ptr %error_pos3904, align 8
   store ptr inttoptr (i64 197 to ptr), ptr %_current, align 8
   br label %return
@@ -8918,7 +8916,7 @@ if.end3906:                                       ; preds = %s_n_llhttp__interna
   br label %s_n_llhttp__internal__n_res_line_almost_done
 
 s_n_llhttp__internal__n_span_end_llhttp__on_status_1: ; preds = %if.end2356
-  %_span_pos03910 = getelementptr inbounds %struct.llhttp__internal_s, ptr %state, i64 0, i32 1
+  %_span_pos03910 = getelementptr inbounds i8, ptr %state, i64 8
   %796 = load ptr, ptr %_span_pos03910, align 8
   store ptr null, ptr %_span_pos03910, align 8
   %call3912 = tail call i32 @llhttp__on_status(ptr noundef %state, ptr noundef %796, ptr noundef nonnull %p.addr.1975251) #8
@@ -8926,10 +8924,10 @@ s_n_llhttp__internal__n_span_end_llhttp__on_status_1: ; preds = %if.end2356
   br i1 %cmp3913.not, label %if.end3920, label %if.then3915
 
 if.then3915:                                      ; preds = %s_n_llhttp__internal__n_span_end_llhttp__on_status_1
-  %error3916 = getelementptr inbounds %struct.llhttp__internal_s, ptr %state, i64 0, i32 3
+  %error3916 = getelementptr inbounds i8, ptr %state, i64 24
   store i32 %call3912, ptr %error3916, align 8
   %add.ptr3917 = getelementptr inbounds i8, ptr %p.addr.1975251, i64 1
-  %error_pos3918 = getelementptr inbounds %struct.llhttp__internal_s, ptr %state, i64 0, i32 5
+  %error_pos3918 = getelementptr inbounds i8, ptr %state, i64 40
   store ptr %add.ptr3917, ptr %error_pos3918, align 8
   store ptr inttoptr (i64 197 to ptr), ptr %_current, align 8
   br label %return
@@ -8939,18 +8937,18 @@ if.end3920:                                       ; preds = %s_n_llhttp__interna
   br label %s_n_llhttp__internal__n_res_line_almost_done
 
 s_n_llhttp__internal__n_error_77:                 ; preds = %if.end2384
-  %error3922 = getelementptr inbounds %struct.llhttp__internal_s, ptr %state, i64 0, i32 3
+  %error3922 = getelementptr inbounds i8, ptr %state, i64 24
   store i32 13, ptr %error3922, align 8
-  %reason3923 = getelementptr inbounds %struct.llhttp__internal_s, ptr %state, i64 0, i32 4
+  %reason3923 = getelementptr inbounds i8, ptr %state, i64 32
   store ptr @.str.85, ptr %reason3923, align 8
-  %error_pos3924 = getelementptr inbounds %struct.llhttp__internal_s, ptr %state, i64 0, i32 5
+  %error_pos3924 = getelementptr inbounds i8, ptr %state, i64 40
   store ptr %p.addr.200, ptr %error_pos3924, align 8
   store ptr null, ptr %_current, align 8
   br label %return
 
 switch.lookup6004:                                ; preds = %if.end2395
   %p.addr.244 = getelementptr inbounds i8, ptr %p.addr.201, i64 1
-  %status_code.i4239 = getelementptr inbounds %struct.llhttp__internal_s, ptr %state, i64 0, i32 18
+  %status_code.i4239 = getelementptr inbounds i8, ptr %state, i64 82
   %797 = load i16, ptr %status_code.i4239, align 2
   %cmp.i4240 = icmp ugt i16 %797, 6553
   br i1 %cmp.i4240, label %sw.bb3927, label %if.end.i4241
@@ -8971,28 +8969,28 @@ llhttp__internal__c_mul_add_status_code.exit:     ; preds = %if.end.i4241
   br label %s_n_llhttp__internal__n_res_status_code_otherwise
 
 sw.bb3927:                                        ; preds = %switch.lookup6004, %if.end.i4241
-  %error3871 = getelementptr inbounds %struct.llhttp__internal_s, ptr %state, i64 0, i32 3
+  %error3871 = getelementptr inbounds i8, ptr %state, i64 24
   store i32 13, ptr %error3871, align 8
-  %reason3872 = getelementptr inbounds %struct.llhttp__internal_s, ptr %state, i64 0, i32 4
+  %reason3872 = getelementptr inbounds i8, ptr %state, i64 32
   store ptr @.str.82, ptr %reason3872, align 8
-  %error_pos3873 = getelementptr inbounds %struct.llhttp__internal_s, ptr %state, i64 0, i32 5
+  %error_pos3873 = getelementptr inbounds i8, ptr %state, i64 40
   store ptr %p.addr.244, ptr %error_pos3873, align 8
   store ptr null, ptr %_current, align 8
   br label %return
 
 s_n_llhttp__internal__n_error_79:                 ; preds = %if.end2395
-  %error3929 = getelementptr inbounds %struct.llhttp__internal_s, ptr %state, i64 0, i32 3
+  %error3929 = getelementptr inbounds i8, ptr %state, i64 24
   store i32 13, ptr %error3929, align 8
-  %reason3930 = getelementptr inbounds %struct.llhttp__internal_s, ptr %state, i64 0, i32 4
+  %reason3930 = getelementptr inbounds i8, ptr %state, i64 32
   store ptr @.str.82, ptr %reason3930, align 8
-  %error_pos3931 = getelementptr inbounds %struct.llhttp__internal_s, ptr %state, i64 0, i32 5
+  %error_pos3931 = getelementptr inbounds i8, ptr %state, i64 40
   store ptr %p.addr.201, ptr %error_pos3931, align 8
   store ptr null, ptr %_current, align 8
   br label %return
 
 switch.lookup6007:                                ; preds = %if.end2422
   %p.addr.245 = getelementptr inbounds i8, ptr %p.addr.202, i64 1
-  %status_code.i4245 = getelementptr inbounds %struct.llhttp__internal_s, ptr %state, i64 0, i32 18
+  %status_code.i4245 = getelementptr inbounds i8, ptr %state, i64 82
   %799 = load i16, ptr %status_code.i4245, align 2
   %cmp.i4246 = icmp ugt i16 %799, 6553
   br i1 %cmp.i4246, label %sw.bb3934, label %if.end.i4247
@@ -9013,28 +9011,28 @@ llhttp__internal__c_mul_add_status_code.exit4255: ; preds = %if.end.i4247
   br label %s_n_llhttp__internal__n_res_status_code_digit_3
 
 sw.bb3934:                                        ; preds = %switch.lookup6007, %if.end.i4247
-  %error3867 = getelementptr inbounds %struct.llhttp__internal_s, ptr %state, i64 0, i32 3
+  %error3867 = getelementptr inbounds i8, ptr %state, i64 24
   store i32 13, ptr %error3867, align 8
-  %reason3868 = getelementptr inbounds %struct.llhttp__internal_s, ptr %state, i64 0, i32 4
+  %reason3868 = getelementptr inbounds i8, ptr %state, i64 32
   store ptr @.str.82, ptr %reason3868, align 8
-  %error_pos3869 = getelementptr inbounds %struct.llhttp__internal_s, ptr %state, i64 0, i32 5
+  %error_pos3869 = getelementptr inbounds i8, ptr %state, i64 40
   store ptr %p.addr.245, ptr %error_pos3869, align 8
   store ptr null, ptr %_current, align 8
   br label %return
 
 s_n_llhttp__internal__n_error_81:                 ; preds = %if.end2422
-  %error3936 = getelementptr inbounds %struct.llhttp__internal_s, ptr %state, i64 0, i32 3
+  %error3936 = getelementptr inbounds i8, ptr %state, i64 24
   store i32 13, ptr %error3936, align 8
-  %reason3937 = getelementptr inbounds %struct.llhttp__internal_s, ptr %state, i64 0, i32 4
+  %reason3937 = getelementptr inbounds i8, ptr %state, i64 32
   store ptr @.str.82, ptr %reason3937, align 8
-  %error_pos3938 = getelementptr inbounds %struct.llhttp__internal_s, ptr %state, i64 0, i32 5
+  %error_pos3938 = getelementptr inbounds i8, ptr %state, i64 40
   store ptr %p.addr.202, ptr %error_pos3938, align 8
   store ptr null, ptr %_current, align 8
   br label %return
 
 switch.lookup6010:                                ; preds = %if.end2449
   %p.addr.246 = getelementptr inbounds i8, ptr %p.addr.203, i64 1
-  %status_code.i4256 = getelementptr inbounds %struct.llhttp__internal_s, ptr %state, i64 0, i32 18
+  %status_code.i4256 = getelementptr inbounds i8, ptr %state, i64 82
   %801 = load i16, ptr %status_code.i4256, align 2
   %cmp.i4257 = icmp ugt i16 %801, 6553
   br i1 %cmp.i4257, label %sw.bb3941, label %if.end.i4258
@@ -9055,57 +9053,57 @@ llhttp__internal__c_mul_add_status_code.exit4266: ; preds = %if.end.i4258
   br label %s_n_llhttp__internal__n_res_status_code_digit_2
 
 sw.bb3941:                                        ; preds = %switch.lookup6010, %if.end.i4258
-  %error3863 = getelementptr inbounds %struct.llhttp__internal_s, ptr %state, i64 0, i32 3
+  %error3863 = getelementptr inbounds i8, ptr %state, i64 24
   store i32 13, ptr %error3863, align 8
-  %reason3864 = getelementptr inbounds %struct.llhttp__internal_s, ptr %state, i64 0, i32 4
+  %reason3864 = getelementptr inbounds i8, ptr %state, i64 32
   store ptr @.str.82, ptr %reason3864, align 8
-  %error_pos3865 = getelementptr inbounds %struct.llhttp__internal_s, ptr %state, i64 0, i32 5
+  %error_pos3865 = getelementptr inbounds i8, ptr %state, i64 40
   store ptr %p.addr.246, ptr %error_pos3865, align 8
   store ptr null, ptr %_current, align 8
   br label %return
 
 s_n_llhttp__internal__n_error_83:                 ; preds = %if.end2449
-  %error3943 = getelementptr inbounds %struct.llhttp__internal_s, ptr %state, i64 0, i32 3
+  %error3943 = getelementptr inbounds i8, ptr %state, i64 24
   store i32 13, ptr %error3943, align 8
-  %reason3944 = getelementptr inbounds %struct.llhttp__internal_s, ptr %state, i64 0, i32 4
+  %reason3944 = getelementptr inbounds i8, ptr %state, i64 32
   store ptr @.str.82, ptr %reason3944, align 8
-  %error_pos3945 = getelementptr inbounds %struct.llhttp__internal_s, ptr %state, i64 0, i32 5
+  %error_pos3945 = getelementptr inbounds i8, ptr %state, i64 40
   store ptr %p.addr.203, ptr %error_pos3945, align 8
   store ptr null, ptr %_current, align 8
   br label %return
 
 s_n_llhttp__internal__n_error_84:                 ; preds = %if.end2476
-  %error3949 = getelementptr inbounds %struct.llhttp__internal_s, ptr %state, i64 0, i32 3
+  %error3949 = getelementptr inbounds i8, ptr %state, i64 24
   store i32 9, ptr %error3949, align 8
-  %reason3950 = getelementptr inbounds %struct.llhttp__internal_s, ptr %state, i64 0, i32 4
+  %reason3950 = getelementptr inbounds i8, ptr %state, i64 32
   store ptr @.str.86, ptr %reason3950, align 8
-  %error_pos3951 = getelementptr inbounds %struct.llhttp__internal_s, ptr %state, i64 0, i32 5
+  %error_pos3951 = getelementptr inbounds i8, ptr %state, i64 40
   store ptr %p.addr.204, ptr %error_pos3951, align 8
   store ptr null, ptr %_current, align 8
   br label %return
 
 s_n_llhttp__internal__n_pause_21:                 ; preds = %s_n_llhttp__internal__n_invoke_llhttp__on_version_complete_1
-  %error3953 = getelementptr inbounds %struct.llhttp__internal_s, ptr %state, i64 0, i32 3
+  %error3953 = getelementptr inbounds i8, ptr %state, i64 24
   store i32 21, ptr %error3953, align 8
-  %reason3954 = getelementptr inbounds %struct.llhttp__internal_s, ptr %state, i64 0, i32 4
+  %reason3954 = getelementptr inbounds i8, ptr %state, i64 32
   store ptr @.str.65, ptr %reason3954, align 8
-  %error_pos3955 = getelementptr inbounds %struct.llhttp__internal_s, ptr %state, i64 0, i32 5
+  %error_pos3955 = getelementptr inbounds i8, ptr %state, i64 40
   store ptr %p.addr.205, ptr %error_pos3955, align 8
   store ptr inttoptr (i64 205 to ptr), ptr %_current, align 8
   br label %return
 
 s_n_llhttp__internal__n_error_74:                 ; preds = %s_n_llhttp__internal__n_invoke_llhttp__on_version_complete_1
-  %error3957 = getelementptr inbounds %struct.llhttp__internal_s, ptr %state, i64 0, i32 3
+  %error3957 = getelementptr inbounds i8, ptr %state, i64 24
   store i32 33, ptr %error3957, align 8
-  %reason3958 = getelementptr inbounds %struct.llhttp__internal_s, ptr %state, i64 0, i32 4
+  %reason3958 = getelementptr inbounds i8, ptr %state, i64 32
   store ptr @.str.66, ptr %reason3958, align 8
-  %error_pos3959 = getelementptr inbounds %struct.llhttp__internal_s, ptr %state, i64 0, i32 5
+  %error_pos3959 = getelementptr inbounds i8, ptr %state, i64 40
   store ptr %p.addr.205, ptr %error_pos3959, align 8
   store ptr null, ptr %_current, align 8
   br label %return
 
 s_n_llhttp__internal__n_span_end_llhttp__on_version_6: ; preds = %sw.bb3997, %s_n_llhttp__internal__n_invoke_store_http_minor_1, %sw.bb3998, %sw.bb3996
-  %_span_pos03963 = getelementptr inbounds %struct.llhttp__internal_s, ptr %state, i64 0, i32 1
+  %_span_pos03963 = getelementptr inbounds i8, ptr %state, i64 8
   %803 = load ptr, ptr %_span_pos03963, align 8
   store ptr null, ptr %_span_pos03963, align 8
   %call3965 = tail call i32 @llhttp__on_version(ptr noundef nonnull %state, ptr noundef %803, ptr noundef nonnull %p.addr.247) #8
@@ -9113,15 +9111,15 @@ s_n_llhttp__internal__n_span_end_llhttp__on_version_6: ; preds = %sw.bb3997, %s_
   br i1 %cmp3966.not, label %s_n_llhttp__internal__n_invoke_llhttp__on_version_complete_1, label %if.then3968
 
 if.then3968:                                      ; preds = %s_n_llhttp__internal__n_span_end_llhttp__on_version_6
-  %error3969 = getelementptr inbounds %struct.llhttp__internal_s, ptr %state, i64 0, i32 3
+  %error3969 = getelementptr inbounds i8, ptr %state, i64 24
   store i32 %call3965, ptr %error3969, align 8
-  %error_pos3970 = getelementptr inbounds %struct.llhttp__internal_s, ptr %state, i64 0, i32 5
+  %error_pos3970 = getelementptr inbounds i8, ptr %state, i64 40
   store ptr %p.addr.247, ptr %error_pos3970, align 8
   store ptr inttoptr (i64 206 to ptr), ptr %_current, align 8
   br label %return
 
 s_n_llhttp__internal__n_span_end_llhttp__on_version_5: ; preds = %sw.bb3997, %sw.default4002, %sw.bb3998, %sw.bb3996
-  %_span_pos03975 = getelementptr inbounds %struct.llhttp__internal_s, ptr %state, i64 0, i32 1
+  %_span_pos03975 = getelementptr inbounds i8, ptr %state, i64 8
   %804 = load ptr, ptr %_span_pos03975, align 8
   store ptr null, ptr %_span_pos03975, align 8
   %call3977 = tail call i32 @llhttp__on_version(ptr noundef nonnull %state, ptr noundef %804, ptr noundef nonnull %p.addr.247) #8
@@ -9129,9 +9127,9 @@ s_n_llhttp__internal__n_span_end_llhttp__on_version_5: ; preds = %sw.bb3997, %sw
   br i1 %cmp3978.not, label %s_n_llhttp__internal__n_error_73, label %if.then3980
 
 if.then3980:                                      ; preds = %s_n_llhttp__internal__n_span_end_llhttp__on_version_5
-  %error3981 = getelementptr inbounds %struct.llhttp__internal_s, ptr %state, i64 0, i32 3
+  %error3981 = getelementptr inbounds i8, ptr %state, i64 24
   store i32 %call3977, ptr %error3981, align 8
-  %error_pos3982 = getelementptr inbounds %struct.llhttp__internal_s, ptr %state, i64 0, i32 5
+  %error_pos3982 = getelementptr inbounds i8, ptr %state, i64 40
   store ptr %p.addr.247, ptr %error_pos3982, align 8
   store ptr inttoptr (i64 207 to ptr), ptr %_current, align 8
   br label %return
@@ -9146,7 +9144,7 @@ sw.bb3998:                                        ; preds = %sw.default4002
   br i1 %cond4, label %s_n_llhttp__internal__n_span_end_llhttp__on_version_6, label %s_n_llhttp__internal__n_span_end_llhttp__on_version_5
 
 sw.default4002:                                   ; preds = %s_n_llhttp__internal__n_invoke_store_http_minor_1
-  %http_major.i4273 = getelementptr inbounds %struct.llhttp__internal_s, ptr %state, i64 0, i32 11
+  %http_major.i4273 = getelementptr inbounds i8, ptr %state, i64 74
   %805 = load i8, ptr %http_major.i4273, align 2
   switch i8 %805, label %s_n_llhttp__internal__n_span_end_llhttp__on_version_5 [
     i8 0, label %sw.bb3996
@@ -9160,16 +9158,16 @@ s_n_llhttp__internal__n_invoke_store_http_minor_1: ; preds = %if.end2500, %sw.bb
   %cond48 = phi i1 [ true, %sw.bb2520 ], [ false, %sw.bb2518 ], [ false, %sw.bb2516 ], [ false, %sw.bb2514 ], [ false, %sw.bb2512 ], [ false, %sw.bb2510 ], [ false, %sw.bb2508 ], [ false, %sw.bb2506 ], [ false, %sw.bb2504 ], [ false, %if.end2500 ]
   %match.9 = phi i8 [ 9, %sw.bb2520 ], [ 8, %sw.bb2518 ], [ 7, %sw.bb2516 ], [ 6, %sw.bb2514 ], [ 5, %sw.bb2512 ], [ 4, %sw.bb2510 ], [ 3, %sw.bb2508 ], [ 2, %sw.bb2506 ], [ 1, %sw.bb2504 ], [ 0, %if.end2500 ]
   %p.addr.247 = getelementptr inbounds i8, ptr %p.addr.208, i64 1
-  %http_minor.i4276 = getelementptr inbounds %struct.llhttp__internal_s, ptr %state, i64 0, i32 12
+  %http_minor.i4276 = getelementptr inbounds i8, ptr %state, i64 75
   store i8 %match.9, ptr %http_minor.i4276, align 1
-  %lenient_flags.i4277 = getelementptr inbounds %struct.llhttp__internal_s, ptr %state, i64 0, i32 14
+  %lenient_flags.i4277 = getelementptr inbounds i8, ptr %state, i64 77
   %806 = load i8, ptr %lenient_flags.i4277, align 1
   %807 = and i8 %806, 16
   %cond3.not = icmp eq i8 %807, 0
   br i1 %cond3.not, label %sw.default4002, label %s_n_llhttp__internal__n_span_end_llhttp__on_version_6
 
 s_n_llhttp__internal__n_span_end_llhttp__on_version_7: ; preds = %if.end2500
-  %_span_pos04007 = getelementptr inbounds %struct.llhttp__internal_s, ptr %state, i64 0, i32 1
+  %_span_pos04007 = getelementptr inbounds i8, ptr %state, i64 8
   %808 = load ptr, ptr %_span_pos04007, align 8
   store ptr null, ptr %_span_pos04007, align 8
   %call4009 = tail call i32 @llhttp__on_version(ptr noundef nonnull %state, ptr noundef %808, ptr noundef nonnull %p.addr.208) #8
@@ -9177,15 +9175,15 @@ s_n_llhttp__internal__n_span_end_llhttp__on_version_7: ; preds = %if.end2500
   br i1 %cmp4010.not, label %s_n_llhttp__internal__n_error_85, label %if.then4012
 
 if.then4012:                                      ; preds = %s_n_llhttp__internal__n_span_end_llhttp__on_version_7
-  %error4013 = getelementptr inbounds %struct.llhttp__internal_s, ptr %state, i64 0, i32 3
+  %error4013 = getelementptr inbounds i8, ptr %state, i64 24
   store i32 %call4009, ptr %error4013, align 8
-  %error_pos4014 = getelementptr inbounds %struct.llhttp__internal_s, ptr %state, i64 0, i32 5
+  %error_pos4014 = getelementptr inbounds i8, ptr %state, i64 40
   store ptr %p.addr.208, ptr %error_pos4014, align 8
   store ptr inttoptr (i64 208 to ptr), ptr %_current, align 8
   br label %return
 
 s_n_llhttp__internal__n_span_end_llhttp__on_version_8: ; preds = %if.end2532
-  %_span_pos04019 = getelementptr inbounds %struct.llhttp__internal_s, ptr %state, i64 0, i32 1
+  %_span_pos04019 = getelementptr inbounds i8, ptr %state, i64 8
   %809 = load ptr, ptr %_span_pos04019, align 8
   store ptr null, ptr %_span_pos04019, align 8
   %call4021 = tail call i32 @llhttp__on_version(ptr noundef nonnull %state, ptr noundef %809, ptr noundef nonnull %p.addr.210) #8
@@ -9193,21 +9191,21 @@ s_n_llhttp__internal__n_span_end_llhttp__on_version_8: ; preds = %if.end2532
   br i1 %cmp4022.not, label %s_n_llhttp__internal__n_error_86, label %if.then4024
 
 if.then4024:                                      ; preds = %s_n_llhttp__internal__n_span_end_llhttp__on_version_8
-  %error4025 = getelementptr inbounds %struct.llhttp__internal_s, ptr %state, i64 0, i32 3
+  %error4025 = getelementptr inbounds i8, ptr %state, i64 24
   store i32 %call4021, ptr %error4025, align 8
-  %error_pos4026 = getelementptr inbounds %struct.llhttp__internal_s, ptr %state, i64 0, i32 5
+  %error_pos4026 = getelementptr inbounds i8, ptr %state, i64 40
   store ptr %p.addr.210, ptr %error_pos4026, align 8
   store ptr inttoptr (i64 210 to ptr), ptr %_current, align 8
   br label %return
 
 s_n_llhttp__internal__n_invoke_store_http_major_1: ; preds = %if.end2546
   %p.addr.248 = getelementptr inbounds i8, ptr %p.addr.212, i64 1
-  %http_major.i4281 = getelementptr inbounds %struct.llhttp__internal_s, ptr %state, i64 0, i32 11
+  %http_major.i4281 = getelementptr inbounds i8, ptr %state, i64 74
   store i8 %switch.tableidx6014, ptr %http_major.i4281, align 2
   br label %s_n_llhttp__internal__n_res_http_dot
 
 s_n_llhttp__internal__n_span_end_llhttp__on_version_9: ; preds = %if.end2546
-  %_span_pos04033 = getelementptr inbounds %struct.llhttp__internal_s, ptr %state, i64 0, i32 1
+  %_span_pos04033 = getelementptr inbounds i8, ptr %state, i64 8
   %810 = load ptr, ptr %_span_pos04033, align 8
   store ptr null, ptr %_span_pos04033, align 8
   %call4035 = tail call i32 @llhttp__on_version(ptr noundef nonnull %state, ptr noundef %810, ptr noundef nonnull %p.addr.212) #8
@@ -9215,48 +9213,48 @@ s_n_llhttp__internal__n_span_end_llhttp__on_version_9: ; preds = %if.end2546
   br i1 %cmp4036.not, label %s_n_llhttp__internal__n_error_87, label %if.then4038
 
 if.then4038:                                      ; preds = %s_n_llhttp__internal__n_span_end_llhttp__on_version_9
-  %error4039 = getelementptr inbounds %struct.llhttp__internal_s, ptr %state, i64 0, i32 3
+  %error4039 = getelementptr inbounds i8, ptr %state, i64 24
   store i32 %call4035, ptr %error4039, align 8
-  %error_pos4040 = getelementptr inbounds %struct.llhttp__internal_s, ptr %state, i64 0, i32 5
+  %error_pos4040 = getelementptr inbounds i8, ptr %state, i64 40
   store ptr %p.addr.212, ptr %error_pos4040, align 8
   store ptr inttoptr (i64 212 to ptr), ptr %_current, align 8
   br label %return
 
 s_n_llhttp__internal__n_error_91:                 ; preds = %for.body.i4041
   store i32 0, ptr %state, align 8
-  %error4043 = getelementptr inbounds %struct.llhttp__internal_s, ptr %state, i64 0, i32 3
+  %error4043 = getelementptr inbounds i8, ptr %state, i64 24
   store i32 8, ptr %error4043, align 8
-  %reason4044 = getelementptr inbounds %struct.llhttp__internal_s, ptr %state, i64 0, i32 4
+  %reason4044 = getelementptr inbounds i8, ptr %state, i64 32
   store ptr @.str.68, ptr %reason4044, align 8
-  %error_pos4045 = getelementptr inbounds %struct.llhttp__internal_s, ptr %state, i64 0, i32 5
+  %error_pos4045 = getelementptr inbounds i8, ptr %state, i64 40
   store ptr %p.addr.010.i4043, ptr %error_pos4045, align 8
   store ptr null, ptr %_current, align 8
   br label %return
 
 s_n_llhttp__internal__n_pause_19:                 ; preds = %s_n_llhttp__internal__n_invoke_llhttp__on_method_complete
-  %error4047 = getelementptr inbounds %struct.llhttp__internal_s, ptr %state, i64 0, i32 3
+  %error4047 = getelementptr inbounds i8, ptr %state, i64 24
   store i32 21, ptr %error4047, align 8
-  %reason4048 = getelementptr inbounds %struct.llhttp__internal_s, ptr %state, i64 0, i32 4
+  %reason4048 = getelementptr inbounds i8, ptr %state, i64 32
   store ptr @.str.79, ptr %reason4048, align 8
-  %error_pos4049 = getelementptr inbounds %struct.llhttp__internal_s, ptr %state, i64 0, i32 5
+  %error_pos4049 = getelementptr inbounds i8, ptr %state, i64 40
   store ptr %p.addr.215, ptr %error_pos4049, align 8
   store ptr inttoptr (i64 124 to ptr), ptr %_current, align 8
   br label %return
 
 s_n_llhttp__internal__n_error_1:                  ; preds = %s_n_llhttp__internal__n_invoke_llhttp__on_method_complete
-  %error4051 = getelementptr inbounds %struct.llhttp__internal_s, ptr %state, i64 0, i32 3
+  %error4051 = getelementptr inbounds i8, ptr %state, i64 24
   store i32 32, ptr %error4051, align 8
-  %reason4052 = getelementptr inbounds %struct.llhttp__internal_s, ptr %state, i64 0, i32 4
+  %reason4052 = getelementptr inbounds i8, ptr %state, i64 32
   store ptr @.str.80, ptr %reason4052, align 8
-  %error_pos4053 = getelementptr inbounds %struct.llhttp__internal_s, ptr %state, i64 0, i32 5
+  %error_pos4053 = getelementptr inbounds i8, ptr %state, i64 40
   store ptr %p.addr.215, ptr %error_pos4053, align 8
   store ptr null, ptr %_current, align 8
   br label %return
 
 if.then4062:                                      ; preds = %sw.bb2606
-  %error4063 = getelementptr inbounds %struct.llhttp__internal_s, ptr %state, i64 0, i32 3
+  %error4063 = getelementptr inbounds i8, ptr %state, i64 24
   store i32 %call4059, ptr %error4063, align 8
-  %error_pos4064 = getelementptr inbounds %struct.llhttp__internal_s, ptr %state, i64 0, i32 5
+  %error_pos4064 = getelementptr inbounds i8, ptr %state, i64 40
   store ptr %incdec.ptr2607, ptr %error_pos4064, align 8
   store ptr inttoptr (i64 216 to ptr), ptr %_current, align 8
   br label %return
@@ -9268,70 +9266,70 @@ s_n_llhttp__internal__n_error_88.sink.split:      ; preds = %for.body.i4091, %fo
 
 s_n_llhttp__internal__n_error_88:                 ; preds = %s_n_llhttp__internal__n_error_88.sink.split, %if.end2644, %if.end2633
   %p.addr.249 = phi ptr [ %p.addr.219, %if.end2633 ], [ %p.addr.220, %if.end2644 ], [ %p.addr.249.ph, %s_n_llhttp__internal__n_error_88.sink.split ]
-  %error4071 = getelementptr inbounds %struct.llhttp__internal_s, ptr %state, i64 0, i32 3
+  %error4071 = getelementptr inbounds i8, ptr %state, i64 24
   store i32 8, ptr %error4071, align 8
-  %reason4072 = getelementptr inbounds %struct.llhttp__internal_s, ptr %state, i64 0, i32 4
+  %reason4072 = getelementptr inbounds i8, ptr %state, i64 32
   store ptr @.str.87, ptr %reason4072, align 8
-  %error_pos4073 = getelementptr inbounds %struct.llhttp__internal_s, ptr %state, i64 0, i32 5
+  %error_pos4073 = getelementptr inbounds i8, ptr %state, i64 40
   store ptr %p.addr.249, ptr %error_pos4073, align 8
   store ptr null, ptr %_current, align 8
   br label %return
 
 if.then4082:                                      ; preds = %sw.bb2624
-  %error4083 = getelementptr inbounds %struct.llhttp__internal_s, ptr %state, i64 0, i32 3
+  %error4083 = getelementptr inbounds i8, ptr %state, i64 24
   store i32 %call4079, ptr %error4083, align 8
-  %error_pos4084 = getelementptr inbounds %struct.llhttp__internal_s, ptr %state, i64 0, i32 5
+  %error_pos4084 = getelementptr inbounds i8, ptr %state, i64 40
   store ptr %incdec.ptr2625, ptr %error_pos4084, align 8
   store ptr inttoptr (i64 218 to ptr), ptr %_current, align 8
   br label %return
 
 s_n_llhttp__internal__n_invoke_update_type_2:     ; preds = %if.end2660
-  %type.i4282 = getelementptr inbounds %struct.llhttp__internal_s, ptr %state, i64 0, i32 9
+  %type.i4282 = getelementptr inbounds i8, ptr %state, i64 72
   store i8 1, ptr %type.i4282, align 8
   br label %s_n_llhttp__internal__n_span_start_llhttp__on_method_1
 
 sw.bb4099:                                        ; preds = %s_n_llhttp__internal__n_invoke_update_finish
-  %error4089 = getelementptr inbounds %struct.llhttp__internal_s, ptr %state, i64 0, i32 3
+  %error4089 = getelementptr inbounds i8, ptr %state, i64 24
   store i32 21, ptr %error4089, align 8
-  %reason4090 = getelementptr inbounds %struct.llhttp__internal_s, ptr %state, i64 0, i32 4
+  %reason4090 = getelementptr inbounds i8, ptr %state, i64 32
   store ptr @.str.88, ptr %reason4090, align 8
-  %error_pos4091 = getelementptr inbounds %struct.llhttp__internal_s, ptr %state, i64 0, i32 5
+  %error_pos4091 = getelementptr inbounds i8, ptr %state, i64 40
   store ptr %p.addr.224, ptr %error_pos4091, align 8
   store ptr inttoptr (i64 224 to ptr), ptr %_current, align 8
   br label %return
 
 sw.default4100:                                   ; preds = %s_n_llhttp__internal__n_invoke_update_finish
-  %error4093 = getelementptr inbounds %struct.llhttp__internal_s, ptr %state, i64 0, i32 3
+  %error4093 = getelementptr inbounds i8, ptr %state, i64 24
   store i32 16, ptr %error4093, align 8
-  %reason4094 = getelementptr inbounds %struct.llhttp__internal_s, ptr %state, i64 0, i32 4
+  %reason4094 = getelementptr inbounds i8, ptr %state, i64 32
   store ptr @.str.89, ptr %reason4094, align 8
-  %error_pos4095 = getelementptr inbounds %struct.llhttp__internal_s, ptr %state, i64 0, i32 5
+  %error_pos4095 = getelementptr inbounds i8, ptr %state, i64 40
   store ptr %p.addr.224, ptr %error_pos4095, align 8
   store ptr null, ptr %_current, align 8
   br label %return
 
 sw.bb4111:                                        ; preds = %sw.bb4114
-  %error4101 = getelementptr inbounds %struct.llhttp__internal_s, ptr %state, i64 0, i32 3
+  %error4101 = getelementptr inbounds i8, ptr %state, i64 24
   store i32 21, ptr %error4101, align 8
-  %reason4102 = getelementptr inbounds %struct.llhttp__internal_s, ptr %state, i64 0, i32 4
+  %reason4102 = getelementptr inbounds i8, ptr %state, i64 32
   store ptr @.str.90, ptr %reason4102, align 8
-  %error_pos4103 = getelementptr inbounds %struct.llhttp__internal_s, ptr %state, i64 0, i32 5
+  %error_pos4103 = getelementptr inbounds i8, ptr %state, i64 40
   store ptr %p.addr.2255249, ptr %error_pos4103, align 8
   store ptr inttoptr (i64 225 to ptr), ptr %_current, align 8
   br label %return
 
 sw.default4112:                                   ; preds = %sw.bb4114
-  %error4105 = getelementptr inbounds %struct.llhttp__internal_s, ptr %state, i64 0, i32 3
+  %error4105 = getelementptr inbounds i8, ptr %state, i64 24
   store i32 31, ptr %error4105, align 8
-  %reason4106 = getelementptr inbounds %struct.llhttp__internal_s, ptr %state, i64 0, i32 4
+  %reason4106 = getelementptr inbounds i8, ptr %state, i64 32
   store ptr @.str.91, ptr %reason4106, align 8
-  %error_pos4107 = getelementptr inbounds %struct.llhttp__internal_s, ptr %state, i64 0, i32 5
+  %error_pos4107 = getelementptr inbounds i8, ptr %state, i64 40
   store ptr %p.addr.2255249, ptr %error_pos4107, align 8
   store ptr null, ptr %_current, align 8
   br label %return
 
 s_n_llhttp__internal__n_invoke_load_initial_message_completed: ; preds = %if.end2676
-  %initial_message_completed.i4283 = getelementptr inbounds %struct.llhttp__internal_s, ptr %state, i64 0, i32 19
+  %initial_message_completed.i4283 = getelementptr inbounds i8, ptr %state, i64 84
   %811 = load i8, ptr %initial_message_completed.i4283, align 4
   %cond1 = icmp eq i8 %811, 1
   br i1 %cond1, label %sw.bb4114, label %s_n_llhttp__internal__n_invoke_update_finish

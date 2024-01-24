@@ -3,15 +3,13 @@ source_filename = "bench/rocksdb/original/memarena.cc.ll"
 target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:128-n8:16:32:64-S128"
 target triple = "x86_64-unknown-linux-gnu"
 
-%class.memarena = type { %"struct.memarena::arena_chunk", ptr, i32, i64, i64 }
 %"struct.memarena::arena_chunk" = type { ptr, i64, i64 }
-%"class.memarena::chunk_iterator" = type <{ ptr, i32, [4 x i8] }>
 
 ; Function Attrs: mustprogress uwtable
 define void @_ZN8memarena6createEm(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(56) %this, i64 noundef %initial_size) local_unnamed_addr #0 align 2 {
 entry:
-  %_size_of_other_chunks = getelementptr inbounds %class.memarena, ptr %this, i64 0, i32 3
-  %size = getelementptr inbounds %"struct.memarena::arena_chunk", ptr %this, i64 0, i32 2
+  %_size_of_other_chunks = getelementptr inbounds i8, ptr %this, i64 40
+  %size = getelementptr inbounds i8, ptr %this, i64 16
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(36) %this, i8 0, i64 36, i1 false)
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %_size_of_other_chunks, i8 0, i64 16, i1 false)
   store i64 %initial_size, ptr %size, align 8
@@ -44,13 +42,13 @@ if.then:                                          ; preds = %entry
   br label %if.end
 
 if.end:                                           ; preds = %if.then, %entry
-  %_n_other_chunks = getelementptr inbounds %class.memarena, ptr %this, i64 0, i32 2
+  %_n_other_chunks = getelementptr inbounds i8, ptr %this, i64 32
   %1 = load i32, ptr %_n_other_chunks, align 8
   %cmp4 = icmp sgt i32 %1, 0
   br i1 %cmp4, label %for.body.lr.ph, label %for.end
 
 for.body.lr.ph:                                   ; preds = %if.end
-  %_other_chunks = getelementptr inbounds %class.memarena, ptr %this, i64 0, i32 1
+  %_other_chunks = getelementptr inbounds i8, ptr %this, i64 24
   br label %for.body
 
 for.body:                                         ; preds = %for.body.lr.ph, %for.body
@@ -66,7 +64,7 @@ for.body:                                         ; preds = %for.body.lr.ph, %fo
   br i1 %cmp, label %for.body, label %for.end, !llvm.loop !4
 
 for.end:                                          ; preds = %for.body, %if.end
-  %_other_chunks5 = getelementptr inbounds %class.memarena, ptr %this, i64 0, i32 1
+  %_other_chunks5 = getelementptr inbounds i8, ptr %this, i64 24
   %6 = load ptr, ptr %_other_chunks5, align 8
   %tobool6.not = icmp eq ptr %6, null
   br i1 %tobool6.not, label %if.end9, label %if.then7
@@ -90,18 +88,18 @@ entry:
   br i1 %cmp, label %if.end, label %lor.lhs.false
 
 lor.lhs.false:                                    ; preds = %entry
-  %size3 = getelementptr inbounds %"struct.memarena::arena_chunk", ptr %this, i64 0, i32 2
+  %size3 = getelementptr inbounds i8, ptr %this, i64 16
   %1 = load i64, ptr %size3, align 8
-  %used = getelementptr inbounds %"struct.memarena::arena_chunk", ptr %this, i64 0, i32 1
+  %used = getelementptr inbounds i8, ptr %this, i64 8
   %2 = load i64, ptr %used, align 8
   %add = add i64 %2, %size
   %cmp5 = icmp ult i64 %1, %add
   br i1 %cmp5, label %if.then8, label %if.end43
 
 if.then8:                                         ; preds = %lor.lhs.false
-  %_n_other_chunks = getelementptr inbounds %class.memarena, ptr %this, i64 0, i32 2
+  %_n_other_chunks = getelementptr inbounds i8, ptr %this, i64 32
   %3 = load i32, ptr %_n_other_chunks, align 8
-  %_other_chunks = getelementptr inbounds %class.memarena, ptr %this, i64 0, i32 1
+  %_other_chunks = getelementptr inbounds i8, ptr %this, i64 24
   %4 = load ptr, ptr %_other_chunks, align 8
   %add12 = add nsw i32 %3, 1
   %conv = sext i32 %add12 to i64
@@ -113,21 +111,21 @@ if.then8:                                         ; preds = %lor.lhs.false
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %arrayidx, ptr noundef nonnull align 8 dereferenceable(24) %this, i64 24, i1 false)
   store i32 %add12, ptr %_n_other_chunks, align 8
   %5 = load i64, ptr %size3, align 8
-  %_size_of_other_chunks = getelementptr inbounds %class.memarena, ptr %this, i64 0, i32 3
+  %_size_of_other_chunks = getelementptr inbounds i8, ptr %this, i64 40
   %6 = load i64, ptr %_size_of_other_chunks, align 8
   %add20 = add i64 %6, %5
   store i64 %add20, ptr %_size_of_other_chunks, align 8
   %7 = load ptr, ptr %this, align 8
   %8 = load i64, ptr %used, align 8
   %call25 = tail call noundef i64 @_Z21toku_memory_footprintPvm(ptr noundef %7, i64 noundef %8)
-  %_footprint_of_other_chunks = getelementptr inbounds %class.memarena, ptr %this, i64 0, i32 4
+  %_footprint_of_other_chunks = getelementptr inbounds i8, ptr %this, i64 48
   %9 = load i64, ptr %_footprint_of_other_chunks, align 8
   %add26 = add i64 %9, %call25
   store i64 %add26, ptr %_footprint_of_other_chunks, align 8
   br label %if.end
 
 if.end:                                           ; preds = %entry, %if.then8
-  %size28 = getelementptr inbounds %"struct.memarena::arena_chunk", ptr %this, i64 0, i32 2
+  %size28 = getelementptr inbounds i8, ptr %this, i64 16
   %10 = load i64, ptr %size28, align 8
   %mul29 = shl i64 %10, 1
   %.sroa.speculated = tail call i64 @llvm.umin.i64(i64 %mul29, i64 67108864)
@@ -143,7 +141,7 @@ if.end:                                           ; preds = %entry, %if.then8
 if.end43:                                         ; preds = %if.end, %lor.lhs.false
   %11 = phi i64 [ 0, %if.end ], [ %2, %lor.lhs.false ]
   %12 = phi ptr [ %call36, %if.end ], [ %0, %lor.lhs.false ]
-  %used50 = getelementptr inbounds %"struct.memarena::arena_chunk", ptr %this, i64 0, i32 1
+  %used50 = getelementptr inbounds i8, ptr %this, i64 8
   %add.ptr = getelementptr inbounds i8, ptr %12, i64 %11
   %add53 = add i64 %11, %size
   store i64 %add53, ptr %used50, align 8
@@ -157,11 +155,11 @@ declare noundef i64 @_Z21toku_memory_footprintPvm(ptr noundef, i64 noundef) loca
 ; Function Attrs: mustprogress uwtable
 define void @_ZN8memarena11move_memoryEPS_(ptr nocapture noundef nonnull align 8 dereferenceable(56) %this, ptr nocapture noundef %dest) local_unnamed_addr #0 align 2 {
 entry:
-  %_other_chunks = getelementptr inbounds %class.memarena, ptr %dest, i64 0, i32 1
+  %_other_chunks = getelementptr inbounds i8, ptr %dest, i64 24
   %0 = load ptr, ptr %_other_chunks, align 8
-  %_n_other_chunks = getelementptr inbounds %class.memarena, ptr %dest, i64 0, i32 2
+  %_n_other_chunks = getelementptr inbounds i8, ptr %dest, i64 32
   %1 = load i32, ptr %_n_other_chunks, align 8
-  %_n_other_chunks2 = getelementptr inbounds %class.memarena, ptr %this, i64 0, i32 2
+  %_n_other_chunks2 = getelementptr inbounds i8, ptr %this, i64 32
   %2 = load i32, ptr %_n_other_chunks2, align 8
   %add = add i32 %1, 1
   %add3 = add i32 %add, %2
@@ -169,23 +167,23 @@ entry:
   %mul = mul nsw i64 %conv, 24
   %call = tail call noundef ptr @_Z13toku_xreallocPvm(ptr noundef %0, i64 noundef %mul)
   store ptr %call, ptr %_other_chunks, align 8
-  %_size_of_other_chunks = getelementptr inbounds %class.memarena, ptr %this, i64 0, i32 3
+  %_size_of_other_chunks = getelementptr inbounds i8, ptr %this, i64 40
   %3 = load i64, ptr %_size_of_other_chunks, align 8
-  %size = getelementptr inbounds %"struct.memarena::arena_chunk", ptr %this, i64 0, i32 2
+  %size = getelementptr inbounds i8, ptr %this, i64 16
   %4 = load i64, ptr %size, align 8
   %add5 = add i64 %4, %3
-  %_size_of_other_chunks6 = getelementptr inbounds %class.memarena, ptr %dest, i64 0, i32 3
+  %_size_of_other_chunks6 = getelementptr inbounds i8, ptr %dest, i64 40
   %5 = load i64, ptr %_size_of_other_chunks6, align 8
   %add7 = add i64 %add5, %5
   store i64 %add7, ptr %_size_of_other_chunks6, align 8
-  %_footprint_of_other_chunks = getelementptr inbounds %class.memarena, ptr %this, i64 0, i32 4
+  %_footprint_of_other_chunks = getelementptr inbounds i8, ptr %this, i64 48
   %6 = load i64, ptr %_footprint_of_other_chunks, align 8
   %7 = load ptr, ptr %this, align 8
-  %used = getelementptr inbounds %"struct.memarena::arena_chunk", ptr %this, i64 0, i32 1
+  %used = getelementptr inbounds i8, ptr %this, i64 8
   %8 = load i64, ptr %used, align 8
   %call10 = tail call noundef i64 @_Z21toku_memory_footprintPvm(ptr noundef %7, i64 noundef %8)
   %add11 = add i64 %call10, %6
-  %_footprint_of_other_chunks12 = getelementptr inbounds %class.memarena, ptr %dest, i64 0, i32 4
+  %_footprint_of_other_chunks12 = getelementptr inbounds i8, ptr %dest, i64 48
   %9 = load i64, ptr %_footprint_of_other_chunks12, align 8
   %add13 = add i64 %add11, %9
   store i64 %add13, ptr %_footprint_of_other_chunks12, align 8
@@ -194,7 +192,7 @@ entry:
   br i1 %cmp11, label %for.body.lr.ph, label %for.end
 
 for.body.lr.ph:                                   ; preds = %entry
-  %_other_chunks15 = getelementptr inbounds %class.memarena, ptr %this, i64 0, i32 1
+  %_other_chunks15 = getelementptr inbounds i8, ptr %this, i64 24
   br label %for.body
 
 for.body:                                         ; preds = %for.body.lr.ph, %for.body
@@ -222,7 +220,7 @@ for.end:                                          ; preds = %for.body, %entry
   %idxprom25 = sext i32 %17 to i64
   %arrayidx26 = getelementptr inbounds %"struct.memarena::arena_chunk", ptr %16, i64 %idxprom25
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %arrayidx26, ptr noundef nonnull align 8 dereferenceable(24) %this, i64 24, i1 false)
-  %_other_chunks27 = getelementptr inbounds %class.memarena, ptr %this, i64 0, i32 1
+  %_other_chunks27 = getelementptr inbounds i8, ptr %this, i64 24
   %18 = load ptr, ptr %_other_chunks27, align 8
   tail call void @_Z9toku_freePv(ptr noundef %18)
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(36) %this, i8 0, i64 36, i1 false)
@@ -233,11 +231,11 @@ for.end:                                          ; preds = %for.body, %entry
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
 define noundef i64 @_ZNK8memarena17total_memory_sizeEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(56) %this) local_unnamed_addr #3 align 2 {
 entry:
-  %_size_of_other_chunks.i = getelementptr inbounds %class.memarena, ptr %this, i64 0, i32 3
+  %_size_of_other_chunks.i = getelementptr inbounds i8, ptr %this, i64 40
   %0 = load i64, ptr %_size_of_other_chunks.i, align 8
-  %used.i = getelementptr inbounds %"struct.memarena::arena_chunk", ptr %this, i64 0, i32 1
+  %used.i = getelementptr inbounds i8, ptr %this, i64 8
   %1 = load i64, ptr %used.i, align 8
-  %_n_other_chunks = getelementptr inbounds %class.memarena, ptr %this, i64 0, i32 2
+  %_n_other_chunks = getelementptr inbounds i8, ptr %this, i64 32
   %2 = load i32, ptr %_n_other_chunks, align 8
   %conv = sext i32 %2 to i64
   %mul = mul nsw i64 %conv, 24
@@ -250,9 +248,9 @@ entry:
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
 define noundef i64 @_ZNK8memarena17total_size_in_useEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(56) %this) local_unnamed_addr #3 align 2 {
 entry:
-  %_size_of_other_chunks = getelementptr inbounds %class.memarena, ptr %this, i64 0, i32 3
+  %_size_of_other_chunks = getelementptr inbounds i8, ptr %this, i64 40
   %0 = load i64, ptr %_size_of_other_chunks, align 8
-  %used = getelementptr inbounds %"struct.memarena::arena_chunk", ptr %this, i64 0, i32 1
+  %used = getelementptr inbounds i8, ptr %this, i64 8
   %1 = load i64, ptr %used, align 8
   %add = add i64 %1, %0
   ret i64 %add
@@ -261,15 +259,15 @@ entry:
 ; Function Attrs: mustprogress uwtable
 define noundef i64 @_ZNK8memarena15total_footprintEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(56) %this) local_unnamed_addr #0 align 2 {
 entry:
-  %_footprint_of_other_chunks = getelementptr inbounds %class.memarena, ptr %this, i64 0, i32 4
+  %_footprint_of_other_chunks = getelementptr inbounds i8, ptr %this, i64 48
   %0 = load i64, ptr %_footprint_of_other_chunks, align 8
   %add = add i64 %0, 56
   %1 = load ptr, ptr %this, align 8
-  %used = getelementptr inbounds %"struct.memarena::arena_chunk", ptr %this, i64 0, i32 1
+  %used = getelementptr inbounds i8, ptr %this, i64 8
   %2 = load i64, ptr %used, align 8
   %call = tail call noundef i64 @_Z21toku_memory_footprintPvm(ptr noundef %1, i64 noundef %2)
   %add3 = add i64 %add, %call
-  %_n_other_chunks = getelementptr inbounds %class.memarena, ptr %this, i64 0, i32 2
+  %_n_other_chunks = getelementptr inbounds i8, ptr %this, i64 32
   %3 = load i32, ptr %_n_other_chunks, align 8
   %conv = sext i32 %3 to i64
   %mul = mul nsw i64 %conv, 24
@@ -280,14 +278,14 @@ entry:
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
 define noundef ptr @_ZNK8memarena14chunk_iterator7currentEPm(ptr nocapture noundef nonnull readonly align 8 dereferenceable(12) %this, ptr nocapture noundef writeonly %used) local_unnamed_addr #4 align 2 {
 entry:
-  %_chunk_idx = getelementptr inbounds %"class.memarena::chunk_iterator", ptr %this, i64 0, i32 1
+  %_chunk_idx = getelementptr inbounds i8, ptr %this, i64 8
   %0 = load i32, ptr %_chunk_idx, align 8
   %cmp = icmp slt i32 %0, 0
   %1 = load ptr, ptr %this, align 8
   br i1 %cmp, label %if.then, label %if.else
 
 if.then:                                          ; preds = %entry
-  %used2 = getelementptr inbounds %"struct.memarena::arena_chunk", ptr %1, i64 0, i32 1
+  %used2 = getelementptr inbounds i8, ptr %1, i64 8
   %2 = load i64, ptr %used2, align 8
   store i64 %2, ptr %used, align 8
   %3 = load ptr, ptr %this, align 8
@@ -295,20 +293,20 @@ if.then:                                          ; preds = %entry
   br label %return
 
 if.else:                                          ; preds = %entry
-  %_n_other_chunks = getelementptr inbounds %class.memarena, ptr %1, i64 0, i32 2
+  %_n_other_chunks = getelementptr inbounds i8, ptr %1, i64 32
   %5 = load i32, ptr %_n_other_chunks, align 8
   %cmp7 = icmp slt i32 %0, %5
   br i1 %cmp7, label %if.then8, label %if.end18
 
 if.then8:                                         ; preds = %if.else
-  %_other_chunks = getelementptr inbounds %class.memarena, ptr %1, i64 0, i32 1
+  %_other_chunks = getelementptr inbounds i8, ptr %1, i64 24
   %6 = load ptr, ptr %_other_chunks, align 8
   %idxprom = zext nneg i32 %0 to i64
   %used11 = getelementptr inbounds %"struct.memarena::arena_chunk", ptr %6, i64 %idxprom, i32 1
   %7 = load i64, ptr %used11, align 8
   store i64 %7, ptr %used, align 8
   %8 = load ptr, ptr %this, align 8
-  %_other_chunks13 = getelementptr inbounds %class.memarena, ptr %8, i64 0, i32 1
+  %_other_chunks13 = getelementptr inbounds i8, ptr %8, i64 24
   %9 = load ptr, ptr %_other_chunks13, align 8
   %10 = load i32, ptr %_chunk_idx, align 8
   %idxprom15 = sext i32 %10 to i64
@@ -328,7 +326,7 @@ return:                                           ; preds = %if.end18, %if.then8
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
 define void @_ZN8memarena14chunk_iterator4nextEv(ptr nocapture noundef nonnull align 8 dereferenceable(12) %this) local_unnamed_addr #5 align 2 {
 entry:
-  %_chunk_idx = getelementptr inbounds %"class.memarena::chunk_iterator", ptr %this, i64 0, i32 1
+  %_chunk_idx = getelementptr inbounds i8, ptr %this, i64 8
   %0 = load i32, ptr %_chunk_idx, align 8
   %inc = add nsw i32 %0, 1
   store i32 %inc, ptr %_chunk_idx, align 8
@@ -338,7 +336,7 @@ entry:
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
 define noundef zeroext i1 @_ZNK8memarena14chunk_iterator4moreEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(12) %this) local_unnamed_addr #6 align 2 {
 entry:
-  %_chunk_idx = getelementptr inbounds %"class.memarena::chunk_iterator", ptr %this, i64 0, i32 1
+  %_chunk_idx = getelementptr inbounds i8, ptr %this, i64 8
   %0 = load i32, ptr %_chunk_idx, align 8
   %cmp = icmp slt i32 %0, 0
   %1 = load ptr, ptr %this, align 8
@@ -350,7 +348,7 @@ if.then:                                          ; preds = %entry
   br label %return
 
 if.end:                                           ; preds = %entry
-  %_n_other_chunks = getelementptr inbounds %class.memarena, ptr %1, i64 0, i32 2
+  %_n_other_chunks = getelementptr inbounds i8, ptr %1, i64 32
   %3 = load i32, ptr %_n_other_chunks, align 8
   %cmp5 = icmp slt i32 %0, %3
   br label %return

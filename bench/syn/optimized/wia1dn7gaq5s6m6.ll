@@ -16,20 +16,20 @@ define hidden void @"_ZN62_$LT$proc_macro2..imp..Group$u20$as$u20$core..clone..C
   br i1 %5, label %6, label %9
 
 6:                                                ; preds = %2
-  %7 = getelementptr inbounds { [1 x i32], { { { i32, i32, i32 }, i32, i8, [3 x i8] } } }, ptr %1, i64 0, i32 1
+  %7 = getelementptr inbounds i8, ptr %1, i64 4
   call void @"_ZN56_$LT$proc_macro..Group$u20$as$u20$core..clone..Clone$GT$5clone17h58162670dc474b07E"(ptr nonnull sret({ { { i32, i32, i32 }, i32, i8, [3 x i8] } }) align 4 %3, ptr nonnull align 4 %7)
-  %8 = getelementptr inbounds { [1 x i32], { { { i32, i32, i32 }, i32, i8, [3 x i8] } } }, ptr %0, i64 0, i32 1
+  %8 = getelementptr inbounds i8, ptr %0, i64 4
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(20) %8, ptr noundef nonnull align 4 dereferenceable(20) %3, i64 20, i1 false)
   br label %16
 
 9:                                                ; preds = %2
-  %10 = getelementptr inbounds { [1 x i64], { ptr, i8 } }, ptr %1, i64 0, i32 1
+  %10 = getelementptr inbounds i8, ptr %1, i64 8
   %11 = tail call { ptr, i8 } @"_ZN67_$LT$proc_macro2..fallback..Group$u20$as$u20$core..clone..Clone$GT$5clone17h74078a9ea1615eddE"(ptr nonnull align 8 %10)
   %12 = extractvalue { ptr, i8 } %11, 0
   %13 = extractvalue { ptr, i8 } %11, 1
-  %14 = getelementptr inbounds { [1 x i64], { ptr, i8 } }, ptr %0, i64 0, i32 1
+  %14 = getelementptr inbounds i8, ptr %0, i64 8
   store ptr %12, ptr %14, align 8
-  %15 = getelementptr inbounds { [1 x i64], { ptr, i8 } }, ptr %0, i64 0, i32 1, i32 1
+  %15 = getelementptr inbounds i8, ptr %0, i64 16
   store i8 %13, ptr %15, align 8
   br label %16
 
@@ -43,7 +43,7 @@ define hidden void @"_ZN62_$LT$proc_macro2..imp..Group$u20$as$u20$core..clone..C
 define hidden void @"_ZN62_$LT$proc_macro2..imp..Ident$u20$as$u20$core..clone..Clone$GT$5clone17hcaf985b7f4f2beb8E"(ptr nocapture writeonly sret({ [24 x i8], i8, [7 x i8] }) align 8 %0, ptr align 8 %1) unnamed_addr #1 {
   %3 = alloca { { { { ptr, i64 }, i64 } }, i8, {}, [7 x i8] }, align 8
   %4 = alloca { { i32, i32, i8, [3 x i8] } }, align 4
-  %5 = getelementptr inbounds { [24 x i8], i8, [7 x i8] }, ptr %1, i64 0, i32 1
+  %5 = getelementptr inbounds i8, ptr %1, i64 24
   %6 = load i8, ptr %5, align 8, !range !7, !noundef !6
   %7 = icmp eq i8 %6, 2
   br i1 %7, label %8, label %10
@@ -51,7 +51,7 @@ define hidden void @"_ZN62_$LT$proc_macro2..imp..Ident$u20$as$u20$core..clone..C
 8:                                                ; preds = %2
   call void @"_ZN56_$LT$proc_macro..Ident$u20$as$u20$core..clone..Clone$GT$5clone17h9cedd71f8080ea2eE"(ptr nonnull sret({ { i32, i32, i8, [3 x i8] } }) align 4 %4, ptr nonnull align 4 %1)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(12) %0, ptr noundef nonnull align 4 dereferenceable(12) %4, i64 12, i1 false)
-  %9 = getelementptr inbounds { [24 x i8], i8, [7 x i8] }, ptr %0, i64 0, i32 1
+  %9 = getelementptr inbounds i8, ptr %0, i64 24
   store i8 2, ptr %9, align 8
   br label %11
 
@@ -73,9 +73,9 @@ define hidden void @"_ZN64_$LT$proc_macro2..imp..Literal$u20$as$u20$core..clone.
   br i1 %6, label %7, label %10
 
 7:                                                ; preds = %2
-  %8 = getelementptr inbounds { [2 x i32], { { i32, i32, i32, { i8, i8 }, [2 x i8] } } }, ptr %1, i64 0, i32 1
+  %8 = getelementptr inbounds i8, ptr %1, i64 8
   call void @"_ZN58_$LT$proc_macro..Literal$u20$as$u20$core..clone..Clone$GT$5clone17he0b5ca1caa0444d2E"(ptr nonnull sret({ { i32, i32, i32, { i8, i8 }, [2 x i8] } }) align 4 %4, ptr nonnull align 4 %8)
-  %9 = getelementptr inbounds { [2 x i32], { { i32, i32, i32, { i8, i8 }, [2 x i8] } } }, ptr %0, i64 0, i32 1
+  %9 = getelementptr inbounds i8, ptr %0, i64 8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %9, ptr noundef nonnull align 4 dereferenceable(16) %4, i64 16, i1 false)
   store ptr null, ptr %0, align 8
   br label %11
@@ -101,7 +101,7 @@ define hidden void @"_ZN68_$LT$proc_macro2..imp..TokenStream$u20$as$u20$core..cl
 6:                                                ; preds = %2
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %3)
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %4)
-  %7 = getelementptr inbounds { { { ptr, i64 }, i64 }, i32, [1 x i32] }, ptr %1, i64 0, i32 1
+  %7 = getelementptr inbounds i8, ptr %1, i64 24
   %8 = tail call i32 @"_ZN62_$LT$proc_macro..TokenStream$u20$as$u20$core..clone..Clone$GT$5clone17h969afb6ba7ec5208E"(ptr nonnull align 4 %7), !noalias !8
   store i32 %8, ptr %4, align 4, !noalias !8
   invoke void @"_ZN67_$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$core..clone..Clone$GT$5clone17h40f02e6a13c83dfdE"(ptr nonnull sret({ { ptr, i64 }, i64 }) align 8 %3, ptr nonnull align 8 %1)
@@ -132,9 +132,9 @@ define hidden void @"_ZN68_$LT$proc_macro2..imp..TokenStream$u20$as$u20$core..cl
   br label %18
 
 14:                                               ; preds = %2
-  %15 = getelementptr inbounds { [1 x i64], ptr }, ptr %1, i64 0, i32 1
+  %15 = getelementptr inbounds i8, ptr %1, i64 8
   %16 = tail call ptr @"_ZN73_$LT$proc_macro2..fallback..TokenStream$u20$as$u20$core..clone..Clone$GT$5clone17hf6f60248cebcf9efE"(ptr nonnull align 8 %15)
-  %17 = getelementptr inbounds { [1 x i64], ptr }, ptr %0, i64 0, i32 1
+  %17 = getelementptr inbounds i8, ptr %0, i64 8
   store ptr %16, ptr %17, align 8
   store ptr null, ptr %0, align 8
   br label %18

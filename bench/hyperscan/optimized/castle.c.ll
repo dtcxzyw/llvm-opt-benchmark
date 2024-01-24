@@ -3,10 +3,8 @@ source_filename = "bench/hyperscan/original/castle.c.ll"
 target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:128-n8:16:32:64-S128"
 target triple = "x86_64-unknown-linux-gnu"
 
-%struct.mq = type { ptr, i32, i32, ptr, ptr, i64, ptr, i64, ptr, i64, ptr, i8, ptr, ptr, [10 x %struct.mq_item] }
 %struct.mq_item = type { i32, i64, i64 }
 %struct.SubCastle = type { i32, i32, i32, i32, i32 }
-%struct.RepeatInfo = type { i8, i32, i32, i32, i32, i32, i32, [2 x i32], i32, i32, i32, i32, i32 }
 %struct.mmbit_sparse_state = type { i64, i32 }
 %struct.mmbit_sparse_iter = type { i64, i32 }
 
@@ -17,18 +15,19 @@ target triple = "x86_64-unknown-linux-gnu"
 define hidden signext i8 @nfaExecCastle_Q(ptr noundef %n, ptr nocapture noundef %q, i64 noundef %end) local_unnamed_addr #0 {
 entry:
   %add.ptr.i = getelementptr inbounds i8, ptr %n, i64 64
-  %report_current.i = getelementptr inbounds %struct.mq, ptr %q, i64 0, i32 11
+  %report_current.i = getelementptr inbounds i8, ptr %q, i64 80
   %0 = load i8, ptr %report_current.i, align 8
   %tobool.i.not = icmp eq i8 %0, 0
   br i1 %tobool.i.not, label %if.end3.i, label %if.then.i
 
 if.then.i:                                        ; preds = %entry
-  %offset.i.i = getelementptr inbounds %struct.mq, ptr %q, i64 0, i32 5
+  %offset.i.i = getelementptr inbounds i8, ptr %q, i64 32
   %1 = load i64, ptr %offset.i.i, align 8
-  %cur.i.i = getelementptr inbounds %struct.mq, ptr %q, i64 0, i32 1
+  %items.i.i = getelementptr inbounds i8, ptr %q, i64 104
+  %cur.i.i = getelementptr inbounds i8, ptr %q, i64 8
   %2 = load i32, ptr %cur.i.i, align 8
   %idxprom.i.i = zext i32 %2 to i64
-  %location.i.i = getelementptr inbounds %struct.mq, ptr %q, i64 0, i32 14, i64 %idxprom.i.i, i32 1
+  %location.i.i = getelementptr inbounds [10 x %struct.mq_item], ptr %items.i.i, i64 0, i64 %idxprom.i.i, i32 1
   %3 = load i64, ptr %location.i.i, align 8
   %add.i.i = add i64 %3, %1
   %exclusive.i84 = getelementptr inbounds i8, ptr %n, i64 73
@@ -37,7 +36,7 @@ if.then.i:                                        ; preds = %entry
   br i1 %tobool.i85.not, label %if.then21.i, label %if.then.i88
 
 if.then.i88:                                      ; preds = %if.then.i
-  %streamState.i89 = getelementptr inbounds %struct.mq, ptr %q, i64 0, i32 4
+  %streamState.i89 = getelementptr inbounds i8, ptr %q, i64 24
   %5 = load ptr, ptr %streamState.i89, align 8
   %groupIterOffset.i90 = getelementptr inbounds i8, ptr %n, i64 84
   %6 = load i32, ptr %groupIterOffset.i90, align 4
@@ -267,9 +266,9 @@ for.body.i.lr.ph:                                 ; preds = %if.then94.i7294, %i
   %invariant.gep27753144 = getelementptr i8, ptr %add.ptr.i92, i64 -8
   %activeIdxSize.i = getelementptr inbounds i8, ptr %n, i64 74
   %add.ptr.i.i4204 = getelementptr inbounds i8, ptr %n, i64 128
-  %state.i4209 = getelementptr inbounds %struct.mq, ptr %q, i64 0, i32 3
-  %cb.i4224 = getelementptr inbounds %struct.mq, ptr %q, i64 0, i32 12
-  %context.i4225 = getelementptr inbounds %struct.mq, ptr %q, i64 0, i32 13
+  %state.i4209 = getelementptr inbounds i8, ptr %q, i64 16
+  %cb.i4224 = getelementptr inbounds i8, ptr %q, i64 88
+  %context.i4225 = getelementptr inbounds i8, ptr %q, i64 96
   br label %for.body.i
 
 for.body.i:                                       ; preds = %for.body.i.lr.ph, %mmbit_iterate.exit
@@ -314,21 +313,21 @@ partial_load_u32.exit:                            ; preds = %for.body.i, %sw.bb7
   %retval.i169.0 = phi i32 [ %conv8.i, %sw.bb7.i ], [ %conv6.i171, %sw.bb4.i ], [ %or.i, %sw.bb1.i172 ], [ %29, %sw.bb.i175 ], [ 0, %for.body.i ]
   %idxprom.i.i4205 = zext i32 %retval.i169.0 to i64
   %arrayidx.i.i4206 = getelementptr inbounds %struct.SubCastle, ptr %add.ptr.i.i4204, i64 %idxprom.i.i4205
-  %repeatInfoOffset.i.i4207 = getelementptr inbounds %struct.SubCastle, ptr %add.ptr.i.i4204, i64 %idxprom.i.i4205, i32 3
+  %repeatInfoOffset.i.i4207 = getelementptr inbounds i8, ptr %arrayidx.i.i4206, i64 12
   %34 = load i32, ptr %repeatInfoOffset.i.i4207, align 4
   %idx.ext.i.i4208 = zext i32 %34 to i64
   %add.ptr.i12.i = getelementptr inbounds i8, ptr %arrayidx.i.i4206, i64 %idx.ext.i.i4208
   %35 = load ptr, ptr %state.i4209, align 8
-  %fullStateOffset.i.i4210 = getelementptr inbounds %struct.SubCastle, ptr %add.ptr.i.i4204, i64 %idxprom.i.i4205, i32 1
+  %fullStateOffset.i.i4210 = getelementptr inbounds i8, ptr %arrayidx.i.i4206, i64 4
   %36 = load i32, ptr %fullStateOffset.i.i4210, align 4
   %idx.ext.i14.i = zext i32 %36 to i64
   %add.ptr.i15.i = getelementptr inbounds i8, ptr %35, i64 %idx.ext.i14.i
   %37 = load ptr, ptr %streamState.i89, align 8
-  %streamStateOffset.i4212 = getelementptr inbounds %struct.SubCastle, ptr %add.ptr.i.i4204, i64 %idxprom.i.i4205, i32 2
+  %streamStateOffset.i4212 = getelementptr inbounds i8, ptr %arrayidx.i.i4206, i64 8
   %38 = load i32, ptr %streamStateOffset.i4212, align 4
   %idx.ext.i4213 = zext i32 %38 to i64
   %add.ptr.i4214 = getelementptr inbounds i8, ptr %37, i64 %idx.ext.i4213
-  %packedCtrlSize.i4215 = getelementptr inbounds %struct.RepeatInfo, ptr %add.ptr.i12.i, i64 0, i32 4
+  %packedCtrlSize.i4215 = getelementptr inbounds i8, ptr %add.ptr.i12.i, i64 16
   %39 = load i32, ptr %packedCtrlSize.i4215, align 4
   %idx.ext3.i4216 = zext i32 %39 to i64
   %add.ptr4.i4217 = getelementptr inbounds i8, ptr %add.ptr.i4214, i64 %idx.ext3.i4216
@@ -350,7 +349,7 @@ sw.bb.i.i4249:                                    ; preds = %partial_load_u32.ex
 
 sw.bb1.i.i4242:                                   ; preds = %partial_load_u32.exit
   %41 = load i64, ptr %add.ptr.i15.i, align 8
-  %repeatMin.i.i4243 = getelementptr inbounds %struct.RepeatInfo, ptr %add.ptr.i12.i, i64 0, i32 1
+  %repeatMin.i.i4243 = getelementptr inbounds i8, ptr %add.ptr.i12.i, i64 4
   %42 = load i32, ptr %repeatMin.i.i4243, align 4
   %conv.i20.i4244 = zext i32 %42 to i64
   %add.i.i4245 = add i64 %41, %conv.i20.i4244
@@ -359,7 +358,7 @@ sw.bb1.i.i4242:                                   ; preds = %partial_load_u32.ex
 
 sw.bb3.i.i4236:                                   ; preds = %partial_load_u32.exit
   %43 = load i64, ptr %add.ptr.i15.i, align 8
-  %repeatMin.i25.i = getelementptr inbounds %struct.RepeatInfo, ptr %add.ptr.i12.i, i64 0, i32 1
+  %repeatMin.i25.i = getelementptr inbounds i8, ptr %add.ptr.i12.i, i64 4
   %44 = load i32, ptr %repeatMin.i25.i, align 4
   %conv.i26.i4237 = zext i32 %44 to i64
   %add.i27.i = add i64 %43, %conv.i26.i4237
@@ -367,7 +366,7 @@ sw.bb3.i.i4236:                                   ; preds = %partial_load_u32.ex
   br i1 %cmp.i28.i4238, label %if.end11.i4222, label %if.end.i29.i
 
 if.end.i29.i:                                     ; preds = %sw.bb3.i.i4236
-  %repeatMax.i.i4239 = getelementptr inbounds %struct.RepeatInfo, ptr %add.ptr.i12.i, i64 0, i32 2
+  %repeatMax.i.i4239 = getelementptr inbounds i8, ptr %add.ptr.i12.i, i64 8
   %45 = load i32, ptr %repeatMax.i.i4239, align 4
   %conv4.i.i4240 = zext i32 %45 to i64
   %add5.i.i = add i64 %43, %conv4.i.i4240
@@ -725,7 +724,7 @@ if.end16.i:                                       ; preds = %if.end19.i3852, %fo
   br i1 %cmp19.i.not, label %castleReportCurrent.exit, label %if.then21.i
 
 if.then21.i:                                      ; preds = %if.then.i, %if.end16.i
-  %streamState23.i = getelementptr inbounds %struct.mq, ptr %q, i64 0, i32 4
+  %streamState23.i = getelementptr inbounds i8, ptr %q, i64 24
   %78 = load ptr, ptr %streamState23.i, align 8
   %activeOffset.i86 = getelementptr inbounds i8, ptr %n, i64 76
   %79 = load i32, ptr %activeOffset.i86, align 4
@@ -953,30 +952,30 @@ for.body31.i.lr.ph:                               ; preds = %if.then94.i6790, %i
   %invariant.gep27853158 = getelementptr i8, ptr %add.ptr25.i, i64 -4
   %invariant.gep27873159 = getelementptr i8, ptr %add.ptr25.i, i64 -8
   %add.ptr.i.i4283 = getelementptr inbounds i8, ptr %n, i64 128
-  %state.i4289 = getelementptr inbounds %struct.mq, ptr %q, i64 0, i32 3
-  %cb.i4308 = getelementptr inbounds %struct.mq, ptr %q, i64 0, i32 12
-  %context.i4309 = getelementptr inbounds %struct.mq, ptr %q, i64 0, i32 13
+  %state.i4289 = getelementptr inbounds i8, ptr %q, i64 16
+  %cb.i4308 = getelementptr inbounds i8, ptr %q, i64 88
+  %context.i4309 = getelementptr inbounds i8, ptr %q, i64 96
   br label %for.body31.i
 
 for.body31.i:                                     ; preds = %for.body31.i.lr.ph, %mmbit_iterate.exit148
   %i26.i.02790 = phi i32 [ %retval.i149.03157, %for.body31.i.lr.ph ], [ %retval.i129.0, %mmbit_iterate.exit148 ]
   %idxprom.i.i4284 = zext i32 %i26.i.02790 to i64
   %arrayidx.i.i4285 = getelementptr inbounds %struct.SubCastle, ptr %add.ptr.i.i4283, i64 %idxprom.i.i4284
-  %repeatInfoOffset.i.i4286 = getelementptr inbounds %struct.SubCastle, ptr %add.ptr.i.i4283, i64 %idxprom.i.i4284, i32 3
+  %repeatInfoOffset.i.i4286 = getelementptr inbounds i8, ptr %arrayidx.i.i4285, i64 12
   %101 = load i32, ptr %repeatInfoOffset.i.i4286, align 4
   %idx.ext.i.i4287 = zext i32 %101 to i64
   %add.ptr.i12.i4288 = getelementptr inbounds i8, ptr %arrayidx.i.i4285, i64 %idx.ext.i.i4287
   %102 = load ptr, ptr %state.i4289, align 8
-  %fullStateOffset.i.i4290 = getelementptr inbounds %struct.SubCastle, ptr %add.ptr.i.i4283, i64 %idxprom.i.i4284, i32 1
+  %fullStateOffset.i.i4290 = getelementptr inbounds i8, ptr %arrayidx.i.i4285, i64 4
   %103 = load i32, ptr %fullStateOffset.i.i4290, align 4
   %idx.ext.i14.i4291 = zext i32 %103 to i64
   %add.ptr.i15.i4292 = getelementptr inbounds i8, ptr %102, i64 %idx.ext.i14.i4291
   %104 = load ptr, ptr %streamState23.i, align 8
-  %streamStateOffset.i4294 = getelementptr inbounds %struct.SubCastle, ptr %add.ptr.i.i4283, i64 %idxprom.i.i4284, i32 2
+  %streamStateOffset.i4294 = getelementptr inbounds i8, ptr %arrayidx.i.i4285, i64 8
   %105 = load i32, ptr %streamStateOffset.i4294, align 4
   %idx.ext.i4295 = zext i32 %105 to i64
   %add.ptr.i4296 = getelementptr inbounds i8, ptr %104, i64 %idx.ext.i4295
-  %packedCtrlSize.i4297 = getelementptr inbounds %struct.RepeatInfo, ptr %add.ptr.i12.i4288, i64 0, i32 4
+  %packedCtrlSize.i4297 = getelementptr inbounds i8, ptr %add.ptr.i12.i4288, i64 16
   %106 = load i32, ptr %packedCtrlSize.i4297, align 4
   %idx.ext3.i4298 = zext i32 %106 to i64
   %add.ptr4.i4299 = getelementptr inbounds i8, ptr %add.ptr.i4296, i64 %idx.ext3.i4298
@@ -998,7 +997,7 @@ sw.bb.i.i4344:                                    ; preds = %for.body31.i
 
 sw.bb1.i.i4336:                                   ; preds = %for.body31.i
   %108 = load i64, ptr %add.ptr.i15.i4292, align 8
-  %repeatMin.i.i4337 = getelementptr inbounds %struct.RepeatInfo, ptr %add.ptr.i12.i4288, i64 0, i32 1
+  %repeatMin.i.i4337 = getelementptr inbounds i8, ptr %add.ptr.i12.i4288, i64 4
   %109 = load i32, ptr %repeatMin.i.i4337, align 4
   %conv.i20.i4338 = zext i32 %109 to i64
   %add.i.i4339 = add i64 %108, %conv.i20.i4338
@@ -1007,7 +1006,7 @@ sw.bb1.i.i4336:                                   ; preds = %for.body31.i
 
 sw.bb3.i.i4322:                                   ; preds = %for.body31.i
   %110 = load i64, ptr %add.ptr.i15.i4292, align 8
-  %repeatMin.i25.i4323 = getelementptr inbounds %struct.RepeatInfo, ptr %add.ptr.i12.i4288, i64 0, i32 1
+  %repeatMin.i25.i4323 = getelementptr inbounds i8, ptr %add.ptr.i12.i4288, i64 4
   %111 = load i32, ptr %repeatMin.i25.i4323, align 4
   %conv.i26.i4324 = zext i32 %111 to i64
   %add.i27.i4325 = add i64 %110, %conv.i26.i4324
@@ -1015,7 +1014,7 @@ sw.bb3.i.i4322:                                   ; preds = %for.body31.i
   br i1 %cmp.i28.i4326, label %if.end11.i4306, label %if.end.i29.i4327
 
 if.end.i29.i4327:                                 ; preds = %sw.bb3.i.i4322
-  %repeatMax.i.i4328 = getelementptr inbounds %struct.RepeatInfo, ptr %add.ptr.i12.i4288, i64 0, i32 2
+  %repeatMax.i.i4328 = getelementptr inbounds i8, ptr %add.ptr.i12.i4288, i64 8
   %112 = load i32, ptr %repeatMax.i.i4328, align 4
   %conv4.i.i4329 = zext i32 %112 to i64
   %add5.i.i4330 = add i64 %110, %conv4.i.i4329
@@ -1371,24 +1370,25 @@ if.then2.i.critedge:                              ; preds = %if.then.i4223, %if.
   br label %nfaExecCastle_Q_i.exit
 
 if.end3.i:                                        ; preds = %castleReportCurrent.exit, %entry
-  %cur.i = getelementptr inbounds %struct.mq, ptr %q, i64 0, i32 1
+  %cur.i = getelementptr inbounds i8, ptr %q, i64 8
   %143 = load i32, ptr %cur.i, align 8
-  %end4.i = getelementptr inbounds %struct.mq, ptr %q, i64 0, i32 2
+  %end4.i = getelementptr inbounds i8, ptr %q, i64 12
   %144 = load i32, ptr %end4.i, align 4
   %cmp5.i = icmp eq i32 %143, %144
   br i1 %cmp5.i, label %nfaExecCastle_Q_i.exit, label %if.end7.i
 
 if.end7.i:                                        ; preds = %if.end3.i
-  %streamState.i = getelementptr inbounds %struct.mq, ptr %q, i64 0, i32 4
+  %streamState.i = getelementptr inbounds i8, ptr %q, i64 24
   %145 = load ptr, ptr %streamState.i, align 8
   %activeOffset.i = getelementptr inbounds i8, ptr %n, i64 76
   %146 = load i32, ptr %activeOffset.i, align 4
   %idx.ext.i = zext i32 %146 to i64
   %add.ptr8.i = getelementptr inbounds i8, ptr %145, i64 %idx.ext.i
-  %offset.i37 = getelementptr inbounds %struct.mq, ptr %q, i64 0, i32 5
+  %offset.i37 = getelementptr inbounds i8, ptr %q, i64 32
   %147 = load i64, ptr %offset.i37, align 8
+  %items.i38 = getelementptr inbounds i8, ptr %q, i64 104
   %idxprom.i40 = zext i32 %143 to i64
-  %location.i42 = getelementptr inbounds %struct.mq, ptr %q, i64 0, i32 14, i64 %idxprom.i40, i32 1
+  %location.i42 = getelementptr inbounds [10 x %struct.mq_item], ptr %items.i38, i64 0, i64 %idxprom.i40, i32 1
   %148 = load i64, ptr %location.i42, align 8
   %invariant.gep2916 = getelementptr i8, ptr %add.ptr8.i, i64 -8
   %invariant.gep2918 = getelementptr i8, ptr %add.ptr8.i, i64 -4
@@ -1402,13 +1402,13 @@ while.body.i.lr.ph:                               ; preds = %if.end7.i
   %exclusive.i = getelementptr inbounds i8, ptr %n, i64 73
   %groupIterOffset.i = getelementptr inbounds i8, ptr %n, i64 84
   %numGroups.i = getelementptr inbounds i8, ptr %n, i64 68
-  %buffer.i = getelementptr inbounds %struct.mq, ptr %q, i64 0, i32 6
+  %buffer.i = getelementptr inbounds i8, ptr %q, i64 40
   %type.i = getelementptr inbounds i8, ptr %n, i64 72
   %u.i844 = getelementptr inbounds i8, ptr %n, i64 96
   %mask_hi3.i = getelementptr inbounds i8, ptr %n, i64 112
-  %state70.i = getelementptr inbounds %struct.mq, ptr %q, i64 0, i32 3
-  %cb.i = getelementptr inbounds %struct.mq, ptr %q, i64 0, i32 12
-  %context.i = getelementptr inbounds %struct.mq, ptr %q, i64 0, i32 13
+  %state70.i = getelementptr inbounds i8, ptr %q, i64 16
+  %cb.i = getelementptr inbounds i8, ptr %q, i64 88
+  %context.i = getelementptr inbounds i8, ptr %q, i64 96
   %activeIdxSize.i311 = getelementptr inbounds i8, ptr %n, i64 74
   %add.ptr.i.i2013 = getelementptr inbounds i8, ptr %n, i64 128
   %149 = load i32, ptr @mmbit_root_offset_from_level, align 16
@@ -1599,7 +1599,7 @@ mmbit_any.exit228:                                ; preds = %for.cond.i432, %if.
 if.end31.i:                                       ; preds = %for.body.i475, %for.body.i441, %mmbit_get_flat_block.exit695, %if.end4.i220, %mmbit_any.exit228, %if.end24.i
   %169 = load i64, ptr %offset.i37, align 8
   %idxprom.i24 = zext i32 %storemerge2925 to i64
-  %location.i26 = getelementptr inbounds %struct.mq, ptr %q, i64 0, i32 14, i64 %idxprom.i24, i32 1
+  %location.i26 = getelementptr inbounds [10 x %struct.mq_item], ptr %items.i38, i64 0, i64 %idxprom.i24, i32 1
   %170 = load i64, ptr %location.i26, align 8
   %add.i27 = add i64 %170, %169
   %add.i = add i64 %169, %end
@@ -2234,19 +2234,19 @@ partial_load_u32.exit.i320:                       ; preds = %for.body.i310, %sw.
   %retval.i52.i.0 = phi i32 [ %conv8.i.i338, %sw.bb7.i.i337 ], [ %conv6.i.i341, %sw.bb4.i.i339 ], [ %or.i.i348, %sw.bb1.i.i342 ], [ %248, %sw.bb.i.i349 ], [ 0, %for.body.i310 ]
   %idxprom.i.i2014 = zext i32 %retval.i52.i.0 to i64
   %arrayidx.i.i2015 = getelementptr inbounds %struct.SubCastle, ptr %add.ptr.i.i2013, i64 %idxprom.i.i2014
-  %repeatInfoOffset.i.i = getelementptr inbounds %struct.SubCastle, ptr %add.ptr.i.i2013, i64 %idxprom.i.i2014, i32 3
+  %repeatInfoOffset.i.i = getelementptr inbounds i8, ptr %arrayidx.i.i2015, i64 12
   %253 = load i32, ptr %repeatInfoOffset.i.i, align 4
   %idx.ext.i.i2016 = zext i32 %253 to i64
   %add.ptr.i6.i = getelementptr inbounds i8, ptr %arrayidx.i.i2015, i64 %idx.ext.i.i2016
-  %fullStateOffset.i2183 = getelementptr inbounds %struct.SubCastle, ptr %add.ptr.i.i2013, i64 %idxprom.i.i2014, i32 1
+  %fullStateOffset.i2183 = getelementptr inbounds i8, ptr %arrayidx.i.i2015, i64 4
   %254 = load i32, ptr %fullStateOffset.i2183, align 4
   %idx.ext.i2184 = zext i32 %254 to i64
   %add.ptr.i2185 = getelementptr inbounds i8, ptr %217, i64 %idx.ext.i2184
-  %streamStateOffset.i2017 = getelementptr inbounds %struct.SubCastle, ptr %add.ptr.i.i2013, i64 %idxprom.i.i2014, i32 2
+  %streamStateOffset.i2017 = getelementptr inbounds i8, ptr %arrayidx.i.i2015, i64 8
   %255 = load i32, ptr %streamStateOffset.i2017, align 4
   %idx.ext.i2018 = zext i32 %255 to i64
   %add.ptr.i2019 = getelementptr inbounds i8, ptr %218, i64 %idx.ext.i2018
-  %packedCtrlSize.i2020 = getelementptr inbounds %struct.RepeatInfo, ptr %add.ptr.i6.i, i64 0, i32 4
+  %packedCtrlSize.i2020 = getelementptr inbounds i8, ptr %add.ptr.i6.i, i64 16
   %256 = load i32, ptr %packedCtrlSize.i2020, align 4
   %idx.ext3.i2021 = zext i32 %256 to i64
   %add.ptr4.i2022 = getelementptr inbounds i8, ptr %add.ptr.i2019, i64 %idx.ext3.i2021
@@ -2268,7 +2268,7 @@ sw.bb.i.i2033:                                    ; preds = %partial_load_u32.ex
 
 sw.bb1.i.i2028:                                   ; preds = %partial_load_u32.exit.i320, %partial_load_u32.exit.i320
   %258 = load i64, ptr %add.ptr.i2185, align 8
-  %repeatMin.i.i = getelementptr inbounds %struct.RepeatInfo, ptr %add.ptr.i6.i, i64 0, i32 1
+  %repeatMin.i.i = getelementptr inbounds i8, ptr %add.ptr.i6.i, i64 4
   %259 = load i32, ptr %repeatMin.i.i, align 4
   %conv.i11.i = zext i32 %259 to i64
   %add.i12.i = add i64 %258, %conv.i11.i
@@ -2276,7 +2276,7 @@ sw.bb1.i.i2028:                                   ; preds = %partial_load_u32.ex
   br i1 %cmp.i.i2029, label %if.else.i2046, label %if.end.i.i2030
 
 if.end.i.i2030:                                   ; preds = %sw.bb1.i.i2028
-  %repeatMax.i.i = getelementptr inbounds %struct.RepeatInfo, ptr %add.ptr.i6.i, i64 0, i32 2
+  %repeatMax.i.i = getelementptr inbounds i8, ptr %add.ptr.i6.i, i64 8
   %260 = load i32, ptr %repeatMax.i.i, align 4
   %cmp3.i.i = icmp eq i32 %260, 65535
   %conv7.i.i = zext i32 %260 to i64
@@ -3162,19 +3162,19 @@ for.body.i2105:                                   ; preds = %for.body.i2105.lr.p
   %offset.i288.32881 = phi i64 [ %offset.i288.22655, %for.body.i2105.lr.ph ], [ %offset.i288.4, %mmbit_iterate.exit.i2113 ]
   %idxprom.i.i.i = zext i32 %i.i2097.02883 to i64
   %arrayidx.i.i.i = getelementptr inbounds %struct.SubCastle, ptr %add.ptr.i.i2013, i64 %idxprom.i.i.i
-  %repeatInfoOffset.i.i.i = getelementptr inbounds %struct.SubCastle, ptr %add.ptr.i.i2013, i64 %idxprom.i.i.i, i32 3
+  %repeatInfoOffset.i.i.i = getelementptr inbounds i8, ptr %arrayidx.i.i.i, i64 12
   %366 = load i32, ptr %repeatInfoOffset.i.i.i, align 4
   %idx.ext.i.i.i = zext i32 %366 to i64
   %add.ptr.i6.i.i = getelementptr inbounds i8, ptr %arrayidx.i.i.i, i64 %idx.ext.i.i.i
-  %fullStateOffset.i2177 = getelementptr inbounds %struct.SubCastle, ptr %add.ptr.i.i2013, i64 %idxprom.i.i.i, i32 1
+  %fullStateOffset.i2177 = getelementptr inbounds i8, ptr %arrayidx.i.i.i, i64 4
   %367 = load i32, ptr %fullStateOffset.i2177, align 4
   %idx.ext.i2178 = zext i32 %367 to i64
   %add.ptr.i2179 = getelementptr inbounds i8, ptr %217, i64 %idx.ext.i2178
-  %streamStateOffset.i.i = getelementptr inbounds %struct.SubCastle, ptr %add.ptr.i.i2013, i64 %idxprom.i.i.i, i32 2
+  %streamStateOffset.i.i = getelementptr inbounds i8, ptr %arrayidx.i.i.i, i64 8
   %368 = load i32, ptr %streamStateOffset.i.i, align 4
   %idx.ext.i.i2106 = zext i32 %368 to i64
   %add.ptr.i.i2107 = getelementptr inbounds i8, ptr %218, i64 %idx.ext.i.i2106
-  %packedCtrlSize.i.i = getelementptr inbounds %struct.RepeatInfo, ptr %add.ptr.i6.i.i, i64 0, i32 4
+  %packedCtrlSize.i.i = getelementptr inbounds i8, ptr %add.ptr.i6.i.i, i64 16
   %369 = load i32, ptr %packedCtrlSize.i.i, align 4
   %idx.ext3.i.i = zext i32 %369 to i64
   %add.ptr4.i.i = getelementptr inbounds i8, ptr %add.ptr.i.i2107, i64 %idx.ext3.i.i
@@ -3196,7 +3196,7 @@ sw.bb.i.i.i:                                      ; preds = %for.body.i2105
 
 sw.bb1.i.i.i:                                     ; preds = %for.body.i2105, %for.body.i2105
   %371 = load i64, ptr %add.ptr.i2179, align 8
-  %repeatMin.i.i.i = getelementptr inbounds %struct.RepeatInfo, ptr %add.ptr.i6.i.i, i64 0, i32 1
+  %repeatMin.i.i.i = getelementptr inbounds i8, ptr %add.ptr.i6.i.i, i64 4
   %372 = load i32, ptr %repeatMin.i.i.i, align 4
   %conv.i11.i.i = zext i32 %372 to i64
   %add.i12.i.i = add i64 %371, %conv.i11.i.i
@@ -3204,7 +3204,7 @@ sw.bb1.i.i.i:                                     ; preds = %for.body.i2105, %fo
   br i1 %cmp.i.i.i2128, label %if.else.i33.i, label %if.end.i.i.i
 
 if.end.i.i.i:                                     ; preds = %sw.bb1.i.i.i
-  %repeatMax.i.i.i = getelementptr inbounds %struct.RepeatInfo, ptr %add.ptr.i6.i.i, i64 0, i32 2
+  %repeatMax.i.i.i = getelementptr inbounds i8, ptr %add.ptr.i6.i.i, i64 8
   %373 = load i32, ptr %repeatMax.i.i.i, align 4
   %cmp3.i.i.i = icmp eq i32 %373, 65535
   %conv7.i.i.i = zext i32 %373 to i64
@@ -4512,7 +4512,8 @@ if.end6.i194:                                     ; preds = %if.end.i191
 scan_done.i:                                      ; preds = %mmbit_get_flat_block.exit695, %if.end4.i220, %land.lhs.true.i, %if.end31.i, %if.end.i11, %if.then3.i, %if.end6.i194, %if.then4.i195, %if.end77.i, %mmbit_any.exit228
   %517 = load i32, ptr %cur.i, align 8
   %idxprom.i4 = zext i32 %517 to i64
-  %location.i6 = getelementptr inbounds %struct.mq, ptr %q, i64 0, i32 14, i64 %idxprom.i4, i32 1
+  %arrayidx.i5 = getelementptr inbounds [10 x %struct.mq_item], ptr %items.i38, i64 0, i64 %idxprom.i4
+  %location.i6 = getelementptr inbounds i8, ptr %arrayidx.i5, i64 8
   %518 = load i64, ptr %location.i6, align 8
   %cmp83.i = icmp sgt i64 %518, %end
   br i1 %cmp83.i, label %if.then85.i, label %if.end98.i
@@ -4521,14 +4522,13 @@ if.then85.i:                                      ; preds = %scan_done.i
   %dec87.i = add i32 %517, -1
   store i32 %dec87.i, ptr %cur.i, align 8
   %idxprom90.i = zext i32 %dec87.i to i64
-  %arrayidx91.i = getelementptr inbounds %struct.mq, ptr %q, i64 0, i32 14, i64 %idxprom90.i
+  %arrayidx91.i = getelementptr inbounds [10 x %struct.mq_item], ptr %items.i38, i64 0, i64 %idxprom90.i
   store i32 0, ptr %arrayidx91.i, align 8
-  %location97.i = getelementptr inbounds %struct.mq, ptr %q, i64 0, i32 14, i64 %idxprom90.i, i32 1
+  %location97.i = getelementptr inbounds [10 x %struct.mq_item], ptr %items.i38, i64 0, i64 %idxprom90.i, i32 1
   store i64 %end, ptr %location97.i, align 8
   br label %nfaExecCastle_Q_i.exit
 
 if.end98.i:                                       ; preds = %scan_done.i
-  %arrayidx.i5 = getelementptr inbounds %struct.mq, ptr %q, i64 0, i32 14, i64 %idxprom.i4
   %519 = load i64, ptr %offset.i37, align 8
   %add.i35 = add i64 %519, %518
   %520 = load i32, ptr %arrayidx.i5, align 8
@@ -4541,23 +4541,23 @@ sw.default.i:                                     ; preds = %if.end98.i
   %522 = load ptr, ptr %streamState.i, align 8
   %idxprom.i.i2848 = zext i32 %sub.i50 to i64
   %arrayidx.i.i2849 = getelementptr inbounds %struct.SubCastle, ptr %add.ptr.i.i2013, i64 %idxprom.i.i2848
-  %repeatInfoOffset.i.i2850 = getelementptr inbounds %struct.SubCastle, ptr %add.ptr.i.i2013, i64 %idxprom.i.i2848, i32 3
+  %repeatInfoOffset.i.i2850 = getelementptr inbounds i8, ptr %arrayidx.i.i2849, i64 12
   %523 = load i32, ptr %repeatInfoOffset.i.i2850, align 4
   %idx.ext.i.i2851 = zext i32 %523 to i64
   %add.ptr.i46.i = getelementptr inbounds i8, ptr %arrayidx.i.i2849, i64 %idx.ext.i.i2851
-  %fullStateOffset.i.i = getelementptr inbounds %struct.SubCastle, ptr %add.ptr.i.i2013, i64 %idxprom.i.i2848, i32 1
+  %fullStateOffset.i.i = getelementptr inbounds i8, ptr %arrayidx.i.i2849, i64 4
   %524 = load i32, ptr %fullStateOffset.i.i, align 4
   %idx.ext.i48.i = zext i32 %524 to i64
   %add.ptr.i49.i = getelementptr inbounds i8, ptr %521, i64 %idx.ext.i48.i
-  %streamStateOffset.i2852 = getelementptr inbounds %struct.SubCastle, ptr %add.ptr.i.i2013, i64 %idxprom.i.i2848, i32 2
+  %streamStateOffset.i2852 = getelementptr inbounds i8, ptr %arrayidx.i.i2849, i64 8
   %525 = load i32, ptr %streamStateOffset.i2852, align 4
   %idx.ext.i2853 = zext i32 %525 to i64
   %add.ptr.i2854 = getelementptr inbounds i8, ptr %522, i64 %idx.ext.i2853
-  %packedCtrlSize.i2855 = getelementptr inbounds %struct.RepeatInfo, ptr %add.ptr.i46.i, i64 0, i32 4
+  %packedCtrlSize.i2855 = getelementptr inbounds i8, ptr %add.ptr.i46.i, i64 16
   %526 = load i32, ptr %packedCtrlSize.i2855, align 4
   %idx.ext3.i2856 = zext i32 %526 to i64
   %add.ptr4.i2857 = getelementptr inbounds i8, ptr %add.ptr.i2854, i64 %idx.ext3.i2856
-  %exclusiveId.i2858 = getelementptr inbounds %struct.SubCastle, ptr %add.ptr.i.i2013, i64 %idxprom.i.i2848, i32 4
+  %exclusiveId.i2858 = getelementptr inbounds i8, ptr %arrayidx.i.i2849, i64 16
   %527 = load i32, ptr %exclusiveId.i2858, align 4
   %528 = load i32, ptr %add.ptr.i, align 32
   %cmp.i2859 = icmp ult i32 %527, %528
@@ -5240,18 +5240,19 @@ nfaExecCastle_Q_i.exit:                           ; preds = %for.body.i2150, %fo
 define hidden signext i8 @nfaExecCastle_Q2(ptr noundef %n, ptr nocapture noundef %q, i64 noundef %end) local_unnamed_addr #0 {
 entry:
   %add.ptr.i = getelementptr inbounds i8, ptr %n, i64 64
-  %report_current.i = getelementptr inbounds %struct.mq, ptr %q, i64 0, i32 11
+  %report_current.i = getelementptr inbounds i8, ptr %q, i64 80
   %0 = load i8, ptr %report_current.i, align 8
   %tobool.i.not = icmp eq i8 %0, 0
   br i1 %tobool.i.not, label %if.end3.i, label %if.then.i
 
 if.then.i:                                        ; preds = %entry
-  %offset.i.i = getelementptr inbounds %struct.mq, ptr %q, i64 0, i32 5
+  %offset.i.i = getelementptr inbounds i8, ptr %q, i64 32
   %1 = load i64, ptr %offset.i.i, align 8
-  %cur.i.i = getelementptr inbounds %struct.mq, ptr %q, i64 0, i32 1
+  %items.i.i = getelementptr inbounds i8, ptr %q, i64 104
+  %cur.i.i = getelementptr inbounds i8, ptr %q, i64 8
   %2 = load i32, ptr %cur.i.i, align 8
   %idxprom.i.i = zext i32 %2 to i64
-  %location.i.i = getelementptr inbounds %struct.mq, ptr %q, i64 0, i32 14, i64 %idxprom.i.i, i32 1
+  %location.i.i = getelementptr inbounds [10 x %struct.mq_item], ptr %items.i.i, i64 0, i64 %idxprom.i.i, i32 1
   %3 = load i64, ptr %location.i.i, align 8
   %add.i.i = add i64 %3, %1
   %exclusive.i84 = getelementptr inbounds i8, ptr %n, i64 73
@@ -5260,7 +5261,7 @@ if.then.i:                                        ; preds = %entry
   br i1 %tobool.i85.not, label %if.then21.i, label %if.then.i88
 
 if.then.i88:                                      ; preds = %if.then.i
-  %streamState.i89 = getelementptr inbounds %struct.mq, ptr %q, i64 0, i32 4
+  %streamState.i89 = getelementptr inbounds i8, ptr %q, i64 24
   %5 = load ptr, ptr %streamState.i89, align 8
   %groupIterOffset.i90 = getelementptr inbounds i8, ptr %n, i64 84
   %6 = load i32, ptr %groupIterOffset.i90, align 4
@@ -5490,9 +5491,9 @@ for.body.i.lr.ph:                                 ; preds = %if.then94.i7294, %i
   %invariant.gep27393062 = getelementptr i8, ptr %add.ptr.i92, i64 -8
   %activeIdxSize.i = getelementptr inbounds i8, ptr %n, i64 74
   %add.ptr.i.i4204 = getelementptr inbounds i8, ptr %n, i64 128
-  %state.i4209 = getelementptr inbounds %struct.mq, ptr %q, i64 0, i32 3
-  %cb.i4224 = getelementptr inbounds %struct.mq, ptr %q, i64 0, i32 12
-  %context.i4225 = getelementptr inbounds %struct.mq, ptr %q, i64 0, i32 13
+  %state.i4209 = getelementptr inbounds i8, ptr %q, i64 16
+  %cb.i4224 = getelementptr inbounds i8, ptr %q, i64 88
+  %context.i4225 = getelementptr inbounds i8, ptr %q, i64 96
   br label %for.body.i
 
 for.body.i:                                       ; preds = %for.body.i.lr.ph, %mmbit_iterate.exit
@@ -5537,21 +5538,21 @@ partial_load_u32.exit:                            ; preds = %for.body.i, %sw.bb7
   %retval.i169.0 = phi i32 [ %conv8.i, %sw.bb7.i ], [ %conv6.i171, %sw.bb4.i ], [ %or.i, %sw.bb1.i172 ], [ %29, %sw.bb.i175 ], [ 0, %for.body.i ]
   %idxprom.i.i4205 = zext i32 %retval.i169.0 to i64
   %arrayidx.i.i4206 = getelementptr inbounds %struct.SubCastle, ptr %add.ptr.i.i4204, i64 %idxprom.i.i4205
-  %repeatInfoOffset.i.i4207 = getelementptr inbounds %struct.SubCastle, ptr %add.ptr.i.i4204, i64 %idxprom.i.i4205, i32 3
+  %repeatInfoOffset.i.i4207 = getelementptr inbounds i8, ptr %arrayidx.i.i4206, i64 12
   %34 = load i32, ptr %repeatInfoOffset.i.i4207, align 4
   %idx.ext.i.i4208 = zext i32 %34 to i64
   %add.ptr.i12.i = getelementptr inbounds i8, ptr %arrayidx.i.i4206, i64 %idx.ext.i.i4208
   %35 = load ptr, ptr %state.i4209, align 8
-  %fullStateOffset.i.i4210 = getelementptr inbounds %struct.SubCastle, ptr %add.ptr.i.i4204, i64 %idxprom.i.i4205, i32 1
+  %fullStateOffset.i.i4210 = getelementptr inbounds i8, ptr %arrayidx.i.i4206, i64 4
   %36 = load i32, ptr %fullStateOffset.i.i4210, align 4
   %idx.ext.i14.i = zext i32 %36 to i64
   %add.ptr.i15.i = getelementptr inbounds i8, ptr %35, i64 %idx.ext.i14.i
   %37 = load ptr, ptr %streamState.i89, align 8
-  %streamStateOffset.i4212 = getelementptr inbounds %struct.SubCastle, ptr %add.ptr.i.i4204, i64 %idxprom.i.i4205, i32 2
+  %streamStateOffset.i4212 = getelementptr inbounds i8, ptr %arrayidx.i.i4206, i64 8
   %38 = load i32, ptr %streamStateOffset.i4212, align 4
   %idx.ext.i4213 = zext i32 %38 to i64
   %add.ptr.i4214 = getelementptr inbounds i8, ptr %37, i64 %idx.ext.i4213
-  %packedCtrlSize.i4215 = getelementptr inbounds %struct.RepeatInfo, ptr %add.ptr.i12.i, i64 0, i32 4
+  %packedCtrlSize.i4215 = getelementptr inbounds i8, ptr %add.ptr.i12.i, i64 16
   %39 = load i32, ptr %packedCtrlSize.i4215, align 4
   %idx.ext3.i4216 = zext i32 %39 to i64
   %add.ptr4.i4217 = getelementptr inbounds i8, ptr %add.ptr.i4214, i64 %idx.ext3.i4216
@@ -5573,7 +5574,7 @@ sw.bb.i.i4249:                                    ; preds = %partial_load_u32.ex
 
 sw.bb1.i.i4242:                                   ; preds = %partial_load_u32.exit
   %41 = load i64, ptr %add.ptr.i15.i, align 8
-  %repeatMin.i.i4243 = getelementptr inbounds %struct.RepeatInfo, ptr %add.ptr.i12.i, i64 0, i32 1
+  %repeatMin.i.i4243 = getelementptr inbounds i8, ptr %add.ptr.i12.i, i64 4
   %42 = load i32, ptr %repeatMin.i.i4243, align 4
   %conv.i20.i4244 = zext i32 %42 to i64
   %add.i.i4245 = add i64 %41, %conv.i20.i4244
@@ -5582,7 +5583,7 @@ sw.bb1.i.i4242:                                   ; preds = %partial_load_u32.ex
 
 sw.bb3.i.i4236:                                   ; preds = %partial_load_u32.exit
   %43 = load i64, ptr %add.ptr.i15.i, align 8
-  %repeatMin.i25.i = getelementptr inbounds %struct.RepeatInfo, ptr %add.ptr.i12.i, i64 0, i32 1
+  %repeatMin.i25.i = getelementptr inbounds i8, ptr %add.ptr.i12.i, i64 4
   %44 = load i32, ptr %repeatMin.i25.i, align 4
   %conv.i26.i4237 = zext i32 %44 to i64
   %add.i27.i = add i64 %43, %conv.i26.i4237
@@ -5590,7 +5591,7 @@ sw.bb3.i.i4236:                                   ; preds = %partial_load_u32.ex
   br i1 %cmp.i28.i4238, label %if.end11.i4222, label %if.end.i29.i
 
 if.end.i29.i:                                     ; preds = %sw.bb3.i.i4236
-  %repeatMax.i.i4239 = getelementptr inbounds %struct.RepeatInfo, ptr %add.ptr.i12.i, i64 0, i32 2
+  %repeatMax.i.i4239 = getelementptr inbounds i8, ptr %add.ptr.i12.i, i64 8
   %45 = load i32, ptr %repeatMax.i.i4239, align 4
   %conv4.i.i4240 = zext i32 %45 to i64
   %add5.i.i = add i64 %43, %conv4.i.i4240
@@ -5948,7 +5949,7 @@ if.end16.i:                                       ; preds = %if.end19.i3852, %fo
   br i1 %cmp19.i.not, label %castleReportCurrent.exit, label %if.then21.i
 
 if.then21.i:                                      ; preds = %if.then.i, %if.end16.i
-  %streamState23.i = getelementptr inbounds %struct.mq, ptr %q, i64 0, i32 4
+  %streamState23.i = getelementptr inbounds i8, ptr %q, i64 24
   %78 = load ptr, ptr %streamState23.i, align 8
   %activeOffset.i86 = getelementptr inbounds i8, ptr %n, i64 76
   %79 = load i32, ptr %activeOffset.i86, align 4
@@ -6176,30 +6177,30 @@ for.body31.i.lr.ph:                               ; preds = %if.then94.i6790, %i
   %invariant.gep27493076 = getelementptr i8, ptr %add.ptr25.i, i64 -4
   %invariant.gep27513077 = getelementptr i8, ptr %add.ptr25.i, i64 -8
   %add.ptr.i.i4283 = getelementptr inbounds i8, ptr %n, i64 128
-  %state.i4289 = getelementptr inbounds %struct.mq, ptr %q, i64 0, i32 3
-  %cb.i4308 = getelementptr inbounds %struct.mq, ptr %q, i64 0, i32 12
-  %context.i4309 = getelementptr inbounds %struct.mq, ptr %q, i64 0, i32 13
+  %state.i4289 = getelementptr inbounds i8, ptr %q, i64 16
+  %cb.i4308 = getelementptr inbounds i8, ptr %q, i64 88
+  %context.i4309 = getelementptr inbounds i8, ptr %q, i64 96
   br label %for.body31.i
 
 for.body31.i:                                     ; preds = %for.body31.i.lr.ph, %mmbit_iterate.exit148
   %i26.i.02754 = phi i32 [ %retval.i149.03075, %for.body31.i.lr.ph ], [ %retval.i129.0, %mmbit_iterate.exit148 ]
   %idxprom.i.i4284 = zext i32 %i26.i.02754 to i64
   %arrayidx.i.i4285 = getelementptr inbounds %struct.SubCastle, ptr %add.ptr.i.i4283, i64 %idxprom.i.i4284
-  %repeatInfoOffset.i.i4286 = getelementptr inbounds %struct.SubCastle, ptr %add.ptr.i.i4283, i64 %idxprom.i.i4284, i32 3
+  %repeatInfoOffset.i.i4286 = getelementptr inbounds i8, ptr %arrayidx.i.i4285, i64 12
   %101 = load i32, ptr %repeatInfoOffset.i.i4286, align 4
   %idx.ext.i.i4287 = zext i32 %101 to i64
   %add.ptr.i12.i4288 = getelementptr inbounds i8, ptr %arrayidx.i.i4285, i64 %idx.ext.i.i4287
   %102 = load ptr, ptr %state.i4289, align 8
-  %fullStateOffset.i.i4290 = getelementptr inbounds %struct.SubCastle, ptr %add.ptr.i.i4283, i64 %idxprom.i.i4284, i32 1
+  %fullStateOffset.i.i4290 = getelementptr inbounds i8, ptr %arrayidx.i.i4285, i64 4
   %103 = load i32, ptr %fullStateOffset.i.i4290, align 4
   %idx.ext.i14.i4291 = zext i32 %103 to i64
   %add.ptr.i15.i4292 = getelementptr inbounds i8, ptr %102, i64 %idx.ext.i14.i4291
   %104 = load ptr, ptr %streamState23.i, align 8
-  %streamStateOffset.i4294 = getelementptr inbounds %struct.SubCastle, ptr %add.ptr.i.i4283, i64 %idxprom.i.i4284, i32 2
+  %streamStateOffset.i4294 = getelementptr inbounds i8, ptr %arrayidx.i.i4285, i64 8
   %105 = load i32, ptr %streamStateOffset.i4294, align 4
   %idx.ext.i4295 = zext i32 %105 to i64
   %add.ptr.i4296 = getelementptr inbounds i8, ptr %104, i64 %idx.ext.i4295
-  %packedCtrlSize.i4297 = getelementptr inbounds %struct.RepeatInfo, ptr %add.ptr.i12.i4288, i64 0, i32 4
+  %packedCtrlSize.i4297 = getelementptr inbounds i8, ptr %add.ptr.i12.i4288, i64 16
   %106 = load i32, ptr %packedCtrlSize.i4297, align 4
   %idx.ext3.i4298 = zext i32 %106 to i64
   %add.ptr4.i4299 = getelementptr inbounds i8, ptr %add.ptr.i4296, i64 %idx.ext3.i4298
@@ -6221,7 +6222,7 @@ sw.bb.i.i4344:                                    ; preds = %for.body31.i
 
 sw.bb1.i.i4336:                                   ; preds = %for.body31.i
   %108 = load i64, ptr %add.ptr.i15.i4292, align 8
-  %repeatMin.i.i4337 = getelementptr inbounds %struct.RepeatInfo, ptr %add.ptr.i12.i4288, i64 0, i32 1
+  %repeatMin.i.i4337 = getelementptr inbounds i8, ptr %add.ptr.i12.i4288, i64 4
   %109 = load i32, ptr %repeatMin.i.i4337, align 4
   %conv.i20.i4338 = zext i32 %109 to i64
   %add.i.i4339 = add i64 %108, %conv.i20.i4338
@@ -6230,7 +6231,7 @@ sw.bb1.i.i4336:                                   ; preds = %for.body31.i
 
 sw.bb3.i.i4322:                                   ; preds = %for.body31.i
   %110 = load i64, ptr %add.ptr.i15.i4292, align 8
-  %repeatMin.i25.i4323 = getelementptr inbounds %struct.RepeatInfo, ptr %add.ptr.i12.i4288, i64 0, i32 1
+  %repeatMin.i25.i4323 = getelementptr inbounds i8, ptr %add.ptr.i12.i4288, i64 4
   %111 = load i32, ptr %repeatMin.i25.i4323, align 4
   %conv.i26.i4324 = zext i32 %111 to i64
   %add.i27.i4325 = add i64 %110, %conv.i26.i4324
@@ -6238,7 +6239,7 @@ sw.bb3.i.i4322:                                   ; preds = %for.body31.i
   br i1 %cmp.i28.i4326, label %if.end11.i4306, label %if.end.i29.i4327
 
 if.end.i29.i4327:                                 ; preds = %sw.bb3.i.i4322
-  %repeatMax.i.i4328 = getelementptr inbounds %struct.RepeatInfo, ptr %add.ptr.i12.i4288, i64 0, i32 2
+  %repeatMax.i.i4328 = getelementptr inbounds i8, ptr %add.ptr.i12.i4288, i64 8
   %112 = load i32, ptr %repeatMax.i.i4328, align 4
   %conv4.i.i4329 = zext i32 %112 to i64
   %add5.i.i4330 = add i64 %110, %conv4.i.i4329
@@ -6594,24 +6595,25 @@ if.then2.i.critedge:                              ; preds = %if.then.i4223, %if.
   br label %nfaExecCastle_Q_i.exit
 
 if.end3.i:                                        ; preds = %castleReportCurrent.exit, %entry
-  %cur.i = getelementptr inbounds %struct.mq, ptr %q, i64 0, i32 1
+  %cur.i = getelementptr inbounds i8, ptr %q, i64 8
   %143 = load i32, ptr %cur.i, align 8
-  %end4.i = getelementptr inbounds %struct.mq, ptr %q, i64 0, i32 2
+  %end4.i = getelementptr inbounds i8, ptr %q, i64 12
   %144 = load i32, ptr %end4.i, align 4
   %cmp5.i = icmp eq i32 %143, %144
   br i1 %cmp5.i, label %nfaExecCastle_Q_i.exit, label %if.end7.i
 
 if.end7.i:                                        ; preds = %if.end3.i
-  %streamState.i = getelementptr inbounds %struct.mq, ptr %q, i64 0, i32 4
+  %streamState.i = getelementptr inbounds i8, ptr %q, i64 24
   %145 = load ptr, ptr %streamState.i, align 8
   %activeOffset.i = getelementptr inbounds i8, ptr %n, i64 76
   %146 = load i32, ptr %activeOffset.i, align 4
   %idx.ext.i = zext i32 %146 to i64
   %add.ptr8.i = getelementptr inbounds i8, ptr %145, i64 %idx.ext.i
-  %offset.i37 = getelementptr inbounds %struct.mq, ptr %q, i64 0, i32 5
+  %offset.i37 = getelementptr inbounds i8, ptr %q, i64 32
   %147 = load i64, ptr %offset.i37, align 8
+  %items.i38 = getelementptr inbounds i8, ptr %q, i64 104
   %idxprom.i40 = zext i32 %143 to i64
-  %location.i42 = getelementptr inbounds %struct.mq, ptr %q, i64 0, i32 14, i64 %idxprom.i40, i32 1
+  %location.i42 = getelementptr inbounds [10 x %struct.mq_item], ptr %items.i38, i64 0, i64 %idxprom.i40, i32 1
   %148 = load i64, ptr %location.i42, align 8
   %invariant.gep2878 = getelementptr i8, ptr %add.ptr8.i, i64 -8
   %invariant.gep2880 = getelementptr i8, ptr %add.ptr8.i, i64 -4
@@ -6625,11 +6627,11 @@ while.body.i.lr.ph:                               ; preds = %if.end7.i
   %exclusive.i = getelementptr inbounds i8, ptr %n, i64 73
   %groupIterOffset.i = getelementptr inbounds i8, ptr %n, i64 84
   %numGroups.i = getelementptr inbounds i8, ptr %n, i64 68
-  %buffer.i = getelementptr inbounds %struct.mq, ptr %q, i64 0, i32 6
+  %buffer.i = getelementptr inbounds i8, ptr %q, i64 40
   %type.i = getelementptr inbounds i8, ptr %n, i64 72
   %u.i844 = getelementptr inbounds i8, ptr %n, i64 96
   %mask_hi3.i = getelementptr inbounds i8, ptr %n, i64 112
-  %state.i = getelementptr inbounds %struct.mq, ptr %q, i64 0, i32 3
+  %state.i = getelementptr inbounds i8, ptr %q, i64 16
   %activeIdxSize.i269 = getelementptr inbounds i8, ptr %n, i64 74
   %add.ptr.i.i1383 = getelementptr inbounds i8, ptr %n, i64 128
   %149 = load i32, ptr @mmbit_root_offset_from_level, align 16
@@ -6820,7 +6822,7 @@ mmbit_any.exit228:                                ; preds = %for.cond.i432, %if.
 if.end31.i:                                       ; preds = %for.body.i475, %for.body.i441, %mmbit_get_flat_block.exit695, %if.end4.i220, %mmbit_any.exit228, %if.end24.i
   %169 = load i64, ptr %offset.i37, align 8
   %idxprom.i24 = zext i32 %storemerge2888 to i64
-  %location.i26 = getelementptr inbounds %struct.mq, ptr %q, i64 0, i32 14, i64 %idxprom.i24, i32 1
+  %location.i26 = getelementptr inbounds [10 x %struct.mq_item], ptr %items.i38, i64 0, i64 %idxprom.i24, i32 1
   %170 = load i64, ptr %location.i26, align 8
   %add.i27 = add i64 %170, %169
   %add.i = add i64 %169, %end
@@ -7420,19 +7422,19 @@ partial_load_u32.exit.i:                          ; preds = %for.body.i268, %sw.
   %retval.i96.i.0 = phi i32 [ %conv8.i.i, %sw.bb7.i.i ], [ %conv6.i.i, %sw.bb4.i.i ], [ %or.i.i, %sw.bb1.i.i ], [ %243, %sw.bb.i.i ], [ 0, %for.body.i268 ]
   %idxprom.i.i1384 = zext i32 %retval.i96.i.0 to i64
   %arrayidx.i.i1385 = getelementptr inbounds %struct.SubCastle, ptr %add.ptr.i.i1383, i64 %idxprom.i.i1384
-  %repeatInfoOffset.i1468 = getelementptr inbounds %struct.SubCastle, ptr %add.ptr.i.i1383, i64 %idxprom.i.i1384, i32 3
+  %repeatInfoOffset.i1468 = getelementptr inbounds i8, ptr %arrayidx.i.i1385, i64 12
   %248 = load i32, ptr %repeatInfoOffset.i1468, align 4
   %idx.ext.i1469 = zext i32 %248 to i64
   %add.ptr.i1470 = getelementptr inbounds i8, ptr %arrayidx.i.i1385, i64 %idx.ext.i1469
-  %fullStateOffset.i1479 = getelementptr inbounds %struct.SubCastle, ptr %add.ptr.i.i1383, i64 %idxprom.i.i1384, i32 1
+  %fullStateOffset.i1479 = getelementptr inbounds i8, ptr %arrayidx.i.i1385, i64 4
   %249 = load i32, ptr %fullStateOffset.i1479, align 4
   %idx.ext.i1480 = zext i32 %249 to i64
   %add.ptr.i1481 = getelementptr inbounds i8, ptr %217, i64 %idx.ext.i1480
-  %streamStateOffset.i = getelementptr inbounds %struct.SubCastle, ptr %add.ptr.i.i1383, i64 %idxprom.i.i1384, i32 2
+  %streamStateOffset.i = getelementptr inbounds i8, ptr %arrayidx.i.i1385, i64 8
   %250 = load i32, ptr %streamStateOffset.i, align 4
   %idx.ext.i1386 = zext i32 %250 to i64
   %add.ptr.i1387 = getelementptr inbounds i8, ptr %218, i64 %idx.ext.i1386
-  %packedCtrlSize.i = getelementptr inbounds %struct.RepeatInfo, ptr %add.ptr.i1470, i64 0, i32 4
+  %packedCtrlSize.i = getelementptr inbounds i8, ptr %add.ptr.i1470, i64 16
   %251 = load i32, ptr %packedCtrlSize.i, align 4
   %idx.ext3.i = zext i32 %251 to i64
   %add.ptr4.i1388 = getelementptr inbounds i8, ptr %add.ptr.i1387, i64 %idx.ext3.i
@@ -7454,7 +7456,7 @@ sw.bb.i1509:                                      ; preds = %partial_load_u32.ex
 
 sw.bb1.i1507:                                     ; preds = %partial_load_u32.exit.i, %partial_load_u32.exit.i
   %253 = load i64, ptr %add.ptr.i1481, align 8
-  %repeatMin.i = getelementptr inbounds %struct.RepeatInfo, ptr %add.ptr.i1470, i64 0, i32 1
+  %repeatMin.i = getelementptr inbounds i8, ptr %add.ptr.i1470, i64 4
   %254 = load i32, ptr %repeatMin.i, align 4
   %conv.i1555 = zext i32 %254 to i64
   %add.i1556 = add i64 %253, %conv.i1555
@@ -7462,7 +7464,7 @@ sw.bb1.i1507:                                     ; preds = %partial_load_u32.ex
   br i1 %cmp.i1557, label %if.else14.i, label %if.end.i1558
 
 if.end.i1558:                                     ; preds = %sw.bb1.i1507
-  %repeatMax.i = getelementptr inbounds %struct.RepeatInfo, ptr %add.ptr.i1470, i64 0, i32 2
+  %repeatMax.i = getelementptr inbounds i8, ptr %add.ptr.i1470, i64 8
   %255 = load i32, ptr %repeatMax.i, align 4
   %cmp3.i = icmp eq i32 %255, 65535
   %conv7.i = zext i32 %255 to i64
@@ -7493,7 +7495,7 @@ repeatNextMatch.exit1512:                         ; preds = %partial_load_u32.ex
   br i1 %cmp.i1390, label %if.then.i1396, label %if.else14.i
 
 if.then.i1396:                                    ; preds = %if.end.i1558, %partial_load_u32.exit.i, %repeatNextMatch.exit1512
-  %exclusiveId.i = getelementptr inbounds %struct.SubCastle, ptr %add.ptr.i.i1383, i64 %idxprom.i.i1384, i32 4
+  %exclusiveId.i = getelementptr inbounds i8, ptr %arrayidx.i.i1385, i64 16
   %256 = load i32, ptr %exclusiveId.i, align 4
   %257 = load i32, ptr %add.ptr.i, align 32
   %cmp6.i1397 = icmp ult i32 %256, %257
@@ -8251,19 +8253,19 @@ for.body28.i:                                     ; preds = %for.body28.i.lr.ph,
   %mloc.i.52868 = phi i64 [ %mloc.i.42638, %for.body28.i.lr.ph ], [ %mloc.i.7, %mmbit_iterate.exit.i ]
   %idxprom.i.i1426 = zext i32 %i23.i.02870 to i64
   %arrayidx.i.i1427 = getelementptr inbounds %struct.SubCastle, ptr %add.ptr.i.i1383, i64 %idxprom.i.i1426
-  %repeatInfoOffset.i = getelementptr inbounds %struct.SubCastle, ptr %add.ptr.i.i1383, i64 %idxprom.i.i1426, i32 3
+  %repeatInfoOffset.i = getelementptr inbounds i8, ptr %arrayidx.i.i1427, i64 12
   %354 = load i32, ptr %repeatInfoOffset.i, align 4
   %idx.ext.i1464 = zext i32 %354 to i64
   %add.ptr.i1465 = getelementptr inbounds i8, ptr %arrayidx.i.i1427, i64 %idx.ext.i1464
-  %fullStateOffset.i = getelementptr inbounds %struct.SubCastle, ptr %add.ptr.i.i1383, i64 %idxprom.i.i1426, i32 1
+  %fullStateOffset.i = getelementptr inbounds i8, ptr %arrayidx.i.i1427, i64 4
   %355 = load i32, ptr %fullStateOffset.i, align 4
   %idx.ext.i1474 = zext i32 %355 to i64
   %add.ptr.i1475 = getelementptr inbounds i8, ptr %217, i64 %idx.ext.i1474
-  %streamStateOffset.i1430 = getelementptr inbounds %struct.SubCastle, ptr %add.ptr.i.i1383, i64 %idxprom.i.i1426, i32 2
+  %streamStateOffset.i1430 = getelementptr inbounds i8, ptr %arrayidx.i.i1427, i64 8
   %356 = load i32, ptr %streamStateOffset.i1430, align 4
   %idx.ext.i1431 = zext i32 %356 to i64
   %add.ptr.i1432 = getelementptr inbounds i8, ptr %218, i64 %idx.ext.i1431
-  %packedCtrlSize.i1433 = getelementptr inbounds %struct.RepeatInfo, ptr %add.ptr.i1465, i64 0, i32 4
+  %packedCtrlSize.i1433 = getelementptr inbounds i8, ptr %add.ptr.i1465, i64 16
   %357 = load i32, ptr %packedCtrlSize.i1433, align 4
   %idx.ext3.i1434 = zext i32 %357 to i64
   %add.ptr4.i1435 = getelementptr inbounds i8, ptr %add.ptr.i1432, i64 %idx.ext3.i1434
@@ -8285,7 +8287,7 @@ sw.bb.i1489:                                      ; preds = %for.body28.i
 
 sw.bb1.i1488:                                     ; preds = %for.body28.i, %for.body28.i
   %359 = load i64, ptr %add.ptr.i1475, align 8
-  %repeatMin.i1567 = getelementptr inbounds %struct.RepeatInfo, ptr %add.ptr.i1465, i64 0, i32 1
+  %repeatMin.i1567 = getelementptr inbounds i8, ptr %add.ptr.i1465, i64 4
   %360 = load i32, ptr %repeatMin.i1567, align 4
   %conv.i1568 = zext i32 %360 to i64
   %add.i1569 = add i64 %359, %conv.i1568
@@ -8293,7 +8295,7 @@ sw.bb1.i1488:                                     ; preds = %for.body28.i, %for.
   br i1 %cmp.i1570, label %if.else14.i1438, label %if.end.i1571
 
 if.end.i1571:                                     ; preds = %sw.bb1.i1488
-  %repeatMax.i1572 = getelementptr inbounds %struct.RepeatInfo, ptr %add.ptr.i1465, i64 0, i32 2
+  %repeatMax.i1572 = getelementptr inbounds i8, ptr %add.ptr.i1465, i64 8
   %361 = load i32, ptr %repeatMax.i1572, align 4
   %cmp3.i1573 = icmp eq i32 %361, 65535
   %conv7.i1576 = zext i32 %361 to i64
@@ -8329,7 +8331,7 @@ repeatNextMatch.exit.if.then.i1449_crit_edge:     ; preds = %repeatNextMatch.exi
 
 if.then.i1449:                                    ; preds = %repeatNextMatch.exit.if.then.i1449_crit_edge, %if.end.i1571, %for.body28.i
   %362 = phi i32 [ %.pre, %repeatNextMatch.exit.if.then.i1449_crit_edge ], [ %353, %if.end.i1571 ], [ %353, %for.body28.i ]
-  %exclusiveId.i1450 = getelementptr inbounds %struct.SubCastle, ptr %add.ptr.i.i1383, i64 %idxprom.i.i1426, i32 4
+  %exclusiveId.i1450 = getelementptr inbounds i8, ptr %arrayidx.i.i1427, i64 16
   %363 = load i32, ptr %exclusiveId.i1450, align 4
   %cmp6.i1451 = icmp ult i32 %363, %362
   br i1 %cmp6.i1451, label %if.then7.i1457, label %if.else.i1452
@@ -8848,12 +8850,12 @@ if.then56.i:                                      ; preds = %castleFindMatch.exi
   %dec.i = add i32 %435, -1
   store i32 %dec.i, ptr %cur.i, align 8
   %idxprom.i = zext i32 %dec.i to i64
-  %arrayidx.i = getelementptr inbounds %struct.mq, ptr %q, i64 0, i32 14, i64 %idxprom.i
+  %arrayidx.i = getelementptr inbounds [10 x %struct.mq_item], ptr %items.i38, i64 0, i64 %idxprom.i
   store i32 0, ptr %arrayidx.i, align 8
   %436 = load i64, ptr %offset.i37, align 8
   %sub62.i = add i64 %mloc.i.9, %sp.i.02887
   %add63.i = sub i64 %sub62.i, %436
-  %location.i = getelementptr inbounds %struct.mq, ptr %q, i64 0, i32 14, i64 %idxprom.i, i32 1
+  %location.i = getelementptr inbounds [10 x %struct.mq_item], ptr %items.i38, i64 0, i64 %idxprom.i, i32 1
   store i64 %add63.i, ptr %location.i, align 8
   br label %nfaExecCastle_Q_i.exit
 
@@ -8917,7 +8919,8 @@ if.end6.i194:                                     ; preds = %if.end.i191
 scan_done.i:                                      ; preds = %mmbit_get_flat_block.exit695, %if.end4.i220, %land.lhs.true.i, %if.end31.i, %if.end.i11, %if.then3.i, %if.end6.i194, %if.then4.i195, %if.end77.i, %mmbit_any.exit228
   %442 = load i32, ptr %cur.i, align 8
   %idxprom.i4 = zext i32 %442 to i64
-  %location.i6 = getelementptr inbounds %struct.mq, ptr %q, i64 0, i32 14, i64 %idxprom.i4, i32 1
+  %arrayidx.i5 = getelementptr inbounds [10 x %struct.mq_item], ptr %items.i38, i64 0, i64 %idxprom.i4
+  %location.i6 = getelementptr inbounds i8, ptr %arrayidx.i5, i64 8
   %443 = load i64, ptr %location.i6, align 8
   %cmp83.i = icmp sgt i64 %443, %end
   br i1 %cmp83.i, label %if.then85.i, label %if.end98.i
@@ -8926,14 +8929,13 @@ if.then85.i:                                      ; preds = %scan_done.i
   %dec87.i = add i32 %442, -1
   store i32 %dec87.i, ptr %cur.i, align 8
   %idxprom90.i = zext i32 %dec87.i to i64
-  %arrayidx91.i = getelementptr inbounds %struct.mq, ptr %q, i64 0, i32 14, i64 %idxprom90.i
+  %arrayidx91.i = getelementptr inbounds [10 x %struct.mq_item], ptr %items.i38, i64 0, i64 %idxprom90.i
   store i32 0, ptr %arrayidx91.i, align 8
-  %location97.i = getelementptr inbounds %struct.mq, ptr %q, i64 0, i32 14, i64 %idxprom90.i, i32 1
+  %location97.i = getelementptr inbounds [10 x %struct.mq_item], ptr %items.i38, i64 0, i64 %idxprom90.i, i32 1
   store i64 %end, ptr %location97.i, align 8
   br label %nfaExecCastle_Q_i.exit
 
 if.end98.i:                                       ; preds = %scan_done.i
-  %arrayidx.i5 = getelementptr inbounds %struct.mq, ptr %q, i64 0, i32 14, i64 %idxprom.i4
   %444 = load i64, ptr %offset.i37, align 8
   %add.i35 = add i64 %444, %443
   %445 = load i32, ptr %arrayidx.i5, align 8
@@ -8946,23 +8948,23 @@ sw.default.i:                                     ; preds = %if.end98.i
   %447 = load ptr, ptr %streamState.i, align 8
   %idxprom.i.i2848 = zext i32 %sub.i50 to i64
   %arrayidx.i.i2849 = getelementptr inbounds %struct.SubCastle, ptr %add.ptr.i.i1383, i64 %idxprom.i.i2848
-  %repeatInfoOffset.i.i2850 = getelementptr inbounds %struct.SubCastle, ptr %add.ptr.i.i1383, i64 %idxprom.i.i2848, i32 3
+  %repeatInfoOffset.i.i2850 = getelementptr inbounds i8, ptr %arrayidx.i.i2849, i64 12
   %448 = load i32, ptr %repeatInfoOffset.i.i2850, align 4
   %idx.ext.i.i2851 = zext i32 %448 to i64
   %add.ptr.i46.i = getelementptr inbounds i8, ptr %arrayidx.i.i2849, i64 %idx.ext.i.i2851
-  %fullStateOffset.i.i = getelementptr inbounds %struct.SubCastle, ptr %add.ptr.i.i1383, i64 %idxprom.i.i2848, i32 1
+  %fullStateOffset.i.i = getelementptr inbounds i8, ptr %arrayidx.i.i2849, i64 4
   %449 = load i32, ptr %fullStateOffset.i.i, align 4
   %idx.ext.i48.i = zext i32 %449 to i64
   %add.ptr.i49.i = getelementptr inbounds i8, ptr %446, i64 %idx.ext.i48.i
-  %streamStateOffset.i2852 = getelementptr inbounds %struct.SubCastle, ptr %add.ptr.i.i1383, i64 %idxprom.i.i2848, i32 2
+  %streamStateOffset.i2852 = getelementptr inbounds i8, ptr %arrayidx.i.i2849, i64 8
   %450 = load i32, ptr %streamStateOffset.i2852, align 4
   %idx.ext.i2853 = zext i32 %450 to i64
   %add.ptr.i2854 = getelementptr inbounds i8, ptr %447, i64 %idx.ext.i2853
-  %packedCtrlSize.i2855 = getelementptr inbounds %struct.RepeatInfo, ptr %add.ptr.i46.i, i64 0, i32 4
+  %packedCtrlSize.i2855 = getelementptr inbounds i8, ptr %add.ptr.i46.i, i64 16
   %451 = load i32, ptr %packedCtrlSize.i2855, align 4
   %idx.ext3.i2856 = zext i32 %451 to i64
   %add.ptr4.i2857 = getelementptr inbounds i8, ptr %add.ptr.i2854, i64 %idx.ext3.i2856
-  %exclusiveId.i2858 = getelementptr inbounds %struct.SubCastle, ptr %add.ptr.i.i1383, i64 %idxprom.i.i2848, i32 4
+  %exclusiveId.i2858 = getelementptr inbounds i8, ptr %arrayidx.i.i2849, i64 16
   %452 = load i32, ptr %exclusiveId.i2858, align 4
   %453 = load i32, ptr %add.ptr.i, align 32
   %cmp.i2859 = icmp ult i32 %452, %453
@@ -9650,36 +9652,37 @@ nfaExecCastle_Q_i.exit:                           ; preds = %for.body.i543, %if.
 define hidden noundef signext i8 @nfaExecCastle_QR(ptr noundef %n, ptr nocapture noundef %q, i32 noundef %report) local_unnamed_addr #0 {
 entry:
   %si_state.i = alloca [7 x %struct.mmbit_sparse_state], align 16
-  %cur = getelementptr inbounds %struct.mq, ptr %q, i64 0, i32 1
+  %cur = getelementptr inbounds i8, ptr %q, i64 8
   %0 = load i32, ptr %cur, align 8
-  %end = getelementptr inbounds %struct.mq, ptr %q, i64 0, i32 2
+  %end = getelementptr inbounds i8, ptr %q, i64 12
   %1 = load i32, ptr %end, align 4
   %cmp = icmp eq i32 %0, %1
   br i1 %cmp, label %return, label %if.end
 
 if.end:                                           ; preds = %entry
   %add.ptr = getelementptr inbounds i8, ptr %n, i64 64
-  %streamState = getelementptr inbounds %struct.mq, ptr %q, i64 0, i32 4
+  %streamState = getelementptr inbounds i8, ptr %q, i64 24
   %2 = load ptr, ptr %streamState, align 8
   %activeOffset = getelementptr inbounds i8, ptr %n, i64 76
   %3 = load i32, ptr %activeOffset, align 4
   %idx.ext = zext i32 %3 to i64
   %add.ptr1 = getelementptr inbounds i8, ptr %2, i64 %idx.ext
+  %items.i = getelementptr inbounds i8, ptr %q, i64 104
   %sub.i = add i32 %1, -1
   %idxprom.i = zext i32 %sub.i to i64
-  %location.i = getelementptr inbounds %struct.mq, ptr %q, i64 0, i32 14, i64 %idxprom.i, i32 1
+  %location.i = getelementptr inbounds [10 x %struct.mq_item], ptr %items.i, i64 0, i64 %idxprom.i, i32 1
   %4 = load i64, ptr %location.i, align 8
-  %offset = getelementptr inbounds %struct.mq, ptr %q, i64 0, i32 5
+  %offset = getelementptr inbounds i8, ptr %q, i64 32
   %5 = load i64, ptr %offset, align 8
   %add = add i64 %5, %4
   %idxprom.i17.i = zext i32 %0 to i64
-  %location.i19.i = getelementptr inbounds %struct.mq, ptr %q, i64 0, i32 14, i64 %idxprom.i17.i, i32 1
+  %location.i19.i = getelementptr inbounds [10 x %struct.mq_item], ptr %items.i, i64 0, i64 %idxprom.i17.i, i32 1
   %6 = load i64, ptr %location.i19.i, align 8
   %cmp.i = icmp sgt i64 %4, 0
   br i1 %cmp.i, label %if.then.i1351, label %if.end5.i
 
 if.then.i1351:                                    ; preds = %if.end
-  %buffer.i = getelementptr inbounds %struct.mq, ptr %q, i64 0, i32 6
+  %buffer.i = getelementptr inbounds i8, ptr %q, i64 40
   %7 = load ptr, ptr %buffer.i, align 8
   %cond.i = tail call i64 @llvm.smax.i64(i64 %6, i64 0)
   %cmp.i26.i = icmp eq i64 %6, %4
@@ -9936,9 +9939,9 @@ if.end5.i:                                        ; preds = %sw.bb6.i30.i, %sw.b
   br i1 %cmp6.i1339, label %if.then7.i1341, label %if.end13.i1340
 
 if.then7.i1341:                                   ; preds = %if.end5.i
-  %hlength.i = getelementptr inbounds %struct.mq, ptr %q, i64 0, i32 9
+  %hlength.i = getelementptr inbounds i8, ptr %q, i64 64
   %41 = load i64, ptr %hlength.i, align 8
-  %history.i = getelementptr inbounds %struct.mq, ptr %q, i64 0, i32 8
+  %history.i = getelementptr inbounds i8, ptr %q, i64 56
   %42 = load ptr, ptr %history.i, align 8
   %add.i1342 = add nsw i64 %41, %6
   %add8.i = add nsw i64 %41, %ep.0.i
@@ -10203,7 +10206,7 @@ castleLastKillLoc.exit:                           ; preds = %rvermicelliExec.exi
   %retval.0.i = phi i64 [ %sub.i1346, %if.then11.i1345 ], [ %sub14.i, %if.end13.i1340 ], [ %sub.ptr.sub.i168.i, %sw.bb6.i30.i ], [ %sub.ptr.sub.i125.i, %sw.bb4.i32.i ], [ %sub.ptr.sub.i88.i, %rnvermicelliExec.exit1527.i ], [ %sub.ptr.sub.i.i, %rvermicelliExec.exit320.i ]
   %76 = load i32, ptr %cur, align 8
   %idxprom.i53 = zext i32 %76 to i64
-  %location.i55 = getelementptr inbounds %struct.mq, ptr %q, i64 0, i32 14, i64 %idxprom.i53, i32 1
+  %location.i55 = getelementptr inbounds [10 x %struct.mq_item], ptr %items.i, i64 0, i64 %idxprom.i53, i32 1
   %77 = load i64, ptr %location.i55, align 8
   %sub = add nsw i64 %77, -1
   %cmp6.not = icmp eq i64 %retval.0.i, %sub
@@ -10274,7 +10277,7 @@ while.cond:                                       ; preds = %while.cond, %if.end
   %storemerge.in = phi i32 [ %83, %if.end8 ], [ %storemerge, %while.cond ]
   %storemerge = add i32 %storemerge.in, 1
   %idxprom.i47 = zext i32 %storemerge to i64
-  %location.i49 = getelementptr inbounds %struct.mq, ptr %q, i64 0, i32 14, i64 %idxprom.i47, i32 1
+  %location.i49 = getelementptr inbounds [10 x %struct.mq_item], ptr %items.i, i64 0, i64 %idxprom.i47, i32 1
   %84 = load i64, ptr %location.i49, align 8
   %cmp11.not = icmp sgt i64 %84, %retval.0.i
   br i1 %cmp11.not, label %while.cond16.preheader, label %while.cond, !llvm.loop !30
@@ -10286,7 +10289,7 @@ while.cond16.preheader:                           ; preds = %while.cond
   br i1 %cmp191493, label %do.end22.lr.ph, label %while.end26
 
 do.end22.lr.ph:                                   ; preds = %while.cond16.preheader
-  %state.i = getelementptr inbounds %struct.mq, ptr %q, i64 0, i32 3
+  %state.i = getelementptr inbounds i8, ptr %q, i64 16
   %add.ptr.i42.i = getelementptr inbounds i8, ptr %n, i64 128
   %groupIterOffset.i582 = getelementptr inbounds i8, ptr %n, i64 84
   %activeIdxSize.i585 = getelementptr inbounds i8, ptr %n, i64 74
@@ -10297,8 +10300,8 @@ do.end22:                                         ; preds = %do.end22.lr.ph, %ca
   %86 = phi i32 [ %storemerge, %do.end22.lr.ph ], [ %inc25, %castleHandleEvent.exit ]
   %87 = load i64, ptr %offset, align 8
   %idxprom.i60 = zext i32 %86 to i64
-  %arrayidx.i61 = getelementptr inbounds %struct.mq, ptr %q, i64 0, i32 14, i64 %idxprom.i60
-  %location.i62 = getelementptr inbounds %struct.mq, ptr %q, i64 0, i32 14, i64 %idxprom.i60, i32 1
+  %arrayidx.i61 = getelementptr inbounds [10 x %struct.mq_item], ptr %items.i, i64 0, i64 %idxprom.i60
+  %location.i62 = getelementptr inbounds i8, ptr %arrayidx.i61, i64 8
   %88 = load i64, ptr %location.i62, align 8
   %add.i = add i64 %88, %87
   %89 = load i32, ptr %arrayidx.i61, align 8
@@ -10311,23 +10314,23 @@ sw.default.i:                                     ; preds = %do.end22
   %91 = load ptr, ptr %streamState, align 8
   %idxprom.i.i567 = zext i32 %sub.i69 to i64
   %arrayidx.i.i568 = getelementptr inbounds %struct.SubCastle, ptr %add.ptr.i42.i, i64 %idxprom.i.i567
-  %repeatInfoOffset.i.i = getelementptr inbounds %struct.SubCastle, ptr %add.ptr.i42.i, i64 %idxprom.i.i567, i32 3
+  %repeatInfoOffset.i.i = getelementptr inbounds i8, ptr %arrayidx.i.i568, i64 12
   %92 = load i32, ptr %repeatInfoOffset.i.i, align 4
   %idx.ext.i.i = zext i32 %92 to i64
   %add.ptr.i46.i = getelementptr inbounds i8, ptr %arrayidx.i.i568, i64 %idx.ext.i.i
-  %fullStateOffset.i.i = getelementptr inbounds %struct.SubCastle, ptr %add.ptr.i42.i, i64 %idxprom.i.i567, i32 1
+  %fullStateOffset.i.i = getelementptr inbounds i8, ptr %arrayidx.i.i568, i64 4
   %93 = load i32, ptr %fullStateOffset.i.i, align 4
   %idx.ext.i48.i = zext i32 %93 to i64
   %add.ptr.i49.i = getelementptr inbounds i8, ptr %90, i64 %idx.ext.i48.i
-  %streamStateOffset.i569 = getelementptr inbounds %struct.SubCastle, ptr %add.ptr.i42.i, i64 %idxprom.i.i567, i32 2
+  %streamStateOffset.i569 = getelementptr inbounds i8, ptr %arrayidx.i.i568, i64 8
   %94 = load i32, ptr %streamStateOffset.i569, align 4
   %idx.ext.i570 = zext i32 %94 to i64
   %add.ptr.i571 = getelementptr inbounds i8, ptr %91, i64 %idx.ext.i570
-  %packedCtrlSize.i572 = getelementptr inbounds %struct.RepeatInfo, ptr %add.ptr.i46.i, i64 0, i32 4
+  %packedCtrlSize.i572 = getelementptr inbounds i8, ptr %add.ptr.i46.i, i64 16
   %95 = load i32, ptr %packedCtrlSize.i572, align 4
   %idx.ext3.i573 = zext i32 %95 to i64
   %add.ptr4.i574 = getelementptr inbounds i8, ptr %add.ptr.i571, i64 %idx.ext3.i573
-  %exclusiveId.i = getelementptr inbounds %struct.SubCastle, ptr %add.ptr.i42.i, i64 %idxprom.i.i567, i32 4
+  %exclusiveId.i = getelementptr inbounds i8, ptr %arrayidx.i.i568, i64 16
   %96 = load i32, ptr %exclusiveId.i, align 4
   %97 = load i32, ptr %add.ptr, align 32
   %cmp.i575 = icmp ult i32 %96, %97
@@ -10693,7 +10696,7 @@ castleHandleEvent.exit:                           ; preds = %do.end22, %repeatLa
   br i1 %cmp19, label %do.end22, label %while.end26, !llvm.loop !31
 
 while.end26:                                      ; preds = %castleHandleEvent.exit, %while.cond16.preheader
-  %state = getelementptr inbounds %struct.mq, ptr %q, i64 0, i32 3
+  %state = getelementptr inbounds i8, ptr %q, i64 16
   %144 = load ptr, ptr %state, align 8
   %145 = load ptr, ptr %streamState, align 8
   %staleIterOffset.i = getelementptr inbounds i8, ptr %n, i64 80
@@ -10983,19 +10986,19 @@ partial_load_u32.exit279:                         ; preds = %for.body.i, %sw.bb7
   %retval.i259.0 = phi i32 [ %conv8.i266, %sw.bb7.i265 ], [ %conv6.i269, %sw.bb4.i267 ], [ %or.i276, %sw.bb1.i270 ], [ %172, %sw.bb.i277 ], [ 0, %for.body.i ]
   %idxprom.i.i683 = zext i32 %retval.i259.0 to i64
   %arrayidx.i.i684 = getelementptr inbounds %struct.SubCastle, ptr %add.ptr.i.i682, i64 %idxprom.i.i683
-  %repeatInfoOffset.i.i685 = getelementptr inbounds %struct.SubCastle, ptr %add.ptr.i.i682, i64 %idxprom.i.i683, i32 3
+  %repeatInfoOffset.i.i685 = getelementptr inbounds i8, ptr %arrayidx.i.i684, i64 12
   %177 = load i32, ptr %repeatInfoOffset.i.i685, align 4
   %idx.ext.i.i686 = zext i32 %177 to i64
   %add.ptr.i16.i = getelementptr inbounds i8, ptr %arrayidx.i.i684, i64 %idx.ext.i.i686
-  %fullStateOffset.i.i687 = getelementptr inbounds %struct.SubCastle, ptr %add.ptr.i.i682, i64 %idxprom.i.i683, i32 1
+  %fullStateOffset.i.i687 = getelementptr inbounds i8, ptr %arrayidx.i.i684, i64 4
   %178 = load i32, ptr %fullStateOffset.i.i687, align 4
   %idx.ext.i18.i = zext i32 %178 to i64
   %add.ptr.i19.i = getelementptr inbounds i8, ptr %144, i64 %idx.ext.i18.i
-  %streamStateOffset.i688 = getelementptr inbounds %struct.SubCastle, ptr %add.ptr.i.i682, i64 %idxprom.i.i683, i32 2
+  %streamStateOffset.i688 = getelementptr inbounds i8, ptr %arrayidx.i.i684, i64 8
   %179 = load i32, ptr %streamStateOffset.i688, align 4
   %idx.ext.i689 = zext i32 %179 to i64
   %add.ptr.i690 = getelementptr inbounds i8, ptr %145, i64 %idx.ext.i689
-  %packedCtrlSize.i691 = getelementptr inbounds %struct.RepeatInfo, ptr %add.ptr.i16.i, i64 0, i32 4
+  %packedCtrlSize.i691 = getelementptr inbounds i8, ptr %add.ptr.i16.i, i64 16
   %180 = load i32, ptr %packedCtrlSize.i691, align 4
   %idx.ext3.i692 = zext i32 %180 to i64
   %add.ptr4.i693 = getelementptr inbounds i8, ptr %add.ptr.i690, i64 %idx.ext3.i692
@@ -11015,7 +11018,7 @@ sw.bb.i1049:                                      ; preds = %partial_load_u32.ex
 
 sw.bb3.i1045:                                     ; preds = %partial_load_u32.exit279
   %182 = load i64, ptr %add.ptr.i19.i, align 8
-  %repeatMin.i1176 = getelementptr inbounds %struct.RepeatInfo, ptr %add.ptr.i16.i, i64 0, i32 1
+  %repeatMin.i1176 = getelementptr inbounds i8, ptr %add.ptr.i16.i, i64 4
   %183 = load i32, ptr %repeatMin.i1176, align 4
   %conv.i1177 = zext i32 %183 to i64
   %add.i1178 = add i64 %182, %conv.i1177
@@ -11023,7 +11026,7 @@ sw.bb3.i1045:                                     ; preds = %partial_load_u32.ex
   br i1 %cmp.i1179, label %subCastleDeactivateStaleSubs.exit, label %if.end.i1180
 
 if.end.i1180:                                     ; preds = %sw.bb3.i1045
-  %repeatMax.i1181 = getelementptr inbounds %struct.RepeatInfo, ptr %add.ptr.i16.i, i64 0, i32 2
+  %repeatMax.i1181 = getelementptr inbounds i8, ptr %add.ptr.i16.i, i64 8
   %184 = load i32, ptr %repeatMax.i1181, align 4
   %conv4.i1182 = zext i32 %184 to i64
   %add5.i1183 = add i64 %182, %conv4.i1182
@@ -11052,7 +11055,7 @@ repeatHasMatch.exit1052:                          ; preds = %sw.bb11.i1037, %sw.
   br i1 %cmp.i695, label %if.then.i696, label %subCastleDeactivateStaleSubs.exit
 
 if.then.i696:                                     ; preds = %if.end.i1180, %repeatHasMatch.exit1052
-  %exclusiveId.i697 = getelementptr inbounds %struct.SubCastle, ptr %add.ptr.i.i682, i64 %idxprom.i.i683, i32 4
+  %exclusiveId.i697 = getelementptr inbounds i8, ptr %arrayidx.i.i684, i64 16
   %185 = load i32, ptr %exclusiveId.i697, align 4
   %186 = load i32, ptr %add.ptr, align 32
   %cmp6.i698 = icmp ult i32 %185, %186
@@ -11636,7 +11639,7 @@ if.end7.i1220:                                    ; preds = %if.then.i997
   br i1 %tobool9.i1222.not1533, label %castleDeactivateStaleSubs.exit, label %for.body.i1224.lr.ph
 
 for.body.i1224.lr.ph:                             ; preds = %if.end7.i1220
-  %val.i = getelementptr inbounds %struct.mmbit_sparse_iter, ptr %add.ptr25.i, i64 0, i32 1
+  %val.i = getelementptr inbounds i8, ptr %add.ptr25.i, i64 8
   %269 = load i32, ptr %val.i, align 8
   br label %for.body.i1224
 
@@ -11714,9 +11717,9 @@ if.end30.i:                                       ; preds = %sw.bb.i.i1251, %sw.
 
 if.then34.i:                                      ; preds = %if.end30.i
   store i64 %root.i.01534, ptr %si_state.i, align 16
-  %arrayidx36.i = getelementptr inbounds %struct.mmbit_sparse_state, ptr %si_state.i, i64 1
+  %arrayidx36.i = getelementptr inbounds i8, ptr %si_state.i, i64 16
   store i64 %and32.i, ptr %arrayidx36.i, align 16
-  %itkey.i = getelementptr inbounds %struct.mmbit_sparse_state, ptr %si_state.i, i64 1, i32 1
+  %itkey.i = getelementptr inbounds i8, ptr %si_state.i, i64 24
   store i32 %add.i1227, ptr %itkey.i, align 8
   %278 = tail call i64 @llvm.cttz.i64(i64 %and32.i, i1 true), !range !5
   %cast.i1320 = trunc i64 %278 to i32
@@ -11744,7 +11747,7 @@ if.end.i1280:                                     ; preds = %if.else.i992
   %282 = load i8, ptr %arrayidx.i.i1283, align 1
   %conv.i.i1284 = zext i8 %282 to i32
   store i64 %and.i1277, ptr %si_state.i, align 16
-  %itkey.i1285 = getelementptr inbounds %struct.mmbit_sparse_state, ptr %si_state.i, i64 0, i32 1
+  %itkey.i1285 = getelementptr inbounds i8, ptr %si_state.i, i64 8
   store i32 0, ptr %itkey.i1285, align 8
   br label %for.cond.i1395
 
@@ -11772,7 +11775,7 @@ if.else.i1416:                                    ; preds = %if.then.i1404
   %286 = tail call i64 @llvm.ctpop.i64(i64 %and.i.i1412), !range !33
   %cast.i43.i = trunc i64 %286 to i32
   %inc.i = add i32 %level.addr.i.0, 1
-  %val5.i = getelementptr inbounds %struct.mmbit_sparse_iter, ptr %it.addr.i.0, i64 0, i32 1
+  %val5.i = getelementptr inbounds i8, ptr %it.addr.i.0, i64 8
   %287 = load i32, ptr %val5.i, align 8
   %add6.i = add i32 %287, %cast.i43.i
   %idx.ext.i1417 = zext i32 %add6.i to i64
@@ -11791,7 +11794,7 @@ if.else.i1416:                                    ; preds = %if.then.i1404
   %and.i1422 = and i64 %290, %289
   %arrayidx12.i = getelementptr inbounds %struct.mmbit_sparse_state, ptr %si_state.i, i64 %idxprom.i1430
   store i64 %and.i1422, ptr %arrayidx12.i, align 16
-  %itkey.i1423 = getelementptr inbounds %struct.mmbit_sparse_state, ptr %si_state.i, i64 %idxprom.i1430, i32 1
+  %itkey.i1423 = getelementptr inbounds i8, ptr %arrayidx12.i, i64 8
   store i32 %add6.i, ptr %itkey.i1423, align 8
   br label %for.cond.i1395.backedge
 
@@ -11808,7 +11811,7 @@ if.end20.i:                                       ; preds = %if.else16.i
   %sub.i1401 = add i64 %291, -1
   %and27.i = and i64 %sub.i1401, %291
   store i64 %and27.i, ptr %arrayidx22.i, align 16
-  %itkey30.i = getelementptr inbounds %struct.mmbit_sparse_state, ptr %si_state.i, i64 %idxprom21.i, i32 1
+  %itkey30.i = getelementptr inbounds i8, ptr %arrayidx22.i, i64 8
   %292 = load i32, ptr %itkey30.i, align 8
   %idx.ext31.i = zext i32 %292 to i64
   %add.ptr32.i = getelementptr inbounds %struct.mmbit_sparse_iter, ptr %add.ptr25.i, i64 %idx.ext31.i
@@ -11838,28 +11841,28 @@ while.body.i.lr.ph:                               ; preds = %if.then34.i, %if.en
   %idxprom.i.i1547 = zext nneg i32 %294 to i64
   %arrayidx.i.i1548 = getelementptr inbounds [32 x i8], ptr @mmbit_maxlevel_direct_lut, i64 0, i64 %idxprom.i.i1547
   %cmp.i1465 = icmp ult i32 %261, 65
-  %arrayidx.i1467 = getelementptr inbounds %struct.mmbit_sparse_state, ptr %si_state.i, i64 1
-  %val48.i = getelementptr inbounds %struct.mmbit_sparse_iter, ptr %add.ptr25.i, i64 0, i32 1
-  %itkey78.i = getelementptr inbounds %struct.mmbit_sparse_state, ptr %si_state.i, i64 1, i32 1
+  %arrayidx.i1467 = getelementptr inbounds i8, ptr %si_state.i, i64 16
+  %val48.i = getelementptr inbounds i8, ptr %add.ptr25.i, i64 8
+  %itkey78.i = getelementptr inbounds i8, ptr %si_state.i, i64 24
   br label %while.body.i
 
 while.body.i:                                     ; preds = %while.body.i.lr.ph, %mmbit_sparse_iter_next.exit
   %i27.i.01578 = phi i32 [ %key.i989.01788, %while.body.i.lr.ph ], [ %key.i1004.0, %mmbit_sparse_iter_next.exit ]
   %idxprom.i.i845 = zext i32 %i27.i.01578 to i64
   %arrayidx.i.i846 = getelementptr inbounds %struct.SubCastle, ptr %add.ptr.i.i844, i64 %idxprom.i.i845
-  %repeatInfoOffset.i.i847 = getelementptr inbounds %struct.SubCastle, ptr %add.ptr.i.i844, i64 %idxprom.i.i845, i32 3
+  %repeatInfoOffset.i.i847 = getelementptr inbounds i8, ptr %arrayidx.i.i846, i64 12
   %295 = load i32, ptr %repeatInfoOffset.i.i847, align 4
   %idx.ext.i.i848 = zext i32 %295 to i64
   %add.ptr.i16.i849 = getelementptr inbounds i8, ptr %arrayidx.i.i846, i64 %idx.ext.i.i848
-  %fullStateOffset.i.i850 = getelementptr inbounds %struct.SubCastle, ptr %add.ptr.i.i844, i64 %idxprom.i.i845, i32 1
+  %fullStateOffset.i.i850 = getelementptr inbounds i8, ptr %arrayidx.i.i846, i64 4
   %296 = load i32, ptr %fullStateOffset.i.i850, align 4
   %idx.ext.i18.i851 = zext i32 %296 to i64
   %add.ptr.i19.i852 = getelementptr inbounds i8, ptr %144, i64 %idx.ext.i18.i851
-  %streamStateOffset.i853 = getelementptr inbounds %struct.SubCastle, ptr %add.ptr.i.i844, i64 %idxprom.i.i845, i32 2
+  %streamStateOffset.i853 = getelementptr inbounds i8, ptr %arrayidx.i.i846, i64 8
   %297 = load i32, ptr %streamStateOffset.i853, align 4
   %idx.ext.i854 = zext i32 %297 to i64
   %add.ptr.i855 = getelementptr inbounds i8, ptr %145, i64 %idx.ext.i854
-  %packedCtrlSize.i856 = getelementptr inbounds %struct.RepeatInfo, ptr %add.ptr.i16.i849, i64 0, i32 4
+  %packedCtrlSize.i856 = getelementptr inbounds i8, ptr %add.ptr.i16.i849, i64 16
   %298 = load i32, ptr %packedCtrlSize.i856, align 4
   %idx.ext3.i857 = zext i32 %298 to i64
   %add.ptr4.i858 = getelementptr inbounds i8, ptr %add.ptr.i855, i64 %idx.ext3.i857
@@ -11879,7 +11882,7 @@ sw.bb.i1027:                                      ; preds = %while.body.i
 
 sw.bb3.i1023:                                     ; preds = %while.body.i
   %300 = load i64, ptr %add.ptr.i19.i852, align 8
-  %repeatMin.i1193 = getelementptr inbounds %struct.RepeatInfo, ptr %add.ptr.i16.i849, i64 0, i32 1
+  %repeatMin.i1193 = getelementptr inbounds i8, ptr %add.ptr.i16.i849, i64 4
   %301 = load i32, ptr %repeatMin.i1193, align 4
   %conv.i1194 = zext i32 %301 to i64
   %add.i1195 = add i64 %300, %conv.i1194
@@ -11887,7 +11890,7 @@ sw.bb3.i1023:                                     ; preds = %while.body.i
   br i1 %cmp.i1196, label %subCastleDeactivateStaleSubs.exit985, label %if.end.i1197
 
 if.end.i1197:                                     ; preds = %sw.bb3.i1023
-  %repeatMax.i1198 = getelementptr inbounds %struct.RepeatInfo, ptr %add.ptr.i16.i849, i64 0, i32 2
+  %repeatMax.i1198 = getelementptr inbounds i8, ptr %add.ptr.i16.i849, i64 8
   %302 = load i32, ptr %repeatMax.i1198, align 4
   %conv4.i1199 = zext i32 %302 to i64
   %add5.i1200 = add i64 %300, %conv4.i1199
@@ -11916,7 +11919,7 @@ repeatHasMatch.exit:                              ; preds = %sw.bb11.i, %sw.bb9.
   br i1 %cmp.i860, label %if.then.i861, label %subCastleDeactivateStaleSubs.exit985
 
 if.then.i861:                                     ; preds = %if.end.i1197, %repeatHasMatch.exit
-  %exclusiveId.i862 = getelementptr inbounds %struct.SubCastle, ptr %add.ptr.i.i844, i64 %idxprom.i.i845, i32 4
+  %exclusiveId.i862 = getelementptr inbounds i8, ptr %arrayidx.i.i846, i64 16
   %303 = load i32, ptr %exclusiveId.i862, align 4
   %304 = load i32, ptr %add.ptr, align 32
   %cmp6.i863 = icmp ult i32 %303, %304
@@ -12243,7 +12246,7 @@ if.else.i1007:                                    ; preds = %subCastleDeactivate
   %sub.i1553 = add i64 %365, -1
   %and.i1554 = and i64 %sub.i1553, %365
   store i64 %and.i1554, ptr %arrayidx.i1552, align 16
-  %itkey.i1555 = getelementptr inbounds %struct.mmbit_sparse_state, ptr %si_state.i, i64 %idxprom.i1551, i32 1
+  %itkey.i1555 = getelementptr inbounds i8, ptr %arrayidx.i1552, i64 8
   %366 = load i32, ptr %itkey.i1555, align 8
   %idx.ext.i1556 = zext i32 %366 to i64
   %add.ptr.i1557 = getelementptr inbounds %struct.mmbit_sparse_iter, ptr %add.ptr25.i, i64 %idx.ext.i1556
@@ -12275,7 +12278,7 @@ if.else.i.i1570:                                  ; preds = %if.then.i.i1561
   %370 = tail call i64 @llvm.ctpop.i64(i64 %and.i.i.i1566), !range !33
   %cast.i43.i.i = trunc i64 %370 to i32
   %inc.i.i1568 = add i32 %level.addr.i.i1530.0, 1
-  %val5.i.i = getelementptr inbounds %struct.mmbit_sparse_iter, ptr %it.addr.i.i.0, i64 0, i32 1
+  %val5.i.i = getelementptr inbounds i8, ptr %it.addr.i.i.0, i64 8
   %371 = load i32, ptr %val5.i.i, align 8
   %add6.i.i = add i32 %371, %cast.i43.i.i
   %idx.ext.i.i1571 = zext i32 %add6.i.i to i64
@@ -12294,7 +12297,7 @@ if.else.i.i1570:                                  ; preds = %if.then.i.i1561
   %and.i.i1574 = and i64 %374, %373
   %arrayidx12.i.i = getelementptr inbounds %struct.mmbit_sparse_state, ptr %si_state.i, i64 %idxprom.i13.i
   store i64 %and.i.i1574, ptr %arrayidx12.i.i, align 16
-  %itkey.i.i = getelementptr inbounds %struct.mmbit_sparse_state, ptr %si_state.i, i64 %idxprom.i13.i, i32 1
+  %itkey.i.i = getelementptr inbounds i8, ptr %arrayidx12.i.i, i64 8
   store i32 %add6.i.i, ptr %itkey.i.i, align 8
   br label %for.cond.i.i.backedge
 
@@ -12311,7 +12314,7 @@ if.end20.i.i:                                     ; preds = %if.else16.i.i
   %sub.i9.i = add i64 %375, -1
   %and27.i.i = and i64 %sub.i9.i, %375
   store i64 %and27.i.i, ptr %arrayidx22.i.i, align 16
-  %itkey30.i.i = getelementptr inbounds %struct.mmbit_sparse_state, ptr %si_state.i, i64 %idxprom21.i.i, i32 1
+  %itkey30.i.i = getelementptr inbounds i8, ptr %arrayidx22.i.i, i64 8
   %376 = load i32, ptr %itkey30.i.i, align 8
   %idx.ext31.i.i = zext i32 %376 to i64
   %add.ptr32.i.i = getelementptr inbounds %struct.mmbit_sparse_iter, ptr %add.ptr25.i, i64 %idx.ext31.i.i
@@ -12938,21 +12941,21 @@ partial_load_u32.exit:                            ; preds = %for.body.i132, %sw.
   br i1 %cmp.i286.not, label %if.end.i287, label %if.end13.i
 
 if.end.i287:                                      ; preds = %partial_load_u32.exit
-  %repeatInfoOffset.i528 = getelementptr inbounds %struct.SubCastle, ptr %add.ptr.i.i, i64 %idxprom.i.i, i32 3
+  %repeatInfoOffset.i528 = getelementptr inbounds i8, ptr %arrayidx.i.i, i64 12
   %437 = load i32, ptr %repeatInfoOffset.i528, align 4
   %idx.ext.i529 = zext i32 %437 to i64
   %add.ptr.i530 = getelementptr inbounds i8, ptr %arrayidx.i.i, i64 %idx.ext.i529
   %438 = load ptr, ptr %state, align 8
-  %fullStateOffset.i539 = getelementptr inbounds %struct.SubCastle, ptr %add.ptr.i.i, i64 %idxprom.i.i, i32 1
+  %fullStateOffset.i539 = getelementptr inbounds i8, ptr %arrayidx.i.i, i64 4
   %439 = load i32, ptr %fullStateOffset.i539, align 4
   %idx.ext.i540 = zext i32 %439 to i64
   %add.ptr.i541 = getelementptr inbounds i8, ptr %438, i64 %idx.ext.i540
   %440 = load ptr, ptr %streamState, align 8
-  %streamStateOffset.i = getelementptr inbounds %struct.SubCastle, ptr %add.ptr.i.i, i64 %idxprom.i.i, i32 2
+  %streamStateOffset.i = getelementptr inbounds i8, ptr %arrayidx.i.i, i64 8
   %441 = load i32, ptr %streamStateOffset.i, align 4
   %idx.ext.i292 = zext i32 %441 to i64
   %add.ptr.i293 = getelementptr inbounds i8, ptr %440, i64 %idx.ext.i292
-  %packedCtrlSize.i = getelementptr inbounds %struct.RepeatInfo, ptr %add.ptr.i530, i64 0, i32 4
+  %packedCtrlSize.i = getelementptr inbounds i8, ptr %add.ptr.i530, i64 16
   %442 = load i32, ptr %packedCtrlSize.i, align 4
   %idx.ext4.i = zext i32 %442 to i64
   %add.ptr5.i = getelementptr inbounds i8, ptr %add.ptr.i293, i64 %idx.ext4.i
@@ -12974,7 +12977,7 @@ sw.bb.i1095:                                      ; preds = %if.end.i287
 
 sw.bb1.i1093:                                     ; preds = %if.end.i287
   %444 = load i64, ptr %add.ptr.i541, align 8
-  %repeatMin.i = getelementptr inbounds %struct.RepeatInfo, ptr %add.ptr.i530, i64 0, i32 1
+  %repeatMin.i = getelementptr inbounds i8, ptr %add.ptr.i530, i64 4
   %445 = load i32, ptr %repeatMin.i, align 4
   %conv.i1103 = zext i32 %445 to i64
   %add.i1104 = add i64 %444, %conv.i1103
@@ -12983,7 +12986,7 @@ sw.bb1.i1093:                                     ; preds = %if.end.i287
 
 sw.bb3.i1091:                                     ; preds = %if.end.i287
   %446 = load i64, ptr %add.ptr.i541, align 8
-  %repeatMin.i1145 = getelementptr inbounds %struct.RepeatInfo, ptr %add.ptr.i530, i64 0, i32 1
+  %repeatMin.i1145 = getelementptr inbounds i8, ptr %add.ptr.i530, i64 4
   %447 = load i32, ptr %repeatMin.i1145, align 4
   %conv.i1146 = zext i32 %447 to i64
   %add.i1147 = add i64 %446, %conv.i1146
@@ -12991,7 +12994,7 @@ sw.bb3.i1091:                                     ; preds = %if.end.i287
   br i1 %cmp.i1148, label %if.end13.i, label %if.end.i1149
 
 if.end.i1149:                                     ; preds = %sw.bb3.i1091
-  %repeatMax.i = getelementptr inbounds %struct.RepeatInfo, ptr %add.ptr.i530, i64 0, i32 2
+  %repeatMax.i = getelementptr inbounds i8, ptr %add.ptr.i530, i64 8
   %448 = load i32, ptr %repeatMax.i, align 4
   %conv4.i1150 = zext i32 %448 to i64
   %add5.i = add i64 %446, %conv4.i1150
@@ -13584,21 +13587,21 @@ for.body31.i:                                     ; preds = %for.body31.i.prehea
   br i1 %cmp.i313.not, label %if.end.i314, label %if.end37.i
 
 if.end.i314:                                      ; preds = %for.body31.i
-  %repeatInfoOffset.i = getelementptr inbounds %struct.SubCastle, ptr %add.ptr.i.i3101821, i64 %idxprom.i.i311, i32 3
+  %repeatInfoOffset.i = getelementptr inbounds i8, ptr %arrayidx.i.i312, i64 12
   %504 = load i32, ptr %repeatInfoOffset.i, align 4
   %idx.ext.i524 = zext i32 %504 to i64
   %add.ptr.i525 = getelementptr inbounds i8, ptr %arrayidx.i.i312, i64 %idx.ext.i524
   %505 = load ptr, ptr %state, align 8
-  %fullStateOffset.i = getelementptr inbounds %struct.SubCastle, ptr %add.ptr.i.i3101821, i64 %idxprom.i.i311, i32 1
+  %fullStateOffset.i = getelementptr inbounds i8, ptr %arrayidx.i.i312, i64 4
   %506 = load i32, ptr %fullStateOffset.i, align 4
   %idx.ext.i534 = zext i32 %506 to i64
   %add.ptr.i535 = getelementptr inbounds i8, ptr %505, i64 %idx.ext.i534
   %507 = load ptr, ptr %streamState, align 8
-  %streamStateOffset.i319 = getelementptr inbounds %struct.SubCastle, ptr %add.ptr.i.i3101821, i64 %idxprom.i.i311, i32 2
+  %streamStateOffset.i319 = getelementptr inbounds i8, ptr %arrayidx.i.i312, i64 8
   %508 = load i32, ptr %streamStateOffset.i319, align 4
   %idx.ext.i320 = zext i32 %508 to i64
   %add.ptr.i321 = getelementptr inbounds i8, ptr %507, i64 %idx.ext.i320
-  %packedCtrlSize.i322 = getelementptr inbounds %struct.RepeatInfo, ptr %add.ptr.i525, i64 0, i32 4
+  %packedCtrlSize.i322 = getelementptr inbounds i8, ptr %add.ptr.i525, i64 16
   %509 = load i32, ptr %packedCtrlSize.i322, align 4
   %idx.ext4.i323 = zext i32 %509 to i64
   %add.ptr5.i324 = getelementptr inbounds i8, ptr %add.ptr.i321, i64 %idx.ext4.i323
@@ -13620,7 +13623,7 @@ sw.bb.i1072:                                      ; preds = %if.end.i314
 
 sw.bb1.i1070:                                     ; preds = %if.end.i314
   %511 = load i64, ptr %add.ptr.i535, align 8
-  %repeatMin.i1112 = getelementptr inbounds %struct.RepeatInfo, ptr %add.ptr.i525, i64 0, i32 1
+  %repeatMin.i1112 = getelementptr inbounds i8, ptr %add.ptr.i525, i64 4
   %512 = load i32, ptr %repeatMin.i1112, align 4
   %conv.i1113 = zext i32 %512 to i64
   %add.i1114 = add i64 %511, %conv.i1113
@@ -13629,7 +13632,7 @@ sw.bb1.i1070:                                     ; preds = %if.end.i314
 
 sw.bb3.i1068:                                     ; preds = %if.end.i314
   %513 = load i64, ptr %add.ptr.i535, align 8
-  %repeatMin.i1159 = getelementptr inbounds %struct.RepeatInfo, ptr %add.ptr.i525, i64 0, i32 1
+  %repeatMin.i1159 = getelementptr inbounds i8, ptr %add.ptr.i525, i64 4
   %514 = load i32, ptr %repeatMin.i1159, align 4
   %conv.i1160 = zext i32 %514 to i64
   %add.i1161 = add i64 %513, %conv.i1160
@@ -13637,7 +13640,7 @@ sw.bb3.i1068:                                     ; preds = %if.end.i314
   br i1 %cmp.i1162, label %if.end37.i, label %if.end.i1163
 
 if.end.i1163:                                     ; preds = %sw.bb3.i1068
-  %repeatMax.i1164 = getelementptr inbounds %struct.RepeatInfo, ptr %add.ptr.i525, i64 0, i32 2
+  %repeatMax.i1164 = getelementptr inbounds i8, ptr %add.ptr.i525, i64 8
   %515 = load i32, ptr %repeatMax.i1164, align 4
   %conv4.i1165 = zext i32 %515 to i64
   %add5.i1166 = add i64 %513, %conv4.i1165
@@ -13990,12 +13993,13 @@ return:                                           ; preds = %if.end19.i2068, %if
 define hidden noundef signext i8 @nfaExecCastle_reportCurrent(ptr noundef %n, ptr nocapture noundef readonly %q) local_unnamed_addr #1 {
 entry:
   %add.ptr = getelementptr inbounds i8, ptr %n, i64 64
-  %offset.i.i = getelementptr inbounds %struct.mq, ptr %q, i64 0, i32 5
+  %offset.i.i = getelementptr inbounds i8, ptr %q, i64 32
   %0 = load i64, ptr %offset.i.i, align 8
-  %cur.i.i = getelementptr inbounds %struct.mq, ptr %q, i64 0, i32 1
+  %items.i.i = getelementptr inbounds i8, ptr %q, i64 104
+  %cur.i.i = getelementptr inbounds i8, ptr %q, i64 8
   %1 = load i32, ptr %cur.i.i, align 8
   %idxprom.i.i = zext i32 %1 to i64
-  %location.i.i = getelementptr inbounds %struct.mq, ptr %q, i64 0, i32 14, i64 %idxprom.i.i, i32 1
+  %location.i.i = getelementptr inbounds [10 x %struct.mq_item], ptr %items.i.i, i64 0, i64 %idxprom.i.i, i32 1
   %2 = load i64, ptr %location.i.i, align 8
   %add.i.i = add i64 %2, %0
   %exclusive.i = getelementptr inbounds i8, ptr %n, i64 73
@@ -14004,7 +14008,7 @@ entry:
   br i1 %tobool.i.not, label %if.then21.i, label %if.then.i
 
 if.then.i:                                        ; preds = %entry
-  %streamState.i = getelementptr inbounds %struct.mq, ptr %q, i64 0, i32 4
+  %streamState.i = getelementptr inbounds i8, ptr %q, i64 24
   %4 = load ptr, ptr %streamState.i, align 8
   %groupIterOffset.i = getelementptr inbounds i8, ptr %n, i64 84
   %5 = load i32, ptr %groupIterOffset.i, align 4
@@ -14234,9 +14238,9 @@ for.body.i.lr.ph:                                 ; preds = %if.then94.i836, %if
   %invariant.gep502559 = getelementptr i8, ptr %add.ptr.i, i64 -8
   %activeIdxSize.i = getelementptr inbounds i8, ptr %n, i64 74
   %add.ptr.i.i331 = getelementptr inbounds i8, ptr %n, i64 128
-  %state.i = getelementptr inbounds %struct.mq, ptr %q, i64 0, i32 3
-  %cb.i = getelementptr inbounds %struct.mq, ptr %q, i64 0, i32 12
-  %context.i = getelementptr inbounds %struct.mq, ptr %q, i64 0, i32 13
+  %state.i = getelementptr inbounds i8, ptr %q, i64 16
+  %cb.i = getelementptr inbounds i8, ptr %q, i64 88
+  %context.i = getelementptr inbounds i8, ptr %q, i64 96
   br label %for.body.i
 
 for.body.i:                                       ; preds = %for.body.i.lr.ph, %mmbit_iterate.exit
@@ -14281,21 +14285,21 @@ partial_load_u32.exit:                            ; preds = %for.body.i, %sw.bb7
   %retval.i67.0 = phi i32 [ %conv8.i, %sw.bb7.i ], [ %conv6.i, %sw.bb4.i ], [ %or.i, %sw.bb1.i ], [ %28, %sw.bb.i ], [ 0, %for.body.i ]
   %idxprom.i.i332 = zext i32 %retval.i67.0 to i64
   %arrayidx.i.i333 = getelementptr inbounds %struct.SubCastle, ptr %add.ptr.i.i331, i64 %idxprom.i.i332
-  %repeatInfoOffset.i.i = getelementptr inbounds %struct.SubCastle, ptr %add.ptr.i.i331, i64 %idxprom.i.i332, i32 3
+  %repeatInfoOffset.i.i = getelementptr inbounds i8, ptr %arrayidx.i.i333, i64 12
   %33 = load i32, ptr %repeatInfoOffset.i.i, align 4
   %idx.ext.i.i = zext i32 %33 to i64
   %add.ptr.i12.i = getelementptr inbounds i8, ptr %arrayidx.i.i333, i64 %idx.ext.i.i
   %34 = load ptr, ptr %state.i, align 8
-  %fullStateOffset.i.i = getelementptr inbounds %struct.SubCastle, ptr %add.ptr.i.i331, i64 %idxprom.i.i332, i32 1
+  %fullStateOffset.i.i = getelementptr inbounds i8, ptr %arrayidx.i.i333, i64 4
   %35 = load i32, ptr %fullStateOffset.i.i, align 4
   %idx.ext.i14.i = zext i32 %35 to i64
   %add.ptr.i15.i = getelementptr inbounds i8, ptr %34, i64 %idx.ext.i14.i
   %36 = load ptr, ptr %streamState.i, align 8
-  %streamStateOffset.i = getelementptr inbounds %struct.SubCastle, ptr %add.ptr.i.i331, i64 %idxprom.i.i332, i32 2
+  %streamStateOffset.i = getelementptr inbounds i8, ptr %arrayidx.i.i333, i64 8
   %37 = load i32, ptr %streamStateOffset.i, align 4
   %idx.ext.i335 = zext i32 %37 to i64
   %add.ptr.i336 = getelementptr inbounds i8, ptr %36, i64 %idx.ext.i335
-  %packedCtrlSize.i = getelementptr inbounds %struct.RepeatInfo, ptr %add.ptr.i12.i, i64 0, i32 4
+  %packedCtrlSize.i = getelementptr inbounds i8, ptr %add.ptr.i12.i, i64 16
   %38 = load i32, ptr %packedCtrlSize.i, align 4
   %idx.ext3.i = zext i32 %38 to i64
   %add.ptr4.i = getelementptr inbounds i8, ptr %add.ptr.i336, i64 %idx.ext3.i
@@ -14317,7 +14321,7 @@ sw.bb.i.i:                                        ; preds = %partial_load_u32.ex
 
 sw.bb1.i.i:                                       ; preds = %partial_load_u32.exit
   %40 = load i64, ptr %add.ptr.i15.i, align 8
-  %repeatMin.i.i = getelementptr inbounds %struct.RepeatInfo, ptr %add.ptr.i12.i, i64 0, i32 1
+  %repeatMin.i.i = getelementptr inbounds i8, ptr %add.ptr.i12.i, i64 4
   %41 = load i32, ptr %repeatMin.i.i, align 4
   %conv.i20.i = zext i32 %41 to i64
   %add.i.i341 = add i64 %40, %conv.i20.i
@@ -14326,7 +14330,7 @@ sw.bb1.i.i:                                       ; preds = %partial_load_u32.ex
 
 sw.bb3.i.i:                                       ; preds = %partial_load_u32.exit
   %42 = load i64, ptr %add.ptr.i15.i, align 8
-  %repeatMin.i25.i = getelementptr inbounds %struct.RepeatInfo, ptr %add.ptr.i12.i, i64 0, i32 1
+  %repeatMin.i25.i = getelementptr inbounds i8, ptr %add.ptr.i12.i, i64 4
   %43 = load i32, ptr %repeatMin.i25.i, align 4
   %conv.i26.i = zext i32 %43 to i64
   %add.i27.i = add i64 %42, %conv.i26.i
@@ -14334,7 +14338,7 @@ sw.bb3.i.i:                                       ; preds = %partial_load_u32.ex
   br i1 %cmp.i28.i, label %if.end11.i, label %if.end.i29.i
 
 if.end.i29.i:                                     ; preds = %sw.bb3.i.i
-  %repeatMax.i.i = getelementptr inbounds %struct.RepeatInfo, ptr %add.ptr.i12.i, i64 0, i32 2
+  %repeatMax.i.i = getelementptr inbounds i8, ptr %add.ptr.i12.i, i64 8
   %44 = load i32, ptr %repeatMax.i.i, align 4
   %conv4.i.i = zext i32 %44 to i64
   %add5.i.i = add i64 %42, %conv4.i.i
@@ -14692,7 +14696,7 @@ if.end16.i:                                       ; preds = %if.end19.i202, %for
   br i1 %cmp19.i.not, label %castleReportCurrent.exit, label %if.then21.i
 
 if.then21.i:                                      ; preds = %entry, %if.end16.i
-  %streamState23.i = getelementptr inbounds %struct.mq, ptr %q, i64 0, i32 4
+  %streamState23.i = getelementptr inbounds i8, ptr %q, i64 24
   %77 = load ptr, ptr %streamState23.i, align 8
   %activeOffset.i = getelementptr inbounds i8, ptr %n, i64 76
   %78 = load i32, ptr %activeOffset.i, align 4
@@ -14920,30 +14924,30 @@ for.body31.i.lr.ph:                               ; preds = %if.then94.i, %if.th
   %invariant.gep512573 = getelementptr i8, ptr %add.ptr25.i, i64 -4
   %invariant.gep514574 = getelementptr i8, ptr %add.ptr25.i, i64 -8
   %add.ptr.i.i373 = getelementptr inbounds i8, ptr %n, i64 128
-  %state.i379 = getelementptr inbounds %struct.mq, ptr %q, i64 0, i32 3
-  %cb.i396 = getelementptr inbounds %struct.mq, ptr %q, i64 0, i32 12
-  %context.i397 = getelementptr inbounds %struct.mq, ptr %q, i64 0, i32 13
+  %state.i379 = getelementptr inbounds i8, ptr %q, i64 16
+  %cb.i396 = getelementptr inbounds i8, ptr %q, i64 88
+  %context.i397 = getelementptr inbounds i8, ptr %q, i64 96
   br label %for.body31.i
 
 for.body31.i:                                     ; preds = %for.body31.i.lr.ph, %mmbit_iterate.exit46
   %i26.i.0517 = phi i32 [ %retval.i47.0572, %for.body31.i.lr.ph ], [ %retval.i27.0, %mmbit_iterate.exit46 ]
   %idxprom.i.i374 = zext i32 %i26.i.0517 to i64
   %arrayidx.i.i375 = getelementptr inbounds %struct.SubCastle, ptr %add.ptr.i.i373, i64 %idxprom.i.i374
-  %repeatInfoOffset.i.i376 = getelementptr inbounds %struct.SubCastle, ptr %add.ptr.i.i373, i64 %idxprom.i.i374, i32 3
+  %repeatInfoOffset.i.i376 = getelementptr inbounds i8, ptr %arrayidx.i.i375, i64 12
   %100 = load i32, ptr %repeatInfoOffset.i.i376, align 4
   %idx.ext.i.i377 = zext i32 %100 to i64
   %add.ptr.i12.i378 = getelementptr inbounds i8, ptr %arrayidx.i.i375, i64 %idx.ext.i.i377
   %101 = load ptr, ptr %state.i379, align 8
-  %fullStateOffset.i.i380 = getelementptr inbounds %struct.SubCastle, ptr %add.ptr.i.i373, i64 %idxprom.i.i374, i32 1
+  %fullStateOffset.i.i380 = getelementptr inbounds i8, ptr %arrayidx.i.i375, i64 4
   %102 = load i32, ptr %fullStateOffset.i.i380, align 4
   %idx.ext.i14.i381 = zext i32 %102 to i64
   %add.ptr.i15.i382 = getelementptr inbounds i8, ptr %101, i64 %idx.ext.i14.i381
   %103 = load ptr, ptr %streamState23.i, align 8
-  %streamStateOffset.i384 = getelementptr inbounds %struct.SubCastle, ptr %add.ptr.i.i373, i64 %idxprom.i.i374, i32 2
+  %streamStateOffset.i384 = getelementptr inbounds i8, ptr %arrayidx.i.i375, i64 8
   %104 = load i32, ptr %streamStateOffset.i384, align 4
   %idx.ext.i385 = zext i32 %104 to i64
   %add.ptr.i386 = getelementptr inbounds i8, ptr %103, i64 %idx.ext.i385
-  %packedCtrlSize.i387 = getelementptr inbounds %struct.RepeatInfo, ptr %add.ptr.i12.i378, i64 0, i32 4
+  %packedCtrlSize.i387 = getelementptr inbounds i8, ptr %add.ptr.i12.i378, i64 16
   %105 = load i32, ptr %packedCtrlSize.i387, align 4
   %idx.ext3.i388 = zext i32 %105 to i64
   %add.ptr4.i389 = getelementptr inbounds i8, ptr %add.ptr.i386, i64 %idx.ext3.i388
@@ -14965,7 +14969,7 @@ sw.bb.i.i432:                                     ; preds = %for.body31.i
 
 sw.bb1.i.i424:                                    ; preds = %for.body31.i
   %107 = load i64, ptr %add.ptr.i15.i382, align 8
-  %repeatMin.i.i425 = getelementptr inbounds %struct.RepeatInfo, ptr %add.ptr.i12.i378, i64 0, i32 1
+  %repeatMin.i.i425 = getelementptr inbounds i8, ptr %add.ptr.i12.i378, i64 4
   %108 = load i32, ptr %repeatMin.i.i425, align 4
   %conv.i20.i426 = zext i32 %108 to i64
   %add.i.i427 = add i64 %107, %conv.i20.i426
@@ -14974,7 +14978,7 @@ sw.bb1.i.i424:                                    ; preds = %for.body31.i
 
 sw.bb3.i.i410:                                    ; preds = %for.body31.i
   %109 = load i64, ptr %add.ptr.i15.i382, align 8
-  %repeatMin.i25.i411 = getelementptr inbounds %struct.RepeatInfo, ptr %add.ptr.i12.i378, i64 0, i32 1
+  %repeatMin.i25.i411 = getelementptr inbounds i8, ptr %add.ptr.i12.i378, i64 4
   %110 = load i32, ptr %repeatMin.i25.i411, align 4
   %conv.i26.i412 = zext i32 %110 to i64
   %add.i27.i413 = add i64 %109, %conv.i26.i412
@@ -14982,7 +14986,7 @@ sw.bb3.i.i410:                                    ; preds = %for.body31.i
   br i1 %cmp.i28.i414, label %if.end11.i394, label %if.end.i29.i415
 
 if.end.i29.i415:                                  ; preds = %sw.bb3.i.i410
-  %repeatMax.i.i416 = getelementptr inbounds %struct.RepeatInfo, ptr %add.ptr.i12.i378, i64 0, i32 2
+  %repeatMax.i.i416 = getelementptr inbounds i8, ptr %add.ptr.i12.i378, i64 8
   %111 = load i32, ptr %repeatMax.i.i416, align 4
   %conv4.i.i417 = zext i32 %111 to i64
   %add5.i.i418 = add i64 %109, %conv4.i.i417
@@ -15337,12 +15341,13 @@ castleReportCurrent.exit:                         ; preds = %if.then.i339, %if.e
 define hidden noundef signext i8 @nfaExecCastle_inAccept(ptr noundef %n, i32 noundef %report, ptr nocapture noundef readonly %q) local_unnamed_addr #1 {
 entry:
   %add.ptr = getelementptr inbounds i8, ptr %n, i64 64
-  %offset.i = getelementptr inbounds %struct.mq, ptr %q, i64 0, i32 5
+  %offset.i = getelementptr inbounds i8, ptr %q, i64 32
   %0 = load i64, ptr %offset.i, align 8
-  %cur.i = getelementptr inbounds %struct.mq, ptr %q, i64 0, i32 1
+  %items.i = getelementptr inbounds i8, ptr %q, i64 104
+  %cur.i = getelementptr inbounds i8, ptr %q, i64 8
   %1 = load i32, ptr %cur.i, align 8
   %idxprom.i = zext i32 %1 to i64
-  %location.i = getelementptr inbounds %struct.mq, ptr %q, i64 0, i32 14, i64 %idxprom.i, i32 1
+  %location.i = getelementptr inbounds [10 x %struct.mq_item], ptr %items.i, i64 0, i64 %idxprom.i, i32 1
   %2 = load i64, ptr %location.i, align 8
   %add.i = add i64 %2, %0
   %cmp.i = icmp eq i32 %report, -1
@@ -15355,7 +15360,7 @@ if.end.i:                                         ; preds = %entry
   br i1 %tobool.i.not, label %if.then21.i, label %if.then1.i
 
 if.then1.i:                                       ; preds = %if.end.i
-  %streamState.i = getelementptr inbounds %struct.mq, ptr %q, i64 0, i32 4
+  %streamState.i = getelementptr inbounds i8, ptr %q, i64 24
   %4 = load ptr, ptr %streamState.i, align 8
   %groupIterOffset.i = getelementptr inbounds i8, ptr %n, i64 84
   %5 = load i32, ptr %groupIterOffset.i, align 4
@@ -15585,7 +15590,7 @@ for.body.i.lr.ph:                                 ; preds = %if.then94.i871, %if
   %invariant.gep507570 = getelementptr i8, ptr %add.ptr.i, i64 -8
   %activeIdxSize.i = getelementptr inbounds i8, ptr %n, i64 74
   %add.ptr.i.i = getelementptr inbounds i8, ptr %n, i64 128
-  %state.i = getelementptr inbounds %struct.mq, ptr %q, i64 0, i32 3
+  %state.i = getelementptr inbounds i8, ptr %q, i64 16
   br label %for.body.i
 
 for.body.i:                                       ; preds = %for.body.i.lr.ph, %mmbit_iterate.exit
@@ -15636,21 +15641,21 @@ partial_load_u32.exit:                            ; preds = %for.body.i, %sw.bb7
   br i1 %cmp.i82.not, label %if.end.i83, label %if.end13.i
 
 if.end.i83:                                       ; preds = %partial_load_u32.exit
-  %repeatInfoOffset.i144 = getelementptr inbounds %struct.SubCastle, ptr %add.ptr.i.i, i64 %idxprom.i.i, i32 3
+  %repeatInfoOffset.i144 = getelementptr inbounds i8, ptr %arrayidx.i.i, i64 12
   %35 = load i32, ptr %repeatInfoOffset.i144, align 4
   %idx.ext.i145 = zext i32 %35 to i64
   %add.ptr.i146 = getelementptr inbounds i8, ptr %arrayidx.i.i, i64 %idx.ext.i145
   %36 = load ptr, ptr %state.i, align 8
-  %fullStateOffset.i154 = getelementptr inbounds %struct.SubCastle, ptr %add.ptr.i.i, i64 %idxprom.i.i, i32 1
+  %fullStateOffset.i154 = getelementptr inbounds i8, ptr %arrayidx.i.i, i64 4
   %37 = load i32, ptr %fullStateOffset.i154, align 4
   %idx.ext.i155 = zext i32 %37 to i64
   %add.ptr.i156 = getelementptr inbounds i8, ptr %36, i64 %idx.ext.i155
   %38 = load ptr, ptr %streamState.i, align 8
-  %streamStateOffset.i = getelementptr inbounds %struct.SubCastle, ptr %add.ptr.i.i, i64 %idxprom.i.i, i32 2
+  %streamStateOffset.i = getelementptr inbounds i8, ptr %arrayidx.i.i, i64 8
   %39 = load i32, ptr %streamStateOffset.i, align 4
   %idx.ext.i86 = zext i32 %39 to i64
   %add.ptr.i87 = getelementptr inbounds i8, ptr %38, i64 %idx.ext.i86
-  %packedCtrlSize.i = getelementptr inbounds %struct.RepeatInfo, ptr %add.ptr.i146, i64 0, i32 4
+  %packedCtrlSize.i = getelementptr inbounds i8, ptr %add.ptr.i146, i64 16
   %40 = load i32, ptr %packedCtrlSize.i, align 4
   %idx.ext4.i = zext i32 %40 to i64
   %add.ptr5.i = getelementptr inbounds i8, ptr %add.ptr.i87, i64 %idx.ext4.i
@@ -15672,7 +15677,7 @@ sw.bb.i185:                                       ; preds = %if.end.i83
 
 sw.bb1.i183:                                      ; preds = %if.end.i83
   %42 = load i64, ptr %add.ptr.i156, align 8
-  %repeatMin.i = getelementptr inbounds %struct.RepeatInfo, ptr %add.ptr.i146, i64 0, i32 1
+  %repeatMin.i = getelementptr inbounds i8, ptr %add.ptr.i146, i64 4
   %43 = load i32, ptr %repeatMin.i, align 4
   %conv.i193 = zext i32 %43 to i64
   %add.i194 = add i64 %42, %conv.i193
@@ -15681,7 +15686,7 @@ sw.bb1.i183:                                      ; preds = %if.end.i83
 
 sw.bb3.i181:                                      ; preds = %if.end.i83
   %44 = load i64, ptr %add.ptr.i156, align 8
-  %repeatMin.i213 = getelementptr inbounds %struct.RepeatInfo, ptr %add.ptr.i146, i64 0, i32 1
+  %repeatMin.i213 = getelementptr inbounds i8, ptr %add.ptr.i146, i64 4
   %45 = load i32, ptr %repeatMin.i213, align 4
   %conv.i214 = zext i32 %45 to i64
   %add.i215 = add i64 %44, %conv.i214
@@ -15689,7 +15694,7 @@ sw.bb3.i181:                                      ; preds = %if.end.i83
   br i1 %cmp.i216, label %if.end13.i, label %if.end.i217
 
 if.end.i217:                                      ; preds = %sw.bb3.i181
-  %repeatMax.i = getelementptr inbounds %struct.RepeatInfo, ptr %add.ptr.i146, i64 0, i32 2
+  %repeatMax.i = getelementptr inbounds i8, ptr %add.ptr.i146, i64 8
   %46 = load i32, ptr %repeatMax.i, align 4
   %conv4.i = zext i32 %46 to i64
   %add5.i = add i64 %44, %conv4.i
@@ -16044,7 +16049,7 @@ if.end16.i:                                       ; preds = %if.end19.i355, %for
   br i1 %cmp19.i.not, label %castleInAccept.exit, label %if.then21.i
 
 if.then21.i:                                      ; preds = %if.end.i, %if.end16.i
-  %streamState23.i = getelementptr inbounds %struct.mq, ptr %q, i64 0, i32 4
+  %streamState23.i = getelementptr inbounds i8, ptr %q, i64 24
   %76 = load ptr, ptr %streamState23.i, align 8
   %activeOffset.i = getelementptr inbounds i8, ptr %n, i64 76
   %77 = load i32, ptr %activeOffset.i, align 4
@@ -16272,7 +16277,7 @@ for.body31.i.lr.ph:                               ; preds = %if.then94.i, %if.th
   %add.ptr.i.i104586 = getelementptr inbounds i8, ptr %n, i64 128
   %invariant.gep517587 = getelementptr i8, ptr %add.ptr25.i, i64 -4
   %invariant.gep519588 = getelementptr i8, ptr %add.ptr25.i, i64 -8
-  %state.i110 = getelementptr inbounds %struct.mq, ptr %q, i64 0, i32 3
+  %state.i110 = getelementptr inbounds i8, ptr %q, i64 16
   br label %for.body31.i
 
 for.body31.i:                                     ; preds = %for.body31.i.lr.ph, %mmbit_iterate.exit49
@@ -16285,21 +16290,21 @@ for.body31.i:                                     ; preds = %for.body31.i.lr.ph,
   br i1 %cmp.i107.not, label %if.end.i108, label %if.end37.i
 
 if.end.i108:                                      ; preds = %for.body31.i
-  %repeatInfoOffset.i = getelementptr inbounds %struct.SubCastle, ptr %add.ptr.i.i104586, i64 %idxprom.i.i105, i32 3
+  %repeatInfoOffset.i = getelementptr inbounds i8, ptr %arrayidx.i.i106, i64 12
   %101 = load i32, ptr %repeatInfoOffset.i, align 4
   %idx.ext.i140 = zext i32 %101 to i64
   %add.ptr.i141 = getelementptr inbounds i8, ptr %arrayidx.i.i106, i64 %idx.ext.i140
   %102 = load ptr, ptr %state.i110, align 8
-  %fullStateOffset.i = getelementptr inbounds %struct.SubCastle, ptr %add.ptr.i.i104586, i64 %idxprom.i.i105, i32 1
+  %fullStateOffset.i = getelementptr inbounds i8, ptr %arrayidx.i.i106, i64 4
   %103 = load i32, ptr %fullStateOffset.i, align 4
   %idx.ext.i149 = zext i32 %103 to i64
   %add.ptr.i150 = getelementptr inbounds i8, ptr %102, i64 %idx.ext.i149
   %104 = load ptr, ptr %streamState23.i, align 8
-  %streamStateOffset.i113 = getelementptr inbounds %struct.SubCastle, ptr %add.ptr.i.i104586, i64 %idxprom.i.i105, i32 2
+  %streamStateOffset.i113 = getelementptr inbounds i8, ptr %arrayidx.i.i106, i64 8
   %105 = load i32, ptr %streamStateOffset.i113, align 4
   %idx.ext.i114 = zext i32 %105 to i64
   %add.ptr.i115 = getelementptr inbounds i8, ptr %104, i64 %idx.ext.i114
-  %packedCtrlSize.i116 = getelementptr inbounds %struct.RepeatInfo, ptr %add.ptr.i141, i64 0, i32 4
+  %packedCtrlSize.i116 = getelementptr inbounds i8, ptr %add.ptr.i141, i64 16
   %106 = load i32, ptr %packedCtrlSize.i116, align 4
   %idx.ext4.i117 = zext i32 %106 to i64
   %add.ptr5.i118 = getelementptr inbounds i8, ptr %add.ptr.i115, i64 %idx.ext4.i117
@@ -16321,7 +16326,7 @@ sw.bb.i164:                                       ; preds = %if.end.i108
 
 sw.bb1.i163:                                      ; preds = %if.end.i108
   %108 = load i64, ptr %add.ptr.i150, align 8
-  %repeatMin.i202 = getelementptr inbounds %struct.RepeatInfo, ptr %add.ptr.i141, i64 0, i32 1
+  %repeatMin.i202 = getelementptr inbounds i8, ptr %add.ptr.i141, i64 4
   %109 = load i32, ptr %repeatMin.i202, align 4
   %conv.i203 = zext i32 %109 to i64
   %add.i204 = add i64 %108, %conv.i203
@@ -16330,7 +16335,7 @@ sw.bb1.i163:                                      ; preds = %if.end.i108
 
 sw.bb3.i:                                         ; preds = %if.end.i108
   %110 = load i64, ptr %add.ptr.i150, align 8
-  %repeatMin.i225 = getelementptr inbounds %struct.RepeatInfo, ptr %add.ptr.i141, i64 0, i32 1
+  %repeatMin.i225 = getelementptr inbounds i8, ptr %add.ptr.i141, i64 4
   %111 = load i32, ptr %repeatMin.i225, align 4
   %conv.i226 = zext i32 %111 to i64
   %add.i227 = add i64 %110, %conv.i226
@@ -16338,7 +16343,7 @@ sw.bb3.i:                                         ; preds = %if.end.i108
   br i1 %cmp.i228, label %if.end37.i, label %if.end.i229
 
 if.end.i229:                                      ; preds = %sw.bb3.i
-  %repeatMax.i230 = getelementptr inbounds %struct.RepeatInfo, ptr %add.ptr.i141, i64 0, i32 2
+  %repeatMax.i230 = getelementptr inbounds i8, ptr %add.ptr.i141, i64 8
   %112 = load i32, ptr %repeatMax.i230, align 4
   %conv4.i231 = zext i32 %112 to i64
   %add5.i232 = add i64 %110, %conv4.i231
@@ -16691,12 +16696,13 @@ castleInAccept.exit:                              ; preds = %if.end.i83, %if.end
 define hidden noundef signext i8 @nfaExecCastle_inAnyAccept(ptr noundef %n, ptr nocapture noundef readonly %q) local_unnamed_addr #1 {
 entry:
   %add.ptr = getelementptr inbounds i8, ptr %n, i64 64
-  %offset.i = getelementptr inbounds %struct.mq, ptr %q, i64 0, i32 5
+  %offset.i = getelementptr inbounds i8, ptr %q, i64 32
   %0 = load i64, ptr %offset.i, align 8
-  %cur.i = getelementptr inbounds %struct.mq, ptr %q, i64 0, i32 1
+  %items.i = getelementptr inbounds i8, ptr %q, i64 104
+  %cur.i = getelementptr inbounds i8, ptr %q, i64 8
   %1 = load i32, ptr %cur.i, align 8
   %idxprom.i = zext i32 %1 to i64
-  %location.i = getelementptr inbounds %struct.mq, ptr %q, i64 0, i32 14, i64 %idxprom.i, i32 1
+  %location.i = getelementptr inbounds [10 x %struct.mq_item], ptr %items.i, i64 0, i64 %idxprom.i, i32 1
   %2 = load i64, ptr %location.i, align 8
   %add.i = add i64 %2, %0
   %exclusive = getelementptr inbounds i8, ptr %n, i64 73
@@ -16705,7 +16711,7 @@ entry:
   br i1 %tobool.not, label %if.then23, label %if.then
 
 if.then:                                          ; preds = %entry
-  %streamState = getelementptr inbounds %struct.mq, ptr %q, i64 0, i32 4
+  %streamState = getelementptr inbounds i8, ptr %q, i64 24
   %4 = load ptr, ptr %streamState, align 8
   %groupIterOffset = getelementptr inbounds i8, ptr %n, i64 84
   %5 = load i32, ptr %groupIterOffset, align 4
@@ -16935,7 +16941,7 @@ for.body.lr.ph:                                   ; preds = %if.then94.i, %if.th
   %invariant.gep500563 = getelementptr i8, ptr %add.ptr3, i64 -8
   %activeIdxSize = getelementptr inbounds i8, ptr %n, i64 74
   %add.ptr.i118 = getelementptr inbounds i8, ptr %n, i64 128
-  %state.i151 = getelementptr inbounds %struct.mq, ptr %q, i64 0, i32 3
+  %state.i151 = getelementptr inbounds i8, ptr %q, i64 16
   br label %for.body
 
 for.body:                                         ; preds = %for.body.lr.ph, %mmbit_iterate.exit87
@@ -16981,21 +16987,21 @@ if.end.i149:                                      ; preds = %sw.bb.i, %sw.bb1.i,
   %retval.i108.0 = phi i32 [ %conv8.i, %sw.bb7.i ], [ %conv6.i, %sw.bb4.i ], [ %or.i, %sw.bb1.i ], [ %29, %sw.bb.i ], [ 0, %for.body ]
   %idxprom.i119 = zext i32 %retval.i108.0 to i64
   %arrayidx.i120 = getelementptr inbounds %struct.SubCastle, ptr %add.ptr.i118, i64 %idxprom.i119
-  %repeatInfoOffset.i = getelementptr inbounds %struct.SubCastle, ptr %add.ptr.i118, i64 %idxprom.i119, i32 3
+  %repeatInfoOffset.i = getelementptr inbounds i8, ptr %arrayidx.i120, i64 12
   %34 = load i32, ptr %repeatInfoOffset.i, align 4
   %idx.ext.i181 = zext i32 %34 to i64
   %add.ptr.i182 = getelementptr inbounds i8, ptr %arrayidx.i120, i64 %idx.ext.i181
   %35 = load ptr, ptr %state.i151, align 8
-  %fullStateOffset.i = getelementptr inbounds %struct.SubCastle, ptr %add.ptr.i118, i64 %idxprom.i119, i32 1
+  %fullStateOffset.i = getelementptr inbounds i8, ptr %arrayidx.i120, i64 4
   %36 = load i32, ptr %fullStateOffset.i, align 4
   %idx.ext.i190 = zext i32 %36 to i64
   %add.ptr.i191 = getelementptr inbounds i8, ptr %35, i64 %idx.ext.i190
   %37 = load ptr, ptr %streamState, align 8
-  %streamStateOffset.i154 = getelementptr inbounds %struct.SubCastle, ptr %add.ptr.i118, i64 %idxprom.i119, i32 2
+  %streamStateOffset.i154 = getelementptr inbounds i8, ptr %arrayidx.i120, i64 8
   %38 = load i32, ptr %streamStateOffset.i154, align 4
   %idx.ext.i155 = zext i32 %38 to i64
   %add.ptr.i156 = getelementptr inbounds i8, ptr %37, i64 %idx.ext.i155
-  %packedCtrlSize.i157 = getelementptr inbounds %struct.RepeatInfo, ptr %add.ptr.i182, i64 0, i32 4
+  %packedCtrlSize.i157 = getelementptr inbounds i8, ptr %add.ptr.i182, i64 16
   %39 = load i32, ptr %packedCtrlSize.i157, align 4
   %idx.ext4.i158 = zext i32 %39 to i64
   %add.ptr5.i159 = getelementptr inbounds i8, ptr %add.ptr.i156, i64 %idx.ext4.i158
@@ -17017,7 +17023,7 @@ sw.bb.i205:                                       ; preds = %if.end.i149
 
 sw.bb1.i204:                                      ; preds = %if.end.i149
   %41 = load i64, ptr %add.ptr.i191, align 8
-  %repeatMin.i243 = getelementptr inbounds %struct.RepeatInfo, ptr %add.ptr.i182, i64 0, i32 1
+  %repeatMin.i243 = getelementptr inbounds i8, ptr %add.ptr.i182, i64 4
   %42 = load i32, ptr %repeatMin.i243, align 4
   %conv.i244 = zext i32 %42 to i64
   %add.i245 = add i64 %41, %conv.i244
@@ -17026,7 +17032,7 @@ sw.bb1.i204:                                      ; preds = %if.end.i149
 
 sw.bb3.i:                                         ; preds = %if.end.i149
   %43 = load i64, ptr %add.ptr.i191, align 8
-  %repeatMin.i266 = getelementptr inbounds %struct.RepeatInfo, ptr %add.ptr.i182, i64 0, i32 1
+  %repeatMin.i266 = getelementptr inbounds i8, ptr %add.ptr.i182, i64 4
   %44 = load i32, ptr %repeatMin.i266, align 4
   %conv.i267 = zext i32 %44 to i64
   %add.i268 = add i64 %43, %conv.i267
@@ -17034,7 +17040,7 @@ sw.bb3.i:                                         ; preds = %if.end.i149
   br i1 %cmp.i269, label %for.inc, label %if.end.i270
 
 if.end.i270:                                      ; preds = %sw.bb3.i
-  %repeatMax.i271 = getelementptr inbounds %struct.RepeatInfo, ptr %add.ptr.i182, i64 0, i32 2
+  %repeatMax.i271 = getelementptr inbounds i8, ptr %add.ptr.i182, i64 8
   %45 = load i32, ptr %repeatMax.i271, align 4
   %conv4.i272 = zext i32 %45 to i64
   %add5.i273 = add i64 %43, %conv4.i272
@@ -17388,7 +17394,7 @@ if.end18:                                         ; preds = %if.end19.i, %for.en
   br i1 %cmp21.not, label %return, label %if.then23
 
 if.then23:                                        ; preds = %entry, %if.end18
-  %streamState25 = getelementptr inbounds %struct.mq, ptr %q, i64 0, i32 4
+  %streamState25 = getelementptr inbounds i8, ptr %q, i64 24
   %75 = load ptr, ptr %streamState25, align 8
   %activeOffset = getelementptr inbounds i8, ptr %n, i64 76
   %76 = load i32, ptr %activeOffset, align 4
@@ -17616,7 +17622,7 @@ if.end.i126.lr.ph:                                ; preds = %if.then94.i907, %if
   %add.ptr.i112579 = getelementptr inbounds i8, ptr %n, i64 128
   %invariant.gep510580 = getelementptr i8, ptr %add.ptr27, i64 -4
   %invariant.gep512581 = getelementptr i8, ptr %add.ptr27, i64 -8
-  %state.i = getelementptr inbounds %struct.mq, ptr %q, i64 0, i32 3
+  %state.i = getelementptr inbounds i8, ptr %q, i64 16
   br label %if.end.i126
 
 if.end.i126:                                      ; preds = %if.end.i126.lr.ph, %mmbit_iterate.exit
@@ -17624,21 +17630,21 @@ if.end.i126:                                      ; preds = %if.end.i126.lr.ph, 
   %i28.0515 = phi i32 [ %retval.i48.0578, %if.end.i126.lr.ph ], [ %retval.i.0, %mmbit_iterate.exit ]
   %idxprom.i113 = zext i32 %i28.0515 to i64
   %arrayidx.i114 = getelementptr inbounds %struct.SubCastle, ptr %add.ptr.i112579, i64 %idxprom.i113
-  %repeatInfoOffset.i185 = getelementptr inbounds %struct.SubCastle, ptr %add.ptr.i112579, i64 %idxprom.i113, i32 3
+  %repeatInfoOffset.i185 = getelementptr inbounds i8, ptr %arrayidx.i114, i64 12
   %99 = load i32, ptr %repeatInfoOffset.i185, align 4
   %idx.ext.i186 = zext i32 %99 to i64
   %add.ptr.i187 = getelementptr inbounds i8, ptr %arrayidx.i114, i64 %idx.ext.i186
   %100 = load ptr, ptr %state.i, align 8
-  %fullStateOffset.i195 = getelementptr inbounds %struct.SubCastle, ptr %add.ptr.i112579, i64 %idxprom.i113, i32 1
+  %fullStateOffset.i195 = getelementptr inbounds i8, ptr %arrayidx.i114, i64 4
   %101 = load i32, ptr %fullStateOffset.i195, align 4
   %idx.ext.i196 = zext i32 %101 to i64
   %add.ptr.i197 = getelementptr inbounds i8, ptr %100, i64 %idx.ext.i196
   %102 = load ptr, ptr %streamState25, align 8
-  %streamStateOffset.i = getelementptr inbounds %struct.SubCastle, ptr %add.ptr.i112579, i64 %idxprom.i113, i32 2
+  %streamStateOffset.i = getelementptr inbounds i8, ptr %arrayidx.i114, i64 8
   %103 = load i32, ptr %streamStateOffset.i, align 4
   %idx.ext.i = zext i32 %103 to i64
   %add.ptr.i128 = getelementptr inbounds i8, ptr %102, i64 %idx.ext.i
-  %packedCtrlSize.i = getelementptr inbounds %struct.RepeatInfo, ptr %add.ptr.i187, i64 0, i32 4
+  %packedCtrlSize.i = getelementptr inbounds i8, ptr %add.ptr.i187, i64 16
   %104 = load i32, ptr %packedCtrlSize.i, align 4
   %idx.ext4.i = zext i32 %104 to i64
   %add.ptr5.i = getelementptr inbounds i8, ptr %add.ptr.i128, i64 %idx.ext4.i
@@ -17660,7 +17666,7 @@ sw.bb.i226:                                       ; preds = %if.end.i126
 
 sw.bb1.i224:                                      ; preds = %if.end.i126
   %106 = load i64, ptr %add.ptr.i197, align 8
-  %repeatMin.i = getelementptr inbounds %struct.RepeatInfo, ptr %add.ptr.i187, i64 0, i32 1
+  %repeatMin.i = getelementptr inbounds i8, ptr %add.ptr.i187, i64 4
   %107 = load i32, ptr %repeatMin.i, align 4
   %conv.i234 = zext i32 %107 to i64
   %add.i235 = add i64 %106, %conv.i234
@@ -17669,7 +17675,7 @@ sw.bb1.i224:                                      ; preds = %if.end.i126
 
 sw.bb3.i222:                                      ; preds = %if.end.i126
   %108 = load i64, ptr %add.ptr.i197, align 8
-  %repeatMin.i254 = getelementptr inbounds %struct.RepeatInfo, ptr %add.ptr.i187, i64 0, i32 1
+  %repeatMin.i254 = getelementptr inbounds i8, ptr %add.ptr.i187, i64 4
   %109 = load i32, ptr %repeatMin.i254, align 4
   %conv.i255 = zext i32 %109 to i64
   %add.i256 = add i64 %108, %conv.i255
@@ -17677,7 +17683,7 @@ sw.bb3.i222:                                      ; preds = %if.end.i126
   br i1 %cmp.i257, label %for.inc43, label %if.end.i258
 
 if.end.i258:                                      ; preds = %sw.bb3.i222
-  %repeatMax.i = getelementptr inbounds %struct.RepeatInfo, ptr %add.ptr.i187, i64 0, i32 2
+  %repeatMax.i = getelementptr inbounds i8, ptr %add.ptr.i187, i64 8
   %110 = load i32, ptr %repeatMax.i, align 4
   %conv4.i = zext i32 %110 to i64
   %add5.i = add i64 %108, %conv4.i
@@ -18035,7 +18041,7 @@ entry:
   br i1 %tobool.not, label %if.then4, label %if.then
 
 if.then:                                          ; preds = %entry
-  %streamState = getelementptr inbounds %struct.mq, ptr %q, i64 0, i32 4
+  %streamState = getelementptr inbounds i8, ptr %q, i64 24
   %1 = load ptr, ptr %streamState, align 8
   %groupIterOffset = getelementptr inbounds i8, ptr %n, i64 84
   %2 = load i32, ptr %groupIterOffset, align 4
@@ -18067,7 +18073,7 @@ if.end:                                           ; preds = %if.then4.i17, %if.e
   br i1 %cmp.not, label %if.end8, label %if.then4
 
 if.then4:                                         ; preds = %entry, %if.end
-  %streamState5 = getelementptr inbounds %struct.mq, ptr %q, i64 0, i32 4
+  %streamState5 = getelementptr inbounds i8, ptr %q, i64 24
   %4 = load ptr, ptr %streamState5, align 8
   %activeOffset = getelementptr inbounds i8, ptr %n, i64 76
   %5 = load i32, ptr %activeOffset, align 4
@@ -18167,7 +18173,7 @@ if.end7:                                          ; preds = %if.then4.i, %if.end
 define hidden noundef signext i8 @nfaExecCastle_queueCompressState(ptr noundef %n, ptr nocapture noundef readonly %q, i64 noundef %loc) local_unnamed_addr #1 {
 entry:
   %add.ptr = getelementptr inbounds i8, ptr %n, i64 64
-  %offset1 = getelementptr inbounds %struct.mq, ptr %q, i64 0, i32 5
+  %offset1 = getelementptr inbounds i8, ptr %q, i64 32
   %0 = load i64, ptr %offset1, align 8
   %add = add i64 %0, %loc
   %exclusive = getelementptr inbounds i8, ptr %n, i64 73
@@ -18176,7 +18182,7 @@ entry:
   br i1 %tobool.not, label %if.then18, label %if.then
 
 if.then:                                          ; preds = %entry
-  %streamState = getelementptr inbounds %struct.mq, ptr %q, i64 0, i32 4
+  %streamState = getelementptr inbounds i8, ptr %q, i64 24
   %2 = load ptr, ptr %streamState, align 8
   %groupIterOffset = getelementptr inbounds i8, ptr %n, i64 84
   %3 = load i32, ptr %groupIterOffset, align 4
@@ -18406,7 +18412,7 @@ for.body.lr.ph:                                   ; preds = %if.then94.i, %if.th
   %invariant.gep423479 = getelementptr i8, ptr %add.ptr4, i64 -8
   %activeIdxSize = getelementptr inbounds i8, ptr %n, i64 74
   %add.ptr.i.i113 = getelementptr inbounds i8, ptr %n, i64 128
-  %state.i117 = getelementptr inbounds %struct.mq, ptr %q, i64 0, i32 3
+  %state.i117 = getelementptr inbounds i8, ptr %q, i64 16
   br label %for.body
 
 for.body:                                         ; preds = %for.body.lr.ph, %mmbit_iterate.exit75
@@ -18451,17 +18457,17 @@ partial_load_u32.exit:                            ; preds = %for.body, %sw.bb7.i
   %retval.i96.0 = phi i32 [ %conv8.i, %sw.bb7.i ], [ %conv6.i, %sw.bb4.i ], [ %or.i, %sw.bb1.i ], [ %26, %sw.bb.i ], [ 0, %for.body ]
   %idxprom.i.i114 = zext i32 %retval.i96.0 to i64
   %arrayidx.i.i115 = getelementptr inbounds %struct.SubCastle, ptr %add.ptr.i.i113, i64 %idxprom.i.i114
-  %repeatInfoOffset.i = getelementptr inbounds %struct.SubCastle, ptr %add.ptr.i.i113, i64 %idxprom.i.i114, i32 3
+  %repeatInfoOffset.i = getelementptr inbounds i8, ptr %arrayidx.i.i115, i64 12
   %31 = load i32, ptr %repeatInfoOffset.i, align 4
   %idx.ext.i138 = zext i32 %31 to i64
   %add.ptr.i139 = getelementptr inbounds i8, ptr %arrayidx.i.i115, i64 %idx.ext.i138
   %32 = load ptr, ptr %state.i117, align 8
-  %fullStateOffset.i = getelementptr inbounds %struct.SubCastle, ptr %add.ptr.i.i113, i64 %idxprom.i.i114, i32 1
+  %fullStateOffset.i = getelementptr inbounds i8, ptr %arrayidx.i.i115, i64 4
   %33 = load i32, ptr %fullStateOffset.i, align 4
   %idx.ext.i147 = zext i32 %33 to i64
   %add.ptr.i148 = getelementptr inbounds i8, ptr %32, i64 %idx.ext.i147
   %34 = load ptr, ptr %streamState, align 8
-  %streamStateOffset.i120 = getelementptr inbounds %struct.SubCastle, ptr %add.ptr.i.i113, i64 %idxprom.i.i114, i32 2
+  %streamStateOffset.i120 = getelementptr inbounds i8, ptr %arrayidx.i.i115, i64 8
   %35 = load i32, ptr %streamStateOffset.i120, align 4
   %idx.ext.i121 = zext i32 %35 to i64
   %add.ptr.i122 = getelementptr inbounds i8, ptr %34, i64 %idx.ext.i121
@@ -18787,7 +18793,7 @@ if.end:                                           ; preds = %if.end19.i, %for.en
   br i1 %cmp16.not, label %if.end35, label %if.then18
 
 if.then18:                                        ; preds = %entry, %if.end
-  %streamState20 = getelementptr inbounds %struct.mq, ptr %q, i64 0, i32 4
+  %streamState20 = getelementptr inbounds i8, ptr %q, i64 24
   %65 = load ptr, ptr %streamState20, align 8
   %activeOffset = getelementptr inbounds i8, ptr %n, i64 76
   %66 = load i32, ptr %activeOffset, align 4
@@ -19015,24 +19021,24 @@ do.end30.lr.ph:                                   ; preds = %if.then94.i781, %if
   %invariant.gep433493 = getelementptr i8, ptr %add.ptr22, i64 -4
   %invariant.gep435494 = getelementptr i8, ptr %add.ptr22, i64 -8
   %add.ptr.i.i = getelementptr inbounds i8, ptr %n, i64 128
-  %state.i = getelementptr inbounds %struct.mq, ptr %q, i64 0, i32 3
+  %state.i = getelementptr inbounds i8, ptr %q, i64 16
   br label %do.end30
 
 do.end30:                                         ; preds = %do.end30.lr.ph, %mmbit_iterate.exit
   %i23.0438 = phi i32 [ %retval.i36.0492, %do.end30.lr.ph ], [ %retval.i.0, %mmbit_iterate.exit ]
   %idxprom.i.i = zext i32 %i23.0438 to i64
   %arrayidx.i.i = getelementptr inbounds %struct.SubCastle, ptr %add.ptr.i.i, i64 %idxprom.i.i
-  %repeatInfoOffset.i142 = getelementptr inbounds %struct.SubCastle, ptr %add.ptr.i.i, i64 %idxprom.i.i, i32 3
+  %repeatInfoOffset.i142 = getelementptr inbounds i8, ptr %arrayidx.i.i, i64 12
   %88 = load i32, ptr %repeatInfoOffset.i142, align 4
   %idx.ext.i143 = zext i32 %88 to i64
   %add.ptr.i144 = getelementptr inbounds i8, ptr %arrayidx.i.i, i64 %idx.ext.i143
   %89 = load ptr, ptr %state.i, align 8
-  %fullStateOffset.i152 = getelementptr inbounds %struct.SubCastle, ptr %add.ptr.i.i, i64 %idxprom.i.i, i32 1
+  %fullStateOffset.i152 = getelementptr inbounds i8, ptr %arrayidx.i.i, i64 4
   %90 = load i32, ptr %fullStateOffset.i152, align 4
   %idx.ext.i153 = zext i32 %90 to i64
   %add.ptr.i154 = getelementptr inbounds i8, ptr %89, i64 %idx.ext.i153
   %91 = load ptr, ptr %streamState20, align 8
-  %streamStateOffset.i = getelementptr inbounds %struct.SubCastle, ptr %add.ptr.i.i, i64 %idxprom.i.i, i32 2
+  %streamStateOffset.i = getelementptr inbounds i8, ptr %arrayidx.i.i, i64 8
   %92 = load i32, ptr %streamStateOffset.i, align 4
   %idx.ext.i = zext i32 %92 to i64
   %add.ptr.i101 = getelementptr inbounds i8, ptr %91, i64 %idx.ext.i
@@ -19633,15 +19639,15 @@ partial_load_u32.exit:                            ; preds = %for.body, %sw.bb7.i
   %retval.i88.0 = phi i32 [ %conv8.i, %sw.bb7.i ], [ %conv6.i, %sw.bb4.i ], [ %or.i, %sw.bb1.i ], [ %24, %sw.bb.i ], [ 0, %for.body ]
   %idxprom.i.i107 = zext i32 %retval.i88.0 to i64
   %arrayidx.i.i108 = getelementptr inbounds %struct.SubCastle, ptr %add.ptr.i.i106, i64 %idxprom.i.i107
-  %repeatInfoOffset.i = getelementptr inbounds %struct.SubCastle, ptr %add.ptr.i.i106, i64 %idxprom.i.i107, i32 3
+  %repeatInfoOffset.i = getelementptr inbounds i8, ptr %arrayidx.i.i108, i64 12
   %29 = load i32, ptr %repeatInfoOffset.i, align 4
   %idx.ext.i129 = zext i32 %29 to i64
   %add.ptr.i130 = getelementptr inbounds i8, ptr %arrayidx.i.i108, i64 %idx.ext.i129
-  %fullStateOffset.i = getelementptr inbounds %struct.SubCastle, ptr %add.ptr.i.i106, i64 %idxprom.i.i107, i32 1
+  %fullStateOffset.i = getelementptr inbounds i8, ptr %arrayidx.i.i108, i64 4
   %30 = load i32, ptr %fullStateOffset.i, align 4
   %idx.ext.i138 = zext i32 %30 to i64
   %add.ptr.i139 = getelementptr inbounds i8, ptr %dest, i64 %idx.ext.i138
-  %streamStateOffset.i111 = getelementptr inbounds %struct.SubCastle, ptr %add.ptr.i.i106, i64 %idxprom.i.i107, i32 2
+  %streamStateOffset.i111 = getelementptr inbounds i8, ptr %arrayidx.i.i108, i64 8
   %31 = load i32, ptr %streamStateOffset.i111, align 4
   %idx.ext.i112 = zext i32 %31 to i64
   %add.ptr.i113 = getelementptr inbounds i8, ptr %src, i64 %idx.ext.i112
@@ -20199,15 +20205,15 @@ for.body22:                                       ; preds = %for.body22.lr.ph, %
   %i17.0436 = phi i32 [ %retval.i28.0490, %for.body22.lr.ph ], [ %retval.i.0, %mmbit_iterate.exit ]
   %idxprom.i.i = zext i32 %i17.0436 to i64
   %arrayidx.i.i = getelementptr inbounds %struct.SubCastle, ptr %add.ptr.i.i, i64 %idxprom.i.i
-  %repeatInfoOffset.i133 = getelementptr inbounds %struct.SubCastle, ptr %add.ptr.i.i, i64 %idxprom.i.i, i32 3
+  %repeatInfoOffset.i133 = getelementptr inbounds i8, ptr %arrayidx.i.i, i64 12
   %83 = load i32, ptr %repeatInfoOffset.i133, align 4
   %idx.ext.i134 = zext i32 %83 to i64
   %add.ptr.i135 = getelementptr inbounds i8, ptr %arrayidx.i.i, i64 %idx.ext.i134
-  %fullStateOffset.i143 = getelementptr inbounds %struct.SubCastle, ptr %add.ptr.i.i, i64 %idxprom.i.i, i32 1
+  %fullStateOffset.i143 = getelementptr inbounds i8, ptr %arrayidx.i.i, i64 4
   %84 = load i32, ptr %fullStateOffset.i143, align 4
   %idx.ext.i144 = zext i32 %84 to i64
   %add.ptr.i145 = getelementptr inbounds i8, ptr %dest, i64 %idx.ext.i144
-  %streamStateOffset.i = getelementptr inbounds %struct.SubCastle, ptr %add.ptr.i.i, i64 %idxprom.i.i, i32 2
+  %streamStateOffset.i = getelementptr inbounds i8, ptr %arrayidx.i.i, i64 8
   %85 = load i32, ptr %streamStateOffset.i, align 4
   %idx.ext.i = zext i32 %85 to i64
   %add.ptr.i93 = getelementptr inbounds i8, ptr %src, i64 %idx.ext.i

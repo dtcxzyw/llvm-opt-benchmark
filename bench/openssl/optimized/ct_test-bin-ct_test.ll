@@ -3,8 +3,6 @@ source_filename = "bench/openssl/original/ct_test-bin-ct_test.ll"
 target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:128-n8:16:32:64-S128"
 target triple = "x86_64-unknown-linux-gnu"
 
-%struct.ct_test_fixture = type { ptr, i64, ptr, ptr, ptr, ptr, i32, i32, ptr, i64, ptr, ptr, ptr, i32 }
-
 @.str = private unnamed_addr constant [7 x i8] c"CT_DIR\00", align 1
 @ct_dir = internal unnamed_addr global ptr null, align 8
 @.str.1 = private unnamed_addr constant [3 x i8] c"ct\00", align 1
@@ -72,7 +70,7 @@ target triple = "x86_64-unknown-linux-gnu"
 @.str.56 = private unnamed_addr constant [43 x i8] c"!CTLOG_new_from_base64(&ctlogp, pad, name)\00", align 1
 
 ; Function Attrs: nounwind uwtable
-define dso_local i32 @setup_tests() local_unnamed_addr #0 {
+define dso_local noundef i32 @setup_tests() local_unnamed_addr #0 {
 entry:
   %call = tail call ptr @getenv(ptr noundef nonnull @.str) #8
   %cmp = icmp eq ptr %call, null
@@ -101,7 +99,7 @@ declare noundef ptr @getenv(ptr nocapture noundef) local_unnamed_addr #1
 declare void @add_test(ptr noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @test_no_scts_in_certificate() #0 {
+define internal noundef i32 @test_no_scts_in_certificate() #0 {
 entry:
   %call = tail call fastcc ptr @set_up(ptr noundef nonnull @.str.4)
   %cmp = icmp eq ptr %call, null
@@ -109,19 +107,19 @@ entry:
 
 if.end:                                           ; preds = %entry
   %0 = load ptr, ptr @certs_dir, align 8
-  %certs_dir = getelementptr inbounds %struct.ct_test_fixture, ptr %call, i64 0, i32 3
+  %certs_dir = getelementptr inbounds i8, ptr %call, i64 24
   store ptr %0, ptr %certs_dir, align 8
-  %certificate_file = getelementptr inbounds %struct.ct_test_fixture, ptr %call, i64 0, i32 4
+  %certificate_file = getelementptr inbounds i8, ptr %call, i64 32
   store ptr @.str.14, ptr %certificate_file, align 8
-  %issuer_file = getelementptr inbounds %struct.ct_test_fixture, ptr %call, i64 0, i32 5
+  %issuer_file = getelementptr inbounds i8, ptr %call, i64 40
   store ptr @.str.15, ptr %issuer_file, align 8
-  %expected_sct_count = getelementptr inbounds %struct.ct_test_fixture, ptr %call, i64 0, i32 6
+  %expected_sct_count = getelementptr inbounds i8, ptr %call, i64 48
   store i32 0, ptr %expected_sct_count, align 8
   %call3 = tail call fastcc i32 @execute_cert_test(ptr noundef nonnull %call), !range !5
-  %ctlog_store.i = getelementptr inbounds %struct.ct_test_fixture, ptr %call, i64 0, i32 2
+  %ctlog_store.i = getelementptr inbounds i8, ptr %call, i64 16
   %1 = load ptr, ptr %ctlog_store.i, align 8
   tail call void @CTLOG_STORE_free(ptr noundef %1) #8
-  %sct_list.i = getelementptr inbounds %struct.ct_test_fixture, ptr %call, i64 0, i32 10
+  %sct_list.i = getelementptr inbounds i8, ptr %call, i64 72
   %2 = load ptr, ptr %sct_list.i, align 8
   tail call void @SCT_LIST_free(ptr noundef %2) #8
   tail call void @CRYPTO_free(ptr noundef nonnull %call, ptr noundef nonnull @.str.16, i32 noundef 88) #8
@@ -133,7 +131,7 @@ return:                                           ; preds = %entry, %if.end
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @test_one_sct_in_certificate() #0 {
+define internal noundef i32 @test_one_sct_in_certificate() #0 {
 entry:
   %call = tail call fastcc ptr @set_up(ptr noundef nonnull @.str.5)
   %cmp = icmp eq ptr %call, null
@@ -141,23 +139,23 @@ entry:
 
 if.end:                                           ; preds = %entry
   %0 = load ptr, ptr @certs_dir, align 8
-  %certs_dir = getelementptr inbounds %struct.ct_test_fixture, ptr %call, i64 0, i32 3
+  %certs_dir = getelementptr inbounds i8, ptr %call, i64 24
   store ptr %0, ptr %certs_dir, align 8
-  %certificate_file = getelementptr inbounds %struct.ct_test_fixture, ptr %call, i64 0, i32 4
+  %certificate_file = getelementptr inbounds i8, ptr %call, i64 32
   store ptr @.str.45, ptr %certificate_file, align 8
-  %issuer_file = getelementptr inbounds %struct.ct_test_fixture, ptr %call, i64 0, i32 5
+  %issuer_file = getelementptr inbounds i8, ptr %call, i64 40
   store ptr @.str.46, ptr %issuer_file, align 8
-  %expected_sct_count = getelementptr inbounds %struct.ct_test_fixture, ptr %call, i64 0, i32 6
+  %expected_sct_count = getelementptr inbounds i8, ptr %call, i64 48
   store i32 1, ptr %expected_sct_count, align 8
-  %sct_dir = getelementptr inbounds %struct.ct_test_fixture, ptr %call, i64 0, i32 11
+  %sct_dir = getelementptr inbounds i8, ptr %call, i64 80
   store ptr %0, ptr %sct_dir, align 8
-  %sct_text_file = getelementptr inbounds %struct.ct_test_fixture, ptr %call, i64 0, i32 12
+  %sct_text_file = getelementptr inbounds i8, ptr %call, i64 88
   store ptr @.str.47, ptr %sct_text_file, align 8
   %call3 = tail call fastcc i32 @execute_cert_test(ptr noundef nonnull %call), !range !5
-  %ctlog_store.i = getelementptr inbounds %struct.ct_test_fixture, ptr %call, i64 0, i32 2
+  %ctlog_store.i = getelementptr inbounds i8, ptr %call, i64 16
   %1 = load ptr, ptr %ctlog_store.i, align 8
   tail call void @CTLOG_STORE_free(ptr noundef %1) #8
-  %sct_list.i = getelementptr inbounds %struct.ct_test_fixture, ptr %call, i64 0, i32 10
+  %sct_list.i = getelementptr inbounds i8, ptr %call, i64 72
   %2 = load ptr, ptr %sct_list.i, align 8
   tail call void @SCT_LIST_free(ptr noundef %2) #8
   tail call void @CRYPTO_free(ptr noundef nonnull %call, ptr noundef nonnull @.str.16, i32 noundef 88) #8
@@ -169,7 +167,7 @@ return:                                           ; preds = %entry, %if.end
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @test_multiple_scts_in_certificate() #0 {
+define internal noundef i32 @test_multiple_scts_in_certificate() #0 {
 entry:
   %call = tail call fastcc ptr @set_up(ptr noundef nonnull @.str.6)
   %cmp = icmp eq ptr %call, null
@@ -177,23 +175,23 @@ entry:
 
 if.end:                                           ; preds = %entry
   %0 = load ptr, ptr @certs_dir, align 8
-  %certs_dir = getelementptr inbounds %struct.ct_test_fixture, ptr %call, i64 0, i32 3
+  %certs_dir = getelementptr inbounds i8, ptr %call, i64 24
   store ptr %0, ptr %certs_dir, align 8
-  %certificate_file = getelementptr inbounds %struct.ct_test_fixture, ptr %call, i64 0, i32 4
+  %certificate_file = getelementptr inbounds i8, ptr %call, i64 32
   store ptr @.str.48, ptr %certificate_file, align 8
-  %issuer_file = getelementptr inbounds %struct.ct_test_fixture, ptr %call, i64 0, i32 5
+  %issuer_file = getelementptr inbounds i8, ptr %call, i64 40
   store ptr @.str.49, ptr %issuer_file, align 8
-  %expected_sct_count = getelementptr inbounds %struct.ct_test_fixture, ptr %call, i64 0, i32 6
+  %expected_sct_count = getelementptr inbounds i8, ptr %call, i64 48
   store i32 3, ptr %expected_sct_count, align 8
-  %sct_dir = getelementptr inbounds %struct.ct_test_fixture, ptr %call, i64 0, i32 11
+  %sct_dir = getelementptr inbounds i8, ptr %call, i64 80
   store ptr %0, ptr %sct_dir, align 8
-  %sct_text_file = getelementptr inbounds %struct.ct_test_fixture, ptr %call, i64 0, i32 12
+  %sct_text_file = getelementptr inbounds i8, ptr %call, i64 88
   store ptr @.str.50, ptr %sct_text_file, align 8
   %call3 = tail call fastcc i32 @execute_cert_test(ptr noundef nonnull %call), !range !5
-  %ctlog_store.i = getelementptr inbounds %struct.ct_test_fixture, ptr %call, i64 0, i32 2
+  %ctlog_store.i = getelementptr inbounds i8, ptr %call, i64 16
   %1 = load ptr, ptr %ctlog_store.i, align 8
   tail call void @CTLOG_STORE_free(ptr noundef %1) #8
-  %sct_list.i = getelementptr inbounds %struct.ct_test_fixture, ptr %call, i64 0, i32 10
+  %sct_list.i = getelementptr inbounds i8, ptr %call, i64 72
   %2 = load ptr, ptr %sct_list.i, align 8
   tail call void @SCT_LIST_free(ptr noundef %2) #8
   tail call void @CRYPTO_free(ptr noundef nonnull %call, ptr noundef nonnull @.str.16, i32 noundef 88) #8
@@ -205,7 +203,7 @@ return:                                           ; preds = %entry, %if.end
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @test_verify_one_sct() #0 {
+define internal noundef i32 @test_verify_one_sct() #0 {
 entry:
   %call = tail call fastcc ptr @set_up(ptr noundef nonnull @.str.7)
   %cmp = icmp eq ptr %call, null
@@ -213,23 +211,23 @@ entry:
 
 if.end:                                           ; preds = %entry
   %0 = load ptr, ptr @certs_dir, align 8
-  %certs_dir = getelementptr inbounds %struct.ct_test_fixture, ptr %call, i64 0, i32 3
+  %certs_dir = getelementptr inbounds i8, ptr %call, i64 24
   store ptr %0, ptr %certs_dir, align 8
-  %certificate_file = getelementptr inbounds %struct.ct_test_fixture, ptr %call, i64 0, i32 4
+  %certificate_file = getelementptr inbounds i8, ptr %call, i64 32
   store ptr @.str.45, ptr %certificate_file, align 8
-  %issuer_file = getelementptr inbounds %struct.ct_test_fixture, ptr %call, i64 0, i32 5
+  %issuer_file = getelementptr inbounds i8, ptr %call, i64 40
   store ptr @.str.46, ptr %issuer_file, align 8
-  %expected_valid_sct_count = getelementptr inbounds %struct.ct_test_fixture, ptr %call, i64 0, i32 7
+  %expected_valid_sct_count = getelementptr inbounds i8, ptr %call, i64 52
   store i32 1, ptr %expected_valid_sct_count, align 4
-  %expected_sct_count = getelementptr inbounds %struct.ct_test_fixture, ptr %call, i64 0, i32 6
+  %expected_sct_count = getelementptr inbounds i8, ptr %call, i64 48
   store i32 1, ptr %expected_sct_count, align 8
-  %test_validity = getelementptr inbounds %struct.ct_test_fixture, ptr %call, i64 0, i32 13
+  %test_validity = getelementptr inbounds i8, ptr %call, i64 96
   store i32 1, ptr %test_validity, align 8
   %call3 = tail call fastcc i32 @execute_cert_test(ptr noundef nonnull %call), !range !5
-  %ctlog_store.i = getelementptr inbounds %struct.ct_test_fixture, ptr %call, i64 0, i32 2
+  %ctlog_store.i = getelementptr inbounds i8, ptr %call, i64 16
   %1 = load ptr, ptr %ctlog_store.i, align 8
   tail call void @CTLOG_STORE_free(ptr noundef %1) #8
-  %sct_list.i = getelementptr inbounds %struct.ct_test_fixture, ptr %call, i64 0, i32 10
+  %sct_list.i = getelementptr inbounds i8, ptr %call, i64 72
   %2 = load ptr, ptr %sct_list.i, align 8
   tail call void @SCT_LIST_free(ptr noundef %2) #8
   tail call void @CRYPTO_free(ptr noundef nonnull %call, ptr noundef nonnull @.str.16, i32 noundef 88) #8
@@ -241,7 +239,7 @@ return:                                           ; preds = %entry, %if.end
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @test_verify_multiple_scts() #0 {
+define internal noundef i32 @test_verify_multiple_scts() #0 {
 entry:
   %call = tail call fastcc ptr @set_up(ptr noundef nonnull @.str.8)
   %cmp = icmp eq ptr %call, null
@@ -249,23 +247,23 @@ entry:
 
 if.end:                                           ; preds = %entry
   %0 = load ptr, ptr @certs_dir, align 8
-  %certs_dir = getelementptr inbounds %struct.ct_test_fixture, ptr %call, i64 0, i32 3
+  %certs_dir = getelementptr inbounds i8, ptr %call, i64 24
   store ptr %0, ptr %certs_dir, align 8
-  %certificate_file = getelementptr inbounds %struct.ct_test_fixture, ptr %call, i64 0, i32 4
+  %certificate_file = getelementptr inbounds i8, ptr %call, i64 32
   store ptr @.str.48, ptr %certificate_file, align 8
-  %issuer_file = getelementptr inbounds %struct.ct_test_fixture, ptr %call, i64 0, i32 5
+  %issuer_file = getelementptr inbounds i8, ptr %call, i64 40
   store ptr @.str.49, ptr %issuer_file, align 8
-  %expected_valid_sct_count = getelementptr inbounds %struct.ct_test_fixture, ptr %call, i64 0, i32 7
+  %expected_valid_sct_count = getelementptr inbounds i8, ptr %call, i64 52
   store i32 3, ptr %expected_valid_sct_count, align 4
-  %expected_sct_count = getelementptr inbounds %struct.ct_test_fixture, ptr %call, i64 0, i32 6
+  %expected_sct_count = getelementptr inbounds i8, ptr %call, i64 48
   store i32 3, ptr %expected_sct_count, align 8
-  %test_validity = getelementptr inbounds %struct.ct_test_fixture, ptr %call, i64 0, i32 13
+  %test_validity = getelementptr inbounds i8, ptr %call, i64 96
   store i32 1, ptr %test_validity, align 8
   %call3 = tail call fastcc i32 @execute_cert_test(ptr noundef nonnull %call), !range !5
-  %ctlog_store.i = getelementptr inbounds %struct.ct_test_fixture, ptr %call, i64 0, i32 2
+  %ctlog_store.i = getelementptr inbounds i8, ptr %call, i64 16
   %1 = load ptr, ptr %ctlog_store.i, align 8
   tail call void @CTLOG_STORE_free(ptr noundef %1) #8
-  %sct_list.i = getelementptr inbounds %struct.ct_test_fixture, ptr %call, i64 0, i32 10
+  %sct_list.i = getelementptr inbounds i8, ptr %call, i64 72
   %2 = load ptr, ptr %sct_list.i, align 8
   tail call void @SCT_LIST_free(ptr noundef %2) #8
   tail call void @CRYPTO_free(ptr noundef nonnull %call, ptr noundef nonnull @.str.16, i32 noundef 88) #8
@@ -277,33 +275,33 @@ return:                                           ; preds = %entry, %if.end
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @test_verify_fails_for_future_sct() #0 {
+define internal noundef i32 @test_verify_fails_for_future_sct() #0 {
 entry:
   %call = tail call fastcc ptr @set_up(ptr noundef nonnull @.str.9)
   %cmp = icmp eq ptr %call, null
   br i1 %cmp, label %return, label %if.end
 
 if.end:                                           ; preds = %entry
-  %epoch_time_in_ms = getelementptr inbounds %struct.ct_test_fixture, ptr %call, i64 0, i32 1
+  %epoch_time_in_ms = getelementptr inbounds i8, ptr %call, i64 8
   store i64 1365094800000, ptr %epoch_time_in_ms, align 8
   %0 = load ptr, ptr @certs_dir, align 8
-  %certs_dir = getelementptr inbounds %struct.ct_test_fixture, ptr %call, i64 0, i32 3
+  %certs_dir = getelementptr inbounds i8, ptr %call, i64 24
   store ptr %0, ptr %certs_dir, align 8
-  %certificate_file = getelementptr inbounds %struct.ct_test_fixture, ptr %call, i64 0, i32 4
+  %certificate_file = getelementptr inbounds i8, ptr %call, i64 32
   store ptr @.str.45, ptr %certificate_file, align 8
-  %issuer_file = getelementptr inbounds %struct.ct_test_fixture, ptr %call, i64 0, i32 5
+  %issuer_file = getelementptr inbounds i8, ptr %call, i64 40
   store ptr @.str.46, ptr %issuer_file, align 8
-  %expected_sct_count = getelementptr inbounds %struct.ct_test_fixture, ptr %call, i64 0, i32 6
+  %expected_sct_count = getelementptr inbounds i8, ptr %call, i64 48
   store i32 1, ptr %expected_sct_count, align 8
-  %expected_valid_sct_count = getelementptr inbounds %struct.ct_test_fixture, ptr %call, i64 0, i32 7
+  %expected_valid_sct_count = getelementptr inbounds i8, ptr %call, i64 52
   store i32 0, ptr %expected_valid_sct_count, align 4
-  %test_validity = getelementptr inbounds %struct.ct_test_fixture, ptr %call, i64 0, i32 13
+  %test_validity = getelementptr inbounds i8, ptr %call, i64 96
   store i32 1, ptr %test_validity, align 8
   %call3 = tail call fastcc i32 @execute_cert_test(ptr noundef nonnull %call), !range !5
-  %ctlog_store.i = getelementptr inbounds %struct.ct_test_fixture, ptr %call, i64 0, i32 2
+  %ctlog_store.i = getelementptr inbounds i8, ptr %call, i64 16
   %1 = load ptr, ptr %ctlog_store.i, align 8
   tail call void @CTLOG_STORE_free(ptr noundef %1) #8
-  %sct_list.i = getelementptr inbounds %struct.ct_test_fixture, ptr %call, i64 0, i32 10
+  %sct_list.i = getelementptr inbounds i8, ptr %call, i64 72
   %2 = load ptr, ptr %sct_list.i, align 8
   tail call void @SCT_LIST_free(ptr noundef %2) #8
   tail call void @CRYPTO_free(ptr noundef nonnull %call, ptr noundef nonnull @.str.16, i32 noundef 88) #8
@@ -315,7 +313,7 @@ return:                                           ; preds = %entry, %if.end
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @test_decode_tls_sct() #0 {
+define internal noundef i32 @test_decode_tls_sct() #0 {
 entry:
   %tls_sct_list = alloca [123 x i8], align 16
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(123) %tls_sct_list, ptr noundef nonnull align 16 dereferenceable(123) @__const.test_decode_tls_sct.tls_sct_list, i64 123, i1 false)
@@ -324,20 +322,20 @@ entry:
   br i1 %cmp, label %return, label %if.end
 
 if.end:                                           ; preds = %entry
-  %tls_sct_list1 = getelementptr inbounds %struct.ct_test_fixture, ptr %call, i64 0, i32 8
+  %tls_sct_list1 = getelementptr inbounds i8, ptr %call, i64 56
   store ptr %tls_sct_list, ptr %tls_sct_list1, align 8
-  %tls_sct_list_len = getelementptr inbounds %struct.ct_test_fixture, ptr %call, i64 0, i32 9
+  %tls_sct_list_len = getelementptr inbounds i8, ptr %call, i64 64
   store i64 122, ptr %tls_sct_list_len, align 8
   %0 = load ptr, ptr @ct_dir, align 8
-  %sct_dir = getelementptr inbounds %struct.ct_test_fixture, ptr %call, i64 0, i32 11
+  %sct_dir = getelementptr inbounds i8, ptr %call, i64 80
   store ptr %0, ptr %sct_dir, align 8
-  %sct_text_file = getelementptr inbounds %struct.ct_test_fixture, ptr %call, i64 0, i32 12
+  %sct_text_file = getelementptr inbounds i8, ptr %call, i64 88
   store ptr @.str.51, ptr %sct_text_file, align 8
   %call4 = call fastcc i32 @execute_cert_test(ptr noundef nonnull %call), !range !5
-  %ctlog_store.i = getelementptr inbounds %struct.ct_test_fixture, ptr %call, i64 0, i32 2
+  %ctlog_store.i = getelementptr inbounds i8, ptr %call, i64 16
   %1 = load ptr, ptr %ctlog_store.i, align 8
   call void @CTLOG_STORE_free(ptr noundef %1) #8
-  %sct_list.i = getelementptr inbounds %struct.ct_test_fixture, ptr %call, i64 0, i32 10
+  %sct_list.i = getelementptr inbounds i8, ptr %call, i64 72
   %2 = load ptr, ptr %sct_list.i, align 8
   call void @SCT_LIST_free(ptr noundef %2) #8
   call void @CRYPTO_free(ptr noundef nonnull %call, ptr noundef nonnull @.str.16, i32 noundef 88) #8
@@ -349,7 +347,7 @@ return:                                           ; preds = %entry, %if.end
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @test_encode_tls_sct() #0 {
+define internal noundef i32 @test_encode_tls_sct() #0 {
 entry:
   %log_id = alloca [45 x i8], align 16
   %extensions = alloca [1 x i8], align 1
@@ -363,7 +361,7 @@ entry:
 
 if.end:                                           ; preds = %entry
   %call1 = tail call ptr @OPENSSL_sk_new_null() #8
-  %sct_list = getelementptr inbounds %struct.ct_test_fixture, ptr %call, i64 0, i32 10
+  %sct_list = getelementptr inbounds i8, ptr %call, i64 72
   store ptr %call1, ptr %sct_list, align 8
   %cmp3 = icmp eq ptr %call1, null
   br i1 %cmp3, label %return, label %if.end5
@@ -378,12 +376,12 @@ if.end11:                                         ; preds = %if.end5
   %0 = load ptr, ptr %sct_list, align 8
   %call15 = call i32 @OPENSSL_sk_push(ptr noundef %0, ptr noundef %call8) #8
   %1 = load ptr, ptr @ct_dir, align 8
-  %sct_dir = getelementptr inbounds %struct.ct_test_fixture, ptr %call, i64 0, i32 11
+  %sct_dir = getelementptr inbounds i8, ptr %call, i64 80
   store ptr %1, ptr %sct_dir, align 8
-  %sct_text_file = getelementptr inbounds %struct.ct_test_fixture, ptr %call, i64 0, i32 12
+  %sct_text_file = getelementptr inbounds i8, ptr %call, i64 88
   store ptr @.str.51, ptr %sct_text_file, align 8
   %call18 = call fastcc i32 @execute_cert_test(ptr noundef nonnull %call), !range !5
-  %ctlog_store.i = getelementptr inbounds %struct.ct_test_fixture, ptr %call, i64 0, i32 2
+  %ctlog_store.i = getelementptr inbounds i8, ptr %call, i64 16
   %2 = load ptr, ptr %ctlog_store.i, align 8
   call void @CTLOG_STORE_free(ptr noundef %2) #8
   %3 = load ptr, ptr %sct_list, align 8
@@ -447,7 +445,7 @@ return:                                           ; preds = %lor.lhs.false, %ent
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc ptr @set_up(ptr noundef %test_case_name) unnamed_addr #0 {
+define internal fastcc noundef ptr @set_up(ptr noundef %test_case_name) unnamed_addr #0 {
 entry:
   %call = tail call noalias ptr @CRYPTO_zalloc(i64 noundef 104, ptr noundef nonnull @.str.16, i32 noundef 64) #8
   %call1 = tail call i32 @test_ptr(ptr noundef nonnull @.str.16, i32 noundef 64, ptr noundef nonnull @.str.17, ptr noundef %call) #8
@@ -456,10 +454,10 @@ entry:
 
 if.end:                                           ; preds = %entry
   store ptr %test_case_name, ptr %call, align 8
-  %epoch_time_in_ms = getelementptr inbounds %struct.ct_test_fixture, ptr %call, i64 0, i32 1
+  %epoch_time_in_ms = getelementptr inbounds i8, ptr %call, i64 8
   store i64 1580335307000, ptr %epoch_time_in_ms, align 8
   %call3 = tail call ptr @CTLOG_STORE_new() #8
-  %ctlog_store = getelementptr inbounds %struct.ct_test_fixture, ptr %call, i64 0, i32 2
+  %ctlog_store = getelementptr inbounds i8, ptr %call, i64 16
   store ptr %call3, ptr %ctlog_store, align 8
   %call4 = tail call i32 @test_ptr(ptr noundef nonnull @.str.16, i32 noundef 68, ptr noundef nonnull @.str.18, ptr noundef %call3) #8
   %tobool5.not = icmp eq i32 %call4, 0
@@ -477,7 +475,7 @@ end:                                              ; preds = %entry
   br i1 %cmp.not, label %if.end14, label %if.then12
 
 if.then12:                                        ; preds = %lor.lhs.false, %if.end, %end
-  %ctlog_store13 = getelementptr inbounds %struct.ct_test_fixture, ptr %call, i64 0, i32 2
+  %ctlog_store13 = getelementptr inbounds i8, ptr %call, i64 16
   %1 = load ptr, ptr %ctlog_store13, align 8
   tail call void @CTLOG_STORE_free(ptr noundef %1) #8
   br label %if.end14
@@ -493,7 +491,7 @@ return:                                           ; preds = %lor.lhs.false, %if.
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @execute_cert_test(ptr nocapture noundef readonly %fixture) unnamed_addr #0 {
+define internal fastcc noundef i32 @execute_cert_test(ptr nocapture noundef readonly %fixture) unnamed_addr #0 {
 entry:
   %actual_output.i68 = alloca ptr, align 8
   %actual_output.i = alloca ptr, align 8
@@ -504,13 +502,13 @@ entry:
   store ptr null, ptr %scts, align 8
   store ptr null, ptr %tls_sct_list, align 8
   %call = tail call ptr @CT_POLICY_EVAL_CTX_new() #8
-  %sct_text_file = getelementptr inbounds %struct.ct_test_fixture, ptr %fixture, i64 0, i32 12
+  %sct_text_file = getelementptr inbounds i8, ptr %fixture, i64 88
   %0 = load ptr, ptr %sct_text_file, align 8
   %cmp.not = icmp eq ptr %0, null
   br i1 %cmp.not, label %if.end5, label %if.then
 
 if.then:                                          ; preds = %entry
-  %sct_dir = getelementptr inbounds %struct.ct_test_fixture, ptr %fixture, i64 0, i32 11
+  %sct_dir = getelementptr inbounds i8, ptr %fixture, i64 80
   %1 = load ptr, ptr %sct_dir, align 8
   %call.i = tail call ptr @test_mk_file_path(ptr noundef %1, ptr noundef nonnull %0) #8
   %cmp.not.i = icmp eq ptr %call.i, null
@@ -544,19 +542,19 @@ if.end:                                           ; preds = %read_text_file.exit
   br label %if.end5
 
 if.end5:                                          ; preds = %if.end, %entry
-  %ctlog_store = getelementptr inbounds %struct.ct_test_fixture, ptr %fixture, i64 0, i32 2
+  %ctlog_store = getelementptr inbounds i8, ptr %fixture, i64 16
   %2 = load ptr, ptr %ctlog_store, align 8
   call void @CT_POLICY_EVAL_CTX_set_shared_CTLOG_STORE(ptr noundef %call, ptr noundef %2) #8
-  %epoch_time_in_ms = getelementptr inbounds %struct.ct_test_fixture, ptr %fixture, i64 0, i32 1
+  %epoch_time_in_ms = getelementptr inbounds i8, ptr %fixture, i64 8
   %3 = load i64, ptr %epoch_time_in_ms, align 8
   call void @CT_POLICY_EVAL_CTX_set_time(ptr noundef %call, i64 noundef %3) #8
-  %certificate_file = getelementptr inbounds %struct.ct_test_fixture, ptr %fixture, i64 0, i32 4
+  %certificate_file = getelementptr inbounds i8, ptr %fixture, i64 32
   %4 = load ptr, ptr %certificate_file, align 8
   %cmp6.not = icmp eq ptr %4, null
   br i1 %cmp6.not, label %if.end64, label %if.then7
 
 if.then7:                                         ; preds = %if.end5
-  %certs_dir = getelementptr inbounds %struct.ct_test_fixture, ptr %fixture, i64 0, i32 3
+  %certs_dir = getelementptr inbounds i8, ptr %fixture, i64 24
   %5 = load ptr, ptr %certs_dir, align 8
   %call.i43 = call ptr @test_mk_file_path(ptr noundef %5, ptr noundef nonnull %4) #8
   %cmp.not.i44 = icmp eq ptr %call.i43, null
@@ -585,7 +583,7 @@ load_pem_cert.exit:                               ; preds = %if.then7, %if.end.i
 
 if.end13:                                         ; preds = %load_pem_cert.exit
   %call14 = call i32 @CT_POLICY_EVAL_CTX_set1_cert(ptr noundef %call, ptr noundef %cert.1.i) #8
-  %issuer_file = getelementptr inbounds %struct.ct_test_fixture, ptr %fixture, i64 0, i32 5
+  %issuer_file = getelementptr inbounds i8, ptr %fixture, i64 40
   %6 = load ptr, ptr %issuer_file, align 8
   %cmp15.not = icmp eq ptr %6, null
   br i1 %cmp15.not, label %if.end25, label %if.then16
@@ -625,7 +623,7 @@ if.end25:                                         ; preds = %if.end23, %if.end13
   %issuer.0 = phi ptr [ %cert.1.i62, %if.end23 ], [ null, %if.end13 ]
   %call26 = call i32 @X509_get_ext_by_NID(ptr noundef %cert.1.i, i32 noundef 951, i32 noundef -1) #8
   %call27 = call ptr @X509_get_ext(ptr noundef %cert.1.i, i32 noundef %call26) #8
-  %expected_sct_count = getelementptr inbounds %struct.ct_test_fixture, ptr %fixture, i64 0, i32 6
+  %expected_sct_count = getelementptr inbounds i8, ptr %fixture, i64 48
   %8 = load i32, ptr %expected_sct_count, align 8
   %cmp28 = icmp sgt i32 %8, 0
   br i1 %cmp28, label %if.then29, label %if.else
@@ -709,7 +707,7 @@ for.body:                                         ; preds = %if.end40, %for.cond
   br i1 %tobool49.not, label %end, label %for.cond
 
 for.end:                                          ; preds = %for.cond, %if.end40
-  %test_validity = getelementptr inbounds %struct.ct_test_fixture, ptr %fixture, i64 0, i32 13
+  %test_validity = getelementptr inbounds i8, ptr %fixture, i64 96
   %11 = load i32, ptr %test_validity, align 8
   %tobool52.not = icmp eq i32 %11, 0
   br i1 %tobool52.not, label %if.end64, label %if.then53
@@ -727,14 +725,14 @@ if.else:                                          ; preds = %if.end25
 if.end64:                                         ; preds = %if.then53, %for.end, %if.else, %if.end5
   %issuer.1 = phi ptr [ %issuer.0, %if.then53 ], [ %issuer.0, %for.end ], [ %issuer.0, %if.else ], [ null, %if.end5 ]
   %cert.0 = phi ptr [ %cert.1.i, %if.then53 ], [ %cert.1.i, %for.end ], [ %cert.1.i, %if.else ], [ null, %if.end5 ]
-  %tls_sct_list65 = getelementptr inbounds %struct.ct_test_fixture, ptr %fixture, i64 0, i32 8
+  %tls_sct_list65 = getelementptr inbounds i8, ptr %fixture, i64 56
   %12 = load ptr, ptr %tls_sct_list65, align 8
   %cmp66.not = icmp eq ptr %12, null
   br i1 %cmp66.not, label %if.end100, label %if.then67
 
 if.then67:                                        ; preds = %if.end64
   store ptr %12, ptr %p, align 8
-  %tls_sct_list_len69 = getelementptr inbounds %struct.ct_test_fixture, ptr %fixture, i64 0, i32 9
+  %tls_sct_list_len69 = getelementptr inbounds i8, ptr %fixture, i64 64
   %13 = load i64, ptr %tls_sct_list_len69, align 8
   %call70 = call ptr @o2i_SCT_LIST(ptr noundef nonnull %scts, ptr noundef nonnull %p, i64 noundef %13) #8
   %call71 = call i32 @test_ptr(ptr noundef nonnull @.str.16, i32 noundef 303, ptr noundef nonnull @.str.29, ptr noundef %call70) #8
@@ -742,7 +740,7 @@ if.then67:                                        ; preds = %if.end64
   br i1 %tobool72.not, label %end, label %if.end74
 
 if.end74:                                         ; preds = %if.then67
-  %test_validity75 = getelementptr inbounds %struct.ct_test_fixture, ptr %fixture, i64 0, i32 13
+  %test_validity75 = getelementptr inbounds i8, ptr %fixture, i64 96
   %14 = load i32, ptr %test_validity75, align 8
   %tobool76 = icmp ne i32 %14, 0
   %cmp78 = icmp ne ptr %cert.0, null
@@ -863,7 +861,7 @@ declare ptr @OPENSSL_sk_value(ptr noundef, i32 noundef) local_unnamed_addr #2
 declare i32 @SCT_get_source(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @assert_validity(ptr nocapture noundef readonly %fixture, ptr noundef %scts, ptr noundef %policy_ctx) unnamed_addr #0 {
+define internal fastcc noundef i32 @assert_validity(ptr nocapture noundef readonly %fixture, ptr noundef %scts, ptr noundef %policy_ctx) unnamed_addr #0 {
 entry:
   %call = tail call i32 @SCT_LIST_validate(ptr noundef %scts, ptr noundef %policy_ctx) #8
   %call1 = tail call i32 @test_int_ge(ptr noundef nonnull @.str.16, i32 noundef 190, ptr noundef nonnull @.str.41, ptr noundef nonnull @.str.23, i32 noundef %call, i32 noundef 0) #8
@@ -905,7 +903,7 @@ for.inc:                                          ; preds = %for.body, %sw.bb, %
 for.end:                                          ; preds = %for.inc, %for.cond.preheader
   %valid_sct_count.0.lcssa = phi i32 [ 0, %for.cond.preheader ], [ %valid_sct_count.1, %for.inc ]
   %invalid_sct_count.0.lcssa = phi i32 [ 0, %for.cond.preheader ], [ %invalid_sct_count.1, %for.inc ]
-  %expected_valid_sct_count = getelementptr inbounds %struct.ct_test_fixture, ptr %fixture, i64 0, i32 7
+  %expected_valid_sct_count = getelementptr inbounds i8, ptr %fixture, i64 52
   %0 = load i32, ptr %expected_valid_sct_count, align 4
   %call11 = tail call i32 @test_int_eq(ptr noundef nonnull @.str.16, i32 noundef 212, ptr noundef nonnull @.str.42, ptr noundef nonnull @.str.43, i32 noundef %valid_sct_count.0.lcssa, i32 noundef %0) #8
   %tobool12.not = icmp eq i32 %call11, 0

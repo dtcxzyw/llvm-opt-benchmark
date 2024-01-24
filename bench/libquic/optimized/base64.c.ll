@@ -3,18 +3,16 @@ source_filename = "bench/libquic/original/base64.c.ll"
 target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:128-n8:16:32:64-S128"
 target triple = "x86_64-unknown-linux-gnu"
 
-%struct.evp_encode_ctx_st = type { i32, i32, [80 x i8], i32, i32 }
-
 @data_bin2ascii = internal unnamed_addr constant [65 x i8] c"ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789+/\00", align 16
 @data_ascii2bin = internal unnamed_addr constant [128 x i8] c"\FF\FF\FF\FF\FF\FF\FF\FF\FF\E0\F0\FF\FF\F1\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\E0\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF>\FF\F2\FF?456789:;<=\FF\FF\FF\FF\FF\FF\FF\00\01\02\03\04\05\06\07\08\09\0A\0B\0C\0D\0E\0F\10\11\12\13\14\15\16\17\18\19\FF\FF\FF\FF\FF\FF\1A\1B\1C\1D\1E\1F !\22#$%&'()*+,-./0123\FF\FF\FF\FF\FF", align 16
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
 define hidden void @EVP_EncodeInit(ptr nocapture noundef writeonly %ctx) local_unnamed_addr #0 {
 entry:
-  %length = getelementptr inbounds %struct.evp_encode_ctx_st, ptr %ctx, i64 0, i32 1
+  %length = getelementptr inbounds i8, ptr %ctx, i64 4
   store i32 48, ptr %length, align 4
   store i32 0, ptr %ctx, align 4
-  %line_num = getelementptr inbounds %struct.evp_encode_ctx_st, ptr %ctx, i64 0, i32 3
+  %line_num = getelementptr inbounds i8, ptr %ctx, i64 88
   store i32 0, ptr %line_num, align 4
   ret void
 }
@@ -30,14 +28,15 @@ if.end:                                           ; preds = %entry
   %0 = load i32, ptr %ctx, align 4
   %conv = zext i32 %0 to i64
   %add = add i64 %conv, %in_len
-  %length = getelementptr inbounds %struct.evp_encode_ctx_st, ptr %ctx, i64 0, i32 1
+  %length = getelementptr inbounds i8, ptr %ctx, i64 4
   %1 = load i32, ptr %length, align 4
   %conv1 = zext i32 %1 to i64
   %cmp2 = icmp ult i64 %add, %conv1
   br i1 %cmp2, label %if.then4, label %if.end10
 
 if.then4:                                         ; preds = %if.end
-  %arrayidx = getelementptr inbounds %struct.evp_encode_ctx_st, ptr %ctx, i64 0, i32 2, i64 %conv
+  %enc_data = getelementptr inbounds i8, ptr %ctx, i64 8
+  %arrayidx = getelementptr inbounds [80 x i8], ptr %enc_data, i64 0, i64 %conv
   tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %arrayidx, ptr align 1 %in, i64 %in_len, i1 false)
   %2 = load i32, ptr %ctx, align 4
   %3 = trunc i64 %in_len to i32
@@ -51,7 +50,8 @@ if.end10:                                         ; preds = %if.end
 
 if.then14:                                        ; preds = %if.end10
   %sub = sub i32 %1, %0
-  %arrayidx20 = getelementptr inbounds %struct.evp_encode_ctx_st, ptr %ctx, i64 0, i32 2, i64 %conv
+  %enc_data17 = getelementptr inbounds i8, ptr %ctx, i64 8
+  %arrayidx20 = getelementptr inbounds [80 x i8], ptr %enc_data17, i64 0, i64 %conv
   %conv21 = zext i32 %sub to i64
   tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %arrayidx20, ptr align 1 %in, i64 %conv21, i1 false)
   %add.ptr = getelementptr inbounds i8, ptr %in, i64 %conv21
@@ -62,7 +62,6 @@ if.then14:                                        ; preds = %if.end10
 
 while.body.i.preheader:                           ; preds = %if.then14
   %conv26 = zext i32 %4 to i64
-  %enc_data17 = getelementptr inbounds %struct.evp_encode_ctx_st, ptr %ctx, i64 0, i32 2
   br label %while.body.i
 
 while.body.i:                                     ; preds = %while.body.i.preheader, %if.end52.i
@@ -330,7 +329,7 @@ while.end:                                        ; preds = %EVP_EncodeBlock.exi
   br i1 %cmp52.not, label %if.end57, label %if.then54
 
 if.then54:                                        ; preds = %while.end
-  %enc_data55 = getelementptr inbounds %struct.evp_encode_ctx_st, ptr %ctx, i64 0, i32 2
+  %enc_data55 = getelementptr inbounds i8, ptr %ctx, i64 8
   tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 4 %enc_data55, ptr align 1 %in.addr.1.lcssa, i64 %in_len.addr.1.lcssa, i1 false)
   br label %if.end57
 
@@ -468,7 +467,7 @@ entry:
   br i1 %cmp.not, label %if.end, label %if.then
 
 if.then:                                          ; preds = %entry
-  %enc_data = getelementptr inbounds %struct.evp_encode_ctx_st, ptr %ctx, i64 0, i32 2
+  %enc_data = getelementptr inbounds i8, ptr %ctx, i64 8
   %conv = zext i32 %0 to i64
   br label %while.body.i
 
@@ -786,12 +785,12 @@ return:                                           ; preds = %if.end29, %lor.lhs.
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
 define hidden void @EVP_DecodeInit(ptr nocapture noundef writeonly %ctx) local_unnamed_addr #0 {
 entry:
-  %length = getelementptr inbounds %struct.evp_encode_ctx_st, ptr %ctx, i64 0, i32 1
+  %length = getelementptr inbounds i8, ptr %ctx, i64 4
   store i32 30, ptr %length, align 4
   store i32 0, ptr %ctx, align 4
-  %line_num = getelementptr inbounds %struct.evp_encode_ctx_st, ptr %ctx, i64 0, i32 3
+  %line_num = getelementptr inbounds i8, ptr %ctx, i64 88
   store i32 0, ptr %line_num, align 4
-  %expect_nl = getelementptr inbounds %struct.evp_encode_ctx_st, ptr %ctx, i64 0, i32 4
+  %expect_nl = getelementptr inbounds i8, ptr %ctx, i64 92
   store i32 0, ptr %expect_nl, align 4
   ret void
 }
@@ -801,10 +800,10 @@ define hidden noundef i32 @EVP_DecodeUpdate(ptr nocapture noundef %ctx, ptr noca
 entry:
   %dst_len.i = alloca i64, align 8
   %0 = load i32, ptr %ctx, align 4
-  %enc_data = getelementptr inbounds %struct.evp_encode_ctx_st, ptr %ctx, i64 0, i32 2
-  %line_num = getelementptr inbounds %struct.evp_encode_ctx_st, ptr %ctx, i64 0, i32 3
+  %enc_data = getelementptr inbounds i8, ptr %ctx, i64 8
+  %line_num = getelementptr inbounds i8, ptr %ctx, i64 88
   %1 = load i32, ptr %line_num, align 4
-  %expect_nl = getelementptr inbounds %struct.evp_encode_ctx_st, ptr %ctx, i64 0, i32 4
+  %expect_nl = getelementptr inbounds i8, ptr %ctx, i64 92
   %2 = load i32, ptr %expect_nl, align 4
   %cmp = icmp eq i64 %in_len, 0
   br i1 %cmp, label %end, label %lor.lhs.false
@@ -819,7 +818,7 @@ land.lhs.true:                                    ; preds = %lor.lhs.false
   br i1 %cmp2, label %end, label %if.end
 
 if.end:                                           ; preds = %land.lhs.true, %lor.lhs.false
-  %length = getelementptr inbounds %struct.evp_encode_ctx_st, ptr %ctx, i64 0, i32 1
+  %length = getelementptr inbounds i8, ptr %ctx, i64 4
   br label %for.body
 
 for.body:                                         ; preds = %if.end, %for.inc
@@ -1205,7 +1204,7 @@ entry:
   br i1 %cmp.not, label %return, label %if.then
 
 if.then:                                          ; preds = %entry
-  %enc_data = getelementptr inbounds %struct.evp_encode_ctx_st, ptr %ctx, i64 0, i32 2
+  %enc_data = getelementptr inbounds i8, ptr %ctx, i64 8
   %conv = zext i32 %0 to i64
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %dst_len.i)
   %1 = load i8, ptr %enc_data, align 1

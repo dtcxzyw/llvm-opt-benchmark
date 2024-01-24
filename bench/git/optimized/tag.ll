@@ -5,13 +5,7 @@ target triple = "x86_64-unknown-linux-gnu"
 
 %struct.strbuf = type { i64, i64, ptr }
 %struct.signature_check = type { ptr, i64, i32, i64, ptr, ptr, i8, ptr, ptr, ptr, ptr, i32 }
-%struct.tag = type { %struct.object, ptr, ptr, i64 }
-%struct.object = type { i32, %struct.object_id }
 %struct.object_id = type { [32 x i8], i32 }
-%struct.repository = type { ptr, ptr, ptr, ptr, ptr, %struct.repo_path_cache, ptr, ptr, ptr, ptr, %struct.repo_settings, ptr, ptr, ptr, ptr, ptr, i32, i32, i32, ptr, ptr, i32, i8 }
-%struct.repo_path_cache = type { ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr }
-%struct.repo_settings = type { i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, ptr, i32, i32, i32, i32, i32, i32 }
-%struct.git_hash_algo = type { ptr, i32, i64, i64, i64, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr }
 
 @.str = private unnamed_addr constant [4 x i8] c"tag\00", align 1
 @tag_type = dso_local local_unnamed_addr global ptr @.str, align 8
@@ -113,14 +107,14 @@ if.end.i:                                         ; preds = %if.then2.i, %if.the
   br label %run_gpg_verify.exit
 
 if.end6.i:                                        ; preds = %if.end16
-  %payload_type.i = getelementptr inbounds %struct.signature_check, ptr %sigc.i, i64 0, i32 2
+  %payload_type.i = getelementptr inbounds i8, ptr %sigc.i, i64 16
   store i32 2, ptr %payload_type.i, align 8
-  %payload_len.i = getelementptr inbounds %struct.signature_check, ptr %sigc.i, i64 0, i32 1
+  %payload_len.i = getelementptr inbounds i8, ptr %sigc.i, i64 8
   %call7.i = call ptr @strbuf_detach(ptr noundef nonnull %payload.i, ptr noundef nonnull %payload_len.i) #11
   store ptr %call7.i, ptr %sigc.i, align 8
-  %buf9.i = getelementptr inbounds %struct.strbuf, ptr %signature.i, i64 0, i32 2
+  %buf9.i = getelementptr inbounds i8, ptr %signature.i, i64 16
   %7 = load ptr, ptr %buf9.i, align 8
-  %len.i = getelementptr inbounds %struct.strbuf, ptr %signature.i, i64 0, i32 1
+  %len.i = getelementptr inbounds i8, ptr %signature.i, i64 8
   %8 = load i64, ptr %len.i, align 8
   %call10.i = call i32 @check_signature(ptr noundef nonnull %sigc.i, ptr noundef %7, i64 noundef %8) #11
   %and11.i = and i32 %flags, 4
@@ -177,13 +171,13 @@ land.rhs:                                         ; preds = %entry, %if.end
   br i1 %cmp, label %while.body, label %return
 
 while.body:                                       ; preds = %land.rhs
-  %tagged = getelementptr inbounds %struct.tag, ptr %o.addr.016, i64 0, i32 1
+  %tagged = getelementptr inbounds i8, ptr %o.addr.016, i64 40
   %1 = load ptr, ptr %tagged, align 8
   %tobool1.not = icmp eq ptr %1, null
   br i1 %tobool1.not, label %while.end, label %if.end
 
 if.end:                                           ; preds = %while.body
-  %oid = getelementptr inbounds %struct.object, ptr %1, i64 0, i32 1
+  %oid = getelementptr inbounds i8, ptr %1, i64 4
   %call = tail call ptr @parse_object(ptr noundef %r, ptr noundef nonnull %oid) #11
   %tobool.not = icmp eq ptr %call, null
   br i1 %tobool.not, label %while.end, label %land.rhs, !llvm.loop !5
@@ -243,7 +237,7 @@ land.rhs:                                         ; preds = %entry, %land.lhs.tr
 
 while.body:                                       ; preds = %land.rhs
   %1 = load ptr, ptr @the_repository, align 8
-  %oid = getelementptr inbounds %struct.object, ptr %o.addr.09, i64 0, i32 1
+  %oid = getelementptr inbounds i8, ptr %o.addr.09, i64 4
   %call = tail call ptr @parse_object(ptr noundef %1, ptr noundef nonnull %oid) #11
   %tobool1.not = icmp eq ptr %call, null
   br i1 %tobool1.not, label %while.end, label %land.lhs.true
@@ -255,7 +249,7 @@ land.lhs.true:                                    ; preds = %while.body
   br i1 %cmp5, label %land.lhs.true6, label %while.end
 
 land.lhs.true6:                                   ; preds = %land.lhs.true
-  %tagged = getelementptr inbounds %struct.tag, ptr %call, i64 0, i32 1
+  %tagged = getelementptr inbounds i8, ptr %call, i64 40
   %3 = load ptr, ptr %tagged, align 8
   %tobool7.not = icmp eq ptr %3, null
   br i1 %tobool7.not, label %while.end, label %land.rhs, !llvm.loop !7
@@ -297,15 +291,15 @@ declare ptr @object_as_type(ptr noundef, i32 noundef, i32 noundef) local_unnamed
 ; Function Attrs: mustprogress nounwind willreturn uwtable
 define dso_local void @release_tag_memory(ptr nocapture noundef %t) local_unnamed_addr #4 {
 entry:
-  %tag = getelementptr inbounds %struct.tag, ptr %t, i64 0, i32 2
+  %tag = getelementptr inbounds i8, ptr %t, i64 48
   %0 = load ptr, ptr %tag, align 8
   tail call void @free(ptr noundef %0) #11
-  %tagged = getelementptr inbounds %struct.tag, ptr %t, i64 0, i32 1
+  %tagged = getelementptr inbounds i8, ptr %t, i64 40
   store ptr null, ptr %tagged, align 8
   %bf.load = load i32, ptr %t, align 8
   %bf.clear = and i32 %bf.load, -2
   store i32 %bf.clear, ptr %t, align 8
-  %date = getelementptr inbounds %struct.tag, ptr %t, i64 0, i32 3
+  %date = getelementptr inbounds i8, ptr %t, i64 56
   store i64 0, ptr %date, align 8
   ret void
 }
@@ -324,7 +318,7 @@ entry:
   br i1 %tobool.not, label %if.end, label %return
 
 if.end:                                           ; preds = %entry
-  %tag = getelementptr inbounds %struct.tag, ptr %item, i64 0, i32 2
+  %tag = getelementptr inbounds i8, ptr %item, i64 48
   %0 = load ptr, ptr %tag, align 8
   %tobool1.not = icmp eq ptr %0, null
   br i1 %tobool1.not, label %if.end5, label %do.body
@@ -336,9 +330,9 @@ do.body:                                          ; preds = %if.end
 
 if.end5:                                          ; preds = %do.body, %if.end
   %1 = load ptr, ptr @the_repository, align 8
-  %hash_algo = getelementptr inbounds %struct.repository, ptr %1, i64 0, i32 15
+  %hash_algo = getelementptr inbounds i8, ptr %1, i64 256
   %2 = load ptr, ptr %hash_algo, align 8
-  %hexsz = getelementptr inbounds %struct.git_hash_algo, ptr %2, i64 0, i32 3
+  %hexsz = getelementptr inbounds i8, ptr %2, i64 24
   %3 = load i64, ptr %hexsz, align 8
   %add = add i64 %3, 24
   %cmp = icmp ugt i64 %add, %size
@@ -431,21 +425,21 @@ if.then61:                                        ; preds = %if.else57
   br label %if.end74
 
 if.else64:                                        ; preds = %if.else57
-  %oid67 = getelementptr inbounds %struct.object, ptr %item, i64 0, i32 1
+  %oid67 = getelementptr inbounds i8, ptr %item, i64 4
   %call68 = call ptr @oid_to_hex(ptr noundef nonnull %oid67) #11
   %call69 = call i32 (ptr, ...) @error(ptr noundef nonnull @.str.6, ptr noundef nonnull %type, ptr noundef %call68) #11
   br label %return
 
 if.end74:                                         ; preds = %if.then47, %if.then61, %if.then54, %if.then42
   %call48.sink = phi ptr [ %call48, %if.then47 ], [ %call62, %if.then61 ], [ %call55, %if.then54 ], [ %call43, %if.then42 ]
-  %tagged49 = getelementptr inbounds %struct.tag, ptr %item, i64 0, i32 1
+  %tagged49 = getelementptr inbounds i8, ptr %item, i64 40
   store ptr %call48.sink, ptr %tagged49, align 8
   %tobool76.not = icmp eq ptr %call48.sink, null
   br i1 %tobool76.not, label %if.then77, label %if.end84
 
 if.then77:                                        ; preds = %if.end74
   %call78 = call ptr @oid_to_hex(ptr noundef nonnull %oid) #11
-  %oid80 = getelementptr inbounds %struct.object, ptr %item, i64 0, i32 1
+  %oid80 = getelementptr inbounds i8, ptr %item, i64 4
   %call81 = call ptr @oid_to_hex(ptr noundef nonnull %oid80) #11
   %call82 = call i32 (ptr, ...) @error(ptr noundef nonnull @.str.7, ptr noundef %call78, ptr noundef %call81) #11
   br label %return
@@ -494,7 +488,7 @@ if.then113:                                       ; preds = %land.lhs.true110
 
 if.end117:                                        ; preds = %if.end100, %land.lhs.true110, %if.then113
   %.sink = phi i64 [ %call114, %if.then113 ], [ 0, %land.lhs.true110 ], [ 0, %if.end100 ]
-  %date116 = getelementptr inbounds %struct.tag, ptr %item, i64 0, i32 3
+  %date116 = getelementptr inbounds i8, ptr %item, i64 56
   store i64 %.sink, ptr %date116, align 8
   %bf.load119 = load i32, ptr %item, align 8
   %bf.set = or i32 %bf.load119, 1
@@ -587,7 +581,7 @@ entry:
 
 if.end:                                           ; preds = %entry
   %0 = load ptr, ptr @the_repository, align 8
-  %oid = getelementptr inbounds %struct.object, ptr %item, i64 0, i32 1
+  %oid = getelementptr inbounds i8, ptr %item, i64 4
   %call = call ptr @repo_read_object_file(ptr noundef %0, ptr noundef nonnull %oid, ptr noundef nonnull %type, ptr noundef nonnull %size) #11
   %tobool2.not = icmp eq ptr %call, null
   br i1 %tobool2.not, label %if.then3, label %if.end9
@@ -623,7 +617,7 @@ return:                                           ; preds = %entry, %if.end16, %
 ; Function Attrs: nounwind uwtable
 define dso_local nonnull ptr @get_tagged_oid(ptr nocapture noundef readonly %tag) local_unnamed_addr #0 {
 entry:
-  %tagged = getelementptr inbounds %struct.tag, ptr %tag, i64 0, i32 1
+  %tagged = getelementptr inbounds i8, ptr %tag, i64 40
   %0 = load ptr, ptr %tagged, align 8
   %tobool.not = icmp eq ptr %0, null
   br i1 %tobool.not, label %if.then, label %if.end
@@ -633,7 +627,7 @@ if.then:                                          ; preds = %entry
   unreachable
 
 if.end:                                           ; preds = %entry
-  %oid = getelementptr inbounds %struct.object, ptr %0, i64 0, i32 1
+  %oid = getelementptr inbounds i8, ptr %0, i64 4
   ret ptr %oid
 }
 

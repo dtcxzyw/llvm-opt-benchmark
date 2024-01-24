@@ -8,12 +8,10 @@ target triple = "x86_64-unknown-linux-gnu"
 %union.anon = type { %struct.reftable_ref_record }
 %struct.reftable_ref_record = type { ptr, i64, i32, %union.anon.0 }
 %union.anon.0 = type { ptr, [56 x i8] }
-%struct.reftable_table = type { ptr, ptr }
 %struct.reftable_iterator = type { ptr, ptr }
 %struct.reftable_log_record = type { ptr, i64, i32, %union.anon.1 }
 %union.anon.1 = type { %struct.anon.2 }
 %struct.anon.2 = type { ptr, ptr, ptr, ptr, i64, i16, ptr }
-%struct.reftable_table_vtable = type { ptr, ptr, ptr, ptr }
 
 @.str = private unnamed_addr constant [1 x i8] zeroinitializer, align 1
 @empty_vtable = internal global %struct.reftable_iterator_vtable { ptr @empty_iterator_next, ptr @empty_iterator_close }, align 8
@@ -24,11 +22,11 @@ entry:
   %rec = alloca %struct.reftable_record, align 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(96) %rec, i8 0, i64 96, i1 false)
   store i8 114, ptr %rec, align 8
-  %u = getelementptr inbounds %struct.reftable_record, ptr %rec, i64 0, i32 1
+  %u = getelementptr inbounds i8, ptr %rec, i64 8
   store ptr %name, ptr %u, align 8
   %0 = load ptr, ptr %tab, align 8
   %1 = load ptr, ptr %0, align 8
-  %table_arg = getelementptr inbounds %struct.reftable_table, ptr %tab, i64 0, i32 1
+  %table_arg = getelementptr inbounds i8, ptr %tab, i64 8
   %2 = load ptr, ptr %table_arg, align 8
   %call = call i32 %1(ptr noundef %2, ptr noundef %it, ptr noundef nonnull %rec) #9
   ret i32 %call
@@ -43,13 +41,13 @@ entry:
   %rec = alloca %struct.reftable_record, align 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(96) %rec, i8 0, i64 96, i1 false)
   store i8 103, ptr %rec, align 8
-  %u = getelementptr inbounds %struct.reftable_record, ptr %rec, i64 0, i32 1
+  %u = getelementptr inbounds i8, ptr %rec, i64 8
   store ptr %name, ptr %u, align 8
-  %update_index = getelementptr inbounds %struct.reftable_record, ptr %rec, i64 0, i32 1, i32 0, i32 1
+  %update_index = getelementptr inbounds i8, ptr %rec, i64 16
   store i64 -1, ptr %update_index, align 8
   %0 = load ptr, ptr %tab, align 8
   %1 = load ptr, ptr %0, align 8
-  %table_arg = getelementptr inbounds %struct.reftable_table, ptr %tab, i64 0, i32 1
+  %table_arg = getelementptr inbounds i8, ptr %tab, i64 8
   %2 = load ptr, ptr %table_arg, align 8
   %call = call i32 %1(ptr noundef %2, ptr noundef %it, ptr noundef nonnull %rec) #9
   ret i32 %call
@@ -65,11 +63,11 @@ entry:
   call void @llvm.lifetime.start.p0(i64 96, ptr nonnull %rec.i)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(96) %rec.i, i8 0, i64 96, i1 false)
   store i8 114, ptr %rec.i, align 8
-  %u.i = getelementptr inbounds %struct.reftable_record, ptr %rec.i, i64 0, i32 1
+  %u.i = getelementptr inbounds i8, ptr %rec.i, i64 8
   store ptr %name, ptr %u.i, align 8
   %0 = load ptr, ptr %tab, align 8
   %1 = load ptr, ptr %0, align 8
-  %table_arg.i = getelementptr inbounds %struct.reftable_table, ptr %tab, i64 0, i32 1
+  %table_arg.i = getelementptr inbounds i8, ptr %tab, i64 8
   %2 = load ptr, ptr %table_arg.i, align 8
   %call.i = call i32 %1(ptr noundef %2, ptr noundef nonnull %it, ptr noundef nonnull %rec.i) #9
   call void @llvm.lifetime.end.p0(i64 96, ptr nonnull %rec.i)
@@ -79,11 +77,11 @@ entry:
 if.end:                                           ; preds = %entry
   call void @llvm.lifetime.start.p0(i64 96, ptr nonnull %rec.i7)
   store i8 114, ptr %rec.i7, align 8
-  %u.i8 = getelementptr inbounds %struct.reftable_record, ptr %rec.i7, i64 0, i32 1
+  %u.i8 = getelementptr inbounds i8, ptr %rec.i7, i64 8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(88) %u.i8, ptr noundef nonnull align 8 dereferenceable(88) %ref, i64 88, i1 false)
   %3 = load ptr, ptr %it, align 8
   %4 = load ptr, ptr %3, align 8
-  %iter_arg.i.i = getelementptr inbounds %struct.reftable_iterator, ptr %it, i64 0, i32 1
+  %iter_arg.i.i = getelementptr inbounds i8, ptr %it, i64 8
   %5 = load ptr, ptr %iter_arg.i.i, align 8
   %call.i.i = call i32 %4(ptr noundef %5, ptr noundef nonnull %rec.i7) #9
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(88) %ref, ptr noundef nonnull align 8 dereferenceable(88) %u.i8, i64 88, i1 false)
@@ -113,9 +111,9 @@ done:                                             ; preds = %lor.lhs.false, %if.
   br i1 %tobool.not.i, label %reftable_iterator_destroy.exit, label %if.end.i
 
 if.end.i:                                         ; preds = %done
-  %close.i = getelementptr inbounds %struct.reftable_iterator_vtable, ptr %7, i64 0, i32 1
+  %close.i = getelementptr inbounds i8, ptr %7, i64 8
   %8 = load ptr, ptr %close.i, align 8
-  %iter_arg.i = getelementptr inbounds %struct.reftable_iterator, ptr %it, i64 0, i32 1
+  %iter_arg.i = getelementptr inbounds i8, ptr %it, i64 8
   %9 = load ptr, ptr %iter_arg.i, align 8
   call void %8(ptr noundef %9) #9
   store ptr null, ptr %it, align 8
@@ -132,11 +130,11 @@ define dso_local i32 @reftable_iterator_next_ref(ptr nocapture noundef readonly 
 entry:
   %rec = alloca %struct.reftable_record, align 8
   store i8 114, ptr %rec, align 8
-  %u = getelementptr inbounds %struct.reftable_record, ptr %rec, i64 0, i32 1
+  %u = getelementptr inbounds i8, ptr %rec, i64 8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(88) %u, ptr noundef nonnull align 8 dereferenceable(88) %ref, i64 88, i1 false)
   %0 = load ptr, ptr %it, align 8
   %1 = load ptr, ptr %0, align 8
-  %iter_arg.i = getelementptr inbounds %struct.reftable_iterator, ptr %it, i64 0, i32 1
+  %iter_arg.i = getelementptr inbounds i8, ptr %it, i64 8
   %2 = load ptr, ptr %iter_arg.i, align 8
   %call.i = call i32 %1(ptr noundef %2, ptr noundef nonnull %rec) #9
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(88) %ref, ptr noundef nonnull align 8 dereferenceable(88) %u, i64 88, i1 false)
@@ -158,9 +156,9 @@ entry:
   br i1 %tobool.not, label %do.end, label %if.end
 
 if.end:                                           ; preds = %entry
-  %close = getelementptr inbounds %struct.reftable_iterator_vtable, ptr %0, i64 0, i32 1
+  %close = getelementptr inbounds i8, ptr %0, i64 8
   %1 = load ptr, ptr %close, align 8
-  %iter_arg = getelementptr inbounds %struct.reftable_iterator, ptr %it, i64 0, i32 1
+  %iter_arg = getelementptr inbounds i8, ptr %it, i64 8
   %2 = load ptr, ptr %iter_arg, align 8
   tail call void %1(ptr noundef %2) #9
   store ptr null, ptr %it, align 8
@@ -187,15 +185,15 @@ entry:
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(88) %ref, i8 0, i64 88, i1 false)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(80) %log, i8 0, i64 80, i1 false)
   %0 = load ptr, ptr %tab, align 8
-  %hash_id.i = getelementptr inbounds %struct.reftable_table_vtable, ptr %0, i64 0, i32 1
+  %hash_id.i = getelementptr inbounds i8, ptr %0, i64 8
   %1 = load ptr, ptr %hash_id.i, align 8
-  %table_arg.i = getelementptr inbounds %struct.reftable_table, ptr %tab, i64 0, i32 1
+  %table_arg.i = getelementptr inbounds i8, ptr %tab, i64 8
   %2 = load ptr, ptr %table_arg.i, align 8
   %call.i = tail call i32 %1(ptr noundef %2) #9
   call void @llvm.lifetime.start.p0(i64 96, ptr nonnull %rec.i)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(96) %rec.i, i8 0, i64 96, i1 false)
   store i8 114, ptr %rec.i, align 8
-  %u.i = getelementptr inbounds %struct.reftable_record, ptr %rec.i, i64 0, i32 1
+  %u.i = getelementptr inbounds i8, ptr %rec.i, i64 8
   store ptr @.str, ptr %u.i, align 8
   %3 = load ptr, ptr %tab, align 8
   %4 = load ptr, ptr %3, align 8
@@ -206,8 +204,8 @@ entry:
   br i1 %cmp, label %return, label %while.body.preheader
 
 while.body.preheader:                             ; preds = %entry
-  %u.i16 = getelementptr inbounds %struct.reftable_record, ptr %rec.i15, i64 0, i32 1
-  %iter_arg.i.i = getelementptr inbounds %struct.reftable_iterator, ptr %it, i64 0, i32 1
+  %u.i16 = getelementptr inbounds i8, ptr %rec.i15, i64 8
+  %iter_arg.i.i = getelementptr inbounds i8, ptr %it, i64 8
   br label %while.body
 
 while.body:                                       ; preds = %while.body.preheader, %if.end8
@@ -237,7 +235,7 @@ while.end:                                        ; preds = %while.body
   br i1 %tobool.not.i, label %reftable_iterator_destroy.exit, label %if.end.i
 
 if.end.i:                                         ; preds = %while.end
-  %close.i = getelementptr inbounds %struct.reftable_iterator_vtable, ptr %9, i64 0, i32 1
+  %close.i = getelementptr inbounds i8, ptr %9, i64 8
   %10 = load ptr, ptr %close.i, align 8
   %11 = load ptr, ptr %iter_arg.i.i, align 8
   call void %10(ptr noundef %11) #9
@@ -252,9 +250,9 @@ reftable_iterator_destroy.exit:                   ; preds = %while.end, %if.end.
   call void @llvm.lifetime.start.p0(i64 96, ptr nonnull %rec.i17)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(96) %rec.i17, i8 0, i64 96, i1 false)
   store i8 103, ptr %rec.i17, align 8
-  %u.i18 = getelementptr inbounds %struct.reftable_record, ptr %rec.i17, i64 0, i32 1
+  %u.i18 = getelementptr inbounds i8, ptr %rec.i17, i64 8
   store ptr @.str, ptr %u.i18, align 8
-  %update_index.i = getelementptr inbounds %struct.reftable_record, ptr %rec.i17, i64 0, i32 1, i32 0, i32 1
+  %update_index.i = getelementptr inbounds i8, ptr %rec.i17, i64 16
   store i64 -1, ptr %update_index.i, align 8
   %13 = load ptr, ptr %tab, align 8
   %14 = load ptr, ptr %13, align 8
@@ -265,7 +263,7 @@ reftable_iterator_destroy.exit:                   ; preds = %while.end, %if.end.
   br i1 %cmp10, label %return, label %while.body13.preheader
 
 while.body13.preheader:                           ; preds = %reftable_iterator_destroy.exit
-  %u.i22 = getelementptr inbounds %struct.reftable_record, ptr %rec.i21, i64 0, i32 1
+  %u.i22 = getelementptr inbounds i8, ptr %rec.i21, i64 8
   br label %while.body13
 
 while.body13:                                     ; preds = %while.body13.preheader, %if.end20
@@ -295,7 +293,7 @@ while.end21:                                      ; preds = %while.body13
   br i1 %tobool.not.i25, label %reftable_iterator_destroy.exit29, label %if.end.i26
 
 if.end.i26:                                       ; preds = %while.end21
-  %close.i27 = getelementptr inbounds %struct.reftable_iterator_vtable, ptr %19, i64 0, i32 1
+  %close.i27 = getelementptr inbounds i8, ptr %19, i64 8
   %20 = load ptr, ptr %close.i27, align 8
   %21 = load ptr, ptr %iter_arg.i.i, align 8
   call void %20(ptr noundef %21) #9
@@ -318,9 +316,9 @@ return:                                           ; preds = %if.end5, %if.end17,
 define dso_local i32 @reftable_table_hash_id(ptr nocapture noundef readonly %tab) local_unnamed_addr #0 {
 entry:
   %0 = load ptr, ptr %tab, align 8
-  %hash_id = getelementptr inbounds %struct.reftable_table_vtable, ptr %0, i64 0, i32 1
+  %hash_id = getelementptr inbounds i8, ptr %0, i64 8
   %1 = load ptr, ptr %hash_id, align 8
-  %table_arg = getelementptr inbounds %struct.reftable_table, ptr %tab, i64 0, i32 1
+  %table_arg = getelementptr inbounds i8, ptr %tab, i64 8
   %2 = load ptr, ptr %table_arg, align 8
   %call = tail call i32 %1(ptr noundef %2) #9
   ret i32 %call
@@ -333,11 +331,11 @@ define dso_local i32 @reftable_iterator_next_log(ptr nocapture noundef readonly 
 entry:
   %rec = alloca %struct.reftable_record, align 8
   store i8 103, ptr %rec, align 8
-  %u = getelementptr inbounds %struct.reftable_record, ptr %rec, i64 0, i32 1
+  %u = getelementptr inbounds i8, ptr %rec, i64 8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(80) %u, ptr noundef nonnull align 8 dereferenceable(80) %log, i64 80, i1 false)
   %0 = load ptr, ptr %it, align 8
   %1 = load ptr, ptr %0, align 8
-  %iter_arg.i = getelementptr inbounds %struct.reftable_iterator, ptr %it, i64 0, i32 1
+  %iter_arg.i = getelementptr inbounds i8, ptr %it, i64 8
   %2 = load ptr, ptr %iter_arg.i, align 8
   %call.i = call i32 %1(ptr noundef %2, ptr noundef nonnull %rec) #9
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(80) %log, ptr noundef nonnull align 8 dereferenceable(80) %u, i64 80, i1 false)
@@ -352,9 +350,9 @@ declare void @reftable_log_record_release(ptr noundef) local_unnamed_addr #3
 define dso_local i64 @reftable_table_max_update_index(ptr nocapture noundef readonly %tab) local_unnamed_addr #0 {
 entry:
   %0 = load ptr, ptr %tab, align 8
-  %max_update_index = getelementptr inbounds %struct.reftable_table_vtable, ptr %0, i64 0, i32 3
+  %max_update_index = getelementptr inbounds i8, ptr %0, i64 24
   %1 = load ptr, ptr %max_update_index, align 8
-  %table_arg = getelementptr inbounds %struct.reftable_table, ptr %tab, i64 0, i32 1
+  %table_arg = getelementptr inbounds i8, ptr %tab, i64 8
   %2 = load ptr, ptr %table_arg, align 8
   %call = tail call i64 %1(ptr noundef %2) #9
   ret i64 %call
@@ -364,9 +362,9 @@ entry:
 define dso_local i64 @reftable_table_min_update_index(ptr nocapture noundef readonly %tab) local_unnamed_addr #0 {
 entry:
   %0 = load ptr, ptr %tab, align 8
-  %min_update_index = getelementptr inbounds %struct.reftable_table_vtable, ptr %0, i64 0, i32 2
+  %min_update_index = getelementptr inbounds i8, ptr %0, i64 16
   %1 = load ptr, ptr %min_update_index, align 8
-  %table_arg = getelementptr inbounds %struct.reftable_table, ptr %tab, i64 0, i32 1
+  %table_arg = getelementptr inbounds i8, ptr %tab, i64 8
   %2 = load ptr, ptr %table_arg, align 8
   %call = tail call i64 %1(ptr noundef %2) #9
   ret i64 %call
@@ -383,7 +381,7 @@ define dso_local i32 @iterator_next(ptr nocapture noundef readonly %it, ptr noun
 entry:
   %0 = load ptr, ptr %it, align 8
   %1 = load ptr, ptr %0, align 8
-  %iter_arg = getelementptr inbounds %struct.reftable_iterator, ptr %it, i64 0, i32 1
+  %iter_arg = getelementptr inbounds i8, ptr %it, i64 8
   %2 = load ptr, ptr %iter_arg, align 8
   %call = tail call i32 %1(ptr noundef %2, ptr noundef %rec) #9
   ret i32 %call
@@ -392,7 +390,7 @@ entry:
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
 define dso_local void @iterator_set_empty(ptr nocapture noundef writeonly %it) local_unnamed_addr #6 {
 entry:
-  %iter_arg = getelementptr inbounds %struct.reftable_iterator, ptr %it, i64 0, i32 1
+  %iter_arg = getelementptr inbounds i8, ptr %it, i64 8
   store ptr null, ptr %iter_arg, align 8
   store ptr @empty_vtable, ptr %it, align 8
   ret void

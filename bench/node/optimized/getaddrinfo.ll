@@ -3,24 +3,6 @@ source_filename = "bench/node/original/getaddrinfo.ll"
 target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:128-n8:16:32:64-S128"
 target triple = "x86_64-unknown-linux-gnu"
 
-%struct.uv_getaddrinfo_s = type { ptr, i32, [6 x ptr], ptr, %struct.uv__work, ptr, ptr, ptr, ptr, ptr, i32 }
-%struct.uv__work = type { ptr, ptr, ptr, %struct.uv__queue }
-%struct.uv__queue = type { ptr, ptr }
-%struct.uv_loop_s = type { ptr, i32, %struct.uv__queue, %union.anon, ptr, i32, i64, i32, %struct.uv__queue, %struct.uv__queue, ptr, i32, i32, %struct.uv__queue, %union.pthread_mutex_t, %struct.uv_async_s, %union.pthread_rwlock_t, ptr, %struct.uv__queue, %struct.uv__queue, %struct.uv__queue, %struct.uv__queue, %struct.uv__queue, ptr, %struct.uv__io_s, i32, %struct.anon, i64, i64, [2 x i32], %struct.uv__io_s, %struct.uv_signal_s, i32, %struct.uv__io_s, ptr, i32 }
-%union.anon = type { ptr }
-%union.pthread_mutex_t = type { %struct.__pthread_mutex_s }
-%struct.__pthread_mutex_s = type { i32, i32, i32, i32, i32, i16, i16, %struct.__pthread_internal_list }
-%struct.__pthread_internal_list = type { ptr, ptr }
-%struct.uv_async_s = type { ptr, ptr, i32, ptr, %struct.uv__queue, %union.anon.0, ptr, i32, ptr, %struct.uv__queue, i32 }
-%union.anon.0 = type { [4 x ptr] }
-%union.pthread_rwlock_t = type { %struct.__pthread_rwlock_arch_t }
-%struct.__pthread_rwlock_arch_t = type { i32, i32, i32, i32, i32, i32, i32, i32, i8, [7 x i8], i64, i32 }
-%struct.anon = type { ptr, i32 }
-%struct.uv_signal_s = type { ptr, ptr, i32, ptr, %struct.uv__queue, %union.anon.1, ptr, i32, ptr, i32, %struct.anon.2, i32, i32 }
-%union.anon.1 = type { [4 x ptr] }
-%struct.anon.2 = type { ptr, ptr, ptr, i32 }
-%struct.uv__io_s = type { ptr, %struct.uv__queue, %struct.uv__queue, i32, i32, i32 }
-
 ; Function Attrs: nounwind uwtable
 define hidden i32 @uv__getaddrinfo_translate_error(i32 noundef %sys_err) local_unnamed_addr #0 {
 entry:
@@ -152,21 +134,21 @@ cond.end19:                                       ; preds = %cond.end, %cond.tru
   br i1 %cmp26, label %return, label %do.body30
 
 do.body30:                                        ; preds = %cond.end19
-  %type = getelementptr inbounds %struct.uv_getaddrinfo_s, ptr %req, i64 0, i32 1
+  %type = getelementptr inbounds i8, ptr %req, i64 8
   store i32 8, ptr %type, align 8
-  %active_reqs = getelementptr inbounds %struct.uv_loop_s, ptr %loop, i64 0, i32 3
+  %active_reqs = getelementptr inbounds i8, ptr %loop, i64 32
   %0 = load i32, ptr %active_reqs, align 8
   %inc = add i32 %0, 1
   store i32 %inc, ptr %active_reqs, align 8
-  %loop34 = getelementptr inbounds %struct.uv_getaddrinfo_s, ptr %req, i64 0, i32 3
+  %loop34 = getelementptr inbounds i8, ptr %req, i64 64
   store ptr %loop, ptr %loop34, align 8
-  %cb35 = getelementptr inbounds %struct.uv_getaddrinfo_s, ptr %req, i64 0, i32 5
+  %cb35 = getelementptr inbounds i8, ptr %req, i64 112
   store ptr %cb, ptr %cb35, align 8
-  %addrinfo = getelementptr inbounds %struct.uv_getaddrinfo_s, ptr %req, i64 0, i32 9
-  %hints36 = getelementptr inbounds %struct.uv_getaddrinfo_s, ptr %req, i64 0, i32 6
-  %service37 = getelementptr inbounds %struct.uv_getaddrinfo_s, ptr %req, i64 0, i32 8
-  %hostname38 = getelementptr inbounds %struct.uv_getaddrinfo_s, ptr %req, i64 0, i32 7
-  %retcode = getelementptr inbounds %struct.uv_getaddrinfo_s, ptr %req, i64 0, i32 10
+  %addrinfo = getelementptr inbounds i8, ptr %req, i64 144
+  %hints36 = getelementptr inbounds i8, ptr %req, i64 120
+  %service37 = getelementptr inbounds i8, ptr %req, i64 136
+  %hostname38 = getelementptr inbounds i8, ptr %req, i64 128
+  %retcode = getelementptr inbounds i8, ptr %req, i64 152
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(36) %hints36, i8 0, i64 36, i1 false)
   br i1 %tobool21.not, label %if.end44, label %if.then40
 
@@ -201,7 +183,7 @@ if.end55:                                         ; preds = %if.then52, %if.end5
   br i1 %tobool56.not, label %if.else, label %if.then57
 
 if.then57:                                        ; preds = %if.end55
-  %work_req = getelementptr inbounds %struct.uv_getaddrinfo_s, ptr %req, i64 0, i32 4
+  %work_req = getelementptr inbounds i8, ptr %req, i64 72
   call void @uv__work_submit(ptr noundef nonnull %loop, ptr noundef nonnull %work_req, i32 noundef 2, ptr noundef nonnull @uv__getaddrinfo_work, ptr noundef nonnull @uv__getaddrinfo_done) #12
   br label %return
 
@@ -213,7 +195,7 @@ if.else:                                          ; preds = %if.end55
   %call1.i = call i32 @uv__getaddrinfo_translate_error(i32 noundef %call.i)
   store i32 %call1.i, ptr %retcode, align 8
   %4 = load ptr, ptr %loop34, align 8
-  %active_reqs.i = getelementptr inbounds %struct.uv_loop_s, ptr %4, i64 0, i32 3
+  %active_reqs.i = getelementptr inbounds i8, ptr %4, i64 32
   %5 = load i32, ptr %active_reqs.i, align 8
   %dec.i = add i32 %5, -1
   store i32 %dec.i, ptr %active_reqs.i, align 8
@@ -292,7 +274,7 @@ entry:
   %add.ptr = getelementptr inbounds i8, ptr %w, i64 -72
   %loop = getelementptr inbounds i8, ptr %w, i64 -8
   %0 = load ptr, ptr %loop, align 8
-  %active_reqs = getelementptr inbounds %struct.uv_loop_s, ptr %0, i64 0, i32 3
+  %active_reqs = getelementptr inbounds i8, ptr %0, i64 32
   %1 = load i32, ptr %active_reqs, align 8
   %dec = add i32 %1, -1
   store i32 %dec, ptr %active_reqs, align 8

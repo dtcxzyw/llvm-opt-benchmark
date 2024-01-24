@@ -11,15 +11,6 @@ target triple = "x86_64-unknown-linux-gnu"
 %"struct.std::_Head_base.1" = type { ptr }
 %"class.std::thread" = type { %"class.std::thread::id" }
 %"class.std::thread::id" = type { i64 }
-%"struct.SimpleThread::ThreadRef" = type { %"class.std::thread", ptr, ptr }
-%"struct.std::thread::_State_impl" = type { %"struct.std::thread::_State", %"struct.std::thread::_Invoker" }
-%"struct.std::thread::_State" = type { ptr }
-%"struct.std::thread::_Invoker" = type { %"class.std::tuple.2" }
-%"class.std::tuple.2" = type { %"struct.std::_Tuple_impl.3" }
-%"struct.std::_Tuple_impl.3" = type { %"struct.std::_Tuple_impl.4", %"struct.std::_Head_base.6" }
-%"struct.std::_Tuple_impl.4" = type { %"struct.std::_Head_base.5" }
-%"struct.std::_Head_base.5" = type { ptr }
-%"struct.std::_Head_base.6" = type { ptr }
 
 $_ZN12SimpleThread9ThreadRef10threadProcEPS0_ = comdat any
 
@@ -52,18 +43,18 @@ entry:
   %ref.tmp = alloca %"class.std::thread", align 8
   %call = tail call noalias noundef nonnull dereferenceable(24) ptr @_Znwm(i64 noundef 24) #8
   store i64 0, ptr %call, align 8
-  %callbackObj2.i = getelementptr inbounds %"struct.SimpleThread::ThreadRef", ptr %call, i64 0, i32 1
+  %callbackObj2.i = getelementptr inbounds i8, ptr %call, i64 8
   store ptr %callbackObj, ptr %callbackObj2.i, align 8
-  %callbackFunc3.i = getelementptr inbounds %"struct.SimpleThread::ThreadRef", ptr %call, i64 0, i32 2
+  %callbackFunc3.i = getelementptr inbounds i8, ptr %call, i64 16
   store ptr %callbackFunc, ptr %callbackFunc3.i, align 8
   store ptr %call, ptr %this, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %agg.tmp.i)
   store i64 0, ptr %ref.tmp, align 8
   %call.i = tail call noalias noundef nonnull dereferenceable(24) ptr @_Znwm(i64 noundef 24) #8
   store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVNSt6thread11_State_implINS_8_InvokerISt5tupleIJPFvPN12SimpleThread9ThreadRefEES5_EEEEEE, i64 0, inrange i32 0, i64 2), ptr %call.i, align 8
-  %_M_func.i.i = getelementptr inbounds %"struct.std::thread::_State_impl", ptr %call.i, i64 0, i32 1
+  %_M_func.i.i = getelementptr inbounds i8, ptr %call.i, i64 8
   store ptr %call, ptr %_M_func.i.i, align 8
-  %0 = getelementptr inbounds %"struct.std::thread::_State_impl", ptr %call.i, i64 0, i32 1, i32 0, i32 0, i32 1
+  %0 = getelementptr inbounds i8, ptr %call.i, i64 16
   store ptr @_ZN12SimpleThread9ThreadRef10threadProcEPS0_, ptr %0, align 8
   store ptr %call.i, ptr %agg.tmp.i, align 8
   invoke void @_ZNSt6thread15_M_start_threadESt10unique_ptrINS_6_StateESt14default_deleteIS1_EEPFvvE(ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp, ptr noundef nonnull %agg.tmp.i, ptr noundef null)
@@ -76,7 +67,7 @@ invoke.cont3.i:                                   ; preds = %entry
 
 _ZNKSt14default_deleteINSt6thread6_StateEEclEPS1_.exit.i.i: ; preds = %invoke.cont3.i
   %vtable.i.i.i = load ptr, ptr %1, align 8
-  %vfn.i.i.i = getelementptr inbounds ptr, ptr %vtable.i.i.i, i64 1
+  %vfn.i.i.i = getelementptr inbounds i8, ptr %vtable.i.i.i, i64 8
   %2 = load ptr, ptr %vfn.i.i.i, align 8
   call void %2(ptr noundef nonnull align 8 dereferenceable(8) %1) #9
   br label %_ZNSt6threadC2IPFvPN12SimpleThread9ThreadRefEEJRS3_EvEEOT_DpOT0_.exit
@@ -90,7 +81,7 @@ lpad2.i:                                          ; preds = %entry
 
 _ZNKSt14default_deleteINSt6thread6_StateEEclEPS1_.exit.i3.i: ; preds = %lpad2.i
   %vtable.i.i4.i = load ptr, ptr %4, align 8
-  %vfn.i.i5.i = getelementptr inbounds ptr, ptr %vtable.i.i4.i, i64 1
+  %vfn.i.i5.i = getelementptr inbounds i8, ptr %vtable.i.i4.i, i64 8
   %5 = load ptr, ptr %vfn.i.i5.i, align 8
   call void %5(ptr noundef nonnull align 8 dereferenceable(8) %4) #9
   br label %_ZNSt10unique_ptrINSt6thread6_StateESt14default_deleteIS1_EED2Ev.exit6.i
@@ -126,9 +117,9 @@ declare void @_ZdlPv(ptr noundef) local_unnamed_addr #2
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr dso_local void @_ZN12SimpleThread9ThreadRef10threadProcEPS0_(ptr noundef %threadRef) #0 comdat align 2 {
 entry:
-  %callbackFunc = getelementptr inbounds %"struct.SimpleThread::ThreadRef", ptr %threadRef, i64 0, i32 2
+  %callbackFunc = getelementptr inbounds i8, ptr %threadRef, i64 16
   %0 = load ptr, ptr %callbackFunc, align 8
-  %callbackObj = getelementptr inbounds %"struct.SimpleThread::ThreadRef", ptr %threadRef, i64 0, i32 1
+  %callbackObj = getelementptr inbounds i8, ptr %threadRef, i64 8
   %1 = load ptr, ptr %callbackObj, align 8
   tail call void %0(ptr noundef %1)
   ret void
@@ -236,8 +227,8 @@ entry:
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr dso_local void @_ZNSt6thread11_State_implINS_8_InvokerISt5tupleIJPFvPN12SimpleThread9ThreadRefEES5_EEEEE6_M_runEv(ptr noundef nonnull align 8 dereferenceable(24) %this) unnamed_addr #0 comdat align 2 {
 entry:
-  %_M_func = getelementptr inbounds %"struct.std::thread::_State_impl", ptr %this, i64 0, i32 1
-  %add.ptr.i.i.i.i.i = getelementptr inbounds %"struct.std::thread::_State_impl", ptr %this, i64 0, i32 1, i32 0, i32 0, i32 1
+  %_M_func = getelementptr inbounds i8, ptr %this, i64 8
+  %add.ptr.i.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 16
   %0 = load ptr, ptr %add.ptr.i.i.i.i.i, align 8
   %1 = load ptr, ptr %_M_func, align 8
   tail call void %0(ptr noundef %1)

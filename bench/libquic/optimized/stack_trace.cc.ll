@@ -3,7 +3,6 @@ source_filename = "bench/libquic/original/stack_trace.cc.ll"
 target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:128-n8:16:32:64-S128"
 target triple = "x86_64-unknown-linux-gnu"
 
-%"class.base::debug::StackTrace" = type { [62 x ptr], i64 }
 %"class.std::__cxx11::basic_string" = type { %"struct.std::__cxx11::basic_string<char>::_Alloc_hider", i64, %union.anon }
 %"struct.std::__cxx11::basic_string<char>::_Alloc_hider" = type { ptr }
 %union.anon = type { i64, [8 x i8] }
@@ -43,7 +42,7 @@ if.then:                                          ; preds = %entry
   br label %if.end
 
 if.end:                                           ; preds = %if.then, %entry
-  %count_ = getelementptr inbounds %"class.base::debug::StackTrace", ptr %this, i64 0, i32 1
+  %count_ = getelementptr inbounds i8, ptr %this, i64 496
   store i64 %.sroa.speculated, ptr %count_, align 8
   ret void
 }
@@ -66,7 +65,7 @@ entry:
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
 define dso_local noundef ptr @_ZNK4base5debug10StackTrace9AddressesEPm(ptr noundef nonnull readonly align 8 dereferenceable(504) %this, ptr nocapture noundef writeonly %count) local_unnamed_addr #1 align 2 {
 entry:
-  %count_ = getelementptr inbounds %"class.base::debug::StackTrace", ptr %this, i64 0, i32 1
+  %count_ = getelementptr inbounds i8, ptr %this, i64 496
   %0 = load i64, ptr %count_, align 8
   store i64 %0, ptr %count, align 8
   %tobool.not = icmp eq i64 %0, 0
@@ -135,7 +134,7 @@ if.then:                                          ; preds = %while.body
 
 if.else:                                          ; preds = %while.body
   %4 = inttoptr i64 %fp.023 to ptr
-  %arrayidx.i = getelementptr inbounds i64, ptr %4, i64 1
+  %arrayidx.i = getelementptr inbounds i8, ptr %4, i64 8
   %5 = load i64, ptr %arrayidx.i, align 8
   %6 = inttoptr i64 %5 to ptr
   %inc = add nuw i64 %depth.025, 1
@@ -166,7 +165,7 @@ if.then7.i:                                       ; preds = %if.end5.i
 
 if.end11.i:                                       ; preds = %if.then7.i
   %8 = inttoptr i64 %7 to ptr
-  %arrayidx.i.i = getelementptr inbounds i64, ptr %8, i64 1
+  %arrayidx.i.i = getelementptr inbounds i8, ptr %8, i64 8
   %9 = load i64, ptr %arrayidx.i.i, align 8
   %cmp12.i = icmp ult i64 %9, 32768
   br i1 %cmp12.i, label %if.end.i, label %while.cond.backedge
@@ -199,7 +198,7 @@ for.body.i:                                       ; preds = %if.end.i, %for.inc.
 
 if.end11.i.i:                                     ; preds = %for.body.i
   %12 = inttoptr i64 %11 to ptr
-  %arrayidx.i.i.i = getelementptr inbounds i64, ptr %12, i64 1
+  %arrayidx.i.i.i = getelementptr inbounds i8, ptr %12, i64 8
   %13 = load i64, ptr %arrayidx.i.i.i, align 8
   %cmp12.i.i = icmp ult i64 %13, 32768
   br i1 %cmp12.i.i, label %for.inc.i, label %if.then4.i
@@ -219,7 +218,7 @@ if.then4.i:                                       ; preds = %if.end11.i.i
 
 if.end11.i22.i:                                   ; preds = %if.then4.i
   %15 = inttoptr i64 %14 to ptr
-  %arrayidx.i.i23.i = getelementptr inbounds i64, ptr %15, i64 1
+  %arrayidx.i.i23.i = getelementptr inbounds i8, ptr %15, i64 8
   %16 = load i64, ptr %arrayidx.i.i23.i, align 8
   %cmp12.i24.i = icmp ult i64 %16, 32768
   br i1 %cmp12.i24.i, label %for.inc.i, label %_ZN4base5debug12_GLOBAL__N_121ScanStackForNextFrameEmm.exit

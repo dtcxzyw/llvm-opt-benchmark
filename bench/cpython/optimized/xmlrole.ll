@@ -3,9 +3,6 @@ source_filename = "bench/cpython/original/xmlrole.ll"
 target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:128-n8:16:32:64-S128"
 target triple = "x86_64-unknown-linux-gnu"
 
-%struct.prolog_state = type { ptr, i32, i32, i32, i32, i32 }
-%struct.encoding = type { [4 x ptr], [2 x ptr], ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, i32, i8, i8 }
-
 @KW_DOCTYPE = internal constant [8 x i8] c"DOCTYPE\00", align 1
 @KW_SYSTEM = internal constant [7 x i8] c"SYSTEM\00", align 1
 @KW_PUBLIC = internal constant [7 x i8] c"PUBLIC\00", align 1
@@ -35,17 +32,17 @@ target triple = "x86_64-unknown-linux-gnu"
 define hidden void @PyExpat_XmlPrologStateInit(ptr nocapture noundef writeonly %state) local_unnamed_addr #0 {
 entry:
   store ptr @prolog0, ptr %state, align 8
-  %documentEntity = getelementptr inbounds %struct.prolog_state, ptr %state, i64 0, i32 4
+  %documentEntity = getelementptr inbounds i8, ptr %state, i64 20
   store i32 1, ptr %documentEntity, align 4
-  %includeLevel = getelementptr inbounds %struct.prolog_state, ptr %state, i64 0, i32 3
+  %includeLevel = getelementptr inbounds i8, ptr %state, i64 16
   store i32 0, ptr %includeLevel, align 8
-  %inEntityValue = getelementptr inbounds %struct.prolog_state, ptr %state, i64 0, i32 5
+  %inEntityValue = getelementptr inbounds i8, ptr %state, i64 24
   store i32 0, ptr %inEntityValue, align 8
   ret void
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @prolog0(ptr nocapture noundef %state, i32 noundef %tok, ptr noundef %ptr, ptr noundef %end, ptr noundef %enc) #1 {
+define internal noundef i32 @prolog0(ptr nocapture noundef %state, i32 noundef %tok, ptr noundef %ptr, ptr noundef %end, ptr noundef %enc) #1 {
 entry:
   switch i32 %tok, label %sw.epilog [
     i32 15, label %return.sink.split
@@ -67,14 +64,14 @@ sw.bb5:                                           ; preds = %entry
   br label %return.sink.split
 
 sw.bb8:                                           ; preds = %entry
-  %nameMatchesAscii = getelementptr inbounds %struct.encoding, ptr %enc, i64 0, i32 2
+  %nameMatchesAscii = getelementptr inbounds i8, ptr %enc, i64 48
   %0 = load ptr, ptr %nameMatchesAscii, align 8
-  %minBytesPerChar = getelementptr inbounds %struct.encoding, ptr %enc, i64 0, i32 12
+  %minBytesPerChar = getelementptr inbounds i8, ptr %enc, i64 128
   %1 = load i32, ptr %minBytesPerChar, align 8
   %mul = shl i32 %1, 1
   %idx.ext = sext i32 %mul to i64
   %add.ptr = getelementptr i8, ptr %ptr, i64 %idx.ext
-  %call = tail call i32 %0(ptr noundef %enc, ptr noundef %add.ptr, ptr noundef %end, ptr noundef nonnull @KW_DOCTYPE) #6
+  %call = tail call i32 %0(ptr noundef %enc, ptr noundef %add.ptr, ptr noundef %end, ptr noundef nonnull @KW_DOCTYPE) #5
   %tobool.not = icmp eq i32 %call, 0
   br i1 %tobool.not, label %if.end.i, label %return.sink.split
 
@@ -82,7 +79,7 @@ sw.bb10:                                          ; preds = %entry
   br label %return.sink.split
 
 sw.epilog:                                        ; preds = %entry
-  %documentEntity.i = getelementptr inbounds %struct.prolog_state, ptr %state, i64 0, i32 4
+  %documentEntity.i = getelementptr inbounds i8, ptr %state, i64 20
   %2 = load i32, ptr %documentEntity.i, align 4
   %tobool.i = icmp eq i32 %2, 0
   %cmp.i = icmp eq i32 %tok, 28
@@ -107,15 +104,15 @@ return:                                           ; preds = %return.sink.split, 
 define hidden void @PyExpat_XmlPrologStateInitExternalEntity(ptr nocapture noundef writeonly %state) local_unnamed_addr #0 {
 entry:
   store ptr @externalSubset0, ptr %state, align 8
-  %documentEntity = getelementptr inbounds %struct.prolog_state, ptr %state, i64 0, i32 4
+  %documentEntity = getelementptr inbounds i8, ptr %state, i64 20
   store i32 0, ptr %documentEntity, align 4
-  %includeLevel = getelementptr inbounds %struct.prolog_state, ptr %state, i64 0, i32 3
+  %includeLevel = getelementptr inbounds i8, ptr %state, i64 16
   store i32 0, ptr %includeLevel, align 8
   ret void
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @externalSubset0(ptr nocapture noundef %state, i32 noundef %tok, ptr noundef %ptr, ptr noundef %end, ptr noundef %enc) #1 {
+define internal noundef i32 @externalSubset0(ptr nocapture noundef %state, i32 noundef %tok, ptr noundef %ptr, ptr noundef %end, ptr noundef %enc) #1 {
 entry:
   store ptr @externalSubset1, ptr %state, align 8
   %cmp = icmp eq i32 %tok, 12
@@ -131,7 +128,7 @@ return:                                           ; preds = %entry, %if.end
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @prolog1(ptr nocapture noundef %state, i32 noundef %tok, ptr noundef %ptr, ptr noundef %end, ptr noundef %enc) #1 {
+define internal noundef i32 @prolog1(ptr nocapture noundef %state, i32 noundef %tok, ptr noundef %ptr, ptr noundef %end, ptr noundef %enc) #1 {
 entry:
   switch i32 %tok, label %sw.epilog [
     i32 15, label %return
@@ -149,14 +146,14 @@ sw.bb2:                                           ; preds = %entry
   br label %return
 
 sw.bb4:                                           ; preds = %entry
-  %nameMatchesAscii = getelementptr inbounds %struct.encoding, ptr %enc, i64 0, i32 2
+  %nameMatchesAscii = getelementptr inbounds i8, ptr %enc, i64 48
   %0 = load ptr, ptr %nameMatchesAscii, align 8
-  %minBytesPerChar = getelementptr inbounds %struct.encoding, ptr %enc, i64 0, i32 12
+  %minBytesPerChar = getelementptr inbounds i8, ptr %enc, i64 128
   %1 = load i32, ptr %minBytesPerChar, align 8
   %mul = shl i32 %1, 1
   %idx.ext = sext i32 %mul to i64
   %add.ptr = getelementptr i8, ptr %ptr, i64 %idx.ext
-  %call = tail call i32 %0(ptr noundef %enc, ptr noundef %add.ptr, ptr noundef %end, ptr noundef nonnull @KW_DOCTYPE) #6
+  %call = tail call i32 %0(ptr noundef %enc, ptr noundef %add.ptr, ptr noundef %end, ptr noundef nonnull @KW_DOCTYPE) #5
   %tobool.not = icmp eq i32 %call, 0
   br i1 %tobool.not, label %if.end.i, label %if.end
 
@@ -169,7 +166,7 @@ sw.bb5:                                           ; preds = %entry
   br label %return
 
 sw.epilog:                                        ; preds = %entry
-  %documentEntity.i = getelementptr inbounds %struct.prolog_state, ptr %state, i64 0, i32 4
+  %documentEntity.i = getelementptr inbounds i8, ptr %state, i64 20
   %2 = load i32, ptr %documentEntity.i, align 4
   %tobool.i = icmp eq i32 %2, 0
   %cmp.i = icmp eq i32 %tok, 28
@@ -186,7 +183,7 @@ return:                                           ; preds = %if.end.i, %sw.epilo
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define internal i32 @doctype0(ptr nocapture noundef %state, i32 noundef %tok, ptr nocapture readnone %ptr, ptr nocapture readnone %end, ptr nocapture readnone %enc) #2 {
+define internal noundef i32 @doctype0(ptr nocapture noundef %state, i32 noundef %tok, ptr nocapture readnone %ptr, ptr nocapture readnone %end, ptr nocapture readnone %enc) #2 {
 entry:
   switch i32 %tok, label %sw.epilog [
     i32 15, label %return
@@ -195,7 +192,7 @@ entry:
   ]
 
 sw.epilog:                                        ; preds = %entry
-  %documentEntity.i = getelementptr inbounds %struct.prolog_state, ptr %state, i64 0, i32 4
+  %documentEntity.i = getelementptr inbounds i8, ptr %state, i64 20
   %0 = load i32, ptr %documentEntity.i, align 4
   %tobool.i = icmp eq i32 %0, 0
   %cmp.i = icmp eq i32 %tok, 28
@@ -214,13 +211,13 @@ return:                                           ; preds = %return.sink.split, 
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define internal i32 @error(ptr nocapture readnone %state, i32 %tok, ptr nocapture readnone %ptr, ptr nocapture readnone %end, ptr nocapture readnone %enc) #3 {
+define internal noundef i32 @error(ptr nocapture readnone %state, i32 %tok, ptr nocapture readnone %ptr, ptr nocapture readnone %end, ptr nocapture readnone %enc) #3 {
 entry:
   ret i32 0
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @doctype1(ptr nocapture noundef %state, i32 noundef %tok, ptr noundef %ptr, ptr noundef %end, ptr noundef %enc) #1 {
+define internal noundef i32 @doctype1(ptr nocapture noundef %state, i32 noundef %tok, ptr noundef %ptr, ptr noundef %end, ptr noundef %enc) #1 {
 entry:
   switch i32 %tok, label %sw.epilog [
     i32 15, label %return
@@ -233,20 +230,20 @@ sw.bb2:                                           ; preds = %entry
   br label %return.sink.split
 
 sw.bb4:                                           ; preds = %entry
-  %nameMatchesAscii = getelementptr inbounds %struct.encoding, ptr %enc, i64 0, i32 2
+  %nameMatchesAscii = getelementptr inbounds i8, ptr %enc, i64 48
   %0 = load ptr, ptr %nameMatchesAscii, align 8
-  %call = tail call i32 %0(ptr noundef %enc, ptr noundef %ptr, ptr noundef %end, ptr noundef nonnull @KW_SYSTEM) #6
+  %call = tail call i32 %0(ptr noundef %enc, ptr noundef %ptr, ptr noundef %end, ptr noundef nonnull @KW_SYSTEM) #5
   %tobool.not = icmp eq i32 %call, 0
   br i1 %tobool.not, label %if.end, label %return.sink.split
 
 if.end:                                           ; preds = %sw.bb4
   %1 = load ptr, ptr %nameMatchesAscii, align 8
-  %call7 = tail call i32 %1(ptr noundef nonnull %enc, ptr noundef %ptr, ptr noundef %end, ptr noundef nonnull @KW_PUBLIC) #6
+  %call7 = tail call i32 %1(ptr noundef nonnull %enc, ptr noundef %ptr, ptr noundef %end, ptr noundef nonnull @KW_PUBLIC) #5
   %tobool8.not = icmp eq i32 %call7, 0
   br i1 %tobool8.not, label %if.end.i, label %return.sink.split
 
 sw.epilog:                                        ; preds = %entry
-  %documentEntity.i = getelementptr inbounds %struct.prolog_state, ptr %state, i64 0, i32 4
+  %documentEntity.i = getelementptr inbounds i8, ptr %state, i64 20
   %2 = load i32, ptr %documentEntity.i, align 4
   %tobool.i = icmp eq i32 %2, 0
   %cmp.i = icmp eq i32 %tok, 28
@@ -268,7 +265,7 @@ return:                                           ; preds = %return.sink.split, 
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @internalSubset(ptr nocapture noundef %state, i32 noundef %tok, ptr noundef %ptr, ptr noundef %end, ptr noundef %enc) #1 {
+define internal noundef i32 @internalSubset(ptr nocapture noundef %state, i32 noundef %tok, ptr noundef %ptr, ptr noundef %end, ptr noundef %enc) #1 {
 entry:
   switch i32 %tok, label %sw.epilog [
     i32 15, label %return
@@ -281,14 +278,14 @@ entry:
   ]
 
 sw.bb1:                                           ; preds = %entry
-  %nameMatchesAscii = getelementptr inbounds %struct.encoding, ptr %enc, i64 0, i32 2
+  %nameMatchesAscii = getelementptr inbounds i8, ptr %enc, i64 48
   %0 = load ptr, ptr %nameMatchesAscii, align 8
-  %minBytesPerChar = getelementptr inbounds %struct.encoding, ptr %enc, i64 0, i32 12
+  %minBytesPerChar = getelementptr inbounds i8, ptr %enc, i64 128
   %1 = load i32, ptr %minBytesPerChar, align 8
   %mul = shl i32 %1, 1
   %idx.ext = sext i32 %mul to i64
   %add.ptr = getelementptr i8, ptr %ptr, i64 %idx.ext
-  %call = tail call i32 %0(ptr noundef %enc, ptr noundef %add.ptr, ptr noundef %end, ptr noundef nonnull @KW_ENTITY) #6
+  %call = tail call i32 %0(ptr noundef %enc, ptr noundef %add.ptr, ptr noundef %end, ptr noundef nonnull @KW_ENTITY) #5
   %tobool.not = icmp eq i32 %call, 0
   br i1 %tobool.not, label %if.end, label %if.then
 
@@ -302,7 +299,7 @@ if.end:                                           ; preds = %sw.bb1
   %mul4 = shl i32 %3, 1
   %idx.ext5 = sext i32 %mul4 to i64
   %add.ptr6 = getelementptr i8, ptr %ptr, i64 %idx.ext5
-  %call7 = tail call i32 %2(ptr noundef nonnull %enc, ptr noundef %add.ptr6, ptr noundef %end, ptr noundef nonnull @KW_ATTLIST) #6
+  %call7 = tail call i32 %2(ptr noundef nonnull %enc, ptr noundef %add.ptr6, ptr noundef %end, ptr noundef nonnull @KW_ATTLIST) #5
   %tobool8.not = icmp eq i32 %call7, 0
   br i1 %tobool8.not, label %if.end11, label %if.then9
 
@@ -316,7 +313,7 @@ if.end11:                                         ; preds = %if.end
   %mul14 = shl i32 %5, 1
   %idx.ext15 = sext i32 %mul14 to i64
   %add.ptr16 = getelementptr i8, ptr %ptr, i64 %idx.ext15
-  %call17 = tail call i32 %4(ptr noundef nonnull %enc, ptr noundef %add.ptr16, ptr noundef %end, ptr noundef nonnull @KW_ELEMENT) #6
+  %call17 = tail call i32 %4(ptr noundef nonnull %enc, ptr noundef %add.ptr16, ptr noundef %end, ptr noundef nonnull @KW_ELEMENT) #5
   %tobool18.not = icmp eq i32 %call17, 0
   br i1 %tobool18.not, label %if.end21, label %if.then19
 
@@ -330,7 +327,7 @@ if.end21:                                         ; preds = %if.end11
   %mul24 = shl i32 %7, 1
   %idx.ext25 = sext i32 %mul24 to i64
   %add.ptr26 = getelementptr i8, ptr %ptr, i64 %idx.ext25
-  %call27 = tail call i32 %6(ptr noundef nonnull %enc, ptr noundef %add.ptr26, ptr noundef %end, ptr noundef nonnull @KW_NOTATION) #6
+  %call27 = tail call i32 %6(ptr noundef nonnull %enc, ptr noundef %add.ptr26, ptr noundef %end, ptr noundef nonnull @KW_NOTATION) #5
   %tobool28.not = icmp eq i32 %call27, 0
   br i1 %tobool28.not, label %if.end.i, label %if.then29
 
@@ -352,7 +349,7 @@ sw.bb35:                                          ; preds = %entry
   br label %return
 
 sw.epilog:                                        ; preds = %entry
-  %documentEntity.i = getelementptr inbounds %struct.prolog_state, ptr %state, i64 0, i32 4
+  %documentEntity.i = getelementptr inbounds i8, ptr %state, i64 20
   %8 = load i32, ptr %documentEntity.i, align 4
   %tobool.i = icmp eq i32 %8, 0
   %cmp.i = icmp eq i32 %tok, 28
@@ -368,8 +365,8 @@ return:                                           ; preds = %if.end.i, %sw.epilo
   ret i32 %retval.0
 }
 
-; Function Attrs: mustprogress nofree nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define internal i32 @prolog2(ptr nocapture noundef %state, i32 noundef %tok, ptr nocapture readnone %ptr, ptr nocapture readnone %end, ptr nocapture readnone %enc) #4 {
+; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
+define internal noundef i32 @prolog2(ptr nocapture noundef %state, i32 noundef %tok, ptr nocapture readnone %ptr, ptr nocapture readnone %end, ptr nocapture readnone %enc) #2 {
 entry:
   %0 = add i32 %tok, -11
   %1 = tail call i32 @llvm.fshl.i32(i32 %0, i32 %0, i32 31)
@@ -391,7 +388,7 @@ sw.bb3:                                           ; preds = %entry
   br label %return
 
 sw.epilog:                                        ; preds = %entry
-  %documentEntity.i = getelementptr inbounds %struct.prolog_state, ptr %state, i64 0, i32 4
+  %documentEntity.i = getelementptr inbounds i8, ptr %state, i64 20
   %2 = load i32, ptr %documentEntity.i, align 4
   %tobool.i = icmp eq i32 %2, 0
   %cmp.i = icmp eq i32 %tok, 28
@@ -408,7 +405,7 @@ return:                                           ; preds = %if.end.i, %sw.epilo
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define internal i32 @doctype3(ptr nocapture noundef %state, i32 noundef %tok, ptr nocapture readnone %ptr, ptr nocapture readnone %end, ptr nocapture readnone %enc) #2 {
+define internal noundef i32 @doctype3(ptr nocapture noundef %state, i32 noundef %tok, ptr nocapture readnone %ptr, ptr nocapture readnone %end, ptr nocapture readnone %enc) #2 {
 entry:
   switch i32 %tok, label %sw.epilog [
     i32 15, label %return
@@ -416,7 +413,7 @@ entry:
   ]
 
 sw.epilog:                                        ; preds = %entry
-  %documentEntity.i = getelementptr inbounds %struct.prolog_state, ptr %state, i64 0, i32 4
+  %documentEntity.i = getelementptr inbounds i8, ptr %state, i64 20
   %0 = load i32, ptr %documentEntity.i, align 4
   %tobool.i = icmp eq i32 %0, 0
   %cmp.i = icmp eq i32 %tok, 28
@@ -435,7 +432,7 @@ return:                                           ; preds = %return.sink.split, 
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define internal i32 @doctype2(ptr nocapture noundef %state, i32 noundef %tok, ptr nocapture readnone %ptr, ptr nocapture readnone %end, ptr nocapture readnone %enc) #2 {
+define internal noundef i32 @doctype2(ptr nocapture noundef %state, i32 noundef %tok, ptr nocapture readnone %ptr, ptr nocapture readnone %end, ptr nocapture readnone %enc) #2 {
 entry:
   switch i32 %tok, label %sw.epilog [
     i32 15, label %return
@@ -443,7 +440,7 @@ entry:
   ]
 
 sw.epilog:                                        ; preds = %entry
-  %documentEntity.i = getelementptr inbounds %struct.prolog_state, ptr %state, i64 0, i32 4
+  %documentEntity.i = getelementptr inbounds i8, ptr %state, i64 20
   %0 = load i32, ptr %documentEntity.i, align 4
   %tobool.i = icmp eq i32 %0, 0
   %cmp.i = icmp eq i32 %tok, 28
@@ -462,7 +459,7 @@ return:                                           ; preds = %return.sink.split, 
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define internal i32 @entity0(ptr nocapture noundef %state, i32 noundef %tok, ptr nocapture readnone %ptr, ptr nocapture readnone %end, ptr nocapture readnone %enc) #2 {
+define internal noundef i32 @entity0(ptr nocapture noundef %state, i32 noundef %tok, ptr nocapture readnone %ptr, ptr nocapture readnone %end, ptr nocapture readnone %enc) #2 {
 entry:
   switch i32 %tok, label %sw.epilog [
     i32 15, label %return
@@ -474,7 +471,7 @@ sw.bb2:                                           ; preds = %entry
   br label %return.sink.split
 
 sw.epilog:                                        ; preds = %entry
-  %documentEntity.i = getelementptr inbounds %struct.prolog_state, ptr %state, i64 0, i32 4
+  %documentEntity.i = getelementptr inbounds i8, ptr %state, i64 20
   %0 = load i32, ptr %documentEntity.i, align 4
   %tobool.i = icmp eq i32 %0, 0
   %cmp.i = icmp eq i32 %tok, 28
@@ -493,7 +490,7 @@ return:                                           ; preds = %return.sink.split, 
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define internal i32 @attlist0(ptr nocapture noundef %state, i32 noundef %tok, ptr nocapture readnone %ptr, ptr nocapture readnone %end, ptr nocapture readnone %enc) #2 {
+define internal noundef i32 @attlist0(ptr nocapture noundef %state, i32 noundef %tok, ptr nocapture readnone %ptr, ptr nocapture readnone %end, ptr nocapture readnone %enc) #2 {
 entry:
   switch i32 %tok, label %sw.epilog [
     i32 15, label %return
@@ -502,7 +499,7 @@ entry:
   ]
 
 sw.epilog:                                        ; preds = %entry
-  %documentEntity.i = getelementptr inbounds %struct.prolog_state, ptr %state, i64 0, i32 4
+  %documentEntity.i = getelementptr inbounds i8, ptr %state, i64 20
   %0 = load i32, ptr %documentEntity.i, align 4
   %tobool.i = icmp eq i32 %0, 0
   %cmp.i = icmp eq i32 %tok, 28
@@ -521,7 +518,7 @@ return:                                           ; preds = %return.sink.split, 
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define internal i32 @element0(ptr nocapture noundef %state, i32 noundef %tok, ptr nocapture readnone %ptr, ptr nocapture readnone %end, ptr nocapture readnone %enc) #2 {
+define internal noundef i32 @element0(ptr nocapture noundef %state, i32 noundef %tok, ptr nocapture readnone %ptr, ptr nocapture readnone %end, ptr nocapture readnone %enc) #2 {
 entry:
   switch i32 %tok, label %sw.epilog [
     i32 15, label %return
@@ -530,7 +527,7 @@ entry:
   ]
 
 sw.epilog:                                        ; preds = %entry
-  %documentEntity.i = getelementptr inbounds %struct.prolog_state, ptr %state, i64 0, i32 4
+  %documentEntity.i = getelementptr inbounds i8, ptr %state, i64 20
   %0 = load i32, ptr %documentEntity.i, align 4
   %tobool.i = icmp eq i32 %0, 0
   %cmp.i = icmp eq i32 %tok, 28
@@ -549,7 +546,7 @@ return:                                           ; preds = %return.sink.split, 
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define internal i32 @notation0(ptr nocapture noundef %state, i32 noundef %tok, ptr nocapture readnone %ptr, ptr nocapture readnone %end, ptr nocapture readnone %enc) #2 {
+define internal noundef i32 @notation0(ptr nocapture noundef %state, i32 noundef %tok, ptr nocapture readnone %ptr, ptr nocapture readnone %end, ptr nocapture readnone %enc) #2 {
 entry:
   switch i32 %tok, label %sw.epilog [
     i32 15, label %return
@@ -557,7 +554,7 @@ entry:
   ]
 
 sw.epilog:                                        ; preds = %entry
-  %documentEntity.i = getelementptr inbounds %struct.prolog_state, ptr %state, i64 0, i32 4
+  %documentEntity.i = getelementptr inbounds i8, ptr %state, i64 20
   %0 = load i32, ptr %documentEntity.i, align 4
   %tobool.i = icmp eq i32 %0, 0
   %cmp.i = icmp eq i32 %tok, 28
@@ -576,7 +573,7 @@ return:                                           ; preds = %return.sink.split, 
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define internal i32 @doctype5(ptr nocapture noundef %state, i32 noundef %tok, ptr nocapture readnone %ptr, ptr nocapture readnone %end, ptr nocapture readnone %enc) #2 {
+define internal noundef i32 @doctype5(ptr nocapture noundef %state, i32 noundef %tok, ptr nocapture readnone %ptr, ptr nocapture readnone %end, ptr nocapture readnone %enc) #2 {
 entry:
   switch i32 %tok, label %sw.epilog [
     i32 15, label %return
@@ -584,7 +581,7 @@ entry:
   ]
 
 sw.epilog:                                        ; preds = %entry
-  %documentEntity.i = getelementptr inbounds %struct.prolog_state, ptr %state, i64 0, i32 4
+  %documentEntity.i = getelementptr inbounds i8, ptr %state, i64 20
   %0 = load i32, ptr %documentEntity.i, align 4
   %tobool.i = icmp eq i32 %0, 0
   %cmp.i = icmp eq i32 %tok, 28
@@ -603,7 +600,7 @@ return:                                           ; preds = %return.sink.split, 
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define internal i32 @entity1(ptr nocapture noundef %state, i32 noundef %tok, ptr nocapture readnone %ptr, ptr nocapture readnone %end, ptr nocapture readnone %enc) #2 {
+define internal noundef i32 @entity1(ptr nocapture noundef %state, i32 noundef %tok, ptr nocapture readnone %ptr, ptr nocapture readnone %end, ptr nocapture readnone %enc) #2 {
 entry:
   switch i32 %tok, label %sw.epilog [
     i32 15, label %return
@@ -611,7 +608,7 @@ entry:
   ]
 
 sw.epilog:                                        ; preds = %entry
-  %documentEntity.i = getelementptr inbounds %struct.prolog_state, ptr %state, i64 0, i32 4
+  %documentEntity.i = getelementptr inbounds i8, ptr %state, i64 20
   %0 = load i32, ptr %documentEntity.i, align 4
   %tobool.i = icmp eq i32 %0, 0
   %cmp.i = icmp eq i32 %tok, 28
@@ -630,7 +627,7 @@ return:                                           ; preds = %return.sink.split, 
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @entity2(ptr nocapture noundef %state, i32 noundef %tok, ptr noundef %ptr, ptr noundef %end, ptr noundef %enc) #1 {
+define internal noundef i32 @entity2(ptr nocapture noundef %state, i32 noundef %tok, ptr noundef %ptr, ptr noundef %end, ptr noundef %enc) #1 {
 entry:
   switch i32 %tok, label %sw.epilog [
     i32 15, label %return
@@ -639,9 +636,9 @@ entry:
   ]
 
 sw.bb1:                                           ; preds = %entry
-  %nameMatchesAscii = getelementptr inbounds %struct.encoding, ptr %enc, i64 0, i32 2
+  %nameMatchesAscii = getelementptr inbounds i8, ptr %enc, i64 48
   %0 = load ptr, ptr %nameMatchesAscii, align 8
-  %call = tail call i32 %0(ptr noundef %enc, ptr noundef %ptr, ptr noundef %end, ptr noundef nonnull @KW_SYSTEM) #6
+  %call = tail call i32 %0(ptr noundef %enc, ptr noundef %ptr, ptr noundef %end, ptr noundef nonnull @KW_SYSTEM) #5
   %tobool.not = icmp eq i32 %call, 0
   br i1 %tobool.not, label %if.end, label %if.then
 
@@ -651,7 +648,7 @@ if.then:                                          ; preds = %sw.bb1
 
 if.end:                                           ; preds = %sw.bb1
   %1 = load ptr, ptr %nameMatchesAscii, align 8
-  %call3 = tail call i32 %1(ptr noundef nonnull %enc, ptr noundef %ptr, ptr noundef %end, ptr noundef nonnull @KW_PUBLIC) #6
+  %call3 = tail call i32 %1(ptr noundef nonnull %enc, ptr noundef %ptr, ptr noundef %end, ptr noundef nonnull @KW_PUBLIC) #5
   %tobool4.not = icmp eq i32 %call3, 0
   br i1 %tobool4.not, label %if.end.i, label %if.then5
 
@@ -661,12 +658,12 @@ if.then5:                                         ; preds = %if.end
 
 sw.bb8:                                           ; preds = %entry
   store ptr @declClose, ptr %state, align 8
-  %role_none = getelementptr inbounds %struct.prolog_state, ptr %state, i64 0, i32 2
+  %role_none = getelementptr inbounds i8, ptr %state, i64 12
   store i32 11, ptr %role_none, align 4
   br label %return
 
 sw.epilog:                                        ; preds = %entry
-  %documentEntity.i = getelementptr inbounds %struct.prolog_state, ptr %state, i64 0, i32 4
+  %documentEntity.i = getelementptr inbounds i8, ptr %state, i64 20
   %2 = load i32, ptr %documentEntity.i, align 4
   %tobool.i = icmp eq i32 %2, 0
   %cmp.i = icmp eq i32 %tok, 28
@@ -683,7 +680,7 @@ return:                                           ; preds = %if.end.i, %sw.epilo
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @entity7(ptr nocapture noundef %state, i32 noundef %tok, ptr noundef %ptr, ptr noundef %end, ptr noundef %enc) #1 {
+define internal noundef i32 @entity7(ptr nocapture noundef %state, i32 noundef %tok, ptr noundef %ptr, ptr noundef %end, ptr noundef %enc) #1 {
 entry:
   switch i32 %tok, label %sw.epilog [
     i32 15, label %return
@@ -692,9 +689,9 @@ entry:
   ]
 
 sw.bb1:                                           ; preds = %entry
-  %nameMatchesAscii = getelementptr inbounds %struct.encoding, ptr %enc, i64 0, i32 2
+  %nameMatchesAscii = getelementptr inbounds i8, ptr %enc, i64 48
   %0 = load ptr, ptr %nameMatchesAscii, align 8
-  %call = tail call i32 %0(ptr noundef %enc, ptr noundef %ptr, ptr noundef %end, ptr noundef nonnull @KW_SYSTEM) #6
+  %call = tail call i32 %0(ptr noundef %enc, ptr noundef %ptr, ptr noundef %end, ptr noundef nonnull @KW_SYSTEM) #5
   %tobool.not = icmp eq i32 %call, 0
   br i1 %tobool.not, label %if.end, label %if.then
 
@@ -704,7 +701,7 @@ if.then:                                          ; preds = %sw.bb1
 
 if.end:                                           ; preds = %sw.bb1
   %1 = load ptr, ptr %nameMatchesAscii, align 8
-  %call3 = tail call i32 %1(ptr noundef nonnull %enc, ptr noundef %ptr, ptr noundef %end, ptr noundef nonnull @KW_PUBLIC) #6
+  %call3 = tail call i32 %1(ptr noundef nonnull %enc, ptr noundef %ptr, ptr noundef %end, ptr noundef nonnull @KW_PUBLIC) #5
   %tobool4.not = icmp eq i32 %call3, 0
   br i1 %tobool4.not, label %if.end.i, label %if.then5
 
@@ -714,12 +711,12 @@ if.then5:                                         ; preds = %if.end
 
 sw.bb8:                                           ; preds = %entry
   store ptr @declClose, ptr %state, align 8
-  %role_none = getelementptr inbounds %struct.prolog_state, ptr %state, i64 0, i32 2
+  %role_none = getelementptr inbounds i8, ptr %state, i64 12
   store i32 11, ptr %role_none, align 4
   br label %return
 
 sw.epilog:                                        ; preds = %entry
-  %documentEntity.i = getelementptr inbounds %struct.prolog_state, ptr %state, i64 0, i32 4
+  %documentEntity.i = getelementptr inbounds i8, ptr %state, i64 20
   %2 = load i32, ptr %documentEntity.i, align 4
   %tobool.i = icmp eq i32 %2, 0
   %cmp.i = icmp eq i32 %tok, 28
@@ -736,7 +733,7 @@ return:                                           ; preds = %if.end.i, %sw.epilo
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define internal i32 @entity9(ptr nocapture noundef %state, i32 noundef %tok, ptr nocapture readnone %ptr, ptr nocapture readnone %end, ptr nocapture readnone %enc) #2 {
+define internal noundef i32 @entity9(ptr nocapture noundef %state, i32 noundef %tok, ptr nocapture readnone %ptr, ptr nocapture readnone %end, ptr nocapture readnone %enc) #2 {
 entry:
   switch i32 %tok, label %sw.epilog [
     i32 15, label %return
@@ -744,7 +741,7 @@ entry:
   ]
 
 sw.epilog:                                        ; preds = %entry
-  %documentEntity.i = getelementptr inbounds %struct.prolog_state, ptr %state, i64 0, i32 4
+  %documentEntity.i = getelementptr inbounds i8, ptr %state, i64 20
   %0 = load i32, ptr %documentEntity.i, align 4
   %tobool.i = icmp eq i32 %0, 0
   %cmp.i = icmp eq i32 %tok, 28
@@ -763,7 +760,7 @@ return:                                           ; preds = %return.sink.split, 
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define internal i32 @entity8(ptr nocapture noundef %state, i32 noundef %tok, ptr nocapture readnone %ptr, ptr nocapture readnone %end, ptr nocapture readnone %enc) #2 {
+define internal noundef i32 @entity8(ptr nocapture noundef %state, i32 noundef %tok, ptr nocapture readnone %ptr, ptr nocapture readnone %end, ptr nocapture readnone %enc) #2 {
 entry:
   switch i32 %tok, label %sw.epilog [
     i32 15, label %return
@@ -771,7 +768,7 @@ entry:
   ]
 
 sw.epilog:                                        ; preds = %entry
-  %documentEntity.i = getelementptr inbounds %struct.prolog_state, ptr %state, i64 0, i32 4
+  %documentEntity.i = getelementptr inbounds i8, ptr %state, i64 20
   %0 = load i32, ptr %documentEntity.i, align 4
   %tobool.i = icmp eq i32 %0, 0
   %cmp.i = icmp eq i32 %tok, 28
@@ -798,22 +795,22 @@ entry:
   ]
 
 sw.bb:                                            ; preds = %entry
-  %role_none = getelementptr inbounds %struct.prolog_state, ptr %state, i64 0, i32 2
+  %role_none = getelementptr inbounds i8, ptr %state, i64 12
   %0 = load i32, ptr %role_none, align 4
   br label %return
 
 sw.bb1:                                           ; preds = %entry
-  %documentEntity = getelementptr inbounds %struct.prolog_state, ptr %state, i64 0, i32 4
+  %documentEntity = getelementptr inbounds i8, ptr %state, i64 20
   %1 = load i32, ptr %documentEntity, align 4
   %tobool.not = icmp eq i32 %1, 0
   %cond = select i1 %tobool.not, ptr @externalSubset1, ptr @internalSubset
   store ptr %cond, ptr %state, align 8
-  %role_none2 = getelementptr inbounds %struct.prolog_state, ptr %state, i64 0, i32 2
+  %role_none2 = getelementptr inbounds i8, ptr %state, i64 12
   %2 = load i32, ptr %role_none2, align 4
   br label %return
 
 sw.epilog:                                        ; preds = %entry
-  %documentEntity.i = getelementptr inbounds %struct.prolog_state, ptr %state, i64 0, i32 4
+  %documentEntity.i = getelementptr inbounds i8, ptr %state, i64 20
   %3 = load i32, ptr %documentEntity.i, align 4
   %tobool.i = icmp eq i32 %3, 0
   %cmp.i = icmp eq i32 %tok, 28
@@ -830,7 +827,7 @@ return:                                           ; preds = %if.end.i, %sw.epilo
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define internal i32 @entity10(ptr nocapture noundef %state, i32 noundef %tok, ptr nocapture readnone %ptr, ptr nocapture readnone %end, ptr nocapture readnone %enc) #2 {
+define internal noundef i32 @entity10(ptr nocapture noundef %state, i32 noundef %tok, ptr nocapture readnone %ptr, ptr nocapture readnone %end, ptr nocapture readnone %enc) #2 {
 entry:
   switch i32 %tok, label %sw.epilog [
     i32 15, label %return
@@ -838,14 +835,14 @@ entry:
   ]
 
 sw.bb1:                                           ; preds = %entry
-  %documentEntity = getelementptr inbounds %struct.prolog_state, ptr %state, i64 0, i32 4
+  %documentEntity = getelementptr inbounds i8, ptr %state, i64 20
   %0 = load i32, ptr %documentEntity, align 4
   %tobool.not = icmp eq i32 %0, 0
   %cond = select i1 %tobool.not, ptr @externalSubset1, ptr @internalSubset
   br label %return.sink.split
 
 sw.epilog:                                        ; preds = %entry
-  %documentEntity.i = getelementptr inbounds %struct.prolog_state, ptr %state, i64 0, i32 4
+  %documentEntity.i = getelementptr inbounds i8, ptr %state, i64 20
   %1 = load i32, ptr %documentEntity.i, align 4
   %tobool.i = icmp eq i32 %1, 0
   %cmp.i = icmp eq i32 %tok, 28
@@ -864,7 +861,7 @@ return:                                           ; preds = %return.sink.split, 
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @externalSubset1(ptr nocapture noundef %state, i32 noundef %tok, ptr noundef %ptr, ptr noundef %end, ptr noundef %enc) #1 {
+define internal noundef i32 @externalSubset1(ptr nocapture noundef %state, i32 noundef %tok, ptr noundef %ptr, ptr noundef %end, ptr noundef %enc) #1 {
 entry:
   switch i32 %tok, label %sw.default [
     i32 33, label %sw.bb
@@ -879,7 +876,7 @@ sw.bb:                                            ; preds = %entry
   br label %return
 
 sw.bb1:                                           ; preds = %entry
-  %includeLevel = getelementptr inbounds %struct.prolog_state, ptr %state, i64 0, i32 3
+  %includeLevel = getelementptr inbounds i8, ptr %state, i64 16
   %0 = load i32, ptr %includeLevel, align 8
   %cmp = icmp eq i32 %0, 0
   br i1 %cmp, label %common.exit, label %if.end
@@ -890,7 +887,7 @@ if.end:                                           ; preds = %sw.bb1
   br label %return
 
 sw.bb5:                                           ; preds = %entry
-  %includeLevel6 = getelementptr inbounds %struct.prolog_state, ptr %state, i64 0, i32 3
+  %includeLevel6 = getelementptr inbounds i8, ptr %state, i64 16
   %1 = load i32, ptr %includeLevel6, align 8
   %tobool.not = icmp eq i32 %1, 0
   br i1 %tobool.not, label %return, label %common.exit
@@ -909,7 +906,7 @@ return:                                           ; preds = %sw.bb5, %entry, %co
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @condSect0(ptr nocapture noundef %state, i32 noundef %tok, ptr noundef %ptr, ptr noundef %end, ptr noundef %enc) #1 {
+define internal noundef i32 @condSect0(ptr nocapture noundef %state, i32 noundef %tok, ptr noundef %ptr, ptr noundef %end, ptr noundef %enc) #1 {
 entry:
   switch i32 %tok, label %sw.epilog [
     i32 15, label %return
@@ -917,20 +914,20 @@ entry:
   ]
 
 sw.bb1:                                           ; preds = %entry
-  %nameMatchesAscii = getelementptr inbounds %struct.encoding, ptr %enc, i64 0, i32 2
+  %nameMatchesAscii = getelementptr inbounds i8, ptr %enc, i64 48
   %0 = load ptr, ptr %nameMatchesAscii, align 8
-  %call = tail call i32 %0(ptr noundef %enc, ptr noundef %ptr, ptr noundef %end, ptr noundef nonnull @KW_INCLUDE) #6
+  %call = tail call i32 %0(ptr noundef %enc, ptr noundef %ptr, ptr noundef %end, ptr noundef nonnull @KW_INCLUDE) #5
   %tobool.not = icmp eq i32 %call, 0
   br i1 %tobool.not, label %if.end, label %return.sink.split
 
 if.end:                                           ; preds = %sw.bb1
   %1 = load ptr, ptr %nameMatchesAscii, align 8
-  %call3 = tail call i32 %1(ptr noundef nonnull %enc, ptr noundef %ptr, ptr noundef %end, ptr noundef nonnull @KW_IGNORE) #6
+  %call3 = tail call i32 %1(ptr noundef nonnull %enc, ptr noundef %ptr, ptr noundef %end, ptr noundef nonnull @KW_IGNORE) #5
   %tobool4.not = icmp eq i32 %call3, 0
   br i1 %tobool4.not, label %if.end.i, label %return.sink.split
 
 sw.epilog:                                        ; preds = %entry
-  %documentEntity.i = getelementptr inbounds %struct.prolog_state, ptr %state, i64 0, i32 4
+  %documentEntity.i = getelementptr inbounds i8, ptr %state, i64 20
   %2 = load i32, ptr %documentEntity.i, align 4
   %tobool.i = icmp eq i32 %2, 0
   %cmp.i = icmp eq i32 %tok, 28
@@ -952,7 +949,7 @@ return:                                           ; preds = %return.sink.split, 
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define internal i32 @condSect1(ptr nocapture noundef %state, i32 noundef %tok, ptr nocapture readnone %ptr, ptr nocapture readnone %end, ptr nocapture readnone %enc) #2 {
+define internal noundef i32 @condSect1(ptr nocapture noundef %state, i32 noundef %tok, ptr nocapture readnone %ptr, ptr nocapture readnone %end, ptr nocapture readnone %enc) #2 {
 entry:
   switch i32 %tok, label %sw.epilog [
     i32 15, label %return
@@ -961,14 +958,14 @@ entry:
 
 sw.bb1:                                           ; preds = %entry
   store ptr @externalSubset1, ptr %state, align 8
-  %includeLevel = getelementptr inbounds %struct.prolog_state, ptr %state, i64 0, i32 3
+  %includeLevel = getelementptr inbounds i8, ptr %state, i64 16
   %0 = load i32, ptr %includeLevel, align 8
   %add = add i32 %0, 1
   store i32 %add, ptr %includeLevel, align 8
   br label %return
 
 sw.epilog:                                        ; preds = %entry
-  %documentEntity.i = getelementptr inbounds %struct.prolog_state, ptr %state, i64 0, i32 4
+  %documentEntity.i = getelementptr inbounds i8, ptr %state, i64 20
   %1 = load i32, ptr %documentEntity.i, align 4
   %tobool.i = icmp eq i32 %1, 0
   %cmp.i = icmp eq i32 %tok, 28
@@ -985,7 +982,7 @@ return:                                           ; preds = %if.end.i, %sw.epilo
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define internal i32 @condSect2(ptr nocapture noundef %state, i32 noundef %tok, ptr nocapture readnone %ptr, ptr nocapture readnone %end, ptr nocapture readnone %enc) #2 {
+define internal noundef i32 @condSect2(ptr nocapture noundef %state, i32 noundef %tok, ptr nocapture readnone %ptr, ptr nocapture readnone %end, ptr nocapture readnone %enc) #2 {
 entry:
   switch i32 %tok, label %sw.epilog [
     i32 15, label %return
@@ -993,7 +990,7 @@ entry:
   ]
 
 sw.epilog:                                        ; preds = %entry
-  %documentEntity.i = getelementptr inbounds %struct.prolog_state, ptr %state, i64 0, i32 4
+  %documentEntity.i = getelementptr inbounds i8, ptr %state, i64 20
   %0 = load i32, ptr %documentEntity.i, align 4
   %tobool.i = icmp eq i32 %0, 0
   %cmp.i = icmp eq i32 %tok, 28
@@ -1012,7 +1009,7 @@ return:                                           ; preds = %return.sink.split, 
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define internal i32 @entity4(ptr nocapture noundef %state, i32 noundef %tok, ptr nocapture readnone %ptr, ptr nocapture readnone %end, ptr nocapture readnone %enc) #2 {
+define internal noundef i32 @entity4(ptr nocapture noundef %state, i32 noundef %tok, ptr nocapture readnone %ptr, ptr nocapture readnone %end, ptr nocapture readnone %enc) #2 {
 entry:
   switch i32 %tok, label %sw.epilog [
     i32 15, label %return
@@ -1020,7 +1017,7 @@ entry:
   ]
 
 sw.epilog:                                        ; preds = %entry
-  %documentEntity.i = getelementptr inbounds %struct.prolog_state, ptr %state, i64 0, i32 4
+  %documentEntity.i = getelementptr inbounds i8, ptr %state, i64 20
   %0 = load i32, ptr %documentEntity.i, align 4
   %tobool.i = icmp eq i32 %0, 0
   %cmp.i = icmp eq i32 %tok, 28
@@ -1039,7 +1036,7 @@ return:                                           ; preds = %return.sink.split, 
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define internal i32 @entity3(ptr nocapture noundef %state, i32 noundef %tok, ptr nocapture readnone %ptr, ptr nocapture readnone %end, ptr nocapture readnone %enc) #2 {
+define internal noundef i32 @entity3(ptr nocapture noundef %state, i32 noundef %tok, ptr nocapture readnone %ptr, ptr nocapture readnone %end, ptr nocapture readnone %enc) #2 {
 entry:
   switch i32 %tok, label %sw.epilog [
     i32 15, label %return
@@ -1047,7 +1044,7 @@ entry:
   ]
 
 sw.epilog:                                        ; preds = %entry
-  %documentEntity.i = getelementptr inbounds %struct.prolog_state, ptr %state, i64 0, i32 4
+  %documentEntity.i = getelementptr inbounds i8, ptr %state, i64 20
   %0 = load i32, ptr %documentEntity.i, align 4
   %tobool.i = icmp eq i32 %0, 0
   %cmp.i = icmp eq i32 %tok, 28
@@ -1066,7 +1063,7 @@ return:                                           ; preds = %return.sink.split, 
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @entity5(ptr nocapture noundef %state, i32 noundef %tok, ptr noundef %ptr, ptr noundef %end, ptr noundef %enc) #1 {
+define internal noundef i32 @entity5(ptr nocapture noundef %state, i32 noundef %tok, ptr noundef %ptr, ptr noundef %end, ptr noundef %enc) #1 {
 entry:
   switch i32 %tok, label %sw.epilog [
     i32 15, label %return
@@ -1075,21 +1072,21 @@ entry:
   ]
 
 sw.bb1:                                           ; preds = %entry
-  %documentEntity = getelementptr inbounds %struct.prolog_state, ptr %state, i64 0, i32 4
+  %documentEntity = getelementptr inbounds i8, ptr %state, i64 20
   %0 = load i32, ptr %documentEntity, align 4
   %tobool.not = icmp eq i32 %0, 0
   %cond = select i1 %tobool.not, ptr @externalSubset1, ptr @internalSubset
   br label %return.sink.split
 
 sw.bb2:                                           ; preds = %entry
-  %nameMatchesAscii = getelementptr inbounds %struct.encoding, ptr %enc, i64 0, i32 2
+  %nameMatchesAscii = getelementptr inbounds i8, ptr %enc, i64 48
   %1 = load ptr, ptr %nameMatchesAscii, align 8
-  %call = tail call i32 %1(ptr noundef %enc, ptr noundef %ptr, ptr noundef %end, ptr noundef nonnull @KW_NDATA) #6
+  %call = tail call i32 %1(ptr noundef %enc, ptr noundef %ptr, ptr noundef %end, ptr noundef nonnull @KW_NDATA) #5
   %tobool3.not = icmp eq i32 %call, 0
   br i1 %tobool3.not, label %if.end.i, label %return.sink.split
 
 sw.epilog:                                        ; preds = %entry
-  %documentEntity.i = getelementptr inbounds %struct.prolog_state, ptr %state, i64 0, i32 4
+  %documentEntity.i = getelementptr inbounds i8, ptr %state, i64 20
   %2 = load i32, ptr %documentEntity.i, align 4
   %tobool.i = icmp eq i32 %2, 0
   %cmp.i = icmp eq i32 %tok, 28
@@ -1111,7 +1108,7 @@ return:                                           ; preds = %return.sink.split, 
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define internal i32 @entity6(ptr nocapture noundef %state, i32 noundef %tok, ptr nocapture readnone %ptr, ptr nocapture readnone %end, ptr nocapture readnone %enc) #2 {
+define internal noundef i32 @entity6(ptr nocapture noundef %state, i32 noundef %tok, ptr nocapture readnone %ptr, ptr nocapture readnone %end, ptr nocapture readnone %enc) #2 {
 entry:
   switch i32 %tok, label %sw.epilog [
     i32 15, label %return
@@ -1120,12 +1117,12 @@ entry:
 
 sw.bb1:                                           ; preds = %entry
   store ptr @declClose, ptr %state, align 8
-  %role_none = getelementptr inbounds %struct.prolog_state, ptr %state, i64 0, i32 2
+  %role_none = getelementptr inbounds i8, ptr %state, i64 12
   store i32 11, ptr %role_none, align 4
   br label %return
 
 sw.epilog:                                        ; preds = %entry
-  %documentEntity.i = getelementptr inbounds %struct.prolog_state, ptr %state, i64 0, i32 4
+  %documentEntity.i = getelementptr inbounds i8, ptr %state, i64 20
   %0 = load i32, ptr %documentEntity.i, align 4
   %tobool.i = icmp eq i32 %0, 0
   %cmp.i = icmp eq i32 %tok, 28
@@ -1142,7 +1139,7 @@ return:                                           ; preds = %if.end.i, %sw.epilo
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define internal i32 @attlist1(ptr nocapture noundef %state, i32 noundef %tok, ptr nocapture readnone %ptr, ptr nocapture readnone %end, ptr nocapture readnone %enc) #2 {
+define internal noundef i32 @attlist1(ptr nocapture noundef %state, i32 noundef %tok, ptr nocapture readnone %ptr, ptr nocapture readnone %end, ptr nocapture readnone %enc) #2 {
 entry:
   switch i32 %tok, label %sw.epilog [
     i32 15, label %return
@@ -1152,14 +1149,14 @@ entry:
   ]
 
 sw.bb1:                                           ; preds = %entry
-  %documentEntity = getelementptr inbounds %struct.prolog_state, ptr %state, i64 0, i32 4
+  %documentEntity = getelementptr inbounds i8, ptr %state, i64 20
   %0 = load i32, ptr %documentEntity, align 4
   %tobool.not = icmp eq i32 %0, 0
   %cond = select i1 %tobool.not, ptr @externalSubset1, ptr @internalSubset
   br label %return.sink.split
 
 sw.epilog:                                        ; preds = %entry
-  %documentEntity.i = getelementptr inbounds %struct.prolog_state, ptr %state, i64 0, i32 4
+  %documentEntity.i = getelementptr inbounds i8, ptr %state, i64 20
   %1 = load i32, ptr %documentEntity.i, align 4
   %tobool.i = icmp eq i32 %1, 0
   %cmp.i = icmp eq i32 %tok, 28
@@ -1187,7 +1184,7 @@ entry:
   ]
 
 for.cond.preheader:                               ; preds = %entry
-  %nameMatchesAscii = getelementptr inbounds %struct.encoding, ptr %enc, i64 0, i32 2
+  %nameMatchesAscii = getelementptr inbounds i8, ptr %enc, i64 48
   br label %for.body
 
 for.body:                                         ; preds = %for.cond.preheader, %for.inc
@@ -1195,7 +1192,7 @@ for.body:                                         ; preds = %for.cond.preheader,
   %0 = load ptr, ptr %nameMatchesAscii, align 8
   %arrayidx = getelementptr [8 x ptr], ptr @attlist2.types, i64 0, i64 %indvars.iv
   %1 = load ptr, ptr %arrayidx, align 8
-  %call = tail call i32 %0(ptr noundef %enc, ptr noundef %ptr, ptr noundef %end, ptr noundef %1) #6
+  %call = tail call i32 %0(ptr noundef %enc, ptr noundef %ptr, ptr noundef %end, ptr noundef %1) #5
   %tobool.not = icmp eq i32 %call, 0
   br i1 %tobool.not, label %for.inc, label %if.then
 
@@ -1212,7 +1209,7 @@ for.inc:                                          ; preds = %for.body
 
 for.end:                                          ; preds = %for.inc
   %3 = load ptr, ptr %nameMatchesAscii, align 8
-  %call3 = tail call i32 %3(ptr noundef nonnull %enc, ptr noundef %ptr, ptr noundef %end, ptr noundef nonnull @KW_NOTATION) #6
+  %call3 = tail call i32 %3(ptr noundef nonnull %enc, ptr noundef %ptr, ptr noundef %end, ptr noundef nonnull @KW_NOTATION) #5
   %tobool4.not = icmp eq i32 %call3, 0
   br i1 %tobool4.not, label %sw.epilog, label %if.then5
 
@@ -1225,7 +1222,7 @@ sw.bb8:                                           ; preds = %entry
   br label %return
 
 sw.epilog:                                        ; preds = %for.end, %entry
-  %documentEntity.i = getelementptr inbounds %struct.prolog_state, ptr %state, i64 0, i32 4
+  %documentEntity.i = getelementptr inbounds i8, ptr %state, i64 20
   %4 = load i32, ptr %documentEntity.i, align 4
   %tobool.i = icmp eq i32 %4, 0
   %cmp.i = icmp eq i32 %tok, 28
@@ -1242,7 +1239,7 @@ return:                                           ; preds = %if.end.i, %sw.epilo
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @attlist8(ptr nocapture noundef %state, i32 noundef %tok, ptr noundef %ptr, ptr noundef %end, ptr noundef %enc) #1 {
+define internal noundef i32 @attlist8(ptr nocapture noundef %state, i32 noundef %tok, ptr noundef %ptr, ptr noundef %end, ptr noundef %enc) #1 {
 entry:
   switch i32 %tok, label %sw.epilog [
     i32 15, label %return
@@ -1251,13 +1248,13 @@ entry:
   ]
 
 sw.bb1:                                           ; preds = %entry
-  %nameMatchesAscii = getelementptr inbounds %struct.encoding, ptr %enc, i64 0, i32 2
+  %nameMatchesAscii = getelementptr inbounds i8, ptr %enc, i64 48
   %0 = load ptr, ptr %nameMatchesAscii, align 8
-  %minBytesPerChar = getelementptr inbounds %struct.encoding, ptr %enc, i64 0, i32 12
+  %minBytesPerChar = getelementptr inbounds i8, ptr %enc, i64 128
   %1 = load i32, ptr %minBytesPerChar, align 8
   %idx.ext = sext i32 %1 to i64
   %add.ptr = getelementptr i8, ptr %ptr, i64 %idx.ext
-  %call = tail call i32 %0(ptr noundef %enc, ptr noundef %add.ptr, ptr noundef %end, ptr noundef nonnull @KW_IMPLIED) #6
+  %call = tail call i32 %0(ptr noundef %enc, ptr noundef %add.ptr, ptr noundef %end, ptr noundef nonnull @KW_IMPLIED) #5
   %tobool.not = icmp eq i32 %call, 0
   br i1 %tobool.not, label %if.end, label %return.sink.split
 
@@ -1266,7 +1263,7 @@ if.end:                                           ; preds = %sw.bb1
   %3 = load i32, ptr %minBytesPerChar, align 8
   %idx.ext4 = sext i32 %3 to i64
   %add.ptr5 = getelementptr i8, ptr %ptr, i64 %idx.ext4
-  %call6 = tail call i32 %2(ptr noundef nonnull %enc, ptr noundef %add.ptr5, ptr noundef %end, ptr noundef nonnull @KW_REQUIRED) #6
+  %call6 = tail call i32 %2(ptr noundef nonnull %enc, ptr noundef %add.ptr5, ptr noundef %end, ptr noundef nonnull @KW_REQUIRED) #5
   %tobool7.not = icmp eq i32 %call6, 0
   br i1 %tobool7.not, label %if.end10, label %return.sink.split
 
@@ -1275,12 +1272,12 @@ if.end10:                                         ; preds = %if.end
   %5 = load i32, ptr %minBytesPerChar, align 8
   %idx.ext13 = sext i32 %5 to i64
   %add.ptr14 = getelementptr i8, ptr %ptr, i64 %idx.ext13
-  %call15 = tail call i32 %4(ptr noundef nonnull %enc, ptr noundef %add.ptr14, ptr noundef %end, ptr noundef nonnull @KW_FIXED) #6
+  %call15 = tail call i32 %4(ptr noundef nonnull %enc, ptr noundef %add.ptr14, ptr noundef %end, ptr noundef nonnull @KW_FIXED) #5
   %tobool16.not = icmp eq i32 %call15, 0
   br i1 %tobool16.not, label %if.end.i, label %return.sink.split
 
 sw.epilog:                                        ; preds = %entry
-  %documentEntity.i = getelementptr inbounds %struct.prolog_state, ptr %state, i64 0, i32 4
+  %documentEntity.i = getelementptr inbounds i8, ptr %state, i64 20
   %6 = load i32, ptr %documentEntity.i, align 4
   %tobool.i = icmp eq i32 %6, 0
   %cmp.i = icmp eq i32 %tok, 28
@@ -1302,7 +1299,7 @@ return:                                           ; preds = %return.sink.split, 
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define internal i32 @attlist5(ptr nocapture noundef %state, i32 noundef %tok, ptr nocapture readnone %ptr, ptr nocapture readnone %end, ptr nocapture readnone %enc) #2 {
+define internal noundef i32 @attlist5(ptr nocapture noundef %state, i32 noundef %tok, ptr nocapture readnone %ptr, ptr nocapture readnone %end, ptr nocapture readnone %enc) #2 {
 entry:
   switch i32 %tok, label %sw.epilog [
     i32 15, label %return
@@ -1310,7 +1307,7 @@ entry:
   ]
 
 sw.epilog:                                        ; preds = %entry
-  %documentEntity.i = getelementptr inbounds %struct.prolog_state, ptr %state, i64 0, i32 4
+  %documentEntity.i = getelementptr inbounds i8, ptr %state, i64 20
   %0 = load i32, ptr %documentEntity.i, align 4
   %tobool.i = icmp eq i32 %0, 0
   %cmp.i = icmp eq i32 %tok, 28
@@ -1329,7 +1326,7 @@ return:                                           ; preds = %return.sink.split, 
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define internal i32 @attlist3(ptr nocapture noundef %state, i32 noundef %tok, ptr nocapture readnone %ptr, ptr nocapture readnone %end, ptr nocapture readnone %enc) #2 {
+define internal noundef i32 @attlist3(ptr nocapture noundef %state, i32 noundef %tok, ptr nocapture readnone %ptr, ptr nocapture readnone %end, ptr nocapture readnone %enc) #2 {
 entry:
   switch i32 %tok, label %sw.epilog [
     i32 15, label %return
@@ -1339,7 +1336,7 @@ entry:
   ]
 
 sw.epilog:                                        ; preds = %entry
-  %documentEntity.i = getelementptr inbounds %struct.prolog_state, ptr %state, i64 0, i32 4
+  %documentEntity.i = getelementptr inbounds i8, ptr %state, i64 20
   %0 = load i32, ptr %documentEntity.i, align 4
   %tobool.i = icmp eq i32 %0, 0
   %cmp.i = icmp eq i32 %tok, 28
@@ -1358,7 +1355,7 @@ return:                                           ; preds = %return.sink.split, 
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define internal i32 @attlist9(ptr nocapture noundef %state, i32 noundef %tok, ptr nocapture readnone %ptr, ptr nocapture readnone %end, ptr nocapture readnone %enc) #2 {
+define internal noundef i32 @attlist9(ptr nocapture noundef %state, i32 noundef %tok, ptr nocapture readnone %ptr, ptr nocapture readnone %end, ptr nocapture readnone %enc) #2 {
 entry:
   switch i32 %tok, label %sw.epilog [
     i32 15, label %return
@@ -1366,7 +1363,7 @@ entry:
   ]
 
 sw.epilog:                                        ; preds = %entry
-  %documentEntity.i = getelementptr inbounds %struct.prolog_state, ptr %state, i64 0, i32 4
+  %documentEntity.i = getelementptr inbounds i8, ptr %state, i64 20
   %0 = load i32, ptr %documentEntity.i, align 4
   %tobool.i = icmp eq i32 %0, 0
   %cmp.i = icmp eq i32 %tok, 28
@@ -1385,7 +1382,7 @@ return:                                           ; preds = %return.sink.split, 
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define internal i32 @attlist6(ptr nocapture noundef %state, i32 noundef %tok, ptr nocapture readnone %ptr, ptr nocapture readnone %end, ptr nocapture readnone %enc) #2 {
+define internal noundef i32 @attlist6(ptr nocapture noundef %state, i32 noundef %tok, ptr nocapture readnone %ptr, ptr nocapture readnone %end, ptr nocapture readnone %enc) #2 {
 entry:
   switch i32 %tok, label %sw.epilog [
     i32 15, label %return
@@ -1393,7 +1390,7 @@ entry:
   ]
 
 sw.epilog:                                        ; preds = %entry
-  %documentEntity.i = getelementptr inbounds %struct.prolog_state, ptr %state, i64 0, i32 4
+  %documentEntity.i = getelementptr inbounds i8, ptr %state, i64 20
   %0 = load i32, ptr %documentEntity.i, align 4
   %tobool.i = icmp eq i32 %0, 0
   %cmp.i = icmp eq i32 %tok, 28
@@ -1412,7 +1409,7 @@ return:                                           ; preds = %return.sink.split, 
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define internal i32 @attlist7(ptr nocapture noundef %state, i32 noundef %tok, ptr nocapture readnone %ptr, ptr nocapture readnone %end, ptr nocapture readnone %enc) #2 {
+define internal noundef i32 @attlist7(ptr nocapture noundef %state, i32 noundef %tok, ptr nocapture readnone %ptr, ptr nocapture readnone %end, ptr nocapture readnone %enc) #2 {
 entry:
   switch i32 %tok, label %sw.epilog [
     i32 15, label %return
@@ -1424,7 +1421,7 @@ sw.bb2:                                           ; preds = %entry
   br label %return.sink.split
 
 sw.epilog:                                        ; preds = %entry
-  %documentEntity.i = getelementptr inbounds %struct.prolog_state, ptr %state, i64 0, i32 4
+  %documentEntity.i = getelementptr inbounds i8, ptr %state, i64 20
   %0 = load i32, ptr %documentEntity.i, align 4
   %tobool.i = icmp eq i32 %0, 0
   %cmp.i = icmp eq i32 %tok, 28
@@ -1443,7 +1440,7 @@ return:                                           ; preds = %return.sink.split, 
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define internal i32 @attlist4(ptr nocapture noundef %state, i32 noundef %tok, ptr nocapture readnone %ptr, ptr nocapture readnone %end, ptr nocapture readnone %enc) #2 {
+define internal noundef i32 @attlist4(ptr nocapture noundef %state, i32 noundef %tok, ptr nocapture readnone %ptr, ptr nocapture readnone %end, ptr nocapture readnone %enc) #2 {
 entry:
   switch i32 %tok, label %sw.epilog [
     i32 15, label %return
@@ -1455,7 +1452,7 @@ sw.bb2:                                           ; preds = %entry
   br label %return.sink.split
 
 sw.epilog:                                        ; preds = %entry
-  %documentEntity.i = getelementptr inbounds %struct.prolog_state, ptr %state, i64 0, i32 4
+  %documentEntity.i = getelementptr inbounds i8, ptr %state, i64 20
   %0 = load i32, ptr %documentEntity.i, align 4
   %tobool.i = icmp eq i32 %0, 0
   %cmp.i = icmp eq i32 %tok, 28
@@ -1474,7 +1471,7 @@ return:                                           ; preds = %return.sink.split, 
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @element1(ptr nocapture noundef %state, i32 noundef %tok, ptr noundef %ptr, ptr noundef %end, ptr noundef %enc) #1 {
+define internal noundef i32 @element1(ptr nocapture noundef %state, i32 noundef %tok, ptr noundef %ptr, ptr noundef %end, ptr noundef %enc) #1 {
 entry:
   switch i32 %tok, label %sw.epilog [
     i32 15, label %return
@@ -1483,38 +1480,38 @@ entry:
   ]
 
 sw.bb1:                                           ; preds = %entry
-  %nameMatchesAscii = getelementptr inbounds %struct.encoding, ptr %enc, i64 0, i32 2
+  %nameMatchesAscii = getelementptr inbounds i8, ptr %enc, i64 48
   %0 = load ptr, ptr %nameMatchesAscii, align 8
-  %call = tail call i32 %0(ptr noundef %enc, ptr noundef %ptr, ptr noundef %end, ptr noundef nonnull @KW_EMPTY) #6
+  %call = tail call i32 %0(ptr noundef %enc, ptr noundef %ptr, ptr noundef %end, ptr noundef nonnull @KW_EMPTY) #5
   %tobool.not = icmp eq i32 %call, 0
   br i1 %tobool.not, label %if.end, label %if.then
 
 if.then:                                          ; preds = %sw.bb1
   store ptr @declClose, ptr %state, align 8
-  %role_none = getelementptr inbounds %struct.prolog_state, ptr %state, i64 0, i32 2
+  %role_none = getelementptr inbounds i8, ptr %state, i64 12
   store i32 39, ptr %role_none, align 4
   br label %return
 
 if.end:                                           ; preds = %sw.bb1
   %1 = load ptr, ptr %nameMatchesAscii, align 8
-  %call3 = tail call i32 %1(ptr noundef nonnull %enc, ptr noundef %ptr, ptr noundef %end, ptr noundef nonnull @KW_ANY) #6
+  %call3 = tail call i32 %1(ptr noundef nonnull %enc, ptr noundef %ptr, ptr noundef %end, ptr noundef nonnull @KW_ANY) #5
   %tobool4.not = icmp eq i32 %call3, 0
   br i1 %tobool4.not, label %if.end.i, label %if.then5
 
 if.then5:                                         ; preds = %if.end
   store ptr @declClose, ptr %state, align 8
-  %role_none7 = getelementptr inbounds %struct.prolog_state, ptr %state, i64 0, i32 2
+  %role_none7 = getelementptr inbounds i8, ptr %state, i64 12
   store i32 39, ptr %role_none7, align 4
   br label %return
 
 sw.bb9:                                           ; preds = %entry
   store ptr @element2, ptr %state, align 8
-  %level = getelementptr inbounds %struct.prolog_state, ptr %state, i64 0, i32 1
+  %level = getelementptr inbounds i8, ptr %state, i64 8
   store i32 1, ptr %level, align 8
   br label %return
 
 sw.epilog:                                        ; preds = %entry
-  %documentEntity.i = getelementptr inbounds %struct.prolog_state, ptr %state, i64 0, i32 4
+  %documentEntity.i = getelementptr inbounds i8, ptr %state, i64 20
   %2 = load i32, ptr %documentEntity.i, align 4
   %tobool.i = icmp eq i32 %2, 0
   %cmp.i = icmp eq i32 %tok, 28
@@ -1531,7 +1528,7 @@ return:                                           ; preds = %if.end.i, %sw.epilo
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @element2(ptr nocapture noundef %state, i32 noundef %tok, ptr noundef %ptr, ptr noundef %end, ptr noundef %enc) #1 {
+define internal noundef i32 @element2(ptr nocapture noundef %state, i32 noundef %tok, ptr noundef %ptr, ptr noundef %end, ptr noundef %enc) #1 {
 entry:
   switch i32 %tok, label %sw.epilog [
     i32 15, label %return
@@ -1545,18 +1542,18 @@ entry:
   ]
 
 sw.bb1:                                           ; preds = %entry
-  %nameMatchesAscii = getelementptr inbounds %struct.encoding, ptr %enc, i64 0, i32 2
+  %nameMatchesAscii = getelementptr inbounds i8, ptr %enc, i64 48
   %0 = load ptr, ptr %nameMatchesAscii, align 8
-  %minBytesPerChar = getelementptr inbounds %struct.encoding, ptr %enc, i64 0, i32 12
+  %minBytesPerChar = getelementptr inbounds i8, ptr %enc, i64 128
   %1 = load i32, ptr %minBytesPerChar, align 8
   %idx.ext = sext i32 %1 to i64
   %add.ptr = getelementptr i8, ptr %ptr, i64 %idx.ext
-  %call = tail call i32 %0(ptr noundef %enc, ptr noundef %add.ptr, ptr noundef %end, ptr noundef nonnull @KW_PCDATA) #6
+  %call = tail call i32 %0(ptr noundef %enc, ptr noundef %add.ptr, ptr noundef %end, ptr noundef nonnull @KW_PCDATA) #5
   %tobool.not = icmp eq i32 %call, 0
   br i1 %tobool.not, label %if.end.i, label %return.sink.split
 
 sw.bb2:                                           ; preds = %entry
-  %level = getelementptr inbounds %struct.prolog_state, ptr %state, i64 0, i32 1
+  %level = getelementptr inbounds i8, ptr %state, i64 8
   store i32 2, ptr %level, align 8
   br label %return.sink.split
 
@@ -1570,7 +1567,7 @@ sw.bb10:                                          ; preds = %entry
   br label %return.sink.split
 
 sw.epilog:                                        ; preds = %entry
-  %documentEntity.i = getelementptr inbounds %struct.prolog_state, ptr %state, i64 0, i32 4
+  %documentEntity.i = getelementptr inbounds i8, ptr %state, i64 20
   %2 = load i32, ptr %documentEntity.i, align 4
   %tobool.i = icmp eq i32 %2, 0
   %cmp.i = icmp eq i32 %tok, 28
@@ -1592,7 +1589,7 @@ return:                                           ; preds = %return.sink.split, 
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define internal i32 @element3(ptr nocapture noundef %state, i32 noundef %tok, ptr nocapture readnone %ptr, ptr nocapture readnone %end, ptr nocapture readnone %enc) #2 {
+define internal noundef i32 @element3(ptr nocapture noundef %state, i32 noundef %tok, ptr nocapture readnone %ptr, ptr nocapture readnone %end, ptr nocapture readnone %enc) #2 {
 entry:
   switch i32 %tok, label %sw.epilog [
     i32 15, label %return
@@ -1603,13 +1600,13 @@ entry:
 
 sw.bb1:                                           ; preds = %entry
   store ptr @declClose, ptr %state, align 8
-  %role_none = getelementptr inbounds %struct.prolog_state, ptr %state, i64 0, i32 2
+  %role_none = getelementptr inbounds i8, ptr %state, i64 12
   store i32 39, ptr %role_none, align 4
   br label %return
 
 sw.bb2:                                           ; preds = %entry
   store ptr @declClose, ptr %state, align 8
-  %role_none4 = getelementptr inbounds %struct.prolog_state, ptr %state, i64 0, i32 2
+  %role_none4 = getelementptr inbounds i8, ptr %state, i64 12
   store i32 39, ptr %role_none4, align 4
   br label %return
 
@@ -1618,7 +1615,7 @@ sw.bb5:                                           ; preds = %entry
   br label %return
 
 sw.epilog:                                        ; preds = %entry
-  %documentEntity.i = getelementptr inbounds %struct.prolog_state, ptr %state, i64 0, i32 4
+  %documentEntity.i = getelementptr inbounds i8, ptr %state, i64 20
   %0 = load i32, ptr %documentEntity.i, align 4
   %tobool.i = icmp eq i32 %0, 0
   %cmp.i = icmp eq i32 %tok, 28
@@ -1635,7 +1632,7 @@ return:                                           ; preds = %if.end.i, %sw.epilo
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define internal i32 @element6(ptr nocapture noundef %state, i32 noundef %tok, ptr nocapture readnone %ptr, ptr nocapture readnone %end, ptr nocapture readnone %enc) #2 {
+define internal noundef i32 @element6(ptr nocapture noundef %state, i32 noundef %tok, ptr nocapture readnone %ptr, ptr nocapture readnone %end, ptr nocapture readnone %enc) #2 {
 entry:
   switch i32 %tok, label %sw.epilog [
     i32 15, label %return
@@ -1648,7 +1645,7 @@ entry:
   ]
 
 sw.bb1:                                           ; preds = %entry
-  %level = getelementptr inbounds %struct.prolog_state, ptr %state, i64 0, i32 1
+  %level = getelementptr inbounds i8, ptr %state, i64 8
   %0 = load i32, ptr %level, align 8
   %add = add i32 %0, 1
   store i32 %add, ptr %level, align 8
@@ -1671,7 +1668,7 @@ sw.bb7:                                           ; preds = %entry
   br label %return
 
 sw.epilog:                                        ; preds = %entry
-  %documentEntity.i = getelementptr inbounds %struct.prolog_state, ptr %state, i64 0, i32 4
+  %documentEntity.i = getelementptr inbounds i8, ptr %state, i64 20
   %1 = load i32, ptr %documentEntity.i, align 4
   %tobool.i = icmp eq i32 %1, 0
   %cmp.i = icmp eq i32 %tok, 28
@@ -1688,7 +1685,7 @@ return:                                           ; preds = %if.end.i, %sw.epilo
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define internal i32 @element7(ptr nocapture noundef %state, i32 noundef %tok, ptr nocapture readnone %ptr, ptr nocapture readnone %end, ptr nocapture readnone %enc) #2 {
+define internal noundef i32 @element7(ptr nocapture noundef %state, i32 noundef %tok, ptr nocapture readnone %ptr, ptr nocapture readnone %end, ptr nocapture readnone %enc) #2 {
 entry:
   switch i32 %tok, label %sw.epilog [
     i32 15, label %return
@@ -1701,7 +1698,7 @@ entry:
   ]
 
 sw.bb1:                                           ; preds = %entry
-  %level = getelementptr inbounds %struct.prolog_state, ptr %state, i64 0, i32 1
+  %level = getelementptr inbounds i8, ptr %state, i64 8
   %0 = load i32, ptr %level, align 8
   %sub = add i32 %0, -1
   store i32 %sub, ptr %level, align 8
@@ -1710,12 +1707,12 @@ sw.bb1:                                           ; preds = %entry
 
 if.then:                                          ; preds = %sw.bb1
   store ptr @declClose, ptr %state, align 8
-  %role_none = getelementptr inbounds %struct.prolog_state, ptr %state, i64 0, i32 2
+  %role_none = getelementptr inbounds i8, ptr %state, i64 12
   store i32 39, ptr %role_none, align 4
   br label %return
 
 sw.bb3:                                           ; preds = %entry
-  %level4 = getelementptr inbounds %struct.prolog_state, ptr %state, i64 0, i32 1
+  %level4 = getelementptr inbounds i8, ptr %state, i64 8
   %1 = load i32, ptr %level4, align 8
   %sub5 = add i32 %1, -1
   store i32 %sub5, ptr %level4, align 8
@@ -1724,12 +1721,12 @@ sw.bb3:                                           ; preds = %entry
 
 if.then8:                                         ; preds = %sw.bb3
   store ptr @declClose, ptr %state, align 8
-  %role_none10 = getelementptr inbounds %struct.prolog_state, ptr %state, i64 0, i32 2
+  %role_none10 = getelementptr inbounds i8, ptr %state, i64 12
   store i32 39, ptr %role_none10, align 4
   br label %return
 
 sw.bb12:                                          ; preds = %entry
-  %level13 = getelementptr inbounds %struct.prolog_state, ptr %state, i64 0, i32 1
+  %level13 = getelementptr inbounds i8, ptr %state, i64 8
   %2 = load i32, ptr %level13, align 8
   %sub14 = add i32 %2, -1
   store i32 %sub14, ptr %level13, align 8
@@ -1738,12 +1735,12 @@ sw.bb12:                                          ; preds = %entry
 
 if.then17:                                        ; preds = %sw.bb12
   store ptr @declClose, ptr %state, align 8
-  %role_none19 = getelementptr inbounds %struct.prolog_state, ptr %state, i64 0, i32 2
+  %role_none19 = getelementptr inbounds i8, ptr %state, i64 12
   store i32 39, ptr %role_none19, align 4
   br label %return
 
 sw.bb21:                                          ; preds = %entry
-  %level22 = getelementptr inbounds %struct.prolog_state, ptr %state, i64 0, i32 1
+  %level22 = getelementptr inbounds i8, ptr %state, i64 8
   %3 = load i32, ptr %level22, align 8
   %sub23 = add i32 %3, -1
   store i32 %sub23, ptr %level22, align 8
@@ -1752,7 +1749,7 @@ sw.bb21:                                          ; preds = %entry
 
 if.then26:                                        ; preds = %sw.bb21
   store ptr @declClose, ptr %state, align 8
-  %role_none28 = getelementptr inbounds %struct.prolog_state, ptr %state, i64 0, i32 2
+  %role_none28 = getelementptr inbounds i8, ptr %state, i64 12
   store i32 39, ptr %role_none28, align 4
   br label %return
 
@@ -1765,7 +1762,7 @@ sw.bb32:                                          ; preds = %entry
   br label %return
 
 sw.epilog:                                        ; preds = %entry
-  %documentEntity.i = getelementptr inbounds %struct.prolog_state, ptr %state, i64 0, i32 4
+  %documentEntity.i = getelementptr inbounds i8, ptr %state, i64 20
   %4 = load i32, ptr %documentEntity.i, align 4
   %tobool.i = icmp eq i32 %4, 0
   %cmp.i = icmp eq i32 %tok, 28
@@ -1782,7 +1779,7 @@ return:                                           ; preds = %if.end.i, %sw.epilo
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define internal i32 @element4(ptr nocapture noundef %state, i32 noundef %tok, ptr nocapture readnone %ptr, ptr nocapture readnone %end, ptr nocapture readnone %enc) #2 {
+define internal noundef i32 @element4(ptr nocapture noundef %state, i32 noundef %tok, ptr nocapture readnone %ptr, ptr nocapture readnone %end, ptr nocapture readnone %enc) #2 {
 entry:
   switch i32 %tok, label %sw.epilog [
     i32 15, label %return
@@ -1791,7 +1788,7 @@ entry:
   ]
 
 sw.epilog:                                        ; preds = %entry
-  %documentEntity.i = getelementptr inbounds %struct.prolog_state, ptr %state, i64 0, i32 4
+  %documentEntity.i = getelementptr inbounds i8, ptr %state, i64 20
   %0 = load i32, ptr %documentEntity.i, align 4
   %tobool.i = icmp eq i32 %0, 0
   %cmp.i = icmp eq i32 %tok, 28
@@ -1810,7 +1807,7 @@ return:                                           ; preds = %return.sink.split, 
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define internal i32 @element5(ptr nocapture noundef %state, i32 noundef %tok, ptr nocapture readnone %ptr, ptr nocapture readnone %end, ptr nocapture readnone %enc) #2 {
+define internal noundef i32 @element5(ptr nocapture noundef %state, i32 noundef %tok, ptr nocapture readnone %ptr, ptr nocapture readnone %end, ptr nocapture readnone %enc) #2 {
 entry:
   switch i32 %tok, label %sw.epilog [
     i32 15, label %return
@@ -1820,7 +1817,7 @@ entry:
 
 sw.bb1:                                           ; preds = %entry
   store ptr @declClose, ptr %state, align 8
-  %role_none = getelementptr inbounds %struct.prolog_state, ptr %state, i64 0, i32 2
+  %role_none = getelementptr inbounds i8, ptr %state, i64 12
   store i32 39, ptr %role_none, align 4
   br label %return
 
@@ -1829,7 +1826,7 @@ sw.bb2:                                           ; preds = %entry
   br label %return
 
 sw.epilog:                                        ; preds = %entry
-  %documentEntity.i = getelementptr inbounds %struct.prolog_state, ptr %state, i64 0, i32 4
+  %documentEntity.i = getelementptr inbounds i8, ptr %state, i64 20
   %0 = load i32, ptr %documentEntity.i, align 4
   %tobool.i = icmp eq i32 %0, 0
   %cmp.i = icmp eq i32 %tok, 28
@@ -1846,7 +1843,7 @@ return:                                           ; preds = %if.end.i, %sw.epilo
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @notation1(ptr nocapture noundef %state, i32 noundef %tok, ptr noundef %ptr, ptr noundef %end, ptr noundef %enc) #1 {
+define internal noundef i32 @notation1(ptr nocapture noundef %state, i32 noundef %tok, ptr noundef %ptr, ptr noundef %end, ptr noundef %enc) #1 {
 entry:
   switch i32 %tok, label %sw.epilog [
     i32 15, label %return
@@ -1854,20 +1851,20 @@ entry:
   ]
 
 sw.bb1:                                           ; preds = %entry
-  %nameMatchesAscii = getelementptr inbounds %struct.encoding, ptr %enc, i64 0, i32 2
+  %nameMatchesAscii = getelementptr inbounds i8, ptr %enc, i64 48
   %0 = load ptr, ptr %nameMatchesAscii, align 8
-  %call = tail call i32 %0(ptr noundef %enc, ptr noundef %ptr, ptr noundef %end, ptr noundef nonnull @KW_SYSTEM) #6
+  %call = tail call i32 %0(ptr noundef %enc, ptr noundef %ptr, ptr noundef %end, ptr noundef nonnull @KW_SYSTEM) #5
   %tobool.not = icmp eq i32 %call, 0
   br i1 %tobool.not, label %if.end, label %return.sink.split
 
 if.end:                                           ; preds = %sw.bb1
   %1 = load ptr, ptr %nameMatchesAscii, align 8
-  %call3 = tail call i32 %1(ptr noundef nonnull %enc, ptr noundef %ptr, ptr noundef %end, ptr noundef nonnull @KW_PUBLIC) #6
+  %call3 = tail call i32 %1(ptr noundef nonnull %enc, ptr noundef %ptr, ptr noundef %end, ptr noundef nonnull @KW_PUBLIC) #5
   %tobool4.not = icmp eq i32 %call3, 0
   br i1 %tobool4.not, label %if.end.i, label %return.sink.split
 
 sw.epilog:                                        ; preds = %entry
-  %documentEntity.i = getelementptr inbounds %struct.prolog_state, ptr %state, i64 0, i32 4
+  %documentEntity.i = getelementptr inbounds i8, ptr %state, i64 20
   %2 = load i32, ptr %documentEntity.i, align 4
   %tobool.i = icmp eq i32 %2, 0
   %cmp.i = icmp eq i32 %tok, 28
@@ -1889,7 +1886,7 @@ return:                                           ; preds = %return.sink.split, 
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define internal i32 @notation3(ptr nocapture noundef %state, i32 noundef %tok, ptr nocapture readnone %ptr, ptr nocapture readnone %end, ptr nocapture readnone %enc) #2 {
+define internal noundef i32 @notation3(ptr nocapture noundef %state, i32 noundef %tok, ptr nocapture readnone %ptr, ptr nocapture readnone %end, ptr nocapture readnone %enc) #2 {
 entry:
   switch i32 %tok, label %sw.epilog [
     i32 15, label %return
@@ -1898,12 +1895,12 @@ entry:
 
 sw.bb1:                                           ; preds = %entry
   store ptr @declClose, ptr %state, align 8
-  %role_none = getelementptr inbounds %struct.prolog_state, ptr %state, i64 0, i32 2
+  %role_none = getelementptr inbounds i8, ptr %state, i64 12
   store i32 17, ptr %role_none, align 4
   br label %return
 
 sw.epilog:                                        ; preds = %entry
-  %documentEntity.i = getelementptr inbounds %struct.prolog_state, ptr %state, i64 0, i32 4
+  %documentEntity.i = getelementptr inbounds i8, ptr %state, i64 20
   %0 = load i32, ptr %documentEntity.i, align 4
   %tobool.i = icmp eq i32 %0, 0
   %cmp.i = icmp eq i32 %tok, 28
@@ -1920,7 +1917,7 @@ return:                                           ; preds = %if.end.i, %sw.epilo
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define internal i32 @notation2(ptr nocapture noundef %state, i32 noundef %tok, ptr nocapture readnone %ptr, ptr nocapture readnone %end, ptr nocapture readnone %enc) #2 {
+define internal noundef i32 @notation2(ptr nocapture noundef %state, i32 noundef %tok, ptr nocapture readnone %ptr, ptr nocapture readnone %end, ptr nocapture readnone %enc) #2 {
 entry:
   switch i32 %tok, label %sw.epilog [
     i32 15, label %return
@@ -1928,7 +1925,7 @@ entry:
   ]
 
 sw.epilog:                                        ; preds = %entry
-  %documentEntity.i = getelementptr inbounds %struct.prolog_state, ptr %state, i64 0, i32 4
+  %documentEntity.i = getelementptr inbounds i8, ptr %state, i64 20
   %0 = load i32, ptr %documentEntity.i, align 4
   %tobool.i = icmp eq i32 %0, 0
   %cmp.i = icmp eq i32 %tok, 28
@@ -1947,7 +1944,7 @@ return:                                           ; preds = %return.sink.split, 
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define internal i32 @notation4(ptr nocapture noundef %state, i32 noundef %tok, ptr nocapture readnone %ptr, ptr nocapture readnone %end, ptr nocapture readnone %enc) #2 {
+define internal noundef i32 @notation4(ptr nocapture noundef %state, i32 noundef %tok, ptr nocapture readnone %ptr, ptr nocapture readnone %end, ptr nocapture readnone %enc) #2 {
 entry:
   switch i32 %tok, label %sw.epilog [
     i32 15, label %return
@@ -1957,12 +1954,12 @@ entry:
 
 sw.bb1:                                           ; preds = %entry
   store ptr @declClose, ptr %state, align 8
-  %role_none = getelementptr inbounds %struct.prolog_state, ptr %state, i64 0, i32 2
+  %role_none = getelementptr inbounds i8, ptr %state, i64 12
   store i32 17, ptr %role_none, align 4
   br label %return
 
 sw.bb2:                                           ; preds = %entry
-  %documentEntity = getelementptr inbounds %struct.prolog_state, ptr %state, i64 0, i32 4
+  %documentEntity = getelementptr inbounds i8, ptr %state, i64 20
   %0 = load i32, ptr %documentEntity, align 4
   %tobool.not = icmp eq i32 %0, 0
   %cond = select i1 %tobool.not, ptr @externalSubset1, ptr @internalSubset
@@ -1970,7 +1967,7 @@ sw.bb2:                                           ; preds = %entry
   br label %return
 
 sw.epilog:                                        ; preds = %entry
-  %documentEntity.i = getelementptr inbounds %struct.prolog_state, ptr %state, i64 0, i32 4
+  %documentEntity.i = getelementptr inbounds i8, ptr %state, i64 20
   %1 = load i32, ptr %documentEntity.i, align 4
   %tobool.i = icmp eq i32 %1, 0
   %cmp.i = icmp eq i32 %tok, 28
@@ -1987,7 +1984,7 @@ return:                                           ; preds = %if.end.i, %sw.epilo
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define internal i32 @doctype4(ptr nocapture noundef %state, i32 noundef %tok, ptr nocapture readnone %ptr, ptr nocapture readnone %end, ptr nocapture readnone %enc) #2 {
+define internal noundef i32 @doctype4(ptr nocapture noundef %state, i32 noundef %tok, ptr nocapture readnone %ptr, ptr nocapture readnone %end, ptr nocapture readnone %enc) #2 {
 entry:
   switch i32 %tok, label %sw.epilog [
     i32 15, label %return
@@ -1999,7 +1996,7 @@ sw.bb2:                                           ; preds = %entry
   br label %return.sink.split
 
 sw.epilog:                                        ; preds = %entry
-  %documentEntity.i = getelementptr inbounds %struct.prolog_state, ptr %state, i64 0, i32 4
+  %documentEntity.i = getelementptr inbounds i8, ptr %state, i64 20
   %0 = load i32, ptr %documentEntity.i, align 4
   %tobool.i = icmp eq i32 %0, 0
   %cmp.i = icmp eq i32 %tok, 28
@@ -2018,15 +2015,14 @@ return:                                           ; preds = %return.sink.split, 
 }
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i32 @llvm.fshl.i32(i32, i32, i32) #5
+declare i32 @llvm.fshl.i32(i32, i32, i32) #4
 
 attributes #0 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #2 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #3 = { mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #4 = { mustprogress nofree nosync nounwind willreturn memory(argmem: readwrite) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #5 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
-attributes #6 = { nounwind }
+attributes #4 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
+attributes #5 = { nounwind }
 
 !llvm.module.flags = !{!0, !1, !2, !3}
 

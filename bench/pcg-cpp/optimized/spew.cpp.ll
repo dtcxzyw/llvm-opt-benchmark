@@ -69,7 +69,7 @@ for.body.i.i.i.i.i.i:                             ; preds = %call.i.i.i.i.i.i.no
   %shift.08.i.i.i.i.i.i = phi i64 [ %add.i.i.i.i.i.i, %for.body.i.i.i.i.i.i ], [ 0, %call.i.i.i.i.i.i.noexc ]
   %value.07.i.i.i.i.i.i = phi i64 [ %or.i.i.i.i.i.i, %for.body.i.i.i.i.i.i ], [ 0, %call.i.i.i.i.i.i.noexc ]
   %src_first.addr.16.i.i.i.i.i.i = phi ptr [ %incdec.ptr.i.i.i.i.i.i, %for.body.i.i.i.i.i.i ], [ %buffer.i.i.i.i, %call.i.i.i.i.i.i.noexc ]
-  %incdec.ptr.i.i.i.i.i.i = getelementptr inbounds i32, ptr %src_first.addr.16.i.i.i.i.i.i, i64 1
+  %incdec.ptr.i.i.i.i.i.i = getelementptr inbounds i8, ptr %src_first.addr.16.i.i.i.i.i.i, i64 4
   %0 = load i32, ptr %src_first.addr.16.i.i.i.i.i.i, align 4
   %conv.i.i.i.i.i.i = zext i32 %0 to i64
   %sh_prom.i.i.i.i.i.i = and i64 %shift.08.i.i.i.i.i.i, 4294967295
@@ -96,7 +96,7 @@ _ZN10pcg_extras13seed_seq_fromISt13random_deviceED2Ev.exit: ; preds = %invoke.co
   %vbase.offset.ptr.i = getelementptr i8, ptr %vtable.i, i64 -24
   %vbase.offset.i = load i64, ptr %vbase.offset.ptr.i, align 8
   %add.ptr.i = getelementptr inbounds i8, ptr @_ZSt4clog, i64 %vbase.offset.i
-  %_M_flags.i.i = getelementptr inbounds %"class.std::ios_base", ptr %add.ptr.i, i64 0, i32 3
+  %_M_flags.i.i = getelementptr inbounds i8, ptr %add.ptr.i, i64 24
   %3 = load i32, ptr %_M_flags.i.i, align 8
   store i32 34, ptr %_M_flags.i.i, align 8
   %vtable2.i = load ptr, ptr @_ZSt4clog, align 8
@@ -118,7 +118,7 @@ _ZN10pcg_extras13seed_seq_fromISt13random_deviceED2Ev.exit: ; preds = %invoke.co
   %vbase.offset.ptr20.i = getelementptr i8, ptr %vtable19.i, i64 -24
   %vbase.offset21.i = load i64, ptr %vbase.offset.ptr20.i, align 8
   %add.ptr22.i = getelementptr inbounds i8, ptr @_ZSt4clog, i64 %vbase.offset21.i
-  %_M_flags.i8.i = getelementptr inbounds %"class.std::ios_base", ptr %add.ptr22.i, i64 0, i32 3
+  %_M_flags.i8.i = getelementptr inbounds i8, ptr %add.ptr22.i, i64 24
   store i32 %3, ptr %_M_flags.i8.i, align 8
   %vtable24.i = load ptr, ptr @_ZSt4clog, align 8
   %vbase.offset.ptr25.i = getelementptr i8, ptr %vtable24.i, i64 -24

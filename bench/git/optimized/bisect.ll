@@ -24,13 +24,9 @@ target triple = "x86_64-unknown-linux-gnu"
 %struct.decoration = type { ptr, i32, i32, ptr }
 %struct.oidset = type { %struct.kh_oid_set }
 %struct.kh_oid_set = type { i32, i32, i32, i32, ptr, ptr, ptr }
-%struct.object = type { i32, %struct.object_id }
-%struct.object_id = type { [32 x i8], i32 }
 %struct.child_process = type { %struct.strvec, %struct.strvec, i32, i32, i64, ptr, ptr, i32, i32, i32, ptr, i16, ptr }
+%struct.object_id = type { [32 x i8], i32 }
 %struct.oid_array = type { ptr, i64, i64, i32 }
-%struct.repository = type { ptr, ptr, ptr, ptr, ptr, %struct.repo_path_cache, ptr, ptr, ptr, ptr, %struct.repo_settings, ptr, ptr, ptr, ptr, ptr, i32, i32, i32, ptr, ptr, i32, i8 }
-%struct.repo_path_cache = type { ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr }
-%struct.repo_settings = type { i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, ptr, i32, i32, i32, i32, i32, i32 }
 %struct.__va_list_tag = type { i32, i32, ptr, ptr }
 %struct.string_list_item = type { ptr, ptr }
 %struct.pretty_print_context = type { i32, i32, ptr, i32, %struct.date_mode, i8, i32, i32, i32, ptr, ptr, ptr, ptr, ptr, i32, ptr, i8, ptr, %struct.string_list, i32 }
@@ -217,145 +213,145 @@ entry:
   %terms = alloca %struct.bisect_terms, align 8
   store ptr null, ptr %fn, align 8
   store i32 4, ptr %options, align 16
-  %short_name = getelementptr inbounds %struct.option, ptr %options, i64 0, i32 1
+  %short_name = getelementptr inbounds i8, ptr %options, i64 4
   store i32 0, ptr %short_name, align 4
-  %long_name = getelementptr inbounds %struct.option, ptr %options, i64 0, i32 2
+  %long_name = getelementptr inbounds i8, ptr %options, i64 8
   store ptr @.str, ptr %long_name, align 8
-  %value = getelementptr inbounds %struct.option, ptr %options, i64 0, i32 3
+  %value = getelementptr inbounds i8, ptr %options, i64 16
   store ptr %fn, ptr %value, align 16
-  %argh = getelementptr inbounds %struct.option, ptr %options, i64 0, i32 4
-  %callback = getelementptr inbounds %struct.option, ptr %options, i64 0, i32 7
-  %subcommand_fn = getelementptr inbounds %struct.option, ptr %options, i64 0, i32 11
+  %argh = getelementptr inbounds i8, ptr %options, i64 24
+  %callback = getelementptr inbounds i8, ptr %options, i64 48
+  %subcommand_fn = getelementptr inbounds i8, ptr %options, i64 80
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(20) %argh, i8 0, i64 20, i1 false)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(32) %callback, i8 0, i64 32, i1 false)
   store ptr @cmd_bisect__reset, ptr %subcommand_fn, align 16
-  %arrayinit.element = getelementptr inbounds %struct.option, ptr %options, i64 1
+  %arrayinit.element = getelementptr inbounds i8, ptr %options, i64 88
   store i32 4, ptr %arrayinit.element, align 8
-  %short_name2 = getelementptr inbounds %struct.option, ptr %options, i64 1, i32 1
+  %short_name2 = getelementptr inbounds i8, ptr %options, i64 92
   store i32 0, ptr %short_name2, align 4
-  %long_name3 = getelementptr inbounds %struct.option, ptr %options, i64 1, i32 2
+  %long_name3 = getelementptr inbounds i8, ptr %options, i64 96
   store ptr @.str.1, ptr %long_name3, align 16
-  %value4 = getelementptr inbounds %struct.option, ptr %options, i64 1, i32 3
+  %value4 = getelementptr inbounds i8, ptr %options, i64 104
   store ptr %fn, ptr %value4, align 8
-  %argh5 = getelementptr inbounds %struct.option, ptr %options, i64 1, i32 4
-  %callback8 = getelementptr inbounds %struct.option, ptr %options, i64 1, i32 7
-  %subcommand_fn12 = getelementptr inbounds %struct.option, ptr %options, i64 1, i32 11
+  %argh5 = getelementptr inbounds i8, ptr %options, i64 112
+  %callback8 = getelementptr inbounds i8, ptr %options, i64 136
+  %subcommand_fn12 = getelementptr inbounds i8, ptr %options, i64 168
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(20) %argh5, i8 0, i64 20, i1 false)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %callback8, i8 0, i64 32, i1 false)
   store ptr @cmd_bisect__terms, ptr %subcommand_fn12, align 8
-  %arrayinit.element13 = getelementptr inbounds %struct.option, ptr %options, i64 2
+  %arrayinit.element13 = getelementptr inbounds i8, ptr %options, i64 176
   store i32 4, ptr %arrayinit.element13, align 16
-  %short_name15 = getelementptr inbounds %struct.option, ptr %options, i64 2, i32 1
+  %short_name15 = getelementptr inbounds i8, ptr %options, i64 180
   store i32 0, ptr %short_name15, align 4
-  %long_name16 = getelementptr inbounds %struct.option, ptr %options, i64 2, i32 2
+  %long_name16 = getelementptr inbounds i8, ptr %options, i64 184
   store ptr @.str.2, ptr %long_name16, align 8
-  %value17 = getelementptr inbounds %struct.option, ptr %options, i64 2, i32 3
+  %value17 = getelementptr inbounds i8, ptr %options, i64 192
   store ptr %fn, ptr %value17, align 16
-  %argh18 = getelementptr inbounds %struct.option, ptr %options, i64 2, i32 4
-  %callback21 = getelementptr inbounds %struct.option, ptr %options, i64 2, i32 7
-  %subcommand_fn25 = getelementptr inbounds %struct.option, ptr %options, i64 2, i32 11
+  %argh18 = getelementptr inbounds i8, ptr %options, i64 200
+  %callback21 = getelementptr inbounds i8, ptr %options, i64 224
+  %subcommand_fn25 = getelementptr inbounds i8, ptr %options, i64 256
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(20) %argh18, i8 0, i64 20, i1 false)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(32) %callback21, i8 0, i64 32, i1 false)
   store ptr @cmd_bisect__start, ptr %subcommand_fn25, align 16
-  %arrayinit.element26 = getelementptr inbounds %struct.option, ptr %options, i64 3
+  %arrayinit.element26 = getelementptr inbounds i8, ptr %options, i64 264
   store i32 4, ptr %arrayinit.element26, align 8
-  %short_name28 = getelementptr inbounds %struct.option, ptr %options, i64 3, i32 1
+  %short_name28 = getelementptr inbounds i8, ptr %options, i64 268
   store i32 0, ptr %short_name28, align 4
-  %long_name29 = getelementptr inbounds %struct.option, ptr %options, i64 3, i32 2
+  %long_name29 = getelementptr inbounds i8, ptr %options, i64 272
   store ptr @.str.3, ptr %long_name29, align 16
-  %value30 = getelementptr inbounds %struct.option, ptr %options, i64 3, i32 3
+  %value30 = getelementptr inbounds i8, ptr %options, i64 280
   store ptr %fn, ptr %value30, align 8
-  %argh31 = getelementptr inbounds %struct.option, ptr %options, i64 3, i32 4
-  %callback34 = getelementptr inbounds %struct.option, ptr %options, i64 3, i32 7
-  %subcommand_fn38 = getelementptr inbounds %struct.option, ptr %options, i64 3, i32 11
+  %argh31 = getelementptr inbounds i8, ptr %options, i64 288
+  %callback34 = getelementptr inbounds i8, ptr %options, i64 312
+  %subcommand_fn38 = getelementptr inbounds i8, ptr %options, i64 344
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(20) %argh31, i8 0, i64 20, i1 false)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %callback34, i8 0, i64 32, i1 false)
   store ptr @cmd_bisect__next, ptr %subcommand_fn38, align 8
-  %arrayinit.element39 = getelementptr inbounds %struct.option, ptr %options, i64 4
+  %arrayinit.element39 = getelementptr inbounds i8, ptr %options, i64 352
   store i32 4, ptr %arrayinit.element39, align 16
-  %short_name41 = getelementptr inbounds %struct.option, ptr %options, i64 4, i32 1
+  %short_name41 = getelementptr inbounds i8, ptr %options, i64 356
   store i32 0, ptr %short_name41, align 4
-  %long_name42 = getelementptr inbounds %struct.option, ptr %options, i64 4, i32 2
+  %long_name42 = getelementptr inbounds i8, ptr %options, i64 360
   store ptr @.str.4, ptr %long_name42, align 8
-  %value43 = getelementptr inbounds %struct.option, ptr %options, i64 4, i32 3
+  %value43 = getelementptr inbounds i8, ptr %options, i64 368
   store ptr %fn, ptr %value43, align 16
-  %argh44 = getelementptr inbounds %struct.option, ptr %options, i64 4, i32 4
-  %callback47 = getelementptr inbounds %struct.option, ptr %options, i64 4, i32 7
-  %subcommand_fn51 = getelementptr inbounds %struct.option, ptr %options, i64 4, i32 11
+  %argh44 = getelementptr inbounds i8, ptr %options, i64 376
+  %callback47 = getelementptr inbounds i8, ptr %options, i64 400
+  %subcommand_fn51 = getelementptr inbounds i8, ptr %options, i64 432
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(20) %argh44, i8 0, i64 20, i1 false)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(32) %callback47, i8 0, i64 32, i1 false)
   store ptr @cmd_bisect__log, ptr %subcommand_fn51, align 16
-  %arrayinit.element52 = getelementptr inbounds %struct.option, ptr %options, i64 5
+  %arrayinit.element52 = getelementptr inbounds i8, ptr %options, i64 440
   store i32 4, ptr %arrayinit.element52, align 8
-  %short_name54 = getelementptr inbounds %struct.option, ptr %options, i64 5, i32 1
+  %short_name54 = getelementptr inbounds i8, ptr %options, i64 444
   store i32 0, ptr %short_name54, align 4
-  %long_name55 = getelementptr inbounds %struct.option, ptr %options, i64 5, i32 2
+  %long_name55 = getelementptr inbounds i8, ptr %options, i64 448
   store ptr @.str.5, ptr %long_name55, align 16
-  %value56 = getelementptr inbounds %struct.option, ptr %options, i64 5, i32 3
+  %value56 = getelementptr inbounds i8, ptr %options, i64 456
   store ptr %fn, ptr %value56, align 8
-  %argh57 = getelementptr inbounds %struct.option, ptr %options, i64 5, i32 4
-  %callback60 = getelementptr inbounds %struct.option, ptr %options, i64 5, i32 7
-  %subcommand_fn64 = getelementptr inbounds %struct.option, ptr %options, i64 5, i32 11
+  %argh57 = getelementptr inbounds i8, ptr %options, i64 464
+  %callback60 = getelementptr inbounds i8, ptr %options, i64 488
+  %subcommand_fn64 = getelementptr inbounds i8, ptr %options, i64 520
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(20) %argh57, i8 0, i64 20, i1 false)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %callback60, i8 0, i64 32, i1 false)
   store ptr @cmd_bisect__replay, ptr %subcommand_fn64, align 8
-  %arrayinit.element65 = getelementptr inbounds %struct.option, ptr %options, i64 6
+  %arrayinit.element65 = getelementptr inbounds i8, ptr %options, i64 528
   store i32 4, ptr %arrayinit.element65, align 16
-  %short_name67 = getelementptr inbounds %struct.option, ptr %options, i64 6, i32 1
+  %short_name67 = getelementptr inbounds i8, ptr %options, i64 532
   store i32 0, ptr %short_name67, align 4
-  %long_name68 = getelementptr inbounds %struct.option, ptr %options, i64 6, i32 2
+  %long_name68 = getelementptr inbounds i8, ptr %options, i64 536
   store ptr @.str.6, ptr %long_name68, align 8
-  %value69 = getelementptr inbounds %struct.option, ptr %options, i64 6, i32 3
+  %value69 = getelementptr inbounds i8, ptr %options, i64 544
   store ptr %fn, ptr %value69, align 16
-  %argh70 = getelementptr inbounds %struct.option, ptr %options, i64 6, i32 4
-  %callback73 = getelementptr inbounds %struct.option, ptr %options, i64 6, i32 7
-  %subcommand_fn77 = getelementptr inbounds %struct.option, ptr %options, i64 6, i32 11
+  %argh70 = getelementptr inbounds i8, ptr %options, i64 552
+  %callback73 = getelementptr inbounds i8, ptr %options, i64 576
+  %subcommand_fn77 = getelementptr inbounds i8, ptr %options, i64 608
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(20) %argh70, i8 0, i64 20, i1 false)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(32) %callback73, i8 0, i64 32, i1 false)
   store ptr @cmd_bisect__skip, ptr %subcommand_fn77, align 16
-  %arrayinit.element78 = getelementptr inbounds %struct.option, ptr %options, i64 7
+  %arrayinit.element78 = getelementptr inbounds i8, ptr %options, i64 616
   store i32 4, ptr %arrayinit.element78, align 8
-  %short_name80 = getelementptr inbounds %struct.option, ptr %options, i64 7, i32 1
+  %short_name80 = getelementptr inbounds i8, ptr %options, i64 620
   store i32 0, ptr %short_name80, align 4
-  %long_name81 = getelementptr inbounds %struct.option, ptr %options, i64 7, i32 2
+  %long_name81 = getelementptr inbounds i8, ptr %options, i64 624
   store ptr @.str.7, ptr %long_name81, align 16
-  %value82 = getelementptr inbounds %struct.option, ptr %options, i64 7, i32 3
+  %value82 = getelementptr inbounds i8, ptr %options, i64 632
   store ptr %fn, ptr %value82, align 8
-  %argh83 = getelementptr inbounds %struct.option, ptr %options, i64 7, i32 4
-  %callback86 = getelementptr inbounds %struct.option, ptr %options, i64 7, i32 7
-  %subcommand_fn90 = getelementptr inbounds %struct.option, ptr %options, i64 7, i32 11
+  %argh83 = getelementptr inbounds i8, ptr %options, i64 640
+  %callback86 = getelementptr inbounds i8, ptr %options, i64 664
+  %subcommand_fn90 = getelementptr inbounds i8, ptr %options, i64 696
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(20) %argh83, i8 0, i64 20, i1 false)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %callback86, i8 0, i64 32, i1 false)
   store ptr @cmd_bisect__visualize, ptr %subcommand_fn90, align 8
-  %arrayinit.element91 = getelementptr inbounds %struct.option, ptr %options, i64 8
+  %arrayinit.element91 = getelementptr inbounds i8, ptr %options, i64 704
   store i32 4, ptr %arrayinit.element91, align 16
-  %short_name93 = getelementptr inbounds %struct.option, ptr %options, i64 8, i32 1
+  %short_name93 = getelementptr inbounds i8, ptr %options, i64 708
   store i32 0, ptr %short_name93, align 4
-  %long_name94 = getelementptr inbounds %struct.option, ptr %options, i64 8, i32 2
+  %long_name94 = getelementptr inbounds i8, ptr %options, i64 712
   store ptr @.str.8, ptr %long_name94, align 8
-  %value95 = getelementptr inbounds %struct.option, ptr %options, i64 8, i32 3
+  %value95 = getelementptr inbounds i8, ptr %options, i64 720
   store ptr %fn, ptr %value95, align 16
-  %argh96 = getelementptr inbounds %struct.option, ptr %options, i64 8, i32 4
-  %callback99 = getelementptr inbounds %struct.option, ptr %options, i64 8, i32 7
-  %subcommand_fn103 = getelementptr inbounds %struct.option, ptr %options, i64 8, i32 11
+  %argh96 = getelementptr inbounds i8, ptr %options, i64 728
+  %callback99 = getelementptr inbounds i8, ptr %options, i64 752
+  %subcommand_fn103 = getelementptr inbounds i8, ptr %options, i64 784
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(20) %argh96, i8 0, i64 20, i1 false)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(32) %callback99, i8 0, i64 32, i1 false)
   store ptr @cmd_bisect__visualize, ptr %subcommand_fn103, align 16
-  %arrayinit.element104 = getelementptr inbounds %struct.option, ptr %options, i64 9
+  %arrayinit.element104 = getelementptr inbounds i8, ptr %options, i64 792
   store i32 4, ptr %arrayinit.element104, align 8
-  %short_name106 = getelementptr inbounds %struct.option, ptr %options, i64 9, i32 1
+  %short_name106 = getelementptr inbounds i8, ptr %options, i64 796
   store i32 0, ptr %short_name106, align 4
-  %long_name107 = getelementptr inbounds %struct.option, ptr %options, i64 9, i32 2
+  %long_name107 = getelementptr inbounds i8, ptr %options, i64 800
   store ptr @.str.9, ptr %long_name107, align 16
-  %value108 = getelementptr inbounds %struct.option, ptr %options, i64 9, i32 3
+  %value108 = getelementptr inbounds i8, ptr %options, i64 808
   store ptr %fn, ptr %value108, align 8
-  %argh109 = getelementptr inbounds %struct.option, ptr %options, i64 9, i32 4
-  %callback112 = getelementptr inbounds %struct.option, ptr %options, i64 9, i32 7
-  %subcommand_fn116 = getelementptr inbounds %struct.option, ptr %options, i64 9, i32 11
+  %argh109 = getelementptr inbounds i8, ptr %options, i64 816
+  %callback112 = getelementptr inbounds i8, ptr %options, i64 840
+  %subcommand_fn116 = getelementptr inbounds i8, ptr %options, i64 872
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(20) %argh109, i8 0, i64 20, i1 false)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %callback112, i8 0, i64 32, i1 false)
   store ptr @cmd_bisect__run, ptr %subcommand_fn116, align 8
-  %arrayinit.element117 = getelementptr inbounds %struct.option, ptr %options, i64 10
+  %arrayinit.element117 = getelementptr inbounds i8, ptr %options, i64 880
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(88) %arrayinit.element117, i8 0, i64 88, i1 false)
   %call = call i32 @parse_options(i32 noundef %argc, ptr noundef %argv, ptr noundef %prefix, ptr noundef nonnull %options, ptr noundef nonnull @git_bisect_usage, i32 noundef 128) #17
   %0 = load ptr, ptr %fn, align 8
@@ -374,7 +370,7 @@ if.then131:                                       ; preds = %if.then
 if.end:                                           ; preds = %if.then
   %call.i = call ptr @xstrdup(ptr noundef nonnull @.str.12) #17
   store ptr %call.i, ptr %terms, align 8
-  %term_bad.i = getelementptr inbounds %struct.bisect_terms, ptr %terms, i64 0, i32 1
+  %term_bad.i = getelementptr inbounds i8, ptr %terms, i64 8
   %call2.i = call ptr @xstrdup(ptr noundef nonnull @.str.11) #17
   store ptr %call2.i, ptr %term_bad.i, align 8
   %call134 = call fastcc i32 @get_terms(ptr noundef nonnull %terms), !range !5
@@ -399,7 +395,7 @@ if.end141:                                        ; preds = %if.end
 
 if.else:                                          ; preds = %entry
   %dec = add nsw i32 %call, -1
-  %incdec.ptr = getelementptr inbounds ptr, ptr %argv, i64 1
+  %incdec.ptr = getelementptr inbounds i8, ptr %argv, i64 8
   %call143 = call i32 %0(i32 noundef %dec, ptr noundef nonnull %incdec.ptr, ptr noundef %prefix) #17
   br label %if.end144
 
@@ -494,7 +490,7 @@ cond.end:                                         ; preds = %if.end, %cond.true
   %call4 = call fastcc i32 @bisect_terms(ptr noundef nonnull %terms, ptr noundef %cond), !range !5
   %2 = load ptr, ptr %terms, align 8
   tail call void @free(ptr noundef %2) #17
-  %term_bad.i = getelementptr inbounds %struct.bisect_terms, ptr %terms, i64 0, i32 1
+  %term_bad.i = getelementptr inbounds i8, ptr %terms, i64 8
   %3 = load ptr, ptr %term_bad.i, align 8
   tail call void @free(ptr noundef %3) #17
   br label %return
@@ -510,7 +506,7 @@ entry:
   %terms = alloca %struct.bisect_terms, align 8
   %call.i = tail call ptr @xstrdup(ptr noundef nonnull @.str.12) #17
   store ptr %call.i, ptr %terms, align 8
-  %term_bad.i = getelementptr inbounds %struct.bisect_terms, ptr %terms, i64 0, i32 1
+  %term_bad.i = getelementptr inbounds i8, ptr %terms, i64 8
   %call2.i = tail call ptr @xstrdup(ptr noundef nonnull @.str.11) #17
   store ptr %call2.i, ptr %term_bad.i, align 8
   %call = call fastcc i32 @bisect_start(ptr noundef nonnull %terms, i32 noundef %argc, ptr noundef %argv)
@@ -548,7 +544,7 @@ if.end:                                           ; preds = %entry
   %call4 = call fastcc i32 @bisect_next(ptr noundef nonnull %terms, ptr noundef %prefix)
   %1 = load ptr, ptr %terms, align 8
   tail call void @free(ptr noundef %1) #17
-  %term_bad.i = getelementptr inbounds %struct.bisect_terms, ptr %terms, i64 0, i32 1
+  %term_bad.i = getelementptr inbounds i8, ptr %terms, i64 8
   %2 = load ptr, ptr %term_bad.i, align 8
   tail call void @free(ptr noundef %2) #17
   br label %return
@@ -634,7 +630,7 @@ _.exit:                                           ; preds = %if.then, %if.end3.i
 if.end:                                           ; preds = %entry
   %call.i1 = tail call ptr @xstrdup(ptr noundef nonnull @.str.12) #17
   store ptr %call.i1, ptr %terms, align 8
-  %term_bad.i = getelementptr inbounds %struct.bisect_terms, ptr %terms, i64 0, i32 1
+  %term_bad.i = getelementptr inbounds i8, ptr %terms, i64 8
   %call2.i = tail call ptr @xstrdup(ptr noundef nonnull @.str.11) #17
   store ptr %call2.i, ptr %term_bad.i, align 8
   %1 = load ptr, ptr %argv, align 8
@@ -675,8 +671,8 @@ while.cond.preheader.i:                           ; preds = %if.end7.i
 
 while.body.lr.ph.i:                               ; preds = %while.cond.preheader.i
   %3 = getelementptr inbounds i8, ptr %line.i, i64 16
-  %nr33.i.i = getelementptr inbounds %struct.strvec, ptr %argv30.i.i, i64 0, i32 1
-  %nr.i.i = getelementptr inbounds %struct.strvec, ptr %argv.i.i, i64 0, i32 1
+  %nr33.i.i = getelementptr inbounds i8, ptr %argv30.i.i, i64 8
+  %nr.i.i = getelementptr inbounds i8, ptr %argv.i.i, i64 8
   br label %while.body.i
 
 while.body.i:                                     ; preds = %process_replay_line.exit.i, %while.body.lr.ph.i
@@ -858,7 +854,7 @@ entry:
   %terms = alloca %struct.bisect_terms, align 8
   %call.i = tail call ptr @xstrdup(ptr noundef nonnull @.str.12) #17
   store ptr %call.i, ptr %terms, align 8
-  %term_bad.i = getelementptr inbounds %struct.bisect_terms, ptr %terms, i64 0, i32 1
+  %term_bad.i = getelementptr inbounds i8, ptr %terms, i64 8
   %call2.i = tail call ptr @xstrdup(ptr noundef nonnull @.str.11) #17
   store ptr %call2.i, ptr %term_bad.i, align 8
   %call = call fastcc i32 @get_terms(ptr noundef nonnull %terms), !range !5
@@ -884,7 +880,7 @@ for.body.i:                                       ; preds = %for.inc.i, %for.bod
 if.then.i:                                        ; preds = %for.body.i
   %1 = load ptr, ptr @the_repository, align 8
   call void @repo_init_revisions(ptr noundef %1, ptr noundef nonnull %revs.i, ptr noundef null) #17
-  %add.ptr2.i = getelementptr inbounds ptr, ptr %arrayidx.i, i64 -1
+  %add.ptr2.i = getelementptr inbounds i8, ptr %arrayidx.i, i64 -8
   %call3.i = call i32 @setup_revisions(i32 noundef 2, ptr noundef nonnull %add.ptr2.i, ptr noundef nonnull %revs.i, ptr noundef null) #17
   %call4.i = call i32 @prepare_revision_walk(ptr noundef nonnull %revs.i) #17
   %tobool5.not.i = icmp eq i32 %call4.i, 0
@@ -902,7 +898,7 @@ if.then6.i:                                       ; preds = %if.then.i
 
 while.body.i:                                     ; preds = %while.cond.preheader.i, %while.body.i
   %call89.i = phi ptr [ %call8.i, %while.body.i ], [ %call87.i, %while.cond.preheader.i ]
-  %oid.i = getelementptr inbounds %struct.object, ptr %call89.i, i64 0, i32 1
+  %oid.i = getelementptr inbounds i8, ptr %call89.i, i64 4
   %call10.i = call ptr @oid_to_hex(ptr noundef nonnull %oid.i) #17
   %call11.i = call ptr @strvec_push(ptr noundef nonnull %argv_state.i, ptr noundef %call10.i) #17
   %call8.i = call ptr @get_revision(ptr noundef nonnull %revs.i) #17
@@ -924,7 +920,7 @@ for.inc.i:                                        ; preds = %if.else.i, %while.e
   br i1 %exitcond.not.i, label %bisect_skip.exit, label %for.body.i, !llvm.loop !11
 
 bisect_skip.exit:                                 ; preds = %for.inc.i, %entry
-  %nr.i = getelementptr inbounds %struct.strvec, ptr %argv_state.i, i64 0, i32 1
+  %nr.i = getelementptr inbounds i8, ptr %argv_state.i, i64 8
   %2 = load i64, ptr %nr.i, align 8
   %conv.i = trunc i64 %2 to i32
   %3 = load ptr, ptr %argv_state.i, align 8
@@ -956,7 +952,7 @@ entry:
   br i1 %cmp.not.i, label %if.end.i, label %bisect_visualize.exit
 
 if.end.i:                                         ; preds = %entry
-  %no_stdin.i = getelementptr inbounds %struct.child_process, ptr %cmd.i, i64 0, i32 11
+  %no_stdin.i = getelementptr inbounds i8, ptr %cmd.i, i64 104
   store i16 1, ptr %no_stdin.i, align 8
   %tobool.not.i = icmp eq i32 %argc, 0
   br i1 %tobool.not.i, label %if.then1.i, label %if.else22.i
@@ -1042,7 +1038,7 @@ if.then.i.i:                                      ; preds = %if.end49.i
 git_path_bisect_names.exit.i:                     ; preds = %if.then.i.i, %if.end49.i
   %3 = phi ptr [ %call.i.i, %if.then.i.i ], [ %2, %if.end49.i ]
   %call52.i = call i64 @strbuf_read_file(ptr noundef nonnull %sb.i, ptr noundef %3, i64 noundef 0) #17
-  %buf.i = getelementptr inbounds %struct.strbuf, ptr %sb.i, i64 0, i32 2
+  %buf.i = getelementptr inbounds i8, ptr %sb.i, i64 16
   %4 = load ptr, ptr %buf.i, align 8
   %call54.i = call i32 @sq_dequote_to_strvec(ptr noundef %4, ptr noundef nonnull %cmd.i) #17
   call void @strbuf_release(ptr noundef nonnull %sb.i) #17
@@ -1055,7 +1051,7 @@ bisect_visualize.exit:                            ; preds = %entry, %git_path_bi
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %sb.i)
   %5 = load ptr, ptr %terms, align 8
   call void @free(ptr noundef %5) #17
-  %term_bad.i = getelementptr inbounds %struct.bisect_terms, ptr %terms, i64 0, i32 1
+  %term_bad.i = getelementptr inbounds i8, ptr %terms, i64 8
   %6 = load ptr, ptr %term_bad.i, align 8
   call void @free(ptr noundef %6) #17
   ret i32 %retval.0.i
@@ -1101,10 +1097,10 @@ if.end:                                           ; preds = %entry
 if.end6.i:                                        ; preds = %if.end
   call void @sq_quote_argv(ptr noundef nonnull %command.i, ptr noundef %argv) #17
   call void @strbuf_ltrim(ptr noundef nonnull %command.i) #17
-  %buf.i = getelementptr inbounds %struct.strbuf, ptr %command.i, i64 0, i32 2
-  %use_shell.i.i = getelementptr inbounds %struct.child_process, ptr %cmd.i.i, i64 0, i32 11
-  %use_shell.i.i.i = getelementptr inbounds %struct.child_process, ptr %cmd.i.i.i, i64 0, i32 11
-  %term_bad.i = getelementptr inbounds %struct.bisect_terms, ptr %terms, i64 0, i32 1
+  %buf.i = getelementptr inbounds i8, ptr %command.i, i64 16
+  %use_shell.i.i = getelementptr inbounds i8, ptr %cmd.i.i, i64 104
+  %use_shell.i.i.i = getelementptr inbounds i8, ptr %cmd.i.i.i, i64 104
+  %term_bad.i = getelementptr inbounds i8, ptr %terms, i64 8
   br label %while.body.i
 
 while.body.i:                                     ; preds = %print_file_to_stdout.exit.i, %if.end6.i
@@ -1442,7 +1438,7 @@ bisect_run.exit:                                  ; preds = %if.end, %while.end.
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %new_state.i)
   %29 = load ptr, ptr %terms, align 8
   call void @free(ptr noundef %29) #17
-  %term_bad.i4 = getelementptr inbounds %struct.bisect_terms, ptr %terms, i64 0, i32 1
+  %term_bad.i4 = getelementptr inbounds i8, ptr %terms, i64 8
   %30 = load ptr, ptr %term_bad.i4, align 8
   call void @free(ptr noundef %30) #17
   br label %return
@@ -1505,7 +1501,7 @@ if.then7:                                         ; preds = %git_path_bisect_ter
   %2 = load ptr, ptr %terms, align 8
   tail call void @free(ptr noundef %2) #17
   store ptr null, ptr %terms, align 8
-  %term_bad.i = getelementptr inbounds %struct.bisect_terms, ptr %terms, i64 0, i32 1
+  %term_bad.i = getelementptr inbounds i8, ptr %terms, i64 8
   %3 = load ptr, ptr %term_bad.i, align 8
   tail call void @free(ptr noundef %3) #17
   store ptr null, ptr %term_bad.i, align 8
@@ -1548,7 +1544,7 @@ if.end:                                           ; preds = %git_path_bisect_ter
   br i1 %tobool.not, label %land.lhs.true, label %if.then18
 
 land.lhs.true:                                    ; preds = %if.end
-  %term_bad = getelementptr inbounds %struct.bisect_terms, ptr %terms, i64 0, i32 1
+  %term_bad = getelementptr inbounds i8, ptr %terms, i64 8
   %2 = load ptr, ptr %term_bad, align 8
   %call5 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %cmd, ptr noundef nonnull dereferenceable(1) %2) #19
   %tobool6.not = icmp eq i32 %call5, 0
@@ -1588,7 +1584,7 @@ if.then21:                                        ; preds = %if.then18
   tail call void @free(ptr noundef %7) #17
   %call.i16 = tail call ptr @xstrdup(ptr noundef nonnull @.str.12) #17
   store ptr %call.i16, ptr %terms, align 8
-  %term_bad.i = getelementptr inbounds %struct.bisect_terms, ptr %terms, i64 0, i32 1
+  %term_bad.i = getelementptr inbounds i8, ptr %terms, i64 8
   %8 = load ptr, ptr %term_bad.i, align 8
   tail call void @free(ptr noundef %8) #17
   %call2.i = tail call ptr @xstrdup(ptr noundef nonnull @.str.11) #17
@@ -1607,7 +1603,7 @@ if.then28:                                        ; preds = %if.end25
   tail call void @free(ptr noundef %10) #17
   %call.i17 = tail call ptr @xstrdup(ptr noundef nonnull @.str.71) #17
   store ptr %call.i17, ptr %terms, align 8
-  %term_bad.i18 = getelementptr inbounds %struct.bisect_terms, ptr %terms, i64 0, i32 1
+  %term_bad.i18 = getelementptr inbounds i8, ptr %terms, i64 8
   %11 = load ptr, ptr %term_bad.i18, align 8
   tail call void @free(ptr noundef %11) #17
   %call2.i19 = tail call ptr @xstrdup(ptr noundef nonnull @.str.70) #17
@@ -1661,7 +1657,7 @@ if.end6:                                          ; preds = %if.end
 
 lor.lhs.false:                                    ; preds = %if.end6
   %2 = load ptr, ptr %terms, align 8
-  %term_bad = getelementptr inbounds %struct.bisect_terms, ptr %terms, i64 0, i32 1
+  %term_bad = getelementptr inbounds i8, ptr %terms, i64 8
   %3 = load ptr, ptr %term_bad, align 8
   %call9 = tail call i32 (ptr, ...) @one_of(ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef nonnull @.str.6, ptr noundef null), !range !8
   %tobool10.not = icmp eq i32 %call9, 0
@@ -1739,7 +1735,7 @@ if.end35.thread:                                  ; preds = %if.end28, %_.exit37
 for.body:                                         ; preds = %for.body.preheader, %if.end48
   %argv.addr.053.pn = phi ptr [ %argv.addr.053, %if.end48 ], [ %argv, %for.body.preheader ]
   %argc.addr.052 = phi i32 [ %dec50, %if.end48 ], [ %dec, %for.body.preheader ]
-  %argv.addr.053 = getelementptr inbounds ptr, ptr %argv.addr.053.pn, i64 1
+  %argv.addr.053 = getelementptr inbounds i8, ptr %argv.addr.053.pn, i64 8
   %10 = load ptr, ptr @the_repository, align 8
   %11 = load ptr, ptr %argv.addr.053, align 8
   %call37 = call i32 @repo_get_oid(ptr noundef %10, ptr noundef %11, ptr noundef nonnull %oid) #17
@@ -1775,7 +1771,7 @@ if.then46:                                        ; preds = %if.end43
   unreachable
 
 if.end48:                                         ; preds = %if.end43
-  %oid49 = getelementptr inbounds %struct.object, ptr %call44, i64 0, i32 1
+  %oid49 = getelementptr inbounds i8, ptr %call44, i64 4
   call void @oid_array_append(ptr noundef nonnull %revs, ptr noundef nonnull %oid49) #17
   %dec50 = add nsw i32 %argc.addr.052, -1
   %tobool36.not = icmp eq i32 %dec50, 0
@@ -1783,7 +1779,7 @@ if.end48:                                         ; preds = %if.end43
 
 for.end:                                          ; preds = %if.end48, %if.end35.thread
   %call52 = call i32 @read_ref(ptr noundef nonnull @.str.150, ptr noundef nonnull %expected) #17
-  %nr = getelementptr inbounds %struct.oid_array, ptr %revs, i64 0, i32 1
+  %nr = getelementptr inbounds i8, ptr %revs, i64 8
   %16 = load i64, ptr %nr, align 8
   %cmp5754.not = icmp eq i64 %16, 0
   br i1 %cmp5754.not, label %for.end80, label %for.body59.preheader
@@ -1814,14 +1810,14 @@ if.end66:                                         ; preds = %for.body59
 land.lhs.true68:                                  ; preds = %if.end66
   %18 = load ptr, ptr %revs, align 8
   %arrayidx71 = getelementptr inbounds %struct.object_id, ptr %18, i64 %indvars.iv
-  %algo.i = getelementptr inbounds %struct.object_id, ptr %18, i64 %indvars.iv, i32 1
+  %algo.i = getelementptr inbounds i8, ptr %arrayidx71, i64 32
   %19 = load i32, ptr %algo.i, align 4
   %tobool.not.i = icmp eq i32 %19, 0
   br i1 %tobool.not.i, label %if.then.i, label %if.else.i
 
 if.then.i:                                        ; preds = %land.lhs.true68
   %20 = load ptr, ptr @the_repository, align 8
-  %hash_algo.i = getelementptr inbounds %struct.repository, ptr %20, i64 0, i32 15
+  %hash_algo.i = getelementptr inbounds i8, ptr %20, i64 256
   %21 = load ptr, ptr %hash_algo.i, align 8
   br label %if.end.i
 
@@ -1955,7 +1951,7 @@ if.end13:                                         ; preds = %if.else6
   br label %if.end14
 
 if.end14:                                         ; preds = %_.exit, %if.else, %if.end13
-  %len = getelementptr inbounds %struct.strbuf, ptr %branch, i64 0, i32 1
+  %len = getelementptr inbounds i8, ptr %branch, i64 8
   %5 = load i64, ptr %len, align 8
   %tobool15.not = icmp eq i64 %5, 0
   br i1 %tobool15.not, label %if.end27, label %land.lhs.true
@@ -1967,9 +1963,9 @@ land.lhs.true:                                    ; preds = %if.end14
 
 if.then18:                                        ; preds = %land.lhs.true
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(120) %cmd, ptr noundef nonnull align 8 dereferenceable(120) @__const.do_bisect_run.cmd, i64 120, i1 false)
-  %git_cmd = getelementptr inbounds %struct.child_process, ptr %cmd, i64 0, i32 11
+  %git_cmd = getelementptr inbounds i8, ptr %cmd, i64 104
   store i16 8, ptr %git_cmd, align 8
-  %buf = getelementptr inbounds %struct.strbuf, ptr %branch, i64 0, i32 2
+  %buf = getelementptr inbounds i8, ptr %branch, i64 16
   %6 = load ptr, ptr %buf, align 8
   call void (ptr, ...) @strvec_pushl(ptr noundef nonnull %cmd, ptr noundef nonnull @.str.19, ptr noundef nonnull @.str.20, ptr noundef %6, ptr noundef nonnull @.str.21, ptr noundef null) #17
   %call19 = call i32 @run_command(ptr noundef nonnull %cmd) #17
@@ -2068,7 +2064,7 @@ if.end3.i10:                                      ; preds = %if.then5
 _.exit13:                                         ; preds = %if.then5, %if.end3.i10
   %retval.0.i12 = phi ptr [ %call.i11, %if.end3.i10 ], [ @.str.27, %if.then5 ]
   %2 = load ptr, ptr %terms, align 8
-  %term_bad = getelementptr inbounds %struct.bisect_terms, ptr %terms, i64 0, i32 1
+  %term_bad = getelementptr inbounds i8, ptr %terms, i64 8
   %3 = load ptr, ptr %term_bad, align 8
   %call7 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) %retval.0.i12, ptr noundef %2, ptr noundef %3)
   br label %return
@@ -2089,7 +2085,7 @@ if.else:                                          ; preds = %if.end8
   br i1 %tobool15.not, label %if.else19, label %if.then16
 
 if.then16:                                        ; preds = %if.else
-  %term_bad17 = getelementptr inbounds %struct.bisect_terms, ptr %terms, i64 0, i32 1
+  %term_bad17 = getelementptr inbounds i8, ptr %terms, i64 8
   %5 = load ptr, ptr %term_bad17, align 8
   %puts = tail call i32 @puts(ptr nonnull dereferenceable(1) %5)
   br label %return
@@ -2119,14 +2115,14 @@ entry:
   %matches = alloca [1 x %struct.__va_list_tag], align 16
   call void @llvm.va_start(ptr nonnull %matches)
   %matches.promoted = load i32, ptr %matches, align 16
-  %overflow_arg_area_p = getelementptr inbounds %struct.__va_list_tag, ptr %matches, i64 0, i32 2
-  %0 = getelementptr inbounds %struct.__va_list_tag, ptr %matches, i64 0, i32 3
+  %overflow_arg_area_p = getelementptr inbounds i8, ptr %matches, i64 8
+  %0 = getelementptr inbounds i8, ptr %matches, i64 16
   %reg_save_area = load ptr, ptr %0, align 16
   %overflow_arg_area_p.promoted = load ptr, ptr %overflow_arg_area_p, align 8
   br label %land.rhs
 
 land.rhs:                                         ; preds = %entry, %while.body
-  %overflow_arg_area.next7 = phi ptr [ %overflow_arg_area_p.promoted, %entry ], [ %overflow_arg_area.next6, %while.body ]
+  %overflow_arg_area7 = phi ptr [ %overflow_arg_area_p.promoted, %entry ], [ %overflow_arg_area6, %while.body ]
   %gp_offset34 = phi i32 [ %matches.promoted, %entry ], [ %gp_offset2, %while.body ]
   %fits_in_gp = icmp ult i32 %gp_offset34, 41
   br i1 %fits_in_gp, label %vaarg.in_reg, label %vaarg.in_mem
@@ -2139,14 +2135,14 @@ vaarg.in_reg:                                     ; preds = %land.rhs
   br label %vaarg.end
 
 vaarg.in_mem:                                     ; preds = %land.rhs
-  %overflow_arg_area.next = getelementptr i8, ptr %overflow_arg_area.next7, i64 8
+  %overflow_arg_area.next = getelementptr i8, ptr %overflow_arg_area7, i64 8
   store ptr %overflow_arg_area.next, ptr %overflow_arg_area_p, align 8
   br label %vaarg.end
 
 vaarg.end:                                        ; preds = %vaarg.in_mem, %vaarg.in_reg
-  %overflow_arg_area.next6 = phi ptr [ %overflow_arg_area.next7, %vaarg.in_reg ], [ %overflow_arg_area.next, %vaarg.in_mem ]
+  %overflow_arg_area6 = phi ptr [ %overflow_arg_area7, %vaarg.in_reg ], [ %overflow_arg_area.next, %vaarg.in_mem ]
   %gp_offset2 = phi i32 [ %3, %vaarg.in_reg ], [ %gp_offset34, %vaarg.in_mem ]
-  %vaarg.addr = phi ptr [ %2, %vaarg.in_reg ], [ %overflow_arg_area.next7, %vaarg.in_mem ]
+  %vaarg.addr = phi ptr [ %2, %vaarg.in_reg ], [ %overflow_arg_area7, %vaarg.in_mem ]
   %4 = load ptr, ptr %vaarg.addr, align 8
   %tobool2.not = icmp eq ptr %4, null
   br i1 %tobool2.not, label %while.end, label %while.body
@@ -2184,10 +2180,10 @@ entry:
   %oid = alloca %struct.object_id, align 4
   %cmd = alloca %struct.child_process, align 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %revs, i8 0, i64 40, i1 false)
-  %0 = getelementptr inbounds %struct.string_list, ptr %revs, i64 0, i32 3
+  %0 = getelementptr inbounds i8, ptr %revs, i64 24
   store i8 1, ptr %0, align 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %states, i8 0, i64 40, i1 false)
-  %1 = getelementptr inbounds %struct.string_list, ptr %states, i64 0, i32 3
+  %1 = getelementptr inbounds i8, ptr %states, i64 24
   store i8 1, ptr %1, align 8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %start_head, ptr noundef nonnull align 8 dereferenceable(24) @__const.get_terms.str, i64 24, i1 false)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %bisect_names, ptr noundef nonnull align 8 dereferenceable(24) @__const.get_terms.str, i64 24, i1 false)
@@ -2223,7 +2219,7 @@ for.body7.lr.ph.loopexit:                         ; preds = %for.body, %for.cond
 
 for.body7.lr.ph:                                  ; preds = %for.body7.lr.ph.loopexit, %for.body.preheader
   %cmp.not.lcssa = phi i1 [ true, %for.body.preheader ], [ %cmp.not.le, %for.body7.lr.ph.loopexit ]
-  %term_bad70 = getelementptr inbounds %struct.bisect_terms, ptr %terms, i64 0, i32 1
+  %term_bad70 = getelementptr inbounds i8, ptr %terms, i64 8
   br label %for.body7
 
 for.body7:                                        ; preds = %for.body7.lr.ph, %for.inc100
@@ -2460,19 +2456,16 @@ for.end102:                                       ; preds = %for.inc100, %for.bo
   %first_parent_only.0188 = phi i32 [ %first_parent_only.0203, %if.else86 ], [ 0, %entry ], [ %first_parent_only.0203, %for.body7 ], [ %first_parent_only.1, %for.inc100 ]
   %i.1183 = phi i32 [ %i.1204, %if.else86 ], [ 0, %entry ], [ %i.1204, %for.body7 ], [ %inc101, %for.inc100 ]
   %must_write_terms.0178 = phi i32 [ %must_write_terms.0205, %if.else86 ], [ 0, %entry ], [ %must_write_terms.0205, %for.body7 ], [ %must_write_terms.1, %for.inc100 ]
-  %nr = getelementptr inbounds %struct.string_list, ptr %revs, i64 0, i32 1
+  %nr = getelementptr inbounds i8, ptr %revs, i64 8
   %23 = load i64, ptr %nr, align 8
   %tobool103.not = icmp eq i64 %23, 0
-  br i1 %tobool103.not, label %for.end121, label %for.body110.lr.ph
+  br i1 %tobool103.not, label %for.end121, label %for.body110
 
-for.body110.lr.ph:                                ; preds = %for.end102
-  %term_bad116 = getelementptr inbounds %struct.bisect_terms, ptr %terms, i64 0, i32 1
-  br label %for.body110
-
-for.body110:                                      ; preds = %for.body110.lr.ph, %for.body110
-  %indvars.iv254 = phi i64 [ 0, %for.body110.lr.ph ], [ %indvars.iv.next255, %for.body110 ]
-  %tobool111.not216 = phi ptr [ %term_bad116, %for.body110.lr.ph ], [ %terms, %for.body110 ]
-  %24 = load ptr, ptr %tobool111.not216, align 8
+for.body110:                                      ; preds = %for.end102, %for.body110
+  %indvars.iv254 = phi i64 [ %indvars.iv.next255, %for.body110 ], [ 0, %for.end102 ]
+  %tobool111.not216 = phi i64 [ 0, %for.body110 ], [ 8, %for.end102 ]
+  %term_bad116.terms = getelementptr inbounds i8, ptr %terms, i64 %tobool111.not216
+  %24 = load ptr, ptr %term_bad116.terms, align 8
   %call114 = call ptr @string_list_append(ptr noundef nonnull %states, ptr noundef %24) #17
   %indvars.iv.next255 = add nuw i64 %indvars.iv254, 1
   %25 = load i64, ptr %nr, align 8
@@ -2539,9 +2532,9 @@ git_path_bisect_start.exit101:                    ; preds = %if.then136, %if.the
 
 if.then140:                                       ; preds = %git_path_bisect_start.exit101
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(120) %cmd, ptr noundef nonnull align 8 dereferenceable(120) @__const.do_bisect_run.cmd, i64 120, i1 false)
-  %git_cmd = getelementptr inbounds %struct.child_process, ptr %cmd, i64 0, i32 11
+  %git_cmd = getelementptr inbounds i8, ptr %cmd, i64 104
   store i16 8, ptr %git_cmd, align 8
-  %buf = getelementptr inbounds %struct.strbuf, ptr %start_head, i64 0, i32 2
+  %buf = getelementptr inbounds i8, ptr %start_head, i64 16
   %32 = load ptr, ptr %buf, align 8
   call void (ptr, ...) @strvec_pushl(ptr noundef nonnull %cmd, ptr noundef nonnull @.str.19, ptr noundef %32, ptr noundef nonnull @.str.21, ptr noundef null) #17
   %call141 = call i32 @run_command(ptr noundef nonnull %cmd) #17
@@ -2565,9 +2558,9 @@ land.lhs.true:                                    ; preds = %if.else150
   br i1 %tobool154.not, label %if.then155, label %if.else157
 
 if.then155:                                       ; preds = %land.lhs.true
-  %len2.i = getelementptr inbounds %struct.strbuf, ptr %start_head, i64 0, i32 1
+  %len2.i = getelementptr inbounds i8, ptr %start_head, i64 8
   store i64 0, ptr %len2.i, align 8
-  %buf.i = getelementptr inbounds %struct.strbuf, ptr %start_head, i64 0, i32 2
+  %buf.i = getelementptr inbounds i8, ptr %start_head, i64 16
   %35 = load ptr, ptr %buf.i, align 8
   %cmp3.not.i = icmp eq ptr %35, @strbuf_slopbuf
   br i1 %cmp3.not.i, label %strbuf_setlen.exit, label %if.then4.i
@@ -2642,7 +2635,7 @@ if.then.i125:                                     ; preds = %if.end174
 
 git_path_bisect_start.exit127:                    ; preds = %if.end174, %if.then.i125
   %41 = phi ptr [ %call.i126, %if.then.i125 ], [ %40, %if.end174 ]
-  %buf176 = getelementptr inbounds %struct.strbuf, ptr %start_head, i64 0, i32 2
+  %buf176 = getelementptr inbounds i8, ptr %start_head, i64 16
   %42 = load ptr, ptr %buf176, align 8
   call void (ptr, ptr, ...) @write_file(ptr noundef %41, ptr noundef nonnull @.str.30, ptr noundef %42) #17
   %tobool177.not = icmp eq i32 %first_parent_only.0188, 0
@@ -2707,10 +2700,10 @@ if.then.i137:                                     ; preds = %if.end201
 
 git_path_bisect_names.exit:                       ; preds = %if.end201, %if.then.i137
   %49 = phi ptr [ %call.i138, %if.then.i137 ], [ %48, %if.end201 ]
-  %buf203 = getelementptr inbounds %struct.strbuf, ptr %bisect_names, i64 0, i32 2
+  %buf203 = getelementptr inbounds i8, ptr %bisect_names, i64 16
   %50 = load ptr, ptr %buf203, align 8
   call void (ptr, ptr, ...) @write_file(ptr noundef %49, ptr noundef nonnull @.str.30, ptr noundef %50) #17
-  %nr206 = getelementptr inbounds %struct.string_list, ptr %states, i64 0, i32 1
+  %nr206 = getelementptr inbounds i8, ptr %states, i64 8
   %51 = load i64, ptr %nr206, align 8
   %cmp207217.not = icmp eq i64 %51, 0
   br i1 %cmp207217.not, label %for.end222, label %for.body209
@@ -2739,7 +2732,7 @@ for.end222:                                       ; preds = %for.cond204, %git_p
   br i1 %tobool223.not, label %if.end230, label %land.lhs.true224
 
 land.lhs.true224:                                 ; preds = %for.end222
-  %term_bad225 = getelementptr inbounds %struct.bisect_terms, ptr %terms, i64 0, i32 1
+  %term_bad225 = getelementptr inbounds i8, ptr %terms, i64 8
   %57 = load ptr, ptr %term_bad225, align 8
   %58 = load ptr, ptr %terms, align 8
   %call227 = call fastcc i32 @write_terms(ptr noundef %57, ptr noundef %58)
@@ -2771,7 +2764,7 @@ if.end.i:                                         ; preds = %git_path_bisect_log
 
 if.end4.i:                                        ; preds = %if.end.i
   call void @sq_quote_argv(ptr noundef nonnull %orig_args.i, ptr noundef %argv) #17
-  %buf.i287 = getelementptr inbounds %struct.strbuf, ptr %orig_args.i, i64 0, i32 2
+  %buf.i287 = getelementptr inbounds i8, ptr %orig_args.i, i64 16
   %61 = load ptr, ptr %buf.i287, align 8
   %call5.i = call i32 (ptr, ptr, ...) @fprintf(ptr noundef nonnull %call1.i285, ptr noundef nonnull @.str.30, ptr noundef %61)
   %cmp6.i = icmp sgt i32 %call5.i, 0
@@ -2888,7 +2881,7 @@ entry:
   %tag = alloca %struct.strbuf, align 8
   %oid = alloca %struct.object_id, align 4
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %tag, ptr noundef nonnull align 8 dereferenceable(24) @__const.get_terms.str, i64 24, i1 false)
-  %term_bad = getelementptr inbounds %struct.bisect_terms, ptr %terms, i64 0, i32 1
+  %term_bad = getelementptr inbounds i8, ptr %terms, i64 8
   %0 = load ptr, ptr %term_bad, align 8
   %call = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %state, ptr noundef nonnull dereferenceable(1) %0) #19
   %tobool.not = icmp eq i32 %call, 0
@@ -2943,7 +2936,7 @@ _.exit19:                                         ; preds = %if.then11, %if.end3
   br label %if.end37
 
 if.end15:                                         ; preds = %if.end8
-  %buf = getelementptr inbounds %struct.strbuf, ptr %tag, i64 0, i32 2
+  %buf = getelementptr inbounds i8, ptr %tag, i64 16
   %5 = load ptr, ptr %buf, align 8
   %call16 = call i32 @update_ref(ptr noundef null, ptr noundef %5, ptr noundef nonnull %oid, ptr noundef null, i32 noundef 0, i32 noundef 0) #17
   %tobool17.not = icmp eq i32 %call16, 0
@@ -3000,9 +2993,9 @@ if.end28:                                         ; preds = %git_path_bisect_log
   %call.i30 = call ptr (ptr, ...) @xstrfmt(ptr noundef nonnull @.str.61, ptr noundef %state) #17
   %12 = load ptr, ptr @the_repository, align 8
   call void @repo_format_commit_message(ptr noundef %12, ptr noundef %call29, ptr noundef nonnull @.str.61, ptr noundef nonnull %commit_msg.i, ptr noundef nonnull %pp.i) #17
-  %oid.i = getelementptr inbounds %struct.object, ptr %call29, i64 0, i32 1
+  %oid.i = getelementptr inbounds i8, ptr %call29, i64 4
   %call1.i = call ptr @oid_to_hex(ptr noundef nonnull %oid.i) #17
-  %buf.i = getelementptr inbounds %struct.strbuf, ptr %commit_msg.i, i64 0, i32 2
+  %buf.i = getelementptr inbounds i8, ptr %commit_msg.i, i64 16
   %13 = load ptr, ptr %buf.i, align 8
   %call2.i = call i32 (ptr, ptr, ...) @fprintf(ptr noundef nonnull %call21, ptr noundef nonnull @.str.64, ptr noundef %call.i30, ptr noundef %call1.i, ptr noundef %13)
   call void @strbuf_release(ptr noundef nonnull %commit_msg.i) #17
@@ -3274,7 +3267,7 @@ define internal fastcc i32 @bisect_next_check(ptr nocapture noundef readonly %te
 entry:
   %state = alloca %struct.bisect_state, align 8
   store i64 0, ptr %state, align 8
-  %term_bad.i = getelementptr inbounds %struct.bisect_terms, ptr %terms, i64 0, i32 1
+  %term_bad.i = getelementptr inbounds i8, ptr %terms, i64 8
   %0 = load ptr, ptr %term_bad.i, align 8
   %call.i = tail call ptr (ptr, ...) @xstrfmt(ptr noundef nonnull @.str.55, ptr noundef %0) #17
   %1 = load ptr, ptr %terms, align 8
@@ -3284,7 +3277,7 @@ entry:
   br i1 %tobool.not.i, label %bisect_status.exit, label %if.then.i
 
 if.then.i:                                        ; preds = %entry
-  %nr_bad.i = getelementptr inbounds %struct.bisect_state, ptr %state, i64 0, i32 1
+  %nr_bad.i = getelementptr inbounds i8, ptr %state, i64 4
   store i32 1, ptr %nr_bad.i, align 4
   br label %bisect_status.exit
 
@@ -3294,7 +3287,7 @@ bisect_status.exit:                               ; preds = %entry, %if.then.i
   call void @free(ptr noundef %call.i) #17
   %2 = load i32, ptr %state, align 8
   %tobool.not = icmp eq i32 %2, 0
-  %nr_bad = getelementptr inbounds %struct.bisect_state, ptr %state, i64 0, i32 1
+  %nr_bad = getelementptr inbounds i8, ptr %state, i64 4
   %3 = load i32, ptr %nr_bad, align 4
   %tobool1.not = icmp eq i32 %3, 0
   %4 = or i1 %tobool.not, %tobool1.not
@@ -3406,7 +3399,7 @@ define internal fastcc void @bisect_print_status(ptr nocapture noundef readonly 
 entry:
   %state = alloca %struct.bisect_state, align 8
   store i64 0, ptr %state, align 8
-  %term_bad.i = getelementptr inbounds %struct.bisect_terms, ptr %terms, i64 0, i32 1
+  %term_bad.i = getelementptr inbounds i8, ptr %terms, i64 8
   %0 = load ptr, ptr %term_bad.i, align 8
   %call.i = tail call ptr (ptr, ...) @xstrfmt(ptr noundef nonnull @.str.55, ptr noundef %0) #17
   %1 = load ptr, ptr %terms, align 8
@@ -3416,7 +3409,7 @@ entry:
   br i1 %tobool.not.i, label %bisect_status.exit, label %if.then.i
 
 if.then.i:                                        ; preds = %entry
-  %nr_bad.i = getelementptr inbounds %struct.bisect_state, ptr %state, i64 0, i32 1
+  %nr_bad.i = getelementptr inbounds i8, ptr %state, i64 4
   store i32 1, ptr %nr_bad.i, align 4
   br label %bisect_status.exit
 
@@ -3426,7 +3419,7 @@ bisect_status.exit:                               ; preds = %entry, %if.then.i
   call void @free(ptr noundef %call.i) #17
   %2 = load i32, ptr %state, align 8
   %tobool = icmp ne i32 %2, 0
-  %nr_bad = getelementptr inbounds %struct.bisect_state, ptr %state, i64 0, i32 1
+  %nr_bad = getelementptr inbounds i8, ptr %state, i64 4
   %3 = load i32, ptr %nr_bad, align 4
   %tobool1 = icmp ne i32 %3, 0
   %or.cond = select i1 %tobool, i1 %tobool1, i1 false
@@ -3523,7 +3516,7 @@ if.then6:                                         ; preds = %if.end4
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %commit_name.i)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(184) %pp.i, i8 0, i64 184, i1 false)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %commit_name.i, ptr noundef nonnull align 8 dereferenceable(24) @__const.get_terms.str, i64 24, i1 false)
-  %term_bad.i = getelementptr inbounds %struct.bisect_terms, ptr %terms, i64 0, i32 1
+  %term_bad.i = getelementptr inbounds i8, ptr %terms, i64 8
   %2 = load ptr, ptr %term_bad.i, align 8
   %call.i = tail call ptr (ptr, ...) @xstrfmt(ptr noundef nonnull @.str.55, ptr noundef %2) #17
   %call1.i = call i32 @read_ref(ptr noundef %call.i, ptr noundef nonnull %oid.i) #17
@@ -3542,9 +3535,9 @@ if.then.i.i:                                      ; preds = %if.then6
 bisect_successful.exit:                           ; preds = %if.then6, %if.then.i.i
   %5 = phi ptr [ %call.i.i, %if.then.i.i ], [ %4, %if.then6 ]
   %6 = load ptr, ptr %term_bad.i, align 8
-  %oid5.i = getelementptr inbounds %struct.object, ptr %call2.i, i64 0, i32 1
+  %oid5.i = getelementptr inbounds i8, ptr %call2.i, i64 4
   %call6.i = call ptr @oid_to_hex(ptr noundef nonnull %oid5.i) #17
-  %buf.i = getelementptr inbounds %struct.strbuf, ptr %commit_name.i, i64 0, i32 2
+  %buf.i = getelementptr inbounds i8, ptr %commit_name.i, i64 16
   %7 = load ptr, ptr %buf.i, align 8
   %call7.i = call i32 (ptr, ptr, ...) @append_to_file(ptr noundef %5, ptr noundef nonnull @.str.93, ptr noundef %6, ptr noundef %call6.i, ptr noundef %7)
   call void @strbuf_release(ptr noundef nonnull %commit_name.i) #17
@@ -3564,11 +3557,11 @@ if.then10:                                        ; preds = %if.end4
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %commit_name.i12, ptr noundef nonnull align 8 dereferenceable(24) @__const.get_terms.str, i64 24, i1 false)
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %cb.i.i)
   store ptr %revs.i, ptr %cb.i.i, align 8
-  %object_flags.i.i = getelementptr inbounds %struct.add_bisect_ref_data, ptr %cb.i.i, i64 0, i32 1
+  %object_flags.i.i = getelementptr inbounds i8, ptr %cb.i.i, i64 8
   store i32 0, ptr %object_flags.i.i, align 8
   %8 = load ptr, ptr %terms, align 8
   %call.i.i13 = call ptr (ptr, ...) @xstrfmt(ptr noundef nonnull @.str.80, ptr noundef %8) #17
-  %term_bad.i.i = getelementptr inbounds %struct.bisect_terms, ptr %terms, i64 0, i32 1
+  %term_bad.i.i = getelementptr inbounds i8, ptr %terms, i64 8
   %9 = load ptr, ptr %term_bad.i.i, align 8
   %call2.i.i = call ptr (ptr, ...) @xstrfmt(ptr noundef nonnull @.str.98, ptr noundef %9) #17
   call void @reset_revision_walk() #17
@@ -3654,8 +3647,8 @@ while.cond.preheader.i:                           ; preds = %if.end9.i
   br i1 %cmp18.not25.i, label %.loopexit, label %while.body.lr.ph.i
 
 while.body.lr.ph.i:                               ; preds = %while.cond.preheader.i
-  %len2.i.i = getelementptr inbounds %struct.strbuf, ptr %commit_name.i12, i64 0, i32 1
-  %buf.i.i = getelementptr inbounds %struct.strbuf, ptr %commit_name.i12, i64 0, i32 2
+  %len2.i.i = getelementptr inbounds i8, ptr %commit_name.i12, i64 8
+  %buf.i.i = getelementptr inbounds i8, ptr %commit_name.i12, i64 16
   br label %while.body.i
 
 if.then11.i:                                      ; preds = %if.end9.i
@@ -3698,7 +3691,7 @@ strbuf_setlen.exit.i:                             ; preds = %if.then4.i.i, %whil
   %21 = load ptr, ptr @the_repository, align 8
   call void @repo_format_commit_message(ptr noundef %21, ptr noundef nonnull %call1726.i, ptr noundef nonnull @.str.61, ptr noundef nonnull %commit_name.i12, ptr noundef nonnull %pp.i11) #17
   %22 = load ptr, ptr %term_bad.i.i, align 8
-  %oid.i17 = getelementptr inbounds %struct.object, ptr %call1726.i, i64 0, i32 1
+  %oid.i17 = getelementptr inbounds i8, ptr %call1726.i, i64 4
   %call19.i = call ptr @oid_to_hex(ptr noundef nonnull %oid.i17) #17
   %23 = load ptr, ptr %buf.i.i, align 8
   %call20.i = call i32 (ptr, ptr, ...) @fprintf(ptr noundef nonnull %call2.i16, ptr noundef nonnull @.str.97, ptr noundef %22, ptr noundef %call19.i, ptr noundef %23)
@@ -3754,7 +3747,7 @@ entry:
   call void @llvm.va_start(ptr nonnull %ap)
   call void @strbuf_vaddf(ptr noundef nonnull %buf, ptr noundef %fmt, ptr noundef nonnull %ap) #17
   call void @llvm.va_end(ptr nonnull %ap)
-  %buf3 = getelementptr inbounds %struct.strbuf, ptr %buf, i64 0, i32 2
+  %buf3 = getelementptr inbounds i8, ptr %buf, i64 16
   %0 = load ptr, ptr %buf3, align 8
   %call = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.61, ptr noundef %0)
   %1 = load ptr, ptr @git_path_bisect_log.ret, align 8
@@ -3877,7 +3870,7 @@ declare i32 @setup_revisions(i32 noundef, ptr noundef, ptr noundef, ptr noundef)
 define internal noundef i32 @add_bisect_ref(ptr noundef %refname, ptr noundef %oid, i32 %flags, ptr nocapture noundef readonly %cb) #0 {
 entry:
   %0 = load ptr, ptr %cb, align 8
-  %object_flags = getelementptr inbounds %struct.add_bisect_ref_data, ptr %cb, i64 0, i32 1
+  %object_flags = getelementptr inbounds i8, ptr %cb, i64 8
   %1 = load i32, ptr %object_flags, align 8
   tail call void @add_pending_oid(ptr noundef %0, ptr noundef %refname, ptr noundef %oid, i32 noundef %1) #17
   ret i32 0
@@ -3936,9 +3929,9 @@ declare noundef i32 @puts(ptr nocapture noundef readonly) local_unnamed_addr #5
 define internal noundef i32 @get_first_good(ptr nocapture readnone %refname, ptr nocapture noundef readonly %oid, i32 %flag, ptr nocapture noundef writeonly %cb_data) #11 {
 entry:
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(32) %cb_data, ptr noundef nonnull align 4 dereferenceable(32) %oid, i64 32, i1 false)
-  %algo.i = getelementptr inbounds %struct.object_id, ptr %oid, i64 0, i32 1
+  %algo.i = getelementptr inbounds i8, ptr %oid, i64 32
   %0 = load i32, ptr %algo.i, align 4
-  %algo3.i = getelementptr inbounds %struct.object_id, ptr %cb_data, i64 0, i32 1
+  %algo3.i = getelementptr inbounds i8, ptr %cb_data, i64 32
   store i32 %0, ptr %algo3.i, align 4
   ret i32 1
 }

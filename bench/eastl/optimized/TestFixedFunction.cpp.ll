@@ -25,7 +25,6 @@ target triple = "x86_64-unknown-linux-gnu"
 %"class.eastl::internal::function_base_detail" = type { %"struct.eastl::internal::functor_storage" }
 %"struct.eastl::internal::functor_storage" = type { %union.anon }
 %union.anon = type { %"union.eastl::internal::functor_storage_alignment", [8 x i8] }
-%struct.TestObject = type <{ i32, i8, [3 x i8], i64, i32, [4 x i8] }>
 %"struct.eastl::internal::functor_storage.50" = type { %union.anon.51 }
 %union.anon.51 = type { %"union.eastl::internal::functor_storage_alignment" }
 %"class.eastl::fixed_function.44" = type { %"class.eastl::internal::function_detail.45" }
@@ -73,7 +72,6 @@ target triple = "x86_64-unknown-linux-gnu"
 %"class.eastl::internal::function_base_detail.105" = type { %"struct.eastl::internal::functor_storage.106" }
 %"struct.eastl::internal::functor_storage.106" = type { %union.anon.107 }
 %union.anon.107 = type { %"union.eastl::internal::functor_storage_alignment", [4080 x i8] }
-%class.anon.61 = type { i64, i64, i64, i64, i64, i64 }
 
 $_Z9ReturnVali = comdat any
 
@@ -576,8 +574,8 @@ entry:
   %call = call noundef i32 @_ZN2EA8UnitTest12TestInternal17EATEST_VERIFY_IMPEbRiPKciS4_(i1 noundef zeroext true, ptr noundef nonnull align 4 dereferenceable(4) %nErrorCount, ptr noundef nonnull @.str, i32 noundef 145, ptr noundef nonnull @.str.2)
   %call9 = call noundef i32 @_ZN2EA8UnitTest12TestInternal17EATEST_VERIFY_IMPEbRiPKciS4_(i1 noundef zeroext true, ptr noundef nonnull align 4 dereferenceable(4) %nErrorCount, ptr noundef nonnull @.str, i32 noundef 151, ptr noundef nonnull @.str.3)
   store ptr @_ZL10TestIntRetPi, ptr %ff10, align 8
-  %mInvokeFuncPtr.i.i19 = getelementptr inbounds %"class.eastl::internal::function_detail.24", ptr %ff10, i64 0, i32 2
-  %mMgrFuncPtr.i.i20 = getelementptr inbounds %"class.eastl::internal::function_detail.24", ptr %ff10, i64 0, i32 1
+  %mInvokeFuncPtr.i.i19 = getelementptr inbounds i8, ptr %ff10, i64 24
+  %mMgrFuncPtr.i.i20 = getelementptr inbounds i8, ptr %ff10, i64 16
   store ptr @_ZN5eastl8internal20function_base_detailILi8EE16function_managerIPFiPiEiJS4_EE7ManagerEPvS8_NS2_17ManagerOperationsE, ptr %mMgrFuncPtr.i.i20, align 8
   store ptr @_ZN5eastl8internal20function_base_detailILi8EE16function_managerIPFiPiEiJS4_EE7InvokerES4_RKNS0_15functor_storageILi8EEE, ptr %mInvokeFuncPtr.i.i19, align 8
   %call16 = invoke noundef i32 @_ZN2EA8UnitTest12TestInternal17EATEST_VERIFY_IMPEbRiPKciS4_(i1 noundef zeroext true, ptr noundef nonnull align 4 dereferenceable(4) %nErrorCount, ptr noundef nonnull @.str, i32 noundef 156, ptr noundef nonnull @.str.4)
@@ -600,12 +598,12 @@ terminate.lpad.i.i.i27:                           ; preds = %if.then.i.i.i25
   %1 = landingpad { ptr, i32 }
           catch ptr null
   %2 = extractvalue { ptr, i32 } %1, 0
-  call void @__clang_call_terminate(ptr %2) #14
+  call void @__clang_call_terminate(ptr %2) #13
   unreachable
 
 invoke.cont23:                                    ; preds = %invoke.cont18, %if.then.i.i.i25
-  %mMgrFuncPtr.i.i28 = getelementptr inbounds %"class.eastl::internal::function_detail.24", ptr %ff20, i64 0, i32 1
-  %mInvokeFuncPtr.i.i29 = getelementptr inbounds %"class.eastl::internal::function_detail.24", ptr %ff20, i64 0, i32 2
+  %mMgrFuncPtr.i.i28 = getelementptr inbounds i8, ptr %ff20, i64 16
+  %mInvokeFuncPtr.i.i29 = getelementptr inbounds i8, ptr %ff20, i64 24
   store ptr @_ZN5eastl8internal20function_base_detailILi8EE16function_managerIPFiPiEiJS4_EE7ManagerEPvS8_NS2_17ManagerOperationsE, ptr %mMgrFuncPtr.i.i28, align 8
   store ptr @_ZN5eastl8internal20function_base_detailILi8EE16function_managerIPFiPiEiJS4_EE7InvokerES4_RKNS0_15functor_storageILi8EEE, ptr %mInvokeFuncPtr.i.i29, align 8
   store ptr @_ZL10TestIntRetPi, ptr %ff20, align 8
@@ -629,7 +627,7 @@ terminate.lpad.i.i.i46:                           ; preds = %if.then.i.i.i44
   %4 = landingpad { ptr, i32 }
           catch ptr null
   %5 = extractvalue { ptr, i32 } %4, 0
-  call void @__clang_call_terminate(ptr %5) #14
+  call void @__clang_call_terminate(ptr %5) #13
   unreachable
 
 _ZN5eastl14fixed_functionILi8EFiPiEED2Ev.exit47:  ; preds = %invoke.cont32, %if.then.i.i.i44
@@ -651,7 +649,7 @@ terminate.lpad.i.i.i64:                           ; preds = %if.then.i.i.i62
   %9 = landingpad { ptr, i32 }
           catch ptr null
   %10 = extractvalue { ptr, i32 } %9, 0
-  call void @__clang_call_terminate(ptr %10) #14
+  call void @__clang_call_terminate(ptr %10) #13
   unreachable
 
 lpad22:                                           ; preds = %invoke.cont29, %invoke.cont23
@@ -669,7 +667,7 @@ terminate.lpad.i.i.i70:                           ; preds = %if.then.i.i.i68
   %13 = landingpad { ptr, i32 }
           catch ptr null
   %14 = extractvalue { ptr, i32 } %13, 0
-  call void @__clang_call_terminate(ptr %14) #14
+  call void @__clang_call_terminate(ptr %14) #13
   unreachable
 
 eh.resume:                                        ; preds = %if.then.i.i.i68, %lpad22, %if.then.i.i.i62, %lpad11
@@ -698,10 +696,10 @@ _ZN5eastl6invokeIRMZ40TestFixedFunctionPointerToMemberFunctionvE11TestVoidRetKFv
   %ff43 = alloca %"class.eastl::fixed_function.34", align 8
   store i32 0, ptr %nErrorCount, align 4
   store i64 ptrtoint (ptr @_ZZ40TestFixedFunctionPointerToMemberFunctionvENK11TestVoidRet4IncXEv to i64), ptr %ff, align 8
-  %call.repack3.i.i.i.i = getelementptr inbounds { i64, i64 }, ptr %ff, i64 0, i32 1
+  %call.repack3.i.i.i.i = getelementptr inbounds i8, ptr %ff, i64 8
   store i64 0, ptr %call.repack3.i.i.i.i, align 8
-  %mInvokeFuncPtr.i.i = getelementptr inbounds %"class.eastl::internal::function_detail.26", ptr %ff, i64 0, i32 2
-  %mMgrFuncPtr.i.i = getelementptr inbounds %"class.eastl::internal::function_detail.26", ptr %ff, i64 0, i32 1
+  %mInvokeFuncPtr.i.i = getelementptr inbounds i8, ptr %ff, i64 24
+  %mMgrFuncPtr.i.i = getelementptr inbounds i8, ptr %ff, i64 16
   store ptr @_ZN5eastl8internal20function_base_detailILi16EE16function_managerIMZ40TestFixedFunctionPointerToMemberFunctionvE11TestVoidRetKFvvEvJRKS4_EE7ManagerEPvSA_NS2_17ManagerOperationsE, ptr %mMgrFuncPtr.i.i, align 8
   store ptr @_ZN5eastl8internal20function_base_detailILi16EE16function_managerIMZ40TestFixedFunctionPointerToMemberFunctionvE11TestVoidRetKFvvEvJRKS4_EE7InvokerES8_RKNS0_15functor_storageILi16EEE, ptr %mInvokeFuncPtr.i.i, align 8
   %call = invoke noundef i32 @_ZN2EA8UnitTest12TestInternal17EATEST_VERIFY_IMPEbRiPKciS4_(i1 noundef zeroext true, ptr noundef nonnull align 4 dereferenceable(4) %nErrorCount, ptr noundef nonnull @.str, i32 noundef 224, ptr noundef nonnull @.str.8)
@@ -720,15 +718,15 @@ terminate.lpad.i.i.i:                             ; preds = %if.then.i.i.i
   %0 = landingpad { ptr, i32 }
           catch ptr null
   %1 = extractvalue { ptr, i32 } %0, 0
-  call void @__clang_call_terminate(ptr %1) #14
+  call void @__clang_call_terminate(ptr %1) #13
   unreachable
 
 _ZN5eastl6invokeIRMZ40TestFixedFunctionPointerToMemberFunctionvE11TestVoidRetKFvvEJRKS1_EEEDcOT_DpOT0_.exit.i97: ; preds = %invoke.cont1, %if.then.i.i.i
   store i64 ptrtoint (ptr @_ZZ40TestFixedFunctionPointerToMemberFunctionvENK11TestVoidRet4IncXEv to i64), ptr %ff2, align 8
-  %call.repack3.i.i.i.i3 = getelementptr inbounds { i64, i64 }, ptr %ff2, i64 0, i32 1
+  %call.repack3.i.i.i.i3 = getelementptr inbounds i8, ptr %ff2, i64 8
   store i64 0, ptr %call.repack3.i.i.i.i3, align 8
-  %mInvokeFuncPtr.i.i4 = getelementptr inbounds %"class.eastl::internal::function_detail.26", ptr %ff2, i64 0, i32 2
-  %mMgrFuncPtr.i.i5 = getelementptr inbounds %"class.eastl::internal::function_detail.26", ptr %ff2, i64 0, i32 1
+  %mInvokeFuncPtr.i.i4 = getelementptr inbounds i8, ptr %ff2, i64 24
+  %mMgrFuncPtr.i.i5 = getelementptr inbounds i8, ptr %ff2, i64 16
   store ptr @_ZN5eastl8internal20function_base_detailILi16EE16function_managerIMZ40TestFixedFunctionPointerToMemberFunctionvE11TestVoidRetKFvvEvJRKS4_EE7ManagerEPvSA_NS2_17ManagerOperationsE, ptr %mMgrFuncPtr.i.i5, align 8
   store ptr @_ZN5eastl8internal20function_base_detailILi16EE16function_managerIMZ40TestFixedFunctionPointerToMemberFunctionvE11TestVoidRetKFvvEvJRKS4_EE7InvokerES8_RKNS0_15functor_storageILi16EEE, ptr %mInvokeFuncPtr.i.i4, align 8
   %call9 = invoke noundef i32 @_ZN2EA8UnitTest12TestInternal17EATEST_VERIFY_IMPEbRiPKciS4_(i1 noundef zeroext true, ptr noundef nonnull align 4 dereferenceable(4) %nErrorCount, ptr noundef nonnull @.str, i32 noundef 229, ptr noundef nonnull @.str.9)
@@ -747,15 +745,15 @@ terminate.lpad.i.i.i12:                           ; preds = %if.then.i.i.i10
   %2 = landingpad { ptr, i32 }
           catch ptr null
   %3 = extractvalue { ptr, i32 } %2, 0
-  call void @__clang_call_terminate(ptr %3) #14
+  call void @__clang_call_terminate(ptr %3) #13
   unreachable
 
 _ZN5eastl6invokeIRMZ40TestFixedFunctionPointerToMemberFunctionvE11TestVoidRetFvvEJRS1_EEEDcOT_DpOT0_.exit.i: ; preds = %invoke.cont8, %if.then.i.i.i10
   store i64 ptrtoint (ptr @_ZZ40TestFixedFunctionPointerToMemberFunctionvEN11TestVoidRet4IncXEv to i64), ptr %ff10, align 8
-  %call.repack3.i.i.i.i14 = getelementptr inbounds { i64, i64 }, ptr %ff10, i64 0, i32 1
+  %call.repack3.i.i.i.i14 = getelementptr inbounds i8, ptr %ff10, i64 8
   store i64 0, ptr %call.repack3.i.i.i.i14, align 8
-  %mInvokeFuncPtr.i.i15 = getelementptr inbounds %"class.eastl::internal::function_detail.31", ptr %ff10, i64 0, i32 2
-  %mMgrFuncPtr.i.i16 = getelementptr inbounds %"class.eastl::internal::function_detail.31", ptr %ff10, i64 0, i32 1
+  %mInvokeFuncPtr.i.i15 = getelementptr inbounds i8, ptr %ff10, i64 24
+  %mMgrFuncPtr.i.i16 = getelementptr inbounds i8, ptr %ff10, i64 16
   store ptr @_ZN5eastl8internal20function_base_detailILi16EE16function_managerIMZ40TestFixedFunctionPointerToMemberFunctionvE11TestVoidRetFvvEvJRS4_EE7ManagerEPvS9_NS2_17ManagerOperationsE, ptr %mMgrFuncPtr.i.i16, align 8
   store ptr @_ZN5eastl8internal20function_base_detailILi16EE16function_managerIMZ40TestFixedFunctionPointerToMemberFunctionvE11TestVoidRetFvvEvJRS4_EE7InvokerES7_RKNS0_15functor_storageILi16EEE, ptr %mInvokeFuncPtr.i.i15, align 8
   %call17 = invoke noundef i32 @_ZN2EA8UnitTest12TestInternal17EATEST_VERIFY_IMPEbRiPKciS4_(i1 noundef zeroext true, ptr noundef nonnull align 4 dereferenceable(4) %nErrorCount, ptr noundef nonnull @.str, i32 noundef 234, ptr noundef nonnull @.str.10)
@@ -774,15 +772,15 @@ terminate.lpad.i.i.i22:                           ; preds = %if.then.i.i.i20
   %4 = landingpad { ptr, i32 }
           catch ptr null
   %5 = extractvalue { ptr, i32 } %4, 0
-  call void @__clang_call_terminate(ptr %5) #14
+  call void @__clang_call_terminate(ptr %5) #13
   unreachable
 
 _ZN5eastl6invokeIRMZ40TestFixedFunctionPointerToMemberFunctionvE10TestIntRetKFivEJRKS1_EEEDcOT_DpOT0_.exit.i: ; preds = %invoke.cont16, %if.then.i.i.i20
   store i64 ptrtoint (ptr @_ZZ40TestFixedFunctionPointerToMemberFunctionvENK10TestIntRet4IncXEv to i64), ptr %ff18, align 8
-  %call.repack3.i.i.i.i23 = getelementptr inbounds { i64, i64 }, ptr %ff18, i64 0, i32 1
+  %call.repack3.i.i.i.i23 = getelementptr inbounds i8, ptr %ff18, i64 8
   store i64 0, ptr %call.repack3.i.i.i.i23, align 8
-  %mInvokeFuncPtr.i.i24 = getelementptr inbounds %"class.eastl::internal::function_detail.33", ptr %ff18, i64 0, i32 2
-  %mMgrFuncPtr.i.i25 = getelementptr inbounds %"class.eastl::internal::function_detail.33", ptr %ff18, i64 0, i32 1
+  %mInvokeFuncPtr.i.i24 = getelementptr inbounds i8, ptr %ff18, i64 24
+  %mMgrFuncPtr.i.i25 = getelementptr inbounds i8, ptr %ff18, i64 16
   store ptr @_ZN5eastl8internal20function_base_detailILi16EE16function_managerIMZ40TestFixedFunctionPointerToMemberFunctionvE10TestIntRetKFivEiJRKS4_EE7ManagerEPvSA_NS2_17ManagerOperationsE, ptr %mMgrFuncPtr.i.i25, align 8
   store ptr @_ZN5eastl8internal20function_base_detailILi16EE16function_managerIMZ40TestFixedFunctionPointerToMemberFunctionvE10TestIntRetKFivEiJRKS4_EE7InvokerES8_RKNS0_15functor_storageILi16EEE, ptr %mInvokeFuncPtr.i.i24, align 8
   %call25 = invoke noundef i32 @_ZN2EA8UnitTest12TestInternal17EATEST_VERIFY_IMPEbRiPKciS4_(i1 noundef zeroext true, ptr noundef nonnull align 4 dereferenceable(4) %nErrorCount, ptr noundef nonnull @.str, i32 noundef 240, ptr noundef nonnull @.str.11)
@@ -805,15 +803,15 @@ terminate.lpad.i.i.i32:                           ; preds = %if.then.i.i.i30
   %6 = landingpad { ptr, i32 }
           catch ptr null
   %7 = extractvalue { ptr, i32 } %6, 0
-  call void @__clang_call_terminate(ptr %7) #14
+  call void @__clang_call_terminate(ptr %7) #13
   unreachable
 
 _ZN5eastl6invokeIRMZ40TestFixedFunctionPointerToMemberFunctionvE10TestIntRetKFivEJRKS1_EEEDcOT_DpOT0_.exit.i125: ; preds = %invoke.cont28, %if.then.i.i.i30
   store i64 ptrtoint (ptr @_ZZ40TestFixedFunctionPointerToMemberFunctionvENK10TestIntRet4IncXEv to i64), ptr %ff30, align 8
-  %call.repack3.i.i.i.i33 = getelementptr inbounds { i64, i64 }, ptr %ff30, i64 0, i32 1
+  %call.repack3.i.i.i.i33 = getelementptr inbounds i8, ptr %ff30, i64 8
   store i64 0, ptr %call.repack3.i.i.i.i33, align 8
-  %mInvokeFuncPtr.i.i34 = getelementptr inbounds %"class.eastl::internal::function_detail.33", ptr %ff30, i64 0, i32 2
-  %mMgrFuncPtr.i.i35 = getelementptr inbounds %"class.eastl::internal::function_detail.33", ptr %ff30, i64 0, i32 1
+  %mInvokeFuncPtr.i.i34 = getelementptr inbounds i8, ptr %ff30, i64 24
+  %mMgrFuncPtr.i.i35 = getelementptr inbounds i8, ptr %ff30, i64 16
   store ptr @_ZN5eastl8internal20function_base_detailILi16EE16function_managerIMZ40TestFixedFunctionPointerToMemberFunctionvE10TestIntRetKFivEiJRKS4_EE7ManagerEPvSA_NS2_17ManagerOperationsE, ptr %mMgrFuncPtr.i.i35, align 8
   store ptr @_ZN5eastl8internal20function_base_detailILi16EE16function_managerIMZ40TestFixedFunctionPointerToMemberFunctionvE10TestIntRetKFivEiJRKS4_EE7InvokerES8_RKNS0_15functor_storageILi16EEE, ptr %mInvokeFuncPtr.i.i34, align 8
   %call38 = invoke noundef i32 @_ZN2EA8UnitTest12TestInternal17EATEST_VERIFY_IMPEbRiPKciS4_(i1 noundef zeroext true, ptr noundef nonnull align 4 dereferenceable(4) %nErrorCount, ptr noundef nonnull @.str, i32 noundef 246, ptr noundef nonnull @.str.11)
@@ -836,15 +834,15 @@ terminate.lpad.i.i.i43:                           ; preds = %if.then.i.i.i41
   %8 = landingpad { ptr, i32 }
           catch ptr null
   %9 = extractvalue { ptr, i32 } %8, 0
-  call void @__clang_call_terminate(ptr %9) #14
+  call void @__clang_call_terminate(ptr %9) #13
   unreachable
 
 _ZN5eastl6invokeIRMZ40TestFixedFunctionPointerToMemberFunctionvE10TestIntRetFivEJRS1_EEEDcOT_DpOT0_.exit.i: ; preds = %invoke.cont41, %if.then.i.i.i41
   store i64 ptrtoint (ptr @_ZZ40TestFixedFunctionPointerToMemberFunctionvEN10TestIntRet4IncXEv to i64), ptr %ff43, align 8
-  %call.repack3.i.i.i.i45 = getelementptr inbounds { i64, i64 }, ptr %ff43, i64 0, i32 1
+  %call.repack3.i.i.i.i45 = getelementptr inbounds i8, ptr %ff43, i64 8
   store i64 0, ptr %call.repack3.i.i.i.i45, align 8
-  %mInvokeFuncPtr.i.i46 = getelementptr inbounds %"class.eastl::internal::function_detail.35", ptr %ff43, i64 0, i32 2
-  %mMgrFuncPtr.i.i47 = getelementptr inbounds %"class.eastl::internal::function_detail.35", ptr %ff43, i64 0, i32 1
+  %mInvokeFuncPtr.i.i46 = getelementptr inbounds i8, ptr %ff43, i64 24
+  %mMgrFuncPtr.i.i47 = getelementptr inbounds i8, ptr %ff43, i64 16
   store ptr @_ZN5eastl8internal20function_base_detailILi16EE16function_managerIMZ40TestFixedFunctionPointerToMemberFunctionvE10TestIntRetFivEiJRS4_EE7ManagerEPvS9_NS2_17ManagerOperationsE, ptr %mMgrFuncPtr.i.i47, align 8
   store ptr @_ZN5eastl8internal20function_base_detailILi16EE16function_managerIMZ40TestFixedFunctionPointerToMemberFunctionvE10TestIntRetFivEiJRS4_EE7InvokerES7_RKNS0_15functor_storageILi16EEE, ptr %mInvokeFuncPtr.i.i46, align 8
   %call51 = invoke noundef i32 @_ZN2EA8UnitTest12TestInternal17EATEST_VERIFY_IMPEbRiPKciS4_(i1 noundef zeroext true, ptr noundef nonnull align 4 dereferenceable(4) %nErrorCount, ptr noundef nonnull @.str, i32 noundef 252, ptr noundef nonnull @.str.14)
@@ -867,7 +865,7 @@ terminate.lpad.i.i.i54:                           ; preds = %if.then.i.i.i52
   %10 = landingpad { ptr, i32 }
           catch ptr null
   %11 = extractvalue { ptr, i32 } %10, 0
-  call void @__clang_call_terminate(ptr %11) #14
+  call void @__clang_call_terminate(ptr %11) #13
   unreachable
 
 _ZN5eastl14fixed_functionILi16EFiRZ40TestFixedFunctionPointerToMemberFunctionvE10TestIntRetEED2Ev.exit: ; preds = %invoke.cont54, %if.then.i.i.i52
@@ -889,7 +887,7 @@ terminate.lpad.i.i.i59:                           ; preds = %if.then.i.i.i57
   %14 = landingpad { ptr, i32 }
           catch ptr null
   %15 = extractvalue { ptr, i32 } %14, 0
-  call void @__clang_call_terminate(ptr %15) #14
+  call void @__clang_call_terminate(ptr %15) #13
   unreachable
 
 lpad4:                                            ; preds = %_ZN5eastl6invokeIRMZ40TestFixedFunctionPointerToMemberFunctionvE11TestVoidRetKFvvEJRKS1_EEEDcOT_DpOT0_.exit.i97
@@ -907,7 +905,7 @@ terminate.lpad.i.i.i65:                           ; preds = %if.then.i.i.i63
   %17 = landingpad { ptr, i32 }
           catch ptr null
   %18 = extractvalue { ptr, i32 } %17, 0
-  call void @__clang_call_terminate(ptr %18) #14
+  call void @__clang_call_terminate(ptr %18) #13
   unreachable
 
 lpad12:                                           ; preds = %_ZN5eastl6invokeIRMZ40TestFixedFunctionPointerToMemberFunctionvE11TestVoidRetFvvEJRS1_EEEDcOT_DpOT0_.exit.i
@@ -925,7 +923,7 @@ terminate.lpad.i.i.i71:                           ; preds = %if.then.i.i.i69
   %20 = landingpad { ptr, i32 }
           catch ptr null
   %21 = extractvalue { ptr, i32 } %20, 0
-  call void @__clang_call_terminate(ptr %21) #14
+  call void @__clang_call_terminate(ptr %21) #13
   unreachable
 
 lpad20:                                           ; preds = %invoke.cont24, %_ZN5eastl6invokeIRMZ40TestFixedFunctionPointerToMemberFunctionvE10TestIntRetKFivEJRKS1_EEEDcOT_DpOT0_.exit.i
@@ -943,7 +941,7 @@ terminate.lpad.i.i.i77:                           ; preds = %if.then.i.i.i75
   %23 = landingpad { ptr, i32 }
           catch ptr null
   %24 = extractvalue { ptr, i32 } %23, 0
-  call void @__clang_call_terminate(ptr %24) #14
+  call void @__clang_call_terminate(ptr %24) #13
   unreachable
 
 lpad33:                                           ; preds = %invoke.cont37, %_ZN5eastl6invokeIRMZ40TestFixedFunctionPointerToMemberFunctionvE10TestIntRetKFivEJRKS1_EEEDcOT_DpOT0_.exit.i125
@@ -961,7 +959,7 @@ terminate.lpad.i.i.i83:                           ; preds = %if.then.i.i.i81
   %26 = landingpad { ptr, i32 }
           catch ptr null
   %27 = extractvalue { ptr, i32 } %26, 0
-  call void @__clang_call_terminate(ptr %27) #14
+  call void @__clang_call_terminate(ptr %27) #13
   unreachable
 
 lpad46:                                           ; preds = %invoke.cont50, %_ZN5eastl6invokeIRMZ40TestFixedFunctionPointerToMemberFunctionvE10TestIntRetFivEJRS1_EEEDcOT_DpOT0_.exit.i
@@ -979,7 +977,7 @@ terminate.lpad.i.i.i89:                           ; preds = %if.then.i.i.i87
   %29 = landingpad { ptr, i32 }
           catch ptr null
   %30 = extractvalue { ptr, i32 } %29, 0
-  call void @__clang_call_terminate(ptr %30) #14
+  call void @__clang_call_terminate(ptr %30) #13
   unreachable
 
 eh.resume:                                        ; preds = %if.then.i.i.i87, %lpad46, %if.then.i.i.i81, %lpad33, %if.then.i.i.i75, %lpad20, %if.then.i.i.i69, %lpad12, %if.then.i.i.i63, %lpad4, %if.then.i.i.i57, %lpad
@@ -1043,17 +1041,17 @@ _ZN10TestObject7IsClearEv.exit:
   %ff1 = alloca %"class.eastl::fixed_function", align 8
   store i32 0, ptr %nErrorCount, align 4
   %0 = load i64, ptr @_ZN10TestObject12sTOCtorCountE, align 8
-  %mMgrFuncPtr.i.i = getelementptr inbounds %"class.eastl::internal::function_detail", ptr %ff1, i64 0, i32 1
-  %mInvokeFuncPtr.i.i = getelementptr inbounds %"class.eastl::internal::function_detail", ptr %ff1, i64 0, i32 2
+  %mMgrFuncPtr.i.i = getelementptr inbounds i8, ptr %ff1, i64 24
+  %mInvokeFuncPtr.i.i = getelementptr inbounds i8, ptr %ff1, i64 32
   store ptr @"_ZN5eastl8internal20function_base_detailILi24EE16function_managerIZ32TestFixedFunctionExistingClosurevE3$_0vJEE7ManagerEPvS6_NS2_17ManagerOperationsE", ptr %mMgrFuncPtr.i.i, align 8
   store ptr @"_ZN5eastl8internal20function_base_detailILi24EE16function_managerIZ32TestFixedFunctionExistingClosurevE3$_0vJEE7InvokerERKNS0_15functor_storageILi24EEE", ptr %mInvokeFuncPtr.i.i, align 8
   store i32 0, ptr %ff1, align 8
-  %mbThrowOnCopy.i.i.i.i.i.i = getelementptr inbounds %struct.TestObject, ptr %ff1, i64 0, i32 1
+  %mbThrowOnCopy.i.i.i.i.i.i = getelementptr inbounds i8, ptr %ff1, i64 4
   store i8 0, ptr %mbThrowOnCopy.i.i.i.i.i.i, align 4
-  %mMagicValue.i.i.i.i.i.i = getelementptr inbounds %struct.TestObject, ptr %ff1, i64 0, i32 4
+  %mMagicValue.i.i.i.i.i.i = getelementptr inbounds i8, ptr %ff1, i64 16
   store i32 32623592, ptr %mMagicValue.i.i.i.i.i.i, align 8
   %inc5.i.i.i.i.i.i = add nsw i64 %0, 4
-  %mId.i.i.i.i.i.i = getelementptr inbounds %struct.TestObject, ptr %ff1, i64 0, i32 3
+  %mId.i.i.i.i.i.i = getelementptr inbounds i8, ptr %ff1, i64 8
   store i64 %inc5.i.i.i.i.i.i, ptr %mId.i.i.i.i.i.i, align 8
   store i64 0, ptr @_ZN10TestObject19sTODefaultCtorCountE, align 8
   store i64 0, ptr @_ZN10TestObject15sTOArgCtorCountE, align 8
@@ -1214,13 +1212,13 @@ entry:
   %ff8Copy324 = alloca %"class.eastl::fixed_function.67", align 8
   %ff16326 = alloca %"class.eastl::fixed_function.70", align 8
   store i32 0, ptr %nErrorCount, align 4
-  %mMgrFuncPtr.i.i = getelementptr inbounds %"class.eastl::internal::function_detail", ptr %fn, i64 0, i32 1
+  %mMgrFuncPtr.i.i = getelementptr inbounds i8, ptr %fn, i64 24
   store ptr null, ptr %mMgrFuncPtr.i.i, align 8
-  %mInvokeFuncPtr.i.i = getelementptr inbounds %"class.eastl::internal::function_detail", ptr %fn, i64 0, i32 2
+  %mInvokeFuncPtr.i.i = getelementptr inbounds i8, ptr %fn, i64 32
   store ptr @_ZN5eastl8internal15function_detailILi24EFvvEE14DefaultInvokerERKNS0_15functor_storageILi24EEE, ptr %mInvokeFuncPtr.i.i, align 8
-  %mMgrFuncPtr.i.i28 = getelementptr inbounds %"class.eastl::internal::function_detail", ptr %fn2, i64 0, i32 1
+  %mMgrFuncPtr.i.i28 = getelementptr inbounds i8, ptr %fn2, i64 24
   store ptr null, ptr %mMgrFuncPtr.i.i28, align 8
-  %mInvokeFuncPtr.i.i29 = getelementptr inbounds %"class.eastl::internal::function_detail", ptr %fn2, i64 0, i32 2
+  %mInvokeFuncPtr.i.i29 = getelementptr inbounds i8, ptr %fn2, i64 32
   store ptr @_ZN5eastl8internal15function_detailILi24EFvvEE14DefaultInvokerERKNS0_15functor_storageILi24EEE, ptr %mInvokeFuncPtr.i.i29, align 8
   %call1 = invoke noundef i32 @_ZN2EA8UnitTest12TestInternal17EATEST_VERIFY_IMPEbRiPKciS4_(i1 noundef zeroext true, ptr noundef nonnull align 4 dereferenceable(4) %nErrorCount, ptr noundef nonnull @.str, i32 noundef 400, ptr noundef nonnull @.str.16)
           to label %invoke.cont unwind label %lpad
@@ -1268,7 +1266,7 @@ terminate.lpad.i.i.i:                             ; preds = %if.then.i.i.i
   %6 = landingpad { ptr, i32 }
           catch ptr null
   %7 = extractvalue { ptr, i32 } %6, 0
-  call void @__clang_call_terminate(ptr %7) #14
+  call void @__clang_call_terminate(ptr %7) #13
   unreachable
 
 invoke.cont18:                                    ; preds = %if.then.i.i.i, %invoke.cont16
@@ -1290,7 +1288,7 @@ terminate.lpad.i.i.i43:                           ; preds = %if.then.i.i.i41
   %9 = landingpad { ptr, i32 }
           catch ptr null
   %10 = extractvalue { ptr, i32 } %9, 0
-  call void @__clang_call_terminate(ptr %10) #14
+  call void @__clang_call_terminate(ptr %10) #13
   unreachable
 
 invoke.cont21:                                    ; preds = %if.then.i.i.i41.invoke.cont21_crit_edge, %invoke.cont18
@@ -1344,7 +1342,7 @@ terminate.lpad.i.i.i61:                           ; preds = %if.then.i.i.i59
   %18 = landingpad { ptr, i32 }
           catch ptr null
   %19 = extractvalue { ptr, i32 } %18, 0
-  call void @__clang_call_terminate(ptr %19) #14
+  call void @__clang_call_terminate(ptr %19) #13
   unreachable
 
 _ZN5eastl14fixed_functionILi24EFvvEEaSEDn.exit:   ; preds = %invoke.cont43, %if.then.i.i.i59
@@ -1362,7 +1360,7 @@ terminate.lpad.i.i.i67:                           ; preds = %if.then.i.i.i65
   %21 = landingpad { ptr, i32 }
           catch ptr null
   %22 = extractvalue { ptr, i32 } %21, 0
-  call void @__clang_call_terminate(ptr %22) #14
+  call void @__clang_call_terminate(ptr %22) #13
   unreachable
 
 _ZN5eastl8internal15function_detailILi24EFvvEE7DestroyEv.exit.i.i: ; preds = %if.then.i.i.i65
@@ -1430,7 +1428,7 @@ terminate.lpad.i.i.i85:                           ; preds = %if.then.i.i.i83
   %31 = landingpad { ptr, i32 }
           catch ptr null
   %32 = extractvalue { ptr, i32 } %31, 0
-  call void @__clang_call_terminate(ptr %32) #14
+  call void @__clang_call_terminate(ptr %32) #13
   unreachable
 
 _ZN5eastl14fixed_functionILi24EFvvEED2Ev.exit:    ; preds = %invoke.cont66, %if.then.i.i.i83
@@ -1446,17 +1444,17 @@ terminate.lpad.i.i.i90:                           ; preds = %if.then.i.i.i88
   %34 = landingpad { ptr, i32 }
           catch ptr null
   %35 = extractvalue { ptr, i32 } %34, 0
-  call void @__clang_call_terminate(ptr %35) #14
+  call void @__clang_call_terminate(ptr %35) #13
   unreachable
 
 _ZN5eastl14fixed_functionILi24EFvvEED2Ev.exit91:  ; preds = %_ZN5eastl14fixed_functionILi24EFvvEED2Ev.exit, %if.then.i.i.i88
-  %mMgrFuncPtr.i.i92 = getelementptr inbounds %"class.eastl::internal::function_detail.45", ptr %fn68, i64 0, i32 1
-  %mInvokeFuncPtr.i.i93 = getelementptr inbounds %"class.eastl::internal::function_detail.45", ptr %fn68, i64 0, i32 2
+  %mMgrFuncPtr.i.i92 = getelementptr inbounds i8, ptr %fn68, i64 24
+  %mInvokeFuncPtr.i.i93 = getelementptr inbounds i8, ptr %fn68, i64 32
   store ptr @_ZN5eastl8internal20function_base_detailILi24EE16function_managerIZ22TestFixedFunctionBasicvE7Functor_0iJEE7ManagerEPvS6_NS2_17ManagerOperationsE, ptr %mMgrFuncPtr.i.i92, align 8
   store ptr @_ZN5eastl8internal20function_base_detailILi24EE16function_managerIZ22TestFixedFunctionBasicvE7Functor_0iJEE7InvokerERKNS0_15functor_storageILi24EEE, ptr %mInvokeFuncPtr.i.i93, align 8
-  %mMgrFuncPtr.i.i94 = getelementptr inbounds %"class.eastl::internal::function_detail.45", ptr %fn269, i64 0, i32 1
+  %mMgrFuncPtr.i.i94 = getelementptr inbounds i8, ptr %fn269, i64 24
   store ptr null, ptr %mMgrFuncPtr.i.i94, align 8
-  %mInvokeFuncPtr.i.i95 = getelementptr inbounds %"class.eastl::internal::function_detail.45", ptr %fn269, i64 0, i32 2
+  %mInvokeFuncPtr.i.i95 = getelementptr inbounds i8, ptr %fn269, i64 32
   store ptr @_ZN5eastl8internal15function_detailILi24EFivEE14DefaultInvokerERKNS0_15functor_storageILi24EEE, ptr %mInvokeFuncPtr.i.i95, align 8
   %call74 = invoke noundef i32 @_ZN2EA8UnitTest12TestInternal17EATEST_VERIFY_IMPEbRiPKciS4_(i1 noundef zeroext true, ptr noundef nonnull align 4 dereferenceable(4) %nErrorCount, ptr noundef nonnull @.str, i32 noundef 429, ptr noundef nonnull @.str.28)
           to label %invoke.cont73 unwind label %lpad70
@@ -1503,7 +1501,7 @@ terminate.lpad.i.i:                               ; preds = %if.then14.i.i, %if.
   %40 = landingpad { ptr, i32 }
           catch ptr null
   %41 = extractvalue { ptr, i32 } %40, 0
-  call void @__clang_call_terminate(ptr %41) #14
+  call void @__clang_call_terminate(ptr %41) #13
   unreachable
 
 _ZN5eastl14fixed_functionILi24EFivEE4swapERS2_.exit: ; preds = %if.end12.i.i, %if.then14.if.end19_crit_edge.i.i
@@ -1564,7 +1562,7 @@ terminate.lpad.i.i.i109:                          ; preds = %if.then14.i.i.i, %i
   %49 = landingpad { ptr, i32 }
           catch ptr null
   %50 = extractvalue { ptr, i32 } %49, 0
-  call void @__clang_call_terminate(ptr %50) #14
+  call void @__clang_call_terminate(ptr %50) #13
   unreachable
 
 _ZN5eastl4swapILi24EiJEEEvRNS_14fixed_functionIXT_EFT0_DpT1_EEES7_.exit: ; preds = %if.end12.i.i.i, %if.then14.if.end19_crit_edge.i.i.i
@@ -1602,7 +1600,7 @@ terminate.lpad.i.i.i121:                          ; preds = %if.then.i.i.i119
   %56 = landingpad { ptr, i32 }
           catch ptr null
   %57 = extractvalue { ptr, i32 } %56, 0
-  call void @__clang_call_terminate(ptr %57) #14
+  call void @__clang_call_terminate(ptr %57) #13
   unreachable
 
 _ZN5eastl14fixed_functionILi24EFivEED2Ev.exit:    ; preds = %invoke.cont96, %if.then.i.i.i119
@@ -1618,12 +1616,12 @@ terminate.lpad.i.i.i126:                          ; preds = %if.then.i.i.i124
   %59 = landingpad { ptr, i32 }
           catch ptr null
   %60 = extractvalue { ptr, i32 } %59, 0
-  call void @__clang_call_terminate(ptr %60) #14
+  call void @__clang_call_terminate(ptr %60) #13
   unreachable
 
 _ZN5eastl14fixed_functionILi24EFivEED2Ev.exit127: ; preds = %_ZN5eastl14fixed_functionILi24EFivEED2Ev.exit, %if.then.i.i.i124
-  %mMgrFuncPtr.i.i128 = getelementptr inbounds %"class.eastl::internal::function_detail.48", ptr %fn98, i64 0, i32 1
-  %mInvokeFuncPtr.i.i129 = getelementptr inbounds %"class.eastl::internal::function_detail.48", ptr %fn98, i64 0, i32 2
+  %mMgrFuncPtr.i.i128 = getelementptr inbounds i8, ptr %fn98, i64 16
+  %mInvokeFuncPtr.i.i129 = getelementptr inbounds i8, ptr %fn98, i64 24
   store ptr @_ZN5eastl8internal20function_base_detailILi0EE16function_managerIZ22TestFixedFunctionBasicvE7Functor_1iJEE7ManagerEPvS6_NS2_17ManagerOperationsE, ptr %mMgrFuncPtr.i.i128, align 8
   store ptr @_ZN5eastl8internal20function_base_detailILi0EE16function_managerIZ22TestFixedFunctionBasicvE7Functor_1iJEE7InvokerERKNS0_15functor_storageILi0EEE, ptr %mInvokeFuncPtr.i.i129, align 8
   %call105 = invoke noundef i32 @_ZN2EA8UnitTest12TestInternal17EATEST_VERIFY_IMPEbRiPKciS4_(i1 noundef zeroext true, ptr noundef nonnull align 4 dereferenceable(4) %nErrorCount, ptr noundef nonnull @.str, i32 noundef 442, ptr noundef nonnull @.str.30)
@@ -1642,12 +1640,12 @@ terminate.lpad.i.i.i136:                          ; preds = %if.then.i.i.i134
   %62 = landingpad { ptr, i32 }
           catch ptr null
   %63 = extractvalue { ptr, i32 } %62, 0
-  call void @__clang_call_terminate(ptr %63) #14
+  call void @__clang_call_terminate(ptr %63) #13
   unreachable
 
 _ZN5eastl14fixed_functionILi0EFivEED2Ev.exit:     ; preds = %invoke.cont104, %if.then.i.i.i134
-  %mMgrFuncPtr.i.i137 = getelementptr inbounds %"class.eastl::internal::function_detail.54", ptr %fn106, i64 0, i32 1
-  %mInvokeFuncPtr.i.i138 = getelementptr inbounds %"class.eastl::internal::function_detail.54", ptr %fn106, i64 0, i32 2
+  %mMgrFuncPtr.i.i137 = getelementptr inbounds i8, ptr %fn106, i64 16
+  %mInvokeFuncPtr.i.i138 = getelementptr inbounds i8, ptr %fn106, i64 24
   store ptr @_ZN5eastl8internal20function_base_detailILi0EE16function_managerIZ22TestFixedFunctionBasicvE7Functor_2iJiEE7ManagerEPvS6_NS2_17ManagerOperationsE, ptr %mMgrFuncPtr.i.i137, align 8
   store ptr @_ZN5eastl8internal20function_base_detailILi0EE16function_managerIZ22TestFixedFunctionBasicvE7Functor_2iJiEE7InvokerEiRKNS0_15functor_storageILi0EEE, ptr %mInvokeFuncPtr.i.i138, align 8
   %call113 = invoke noundef i32 @_ZN2EA8UnitTest12TestInternal17EATEST_VERIFY_IMPEbRiPKciS4_(i1 noundef zeroext true, ptr noundef nonnull align 4 dereferenceable(4) %nErrorCount, ptr noundef nonnull @.str, i32 noundef 448, ptr noundef nonnull @.str.31)
@@ -1666,13 +1664,13 @@ terminate.lpad.i.i.i145:                          ; preds = %if.then.i.i.i143
   %65 = landingpad { ptr, i32 }
           catch ptr null
   %66 = extractvalue { ptr, i32 } %65, 0
-  call void @__clang_call_terminate(ptr %66) #14
+  call void @__clang_call_terminate(ptr %66) #13
   unreachable
 
 _ZN5eastl14fixed_functionILi0EFiiEED2Ev.exit:     ; preds = %invoke.cont112, %if.then.i.i.i143
-  %mMgrFuncPtr.i.i146 = getelementptr inbounds %"class.eastl::internal::function_detail.57", ptr %fn114, i64 0, i32 1
+  %mMgrFuncPtr.i.i146 = getelementptr inbounds i8, ptr %fn114, i64 16
   store ptr null, ptr %mMgrFuncPtr.i.i146, align 8
-  %mInvokeFuncPtr.i.i147 = getelementptr inbounds %"class.eastl::internal::function_detail.57", ptr %fn114, i64 0, i32 2
+  %mInvokeFuncPtr.i.i147 = getelementptr inbounds i8, ptr %fn114, i64 24
   store ptr @_ZN5eastl8internal15function_detailILi0EFvvEE14DefaultInvokerERKNS0_15functor_storageILi0EEE, ptr %mInvokeFuncPtr.i.i147, align 8
   %call119 = invoke noundef i32 @_ZN2EA8UnitTest12TestInternal17EATEST_VERIFY_IMPEbRiPKciS4_(i1 noundef zeroext true, ptr noundef nonnull align 4 dereferenceable(4) %nErrorCount, ptr noundef nonnull @.str, i32 noundef 454, ptr noundef nonnull @.str.16)
           to label %invoke.cont118 unwind label %lpad117
@@ -1690,7 +1688,7 @@ terminate.lpad.i.i.i154:                          ; preds = %if.then.i.i.i152
   %68 = landingpad { ptr, i32 }
           catch ptr null
   %69 = extractvalue { ptr, i32 } %68, 0
-  call void @__clang_call_terminate(ptr %69) #14
+  call void @__clang_call_terminate(ptr %69) #13
   unreachable
 
 invoke.cont121:                                   ; preds = %if.then.i.i.i152, %invoke.cont118
@@ -1712,12 +1710,12 @@ terminate.lpad.i.i.i162:                          ; preds = %if.then.i.i.i160
   %71 = landingpad { ptr, i32 }
           catch ptr null
   %72 = extractvalue { ptr, i32 } %71, 0
-  call void @__clang_call_terminate(ptr %72) #14
+  call void @__clang_call_terminate(ptr %72) #13
   unreachable
 
 _ZN5eastl14fixed_functionILi0EFvvEED2Ev.exit:     ; preds = %invoke.cont126, %if.then.i.i.i160
-  %mMgrFuncPtr.i.i163 = getelementptr inbounds %"class.eastl::internal::function_detail.54", ptr %fn128, i64 0, i32 1
-  %mInvokeFuncPtr.i.i164 = getelementptr inbounds %"class.eastl::internal::function_detail.54", ptr %fn128, i64 0, i32 2
+  %mMgrFuncPtr.i.i163 = getelementptr inbounds i8, ptr %fn128, i64 16
+  %mInvokeFuncPtr.i.i164 = getelementptr inbounds i8, ptr %fn128, i64 24
   store ptr @"_ZN5eastl8internal20function_base_detailILi0EE16function_managerIZ22TestFixedFunctionBasicvE3$_1iJiEE7ManagerEPvS6_NS2_17ManagerOperationsE", ptr %mMgrFuncPtr.i.i163, align 8
   store ptr @"_ZN5eastl8internal20function_base_detailILi0EE16function_managerIZ22TestFixedFunctionBasicvE3$_1iJiEE7InvokerEiRKNS0_15functor_storageILi0EEE", ptr %mInvokeFuncPtr.i.i164, align 8
   %call135 = invoke noundef i32 @_ZN2EA8UnitTest12TestInternal17EATEST_VERIFY_IMPEbRiPKciS4_(i1 noundef zeroext true, ptr noundef nonnull align 4 dereferenceable(4) %nErrorCount, ptr noundef nonnull @.str, i32 noundef 461, ptr noundef nonnull @.str.32)
@@ -1736,13 +1734,13 @@ terminate.lpad.i.i.i172:                          ; preds = %if.then.i.i.i170
   %74 = landingpad { ptr, i32 }
           catch ptr null
   %75 = extractvalue { ptr, i32 } %74, 0
-  call void @__clang_call_terminate(ptr %75) #14
+  call void @__clang_call_terminate(ptr %75) #13
   unreachable
 
 _ZN5eastl14fixed_functionILi0EFiiEED2Ev.exit173:  ; preds = %invoke.cont134, %if.then.i.i.i170
   store ptr @_Z9ReturnVali, ptr %fn136, align 8
-  %mInvokeFuncPtr.i.i174 = getelementptr inbounds %"class.eastl::internal::function_detail.54", ptr %fn136, i64 0, i32 2
-  %mMgrFuncPtr.i.i175 = getelementptr inbounds %"class.eastl::internal::function_detail.54", ptr %fn136, i64 0, i32 1
+  %mInvokeFuncPtr.i.i174 = getelementptr inbounds i8, ptr %fn136, i64 24
+  %mMgrFuncPtr.i.i175 = getelementptr inbounds i8, ptr %fn136, i64 16
   store ptr @_ZN5eastl8internal20function_base_detailILi0EE16function_managerIPFiiEiJiEE7ManagerEPvS7_NS2_17ManagerOperationsE, ptr %mMgrFuncPtr.i.i175, align 8
   store ptr @_ZN5eastl8internal20function_base_detailILi0EE16function_managerIPFiiEiJiEE7InvokerEiRKNS0_15functor_storageILi0EEE, ptr %mInvokeFuncPtr.i.i174, align 8
   %call142 = invoke noundef i32 @_ZN2EA8UnitTest12TestInternal17EATEST_VERIFY_IMPEbRiPKciS4_(i1 noundef zeroext true, ptr noundef nonnull align 4 dereferenceable(4) %nErrorCount, ptr noundef nonnull @.str, i32 noundef 466, ptr noundef nonnull @.str.32)
@@ -1761,18 +1759,18 @@ terminate.lpad.i.i.i183:                          ; preds = %if.then.i.i.i181
   %77 = landingpad { ptr, i32 }
           catch ptr null
   %78 = extractvalue { ptr, i32 } %77, 0
-  call void @__clang_call_terminate(ptr %78) #14
+  call void @__clang_call_terminate(ptr %78) #13
   unreachable
 
 land.rhs:                                         ; preds = %invoke.cont141, %if.then.i.i.i181
   store ptr @_Z10ReturnZerov, ptr %fn0, align 8
-  %mInvokeFuncPtr.i.i185 = getelementptr inbounds %"class.eastl::internal::function_detail.48", ptr %fn0, i64 0, i32 2
-  %mMgrFuncPtr.i.i186 = getelementptr inbounds %"class.eastl::internal::function_detail.48", ptr %fn0, i64 0, i32 1
+  %mInvokeFuncPtr.i.i185 = getelementptr inbounds i8, ptr %fn0, i64 24
+  %mMgrFuncPtr.i.i186 = getelementptr inbounds i8, ptr %fn0, i64 16
   store ptr @_ZN5eastl8internal20function_base_detailILi0EE16function_managerIPFivEiJEE7ManagerEPvS7_NS2_17ManagerOperationsE, ptr %mMgrFuncPtr.i.i186, align 8
   store ptr @_ZN5eastl8internal20function_base_detailILi0EE16function_managerIPFivEiJEE7InvokerERKNS0_15functor_storageILi0EEE, ptr %mInvokeFuncPtr.i.i185, align 8
   store ptr @_Z9ReturnOnev, ptr %fn1, align 8
-  %mInvokeFuncPtr.i.i187 = getelementptr inbounds %"class.eastl::internal::function_detail.48", ptr %fn1, i64 0, i32 2
-  %mMgrFuncPtr.i.i188 = getelementptr inbounds %"class.eastl::internal::function_detail.48", ptr %fn1, i64 0, i32 1
+  %mInvokeFuncPtr.i.i187 = getelementptr inbounds i8, ptr %fn1, i64 24
+  %mMgrFuncPtr.i.i188 = getelementptr inbounds i8, ptr %fn1, i64 16
   store ptr @_ZN5eastl8internal20function_base_detailILi0EE16function_managerIPFivEiJEE7ManagerEPvS7_NS2_17ManagerOperationsE, ptr %mMgrFuncPtr.i.i188, align 8
   store ptr @_ZN5eastl8internal20function_base_detailILi0EE16function_managerIPFivEiJEE7InvokerERKNS0_15functor_storageILi0EEE, ptr %mInvokeFuncPtr.i.i187, align 8
   %call153 = invoke noundef i32 @_ZN2EA8UnitTest12TestInternal17EATEST_VERIFY_IMPEbRiPKciS4_(i1 noundef zeroext true, ptr noundef nonnull align 4 dereferenceable(4) %nErrorCount, ptr noundef nonnull @.str, i32 noundef 473, ptr noundef nonnull @.str.33)
@@ -1814,7 +1812,7 @@ terminate.lpad.i.i.i200:                          ; preds = %if.then14.i.i.i208,
   %82 = landingpad { ptr, i32 }
           catch ptr null
   %83 = extractvalue { ptr, i32 } %82, 0
-  call void @__clang_call_terminate(ptr %83) #14
+  call void @__clang_call_terminate(ptr %83) #13
   unreachable
 
 _ZN5eastl4swapILi0EiJEEEvRNS_14fixed_functionIXT_EFT0_DpT1_EEES7_.exit: ; preds = %if.end12.i.i.i206, %if.then14.if.end19_crit_edge.i.i.i210
@@ -1859,7 +1857,7 @@ terminate.lpad.i.i.i224:                          ; preds = %if.then.i.i.i222
   %90 = landingpad { ptr, i32 }
           catch ptr null
   %91 = extractvalue { ptr, i32 } %90, 0
-  call void @__clang_call_terminate(ptr %91) #14
+  call void @__clang_call_terminate(ptr %91) #13
   unreachable
 
 _ZN5eastl14fixed_functionILi0EFivEED2Ev.exit225:  ; preds = %invoke.cont163, %if.then.i.i.i222
@@ -1875,18 +1873,18 @@ terminate.lpad.i.i.i230:                          ; preds = %if.then.i.i.i228
   %93 = landingpad { ptr, i32 }
           catch ptr null
   %94 = extractvalue { ptr, i32 } %93, 0
-  call void @__clang_call_terminate(ptr %94) #14
+  call void @__clang_call_terminate(ptr %94) #13
   unreachable
 
 land.rhs173:                                      ; preds = %_ZN5eastl14fixed_functionILi0EFivEED2Ev.exit225, %if.then.i.i.i228
   store ptr @_Z10ReturnZerov, ptr %fn0165, align 8
-  %mInvokeFuncPtr.i.i232 = getelementptr inbounds %"class.eastl::internal::function_detail.48", ptr %fn0165, i64 0, i32 2
-  %mMgrFuncPtr.i.i233 = getelementptr inbounds %"class.eastl::internal::function_detail.48", ptr %fn0165, i64 0, i32 1
+  %mInvokeFuncPtr.i.i232 = getelementptr inbounds i8, ptr %fn0165, i64 24
+  %mMgrFuncPtr.i.i233 = getelementptr inbounds i8, ptr %fn0165, i64 16
   store ptr @_ZN5eastl8internal20function_base_detailILi0EE16function_managerIPFivEiJEE7ManagerEPvS7_NS2_17ManagerOperationsE, ptr %mMgrFuncPtr.i.i233, align 8
   store ptr @_ZN5eastl8internal20function_base_detailILi0EE16function_managerIPFivEiJEE7InvokerERKNS0_15functor_storageILi0EEE, ptr %mInvokeFuncPtr.i.i232, align 8
   store ptr @_Z9ReturnOnev, ptr %fn1166, align 8
-  %mInvokeFuncPtr.i.i234 = getelementptr inbounds %"class.eastl::internal::function_detail.48", ptr %fn1166, i64 0, i32 2
-  %mMgrFuncPtr.i.i235 = getelementptr inbounds %"class.eastl::internal::function_detail.48", ptr %fn1166, i64 0, i32 1
+  %mInvokeFuncPtr.i.i234 = getelementptr inbounds i8, ptr %fn1166, i64 24
+  %mMgrFuncPtr.i.i235 = getelementptr inbounds i8, ptr %fn1166, i64 16
   store ptr @_ZN5eastl8internal20function_base_detailILi0EE16function_managerIPFivEiJEE7ManagerEPvS7_NS2_17ManagerOperationsE, ptr %mMgrFuncPtr.i.i235, align 8
   store ptr @_ZN5eastl8internal20function_base_detailILi0EE16function_managerIPFivEiJEE7InvokerERKNS0_15functor_storageILi0EEE, ptr %mInvokeFuncPtr.i.i234, align 8
   %call179 = invoke noundef i32 @_ZN2EA8UnitTest12TestInternal17EATEST_VERIFY_IMPEbRiPKciS4_(i1 noundef zeroext true, ptr noundef nonnull align 4 dereferenceable(4) %nErrorCount, ptr noundef nonnull @.str, i32 noundef 482, ptr noundef nonnull @.str.33)
@@ -1905,7 +1903,7 @@ terminate.lpad.i.i.i246:                          ; preds = %if.then.i.i.i244
   %96 = landingpad { ptr, i32 }
           catch ptr null
   %97 = extractvalue { ptr, i32 } %96, 0
-  call void @__clang_call_terminate(ptr %97) #14
+  call void @__clang_call_terminate(ptr %97) #13
   unreachable
 
 _ZN5eastl8internal15function_detailILi0EFivEE7DestroyEv.exit.i.i: ; preds = %if.then.i.i.i244, %invoke.cont178
@@ -1960,7 +1958,7 @@ terminate.lpad.i.i.i265:                          ; preds = %if.then.i.i.i263
   %104 = landingpad { ptr, i32 }
           catch ptr null
   %105 = extractvalue { ptr, i32 } %104, 0
-  call void @__clang_call_terminate(ptr %105) #14
+  call void @__clang_call_terminate(ptr %105) #13
   unreachable
 
 _ZN5eastl14fixed_functionILi0EFivEED2Ev.exit266:  ; preds = %invoke.cont190, %if.then.i.i.i263
@@ -1976,18 +1974,18 @@ terminate.lpad.i.i.i271:                          ; preds = %if.then.i.i.i269
   %107 = landingpad { ptr, i32 }
           catch ptr null
   %108 = extractvalue { ptr, i32 } %107, 0
-  call void @__clang_call_terminate(ptr %108) #14
+  call void @__clang_call_terminate(ptr %108) #13
   unreachable
 
 land.rhs202:                                      ; preds = %_ZN5eastl14fixed_functionILi0EFivEED2Ev.exit266, %if.then.i.i.i269
   store ptr @_Z10ReturnZerov, ptr %fn0194, align 8
-  %mInvokeFuncPtr.i.i273 = getelementptr inbounds %"class.eastl::internal::function_detail.48", ptr %fn0194, i64 0, i32 2
-  %mMgrFuncPtr.i.i274 = getelementptr inbounds %"class.eastl::internal::function_detail.48", ptr %fn0194, i64 0, i32 1
+  %mInvokeFuncPtr.i.i273 = getelementptr inbounds i8, ptr %fn0194, i64 24
+  %mMgrFuncPtr.i.i274 = getelementptr inbounds i8, ptr %fn0194, i64 16
   store ptr @_ZN5eastl8internal20function_base_detailILi0EE16function_managerIPFivEiJEE7ManagerEPvS7_NS2_17ManagerOperationsE, ptr %mMgrFuncPtr.i.i274, align 8
   store ptr @_ZN5eastl8internal20function_base_detailILi0EE16function_managerIPFivEiJEE7InvokerERKNS0_15functor_storageILi0EEE, ptr %mInvokeFuncPtr.i.i273, align 8
   store ptr @_Z9ReturnOnev, ptr %fn1195, align 8
-  %mInvokeFuncPtr.i.i275 = getelementptr inbounds %"class.eastl::internal::function_detail.48", ptr %fn1195, i64 0, i32 2
-  %mMgrFuncPtr.i.i276 = getelementptr inbounds %"class.eastl::internal::function_detail.48", ptr %fn1195, i64 0, i32 1
+  %mInvokeFuncPtr.i.i275 = getelementptr inbounds i8, ptr %fn1195, i64 24
+  %mMgrFuncPtr.i.i276 = getelementptr inbounds i8, ptr %fn1195, i64 16
   store ptr @_ZN5eastl8internal20function_base_detailILi0EE16function_managerIPFivEiJEE7ManagerEPvS7_NS2_17ManagerOperationsE, ptr %mMgrFuncPtr.i.i276, align 8
   store ptr @_ZN5eastl8internal20function_base_detailILi0EE16function_managerIPFivEiJEE7InvokerERKNS0_15functor_storageILi0EEE, ptr %mInvokeFuncPtr.i.i275, align 8
   %call208 = invoke noundef i32 @_ZN2EA8UnitTest12TestInternal17EATEST_VERIFY_IMPEbRiPKciS4_(i1 noundef zeroext true, ptr noundef nonnull align 4 dereferenceable(4) %nErrorCount, ptr noundef nonnull @.str, i32 noundef 491, ptr noundef nonnull @.str.33)
@@ -2006,7 +2004,7 @@ terminate.lpad.i.i.i287:                          ; preds = %if.then.i.i.i285
   %110 = landingpad { ptr, i32 }
           catch ptr null
   %111 = extractvalue { ptr, i32 } %110, 0
-  call void @__clang_call_terminate(ptr %111) #14
+  call void @__clang_call_terminate(ptr %111) #13
   unreachable
 
 _ZN5eastl8internal15function_detailILi0EFivEE7DestroyEv.exit.i.i288: ; preds = %if.then.i.i.i285, %invoke.cont207
@@ -2053,7 +2051,7 @@ terminate.lpad.i.i.i306:                          ; preds = %if.then.i.i.i304
   %118 = landingpad { ptr, i32 }
           catch ptr null
   %119 = extractvalue { ptr, i32 } %118, 0
-  call void @__clang_call_terminate(ptr %119) #14
+  call void @__clang_call_terminate(ptr %119) #13
   unreachable
 
 _ZN5eastl14fixed_functionILi0EFivEED2Ev.exit307:  ; preds = %invoke.cont218, %if.then.i.i.i304
@@ -2069,21 +2067,21 @@ terminate.lpad.i.i.i312:                          ; preds = %if.then.i.i.i310
   %121 = landingpad { ptr, i32 }
           catch ptr null
   %122 = extractvalue { ptr, i32 } %121, 0
-  call void @__clang_call_terminate(ptr %122) #14
+  call void @__clang_call_terminate(ptr %122) #13
   unreachable
 
 _ZN5eastl14fixed_functionILi0EFivEED2Ev.exit313:  ; preds = %_ZN5eastl14fixed_functionILi0EFivEED2Ev.exit307, %if.then.i.i.i310
-  %mMgrFuncPtr.i.i314 = getelementptr inbounds %"class.eastl::internal::function_detail.54", ptr %f1, i64 0, i32 1
+  %mMgrFuncPtr.i.i314 = getelementptr inbounds i8, ptr %f1, i64 16
   store ptr null, ptr %mMgrFuncPtr.i.i314, align 8
-  %mInvokeFuncPtr.i.i315 = getelementptr inbounds %"class.eastl::internal::function_detail.54", ptr %f1, i64 0, i32 2
+  %mInvokeFuncPtr.i.i315 = getelementptr inbounds i8, ptr %f1, i64 24
   store ptr @_ZN5eastl8internal15function_detailILi0EFiiEE14DefaultInvokerEiRKNS0_15functor_storageILi0EEE, ptr %mInvokeFuncPtr.i.i315, align 8
   %call226 = invoke noundef i32 @_ZN2EA8UnitTest12TestInternal17EATEST_VERIFY_IMPEbRiPKciS4_(i1 noundef zeroext true, ptr noundef nonnull align 4 dereferenceable(4) %nErrorCount, ptr noundef nonnull @.str, i32 noundef 498, ptr noundef nonnull @.str.37)
           to label %invoke.cont225 unwind label %lpad224
 
 invoke.cont225:                                   ; preds = %_ZN5eastl14fixed_functionILi0EFivEED2Ev.exit313
-  %mMgrFuncPtr.i.i318 = getelementptr inbounds %"class.eastl::internal::function_detail.54", ptr %f2, i64 0, i32 1
+  %mMgrFuncPtr.i.i318 = getelementptr inbounds i8, ptr %f2, i64 16
   store ptr null, ptr %mMgrFuncPtr.i.i318, align 8
-  %mInvokeFuncPtr.i.i319 = getelementptr inbounds %"class.eastl::internal::function_detail.54", ptr %f2, i64 0, i32 2
+  %mInvokeFuncPtr.i.i319 = getelementptr inbounds i8, ptr %f2, i64 24
   store ptr @_ZN5eastl8internal15function_detailILi0EFiiEE14DefaultInvokerEiRKNS0_15functor_storageILi0EEE, ptr %mInvokeFuncPtr.i.i319, align 8
   %call231 = invoke noundef i32 @_ZN2EA8UnitTest12TestInternal17EATEST_VERIFY_IMPEbRiPKciS4_(i1 noundef zeroext true, ptr noundef nonnull align 4 dereferenceable(4) %nErrorCount, ptr noundef nonnull @.str, i32 noundef 501, ptr noundef nonnull @.str.38)
           to label %invoke.cont230 unwind label %lpad229
@@ -2101,7 +2099,7 @@ terminate.lpad.i.i.i326:                          ; preds = %if.then.i.i.i324
   %124 = landingpad { ptr, i32 }
           catch ptr null
   %125 = extractvalue { ptr, i32 } %124, 0
-  call void @__clang_call_terminate(ptr %125) #14
+  call void @__clang_call_terminate(ptr %125) #13
   unreachable
 
 _ZN5eastl14fixed_functionILi0EFiiEED2Ev.exit327:  ; preds = %invoke.cont230, %if.then.i.i.i324
@@ -2117,12 +2115,12 @@ terminate.lpad.i.i.i332:                          ; preds = %if.then.i.i.i330
   %127 = landingpad { ptr, i32 }
           catch ptr null
   %128 = extractvalue { ptr, i32 } %127, 0
-  call void @__clang_call_terminate(ptr %128) #14
+  call void @__clang_call_terminate(ptr %128) #13
   unreachable
 
 _ZN5eastl14fixed_functionILi0EFiiEED2Ev.exit333:  ; preds = %_ZN5eastl14fixed_functionILi0EFiiEED2Ev.exit327, %if.then.i.i.i330
-  %mMgrFuncPtr.i.i335 = getelementptr inbounds %"class.eastl::internal::function_detail.63", ptr %fn234, i64 0, i32 1
-  %mInvokeFuncPtr.i.i336 = getelementptr inbounds %"class.eastl::internal::function_detail.63", ptr %fn234, i64 0, i32 2
+  %mMgrFuncPtr.i.i335 = getelementptr inbounds i8, ptr %fn234, i64 48
+  %mInvokeFuncPtr.i.i336 = getelementptr inbounds i8, ptr %fn234, i64 56
   store ptr @"_ZN5eastl8internal20function_base_detailILi48EE16function_managerIZ22TestFixedFunctionBasicvE3$_2mJEE7ManagerEPvS6_NS2_17ManagerOperationsE", ptr %mMgrFuncPtr.i.i335, align 8
   store ptr @"_ZN5eastl8internal20function_base_detailILi48EE16function_managerIZ22TestFixedFunctionBasicvE3$_2mJEE7InvokerERKNS0_15functor_storageILi48EEE", ptr %mInvokeFuncPtr.i.i336, align 8
   store i64 1, ptr %fn234, align 8
@@ -2152,12 +2150,12 @@ terminate.lpad.i.i.i343:                          ; preds = %if.then.i.i.i341
   %130 = landingpad { ptr, i32 }
           catch ptr null
   %131 = extractvalue { ptr, i32 } %130, 0
-  call void @__clang_call_terminate(ptr %131) #14
+  call void @__clang_call_terminate(ptr %131) #13
   unreachable
 
 _ZN5eastl14fixed_functionILi48EFmvEED2Ev.exit:    ; preds = %invoke.cont240, %if.then.i.i.i341
-  %mMgrFuncPtr.i.i345 = getelementptr inbounds %"class.eastl::internal::function_detail.63", ptr %fn243, i64 0, i32 1
-  %mInvokeFuncPtr.i.i346 = getelementptr inbounds %"class.eastl::internal::function_detail.63", ptr %fn243, i64 0, i32 2
+  %mMgrFuncPtr.i.i345 = getelementptr inbounds i8, ptr %fn243, i64 48
+  %mInvokeFuncPtr.i.i346 = getelementptr inbounds i8, ptr %fn243, i64 56
   store ptr @"_ZN5eastl8internal20function_base_detailILi48EE16function_managerIZ22TestFixedFunctionBasicvE3$_2mJEE7ManagerEPvS6_NS2_17ManagerOperationsE", ptr %mMgrFuncPtr.i.i345, align 8
   store ptr @"_ZN5eastl8internal20function_base_detailILi48EE16function_managerIZ22TestFixedFunctionBasicvE3$_2mJEE7InvokerERKNS0_15functor_storageILi48EEE", ptr %mInvokeFuncPtr.i.i346, align 8
   store i64 1, ptr %fn243, align 8
@@ -2187,7 +2185,7 @@ terminate.lpad.i.i.i354:                          ; preds = %if.then.i.i.i352
   %133 = landingpad { ptr, i32 }
           catch ptr null
   %134 = extractvalue { ptr, i32 } %133, 0
-  call void @__clang_call_terminate(ptr %134) #14
+  call void @__clang_call_terminate(ptr %134) #13
   unreachable
 
 _ZN5eastl14fixed_functionILi48EFmvEED2Ev.exit355: ; preds = %invoke.cont250, %if.then.i.i.i352
@@ -2219,8 +2217,8 @@ _ZN5eastl14fixed_functionILi48EFmvEED2Ev.exit355: ; preds = %invoke.cont250, %if
   %141 = load i32, ptr %nErrorCount, align 4
   %add265 = add nsw i32 %141, %call264
   store i32 %add265, ptr %nErrorCount, align 4
-  %mMgrFuncPtr.i.i356 = getelementptr inbounds %"class.eastl::internal::function_detail.68", ptr %ff8, i64 0, i32 1
-  %mInvokeFuncPtr.i.i357 = getelementptr inbounds %"class.eastl::internal::function_detail.68", ptr %ff8, i64 0, i32 2
+  %mMgrFuncPtr.i.i356 = getelementptr inbounds i8, ptr %ff8, i64 16
+  %mInvokeFuncPtr.i.i357 = getelementptr inbounds i8, ptr %ff8, i64 24
   store ptr @"_ZN5eastl8internal20function_base_detailILi8EE16function_managerIZ22TestFixedFunctionBasicvE3$_3jJEE7ManagerEPvS6_NS2_17ManagerOperationsE", ptr %mMgrFuncPtr.i.i356, align 8
   store ptr @"_ZN5eastl8internal20function_base_detailILi8EE16function_managerIZ22TestFixedFunctionBasicvE3$_3jJEE7InvokerERKNS0_15functor_storageILi8EEE", ptr %mInvokeFuncPtr.i.i357, align 8
   store i64 4023440760627133872, ptr %ff8, align 8
@@ -2228,7 +2226,7 @@ _ZN5eastl14fixed_functionILi48EFmvEED2Ev.exit355: ; preds = %invoke.cont250, %if
           to label %invoke.cont270 unwind label %lpad269
 
 invoke.cont270:                                   ; preds = %_ZN5eastl14fixed_functionILi48EFmvEED2Ev.exit355
-  %mInvokeFuncPtr.i.i358 = getelementptr inbounds %"class.eastl::internal::function_detail.71", ptr %ff16, i64 0, i32 2
+  %mInvokeFuncPtr.i.i358 = getelementptr inbounds i8, ptr %ff16, i64 24
   %142 = load ptr, ptr %mInvokeFuncPtr.i.i358, align 8
   %call.i.i359 = invoke noundef i32 %142(ptr noundef nonnull align 8 dereferenceable(16) %ff16)
           to label %invoke.cont272 unwind label %lpad271
@@ -2239,7 +2237,7 @@ invoke.cont272:                                   ; preds = %invoke.cont270
           to label %invoke.cont275 unwind label %lpad271
 
 invoke.cont275:                                   ; preds = %invoke.cont272
-  %mMgrFuncPtr.i.i.i.i360 = getelementptr inbounds %"class.eastl::internal::function_detail.71", ptr %ff16, i64 0, i32 1
+  %mMgrFuncPtr.i.i.i.i360 = getelementptr inbounds i8, ptr %ff16, i64 16
   %143 = load ptr, ptr %mMgrFuncPtr.i.i.i.i360, align 8
   %cmp.i.not.i.i.i361 = icmp eq ptr %143, null
   br i1 %cmp.i.not.i.i.i361, label %_ZN5eastl14fixed_functionILi16EFjvEED2Ev.exit, label %if.then.i.i.i362
@@ -2252,7 +2250,7 @@ terminate.lpad.i.i.i364:                          ; preds = %if.then.i.i.i362
   %144 = landingpad { ptr, i32 }
           catch ptr null
   %145 = extractvalue { ptr, i32 } %144, 0
-  call void @__clang_call_terminate(ptr %145) #14
+  call void @__clang_call_terminate(ptr %145) #13
   unreachable
 
 _ZN5eastl14fixed_functionILi16EFjvEED2Ev.exit:    ; preds = %invoke.cont275, %if.then.i.i.i362
@@ -2260,7 +2258,7 @@ _ZN5eastl14fixed_functionILi16EFjvEED2Ev.exit:    ; preds = %invoke.cont275, %if
           to label %invoke.cont279 unwind label %lpad269
 
 invoke.cont279:                                   ; preds = %_ZN5eastl14fixed_functionILi16EFjvEED2Ev.exit
-  %mInvokeFuncPtr.i.i365 = getelementptr inbounds %"class.eastl::internal::function_detail.71", ptr %ff16278, i64 0, i32 2
+  %mInvokeFuncPtr.i.i365 = getelementptr inbounds i8, ptr %ff16278, i64 24
   %146 = load ptr, ptr %mInvokeFuncPtr.i.i365, align 8
   %call.i.i366 = invoke noundef i32 %146(ptr noundef nonnull align 8 dereferenceable(16) %ff16278)
           to label %invoke.cont281 unwind label %lpad280
@@ -2271,7 +2269,7 @@ invoke.cont281:                                   ; preds = %invoke.cont279
           to label %invoke.cont284 unwind label %lpad280
 
 invoke.cont284:                                   ; preds = %invoke.cont281
-  %mMgrFuncPtr.i.i.i.i368 = getelementptr inbounds %"class.eastl::internal::function_detail.71", ptr %ff16278, i64 0, i32 1
+  %mMgrFuncPtr.i.i.i.i368 = getelementptr inbounds i8, ptr %ff16278, i64 16
   %147 = load ptr, ptr %mMgrFuncPtr.i.i.i.i368, align 8
   %cmp.i.not.i.i.i369 = icmp eq ptr %147, null
   br i1 %cmp.i.not.i.i.i369, label %_ZN5eastl8internal15function_detailILi16EFjvEE7DestroyEv.exit.i.i, label %if.then.i.i.i370
@@ -2284,12 +2282,12 @@ terminate.lpad.i.i.i372:                          ; preds = %if.then.i.i.i370
   %148 = landingpad { ptr, i32 }
           catch ptr null
   %149 = extractvalue { ptr, i32 } %148, 0
-  call void @__clang_call_terminate(ptr %149) #14
+  call void @__clang_call_terminate(ptr %149) #13
   unreachable
 
 _ZN5eastl8internal15function_detailILi16EFjvEE7DestroyEv.exit.i.i: ; preds = %if.then.i.i.i370, %invoke.cont284
-  %mMgrFuncPtr.i.i374 = getelementptr inbounds %"class.eastl::internal::function_detail.71", ptr %ff16287, i64 0, i32 1
-  %mInvokeFuncPtr.i.i375 = getelementptr inbounds %"class.eastl::internal::function_detail.71", ptr %ff16287, i64 0, i32 2
+  %mMgrFuncPtr.i.i374 = getelementptr inbounds i8, ptr %ff16287, i64 16
+  %mInvokeFuncPtr.i.i375 = getelementptr inbounds i8, ptr %ff16287, i64 24
   store ptr @_ZN5eastl8internal20function_base_detailILi16EE16function_managerINS_14fixed_functionILi8EFjvEEEjJEE7ManagerEPvS8_NS2_17ManagerOperationsE, ptr %mMgrFuncPtr.i.i374, align 8
   store ptr @_ZN5eastl8internal20function_base_detailILi16EE16function_managerINS_14fixed_functionILi8EFjvEEEjJEE7InvokerERKNS0_15functor_storageILi16EEE, ptr %mInvokeFuncPtr.i.i375, align 8
   %call.i.i.i.i382 = invoke noundef ptr @_ZN5eastl19GetDefaultAllocatorEv()
@@ -2300,9 +2298,9 @@ call.i.i.i.i.noexc:                               ; preds = %_ZN5eastl8internal1
           to label %call.i.i.i.i.i.noexc unwind label %lpad288
 
 call.i.i.i.i.i.noexc:                             ; preds = %call.i.i.i.i.noexc
-  %mMgrFuncPtr.i.i.i.i.i.i = getelementptr inbounds %"class.eastl::internal::function_detail.68", ptr %call.i.i.i.i.i383, i64 0, i32 1
+  %mMgrFuncPtr.i.i.i.i.i.i = getelementptr inbounds i8, ptr %call.i.i.i.i.i383, i64 16
   store ptr null, ptr %mMgrFuncPtr.i.i.i.i.i.i, align 8
-  %mInvokeFuncPtr.i.i.i.i.i.i = getelementptr inbounds %"class.eastl::internal::function_detail.68", ptr %call.i.i.i.i.i383, i64 0, i32 2
+  %mInvokeFuncPtr.i.i.i.i.i.i = getelementptr inbounds i8, ptr %call.i.i.i.i.i383, i64 24
   store ptr @_ZN5eastl8internal15function_detailILi8EFjvEE14DefaultInvokerERKNS0_15functor_storageILi8EEE, ptr %mInvokeFuncPtr.i.i.i.i.i.i, align 8
   %cmp.not.i.i.i.i.i.i = icmp eq ptr %call.i.i.i.i.i383, %ff8
   br i1 %cmp.not.i.i.i.i.i.i, label %invoke.cont289, label %if.then.i.i.i.i.i.i
@@ -2351,13 +2349,13 @@ terminate.lpad.i.i.i392:                          ; preds = %if.then.i.i.i390
   %155 = landingpad { ptr, i32 }
           catch ptr null
   %156 = extractvalue { ptr, i32 } %155, 0
-  call void @__clang_call_terminate(ptr %156) #14
+  call void @__clang_call_terminate(ptr %156) #13
   unreachable
 
 _ZN5eastl14fixed_functionILi16EFjvEED2Ev.exit393: ; preds = %invoke.cont294, %if.then.i.i.i390
-  %mMgrFuncPtr.i.i394 = getelementptr inbounds %"class.eastl::internal::function_detail.68", ptr %ff8Copy, i64 0, i32 1
+  %mMgrFuncPtr.i.i394 = getelementptr inbounds i8, ptr %ff8Copy, i64 16
   store ptr null, ptr %mMgrFuncPtr.i.i394, align 8
-  %mInvokeFuncPtr.i.i395 = getelementptr inbounds %"class.eastl::internal::function_detail.68", ptr %ff8Copy, i64 0, i32 2
+  %mInvokeFuncPtr.i.i395 = getelementptr inbounds i8, ptr %ff8Copy, i64 24
   store ptr @_ZN5eastl8internal15function_detailILi8EFjvEE14DefaultInvokerERKNS0_15functor_storageILi8EEE, ptr %mInvokeFuncPtr.i.i395, align 8
   %157 = load ptr, ptr %mMgrFuncPtr.i.i356, align 8
   %cmp.i.not.i.i.i397 = icmp eq ptr %157, null
@@ -2380,7 +2378,7 @@ invoke.cont297:                                   ; preds = %call3.i.i.i399.noex
           to label %invoke.cont301 unwind label %lpad300
 
 invoke.cont301:                                   ; preds = %invoke.cont297
-  %mInvokeFuncPtr.i.i403 = getelementptr inbounds %"class.eastl::internal::function_detail.71", ptr %ff16298, i64 0, i32 2
+  %mInvokeFuncPtr.i.i403 = getelementptr inbounds i8, ptr %ff16298, i64 24
   %160 = load ptr, ptr %mInvokeFuncPtr.i.i403, align 8
   %call.i.i404 = invoke noundef i32 %160(ptr noundef nonnull align 8 dereferenceable(16) %ff16298)
           to label %invoke.cont303 unwind label %lpad302
@@ -2391,7 +2389,7 @@ invoke.cont303:                                   ; preds = %invoke.cont301
           to label %invoke.cont306 unwind label %lpad302
 
 invoke.cont306:                                   ; preds = %invoke.cont303
-  %mMgrFuncPtr.i.i.i.i406 = getelementptr inbounds %"class.eastl::internal::function_detail.71", ptr %ff16298, i64 0, i32 1
+  %mMgrFuncPtr.i.i.i.i406 = getelementptr inbounds i8, ptr %ff16298, i64 16
   %161 = load ptr, ptr %mMgrFuncPtr.i.i.i.i406, align 8
   %cmp.i.not.i.i.i407 = icmp eq ptr %161, null
   br i1 %cmp.i.not.i.i.i407, label %_ZN5eastl14fixed_functionILi16EFjvEED2Ev.exit411, label %if.then.i.i.i408
@@ -2404,7 +2402,7 @@ terminate.lpad.i.i.i410:                          ; preds = %if.then.i.i.i408
   %162 = landingpad { ptr, i32 }
           catch ptr null
   %163 = extractvalue { ptr, i32 } %162, 0
-  call void @__clang_call_terminate(ptr %163) #14
+  call void @__clang_call_terminate(ptr %163) #13
   unreachable
 
 _ZN5eastl14fixed_functionILi16EFjvEED2Ev.exit411: ; preds = %invoke.cont306, %if.then.i.i.i408
@@ -2420,13 +2418,13 @@ terminate.lpad.i.i.i416:                          ; preds = %if.then.i.i.i414
   %165 = landingpad { ptr, i32 }
           catch ptr null
   %166 = extractvalue { ptr, i32 } %165, 0
-  call void @__clang_call_terminate(ptr %166) #14
+  call void @__clang_call_terminate(ptr %166) #13
   unreachable
 
 _ZN5eastl14fixed_functionILi8EFjvEED2Ev.exit:     ; preds = %_ZN5eastl14fixed_functionILi16EFjvEED2Ev.exit411, %if.then.i.i.i414
-  %mMgrFuncPtr.i.i417 = getelementptr inbounds %"class.eastl::internal::function_detail.68", ptr %ff8Copy310, i64 0, i32 1
+  %mMgrFuncPtr.i.i417 = getelementptr inbounds i8, ptr %ff8Copy310, i64 16
   store ptr null, ptr %mMgrFuncPtr.i.i417, align 8
-  %mInvokeFuncPtr.i.i418 = getelementptr inbounds %"class.eastl::internal::function_detail.68", ptr %ff8Copy310, i64 0, i32 2
+  %mInvokeFuncPtr.i.i418 = getelementptr inbounds i8, ptr %ff8Copy310, i64 24
   store ptr @_ZN5eastl8internal15function_detailILi8EFjvEE14DefaultInvokerERKNS0_15functor_storageILi8EEE, ptr %mInvokeFuncPtr.i.i418, align 8
   %167 = load ptr, ptr %mMgrFuncPtr.i.i356, align 8
   %cmp.i.not.i.i.i420 = icmp eq ptr %167, null
@@ -2449,7 +2447,7 @@ invoke.cont311:                                   ; preds = %call3.i.i.i422.noex
           to label %invoke.cont315 unwind label %lpad314
 
 invoke.cont315:                                   ; preds = %invoke.cont311
-  %mInvokeFuncPtr.i.i427 = getelementptr inbounds %"class.eastl::internal::function_detail.71", ptr %ff16312, i64 0, i32 2
+  %mInvokeFuncPtr.i.i427 = getelementptr inbounds i8, ptr %ff16312, i64 24
   %170 = load ptr, ptr %mInvokeFuncPtr.i.i427, align 8
   %call.i.i428 = invoke noundef i32 %170(ptr noundef nonnull align 8 dereferenceable(16) %ff16312)
           to label %invoke.cont317 unwind label %lpad316
@@ -2460,7 +2458,7 @@ invoke.cont317:                                   ; preds = %invoke.cont315
           to label %invoke.cont320 unwind label %lpad316
 
 invoke.cont320:                                   ; preds = %invoke.cont317
-  %mMgrFuncPtr.i.i.i.i430 = getelementptr inbounds %"class.eastl::internal::function_detail.71", ptr %ff16312, i64 0, i32 1
+  %mMgrFuncPtr.i.i.i.i430 = getelementptr inbounds i8, ptr %ff16312, i64 16
   %171 = load ptr, ptr %mMgrFuncPtr.i.i.i.i430, align 8
   %cmp.i.not.i.i.i431 = icmp eq ptr %171, null
   br i1 %cmp.i.not.i.i.i431, label %_ZN5eastl14fixed_functionILi16EFjvEED2Ev.exit435, label %if.then.i.i.i432
@@ -2473,7 +2471,7 @@ terminate.lpad.i.i.i434:                          ; preds = %if.then.i.i.i432
   %172 = landingpad { ptr, i32 }
           catch ptr null
   %173 = extractvalue { ptr, i32 } %172, 0
-  call void @__clang_call_terminate(ptr %173) #14
+  call void @__clang_call_terminate(ptr %173) #13
   unreachable
 
 _ZN5eastl14fixed_functionILi16EFjvEED2Ev.exit435: ; preds = %invoke.cont320, %if.then.i.i.i432
@@ -2489,13 +2487,13 @@ terminate.lpad.i.i.i440:                          ; preds = %if.then.i.i.i438
   %175 = landingpad { ptr, i32 }
           catch ptr null
   %176 = extractvalue { ptr, i32 } %175, 0
-  call void @__clang_call_terminate(ptr %176) #14
+  call void @__clang_call_terminate(ptr %176) #13
   unreachable
 
 _ZN5eastl14fixed_functionILi8EFjvEED2Ev.exit441:  ; preds = %_ZN5eastl14fixed_functionILi16EFjvEED2Ev.exit435, %if.then.i.i.i438
-  %mMgrFuncPtr.i.i442 = getelementptr inbounds %"class.eastl::internal::function_detail.68", ptr %ff8Copy324, i64 0, i32 1
+  %mMgrFuncPtr.i.i442 = getelementptr inbounds i8, ptr %ff8Copy324, i64 16
   store ptr null, ptr %mMgrFuncPtr.i.i442, align 8
-  %mInvokeFuncPtr.i.i443 = getelementptr inbounds %"class.eastl::internal::function_detail.68", ptr %ff8Copy324, i64 0, i32 2
+  %mInvokeFuncPtr.i.i443 = getelementptr inbounds i8, ptr %ff8Copy324, i64 24
   store ptr @_ZN5eastl8internal15function_detailILi8EFjvEE14DefaultInvokerERKNS0_15functor_storageILi8EEE, ptr %mInvokeFuncPtr.i.i443, align 8
   %177 = load ptr, ptr %mMgrFuncPtr.i.i356, align 8
   %cmp.i.not.i.i.i445 = icmp eq ptr %177, null
@@ -2514,8 +2512,8 @@ _ZN5eastl8internal15function_detailILi16EFjvEE7DestroyEv.exit.i.i459: ; preds = 
   store ptr %178, ptr %mMgrFuncPtr.i.i442, align 8
   %179 = load ptr, ptr %mInvokeFuncPtr.i.i357, align 8
   store ptr %179, ptr %mInvokeFuncPtr.i.i443, align 8
-  %mMgrFuncPtr.i.i452 = getelementptr inbounds %"class.eastl::internal::function_detail.71", ptr %ff16326, i64 0, i32 1
-  %mInvokeFuncPtr.i.i453 = getelementptr inbounds %"class.eastl::internal::function_detail.71", ptr %ff16326, i64 0, i32 2
+  %mMgrFuncPtr.i.i452 = getelementptr inbounds i8, ptr %ff16326, i64 16
+  %mInvokeFuncPtr.i.i453 = getelementptr inbounds i8, ptr %ff16326, i64 24
   store ptr @_ZN5eastl8internal20function_base_detailILi16EE16function_managerINS_14fixed_functionILi8EFjvEEEjJEE7ManagerEPvS8_NS2_17ManagerOperationsE, ptr %mMgrFuncPtr.i.i452, align 8
   store ptr @_ZN5eastl8internal20function_base_detailILi16EE16function_managerINS_14fixed_functionILi8EFjvEEEjJEE7InvokerERKNS0_15functor_storageILi16EEE, ptr %mInvokeFuncPtr.i.i453, align 8
   %call.i.i.i.i471 = invoke noundef ptr @_ZN5eastl19GetDefaultAllocatorEv()
@@ -2526,9 +2524,9 @@ call.i.i.i.i.noexc470:                            ; preds = %_ZN5eastl8internal1
           to label %call.i.i.i.i.i.noexc472 unwind label %lpad328
 
 call.i.i.i.i.i.noexc472:                          ; preds = %call.i.i.i.i.noexc470
-  %mMgrFuncPtr.i.i.i.i.i.i461 = getelementptr inbounds %"class.eastl::internal::function_detail.68", ptr %call.i.i.i.i.i473, i64 0, i32 1
+  %mMgrFuncPtr.i.i.i.i.i.i461 = getelementptr inbounds i8, ptr %call.i.i.i.i.i473, i64 16
   store ptr null, ptr %mMgrFuncPtr.i.i.i.i.i.i461, align 8
-  %mInvokeFuncPtr.i.i.i.i.i.i462 = getelementptr inbounds %"class.eastl::internal::function_detail.68", ptr %call.i.i.i.i.i473, i64 0, i32 2
+  %mInvokeFuncPtr.i.i.i.i.i.i462 = getelementptr inbounds i8, ptr %call.i.i.i.i.i473, i64 24
   store ptr @_ZN5eastl8internal15function_detailILi8EFjvEE14DefaultInvokerERKNS0_15functor_storageILi8EEE, ptr %mInvokeFuncPtr.i.i.i.i.i.i462, align 8
   %cmp.not.i.i.i.i.i.i463 = icmp eq ptr %call.i.i.i.i.i473, %ff8Copy324
   br i1 %cmp.not.i.i.i.i.i.i463, label %invoke.cont329, label %if.then.i.i.i.i.i.i464
@@ -2579,7 +2577,7 @@ terminate.lpad.i.i.i483:                          ; preds = %if.then.i.i.i481
   %185 = landingpad { ptr, i32 }
           catch ptr null
   %186 = extractvalue { ptr, i32 } %185, 0
-  call void @__clang_call_terminate(ptr %186) #14
+  call void @__clang_call_terminate(ptr %186) #13
   unreachable
 
 _ZN5eastl14fixed_functionILi16EFjvEED2Ev.exit484: ; preds = %invoke.cont334, %if.then.i.i.i481
@@ -2595,7 +2593,7 @@ terminate.lpad.i.i.i489:                          ; preds = %if.then.i.i.i487
   %188 = landingpad { ptr, i32 }
           catch ptr null
   %189 = extractvalue { ptr, i32 } %188, 0
-  call void @__clang_call_terminate(ptr %189) #14
+  call void @__clang_call_terminate(ptr %189) #13
   unreachable
 
 _ZN5eastl14fixed_functionILi8EFjvEED2Ev.exit490:  ; preds = %_ZN5eastl14fixed_functionILi16EFjvEED2Ev.exit484, %if.then.i.i.i487
@@ -2611,7 +2609,7 @@ terminate.lpad.i.i.i495:                          ; preds = %if.then.i.i.i493
   %191 = landingpad { ptr, i32 }
           catch ptr null
   %192 = extractvalue { ptr, i32 } %191, 0
-  call void @__clang_call_terminate(ptr %192) #14
+  call void @__clang_call_terminate(ptr %192) #13
   unreachable
 
 _ZN5eastl14fixed_functionILi8EFjvEED2Ev.exit496:  ; preds = %_ZN5eastl14fixed_functionILi8EFjvEED2Ev.exit490, %if.then.i.i.i493
@@ -2633,7 +2631,7 @@ terminate.lpad.i.i.i501:                          ; preds = %if.then.i.i.i499
   %196 = landingpad { ptr, i32 }
           catch ptr null
   %197 = extractvalue { ptr, i32 } %196, 0
-  call void @__clang_call_terminate(ptr %197) #14
+  call void @__clang_call_terminate(ptr %197) #13
   unreachable
 
 _ZN5eastl14fixed_functionILi24EFvvEED2Ev.exit502: ; preds = %lpad, %if.then.i.i.i499
@@ -2649,7 +2647,7 @@ terminate.lpad.i.i.i507:                          ; preds = %if.then.i.i.i505
   %199 = landingpad { ptr, i32 }
           catch ptr null
   %200 = extractvalue { ptr, i32 } %199, 0
-  call void @__clang_call_terminate(ptr %200) #14
+  call void @__clang_call_terminate(ptr %200) #13
   unreachable
 
 lpad70:                                           ; preds = %_ZN5eastl4swapILi24EiJEEEvRNS_14fixed_functionIXT_EFT0_DpT1_EEES7_.exit, %invoke.cont81, %invoke.cont92, %invoke.cont89, %invoke.cont83, %_ZN5eastl14fixed_functionILi24EFivEE4swapERS2_.exit, %invoke.cont73, %_ZN5eastl14fixed_functionILi24EFvvEED2Ev.exit91
@@ -2667,7 +2665,7 @@ terminate.lpad.i.i.i513:                          ; preds = %if.then.i.i.i511
   %203 = landingpad { ptr, i32 }
           catch ptr null
   %204 = extractvalue { ptr, i32 } %203, 0
-  call void @__clang_call_terminate(ptr %204) #14
+  call void @__clang_call_terminate(ptr %204) #13
   unreachable
 
 _ZN5eastl14fixed_functionILi24EFivEED2Ev.exit514: ; preds = %lpad70, %if.then.i.i.i511
@@ -2683,7 +2681,7 @@ terminate.lpad.i.i.i519:                          ; preds = %if.then.i.i.i517
   %206 = landingpad { ptr, i32 }
           catch ptr null
   %207 = extractvalue { ptr, i32 } %206, 0
-  call void @__clang_call_terminate(ptr %207) #14
+  call void @__clang_call_terminate(ptr %207) #13
   unreachable
 
 lpad100:                                          ; preds = %_ZN5eastl14fixed_functionILi24EFivEED2Ev.exit127
@@ -2701,7 +2699,7 @@ terminate.lpad.i.i.i525:                          ; preds = %if.then.i.i.i523
   %210 = landingpad { ptr, i32 }
           catch ptr null
   %211 = extractvalue { ptr, i32 } %210, 0
-  call void @__clang_call_terminate(ptr %211) #14
+  call void @__clang_call_terminate(ptr %211) #13
   unreachable
 
 lpad108:                                          ; preds = %_ZN5eastl14fixed_functionILi0EFivEED2Ev.exit
@@ -2719,7 +2717,7 @@ terminate.lpad.i.i.i531:                          ; preds = %if.then.i.i.i529
   %214 = landingpad { ptr, i32 }
           catch ptr null
   %215 = extractvalue { ptr, i32 } %214, 0
-  call void @__clang_call_terminate(ptr %215) #14
+  call void @__clang_call_terminate(ptr %215) #13
   unreachable
 
 lpad117:                                          ; preds = %invoke.cont121, %_ZN5eastl14fixed_functionILi0EFiiEED2Ev.exit
@@ -2737,7 +2735,7 @@ terminate.lpad.i.i.i537:                          ; preds = %if.then.i.i.i535
   %218 = landingpad { ptr, i32 }
           catch ptr null
   %219 = extractvalue { ptr, i32 } %218, 0
-  call void @__clang_call_terminate(ptr %219) #14
+  call void @__clang_call_terminate(ptr %219) #13
   unreachable
 
 lpad130:                                          ; preds = %_ZN5eastl14fixed_functionILi0EFvvEED2Ev.exit
@@ -2755,7 +2753,7 @@ terminate.lpad.i.i.i543:                          ; preds = %if.then.i.i.i541
   %222 = landingpad { ptr, i32 }
           catch ptr null
   %223 = extractvalue { ptr, i32 } %222, 0
-  call void @__clang_call_terminate(ptr %223) #14
+  call void @__clang_call_terminate(ptr %223) #13
   unreachable
 
 lpad137:                                          ; preds = %_ZN5eastl14fixed_functionILi0EFiiEED2Ev.exit173
@@ -2773,7 +2771,7 @@ terminate.lpad.i.i.i549:                          ; preds = %if.then.i.i.i547
   %226 = landingpad { ptr, i32 }
           catch ptr null
   %227 = extractvalue { ptr, i32 } %226, 0
-  call void @__clang_call_terminate(ptr %227) #14
+  call void @__clang_call_terminate(ptr %227) #13
   unreachable
 
 lpad145:                                          ; preds = %land.rhs158, %_ZN5eastl4swapILi0EiJEEEvRNS_14fixed_functionIXT_EFT0_DpT1_EEES7_.exit, %land.end162, %land.rhs
@@ -2791,7 +2789,7 @@ terminate.lpad.i.i.i555:                          ; preds = %if.then.i.i.i553
   %230 = landingpad { ptr, i32 }
           catch ptr null
   %231 = extractvalue { ptr, i32 } %230, 0
-  call void @__clang_call_terminate(ptr %231) #14
+  call void @__clang_call_terminate(ptr %231) #13
   unreachable
 
 ehcleanup:                                        ; preds = %if.then.i.i.i553, %lpad145
@@ -2807,7 +2805,7 @@ terminate.lpad.i.i.i561:                          ; preds = %if.then.i.i.i559
   %233 = landingpad { ptr, i32 }
           catch ptr null
   %234 = extractvalue { ptr, i32 } %233, 0
-  call void @__clang_call_terminate(ptr %234) #14
+  call void @__clang_call_terminate(ptr %234) #13
   unreachable
 
 lpad169:                                          ; preds = %land.rhs185, %invoke.cont180, %if.then.i4.i.i249, %land.end189, %land.rhs173
@@ -2825,7 +2823,7 @@ terminate.lpad.i.i.i567:                          ; preds = %if.then.i.i.i565
   %237 = landingpad { ptr, i32 }
           catch ptr null
   %238 = extractvalue { ptr, i32 } %237, 0
-  call void @__clang_call_terminate(ptr %238) #14
+  call void @__clang_call_terminate(ptr %238) #13
   unreachable
 
 ehcleanup193:                                     ; preds = %if.then.i.i.i565, %lpad169
@@ -2841,7 +2839,7 @@ terminate.lpad.i.i.i573:                          ; preds = %if.then.i.i.i571
   %240 = landingpad { ptr, i32 }
           catch ptr null
   %241 = extractvalue { ptr, i32 } %240, 0
-  call void @__clang_call_terminate(ptr %241) #14
+  call void @__clang_call_terminate(ptr %241) #13
   unreachable
 
 lpad198:                                          ; preds = %invoke.cont210, %if.then.i4.i.i291, %invoke.cont212, %land.rhs202
@@ -2859,7 +2857,7 @@ terminate.lpad.i.i.i579:                          ; preds = %if.then.i.i.i577
   %244 = landingpad { ptr, i32 }
           catch ptr null
   %245 = extractvalue { ptr, i32 } %244, 0
-  call void @__clang_call_terminate(ptr %245) #14
+  call void @__clang_call_terminate(ptr %245) #13
   unreachable
 
 ehcleanup221:                                     ; preds = %if.then.i.i.i577, %lpad198
@@ -2875,7 +2873,7 @@ terminate.lpad.i.i.i585:                          ; preds = %if.then.i.i.i583
   %247 = landingpad { ptr, i32 }
           catch ptr null
   %248 = extractvalue { ptr, i32 } %247, 0
-  call void @__clang_call_terminate(ptr %248) #14
+  call void @__clang_call_terminate(ptr %248) #13
   unreachable
 
 lpad224:                                          ; preds = %_ZN5eastl14fixed_functionILi0EFivEED2Ev.exit313
@@ -2898,7 +2896,7 @@ terminate.lpad.i.i.i591:                          ; preds = %if.then.i.i.i589
   %252 = landingpad { ptr, i32 }
           catch ptr null
   %253 = extractvalue { ptr, i32 } %252, 0
-  call void @__clang_call_terminate(ptr %253) #14
+  call void @__clang_call_terminate(ptr %253) #13
   unreachable
 
 ehcleanup233:                                     ; preds = %if.then.i.i.i589, %lpad229, %lpad224
@@ -2915,7 +2913,7 @@ terminate.lpad.i.i.i597:                          ; preds = %if.then.i.i.i595
   %255 = landingpad { ptr, i32 }
           catch ptr null
   %256 = extractvalue { ptr, i32 } %255, 0
-  call void @__clang_call_terminate(ptr %256) #14
+  call void @__clang_call_terminate(ptr %256) #13
   unreachable
 
 lpad236:                                          ; preds = %_ZN5eastl14fixed_functionILi0EFiiEED2Ev.exit333
@@ -2933,7 +2931,7 @@ terminate.lpad.i.i.i603:                          ; preds = %if.then.i.i.i601
   %259 = landingpad { ptr, i32 }
           catch ptr null
   %260 = extractvalue { ptr, i32 } %259, 0
-  call void @__clang_call_terminate(ptr %260) #14
+  call void @__clang_call_terminate(ptr %260) #13
   unreachable
 
 lpad246:                                          ; preds = %_ZN5eastl14fixed_functionILi48EFmvEED2Ev.exit
@@ -2951,7 +2949,7 @@ terminate.lpad.i.i.i609:                          ; preds = %if.then.i.i.i607
   %263 = landingpad { ptr, i32 }
           catch ptr null
   %264 = extractvalue { ptr, i32 } %263, 0
-  call void @__clang_call_terminate(ptr %264) #14
+  call void @__clang_call_terminate(ptr %264) #13
   unreachable
 
 lpad269:                                          ; preds = %if.then.i.i.i446, %if.then.i.i.i421, %if.then.i.i.i398, %_ZN5eastl14fixed_functionILi16EFjvEED2Ev.exit, %_ZN5eastl14fixed_functionILi48EFmvEED2Ev.exit355
@@ -2962,7 +2960,7 @@ lpad269:                                          ; preds = %if.then.i.i.i446, %
 lpad271:                                          ; preds = %invoke.cont270, %invoke.cont272
   %266 = landingpad { ptr, i32 }
           cleanup
-  %mMgrFuncPtr.i.i.i.i611 = getelementptr inbounds %"class.eastl::internal::function_detail.71", ptr %ff16, i64 0, i32 1
+  %mMgrFuncPtr.i.i.i.i611 = getelementptr inbounds i8, ptr %ff16, i64 16
   %267 = load ptr, ptr %mMgrFuncPtr.i.i.i.i611, align 8
   %cmp.i.not.i.i.i612 = icmp eq ptr %267, null
   br i1 %cmp.i.not.i.i.i612, label %ehcleanup338, label %if.then.i.i.i613
@@ -2975,13 +2973,13 @@ terminate.lpad.i.i.i615:                          ; preds = %if.then.i.i.i613
   %268 = landingpad { ptr, i32 }
           catch ptr null
   %269 = extractvalue { ptr, i32 } %268, 0
-  call void @__clang_call_terminate(ptr %269) #14
+  call void @__clang_call_terminate(ptr %269) #13
   unreachable
 
 lpad280:                                          ; preds = %invoke.cont279, %invoke.cont281
   %270 = landingpad { ptr, i32 }
           cleanup
-  %mMgrFuncPtr.i.i.i.i617 = getelementptr inbounds %"class.eastl::internal::function_detail.71", ptr %ff16278, i64 0, i32 1
+  %mMgrFuncPtr.i.i.i.i617 = getelementptr inbounds i8, ptr %ff16278, i64 16
   %271 = load ptr, ptr %mMgrFuncPtr.i.i.i.i617, align 8
   %cmp.i.not.i.i.i618 = icmp eq ptr %271, null
   br i1 %cmp.i.not.i.i.i618, label %ehcleanup338, label %if.then.i.i.i619
@@ -2994,7 +2992,7 @@ terminate.lpad.i.i.i621:                          ; preds = %if.then.i.i.i619
   %272 = landingpad { ptr, i32 }
           catch ptr null
   %273 = extractvalue { ptr, i32 } %272, 0
-  call void @__clang_call_terminate(ptr %273) #14
+  call void @__clang_call_terminate(ptr %273) #13
   unreachable
 
 lpad288:                                          ; preds = %invoke.cont289, %if.then.i.i.i.i.i.i.i, %call.i.i.i.i.noexc, %_ZN5eastl8internal15function_detailILi16EFjvEE7DestroyEv.exit.i.i, %invoke.cont291
@@ -3012,7 +3010,7 @@ terminate.lpad.i.i.i627:                          ; preds = %if.then.i.i.i625
   %276 = landingpad { ptr, i32 }
           catch ptr null
   %277 = extractvalue { ptr, i32 } %276, 0
-  call void @__clang_call_terminate(ptr %277) #14
+  call void @__clang_call_terminate(ptr %277) #13
   unreachable
 
 lpad300:                                          ; preds = %invoke.cont297
@@ -3023,7 +3021,7 @@ lpad300:                                          ; preds = %invoke.cont297
 lpad302:                                          ; preds = %invoke.cont301, %invoke.cont303
   %279 = landingpad { ptr, i32 }
           cleanup
-  %mMgrFuncPtr.i.i.i.i629 = getelementptr inbounds %"class.eastl::internal::function_detail.71", ptr %ff16298, i64 0, i32 1
+  %mMgrFuncPtr.i.i.i.i629 = getelementptr inbounds i8, ptr %ff16298, i64 16
   %280 = load ptr, ptr %mMgrFuncPtr.i.i.i.i629, align 8
   %cmp.i.not.i.i.i630 = icmp eq ptr %280, null
   br i1 %cmp.i.not.i.i.i630, label %ehcleanup309, label %if.then.i.i.i631
@@ -3036,7 +3034,7 @@ terminate.lpad.i.i.i633:                          ; preds = %if.then.i.i.i631
   %281 = landingpad { ptr, i32 }
           catch ptr null
   %282 = extractvalue { ptr, i32 } %281, 0
-  call void @__clang_call_terminate(ptr %282) #14
+  call void @__clang_call_terminate(ptr %282) #13
   unreachable
 
 ehcleanup309:                                     ; preds = %if.then.i.i.i631, %lpad302, %lpad300
@@ -3053,7 +3051,7 @@ terminate.lpad.i.i.i639:                          ; preds = %if.then.i.i.i637
   %284 = landingpad { ptr, i32 }
           catch ptr null
   %285 = extractvalue { ptr, i32 } %284, 0
-  call void @__clang_call_terminate(ptr %285) #14
+  call void @__clang_call_terminate(ptr %285) #13
   unreachable
 
 lpad314:                                          ; preds = %invoke.cont311
@@ -3064,7 +3062,7 @@ lpad314:                                          ; preds = %invoke.cont311
 lpad316:                                          ; preds = %invoke.cont315, %invoke.cont317
   %287 = landingpad { ptr, i32 }
           cleanup
-  %mMgrFuncPtr.i.i.i.i641 = getelementptr inbounds %"class.eastl::internal::function_detail.71", ptr %ff16312, i64 0, i32 1
+  %mMgrFuncPtr.i.i.i.i641 = getelementptr inbounds i8, ptr %ff16312, i64 16
   %288 = load ptr, ptr %mMgrFuncPtr.i.i.i.i641, align 8
   %cmp.i.not.i.i.i642 = icmp eq ptr %288, null
   br i1 %cmp.i.not.i.i.i642, label %ehcleanup323, label %if.then.i.i.i643
@@ -3077,7 +3075,7 @@ terminate.lpad.i.i.i645:                          ; preds = %if.then.i.i.i643
   %289 = landingpad { ptr, i32 }
           catch ptr null
   %290 = extractvalue { ptr, i32 } %289, 0
-  call void @__clang_call_terminate(ptr %290) #14
+  call void @__clang_call_terminate(ptr %290) #13
   unreachable
 
 ehcleanup323:                                     ; preds = %if.then.i.i.i643, %lpad316, %lpad314
@@ -3094,7 +3092,7 @@ terminate.lpad.i.i.i651:                          ; preds = %if.then.i.i.i649
   %292 = landingpad { ptr, i32 }
           catch ptr null
   %293 = extractvalue { ptr, i32 } %292, 0
-  call void @__clang_call_terminate(ptr %293) #14
+  call void @__clang_call_terminate(ptr %293) #13
   unreachable
 
 lpad328:                                          ; preds = %invoke.cont329, %if.then.i.i.i.i.i.i.i467, %call.i.i.i.i.noexc470, %_ZN5eastl8internal15function_detailILi16EFjvEE7DestroyEv.exit.i.i459, %invoke.cont331
@@ -3112,7 +3110,7 @@ terminate.lpad.i.i.i657:                          ; preds = %if.then.i.i.i655
   %296 = landingpad { ptr, i32 }
           catch ptr null
   %297 = extractvalue { ptr, i32 } %296, 0
-  call void @__clang_call_terminate(ptr %297) #14
+  call void @__clang_call_terminate(ptr %297) #13
   unreachable
 
 _ZN5eastl14fixed_functionILi16EFjvEED2Ev.exit658: ; preds = %lpad328, %if.then.i.i.i655
@@ -3128,7 +3126,7 @@ terminate.lpad.i.i.i663:                          ; preds = %if.then.i.i.i661
   %299 = landingpad { ptr, i32 }
           catch ptr null
   %300 = extractvalue { ptr, i32 } %299, 0
-  call void @__clang_call_terminate(ptr %300) #14
+  call void @__clang_call_terminate(ptr %300) #13
   unreachable
 
 ehcleanup338:                                     ; preds = %if.then.i.i.i661, %_ZN5eastl14fixed_functionILi16EFjvEED2Ev.exit658, %if.then.i.i.i649, %ehcleanup323, %if.then.i.i.i637, %ehcleanup309, %if.then.i.i.i625, %lpad288, %if.then.i.i.i619, %lpad280, %if.then.i.i.i613, %lpad271, %lpad269
@@ -3145,7 +3143,7 @@ terminate.lpad.i.i.i669:                          ; preds = %if.then.i.i.i667
   %302 = landingpad { ptr, i32 }
           catch ptr null
   %303 = extractvalue { ptr, i32 } %302, 0
-  call void @__clang_call_terminate(ptr %303) #14
+  call void @__clang_call_terminate(ptr %303) #13
   unreachable
 
 eh.resume:                                        ; preds = %if.then.i.i.i667, %ehcleanup338, %if.then.i.i.i607, %lpad246, %if.then.i.i.i601, %lpad236, %if.then.i.i.i595, %ehcleanup233, %if.then.i.i.i583, %ehcleanup221, %if.then.i.i.i571, %ehcleanup193, %if.then.i.i.i559, %ehcleanup, %if.then.i.i.i547, %lpad137, %if.then.i.i.i541, %lpad130, %if.then.i.i.i535, %lpad117, %if.then.i.i.i529, %lpad108, %if.then.i.i.i523, %lpad100, %if.then.i.i.i517, %_ZN5eastl14fixed_functionILi24EFivEED2Ev.exit514, %if.then.i.i.i505, %_ZN5eastl14fixed_functionILi24EFvvEED2Ev.exit502
@@ -3180,9 +3178,9 @@ entry:
   %nErrorCount = alloca i32, align 4
   %fn = alloca %"class.eastl::fixed_function.53", align 8
   store i32 0, ptr %nErrorCount, align 4
-  %mMgrFuncPtr.i.i = getelementptr inbounds %"class.eastl::internal::function_detail.54", ptr %fn, i64 0, i32 1
+  %mMgrFuncPtr.i.i = getelementptr inbounds i8, ptr %fn, i64 16
   store ptr null, ptr %mMgrFuncPtr.i.i, align 8
-  %mInvokeFuncPtr.i.i = getelementptr inbounds %"class.eastl::internal::function_detail.54", ptr %fn, i64 0, i32 2
+  %mInvokeFuncPtr.i.i = getelementptr inbounds i8, ptr %fn, i64 24
   store ptr @_ZN5eastl8internal15function_detailILi0EFiiEE14DefaultInvokerEiRKNS0_15functor_storageILi0EEE, ptr %mInvokeFuncPtr.i.i, align 8
   %call1 = invoke noundef i32 @_ZN2EA8UnitTest12TestInternal17EATEST_VERIFY_IMPEbRiPKciS4_(i1 noundef zeroext true, ptr noundef nonnull align 4 dereferenceable(4) %nErrorCount, ptr noundef nonnull @.str, i32 noundef 376, ptr noundef nonnull @.str.16)
           to label %invoke.cont2 unwind label %lpad
@@ -3217,7 +3215,7 @@ terminate.lpad.i.i.i9:                            ; preds = %if.then.i.i.i7
   %3 = landingpad { ptr, i32 }
           catch ptr null
   %4 = extractvalue { ptr, i32 } %3, 0
-  call void @__clang_call_terminate(ptr %4) #14
+  call void @__clang_call_terminate(ptr %4) #13
   unreachable
 
 _ZN5eastl14fixed_functionILi0EFiiEED2Ev.exit:     ; preds = %invoke.cont11, %if.then.i.i.i7
@@ -3238,7 +3236,7 @@ terminate.lpad.i.i.i14:                           ; preds = %if.then.i.i.i12
   %7 = landingpad { ptr, i32 }
           catch ptr null
   %8 = extractvalue { ptr, i32 } %7, 0
-  call void @__clang_call_terminate(ptr %8) #14
+  call void @__clang_call_terminate(ptr %8) #13
   unreachable
 
 _ZN5eastl14fixed_functionILi0EFiiEED2Ev.exit15:   ; preds = %lpad, %if.then.i.i.i12
@@ -3251,9 +3249,9 @@ entry:
   %nErrorCount = alloca i32, align 4
   %fn = alloca %"class.eastl::fixed_function.74", align 8
   store i32 0, ptr %nErrorCount, align 4
-  %mMgrFuncPtr.i.i = getelementptr inbounds %"class.eastl::internal::function_detail.75", ptr %fn, i64 0, i32 1
+  %mMgrFuncPtr.i.i = getelementptr inbounds i8, ptr %fn, i64 16
   store ptr null, ptr %mMgrFuncPtr.i.i, align 8
-  %mInvokeFuncPtr.i.i = getelementptr inbounds %"class.eastl::internal::function_detail.75", ptr %fn, i64 0, i32 2
+  %mInvokeFuncPtr.i.i = getelementptr inbounds i8, ptr %fn, i64 24
   store ptr @_ZN5eastl8internal15function_detailILi1EFiiEE14DefaultInvokerEiRKNS0_15functor_storageILi1EEE, ptr %mInvokeFuncPtr.i.i, align 8
   %call1 = invoke noundef i32 @_ZN2EA8UnitTest12TestInternal17EATEST_VERIFY_IMPEbRiPKciS4_(i1 noundef zeroext true, ptr noundef nonnull align 4 dereferenceable(4) %nErrorCount, ptr noundef nonnull @.str, i32 noundef 376, ptr noundef nonnull @.str.16)
           to label %invoke.cont2 unwind label %lpad
@@ -3288,7 +3286,7 @@ terminate.lpad.i.i.i9:                            ; preds = %if.then.i.i.i7
   %3 = landingpad { ptr, i32 }
           catch ptr null
   %4 = extractvalue { ptr, i32 } %3, 0
-  call void @__clang_call_terminate(ptr %4) #14
+  call void @__clang_call_terminate(ptr %4) #13
   unreachable
 
 _ZN5eastl14fixed_functionILi1EFiiEED2Ev.exit:     ; preds = %invoke.cont11, %if.then.i.i.i7
@@ -3309,7 +3307,7 @@ terminate.lpad.i.i.i14:                           ; preds = %if.then.i.i.i12
   %7 = landingpad { ptr, i32 }
           catch ptr null
   %8 = extractvalue { ptr, i32 } %7, 0
-  call void @__clang_call_terminate(ptr %8) #14
+  call void @__clang_call_terminate(ptr %8) #13
   unreachable
 
 _ZN5eastl14fixed_functionILi1EFiiEED2Ev.exit15:   ; preds = %lpad, %if.then.i.i.i12
@@ -3322,9 +3320,9 @@ entry:
   %nErrorCount = alloca i32, align 4
   %fn = alloca %"class.eastl::fixed_function.81", align 8
   store i32 0, ptr %nErrorCount, align 4
-  %mMgrFuncPtr.i.i = getelementptr inbounds %"class.eastl::internal::function_detail.82", ptr %fn, i64 0, i32 1
+  %mMgrFuncPtr.i.i = getelementptr inbounds i8, ptr %fn, i64 16
   store ptr null, ptr %mMgrFuncPtr.i.i, align 8
-  %mInvokeFuncPtr.i.i = getelementptr inbounds %"class.eastl::internal::function_detail.82", ptr %fn, i64 0, i32 2
+  %mInvokeFuncPtr.i.i = getelementptr inbounds i8, ptr %fn, i64 24
   store ptr @_ZN5eastl8internal15function_detailILi4EFiiEE14DefaultInvokerEiRKNS0_15functor_storageILi4EEE, ptr %mInvokeFuncPtr.i.i, align 8
   %call1 = invoke noundef i32 @_ZN2EA8UnitTest12TestInternal17EATEST_VERIFY_IMPEbRiPKciS4_(i1 noundef zeroext true, ptr noundef nonnull align 4 dereferenceable(4) %nErrorCount, ptr noundef nonnull @.str, i32 noundef 376, ptr noundef nonnull @.str.16)
           to label %invoke.cont2 unwind label %lpad
@@ -3359,7 +3357,7 @@ terminate.lpad.i.i.i9:                            ; preds = %if.then.i.i.i7
   %3 = landingpad { ptr, i32 }
           catch ptr null
   %4 = extractvalue { ptr, i32 } %3, 0
-  call void @__clang_call_terminate(ptr %4) #14
+  call void @__clang_call_terminate(ptr %4) #13
   unreachable
 
 _ZN5eastl14fixed_functionILi4EFiiEED2Ev.exit:     ; preds = %invoke.cont11, %if.then.i.i.i7
@@ -3380,7 +3378,7 @@ terminate.lpad.i.i.i14:                           ; preds = %if.then.i.i.i12
   %7 = landingpad { ptr, i32 }
           catch ptr null
   %8 = extractvalue { ptr, i32 } %7, 0
-  call void @__clang_call_terminate(ptr %8) #14
+  call void @__clang_call_terminate(ptr %8) #13
   unreachable
 
 _ZN5eastl14fixed_functionILi4EFiiEED2Ev.exit15:   ; preds = %lpad, %if.then.i.i.i12
@@ -3393,9 +3391,9 @@ entry:
   %nErrorCount = alloca i32, align 4
   %fn = alloca %"class.eastl::fixed_function.88", align 8
   store i32 0, ptr %nErrorCount, align 4
-  %mMgrFuncPtr.i.i = getelementptr inbounds %"class.eastl::internal::function_detail.89", ptr %fn, i64 0, i32 1
+  %mMgrFuncPtr.i.i = getelementptr inbounds i8, ptr %fn, i64 16
   store ptr null, ptr %mMgrFuncPtr.i.i, align 8
-  %mInvokeFuncPtr.i.i = getelementptr inbounds %"class.eastl::internal::function_detail.89", ptr %fn, i64 0, i32 2
+  %mInvokeFuncPtr.i.i = getelementptr inbounds i8, ptr %fn, i64 24
   store ptr @_ZN5eastl8internal15function_detailILi8EFiiEE14DefaultInvokerEiRKNS0_15functor_storageILi8EEE, ptr %mInvokeFuncPtr.i.i, align 8
   %call1 = invoke noundef i32 @_ZN2EA8UnitTest12TestInternal17EATEST_VERIFY_IMPEbRiPKciS4_(i1 noundef zeroext true, ptr noundef nonnull align 4 dereferenceable(4) %nErrorCount, ptr noundef nonnull @.str, i32 noundef 376, ptr noundef nonnull @.str.16)
           to label %invoke.cont2 unwind label %lpad
@@ -3430,7 +3428,7 @@ terminate.lpad.i.i.i9:                            ; preds = %if.then.i.i.i7
   %3 = landingpad { ptr, i32 }
           catch ptr null
   %4 = extractvalue { ptr, i32 } %3, 0
-  call void @__clang_call_terminate(ptr %4) #14
+  call void @__clang_call_terminate(ptr %4) #13
   unreachable
 
 _ZN5eastl14fixed_functionILi8EFiiEED2Ev.exit:     ; preds = %invoke.cont11, %if.then.i.i.i7
@@ -3451,7 +3449,7 @@ terminate.lpad.i.i.i14:                           ; preds = %if.then.i.i.i12
   %7 = landingpad { ptr, i32 }
           catch ptr null
   %8 = extractvalue { ptr, i32 } %7, 0
-  call void @__clang_call_terminate(ptr %8) #14
+  call void @__clang_call_terminate(ptr %8) #13
   unreachable
 
 _ZN5eastl14fixed_functionILi8EFiiEED2Ev.exit15:   ; preds = %lpad, %if.then.i.i.i12
@@ -3464,9 +3462,9 @@ entry:
   %nErrorCount = alloca i32, align 4
   %fn = alloca %"class.eastl::fixed_function.92", align 8
   store i32 0, ptr %nErrorCount, align 4
-  %mMgrFuncPtr.i.i = getelementptr inbounds %"class.eastl::internal::function_detail.93", ptr %fn, i64 0, i32 1
+  %mMgrFuncPtr.i.i = getelementptr inbounds i8, ptr %fn, i64 64
   store ptr null, ptr %mMgrFuncPtr.i.i, align 8
-  %mInvokeFuncPtr.i.i = getelementptr inbounds %"class.eastl::internal::function_detail.93", ptr %fn, i64 0, i32 2
+  %mInvokeFuncPtr.i.i = getelementptr inbounds i8, ptr %fn, i64 72
   store ptr @_ZN5eastl8internal15function_detailILi64EFiiEE14DefaultInvokerEiRKNS0_15functor_storageILi64EEE, ptr %mInvokeFuncPtr.i.i, align 8
   %call1 = invoke noundef i32 @_ZN2EA8UnitTest12TestInternal17EATEST_VERIFY_IMPEbRiPKciS4_(i1 noundef zeroext true, ptr noundef nonnull align 4 dereferenceable(4) %nErrorCount, ptr noundef nonnull @.str, i32 noundef 376, ptr noundef nonnull @.str.16)
           to label %invoke.cont2 unwind label %lpad
@@ -3501,7 +3499,7 @@ terminate.lpad.i.i.i9:                            ; preds = %if.then.i.i.i7
   %3 = landingpad { ptr, i32 }
           catch ptr null
   %4 = extractvalue { ptr, i32 } %3, 0
-  call void @__clang_call_terminate(ptr %4) #14
+  call void @__clang_call_terminate(ptr %4) #13
   unreachable
 
 _ZN5eastl14fixed_functionILi64EFiiEED2Ev.exit:    ; preds = %invoke.cont11, %if.then.i.i.i7
@@ -3522,7 +3520,7 @@ terminate.lpad.i.i.i14:                           ; preds = %if.then.i.i.i12
   %7 = landingpad { ptr, i32 }
           catch ptr null
   %8 = extractvalue { ptr, i32 } %7, 0
-  call void @__clang_call_terminate(ptr %8) #14
+  call void @__clang_call_terminate(ptr %8) #13
   unreachable
 
 _ZN5eastl14fixed_functionILi64EFiiEED2Ev.exit15:  ; preds = %lpad, %if.then.i.i.i12
@@ -3535,9 +3533,9 @@ entry:
   %nErrorCount = alloca i32, align 4
   %fn = alloca %"class.eastl::fixed_function.96", align 8
   store i32 0, ptr %nErrorCount, align 4
-  %mMgrFuncPtr.i.i = getelementptr inbounds %"class.eastl::internal::function_detail.97", ptr %fn, i64 0, i32 1
+  %mMgrFuncPtr.i.i = getelementptr inbounds i8, ptr %fn, i64 128
   store ptr null, ptr %mMgrFuncPtr.i.i, align 8
-  %mInvokeFuncPtr.i.i = getelementptr inbounds %"class.eastl::internal::function_detail.97", ptr %fn, i64 0, i32 2
+  %mInvokeFuncPtr.i.i = getelementptr inbounds i8, ptr %fn, i64 136
   store ptr @_ZN5eastl8internal15function_detailILi128EFiiEE14DefaultInvokerEiRKNS0_15functor_storageILi128EEE, ptr %mInvokeFuncPtr.i.i, align 8
   %call1 = invoke noundef i32 @_ZN2EA8UnitTest12TestInternal17EATEST_VERIFY_IMPEbRiPKciS4_(i1 noundef zeroext true, ptr noundef nonnull align 4 dereferenceable(4) %nErrorCount, ptr noundef nonnull @.str, i32 noundef 376, ptr noundef nonnull @.str.16)
           to label %invoke.cont2 unwind label %lpad
@@ -3572,7 +3570,7 @@ terminate.lpad.i.i.i9:                            ; preds = %if.then.i.i.i7
   %3 = landingpad { ptr, i32 }
           catch ptr null
   %4 = extractvalue { ptr, i32 } %3, 0
-  call void @__clang_call_terminate(ptr %4) #14
+  call void @__clang_call_terminate(ptr %4) #13
   unreachable
 
 _ZN5eastl14fixed_functionILi128EFiiEED2Ev.exit:   ; preds = %invoke.cont11, %if.then.i.i.i7
@@ -3593,7 +3591,7 @@ terminate.lpad.i.i.i14:                           ; preds = %if.then.i.i.i12
   %7 = landingpad { ptr, i32 }
           catch ptr null
   %8 = extractvalue { ptr, i32 } %7, 0
-  call void @__clang_call_terminate(ptr %8) #14
+  call void @__clang_call_terminate(ptr %8) #13
   unreachable
 
 _ZN5eastl14fixed_functionILi128EFiiEED2Ev.exit15: ; preds = %lpad, %if.then.i.i.i12
@@ -3606,9 +3604,9 @@ entry:
   %nErrorCount = alloca i32, align 4
   %fn = alloca %"class.eastl::fixed_function.103", align 8
   store i32 0, ptr %nErrorCount, align 4
-  %mMgrFuncPtr.i.i = getelementptr inbounds %"class.eastl::internal::function_detail.104", ptr %fn, i64 0, i32 1
+  %mMgrFuncPtr.i.i = getelementptr inbounds i8, ptr %fn, i64 4096
   store ptr null, ptr %mMgrFuncPtr.i.i, align 8
-  %mInvokeFuncPtr.i.i = getelementptr inbounds %"class.eastl::internal::function_detail.104", ptr %fn, i64 0, i32 2
+  %mInvokeFuncPtr.i.i = getelementptr inbounds i8, ptr %fn, i64 4104
   store ptr @_ZN5eastl8internal15function_detailILi4096EFiiEE14DefaultInvokerEiRKNS0_15functor_storageILi4096EEE, ptr %mInvokeFuncPtr.i.i, align 8
   %call1 = invoke noundef i32 @_ZN2EA8UnitTest12TestInternal17EATEST_VERIFY_IMPEbRiPKciS4_(i1 noundef zeroext true, ptr noundef nonnull align 4 dereferenceable(4) %nErrorCount, ptr noundef nonnull @.str, i32 noundef 376, ptr noundef nonnull @.str.16)
           to label %invoke.cont2 unwind label %lpad
@@ -3643,7 +3641,7 @@ terminate.lpad.i.i.i9:                            ; preds = %if.then.i.i.i7
   %3 = landingpad { ptr, i32 }
           catch ptr null
   %4 = extractvalue { ptr, i32 } %3, 0
-  call void @__clang_call_terminate(ptr %4) #14
+  call void @__clang_call_terminate(ptr %4) #13
   unreachable
 
 _ZN5eastl14fixed_functionILi4096EFiiEED2Ev.exit:  ; preds = %invoke.cont11, %if.then.i.i.i7
@@ -3664,7 +3662,7 @@ terminate.lpad.i.i.i14:                           ; preds = %if.then.i.i.i12
   %7 = landingpad { ptr, i32 }
           catch ptr null
   %8 = extractvalue { ptr, i32 } %7, 0
-  call void @__clang_call_terminate(ptr %8) #14
+  call void @__clang_call_terminate(ptr %8) #13
   unreachable
 
 _ZN5eastl14fixed_functionILi4096EFiiEED2Ev.exit15: ; preds = %lpad, %if.then.i.i.i12
@@ -3675,15 +3673,15 @@ _ZN5eastl14fixed_functionILi4096EFiiEED2Ev.exit15: ; preds = %lpad, %if.then.i.i
 define linkonce_odr dso_local void @_ZN5eastl14fixed_functionILi16EFjvEEC2ILi8EEERKNS0_IXT_ES1_EE(ptr noundef nonnull align 8 dereferenceable(32) %this, ptr noundef nonnull align 8 dereferenceable(32) %other) unnamed_addr #0 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %agg.tmp = alloca %"class.eastl::fixed_function.67", align 8
-  %mMgrFuncPtr.i.i = getelementptr inbounds %"class.eastl::internal::function_detail.68", ptr %agg.tmp, i64 0, i32 1
+  %mMgrFuncPtr.i.i = getelementptr inbounds i8, ptr %agg.tmp, i64 16
   store ptr null, ptr %mMgrFuncPtr.i.i, align 8
-  %mInvokeFuncPtr.i.i = getelementptr inbounds %"class.eastl::internal::function_detail.68", ptr %agg.tmp, i64 0, i32 2
+  %mInvokeFuncPtr.i.i = getelementptr inbounds i8, ptr %agg.tmp, i64 24
   store ptr @_ZN5eastl8internal15function_detailILi8EFjvEE14DefaultInvokerERKNS0_15functor_storageILi8EEE, ptr %mInvokeFuncPtr.i.i, align 8
   %cmp.not.i.i = icmp eq ptr %agg.tmp, %other
   br i1 %cmp.not.i.i, label %_ZN5eastl14fixed_functionILi8EFjvEEC2ERKS2_.exit, label %if.then.i.i
 
 if.then.i.i:                                      ; preds = %entry
-  %mMgrFuncPtr.i.i.i.i = getelementptr inbounds %"class.eastl::internal::function_detail.68", ptr %other, i64 0, i32 1
+  %mMgrFuncPtr.i.i.i.i = getelementptr inbounds i8, ptr %other, i64 16
   %0 = load ptr, ptr %mMgrFuncPtr.i.i.i.i, align 8
   %cmp.i.not.i.i.i = icmp eq ptr %0, null
   br i1 %cmp.i.not.i.i.i, label %_ZN5eastl8internal15function_detailILi8EFjvEE4CopyERKS3_.exit.i.i, label %if.then.i.i.i
@@ -3696,14 +3694,14 @@ if.then.i.i.i:                                    ; preds = %if.then.i.i
 _ZN5eastl8internal15function_detailILi8EFjvEE4CopyERKS3_.exit.i.i: ; preds = %if.then.i.i.i, %if.then.i.i
   %1 = phi ptr [ %.pre.i.i.i, %if.then.i.i.i ], [ null, %if.then.i.i ]
   store ptr %1, ptr %mMgrFuncPtr.i.i, align 8
-  %mInvokeFuncPtr.i.i.i = getelementptr inbounds %"class.eastl::internal::function_detail.68", ptr %other, i64 0, i32 2
+  %mInvokeFuncPtr.i.i.i = getelementptr inbounds i8, ptr %other, i64 24
   %2 = load ptr, ptr %mInvokeFuncPtr.i.i.i, align 8
   store ptr %2, ptr %mInvokeFuncPtr.i.i, align 8
   br label %_ZN5eastl14fixed_functionILi8EFjvEEC2ERKS2_.exit
 
 _ZN5eastl14fixed_functionILi8EFjvEEC2ERKS2_.exit: ; preds = %entry, %_ZN5eastl8internal15function_detailILi8EFjvEE4CopyERKS3_.exit.i.i
-  %mMgrFuncPtr.i = getelementptr inbounds %"class.eastl::internal::function_detail.71", ptr %this, i64 0, i32 1
-  %mInvokeFuncPtr.i = getelementptr inbounds %"class.eastl::internal::function_detail.71", ptr %this, i64 0, i32 2
+  %mMgrFuncPtr.i = getelementptr inbounds i8, ptr %this, i64 16
+  %mInvokeFuncPtr.i = getelementptr inbounds i8, ptr %this, i64 24
   store ptr @_ZN5eastl8internal20function_base_detailILi16EE16function_managerINS_14fixed_functionILi8EFjvEEEjJEE7ManagerEPvS8_NS2_17ManagerOperationsE, ptr %mMgrFuncPtr.i, align 8
   store ptr @_ZN5eastl8internal20function_base_detailILi16EE16function_managerINS_14fixed_functionILi8EFjvEEEjJEE7InvokerERKNS0_15functor_storageILi16EEE, ptr %mInvokeFuncPtr.i, align 8
   %call.i.i.i1 = invoke noundef ptr @_ZN5eastl19GetDefaultAllocatorEv()
@@ -3714,9 +3712,9 @@ call.i.i.i.noexc:                                 ; preds = %_ZN5eastl14fixed_fu
           to label %call.i.i.i.i.noexc unwind label %lpad
 
 call.i.i.i.i.noexc:                               ; preds = %call.i.i.i.noexc
-  %mMgrFuncPtr.i.i.i.i.i = getelementptr inbounds %"class.eastl::internal::function_detail.68", ptr %call.i.i.i.i2, i64 0, i32 1
+  %mMgrFuncPtr.i.i.i.i.i = getelementptr inbounds i8, ptr %call.i.i.i.i2, i64 16
   store ptr null, ptr %mMgrFuncPtr.i.i.i.i.i, align 8
-  %mInvokeFuncPtr.i.i.i.i.i = getelementptr inbounds %"class.eastl::internal::function_detail.68", ptr %call.i.i.i.i2, i64 0, i32 2
+  %mInvokeFuncPtr.i.i.i.i.i = getelementptr inbounds i8, ptr %call.i.i.i.i2, i64 24
   store ptr @_ZN5eastl8internal15function_detailILi8EFjvEE14DefaultInvokerERKNS0_15functor_storageILi8EEE, ptr %mInvokeFuncPtr.i.i.i.i.i, align 8
   %cmp.not.i.i.i.i.i = icmp eq ptr %call.i.i.i.i2, %agg.tmp
   %.pr = load ptr, ptr %mMgrFuncPtr.i.i, align 8
@@ -3755,7 +3753,7 @@ terminate.lpad.i.i.i:                             ; preds = %if.then.i.i.i6
   %5 = landingpad { ptr, i32 }
           catch ptr null
   %6 = extractvalue { ptr, i32 } %5, 0
-  call void @__clang_call_terminate(ptr %6) #14
+  call void @__clang_call_terminate(ptr %6) #13
   unreachable
 
 _ZN5eastl14fixed_functionILi8EFjvEED2Ev.exit:     ; preds = %invoke.cont.thread, %invoke.cont, %if.then.i.i.i6
@@ -3776,7 +3774,7 @@ terminate.lpad.i.i.i11:                           ; preds = %if.then.i.i.i9
   %9 = landingpad { ptr, i32 }
           catch ptr null
   %10 = extractvalue { ptr, i32 } %9, 0
-  call void @__clang_call_terminate(ptr %10) #14
+  call void @__clang_call_terminate(ptr %10) #13
   unreachable
 
 _ZN5eastl14fixed_functionILi8EFjvEED2Ev.exit12:   ; preds = %lpad, %if.then.i.i.i9
@@ -3787,15 +3785,15 @@ _ZN5eastl14fixed_functionILi8EFjvEED2Ev.exit12:   ; preds = %lpad, %if.then.i.i.
 define linkonce_odr dso_local void @_ZN5eastl14fixed_functionILi16EFjvEEC2ILi8EEEONS0_IXT_ES1_EE(ptr noundef nonnull align 8 dereferenceable(32) %this, ptr noundef nonnull align 8 dereferenceable(32) %other) unnamed_addr #0 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %agg.tmp = alloca %"class.eastl::fixed_function.67", align 8
-  %mMgrFuncPtr.i.i = getelementptr inbounds %"class.eastl::internal::function_detail.68", ptr %agg.tmp, i64 0, i32 1
+  %mMgrFuncPtr.i.i = getelementptr inbounds i8, ptr %agg.tmp, i64 16
   store ptr null, ptr %mMgrFuncPtr.i.i, align 8
-  %mInvokeFuncPtr.i.i = getelementptr inbounds %"class.eastl::internal::function_detail.68", ptr %agg.tmp, i64 0, i32 2
+  %mInvokeFuncPtr.i.i = getelementptr inbounds i8, ptr %agg.tmp, i64 24
   store ptr @_ZN5eastl8internal15function_detailILi8EFjvEE14DefaultInvokerERKNS0_15functor_storageILi8EEE, ptr %mInvokeFuncPtr.i.i, align 8
   %cmp.not.i.i = icmp eq ptr %agg.tmp, %other
   br i1 %cmp.not.i.i, label %_ZN5eastl14fixed_functionILi8EFjvEEC2EOS2_.exit, label %if.then.i.i
 
 if.then.i.i:                                      ; preds = %entry
-  %mMgrFuncPtr.i.i.i.i = getelementptr inbounds %"class.eastl::internal::function_detail.68", ptr %other, i64 0, i32 1
+  %mMgrFuncPtr.i.i.i.i = getelementptr inbounds i8, ptr %other, i64 16
   %0 = load ptr, ptr %mMgrFuncPtr.i.i.i.i, align 8
   %cmp.i.not.i.i.i = icmp eq ptr %0, null
   br i1 %cmp.i.not.i.i.i, label %_ZN5eastl8internal15function_detailILi8EFjvEE4MoveEOS3_.exit.i.i, label %if.then.i.i.i
@@ -3808,7 +3806,7 @@ if.then.i.i.i:                                    ; preds = %if.then.i.i
 _ZN5eastl8internal15function_detailILi8EFjvEE4MoveEOS3_.exit.i.i: ; preds = %if.then.i.i.i, %if.then.i.i
   %1 = phi ptr [ %.pre.i.i.i, %if.then.i.i.i ], [ null, %if.then.i.i ]
   store ptr %1, ptr %mMgrFuncPtr.i.i, align 8
-  %mInvokeFuncPtr.i.i.i = getelementptr inbounds %"class.eastl::internal::function_detail.68", ptr %other, i64 0, i32 2
+  %mInvokeFuncPtr.i.i.i = getelementptr inbounds i8, ptr %other, i64 24
   %2 = load ptr, ptr %mInvokeFuncPtr.i.i.i, align 8
   store ptr %2, ptr %mInvokeFuncPtr.i.i, align 8
   store ptr null, ptr %mMgrFuncPtr.i.i.i.i, align 8
@@ -3816,8 +3814,8 @@ _ZN5eastl8internal15function_detailILi8EFjvEE4MoveEOS3_.exit.i.i: ; preds = %if.
   br label %_ZN5eastl14fixed_functionILi8EFjvEEC2EOS2_.exit
 
 _ZN5eastl14fixed_functionILi8EFjvEEC2EOS2_.exit:  ; preds = %entry, %_ZN5eastl8internal15function_detailILi8EFjvEE4MoveEOS3_.exit.i.i
-  %mMgrFuncPtr.i = getelementptr inbounds %"class.eastl::internal::function_detail.71", ptr %this, i64 0, i32 1
-  %mInvokeFuncPtr.i = getelementptr inbounds %"class.eastl::internal::function_detail.71", ptr %this, i64 0, i32 2
+  %mMgrFuncPtr.i = getelementptr inbounds i8, ptr %this, i64 16
+  %mInvokeFuncPtr.i = getelementptr inbounds i8, ptr %this, i64 24
   store ptr @_ZN5eastl8internal20function_base_detailILi16EE16function_managerINS_14fixed_functionILi8EFjvEEEjJEE7ManagerEPvS8_NS2_17ManagerOperationsE, ptr %mMgrFuncPtr.i, align 8
   store ptr @_ZN5eastl8internal20function_base_detailILi16EE16function_managerINS_14fixed_functionILi8EFjvEEEjJEE7InvokerERKNS0_15functor_storageILi16EEE, ptr %mInvokeFuncPtr.i, align 8
   %call.i.i.i1 = invoke noundef ptr @_ZN5eastl19GetDefaultAllocatorEv()
@@ -3828,9 +3826,9 @@ call.i.i.i.noexc:                                 ; preds = %_ZN5eastl14fixed_fu
           to label %call.i.i.i.i.noexc unwind label %lpad
 
 call.i.i.i.i.noexc:                               ; preds = %call.i.i.i.noexc
-  %mMgrFuncPtr.i.i.i.i.i = getelementptr inbounds %"class.eastl::internal::function_detail.68", ptr %call.i.i.i.i2, i64 0, i32 1
+  %mMgrFuncPtr.i.i.i.i.i = getelementptr inbounds i8, ptr %call.i.i.i.i2, i64 16
   store ptr null, ptr %mMgrFuncPtr.i.i.i.i.i, align 8
-  %mInvokeFuncPtr.i.i.i.i.i = getelementptr inbounds %"class.eastl::internal::function_detail.68", ptr %call.i.i.i.i2, i64 0, i32 2
+  %mInvokeFuncPtr.i.i.i.i.i = getelementptr inbounds i8, ptr %call.i.i.i.i2, i64 24
   store ptr @_ZN5eastl8internal15function_detailILi8EFjvEE14DefaultInvokerERKNS0_15functor_storageILi8EEE, ptr %mInvokeFuncPtr.i.i.i.i.i, align 8
   %cmp.not.i.i.i.i.i = icmp eq ptr %call.i.i.i.i2, %agg.tmp
   %.pr = load ptr, ptr %mMgrFuncPtr.i.i, align 8
@@ -3869,7 +3867,7 @@ terminate.lpad.i.i.i:                             ; preds = %if.then.i.i.i6
   %5 = landingpad { ptr, i32 }
           catch ptr null
   %6 = extractvalue { ptr, i32 } %5, 0
-  call void @__clang_call_terminate(ptr %6) #14
+  call void @__clang_call_terminate(ptr %6) #13
   unreachable
 
 _ZN5eastl14fixed_functionILi8EFjvEED2Ev.exit:     ; preds = %invoke.cont.thread, %invoke.cont, %if.then.i.i.i6
@@ -3890,7 +3888,7 @@ terminate.lpad.i.i.i11:                           ; preds = %if.then.i.i.i9
   %9 = landingpad { ptr, i32 }
           catch ptr null
   %10 = extractvalue { ptr, i32 } %9, 0
-  call void @__clang_call_terminate(ptr %10) #14
+  call void @__clang_call_terminate(ptr %10) #13
   unreachable
 
 _ZN5eastl14fixed_functionILi8EFjvEED2Ev.exit12:   ; preds = %lpad, %if.then.i.i.i9
@@ -3963,8 +3961,8 @@ _Z21TestFixedFunctionDtorv.exit:                  ; preds = %entry
 
 ; Function Attrs: noreturn nounwind uwtable
 define linkonce_odr hidden void @__clang_call_terminate(ptr noundef %0) local_unnamed_addr #5 comdat {
-  %2 = tail call ptr @__cxa_begin_catch(ptr %0) #15
-  tail call void @_ZSt9terminatev() #14
+  %2 = tail call ptr @__cxa_begin_catch(ptr %0) #14
+  tail call void @_ZSt9terminatev() #13
   unreachable
 }
 
@@ -4259,7 +4257,7 @@ sw.bb1:                                           ; preds = %entry
   br label %return
 
 sw.bb.i:                                          ; preds = %entry
-  %mMagicValue.i.i.i.i = getelementptr inbounds %struct.TestObject, ptr %to, i64 0, i32 4
+  %mMagicValue.i.i.i.i = getelementptr inbounds i8, ptr %to, i64 16
   %0 = load i32, ptr %mMagicValue.i.i.i.i, align 8
   %cmp.not.i.i.i.i = icmp eq i32 %0, 32623592
   br i1 %cmp.not.i.i.i.i, label %"_ZN5eastl8internal20function_base_detailILi24EE21function_manager_baseIZ32TestFixedFunctionExistingClosurevE3$_0vE15DestructFunctorERNS0_15functor_storageILi24EEE.exit.i", label %if.then.i.i.i.i
@@ -4283,13 +4281,13 @@ if.then.i.i.i.i:                                  ; preds = %sw.bb.i
 sw.bb1.i:                                         ; preds = %entry
   %4 = load i32, ptr %from, align 8
   store i32 %4, ptr %to, align 8
-  %mbThrowOnCopy.i.i.i.i = getelementptr inbounds %struct.TestObject, ptr %to, i64 0, i32 1
-  %mbThrowOnCopy3.i.i.i.i = getelementptr inbounds %struct.TestObject, ptr %from, i64 0, i32 1
+  %mbThrowOnCopy.i.i.i.i = getelementptr inbounds i8, ptr %to, i64 4
+  %mbThrowOnCopy3.i.i.i.i = getelementptr inbounds i8, ptr %from, i64 4
   %5 = load i8, ptr %mbThrowOnCopy3.i.i.i.i, align 4
   %6 = and i8 %5, 1
   store i8 %6, ptr %mbThrowOnCopy.i.i.i.i, align 4
-  %mMagicValue.i.i.i5.i = getelementptr inbounds %struct.TestObject, ptr %to, i64 0, i32 4
-  %mMagicValue4.i.i.i.i = getelementptr inbounds %struct.TestObject, ptr %from, i64 0, i32 4
+  %mMagicValue.i.i.i5.i = getelementptr inbounds i8, ptr %to, i64 16
+  %mMagicValue4.i.i.i.i = getelementptr inbounds i8, ptr %from, i64 16
   %7 = load i32, ptr %mMagicValue4.i.i.i.i, align 8
   store i32 %7, ptr %mMagicValue.i.i.i5.i, align 8
   %8 = load i64, ptr @_ZN10TestObject8sTOCountE, align 8
@@ -4301,20 +4299,20 @@ sw.bb1.i:                                         ; preds = %entry
   %10 = load i64, ptr @_ZN10TestObject16sTOCopyCtorCountE, align 8
   %inc6.i.i.i.i = add nsw i64 %10, 1
   store i64 %inc6.i.i.i.i, ptr @_ZN10TestObject16sTOCopyCtorCountE, align 8
-  %mId.i.i.i.i = getelementptr inbounds %struct.TestObject, ptr %to, i64 0, i32 3
+  %mId.i.i.i.i = getelementptr inbounds i8, ptr %to, i64 8
   store i64 %inc5.i.i.i.i, ptr %mId.i.i.i.i, align 8
   br label %return
 
 sw.bb3.i:                                         ; preds = %entry
   %11 = load i32, ptr %from, align 8
   store i32 %11, ptr %to, align 8
-  %mbThrowOnCopy.i.i.i7.i = getelementptr inbounds %struct.TestObject, ptr %to, i64 0, i32 1
-  %mbThrowOnCopy3.i.i.i8.i = getelementptr inbounds %struct.TestObject, ptr %from, i64 0, i32 1
+  %mbThrowOnCopy.i.i.i7.i = getelementptr inbounds i8, ptr %to, i64 4
+  %mbThrowOnCopy3.i.i.i8.i = getelementptr inbounds i8, ptr %from, i64 4
   %12 = load i8, ptr %mbThrowOnCopy3.i.i.i8.i, align 4
   %13 = and i8 %12, 1
   store i8 %13, ptr %mbThrowOnCopy.i.i.i7.i, align 4
-  %mMagicValue.i.i.i9.i = getelementptr inbounds %struct.TestObject, ptr %to, i64 0, i32 4
-  %mMagicValue4.i.i.i10.i = getelementptr inbounds %struct.TestObject, ptr %from, i64 0, i32 4
+  %mMagicValue.i.i.i9.i = getelementptr inbounds i8, ptr %to, i64 16
+  %mMagicValue4.i.i.i10.i = getelementptr inbounds i8, ptr %from, i64 16
   %14 = load i32, ptr %mMagicValue4.i.i.i10.i, align 8
   store i32 %14, ptr %mMagicValue.i.i.i9.i, align 8
   %15 = load i64, ptr @_ZN10TestObject8sTOCountE, align 8
@@ -4326,7 +4324,7 @@ sw.bb3.i:                                         ; preds = %entry
   %17 = load i64, ptr @_ZN10TestObject16sTOMoveCtorCountE, align 8
   %inc6.i.i.i13.i = add nsw i64 %17, 1
   store i64 %inc6.i.i.i13.i, ptr @_ZN10TestObject16sTOMoveCtorCountE, align 8
-  %mId.i.i.i14.i = getelementptr inbounds %struct.TestObject, ptr %to, i64 0, i32 3
+  %mId.i.i.i14.i = getelementptr inbounds i8, ptr %to, i64 8
   store i64 %inc5.i.i.i12.i, ptr %mId.i.i.i14.i, align 8
   store i32 0, ptr %from, align 8
   %18 = load i32, ptr %mMagicValue4.i.i.i10.i, align 8
@@ -4595,8 +4593,8 @@ entry:
   ret i32 %call1.i.i
 }
 
-; Function Attrs: mustprogress nofree nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define internal noundef ptr @"_ZN5eastl8internal20function_base_detailILi48EE16function_managerIZ22TestFixedFunctionBasicvE3$_2mJEE7ManagerEPvS6_NS2_17ManagerOperationsE"(ptr noundef writeonly %to, ptr nocapture noundef readonly %from, i32 noundef %ops) #9 align 2 personality ptr @__gxx_personality_v0 {
+; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
+define internal noundef ptr @"_ZN5eastl8internal20function_base_detailILi48EE16function_managerIZ22TestFixedFunctionBasicvE3$_2mJEE7ManagerEPvS6_NS2_17ManagerOperationsE"(ptr noundef writeonly %to, ptr nocapture noundef readonly %from, i32 noundef %ops) #2 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   switch i32 %ops, label %sw.default [
     i32 3, label %return
@@ -4621,12 +4619,12 @@ return:                                           ; preds = %sw.epilog.sink.spli
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define internal noundef i64 @"_ZN5eastl8internal20function_base_detailILi48EE16function_managerIZ22TestFixedFunctionBasicvE3$_2mJEE7InvokerERKNS0_15functor_storageILi48EEE"(ptr nocapture noundef nonnull readonly align 8 dereferenceable(48) %functor) #10 align 2 personality ptr @__gxx_personality_v0 {
+define internal noundef i64 @"_ZN5eastl8internal20function_base_detailILi48EE16function_managerIZ22TestFixedFunctionBasicvE3$_2mJEE7InvokerERKNS0_15functor_storageILi48EEE"(ptr nocapture noundef nonnull readonly align 8 dereferenceable(48) %functor) #9 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %0 = load <4 x i64>, ptr %functor, align 8
-  %1 = getelementptr inbounds %class.anon.61, ptr %functor, i64 0, i32 4
+  %1 = getelementptr inbounds i8, ptr %functor, i64 32
   %2 = load i64, ptr %1, align 8
-  %3 = getelementptr inbounds %class.anon.61, ptr %functor, i64 0, i32 5
+  %3 = getelementptr inbounds i8, ptr %functor, i64 40
   %4 = load i64, ptr %3, align 8
   %5 = tail call i64 @llvm.vector.reduce.add.v4i64(<4 x i64> %0)
   %op.rdx = add i64 %5, %2
@@ -4885,7 +4883,7 @@ return:                                           ; preds = %sw.epilog.sink.spli
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define internal noundef i32 @"_ZN5eastl8internal20function_base_detailILi8EE16function_managerIZ22TestFixedFunctionBasicvE3$_3jJEE7InvokerERKNS0_15functor_storageILi8EEE"(ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %functor) #10 align 2 personality ptr @__gxx_personality_v0 {
+define internal noundef i32 @"_ZN5eastl8internal20function_base_detailILi8EE16function_managerIZ22TestFixedFunctionBasicvE3$_3jJEE7InvokerERKNS0_15functor_storageILi8EEE"(ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %functor) #9 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %call.val = load i32, ptr %functor, align 8
   %0 = getelementptr inbounds i8, ptr %functor, i64 4
@@ -4907,7 +4905,7 @@ sw.bb1:                                           ; preds = %entry
   br label %return
 
 sw.default:                                       ; preds = %entry
-  %call3 = tail call noundef ptr @_ZN5eastl8internal20function_base_detailILi16EE21function_manager_baseINS_14fixed_functionILi8EFjvEEEvE7ManagerEPvS8_NS2_17ManagerOperationsE(ptr noundef %to, ptr noundef %from, i32 noundef %ops) #15
+  %call3 = tail call noundef ptr @_ZN5eastl8internal20function_base_detailILi16EE21function_manager_baseINS_14fixed_functionILi8EFjvEEEvE7ManagerEPvS8_NS2_17ManagerOperationsE(ptr noundef %to, ptr noundef %from, i32 noundef %ops) #14
   br label %return
 
 return:                                           ; preds = %entry, %sw.default, %sw.bb1
@@ -4919,7 +4917,7 @@ return:                                           ; preds = %entry, %sw.default,
 define linkonce_odr dso_local noundef i32 @_ZN5eastl8internal20function_base_detailILi16EE16function_managerINS_14fixed_functionILi8EFjvEEEjJEE7InvokerERKNS0_15functor_storageILi16EEE(ptr noundef nonnull align 8 dereferenceable(16) %functor) #0 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %0 = load ptr, ptr %functor, align 8
-  %mInvokeFuncPtr.i.i.i.i = getelementptr inbounds %"class.eastl::internal::function_detail.68", ptr %0, i64 0, i32 2
+  %mInvokeFuncPtr.i.i.i.i = getelementptr inbounds i8, ptr %0, i64 24
   %1 = load ptr, ptr %mInvokeFuncPtr.i.i.i.i, align 8
   %call.i.i.i.i = tail call noundef i32 %1(ptr noundef nonnull align 8 dereferenceable(16) %0)
   ret i32 %call.i.i.i.i
@@ -4944,7 +4942,7 @@ if.then.i:                                        ; preds = %sw.bb
           to label %call1.i.noexc unwind label %terminate.lpad
 
 call1.i.noexc:                                    ; preds = %if.then.i
-  %mMgrFuncPtr.i.i.i.i.i = getelementptr inbounds %"class.eastl::internal::function_detail.68", ptr %0, i64 0, i32 1
+  %mMgrFuncPtr.i.i.i.i.i = getelementptr inbounds i8, ptr %0, i64 16
   %1 = load ptr, ptr %mMgrFuncPtr.i.i.i.i.i, align 8
   %cmp.i.not.i.i.i.i = icmp eq ptr %1, null
   br i1 %cmp.i.not.i.i.i.i, label %_ZN5eastl9allocator10deallocateEPvm.exit.i, label %if.then.i.i.i.i
@@ -4957,11 +4955,11 @@ terminate.lpad.i.i.i.i:                           ; preds = %if.then.i.i.i.i
   %2 = landingpad { ptr, i32 }
           catch ptr null
   %3 = extractvalue { ptr, i32 } %2, 0
-  tail call void @__clang_call_terminate(ptr %3) #14
+  tail call void @__clang_call_terminate(ptr %3) #13
   unreachable
 
 _ZN5eastl9allocator10deallocateEPvm.exit.i:       ; preds = %if.then.i.i.i.i, %call1.i.noexc
-  tail call void @_ZdaPv(ptr noundef nonnull %0) #16
+  tail call void @_ZdaPv(ptr noundef nonnull %0) #15
   br label %sw.epilog
 
 sw.bb1:                                           ; preds = %entry
@@ -4974,15 +4972,15 @@ call.i.noexc:                                     ; preds = %sw.bb1
 
 call.i.i.noexc:                                   ; preds = %call.i.noexc
   %4 = load ptr, ptr %from, align 8
-  %mMgrFuncPtr.i.i.i = getelementptr inbounds %"class.eastl::internal::function_detail.68", ptr %call.i.i9, i64 0, i32 1
+  %mMgrFuncPtr.i.i.i = getelementptr inbounds i8, ptr %call.i.i9, i64 16
   store ptr null, ptr %mMgrFuncPtr.i.i.i, align 8
-  %mInvokeFuncPtr.i.i.i = getelementptr inbounds %"class.eastl::internal::function_detail.68", ptr %call.i.i9, i64 0, i32 2
+  %mInvokeFuncPtr.i.i.i = getelementptr inbounds i8, ptr %call.i.i9, i64 24
   store ptr @_ZN5eastl8internal15function_detailILi8EFjvEE14DefaultInvokerERKNS0_15functor_storageILi8EEE, ptr %mInvokeFuncPtr.i.i.i, align 8
   %cmp.not.i.i.i = icmp eq ptr %call.i.i9, %4
   br i1 %cmp.not.i.i.i, label %_ZN5eastl8internal20function_base_detailILi16EE21function_manager_baseINS_14fixed_functionILi8EFjvEEEvE11CopyFunctorERNS0_15functor_storageILi16EEERKS9_.exit, label %if.then.i.i.i
 
 if.then.i.i.i:                                    ; preds = %call.i.i.noexc
-  %mMgrFuncPtr.i.i.i.i.i5 = getelementptr inbounds %"class.eastl::internal::function_detail.68", ptr %4, i64 0, i32 1
+  %mMgrFuncPtr.i.i.i.i.i5 = getelementptr inbounds i8, ptr %4, i64 16
   %5 = load ptr, ptr %mMgrFuncPtr.i.i.i.i.i5, align 8
   %cmp.i.not.i.i.i.i6 = icmp eq ptr %5, null
   br i1 %cmp.i.not.i.i.i.i6, label %_ZN5eastl8internal15function_detailILi8EFjvEE4CopyERKS3_.exit.i.i.i, label %if.then.i.i.i.i7
@@ -4998,7 +4996,7 @@ call3.i.i.i.i.noexc:                              ; preds = %if.then.i.i.i.i7
 _ZN5eastl8internal15function_detailILi8EFjvEE4CopyERKS3_.exit.i.i.i: ; preds = %call3.i.i.i.i.noexc, %if.then.i.i.i
   %6 = phi ptr [ %.pre.i.i.i.i, %call3.i.i.i.i.noexc ], [ null, %if.then.i.i.i ]
   store ptr %6, ptr %mMgrFuncPtr.i.i.i, align 8
-  %mInvokeFuncPtr.i.i.i.i = getelementptr inbounds %"class.eastl::internal::function_detail.68", ptr %4, i64 0, i32 2
+  %mInvokeFuncPtr.i.i.i.i = getelementptr inbounds i8, ptr %4, i64 24
   %7 = load ptr, ptr %mInvokeFuncPtr.i.i.i.i, align 8
   store ptr %7, ptr %mInvokeFuncPtr.i.i.i, align 8
   br label %_ZN5eastl8internal20function_base_detailILi16EE21function_manager_baseINS_14fixed_functionILi8EFjvEEEvE11CopyFunctorERNS0_15functor_storageILi16EEERKS9_.exit
@@ -5020,25 +5018,25 @@ terminate.lpad:                                   ; preds = %if.then.i.i.i.i7, %
   %9 = landingpad { ptr, i32 }
           catch ptr null
   %10 = extractvalue { ptr, i32 } %9, 0
-  tail call void @__clang_call_terminate(ptr %10) #14
+  tail call void @__clang_call_terminate(ptr %10) #13
   unreachable
 }
 
 declare noundef ptr @_ZN5eastl19GetDefaultAllocatorEv() local_unnamed_addr #1
 
 ; Function Attrs: nobuiltin nounwind
-declare void @_ZdaPv(ptr noundef) local_unnamed_addr #11
+declare void @_ZdaPv(ptr noundef) local_unnamed_addr #10
 
 declare noundef ptr @_ZnammmPKcijS0_i(i64 noundef, i64 noundef, i64 noundef, ptr noundef, i32 noundef, i32 noundef, ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #12
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #11
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #12
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #11
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i64 @llvm.vector.reduce.add.v4i64(<4 x i64>) #13
+declare i64 @llvm.vector.reduce.add.v4i64(<4 x i64>) #12
 
 attributes #0 = { mustprogress uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
@@ -5049,14 +5047,13 @@ attributes #5 = { noreturn nounwind uwtable "frame-pointer"="all" "no-trapping-m
 attributes #6 = { cold noreturn nounwind memory(inaccessiblemem: write) }
 attributes #7 = { mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #8 = { mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #9 = { mustprogress nofree nosync nounwind willreturn memory(argmem: readwrite) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #10 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #11 = { nobuiltin nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #12 = { nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
-attributes #13 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
-attributes #14 = { noreturn nounwind }
-attributes #15 = { nounwind }
-attributes #16 = { builtin nounwind }
+attributes #9 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #10 = { nobuiltin nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #11 = { nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
+attributes #12 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
+attributes #13 = { noreturn nounwind }
+attributes #14 = { nounwind }
+attributes #15 = { builtin nounwind }
 
 !llvm.module.flags = !{!0, !1, !2, !3, !4}
 

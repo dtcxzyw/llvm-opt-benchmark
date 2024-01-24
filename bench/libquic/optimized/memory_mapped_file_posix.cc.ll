@@ -4,15 +4,6 @@ target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:
 target triple = "x86_64-unknown-linux-gnu"
 
 %"struct.base::MemoryMappedFile::Region" = type { i64, i64 }
-%"class.base::MemoryMappedFile" = type { %"class.base::File", ptr, i64 }
-%"class.base::File" = type <{ %"class.base::ScopedGeneric", [4 x i8], %"class.base::FilePath", %"class.base::FileTracing::ScopedEnabler", [3 x i8], i32, i8, i8, [6 x i8] }>
-%"class.base::ScopedGeneric" = type { %"struct.base::ScopedGeneric<int, base::internal::ScopedFDCloseTraits>::Data" }
-%"struct.base::ScopedGeneric<int, base::internal::ScopedFDCloseTraits>::Data" = type { i32 }
-%"class.base::FilePath" = type { %"class.std::__cxx11::basic_string" }
-%"class.std::__cxx11::basic_string" = type { %"struct.std::__cxx11::basic_string<char>::_Alloc_hider", i64, %union.anon }
-%"struct.std::__cxx11::basic_string<char>::_Alloc_hider" = type { ptr }
-%union.anon = type { i64, [8 x i8] }
-%"class.base::FileTracing::ScopedEnabler" = type { i8 }
 
 @_ZN4base16MemoryMappedFile6Region10kWholeFileE = external global %"struct.base::MemoryMappedFile::Region", align 8
 
@@ -22,7 +13,7 @@ target triple = "x86_64-unknown-linux-gnu"
 define dso_local void @_ZN4base16MemoryMappedFileC2Ev(ptr noundef nonnull align 8 dereferenceable(72) %this) unnamed_addr #0 align 2 {
 entry:
   tail call void @_ZN4base4FileC1Ev(ptr noundef nonnull align 8 dereferenceable(50) %this)
-  %data_ = getelementptr inbounds %"class.base::MemoryMappedFile", ptr %this, i64 0, i32 1
+  %data_ = getelementptr inbounds i8, ptr %this, i64 56
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %data_, i8 0, i64 16, i1 false)
   ret void
 }
@@ -48,7 +39,7 @@ if.else:                                          ; preds = %entry
   store i64 0, ptr %aligned_start, align 8
   store i64 0, ptr %aligned_size, align 8
   %0 = load i64, ptr %region, align 8
-  %size = getelementptr inbounds %"struct.base::MemoryMappedFile::Region", ptr %region, i64 0, i32 1
+  %size = getelementptr inbounds i8, ptr %region, i64 8
   %1 = load i64, ptr %size, align 8
   call void @_ZN4base16MemoryMappedFile28CalculateVMAlignedBoundariesEllPlS1_Pi(i64 noundef %0, i64 noundef %1, ptr noundef nonnull %aligned_start, ptr noundef nonnull %aligned_size, ptr noundef nonnull %data_offset)
   %2 = load i64, ptr %aligned_start, align 8
@@ -66,7 +57,7 @@ if.end20:                                         ; preds = %if.then, %if.end17
   %.sink = phi i64 [ %4, %if.end17 ], [ %call2, %if.then ]
   %map_start.0 = phi i64 [ %2, %if.end17 ], [ 0, %if.then ]
   %map_size.0 = phi i64 [ %3, %if.end17 ], [ %call2, %if.then ]
-  %length_19 = getelementptr inbounds %"class.base::MemoryMappedFile", ptr %this, i64 0, i32 2
+  %length_19 = getelementptr inbounds i8, ptr %this, i64 64
   store i64 %.sink, ptr %length_19, align 8
   switch i32 %access, label %sw.epilog [
     i32 0, label %sw.bb
@@ -83,7 +74,7 @@ sw.bb21:                                          ; preds = %if.end20
 sw.bb23:                                          ; preds = %if.end20
   %call26 = call noundef i64 @_ZN4base4File9GetLengthEv(ptr noundef nonnull align 8 dereferenceable(50) %this)
   %5 = load i64, ptr %region, align 8
-  %size29 = getelementptr inbounds %"struct.base::MemoryMappedFile::Region", ptr %region, i64 0, i32 1
+  %size29 = getelementptr inbounds i8, ptr %region, i64 8
   %6 = load i64, ptr %size29, align 8
   %add = add nsw i64 %6, %5
   %.sroa.speculated = call i64 @llvm.smax.i64(i64 %call26, i64 %add)
@@ -94,7 +85,7 @@ sw.epilog:                                        ; preds = %sw.bb23, %sw.bb21, 
   %flags.0 = phi i32 [ 0, %if.end20 ], [ 3, %sw.bb23 ], [ 3, %sw.bb21 ], [ 1, %sw.bb ]
   %call34 = call noundef i32 @_ZNK4base4File15GetPlatformFileEv(ptr noundef nonnull align 8 dereferenceable(50) %this)
   %call35 = call ptr @mmap(ptr noundef null, i64 noundef %map_size.0, i32 noundef %flags.0, i32 noundef 1, i32 noundef %call34, i64 noundef %map_start.0) #5
-  %data_ = getelementptr inbounds %"class.base::MemoryMappedFile", ptr %this, i64 0, i32 1
+  %data_ = getelementptr inbounds i8, ptr %this, i64 56
   store ptr %call35, ptr %data_, align 8
   %cmp37 = icmp eq ptr %call35, inttoptr (i64 -1 to ptr)
   br i1 %cmp37, label %return, label %if.end39
@@ -127,13 +118,13 @@ declare noundef i32 @_ZNK4base4File15GetPlatformFileEv(ptr noundef nonnull align
 ; Function Attrs: mustprogress uwtable
 define dso_local void @_ZN4base16MemoryMappedFile12CloseHandlesEv(ptr noundef nonnull align 8 dereferenceable(72) %this) local_unnamed_addr #0 align 2 {
 entry:
-  %data_ = getelementptr inbounds %"class.base::MemoryMappedFile", ptr %this, i64 0, i32 1
+  %data_ = getelementptr inbounds i8, ptr %this, i64 56
   %0 = load ptr, ptr %data_, align 8
   %cmp.not = icmp eq ptr %0, null
   br i1 %cmp.not, label %if.end, label %if.then
 
 if.then:                                          ; preds = %entry
-  %length_ = getelementptr inbounds %"class.base::MemoryMappedFile", ptr %this, i64 0, i32 2
+  %length_ = getelementptr inbounds i8, ptr %this, i64 64
   %1 = load i64, ptr %length_, align 8
   %call = tail call i32 @munmap(ptr noundef nonnull %0, i64 noundef %1) #5
   br label %if.end

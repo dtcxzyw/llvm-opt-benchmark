@@ -11,37 +11,7 @@ target triple = "x86_64-unknown-linux-gnu"
 %struct.PropertyInfo = type { ptr, ptr, ptr, i8, ptr, ptr, ptr, ptr, ptr, ptr }
 %struct.VMStateInfo = type { ptr, ptr, ptr }
 %struct.VMStateField = type { ptr, ptr, i64, i64, i64, i32, i64, i64, ptr, i32, ptr, i32, i32, ptr }
-%struct.VHostSCSICommon = type { %struct.VirtIOSCSICommon, ptr, %struct.vhost_dev, ptr, i32, i32, i32, i32, i64, i8, ptr }
-%struct.VirtIOSCSICommon = type { %struct.VirtIODevice, %struct.VirtIOSCSIConf, i32, i32, ptr, ptr, ptr }
-%struct.VirtIODevice = type { %struct.DeviceState, ptr, i8, i8, i16, i64, i64, i64, i64, ptr, i16, i32, i32, ptr, %struct.MemoryListener, i16, i8, i8, i8, i8, i8, i8, i8, i8, i8, ptr, ptr, i8, i8, ptr, ptr, %union.anon.1, %struct.EventNotifier, i8 }
-%struct.DeviceState = type { %struct.Object, ptr, ptr, i8, i8, i64, ptr, i32, i8, ptr, %struct.NamedGPIOListHead, %struct.NamedClockListHead, %struct.BusStateHead, i32, i32, i32, %struct.ResettableState, ptr, %struct.MemReentrancyGuard }
-%struct.Object = type { ptr, ptr, ptr, i32, ptr }
-%struct.NamedGPIOListHead = type { ptr }
-%struct.NamedClockListHead = type { ptr }
-%struct.BusStateHead = type { ptr }
-%struct.ResettableState = type { i32, i8, i8 }
-%struct.MemReentrancyGuard = type { i8 }
-%struct.MemoryListener = type { ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, i32, ptr, ptr, %union.anon, %union.anon.0 }
-%union.anon = type { %struct.QTailQLink }
-%struct.QTailQLink = type { ptr, ptr }
-%union.anon.0 = type { %struct.QTailQLink }
-%union.anon.1 = type { %struct.QTailQLink }
-%struct.EventNotifier = type { i32, i32, i8 }
-%struct.VirtIOSCSIConf = type { i32, i32, i8, i32, i32, ptr, ptr, %struct.CharBackend, i32, ptr }
-%struct.CharBackend = type { ptr, ptr, ptr, ptr, ptr, ptr, i32, i32 }
-%struct.vhost_dev = type { ptr, %struct.MemoryListener, %struct.MemoryListener, ptr, i32, ptr, i32, ptr, ptr, i32, i32, i32, i32, i64, i64, i64, i64, i64, i64, i8, i8, i64, ptr, ptr, ptr, ptr, %struct.anon, %struct.anon.2, %struct.IOMMUNotifier, ptr }
-%struct.anon = type { ptr, ptr }
-%struct.anon.2 = type { ptr }
-%struct.IOMMUNotifier = type { ptr, i32, i64, i64, i32, %struct.anon.3 }
-%struct.anon.3 = type { ptr, ptr }
-%struct.DeviceClass = type { %struct.ObjectClass, [1 x i64], ptr, ptr, ptr, i8, i8, ptr, ptr, ptr, ptr, ptr }
-%struct.ObjectClass = type { ptr, ptr, [4 x ptr], [4 x ptr], ptr, ptr }
-%struct.VirtioDeviceClass = type { %struct.DeviceClass, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, i64, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr }
-%struct.FWPathProviderClass = type { %struct.InterfaceClass, ptr }
-%struct.InterfaceClass = type { %struct.ObjectClass, ptr, ptr }
 %struct.ErrorPropagator = type { ptr, ptr }
-%struct.VHostUserSCSI = type { %struct.VHostSCSICommon, i8, i8, %struct.VhostUserState, ptr }
-%struct.VhostUserState = type { ptr, ptr, i32, i8 }
 
 @vhost_user_scsi_info = internal constant %struct.TypeInfo { ptr @.str, ptr @.str.1, i64 1400, i64 0, ptr @vhost_user_scsi_instance_init, ptr null, ptr null, i8 0, i64 0, ptr @vhost_user_scsi_class_init, ptr null, ptr null, ptr @.compoundliteral }, align 8
 @.str = private unnamed_addr constant [16 x i8] c"vhost-user-scsi\00", align 1
@@ -120,9 +90,9 @@ declare ptr @type_register_static(ptr noundef) local_unnamed_addr #1
 define internal void @vhost_user_scsi_instance_init(ptr noundef %obj) #0 {
 entry:
   %call.i = tail call ptr @object_dynamic_cast_assert(ptr noundef %obj, ptr noundef nonnull @.str.1, ptr noundef nonnull @.str.4, i32 noundef 23, ptr noundef nonnull @__func__.VHOST_SCSI_COMMON) #5
-  %feature_bits = getelementptr inbounds %struct.VHostSCSICommon, ptr %call.i, i64 0, i32 3
+  %feature_bits = getelementptr inbounds i8, ptr %call.i, i64 1312
   store ptr @user_feature_bits, ptr %feature_bits, align 8
-  %bootindex = getelementptr inbounds %struct.VHostSCSICommon, ptr %call.i, i64 0, i32 4
+  %bootindex = getelementptr inbounds i8, ptr %call.i, i64 1320
   %call.i4 = tail call ptr @object_dynamic_cast_assert(ptr noundef %call.i, ptr noundef nonnull @.str.5, ptr noundef nonnull @.str.6, i32 noundef 77, ptr noundef nonnull @__func__.DEVICE) #5
   tail call void @device_add_bootindex_property(ptr noundef %obj, ptr noundef nonnull %bootindex, ptr noundef nonnull @.str.3, ptr noundef null, ptr noundef %call.i4) #5
   ret void
@@ -135,27 +105,27 @@ entry:
   %call.i11 = tail call ptr @object_class_dynamic_cast_assert(ptr noundef %klass, ptr noundef nonnull @.str.7, ptr noundef nonnull @.str.8, i32 noundef 85, ptr noundef nonnull @__func__.VIRTIO_DEVICE_CLASS) #5
   %call.i12 = tail call ptr @object_class_dynamic_cast_assert(ptr noundef %klass, ptr noundef nonnull @.str.2, ptr noundef nonnull @.str.9, i32 noundef 27, ptr noundef nonnull @__func__.FW_PATH_PROVIDER_CLASS) #5
   tail call void @device_class_set_props(ptr noundef %call.i, ptr noundef nonnull @vhost_user_scsi_properties) #5
-  %vmsd = getelementptr inbounds %struct.DeviceClass, ptr %call.i, i64 0, i32 10
+  %vmsd = getelementptr inbounds i8, ptr %call.i, i64 160
   store ptr @vmstate_vhost_scsi, ptr %vmsd, align 8
-  %categories = getelementptr inbounds %struct.DeviceClass, ptr %call.i, i64 0, i32 1
+  %categories = getelementptr inbounds i8, ptr %call.i, i64 96
   %0 = load i64, ptr %categories, align 8
   %or.i = or i64 %0, 4
   store i64 %or.i, ptr %categories, align 8
-  %realize = getelementptr inbounds %struct.VirtioDeviceClass, ptr %call.i11, i64 0, i32 1
+  %realize = getelementptr inbounds i8, ptr %call.i11, i64 176
   store ptr @vhost_user_scsi_realize, ptr %realize, align 8
-  %unrealize = getelementptr inbounds %struct.VirtioDeviceClass, ptr %call.i11, i64 0, i32 2
+  %unrealize = getelementptr inbounds i8, ptr %call.i11, i64 184
   store ptr @vhost_user_scsi_unrealize, ptr %unrealize, align 8
-  %get_features = getelementptr inbounds %struct.VirtioDeviceClass, ptr %call.i11, i64 0, i32 3
+  %get_features = getelementptr inbounds i8, ptr %call.i11, i64 192
   store ptr @vhost_scsi_common_get_features, ptr %get_features, align 8
-  %set_config = getelementptr inbounds %struct.VirtioDeviceClass, ptr %call.i11, i64 0, i32 8
+  %set_config = getelementptr inbounds i8, ptr %call.i11, i64 232
   store ptr @vhost_scsi_common_set_config, ptr %set_config, align 8
-  %set_status = getelementptr inbounds %struct.VirtioDeviceClass, ptr %call.i11, i64 0, i32 10
+  %set_status = getelementptr inbounds i8, ptr %call.i11, i64 248
   store ptr @vhost_user_scsi_set_status, ptr %set_status, align 8
-  %get_dev_path = getelementptr inbounds %struct.FWPathProviderClass, ptr %call.i12, i64 0, i32 1
+  %get_dev_path = getelementptr inbounds i8, ptr %call.i12, i64 112
   store ptr @vhost_scsi_common_get_fw_dev_path, ptr %get_dev_path, align 8
-  %reset = getelementptr inbounds %struct.VirtioDeviceClass, ptr %call.i11, i64 0, i32 9
+  %reset = getelementptr inbounds i8, ptr %call.i11, i64 240
   store ptr @vhost_user_scsi_reset, ptr %reset, align 8
-  %get_vhost = getelementptr inbounds %struct.VirtioDeviceClass, ptr %call.i11, i64 0, i32 23
+  %get_vhost = getelementptr inbounds i8, ptr %call.i11, i64 352
   store ptr @vhost_user_scsi_get_vhost, ptr %get_vhost, align 8
   ret void
 }
@@ -172,7 +142,7 @@ entry:
   %_auto_errp_prop = alloca %struct.ErrorPropagator, align 8
   %err = alloca ptr, align 8
   store ptr null, ptr %_auto_errp_prop, align 8
-  %errp1 = getelementptr inbounds %struct.ErrorPropagator, ptr %_auto_errp_prop, i64 0, i32 1
+  %errp1 = getelementptr inbounds i8, ptr %_auto_errp_prop, i64 8
   store ptr %errp, ptr %errp1, align 8
   %tobool = icmp eq ptr %errp, null
   %cmp = icmp eq ptr %errp, @error_fatal
@@ -182,8 +152,8 @@ entry:
   %call.i34 = tail call ptr @object_dynamic_cast_assert(ptr noundef %dev, ptr noundef nonnull @.str, ptr noundef nonnull @.str.28, i32 noundef 27, ptr noundef nonnull @__func__.VHOST_USER_SCSI) #5
   %call.i35 = tail call ptr @object_dynamic_cast_assert(ptr noundef %call.i34, ptr noundef nonnull @.str.1, ptr noundef nonnull @.str.4, i32 noundef 23, ptr noundef nonnull @__func__.VHOST_SCSI_COMMON) #5
   store ptr null, ptr %err, align 8
-  %conf = getelementptr inbounds %struct.VirtIOSCSICommon, ptr %call.i, i64 0, i32 1
-  %chardev = getelementptr inbounds %struct.VirtIOSCSICommon, ptr %call.i, i64 0, i32 1, i32 7
+  %conf = getelementptr inbounds i8, ptr %call.i, i64 520
+  %chardev = getelementptr inbounds i8, ptr %call.i, i64 560
   %0 = load ptr, ptr %chardev, align 8
   %tobool5.not = icmp eq ptr %0, null
   br i1 %tobool5.not, label %if.then6, label %if.end7
@@ -203,26 +173,26 @@ if.then9:                                         ; preds = %if.end7
   br label %cleanup
 
 if.end10:                                         ; preds = %if.end7
-  %vhost_user = getelementptr inbounds %struct.VHostUserSCSI, ptr %call.i34, i64 0, i32 3
+  %vhost_user = getelementptr inbounds i8, ptr %call.i34, i64 1368
   %call13 = call zeroext i1 @vhost_user_init(ptr noundef nonnull %vhost_user, ptr noundef nonnull %chardev, ptr noundef nonnull %spec.select) #5
   br i1 %call13, label %if.end15, label %free_virtio
 
 if.end15:                                         ; preds = %if.end10
   %call16 = call noalias dereferenceable_or_null(40) ptr @g_malloc0_n(i64 noundef 1, i64 noundef 40) #6
-  %inflight = getelementptr inbounds %struct.VHostSCSICommon, ptr %call.i35, i64 0, i32 10
+  %inflight = getelementptr inbounds i8, ptr %call.i35, i64 1352
   store ptr %call16, ptr %inflight, align 8
   %2 = load i32, ptr %conf, align 8
   %add = add i32 %2, 2
   %conv = zext i32 %add to i64
   %call18 = call noalias ptr @g_malloc0_n(i64 noundef %conv, i64 noundef 128) #6
-  %vhost_vqs = getelementptr inbounds %struct.VHostUserSCSI, ptr %call.i34, i64 0, i32 4
+  %vhost_vqs = getelementptr inbounds i8, ptr %call.i34, i64 1392
   store ptr %call18, ptr %vhost_vqs, align 8
   %3 = load ptr, ptr %spec.select, align 8
   %tobool19.not = icmp eq ptr %3, null
   br i1 %tobool19.not, label %do.body22.preheader, label %if.else
 
 do.body22.preheader:                              ; preds = %if.end15
-  %connected.i = getelementptr inbounds %struct.VHostUserSCSI, ptr %call.i34, i64 0, i32 1
+  %connected.i = getelementptr inbounds i8, ptr %call.i34, i64 1360
   br label %do.body22
 
 if.else:                                          ; preds = %if.end15
@@ -251,7 +221,7 @@ if.end25:                                         ; preds = %if.then24, %do.body
   %call.i.i = call ptr @object_dynamic_cast_assert(ptr noundef nonnull %call.i34, ptr noundef nonnull @.str.5, ptr noundef nonnull @.str.6, i32 noundef 77, ptr noundef nonnull @__func__.DEVICE) #5
   %call.i9.i = call ptr @object_dynamic_cast_assert(ptr noundef %call.i.i, ptr noundef nonnull @.str.26, ptr noundef nonnull @.str.27, i32 noundef 28, ptr noundef nonnull @__func__.VIRTIO_SCSI_COMMON) #5
   store i8 0, ptr %connected.i, align 8
-  %chardev.i = getelementptr inbounds %struct.VirtIOSCSICommon, ptr %call.i9.i, i64 0, i32 1, i32 7
+  %chardev.i = getelementptr inbounds i8, ptr %call.i9.i, i64 560
   %call2.i = call i32 @qemu_chr_fe_wait_connected(ptr noundef nonnull %chardev.i, ptr noundef nonnull %spec.select) #5
   %cmp.i = icmp slt i32 %call2.i, 0
   br i1 %cmp.i, label %vhost_user_scsi_realize_connect.exit, label %if.end.i
@@ -281,13 +251,13 @@ vhost_user_scsi_realize_connect.exit:             ; preds = %if.end25, %if.then5
 
 if.end35:                                         ; preds = %if.end8.i
   call void @qemu_chr_fe_set_handlers(ptr noundef nonnull %chardev, ptr noundef null, ptr noundef null, ptr noundef nonnull @vhost_user_scsi_event, ptr noundef null, ptr noundef %dev, ptr noundef null, i1 noundef zeroext true) #5
-  %channel = getelementptr inbounds %struct.VHostSCSICommon, ptr %call.i35, i64 0, i32 5
+  %channel = getelementptr inbounds i8, ptr %call.i35, i64 1324
   store i32 0, ptr %channel, align 4
-  %lun = getelementptr inbounds %struct.VHostSCSICommon, ptr %call.i35, i64 0, i32 7
+  %lun = getelementptr inbounds i8, ptr %call.i35, i64 1332
   store i32 0, ptr %lun, align 4
-  %boot_tpgt = getelementptr inbounds %struct.VirtIOSCSICommon, ptr %call.i, i64 0, i32 1, i32 8
+  %boot_tpgt = getelementptr inbounds i8, ptr %call.i, i64 616
   %8 = load i32, ptr %boot_tpgt, align 8
-  %target = getelementptr inbounds %struct.VHostSCSICommon, ptr %call.i35, i64 0, i32 6
+  %target = getelementptr inbounds i8, ptr %call.i35, i64 1328
   store i32 %8, ptr %target, align 8
   br label %cleanup
 
@@ -320,21 +290,21 @@ entry:
   %call.i11 = tail call ptr @object_dynamic_cast_assert(ptr noundef %call.i10, ptr noundef nonnull @.str.1, ptr noundef nonnull @.str.4, i32 noundef 23, ptr noundef nonnull @__func__.VHOST_SCSI_COMMON) #5
   %call.i12 = tail call ptr @object_dynamic_cast_assert(ptr noundef %dev, ptr noundef nonnull @.str.26, ptr noundef nonnull @.str.27, i32 noundef 28, ptr noundef nonnull @__func__.VIRTIO_SCSI_COMMON) #5
   tail call void @vhost_user_scsi_set_status(ptr noundef %call.i, i8 noundef zeroext 0)
-  %chardev = getelementptr inbounds %struct.VirtIOSCSICommon, ptr %call.i12, i64 0, i32 1, i32 7
+  %chardev = getelementptr inbounds i8, ptr %call.i12, i64 560
   tail call void @qemu_chr_fe_set_handlers(ptr noundef nonnull %chardev, ptr noundef null, ptr noundef null, ptr noundef null, ptr noundef null, ptr noundef null, ptr noundef null, i1 noundef zeroext false) #5
-  %dev4 = getelementptr inbounds %struct.VHostSCSICommon, ptr %call.i11, i64 0, i32 2
+  %dev4 = getelementptr inbounds i8, ptr %call.i11, i64 672
   tail call void @vhost_dev_cleanup(ptr noundef nonnull %dev4) #5
-  %vhost_vqs = getelementptr inbounds %struct.VHostUserSCSI, ptr %call.i10, i64 0, i32 4
+  %vhost_vqs = getelementptr inbounds i8, ptr %call.i10, i64 1392
   %0 = load ptr, ptr %vhost_vqs, align 8
   tail call void @g_free(ptr noundef %0) #5
   store ptr null, ptr %vhost_vqs, align 8
-  %inflight = getelementptr inbounds %struct.VHostSCSICommon, ptr %call.i11, i64 0, i32 10
+  %inflight = getelementptr inbounds i8, ptr %call.i11, i64 1352
   %1 = load ptr, ptr %inflight, align 8
   tail call void @vhost_dev_free_inflight(ptr noundef %1) #5
   %2 = load ptr, ptr %inflight, align 8
   tail call void @g_free(ptr noundef %2) #5
   store ptr null, ptr %inflight, align 8
-  %vhost_user = getelementptr inbounds %struct.VHostUserSCSI, ptr %call.i10, i64 0, i32 3
+  %vhost_user = getelementptr inbounds i8, ptr %call.i10, i64 1368
   tail call void @vhost_user_cleanup(ptr noundef nonnull %vhost_user) #5
   tail call void @virtio_scsi_common_unrealize(ptr noundef %dev) #5
   ret void
@@ -351,21 +321,21 @@ entry:
   %call.i = tail call ptr @object_dynamic_cast_assert(ptr noundef %vdev, ptr noundef nonnull @.str.5, ptr noundef nonnull @.str.6, i32 noundef 77, ptr noundef nonnull @__func__.DEVICE) #5
   %call.i8 = tail call ptr @object_dynamic_cast_assert(ptr noundef %vdev, ptr noundef nonnull @.str.1, ptr noundef nonnull @.str.4, i32 noundef 23, ptr noundef nonnull @__func__.VHOST_SCSI_COMMON) #5
   %call.i9 = tail call ptr @object_dynamic_cast_assert(ptr noundef %call.i, ptr noundef nonnull @.str.26, ptr noundef nonnull @.str.27, i32 noundef 28, ptr noundef nonnull @__func__.VIRTIO_SCSI_COMMON) #5
-  %vm_running.i = getelementptr inbounds %struct.VirtIODevice, ptr %vdev, i64 0, i32 16
+  %vm_running.i = getelementptr inbounds i8, ptr %vdev, i64 434
   %0 = load i8, ptr %vm_running.i, align 2
   %1 = and i8 %0, 1
   %tobool.not.i = icmp eq i8 %1, 0
   br i1 %tobool.not.i, label %virtio_device_should_start.exit, label %if.end.i
 
 if.end.i:                                         ; preds = %entry
-  %use_started.i.i = getelementptr inbounds %struct.VirtIODevice, ptr %vdev, i64 0, i32 20
+  %use_started.i.i = getelementptr inbounds i8, ptr %vdev, i64 438
   %2 = load i8, ptr %use_started.i.i, align 2
   %3 = and i8 %2, 1
   %tobool.not.i.i = icmp eq i8 %3, 0
   br i1 %tobool.not.i.i, label %if.end.i.i, label %if.then.i.i
 
 if.then.i.i:                                      ; preds = %if.end.i
-  %started.i.i = getelementptr inbounds %struct.VirtIODevice, ptr %vdev, i64 0, i32 21
+  %started.i.i = getelementptr inbounds i8, ptr %vdev, i64 439
   %4 = load i8, ptr %started.i.i, align 1
   %5 = and i8 %4, 1
   br label %virtio_device_started.exit.i
@@ -382,14 +352,14 @@ virtio_device_started.exit.i:                     ; preds = %if.end.i.i, %if.the
 virtio_device_should_start.exit:                  ; preds = %entry, %virtio_device_started.exit.i
   %retval.0.i = phi i1 [ %retval.0.i.i, %virtio_device_started.exit.i ], [ false, %entry ]
   store ptr null, ptr %local_err, align 8
-  %connected = getelementptr inbounds %struct.VHostUserSCSI, ptr %vdev, i64 0, i32 1
+  %connected = getelementptr inbounds i8, ptr %vdev, i64 1360
   %7 = load i8, ptr %connected, align 8
   %8 = and i8 %7, 1
   %tobool.not = icmp eq i8 %8, 0
   br i1 %tobool.not, label %if.end19, label %if.end
 
 if.end:                                           ; preds = %virtio_device_should_start.exit
-  %9 = getelementptr %struct.VHostSCSICommon, ptr %call.i8, i64 0, i32 2, i32 19
+  %9 = getelementptr i8, ptr %call.i8, i64 1176
   %dev4.val = load i8, ptr %9, align 8
   %10 = and i8 %dev4.val, 1
   %tobool.i = icmp ne i8 %10, 0
@@ -403,7 +373,7 @@ if.end10:                                         ; preds = %if.end
 if.then12:                                        ; preds = %if.end10
   %call1.i = call i32 @vhost_scsi_common_start(ptr noundef %call.i.i, ptr noundef nonnull %local_err) #5
   %cmp.i = icmp sgt i32 %call1.i, -1
-  %started_vu.i = getelementptr inbounds %struct.VHostUserSCSI, ptr %vdev, i64 0, i32 2
+  %started_vu.i = getelementptr inbounds i8, ptr %vdev, i64 1361
   %frombool.i = zext i1 %cmp.i to i8
   store i8 %frombool.i, ptr %started_vu.i, align 1
   %cmp14 = icmp slt i32 %call1.i, 0
@@ -414,12 +384,12 @@ if.then16:                                        ; preds = %if.then12
   %sub = sub i32 0, %call1.i
   %call17 = call ptr @strerror(i32 noundef %sub) #5
   call void (ptr, ptr, ...) @error_reportf_err(ptr noundef %12, ptr noundef nonnull @.str.31, ptr noundef %call17) #5
-  %chardev = getelementptr inbounds %struct.VirtIOSCSICommon, ptr %call.i9, i64 0, i32 1, i32 7
+  %chardev = getelementptr inbounds i8, ptr %call.i9, i64 560
   call void @qemu_chr_fe_disconnect(ptr noundef nonnull %chardev) #5
   br label %if.end19
 
 if.else:                                          ; preds = %if.end10
-  %started_vu.i11 = getelementptr inbounds %struct.VHostUserSCSI, ptr %vdev, i64 0, i32 2
+  %started_vu.i11 = getelementptr inbounds i8, ptr %vdev, i64 1361
   %13 = load i8, ptr %started_vu.i11, align 1
   %14 = and i8 %13, 1
   %tobool.not.i12 = icmp eq i8 %14, 0
@@ -441,7 +411,7 @@ define internal void @vhost_user_scsi_reset(ptr noundef %vdev) #0 {
 entry:
   %call.i = tail call ptr @object_dynamic_cast_assert(ptr noundef %vdev, ptr noundef nonnull @.str, ptr noundef nonnull @.str.28, i32 noundef 27, ptr noundef nonnull @__func__.VHOST_USER_SCSI) #5
   %call.i1 = tail call ptr @object_dynamic_cast_assert(ptr noundef %call.i, ptr noundef nonnull @.str.1, ptr noundef nonnull @.str.4, i32 noundef 23, ptr noundef nonnull @__func__.VHOST_SCSI_COMMON) #5
-  %inflight = getelementptr inbounds %struct.VHostSCSICommon, ptr %call.i1, i64 0, i32 10
+  %inflight = getelementptr inbounds i8, ptr %call.i1, i64 1352
   %0 = load ptr, ptr %inflight, align 8
   tail call void @vhost_dev_free_inflight(ptr noundef %0) #5
   ret void
@@ -451,7 +421,7 @@ entry:
 define internal nonnull ptr @vhost_user_scsi_get_vhost(ptr noundef %vdev) #0 {
 entry:
   %call.i = tail call ptr @object_dynamic_cast_assert(ptr noundef %vdev, ptr noundef nonnull @.str.1, ptr noundef nonnull @.str.4, i32 noundef 23, ptr noundef nonnull @__func__.VHOST_SCSI_COMMON) #5
-  %dev = getelementptr inbounds %struct.VHostSCSICommon, ptr %call.i, i64 0, i32 2
+  %dev = getelementptr inbounds i8, ptr %call.i, i64 672
   ret ptr %dev
 }
 
@@ -469,21 +439,21 @@ entry:
   %call.i11 = tail call ptr @object_dynamic_cast_assert(ptr noundef %vdev, ptr noundef nonnull @.str.1, ptr noundef nonnull @.str.4, i32 noundef 23, ptr noundef nonnull @__func__.VHOST_SCSI_COMMON) #5
   %call.i12 = tail call ptr @object_dynamic_cast_assert(ptr noundef %call.i, ptr noundef nonnull @.str.26, ptr noundef nonnull @.str.27, i32 noundef 28, ptr noundef nonnull @__func__.VIRTIO_SCSI_COMMON) #5
   store ptr null, ptr %local_err, align 8
-  %start_on_kick = getelementptr inbounds %struct.VirtIODevice, ptr %vdev, i64 0, i32 22
+  %start_on_kick = getelementptr inbounds i8, ptr %vdev, i64 440
   %0 = load i8, ptr %start_on_kick, align 8
   %1 = and i8 %0, 1
   %tobool.not = icmp eq i8 %1, 0
   br i1 %tobool.not, label %for.end, label %if.end
 
 if.end:                                           ; preds = %entry
-  %connected = getelementptr inbounds %struct.VHostUserSCSI, ptr %vdev, i64 0, i32 1
+  %connected = getelementptr inbounds i8, ptr %vdev, i64 1360
   %2 = load i8, ptr %connected, align 8
   %3 = and i8 %2, 1
   %tobool3.not = icmp eq i8 %3, 0
   br i1 %tobool3.not, label %for.end, label %if.end5
 
 if.end5:                                          ; preds = %if.end
-  %4 = getelementptr %struct.VHostSCSICommon, ptr %call.i11, i64 0, i32 2, i32 19
+  %4 = getelementptr i8, ptr %call.i11, i64 1176
   %dev6.val = load i8, ptr %4, align 8
   %5 = and i8 %dev6.val, 1
   %tobool.i.not = icmp eq i8 %5, 0
@@ -493,14 +463,14 @@ if.end9:                                          ; preds = %if.end5
   %call.i.i = tail call ptr @object_dynamic_cast_assert(ptr noundef nonnull %vdev, ptr noundef nonnull @.str.1, ptr noundef nonnull @.str.4, i32 noundef 23, ptr noundef nonnull @__func__.VHOST_SCSI_COMMON) #5
   %call1.i = call i32 @vhost_scsi_common_start(ptr noundef %call.i.i, ptr noundef nonnull %local_err) #5
   %cmp.i = icmp sgt i32 %call1.i, -1
-  %started_vu.i = getelementptr inbounds %struct.VHostUserSCSI, ptr %vdev, i64 0, i32 2
+  %started_vu.i = getelementptr inbounds i8, ptr %vdev, i64 1361
   %frombool.i = zext i1 %cmp.i to i8
   store i8 %frombool.i, ptr %started_vu.i, align 1
   %cmp = icmp slt i32 %call1.i, 0
   br i1 %cmp, label %if.then11, label %for.cond.preheader
 
 for.cond.preheader:                               ; preds = %if.end9
-  %nvqs = getelementptr inbounds %struct.VHostSCSICommon, ptr %call.i11, i64 0, i32 2, i32 9
+  %nvqs = getelementptr inbounds i8, ptr %call.i11, i64 1112
   %6 = load i32, ptr %nvqs, align 8
   %cmp1413.not = icmp eq i32 %6, 0
   br i1 %cmp1413.not, label %for.end, label %for.body
@@ -508,7 +478,7 @@ for.cond.preheader:                               ; preds = %if.end9
 if.then11:                                        ; preds = %if.end9
   %7 = load ptr, ptr %local_err, align 8
   call void (ptr, ptr, ...) @error_reportf_err(ptr noundef %7, ptr noundef nonnull @.str.29) #5
-  %chardev = getelementptr inbounds %struct.VirtIOSCSICommon, ptr %call.i12, i64 0, i32 1, i32 7
+  %chardev = getelementptr inbounds i8, ptr %call.i12, i64 560
   call void @qemu_chr_fe_disconnect(ptr noundef nonnull %chardev) #5
   br label %for.end
 
@@ -572,13 +542,13 @@ sw.bb:                                            ; preds = %entry
 if.then:                                          ; preds = %sw.bb
   %0 = load ptr, ptr %local_err, align 8
   call void @error_report_err(ptr noundef %0) #5
-  %chardev = getelementptr inbounds %struct.VirtIOSCSICommon, ptr %call.i7, i64 0, i32 1, i32 7
+  %chardev = getelementptr inbounds i8, ptr %call.i7, i64 560
   call void @qemu_chr_fe_disconnect(ptr noundef nonnull %chardev) #5
   br label %sw.epilog
 
 sw.bb5:                                           ; preds = %entry
-  %chardev7 = getelementptr inbounds %struct.VirtIOSCSICommon, ptr %call.i7, i64 0, i32 1, i32 7
-  %dev8 = getelementptr inbounds %struct.VHostSCSICommon, ptr %call.i6, i64 0, i32 2
+  %chardev7 = getelementptr inbounds i8, ptr %call.i7, i64 560
+  %dev8 = getelementptr inbounds i8, ptr %call.i6, i64 672
   tail call void @vhost_user_async_close(ptr noundef %opaque, ptr noundef nonnull %chardev7, ptr noundef nonnull %dev8, ptr noundef nonnull @vhost_user_scsi_disconnect, ptr noundef nonnull @vhost_user_scsi_event) #5
   br label %sw.epilog
 
@@ -615,50 +585,50 @@ entry:
   %call.i18 = tail call ptr @object_dynamic_cast_assert(ptr noundef %call.i, ptr noundef nonnull @.str, ptr noundef nonnull @.str.28, i32 noundef 27, ptr noundef nonnull @__func__.VHOST_USER_SCSI) #5
   %call.i19 = tail call ptr @object_dynamic_cast_assert(ptr noundef %call.i18, ptr noundef nonnull @.str.1, ptr noundef nonnull @.str.4, i32 noundef 23, ptr noundef nonnull @__func__.VHOST_SCSI_COMMON) #5
   %call.i20 = tail call ptr @object_dynamic_cast_assert(ptr noundef %dev, ptr noundef nonnull @.str.26, ptr noundef nonnull @.str.27, i32 noundef 28, ptr noundef nonnull @__func__.VIRTIO_SCSI_COMMON) #5
-  %connected = getelementptr inbounds %struct.VHostUserSCSI, ptr %call.i18, i64 0, i32 1
+  %connected = getelementptr inbounds i8, ptr %call.i18, i64 1360
   %0 = load i8, ptr %connected, align 8
   %1 = and i8 %0, 1
   %tobool.not = icmp eq i8 %1, 0
   br i1 %tobool.not, label %if.end, label %return
 
 if.end:                                           ; preds = %entry
-  %conf = getelementptr inbounds %struct.VirtIOSCSICommon, ptr %call.i20, i64 0, i32 1
+  %conf = getelementptr inbounds i8, ptr %call.i20, i64 520
   %2 = load i32, ptr %conf, align 8
-  %dev4 = getelementptr inbounds %struct.VHostSCSICommon, ptr %call.i19, i64 0, i32 2
-  %num_queues5 = getelementptr inbounds %struct.VHostSCSICommon, ptr %call.i19, i64 0, i32 2, i32 12
+  %dev4 = getelementptr inbounds i8, ptr %call.i19, i64 672
+  %num_queues5 = getelementptr inbounds i8, ptr %call.i19, i64 1124
   store i32 %2, ptr %num_queues5, align 4
   %add = add i32 %2, 2
-  %nvqs = getelementptr inbounds %struct.VHostSCSICommon, ptr %call.i19, i64 0, i32 2, i32 9
+  %nvqs = getelementptr inbounds i8, ptr %call.i19, i64 1112
   store i32 %add, ptr %nvqs, align 8
-  %vhost_vqs = getelementptr inbounds %struct.VHostUserSCSI, ptr %call.i18, i64 0, i32 4
+  %vhost_vqs = getelementptr inbounds i8, ptr %call.i18, i64 1392
   %3 = load ptr, ptr %vhost_vqs, align 8
-  %vqs = getelementptr inbounds %struct.VHostSCSICommon, ptr %call.i19, i64 0, i32 2, i32 8
+  %vqs = getelementptr inbounds i8, ptr %call.i19, i64 1104
   store ptr %3, ptr %vqs, align 8
-  %vq_index = getelementptr inbounds %struct.VHostSCSICommon, ptr %call.i19, i64 0, i32 2, i32 10
+  %vq_index = getelementptr inbounds i8, ptr %call.i19, i64 1116
   store i32 0, ptr %vq_index, align 4
-  %backend_features = getelementptr inbounds %struct.VHostSCSICommon, ptr %call.i19, i64 0, i32 2, i32 15
+  %backend_features = getelementptr inbounds i8, ptr %call.i19, i64 1144
   store i64 0, ptr %backend_features, align 8
-  %vhost_user = getelementptr inbounds %struct.VHostUserSCSI, ptr %call.i18, i64 0, i32 3
+  %vhost_user = getelementptr inbounds i8, ptr %call.i18, i64 1368
   %call13 = tail call i32 @vhost_dev_init(ptr noundef nonnull %dev4, ptr noundef nonnull %vhost_user, i32 noundef 2, i32 noundef 0, ptr noundef %errp) #5
   %cmp = icmp slt i32 %call13, 0
   br i1 %cmp, label %return, label %if.end15
 
 if.end15:                                         ; preds = %if.end
   store i8 1, ptr %connected, align 8
-  %use_started.i = getelementptr inbounds %struct.VirtIODevice, ptr %call.i, i64 0, i32 20
+  %use_started.i = getelementptr inbounds i8, ptr %call.i, i64 438
   %4 = load i8, ptr %use_started.i, align 2
   %5 = and i8 %4, 1
   %tobool.not.i = icmp eq i8 %5, 0
   br i1 %tobool.not.i, label %if.end.i, label %if.then.i
 
 if.then.i:                                        ; preds = %if.end15
-  %started.i = getelementptr inbounds %struct.VirtIODevice, ptr %call.i, i64 0, i32 21
+  %started.i = getelementptr inbounds i8, ptr %call.i, i64 439
   %6 = load i8, ptr %started.i, align 1
   %7 = and i8 %6, 1
   br label %virtio_device_started.exit
 
 if.end.i:                                         ; preds = %if.end15
-  %status = getelementptr inbounds %struct.VirtIODevice, ptr %call.i, i64 0, i32 2
+  %status = getelementptr inbounds i8, ptr %call.i, i64 168
   %8 = load i8, ptr %status, align 8
   %9 = and i8 %8, 4
   br label %virtio_device_started.exit
@@ -672,7 +642,7 @@ if.then18:                                        ; preds = %virtio_device_start
   %call.i.i = tail call ptr @object_dynamic_cast_assert(ptr noundef nonnull %call.i18, ptr noundef nonnull @.str.1, ptr noundef nonnull @.str.4, i32 noundef 23, ptr noundef nonnull @__func__.VHOST_SCSI_COMMON) #5
   %call1.i = tail call i32 @vhost_scsi_common_start(ptr noundef %call.i.i, ptr noundef %errp) #5
   %cmp.i = icmp sgt i32 %call1.i, -1
-  %started_vu.i = getelementptr inbounds %struct.VHostUserSCSI, ptr %call.i18, i64 0, i32 2
+  %started_vu.i = getelementptr inbounds i8, ptr %call.i18, i64 1361
   %frombool.i = zext i1 %cmp.i to i8
   store i8 %frombool.i, ptr %started_vu.i, align 1
   br label %return
@@ -693,7 +663,7 @@ entry:
   %call.i6 = tail call ptr @object_dynamic_cast_assert(ptr noundef %call.i, ptr noundef nonnull @.str, ptr noundef nonnull @.str.28, i32 noundef 27, ptr noundef nonnull @__func__.VHOST_USER_SCSI) #5
   %call.i7 = tail call ptr @object_dynamic_cast_assert(ptr noundef %call.i6, ptr noundef nonnull @.str.1, ptr noundef nonnull @.str.4, i32 noundef 23, ptr noundef nonnull @__func__.VHOST_SCSI_COMMON) #5
   %call.i8 = tail call ptr @object_dynamic_cast_assert(ptr noundef %dev, ptr noundef nonnull @.str.26, ptr noundef nonnull @.str.27, i32 noundef 28, ptr noundef nonnull @__func__.VIRTIO_SCSI_COMMON) #5
-  %connected = getelementptr inbounds %struct.VHostUserSCSI, ptr %call.i6, i64 0, i32 1
+  %connected = getelementptr inbounds i8, ptr %call.i6, i64 1360
   %0 = load i8, ptr %connected, align 8
   %1 = and i8 %0, 1
   %tobool.not = icmp eq i8 %1, 0
@@ -702,7 +672,7 @@ entry:
 if.end:                                           ; preds = %entry
   store i8 0, ptr %connected, align 8
   %call.i.i = tail call ptr @object_dynamic_cast_assert(ptr noundef nonnull %call.i6, ptr noundef nonnull @.str.1, ptr noundef nonnull @.str.4, i32 noundef 23, ptr noundef nonnull @__func__.VHOST_SCSI_COMMON) #5
-  %started_vu.i = getelementptr inbounds %struct.VHostUserSCSI, ptr %call.i6, i64 0, i32 2
+  %started_vu.i = getelementptr inbounds i8, ptr %call.i6, i64 1361
   %2 = load i8, ptr %started_vu.i, align 1
   %3 = and i8 %2, 1
   %tobool.not.i = icmp eq i8 %3, 0
@@ -714,9 +684,9 @@ if.end.i:                                         ; preds = %if.end
   br label %vhost_user_scsi_stop.exit
 
 vhost_user_scsi_stop.exit:                        ; preds = %if.end, %if.end.i
-  %dev5 = getelementptr inbounds %struct.VHostSCSICommon, ptr %call.i7, i64 0, i32 2
+  %dev5 = getelementptr inbounds i8, ptr %call.i7, i64 672
   tail call void @vhost_dev_cleanup(ptr noundef nonnull %dev5) #5
-  %chardev = getelementptr inbounds %struct.VirtIOSCSICommon, ptr %call.i8, i64 0, i32 1, i32 7
+  %chardev = getelementptr inbounds i8, ptr %call.i8, i64 560
   tail call void @qemu_chr_fe_set_handlers(ptr noundef nonnull %chardev, ptr noundef null, ptr noundef null, ptr noundef nonnull @vhost_user_scsi_event, ptr noundef null, ptr noundef %dev, ptr noundef null, i1 noundef zeroext true) #5
   br label %return
 

@@ -3,26 +3,17 @@ source_filename = "bench/hyperscan/original/AsciiComponentClass.cpp.ll"
 target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:128-n8:16:32:64-S128"
 target triple = "x86_64-unknown-linux-gnu"
 
-%"class.ue2::AsciiComponentClass" = type { %"class.ue2::ComponentClass.base", i32, %"class.ue2::CharReach" }
-%"class.ue2::ComponentClass.base" = type <{ %"class.ue2::Component", i8, %"struct.ue2::ParseMode", i8, i32, i8 }>
-%"class.ue2::Component" = type { ptr, i32, i32 }
-%"struct.ue2::ParseMode" = type { i8, i8, i8, i8, i8, i8 }
-%"class.ue2::CharReach" = type { %"class.ue2::bitfield" }
-%"class.ue2::bitfield" = type { %"struct.std::array" }
-%"struct.std::array" = type { [4 x i64] }
-%"class.ue2::ComponentClass" = type <{ %"class.ue2::Component", i8, %"struct.ue2::ParseMode", i8, i32, i8, [3 x i8] }>
 %"class.std::__cxx11::basic_string" = type { %"struct.std::__cxx11::basic_string<char>::_Alloc_hider", i64, %union.anon }
 %"struct.std::__cxx11::basic_string<char>::_Alloc_hider" = type { ptr }
 %union.anon = type { i64, [8 x i8] }
 %"class.std::allocator" = type { i8 }
-%"class.ue2::LocatedParseError" = type <{ %"class.ue2::ParseError", i8, [7 x i8] }>
-%"class.ue2::ParseError" = type { %"class.ue2::CompileError" }
-%"class.ue2::CompileError" = type { ptr, %"class.std::__cxx11::basic_string", i8, i32 }
+%"class.ue2::CharReach" = type { %"class.ue2::bitfield" }
+%"class.ue2::bitfield" = type { %"struct.std::array" }
+%"struct.std::array" = type { [4 x i64] }
 %"class.std::vector" = type { %"struct.std::_Vector_base" }
 %"struct.std::_Vector_base" = type { %"struct.std::_Vector_base<ue2::PositionInfo, std::allocator<ue2::PositionInfo>>::_Vector_impl" }
 %"struct.std::_Vector_base<ue2::PositionInfo, std::allocator<ue2::PositionInfo>>::_Vector_impl" = type { %"struct.std::_Vector_base<ue2::PositionInfo, std::allocator<ue2::PositionInfo>>::_Vector_impl_data" }
 %"struct.std::_Vector_base<ue2::PositionInfo, std::allocator<ue2::PositionInfo>>::_Vector_impl_data" = type { ptr, ptr, ptr }
-%"class.ue2::PositionInfo" = type { i32, i32 }
 %struct._Guard = type { ptr }
 
 $_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_ = comdat any
@@ -67,10 +58,10 @@ define hidden void @_ZN3ue219AsciiComponentClassC2ERKNS_9ParseModeE(ptr noundef 
 invoke.cont:
   tail call void @_ZN3ue214ComponentClassC2ERKNS_9ParseModeE(ptr noundef nonnull align 8 dereferenceable(29) %this, ptr noundef nonnull align 1 dereferenceable(6) %mode_in)
   store ptr getelementptr inbounds ({ [22 x ptr] }, ptr @_ZTVN3ue219AsciiComponentClassE, i64 0, inrange i32 0, i64 2), ptr %this, align 8
-  %position = getelementptr inbounds %"class.ue2::AsciiComponentClass", ptr %this, i64 0, i32 1
+  %position = getelementptr inbounds i8, ptr %this, i64 32
   %0 = load i32, ptr @_ZN3ue218GlushkovBuildState17POS_UNINITIALIZEDE, align 4
   store i32 %0, ptr %position, align 8
-  %cr = getelementptr inbounds %"class.ue2::AsciiComponentClass", ptr %this, i64 0, i32 2
+  %cr = getelementptr inbounds i8, ptr %this, i64 40
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %cr, i8 0, i64 32, i1 false)
   ret void
 }
@@ -86,39 +77,39 @@ declare void @_ZN3ue214ComponentClassD2Ev(ptr noundef nonnull align 8 dereferenc
 define hidden noalias noundef nonnull ptr @_ZNK3ue219AsciiComponentClass5cloneEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(72) %this) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 invoke.cont:
   %call = tail call noalias noundef nonnull dereferenceable(72) ptr @_Znwm(i64 noundef 72) #14
-  %pos_begin.i.i.i = getelementptr inbounds %"class.ue2::Component", ptr %call, i64 0, i32 1
-  %pos_begin2.i.i.i = getelementptr inbounds %"class.ue2::Component", ptr %this, i64 0, i32 1
+  %pos_begin.i.i.i = getelementptr inbounds i8, ptr %call, i64 8
+  %pos_begin2.i.i.i = getelementptr inbounds i8, ptr %this, i64 8
   %0 = load <2 x i32>, ptr %pos_begin2.i.i.i, align 8
   store <2 x i32> %0, ptr %pos_begin.i.i.i, align 8
-  %m_negate.i.i = getelementptr inbounds %"class.ue2::ComponentClass", ptr %call, i64 0, i32 1
-  %m_negate2.i.i = getelementptr inbounds %"class.ue2::ComponentClass", ptr %this, i64 0, i32 1
+  %m_negate.i.i = getelementptr inbounds i8, ptr %call, i64 16
+  %m_negate2.i.i = getelementptr inbounds i8, ptr %this, i64 16
   %1 = load i8, ptr %m_negate2.i.i, align 8
   %2 = and i8 %1, 1
   store i8 %2, ptr %m_negate.i.i, align 8
-  %mode.i.i = getelementptr inbounds %"class.ue2::ComponentClass", ptr %call, i64 0, i32 2
-  %mode3.i.i = getelementptr inbounds %"class.ue2::ComponentClass", ptr %this, i64 0, i32 2
+  %mode.i.i = getelementptr inbounds i8, ptr %call, i64 17
+  %mode3.i.i = getelementptr inbounds i8, ptr %this, i64 17
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(6) %mode.i.i, ptr noundef nonnull align 1 dereferenceable(6) %mode3.i.i, i64 6, i1 false)
-  %in_cand_range.i.i = getelementptr inbounds %"class.ue2::ComponentClass", ptr %call, i64 0, i32 3
-  %in_cand_range4.i.i = getelementptr inbounds %"class.ue2::ComponentClass", ptr %this, i64 0, i32 3
+  %in_cand_range.i.i = getelementptr inbounds i8, ptr %call, i64 23
+  %in_cand_range4.i.i = getelementptr inbounds i8, ptr %this, i64 23
   %3 = load i8, ptr %in_cand_range4.i.i, align 1
   %4 = and i8 %3, 1
   store i8 %4, ptr %in_cand_range.i.i, align 1
-  %range_start.i.i = getelementptr inbounds %"class.ue2::ComponentClass", ptr %call, i64 0, i32 4
-  %range_start7.i.i = getelementptr inbounds %"class.ue2::ComponentClass", ptr %this, i64 0, i32 4
+  %range_start.i.i = getelementptr inbounds i8, ptr %call, i64 24
+  %range_start7.i.i = getelementptr inbounds i8, ptr %this, i64 24
   %5 = load i32, ptr %range_start7.i.i, align 8
   store i32 %5, ptr %range_start.i.i, align 8
-  %finalized.i.i = getelementptr inbounds %"class.ue2::ComponentClass", ptr %call, i64 0, i32 5
-  %finalized8.i.i = getelementptr inbounds %"class.ue2::ComponentClass", ptr %this, i64 0, i32 5
+  %finalized.i.i = getelementptr inbounds i8, ptr %call, i64 28
+  %finalized8.i.i = getelementptr inbounds i8, ptr %this, i64 28
   %6 = load i8, ptr %finalized8.i.i, align 4
   %7 = and i8 %6, 1
   store i8 %7, ptr %finalized.i.i, align 4
   store ptr getelementptr inbounds ({ [22 x ptr] }, ptr @_ZTVN3ue219AsciiComponentClassE, i64 0, inrange i32 0, i64 2), ptr %call, align 8
-  %position.i = getelementptr inbounds %"class.ue2::AsciiComponentClass", ptr %call, i64 0, i32 1
-  %position2.i = getelementptr inbounds %"class.ue2::AsciiComponentClass", ptr %this, i64 0, i32 1
+  %position.i = getelementptr inbounds i8, ptr %call, i64 32
+  %position2.i = getelementptr inbounds i8, ptr %this, i64 32
   %8 = load i32, ptr %position2.i, align 8
   store i32 %8, ptr %position.i, align 8
-  %cr.i = getelementptr inbounds %"class.ue2::AsciiComponentClass", ptr %call, i64 0, i32 2
-  %cr3.i = getelementptr inbounds %"class.ue2::AsciiComponentClass", ptr %this, i64 0, i32 2
+  %cr.i = getelementptr inbounds i8, ptr %call, i64 40
+  %cr3.i = getelementptr inbounds i8, ptr %this, i64 40
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %cr.i, ptr noundef nonnull align 8 dereferenceable(32) %cr3.i, i64 32, i1 false)
   ret ptr %call
 }
@@ -132,7 +123,7 @@ declare void @_ZdlPv(ptr noundef) local_unnamed_addr #4
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
 define hidden noundef zeroext i1 @_ZNK3ue219AsciiComponentClass11class_emptyEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(72) %this) unnamed_addr #5 align 2 {
 entry:
-  %cr = getelementptr inbounds %"class.ue2::AsciiComponentClass", ptr %this, i64 0, i32 2
+  %cr = getelementptr inbounds i8, ptr %this, i64 40
   br label %for.body.i.i
 
 for.body.i.i:                                     ; preds = %for.body.i.i, %entry
@@ -155,7 +146,7 @@ entry:
   %agg.tmp = alloca %"class.std::__cxx11::basic_string", align 8
   %ref.tmp = alloca %"class.std::allocator", align 1
   %ncr = alloca %"class.ue2::CharReach", align 16
-  %range_start = getelementptr inbounds %"class.ue2::ComponentClass", ptr %this, i64 0, i32 4
+  %range_start = getelementptr inbounds i8, ptr %this, i64 24
   %0 = load i32, ptr %range_start, align 8
   %conv2 = and i32 %0, 255
   %cmp = icmp ugt i32 %conv2, %to
@@ -195,7 +186,7 @@ cleanup.action:                                   ; preds = %ehcleanup.thread, %
   br label %eh.resume
 
 if.end:                                           ; preds = %entry
-  %in_cand_range = getelementptr inbounds %"class.ue2::ComponentClass", ptr %this, i64 0, i32 3
+  %in_cand_range = getelementptr inbounds i8, ptr %this, i64 23
   store i8 0, ptr %in_cand_range, align 1
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(32) %ncr, i8 0, i64 32, i1 false)
   %conv.i.i = zext nneg i32 %conv2 to i64
@@ -278,7 +269,7 @@ if.end37.sink.split.i.i.i:                        ; preds = %if.then29.i.i.i, %i
   br label %_ZN3ue29CharReachC2Ehh.exit
 
 _ZN3ue29CharReachC2Ehh.exit:                      ; preds = %for.end.i.i.i, %if.end37.sink.split.i.i.i
-  %mode = getelementptr inbounds %"class.ue2::ComponentClass", ptr %this, i64 0, i32 2
+  %mode = getelementptr inbounds i8, ptr %this, i64 17
   %15 = load i8, ptr %mode, align 1
   %16 = and i8 %15, 1
   %tobool.not = icmp eq i8 %16, 0
@@ -289,13 +280,13 @@ if.then7:                                         ; preds = %_ZN3ue29CharReachC2
   br label %if.end8
 
 if.end8:                                          ; preds = %if.then7, %_ZN3ue29CharReachC2Ehh.exit
-  %cr = getelementptr inbounds %"class.ue2::AsciiComponentClass", ptr %this, i64 0, i32 2
+  %cr = getelementptr inbounds i8, ptr %this, i64 40
   %17 = load <2 x i64>, ptr %ncr, align 16
   %18 = load <2 x i64>, ptr %cr, align 8
   %19 = or <2 x i64> %18, %17
   store <2 x i64> %19, ptr %cr, align 8
-  %arrayidx.i.i21.i.i = getelementptr inbounds [4 x i64], ptr %ncr, i64 0, i64 2
-  %arrayidx.i.i22.i.i = getelementptr inbounds %"class.ue2::AsciiComponentClass", ptr %this, i64 0, i32 2, i32 0, i32 0, i32 0, i64 2
+  %arrayidx.i.i21.i.i = getelementptr inbounds i8, ptr %ncr, i64 16
+  %arrayidx.i.i22.i.i = getelementptr inbounds i8, ptr %this, i64 56
   %20 = load <2 x i64>, ptr %arrayidx.i.i21.i.i, align 16
   %21 = load <2 x i64>, ptr %arrayidx.i.i22.i.i, align 8
   %22 = or <2 x i64> %21, %20
@@ -379,9 +370,9 @@ invoke.cont3:                                     ; preds = %invoke.cont
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %agg.tmp) #15
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp) #15
   store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN3ue217LocatedParseErrorE, i64 0, inrange i32 0, i64 2), ptr %this, align 8
-  %finalized = getelementptr inbounds %"class.ue2::LocatedParseError", ptr %this, i64 0, i32 1
+  %finalized = getelementptr inbounds i8, ptr %this, i64 48
   store i8 0, ptr %finalized, align 8
-  %reason = getelementptr inbounds %"class.ue2::CompileError", ptr %this, i64 0, i32 1
+  %reason = getelementptr inbounds i8, ptr %this, i64 8
   %call = call noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEaSEOS4_(ptr noundef nonnull align 8 dereferenceable(32) %reason, ptr noundef nonnull align 8 dereferenceable(32) %why) #15
   ret void
 
@@ -421,23 +412,23 @@ declare void @_ZN3ue213make_caselessEPNS_9CharReachE(ptr noundef) local_unnamed_
 define hidden void @_ZN3ue219AsciiComponentClass13notePositionsERNS_18GlushkovBuildStateE(ptr noundef nonnull align 8 dereferenceable(72) %this, ptr noundef nonnull align 8 dereferenceable(8) %bs) unnamed_addr #0 align 2 {
 entry:
   %vtable = load ptr, ptr %bs, align 8
-  %vfn = getelementptr inbounds ptr, ptr %vtable, i64 2
+  %vfn = getelementptr inbounds i8, ptr %vtable, i64 16
   %0 = load ptr, ptr %vfn, align 8
   %call = tail call noundef nonnull align 8 dereferenceable(8) ptr %0(ptr noundef nonnull align 8 dereferenceable(8) %bs)
   %vtable2 = load ptr, ptr %call, align 8
-  %vfn3 = getelementptr inbounds ptr, ptr %vtable2, i64 2
+  %vfn3 = getelementptr inbounds i8, ptr %vtable2, i64 16
   %1 = load ptr, ptr %vfn3, align 8
   %call4 = tail call noundef i32 %1(ptr noundef nonnull align 8 dereferenceable(8) %call, i64 noundef 1)
-  %position = getelementptr inbounds %"class.ue2::AsciiComponentClass", ptr %this, i64 0, i32 1
+  %position = getelementptr inbounds i8, ptr %this, i64 32
   store i32 %call4, ptr %position, align 8
-  %cr = getelementptr inbounds %"class.ue2::AsciiComponentClass", ptr %this, i64 0, i32 2
+  %cr = getelementptr inbounds i8, ptr %this, i64 40
   %vtable6 = load ptr, ptr %call, align 8
-  %vfn7 = getelementptr inbounds ptr, ptr %vtable6, i64 9
+  %vfn7 = getelementptr inbounds i8, ptr %vtable6, i64 72
   %2 = load ptr, ptr %vfn7, align 8
   tail call void %2(ptr noundef nonnull align 8 dereferenceable(8) %call, i32 noundef %call4, ptr noundef nonnull align 8 dereferenceable(32) %cr)
   %3 = load i32, ptr %position, align 8
   %vtable9 = load ptr, ptr %call, align 8
-  %vfn10 = getelementptr inbounds ptr, ptr %vtable9, i64 8
+  %vfn10 = getelementptr inbounds i8, ptr %vtable9, i64 64
   %4 = load ptr, ptr %vfn10, align 8
   tail call void %4(ptr noundef nonnull align 8 dereferenceable(8) %call, i32 noundef %3, i32 noundef 0)
   %5 = load i32, ptr %position, align 8
@@ -460,7 +451,7 @@ entry:
   %agg.tmp = alloca %"class.std::__cxx11::basic_string", align 8
   %ref.tmp = alloca %"class.std::allocator", align 1
   %pcr = alloca %"class.ue2::CharReach", align 16
-  %in_cand_range = getelementptr inbounds %"class.ue2::ComponentClass", ptr %this, i64 0, i32 3
+  %in_cand_range = getelementptr inbounds i8, ptr %this, i64 23
   %0 = load i8, ptr %in_cand_range, align 1
   %1 = and i8 %0, 1
   %tobool.not = icmp eq i8 %1, 0
@@ -500,8 +491,8 @@ cleanup.action:                                   ; preds = %ehcleanup.thread, %
   br label %eh.resume
 
 do.end:                                           ; preds = %entry
-  %mode = getelementptr inbounds %"class.ue2::ComponentClass", ptr %this, i64 0, i32 2
-  %ucp = getelementptr inbounds %"class.ue2::ComponentClass", ptr %this, i64 0, i32 2, i32 4
+  %mode = getelementptr inbounds i8, ptr %this, i64 17
+  %ucp = getelementptr inbounds i8, ptr %this, i64 21
   %4 = load i8, ptr %ucp, align 1
   %5 = and i8 %4, 1
   %tobool5.not = icmp eq i8 %5, 0
@@ -527,18 +518,18 @@ for.body.i.i:                                     ; preds = %if.end8, %for.body.
   br i1 %cmp.not.i.i, label %if.end12, label %for.body.i.i
 
 if.end12:                                         ; preds = %for.body.i.i, %if.end8
-  %cr = getelementptr inbounds %"class.ue2::AsciiComponentClass", ptr %this, i64 0, i32 2
+  %cr = getelementptr inbounds i8, ptr %this, i64 40
   %7 = load <2 x i64>, ptr %pcr, align 16
   %8 = load <2 x i64>, ptr %cr, align 8
   %9 = or <2 x i64> %8, %7
   store <2 x i64> %9, ptr %cr, align 8
-  %arrayidx.i.i21.i.i = getelementptr inbounds [4 x i64], ptr %pcr, i64 0, i64 2
-  %arrayidx.i.i22.i.i = getelementptr inbounds %"class.ue2::AsciiComponentClass", ptr %this, i64 0, i32 2, i32 0, i32 0, i32 0, i64 2
+  %arrayidx.i.i21.i.i = getelementptr inbounds i8, ptr %pcr, i64 16
+  %arrayidx.i.i22.i.i = getelementptr inbounds i8, ptr %this, i64 56
   %10 = load <2 x i64>, ptr %arrayidx.i.i21.i.i, align 16
   %11 = load <2 x i64>, ptr %arrayidx.i.i22.i.i, align 8
   %12 = or <2 x i64> %11, %10
   store <2 x i64> %12, ptr %arrayidx.i.i22.i.i, align 8
-  %range_start = getelementptr inbounds %"class.ue2::ComponentClass", ptr %this, i64 0, i32 4
+  %range_start = getelementptr inbounds i8, ptr %this, i64 24
   store i32 -1, ptr %range_start, align 8
   store i8 0, ptr %in_cand_range, align 1
   ret void
@@ -598,7 +589,7 @@ cleanup.action:                                   ; preds = %ehcleanup.thread, %
   br label %eh.resume
 
 if.end:                                           ; preds = %entry
-  %in_cand_range = getelementptr inbounds %"class.ue2::ComponentClass", ptr %this, i64 0, i32 3
+  %in_cand_range = getelementptr inbounds i8, ptr %this, i64 23
   %2 = load i8, ptr %in_cand_range, align 1
   %3 = and i8 %2, 1
   %tobool.not = icmp eq i8 %3, 0
@@ -606,7 +597,7 @@ if.end:                                           ; preds = %entry
 
 if.then5:                                         ; preds = %if.end
   %vtable = load ptr, ptr %this, align 8
-  %vfn = getelementptr inbounds ptr, ptr %vtable, i64 19
+  %vfn = getelementptr inbounds i8, ptr %vtable, i64 152
   %4 = load ptr, ptr %vfn, align 8
   tail call void %4(ptr noundef nonnull align 8 dereferenceable(72) %this, i32 noundef %c)
   br label %return
@@ -634,7 +625,7 @@ _ZN3ue29CharReachC2Ehh.exit:                      ; preds = %if.then.i.i.i, %if.
   %5 = load i64, ptr %arrayidx.i.i.i.i.i, align 8
   %or36.i.i.i = or i64 %5, %sub32.sink.i.i.i
   store i64 %or36.i.i.i, ptr %arrayidx.i.i.i.i.i, align 8
-  %mode = getelementptr inbounds %"class.ue2::ComponentClass", ptr %this, i64 0, i32 2
+  %mode = getelementptr inbounds i8, ptr %this, i64 17
   %6 = load i8, ptr %mode, align 1
   %7 = and i8 %6, 1
   %tobool8.not = icmp eq i8 %7, 0
@@ -645,18 +636,18 @@ if.then9:                                         ; preds = %_ZN3ue29CharReachC2
   br label %if.end10
 
 if.end10:                                         ; preds = %if.then9, %_ZN3ue29CharReachC2Ehh.exit
-  %cr = getelementptr inbounds %"class.ue2::AsciiComponentClass", ptr %this, i64 0, i32 2
+  %cr = getelementptr inbounds i8, ptr %this, i64 40
   %8 = load <2 x i64>, ptr %ncr, align 16
   %9 = load <2 x i64>, ptr %cr, align 8
   %10 = or <2 x i64> %9, %8
   store <2 x i64> %10, ptr %cr, align 8
-  %arrayidx.i.i21.i.i = getelementptr inbounds [4 x i64], ptr %ncr, i64 0, i64 2
-  %arrayidx.i.i22.i.i = getelementptr inbounds %"class.ue2::AsciiComponentClass", ptr %this, i64 0, i32 2, i32 0, i32 0, i32 0, i64 2
+  %arrayidx.i.i21.i.i = getelementptr inbounds i8, ptr %ncr, i64 16
+  %arrayidx.i.i22.i.i = getelementptr inbounds i8, ptr %this, i64 56
   %11 = load <2 x i64>, ptr %arrayidx.i.i21.i.i, align 16
   %12 = load <2 x i64>, ptr %arrayidx.i.i22.i.i, align 8
   %13 = or <2 x i64> %12, %11
   store <2 x i64> %13, ptr %arrayidx.i.i22.i.i, align 8
-  %range_start = getelementptr inbounds %"class.ue2::ComponentClass", ptr %this, i64 0, i32 4
+  %range_start = getelementptr inbounds i8, ptr %this, i64 24
   store i32 %c, ptr %range_start, align 8
   br label %return
 
@@ -674,21 +665,21 @@ unreachable:                                      ; preds = %invoke.cont3
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
 define hidden void @_ZN3ue219AsciiComponentClass8finalizeEv(ptr nocapture noundef nonnull align 8 dereferenceable(72) %this) unnamed_addr #7 align 2 {
 entry:
-  %finalized = getelementptr inbounds %"class.ue2::ComponentClass", ptr %this, i64 0, i32 5
+  %finalized = getelementptr inbounds i8, ptr %this, i64 28
   %0 = load i8, ptr %finalized, align 4
   %1 = and i8 %0, 1
   %tobool.not = icmp eq i8 %1, 0
   br i1 %tobool.not, label %if.end, label %return
 
 if.end:                                           ; preds = %entry
-  %in_cand_range = getelementptr inbounds %"class.ue2::ComponentClass", ptr %this, i64 0, i32 3
+  %in_cand_range = getelementptr inbounds i8, ptr %this, i64 23
   %2 = load i8, ptr %in_cand_range, align 1
   %3 = and i8 %2, 1
   %tobool2.not = icmp eq i8 %3, 0
   br i1 %tobool2.not, label %if.end5, label %if.then3
 
 if.then3:                                         ; preds = %if.end
-  %cr = getelementptr inbounds %"class.ue2::AsciiComponentClass", ptr %this, i64 0, i32 2
+  %cr = getelementptr inbounds i8, ptr %this, i64 40
   %4 = load i64, ptr %cr, align 8
   %or.i.i = or i64 %4, 35184372088832
   store i64 %or.i.i, ptr %cr, align 8
@@ -696,14 +687,14 @@ if.then3:                                         ; preds = %if.end
   br label %if.end5
 
 if.end5:                                          ; preds = %if.then3, %if.end
-  %m_negate = getelementptr inbounds %"class.ue2::ComponentClass", ptr %this, i64 0, i32 1
+  %m_negate = getelementptr inbounds i8, ptr %this, i64 16
   %5 = load i8, ptr %m_negate, align 8
   %6 = and i8 %5, 1
   %tobool6.not = icmp eq i8 %6, 0
   br i1 %tobool6.not, label %if.end9, label %if.then7
 
 if.then7:                                         ; preds = %if.end5
-  %cr8 = getelementptr inbounds %"class.ue2::AsciiComponentClass", ptr %this, i64 0, i32 2
+  %cr8 = getelementptr inbounds i8, ptr %this, i64 40
   br label %for.body.i.i
 
 for.body.i.i:                                     ; preds = %for.body.i.i, %if.then7
@@ -727,14 +718,14 @@ return:                                           ; preds = %entry, %if.end9
 ; Function Attrs: mustprogress uwtable
 define hidden void @_ZNK3ue219AsciiComponentClass5firstEv(ptr noalias nocapture writeonly sret(%"class.std::vector") align 8 %agg.result, ptr nocapture noundef nonnull readonly align 8 dereferenceable(72) %this) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  %position = getelementptr inbounds %"class.ue2::AsciiComponentClass", ptr %this, i64 0, i32 1
+  %position = getelementptr inbounds i8, ptr %this, i64 32
   %0 = load i32, ptr %position, align 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %agg.result, i8 0, i64 24, i1 false)
   %call5.i.i.i.i2.i.i1 = tail call noalias noundef nonnull dereferenceable(8) ptr @_Znwm(i64 noundef 8) #14
   store ptr %call5.i.i.i.i2.i.i1, ptr %agg.result, align 8
-  %_M_finish.i.i.i = getelementptr inbounds %"struct.std::_Vector_base<ue2::PositionInfo, std::allocator<ue2::PositionInfo>>::_Vector_impl_data", ptr %agg.result, i64 0, i32 1
-  %add.ptr.i.i.i = getelementptr inbounds %"class.ue2::PositionInfo", ptr %call5.i.i.i.i2.i.i1, i64 1
-  %_M_end_of_storage.i.i.i = getelementptr inbounds %"struct.std::_Vector_base<ue2::PositionInfo, std::allocator<ue2::PositionInfo>>::_Vector_impl_data", ptr %agg.result, i64 0, i32 2
+  %_M_finish.i.i.i = getelementptr inbounds i8, ptr %agg.result, i64 8
+  %add.ptr.i.i.i = getelementptr inbounds i8, ptr %call5.i.i.i.i2.i.i1, i64 8
+  %_M_end_of_storage.i.i.i = getelementptr inbounds i8, ptr %agg.result, i64 16
   store ptr %add.ptr.i.i.i, ptr %_M_end_of_storage.i.i.i, align 8
   %ref.tmp.sroa.0.0.insert.ext = zext i32 %0 to i64
   store i64 %ref.tmp.sroa.0.0.insert.ext, ptr %call5.i.i.i.i2.i.i1, align 4
@@ -745,14 +736,14 @@ entry:
 ; Function Attrs: mustprogress uwtable
 define hidden void @_ZNK3ue219AsciiComponentClass4lastEv(ptr noalias nocapture writeonly sret(%"class.std::vector") align 8 %agg.result, ptr nocapture noundef nonnull readonly align 8 dereferenceable(72) %this) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  %position = getelementptr inbounds %"class.ue2::AsciiComponentClass", ptr %this, i64 0, i32 1
+  %position = getelementptr inbounds i8, ptr %this, i64 32
   %0 = load i32, ptr %position, align 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %agg.result, i8 0, i64 24, i1 false)
   %call5.i.i.i.i2.i.i1 = tail call noalias noundef nonnull dereferenceable(8) ptr @_Znwm(i64 noundef 8) #14
   store ptr %call5.i.i.i.i2.i.i1, ptr %agg.result, align 8
-  %_M_finish.i.i.i = getelementptr inbounds %"struct.std::_Vector_base<ue2::PositionInfo, std::allocator<ue2::PositionInfo>>::_Vector_impl_data", ptr %agg.result, i64 0, i32 1
-  %add.ptr.i.i.i = getelementptr inbounds %"class.ue2::PositionInfo", ptr %call5.i.i.i.i2.i.i1, i64 1
-  %_M_end_of_storage.i.i.i = getelementptr inbounds %"struct.std::_Vector_base<ue2::PositionInfo, std::allocator<ue2::PositionInfo>>::_Vector_impl_data", ptr %agg.result, i64 0, i32 2
+  %_M_finish.i.i.i = getelementptr inbounds i8, ptr %agg.result, i64 8
+  %add.ptr.i.i.i = getelementptr inbounds i8, ptr %call5.i.i.i.i2.i.i1, i64 8
+  %_M_end_of_storage.i.i.i = getelementptr inbounds i8, ptr %agg.result, i64 16
   store ptr %add.ptr.i.i.i, ptr %_M_end_of_storage.i.i.i, align 8
   %ref.tmp.sroa.0.0.insert.ext = zext i32 %0 to i64
   store i64 %ref.tmp.sroa.0.0.insert.ext, ptr %call5.i.i.i.i2.i.i1, align 4
@@ -779,11 +770,11 @@ entry:
 define linkonce_odr hidden noundef ptr @_ZN3ue219AsciiComponentClass6acceptERNS_16ComponentVisitorE(ptr noundef nonnull align 8 dereferenceable(72) %this, ptr noundef nonnull align 8 dereferenceable(8) %v) unnamed_addr #0 comdat align 2 {
 entry:
   %vtable = load ptr, ptr %v, align 8
-  %vfn = getelementptr inbounds ptr, ptr %vtable, i64 2
+  %vfn = getelementptr inbounds i8, ptr %vtable, i64 16
   %0 = load ptr, ptr %vfn, align 8
   %call = tail call noundef ptr %0(ptr noundef nonnull align 8 dereferenceable(8) %v, ptr noundef nonnull %this)
   %vtable2 = load ptr, ptr %v, align 8
-  %vfn3 = getelementptr inbounds ptr, ptr %vtable2, i64 16
+  %vfn3 = getelementptr inbounds i8, ptr %vtable2, i64 128
   %1 = load ptr, ptr %vfn3, align 8
   tail call void %1(ptr noundef nonnull align 8 dereferenceable(8) %v, ptr noundef nonnull %this)
   ret ptr %call
@@ -793,15 +784,15 @@ entry:
 define linkonce_odr hidden void @_ZNK3ue219AsciiComponentClass6acceptERNS_21ConstComponentVisitorE(ptr noundef nonnull align 8 dereferenceable(72) %this, ptr noundef nonnull align 8 dereferenceable(8) %v) unnamed_addr #0 comdat align 2 {
 entry:
   %vtable = load ptr, ptr %v, align 8
-  %vfn = getelementptr inbounds ptr, ptr %vtable, i64 2
+  %vfn = getelementptr inbounds i8, ptr %vtable, i64 16
   %0 = load ptr, ptr %vfn, align 8
   tail call void %0(ptr noundef nonnull align 8 dereferenceable(8) %v, ptr noundef nonnull align 8 dereferenceable(72) %this)
   %vtable2 = load ptr, ptr %v, align 8
-  %vfn3 = getelementptr inbounds ptr, ptr %vtable2, i64 16
+  %vfn3 = getelementptr inbounds i8, ptr %vtable2, i64 128
   %1 = load ptr, ptr %vfn3, align 8
   tail call void %1(ptr noundef nonnull align 8 dereferenceable(8) %v, ptr noundef nonnull align 8 dereferenceable(72) %this)
   %vtable4 = load ptr, ptr %v, align 8
-  %vfn5 = getelementptr inbounds ptr, ptr %vtable4, i64 30
+  %vfn5 = getelementptr inbounds i8, ptr %vtable4, i64 240
   %2 = load ptr, ptr %vfn5, align 8
   tail call void %2(ptr noundef nonnull align 8 dereferenceable(8) %v, ptr noundef nonnull align 8 dereferenceable(72) %this)
   ret void

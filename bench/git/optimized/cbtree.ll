@@ -3,8 +3,6 @@ source_filename = "bench/git/original/cbtree.ll"
 target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:128-n8:16:32:64-S128"
 target triple = "x86_64-unknown-linux-gnu"
 
-%struct.cb_node = type { [2 x ptr], i32, i8, [0 x i8] }
-
 ; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
 define dso_local ptr @cb_insert(ptr nocapture noundef %t, ptr noundef %node, i64 noundef %klen) local_unnamed_addr #0 {
 entry:
@@ -17,7 +15,7 @@ if.then:                                          ; preds = %entry
   br label %return
 
 if.end:                                           ; preds = %entry
-  %k = getelementptr inbounds %struct.cb_node, ptr %node, i64 0, i32 3
+  %k = getelementptr inbounds i8, ptr %node, i64 21
   %1 = ptrtoint ptr %0 to i64
   %and7.i = and i64 %1, 1
   %tobool.not8.i = icmp eq i64 %and7.i, 0
@@ -27,7 +25,7 @@ while.body.i:                                     ; preds = %if.end, %cond.end.i
   %2 = phi i64 [ %8, %cond.end.i ], [ %1, %if.end ]
   %sub.i.i = add nsw i64 %2, -1
   %3 = inttoptr i64 %sub.i.i to ptr
-  %byte.i = getelementptr inbounds %struct.cb_node, ptr %3, i64 0, i32 1
+  %byte.i = getelementptr inbounds i8, ptr %3, i64 16
   %4 = load i32, ptr %byte.i, align 8
   %conv.i = zext i32 %4 to i64
   %cmp.i = icmp ult i64 %conv.i, %klen
@@ -40,7 +38,7 @@ cond.true.i:                                      ; preds = %while.body.i
 
 cond.end.i:                                       ; preds = %cond.true.i, %while.body.i
   %cond.i = phi i8 [ %5, %cond.true.i ], [ 0, %while.body.i ]
-  %otherbits.i = getelementptr inbounds %struct.cb_node, ptr %3, i64 0, i32 2
+  %otherbits.i = getelementptr inbounds i8, ptr %3, i64 20
   %6 = load i8, ptr %otherbits.i, align 4
   %or6.i = or i8 %6, %cond.i
   %or.i = zext i8 %or6.i to i64
@@ -56,13 +54,17 @@ cond.end.i:                                       ; preds = %cond.true.i, %while
 cb_internal_best_match.exit:                      ; preds = %cond.end.i, %if.end
   %p.addr.0.lcssa.i = phi ptr [ %0, %if.end ], [ %7, %cond.end.i ]
   %cmp57.not = icmp eq i64 %klen, 0
-  br i1 %cmp57.not, label %return, label %for.body
+  br i1 %cmp57.not, label %return, label %for.body.lr.ph
 
-for.body:                                         ; preds = %cb_internal_best_match.exit, %for.inc
-  %newbyte.058 = phi i64 [ %inc, %for.inc ], [ 0, %cb_internal_best_match.exit ]
-  %arrayidx = getelementptr inbounds %struct.cb_node, ptr %p.addr.0.lcssa.i, i64 0, i32 3, i64 %newbyte.058
+for.body.lr.ph:                                   ; preds = %cb_internal_best_match.exit
+  %k3 = getelementptr inbounds i8, ptr %p.addr.0.lcssa.i, i64 21
+  br label %for.body
+
+for.body:                                         ; preds = %for.body.lr.ph, %for.inc
+  %newbyte.058 = phi i64 [ 0, %for.body.lr.ph ], [ %inc, %for.inc ]
+  %arrayidx = getelementptr inbounds [0 x i8], ptr %k3, i64 0, i64 %newbyte.058
   %9 = load i8, ptr %arrayidx, align 1
-  %arrayidx5 = getelementptr inbounds %struct.cb_node, ptr %node, i64 0, i32 3, i64 %newbyte.058
+  %arrayidx5 = getelementptr inbounds [0 x i8], ptr %k, i64 0, i64 %newbyte.058
   %10 = load i8, ptr %arrayidx5, align 1
   %cmp7.not = icmp eq i8 %9, %10
   br i1 %cmp7.not, label %for.inc, label %different_byte_found
@@ -88,10 +90,10 @@ different_byte_found:                             ; preds = %for.body
   %conv26 = zext i8 %9 to i64
   %or27 = or i64 %xor23, %conv26
   %conv30 = trunc i64 %newbyte.058 to i32
-  %byte = getelementptr inbounds %struct.cb_node, ptr %node, i64 0, i32 1
+  %byte = getelementptr inbounds i8, ptr %node, i64 16
   store i32 %conv30, ptr %byte, align 8
   %conv31 = trunc i64 %xor23 to i8
-  %otherbits = getelementptr inbounds %struct.cb_node, ptr %node, i64 0, i32 2
+  %otherbits = getelementptr inbounds i8, ptr %node, i64 20
   store i8 %conv31, ptr %otherbits, align 4
   %add = shl nuw nsw i64 %or27, 24
   %11 = add nuw nsw i64 %add, 16777216
@@ -109,7 +111,7 @@ different_byte_found:                             ; preds = %for.body
 if.end38.preheader:                               ; preds = %different_byte_found
   %sub.i85 = add nsw i64 %14, -1
   %15 = inttoptr i64 %sub.i85 to ptr
-  %byte4086 = getelementptr inbounds %struct.cb_node, ptr %15, i64 0, i32 1
+  %byte4086 = getelementptr inbounds i8, ptr %15, i64 16
   %16 = load i32, ptr %byte4086, align 8
   %conv4187 = zext i32 %16 to i64
   %cmp4288 = icmp ult i64 %newbyte.058, %conv4187
@@ -118,7 +120,7 @@ if.end38.preheader:                               ; preds = %different_byte_foun
 if.end38:                                         ; preds = %if.end55
   %sub.i = add nsw i64 %24, -1
   %17 = inttoptr i64 %sub.i to ptr
-  %byte40 = getelementptr inbounds %struct.cb_node, ptr %17, i64 0, i32 1
+  %byte40 = getelementptr inbounds i8, ptr %17, i64 16
   %18 = load i32, ptr %byte40, align 8
   %conv41 = zext i32 %18 to i64
   %cmp42 = icmp ult i64 %newbyte.058, %conv41
@@ -130,7 +132,7 @@ if.end45:                                         ; preds = %if.end38.preheader,
   %wherep.06189 = phi ptr [ %add.ptr, %if.end38 ], [ %t, %if.end38.preheader ]
   %20 = phi ptr [ %23, %if.end38 ], [ %13, %if.end38.preheader ]
   %cmp48 = icmp eq i64 %newbyte.058, %conv4190
-  %otherbits50 = getelementptr inbounds %struct.cb_node, ptr %19, i64 0, i32 2
+  %otherbits50 = getelementptr inbounds i8, ptr %19, i64 20
   %21 = load i8, ptr %otherbits50, align 4
   %conv51 = zext i8 %21 to i64
   %cmp52 = icmp ult i64 %xor23, %conv51
@@ -138,7 +140,7 @@ if.end45:                                         ; preds = %if.end38.preheader,
   br i1 %or.cond, label %for.end75, label %if.end55
 
 if.end55:                                         ; preds = %if.end45
-  %arrayidx63 = getelementptr inbounds %struct.cb_node, ptr %node, i64 0, i32 3, i64 %conv4190
+  %arrayidx63 = getelementptr inbounds [0 x i8], ptr %k, i64 0, i64 %conv4190
   %22 = load i8, ptr %arrayidx63, align 1
   %or6951 = or i8 %21, %22
   %or69 = zext i8 %or6951 to i64
@@ -181,7 +183,7 @@ while.body.i:                                     ; preds = %entry, %cond.end.i
   %2 = phi i64 [ %8, %cond.end.i ], [ %1, %entry ]
   %sub.i.i = add nsw i64 %2, -1
   %3 = inttoptr i64 %sub.i.i to ptr
-  %byte.i = getelementptr inbounds %struct.cb_node, ptr %3, i64 0, i32 1
+  %byte.i = getelementptr inbounds i8, ptr %3, i64 16
   %4 = load i32, ptr %byte.i, align 8
   %conv.i = zext i32 %4 to i64
   %cmp.i = icmp ult i64 %conv.i, %klen
@@ -194,7 +196,7 @@ cond.true.i:                                      ; preds = %while.body.i
 
 cond.end.i:                                       ; preds = %cond.true.i, %while.body.i
   %cond.i = phi i8 [ %5, %cond.true.i ], [ 0, %while.body.i ]
-  %otherbits.i = getelementptr inbounds %struct.cb_node, ptr %3, i64 0, i32 2
+  %otherbits.i = getelementptr inbounds i8, ptr %3, i64 20
   %6 = load i8, ptr %otherbits.i, align 4
   %or6.i = or i8 %6, %cond.i
   %or.i = zext i8 %or6.i to i64
@@ -213,7 +215,7 @@ cb_internal_best_match.exit:                      ; preds = %cond.end.i, %entry
   br i1 %tobool.not, label %cond.end, label %land.lhs.true
 
 land.lhs.true:                                    ; preds = %cb_internal_best_match.exit
-  %k1 = getelementptr inbounds %struct.cb_node, ptr %p.addr.0.lcssa.i, i64 0, i32 3
+  %k1 = getelementptr inbounds i8, ptr %p.addr.0.lcssa.i, i64 21
   %bcmp = tail call i32 @bcmp(ptr nonnull %k1, ptr %k, i64 %klen)
   %tobool3.not = icmp eq i32 %bcmp, 0
   %spec.select = select i1 %tobool3.not, ptr %p.addr.0.lcssa.i, ptr null
@@ -241,14 +243,18 @@ for.cond.preheader:                               ; preds = %cond.end, %while.co
   %top.0.lcssa = phi ptr [ %0, %while.cond.preheader ], [ %spec.select, %cond.end ]
   %p.0.lcssa = phi ptr [ %0, %while.cond.preheader ], [ %7, %cond.end ]
   %cmp1621.not = icmp eq i64 %klen, 0
-  br i1 %cmp1621.not, label %for.end, label %for.body
+  br i1 %cmp1621.not, label %for.end, label %for.body.lr.ph
+
+for.body.lr.ph:                                   ; preds = %for.cond.preheader
+  %k = getelementptr inbounds i8, ptr %p.0.lcssa, i64 21
+  br label %for.body
 
 while.body:                                       ; preds = %while.cond.preheader, %cond.end
   %2 = phi i64 [ %8, %cond.end ], [ %1, %while.cond.preheader ]
   %top.019 = phi ptr [ %spec.select, %cond.end ], [ %0, %while.cond.preheader ]
   %sub.i = add nsw i64 %2, -1
   %3 = inttoptr i64 %sub.i to ptr
-  %byte = getelementptr inbounds %struct.cb_node, ptr %3, i64 0, i32 1
+  %byte = getelementptr inbounds i8, ptr %3, i64 16
   %4 = load i32, ptr %byte, align 8
   %conv = zext i32 %4 to i64
   %cmp = icmp ult i64 %conv, %klen
@@ -261,7 +267,7 @@ cond.true:                                        ; preds = %while.body
 
 cond.end:                                         ; preds = %while.body, %cond.true
   %cond = phi i8 [ %5, %cond.true ], [ 0, %while.body ]
-  %otherbits = getelementptr inbounds %struct.cb_node, ptr %3, i64 0, i32 2
+  %otherbits = getelementptr inbounds i8, ptr %3, i64 20
   %6 = load i8, ptr %otherbits, align 4
   %or16 = or i8 %6, %cond
   %or = zext i8 %or16 to i64
@@ -280,9 +286,9 @@ for.cond:                                         ; preds = %for.body
   %exitcond.not = icmp eq i64 %inc, %klen
   br i1 %exitcond.not, label %for.end, label %for.body, !llvm.loop !9
 
-for.body:                                         ; preds = %for.cond.preheader, %for.cond
-  %i.022 = phi i64 [ %inc, %for.cond ], [ 0, %for.cond.preheader ]
-  %arrayidx18 = getelementptr inbounds %struct.cb_node, ptr %p.0.lcssa, i64 0, i32 3, i64 %i.022
+for.body:                                         ; preds = %for.body.lr.ph, %for.cond
+  %i.022 = phi i64 [ 0, %for.body.lr.ph ], [ %inc, %for.cond ]
+  %arrayidx18 = getelementptr inbounds [0 x i8], ptr %k, i64 0, i64 %i.022
   %9 = load i8, ptr %arrayidx18, align 1
   %arrayidx20 = getelementptr inbounds i8, ptr %kpfx, i64 %i.022
   %10 = load i8, ptr %arrayidx20, align 1
@@ -315,7 +321,7 @@ if.then:                                          ; preds = %entry, %cond.false
   br i1 %cmp, label %return, label %cond.false
 
 cond.false:                                       ; preds = %if.then
-  %arrayidx3 = getelementptr inbounds [2 x ptr], ptr %2, i64 0, i64 1
+  %arrayidx3 = getelementptr inbounds i8, ptr %2, i64 8
   %4 = load ptr, ptr %arrayidx3, align 8
   %5 = ptrtoint ptr %4 to i64
   %and = and i64 %5, 1

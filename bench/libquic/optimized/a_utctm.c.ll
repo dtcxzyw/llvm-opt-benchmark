@@ -14,25 +14,25 @@ target triple = "x86_64-unknown-linux-gnu"
 ; Function Attrs: nounwind uwtable
 define hidden i32 @asn1_utctime_to_tm(ptr noundef %tm, ptr nocapture noundef readonly %d) local_unnamed_addr #0 {
 entry:
-  %type = getelementptr inbounds %struct.asn1_string_st, ptr %d, i64 0, i32 1
+  %type = getelementptr inbounds i8, ptr %d, i64 4
   %0 = load i32, ptr %type, align 4
   %cmp.not = icmp eq i32 %0, 23
   br i1 %cmp.not, label %if.end, label %return
 
 if.end:                                           ; preds = %entry
   %1 = load i32, ptr %d, align 8
-  %data = getelementptr inbounds %struct.asn1_string_st, ptr %d, i64 0, i32 2
+  %data = getelementptr inbounds i8, ptr %d, i64 8
   %2 = load ptr, ptr %data, align 8
   %cmp1 = icmp slt i32 %1, 11
   br i1 %cmp1, label %return, label %for.cond.preheader
 
 for.cond.preheader:                               ; preds = %if.end
   %tobool77.not = icmp eq ptr %tm, null
-  %tm_min = getelementptr inbounds %struct.tm, ptr %tm, i64 0, i32 1
-  %tm_hour = getelementptr inbounds %struct.tm, ptr %tm, i64 0, i32 2
-  %tm_mday = getelementptr inbounds %struct.tm, ptr %tm, i64 0, i32 3
-  %tm_mon = getelementptr inbounds %struct.tm, ptr %tm, i64 0, i32 4
-  %tm_year = getelementptr inbounds %struct.tm, ptr %tm, i64 0, i32 5
+  %tm_min = getelementptr inbounds i8, ptr %tm, i64 4
+  %tm_hour = getelementptr inbounds i8, ptr %tm, i64 8
+  %tm_mday = getelementptr inbounds i8, ptr %tm, i64 12
+  %tm_mon = getelementptr inbounds i8, ptr %tm, i64 16
+  %tm_year = getelementptr inbounds i8, ptr %tm, i64 20
   %3 = zext nneg i32 %1 to i64
   br i1 %tobool77.not, label %for.body.us, label %for.body
 
@@ -353,12 +353,12 @@ entry:
 define hidden noundef i32 @ASN1_UTCTIME_set_string(ptr noundef %s, ptr noundef %str) local_unnamed_addr #0 {
 entry:
   %t = alloca %struct.asn1_string_st, align 8
-  %type = getelementptr inbounds %struct.asn1_string_st, ptr %t, i64 0, i32 1
+  %type = getelementptr inbounds i8, ptr %t, i64 4
   store i32 23, ptr %type, align 4
   %call = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %str) #6
   %conv = trunc i64 %call to i32
   store i32 %conv, ptr %t, align 8
-  %data = getelementptr inbounds %struct.asn1_string_st, ptr %t, i64 0, i32 2
+  %data = getelementptr inbounds i8, ptr %t, i64 8
   store ptr %str, ptr %data, align 8
   %call.i = call i32 @asn1_utctime_to_tm(ptr noundef null, ptr noundef nonnull %t), !range !10
   %tobool.not = icmp eq i32 %call.i, 0
@@ -374,7 +374,7 @@ if.then3:                                         ; preds = %if.then
   br i1 %tobool6.not, label %return, label %if.end
 
 if.end:                                           ; preds = %if.then3
-  %type8 = getelementptr inbounds %struct.asn1_string_st, ptr %s, i64 0, i32 1
+  %type8 = getelementptr inbounds i8, ptr %s, i64 4
   store i32 23, ptr %type8, align 4
   br label %return
 
@@ -427,14 +427,14 @@ if.then9:                                         ; preds = %if.end7
   br i1 %tobool11.not, label %err, label %if.end14
 
 if.end14:                                         ; preds = %if.then9, %if.end7
-  %tm_year = getelementptr inbounds %struct.tm, ptr %call4, i64 0, i32 5
+  %tm_year = getelementptr inbounds i8, ptr %call4, i64 20
   %0 = load i32, ptr %tm_year, align 4
   %1 = add i32 %0, -150
   %or.cond32 = icmp ult i32 %1, -100
   br i1 %or.cond32, label %err, label %if.end20
 
 if.end20:                                         ; preds = %if.end14
-  %data21 = getelementptr inbounds %struct.asn1_string_st, ptr %s.addr.035, i64 0, i32 2
+  %data21 = getelementptr inbounds i8, ptr %s.addr.035, i64 8
   %2 = load ptr, ptr %data21, align 8
   %cmp22 = icmp eq ptr %2, null
   br i1 %cmp22, label %if.then26, label %lor.lhs.false23
@@ -472,21 +472,21 @@ if.end39:                                         ; preds = %if.end37, %lor.lhs.
   %4 = phi i32 [ %.pre, %if.end37 ], [ %0, %lor.lhs.false23 ]
   %p.0 = phi ptr [ %call273942, %if.end37 ], [ %2, %lor.lhs.false23 ]
   %rem = srem i32 %4, 100
-  %tm_mon = getelementptr inbounds %struct.tm, ptr %call4, i64 0, i32 4
+  %tm_mon = getelementptr inbounds i8, ptr %call4, i64 16
   %5 = load i32, ptr %tm_mon, align 8
   %add = add nsw i32 %5, 1
-  %tm_mday = getelementptr inbounds %struct.tm, ptr %call4, i64 0, i32 3
+  %tm_mday = getelementptr inbounds i8, ptr %call4, i64 12
   %6 = load i32, ptr %tm_mday, align 4
-  %tm_hour = getelementptr inbounds %struct.tm, ptr %call4, i64 0, i32 2
+  %tm_hour = getelementptr inbounds i8, ptr %call4, i64 8
   %7 = load i32, ptr %tm_hour, align 8
-  %tm_min = getelementptr inbounds %struct.tm, ptr %call4, i64 0, i32 1
+  %tm_min = getelementptr inbounds i8, ptr %call4, i64 4
   %8 = load i32, ptr %tm_min, align 4
   %9 = load i32, ptr %call4, align 8
   %call41 = call i32 (ptr, i64, ptr, ...) @BIO_snprintf(ptr noundef nonnull %p.0, i64 noundef 20, ptr noundef nonnull @.str.1, i32 noundef %rem, i32 noundef %add, i32 noundef %6, i32 noundef %7, i32 noundef %8, i32 noundef %9) #5
   %call42 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %p.0) #6
   %conv43 = trunc i64 %call42 to i32
   store i32 %conv43, ptr %s.addr.035, align 8
-  %type = getelementptr inbounds %struct.asn1_string_st, ptr %s.addr.035, i64 0, i32 1
+  %type = getelementptr inbounds i8, ptr %s.addr.035, i64 4
   store i32 23, ptr %type, align 4
   br label %return
 

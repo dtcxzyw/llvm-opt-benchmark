@@ -41,7 +41,7 @@ define { i64, i64 } @"_ZN4core3str21_$LT$impl$u20$str$GT$4find17h287dedae677af52
   call void @"_ZN80_$LT$core..str..pattern..StrSearcher$u20$as$u20$core..str..pattern..Searcher$GT$10next_match17h346baebc37aa981fE"(ptr nonnull sret({ i64, [2 x i64] }) align 8 %6, ptr nonnull align 8 %5)
   %7 = load i64, ptr %6, align 8, !range !5, !noundef !6
   %.not = icmp eq i64 %7, 0
-  %8 = getelementptr inbounds { [1 x i64], { i64, i64 } }, ptr %6, i64 0, i32 1
+  %8 = getelementptr inbounds i8, ptr %6, i64 8
   %9 = load i64, ptr %8, align 8
   %.sroa.3.0 = select i1 %.not, i64 undef, i64 %9
   %10 = insertvalue { i64, i64 } poison, i64 %7, 0
@@ -57,7 +57,7 @@ define { i64, i64 } @"_ZN4core3str21_$LT$impl$u20$str$GT$4find17h28bdb387359eaa9
   call void @"_ZN81_$LT$core..str..pattern..CharSearcher$u20$as$u20$core..str..pattern..Searcher$GT$10next_match17ha70b7e4ddb966629E"(ptr nonnull sret({ i64, [2 x i64] }) align 8 %5, ptr nonnull align 8 %4)
   %6 = load i64, ptr %5, align 8, !range !5, !noundef !6
   %.not = icmp eq i64 %6, 0
-  %7 = getelementptr inbounds { [1 x i64], { i64, i64 } }, ptr %5, i64 0, i32 1
+  %7 = getelementptr inbounds i8, ptr %5, i64 8
   %8 = load i64, ptr %7, align 8
   %.sroa.3.0 = select i1 %.not, i64 undef, i64 %8
   %9 = insertvalue { i64, i64 } poison, i64 %6, 0

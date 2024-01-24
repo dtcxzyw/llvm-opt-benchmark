@@ -3,13 +3,6 @@ source_filename = "bench/libquic/original/t_req.c.ll"
 target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:128-n8:16:32:64-S128"
 target triple = "x86_64-unknown-linux-gnu"
 
-%struct.X509_req_info_st = type { %struct.ASN1_ENCODING_st, ptr, ptr, ptr, ptr }
-%struct.ASN1_ENCODING_st = type { ptr, i64, i32 }
-%struct.asn1_type_st = type { i32, %union.anon }
-%union.anon = type { ptr }
-%struct.asn1_string_st = type { i32, i32, ptr, i64 }
-%struct.X509_req_st = type { ptr, ptr, ptr, i32 }
-
 @.str = private unnamed_addr constant [123 x i8] c"generated/home/dtcxzyw/WorkSpace/Projects/compilers/llvm-opt-benchmark/bench/libquic/libquic/boringssl/crypto/x509/t_req.c\00", align 1
 @.str.1 = private unnamed_addr constant [22 x i8] c"Certificate Request:\0A\00", align 1
 @.str.2 = private unnamed_addr constant [11 x i8] c"    Data:\0A\00", align 1
@@ -103,7 +96,7 @@ if.end11:                                         ; preds = %lor.lhs.false, %ent
 
 if.then14:                                        ; preds = %if.end11
   %1 = load ptr, ptr %x, align 8
-  %version = getelementptr inbounds %struct.X509_req_info_st, ptr %1, i64 0, i32 1
+  %version = getelementptr inbounds i8, ptr %1, i64 24
   %2 = load ptr, ptr %version, align 8
   %call16 = tail call i64 @ASN1_INTEGER_get(ptr noundef %2) #2
   %add = add nsw i64 %call16, 1
@@ -122,7 +115,7 @@ if.then24:                                        ; preds = %if.end21
   br i1 %cmp26, label %err, label %lor.lhs.false28
 
 lor.lhs.false28:                                  ; preds = %if.then24
-  %subject = getelementptr inbounds %struct.X509_req_info_st, ptr %0, i64 0, i32 2
+  %subject = getelementptr inbounds i8, ptr %0, i64 32
   %3 = load ptr, ptr %subject, align 8
   %call29 = tail call i32 @X509_NAME_print_ex(ptr noundef %bio, ptr noundef %3, i32 noundef %nmindent.1, i64 noundef %nmflags) #2
   %cmp30 = icmp slt i32 %call29, 0
@@ -149,7 +142,7 @@ lor.lhs.false45:                                  ; preds = %if.then41
   br i1 %cmp47, label %err, label %lor.lhs.false49
 
 lor.lhs.false49:                                  ; preds = %lor.lhs.false45
-  %pubkey = getelementptr inbounds %struct.X509_req_info_st, ptr %0, i64 0, i32 3
+  %pubkey = getelementptr inbounds i8, ptr %0, i64 40
   %4 = load ptr, ptr %pubkey, align 8
   %5 = load ptr, ptr %4, align 8
   %6 = load ptr, ptr %5, align 8
@@ -189,7 +182,7 @@ if.then69:                                        ; preds = %if.end66
 
 if.end74:                                         ; preds = %if.then69
   %7 = load ptr, ptr %x, align 8
-  %attributes = getelementptr inbounds %struct.X509_req_info_st, ptr %7, i64 0, i32 4
+  %attributes = getelementptr inbounds i8, ptr %7, i64 48
   %8 = load ptr, ptr %attributes, align 8
   %call76 = tail call i64 @sk_num(ptr noundef %8) #2
   %cmp77 = icmp eq i64 %call76, 0
@@ -239,7 +232,7 @@ for.body115.us:                                   ; preds = %for.body115.lr.ph, 
   %j.085.us = phi i32 [ %inc.us, %for.inc154.us ], [ 0, %for.body115.lr.ph ]
   %call116.us = tail call ptr @X509_ATTRIBUTE_get0_type(ptr noundef %call89, i32 noundef %j.085.us) #2
   %9 = load i32, ptr %call116.us, align 8
-  %value.us = getelementptr inbounds %struct.asn1_type_st, ptr %call116.us, i64 0, i32 1
+  %value.us = getelementptr inbounds i8, ptr %call116.us, i64 8
   %10 = load ptr, ptr %value.us, align 8
   br label %for.body121.us
 
@@ -257,7 +250,7 @@ if.end131.us:                                     ; preds = %for.cond118.for.end
   ]
 
 if.then143.us:                                    ; preds = %if.end131.us, %if.end131.us, %if.end131.us, %if.end131.us
-  %data.us = getelementptr inbounds %struct.asn1_string_st, ptr %10, i64 0, i32 2
+  %data.us = getelementptr inbounds i8, ptr %10, i64 8
   %11 = load ptr, ptr %data.us, align 8
   %12 = load i32, ptr %10, align 8
   %call144.us = tail call i32 @BIO_write(ptr noundef %bio, ptr noundef %11, i32 noundef %12) #2
@@ -292,7 +285,7 @@ for.body115:                                      ; preds = %for.body115.lr.ph, 
   %j.085 = phi i32 [ %inc, %for.inc154 ], [ 0, %for.body115.lr.ph ]
   %call116 = tail call ptr @X509_ATTRIBUTE_get0_type(ptr noundef %call89, i32 noundef %j.085) #2
   %14 = load i32, ptr %call116, align 8
-  %value = getelementptr inbounds %struct.asn1_type_st, ptr %call116, i64 0, i32 1
+  %value = getelementptr inbounds i8, ptr %call116, i64 8
   %15 = load ptr, ptr %value, align 8
   %call127 = tail call i32 @BIO_puts(ptr noundef %bio, ptr noundef nonnull @.str.15) #2
   %cmp128 = icmp slt i32 %call127, 1
@@ -307,7 +300,7 @@ if.end131:                                        ; preds = %for.body115
   ]
 
 if.then143:                                       ; preds = %if.end131, %if.end131, %if.end131, %if.end131
-  %data = getelementptr inbounds %struct.asn1_string_st, ptr %15, i64 0, i32 2
+  %data = getelementptr inbounds i8, ptr %15, i64 8
   %16 = load ptr, ptr %data, align 8
   %17 = load i32, ptr %15, align 8
   %call144 = tail call i32 @BIO_write(ptr noundef %bio, ptr noundef %16, i32 noundef %17) #2
@@ -393,9 +386,9 @@ if.end205:                                        ; preds = %if.then163, %for.en
   br i1 %tobool207.not, label %land.lhs.true, label %return
 
 land.lhs.true:                                    ; preds = %if.end205
-  %sig_alg = getelementptr inbounds %struct.X509_req_st, ptr %x, i64 0, i32 1
+  %sig_alg = getelementptr inbounds i8, ptr %x, i64 8
   %19 = load ptr, ptr %sig_alg, align 8
-  %signature = getelementptr inbounds %struct.X509_req_st, ptr %x, i64 0, i32 2
+  %signature = getelementptr inbounds i8, ptr %x, i64 16
   %20 = load ptr, ptr %signature, align 8
   %call208 = tail call i32 @X509_signature_print(ptr noundef %bio, ptr noundef %19, ptr noundef %20) #2
   %tobool209.not = icmp eq i32 %call208, 0

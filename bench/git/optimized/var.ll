@@ -42,7 +42,7 @@ if.then:                                          ; preds = %entry
   unreachable
 
 if.end:                                           ; preds = %entry
-  %arrayidx = getelementptr inbounds ptr, ptr %argv, i64 1
+  %arrayidx = getelementptr inbounds i8, ptr %argv, i64 8
   %0 = load ptr, ptr %arrayidx, align 8
   %call = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %0, ptr noundef nonnull dereferenceable(3) @.str) #11
   %cmp1 = icmp eq i32 %call, 0
@@ -51,8 +51,8 @@ if.end:                                           ; preds = %entry
 if.then2:                                         ; preds = %if.end
   tail call void @git_config(ptr noundef nonnull @show_config, ptr noundef null) #12
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %list.i)
-  %1 = getelementptr inbounds %struct.string_list, ptr %list.i, i64 0, i32 3
-  %nr.i = getelementptr inbounds %struct.string_list, ptr %list.i, i64 0, i32 1
+  %1 = getelementptr inbounds i8, ptr %list.i, i64 24
+  %nr.i = getelementptr inbounds i8, ptr %list.i, i64 8
   br label %for.body.i
 
 for.body.i:                                       ; preds = %for.inc15.i, %if.then2
@@ -63,7 +63,7 @@ for.body.i:                                       ; preds = %for.inc15.i, %if.th
   br i1 %tobool2.not.i, label %for.inc15.i, label %if.then.i
 
 if.then.i:                                        ; preds = %for.body.i
-  %multivalued.i = getelementptr inbounds %struct.git_var, ptr %ptr.015.i, i64 0, i32 2
+  %multivalued.i = getelementptr inbounds i8, ptr %ptr.015.i, i64 16
   %3 = load i32, ptr %multivalued.i, align 8
   %tobool3.not.i = icmp eq i32 %3, 0
   br i1 %tobool3.not.i, label %if.else.i, label %land.lhs.true.i
@@ -110,8 +110,8 @@ if.end.i:                                         ; preds = %if.else.i, %for.end
   br label %for.inc15.i
 
 for.inc15.i:                                      ; preds = %if.end.i, %for.body.i
-  %incdec.ptr.i = getelementptr inbounds %struct.git_var, ptr %ptr.015.i, i64 1
-  %read.i = getelementptr inbounds %struct.git_var, ptr %ptr.015.i, i64 1, i32 1
+  %incdec.ptr.i = getelementptr inbounds i8, ptr %ptr.015.i, i64 24
+  %read.i = getelementptr inbounds i8, ptr %ptr.015.i, i64 32
   %11 = load ptr, ptr %read.i, align 8
   %tobool.not.i = icmp eq ptr %11, null
   br i1 %tobool.not.i, label %list_vars.exit, label %for.body.i, !llvm.loop !7
@@ -133,8 +133,8 @@ for.body.i5:                                      ; preds = %if.end3, %for.inc.i
   br i1 %cmp.i7, label %if.end7, label %for.inc.i
 
 for.inc.i:                                        ; preds = %for.body.i5
-  %incdec.ptr.i8 = getelementptr inbounds %struct.git_var, ptr %ptr.05.i, i64 1
-  %read.i9 = getelementptr inbounds %struct.git_var, ptr %ptr.05.i, i64 1, i32 1
+  %incdec.ptr.i8 = getelementptr inbounds i8, ptr %ptr.05.i, i64 24
+  %read.i9 = getelementptr inbounds i8, ptr %ptr.05.i, i64 32
   %14 = load ptr, ptr %read.i9, align 8
   %tobool.not.i10 = icmp eq ptr %14, null
   br i1 %tobool.not.i10, label %if.then6, label %for.body.i5, !llvm.loop !8
@@ -144,7 +144,7 @@ if.then6:                                         ; preds = %for.inc.i
   unreachable
 
 if.end7:                                          ; preds = %for.body.i5
-  %read = getelementptr inbounds %struct.git_var, ptr %ptr.05.i, i64 0, i32 1
+  %read = getelementptr inbounds i8, ptr %ptr.05.i, i64 8
   %15 = load ptr, ptr %read, align 8
   %call8 = tail call ptr %15(i32 noundef 1) #12
   %tobool9.not = icmp eq ptr %call8, null
@@ -401,7 +401,7 @@ if.end8:                                          ; preds = %if.then6, %land.lhs
   %7 = load ptr, ptr %user, align 8
   call void @free(ptr noundef %7) #12
   call void @strbuf_trim_trailing_newline(ptr noundef nonnull %buf) #12
-  %len = getelementptr inbounds %struct.strbuf, ptr %buf, i64 0, i32 1
+  %len = getelementptr inbounds i8, ptr %buf, i64 8
   %8 = load i64, ptr %len, align 8
   %cmp = icmp eq i64 %8, 0
   br i1 %cmp, label %if.then10, label %if.end11

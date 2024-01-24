@@ -3,8 +3,6 @@ source_filename = "bench/brotli/original/memory.c.ll"
 target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:128-n8:16:32:64-S128"
 target triple = "x86_64-unknown-linux-gnu"
 
-%struct.MemoryManager = type { ptr, ptr, ptr }
-
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
 define hidden void @BrotliInitMemoryManager(ptr nocapture noundef writeonly %m, ptr noundef %alloc_func, ptr noundef %free_func, ptr noundef %opaque) local_unnamed_addr #0 {
 entry:
@@ -13,9 +11,9 @@ entry:
   %free_func.sink = select i1 %tobool.not, ptr @BrotliDefaultFreeFunc, ptr %free_func
   %opaque.sink = select i1 %tobool.not, ptr null, ptr %opaque
   store ptr %alloc_func.sink, ptr %m, align 8
-  %0 = getelementptr inbounds %struct.MemoryManager, ptr %m, i64 0, i32 1
+  %0 = getelementptr inbounds i8, ptr %m, i64 8
   store ptr %free_func.sink, ptr %0, align 8
-  %1 = getelementptr inbounds %struct.MemoryManager, ptr %m, i64 0, i32 2
+  %1 = getelementptr inbounds i8, ptr %m, i64 16
   store ptr %opaque.sink, ptr %1, align 8
   ret void
 }
@@ -28,7 +26,7 @@ declare void @BrotliDefaultFreeFunc(ptr noundef, ptr noundef) #1
 define hidden ptr @BrotliAllocate(ptr nocapture noundef readonly %m, i64 noundef %n) local_unnamed_addr #2 {
 entry:
   %0 = load ptr, ptr %m, align 8
-  %opaque = getelementptr inbounds %struct.MemoryManager, ptr %m, i64 0, i32 2
+  %opaque = getelementptr inbounds i8, ptr %m, i64 16
   %1 = load ptr, ptr %opaque, align 8
   %call = tail call ptr %0(ptr noundef %1, i64 noundef %n) #6
   %tobool.not = icmp eq ptr %call, null
@@ -48,9 +46,9 @@ declare void @exit(i32 noundef) local_unnamed_addr #3
 ; Function Attrs: nounwind uwtable
 define hidden void @BrotliFree(ptr nocapture noundef readonly %m, ptr noundef %p) local_unnamed_addr #2 {
 entry:
-  %free_func = getelementptr inbounds %struct.MemoryManager, ptr %m, i64 0, i32 1
+  %free_func = getelementptr inbounds i8, ptr %m, i64 8
   %0 = load ptr, ptr %free_func, align 8
-  %opaque = getelementptr inbounds %struct.MemoryManager, ptr %m, i64 0, i32 2
+  %opaque = getelementptr inbounds i8, ptr %m, i64 16
   %1 = load ptr, ptr %opaque, align 8
   tail call void %0(ptr noundef %1, ptr noundef %p) #6
   ret void
@@ -97,9 +95,9 @@ entry:
   br i1 %tobool.not, label %if.end, label %if.else
 
 if.else:                                          ; preds = %entry
-  %free_func1 = getelementptr inbounds %struct.MemoryManager, ptr %m, i64 0, i32 1
+  %free_func1 = getelementptr inbounds i8, ptr %m, i64 8
   %0 = load ptr, ptr %free_func1, align 8
-  %opaque2 = getelementptr inbounds %struct.MemoryManager, ptr %m, i64 0, i32 2
+  %opaque2 = getelementptr inbounds i8, ptr %m, i64 16
   %1 = load ptr, ptr %opaque2, align 8
   tail call void %0(ptr noundef %1, ptr noundef nonnull %address) #6
   br label %if.end

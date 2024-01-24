@@ -10,8 +10,6 @@ target triple = "x86_64-unknown-linux-gnu"
 %"class.std::tuple" = type { %"struct.std::_Tuple_impl" }
 %"struct.std::_Tuple_impl" = type { %"struct.std::_Head_base.1" }
 %"struct.std::_Head_base.1" = type { ptr }
-%struct.bio_st = type { ptr, ptr, ptr, i32, i32, i32, i32, i32, i32, ptr, ptr, i64, i64 }
-%struct.timeval = type { i64, i64 }
 
 @_ZN12_GLOBAL__N_121g_packeted_bio_methodE = internal constant %struct.bio_method_st { i32 512, ptr @.str, ptr @_ZN12_GLOBAL__N_113PacketedWriteEP6bio_stPKci, ptr @_ZN12_GLOBAL__N_112PacketedReadEP6bio_stPci, ptr null, ptr null, ptr @_ZN12_GLOBAL__N_112PacketedCtrlEP6bio_stilPv, ptr @_ZN12_GLOBAL__N_111PacketedNewEP6bio_st, ptr @_ZN12_GLOBAL__N_112PacketedFreeEP6bio_st, ptr @_ZN12_GLOBAL__N_120PacketedCallbackCtrlEP6bio_stiPFlS1_iPKcillE }, align 8
 @.str = private unnamed_addr constant [13 x i8] c"packeted bio\00", align 1
@@ -28,7 +26,7 @@ entry:
   br i1 %cmp.i.not, label %_ZNSt10unique_ptrI6bio_st14OpenSSLDeleterIS0_XadL_Z9BIO_vfreeEEEED2Ev.exit, label %if.end
 
 if.end:                                           ; preds = %entry
-  %ptr = getelementptr inbounds %struct.bio_st, ptr %call, i64 0, i32 9
+  %ptr = getelementptr inbounds i8, ptr %call, i64 48
   store ptr %out_timeout, ptr %ptr, align 8
   br label %_ZNSt10unique_ptrI6bio_st14OpenSSLDeleterIS0_XadL_Z9BIO_vfreeEEEED2Ev.exit
 
@@ -43,7 +41,7 @@ declare ptr @BIO_new(ptr noundef) local_unnamed_addr #1
 define internal noundef i32 @_ZN12_GLOBAL__N_113PacketedWriteEP6bio_stPKci(ptr noundef %bio, ptr noundef %in, i32 noundef %inl) #0 {
 entry:
   %header = alloca [5 x i8], align 1
-  %next_bio = getelementptr inbounds %struct.bio_st, ptr %bio, i64 0, i32 10
+  %next_bio = getelementptr inbounds i8, ptr %bio, i64 56
   %0 = load ptr, ptr %next_bio, align 8
   %cmp = icmp eq ptr %0, null
   br i1 %cmp, label %return, label %if.end
@@ -53,18 +51,18 @@ if.end:                                           ; preds = %entry
   store i8 80, ptr %header, align 1
   %shr = lshr i32 %inl, 24
   %conv = trunc i32 %shr to i8
-  %arrayidx1 = getelementptr inbounds [5 x i8], ptr %header, i64 0, i64 1
+  %arrayidx1 = getelementptr inbounds i8, ptr %header, i64 1
   store i8 %conv, ptr %arrayidx1, align 1
   %shr2 = lshr i32 %inl, 16
   %conv4 = trunc i32 %shr2 to i8
-  %arrayidx5 = getelementptr inbounds [5 x i8], ptr %header, i64 0, i64 2
+  %arrayidx5 = getelementptr inbounds i8, ptr %header, i64 2
   store i8 %conv4, ptr %arrayidx5, align 1
   %shr6 = lshr i32 %inl, 8
   %conv8 = trunc i32 %shr6 to i8
-  %arrayidx9 = getelementptr inbounds [5 x i8], ptr %header, i64 0, i64 3
+  %arrayidx9 = getelementptr inbounds i8, ptr %header, i64 3
   store i8 %conv8, ptr %arrayidx9, align 1
   %conv11 = trunc i32 %inl to i8
-  %arrayidx12 = getelementptr inbounds [5 x i8], ptr %header, i64 0, i64 4
+  %arrayidx12 = getelementptr inbounds i8, ptr %header, i64 4
   store i8 %conv11, ptr %arrayidx12, align 1
   %1 = load ptr, ptr %next_bio, align 8
   %call = call i32 @BIO_write(ptr noundef %1, ptr noundef nonnull %header, i32 noundef 5)
@@ -99,7 +97,7 @@ entry:
   %opcode = alloca i8, align 1
   %buf = alloca [8 x i8], align 1
   %len_bytes = alloca [4 x i8], align 1
-  %next_bio = getelementptr inbounds %struct.bio_st, ptr %bio, i64 0, i32 10
+  %next_bio = getelementptr inbounds i8, ptr %bio, i64 56
   %0 = load ptr, ptr %next_bio, align 8
   %cmp = icmp eq ptr %0, null
   br i1 %cmp, label %return, label %if.end
@@ -166,45 +164,45 @@ if.end11:                                         ; preds = %if.end4.i39
   %4 = load i8, ptr %buf, align 1
   %conv12 = zext i8 %4 to i64
   %shl = shl nuw i64 %conv12, 56
-  %arrayidx13 = getelementptr inbounds [8 x i8], ptr %buf, i64 0, i64 1
+  %arrayidx13 = getelementptr inbounds i8, ptr %buf, i64 1
   %5 = load i8, ptr %arrayidx13, align 1
   %conv14 = zext i8 %5 to i64
   %shl15 = shl nuw nsw i64 %conv14, 48
   %or = or disjoint i64 %shl15, %shl
-  %arrayidx16 = getelementptr inbounds [8 x i8], ptr %buf, i64 0, i64 2
+  %arrayidx16 = getelementptr inbounds i8, ptr %buf, i64 2
   %6 = load i8, ptr %arrayidx16, align 1
   %conv17 = zext i8 %6 to i64
   %shl18 = shl nuw nsw i64 %conv17, 40
   %or19 = or disjoint i64 %or, %shl18
-  %arrayidx20 = getelementptr inbounds [8 x i8], ptr %buf, i64 0, i64 3
+  %arrayidx20 = getelementptr inbounds i8, ptr %buf, i64 3
   %7 = load i8, ptr %arrayidx20, align 1
   %conv21 = zext i8 %7 to i64
   %shl22 = shl nuw nsw i64 %conv21, 32
   %or23 = or disjoint i64 %or19, %shl22
-  %arrayidx24 = getelementptr inbounds [8 x i8], ptr %buf, i64 0, i64 4
+  %arrayidx24 = getelementptr inbounds i8, ptr %buf, i64 4
   %8 = load i8, ptr %arrayidx24, align 1
   %conv25 = zext i8 %8 to i64
   %shl26 = shl nuw nsw i64 %conv25, 24
   %or27 = or disjoint i64 %or23, %shl26
-  %arrayidx28 = getelementptr inbounds [8 x i8], ptr %buf, i64 0, i64 5
+  %arrayidx28 = getelementptr inbounds i8, ptr %buf, i64 5
   %9 = load i8, ptr %arrayidx28, align 1
   %conv29 = zext i8 %9 to i64
   %shl30 = shl nuw nsw i64 %conv29, 16
   %or31 = or disjoint i64 %or27, %shl30
-  %arrayidx32 = getelementptr inbounds [8 x i8], ptr %buf, i64 0, i64 6
+  %arrayidx32 = getelementptr inbounds i8, ptr %buf, i64 6
   %10 = load i8, ptr %arrayidx32, align 1
   %conv33 = zext i8 %10 to i64
   %shl34 = shl nuw nsw i64 %conv33, 8
   %or35 = or i64 %or31, %shl34
-  %arrayidx36 = getelementptr inbounds [8 x i8], ptr %buf, i64 0, i64 7
+  %arrayidx36 = getelementptr inbounds i8, ptr %buf, i64 7
   %11 = load i8, ptr %arrayidx36, align 1
   %conv37 = zext i8 %11 to i64
   %or38 = or i64 %or35, %conv37
   %div = udiv i64 %or38, 1000
-  %ptr = getelementptr inbounds %struct.bio_st, ptr %bio, i64 0, i32 9
+  %ptr = getelementptr inbounds i8, ptr %bio, i64 48
   %12 = load ptr, ptr %ptr, align 8
   %rem = urem i64 %div, 1000000
-  %tv_usec = getelementptr inbounds %struct.timeval, ptr %12, i64 0, i32 1
+  %tv_usec = getelementptr inbounds i8, ptr %12, i64 8
   store i64 %rem, ptr %tv_usec, align 8
   %div39 = udiv i64 %or35, 1000000000
   store i64 %div39, ptr %12, align 8
@@ -252,17 +250,17 @@ if.end57:                                         ; preds = %if.end4.i54
   %16 = load i8, ptr %len_bytes, align 1
   %conv59 = zext i8 %16 to i32
   %shl60 = shl nuw i32 %conv59, 24
-  %arrayidx61 = getelementptr inbounds [4 x i8], ptr %len_bytes, i64 0, i64 1
+  %arrayidx61 = getelementptr inbounds i8, ptr %len_bytes, i64 1
   %17 = load i8, ptr %arrayidx61, align 1
   %conv62 = zext i8 %17 to i32
   %shl63 = shl nuw nsw i32 %conv62, 16
   %or64 = or disjoint i32 %shl63, %shl60
-  %arrayidx65 = getelementptr inbounds [4 x i8], ptr %len_bytes, i64 0, i64 2
+  %arrayidx65 = getelementptr inbounds i8, ptr %len_bytes, i64 2
   %18 = load i8, ptr %arrayidx65, align 1
   %conv66 = zext i8 %18 to i32
   %shl67 = shl nuw nsw i32 %conv66, 8
   %or68 = or disjoint i32 %or64, %shl67
-  %arrayidx69 = getelementptr inbounds [4 x i8], ptr %len_bytes, i64 0, i64 3
+  %arrayidx69 = getelementptr inbounds i8, ptr %len_bytes, i64 3
   %19 = load i8, ptr %arrayidx69, align 1
   %conv70 = zext i8 %19 to i32
   %or71 = or disjoint i32 %or68, %conv70
@@ -313,7 +311,7 @@ return:                                           ; preds = %if.end57, %if.end11
 ; Function Attrs: mustprogress uwtable
 define internal noundef i64 @_ZN12_GLOBAL__N_112PacketedCtrlEP6bio_stilPv(ptr noundef %bio, i32 noundef %cmd, i64 noundef %num, ptr noundef %ptr) #0 {
 entry:
-  %next_bio = getelementptr inbounds %struct.bio_st, ptr %bio, i64 0, i32 10
+  %next_bio = getelementptr inbounds i8, ptr %bio, i64 56
   %0 = load ptr, ptr %next_bio, align 8
   %cmp = icmp eq ptr %0, null
   br i1 %cmp, label %return, label %if.end
@@ -335,7 +333,7 @@ return:                                           ; preds = %entry, %if.end
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
 define internal noundef i32 @_ZN12_GLOBAL__N_111PacketedNewEP6bio_st(ptr nocapture noundef writeonly %bio) #2 {
 entry:
-  %init = getelementptr inbounds %struct.bio_st, ptr %bio, i64 0, i32 3
+  %init = getelementptr inbounds i8, ptr %bio, i64 24
   store i32 1, ptr %init, align 8
   ret i32 1
 }
@@ -347,7 +345,7 @@ entry:
   br i1 %cmp, label %return, label %if.end
 
 if.end:                                           ; preds = %entry
-  %init = getelementptr inbounds %struct.bio_st, ptr %bio, i64 0, i32 3
+  %init = getelementptr inbounds i8, ptr %bio, i64 24
   store i32 0, ptr %init, align 8
   br label %return
 
@@ -359,7 +357,7 @@ return:                                           ; preds = %entry, %if.end
 ; Function Attrs: mustprogress uwtable
 define internal noundef i64 @_ZN12_GLOBAL__N_120PacketedCallbackCtrlEP6bio_stiPFlS1_iPKcillE(ptr nocapture noundef readonly %bio, i32 noundef %cmd, ptr noundef %fp) #0 {
 entry:
-  %next_bio = getelementptr inbounds %struct.bio_st, ptr %bio, i64 0, i32 10
+  %next_bio = getelementptr inbounds i8, ptr %bio, i64 56
   %0 = load ptr, ptr %next_bio, align 8
   %cmp = icmp eq ptr %0, null
   br i1 %cmp, label %return, label %if.end

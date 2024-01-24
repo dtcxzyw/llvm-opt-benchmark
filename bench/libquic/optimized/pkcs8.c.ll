@@ -5,19 +5,11 @@ target triple = "x86_64-unknown-linux-gnu"
 
 %struct.ASN1_ITEM_st = type opaque
 %struct.pbe_suite = type { i32, ptr, ptr, ptr, i32 }
-%struct.X509_sig_st = type { ptr, ptr }
-%struct.asn1_string_st = type { i32, i32, ptr, i64 }
 %struct.cbs_st = type { ptr, i64 }
 %struct.cbb_st = type { ptr, ptr, i64, i8, i8, i8 }
 %struct.pkcs12_context = type { ptr, ptr, ptr, i64 }
 %struct.env_md_ctx_st = type { ptr, ptr, ptr, ptr }
-%struct.pkcs12_st = type { ptr, i64 }
-%struct.buf_mem_st = type { i64, ptr, i64 }
-%struct.asn1_type_st = type { i32, %union.anon }
-%union.anon = type { ptr }
-%struct.PBEPARAM_st = type { ptr, ptr }
 %struct.evp_cipher_ctx_st = type { ptr, ptr, ptr, i32, i32, i32, [16 x i8], [16 x i8], [32 x i8], i32, i32, i32, i32, [32 x i8] }
-%struct.X509_algor_st = type { ptr, ptr }
 
 @PKCS8_PRIV_KEY_INFO_it = external constant %struct.ASN1_ITEM_st, align 1
 @.str = private unnamed_addr constant [124 x i8] c"generated/home/dtcxzyw/WorkSpace/Projects/compilers/llvm-opt-benchmark/bench/libquic/libquic/boringssl/crypto/pkcs8/pkcs8.c\00", align 1
@@ -101,7 +93,10 @@ for.body.i:                                       ; preds = %for.cond.i, %if.end
   br i1 %cmp3.i, label %land.lhs.true, label %for.cond.i
 
 land.lhs.true:                                    ; preds = %for.body.i
-  %tobool.not = icmp eq i64 %indvars.iv.i, 3
+  %flags = getelementptr inbounds i8, ptr %arrayidx.i, i64 32
+  %1 = load i32, ptr %flags, align 8
+  %and = and i32 %1, 1
+  %tobool.not = icmp eq i32 %and, 0
   br i1 %tobool.not, label %if.else19, label %if.then13
 
 if.then13:                                        ; preds = %land.lhs.true
@@ -126,10 +121,10 @@ for.body.i15:                                     ; preds = %for.cond.preheader.
   store i8 0, ptr %arrayidx.i16, align 1
   %shr.i = lshr exact i64 %i.017.i, 1
   %arrayidx5.i = getelementptr inbounds i8, ptr %pass, i64 %shr.i
-  %1 = load i8, ptr %arrayidx5.i, align 1
+  %2 = load i8, ptr %arrayidx5.i, align 1
   %add6.i = or disjoint i64 %i.017.i, 1
   %arrayidx7.i = getelementptr inbounds i8, ptr %call.i, i64 %add6.i
-  store i8 %1, ptr %arrayidx7.i, align 1
+  store i8 %2, ptr %arrayidx7.i, align 1
   %add8.i = add nuw i64 %i.017.i, 2
   %cmp4.i = icmp ult i64 %add8.i, %mul.i
   br i1 %cmp4.i, label %for.body.i15, label %ascii_to_ucs2.exit, !llvm.loop !10
@@ -177,7 +172,7 @@ entry:
   %p.i = alloca ptr, align 8
   %out_len.i = alloca i64, align 8
   %0 = load ptr, ptr %pkcs8, align 8
-  %digest = getelementptr inbounds %struct.X509_sig_st, ptr %pkcs8, i64 0, i32 1
+  %digest = getelementptr inbounds i8, ptr %pkcs8, i64 8
   %1 = load ptr, ptr %digest, align 8
   %.val = load i32, ptr %1, align 8
   %2 = getelementptr i8, ptr %1, i64 8
@@ -291,7 +286,7 @@ if.end8:                                          ; preds = %if.end6
   %0 = load ptr, ptr %call, align 8
   tail call void @X509_ALGOR_free(ptr noundef %0) #12
   store ptr %pbe.0, ptr %call, align 8
-  %digest = getelementptr inbounds %struct.X509_sig_st, ptr %call, i64 0, i32 1
+  %digest = getelementptr inbounds i8, ptr %call, i64 8
   %1 = load ptr, ptr %digest, align 8
   tail call void @ASN1_STRING_free(ptr noundef %1) #12
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %in.i)
@@ -317,7 +312,7 @@ if.then2.i:                                       ; preds = %if.end.i
 
 if.end3.i:                                        ; preds = %if.end.i
   %conv.i = sext i32 %call1.i to i64
-  %data.i = getelementptr inbounds %struct.asn1_string_st, ptr %call.i, i64 0, i32 2
+  %data.i = getelementptr inbounds i8, ptr %call.i, i64 8
   %call4.i = call fastcc i32 @pbe_crypt(ptr noundef nonnull %pbe.0, ptr noundef %pass_raw, i64 noundef %pass_raw_len, ptr noundef nonnull %2, i64 noundef %conv.i, ptr noundef nonnull %data.i, ptr noundef nonnull %crypt_len.i, i32 noundef 1), !range !7
   %tobool5.not.i = icmp eq i32 %call4.i, 0
   br i1 %tobool5.not.i, label %if.then6.i, label %pkcs12_item_i2d_encrypt.exit
@@ -633,7 +628,7 @@ if.then43:                                        ; preds = %if.end40
 
 if.end44:                                         ; preds = %if.end40
   store ptr %out_key, ptr %ctx, align 8
-  %out_certs46 = getelementptr inbounds %struct.pkcs12_context, ptr %ctx, i64 0, i32 1
+  %out_certs46 = getelementptr inbounds i8, ptr %ctx, i64 8
   store ptr %out_certs, ptr %out_certs46, align 8
   %tobool47.not = icmp eq ptr %password, null
   br i1 %tobool47.not, label %if.end44.split, label %cond.end
@@ -644,8 +639,8 @@ if.end44.split:                                   ; preds = %if.end44
   br i1 %cmp1.i, label %if.then52, label %cond.end.thread25
 
 cond.end.thread25:                                ; preds = %if.end44.split
-  %password_len20 = getelementptr inbounds %struct.pkcs12_context, ptr %ctx, i64 0, i32 3
-  %password4919 = getelementptr inbounds %struct.pkcs12_context, ptr %ctx, i64 0, i32 2
+  %password_len20 = getelementptr inbounds i8, ptr %ctx, i64 24
+  %password4919 = getelementptr inbounds i8, ptr %ctx, i64 16
   store i8 0, ptr %call.i, align 1
   %arrayidx12.i = getelementptr inbounds i8, ptr %call.i, i64 1
   store i8 0, ptr %arrayidx12.i, align 1
@@ -655,8 +650,8 @@ cond.end.thread25:                                ; preds = %if.end44.split
 
 cond.end:                                         ; preds = %if.end44
   %call48 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %password) #13
-  %password4916 = getelementptr inbounds %struct.pkcs12_context, ptr %ctx, i64 0, i32 2
-  %password_len17 = getelementptr inbounds %struct.pkcs12_context, ptr %ctx, i64 0, i32 3
+  %password4916 = getelementptr inbounds i8, ptr %ctx, i64 16
+  %password_len17 = getelementptr inbounds i8, ptr %ctx, i64 24
   %call5018 = call fastcc i32 @ascii_to_ucs2(ptr noundef nonnull %password, i64 noundef %call48, ptr noundef nonnull %password4916, ptr noundef nonnull %password_len17), !range !7
   %tobool51.not = icmp eq i32 %call5018, 0
   br i1 %tobool51.not, label %if.then52, label %if.end53
@@ -769,7 +764,7 @@ if.end111:                                        ; preds = %if.end105
 err:                                              ; preds = %if.end111, %if.end95, %if.end86, %if.then110, %if.then85, %if.then77, %if.then68, %if.then52, %if.then43, %if.then39, %if.then35, %if.then28, %if.then24, %if.then20, %if.then16, %if.then13
   %tobool117.not = phi i1 [ true, %if.then13 ], [ true, %if.then16 ], [ true, %if.then24 ], [ true, %if.then39 ], [ true, %if.then77 ], [ true, %if.then85 ], [ true, %if.end95 ], [ true, %if.then110 ], [ true, %if.end86 ], [ true, %if.then68 ], [ true, %if.then52 ], [ true, %if.then43 ], [ true, %if.then35 ], [ true, %if.then28 ], [ true, %if.then20 ], [ %tobool113.not, %if.end111 ]
   %ret.0 = phi i32 [ 0, %if.then13 ], [ 0, %if.then16 ], [ 0, %if.then24 ], [ 0, %if.then39 ], [ 0, %if.then77 ], [ 0, %if.then85 ], [ 0, %if.end95 ], [ 0, %if.then110 ], [ 0, %if.end86 ], [ 0, %if.then68 ], [ 0, %if.then52 ], [ 0, %if.then43 ], [ 0, %if.then35 ], [ 0, %if.then28 ], [ 0, %if.then20 ], [ %spec.select22, %if.end111 ]
-  %password116 = getelementptr inbounds %struct.pkcs12_context, ptr %ctx, i64 0, i32 2
+  %password116 = getelementptr inbounds i8, ptr %ctx, i64 16
   %10 = load ptr, ptr %password116, align 8
   call void @free(ptr noundef %10) #12
   %11 = load ptr, ptr %der_bytes, align 8
@@ -1150,9 +1145,9 @@ if.end7:                                          ; preds = %if.else, %if.then4
   br i1 %tobool9.not, label %if.then10, label %while.cond.preheader
 
 while.cond.preheader:                             ; preds = %if.end7
-  %out_certs.i = getelementptr inbounds %struct.pkcs12_context, ptr %ctx, i64 0, i32 1
-  %password80.i = getelementptr inbounds %struct.pkcs12_context, ptr %ctx, i64 0, i32 2
-  %password_len81.i = getelementptr inbounds %struct.pkcs12_context, ptr %ctx, i64 0, i32 3
+  %out_certs.i = getelementptr inbounds i8, ptr %ctx, i64 8
+  %password80.i = getelementptr inbounds i8, ptr %ctx, i64 16
+  %password_len81.i = getelementptr inbounds i8, ptr %ctx, i64 24
   %add55.i = add nuw nsw i32 %depth, 2
   br label %while.cond
 
@@ -1545,7 +1540,7 @@ if.then5:                                         ; preds = %if.end
 if.end6:                                          ; preds = %if.end
   %0 = load ptr, ptr %ber_bytes, align 8
   tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %call1, ptr align 1 %0, i64 %ber_len, i1 false)
-  %ber_len8 = getelementptr inbounds %struct.pkcs12_st, ptr %call, i64 0, i32 1
+  %ber_len8 = getelementptr inbounds i8, ptr %call, i64 8
   store i64 %ber_len, ptr %ber_len8, align 8
   %add.ptr = getelementptr inbounds i8, ptr %0, i64 %ber_len
   store ptr %add.ptr, ptr %ber_bytes, align 8
@@ -1607,7 +1602,7 @@ if.end:                                           ; preds = %entry
   br i1 %cmp2, label %out, label %for.cond.preheader
 
 for.cond.preheader:                               ; preds = %if.end
-  %data = getelementptr inbounds %struct.buf_mem_st, ptr %call, i64 0, i32 1
+  %data = getelementptr inbounds i8, ptr %call, i64 8
   %0 = load ptr, ptr %data, align 8
   %1 = load i64, ptr %call, align 8
   %conv26 = trunc i64 %1 to i32
@@ -1675,7 +1670,7 @@ if.then5.i:                                       ; preds = %if.end.i
 
 if.end6.i:                                        ; preds = %if.end.i
   tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %call1.i, ptr align 1 %5, i64 %used.024, i1 false)
-  %ber_len8.i = getelementptr inbounds %struct.pkcs12_st, ptr %call.i, i64 0, i32 1
+  %ber_len8.i = getelementptr inbounds i8, ptr %call.i, i64 8
   store i64 %used.024, ptr %ber_len8.i, align 8
   %tobool9.not.i = icmp eq ptr %out_p12, null
   br i1 %tobool9.not.i, label %out, label %if.then10.i
@@ -1759,7 +1754,7 @@ if.end6:                                          ; preds = %if.then2, %if.end
   %tobool.not.not16 = phi i1 [ false, %if.end ], [ true, %if.then2 ]
   %ca_certs.1 = phi ptr [ %0, %if.end ], [ %call, %if.then2 ]
   %1 = load ptr, ptr %p12, align 8
-  %ber_len = getelementptr inbounds %struct.pkcs12_st, ptr %p12, i64 0, i32 1
+  %ber_len = getelementptr inbounds i8, ptr %p12, i64 8
   %2 = load i64, ptr %ber_len, align 8
   call void @CBS_init(ptr noundef nonnull %ber_bytes, ptr noundef %1, i64 noundef %2) #12
   %call8 = call i32 @PKCS12_get_key_and_certs(ptr noundef %out_pkey, ptr noundef nonnull %ca_certs.1, ptr noundef nonnull %ber_bytes, ptr noundef %password), !range !7
@@ -1885,7 +1880,7 @@ lor.lhs.false:                                    ; preds = %entry
   br i1 %cmp1.not, label %lor.lhs.false2, label %if.then
 
 lor.lhs.false2:                                   ; preds = %lor.lhs.false
-  %value = getelementptr inbounds %struct.asn1_type_st, ptr %param, i64 0, i32 1
+  %value = getelementptr inbounds i8, ptr %param, i64 8
   %1 = load ptr, ptr %value, align 8
   %cmp3 = icmp eq ptr %1, null
   br i1 %cmp3, label %if.then, label %if.end
@@ -1895,7 +1890,7 @@ if.then:                                          ; preds = %lor.lhs.false2, %lo
   br label %return
 
 if.end:                                           ; preds = %lor.lhs.false2
-  %data = getelementptr inbounds %struct.asn1_string_st, ptr %1, i64 0, i32 2
+  %data = getelementptr inbounds i8, ptr %1, i64 8
   %2 = load ptr, ptr %data, align 8
   store ptr %2, ptr %pbuf, align 8
   %3 = load i32, ptr %1, align 8
@@ -1909,7 +1904,7 @@ if.then8:                                         ; preds = %if.end
   br label %return
 
 if.end9:                                          ; preds = %if.end
-  %iter = getelementptr inbounds %struct.PBEPARAM_st, ptr %call, i64 0, i32 1
+  %iter = getelementptr inbounds i8, ptr %call, i64 8
   %4 = load ptr, ptr %iter, align 8
   %tobool.not = icmp eq ptr %4, null
   br i1 %tobool.not, label %if.end14, label %if.else
@@ -1922,7 +1917,7 @@ if.else:                                          ; preds = %if.end9
 if.end14:                                         ; preds = %if.end9, %if.else
   %iterations.0 = phi i32 [ %conv13, %if.else ], [ 1, %if.end9 ]
   %5 = load ptr, ptr %call, align 8
-  %data16 = getelementptr inbounds %struct.asn1_string_st, ptr %5, i64 0, i32 2
+  %data16 = getelementptr inbounds i8, ptr %5, i64 8
   %6 = load ptr, ptr %data16, align 8
   %7 = load i32, ptr %5, align 8
   %conv19 = sext i32 %7 to i64
@@ -1987,7 +1982,7 @@ entry:
   %ctx = alloca %struct.evp_cipher_ctx_st, align 8
   call void @EVP_CIPHER_CTX_init(ptr noundef nonnull %ctx) #12
   %0 = load ptr, ptr %algor, align 8
-  %parameter = getelementptr inbounds %struct.X509_algor_st, ptr %algor, i64 0, i32 1
+  %parameter = getelementptr inbounds i8, ptr %algor, i64 8
   %1 = load ptr, ptr %parameter, align 8
   call void @llvm.lifetime.start.p0(i64 80, ptr nonnull %obj_str.i)
   %call.i = call i32 @OBJ_obj2nid(ptr noundef %0) #12
@@ -2023,23 +2018,28 @@ if.end.i:                                         ; preds = %if.else.i, %if.then
   br label %if.then
 
 if.end7.i:                                        ; preds = %for.body.i.i
-  %cmp8.i = icmp eq i64 %indvars.iv.i.i, 3
-  br i1 %cmp8.i, label %if.end25.i, label %if.else10.i
+  %cipher_func.i = getelementptr inbounds i8, ptr %arrayidx.i.i, i64 8
+  %3 = load ptr, ptr %cipher_func.i, align 8
+  %cmp8.i = icmp eq ptr %3, null
+  br i1 %cmp8.i, label %if.end16.i, label %if.else10.i
 
 if.else10.i:                                      ; preds = %if.end7.i
-  %cipher_func.i = getelementptr inbounds [4 x %struct.pbe_suite], ptr @kBuiltinPBE, i64 0, i64 %indvars.iv.i.i, i32 1
-  %3 = load ptr, ptr %cipher_func.i, align 8
   %call12.i = call ptr %3() #12
   %tobool13.not.i = icmp eq ptr %call12.i, null
-  br i1 %tobool13.not.i, label %if.then14.i, label %if.else19.i
+  br i1 %tobool13.not.i, label %if.then14.i, label %if.end16.i
 
 if.then14.i:                                      ; preds = %if.else10.i
   call void @ERR_put_error(i32 noundef 19, i32 noundef 0, i32 noundef 120, ptr noundef nonnull @.str, i32 noundef 389) #12
   br label %if.then
 
-if.else19.i:                                      ; preds = %if.else10.i
-  %md_func.i = getelementptr inbounds [4 x %struct.pbe_suite], ptr @kBuiltinPBE, i64 0, i64 %indvars.iv.i.i, i32 2
+if.end16.i:                                       ; preds = %if.else10.i, %if.end7.i
+  %cipher.0.i = phi ptr [ %call12.i, %if.else10.i ], [ null, %if.end7.i ]
+  %md_func.i = getelementptr inbounds i8, ptr %arrayidx.i.i, i64 16
   %4 = load ptr, ptr %md_func.i, align 8
+  %cmp17.i = icmp eq ptr %4, null
+  br i1 %cmp17.i, label %if.end25.i, label %if.else19.i
+
+if.else19.i:                                      ; preds = %if.end16.i
   %call21.i = call ptr %4() #12
   %tobool22.not.i = icmp eq ptr %call21.i, null
   br i1 %tobool22.not.i, label %if.then23.i, label %if.end25.i
@@ -2048,12 +2048,11 @@ if.then23.i:                                      ; preds = %if.else19.i
   call void @ERR_put_error(i32 noundef 19, i32 noundef 0, i32 noundef 122, ptr noundef nonnull @.str, i32 noundef 399) #12
   br label %if.then
 
-if.end25.i:                                       ; preds = %if.else19.i, %if.end7.i
-  %cipher.016.i = phi ptr [ %call12.i, %if.else19.i ], [ null, %if.end7.i ]
-  %md.0.i = phi ptr [ %call21.i, %if.else19.i ], [ null, %if.end7.i ]
-  %keygen.i = getelementptr inbounds [4 x %struct.pbe_suite], ptr @kBuiltinPBE, i64 0, i64 %indvars.iv.i.i, i32 3
+if.end25.i:                                       ; preds = %if.else19.i, %if.end16.i
+  %md.0.i = phi ptr [ %call21.i, %if.else19.i ], [ null, %if.end16.i ]
+  %keygen.i = getelementptr inbounds i8, ptr %arrayidx.i.i, i64 24
   %5 = load ptr, ptr %keygen.i, align 8
-  %call26.i = call i32 %5(ptr noundef nonnull %ctx, ptr noundef %pass_raw, i64 noundef %pass_raw_len, ptr noundef %1, ptr noundef %cipher.016.i, ptr noundef %md.0.i, i32 noundef %is_encrypt) #12
+  %call26.i = call i32 %5(ptr noundef nonnull %ctx, ptr noundef %pass_raw, i64 noundef %pass_raw_len, ptr noundef %1, ptr noundef %cipher.0.i, ptr noundef %md.0.i, i32 noundef %is_encrypt) #12
   %tobool27.not.i = icmp eq i32 %call26.i, 0
   br i1 %tobool27.not.i, label %if.then28.i, label %if.end
 

@@ -3,8 +3,6 @@ source_filename = "bench/assimp/original/FBXBinaryTokenizer.cpp.ll"
 target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:128-n8:16:32:64-S128"
 target triple = "x86_64-unknown-linux-gnu"
 
-%"class.Assimp::FBX::Token" = type <{ ptr, ptr, i32, [4 x i8], %union.anon, i32, [4 x i8] }>
-%union.anon = type { i64 }
 %"class.std::__cxx11::basic_string" = type { %"struct.std::__cxx11::basic_string<char>::_Alloc_hider", i64, %union.anon.0 }
 %"struct.std::__cxx11::basic_string<char>::_Alloc_hider" = type { ptr }
 %union.anon.0 = type { i64, [8 x i8] }
@@ -18,12 +16,6 @@ target triple = "x86_64-unknown-linux-gnu"
 %"class.std::basic_ios" = type { %"class.std::ios_base", ptr, i8, i8, ptr, ptr, ptr, ptr }
 %"class.std::ios_base" = type { ptr, i64, i64, i32, i32, i32, ptr, %"struct.std::ios_base::_Words", [8 x %"struct.std::ios_base::_Words"], i32, ptr, %"class.std::locale" }
 %"struct.std::ios_base::_Words" = type { ptr, i64 }
-%"struct.std::_Vector_base<const Assimp::FBX::Token *, std::allocator<const Assimp::FBX::Token *>>::_Vector_impl_data" = type { ptr, ptr, ptr }
-%"class.Assimp::StackAllocator" = type { i64, i64, %"class.std::vector.4" }
-%"class.std::vector.4" = type { %"struct.std::_Vector_base.5" }
-%"struct.std::_Vector_base.5" = type { %"struct.std::_Vector_base<unsigned char *, std::allocator<unsigned char *>>::_Vector_impl" }
-%"struct.std::_Vector_base<unsigned char *, std::allocator<unsigned char *>>::_Vector_impl" = type { %"struct.std::_Vector_base<unsigned char *, std::allocator<unsigned char *>>::_Vector_impl_data" }
-%"struct.std::_Vector_base<unsigned char *, std::allocator<unsigned char *>>::_Vector_impl_data" = type { ptr, ptr, ptr }
 %struct._Guard = type { ptr }
 
 $_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_ = comdat any
@@ -118,13 +110,13 @@ $_ZTV17DeadlyImportError = comdat any
 define hidden void @_ZN6Assimp3FBX5TokenC2EPKcS3_NS0_9TokenTypeEm(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(36) %this, ptr noundef %sbegin, ptr noundef %send, i32 noundef %type, i64 noundef %offset) unnamed_addr #0 align 2 {
 entry:
   store ptr %sbegin, ptr %this, align 8
-  %send3 = getelementptr inbounds %"class.Assimp::FBX::Token", ptr %this, i64 0, i32 1
+  %send3 = getelementptr inbounds i8, ptr %this, i64 8
   store ptr %send, ptr %send3, align 8
-  %type4 = getelementptr inbounds %"class.Assimp::FBX::Token", ptr %this, i64 0, i32 2
+  %type4 = getelementptr inbounds i8, ptr %this, i64 16
   store i32 %type, ptr %type4, align 8
-  %0 = getelementptr inbounds %"class.Assimp::FBX::Token", ptr %this, i64 0, i32 4
+  %0 = getelementptr inbounds i8, ptr %this, i64 24
   store i64 %offset, ptr %0, align 8
-  %column = getelementptr inbounds %"class.Assimp::FBX::Token", ptr %this, i64 0, i32 5
+  %column = getelementptr inbounds i8, ptr %this, i64 32
   store i32 -1, ptr %column, align 8
   ret void
 }
@@ -253,7 +245,7 @@ if.then41:                                        ; preds = %catch
 
 invoke.cont44:                                    ; preds = %if.then41
   %vtable = load ptr, ptr %10, align 8
-  %vfn = getelementptr inbounds ptr, ptr %vtable, i64 2
+  %vfn = getelementptr inbounds i8, ptr %vtable, i64 16
   %12 = load ptr, ptr %vfn, align 8
   %call46 = call noundef ptr %12(ptr noundef nonnull align 8 dereferenceable(16) %10) #15
   store ptr %call46, ptr %ref.tmp45, align 8
@@ -850,17 +842,17 @@ cond.end35:                                       ; preds = %_ZN6Assimp3FBX12_GL
   %sub.ptr.lhs.cast.i200 = ptrtoint ptr %29 to i64
   %sub.ptr.sub.i202 = sub i64 %sub.ptr.lhs.cast.i200, %sub.ptr.rhs.cast.i
   store ptr %27, ptr %call39, align 8
-  %send3.i = getelementptr inbounds %"class.Assimp::FBX::Token", ptr %call39, i64 0, i32 1
+  %send3.i = getelementptr inbounds i8, ptr %call39, i64 8
   store ptr %28, ptr %send3.i, align 8
-  %type4.i = getelementptr inbounds %"class.Assimp::FBX::Token", ptr %call39, i64 0, i32 2
+  %type4.i = getelementptr inbounds i8, ptr %call39, i64 16
   store i32 5, ptr %type4.i, align 8
-  %30 = getelementptr inbounds %"class.Assimp::FBX::Token", ptr %call39, i64 0, i32 4
+  %30 = getelementptr inbounds i8, ptr %call39, i64 24
   store i64 %sub.ptr.sub.i202, ptr %30, align 8
-  %column.i = getelementptr inbounds %"class.Assimp::FBX::Token", ptr %call39, i64 0, i32 5
+  %column.i = getelementptr inbounds i8, ptr %call39, i64 32
   store i32 -1, ptr %column.i, align 8
-  %_M_finish.i.i = getelementptr inbounds %"struct.std::_Vector_base<const Assimp::FBX::Token *, std::allocator<const Assimp::FBX::Token *>>::_Vector_impl_data", ptr %output_tokens, i64 0, i32 1
+  %_M_finish.i.i = getelementptr inbounds i8, ptr %output_tokens, i64 8
   %31 = load ptr, ptr %_M_finish.i.i, align 8
-  %_M_end_of_storage.i.i = getelementptr inbounds %"struct.std::_Vector_base<const Assimp::FBX::Token *, std::allocator<const Assimp::FBX::Token *>>::_Vector_impl_data", ptr %output_tokens, i64 0, i32 2
+  %_M_end_of_storage.i.i = getelementptr inbounds i8, ptr %output_tokens, i64 16
   %32 = load ptr, ptr %_M_end_of_storage.i.i, align 8
   %cmp.not.i.i = icmp eq ptr %31, %32
   br i1 %cmp.not.i.i, label %if.else.i.i, label %if.then.i.i
@@ -868,7 +860,7 @@ cond.end35:                                       ; preds = %_ZN6Assimp3FBX12_GL
 if.then.i.i:                                      ; preds = %cond.end35
   store ptr %call39, ptr %31, align 8
   %33 = load ptr, ptr %_M_finish.i.i, align 8
-  %incdec.ptr.i.i = getelementptr inbounds ptr, ptr %33, i64 1
+  %incdec.ptr.i.i = getelementptr inbounds i8, ptr %33, i64 8
   store ptr %incdec.ptr.i.i, ptr %_M_finish.i.i, align 8
   br label %_ZNSt6vectorIPKN6Assimp3FBX5TokenESaIS4_EE9push_backEOS4_.exit
 
@@ -912,7 +904,7 @@ if.then.i.i.i.i.i.i:                              ; preds = %_ZNSt12_Vector_base
 
 _ZNSt6vectorIPKN6Assimp3FBX5TokenESaIS4_EE11_S_relocateEPS4_S7_S7_RS5_.exit17.i.i.i: ; preds = %if.then.i.i.i.i.i.i, %_ZNSt12_Vector_baseIPKN6Assimp3FBX5TokenESaIS4_EE11_M_allocateEm.exit.i.i.i
   %add.ptr.i.i.i.i.i.i = getelementptr inbounds i8, ptr %cond.i10.i.i.i, i64 %sub.ptr.sub.i.i.i.i.i
-  %incdec.ptr.i.i.i = getelementptr inbounds ptr, ptr %add.ptr.i.i.i.i.i.i, i64 1
+  %incdec.ptr.i.i.i = getelementptr inbounds i8, ptr %add.ptr.i.i.i.i.i.i, i64 8
   %tobool.not.i.i.i.i = icmp eq ptr %34, null
   br i1 %tobool.not.i.i.i.i, label %_ZNSt6vectorIPKN6Assimp3FBX5TokenESaIS4_EE17_M_realloc_insertIJS4_EEEvN9__gnu_cxx17__normal_iteratorIPS4_S6_EEDpOT_.exit.i.i, label %if.then.i18.i.i.i
 
@@ -1403,13 +1395,13 @@ _ZN6Assimp3FBX12_GLOBAL__N_18ReadDataERPKcS4_S3_S4_S3_.exit: ; preds = %sw.epilo
   %sub.ptr.lhs.cast.i214 = ptrtoint ptr %75 to i64
   %sub.ptr.sub.i216 = sub i64 %sub.ptr.lhs.cast.i214, %sub.ptr.rhs.cast.i
   store ptr %40, ptr %call56, align 8
-  %send3.i217 = getelementptr inbounds %"class.Assimp::FBX::Token", ptr %call56, i64 0, i32 1
+  %send3.i217 = getelementptr inbounds i8, ptr %call56, i64 8
   store ptr %74, ptr %send3.i217, align 8
-  %type4.i218 = getelementptr inbounds %"class.Assimp::FBX::Token", ptr %call56, i64 0, i32 2
+  %type4.i218 = getelementptr inbounds i8, ptr %call56, i64 16
   store i32 2, ptr %type4.i218, align 8
-  %76 = getelementptr inbounds %"class.Assimp::FBX::Token", ptr %call56, i64 0, i32 4
+  %76 = getelementptr inbounds i8, ptr %call56, i64 24
   store i64 %sub.ptr.sub.i216, ptr %76, align 8
-  %column.i219 = getelementptr inbounds %"class.Assimp::FBX::Token", ptr %call56, i64 0, i32 5
+  %column.i219 = getelementptr inbounds i8, ptr %call56, i64 32
   store i32 -1, ptr %column.i219, align 8
   %77 = load ptr, ptr %_M_finish.i.i, align 8
   %78 = load ptr, ptr %_M_end_of_storage.i.i, align 8
@@ -1419,7 +1411,7 @@ _ZN6Assimp3FBX12_GLOBAL__N_18ReadDataERPKcS4_S3_S4_S3_.exit: ; preds = %sw.epilo
 if.then.i.i223:                                   ; preds = %_ZN6Assimp3FBX12_GLOBAL__N_18ReadDataERPKcS4_S3_S4_S3_.exit
   store ptr %call56, ptr %77, align 8
   %79 = load ptr, ptr %_M_finish.i.i, align 8
-  %incdec.ptr.i.i224 = getelementptr inbounds ptr, ptr %79, i64 1
+  %incdec.ptr.i.i224 = getelementptr inbounds i8, ptr %79, i64 8
   store ptr %incdec.ptr.i.i224, ptr %_M_finish.i.i, align 8
   br label %_ZNSt6vectorIPKN6Assimp3FBX5TokenESaIS4_EE9push_backEOS4_.exit253
 
@@ -1463,7 +1455,7 @@ if.then.i.i.i.i.i.i251:                           ; preds = %_ZNSt12_Vector_base
 
 _ZNSt6vectorIPKN6Assimp3FBX5TokenESaIS4_EE11_S_relocateEPS4_S7_S7_RS5_.exit17.i.i.i244: ; preds = %if.then.i.i.i.i.i.i251, %_ZNSt12_Vector_baseIPKN6Assimp3FBX5TokenESaIS4_EE11_M_allocateEm.exit.i.i.i240
   %add.ptr.i.i.i.i.i.i245 = getelementptr inbounds i8, ptr %cond.i10.i.i.i241, i64 %sub.ptr.sub.i.i.i.i.i228
-  %incdec.ptr.i.i.i246 = getelementptr inbounds ptr, ptr %add.ptr.i.i.i.i.i.i245, i64 1
+  %incdec.ptr.i.i.i246 = getelementptr inbounds i8, ptr %add.ptr.i.i.i.i.i.i245, i64 8
   %tobool.not.i.i.i.i247 = icmp eq ptr %80, null
   br i1 %tobool.not.i.i.i.i247, label %_ZNSt6vectorIPKN6Assimp3FBX5TokenESaIS4_EE17_M_realloc_insertIJS4_EEEvN9__gnu_cxx17__normal_iteratorIPS4_S6_EEDpOT_.exit.i.i249, label %if.then.i18.i.i.i248
 
@@ -1489,13 +1481,13 @@ if.then60:                                        ; preds = %_ZNSt6vectorIPKN6As
   %sub.ptr.lhs.cast.i254 = ptrtoint ptr %82 to i64
   %sub.ptr.sub.i256 = sub i64 %sub.ptr.lhs.cast.i254, %sub.ptr.rhs.cast.i
   store ptr %82, ptr %call62, align 8
-  %send3.i257 = getelementptr inbounds %"class.Assimp::FBX::Token", ptr %call62, i64 0, i32 1
+  %send3.i257 = getelementptr inbounds i8, ptr %call62, i64 8
   store ptr %add.ptr63, ptr %send3.i257, align 8
-  %type4.i258 = getelementptr inbounds %"class.Assimp::FBX::Token", ptr %call62, i64 0, i32 2
+  %type4.i258 = getelementptr inbounds i8, ptr %call62, i64 16
   store i32 4, ptr %type4.i258, align 8
-  %83 = getelementptr inbounds %"class.Assimp::FBX::Token", ptr %call62, i64 0, i32 4
+  %83 = getelementptr inbounds i8, ptr %call62, i64 24
   store i64 %sub.ptr.sub.i256, ptr %83, align 8
-  %column.i259 = getelementptr inbounds %"class.Assimp::FBX::Token", ptr %call62, i64 0, i32 5
+  %column.i259 = getelementptr inbounds i8, ptr %call62, i64 32
   store i32 -1, ptr %column.i259, align 8
   %84 = load ptr, ptr %_M_finish.i.i, align 8
   %85 = load ptr, ptr %_M_end_of_storage.i.i, align 8
@@ -1505,7 +1497,7 @@ if.then60:                                        ; preds = %_ZNSt6vectorIPKN6As
 if.then.i.i263:                                   ; preds = %if.then60
   store ptr %call62, ptr %84, align 8
   %86 = load ptr, ptr %_M_finish.i.i, align 8
-  %incdec.ptr.i.i264 = getelementptr inbounds ptr, ptr %86, i64 1
+  %incdec.ptr.i.i264 = getelementptr inbounds i8, ptr %86, i64 8
   store ptr %incdec.ptr.i.i264, ptr %_M_finish.i.i, align 8
   br label %for.inc
 
@@ -1549,7 +1541,7 @@ if.then.i.i.i.i.i.i291:                           ; preds = %_ZNSt12_Vector_base
 
 _ZNSt6vectorIPKN6Assimp3FBX5TokenESaIS4_EE11_S_relocateEPS4_S7_S7_RS5_.exit17.i.i.i284: ; preds = %if.then.i.i.i.i.i.i291, %_ZNSt12_Vector_baseIPKN6Assimp3FBX5TokenESaIS4_EE11_M_allocateEm.exit.i.i.i280
   %add.ptr.i.i.i.i.i.i285 = getelementptr inbounds i8, ptr %cond.i10.i.i.i281, i64 %sub.ptr.sub.i.i.i.i.i268
-  %incdec.ptr.i.i.i286 = getelementptr inbounds ptr, ptr %add.ptr.i.i.i.i.i.i285, i64 1
+  %incdec.ptr.i.i.i286 = getelementptr inbounds i8, ptr %add.ptr.i.i.i.i.i.i285, i64 8
   %tobool.not.i.i.i.i287 = icmp eq ptr %87, null
   br i1 %tobool.not.i.i.i.i287, label %_ZNSt6vectorIPKN6Assimp3FBX5TokenESaIS4_EE17_M_realloc_insertIJS4_EEEvN9__gnu_cxx17__normal_iteratorIPS4_S6_EEDpOT_.exit.i.i289, label %if.then.i18.i.i.i288
 
@@ -1649,13 +1641,13 @@ if.end95:                                         ; preds = %if.then82
   %sub.ptr.lhs.cast.i303 = ptrtoint ptr %96 to i64
   %sub.ptr.sub.i305 = sub i64 %sub.ptr.lhs.cast.i303, %sub.ptr.rhs.cast.i
   store ptr %96, ptr %call97, align 8
-  %send3.i306 = getelementptr inbounds %"class.Assimp::FBX::Token", ptr %call97, i64 0, i32 1
+  %send3.i306 = getelementptr inbounds i8, ptr %call97, i64 8
   store ptr %add.ptr98, ptr %send3.i306, align 8
-  %type4.i307 = getelementptr inbounds %"class.Assimp::FBX::Token", ptr %call97, i64 0, i32 2
+  %type4.i307 = getelementptr inbounds i8, ptr %call97, i64 16
   store i32 0, ptr %type4.i307, align 8
-  %97 = getelementptr inbounds %"class.Assimp::FBX::Token", ptr %call97, i64 0, i32 4
+  %97 = getelementptr inbounds i8, ptr %call97, i64 24
   store i64 %sub.ptr.sub.i305, ptr %97, align 8
-  %column.i308 = getelementptr inbounds %"class.Assimp::FBX::Token", ptr %call97, i64 0, i32 5
+  %column.i308 = getelementptr inbounds i8, ptr %call97, i64 32
   store i32 -1, ptr %column.i308, align 8
   %98 = load ptr, ptr %_M_finish.i.i, align 8
   %99 = load ptr, ptr %_M_end_of_storage.i.i, align 8
@@ -1665,7 +1657,7 @@ if.end95:                                         ; preds = %if.then82
 if.then.i.i312:                                   ; preds = %if.end95
   store ptr %call97, ptr %98, align 8
   %100 = load ptr, ptr %_M_finish.i.i, align 8
-  %incdec.ptr.i.i313 = getelementptr inbounds ptr, ptr %100, i64 1
+  %incdec.ptr.i.i313 = getelementptr inbounds i8, ptr %100, i64 8
   store ptr %incdec.ptr.i.i313, ptr %_M_finish.i.i, align 8
   br label %_ZNSt6vectorIPKN6Assimp3FBX5TokenESaIS4_EE9push_backEOS4_.exit342
 
@@ -1709,7 +1701,7 @@ if.then.i.i.i.i.i.i340:                           ; preds = %_ZNSt12_Vector_base
 
 _ZNSt6vectorIPKN6Assimp3FBX5TokenESaIS4_EE11_S_relocateEPS4_S7_S7_RS5_.exit17.i.i.i333: ; preds = %if.then.i.i.i.i.i.i340, %_ZNSt12_Vector_baseIPKN6Assimp3FBX5TokenESaIS4_EE11_M_allocateEm.exit.i.i.i329
   %add.ptr.i.i.i.i.i.i334 = getelementptr inbounds i8, ptr %cond.i10.i.i.i330, i64 %sub.ptr.sub.i.i.i.i.i317
-  %incdec.ptr.i.i.i335 = getelementptr inbounds ptr, ptr %add.ptr.i.i.i.i.i.i334, i64 1
+  %incdec.ptr.i.i.i335 = getelementptr inbounds i8, ptr %add.ptr.i.i.i.i.i.i334, i64 8
   %tobool.not.i.i.i.i336 = icmp eq ptr %101, null
   br i1 %tobool.not.i.i.i.i336, label %_ZNSt6vectorIPKN6Assimp3FBX5TokenESaIS4_EE17_M_realloc_insertIJS4_EEEvN9__gnu_cxx17__normal_iteratorIPS4_S6_EEDpOT_.exit.i.i338, label %if.then.i18.i.i.i337
 
@@ -1752,13 +1744,13 @@ while.end:                                        ; preds = %while.body, %_ZNSt6
   %sub.ptr.lhs.cast.i346 = ptrtoint ptr %105 to i64
   %sub.ptr.sub.i348 = sub i64 %sub.ptr.lhs.cast.i346, %sub.ptr.rhs.cast.i
   store ptr %105, ptr %call108, align 8
-  %send3.i349 = getelementptr inbounds %"class.Assimp::FBX::Token", ptr %call108, i64 0, i32 1
+  %send3.i349 = getelementptr inbounds i8, ptr %call108, i64 8
   store ptr %add.ptr109, ptr %send3.i349, align 8
-  %type4.i350 = getelementptr inbounds %"class.Assimp::FBX::Token", ptr %call108, i64 0, i32 2
+  %type4.i350 = getelementptr inbounds i8, ptr %call108, i64 16
   store i32 1, ptr %type4.i350, align 8
-  %106 = getelementptr inbounds %"class.Assimp::FBX::Token", ptr %call108, i64 0, i32 4
+  %106 = getelementptr inbounds i8, ptr %call108, i64 24
   store i64 %sub.ptr.sub.i348, ptr %106, align 8
-  %column.i351 = getelementptr inbounds %"class.Assimp::FBX::Token", ptr %call108, i64 0, i32 5
+  %column.i351 = getelementptr inbounds i8, ptr %call108, i64 32
   store i32 -1, ptr %column.i351, align 8
   %107 = load ptr, ptr %_M_finish.i.i, align 8
   %108 = load ptr, ptr %_M_end_of_storage.i.i, align 8
@@ -1768,7 +1760,7 @@ while.end:                                        ; preds = %while.body, %_ZNSt6
 if.then.i.i355:                                   ; preds = %while.end
   store ptr %call108, ptr %107, align 8
   %109 = load ptr, ptr %_M_finish.i.i, align 8
-  %incdec.ptr.i.i356 = getelementptr inbounds ptr, ptr %109, i64 1
+  %incdec.ptr.i.i356 = getelementptr inbounds i8, ptr %109, i64 8
   store ptr %incdec.ptr.i.i356, ptr %_M_finish.i.i, align 8
   br label %_ZNSt6vectorIPKN6Assimp3FBX5TokenESaIS4_EE9push_backEOS4_.exit385
 
@@ -1812,7 +1804,7 @@ if.then.i.i.i.i.i.i383:                           ; preds = %_ZNSt12_Vector_base
 
 _ZNSt6vectorIPKN6Assimp3FBX5TokenESaIS4_EE11_S_relocateEPS4_S7_S7_RS5_.exit17.i.i.i376: ; preds = %if.then.i.i.i.i.i.i383, %_ZNSt12_Vector_baseIPKN6Assimp3FBX5TokenESaIS4_EE11_M_allocateEm.exit.i.i.i372
   %add.ptr.i.i.i.i.i.i377 = getelementptr inbounds i8, ptr %cond.i10.i.i.i373, i64 %sub.ptr.sub.i.i.i.i.i360
-  %incdec.ptr.i.i.i378 = getelementptr inbounds ptr, ptr %add.ptr.i.i.i.i.i.i377, i64 1
+  %incdec.ptr.i.i.i378 = getelementptr inbounds i8, ptr %add.ptr.i.i.i.i.i.i377, i64 8
   %tobool.not.i.i.i.i379 = icmp eq ptr %110, null
   br i1 %tobool.not.i.i.i.i379, label %_ZNSt6vectorIPKN6Assimp3FBX5TokenESaIS4_EE17_M_realloc_insertIJS4_EEEvN9__gnu_cxx17__normal_iteratorIPS4_S6_EEDpOT_.exit.i.i381, label %if.then.i18.i.i.i380
 
@@ -2385,7 +2377,7 @@ if.end38:                                         ; preds = %for.cond, %if.end22
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr hidden noundef ptr @_ZN6Assimp14StackAllocator8AllocateEm(ptr noundef nonnull align 8 dereferenceable(40) %this, i64 noundef %byteSize) local_unnamed_addr #1 comdat align 2 {
 entry:
-  %m_subIndex = getelementptr inbounds %"class.Assimp::StackAllocator", ptr %this, i64 0, i32 1
+  %m_subIndex = getelementptr inbounds i8, ptr %this, i64 8
   %0 = load i64, ptr %m_subIndex, align 8
   %add = add i64 %0, %byteSize
   %1 = load i64, ptr %this, align 8
@@ -2398,10 +2390,10 @@ if.then:                                          ; preds = %entry
   %.sroa.speculated = tail call i64 @llvm.umax.i64(i64 %2, i64 %byteSize)
   store i64 %.sroa.speculated, ptr %this, align 8
   %call6 = tail call noalias noundef nonnull ptr @_Znam(i64 noundef %.sroa.speculated) #19
-  %m_storageBlocks = getelementptr inbounds %"class.Assimp::StackAllocator", ptr %this, i64 0, i32 2
-  %_M_finish.i = getelementptr inbounds %"class.Assimp::StackAllocator", ptr %this, i64 0, i32 2, i32 0, i32 0, i32 0, i32 1
+  %m_storageBlocks = getelementptr inbounds i8, ptr %this, i64 16
+  %_M_finish.i = getelementptr inbounds i8, ptr %this, i64 24
   %3 = load ptr, ptr %_M_finish.i, align 8
-  %_M_end_of_storage.i = getelementptr inbounds %"class.Assimp::StackAllocator", ptr %this, i64 0, i32 2, i32 0, i32 0, i32 0, i32 2
+  %_M_end_of_storage.i = getelementptr inbounds i8, ptr %this, i64 32
   %4 = load ptr, ptr %_M_end_of_storage.i, align 8
   %cmp.not.i = icmp eq ptr %3, %4
   br i1 %cmp.not.i, label %if.else.i, label %if.then.i
@@ -2409,7 +2401,7 @@ if.then:                                          ; preds = %entry
 if.then.i:                                        ; preds = %if.then
   store ptr %call6, ptr %3, align 8
   %5 = load ptr, ptr %_M_finish.i, align 8
-  %incdec.ptr.i = getelementptr inbounds ptr, ptr %5, i64 1
+  %incdec.ptr.i = getelementptr inbounds i8, ptr %5, i64 8
   store ptr %incdec.ptr.i, ptr %_M_finish.i, align 8
   br label %return
 
@@ -2453,7 +2445,7 @@ if.then.i.i.i.i.i:                                ; preds = %_ZNSt12_Vector_base
 
 _ZNSt6vectorIPhSaIS0_EE11_S_relocateEPS0_S3_S3_RS1_.exit17.i.i: ; preds = %if.then.i.i.i.i.i, %_ZNSt12_Vector_baseIPhSaIS0_EE11_M_allocateEm.exit.i.i
   %add.ptr.i.i.i.i.i = getelementptr inbounds i8, ptr %cond.i10.i.i, i64 %sub.ptr.sub.i.i.i.i
-  %incdec.ptr.i.i = getelementptr inbounds ptr, ptr %add.ptr.i.i.i.i.i, i64 1
+  %incdec.ptr.i.i = getelementptr inbounds i8, ptr %add.ptr.i.i.i.i.i, i64 8
   %tobool.not.i.i.i = icmp eq ptr %6, null
   br i1 %tobool.not.i.i.i, label %_ZNSt6vectorIPhSaIS0_EE17_M_realloc_insertIJRS0_EEEvN9__gnu_cxx17__normal_iteratorIPS0_S2_EEDpOT_.exit.i, label %if.then.i18.i.i
 
@@ -2469,9 +2461,9 @@ _ZNSt6vectorIPhSaIS0_EE17_M_realloc_insertIJRS0_EEEvN9__gnu_cxx17__normal_iterat
   br label %return
 
 if.end:                                           ; preds = %entry
-  %_M_finish.i.i = getelementptr inbounds %"class.Assimp::StackAllocator", ptr %this, i64 0, i32 2, i32 0, i32 0, i32 0, i32 1
+  %_M_finish.i.i = getelementptr inbounds i8, ptr %this, i64 24
   %8 = load ptr, ptr %_M_finish.i.i, align 8
-  %add.ptr.i.i4 = getelementptr inbounds ptr, ptr %8, i64 -1
+  %add.ptr.i.i4 = getelementptr inbounds i8, ptr %8, i64 -8
   %9 = load ptr, ptr %add.ptr.i.i4, align 8
   %add.ptr = getelementptr inbounds i8, ptr %9, i64 %0
   br label %return

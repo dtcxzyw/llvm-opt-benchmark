@@ -6,7 +6,6 @@ target triple = "x86_64-unknown-linux-gnu"
 %"class.std::__cxx11::basic_string" = type { %"struct.std::__cxx11::basic_string<char>::_Alloc_hider", i64, %union.anon }
 %"struct.std::__cxx11::basic_string<char>::_Alloc_hider" = type { ptr }
 %union.anon = type { i64, [8 x i8] }
-%struct.hs_expr_ext = type { i64, i64, i64, i64, i32, i32 }
 
 @_ZN12_GLOBAL__N_128_ExpressionParser_trans_keysE = internal constant [83 x i8] c" ehm ehmdit_distance=09 ,}09 ,}amming_distanceaix_offsetn_loengthffset8CHLims{OQVW\00", align 16
 @_ZN12_GLOBAL__N_129_ExpressionParser_key_offsetsE = internal unnamed_addr constant [58 x i8] c"\00\00\04\08\09\0A\0B\0C\0D\0E\0F\10\11\12\13\14\15\17\1C\1F !\22#$%&'()*+,-.0123456789:<=>?@ABCDEFR", align 16
@@ -27,7 +26,7 @@ entry:
   %ref.tmp = alloca %"class.std::__cxx11::basic_string", align 8
   store i32 0, ptr %flags, align 4
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %ext, i8 0, i64 40, i1 false)
-  %max_offset.i = getelementptr inbounds %struct.hs_expr_ext, ptr %ext, i64 0, i32 2
+  %max_offset.i = getelementptr inbounds i8, ptr %ext, i64 16
   store i64 -1, ptr %max_offset.i, align 8
   %tobool.not = icmp eq ptr %must_be_ordered, null
   br i1 %tobool.not, label %if.end, label %if.then
@@ -37,7 +36,7 @@ if.then:                                          ; preds = %entry
   br label %if.end
 
 if.end:                                           ; preds = %if.then, %entry
-  %_M_string_length.i.i = getelementptr inbounds %"class.std::__cxx11::basic_string", ptr %input, i64 0, i32 1
+  %_M_string_length.i.i = getelementptr inbounds i8, ptr %input, i64 8
   %0 = load i64, ptr %_M_string_length.i.i, align 8
   %cmp.i = icmp eq i64 %0, 0
   br i1 %cmp.i, label %return, label %lor.lhs.false
@@ -67,7 +66,7 @@ if.then.i.i:                                      ; preds = %if.end9
 
 invoke.cont4.i.i:                                 ; preds = %if.end9
   %sub = add i64 %call.i, -1
-  %5 = getelementptr inbounds %"class.std::__cxx11::basic_string", ptr %ref.tmp, i64 0, i32 2
+  %5 = getelementptr inbounds i8, ptr %ref.tmp, i64 16
   store ptr %5, ptr %ref.tmp, align 8, !alias.scope !5
   %6 = load ptr, ptr %input, align 8, !noalias !5
   %add.ptr.i.i = getelementptr inbounds i8, ptr %6, i64 1
@@ -103,19 +102,19 @@ if.end.i.i.i.i.i.i:                               ; preds = %if.end.i.i.i
 
 _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6substrEmm.exit: ; preds = %if.end.i.i.i.i.i.i, %if.then.i.i.i.i.i, %if.end.i.i.i
   %10 = load i64, ptr %__dnew.i.i.i, align 8, !noalias !5
-  %_M_string_length.i.i.i.i.i = getelementptr inbounds %"class.std::__cxx11::basic_string", ptr %ref.tmp, i64 0, i32 1
+  %_M_string_length.i.i.i.i.i = getelementptr inbounds i8, ptr %ref.tmp, i64 8
   store i64 %10, ptr %_M_string_length.i.i.i.i.i, align 8, !alias.scope !5
   %11 = load ptr, ptr %ref.tmp, align 8, !alias.scope !5
   %arrayidx.i.i.i.i = getelementptr inbounds i8, ptr %11, i64 %10
   store i8 0, ptr %arrayidx.i.i.i.i, align 1
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %__dnew.i.i.i) #11, !noalias !5
   %12 = load ptr, ptr %expr, align 8
-  %13 = getelementptr inbounds %"class.std::__cxx11::basic_string", ptr %expr, i64 0, i32 2
+  %13 = getelementptr inbounds i8, ptr %expr, i64 16
   %cmp.i.i344 = icmp eq ptr %12, %13
   br i1 %cmp.i.i344, label %invoke.cont12.i, label %invoke.cont12.thread.i
 
 invoke.cont12.i:                                  ; preds = %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6substrEmm.exit
-  %_M_string_length.i.i346 = getelementptr inbounds %"class.std::__cxx11::basic_string", ptr %expr, i64 0, i32 1
+  %_M_string_length.i.i346 = getelementptr inbounds i8, ptr %expr, i64 8
   %14 = load i64, ptr %_M_string_length.i.i346, align 8
   %cmp3.i.i = icmp ult i64 %14, 16
   call void @llvm.assume(i1 %cmp3.i.i)
@@ -152,7 +151,7 @@ if.end.i.i.i345:                                  ; preds = %if.then16.i
 
 if.end24.i:                                       ; preds = %if.end.i.i.i345, %if.then.i63.i, %if.then16.i
   %19 = load i64, ptr %_M_string_length.i.i.i.i.i, align 8
-  %_M_string_length.i.i65.i = getelementptr inbounds %"class.std::__cxx11::basic_string", ptr %expr, i64 0, i32 1
+  %_M_string_length.i.i65.i = getelementptr inbounds i8, ptr %expr, i64 8
   store i64 %19, ptr %_M_string_length.i.i65.i, align 8
   %20 = load ptr, ptr %expr, align 8
   %arrayidx.i.i = getelementptr inbounds i8, ptr %20, i64 %19
@@ -171,7 +170,7 @@ if.end32.thread.i:                                ; preds = %invoke.cont12.i
 if.end32.i:                                       ; preds = %invoke.cont12.thread.i
   %23 = load i64, ptr %13, align 8
   store ptr %16, ptr %expr, align 8
-  %_M_string_length.i72.i = getelementptr inbounds %"class.std::__cxx11::basic_string", ptr %expr, i64 0, i32 1
+  %_M_string_length.i72.i = getelementptr inbounds i8, ptr %expr, i64 8
   %24 = load <2 x i64>, ptr %_M_string_length.i.i.i.i.i, align 8
   store <2 x i64> %24, ptr %_M_string_length.i72.i, align 8
   %tobool35.not.i = icmp eq ptr %12, null
@@ -215,10 +214,10 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit: ; preds = %if.th
   br i1 %cmp16, label %if.then204, label %_resume.preheader
 
 _resume.preheader:                                ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit
-  %hamming_distance = getelementptr inbounds %struct.hs_expr_ext, ptr %ext, i64 0, i32 5
-  %edit_distance = getelementptr inbounds %struct.hs_expr_ext, ptr %ext, i64 0, i32 4
-  %min_length = getelementptr inbounds %struct.hs_expr_ext, ptr %ext, i64 0, i32 3
-  %min_offset = getelementptr inbounds %struct.hs_expr_ext, ptr %ext, i64 0, i32 1
+  %hamming_distance = getelementptr inbounds i8, ptr %ext, i64 36
+  %edit_distance = getelementptr inbounds i8, ptr %ext, i64 32
+  %min_length = getelementptr inbounds i8, ptr %ext, i64 24
+  %min_offset = getelementptr inbounds i8, ptr %ext, i64 8
   br label %_resume
 
 _resume:                                          ; preds = %if.end198, %_resume.preheader

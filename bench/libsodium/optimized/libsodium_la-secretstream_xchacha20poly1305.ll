@@ -3,7 +3,6 @@ source_filename = "bench/libsodium/original/libsodium_la-secretstream_xchacha20p
 target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:128-n8:16:32:64-S128"
 target triple = "x86_64-unknown-linux-gnu"
 
-%struct.crypto_secretstream_xchacha20poly1305_state = type { [32 x i8], [12 x i8], [8 x i8] }
 %struct.crypto_onetimeauth_poly1305_state = type { [256 x i8] }
 
 @_pad0 = internal constant [16 x i8] zeroinitializer, align 16
@@ -22,13 +21,13 @@ define noundef i32 @crypto_secretstream_xchacha20poly1305_init_push(ptr noundef 
 entry:
   tail call void @randombytes_buf(ptr noundef nonnull %out, i64 noundef 24) #7
   %call = tail call i32 @crypto_core_hchacha20(ptr noundef nonnull %state, ptr noundef nonnull %out, ptr noundef nonnull %k, ptr noundef null) #7
-  %nonce.i = getelementptr inbounds %struct.crypto_secretstream_xchacha20poly1305_state, ptr %state, i64 0, i32 1
+  %nonce.i = getelementptr inbounds i8, ptr %state, i64 32
   store i32 1, ptr %nonce.i, align 1
-  %add.ptr = getelementptr %struct.crypto_secretstream_xchacha20poly1305_state, ptr %state, i64 0, i32 1, i64 4
+  %add.ptr = getelementptr i8, ptr %state, i64 36
   %add.ptr3 = getelementptr i8, ptr %out, i64 16
   %0 = load i64, ptr %add.ptr3, align 1
   store i64 %0, ptr %add.ptr, align 1
-  %_pad = getelementptr inbounds %struct.crypto_secretstream_xchacha20poly1305_state, ptr %state, i64 0, i32 2
+  %_pad = getelementptr inbounds i8, ptr %state, i64 44
   store i64 0, ptr %_pad, align 1
   ret i32 0
 }
@@ -45,13 +44,13 @@ declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #3
 define noundef i32 @crypto_secretstream_xchacha20poly1305_init_pull(ptr noundef nonnull %state, ptr noundef nonnull %in, ptr noundef nonnull %k) local_unnamed_addr #0 {
 entry:
   %call = tail call i32 @crypto_core_hchacha20(ptr noundef nonnull %state, ptr noundef nonnull %in, ptr noundef nonnull %k, ptr noundef null) #7
-  %nonce.i = getelementptr inbounds %struct.crypto_secretstream_xchacha20poly1305_state, ptr %state, i64 0, i32 1
+  %nonce.i = getelementptr inbounds i8, ptr %state, i64 32
   store i32 1, ptr %nonce.i, align 1
-  %add.ptr = getelementptr %struct.crypto_secretstream_xchacha20poly1305_state, ptr %state, i64 0, i32 1, i64 4
+  %add.ptr = getelementptr i8, ptr %state, i64 36
   %add.ptr3 = getelementptr i8, ptr %in, i64 16
   %0 = load i64, ptr %add.ptr3, align 1
   store i64 %0, ptr %add.ptr, align 1
-  %_pad = getelementptr inbounds %struct.crypto_secretstream_xchacha20poly1305_state, ptr %state, i64 0, i32 2
+  %_pad = getelementptr inbounds i8, ptr %state, i64 44
   store i64 0, ptr %_pad, align 1
   ret i32 0
 }
@@ -61,11 +60,11 @@ define void @crypto_secretstream_xchacha20poly1305_rekey(ptr noundef %state) loc
 entry:
   %new_key_and_inonce = alloca [40 x i8], align 16
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(32) %new_key_and_inonce, ptr noundef nonnull align 1 dereferenceable(32) %state, i64 32, i1 false)
-  %add.ptr = getelementptr %struct.crypto_secretstream_xchacha20poly1305_state, ptr %state, i64 0, i32 1, i64 4
+  %add.ptr = getelementptr i8, ptr %state, i64 36
   %scevgep = getelementptr inbounds i8, ptr %new_key_and_inonce, i64 32
   %0 = load i64, ptr %add.ptr, align 1
   store i64 %0, ptr %scevgep, align 16
-  %nonce12 = getelementptr inbounds %struct.crypto_secretstream_xchacha20poly1305_state, ptr %state, i64 0, i32 1
+  %nonce12 = getelementptr inbounds i8, ptr %state, i64 32
   %call = call i32 @crypto_stream_chacha20_ietf_xor(ptr noundef nonnull %new_key_and_inonce, ptr noundef nonnull %new_key_and_inonce, i64 noundef 40, ptr noundef nonnull %nonce12, ptr noundef %state) #7
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(32) %state, ptr noundef nonnull align 16 dereferenceable(32) %new_key_and_inonce, i64 32, i1 false)
   %1 = load i64, ptr %scevgep, align 16
@@ -99,7 +98,7 @@ if.then2:                                         ; preds = %if.end
   unreachable
 
 if.end3:                                          ; preds = %if.end
-  %nonce = getelementptr inbounds %struct.crypto_secretstream_xchacha20poly1305_state, ptr %state, i64 0, i32 1
+  %nonce = getelementptr inbounds i8, ptr %state, i64 32
   %call = call i32 @crypto_stream_chacha20_ietf(ptr noundef nonnull %block, i64 noundef 64, ptr noundef nonnull %nonce, ptr noundef nonnull %state) #7
   %call7 = call i32 @crypto_onetimeauth_poly1305_init(ptr noundef nonnull %poly1305_state, ptr noundef nonnull %block) #7
   call void @sodium_memzero(ptr noundef nonnull %block, i64 noundef 64) #7
@@ -126,7 +125,7 @@ if.end3:                                          ; preds = %if.end
   %add.ptr38 = getelementptr i8, ptr %add.ptr, i64 %mlen
   %call39 = call i32 @crypto_onetimeauth_poly1305_final(ptr noundef nonnull %poly1305_state, ptr noundef %add.ptr38) #7
   call void @sodium_memzero(ptr noundef nonnull %poly1305_state, i64 noundef 256) #7
-  %add.ptr42 = getelementptr %struct.crypto_secretstream_xchacha20poly1305_state, ptr %state, i64 0, i32 1, i64 4
+  %add.ptr42 = getelementptr i8, ptr %state, i64 36
   br label %for.body.i
 
 for.body.i:                                       ; preds = %for.body.i, %if.end3
@@ -234,7 +233,7 @@ if.then8:                                         ; preds = %if.end6
   unreachable
 
 if.end9:                                          ; preds = %if.end6
-  %nonce = getelementptr inbounds %struct.crypto_secretstream_xchacha20poly1305_state, ptr %state, i64 0, i32 1
+  %nonce = getelementptr inbounds i8, ptr %state, i64 32
   %call = call i32 @crypto_stream_chacha20_ietf(ptr noundef nonnull %block, i64 noundef 64, ptr noundef nonnull %nonce, ptr noundef nonnull %state) #7
   %call13 = call i32 @crypto_onetimeauth_poly1305_init(ptr noundef nonnull %poly1305_state, ptr noundef nonnull %block) #7
   call void @sodium_memzero(ptr noundef nonnull %block, i64 noundef 64) #7
@@ -273,7 +272,7 @@ if.then48:                                        ; preds = %if.end9
 
 if.end50:                                         ; preds = %if.end9
   %call55 = call i32 @crypto_stream_chacha20_ietf_xor_ic(ptr noundef %m, ptr noundef %add.ptr, i64 noundef %sub, ptr noundef nonnull %nonce, i32 noundef 2, ptr noundef nonnull %state) #7
-  %add.ptr58 = getelementptr %struct.crypto_secretstream_xchacha20poly1305_state, ptr %state, i64 0, i32 1, i64 4
+  %add.ptr58 = getelementptr i8, ptr %state, i64 36
   br label %for.body.i
 
 for.body.i:                                       ; preds = %for.body.i, %if.end50

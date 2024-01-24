@@ -3,9 +3,6 @@ source_filename = "bench/git/original/mem-pool.ll"
 target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:128-n8:16:32:64-S128"
 target triple = "x86_64-unknown-linux-gnu"
 
-%struct.mem_pool = type { ptr, i64, i64 }
-%struct.mp_block = type { ptr, ptr, ptr, [0 x i64] }
-
 @.str = private unnamed_addr constant [27 x i8] c"size_t overflow: %lu + %lu\00", align 1
 @.str.1 = private unnamed_addr constant [27 x i8] c"size_t overflow: %lu * %lu\00", align 1
 
@@ -13,14 +10,14 @@ target triple = "x86_64-unknown-linux-gnu"
 define dso_local void @mem_pool_init(ptr nocapture noundef %pool, i64 noundef %initial_size) local_unnamed_addr #0 {
 entry:
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %pool, i8 0, i64 24, i1 false)
-  %block_alloc = getelementptr inbounds %struct.mem_pool, ptr %pool, i64 0, i32 1
+  %block_alloc = getelementptr inbounds i8, ptr %pool, i64 8
   store i64 1048552, ptr %block_alloc, align 8
   %cmp.not = icmp eq i64 %initial_size, 0
   br i1 %cmp.not, label %if.end, label %if.then
 
 if.then:                                          ; preds = %entry
   %add.i = add i64 %initial_size, 24
-  %pool_alloc.i = getelementptr inbounds %struct.mem_pool, ptr %pool, i64 0, i32 2
+  %pool_alloc.i = getelementptr inbounds i8, ptr %pool, i64 16
   store i64 %add.i, ptr %pool_alloc.i, align 8
   %cmp.i.i = icmp ugt i64 %initial_size, -25
   br i1 %cmp.i.i, label %if.then.i.i, label %mem_pool_alloc_block.exit
@@ -31,11 +28,11 @@ if.then.i.i:                                      ; preds = %if.then
 
 mem_pool_alloc_block.exit:                        ; preds = %if.then
   %call2.i = tail call ptr @xmalloc(i64 noundef %add.i) #11
-  %space.i = getelementptr inbounds %struct.mp_block, ptr %call2.i, i64 0, i32 3
-  %next_free.i = getelementptr inbounds %struct.mp_block, ptr %call2.i, i64 0, i32 1
+  %space.i = getelementptr inbounds i8, ptr %call2.i, i64 24
+  %next_free.i = getelementptr inbounds i8, ptr %call2.i, i64 8
   store ptr %space.i, ptr %next_free.i, align 8
   %add.ptr.i = getelementptr inbounds i8, ptr %space.i, i64 %initial_size
-  %end.i = getelementptr inbounds %struct.mp_block, ptr %call2.i, i64 0, i32 2
+  %end.i = getelementptr inbounds i8, ptr %call2.i, i64 16
   store ptr %add.ptr.i, ptr %end.i, align 8
   %0 = load ptr, ptr %pool, align 8
   store ptr %0, ptr %call2.i, align 8
@@ -76,7 +73,7 @@ while.body:                                       ; preds = %while.body.lr.ph, %
 
 while.end:                                        ; preds = %while.body, %while.body.us, %entry
   store ptr null, ptr %pool, align 8
-  %pool_alloc = getelementptr inbounds %struct.mem_pool, ptr %pool, i64 0, i32 2
+  %pool_alloc = getelementptr inbounds i8, ptr %pool, i64 16
   store i64 0, ptr %pool_alloc, align 8
   ret void
 }
@@ -94,9 +91,9 @@ entry:
   br i1 %tobool.not, label %if.then5, label %land.lhs.true
 
 land.lhs.true:                                    ; preds = %entry
-  %end = getelementptr inbounds %struct.mp_block, ptr %0, i64 0, i32 2
+  %end = getelementptr inbounds i8, ptr %0, i64 16
   %1 = load ptr, ptr %end, align 8
-  %next_free = getelementptr inbounds %struct.mp_block, ptr %0, i64 0, i32 1
+  %next_free = getelementptr inbounds i8, ptr %0, i64 8
   %2 = load ptr, ptr %next_free, align 8
   %sub.ptr.lhs.cast = ptrtoint ptr %1 to i64
   %sub.ptr.rhs.cast = ptrtoint ptr %2 to i64
@@ -105,11 +102,11 @@ land.lhs.true:                                    ; preds = %entry
   br i1 %cmp.not, label %if.then5, label %if.end13
 
 if.then5:                                         ; preds = %land.lhs.true, %entry
-  %block_alloc = getelementptr inbounds %struct.mem_pool, ptr %pool, i64 0, i32 1
+  %block_alloc = getelementptr inbounds i8, ptr %pool, i64 8
   %3 = load i64, ptr %block_alloc, align 8
   %div616 = lshr i64 %3, 1
   %cmp7.not = icmp ult i64 %div15, %div616
-  %pool_alloc.i18 = getelementptr inbounds %struct.mem_pool, ptr %pool, i64 0, i32 2
+  %pool_alloc.i18 = getelementptr inbounds i8, ptr %pool, i64 16
   %4 = load i64, ptr %pool_alloc.i18, align 8
   br i1 %cmp7.not, label %if.else, label %if.then8
 
@@ -126,11 +123,11 @@ if.then.i.i:                                      ; preds = %if.then8
 
 mem_pool_alloc_block.exit:                        ; preds = %if.then8
   %call2.i = tail call ptr @xmalloc(i64 noundef %add.i) #11
-  %space.i = getelementptr inbounds %struct.mp_block, ptr %call2.i, i64 0, i32 3
-  %next_free.i = getelementptr inbounds %struct.mp_block, ptr %call2.i, i64 0, i32 1
+  %space.i = getelementptr inbounds i8, ptr %call2.i, i64 24
+  %next_free.i = getelementptr inbounds i8, ptr %call2.i, i64 8
   store ptr %space.i, ptr %next_free.i, align 8
   %add.ptr.i = getelementptr inbounds i8, ptr %space.i, i64 %div15
-  %end.i = getelementptr inbounds %struct.mp_block, ptr %call2.i, i64 0, i32 2
+  %end.i = getelementptr inbounds i8, ptr %call2.i, i64 16
   store ptr %add.ptr.i, ptr %end.i, align 8
   %pool.insert_after.i = select i1 %tobool.not, ptr %pool, ptr %0
   %5 = load ptr, ptr %pool.insert_after.i, align 8
@@ -151,11 +148,11 @@ if.then.i.i26:                                    ; preds = %if.else
 
 mem_pool_alloc_block.exit27:                      ; preds = %if.else
   %call2.i21 = tail call ptr @xmalloc(i64 noundef %add.i17) #11
-  %space.i22 = getelementptr inbounds %struct.mp_block, ptr %call2.i21, i64 0, i32 3
-  %next_free.i23 = getelementptr inbounds %struct.mp_block, ptr %call2.i21, i64 0, i32 1
+  %space.i22 = getelementptr inbounds i8, ptr %call2.i21, i64 24
+  %next_free.i23 = getelementptr inbounds i8, ptr %call2.i21, i64 8
   store ptr %space.i22, ptr %next_free.i23, align 8
   %add.ptr.i24 = getelementptr inbounds i8, ptr %space.i22, i64 %3
-  %end.i25 = getelementptr inbounds %struct.mp_block, ptr %call2.i21, i64 0, i32 2
+  %end.i25 = getelementptr inbounds i8, ptr %call2.i21, i64 16
   store ptr %add.ptr.i24, ptr %end.i25, align 8
   %6 = load ptr, ptr %pool, align 8
   store ptr %6, ptr %call2.i21, align 8
@@ -164,7 +161,7 @@ mem_pool_alloc_block.exit27:                      ; preds = %if.else
 
 if.end13:                                         ; preds = %land.lhs.true, %mem_pool_alloc_block.exit, %mem_pool_alloc_block.exit27
   %p.1 = phi ptr [ %call2.i, %mem_pool_alloc_block.exit ], [ %call2.i21, %mem_pool_alloc_block.exit27 ], [ %0, %land.lhs.true ]
-  %next_free14 = getelementptr inbounds %struct.mp_block, ptr %p.1, i64 0, i32 1
+  %next_free14 = getelementptr inbounds i8, ptr %p.1, i64 8
   %7 = load ptr, ptr %next_free14, align 8
   %add.ptr = getelementptr inbounds i8, ptr %7, i64 %div15
   store ptr %add.ptr, ptr %next_free14, align 8
@@ -238,12 +235,12 @@ entry:
 
 for.body:                                         ; preds = %entry, %for.inc
   %p.07 = phi ptr [ %p.0, %for.inc ], [ %p.05, %entry ]
-  %space = getelementptr inbounds %struct.mp_block, ptr %p.07, i64 0, i32 3
+  %space = getelementptr inbounds i8, ptr %p.07, i64 24
   %cmp.not = icmp ugt ptr %space, %mem
   br i1 %cmp.not, label %for.inc, label %land.lhs.true
 
 land.lhs.true:                                    ; preds = %for.body
-  %end = getelementptr inbounds %struct.mp_block, ptr %p.07, i64 0, i32 2
+  %end = getelementptr inbounds i8, ptr %p.07, i64 16
   %0 = load ptr, ptr %end, align 8
   %cmp1 = icmp ugt ptr %0, %mem
   br i1 %cmp1, label %return, label %for.inc
@@ -285,9 +282,9 @@ if.end14.sink.split:                              ; preds = %while.cond, %if.els
   br label %if.end14
 
 if.end14:                                         ; preds = %if.end14.sink.split, %land.lhs.true, %if.else
-  %pool_alloc = getelementptr inbounds %struct.mem_pool, ptr %src, i64 0, i32 2
+  %pool_alloc = getelementptr inbounds i8, ptr %src, i64 16
   %2 = load i64, ptr %pool_alloc, align 8
-  %pool_alloc15 = getelementptr inbounds %struct.mem_pool, ptr %dst, i64 0, i32 2
+  %pool_alloc15 = getelementptr inbounds i8, ptr %dst, i64 16
   %3 = load i64, ptr %pool_alloc15, align 8
   %add = add i64 %3, %2
   store i64 %add, ptr %pool_alloc15, align 8

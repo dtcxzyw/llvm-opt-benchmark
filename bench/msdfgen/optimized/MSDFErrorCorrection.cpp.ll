@@ -4,11 +4,6 @@ target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:
 target triple = "x86_64-unknown-linux-gnu"
 
 %"struct.msdfgen::Vector2" = type { double, double }
-%"class.msdfgen::MSDFErrorCorrection" = type { %"struct.msdfgen::BitmapRef", %"class.msdfgen::Projection", double, double, double }
-%"struct.msdfgen::BitmapRef" = type { ptr, i32, i32 }
-%"class.msdfgen::Projection" = type { %"struct.msdfgen::Vector2", %"struct.msdfgen::Vector2" }
-%"struct.msdfgen::BitmapConstRef" = type { ptr, i32, i32 }
-%"struct.msdfgen::BitmapConstRef.0" = type { ptr, i32, i32 }
 %"class.msdfgen::BaseArtifactClassifier" = type <{ double, i8, [7 x i8] }>
 %"class.std::allocator" = type { i8 }
 %"class.msdfgen::ShapeDistanceChecker" = type { %"struct.msdfgen::Vector2", %"struct.msdfgen::Vector2", ptr, i8, %"class.msdfgen::ShapeDistanceFinder", %"struct.msdfgen::BitmapConstRef", double, %"struct.msdfgen::Vector2", double }
@@ -21,14 +16,11 @@ target triple = "x86_64-unknown-linux-gnu"
 %"struct.std::_Vector_base" = type { %"struct.std::_Vector_base<msdfgen::PseudoDistanceSelectorBase::EdgeCache, std::allocator<msdfgen::PseudoDistanceSelectorBase::EdgeCache>>::_Vector_impl" }
 %"struct.std::_Vector_base<msdfgen::PseudoDistanceSelectorBase::EdgeCache, std::allocator<msdfgen::PseudoDistanceSelectorBase::EdgeCache>>::_Vector_impl" = type { %"struct.std::_Vector_base<msdfgen::PseudoDistanceSelectorBase::EdgeCache, std::allocator<msdfgen::PseudoDistanceSelectorBase::EdgeCache>>::_Vector_impl_data" }
 %"struct.std::_Vector_base<msdfgen::PseudoDistanceSelectorBase::EdgeCache, std::allocator<msdfgen::PseudoDistanceSelectorBase::EdgeCache>>::_Vector_impl_data" = type { ptr, ptr, ptr }
+%"struct.msdfgen::BitmapConstRef" = type { ptr, i32, i32 }
 %"class.msdfgen::ShapeDistanceChecker<msdfgen::SimpleContourCombiner, 3>::ArtifactClassifier" = type { %"class.msdfgen::BaseArtifactClassifier.base", ptr, %"struct.msdfgen::Vector2" }
 %"class.msdfgen::BaseArtifactClassifier.base" = type <{ double, i8 }>
-%"class.msdfgen::Shape" = type <{ %"class.std::vector.1", i8, [7 x i8] }>
-%"class.std::vector.1" = type { %"struct.std::_Vector_base.2" }
-%"struct.std::_Vector_base.2" = type { %"struct.std::_Vector_base<msdfgen::Contour, std::allocator<msdfgen::Contour>>::_Vector_impl" }
-%"struct.std::_Vector_base<msdfgen::Contour, std::allocator<msdfgen::Contour>>::_Vector_impl" = type { %"struct.std::_Vector_base<msdfgen::Contour, std::allocator<msdfgen::Contour>>::_Vector_impl_data" }
-%"struct.std::_Vector_base<msdfgen::Contour, std::allocator<msdfgen::Contour>>::_Vector_impl_data" = type { ptr, ptr, ptr }
 %"class.msdfgen::ShapeDistanceChecker.6" = type { %"struct.msdfgen::Vector2", %"struct.msdfgen::Vector2", ptr, i8, %"class.msdfgen::ShapeDistanceFinder", %"struct.msdfgen::BitmapConstRef.0", double, %"struct.msdfgen::Vector2", double }
+%"struct.msdfgen::BitmapConstRef.0" = type { ptr, i32, i32 }
 %"class.msdfgen::ShapeDistanceChecker<msdfgen::SimpleContourCombiner, 4>::ArtifactClassifier" = type { %"class.msdfgen::BaseArtifactClassifier.base", ptr, %"struct.msdfgen::Vector2" }
 %"class.msdfgen::ShapeDistanceChecker.7" = type { %"struct.msdfgen::Vector2", %"struct.msdfgen::Vector2", ptr, i8, %"class.msdfgen::ShapeDistanceFinder.8", %"struct.msdfgen::BitmapConstRef", double, %"struct.msdfgen::Vector2", double }
 %"class.msdfgen::ShapeDistanceFinder.8" = type { ptr, %"class.msdfgen::OverlappingContourCombiner", %"class.std::vector" }
@@ -44,15 +36,6 @@ target triple = "x86_64-unknown-linux-gnu"
 %"class.msdfgen::ShapeDistanceChecker<msdfgen::OverlappingContourCombiner, 3>::ArtifactClassifier" = type { %"class.msdfgen::BaseArtifactClassifier.base", ptr, %"struct.msdfgen::Vector2" }
 %"class.msdfgen::ShapeDistanceChecker.19" = type { %"struct.msdfgen::Vector2", %"struct.msdfgen::Vector2", ptr, i8, %"class.msdfgen::ShapeDistanceFinder.8", %"struct.msdfgen::BitmapConstRef.0", double, %"struct.msdfgen::Vector2", double }
 %"class.msdfgen::ShapeDistanceChecker<msdfgen::OverlappingContourCombiner, 4>::ArtifactClassifier" = type { %"class.msdfgen::BaseArtifactClassifier.base", ptr, %"struct.msdfgen::Vector2" }
-%"struct.msdfgen::BitmapRef.20" = type { ptr, i32, i32 }
-%"struct.msdfgen::BitmapRef.21" = type { ptr, i32, i32 }
-%"struct.std::_Vector_base<msdfgen::EdgeHolder, std::allocator<msdfgen::EdgeHolder>>::_Vector_impl_data" = type { ptr, ptr, ptr }
-%"class.msdfgen::EdgeHolder" = type { ptr }
-%"class.msdfgen::EdgeSegment" = type <{ ptr, i32, [4 x i8] }>
-%"class.msdfgen::Contour" = type { %"class.std::vector.22" }
-%"class.std::vector.22" = type { %"struct.std::_Vector_base.23" }
-%"struct.std::_Vector_base.23" = type { %"struct.std::_Vector_base<msdfgen::EdgeHolder, std::allocator<msdfgen::EdgeHolder>>::_Vector_impl" }
-%"struct.std::_Vector_base<msdfgen::EdgeHolder, std::allocator<msdfgen::EdgeHolder>>::_Vector_impl" = type { %"struct.std::_Vector_base<msdfgen::EdgeHolder, std::allocator<msdfgen::EdgeHolder>>::_Vector_impl_data" }
 %"struct.msdfgen::PseudoDistanceSelectorBase::EdgeCache" = type { %"struct.msdfgen::Vector2", double, double, double, double, double }
 
 $_ZN7msdfgen19MSDFErrorCorrection12protectEdgesILi3EEEvRKNS_14BitmapConstRefIfXT_EEE = comdat any
@@ -116,11 +99,11 @@ entry:
   %ref.tmp2 = alloca %"struct.msdfgen::Vector2", align 8
   %ref.tmp30 = alloca %"struct.msdfgen::Vector2", align 8
   %ref.tmp81 = alloca %"struct.msdfgen::Vector2", align 8
-  %projection = getelementptr inbounds %"class.msdfgen::MSDFErrorCorrection", ptr %this, i64 0, i32 1
-  %invRange = getelementptr inbounds %"class.msdfgen::MSDFErrorCorrection", ptr %this, i64 0, i32 2
+  %projection = getelementptr inbounds i8, ptr %this, i64 16
+  %invRange = getelementptr inbounds i8, ptr %this, i64 48
   %0 = load double, ptr %invRange, align 8
   store double %0, ptr %ref.tmp2, align 8
-  %y3.i = getelementptr inbounds %"struct.msdfgen::Vector2", ptr %ref.tmp2, i64 0, i32 1
+  %y3.i = getelementptr inbounds i8, ptr %ref.tmp2, i64 8
   store double 0.000000e+00, ptr %y3.i, align 8
   %call = call { double, double } @_ZNK7msdfgen10Projection15unprojectVectorERKNS_7Vector2E(ptr noundef nonnull align 8 dereferenceable(32) %projection, ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp2)
   %1 = extractvalue { double, double } %call, 0
@@ -130,14 +113,14 @@ entry:
   %sqrt.i = call noundef double @llvm.sqrt.f64(double %3)
   %mul = fmul double %sqrt.i, 1.001000e+00
   %conv = fptrunc double %mul to float
-  %height = getelementptr inbounds %"struct.msdfgen::BitmapConstRef", ptr %sdf, i64 0, i32 2
+  %height = getelementptr inbounds i8, ptr %sdf, i64 12
   %4 = load i32, ptr %height, align 4
   %cmp380 = icmp sgt i32 %4, 0
   br i1 %cmp380, label %for.body.lr.ph, label %for.end27
 
 for.body.lr.ph:                                   ; preds = %entry
-  %width.i = getelementptr inbounds %"struct.msdfgen::BitmapConstRef", ptr %sdf, i64 0, i32 1
-  %width.i112 = getelementptr inbounds %"struct.msdfgen::BitmapRef", ptr %this, i64 0, i32 1
+  %width.i = getelementptr inbounds i8, ptr %sdf, i64 8
+  %width.i112 = getelementptr inbounds i8, ptr %this, i64 8
   %5 = load i32, ptr %width.i, align 8
   %6 = icmp sgt i32 %5, 1
   br i1 %6, label %for.body, label %for.end27
@@ -165,9 +148,9 @@ for.body8:                                        ; preds = %for.body8.preheader
   %right.0377 = phi ptr [ %add.ptr24, %if.end ], [ %add.ptr.i103, %for.body8.preheader ]
   %x.0376 = phi i32 [ %inc.pre-phi, %if.end ], [ 0, %for.body8.preheader ]
   %10 = load float, ptr %left.0379, align 4
-  %arrayidx9 = getelementptr inbounds float, ptr %left.0379, i64 1
+  %arrayidx9 = getelementptr inbounds i8, ptr %left.0379, i64 4
   %11 = load float, ptr %arrayidx9, align 4
-  %arrayidx10 = getelementptr inbounds float, ptr %left.0379, i64 2
+  %arrayidx10 = getelementptr inbounds i8, ptr %left.0379, i64 8
   %12 = load float, ptr %arrayidx10, align 4
   %cmp.i.i = fcmp olt float %11, %10
   %cond.i.i = select i1 %cmp.i.i, float %11, float %10
@@ -178,8 +161,8 @@ for.body8:                                        ; preds = %for.body8.preheader
   %cmp.i7.i = fcmp olt float %cond.i.i, %cond.i6.i
   %cond.i8.i = select i1 %cmp.i7.i, float %cond.i6.i, float %cond.i.i
   %13 = load float, ptr %right.0377, align 4
-  %arrayidx13 = getelementptr inbounds float, ptr %right.0377, i64 1
-  %arrayidx14 = getelementptr inbounds float, ptr %right.0377, i64 2
+  %arrayidx13 = getelementptr inbounds i8, ptr %right.0377, i64 4
+  %arrayidx14 = getelementptr inbounds i8, ptr %right.0377, i64 8
   %14 = load <2 x float>, ptr %arrayidx13, align 4
   %15 = extractelement <2 x float> %14, i64 0
   %cmp.i3.i106 = fcmp olt float %13, %15
@@ -281,8 +264,8 @@ if.then.i138:                                     ; preds = %land.lhs.true9.i135
 
 if.end:                                           ; preds = %for.body8.if.end_crit_edge, %if.then.i138, %land.lhs.true9.i135, %lor.lhs.false6.i132
   %inc.pre-phi = phi i32 [ %.pre418, %for.body8.if.end_crit_edge ], [ %add22, %if.then.i138 ], [ %add22, %land.lhs.true9.i135 ], [ %add22, %lor.lhs.false6.i132 ]
-  %add.ptr = getelementptr inbounds float, ptr %left.0379, i64 3
-  %add.ptr24 = getelementptr inbounds float, ptr %right.0377, i64 3
+  %add.ptr = getelementptr inbounds i8, ptr %left.0379, i64 12
+  %add.ptr24 = getelementptr inbounds i8, ptr %right.0377, i64 12
   %34 = load i32, ptr %width.i, align 8
   %sub = add nsw i32 %34, -1
   %cmp7 = icmp slt i32 %inc.pre-phi, %sub
@@ -302,7 +285,7 @@ for.inc25:                                        ; preds = %for.inc25.loopexit,
 for.end27:                                        ; preds = %for.inc25, %for.body.lr.ph, %entry
   %37 = load double, ptr %invRange, align 8
   store double 0.000000e+00, ptr %ref.tmp30, align 8
-  %y3.i140 = getelementptr inbounds %"struct.msdfgen::Vector2", ptr %ref.tmp30, i64 0, i32 1
+  %y3.i140 = getelementptr inbounds i8, ptr %ref.tmp30, i64 8
   store double %37, ptr %y3.i140, align 8
   %call32 = call { double, double } @_ZNK7msdfgen10Projection15unprojectVectorERKNS_7Vector2E(ptr noundef nonnull align 8 dereferenceable(32) %projection, ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp30)
   %38 = extractvalue { double, double } %call32, 0
@@ -317,8 +300,8 @@ for.end27:                                        ; preds = %for.inc25, %for.bod
   br i1 %cmp40388, label %for.body41.lr.ph, label %for.end78
 
 for.body41.lr.ph:                                 ; preds = %for.end27
-  %width.i144 = getelementptr inbounds %"struct.msdfgen::BitmapConstRef", ptr %sdf, i64 0, i32 1
-  %width.i170 = getelementptr inbounds %"struct.msdfgen::BitmapRef", ptr %this, i64 0, i32 1
+  %width.i144 = getelementptr inbounds i8, ptr %sdf, i64 8
+  %width.i170 = getelementptr inbounds i8, ptr %this, i64 8
   %42 = load i32, ptr %width.i144, align 8
   %43 = icmp sgt i32 %42, 0
   br i1 %43, label %for.body41, label %for.end78
@@ -359,9 +342,9 @@ for.body49:                                       ; preds = %for.body49.preheade
   %top.0384 = phi ptr [ %add.ptr72, %if.end70 ], [ %add.ptr.i153, %for.body49.preheader ]
   %x45.0383 = phi i32 [ %inc74, %if.end70 ], [ 0, %for.body49.preheader ]
   %49 = load float, ptr %bottom.0386, align 4
-  %arrayidx51 = getelementptr inbounds float, ptr %bottom.0386, i64 1
+  %arrayidx51 = getelementptr inbounds i8, ptr %bottom.0386, i64 4
   %50 = load float, ptr %arrayidx51, align 4
-  %arrayidx52 = getelementptr inbounds float, ptr %bottom.0386, i64 2
+  %arrayidx52 = getelementptr inbounds i8, ptr %bottom.0386, i64 8
   %51 = load float, ptr %arrayidx52, align 4
   %cmp.i.i154 = fcmp olt float %50, %49
   %cond.i.i155 = select i1 %cmp.i.i154, float %50, float %49
@@ -372,8 +355,8 @@ for.body49:                                       ; preds = %for.body49.preheade
   %cmp.i7.i160 = fcmp olt float %cond.i.i155, %cond.i6.i159
   %cond.i8.i161 = select i1 %cmp.i7.i160, float %cond.i6.i159, float %cond.i.i155
   %52 = load float, ptr %top.0384, align 4
-  %arrayidx55 = getelementptr inbounds float, ptr %top.0384, i64 1
-  %arrayidx56 = getelementptr inbounds float, ptr %top.0384, i64 2
+  %arrayidx55 = getelementptr inbounds i8, ptr %top.0384, i64 4
+  %arrayidx56 = getelementptr inbounds i8, ptr %top.0384, i64 8
   %53 = load <2 x float>, ptr %arrayidx55, align 4
   %54 = extractelement <2 x float> %53, i64 0
   %cmp.i3.i164 = fcmp olt float %52, %54
@@ -469,8 +452,8 @@ if.then.i214:                                     ; preds = %land.lhs.true9.i211
   br label %if.end70
 
 if.end70:                                         ; preds = %if.then.i214, %land.lhs.true9.i211, %lor.lhs.false6.i208, %for.body49
-  %add.ptr71 = getelementptr inbounds float, ptr %bottom.0386, i64 3
-  %add.ptr72 = getelementptr inbounds float, ptr %top.0384, i64 3
+  %add.ptr71 = getelementptr inbounds i8, ptr %bottom.0386, i64 12
+  %add.ptr72 = getelementptr inbounds i8, ptr %top.0384, i64 12
   %inc74 = add nuw nsw i32 %x45.0383, 1
   %74 = load i32, ptr %width.i144, align 8
   %cmp48 = icmp slt i32 %inc74, %74
@@ -479,7 +462,7 @@ if.end70:                                         ; preds = %if.then.i214, %land
 for.end78:                                        ; preds = %for.cond37.loopexit, %for.body41.lr.ph, %for.end27
   %75 = load double, ptr %invRange, align 8
   store double %75, ptr %ref.tmp81, align 8
-  %y.i216 = getelementptr inbounds %"struct.msdfgen::Vector2", ptr %ref.tmp81, i64 0, i32 1
+  %y.i216 = getelementptr inbounds i8, ptr %ref.tmp81, i64 8
   store double %75, ptr %y.i216, align 8
   %call83 = call { double, double } @_ZNK7msdfgen10Projection15unprojectVectorERKNS_7Vector2E(ptr noundef nonnull align 8 dereferenceable(32) %projection, ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp81)
   %76 = extractvalue { double, double } %call83, 0
@@ -494,8 +477,8 @@ for.end78:                                        ; preds = %for.cond37.loopexit
   br i1 %cmp91402, label %for.body92.lr.ph, label %for.end158
 
 for.body92.lr.ph:                                 ; preds = %for.end78
-  %width.i220 = getelementptr inbounds %"struct.msdfgen::BitmapConstRef", ptr %sdf, i64 0, i32 1
-  %width.i274 = getelementptr inbounds %"struct.msdfgen::BitmapRef", ptr %this, i64 0, i32 1
+  %width.i220 = getelementptr inbounds i8, ptr %sdf, i64 8
+  %width.i274 = getelementptr inbounds i8, ptr %this, i64 8
   %80 = load i32, ptr %width.i220, align 8
   %81 = icmp sgt i32 %80, 1
   br i1 %81, label %for.body92, label %for.end158
@@ -544,9 +527,9 @@ for.body104:                                      ; preds = %for.body104.prehead
   %rb.0393 = phi ptr [ %add.ptr150, %if.end148 ], [ %add.ptr.i230, %for.body104.preheader ]
   %lb.0392 = phi ptr [ %add.ptr149, %if.end148 ], [ %add.ptr.i224, %for.body104.preheader ]
   %87 = load float, ptr %lb.0392, align 4
-  %arrayidx106 = getelementptr inbounds float, ptr %lb.0392, i64 1
+  %arrayidx106 = getelementptr inbounds i8, ptr %lb.0392, i64 4
   %88 = load float, ptr %arrayidx106, align 4
-  %arrayidx107 = getelementptr inbounds float, ptr %lb.0392, i64 2
+  %arrayidx107 = getelementptr inbounds i8, ptr %lb.0392, i64 8
   %89 = load float, ptr %arrayidx107, align 4
   %cmp.i.i242 = fcmp olt float %88, %87
   %cond.i.i243 = select i1 %cmp.i.i242, float %88, float %87
@@ -557,8 +540,8 @@ for.body104:                                      ; preds = %for.body104.prehead
   %cmp.i7.i248 = fcmp olt float %cond.i.i243, %cond.i6.i247
   %cond.i8.i249 = select i1 %cmp.i7.i248, float %cond.i6.i247, float %cond.i.i243
   %90 = load float, ptr %rb.0393, align 4
-  %arrayidx110 = getelementptr inbounds float, ptr %rb.0393, i64 1
-  %arrayidx111 = getelementptr inbounds float, ptr %rb.0393, i64 2
+  %arrayidx110 = getelementptr inbounds i8, ptr %rb.0393, i64 4
+  %arrayidx111 = getelementptr inbounds i8, ptr %rb.0393, i64 8
   %91 = load <2 x float>, ptr %arrayidx110, align 4
   %92 = extractelement <2 x float> %91, i64 0
   %cmp.i3.i252 = fcmp olt float %90, %92
@@ -572,8 +555,8 @@ for.body104:                                      ; preds = %for.body104.prehead
   %cmp.i7.i256 = fcmp olt float %97, %98
   %cond.i8.i257 = select i1 %cmp.i7.i256, float %98, float %97
   %99 = load float, ptr %lt.0396, align 4
-  %arrayidx114 = getelementptr inbounds float, ptr %lt.0396, i64 1
-  %arrayidx115 = getelementptr inbounds float, ptr %lt.0396, i64 2
+  %arrayidx114 = getelementptr inbounds i8, ptr %lt.0396, i64 4
+  %arrayidx115 = getelementptr inbounds i8, ptr %lt.0396, i64 8
   %100 = load <2 x float>, ptr %arrayidx114, align 4
   %101 = extractelement <2 x float> %100, i64 0
   %cmp.i3.i260 = fcmp olt float %99, %101
@@ -587,8 +570,8 @@ for.body104:                                      ; preds = %for.body104.prehead
   %cmp.i7.i264 = fcmp olt float %106, %107
   %cond.i8.i265 = select i1 %cmp.i7.i264, float %107, float %106
   %108 = load float, ptr %rt.0398, align 4
-  %arrayidx118 = getelementptr inbounds float, ptr %rt.0398, i64 1
-  %arrayidx119 = getelementptr inbounds float, ptr %rt.0398, i64 2
+  %arrayidx118 = getelementptr inbounds i8, ptr %rt.0398, i64 4
+  %arrayidx119 = getelementptr inbounds i8, ptr %rt.0398, i64 8
   %109 = load <2 x float>, ptr %arrayidx118, align 4
   %110 = extractelement <2 x float> %109, i64 0
   %cmp.i3.i268 = fcmp olt float %108, %110
@@ -783,10 +766,10 @@ if.then.i364:                                     ; preds = %land.lhs.true9.i361
 
 if.end148:                                        ; preds = %if.end134.if.end148_crit_edge, %if.then.i364, %land.lhs.true9.i361, %lor.lhs.false6.i358
   %inc154.pre-phi = phi i32 [ %.pre419, %if.end134.if.end148_crit_edge ], [ %add143, %if.then.i364 ], [ %add143, %land.lhs.true9.i361 ], [ %add143, %lor.lhs.false6.i358 ]
-  %add.ptr149 = getelementptr inbounds float, ptr %lb.0392, i64 3
-  %add.ptr150 = getelementptr inbounds float, ptr %rb.0393, i64 3
-  %add.ptr151 = getelementptr inbounds float, ptr %lt.0396, i64 3
-  %add.ptr152 = getelementptr inbounds float, ptr %rt.0398, i64 3
+  %add.ptr149 = getelementptr inbounds i8, ptr %lb.0392, i64 12
+  %add.ptr150 = getelementptr inbounds i8, ptr %rb.0393, i64 12
+  %add.ptr151 = getelementptr inbounds i8, ptr %lt.0396, i64 12
+  %add.ptr152 = getelementptr inbounds i8, ptr %rt.0398, i64 12
   %146 = load i32, ptr %width.i220, align 8
   %sub102 = add nsw i32 %146, -1
   %cmp103 = icmp slt i32 %inc154.pre-phi, %sub102
@@ -817,9 +800,9 @@ entry:
   br i1 %or.cond.i, label %if.then.i, label %entry._ZN7msdfgenL24edgeBetweenTexelsChannelEPKfS1_i.exit_crit_edge
 
 entry._ZN7msdfgenL24edgeBetweenTexelsChannelEPKfS1_i.exit_crit_edge: ; preds = %entry
-  %arrayidx.i.phi.trans.insert = getelementptr inbounds float, ptr %a, i64 1
+  %arrayidx.i.phi.trans.insert = getelementptr inbounds i8, ptr %a, i64 4
   %.pre = load float, ptr %arrayidx.i.phi.trans.insert, align 4
-  %arrayidx4.i.phi.trans.insert = getelementptr inbounds float, ptr %b, i64 1
+  %arrayidx4.i.phi.trans.insert = getelementptr inbounds i8, ptr %b, i64 4
   %.pre94 = load float, ptr %arrayidx4.i.phi.trans.insert, align 4
   %.pre97 = fpext float %.pre to double
   br label %_ZN7msdfgenL24edgeBetweenTexelsChannelEPKfS1_i.exit
@@ -830,8 +813,8 @@ if.then.i:                                        ; preds = %entry
   %mul2.i.i = fmul double %div.i, %conv1.i.i
   %2 = tail call double @llvm.fmuladd.f64(double %sub.i.i, double %conv.i, double %mul2.i.i)
   %conv3.i.i = fptrunc double %2 to float
-  %arrayidx10.i = getelementptr inbounds float, ptr %a, i64 1
-  %arrayidx11.i = getelementptr inbounds float, ptr %b, i64 1
+  %arrayidx10.i = getelementptr inbounds i8, ptr %a, i64 4
+  %arrayidx11.i = getelementptr inbounds i8, ptr %b, i64 4
   %3 = load <2 x float>, ptr %arrayidx10.i, align 4
   %4 = load <2 x float>, ptr %arrayidx11.i, align 4
   %5 = fpext <2 x float> %3 to <2 x double>
@@ -876,9 +859,9 @@ _ZN7msdfgenL24edgeBetweenTexelsChannelEPKfS1_i.exit: ; preds = %entry._ZN7msdfge
   br i1 %or.cond.i13, label %_ZN7msdfgenL24edgeBetweenTexelsChannelEPKfS1_i.exit44, label %_ZN7msdfgenL24edgeBetweenTexelsChannelEPKfS1_i.exit._ZN7msdfgenL24edgeBetweenTexelsChannelEPKfS1_i.exit44.thread_crit_edge
 
 _ZN7msdfgenL24edgeBetweenTexelsChannelEPKfS1_i.exit._ZN7msdfgenL24edgeBetweenTexelsChannelEPKfS1_i.exit44.thread_crit_edge: ; preds = %_ZN7msdfgenL24edgeBetweenTexelsChannelEPKfS1_i.exit
-  %arrayidx.i46.phi.trans.insert = getelementptr inbounds float, ptr %a, i64 2
+  %arrayidx.i46.phi.trans.insert = getelementptr inbounds i8, ptr %a, i64 8
   %.pre95 = load float, ptr %arrayidx.i46.phi.trans.insert, align 4
-  %arrayidx4.i49.phi.trans.insert = getelementptr inbounds float, ptr %b, i64 2
+  %arrayidx4.i49.phi.trans.insert = getelementptr inbounds i8, ptr %b, i64 8
   %.pre96 = load float, ptr %arrayidx4.i49.phi.trans.insert, align 4
   %.pre98 = fpext float %.pre95 to double
   br label %_ZN7msdfgenL24edgeBetweenTexelsChannelEPKfS1_i.exit44.thread
@@ -889,9 +872,9 @@ _ZN7msdfgenL24edgeBetweenTexelsChannelEPKfS1_i.exit44: ; preds = %_ZN7msdfgenL24
   %mul2.i.i19 = fmul double %div.i10, %conv1.i.i18
   %27 = tail call double @llvm.fmuladd.f64(double %sub.i.i16, double %conv.i, double %mul2.i.i19)
   %conv3.i.i20 = fptrunc double %27 to float
-  %arrayidx14.i29 = getelementptr inbounds float, ptr %a, i64 2
+  %arrayidx14.i29 = getelementptr inbounds i8, ptr %a, i64 8
   %28 = load float, ptr %arrayidx14.i29, align 4
-  %arrayidx15.i30 = getelementptr inbounds float, ptr %b, i64 2
+  %arrayidx15.i30 = getelementptr inbounds i8, ptr %b, i64 8
   %29 = load float, ptr %arrayidx15.i30, align 4
   %conv.i21.i31 = fpext float %28 to double
   %30 = insertelement <2 x float> poison, float %25, i64 0
@@ -984,11 +967,11 @@ entry:
   %ref.tmp2 = alloca %"struct.msdfgen::Vector2", align 8
   %ref.tmp30 = alloca %"struct.msdfgen::Vector2", align 8
   %ref.tmp81 = alloca %"struct.msdfgen::Vector2", align 8
-  %projection = getelementptr inbounds %"class.msdfgen::MSDFErrorCorrection", ptr %this, i64 0, i32 1
-  %invRange = getelementptr inbounds %"class.msdfgen::MSDFErrorCorrection", ptr %this, i64 0, i32 2
+  %projection = getelementptr inbounds i8, ptr %this, i64 16
+  %invRange = getelementptr inbounds i8, ptr %this, i64 48
   %0 = load double, ptr %invRange, align 8
   store double %0, ptr %ref.tmp2, align 8
-  %y3.i = getelementptr inbounds %"struct.msdfgen::Vector2", ptr %ref.tmp2, i64 0, i32 1
+  %y3.i = getelementptr inbounds i8, ptr %ref.tmp2, i64 8
   store double 0.000000e+00, ptr %y3.i, align 8
   %call = call { double, double } @_ZNK7msdfgen10Projection15unprojectVectorERKNS_7Vector2E(ptr noundef nonnull align 8 dereferenceable(32) %projection, ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp2)
   %1 = extractvalue { double, double } %call, 0
@@ -998,14 +981,14 @@ entry:
   %sqrt.i = call noundef double @llvm.sqrt.f64(double %3)
   %mul = fmul double %sqrt.i, 1.001000e+00
   %conv = fptrunc double %mul to float
-  %height = getelementptr inbounds %"struct.msdfgen::BitmapConstRef.0", ptr %sdf, i64 0, i32 2
+  %height = getelementptr inbounds i8, ptr %sdf, i64 12
   %4 = load i32, ptr %height, align 4
   %cmp380 = icmp sgt i32 %4, 0
   br i1 %cmp380, label %for.body.lr.ph, label %for.end27
 
 for.body.lr.ph:                                   ; preds = %entry
-  %width.i = getelementptr inbounds %"struct.msdfgen::BitmapConstRef.0", ptr %sdf, i64 0, i32 1
-  %width.i112 = getelementptr inbounds %"struct.msdfgen::BitmapRef", ptr %this, i64 0, i32 1
+  %width.i = getelementptr inbounds i8, ptr %sdf, i64 8
+  %width.i112 = getelementptr inbounds i8, ptr %this, i64 8
   %5 = load i32, ptr %width.i, align 8
   %6 = icmp sgt i32 %5, 1
   br i1 %6, label %for.body, label %for.end27
@@ -1033,9 +1016,9 @@ for.body8:                                        ; preds = %for.body8.preheader
   %right.0377 = phi ptr [ %add.ptr24, %if.end ], [ %add.ptr.i103, %for.body8.preheader ]
   %x.0376 = phi i32 [ %inc.pre-phi, %if.end ], [ 0, %for.body8.preheader ]
   %10 = load float, ptr %left.0379, align 4
-  %arrayidx9 = getelementptr inbounds float, ptr %left.0379, i64 1
+  %arrayidx9 = getelementptr inbounds i8, ptr %left.0379, i64 4
   %11 = load float, ptr %arrayidx9, align 4
-  %arrayidx10 = getelementptr inbounds float, ptr %left.0379, i64 2
+  %arrayidx10 = getelementptr inbounds i8, ptr %left.0379, i64 8
   %12 = load float, ptr %arrayidx10, align 4
   %cmp.i.i = fcmp olt float %11, %10
   %cond.i.i = select i1 %cmp.i.i, float %11, float %10
@@ -1046,8 +1029,8 @@ for.body8:                                        ; preds = %for.body8.preheader
   %cmp.i7.i = fcmp olt float %cond.i.i, %cond.i6.i
   %cond.i8.i = select i1 %cmp.i7.i, float %cond.i6.i, float %cond.i.i
   %13 = load float, ptr %right.0377, align 4
-  %arrayidx13 = getelementptr inbounds float, ptr %right.0377, i64 1
-  %arrayidx14 = getelementptr inbounds float, ptr %right.0377, i64 2
+  %arrayidx13 = getelementptr inbounds i8, ptr %right.0377, i64 4
+  %arrayidx14 = getelementptr inbounds i8, ptr %right.0377, i64 8
   %14 = load <2 x float>, ptr %arrayidx13, align 4
   %15 = extractelement <2 x float> %14, i64 0
   %cmp.i3.i106 = fcmp olt float %13, %15
@@ -1149,8 +1132,8 @@ if.then.i138:                                     ; preds = %land.lhs.true9.i135
 
 if.end:                                           ; preds = %for.body8.if.end_crit_edge, %if.then.i138, %land.lhs.true9.i135, %lor.lhs.false6.i132
   %inc.pre-phi = phi i32 [ %.pre418, %for.body8.if.end_crit_edge ], [ %add22, %if.then.i138 ], [ %add22, %land.lhs.true9.i135 ], [ %add22, %lor.lhs.false6.i132 ]
-  %add.ptr = getelementptr inbounds float, ptr %left.0379, i64 4
-  %add.ptr24 = getelementptr inbounds float, ptr %right.0377, i64 4
+  %add.ptr = getelementptr inbounds i8, ptr %left.0379, i64 16
+  %add.ptr24 = getelementptr inbounds i8, ptr %right.0377, i64 16
   %34 = load i32, ptr %width.i, align 8
   %sub = add nsw i32 %34, -1
   %cmp7 = icmp slt i32 %inc.pre-phi, %sub
@@ -1170,7 +1153,7 @@ for.inc25:                                        ; preds = %for.inc25.loopexit,
 for.end27:                                        ; preds = %for.inc25, %for.body.lr.ph, %entry
   %37 = load double, ptr %invRange, align 8
   store double 0.000000e+00, ptr %ref.tmp30, align 8
-  %y3.i140 = getelementptr inbounds %"struct.msdfgen::Vector2", ptr %ref.tmp30, i64 0, i32 1
+  %y3.i140 = getelementptr inbounds i8, ptr %ref.tmp30, i64 8
   store double %37, ptr %y3.i140, align 8
   %call32 = call { double, double } @_ZNK7msdfgen10Projection15unprojectVectorERKNS_7Vector2E(ptr noundef nonnull align 8 dereferenceable(32) %projection, ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp30)
   %38 = extractvalue { double, double } %call32, 0
@@ -1185,8 +1168,8 @@ for.end27:                                        ; preds = %for.inc25, %for.bod
   br i1 %cmp40388, label %for.body41.lr.ph, label %for.end78
 
 for.body41.lr.ph:                                 ; preds = %for.end27
-  %width.i144 = getelementptr inbounds %"struct.msdfgen::BitmapConstRef.0", ptr %sdf, i64 0, i32 1
-  %width.i170 = getelementptr inbounds %"struct.msdfgen::BitmapRef", ptr %this, i64 0, i32 1
+  %width.i144 = getelementptr inbounds i8, ptr %sdf, i64 8
+  %width.i170 = getelementptr inbounds i8, ptr %this, i64 8
   %42 = load i32, ptr %width.i144, align 8
   %43 = icmp sgt i32 %42, 0
   br i1 %43, label %for.body41, label %for.end78
@@ -1227,9 +1210,9 @@ for.body49:                                       ; preds = %for.body49.preheade
   %top.0384 = phi ptr [ %add.ptr72, %if.end70 ], [ %add.ptr.i153, %for.body49.preheader ]
   %x45.0383 = phi i32 [ %inc74, %if.end70 ], [ 0, %for.body49.preheader ]
   %49 = load float, ptr %bottom.0386, align 4
-  %arrayidx51 = getelementptr inbounds float, ptr %bottom.0386, i64 1
+  %arrayidx51 = getelementptr inbounds i8, ptr %bottom.0386, i64 4
   %50 = load float, ptr %arrayidx51, align 4
-  %arrayidx52 = getelementptr inbounds float, ptr %bottom.0386, i64 2
+  %arrayidx52 = getelementptr inbounds i8, ptr %bottom.0386, i64 8
   %51 = load float, ptr %arrayidx52, align 4
   %cmp.i.i154 = fcmp olt float %50, %49
   %cond.i.i155 = select i1 %cmp.i.i154, float %50, float %49
@@ -1240,8 +1223,8 @@ for.body49:                                       ; preds = %for.body49.preheade
   %cmp.i7.i160 = fcmp olt float %cond.i.i155, %cond.i6.i159
   %cond.i8.i161 = select i1 %cmp.i7.i160, float %cond.i6.i159, float %cond.i.i155
   %52 = load float, ptr %top.0384, align 4
-  %arrayidx55 = getelementptr inbounds float, ptr %top.0384, i64 1
-  %arrayidx56 = getelementptr inbounds float, ptr %top.0384, i64 2
+  %arrayidx55 = getelementptr inbounds i8, ptr %top.0384, i64 4
+  %arrayidx56 = getelementptr inbounds i8, ptr %top.0384, i64 8
   %53 = load <2 x float>, ptr %arrayidx55, align 4
   %54 = extractelement <2 x float> %53, i64 0
   %cmp.i3.i164 = fcmp olt float %52, %54
@@ -1337,8 +1320,8 @@ if.then.i214:                                     ; preds = %land.lhs.true9.i211
   br label %if.end70
 
 if.end70:                                         ; preds = %if.then.i214, %land.lhs.true9.i211, %lor.lhs.false6.i208, %for.body49
-  %add.ptr71 = getelementptr inbounds float, ptr %bottom.0386, i64 4
-  %add.ptr72 = getelementptr inbounds float, ptr %top.0384, i64 4
+  %add.ptr71 = getelementptr inbounds i8, ptr %bottom.0386, i64 16
+  %add.ptr72 = getelementptr inbounds i8, ptr %top.0384, i64 16
   %inc74 = add nuw nsw i32 %x45.0383, 1
   %74 = load i32, ptr %width.i144, align 8
   %cmp48 = icmp slt i32 %inc74, %74
@@ -1347,7 +1330,7 @@ if.end70:                                         ; preds = %if.then.i214, %land
 for.end78:                                        ; preds = %for.cond37.loopexit, %for.body41.lr.ph, %for.end27
   %75 = load double, ptr %invRange, align 8
   store double %75, ptr %ref.tmp81, align 8
-  %y.i216 = getelementptr inbounds %"struct.msdfgen::Vector2", ptr %ref.tmp81, i64 0, i32 1
+  %y.i216 = getelementptr inbounds i8, ptr %ref.tmp81, i64 8
   store double %75, ptr %y.i216, align 8
   %call83 = call { double, double } @_ZNK7msdfgen10Projection15unprojectVectorERKNS_7Vector2E(ptr noundef nonnull align 8 dereferenceable(32) %projection, ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp81)
   %76 = extractvalue { double, double } %call83, 0
@@ -1362,8 +1345,8 @@ for.end78:                                        ; preds = %for.cond37.loopexit
   br i1 %cmp91402, label %for.body92.lr.ph, label %for.end158
 
 for.body92.lr.ph:                                 ; preds = %for.end78
-  %width.i220 = getelementptr inbounds %"struct.msdfgen::BitmapConstRef.0", ptr %sdf, i64 0, i32 1
-  %width.i274 = getelementptr inbounds %"struct.msdfgen::BitmapRef", ptr %this, i64 0, i32 1
+  %width.i220 = getelementptr inbounds i8, ptr %sdf, i64 8
+  %width.i274 = getelementptr inbounds i8, ptr %this, i64 8
   %80 = load i32, ptr %width.i220, align 8
   %81 = icmp sgt i32 %80, 1
   br i1 %81, label %for.body92, label %for.end158
@@ -1412,9 +1395,9 @@ for.body104:                                      ; preds = %for.body104.prehead
   %rb.0393 = phi ptr [ %add.ptr150, %if.end148 ], [ %add.ptr.i230, %for.body104.preheader ]
   %lb.0392 = phi ptr [ %add.ptr149, %if.end148 ], [ %add.ptr.i224, %for.body104.preheader ]
   %87 = load float, ptr %lb.0392, align 4
-  %arrayidx106 = getelementptr inbounds float, ptr %lb.0392, i64 1
+  %arrayidx106 = getelementptr inbounds i8, ptr %lb.0392, i64 4
   %88 = load float, ptr %arrayidx106, align 4
-  %arrayidx107 = getelementptr inbounds float, ptr %lb.0392, i64 2
+  %arrayidx107 = getelementptr inbounds i8, ptr %lb.0392, i64 8
   %89 = load float, ptr %arrayidx107, align 4
   %cmp.i.i242 = fcmp olt float %88, %87
   %cond.i.i243 = select i1 %cmp.i.i242, float %88, float %87
@@ -1425,8 +1408,8 @@ for.body104:                                      ; preds = %for.body104.prehead
   %cmp.i7.i248 = fcmp olt float %cond.i.i243, %cond.i6.i247
   %cond.i8.i249 = select i1 %cmp.i7.i248, float %cond.i6.i247, float %cond.i.i243
   %90 = load float, ptr %rb.0393, align 4
-  %arrayidx110 = getelementptr inbounds float, ptr %rb.0393, i64 1
-  %arrayidx111 = getelementptr inbounds float, ptr %rb.0393, i64 2
+  %arrayidx110 = getelementptr inbounds i8, ptr %rb.0393, i64 4
+  %arrayidx111 = getelementptr inbounds i8, ptr %rb.0393, i64 8
   %91 = load <2 x float>, ptr %arrayidx110, align 4
   %92 = extractelement <2 x float> %91, i64 0
   %cmp.i3.i252 = fcmp olt float %90, %92
@@ -1440,8 +1423,8 @@ for.body104:                                      ; preds = %for.body104.prehead
   %cmp.i7.i256 = fcmp olt float %97, %98
   %cond.i8.i257 = select i1 %cmp.i7.i256, float %98, float %97
   %99 = load float, ptr %lt.0396, align 4
-  %arrayidx114 = getelementptr inbounds float, ptr %lt.0396, i64 1
-  %arrayidx115 = getelementptr inbounds float, ptr %lt.0396, i64 2
+  %arrayidx114 = getelementptr inbounds i8, ptr %lt.0396, i64 4
+  %arrayidx115 = getelementptr inbounds i8, ptr %lt.0396, i64 8
   %100 = load <2 x float>, ptr %arrayidx114, align 4
   %101 = extractelement <2 x float> %100, i64 0
   %cmp.i3.i260 = fcmp olt float %99, %101
@@ -1455,8 +1438,8 @@ for.body104:                                      ; preds = %for.body104.prehead
   %cmp.i7.i264 = fcmp olt float %106, %107
   %cond.i8.i265 = select i1 %cmp.i7.i264, float %107, float %106
   %108 = load float, ptr %rt.0398, align 4
-  %arrayidx118 = getelementptr inbounds float, ptr %rt.0398, i64 1
-  %arrayidx119 = getelementptr inbounds float, ptr %rt.0398, i64 2
+  %arrayidx118 = getelementptr inbounds i8, ptr %rt.0398, i64 4
+  %arrayidx119 = getelementptr inbounds i8, ptr %rt.0398, i64 8
   %109 = load <2 x float>, ptr %arrayidx118, align 4
   %110 = extractelement <2 x float> %109, i64 0
   %cmp.i3.i268 = fcmp olt float %108, %110
@@ -1651,10 +1634,10 @@ if.then.i364:                                     ; preds = %land.lhs.true9.i361
 
 if.end148:                                        ; preds = %if.end134.if.end148_crit_edge, %if.then.i364, %land.lhs.true9.i361, %lor.lhs.false6.i358
   %inc154.pre-phi = phi i32 [ %.pre419, %if.end134.if.end148_crit_edge ], [ %add143, %if.then.i364 ], [ %add143, %land.lhs.true9.i361 ], [ %add143, %lor.lhs.false6.i358 ]
-  %add.ptr149 = getelementptr inbounds float, ptr %lb.0392, i64 4
-  %add.ptr150 = getelementptr inbounds float, ptr %rb.0393, i64 4
-  %add.ptr151 = getelementptr inbounds float, ptr %lt.0396, i64 4
-  %add.ptr152 = getelementptr inbounds float, ptr %rt.0398, i64 4
+  %add.ptr149 = getelementptr inbounds i8, ptr %lb.0392, i64 16
+  %add.ptr150 = getelementptr inbounds i8, ptr %rb.0393, i64 16
+  %add.ptr151 = getelementptr inbounds i8, ptr %lt.0396, i64 16
+  %add.ptr152 = getelementptr inbounds i8, ptr %rt.0398, i64 16
   %146 = load i32, ptr %width.i220, align 8
   %sub102 = add nsw i32 %146, -1
   %cmp103 = icmp slt i32 %inc154.pre-phi, %sub102
@@ -1674,13 +1657,13 @@ entry:
   %ref.tmp77 = alloca %"class.msdfgen::BaseArtifactClassifier", align 8
   %ref.tmp90 = alloca %"class.msdfgen::BaseArtifactClassifier", align 8
   %ref.tmp103 = alloca %"class.msdfgen::BaseArtifactClassifier", align 8
-  %minDeviationRatio = getelementptr inbounds %"class.msdfgen::MSDFErrorCorrection", ptr %this, i64 0, i32 3
+  %minDeviationRatio = getelementptr inbounds i8, ptr %this, i64 56
   %0 = load double, ptr %minDeviationRatio, align 8
-  %projection = getelementptr inbounds %"class.msdfgen::MSDFErrorCorrection", ptr %this, i64 0, i32 1
-  %invRange = getelementptr inbounds %"class.msdfgen::MSDFErrorCorrection", ptr %this, i64 0, i32 2
+  %projection = getelementptr inbounds i8, ptr %this, i64 16
+  %invRange = getelementptr inbounds i8, ptr %this, i64 48
   %1 = load double, ptr %invRange, align 8
   store double %1, ptr %ref.tmp2, align 8
-  %y3.i = getelementptr inbounds %"struct.msdfgen::Vector2", ptr %ref.tmp2, i64 0, i32 1
+  %y3.i = getelementptr inbounds i8, ptr %ref.tmp2, i64 8
   store double 0.000000e+00, ptr %y3.i, align 8
   %call = call { double, double } @_ZNK7msdfgen10Projection15unprojectVectorERKNS_7Vector2E(ptr noundef nonnull align 8 dereferenceable(32) %projection, ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp2)
   %2 = extractvalue { double, double } %call, 0
@@ -1692,7 +1675,7 @@ entry:
   %5 = load double, ptr %minDeviationRatio, align 8
   %6 = load double, ptr %invRange, align 8
   store double 0.000000e+00, ptr %ref.tmp7, align 8
-  %y3.i95 = getelementptr inbounds %"struct.msdfgen::Vector2", ptr %ref.tmp7, i64 0, i32 1
+  %y3.i95 = getelementptr inbounds i8, ptr %ref.tmp7, i64 8
   store double %6, ptr %y3.i95, align 8
   %call9 = call { double, double } @_ZNK7msdfgen10Projection15unprojectVectorERKNS_7Vector2E(ptr noundef nonnull align 8 dereferenceable(32) %projection, ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp7)
   %7 = extractvalue { double, double } %call9, 0
@@ -1704,7 +1687,7 @@ entry:
   %10 = load double, ptr %minDeviationRatio, align 8
   %11 = load double, ptr %invRange, align 8
   store double %11, ptr %ref.tmp15, align 8
-  %y.i99 = getelementptr inbounds %"struct.msdfgen::Vector2", ptr %ref.tmp15, i64 0, i32 1
+  %y.i99 = getelementptr inbounds i8, ptr %ref.tmp15, i64 8
   store double %11, ptr %y.i99, align 8
   %call17 = call { double, double } @_ZNK7msdfgen10Projection15unprojectVectorERKNS_7Vector2E(ptr noundef nonnull align 8 dereferenceable(32) %projection, ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp15)
   %12 = extractvalue { double, double } %call17, 0
@@ -1713,18 +1696,18 @@ entry:
   %14 = call double @llvm.fmuladd.f64(double %12, double %12, double %mul4.i101)
   %sqrt.i102 = call noundef double @llvm.sqrt.f64(double %14)
   %mul19 = fmul double %10, %sqrt.i102
-  %height = getelementptr inbounds %"struct.msdfgen::BitmapConstRef", ptr %sdf, i64 0, i32 2
+  %height = getelementptr inbounds i8, ptr %sdf, i64 12
   %15 = load i32, ptr %height, align 4
   %cmp743 = icmp sgt i32 %15, 0
   br i1 %cmp743, label %for.cond20.preheader.lr.ph, label %for.end119
 
 for.cond20.preheader.lr.ph:                       ; preds = %entry
-  %width = getelementptr inbounds %"struct.msdfgen::BitmapConstRef", ptr %sdf, i64 0, i32 1
-  %width.i103 = getelementptr inbounds %"struct.msdfgen::BitmapRef", ptr %this, i64 0, i32 1
-  %protectedFlag3.i223 = getelementptr inbounds %"class.msdfgen::BaseArtifactClassifier", ptr %ref.tmp64, i64 0, i32 1
-  %protectedFlag3.i231 = getelementptr inbounds %"class.msdfgen::BaseArtifactClassifier", ptr %ref.tmp77, i64 0, i32 1
-  %protectedFlag3.i239 = getelementptr inbounds %"class.msdfgen::BaseArtifactClassifier", ptr %ref.tmp90, i64 0, i32 1
-  %protectedFlag3.i247 = getelementptr inbounds %"class.msdfgen::BaseArtifactClassifier", ptr %ref.tmp103, i64 0, i32 1
+  %width = getelementptr inbounds i8, ptr %sdf, i64 8
+  %width.i103 = getelementptr inbounds i8, ptr %this, i64 8
+  %protectedFlag3.i223 = getelementptr inbounds i8, ptr %ref.tmp64, i64 8
+  %protectedFlag3.i231 = getelementptr inbounds i8, ptr %ref.tmp77, i64 8
+  %protectedFlag3.i239 = getelementptr inbounds i8, ptr %ref.tmp90, i64 8
+  %protectedFlag3.i247 = getelementptr inbounds i8, ptr %ref.tmp103, i64 8
   %16 = load i32, ptr %width, align 8
   %17 = icmp sgt i32 %16, 0
   br i1 %17, label %for.cond20.preheader, label %for.end119
@@ -1756,7 +1739,7 @@ for.body22:                                       ; preds = %for.body22.lr.ph, %
   %idx.ext.i = sext i32 %mul2.i to i64
   %add.ptr.i = getelementptr inbounds float, ptr %21, i64 %idx.ext.i
   %22 = load float, ptr %add.ptr.i, align 4
-  %arrayidx24 = getelementptr inbounds float, ptr %add.ptr.i, i64 1
+  %arrayidx24 = getelementptr inbounds i8, ptr %add.ptr.i, i64 4
   %23 = load <2 x float>, ptr %arrayidx24, align 4
   %24 = extractelement <2 x float> %23, i64 0
   %cmp.i3.i = fcmp olt float %22, %24
@@ -1787,7 +1770,7 @@ land.lhs.true:                                    ; preds = %for.body22
   %idx.ext.i112 = sext i32 %mul2.i111 to i64
   %add.ptr.i113 = getelementptr inbounds float, ptr %21, i64 %idx.ext.i112
   %35 = load float, ptr %add.ptr.i113, align 4
-  %arrayidx1.i = getelementptr inbounds float, ptr %add.ptr.i113, i64 1
+  %arrayidx1.i = getelementptr inbounds i8, ptr %add.ptr.i113, i64 4
   %36 = load <2 x float>, ptr %arrayidx1.i, align 4
   %37 = extractelement <2 x float> %36, i64 0
   %cmp.i3.i.i = fcmp olt float %35, %37
@@ -2096,7 +2079,7 @@ land.lhs.true34:                                  ; preds = %lor.lhs.false
   %add.ptr.i119 = getelementptr inbounds float, ptr %21, i64 %idx.ext.i118
   %.lobit = lshr exact i8 %34, 1
   %103 = load float, ptr %add.ptr.i119, align 4
-  %arrayidx1.i122 = getelementptr inbounds float, ptr %add.ptr.i119, i64 1
+  %arrayidx1.i122 = getelementptr inbounds i8, ptr %add.ptr.i119, i64 4
   %104 = load <2 x float>, ptr %arrayidx1.i122, align 4
   %105 = extractelement <2 x float> %104, i64 0
   %cmp.i3.i.i126 = fcmp olt float %103, %105
@@ -2322,7 +2305,7 @@ land.lhs.true44:                                  ; preds = %lor.lhs.false40
   %add.ptr.i155 = getelementptr inbounds float, ptr %21, i64 %idx.ext.i154
   %.lobit735 = lshr exact i8 %34, 1
   %154 = load float, ptr %add.ptr.i155, align 4
-  %arrayidx1.i158 = getelementptr inbounds float, ptr %add.ptr.i155, i64 1
+  %arrayidx1.i158 = getelementptr inbounds i8, ptr %add.ptr.i155, i64 4
   %155 = load <2 x float>, ptr %arrayidx1.i158, align 4
   %156 = extractelement <2 x float> %155, i64 0
   %cmp.i3.i.i162 = fcmp olt float %154, %156
@@ -2464,7 +2447,7 @@ land.lhs.true53:                                  ; preds = %lor.lhs.false49
   %add.ptr.i191 = getelementptr inbounds float, ptr %21, i64 %idx.ext.i190
   %.lobit736 = lshr exact i8 %34, 1
   %189 = load float, ptr %add.ptr.i191, align 4
-  %arrayidx1.i194 = getelementptr inbounds float, ptr %add.ptr.i191, i64 1
+  %arrayidx1.i194 = getelementptr inbounds i8, ptr %add.ptr.i191, i64 4
   %190 = load <2 x float>, ptr %arrayidx1.i194, align 4
   %191 = extractelement <2 x float> %190, i64 0
   %cmp.i3.i.i198 = fcmp olt float %189, %191
@@ -2722,9 +2705,9 @@ define internal fastcc noundef zeroext i1 @_ZN7msdfgenL19hasDiagonalArtifactINS_
 entry:
   %l = alloca [3 x float], align 8
   %q = alloca [3 x float], align 8
-  %arrayidx1 = getelementptr inbounds float, ptr %d, i64 1
+  %arrayidx1 = getelementptr inbounds i8, ptr %d, i64 4
   %0 = load <2 x float>, ptr %d, align 4
-  %arrayidx2 = getelementptr inbounds float, ptr %d, i64 2
+  %arrayidx2 = getelementptr inbounds i8, ptr %d, i64 8
   %1 = load float, ptr %arrayidx2, align 4
   %2 = extractelement <2 x float> %0, i64 0
   %3 = extractelement <2 x float> %0, i64 1
@@ -2746,12 +2729,12 @@ entry:
   br i1 %cmp, label %return, label %if.then
 
 if.then:                                          ; preds = %entry
-  %arrayidx15 = getelementptr inbounds float, ptr %a, i64 2
+  %arrayidx15 = getelementptr inbounds i8, ptr %a, i64 8
   %10 = load float, ptr %arrayidx15, align 4
-  %arrayidx16 = getelementptr inbounds float, ptr %b, i64 2
+  %arrayidx16 = getelementptr inbounds i8, ptr %b, i64 8
   %11 = load float, ptr %arrayidx16, align 4
   %sub17 = fsub float %10, %11
-  %arrayidx18 = getelementptr inbounds float, ptr %c, i64 2
+  %arrayidx18 = getelementptr inbounds i8, ptr %c, i64 8
   %12 = load float, ptr %arrayidx18, align 4
   %sub19 = fsub float %sub17, %12
   %13 = load <2 x float>, ptr %a, align 4
@@ -2762,13 +2745,13 @@ if.then:                                          ; preds = %entry
   %18 = fneg <2 x float> %13
   %19 = fsub <2 x float> %18, %17
   store <2 x float> %19, ptr %l, align 8
-  %arrayinit.element29 = getelementptr inbounds float, ptr %l, i64 2
+  %arrayinit.element29 = getelementptr inbounds i8, ptr %l, i64 8
   %fneg31 = fneg float %10
   %sub33 = fsub float %fneg31, %sub19
   store float %sub33, ptr %arrayinit.element29, align 8
   %20 = fadd <2 x float> %0, %17
   store <2 x float> %20, ptr %q, align 8
-  %arrayinit.element41 = getelementptr inbounds float, ptr %q, i64 2
+  %arrayinit.element41 = getelementptr inbounds i8, ptr %q, i64 8
   %add44 = fadd float %1, %sub19
   store float %add44, ptr %arrayinit.element41, align 8
   %21 = extractelement <2 x float> %19, i64 0
@@ -2801,9 +2784,9 @@ if.then:                                          ; preds = %entry
   br i1 %call79, label %return, label %lor.lhs.false
 
 lor.lhs.false:                                    ; preds = %if.then
-  %arrayidx12 = getelementptr inbounds float, ptr %c, i64 1
-  %arrayidx10 = getelementptr inbounds float, ptr %b, i64 1
-  %arrayidx9 = getelementptr inbounds float, ptr %a, i64 1
+  %arrayidx12 = getelementptr inbounds i8, ptr %c, i64 4
+  %arrayidx10 = getelementptr inbounds i8, ptr %b, i64 4
+  %arrayidx9 = getelementptr inbounds i8, ptr %a, i64 4
   %29 = load float, ptr %arrayidx15, align 4
   %30 = load float, ptr %arrayidx9, align 4
   %sub84 = fsub float %29, %30
@@ -2852,13 +2835,13 @@ entry:
   %ref.tmp77 = alloca %"class.msdfgen::BaseArtifactClassifier", align 8
   %ref.tmp90 = alloca %"class.msdfgen::BaseArtifactClassifier", align 8
   %ref.tmp103 = alloca %"class.msdfgen::BaseArtifactClassifier", align 8
-  %minDeviationRatio = getelementptr inbounds %"class.msdfgen::MSDFErrorCorrection", ptr %this, i64 0, i32 3
+  %minDeviationRatio = getelementptr inbounds i8, ptr %this, i64 56
   %0 = load double, ptr %minDeviationRatio, align 8
-  %projection = getelementptr inbounds %"class.msdfgen::MSDFErrorCorrection", ptr %this, i64 0, i32 1
-  %invRange = getelementptr inbounds %"class.msdfgen::MSDFErrorCorrection", ptr %this, i64 0, i32 2
+  %projection = getelementptr inbounds i8, ptr %this, i64 16
+  %invRange = getelementptr inbounds i8, ptr %this, i64 48
   %1 = load double, ptr %invRange, align 8
   store double %1, ptr %ref.tmp2, align 8
-  %y3.i = getelementptr inbounds %"struct.msdfgen::Vector2", ptr %ref.tmp2, i64 0, i32 1
+  %y3.i = getelementptr inbounds i8, ptr %ref.tmp2, i64 8
   store double 0.000000e+00, ptr %y3.i, align 8
   %call = call { double, double } @_ZNK7msdfgen10Projection15unprojectVectorERKNS_7Vector2E(ptr noundef nonnull align 8 dereferenceable(32) %projection, ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp2)
   %2 = extractvalue { double, double } %call, 0
@@ -2870,7 +2853,7 @@ entry:
   %5 = load double, ptr %minDeviationRatio, align 8
   %6 = load double, ptr %invRange, align 8
   store double 0.000000e+00, ptr %ref.tmp7, align 8
-  %y3.i95 = getelementptr inbounds %"struct.msdfgen::Vector2", ptr %ref.tmp7, i64 0, i32 1
+  %y3.i95 = getelementptr inbounds i8, ptr %ref.tmp7, i64 8
   store double %6, ptr %y3.i95, align 8
   %call9 = call { double, double } @_ZNK7msdfgen10Projection15unprojectVectorERKNS_7Vector2E(ptr noundef nonnull align 8 dereferenceable(32) %projection, ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp7)
   %7 = extractvalue { double, double } %call9, 0
@@ -2882,7 +2865,7 @@ entry:
   %10 = load double, ptr %minDeviationRatio, align 8
   %11 = load double, ptr %invRange, align 8
   store double %11, ptr %ref.tmp15, align 8
-  %y.i99 = getelementptr inbounds %"struct.msdfgen::Vector2", ptr %ref.tmp15, i64 0, i32 1
+  %y.i99 = getelementptr inbounds i8, ptr %ref.tmp15, i64 8
   store double %11, ptr %y.i99, align 8
   %call17 = call { double, double } @_ZNK7msdfgen10Projection15unprojectVectorERKNS_7Vector2E(ptr noundef nonnull align 8 dereferenceable(32) %projection, ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp15)
   %12 = extractvalue { double, double } %call17, 0
@@ -2891,18 +2874,18 @@ entry:
   %14 = call double @llvm.fmuladd.f64(double %12, double %12, double %mul4.i101)
   %sqrt.i102 = call noundef double @llvm.sqrt.f64(double %14)
   %mul19 = fmul double %10, %sqrt.i102
-  %height = getelementptr inbounds %"struct.msdfgen::BitmapConstRef.0", ptr %sdf, i64 0, i32 2
+  %height = getelementptr inbounds i8, ptr %sdf, i64 12
   %15 = load i32, ptr %height, align 4
   %cmp743 = icmp sgt i32 %15, 0
   br i1 %cmp743, label %for.cond20.preheader.lr.ph, label %for.end119
 
 for.cond20.preheader.lr.ph:                       ; preds = %entry
-  %width = getelementptr inbounds %"struct.msdfgen::BitmapConstRef.0", ptr %sdf, i64 0, i32 1
-  %width.i103 = getelementptr inbounds %"struct.msdfgen::BitmapRef", ptr %this, i64 0, i32 1
-  %protectedFlag3.i223 = getelementptr inbounds %"class.msdfgen::BaseArtifactClassifier", ptr %ref.tmp64, i64 0, i32 1
-  %protectedFlag3.i231 = getelementptr inbounds %"class.msdfgen::BaseArtifactClassifier", ptr %ref.tmp77, i64 0, i32 1
-  %protectedFlag3.i239 = getelementptr inbounds %"class.msdfgen::BaseArtifactClassifier", ptr %ref.tmp90, i64 0, i32 1
-  %protectedFlag3.i247 = getelementptr inbounds %"class.msdfgen::BaseArtifactClassifier", ptr %ref.tmp103, i64 0, i32 1
+  %width = getelementptr inbounds i8, ptr %sdf, i64 8
+  %width.i103 = getelementptr inbounds i8, ptr %this, i64 8
+  %protectedFlag3.i223 = getelementptr inbounds i8, ptr %ref.tmp64, i64 8
+  %protectedFlag3.i231 = getelementptr inbounds i8, ptr %ref.tmp77, i64 8
+  %protectedFlag3.i239 = getelementptr inbounds i8, ptr %ref.tmp90, i64 8
+  %protectedFlag3.i247 = getelementptr inbounds i8, ptr %ref.tmp103, i64 8
   %16 = load i32, ptr %width, align 8
   %17 = icmp sgt i32 %16, 0
   br i1 %17, label %for.cond20.preheader, label %for.end119
@@ -2934,7 +2917,7 @@ for.body22:                                       ; preds = %for.body22.lr.ph, %
   %idx.ext.i = sext i32 %mul2.i to i64
   %add.ptr.i = getelementptr inbounds float, ptr %21, i64 %idx.ext.i
   %22 = load float, ptr %add.ptr.i, align 4
-  %arrayidx24 = getelementptr inbounds float, ptr %add.ptr.i, i64 1
+  %arrayidx24 = getelementptr inbounds i8, ptr %add.ptr.i, i64 4
   %23 = load <2 x float>, ptr %arrayidx24, align 4
   %24 = extractelement <2 x float> %23, i64 0
   %cmp.i3.i = fcmp olt float %22, %24
@@ -2965,7 +2948,7 @@ land.lhs.true:                                    ; preds = %for.body22
   %idx.ext.i112 = sext i32 %mul2.i111 to i64
   %add.ptr.i113 = getelementptr inbounds float, ptr %21, i64 %idx.ext.i112
   %35 = load float, ptr %add.ptr.i113, align 4
-  %arrayidx1.i = getelementptr inbounds float, ptr %add.ptr.i113, i64 1
+  %arrayidx1.i = getelementptr inbounds i8, ptr %add.ptr.i113, i64 4
   %36 = load <2 x float>, ptr %arrayidx1.i, align 4
   %37 = extractelement <2 x float> %36, i64 0
   %cmp.i3.i.i = fcmp olt float %35, %37
@@ -3274,7 +3257,7 @@ land.lhs.true34:                                  ; preds = %lor.lhs.false
   %add.ptr.i119 = getelementptr inbounds float, ptr %21, i64 %idx.ext.i118
   %.lobit = lshr exact i8 %34, 1
   %103 = load float, ptr %add.ptr.i119, align 4
-  %arrayidx1.i122 = getelementptr inbounds float, ptr %add.ptr.i119, i64 1
+  %arrayidx1.i122 = getelementptr inbounds i8, ptr %add.ptr.i119, i64 4
   %104 = load <2 x float>, ptr %arrayidx1.i122, align 4
   %105 = extractelement <2 x float> %104, i64 0
   %cmp.i3.i.i126 = fcmp olt float %103, %105
@@ -3500,7 +3483,7 @@ land.lhs.true44:                                  ; preds = %lor.lhs.false40
   %add.ptr.i155 = getelementptr inbounds float, ptr %21, i64 %idx.ext.i154
   %.lobit735 = lshr exact i8 %34, 1
   %154 = load float, ptr %add.ptr.i155, align 4
-  %arrayidx1.i158 = getelementptr inbounds float, ptr %add.ptr.i155, i64 1
+  %arrayidx1.i158 = getelementptr inbounds i8, ptr %add.ptr.i155, i64 4
   %155 = load <2 x float>, ptr %arrayidx1.i158, align 4
   %156 = extractelement <2 x float> %155, i64 0
   %cmp.i3.i.i162 = fcmp olt float %154, %156
@@ -3642,7 +3625,7 @@ land.lhs.true53:                                  ; preds = %lor.lhs.false49
   %add.ptr.i191 = getelementptr inbounds float, ptr %21, i64 %idx.ext.i190
   %.lobit736 = lshr exact i8 %34, 1
   %189 = load float, ptr %add.ptr.i191, align 4
-  %arrayidx1.i194 = getelementptr inbounds float, ptr %add.ptr.i191, i64 1
+  %arrayidx1.i194 = getelementptr inbounds i8, ptr %add.ptr.i191, i64 4
   %190 = load <2 x float>, ptr %arrayidx1.i194, align 4
   %191 = extractelement <2 x float> %190, i64 0
   %cmp.i3.i.i198 = fcmp olt float %189, %191
@@ -3915,13 +3898,13 @@ entry:
   %ref.tmp135 = alloca %"class.msdfgen::ShapeDistanceChecker<msdfgen::SimpleContourCombiner, 3>::ArtifactClassifier", align 8
   %ref.tmp152 = alloca %"class.msdfgen::ShapeDistanceChecker<msdfgen::SimpleContourCombiner, 3>::ArtifactClassifier", align 8
   %ref.tmp169 = alloca %"class.msdfgen::ShapeDistanceChecker<msdfgen::SimpleContourCombiner, 3>::ArtifactClassifier", align 8
-  %minDeviationRatio = getelementptr inbounds %"class.msdfgen::MSDFErrorCorrection", ptr %this, i64 0, i32 3
+  %minDeviationRatio = getelementptr inbounds i8, ptr %this, i64 56
   %0 = load double, ptr %minDeviationRatio, align 8
-  %projection = getelementptr inbounds %"class.msdfgen::MSDFErrorCorrection", ptr %this, i64 0, i32 1
-  %invRange = getelementptr inbounds %"class.msdfgen::MSDFErrorCorrection", ptr %this, i64 0, i32 2
+  %projection = getelementptr inbounds i8, ptr %this, i64 16
+  %invRange = getelementptr inbounds i8, ptr %this, i64 48
   %1 = load double, ptr %invRange, align 8
   store double %1, ptr %ref.tmp2, align 8
-  %y3.i = getelementptr inbounds %"struct.msdfgen::Vector2", ptr %ref.tmp2, i64 0, i32 1
+  %y3.i = getelementptr inbounds i8, ptr %ref.tmp2, i64 8
   store double 0.000000e+00, ptr %y3.i, align 8
   %call = call { double, double } @_ZNK7msdfgen10Projection15unprojectVectorERKNS_7Vector2E(ptr noundef nonnull align 8 dereferenceable(32) %projection, ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp2)
   %2 = extractvalue { double, double } %call, 0
@@ -3933,7 +3916,7 @@ entry:
   %5 = load double, ptr %minDeviationRatio, align 8
   %6 = load double, ptr %invRange, align 8
   store double 0.000000e+00, ptr %ref.tmp7, align 8
-  %y3.i98 = getelementptr inbounds %"struct.msdfgen::Vector2", ptr %ref.tmp7, i64 0, i32 1
+  %y3.i98 = getelementptr inbounds i8, ptr %ref.tmp7, i64 8
   store double %6, ptr %y3.i98, align 8
   %call9 = call { double, double } @_ZNK7msdfgen10Projection15unprojectVectorERKNS_7Vector2E(ptr noundef nonnull align 8 dereferenceable(32) %projection, ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp7)
   %7 = extractvalue { double, double } %call9, 0
@@ -3945,7 +3928,7 @@ entry:
   %10 = load double, ptr %minDeviationRatio, align 8
   %11 = load double, ptr %invRange, align 8
   store double %11, ptr %ref.tmp15, align 8
-  %y.i102 = getelementptr inbounds %"struct.msdfgen::Vector2", ptr %ref.tmp15, i64 0, i32 1
+  %y.i102 = getelementptr inbounds i8, ptr %ref.tmp15, i64 8
   store double %11, ptr %y.i102, align 8
   %call17 = call { double, double } @_ZNK7msdfgen10Projection15unprojectVectorERKNS_7Vector2E(ptr noundef nonnull align 8 dereferenceable(32) %projection, ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp15)
   %12 = extractvalue { double, double } %call17, 0
@@ -3955,26 +3938,26 @@ entry:
   %sqrt.i105 = call noundef double @llvm.sqrt.f64(double %14)
   %mul19 = fmul double %10, %sqrt.i105
   %15 = load double, ptr %invRange, align 8
-  %minImproveRatio = getelementptr inbounds %"class.msdfgen::MSDFErrorCorrection", ptr %this, i64 0, i32 4
+  %minImproveRatio = getelementptr inbounds i8, ptr %this, i64 64
   %16 = load double, ptr %minImproveRatio, align 8
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %ref.tmp5.i)
-  %distanceFinder.i = getelementptr inbounds %"class.msdfgen::ShapeDistanceChecker", ptr %shapeDistanceChecker, i64 0, i32 4
+  %distanceFinder.i = getelementptr inbounds i8, ptr %shapeDistanceChecker, i64 48
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %shapeDistanceChecker, i8 0, i64 32, i1 false)
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %ref.tmp.i.i)
   store ptr %shape, ptr %distanceFinder.i, align 8
-  %contourCombiner.i.i = getelementptr inbounds %"class.msdfgen::ShapeDistanceChecker", ptr %shapeDistanceChecker, i64 0, i32 4, i32 1
+  %contourCombiner.i.i = getelementptr inbounds i8, ptr %shapeDistanceChecker, i64 56
   call void @_ZN7msdfgen21SimpleContourCombinerINS_22PseudoDistanceSelectorEEC1ERKNS_5ShapeE(ptr noundef nonnull align 8 dereferenceable(64) %contourCombiner.i.i, ptr noundef nonnull align 8 dereferenceable(25) %shape)
-  %shapeEdgeCache.i.i = getelementptr inbounds %"class.msdfgen::ShapeDistanceChecker", ptr %shapeDistanceChecker, i64 0, i32 4, i32 2
+  %shapeEdgeCache.i.i = getelementptr inbounds i8, ptr %shapeDistanceChecker, i64 120
   %call.i.i = call noundef i32 @_ZNK7msdfgen5Shape9edgeCountEv(ptr noundef nonnull align 8 dereferenceable(25) %shape)
   %conv.i.i = sext i32 %call.i.i to i64
   call void @_ZNSt6vectorIN7msdfgen26PseudoDistanceSelectorBase9EdgeCacheESaIS2_EEC2EmRKS3_(ptr noundef nonnull align 8 dereferenceable(24) %shapeEdgeCache.i.i, i64 noundef %conv.i.i, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i.i)
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %ref.tmp.i.i)
-  %sdf2.i = getelementptr inbounds %"class.msdfgen::ShapeDistanceChecker", ptr %shapeDistanceChecker, i64 0, i32 5
+  %sdf2.i = getelementptr inbounds i8, ptr %shapeDistanceChecker, i64 144
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %sdf2.i, ptr noundef nonnull align 8 dereferenceable(16) %sdf, i64 16, i1 false)
-  %invRange3.i = getelementptr inbounds %"class.msdfgen::ShapeDistanceChecker", ptr %shapeDistanceChecker, i64 0, i32 6
+  %invRange3.i = getelementptr inbounds i8, ptr %shapeDistanceChecker, i64 160
   store double %15, ptr %invRange3.i, align 8
-  %texelSize.i = getelementptr inbounds %"class.msdfgen::ShapeDistanceChecker", ptr %shapeDistanceChecker, i64 0, i32 7
-  %minImproveRatio4.i = getelementptr inbounds %"class.msdfgen::ShapeDistanceChecker", ptr %shapeDistanceChecker, i64 0, i32 8
+  %texelSize.i = getelementptr inbounds i8, ptr %shapeDistanceChecker, i64 168
+  %minImproveRatio4.i = getelementptr inbounds i8, ptr %shapeDistanceChecker, i64 184
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %texelSize.i, i8 0, i64 16, i1 false)
   store double %16, ptr %minImproveRatio4.i, align 8
   store <2 x double> <double 1.000000e+00, double 1.000000e+00>, ptr %ref.tmp5.i, align 16
@@ -3999,52 +3982,52 @@ common.resume:                                    ; preds = %common.resume.sink.
   resume { ptr, i32 } %common.resume.op
 
 _ZN7msdfgen20ShapeDistanceCheckerINS_21SimpleContourCombinerELi3EEC2ERKNS_14BitmapConstRefIfLi3EEERKNS_5ShapeERKNS_10ProjectionEdd.exit: ; preds = %entry
-  %y.i2.i = getelementptr inbounds %"class.msdfgen::ShapeDistanceChecker", ptr %shapeDistanceChecker, i64 0, i32 7, i32 1
+  %y.i2.i = getelementptr inbounds i8, ptr %shapeDistanceChecker, i64 176
   %19 = extractvalue { double, double } %call.i, 0
   %20 = extractvalue { double, double } %call.i, 1
   store double %19, ptr %texelSize.i, align 8
   store double %20, ptr %y.i2.i, align 8
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %ref.tmp5.i)
-  %height = getelementptr inbounds %"struct.msdfgen::BitmapConstRef", ptr %sdf, i64 0, i32 2
+  %height = getelementptr inbounds i8, ptr %sdf, i64 12
   %21 = load i32, ptr %height, align 4
   %cmp524 = icmp sgt i32 %21, 0
   br i1 %cmp524, label %for.body.lr.ph, label %for.end190
 
 for.body.lr.ph:                                   ; preds = %_ZN7msdfgen20ShapeDistanceCheckerINS_21SimpleContourCombinerELi3EEC2ERKNS_14BitmapConstRefIfLi3EEERKNS_5ShapeERKNS_10ProjectionEdd.exit
-  %inverseYAxis = getelementptr inbounds %"class.msdfgen::Shape", ptr %shape, i64 0, i32 1
-  %width = getelementptr inbounds %"struct.msdfgen::BitmapConstRef", ptr %sdf, i64 0, i32 1
-  %width.i = getelementptr inbounds %"struct.msdfgen::BitmapRef", ptr %this, i64 0, i32 1
-  %y3.i115 = getelementptr inbounds %"struct.msdfgen::Vector2", ptr %ref.tmp41, i64 0, i32 1
+  %inverseYAxis = getelementptr inbounds i8, ptr %shape, i64 24
+  %width = getelementptr inbounds i8, ptr %sdf, i64 8
+  %width.i = getelementptr inbounds i8, ptr %this, i64 8
+  %y3.i115 = getelementptr inbounds i8, ptr %ref.tmp41, i64 8
   %ref.tmp39.sroa.2.0.shapeCoord.sroa_idx = getelementptr inbounds i8, ptr %shapeDistanceChecker, i64 8
-  %sdfCoord = getelementptr inbounds %"class.msdfgen::ShapeDistanceChecker", ptr %shapeDistanceChecker, i64 0, i32 1
-  %ref.tmp48.sroa.2.0.sdfCoord.sroa_idx = getelementptr inbounds %"class.msdfgen::ShapeDistanceChecker", ptr %shapeDistanceChecker, i64 0, i32 1, i32 1
-  %msd = getelementptr inbounds %"class.msdfgen::ShapeDistanceChecker", ptr %shapeDistanceChecker, i64 0, i32 2
-  %protectedFlag = getelementptr inbounds %"class.msdfgen::ShapeDistanceChecker", ptr %shapeDistanceChecker, i64 0, i32 3
-  %protectedFlag3.i.i.i = getelementptr inbounds %"class.msdfgen::BaseArtifactClassifier", ptr %ref.tmp68, i64 0, i32 1
-  %parent2.i.i = getelementptr inbounds %"class.msdfgen::ShapeDistanceChecker<msdfgen::SimpleContourCombiner, 3>::ArtifactClassifier", ptr %ref.tmp68, i64 0, i32 1
-  %direction3.i.i = getelementptr inbounds %"class.msdfgen::ShapeDistanceChecker<msdfgen::SimpleContourCombiner, 3>::ArtifactClassifier", ptr %ref.tmp68, i64 0, i32 2
-  %arrayidx29.i = getelementptr inbounds [3 x float], ptr %oldMSD.i, i64 0, i64 1
-  %protectedFlag3.i.i.i140 = getelementptr inbounds %"class.msdfgen::BaseArtifactClassifier", ptr %ref.tmp79, i64 0, i32 1
-  %parent2.i.i141 = getelementptr inbounds %"class.msdfgen::ShapeDistanceChecker<msdfgen::SimpleContourCombiner, 3>::ArtifactClassifier", ptr %ref.tmp79, i64 0, i32 1
-  %direction3.i.i142 = getelementptr inbounds %"class.msdfgen::ShapeDistanceChecker<msdfgen::SimpleContourCombiner, 3>::ArtifactClassifier", ptr %ref.tmp79, i64 0, i32 2
-  %protectedFlag3.i.i.i182 = getelementptr inbounds %"class.msdfgen::BaseArtifactClassifier", ptr %ref.tmp93, i64 0, i32 1
-  %parent2.i.i183 = getelementptr inbounds %"class.msdfgen::ShapeDistanceChecker<msdfgen::SimpleContourCombiner, 3>::ArtifactClassifier", ptr %ref.tmp93, i64 0, i32 1
-  %direction3.i.i184 = getelementptr inbounds %"class.msdfgen::ShapeDistanceChecker<msdfgen::SimpleContourCombiner, 3>::ArtifactClassifier", ptr %ref.tmp93, i64 0, i32 2
-  %protectedFlag3.i.i.i224 = getelementptr inbounds %"class.msdfgen::BaseArtifactClassifier", ptr %ref.tmp107, i64 0, i32 1
-  %parent2.i.i225 = getelementptr inbounds %"class.msdfgen::ShapeDistanceChecker<msdfgen::SimpleContourCombiner, 3>::ArtifactClassifier", ptr %ref.tmp107, i64 0, i32 1
-  %direction3.i.i226 = getelementptr inbounds %"class.msdfgen::ShapeDistanceChecker<msdfgen::SimpleContourCombiner, 3>::ArtifactClassifier", ptr %ref.tmp107, i64 0, i32 2
-  %protectedFlag3.i.i.i260 = getelementptr inbounds %"class.msdfgen::BaseArtifactClassifier", ptr %ref.tmp118, i64 0, i32 1
-  %parent2.i.i261 = getelementptr inbounds %"class.msdfgen::ShapeDistanceChecker<msdfgen::SimpleContourCombiner, 3>::ArtifactClassifier", ptr %ref.tmp118, i64 0, i32 1
-  %direction3.i.i262 = getelementptr inbounds %"class.msdfgen::ShapeDistanceChecker<msdfgen::SimpleContourCombiner, 3>::ArtifactClassifier", ptr %ref.tmp118, i64 0, i32 2
-  %protectedFlag3.i.i.i271 = getelementptr inbounds %"class.msdfgen::BaseArtifactClassifier", ptr %ref.tmp135, i64 0, i32 1
-  %parent2.i.i272 = getelementptr inbounds %"class.msdfgen::ShapeDistanceChecker<msdfgen::SimpleContourCombiner, 3>::ArtifactClassifier", ptr %ref.tmp135, i64 0, i32 1
-  %direction3.i.i273 = getelementptr inbounds %"class.msdfgen::ShapeDistanceChecker<msdfgen::SimpleContourCombiner, 3>::ArtifactClassifier", ptr %ref.tmp135, i64 0, i32 2
-  %protectedFlag3.i.i.i282 = getelementptr inbounds %"class.msdfgen::BaseArtifactClassifier", ptr %ref.tmp152, i64 0, i32 1
-  %parent2.i.i283 = getelementptr inbounds %"class.msdfgen::ShapeDistanceChecker<msdfgen::SimpleContourCombiner, 3>::ArtifactClassifier", ptr %ref.tmp152, i64 0, i32 1
-  %direction3.i.i284 = getelementptr inbounds %"class.msdfgen::ShapeDistanceChecker<msdfgen::SimpleContourCombiner, 3>::ArtifactClassifier", ptr %ref.tmp152, i64 0, i32 2
-  %protectedFlag3.i.i.i293 = getelementptr inbounds %"class.msdfgen::BaseArtifactClassifier", ptr %ref.tmp169, i64 0, i32 1
-  %parent2.i.i294 = getelementptr inbounds %"class.msdfgen::ShapeDistanceChecker<msdfgen::SimpleContourCombiner, 3>::ArtifactClassifier", ptr %ref.tmp169, i64 0, i32 1
-  %direction3.i.i295 = getelementptr inbounds %"class.msdfgen::ShapeDistanceChecker<msdfgen::SimpleContourCombiner, 3>::ArtifactClassifier", ptr %ref.tmp169, i64 0, i32 2
+  %sdfCoord = getelementptr inbounds i8, ptr %shapeDistanceChecker, i64 16
+  %ref.tmp48.sroa.2.0.sdfCoord.sroa_idx = getelementptr inbounds i8, ptr %shapeDistanceChecker, i64 24
+  %msd = getelementptr inbounds i8, ptr %shapeDistanceChecker, i64 32
+  %protectedFlag = getelementptr inbounds i8, ptr %shapeDistanceChecker, i64 40
+  %protectedFlag3.i.i.i = getelementptr inbounds i8, ptr %ref.tmp68, i64 8
+  %parent2.i.i = getelementptr inbounds i8, ptr %ref.tmp68, i64 16
+  %direction3.i.i = getelementptr inbounds i8, ptr %ref.tmp68, i64 24
+  %arrayidx29.i = getelementptr inbounds i8, ptr %oldMSD.i, i64 4
+  %protectedFlag3.i.i.i140 = getelementptr inbounds i8, ptr %ref.tmp79, i64 8
+  %parent2.i.i141 = getelementptr inbounds i8, ptr %ref.tmp79, i64 16
+  %direction3.i.i142 = getelementptr inbounds i8, ptr %ref.tmp79, i64 24
+  %protectedFlag3.i.i.i182 = getelementptr inbounds i8, ptr %ref.tmp93, i64 8
+  %parent2.i.i183 = getelementptr inbounds i8, ptr %ref.tmp93, i64 16
+  %direction3.i.i184 = getelementptr inbounds i8, ptr %ref.tmp93, i64 24
+  %protectedFlag3.i.i.i224 = getelementptr inbounds i8, ptr %ref.tmp107, i64 8
+  %parent2.i.i225 = getelementptr inbounds i8, ptr %ref.tmp107, i64 16
+  %direction3.i.i226 = getelementptr inbounds i8, ptr %ref.tmp107, i64 24
+  %protectedFlag3.i.i.i260 = getelementptr inbounds i8, ptr %ref.tmp118, i64 8
+  %parent2.i.i261 = getelementptr inbounds i8, ptr %ref.tmp118, i64 16
+  %direction3.i.i262 = getelementptr inbounds i8, ptr %ref.tmp118, i64 24
+  %protectedFlag3.i.i.i271 = getelementptr inbounds i8, ptr %ref.tmp135, i64 8
+  %parent2.i.i272 = getelementptr inbounds i8, ptr %ref.tmp135, i64 16
+  %direction3.i.i273 = getelementptr inbounds i8, ptr %ref.tmp135, i64 24
+  %protectedFlag3.i.i.i282 = getelementptr inbounds i8, ptr %ref.tmp152, i64 8
+  %parent2.i.i283 = getelementptr inbounds i8, ptr %ref.tmp152, i64 16
+  %direction3.i.i284 = getelementptr inbounds i8, ptr %ref.tmp152, i64 24
+  %protectedFlag3.i.i.i293 = getelementptr inbounds i8, ptr %ref.tmp169, i64 8
+  %parent2.i.i294 = getelementptr inbounds i8, ptr %ref.tmp169, i64 16
+  %direction3.i.i295 = getelementptr inbounds i8, ptr %ref.tmp169, i64 24
   %22 = load i32, ptr %width, align 8
   %23 = icmp sgt i32 %22, 0
   br i1 %23, label %for.body, label %for.end190
@@ -4128,8 +4111,8 @@ invoke.cont62:                                    ; preds = %if.end
   %.lobit = and i8 %44, 1
   store i8 %.lobit, ptr %protectedFlag, align 8
   %45 = load float, ptr %add.ptr.i114, align 4
-  %arrayidx60 = getelementptr inbounds float, ptr %add.ptr.i114, i64 1
-  %arrayidx61 = getelementptr inbounds float, ptr %add.ptr.i114, i64 2
+  %arrayidx60 = getelementptr inbounds i8, ptr %add.ptr.i114, i64 4
+  %arrayidx61 = getelementptr inbounds i8, ptr %add.ptr.i114, i64 8
   %46 = load <2 x float>, ptr %arrayidx60, align 4
   %47 = extractelement <2 x float> %46, i64 0
   %cmp.i3.i = fcmp olt float %45, %47
@@ -4159,8 +4142,8 @@ invoke.cont71:                                    ; preds = %invoke.cont62
   store ptr %shapeDistanceChecker, ptr %parent2.i.i, align 8, !alias.scope !24
   store <2 x double> <double -1.000000e+00, double 0.000000e+00>, ptr %direction3.i.i, align 8
   %55 = load float, ptr %add.ptr.i127, align 4
-  %arrayidx1.i = getelementptr inbounds float, ptr %add.ptr.i127, i64 1
-  %arrayidx2.i = getelementptr inbounds float, ptr %add.ptr.i127, i64 2
+  %arrayidx1.i = getelementptr inbounds i8, ptr %add.ptr.i127, i64 4
+  %arrayidx2.i = getelementptr inbounds i8, ptr %add.ptr.i127, i64 8
   %56 = load <2 x float>, ptr %arrayidx1.i, align 4
   %57 = extractelement <2 x float> %56, i64 0
   %cmp.i3.i.i = fcmp olt float %55, %57
@@ -4359,7 +4342,7 @@ call10.i.noexc:                                   ; preds = %if.end.i
   %130 = call double @llvm.fmuladd.f64(double %92, double %call67.i498, double 5.000000e-01)
   %conv69.i = fptrunc double %130 to float
   %131 = load ptr, ptr %parent2.i.i, align 8
-  %minImproveRatio.i = getelementptr inbounds %"class.msdfgen::ShapeDistanceChecker", ptr %131, i64 0, i32 8
+  %minImproveRatio.i = getelementptr inbounds i8, ptr %131, i64 184
   %132 = load double, ptr %minImproveRatio.i, align 8
   %sub71.i = fsub float %cond.i8.i24.i, %conv69.i
   %133 = call float @llvm.fabs.f32(float %sub71.i)
@@ -4535,8 +4518,8 @@ invoke.cont82:                                    ; preds = %lor.lhs.false
   store ptr %shapeDistanceChecker, ptr %parent2.i.i141, align 8, !alias.scope !27
   store <2 x double> <double 0.000000e+00, double -1.000000e+00>, ptr %direction3.i.i142, align 8
   %170 = load float, ptr %add.ptr.i137, align 4
-  %arrayidx1.i143 = getelementptr inbounds float, ptr %add.ptr.i137, i64 1
-  %arrayidx2.i144 = getelementptr inbounds float, ptr %add.ptr.i137, i64 2
+  %arrayidx1.i143 = getelementptr inbounds i8, ptr %add.ptr.i137, i64 4
+  %arrayidx2.i144 = getelementptr inbounds i8, ptr %add.ptr.i137, i64 8
   %171 = load <2 x float>, ptr %arrayidx1.i143, align 4
   %172 = extractelement <2 x float> %171, i64 0
   %cmp.i3.i.i147 = fcmp olt float %170, %172
@@ -4723,8 +4706,8 @@ invoke.cont96:                                    ; preds = %lor.lhs.false85
   store ptr %shapeDistanceChecker, ptr %parent2.i.i183, align 8, !alias.scope !30
   store <2 x double> <double 1.000000e+00, double 0.000000e+00>, ptr %direction3.i.i184, align 8
   %220 = load float, ptr %add.ptr.i179, align 4
-  %arrayidx1.i185 = getelementptr inbounds float, ptr %add.ptr.i179, i64 1
-  %arrayidx2.i186 = getelementptr inbounds float, ptr %add.ptr.i179, i64 2
+  %arrayidx1.i185 = getelementptr inbounds i8, ptr %add.ptr.i179, i64 4
+  %arrayidx2.i186 = getelementptr inbounds i8, ptr %add.ptr.i179, i64 8
   %221 = load <2 x float>, ptr %arrayidx1.i185, align 4
   %222 = extractelement <2 x float> %221, i64 0
   %cmp.i3.i.i189 = fcmp olt float %220, %222
@@ -4810,8 +4793,8 @@ invoke.cont110:                                   ; preds = %lor.lhs.false99
   store ptr %shapeDistanceChecker, ptr %parent2.i.i225, align 8, !alias.scope !33
   store <2 x double> <double 0.000000e+00, double 1.000000e+00>, ptr %direction3.i.i226, align 8
   %249 = load float, ptr %add.ptr.i221, align 4
-  %arrayidx1.i227 = getelementptr inbounds float, ptr %add.ptr.i221, i64 1
-  %arrayidx2.i228 = getelementptr inbounds float, ptr %add.ptr.i221, i64 2
+  %arrayidx1.i227 = getelementptr inbounds i8, ptr %add.ptr.i221, i64 4
+  %arrayidx2.i228 = getelementptr inbounds i8, ptr %add.ptr.i221, i64 8
   %250 = load <2 x float>, ptr %arrayidx1.i227, align 4
   %251 = extractelement <2 x float> %250, i64 0
   %cmp.i3.i.i231 = fcmp olt float %249, %251
@@ -5052,9 +5035,9 @@ define internal fastcc noundef zeroext i1 @_ZN7msdfgenL19hasDiagonalArtifactINS_
 entry:
   %l = alloca [3 x float], align 8
   %q = alloca [3 x float], align 8
-  %arrayidx1 = getelementptr inbounds float, ptr %d, i64 1
+  %arrayidx1 = getelementptr inbounds i8, ptr %d, i64 4
   %0 = load <2 x float>, ptr %d, align 4
-  %arrayidx2 = getelementptr inbounds float, ptr %d, i64 2
+  %arrayidx2 = getelementptr inbounds i8, ptr %d, i64 8
   %1 = load float, ptr %arrayidx2, align 4
   %2 = extractelement <2 x float> %0, i64 0
   %3 = extractelement <2 x float> %0, i64 1
@@ -5076,12 +5059,12 @@ entry:
   br i1 %cmp, label %return, label %if.then
 
 if.then:                                          ; preds = %entry
-  %arrayidx15 = getelementptr inbounds float, ptr %a, i64 2
+  %arrayidx15 = getelementptr inbounds i8, ptr %a, i64 8
   %10 = load float, ptr %arrayidx15, align 4
-  %arrayidx16 = getelementptr inbounds float, ptr %b, i64 2
+  %arrayidx16 = getelementptr inbounds i8, ptr %b, i64 8
   %11 = load float, ptr %arrayidx16, align 4
   %sub17 = fsub float %10, %11
-  %arrayidx18 = getelementptr inbounds float, ptr %c, i64 2
+  %arrayidx18 = getelementptr inbounds i8, ptr %c, i64 8
   %12 = load float, ptr %arrayidx18, align 4
   %sub19 = fsub float %sub17, %12
   %13 = load <2 x float>, ptr %a, align 4
@@ -5092,13 +5075,13 @@ if.then:                                          ; preds = %entry
   %18 = fneg <2 x float> %13
   %19 = fsub <2 x float> %18, %17
   store <2 x float> %19, ptr %l, align 8
-  %arrayinit.element29 = getelementptr inbounds float, ptr %l, i64 2
+  %arrayinit.element29 = getelementptr inbounds i8, ptr %l, i64 8
   %fneg31 = fneg float %10
   %sub33 = fsub float %fneg31, %sub19
   store float %sub33, ptr %arrayinit.element29, align 8
   %20 = fadd <2 x float> %0, %17
   store <2 x float> %20, ptr %q, align 8
-  %arrayinit.element41 = getelementptr inbounds float, ptr %q, i64 2
+  %arrayinit.element41 = getelementptr inbounds i8, ptr %q, i64 8
   %add44 = fadd float %1, %sub19
   store float %add44, ptr %arrayinit.element41, align 8
   %21 = extractelement <2 x float> %19, i64 0
@@ -5131,9 +5114,9 @@ if.then:                                          ; preds = %entry
   br i1 %call79, label %return, label %lor.lhs.false
 
 lor.lhs.false:                                    ; preds = %if.then
-  %arrayidx12 = getelementptr inbounds float, ptr %c, i64 1
-  %arrayidx10 = getelementptr inbounds float, ptr %b, i64 1
-  %arrayidx9 = getelementptr inbounds float, ptr %a, i64 1
+  %arrayidx12 = getelementptr inbounds i8, ptr %c, i64 4
+  %arrayidx10 = getelementptr inbounds i8, ptr %b, i64 4
+  %arrayidx9 = getelementptr inbounds i8, ptr %a, i64 4
   %29 = load float, ptr %arrayidx15, align 4
   %30 = load float, ptr %arrayidx9, align 4
   %sub84 = fsub float %29, %30
@@ -5192,13 +5175,13 @@ entry:
   %ref.tmp135 = alloca %"class.msdfgen::ShapeDistanceChecker<msdfgen::SimpleContourCombiner, 4>::ArtifactClassifier", align 8
   %ref.tmp152 = alloca %"class.msdfgen::ShapeDistanceChecker<msdfgen::SimpleContourCombiner, 4>::ArtifactClassifier", align 8
   %ref.tmp169 = alloca %"class.msdfgen::ShapeDistanceChecker<msdfgen::SimpleContourCombiner, 4>::ArtifactClassifier", align 8
-  %minDeviationRatio = getelementptr inbounds %"class.msdfgen::MSDFErrorCorrection", ptr %this, i64 0, i32 3
+  %minDeviationRatio = getelementptr inbounds i8, ptr %this, i64 56
   %0 = load double, ptr %minDeviationRatio, align 8
-  %projection = getelementptr inbounds %"class.msdfgen::MSDFErrorCorrection", ptr %this, i64 0, i32 1
-  %invRange = getelementptr inbounds %"class.msdfgen::MSDFErrorCorrection", ptr %this, i64 0, i32 2
+  %projection = getelementptr inbounds i8, ptr %this, i64 16
+  %invRange = getelementptr inbounds i8, ptr %this, i64 48
   %1 = load double, ptr %invRange, align 8
   store double %1, ptr %ref.tmp2, align 8
-  %y3.i = getelementptr inbounds %"struct.msdfgen::Vector2", ptr %ref.tmp2, i64 0, i32 1
+  %y3.i = getelementptr inbounds i8, ptr %ref.tmp2, i64 8
   store double 0.000000e+00, ptr %y3.i, align 8
   %call = call { double, double } @_ZNK7msdfgen10Projection15unprojectVectorERKNS_7Vector2E(ptr noundef nonnull align 8 dereferenceable(32) %projection, ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp2)
   %2 = extractvalue { double, double } %call, 0
@@ -5210,7 +5193,7 @@ entry:
   %5 = load double, ptr %minDeviationRatio, align 8
   %6 = load double, ptr %invRange, align 8
   store double 0.000000e+00, ptr %ref.tmp7, align 8
-  %y3.i98 = getelementptr inbounds %"struct.msdfgen::Vector2", ptr %ref.tmp7, i64 0, i32 1
+  %y3.i98 = getelementptr inbounds i8, ptr %ref.tmp7, i64 8
   store double %6, ptr %y3.i98, align 8
   %call9 = call { double, double } @_ZNK7msdfgen10Projection15unprojectVectorERKNS_7Vector2E(ptr noundef nonnull align 8 dereferenceable(32) %projection, ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp7)
   %7 = extractvalue { double, double } %call9, 0
@@ -5222,7 +5205,7 @@ entry:
   %10 = load double, ptr %minDeviationRatio, align 8
   %11 = load double, ptr %invRange, align 8
   store double %11, ptr %ref.tmp15, align 8
-  %y.i102 = getelementptr inbounds %"struct.msdfgen::Vector2", ptr %ref.tmp15, i64 0, i32 1
+  %y.i102 = getelementptr inbounds i8, ptr %ref.tmp15, i64 8
   store double %11, ptr %y.i102, align 8
   %call17 = call { double, double } @_ZNK7msdfgen10Projection15unprojectVectorERKNS_7Vector2E(ptr noundef nonnull align 8 dereferenceable(32) %projection, ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp15)
   %12 = extractvalue { double, double } %call17, 0
@@ -5232,26 +5215,26 @@ entry:
   %sqrt.i105 = call noundef double @llvm.sqrt.f64(double %14)
   %mul19 = fmul double %10, %sqrt.i105
   %15 = load double, ptr %invRange, align 8
-  %minImproveRatio = getelementptr inbounds %"class.msdfgen::MSDFErrorCorrection", ptr %this, i64 0, i32 4
+  %minImproveRatio = getelementptr inbounds i8, ptr %this, i64 64
   %16 = load double, ptr %minImproveRatio, align 8
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %ref.tmp5.i)
-  %distanceFinder.i = getelementptr inbounds %"class.msdfgen::ShapeDistanceChecker.6", ptr %shapeDistanceChecker, i64 0, i32 4
+  %distanceFinder.i = getelementptr inbounds i8, ptr %shapeDistanceChecker, i64 48
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %shapeDistanceChecker, i8 0, i64 32, i1 false)
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %ref.tmp.i.i)
   store ptr %shape, ptr %distanceFinder.i, align 8
-  %contourCombiner.i.i = getelementptr inbounds %"class.msdfgen::ShapeDistanceChecker.6", ptr %shapeDistanceChecker, i64 0, i32 4, i32 1
+  %contourCombiner.i.i = getelementptr inbounds i8, ptr %shapeDistanceChecker, i64 56
   call void @_ZN7msdfgen21SimpleContourCombinerINS_22PseudoDistanceSelectorEEC1ERKNS_5ShapeE(ptr noundef nonnull align 8 dereferenceable(64) %contourCombiner.i.i, ptr noundef nonnull align 8 dereferenceable(25) %shape)
-  %shapeEdgeCache.i.i = getelementptr inbounds %"class.msdfgen::ShapeDistanceChecker.6", ptr %shapeDistanceChecker, i64 0, i32 4, i32 2
+  %shapeEdgeCache.i.i = getelementptr inbounds i8, ptr %shapeDistanceChecker, i64 120
   %call.i.i = call noundef i32 @_ZNK7msdfgen5Shape9edgeCountEv(ptr noundef nonnull align 8 dereferenceable(25) %shape)
   %conv.i.i = sext i32 %call.i.i to i64
   call void @_ZNSt6vectorIN7msdfgen26PseudoDistanceSelectorBase9EdgeCacheESaIS2_EEC2EmRKS3_(ptr noundef nonnull align 8 dereferenceable(24) %shapeEdgeCache.i.i, i64 noundef %conv.i.i, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i.i)
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %ref.tmp.i.i)
-  %sdf2.i = getelementptr inbounds %"class.msdfgen::ShapeDistanceChecker.6", ptr %shapeDistanceChecker, i64 0, i32 5
+  %sdf2.i = getelementptr inbounds i8, ptr %shapeDistanceChecker, i64 144
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %sdf2.i, ptr noundef nonnull align 8 dereferenceable(16) %sdf, i64 16, i1 false)
-  %invRange3.i = getelementptr inbounds %"class.msdfgen::ShapeDistanceChecker.6", ptr %shapeDistanceChecker, i64 0, i32 6
+  %invRange3.i = getelementptr inbounds i8, ptr %shapeDistanceChecker, i64 160
   store double %15, ptr %invRange3.i, align 8
-  %texelSize.i = getelementptr inbounds %"class.msdfgen::ShapeDistanceChecker.6", ptr %shapeDistanceChecker, i64 0, i32 7
-  %minImproveRatio4.i = getelementptr inbounds %"class.msdfgen::ShapeDistanceChecker.6", ptr %shapeDistanceChecker, i64 0, i32 8
+  %texelSize.i = getelementptr inbounds i8, ptr %shapeDistanceChecker, i64 168
+  %minImproveRatio4.i = getelementptr inbounds i8, ptr %shapeDistanceChecker, i64 184
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %texelSize.i, i8 0, i64 16, i1 false)
   store double %16, ptr %minImproveRatio4.i, align 8
   store <2 x double> <double 1.000000e+00, double 1.000000e+00>, ptr %ref.tmp5.i, align 16
@@ -5276,52 +5259,52 @@ common.resume:                                    ; preds = %common.resume.sink.
   resume { ptr, i32 } %common.resume.op
 
 _ZN7msdfgen20ShapeDistanceCheckerINS_21SimpleContourCombinerELi4EEC2ERKNS_14BitmapConstRefIfLi4EEERKNS_5ShapeERKNS_10ProjectionEdd.exit: ; preds = %entry
-  %y.i2.i = getelementptr inbounds %"class.msdfgen::ShapeDistanceChecker.6", ptr %shapeDistanceChecker, i64 0, i32 7, i32 1
+  %y.i2.i = getelementptr inbounds i8, ptr %shapeDistanceChecker, i64 176
   %19 = extractvalue { double, double } %call.i, 0
   %20 = extractvalue { double, double } %call.i, 1
   store double %19, ptr %texelSize.i, align 8
   store double %20, ptr %y.i2.i, align 8
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %ref.tmp5.i)
-  %height = getelementptr inbounds %"struct.msdfgen::BitmapConstRef.0", ptr %sdf, i64 0, i32 2
+  %height = getelementptr inbounds i8, ptr %sdf, i64 12
   %21 = load i32, ptr %height, align 4
   %cmp524 = icmp sgt i32 %21, 0
   br i1 %cmp524, label %for.body.lr.ph, label %for.end190
 
 for.body.lr.ph:                                   ; preds = %_ZN7msdfgen20ShapeDistanceCheckerINS_21SimpleContourCombinerELi4EEC2ERKNS_14BitmapConstRefIfLi4EEERKNS_5ShapeERKNS_10ProjectionEdd.exit
-  %inverseYAxis = getelementptr inbounds %"class.msdfgen::Shape", ptr %shape, i64 0, i32 1
-  %width = getelementptr inbounds %"struct.msdfgen::BitmapConstRef.0", ptr %sdf, i64 0, i32 1
-  %width.i = getelementptr inbounds %"struct.msdfgen::BitmapRef", ptr %this, i64 0, i32 1
-  %y3.i115 = getelementptr inbounds %"struct.msdfgen::Vector2", ptr %ref.tmp41, i64 0, i32 1
+  %inverseYAxis = getelementptr inbounds i8, ptr %shape, i64 24
+  %width = getelementptr inbounds i8, ptr %sdf, i64 8
+  %width.i = getelementptr inbounds i8, ptr %this, i64 8
+  %y3.i115 = getelementptr inbounds i8, ptr %ref.tmp41, i64 8
   %ref.tmp39.sroa.2.0.shapeCoord.sroa_idx = getelementptr inbounds i8, ptr %shapeDistanceChecker, i64 8
-  %sdfCoord = getelementptr inbounds %"class.msdfgen::ShapeDistanceChecker.6", ptr %shapeDistanceChecker, i64 0, i32 1
-  %ref.tmp48.sroa.2.0.sdfCoord.sroa_idx = getelementptr inbounds %"class.msdfgen::ShapeDistanceChecker.6", ptr %shapeDistanceChecker, i64 0, i32 1, i32 1
-  %msd = getelementptr inbounds %"class.msdfgen::ShapeDistanceChecker.6", ptr %shapeDistanceChecker, i64 0, i32 2
-  %protectedFlag = getelementptr inbounds %"class.msdfgen::ShapeDistanceChecker.6", ptr %shapeDistanceChecker, i64 0, i32 3
-  %protectedFlag3.i.i.i = getelementptr inbounds %"class.msdfgen::BaseArtifactClassifier", ptr %ref.tmp68, i64 0, i32 1
-  %parent2.i.i = getelementptr inbounds %"class.msdfgen::ShapeDistanceChecker<msdfgen::SimpleContourCombiner, 4>::ArtifactClassifier", ptr %ref.tmp68, i64 0, i32 1
-  %direction3.i.i = getelementptr inbounds %"class.msdfgen::ShapeDistanceChecker<msdfgen::SimpleContourCombiner, 4>::ArtifactClassifier", ptr %ref.tmp68, i64 0, i32 2
-  %arrayidx29.i = getelementptr inbounds [4 x float], ptr %oldMSD.i, i64 0, i64 1
-  %protectedFlag3.i.i.i140 = getelementptr inbounds %"class.msdfgen::BaseArtifactClassifier", ptr %ref.tmp79, i64 0, i32 1
-  %parent2.i.i141 = getelementptr inbounds %"class.msdfgen::ShapeDistanceChecker<msdfgen::SimpleContourCombiner, 4>::ArtifactClassifier", ptr %ref.tmp79, i64 0, i32 1
-  %direction3.i.i142 = getelementptr inbounds %"class.msdfgen::ShapeDistanceChecker<msdfgen::SimpleContourCombiner, 4>::ArtifactClassifier", ptr %ref.tmp79, i64 0, i32 2
-  %protectedFlag3.i.i.i182 = getelementptr inbounds %"class.msdfgen::BaseArtifactClassifier", ptr %ref.tmp93, i64 0, i32 1
-  %parent2.i.i183 = getelementptr inbounds %"class.msdfgen::ShapeDistanceChecker<msdfgen::SimpleContourCombiner, 4>::ArtifactClassifier", ptr %ref.tmp93, i64 0, i32 1
-  %direction3.i.i184 = getelementptr inbounds %"class.msdfgen::ShapeDistanceChecker<msdfgen::SimpleContourCombiner, 4>::ArtifactClassifier", ptr %ref.tmp93, i64 0, i32 2
-  %protectedFlag3.i.i.i224 = getelementptr inbounds %"class.msdfgen::BaseArtifactClassifier", ptr %ref.tmp107, i64 0, i32 1
-  %parent2.i.i225 = getelementptr inbounds %"class.msdfgen::ShapeDistanceChecker<msdfgen::SimpleContourCombiner, 4>::ArtifactClassifier", ptr %ref.tmp107, i64 0, i32 1
-  %direction3.i.i226 = getelementptr inbounds %"class.msdfgen::ShapeDistanceChecker<msdfgen::SimpleContourCombiner, 4>::ArtifactClassifier", ptr %ref.tmp107, i64 0, i32 2
-  %protectedFlag3.i.i.i260 = getelementptr inbounds %"class.msdfgen::BaseArtifactClassifier", ptr %ref.tmp118, i64 0, i32 1
-  %parent2.i.i261 = getelementptr inbounds %"class.msdfgen::ShapeDistanceChecker<msdfgen::SimpleContourCombiner, 4>::ArtifactClassifier", ptr %ref.tmp118, i64 0, i32 1
-  %direction3.i.i262 = getelementptr inbounds %"class.msdfgen::ShapeDistanceChecker<msdfgen::SimpleContourCombiner, 4>::ArtifactClassifier", ptr %ref.tmp118, i64 0, i32 2
-  %protectedFlag3.i.i.i271 = getelementptr inbounds %"class.msdfgen::BaseArtifactClassifier", ptr %ref.tmp135, i64 0, i32 1
-  %parent2.i.i272 = getelementptr inbounds %"class.msdfgen::ShapeDistanceChecker<msdfgen::SimpleContourCombiner, 4>::ArtifactClassifier", ptr %ref.tmp135, i64 0, i32 1
-  %direction3.i.i273 = getelementptr inbounds %"class.msdfgen::ShapeDistanceChecker<msdfgen::SimpleContourCombiner, 4>::ArtifactClassifier", ptr %ref.tmp135, i64 0, i32 2
-  %protectedFlag3.i.i.i282 = getelementptr inbounds %"class.msdfgen::BaseArtifactClassifier", ptr %ref.tmp152, i64 0, i32 1
-  %parent2.i.i283 = getelementptr inbounds %"class.msdfgen::ShapeDistanceChecker<msdfgen::SimpleContourCombiner, 4>::ArtifactClassifier", ptr %ref.tmp152, i64 0, i32 1
-  %direction3.i.i284 = getelementptr inbounds %"class.msdfgen::ShapeDistanceChecker<msdfgen::SimpleContourCombiner, 4>::ArtifactClassifier", ptr %ref.tmp152, i64 0, i32 2
-  %protectedFlag3.i.i.i293 = getelementptr inbounds %"class.msdfgen::BaseArtifactClassifier", ptr %ref.tmp169, i64 0, i32 1
-  %parent2.i.i294 = getelementptr inbounds %"class.msdfgen::ShapeDistanceChecker<msdfgen::SimpleContourCombiner, 4>::ArtifactClassifier", ptr %ref.tmp169, i64 0, i32 1
-  %direction3.i.i295 = getelementptr inbounds %"class.msdfgen::ShapeDistanceChecker<msdfgen::SimpleContourCombiner, 4>::ArtifactClassifier", ptr %ref.tmp169, i64 0, i32 2
+  %sdfCoord = getelementptr inbounds i8, ptr %shapeDistanceChecker, i64 16
+  %ref.tmp48.sroa.2.0.sdfCoord.sroa_idx = getelementptr inbounds i8, ptr %shapeDistanceChecker, i64 24
+  %msd = getelementptr inbounds i8, ptr %shapeDistanceChecker, i64 32
+  %protectedFlag = getelementptr inbounds i8, ptr %shapeDistanceChecker, i64 40
+  %protectedFlag3.i.i.i = getelementptr inbounds i8, ptr %ref.tmp68, i64 8
+  %parent2.i.i = getelementptr inbounds i8, ptr %ref.tmp68, i64 16
+  %direction3.i.i = getelementptr inbounds i8, ptr %ref.tmp68, i64 24
+  %arrayidx29.i = getelementptr inbounds i8, ptr %oldMSD.i, i64 4
+  %protectedFlag3.i.i.i140 = getelementptr inbounds i8, ptr %ref.tmp79, i64 8
+  %parent2.i.i141 = getelementptr inbounds i8, ptr %ref.tmp79, i64 16
+  %direction3.i.i142 = getelementptr inbounds i8, ptr %ref.tmp79, i64 24
+  %protectedFlag3.i.i.i182 = getelementptr inbounds i8, ptr %ref.tmp93, i64 8
+  %parent2.i.i183 = getelementptr inbounds i8, ptr %ref.tmp93, i64 16
+  %direction3.i.i184 = getelementptr inbounds i8, ptr %ref.tmp93, i64 24
+  %protectedFlag3.i.i.i224 = getelementptr inbounds i8, ptr %ref.tmp107, i64 8
+  %parent2.i.i225 = getelementptr inbounds i8, ptr %ref.tmp107, i64 16
+  %direction3.i.i226 = getelementptr inbounds i8, ptr %ref.tmp107, i64 24
+  %protectedFlag3.i.i.i260 = getelementptr inbounds i8, ptr %ref.tmp118, i64 8
+  %parent2.i.i261 = getelementptr inbounds i8, ptr %ref.tmp118, i64 16
+  %direction3.i.i262 = getelementptr inbounds i8, ptr %ref.tmp118, i64 24
+  %protectedFlag3.i.i.i271 = getelementptr inbounds i8, ptr %ref.tmp135, i64 8
+  %parent2.i.i272 = getelementptr inbounds i8, ptr %ref.tmp135, i64 16
+  %direction3.i.i273 = getelementptr inbounds i8, ptr %ref.tmp135, i64 24
+  %protectedFlag3.i.i.i282 = getelementptr inbounds i8, ptr %ref.tmp152, i64 8
+  %parent2.i.i283 = getelementptr inbounds i8, ptr %ref.tmp152, i64 16
+  %direction3.i.i284 = getelementptr inbounds i8, ptr %ref.tmp152, i64 24
+  %protectedFlag3.i.i.i293 = getelementptr inbounds i8, ptr %ref.tmp169, i64 8
+  %parent2.i.i294 = getelementptr inbounds i8, ptr %ref.tmp169, i64 16
+  %direction3.i.i295 = getelementptr inbounds i8, ptr %ref.tmp169, i64 24
   %22 = load i32, ptr %width, align 8
   %23 = icmp sgt i32 %22, 0
   br i1 %23, label %for.body, label %for.end190
@@ -5405,8 +5388,8 @@ invoke.cont62:                                    ; preds = %if.end
   %.lobit = and i8 %44, 1
   store i8 %.lobit, ptr %protectedFlag, align 8
   %45 = load float, ptr %add.ptr.i114, align 4
-  %arrayidx60 = getelementptr inbounds float, ptr %add.ptr.i114, i64 1
-  %arrayidx61 = getelementptr inbounds float, ptr %add.ptr.i114, i64 2
+  %arrayidx60 = getelementptr inbounds i8, ptr %add.ptr.i114, i64 4
+  %arrayidx61 = getelementptr inbounds i8, ptr %add.ptr.i114, i64 8
   %46 = load <2 x float>, ptr %arrayidx60, align 4
   %47 = extractelement <2 x float> %46, i64 0
   %cmp.i3.i = fcmp olt float %45, %47
@@ -5436,8 +5419,8 @@ invoke.cont71:                                    ; preds = %invoke.cont62
   store ptr %shapeDistanceChecker, ptr %parent2.i.i, align 8, !alias.scope !50
   store <2 x double> <double -1.000000e+00, double 0.000000e+00>, ptr %direction3.i.i, align 8
   %55 = load float, ptr %add.ptr.i127, align 4
-  %arrayidx1.i = getelementptr inbounds float, ptr %add.ptr.i127, i64 1
-  %arrayidx2.i = getelementptr inbounds float, ptr %add.ptr.i127, i64 2
+  %arrayidx1.i = getelementptr inbounds i8, ptr %add.ptr.i127, i64 4
+  %arrayidx2.i = getelementptr inbounds i8, ptr %add.ptr.i127, i64 8
   %56 = load <2 x float>, ptr %arrayidx1.i, align 4
   %57 = extractelement <2 x float> %56, i64 0
   %cmp.i3.i.i = fcmp olt float %55, %57
@@ -5636,7 +5619,7 @@ call10.i.noexc:                                   ; preds = %if.end.i
   %130 = call double @llvm.fmuladd.f64(double %92, double %call67.i498, double 5.000000e-01)
   %conv69.i = fptrunc double %130 to float
   %131 = load ptr, ptr %parent2.i.i, align 8
-  %minImproveRatio.i = getelementptr inbounds %"class.msdfgen::ShapeDistanceChecker.6", ptr %131, i64 0, i32 8
+  %minImproveRatio.i = getelementptr inbounds i8, ptr %131, i64 184
   %132 = load double, ptr %minImproveRatio.i, align 8
   %sub71.i = fsub float %cond.i8.i24.i, %conv69.i
   %133 = call float @llvm.fabs.f32(float %sub71.i)
@@ -5812,8 +5795,8 @@ invoke.cont82:                                    ; preds = %lor.lhs.false
   store ptr %shapeDistanceChecker, ptr %parent2.i.i141, align 8, !alias.scope !53
   store <2 x double> <double 0.000000e+00, double -1.000000e+00>, ptr %direction3.i.i142, align 8
   %170 = load float, ptr %add.ptr.i137, align 4
-  %arrayidx1.i143 = getelementptr inbounds float, ptr %add.ptr.i137, i64 1
-  %arrayidx2.i144 = getelementptr inbounds float, ptr %add.ptr.i137, i64 2
+  %arrayidx1.i143 = getelementptr inbounds i8, ptr %add.ptr.i137, i64 4
+  %arrayidx2.i144 = getelementptr inbounds i8, ptr %add.ptr.i137, i64 8
   %171 = load <2 x float>, ptr %arrayidx1.i143, align 4
   %172 = extractelement <2 x float> %171, i64 0
   %cmp.i3.i.i147 = fcmp olt float %170, %172
@@ -6000,8 +5983,8 @@ invoke.cont96:                                    ; preds = %lor.lhs.false85
   store ptr %shapeDistanceChecker, ptr %parent2.i.i183, align 8, !alias.scope !56
   store <2 x double> <double 1.000000e+00, double 0.000000e+00>, ptr %direction3.i.i184, align 8
   %220 = load float, ptr %add.ptr.i179, align 4
-  %arrayidx1.i185 = getelementptr inbounds float, ptr %add.ptr.i179, i64 1
-  %arrayidx2.i186 = getelementptr inbounds float, ptr %add.ptr.i179, i64 2
+  %arrayidx1.i185 = getelementptr inbounds i8, ptr %add.ptr.i179, i64 4
+  %arrayidx2.i186 = getelementptr inbounds i8, ptr %add.ptr.i179, i64 8
   %221 = load <2 x float>, ptr %arrayidx1.i185, align 4
   %222 = extractelement <2 x float> %221, i64 0
   %cmp.i3.i.i189 = fcmp olt float %220, %222
@@ -6087,8 +6070,8 @@ invoke.cont110:                                   ; preds = %lor.lhs.false99
   store ptr %shapeDistanceChecker, ptr %parent2.i.i225, align 8, !alias.scope !59
   store <2 x double> <double 0.000000e+00, double 1.000000e+00>, ptr %direction3.i.i226, align 8
   %249 = load float, ptr %add.ptr.i221, align 4
-  %arrayidx1.i227 = getelementptr inbounds float, ptr %add.ptr.i221, i64 1
-  %arrayidx2.i228 = getelementptr inbounds float, ptr %add.ptr.i221, i64 2
+  %arrayidx1.i227 = getelementptr inbounds i8, ptr %add.ptr.i221, i64 4
+  %arrayidx2.i228 = getelementptr inbounds i8, ptr %add.ptr.i221, i64 8
   %250 = load <2 x float>, ptr %arrayidx1.i227, align 4
   %251 = extractelement <2 x float> %250, i64 0
   %cmp.i3.i.i231 = fcmp olt float %249, %251
@@ -6322,9 +6305,9 @@ define internal fastcc noundef zeroext i1 @_ZN7msdfgenL19hasDiagonalArtifactINS_
 entry:
   %l = alloca [3 x float], align 8
   %q = alloca [3 x float], align 8
-  %arrayidx1 = getelementptr inbounds float, ptr %d, i64 1
+  %arrayidx1 = getelementptr inbounds i8, ptr %d, i64 4
   %0 = load <2 x float>, ptr %d, align 4
-  %arrayidx2 = getelementptr inbounds float, ptr %d, i64 2
+  %arrayidx2 = getelementptr inbounds i8, ptr %d, i64 8
   %1 = load float, ptr %arrayidx2, align 4
   %2 = extractelement <2 x float> %0, i64 0
   %3 = extractelement <2 x float> %0, i64 1
@@ -6346,12 +6329,12 @@ entry:
   br i1 %cmp, label %return, label %if.then
 
 if.then:                                          ; preds = %entry
-  %arrayidx15 = getelementptr inbounds float, ptr %a, i64 2
+  %arrayidx15 = getelementptr inbounds i8, ptr %a, i64 8
   %10 = load float, ptr %arrayidx15, align 4
-  %arrayidx16 = getelementptr inbounds float, ptr %b, i64 2
+  %arrayidx16 = getelementptr inbounds i8, ptr %b, i64 8
   %11 = load float, ptr %arrayidx16, align 4
   %sub17 = fsub float %10, %11
-  %arrayidx18 = getelementptr inbounds float, ptr %c, i64 2
+  %arrayidx18 = getelementptr inbounds i8, ptr %c, i64 8
   %12 = load float, ptr %arrayidx18, align 4
   %sub19 = fsub float %sub17, %12
   %13 = load <2 x float>, ptr %a, align 4
@@ -6362,13 +6345,13 @@ if.then:                                          ; preds = %entry
   %18 = fneg <2 x float> %13
   %19 = fsub <2 x float> %18, %17
   store <2 x float> %19, ptr %l, align 8
-  %arrayinit.element29 = getelementptr inbounds float, ptr %l, i64 2
+  %arrayinit.element29 = getelementptr inbounds i8, ptr %l, i64 8
   %fneg31 = fneg float %10
   %sub33 = fsub float %fneg31, %sub19
   store float %sub33, ptr %arrayinit.element29, align 8
   %20 = fadd <2 x float> %0, %17
   store <2 x float> %20, ptr %q, align 8
-  %arrayinit.element41 = getelementptr inbounds float, ptr %q, i64 2
+  %arrayinit.element41 = getelementptr inbounds i8, ptr %q, i64 8
   %add44 = fadd float %1, %sub19
   store float %add44, ptr %arrayinit.element41, align 8
   %21 = extractelement <2 x float> %19, i64 0
@@ -6401,9 +6384,9 @@ if.then:                                          ; preds = %entry
   br i1 %call79, label %return, label %lor.lhs.false
 
 lor.lhs.false:                                    ; preds = %if.then
-  %arrayidx12 = getelementptr inbounds float, ptr %c, i64 1
-  %arrayidx10 = getelementptr inbounds float, ptr %b, i64 1
-  %arrayidx9 = getelementptr inbounds float, ptr %a, i64 1
+  %arrayidx12 = getelementptr inbounds i8, ptr %c, i64 4
+  %arrayidx10 = getelementptr inbounds i8, ptr %b, i64 4
+  %arrayidx9 = getelementptr inbounds i8, ptr %a, i64 4
   %29 = load float, ptr %arrayidx15, align 4
   %30 = load float, ptr %arrayidx9, align 4
   %sub84 = fsub float %29, %30
@@ -6460,13 +6443,13 @@ entry:
   %ref.tmp135 = alloca %"class.msdfgen::ShapeDistanceChecker<msdfgen::OverlappingContourCombiner, 3>::ArtifactClassifier", align 8
   %ref.tmp152 = alloca %"class.msdfgen::ShapeDistanceChecker<msdfgen::OverlappingContourCombiner, 3>::ArtifactClassifier", align 8
   %ref.tmp169 = alloca %"class.msdfgen::ShapeDistanceChecker<msdfgen::OverlappingContourCombiner, 3>::ArtifactClassifier", align 8
-  %minDeviationRatio = getelementptr inbounds %"class.msdfgen::MSDFErrorCorrection", ptr %this, i64 0, i32 3
+  %minDeviationRatio = getelementptr inbounds i8, ptr %this, i64 56
   %0 = load double, ptr %minDeviationRatio, align 8
-  %projection = getelementptr inbounds %"class.msdfgen::MSDFErrorCorrection", ptr %this, i64 0, i32 1
-  %invRange = getelementptr inbounds %"class.msdfgen::MSDFErrorCorrection", ptr %this, i64 0, i32 2
+  %projection = getelementptr inbounds i8, ptr %this, i64 16
+  %invRange = getelementptr inbounds i8, ptr %this, i64 48
   %1 = load double, ptr %invRange, align 8
   store double %1, ptr %ref.tmp2, align 8
-  %y3.i = getelementptr inbounds %"struct.msdfgen::Vector2", ptr %ref.tmp2, i64 0, i32 1
+  %y3.i = getelementptr inbounds i8, ptr %ref.tmp2, i64 8
   store double 0.000000e+00, ptr %y3.i, align 8
   %call = call { double, double } @_ZNK7msdfgen10Projection15unprojectVectorERKNS_7Vector2E(ptr noundef nonnull align 8 dereferenceable(32) %projection, ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp2)
   %2 = extractvalue { double, double } %call, 0
@@ -6478,7 +6461,7 @@ entry:
   %5 = load double, ptr %minDeviationRatio, align 8
   %6 = load double, ptr %invRange, align 8
   store double 0.000000e+00, ptr %ref.tmp7, align 8
-  %y3.i98 = getelementptr inbounds %"struct.msdfgen::Vector2", ptr %ref.tmp7, i64 0, i32 1
+  %y3.i98 = getelementptr inbounds i8, ptr %ref.tmp7, i64 8
   store double %6, ptr %y3.i98, align 8
   %call9 = call { double, double } @_ZNK7msdfgen10Projection15unprojectVectorERKNS_7Vector2E(ptr noundef nonnull align 8 dereferenceable(32) %projection, ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp7)
   %7 = extractvalue { double, double } %call9, 0
@@ -6490,7 +6473,7 @@ entry:
   %10 = load double, ptr %minDeviationRatio, align 8
   %11 = load double, ptr %invRange, align 8
   store double %11, ptr %ref.tmp15, align 8
-  %y.i102 = getelementptr inbounds %"struct.msdfgen::Vector2", ptr %ref.tmp15, i64 0, i32 1
+  %y.i102 = getelementptr inbounds i8, ptr %ref.tmp15, i64 8
   store double %11, ptr %y.i102, align 8
   %call17 = call { double, double } @_ZNK7msdfgen10Projection15unprojectVectorERKNS_7Vector2E(ptr noundef nonnull align 8 dereferenceable(32) %projection, ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp15)
   %12 = extractvalue { double, double } %call17, 0
@@ -6500,53 +6483,53 @@ entry:
   %sqrt.i105 = call noundef double @llvm.sqrt.f64(double %14)
   %mul19 = fmul double %10, %sqrt.i105
   %15 = load double, ptr %invRange, align 8
-  %minImproveRatio = getelementptr inbounds %"class.msdfgen::MSDFErrorCorrection", ptr %this, i64 0, i32 4
+  %minImproveRatio = getelementptr inbounds i8, ptr %this, i64 64
   %16 = load double, ptr %minImproveRatio, align 8
   call void @_ZN7msdfgen20ShapeDistanceCheckerINS_26OverlappingContourCombinerELi3EEC2ERKNS_14BitmapConstRefIfLi3EEERKNS_5ShapeERKNS_10ProjectionEdd(ptr noundef nonnull align 8 dereferenceable(192) %shapeDistanceChecker, ptr noundef nonnull align 8 dereferenceable(16) %sdf, ptr noundef nonnull align 8 dereferenceable(25) %shape, ptr noundef nonnull align 8 dereferenceable(32) %projection, double noundef %15, double noundef %16)
-  %height = getelementptr inbounds %"struct.msdfgen::BitmapConstRef", ptr %sdf, i64 0, i32 2
+  %height = getelementptr inbounds i8, ptr %sdf, i64 12
   %17 = load i32, ptr %height, align 4
   %cmp512 = icmp sgt i32 %17, 0
   br i1 %cmp512, label %for.body.lr.ph, label %for.end190
 
 for.body.lr.ph:                                   ; preds = %entry
-  %inverseYAxis = getelementptr inbounds %"class.msdfgen::Shape", ptr %shape, i64 0, i32 1
-  %width = getelementptr inbounds %"struct.msdfgen::BitmapConstRef", ptr %sdf, i64 0, i32 1
-  %width.i = getelementptr inbounds %"struct.msdfgen::BitmapRef", ptr %this, i64 0, i32 1
-  %y3.i111 = getelementptr inbounds %"struct.msdfgen::Vector2", ptr %ref.tmp41, i64 0, i32 1
+  %inverseYAxis = getelementptr inbounds i8, ptr %shape, i64 24
+  %width = getelementptr inbounds i8, ptr %sdf, i64 8
+  %width.i = getelementptr inbounds i8, ptr %this, i64 8
+  %y3.i111 = getelementptr inbounds i8, ptr %ref.tmp41, i64 8
   %ref.tmp39.sroa.2.0.shapeCoord.sroa_idx = getelementptr inbounds i8, ptr %shapeDistanceChecker, i64 8
-  %sdfCoord = getelementptr inbounds %"class.msdfgen::ShapeDistanceChecker.7", ptr %shapeDistanceChecker, i64 0, i32 1
-  %ref.tmp48.sroa.2.0.sdfCoord.sroa_idx = getelementptr inbounds %"class.msdfgen::ShapeDistanceChecker.7", ptr %shapeDistanceChecker, i64 0, i32 1, i32 1
-  %msd = getelementptr inbounds %"class.msdfgen::ShapeDistanceChecker.7", ptr %shapeDistanceChecker, i64 0, i32 2
-  %protectedFlag = getelementptr inbounds %"class.msdfgen::ShapeDistanceChecker.7", ptr %shapeDistanceChecker, i64 0, i32 3
-  %protectedFlag3.i.i.i = getelementptr inbounds %"class.msdfgen::BaseArtifactClassifier", ptr %ref.tmp68, i64 0, i32 1
-  %parent2.i.i = getelementptr inbounds %"class.msdfgen::ShapeDistanceChecker<msdfgen::OverlappingContourCombiner, 3>::ArtifactClassifier", ptr %ref.tmp68, i64 0, i32 1
-  %direction3.i.i = getelementptr inbounds %"class.msdfgen::ShapeDistanceChecker<msdfgen::OverlappingContourCombiner, 3>::ArtifactClassifier", ptr %ref.tmp68, i64 0, i32 2
-  %sdf.i = getelementptr inbounds %"class.msdfgen::ShapeDistanceChecker.7", ptr %shapeDistanceChecker, i64 0, i32 5
-  %arrayidx29.i = getelementptr inbounds [3 x float], ptr %oldMSD.i, i64 0, i64 1
-  %invRange.i = getelementptr inbounds %"class.msdfgen::ShapeDistanceChecker.7", ptr %shapeDistanceChecker, i64 0, i32 6
-  %distanceFinder.i = getelementptr inbounds %"class.msdfgen::ShapeDistanceChecker.7", ptr %shapeDistanceChecker, i64 0, i32 4
-  %texelSize.i = getelementptr inbounds %"class.msdfgen::ShapeDistanceChecker.7", ptr %shapeDistanceChecker, i64 0, i32 7
-  %protectedFlag3.i.i.i136 = getelementptr inbounds %"class.msdfgen::BaseArtifactClassifier", ptr %ref.tmp79, i64 0, i32 1
-  %parent2.i.i137 = getelementptr inbounds %"class.msdfgen::ShapeDistanceChecker<msdfgen::OverlappingContourCombiner, 3>::ArtifactClassifier", ptr %ref.tmp79, i64 0, i32 1
-  %direction3.i.i138 = getelementptr inbounds %"class.msdfgen::ShapeDistanceChecker<msdfgen::OverlappingContourCombiner, 3>::ArtifactClassifier", ptr %ref.tmp79, i64 0, i32 2
-  %protectedFlag3.i.i.i178 = getelementptr inbounds %"class.msdfgen::BaseArtifactClassifier", ptr %ref.tmp93, i64 0, i32 1
-  %parent2.i.i179 = getelementptr inbounds %"class.msdfgen::ShapeDistanceChecker<msdfgen::OverlappingContourCombiner, 3>::ArtifactClassifier", ptr %ref.tmp93, i64 0, i32 1
-  %direction3.i.i180 = getelementptr inbounds %"class.msdfgen::ShapeDistanceChecker<msdfgen::OverlappingContourCombiner, 3>::ArtifactClassifier", ptr %ref.tmp93, i64 0, i32 2
-  %protectedFlag3.i.i.i220 = getelementptr inbounds %"class.msdfgen::BaseArtifactClassifier", ptr %ref.tmp107, i64 0, i32 1
-  %parent2.i.i221 = getelementptr inbounds %"class.msdfgen::ShapeDistanceChecker<msdfgen::OverlappingContourCombiner, 3>::ArtifactClassifier", ptr %ref.tmp107, i64 0, i32 1
-  %direction3.i.i222 = getelementptr inbounds %"class.msdfgen::ShapeDistanceChecker<msdfgen::OverlappingContourCombiner, 3>::ArtifactClassifier", ptr %ref.tmp107, i64 0, i32 2
-  %protectedFlag3.i.i.i256 = getelementptr inbounds %"class.msdfgen::BaseArtifactClassifier", ptr %ref.tmp118, i64 0, i32 1
-  %parent2.i.i257 = getelementptr inbounds %"class.msdfgen::ShapeDistanceChecker<msdfgen::OverlappingContourCombiner, 3>::ArtifactClassifier", ptr %ref.tmp118, i64 0, i32 1
-  %direction3.i.i258 = getelementptr inbounds %"class.msdfgen::ShapeDistanceChecker<msdfgen::OverlappingContourCombiner, 3>::ArtifactClassifier", ptr %ref.tmp118, i64 0, i32 2
-  %protectedFlag3.i.i.i267 = getelementptr inbounds %"class.msdfgen::BaseArtifactClassifier", ptr %ref.tmp135, i64 0, i32 1
-  %parent2.i.i268 = getelementptr inbounds %"class.msdfgen::ShapeDistanceChecker<msdfgen::OverlappingContourCombiner, 3>::ArtifactClassifier", ptr %ref.tmp135, i64 0, i32 1
-  %direction3.i.i269 = getelementptr inbounds %"class.msdfgen::ShapeDistanceChecker<msdfgen::OverlappingContourCombiner, 3>::ArtifactClassifier", ptr %ref.tmp135, i64 0, i32 2
-  %protectedFlag3.i.i.i278 = getelementptr inbounds %"class.msdfgen::BaseArtifactClassifier", ptr %ref.tmp152, i64 0, i32 1
-  %parent2.i.i279 = getelementptr inbounds %"class.msdfgen::ShapeDistanceChecker<msdfgen::OverlappingContourCombiner, 3>::ArtifactClassifier", ptr %ref.tmp152, i64 0, i32 1
-  %direction3.i.i280 = getelementptr inbounds %"class.msdfgen::ShapeDistanceChecker<msdfgen::OverlappingContourCombiner, 3>::ArtifactClassifier", ptr %ref.tmp152, i64 0, i32 2
-  %protectedFlag3.i.i.i289 = getelementptr inbounds %"class.msdfgen::BaseArtifactClassifier", ptr %ref.tmp169, i64 0, i32 1
-  %parent2.i.i290 = getelementptr inbounds %"class.msdfgen::ShapeDistanceChecker<msdfgen::OverlappingContourCombiner, 3>::ArtifactClassifier", ptr %ref.tmp169, i64 0, i32 1
-  %direction3.i.i291 = getelementptr inbounds %"class.msdfgen::ShapeDistanceChecker<msdfgen::OverlappingContourCombiner, 3>::ArtifactClassifier", ptr %ref.tmp169, i64 0, i32 2
+  %sdfCoord = getelementptr inbounds i8, ptr %shapeDistanceChecker, i64 16
+  %ref.tmp48.sroa.2.0.sdfCoord.sroa_idx = getelementptr inbounds i8, ptr %shapeDistanceChecker, i64 24
+  %msd = getelementptr inbounds i8, ptr %shapeDistanceChecker, i64 32
+  %protectedFlag = getelementptr inbounds i8, ptr %shapeDistanceChecker, i64 40
+  %protectedFlag3.i.i.i = getelementptr inbounds i8, ptr %ref.tmp68, i64 8
+  %parent2.i.i = getelementptr inbounds i8, ptr %ref.tmp68, i64 16
+  %direction3.i.i = getelementptr inbounds i8, ptr %ref.tmp68, i64 24
+  %sdf.i = getelementptr inbounds i8, ptr %shapeDistanceChecker, i64 144
+  %arrayidx29.i = getelementptr inbounds i8, ptr %oldMSD.i, i64 4
+  %invRange.i = getelementptr inbounds i8, ptr %shapeDistanceChecker, i64 160
+  %distanceFinder.i = getelementptr inbounds i8, ptr %shapeDistanceChecker, i64 48
+  %texelSize.i = getelementptr inbounds i8, ptr %shapeDistanceChecker, i64 168
+  %protectedFlag3.i.i.i136 = getelementptr inbounds i8, ptr %ref.tmp79, i64 8
+  %parent2.i.i137 = getelementptr inbounds i8, ptr %ref.tmp79, i64 16
+  %direction3.i.i138 = getelementptr inbounds i8, ptr %ref.tmp79, i64 24
+  %protectedFlag3.i.i.i178 = getelementptr inbounds i8, ptr %ref.tmp93, i64 8
+  %parent2.i.i179 = getelementptr inbounds i8, ptr %ref.tmp93, i64 16
+  %direction3.i.i180 = getelementptr inbounds i8, ptr %ref.tmp93, i64 24
+  %protectedFlag3.i.i.i220 = getelementptr inbounds i8, ptr %ref.tmp107, i64 8
+  %parent2.i.i221 = getelementptr inbounds i8, ptr %ref.tmp107, i64 16
+  %direction3.i.i222 = getelementptr inbounds i8, ptr %ref.tmp107, i64 24
+  %protectedFlag3.i.i.i256 = getelementptr inbounds i8, ptr %ref.tmp118, i64 8
+  %parent2.i.i257 = getelementptr inbounds i8, ptr %ref.tmp118, i64 16
+  %direction3.i.i258 = getelementptr inbounds i8, ptr %ref.tmp118, i64 24
+  %protectedFlag3.i.i.i267 = getelementptr inbounds i8, ptr %ref.tmp135, i64 8
+  %parent2.i.i268 = getelementptr inbounds i8, ptr %ref.tmp135, i64 16
+  %direction3.i.i269 = getelementptr inbounds i8, ptr %ref.tmp135, i64 24
+  %protectedFlag3.i.i.i278 = getelementptr inbounds i8, ptr %ref.tmp152, i64 8
+  %parent2.i.i279 = getelementptr inbounds i8, ptr %ref.tmp152, i64 16
+  %direction3.i.i280 = getelementptr inbounds i8, ptr %ref.tmp152, i64 24
+  %protectedFlag3.i.i.i289 = getelementptr inbounds i8, ptr %ref.tmp169, i64 8
+  %parent2.i.i290 = getelementptr inbounds i8, ptr %ref.tmp169, i64 16
+  %direction3.i.i291 = getelementptr inbounds i8, ptr %ref.tmp169, i64 24
   %18 = load i32, ptr %width, align 8
   %19 = icmp sgt i32 %18, 0
   br i1 %19, label %for.body, label %for.end190
@@ -6629,8 +6612,8 @@ invoke.cont62:                                    ; preds = %if.end
   %.lobit = and i8 %39, 1
   store i8 %.lobit, ptr %protectedFlag, align 8
   %40 = load float, ptr %add.ptr.i110, align 4
-  %arrayidx60 = getelementptr inbounds float, ptr %add.ptr.i110, i64 1
-  %arrayidx61 = getelementptr inbounds float, ptr %add.ptr.i110, i64 2
+  %arrayidx60 = getelementptr inbounds i8, ptr %add.ptr.i110, i64 4
+  %arrayidx61 = getelementptr inbounds i8, ptr %add.ptr.i110, i64 8
   %41 = load <2 x float>, ptr %arrayidx60, align 4
   %42 = extractelement <2 x float> %41, i64 0
   %cmp.i3.i = fcmp olt float %40, %42
@@ -6660,8 +6643,8 @@ invoke.cont71:                                    ; preds = %invoke.cont62
   store ptr %shapeDistanceChecker, ptr %parent2.i.i, align 8, !alias.scope !76
   store <2 x double> <double -1.000000e+00, double 0.000000e+00>, ptr %direction3.i.i, align 8
   %50 = load float, ptr %add.ptr.i123, align 4
-  %arrayidx1.i = getelementptr inbounds float, ptr %add.ptr.i123, i64 1
-  %arrayidx2.i = getelementptr inbounds float, ptr %add.ptr.i123, i64 2
+  %arrayidx1.i = getelementptr inbounds i8, ptr %add.ptr.i123, i64 4
+  %arrayidx2.i = getelementptr inbounds i8, ptr %add.ptr.i123, i64 8
   %51 = load <2 x float>, ptr %arrayidx1.i, align 4
   %52 = extractelement <2 x float> %51, i64 0
   %cmp.i3.i.i = fcmp olt float %50, %52
@@ -6860,7 +6843,7 @@ call10.i.noexc:                                   ; preds = %if.end.i
   %125 = call double @llvm.fmuladd.f64(double %87, double %call67.i486, double 5.000000e-01)
   %conv69.i = fptrunc double %125 to float
   %126 = load ptr, ptr %parent2.i.i, align 8
-  %minImproveRatio.i = getelementptr inbounds %"class.msdfgen::ShapeDistanceChecker.7", ptr %126, i64 0, i32 8
+  %minImproveRatio.i = getelementptr inbounds i8, ptr %126, i64 184
   %127 = load double, ptr %minImproveRatio.i, align 8
   %sub71.i = fsub float %cond.i8.i24.i, %conv69.i
   %128 = call float @llvm.fabs.f32(float %sub71.i)
@@ -7036,8 +7019,8 @@ invoke.cont82:                                    ; preds = %lor.lhs.false
   store ptr %shapeDistanceChecker, ptr %parent2.i.i137, align 8, !alias.scope !79
   store <2 x double> <double 0.000000e+00, double -1.000000e+00>, ptr %direction3.i.i138, align 8
   %165 = load float, ptr %add.ptr.i133, align 4
-  %arrayidx1.i139 = getelementptr inbounds float, ptr %add.ptr.i133, i64 1
-  %arrayidx2.i140 = getelementptr inbounds float, ptr %add.ptr.i133, i64 2
+  %arrayidx1.i139 = getelementptr inbounds i8, ptr %add.ptr.i133, i64 4
+  %arrayidx2.i140 = getelementptr inbounds i8, ptr %add.ptr.i133, i64 8
   %166 = load <2 x float>, ptr %arrayidx1.i139, align 4
   %167 = extractelement <2 x float> %166, i64 0
   %cmp.i3.i.i143 = fcmp olt float %165, %167
@@ -7224,8 +7207,8 @@ invoke.cont96:                                    ; preds = %lor.lhs.false85
   store ptr %shapeDistanceChecker, ptr %parent2.i.i179, align 8, !alias.scope !82
   store <2 x double> <double 1.000000e+00, double 0.000000e+00>, ptr %direction3.i.i180, align 8
   %215 = load float, ptr %add.ptr.i175, align 4
-  %arrayidx1.i181 = getelementptr inbounds float, ptr %add.ptr.i175, i64 1
-  %arrayidx2.i182 = getelementptr inbounds float, ptr %add.ptr.i175, i64 2
+  %arrayidx1.i181 = getelementptr inbounds i8, ptr %add.ptr.i175, i64 4
+  %arrayidx2.i182 = getelementptr inbounds i8, ptr %add.ptr.i175, i64 8
   %216 = load <2 x float>, ptr %arrayidx1.i181, align 4
   %217 = extractelement <2 x float> %216, i64 0
   %cmp.i3.i.i185 = fcmp olt float %215, %217
@@ -7311,8 +7294,8 @@ invoke.cont110:                                   ; preds = %lor.lhs.false99
   store ptr %shapeDistanceChecker, ptr %parent2.i.i221, align 8, !alias.scope !85
   store <2 x double> <double 0.000000e+00, double 1.000000e+00>, ptr %direction3.i.i222, align 8
   %244 = load float, ptr %add.ptr.i217, align 4
-  %arrayidx1.i223 = getelementptr inbounds float, ptr %add.ptr.i217, i64 1
-  %arrayidx2.i224 = getelementptr inbounds float, ptr %add.ptr.i217, i64 2
+  %arrayidx1.i223 = getelementptr inbounds i8, ptr %add.ptr.i217, i64 4
+  %arrayidx2.i224 = getelementptr inbounds i8, ptr %add.ptr.i217, i64 8
   %245 = load <2 x float>, ptr %arrayidx1.i223, align 4
   %246 = extractelement <2 x float> %245, i64 0
   %cmp.i3.i.i227 = fcmp olt float %244, %246
@@ -7529,7 +7512,7 @@ for.inc188:                                       ; preds = %for.inc188.loopexit
   br i1 %cmp, label %for.body, label %for.end190, !llvm.loop !101
 
 for.end190:                                       ; preds = %for.inc188, %for.body.lr.ph, %entry
-  %shapeEdgeCache.i.i = getelementptr inbounds %"class.msdfgen::ShapeDistanceChecker.7", ptr %shapeDistanceChecker, i64 0, i32 4, i32 2
+  %shapeEdgeCache.i.i = getelementptr inbounds i8, ptr %shapeDistanceChecker, i64 120
   %296 = load ptr, ptr %shapeEdgeCache.i.i, align 8
   %tobool.not.i.i.i.i.i = icmp eq ptr %296, null
   br i1 %tobool.not.i.i.i.i.i, label %_ZNSt6vectorIN7msdfgen26PseudoDistanceSelectorBase9EdgeCacheESaIS2_EED2Ev.exit.i.i, label %if.then.i.i.i.i.i
@@ -7539,7 +7522,7 @@ if.then.i.i.i.i.i:                                ; preds = %for.end190
   br label %_ZNSt6vectorIN7msdfgen26PseudoDistanceSelectorBase9EdgeCacheESaIS2_EED2Ev.exit.i.i
 
 _ZNSt6vectorIN7msdfgen26PseudoDistanceSelectorBase9EdgeCacheESaIS2_EED2Ev.exit.i.i: ; preds = %if.then.i.i.i.i.i, %for.end190
-  %edgeSelectors.i.i.i = getelementptr inbounds %"class.msdfgen::ShapeDistanceChecker.7", ptr %shapeDistanceChecker, i64 0, i32 4, i32 1, i32 2
+  %edgeSelectors.i.i.i = getelementptr inbounds i8, ptr %shapeDistanceChecker, i64 96
   %297 = load ptr, ptr %edgeSelectors.i.i.i, align 8
   %tobool.not.i.i.i.i.i.i = icmp eq ptr %297, null
   br i1 %tobool.not.i.i.i.i.i.i, label %_ZNSt6vectorIN7msdfgen22PseudoDistanceSelectorESaIS1_EED2Ev.exit.i.i.i, label %if.then.i.i.i.i.i.i
@@ -7549,7 +7532,7 @@ if.then.i.i.i.i.i.i:                              ; preds = %_ZNSt6vectorIN7msdf
   br label %_ZNSt6vectorIN7msdfgen22PseudoDistanceSelectorESaIS1_EED2Ev.exit.i.i.i
 
 _ZNSt6vectorIN7msdfgen22PseudoDistanceSelectorESaIS1_EED2Ev.exit.i.i.i: ; preds = %if.then.i.i.i.i.i.i, %_ZNSt6vectorIN7msdfgen26PseudoDistanceSelectorBase9EdgeCacheESaIS2_EED2Ev.exit.i.i
-  %windings.i.i.i = getelementptr inbounds %"class.msdfgen::ShapeDistanceChecker.7", ptr %shapeDistanceChecker, i64 0, i32 4, i32 1, i32 1
+  %windings.i.i.i = getelementptr inbounds i8, ptr %shapeDistanceChecker, i64 72
   %298 = load ptr, ptr %windings.i.i.i, align 8
   %tobool.not.i.i.i1.i.i.i = icmp eq ptr %298, null
   br i1 %tobool.not.i.i.i1.i.i.i, label %_ZN7msdfgen20ShapeDistanceCheckerINS_26OverlappingContourCombinerELi3EED2Ev.exit, label %if.then.i.i.i2.i.i.i
@@ -7567,17 +7550,17 @@ define linkonce_odr dso_local void @_ZN7msdfgen20ShapeDistanceCheckerINS_26Overl
 entry:
   %ref.tmp.i = alloca %"class.std::allocator", align 1
   %ref.tmp5 = alloca %"struct.msdfgen::Vector2", align 16
-  %distanceFinder = getelementptr inbounds %"class.msdfgen::ShapeDistanceChecker.7", ptr %this, i64 0, i32 4
+  %distanceFinder = getelementptr inbounds i8, ptr %this, i64 48
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %this, i8 0, i64 32, i1 false)
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %ref.tmp.i)
   store ptr %shape, ptr %distanceFinder, align 8
-  %contourCombiner.i = getelementptr inbounds %"class.msdfgen::ShapeDistanceChecker.7", ptr %this, i64 0, i32 4, i32 1
+  %contourCombiner.i = getelementptr inbounds i8, ptr %this, i64 56
   tail call void @_ZN7msdfgen26OverlappingContourCombinerINS_22PseudoDistanceSelectorEEC1ERKNS_5ShapeE(ptr noundef nonnull align 8 dereferenceable(64) %contourCombiner.i, ptr noundef nonnull align 8 dereferenceable(25) %shape)
   %call.i = invoke noundef i32 @_ZNK7msdfgen5Shape9edgeCountEv(ptr noundef nonnull align 8 dereferenceable(25) %shape)
           to label %invoke.cont.i unwind label %lpad.i
 
 invoke.cont.i:                                    ; preds = %entry
-  %shapeEdgeCache.i = getelementptr inbounds %"class.msdfgen::ShapeDistanceChecker.7", ptr %this, i64 0, i32 4, i32 2
+  %shapeEdgeCache.i = getelementptr inbounds i8, ptr %this, i64 120
   %conv.i = sext i32 %call.i to i64
   invoke void @_ZNSt6vectorIN7msdfgen26PseudoDistanceSelectorBase9EdgeCacheESaIS2_EEC2EmRKS3_(ptr noundef nonnull align 8 dereferenceable(24) %shapeEdgeCache.i, i64 noundef %conv.i, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i)
           to label %_ZN7msdfgen19ShapeDistanceFinderINS_26OverlappingContourCombinerINS_22PseudoDistanceSelectorEEEEC2ERKNS_5ShapeE.exit unwind label %lpad3.i
@@ -7603,12 +7586,12 @@ ehcleanup.i:                                      ; preds = %lpad3.i, %lpad.i
 
 _ZN7msdfgen19ShapeDistanceFinderINS_26OverlappingContourCombinerINS_22PseudoDistanceSelectorEEEEC2ERKNS_5ShapeE.exit: ; preds = %invoke.cont.i
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %ref.tmp.i)
-  %sdf2 = getelementptr inbounds %"class.msdfgen::ShapeDistanceChecker.7", ptr %this, i64 0, i32 5
+  %sdf2 = getelementptr inbounds i8, ptr %this, i64 144
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %sdf2, ptr noundef nonnull align 8 dereferenceable(16) %sdf, i64 16, i1 false)
-  %invRange3 = getelementptr inbounds %"class.msdfgen::ShapeDistanceChecker.7", ptr %this, i64 0, i32 6
+  %invRange3 = getelementptr inbounds i8, ptr %this, i64 160
   store double %invRange, ptr %invRange3, align 8
-  %texelSize = getelementptr inbounds %"class.msdfgen::ShapeDistanceChecker.7", ptr %this, i64 0, i32 7
-  %minImproveRatio4 = getelementptr inbounds %"class.msdfgen::ShapeDistanceChecker.7", ptr %this, i64 0, i32 8
+  %texelSize = getelementptr inbounds i8, ptr %this, i64 168
+  %minImproveRatio4 = getelementptr inbounds i8, ptr %this, i64 184
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %texelSize, i8 0, i64 16, i1 false)
   store double %minImproveRatio, ptr %minImproveRatio4, align 8
   store <2 x double> <double 1.000000e+00, double 1.000000e+00>, ptr %ref.tmp5, align 16
@@ -7616,7 +7599,7 @@ _ZN7msdfgen19ShapeDistanceFinderINS_26OverlappingContourCombinerINS_22PseudoDist
           to label %invoke.cont7 unwind label %lpad
 
 invoke.cont7:                                     ; preds = %_ZN7msdfgen19ShapeDistanceFinderINS_26OverlappingContourCombinerINS_22PseudoDistanceSelectorEEEEC2ERKNS_5ShapeE.exit
-  %y.i2 = getelementptr inbounds %"class.msdfgen::ShapeDistanceChecker.7", ptr %this, i64 0, i32 7, i32 1
+  %y.i2 = getelementptr inbounds i8, ptr %this, i64 176
   %2 = extractvalue { double, double } %call, 0
   %3 = extractvalue { double, double } %call, 1
   store double %2, ptr %texelSize, align 8
@@ -7635,9 +7618,9 @@ define internal fastcc noundef zeroext i1 @_ZN7msdfgenL19hasDiagonalArtifactINS_
 entry:
   %l = alloca [3 x float], align 8
   %q = alloca [3 x float], align 8
-  %arrayidx1 = getelementptr inbounds float, ptr %d, i64 1
+  %arrayidx1 = getelementptr inbounds i8, ptr %d, i64 4
   %0 = load <2 x float>, ptr %d, align 4
-  %arrayidx2 = getelementptr inbounds float, ptr %d, i64 2
+  %arrayidx2 = getelementptr inbounds i8, ptr %d, i64 8
   %1 = load float, ptr %arrayidx2, align 4
   %2 = extractelement <2 x float> %0, i64 0
   %3 = extractelement <2 x float> %0, i64 1
@@ -7659,12 +7642,12 @@ entry:
   br i1 %cmp, label %return, label %if.then
 
 if.then:                                          ; preds = %entry
-  %arrayidx15 = getelementptr inbounds float, ptr %a, i64 2
+  %arrayidx15 = getelementptr inbounds i8, ptr %a, i64 8
   %10 = load float, ptr %arrayidx15, align 4
-  %arrayidx16 = getelementptr inbounds float, ptr %b, i64 2
+  %arrayidx16 = getelementptr inbounds i8, ptr %b, i64 8
   %11 = load float, ptr %arrayidx16, align 4
   %sub17 = fsub float %10, %11
-  %arrayidx18 = getelementptr inbounds float, ptr %c, i64 2
+  %arrayidx18 = getelementptr inbounds i8, ptr %c, i64 8
   %12 = load float, ptr %arrayidx18, align 4
   %sub19 = fsub float %sub17, %12
   %13 = load <2 x float>, ptr %a, align 4
@@ -7675,13 +7658,13 @@ if.then:                                          ; preds = %entry
   %18 = fneg <2 x float> %13
   %19 = fsub <2 x float> %18, %17
   store <2 x float> %19, ptr %l, align 8
-  %arrayinit.element29 = getelementptr inbounds float, ptr %l, i64 2
+  %arrayinit.element29 = getelementptr inbounds i8, ptr %l, i64 8
   %fneg31 = fneg float %10
   %sub33 = fsub float %fneg31, %sub19
   store float %sub33, ptr %arrayinit.element29, align 8
   %20 = fadd <2 x float> %0, %17
   store <2 x float> %20, ptr %q, align 8
-  %arrayinit.element41 = getelementptr inbounds float, ptr %q, i64 2
+  %arrayinit.element41 = getelementptr inbounds i8, ptr %q, i64 8
   %add44 = fadd float %1, %sub19
   store float %add44, ptr %arrayinit.element41, align 8
   %21 = extractelement <2 x float> %19, i64 0
@@ -7714,9 +7697,9 @@ if.then:                                          ; preds = %entry
   br i1 %call79, label %return, label %lor.lhs.false
 
 lor.lhs.false:                                    ; preds = %if.then
-  %arrayidx12 = getelementptr inbounds float, ptr %c, i64 1
-  %arrayidx10 = getelementptr inbounds float, ptr %b, i64 1
-  %arrayidx9 = getelementptr inbounds float, ptr %a, i64 1
+  %arrayidx12 = getelementptr inbounds i8, ptr %c, i64 4
+  %arrayidx10 = getelementptr inbounds i8, ptr %b, i64 4
+  %arrayidx9 = getelementptr inbounds i8, ptr %a, i64 4
   %29 = load float, ptr %arrayidx15, align 4
   %30 = load float, ptr %arrayidx9, align 4
   %sub84 = fsub float %29, %30
@@ -7758,7 +7741,7 @@ return:                                           ; preds = %entry, %if.then, %l
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr dso_local void @_ZN7msdfgen20ShapeDistanceCheckerINS_26OverlappingContourCombinerELi3EED2Ev(ptr noundef nonnull align 8 dereferenceable(192) %this) unnamed_addr #5 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  %shapeEdgeCache.i = getelementptr inbounds %"class.msdfgen::ShapeDistanceChecker.7", ptr %this, i64 0, i32 4, i32 2
+  %shapeEdgeCache.i = getelementptr inbounds i8, ptr %this, i64 120
   %0 = load ptr, ptr %shapeEdgeCache.i, align 8
   %tobool.not.i.i.i.i = icmp eq ptr %0, null
   br i1 %tobool.not.i.i.i.i, label %_ZNSt6vectorIN7msdfgen26PseudoDistanceSelectorBase9EdgeCacheESaIS2_EED2Ev.exit.i, label %if.then.i.i.i.i
@@ -7768,7 +7751,7 @@ if.then.i.i.i.i:                                  ; preds = %entry
   br label %_ZNSt6vectorIN7msdfgen26PseudoDistanceSelectorBase9EdgeCacheESaIS2_EED2Ev.exit.i
 
 _ZNSt6vectorIN7msdfgen26PseudoDistanceSelectorBase9EdgeCacheESaIS2_EED2Ev.exit.i: ; preds = %if.then.i.i.i.i, %entry
-  %edgeSelectors.i.i = getelementptr inbounds %"class.msdfgen::ShapeDistanceChecker.7", ptr %this, i64 0, i32 4, i32 1, i32 2
+  %edgeSelectors.i.i = getelementptr inbounds i8, ptr %this, i64 96
   %1 = load ptr, ptr %edgeSelectors.i.i, align 8
   %tobool.not.i.i.i.i.i = icmp eq ptr %1, null
   br i1 %tobool.not.i.i.i.i.i, label %_ZNSt6vectorIN7msdfgen22PseudoDistanceSelectorESaIS1_EED2Ev.exit.i.i, label %if.then.i.i.i.i.i
@@ -7778,7 +7761,7 @@ if.then.i.i.i.i.i:                                ; preds = %_ZNSt6vectorIN7msdf
   br label %_ZNSt6vectorIN7msdfgen22PseudoDistanceSelectorESaIS1_EED2Ev.exit.i.i
 
 _ZNSt6vectorIN7msdfgen22PseudoDistanceSelectorESaIS1_EED2Ev.exit.i.i: ; preds = %if.then.i.i.i.i.i, %_ZNSt6vectorIN7msdfgen26PseudoDistanceSelectorBase9EdgeCacheESaIS2_EED2Ev.exit.i
-  %windings.i.i = getelementptr inbounds %"class.msdfgen::ShapeDistanceChecker.7", ptr %this, i64 0, i32 4, i32 1, i32 1
+  %windings.i.i = getelementptr inbounds i8, ptr %this, i64 72
   %2 = load ptr, ptr %windings.i.i, align 8
   %tobool.not.i.i.i1.i.i = icmp eq ptr %2, null
   br i1 %tobool.not.i.i.i1.i.i, label %_ZN7msdfgen19ShapeDistanceFinderINS_26OverlappingContourCombinerINS_22PseudoDistanceSelectorEEEED2Ev.exit, label %if.then.i.i.i2.i.i
@@ -7809,13 +7792,13 @@ entry:
   %ref.tmp135 = alloca %"class.msdfgen::ShapeDistanceChecker<msdfgen::OverlappingContourCombiner, 4>::ArtifactClassifier", align 8
   %ref.tmp152 = alloca %"class.msdfgen::ShapeDistanceChecker<msdfgen::OverlappingContourCombiner, 4>::ArtifactClassifier", align 8
   %ref.tmp169 = alloca %"class.msdfgen::ShapeDistanceChecker<msdfgen::OverlappingContourCombiner, 4>::ArtifactClassifier", align 8
-  %minDeviationRatio = getelementptr inbounds %"class.msdfgen::MSDFErrorCorrection", ptr %this, i64 0, i32 3
+  %minDeviationRatio = getelementptr inbounds i8, ptr %this, i64 56
   %0 = load double, ptr %minDeviationRatio, align 8
-  %projection = getelementptr inbounds %"class.msdfgen::MSDFErrorCorrection", ptr %this, i64 0, i32 1
-  %invRange = getelementptr inbounds %"class.msdfgen::MSDFErrorCorrection", ptr %this, i64 0, i32 2
+  %projection = getelementptr inbounds i8, ptr %this, i64 16
+  %invRange = getelementptr inbounds i8, ptr %this, i64 48
   %1 = load double, ptr %invRange, align 8
   store double %1, ptr %ref.tmp2, align 8
-  %y3.i = getelementptr inbounds %"struct.msdfgen::Vector2", ptr %ref.tmp2, i64 0, i32 1
+  %y3.i = getelementptr inbounds i8, ptr %ref.tmp2, i64 8
   store double 0.000000e+00, ptr %y3.i, align 8
   %call = call { double, double } @_ZNK7msdfgen10Projection15unprojectVectorERKNS_7Vector2E(ptr noundef nonnull align 8 dereferenceable(32) %projection, ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp2)
   %2 = extractvalue { double, double } %call, 0
@@ -7827,7 +7810,7 @@ entry:
   %5 = load double, ptr %minDeviationRatio, align 8
   %6 = load double, ptr %invRange, align 8
   store double 0.000000e+00, ptr %ref.tmp7, align 8
-  %y3.i98 = getelementptr inbounds %"struct.msdfgen::Vector2", ptr %ref.tmp7, i64 0, i32 1
+  %y3.i98 = getelementptr inbounds i8, ptr %ref.tmp7, i64 8
   store double %6, ptr %y3.i98, align 8
   %call9 = call { double, double } @_ZNK7msdfgen10Projection15unprojectVectorERKNS_7Vector2E(ptr noundef nonnull align 8 dereferenceable(32) %projection, ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp7)
   %7 = extractvalue { double, double } %call9, 0
@@ -7839,7 +7822,7 @@ entry:
   %10 = load double, ptr %minDeviationRatio, align 8
   %11 = load double, ptr %invRange, align 8
   store double %11, ptr %ref.tmp15, align 8
-  %y.i102 = getelementptr inbounds %"struct.msdfgen::Vector2", ptr %ref.tmp15, i64 0, i32 1
+  %y.i102 = getelementptr inbounds i8, ptr %ref.tmp15, i64 8
   store double %11, ptr %y.i102, align 8
   %call17 = call { double, double } @_ZNK7msdfgen10Projection15unprojectVectorERKNS_7Vector2E(ptr noundef nonnull align 8 dereferenceable(32) %projection, ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp15)
   %12 = extractvalue { double, double } %call17, 0
@@ -7849,53 +7832,53 @@ entry:
   %sqrt.i105 = call noundef double @llvm.sqrt.f64(double %14)
   %mul19 = fmul double %10, %sqrt.i105
   %15 = load double, ptr %invRange, align 8
-  %minImproveRatio = getelementptr inbounds %"class.msdfgen::MSDFErrorCorrection", ptr %this, i64 0, i32 4
+  %minImproveRatio = getelementptr inbounds i8, ptr %this, i64 64
   %16 = load double, ptr %minImproveRatio, align 8
   call void @_ZN7msdfgen20ShapeDistanceCheckerINS_26OverlappingContourCombinerELi4EEC2ERKNS_14BitmapConstRefIfLi4EEERKNS_5ShapeERKNS_10ProjectionEdd(ptr noundef nonnull align 8 dereferenceable(192) %shapeDistanceChecker, ptr noundef nonnull align 8 dereferenceable(16) %sdf, ptr noundef nonnull align 8 dereferenceable(25) %shape, ptr noundef nonnull align 8 dereferenceable(32) %projection, double noundef %15, double noundef %16)
-  %height = getelementptr inbounds %"struct.msdfgen::BitmapConstRef.0", ptr %sdf, i64 0, i32 2
+  %height = getelementptr inbounds i8, ptr %sdf, i64 12
   %17 = load i32, ptr %height, align 4
   %cmp512 = icmp sgt i32 %17, 0
   br i1 %cmp512, label %for.body.lr.ph, label %for.end190
 
 for.body.lr.ph:                                   ; preds = %entry
-  %inverseYAxis = getelementptr inbounds %"class.msdfgen::Shape", ptr %shape, i64 0, i32 1
-  %width = getelementptr inbounds %"struct.msdfgen::BitmapConstRef.0", ptr %sdf, i64 0, i32 1
-  %width.i = getelementptr inbounds %"struct.msdfgen::BitmapRef", ptr %this, i64 0, i32 1
-  %y3.i111 = getelementptr inbounds %"struct.msdfgen::Vector2", ptr %ref.tmp41, i64 0, i32 1
+  %inverseYAxis = getelementptr inbounds i8, ptr %shape, i64 24
+  %width = getelementptr inbounds i8, ptr %sdf, i64 8
+  %width.i = getelementptr inbounds i8, ptr %this, i64 8
+  %y3.i111 = getelementptr inbounds i8, ptr %ref.tmp41, i64 8
   %ref.tmp39.sroa.2.0.shapeCoord.sroa_idx = getelementptr inbounds i8, ptr %shapeDistanceChecker, i64 8
-  %sdfCoord = getelementptr inbounds %"class.msdfgen::ShapeDistanceChecker.19", ptr %shapeDistanceChecker, i64 0, i32 1
-  %ref.tmp48.sroa.2.0.sdfCoord.sroa_idx = getelementptr inbounds %"class.msdfgen::ShapeDistanceChecker.19", ptr %shapeDistanceChecker, i64 0, i32 1, i32 1
-  %msd = getelementptr inbounds %"class.msdfgen::ShapeDistanceChecker.19", ptr %shapeDistanceChecker, i64 0, i32 2
-  %protectedFlag = getelementptr inbounds %"class.msdfgen::ShapeDistanceChecker.19", ptr %shapeDistanceChecker, i64 0, i32 3
-  %protectedFlag3.i.i.i = getelementptr inbounds %"class.msdfgen::BaseArtifactClassifier", ptr %ref.tmp68, i64 0, i32 1
-  %parent2.i.i = getelementptr inbounds %"class.msdfgen::ShapeDistanceChecker<msdfgen::OverlappingContourCombiner, 4>::ArtifactClassifier", ptr %ref.tmp68, i64 0, i32 1
-  %direction3.i.i = getelementptr inbounds %"class.msdfgen::ShapeDistanceChecker<msdfgen::OverlappingContourCombiner, 4>::ArtifactClassifier", ptr %ref.tmp68, i64 0, i32 2
-  %sdf.i = getelementptr inbounds %"class.msdfgen::ShapeDistanceChecker.19", ptr %shapeDistanceChecker, i64 0, i32 5
-  %arrayidx29.i = getelementptr inbounds [4 x float], ptr %oldMSD.i, i64 0, i64 1
-  %invRange.i = getelementptr inbounds %"class.msdfgen::ShapeDistanceChecker.19", ptr %shapeDistanceChecker, i64 0, i32 6
-  %distanceFinder.i = getelementptr inbounds %"class.msdfgen::ShapeDistanceChecker.19", ptr %shapeDistanceChecker, i64 0, i32 4
-  %texelSize.i = getelementptr inbounds %"class.msdfgen::ShapeDistanceChecker.19", ptr %shapeDistanceChecker, i64 0, i32 7
-  %protectedFlag3.i.i.i136 = getelementptr inbounds %"class.msdfgen::BaseArtifactClassifier", ptr %ref.tmp79, i64 0, i32 1
-  %parent2.i.i137 = getelementptr inbounds %"class.msdfgen::ShapeDistanceChecker<msdfgen::OverlappingContourCombiner, 4>::ArtifactClassifier", ptr %ref.tmp79, i64 0, i32 1
-  %direction3.i.i138 = getelementptr inbounds %"class.msdfgen::ShapeDistanceChecker<msdfgen::OverlappingContourCombiner, 4>::ArtifactClassifier", ptr %ref.tmp79, i64 0, i32 2
-  %protectedFlag3.i.i.i178 = getelementptr inbounds %"class.msdfgen::BaseArtifactClassifier", ptr %ref.tmp93, i64 0, i32 1
-  %parent2.i.i179 = getelementptr inbounds %"class.msdfgen::ShapeDistanceChecker<msdfgen::OverlappingContourCombiner, 4>::ArtifactClassifier", ptr %ref.tmp93, i64 0, i32 1
-  %direction3.i.i180 = getelementptr inbounds %"class.msdfgen::ShapeDistanceChecker<msdfgen::OverlappingContourCombiner, 4>::ArtifactClassifier", ptr %ref.tmp93, i64 0, i32 2
-  %protectedFlag3.i.i.i220 = getelementptr inbounds %"class.msdfgen::BaseArtifactClassifier", ptr %ref.tmp107, i64 0, i32 1
-  %parent2.i.i221 = getelementptr inbounds %"class.msdfgen::ShapeDistanceChecker<msdfgen::OverlappingContourCombiner, 4>::ArtifactClassifier", ptr %ref.tmp107, i64 0, i32 1
-  %direction3.i.i222 = getelementptr inbounds %"class.msdfgen::ShapeDistanceChecker<msdfgen::OverlappingContourCombiner, 4>::ArtifactClassifier", ptr %ref.tmp107, i64 0, i32 2
-  %protectedFlag3.i.i.i256 = getelementptr inbounds %"class.msdfgen::BaseArtifactClassifier", ptr %ref.tmp118, i64 0, i32 1
-  %parent2.i.i257 = getelementptr inbounds %"class.msdfgen::ShapeDistanceChecker<msdfgen::OverlappingContourCombiner, 4>::ArtifactClassifier", ptr %ref.tmp118, i64 0, i32 1
-  %direction3.i.i258 = getelementptr inbounds %"class.msdfgen::ShapeDistanceChecker<msdfgen::OverlappingContourCombiner, 4>::ArtifactClassifier", ptr %ref.tmp118, i64 0, i32 2
-  %protectedFlag3.i.i.i267 = getelementptr inbounds %"class.msdfgen::BaseArtifactClassifier", ptr %ref.tmp135, i64 0, i32 1
-  %parent2.i.i268 = getelementptr inbounds %"class.msdfgen::ShapeDistanceChecker<msdfgen::OverlappingContourCombiner, 4>::ArtifactClassifier", ptr %ref.tmp135, i64 0, i32 1
-  %direction3.i.i269 = getelementptr inbounds %"class.msdfgen::ShapeDistanceChecker<msdfgen::OverlappingContourCombiner, 4>::ArtifactClassifier", ptr %ref.tmp135, i64 0, i32 2
-  %protectedFlag3.i.i.i278 = getelementptr inbounds %"class.msdfgen::BaseArtifactClassifier", ptr %ref.tmp152, i64 0, i32 1
-  %parent2.i.i279 = getelementptr inbounds %"class.msdfgen::ShapeDistanceChecker<msdfgen::OverlappingContourCombiner, 4>::ArtifactClassifier", ptr %ref.tmp152, i64 0, i32 1
-  %direction3.i.i280 = getelementptr inbounds %"class.msdfgen::ShapeDistanceChecker<msdfgen::OverlappingContourCombiner, 4>::ArtifactClassifier", ptr %ref.tmp152, i64 0, i32 2
-  %protectedFlag3.i.i.i289 = getelementptr inbounds %"class.msdfgen::BaseArtifactClassifier", ptr %ref.tmp169, i64 0, i32 1
-  %parent2.i.i290 = getelementptr inbounds %"class.msdfgen::ShapeDistanceChecker<msdfgen::OverlappingContourCombiner, 4>::ArtifactClassifier", ptr %ref.tmp169, i64 0, i32 1
-  %direction3.i.i291 = getelementptr inbounds %"class.msdfgen::ShapeDistanceChecker<msdfgen::OverlappingContourCombiner, 4>::ArtifactClassifier", ptr %ref.tmp169, i64 0, i32 2
+  %sdfCoord = getelementptr inbounds i8, ptr %shapeDistanceChecker, i64 16
+  %ref.tmp48.sroa.2.0.sdfCoord.sroa_idx = getelementptr inbounds i8, ptr %shapeDistanceChecker, i64 24
+  %msd = getelementptr inbounds i8, ptr %shapeDistanceChecker, i64 32
+  %protectedFlag = getelementptr inbounds i8, ptr %shapeDistanceChecker, i64 40
+  %protectedFlag3.i.i.i = getelementptr inbounds i8, ptr %ref.tmp68, i64 8
+  %parent2.i.i = getelementptr inbounds i8, ptr %ref.tmp68, i64 16
+  %direction3.i.i = getelementptr inbounds i8, ptr %ref.tmp68, i64 24
+  %sdf.i = getelementptr inbounds i8, ptr %shapeDistanceChecker, i64 144
+  %arrayidx29.i = getelementptr inbounds i8, ptr %oldMSD.i, i64 4
+  %invRange.i = getelementptr inbounds i8, ptr %shapeDistanceChecker, i64 160
+  %distanceFinder.i = getelementptr inbounds i8, ptr %shapeDistanceChecker, i64 48
+  %texelSize.i = getelementptr inbounds i8, ptr %shapeDistanceChecker, i64 168
+  %protectedFlag3.i.i.i136 = getelementptr inbounds i8, ptr %ref.tmp79, i64 8
+  %parent2.i.i137 = getelementptr inbounds i8, ptr %ref.tmp79, i64 16
+  %direction3.i.i138 = getelementptr inbounds i8, ptr %ref.tmp79, i64 24
+  %protectedFlag3.i.i.i178 = getelementptr inbounds i8, ptr %ref.tmp93, i64 8
+  %parent2.i.i179 = getelementptr inbounds i8, ptr %ref.tmp93, i64 16
+  %direction3.i.i180 = getelementptr inbounds i8, ptr %ref.tmp93, i64 24
+  %protectedFlag3.i.i.i220 = getelementptr inbounds i8, ptr %ref.tmp107, i64 8
+  %parent2.i.i221 = getelementptr inbounds i8, ptr %ref.tmp107, i64 16
+  %direction3.i.i222 = getelementptr inbounds i8, ptr %ref.tmp107, i64 24
+  %protectedFlag3.i.i.i256 = getelementptr inbounds i8, ptr %ref.tmp118, i64 8
+  %parent2.i.i257 = getelementptr inbounds i8, ptr %ref.tmp118, i64 16
+  %direction3.i.i258 = getelementptr inbounds i8, ptr %ref.tmp118, i64 24
+  %protectedFlag3.i.i.i267 = getelementptr inbounds i8, ptr %ref.tmp135, i64 8
+  %parent2.i.i268 = getelementptr inbounds i8, ptr %ref.tmp135, i64 16
+  %direction3.i.i269 = getelementptr inbounds i8, ptr %ref.tmp135, i64 24
+  %protectedFlag3.i.i.i278 = getelementptr inbounds i8, ptr %ref.tmp152, i64 8
+  %parent2.i.i279 = getelementptr inbounds i8, ptr %ref.tmp152, i64 16
+  %direction3.i.i280 = getelementptr inbounds i8, ptr %ref.tmp152, i64 24
+  %protectedFlag3.i.i.i289 = getelementptr inbounds i8, ptr %ref.tmp169, i64 8
+  %parent2.i.i290 = getelementptr inbounds i8, ptr %ref.tmp169, i64 16
+  %direction3.i.i291 = getelementptr inbounds i8, ptr %ref.tmp169, i64 24
   %18 = load i32, ptr %width, align 8
   %19 = icmp sgt i32 %18, 0
   br i1 %19, label %for.body, label %for.end190
@@ -7978,8 +7961,8 @@ invoke.cont62:                                    ; preds = %if.end
   %.lobit = and i8 %39, 1
   store i8 %.lobit, ptr %protectedFlag, align 8
   %40 = load float, ptr %add.ptr.i110, align 4
-  %arrayidx60 = getelementptr inbounds float, ptr %add.ptr.i110, i64 1
-  %arrayidx61 = getelementptr inbounds float, ptr %add.ptr.i110, i64 2
+  %arrayidx60 = getelementptr inbounds i8, ptr %add.ptr.i110, i64 4
+  %arrayidx61 = getelementptr inbounds i8, ptr %add.ptr.i110, i64 8
   %41 = load <2 x float>, ptr %arrayidx60, align 4
   %42 = extractelement <2 x float> %41, i64 0
   %cmp.i3.i = fcmp olt float %40, %42
@@ -8009,8 +7992,8 @@ invoke.cont71:                                    ; preds = %invoke.cont62
   store ptr %shapeDistanceChecker, ptr %parent2.i.i, align 8, !alias.scope !102
   store <2 x double> <double -1.000000e+00, double 0.000000e+00>, ptr %direction3.i.i, align 8
   %50 = load float, ptr %add.ptr.i123, align 4
-  %arrayidx1.i = getelementptr inbounds float, ptr %add.ptr.i123, i64 1
-  %arrayidx2.i = getelementptr inbounds float, ptr %add.ptr.i123, i64 2
+  %arrayidx1.i = getelementptr inbounds i8, ptr %add.ptr.i123, i64 4
+  %arrayidx2.i = getelementptr inbounds i8, ptr %add.ptr.i123, i64 8
   %51 = load <2 x float>, ptr %arrayidx1.i, align 4
   %52 = extractelement <2 x float> %51, i64 0
   %cmp.i3.i.i = fcmp olt float %50, %52
@@ -8209,7 +8192,7 @@ call10.i.noexc:                                   ; preds = %if.end.i
   %125 = call double @llvm.fmuladd.f64(double %87, double %call67.i486, double 5.000000e-01)
   %conv69.i = fptrunc double %125 to float
   %126 = load ptr, ptr %parent2.i.i, align 8
-  %minImproveRatio.i = getelementptr inbounds %"class.msdfgen::ShapeDistanceChecker.19", ptr %126, i64 0, i32 8
+  %minImproveRatio.i = getelementptr inbounds i8, ptr %126, i64 184
   %127 = load double, ptr %minImproveRatio.i, align 8
   %sub71.i = fsub float %cond.i8.i24.i, %conv69.i
   %128 = call float @llvm.fabs.f32(float %sub71.i)
@@ -8385,8 +8368,8 @@ invoke.cont82:                                    ; preds = %lor.lhs.false
   store ptr %shapeDistanceChecker, ptr %parent2.i.i137, align 8, !alias.scope !105
   store <2 x double> <double 0.000000e+00, double -1.000000e+00>, ptr %direction3.i.i138, align 8
   %165 = load float, ptr %add.ptr.i133, align 4
-  %arrayidx1.i139 = getelementptr inbounds float, ptr %add.ptr.i133, i64 1
-  %arrayidx2.i140 = getelementptr inbounds float, ptr %add.ptr.i133, i64 2
+  %arrayidx1.i139 = getelementptr inbounds i8, ptr %add.ptr.i133, i64 4
+  %arrayidx2.i140 = getelementptr inbounds i8, ptr %add.ptr.i133, i64 8
   %166 = load <2 x float>, ptr %arrayidx1.i139, align 4
   %167 = extractelement <2 x float> %166, i64 0
   %cmp.i3.i.i143 = fcmp olt float %165, %167
@@ -8573,8 +8556,8 @@ invoke.cont96:                                    ; preds = %lor.lhs.false85
   store ptr %shapeDistanceChecker, ptr %parent2.i.i179, align 8, !alias.scope !108
   store <2 x double> <double 1.000000e+00, double 0.000000e+00>, ptr %direction3.i.i180, align 8
   %215 = load float, ptr %add.ptr.i175, align 4
-  %arrayidx1.i181 = getelementptr inbounds float, ptr %add.ptr.i175, i64 1
-  %arrayidx2.i182 = getelementptr inbounds float, ptr %add.ptr.i175, i64 2
+  %arrayidx1.i181 = getelementptr inbounds i8, ptr %add.ptr.i175, i64 4
+  %arrayidx2.i182 = getelementptr inbounds i8, ptr %add.ptr.i175, i64 8
   %216 = load <2 x float>, ptr %arrayidx1.i181, align 4
   %217 = extractelement <2 x float> %216, i64 0
   %cmp.i3.i.i185 = fcmp olt float %215, %217
@@ -8660,8 +8643,8 @@ invoke.cont110:                                   ; preds = %lor.lhs.false99
   store ptr %shapeDistanceChecker, ptr %parent2.i.i221, align 8, !alias.scope !111
   store <2 x double> <double 0.000000e+00, double 1.000000e+00>, ptr %direction3.i.i222, align 8
   %244 = load float, ptr %add.ptr.i217, align 4
-  %arrayidx1.i223 = getelementptr inbounds float, ptr %add.ptr.i217, i64 1
-  %arrayidx2.i224 = getelementptr inbounds float, ptr %add.ptr.i217, i64 2
+  %arrayidx1.i223 = getelementptr inbounds i8, ptr %add.ptr.i217, i64 4
+  %arrayidx2.i224 = getelementptr inbounds i8, ptr %add.ptr.i217, i64 8
   %245 = load <2 x float>, ptr %arrayidx1.i223, align 4
   %246 = extractelement <2 x float> %245, i64 0
   %cmp.i3.i.i227 = fcmp olt float %244, %246
@@ -8878,7 +8861,7 @@ for.inc188:                                       ; preds = %for.inc188.loopexit
   br i1 %cmp, label %for.body, label %for.end190, !llvm.loop !127
 
 for.end190:                                       ; preds = %for.inc188, %for.body.lr.ph, %entry
-  %shapeEdgeCache.i.i = getelementptr inbounds %"class.msdfgen::ShapeDistanceChecker.19", ptr %shapeDistanceChecker, i64 0, i32 4, i32 2
+  %shapeEdgeCache.i.i = getelementptr inbounds i8, ptr %shapeDistanceChecker, i64 120
   %296 = load ptr, ptr %shapeEdgeCache.i.i, align 8
   %tobool.not.i.i.i.i.i = icmp eq ptr %296, null
   br i1 %tobool.not.i.i.i.i.i, label %_ZNSt6vectorIN7msdfgen26PseudoDistanceSelectorBase9EdgeCacheESaIS2_EED2Ev.exit.i.i, label %if.then.i.i.i.i.i
@@ -8888,7 +8871,7 @@ if.then.i.i.i.i.i:                                ; preds = %for.end190
   br label %_ZNSt6vectorIN7msdfgen26PseudoDistanceSelectorBase9EdgeCacheESaIS2_EED2Ev.exit.i.i
 
 _ZNSt6vectorIN7msdfgen26PseudoDistanceSelectorBase9EdgeCacheESaIS2_EED2Ev.exit.i.i: ; preds = %if.then.i.i.i.i.i, %for.end190
-  %edgeSelectors.i.i.i = getelementptr inbounds %"class.msdfgen::ShapeDistanceChecker.19", ptr %shapeDistanceChecker, i64 0, i32 4, i32 1, i32 2
+  %edgeSelectors.i.i.i = getelementptr inbounds i8, ptr %shapeDistanceChecker, i64 96
   %297 = load ptr, ptr %edgeSelectors.i.i.i, align 8
   %tobool.not.i.i.i.i.i.i = icmp eq ptr %297, null
   br i1 %tobool.not.i.i.i.i.i.i, label %_ZNSt6vectorIN7msdfgen22PseudoDistanceSelectorESaIS1_EED2Ev.exit.i.i.i, label %if.then.i.i.i.i.i.i
@@ -8898,7 +8881,7 @@ if.then.i.i.i.i.i.i:                              ; preds = %_ZNSt6vectorIN7msdf
   br label %_ZNSt6vectorIN7msdfgen22PseudoDistanceSelectorESaIS1_EED2Ev.exit.i.i.i
 
 _ZNSt6vectorIN7msdfgen22PseudoDistanceSelectorESaIS1_EED2Ev.exit.i.i.i: ; preds = %if.then.i.i.i.i.i.i, %_ZNSt6vectorIN7msdfgen26PseudoDistanceSelectorBase9EdgeCacheESaIS2_EED2Ev.exit.i.i
-  %windings.i.i.i = getelementptr inbounds %"class.msdfgen::ShapeDistanceChecker.19", ptr %shapeDistanceChecker, i64 0, i32 4, i32 1, i32 1
+  %windings.i.i.i = getelementptr inbounds i8, ptr %shapeDistanceChecker, i64 72
   %298 = load ptr, ptr %windings.i.i.i, align 8
   %tobool.not.i.i.i1.i.i.i = icmp eq ptr %298, null
   br i1 %tobool.not.i.i.i1.i.i.i, label %_ZN7msdfgen20ShapeDistanceCheckerINS_26OverlappingContourCombinerELi4EED2Ev.exit, label %if.then.i.i.i2.i.i.i
@@ -8916,17 +8899,17 @@ define linkonce_odr dso_local void @_ZN7msdfgen20ShapeDistanceCheckerINS_26Overl
 entry:
   %ref.tmp.i = alloca %"class.std::allocator", align 1
   %ref.tmp5 = alloca %"struct.msdfgen::Vector2", align 16
-  %distanceFinder = getelementptr inbounds %"class.msdfgen::ShapeDistanceChecker.19", ptr %this, i64 0, i32 4
+  %distanceFinder = getelementptr inbounds i8, ptr %this, i64 48
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %this, i8 0, i64 32, i1 false)
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %ref.tmp.i)
   store ptr %shape, ptr %distanceFinder, align 8
-  %contourCombiner.i = getelementptr inbounds %"class.msdfgen::ShapeDistanceChecker.19", ptr %this, i64 0, i32 4, i32 1
+  %contourCombiner.i = getelementptr inbounds i8, ptr %this, i64 56
   tail call void @_ZN7msdfgen26OverlappingContourCombinerINS_22PseudoDistanceSelectorEEC1ERKNS_5ShapeE(ptr noundef nonnull align 8 dereferenceable(64) %contourCombiner.i, ptr noundef nonnull align 8 dereferenceable(25) %shape)
   %call.i = invoke noundef i32 @_ZNK7msdfgen5Shape9edgeCountEv(ptr noundef nonnull align 8 dereferenceable(25) %shape)
           to label %invoke.cont.i unwind label %lpad.i
 
 invoke.cont.i:                                    ; preds = %entry
-  %shapeEdgeCache.i = getelementptr inbounds %"class.msdfgen::ShapeDistanceChecker.19", ptr %this, i64 0, i32 4, i32 2
+  %shapeEdgeCache.i = getelementptr inbounds i8, ptr %this, i64 120
   %conv.i = sext i32 %call.i to i64
   invoke void @_ZNSt6vectorIN7msdfgen26PseudoDistanceSelectorBase9EdgeCacheESaIS2_EEC2EmRKS3_(ptr noundef nonnull align 8 dereferenceable(24) %shapeEdgeCache.i, i64 noundef %conv.i, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i)
           to label %_ZN7msdfgen19ShapeDistanceFinderINS_26OverlappingContourCombinerINS_22PseudoDistanceSelectorEEEEC2ERKNS_5ShapeE.exit unwind label %lpad3.i
@@ -8952,12 +8935,12 @@ ehcleanup.i:                                      ; preds = %lpad3.i, %lpad.i
 
 _ZN7msdfgen19ShapeDistanceFinderINS_26OverlappingContourCombinerINS_22PseudoDistanceSelectorEEEEC2ERKNS_5ShapeE.exit: ; preds = %invoke.cont.i
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %ref.tmp.i)
-  %sdf2 = getelementptr inbounds %"class.msdfgen::ShapeDistanceChecker.19", ptr %this, i64 0, i32 5
+  %sdf2 = getelementptr inbounds i8, ptr %this, i64 144
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %sdf2, ptr noundef nonnull align 8 dereferenceable(16) %sdf, i64 16, i1 false)
-  %invRange3 = getelementptr inbounds %"class.msdfgen::ShapeDistanceChecker.19", ptr %this, i64 0, i32 6
+  %invRange3 = getelementptr inbounds i8, ptr %this, i64 160
   store double %invRange, ptr %invRange3, align 8
-  %texelSize = getelementptr inbounds %"class.msdfgen::ShapeDistanceChecker.19", ptr %this, i64 0, i32 7
-  %minImproveRatio4 = getelementptr inbounds %"class.msdfgen::ShapeDistanceChecker.19", ptr %this, i64 0, i32 8
+  %texelSize = getelementptr inbounds i8, ptr %this, i64 168
+  %minImproveRatio4 = getelementptr inbounds i8, ptr %this, i64 184
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %texelSize, i8 0, i64 16, i1 false)
   store double %minImproveRatio, ptr %minImproveRatio4, align 8
   store <2 x double> <double 1.000000e+00, double 1.000000e+00>, ptr %ref.tmp5, align 16
@@ -8965,7 +8948,7 @@ _ZN7msdfgen19ShapeDistanceFinderINS_26OverlappingContourCombinerINS_22PseudoDist
           to label %invoke.cont7 unwind label %lpad
 
 invoke.cont7:                                     ; preds = %_ZN7msdfgen19ShapeDistanceFinderINS_26OverlappingContourCombinerINS_22PseudoDistanceSelectorEEEEC2ERKNS_5ShapeE.exit
-  %y.i2 = getelementptr inbounds %"class.msdfgen::ShapeDistanceChecker.19", ptr %this, i64 0, i32 7, i32 1
+  %y.i2 = getelementptr inbounds i8, ptr %this, i64 176
   %2 = extractvalue { double, double } %call, 0
   %3 = extractvalue { double, double } %call, 1
   store double %2, ptr %texelSize, align 8
@@ -8984,9 +8967,9 @@ define internal fastcc noundef zeroext i1 @_ZN7msdfgenL19hasDiagonalArtifactINS_
 entry:
   %l = alloca [3 x float], align 8
   %q = alloca [3 x float], align 8
-  %arrayidx1 = getelementptr inbounds float, ptr %d, i64 1
+  %arrayidx1 = getelementptr inbounds i8, ptr %d, i64 4
   %0 = load <2 x float>, ptr %d, align 4
-  %arrayidx2 = getelementptr inbounds float, ptr %d, i64 2
+  %arrayidx2 = getelementptr inbounds i8, ptr %d, i64 8
   %1 = load float, ptr %arrayidx2, align 4
   %2 = extractelement <2 x float> %0, i64 0
   %3 = extractelement <2 x float> %0, i64 1
@@ -9008,12 +8991,12 @@ entry:
   br i1 %cmp, label %return, label %if.then
 
 if.then:                                          ; preds = %entry
-  %arrayidx15 = getelementptr inbounds float, ptr %a, i64 2
+  %arrayidx15 = getelementptr inbounds i8, ptr %a, i64 8
   %10 = load float, ptr %arrayidx15, align 4
-  %arrayidx16 = getelementptr inbounds float, ptr %b, i64 2
+  %arrayidx16 = getelementptr inbounds i8, ptr %b, i64 8
   %11 = load float, ptr %arrayidx16, align 4
   %sub17 = fsub float %10, %11
-  %arrayidx18 = getelementptr inbounds float, ptr %c, i64 2
+  %arrayidx18 = getelementptr inbounds i8, ptr %c, i64 8
   %12 = load float, ptr %arrayidx18, align 4
   %sub19 = fsub float %sub17, %12
   %13 = load <2 x float>, ptr %a, align 4
@@ -9024,13 +9007,13 @@ if.then:                                          ; preds = %entry
   %18 = fneg <2 x float> %13
   %19 = fsub <2 x float> %18, %17
   store <2 x float> %19, ptr %l, align 8
-  %arrayinit.element29 = getelementptr inbounds float, ptr %l, i64 2
+  %arrayinit.element29 = getelementptr inbounds i8, ptr %l, i64 8
   %fneg31 = fneg float %10
   %sub33 = fsub float %fneg31, %sub19
   store float %sub33, ptr %arrayinit.element29, align 8
   %20 = fadd <2 x float> %0, %17
   store <2 x float> %20, ptr %q, align 8
-  %arrayinit.element41 = getelementptr inbounds float, ptr %q, i64 2
+  %arrayinit.element41 = getelementptr inbounds i8, ptr %q, i64 8
   %add44 = fadd float %1, %sub19
   store float %add44, ptr %arrayinit.element41, align 8
   %21 = extractelement <2 x float> %19, i64 0
@@ -9063,9 +9046,9 @@ if.then:                                          ; preds = %entry
   br i1 %call79, label %return, label %lor.lhs.false
 
 lor.lhs.false:                                    ; preds = %if.then
-  %arrayidx12 = getelementptr inbounds float, ptr %c, i64 1
-  %arrayidx10 = getelementptr inbounds float, ptr %b, i64 1
-  %arrayidx9 = getelementptr inbounds float, ptr %a, i64 1
+  %arrayidx12 = getelementptr inbounds i8, ptr %c, i64 4
+  %arrayidx10 = getelementptr inbounds i8, ptr %b, i64 4
+  %arrayidx9 = getelementptr inbounds i8, ptr %a, i64 4
   %29 = load float, ptr %arrayidx15, align 4
   %30 = load float, ptr %arrayidx9, align 4
   %sub84 = fsub float %29, %30
@@ -9107,7 +9090,7 @@ return:                                           ; preds = %entry, %if.then, %l
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr dso_local void @_ZN7msdfgen20ShapeDistanceCheckerINS_26OverlappingContourCombinerELi4EED2Ev(ptr noundef nonnull align 8 dereferenceable(192) %this) unnamed_addr #5 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  %shapeEdgeCache.i = getelementptr inbounds %"class.msdfgen::ShapeDistanceChecker.19", ptr %this, i64 0, i32 4, i32 2
+  %shapeEdgeCache.i = getelementptr inbounds i8, ptr %this, i64 120
   %0 = load ptr, ptr %shapeEdgeCache.i, align 8
   %tobool.not.i.i.i.i = icmp eq ptr %0, null
   br i1 %tobool.not.i.i.i.i, label %_ZNSt6vectorIN7msdfgen26PseudoDistanceSelectorBase9EdgeCacheESaIS2_EED2Ev.exit.i, label %if.then.i.i.i.i
@@ -9117,7 +9100,7 @@ if.then.i.i.i.i:                                  ; preds = %entry
   br label %_ZNSt6vectorIN7msdfgen26PseudoDistanceSelectorBase9EdgeCacheESaIS2_EED2Ev.exit.i
 
 _ZNSt6vectorIN7msdfgen26PseudoDistanceSelectorBase9EdgeCacheESaIS2_EED2Ev.exit.i: ; preds = %if.then.i.i.i.i, %entry
-  %edgeSelectors.i.i = getelementptr inbounds %"class.msdfgen::ShapeDistanceChecker.19", ptr %this, i64 0, i32 4, i32 1, i32 2
+  %edgeSelectors.i.i = getelementptr inbounds i8, ptr %this, i64 96
   %1 = load ptr, ptr %edgeSelectors.i.i, align 8
   %tobool.not.i.i.i.i.i = icmp eq ptr %1, null
   br i1 %tobool.not.i.i.i.i.i, label %_ZNSt6vectorIN7msdfgen22PseudoDistanceSelectorESaIS1_EED2Ev.exit.i.i, label %if.then.i.i.i.i.i
@@ -9127,7 +9110,7 @@ if.then.i.i.i.i.i:                                ; preds = %_ZNSt6vectorIN7msdf
   br label %_ZNSt6vectorIN7msdfgen22PseudoDistanceSelectorESaIS1_EED2Ev.exit.i.i
 
 _ZNSt6vectorIN7msdfgen22PseudoDistanceSelectorESaIS1_EED2Ev.exit.i.i: ; preds = %if.then.i.i.i.i.i, %_ZNSt6vectorIN7msdfgen26PseudoDistanceSelectorBase9EdgeCacheESaIS2_EED2Ev.exit.i
-  %windings.i.i = getelementptr inbounds %"class.msdfgen::ShapeDistanceChecker.19", ptr %this, i64 0, i32 4, i32 1, i32 1
+  %windings.i.i = getelementptr inbounds i8, ptr %this, i64 72
   %2 = load ptr, ptr %windings.i.i, align 8
   %tobool.not.i.i.i1.i.i = icmp eq ptr %2, null
   br i1 %tobool.not.i.i.i1.i.i, label %_ZN7msdfgen19ShapeDistanceFinderINS_26OverlappingContourCombinerINS_22PseudoDistanceSelectorEEEED2Ev.exit, label %if.then.i.i.i2.i.i
@@ -9143,9 +9126,9 @@ _ZN7msdfgen19ShapeDistanceFinderINS_26OverlappingContourCombinerINS_22PseudoDist
 ; Function Attrs: mustprogress uwtable
 define weak_odr dso_local void @_ZNK7msdfgen19MSDFErrorCorrection5applyILi3EEEvRKNS_9BitmapRefIfXT_EEE(ptr noundef nonnull align 8 dereferenceable(72) %this, ptr noundef nonnull align 8 dereferenceable(16) %sdf) local_unnamed_addr #0 comdat align 2 {
 entry:
-  %width = getelementptr inbounds %"struct.msdfgen::BitmapRef.20", ptr %sdf, i64 0, i32 1
+  %width = getelementptr inbounds i8, ptr %sdf, i64 8
   %0 = load i32, ptr %width, align 8
-  %height = getelementptr inbounds %"struct.msdfgen::BitmapRef.20", ptr %sdf, i64 0, i32 2
+  %height = getelementptr inbounds i8, ptr %sdf, i64 12
   %1 = load i32, ptr %height, align 4
   %mul = mul nsw i32 %1, %0
   %cmp13 = icmp sgt i32 %mul, 0
@@ -9167,8 +9150,8 @@ for.body:                                         ; preds = %for.body.preheader,
 
 if.then:                                          ; preds = %for.body
   %6 = load float, ptr %texel.014, align 4
-  %arrayidx3 = getelementptr inbounds float, ptr %texel.014, i64 1
-  %arrayidx4 = getelementptr inbounds float, ptr %texel.014, i64 2
+  %arrayidx3 = getelementptr inbounds i8, ptr %texel.014, i64 4
+  %arrayidx4 = getelementptr inbounds i8, ptr %texel.014, i64 8
   %7 = load <2 x float>, ptr %arrayidx3, align 4
   %8 = extractelement <2 x float> %7, i64 0
   %cmp.i3.i = fcmp olt float %6, %8
@@ -9188,7 +9171,7 @@ if.then:                                          ; preds = %for.body
 
 if.end:                                           ; preds = %if.then, %for.body
   %incdec.ptr = getelementptr inbounds i8, ptr %mask.016, i64 1
-  %add.ptr = getelementptr inbounds float, ptr %texel.014, i64 3
+  %add.ptr = getelementptr inbounds i8, ptr %texel.014, i64 12
   %inc = add nuw nsw i32 %i.015, 1
   %exitcond.not = icmp eq i32 %inc, %mul
   br i1 %exitcond.not, label %for.end, label %for.body, !llvm.loop !128
@@ -9200,9 +9183,9 @@ for.end:                                          ; preds = %if.end, %entry
 ; Function Attrs: mustprogress uwtable
 define weak_odr dso_local void @_ZNK7msdfgen19MSDFErrorCorrection5applyILi4EEEvRKNS_9BitmapRefIfXT_EEE(ptr noundef nonnull align 8 dereferenceable(72) %this, ptr noundef nonnull align 8 dereferenceable(16) %sdf) local_unnamed_addr #0 comdat align 2 {
 entry:
-  %width = getelementptr inbounds %"struct.msdfgen::BitmapRef.21", ptr %sdf, i64 0, i32 1
+  %width = getelementptr inbounds i8, ptr %sdf, i64 8
   %0 = load i32, ptr %width, align 8
-  %height = getelementptr inbounds %"struct.msdfgen::BitmapRef.21", ptr %sdf, i64 0, i32 2
+  %height = getelementptr inbounds i8, ptr %sdf, i64 12
   %1 = load i32, ptr %height, align 4
   %mul = mul nsw i32 %1, %0
   %cmp13 = icmp sgt i32 %mul, 0
@@ -9224,8 +9207,8 @@ for.body:                                         ; preds = %for.body.preheader,
 
 if.then:                                          ; preds = %for.body
   %6 = load float, ptr %texel.014, align 4
-  %arrayidx3 = getelementptr inbounds float, ptr %texel.014, i64 1
-  %arrayidx4 = getelementptr inbounds float, ptr %texel.014, i64 2
+  %arrayidx3 = getelementptr inbounds i8, ptr %texel.014, i64 4
+  %arrayidx4 = getelementptr inbounds i8, ptr %texel.014, i64 8
   %7 = load <2 x float>, ptr %arrayidx3, align 4
   %8 = extractelement <2 x float> %7, i64 0
   %cmp.i3.i = fcmp olt float %6, %8
@@ -9245,7 +9228,7 @@ if.then:                                          ; preds = %for.body
 
 if.end:                                           ; preds = %if.then, %for.body
   %incdec.ptr = getelementptr inbounds i8, ptr %mask.016, i64 1
-  %add.ptr = getelementptr inbounds float, ptr %texel.014, i64 4
+  %add.ptr = getelementptr inbounds i8, ptr %texel.014, i64 16
   %inc = add nuw nsw i32 %i.015, 1
   %exitcond.not = icmp eq i32 %inc, %mul
   br i1 %exitcond.not, label %for.end, label %for.body, !llvm.loop !129
@@ -9258,7 +9241,7 @@ for.end:                                          ; preds = %if.end, %entry
 define dso_local void @_ZN7msdfgen19MSDFErrorCorrectionC2Ev(ptr noundef nonnull align 8 dereferenceable(72) %this) unnamed_addr #0 align 2 {
 entry:
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %this, i8 0, i64 16, i1 false)
-  %projection = getelementptr inbounds %"class.msdfgen::MSDFErrorCorrection", ptr %this, i64 0, i32 1
+  %projection = getelementptr inbounds i8, ptr %this, i64 16
   tail call void @_ZN7msdfgen10ProjectionC1Ev(ptr noundef nonnull align 8 dereferenceable(32) %projection)
   ret void
 }
@@ -9269,18 +9252,18 @@ declare void @_ZN7msdfgen10ProjectionC1Ev(ptr noundef nonnull align 8 dereferenc
 define dso_local void @_ZN7msdfgen19MSDFErrorCorrectionC2ERKNS_9BitmapRefIhLi1EEERKNS_10ProjectionEd(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(72) %this, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %stencil, ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %projection, double noundef %range) unnamed_addr #6 align 2 {
 entry:
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %this, ptr noundef nonnull align 8 dereferenceable(16) %stencil, i64 16, i1 false)
-  %projection3 = getelementptr inbounds %"class.msdfgen::MSDFErrorCorrection", ptr %this, i64 0, i32 1
+  %projection3 = getelementptr inbounds i8, ptr %this, i64 16
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %projection3, ptr noundef nonnull align 8 dereferenceable(32) %projection, i64 32, i1 false)
   %div = fdiv double 1.000000e+00, %range
-  %invRange = getelementptr inbounds %"class.msdfgen::MSDFErrorCorrection", ptr %this, i64 0, i32 2
+  %invRange = getelementptr inbounds i8, ptr %this, i64 48
   store double %div, ptr %invRange, align 8
-  %minDeviationRatio = getelementptr inbounds %"class.msdfgen::MSDFErrorCorrection", ptr %this, i64 0, i32 3
+  %minDeviationRatio = getelementptr inbounds i8, ptr %this, i64 56
   store <2 x double> <double 0x3FF1C71C71C71C72, double 0x3FF1C71C71C71C72>, ptr %minDeviationRatio, align 8
   %0 = load ptr, ptr %stencil, align 8
-  %width = getelementptr inbounds %"struct.msdfgen::BitmapRef", ptr %stencil, i64 0, i32 1
+  %width = getelementptr inbounds i8, ptr %stencil, i64 8
   %1 = load i32, ptr %width, align 8
   %conv = sext i32 %1 to i64
-  %height = getelementptr inbounds %"struct.msdfgen::BitmapRef", ptr %stencil, i64 0, i32 2
+  %height = getelementptr inbounds i8, ptr %stencil, i64 12
   %2 = load i32, ptr %height, align 4
   %conv4 = sext i32 %2 to i64
   %mul5 = mul nsw i64 %conv4, %conv
@@ -9294,7 +9277,7 @@ declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #7
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
 define dso_local void @_ZN7msdfgen19MSDFErrorCorrection20setMinDeviationRatioEd(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(72) %this, double noundef %minDeviationRatio) local_unnamed_addr #8 align 2 {
 entry:
-  %minDeviationRatio2 = getelementptr inbounds %"class.msdfgen::MSDFErrorCorrection", ptr %this, i64 0, i32 3
+  %minDeviationRatio2 = getelementptr inbounds i8, ptr %this, i64 56
   store double %minDeviationRatio, ptr %minDeviationRatio2, align 8
   ret void
 }
@@ -9302,7 +9285,7 @@ entry:
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
 define dso_local void @_ZN7msdfgen19MSDFErrorCorrection18setMinImproveRatioEd(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(72) %this, double noundef %minImproveRatio) local_unnamed_addr #8 align 2 {
 entry:
-  %minImproveRatio2 = getelementptr inbounds %"class.msdfgen::MSDFErrorCorrection", ptr %this, i64 0, i32 4
+  %minImproveRatio2 = getelementptr inbounds i8, ptr %this, i64 64
   store double %minImproveRatio, ptr %minImproveRatio2, align 8
   ret void
 }
@@ -9312,29 +9295,29 @@ define dso_local void @_ZN7msdfgen19MSDFErrorCorrection14protectCornersERKNS_5Sh
 entry:
   %ref.tmp29 = alloca %"struct.msdfgen::Vector2", align 8
   %0 = load ptr, ptr %shape, align 8
-  %_M_finish.i = getelementptr inbounds %"struct.std::_Vector_base<msdfgen::Contour, std::allocator<msdfgen::Contour>>::_Vector_impl_data", ptr %shape, i64 0, i32 1
+  %_M_finish.i = getelementptr inbounds i8, ptr %shape, i64 8
   %1 = load ptr, ptr %_M_finish.i, align 8
   %cmp.i.not59 = icmp eq ptr %0, %1
   br i1 %cmp.i.not59, label %for.end108, label %for.body.lr.ph
 
 for.body.lr.ph:                                   ; preds = %entry
-  %projection = getelementptr inbounds %"class.msdfgen::MSDFErrorCorrection", ptr %this, i64 0, i32 1
-  %2 = getelementptr inbounds { double, double }, ptr %ref.tmp29, i64 0, i32 1
-  %inverseYAxis = getelementptr inbounds %"class.msdfgen::Shape", ptr %shape, i64 0, i32 1
-  %height = getelementptr inbounds %"struct.msdfgen::BitmapRef", ptr %this, i64 0, i32 2
-  %width = getelementptr inbounds %"struct.msdfgen::BitmapRef", ptr %this, i64 0, i32 1
+  %projection = getelementptr inbounds i8, ptr %this, i64 16
+  %2 = getelementptr inbounds i8, ptr %ref.tmp29, i64 8
+  %inverseYAxis = getelementptr inbounds i8, ptr %shape, i64 24
+  %height = getelementptr inbounds i8, ptr %this, i64 12
+  %width = getelementptr inbounds i8, ptr %this, i64 8
   br label %for.body
 
 for.body:                                         ; preds = %for.body.lr.ph, %for.inc106
   %contour.sroa.0.060 = phi ptr [ %0, %for.body.lr.ph ], [ %incdec.ptr.i46, %for.inc106 ]
   %3 = load ptr, ptr %contour.sroa.0.060, align 8
-  %_M_finish.i.i = getelementptr inbounds %"struct.std::_Vector_base<msdfgen::EdgeHolder, std::allocator<msdfgen::EdgeHolder>>::_Vector_impl_data", ptr %contour.sroa.0.060, i64 0, i32 1
+  %_M_finish.i.i = getelementptr inbounds i8, ptr %contour.sroa.0.060, i64 8
   %4 = load ptr, ptr %_M_finish.i.i, align 8
   %cmp.i.i = icmp eq ptr %3, %4
   br i1 %cmp.i.i, label %for.inc106, label %if.then
 
 if.then:                                          ; preds = %for.body
-  %add.ptr.i.i = getelementptr inbounds %"class.msdfgen::EdgeHolder", ptr %4, i64 -1
+  %add.ptr.i.i = getelementptr inbounds i8, ptr %4, i64 -8
   %call11 = call noundef ptr @_ZNK7msdfgen10EdgeHoldercvPKNS_11EdgeSegmentEEv(ptr noundef nonnull align 8 dereferenceable(8) %add.ptr.i.i)
   %5 = load ptr, ptr %contour.sroa.0.060, align 8
   %6 = load ptr, ptr %_M_finish.i.i, align 8
@@ -9344,10 +9327,10 @@ if.then:                                          ; preds = %for.body
 for.body23:                                       ; preds = %if.then, %if.end101
   %prevEdge.058 = phi ptr [ %call103, %if.end101 ], [ %call11, %if.then ]
   %edge.sroa.0.057 = phi ptr [ %incdec.ptr.i, %if.end101 ], [ %5, %if.then ]
-  %color = getelementptr inbounds %"class.msdfgen::EdgeSegment", ptr %prevEdge.058, i64 0, i32 1
+  %color = getelementptr inbounds i8, ptr %prevEdge.058, i64 8
   %7 = load i32, ptr %color, align 8
   %call25 = call noundef ptr @_ZNK7msdfgen10EdgeHolderptEv(ptr noundef nonnull align 8 dereferenceable(8) %edge.sroa.0.057)
-  %color26 = getelementptr inbounds %"class.msdfgen::EdgeSegment", ptr %call25, i64 0, i32 1
+  %color26 = getelementptr inbounds i8, ptr %call25, i64 8
   %8 = load i32, ptr %color26, align 8
   %and = and i32 %8, %7
   %9 = call i32 @llvm.ctpop.i32(i32 %and), !range !130
@@ -9357,7 +9340,7 @@ for.body23:                                       ; preds = %if.then, %if.end101
 if.then28:                                        ; preds = %for.body23
   %call31 = call noundef ptr @_ZNK7msdfgen10EdgeHolderptEv(ptr noundef nonnull align 8 dereferenceable(8) %edge.sroa.0.057)
   %vtable = load ptr, ptr %call31, align 8
-  %vfn = getelementptr inbounds ptr, ptr %vtable, i64 5
+  %vfn = getelementptr inbounds i8, ptr %vtable, i64 40
   %10 = load ptr, ptr %vfn, align 8
   %call32 = call { double, double } %10(ptr noundef nonnull align 8 dereferenceable(12) %call31, double noundef 0.000000e+00)
   %11 = extractvalue { double, double } %call32, 0
@@ -9471,13 +9454,13 @@ if.then93:                                        ; preds = %if.end85
 
 if.end101:                                        ; preds = %if.then28, %land.lhs.true, %if.then93, %if.end85, %for.body23
   %call103 = call noundef ptr @_ZNK7msdfgen10EdgeHoldercvPKNS_11EdgeSegmentEEv(ptr noundef nonnull align 8 dereferenceable(8) %edge.sroa.0.057)
-  %incdec.ptr.i = getelementptr inbounds %"class.msdfgen::EdgeHolder", ptr %edge.sroa.0.057, i64 1
+  %incdec.ptr.i = getelementptr inbounds i8, ptr %edge.sroa.0.057, i64 8
   %37 = load ptr, ptr %_M_finish.i.i, align 8
   %cmp.i30.not = icmp eq ptr %incdec.ptr.i, %37
   br i1 %cmp.i30.not, label %for.inc106, label %for.body23, !llvm.loop !131
 
 for.inc106:                                       ; preds = %if.end101, %if.then, %for.body
-  %incdec.ptr.i46 = getelementptr inbounds %"class.msdfgen::Contour", ptr %contour.sroa.0.060, i64 1
+  %incdec.ptr.i46 = getelementptr inbounds i8, ptr %contour.sroa.0.060, i64 24
   %38 = load ptr, ptr %_M_finish.i, align 8
   %cmp.i.not = icmp eq ptr %incdec.ptr.i46, %38
   br i1 %cmp.i.not, label %for.end108, label %for.body, !llvm.loop !132
@@ -9499,9 +9482,9 @@ declare double @llvm.floor.f64(double) #2
 define dso_local void @_ZN7msdfgen19MSDFErrorCorrection10protectAllEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(72) %this) local_unnamed_addr #9 align 2 {
 entry:
   %0 = load ptr, ptr %this, align 8
-  %width = getelementptr inbounds %"struct.msdfgen::BitmapRef", ptr %this, i64 0, i32 1
+  %width = getelementptr inbounds i8, ptr %this, i64 8
   %1 = load i32, ptr %width, align 8
-  %height = getelementptr inbounds %"struct.msdfgen::BitmapRef", ptr %this, i64 0, i32 2
+  %height = getelementptr inbounds i8, ptr %this, i64 12
   %2 = load i32, ptr %height, align 4
   %mul = mul nsw i32 %2, %1
   %idx.ext = sext i32 %mul to i64
@@ -9526,7 +9509,7 @@ for.end:                                          ; preds = %for.body, %entry
 define dso_local { ptr, i64 } @_ZNK7msdfgen19MSDFErrorCorrection10getStencilEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(72) %this) local_unnamed_addr #3 align 2 {
 entry:
   %0 = load ptr, ptr %this, align 8
-  %width3.i = getelementptr inbounds %"struct.msdfgen::BitmapRef", ptr %this, i64 0, i32 1
+  %width3.i = getelementptr inbounds i8, ptr %this, i64 8
   %1 = load i64, ptr %width3.i, align 8
   %.fca.0.insert = insertvalue { ptr, i64 } poison, ptr %0, 0
   %.fca.1.insert = insertvalue { ptr, i64 } %.fca.0.insert, i64 %1, 1
@@ -9553,7 +9536,7 @@ declare void @_ZdlPv(ptr noundef) local_unnamed_addr #11
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr dso_local void @_ZN7msdfgen19ShapeDistanceFinderINS_26OverlappingContourCombinerINS_22PseudoDistanceSelectorEEEED2Ev(ptr noundef nonnull align 8 dereferenceable(96) %this) unnamed_addr #5 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  %shapeEdgeCache = getelementptr inbounds %"class.msdfgen::ShapeDistanceFinder.8", ptr %this, i64 0, i32 2
+  %shapeEdgeCache = getelementptr inbounds i8, ptr %this, i64 72
   %0 = load ptr, ptr %shapeEdgeCache, align 8
   %tobool.not.i.i.i = icmp eq ptr %0, null
   br i1 %tobool.not.i.i.i, label %_ZNSt6vectorIN7msdfgen26PseudoDistanceSelectorBase9EdgeCacheESaIS2_EED2Ev.exit, label %if.then.i.i.i
@@ -9563,7 +9546,7 @@ if.then.i.i.i:                                    ; preds = %entry
   br label %_ZNSt6vectorIN7msdfgen26PseudoDistanceSelectorBase9EdgeCacheESaIS2_EED2Ev.exit
 
 _ZNSt6vectorIN7msdfgen26PseudoDistanceSelectorBase9EdgeCacheESaIS2_EED2Ev.exit: ; preds = %entry, %if.then.i.i.i
-  %edgeSelectors.i = getelementptr inbounds %"class.msdfgen::ShapeDistanceFinder.8", ptr %this, i64 0, i32 1, i32 2
+  %edgeSelectors.i = getelementptr inbounds i8, ptr %this, i64 48
   %1 = load ptr, ptr %edgeSelectors.i, align 8
   %tobool.not.i.i.i.i = icmp eq ptr %1, null
   br i1 %tobool.not.i.i.i.i, label %_ZNSt6vectorIN7msdfgen22PseudoDistanceSelectorESaIS1_EED2Ev.exit.i, label %if.then.i.i.i.i
@@ -9573,7 +9556,7 @@ if.then.i.i.i.i:                                  ; preds = %_ZNSt6vectorIN7msdf
   br label %_ZNSt6vectorIN7msdfgen22PseudoDistanceSelectorESaIS1_EED2Ev.exit.i
 
 _ZNSt6vectorIN7msdfgen22PseudoDistanceSelectorESaIS1_EED2Ev.exit.i: ; preds = %if.then.i.i.i.i, %_ZNSt6vectorIN7msdfgen26PseudoDistanceSelectorBase9EdgeCacheESaIS2_EED2Ev.exit
-  %windings.i = getelementptr inbounds %"class.msdfgen::ShapeDistanceFinder.8", ptr %this, i64 0, i32 1, i32 1
+  %windings.i = getelementptr inbounds i8, ptr %this, i64 24
   %2 = load ptr, ptr %windings.i, align 8
   %tobool.not.i.i.i1.i = icmp eq ptr %2, null
   br i1 %tobool.not.i.i.i1.i, label %_ZN7msdfgen26OverlappingContourCombinerINS_22PseudoDistanceSelectorEED2Ev.exit, label %if.then.i.i.i2.i
@@ -9589,7 +9572,7 @@ _ZN7msdfgen26OverlappingContourCombinerINS_22PseudoDistanceSelectorEED2Ev.exit: 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr dso_local void @_ZN7msdfgen26OverlappingContourCombinerINS_22PseudoDistanceSelectorEED2Ev(ptr noundef nonnull align 8 dereferenceable(64) %this) unnamed_addr #5 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  %edgeSelectors = getelementptr inbounds %"class.msdfgen::OverlappingContourCombiner", ptr %this, i64 0, i32 2
+  %edgeSelectors = getelementptr inbounds i8, ptr %this, i64 40
   %0 = load ptr, ptr %edgeSelectors, align 8
   %tobool.not.i.i.i = icmp eq ptr %0, null
   br i1 %tobool.not.i.i.i, label %_ZNSt6vectorIN7msdfgen22PseudoDistanceSelectorESaIS1_EED2Ev.exit, label %if.then.i.i.i
@@ -9599,7 +9582,7 @@ if.then.i.i.i:                                    ; preds = %entry
   br label %_ZNSt6vectorIN7msdfgen22PseudoDistanceSelectorESaIS1_EED2Ev.exit
 
 _ZNSt6vectorIN7msdfgen22PseudoDistanceSelectorESaIS1_EED2Ev.exit: ; preds = %entry, %if.then.i.i.i
-  %windings = getelementptr inbounds %"class.msdfgen::OverlappingContourCombiner", ptr %this, i64 0, i32 1
+  %windings = getelementptr inbounds i8, ptr %this, i64 16
   %1 = load ptr, ptr %windings, align 8
   %tobool.not.i.i.i1 = icmp eq ptr %1, null
   br i1 %tobool.not.i.i.i1, label %_ZNSt6vectorIiSaIiEED2Ev.exit, label %if.then.i.i.i2
@@ -9633,8 +9616,8 @@ if.then:                                          ; preds = %entry
   %mul2.i.i = fmul double %div, %conv1.i.i
   %2 = tail call double @llvm.fmuladd.f64(double %sub.i.i, double %conv.i.i, double %mul2.i.i)
   %conv3.i.i = fptrunc double %2 to float
-  %arrayidx2.i = getelementptr inbounds float, ptr %a, i64 1
-  %arrayidx3.i = getelementptr inbounds float, ptr %b, i64 1
+  %arrayidx2.i = getelementptr inbounds i8, ptr %a, i64 4
+  %arrayidx3.i = getelementptr inbounds i8, ptr %b, i64 4
   %3 = load <2 x float>, ptr %arrayidx2.i, align 4
   %4 = load <2 x float>, ptr %arrayidx3.i, align 4
   %5 = fpext <2 x float> %3 to <2 x double>
@@ -9733,16 +9716,16 @@ entry:
   br i1 %cmp197, label %for.body.lr.ph, label %return
 
 for.body.lr.ph:                                   ; preds = %entry
-  %arrayidx5.i = getelementptr inbounds float, ptr %q, i64 1
-  %arrayidx7.i = getelementptr inbounds float, ptr %l, i64 1
-  %arrayidx9.i = getelementptr inbounds float, ptr %a, i64 1
+  %arrayidx5.i = getelementptr inbounds i8, ptr %q, i64 4
+  %arrayidx7.i = getelementptr inbounds i8, ptr %l, i64 4
+  %arrayidx9.i = getelementptr inbounds i8, ptr %a, i64 4
   %cmp.i = fcmp ogt float %am, 5.000000e-01
   %cmp2.i = fcmp ogt float %dm, 5.000000e-01
   %or.cond.i = and i1 %cmp.i, %cmp2.i
   %cmp5.i = fcmp olt float %am, 5.000000e-01
   %cmp7.i = fcmp olt float %dm, 5.000000e-01
   %or.cond2.i = and i1 %cmp5.i, %cmp7.i
-  %protectedFlag.i = getelementptr inbounds %"class.msdfgen::BaseArtifactClassifier", ptr %artifactClassifier, i64 0, i32 1
+  %protectedFlag.i = getelementptr inbounds i8, ptr %artifactClassifier, i64 8
   %0 = load i8, ptr %protectedFlag.i, align 8
   %1 = and i8 %0, 1
   %tobool.not.i = icmp eq i8 %1, 0
@@ -9756,8 +9739,8 @@ for.body.lr.ph:                                   ; preds = %entry
   %cmp15 = fcmp ogt double %tEx0, 0.000000e+00
   %cmp17 = fcmp olt double %tEx0, 1.000000e+00
   %or.cond = and i1 %cmp15, %cmp17
-  %arrayidx20 = getelementptr inbounds [2 x double], ptr %tEnd, i64 0, i64 1
-  %arrayidx22 = getelementptr inbounds [2 x float], ptr %em, i64 0, i64 1
+  %arrayidx20 = getelementptr inbounds i8, ptr %tEnd, i64 8
+  %arrayidx22 = getelementptr inbounds i8, ptr %em, i64 4
   %cmp41 = fcmp ogt double %tEx1, 0.000000e+00
   %cmp43 = fcmp olt double %tEx1, 1.000000e+00
   %or.cond1 = and i1 %cmp41, %cmp43
@@ -10070,7 +10053,7 @@ _ZNSt6vectorIN7msdfgen26PseudoDistanceSelectorBase9EdgeCacheESaIS2_EE17_S_check_
   br i1 %cmp.not.i.i.i, label %_ZNSt12_Vector_baseIN7msdfgen26PseudoDistanceSelectorBase9EdgeCacheESaIS2_EEC2EmRKS3_.exit.thread, label %_ZNSt12_Vector_baseIN7msdfgen26PseudoDistanceSelectorBase9EdgeCacheESaIS2_EEC2EmRKS3_.exit
 
 _ZNSt12_Vector_baseIN7msdfgen26PseudoDistanceSelectorBase9EdgeCacheESaIS2_EEC2EmRKS3_.exit.thread: ; preds = %_ZNSt6vectorIN7msdfgen26PseudoDistanceSelectorBase9EdgeCacheESaIS2_EE17_S_check_init_lenEmRKS3_.exit
-  %_M_finish.i.i4 = getelementptr inbounds %"struct.std::_Vector_base<msdfgen::PseudoDistanceSelectorBase::EdgeCache, std::allocator<msdfgen::PseudoDistanceSelectorBase::EdgeCache>>::_Vector_impl_data", ptr %this, i64 0, i32 1
+  %_M_finish.i.i4 = getelementptr inbounds i8, ptr %this, i64 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %this, i8 0, i64 24, i1 false)
   br label %invoke.cont
 
@@ -10078,10 +10061,10 @@ _ZNSt12_Vector_baseIN7msdfgen26PseudoDistanceSelectorBase9EdgeCacheESaIS2_EEC2Em
   %mul.i.i.i.i.i = mul nuw nsw i64 %__n, 56
   %call5.i.i.i.i2.i = tail call noalias noundef nonnull ptr @_Znwm(i64 noundef %mul.i.i.i.i.i) #22
   store ptr %call5.i.i.i.i2.i, ptr %this, align 8
-  %_M_finish.i.i = getelementptr inbounds %"struct.std::_Vector_base<msdfgen::PseudoDistanceSelectorBase::EdgeCache, std::allocator<msdfgen::PseudoDistanceSelectorBase::EdgeCache>>::_Vector_impl_data", ptr %this, i64 0, i32 1
+  %_M_finish.i.i = getelementptr inbounds i8, ptr %this, i64 8
   store ptr %call5.i.i.i.i2.i, ptr %_M_finish.i.i, align 8
   %add.ptr.i.i = getelementptr inbounds %"struct.msdfgen::PseudoDistanceSelectorBase::EdgeCache", ptr %call5.i.i.i.i2.i, i64 %__n
-  %_M_end_of_storage.i.i = getelementptr inbounds %"struct.std::_Vector_base<msdfgen::PseudoDistanceSelectorBase::EdgeCache, std::allocator<msdfgen::PseudoDistanceSelectorBase::EdgeCache>>::_Vector_impl_data", ptr %this, i64 0, i32 2
+  %_M_end_of_storage.i.i = getelementptr inbounds i8, ptr %this, i64 16
   store ptr %add.ptr.i.i, ptr %_M_end_of_storage.i.i, align 8
   br label %for.body.i.i.i.i
 
@@ -10093,7 +10076,7 @@ for.body.i.i.i.i:                                 ; preds = %_ZNSt12_Vector_base
 
 for.inc.i.i.i.i:                                  ; preds = %for.body.i.i.i.i
   %dec.i.i.i.i = add i64 %__n.addr.08.i.i.i.i, -1
-  %incdec.ptr.i.i.i.i = getelementptr inbounds %"struct.msdfgen::PseudoDistanceSelectorBase::EdgeCache", ptr %__cur.09.i.i.i.i, i64 1
+  %incdec.ptr.i.i.i.i = getelementptr inbounds i8, ptr %__cur.09.i.i.i.i, i64 56
   %cmp.not.i.i.i.i = icmp eq i64 %dec.i.i.i.i, 0
   br i1 %cmp.not.i.i.i.i, label %invoke.cont, label %for.body.i.i.i.i, !llvm.loop !135
 
@@ -10173,8 +10156,8 @@ if.then:                                          ; preds = %entry
   %mul2.i.i = fmul double %div, %conv1.i.i
   %2 = tail call double @llvm.fmuladd.f64(double %sub.i.i, double %conv.i.i, double %mul2.i.i)
   %conv3.i.i = fptrunc double %2 to float
-  %arrayidx2.i = getelementptr inbounds float, ptr %a, i64 1
-  %arrayidx3.i = getelementptr inbounds float, ptr %b, i64 1
+  %arrayidx2.i = getelementptr inbounds i8, ptr %a, i64 4
+  %arrayidx3.i = getelementptr inbounds i8, ptr %b, i64 4
   %3 = load <2 x float>, ptr %arrayidx2.i, align 4
   %4 = load <2 x float>, ptr %arrayidx3.i, align 4
   %5 = fpext <2 x float> %3 to <2 x double>
@@ -10213,7 +10196,7 @@ lor.lhs.false.i:                                  ; preds = %if.then
   br i1 %or.cond3.i, label %if.then.i, label %lor.lhs.false10.i
 
 lor.lhs.false10.i:                                ; preds = %lor.lhs.false.i
-  %protectedFlag.i = getelementptr inbounds %"class.msdfgen::BaseArtifactClassifier", ptr %artifactClassifier, i64 0, i32 1
+  %protectedFlag.i = getelementptr inbounds i8, ptr %artifactClassifier, i64 8
   %21 = load i8, ptr %protectedFlag.i, align 8
   %22 = and i8 %21, 1
   %tobool.not.i = icmp eq i8 %22, 0
@@ -10279,14 +10262,14 @@ if.then:                                          ; preds = %entry
   br i1 %tobool3.not, label %if.end, label %return
 
 if.end:                                           ; preds = %if.then
-  %direction = getelementptr inbounds %"class.msdfgen::ShapeDistanceChecker<msdfgen::SimpleContourCombiner, 3>::ArtifactClassifier", ptr %this, i64 0, i32 2
-  %parent = getelementptr inbounds %"class.msdfgen::ShapeDistanceChecker<msdfgen::SimpleContourCombiner, 3>::ArtifactClassifier", ptr %this, i64 0, i32 1
+  %direction = getelementptr inbounds i8, ptr %this, i64 24
+  %parent = getelementptr inbounds i8, ptr %this, i64 16
   %0 = load ptr, ptr %parent, align 8
-  %sdfCoord6 = getelementptr inbounds %"class.msdfgen::ShapeDistanceChecker", ptr %0, i64 0, i32 1
+  %sdfCoord6 = getelementptr inbounds i8, ptr %0, i64 16
   %agg.tmp5.sroa.0.0.copyload = load double, ptr %sdfCoord6, align 8
-  %agg.tmp5.sroa.2.0.sdfCoord6.sroa_idx = getelementptr inbounds %"class.msdfgen::ShapeDistanceChecker", ptr %0, i64 0, i32 1, i32 1
+  %agg.tmp5.sroa.2.0.sdfCoord6.sroa_idx = getelementptr inbounds i8, ptr %0, i64 24
   %agg.tmp5.sroa.2.0.copyload = load double, ptr %agg.tmp5.sroa.2.0.sdfCoord6.sroa_idx, align 8
-  %sdf = getelementptr inbounds %"class.msdfgen::ShapeDistanceChecker", ptr %0, i64 0, i32 5
+  %sdf = getelementptr inbounds i8, ptr %0, i64 144
   %1 = load <2 x double>, ptr %direction, align 8
   %2 = insertelement <2 x double> poison, double %t, i64 0
   %3 = shufflevector <2 x double> %2, <2 x double> poison, <2 x i32> zeroinitializer
@@ -10301,13 +10284,13 @@ if.end:                                           ; preds = %if.then
   %shift = shufflevector <2 x double> %8, <2 x double> poison, <2 x i32> <i32 1, i32 poison>
   %9 = fmul <2 x double> %8, %shift
   %mul = extractelement <2 x double> %9, i64 0
-  %msd = getelementptr inbounds %"class.msdfgen::ShapeDistanceChecker", ptr %0, i64 0, i32 2
+  %msd = getelementptr inbounds i8, ptr %0, i64 32
   %10 = load ptr, ptr %msd, align 8
   %11 = load float, ptr %10, align 4
-  %arrayidx15 = getelementptr inbounds float, ptr %10, i64 1
+  %arrayidx15 = getelementptr inbounds i8, ptr %10, i64 4
   %12 = load float, ptr %oldMSD, align 4
   %conv = fpext float %12 to double
-  %arrayidx29 = getelementptr inbounds [3 x float], ptr %oldMSD, i64 0, i64 1
+  %arrayidx29 = getelementptr inbounds i8, ptr %oldMSD, i64 4
   %13 = load <2 x float>, ptr %arrayidx15, align 4
   %14 = extractelement <2 x float> %13, i64 0
   %cmp.i3.i = fcmp olt float %11, %14
@@ -10355,10 +10338,10 @@ if.end:                                           ; preds = %if.then
   %44 = extractelement <2 x float> %42, i64 1
   %cmp.i7.i23 = fcmp olt float %43, %44
   %cond.i8.i24 = select i1 %cmp.i7.i23, float %44, float %43
-  %invRange = getelementptr inbounds %"class.msdfgen::ShapeDistanceChecker", ptr %0, i64 0, i32 6
+  %invRange = getelementptr inbounds i8, ptr %0, i64 160
   %45 = load double, ptr %invRange, align 8
-  %distanceFinder = getelementptr inbounds %"class.msdfgen::ShapeDistanceChecker", ptr %0, i64 0, i32 4
-  %texelSize = getelementptr inbounds %"class.msdfgen::ShapeDistanceChecker", ptr %0, i64 0, i32 7
+  %distanceFinder = getelementptr inbounds i8, ptr %0, i64 48
+  %texelSize = getelementptr inbounds i8, ptr %0, i64 168
   %46 = load <2 x double>, ptr %0, align 8
   %47 = load <2 x double>, ptr %texelSize, align 8
   %48 = fmul <2 x double> %4, %47
@@ -10368,7 +10351,7 @@ if.end:                                           ; preds = %if.then
   %50 = call double @llvm.fmuladd.f64(double %45, double %call67, double 5.000000e-01)
   %conv69 = fptrunc double %50 to float
   %51 = load ptr, ptr %parent, align 8
-  %minImproveRatio = getelementptr inbounds %"class.msdfgen::ShapeDistanceChecker", ptr %51, i64 0, i32 8
+  %minImproveRatio = getelementptr inbounds i8, ptr %51, i64 184
   %52 = load double, ptr %minImproveRatio, align 8
   %sub71 = fsub float %cond.i8.i24, %conv69
   %53 = call float @llvm.fabs.f32(float %sub71)
@@ -10400,7 +10383,7 @@ entry:
   %sub = fsub double %sub.i, %conv4
   %conv6 = sitofp i32 %conv1 to double
   %sub7 = fsub double %sub4.i, %conv6
-  %width = getelementptr inbounds %"struct.msdfgen::BitmapConstRef", ptr %bitmap, i64 0, i32 1
+  %width = getelementptr inbounds i8, ptr %bitmap, i64 8
   %2 = load i32, ptr %width, align 8
   %sub8 = add nsw i32 %2, -1
   %cmp.i = icmp slt i32 %conv, 0
@@ -10414,7 +10397,7 @@ entry:
   %or.cond.i29 = or i1 %cmp.i27, %cmp1.not.i28
   %mul.i31 = select i1 %cmp.i, i32 0, i32 %sub8
   %cond.i32 = select i1 %or.cond.i29, i32 %mul.i31, i32 %add
-  %height = getelementptr inbounds %"struct.msdfgen::BitmapConstRef", ptr %bitmap, i64 0, i32 2
+  %height = getelementptr inbounds i8, ptr %bitmap, i64 12
   %3 = load i32, ptr %height, align 4
   %sub13 = add nsw i32 %3, -1
   %cmp.i33 = icmp slt i32 %conv1, 0
@@ -10490,17 +10473,17 @@ for.end:                                          ; preds = %for.body
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr dso_local noundef double @_ZN7msdfgen19ShapeDistanceFinderINS_21SimpleContourCombinerINS_22PseudoDistanceSelectorEEEE8distanceERKNS_7Vector2E(ptr noundef nonnull align 8 dereferenceable(96) %this, ptr noundef nonnull align 8 dereferenceable(16) %origin) local_unnamed_addr #0 comdat align 2 {
 entry:
-  %contourCombiner = getelementptr inbounds %"class.msdfgen::ShapeDistanceFinder", ptr %this, i64 0, i32 1
+  %contourCombiner = getelementptr inbounds i8, ptr %this, i64 8
   tail call void @_ZN7msdfgen21SimpleContourCombinerINS_22PseudoDistanceSelectorEE5resetERKNS_7Vector2E(ptr noundef nonnull align 8 dereferenceable(64) %contourCombiner, ptr noundef nonnull align 8 dereferenceable(16) %origin)
   %0 = load ptr, ptr %this, align 8
   %1 = load ptr, ptr %0, align 8
-  %_M_finish.i29 = getelementptr inbounds %"struct.std::_Vector_base<msdfgen::Contour, std::allocator<msdfgen::Contour>>::_Vector_impl_data", ptr %0, i64 0, i32 1
+  %_M_finish.i29 = getelementptr inbounds i8, ptr %0, i64 8
   %2 = load ptr, ptr %_M_finish.i29, align 8
   %cmp.i.not30 = icmp eq ptr %1, %2
   br i1 %cmp.i.not30, label %for.end58, label %for.body.preheader
 
 for.body.preheader:                               ; preds = %entry
-  %shapeEdgeCache = getelementptr inbounds %"class.msdfgen::ShapeDistanceFinder", ptr %this, i64 0, i32 2
+  %shapeEdgeCache = getelementptr inbounds i8, ptr %this, i64 72
   %3 = load ptr, ptr %shapeEdgeCache, align 8
   br label %for.body
 
@@ -10509,7 +10492,7 @@ for.body:                                         ; preds = %for.body.preheader,
   %edgeCache.032 = phi ptr [ %edgeCache.2, %for.inc56 ], [ %3, %for.body.preheader ]
   %contour.sroa.0.031 = phi ptr [ %incdec.ptr.i12, %for.inc56 ], [ %1, %for.body.preheader ]
   %5 = load ptr, ptr %contour.sroa.0.031, align 8
-  %_M_finish.i.i = getelementptr inbounds %"struct.std::_Vector_base<msdfgen::EdgeHolder, std::allocator<msdfgen::EdgeHolder>>::_Vector_impl_data", ptr %contour.sroa.0.031, i64 0, i32 1
+  %_M_finish.i.i = getelementptr inbounds i8, ptr %contour.sroa.0.031, i64 8
   %6 = load ptr, ptr %_M_finish.i.i, align 8
   %cmp.i.i = icmp eq ptr %5, %6
   br i1 %cmp.i.i, label %for.inc56, label %if.then
@@ -10528,11 +10511,11 @@ if.then:                                          ; preds = %for.body
   %sub.ptr.rhs.cast.i5 = ptrtoint ptr %9 to i64
   %sub.ptr.sub.i6 = sub i64 %sub.ptr.lhs.cast.i4, %sub.ptr.rhs.cast.i5
   %cmp = icmp ugt i64 %sub.ptr.sub.i6, 8
-  %add.ptr.i = getelementptr inbounds %"class.msdfgen::EdgeHolder", ptr %8, i64 -2
+  %add.ptr.i = getelementptr inbounds i8, ptr %8, i64 -16
   %spec.select = select i1 %cmp, ptr %add.ptr.i, ptr %9
   %call36 = tail call noundef ptr @_ZNK7msdfgen10EdgeHoldercvPKNS_11EdgeSegmentEEv(ptr noundef nonnull align 8 dereferenceable(8) %spec.select)
   %10 = load ptr, ptr %_M_finish.i.i, align 8
-  %add.ptr.i.i = getelementptr inbounds %"class.msdfgen::EdgeHolder", ptr %10, i64 -1
+  %add.ptr.i.i = getelementptr inbounds i8, ptr %10, i64 -8
   %call40 = tail call noundef ptr @_ZNK7msdfgen10EdgeHoldercvPKNS_11EdgeSegmentEEv(ptr noundef nonnull align 8 dereferenceable(8) %add.ptr.i.i)
   %11 = load ptr, ptr %contour.sroa.0.031, align 8
   %12 = load ptr, ptr %_M_finish.i.i, align 8
@@ -10545,18 +10528,18 @@ for.body52:                                       ; preds = %if.then, %for.body5
   %prevEdge.026 = phi ptr [ %curEdge.027, %for.body52 ], [ %call36, %if.then ]
   %edge.sroa.0.025 = phi ptr [ %incdec.ptr.i, %for.body52 ], [ %11, %if.then ]
   %call54 = tail call noundef ptr @_ZNK7msdfgen10EdgeHoldercvPKNS_11EdgeSegmentEEv(ptr noundef nonnull align 8 dereferenceable(8) %edge.sroa.0.025)
-  %incdec.ptr = getelementptr inbounds %"struct.msdfgen::PseudoDistanceSelectorBase::EdgeCache", ptr %edgeCache.128, i64 1
+  %incdec.ptr = getelementptr inbounds i8, ptr %edgeCache.128, i64 56
   tail call void @_ZN7msdfgen22PseudoDistanceSelector7addEdgeERNS_26PseudoDistanceSelectorBase9EdgeCacheEPKNS_11EdgeSegmentES6_S6_(ptr noundef nonnull align 8 dereferenceable(64) %call17, ptr noundef nonnull align 8 dereferenceable(56) %edgeCache.128, ptr noundef %prevEdge.026, ptr noundef %curEdge.027, ptr noundef %call54)
-  %incdec.ptr.i = getelementptr inbounds %"class.msdfgen::EdgeHolder", ptr %edge.sroa.0.025, i64 1
+  %incdec.ptr.i = getelementptr inbounds i8, ptr %edge.sroa.0.025, i64 8
   %13 = load ptr, ptr %_M_finish.i.i, align 8
   %cmp.i11.not = icmp eq ptr %incdec.ptr.i, %13
   br i1 %cmp.i11.not, label %for.inc56, label %for.body52, !llvm.loop !137
 
 for.inc56:                                        ; preds = %for.body52, %if.then, %for.body
   %edgeCache.2 = phi ptr [ %edgeCache.032, %for.body ], [ %edgeCache.032, %if.then ], [ %incdec.ptr, %for.body52 ]
-  %incdec.ptr.i12 = getelementptr inbounds %"class.msdfgen::Contour", ptr %contour.sroa.0.031, i64 1
+  %incdec.ptr.i12 = getelementptr inbounds i8, ptr %contour.sroa.0.031, i64 24
   %14 = load ptr, ptr %this, align 8
-  %_M_finish.i = getelementptr inbounds %"struct.std::_Vector_base<msdfgen::Contour, std::allocator<msdfgen::Contour>>::_Vector_impl_data", ptr %14, i64 0, i32 1
+  %_M_finish.i = getelementptr inbounds i8, ptr %14, i64 8
   %15 = load ptr, ptr %_M_finish.i, align 8
   %cmp.i.not = icmp eq ptr %incdec.ptr.i12, %15
   br i1 %cmp.i.not, label %for.end58, label %for.body, !llvm.loop !138
@@ -10592,16 +10575,16 @@ entry:
   br i1 %cmp196, label %for.body.lr.ph, label %return
 
 for.body.lr.ph:                                   ; preds = %entry
-  %arrayidx5.i = getelementptr inbounds float, ptr %q, i64 1
-  %arrayidx7.i = getelementptr inbounds float, ptr %l, i64 1
-  %arrayidx9.i = getelementptr inbounds float, ptr %a, i64 1
+  %arrayidx5.i = getelementptr inbounds i8, ptr %q, i64 4
+  %arrayidx7.i = getelementptr inbounds i8, ptr %l, i64 4
+  %arrayidx9.i = getelementptr inbounds i8, ptr %a, i64 4
   %cmp.i = fcmp ogt float %am, 5.000000e-01
   %cmp2.i = fcmp ogt float %dm, 5.000000e-01
   %or.cond.i = and i1 %cmp.i, %cmp2.i
   %cmp5.i = fcmp olt float %am, 5.000000e-01
   %cmp7.i = fcmp olt float %dm, 5.000000e-01
   %or.cond2.i = and i1 %cmp5.i, %cmp7.i
-  %protectedFlag.i = getelementptr inbounds %"class.msdfgen::BaseArtifactClassifier", ptr %artifactClassifier, i64 0, i32 1
+  %protectedFlag.i = getelementptr inbounds i8, ptr %artifactClassifier, i64 8
   %cmp.i.i.i47 = fcmp olt float %dm, %am
   %cond.i.i.i48 = select i1 %cmp.i.i.i47, float %dm, float %am
   %cmp.i3.i.i49 = fcmp olt float %am, %dm
@@ -10611,8 +10594,8 @@ for.body.lr.ph:                                   ; preds = %entry
   %cmp15 = fcmp ogt double %tEx0, 0.000000e+00
   %cmp17 = fcmp olt double %tEx0, 1.000000e+00
   %or.cond = and i1 %cmp15, %cmp17
-  %arrayidx20 = getelementptr inbounds [2 x double], ptr %tEnd, i64 0, i64 1
-  %arrayidx22 = getelementptr inbounds [2 x float], ptr %em, i64 0, i64 1
+  %arrayidx20 = getelementptr inbounds i8, ptr %tEnd, i64 8
+  %arrayidx22 = getelementptr inbounds i8, ptr %em, i64 4
   %cmp41 = fcmp ogt double %tEx1, 0.000000e+00
   %cmp43 = fcmp olt double %tEx1, 1.000000e+00
   %or.cond1 = and i1 %cmp41, %cmp43
@@ -10935,8 +10918,8 @@ if.then:                                          ; preds = %entry
   %mul2.i.i = fmul double %div, %conv1.i.i
   %2 = tail call double @llvm.fmuladd.f64(double %sub.i.i, double %conv.i.i, double %mul2.i.i)
   %conv3.i.i = fptrunc double %2 to float
-  %arrayidx2.i = getelementptr inbounds float, ptr %a, i64 1
-  %arrayidx3.i = getelementptr inbounds float, ptr %b, i64 1
+  %arrayidx2.i = getelementptr inbounds i8, ptr %a, i64 4
+  %arrayidx3.i = getelementptr inbounds i8, ptr %b, i64 4
   %3 = load <2 x float>, ptr %arrayidx2.i, align 4
   %4 = load <2 x float>, ptr %arrayidx3.i, align 4
   %5 = fpext <2 x float> %3 to <2 x double>
@@ -10975,7 +10958,7 @@ lor.lhs.false.i:                                  ; preds = %if.then
   br i1 %or.cond3.i, label %if.then.i, label %lor.lhs.false10.i
 
 lor.lhs.false10.i:                                ; preds = %lor.lhs.false.i
-  %protectedFlag.i = getelementptr inbounds %"class.msdfgen::BaseArtifactClassifier", ptr %artifactClassifier, i64 0, i32 1
+  %protectedFlag.i = getelementptr inbounds i8, ptr %artifactClassifier, i64 8
   %21 = load i8, ptr %protectedFlag.i, align 8
   %22 = and i8 %21, 1
   %tobool.not.i = icmp eq i8 %22, 0
@@ -11041,14 +11024,14 @@ if.then:                                          ; preds = %entry
   br i1 %tobool3.not, label %if.end, label %return
 
 if.end:                                           ; preds = %if.then
-  %direction = getelementptr inbounds %"class.msdfgen::ShapeDistanceChecker<msdfgen::SimpleContourCombiner, 4>::ArtifactClassifier", ptr %this, i64 0, i32 2
-  %parent = getelementptr inbounds %"class.msdfgen::ShapeDistanceChecker<msdfgen::SimpleContourCombiner, 4>::ArtifactClassifier", ptr %this, i64 0, i32 1
+  %direction = getelementptr inbounds i8, ptr %this, i64 24
+  %parent = getelementptr inbounds i8, ptr %this, i64 16
   %0 = load ptr, ptr %parent, align 8
-  %sdfCoord6 = getelementptr inbounds %"class.msdfgen::ShapeDistanceChecker.6", ptr %0, i64 0, i32 1
+  %sdfCoord6 = getelementptr inbounds i8, ptr %0, i64 16
   %agg.tmp5.sroa.0.0.copyload = load double, ptr %sdfCoord6, align 8
-  %agg.tmp5.sroa.2.0.sdfCoord6.sroa_idx = getelementptr inbounds %"class.msdfgen::ShapeDistanceChecker.6", ptr %0, i64 0, i32 1, i32 1
+  %agg.tmp5.sroa.2.0.sdfCoord6.sroa_idx = getelementptr inbounds i8, ptr %0, i64 24
   %agg.tmp5.sroa.2.0.copyload = load double, ptr %agg.tmp5.sroa.2.0.sdfCoord6.sroa_idx, align 8
-  %sdf = getelementptr inbounds %"class.msdfgen::ShapeDistanceChecker.6", ptr %0, i64 0, i32 5
+  %sdf = getelementptr inbounds i8, ptr %0, i64 144
   %1 = load <2 x double>, ptr %direction, align 8
   %2 = insertelement <2 x double> poison, double %t, i64 0
   %3 = shufflevector <2 x double> %2, <2 x double> poison, <2 x i32> zeroinitializer
@@ -11063,13 +11046,13 @@ if.end:                                           ; preds = %if.then
   %shift = shufflevector <2 x double> %8, <2 x double> poison, <2 x i32> <i32 1, i32 poison>
   %9 = fmul <2 x double> %8, %shift
   %mul = extractelement <2 x double> %9, i64 0
-  %msd = getelementptr inbounds %"class.msdfgen::ShapeDistanceChecker.6", ptr %0, i64 0, i32 2
+  %msd = getelementptr inbounds i8, ptr %0, i64 32
   %10 = load ptr, ptr %msd, align 8
   %11 = load float, ptr %10, align 4
-  %arrayidx15 = getelementptr inbounds float, ptr %10, i64 1
+  %arrayidx15 = getelementptr inbounds i8, ptr %10, i64 4
   %12 = load float, ptr %oldMSD, align 16
   %conv = fpext float %12 to double
-  %arrayidx29 = getelementptr inbounds [4 x float], ptr %oldMSD, i64 0, i64 1
+  %arrayidx29 = getelementptr inbounds i8, ptr %oldMSD, i64 4
   %13 = load <2 x float>, ptr %arrayidx15, align 4
   %14 = extractelement <2 x float> %13, i64 0
   %cmp.i3.i = fcmp olt float %11, %14
@@ -11117,10 +11100,10 @@ if.end:                                           ; preds = %if.then
   %44 = extractelement <2 x float> %42, i64 1
   %cmp.i7.i23 = fcmp olt float %43, %44
   %cond.i8.i24 = select i1 %cmp.i7.i23, float %44, float %43
-  %invRange = getelementptr inbounds %"class.msdfgen::ShapeDistanceChecker.6", ptr %0, i64 0, i32 6
+  %invRange = getelementptr inbounds i8, ptr %0, i64 160
   %45 = load double, ptr %invRange, align 8
-  %distanceFinder = getelementptr inbounds %"class.msdfgen::ShapeDistanceChecker.6", ptr %0, i64 0, i32 4
-  %texelSize = getelementptr inbounds %"class.msdfgen::ShapeDistanceChecker.6", ptr %0, i64 0, i32 7
+  %distanceFinder = getelementptr inbounds i8, ptr %0, i64 48
+  %texelSize = getelementptr inbounds i8, ptr %0, i64 168
   %46 = load <2 x double>, ptr %0, align 8
   %47 = load <2 x double>, ptr %texelSize, align 8
   %48 = fmul <2 x double> %4, %47
@@ -11130,7 +11113,7 @@ if.end:                                           ; preds = %if.then
   %50 = call double @llvm.fmuladd.f64(double %45, double %call67, double 5.000000e-01)
   %conv69 = fptrunc double %50 to float
   %51 = load ptr, ptr %parent, align 8
-  %minImproveRatio = getelementptr inbounds %"class.msdfgen::ShapeDistanceChecker.6", ptr %51, i64 0, i32 8
+  %minImproveRatio = getelementptr inbounds i8, ptr %51, i64 184
   %52 = load double, ptr %minImproveRatio, align 8
   %sub71 = fsub float %cond.i8.i24, %conv69
   %53 = call float @llvm.fabs.f32(float %sub71)
@@ -11162,7 +11145,7 @@ entry:
   %sub = fsub double %sub.i, %conv4
   %conv6 = sitofp i32 %conv1 to double
   %sub7 = fsub double %sub4.i, %conv6
-  %width = getelementptr inbounds %"struct.msdfgen::BitmapConstRef.0", ptr %bitmap, i64 0, i32 1
+  %width = getelementptr inbounds i8, ptr %bitmap, i64 8
   %2 = load i32, ptr %width, align 8
   %sub8 = add nsw i32 %2, -1
   %cmp.i = icmp slt i32 %conv, 0
@@ -11176,7 +11159,7 @@ entry:
   %or.cond.i29 = or i1 %cmp.i27, %cmp1.not.i28
   %mul.i31 = select i1 %cmp.i, i32 0, i32 %sub8
   %cond.i32 = select i1 %or.cond.i29, i32 %mul.i31, i32 %add
-  %height = getelementptr inbounds %"struct.msdfgen::BitmapConstRef.0", ptr %bitmap, i64 0, i32 2
+  %height = getelementptr inbounds i8, ptr %bitmap, i64 12
   %3 = load i32, ptr %height, align 4
   %sub13 = add nsw i32 %3, -1
   %cmp.i33 = icmp slt i32 %conv1, 0
@@ -11267,16 +11250,16 @@ entry:
   br i1 %cmp196, label %for.body.lr.ph, label %return
 
 for.body.lr.ph:                                   ; preds = %entry
-  %arrayidx5.i = getelementptr inbounds float, ptr %q, i64 1
-  %arrayidx7.i = getelementptr inbounds float, ptr %l, i64 1
-  %arrayidx9.i = getelementptr inbounds float, ptr %a, i64 1
+  %arrayidx5.i = getelementptr inbounds i8, ptr %q, i64 4
+  %arrayidx7.i = getelementptr inbounds i8, ptr %l, i64 4
+  %arrayidx9.i = getelementptr inbounds i8, ptr %a, i64 4
   %cmp.i = fcmp ogt float %am, 5.000000e-01
   %cmp2.i = fcmp ogt float %dm, 5.000000e-01
   %or.cond.i = and i1 %cmp.i, %cmp2.i
   %cmp5.i = fcmp olt float %am, 5.000000e-01
   %cmp7.i = fcmp olt float %dm, 5.000000e-01
   %or.cond2.i = and i1 %cmp5.i, %cmp7.i
-  %protectedFlag.i = getelementptr inbounds %"class.msdfgen::BaseArtifactClassifier", ptr %artifactClassifier, i64 0, i32 1
+  %protectedFlag.i = getelementptr inbounds i8, ptr %artifactClassifier, i64 8
   %cmp.i.i.i47 = fcmp olt float %dm, %am
   %cond.i.i.i48 = select i1 %cmp.i.i.i47, float %dm, float %am
   %cmp.i3.i.i49 = fcmp olt float %am, %dm
@@ -11286,8 +11269,8 @@ for.body.lr.ph:                                   ; preds = %entry
   %cmp15 = fcmp ogt double %tEx0, 0.000000e+00
   %cmp17 = fcmp olt double %tEx0, 1.000000e+00
   %or.cond = and i1 %cmp15, %cmp17
-  %arrayidx20 = getelementptr inbounds [2 x double], ptr %tEnd, i64 0, i64 1
-  %arrayidx22 = getelementptr inbounds [2 x float], ptr %em, i64 0, i64 1
+  %arrayidx20 = getelementptr inbounds i8, ptr %tEnd, i64 8
+  %arrayidx22 = getelementptr inbounds i8, ptr %em, i64 4
   %cmp41 = fcmp ogt double %tEx1, 0.000000e+00
   %cmp43 = fcmp olt double %tEx1, 1.000000e+00
   %or.cond1 = and i1 %cmp41, %cmp43
@@ -11612,8 +11595,8 @@ if.then:                                          ; preds = %entry
   %mul2.i.i = fmul double %div, %conv1.i.i
   %2 = tail call double @llvm.fmuladd.f64(double %sub.i.i, double %conv.i.i, double %mul2.i.i)
   %conv3.i.i = fptrunc double %2 to float
-  %arrayidx2.i = getelementptr inbounds float, ptr %a, i64 1
-  %arrayidx3.i = getelementptr inbounds float, ptr %b, i64 1
+  %arrayidx2.i = getelementptr inbounds i8, ptr %a, i64 4
+  %arrayidx3.i = getelementptr inbounds i8, ptr %b, i64 4
   %3 = load <2 x float>, ptr %arrayidx2.i, align 4
   %4 = load <2 x float>, ptr %arrayidx3.i, align 4
   %5 = fpext <2 x float> %3 to <2 x double>
@@ -11652,7 +11635,7 @@ lor.lhs.false.i:                                  ; preds = %if.then
   br i1 %or.cond3.i, label %if.then.i, label %lor.lhs.false10.i
 
 lor.lhs.false10.i:                                ; preds = %lor.lhs.false.i
-  %protectedFlag.i = getelementptr inbounds %"class.msdfgen::BaseArtifactClassifier", ptr %artifactClassifier, i64 0, i32 1
+  %protectedFlag.i = getelementptr inbounds i8, ptr %artifactClassifier, i64 8
   %21 = load i8, ptr %protectedFlag.i, align 8
   %22 = and i8 %21, 1
   %tobool.not.i = icmp eq i8 %22, 0
@@ -11718,14 +11701,14 @@ if.then:                                          ; preds = %entry
   br i1 %tobool3.not, label %if.end, label %return
 
 if.end:                                           ; preds = %if.then
-  %direction = getelementptr inbounds %"class.msdfgen::ShapeDistanceChecker<msdfgen::OverlappingContourCombiner, 3>::ArtifactClassifier", ptr %this, i64 0, i32 2
-  %parent = getelementptr inbounds %"class.msdfgen::ShapeDistanceChecker<msdfgen::OverlappingContourCombiner, 3>::ArtifactClassifier", ptr %this, i64 0, i32 1
+  %direction = getelementptr inbounds i8, ptr %this, i64 24
+  %parent = getelementptr inbounds i8, ptr %this, i64 16
   %0 = load ptr, ptr %parent, align 8
-  %sdfCoord6 = getelementptr inbounds %"class.msdfgen::ShapeDistanceChecker.7", ptr %0, i64 0, i32 1
+  %sdfCoord6 = getelementptr inbounds i8, ptr %0, i64 16
   %agg.tmp5.sroa.0.0.copyload = load double, ptr %sdfCoord6, align 8
-  %agg.tmp5.sroa.2.0.sdfCoord6.sroa_idx = getelementptr inbounds %"class.msdfgen::ShapeDistanceChecker.7", ptr %0, i64 0, i32 1, i32 1
+  %agg.tmp5.sroa.2.0.sdfCoord6.sroa_idx = getelementptr inbounds i8, ptr %0, i64 24
   %agg.tmp5.sroa.2.0.copyload = load double, ptr %agg.tmp5.sroa.2.0.sdfCoord6.sroa_idx, align 8
-  %sdf = getelementptr inbounds %"class.msdfgen::ShapeDistanceChecker.7", ptr %0, i64 0, i32 5
+  %sdf = getelementptr inbounds i8, ptr %0, i64 144
   %1 = load <2 x double>, ptr %direction, align 8
   %2 = insertelement <2 x double> poison, double %t, i64 0
   %3 = shufflevector <2 x double> %2, <2 x double> poison, <2 x i32> zeroinitializer
@@ -11740,13 +11723,13 @@ if.end:                                           ; preds = %if.then
   %shift = shufflevector <2 x double> %8, <2 x double> poison, <2 x i32> <i32 1, i32 poison>
   %9 = fmul <2 x double> %8, %shift
   %mul = extractelement <2 x double> %9, i64 0
-  %msd = getelementptr inbounds %"class.msdfgen::ShapeDistanceChecker.7", ptr %0, i64 0, i32 2
+  %msd = getelementptr inbounds i8, ptr %0, i64 32
   %10 = load ptr, ptr %msd, align 8
   %11 = load float, ptr %10, align 4
-  %arrayidx15 = getelementptr inbounds float, ptr %10, i64 1
+  %arrayidx15 = getelementptr inbounds i8, ptr %10, i64 4
   %12 = load float, ptr %oldMSD, align 4
   %conv = fpext float %12 to double
-  %arrayidx29 = getelementptr inbounds [3 x float], ptr %oldMSD, i64 0, i64 1
+  %arrayidx29 = getelementptr inbounds i8, ptr %oldMSD, i64 4
   %13 = load <2 x float>, ptr %arrayidx15, align 4
   %14 = extractelement <2 x float> %13, i64 0
   %cmp.i3.i = fcmp olt float %11, %14
@@ -11794,10 +11777,10 @@ if.end:                                           ; preds = %if.then
   %44 = extractelement <2 x float> %42, i64 1
   %cmp.i7.i23 = fcmp olt float %43, %44
   %cond.i8.i24 = select i1 %cmp.i7.i23, float %44, float %43
-  %invRange = getelementptr inbounds %"class.msdfgen::ShapeDistanceChecker.7", ptr %0, i64 0, i32 6
+  %invRange = getelementptr inbounds i8, ptr %0, i64 160
   %45 = load double, ptr %invRange, align 8
-  %distanceFinder = getelementptr inbounds %"class.msdfgen::ShapeDistanceChecker.7", ptr %0, i64 0, i32 4
-  %texelSize = getelementptr inbounds %"class.msdfgen::ShapeDistanceChecker.7", ptr %0, i64 0, i32 7
+  %distanceFinder = getelementptr inbounds i8, ptr %0, i64 48
+  %texelSize = getelementptr inbounds i8, ptr %0, i64 168
   %46 = load <2 x double>, ptr %0, align 8
   %47 = load <2 x double>, ptr %texelSize, align 8
   %48 = fmul <2 x double> %4, %47
@@ -11807,7 +11790,7 @@ if.end:                                           ; preds = %if.then
   %50 = call double @llvm.fmuladd.f64(double %45, double %call67, double 5.000000e-01)
   %conv69 = fptrunc double %50 to float
   %51 = load ptr, ptr %parent, align 8
-  %minImproveRatio = getelementptr inbounds %"class.msdfgen::ShapeDistanceChecker.7", ptr %51, i64 0, i32 8
+  %minImproveRatio = getelementptr inbounds i8, ptr %51, i64 184
   %52 = load double, ptr %minImproveRatio, align 8
   %sub71 = fsub float %cond.i8.i24, %conv69
   %53 = call float @llvm.fabs.f32(float %sub71)
@@ -11827,17 +11810,17 @@ return:                                           ; preds = %entry, %if.then, %i
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr dso_local noundef double @_ZN7msdfgen19ShapeDistanceFinderINS_26OverlappingContourCombinerINS_22PseudoDistanceSelectorEEEE8distanceERKNS_7Vector2E(ptr noundef nonnull align 8 dereferenceable(96) %this, ptr noundef nonnull align 8 dereferenceable(16) %origin) local_unnamed_addr #0 comdat align 2 {
 entry:
-  %contourCombiner = getelementptr inbounds %"class.msdfgen::ShapeDistanceFinder.8", ptr %this, i64 0, i32 1
+  %contourCombiner = getelementptr inbounds i8, ptr %this, i64 8
   tail call void @_ZN7msdfgen26OverlappingContourCombinerINS_22PseudoDistanceSelectorEE5resetERKNS_7Vector2E(ptr noundef nonnull align 8 dereferenceable(64) %contourCombiner, ptr noundef nonnull align 8 dereferenceable(16) %origin)
   %0 = load ptr, ptr %this, align 8
   %1 = load ptr, ptr %0, align 8
-  %_M_finish.i29 = getelementptr inbounds %"struct.std::_Vector_base<msdfgen::Contour, std::allocator<msdfgen::Contour>>::_Vector_impl_data", ptr %0, i64 0, i32 1
+  %_M_finish.i29 = getelementptr inbounds i8, ptr %0, i64 8
   %2 = load ptr, ptr %_M_finish.i29, align 8
   %cmp.i.not30 = icmp eq ptr %1, %2
   br i1 %cmp.i.not30, label %for.end58, label %for.body.preheader
 
 for.body.preheader:                               ; preds = %entry
-  %shapeEdgeCache = getelementptr inbounds %"class.msdfgen::ShapeDistanceFinder.8", ptr %this, i64 0, i32 2
+  %shapeEdgeCache = getelementptr inbounds i8, ptr %this, i64 72
   %3 = load ptr, ptr %shapeEdgeCache, align 8
   br label %for.body
 
@@ -11846,7 +11829,7 @@ for.body:                                         ; preds = %for.body.preheader,
   %edgeCache.032 = phi ptr [ %edgeCache.2, %for.inc56 ], [ %3, %for.body.preheader ]
   %contour.sroa.0.031 = phi ptr [ %incdec.ptr.i12, %for.inc56 ], [ %1, %for.body.preheader ]
   %5 = load ptr, ptr %contour.sroa.0.031, align 8
-  %_M_finish.i.i = getelementptr inbounds %"struct.std::_Vector_base<msdfgen::EdgeHolder, std::allocator<msdfgen::EdgeHolder>>::_Vector_impl_data", ptr %contour.sroa.0.031, i64 0, i32 1
+  %_M_finish.i.i = getelementptr inbounds i8, ptr %contour.sroa.0.031, i64 8
   %6 = load ptr, ptr %_M_finish.i.i, align 8
   %cmp.i.i = icmp eq ptr %5, %6
   br i1 %cmp.i.i, label %for.inc56, label %if.then
@@ -11865,11 +11848,11 @@ if.then:                                          ; preds = %for.body
   %sub.ptr.rhs.cast.i5 = ptrtoint ptr %9 to i64
   %sub.ptr.sub.i6 = sub i64 %sub.ptr.lhs.cast.i4, %sub.ptr.rhs.cast.i5
   %cmp = icmp ugt i64 %sub.ptr.sub.i6, 8
-  %add.ptr.i = getelementptr inbounds %"class.msdfgen::EdgeHolder", ptr %8, i64 -2
+  %add.ptr.i = getelementptr inbounds i8, ptr %8, i64 -16
   %spec.select = select i1 %cmp, ptr %add.ptr.i, ptr %9
   %call36 = tail call noundef ptr @_ZNK7msdfgen10EdgeHoldercvPKNS_11EdgeSegmentEEv(ptr noundef nonnull align 8 dereferenceable(8) %spec.select)
   %10 = load ptr, ptr %_M_finish.i.i, align 8
-  %add.ptr.i.i = getelementptr inbounds %"class.msdfgen::EdgeHolder", ptr %10, i64 -1
+  %add.ptr.i.i = getelementptr inbounds i8, ptr %10, i64 -8
   %call40 = tail call noundef ptr @_ZNK7msdfgen10EdgeHoldercvPKNS_11EdgeSegmentEEv(ptr noundef nonnull align 8 dereferenceable(8) %add.ptr.i.i)
   %11 = load ptr, ptr %contour.sroa.0.031, align 8
   %12 = load ptr, ptr %_M_finish.i.i, align 8
@@ -11882,18 +11865,18 @@ for.body52:                                       ; preds = %if.then, %for.body5
   %prevEdge.026 = phi ptr [ %curEdge.027, %for.body52 ], [ %call36, %if.then ]
   %edge.sroa.0.025 = phi ptr [ %incdec.ptr.i, %for.body52 ], [ %11, %if.then ]
   %call54 = tail call noundef ptr @_ZNK7msdfgen10EdgeHoldercvPKNS_11EdgeSegmentEEv(ptr noundef nonnull align 8 dereferenceable(8) %edge.sroa.0.025)
-  %incdec.ptr = getelementptr inbounds %"struct.msdfgen::PseudoDistanceSelectorBase::EdgeCache", ptr %edgeCache.128, i64 1
+  %incdec.ptr = getelementptr inbounds i8, ptr %edgeCache.128, i64 56
   tail call void @_ZN7msdfgen22PseudoDistanceSelector7addEdgeERNS_26PseudoDistanceSelectorBase9EdgeCacheEPKNS_11EdgeSegmentES6_S6_(ptr noundef nonnull align 8 dereferenceable(64) %call17, ptr noundef nonnull align 8 dereferenceable(56) %edgeCache.128, ptr noundef %prevEdge.026, ptr noundef %curEdge.027, ptr noundef %call54)
-  %incdec.ptr.i = getelementptr inbounds %"class.msdfgen::EdgeHolder", ptr %edge.sroa.0.025, i64 1
+  %incdec.ptr.i = getelementptr inbounds i8, ptr %edge.sroa.0.025, i64 8
   %13 = load ptr, ptr %_M_finish.i.i, align 8
   %cmp.i11.not = icmp eq ptr %incdec.ptr.i, %13
   br i1 %cmp.i11.not, label %for.inc56, label %for.body52, !llvm.loop !142
 
 for.inc56:                                        ; preds = %for.body52, %if.then, %for.body
   %edgeCache.2 = phi ptr [ %edgeCache.032, %for.body ], [ %edgeCache.032, %if.then ], [ %incdec.ptr, %for.body52 ]
-  %incdec.ptr.i12 = getelementptr inbounds %"class.msdfgen::Contour", ptr %contour.sroa.0.031, i64 1
+  %incdec.ptr.i12 = getelementptr inbounds i8, ptr %contour.sroa.0.031, i64 24
   %14 = load ptr, ptr %this, align 8
-  %_M_finish.i = getelementptr inbounds %"struct.std::_Vector_base<msdfgen::Contour, std::allocator<msdfgen::Contour>>::_Vector_impl_data", ptr %14, i64 0, i32 1
+  %_M_finish.i = getelementptr inbounds i8, ptr %14, i64 8
   %15 = load ptr, ptr %_M_finish.i, align 8
   %cmp.i.not = icmp eq ptr %incdec.ptr.i12, %15
   br i1 %cmp.i.not, label %for.end58, label %for.body, !llvm.loop !143
@@ -11927,16 +11910,16 @@ entry:
   br i1 %cmp196, label %for.body.lr.ph, label %return
 
 for.body.lr.ph:                                   ; preds = %entry
-  %arrayidx5.i = getelementptr inbounds float, ptr %q, i64 1
-  %arrayidx7.i = getelementptr inbounds float, ptr %l, i64 1
-  %arrayidx9.i = getelementptr inbounds float, ptr %a, i64 1
+  %arrayidx5.i = getelementptr inbounds i8, ptr %q, i64 4
+  %arrayidx7.i = getelementptr inbounds i8, ptr %l, i64 4
+  %arrayidx9.i = getelementptr inbounds i8, ptr %a, i64 4
   %cmp.i = fcmp ogt float %am, 5.000000e-01
   %cmp2.i = fcmp ogt float %dm, 5.000000e-01
   %or.cond.i = and i1 %cmp.i, %cmp2.i
   %cmp5.i = fcmp olt float %am, 5.000000e-01
   %cmp7.i = fcmp olt float %dm, 5.000000e-01
   %or.cond2.i = and i1 %cmp5.i, %cmp7.i
-  %protectedFlag.i = getelementptr inbounds %"class.msdfgen::BaseArtifactClassifier", ptr %artifactClassifier, i64 0, i32 1
+  %protectedFlag.i = getelementptr inbounds i8, ptr %artifactClassifier, i64 8
   %cmp.i.i.i47 = fcmp olt float %dm, %am
   %cond.i.i.i48 = select i1 %cmp.i.i.i47, float %dm, float %am
   %cmp.i3.i.i49 = fcmp olt float %am, %dm
@@ -11946,8 +11929,8 @@ for.body.lr.ph:                                   ; preds = %entry
   %cmp15 = fcmp ogt double %tEx0, 0.000000e+00
   %cmp17 = fcmp olt double %tEx0, 1.000000e+00
   %or.cond = and i1 %cmp15, %cmp17
-  %arrayidx20 = getelementptr inbounds [2 x double], ptr %tEnd, i64 0, i64 1
-  %arrayidx22 = getelementptr inbounds [2 x float], ptr %em, i64 0, i64 1
+  %arrayidx20 = getelementptr inbounds i8, ptr %tEnd, i64 8
+  %arrayidx22 = getelementptr inbounds i8, ptr %em, i64 4
   %cmp41 = fcmp ogt double %tEx1, 0.000000e+00
   %cmp43 = fcmp olt double %tEx1, 1.000000e+00
   %or.cond1 = and i1 %cmp41, %cmp43
@@ -12270,8 +12253,8 @@ if.then:                                          ; preds = %entry
   %mul2.i.i = fmul double %div, %conv1.i.i
   %2 = tail call double @llvm.fmuladd.f64(double %sub.i.i, double %conv.i.i, double %mul2.i.i)
   %conv3.i.i = fptrunc double %2 to float
-  %arrayidx2.i = getelementptr inbounds float, ptr %a, i64 1
-  %arrayidx3.i = getelementptr inbounds float, ptr %b, i64 1
+  %arrayidx2.i = getelementptr inbounds i8, ptr %a, i64 4
+  %arrayidx3.i = getelementptr inbounds i8, ptr %b, i64 4
   %3 = load <2 x float>, ptr %arrayidx2.i, align 4
   %4 = load <2 x float>, ptr %arrayidx3.i, align 4
   %5 = fpext <2 x float> %3 to <2 x double>
@@ -12310,7 +12293,7 @@ lor.lhs.false.i:                                  ; preds = %if.then
   br i1 %or.cond3.i, label %if.then.i, label %lor.lhs.false10.i
 
 lor.lhs.false10.i:                                ; preds = %lor.lhs.false.i
-  %protectedFlag.i = getelementptr inbounds %"class.msdfgen::BaseArtifactClassifier", ptr %artifactClassifier, i64 0, i32 1
+  %protectedFlag.i = getelementptr inbounds i8, ptr %artifactClassifier, i64 8
   %21 = load i8, ptr %protectedFlag.i, align 8
   %22 = and i8 %21, 1
   %tobool.not.i = icmp eq i8 %22, 0
@@ -12376,14 +12359,14 @@ if.then:                                          ; preds = %entry
   br i1 %tobool3.not, label %if.end, label %return
 
 if.end:                                           ; preds = %if.then
-  %direction = getelementptr inbounds %"class.msdfgen::ShapeDistanceChecker<msdfgen::OverlappingContourCombiner, 4>::ArtifactClassifier", ptr %this, i64 0, i32 2
-  %parent = getelementptr inbounds %"class.msdfgen::ShapeDistanceChecker<msdfgen::OverlappingContourCombiner, 4>::ArtifactClassifier", ptr %this, i64 0, i32 1
+  %direction = getelementptr inbounds i8, ptr %this, i64 24
+  %parent = getelementptr inbounds i8, ptr %this, i64 16
   %0 = load ptr, ptr %parent, align 8
-  %sdfCoord6 = getelementptr inbounds %"class.msdfgen::ShapeDistanceChecker.19", ptr %0, i64 0, i32 1
+  %sdfCoord6 = getelementptr inbounds i8, ptr %0, i64 16
   %agg.tmp5.sroa.0.0.copyload = load double, ptr %sdfCoord6, align 8
-  %agg.tmp5.sroa.2.0.sdfCoord6.sroa_idx = getelementptr inbounds %"class.msdfgen::ShapeDistanceChecker.19", ptr %0, i64 0, i32 1, i32 1
+  %agg.tmp5.sroa.2.0.sdfCoord6.sroa_idx = getelementptr inbounds i8, ptr %0, i64 24
   %agg.tmp5.sroa.2.0.copyload = load double, ptr %agg.tmp5.sroa.2.0.sdfCoord6.sroa_idx, align 8
-  %sdf = getelementptr inbounds %"class.msdfgen::ShapeDistanceChecker.19", ptr %0, i64 0, i32 5
+  %sdf = getelementptr inbounds i8, ptr %0, i64 144
   %1 = load <2 x double>, ptr %direction, align 8
   %2 = insertelement <2 x double> poison, double %t, i64 0
   %3 = shufflevector <2 x double> %2, <2 x double> poison, <2 x i32> zeroinitializer
@@ -12398,13 +12381,13 @@ if.end:                                           ; preds = %if.then
   %shift = shufflevector <2 x double> %8, <2 x double> poison, <2 x i32> <i32 1, i32 poison>
   %9 = fmul <2 x double> %8, %shift
   %mul = extractelement <2 x double> %9, i64 0
-  %msd = getelementptr inbounds %"class.msdfgen::ShapeDistanceChecker.19", ptr %0, i64 0, i32 2
+  %msd = getelementptr inbounds i8, ptr %0, i64 32
   %10 = load ptr, ptr %msd, align 8
   %11 = load float, ptr %10, align 4
-  %arrayidx15 = getelementptr inbounds float, ptr %10, i64 1
+  %arrayidx15 = getelementptr inbounds i8, ptr %10, i64 4
   %12 = load float, ptr %oldMSD, align 16
   %conv = fpext float %12 to double
-  %arrayidx29 = getelementptr inbounds [4 x float], ptr %oldMSD, i64 0, i64 1
+  %arrayidx29 = getelementptr inbounds i8, ptr %oldMSD, i64 4
   %13 = load <2 x float>, ptr %arrayidx15, align 4
   %14 = extractelement <2 x float> %13, i64 0
   %cmp.i3.i = fcmp olt float %11, %14
@@ -12452,10 +12435,10 @@ if.end:                                           ; preds = %if.then
   %44 = extractelement <2 x float> %42, i64 1
   %cmp.i7.i23 = fcmp olt float %43, %44
   %cond.i8.i24 = select i1 %cmp.i7.i23, float %44, float %43
-  %invRange = getelementptr inbounds %"class.msdfgen::ShapeDistanceChecker.19", ptr %0, i64 0, i32 6
+  %invRange = getelementptr inbounds i8, ptr %0, i64 160
   %45 = load double, ptr %invRange, align 8
-  %distanceFinder = getelementptr inbounds %"class.msdfgen::ShapeDistanceChecker.19", ptr %0, i64 0, i32 4
-  %texelSize = getelementptr inbounds %"class.msdfgen::ShapeDistanceChecker.19", ptr %0, i64 0, i32 7
+  %distanceFinder = getelementptr inbounds i8, ptr %0, i64 48
+  %texelSize = getelementptr inbounds i8, ptr %0, i64 168
   %46 = load <2 x double>, ptr %0, align 8
   %47 = load <2 x double>, ptr %texelSize, align 8
   %48 = fmul <2 x double> %4, %47
@@ -12465,7 +12448,7 @@ if.end:                                           ; preds = %if.then
   %50 = call double @llvm.fmuladd.f64(double %45, double %call67, double 5.000000e-01)
   %conv69 = fptrunc double %50 to float
   %51 = load ptr, ptr %parent, align 8
-  %minImproveRatio = getelementptr inbounds %"class.msdfgen::ShapeDistanceChecker.19", ptr %51, i64 0, i32 8
+  %minImproveRatio = getelementptr inbounds i8, ptr %51, i64 184
   %52 = load double, ptr %minImproveRatio, align 8
   %sub71 = fsub float %cond.i8.i24, %conv69
   %53 = call float @llvm.fabs.f32(float %sub71)
@@ -12500,16 +12483,16 @@ entry:
   br i1 %cmp196, label %for.body.lr.ph, label %return
 
 for.body.lr.ph:                                   ; preds = %entry
-  %arrayidx5.i = getelementptr inbounds float, ptr %q, i64 1
-  %arrayidx7.i = getelementptr inbounds float, ptr %l, i64 1
-  %arrayidx9.i = getelementptr inbounds float, ptr %a, i64 1
+  %arrayidx5.i = getelementptr inbounds i8, ptr %q, i64 4
+  %arrayidx7.i = getelementptr inbounds i8, ptr %l, i64 4
+  %arrayidx9.i = getelementptr inbounds i8, ptr %a, i64 4
   %cmp.i = fcmp ogt float %am, 5.000000e-01
   %cmp2.i = fcmp ogt float %dm, 5.000000e-01
   %or.cond.i = and i1 %cmp.i, %cmp2.i
   %cmp5.i = fcmp olt float %am, 5.000000e-01
   %cmp7.i = fcmp olt float %dm, 5.000000e-01
   %or.cond2.i = and i1 %cmp5.i, %cmp7.i
-  %protectedFlag.i = getelementptr inbounds %"class.msdfgen::BaseArtifactClassifier", ptr %artifactClassifier, i64 0, i32 1
+  %protectedFlag.i = getelementptr inbounds i8, ptr %artifactClassifier, i64 8
   %cmp.i.i.i47 = fcmp olt float %dm, %am
   %cond.i.i.i48 = select i1 %cmp.i.i.i47, float %dm, float %am
   %cmp.i3.i.i49 = fcmp olt float %am, %dm
@@ -12519,8 +12502,8 @@ for.body.lr.ph:                                   ; preds = %entry
   %cmp15 = fcmp ogt double %tEx0, 0.000000e+00
   %cmp17 = fcmp olt double %tEx0, 1.000000e+00
   %or.cond = and i1 %cmp15, %cmp17
-  %arrayidx20 = getelementptr inbounds [2 x double], ptr %tEnd, i64 0, i64 1
-  %arrayidx22 = getelementptr inbounds [2 x float], ptr %em, i64 0, i64 1
+  %arrayidx20 = getelementptr inbounds i8, ptr %tEnd, i64 8
+  %arrayidx22 = getelementptr inbounds i8, ptr %em, i64 4
   %cmp41 = fcmp ogt double %tEx1, 0.000000e+00
   %cmp43 = fcmp olt double %tEx1, 1.000000e+00
   %or.cond1 = and i1 %cmp41, %cmp43

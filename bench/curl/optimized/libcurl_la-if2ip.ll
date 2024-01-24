@@ -3,14 +3,6 @@ source_filename = "bench/curl/original/libcurl_la-if2ip.ll"
 target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:128-n8:16:32:64-S128"
 target triple = "x86_64-unknown-linux-gnu"
 
-%struct.sockaddr_in6 = type { i16, i16, i32, %struct.in6_addr, i32 }
-%struct.in6_addr = type { %union.anon }
-%union.anon = type { [4 x i32] }
-%struct.ifaddrs = type { ptr, ptr, i32, ptr, ptr, %union.anon.0, ptr }
-%union.anon.0 = type { ptr }
-%struct.sockaddr_in = type { i16, i16, %struct.in_addr, [8 x i8] }
-%struct.in_addr = type { i32 }
-
 @.str = private unnamed_addr constant [5 x i8] c"%%%u\00", align 1
 @.str.1 = private unnamed_addr constant [5 x i8] c"%s%s\00", align 1
 
@@ -22,7 +14,7 @@ entry:
   br i1 %cmp, label %if.then, label %if.end64
 
 if.then:                                          ; preds = %entry
-  %sin6_addr = getelementptr inbounds %struct.sockaddr_in6, ptr %sa, i64 0, i32 3
+  %sin6_addr = getelementptr inbounds i8, ptr %sa, i64 8
   %1 = load i8, ptr %sin6_addr, align 1
   %conv2 = zext i8 %1 to i32
   %arrayidx3 = getelementptr inbounds i8, ptr %sa, i64 9
@@ -98,7 +90,7 @@ for.body.lr.ph:                                   ; preds = %for.cond.preheader
 for.body.us:                                      ; preds = %for.body.lr.ph, %for.inc.us
   %iface.028.us = phi ptr [ %iface.0.us, %for.inc.us ], [ %iface.025, %for.body.lr.ph ]
   %res.027.us = phi i32 [ %res.1.us, %for.inc.us ], [ 0, %for.body.lr.ph ]
-  %ifa_addr.us = getelementptr inbounds %struct.ifaddrs, ptr %iface.028.us, i64 0, i32 3
+  %ifa_addr.us = getelementptr inbounds i8, ptr %iface.028.us, i64 24
   %0 = load ptr, ptr %ifa_addr.us, align 8
   %tobool.not.us = icmp eq ptr %0, null
   br i1 %tobool.not.us, label %for.inc.us, label %if.then2.us
@@ -113,7 +105,7 @@ if.else45.us:                                     ; preds = %if.then2.us
   br i1 %cmp46.us, label %land.lhs.true48.us, label %for.inc.us
 
 land.lhs.true48.us:                               ; preds = %if.else45.us
-  %ifa_name49.us = getelementptr inbounds %struct.ifaddrs, ptr %iface.028.us, i64 0, i32 1
+  %ifa_name49.us = getelementptr inbounds i8, ptr %iface.028.us, i64 8
   %2 = load ptr, ptr %ifa_name49.us, align 8
   %call50.us = call i32 @curl_strequal(ptr noundef %2, ptr noundef %interf) #6
   %tobool51.not.us = icmp ne i32 %call50.us, 0
@@ -121,7 +113,7 @@ land.lhs.true48.us:                               ; preds = %if.else45.us
   br label %for.inc.us
 
 if.then6.us:                                      ; preds = %if.then2.us
-  %ifa_name.us = getelementptr inbounds %struct.ifaddrs, ptr %iface.028.us, i64 0, i32 1
+  %ifa_name.us = getelementptr inbounds i8, ptr %iface.028.us, i64 8
   %3 = load ptr, ptr %ifa_name.us, align 8
   %call7.us = call i32 @curl_strequal(ptr noundef %3, ptr noundef %interf) #6
   %tobool8.not.us = icmp eq i32 %call7.us, 0
@@ -135,7 +127,7 @@ if.then9.us:                                      ; preds = %if.then6.us
   br i1 %cmp.i.us, label %if.then.i.us, label %if.end64.i.us
 
 if.then.i.us:                                     ; preds = %if.then9.us
-  %sin6_addr.i.us = getelementptr inbounds %struct.sockaddr_in6, ptr %4, i64 0, i32 3
+  %sin6_addr.i.us = getelementptr inbounds i8, ptr %4, i64 8
   %6 = load i8, ptr %sin6_addr.i.us, align 1
   %conv2.i.us = zext i8 %6 to i32
   %arrayidx3.i.us = getelementptr inbounds i8, ptr %4, i64 9
@@ -189,7 +181,7 @@ Curl_ipv6_scope.exit.us:                          ; preds = %if.end64.i.us, %sw.
   br i1 %cmp15.not.us, label %if.end21.us, label %for.inc.us
 
 if.end21.us:                                      ; preds = %Curl_ipv6_scope.exit.us
-  %sin6_scope_id.us = getelementptr inbounds %struct.sockaddr_in6, ptr %4, i64 0, i32 4
+  %sin6_scope_id.us = getelementptr inbounds i8, ptr %4, i64 24
   %15 = load i32, ptr %sin6_scope_id.us, align 4
   %cmp25.not.us = icmp eq i32 %15, %local_scope_id
   %or.cond.us = select i1 %tobool24.not, i1 true, i1 %cmp25.not.us
@@ -204,7 +196,7 @@ for.inc.us:                                       ; preds = %if.end21.us, %Curl_
 for.body:                                         ; preds = %for.body.lr.ph, %for.inc
   %iface.028 = phi ptr [ %iface.0, %for.inc ], [ %iface.025, %for.body.lr.ph ]
   %res.027 = phi i32 [ %res.1, %for.inc ], [ 0, %for.body.lr.ph ]
-  %ifa_addr = getelementptr inbounds %struct.ifaddrs, ptr %iface.028, i64 0, i32 3
+  %ifa_addr = getelementptr inbounds i8, ptr %iface.028, i64 24
   %16 = load ptr, ptr %ifa_addr, align 8
   %tobool.not = icmp eq ptr %16, null
   br i1 %tobool.not, label %for.inc, label %if.then2
@@ -216,21 +208,21 @@ if.then2:                                         ; preds = %for.body
   br i1 %cmp4, label %if.then6, label %if.else45
 
 if.then6:                                         ; preds = %if.then2
-  %ifa_name = getelementptr inbounds %struct.ifaddrs, ptr %iface.028, i64 0, i32 1
+  %ifa_name = getelementptr inbounds i8, ptr %iface.028, i64 8
   %18 = load ptr, ptr %ifa_name, align 8
   %call7 = call i32 @curl_strequal(ptr noundef %18, ptr noundef %interf) #6
   %tobool8.not = icmp eq i32 %call7, 0
   br i1 %tobool8.not, label %for.inc, label %if.then9
 
 if.then9:                                         ; preds = %if.then6
-  %ifa_addr.le = getelementptr inbounds %struct.ifaddrs, ptr %iface.028, i64 0, i32 3
+  %ifa_addr.le = getelementptr inbounds i8, ptr %iface.028, i64 24
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(12) %scope, i8 0, i64 12, i1 false)
   %19 = load ptr, ptr %ifa_addr.le, align 8
-  %sin_addr = getelementptr inbounds %struct.sockaddr_in, ptr %19, i64 0, i32 2
+  %sin_addr = getelementptr inbounds i8, ptr %19, i64 4
   br label %if.end38
 
 if.end32:                                         ; preds = %if.end21.us
-  %sin6_addr.le = getelementptr inbounds %struct.sockaddr_in6, ptr %4, i64 0, i32 3
+  %sin6_addr.le = getelementptr inbounds i8, ptr %4, i64 8
   %tobool33.not = icmp eq i32 %15, 0
   br i1 %tobool33.not, label %if.end38, label %if.then34
 
@@ -250,7 +242,7 @@ if.else45:                                        ; preds = %if.then2
   br i1 %cmp46, label %land.lhs.true48, label %for.inc
 
 land.lhs.true48:                                  ; preds = %if.else45
-  %ifa_name49 = getelementptr inbounds %struct.ifaddrs, ptr %iface.028, i64 0, i32 1
+  %ifa_name49 = getelementptr inbounds i8, ptr %iface.028, i64 8
   %20 = load ptr, ptr %ifa_name49, align 8
   %call50 = call i32 @curl_strequal(ptr noundef %20, ptr noundef %interf) #6
   %tobool51.not = icmp ne i32 %call50, 0

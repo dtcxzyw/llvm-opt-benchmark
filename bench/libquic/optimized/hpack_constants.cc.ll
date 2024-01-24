@@ -128,10 +128,10 @@ entry:
   %call5.i.i.i.i1.i = tail call noalias noundef nonnull dereferenceable(2056) ptr @_Znwm(i64 noundef 2056) #9
   store ptr %call5.i.i.i.i1.i, ptr %agg.result, align 8
   %add.ptr.i.i = getelementptr inbounds i8, ptr %call5.i.i.i.i1.i, i64 2056
-  %_M_end_of_storage.i.i = getelementptr inbounds %"struct.std::_Vector_base<net::HpackHuffmanSymbol, std::allocator<net::HpackHuffmanSymbol>>::_Vector_impl_data", ptr %agg.result, i64 0, i32 2
+  %_M_end_of_storage.i.i = getelementptr inbounds i8, ptr %agg.result, i64 16
   store ptr %add.ptr.i.i, ptr %_M_end_of_storage.i.i, align 8
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(2056) %call5.i.i.i.i1.i, ptr noundef nonnull align 16 dereferenceable(2056) @_ZZN3net16HpackHuffmanCodeEvE17kHpackHuffmanCode, i64 2056, i1 false)
-  %_M_finish.i.i = getelementptr inbounds %"struct.std::_Vector_base<net::HpackHuffmanSymbol, std::allocator<net::HpackHuffmanSymbol>>::_Vector_impl_data", ptr %agg.result, i64 0, i32 1
+  %_M_finish.i.i = getelementptr inbounds i8, ptr %agg.result, i64 8
   store ptr %add.ptr.i.i, ptr %_M_finish.i.i, align 8
   ret void
 }
@@ -145,10 +145,10 @@ entry:
   %call5.i.i.i.i1.i = tail call noalias noundef nonnull dereferenceable(1952) ptr @_Znwm(i64 noundef 1952) #9
   store ptr %call5.i.i.i.i1.i, ptr %agg.result, align 8
   %add.ptr.i.i = getelementptr inbounds i8, ptr %call5.i.i.i.i1.i, i64 1952
-  %_M_end_of_storage.i.i = getelementptr inbounds %"struct.std::_Vector_base<net::HpackStaticEntry, std::allocator<net::HpackStaticEntry>>::_Vector_impl_data", ptr %agg.result, i64 0, i32 2
+  %_M_end_of_storage.i.i = getelementptr inbounds i8, ptr %agg.result, i64 16
   store ptr %add.ptr.i.i, ptr %_M_end_of_storage.i.i, align 8
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(1952) %call5.i.i.i.i1.i, ptr noundef nonnull align 16 dereferenceable(1952) @_ZZN3net22HpackStaticTableVectorEvE17kHpackStaticTable, i64 1952, i1 false)
-  %_M_finish.i.i = getelementptr inbounds %"struct.std::_Vector_base<net::HpackStaticEntry, std::allocator<net::HpackStaticEntry>>::_Vector_impl_data", ptr %agg.result, i64 0, i32 1
+  %_M_finish.i.i = getelementptr inbounds i8, ptr %agg.result, i64 8
   store ptr %add.ptr.i.i, ptr %_M_finish.i.i, align 8
   ret void
 }

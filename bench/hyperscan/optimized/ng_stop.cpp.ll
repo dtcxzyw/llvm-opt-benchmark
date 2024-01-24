@@ -19,40 +19,6 @@ target triple = "x86_64-unknown-linux-gnu"
 %"struct.std::less" = type { i8 }
 %"struct.std::_Rb_tree_header" = type { %"struct.std::_Rb_tree_node_base", i64 }
 %"struct.std::_Rb_tree_node_base" = type { i32, ptr, ptr, ptr }
-%"class.ue2::NGHolder" = type { ptr, %"class.ue2::ue2_graph", i32, %"class.ue2::graph_detail::vertex_descriptor", %"class.ue2::graph_detail::vertex_descriptor", %"class.ue2::graph_detail::vertex_descriptor", %"class.ue2::graph_detail::vertex_descriptor" }
-%"class.ue2::ue2_graph" = type { %"class.boost::intrusive::list", i64, i64, i64, i64 }
-%"class.boost::intrusive::list" = type { %"class.boost::intrusive::list_impl" }
-%"class.boost::intrusive::list_impl" = type { %"struct.boost::intrusive::list_impl<boost::intrusive::bhtraits<ue2::ue2_graph<ue2::NGHolder, ue2::NFAGraphVertexProps, ue2::NFAGraphEdgeProps>::vertex_node, boost::intrusive::list_node_traits<void *>, boost::intrusive::safe_link, boost::intrusive::dft_tag, 1>, unsigned long, true, void>::data_t" }
-%"struct.boost::intrusive::list_impl<boost::intrusive::bhtraits<ue2::ue2_graph<ue2::NGHolder, ue2::NFAGraphVertexProps, ue2::NFAGraphEdgeProps>::vertex_node, boost::intrusive::list_node_traits<void *>, boost::intrusive::safe_link, boost::intrusive::dft_tag, 1>, unsigned long, true, void>::data_t" = type { %"struct.boost::intrusive::list_impl<boost::intrusive::bhtraits<ue2::ue2_graph<ue2::NGHolder, ue2::NFAGraphVertexProps, ue2::NFAGraphEdgeProps>::vertex_node, boost::intrusive::list_node_traits<void *>, boost::intrusive::safe_link, boost::intrusive::dft_tag, 1>, unsigned long, true, void>::root_plus_size" }
-%"struct.boost::intrusive::list_impl<boost::intrusive::bhtraits<ue2::ue2_graph<ue2::NGHolder, ue2::NFAGraphVertexProps, ue2::NFAGraphEdgeProps>::vertex_node, boost::intrusive::list_node_traits<void *>, boost::intrusive::safe_link, boost::intrusive::dft_tag, 1>, unsigned long, true, void>::root_plus_size" = type { %"struct.boost::intrusive::detail::size_holder", %"struct.boost::intrusive::detail::default_header_holder" }
-%"struct.boost::intrusive::detail::size_holder" = type { i64 }
-%"struct.boost::intrusive::detail::default_header_holder" = type { %"struct.boost::intrusive::list_node" }
-%"struct.boost::intrusive::list_node" = type { ptr, ptr }
-%"class.ue2::graph_detail::vertex_descriptor" = type { ptr, i64 }
-%"struct.ue2::ue2_graph<ue2::NGHolder, ue2::NFAGraphVertexProps, ue2::NFAGraphEdgeProps>::vertex_node" = type { %"class.boost::intrusive::list_base_hook", %"struct.ue2::NFAGraphVertexProps", i64, %"class.boost::intrusive::list.36", %"class.boost::intrusive::list.40" }
-%"class.boost::intrusive::list_base_hook" = type { %"class.boost::intrusive::generic_hook" }
-%"class.boost::intrusive::generic_hook" = type { %"struct.boost::intrusive::node_holder" }
-%"struct.boost::intrusive::node_holder" = type { %"struct.boost::intrusive::list_node" }
-%"struct.ue2::NFAGraphVertexProps" = type <{ %"class.ue2::CharReach", %"class.ue2::flat_set", i64, i32, [4 x i8] }>
-%"class.ue2::flat_set" = type { %"class.ue2::flat_detail::flat_base" }
-%"class.ue2::flat_detail::flat_base" = type { %"class.std::tuple" }
-%"class.std::tuple" = type { %"struct.std::_Tuple_impl" }
-%"struct.std::_Tuple_impl" = type { %"struct.std::_Head_base.7" }
-%"struct.std::_Head_base.7" = type { %"class.boost::container::small_vector" }
-%"class.boost::container::small_vector" = type { %"class.boost::container::small_vector_base.base", [4 x i8] }
-%"class.boost::container::small_vector_base.base" = type <{ %"class.boost::container::vector", %"union.boost::move_detail::aligned_struct_wrapper" }>
-%"class.boost::container::vector" = type { %"struct.boost::container::vector_alloc_holder" }
-%"struct.boost::container::vector_alloc_holder" = type { ptr, i64, i64 }
-%"union.boost::move_detail::aligned_struct_wrapper" = type { %"struct.boost::move_detail::aligned_struct" }
-%"struct.boost::move_detail::aligned_struct" = type { [4 x i8] }
-%"class.boost::intrusive::list.36" = type { %"class.boost::intrusive::list_impl.37" }
-%"class.boost::intrusive::list_impl.37" = type { %"struct.boost::intrusive::list_impl<boost::intrusive::bhtraits<ue2::ue2_graph<ue2::NGHolder, ue2::NFAGraphVertexProps, ue2::NFAGraphEdgeProps>::edge_node, boost::intrusive::list_node_traits<void *>, boost::intrusive::normal_link, ue2::ue2_graph<ue2::NGHolder, ue2::NFAGraphVertexProps, ue2::NFAGraphEdgeProps>::in_edge_tag, 1>, unsigned long, true, void>::data_t" }
-%"struct.boost::intrusive::list_impl<boost::intrusive::bhtraits<ue2::ue2_graph<ue2::NGHolder, ue2::NFAGraphVertexProps, ue2::NFAGraphEdgeProps>::edge_node, boost::intrusive::list_node_traits<void *>, boost::intrusive::normal_link, ue2::ue2_graph<ue2::NGHolder, ue2::NFAGraphVertexProps, ue2::NFAGraphEdgeProps>::in_edge_tag, 1>, unsigned long, true, void>::data_t" = type { %"struct.boost::intrusive::list_impl<boost::intrusive::bhtraits<ue2::ue2_graph<ue2::NGHolder, ue2::NFAGraphVertexProps, ue2::NFAGraphEdgeProps>::edge_node, boost::intrusive::list_node_traits<void *>, boost::intrusive::normal_link, ue2::ue2_graph<ue2::NGHolder, ue2::NFAGraphVertexProps, ue2::NFAGraphEdgeProps>::in_edge_tag, 1>, unsigned long, true, void>::root_plus_size" }
-%"struct.boost::intrusive::list_impl<boost::intrusive::bhtraits<ue2::ue2_graph<ue2::NGHolder, ue2::NFAGraphVertexProps, ue2::NFAGraphEdgeProps>::edge_node, boost::intrusive::list_node_traits<void *>, boost::intrusive::normal_link, ue2::ue2_graph<ue2::NGHolder, ue2::NFAGraphVertexProps, ue2::NFAGraphEdgeProps>::in_edge_tag, 1>, unsigned long, true, void>::root_plus_size" = type { %"struct.boost::intrusive::detail::size_holder", %"struct.boost::intrusive::detail::default_header_holder" }
-%"class.boost::intrusive::list.40" = type { %"class.boost::intrusive::list_impl.41" }
-%"class.boost::intrusive::list_impl.41" = type { %"struct.boost::intrusive::list_impl<boost::intrusive::bhtraits<ue2::ue2_graph<ue2::NGHolder, ue2::NFAGraphVertexProps, ue2::NFAGraphEdgeProps>::edge_node, boost::intrusive::list_node_traits<void *>, boost::intrusive::safe_link, ue2::ue2_graph<ue2::NGHolder, ue2::NFAGraphVertexProps, ue2::NFAGraphEdgeProps>::out_edge_tag, 1>, unsigned long, true, void>::data_t" }
-%"struct.boost::intrusive::list_impl<boost::intrusive::bhtraits<ue2::ue2_graph<ue2::NGHolder, ue2::NFAGraphVertexProps, ue2::NFAGraphEdgeProps>::edge_node, boost::intrusive::list_node_traits<void *>, boost::intrusive::safe_link, ue2::ue2_graph<ue2::NGHolder, ue2::NFAGraphVertexProps, ue2::NFAGraphEdgeProps>::out_edge_tag, 1>, unsigned long, true, void>::data_t" = type { %"struct.boost::intrusive::list_impl<boost::intrusive::bhtraits<ue2::ue2_graph<ue2::NGHolder, ue2::NFAGraphVertexProps, ue2::NFAGraphEdgeProps>::edge_node, boost::intrusive::list_node_traits<void *>, boost::intrusive::safe_link, ue2::ue2_graph<ue2::NGHolder, ue2::NFAGraphVertexProps, ue2::NFAGraphEdgeProps>::out_edge_tag, 1>, unsigned long, true, void>::root_plus_size" }
-%"struct.boost::intrusive::list_impl<boost::intrusive::bhtraits<ue2::ue2_graph<ue2::NGHolder, ue2::NFAGraphVertexProps, ue2::NFAGraphEdgeProps>::edge_node, boost::intrusive::list_node_traits<void *>, boost::intrusive::safe_link, ue2::ue2_graph<ue2::NGHolder, ue2::NFAGraphVertexProps, ue2::NFAGraphEdgeProps>::out_edge_tag, 1>, unsigned long, true, void>::root_plus_size" = type { %"struct.boost::intrusive::detail::size_holder", %"struct.boost::intrusive::detail::default_header_holder" }
 %"struct.ue2::DepthMinMax" = type { %"class.ue2::depth", %"class.ue2::depth" }
 %"class.ue2::depth" = type { i32 }
 %"class.std::vector.12" = type { %"struct.std::_Vector_base.13" }
@@ -108,15 +74,15 @@ entry:
   %depths = alloca %"struct.ue2::(anonymous namespace)::InitDepths", align 8
   %no_vertices = alloca %"class.std::map", align 8
   %ref.tmp17 = alloca %"class.ue2::CharReach", align 16
-  %start2.i = getelementptr inbounds %"class.ue2::NGHolder", ptr %g, i64 0, i32 3
+  %start2.i = getelementptr inbounds i8, ptr %g, i64 72
   %agg.tmp.sroa.0.0.copyload.i = load ptr, ptr %start2.i, align 8
-  %agg.tmp.sroa.2.0.start2.sroa_idx.i = getelementptr inbounds %"class.ue2::NGHolder", ptr %g, i64 0, i32 3, i32 1
+  %agg.tmp.sroa.2.0.start2.sroa_idx.i = getelementptr inbounds i8, ptr %g, i64 80
   %agg.tmp.sroa.2.0.copyload.i = load i64, ptr %agg.tmp.sroa.2.0.start2.sroa_idx.i, align 8
   call void @_ZN3ue214calcDepthsFromERKNS_8NGHolderENS_12graph_detail17vertex_descriptorINS_9ue2_graphIS0_NS_19NFAGraphVertexPropsENS_17NFAGraphEdgePropsEEEEE(ptr nonnull sret(%"class.std::vector") align 8 %depths, ptr noundef nonnull align 8 dereferenceable(136) %g, ptr %agg.tmp.sroa.0.0.copyload.i, i64 %agg.tmp.sroa.2.0.copyload.i)
-  %startDs.i = getelementptr inbounds %"struct.ue2::(anonymous namespace)::InitDepths", ptr %depths, i64 0, i32 1
-  %startDs4.i = getelementptr inbounds %"class.ue2::NGHolder", ptr %g, i64 0, i32 4
+  %startDs.i = getelementptr inbounds i8, ptr %depths, i64 24
+  %startDs4.i = getelementptr inbounds i8, ptr %g, i64 88
   %agg.tmp3.sroa.0.0.copyload.i = load ptr, ptr %startDs4.i, align 8
-  %agg.tmp3.sroa.2.0.startDs4.sroa_idx.i = getelementptr inbounds %"class.ue2::NGHolder", ptr %g, i64 0, i32 4, i32 1
+  %agg.tmp3.sroa.2.0.startDs4.sroa_idx.i = getelementptr inbounds i8, ptr %g, i64 96
   %agg.tmp3.sroa.2.0.copyload.i = load i64, ptr %agg.tmp3.sroa.2.0.startDs4.sroa_idx.i, align 8
   invoke void @_ZN3ue214calcDepthsFromERKNS_8NGHolderENS_12graph_detail17vertex_descriptorINS_9ue2_graphIS0_NS_19NFAGraphVertexPropsENS_17NFAGraphEdgePropsEEEEE(ptr nonnull sret(%"class.std::vector") align 8 %startDs.i, ptr noundef nonnull align 8 dereferenceable(136) %g, ptr %agg.tmp3.sroa.0.0.copyload.i, i64 %agg.tmp3.sroa.2.0.copyload.i)
           to label %invoke.cont2 unwind label %lpad.i
@@ -154,11 +120,11 @@ invoke.cont2:                                     ; preds = %entry
   br i1 %cmp.i.i.i.i.not39, label %for.body.i.i.preheader, label %invoke.cont7.lr.ph
 
 invoke.cont7.lr.ph:                               ; preds = %invoke.cont2
-  %_M_finish.i.i.i.i = getelementptr inbounds %"struct.std::_Vector_base<ue2::DepthMinMax, std::allocator<ue2::DepthMinMax>>::_Vector_impl_data", ptr %depths, i64 0, i32 1
-  %_M_finish.i.i.i8.i = getelementptr inbounds %"struct.ue2::(anonymous namespace)::InitDepths", ptr %depths, i64 0, i32 1, i32 0, i32 0, i32 0, i32 1
+  %_M_finish.i.i.i.i = getelementptr inbounds i8, ptr %depths, i64 8
+  %_M_finish.i.i.i8.i = getelementptr inbounds i8, ptr %depths, i64 32
   %cmp = icmp eq i32 %som, 0
-  %arrayidx.i.i22.i.i18 = getelementptr inbounds [4 x i64], ptr %agg.result, i64 0, i64 2
-  %arrayidx.i.i21.i.i = getelementptr inbounds [4 x i64], ptr %ref.tmp17, i64 0, i64 2
+  %arrayidx.i.i22.i.i18 = getelementptr inbounds i8, ptr %agg.result, i64 16
+  %arrayidx.i.i21.i.i = getelementptr inbounds i8, ptr %ref.tmp17, i64 16
   br i1 %cmp, label %invoke.cont7.us, label %invoke.cont7.preheader
 
 invoke.cont7.preheader:                           ; preds = %invoke.cont7.lr.ph
@@ -180,9 +146,9 @@ invoke.cont7.us:                                  ; preds = %invoke.cont7.lr.ph,
   %__begin1.sroa.0.041.us = phi ptr [ %__begin1.sroa.0.0.us, %for.inc.us ], [ %__begin1.sroa.0.038, %invoke.cont7.lr.ph ]
   %7 = phi <2 x i64> [ %21, %for.inc.us ], [ zeroinitializer, %invoke.cont7.lr.ph ]
   %8 = phi <2 x i64> [ %22, %for.inc.us ], [ zeroinitializer, %invoke.cont7.lr.ph ]
-  %serial2.i.i.i.i.us = getelementptr inbounds %"struct.ue2::ue2_graph<ue2::NGHolder, ue2::NFAGraphVertexProps, ue2::NFAGraphEdgeProps>::vertex_node", ptr %__begin1.sroa.0.041.us, i64 0, i32 2
+  %serial2.i.i.i.i.us = getelementptr inbounds i8, ptr %__begin1.sroa.0.041.us, i64 96
   %9 = load i64, ptr %serial2.i.i.i.i.us, align 8
-  %index.i.us = getelementptr inbounds %"struct.ue2::ue2_graph<ue2::NGHolder, ue2::NFAGraphVertexProps, ue2::NFAGraphEdgeProps>::vertex_node", ptr %__begin1.sroa.0.041.us, i64 0, i32 1, i32 2
+  %index.i.us = getelementptr inbounds i8, ptr %__begin1.sroa.0.041.us, i64 80
   %10 = load i64, ptr %index.i.us, align 8
   %cmp.i.us = icmp ult i64 %10, 4
   br i1 %cmp.i.us, label %for.inc.us, label %if.end.us
@@ -258,7 +224,7 @@ invoke.cont7:                                     ; preds = %invoke.cont7.prehea
   %__begin1.sroa.0.041 = phi ptr [ %__begin1.sroa.0.0, %for.inc ], [ %__begin1.sroa.0.038, %invoke.cont7.preheader ]
   %23 = phi <2 x i64> [ %34, %for.inc ], [ zeroinitializer, %invoke.cont7.preheader ]
   %24 = phi <2 x i64> [ %35, %for.inc ], [ zeroinitializer, %invoke.cont7.preheader ]
-  %index.i = getelementptr inbounds %"struct.ue2::ue2_graph<ue2::NGHolder, ue2::NFAGraphVertexProps, ue2::NFAGraphEdgeProps>::vertex_node", ptr %__begin1.sroa.0.041, i64 0, i32 1, i32 2
+  %index.i = getelementptr inbounds i8, ptr %__begin1.sroa.0.041, i64 80
   %25 = load i64, ptr %index.i, align 8
   %cmp.i = icmp ult i64 %25, 4
   br i1 %cmp.i, label %for.inc, label %if.end
@@ -314,11 +280,11 @@ invoke.cont11:                                    ; preds = %_ZNKSt6vectorIN3ue2
   br i1 %cmp.i.i12, label %if.then15, label %for.inc
 
 if.then15:                                        ; preds = %invoke.cont11
-  %props.i = getelementptr inbounds %"struct.ue2::ue2_graph<ue2::NGHolder, ue2::NFAGraphVertexProps, ue2::NFAGraphEdgeProps>::vertex_node", ptr %__begin1.sroa.0.041, i64 0, i32 1
+  %props.i = getelementptr inbounds i8, ptr %__begin1.sroa.0.041, i64 16
   %30 = load <2 x i64>, ptr %props.i, align 8
   %31 = or <2 x i64> %23, %30
   store <2 x i64> %31, ptr %agg.result, align 8
-  %arrayidx.i.i21.i.i17 = getelementptr inbounds %"struct.ue2::ue2_graph<ue2::NGHolder, ue2::NFAGraphVertexProps, ue2::NFAGraphEdgeProps>::vertex_node", ptr %__begin1.sroa.0.041, i64 0, i32 1, i32 0, i32 0, i32 0, i32 0, i64 2
+  %arrayidx.i.i21.i.i17 = getelementptr inbounds i8, ptr %__begin1.sroa.0.041, i64 32
   %32 = load <2 x i64>, ptr %arrayidx.i.i21.i.i17, align 8
   %33 = or <2 x i64> %24, %32
   store <2 x i64> %33, ptr %arrayidx.i.i22.i.i18, align 8
@@ -405,7 +371,7 @@ _ZNSt8_Rb_treeIN3ue212graph_detail17vertex_descriptorINS0_9ue2_graphINS0_8NGHold
 ; Function Attrs: mustprogress nounwind uwtable
 define internal fastcc void @_ZN3ue212_GLOBAL__N_110InitDepthsD2Ev(ptr nocapture noundef nonnull readonly align 8 dereferenceable(48) %this) unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  %startDs = getelementptr inbounds %"struct.ue2::(anonymous namespace)::InitDepths", ptr %this, i64 0, i32 1
+  %startDs = getelementptr inbounds i8, ptr %this, i64 24
   %0 = load ptr, ptr %startDs, align 8
   %tobool.not.i.i.i = icmp eq ptr %0, null
   br i1 %tobool.not.i.i.i, label %_ZNSt6vectorIN3ue211DepthMinMaxESaIS1_EED2Ev.exit, label %if.then.i.i.i
@@ -434,15 +400,15 @@ entry:
   %no_vertices = alloca %"class.std::map", align 8
   %ref.tmp13 = alloca %"class.ue2::CharReach", align 8
   %cr = alloca %"class.ue2::CharReach", align 8
-  %start2.i = getelementptr inbounds %"class.ue2::NGHolder", ptr %g, i64 0, i32 3
+  %start2.i = getelementptr inbounds i8, ptr %g, i64 72
   %agg.tmp.sroa.0.0.copyload.i = load ptr, ptr %start2.i, align 8
-  %agg.tmp.sroa.2.0.start2.sroa_idx.i = getelementptr inbounds %"class.ue2::NGHolder", ptr %g, i64 0, i32 3, i32 1
+  %agg.tmp.sroa.2.0.start2.sroa_idx.i = getelementptr inbounds i8, ptr %g, i64 80
   %agg.tmp.sroa.2.0.copyload.i = load i64, ptr %agg.tmp.sroa.2.0.start2.sroa_idx.i, align 8
   call void @_ZN3ue214calcDepthsFromERKNS_8NGHolderENS_12graph_detail17vertex_descriptorINS_9ue2_graphIS0_NS_19NFAGraphVertexPropsENS_17NFAGraphEdgePropsEEEEE(ptr nonnull sret(%"class.std::vector") align 8 %depths, ptr noundef nonnull align 8 dereferenceable(136) %g, ptr %agg.tmp.sroa.0.0.copyload.i, i64 %agg.tmp.sroa.2.0.copyload.i)
-  %startDs.i = getelementptr inbounds %"struct.ue2::(anonymous namespace)::InitDepths", ptr %depths, i64 0, i32 1
-  %startDs4.i = getelementptr inbounds %"class.ue2::NGHolder", ptr %g, i64 0, i32 4
+  %startDs.i = getelementptr inbounds i8, ptr %depths, i64 24
+  %startDs4.i = getelementptr inbounds i8, ptr %g, i64 88
   %agg.tmp3.sroa.0.0.copyload.i = load ptr, ptr %startDs4.i, align 8
-  %agg.tmp3.sroa.2.0.startDs4.sroa_idx.i = getelementptr inbounds %"class.ue2::NGHolder", ptr %g, i64 0, i32 4, i32 1
+  %agg.tmp3.sroa.2.0.startDs4.sroa_idx.i = getelementptr inbounds i8, ptr %g, i64 96
   %agg.tmp3.sroa.2.0.copyload.i = load i64, ptr %agg.tmp3.sroa.2.0.startDs4.sroa_idx.i, align 8
   invoke void @_ZN3ue214calcDepthsFromERKNS_8NGHolderENS_12graph_detail17vertex_descriptorINS_9ue2_graphIS0_NS_19NFAGraphVertexPropsENS_17NFAGraphEdgePropsEEEEE(ptr nonnull sret(%"class.std::vector") align 8 %startDs.i, ptr noundef nonnull align 8 dereferenceable(136) %g, ptr %agg.tmp3.sroa.0.0.copyload.i, i64 %agg.tmp3.sroa.2.0.copyload.i)
           to label %_ZN3ue212_GLOBAL__N_110InitDepthsC2ERKNS_8NGHolderE.exit unwind label %lpad.i
@@ -487,15 +453,15 @@ invoke.cont9.lr.ph:                               ; preds = %invoke.cont4
   %cmp = icmp eq i32 %som, 0
   %v_cr.sroa.4.0.ref.tmp13.sroa_idx = getelementptr inbounds i8, ptr %ref.tmp13, i64 8
   %v_cr.sroa.6.0.ref.tmp13.sroa_idx = getelementptr inbounds i8, ptr %ref.tmp13, i64 24
-  %_M_finish.i.i.i.i = getelementptr inbounds %"struct.std::_Vector_base<ue2::DepthMinMax, std::allocator<ue2::DepthMinMax>>::_Vector_impl_data", ptr %depths, i64 0, i32 1
-  %_M_finish.i.i.i8.i = getelementptr inbounds %"struct.ue2::(anonymous namespace)::InitDepths", ptr %depths, i64 0, i32 1, i32 0, i32 0, i32 0, i32 1
+  %_M_finish.i.i.i.i = getelementptr inbounds i8, ptr %depths, i64 8
+  %_M_finish.i.i.i8.i = getelementptr inbounds i8, ptr %depths, i64 32
   br label %invoke.cont9
 
 invoke.cont9:                                     ; preds = %invoke.cont9.lr.ph, %for.inc33
   %__begin1.sroa.0.066 = phi ptr [ %__begin1.sroa.0.064, %invoke.cont9.lr.ph ], [ %__begin1.sroa.0.0, %for.inc33 ]
-  %serial2.i.i.i.i = getelementptr inbounds %"struct.ue2::ue2_graph<ue2::NGHolder, ue2::NFAGraphVertexProps, ue2::NFAGraphEdgeProps>::vertex_node", ptr %__begin1.sroa.0.066, i64 0, i32 2
+  %serial2.i.i.i.i = getelementptr inbounds i8, ptr %__begin1.sroa.0.066, i64 96
   %3 = load i64, ptr %serial2.i.i.i.i, align 8
-  %index.i = getelementptr inbounds %"struct.ue2::ue2_graph<ue2::NGHolder, ue2::NFAGraphVertexProps, ue2::NFAGraphEdgeProps>::vertex_node", ptr %__begin1.sroa.0.066, i64 0, i32 1, i32 2
+  %index.i = getelementptr inbounds i8, ptr %__begin1.sroa.0.066, i64 80
   %4 = load i64, ptr %index.i, align 8
   %cmp.i = icmp ult i64 %4, 4
   br i1 %cmp.i, label %for.inc33, label %invoke.cont11
@@ -529,10 +495,10 @@ invoke.cont15:                                    ; preds = %if.then12
   br label %if.end19
 
 invoke.cont17:                                    ; preds = %invoke.cont11
-  %props.i = getelementptr inbounds %"struct.ue2::ue2_graph<ue2::NGHolder, ue2::NFAGraphVertexProps, ue2::NFAGraphEdgeProps>::vertex_node", ptr %__begin1.sroa.0.066, i64 0, i32 1
-  %v_cr.sroa.4.0.props.i.sroa_idx = getelementptr inbounds %"struct.ue2::ue2_graph<ue2::NGHolder, ue2::NFAGraphVertexProps, ue2::NFAGraphEdgeProps>::vertex_node", ptr %__begin1.sroa.0.066, i64 0, i32 1, i32 0, i32 0, i32 0, i32 0, i64 1
+  %props.i = getelementptr inbounds i8, ptr %__begin1.sroa.0.066, i64 16
+  %v_cr.sroa.4.0.props.i.sroa_idx = getelementptr inbounds i8, ptr %__begin1.sroa.0.066, i64 24
   %7 = load <2 x i64>, ptr %v_cr.sroa.4.0.props.i.sroa_idx, align 8
-  %v_cr.sroa.6.0.props.i.sroa_idx = getelementptr inbounds %"struct.ue2::ue2_graph<ue2::NGHolder, ue2::NFAGraphVertexProps, ue2::NFAGraphEdgeProps>::vertex_node", ptr %__begin1.sroa.0.066, i64 0, i32 1, i32 0, i32 0, i32 0, i32 0, i64 3
+  %v_cr.sroa.6.0.props.i.sroa_idx = getelementptr inbounds i8, ptr %__begin1.sroa.0.066, i64 40
   %v_cr.sroa.6.0.copyload50 = load i64, ptr %v_cr.sroa.6.0.props.i.sroa_idx, align 8
   br label %if.end19
 
@@ -608,11 +574,11 @@ for.inc:                                          ; preds = %for.inc.preheader, 
   %16 = load i64, ptr %add.ptr.i, align 8
   %or.i.i = or i64 %16, %v_cr.sroa.0.1
   store i64 %or.i.i, ptr %add.ptr.i, align 8
-  %arrayidx.i.i20.i.i = getelementptr inbounds [4 x i64], ptr %add.ptr.i, i64 0, i64 1
+  %arrayidx.i.i20.i.i = getelementptr inbounds i8, ptr %add.ptr.i, i64 8
   %17 = load <2 x i64>, ptr %arrayidx.i.i20.i.i, align 8
   %18 = or <2 x i64> %17, %8
   store <2 x i64> %18, ptr %arrayidx.i.i20.i.i, align 8
-  %arrayidx.i.i24.i.i = getelementptr inbounds [4 x i64], ptr %add.ptr.i, i64 0, i64 3
+  %arrayidx.i.i24.i.i = getelementptr inbounds i8, ptr %add.ptr.i, i64 24
   %19 = load i64, ptr %arrayidx.i.i24.i.i, align 8
   %or24.i.i = or i64 %19, %v_cr.sroa.6.1
   store i64 %or24.i.i, ptr %arrayidx.i.i24.i.i, align 8
@@ -632,9 +598,9 @@ for.end36:                                        ; preds = %for.inc33, %invoke.
 
 invoke.cont40:                                    ; preds = %for.end36
   store ptr %call5.i.i.i.i1.i.i27, ptr %agg.result, align 8
-  %_M_finish.i.i.i = getelementptr inbounds %"struct.std::_Vector_base<unsigned char, std::allocator<unsigned char>>::_Vector_impl_data", ptr %agg.result, i64 0, i32 1
+  %_M_finish.i.i.i = getelementptr inbounds i8, ptr %agg.result, i64 8
   %add.ptr.i.i.i25 = getelementptr inbounds i8, ptr %call5.i.i.i.i1.i.i27, i64 256
-  %_M_end_of_storage.i.i.i = getelementptr inbounds %"struct.std::_Vector_base<unsigned char, std::allocator<unsigned char>>::_Vector_impl_data", ptr %agg.result, i64 0, i32 2
+  %_M_end_of_storage.i.i.i = getelementptr inbounds i8, ptr %agg.result, i64 16
   store ptr %add.ptr.i.i.i25, ptr %_M_end_of_storage.i.i.i, align 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(256) %call5.i.i.i.i1.i.i27, i8 0, i64 256, i1 false)
   store ptr %add.ptr.i.i.i25, ptr %_M_finish.i.i.i, align 8
@@ -823,9 +789,9 @@ _ZNK3ue25depthcvjEv.exit:                         ; preds = %for.body.i.i.i
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %agg.result, i8 0, i64 24, i1 false)
   %call5.i.i.i.i1.i.i7 = tail call noalias noundef nonnull dereferenceable(256) ptr @_Znwm(i64 noundef 256) #17
   store ptr %call5.i.i.i.i1.i.i7, ptr %agg.result, align 8
-  %_M_finish.i.i.i = getelementptr inbounds %"struct.std::_Vector_base<unsigned char, std::allocator<unsigned char>>::_Vector_impl_data", ptr %agg.result, i64 0, i32 1
+  %_M_finish.i.i.i = getelementptr inbounds i8, ptr %agg.result, i64 8
   %add.ptr.i.i.i = getelementptr inbounds i8, ptr %call5.i.i.i.i1.i.i7, i64 256
-  %_M_end_of_storage.i.i.i = getelementptr inbounds %"struct.std::_Vector_base<unsigned char, std::allocator<unsigned char>>::_Vector_impl_data", ptr %agg.result, i64 0, i32 2
+  %_M_end_of_storage.i.i.i = getelementptr inbounds i8, ptr %agg.result, i64 16
   store ptr %add.ptr.i.i.i, ptr %_M_end_of_storage.i.i.i, align 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(256) %call5.i.i.i.i1.i.i7, i8 0, i64 256, i1 false)
   store ptr %add.ptr.i.i.i, ptr %_M_finish.i.i.i, align 8
@@ -947,10 +913,10 @@ entry:
 
 while.body:                                       ; preds = %entry, %while.body
   %__x.addr.05 = phi ptr [ %1, %while.body ], [ %__x, %entry ]
-  %_M_right.i = getelementptr inbounds %"struct.std::_Rb_tree_node_base", ptr %__x.addr.05, i64 0, i32 3
+  %_M_right.i = getelementptr inbounds i8, ptr %__x.addr.05, i64 24
   %0 = load ptr, ptr %_M_right.i, align 8
   tail call void @_ZNSt8_Rb_treeIN3ue212graph_detail17vertex_descriptorINS0_9ue2_graphINS0_8NGHolderENS0_19NFAGraphVertexPropsENS0_17NFAGraphEdgePropsEEEEESt4pairIKS8_NS0_20BoundedRepeatSummaryEESt10_Select1stISC_ESt4lessIS8_ESaISC_EE8_M_eraseEPSt13_Rb_tree_nodeISC_E(ptr noundef nonnull align 8 dereferenceable(48) %this, ptr noundef %0)
-  %_M_left.i = getelementptr inbounds %"struct.std::_Rb_tree_node_base", ptr %__x.addr.05, i64 0, i32 2
+  %_M_left.i = getelementptr inbounds i8, ptr %__x.addr.05, i64 16
   %1 = load ptr, ptr %_M_left.i, align 8
   tail call void @_ZdlPv(ptr noundef nonnull %__x.addr.05) #14
   %cmp.not = icmp eq ptr %1, null

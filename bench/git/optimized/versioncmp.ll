@@ -3,7 +3,6 @@ source_filename = "bench/git/original/versioncmp.ll"
 target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:128-n8:16:32:64-S128"
 target triple = "x86_64-unknown-linux-gnu"
 
-%struct.string_list = type { ptr, i64, i64, i8, ptr }
 %struct.string_list_item = type { ptr, ptr }
 
 @versioncmp.next_state = internal unnamed_addr constant [12 x i8] c"\00\03\09\00\03\03\00\06\06\00\06\09", align 1
@@ -120,7 +119,7 @@ land.lhs.true51:                                  ; preds = %if.end49
   %9 = xor i64 %sub.ptr.rhs.cast, -1
   %sub52 = add i64 %sub.ptr.lhs.cast, %9
   %conv53 = trunc i64 %sub52 to i32
-  %nr40.i = getelementptr inbounds %struct.string_list, ptr %8, i64 0, i32 1
+  %nr40.i = getelementptr inbounds i8, ptr %8, i64 8
   %10 = load i64, ptr %nr40.i, align 8
   %cmp41.not.i = icmp eq i64 %10, 0
   br i1 %cmp41.not.i, label %if.end57, label %for.body.i
@@ -210,7 +209,7 @@ find_better_matching_suffix.exit37.i:             ; preds = %for.inc.i33.i, %if.
   %match2.sroa.0.1.i = phi i32 [ %match2.sroa.0.047.i, %find_better_matching_suffix.exit.i ], [ %21, %if.then.i31.i ], [ %match2.sroa.0.047.i, %for.inc.i33.i ]
   %indvars.iv.next.i = add nuw i64 %indvars.iv.i, 1
   %22 = load ptr, ptr @prereleases, align 8
-  %nr.i = getelementptr inbounds %struct.string_list, ptr %22, i64 0, i32 1
+  %nr.i = getelementptr inbounds i8, ptr %22, i64 8
   %23 = load i64, ptr %nr.i, align 8
   %cmp.i = icmp ugt i64 %23, %indvars.iv.next.i
   br i1 %cmp.i, label %for.body.i, label %for.end.i, !llvm.loop !8

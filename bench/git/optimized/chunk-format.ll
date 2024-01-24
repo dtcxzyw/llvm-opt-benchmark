@@ -4,11 +4,7 @@ target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:
 target triple = "x86_64-unknown-linux-gnu"
 
 %struct.git_hash_algo = type { ptr, i32, i64, i64, i64, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr }
-%struct.chunkfile = type { ptr, ptr, i64, i64 }
 %struct.chunk_info = type { i32, i64, ptr, ptr }
-%struct.repository = type { ptr, ptr, ptr, ptr, ptr, %struct.repo_path_cache, ptr, ptr, ptr, ptr, %struct.repo_settings, ptr, ptr, ptr, ptr, ptr, i32, i32, i32, ptr, ptr, i32, i8 }
-%struct.repo_path_cache = type { ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr }
-%struct.repo_settings = type { i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, ptr, i32, i32, i32, i32, i32, i32 }
 
 @.str = private unnamed_addr constant [15 x i8] c"chunk-format.c\00", align 1
 @.str.1 = private unnamed_addr constant [10 x i8] c"chunkfile\00", align 1
@@ -43,7 +39,7 @@ entry:
   br i1 %tobool.not, label %return, label %if.end
 
 if.end:                                           ; preds = %entry
-  %chunks = getelementptr inbounds %struct.chunkfile, ptr %cf, i64 0, i32 1
+  %chunks = getelementptr inbounds i8, ptr %cf, i64 8
   %0 = load ptr, ptr %chunks, align 8
   tail call void @free(ptr noundef %0) #10
   tail call void @free(ptr noundef nonnull %cf) #10
@@ -59,7 +55,7 @@ declare void @free(ptr allocptr nocapture noundef) local_unnamed_addr #3
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
 define dso_local i32 @get_num_chunks(ptr nocapture noundef readonly %cf) local_unnamed_addr #4 {
 entry:
-  %chunks_nr = getelementptr inbounds %struct.chunkfile, ptr %cf, i64 0, i32 2
+  %chunks_nr = getelementptr inbounds i8, ptr %cf, i64 16
   %0 = load i64, ptr %chunks_nr, align 8
   %conv = trunc i64 %0 to i32
   ret i32 %conv
@@ -68,16 +64,16 @@ entry:
 ; Function Attrs: nounwind uwtable
 define dso_local void @add_chunk(ptr nocapture noundef %cf, i32 noundef %id, i64 noundef %size, ptr noundef %fn) local_unnamed_addr #0 {
 entry:
-  %chunks_nr = getelementptr inbounds %struct.chunkfile, ptr %cf, i64 0, i32 2
+  %chunks_nr = getelementptr inbounds i8, ptr %cf, i64 16
   %0 = load i64, ptr %chunks_nr, align 8
   %add = add i64 %0, 1
-  %chunks_alloc = getelementptr inbounds %struct.chunkfile, ptr %cf, i64 0, i32 3
+  %chunks_alloc = getelementptr inbounds i8, ptr %cf, i64 24
   %1 = load i64, ptr %chunks_alloc, align 8
   %cmp = icmp ugt i64 %add, %1
   br i1 %cmp, label %if.then, label %entry.do.end_crit_edge
 
 entry.do.end_crit_edge:                           ; preds = %entry
-  %chunks19.phi.trans.insert = getelementptr inbounds %struct.chunkfile, ptr %cf, i64 0, i32 1
+  %chunks19.phi.trans.insert = getelementptr inbounds i8, ptr %cf, i64 8
   %.pre = load ptr, ptr %chunks19.phi.trans.insert, align 8
   br label %do.end
 
@@ -95,7 +91,7 @@ if.then.i:                                        ; preds = %if.then
   unreachable
 
 st_mult.exit:                                     ; preds = %if.then
-  %chunks = getelementptr inbounds %struct.chunkfile, ptr %cf, i64 0, i32 1
+  %chunks = getelementptr inbounds i8, ptr %cf, i64 8
   %3 = load ptr, ptr %chunks, align 8
   %mul.i = shl nuw i64 %add.div18, 5
   %call16 = tail call ptr @xrealloc(ptr noundef %3, i64 noundef %mul.i) #10
@@ -106,7 +102,7 @@ st_mult.exit:                                     ; preds = %if.then
 do.end:                                           ; preds = %entry.do.end_crit_edge, %st_mult.exit
   %4 = phi i64 [ %0, %entry.do.end_crit_edge ], [ %.pre19, %st_mult.exit ]
   %5 = phi ptr [ %.pre, %entry.do.end_crit_edge ], [ %call16, %st_mult.exit ]
-  %chunks19 = getelementptr inbounds %struct.chunkfile, ptr %cf, i64 0, i32 1
+  %chunks19 = getelementptr inbounds i8, ptr %cf, i64 8
   %arrayidx = getelementptr inbounds %struct.chunk_info, ptr %5, i64 %4
   store i32 %id, ptr %arrayidx, align 8
   %6 = load ptr, ptr %chunks19, align 8
@@ -140,24 +136,24 @@ entry:
   %conv.i = zext i32 %.val to i64
   %3 = load ptr, ptr @the_repository, align 8
   tail call void (ptr, i32, ptr, ptr, ptr, ...) @trace2_region_enter_fl(ptr noundef nonnull @.str, i32 noundef 67, ptr noundef nonnull @.str.1, ptr noundef nonnull @.str.2, ptr noundef %3) #10
-  %chunks_nr = getelementptr inbounds %struct.chunkfile, ptr %cf, i64 0, i32 2
+  %chunks_nr = getelementptr inbounds i8, ptr %cf, i64 16
   %4 = load i64, ptr %chunks_nr, align 8
   %5 = mul i64 %4, 12
   %mul = add nuw nsw i64 %conv.i, 12
   %add.i = add i64 %mul, %.val32
   %add1 = add i64 %add.i, %5
-  %cmp60.not = icmp eq i64 %4, 0
-  br i1 %cmp60.not, label %for.end, label %for.body.lr.ph
+  %cmp58.not = icmp eq i64 %4, 0
+  br i1 %cmp58.not, label %for.end, label %for.body.lr.ph
 
 for.body.lr.ph:                                   ; preds = %entry
-  %chunks = getelementptr inbounds %struct.chunkfile, ptr %cf, i64 0, i32 1
+  %chunks = getelementptr inbounds i8, ptr %cf, i64 8
   %.pre = load ptr, ptr %chunks, align 8
   br label %for.body
 
 for.body:                                         ; preds = %for.body.lr.ph, %for.body
   %6 = phi ptr [ %.pre, %for.body.lr.ph ], [ %12, %for.body ]
   %indvars.iv = phi i64 [ 0, %for.body.lr.ph ], [ %indvars.iv.next, %for.body ]
-  %cur_offset.061 = phi i64 [ %add1, %for.body.lr.ph ], [ %add10, %for.body ]
+  %cur_offset.059 = phi i64 [ %add1, %for.body.lr.ph ], [ %add10, %for.body ]
   %7 = load ptr, ptr %cf, align 8
   %arrayidx = getelementptr inbounds %struct.chunk_info, ptr %6, i64 %indvars.iv
   %8 = load i32, ptr %arrayidx, align 8
@@ -168,14 +164,14 @@ for.body:                                         ; preds = %for.body.lr.ph, %fo
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %data.addr.i)
   %10 = load ptr, ptr %cf, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %data.addr.i39)
-  %11 = call i64 asm "bswap ${0:q}", "=r,0,~{dirflag},~{fpsr},~{flags}"(i64 %cur_offset.061) #12, !srcloc !6
+  %11 = call i64 asm "bswap ${0:q}", "=r,0,~{dirflag},~{fpsr},~{flags}"(i64 %cur_offset.059) #12, !srcloc !6
   store i64 %11, ptr %data.addr.i39, align 8
   call void @hashwrite(ptr noundef %10, ptr noundef nonnull %data.addr.i39, i32 noundef 8) #10
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %data.addr.i39)
   %12 = load ptr, ptr %chunks, align 8
   %size = getelementptr inbounds %struct.chunk_info, ptr %12, i64 %indvars.iv, i32 1
   %13 = load i64, ptr %size, align 8
-  %add10 = add i64 %13, %cur_offset.061
+  %add10 = add i64 %13, %cur_offset.059
   %indvars.iv.next = add nuw i64 %indvars.iv, 1
   %14 = load i64, ptr %chunks_nr, align 8
   %cmp = icmp ugt i64 %14, %indvars.iv.next
@@ -195,32 +191,32 @@ for.end:                                          ; preds = %for.body, %entry
   call void @hashwrite(ptr noundef %16, ptr noundef nonnull %data.addr.i46, i32 noundef 8) #10
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %data.addr.i46)
   %18 = load i64, ptr %chunks_nr, align 8
-  %cmp1764.not = icmp eq i64 %18, 0
-  br i1 %cmp1764.not, label %cleanup, label %for.body19.lr.ph
+  %cmp1762.not = icmp eq i64 %18, 0
+  br i1 %cmp1762.not, label %cleanup, label %for.body19.lr.ph
 
 for.body19.lr.ph:                                 ; preds = %for.end
-  %chunks22 = getelementptr inbounds %struct.chunkfile, ptr %cf, i64 0, i32 1
-  %.pre75 = load ptr, ptr %cf, align 8
-  %.phi.trans.insert = getelementptr i8, ptr %.pre75, i64 8
+  %chunks22 = getelementptr inbounds i8, ptr %cf, i64 8
+  %.pre71 = load ptr, ptr %cf, align 8
+  %.phi.trans.insert = getelementptr i8, ptr %.pre71, i64 8
   %.val33.pre = load i32, ptr %.phi.trans.insert, align 8
-  %.phi.trans.insert77 = getelementptr i8, ptr %.pre75, i64 2416
-  %.val34.pre = load i64, ptr %.phi.trans.insert77, align 8
-  %.pre79 = load ptr, ptr %chunks22, align 8
+  %.phi.trans.insert73 = getelementptr i8, ptr %.pre71, i64 2416
+  %.val34.pre = load i64, ptr %.phi.trans.insert73, align 8
+  %.pre75 = load ptr, ptr %chunks22, align 8
   br label %for.body19
 
 for.cond14:                                       ; preds = %if.end
-  %indvars.iv.next73 = add nuw i64 %indvars.iv72, 1
+  %indvars.iv.next69 = add nuw i64 %indvars.iv68, 1
   %19 = load i64, ptr %chunks_nr, align 8
-  %cmp17 = icmp ugt i64 %19, %indvars.iv.next73
+  %cmp17 = icmp ugt i64 %19, %indvars.iv.next69
   br i1 %cmp17, label %for.body19, label %cleanup, !llvm.loop !9
 
 for.body19:                                       ; preds = %for.body19.lr.ph, %for.cond14
-  %20 = phi ptr [ %.pre79, %for.body19.lr.ph ], [ %27, %for.cond14 ]
+  %20 = phi ptr [ %.pre75, %for.body19.lr.ph ], [ %27, %for.cond14 ]
   %.val34 = phi i64 [ %.val34.pre, %for.body19.lr.ph ], [ %.val36, %for.cond14 ]
   %.val33 = phi i32 [ %.val33.pre, %for.body19.lr.ph ], [ %.val35, %for.cond14 ]
-  %21 = phi ptr [ %.pre75, %for.body19.lr.ph ], [ %23, %for.cond14 ]
-  %indvars.iv72 = phi i64 [ 0, %for.body19.lr.ph ], [ %indvars.iv.next73, %for.cond14 ]
-  %write_fn = getelementptr inbounds %struct.chunk_info, ptr %20, i64 %indvars.iv72, i32 2
+  %21 = phi ptr [ %.pre71, %for.body19.lr.ph ], [ %23, %for.cond14 ]
+  %indvars.iv68 = phi i64 [ 0, %for.body19.lr.ph ], [ %indvars.iv.next69, %for.cond14 ]
+  %write_fn = getelementptr inbounds %struct.chunk_info, ptr %20, i64 %indvars.iv68, i32 2
   %22 = load ptr, ptr %write_fn, align 8
   %call26 = call i32 %22(ptr noundef nonnull %21, ptr noundef %data) #10
   %tobool.not = icmp eq i32 %call26, 0
@@ -238,13 +234,13 @@ if.end:                                           ; preds = %for.body19
   %add.i55 = sub i64 %conv.i54, %26
   %sub = add i64 %add.i55, %.val36
   %27 = load ptr, ptr %chunks22, align 8
-  %size32 = getelementptr inbounds %struct.chunk_info, ptr %27, i64 %indvars.iv72, i32 1
+  %arrayidx31 = getelementptr inbounds %struct.chunk_info, ptr %27, i64 %indvars.iv68
+  %size32 = getelementptr inbounds i8, ptr %arrayidx31, i64 8
   %28 = load i64, ptr %size32, align 8
   %cmp33.not = icmp eq i64 %sub, %28
   br i1 %cmp33.not, label %for.cond14, label %if.then35
 
 if.then35:                                        ; preds = %if.end
-  %arrayidx31 = getelementptr inbounds %struct.chunk_info, ptr %27, i64 %indvars.iv72
   %29 = load i32, ptr %arrayidx31, align 8
   call void (ptr, i32, ptr, ...) @BUG_fl(ptr noundef nonnull @.str, i32 noundef 93, ptr noundef nonnull @.str.3, i64 noundef %28, i32 noundef %29, i64 noundef %sub) #11
   unreachable
@@ -268,7 +264,7 @@ define dso_local noundef i32 @read_table_of_contents(ptr nocapture noundef %cf, 
 entry:
   %add.ptr = getelementptr inbounds i8, ptr %mfile, i64 %toc_offset
   %conv = sext i32 %toc_length to i64
-  %chunks_alloc = getelementptr inbounds %struct.chunkfile, ptr %cf, i64 0, i32 3
+  %chunks_alloc = getelementptr inbounds i8, ptr %cf, i64 24
   %0 = load i64, ptr %chunks_alloc, align 8
   %cmp = icmp ult i64 %0, %conv
   br i1 %cmp, label %if.then, label %do.end
@@ -287,7 +283,7 @@ if.then.i:                                        ; preds = %if.then
   unreachable
 
 st_mult.exit:                                     ; preds = %if.then
-  %chunks = getelementptr inbounds %struct.chunkfile, ptr %cf, i64 0, i32 1
+  %chunks = getelementptr inbounds i8, ptr %cf, i64 8
   %2 = load ptr, ptr %chunks, align 8
   %mul.i = shl nuw i64 %conv.div42, 5
   %call15 = tail call ptr @xrealloc(ptr noundef %2, i64 noundef %mul.i) #10
@@ -300,8 +296,8 @@ do.end:                                           ; preds = %entry, %st_mult.exi
 
 while.body.lr.ph:                                 ; preds = %do.end
   %conv27 = zext i32 %expected_alignment to i64
-  %chunks_nr = getelementptr inbounds %struct.chunkfile, ptr %cf, i64 0, i32 2
-  %chunks50 = getelementptr inbounds %struct.chunkfile, ptr %cf, i64 0, i32 1
+  %chunks_nr = getelementptr inbounds i8, ptr %cf, i64 16
+  %chunks50 = getelementptr inbounds i8, ptr %cf, i64 8
   br label %while.body
 
 while.body:                                       ; preds = %while.body.lr.ph, %for.end
@@ -444,9 +440,9 @@ if.end34:                                         ; preds = %if.end26
 
 lor.lhs.false:                                    ; preds = %if.end34
   %25 = load ptr, ptr @the_repository, align 8
-  %hash_algo = getelementptr inbounds %struct.repository, ptr %25, i64 0, i32 15
+  %hash_algo = getelementptr inbounds i8, ptr %25, i64 256
   %26 = load ptr, ptr %hash_algo, align 8
-  %rawsz = getelementptr inbounds %struct.git_hash_algo, ptr %26, i64 0, i32 2
+  %rawsz = getelementptr inbounds i8, ptr %26, i64 16
   %27 = load i64, ptr %rawsz, align 8
   %sub = sub i64 %mfile_size, %27
   %cmp40 = icmp ugt i64 %or.i79, %sub
@@ -584,13 +580,13 @@ return:                                           ; preds = %if.end, %entry, %if
 ; Function Attrs: nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
 define dso_local noundef i32 @pair_chunk(ptr nocapture noundef readonly %cf, i32 noundef %chunk_id, ptr nocapture noundef writeonly %p, ptr nocapture noundef writeonly %size) local_unnamed_addr #6 {
 entry:
-  %chunks_nr.i = getelementptr inbounds %struct.chunkfile, ptr %cf, i64 0, i32 2
+  %chunks_nr.i = getelementptr inbounds i8, ptr %cf, i64 16
   %0 = load i64, ptr %chunks_nr.i, align 8
-  %cmp9.not.i = icmp eq i64 %0, 0
-  br i1 %cmp9.not.i, label %read_chunk.exit, label %for.body.lr.ph.i
+  %cmp8.not.i = icmp eq i64 %0, 0
+  br i1 %cmp8.not.i, label %read_chunk.exit, label %for.body.lr.ph.i
 
 for.body.lr.ph.i:                                 ; preds = %entry
-  %chunks.i = getelementptr inbounds %struct.chunkfile, ptr %cf, i64 0, i32 1
+  %chunks.i = getelementptr inbounds i8, ptr %cf, i64 8
   %1 = load ptr, ptr %chunks.i, align 8
   br label %for.body.i
 
@@ -607,9 +603,9 @@ for.body.i:                                       ; preds = %for.cond.i, %for.bo
   br i1 %cmp2.i, label %if.then.i, label %for.cond.i
 
 if.then.i:                                        ; preds = %for.body.i
-  %start.i = getelementptr inbounds %struct.chunk_info, ptr %1, i64 %indvars.iv.i, i32 3
+  %start.i = getelementptr inbounds i8, ptr %arrayidx.i, i64 24
   %3 = load ptr, ptr %start.i, align 8
-  %size.i = getelementptr inbounds %struct.chunk_info, ptr %1, i64 %indvars.iv.i, i32 1
+  %size.i = getelementptr inbounds i8, ptr %arrayidx.i, i64 8
   %4 = load i64, ptr %size.i, align 8
   store ptr %3, ptr %p, align 8
   store i64 %4, ptr %size, align 8
@@ -623,13 +619,13 @@ read_chunk.exit:                                  ; preds = %for.cond.i, %entry,
 ; Function Attrs: nounwind uwtable
 define dso_local i32 @read_chunk(ptr nocapture noundef readonly %cf, i32 noundef %chunk_id, ptr nocapture noundef readonly %fn, ptr noundef %data) local_unnamed_addr #0 {
 entry:
-  %chunks_nr = getelementptr inbounds %struct.chunkfile, ptr %cf, i64 0, i32 2
+  %chunks_nr = getelementptr inbounds i8, ptr %cf, i64 16
   %0 = load i64, ptr %chunks_nr, align 8
-  %cmp9.not = icmp eq i64 %0, 0
-  br i1 %cmp9.not, label %return, label %for.body.lr.ph
+  %cmp8.not = icmp eq i64 %0, 0
+  br i1 %cmp8.not, label %return, label %for.body.lr.ph
 
 for.body.lr.ph:                                   ; preds = %entry
-  %chunks = getelementptr inbounds %struct.chunkfile, ptr %cf, i64 0, i32 1
+  %chunks = getelementptr inbounds i8, ptr %cf, i64 8
   %1 = load ptr, ptr %chunks, align 8
   br label %for.body
 
@@ -646,9 +642,9 @@ for.body:                                         ; preds = %for.body.lr.ph, %fo
   br i1 %cmp2, label %if.then, label %for.cond
 
 if.then:                                          ; preds = %for.body
-  %start = getelementptr inbounds %struct.chunk_info, ptr %1, i64 %indvars.iv, i32 3
+  %start = getelementptr inbounds i8, ptr %arrayidx, i64 24
   %3 = load ptr, ptr %start, align 8
-  %size = getelementptr inbounds %struct.chunk_info, ptr %1, i64 %indvars.iv, i32 1
+  %size = getelementptr inbounds i8, ptr %arrayidx, i64 8
   %4 = load i64, ptr %size, align 8
   %call = tail call i32 %fn(ptr noundef %3, i64 noundef %4, ptr noundef %data) #10
   br label %return

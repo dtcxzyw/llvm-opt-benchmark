@@ -3,19 +3,6 @@ source_filename = "bench/nghttp2/original/nghttp2_outbound_item.c.ll"
 target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:128-n8:16:32:64-S128"
 target triple = "x86_64-unknown-linux-gnu"
 
-%struct.nghttp2_outbound_item = type { %union.nghttp2_frame, %union.nghttp2_ext_frame_payload, %union.nghttp2_aux_data, i64, ptr, i8 }
-%union.nghttp2_frame = type { %struct.nghttp2_headers }
-%struct.nghttp2_headers = type { %struct.nghttp2_frame_hd, i64, %struct.nghttp2_priority_spec, ptr, i64, i32 }
-%struct.nghttp2_frame_hd = type { i64, i32, i8, i8, i8 }
-%struct.nghttp2_priority_spec = type { i32, i32, i8 }
-%union.nghttp2_ext_frame_payload = type { %struct.nghttp2_ext_altsvc }
-%struct.nghttp2_ext_altsvc = type { ptr, i64, ptr, i64 }
-%union.nghttp2_aux_data = type { %struct.nghttp2_headers_aux_data }
-%struct.nghttp2_headers_aux_data = type { %struct.nghttp2_data_provider, ptr, i32, i8 }
-%struct.nghttp2_data_provider = type { %union.nghttp2_data_source, ptr }
-%union.nghttp2_data_source = type { ptr }
-%struct.nghttp2_outbound_queue = type { ptr, ptr, i64 }
-
 @.str = private unnamed_addr constant [2 x i8] c"0\00", align 1
 @.str.1 = private unnamed_addr constant [121 x i8] c"generated/home/dtcxzyw/WorkSpace/Projects/compilers/llvm-opt-benchmark/bench/nghttp2/nghttp2/lib/nghttp2_outbound_item.c\00", align 1
 @__PRETTY_FUNCTION__.nghttp2_outbound_item_free = private unnamed_addr constant [72 x i8] c"void nghttp2_outbound_item_free(nghttp2_outbound_item *, nghttp2_mem *)\00", align 1
@@ -23,7 +10,7 @@ target triple = "x86_64-unknown-linux-gnu"
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
 define hidden void @nghttp2_outbound_item_init(ptr nocapture noundef writeonly %item) local_unnamed_addr #0 {
 entry:
-  %aux_data = getelementptr inbounds %struct.nghttp2_outbound_item, ptr %item, i64 0, i32 2
+  %aux_data = getelementptr inbounds i8, ptr %item, i64 96
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(49) %aux_data, i8 0, i64 49, i1 false)
   ret void
 }
@@ -38,7 +25,7 @@ entry:
   br i1 %cmp, label %sw.epilog22, label %if.end
 
 if.end:                                           ; preds = %entry
-  %type = getelementptr inbounds %struct.nghttp2_frame_hd, ptr %item, i64 0, i32 2
+  %type = getelementptr inbounds i8, ptr %item, i64 12
   %0 = load i8, ptr %type, align 4
   switch i8 %0, label %sw.default [
     i8 0, label %sw.bb
@@ -89,7 +76,7 @@ sw.bb9:                                           ; preds = %if.end
   br label %sw.epilog22
 
 sw.default:                                       ; preds = %if.end
-  %aux_data10 = getelementptr inbounds %struct.nghttp2_outbound_item, ptr %item, i64 0, i32 2
+  %aux_data10 = getelementptr inbounds i8, ptr %item, i64 96
   %1 = load i8, ptr %aux_data10, align 1
   %cmp12 = icmp eq i8 %1, 0
   br i1 %cmp12, label %if.then14, label %if.end15
@@ -164,14 +151,14 @@ entry:
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(write, argmem: readwrite, inaccessiblemem: none) uwtable
 define hidden void @nghttp2_outbound_queue_push(ptr nocapture noundef %q, ptr noundef %item) local_unnamed_addr #5 {
 entry:
-  %tail = getelementptr inbounds %struct.nghttp2_outbound_queue, ptr %q, i64 0, i32 1
+  %tail = getelementptr inbounds i8, ptr %q, i64 8
   %0 = load ptr, ptr %tail, align 8
   %tobool.not = icmp eq ptr %0, null
-  %qnext = getelementptr inbounds %struct.nghttp2_outbound_item, ptr %0, i64 0, i32 4
+  %qnext = getelementptr inbounds i8, ptr %0, i64 136
   %q.sink = select i1 %tobool.not, ptr %q, ptr %qnext
   store ptr %item, ptr %q.sink, align 8
   store ptr %item, ptr %tail, align 8
-  %n = getelementptr inbounds %struct.nghttp2_outbound_queue, ptr %q, i64 0, i32 2
+  %n = getelementptr inbounds i8, ptr %q, i64 16
   %1 = load i64, ptr %n, align 8
   %inc = add i64 %1, 1
   store i64 %inc, ptr %n, align 8
@@ -186,7 +173,7 @@ entry:
   br i1 %tobool.not, label %return, label %if.end
 
 if.end:                                           ; preds = %entry
-  %qnext = getelementptr inbounds %struct.nghttp2_outbound_item, ptr %0, i64 0, i32 4
+  %qnext = getelementptr inbounds i8, ptr %0, i64 136
   %1 = load ptr, ptr %qnext, align 8
   store ptr %1, ptr %q, align 8
   store ptr null, ptr %qnext, align 8
@@ -195,12 +182,12 @@ if.end:                                           ; preds = %entry
   br i1 %tobool6.not, label %if.then7, label %if.end8
 
 if.then7:                                         ; preds = %if.end
-  %tail = getelementptr inbounds %struct.nghttp2_outbound_queue, ptr %q, i64 0, i32 1
+  %tail = getelementptr inbounds i8, ptr %q, i64 8
   store ptr null, ptr %tail, align 8
   br label %if.end8
 
 if.end8:                                          ; preds = %if.then7, %if.end
-  %n = getelementptr inbounds %struct.nghttp2_outbound_queue, ptr %q, i64 0, i32 2
+  %n = getelementptr inbounds i8, ptr %q, i64 16
   %3 = load i64, ptr %n, align 8
   %dec = add i64 %3, -1
   store i64 %dec, ptr %n, align 8

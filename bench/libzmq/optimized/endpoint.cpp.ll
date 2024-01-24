@@ -17,7 +17,7 @@ entry:
           to label %.noexc unwind label %lpad
 
 .noexc:                                           ; preds = %entry
-  %remote3.i = getelementptr inbounds %"struct.zmq::endpoint_uri_pair_t", ptr %agg.result, i64 0, i32 1
+  %remote3.i = getelementptr inbounds i8, ptr %agg.result, i64 32
   invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1ERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %remote3.i, ptr noundef nonnull align 8 dereferenceable(32) %endpoint_)
           to label %invoke.cont unwind label %lpad.i
 
@@ -28,7 +28,7 @@ lpad.i:                                           ; preds = %.noexc
   br label %lpad.body
 
 invoke.cont:                                      ; preds = %.noexc
-  %local_type4.i = getelementptr inbounds %"struct.zmq::endpoint_uri_pair_t", ptr %agg.result, i64 0, i32 2
+  %local_type4.i = getelementptr inbounds i8, ptr %agg.result, i64 64
   store i32 2, ptr %local_type4.i, align 8
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp) #3
   ret void
@@ -61,7 +61,7 @@ entry:
           to label %.noexc unwind label %lpad
 
 .noexc:                                           ; preds = %entry
-  %remote3.i = getelementptr inbounds %"struct.zmq::endpoint_uri_pair_t", ptr %agg.result, i64 0, i32 1
+  %remote3.i = getelementptr inbounds i8, ptr %agg.result, i64 32
   invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1ERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %remote3.i, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp)
           to label %invoke.cont unwind label %lpad.i
 
@@ -72,7 +72,7 @@ lpad.i:                                           ; preds = %.noexc
   br label %lpad.body
 
 invoke.cont:                                      ; preds = %.noexc
-  %local_type4.i = getelementptr inbounds %"struct.zmq::endpoint_uri_pair_t", ptr %agg.result, i64 0, i32 2
+  %local_type4.i = getelementptr inbounds i8, ptr %agg.result, i64 64
   store i32 1, ptr %local_type4.i, align 8
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp) #3
   ret void

@@ -5,9 +5,6 @@ target triple = "x86_64-unknown-linux-gnu"
 
 %struct.nghttp2_huff_sym = type { i32, i32 }
 %struct.nghttp2_huff_decode = type { i16, i8 }
-%struct.nghttp2_bufs = type { ptr, ptr, ptr, i64, i64, i64, i64, i64 }
-%struct.nghttp2_buf_chain = type { ptr, %struct.nghttp2_buf }
-%struct.nghttp2_buf = type { ptr, ptr, ptr, ptr, ptr }
 
 @huff_sym_table = external local_unnamed_addr constant [0 x %struct.nghttp2_huff_sym], align 4
 @huff_decode_table = external local_unnamed_addr constant [0 x [16 x %struct.nghttp2_huff_decode]], align 2
@@ -46,11 +43,11 @@ for.end:                                          ; preds = %for.end.loopexit, %
 define hidden i32 @nghttp2_hd_huff_encode(ptr noundef %bufs, ptr noundef readonly %src, i64 noundef %srclen) local_unnamed_addr #1 {
 entry:
   %add.ptr = getelementptr inbounds i8, ptr %src, i64 %srclen
-  %cur = getelementptr inbounds %struct.nghttp2_bufs, ptr %bufs, i64 0, i32 1
+  %cur = getelementptr inbounds i8, ptr %bufs, i64 8
   %0 = load ptr, ptr %cur, align 8
-  %end1 = getelementptr inbounds %struct.nghttp2_buf_chain, ptr %0, i64 0, i32 1, i32 1
+  %end1 = getelementptr inbounds i8, ptr %0, i64 16
   %1 = load ptr, ptr %end1, align 8
-  %last = getelementptr inbounds %struct.nghttp2_buf_chain, ptr %0, i64 0, i32 1, i32 3
+  %last = getelementptr inbounds i8, ptr %0, i64 32
   %2 = load ptr, ptr %last, align 8
   %sub.ptr.lhs.cast = ptrtoint ptr %1 to i64
   %sub.ptr.rhs.cast = ptrtoint ptr %2 to i64
@@ -80,7 +77,7 @@ for.body:                                         ; preds = %for.cond
   %3 = load i8, ptr %src.addr.0, align 1
   %idxprom = zext i8 %3 to i64
   %arrayidx = getelementptr inbounds [0 x %struct.nghttp2_huff_sym], ptr @huff_sym_table, i64 0, i64 %idxprom
-  %code4 = getelementptr inbounds [0 x %struct.nghttp2_huff_sym], ptr @huff_sym_table, i64 0, i64 %idxprom, i32 1
+  %code4 = getelementptr inbounds i8, ptr %arrayidx, i64 4
   %4 = load i32, ptr %code4, align 4
   %conv = zext i32 %4 to i64
   %sub = sub i64 32, %nbits.0
@@ -101,11 +98,11 @@ if.then11:                                        ; preds = %if.end
   %conv12 = trunc i64 %shr to i32
   %call = tail call i32 @htonl(i32 noundef %conv12) #7
   %6 = load ptr, ptr %cur, align 8
-  %last15 = getelementptr inbounds %struct.nghttp2_buf_chain, ptr %6, i64 0, i32 1, i32 3
+  %last15 = getelementptr inbounds i8, ptr %6, i64 32
   %7 = load ptr, ptr %last15, align 8
   store i32 %call, ptr %7, align 1
   %8 = load ptr, ptr %cur, align 8
-  %last18 = getelementptr inbounds %struct.nghttp2_buf_chain, ptr %8, i64 0, i32 1, i32 3
+  %last18 = getelementptr inbounds i8, ptr %8, i64 32
   %9 = load ptr, ptr %last18, align 8
   %add.ptr19 = getelementptr inbounds i8, ptr %9, i64 4
   store ptr %add.ptr19, ptr %last18, align 8
@@ -137,9 +134,9 @@ if.end34:                                         ; preds = %for.body27
 
 for.end:                                          ; preds = %if.end34
   %10 = load ptr, ptr %cur, align 8
-  %end39 = getelementptr inbounds %struct.nghttp2_buf_chain, ptr %10, i64 0, i32 1, i32 1
+  %end39 = getelementptr inbounds i8, ptr %10, i64 16
   %11 = load ptr, ptr %end39, align 8
-  %last42 = getelementptr inbounds %struct.nghttp2_buf_chain, ptr %10, i64 0, i32 1, i32 3
+  %last42 = getelementptr inbounds i8, ptr %10, i64 32
   %12 = load ptr, ptr %last42, align 8
   %sub.ptr.lhs.cast43 = ptrtoint ptr %11 to i64
   %sub.ptr.rhs.cast44 = ptrtoint ptr %12 to i64
@@ -209,7 +206,7 @@ entry:
   br i1 %cmp.not14, label %for.end, label %for.body.lr.ph
 
 for.body.lr.ph:                                   ; preds = %entry
-  %last = getelementptr inbounds %struct.nghttp2_buf, ptr %buf, i64 0, i32 3
+  %last = getelementptr inbounds i8, ptr %buf, i64 24
   br label %for.body
 
 for.body:                                         ; preds = %for.body.lr.ph, %if.end28
@@ -228,7 +225,7 @@ for.body:                                         ; preds = %for.body.lr.ph, %if
   br i1 %tobool.not, label %if.end, label %if.then
 
 if.then:                                          ; preds = %for.body
-  %sym9 = getelementptr inbounds [0 x [16 x %struct.nghttp2_huff_decode]], ptr @huff_decode_table, i64 0, i64 %idxprom, i64 %idxprom4, i32 1
+  %sym9 = getelementptr inbounds i8, ptr %arrayidx5, i64 2
   %5 = load i8, ptr %sym9, align 2
   %6 = load ptr, ptr %last, align 8
   %incdec.ptr10 = getelementptr inbounds i8, ptr %6, i64 1
@@ -247,7 +244,7 @@ if.end:                                           ; preds = %if.then, %for.body
   br i1 %tobool23.not, label %if.end28, label %if.then24
 
 if.then24:                                        ; preds = %if.end
-  %sym25 = getelementptr inbounds [0 x [16 x %struct.nghttp2_huff_decode]], ptr @huff_decode_table, i64 0, i64 %idxprom14, i64 %idxprom18, i32 1
+  %sym25 = getelementptr inbounds i8, ptr %arrayidx19, i64 2
   %9 = load i8, ptr %sym25, align 2
   %10 = load ptr, ptr %last, align 8
   %incdec.ptr27 = getelementptr inbounds i8, ptr %10, i64 1

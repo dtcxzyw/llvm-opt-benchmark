@@ -42,8 +42,8 @@ define void @"_ZN10serde_json3map59Map$LT$alloc..string..String$C$serde_json..va
   br label %11
 
 8:                                                ; preds = %3
-  %9 = getelementptr inbounds { [1 x i64], { { { ptr, i64 }, i64, {} }, ptr, {}, {} } }, ptr %5, i64 0, i32 1
-  %10 = getelementptr inbounds { [1 x i64], { { { { ptr, i64 }, i64, {} }, ptr, {}, {} } } }, ptr %0, i64 0, i32 1
+  %9 = getelementptr inbounds i8, ptr %5, i64 8
+  %10 = getelementptr inbounds i8, ptr %0, i64 8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %10, ptr noundef nonnull align 8 dereferenceable(32) %9, i64 32, i1 false)
   store ptr null, ptr %0, align 8
   br label %11

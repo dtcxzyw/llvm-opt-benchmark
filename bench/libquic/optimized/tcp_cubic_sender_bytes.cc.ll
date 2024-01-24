@@ -3,18 +3,7 @@ source_filename = "bench/libquic/original/tcp_cubic_sender_bytes.cc.ll"
 target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:128-n8:16:32:64-S128"
 target triple = "x86_64-unknown-linux-gnu"
 
-%"class.net::TcpCubicSenderBytes" = type { %"class.net::TcpCubicSenderBase.base", %"class.net::CubicBytes", i64, i64, i64, i64, i64, i64, i64, i64 }
-%"class.net::TcpCubicSenderBase.base" = type <{ %"class.net::SendAlgorithmInterface", %"class.net::HybridSlowStart", %"class.net::PrrSender", ptr, ptr, i8, [3 x i8], i32, i64, i64, i64, i8, i8, i8, i8, i8 }>
-%"class.net::SendAlgorithmInterface" = type { ptr }
-%"class.net::HybridSlowStart" = type { i8, i32, i64, i64, i32, %"class.net::QuicTime::Delta" }
-%"class.net::QuicTime::Delta" = type { %"class.base::TimeDelta", i64 }
-%"class.base::TimeDelta" = type { i64 }
-%"class.net::PrrSender" = type { i64, i64, i64, i64 }
-%"class.net::CubicBytes" = type { ptr, i32, %"class.net::QuicTime", %"class.net::QuicTime", i64, i64, i64, i64, i64, i32, i64 }
-%"class.net::QuicTime" = type { i64 }
 %"class.net::QuicBandwidth" = type { i64 }
-%"class.net::TcpCubicSenderBase" = type <{ %"class.net::SendAlgorithmInterface", %"class.net::HybridSlowStart", %"class.net::PrrSender", ptr, ptr, i8, [3 x i8], i32, i64, i64, i64, i8, i8, i8, i8, i8, [3 x i8] }>
-%"struct.net::QuicConnectionStats" = type { i64, i64, i64, i64, i64, i64, i64, i64, i64, i64, i64, i64, i64, i64, i64, i64, i64, i64, i64, i64, i64, i64, i64, i64, i64, %"class.net::QuicBandwidth", i64, i64, i64, i32, %"class.net::QuicTime" }
 %"class.logging::LogMessage" = type <{ i32, [4 x i8], %"class.std::__cxx11::basic_ostringstream", i64, ptr, i32, [4 x i8] }>
 %"class.std::__cxx11::basic_ostringstream" = type { %"class.std::basic_ostream.base", %"class.std::__cxx11::basic_stringbuf", %"class.std::basic_ios" }
 %"class.std::basic_ostream.base" = type { ptr }
@@ -27,9 +16,6 @@ target triple = "x86_64-unknown-linux-gnu"
 %"class.std::basic_ios" = type { %"class.std::ios_base", ptr, i8, i8, ptr, ptr, ptr, ptr }
 %"class.std::ios_base" = type { ptr, i64, i64, i32, i32, i32, ptr, %"struct.std::ios_base::_Words", [8 x %"struct.std::ios_base::_Words"], i32, ptr, %"class.std::locale" }
 %"struct.std::ios_base::_Words" = type { ptr, i64 }
-%"class.net::RttStats" = type { %"class.net::QuicTime::Delta", %"class.net::QuicTime::Delta", %"class.net::QuicTime::Delta", %"class.net::QuicTime::Delta", %"class.net::QuicTime::Delta", i64, %"class.net::QuicTime::Delta", %"class.net::QuicTime", i32, %"class.net::WindowedFilter" }
-%"class.net::WindowedFilter" = type { %"class.net::QuicTime::Delta", %"class.net::QuicTime::Delta", [3 x %"struct.net::WindowedFilter<net::QuicTime::Delta, net::MinFilter<net::QuicTime::Delta>, net::QuicTime, net::QuicTime::Delta>::Sample"] }
-%"struct.net::WindowedFilter<net::QuicTime::Delta, net::MinFilter<net::QuicTime::Delta>, net::QuicTime, net::QuicTime::Delta>::Sample" = type { %"class.net::QuicTime::Delta", %"class.net::QuicTime" }
 
 @_ZTVN3net19TcpCubicSenderBytesE = dso_local unnamed_addr constant { [29 x ptr] } { [29 x ptr] [ptr null, ptr @_ZTIN3net19TcpCubicSenderBytesE, ptr @_ZN3net19TcpCubicSenderBytesD2Ev, ptr @_ZN3net19TcpCubicSenderBytesD0Ev, ptr @_ZN3net18TcpCubicSenderBase13SetFromConfigERKNS_10QuicConfigENS_11PerspectiveE, ptr @_ZN3net19TcpCubicSenderBytes25SetNumEmulatedConnectionsEi, ptr @_ZN3net18TcpCubicSenderBase17OnCongestionEventEbmRKSt6vectorISt4pairImtESaIS3_EES7_, ptr @_ZN3net18TcpCubicSenderBase12OnPacketSentENS_8QuicTimeEmmmNS_22HasRetransmittableDataE, ptr @_ZN3net18TcpCubicSenderBase23OnRetransmissionTimeoutEb, ptr @_ZN3net19TcpCubicSenderBytes21OnConnectionMigrationEv, ptr @_ZNK3net18TcpCubicSenderBase13TimeUntilSendENS_8QuicTimeEm, ptr @_ZNK3net18TcpCubicSenderBase10PacingRateEm, ptr @_ZNK3net18TcpCubicSenderBase17BandwidthEstimateEv, ptr @_ZNK3net18TcpCubicSenderBase19RetransmissionDelayEv, ptr @_ZNK3net19TcpCubicSenderBytes19GetCongestionWindowEv, ptr @_ZNK3net18TcpCubicSenderBase11InSlowStartEv, ptr @_ZNK3net18TcpCubicSenderBase10InRecoveryEv, ptr @_ZNK3net19TcpCubicSenderBytes21GetSlowStartThresholdEv, ptr @_ZNK3net19TcpCubicSenderBytes24GetCongestionControlTypeEv, ptr @_ZN3net18TcpCubicSenderBase21ResumeConnectionStateERKNS_23CachedNetworkParametersEb, ptr @_ZNK3net18TcpCubicSenderBase13GetDebugStateB5cxx11Ev, ptr @_ZN3net18TcpCubicSenderBase20OnApplicationLimitedEm, ptr @_ZN3net19TcpCubicSenderBytes38SetCongestionWindowFromBandwidthAndRttENS_13QuicBandwidthENS_8QuicTime5DeltaE, ptr @_ZN3net19TcpCubicSenderBytes28SetCongestionWindowInPacketsEm, ptr @_ZN3net19TcpCubicSenderBytes31SetMinCongestionWindowInPacketsEm, ptr @_ZN3net19TcpCubicSenderBytes13ExitSlowstartEv, ptr @_ZN3net19TcpCubicSenderBytes12OnPacketLostEmmm, ptr @_ZN3net19TcpCubicSenderBytes17MaybeIncreaseCwndEmmm, ptr @_ZN3net19TcpCubicSenderBytes27HandleRetransmissionTimeoutEv] }, align 8
 @FLAGS_quic_no_lower_bw_resumption_limit = external local_unnamed_addr global i8, align 1
@@ -48,28 +34,28 @@ define dso_local void @_ZN3net19TcpCubicSenderBytesC2EPKNS_9QuicClockEPKNS_8RttS
 entry:
   tail call void @_ZN3net18TcpCubicSenderBaseC2EPKNS_9QuicClockEPKNS_8RttStatsEbPNS_19QuicConnectionStatsE(ptr noundef nonnull align 8 dereferenceable(141) %this, ptr noundef %clock, ptr noundef %rtt_stats, i1 noundef zeroext %reno, ptr noundef %stats)
   store ptr getelementptr inbounds ({ [29 x ptr] }, ptr @_ZTVN3net19TcpCubicSenderBytesE, i64 0, inrange i32 0, i64 2), ptr %this, align 8
-  %cubic_ = getelementptr inbounds %"class.net::TcpCubicSenderBytes", ptr %this, i64 0, i32 1
+  %cubic_ = getelementptr inbounds i8, ptr %this, i64 144
   invoke void @_ZN3net10CubicBytesC1EPKNS_9QuicClockE(ptr noundef nonnull align 8 dereferenceable(88) %cubic_, ptr noundef %clock)
           to label %invoke.cont unwind label %lpad
 
 invoke.cont:                                      ; preds = %entry
-  %num_acked_packets_ = getelementptr inbounds %"class.net::TcpCubicSenderBytes", ptr %this, i64 0, i32 2
+  %num_acked_packets_ = getelementptr inbounds i8, ptr %this, i64 232
   store i64 0, ptr %num_acked_packets_, align 8
-  %congestion_window_ = getelementptr inbounds %"class.net::TcpCubicSenderBytes", ptr %this, i64 0, i32 3
+  %congestion_window_ = getelementptr inbounds i8, ptr %this, i64 240
   %mul = mul i64 %initial_tcp_congestion_window, 1460
   store i64 %mul, ptr %congestion_window_, align 8
-  %min_congestion_window_ = getelementptr inbounds %"class.net::TcpCubicSenderBytes", ptr %this, i64 0, i32 4
+  %min_congestion_window_ = getelementptr inbounds i8, ptr %this, i64 248
   store i64 2920, ptr %min_congestion_window_, align 8
-  %max_congestion_window_ = getelementptr inbounds %"class.net::TcpCubicSenderBytes", ptr %this, i64 0, i32 5
+  %max_congestion_window_ = getelementptr inbounds i8, ptr %this, i64 256
   %mul2 = mul i64 %max_congestion_window, 1460
   store i64 %mul2, ptr %max_congestion_window_, align 8
-  %slowstart_threshold_ = getelementptr inbounds %"class.net::TcpCubicSenderBytes", ptr %this, i64 0, i32 6
+  %slowstart_threshold_ = getelementptr inbounds i8, ptr %this, i64 264
   store i64 %mul2, ptr %slowstart_threshold_, align 8
-  %initial_tcp_congestion_window_ = getelementptr inbounds %"class.net::TcpCubicSenderBytes", ptr %this, i64 0, i32 7
+  %initial_tcp_congestion_window_ = getelementptr inbounds i8, ptr %this, i64 272
   store i64 %mul, ptr %initial_tcp_congestion_window_, align 8
-  %initial_max_tcp_congestion_window_ = getelementptr inbounds %"class.net::TcpCubicSenderBytes", ptr %this, i64 0, i32 8
+  %initial_max_tcp_congestion_window_ = getelementptr inbounds i8, ptr %this, i64 280
   store i64 %mul2, ptr %initial_max_tcp_congestion_window_, align 8
-  %min_slow_start_exit_window_ = getelementptr inbounds %"class.net::TcpCubicSenderBytes", ptr %this, i64 0, i32 9
+  %min_slow_start_exit_window_ = getelementptr inbounds i8, ptr %this, i64 288
   store i64 2920, ptr %min_slow_start_exit_window_, align 8
   ret void
 
@@ -119,7 +105,7 @@ entry:
   br i1 %tobool.not, label %if.else, label %if.then
 
 if.then:                                          ; preds = %entry
-  %min_congestion_window_ = getelementptr inbounds %"class.net::TcpCubicSenderBytes", ptr %this, i64 0, i32 4
+  %min_congestion_window_ = getelementptr inbounds i8, ptr %this, i64 248
   %2 = load i64, ptr %min_congestion_window_, align 8
   %3 = call i64 @llvm.umin.i64(i64 %call, i64 292000)
   %4 = call i64 @llvm.umax.i64(i64 %2, i64 %3)
@@ -132,7 +118,7 @@ if.else:                                          ; preds = %entry
 
 if.end:                                           ; preds = %if.else, %if.then
   %.sink = phi i64 [ %.sroa.speculated, %if.else ], [ %4, %if.then ]
-  %5 = getelementptr inbounds %"class.net::TcpCubicSenderBytes", ptr %this, i64 0, i32 3
+  %5 = getelementptr inbounds i8, ptr %this, i64 240
   store i64 %.sink, ptr %5, align 8
   ret void
 }
@@ -143,7 +129,7 @@ declare noundef i64 @_ZNK3net13QuicBandwidth16ToBytesPerPeriodENS_8QuicTime5Delt
 define dso_local void @_ZN3net19TcpCubicSenderBytes28SetCongestionWindowInPacketsEm(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(296) %this, i64 noundef %congestion_window) unnamed_addr #5 align 2 {
 entry:
   %mul = mul i64 %congestion_window, 1460
-  %congestion_window_ = getelementptr inbounds %"class.net::TcpCubicSenderBytes", ptr %this, i64 0, i32 3
+  %congestion_window_ = getelementptr inbounds i8, ptr %this, i64 240
   store i64 %mul, ptr %congestion_window_, align 8
   ret void
 }
@@ -152,7 +138,7 @@ entry:
 define dso_local void @_ZN3net19TcpCubicSenderBytes31SetMinCongestionWindowInPacketsEm(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(296) %this, i64 noundef %congestion_window) unnamed_addr #5 align 2 {
 entry:
   %mul = mul i64 %congestion_window, 1460
-  %min_congestion_window_ = getelementptr inbounds %"class.net::TcpCubicSenderBytes", ptr %this, i64 0, i32 4
+  %min_congestion_window_ = getelementptr inbounds i8, ptr %this, i64 248
   store i64 %mul, ptr %min_congestion_window_, align 8
   ret void
 }
@@ -161,8 +147,8 @@ entry:
 define dso_local void @_ZN3net19TcpCubicSenderBytes25SetNumEmulatedConnectionsEi(ptr noundef nonnull align 8 dereferenceable(296) %this, i32 noundef %num_connections) unnamed_addr #0 align 2 {
 entry:
   tail call void @_ZN3net18TcpCubicSenderBase25SetNumEmulatedConnectionsEi(ptr noundef nonnull align 8 dereferenceable(141) %this, i32 noundef %num_connections)
-  %cubic_ = getelementptr inbounds %"class.net::TcpCubicSenderBytes", ptr %this, i64 0, i32 1
-  %num_connections_ = getelementptr inbounds %"class.net::TcpCubicSenderBase", ptr %this, i64 0, i32 7
+  %cubic_ = getelementptr inbounds i8, ptr %this, i64 144
+  %num_connections_ = getelementptr inbounds i8, ptr %this, i64 108
   %0 = load i32, ptr %num_connections_, align 4
   tail call void @_ZN3net10CubicBytes17SetNumConnectionsEi(ptr noundef nonnull align 8 dereferenceable(88) %cubic_, i32 noundef %0)
   ret void
@@ -175,9 +161,9 @@ declare void @_ZN3net10CubicBytes17SetNumConnectionsEi(ptr noundef nonnull align
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
 define dso_local void @_ZN3net19TcpCubicSenderBytes13ExitSlowstartEv(ptr nocapture noundef nonnull align 8 dereferenceable(296) %this) unnamed_addr #6 align 2 {
 entry:
-  %congestion_window_ = getelementptr inbounds %"class.net::TcpCubicSenderBytes", ptr %this, i64 0, i32 3
+  %congestion_window_ = getelementptr inbounds i8, ptr %this, i64 240
   %0 = load i64, ptr %congestion_window_, align 8
-  %slowstart_threshold_ = getelementptr inbounds %"class.net::TcpCubicSenderBytes", ptr %this, i64 0, i32 6
+  %slowstart_threshold_ = getelementptr inbounds i8, ptr %this, i64 264
   store i64 %0, ptr %slowstart_threshold_, align 8
   ret void
 }
@@ -185,90 +171,88 @@ entry:
 ; Function Attrs: mustprogress uwtable
 define dso_local void @_ZN3net19TcpCubicSenderBytes12OnPacketLostEmmm(ptr noundef nonnull align 8 dereferenceable(296) %this, i64 noundef %packet_number, i64 noundef %lost_bytes, i64 noundef %bytes_in_flight) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  %largest_sent_at_last_cutback_ = getelementptr inbounds %"class.net::TcpCubicSenderBase", ptr %this, i64 0, i32 10
+  %largest_sent_at_last_cutback_ = getelementptr inbounds i8, ptr %this, i64 128
   %0 = load i64, ptr %largest_sent_at_last_cutback_, align 8
   %cmp.not = icmp ult i64 %0, %packet_number
   br i1 %cmp.not, label %if.end9, label %if.then
 
 if.then:                                          ; preds = %entry
-  %last_cutback_exited_slowstart_ = getelementptr inbounds %"class.net::TcpCubicSenderBase", ptr %this, i64 0, i32 12
+  %last_cutback_exited_slowstart_ = getelementptr inbounds i8, ptr %this, i64 137
   %1 = load i8, ptr %last_cutback_exited_slowstart_, align 1
   %2 = and i8 %1, 1
   %tobool.not = icmp eq i8 %2, 0
   br i1 %tobool.not, label %return, label %if.then2
 
 if.then2:                                         ; preds = %if.then
-  %stats_ = getelementptr inbounds %"class.net::TcpCubicSenderBase", ptr %this, i64 0, i32 4
+  %stats_ = getelementptr inbounds i8, ptr %this, i64 96
   %3 = load ptr, ptr %stats_, align 8
-  %slowstart_packets_lost = getelementptr inbounds %"struct.net::QuicConnectionStats", ptr %3, i64 0, i32 14
+  %slowstart_packets_lost = getelementptr inbounds i8, ptr %3, i64 112
   %4 = load i64, ptr %slowstart_packets_lost, align 8
   %inc = add i64 %4, 1
   store i64 %inc, ptr %slowstart_packets_lost, align 8
   %5 = load ptr, ptr %stats_, align 8
-  %slowstart_bytes_lost = getelementptr inbounds %"struct.net::QuicConnectionStats", ptr %5, i64 0, i32 15
+  %slowstart_bytes_lost = getelementptr inbounds i8, ptr %5, i64 120
   %6 = load i64, ptr %slowstart_bytes_lost, align 8
   %add = add i64 %6, %lost_bytes
   store i64 %add, ptr %slowstart_bytes_lost, align 8
-  %slow_start_large_reduction_ = getelementptr inbounds %"class.net::TcpCubicSenderBase", ptr %this, i64 0, i32 13
+  %slow_start_large_reduction_ = getelementptr inbounds i8, ptr %this, i64 138
   %7 = load i8, ptr %slow_start_large_reduction_, align 2
   %8 = and i8 %7, 1
   %tobool4.not = icmp eq i8 %8, 0
   br i1 %tobool4.not, label %return, label %if.then5
 
 if.then5:                                         ; preds = %if.then2
-  %congestion_window_ = getelementptr inbounds %"class.net::TcpCubicSenderBytes", ptr %this, i64 0, i32 3
+  %congestion_window_ = getelementptr inbounds i8, ptr %this, i64 240
   %9 = load i64, ptr %congestion_window_, align 8
   %sub = sub i64 %9, %lost_bytes
-  %min_slow_start_exit_window_ = getelementptr inbounds %"class.net::TcpCubicSenderBytes", ptr %this, i64 0, i32 9
+  %min_slow_start_exit_window_ = getelementptr inbounds i8, ptr %this, i64 288
   %10 = load i64, ptr %min_slow_start_exit_window_, align 8
   %.sroa.speculated = tail call i64 @llvm.umax.i64(i64 %sub, i64 %10)
   store i64 %.sroa.speculated, ptr %congestion_window_, align 8
-  %slowstart_threshold_ = getelementptr inbounds %"class.net::TcpCubicSenderBytes", ptr %this, i64 0, i32 6
-  store i64 %.sroa.speculated, ptr %slowstart_threshold_, align 8
-  br label %return
+  br label %return.sink.split
 
 if.end9:                                          ; preds = %entry
-  %stats_10 = getelementptr inbounds %"class.net::TcpCubicSenderBase", ptr %this, i64 0, i32 4
+  %stats_10 = getelementptr inbounds i8, ptr %this, i64 96
   %11 = load ptr, ptr %stats_10, align 8
-  %tcp_loss_events = getelementptr inbounds %"struct.net::QuicConnectionStats", ptr %11, i64 0, i32 29
+  %tcp_loss_events = getelementptr inbounds i8, ptr %11, i64 232
   %12 = load i32, ptr %tcp_loss_events, align 8
   %inc11 = add i32 %12, 1
   store i32 %inc11, ptr %tcp_loss_events, align 8
   %vtable = load ptr, ptr %this, align 8
-  %vfn = getelementptr inbounds ptr, ptr %vtable, i64 13
+  %vfn = getelementptr inbounds i8, ptr %vtable, i64 104
   %13 = load ptr, ptr %vfn, align 8
   %call12 = tail call noundef zeroext i1 %13(ptr noundef nonnull align 8 dereferenceable(141) %this)
-  %last_cutback_exited_slowstart_13 = getelementptr inbounds %"class.net::TcpCubicSenderBase", ptr %this, i64 0, i32 12
+  %last_cutback_exited_slowstart_13 = getelementptr inbounds i8, ptr %this, i64 137
   %frombool = zext i1 %call12 to i8
   store i8 %frombool, ptr %last_cutback_exited_slowstart_13, align 1
   %vtable14 = load ptr, ptr %this, align 8
-  %vfn15 = getelementptr inbounds ptr, ptr %vtable14, i64 13
+  %vfn15 = getelementptr inbounds i8, ptr %vtable14, i64 104
   %14 = load ptr, ptr %vfn15, align 8
   %call16 = tail call noundef zeroext i1 %14(ptr noundef nonnull align 8 dereferenceable(141) %this)
   br i1 %call16, label %if.then17, label %if.end21
 
 if.then17:                                        ; preds = %if.end9
   %15 = load ptr, ptr %stats_10, align 8
-  %slowstart_packets_lost19 = getelementptr inbounds %"struct.net::QuicConnectionStats", ptr %15, i64 0, i32 14
+  %slowstart_packets_lost19 = getelementptr inbounds i8, ptr %15, i64 112
   %16 = load i64, ptr %slowstart_packets_lost19, align 8
   %inc20 = add i64 %16, 1
   store i64 %inc20, ptr %slowstart_packets_lost19, align 8
   br label %if.end21
 
 if.end21:                                         ; preds = %if.then17, %if.end9
-  %no_prr_ = getelementptr inbounds %"class.net::TcpCubicSenderBase", ptr %this, i64 0, i32 15
+  %no_prr_ = getelementptr inbounds i8, ptr %this, i64 140
   %17 = load i8, ptr %no_prr_, align 4
   %18 = and i8 %17, 1
   %tobool22.not = icmp eq i8 %18, 0
   br i1 %tobool22.not, label %if.then23, label %if.end24
 
 if.then23:                                        ; preds = %if.end21
-  %prr_ = getelementptr inbounds %"class.net::TcpCubicSenderBase", ptr %this, i64 0, i32 2
+  %prr_ = getelementptr inbounds i8, ptr %this, i64 56
   tail call void @_ZN3net9PrrSender12OnPacketLostEm(ptr noundef nonnull align 8 dereferenceable(32) %prr_, i64 noundef %bytes_in_flight)
   br label %if.end24
 
 if.end24:                                         ; preds = %if.then23, %if.end21
-  %slow_start_large_reduction_25 = getelementptr inbounds %"class.net::TcpCubicSenderBase", ptr %this, i64 0, i32 13
+  %slow_start_large_reduction_25 = getelementptr inbounds i8, ptr %this, i64 138
   %19 = load i8, ptr %slow_start_large_reduction_25, align 2
   %20 = and i8 %19, 1
   %tobool26.not = icmp eq i8 %20, 0
@@ -276,15 +260,15 @@ if.end24:                                         ; preds = %if.then23, %if.end2
 
 land.lhs.true:                                    ; preds = %if.end24
   %vtable27 = load ptr, ptr %this, align 8
-  %vfn28 = getelementptr inbounds ptr, ptr %vtable27, i64 13
+  %vfn28 = getelementptr inbounds i8, ptr %vtable27, i64 104
   %21 = load ptr, ptr %vfn28, align 8
   %call29 = tail call noundef zeroext i1 %21(ptr noundef nonnull align 8 dereferenceable(141) %this)
   br i1 %call29, label %if.end36, label %if.else46
 
 if.end36:                                         ; preds = %land.lhs.true
-  %congestion_window_37 = getelementptr inbounds %"class.net::TcpCubicSenderBytes", ptr %this, i64 0, i32 3
+  %congestion_window_37 = getelementptr inbounds i8, ptr %this, i64 240
   %22 = load i64, ptr %congestion_window_37, align 8
-  %initial_tcp_congestion_window_ = getelementptr inbounds %"class.net::TcpCubicSenderBytes", ptr %this, i64 0, i32 7
+  %initial_tcp_congestion_window_ = getelementptr inbounds i8, ptr %this, i64 272
   %23 = load i64, ptr %initial_tcp_congestion_window_, align 8
   %mul = shl i64 %23, 1
   %cmp38.not = icmp ult i64 %22, %mul
@@ -292,7 +276,7 @@ if.end36:                                         ; preds = %land.lhs.true
 
 if.then39:                                        ; preds = %if.end36
   %div3 = lshr i64 %22, 1
-  %min_slow_start_exit_window_41 = getelementptr inbounds %"class.net::TcpCubicSenderBytes", ptr %this, i64 0, i32 9
+  %min_slow_start_exit_window_41 = getelementptr inbounds i8, ptr %this, i64 288
   store i64 %div3, ptr %min_slow_start_exit_window_41, align 8
   br label %if.end42
 
@@ -302,14 +286,14 @@ if.end42:                                         ; preds = %if.then39, %if.end3
   br label %if.end59
 
 if.else46:                                        ; preds = %land.lhs.true, %if.end24
-  %reno_ = getelementptr inbounds %"class.net::TcpCubicSenderBase", ptr %this, i64 0, i32 5
+  %reno_ = getelementptr inbounds i8, ptr %this, i64 104
   %24 = load i8, ptr %reno_, align 8
   %25 = and i8 %24, 1
   %tobool47.not = icmp eq i8 %25, 0
   br i1 %tobool47.not, label %if.else54, label %if.then48
 
 if.then48:                                        ; preds = %if.else46
-  %congestion_window_49 = getelementptr inbounds %"class.net::TcpCubicSenderBytes", ptr %this, i64 0, i32 3
+  %congestion_window_49 = getelementptr inbounds i8, ptr %this, i64 240
   %26 = load i64, ptr %congestion_window_49, align 8
   %conv = uitofp i64 %26 to float
   %call50 = tail call noundef float @_ZNK3net18TcpCubicSenderBase8RenoBetaEv(ptr noundef nonnull align 8 dereferenceable(141) %this)
@@ -319,8 +303,8 @@ if.then48:                                        ; preds = %if.else46
   br label %if.end59
 
 if.else54:                                        ; preds = %if.else46
-  %cubic_ = getelementptr inbounds %"class.net::TcpCubicSenderBytes", ptr %this, i64 0, i32 1
-  %congestion_window_55 = getelementptr inbounds %"class.net::TcpCubicSenderBytes", ptr %this, i64 0, i32 3
+  %cubic_ = getelementptr inbounds i8, ptr %this, i64 144
+  %congestion_window_55 = getelementptr inbounds i8, ptr %this, i64 240
   %27 = load i64, ptr %congestion_window_55, align 8
   %call56 = tail call noundef i64 @_ZN3net10CubicBytes31CongestionWindowAfterPacketLossEm(ptr noundef nonnull align 8 dereferenceable(88) %cubic_, i64 noundef %27)
   store i64 %call56, ptr %congestion_window_55, align 8
@@ -328,28 +312,33 @@ if.else54:                                        ; preds = %if.else46
 
 if.end59:                                         ; preds = %if.then48, %if.else54, %if.end42
   %28 = phi i64 [ %conv52, %if.then48 ], [ %call56, %if.else54 ], [ %sub44, %if.end42 ]
-  %min_congestion_window_ = getelementptr inbounds %"class.net::TcpCubicSenderBytes", ptr %this, i64 0, i32 4
+  %min_congestion_window_ = getelementptr inbounds i8, ptr %this, i64 248
   %29 = load i64, ptr %min_congestion_window_, align 8
   %cmp61 = icmp ult i64 %28, %29
   br i1 %cmp61, label %if.then62, label %if.end65
 
 if.then62:                                        ; preds = %if.end59
-  %congestion_window_60 = getelementptr inbounds %"class.net::TcpCubicSenderBytes", ptr %this, i64 0, i32 3
+  %congestion_window_60 = getelementptr inbounds i8, ptr %this, i64 240
   store i64 %29, ptr %congestion_window_60, align 8
   br label %if.end65
 
 if.end65:                                         ; preds = %if.then62, %if.end59
   %30 = phi i64 [ %29, %if.then62 ], [ %28, %if.end59 ]
-  %slowstart_threshold_67 = getelementptr inbounds %"class.net::TcpCubicSenderBytes", ptr %this, i64 0, i32 6
+  %slowstart_threshold_67 = getelementptr inbounds i8, ptr %this, i64 264
   store i64 %30, ptr %slowstart_threshold_67, align 8
-  %largest_sent_packet_number_ = getelementptr inbounds %"class.net::TcpCubicSenderBase", ptr %this, i64 0, i32 8
+  %largest_sent_packet_number_ = getelementptr inbounds i8, ptr %this, i64 112
   %31 = load i64, ptr %largest_sent_packet_number_, align 8
   store i64 %31, ptr %largest_sent_at_last_cutback_, align 8
-  %num_acked_packets_ = getelementptr inbounds %"class.net::TcpCubicSenderBytes", ptr %this, i64 0, i32 2
-  store i64 0, ptr %num_acked_packets_, align 8
+  br label %return.sink.split
+
+return.sink.split:                                ; preds = %if.end65, %if.then5
+  %.sink = phi i64 [ 264, %if.then5 ], [ 232, %if.end65 ]
+  %.sroa.speculated.sink = phi i64 [ %.sroa.speculated, %if.then5 ], [ 0, %if.end65 ]
+  %slowstart_threshold_ = getelementptr inbounds i8, ptr %this, i64 %.sink
+  store i64 %.sroa.speculated.sink, ptr %slowstart_threshold_, align 8
   br label %return
 
-return:                                           ; preds = %if.then, %if.then5, %if.then2, %if.end65
+return:                                           ; preds = %return.sink.split, %if.then, %if.then2
   ret void
 }
 
@@ -365,7 +354,7 @@ declare noundef i64 @_ZN3net10CubicBytes31CongestionWindowAfterPacketLossEm(ptr 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
 define dso_local noundef i64 @_ZNK3net19TcpCubicSenderBytes19GetCongestionWindowEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(296) %this) unnamed_addr #7 align 2 {
 entry:
-  %congestion_window_ = getelementptr inbounds %"class.net::TcpCubicSenderBytes", ptr %this, i64 0, i32 3
+  %congestion_window_ = getelementptr inbounds i8, ptr %this, i64 240
   %0 = load i64, ptr %congestion_window_, align 8
   ret i64 %0
 }
@@ -373,7 +362,7 @@ entry:
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
 define dso_local noundef i64 @_ZNK3net19TcpCubicSenderBytes21GetSlowStartThresholdEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(296) %this) unnamed_addr #7 align 2 {
 entry:
-  %slowstart_threshold_ = getelementptr inbounds %"class.net::TcpCubicSenderBytes", ptr %this, i64 0, i32 6
+  %slowstart_threshold_ = getelementptr inbounds i8, ptr %this, i64 264
   %0 = load i64, ptr %slowstart_threshold_, align 8
   ret i64 %0
 }
@@ -387,14 +376,14 @@ entry:
 
 land.lhs.true:                                    ; preds = %entry
   %vtable = load ptr, ptr %this, align 8
-  %vfn = getelementptr inbounds ptr, ptr %vtable, i64 14
+  %vfn = getelementptr inbounds i8, ptr %vtable, i64 112
   %0 = load ptr, ptr %vfn, align 8
   %call2 = tail call noundef zeroext i1 %0(ptr noundef nonnull align 8 dereferenceable(141) %this)
   br i1 %call2, label %cond.false, label %cleanup.done
 
 cond.false:                                       ; preds = %land.lhs.true
   call void @_ZN7logging10LogMessageC1EPKcii(ptr noundef nonnull align 8 dereferenceable(404) %ref.tmp3, ptr noundef nonnull @.str, i32 noundef 156, i32 noundef 2)
-  %stream_.i = getelementptr inbounds %"class.logging::LogMessage", ptr %ref.tmp3, i64 0, i32 2
+  %stream_.i = getelementptr inbounds i8, ptr %ref.tmp3, i64 8
   %call6 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc(ptr noundef nonnull align 8 dereferenceable(8) %stream_.i, ptr noundef nonnull @.str.1)
           to label %invoke.cont5 unwind label %lpad
 
@@ -407,7 +396,7 @@ cleanup.done:                                     ; preds = %land.lhs.true, %ent
   br i1 %call11, label %if.end, label %if.then
 
 if.then:                                          ; preds = %cleanup.done
-  %cubic_ = getelementptr inbounds %"class.net::TcpCubicSenderBytes", ptr %this, i64 0, i32 1
+  %cubic_ = getelementptr inbounds i8, ptr %this, i64 144
   call void @_ZN3net10CubicBytes20OnApplicationLimitedEv(ptr noundef nonnull align 8 dereferenceable(88) %cubic_)
   br label %if.end37
 
@@ -418,16 +407,16 @@ lpad:                                             ; preds = %cond.false
   resume { ptr, i32 } %1
 
 if.end:                                           ; preds = %cleanup.done
-  %congestion_window_ = getelementptr inbounds %"class.net::TcpCubicSenderBytes", ptr %this, i64 0, i32 3
+  %congestion_window_ = getelementptr inbounds i8, ptr %this, i64 240
   %2 = load i64, ptr %congestion_window_, align 8
-  %max_congestion_window_ = getelementptr inbounds %"class.net::TcpCubicSenderBytes", ptr %this, i64 0, i32 5
+  %max_congestion_window_ = getelementptr inbounds i8, ptr %this, i64 256
   %3 = load i64, ptr %max_congestion_window_, align 8
   %cmp.not = icmp ult i64 %2, %3
   br i1 %cmp.not, label %if.end13, label %if.end37
 
 if.end13:                                         ; preds = %if.end
   %vtable14 = load ptr, ptr %this, align 8
-  %vfn15 = getelementptr inbounds ptr, ptr %vtable14, i64 13
+  %vfn15 = getelementptr inbounds i8, ptr %vtable14, i64 104
   %4 = load ptr, ptr %vfn15, align 8
   %call16 = call noundef zeroext i1 %4(ptr noundef nonnull align 8 dereferenceable(141) %this)
   br i1 %call16, label %if.then17, label %if.end19
@@ -439,18 +428,18 @@ if.then17:                                        ; preds = %if.end13
   br label %if.end37
 
 if.end19:                                         ; preds = %if.end13
-  %reno_ = getelementptr inbounds %"class.net::TcpCubicSenderBase", ptr %this, i64 0, i32 5
+  %reno_ = getelementptr inbounds i8, ptr %this, i64 104
   %6 = load i8, ptr %reno_, align 8
   %7 = and i8 %6, 1
   %tobool.not = icmp eq i8 %7, 0
   br i1 %tobool.not, label %if.else, label %if.then20
 
 if.then20:                                        ; preds = %if.end19
-  %num_acked_packets_ = getelementptr inbounds %"class.net::TcpCubicSenderBytes", ptr %this, i64 0, i32 2
+  %num_acked_packets_ = getelementptr inbounds i8, ptr %this, i64 232
   %8 = load i64, ptr %num_acked_packets_, align 8
   %inc = add i64 %8, 1
   store i64 %inc, ptr %num_acked_packets_, align 8
-  %num_connections_ = getelementptr inbounds %"class.net::TcpCubicSenderBase", ptr %this, i64 0, i32 7
+  %num_connections_ = getelementptr inbounds i8, ptr %this, i64 108
   %9 = load i32, ptr %num_connections_, align 4
   %conv = zext i32 %9 to i64
   %mul = mul i64 %inc, %conv
@@ -466,13 +455,13 @@ if.then24:                                        ; preds = %if.then20
   br label %if.end37
 
 if.else:                                          ; preds = %if.end19
-  %cubic_31 = getelementptr inbounds %"class.net::TcpCubicSenderBytes", ptr %this, i64 0, i32 1
+  %cubic_31 = getelementptr inbounds i8, ptr %this, i64 144
   %11 = load i64, ptr %congestion_window_, align 8
-  %rtt_stats_ = getelementptr inbounds %"class.net::TcpCubicSenderBase", ptr %this, i64 0, i32 3
+  %rtt_stats_ = getelementptr inbounds i8, ptr %this, i64 88
   %12 = load ptr, ptr %rtt_stats_, align 8
-  %min_rtt_.i = getelementptr inbounds %"class.net::RttStats", ptr %12, i64 0, i32 1
+  %min_rtt_.i = getelementptr inbounds i8, ptr %12, i64 16
   %retval.sroa.0.0.copyload.i = load i64, ptr %min_rtt_.i, align 8
-  %retval.sroa.2.0.min_rtt_.sroa_idx.i = getelementptr inbounds %"class.net::RttStats", ptr %12, i64 0, i32 1, i32 1
+  %retval.sroa.2.0.min_rtt_.sroa_idx.i = getelementptr inbounds i8, ptr %12, i64 24
   %retval.sroa.2.0.copyload.i = load i64, ptr %retval.sroa.2.0.min_rtt_.sroa_idx.i, align 8
   %call34 = call noundef i64 @_ZN3net10CubicBytes24CongestionWindowAfterAckEmmNS_8QuicTime5DeltaE(ptr noundef nonnull align 8 dereferenceable(88) %cubic_31, i64 noundef %acked_bytes, i64 noundef %11, i64 %retval.sroa.0.0.copyload.i, i64 %retval.sroa.2.0.copyload.i)
   %13 = load i64, ptr %max_congestion_window_, align 8
@@ -499,14 +488,14 @@ declare noundef i64 @_ZN3net10CubicBytes24CongestionWindowAfterAckEmmNS_8QuicTim
 ; Function Attrs: mustprogress uwtable
 define dso_local void @_ZN3net19TcpCubicSenderBytes27HandleRetransmissionTimeoutEv(ptr noundef nonnull align 8 dereferenceable(296) %this) unnamed_addr #0 align 2 {
 entry:
-  %cubic_ = getelementptr inbounds %"class.net::TcpCubicSenderBytes", ptr %this, i64 0, i32 1
+  %cubic_ = getelementptr inbounds i8, ptr %this, i64 144
   tail call void @_ZN3net10CubicBytes5ResetEv(ptr noundef nonnull align 8 dereferenceable(88) %cubic_)
-  %congestion_window_ = getelementptr inbounds %"class.net::TcpCubicSenderBytes", ptr %this, i64 0, i32 3
+  %congestion_window_ = getelementptr inbounds i8, ptr %this, i64 240
   %0 = load i64, ptr %congestion_window_, align 8
   %div1 = lshr i64 %0, 1
-  %slowstart_threshold_ = getelementptr inbounds %"class.net::TcpCubicSenderBytes", ptr %this, i64 0, i32 6
+  %slowstart_threshold_ = getelementptr inbounds i8, ptr %this, i64 264
   store i64 %div1, ptr %slowstart_threshold_, align 8
-  %min_congestion_window_ = getelementptr inbounds %"class.net::TcpCubicSenderBytes", ptr %this, i64 0, i32 4
+  %min_congestion_window_ = getelementptr inbounds i8, ptr %this, i64 248
   %1 = load i64, ptr %min_congestion_window_, align 8
   store i64 %1, ptr %congestion_window_, align 8
   ret void
@@ -518,19 +507,19 @@ declare void @_ZN3net10CubicBytes5ResetEv(ptr noundef nonnull align 8 dereferenc
 define dso_local void @_ZN3net19TcpCubicSenderBytes21OnConnectionMigrationEv(ptr noundef nonnull align 8 dereferenceable(296) %this) unnamed_addr #0 align 2 {
 entry:
   tail call void @_ZN3net18TcpCubicSenderBase21OnConnectionMigrationEv(ptr noundef nonnull align 8 dereferenceable(141) %this)
-  %cubic_ = getelementptr inbounds %"class.net::TcpCubicSenderBytes", ptr %this, i64 0, i32 1
+  %cubic_ = getelementptr inbounds i8, ptr %this, i64 144
   tail call void @_ZN3net10CubicBytes5ResetEv(ptr noundef nonnull align 8 dereferenceable(88) %cubic_)
-  %num_acked_packets_ = getelementptr inbounds %"class.net::TcpCubicSenderBytes", ptr %this, i64 0, i32 2
+  %num_acked_packets_ = getelementptr inbounds i8, ptr %this, i64 232
   store i64 0, ptr %num_acked_packets_, align 8
-  %initial_tcp_congestion_window_ = getelementptr inbounds %"class.net::TcpCubicSenderBytes", ptr %this, i64 0, i32 7
+  %initial_tcp_congestion_window_ = getelementptr inbounds i8, ptr %this, i64 272
   %0 = load i64, ptr %initial_tcp_congestion_window_, align 8
-  %congestion_window_ = getelementptr inbounds %"class.net::TcpCubicSenderBytes", ptr %this, i64 0, i32 3
+  %congestion_window_ = getelementptr inbounds i8, ptr %this, i64 240
   store i64 %0, ptr %congestion_window_, align 8
-  %initial_max_tcp_congestion_window_ = getelementptr inbounds %"class.net::TcpCubicSenderBytes", ptr %this, i64 0, i32 8
+  %initial_max_tcp_congestion_window_ = getelementptr inbounds i8, ptr %this, i64 280
   %1 = load i64, ptr %initial_max_tcp_congestion_window_, align 8
-  %max_congestion_window_ = getelementptr inbounds %"class.net::TcpCubicSenderBytes", ptr %this, i64 0, i32 5
+  %max_congestion_window_ = getelementptr inbounds i8, ptr %this, i64 256
   store i64 %1, ptr %max_congestion_window_, align 8
-  %slowstart_threshold_ = getelementptr inbounds %"class.net::TcpCubicSenderBytes", ptr %this, i64 0, i32 6
+  %slowstart_threshold_ = getelementptr inbounds i8, ptr %this, i64 264
   store i64 %1, ptr %slowstart_threshold_, align 8
   ret void
 }
@@ -540,7 +529,7 @@ declare void @_ZN3net18TcpCubicSenderBase21OnConnectionMigrationEv(ptr noundef n
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
 define dso_local noundef i32 @_ZNK3net19TcpCubicSenderBytes24GetCongestionControlTypeEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(296) %this) unnamed_addr #7 align 2 {
 entry:
-  %reno_ = getelementptr inbounds %"class.net::TcpCubicSenderBase", ptr %this, i64 0, i32 5
+  %reno_ = getelementptr inbounds i8, ptr %this, i64 104
   %0 = load i8, ptr %reno_, align 8
   %1 = and i8 %0, 1
   %tobool.not = icmp eq i8 %1, 0

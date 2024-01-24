@@ -3,8 +3,6 @@ source_filename = "bench/libquic/original/histogram_samples.cc.ll"
 target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:128-n8:16:32:64-S128"
 target triple = "x86_64-unknown-linux-gnu"
 
-%"class.base::HistogramSamples" = type { ptr, %"struct.base::HistogramSamples::Metadata", ptr }
-%"struct.base::HistogramSamples::Metadata" = type <{ i64, i64, i32, [4 x i8] }>
 %"class.std::unique_ptr" = type { %"struct.std::__uniq_ptr_data" }
 %"struct.std::__uniq_ptr_data" = type { %"class.std::__uniq_ptr_impl" }
 %"class.std::__uniq_ptr_impl" = type { %"class.std::tuple" }
@@ -33,10 +31,10 @@ target triple = "x86_64-unknown-linux-gnu"
 define dso_local void @_ZN4base16HistogramSamplesC2Em(ptr noundef nonnull align 8 dereferenceable(40) %this, i64 noundef %id) unnamed_addr #0 align 2 {
 entry:
   store ptr getelementptr inbounds ({ [13 x ptr] }, ptr @_ZTVN4base16HistogramSamplesE, i64 0, inrange i32 0, i64 2), ptr %this, align 8
-  %local_meta_ = getelementptr inbounds %"class.base::HistogramSamples", ptr %this, i64 0, i32 1
-  %0 = getelementptr inbounds %"class.base::HistogramSamples", ptr %this, i64 0, i32 1, i32 1
+  %local_meta_ = getelementptr inbounds i8, ptr %this, i64 8
+  %0 = getelementptr inbounds i8, ptr %this, i64 16
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(20) %0, i8 0, i64 12, i1 false)
-  %meta_ = getelementptr inbounds %"class.base::HistogramSamples", ptr %this, i64 0, i32 2
+  %meta_ = getelementptr inbounds i8, ptr %this, i64 32
   store ptr %local_meta_, ptr %meta_, align 8
   store i64 %id, ptr %local_meta_, align 8
   ret void
@@ -46,9 +44,9 @@ entry:
 define dso_local void @_ZN4base16HistogramSamplesC2EmPNS0_8MetadataE(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(40) %this, i64 noundef %id, ptr noundef %meta) unnamed_addr #1 align 2 {
 entry:
   store ptr getelementptr inbounds ({ [13 x ptr] }, ptr @_ZTVN4base16HistogramSamplesE, i64 0, inrange i32 0, i64 2), ptr %this, align 8
-  %local_meta_ = getelementptr inbounds %"class.base::HistogramSamples", ptr %this, i64 0, i32 1
+  %local_meta_ = getelementptr inbounds i8, ptr %this, i64 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(20) %local_meta_, i8 0, i64 20, i1 false)
-  %meta_ = getelementptr inbounds %"class.base::HistogramSamples", ptr %this, i64 0, i32 2
+  %meta_ = getelementptr inbounds i8, ptr %this, i64 32
   store ptr %meta, ptr %meta_, align 8
   %0 = load i64, ptr %meta, align 8
   %tobool.not = icmp eq i64 %0, 0
@@ -82,27 +80,27 @@ declare void @llvm.trap() #4
 define dso_local void @_ZN4base16HistogramSamples3AddERKS0_(ptr noundef nonnull align 8 dereferenceable(40) %this, ptr noundef nonnull align 8 dereferenceable(40) %other) unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp = alloca %"class.std::unique_ptr", align 8
-  %meta_.i = getelementptr inbounds %"class.base::HistogramSamples", ptr %other, i64 0, i32 2
+  %meta_.i = getelementptr inbounds i8, ptr %other, i64 32
   %0 = load ptr, ptr %meta_.i, align 8
-  %sum.i = getelementptr inbounds %"struct.base::HistogramSamples::Metadata", ptr %0, i64 0, i32 1
+  %sum.i = getelementptr inbounds i8, ptr %0, i64 8
   %1 = load atomic volatile i64, ptr %sum.i monotonic, align 8
-  %meta_.i3 = getelementptr inbounds %"class.base::HistogramSamples", ptr %this, i64 0, i32 2
+  %meta_.i3 = getelementptr inbounds i8, ptr %this, i64 32
   %2 = load ptr, ptr %meta_.i3, align 8
-  %sum.i4 = getelementptr inbounds %"struct.base::HistogramSamples::Metadata", ptr %2, i64 0, i32 1
+  %sum.i4 = getelementptr inbounds i8, ptr %2, i64 8
   %3 = atomicrmw volatile add ptr %sum.i4, i64 %1 monotonic, align 8
   %4 = load ptr, ptr %meta_.i3, align 8
-  %redundant_count = getelementptr inbounds %"struct.base::HistogramSamples::Metadata", ptr %4, i64 0, i32 2
+  %redundant_count = getelementptr inbounds i8, ptr %4, i64 16
   %5 = load ptr, ptr %meta_.i, align 8
-  %redundant_count.i = getelementptr inbounds %"struct.base::HistogramSamples::Metadata", ptr %5, i64 0, i32 2
+  %redundant_count.i = getelementptr inbounds i8, ptr %5, i64 16
   %6 = load atomic volatile i32, ptr %redundant_count.i monotonic, align 4
   %7 = atomicrmw volatile add ptr %redundant_count, i32 %6 monotonic, align 4
   %vtable = load ptr, ptr %other, align 8
-  %vfn = getelementptr inbounds ptr, ptr %vtable, i64 8
+  %vfn = getelementptr inbounds i8, ptr %vtable, i64 64
   %8 = load ptr, ptr %vfn, align 8
   call void %8(ptr nonnull sret(%"class.std::unique_ptr") align 8 %ref.tmp, ptr noundef nonnull align 8 dereferenceable(40) %other)
   %9 = load ptr, ptr %ref.tmp, align 8
   %vtable5 = load ptr, ptr %this, align 8
-  %vfn6 = getelementptr inbounds ptr, ptr %vtable5, i64 10
+  %vfn6 = getelementptr inbounds i8, ptr %vtable5, i64 80
   %10 = load ptr, ptr %vfn6, align 8
   %call7 = invoke noundef zeroext i1 %10(ptr noundef nonnull align 8 dereferenceable(40) %this, ptr noundef %9, i32 noundef 0)
           to label %invoke.cont unwind label %lpad
@@ -114,7 +112,7 @@ invoke.cont:                                      ; preds = %entry
 
 _ZNKSt14default_deleteIN4base19SampleCountIteratorEEclEPS1_.exit.i: ; preds = %invoke.cont
   %vtable.i.i = load ptr, ptr %11, align 8
-  %vfn.i.i = getelementptr inbounds ptr, ptr %vtable.i.i, i64 1
+  %vfn.i.i = getelementptr inbounds i8, ptr %vtable.i.i, i64 8
   %12 = load ptr, ptr %vfn.i.i, align 8
   call void %12(ptr noundef nonnull align 8 dereferenceable(8) %11) #14
   br label %_ZNSt10unique_ptrIN4base19SampleCountIteratorESt14default_deleteIS1_EED2Ev.exit
@@ -131,7 +129,7 @@ lpad:                                             ; preds = %entry
 
 _ZNKSt14default_deleteIN4base19SampleCountIteratorEEclEPS1_.exit.i7: ; preds = %lpad
   %vtable.i.i8 = load ptr, ptr %14, align 8
-  %vfn.i.i9 = getelementptr inbounds ptr, ptr %vtable.i.i8, i64 1
+  %vfn.i.i9 = getelementptr inbounds i8, ptr %vtable.i.i8, i64 8
   %15 = load ptr, ptr %vfn.i.i9, align 8
   call void %15(ptr noundef nonnull align 8 dereferenceable(8) %14) #14
   br label %_ZNSt10unique_ptrIN4base19SampleCountIteratorESt14default_deleteIS1_EED2Ev.exit10
@@ -143,9 +141,9 @@ _ZNSt10unique_ptrIN4base19SampleCountIteratorESt14default_deleteIS1_EED2Ev.exit1
 ; Function Attrs: mustprogress nofree norecurse nounwind willreturn uwtable
 define dso_local void @_ZN4base16HistogramSamples11IncreaseSumEl(ptr nocapture noundef nonnull readonly align 8 dereferenceable(40) %this, i64 noundef %diff) local_unnamed_addr #6 align 2 {
 entry:
-  %meta_ = getelementptr inbounds %"class.base::HistogramSamples", ptr %this, i64 0, i32 2
+  %meta_ = getelementptr inbounds i8, ptr %this, i64 32
   %0 = load ptr, ptr %meta_, align 8
-  %sum = getelementptr inbounds %"struct.base::HistogramSamples::Metadata", ptr %0, i64 0, i32 1
+  %sum = getelementptr inbounds i8, ptr %0, i64 8
   %1 = atomicrmw volatile add ptr %sum, i64 %diff monotonic, align 8
   ret void
 }
@@ -167,32 +165,32 @@ lor.lhs.false:                                    ; preds = %entry
 
 if.end:                                           ; preds = %lor.lhs.false
   %0 = load i64, ptr %sum, align 8
-  %meta_.i = getelementptr inbounds %"class.base::HistogramSamples", ptr %this, i64 0, i32 2
+  %meta_.i = getelementptr inbounds i8, ptr %this, i64 32
   %1 = load ptr, ptr %meta_.i, align 8
-  %sum.i = getelementptr inbounds %"struct.base::HistogramSamples::Metadata", ptr %1, i64 0, i32 1
+  %sum.i = getelementptr inbounds i8, ptr %1, i64 8
   %2 = atomicrmw volatile add ptr %sum.i, i64 %0 monotonic, align 8
   %3 = load ptr, ptr %meta_.i, align 8
-  %redundant_count3 = getelementptr inbounds %"struct.base::HistogramSamples::Metadata", ptr %3, i64 0, i32 2
+  %redundant_count3 = getelementptr inbounds i8, ptr %3, i64 16
   %4 = load i32, ptr %redundant_count, align 4
   %5 = atomicrmw volatile add ptr %redundant_count3, i32 %4 monotonic, align 4
   store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTVN4base12_GLOBAL__N_125SampleCountPickleIteratorE, i64 0, inrange i32 0, i64 2), ptr %pickle_iter, align 8
-  %iter_.i = getelementptr inbounds %"class.base::(anonymous namespace)::SampleCountPickleIterator", ptr %pickle_iter, i64 0, i32 1
+  %iter_.i = getelementptr inbounds i8, ptr %pickle_iter, i64 8
   store ptr %iter, ptr %iter_.i, align 8
-  %is_done_.i = getelementptr inbounds %"class.base::(anonymous namespace)::SampleCountPickleIterator", ptr %pickle_iter, i64 0, i32 5
+  %is_done_.i = getelementptr inbounds i8, ptr %pickle_iter, i64 28
   store i8 0, ptr %is_done_.i, align 4
-  %min_.i.i = getelementptr inbounds %"class.base::(anonymous namespace)::SampleCountPickleIterator", ptr %pickle_iter, i64 0, i32 2
+  %min_.i.i = getelementptr inbounds i8, ptr %pickle_iter, i64 16
   %call.i1.i = call noundef zeroext i1 @_ZN4base14PickleIterator7ReadIntEPi(ptr noundef nonnull align 8 dereferenceable(24) %iter, ptr noundef nonnull %min_.i.i)
   br i1 %call.i1.i, label %lor.lhs.false.i.i, label %if.then.i.i
 
 lor.lhs.false.i.i:                                ; preds = %if.end
   %6 = load ptr, ptr %iter_.i, align 8
-  %max_.i.i = getelementptr inbounds %"class.base::(anonymous namespace)::SampleCountPickleIterator", ptr %pickle_iter, i64 0, i32 3
+  %max_.i.i = getelementptr inbounds i8, ptr %pickle_iter, i64 20
   %call3.i2.i = call noundef zeroext i1 @_ZN4base14PickleIterator7ReadIntEPi(ptr noundef nonnull align 8 dereferenceable(24) %6, ptr noundef nonnull %max_.i.i)
   br i1 %call3.i2.i, label %lor.lhs.false4.i.i, label %if.then.i.i
 
 lor.lhs.false4.i.i:                               ; preds = %lor.lhs.false.i.i
   %7 = load ptr, ptr %iter_.i, align 8
-  %count_.i.i = getelementptr inbounds %"class.base::(anonymous namespace)::SampleCountPickleIterator", ptr %pickle_iter, i64 0, i32 4
+  %count_.i.i = getelementptr inbounds i8, ptr %pickle_iter, i64 24
   %call6.i3.i = call noundef zeroext i1 @_ZN4base14PickleIterator7ReadIntEPi(ptr noundef nonnull align 8 dereferenceable(24) %7, ptr noundef nonnull %count_.i.i)
   br i1 %call6.i3.i, label %_ZN4base12_GLOBAL__N_125SampleCountPickleIteratorC2EPNS_14PickleIteratorE.exit, label %if.then.i.i
 
@@ -202,7 +200,7 @@ if.then.i.i:                                      ; preds = %lor.lhs.false4.i.i,
 
 _ZN4base12_GLOBAL__N_125SampleCountPickleIteratorC2EPNS_14PickleIteratorE.exit: ; preds = %lor.lhs.false4.i.i, %if.then.i.i
   %vtable = load ptr, ptr %this, align 8
-  %vfn = getelementptr inbounds ptr, ptr %vtable, i64 10
+  %vfn = getelementptr inbounds i8, ptr %vtable, i64 80
   %8 = load ptr, ptr %vfn, align 8
   %call5 = call noundef zeroext i1 %8(ptr noundef nonnull align 8 dereferenceable(40) %this, ptr noundef nonnull %pickle_iter, i32 noundef 0)
   br label %return
@@ -226,29 +224,29 @@ entry:
 define dso_local void @_ZN4base16HistogramSamples8SubtractERKS0_(ptr noundef nonnull align 8 dereferenceable(40) %this, ptr noundef nonnull align 8 dereferenceable(40) %other) unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp = alloca %"class.std::unique_ptr", align 8
-  %meta_.i = getelementptr inbounds %"class.base::HistogramSamples", ptr %other, i64 0, i32 2
+  %meta_.i = getelementptr inbounds i8, ptr %other, i64 32
   %0 = load ptr, ptr %meta_.i, align 8
-  %sum.i = getelementptr inbounds %"struct.base::HistogramSamples::Metadata", ptr %0, i64 0, i32 1
+  %sum.i = getelementptr inbounds i8, ptr %0, i64 8
   %1 = load atomic volatile i64, ptr %sum.i monotonic, align 8
   %sub = sub nsw i64 0, %1
-  %meta_.i3 = getelementptr inbounds %"class.base::HistogramSamples", ptr %this, i64 0, i32 2
+  %meta_.i3 = getelementptr inbounds i8, ptr %this, i64 32
   %2 = load ptr, ptr %meta_.i3, align 8
-  %sum.i4 = getelementptr inbounds %"struct.base::HistogramSamples::Metadata", ptr %2, i64 0, i32 1
+  %sum.i4 = getelementptr inbounds i8, ptr %2, i64 8
   %3 = atomicrmw volatile add ptr %sum.i4, i64 %sub monotonic, align 8
   %4 = load ptr, ptr %meta_.i3, align 8
-  %redundant_count = getelementptr inbounds %"struct.base::HistogramSamples::Metadata", ptr %4, i64 0, i32 2
+  %redundant_count = getelementptr inbounds i8, ptr %4, i64 16
   %5 = load ptr, ptr %meta_.i, align 8
-  %redundant_count.i = getelementptr inbounds %"struct.base::HistogramSamples::Metadata", ptr %5, i64 0, i32 2
+  %redundant_count.i = getelementptr inbounds i8, ptr %5, i64 16
   %6 = load atomic volatile i32, ptr %redundant_count.i monotonic, align 4
   %sub3 = sub nsw i32 0, %6
   %7 = atomicrmw volatile add ptr %redundant_count, i32 %sub3 monotonic, align 4
   %vtable = load ptr, ptr %other, align 8
-  %vfn = getelementptr inbounds ptr, ptr %vtable, i64 8
+  %vfn = getelementptr inbounds i8, ptr %vtable, i64 64
   %8 = load ptr, ptr %vfn, align 8
   call void %8(ptr nonnull sret(%"class.std::unique_ptr") align 8 %ref.tmp, ptr noundef nonnull align 8 dereferenceable(40) %other)
   %9 = load ptr, ptr %ref.tmp, align 8
   %vtable6 = load ptr, ptr %this, align 8
-  %vfn7 = getelementptr inbounds ptr, ptr %vtable6, i64 10
+  %vfn7 = getelementptr inbounds i8, ptr %vtable6, i64 80
   %10 = load ptr, ptr %vfn7, align 8
   %call8 = invoke noundef zeroext i1 %10(ptr noundef nonnull align 8 dereferenceable(40) %this, ptr noundef %9, i32 noundef 1)
           to label %invoke.cont unwind label %lpad
@@ -260,7 +258,7 @@ invoke.cont:                                      ; preds = %entry
 
 _ZNKSt14default_deleteIN4base19SampleCountIteratorEEclEPS1_.exit.i: ; preds = %invoke.cont
   %vtable.i.i = load ptr, ptr %11, align 8
-  %vfn.i.i = getelementptr inbounds ptr, ptr %vtable.i.i, i64 1
+  %vfn.i.i = getelementptr inbounds i8, ptr %vtable.i.i, i64 8
   %12 = load ptr, ptr %vfn.i.i, align 8
   call void %12(ptr noundef nonnull align 8 dereferenceable(8) %11) #14
   br label %_ZNSt10unique_ptrIN4base19SampleCountIteratorESt14default_deleteIS1_EED2Ev.exit
@@ -277,7 +275,7 @@ lpad:                                             ; preds = %entry
 
 _ZNKSt14default_deleteIN4base19SampleCountIteratorEEclEPS1_.exit.i7: ; preds = %lpad
   %vtable.i.i8 = load ptr, ptr %14, align 8
-  %vfn.i.i9 = getelementptr inbounds ptr, ptr %vtable.i.i8, i64 1
+  %vfn.i.i9 = getelementptr inbounds i8, ptr %vtable.i.i8, i64 8
   %15 = load ptr, ptr %vfn.i.i9, align 8
   call void %15(ptr noundef nonnull align 8 dereferenceable(8) %14) #14
   br label %_ZNSt10unique_ptrIN4base19SampleCountIteratorESt14default_deleteIS1_EED2Ev.exit10
@@ -298,23 +296,23 @@ if.end6:
   %max = alloca i32, align 4
   %count = alloca i32, align 4
   %it = alloca %"class.std::unique_ptr", align 8
-  %meta_.i = getelementptr inbounds %"class.base::HistogramSamples", ptr %this, i64 0, i32 2
+  %meta_.i = getelementptr inbounds i8, ptr %this, i64 32
   %0 = load ptr, ptr %meta_.i, align 8
-  %sum.i = getelementptr inbounds %"struct.base::HistogramSamples::Metadata", ptr %0, i64 0, i32 1
+  %sum.i = getelementptr inbounds i8, ptr %0, i64 8
   %1 = load atomic volatile i64, ptr %sum.i monotonic, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %value.addr.i)
   store i64 %1, ptr %value.addr.i, align 8
   call void @_ZN4base6Pickle16WriteBytesStaticILm8EEEvPKv(ptr noundef nonnull align 8 dereferenceable(40) %pickle, ptr noundef nonnull %value.addr.i)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %value.addr.i)
   %2 = load ptr, ptr %meta_.i, align 8
-  %redundant_count.i = getelementptr inbounds %"struct.base::HistogramSamples::Metadata", ptr %2, i64 0, i32 2
+  %redundant_count.i = getelementptr inbounds i8, ptr %2, i64 16
   %3 = load atomic volatile i32, ptr %redundant_count.i monotonic, align 4
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %value.addr.i6)
   store i32 %3, ptr %value.addr.i6, align 4
   call void @_ZN4base6Pickle16WriteBytesStaticILm4EEEvPKv(ptr noundef nonnull align 8 dereferenceable(40) %pickle, ptr noundef nonnull %value.addr.i6)
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %value.addr.i6)
   %vtable = load ptr, ptr %this, align 8
-  %vfn = getelementptr inbounds ptr, ptr %vtable, i64 8
+  %vfn = getelementptr inbounds i8, ptr %vtable, i64 64
   %4 = load ptr, ptr %vfn, align 8
   call void %4(ptr nonnull sret(%"class.std::unique_ptr") align 8 %it, ptr noundef nonnull align 8 dereferenceable(40) %this)
   br label %for.cond
@@ -322,7 +320,7 @@ if.end6:
 for.cond:                                         ; preds = %for.inc, %if.end6
   %5 = load ptr, ptr %it, align 8
   %vtable8 = load ptr, ptr %5, align 8
-  %vfn9 = getelementptr inbounds ptr, ptr %vtable8, i64 2
+  %vfn9 = getelementptr inbounds i8, ptr %vtable8, i64 16
   %6 = load ptr, ptr %vfn9, align 8
   %call10 = invoke noundef zeroext i1 %6(ptr noundef nonnull align 8 dereferenceable(8) %5)
           to label %invoke.cont unwind label %lpad
@@ -340,7 +338,7 @@ lpad:                                             ; preds = %lor.lhs.false19, %l
 
 _ZNKSt14default_deleteIN4base19SampleCountIteratorEEclEPS1_.exit.i: ; preds = %lpad
   %vtable.i.i = load ptr, ptr %9, align 8
-  %vfn.i.i = getelementptr inbounds ptr, ptr %vtable.i.i, i64 1
+  %vfn.i.i = getelementptr inbounds i8, ptr %vtable.i.i, i64 8
   %10 = load ptr, ptr %vfn.i.i, align 8
   call void %10(ptr noundef nonnull align 8 dereferenceable(8) %9) #14
   br label %_ZNSt10unique_ptrIN4base19SampleCountIteratorESt14default_deleteIS1_EED2Ev.exit
@@ -350,7 +348,7 @@ _ZNSt10unique_ptrIN4base19SampleCountIteratorESt14default_deleteIS1_EED2Ev.exit:
 
 for.body:                                         ; preds = %invoke.cont
   %vtable12 = load ptr, ptr %7, align 8
-  %vfn13 = getelementptr inbounds ptr, ptr %vtable12, i64 4
+  %vfn13 = getelementptr inbounds i8, ptr %vtable12, i64 32
   %11 = load ptr, ptr %vfn13, align 8
   invoke void %11(ptr noundef nonnull align 8 dereferenceable(8) %7, ptr noundef nonnull %min, ptr noundef nonnull %max, ptr noundef nonnull %count)
           to label %invoke.cont14 unwind label %lpad
@@ -382,7 +380,7 @@ for.inc:                                          ; preds = %lor.lhs.false19
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %value.addr.i10)
   %15 = load ptr, ptr %it, align 8
   %vtable25 = load ptr, ptr %15, align 8
-  %vfn26 = getelementptr inbounds ptr, ptr %vtable25, i64 3
+  %vfn26 = getelementptr inbounds i8, ptr %vtable25, i64 24
   %16 = load ptr, ptr %vfn26, align 8
   invoke void %16(ptr noundef nonnull align 8 dereferenceable(8) %15)
           to label %for.cond unwind label %lpad, !llvm.loop !5
@@ -393,7 +391,7 @@ cleanup:                                          ; preds = %invoke.cont
 
 _ZNKSt14default_deleteIN4base19SampleCountIteratorEEclEPS1_.exit.i13: ; preds = %cleanup
   %vtable.i.i14 = load ptr, ptr %7, align 8
-  %vfn.i.i15 = getelementptr inbounds ptr, ptr %vtable.i.i14, i64 1
+  %vfn.i.i15 = getelementptr inbounds i8, ptr %vtable.i.i14, i64 8
   %17 = load ptr, ptr %vfn.i.i15, align 8
   call void %17(ptr noundef nonnull align 8 dereferenceable(8) %7) #14
   br label %return
@@ -405,9 +403,9 @@ return:                                           ; preds = %_ZNKSt14default_del
 ; Function Attrs: mustprogress nofree norecurse nounwind willreturn uwtable
 define dso_local void @_ZN4base16HistogramSamples22IncreaseRedundantCountEi(ptr nocapture noundef nonnull readonly align 8 dereferenceable(40) %this, i32 noundef %diff) local_unnamed_addr #6 align 2 {
 entry:
-  %meta_ = getelementptr inbounds %"class.base::HistogramSamples", ptr %this, i64 0, i32 2
+  %meta_ = getelementptr inbounds i8, ptr %this, i64 32
   %0 = load ptr, ptr %meta_, align 8
-  %redundant_count = getelementptr inbounds %"struct.base::HistogramSamples::Metadata", ptr %0, i64 0, i32 2
+  %redundant_count = getelementptr inbounds i8, ptr %0, i64 16
   %1 = atomicrmw volatile add ptr %redundant_count, i32 %diff monotonic, align 4
   ret void
 }
@@ -443,7 +441,7 @@ entry:
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
 define internal noundef zeroext i1 @_ZNK4base12_GLOBAL__N_125SampleCountPickleIterator4DoneEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(29) %this) unnamed_addr #9 align 2 {
 entry:
-  %is_done_ = getelementptr inbounds %"class.base::(anonymous namespace)::SampleCountPickleIterator", ptr %this, i64 0, i32 5
+  %is_done_ = getelementptr inbounds i8, ptr %this, i64 28
   %0 = load i8, ptr %is_done_, align 4
   %1 = and i8 %0, 1
   %tobool = icmp ne i8 %1, 0
@@ -453,26 +451,26 @@ entry:
 ; Function Attrs: mustprogress uwtable
 define internal void @_ZN4base12_GLOBAL__N_125SampleCountPickleIterator4NextEv(ptr noundef nonnull align 8 dereferenceable(29) %this) unnamed_addr #5 align 2 {
 entry:
-  %iter_ = getelementptr inbounds %"class.base::(anonymous namespace)::SampleCountPickleIterator", ptr %this, i64 0, i32 1
+  %iter_ = getelementptr inbounds i8, ptr %this, i64 8
   %0 = load ptr, ptr %iter_, align 8
-  %min_ = getelementptr inbounds %"class.base::(anonymous namespace)::SampleCountPickleIterator", ptr %this, i64 0, i32 2
+  %min_ = getelementptr inbounds i8, ptr %this, i64 16
   %call = tail call noundef zeroext i1 @_ZN4base14PickleIterator7ReadIntEPi(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr noundef nonnull %min_)
   br i1 %call, label %lor.lhs.false, label %if.then
 
 lor.lhs.false:                                    ; preds = %entry
   %1 = load ptr, ptr %iter_, align 8
-  %max_ = getelementptr inbounds %"class.base::(anonymous namespace)::SampleCountPickleIterator", ptr %this, i64 0, i32 3
+  %max_ = getelementptr inbounds i8, ptr %this, i64 20
   %call3 = tail call noundef zeroext i1 @_ZN4base14PickleIterator7ReadIntEPi(ptr noundef nonnull align 8 dereferenceable(24) %1, ptr noundef nonnull %max_)
   br i1 %call3, label %lor.lhs.false4, label %if.then
 
 lor.lhs.false4:                                   ; preds = %lor.lhs.false
   %2 = load ptr, ptr %iter_, align 8
-  %count_ = getelementptr inbounds %"class.base::(anonymous namespace)::SampleCountPickleIterator", ptr %this, i64 0, i32 4
+  %count_ = getelementptr inbounds i8, ptr %this, i64 24
   %call6 = tail call noundef zeroext i1 @_ZN4base14PickleIterator7ReadIntEPi(ptr noundef nonnull align 8 dereferenceable(24) %2, ptr noundef nonnull %count_)
   br i1 %call6, label %if.end, label %if.then
 
 if.then:                                          ; preds = %lor.lhs.false4, %lor.lhs.false, %entry
-  %is_done_ = getelementptr inbounds %"class.base::(anonymous namespace)::SampleCountPickleIterator", ptr %this, i64 0, i32 5
+  %is_done_ = getelementptr inbounds i8, ptr %this, i64 28
   store i8 1, ptr %is_done_, align 4
   br label %if.end
 
@@ -483,13 +481,13 @@ if.end:                                           ; preds = %if.then, %lor.lhs.f
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
 define internal void @_ZNK4base12_GLOBAL__N_125SampleCountPickleIterator3GetEPiS2_S2_(ptr nocapture noundef nonnull readonly align 8 dereferenceable(29) %this, ptr nocapture noundef writeonly %min, ptr nocapture noundef writeonly %max, ptr nocapture noundef writeonly %count) unnamed_addr #1 align 2 {
 entry:
-  %min_ = getelementptr inbounds %"class.base::(anonymous namespace)::SampleCountPickleIterator", ptr %this, i64 0, i32 2
+  %min_ = getelementptr inbounds i8, ptr %this, i64 16
   %0 = load i32, ptr %min_, align 8
   store i32 %0, ptr %min, align 4
-  %max_ = getelementptr inbounds %"class.base::(anonymous namespace)::SampleCountPickleIterator", ptr %this, i64 0, i32 3
+  %max_ = getelementptr inbounds i8, ptr %this, i64 20
   %1 = load i32, ptr %max_, align 4
   store i32 %1, ptr %max, align 4
-  %count_ = getelementptr inbounds %"class.base::(anonymous namespace)::SampleCountPickleIterator", ptr %this, i64 0, i32 4
+  %count_ = getelementptr inbounds i8, ptr %this, i64 24
   %2 = load i32, ptr %count_, align 8
   store i32 %2, ptr %count, align 4
   ret void

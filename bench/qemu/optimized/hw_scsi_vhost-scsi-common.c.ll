@@ -4,37 +4,6 @@ target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:
 target triple = "x86_64-unknown-linux-gnu"
 
 %struct.TypeInfo = type { ptr, ptr, i64, i64, ptr, ptr, ptr, i8, i64, ptr, ptr, ptr, ptr }
-%struct.VirtioBusClass = type { %struct.BusClass, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, i8, ptr, ptr }
-%struct.BusClass = type { %struct.ObjectClass, ptr, ptr, ptr, ptr, ptr, ptr, ptr, i32, i32 }
-%struct.ObjectClass = type { ptr, ptr, [4 x ptr], [4 x ptr], ptr, ptr }
-%struct.VHostSCSICommon = type { %struct.VirtIOSCSICommon, ptr, %struct.vhost_dev, ptr, i32, i32, i32, i32, i64, i8, ptr }
-%struct.VirtIOSCSICommon = type { %struct.VirtIODevice, %struct.VirtIOSCSIConf, i32, i32, ptr, ptr, ptr }
-%struct.VirtIODevice = type { %struct.DeviceState, ptr, i8, i8, i16, i64, i64, i64, i64, ptr, i16, i32, i32, ptr, %struct.MemoryListener, i16, i8, i8, i8, i8, i8, i8, i8, i8, i8, ptr, ptr, i8, i8, ptr, ptr, %union.anon.1, %struct.EventNotifier, i8 }
-%struct.DeviceState = type { %struct.Object, ptr, ptr, i8, i8, i64, ptr, i32, i8, ptr, %struct.NamedGPIOListHead, %struct.NamedClockListHead, %struct.BusStateHead, i32, i32, i32, %struct.ResettableState, ptr, %struct.MemReentrancyGuard }
-%struct.Object = type { ptr, ptr, ptr, i32, ptr }
-%struct.NamedGPIOListHead = type { ptr }
-%struct.NamedClockListHead = type { ptr }
-%struct.BusStateHead = type { ptr }
-%struct.ResettableState = type { i32, i8, i8 }
-%struct.MemReentrancyGuard = type { i8 }
-%struct.MemoryListener = type { ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, i32, ptr, ptr, %union.anon, %union.anon.0 }
-%union.anon = type { %struct.QTailQLink }
-%struct.QTailQLink = type { ptr, ptr }
-%union.anon.0 = type { %struct.QTailQLink }
-%union.anon.1 = type { %struct.QTailQLink }
-%struct.EventNotifier = type { i32, i32, i8 }
-%struct.VirtIOSCSIConf = type { i32, i32, i8, i32, i32, ptr, ptr, %struct.CharBackend, i32, ptr }
-%struct.CharBackend = type { ptr, ptr, ptr, ptr, ptr, ptr, i32, i32 }
-%struct.vhost_dev = type { ptr, %struct.MemoryListener, %struct.MemoryListener, ptr, i32, ptr, i32, ptr, ptr, i32, i32, i32, i32, i64, i64, i64, i64, i64, i64, i8, i8, i64, ptr, ptr, ptr, ptr, %struct.anon, %struct.anon.2, %struct.IOMMUNotifier, ptr }
-%struct.anon = type { ptr, ptr }
-%struct.anon.2 = type { ptr }
-%struct.IOMMUNotifier = type { ptr, i32, i64, i64, i32, %struct.anon.3 }
-%struct.anon.3 = type { ptr, ptr }
-%struct.BusState = type { %struct.Object, ptr, ptr, ptr, i32, i8, i8, i32, %union.BusChildHead, %struct.BusStateEntry, %struct.ResettableState }
-%union.BusChildHead = type { %struct.QTailQLink }
-%struct.BusStateEntry = type { ptr, ptr }
-%struct.vhost_inflight = type { i32, ptr, i64, i64, i16 }
-%struct.virtio_scsi_config = type { i32, i32, i32, i32, i32, i32, i32, i16, i16, i32 }
 
 @.str = private unnamed_addr constant [36 x i8] c"../qemu/hw/scsi/vhost-scsi-common.c\00", align 1
 @__func__.vhost_scsi_common_start = private unnamed_addr constant [24 x i8] c"vhost_scsi_common_start\00", align 1
@@ -79,7 +48,7 @@ entry:
   %call.i51 = tail call ptr @object_dynamic_cast_assert(ptr noundef %call2, ptr noundef nonnull @.str.14, ptr noundef nonnull @.str.15, i32 noundef 316, ptr noundef nonnull @__func__.BUS) #3
   %call.i52 = tail call ptr @object_get_class(ptr noundef %call.i51) #3
   %call1.i = tail call ptr @object_class_dynamic_cast_assert(ptr noundef %call.i52, ptr noundef nonnull @.str.17, ptr noundef nonnull @.str.18, i32 noundef 36, ptr noundef nonnull @__func__.VIRTIO_BUS_GET_CLASS) #3
-  %set_guest_notifiers = getelementptr inbounds %struct.VirtioBusClass, ptr %call1.i, i64 0, i32 11
+  %set_guest_notifiers = getelementptr inbounds i8, ptr %call1.i, i64 240
   %0 = load ptr, ptr %set_guest_notifiers, align 8
   %tobool.not = icmp eq ptr %0, null
   br i1 %tobool.not, label %if.then, label %if.end
@@ -89,7 +58,7 @@ if.then:                                          ; preds = %entry
   br label %return
 
 if.end:                                           ; preds = %entry
-  %dev = getelementptr inbounds %struct.VHostSCSICommon, ptr %vsc, i64 0, i32 2
+  %dev = getelementptr inbounds i8, ptr %vsc, i64 672
   %call5 = tail call i32 @vhost_dev_enable_notifiers(ptr noundef nonnull %dev, ptr noundef %call.i) #3
   %cmp = icmp slt i32 %call5, 0
   br i1 %cmp, label %if.then6, label %if.end7
@@ -101,9 +70,9 @@ if.then6:                                         ; preds = %if.end
 
 if.end7:                                          ; preds = %if.end
   %1 = load ptr, ptr %set_guest_notifiers, align 8
-  %parent = getelementptr inbounds %struct.BusState, ptr %call.i51, i64 0, i32 1
+  %parent = getelementptr inbounds i8, ptr %call.i51, i64 40
   %2 = load ptr, ptr %parent, align 8
-  %nvqs = getelementptr inbounds %struct.VHostSCSICommon, ptr %vsc, i64 0, i32 2, i32 9
+  %nvqs = getelementptr inbounds i8, ptr %vsc, i64 1112
   %3 = load i32, ptr %nvqs, align 8
   %call10 = tail call i32 %1(ptr noundef %2, i32 noundef %3, i1 noundef zeroext true) #3
   %cmp11 = icmp slt i32 %call10, 0
@@ -115,9 +84,9 @@ if.then12:                                        ; preds = %if.end7
   br label %err_host_notifiers
 
 if.end14:                                         ; preds = %if.end7
-  %guest_features = getelementptr inbounds %struct.VirtIODevice, ptr %call.i, i64 0, i32 6
+  %guest_features = getelementptr inbounds i8, ptr %call.i, i64 184
   %4 = load i64, ptr %guest_features, align 8
-  %acked_features = getelementptr inbounds %struct.VHostSCSICommon, ptr %vsc, i64 0, i32 2, i32 14
+  %acked_features = getelementptr inbounds i8, ptr %vsc, i64 1136
   store i64 %4, ptr %acked_features, align 8
   %call17 = tail call i32 @vhost_dev_prepare_inflight(ptr noundef nonnull %dev, ptr noundef %call.i) #3
   %cmp18 = icmp slt i32 %call17, 0
@@ -129,19 +98,19 @@ if.then19:                                        ; preds = %if.end14
   br label %err_guest_notifiers
 
 if.end21:                                         ; preds = %if.end14
-  %inflight = getelementptr inbounds %struct.VHostSCSICommon, ptr %vsc, i64 0, i32 10
+  %inflight = getelementptr inbounds i8, ptr %vsc, i64 1352
   %5 = load ptr, ptr %inflight, align 8
   %tobool22.not = icmp eq ptr %5, null
   br i1 %tobool22.not, label %if.end44, label %if.then23
 
 if.then23:                                        ; preds = %if.end21
-  %addr = getelementptr inbounds %struct.vhost_inflight, ptr %5, i64 0, i32 1
+  %addr = getelementptr inbounds i8, ptr %5, i64 8
   %6 = load ptr, ptr %addr, align 8
   %tobool25.not = icmp eq ptr %6, null
   br i1 %tobool25.not, label %if.then26, label %if.end35
 
 if.then26:                                        ; preds = %if.then23
-  %virtqueue_size = getelementptr inbounds %struct.VirtIOSCSICommon, ptr %vsc, i64 0, i32 1, i32 1
+  %virtqueue_size = getelementptr inbounds i8, ptr %vsc, i64 524
   %7 = load i32, ptr %virtqueue_size, align 4
   %conv = trunc i32 %7 to i16
   %call29 = tail call i32 @vhost_dev_get_inflight(ptr noundef nonnull %dev, i16 noundef zeroext %conv, ptr noundef nonnull %5) #3
@@ -179,7 +148,7 @@ for.cond.preheader:                               ; preds = %if.end44
   br i1 %cmp5453.not, label %return, label %for.body.lr.ph
 
 for.body.lr.ph:                                   ; preds = %for.cond.preheader
-  %vq_index = getelementptr inbounds %struct.VHostSCSICommon, ptr %vsc, i64 0, i32 2, i32 10
+  %vq_index = getelementptr inbounds i8, ptr %vsc, i64 1116
   br label %for.body
 
 if.then49:                                        ; preds = %if.end44
@@ -244,17 +213,17 @@ entry:
   %call.i11 = tail call ptr @object_dynamic_cast_assert(ptr noundef %call2, ptr noundef nonnull @.str.14, ptr noundef nonnull @.str.15, i32 noundef 316, ptr noundef nonnull @__func__.BUS) #3
   %call.i12 = tail call ptr @object_get_class(ptr noundef %call.i11) #3
   %call1.i = tail call ptr @object_class_dynamic_cast_assert(ptr noundef %call.i12, ptr noundef nonnull @.str.17, ptr noundef nonnull @.str.18, i32 noundef 36, ptr noundef nonnull @__func__.VIRTIO_BUS_GET_CLASS) #3
-  %dev = getelementptr inbounds %struct.VHostSCSICommon, ptr %vsc, i64 0, i32 2
+  %dev = getelementptr inbounds i8, ptr %vsc, i64 672
   tail call void @vhost_dev_stop(ptr noundef nonnull %dev, ptr noundef %call.i, i1 noundef zeroext true) #3
-  %set_guest_notifiers = getelementptr inbounds %struct.VirtioBusClass, ptr %call1.i, i64 0, i32 11
+  %set_guest_notifiers = getelementptr inbounds i8, ptr %call1.i, i64 240
   %0 = load ptr, ptr %set_guest_notifiers, align 8
   %tobool.not = icmp eq ptr %0, null
   br i1 %tobool.not, label %if.end12, label %if.then
 
 if.then:                                          ; preds = %entry
-  %parent = getelementptr inbounds %struct.BusState, ptr %call.i11, i64 0, i32 1
+  %parent = getelementptr inbounds i8, ptr %call.i11, i64 40
   %1 = load ptr, ptr %parent, align 8
-  %nvqs = getelementptr inbounds %struct.VHostSCSICommon, ptr %vsc, i64 0, i32 2, i32 9
+  %nvqs = getelementptr inbounds i8, ptr %vsc, i64 1112
   %2 = load i32, ptr %nvqs, align 8
   %call7 = tail call i32 %0(ptr noundef %1, i32 noundef %2, i1 noundef zeroext false) #3
   %cmp = icmp slt i32 %call7, 0
@@ -281,11 +250,11 @@ declare void @__assert_fail(ptr noundef, ptr noundef, i32 noundef, ptr noundef) 
 define dso_local i64 @vhost_scsi_common_get_features(ptr noundef %vdev, i64 noundef %features, ptr nocapture noundef readnone %errp) local_unnamed_addr #0 {
 entry:
   %call.i = tail call ptr @object_dynamic_cast_assert(ptr noundef %vdev, ptr noundef nonnull @.str.19, ptr noundef nonnull @.str.20, i32 noundef 23, ptr noundef nonnull @__func__.VHOST_SCSI_COMMON) #3
-  %host_features = getelementptr inbounds %struct.VHostSCSICommon, ptr %call.i, i64 0, i32 8
+  %host_features = getelementptr inbounds i8, ptr %call.i, i64 1336
   %0 = load i64, ptr %host_features, align 8
   %or = or i64 %0, %features
-  %dev = getelementptr inbounds %struct.VHostSCSICommon, ptr %call.i, i64 0, i32 2
-  %feature_bits = getelementptr inbounds %struct.VHostSCSICommon, ptr %call.i, i64 0, i32 3
+  %dev = getelementptr inbounds i8, ptr %call.i, i64 672
+  %feature_bits = getelementptr inbounds i8, ptr %call.i, i64 1312
   %1 = load ptr, ptr %feature_bits, align 8
   %call1 = tail call i64 @vhost_get_features(ptr noundef nonnull %dev, ptr noundef %1, i64 noundef %or) #3
   ret i64 %call1
@@ -297,17 +266,17 @@ declare i64 @vhost_get_features(ptr noundef, ptr noundef, i64 noundef) local_unn
 define dso_local void @vhost_scsi_common_set_config(ptr noundef %vdev, ptr nocapture noundef readonly %config) local_unnamed_addr #0 {
 entry:
   %call.i = tail call ptr @object_dynamic_cast_assert(ptr noundef %vdev, ptr noundef nonnull @.str.21, ptr noundef nonnull @.str.22, i32 noundef 28, ptr noundef nonnull @__func__.VIRTIO_SCSI_COMMON) #3
-  %sense_size = getelementptr inbounds %struct.virtio_scsi_config, ptr %config, i64 0, i32 5
+  %sense_size = getelementptr inbounds i8, ptr %config, i64 20
   %sense_size.val = load i32, ptr %sense_size, align 1
-  %sense_size2 = getelementptr inbounds %struct.VirtIOSCSICommon, ptr %call.i, i64 0, i32 2
+  %sense_size2 = getelementptr inbounds i8, ptr %call.i, i64 632
   %0 = load i32, ptr %sense_size2, align 8
   %cmp.not = icmp eq i32 %sense_size.val, %0
   br i1 %cmp.not, label %lor.lhs.false, label %if.then
 
 lor.lhs.false:                                    ; preds = %entry
-  %cdb_size = getelementptr inbounds %struct.virtio_scsi_config, ptr %config, i64 0, i32 6
+  %cdb_size = getelementptr inbounds i8, ptr %config, i64 24
   %cdb_size.val = load i32, ptr %cdb_size, align 1
-  %cdb_size4 = getelementptr inbounds %struct.VirtIOSCSICommon, ptr %call.i, i64 0, i32 3
+  %cdb_size4 = getelementptr inbounds i8, ptr %call.i, i64 636
   %1 = load i32, ptr %cdb_size4, align 4
   %cmp5.not = icmp eq i32 %cdb_size.val, %1
   br i1 %cmp5.not, label %if.end, label %if.then
@@ -328,12 +297,12 @@ declare void @exit(i32 noundef) local_unnamed_addr #2
 define dso_local noalias ptr @vhost_scsi_common_get_fw_dev_path(ptr nocapture noundef readnone %p, ptr nocapture noundef readnone %bus, ptr noundef %dev) local_unnamed_addr #0 {
 entry:
   %call.i = tail call ptr @object_dynamic_cast_assert(ptr noundef %dev, ptr noundef nonnull @.str.19, ptr noundef nonnull @.str.20, i32 noundef 23, ptr noundef nonnull @__func__.VHOST_SCSI_COMMON) #3
-  %channel = getelementptr inbounds %struct.VHostSCSICommon, ptr %call.i, i64 0, i32 5
+  %channel = getelementptr inbounds i8, ptr %call.i, i64 1324
   %0 = load i32, ptr %channel, align 4
   %call1 = tail call ptr @qdev_fw_name(ptr noundef %dev) #3
-  %target = getelementptr inbounds %struct.VHostSCSICommon, ptr %call.i, i64 0, i32 6
+  %target = getelementptr inbounds i8, ptr %call.i, i64 1328
   %1 = load i32, ptr %target, align 8
-  %lun = getelementptr inbounds %struct.VHostSCSICommon, ptr %call.i, i64 0, i32 7
+  %lun = getelementptr inbounds i8, ptr %call.i, i64 1332
   %2 = load i32, ptr %lun, align 4
   %call2 = tail call noalias ptr (ptr, ...) @g_strdup_printf(ptr noundef nonnull @.str.11, i32 noundef %0, ptr noundef %call1, i32 noundef %1, i32 noundef %2) #3
   ret ptr %call2

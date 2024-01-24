@@ -72,9 +72,9 @@ define void @_ZN14regex_automata4util6search5Input4span17h0d1d9f29fbaa58efE(ptr 
   %.fca.0.extract.i = extractvalue { i64, i64 } %9, 0
   store i64 %.fca.0.extract.i, ptr %8, align 8
   %.fca.1.extract.i = extractvalue { i64, i64 } %9, 1
-  %.fca.1.gep.i = getelementptr inbounds { i64, i64 }, ptr %8, i64 0, i32 1
+  %.fca.1.gep.i = getelementptr inbounds i8, ptr %8, i64 8
   store i64 %.fca.1.extract.i, ptr %.fca.1.gep.i, align 8
-  %10 = getelementptr inbounds { { i32, i32 }, { ptr, i64 }, { i64, i64 }, i8, [7 x i8] }, ptr %1, i64 0, i32 1, i32 1
+  %10 = getelementptr inbounds i8, ptr %1, i64 16
   %11 = load i64, ptr %10, align 8, !noundef !5
   %.not.i = icmp ugt i64 %.fca.1.extract.i, %11
   %12 = add i64 %.fca.1.extract.i, 1
@@ -85,20 +85,20 @@ define void @_ZN14regex_automata4util6search5Input4span17h0d1d9f29fbaa58efE(ptr 
 13:                                               ; preds = %4
   store i64 %11, ptr %5, align 8
   store ptr %8, ptr %6, align 8
-  %14 = getelementptr inbounds { ptr, ptr }, ptr %6, i64 0, i32 1
+  %14 = getelementptr inbounds i8, ptr %6, i64 8
   store ptr @"_ZN71_$LT$regex_automata..util..search..Span$u20$as$u20$core..fmt..Debug$GT$3fmt17h80c85bbef78bca64E", ptr %14, align 8
-  %15 = getelementptr inbounds [2 x { ptr, ptr }], ptr %6, i64 0, i64 1
+  %15 = getelementptr inbounds i8, ptr %6, i64 16
   store ptr %5, ptr %15, align 8
-  %16 = getelementptr inbounds [2 x { ptr, ptr }], ptr %6, i64 0, i64 1, i32 1
+  %16 = getelementptr inbounds i8, ptr %6, i64 24
   store ptr @"_ZN4core3fmt3num3imp54_$LT$impl$u20$core..fmt..Display$u20$for$u20$usize$GT$3fmt17ha1a895f323c363e4E", ptr %16, align 8
   call void @_ZN4core3fmt9Arguments6new_v117h051e31f362cb8353E(ptr nonnull sret({ { ptr, i64 }, { ptr, i64 }, { ptr, i64 } }) align 8 %7, ptr nonnull align 8 @anon.b8b777298bcfe75f1ff35f88fc328d3c.2, i64 2, ptr nonnull align 8 %6, i64 2)
   call void @_ZN4core9panicking9panic_fmt17hbf0e066aabfa482cE(ptr nonnull align 8 %7, ptr nonnull align 8 @anon.b8b777298bcfe75f1ff35f88fc328d3c.4) #7
   unreachable
 
 _ZN14regex_automata4util6search5Input8set_span17h30dfa2937ff2a9e8E.exit: ; preds = %4
-  %17 = getelementptr inbounds { { i32, i32 }, { ptr, i64 }, { i64, i64 }, i8, [7 x i8] }, ptr %1, i64 0, i32 2
+  %17 = getelementptr inbounds i8, ptr %1, i64 24
   store i64 %.fca.0.extract.i, ptr %17, align 8
-  %18 = getelementptr inbounds { { i32, i32 }, { ptr, i64 }, { i64, i64 }, i8, [7 x i8] }, ptr %1, i64 0, i32 2, i32 1
+  %18 = getelementptr inbounds i8, ptr %1, i64 32
   store i64 %.fca.1.extract.i, ptr %18, align 8
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5)
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %6)
@@ -118,9 +118,9 @@ define void @_ZN14regex_automata4util6search5Input8set_span17h30dfa2937ff2a9e8E(
   %.fca.0.extract = extractvalue { i64, i64 } %8, 0
   store i64 %.fca.0.extract, ptr %7, align 8
   %.fca.1.extract = extractvalue { i64, i64 } %8, 1
-  %.fca.1.gep = getelementptr inbounds { i64, i64 }, ptr %7, i64 0, i32 1
+  %.fca.1.gep = getelementptr inbounds i8, ptr %7, i64 8
   store i64 %.fca.1.extract, ptr %.fca.1.gep, align 8
-  %9 = getelementptr inbounds { { i32, i32 }, { ptr, i64 }, { i64, i64 }, i8, [7 x i8] }, ptr %0, i64 0, i32 1, i32 1
+  %9 = getelementptr inbounds i8, ptr %0, i64 16
   %10 = load i64, ptr %9, align 8, !noundef !5
   %.not = icmp ugt i64 %.fca.1.extract, %10
   %11 = add i64 %.fca.1.extract, 1
@@ -131,20 +131,20 @@ define void @_ZN14regex_automata4util6search5Input8set_span17h30dfa2937ff2a9e8E(
 12:                                               ; preds = %3
   store i64 %10, ptr %4, align 8
   store ptr %7, ptr %5, align 8
-  %13 = getelementptr inbounds { ptr, ptr }, ptr %5, i64 0, i32 1
+  %13 = getelementptr inbounds i8, ptr %5, i64 8
   store ptr @"_ZN71_$LT$regex_automata..util..search..Span$u20$as$u20$core..fmt..Debug$GT$3fmt17h80c85bbef78bca64E", ptr %13, align 8
-  %14 = getelementptr inbounds [2 x { ptr, ptr }], ptr %5, i64 0, i64 1
+  %14 = getelementptr inbounds i8, ptr %5, i64 16
   store ptr %4, ptr %14, align 8
-  %15 = getelementptr inbounds [2 x { ptr, ptr }], ptr %5, i64 0, i64 1, i32 1
+  %15 = getelementptr inbounds i8, ptr %5, i64 24
   store ptr @"_ZN4core3fmt3num3imp54_$LT$impl$u20$core..fmt..Display$u20$for$u20$usize$GT$3fmt17ha1a895f323c363e4E", ptr %15, align 8
   call void @_ZN4core3fmt9Arguments6new_v117h051e31f362cb8353E(ptr nonnull sret({ { ptr, i64 }, { ptr, i64 }, { ptr, i64 } }) align 8 %6, ptr nonnull align 8 @anon.b8b777298bcfe75f1ff35f88fc328d3c.2, i64 2, ptr nonnull align 8 %5, i64 2)
   call void @_ZN4core9panicking9panic_fmt17hbf0e066aabfa482cE(ptr nonnull align 8 %6, ptr nonnull align 8 @anon.b8b777298bcfe75f1ff35f88fc328d3c.4) #7
   unreachable
 
 16:                                               ; preds = %3
-  %17 = getelementptr inbounds { { i32, i32 }, { ptr, i64 }, { i64, i64 }, i8, [7 x i8] }, ptr %0, i64 0, i32 2
+  %17 = getelementptr inbounds i8, ptr %0, i64 24
   store i64 %.fca.0.extract, ptr %17, align 8
-  %18 = getelementptr inbounds { { i32, i32 }, { ptr, i64 }, { i64, i64 }, i8, [7 x i8] }, ptr %0, i64 0, i32 2, i32 1
+  %18 = getelementptr inbounds i8, ptr %0, i64 32
   store i64 %.fca.1.extract, ptr %18, align 8
   ret void
 }
@@ -156,9 +156,9 @@ define void @_ZN14regex_automata4util6search5Input8set_span17h7de31a28b204a249E(
   %6 = alloca { { ptr, i64 }, { ptr, i64 }, { ptr, i64 } }, align 8
   %7 = alloca { i64, i64 }, align 8
   store i64 %1, ptr %7, align 8
-  %.fca.1.gep = getelementptr inbounds { i64, i64 }, ptr %7, i64 0, i32 1
+  %.fca.1.gep = getelementptr inbounds i8, ptr %7, i64 8
   store i64 %2, ptr %.fca.1.gep, align 8
-  %8 = getelementptr inbounds { { i32, i32 }, { ptr, i64 }, { i64, i64 }, i8, [7 x i8] }, ptr %0, i64 0, i32 1, i32 1
+  %8 = getelementptr inbounds i8, ptr %0, i64 16
   %9 = load i64, ptr %8, align 8, !noundef !5
   %.not = icmp ult i64 %9, %2
   %10 = add i64 %2, 1
@@ -169,20 +169,20 @@ define void @_ZN14regex_automata4util6search5Input8set_span17h7de31a28b204a249E(
 11:                                               ; preds = %3
   store i64 %9, ptr %4, align 8
   store ptr %7, ptr %5, align 8
-  %12 = getelementptr inbounds { ptr, ptr }, ptr %5, i64 0, i32 1
+  %12 = getelementptr inbounds i8, ptr %5, i64 8
   store ptr @"_ZN71_$LT$regex_automata..util..search..Span$u20$as$u20$core..fmt..Debug$GT$3fmt17h80c85bbef78bca64E", ptr %12, align 8
-  %13 = getelementptr inbounds [2 x { ptr, ptr }], ptr %5, i64 0, i64 1
+  %13 = getelementptr inbounds i8, ptr %5, i64 16
   store ptr %4, ptr %13, align 8
-  %14 = getelementptr inbounds [2 x { ptr, ptr }], ptr %5, i64 0, i64 1, i32 1
+  %14 = getelementptr inbounds i8, ptr %5, i64 24
   store ptr @"_ZN4core3fmt3num3imp54_$LT$impl$u20$core..fmt..Display$u20$for$u20$usize$GT$3fmt17ha1a895f323c363e4E", ptr %14, align 8
   call void @_ZN4core3fmt9Arguments6new_v117h051e31f362cb8353E(ptr nonnull sret({ { ptr, i64 }, { ptr, i64 }, { ptr, i64 } }) align 8 %6, ptr nonnull align 8 @anon.b8b777298bcfe75f1ff35f88fc328d3c.2, i64 2, ptr nonnull align 8 %5, i64 2)
   call void @_ZN4core9panicking9panic_fmt17hbf0e066aabfa482cE(ptr nonnull align 8 %6, ptr nonnull align 8 @anon.b8b777298bcfe75f1ff35f88fc328d3c.4) #7
   unreachable
 
 15:                                               ; preds = %3
-  %16 = getelementptr inbounds { { i32, i32 }, { ptr, i64 }, { i64, i64 }, i8, [7 x i8] }, ptr %0, i64 0, i32 2
+  %16 = getelementptr inbounds i8, ptr %0, i64 24
   store i64 %1, ptr %16, align 8
-  %17 = getelementptr inbounds { { i32, i32 }, { ptr, i64 }, { i64, i64 }, i8, [7 x i8] }, ptr %0, i64 0, i32 2, i32 1
+  %17 = getelementptr inbounds i8, ptr %0, i64 32
   store i64 %2, ptr %17, align 8
   ret void
 }
@@ -202,10 +202,10 @@ define void @_ZN14regex_automata4util6search5Match3new17h6a8219654f06c251E(ptr n
   unreachable
 
 10:                                               ; preds = %4
-  %11 = getelementptr inbounds { { i64, i64 }, i32, [1 x i32] }, ptr %0, i64 0, i32 1
+  %11 = getelementptr inbounds i8, ptr %0, i64 16
   store i32 %1, ptr %11, align 8
   store i64 %7, ptr %0, align 8
-  %12 = getelementptr inbounds { i64, i64 }, ptr %0, i64 0, i32 1
+  %12 = getelementptr inbounds i8, ptr %0, i64 8
   store i64 %8, ptr %12, align 8
   ret void
 }
@@ -222,10 +222,10 @@ define void @_ZN14regex_automata4util6search5Match3new17h8cce7b6cac664973E(ptr n
   unreachable
 
 7:                                                ; preds = %4
-  %8 = getelementptr inbounds { { i64, i64 }, i32, [1 x i32] }, ptr %0, i64 0, i32 1
+  %8 = getelementptr inbounds i8, ptr %0, i64 16
   store i32 %1, ptr %8, align 8
   store i64 %2, ptr %0, align 8
-  %9 = getelementptr inbounds { i64, i64 }, ptr %0, i64 0, i32 1
+  %9 = getelementptr inbounds i8, ptr %0, i64 8
   store i64 %3, ptr %9, align 8
   ret void
 }

@@ -3,11 +3,6 @@ source_filename = "bench/wolfssl/original/pkcs12.c.ll"
 target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:128-n8:16:32:64-S128"
 target triple = "x86_64-unknown-linux-gnu"
 
-%struct.WC_PKCS12 = type { ptr, ptr, ptr, i32, i8 }
-%struct.AuthenticatedSafe = type { ptr, ptr, i32, i32, i32 }
-%struct.ContentInfo = type { ptr, ptr, i32, i32, i32 }
-%struct.MacData = type { ptr, ptr, i32, i32, i32, i32 }
-%struct.WC_DerCertList = type { ptr, i32, ptr }
 %struct.DecodedCert = type { ptr, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, ptr, ptr, ptr, ptr, ptr, [20 x i8], [20 x i8], ptr, ptr, i32, i8, [256 x i8], [256 x i8], i32, ptr, i32, i32, ptr, [32 x i8], i32, ptr, i32, i32, ptr, i32, ptr, i32, ptr, i32, [20 x i8], [20 x i8], i8, i8, i8, i16, i8, i32, ptr, i32, ptr, i32, ptr, i32, ptr, i32, i8, ptr, %struct.SignatureCtx, i32, i32, i32 }
 %struct.SignatureCtx = type { ptr, ptr, ptr, ptr, i32, %union.anon, i32, i32, i32, i32, i32, i32, i32, i32 }
 %union.anon = type { ptr }
@@ -52,13 +47,13 @@ entry:
   br i1 %cmp, label %if.end35, label %if.end
 
 if.end:                                           ; preds = %entry
-  %safe = getelementptr inbounds %struct.WC_PKCS12, ptr %pkcs12, i64 0, i32 1
+  %safe = getelementptr inbounds i8, ptr %pkcs12, i64 8
   %0 = load ptr, ptr %safe, align 8
   %cmp2.not = icmp eq ptr %0, null
   br i1 %cmp2.not, label %if.end5, label %if.then3
 
 if.then3:                                         ; preds = %if.end
-  %numCI.i = getelementptr inbounds %struct.AuthenticatedSafe, ptr %0, i64 0, i32 3
+  %numCI.i = getelementptr inbounds i8, ptr %0, i64 20
   %1 = load i32, ptr %numCI.i, align 4
   %cmp11.i = icmp sgt i32 %1, 0
   br i1 %cmp11.i, label %for.inc.i, label %for.end.i
@@ -66,7 +61,7 @@ if.then3:                                         ; preds = %if.end
 for.inc.i:                                        ; preds = %if.then3, %for.inc.i
   %i.02.i = phi i32 [ %dec.i, %for.inc.i ], [ %1, %if.then3 ]
   %2 = load ptr, ptr %0, align 8
-  %next.i = getelementptr inbounds %struct.ContentInfo, ptr %2, i64 0, i32 1
+  %next.i = getelementptr inbounds i8, ptr %2, i64 8
   %3 = load ptr, ptr %next.i, align 8
   store ptr %3, ptr %0, align 8
   tail call void @wolfSSL_Free(ptr noundef nonnull %2) #9
@@ -75,7 +70,7 @@ for.inc.i:                                        ; preds = %if.then3, %for.inc.
   br i1 %cmp1.i, label %for.inc.i, label %for.end.i, !llvm.loop !4
 
 for.end.i:                                        ; preds = %for.inc.i, %if.then3
-  %data.i = getelementptr inbounds %struct.AuthenticatedSafe, ptr %0, i64 0, i32 1
+  %data.i = getelementptr inbounds i8, ptr %0, i64 8
   %4 = load ptr, ptr %data.i, align 8
   %cmp5.not.i = icmp eq ptr %4, null
   br i1 %cmp5.not.i, label %freeSafe.exit, label %if.then10.i
@@ -89,7 +84,7 @@ freeSafe.exit:                                    ; preds = %for.end.i, %if.then
   br label %if.end5
 
 if.end5:                                          ; preds = %freeSafe.exit, %if.end
-  %signData = getelementptr inbounds %struct.WC_PKCS12, ptr %pkcs12, i64 0, i32 2
+  %signData = getelementptr inbounds i8, ptr %pkcs12, i64 16
   %5 = load ptr, ptr %signData, align 8
   %cmp6.not = icmp eq ptr %5, null
   br i1 %cmp6.not, label %if.then34, label %if.then7
@@ -106,7 +101,7 @@ if.then13:                                        ; preds = %if.then7
 
 if.end15:                                         ; preds = %if.then13, %if.then7
   %7 = phi ptr [ %.pre, %if.then13 ], [ %5, %if.then7 ]
-  %salt = getelementptr inbounds %struct.MacData, ptr %7, i64 0, i32 1
+  %salt = getelementptr inbounds i8, ptr %7, i64 8
   %8 = load ptr, ptr %salt, align 8
   %cmp17.not = icmp eq ptr %8, null
   br i1 %cmp17.not, label %if.then29, label %if.end25
@@ -133,7 +128,7 @@ if.end35:                                         ; preds = %entry, %if.then34
 ; Function Attrs: nounwind uwtable
 define internal fastcc void @freeSafe(ptr noundef %safe) unnamed_addr #0 {
 entry:
-  %numCI = getelementptr inbounds %struct.AuthenticatedSafe, ptr %safe, i64 0, i32 3
+  %numCI = getelementptr inbounds i8, ptr %safe, i64 20
   %0 = load i32, ptr %numCI, align 4
   %cmp11 = icmp sgt i32 %0, 0
   br i1 %cmp11, label %for.inc, label %for.end
@@ -141,7 +136,7 @@ entry:
 for.inc:                                          ; preds = %entry, %for.inc
   %i.02 = phi i32 [ %dec, %for.inc ], [ %0, %entry ]
   %1 = load ptr, ptr %safe, align 8
-  %next = getelementptr inbounds %struct.ContentInfo, ptr %1, i64 0, i32 1
+  %next = getelementptr inbounds i8, ptr %1, i64 8
   %2 = load ptr, ptr %next, align 8
   store ptr %2, ptr %safe, align 8
   tail call void @wolfSSL_Free(ptr noundef nonnull %1) #9
@@ -150,7 +145,7 @@ for.inc:                                          ; preds = %entry, %for.inc
   br i1 %cmp1, label %for.inc, label %for.end, !llvm.loop !4
 
 for.end:                                          ; preds = %for.inc, %entry
-  %data = getelementptr inbounds %struct.AuthenticatedSafe, ptr %safe, i64 0, i32 1
+  %data = getelementptr inbounds i8, ptr %safe, i64 8
   %3 = load ptr, ptr %data, align 8
   %cmp5.not = icmp eq ptr %3, null
   br i1 %cmp5.not, label %if.then15, label %if.then10
@@ -174,18 +169,18 @@ entry:
   br i1 %cmp, label %return, label %lor.lhs.false
 
 lor.lhs.false:                                    ; preds = %entry
-  %safe = getelementptr inbounds %struct.WC_PKCS12, ptr %pkcs12, i64 0, i32 1
+  %safe = getelementptr inbounds i8, ptr %pkcs12, i64 8
   %0 = load ptr, ptr %safe, align 8
   %cmp1 = icmp eq ptr %0, null
   br i1 %cmp1, label %return, label %if.end
 
 if.end:                                           ; preds = %lor.lhs.false
-  %data = getelementptr inbounds %struct.AuthenticatedSafe, ptr %0, i64 0, i32 1
+  %data = getelementptr inbounds i8, ptr %0, i64 8
   %1 = load ptr, ptr %data, align 8
-  %dataSz = getelementptr inbounds %struct.AuthenticatedSafe, ptr %0, i64 0, i32 4
+  %dataSz = getelementptr inbounds i8, ptr %0, i64 24
   %2 = load i32, ptr %dataSz, align 8
   call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %digest.i)
-  %signData.i = getelementptr inbounds %struct.WC_PKCS12, ptr %pkcs12, i64 0, i32 2
+  %signData.i = getelementptr inbounds i8, ptr %pkcs12, i64 16
   %3 = load ptr, ptr %signData.i, align 8
   %cmp1.i = icmp eq ptr %3, null
   %cmp3.i = icmp eq ptr %1, null
@@ -193,7 +188,7 @@ if.end:                                           ; preds = %lor.lhs.false
   br i1 %or.cond.i, label %wc_PKCS12_verify.exit, label %if.end.i
 
 if.end.i:                                         ; preds = %if.end
-  %digestSz.i = getelementptr inbounds %struct.MacData, ptr %3, i64 0, i32 3
+  %digestSz.i = getelementptr inbounds i8, ptr %3, i64 20
   %4 = load i32, ptr %digestSz.i, align 4
   %cmp5.i = icmp ugt i32 %4, 64
   br i1 %cmp5.i, label %wc_PKCS12_verify.exit, label %if.end7.i
@@ -245,7 +240,7 @@ if.end6:                                          ; preds = %if.end
   br i1 %cmp8, label %return, label %if.end10
 
 if.end10:                                         ; preds = %if.end6
-  %indefinite = getelementptr inbounds %struct.WC_PKCS12, ptr %pkcs12, i64 0, i32 4
+  %indefinite = getelementptr inbounds i8, ptr %pkcs12, i64 28
   store i8 0, ptr %indefinite, align 4
   %0 = load i32, ptr %version, align 4
   %cmp11.not = icmp eq i32 %0, 3
@@ -310,7 +305,7 @@ if.end:                                           ; preds = %entry
   br i1 %cmp2, label %do.end, label %if.end5
 
 do.end:                                           ; preds = %if.end
-  %numCI.i = getelementptr inbounds %struct.AuthenticatedSafe, ptr %call, i64 0, i32 3
+  %numCI.i = getelementptr inbounds i8, ptr %call, i64 20
   %1 = load i32, ptr %numCI.i, align 4
   %cmp11.i = icmp sgt i32 %1, 0
   br i1 %cmp11.i, label %for.inc.i, label %for.end.i
@@ -318,7 +313,7 @@ do.end:                                           ; preds = %if.end
 for.inc.i:                                        ; preds = %do.end, %for.inc.i
   %i.02.i = phi i32 [ %dec.i, %for.inc.i ], [ %1, %do.end ]
   %2 = load ptr, ptr %call, align 8
-  %next.i = getelementptr inbounds %struct.ContentInfo, ptr %2, i64 0, i32 1
+  %next.i = getelementptr inbounds i8, ptr %2, i64 8
   %3 = load ptr, ptr %next.i, align 8
   store ptr %3, ptr %call, align 8
   call void @wolfSSL_Free(ptr noundef nonnull %2) #9
@@ -327,7 +322,7 @@ for.inc.i:                                        ; preds = %do.end, %for.inc.i
   br i1 %cmp1.i, label %for.inc.i, label %for.end.i, !llvm.loop !4
 
 for.end.i:                                        ; preds = %for.inc.i, %do.end
-  %data.i = getelementptr inbounds %struct.AuthenticatedSafe, ptr %call, i64 0, i32 1
+  %data.i = getelementptr inbounds i8, ptr %call, i64 8
   %4 = load ptr, ptr %data.i, align 8
   %cmp5.not.i = icmp eq ptr %4, null
   br i1 %cmp5.not.i, label %freeSafe.exit, label %if.then10.i
@@ -342,14 +337,14 @@ freeSafe.exit:                                    ; preds = %for.end.i, %if.then
 
 if.end5:                                          ; preds = %if.end
   %5 = load i32, ptr %oid, align 4
-  %oid6 = getelementptr inbounds %struct.AuthenticatedSafe, ptr %call, i64 0, i32 2
+  %oid6 = getelementptr inbounds i8, ptr %call, i64 16
   store i32 %5, ptr %oid6, align 8
   %call7 = call i32 @GetASNTag(ptr noundef %input, ptr noundef nonnull %localIdx, ptr noundef nonnull %tag, i32 noundef %maxIdx) #9
   %cmp8 = icmp slt i32 %call7, 0
   br i1 %cmp8, label %if.then9, label %if.end11
 
 if.then9:                                         ; preds = %if.end5
-  %numCI.i64 = getelementptr inbounds %struct.AuthenticatedSafe, ptr %call, i64 0, i32 3
+  %numCI.i64 = getelementptr inbounds i8, ptr %call, i64 20
   %6 = load i32, ptr %numCI.i64, align 4
   %cmp11.i65 = icmp sgt i32 %6, 0
   br i1 %cmp11.i65, label %for.inc.i70, label %for.end.i66
@@ -357,7 +352,7 @@ if.then9:                                         ; preds = %if.end5
 for.inc.i70:                                      ; preds = %if.then9, %for.inc.i70
   %i.02.i71 = phi i32 [ %dec.i73, %for.inc.i70 ], [ %6, %if.then9 ]
   %7 = load ptr, ptr %call, align 8
-  %next.i72 = getelementptr inbounds %struct.ContentInfo, ptr %7, i64 0, i32 1
+  %next.i72 = getelementptr inbounds i8, ptr %7, i64 8
   %8 = load ptr, ptr %next.i72, align 8
   store ptr %8, ptr %call, align 8
   call void @wolfSSL_Free(ptr noundef nonnull %7) #9
@@ -366,7 +361,7 @@ for.inc.i70:                                      ; preds = %if.then9, %for.inc.
   br i1 %cmp1.i74, label %for.inc.i70, label %for.end.i66, !llvm.loop !4
 
 for.end.i66:                                      ; preds = %for.inc.i70, %if.then9
-  %data.i67 = getelementptr inbounds %struct.AuthenticatedSafe, ptr %call, i64 0, i32 1
+  %data.i67 = getelementptr inbounds i8, ptr %call, i64 8
   %9 = load ptr, ptr %data.i67, align 8
   %cmp5.not.i68 = icmp eq ptr %9, null
   br i1 %cmp5.not.i68, label %freeSafe.exit75, label %if.then10.i69
@@ -385,7 +380,7 @@ if.end11:                                         ; preds = %if.end5
   br i1 %cmp12.not, label %if.end18, label %do.end16
 
 do.end16:                                         ; preds = %if.end11
-  %numCI.i76 = getelementptr inbounds %struct.AuthenticatedSafe, ptr %call, i64 0, i32 3
+  %numCI.i76 = getelementptr inbounds i8, ptr %call, i64 20
   %11 = load i32, ptr %numCI.i76, align 4
   %cmp11.i77 = icmp sgt i32 %11, 0
   br i1 %cmp11.i77, label %for.inc.i82, label %for.end.i78
@@ -393,7 +388,7 @@ do.end16:                                         ; preds = %if.end11
 for.inc.i82:                                      ; preds = %do.end16, %for.inc.i82
   %i.02.i83 = phi i32 [ %dec.i85, %for.inc.i82 ], [ %11, %do.end16 ]
   %12 = load ptr, ptr %call, align 8
-  %next.i84 = getelementptr inbounds %struct.ContentInfo, ptr %12, i64 0, i32 1
+  %next.i84 = getelementptr inbounds i8, ptr %12, i64 8
   %13 = load ptr, ptr %next.i84, align 8
   store ptr %13, ptr %call, align 8
   call void @wolfSSL_Free(ptr noundef nonnull %12) #9
@@ -402,7 +397,7 @@ for.inc.i82:                                      ; preds = %do.end16, %for.inc.
   br i1 %cmp1.i86, label %for.inc.i82, label %for.end.i78, !llvm.loop !4
 
 for.end.i78:                                      ; preds = %for.inc.i82, %do.end16
-  %data.i79 = getelementptr inbounds %struct.AuthenticatedSafe, ptr %call, i64 0, i32 1
+  %data.i79 = getelementptr inbounds i8, ptr %call, i64 8
   %14 = load ptr, ptr %data.i79, align 8
   %cmp5.not.i80 = icmp eq ptr %14, null
   br i1 %cmp5.not.i80, label %freeSafe.exit87, label %if.then10.i81
@@ -421,7 +416,7 @@ if.end18:                                         ; preds = %if.end11
   br i1 %cmp20, label %if.then22, label %if.end24
 
 if.then22:                                        ; preds = %if.end18
-  %numCI.i88 = getelementptr inbounds %struct.AuthenticatedSafe, ptr %call, i64 0, i32 3
+  %numCI.i88 = getelementptr inbounds i8, ptr %call, i64 20
   %15 = load i32, ptr %numCI.i88, align 4
   %cmp11.i89 = icmp sgt i32 %15, 0
   br i1 %cmp11.i89, label %for.inc.i94, label %for.end.i90
@@ -429,7 +424,7 @@ if.then22:                                        ; preds = %if.end18
 for.inc.i94:                                      ; preds = %if.then22, %for.inc.i94
   %i.02.i95 = phi i32 [ %dec.i97, %for.inc.i94 ], [ %15, %if.then22 ]
   %16 = load ptr, ptr %call, align 8
-  %next.i96 = getelementptr inbounds %struct.ContentInfo, ptr %16, i64 0, i32 1
+  %next.i96 = getelementptr inbounds i8, ptr %16, i64 8
   %17 = load ptr, ptr %next.i96, align 8
   store ptr %17, ptr %call, align 8
   call void @wolfSSL_Free(ptr noundef nonnull %16) #9
@@ -438,7 +433,7 @@ for.inc.i94:                                      ; preds = %if.then22, %for.inc
   br i1 %cmp1.i98, label %for.inc.i94, label %for.end.i90, !llvm.loop !4
 
 for.end.i90:                                      ; preds = %for.inc.i94, %if.then22
-  %data.i91 = getelementptr inbounds %struct.AuthenticatedSafe, ptr %call, i64 0, i32 1
+  %data.i91 = getelementptr inbounds i8, ptr %call, i64 8
   %18 = load ptr, ptr %data.i91, align 8
   %cmp5.not.i92 = icmp eq ptr %18, null
   br i1 %cmp5.not.i92, label %freeSafe.exit99, label %if.then10.i93
@@ -485,11 +480,11 @@ if.then47:                                        ; preds = %if.end43
 
 sw.epilog:                                        ; preds = %if.end24, %if.end43
   %21 = load i32, ptr %size, align 4
-  %dataSz = getelementptr inbounds %struct.AuthenticatedSafe, ptr %call, i64 0, i32 4
+  %dataSz = getelementptr inbounds i8, ptr %call, i64 24
   store i32 %21, ptr %dataSz, align 8
   %conv51 = sext i32 %21 to i64
   %call52 = call ptr @wolfSSL_Malloc(i64 noundef %conv51) #9
-  %data = getelementptr inbounds %struct.AuthenticatedSafe, ptr %call, i64 0, i32 1
+  %data = getelementptr inbounds i8, ptr %call, i64 8
   store ptr %call52, ptr %data, align 8
   %cmp54 = icmp eq ptr %call52, null
   br i1 %cmp54, label %if.then56, label %if.end58
@@ -528,7 +523,7 @@ if.end68:                                         ; preds = %if.end58
   br i1 %cmp69112, label %while.body.lr.ph, label %while.end
 
 while.body.lr.ph:                                 ; preds = %if.end68
-  %numCI = getelementptr inbounds %struct.AuthenticatedSafe, ptr %call, i64 0, i32 3
+  %numCI = getelementptr inbounds i8, ptr %call, i64 20
   br label %while.body
 
 while.body:                                       ; preds = %while.body.lr.ph, %if.end96
@@ -574,20 +569,20 @@ if.then94:                                        ; preds = %if.end89
 
 if.end96:                                         ; preds = %if.end89
   %34 = load i32, ptr %oid, align 4
-  %type = getelementptr inbounds %struct.ContentInfo, ptr %call91, i64 0, i32 4
+  %type = getelementptr inbounds i8, ptr %call91, i64 24
   store i32 %34, ptr %type, align 8
   %35 = load i32, ptr %curSz, align 4
   %36 = load i32, ptr %localIdx, align 4
   %sub.neg = add i32 %35, %32
   %sub97 = sub i32 %sub.neg, %36
-  %dataSz98 = getelementptr inbounds %struct.ContentInfo, ptr %call91, i64 0, i32 3
+  %dataSz98 = getelementptr inbounds i8, ptr %call91, i64 20
   store i32 %sub97, ptr %dataSz98, align 4
   %idx.ext99 = zext i32 %36 to i64
   %add.ptr100 = getelementptr inbounds i8, ptr %25, i64 %idx.ext99
   store ptr %add.ptr100, ptr %call91, align 8
   store i32 %sub.neg, ptr %localIdx, align 4
   %37 = load ptr, ptr %call, align 8
-  %next = getelementptr inbounds %struct.ContentInfo, ptr %call91, i64 0, i32 1
+  %next = getelementptr inbounds i8, ptr %call91, i64 8
   store ptr %37, ptr %next, align 8
   store ptr %call91, ptr %call, align 8
   %38 = load i32, ptr %numCI, align 4
@@ -600,7 +595,7 @@ if.end96:                                         ; preds = %if.end89
 while.end:                                        ; preds = %if.end96, %if.end68
   %ret.0.lcssa = phi i32 [ %call63, %if.end68 ], [ %call82, %if.end96 ]
   %.lcssa = phi i32 [ %27, %if.end68 ], [ %sub.neg, %if.end96 ]
-  %safe106 = getelementptr inbounds %struct.WC_PKCS12, ptr %pkcs12, i64 0, i32 1
+  %safe106 = getelementptr inbounds i8, ptr %pkcs12, i64 8
   store ptr %call, ptr %safe106, align 8
   %40 = load i32, ptr %idx, align 4
   %add107 = add i32 %40, %.lcssa
@@ -644,7 +639,7 @@ if.then11:                                        ; preds = %if.end4
 
 if.end13:                                         ; preds = %if.end4
   %1 = load i32, ptr %oid, align 4
-  %oid14 = getelementptr inbounds %struct.MacData, ptr %call1, i64 0, i32 2
+  %oid14 = getelementptr inbounds i8, ptr %call1, i64 16
   store i32 %1, ptr %oid14, align 8
   %call15 = call i32 @GetASNTag(ptr noundef %mem, ptr noundef nonnull %curIdx, ptr noundef nonnull %tag, i32 noundef %totalSz) #9
   %cmp16 = icmp slt i32 %call15, 0
@@ -674,7 +669,7 @@ if.then42:                                        ; preds = %if.end34
 
 if.end44:                                         ; preds = %if.end34
   %3 = load i32, ptr %size, align 4
-  %digestSz = getelementptr inbounds %struct.MacData, ptr %call1, i64 0, i32 3
+  %digestSz = getelementptr inbounds i8, ptr %call1, i64 20
   store i32 %3, ptr %digestSz, align 4
   %conv47 = zext i32 %3 to i64
   %call48 = call ptr @wolfSSL_Malloc(i64 noundef %conv47) #9
@@ -712,11 +707,11 @@ if.end73:                                         ; preds = %if.end56
 
 if.end78:                                         ; preds = %if.end73
   %9 = load i32, ptr %size, align 4
-  %saltSz = getelementptr inbounds %struct.MacData, ptr %call1, i64 0, i32 4
+  %saltSz = getelementptr inbounds i8, ptr %call1, i64 24
   store i32 %9, ptr %saltSz, align 8
   %conv81 = zext i32 %9 to i64
   %call82 = call ptr @wolfSSL_Malloc(i64 noundef %conv81) #9
-  %salt = getelementptr inbounds %struct.MacData, ptr %call1, i64 0, i32 1
+  %salt = getelementptr inbounds i8, ptr %call1, i64 8
   store ptr %call82, ptr %salt, align 8
   %cmp84 = icmp eq ptr %call82, null
   br i1 %cmp84, label %if.then114, label %lor.lhs.false86
@@ -737,7 +732,7 @@ if.end92:                                         ; preds = %lor.lhs.false86
   %13 = load i32, ptr %curIdx, align 4
   %add99 = add i32 %13, %12
   store i32 %add99, ptr %curIdx, align 4
-  %itt = getelementptr inbounds %struct.MacData, ptr %call1, i64 0, i32 5
+  %itt = getelementptr inbounds i8, ptr %call1, i64 28
   store i32 1, ptr %itt, align 4
   %cmp100 = icmp ult i32 %add99, %totalSz
   br i1 %cmp100, label %if.then102, label %exit_gsd
@@ -756,7 +751,7 @@ if.then106:                                       ; preds = %if.then102
 exit_gsd:                                         ; preds = %if.end92, %if.then106, %if.then102
   %15 = load i32, ptr %curIdx, align 4
   store i32 %15, ptr %idx, align 4
-  %signData = getelementptr inbounds %struct.WC_PKCS12, ptr %pkcs12, i64 0, i32 2
+  %signData = getelementptr inbounds i8, ptr %pkcs12, i64 16
   store ptr %call1, ptr %signData, align 8
   br label %return
 
@@ -862,7 +857,7 @@ entry:
   br i1 %cmp, label %return, label %lor.lhs.false
 
 lor.lhs.false:                                    ; preds = %entry
-  %safe = getelementptr inbounds %struct.WC_PKCS12, ptr %pkcs12, i64 0, i32 1
+  %safe = getelementptr inbounds i8, ptr %pkcs12, i64 8
   %0 = load ptr, ptr %safe, align 8
   %cmp1 = icmp eq ptr %0, null
   br i1 %cmp1, label %return, label %lor.lhs.false2
@@ -874,28 +869,28 @@ lor.lhs.false2:                                   ; preds = %lor.lhs.false
   br i1 %or.cond, label %return, label %if.end
 
 if.end:                                           ; preds = %lor.lhs.false2
-  %signData = getelementptr inbounds %struct.WC_PKCS12, ptr %pkcs12, i64 0, i32 2
+  %signData = getelementptr inbounds i8, ptr %pkcs12, i64 16
   %1 = load ptr, ptr %signData, align 8
   %cmp5.not = icmp eq ptr %1, null
   br i1 %cmp5.not, label %if.then99, label %if.then6
 
 if.then6:                                         ; preds = %if.end
   store i32 0, ptr %tmpIdx, align 4
-  %oid = getelementptr inbounds %struct.MacData, ptr %1, i64 0, i32 2
+  %oid = getelementptr inbounds i8, ptr %1, i64 16
   %2 = load i32, ptr %oid, align 8
   %call = call i32 @SetAlgoID(i32 noundef %2, ptr noundef nonnull %ASNALGO, i32 noundef 0, i32 noundef 0) #9
   %add8 = add i32 %call, 1
-  %digestSz = getelementptr inbounds %struct.MacData, ptr %1, i64 0, i32 3
+  %digestSz = getelementptr inbounds i8, ptr %1, i64 20
   %3 = load i32, ptr %digestSz, align 4
   %call10 = call i32 @SetLength(i32 noundef %3, ptr noundef nonnull %ASNLENGTH) #9
   %add11 = add i32 %add8, %call10
   %4 = load i32, ptr %digestSz, align 4
   %add13 = add i32 %add11, %4
-  %saltSz = getelementptr inbounds %struct.MacData, ptr %1, i64 0, i32 4
+  %saltSz = getelementptr inbounds i8, ptr %1, i64 24
   %5 = load i32, ptr %saltSz, align 8
   %call16 = call i32 @SetLength(i32 noundef %5, ptr noundef nonnull %ASNLENGTH) #9
   %6 = load i32, ptr %saltSz, align 8
-  %itt = getelementptr inbounds %struct.MacData, ptr %1, i64 0, i32 5
+  %itt = getelementptr inbounds i8, ptr %1, i64 28
   %7 = load i32, ptr %itt, align 4
   %call21 = call i32 @SetShortInt(ptr noundef nonnull %ASNSHORT, ptr noundef nonnull %tmpIdx, i32 noundef %7, i32 noundef 6) #9
   %cmp22 = icmp sgt i32 %call21, -1
@@ -950,7 +945,7 @@ if.then58:                                        ; preds = %if.then40
   %add74 = add i32 %call73, %add69
   %idxprom75 = zext i32 %add74 to i64
   %arrayidx76 = getelementptr inbounds i8, ptr %call33, i64 %idxprom75
-  %salt = getelementptr inbounds %struct.MacData, ptr %1, i64 0, i32 1
+  %salt = getelementptr inbounds i8, ptr %1, i64 8
   %14 = load ptr, ptr %salt, align 8
   %15 = load i32, ptr %saltSz, align 8
   %conv78 = zext i32 %15 to i64
@@ -975,7 +970,7 @@ if.then99:                                        ; preds = %if.end, %if.else88
   %18 = phi ptr [ %0, %if.end ], [ %.pre, %if.else88 ]
   %sdBufSz.0 = phi i32 [ 0, %if.end ], [ %add32, %if.else88 ]
   %sdBuf.0 = phi ptr [ null, %if.end ], [ %call33, %if.else88 ]
-  %dataSz = getelementptr inbounds %struct.AuthenticatedSafe, ptr %18, i64 0, i32 4
+  %dataSz = getelementptr inbounds i8, ptr %18, i64 24
   %19 = load i32, ptr %dataSz, align 8
   %call109 = call i32 @SetMyVersion(i32 noundef 3, ptr noundef nonnull %ver, i32 noundef 0) #9
   %cmp110 = icmp sgt i32 %call109, 0
@@ -1066,9 +1061,9 @@ if.then150:                                       ; preds = %if.end143
   %idxprom195 = zext i32 %add194 to i64
   %arrayidx196 = getelementptr inbounds i8, ptr %buf.0, i64 %idxprom195
   %23 = load ptr, ptr %safe, align 8
-  %data = getelementptr inbounds %struct.AuthenticatedSafe, ptr %23, i64 0, i32 1
+  %data = getelementptr inbounds i8, ptr %23, i64 8
   %24 = load ptr, ptr %data, align 8
-  %dataSz199 = getelementptr inbounds %struct.AuthenticatedSafe, ptr %23, i64 0, i32 4
+  %dataSz199 = getelementptr inbounds i8, ptr %23, i64 24
   %25 = load i32, ptr %dataSz199, align 8
   %conv200 = zext i32 %25 to i64
   call void @llvm.memcpy.p0.p0.i64(ptr align 1 %arrayidx196, ptr align 1 %24, i64 %conv200, i1 false)
@@ -1078,7 +1073,7 @@ if.then150:                                       ; preds = %if.end143
 
 if.then207:                                       ; preds = %if.then150
   %27 = load ptr, ptr %safe, align 8
-  %dataSz202 = getelementptr inbounds %struct.AuthenticatedSafe, ptr %27, i64 0, i32 4
+  %dataSz202 = getelementptr inbounds i8, ptr %27, i64 24
   %28 = load i32, ptr %dataSz202, align 8
   %add203 = add i32 %28, %add194
   %idxprom208 = zext i32 %add203 to i64
@@ -1137,7 +1132,7 @@ entry:
 
 while.body:                                       ; preds = %entry, %if.then11
   %current.0 = phi ptr [ %0, %if.then11 ], [ %list, %entry ]
-  %next2 = getelementptr inbounds %struct.WC_DerCertList, ptr %current.0, i64 0, i32 2
+  %next2 = getelementptr inbounds i8, ptr %current.0, i64 16
   %0 = load ptr, ptr %next2, align 8
   %1 = load ptr, ptr %current.0, align 8
   %cmp3.not = icmp eq ptr %1, null
@@ -1196,24 +1191,24 @@ if.then12:                                        ; preds = %if.end
   br label %if.end13
 
 if.end13:                                         ; preds = %if.then12, %if.end
-  %signData = getelementptr inbounds %struct.WC_PKCS12, ptr %pkcs12, i64 0, i32 2
+  %signData = getelementptr inbounds i8, ptr %pkcs12, i64 16
   %7 = load ptr, ptr %signData, align 8
   %cmp14.not = icmp eq ptr %7, null
   br i1 %cmp14.not, label %if.end27, label %if.then16
 
 if.then16:                                        ; preds = %if.end13
-  %safe = getelementptr inbounds %struct.WC_PKCS12, ptr %pkcs12, i64 0, i32 1
+  %safe = getelementptr inbounds i8, ptr %pkcs12, i64 8
   %8 = load ptr, ptr %safe, align 8
-  %data = getelementptr inbounds %struct.AuthenticatedSafe, ptr %8, i64 0, i32 1
+  %data = getelementptr inbounds i8, ptr %8, i64 8
   %9 = load ptr, ptr %data, align 8
-  %dataSz = getelementptr inbounds %struct.AuthenticatedSafe, ptr %8, i64 0, i32 4
+  %dataSz = getelementptr inbounds i8, ptr %8, i64 24
   %10 = load i32, ptr %dataSz, align 8
   call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %digest.i)
   %cmp3.i = icmp eq ptr %9, null
   br i1 %cmp3.i, label %wc_PKCS12_verify.exit.thread, label %if.end.i
 
 if.end.i:                                         ; preds = %if.then16
-  %digestSz.i = getelementptr inbounds %struct.MacData, ptr %7, i64 0, i32 3
+  %digestSz.i = getelementptr inbounds i8, ptr %7, i64 20
   %11 = load i32, ptr %digestSz.i, align 4
   %cmp5.i = icmp ugt i32 %11, 64
   br i1 %cmp5.i, label %wc_PKCS12_verify.exit.thread, label %if.end7.i
@@ -1237,13 +1232,13 @@ wc_PKCS12_verify.exit:                            ; preds = %if.end7.i
   br i1 %cmp19.not, label %if.end27, label %return
 
 if.end27:                                         ; preds = %wc_PKCS12_verify.exit, %if.end13
-  %safe28 = getelementptr inbounds %struct.WC_PKCS12, ptr %pkcs12, i64 0, i32 1
+  %safe28 = getelementptr inbounds i8, ptr %pkcs12, i64 8
   %14 = load ptr, ptr %safe28, align 8
   %cmp29 = icmp eq ptr %14, null
   br i1 %cmp29, label %return, label %for.cond.preheader
 
 for.cond.preheader:                               ; preds = %if.end27
-  %numCI213 = getelementptr inbounds %struct.AuthenticatedSafe, ptr %14, i64 0, i32 3
+  %numCI213 = getelementptr inbounds i8, ptr %14, i64 20
   %15 = load i32, ptr %numCI213, align 4
   %cmp37214.not = icmp eq i32 %15, 0
   br i1 %cmp37214.not, label %for.end, label %for.body
@@ -1256,10 +1251,10 @@ for.body:                                         ; preds = %for.cond.preheader,
   %ci.0218 = load ptr, ptr %ci.0218.in, align 8
   store i32 0, ptr %idx, align 4
   %16 = load ptr, ptr %ci.0218, align 8
-  %type = getelementptr inbounds %struct.ContentInfo, ptr %ci.0218, i64 0, i32 4
+  %type = getelementptr inbounds i8, ptr %ci.0218, i64 24
   %17 = load i32, ptr %type, align 8
   %cmp41 = icmp eq i32 %17, 656
-  %dataSz46 = getelementptr inbounds %struct.ContentInfo, ptr %ci.0218, i64 0, i32 3
+  %dataSz46 = getelementptr inbounds i8, ptr %ci.0218, i64 20
   %18 = load i32, ptr %dataSz46, align 4
   %call47 = call i32 @GetASNTag(ptr noundef %16, ptr noundef nonnull %idx, ptr noundef nonnull %tag, i32 noundef %18) #9
   %cmp48 = icmp sgt i32 %call47, -1
@@ -1357,7 +1352,7 @@ if.end142:                                        ; preds = %if.end131
 if.end149:                                        ; preds = %if.end142, %if.end112
   %data39.0 = phi ptr [ %call100, %if.end112 ], [ %16, %if.end142 ]
   %buf.1 = phi ptr [ %call100, %if.end112 ], [ null, %if.end142 ]
-  %dataSz150 = getelementptr inbounds %struct.ContentInfo, ptr %ci.0218, i64 0, i32 3
+  %dataSz150 = getelementptr inbounds i8, ptr %ci.0218, i64 20
   %35 = load i32, ptr %dataSz150, align 4
   %call151 = call i32 @GetSequence(ptr noundef %data39.0, ptr noundef nonnull %idx, ptr noundef nonnull %totalSz, i32 noundef %35) #9
   %cmp152 = icmp slt i32 %call151, 0
@@ -1642,13 +1637,13 @@ if.end379:                                        ; preds = %if.end366
   %conv383 = sext i32 %82 to i64
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %call369, ptr align 1 %add.ptr382, i64 %conv383, i1 false)
   %83 = load i32, ptr %size, align 4
-  %bufferSz = getelementptr inbounds %struct.WC_DerCertList, ptr %call362, i64 0, i32 1
+  %bufferSz = getelementptr inbounds i8, ptr %call362, i64 8
   store i32 %83, ptr %bufferSz, align 8
   %cmp384.not = icmp eq ptr %call362190199, null
   br i1 %cmp384.not, label %if.end390, label %do.end388
 
 do.end388:                                        ; preds = %if.end379
-  %next = getelementptr inbounds %struct.WC_DerCertList, ptr %tailList.1200, i64 0, i32 2
+  %next = getelementptr inbounds i8, ptr %tailList.1200, i64 16
   store ptr %call362, ptr %next, align 8
   br label %if.end390
 
@@ -1688,10 +1683,10 @@ if.then415:                                       ; preds = %while.end
   br label %if.end417
 
 if.end417:                                        ; preds = %if.then415, %while.end
-  %next418 = getelementptr inbounds %struct.ContentInfo, ptr %ci.0218, i64 0, i32 1
+  %next418 = getelementptr inbounds i8, ptr %ci.0218, i64 8
   %inc = add nuw i32 %i.0216, 1
   %89 = load ptr, ptr %safe28, align 8
-  %numCI = getelementptr inbounds %struct.AuthenticatedSafe, ptr %89, i64 0, i32 3
+  %numCI = getelementptr inbounds i8, ptr %89, i64 20
   %90 = load i32, ptr %numCI, align 4
   %cmp37 = icmp ult i32 %inc, %90
   br i1 %cmp37, label %for.body, label %for.end, !llvm.loop !9
@@ -1767,7 +1762,7 @@ if.end455:                                        ; preds = %if.then453, %if.end
 
 while.body.i:                                     ; preds = %if.end455, %if.then11.i
   %current.0.i = phi ptr [ %97, %if.then11.i ], [ %96, %if.end455 ]
-  %next2.i = getelementptr inbounds %struct.WC_DerCertList, ptr %current.0.i, i64 0, i32 2
+  %next2.i = getelementptr inbounds i8, ptr %current.0.i, i64 16
   %97 = load ptr, ptr %next2.i, align 8
   %98 = load ptr, ptr %current.0.i, align 8
   %cmp3.not.i = icmp eq ptr %98, null
@@ -1816,7 +1811,7 @@ while.body:                                       ; preds = %entry, %if.end17
   %current.018 = phi ptr [ %current.0, %if.end17 ], [ %current.015, %entry ]
   %previous.017 = phi ptr [ %current.018, %if.end17 ], [ null, %entry ]
   %0 = load ptr, ptr %current.018, align 8
-  %bufferSz = getelementptr inbounds %struct.WC_DerCertList, ptr %current.018, i64 0, i32 1
+  %bufferSz = getelementptr inbounds i8, ptr %current.018, i64 8
   %1 = load i32, ptr %bufferSz, align 8
   call void @InitDecodedCert(ptr noundef nonnull %DeCert, ptr noundef %0, i32 noundef %1, ptr noundef %heap) #9
   %call = call i32 @ParseCertRelative(ptr noundef nonnull %DeCert, i32 noundef 0, i32 noundef 0, ptr noundef null) #9
@@ -1831,15 +1826,15 @@ if.then:                                          ; preds = %while.body
   br i1 %cmp5, label %do.end, label %if.end17
 
 do.end:                                           ; preds = %if.then
-  %bufferSz.le = getelementptr inbounds %struct.WC_DerCertList, ptr %current.018, i64 0, i32 1
+  %bufferSz.le = getelementptr inbounds i8, ptr %current.018, i64 8
   %4 = load ptr, ptr %current.018, align 8
   store ptr %4, ptr %cert, align 8
   %5 = load i32, ptr %bufferSz.le, align 8
   store i32 %5, ptr %certSz, align 4
   %cmp9 = icmp eq ptr %previous.017, null
-  %next = getelementptr inbounds %struct.WC_DerCertList, ptr %current.018, i64 0, i32 2
+  %next = getelementptr inbounds i8, ptr %current.018, i64 16
   %6 = load ptr, ptr %next, align 8
-  %next12 = getelementptr inbounds %struct.WC_DerCertList, ptr %previous.017, i64 0, i32 2
+  %next12 = getelementptr inbounds i8, ptr %previous.017, i64 16
   %next12.sink = select i1 %cmp9, ptr %list, ptr %next12
   store ptr %6, ptr %next12.sink, align 8
   call void @FreeDecodedCert(ptr noundef nonnull %DeCert) #9
@@ -1848,7 +1843,7 @@ do.end:                                           ; preds = %if.then
 
 if.end17:                                         ; preds = %if.then, %while.body
   call void @FreeDecodedCert(ptr noundef nonnull %DeCert) #9
-  %next19 = getelementptr inbounds %struct.WC_DerCertList, ptr %current.018, i64 0, i32 2
+  %next19 = getelementptr inbounds i8, ptr %current.018, i64 16
   %current.0 = load ptr, ptr %next19, align 8
   %cmp.not = icmp eq ptr %current.0, null
   br i1 %cmp.not, label %while.end, label %while.body, !llvm.loop !10
@@ -2074,11 +2069,11 @@ switch.lookup:                                    ; preds = %switch.hole_check
 if.end11.i:                                       ; preds = %switch.lookup, %if.end11.i
   %current.072.i = phi ptr [ %10, %if.end11.i ], [ %ca, %switch.lookup ]
   %certBufSz.071.i = phi i32 [ %add.i59, %if.end11.i ], [ %add9.i.i, %switch.lookup ]
-  %bufferSz.i = getelementptr inbounds %struct.WC_DerCertList, ptr %current.072.i, i64 0, i32 1
+  %bufferSz.i = getelementptr inbounds i8, ptr %current.072.i, i64 8
   %9 = load i32, ptr %bufferSz.i, align 8
   %add9.i64.i = add i32 %certBufSz.071.i, 55
   %add.i59 = add i32 %add9.i64.i, %9
-  %next.i = getelementptr inbounds %struct.WC_DerCertList, ptr %current.072.i, i64 0, i32 2
+  %next.i = getelementptr inbounds i8, ptr %current.072.i, i64 16
   %10 = load ptr, ptr %next.i, align 8
   %cmp7.not.i = icmp eq ptr %10, null
   br i1 %cmp7.not.i, label %if.end12.i, label %if.end11.i, !llvm.loop !13
@@ -2113,7 +2108,7 @@ while.body37.i:                                   ; preds = %if.end51.i, %while.
   %idx.ext39.i = zext i32 %idx.073.i to i64
   %add.ptr40.i = getelementptr inbounds i8, ptr %call14.i, i64 %idx.ext39.i
   %11 = load ptr, ptr %current33.074.i, align 8
-  %bufferSz42.i = getelementptr inbounds %struct.WC_DerCertList, ptr %current33.074.i, i64 0, i32 1
+  %bufferSz42.i = getelementptr inbounds i8, ptr %current33.074.i, i64 8
   %12 = load i32, ptr %bufferSz42.i, align 8
   %call43.i = call fastcc i32 @wc_PKCS12_create_cert_bag(ptr noundef nonnull %add.ptr40.i, ptr noundef nonnull %sz.i, ptr noundef %11, i32 noundef %12)
   %cmp44.i = icmp slt i32 %call43.i, 0
@@ -2121,7 +2116,7 @@ while.body37.i:                                   ; preds = %if.end51.i, %while.
 
 if.end51.i:                                       ; preds = %while.body37.i
   %add52.i = add i32 %call43.i, %idx.073.i
-  %next53.i = getelementptr inbounds %struct.WC_DerCertList, ptr %current33.074.i, i64 0, i32 2
+  %next53.i = getelementptr inbounds i8, ptr %current33.074.i, i64 16
   %13 = load ptr, ptr %next53.i, align 8
   %cmp35.not.i = icmp eq ptr %13, null
   br i1 %cmp35.not.i, label %if.end55.loopexit.i, label %while.body37.i, !llvm.loop !14
@@ -2263,16 +2258,16 @@ if.then49:                                        ; preds = %if.then46
 
 if.end53:                                         ; preds = %if.then46
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %call47, i8 0, i64 24, i1 false)
-  %signData = getelementptr inbounds %struct.WC_PKCS12, ptr %call.i, i64 0, i32 2
+  %signData = getelementptr inbounds i8, ptr %call.i, i64 16
   store ptr %call47, ptr %signData, align 8
-  %oid = getelementptr inbounds %struct.MacData, ptr %call47, i64 0, i32 2
+  %oid = getelementptr inbounds i8, ptr %call47, i64 16
   store i32 414, ptr %oid, align 8
-  %itt = getelementptr inbounds %struct.MacData, ptr %call47, i64 0, i32 5
+  %itt = getelementptr inbounds i8, ptr %call47, i64 28
   store i32 %macIter, ptr %itt, align 4
-  %saltSz = getelementptr inbounds %struct.MacData, ptr %call47, i64 0, i32 4
+  %saltSz = getelementptr inbounds i8, ptr %call47, i64 24
   store i32 8, ptr %saltSz, align 8
   %call54 = call ptr @wolfSSL_Malloc(i64 noundef 8) #9
-  %salt = getelementptr inbounds %struct.MacData, ptr %call47, i64 0, i32 1
+  %salt = getelementptr inbounds i8, ptr %call47, i64 8
   store ptr %call54, ptr %salt, align 8
   %cmp56 = icmp eq ptr %call54, null
   br i1 %cmp56, label %if.then57, label %if.end61
@@ -2292,11 +2287,11 @@ do.end68:                                         ; preds = %if.end61
   br label %return.sink.split
 
 if.end70:                                         ; preds = %if.end61
-  %safe = getelementptr inbounds %struct.WC_PKCS12, ptr %call.i, i64 0, i32 1
+  %safe = getelementptr inbounds i8, ptr %call.i, i64 8
   %19 = load ptr, ptr %safe, align 8
-  %data = getelementptr inbounds %struct.AuthenticatedSafe, ptr %19, i64 0, i32 1
+  %data = getelementptr inbounds i8, ptr %19, i64 8
   %20 = load ptr, ptr %data, align 8
-  %dataSz = getelementptr inbounds %struct.AuthenticatedSafe, ptr %19, i64 0, i32 4
+  %dataSz = getelementptr inbounds i8, ptr %19, i64 24
   %21 = load i32, ptr %dataSz, align 8
   %call72 = call fastcc i32 @wc_PKCS12_create_mac(ptr noundef nonnull %call.i, ptr noundef %20, i32 noundef %21, ptr noundef %pass, i32 noundef %passSz, ptr noundef nonnull %digest)
   %cmp73 = icmp slt i32 %call72, 0
@@ -2307,7 +2302,7 @@ if.then74:                                        ; preds = %if.end70
   br label %return.sink.split
 
 if.end80:                                         ; preds = %if.end70
-  %digestSz = getelementptr inbounds %struct.MacData, ptr %call47, i64 0, i32 3
+  %digestSz = getelementptr inbounds i8, ptr %call47, i64 20
   store i32 %call72, ptr %digestSz, align 4
   %conv = zext nneg i32 %call72 to i64
   %call81 = call ptr @wolfSSL_Malloc(i64 noundef %conv) #9
@@ -2326,7 +2321,7 @@ if.end90:                                         ; preds = %if.end80
   br label %return.sink.split
 
 if.else:                                          ; preds = %if.end44
-  %signData95 = getelementptr inbounds %struct.WC_PKCS12, ptr %call.i, i64 0, i32 2
+  %signData95 = getelementptr inbounds i8, ptr %call.i, i64 16
   store ptr null, ptr %signData95, align 8
   br label %return.sink.split
 
@@ -2367,7 +2362,7 @@ entry:
   %hmac = alloca %struct.Hmac, align 16
   %unicodePasswd = alloca [256 x i8], align 16
   %key = alloca [64 x i8], align 16
-  %signData = getelementptr inbounds %struct.WC_PKCS12, ptr %pkcs12, i64 0, i32 2
+  %signData = getelementptr inbounds i8, ptr %pkcs12, i64 16
   %0 = load ptr, ptr %signData, align 8
   %cmp1 = icmp eq ptr %0, null
   %cmp3 = icmp eq ptr %data, null
@@ -2419,7 +2414,7 @@ for.end:                                          ; preds = %for.end.loopexit, %
   %idxprom21 = zext nneg i32 %inc17 to i64
   %arrayidx22 = getelementptr inbounds [256 x i8], ptr %unicodePasswd, i64 0, i64 %idxprom21
   store i8 0, ptr %arrayidx22, align 1
-  %oid = getelementptr inbounds %struct.MacData, ptr %0, i64 0, i32 2
+  %oid = getelementptr inbounds i8, ptr %0, i64 16
   %5 = load i32, ptr %oid, align 8
   %call = tail call i32 @wc_OidGetHash(i32 noundef %5) #9
   %cmp23 = icmp eq i32 %call, 0
@@ -2428,7 +2423,7 @@ for.end:                                          ; preds = %for.end.loopexit, %
 for.body.i:                                       ; preds = %for.end, %for.body.i
   %w.017.i = phi ptr [ %incdec.ptr7.i, %for.body.i ], [ %unicodePasswd, %for.end ]
   %len.addr.016.i = phi i32 [ %sub8.i, %for.body.i ], [ 256, %for.end ]
-  %incdec.ptr7.i = getelementptr inbounds i64, ptr %w.017.i, i64 1
+  %incdec.ptr7.i = getelementptr inbounds i8, ptr %w.017.i, i64 8
   store volatile i64 0, ptr %w.017.i, align 8
   %sub8.i = add nsw i32 %len.addr.016.i, -8
   %cmp5.i.not = icmp eq i32 %sub8.i, 0
@@ -2442,18 +2437,18 @@ if.end27:                                         ; preds = %for.end
 for.body.i43:                                     ; preds = %if.end27, %for.body.i43
   %w.017.i44 = phi ptr [ %incdec.ptr7.i46, %for.body.i43 ], [ %unicodePasswd, %if.end27 ]
   %len.addr.016.i45 = phi i32 [ %sub8.i47, %for.body.i43 ], [ 256, %if.end27 ]
-  %incdec.ptr7.i46 = getelementptr inbounds i64, ptr %w.017.i44, i64 1
+  %incdec.ptr7.i46 = getelementptr inbounds i8, ptr %w.017.i44, i64 8
   store volatile i64 0, ptr %w.017.i44, align 8
   %sub8.i47 = add nsw i32 %len.addr.016.i45, -8
   %cmp5.i48.not = icmp eq i32 %sub8.i47, 0
   br i1 %cmp5.i48.not, label %return, label %for.body.i43, !llvm.loop !16
 
 if.end34:                                         ; preds = %if.end27
-  %salt = getelementptr inbounds %struct.MacData, ptr %0, i64 0, i32 1
+  %salt = getelementptr inbounds i8, ptr %0, i64 8
   %6 = load ptr, ptr %salt, align 8
-  %saltSz = getelementptr inbounds %struct.MacData, ptr %0, i64 0, i32 4
+  %saltSz = getelementptr inbounds i8, ptr %0, i64 24
   %7 = load i32, ptr %saltSz, align 8
-  %itt = getelementptr inbounds %struct.MacData, ptr %0, i64 0, i32 5
+  %itt = getelementptr inbounds i8, ptr %0, i64 28
   %8 = load i32, ptr %itt, align 4
   %9 = load ptr, ptr %pkcs12, align 8
   %call37 = call i32 @wc_PKCS12_PBKDF_ex(ptr noundef nonnull %key, ptr noundef nonnull %unicodePasswd, i32 noundef %inc20, ptr noundef %6, i32 noundef %7, i32 noundef %8, i32 noundef %call28, i32 noundef %call, i32 noundef 3, ptr noundef %9) #9
@@ -2462,7 +2457,7 @@ if.end34:                                         ; preds = %if.end27
 for.body.i69:                                     ; preds = %for.body.i69, %if.end34
   %w.017.i70 = phi ptr [ %incdec.ptr7.i72, %for.body.i69 ], [ %unicodePasswd, %if.end34 ]
   %len.addr.016.i71 = phi i32 [ %sub8.i73, %for.body.i69 ], [ 256, %if.end34 ]
-  %incdec.ptr7.i72 = getelementptr inbounds i64, ptr %w.017.i70, i64 1
+  %incdec.ptr7.i72 = getelementptr inbounds i8, ptr %w.017.i70, i64 8
   store volatile i64 0, ptr %w.017.i70, align 8
   %sub8.i73 = add nsw i32 %len.addr.016.i71, -8
   %cmp5.i74.not = icmp eq i32 %sub8.i73, 0

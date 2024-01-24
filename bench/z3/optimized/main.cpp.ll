@@ -872,7 +872,7 @@ catch:                                            ; preds = %catch.dispatch
 
 invoke.cont84:                                    ; preds = %catch
   %vtable = load ptr, ptr %15, align 8
-  %vfn = getelementptr inbounds ptr, ptr %vtable, i64 2
+  %vfn = getelementptr inbounds i8, ptr %vtable, i64 16
   %16 = load ptr, ptr %vfn, align 8
   %call87 = invoke noundef ptr %16(ptr noundef nonnull align 8 dereferenceable(8) %15)
           to label %invoke.cont86 unwind label %lpad83
@@ -894,7 +894,7 @@ invoke.cont92:                                    ; preds = %invoke.cont90
 
 if.then94:                                        ; preds = %invoke.cont92
   %vtable95 = load ptr, ptr %15, align 8
-  %vfn96 = getelementptr inbounds ptr, ptr %vtable95, i64 3
+  %vfn96 = getelementptr inbounds i8, ptr %vtable95, i64 24
   %17 = load ptr, ptr %vfn96, align 8
   %call98 = invoke noundef i32 %17(ptr noundef nonnull align 8 dereferenceable(8) %15)
           to label %cleanup unwind label %lpad83

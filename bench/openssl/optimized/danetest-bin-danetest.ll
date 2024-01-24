@@ -90,13 +90,13 @@ target triple = "x86_64-unknown-linux-gnu"
 @.str.69 = private unnamed_addr constant [39 x i8] c"ret = X509_STORE_CTX_verify(store_ctx)\00", align 1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define dso_local nonnull ptr @test_get_options() local_unnamed_addr #0 {
+define dso_local noundef nonnull ptr @test_get_options() local_unnamed_addr #0 {
 entry:
   ret ptr @test_get_options.options
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local i32 @setup_tests() local_unnamed_addr #1 {
+define dso_local noundef i32 @setup_tests() local_unnamed_addr #1 {
 entry:
   %call = tail call i32 @test_skip_common_options() #9
   %tobool.not = icmp eq i32 %call, 0
@@ -311,7 +311,7 @@ for.body.i.i:                                     ; preds = %for.body.i, %for.in
   %len.015.i.i = phi i64 [ %call.i30.i, %for.inc.i.i ], [ 0, %for.body.i ]
   %cp.014.i.i = phi ptr [ %add.ptr.i.i, %for.inc.i.i ], [ %call30.i, %for.body.i ]
   %f.013.i.i = phi ptr [ %incdec.ptr.i31.i, %for.inc.i.i ], [ @tlsa_import_rr.tlsa_fields, %for.body.i ]
-  %parser.i.i = getelementptr inbounds %struct.tlsa_field, ptr %f.013.i.i, i64 0, i32 2
+  %parser.i.i = getelementptr inbounds i8, ptr %f.013.i.i, i64 16
   %13 = load ptr, ptr %parser.i.i, align 8
   %add.ptr.i.i = getelementptr inbounds i8, ptr %cp.014.i.i, i64 %len.015.i.i
   %call.i30.i = call i64 %13(ptr noundef %add.ptr.i.i, ptr noundef nonnull %12) #9
@@ -319,13 +319,13 @@ for.body.i.i:                                     ; preds = %for.body.i, %for.in
   br i1 %cmp.i.i, label %if.then.i.i, label %for.inc.i.i
 
 if.then.i.i:                                      ; preds = %for.body.i.i
-  %name.i.i = getelementptr inbounds %struct.tlsa_field, ptr %f.013.i.i, i64 0, i32 1
+  %name.i.i = getelementptr inbounds i8, ptr %f.013.i.i, i64 8
   %14 = load ptr, ptr %name.i.i, align 8
   call void (ptr, i32, ptr, ...) @test_info(ptr noundef nonnull @.str.14, i32 noundef 263, ptr noundef nonnull @.str.48, ptr noundef %14, ptr noundef nonnull %call30.i) #9
   br label %if.then36.i
 
 for.inc.i.i:                                      ; preds = %for.body.i.i
-  %incdec.ptr.i31.i = getelementptr inbounds %struct.tlsa_field, ptr %f.013.i.i, i64 1
+  %incdec.ptr.i31.i = getelementptr inbounds i8, ptr %f.013.i.i, i64 24
   %15 = load ptr, ptr %incdec.ptr.i31.i, align 8
   %tobool.not.i32.i = icmp eq ptr %15, null
   br i1 %tobool.not.i32.i, label %for.end.i.i, label %for.body.i.i, !llvm.loop !8
@@ -654,7 +654,7 @@ declare i32 @BIO_free(ptr noundef) local_unnamed_addr #2
 declare void @SSL_CTX_free(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc ptr @read_to_eol(ptr noundef %f) unnamed_addr #1 {
+define internal fastcc noundef ptr @read_to_eol(ptr noundef %f) unnamed_addr #1 {
 entry:
   %call = tail call i32 @BIO_gets(ptr noundef %f, ptr noundef nonnull @read_to_eol.buf, i32 noundef 4096) #9
   %cmp = icmp slt i32 %call, 1
@@ -756,7 +756,7 @@ declare i64 @strlen(ptr nocapture noundef) local_unnamed_addr #4
 declare ptr @__ctype_b_loc() local_unnamed_addr #5
 
 ; Function Attrs: nofree nounwind uwtable
-define internal i64 @checked_uint8(ptr noundef %in, ptr nocapture noundef writeonly %out) #6 {
+define internal noundef i64 @checked_uint8(ptr noundef %in, ptr nocapture noundef writeonly %out) #6 {
 entry:
   %endp = alloca ptr, align 8
   %call.i = tail call ptr @__errno_location() #10

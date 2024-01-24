@@ -24,8 +24,6 @@ target triple = "x86_64-unknown-linux-gnu"
 %struct.scatter_unit_u32 = type { i32, i32 }
 %struct.scatter_unit_u16 = type { i32, i16 }
 %struct.scatter_unit_u8 = type { i32, i8 }
-%struct.RoseStateOffsets = type { i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32 }
-%struct.scatter_full_plan = type { i32, i32, i32, i32, i32, i32, i32, i32 }
 
 $_ZN3ue216scatter_plan_rawD2Ev = comdat any
 
@@ -53,7 +51,7 @@ entry:
 
 invoke.cont:                                      ; preds = %entry
   %0 = load ptr, ptr %spr_role, align 8
-  %_M_finish.i.i.i = getelementptr inbounds %"struct.std::_Vector_base<scatter_unit_u64a, std::allocator<scatter_unit_u64a>>::_Vector_impl_data", ptr %spr_role, i64 0, i32 1
+  %_M_finish.i.i.i = getelementptr inbounds i8, ptr %spr_role, i64 8
   %1 = load ptr, ptr %_M_finish.i.i.i, align 8
   %cmp.i.not9.i.i = icmp eq ptr %0, %1
   br i1 %cmp.i.not9.i.i, label %_ZN3ue2L6rebaseI17scatter_unit_u64aEEvPSt6vectorIT_SaIS3_EEj.exit.i, label %do.end.i.i
@@ -63,15 +61,15 @@ do.end.i.i:                                       ; preds = %invoke.cont, %do.en
   %2 = load i32, ptr %it.sroa.0.010.i.i, align 8
   %add.i.i = add i32 %2, %role_state_offset
   store i32 %add.i.i, ptr %it.sroa.0.010.i.i, align 8
-  %incdec.ptr.i.i.i = getelementptr inbounds %struct.scatter_unit_u64a, ptr %it.sroa.0.010.i.i, i64 1
+  %incdec.ptr.i.i.i = getelementptr inbounds i8, ptr %it.sroa.0.010.i.i, i64 16
   %3 = load ptr, ptr %_M_finish.i.i.i, align 8
   %cmp.i.not.i.i = icmp eq ptr %incdec.ptr.i.i.i, %3
   br i1 %cmp.i.not.i.i, label %_ZN3ue2L6rebaseI17scatter_unit_u64aEEvPSt6vectorIT_SaIS3_EEj.exit.i, label %do.end.i.i, !llvm.loop !5
 
 _ZN3ue2L6rebaseI17scatter_unit_u64aEEvPSt6vectorIT_SaIS3_EEj.exit.i: ; preds = %do.end.i.i, %invoke.cont
-  %p_u32.i = getelementptr inbounds %"struct.ue2::scatter_plan_raw", ptr %spr_role, i64 0, i32 1
+  %p_u32.i = getelementptr inbounds i8, ptr %spr_role, i64 24
   %4 = load ptr, ptr %p_u32.i, align 8
-  %_M_finish.i.i7.i = getelementptr inbounds %"struct.ue2::scatter_plan_raw", ptr %spr_role, i64 0, i32 1, i32 0, i32 0, i32 0, i32 1
+  %_M_finish.i.i7.i = getelementptr inbounds i8, ptr %spr_role, i64 32
   %5 = load ptr, ptr %_M_finish.i.i7.i, align 8
   %cmp.i.not9.i8.i = icmp eq ptr %4, %5
   br i1 %cmp.i.not9.i8.i, label %_ZN3ue2L6rebaseI16scatter_unit_u32EEvPSt6vectorIT_SaIS3_EEj.exit.i, label %do.end.i9.i
@@ -81,15 +79,15 @@ do.end.i9.i:                                      ; preds = %_ZN3ue2L6rebaseI17s
   %6 = load i32, ptr %it.sroa.0.010.i10.i, align 4
   %add.i11.i = add i32 %6, %role_state_offset
   store i32 %add.i11.i, ptr %it.sroa.0.010.i10.i, align 4
-  %incdec.ptr.i.i12.i = getelementptr inbounds %struct.scatter_unit_u32, ptr %it.sroa.0.010.i10.i, i64 1
+  %incdec.ptr.i.i12.i = getelementptr inbounds i8, ptr %it.sroa.0.010.i10.i, i64 8
   %7 = load ptr, ptr %_M_finish.i.i7.i, align 8
   %cmp.i.not.i13.i = icmp eq ptr %incdec.ptr.i.i12.i, %7
   br i1 %cmp.i.not.i13.i, label %_ZN3ue2L6rebaseI16scatter_unit_u32EEvPSt6vectorIT_SaIS3_EEj.exit.i, label %do.end.i9.i, !llvm.loop !7
 
 _ZN3ue2L6rebaseI16scatter_unit_u32EEvPSt6vectorIT_SaIS3_EEj.exit.i: ; preds = %do.end.i9.i, %_ZN3ue2L6rebaseI17scatter_unit_u64aEEvPSt6vectorIT_SaIS3_EEj.exit.i
-  %p_u16.i = getelementptr inbounds %"struct.ue2::scatter_plan_raw", ptr %spr_role, i64 0, i32 2
+  %p_u16.i = getelementptr inbounds i8, ptr %spr_role, i64 48
   %8 = load ptr, ptr %p_u16.i, align 8
-  %_M_finish.i.i14.i = getelementptr inbounds %"struct.ue2::scatter_plan_raw", ptr %spr_role, i64 0, i32 2, i32 0, i32 0, i32 0, i32 1
+  %_M_finish.i.i14.i = getelementptr inbounds i8, ptr %spr_role, i64 56
   %9 = load ptr, ptr %_M_finish.i.i14.i, align 8
   %cmp.i.not9.i15.i = icmp eq ptr %8, %9
   br i1 %cmp.i.not9.i15.i, label %_ZN3ue2L6rebaseI16scatter_unit_u16EEvPSt6vectorIT_SaIS3_EEj.exit.i, label %do.end.i16.i
@@ -99,15 +97,15 @@ do.end.i16.i:                                     ; preds = %_ZN3ue2L6rebaseI16s
   %10 = load i32, ptr %it.sroa.0.010.i17.i, align 4
   %add.i18.i = add i32 %10, %role_state_offset
   store i32 %add.i18.i, ptr %it.sroa.0.010.i17.i, align 4
-  %incdec.ptr.i.i19.i = getelementptr inbounds %struct.scatter_unit_u16, ptr %it.sroa.0.010.i17.i, i64 1
+  %incdec.ptr.i.i19.i = getelementptr inbounds i8, ptr %it.sroa.0.010.i17.i, i64 8
   %11 = load ptr, ptr %_M_finish.i.i14.i, align 8
   %cmp.i.not.i20.i = icmp eq ptr %incdec.ptr.i.i19.i, %11
   br i1 %cmp.i.not.i20.i, label %_ZN3ue2L6rebaseI16scatter_unit_u16EEvPSt6vectorIT_SaIS3_EEj.exit.i, label %do.end.i16.i, !llvm.loop !8
 
 _ZN3ue2L6rebaseI16scatter_unit_u16EEvPSt6vectorIT_SaIS3_EEj.exit.i: ; preds = %do.end.i16.i, %_ZN3ue2L6rebaseI16scatter_unit_u32EEvPSt6vectorIT_SaIS3_EEj.exit.i
-  %p_u8.i = getelementptr inbounds %"struct.ue2::scatter_plan_raw", ptr %spr_role, i64 0, i32 3
+  %p_u8.i = getelementptr inbounds i8, ptr %spr_role, i64 72
   %12 = load ptr, ptr %p_u8.i, align 8
-  %_M_finish.i.i21.i = getelementptr inbounds %"struct.ue2::scatter_plan_raw", ptr %spr_role, i64 0, i32 3, i32 0, i32 0, i32 0, i32 1
+  %_M_finish.i.i21.i = getelementptr inbounds i8, ptr %spr_role, i64 80
   %13 = load ptr, ptr %_M_finish.i.i21.i, align 8
   %cmp.i.not9.i22.i = icmp eq ptr %12, %13
   br i1 %cmp.i.not9.i22.i, label %invoke.cont1, label %do.end.i23.i
@@ -117,13 +115,13 @@ do.end.i23.i:                                     ; preds = %_ZN3ue2L6rebaseI16s
   %14 = load i32, ptr %it.sroa.0.010.i24.i, align 4
   %add.i25.i = add i32 %14, %role_state_offset
   store i32 %add.i25.i, ptr %it.sroa.0.010.i24.i, align 4
-  %incdec.ptr.i.i26.i = getelementptr inbounds %struct.scatter_unit_u8, ptr %it.sroa.0.010.i24.i, i64 1
+  %incdec.ptr.i.i26.i = getelementptr inbounds i8, ptr %it.sroa.0.010.i24.i, i64 8
   %15 = load ptr, ptr %_M_finish.i.i21.i, align 8
   %cmp.i.not.i27.i = icmp eq ptr %incdec.ptr.i.i26.i, %15
   br i1 %cmp.i.not.i27.i, label %invoke.cont1, label %do.end.i23.i, !llvm.loop !9
 
 invoke.cont1:                                     ; preds = %do.end.i23.i, %_ZN3ue2L6rebaseI16scatter_unit_u16EEvPSt6vectorIT_SaIS3_EEj.exit.i
-  %_M_finish.i.i = getelementptr inbounds %"struct.std::_Vector_base<scatter_unit_u64a, std::allocator<scatter_unit_u64a>>::_Vector_impl_data", ptr %agg.result, i64 0, i32 1
+  %_M_finish.i.i = getelementptr inbounds i8, ptr %agg.result, i64 8
   %16 = load ptr, ptr %_M_finish.i.i, align 8
   %17 = load ptr, ptr %spr_role, align 8
   %18 = load ptr, ptr %_M_finish.i.i.i, align 8
@@ -136,8 +134,8 @@ invoke.cont1:                                     ; preds = %do.end.i23.i, %_ZN3
           to label %.noexc unwind label %lpad
 
 .noexc:                                           ; preds = %invoke.cont1
-  %p_u32.i23 = getelementptr inbounds %"struct.ue2::scatter_plan_raw", ptr %agg.result, i64 0, i32 1
-  %_M_finish.i32.i = getelementptr inbounds %"struct.ue2::scatter_plan_raw", ptr %agg.result, i64 0, i32 1, i32 0, i32 0, i32 0, i32 1
+  %p_u32.i23 = getelementptr inbounds i8, ptr %agg.result, i64 24
+  %_M_finish.i32.i = getelementptr inbounds i8, ptr %agg.result, i64 32
   %20 = load ptr, ptr %_M_finish.i32.i, align 8
   %21 = load ptr, ptr %p_u32.i, align 8
   %22 = load ptr, ptr %_M_finish.i.i7.i, align 8
@@ -150,8 +148,8 @@ invoke.cont1:                                     ; preds = %do.end.i23.i, %_ZN3
           to label %.noexc26 unwind label %lpad
 
 .noexc26:                                         ; preds = %.noexc
-  %p_u16.i24 = getelementptr inbounds %"struct.ue2::scatter_plan_raw", ptr %agg.result, i64 0, i32 2
-  %_M_finish.i39.i = getelementptr inbounds %"struct.ue2::scatter_plan_raw", ptr %agg.result, i64 0, i32 2, i32 0, i32 0, i32 0, i32 1
+  %p_u16.i24 = getelementptr inbounds i8, ptr %agg.result, i64 48
+  %_M_finish.i39.i = getelementptr inbounds i8, ptr %agg.result, i64 56
   %24 = load ptr, ptr %_M_finish.i39.i, align 8
   %25 = load ptr, ptr %p_u16.i, align 8
   %26 = load ptr, ptr %_M_finish.i.i14.i, align 8
@@ -164,8 +162,8 @@ invoke.cont1:                                     ; preds = %do.end.i23.i, %_ZN3
           to label %.noexc27 unwind label %lpad
 
 .noexc27:                                         ; preds = %.noexc26
-  %p_u8.i25 = getelementptr inbounds %"struct.ue2::scatter_plan_raw", ptr %agg.result, i64 0, i32 3
-  %_M_finish.i46.i = getelementptr inbounds %"struct.ue2::scatter_plan_raw", ptr %agg.result, i64 0, i32 3, i32 0, i32 0, i32 0, i32 1
+  %p_u8.i25 = getelementptr inbounds i8, ptr %agg.result, i64 72
+  %_M_finish.i46.i = getelementptr inbounds i8, ptr %agg.result, i64 80
   %28 = load ptr, ptr %_M_finish.i46.i, align 8
   %29 = load ptr, ptr %p_u8.i, align 8
   %30 = load ptr, ptr %_M_finish.i.i21.i, align 8
@@ -178,7 +176,7 @@ invoke.cont1:                                     ; preds = %do.end.i23.i, %_ZN3
           to label %invoke.cont2 unwind label %lpad
 
 invoke.cont2:                                     ; preds = %.noexc27
-  %activeLeftArray = getelementptr inbounds %struct.RoseStateOffsets, ptr %stateOffsets, i64 0, i32 9
+  %activeLeftArray = getelementptr inbounds i8, ptr %stateOffsets, i64 36
   %32 = load i32, ptr %activeLeftArray, align 4
   call void @llvm.lifetime.start.p0(i64 96, ptr nonnull %spr_rose) #13
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(96) %spr_rose, i8 0, i64 96, i1 false)
@@ -187,7 +185,7 @@ invoke.cont2:                                     ; preds = %.noexc27
 
 invoke.cont4:                                     ; preds = %invoke.cont2
   %33 = load ptr, ptr %spr_rose, align 8
-  %_M_finish.i.i.i29 = getelementptr inbounds %"struct.std::_Vector_base<scatter_unit_u64a, std::allocator<scatter_unit_u64a>>::_Vector_impl_data", ptr %spr_rose, i64 0, i32 1
+  %_M_finish.i.i.i29 = getelementptr inbounds i8, ptr %spr_rose, i64 8
   %34 = load ptr, ptr %_M_finish.i.i.i29, align 8
   %cmp.i.not9.i.i30 = icmp eq ptr %33, %34
   br i1 %cmp.i.not9.i.i30, label %_ZN3ue2L6rebaseI17scatter_unit_u64aEEvPSt6vectorIT_SaIS3_EEj.exit.i36, label %do.end.i.i31
@@ -197,15 +195,15 @@ do.end.i.i31:                                     ; preds = %invoke.cont4, %do.e
   %35 = load i32, ptr %it.sroa.0.010.i.i32, align 8
   %add.i.i33 = add i32 %35, %32
   store i32 %add.i.i33, ptr %it.sroa.0.010.i.i32, align 8
-  %incdec.ptr.i.i.i34 = getelementptr inbounds %struct.scatter_unit_u64a, ptr %it.sroa.0.010.i.i32, i64 1
+  %incdec.ptr.i.i.i34 = getelementptr inbounds i8, ptr %it.sroa.0.010.i.i32, i64 16
   %36 = load ptr, ptr %_M_finish.i.i.i29, align 8
   %cmp.i.not.i.i35 = icmp eq ptr %incdec.ptr.i.i.i34, %36
   br i1 %cmp.i.not.i.i35, label %_ZN3ue2L6rebaseI17scatter_unit_u64aEEvPSt6vectorIT_SaIS3_EEj.exit.i36, label %do.end.i.i31, !llvm.loop !5
 
 _ZN3ue2L6rebaseI17scatter_unit_u64aEEvPSt6vectorIT_SaIS3_EEj.exit.i36: ; preds = %do.end.i.i31, %invoke.cont4
-  %p_u32.i37 = getelementptr inbounds %"struct.ue2::scatter_plan_raw", ptr %spr_rose, i64 0, i32 1
+  %p_u32.i37 = getelementptr inbounds i8, ptr %spr_rose, i64 24
   %37 = load ptr, ptr %p_u32.i37, align 8
-  %_M_finish.i.i7.i38 = getelementptr inbounds %"struct.ue2::scatter_plan_raw", ptr %spr_rose, i64 0, i32 1, i32 0, i32 0, i32 0, i32 1
+  %_M_finish.i.i7.i38 = getelementptr inbounds i8, ptr %spr_rose, i64 32
   %38 = load ptr, ptr %_M_finish.i.i7.i38, align 8
   %cmp.i.not9.i8.i39 = icmp eq ptr %37, %38
   br i1 %cmp.i.not9.i8.i39, label %_ZN3ue2L6rebaseI16scatter_unit_u32EEvPSt6vectorIT_SaIS3_EEj.exit.i45, label %do.end.i9.i40
@@ -215,15 +213,15 @@ do.end.i9.i40:                                    ; preds = %_ZN3ue2L6rebaseI17s
   %39 = load i32, ptr %it.sroa.0.010.i10.i41, align 4
   %add.i11.i42 = add i32 %39, %32
   store i32 %add.i11.i42, ptr %it.sroa.0.010.i10.i41, align 4
-  %incdec.ptr.i.i12.i43 = getelementptr inbounds %struct.scatter_unit_u32, ptr %it.sroa.0.010.i10.i41, i64 1
+  %incdec.ptr.i.i12.i43 = getelementptr inbounds i8, ptr %it.sroa.0.010.i10.i41, i64 8
   %40 = load ptr, ptr %_M_finish.i.i7.i38, align 8
   %cmp.i.not.i13.i44 = icmp eq ptr %incdec.ptr.i.i12.i43, %40
   br i1 %cmp.i.not.i13.i44, label %_ZN3ue2L6rebaseI16scatter_unit_u32EEvPSt6vectorIT_SaIS3_EEj.exit.i45, label %do.end.i9.i40, !llvm.loop !7
 
 _ZN3ue2L6rebaseI16scatter_unit_u32EEvPSt6vectorIT_SaIS3_EEj.exit.i45: ; preds = %do.end.i9.i40, %_ZN3ue2L6rebaseI17scatter_unit_u64aEEvPSt6vectorIT_SaIS3_EEj.exit.i36
-  %p_u16.i46 = getelementptr inbounds %"struct.ue2::scatter_plan_raw", ptr %spr_rose, i64 0, i32 2
+  %p_u16.i46 = getelementptr inbounds i8, ptr %spr_rose, i64 48
   %41 = load ptr, ptr %p_u16.i46, align 8
-  %_M_finish.i.i14.i47 = getelementptr inbounds %"struct.ue2::scatter_plan_raw", ptr %spr_rose, i64 0, i32 2, i32 0, i32 0, i32 0, i32 1
+  %_M_finish.i.i14.i47 = getelementptr inbounds i8, ptr %spr_rose, i64 56
   %42 = load ptr, ptr %_M_finish.i.i14.i47, align 8
   %cmp.i.not9.i15.i48 = icmp eq ptr %41, %42
   br i1 %cmp.i.not9.i15.i48, label %_ZN3ue2L6rebaseI16scatter_unit_u16EEvPSt6vectorIT_SaIS3_EEj.exit.i54, label %do.end.i16.i49
@@ -233,15 +231,15 @@ do.end.i16.i49:                                   ; preds = %_ZN3ue2L6rebaseI16s
   %43 = load i32, ptr %it.sroa.0.010.i17.i50, align 4
   %add.i18.i51 = add i32 %43, %32
   store i32 %add.i18.i51, ptr %it.sroa.0.010.i17.i50, align 4
-  %incdec.ptr.i.i19.i52 = getelementptr inbounds %struct.scatter_unit_u16, ptr %it.sroa.0.010.i17.i50, i64 1
+  %incdec.ptr.i.i19.i52 = getelementptr inbounds i8, ptr %it.sroa.0.010.i17.i50, i64 8
   %44 = load ptr, ptr %_M_finish.i.i14.i47, align 8
   %cmp.i.not.i20.i53 = icmp eq ptr %incdec.ptr.i.i19.i52, %44
   br i1 %cmp.i.not.i20.i53, label %_ZN3ue2L6rebaseI16scatter_unit_u16EEvPSt6vectorIT_SaIS3_EEj.exit.i54, label %do.end.i16.i49, !llvm.loop !8
 
 _ZN3ue2L6rebaseI16scatter_unit_u16EEvPSt6vectorIT_SaIS3_EEj.exit.i54: ; preds = %do.end.i16.i49, %_ZN3ue2L6rebaseI16scatter_unit_u32EEvPSt6vectorIT_SaIS3_EEj.exit.i45
-  %p_u8.i55 = getelementptr inbounds %"struct.ue2::scatter_plan_raw", ptr %spr_rose, i64 0, i32 3
+  %p_u8.i55 = getelementptr inbounds i8, ptr %spr_rose, i64 72
   %45 = load ptr, ptr %p_u8.i55, align 8
-  %_M_finish.i.i21.i56 = getelementptr inbounds %"struct.ue2::scatter_plan_raw", ptr %spr_rose, i64 0, i32 3, i32 0, i32 0, i32 0, i32 1
+  %_M_finish.i.i21.i56 = getelementptr inbounds i8, ptr %spr_rose, i64 80
   %46 = load ptr, ptr %_M_finish.i.i21.i56, align 8
   %cmp.i.not9.i22.i57 = icmp eq ptr %45, %46
   br i1 %cmp.i.not9.i22.i57, label %invoke.cont5, label %do.end.i23.i58
@@ -251,7 +249,7 @@ do.end.i23.i58:                                   ; preds = %_ZN3ue2L6rebaseI16s
   %47 = load i32, ptr %it.sroa.0.010.i24.i59, align 4
   %add.i25.i60 = add i32 %47, %32
   store i32 %add.i25.i60, ptr %it.sroa.0.010.i24.i59, align 4
-  %incdec.ptr.i.i26.i61 = getelementptr inbounds %struct.scatter_unit_u8, ptr %it.sroa.0.010.i24.i59, i64 1
+  %incdec.ptr.i.i26.i61 = getelementptr inbounds i8, ptr %it.sroa.0.010.i24.i59, i64 8
   %48 = load ptr, ptr %_M_finish.i.i21.i56, align 8
   %cmp.i.not.i27.i62 = icmp eq ptr %incdec.ptr.i.i26.i61, %48
   br i1 %cmp.i.not.i27.i62, label %invoke.cont5, label %do.end.i23.i58, !llvm.loop !9
@@ -335,10 +333,10 @@ if.else:                                          ; preds = %invoke.cont6
           to label %if.end unwind label %lpad7
 
 if.end:                                           ; preds = %if.else, %if.then
-  %activeLeafArray = getelementptr inbounds %struct.RoseStateOffsets, ptr %stateOffsets, i64 0, i32 7
+  %activeLeafArray = getelementptr inbounds i8, ptr %stateOffsets, i64 28
   %68 = load i32, ptr %activeLeafArray, align 4
   %69 = load ptr, ptr %spr_leaf, align 8
-  %_M_finish.i.i.i103 = getelementptr inbounds %"struct.std::_Vector_base<scatter_unit_u64a, std::allocator<scatter_unit_u64a>>::_Vector_impl_data", ptr %spr_leaf, i64 0, i32 1
+  %_M_finish.i.i.i103 = getelementptr inbounds i8, ptr %spr_leaf, i64 8
   %70 = load ptr, ptr %_M_finish.i.i.i103, align 8
   %cmp.i.not9.i.i104 = icmp eq ptr %69, %70
   br i1 %cmp.i.not9.i.i104, label %_ZN3ue2L6rebaseI17scatter_unit_u64aEEvPSt6vectorIT_SaIS3_EEj.exit.i110, label %do.end.i.i105
@@ -348,15 +346,15 @@ do.end.i.i105:                                    ; preds = %if.end, %do.end.i.i
   %71 = load i32, ptr %it.sroa.0.010.i.i106, align 8
   %add.i.i107 = add i32 %71, %68
   store i32 %add.i.i107, ptr %it.sroa.0.010.i.i106, align 8
-  %incdec.ptr.i.i.i108 = getelementptr inbounds %struct.scatter_unit_u64a, ptr %it.sroa.0.010.i.i106, i64 1
+  %incdec.ptr.i.i.i108 = getelementptr inbounds i8, ptr %it.sroa.0.010.i.i106, i64 16
   %72 = load ptr, ptr %_M_finish.i.i.i103, align 8
   %cmp.i.not.i.i109 = icmp eq ptr %incdec.ptr.i.i.i108, %72
   br i1 %cmp.i.not.i.i109, label %_ZN3ue2L6rebaseI17scatter_unit_u64aEEvPSt6vectorIT_SaIS3_EEj.exit.i110, label %do.end.i.i105, !llvm.loop !5
 
 _ZN3ue2L6rebaseI17scatter_unit_u64aEEvPSt6vectorIT_SaIS3_EEj.exit.i110: ; preds = %do.end.i.i105, %if.end
-  %p_u32.i111 = getelementptr inbounds %"struct.ue2::scatter_plan_raw", ptr %spr_leaf, i64 0, i32 1
+  %p_u32.i111 = getelementptr inbounds i8, ptr %spr_leaf, i64 24
   %73 = load ptr, ptr %p_u32.i111, align 8
-  %_M_finish.i.i7.i112 = getelementptr inbounds %"struct.ue2::scatter_plan_raw", ptr %spr_leaf, i64 0, i32 1, i32 0, i32 0, i32 0, i32 1
+  %_M_finish.i.i7.i112 = getelementptr inbounds i8, ptr %spr_leaf, i64 32
   %74 = load ptr, ptr %_M_finish.i.i7.i112, align 8
   %cmp.i.not9.i8.i113 = icmp eq ptr %73, %74
   br i1 %cmp.i.not9.i8.i113, label %_ZN3ue2L6rebaseI16scatter_unit_u32EEvPSt6vectorIT_SaIS3_EEj.exit.i119, label %do.end.i9.i114
@@ -366,15 +364,15 @@ do.end.i9.i114:                                   ; preds = %_ZN3ue2L6rebaseI17s
   %75 = load i32, ptr %it.sroa.0.010.i10.i115, align 4
   %add.i11.i116 = add i32 %75, %68
   store i32 %add.i11.i116, ptr %it.sroa.0.010.i10.i115, align 4
-  %incdec.ptr.i.i12.i117 = getelementptr inbounds %struct.scatter_unit_u32, ptr %it.sroa.0.010.i10.i115, i64 1
+  %incdec.ptr.i.i12.i117 = getelementptr inbounds i8, ptr %it.sroa.0.010.i10.i115, i64 8
   %76 = load ptr, ptr %_M_finish.i.i7.i112, align 8
   %cmp.i.not.i13.i118 = icmp eq ptr %incdec.ptr.i.i12.i117, %76
   br i1 %cmp.i.not.i13.i118, label %_ZN3ue2L6rebaseI16scatter_unit_u32EEvPSt6vectorIT_SaIS3_EEj.exit.i119, label %do.end.i9.i114, !llvm.loop !7
 
 _ZN3ue2L6rebaseI16scatter_unit_u32EEvPSt6vectorIT_SaIS3_EEj.exit.i119: ; preds = %do.end.i9.i114, %_ZN3ue2L6rebaseI17scatter_unit_u64aEEvPSt6vectorIT_SaIS3_EEj.exit.i110
-  %p_u16.i120 = getelementptr inbounds %"struct.ue2::scatter_plan_raw", ptr %spr_leaf, i64 0, i32 2
+  %p_u16.i120 = getelementptr inbounds i8, ptr %spr_leaf, i64 48
   %77 = load ptr, ptr %p_u16.i120, align 8
-  %_M_finish.i.i14.i121 = getelementptr inbounds %"struct.ue2::scatter_plan_raw", ptr %spr_leaf, i64 0, i32 2, i32 0, i32 0, i32 0, i32 1
+  %_M_finish.i.i14.i121 = getelementptr inbounds i8, ptr %spr_leaf, i64 56
   %78 = load ptr, ptr %_M_finish.i.i14.i121, align 8
   %cmp.i.not9.i15.i122 = icmp eq ptr %77, %78
   br i1 %cmp.i.not9.i15.i122, label %_ZN3ue2L6rebaseI16scatter_unit_u16EEvPSt6vectorIT_SaIS3_EEj.exit.i128, label %do.end.i16.i123
@@ -384,15 +382,15 @@ do.end.i16.i123:                                  ; preds = %_ZN3ue2L6rebaseI16s
   %79 = load i32, ptr %it.sroa.0.010.i17.i124, align 4
   %add.i18.i125 = add i32 %79, %68
   store i32 %add.i18.i125, ptr %it.sroa.0.010.i17.i124, align 4
-  %incdec.ptr.i.i19.i126 = getelementptr inbounds %struct.scatter_unit_u16, ptr %it.sroa.0.010.i17.i124, i64 1
+  %incdec.ptr.i.i19.i126 = getelementptr inbounds i8, ptr %it.sroa.0.010.i17.i124, i64 8
   %80 = load ptr, ptr %_M_finish.i.i14.i121, align 8
   %cmp.i.not.i20.i127 = icmp eq ptr %incdec.ptr.i.i19.i126, %80
   br i1 %cmp.i.not.i20.i127, label %_ZN3ue2L6rebaseI16scatter_unit_u16EEvPSt6vectorIT_SaIS3_EEj.exit.i128, label %do.end.i16.i123, !llvm.loop !8
 
 _ZN3ue2L6rebaseI16scatter_unit_u16EEvPSt6vectorIT_SaIS3_EEj.exit.i128: ; preds = %do.end.i16.i123, %_ZN3ue2L6rebaseI16scatter_unit_u32EEvPSt6vectorIT_SaIS3_EEj.exit.i119
-  %p_u8.i129 = getelementptr inbounds %"struct.ue2::scatter_plan_raw", ptr %spr_leaf, i64 0, i32 3
+  %p_u8.i129 = getelementptr inbounds i8, ptr %spr_leaf, i64 72
   %81 = load ptr, ptr %p_u8.i129, align 8
-  %_M_finish.i.i21.i130 = getelementptr inbounds %"struct.ue2::scatter_plan_raw", ptr %spr_leaf, i64 0, i32 3, i32 0, i32 0, i32 0, i32 1
+  %_M_finish.i.i21.i130 = getelementptr inbounds i8, ptr %spr_leaf, i64 80
   %82 = load ptr, ptr %_M_finish.i.i21.i130, align 8
   %cmp.i.not9.i22.i131 = icmp eq ptr %81, %82
   br i1 %cmp.i.not9.i22.i131, label %invoke.cont10, label %do.end.i23.i132
@@ -402,7 +400,7 @@ do.end.i23.i132:                                  ; preds = %_ZN3ue2L6rebaseI16s
   %83 = load i32, ptr %it.sroa.0.010.i24.i133, align 4
   %add.i25.i134 = add i32 %83, %68
   store i32 %add.i25.i134, ptr %it.sroa.0.010.i24.i133, align 4
-  %incdec.ptr.i.i26.i135 = getelementptr inbounds %struct.scatter_unit_u8, ptr %it.sroa.0.010.i24.i133, i64 1
+  %incdec.ptr.i.i26.i135 = getelementptr inbounds i8, ptr %it.sroa.0.010.i24.i133, i64 8
   %84 = load ptr, ptr %_M_finish.i.i21.i130, align 8
   %cmp.i.not.i27.i136 = icmp eq ptr %incdec.ptr.i.i26.i135, %84
   br i1 %cmp.i.not.i27.i136, label %invoke.cont10, label %do.end.i23.i132, !llvm.loop !9
@@ -595,7 +593,7 @@ declare void @_ZN3ue221mmbBuildInitRangePlanEjjjPNS_16scatter_plan_rawE(i32 noun
 ; Function Attrs: inlinehint mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN3ue216scatter_plan_rawD2Ev(ptr noundef nonnull align 8 dereferenceable(96) %this) unnamed_addr #3 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  %p_u8 = getelementptr inbounds %"struct.ue2::scatter_plan_raw", ptr %this, i64 0, i32 3
+  %p_u8 = getelementptr inbounds i8, ptr %this, i64 72
   %0 = load ptr, ptr %p_u8, align 8
   %tobool.not.i.i.i = icmp eq ptr %0, null
   br i1 %tobool.not.i.i.i, label %_ZNSt6vectorI15scatter_unit_u8SaIS0_EED2Ev.exit, label %if.then.i.i.i
@@ -605,7 +603,7 @@ if.then.i.i.i:                                    ; preds = %entry
   br label %_ZNSt6vectorI15scatter_unit_u8SaIS0_EED2Ev.exit
 
 _ZNSt6vectorI15scatter_unit_u8SaIS0_EED2Ev.exit:  ; preds = %if.then.i.i.i, %entry
-  %p_u16 = getelementptr inbounds %"struct.ue2::scatter_plan_raw", ptr %this, i64 0, i32 2
+  %p_u16 = getelementptr inbounds i8, ptr %this, i64 48
   %1 = load ptr, ptr %p_u16, align 8
   %tobool.not.i.i.i2 = icmp eq ptr %1, null
   br i1 %tobool.not.i.i.i2, label %_ZNSt6vectorI16scatter_unit_u16SaIS0_EED2Ev.exit, label %if.then.i.i.i3
@@ -615,7 +613,7 @@ if.then.i.i.i3:                                   ; preds = %_ZNSt6vectorI15scat
   br label %_ZNSt6vectorI16scatter_unit_u16SaIS0_EED2Ev.exit
 
 _ZNSt6vectorI16scatter_unit_u16SaIS0_EED2Ev.exit: ; preds = %if.then.i.i.i3, %_ZNSt6vectorI15scatter_unit_u8SaIS0_EED2Ev.exit
-  %p_u32 = getelementptr inbounds %"struct.ue2::scatter_plan_raw", ptr %this, i64 0, i32 1
+  %p_u32 = getelementptr inbounds i8, ptr %this, i64 24
   %2 = load ptr, ptr %p_u32, align 8
   %tobool.not.i.i.i4 = icmp eq ptr %2, null
   br i1 %tobool.not.i.i.i4, label %_ZNSt6vectorI16scatter_unit_u32SaIS0_EED2Ev.exit, label %if.then.i.i.i5
@@ -643,9 +641,9 @@ declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #1
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
 define hidden noundef i32 @_ZN3ue28aux_sizeERKNS_16scatter_plan_rawE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(96) %raw) local_unnamed_addr #4 {
 entry:
-  %p_u32 = getelementptr inbounds %"struct.ue2::scatter_plan_raw", ptr %raw, i64 0, i32 1
-  %p_u16 = getelementptr inbounds %"struct.ue2::scatter_plan_raw", ptr %raw, i64 0, i32 2
-  %p_u8 = getelementptr inbounds %"struct.ue2::scatter_plan_raw", ptr %raw, i64 0, i32 3
+  %p_u32 = getelementptr inbounds i8, ptr %raw, i64 24
+  %p_u16 = getelementptr inbounds i8, ptr %raw, i64 48
+  %p_u8 = getelementptr inbounds i8, ptr %raw, i64 72
   %0 = load <2 x ptr>, ptr %raw, align 8
   %1 = ptrtoint <2 x ptr> %0 to <2 x i64>
   %2 = load <2 x ptr>, ptr %p_u32, align 8
@@ -669,7 +667,7 @@ define hidden void @_ZN3ue29write_outEP17scatter_full_planPvRKNS_16scatter_plan_
 entry:
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(32) %plan_out, i8 0, i64 32, i1 false)
   %0 = load ptr, ptr %raw, align 8
-  %_M_finish.i.i = getelementptr inbounds %"struct.std::_Vector_base<scatter_unit_u64a, std::allocator<scatter_unit_u64a>>::_Vector_impl_data", ptr %raw, i64 0, i32 1
+  %_M_finish.i.i = getelementptr inbounds i8, ptr %raw, i64 8
   %1 = load ptr, ptr %_M_finish.i.i, align 8
   %cmp.i.i = icmp eq ptr %0, %1
   br i1 %cmp.i.i, label %if.end, label %if.then
@@ -683,7 +681,7 @@ if.then:                                          ; preds = %entry
   %sub.ptr.sub.i = sub i64 %sub.ptr.lhs.cast.i, %sub.ptr.rhs.cast.i
   %sub.ptr.div.i = lshr exact i64 %sub.ptr.sub.i, 4
   %conv = trunc i64 %sub.ptr.div.i to i32
-  %s_u64a_count = getelementptr inbounds %struct.scatter_full_plan, ptr %plan_out, i64 0, i32 1
+  %s_u64a_count = getelementptr inbounds i8, ptr %plan_out, i64 4
   store i32 %conv, ptr %s_u64a_count, align 4
   %idx.ext = zext i32 %aux_base_offset to i64
   %add.ptr = getelementptr inbounds i8, ptr %aux_out, i64 %idx.ext
@@ -704,15 +702,15 @@ if.then:                                          ; preds = %entry
 
 if.end:                                           ; preds = %if.then, %entry
   %aux_base_offset.addr.0 = phi i32 [ %aux_base_offset, %entry ], [ %conv10, %if.then ]
-  %p_u32 = getelementptr inbounds %"struct.ue2::scatter_plan_raw", ptr %raw, i64 0, i32 1
+  %p_u32 = getelementptr inbounds i8, ptr %raw, i64 24
   %9 = load ptr, ptr %p_u32, align 8
-  %_M_finish.i.i108 = getelementptr inbounds %"struct.ue2::scatter_plan_raw", ptr %raw, i64 0, i32 1, i32 0, i32 0, i32 0, i32 1
+  %_M_finish.i.i108 = getelementptr inbounds i8, ptr %raw, i64 32
   %10 = load ptr, ptr %_M_finish.i.i108, align 8
   %cmp.i.i109 = icmp eq ptr %9, %10
   br i1 %cmp.i.i109, label %if.end27, label %if.then12
 
 if.then12:                                        ; preds = %if.end
-  %s_u32_offset = getelementptr inbounds %struct.scatter_full_plan, ptr %plan_out, i64 0, i32 2
+  %s_u32_offset = getelementptr inbounds i8, ptr %plan_out, i64 8
   store i32 %aux_base_offset.addr.0, ptr %s_u32_offset, align 4
   %11 = load ptr, ptr %_M_finish.i.i108, align 8
   %12 = load ptr, ptr %p_u32, align 8
@@ -721,7 +719,7 @@ if.then12:                                        ; preds = %if.end
   %sub.ptr.sub.i113 = sub i64 %sub.ptr.lhs.cast.i111, %sub.ptr.rhs.cast.i112
   %sub.ptr.div.i114 = lshr exact i64 %sub.ptr.sub.i113, 3
   %conv15 = trunc i64 %sub.ptr.div.i114 to i32
-  %s_u32_count = getelementptr inbounds %struct.scatter_full_plan, ptr %plan_out, i64 0, i32 3
+  %s_u32_count = getelementptr inbounds i8, ptr %plan_out, i64 12
   store i32 %conv15, ptr %s_u32_count, align 4
   %idx.ext16 = zext i32 %aux_base_offset.addr.0 to i64
   %add.ptr17 = getelementptr inbounds i8, ptr %aux_out, i64 %idx.ext16
@@ -742,15 +740,15 @@ if.then12:                                        ; preds = %if.end
 
 if.end27:                                         ; preds = %if.then12, %if.end
   %aux_base_offset.addr.1 = phi i32 [ %aux_base_offset.addr.0, %if.end ], [ %conv26, %if.then12 ]
-  %p_u16 = getelementptr inbounds %"struct.ue2::scatter_plan_raw", ptr %raw, i64 0, i32 2
+  %p_u16 = getelementptr inbounds i8, ptr %raw, i64 48
   %18 = load ptr, ptr %p_u16, align 8
-  %_M_finish.i.i123 = getelementptr inbounds %"struct.ue2::scatter_plan_raw", ptr %raw, i64 0, i32 2, i32 0, i32 0, i32 0, i32 1
+  %_M_finish.i.i123 = getelementptr inbounds i8, ptr %raw, i64 56
   %19 = load ptr, ptr %_M_finish.i.i123, align 8
   %cmp.i.i124 = icmp eq ptr %18, %19
   br i1 %cmp.i.i124, label %if.end44, label %if.then29
 
 if.then29:                                        ; preds = %if.end27
-  %s_u16_offset = getelementptr inbounds %struct.scatter_full_plan, ptr %plan_out, i64 0, i32 4
+  %s_u16_offset = getelementptr inbounds i8, ptr %plan_out, i64 16
   store i32 %aux_base_offset.addr.1, ptr %s_u16_offset, align 4
   %20 = load ptr, ptr %_M_finish.i.i123, align 8
   %21 = load ptr, ptr %p_u16, align 8
@@ -759,7 +757,7 @@ if.then29:                                        ; preds = %if.end27
   %sub.ptr.sub.i128 = sub i64 %sub.ptr.lhs.cast.i126, %sub.ptr.rhs.cast.i127
   %sub.ptr.div.i129 = lshr exact i64 %sub.ptr.sub.i128, 3
   %conv32 = trunc i64 %sub.ptr.div.i129 to i32
-  %s_u16_count = getelementptr inbounds %struct.scatter_full_plan, ptr %plan_out, i64 0, i32 5
+  %s_u16_count = getelementptr inbounds i8, ptr %plan_out, i64 20
   store i32 %conv32, ptr %s_u16_count, align 4
   %idx.ext33 = zext i32 %aux_base_offset.addr.1 to i64
   %add.ptr34 = getelementptr inbounds i8, ptr %aux_out, i64 %idx.ext33
@@ -780,15 +778,15 @@ if.then29:                                        ; preds = %if.end27
 
 if.end44:                                         ; preds = %if.then29, %if.end27
   %aux_base_offset.addr.2 = phi i32 [ %aux_base_offset.addr.1, %if.end27 ], [ %conv43, %if.then29 ]
-  %p_u8 = getelementptr inbounds %"struct.ue2::scatter_plan_raw", ptr %raw, i64 0, i32 3
+  %p_u8 = getelementptr inbounds i8, ptr %raw, i64 72
   %27 = load ptr, ptr %p_u8, align 8
-  %_M_finish.i.i138 = getelementptr inbounds %"struct.ue2::scatter_plan_raw", ptr %raw, i64 0, i32 3, i32 0, i32 0, i32 0, i32 1
+  %_M_finish.i.i138 = getelementptr inbounds i8, ptr %raw, i64 80
   %28 = load ptr, ptr %_M_finish.i.i138, align 8
   %cmp.i.i139 = icmp eq ptr %27, %28
   br i1 %cmp.i.i139, label %if.end61, label %if.then46
 
 if.then46:                                        ; preds = %if.end44
-  %s_u8_offset = getelementptr inbounds %struct.scatter_full_plan, ptr %plan_out, i64 0, i32 7
+  %s_u8_offset = getelementptr inbounds i8, ptr %plan_out, i64 28
   store i32 %aux_base_offset.addr.2, ptr %s_u8_offset, align 4
   %29 = load ptr, ptr %_M_finish.i.i138, align 8
   %30 = load ptr, ptr %p_u8, align 8
@@ -797,7 +795,7 @@ if.then46:                                        ; preds = %if.end44
   %sub.ptr.sub.i143 = sub i64 %sub.ptr.lhs.cast.i141, %sub.ptr.rhs.cast.i142
   %sub.ptr.div.i144 = lshr exact i64 %sub.ptr.sub.i143, 3
   %conv49 = trunc i64 %sub.ptr.div.i144 to i32
-  %s_u8_count = getelementptr inbounds %struct.scatter_full_plan, ptr %plan_out, i64 0, i32 6
+  %s_u8_count = getelementptr inbounds i8, ptr %plan_out, i64 24
   store i32 %conv49, ptr %s_u8_count, align 4
   %idx.ext50 = zext i32 %aux_base_offset.addr.2 to i64
   %add.ptr51 = getelementptr inbounds i8, ptr %aux_out, i64 %idx.ext50
@@ -830,9 +828,9 @@ if.then:                                          ; preds = %entry
   %sub.ptr.rhs.cast.i.i.i = ptrtoint ptr %__first.coerce to i64
   %sub.ptr.sub.i.i.i = sub i64 %sub.ptr.lhs.cast.i.i.i, %sub.ptr.rhs.cast.i.i.i
   %sub.ptr.div.i.i.i = ashr exact i64 %sub.ptr.sub.i.i.i, 4
-  %_M_end_of_storage = getelementptr inbounds %"struct.std::_Vector_base<scatter_unit_u64a, std::allocator<scatter_unit_u64a>>::_Vector_impl_data", ptr %this, i64 0, i32 2
+  %_M_end_of_storage = getelementptr inbounds i8, ptr %this, i64 16
   %0 = load ptr, ptr %_M_end_of_storage, align 8
-  %_M_finish = getelementptr inbounds %"struct.std::_Vector_base<scatter_unit_u64a, std::allocator<scatter_unit_u64a>>::_Vector_impl_data", ptr %this, i64 0, i32 1
+  %_M_finish = getelementptr inbounds i8, ptr %this, i64 8
   %1 = load ptr, ptr %_M_finish, align 8
   %sub.ptr.lhs.cast = ptrtoint ptr %0 to i64
   %sub.ptr.rhs.cast = ptrtoint ptr %1 to i64
@@ -997,9 +995,9 @@ if.then:                                          ; preds = %entry
   %sub.ptr.rhs.cast.i.i.i = ptrtoint ptr %__first.coerce to i64
   %sub.ptr.sub.i.i.i = sub i64 %sub.ptr.lhs.cast.i.i.i, %sub.ptr.rhs.cast.i.i.i
   %sub.ptr.div.i.i.i = ashr exact i64 %sub.ptr.sub.i.i.i, 3
-  %_M_end_of_storage = getelementptr inbounds %"struct.std::_Vector_base<scatter_unit_u32, std::allocator<scatter_unit_u32>>::_Vector_impl_data", ptr %this, i64 0, i32 2
+  %_M_end_of_storage = getelementptr inbounds i8, ptr %this, i64 16
   %0 = load ptr, ptr %_M_end_of_storage, align 8
-  %_M_finish = getelementptr inbounds %"struct.std::_Vector_base<scatter_unit_u32, std::allocator<scatter_unit_u32>>::_Vector_impl_data", ptr %this, i64 0, i32 1
+  %_M_finish = getelementptr inbounds i8, ptr %this, i64 8
   %1 = load ptr, ptr %_M_finish, align 8
   %sub.ptr.lhs.cast = ptrtoint ptr %0 to i64
   %sub.ptr.rhs.cast = ptrtoint ptr %1 to i64
@@ -1152,9 +1150,9 @@ if.then:                                          ; preds = %entry
   %sub.ptr.rhs.cast.i.i.i = ptrtoint ptr %__first.coerce to i64
   %sub.ptr.sub.i.i.i = sub i64 %sub.ptr.lhs.cast.i.i.i, %sub.ptr.rhs.cast.i.i.i
   %sub.ptr.div.i.i.i = ashr exact i64 %sub.ptr.sub.i.i.i, 3
-  %_M_end_of_storage = getelementptr inbounds %"struct.std::_Vector_base<scatter_unit_u16, std::allocator<scatter_unit_u16>>::_Vector_impl_data", ptr %this, i64 0, i32 2
+  %_M_end_of_storage = getelementptr inbounds i8, ptr %this, i64 16
   %0 = load ptr, ptr %_M_end_of_storage, align 8
-  %_M_finish = getelementptr inbounds %"struct.std::_Vector_base<scatter_unit_u16, std::allocator<scatter_unit_u16>>::_Vector_impl_data", ptr %this, i64 0, i32 1
+  %_M_finish = getelementptr inbounds i8, ptr %this, i64 8
   %1 = load ptr, ptr %_M_finish, align 8
   %sub.ptr.lhs.cast = ptrtoint ptr %0 to i64
   %sub.ptr.rhs.cast = ptrtoint ptr %1 to i64
@@ -1307,9 +1305,9 @@ if.then:                                          ; preds = %entry
   %sub.ptr.rhs.cast.i.i.i = ptrtoint ptr %__first.coerce to i64
   %sub.ptr.sub.i.i.i = sub i64 %sub.ptr.lhs.cast.i.i.i, %sub.ptr.rhs.cast.i.i.i
   %sub.ptr.div.i.i.i = ashr exact i64 %sub.ptr.sub.i.i.i, 3
-  %_M_end_of_storage = getelementptr inbounds %"struct.std::_Vector_base<scatter_unit_u8, std::allocator<scatter_unit_u8>>::_Vector_impl_data", ptr %this, i64 0, i32 2
+  %_M_end_of_storage = getelementptr inbounds i8, ptr %this, i64 16
   %0 = load ptr, ptr %_M_end_of_storage, align 8
-  %_M_finish = getelementptr inbounds %"struct.std::_Vector_base<scatter_unit_u8, std::allocator<scatter_unit_u8>>::_Vector_impl_data", ptr %this, i64 0, i32 1
+  %_M_finish = getelementptr inbounds i8, ptr %this, i64 8
   %1 = load ptr, ptr %_M_finish, align 8
   %sub.ptr.lhs.cast = ptrtoint ptr %0 to i64
   %sub.ptr.rhs.cast = ptrtoint ptr %1 to i64

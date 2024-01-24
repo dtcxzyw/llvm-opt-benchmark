@@ -4,7 +4,6 @@ target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:
 target triple = "x86_64-unknown-linux-gnu"
 
 %"struct.grpc_core::PerCpuShardingHelper::State" = type { i16, i16 }
-%"class.grpc_core::PerCpuOptions" = type { i64, i64 }
 
 $_ZTWN9grpc_core20PerCpuShardingHelper6state_E = comdat any
 
@@ -20,7 +19,7 @@ entry:
   %conv = zext i32 %call to i64
   %0 = load i64, ptr %this, align 8
   %div.i = udiv i64 %conv, %0
-  %max_shards_.i = getelementptr inbounds %"class.grpc_core::PerCpuOptions", ptr %this, i64 0, i32 1
+  %max_shards_.i = getelementptr inbounds i8, ptr %this, i64 8
   %1 = load i64, ptr %max_shards_.i, align 8
   %cmp.i.i = icmp ugt i64 %0, %conv
   %max.val.i.i = tail call i64 @llvm.umin.i64(i64 %1, i64 %div.i)
@@ -28,12 +27,12 @@ entry:
   ret i64 %retval.0.i.i
 }
 
-; Function Attrs: mustprogress nofree nosync nounwind willreturn memory(argmem: read) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
 define noundef i64 @_ZN9grpc_core13PerCpuOptions17ShardsForCpuCountEm(ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %this, i64 noundef %cpu_count) local_unnamed_addr #1 align 2 {
 entry:
   %0 = load i64, ptr %this, align 8
   %div = udiv i64 %cpu_count, %0
-  %max_shards_ = getelementptr inbounds %"class.grpc_core::PerCpuOptions", ptr %this, i64 0, i32 1
+  %max_shards_ = getelementptr inbounds i8, ptr %this, i64 8
   %1 = load i64, ptr %max_shards_, align 8
   %cmp.i = icmp ugt i64 %0, %cpu_count
   %max.val.i = tail call i64 @llvm.umin.i64(i64 %1, i64 %div)
@@ -77,7 +76,7 @@ declare nonnull ptr @llvm.threadlocal.address.p0(ptr nonnull) #5
 declare i64 @llvm.umin.i64(i64, i64) #6
 
 attributes #0 = { mustprogress uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #1 = { mustprogress nofree nosync nounwind willreturn memory(argmem: read) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #1 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #2 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #3 = { uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #4 = { uwtable "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

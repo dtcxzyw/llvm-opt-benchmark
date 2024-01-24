@@ -6,8 +6,6 @@ target triple = "x86_64-unknown-linux-gnu"
 %class.GIM_TRIANGLE_CALCULATION_CACHE = type { float, [3 x %class.btVector3], [3 x %class.btVector3], %class.btVector4, %class.btVector4, %class.btVector3, %class.btVector3, %class.btVector3, %class.btVector3, [4 x float], float, float, [4 x float], float, float, [16 x %class.btVector3], [16 x %class.btVector3], [16 x %class.btVector3] }
 %class.btVector4 = type { %class.btVector3 }
 %class.btVector3 = type { [4 x float] }
-%class.GIM_TRIANGLE = type { float, [3 x %class.btVector3] }
-%struct.GIM_TRIANGLE_CONTACT_DATA = type { float, i32, %class.btVector4, [16 x %class.btVector3] }
 
 $_ZN30GIM_TRIANGLE_CALCULATION_CACHE18triangle_collisionERK9btVector3S2_S2_fS2_S2_S2_fR25GIM_TRIANGLE_CONTACT_DATA = comdat any
 
@@ -23,13 +21,13 @@ $_Z26PLANE_CLIP_POLYGON_GENERICI9btVector39btVector422DISTANCE_PLANE_3D_FUNCEjRK
 define dso_local noundef zeroext i1 @_ZNK12GIM_TRIANGLE26collide_triangle_hard_testERKS_R25GIM_TRIANGLE_CONTACT_DATA(ptr noundef nonnull align 4 dereferenceable(52) %this, ptr noundef nonnull align 4 dereferenceable(52) %other, ptr noundef nonnull align 4 dereferenceable(280) %contact_data) local_unnamed_addr #0 align 2 {
 entry:
   %calc_cache = alloca %class.GIM_TRIANGLE_CALCULATION_CACHE, align 4
-  %m_vertices = getelementptr inbounds %class.GIM_TRIANGLE, ptr %this, i64 0, i32 1
-  %arrayidx3 = getelementptr inbounds %class.GIM_TRIANGLE, ptr %this, i64 0, i32 1, i64 1
-  %arrayidx5 = getelementptr inbounds %class.GIM_TRIANGLE, ptr %this, i64 0, i32 1, i64 2
+  %m_vertices = getelementptr inbounds i8, ptr %this, i64 4
+  %arrayidx3 = getelementptr inbounds i8, ptr %this, i64 20
+  %arrayidx5 = getelementptr inbounds i8, ptr %this, i64 36
   %0 = load float, ptr %this, align 4
-  %m_vertices6 = getelementptr inbounds %class.GIM_TRIANGLE, ptr %other, i64 0, i32 1
-  %arrayidx9 = getelementptr inbounds %class.GIM_TRIANGLE, ptr %other, i64 0, i32 1, i64 1
-  %arrayidx11 = getelementptr inbounds %class.GIM_TRIANGLE, ptr %other, i64 0, i32 1, i64 2
+  %m_vertices6 = getelementptr inbounds i8, ptr %other, i64 4
+  %arrayidx9 = getelementptr inbounds i8, ptr %other, i64 20
+  %arrayidx11 = getelementptr inbounds i8, ptr %other, i64 36
   %1 = load float, ptr %other, align 4
   %call = call noundef zeroext i1 @_ZN30GIM_TRIANGLE_CALCULATION_CACHE18triangle_collisionERK9btVector3S2_S2_fS2_S2_S2_fR25GIM_TRIANGLE_CONTACT_DATA(ptr noundef nonnull align 4 dereferenceable(1012) %calc_cache, ptr noundef nonnull align 4 dereferenceable(16) %m_vertices, ptr noundef nonnull align 4 dereferenceable(16) %arrayidx3, ptr noundef nonnull align 4 dereferenceable(16) %arrayidx5, float noundef %0, ptr noundef nonnull align 4 dereferenceable(16) %m_vertices6, ptr noundef nonnull align 4 dereferenceable(16) %arrayidx9, ptr noundef nonnull align 4 dereferenceable(16) %arrayidx11, float noundef %1, ptr noundef nonnull align 4 dereferenceable(280) %contact_data)
   ret i1 %call
@@ -42,17 +40,17 @@ entry:
   %point_indices.i.i = alloca [16 x i32], align 16
   %add = fadd float %margin_u, %margin_v
   store float %add, ptr %this, align 4
-  %tu_vertices = getelementptr inbounds %class.GIM_TRIANGLE_CALCULATION_CACHE, ptr %this, i64 0, i32 1
+  %tu_vertices = getelementptr inbounds i8, ptr %this, i64 4
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %tu_vertices, ptr noundef nonnull align 4 dereferenceable(16) %u0, i64 16, i1 false)
-  %arrayidx3 = getelementptr inbounds %class.GIM_TRIANGLE_CALCULATION_CACHE, ptr %this, i64 0, i32 1, i64 1
+  %arrayidx3 = getelementptr inbounds i8, ptr %this, i64 20
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %arrayidx3, ptr noundef nonnull align 4 dereferenceable(16) %u1, i64 16, i1 false)
-  %arrayidx5 = getelementptr inbounds %class.GIM_TRIANGLE_CALCULATION_CACHE, ptr %this, i64 0, i32 1, i64 2
+  %arrayidx5 = getelementptr inbounds i8, ptr %this, i64 36
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %arrayidx5, ptr noundef nonnull align 4 dereferenceable(16) %u2, i64 16, i1 false)
-  %tv_vertices = getelementptr inbounds %class.GIM_TRIANGLE_CALCULATION_CACHE, ptr %this, i64 0, i32 2
+  %tv_vertices = getelementptr inbounds i8, ptr %this, i64 52
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %tv_vertices, ptr noundef nonnull align 4 dereferenceable(16) %v0, i64 16, i1 false)
-  %arrayidx8 = getelementptr inbounds %class.GIM_TRIANGLE_CALCULATION_CACHE, ptr %this, i64 0, i32 2, i64 1
+  %arrayidx8 = getelementptr inbounds i8, ptr %this, i64 68
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %arrayidx8, ptr noundef nonnull align 4 dereferenceable(16) %v1, i64 16, i1 false)
-  %arrayidx10 = getelementptr inbounds %class.GIM_TRIANGLE_CALCULATION_CACHE, ptr %this, i64 0, i32 2, i64 2
+  %arrayidx10 = getelementptr inbounds i8, ptr %this, i64 84
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %arrayidx10, ptr noundef nonnull align 4 dereferenceable(16) %v2, i64 16, i1 false)
   %0 = load <2 x float>, ptr %arrayidx8, align 4
   %1 = load <2 x float>, ptr %tv_vertices, align 4
@@ -63,33 +61,33 @@ entry:
   %5 = extractelement <2 x float> %0, i64 1
   %6 = extractelement <2 x float> %1, i64 1
   %sub27 = fsub float %5, %6
-  %arrayidx32 = getelementptr inbounds %class.GIM_TRIANGLE_CALCULATION_CACHE, ptr %this, i64 0, i32 2, i64 1, i32 0, i64 2
+  %arrayidx32 = getelementptr inbounds i8, ptr %this, i64 76
   %7 = load float, ptr %arrayidx32, align 4
-  %arrayidx36 = getelementptr inbounds %class.GIM_TRIANGLE_CALCULATION_CACHE, ptr %this, i64 0, i32 2, i64 0, i32 0, i64 2
+  %arrayidx36 = getelementptr inbounds i8, ptr %this, i64 60
   %8 = load float, ptr %arrayidx36, align 4
   %sub37 = fsub float %7, %8
   %9 = load float, ptr %arrayidx10, align 4
   %sub47 = fsub float %9, %3
-  %arrayidx52 = getelementptr inbounds %class.GIM_TRIANGLE_CALCULATION_CACHE, ptr %this, i64 0, i32 2, i64 2, i32 0, i64 1
+  %arrayidx52 = getelementptr inbounds i8, ptr %this, i64 88
   %10 = load float, ptr %arrayidx52, align 4
   %sub57 = fsub float %10, %6
-  %arrayidx62 = getelementptr inbounds %class.GIM_TRIANGLE_CALCULATION_CACHE, ptr %this, i64 0, i32 2, i64 2, i32 0, i64 2
+  %arrayidx62 = getelementptr inbounds i8, ptr %this, i64 92
   %11 = load float, ptr %arrayidx62, align 4
   %sub67 = fsub float %11, %8
   %12 = fneg float %sub37
   %neg = fmul float %sub57, %12
   %13 = tail call float @llvm.fmuladd.f32(float %sub27, float %sub67, float %neg)
-  %tv_plane = getelementptr inbounds %class.GIM_TRIANGLE_CALCULATION_CACHE, ptr %this, i64 0, i32 4
+  %tv_plane = getelementptr inbounds i8, ptr %this, i64 116
   store float %13, ptr %tv_plane, align 4
   %14 = fneg float %sub
   %neg81 = fmul float %sub67, %14
   %15 = tail call float @llvm.fmuladd.f32(float %sub37, float %sub47, float %neg81)
-  %arrayidx84 = getelementptr inbounds %class.GIM_TRIANGLE_CALCULATION_CACHE, ptr %this, i64 0, i32 4, i32 0, i32 0, i64 1
+  %arrayidx84 = getelementptr inbounds i8, ptr %this, i64 120
   store float %15, ptr %arrayidx84, align 4
   %16 = fneg float %sub27
   %neg90 = fmul float %sub47, %16
   %17 = tail call float @llvm.fmuladd.f32(float %sub, float %sub57, float %neg90)
-  %arrayidx93 = getelementptr inbounds %class.GIM_TRIANGLE_CALCULATION_CACHE, ptr %this, i64 0, i32 4, i32 0, i32 0, i64 2
+  %arrayidx93 = getelementptr inbounds i8, ptr %this, i64 124
   store float %17, ptr %arrayidx93, align 4
   %mul106 = fmul float %15, %15
   %18 = tail call float @llvm.fmuladd.f32(float %13, float %13, float %mul106)
@@ -125,14 +123,14 @@ if.end132:                                        ; preds = %entry, %if.then119,
   %mul148 = fmul float %6, %25
   %27 = tail call float @llvm.fmuladd.f32(float %3, float %26, float %mul148)
   %28 = tail call float @llvm.fmuladd.f32(float %8, float %24, float %27)
-  %arrayidx159 = getelementptr inbounds %class.GIM_TRIANGLE_CALCULATION_CACHE, ptr %this, i64 0, i32 4, i32 0, i32 0, i64 3
+  %arrayidx159 = getelementptr inbounds i8, ptr %this, i64 128
   store float %28, ptr %arrayidx159, align 4
-  %arrayidx182 = getelementptr inbounds %class.GIM_TRIANGLE_CALCULATION_CACHE, ptr %this, i64 0, i32 1, i64 0, i32 0, i64 2
+  %arrayidx182 = getelementptr inbounds i8, ptr %this, i64 12
   %29 = load float, ptr %arrayidx182, align 4
-  %du = getelementptr inbounds %class.GIM_TRIANGLE_CALCULATION_CACHE, ptr %this, i64 0, i32 9
+  %du = getelementptr inbounds i8, ptr %this, i64 196
   %30 = load <2 x float>, ptr %tu_vertices, align 4
   %31 = load <2 x float>, ptr %arrayidx3, align 4
-  %arrayidx211 = getelementptr inbounds %class.GIM_TRIANGLE_CALCULATION_CACHE, ptr %this, i64 0, i32 1, i64 1, i32 0, i64 2
+  %arrayidx211 = getelementptr inbounds i8, ptr %this, i64 28
   %32 = load float, ptr %arrayidx211, align 4
   %33 = insertelement <2 x float> poison, float %25, i64 0
   %34 = shufflevector <2 x float> %33, <2 x float> poison, <2 x i32> zeroinitializer
@@ -152,23 +150,23 @@ if.end132:                                        ; preds = %entry, %if.then119,
   %48 = fsub <2 x float> %45, %47
   store <2 x float> %48, ptr %du, align 4
   %49 = load float, ptr %arrayidx5, align 4
-  %arrayidx233 = getelementptr inbounds %class.GIM_TRIANGLE_CALCULATION_CACHE, ptr %this, i64 0, i32 1, i64 2, i32 0, i64 1
+  %arrayidx233 = getelementptr inbounds i8, ptr %this, i64 40
   %50 = load float, ptr %arrayidx233, align 4
   %mul234 = fmul float %25, %50
   %51 = tail call float @llvm.fmuladd.f32(float %26, float %49, float %mul234)
-  %arrayidx241 = getelementptr inbounds %class.GIM_TRIANGLE_CALCULATION_CACHE, ptr %this, i64 0, i32 1, i64 2, i32 0, i64 2
+  %arrayidx241 = getelementptr inbounds i8, ptr %this, i64 44
   %52 = load float, ptr %arrayidx241, align 4
   %53 = tail call float @llvm.fmuladd.f32(float %24, float %52, float %51)
   %sub246 = fsub float %53, %28
-  %arrayidx248 = getelementptr inbounds %class.GIM_TRIANGLE_CALCULATION_CACHE, ptr %this, i64 0, i32 9, i64 2
+  %arrayidx248 = getelementptr inbounds i8, ptr %this, i64 204
   store float %sub246, ptr %arrayidx248, align 4
   %54 = extractelement <2 x float> %48, i64 0
   %55 = extractelement <2 x float> %48, i64 1
   %mul253 = fmul float %54, %55
-  %du0du1 = getelementptr inbounds %class.GIM_TRIANGLE_CALCULATION_CACHE, ptr %this, i64 0, i32 10
+  %du0du1 = getelementptr inbounds i8, ptr %this, i64 212
   store float %mul253, ptr %du0du1, align 4
   %mul258 = fmul float %54, %sub246
-  %du0du2 = getelementptr inbounds %class.GIM_TRIANGLE_CALCULATION_CACHE, ptr %this, i64 0, i32 11
+  %du0du2 = getelementptr inbounds i8, ptr %this, i64 216
   store float %mul258, ptr %du0du2, align 4
   %cmp260 = fcmp ogt float %mul253, 0.000000e+00
   %cmp262 = fcmp ogt float %mul258, 0.000000e+00
@@ -177,7 +175,7 @@ if.end132:                                        ; preds = %entry, %if.then119,
 
 if.then263:                                       ; preds = %if.end132
   %cmp266 = fcmp olt float %54, 0.000000e+00
-  %distances = getelementptr inbounds %class.GIM_TRIANGLE_CALCULATION_CACHE, ptr %this, i64 0, i32 8
+  %distances = getelementptr inbounds i8, ptr %this, i64 180
   br i1 %cmp266, label %if.then267, label %if.else459
 
 if.then267:                                       ; preds = %if.then263
@@ -226,7 +224,7 @@ if.else506:                                       ; preds = %if.end132
   %add511 = fadd float %54, %55
   %add514 = fadd float %add511, %sub246
   %div = fdiv float %add514, 3.000000e+00
-  %distances515 = getelementptr inbounds %class.GIM_TRIANGLE_CALCULATION_CACHE, ptr %this, i64 0, i32 8
+  %distances515 = getelementptr inbounds i8, ptr %this, i64 180
   %cmp521 = fcmp olt float %div, 0.000000e+00
   br i1 %cmp521, label %if.then522, label %if.else713
 
@@ -288,17 +286,17 @@ if.end753:                                        ; preds = %if.then522, %if.els
   %91 = fneg float %sub784
   %neg822 = fmul float %sub804, %91
   %92 = tail call float @llvm.fmuladd.f32(float %sub774, float %sub814, float %neg822)
-  %tu_plane = getelementptr inbounds %class.GIM_TRIANGLE_CALCULATION_CACHE, ptr %this, i64 0, i32 3
+  %tu_plane = getelementptr inbounds i8, ptr %this, i64 100
   store float %92, ptr %tu_plane, align 4
   %93 = fneg float %sub764
   %neg831 = fmul float %sub814, %93
   %94 = tail call float @llvm.fmuladd.f32(float %sub784, float %sub794, float %neg831)
-  %arrayidx834 = getelementptr inbounds %class.GIM_TRIANGLE_CALCULATION_CACHE, ptr %this, i64 0, i32 3, i32 0, i32 0, i64 1
+  %arrayidx834 = getelementptr inbounds i8, ptr %this, i64 104
   store float %94, ptr %arrayidx834, align 4
   %95 = fneg float %sub774
   %neg841 = fmul float %sub794, %95
   %96 = tail call float @llvm.fmuladd.f32(float %sub764, float %sub804, float %neg841)
-  %arrayidx844 = getelementptr inbounds %class.GIM_TRIANGLE_CALCULATION_CACHE, ptr %this, i64 0, i32 3, i32 0, i32 0, i64 2
+  %arrayidx844 = getelementptr inbounds i8, ptr %this, i64 108
   store float %96, ptr %arrayidx844, align 4
   %mul860 = fmul float %94, %94
   %97 = tail call float @llvm.fmuladd.f32(float %92, float %92, float %mul860)
@@ -334,20 +332,20 @@ if.end895:                                        ; preds = %if.end753, %if.then
   %mul911 = fmul float %89, %104
   %106 = tail call float @llvm.fmuladd.f32(float %87, float %105, float %mul911)
   %107 = tail call float @llvm.fmuladd.f32(float %29, float %103, float %106)
-  %arrayidx922 = getelementptr inbounds %class.GIM_TRIANGLE_CALCULATION_CACHE, ptr %this, i64 0, i32 3, i32 0, i32 0, i64 3
+  %arrayidx922 = getelementptr inbounds i8, ptr %this, i64 112
   store float %107, ptr %arrayidx922, align 4
   %mul938 = fmul float %104, %85
   %108 = tail call float @llvm.fmuladd.f32(float %105, float %86, float %mul938)
   %109 = tail call float @llvm.fmuladd.f32(float %103, float %84, float %108)
   %sub950 = fsub float %109, %107
-  %dv = getelementptr inbounds %class.GIM_TRIANGLE_CALCULATION_CACHE, ptr %this, i64 0, i32 12
+  %dv = getelementptr inbounds i8, ptr %this, i64 220
   store float %sub950, ptr %dv, align 4
   %110 = insertelement <2 x float> poison, float %104, i64 0
   %111 = shufflevector <2 x float> %110, <2 x float> poison, <2 x i32> zeroinitializer
   %112 = insertelement <2 x float> poison, float %82, i64 0
   %113 = insertelement <2 x float> %112, float %10, i64 1
   %114 = fmul <2 x float> %111, %113
-  %arrayidx981 = getelementptr inbounds %class.GIM_TRIANGLE_CALCULATION_CACHE, ptr %this, i64 0, i32 12, i64 1
+  %arrayidx981 = getelementptr inbounds i8, ptr %this, i64 224
   %115 = insertelement <2 x float> poison, float %105, i64 0
   %116 = shufflevector <2 x float> %115, <2 x float> poison, <2 x i32> zeroinitializer
   %117 = insertelement <2 x float> poison, float %83, i64 0
@@ -362,7 +360,7 @@ if.end895:                                        ; preds = %if.end753, %if.then
   %126 = shufflevector <2 x float> %125, <2 x float> poison, <2 x i32> zeroinitializer
   %127 = fsub <2 x float> %124, %126
   store <2 x float> %127, ptr %arrayidx981, align 4
-  %dv0dv1 = getelementptr inbounds %class.GIM_TRIANGLE_CALCULATION_CACHE, ptr %this, i64 0, i32 13
+  %dv0dv1 = getelementptr inbounds i8, ptr %this, i64 236
   %128 = insertelement <2 x float> poison, float %sub950, i64 0
   %129 = shufflevector <2 x float> %128, <2 x float> poison, <2 x i32> zeroinitializer
   %130 = fmul <2 x float> %129, %127
@@ -376,7 +374,7 @@ if.end895:                                        ; preds = %if.end753, %if.then
 
 if.then1027:                                      ; preds = %if.end895
   %cmp1030 = fcmp olt float %sub950, 0.000000e+00
-  %arrayidx1069 = getelementptr inbounds %class.GIM_TRIANGLE_CALCULATION_CACHE, ptr %this, i64 0, i32 8, i32 0, i64 1
+  %arrayidx1069 = getelementptr inbounds i8, ptr %this, i64 184
   br i1 %cmp1030, label %if.then1031, label %if.else1229
 
 if.then1031:                                      ; preds = %if.then1027
@@ -427,7 +425,7 @@ if.else1276:                                      ; preds = %if.end895
   %146 = extractelement <2 x float> %127, i64 1
   %add1284 = fadd float %146, %add1281
   %div1285 = fdiv float %add1284, 3.000000e+00
-  %arrayidx1288 = getelementptr inbounds %class.GIM_TRIANGLE_CALCULATION_CACHE, ptr %this, i64 0, i32 8, i32 0, i64 1
+  %arrayidx1288 = getelementptr inbounds i8, ptr %this, i64 184
   %cmp1292 = fcmp olt float %div1285, 0.000000e+00
   br i1 %cmp1292, label %if.then1293, label %if.else1484
 
@@ -467,7 +465,7 @@ if.else1484:                                      ; preds = %if.else1276
 if.end1524:                                       ; preds = %if.then1293, %if.else1484, %if.end1083, %if.else1229
   %155 = phi float [ %fneg1480, %if.then1293 ], [ %cond1519, %if.else1484 ], [ %fneg1073, %if.end1083 ], [ %cond1264, %if.else1229 ]
   %cmp1531 = fcmp uge float %80, %155
-  %contact_points = getelementptr inbounds %class.GIM_TRIANGLE_CALCULATION_CACHE, ptr %this, i64 0, i32 17
+  %contact_points = getelementptr inbounds i8, ptr %this, i64 756
   br i1 %cmp1531, label %if.then1568, label %if.else1582
 
 if.then1568:                                      ; preds = %if.end1524
@@ -477,10 +475,10 @@ if.then1568:                                      ; preds = %if.end1524
 
 for.body.lr.ph.i.i:                               ; preds = %if.then1568
   %156 = load float, ptr %this, align 4
-  %m_separating_normal.i = getelementptr inbounds %struct.GIM_TRIANGLE_CONTACT_DATA, ptr %contacts, i64 0, i32 2
+  %m_separating_normal.i = getelementptr inbounds i8, ptr %contacts, i64 8
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %m_separating_normal.i, ptr noundef nonnull align 4 dereferenceable(16) %tv_plane, i64 16, i1 false)
   call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %point_indices.i.i)
-  %m_point_count.i.i = getelementptr inbounds %struct.GIM_TRIANGLE_CONTACT_DATA, ptr %contacts, i64 0, i32 1
+  %m_point_count.i.i = getelementptr inbounds i8, ptr %contacts, i64 4
   store i32 0, ptr %m_point_count.i.i, align 4
   store float -1.000000e+03, ptr %contacts, align 4
   %wide.trip.count.i.i = zext i32 %call1574 to i64
@@ -488,9 +486,10 @@ for.body.lr.ph.i.i:                               ; preds = %if.then1568
 
 for.cond20.preheader.i.i:                         ; preds = %for.inc.i.i
   %cmp2215.not.i.i = icmp eq i32 %170, 0
-  br i1 %cmp2215.not.i.i, label %_ZN25GIM_TRIANGLE_CONTACT_DATA12merge_pointsERK9btVector4fPK9btVector3j.exit, label %for.body23.preheader.i.i
+  br i1 %cmp2215.not.i.i, label %_ZN25GIM_TRIANGLE_CONTACT_DATA12merge_pointsERK9btVector4fPK9btVector3j.exit, label %for.body23.lr.ph.i.i
 
-for.body23.preheader.i.i:                         ; preds = %for.cond20.preheader.i.i
+for.body23.lr.ph.i.i:                             ; preds = %for.cond20.preheader.i.i
+  %m_points.i.i = getelementptr inbounds i8, ptr %contacts, i64 24
   %wide.trip.count21.i.i = zext i32 %170 to i64
   br label %for.body23.i.i
 
@@ -502,12 +501,12 @@ for.body.i.i:                                     ; preds = %for.inc.i.i, %for.b
   %159 = load float, ptr %tv_plane, align 4
   %160 = load float, ptr %arrayidx.i.i, align 4
   %161 = load float, ptr %arrayidx84, align 4
-  %arrayidx7.i.i.i = getelementptr inbounds float, ptr %arrayidx.i.i, i64 1
+  %arrayidx7.i.i.i = getelementptr inbounds i8, ptr %arrayidx.i.i, i64 4
   %162 = load float, ptr %arrayidx7.i.i.i, align 4
   %mul8.i.i.i = fmul float %161, %162
   %163 = tail call float @llvm.fmuladd.f32(float %159, float %160, float %mul8.i.i.i)
   %164 = load float, ptr %arrayidx93, align 4
-  %arrayidx12.i.i.i = getelementptr inbounds float, ptr %arrayidx.i.i, i64 2
+  %arrayidx12.i.i.i = getelementptr inbounds i8, ptr %arrayidx.i.i, i64 8
   %165 = load float, ptr %arrayidx12.i.i.i, align 4
   %166 = tail call float @llvm.fmuladd.f32(float %164, float %165, float %163)
   %167 = load float, ptr %arrayidx159, align 4
@@ -552,13 +551,13 @@ for.inc.i.i:                                      ; preds = %for.inc.sink.split.
   %exitcond.not.i.i = icmp eq i64 %indvars.iv.next.i.i, %wide.trip.count.i.i
   br i1 %exitcond.not.i.i, label %for.cond20.preheader.i.i, label %for.body.i.i, !llvm.loop !5
 
-for.body23.i.i:                                   ; preds = %for.body23.i.i, %for.body23.preheader.i.i
-  %indvars.iv18.i.i = phi i64 [ 0, %for.body23.preheader.i.i ], [ %indvars.iv.next19.i.i, %for.body23.i.i ]
+for.body23.i.i:                                   ; preds = %for.body23.i.i, %for.body23.lr.ph.i.i
+  %indvars.iv18.i.i = phi i64 [ 0, %for.body23.lr.ph.i.i ], [ %indvars.iv.next19.i.i, %for.body23.i.i ]
   %arrayidx25.i.i = getelementptr inbounds [16 x i32], ptr %point_indices.i.i, i64 0, i64 %indvars.iv18.i.i
   %172 = load i32, ptr %arrayidx25.i.i, align 4
   %idxprom26.i.i = zext i32 %172 to i64
   %arrayidx27.i.i = getelementptr inbounds %class.btVector3, ptr %contact_points, i64 %idxprom26.i.i
-  %arrayidx29.i.i = getelementptr inbounds %struct.GIM_TRIANGLE_CONTACT_DATA, ptr %contacts, i64 0, i32 3, i64 %indvars.iv18.i.i
+  %arrayidx29.i.i = getelementptr inbounds [16 x %class.btVector3], ptr %m_points.i.i, i64 0, i64 %indvars.iv18.i.i
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %arrayidx29.i.i, ptr noundef nonnull align 4 dereferenceable(16) %arrayidx27.i.i, i64 16, i1 false)
   %indvars.iv.next19.i.i = add nuw nsw i64 %indvars.iv18.i.i, 1
   %exitcond22.not.i.i = icmp eq i64 %indvars.iv.next19.i.i, %wide.trip.count21.i.i
@@ -575,10 +574,10 @@ if.else1582:                                      ; preds = %if.end1524
 
 for.body.lr.ph.i.i97:                             ; preds = %if.else1582
   %173 = load float, ptr %this, align 4
-  %m_separating_normal.i94 = getelementptr inbounds %struct.GIM_TRIANGLE_CONTACT_DATA, ptr %contacts, i64 0, i32 2
+  %m_separating_normal.i94 = getelementptr inbounds i8, ptr %contacts, i64 8
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %m_separating_normal.i94, ptr noundef nonnull align 4 dereferenceable(16) %tu_plane, i64 16, i1 false)
   call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %point_indices.i.i93)
-  %m_point_count.i.i95 = getelementptr inbounds %struct.GIM_TRIANGLE_CONTACT_DATA, ptr %contacts, i64 0, i32 1
+  %m_point_count.i.i95 = getelementptr inbounds i8, ptr %contacts, i64 4
   store i32 0, ptr %m_point_count.i.i95, align 4
   store float -1.000000e+03, ptr %contacts, align 4
   %wide.trip.count.i.i101 = zext i32 %call1590 to i64
@@ -586,11 +585,12 @@ for.body.lr.ph.i.i97:                             ; preds = %if.else1582
 
 for.cond20.preheader.i.i126:                      ; preds = %for.inc.i.i123
   %cmp2215.not.i.i127 = icmp eq i32 %187, 0
-  br i1 %cmp2215.not.i.i127, label %_ZN25GIM_TRIANGLE_CONTACT_DATA12merge_pointsERK9btVector4fPK9btVector3j.exit139, label %for.body23.preheader.i.i128
+  br i1 %cmp2215.not.i.i127, label %_ZN25GIM_TRIANGLE_CONTACT_DATA12merge_pointsERK9btVector4fPK9btVector3j.exit140, label %for.body23.lr.ph.i.i128
 
-for.body23.preheader.i.i128:                      ; preds = %for.cond20.preheader.i.i126
-  %wide.trip.count21.i.i129 = zext i32 %187 to i64
-  br label %for.body23.i.i130
+for.body23.lr.ph.i.i128:                          ; preds = %for.cond20.preheader.i.i126
+  %m_points.i.i129 = getelementptr inbounds i8, ptr %contacts, i64 24
+  %wide.trip.count21.i.i130 = zext i32 %187 to i64
+  br label %for.body23.i.i131
 
 for.body.i.i102:                                  ; preds = %for.inc.i.i123, %for.body.lr.ph.i.i97
   %174 = phi i32 [ 0, %for.body.lr.ph.i.i97 ], [ %187, %for.inc.i.i123 ]
@@ -600,12 +600,12 @@ for.body.i.i102:                                  ; preds = %for.inc.i.i123, %fo
   %176 = load float, ptr %tu_plane, align 4
   %177 = load float, ptr %arrayidx.i.i104, align 4
   %178 = load float, ptr %arrayidx834, align 4
-  %arrayidx7.i.i.i105 = getelementptr inbounds float, ptr %arrayidx.i.i104, i64 1
+  %arrayidx7.i.i.i105 = getelementptr inbounds i8, ptr %arrayidx.i.i104, i64 4
   %179 = load float, ptr %arrayidx7.i.i.i105, align 4
   %mul8.i.i.i106 = fmul float %178, %179
   %180 = tail call float @llvm.fmuladd.f32(float %176, float %177, float %mul8.i.i.i106)
   %181 = load float, ptr %arrayidx844, align 4
-  %arrayidx12.i.i.i107 = getelementptr inbounds float, ptr %arrayidx.i.i104, i64 2
+  %arrayidx12.i.i.i107 = getelementptr inbounds i8, ptr %arrayidx.i.i104, i64 8
   %182 = load float, ptr %arrayidx12.i.i.i107, align 4
   %183 = tail call float @llvm.fmuladd.f32(float %181, float %182, float %180)
   %184 = load float, ptr %arrayidx922, align 4
@@ -616,9 +616,9 @@ for.body.i.i102:                                  ; preds = %for.inc.i.i123, %fo
 
 if.then.i.i111:                                   ; preds = %for.body.i.i102
   %cmp4.i.i112 = fcmp ogt float %add.i.i109, %175
-  br i1 %cmp4.i.i112, label %if.then5.i.i138, label %if.else.i.i113
+  br i1 %cmp4.i.i112, label %if.then5.i.i139, label %if.else.i.i113
 
-if.then5.i.i138:                                  ; preds = %if.then.i.i111
+if.then5.i.i139:                                  ; preds = %if.then.i.i111
   store float %add.i.i109, ptr %contacts, align 4
   %185 = trunc i64 %indvars.iv.i.i103 to i32
   store i32 %185, ptr %point_indices.i.i93, align 16
@@ -637,9 +637,9 @@ if.then12.i.i116:                                 ; preds = %if.else.i.i113
   %inc.i.i119 = add i32 %174, 1
   br label %for.inc.sink.split.i.i120
 
-for.inc.sink.split.i.i120:                        ; preds = %if.then12.i.i116, %if.then5.i.i138
-  %inc.sink.i.i121 = phi i32 [ %inc.i.i119, %if.then12.i.i116 ], [ 1, %if.then5.i.i138 ]
-  %.ph24.i.i122 = phi float [ %175, %if.then12.i.i116 ], [ %add.i.i109, %if.then5.i.i138 ]
+for.inc.sink.split.i.i120:                        ; preds = %if.then12.i.i116, %if.then5.i.i139
+  %inc.sink.i.i121 = phi i32 [ %inc.i.i119, %if.then12.i.i116 ], [ 1, %if.then5.i.i139 ]
+  %.ph24.i.i122 = phi float [ %175, %if.then12.i.i116 ], [ %add.i.i109, %if.then5.i.i139 ]
   store i32 %inc.sink.i.i121, ptr %m_point_count.i.i95, align 4
   br label %for.inc.i.i123
 
@@ -650,31 +650,31 @@ for.inc.i.i123:                                   ; preds = %for.inc.sink.split.
   %exitcond.not.i.i125 = icmp eq i64 %indvars.iv.next.i.i124, %wide.trip.count.i.i101
   br i1 %exitcond.not.i.i125, label %for.cond20.preheader.i.i126, label %for.body.i.i102, !llvm.loop !5
 
-for.body23.i.i130:                                ; preds = %for.body23.i.i130, %for.body23.preheader.i.i128
-  %indvars.iv18.i.i131 = phi i64 [ 0, %for.body23.preheader.i.i128 ], [ %indvars.iv.next19.i.i136, %for.body23.i.i130 ]
-  %arrayidx25.i.i132 = getelementptr inbounds [16 x i32], ptr %point_indices.i.i93, i64 0, i64 %indvars.iv18.i.i131
-  %189 = load i32, ptr %arrayidx25.i.i132, align 4
-  %idxprom26.i.i133 = zext i32 %189 to i64
-  %arrayidx27.i.i134 = getelementptr inbounds %class.btVector3, ptr %contact_points, i64 %idxprom26.i.i133
-  %arrayidx29.i.i135 = getelementptr inbounds %struct.GIM_TRIANGLE_CONTACT_DATA, ptr %contacts, i64 0, i32 3, i64 %indvars.iv18.i.i131
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %arrayidx29.i.i135, ptr noundef nonnull align 4 dereferenceable(16) %arrayidx27.i.i134, i64 16, i1 false)
-  %indvars.iv.next19.i.i136 = add nuw nsw i64 %indvars.iv18.i.i131, 1
-  %exitcond22.not.i.i137 = icmp eq i64 %indvars.iv.next19.i.i136, %wide.trip.count21.i.i129
-  br i1 %exitcond22.not.i.i137, label %_ZN25GIM_TRIANGLE_CONTACT_DATA12merge_pointsERK9btVector4fPK9btVector3j.exit139, label %for.body23.i.i130, !llvm.loop !7
+for.body23.i.i131:                                ; preds = %for.body23.i.i131, %for.body23.lr.ph.i.i128
+  %indvars.iv18.i.i132 = phi i64 [ 0, %for.body23.lr.ph.i.i128 ], [ %indvars.iv.next19.i.i137, %for.body23.i.i131 ]
+  %arrayidx25.i.i133 = getelementptr inbounds [16 x i32], ptr %point_indices.i.i93, i64 0, i64 %indvars.iv18.i.i132
+  %189 = load i32, ptr %arrayidx25.i.i133, align 4
+  %idxprom26.i.i134 = zext i32 %189 to i64
+  %arrayidx27.i.i135 = getelementptr inbounds %class.btVector3, ptr %contact_points, i64 %idxprom26.i.i134
+  %arrayidx29.i.i136 = getelementptr inbounds [16 x %class.btVector3], ptr %m_points.i.i129, i64 0, i64 %indvars.iv18.i.i132
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %arrayidx29.i.i136, ptr noundef nonnull align 4 dereferenceable(16) %arrayidx27.i.i135, i64 16, i1 false)
+  %indvars.iv.next19.i.i137 = add nuw nsw i64 %indvars.iv18.i.i132, 1
+  %exitcond22.not.i.i138 = icmp eq i64 %indvars.iv.next19.i.i137, %wide.trip.count21.i.i130
+  br i1 %exitcond22.not.i.i138, label %_ZN25GIM_TRIANGLE_CONTACT_DATA12merge_pointsERK9btVector4fPK9btVector3j.exit140, label %for.body23.i.i131, !llvm.loop !7
 
-_ZN25GIM_TRIANGLE_CONTACT_DATA12merge_pointsERK9btVector4fPK9btVector3j.exit139: ; preds = %for.body23.i.i130, %for.cond20.preheader.i.i126
+_ZN25GIM_TRIANGLE_CONTACT_DATA12merge_pointsERK9btVector4fPK9btVector3j.exit140: ; preds = %for.body23.i.i131, %for.cond20.preheader.i.i126
   call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %point_indices.i.i93)
   %190 = load <2 x float>, ptr %m_separating_normal.i94, align 4
   %191 = fneg <2 x float> %190
   store <2 x float> %191, ptr %m_separating_normal.i94, align 4
-  %arrayidx6.i = getelementptr inbounds %struct.GIM_TRIANGLE_CONTACT_DATA, ptr %contacts, i64 0, i32 2, i32 0, i32 0, i64 2
+  %arrayidx6.i = getelementptr inbounds i8, ptr %contacts, i64 16
   %192 = load float, ptr %arrayidx6.i, align 4
   %mul7.i = fneg float %192
   store float %mul7.i, ptr %arrayidx6.i, align 4
   br label %if.end1600
 
-if.end1600:                                       ; preds = %_ZN25GIM_TRIANGLE_CONTACT_DATA12merge_pointsERK9btVector4fPK9btVector3j.exit139, %_ZN25GIM_TRIANGLE_CONTACT_DATA12merge_pointsERK9btVector4fPK9btVector3j.exit
-  %193 = phi i32 [ %187, %_ZN25GIM_TRIANGLE_CONTACT_DATA12merge_pointsERK9btVector4fPK9btVector3j.exit139 ], [ %170, %_ZN25GIM_TRIANGLE_CONTACT_DATA12merge_pointsERK9btVector4fPK9btVector3j.exit ]
+if.end1600:                                       ; preds = %_ZN25GIM_TRIANGLE_CONTACT_DATA12merge_pointsERK9btVector4fPK9btVector3j.exit140, %_ZN25GIM_TRIANGLE_CONTACT_DATA12merge_pointsERK9btVector4fPK9btVector3j.exit
+  %193 = phi i32 [ %187, %_ZN25GIM_TRIANGLE_CONTACT_DATA12merge_pointsERK9btVector4fPK9btVector3j.exit140 ], [ %170, %_ZN25GIM_TRIANGLE_CONTACT_DATA12merge_pointsERK9btVector4fPK9btVector3j.exit ]
   %cmp1602 = icmp ne i32 %193, 0
   br label %return
 
@@ -693,13 +693,13 @@ declare float @llvm.fmuladd.f32(float, float, float) #2
 define linkonce_odr dso_local noundef i32 @_ZN30GIM_TRIANGLE_CALCULATION_CACHE13clip_triangleERK9btVector4PK9btVector3S5_PS3_(ptr noundef nonnull align 4 dereferenceable(1012) %this, ptr noundef nonnull align 4 dereferenceable(16) %tri_plane, ptr noundef %tripoints, ptr noundef %srcpoints, ptr noundef %clip_points) local_unnamed_addr #0 comdat align 2 {
 entry:
   %edgeplane = alloca %class.btVector4, align 8
-  %arrayidx = getelementptr inbounds %class.btVector3, ptr %tripoints, i64 1
+  %arrayidx = getelementptr inbounds i8, ptr %tripoints, i64 16
   %0 = load float, ptr %arrayidx, align 4
   %1 = load float, ptr %tripoints, align 4
   %sub = fsub float %0, %1
-  %arrayidx9 = getelementptr inbounds %class.btVector3, ptr %tripoints, i64 1, i32 0, i64 1
-  %arrayidx12 = getelementptr inbounds float, ptr %tripoints, i64 1
-  %arrayidx28 = getelementptr inbounds float, ptr %tri_plane, i64 1
+  %arrayidx9 = getelementptr inbounds i8, ptr %tripoints, i64 20
+  %arrayidx12 = getelementptr inbounds i8, ptr %tripoints, i64 4
+  %arrayidx28 = getelementptr inbounds i8, ptr %tri_plane, i64 4
   %2 = load float, ptr %tri_plane, align 4
   %3 = load <2 x float>, ptr %arrayidx9, align 4
   %4 = load <2 x float>, ptr %arrayidx12, align 4
@@ -718,7 +718,7 @@ entry:
   %neg49 = fmul float %2, %15
   %16 = extractelement <2 x float> %6, i64 0
   %17 = tail call float @llvm.fmuladd.f32(float %sub, float %16, float %neg49)
-  %arrayidx51 = getelementptr inbounds float, ptr %edgeplane, i64 2
+  %arrayidx51 = getelementptr inbounds i8, ptr %edgeplane, i64 8
   store float %17, ptr %arrayidx51, align 8
   %18 = fmul <2 x float> %13, %13
   %mul60 = extractelement <2 x float> %18, i64 1
@@ -759,21 +759,21 @@ if.end81:                                         ; preds = %entry, %if.then71, 
   %33 = tail call float @llvm.fmuladd.f32(float %1, float %32, float %mul93)
   %34 = extractelement <2 x float> %4, i64 1
   %35 = tail call float @llvm.fmuladd.f32(float %34, float %29, float %33)
-  %arrayidx101 = getelementptr inbounds float, ptr %edgeplane, i64 3
+  %arrayidx101 = getelementptr inbounds i8, ptr %edgeplane, i64 12
   store float %35, ptr %arrayidx101, align 4
-  %arrayidx103 = getelementptr inbounds %class.btVector3, ptr %srcpoints, i64 1
-  %arrayidx104 = getelementptr inbounds %class.btVector3, ptr %srcpoints, i64 2
-  %temp_points = getelementptr inbounds %class.GIM_TRIANGLE_CALCULATION_CACHE, ptr %this, i64 0, i32 15
+  %arrayidx103 = getelementptr inbounds i8, ptr %srcpoints, i64 16
+  %arrayidx104 = getelementptr inbounds i8, ptr %srcpoints, i64 32
+  %temp_points = getelementptr inbounds i8, ptr %this, i64 244
   %call.i = call noundef i32 @_Z27PLANE_CLIP_TRIANGLE_GENERICI9btVector39btVector422DISTANCE_PLANE_3D_FUNCEjRKT0_RKT_S8_S8_PS6_T1_(ptr noundef nonnull align 4 dereferenceable(16) %edgeplane, ptr noundef nonnull align 4 dereferenceable(16) %srcpoints, ptr noundef nonnull align 4 dereferenceable(16) %arrayidx103, ptr noundef nonnull align 4 dereferenceable(16) %arrayidx104, ptr noundef nonnull %temp_points)
   %cmp106 = icmp eq i32 %call.i, 0
   br i1 %cmp106, label %return, label %if.end108
 
 if.end108:                                        ; preds = %if.end81
-  %arrayidx110 = getelementptr inbounds %class.btVector3, ptr %tripoints, i64 2
+  %arrayidx110 = getelementptr inbounds i8, ptr %tripoints, i64 32
   %36 = load float, ptr %arrayidx110, align 4
   %37 = load float, ptr %arrayidx, align 4
   %sub116 = fsub float %36, %37
-  %arrayidx120 = getelementptr inbounds %class.btVector3, ptr %tripoints, i64 2, i32 0, i64 1
+  %arrayidx120 = getelementptr inbounds i8, ptr %tripoints, i64 36
   %38 = load float, ptr %tri_plane, align 4
   %39 = load <2 x float>, ptr %arrayidx120, align 4
   %40 = load <2 x float>, ptr %arrayidx9, align 4
@@ -833,7 +833,7 @@ if.end208:                                        ; preds = %if.end108, %if.then
   %70 = extractelement <2 x float> %40, i64 1
   %71 = call float @llvm.fmuladd.f32(float %70, float %65, float %69)
   store float %71, ptr %arrayidx101, align 4
-  %temp_points1 = getelementptr inbounds %class.GIM_TRIANGLE_CALCULATION_CACHE, ptr %this, i64 0, i32 16
+  %temp_points1 = getelementptr inbounds i8, ptr %this, i64 500
   %call.i82 = call noundef i32 @_Z26PLANE_CLIP_POLYGON_GENERICI9btVector39btVector422DISTANCE_PLANE_3D_FUNCEjRKT0_PKT_jPS6_T1_(ptr noundef nonnull align 4 dereferenceable(16) %edgeplane, ptr noundef nonnull %temp_points, i32 noundef %call.i, ptr noundef nonnull %temp_points1)
   %cmp233 = icmp eq i32 %call.i82, 0
   br i1 %cmp233, label %return, label %if.end235
@@ -914,18 +914,18 @@ define linkonce_odr dso_local noundef i32 @_Z27PLANE_CLIP_TRIANGLE_GENERICI9btVe
 entry:
   %0 = load float, ptr %plane, align 4
   %1 = load float, ptr %point0, align 4
-  %arrayidx5.i = getelementptr inbounds float, ptr %plane, i64 1
+  %arrayidx5.i = getelementptr inbounds i8, ptr %plane, i64 4
   %2 = load float, ptr %arrayidx5.i, align 4
-  %arrayidx7.i = getelementptr inbounds float, ptr %point0, i64 1
+  %arrayidx7.i = getelementptr inbounds i8, ptr %point0, i64 4
   %3 = load float, ptr %arrayidx7.i, align 4
   %mul8.i = fmul float %2, %3
   %4 = tail call float @llvm.fmuladd.f32(float %0, float %1, float %mul8.i)
-  %arrayidx10.i = getelementptr inbounds float, ptr %plane, i64 2
+  %arrayidx10.i = getelementptr inbounds i8, ptr %plane, i64 8
   %5 = load float, ptr %arrayidx10.i, align 4
-  %arrayidx12.i = getelementptr inbounds float, ptr %point0, i64 2
+  %arrayidx12.i = getelementptr inbounds i8, ptr %point0, i64 8
   %6 = load float, ptr %arrayidx12.i, align 4
   %7 = tail call float @llvm.fmuladd.f32(float %5, float %6, float %4)
-  %arrayidx14.i = getelementptr inbounds float, ptr %plane, i64 3
+  %arrayidx14.i = getelementptr inbounds i8, ptr %plane, i64 12
   %8 = load float, ptr %arrayidx14.i, align 4
   %sub.i = fsub float %7, %8
   %cmp = fcmp ogt float %sub.i, 0x3E80000000000000
@@ -934,10 +934,10 @@ entry:
 if.then:                                          ; preds = %entry
   store float %1, ptr %clipped, align 4
   %9 = load float, ptr %arrayidx7.i, align 4
-  %arrayidx10 = getelementptr inbounds float, ptr %clipped, i64 1
+  %arrayidx10 = getelementptr inbounds i8, ptr %clipped, i64 4
   store float %9, ptr %arrayidx10, align 4
   %10 = load float, ptr %arrayidx12.i, align 4
-  %arrayidx16 = getelementptr inbounds float, ptr %clipped, i64 2
+  %arrayidx16 = getelementptr inbounds i8, ptr %clipped, i64 8
   store float %10, ptr %arrayidx16, align 4
   %.pre = load float, ptr %plane, align 4
   %.pre133 = load float, ptr %arrayidx5.i, align 4
@@ -952,11 +952,11 @@ if.end:                                           ; preds = %if.then, %entry
   %14 = phi float [ %0, %entry ], [ %.pre, %if.then ]
   %clipped_count.0 = phi i32 [ 0, %entry ], [ 1, %if.then ]
   %15 = load float, ptr %point1, align 4
-  %arrayidx7.i25 = getelementptr inbounds float, ptr %point1, i64 1
+  %arrayidx7.i25 = getelementptr inbounds i8, ptr %point1, i64 4
   %16 = load float, ptr %arrayidx7.i25, align 4
   %mul8.i26 = fmul float %13, %16
   %17 = tail call float @llvm.fmuladd.f32(float %14, float %15, float %mul8.i26)
-  %arrayidx12.i28 = getelementptr inbounds float, ptr %point1, i64 2
+  %arrayidx12.i28 = getelementptr inbounds i8, ptr %point1, i64 8
   %18 = load float, ptr %arrayidx12.i28, align 4
   %19 = tail call float @llvm.fmuladd.f32(float %12, float %18, float %17)
   %sub.i30 = fsub float %19, %11
@@ -1014,12 +1014,12 @@ _Z26PLANE_CLIP_POLYGON_COLLECTI9btVector3EvRKT_S3_ffPS1_Rj.exit: ; preds = %if.e
   %32 = load float, ptr %plane, align 4
   %33 = load float, ptr %point2, align 4
   %34 = load float, ptr %arrayidx5.i, align 4
-  %arrayidx7.i33 = getelementptr inbounds float, ptr %point2, i64 1
+  %arrayidx7.i33 = getelementptr inbounds i8, ptr %point2, i64 4
   %35 = load float, ptr %arrayidx7.i33, align 4
   %mul8.i34 = fmul float %34, %35
   %36 = tail call float @llvm.fmuladd.f32(float %32, float %33, float %mul8.i34)
   %37 = load float, ptr %arrayidx10.i, align 4
-  %arrayidx12.i36 = getelementptr inbounds float, ptr %point2, i64 2
+  %arrayidx12.i36 = getelementptr inbounds i8, ptr %point2, i64 8
   %38 = load float, ptr %arrayidx12.i36, align 4
   %39 = tail call float @llvm.fmuladd.f32(float %37, float %38, float %36)
   %40 = load float, ptr %arrayidx14.i, align 4
@@ -1134,18 +1134,18 @@ define linkonce_odr dso_local noundef i32 @_Z26PLANE_CLIP_POLYGON_GENERICI9btVec
 entry:
   %0 = load float, ptr %plane, align 4
   %1 = load float, ptr %polygon_points, align 4
-  %arrayidx5.i = getelementptr inbounds float, ptr %plane, i64 1
+  %arrayidx5.i = getelementptr inbounds i8, ptr %plane, i64 4
   %2 = load float, ptr %arrayidx5.i, align 4
-  %arrayidx7.i = getelementptr inbounds float, ptr %polygon_points, i64 1
+  %arrayidx7.i = getelementptr inbounds i8, ptr %polygon_points, i64 4
   %3 = load float, ptr %arrayidx7.i, align 4
   %mul8.i = fmul float %2, %3
   %4 = tail call float @llvm.fmuladd.f32(float %0, float %1, float %mul8.i)
-  %arrayidx10.i = getelementptr inbounds float, ptr %plane, i64 2
+  %arrayidx10.i = getelementptr inbounds i8, ptr %plane, i64 8
   %5 = load float, ptr %arrayidx10.i, align 4
-  %arrayidx12.i = getelementptr inbounds float, ptr %polygon_points, i64 2
+  %arrayidx12.i = getelementptr inbounds i8, ptr %polygon_points, i64 8
   %6 = load float, ptr %arrayidx12.i, align 4
   %7 = tail call float @llvm.fmuladd.f32(float %5, float %6, float %4)
-  %arrayidx14.i = getelementptr inbounds float, ptr %plane, i64 3
+  %arrayidx14.i = getelementptr inbounds i8, ptr %plane, i64 12
   %8 = load float, ptr %arrayidx14.i, align 4
   %sub.i = fsub float %7, %8
   %cmp = fcmp ogt float %sub.i, 0x3E80000000000000
@@ -1154,10 +1154,10 @@ entry:
 if.then:                                          ; preds = %entry
   store float %1, ptr %clipped, align 4
   %9 = load float, ptr %arrayidx7.i, align 4
-  %arrayidx13 = getelementptr inbounds float, ptr %clipped, i64 1
+  %arrayidx13 = getelementptr inbounds i8, ptr %clipped, i64 4
   store float %9, ptr %arrayidx13, align 4
   %10 = load float, ptr %arrayidx12.i, align 4
-  %arrayidx20 = getelementptr inbounds float, ptr %clipped, i64 2
+  %arrayidx20 = getelementptr inbounds i8, ptr %clipped, i64 8
   store float %10, ptr %arrayidx20, align 4
   br label %if.end
 
@@ -1178,12 +1178,12 @@ for.body:                                         ; preds = %for.body.preheader,
   %11 = load float, ptr %plane, align 4
   %12 = load float, ptr %arrayidx23, align 4
   %13 = load float, ptr %arrayidx5.i, align 4
-  %arrayidx7.i24 = getelementptr inbounds float, ptr %arrayidx23, i64 1
+  %arrayidx7.i24 = getelementptr inbounds i8, ptr %arrayidx23, i64 4
   %14 = load float, ptr %arrayidx7.i24, align 4
   %mul8.i25 = fmul float %13, %14
   %15 = tail call float @llvm.fmuladd.f32(float %11, float %12, float %mul8.i25)
   %16 = load float, ptr %arrayidx10.i, align 4
-  %arrayidx12.i27 = getelementptr inbounds float, ptr %arrayidx23, i64 2
+  %arrayidx12.i27 = getelementptr inbounds i8, ptr %arrayidx23, i64 8
   %17 = load float, ptr %arrayidx12.i27, align 4
   %18 = tail call float @llvm.fmuladd.f32(float %16, float %17, float %15)
   %19 = load float, ptr %arrayidx14.i, align 4
@@ -1195,7 +1195,7 @@ for.body:                                         ; preds = %for.body.preheader,
 
 if.then.i:                                        ; preds = %for.body
   %21 = getelementptr %class.btVector3, ptr %polygon_points, i64 %indvars.iv
-  %arrayidx26 = getelementptr %class.btVector3, ptr %21, i64 -1
+  %arrayidx26 = getelementptr i8, ptr %21, i64 -16
   %fneg.i = fneg float %olddist.087
   %sub.i30 = fsub float %sub.i29, %olddist.087
   %div.i = fdiv float %fneg.i, %sub.i30
@@ -1206,14 +1206,14 @@ if.then.i:                                        ; preds = %for.body
   %idxprom.i = zext i32 %clipped_count.185 to i64
   %arrayidx8.i = getelementptr inbounds %class.btVector3, ptr %clipped, i64 %idxprom.i
   store float %23, ptr %arrayidx8.i, align 4
-  %arrayidx13.i = getelementptr %class.btVector3, ptr %21, i64 -1, i32 0, i64 1
+  %arrayidx13.i = getelementptr i8, ptr %21, i64 -12
   %24 = load float, ptr %arrayidx13.i, align 4
   %25 = load float, ptr %arrayidx7.i24, align 4
   %mul16.i = fmul float %div.i, %25
   %26 = tail call float @llvm.fmuladd.f32(float %sub4.i, float %24, float %mul16.i)
   %arrayidx20.i = getelementptr inbounds %class.btVector3, ptr %clipped, i64 %idxprom.i, i32 0, i64 1
   store float %26, ptr %arrayidx20.i, align 4
-  %arrayidx23.i = getelementptr %class.btVector3, ptr %21, i64 -1, i32 0, i64 2
+  %arrayidx23.i = getelementptr i8, ptr %21, i64 -8
   %27 = load float, ptr %arrayidx23.i, align 4
   %28 = load float, ptr %arrayidx12.i27, align 4
   %mul26.i = fmul float %div.i, %28
@@ -1269,14 +1269,14 @@ if.then.i33:                                      ; preds = %for.end
   %idxprom.i39 = zext i32 %clipped_count.1.lcssa to i64
   %arrayidx8.i40 = getelementptr inbounds %class.btVector3, ptr %clipped, i64 %idxprom.i39
   store float %36, ptr %arrayidx8.i40, align 4
-  %arrayidx13.i41 = getelementptr inbounds float, ptr %arrayidx32, i64 1
+  %arrayidx13.i41 = getelementptr inbounds i8, ptr %arrayidx32, i64 4
   %37 = load float, ptr %arrayidx13.i41, align 4
   %38 = load float, ptr %arrayidx7.i, align 4
   %mul16.i43 = fmul float %div.i36, %38
   %39 = tail call float @llvm.fmuladd.f32(float %sub4.i37, float %37, float %mul16.i43)
   %arrayidx20.i45 = getelementptr inbounds %class.btVector3, ptr %clipped, i64 %idxprom.i39, i32 0, i64 1
   store float %39, ptr %arrayidx20.i45, align 4
-  %arrayidx23.i46 = getelementptr inbounds float, ptr %arrayidx32, i64 2
+  %arrayidx23.i46 = getelementptr inbounds i8, ptr %arrayidx32, i64 8
   %40 = load float, ptr %arrayidx23.i46, align 4
   %41 = load float, ptr %arrayidx12.i, align 4
   %mul26.i48 = fmul float %div.i36, %41

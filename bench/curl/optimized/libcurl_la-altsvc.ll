@@ -3,43 +3,7 @@ source_filename = "bench/curl/original/libcurl_la-altsvc.ll"
 target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:128-n8:16:32:64-S128"
 target triple = "x86_64-unknown-linux-gnu"
 
-%struct.altsvcinfo = type { ptr, %struct.Curl_llist, i64 }
-%struct.Curl_llist = type { ptr, ptr, ptr, i64 }
-%struct.altsvc = type { %struct.althost, %struct.althost, i64, i8, i32, %struct.Curl_llist_element }
-%struct.althost = type { ptr, i16, i32 }
-%struct.Curl_llist_element = type { ptr, ptr, ptr }
 %struct.tm = type { i32, i32, i32, i32, i32, i32, i32, i32, i32, i64, ptr }
-%struct.Curl_easy = type { i32, i64, ptr, ptr, ptr, %struct.Curl_llist_element, %struct.Curl_llist_element, i32, i32, %struct.Curl_message, %struct.easy_pollset, %struct.Names, ptr, ptr, ptr, ptr, %struct.SingleRequest, %struct.UserDefined, ptr, ptr, ptr, %struct.Progress, %struct.UrlState, ptr, %struct.PureInfo, %struct.curl_tlssessioninfo }
-%struct.Curl_message = type { %struct.Curl_llist_element, %struct.CURLMsg }
-%struct.CURLMsg = type { i32, ptr, %union.anon }
-%union.anon = type { ptr }
-%struct.easy_pollset = type { [5 x i32], i32, [5 x i8] }
-%struct.Names = type { ptr, i32 }
-%struct.SingleRequest = type <{ i64, i64, i64, i64, i64, %struct.curltime, i32, i32, i32, i32, i64, i32, i32, %struct.curltime, i32, i32, ptr, i64, i64, ptr, ptr, i64, ptr, %union.anon.0, ptr, [2 x i8], i8, i16, [3 x i8] }>
-%struct.curltime = type { i64, i32 }
-%union.anon.0 = type { ptr }
-%struct.UserDefined = type <{ ptr, ptr, ptr, ptr, ptr, ptr, i16, [6 x i8], i64, i64, i64, ptr, ptr, i64, i16, i16, [4 x i8], ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, i32, i32, i32, i32, i64, i64, i64, i64, i64, i64, i64, i64, i64, ptr, ptr, %struct.curl_mimepart, ptr, ptr, ptr, i64, i8, i8, i8, [5 x i8], %struct.ssl_config_data, %struct.ssl_config_data, ptr, i16, i8, i8, [4 x i8], %struct.ssl_general_config, i32, i32, i32, [4 x i8], ptr, ptr, i8, [7 x i8], i64, i8, i8, i8, i8, i32, ptr, ptr, ptr, i8, i8, [2 x i8], i32, [80 x ptr], [8 x ptr], i32, i32, i32, [4 x i8], ptr, i32, [4 x i8], ptr, ptr, ptr, ptr, ptr, i8, [3 x i8], i32, i32, [4 x i8], i64, ptr, ptr, i64, ptr, ptr, ptr, ptr, ptr, i8, [7 x i8], ptr, i8, [3 x i8], i32, i8, i8, i56, [6 x i8] }>
-%struct.curl_mimepart = type { ptr, ptr, i32, i32, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, i64, %struct.mime_state, ptr, %struct.mime_encoder_state, i64 }
-%struct.mime_state = type { i32, ptr, i64 }
-%struct.mime_encoder_state = type { i64, i64, i64, [256 x i8] }
-%struct.ssl_config_data = type { %struct.ssl_primary_config, i64, ptr, ptr, ptr, ptr, ptr, ptr, ptr, i8 }
-%struct.ssl_primary_config = type { ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, i8, i32, i8, i8 }
-%struct.ssl_general_config = type { i64, i32 }
-%struct.Progress = type { i64, i64, i64, i64, i64, i64, i32, i32, i64, i64, i64, i64, i64, i64, i64, i64, i64, i64, %struct.curltime, %struct.curltime, %struct.curltime, %struct.curltime, %struct.curltime, i64, %struct.curltime, i64, [6 x i64], [6 x %struct.curltime], i32, i8 }
-%struct.UrlState = type { ptr, %struct.curltime, i64, i64, %struct.dynbuf, ptr, ptr, ptr, i64, ptr, i32, i32, i32, ptr, i64, [3 x %struct.tempbuf], i32, i32, ptr, i64, i32, ptr, %struct.digestdata, %struct.digestdata, %struct.auth, %struct.auth, %struct.Curl_async, ptr, %struct.curltime, %struct.Curl_tree, %struct.Curl_llist, [15 x %struct.time_node], ptr, i8, i64, ptr, i64, i64, i64, i64, [32 x i8], i64, ptr, ptr, ptr, %struct.urlpieces, ptr, ptr, ptr, ptr, ptr, i64, %struct.dynbuf, %struct.Curl_llist, [2 x %struct.curl_header], ptr, i32, ptr, %struct.dynamically_allocated_data, i8, i8, i8, i8, i24 }
-%struct.tempbuf = type { %struct.dynbuf, i32, i8 }
-%struct.digestdata = type { ptr, ptr, ptr, ptr, ptr, ptr, i32, i8, i8 }
-%struct.auth = type { i64, i64, i64, i8 }
-%struct.Curl_async = type { ptr, ptr, ptr, ptr, i32, i32, i8 }
-%struct.Curl_tree = type { ptr, ptr, ptr, ptr, %struct.curltime, ptr }
-%struct.time_node = type { %struct.Curl_llist_element, %struct.curltime, i32 }
-%struct.urlpieces = type { ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr }
-%struct.dynbuf = type { ptr, i64, i64, i64 }
-%struct.curl_header = type { ptr, ptr, i64, i64, i32, ptr }
-%struct.dynamically_allocated_data = type { ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr }
-%struct.PureInfo = type { i32, i32, i32, i64, i64, i64, i64, i64, ptr, ptr, i64, i32, [46 x i8], i32, i32, [46 x i8], i32, ptr, i32, %struct.curl_certinfo, i32, i8 }
-%struct.curl_certinfo = type { i32, ptr }
-%struct.curl_tlssessioninfo = type { i32, ptr }
 
 @.str = private unnamed_addr constant [3 x i8] c"h1\00", align 1
 @.str.1 = private unnamed_addr constant [3 x i8] c"h2\00", align 1
@@ -96,9 +60,9 @@ entry:
   br i1 %tobool.not, label %return, label %if.end
 
 if.end:                                           ; preds = %entry
-  %list = getelementptr inbounds %struct.altsvcinfo, ptr %call, i64 0, i32 1
+  %list = getelementptr inbounds i8, ptr %call, i64 8
   tail call void @Curl_llist_init(ptr noundef nonnull %list, ptr noundef null) #12
-  %flags = getelementptr inbounds %struct.altsvcinfo, ptr %call, i64 0, i32 2
+  %flags = getelementptr inbounds i8, ptr %call, i64 40
   store i64 8, ptr %flags, align 8
   br label %return
 
@@ -146,8 +110,8 @@ while.cond.preheader.i:                           ; preds = %if.then5.i
   br i1 %tobool11.not21.i, label %while.end26.i, label %while.cond12.preheader.lr.ph.i
 
 while.cond12.preheader.lr.ph.i:                   ; preds = %while.cond.preheader.i
-  %list.i.i = getelementptr inbounds %struct.altsvcinfo, ptr %asi, i64 0, i32 1
-  %tail.i.i = getelementptr inbounds %struct.altsvcinfo, ptr %asi, i64 0, i32 1, i32 1
+  %list.i.i = getelementptr inbounds i8, ptr %asi, i64 8
+  %tail.i.i = getelementptr inbounds i8, ptr %asi, i64 16
   br label %while.cond12.i
 
 while.cond12.i:                                   ; preds = %while.cond12.i.backedge, %while.cond12.preheader.lr.ph.i
@@ -230,18 +194,18 @@ altsvc_create.exit.i.i:                           ; preds = %alpn2alpnid.exit13.
   br i1 %tobool.not.i.i, label %altsvc_add.exit.i, label %if.then12.i.i
 
 if.then12.i.i:                                    ; preds = %altsvc_create.exit.i.i
-  %expires13.i.i = getelementptr inbounds %struct.altsvc, ptr %call3.i.i.i, i64 0, i32 2
+  %expires13.i.i = getelementptr inbounds i8, ptr %call3.i.i.i, i64 32
   store i64 %call6.i.i, ptr %expires13.i.i, align 8
   %7 = load i32, ptr %prio.i.i, align 4
-  %prio14.i.i = getelementptr inbounds %struct.altsvc, ptr %call3.i.i.i, i64 0, i32 4
+  %prio14.i.i = getelementptr inbounds i8, ptr %call3.i.i.i, i64 44
   store i32 %7, ptr %prio14.i.i, align 4
   %8 = load i32, ptr %persist.i.i, align 4
   %tobool15.i.i = icmp ne i32 %8, 0
-  %persist17.i.i = getelementptr inbounds %struct.altsvc, ptr %call3.i.i.i, i64 0, i32 3
+  %persist17.i.i = getelementptr inbounds i8, ptr %call3.i.i.i, i64 40
   %frombool.i.i = zext i1 %tobool15.i.i to i8
   store i8 %frombool.i.i, ptr %persist17.i.i, align 8
   %9 = load ptr, ptr %tail.i.i, align 8
-  %node.i.i = getelementptr inbounds %struct.altsvc, ptr %call3.i.i.i, i64 0, i32 5
+  %node.i.i = getelementptr inbounds i8, ptr %call3.i.i.i, i64 48
   call void @Curl_llist_insert_next(ptr noundef nonnull %list.i.i, ptr noundef %9, ptr noundef nonnull %call3.i.i.i, ptr noundef nonnull %node.i.i) #12
   br label %altsvc_add.exit.i
 
@@ -286,7 +250,7 @@ altsvc_load.exit:                                 ; preds = %entry, %if.end.i, %
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
 define hidden noundef i32 @Curl_altsvc_ctrl(ptr nocapture noundef writeonly %asi, i64 noundef %ctrl) local_unnamed_addr #3 {
 entry:
-  %flags = getelementptr inbounds %struct.altsvcinfo, ptr %asi, i64 0, i32 2
+  %flags = getelementptr inbounds i8, ptr %asi, i64 40
   store i64 %ctrl, ptr %flags, align 8
   ret i32 0
 }
@@ -299,7 +263,7 @@ entry:
   br i1 %tobool.not, label %if.end, label %if.then
 
 if.then:                                          ; preds = %entry
-  %list = getelementptr inbounds %struct.altsvcinfo, ptr %0, i64 0, i32 1
+  %list = getelementptr inbounds i8, ptr %0, i64 8
   %1 = load ptr, ptr %list, align 8
   %tobool1.not7 = icmp eq ptr %1, null
   br i1 %tobool1.not7, label %for.end, label %for.body
@@ -307,13 +271,13 @@ if.then:                                          ; preds = %entry
 for.body:                                         ; preds = %if.then, %for.body
   %e.08 = phi ptr [ %3, %for.body ], [ %1, %if.then ]
   %2 = load ptr, ptr %e.08, align 8
-  %next = getelementptr inbounds %struct.Curl_llist_element, ptr %e.08, i64 0, i32 2
+  %next = getelementptr inbounds i8, ptr %e.08, i64 16
   %3 = load ptr, ptr %next, align 8
   %4 = load ptr, ptr @Curl_cfree, align 8
   %5 = load ptr, ptr %2, align 8
   tail call void %4(ptr noundef %5) #12
   %6 = load ptr, ptr @Curl_cfree, align 8
-  %dst.i = getelementptr inbounds %struct.altsvc, ptr %2, i64 0, i32 1
+  %dst.i = getelementptr inbounds i8, ptr %2, i64 16
   %7 = load ptr, ptr %dst.i, align 8
   tail call void %6(ptr noundef %7) #12
   %8 = load ptr, ptr @Curl_cfree, align 8
@@ -355,7 +319,7 @@ land.lhs.true:                                    ; preds = %if.end
 
 if.end5:                                          ; preds = %land.lhs.true, %if.end
   %file.addr.0 = phi ptr [ %file, %if.end ], [ %0, %land.lhs.true ]
-  %flags = getelementptr inbounds %struct.altsvcinfo, ptr %altsvc, i64 0, i32 2
+  %flags = getelementptr inbounds i8, ptr %altsvc, i64 40
   %1 = load i64, ptr %flags, align 8
   %and = and i64 %1, 4
   %tobool6 = icmp eq i64 %and, 0
@@ -376,28 +340,28 @@ if.end11:                                         ; preds = %lor.lhs.false8
 if.then13:                                        ; preds = %if.end11
   %3 = load ptr, ptr %out, align 8
   %4 = call i64 @fwrite(ptr nonnull @.str.4, i64 117, i64 1, ptr %3)
-  %list = getelementptr inbounds %struct.altsvcinfo, ptr %altsvc, i64 0, i32 1
+  %list = getelementptr inbounds i8, ptr %altsvc, i64 8
   %5 = load ptr, ptr %list, align 8
   %tobool15.not20 = icmp eq ptr %5, null
   br i1 %tobool15.not20, label %for.end, label %for.body.lr.ph
 
 for.body.lr.ph:                                   ; preds = %if.then13
-  %tm_year.i = getelementptr inbounds %struct.tm, ptr %stamp.i, i64 0, i32 5
-  %tm_mon.i = getelementptr inbounds %struct.tm, ptr %stamp.i, i64 0, i32 4
-  %tm_mday.i = getelementptr inbounds %struct.tm, ptr %stamp.i, i64 0, i32 3
-  %tm_hour.i = getelementptr inbounds %struct.tm, ptr %stamp.i, i64 0, i32 2
-  %tm_min.i = getelementptr inbounds %struct.tm, ptr %stamp.i, i64 0, i32 1
+  %tm_year.i = getelementptr inbounds i8, ptr %stamp.i, i64 20
+  %tm_mon.i = getelementptr inbounds i8, ptr %stamp.i, i64 16
+  %tm_mday.i = getelementptr inbounds i8, ptr %stamp.i, i64 12
+  %tm_hour.i = getelementptr inbounds i8, ptr %stamp.i, i64 8
+  %tm_min.i = getelementptr inbounds i8, ptr %stamp.i, i64 4
   br label %for.body
 
 for.body:                                         ; preds = %for.body.lr.ph, %altsvc_out.exit
   %e.021 = phi ptr [ %5, %for.body.lr.ph ], [ %7, %altsvc_out.exit ]
   %6 = load ptr, ptr %e.021, align 8
-  %next = getelementptr inbounds %struct.Curl_llist_element, ptr %e.021, i64 0, i32 2
+  %next = getelementptr inbounds i8, ptr %e.021, i64 16
   %7 = load ptr, ptr %next, align 8
   %8 = load ptr, ptr %out, align 8
   call void @llvm.lifetime.start.p0(i64 56, ptr nonnull %stamp.i)
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %ipv6_unused.i)
-  %expires.i = getelementptr inbounds %struct.altsvc, ptr %6, i64 0, i32 2
+  %expires.i = getelementptr inbounds i8, ptr %6, i64 32
   %9 = load i64, ptr %expires.i, align 8
   %call.i = call i32 @Curl_gmtime(i64 noundef %9, ptr noundef nonnull %stamp.i) #12
   %tobool.not.i = icmp eq i32 %call.i, 0
@@ -409,7 +373,7 @@ altsvc_out.exit.thread:                           ; preds = %for.body
   br label %for.end
 
 if.else.i:                                        ; preds = %for.body
-  %dst.i = getelementptr inbounds %struct.altsvc, ptr %6, i64 0, i32 1
+  %dst.i = getelementptr inbounds i8, ptr %6, i64 16
   %10 = load ptr, ptr %dst.i, align 8
   %call1.i = call i32 @inet_pton(i32 noundef 10, ptr noundef %10, ptr noundef nonnull %ipv6_unused.i) #12
   %cmp.i = icmp eq i32 %call1.i, 1
@@ -420,7 +384,7 @@ if.else.i:                                        ; preds = %for.body
   %cmp6.i = icmp eq i32 %call5.i, 1
   %src6_pre.0.i = select i1 %cmp6.i, ptr @.str.15, ptr @.str.3
   %src6_post.0.i = select i1 %cmp6.i, ptr @.str.16, ptr @.str.3
-  %alpnid.i = getelementptr inbounds %struct.althost, ptr %6, i64 0, i32 2
+  %alpnid.i = getelementptr inbounds i8, ptr %6, i64 12
   %12 = load i32, ptr %alpnid.i, align 4
   switch i32 %12, label %sw.default.i.i [
     i32 8, label %Curl_alpnid2str.exit.i
@@ -440,10 +404,10 @@ sw.default.i.i:                                   ; preds = %if.else.i
 Curl_alpnid2str.exit.i:                           ; preds = %sw.default.i.i, %sw.bb2.i.i, %sw.bb1.i.i, %if.else.i
   %retval.0.i.i = phi ptr [ @.str.3, %sw.default.i.i ], [ @.str.2, %sw.bb2.i.i ], [ @.str.1, %sw.bb1.i.i ], [ @.str, %if.else.i ]
   %13 = load ptr, ptr %6, align 8
-  %port.i = getelementptr inbounds %struct.althost, ptr %6, i64 0, i32 1
+  %port.i = getelementptr inbounds i8, ptr %6, i64 8
   %14 = load i16, ptr %port.i, align 8
   %conv.i = zext i16 %14 to i32
-  %alpnid16.i = getelementptr inbounds %struct.altsvc, ptr %6, i64 0, i32 1, i32 2
+  %alpnid16.i = getelementptr inbounds i8, ptr %6, i64 28
   %15 = load i32, ptr %alpnid16.i, align 4
   switch i32 %15, label %sw.default.i16.i [
     i32 8, label %altsvc_out.exit
@@ -463,7 +427,7 @@ sw.default.i16.i:                                 ; preds = %Curl_alpnid2str.exi
 altsvc_out.exit:                                  ; preds = %Curl_alpnid2str.exit.i, %sw.bb1.i15.i, %sw.bb2.i13.i, %sw.default.i16.i
   %retval.0.i14.i = phi ptr [ @.str.3, %sw.default.i16.i ], [ @.str.2, %sw.bb2.i13.i ], [ @.str.1, %sw.bb1.i15.i ], [ @.str, %Curl_alpnid2str.exit.i ]
   %16 = load ptr, ptr %dst.i, align 8
-  %port21.i = getelementptr inbounds %struct.altsvc, ptr %6, i64 0, i32 1, i32 1
+  %port21.i = getelementptr inbounds i8, ptr %6, i64 24
   %17 = load i16, ptr %port21.i, align 8
   %conv22.i = zext i16 %17 to i32
   %18 = load i32, ptr %tm_year.i, align 4
@@ -474,11 +438,11 @@ altsvc_out.exit:                                  ; preds = %Curl_alpnid2str.exi
   %21 = load i32, ptr %tm_hour.i, align 8
   %22 = load i32, ptr %tm_min.i, align 4
   %23 = load i32, ptr %stamp.i, align 8
-  %persist.i = getelementptr inbounds %struct.altsvc, ptr %6, i64 0, i32 3
+  %persist.i = getelementptr inbounds i8, ptr %6, i64 40
   %24 = load i8, ptr %persist.i, align 8
   %25 = and i8 %24, 1
   %conv25.i = zext nneg i8 %25 to i32
-  %prio.i = getelementptr inbounds %struct.altsvc, ptr %6, i64 0, i32 4
+  %prio.i = getelementptr inbounds i8, ptr %6, i64 44
   %26 = load i32, ptr %prio.i, align 4
   %call26.i = call i32 (ptr, ptr, ...) @curl_mfprintf(ptr noundef %8, ptr noundef nonnull @.str.17, ptr noundef nonnull %retval.0.i.i, ptr noundef nonnull %src6_pre.0.i, ptr noundef %13, ptr noundef nonnull %src6_post.0.i, i32 noundef %conv.i, ptr noundef nonnull %retval.0.i14.i, ptr noundef nonnull %spec.select.i, ptr noundef %16, ptr noundef nonnull %spec.select12.i, i32 noundef %conv22.i, i32 noundef %add.i, i32 noundef %add23.i, i32 noundef %20, i32 noundef %21, i32 noundef %22, i32 noundef %23, i32 noundef %conv25.i, i32 noundef %26) #12
   call void @llvm.lifetime.end.p0(i64 56, ptr nonnull %stamp.i)
@@ -590,7 +554,7 @@ do.body:                                          ; preds = %while.end26.i
   br i1 %tobool1.not, label %return, label %land.lhs.true
 
 land.lhs.true:                                    ; preds = %do.body
-  %verbose = getelementptr inbounds %struct.Curl_easy, ptr %data, i64 0, i32 17, i32 129
+  %verbose = getelementptr inbounds i8, ptr %data, i64 2706
   %bf.load = load i64, ptr %verbose, align 2
   %2 = and i64 %bf.load, 536870912
   %tobool2.not = icmp eq i64 %2, 0
@@ -615,10 +579,10 @@ if.then10:                                        ; preds = %do.end6
 do.body12thread-pre-split:                        ; preds = %do.end6
   %.pr = load i8, ptr %p.1.i, align 1
   %tobool77.not = icmp eq ptr %data, null
-  %verbose80 = getelementptr inbounds %struct.Curl_easy, ptr %data, i64 0, i32 17, i32 129
+  %verbose80 = getelementptr inbounds i8, ptr %data, i64 2706
   %conv301 = zext i16 %srcport to i32
-  %list = getelementptr inbounds %struct.altsvcinfo, ptr %asi, i64 0, i32 1
-  %tail = getelementptr inbounds %struct.altsvcinfo, ptr %asi, i64 0, i32 1, i32 1
+  %list = getelementptr inbounds i8, ptr %asi, i64 8
+  %tail = getelementptr inbounds i8, ptr %asi, i64 16
   br label %do.body12
 
 do.body12:                                        ; preds = %do.body12thread-pre-split, %do.cond
@@ -1019,13 +983,13 @@ if.end300:                                        ; preds = %if.then299, %if.the
 if.then305:                                       ; preds = %if.end300
   %call306 = call i64 @time(ptr noundef null) #12
   %add307 = add nsw i64 %call306, %maxage.0.ph
-  %expires = getelementptr inbounds %struct.altsvc, ptr %call303, i64 0, i32 2
+  %expires = getelementptr inbounds i8, ptr %call303, i64 32
   store i64 %add307, ptr %expires, align 8
   %31 = and i8 %persist.0.ph271, 1
-  %persist309 = getelementptr inbounds %struct.altsvc, ptr %call303, i64 0, i32 3
+  %persist309 = getelementptr inbounds i8, ptr %call303, i64 40
   store i8 %31, ptr %persist309, align 8
   %32 = load ptr, ptr %tail, align 8
-  %node = getelementptr inbounds %struct.altsvc, ptr %call303, i64 0, i32 5
+  %node = getelementptr inbounds i8, ptr %call303, i64 48
   call void @Curl_llist_insert_next(ptr noundef nonnull %list, ptr noundef %32, ptr noundef nonnull %call303, ptr noundef nonnull %node) #12
   br i1 %tobool77.not, label %if.end329, label %land.lhs.true313
 
@@ -1130,7 +1094,7 @@ declare i32 @curl_strequal(ptr noundef, ptr noundef) local_unnamed_addr #2
 ; Function Attrs: nounwind uwtable
 define internal fastcc void @altsvc_flush(ptr noundef %asi, i32 noundef %srcalpnid, ptr noundef %srchost, i16 noundef zeroext %srcport) unnamed_addr #1 {
 entry:
-  %list = getelementptr inbounds %struct.altsvcinfo, ptr %asi, i64 0, i32 1
+  %list = getelementptr inbounds i8, ptr %asi, i64 8
   %0 = load ptr, ptr %list, align 8
   %invariant.gep = getelementptr i8, ptr %srchost, i64 -1
   %tobool.not9 = icmp eq ptr %0, null
@@ -1139,15 +1103,15 @@ entry:
 for.body:                                         ; preds = %entry, %for.inc
   %e.010 = phi ptr [ %2, %for.inc ], [ %0, %entry ]
   %1 = load ptr, ptr %e.010, align 8
-  %next = getelementptr inbounds %struct.Curl_llist_element, ptr %e.010, i64 0, i32 2
+  %next = getelementptr inbounds i8, ptr %e.010, i64 16
   %2 = load ptr, ptr %next, align 8
-  %alpnid = getelementptr inbounds %struct.althost, ptr %1, i64 0, i32 2
+  %alpnid = getelementptr inbounds i8, ptr %1, i64 12
   %3 = load i32, ptr %alpnid, align 4
   %cmp = icmp eq i32 %3, %srcalpnid
   br i1 %cmp, label %land.lhs.true, label %for.inc
 
 land.lhs.true:                                    ; preds = %for.body
-  %port = getelementptr inbounds %struct.althost, ptr %1, i64 0, i32 1
+  %port = getelementptr inbounds i8, ptr %1, i64 8
   %4 = load i16, ptr %port, align 8
   %cmp3 = icmp eq i16 %4, %srcport
   br i1 %cmp3, label %land.lhs.true5, label %for.inc
@@ -1183,7 +1147,7 @@ if.then:                                          ; preds = %hostcompare.exit
   %8 = load ptr, ptr %1, align 8
   tail call void %7(ptr noundef %8) #12
   %9 = load ptr, ptr @Curl_cfree, align 8
-  %dst.i = getelementptr inbounds %struct.altsvc, ptr %1, i64 0, i32 1
+  %dst.i = getelementptr inbounds i8, ptr %1, i64 16
   %10 = load ptr, ptr %dst.i, align 8
   tail call void %9(ptr noundef %10) #12
   %11 = load ptr, ptr @Curl_cfree, align 8
@@ -1278,7 +1242,7 @@ if.end30:                                         ; preds = %if.then27, %land.lh
 
 if.end36:                                         ; preds = %if.end30
   %call37 = tail call ptr @Curl_memdup0(ptr noundef %dsthost.addr.0, i64 noundef %dlen.0) #12
-  %dst = getelementptr inbounds %struct.altsvc, ptr %call, i64 0, i32 1
+  %dst = getelementptr inbounds i8, ptr %call, i64 16
   store ptr %call37, ptr %dst, align 8
   %tobool41.not = icmp eq ptr %call37, null
   br i1 %tobool41.not, label %if.end36.error_crit_edge, label %if.end43
@@ -1288,17 +1252,17 @@ if.end36.error_crit_edge:                         ; preds = %if.end36
   br label %error
 
 if.end43:                                         ; preds = %if.end36
-  %alpnid = getelementptr inbounds %struct.althost, ptr %call, i64 0, i32 2
+  %alpnid = getelementptr inbounds i8, ptr %call, i64 12
   store i32 %srcalpnid, ptr %alpnid, align 4
-  %alpnid46 = getelementptr inbounds %struct.altsvc, ptr %call, i64 0, i32 1, i32 2
+  %alpnid46 = getelementptr inbounds i8, ptr %call, i64 28
   store i32 %dstalpnid, ptr %alpnid46, align 4
   %conv47 = zext i32 %srcport to i64
   %call48 = tail call zeroext i16 @curlx_ultous(i64 noundef %conv47) #12
-  %port = getelementptr inbounds %struct.althost, ptr %call, i64 0, i32 1
+  %port = getelementptr inbounds i8, ptr %call, i64 8
   store i16 %call48, ptr %port, align 8
   %conv50 = zext i32 %dstport to i64
   %call51 = tail call zeroext i16 @curlx_ultous(i64 noundef %conv50) #12
-  %port53 = getelementptr inbounds %struct.altsvc, ptr %call, i64 0, i32 1, i32 1
+  %port53 = getelementptr inbounds i8, ptr %call, i64 24
   store i16 %call51, ptr %port53, align 8
   br label %return
 
@@ -1307,7 +1271,7 @@ error:                                            ; preds = %if.end36.error_crit
   %7 = load ptr, ptr @Curl_cfree, align 8
   tail call void %7(ptr noundef %6) #12
   %8 = load ptr, ptr @Curl_cfree, align 8
-  %dst.i = getelementptr inbounds %struct.altsvc, ptr %call, i64 0, i32 1
+  %dst.i = getelementptr inbounds i8, ptr %call, i64 16
   %9 = load ptr, ptr %dst.i, align 8
   tail call void %8(ptr noundef %9) #12
   %10 = load ptr, ptr @Curl_cfree, align 8
@@ -1328,7 +1292,7 @@ declare void @Curl_llist_insert_next(ptr noundef, ptr noundef, ptr noundef, ptr 
 define hidden noundef zeroext i1 @Curl_altsvc_lookup(ptr noundef %asi, i32 noundef %srcalpnid, ptr noundef %srchost, i32 noundef %srcport, ptr nocapture noundef writeonly %dstentry, i32 noundef %versions) local_unnamed_addr #1 {
 entry:
   %call = tail call i64 @time(ptr noundef null) #12
-  %list = getelementptr inbounds %struct.altsvcinfo, ptr %asi, i64 0, i32 1
+  %list = getelementptr inbounds i8, ptr %asi, i64 8
   %0 = load ptr, ptr %list, align 8
   %invariant.gep = getelementptr i8, ptr %srchost, i64 -1
   %tobool.not14.not = icmp eq ptr %0, null
@@ -1337,9 +1301,9 @@ entry:
 for.body:                                         ; preds = %entry, %for.inc
   %e.015 = phi ptr [ %2, %for.inc ], [ %0, %entry ]
   %1 = load ptr, ptr %e.015, align 8
-  %next = getelementptr inbounds %struct.Curl_llist_element, ptr %e.015, i64 0, i32 2
+  %next = getelementptr inbounds i8, ptr %e.015, i64 16
   %2 = load ptr, ptr %next, align 8
-  %expires = getelementptr inbounds %struct.altsvc, ptr %1, i64 0, i32 2
+  %expires = getelementptr inbounds i8, ptr %1, i64 32
   %3 = load i64, ptr %expires, align 8
   %cmp = icmp slt i64 %3, %call
   br i1 %cmp, label %if.then, label %if.end
@@ -1350,7 +1314,7 @@ if.then:                                          ; preds = %for.body
   %5 = load ptr, ptr %1, align 8
   tail call void %4(ptr noundef %5) #12
   %6 = load ptr, ptr @Curl_cfree, align 8
-  %dst.i = getelementptr inbounds %struct.altsvc, ptr %1, i64 0, i32 1
+  %dst.i = getelementptr inbounds i8, ptr %1, i64 16
   %7 = load ptr, ptr %dst.i, align 8
   tail call void %6(ptr noundef %7) #12
   %8 = load ptr, ptr @Curl_cfree, align 8
@@ -1358,7 +1322,7 @@ if.then:                                          ; preds = %for.body
   br label %for.inc
 
 if.end:                                           ; preds = %for.body
-  %alpnid = getelementptr inbounds %struct.althost, ptr %1, i64 0, i32 2
+  %alpnid = getelementptr inbounds i8, ptr %1, i64 12
   %9 = load i32, ptr %alpnid, align 4
   %cmp6 = icmp eq i32 %9, %srcalpnid
   br i1 %cmp6, label %land.lhs.true, label %for.inc
@@ -1389,14 +1353,14 @@ hostcompare.exit:                                 ; preds = %if.end.i
   br i1 %tobool8.i.not, label %for.inc, label %land.lhs.true9
 
 land.lhs.true9:                                   ; preds = %hostcompare.exit
-  %port = getelementptr inbounds %struct.althost, ptr %1, i64 0, i32 1
+  %port = getelementptr inbounds i8, ptr %1, i64 8
   %12 = load i16, ptr %port, align 8
   %conv = zext i16 %12 to i32
   %cmp11 = icmp eq i32 %conv, %srcport
   br i1 %cmp11, label %land.lhs.true13, label %for.inc
 
 land.lhs.true13:                                  ; preds = %land.lhs.true9
-  %alpnid14 = getelementptr inbounds %struct.altsvc, ptr %1, i64 0, i32 1, i32 2
+  %alpnid14 = getelementptr inbounds i8, ptr %1, i64 28
   %13 = load i32, ptr %alpnid14, align 4
   %and = and i32 %13, %versions
   %tobool15.not = icmp eq i32 %and, 0

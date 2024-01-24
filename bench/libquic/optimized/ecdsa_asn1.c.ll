@@ -3,11 +3,6 @@ source_filename = "bench/libquic/original/ecdsa_asn1.c.ll"
 target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:128-n8:16:32:64-S128"
 target triple = "x86_64-unknown-linux-gnu"
 
-%struct.ec_key_st = type { ptr, ptr, ptr, i32, i32, i32, ptr, %struct.crypto_ex_data_st }
-%struct.crypto_ex_data_st = type { ptr }
-%struct.ecdsa_method_st = type { %struct.openssl_method_common_st, ptr, ptr, ptr, ptr, ptr, ptr, i32 }
-%struct.openssl_method_common_st = type { i32, i8 }
-%struct.ecdsa_sig_st = type { ptr, ptr }
 %struct.cbs_st = type { ptr, i64 }
 %struct.cbb_st = type { ptr, ptr, i64, i8, i8, i8 }
 
@@ -20,13 +15,13 @@ entry:
   br i1 %cmp, label %return, label %if.end
 
 if.end:                                           ; preds = %entry
-  %ecdsa_meth = getelementptr inbounds %struct.ec_key_st, ptr %key, i64 0, i32 6
+  %ecdsa_meth = getelementptr inbounds i8, ptr %key, i64 40
   %0 = load ptr, ptr %ecdsa_meth, align 8
   %tobool.not = icmp eq ptr %0, null
   br i1 %tobool.not, label %if.else, label %land.lhs.true
 
 land.lhs.true:                                    ; preds = %if.end
-  %group_order_size2 = getelementptr inbounds %struct.ecdsa_method_st, ptr %0, i64 0, i32 4
+  %group_order_size2 = getelementptr inbounds i8, ptr %0, i64 32
   %1 = load ptr, ptr %group_order_size2, align 8
   %tobool3.not = icmp eq ptr %1, null
   br i1 %tobool3.not, label %if.else, label %if.then4
@@ -162,7 +157,7 @@ if.end:                                           ; preds = %entry
   %call1 = tail call ptr @BN_new() #6
   store ptr %call1, ptr %call, align 8
   %call2 = tail call ptr @BN_new() #6
-  %s = getelementptr inbounds %struct.ecdsa_sig_st, ptr %call, i64 0, i32 1
+  %s = getelementptr inbounds i8, ptr %call, i64 8
   store ptr %call2, ptr %s, align 8
   %cmp4 = icmp eq ptr %call1, null
   %cmp6 = icmp eq ptr %call2, null
@@ -194,7 +189,7 @@ entry:
 if.end:                                           ; preds = %entry
   %0 = load ptr, ptr %sig, align 8
   tail call void @BN_free(ptr noundef %0) #6
-  %s = getelementptr inbounds %struct.ecdsa_sig_st, ptr %sig, i64 0, i32 1
+  %s = getelementptr inbounds i8, ptr %sig, i64 8
   %1 = load ptr, ptr %s, align 8
   tail call void @BN_free(ptr noundef %1) #6
   tail call void @free(ptr noundef nonnull %sig) #6
@@ -221,7 +216,7 @@ if.end.i:                                         ; preds = %entry
   %call1.i = tail call ptr @BN_new() #6
   store ptr %call1.i, ptr %call.i, align 8
   %call2.i = tail call ptr @BN_new() #6
-  %s.i = getelementptr inbounds %struct.ecdsa_sig_st, ptr %call.i, i64 0, i32 1
+  %s.i = getelementptr inbounds i8, ptr %call.i, i64 8
   store ptr %call2.i, ptr %s.i, align 8
   %cmp4.i = icmp eq ptr %call1.i, null
   %cmp6.i = icmp eq ptr %call2.i, null
@@ -296,7 +291,7 @@ if.end.i:                                         ; preds = %lor.lhs.false
   call void @ERR_put_error(i32 noundef 26, i32 noundef 0, i32 noundef 100, ptr noundef nonnull @.str, i32 noundef 134) #6
   %0 = load ptr, ptr %call, align 8
   call void @BN_free(ptr noundef %0) #6
-  %s.i = getelementptr inbounds %struct.ecdsa_sig_st, ptr %call, i64 0, i32 1
+  %s.i = getelementptr inbounds i8, ptr %call, i64 8
   %1 = load ptr, ptr %s.i, align 8
   call void @BN_free(ptr noundef %1) #6
   call void @free(ptr noundef nonnull %call) #6
@@ -324,7 +319,7 @@ lor.lhs.false:                                    ; preds = %entry
   br i1 %tobool2.not, label %if.then, label %lor.lhs.false3
 
 lor.lhs.false3:                                   ; preds = %lor.lhs.false
-  %s = getelementptr inbounds %struct.ecdsa_sig_st, ptr %sig, i64 0, i32 1
+  %s = getelementptr inbounds i8, ptr %sig, i64 8
   %1 = load ptr, ptr %s, align 8
   %call4 = call i32 @BN_marshal_asn1(ptr noundef nonnull %child, ptr noundef %1) #6
   %tobool5.not = icmp eq i32 %call4, 0
@@ -373,7 +368,7 @@ lor.lhs.false.i:                                  ; preds = %lor.lhs.false
   br i1 %tobool2.not.i, label %ECDSA_SIG_marshal.exit.thread, label %lor.lhs.false3.i
 
 lor.lhs.false3.i:                                 ; preds = %lor.lhs.false.i
-  %s.i = getelementptr inbounds %struct.ecdsa_sig_st, ptr %sig, i64 0, i32 1
+  %s.i = getelementptr inbounds i8, ptr %sig, i64 8
   %1 = load ptr, ptr %s.i, align 8
   %call4.i = call i32 @BN_marshal_asn1(ptr noundef nonnull %child.i, ptr noundef %1) #6
   %tobool5.not.i = icmp eq i32 %call4.i, 0
@@ -439,7 +434,7 @@ if.then5:                                         ; preds = %if.end3
 if.end.i:                                         ; preds = %if.then5
   %2 = load ptr, ptr %1, align 8
   call void @BN_free(ptr noundef %2) #6
-  %s.i = getelementptr inbounds %struct.ecdsa_sig_st, ptr %1, i64 0, i32 1
+  %s.i = getelementptr inbounds i8, ptr %1, i64 8
   %3 = load ptr, ptr %s.i, align 8
   call void @BN_free(ptr noundef %3) #6
   call void @free(ptr noundef nonnull %1) #6
@@ -483,7 +478,7 @@ lor.lhs.false.i:                                  ; preds = %lor.lhs.false
   br i1 %tobool2.not.i, label %ECDSA_SIG_marshal.exit.thread, label %lor.lhs.false3.i
 
 lor.lhs.false3.i:                                 ; preds = %lor.lhs.false.i
-  %s.i = getelementptr inbounds %struct.ecdsa_sig_st, ptr %sig, i64 0, i32 1
+  %s.i = getelementptr inbounds i8, ptr %sig, i64 8
   %1 = load ptr, ptr %s.i, align 8
   %call4.i = call i32 @BN_marshal_asn1(ptr noundef nonnull %child.i, ptr noundef %1) #6
   %tobool5.not.i = icmp eq i32 %call4.i, 0

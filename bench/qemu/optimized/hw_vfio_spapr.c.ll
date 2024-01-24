@@ -13,25 +13,10 @@ target triple = "x86_64-unknown-linux-gnu"
 %union.anon.8 = type { %struct.QTailQLink }
 %struct.timeval = type { i64, i64 }
 %struct.vfio_iommu_spapr_tce_create = type { i32, i32, i32, i32, i64, i32, i32, i64 }
-%struct.VFIOContainer = type { ptr, i32, %struct.MemoryListener, %struct.MemoryListener, i32, ptr, i8, i8, i64, i64, i64, i32, %struct.anon, %struct.anon.1, %struct.anon.2, %struct.anon.3, %struct.anon.4, %struct.anon.5, ptr }
-%struct.anon = type { ptr }
-%struct.anon.1 = type { ptr }
-%struct.anon.2 = type { ptr }
-%struct.anon.3 = type { ptr }
-%struct.anon.4 = type { ptr, ptr }
-%struct.anon.5 = type { ptr }
-%struct.MemoryRegionSection = type { i128, ptr, ptr, i64, i64, i8, i8, i8 }
-%struct.VFIOHostDMAWindow = type { i64, i64, i64, %struct.anon.6 }
-%struct.anon.6 = type { ptr, ptr }
 %struct.vfio_iommu_spapr_tce_remove = type { i32, i32, i64 }
 %struct.vfio_iommu_spapr_tce_info = type { i32, i32, i32, i32, %struct.vfio_iommu_spapr_tce_ddw_info }
 %struct.vfio_iommu_spapr_tce_ddw_info = type { i64, i32, i32 }
 %struct.vfio_iommu_spapr_register_memory = type { i32, i32, i64, i64 }
-%struct.MemoryRegion = type { %struct.Object, i8, i8, i8, i8, i8, i8, i8, i8, i8, i8, ptr, ptr, ptr, ptr, ptr, ptr, i32, i128, i64, ptr, i64, i8, i8, i8, i8, i8, ptr, i64, i32, %union.anon.9, %union.anon.10, %union.anon.11, ptr, i32, ptr, ptr, i8 }
-%struct.Object = type { ptr, ptr, ptr, i32, ptr }
-%union.anon.9 = type { %struct.QTailQLink }
-%union.anon.10 = type { %struct.QTailQLink }
-%union.anon.11 = type { %struct.QTailQLink }
 
 @.str = private unnamed_addr constant [24 x i8] c"../qemu/hw/vfio/spapr.c\00", align 1
 @__func__.vfio_container_add_section_window = private unnamed_addr constant [34 x i8] c"vfio_container_add_section_window\00", align 1
@@ -93,7 +78,7 @@ define dso_local i32 @vfio_container_add_section_window(ptr noundef %container, 
 entry:
   %_now.i.i.i = alloca %struct.timeval, align 8
   %create.i = alloca %struct.vfio_iommu_spapr_tce_create, align 8
-  %iommu_type = getelementptr inbounds %struct.VFIOContainer, ptr %container, i64 0, i32 4
+  %iommu_type = getelementptr inbounds i8, ptr %container, i64 400
   %0 = load i32, ptr %iommu_type, align 8
   switch i32 %0, label %return [
     i32 2, label %if.then
@@ -101,7 +86,7 @@ entry:
   ]
 
 if.then:                                          ; preds = %entry
-  %offset_within_address_space = getelementptr inbounds %struct.MemoryRegionSection, ptr %section, i64 0, i32 4
+  %offset_within_address_space = getelementptr inbounds i8, ptr %section, i64 40
   %1 = load i64, ptr %offset_within_address_space, align 8
   %2 = load i128, ptr %section, align 16
   %cmp.i = icmp ult i128 %2, 18446744073709551616
@@ -115,7 +100,7 @@ int128_get64.exit:                                ; preds = %if.then
   %coerce.sroa.0.0.extract.trunc = trunc i128 %2 to i64
   %add = add i64 %1, -1
   %sub = add i64 %add, %coerce.sroa.0.0.extract.trunc
-  %hostwin_list.i = getelementptr inbounds %struct.VFIOContainer, ptr %container, i64 0, i32 13
+  %hostwin_list.i = getelementptr inbounds i8, ptr %container, i64 464
   %hostwin.05.i = load ptr, ptr %hostwin_list.i, align 8
   %tobool.not.not6.i = icmp eq ptr %hostwin.05.i, null
   br i1 %tobool.not.not6.i, label %if.then2, label %for.body.i
@@ -127,13 +112,13 @@ for.body.i:                                       ; preds = %int128_get64.exit, 
   br i1 %cmp.not.i, label %for.inc.i, label %land.lhs.true.i
 
 land.lhs.true.i:                                  ; preds = %for.body.i
-  %max_iova.i = getelementptr inbounds %struct.VFIOHostDMAWindow, ptr %hostwin.07.i, i64 0, i32 1
+  %max_iova.i = getelementptr inbounds i8, ptr %hostwin.07.i, i64 8
   %4 = load i64, ptr %max_iova.i, align 8
   %cmp1.not.i = icmp ult i64 %4, %sub
   br i1 %cmp1.not.i, label %for.inc.i, label %return
 
 for.inc.i:                                        ; preds = %land.lhs.true.i, %for.body.i
-  %hostwin_next.i = getelementptr inbounds %struct.VFIOHostDMAWindow, ptr %hostwin.07.i, i64 0, i32 3
+  %hostwin_next.i = getelementptr inbounds i8, ptr %hostwin.07.i, i64 24
   %hostwin.0.i = load ptr, ptr %hostwin_next.i, align 8
   %tobool.not.not.i = icmp eq ptr %hostwin.0.i, null
   br i1 %tobool.not.not.i, label %if.then2, label %for.body.i, !llvm.loop !5
@@ -143,13 +128,13 @@ if.then2:                                         ; preds = %for.inc.i, %int128_
   br label %return
 
 if.end7:                                          ; preds = %entry
-  %hostwin_list = getelementptr inbounds %struct.VFIOContainer, ptr %container, i64 0, i32 13
+  %hostwin_list = getelementptr inbounds i8, ptr %container, i64 464
   %hostwin.068 = load ptr, ptr %hostwin_list, align 8
   %tobool8.not69 = icmp eq ptr %hostwin.068, null
   br i1 %tobool8.not69, label %for.end, label %for.body.lr.ph
 
 for.body.lr.ph:                                   ; preds = %if.end7
-  %offset_within_address_space12 = getelementptr inbounds %struct.MemoryRegionSection, ptr %section, i64 0, i32 4
+  %offset_within_address_space12 = getelementptr inbounds i8, ptr %section, i64 40
   %5 = load i64, ptr %offset_within_address_space12, align 8
   %6 = load i128, ptr %section, align 16
   %coerce14.sroa.0.0.extract.trunc = trunc i128 %6 to i64
@@ -159,7 +144,7 @@ for.body.lr.ph:                                   ; preds = %if.end7
   br i1 %cmp.i30, label %for.body, label %if.else.i31
 
 for.cond:                                         ; preds = %for.body
-  %hostwin_next = getelementptr inbounds %struct.VFIOHostDMAWindow, ptr %hostwin.070, i64 0, i32 3
+  %hostwin_next = getelementptr inbounds i8, ptr %hostwin.070, i64 24
   %hostwin.0 = load ptr, ptr %hostwin_next, align 8
   %tobool8.not = icmp eq ptr %hostwin.0, null
   br i1 %tobool8.not, label %for.end, label %for.body, !llvm.loop !7
@@ -167,7 +152,7 @@ for.cond:                                         ; preds = %for.body
 for.body:                                         ; preds = %for.body.lr.ph, %for.cond
   %hostwin.070 = phi ptr [ %hostwin.0, %for.cond ], [ %hostwin.068, %for.body.lr.ph ]
   %7 = load i64, ptr %hostwin.070, align 8
-  %max_iova = getelementptr inbounds %struct.VFIOHostDMAWindow, ptr %hostwin.070, i64 0, i32 1
+  %max_iova = getelementptr inbounds i8, ptr %hostwin.070, i64 8
   %8 = load i64, ptr %max_iova, align 8
   %cmp.i33 = icmp ult i64 %sub.i4.i, %7
   %cmp2.i = icmp ult i64 %8, %5
@@ -184,7 +169,7 @@ int128_get64.exit36:                              ; preds = %for.body
 
 for.end:                                          ; preds = %for.cond, %if.end7
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %create.i)
-  %mr.i = getelementptr inbounds %struct.MemoryRegionSection, ptr %section, i64 0, i32 1
+  %mr.i = getelementptr inbounds i8, ptr %section, i64 16
   %9 = load ptr, ptr %mr.i, align 16
   %call.i.i = tail call ptr @object_dynamic_cast_assert(ptr noundef %9, ptr noundef nonnull @.str.14, ptr noundef nonnull @.str.15, i32 noundef 44, ptr noundef nonnull @__func__.IOMMU_MEMORY_REGION) #14
   %call1.i = tail call i64 @memory_region_iommu_get_min_page_size(ptr noundef %call.i.i) #14
@@ -192,7 +177,7 @@ for.end:                                          ; preds = %for.cond, %if.end7
   store i32 40, ptr %create.i, align 8
   %call2.i = tail call i64 @qemu_minrampagesize() #14
   %spec.select.i = tail call i64 @llvm.umin.i64(i64 %call1.i, i64 %call2.i)
-  %pgsizes.i = getelementptr inbounds %struct.VFIOContainer, ptr %container, i64 0, i32 10
+  %pgsizes.i = getelementptr inbounds i8, ptr %container, i64 440
   %10 = load i64, ptr %pgsizes.i, align 8
   %sub.i = add i64 %spec.select.i, -1
   %or.i = or i64 %sub.i, %spec.select.i
@@ -220,10 +205,10 @@ if.else.i.i:                                      ; preds = %cond.end.i
 
 int128_get64.exit.i:                              ; preds = %cond.end.i
   %coerce.sroa.0.0.extract.trunc.i = trunc i128 %12 to i64
-  %window_size.i = getelementptr inbounds %struct.vfio_iommu_spapr_tce_create, ptr %create.i, i64 0, i32 4
+  %window_size.i = getelementptr inbounds i8, ptr %create.i, i64 16
   store i64 %coerce.sroa.0.0.extract.trunc.i, ptr %window_size.i, align 8
   %cast.i20.i = trunc i64 %sub4.i to i32
-  %page_shift.i = getelementptr inbounds %struct.vfio_iommu_spapr_tce_create, ptr %create.i, i64 0, i32 2
+  %page_shift.i = getelementptr inbounds i8, ptr %create.i, i64 8
   store i32 %cast.i20.i, ptr %page_shift.i, align 8
   %shr.i = lshr i64 %coerce.sroa.0.0.extract.trunc.i, %sub4.i
   %conv15.i = shl i64 %shr.i, 3
@@ -237,7 +222,7 @@ int128_get64.exit.i:                              ; preds = %cond.end.i
   %div.lhs.trunc.i = trunc i64 %14 to i8
   %div31.i = udiv i8 %div.lhs.trunc.i, %add.i
   %div.zext.i = zext nneg i8 %div31.i to i32
-  %levels.i = getelementptr inbounds %struct.vfio_iommu_spapr_tce_create, ptr %create.i, i64 0, i32 5
+  %levels.i = getelementptr inbounds i8, ptr %create.i, i64 24
   %rem32.i = urem i8 %div.lhs.trunc.i, %add.i
   %tobool19.not.i = icmp ne i8 %rem32.i, 0
   %inc.i = zext i1 %tobool19.not.i to i32
@@ -251,7 +236,7 @@ int128_get64.exit.i:                              ; preds = %cond.end.i
   br i1 %cmp29.not35.i, label %if.end41.i, label %for.body.lr.ph.i
 
 for.body.lr.ph.i:                                 ; preds = %int128_get64.exit.i
-  %fd.i = getelementptr inbounds %struct.VFIOContainer, ptr %container, i64 0, i32 1
+  %fd.i = getelementptr inbounds i8, ptr %container, i64 8
   br label %for.body.i37
 
 for.body.i37:                                     ; preds = %for.inc.i38, %for.body.lr.ph.i
@@ -268,19 +253,19 @@ for.inc.i38:                                      ; preds = %for.body.i37
   br i1 %cmp29.not.i, label %vfio_spapr_create_window.exit, label %for.body.i37, !llvm.loop !9
 
 if.end41.i.loopexit:                              ; preds = %for.body.i37
-  %start_addr.i.phi.trans.insert = getelementptr inbounds %struct.vfio_iommu_spapr_tce_create, ptr %create.i, i64 0, i32 7
+  %start_addr.i.phi.trans.insert = getelementptr inbounds i8, ptr %create.i, i64 32
   %.pre = load i64, ptr %start_addr.i.phi.trans.insert, align 8
   br label %if.end41.i
 
 if.end41.i:                                       ; preds = %if.end41.i.loopexit, %int128_get64.exit.i
   %20 = phi i64 [ %.pre, %if.end41.i.loopexit ], [ 0, %int128_get64.exit.i ]
-  %offset_within_address_space.i = getelementptr inbounds %struct.MemoryRegionSection, ptr %section, i64 0, i32 4
+  %offset_within_address_space.i = getelementptr inbounds i8, ptr %section, i64 40
   %21 = load i64, ptr %offset_within_address_space.i, align 8
   %cmp42.not.i = icmp eq i64 %20, %21
   br i1 %cmp42.not.i, label %if.end49.i, label %if.then44.i
 
 if.then44.i:                                      ; preds = %if.end41.i
-  %start_addr.i = getelementptr inbounds %struct.vfio_iommu_spapr_tce_create, ptr %create.i, i64 0, i32 7
+  %start_addr.i = getelementptr inbounds i8, ptr %create.i, i64 32
   %22 = getelementptr i8, ptr %container, i64 8
   %container.val.i = load i32, ptr %22, align 8
   %23 = call fastcc i32 @vfio_spapr_remove_window(i32 %container.val.i, i64 noundef %20)
@@ -317,7 +302,7 @@ if.then8.i.i.i:                                   ; preds = %if.then.i.i.i
   %call9.i.i.i = call i32 @gettimeofday(ptr noundef nonnull %_now.i.i.i, ptr noundef null) #14
   %call10.i.i.i = call i32 @qemu_get_thread_id() #14
   %34 = load i64, ptr %_now.i.i.i, align 8
-  %tv_usec.i.i.i = getelementptr inbounds %struct.timeval, ptr %_now.i.i.i, i64 0, i32 1
+  %tv_usec.i.i.i = getelementptr inbounds i8, ptr %_now.i.i.i, i64 8
   %35 = load i64, ptr %tv_usec.i.i.i, align 8
   call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.16, i32 noundef %call10.i.i.i, i64 noundef %34, i64 noundef %35, i32 noundef %26, i32 noundef %27, i64 noundef %28, i64 noundef %20) #14
   br label %vfio_spapr_create_window.exit.thread56
@@ -352,7 +337,7 @@ if.then31:                                        ; preds = %vfio_spapr_create_w
 
 if.end33:                                         ; preds = %vfio_spapr_create_window.exit.thread56, %vfio_spapr_create_window.exit
   %pgsize.060 = phi i64 [ %shl.i, %vfio_spapr_create_window.exit.thread56 ], [ 0, %vfio_spapr_create_window.exit ]
-  %offset_within_address_space34 = getelementptr inbounds %struct.MemoryRegionSection, ptr %section, i64 0, i32 4
+  %offset_within_address_space34 = getelementptr inbounds i8, ptr %section, i64 40
   %37 = load i64, ptr %offset_within_address_space34, align 8
   %38 = load i128, ptr %section, align 16
   %cmp.i39 = icmp ult i128 %38, 18446744073709551616
@@ -371,7 +356,7 @@ int128_get64.exit41:                              ; preds = %if.end33
   br i1 %tobool.not20.i, label %for.end.i, label %for.body.i43
 
 for.cond.i:                                       ; preds = %for.body.i43
-  %hostwin_next.i45 = getelementptr inbounds %struct.VFIOHostDMAWindow, ptr %hostwin.021.i, i64 0, i32 3
+  %hostwin_next.i45 = getelementptr inbounds i8, ptr %hostwin.021.i, i64 24
   %hostwin.0.i46 = load ptr, ptr %hostwin_next.i45, align 8
   %tobool.not.i47 = icmp eq ptr %hostwin.0.i46, null
   br i1 %tobool.not.i47, label %for.end.i, label %for.body.i43, !llvm.loop !10
@@ -379,7 +364,7 @@ for.cond.i:                                       ; preds = %for.body.i43
 for.body.i43:                                     ; preds = %int128_get64.exit41, %for.cond.i
   %hostwin.021.i = phi ptr [ %hostwin.0.i46, %for.cond.i ], [ %hostwin.019.i, %int128_get64.exit41 ]
   %39 = load i64, ptr %hostwin.021.i, align 8
-  %max_iova2.i = getelementptr inbounds %struct.VFIOHostDMAWindow, ptr %hostwin.021.i, i64 0, i32 1
+  %max_iova2.i = getelementptr inbounds i8, ptr %hostwin.021.i, i64 8
   %40 = load i64, ptr %max_iova2.i, align 8
   %cmp.i.i44 = icmp ugt i64 %39, %sub40
   %cmp2.i.i = icmp ult i64 %40, %37
@@ -393,24 +378,24 @@ if.then.i:                                        ; preds = %for.body.i43
 for.end.i:                                        ; preds = %for.cond.i, %int128_get64.exit41
   %call7.i48 = call noalias dereferenceable_or_null(40) ptr @g_malloc0(i64 noundef 40) #16
   store i64 %37, ptr %call7.i48, align 8
-  %max_iova9.i = getelementptr inbounds %struct.VFIOHostDMAWindow, ptr %call7.i48, i64 0, i32 1
+  %max_iova9.i = getelementptr inbounds i8, ptr %call7.i48, i64 8
   store i64 %sub40, ptr %max_iova9.i, align 8
-  %iova_pgsizes10.i = getelementptr inbounds %struct.VFIOHostDMAWindow, ptr %call7.i48, i64 0, i32 2
+  %iova_pgsizes10.i = getelementptr inbounds i8, ptr %call7.i48, i64 16
   store i64 %pgsize.060, ptr %iova_pgsizes10.i, align 8
   %41 = load ptr, ptr %hostwin_list, align 8
-  %hostwin_next13.i = getelementptr inbounds %struct.VFIOHostDMAWindow, ptr %call7.i48, i64 0, i32 3
+  %hostwin_next13.i = getelementptr inbounds i8, ptr %call7.i48, i64 24
   store ptr %41, ptr %hostwin_next13.i, align 8
   %cmp.not.i49 = icmp eq ptr %41, null
   br i1 %cmp.not.i49, label %vfio_host_win_add.exit, label %if.then15.i
 
 if.then15.i:                                      ; preds = %for.end.i
-  %le_prev.i = getelementptr inbounds %struct.VFIOHostDMAWindow, ptr %41, i64 0, i32 3, i32 1
+  %le_prev.i = getelementptr inbounds i8, ptr %41, i64 32
   store ptr %hostwin_next13.i, ptr %le_prev.i, align 8
   br label %vfio_host_win_add.exit
 
 vfio_host_win_add.exit:                           ; preds = %for.end.i, %if.then15.i
   store ptr %call7.i48, ptr %hostwin_list, align 8
-  %le_prev27.i = getelementptr inbounds %struct.VFIOHostDMAWindow, ptr %call7.i48, i64 0, i32 3, i32 1
+  %le_prev27.i = getelementptr inbounds i8, ptr %call7.i48, i64 32
   store ptr %hostwin_list, ptr %le_prev27.i, align 8
   br label %return
 
@@ -426,13 +411,13 @@ declare void @error_setg_errno_internal(ptr noundef, ptr noundef, i32 noundef, p
 ; Function Attrs: nounwind sspstrong uwtable
 define dso_local void @vfio_container_del_section_window(ptr nocapture noundef readonly %container, ptr nocapture noundef readonly %section) local_unnamed_addr #0 {
 entry:
-  %iommu_type = getelementptr inbounds %struct.VFIOContainer, ptr %container, i64 0, i32 4
+  %iommu_type = getelementptr inbounds i8, ptr %container, i64 400
   %0 = load i32, ptr %iommu_type, align 8
   %cmp.not = icmp eq i32 %0, 7
   br i1 %cmp.not, label %if.end, label %if.end8
 
 if.end:                                           ; preds = %entry
-  %offset_within_address_space = getelementptr inbounds %struct.MemoryRegionSection, ptr %section, i64 0, i32 4
+  %offset_within_address_space = getelementptr inbounds i8, ptr %section, i64 40
   %1 = load i64, ptr %offset_within_address_space, align 8
   %2 = getelementptr i8, ptr %container, i64 8
   %container.val = load i32, ptr %2, align 8
@@ -450,7 +435,7 @@ int128_get64.exit:                                ; preds = %if.end
   %coerce.sroa.0.0.extract.trunc = trunc i128 %5 to i64
   %add = add i64 %4, -1
   %sub = add i64 %add, %coerce.sroa.0.0.extract.trunc
-  %hostwin_list.i = getelementptr inbounds %struct.VFIOContainer, ptr %container, i64 0, i32 13
+  %hostwin_list.i = getelementptr inbounds i8, ptr %container, i64 464
   %hostwin.013.i = load ptr, ptr %hostwin_list.i, align 8
   %tobool.not14.i = icmp eq ptr %hostwin.013.i, null
   br i1 %tobool.not14.i, label %if.then6, label %for.body.i
@@ -462,27 +447,27 @@ for.body.i:                                       ; preds = %int128_get64.exit, 
   br i1 %cmp.i7, label %land.lhs.true.i, label %for.inc.i
 
 land.lhs.true.i:                                  ; preds = %for.body.i
-  %max_iova2.i = getelementptr inbounds %struct.VFIOHostDMAWindow, ptr %hostwin.015.i, i64 0, i32 1
+  %max_iova2.i = getelementptr inbounds i8, ptr %hostwin.015.i, i64 8
   %7 = load i64, ptr %max_iova2.i, align 8
   %cmp3.i = icmp eq i64 %7, %sub
   br i1 %cmp3.i, label %do.body.i, label %for.inc.i
 
 do.body.i:                                        ; preds = %land.lhs.true.i
-  %hostwin_next.i = getelementptr inbounds %struct.VFIOHostDMAWindow, ptr %hostwin.015.i, i64 0, i32 3
+  %hostwin_next.i = getelementptr inbounds i8, ptr %hostwin.015.i, i64 24
   %8 = load ptr, ptr %hostwin_next.i, align 8
   %cmp4.not.i = icmp eq ptr %8, null
-  %le_prev14.phi.trans.insert.i = getelementptr inbounds %struct.VFIOHostDMAWindow, ptr %hostwin.015.i, i64 0, i32 3, i32 1
+  %le_prev14.phi.trans.insert.i = getelementptr inbounds i8, ptr %hostwin.015.i, i64 32
   %.pre17.i = load ptr, ptr %le_prev14.phi.trans.insert.i, align 8
   br i1 %cmp4.not.i, label %vfio_host_win_del.exit, label %if.then5.i
 
 if.then5.i:                                       ; preds = %do.body.i
-  %le_prev10.i = getelementptr inbounds %struct.VFIOHostDMAWindow, ptr %8, i64 0, i32 3, i32 1
+  %le_prev10.i = getelementptr inbounds i8, ptr %8, i64 32
   store ptr %.pre17.i, ptr %le_prev10.i, align 8
   %.pre.i = load ptr, ptr %hostwin_next.i, align 8
   br label %vfio_host_win_del.exit
 
 for.inc.i:                                        ; preds = %land.lhs.true.i, %for.body.i
-  %hostwin_next20.i = getelementptr inbounds %struct.VFIOHostDMAWindow, ptr %hostwin.015.i, i64 0, i32 3
+  %hostwin_next20.i = getelementptr inbounds i8, ptr %hostwin.015.i, i64 24
   %hostwin.0.i = load ptr, ptr %hostwin_next20.i, align 8
   %tobool.not.i = icmp eq ptr %hostwin.0.i, null
   br i1 %tobool.not.i, label %if.then6, label %for.body.i, !llvm.loop !11
@@ -508,9 +493,9 @@ entry:
   %_now.i.i = alloca %struct.timeval, align 8
   %remove = alloca %struct.vfio_iommu_spapr_tce_remove, align 8
   store i32 16, ptr %remove, align 8
-  %flags = getelementptr inbounds %struct.vfio_iommu_spapr_tce_remove, ptr %remove, i64 0, i32 1
+  %flags = getelementptr inbounds i8, ptr %remove, i64 4
   store i32 0, ptr %flags, align 4
-  %start_addr = getelementptr inbounds %struct.vfio_iommu_spapr_tce_remove, ptr %remove, i64 0, i32 2
+  %start_addr = getelementptr inbounds i8, ptr %remove, i64 8
   store i64 %offset_within_address_space, ptr %start_addr, align 8
   %call = call i32 (i32, i64, ...) @ioctl(i32 noundef %container.8.val, i64 noundef 15224, ptr noundef nonnull %remove) #14
   %tobool.not = icmp eq i32 %call, 0
@@ -549,7 +534,7 @@ if.then8.i.i:                                     ; preds = %if.then.i.i
   %call9.i.i = call i32 @gettimeofday(ptr noundef nonnull %_now.i.i, ptr noundef null) #14
   %call10.i.i = call i32 @qemu_get_thread_id() #14
   %7 = load i64, ptr %_now.i.i, align 8
-  %tv_usec.i.i = getelementptr inbounds %struct.timeval, ptr %_now.i.i, i64 0, i32 1
+  %tv_usec.i.i = getelementptr inbounds i8, ptr %_now.i.i, i64 8
   %8 = load i64, ptr %tv_usec.i.i, align 8
   call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.20, i32 noundef %call10.i.i, i64 noundef %7, i64 noundef %8, i64 noundef %offset_within_address_space) #14
   br label %trace_vfio_spapr_remove_window.exit
@@ -574,12 +559,12 @@ declare void @hw_error(ptr noundef, ...) local_unnamed_addr #2
 define dso_local i32 @vfio_spapr_container_init(ptr noundef %container, ptr noundef %errp) local_unnamed_addr #0 {
 entry:
   %info = alloca %struct.vfio_iommu_spapr_tce_info, align 8
-  %iommu_type = getelementptr inbounds %struct.VFIOContainer, ptr %container, i64 0, i32 4
+  %iommu_type = getelementptr inbounds i8, ptr %container, i64 400
   %0 = load i32, ptr %iommu_type, align 8
   %cmp = icmp eq i32 %0, 7
-  %fd1 = getelementptr inbounds %struct.VFIOContainer, ptr %container, i64 0, i32 1
+  %fd1 = getelementptr inbounds i8, ptr %container, i64 8
   %1 = load i32, ptr %fd1, align 8
-  %hostwin_list = getelementptr inbounds %struct.VFIOContainer, ptr %container, i64 0, i32 13
+  %hostwin_list = getelementptr inbounds i8, ptr %container, i64 464
   store ptr null, ptr %hostwin_list, align 8
   br i1 %cmp, label %if.else, label %if.then
 
@@ -597,10 +582,10 @@ if.then3:                                         ; preds = %if.then
   br label %return
 
 if.else:                                          ; preds = %entry
-  %prereg_listener = getelementptr inbounds %struct.VFIOContainer, ptr %container, i64 0, i32 3
+  %prereg_listener = getelementptr inbounds i8, ptr %container, i64 208
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(192) %prereg_listener, ptr noundef nonnull align 8 dereferenceable(192) @vfio_prereg_listener, i64 192, i1 false)
   tail call void @memory_listener_register(ptr noundef nonnull %prereg_listener, ptr noundef nonnull @address_space_memory) #14
-  %error = getelementptr inbounds %struct.VFIOContainer, ptr %container, i64 0, i32 5
+  %error = getelementptr inbounds i8, ptr %container, i64 408
   %4 = load ptr, ptr %error, align 8
   %tobool7.not = icmp eq ptr %4, null
   br i1 %tobool7.not, label %if.end11, label %listener_unregister_exit.thread
@@ -622,11 +607,11 @@ if.end11.thread:                                  ; preds = %if.then
   br i1 %tobool13.not23, label %if.else27, label %listener_unregister_exit
 
 if.then20:                                        ; preds = %if.end11
-  %ddw = getelementptr inbounds %struct.vfio_iommu_spapr_tce_info, ptr %info, i64 0, i32 4
+  %ddw = getelementptr inbounds i8, ptr %info, i64 16
   %5 = load i64, ptr %ddw, align 8
-  %pgsizes21 = getelementptr inbounds %struct.VFIOContainer, ptr %container, i64 0, i32 10
+  %pgsizes21 = getelementptr inbounds i8, ptr %container, i64 440
   store i64 %5, ptr %pgsizes21, align 8
-  %dma32_window_start = getelementptr inbounds %struct.vfio_iommu_spapr_tce_info, ptr %info, i64 0, i32 2
+  %dma32_window_start = getelementptr inbounds i8, ptr %info, i64 8
   %6 = load i32, ptr %dma32_window_start, align 8
   %conv = zext i32 %6 to i64
   %container.val = load i32, ptr %fd1, align 8
@@ -640,12 +625,12 @@ listener_unregister_exit.thread26:                ; preds = %if.then20
   br label %if.then36
 
 if.else27:                                        ; preds = %if.end11.thread
-  %pgsizes28 = getelementptr inbounds %struct.VFIOContainer, ptr %container, i64 0, i32 10
+  %pgsizes28 = getelementptr inbounds i8, ptr %container, i64 440
   store i64 4096, ptr %pgsizes28, align 8
-  %dma32_window_start29 = getelementptr inbounds %struct.vfio_iommu_spapr_tce_info, ptr %info, i64 0, i32 2
+  %dma32_window_start29 = getelementptr inbounds i8, ptr %info, i64 8
   %7 = load i32, ptr %dma32_window_start29, align 8
   %conv30 = zext i32 %7 to i64
-  %dma32_window_size = getelementptr inbounds %struct.vfio_iommu_spapr_tce_info, ptr %info, i64 0, i32 3
+  %dma32_window_size = getelementptr inbounds i8, ptr %info, i64 12
   %8 = load i32, ptr %dma32_window_size, align 4
   %add = add i32 %7, -1
   %sub32 = add i32 %add, %8
@@ -655,7 +640,7 @@ if.else27:                                        ; preds = %if.end11.thread
   br i1 %tobool.not20.i, label %for.end.i, label %for.body.i
 
 for.cond.i:                                       ; preds = %for.body.i
-  %hostwin_next.i = getelementptr inbounds %struct.VFIOHostDMAWindow, ptr %hostwin.021.i, i64 0, i32 3
+  %hostwin_next.i = getelementptr inbounds i8, ptr %hostwin.021.i, i64 24
   %hostwin.0.i = load ptr, ptr %hostwin_next.i, align 8
   %tobool.not.i = icmp eq ptr %hostwin.0.i, null
   br i1 %tobool.not.i, label %for.end.i, label %for.body.i, !llvm.loop !10
@@ -663,7 +648,7 @@ for.cond.i:                                       ; preds = %for.body.i
 for.body.i:                                       ; preds = %if.else27, %for.cond.i
   %hostwin.021.i = phi ptr [ %hostwin.0.i, %for.cond.i ], [ %hostwin.019.i, %if.else27 ]
   %9 = load i64, ptr %hostwin.021.i, align 8
-  %max_iova2.i = getelementptr inbounds %struct.VFIOHostDMAWindow, ptr %hostwin.021.i, i64 0, i32 1
+  %max_iova2.i = getelementptr inbounds i8, ptr %hostwin.021.i, i64 8
   %10 = load i64, ptr %max_iova2.i, align 8
   %cmp.i.i = icmp ugt i64 %9, %conv33
   %cmp2.i.i = icmp ult i64 %10, %conv30
@@ -677,24 +662,24 @@ if.then.i:                                        ; preds = %for.body.i
 for.end.i:                                        ; preds = %for.cond.i, %if.else27
   %call7.i = call noalias dereferenceable_or_null(40) ptr @g_malloc0(i64 noundef 40) #16
   store i64 %conv30, ptr %call7.i, align 8
-  %max_iova9.i = getelementptr inbounds %struct.VFIOHostDMAWindow, ptr %call7.i, i64 0, i32 1
+  %max_iova9.i = getelementptr inbounds i8, ptr %call7.i, i64 8
   store i64 %conv33, ptr %max_iova9.i, align 8
-  %iova_pgsizes10.i = getelementptr inbounds %struct.VFIOHostDMAWindow, ptr %call7.i, i64 0, i32 2
+  %iova_pgsizes10.i = getelementptr inbounds i8, ptr %call7.i, i64 16
   store i64 4096, ptr %iova_pgsizes10.i, align 8
   %11 = load ptr, ptr %hostwin_list, align 8
-  %hostwin_next13.i = getelementptr inbounds %struct.VFIOHostDMAWindow, ptr %call7.i, i64 0, i32 3
+  %hostwin_next13.i = getelementptr inbounds i8, ptr %call7.i, i64 24
   store ptr %11, ptr %hostwin_next13.i, align 8
   %cmp.not.i = icmp eq ptr %11, null
   br i1 %cmp.not.i, label %vfio_host_win_add.exit, label %if.then15.i
 
 if.then15.i:                                      ; preds = %for.end.i
-  %le_prev.i = getelementptr inbounds %struct.VFIOHostDMAWindow, ptr %11, i64 0, i32 3, i32 1
+  %le_prev.i = getelementptr inbounds i8, ptr %11, i64 32
   store ptr %hostwin_next13.i, ptr %le_prev.i, align 8
   br label %vfio_host_win_add.exit
 
 vfio_host_win_add.exit:                           ; preds = %for.end.i, %if.then15.i
   store ptr %call7.i, ptr %hostwin_list, align 8
-  %le_prev27.i = getelementptr inbounds %struct.VFIOHostDMAWindow, ptr %call7.i, i64 0, i32 3, i32 1
+  %le_prev27.i = getelementptr inbounds i8, ptr %call7.i, i64 32
   store ptr %hostwin_list, ptr %le_prev27.i, align 8
   br label %return
 
@@ -708,7 +693,7 @@ listener_unregister_exit:                         ; preds = %if.end11, %if.end11
 
 if.then36:                                        ; preds = %listener_unregister_exit.thread26, %listener_unregister_exit.thread, %listener_unregister_exit
   %ret.025 = phi i32 [ -1, %listener_unregister_exit.thread ], [ %sub17, %listener_unregister_exit ], [ %call22, %listener_unregister_exit.thread26 ]
-  %prereg_listener37 = getelementptr inbounds %struct.VFIOContainer, ptr %container, i64 0, i32 3
+  %prereg_listener37 = getelementptr inbounds i8, ptr %container, i64 208
   call void @memory_listener_unregister(ptr noundef nonnull %prereg_listener37) #14
   br label %return
 
@@ -735,27 +720,27 @@ declare void @memory_listener_unregister(ptr noundef) local_unnamed_addr #1
 ; Function Attrs: nounwind sspstrong uwtable
 define dso_local void @vfio_spapr_container_deinit(ptr noundef %container) local_unnamed_addr #0 {
 entry:
-  %iommu_type = getelementptr inbounds %struct.VFIOContainer, ptr %container, i64 0, i32 4
+  %iommu_type = getelementptr inbounds i8, ptr %container, i64 400
   %0 = load i32, ptr %iommu_type, align 8
   %cmp = icmp eq i32 %0, 7
   br i1 %cmp, label %if.then, label %if.end
 
 if.then:                                          ; preds = %entry
-  %prereg_listener = getelementptr inbounds %struct.VFIOContainer, ptr %container, i64 0, i32 3
+  %prereg_listener = getelementptr inbounds i8, ptr %container, i64 208
   tail call void @memory_listener_unregister(ptr noundef nonnull %prereg_listener) #14
   br label %if.end
 
 if.end:                                           ; preds = %if.then, %entry
-  %hostwin_list = getelementptr inbounds %struct.VFIOContainer, ptr %container, i64 0, i32 13
+  %hostwin_list = getelementptr inbounds i8, ptr %container, i64 464
   %1 = load ptr, ptr %hostwin_list, align 8
   %tobool.not12 = icmp eq ptr %1, null
   br i1 %tobool.not12, label %for.end, label %land.rhs.preheader
 
 land.rhs.preheader:                               ; preds = %if.end
-  %hostwin_next15 = getelementptr inbounds %struct.VFIOHostDMAWindow, ptr %1, i64 0, i32 3
+  %hostwin_next15 = getelementptr inbounds i8, ptr %1, i64 24
   %2 = load ptr, ptr %hostwin_next15, align 8
   %cmp3.not16 = icmp eq ptr %2, null
-  %le_prev14.phi.trans.insert17 = getelementptr inbounds %struct.VFIOHostDMAWindow, ptr %1, i64 0, i32 3, i32 1
+  %le_prev14.phi.trans.insert17 = getelementptr inbounds i8, ptr %1, i64 32
   %.pre1418 = load ptr, ptr %le_prev14.phi.trans.insert17, align 8
   br i1 %cmp3.not16, label %for.end.critedge, label %if.then4
 
@@ -764,16 +749,16 @@ if.then4:                                         ; preds = %land.rhs.preheader,
   %3 = phi ptr [ %4, %if.then4 ], [ %2, %land.rhs.preheader ]
   %hostwin_next20 = phi ptr [ %hostwin_next, %if.then4 ], [ %hostwin_next15, %land.rhs.preheader ]
   %hostwin.01319 = phi ptr [ %3, %if.then4 ], [ %1, %land.rhs.preheader ]
-  %le_prev9 = getelementptr inbounds %struct.VFIOHostDMAWindow, ptr %3, i64 0, i32 3, i32 1
+  %le_prev9 = getelementptr inbounds i8, ptr %3, i64 32
   store ptr %.pre1421, ptr %le_prev9, align 8
   %.pre = load ptr, ptr %hostwin_next20, align 8
   store ptr %.pre, ptr %.pre1421, align 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %hostwin_next20, i8 0, i64 16, i1 false)
   tail call void @g_free(ptr noundef nonnull %hostwin.01319) #14
-  %hostwin_next = getelementptr inbounds %struct.VFIOHostDMAWindow, ptr %3, i64 0, i32 3
+  %hostwin_next = getelementptr inbounds i8, ptr %3, i64 24
   %4 = load ptr, ptr %hostwin_next, align 8
   %cmp3.not = icmp eq ptr %4, null
-  %le_prev14.phi.trans.insert = getelementptr inbounds %struct.VFIOHostDMAWindow, ptr %3, i64 0, i32 3, i32 1
+  %le_prev14.phi.trans.insert = getelementptr inbounds i8, ptr %3, i64 32
   %.pre14 = load ptr, ptr %le_prev14.phi.trans.insert, align 8
   br i1 %cmp3.not, label %for.end.critedge, label %if.then4, !llvm.loop !12
 
@@ -830,7 +815,7 @@ define internal void @vfio_prereg_listener_region_add(ptr noundef %listener, ptr
 entry:
   %_now.i.i = alloca %struct.timeval, align 8
   %reg = alloca %struct.vfio_iommu_spapr_register_memory, align 8
-  %offset_within_address_space = getelementptr inbounds %struct.MemoryRegionSection, ptr %section, i64 0, i32 4
+  %offset_within_address_space = getelementptr inbounds i8, ptr %section, i64 40
   %0 = load i64, ptr %offset_within_address_space, align 8
   %call.i.i = tail call i32 @getpagesize() #15
   store i64 24, ptr %reg, align 8
@@ -840,14 +825,14 @@ entry:
 
 tailrecurse.i.i:                                  ; preds = %tailrecurse.i.i, %entry
   %mr.tr.i.i = phi ptr [ %section.val, %entry ], [ %2, %tailrecurse.i.i ]
-  %alias.i.i = getelementptr inbounds %struct.MemoryRegion, ptr %mr.tr.i.i, i64 0, i32 27
+  %alias.i.i = getelementptr inbounds i8, ptr %mr.tr.i.i, i64 160
   %2 = load ptr, ptr %alias.i.i, align 16
   %tobool.not.i.i = icmp eq ptr %2, null
   br i1 %tobool.not.i.i, label %memory_region_get_iommu.exit.i, label %tailrecurse.i.i
 
 memory_region_get_iommu.exit.i:                   ; preds = %tailrecurse.i.i
   %conv.i.i = sext i32 %call.i.i to i64
-  %is_iommu.i.i = getelementptr inbounds %struct.MemoryRegion, ptr %mr.tr.i.i, i64 0, i32 10
+  %is_iommu.i.i = getelementptr inbounds i8, ptr %mr.tr.i.i, i64 49
   %3 = load i8, ptr %is_iommu.i.i, align 1
   %4 = and i8 %3, 1
   %tobool2.not.i.i = icmp eq i8 %4, 0
@@ -913,7 +898,7 @@ if.then8.i.i:                                     ; preds = %if.then.i.i
   %call9.i.i = call i32 @gettimeofday(ptr noundef nonnull %_now.i.i, ptr noundef null) #14
   %call10.i.i = tail call i32 @qemu_get_thread_id() #14
   %15 = load i64, ptr %_now.i.i, align 8
-  %tv_usec.i.i = getelementptr inbounds %struct.timeval, ptr %_now.i.i, i64 0, i32 1
+  %tv_usec.i.i = getelementptr inbounds i8, ptr %_now.i.i, i64 8
   %16 = load i64, ptr %tv_usec.i.i, align 8
   tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.27, i32 noundef %call10.i.i, i64 noundef %15, i64 noundef %16, i64 noundef %7, i64 noundef %add) #14
   br label %trace_vfio_prereg_listener_region_add_skip.exit
@@ -933,7 +918,7 @@ if.end:                                           ; preds = %vfio_prereg_listene
   br i1 %tobool.not, label %lor.lhs.false, label %if.then23
 
 lor.lhs.false:                                    ; preds = %if.end
-  %offset_within_region = getelementptr inbounds %struct.MemoryRegionSection, ptr %section, i64 0, i32 3
+  %offset_within_region = getelementptr inbounds i8, ptr %section, i64 32
   %17 = load i64, ptr %offset_within_region, align 16
   %and13 = and i64 %17, %not
   %tobool14.not = icmp eq i64 %and13, 0
@@ -974,10 +959,10 @@ if.end32:                                         ; preds = %int128_get64.exit30
   %sub.i31 = sub i64 %0, %22
   %add.ptr1.i = getelementptr i8, ptr %add.ptr.i, i64 %sub.i31
   %23 = ptrtoint ptr %add.ptr1.i to i64
-  %vaddr = getelementptr inbounds %struct.vfio_iommu_spapr_register_memory, ptr %reg, i64 0, i32 2
+  %vaddr = getelementptr inbounds i8, ptr %reg, i64 8
   store i64 %23, ptr %vaddr, align 8
   %sub = sub i64 %add29, %0
-  %size34 = getelementptr inbounds %struct.vfio_iommu_spapr_register_memory, ptr %reg, i64 0, i32 3
+  %size34 = getelementptr inbounds i8, ptr %reg, i64 16
   store i64 %sub, ptr %size34, align 8
   %fd = getelementptr i8, ptr %listener, i64 -200
   %24 = load i32, ptr %fd, align 8
@@ -1026,7 +1011,7 @@ define internal void @vfio_prereg_listener_region_del(ptr nocapture noundef read
 entry:
   %_now.i.i = alloca %struct.timeval, align 8
   %reg = alloca %struct.vfio_iommu_spapr_register_memory, align 8
-  %offset_within_address_space = getelementptr inbounds %struct.MemoryRegionSection, ptr %section, i64 0, i32 4
+  %offset_within_address_space = getelementptr inbounds i8, ptr %section, i64 40
   %0 = load i64, ptr %offset_within_address_space, align 8
   %call.i.i = tail call i32 @getpagesize() #15
   store i64 24, ptr %reg, align 8
@@ -1036,14 +1021,14 @@ entry:
 
 tailrecurse.i.i:                                  ; preds = %tailrecurse.i.i, %entry
   %mr.tr.i.i = phi ptr [ %section.val, %entry ], [ %2, %tailrecurse.i.i ]
-  %alias.i.i = getelementptr inbounds %struct.MemoryRegion, ptr %mr.tr.i.i, i64 0, i32 27
+  %alias.i.i = getelementptr inbounds i8, ptr %mr.tr.i.i, i64 160
   %2 = load ptr, ptr %alias.i.i, align 16
   %tobool.not.i.i = icmp eq ptr %2, null
   br i1 %tobool.not.i.i, label %memory_region_get_iommu.exit.i, label %tailrecurse.i.i
 
 memory_region_get_iommu.exit.i:                   ; preds = %tailrecurse.i.i
   %conv.i.i = sext i32 %call.i.i to i64
-  %is_iommu.i.i = getelementptr inbounds %struct.MemoryRegion, ptr %mr.tr.i.i, i64 0, i32 10
+  %is_iommu.i.i = getelementptr inbounds i8, ptr %mr.tr.i.i, i64 49
   %3 = load i8, ptr %is_iommu.i.i, align 1
   %4 = and i8 %3, 1
   %tobool2.not.i.i = icmp eq i8 %4, 0
@@ -1109,7 +1094,7 @@ if.then8.i.i:                                     ; preds = %if.then.i.i
   %call9.i.i = call i32 @gettimeofday(ptr noundef nonnull %_now.i.i, ptr noundef null) #14
   %call10.i.i = tail call i32 @qemu_get_thread_id() #14
   %15 = load i64, ptr %_now.i.i, align 8
-  %tv_usec.i.i = getelementptr inbounds %struct.timeval, ptr %_now.i.i, i64 0, i32 1
+  %tv_usec.i.i = getelementptr inbounds i8, ptr %_now.i.i, i64 8
   %16 = load i64, ptr %tv_usec.i.i, align 8
   tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.31, i32 noundef %call10.i.i, i64 noundef %15, i64 noundef %16, i64 noundef %7, i64 noundef %add) #14
   br label %trace_vfio_prereg_listener_region_del_skip.exit
@@ -1129,7 +1114,7 @@ if.end:                                           ; preds = %vfio_prereg_listene
   br i1 %tobool.not, label %lor.lhs.false, label %if.then23
 
 lor.lhs.false:                                    ; preds = %if.end
-  %offset_within_region = getelementptr inbounds %struct.MemoryRegionSection, ptr %section, i64 0, i32 3
+  %offset_within_region = getelementptr inbounds i8, ptr %section, i64 32
   %17 = load i64, ptr %offset_within_region, align 16
   %and13 = and i64 %17, %not
   %tobool14.not = icmp eq i64 %and13, 0
@@ -1168,10 +1153,10 @@ if.end32:                                         ; preds = %int128_get64.exit24
   %sub.i25 = sub i64 %0, %21
   %add.ptr1.i = getelementptr i8, ptr %add.ptr.i, i64 %sub.i25
   %22 = ptrtoint ptr %add.ptr1.i to i64
-  %vaddr = getelementptr inbounds %struct.vfio_iommu_spapr_register_memory, ptr %reg, i64 0, i32 2
+  %vaddr = getelementptr inbounds i8, ptr %reg, i64 8
   store i64 %22, ptr %vaddr, align 8
   %sub = sub i64 %add29, %0
-  %size34 = getelementptr inbounds %struct.vfio_iommu_spapr_register_memory, ptr %reg, i64 0, i32 3
+  %size34 = getelementptr inbounds i8, ptr %reg, i64 16
   store i64 %sub, ptr %size34, align 8
   %fd = getelementptr i8, ptr %listener, i64 -200
   %23 = load i32, ptr %fd, align 8
@@ -1226,7 +1211,7 @@ if.then8.i:                                       ; preds = %if.then.i
   %call9.i = call i32 @gettimeofday(ptr noundef nonnull %_now.i, ptr noundef null) #14
   %call10.i = tail call i32 @qemu_get_thread_id() #14
   %5 = load i64, ptr %_now.i, align 8
-  %tv_usec.i = getelementptr inbounds %struct.timeval, ptr %_now.i, i64 0, i32 1
+  %tv_usec.i = getelementptr inbounds i8, ptr %_now.i, i64 8
   %6 = load i64, ptr %tv_usec.i, align 8
   tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.29, i32 noundef %call10.i, i64 noundef %5, i64 noundef %6, i64 noundef %va, i64 noundef %size, i32 noundef %ret) #14
   br label %_nocheck__trace_vfio_prereg_register.exit
@@ -1272,7 +1257,7 @@ if.then8.i:                                       ; preds = %if.then.i
   %call9.i = call i32 @gettimeofday(ptr noundef nonnull %_now.i, ptr noundef null) #14
   %call10.i = tail call i32 @qemu_get_thread_id() #14
   %5 = load i64, ptr %_now.i, align 8
-  %tv_usec.i = getelementptr inbounds %struct.timeval, ptr %_now.i, i64 0, i32 1
+  %tv_usec.i = getelementptr inbounds i8, ptr %_now.i, i64 8
   %6 = load i64, ptr %tv_usec.i, align 8
   tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.33, i32 noundef %call10.i, i64 noundef %5, i64 noundef %6, i64 noundef %va, i64 noundef %size, i32 noundef %ret) #14
   br label %_nocheck__trace_vfio_prereg_unregister.exit

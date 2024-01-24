@@ -233,7 +233,7 @@ for.body:                                         ; preds = %entry, %for.body
   br i1 %exitcond.not, label %for.end, label %for.body, !llvm.loop !4
 
 for.end:                                          ; preds = %for.body
-  %arrayidx3 = getelementptr inbounds [64 x i8], ptr %h, i64 0, i64 48
+  %arrayidx3 = getelementptr inbounds i8, ptr %h, i64 48
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(16) %arrayidx3, i8 0, i64 16, i1 false)
   call void @crypto_core_ed25519_scalar_reduce(ptr noundef nonnull %s, ptr noundef nonnull %h) #5
   br label %return

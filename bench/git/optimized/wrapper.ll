@@ -545,7 +545,7 @@ if.then:                                          ; preds = %entry
   br i1 %fits_in_gp, label %vaarg.in_reg, label %vaarg.in_mem
 
 vaarg.in_reg:                                     ; preds = %if.then
-  %0 = getelementptr inbounds %struct.__va_list_tag, ptr %ap, i64 0, i32 3
+  %0 = getelementptr inbounds i8, ptr %ap, i64 16
   %reg_save_area = load ptr, ptr %0, align 16
   %1 = zext nneg i32 %gp_offset to i64
   %2 = getelementptr i8, ptr %reg_save_area, i64 %1
@@ -554,7 +554,7 @@ vaarg.in_reg:                                     ; preds = %if.then
   br label %vaarg.end
 
 vaarg.in_mem:                                     ; preds = %if.then
-  %overflow_arg_area_p = getelementptr inbounds %struct.__va_list_tag, ptr %ap, i64 0, i32 2
+  %overflow_arg_area_p = getelementptr inbounds i8, ptr %ap, i64 8
   %overflow_arg_area = load ptr, ptr %overflow_arg_area_p, align 8
   %overflow_arg_area.next = getelementptr i8, ptr %overflow_arg_area, i64 8
   store ptr %overflow_arg_area.next, ptr %overflow_arg_area_p, align 8
@@ -643,7 +643,7 @@ entry:
 
 if.then2.lr.ph:                                   ; preds = %entry
   %call3 = tail call ptr @__errno_location() #25
-  %events.i = getelementptr inbounds %struct.pollfd, ptr %pfd.i, i64 0, i32 1
+  %events.i = getelementptr inbounds i8, ptr %pfd.i, i64 4
   br label %if.then2
 
 if.then2:                                         ; preds = %if.then2.lr.ph, %while.body.backedge
@@ -692,7 +692,7 @@ entry:
 
 if.then2.lr.ph:                                   ; preds = %entry
   %call3 = tail call ptr @__errno_location() #25
-  %events.i = getelementptr inbounds %struct.pollfd, ptr %pfd.i, i64 0, i32 1
+  %events.i = getelementptr inbounds i8, ptr %pfd.i, i64 4
   br label %if.then2
 
 if.then2:                                         ; preds = %if.then2.lr.ph, %while.body.backedge
@@ -770,7 +770,7 @@ entry:
   br i1 %cmp.not14, label %return, label %while.body.lr.ph
 
 while.body.lr.ph:                                 ; preds = %entry
-  %events.i.i = getelementptr inbounds %struct.pollfd, ptr %pfd.i.i, i64 0, i32 1
+  %events.i.i = getelementptr inbounds i8, ptr %pfd.i.i, i64 4
   br label %while.body
 
 while.body:                                       ; preds = %while.body.lr.ph, %if.end4
@@ -837,7 +837,7 @@ entry:
   br i1 %cmp.not14, label %return, label %while.body.lr.ph
 
 while.body.lr.ph:                                 ; preds = %entry
-  %events.i.i = getelementptr inbounds %struct.pollfd, ptr %pfd.i.i, i64 0, i32 1
+  %events.i.i = getelementptr inbounds i8, ptr %pfd.i.i, i64 4
   br label %while.body
 
 while.body:                                       ; preds = %while.body.lr.ph, %if.end4
@@ -1264,7 +1264,7 @@ while.cond.preheader:                             ; preds = %entry
   br i1 %tobool.not12, label %while.end, label %while.body.lr.ph
 
 while.body.lr.ph:                                 ; preds = %while.cond.preheader
-  %events.i.i = getelementptr inbounds %struct.pollfd, ptr %pfd.i.i, i64 0, i32 1
+  %events.i.i = getelementptr inbounds i8, ptr %pfd.i.i, i64 4
   br label %while.body
 
 while.body:                                       ; preds = %while.body.lr.ph, %if.end7
@@ -1642,13 +1642,13 @@ entry:
   call void @llvm.va_start(ptr nonnull %params)
   call void @strbuf_vaddf(ptr noundef nonnull %sb, ptr noundef %fmt, ptr noundef nonnull %params) #19
   call void @llvm.va_end(ptr nonnull %params)
-  %len.i.i = getelementptr inbounds %struct.strbuf, ptr %sb, i64 0, i32 1
+  %len.i.i = getelementptr inbounds i8, ptr %sb, i64 8
   %0 = load i64, ptr %len.i.i, align 8
   %tobool.not.i.i = icmp eq i64 %0, 0
   br i1 %tobool.not.i.i, label %strbuf_complete_line.exit, label %land.lhs.true.i.i
 
 land.lhs.true.i.i:                                ; preds = %entry
-  %buf.i.i = getelementptr inbounds %struct.strbuf, ptr %sb, i64 0, i32 2
+  %buf.i.i = getelementptr inbounds i8, ptr %sb, i64 16
   %1 = load ptr, ptr %buf.i.i, align 8
   %2 = getelementptr i8, ptr %1, i64 %0
   %arrayidx.i.i = getelementptr i8, ptr %2, i64 -1
@@ -1687,7 +1687,7 @@ strbuf_addch.exit.i.i:                            ; preds = %if.then.i.i.i, %if.
 
 strbuf_complete_line.exit:                        ; preds = %entry, %land.lhs.true.i.i, %strbuf_addch.exit.i.i
   %9 = phi i64 [ 0, %entry ], [ %0, %land.lhs.true.i.i ], [ %.pre, %strbuf_addch.exit.i.i ]
-  %buf = getelementptr inbounds %struct.strbuf, ptr %sb, i64 0, i32 2
+  %buf = getelementptr inbounds i8, ptr %sb, i64 16
   %10 = load ptr, ptr %buf, align 8
   call void @write_file_buf(ptr noundef %path, ptr noundef %10, i64 noundef %9)
   call void @strbuf_release(ptr noundef nonnull %sb) #19
@@ -1747,7 +1747,7 @@ if.end:                                           ; preds = %if.then
   unreachable
 
 if.end5:                                          ; preds = %entry
-  %st_size = getelementptr inbounds %struct.stat, ptr %st, i64 0, i32 8
+  %st_size = getelementptr inbounds i8, ptr %st, i64 48
   %1 = load i64, ptr %st_size, align 8
   %tobool.not = icmp eq i64 %1, 0
   %lnot.ext = zext i1 %tobool.not to i32

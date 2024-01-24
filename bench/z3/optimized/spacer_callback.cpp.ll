@@ -4,8 +4,6 @@ target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:
 target triple = "x86_64-unknown-linux-gnu"
 
 %"class.std::ios_base::Init" = type { i8 }
-%"class.spacer::user_callback" = type { %"class.spacer::spacer_callback", ptr, ptr, ptr, ptr }
-%"class.spacer::spacer_callback" = type { ptr, ptr }
 
 $_ZN6spacer13user_callbackD2Ev = comdat any
 
@@ -47,9 +45,9 @@ declare i32 @__cxa_atexit(ptr, ptr, ptr) local_unnamed_addr #2
 ; Function Attrs: mustprogress uwtable
 define hidden void @_ZN6spacer13user_callback12new_lemma_ehEP4exprj(ptr nocapture noundef nonnull readonly align 8 dereferenceable(48) %this, ptr noundef %lemma, i32 noundef %level) unnamed_addr #3 align 2 {
 entry:
-  %m_new_lemma_eh = getelementptr inbounds %"class.spacer::user_callback", ptr %this, i64 0, i32 2
+  %m_new_lemma_eh = getelementptr inbounds i8, ptr %this, i64 24
   %0 = load ptr, ptr %m_new_lemma_eh, align 8
-  %m_state = getelementptr inbounds %"class.spacer::user_callback", ptr %this, i64 0, i32 1
+  %m_state = getelementptr inbounds i8, ptr %this, i64 16
   %1 = load ptr, ptr %m_state, align 8
   tail call void %0(ptr noundef %1, ptr noundef %lemma, i32 noundef %level)
   ret void
@@ -58,9 +56,9 @@ entry:
 ; Function Attrs: mustprogress uwtable
 define hidden void @_ZN6spacer13user_callback14predecessor_ehEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(48) %this) unnamed_addr #3 align 2 {
 entry:
-  %m_predecessor_eh = getelementptr inbounds %"class.spacer::user_callback", ptr %this, i64 0, i32 3
+  %m_predecessor_eh = getelementptr inbounds i8, ptr %this, i64 32
   %0 = load ptr, ptr %m_predecessor_eh, align 8
-  %m_state = getelementptr inbounds %"class.spacer::user_callback", ptr %this, i64 0, i32 1
+  %m_state = getelementptr inbounds i8, ptr %this, i64 16
   %1 = load ptr, ptr %m_state, align 8
   tail call void %0(ptr noundef %1)
   ret void
@@ -69,9 +67,9 @@ entry:
 ; Function Attrs: mustprogress uwtable
 define hidden void @_ZN6spacer13user_callback9unfold_ehEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(48) %this) unnamed_addr #3 align 2 {
 entry:
-  %m_unfold_eh = getelementptr inbounds %"class.spacer::user_callback", ptr %this, i64 0, i32 4
+  %m_unfold_eh = getelementptr inbounds i8, ptr %this, i64 40
   %0 = load ptr, ptr %m_unfold_eh, align 8
-  %m_state = getelementptr inbounds %"class.spacer::user_callback", ptr %this, i64 0, i32 1
+  %m_state = getelementptr inbounds i8, ptr %this, i64 16
   %1 = load ptr, ptr %m_state, align 8
   tail call void %0(ptr noundef %1)
   ret void
@@ -93,7 +91,7 @@ entry:
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden noundef zeroext i1 @_ZN6spacer13user_callback9new_lemmaEv(ptr noundef nonnull align 8 dereferenceable(48) %this) unnamed_addr #4 comdat align 2 {
 entry:
-  %m_new_lemma_eh = getelementptr inbounds %"class.spacer::user_callback", ptr %this, i64 0, i32 2
+  %m_new_lemma_eh = getelementptr inbounds i8, ptr %this, i64 24
   %0 = load ptr, ptr %m_new_lemma_eh, align 8
   %cmp = icmp ne ptr %0, null
   ret i1 %cmp
@@ -102,7 +100,7 @@ entry:
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden noundef zeroext i1 @_ZN6spacer13user_callback11predecessorEv(ptr noundef nonnull align 8 dereferenceable(48) %this) unnamed_addr #4 comdat align 2 {
 entry:
-  %m_predecessor_eh = getelementptr inbounds %"class.spacer::user_callback", ptr %this, i64 0, i32 3
+  %m_predecessor_eh = getelementptr inbounds i8, ptr %this, i64 32
   %0 = load ptr, ptr %m_predecessor_eh, align 8
   %cmp = icmp ne ptr %0, null
   ret i1 %cmp
@@ -111,7 +109,7 @@ entry:
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden noundef zeroext i1 @_ZN6spacer13user_callback6unfoldEv(ptr noundef nonnull align 8 dereferenceable(48) %this) unnamed_addr #4 comdat align 2 {
 entry:
-  %m_unfold_eh = getelementptr inbounds %"class.spacer::user_callback", ptr %this, i64 0, i32 4
+  %m_unfold_eh = getelementptr inbounds i8, ptr %this, i64 40
   %0 = load ptr, ptr %m_unfold_eh, align 8
   %cmp = icmp ne ptr %0, null
   ret i1 %cmp

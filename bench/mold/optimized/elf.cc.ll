@@ -977,12 +977,12 @@ declare i32 @__cxa_guard_acquire(ptr) local_unnamed_addr #2
 define linkonce_odr dso_local void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev(ptr noundef nonnull align 8 dereferenceable(32) %this) unnamed_addr #4 comdat align 2 {
 entry:
   %0 = load ptr, ptr %this, align 8
-  %1 = getelementptr inbounds %"class.std::__cxx11::basic_string", ptr %this, i64 0, i32 2
+  %1 = getelementptr inbounds i8, ptr %this, i64 16
   %cmp.i.i = icmp eq ptr %0, %1
   br i1 %cmp.i.i, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i, label %if.then.i
 
 _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i: ; preds = %entry
-  %_M_string_length.i.i = getelementptr inbounds %"class.std::__cxx11::basic_string", ptr %this, i64 0, i32 1
+  %_M_string_length.i.i = getelementptr inbounds i8, ptr %this, i64 8
   %2 = load i64, ptr %_M_string_length.i.i, align 8
   %cmp3.i.i = icmp ult i64 %2, 16
   tail call void @llvm.assume(i1 %cmp3.i.i)
@@ -1124,91 +1124,91 @@ entry:
 
 sw.bb:                                            ; preds = %entry
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp) #13
-  %0 = getelementptr inbounds %"class.std::__cxx11::basic_string", ptr %agg.result, i64 0, i32 2
+  %0 = getelementptr inbounds i8, ptr %agg.result, i64 16
   call void @_ZNSaIcEC2ERKS_(ptr noundef nonnull align 1 dereferenceable(1) %agg.result, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp) #13
   store ptr %0, ptr %agg.result, align 8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(13) %0, ptr noundef nonnull align 1 dereferenceable(13) @.str, i64 13, i1 false)
-  %_M_string_length.i.i.i.i = getelementptr inbounds %"class.std::__cxx11::basic_string", ptr %agg.result, i64 0, i32 1
+  %_M_string_length.i.i.i.i = getelementptr inbounds i8, ptr %agg.result, i64 8
   store i64 13, ptr %_M_string_length.i.i.i.i, align 8
-  %arrayidx.i.i.i = getelementptr inbounds %"class.std::__cxx11::basic_string", ptr %agg.result, i64 0, i32 2, i32 1, i64 5
+  %arrayidx.i.i.i = getelementptr inbounds i8, ptr %agg.result, i64 29
   store i8 0, ptr %arrayidx.i.i.i, align 1
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp) #13
   br label %return
 
 sw.bb1:                                           ; preds = %entry
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp2) #13
-  %1 = getelementptr inbounds %"class.std::__cxx11::basic_string", ptr %agg.result, i64 0, i32 2
+  %1 = getelementptr inbounds i8, ptr %agg.result, i64 16
   call void @_ZNSaIcEC2ERKS_(ptr noundef nonnull align 1 dereferenceable(1) %agg.result, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp2) #13
   store ptr %1, ptr %agg.result, align 8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(11) %1, ptr noundef nonnull align 1 dereferenceable(11) @.str.4, i64 11, i1 false)
-  %_M_string_length.i.i.i.i5 = getelementptr inbounds %"class.std::__cxx11::basic_string", ptr %agg.result, i64 0, i32 1
+  %_M_string_length.i.i.i.i5 = getelementptr inbounds i8, ptr %agg.result, i64 8
   store i64 11, ptr %_M_string_length.i.i.i.i5, align 8
-  %arrayidx.i.i.i6 = getelementptr inbounds %"class.std::__cxx11::basic_string", ptr %agg.result, i64 0, i32 2, i32 1, i64 3
+  %arrayidx.i.i.i6 = getelementptr inbounds i8, ptr %agg.result, i64 27
   store i8 0, ptr %arrayidx.i.i.i6, align 1
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp2) #13
   br label %return
 
 sw.bb3:                                           ; preds = %entry
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp4) #13
-  %2 = getelementptr inbounds %"class.std::__cxx11::basic_string", ptr %agg.result, i64 0, i32 2
+  %2 = getelementptr inbounds i8, ptr %agg.result, i64 16
   call void @_ZNSaIcEC2ERKS_(ptr noundef nonnull align 1 dereferenceable(1) %agg.result, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp4) #13
   store ptr %2, ptr %agg.result, align 8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(13) %2, ptr noundef nonnull align 1 dereferenceable(13) @.str.5, i64 13, i1 false)
-  %_M_string_length.i.i.i.i22 = getelementptr inbounds %"class.std::__cxx11::basic_string", ptr %agg.result, i64 0, i32 1
+  %_M_string_length.i.i.i.i22 = getelementptr inbounds i8, ptr %agg.result, i64 8
   store i64 13, ptr %_M_string_length.i.i.i.i22, align 8
-  %arrayidx.i.i.i23 = getelementptr inbounds %"class.std::__cxx11::basic_string", ptr %agg.result, i64 0, i32 2, i32 1, i64 5
+  %arrayidx.i.i.i23 = getelementptr inbounds i8, ptr %agg.result, i64 29
   store i8 0, ptr %arrayidx.i.i.i23, align 1
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp4) #13
   br label %return
 
 sw.bb5:                                           ; preds = %entry
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp6) #13
-  %3 = getelementptr inbounds %"class.std::__cxx11::basic_string", ptr %agg.result, i64 0, i32 2
+  %3 = getelementptr inbounds i8, ptr %agg.result, i64 16
   call void @_ZNSaIcEC2ERKS_(ptr noundef nonnull align 1 dereferenceable(1) %agg.result, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp6) #13
   store ptr %3, ptr %agg.result, align 8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(14) %3, ptr noundef nonnull align 1 dereferenceable(14) @.str.6, i64 14, i1 false)
-  %_M_string_length.i.i.i.i39 = getelementptr inbounds %"class.std::__cxx11::basic_string", ptr %agg.result, i64 0, i32 1
+  %_M_string_length.i.i.i.i39 = getelementptr inbounds i8, ptr %agg.result, i64 8
   store i64 14, ptr %_M_string_length.i.i.i.i39, align 8
-  %arrayidx.i.i.i40 = getelementptr inbounds %"class.std::__cxx11::basic_string", ptr %agg.result, i64 0, i32 2, i32 1, i64 6
+  %arrayidx.i.i.i40 = getelementptr inbounds i8, ptr %agg.result, i64 30
   store i8 0, ptr %arrayidx.i.i.i40, align 2
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp6) #13
   br label %return
 
 sw.bb7:                                           ; preds = %entry
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp8) #13
-  %4 = getelementptr inbounds %"class.std::__cxx11::basic_string", ptr %agg.result, i64 0, i32 2
+  %4 = getelementptr inbounds i8, ptr %agg.result, i64 16
   call void @_ZNSaIcEC2ERKS_(ptr noundef nonnull align 1 dereferenceable(1) %agg.result, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp8) #13
   store ptr %4, ptr %agg.result, align 8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(14) %4, ptr noundef nonnull align 1 dereferenceable(14) @.str.7, i64 14, i1 false)
-  %_M_string_length.i.i.i.i56 = getelementptr inbounds %"class.std::__cxx11::basic_string", ptr %agg.result, i64 0, i32 1
+  %_M_string_length.i.i.i.i56 = getelementptr inbounds i8, ptr %agg.result, i64 8
   store i64 14, ptr %_M_string_length.i.i.i.i56, align 8
-  %arrayidx.i.i.i57 = getelementptr inbounds %"class.std::__cxx11::basic_string", ptr %agg.result, i64 0, i32 2, i32 1, i64 6
+  %arrayidx.i.i.i57 = getelementptr inbounds i8, ptr %agg.result, i64 30
   store i8 0, ptr %arrayidx.i.i.i57, align 2
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp8) #13
   br label %return
 
 sw.bb9:                                           ; preds = %entry
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp10) #13
-  %5 = getelementptr inbounds %"class.std::__cxx11::basic_string", ptr %agg.result, i64 0, i32 2
+  %5 = getelementptr inbounds i8, ptr %agg.result, i64 16
   call void @_ZNSaIcEC2ERKS_(ptr noundef nonnull align 1 dereferenceable(1) %agg.result, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp10) #13
   store ptr %5, ptr %agg.result, align 8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(13) %5, ptr noundef nonnull align 1 dereferenceable(13) @.str.8, i64 13, i1 false)
-  %_M_string_length.i.i.i.i73 = getelementptr inbounds %"class.std::__cxx11::basic_string", ptr %agg.result, i64 0, i32 1
+  %_M_string_length.i.i.i.i73 = getelementptr inbounds i8, ptr %agg.result, i64 8
   store i64 13, ptr %_M_string_length.i.i.i.i73, align 8
-  %arrayidx.i.i.i74 = getelementptr inbounds %"class.std::__cxx11::basic_string", ptr %agg.result, i64 0, i32 2, i32 1, i64 5
+  %arrayidx.i.i.i74 = getelementptr inbounds i8, ptr %agg.result, i64 29
   store i8 0, ptr %arrayidx.i.i.i74, align 1
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp10) #13
   br label %return
 
 sw.bb11:                                          ; preds = %entry
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp12) #13
-  %6 = getelementptr inbounds %"class.std::__cxx11::basic_string", ptr %agg.result, i64 0, i32 2
+  %6 = getelementptr inbounds i8, ptr %agg.result, i64 16
   call void @_ZNSaIcEC2ERKS_(ptr noundef nonnull align 1 dereferenceable(1) %agg.result, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp12) #13
   %call5.i.i.i.i.i100 = call noalias noundef nonnull dereferenceable(18) ptr @_Znwm(i64 noundef 18) #15
   store ptr %call5.i.i.i.i.i100, ptr %agg.result, align 8
   store i64 17, ptr %6, align 8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(17) %call5.i.i.i.i.i100, ptr noundef nonnull align 1 dereferenceable(17) @.str.9, i64 17, i1 false)
-  %_M_string_length.i.i.i.i90 = getelementptr inbounds %"class.std::__cxx11::basic_string", ptr %agg.result, i64 0, i32 1
+  %_M_string_length.i.i.i.i90 = getelementptr inbounds i8, ptr %agg.result, i64 8
   store i64 17, ptr %_M_string_length.i.i.i.i90, align 8
   %arrayidx.i.i.i91 = getelementptr inbounds i8, ptr %call5.i.i.i.i.i100, i64 17
   store i8 0, ptr %arrayidx.i.i.i91, align 1
@@ -1217,13 +1217,13 @@ sw.bb11:                                          ; preds = %entry
 
 sw.bb13:                                          ; preds = %entry
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp14) #13
-  %7 = getelementptr inbounds %"class.std::__cxx11::basic_string", ptr %agg.result, i64 0, i32 2
+  %7 = getelementptr inbounds i8, ptr %agg.result, i64 16
   call void @_ZNSaIcEC2ERKS_(ptr noundef nonnull align 1 dereferenceable(1) %agg.result, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp14) #13
   %call5.i.i.i.i.i117 = call noalias noundef nonnull dereferenceable(19) ptr @_Znwm(i64 noundef 19) #15
   store ptr %call5.i.i.i.i.i117, ptr %agg.result, align 8
   store i64 18, ptr %7, align 8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(18) %call5.i.i.i.i.i117, ptr noundef nonnull align 1 dereferenceable(18) @.str.10, i64 18, i1 false)
-  %_M_string_length.i.i.i.i107 = getelementptr inbounds %"class.std::__cxx11::basic_string", ptr %agg.result, i64 0, i32 1
+  %_M_string_length.i.i.i.i107 = getelementptr inbounds i8, ptr %agg.result, i64 8
   store i64 18, ptr %_M_string_length.i.i.i.i107, align 8
   %arrayidx.i.i.i108 = getelementptr inbounds i8, ptr %call5.i.i.i.i.i117, i64 18
   store i8 0, ptr %arrayidx.i.i.i108, align 1
@@ -1232,13 +1232,13 @@ sw.bb13:                                          ; preds = %entry
 
 sw.bb15:                                          ; preds = %entry
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp16) #13
-  %8 = getelementptr inbounds %"class.std::__cxx11::basic_string", ptr %agg.result, i64 0, i32 2
+  %8 = getelementptr inbounds i8, ptr %agg.result, i64 16
   call void @_ZNSaIcEC2ERKS_(ptr noundef nonnull align 1 dereferenceable(1) %agg.result, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp16) #13
   %call5.i.i.i.i.i134 = call noalias noundef nonnull dereferenceable(18) ptr @_Znwm(i64 noundef 18) #15
   store ptr %call5.i.i.i.i.i134, ptr %agg.result, align 8
   store i64 17, ptr %8, align 8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(17) %call5.i.i.i.i.i134, ptr noundef nonnull align 1 dereferenceable(17) @.str.11, i64 17, i1 false)
-  %_M_string_length.i.i.i.i124 = getelementptr inbounds %"class.std::__cxx11::basic_string", ptr %agg.result, i64 0, i32 1
+  %_M_string_length.i.i.i.i124 = getelementptr inbounds i8, ptr %agg.result, i64 8
   store i64 17, ptr %_M_string_length.i.i.i.i124, align 8
   %arrayidx.i.i.i125 = getelementptr inbounds i8, ptr %call5.i.i.i.i.i134, i64 17
   store i8 0, ptr %arrayidx.i.i.i125, align 1
@@ -1247,13 +1247,13 @@ sw.bb15:                                          ; preds = %entry
 
 sw.bb17:                                          ; preds = %entry
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp18) #13
-  %9 = getelementptr inbounds %"class.std::__cxx11::basic_string", ptr %agg.result, i64 0, i32 2
+  %9 = getelementptr inbounds i8, ptr %agg.result, i64 16
   call void @_ZNSaIcEC2ERKS_(ptr noundef nonnull align 1 dereferenceable(1) %agg.result, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp18) #13
   %call5.i.i.i.i.i151 = call noalias noundef nonnull dereferenceable(18) ptr @_Znwm(i64 noundef 18) #15
   store ptr %call5.i.i.i.i.i151, ptr %agg.result, align 8
   store i64 17, ptr %9, align 8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(17) %call5.i.i.i.i.i151, ptr noundef nonnull align 1 dereferenceable(17) @.str.12, i64 17, i1 false)
-  %_M_string_length.i.i.i.i141 = getelementptr inbounds %"class.std::__cxx11::basic_string", ptr %agg.result, i64 0, i32 1
+  %_M_string_length.i.i.i.i141 = getelementptr inbounds i8, ptr %agg.result, i64 8
   store i64 17, ptr %_M_string_length.i.i.i.i141, align 8
   %arrayidx.i.i.i142 = getelementptr inbounds i8, ptr %call5.i.i.i.i.i151, i64 17
   store i8 0, ptr %arrayidx.i.i.i142, align 1
@@ -1262,91 +1262,91 @@ sw.bb17:                                          ; preds = %entry
 
 sw.bb19:                                          ; preds = %entry
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp20) #13
-  %10 = getelementptr inbounds %"class.std::__cxx11::basic_string", ptr %agg.result, i64 0, i32 2
+  %10 = getelementptr inbounds i8, ptr %agg.result, i64 16
   call void @_ZNSaIcEC2ERKS_(ptr noundef nonnull align 1 dereferenceable(1) %agg.result, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp20) #13
   store ptr %10, ptr %agg.result, align 8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(11) %10, ptr noundef nonnull align 1 dereferenceable(11) @.str.13, i64 11, i1 false)
-  %_M_string_length.i.i.i.i158 = getelementptr inbounds %"class.std::__cxx11::basic_string", ptr %agg.result, i64 0, i32 1
+  %_M_string_length.i.i.i.i158 = getelementptr inbounds i8, ptr %agg.result, i64 8
   store i64 11, ptr %_M_string_length.i.i.i.i158, align 8
-  %arrayidx.i.i.i159 = getelementptr inbounds %"class.std::__cxx11::basic_string", ptr %agg.result, i64 0, i32 2, i32 1, i64 3
+  %arrayidx.i.i.i159 = getelementptr inbounds i8, ptr %agg.result, i64 27
   store i8 0, ptr %arrayidx.i.i.i159, align 1
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp20) #13
   br label %return
 
 sw.bb21:                                          ; preds = %entry
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp22) #13
-  %11 = getelementptr inbounds %"class.std::__cxx11::basic_string", ptr %agg.result, i64 0, i32 2
+  %11 = getelementptr inbounds i8, ptr %agg.result, i64 16
   call void @_ZNSaIcEC2ERKS_(ptr noundef nonnull align 1 dereferenceable(1) %agg.result, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp22) #13
   store ptr %11, ptr %agg.result, align 8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(12) %11, ptr noundef nonnull align 1 dereferenceable(12) @.str.14, i64 12, i1 false)
-  %_M_string_length.i.i.i.i175 = getelementptr inbounds %"class.std::__cxx11::basic_string", ptr %agg.result, i64 0, i32 1
+  %_M_string_length.i.i.i.i175 = getelementptr inbounds i8, ptr %agg.result, i64 8
   store i64 12, ptr %_M_string_length.i.i.i.i175, align 8
-  %arrayidx.i.i.i176 = getelementptr inbounds %"class.std::__cxx11::basic_string", ptr %agg.result, i64 0, i32 2, i32 1, i64 4
+  %arrayidx.i.i.i176 = getelementptr inbounds i8, ptr %agg.result, i64 28
   store i8 0, ptr %arrayidx.i.i.i176, align 4
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp22) #13
   br label %return
 
 sw.bb23:                                          ; preds = %entry
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp24) #13
-  %12 = getelementptr inbounds %"class.std::__cxx11::basic_string", ptr %agg.result, i64 0, i32 2
+  %12 = getelementptr inbounds i8, ptr %agg.result, i64 16
   call void @_ZNSaIcEC2ERKS_(ptr noundef nonnull align 1 dereferenceable(1) %agg.result, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp24) #13
   store ptr %12, ptr %agg.result, align 8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(11) %12, ptr noundef nonnull align 1 dereferenceable(11) @.str.15, i64 11, i1 false)
-  %_M_string_length.i.i.i.i192 = getelementptr inbounds %"class.std::__cxx11::basic_string", ptr %agg.result, i64 0, i32 1
+  %_M_string_length.i.i.i.i192 = getelementptr inbounds i8, ptr %agg.result, i64 8
   store i64 11, ptr %_M_string_length.i.i.i.i192, align 8
-  %arrayidx.i.i.i193 = getelementptr inbounds %"class.std::__cxx11::basic_string", ptr %agg.result, i64 0, i32 2, i32 1, i64 3
+  %arrayidx.i.i.i193 = getelementptr inbounds i8, ptr %agg.result, i64 27
   store i8 0, ptr %arrayidx.i.i.i193, align 1
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp24) #13
   br label %return
 
 sw.bb25:                                          ; preds = %entry
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp26) #13
-  %13 = getelementptr inbounds %"class.std::__cxx11::basic_string", ptr %agg.result, i64 0, i32 2
+  %13 = getelementptr inbounds i8, ptr %agg.result, i64 16
   call void @_ZNSaIcEC2ERKS_(ptr noundef nonnull align 1 dereferenceable(1) %agg.result, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp26) #13
   store ptr %13, ptr %agg.result, align 8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(13) %13, ptr noundef nonnull align 1 dereferenceable(13) @.str.16, i64 13, i1 false)
-  %_M_string_length.i.i.i.i209 = getelementptr inbounds %"class.std::__cxx11::basic_string", ptr %agg.result, i64 0, i32 1
+  %_M_string_length.i.i.i.i209 = getelementptr inbounds i8, ptr %agg.result, i64 8
   store i64 13, ptr %_M_string_length.i.i.i.i209, align 8
-  %arrayidx.i.i.i210 = getelementptr inbounds %"class.std::__cxx11::basic_string", ptr %agg.result, i64 0, i32 2, i32 1, i64 5
+  %arrayidx.i.i.i210 = getelementptr inbounds i8, ptr %agg.result, i64 29
   store i8 0, ptr %arrayidx.i.i.i210, align 1
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp26) #13
   br label %return
 
 sw.bb27:                                          ; preds = %entry
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp28) #13
-  %14 = getelementptr inbounds %"class.std::__cxx11::basic_string", ptr %agg.result, i64 0, i32 2
+  %14 = getelementptr inbounds i8, ptr %agg.result, i64 16
   call void @_ZNSaIcEC2ERKS_(ptr noundef nonnull align 1 dereferenceable(1) %agg.result, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp28) #13
   store ptr %14, ptr %agg.result, align 8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(10) %14, ptr noundef nonnull align 1 dereferenceable(10) @.str.17, i64 10, i1 false)
-  %_M_string_length.i.i.i.i226 = getelementptr inbounds %"class.std::__cxx11::basic_string", ptr %agg.result, i64 0, i32 1
+  %_M_string_length.i.i.i.i226 = getelementptr inbounds i8, ptr %agg.result, i64 8
   store i64 10, ptr %_M_string_length.i.i.i.i226, align 8
-  %arrayidx.i.i.i227 = getelementptr inbounds %"class.std::__cxx11::basic_string", ptr %agg.result, i64 0, i32 2, i32 1, i64 2
+  %arrayidx.i.i.i227 = getelementptr inbounds i8, ptr %agg.result, i64 26
   store i8 0, ptr %arrayidx.i.i.i227, align 2
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp28) #13
   br label %return
 
 sw.bb29:                                          ; preds = %entry
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp30) #13
-  %15 = getelementptr inbounds %"class.std::__cxx11::basic_string", ptr %agg.result, i64 0, i32 2
+  %15 = getelementptr inbounds i8, ptr %agg.result, i64 16
   call void @_ZNSaIcEC2ERKS_(ptr noundef nonnull align 1 dereferenceable(1) %agg.result, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp30) #13
   store ptr %15, ptr %agg.result, align 8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(12) %15, ptr noundef nonnull align 1 dereferenceable(12) @.str.18, i64 12, i1 false)
-  %_M_string_length.i.i.i.i243 = getelementptr inbounds %"class.std::__cxx11::basic_string", ptr %agg.result, i64 0, i32 1
+  %_M_string_length.i.i.i.i243 = getelementptr inbounds i8, ptr %agg.result, i64 8
   store i64 12, ptr %_M_string_length.i.i.i.i243, align 8
-  %arrayidx.i.i.i244 = getelementptr inbounds %"class.std::__cxx11::basic_string", ptr %agg.result, i64 0, i32 2, i32 1, i64 4
+  %arrayidx.i.i.i244 = getelementptr inbounds i8, ptr %agg.result, i64 28
   store i8 0, ptr %arrayidx.i.i.i244, align 4
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp30) #13
   br label %return
 
 sw.bb31:                                          ; preds = %entry
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp32) #13
-  %16 = getelementptr inbounds %"class.std::__cxx11::basic_string", ptr %agg.result, i64 0, i32 2
+  %16 = getelementptr inbounds i8, ptr %agg.result, i64 16
   call void @_ZNSaIcEC2ERKS_(ptr noundef nonnull align 1 dereferenceable(1) %agg.result, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp32) #13
   %call5.i.i.i.i.i270 = call noalias noundef nonnull dereferenceable(18) ptr @_Znwm(i64 noundef 18) #15
   store ptr %call5.i.i.i.i.i270, ptr %agg.result, align 8
   store i64 17, ptr %16, align 8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(17) %call5.i.i.i.i.i270, ptr noundef nonnull align 1 dereferenceable(17) @.str.19, i64 17, i1 false)
-  %_M_string_length.i.i.i.i260 = getelementptr inbounds %"class.std::__cxx11::basic_string", ptr %agg.result, i64 0, i32 1
+  %_M_string_length.i.i.i.i260 = getelementptr inbounds i8, ptr %agg.result, i64 8
   store i64 17, ptr %_M_string_length.i.i.i.i260, align 8
   %arrayidx.i.i.i261 = getelementptr inbounds i8, ptr %call5.i.i.i.i.i270, i64 17
   store i8 0, ptr %arrayidx.i.i.i261, align 1
@@ -1355,13 +1355,13 @@ sw.bb31:                                          ; preds = %entry
 
 sw.bb33:                                          ; preds = %entry
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp34) #13
-  %17 = getelementptr inbounds %"class.std::__cxx11::basic_string", ptr %agg.result, i64 0, i32 2
+  %17 = getelementptr inbounds i8, ptr %agg.result, i64 16
   call void @_ZNSaIcEC2ERKS_(ptr noundef nonnull align 1 dereferenceable(1) %agg.result, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp34) #13
   %call5.i.i.i.i.i287 = call noalias noundef nonnull dereferenceable(18) ptr @_Znwm(i64 noundef 18) #15
   store ptr %call5.i.i.i.i.i287, ptr %agg.result, align 8
   store i64 17, ptr %17, align 8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(17) %call5.i.i.i.i.i287, ptr noundef nonnull align 1 dereferenceable(17) @.str.20, i64 17, i1 false)
-  %_M_string_length.i.i.i.i277 = getelementptr inbounds %"class.std::__cxx11::basic_string", ptr %agg.result, i64 0, i32 1
+  %_M_string_length.i.i.i.i277 = getelementptr inbounds i8, ptr %agg.result, i64 8
   store i64 17, ptr %_M_string_length.i.i.i.i277, align 8
   %arrayidx.i.i.i278 = getelementptr inbounds i8, ptr %call5.i.i.i.i.i287, i64 17
   store i8 0, ptr %arrayidx.i.i.i278, align 1
@@ -1370,13 +1370,13 @@ sw.bb33:                                          ; preds = %entry
 
 sw.bb35:                                          ; preds = %entry
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp36) #13
-  %18 = getelementptr inbounds %"class.std::__cxx11::basic_string", ptr %agg.result, i64 0, i32 2
+  %18 = getelementptr inbounds i8, ptr %agg.result, i64 16
   call void @_ZNSaIcEC2ERKS_(ptr noundef nonnull align 1 dereferenceable(1) %agg.result, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp36) #13
   %call5.i.i.i.i.i304 = call noalias noundef nonnull dereferenceable(17) ptr @_Znwm(i64 noundef 17) #15
   store ptr %call5.i.i.i.i.i304, ptr %agg.result, align 8
   store i64 16, ptr %18, align 8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(16) %call5.i.i.i.i.i304, ptr noundef nonnull align 1 dereferenceable(16) @.str.21, i64 16, i1 false)
-  %_M_string_length.i.i.i.i294 = getelementptr inbounds %"class.std::__cxx11::basic_string", ptr %agg.result, i64 0, i32 1
+  %_M_string_length.i.i.i.i294 = getelementptr inbounds i8, ptr %agg.result, i64 8
   store i64 16, ptr %_M_string_length.i.i.i.i294, align 8
   %arrayidx.i.i.i295 = getelementptr inbounds i8, ptr %call5.i.i.i.i.i304, i64 16
   store i8 0, ptr %arrayidx.i.i.i295, align 1
@@ -1385,39 +1385,39 @@ sw.bb35:                                          ; preds = %entry
 
 sw.bb37:                                          ; preds = %entry
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp38) #13
-  %19 = getelementptr inbounds %"class.std::__cxx11::basic_string", ptr %agg.result, i64 0, i32 2
+  %19 = getelementptr inbounds i8, ptr %agg.result, i64 16
   call void @_ZNSaIcEC2ERKS_(ptr noundef nonnull align 1 dereferenceable(1) %agg.result, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp38) #13
   store ptr %19, ptr %agg.result, align 8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(14) %19, ptr noundef nonnull align 1 dereferenceable(14) @.str.22, i64 14, i1 false)
-  %_M_string_length.i.i.i.i311 = getelementptr inbounds %"class.std::__cxx11::basic_string", ptr %agg.result, i64 0, i32 1
+  %_M_string_length.i.i.i.i311 = getelementptr inbounds i8, ptr %agg.result, i64 8
   store i64 14, ptr %_M_string_length.i.i.i.i311, align 8
-  %arrayidx.i.i.i312 = getelementptr inbounds %"class.std::__cxx11::basic_string", ptr %agg.result, i64 0, i32 2, i32 1, i64 6
+  %arrayidx.i.i.i312 = getelementptr inbounds i8, ptr %agg.result, i64 30
   store i8 0, ptr %arrayidx.i.i.i312, align 2
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp38) #13
   br label %return
 
 sw.bb39:                                          ; preds = %entry
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp40) #13
-  %20 = getelementptr inbounds %"class.std::__cxx11::basic_string", ptr %agg.result, i64 0, i32 2
+  %20 = getelementptr inbounds i8, ptr %agg.result, i64 16
   call void @_ZNSaIcEC2ERKS_(ptr noundef nonnull align 1 dereferenceable(1) %agg.result, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp40) #13
   store ptr %20, ptr %agg.result, align 8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(14) %20, ptr noundef nonnull align 1 dereferenceable(14) @.str.23, i64 14, i1 false)
-  %_M_string_length.i.i.i.i328 = getelementptr inbounds %"class.std::__cxx11::basic_string", ptr %agg.result, i64 0, i32 1
+  %_M_string_length.i.i.i.i328 = getelementptr inbounds i8, ptr %agg.result, i64 8
   store i64 14, ptr %_M_string_length.i.i.i.i328, align 8
-  %arrayidx.i.i.i329 = getelementptr inbounds %"class.std::__cxx11::basic_string", ptr %agg.result, i64 0, i32 2, i32 1, i64 6
+  %arrayidx.i.i.i329 = getelementptr inbounds i8, ptr %agg.result, i64 30
   store i8 0, ptr %arrayidx.i.i.i329, align 2
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp40) #13
   br label %return
 
 sw.bb41:                                          ; preds = %entry
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp42) #13
-  %21 = getelementptr inbounds %"class.std::__cxx11::basic_string", ptr %agg.result, i64 0, i32 2
+  %21 = getelementptr inbounds i8, ptr %agg.result, i64 16
   call void @_ZNSaIcEC2ERKS_(ptr noundef nonnull align 1 dereferenceable(1) %agg.result, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp42) #13
   %call5.i.i.i.i.i355 = call noalias noundef nonnull dereferenceable(18) ptr @_Znwm(i64 noundef 18) #15
   store ptr %call5.i.i.i.i.i355, ptr %agg.result, align 8
   store i64 17, ptr %21, align 8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(17) %call5.i.i.i.i.i355, ptr noundef nonnull align 1 dereferenceable(17) @.str.24, i64 17, i1 false)
-  %_M_string_length.i.i.i.i345 = getelementptr inbounds %"class.std::__cxx11::basic_string", ptr %agg.result, i64 0, i32 1
+  %_M_string_length.i.i.i.i345 = getelementptr inbounds i8, ptr %agg.result, i64 8
   store i64 17, ptr %_M_string_length.i.i.i.i345, align 8
   %arrayidx.i.i.i346 = getelementptr inbounds i8, ptr %call5.i.i.i.i.i355, i64 17
   store i8 0, ptr %arrayidx.i.i.i346, align 1
@@ -1426,13 +1426,13 @@ sw.bb41:                                          ; preds = %entry
 
 sw.bb43:                                          ; preds = %entry
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp44) #13
-  %22 = getelementptr inbounds %"class.std::__cxx11::basic_string", ptr %agg.result, i64 0, i32 2
+  %22 = getelementptr inbounds i8, ptr %agg.result, i64 16
   call void @_ZNSaIcEC2ERKS_(ptr noundef nonnull align 1 dereferenceable(1) %agg.result, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp44) #13
   %call5.i.i.i.i.i372 = call noalias noundef nonnull dereferenceable(18) ptr @_Znwm(i64 noundef 18) #15
   store ptr %call5.i.i.i.i.i372, ptr %agg.result, align 8
   store i64 17, ptr %22, align 8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(17) %call5.i.i.i.i.i372, ptr noundef nonnull align 1 dereferenceable(17) @.str.25, i64 17, i1 false)
-  %_M_string_length.i.i.i.i362 = getelementptr inbounds %"class.std::__cxx11::basic_string", ptr %agg.result, i64 0, i32 1
+  %_M_string_length.i.i.i.i362 = getelementptr inbounds i8, ptr %agg.result, i64 8
   store i64 17, ptr %_M_string_length.i.i.i.i362, align 8
   %arrayidx.i.i.i363 = getelementptr inbounds i8, ptr %call5.i.i.i.i.i372, i64 17
   store i8 0, ptr %arrayidx.i.i.i363, align 1
@@ -1441,13 +1441,13 @@ sw.bb43:                                          ; preds = %entry
 
 sw.bb45:                                          ; preds = %entry
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp46) #13
-  %23 = getelementptr inbounds %"class.std::__cxx11::basic_string", ptr %agg.result, i64 0, i32 2
+  %23 = getelementptr inbounds i8, ptr %agg.result, i64 16
   call void @_ZNSaIcEC2ERKS_(ptr noundef nonnull align 1 dereferenceable(1) %agg.result, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp46) #13
   %call5.i.i.i.i.i389 = call noalias noundef nonnull dereferenceable(17) ptr @_Znwm(i64 noundef 17) #15
   store ptr %call5.i.i.i.i.i389, ptr %agg.result, align 8
   store i64 16, ptr %23, align 8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(16) %call5.i.i.i.i.i389, ptr noundef nonnull align 1 dereferenceable(16) @.str.26, i64 16, i1 false)
-  %_M_string_length.i.i.i.i379 = getelementptr inbounds %"class.std::__cxx11::basic_string", ptr %agg.result, i64 0, i32 1
+  %_M_string_length.i.i.i.i379 = getelementptr inbounds i8, ptr %agg.result, i64 8
   store i64 16, ptr %_M_string_length.i.i.i.i379, align 8
   %arrayidx.i.i.i380 = getelementptr inbounds i8, ptr %call5.i.i.i.i.i389, i64 16
   store i8 0, ptr %arrayidx.i.i.i380, align 1
@@ -1456,26 +1456,26 @@ sw.bb45:                                          ; preds = %entry
 
 sw.bb47:                                          ; preds = %entry
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp48) #13
-  %24 = getelementptr inbounds %"class.std::__cxx11::basic_string", ptr %agg.result, i64 0, i32 2
+  %24 = getelementptr inbounds i8, ptr %agg.result, i64 16
   call void @_ZNSaIcEC2ERKS_(ptr noundef nonnull align 1 dereferenceable(1) %agg.result, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp48) #13
   store ptr %24, ptr %agg.result, align 8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(13) %24, ptr noundef nonnull align 1 dereferenceable(13) @.str.27, i64 13, i1 false)
-  %_M_string_length.i.i.i.i396 = getelementptr inbounds %"class.std::__cxx11::basic_string", ptr %agg.result, i64 0, i32 1
+  %_M_string_length.i.i.i.i396 = getelementptr inbounds i8, ptr %agg.result, i64 8
   store i64 13, ptr %_M_string_length.i.i.i.i396, align 8
-  %arrayidx.i.i.i397 = getelementptr inbounds %"class.std::__cxx11::basic_string", ptr %agg.result, i64 0, i32 2, i32 1, i64 5
+  %arrayidx.i.i.i397 = getelementptr inbounds i8, ptr %agg.result, i64 29
   store i8 0, ptr %arrayidx.i.i.i397, align 1
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp48) #13
   br label %return
 
 sw.bb49:                                          ; preds = %entry
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp50) #13
-  %25 = getelementptr inbounds %"class.std::__cxx11::basic_string", ptr %agg.result, i64 0, i32 2
+  %25 = getelementptr inbounds i8, ptr %agg.result, i64 16
   call void @_ZNSaIcEC2ERKS_(ptr noundef nonnull align 1 dereferenceable(1) %agg.result, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp50) #13
   %call5.i.i.i.i.i423 = call noalias noundef nonnull dereferenceable(18) ptr @_Znwm(i64 noundef 18) #15
   store ptr %call5.i.i.i.i.i423, ptr %agg.result, align 8
   store i64 17, ptr %25, align 8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(17) %call5.i.i.i.i.i423, ptr noundef nonnull align 1 dereferenceable(17) @.str.28, i64 17, i1 false)
-  %_M_string_length.i.i.i.i413 = getelementptr inbounds %"class.std::__cxx11::basic_string", ptr %agg.result, i64 0, i32 1
+  %_M_string_length.i.i.i.i413 = getelementptr inbounds i8, ptr %agg.result, i64 8
   store i64 17, ptr %_M_string_length.i.i.i.i413, align 8
   %arrayidx.i.i.i414 = getelementptr inbounds i8, ptr %call5.i.i.i.i.i423, i64 17
   store i8 0, ptr %arrayidx.i.i.i414, align 1
@@ -1484,13 +1484,13 @@ sw.bb49:                                          ; preds = %entry
 
 sw.bb51:                                          ; preds = %entry
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp52) #13
-  %26 = getelementptr inbounds %"class.std::__cxx11::basic_string", ptr %agg.result, i64 0, i32 2
+  %26 = getelementptr inbounds i8, ptr %agg.result, i64 16
   call void @_ZNSaIcEC2ERKS_(ptr noundef nonnull align 1 dereferenceable(1) %agg.result, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp52) #13
   %call5.i.i.i.i.i440 = call noalias noundef nonnull dereferenceable(17) ptr @_Znwm(i64 noundef 17) #15
   store ptr %call5.i.i.i.i.i440, ptr %agg.result, align 8
   store i64 16, ptr %26, align 8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(16) %call5.i.i.i.i.i440, ptr noundef nonnull align 1 dereferenceable(16) @.str.29, i64 16, i1 false)
-  %_M_string_length.i.i.i.i430 = getelementptr inbounds %"class.std::__cxx11::basic_string", ptr %agg.result, i64 0, i32 1
+  %_M_string_length.i.i.i.i430 = getelementptr inbounds i8, ptr %agg.result, i64 8
   store i64 16, ptr %_M_string_length.i.i.i.i430, align 8
   %arrayidx.i.i.i431 = getelementptr inbounds i8, ptr %call5.i.i.i.i.i440, i64 16
   store i8 0, ptr %arrayidx.i.i.i431, align 1
@@ -1499,26 +1499,26 @@ sw.bb51:                                          ; preds = %entry
 
 sw.bb53:                                          ; preds = %entry
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp54) #13
-  %27 = getelementptr inbounds %"class.std::__cxx11::basic_string", ptr %agg.result, i64 0, i32 2
+  %27 = getelementptr inbounds i8, ptr %agg.result, i64 16
   call void @_ZNSaIcEC2ERKS_(ptr noundef nonnull align 1 dereferenceable(1) %agg.result, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp54) #13
   store ptr %27, ptr %agg.result, align 8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(14) %27, ptr noundef nonnull align 1 dereferenceable(14) @.str.30, i64 14, i1 false)
-  %_M_string_length.i.i.i.i447 = getelementptr inbounds %"class.std::__cxx11::basic_string", ptr %agg.result, i64 0, i32 1
+  %_M_string_length.i.i.i.i447 = getelementptr inbounds i8, ptr %agg.result, i64 8
   store i64 14, ptr %_M_string_length.i.i.i.i447, align 8
-  %arrayidx.i.i.i448 = getelementptr inbounds %"class.std::__cxx11::basic_string", ptr %agg.result, i64 0, i32 2, i32 1, i64 6
+  %arrayidx.i.i.i448 = getelementptr inbounds i8, ptr %agg.result, i64 30
   store i8 0, ptr %arrayidx.i.i.i448, align 2
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp54) #13
   br label %return
 
 sw.bb55:                                          ; preds = %entry
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp56) #13
-  %28 = getelementptr inbounds %"class.std::__cxx11::basic_string", ptr %agg.result, i64 0, i32 2
+  %28 = getelementptr inbounds i8, ptr %agg.result, i64 16
   call void @_ZNSaIcEC2ERKS_(ptr noundef nonnull align 1 dereferenceable(1) %agg.result, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp56) #13
   %call5.i.i.i.i.i474 = call noalias noundef nonnull dereferenceable(20) ptr @_Znwm(i64 noundef 20) #15
   store ptr %call5.i.i.i.i.i474, ptr %agg.result, align 8
   store i64 19, ptr %28, align 8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(19) %call5.i.i.i.i.i474, ptr noundef nonnull align 1 dereferenceable(19) @.str.31, i64 19, i1 false)
-  %_M_string_length.i.i.i.i464 = getelementptr inbounds %"class.std::__cxx11::basic_string", ptr %agg.result, i64 0, i32 1
+  %_M_string_length.i.i.i.i464 = getelementptr inbounds i8, ptr %agg.result, i64 8
   store i64 19, ptr %_M_string_length.i.i.i.i464, align 8
   %arrayidx.i.i.i465 = getelementptr inbounds i8, ptr %call5.i.i.i.i.i474, i64 19
   store i8 0, ptr %arrayidx.i.i.i465, align 1
@@ -1527,13 +1527,13 @@ sw.bb55:                                          ; preds = %entry
 
 sw.bb57:                                          ; preds = %entry
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp58) #13
-  %29 = getelementptr inbounds %"class.std::__cxx11::basic_string", ptr %agg.result, i64 0, i32 2
+  %29 = getelementptr inbounds i8, ptr %agg.result, i64 16
   call void @_ZNSaIcEC2ERKS_(ptr noundef nonnull align 1 dereferenceable(1) %agg.result, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp58) #13
   %call5.i.i.i.i.i491 = call noalias noundef nonnull dereferenceable(17) ptr @_Znwm(i64 noundef 17) #15
   store ptr %call5.i.i.i.i.i491, ptr %agg.result, align 8
   store i64 16, ptr %29, align 8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(16) %call5.i.i.i.i.i491, ptr noundef nonnull align 1 dereferenceable(16) @.str.32, i64 16, i1 false)
-  %_M_string_length.i.i.i.i481 = getelementptr inbounds %"class.std::__cxx11::basic_string", ptr %agg.result, i64 0, i32 1
+  %_M_string_length.i.i.i.i481 = getelementptr inbounds i8, ptr %agg.result, i64 8
   store i64 16, ptr %_M_string_length.i.i.i.i481, align 8
   %arrayidx.i.i.i482 = getelementptr inbounds i8, ptr %call5.i.i.i.i.i491, i64 16
   store i8 0, ptr %arrayidx.i.i.i482, align 1
@@ -1542,13 +1542,13 @@ sw.bb57:                                          ; preds = %entry
 
 sw.bb59:                                          ; preds = %entry
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp60) #13
-  %30 = getelementptr inbounds %"class.std::__cxx11::basic_string", ptr %agg.result, i64 0, i32 2
+  %30 = getelementptr inbounds i8, ptr %agg.result, i64 16
   call void @_ZNSaIcEC2ERKS_(ptr noundef nonnull align 1 dereferenceable(1) %agg.result, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp60) #13
   %call5.i.i.i.i.i508 = call noalias noundef nonnull dereferenceable(18) ptr @_Znwm(i64 noundef 18) #15
   store ptr %call5.i.i.i.i.i508, ptr %agg.result, align 8
   store i64 17, ptr %30, align 8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(17) %call5.i.i.i.i.i508, ptr noundef nonnull align 1 dereferenceable(17) @.str.33, i64 17, i1 false)
-  %_M_string_length.i.i.i.i498 = getelementptr inbounds %"class.std::__cxx11::basic_string", ptr %agg.result, i64 0, i32 1
+  %_M_string_length.i.i.i.i498 = getelementptr inbounds i8, ptr %agg.result, i64 8
   store i64 17, ptr %_M_string_length.i.i.i.i498, align 8
   %arrayidx.i.i.i499 = getelementptr inbounds i8, ptr %call5.i.i.i.i.i508, i64 17
   store i8 0, ptr %arrayidx.i.i.i499, align 1
@@ -1557,13 +1557,13 @@ sw.bb59:                                          ; preds = %entry
 
 sw.bb61:                                          ; preds = %entry
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp62) #13
-  %31 = getelementptr inbounds %"class.std::__cxx11::basic_string", ptr %agg.result, i64 0, i32 2
+  %31 = getelementptr inbounds i8, ptr %agg.result, i64 16
   call void @_ZNSaIcEC2ERKS_(ptr noundef nonnull align 1 dereferenceable(1) %agg.result, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp62) #13
   %call5.i.i.i.i.i525 = call noalias noundef nonnull dereferenceable(18) ptr @_Znwm(i64 noundef 18) #15
   store ptr %call5.i.i.i.i.i525, ptr %agg.result, align 8
   store i64 17, ptr %31, align 8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(17) %call5.i.i.i.i.i525, ptr noundef nonnull align 1 dereferenceable(17) @.str.34, i64 17, i1 false)
-  %_M_string_length.i.i.i.i515 = getelementptr inbounds %"class.std::__cxx11::basic_string", ptr %agg.result, i64 0, i32 1
+  %_M_string_length.i.i.i.i515 = getelementptr inbounds i8, ptr %agg.result, i64 8
   store i64 17, ptr %_M_string_length.i.i.i.i515, align 8
   %arrayidx.i.i.i516 = getelementptr inbounds i8, ptr %call5.i.i.i.i.i525, i64 17
   store i8 0, ptr %arrayidx.i.i.i516, align 1
@@ -1572,39 +1572,39 @@ sw.bb61:                                          ; preds = %entry
 
 sw.bb63:                                          ; preds = %entry
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp64) #13
-  %32 = getelementptr inbounds %"class.std::__cxx11::basic_string", ptr %agg.result, i64 0, i32 2
+  %32 = getelementptr inbounds i8, ptr %agg.result, i64 16
   call void @_ZNSaIcEC2ERKS_(ptr noundef nonnull align 1 dereferenceable(1) %agg.result, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp64) #13
   store ptr %32, ptr %agg.result, align 8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(15) %32, ptr noundef nonnull align 1 dereferenceable(15) @.str.35, i64 15, i1 false)
-  %_M_string_length.i.i.i.i532 = getelementptr inbounds %"class.std::__cxx11::basic_string", ptr %agg.result, i64 0, i32 1
+  %_M_string_length.i.i.i.i532 = getelementptr inbounds i8, ptr %agg.result, i64 8
   store i64 15, ptr %_M_string_length.i.i.i.i532, align 8
-  %arrayidx.i.i.i533 = getelementptr inbounds %"class.std::__cxx11::basic_string", ptr %agg.result, i64 0, i32 2, i32 1, i64 7
+  %arrayidx.i.i.i533 = getelementptr inbounds i8, ptr %agg.result, i64 31
   store i8 0, ptr %arrayidx.i.i.i533, align 1
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp64) #13
   br label %return
 
 sw.bb65:                                          ; preds = %entry
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp66) #13
-  %33 = getelementptr inbounds %"class.std::__cxx11::basic_string", ptr %agg.result, i64 0, i32 2
+  %33 = getelementptr inbounds i8, ptr %agg.result, i64 16
   call void @_ZNSaIcEC2ERKS_(ptr noundef nonnull align 1 dereferenceable(1) %agg.result, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp66) #13
   store ptr %33, ptr %agg.result, align 8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(15) %33, ptr noundef nonnull align 1 dereferenceable(15) @.str.36, i64 15, i1 false)
-  %_M_string_length.i.i.i.i549 = getelementptr inbounds %"class.std::__cxx11::basic_string", ptr %agg.result, i64 0, i32 1
+  %_M_string_length.i.i.i.i549 = getelementptr inbounds i8, ptr %agg.result, i64 8
   store i64 15, ptr %_M_string_length.i.i.i.i549, align 8
-  %arrayidx.i.i.i550 = getelementptr inbounds %"class.std::__cxx11::basic_string", ptr %agg.result, i64 0, i32 2, i32 1, i64 7
+  %arrayidx.i.i.i550 = getelementptr inbounds i8, ptr %agg.result, i64 31
   store i8 0, ptr %arrayidx.i.i.i550, align 1
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp66) #13
   br label %return
 
 sw.bb67:                                          ; preds = %entry
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp68) #13
-  %34 = getelementptr inbounds %"class.std::__cxx11::basic_string", ptr %agg.result, i64 0, i32 2
+  %34 = getelementptr inbounds i8, ptr %agg.result, i64 16
   call void @_ZNSaIcEC2ERKS_(ptr noundef nonnull align 1 dereferenceable(1) %agg.result, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp68) #13
   %call5.i.i.i.i.i576 = call noalias noundef nonnull dereferenceable(25) ptr @_Znwm(i64 noundef 25) #15
   store ptr %call5.i.i.i.i.i576, ptr %agg.result, align 8
   store i64 24, ptr %34, align 8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(24) %call5.i.i.i.i.i576, ptr noundef nonnull align 1 dereferenceable(24) @.str.37, i64 24, i1 false)
-  %_M_string_length.i.i.i.i566 = getelementptr inbounds %"class.std::__cxx11::basic_string", ptr %agg.result, i64 0, i32 1
+  %_M_string_length.i.i.i.i566 = getelementptr inbounds i8, ptr %agg.result, i64 8
   store i64 24, ptr %_M_string_length.i.i.i.i566, align 8
   %arrayidx.i.i.i567 = getelementptr inbounds i8, ptr %call5.i.i.i.i.i576, i64 24
   store i8 0, ptr %arrayidx.i.i.i567, align 1
@@ -1613,13 +1613,13 @@ sw.bb67:                                          ; preds = %entry
 
 sw.bb69:                                          ; preds = %entry
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp70) #13
-  %35 = getelementptr inbounds %"class.std::__cxx11::basic_string", ptr %agg.result, i64 0, i32 2
+  %35 = getelementptr inbounds i8, ptr %agg.result, i64 16
   call void @_ZNSaIcEC2ERKS_(ptr noundef nonnull align 1 dereferenceable(1) %agg.result, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp70) #13
   %call5.i.i.i.i.i593 = call noalias noundef nonnull dereferenceable(22) ptr @_Znwm(i64 noundef 22) #15
   store ptr %call5.i.i.i.i.i593, ptr %agg.result, align 8
   store i64 21, ptr %35, align 8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(21) %call5.i.i.i.i.i593, ptr noundef nonnull align 1 dereferenceable(21) @.str.38, i64 21, i1 false)
-  %_M_string_length.i.i.i.i583 = getelementptr inbounds %"class.std::__cxx11::basic_string", ptr %agg.result, i64 0, i32 1
+  %_M_string_length.i.i.i.i583 = getelementptr inbounds i8, ptr %agg.result, i64 8
   store i64 21, ptr %_M_string_length.i.i.i.i583, align 8
   %arrayidx.i.i.i584 = getelementptr inbounds i8, ptr %call5.i.i.i.i.i593, i64 21
   store i8 0, ptr %arrayidx.i.i.i584, align 1
@@ -1628,13 +1628,13 @@ sw.bb69:                                          ; preds = %entry
 
 sw.bb71:                                          ; preds = %entry
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp72) #13
-  %36 = getelementptr inbounds %"class.std::__cxx11::basic_string", ptr %agg.result, i64 0, i32 2
+  %36 = getelementptr inbounds i8, ptr %agg.result, i64 16
   call void @_ZNSaIcEC2ERKS_(ptr noundef nonnull align 1 dereferenceable(1) %agg.result, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp72) #13
   %call5.i.i.i.i.i610 = call noalias noundef nonnull dereferenceable(17) ptr @_Znwm(i64 noundef 17) #15
   store ptr %call5.i.i.i.i.i610, ptr %agg.result, align 8
   store i64 16, ptr %36, align 8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(16) %call5.i.i.i.i.i610, ptr noundef nonnull align 1 dereferenceable(16) @.str.39, i64 16, i1 false)
-  %_M_string_length.i.i.i.i600 = getelementptr inbounds %"class.std::__cxx11::basic_string", ptr %agg.result, i64 0, i32 1
+  %_M_string_length.i.i.i.i600 = getelementptr inbounds i8, ptr %agg.result, i64 8
   store i64 16, ptr %_M_string_length.i.i.i.i600, align 8
   %arrayidx.i.i.i601 = getelementptr inbounds i8, ptr %call5.i.i.i.i.i610, i64 16
   store i8 0, ptr %arrayidx.i.i.i601, align 1
@@ -1643,13 +1643,13 @@ sw.bb71:                                          ; preds = %entry
 
 sw.bb73:                                          ; preds = %entry
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp74) #13
-  %37 = getelementptr inbounds %"class.std::__cxx11::basic_string", ptr %agg.result, i64 0, i32 2
+  %37 = getelementptr inbounds i8, ptr %agg.result, i64 16
   call void @_ZNSaIcEC2ERKS_(ptr noundef nonnull align 1 dereferenceable(1) %agg.result, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp74) #13
   %call5.i.i.i.i.i627 = call noalias noundef nonnull dereferenceable(19) ptr @_Znwm(i64 noundef 19) #15
   store ptr %call5.i.i.i.i.i627, ptr %agg.result, align 8
   store i64 18, ptr %37, align 8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(18) %call5.i.i.i.i.i627, ptr noundef nonnull align 1 dereferenceable(18) @.str.40, i64 18, i1 false)
-  %_M_string_length.i.i.i.i617 = getelementptr inbounds %"class.std::__cxx11::basic_string", ptr %agg.result, i64 0, i32 1
+  %_M_string_length.i.i.i.i617 = getelementptr inbounds i8, ptr %agg.result, i64 8
   store i64 18, ptr %_M_string_length.i.i.i.i617, align 8
   %arrayidx.i.i.i618 = getelementptr inbounds i8, ptr %call5.i.i.i.i.i627, i64 18
   store i8 0, ptr %arrayidx.i.i.i618, align 1
@@ -1658,13 +1658,13 @@ sw.bb73:                                          ; preds = %entry
 
 sw.bb75:                                          ; preds = %entry
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp76) #13
-  %38 = getelementptr inbounds %"class.std::__cxx11::basic_string", ptr %agg.result, i64 0, i32 2
+  %38 = getelementptr inbounds i8, ptr %agg.result, i64 16
   call void @_ZNSaIcEC2ERKS_(ptr noundef nonnull align 1 dereferenceable(1) %agg.result, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp76) #13
   %call5.i.i.i.i.i644 = call noalias noundef nonnull dereferenceable(19) ptr @_Znwm(i64 noundef 19) #15
   store ptr %call5.i.i.i.i.i644, ptr %agg.result, align 8
   store i64 18, ptr %38, align 8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(18) %call5.i.i.i.i.i644, ptr noundef nonnull align 1 dereferenceable(18) @.str.41, i64 18, i1 false)
-  %_M_string_length.i.i.i.i634 = getelementptr inbounds %"class.std::__cxx11::basic_string", ptr %agg.result, i64 0, i32 1
+  %_M_string_length.i.i.i.i634 = getelementptr inbounds i8, ptr %agg.result, i64 8
   store i64 18, ptr %_M_string_length.i.i.i.i634, align 8
   %arrayidx.i.i.i635 = getelementptr inbounds i8, ptr %call5.i.i.i.i.i644, i64 18
   store i8 0, ptr %arrayidx.i.i.i635, align 1
@@ -1673,13 +1673,13 @@ sw.bb75:                                          ; preds = %entry
 
 sw.bb77:                                          ; preds = %entry
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp78) #13
-  %39 = getelementptr inbounds %"class.std::__cxx11::basic_string", ptr %agg.result, i64 0, i32 2
+  %39 = getelementptr inbounds i8, ptr %agg.result, i64 16
   call void @_ZNSaIcEC2ERKS_(ptr noundef nonnull align 1 dereferenceable(1) %agg.result, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp78) #13
   %call5.i.i.i.i.i661 = call noalias noundef nonnull dereferenceable(23) ptr @_Znwm(i64 noundef 23) #15
   store ptr %call5.i.i.i.i.i661, ptr %agg.result, align 8
   store i64 22, ptr %39, align 8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(22) %call5.i.i.i.i.i661, ptr noundef nonnull align 1 dereferenceable(22) @.str.42, i64 22, i1 false)
-  %_M_string_length.i.i.i.i651 = getelementptr inbounds %"class.std::__cxx11::basic_string", ptr %agg.result, i64 0, i32 1
+  %_M_string_length.i.i.i.i651 = getelementptr inbounds i8, ptr %agg.result, i64 8
   store i64 22, ptr %_M_string_length.i.i.i.i651, align 8
   %arrayidx.i.i.i652 = getelementptr inbounds i8, ptr %call5.i.i.i.i.i661, i64 22
   store i8 0, ptr %arrayidx.i.i.i652, align 1
@@ -1700,7 +1700,7 @@ declare void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1)) unnam
 ; Function Attrs: mustprogress nounwind
 define linkonce_odr dso_local void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %this, ptr noundef %__s, ptr noundef nonnull align 1 dereferenceable(1) %__a) unnamed_addr #4 comdat align 2 {
 entry:
-  %0 = getelementptr inbounds %"class.std::__cxx11::basic_string", ptr %this, i64 0, i32 2
+  %0 = getelementptr inbounds i8, ptr %this, i64 16
   tail call void @_ZNSaIcEC2ERKS_(ptr noundef nonnull align 1 dereferenceable(1) %this, ptr noundef nonnull align 1 dereferenceable(1) %__a) #13
   store ptr %0, ptr %this, align 8
   %cmp = icmp eq ptr %__s, null
@@ -1755,7 +1755,7 @@ if.end.i.i.i3.i:                                  ; preds = %if.end.i
   br label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag.exit
 
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag.exit: ; preds = %if.end.i, %if.then.i.i.i, %if.end.i.i.i3.i
-  %_M_string_length.i.i.i = getelementptr inbounds %"class.std::__cxx11::basic_string", ptr %this, i64 0, i32 1
+  %_M_string_length.i.i.i = getelementptr inbounds i8, ptr %this, i64 8
   store i64 %call.i, ptr %_M_string_length.i.i.i, align 8
   %arrayidx.i.i = getelementptr inbounds i8, ptr %1, i64 %call.i
   store i8 0, ptr %arrayidx.i.i, align 1
@@ -1772,7 +1772,7 @@ entry:
   %ref.tmp = alloca %"class.std::allocator", align 1
   %call = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %buf, i64 noundef 50, ptr noundef nonnull @.str.919, i32 noundef %r_type) #13
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp) #13
-  %0 = getelementptr inbounds %"class.std::__cxx11::basic_string", ptr %agg.result, i64 0, i32 2
+  %0 = getelementptr inbounds i8, ptr %agg.result, i64 16
   call void @_ZNSaIcEC2ERKS_(ptr noundef nonnull align 1 dereferenceable(1) %agg.result, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp) #13
   store ptr %0, ptr %agg.result, align 8
   %call.i.i = call noundef i64 @strlen(ptr noundef nonnull dereferenceable(1) %buf) #13
@@ -1819,7 +1819,7 @@ if.end.i.i.i3.i.i:                                ; preds = %if.end.i.i
   br label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit
 
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit: ; preds = %if.end.i.i, %if.then.i.i.i.i, %if.end.i.i.i3.i.i
-  %_M_string_length.i.i.i.i = getelementptr inbounds %"class.std::__cxx11::basic_string", ptr %agg.result, i64 0, i32 1
+  %_M_string_length.i.i.i.i = getelementptr inbounds i8, ptr %agg.result, i64 8
   store i64 %call.i.i, ptr %_M_string_length.i.i.i.i, align 8
   %arrayidx.i.i.i = getelementptr inbounds i8, ptr %1, i64 %call.i.i
   store i8 0, ptr %arrayidx.i.i.i, align 1
@@ -1919,271 +1919,271 @@ entry:
 
 sw.bb:                                            ; preds = %entry
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp) #13
-  %0 = getelementptr inbounds %"class.std::__cxx11::basic_string", ptr %agg.result, i64 0, i32 2
+  %0 = getelementptr inbounds i8, ptr %agg.result, i64 16
   call void @_ZNSaIcEC2ERKS_(ptr noundef nonnull align 1 dereferenceable(1) %agg.result, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp) #13
   store ptr %0, ptr %agg.result, align 8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(10) %0, ptr noundef nonnull align 1 dereferenceable(10) @.str.43, i64 10, i1 false)
-  %_M_string_length.i.i.i.i = getelementptr inbounds %"class.std::__cxx11::basic_string", ptr %agg.result, i64 0, i32 1
+  %_M_string_length.i.i.i.i = getelementptr inbounds i8, ptr %agg.result, i64 8
   store i64 10, ptr %_M_string_length.i.i.i.i, align 8
-  %arrayidx.i.i.i = getelementptr inbounds %"class.std::__cxx11::basic_string", ptr %agg.result, i64 0, i32 2, i32 1, i64 2
+  %arrayidx.i.i.i = getelementptr inbounds i8, ptr %agg.result, i64 26
   store i8 0, ptr %arrayidx.i.i.i, align 2
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp) #13
   br label %return
 
 sw.bb1:                                           ; preds = %entry
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp2) #13
-  %1 = getelementptr inbounds %"class.std::__cxx11::basic_string", ptr %agg.result, i64 0, i32 2
+  %1 = getelementptr inbounds i8, ptr %agg.result, i64 16
   call void @_ZNSaIcEC2ERKS_(ptr noundef nonnull align 1 dereferenceable(1) %agg.result, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp2) #13
   store ptr %1, ptr %agg.result, align 8
   store i64 3617339612184403794, ptr %1, align 8
-  %_M_string_length.i.i.i.i5 = getelementptr inbounds %"class.std::__cxx11::basic_string", ptr %agg.result, i64 0, i32 1
+  %_M_string_length.i.i.i.i5 = getelementptr inbounds i8, ptr %agg.result, i64 8
   store i64 8, ptr %_M_string_length.i.i.i.i5, align 8
-  %arrayidx.i.i.i6 = getelementptr inbounds %"class.std::__cxx11::basic_string", ptr %agg.result, i64 0, i32 2, i32 1
+  %arrayidx.i.i.i6 = getelementptr inbounds i8, ptr %agg.result, i64 24
   store i8 0, ptr %arrayidx.i.i.i6, align 8
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp2) #13
   br label %return
 
 sw.bb3:                                           ; preds = %entry
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp4) #13
-  %2 = getelementptr inbounds %"class.std::__cxx11::basic_string", ptr %agg.result, i64 0, i32 2
+  %2 = getelementptr inbounds i8, ptr %agg.result, i64 16
   call void @_ZNSaIcEC2ERKS_(ptr noundef nonnull align 1 dereferenceable(1) %agg.result, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp4) #13
   store ptr %2, ptr %agg.result, align 8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(10) %2, ptr noundef nonnull align 1 dereferenceable(10) @.str.45, i64 10, i1 false)
-  %_M_string_length.i.i.i.i22 = getelementptr inbounds %"class.std::__cxx11::basic_string", ptr %agg.result, i64 0, i32 1
+  %_M_string_length.i.i.i.i22 = getelementptr inbounds i8, ptr %agg.result, i64 8
   store i64 10, ptr %_M_string_length.i.i.i.i22, align 8
-  %arrayidx.i.i.i23 = getelementptr inbounds %"class.std::__cxx11::basic_string", ptr %agg.result, i64 0, i32 2, i32 1, i64 2
+  %arrayidx.i.i.i23 = getelementptr inbounds i8, ptr %agg.result, i64 26
   store i8 0, ptr %arrayidx.i.i.i23, align 2
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp4) #13
   br label %return
 
 sw.bb5:                                           ; preds = %entry
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp6) #13
-  %3 = getelementptr inbounds %"class.std::__cxx11::basic_string", ptr %agg.result, i64 0, i32 2
+  %3 = getelementptr inbounds i8, ptr %agg.result, i64 16
   call void @_ZNSaIcEC2ERKS_(ptr noundef nonnull align 1 dereferenceable(1) %agg.result, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp6) #13
   store ptr %3, ptr %agg.result, align 8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(11) %3, ptr noundef nonnull align 1 dereferenceable(11) @.str.46, i64 11, i1 false)
-  %_M_string_length.i.i.i.i39 = getelementptr inbounds %"class.std::__cxx11::basic_string", ptr %agg.result, i64 0, i32 1
+  %_M_string_length.i.i.i.i39 = getelementptr inbounds i8, ptr %agg.result, i64 8
   store i64 11, ptr %_M_string_length.i.i.i.i39, align 8
-  %arrayidx.i.i.i40 = getelementptr inbounds %"class.std::__cxx11::basic_string", ptr %agg.result, i64 0, i32 2, i32 1, i64 3
+  %arrayidx.i.i.i40 = getelementptr inbounds i8, ptr %agg.result, i64 27
   store i8 0, ptr %arrayidx.i.i.i40, align 1
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp6) #13
   br label %return
 
 sw.bb7:                                           ; preds = %entry
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp8) #13
-  %4 = getelementptr inbounds %"class.std::__cxx11::basic_string", ptr %agg.result, i64 0, i32 2
+  %4 = getelementptr inbounds i8, ptr %agg.result, i64 16
   call void @_ZNSaIcEC2ERKS_(ptr noundef nonnull align 1 dereferenceable(1) %agg.result, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp8) #13
   store ptr %4, ptr %agg.result, align 8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(11) %4, ptr noundef nonnull align 1 dereferenceable(11) @.str.47, i64 11, i1 false)
-  %_M_string_length.i.i.i.i56 = getelementptr inbounds %"class.std::__cxx11::basic_string", ptr %agg.result, i64 0, i32 1
+  %_M_string_length.i.i.i.i56 = getelementptr inbounds i8, ptr %agg.result, i64 8
   store i64 11, ptr %_M_string_length.i.i.i.i56, align 8
-  %arrayidx.i.i.i57 = getelementptr inbounds %"class.std::__cxx11::basic_string", ptr %agg.result, i64 0, i32 2, i32 1, i64 3
+  %arrayidx.i.i.i57 = getelementptr inbounds i8, ptr %agg.result, i64 27
   store i8 0, ptr %arrayidx.i.i.i57, align 1
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp8) #13
   br label %return
 
 sw.bb9:                                           ; preds = %entry
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp10) #13
-  %5 = getelementptr inbounds %"class.std::__cxx11::basic_string", ptr %agg.result, i64 0, i32 2
+  %5 = getelementptr inbounds i8, ptr %agg.result, i64 16
   call void @_ZNSaIcEC2ERKS_(ptr noundef nonnull align 1 dereferenceable(1) %agg.result, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp10) #13
   store ptr %5, ptr %agg.result, align 8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(10) %5, ptr noundef nonnull align 1 dereferenceable(10) @.str.48, i64 10, i1 false)
-  %_M_string_length.i.i.i.i73 = getelementptr inbounds %"class.std::__cxx11::basic_string", ptr %agg.result, i64 0, i32 1
+  %_M_string_length.i.i.i.i73 = getelementptr inbounds i8, ptr %agg.result, i64 8
   store i64 10, ptr %_M_string_length.i.i.i.i73, align 8
-  %arrayidx.i.i.i74 = getelementptr inbounds %"class.std::__cxx11::basic_string", ptr %agg.result, i64 0, i32 2, i32 1, i64 2
+  %arrayidx.i.i.i74 = getelementptr inbounds i8, ptr %agg.result, i64 26
   store i8 0, ptr %arrayidx.i.i.i74, align 2
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp10) #13
   br label %return
 
 sw.bb11:                                          ; preds = %entry
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp12) #13
-  %6 = getelementptr inbounds %"class.std::__cxx11::basic_string", ptr %agg.result, i64 0, i32 2
+  %6 = getelementptr inbounds i8, ptr %agg.result, i64 16
   call void @_ZNSaIcEC2ERKS_(ptr noundef nonnull align 1 dereferenceable(1) %agg.result, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp12) #13
   store ptr %6, ptr %agg.result, align 8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(14) %6, ptr noundef nonnull align 1 dereferenceable(14) @.str.49, i64 14, i1 false)
-  %_M_string_length.i.i.i.i90 = getelementptr inbounds %"class.std::__cxx11::basic_string", ptr %agg.result, i64 0, i32 1
+  %_M_string_length.i.i.i.i90 = getelementptr inbounds i8, ptr %agg.result, i64 8
   store i64 14, ptr %_M_string_length.i.i.i.i90, align 8
-  %arrayidx.i.i.i91 = getelementptr inbounds %"class.std::__cxx11::basic_string", ptr %agg.result, i64 0, i32 2, i32 1, i64 6
+  %arrayidx.i.i.i91 = getelementptr inbounds i8, ptr %agg.result, i64 30
   store i8 0, ptr %arrayidx.i.i.i91, align 2
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp12) #13
   br label %return
 
 sw.bb13:                                          ; preds = %entry
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp14) #13
-  %7 = getelementptr inbounds %"class.std::__cxx11::basic_string", ptr %agg.result, i64 0, i32 2
+  %7 = getelementptr inbounds i8, ptr %agg.result, i64 16
   call void @_ZNSaIcEC2ERKS_(ptr noundef nonnull align 1 dereferenceable(1) %agg.result, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp14) #13
   store ptr %7, ptr %agg.result, align 8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(15) %7, ptr noundef nonnull align 1 dereferenceable(15) @.str.50, i64 15, i1 false)
-  %_M_string_length.i.i.i.i107 = getelementptr inbounds %"class.std::__cxx11::basic_string", ptr %agg.result, i64 0, i32 1
+  %_M_string_length.i.i.i.i107 = getelementptr inbounds i8, ptr %agg.result, i64 8
   store i64 15, ptr %_M_string_length.i.i.i.i107, align 8
-  %arrayidx.i.i.i108 = getelementptr inbounds %"class.std::__cxx11::basic_string", ptr %agg.result, i64 0, i32 2, i32 1, i64 7
+  %arrayidx.i.i.i108 = getelementptr inbounds i8, ptr %agg.result, i64 31
   store i8 0, ptr %arrayidx.i.i.i108, align 1
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp14) #13
   br label %return
 
 sw.bb15:                                          ; preds = %entry
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp16) #13
-  %8 = getelementptr inbounds %"class.std::__cxx11::basic_string", ptr %agg.result, i64 0, i32 2
+  %8 = getelementptr inbounds i8, ptr %agg.result, i64 16
   call void @_ZNSaIcEC2ERKS_(ptr noundef nonnull align 1 dereferenceable(1) %agg.result, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp16) #13
   store ptr %8, ptr %agg.result, align 8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(14) %8, ptr noundef nonnull align 1 dereferenceable(14) @.str.51, i64 14, i1 false)
-  %_M_string_length.i.i.i.i124 = getelementptr inbounds %"class.std::__cxx11::basic_string", ptr %agg.result, i64 0, i32 1
+  %_M_string_length.i.i.i.i124 = getelementptr inbounds i8, ptr %agg.result, i64 8
   store i64 14, ptr %_M_string_length.i.i.i.i124, align 8
-  %arrayidx.i.i.i125 = getelementptr inbounds %"class.std::__cxx11::basic_string", ptr %agg.result, i64 0, i32 2, i32 1, i64 6
+  %arrayidx.i.i.i125 = getelementptr inbounds i8, ptr %agg.result, i64 30
   store i8 0, ptr %arrayidx.i.i.i125, align 2
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp16) #13
   br label %return
 
 sw.bb17:                                          ; preds = %entry
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp18) #13
-  %9 = getelementptr inbounds %"class.std::__cxx11::basic_string", ptr %agg.result, i64 0, i32 2
+  %9 = getelementptr inbounds i8, ptr %agg.result, i64 16
   call void @_ZNSaIcEC2ERKS_(ptr noundef nonnull align 1 dereferenceable(1) %agg.result, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp18) #13
   store ptr %9, ptr %agg.result, align 8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(12) %9, ptr noundef nonnull align 1 dereferenceable(12) @.str.52, i64 12, i1 false)
-  %_M_string_length.i.i.i.i141 = getelementptr inbounds %"class.std::__cxx11::basic_string", ptr %agg.result, i64 0, i32 1
+  %_M_string_length.i.i.i.i141 = getelementptr inbounds i8, ptr %agg.result, i64 8
   store i64 12, ptr %_M_string_length.i.i.i.i141, align 8
-  %arrayidx.i.i.i142 = getelementptr inbounds %"class.std::__cxx11::basic_string", ptr %agg.result, i64 0, i32 2, i32 1, i64 4
+  %arrayidx.i.i.i142 = getelementptr inbounds i8, ptr %agg.result, i64 28
   store i8 0, ptr %arrayidx.i.i.i142, align 4
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp18) #13
   br label %return
 
 sw.bb19:                                          ; preds = %entry
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp20) #13
-  %10 = getelementptr inbounds %"class.std::__cxx11::basic_string", ptr %agg.result, i64 0, i32 2
+  %10 = getelementptr inbounds i8, ptr %agg.result, i64 16
   call void @_ZNSaIcEC2ERKS_(ptr noundef nonnull align 1 dereferenceable(1) %agg.result, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp20) #13
   store ptr %10, ptr %agg.result, align 8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(11) %10, ptr noundef nonnull align 1 dereferenceable(11) @.str.53, i64 11, i1 false)
-  %_M_string_length.i.i.i.i158 = getelementptr inbounds %"class.std::__cxx11::basic_string", ptr %agg.result, i64 0, i32 1
+  %_M_string_length.i.i.i.i158 = getelementptr inbounds i8, ptr %agg.result, i64 8
   store i64 11, ptr %_M_string_length.i.i.i.i158, align 8
-  %arrayidx.i.i.i159 = getelementptr inbounds %"class.std::__cxx11::basic_string", ptr %agg.result, i64 0, i32 2, i32 1, i64 3
+  %arrayidx.i.i.i159 = getelementptr inbounds i8, ptr %agg.result, i64 27
   store i8 0, ptr %arrayidx.i.i.i159, align 1
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp20) #13
   br label %return
 
 sw.bb21:                                          ; preds = %entry
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp22) #13
-  %11 = getelementptr inbounds %"class.std::__cxx11::basic_string", ptr %agg.result, i64 0, i32 2
+  %11 = getelementptr inbounds i8, ptr %agg.result, i64 16
   call void @_ZNSaIcEC2ERKS_(ptr noundef nonnull align 1 dereferenceable(1) %agg.result, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp22) #13
   store ptr %11, ptr %agg.result, align 8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(11) %11, ptr noundef nonnull align 1 dereferenceable(11) @.str.54, i64 11, i1 false)
-  %_M_string_length.i.i.i.i175 = getelementptr inbounds %"class.std::__cxx11::basic_string", ptr %agg.result, i64 0, i32 1
+  %_M_string_length.i.i.i.i175 = getelementptr inbounds i8, ptr %agg.result, i64 8
   store i64 11, ptr %_M_string_length.i.i.i.i175, align 8
-  %arrayidx.i.i.i176 = getelementptr inbounds %"class.std::__cxx11::basic_string", ptr %agg.result, i64 0, i32 2, i32 1, i64 3
+  %arrayidx.i.i.i176 = getelementptr inbounds i8, ptr %agg.result, i64 27
   store i8 0, ptr %arrayidx.i.i.i176, align 1
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp22) #13
   br label %return
 
 sw.bb23:                                          ; preds = %entry
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp24) #13
-  %12 = getelementptr inbounds %"class.std::__cxx11::basic_string", ptr %agg.result, i64 0, i32 2
+  %12 = getelementptr inbounds i8, ptr %agg.result, i64 16
   call void @_ZNSaIcEC2ERKS_(ptr noundef nonnull align 1 dereferenceable(1) %agg.result, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp24) #13
   store ptr %12, ptr %agg.result, align 8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(15) %12, ptr noundef nonnull align 1 dereferenceable(15) @.str.55, i64 15, i1 false)
-  %_M_string_length.i.i.i.i192 = getelementptr inbounds %"class.std::__cxx11::basic_string", ptr %agg.result, i64 0, i32 1
+  %_M_string_length.i.i.i.i192 = getelementptr inbounds i8, ptr %agg.result, i64 8
   store i64 15, ptr %_M_string_length.i.i.i.i192, align 8
-  %arrayidx.i.i.i193 = getelementptr inbounds %"class.std::__cxx11::basic_string", ptr %agg.result, i64 0, i32 2, i32 1, i64 7
+  %arrayidx.i.i.i193 = getelementptr inbounds i8, ptr %agg.result, i64 31
   store i8 0, ptr %arrayidx.i.i.i193, align 1
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp24) #13
   br label %return
 
 sw.bb25:                                          ; preds = %entry
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp26) #13
-  %13 = getelementptr inbounds %"class.std::__cxx11::basic_string", ptr %agg.result, i64 0, i32 2
+  %13 = getelementptr inbounds i8, ptr %agg.result, i64 16
   call void @_ZNSaIcEC2ERKS_(ptr noundef nonnull align 1 dereferenceable(1) %agg.result, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp26) #13
   store ptr %13, ptr %agg.result, align 8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(12) %13, ptr noundef nonnull align 1 dereferenceable(12) @.str.56, i64 12, i1 false)
-  %_M_string_length.i.i.i.i209 = getelementptr inbounds %"class.std::__cxx11::basic_string", ptr %agg.result, i64 0, i32 1
+  %_M_string_length.i.i.i.i209 = getelementptr inbounds i8, ptr %agg.result, i64 8
   store i64 12, ptr %_M_string_length.i.i.i.i209, align 8
-  %arrayidx.i.i.i210 = getelementptr inbounds %"class.std::__cxx11::basic_string", ptr %agg.result, i64 0, i32 2, i32 1, i64 4
+  %arrayidx.i.i.i210 = getelementptr inbounds i8, ptr %agg.result, i64 28
   store i8 0, ptr %arrayidx.i.i.i210, align 4
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp26) #13
   br label %return
 
 sw.bb27:                                          ; preds = %entry
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp28) #13
-  %14 = getelementptr inbounds %"class.std::__cxx11::basic_string", ptr %agg.result, i64 0, i32 2
+  %14 = getelementptr inbounds i8, ptr %agg.result, i64 16
   call void @_ZNSaIcEC2ERKS_(ptr noundef nonnull align 1 dereferenceable(1) %agg.result, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp28) #13
   store ptr %14, ptr %agg.result, align 8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(15) %14, ptr noundef nonnull align 1 dereferenceable(15) @.str.57, i64 15, i1 false)
-  %_M_string_length.i.i.i.i226 = getelementptr inbounds %"class.std::__cxx11::basic_string", ptr %agg.result, i64 0, i32 1
+  %_M_string_length.i.i.i.i226 = getelementptr inbounds i8, ptr %agg.result, i64 8
   store i64 15, ptr %_M_string_length.i.i.i.i226, align 8
-  %arrayidx.i.i.i227 = getelementptr inbounds %"class.std::__cxx11::basic_string", ptr %agg.result, i64 0, i32 2, i32 1, i64 7
+  %arrayidx.i.i.i227 = getelementptr inbounds i8, ptr %agg.result, i64 31
   store i8 0, ptr %arrayidx.i.i.i227, align 1
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp28) #13
   br label %return
 
 sw.bb29:                                          ; preds = %entry
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp30) #13
-  %15 = getelementptr inbounds %"class.std::__cxx11::basic_string", ptr %agg.result, i64 0, i32 2
+  %15 = getelementptr inbounds i8, ptr %agg.result, i64 16
   call void @_ZNSaIcEC2ERKS_(ptr noundef nonnull align 1 dereferenceable(1) %agg.result, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp30) #13
   store ptr %15, ptr %agg.result, align 8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(12) %15, ptr noundef nonnull align 1 dereferenceable(12) @.str.58, i64 12, i1 false)
-  %_M_string_length.i.i.i.i243 = getelementptr inbounds %"class.std::__cxx11::basic_string", ptr %agg.result, i64 0, i32 1
+  %_M_string_length.i.i.i.i243 = getelementptr inbounds i8, ptr %agg.result, i64 8
   store i64 12, ptr %_M_string_length.i.i.i.i243, align 8
-  %arrayidx.i.i.i244 = getelementptr inbounds %"class.std::__cxx11::basic_string", ptr %agg.result, i64 0, i32 2, i32 1, i64 4
+  %arrayidx.i.i.i244 = getelementptr inbounds i8, ptr %agg.result, i64 28
   store i8 0, ptr %arrayidx.i.i.i244, align 4
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp30) #13
   br label %return
 
 sw.bb31:                                          ; preds = %entry
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp32) #13
-  %16 = getelementptr inbounds %"class.std::__cxx11::basic_string", ptr %agg.result, i64 0, i32 2
+  %16 = getelementptr inbounds i8, ptr %agg.result, i64 16
   call void @_ZNSaIcEC2ERKS_(ptr noundef nonnull align 1 dereferenceable(1) %agg.result, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp32) #13
   store ptr %16, ptr %agg.result, align 8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(12) %16, ptr noundef nonnull align 1 dereferenceable(12) @.str.59, i64 12, i1 false)
-  %_M_string_length.i.i.i.i260 = getelementptr inbounds %"class.std::__cxx11::basic_string", ptr %agg.result, i64 0, i32 1
+  %_M_string_length.i.i.i.i260 = getelementptr inbounds i8, ptr %agg.result, i64 8
   store i64 12, ptr %_M_string_length.i.i.i.i260, align 8
-  %arrayidx.i.i.i261 = getelementptr inbounds %"class.std::__cxx11::basic_string", ptr %agg.result, i64 0, i32 2, i32 1, i64 4
+  %arrayidx.i.i.i261 = getelementptr inbounds i8, ptr %agg.result, i64 28
   store i8 0, ptr %arrayidx.i.i.i261, align 4
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp32) #13
   br label %return
 
 sw.bb33:                                          ; preds = %entry
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp34) #13
-  %17 = getelementptr inbounds %"class.std::__cxx11::basic_string", ptr %agg.result, i64 0, i32 2
+  %17 = getelementptr inbounds i8, ptr %agg.result, i64 16
   call void @_ZNSaIcEC2ERKS_(ptr noundef nonnull align 1 dereferenceable(1) %agg.result, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp34) #13
   store ptr %17, ptr %agg.result, align 8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(13) %17, ptr noundef nonnull align 1 dereferenceable(13) @.str.60, i64 13, i1 false)
-  %_M_string_length.i.i.i.i277 = getelementptr inbounds %"class.std::__cxx11::basic_string", ptr %agg.result, i64 0, i32 1
+  %_M_string_length.i.i.i.i277 = getelementptr inbounds i8, ptr %agg.result, i64 8
   store i64 13, ptr %_M_string_length.i.i.i.i277, align 8
-  %arrayidx.i.i.i278 = getelementptr inbounds %"class.std::__cxx11::basic_string", ptr %agg.result, i64 0, i32 2, i32 1, i64 5
+  %arrayidx.i.i.i278 = getelementptr inbounds i8, ptr %agg.result, i64 29
   store i8 0, ptr %arrayidx.i.i.i278, align 1
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp34) #13
   br label %return
 
 sw.bb35:                                          ; preds = %entry
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp36) #13
-  %18 = getelementptr inbounds %"class.std::__cxx11::basic_string", ptr %agg.result, i64 0, i32 2
+  %18 = getelementptr inbounds i8, ptr %agg.result, i64 16
   call void @_ZNSaIcEC2ERKS_(ptr noundef nonnull align 1 dereferenceable(1) %agg.result, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp36) #13
   store ptr %18, ptr %agg.result, align 8
   store i64 3905007038382694226, ptr %18, align 8
-  %_M_string_length.i.i.i.i294 = getelementptr inbounds %"class.std::__cxx11::basic_string", ptr %agg.result, i64 0, i32 1
+  %_M_string_length.i.i.i.i294 = getelementptr inbounds i8, ptr %agg.result, i64 8
   store i64 8, ptr %_M_string_length.i.i.i.i294, align 8
-  %arrayidx.i.i.i295 = getelementptr inbounds %"class.std::__cxx11::basic_string", ptr %agg.result, i64 0, i32 2, i32 1
+  %arrayidx.i.i.i295 = getelementptr inbounds i8, ptr %agg.result, i64 24
   store i8 0, ptr %arrayidx.i.i.i295, align 8
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp36) #13
   br label %return
 
 sw.bb37:                                          ; preds = %entry
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp38) #13
-  %19 = getelementptr inbounds %"class.std::__cxx11::basic_string", ptr %agg.result, i64 0, i32 2
+  %19 = getelementptr inbounds i8, ptr %agg.result, i64 16
   call void @_ZNSaIcEC2ERKS_(ptr noundef nonnull align 1 dereferenceable(1) %agg.result, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp38) #13
   store ptr %19, ptr %agg.result, align 8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(10) %19, ptr noundef nonnull align 1 dereferenceable(10) @.str.62, i64 10, i1 false)
-  %_M_string_length.i.i.i.i311 = getelementptr inbounds %"class.std::__cxx11::basic_string", ptr %agg.result, i64 0, i32 1
+  %_M_string_length.i.i.i.i311 = getelementptr inbounds i8, ptr %agg.result, i64 8
   store i64 10, ptr %_M_string_length.i.i.i.i311, align 8
-  %arrayidx.i.i.i312 = getelementptr inbounds %"class.std::__cxx11::basic_string", ptr %agg.result, i64 0, i32 2, i32 1, i64 2
+  %arrayidx.i.i.i312 = getelementptr inbounds i8, ptr %agg.result, i64 26
   store i8 0, ptr %arrayidx.i.i.i312, align 2
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp38) #13
   br label %return
 
 sw.bb39:                                          ; preds = %entry
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp40) #13
-  %20 = getelementptr inbounds %"class.std::__cxx11::basic_string", ptr %agg.result, i64 0, i32 2
+  %20 = getelementptr inbounds i8, ptr %agg.result, i64 16
   call void @_ZNSaIcEC2ERKS_(ptr noundef nonnull align 1 dereferenceable(1) %agg.result, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp40) #13
   store ptr %20, ptr %agg.result, align 8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(7) %20, ptr noundef nonnull align 1 dereferenceable(7) @.str.63, i64 7, i1 false)
-  %_M_string_length.i.i.i.i328 = getelementptr inbounds %"class.std::__cxx11::basic_string", ptr %agg.result, i64 0, i32 1
+  %_M_string_length.i.i.i.i328 = getelementptr inbounds i8, ptr %agg.result, i64 8
   store i64 7, ptr %_M_string_length.i.i.i.i328, align 8
   %arrayidx.i.i.i329 = getelementptr inbounds i8, ptr %agg.result, i64 23
   store i8 0, ptr %arrayidx.i.i.i329, align 1
@@ -2192,39 +2192,39 @@ sw.bb39:                                          ; preds = %entry
 
 sw.bb41:                                          ; preds = %entry
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp42) #13
-  %21 = getelementptr inbounds %"class.std::__cxx11::basic_string", ptr %agg.result, i64 0, i32 2
+  %21 = getelementptr inbounds i8, ptr %agg.result, i64 16
   call void @_ZNSaIcEC2ERKS_(ptr noundef nonnull align 1 dereferenceable(1) %agg.result, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp42) #13
   store ptr %21, ptr %agg.result, align 8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(9) %21, ptr noundef nonnull align 1 dereferenceable(9) @.str.64, i64 9, i1 false)
-  %_M_string_length.i.i.i.i345 = getelementptr inbounds %"class.std::__cxx11::basic_string", ptr %agg.result, i64 0, i32 1
+  %_M_string_length.i.i.i.i345 = getelementptr inbounds i8, ptr %agg.result, i64 8
   store i64 9, ptr %_M_string_length.i.i.i.i345, align 8
-  %arrayidx.i.i.i346 = getelementptr inbounds %"class.std::__cxx11::basic_string", ptr %agg.result, i64 0, i32 2, i32 1, i64 1
+  %arrayidx.i.i.i346 = getelementptr inbounds i8, ptr %agg.result, i64 25
   store i8 0, ptr %arrayidx.i.i.i346, align 1
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp42) #13
   br label %return
 
 sw.bb43:                                          ; preds = %entry
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp44) #13
-  %22 = getelementptr inbounds %"class.std::__cxx11::basic_string", ptr %agg.result, i64 0, i32 2
+  %22 = getelementptr inbounds i8, ptr %agg.result, i64 16
   call void @_ZNSaIcEC2ERKS_(ptr noundef nonnull align 1 dereferenceable(1) %agg.result, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp44) #13
   store ptr %22, ptr %agg.result, align 8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(15) %22, ptr noundef nonnull align 1 dereferenceable(15) @.str.65, i64 15, i1 false)
-  %_M_string_length.i.i.i.i362 = getelementptr inbounds %"class.std::__cxx11::basic_string", ptr %agg.result, i64 0, i32 1
+  %_M_string_length.i.i.i.i362 = getelementptr inbounds i8, ptr %agg.result, i64 8
   store i64 15, ptr %_M_string_length.i.i.i.i362, align 8
-  %arrayidx.i.i.i363 = getelementptr inbounds %"class.std::__cxx11::basic_string", ptr %agg.result, i64 0, i32 2, i32 1, i64 7
+  %arrayidx.i.i.i363 = getelementptr inbounds i8, ptr %agg.result, i64 31
   store i8 0, ptr %arrayidx.i.i.i363, align 1
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp44) #13
   br label %return
 
 sw.bb45:                                          ; preds = %entry
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp46) #13
-  %23 = getelementptr inbounds %"class.std::__cxx11::basic_string", ptr %agg.result, i64 0, i32 2
+  %23 = getelementptr inbounds i8, ptr %agg.result, i64 16
   call void @_ZNSaIcEC2ERKS_(ptr noundef nonnull align 1 dereferenceable(1) %agg.result, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp46) #13
   %call5.i.i.i.i.i389 = call noalias noundef nonnull dereferenceable(18) ptr @_Znwm(i64 noundef 18) #15
   store ptr %call5.i.i.i.i.i389, ptr %agg.result, align 8
   store i64 17, ptr %23, align 8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(17) %call5.i.i.i.i.i389, ptr noundef nonnull align 1 dereferenceable(17) @.str.66, i64 17, i1 false)
-  %_M_string_length.i.i.i.i379 = getelementptr inbounds %"class.std::__cxx11::basic_string", ptr %agg.result, i64 0, i32 1
+  %_M_string_length.i.i.i.i379 = getelementptr inbounds i8, ptr %agg.result, i64 8
   store i64 17, ptr %_M_string_length.i.i.i.i379, align 8
   %arrayidx.i.i.i380 = getelementptr inbounds i8, ptr %call5.i.i.i.i.i389, i64 17
   store i8 0, ptr %arrayidx.i.i.i380, align 1
@@ -2233,13 +2233,13 @@ sw.bb45:                                          ; preds = %entry
 
 sw.bb47:                                          ; preds = %entry
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp48) #13
-  %24 = getelementptr inbounds %"class.std::__cxx11::basic_string", ptr %agg.result, i64 0, i32 2
+  %24 = getelementptr inbounds i8, ptr %agg.result, i64 16
   call void @_ZNSaIcEC2ERKS_(ptr noundef nonnull align 1 dereferenceable(1) %agg.result, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp48) #13
   %call5.i.i.i.i.i406 = call noalias noundef nonnull dereferenceable(18) ptr @_Znwm(i64 noundef 18) #15
   store ptr %call5.i.i.i.i.i406, ptr %agg.result, align 8
   store i64 17, ptr %24, align 8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(17) %call5.i.i.i.i.i406, ptr noundef nonnull align 1 dereferenceable(17) @.str.67, i64 17, i1 false)
-  %_M_string_length.i.i.i.i396 = getelementptr inbounds %"class.std::__cxx11::basic_string", ptr %agg.result, i64 0, i32 1
+  %_M_string_length.i.i.i.i396 = getelementptr inbounds i8, ptr %agg.result, i64 8
   store i64 17, ptr %_M_string_length.i.i.i.i396, align 8
   %arrayidx.i.i.i397 = getelementptr inbounds i8, ptr %call5.i.i.i.i.i406, i64 17
   store i8 0, ptr %arrayidx.i.i.i397, align 1
@@ -2248,13 +2248,13 @@ sw.bb47:                                          ; preds = %entry
 
 sw.bb49:                                          ; preds = %entry
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp50) #13
-  %25 = getelementptr inbounds %"class.std::__cxx11::basic_string", ptr %agg.result, i64 0, i32 2
+  %25 = getelementptr inbounds i8, ptr %agg.result, i64 16
   call void @_ZNSaIcEC2ERKS_(ptr noundef nonnull align 1 dereferenceable(1) %agg.result, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp50) #13
   %call5.i.i.i.i.i423 = call noalias noundef nonnull dereferenceable(17) ptr @_Znwm(i64 noundef 17) #15
   store ptr %call5.i.i.i.i.i423, ptr %agg.result, align 8
   store i64 16, ptr %25, align 8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(16) %call5.i.i.i.i.i423, ptr noundef nonnull align 1 dereferenceable(16) @.str.68, i64 16, i1 false)
-  %_M_string_length.i.i.i.i413 = getelementptr inbounds %"class.std::__cxx11::basic_string", ptr %agg.result, i64 0, i32 1
+  %_M_string_length.i.i.i.i413 = getelementptr inbounds i8, ptr %agg.result, i64 8
   store i64 16, ptr %_M_string_length.i.i.i.i413, align 8
   %arrayidx.i.i.i414 = getelementptr inbounds i8, ptr %call5.i.i.i.i.i423, i64 16
   store i8 0, ptr %arrayidx.i.i.i414, align 1
@@ -2263,13 +2263,13 @@ sw.bb49:                                          ; preds = %entry
 
 sw.bb51:                                          ; preds = %entry
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp52) #13
-  %26 = getelementptr inbounds %"class.std::__cxx11::basic_string", ptr %agg.result, i64 0, i32 2
+  %26 = getelementptr inbounds i8, ptr %agg.result, i64 16
   call void @_ZNSaIcEC2ERKS_(ptr noundef nonnull align 1 dereferenceable(1) %agg.result, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp52) #13
   %call5.i.i.i.i.i440 = call noalias noundef nonnull dereferenceable(17) ptr @_Znwm(i64 noundef 17) #15
   store ptr %call5.i.i.i.i.i440, ptr %agg.result, align 8
   store i64 16, ptr %26, align 8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(16) %call5.i.i.i.i.i440, ptr noundef nonnull align 1 dereferenceable(16) @.str.69, i64 16, i1 false)
-  %_M_string_length.i.i.i.i430 = getelementptr inbounds %"class.std::__cxx11::basic_string", ptr %agg.result, i64 0, i32 1
+  %_M_string_length.i.i.i.i430 = getelementptr inbounds i8, ptr %agg.result, i64 8
   store i64 16, ptr %_M_string_length.i.i.i.i430, align 8
   %arrayidx.i.i.i431 = getelementptr inbounds i8, ptr %call5.i.i.i.i.i440, i64 16
   store i8 0, ptr %arrayidx.i.i.i431, align 1
@@ -2278,13 +2278,13 @@ sw.bb51:                                          ; preds = %entry
 
 sw.bb53:                                          ; preds = %entry
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp54) #13
-  %27 = getelementptr inbounds %"class.std::__cxx11::basic_string", ptr %agg.result, i64 0, i32 2
+  %27 = getelementptr inbounds i8, ptr %agg.result, i64 16
   call void @_ZNSaIcEC2ERKS_(ptr noundef nonnull align 1 dereferenceable(1) %agg.result, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp54) #13
   %call5.i.i.i.i.i457 = call noalias noundef nonnull dereferenceable(19) ptr @_Znwm(i64 noundef 19) #15
   store ptr %call5.i.i.i.i.i457, ptr %agg.result, align 8
   store i64 18, ptr %27, align 8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(18) %call5.i.i.i.i.i457, ptr noundef nonnull align 1 dereferenceable(18) @.str.70, i64 18, i1 false)
-  %_M_string_length.i.i.i.i447 = getelementptr inbounds %"class.std::__cxx11::basic_string", ptr %agg.result, i64 0, i32 1
+  %_M_string_length.i.i.i.i447 = getelementptr inbounds i8, ptr %agg.result, i64 8
   store i64 18, ptr %_M_string_length.i.i.i.i447, align 8
   %arrayidx.i.i.i448 = getelementptr inbounds i8, ptr %call5.i.i.i.i.i457, i64 18
   store i8 0, ptr %arrayidx.i.i.i448, align 1
@@ -2293,13 +2293,13 @@ sw.bb53:                                          ; preds = %entry
 
 sw.bb55:                                          ; preds = %entry
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp56) #13
-  %28 = getelementptr inbounds %"class.std::__cxx11::basic_string", ptr %agg.result, i64 0, i32 2
+  %28 = getelementptr inbounds i8, ptr %agg.result, i64 16
   call void @_ZNSaIcEC2ERKS_(ptr noundef nonnull align 1 dereferenceable(1) %agg.result, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp56) #13
   %call5.i.i.i.i.i474 = call noalias noundef nonnull dereferenceable(19) ptr @_Znwm(i64 noundef 19) #15
   store ptr %call5.i.i.i.i.i474, ptr %agg.result, align 8
   store i64 18, ptr %28, align 8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(18) %call5.i.i.i.i.i474, ptr noundef nonnull align 1 dereferenceable(18) @.str.71, i64 18, i1 false)
-  %_M_string_length.i.i.i.i464 = getelementptr inbounds %"class.std::__cxx11::basic_string", ptr %agg.result, i64 0, i32 1
+  %_M_string_length.i.i.i.i464 = getelementptr inbounds i8, ptr %agg.result, i64 8
   store i64 18, ptr %_M_string_length.i.i.i.i464, align 8
   %arrayidx.i.i.i465 = getelementptr inbounds i8, ptr %call5.i.i.i.i.i474, i64 18
   store i8 0, ptr %arrayidx.i.i.i465, align 1
@@ -2308,13 +2308,13 @@ sw.bb55:                                          ; preds = %entry
 
 sw.bb57:                                          ; preds = %entry
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp58) #13
-  %29 = getelementptr inbounds %"class.std::__cxx11::basic_string", ptr %agg.result, i64 0, i32 2
+  %29 = getelementptr inbounds i8, ptr %agg.result, i64 16
   call void @_ZNSaIcEC2ERKS_(ptr noundef nonnull align 1 dereferenceable(1) %agg.result, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp58) #13
   %call5.i.i.i.i.i491 = call noalias noundef nonnull dereferenceable(18) ptr @_Znwm(i64 noundef 18) #15
   store ptr %call5.i.i.i.i.i491, ptr %agg.result, align 8
   store i64 17, ptr %29, align 8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(17) %call5.i.i.i.i.i491, ptr noundef nonnull align 1 dereferenceable(17) @.str.72, i64 17, i1 false)
-  %_M_string_length.i.i.i.i481 = getelementptr inbounds %"class.std::__cxx11::basic_string", ptr %agg.result, i64 0, i32 1
+  %_M_string_length.i.i.i.i481 = getelementptr inbounds i8, ptr %agg.result, i64 8
   store i64 17, ptr %_M_string_length.i.i.i.i481, align 8
   %arrayidx.i.i.i482 = getelementptr inbounds i8, ptr %call5.i.i.i.i.i491, i64 17
   store i8 0, ptr %arrayidx.i.i.i482, align 1
@@ -2323,13 +2323,13 @@ sw.bb57:                                          ; preds = %entry
 
 sw.bb59:                                          ; preds = %entry
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp60) #13
-  %30 = getelementptr inbounds %"class.std::__cxx11::basic_string", ptr %agg.result, i64 0, i32 2
+  %30 = getelementptr inbounds i8, ptr %agg.result, i64 16
   call void @_ZNSaIcEC2ERKS_(ptr noundef nonnull align 1 dereferenceable(1) %agg.result, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp60) #13
   %call5.i.i.i.i.i508 = call noalias noundef nonnull dereferenceable(17) ptr @_Znwm(i64 noundef 17) #15
   store ptr %call5.i.i.i.i.i508, ptr %agg.result, align 8
   store i64 16, ptr %30, align 8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(16) %call5.i.i.i.i.i508, ptr noundef nonnull align 1 dereferenceable(16) @.str.73, i64 16, i1 false)
-  %_M_string_length.i.i.i.i498 = getelementptr inbounds %"class.std::__cxx11::basic_string", ptr %agg.result, i64 0, i32 1
+  %_M_string_length.i.i.i.i498 = getelementptr inbounds i8, ptr %agg.result, i64 8
   store i64 16, ptr %_M_string_length.i.i.i.i498, align 8
   %arrayidx.i.i.i499 = getelementptr inbounds i8, ptr %call5.i.i.i.i.i508, i64 16
   store i8 0, ptr %arrayidx.i.i.i499, align 1
@@ -2338,39 +2338,39 @@ sw.bb59:                                          ; preds = %entry
 
 sw.bb61:                                          ; preds = %entry
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp62) #13
-  %31 = getelementptr inbounds %"class.std::__cxx11::basic_string", ptr %agg.result, i64 0, i32 2
+  %31 = getelementptr inbounds i8, ptr %agg.result, i64 16
   call void @_ZNSaIcEC2ERKS_(ptr noundef nonnull align 1 dereferenceable(1) %agg.result, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp62) #13
   store ptr %31, ptr %agg.result, align 8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(15) %31, ptr noundef nonnull align 1 dereferenceable(15) @.str.74, i64 15, i1 false)
-  %_M_string_length.i.i.i.i515 = getelementptr inbounds %"class.std::__cxx11::basic_string", ptr %agg.result, i64 0, i32 1
+  %_M_string_length.i.i.i.i515 = getelementptr inbounds i8, ptr %agg.result, i64 8
   store i64 15, ptr %_M_string_length.i.i.i.i515, align 8
-  %arrayidx.i.i.i516 = getelementptr inbounds %"class.std::__cxx11::basic_string", ptr %agg.result, i64 0, i32 2, i32 1, i64 7
+  %arrayidx.i.i.i516 = getelementptr inbounds i8, ptr %agg.result, i64 31
   store i8 0, ptr %arrayidx.i.i.i516, align 1
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp62) #13
   br label %return
 
 sw.bb63:                                          ; preds = %entry
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp64) #13
-  %32 = getelementptr inbounds %"class.std::__cxx11::basic_string", ptr %agg.result, i64 0, i32 2
+  %32 = getelementptr inbounds i8, ptr %agg.result, i64 16
   call void @_ZNSaIcEC2ERKS_(ptr noundef nonnull align 1 dereferenceable(1) %agg.result, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp64) #13
   store ptr %32, ptr %agg.result, align 8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(15) %32, ptr noundef nonnull align 1 dereferenceable(15) @.str.75, i64 15, i1 false)
-  %_M_string_length.i.i.i.i532 = getelementptr inbounds %"class.std::__cxx11::basic_string", ptr %agg.result, i64 0, i32 1
+  %_M_string_length.i.i.i.i532 = getelementptr inbounds i8, ptr %agg.result, i64 8
   store i64 15, ptr %_M_string_length.i.i.i.i532, align 8
-  %arrayidx.i.i.i533 = getelementptr inbounds %"class.std::__cxx11::basic_string", ptr %agg.result, i64 0, i32 2, i32 1, i64 7
+  %arrayidx.i.i.i533 = getelementptr inbounds i8, ptr %agg.result, i64 31
   store i8 0, ptr %arrayidx.i.i.i533, align 1
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp64) #13
   br label %return
 
 sw.bb65:                                          ; preds = %entry
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp66) #13
-  %33 = getelementptr inbounds %"class.std::__cxx11::basic_string", ptr %agg.result, i64 0, i32 2
+  %33 = getelementptr inbounds i8, ptr %agg.result, i64 16
   call void @_ZNSaIcEC2ERKS_(ptr noundef nonnull align 1 dereferenceable(1) %agg.result, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp66) #13
   %call5.i.i.i.i.i559 = call noalias noundef nonnull dereferenceable(19) ptr @_Znwm(i64 noundef 19) #15
   store ptr %call5.i.i.i.i.i559, ptr %agg.result, align 8
   store i64 18, ptr %33, align 8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(18) %call5.i.i.i.i.i559, ptr noundef nonnull align 1 dereferenceable(18) @.str.76, i64 18, i1 false)
-  %_M_string_length.i.i.i.i549 = getelementptr inbounds %"class.std::__cxx11::basic_string", ptr %agg.result, i64 0, i32 1
+  %_M_string_length.i.i.i.i549 = getelementptr inbounds i8, ptr %agg.result, i64 8
   store i64 18, ptr %_M_string_length.i.i.i.i549, align 8
   %arrayidx.i.i.i550 = getelementptr inbounds i8, ptr %call5.i.i.i.i.i559, i64 18
   store i8 0, ptr %arrayidx.i.i.i550, align 1
@@ -2379,13 +2379,13 @@ sw.bb65:                                          ; preds = %entry
 
 sw.bb67:                                          ; preds = %entry
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp68) #13
-  %34 = getelementptr inbounds %"class.std::__cxx11::basic_string", ptr %agg.result, i64 0, i32 2
+  %34 = getelementptr inbounds i8, ptr %agg.result, i64 16
   call void @_ZNSaIcEC2ERKS_(ptr noundef nonnull align 1 dereferenceable(1) %agg.result, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp68) #13
   %call5.i.i.i.i.i576 = call noalias noundef nonnull dereferenceable(19) ptr @_Znwm(i64 noundef 19) #15
   store ptr %call5.i.i.i.i.i576, ptr %agg.result, align 8
   store i64 18, ptr %34, align 8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(18) %call5.i.i.i.i.i576, ptr noundef nonnull align 1 dereferenceable(18) @.str.77, i64 18, i1 false)
-  %_M_string_length.i.i.i.i566 = getelementptr inbounds %"class.std::__cxx11::basic_string", ptr %agg.result, i64 0, i32 1
+  %_M_string_length.i.i.i.i566 = getelementptr inbounds i8, ptr %agg.result, i64 8
   store i64 18, ptr %_M_string_length.i.i.i.i566, align 8
   %arrayidx.i.i.i567 = getelementptr inbounds i8, ptr %call5.i.i.i.i.i576, i64 18
   store i8 0, ptr %arrayidx.i.i.i567, align 1
@@ -2394,13 +2394,13 @@ sw.bb67:                                          ; preds = %entry
 
 sw.bb69:                                          ; preds = %entry
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp70) #13
-  %35 = getelementptr inbounds %"class.std::__cxx11::basic_string", ptr %agg.result, i64 0, i32 2
+  %35 = getelementptr inbounds i8, ptr %agg.result, i64 16
   call void @_ZNSaIcEC2ERKS_(ptr noundef nonnull align 1 dereferenceable(1) %agg.result, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp70) #13
   %call5.i.i.i.i.i593 = call noalias noundef nonnull dereferenceable(18) ptr @_Znwm(i64 noundef 18) #15
   store ptr %call5.i.i.i.i.i593, ptr %agg.result, align 8
   store i64 17, ptr %35, align 8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(17) %call5.i.i.i.i.i593, ptr noundef nonnull align 1 dereferenceable(17) @.str.78, i64 17, i1 false)
-  %_M_string_length.i.i.i.i583 = getelementptr inbounds %"class.std::__cxx11::basic_string", ptr %agg.result, i64 0, i32 1
+  %_M_string_length.i.i.i.i583 = getelementptr inbounds i8, ptr %agg.result, i64 8
   store i64 17, ptr %_M_string_length.i.i.i.i583, align 8
   %arrayidx.i.i.i584 = getelementptr inbounds i8, ptr %call5.i.i.i.i.i593, i64 17
   store i8 0, ptr %arrayidx.i.i.i584, align 1
@@ -2409,26 +2409,26 @@ sw.bb69:                                          ; preds = %entry
 
 sw.bb71:                                          ; preds = %entry
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp72) #13
-  %36 = getelementptr inbounds %"class.std::__cxx11::basic_string", ptr %agg.result, i64 0, i32 2
+  %36 = getelementptr inbounds i8, ptr %agg.result, i64 16
   call void @_ZNSaIcEC2ERKS_(ptr noundef nonnull align 1 dereferenceable(1) %agg.result, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp72) #13
   store ptr %36, ptr %agg.result, align 8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(12) %36, ptr noundef nonnull align 1 dereferenceable(12) @.str.79, i64 12, i1 false)
-  %_M_string_length.i.i.i.i600 = getelementptr inbounds %"class.std::__cxx11::basic_string", ptr %agg.result, i64 0, i32 1
+  %_M_string_length.i.i.i.i600 = getelementptr inbounds i8, ptr %agg.result, i64 8
   store i64 12, ptr %_M_string_length.i.i.i.i600, align 8
-  %arrayidx.i.i.i601 = getelementptr inbounds %"class.std::__cxx11::basic_string", ptr %agg.result, i64 0, i32 2, i32 1, i64 4
+  %arrayidx.i.i.i601 = getelementptr inbounds i8, ptr %agg.result, i64 28
   store i8 0, ptr %arrayidx.i.i.i601, align 4
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp72) #13
   br label %return
 
 sw.bb73:                                          ; preds = %entry
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp74) #13
-  %37 = getelementptr inbounds %"class.std::__cxx11::basic_string", ptr %agg.result, i64 0, i32 2
+  %37 = getelementptr inbounds i8, ptr %agg.result, i64 16
   call void @_ZNSaIcEC2ERKS_(ptr noundef nonnull align 1 dereferenceable(1) %agg.result, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp74) #13
   %call5.i.i.i.i.i627 = call noalias noundef nonnull dereferenceable(18) ptr @_Znwm(i64 noundef 18) #15
   store ptr %call5.i.i.i.i.i627, ptr %agg.result, align 8
   store i64 17, ptr %37, align 8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(17) %call5.i.i.i.i.i627, ptr noundef nonnull align 1 dereferenceable(17) @.str.80, i64 17, i1 false)
-  %_M_string_length.i.i.i.i617 = getelementptr inbounds %"class.std::__cxx11::basic_string", ptr %agg.result, i64 0, i32 1
+  %_M_string_length.i.i.i.i617 = getelementptr inbounds i8, ptr %agg.result, i64 8
   store i64 17, ptr %_M_string_length.i.i.i.i617, align 8
   %arrayidx.i.i.i618 = getelementptr inbounds i8, ptr %call5.i.i.i.i.i627, i64 17
   store i8 0, ptr %arrayidx.i.i.i618, align 1
@@ -2437,13 +2437,13 @@ sw.bb73:                                          ; preds = %entry
 
 sw.bb75:                                          ; preds = %entry
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp76) #13
-  %38 = getelementptr inbounds %"class.std::__cxx11::basic_string", ptr %agg.result, i64 0, i32 2
+  %38 = getelementptr inbounds i8, ptr %agg.result, i64 16
   call void @_ZNSaIcEC2ERKS_(ptr noundef nonnull align 1 dereferenceable(1) %agg.result, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp76) #13
   %call5.i.i.i.i.i644 = call noalias noundef nonnull dereferenceable(20) ptr @_Znwm(i64 noundef 20) #15
   store ptr %call5.i.i.i.i.i644, ptr %agg.result, align 8
   store i64 19, ptr %38, align 8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(19) %call5.i.i.i.i.i644, ptr noundef nonnull align 1 dereferenceable(19) @.str.81, i64 19, i1 false)
-  %_M_string_length.i.i.i.i634 = getelementptr inbounds %"class.std::__cxx11::basic_string", ptr %agg.result, i64 0, i32 1
+  %_M_string_length.i.i.i.i634 = getelementptr inbounds i8, ptr %agg.result, i64 8
   store i64 19, ptr %_M_string_length.i.i.i.i634, align 8
   %arrayidx.i.i.i635 = getelementptr inbounds i8, ptr %call5.i.i.i.i.i644, i64 19
   store i8 0, ptr %arrayidx.i.i.i635, align 1
@@ -2452,39 +2452,39 @@ sw.bb75:                                          ; preds = %entry
 
 sw.bb77:                                          ; preds = %entry
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp78) #13
-  %39 = getelementptr inbounds %"class.std::__cxx11::basic_string", ptr %agg.result, i64 0, i32 2
+  %39 = getelementptr inbounds i8, ptr %agg.result, i64 16
   call void @_ZNSaIcEC2ERKS_(ptr noundef nonnull align 1 dereferenceable(1) %agg.result, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp78) #13
   store ptr %39, ptr %agg.result, align 8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(14) %39, ptr noundef nonnull align 1 dereferenceable(14) @.str.82, i64 14, i1 false)
-  %_M_string_length.i.i.i.i651 = getelementptr inbounds %"class.std::__cxx11::basic_string", ptr %agg.result, i64 0, i32 1
+  %_M_string_length.i.i.i.i651 = getelementptr inbounds i8, ptr %agg.result, i64 8
   store i64 14, ptr %_M_string_length.i.i.i.i651, align 8
-  %arrayidx.i.i.i652 = getelementptr inbounds %"class.std::__cxx11::basic_string", ptr %agg.result, i64 0, i32 2, i32 1, i64 6
+  %arrayidx.i.i.i652 = getelementptr inbounds i8, ptr %agg.result, i64 30
   store i8 0, ptr %arrayidx.i.i.i652, align 2
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp78) #13
   br label %return
 
 sw.bb79:                                          ; preds = %entry
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp80) #13
-  %40 = getelementptr inbounds %"class.std::__cxx11::basic_string", ptr %agg.result, i64 0, i32 2
+  %40 = getelementptr inbounds i8, ptr %agg.result, i64 16
   call void @_ZNSaIcEC2ERKS_(ptr noundef nonnull align 1 dereferenceable(1) %agg.result, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp80) #13
   store ptr %40, ptr %agg.result, align 8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(15) %40, ptr noundef nonnull align 1 dereferenceable(15) @.str.83, i64 15, i1 false)
-  %_M_string_length.i.i.i.i668 = getelementptr inbounds %"class.std::__cxx11::basic_string", ptr %agg.result, i64 0, i32 1
+  %_M_string_length.i.i.i.i668 = getelementptr inbounds i8, ptr %agg.result, i64 8
   store i64 15, ptr %_M_string_length.i.i.i.i668, align 8
-  %arrayidx.i.i.i669 = getelementptr inbounds %"class.std::__cxx11::basic_string", ptr %agg.result, i64 0, i32 2, i32 1, i64 7
+  %arrayidx.i.i.i669 = getelementptr inbounds i8, ptr %agg.result, i64 31
   store i8 0, ptr %arrayidx.i.i.i669, align 1
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp80) #13
   br label %return
 
 sw.bb81:                                          ; preds = %entry
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp82) #13
-  %41 = getelementptr inbounds %"class.std::__cxx11::basic_string", ptr %agg.result, i64 0, i32 2
+  %41 = getelementptr inbounds i8, ptr %agg.result, i64 16
   call void @_ZNSaIcEC2ERKS_(ptr noundef nonnull align 1 dereferenceable(1) %agg.result, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp82) #13
   store ptr %41, ptr %agg.result, align 8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(12) %41, ptr noundef nonnull align 1 dereferenceable(12) @.str.84, i64 12, i1 false)
-  %_M_string_length.i.i.i.i685 = getelementptr inbounds %"class.std::__cxx11::basic_string", ptr %agg.result, i64 0, i32 1
+  %_M_string_length.i.i.i.i685 = getelementptr inbounds i8, ptr %agg.result, i64 8
   store i64 12, ptr %_M_string_length.i.i.i.i685, align 8
-  %arrayidx.i.i.i686 = getelementptr inbounds %"class.std::__cxx11::basic_string", ptr %agg.result, i64 0, i32 2, i32 1, i64 4
+  %arrayidx.i.i.i686 = getelementptr inbounds i8, ptr %agg.result, i64 28
   store i8 0, ptr %arrayidx.i.i.i686, align 4
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp82) #13
   br label %return
@@ -7777,50 +7777,50 @@ entry:
 
 sw.bb:                                            ; preds = %entry
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp) #13
-  %0 = getelementptr inbounds %"class.std::__cxx11::basic_string", ptr %agg.result, i64 0, i32 2
+  %0 = getelementptr inbounds i8, ptr %agg.result, i64 16
   call void @_ZNSaIcEC2ERKS_(ptr noundef nonnull align 1 dereferenceable(1) %agg.result, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp) #13
   store ptr %0, ptr %agg.result, align 8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(10) %0, ptr noundef nonnull align 1 dereferenceable(10) @.str.718, i64 10, i1 false)
-  %_M_string_length.i.i.i.i = getelementptr inbounds %"class.std::__cxx11::basic_string", ptr %agg.result, i64 0, i32 1
+  %_M_string_length.i.i.i.i = getelementptr inbounds i8, ptr %agg.result, i64 8
   store i64 10, ptr %_M_string_length.i.i.i.i, align 8
-  %arrayidx.i.i.i = getelementptr inbounds %"class.std::__cxx11::basic_string", ptr %agg.result, i64 0, i32 2, i32 1, i64 2
+  %arrayidx.i.i.i = getelementptr inbounds i8, ptr %agg.result, i64 26
   store i8 0, ptr %arrayidx.i.i.i, align 2
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp) #13
   br label %return
 
 sw.bb1:                                           ; preds = %entry
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp2) #13
-  %1 = getelementptr inbounds %"class.std::__cxx11::basic_string", ptr %agg.result, i64 0, i32 2
+  %1 = getelementptr inbounds i8, ptr %agg.result, i64 16
   call void @_ZNSaIcEC2ERKS_(ptr noundef nonnull align 1 dereferenceable(1) %agg.result, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp2) #13
   store ptr %1, ptr %agg.result, align 8
   store i64 3617339702378913618, ptr %1, align 8
-  %_M_string_length.i.i.i.i5 = getelementptr inbounds %"class.std::__cxx11::basic_string", ptr %agg.result, i64 0, i32 1
+  %_M_string_length.i.i.i.i5 = getelementptr inbounds i8, ptr %agg.result, i64 8
   store i64 8, ptr %_M_string_length.i.i.i.i5, align 8
-  %arrayidx.i.i.i6 = getelementptr inbounds %"class.std::__cxx11::basic_string", ptr %agg.result, i64 0, i32 2, i32 1
+  %arrayidx.i.i.i6 = getelementptr inbounds i8, ptr %agg.result, i64 24
   store i8 0, ptr %arrayidx.i.i.i6, align 8
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp2) #13
   br label %return
 
 sw.bb3:                                           ; preds = %entry
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp4) #13
-  %2 = getelementptr inbounds %"class.std::__cxx11::basic_string", ptr %agg.result, i64 0, i32 2
+  %2 = getelementptr inbounds i8, ptr %agg.result, i64 16
   call void @_ZNSaIcEC2ERKS_(ptr noundef nonnull align 1 dereferenceable(1) %agg.result, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp4) #13
   store ptr %2, ptr %agg.result, align 8
   store i64 3905007128577204050, ptr %2, align 8
-  %_M_string_length.i.i.i.i22 = getelementptr inbounds %"class.std::__cxx11::basic_string", ptr %agg.result, i64 0, i32 1
+  %_M_string_length.i.i.i.i22 = getelementptr inbounds i8, ptr %agg.result, i64 8
   store i64 8, ptr %_M_string_length.i.i.i.i22, align 8
-  %arrayidx.i.i.i23 = getelementptr inbounds %"class.std::__cxx11::basic_string", ptr %agg.result, i64 0, i32 2, i32 1
+  %arrayidx.i.i.i23 = getelementptr inbounds i8, ptr %agg.result, i64 24
   store i8 0, ptr %arrayidx.i.i.i23, align 8
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp4) #13
   br label %return
 
 sw.bb5:                                           ; preds = %entry
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp6) #13
-  %3 = getelementptr inbounds %"class.std::__cxx11::basic_string", ptr %agg.result, i64 0, i32 2
+  %3 = getelementptr inbounds i8, ptr %agg.result, i64 16
   call void @_ZNSaIcEC2ERKS_(ptr noundef nonnull align 1 dereferenceable(1) %agg.result, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp6) #13
   store ptr %3, ptr %agg.result, align 8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(7) %3, ptr noundef nonnull align 1 dereferenceable(7) @.str.721, i64 7, i1 false)
-  %_M_string_length.i.i.i.i39 = getelementptr inbounds %"class.std::__cxx11::basic_string", ptr %agg.result, i64 0, i32 1
+  %_M_string_length.i.i.i.i39 = getelementptr inbounds i8, ptr %agg.result, i64 8
   store i64 7, ptr %_M_string_length.i.i.i.i39, align 8
   %arrayidx.i.i.i40 = getelementptr inbounds i8, ptr %agg.result, i64 23
   store i8 0, ptr %arrayidx.i.i.i40, align 1
@@ -7829,52 +7829,52 @@ sw.bb5:                                           ; preds = %entry
 
 sw.bb7:                                           ; preds = %entry
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp8) #13
-  %4 = getelementptr inbounds %"class.std::__cxx11::basic_string", ptr %agg.result, i64 0, i32 2
+  %4 = getelementptr inbounds i8, ptr %agg.result, i64 16
   call void @_ZNSaIcEC2ERKS_(ptr noundef nonnull align 1 dereferenceable(1) %agg.result, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp8) #13
   store ptr %4, ptr %agg.result, align 8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(10) %4, ptr noundef nonnull align 1 dereferenceable(10) @.str.722, i64 10, i1 false)
-  %_M_string_length.i.i.i.i56 = getelementptr inbounds %"class.std::__cxx11::basic_string", ptr %agg.result, i64 0, i32 1
+  %_M_string_length.i.i.i.i56 = getelementptr inbounds i8, ptr %agg.result, i64 8
   store i64 10, ptr %_M_string_length.i.i.i.i56, align 8
-  %arrayidx.i.i.i57 = getelementptr inbounds %"class.std::__cxx11::basic_string", ptr %agg.result, i64 0, i32 2, i32 1, i64 2
+  %arrayidx.i.i.i57 = getelementptr inbounds i8, ptr %agg.result, i64 26
   store i8 0, ptr %arrayidx.i.i.i57, align 2
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp8) #13
   br label %return
 
 sw.bb9:                                           ; preds = %entry
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp10) #13
-  %5 = getelementptr inbounds %"class.std::__cxx11::basic_string", ptr %agg.result, i64 0, i32 2
+  %5 = getelementptr inbounds i8, ptr %agg.result, i64 16
   call void @_ZNSaIcEC2ERKS_(ptr noundef nonnull align 1 dereferenceable(1) %agg.result, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp10) #13
   store ptr %5, ptr %agg.result, align 8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(10) %5, ptr noundef nonnull align 1 dereferenceable(10) @.str.723, i64 10, i1 false)
-  %_M_string_length.i.i.i.i73 = getelementptr inbounds %"class.std::__cxx11::basic_string", ptr %agg.result, i64 0, i32 1
+  %_M_string_length.i.i.i.i73 = getelementptr inbounds i8, ptr %agg.result, i64 8
   store i64 10, ptr %_M_string_length.i.i.i.i73, align 8
-  %arrayidx.i.i.i74 = getelementptr inbounds %"class.std::__cxx11::basic_string", ptr %agg.result, i64 0, i32 2, i32 1, i64 2
+  %arrayidx.i.i.i74 = getelementptr inbounds i8, ptr %agg.result, i64 26
   store i8 0, ptr %arrayidx.i.i.i74, align 2
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp10) #13
   br label %return
 
 sw.bb11:                                          ; preds = %entry
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp12) #13
-  %6 = getelementptr inbounds %"class.std::__cxx11::basic_string", ptr %agg.result, i64 0, i32 2
+  %6 = getelementptr inbounds i8, ptr %agg.result, i64 16
   call void @_ZNSaIcEC2ERKS_(ptr noundef nonnull align 1 dereferenceable(1) %agg.result, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp12) #13
   store ptr %6, ptr %agg.result, align 8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(9) %6, ptr noundef nonnull align 1 dereferenceable(9) @.str.724, i64 9, i1 false)
-  %_M_string_length.i.i.i.i90 = getelementptr inbounds %"class.std::__cxx11::basic_string", ptr %agg.result, i64 0, i32 1
+  %_M_string_length.i.i.i.i90 = getelementptr inbounds i8, ptr %agg.result, i64 8
   store i64 9, ptr %_M_string_length.i.i.i.i90, align 8
-  %arrayidx.i.i.i91 = getelementptr inbounds %"class.std::__cxx11::basic_string", ptr %agg.result, i64 0, i32 2, i32 1, i64 1
+  %arrayidx.i.i.i91 = getelementptr inbounds i8, ptr %agg.result, i64 25
   store i8 0, ptr %arrayidx.i.i.i91, align 1
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp12) #13
   br label %return
 
 sw.bb13:                                          ; preds = %entry
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp14) #13
-  %7 = getelementptr inbounds %"class.std::__cxx11::basic_string", ptr %agg.result, i64 0, i32 2
+  %7 = getelementptr inbounds i8, ptr %agg.result, i64 16
   call void @_ZNSaIcEC2ERKS_(ptr noundef nonnull align 1 dereferenceable(1) %agg.result, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp14) #13
   %call5.i.i.i.i.i117 = call noalias noundef nonnull dereferenceable(17) ptr @_Znwm(i64 noundef 17) #15
   store ptr %call5.i.i.i.i.i117, ptr %agg.result, align 8
   store i64 16, ptr %7, align 8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(16) %call5.i.i.i.i.i117, ptr noundef nonnull align 1 dereferenceable(16) @.str.725, i64 16, i1 false)
-  %_M_string_length.i.i.i.i107 = getelementptr inbounds %"class.std::__cxx11::basic_string", ptr %agg.result, i64 0, i32 1
+  %_M_string_length.i.i.i.i107 = getelementptr inbounds i8, ptr %agg.result, i64 8
   store i64 16, ptr %_M_string_length.i.i.i.i107, align 8
   %arrayidx.i.i.i108 = getelementptr inbounds i8, ptr %call5.i.i.i.i.i117, i64 16
   store i8 0, ptr %arrayidx.i.i.i108, align 1
@@ -7883,13 +7883,13 @@ sw.bb13:                                          ; preds = %entry
 
 sw.bb15:                                          ; preds = %entry
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp16) #13
-  %8 = getelementptr inbounds %"class.std::__cxx11::basic_string", ptr %agg.result, i64 0, i32 2
+  %8 = getelementptr inbounds i8, ptr %agg.result, i64 16
   call void @_ZNSaIcEC2ERKS_(ptr noundef nonnull align 1 dereferenceable(1) %agg.result, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp16) #13
   %call5.i.i.i.i.i134 = call noalias noundef nonnull dereferenceable(17) ptr @_Znwm(i64 noundef 17) #15
   store ptr %call5.i.i.i.i.i134, ptr %agg.result, align 8
   store i64 16, ptr %8, align 8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(16) %call5.i.i.i.i.i134, ptr noundef nonnull align 1 dereferenceable(16) @.str.726, i64 16, i1 false)
-  %_M_string_length.i.i.i.i124 = getelementptr inbounds %"class.std::__cxx11::basic_string", ptr %agg.result, i64 0, i32 1
+  %_M_string_length.i.i.i.i124 = getelementptr inbounds i8, ptr %agg.result, i64 8
   store i64 16, ptr %_M_string_length.i.i.i.i124, align 8
   %arrayidx.i.i.i125 = getelementptr inbounds i8, ptr %call5.i.i.i.i.i134, i64 16
   store i8 0, ptr %arrayidx.i.i.i125, align 1
@@ -7898,390 +7898,390 @@ sw.bb15:                                          ; preds = %entry
 
 sw.bb17:                                          ; preds = %entry
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp18) #13
-  %9 = getelementptr inbounds %"class.std::__cxx11::basic_string", ptr %agg.result, i64 0, i32 2
+  %9 = getelementptr inbounds i8, ptr %agg.result, i64 16
   call void @_ZNSaIcEC2ERKS_(ptr noundef nonnull align 1 dereferenceable(1) %agg.result, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp18) #13
   store ptr %9, ptr %agg.result, align 8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(15) %9, ptr noundef nonnull align 1 dereferenceable(15) @.str.727, i64 15, i1 false)
-  %_M_string_length.i.i.i.i141 = getelementptr inbounds %"class.std::__cxx11::basic_string", ptr %agg.result, i64 0, i32 1
+  %_M_string_length.i.i.i.i141 = getelementptr inbounds i8, ptr %agg.result, i64 8
   store i64 15, ptr %_M_string_length.i.i.i.i141, align 8
-  %arrayidx.i.i.i142 = getelementptr inbounds %"class.std::__cxx11::basic_string", ptr %agg.result, i64 0, i32 2, i32 1, i64 7
+  %arrayidx.i.i.i142 = getelementptr inbounds i8, ptr %agg.result, i64 31
   store i8 0, ptr %arrayidx.i.i.i142, align 1
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp18) #13
   br label %return
 
 sw.bb19:                                          ; preds = %entry
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp20) #13
-  %10 = getelementptr inbounds %"class.std::__cxx11::basic_string", ptr %agg.result, i64 0, i32 2
+  %10 = getelementptr inbounds i8, ptr %agg.result, i64 16
   call void @_ZNSaIcEC2ERKS_(ptr noundef nonnull align 1 dereferenceable(1) %agg.result, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp20) #13
   store ptr %10, ptr %agg.result, align 8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(14) %10, ptr noundef nonnull align 1 dereferenceable(14) @.str.728, i64 14, i1 false)
-  %_M_string_length.i.i.i.i158 = getelementptr inbounds %"class.std::__cxx11::basic_string", ptr %agg.result, i64 0, i32 1
+  %_M_string_length.i.i.i.i158 = getelementptr inbounds i8, ptr %agg.result, i64 8
   store i64 14, ptr %_M_string_length.i.i.i.i158, align 8
-  %arrayidx.i.i.i159 = getelementptr inbounds %"class.std::__cxx11::basic_string", ptr %agg.result, i64 0, i32 2, i32 1, i64 6
+  %arrayidx.i.i.i159 = getelementptr inbounds i8, ptr %agg.result, i64 30
   store i8 0, ptr %arrayidx.i.i.i159, align 2
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp20) #13
   br label %return
 
 sw.bb21:                                          ; preds = %entry
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp22) #13
-  %11 = getelementptr inbounds %"class.std::__cxx11::basic_string", ptr %agg.result, i64 0, i32 2
+  %11 = getelementptr inbounds i8, ptr %agg.result, i64 16
   call void @_ZNSaIcEC2ERKS_(ptr noundef nonnull align 1 dereferenceable(1) %agg.result, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp22) #13
   store ptr %11, ptr %agg.result, align 8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(14) %11, ptr noundef nonnull align 1 dereferenceable(14) @.str.729, i64 14, i1 false)
-  %_M_string_length.i.i.i.i175 = getelementptr inbounds %"class.std::__cxx11::basic_string", ptr %agg.result, i64 0, i32 1
+  %_M_string_length.i.i.i.i175 = getelementptr inbounds i8, ptr %agg.result, i64 8
   store i64 14, ptr %_M_string_length.i.i.i.i175, align 8
-  %arrayidx.i.i.i176 = getelementptr inbounds %"class.std::__cxx11::basic_string", ptr %agg.result, i64 0, i32 2, i32 1, i64 6
+  %arrayidx.i.i.i176 = getelementptr inbounds i8, ptr %agg.result, i64 30
   store i8 0, ptr %arrayidx.i.i.i176, align 2
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp22) #13
   br label %return
 
 sw.bb23:                                          ; preds = %entry
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp24) #13
-  %12 = getelementptr inbounds %"class.std::__cxx11::basic_string", ptr %agg.result, i64 0, i32 2
+  %12 = getelementptr inbounds i8, ptr %agg.result, i64 16
   call void @_ZNSaIcEC2ERKS_(ptr noundef nonnull align 1 dereferenceable(1) %agg.result, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp24) #13
   store ptr %12, ptr %agg.result, align 8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(13) %12, ptr noundef nonnull align 1 dereferenceable(13) @.str.730, i64 13, i1 false)
-  %_M_string_length.i.i.i.i192 = getelementptr inbounds %"class.std::__cxx11::basic_string", ptr %agg.result, i64 0, i32 1
+  %_M_string_length.i.i.i.i192 = getelementptr inbounds i8, ptr %agg.result, i64 8
   store i64 13, ptr %_M_string_length.i.i.i.i192, align 8
-  %arrayidx.i.i.i193 = getelementptr inbounds %"class.std::__cxx11::basic_string", ptr %agg.result, i64 0, i32 2, i32 1, i64 5
+  %arrayidx.i.i.i193 = getelementptr inbounds i8, ptr %agg.result, i64 29
   store i8 0, ptr %arrayidx.i.i.i193, align 1
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp24) #13
   br label %return
 
 sw.bb25:                                          ; preds = %entry
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp26) #13
-  %13 = getelementptr inbounds %"class.std::__cxx11::basic_string", ptr %agg.result, i64 0, i32 2
+  %13 = getelementptr inbounds i8, ptr %agg.result, i64 16
   call void @_ZNSaIcEC2ERKS_(ptr noundef nonnull align 1 dereferenceable(1) %agg.result, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp26) #13
   store ptr %13, ptr %agg.result, align 8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(11) %13, ptr noundef nonnull align 1 dereferenceable(11) @.str.731, i64 11, i1 false)
-  %_M_string_length.i.i.i.i209 = getelementptr inbounds %"class.std::__cxx11::basic_string", ptr %agg.result, i64 0, i32 1
+  %_M_string_length.i.i.i.i209 = getelementptr inbounds i8, ptr %agg.result, i64 8
   store i64 11, ptr %_M_string_length.i.i.i.i209, align 8
-  %arrayidx.i.i.i210 = getelementptr inbounds %"class.std::__cxx11::basic_string", ptr %agg.result, i64 0, i32 2, i32 1, i64 3
+  %arrayidx.i.i.i210 = getelementptr inbounds i8, ptr %agg.result, i64 27
   store i8 0, ptr %arrayidx.i.i.i210, align 1
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp26) #13
   br label %return
 
 sw.bb27:                                          ; preds = %entry
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp28) #13
-  %14 = getelementptr inbounds %"class.std::__cxx11::basic_string", ptr %agg.result, i64 0, i32 2
+  %14 = getelementptr inbounds i8, ptr %agg.result, i64 16
   call void @_ZNSaIcEC2ERKS_(ptr noundef nonnull align 1 dereferenceable(1) %agg.result, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp28) #13
   store ptr %14, ptr %agg.result, align 8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(11) %14, ptr noundef nonnull align 1 dereferenceable(11) @.str.732, i64 11, i1 false)
-  %_M_string_length.i.i.i.i226 = getelementptr inbounds %"class.std::__cxx11::basic_string", ptr %agg.result, i64 0, i32 1
+  %_M_string_length.i.i.i.i226 = getelementptr inbounds i8, ptr %agg.result, i64 8
   store i64 11, ptr %_M_string_length.i.i.i.i226, align 8
-  %arrayidx.i.i.i227 = getelementptr inbounds %"class.std::__cxx11::basic_string", ptr %agg.result, i64 0, i32 2, i32 1, i64 3
+  %arrayidx.i.i.i227 = getelementptr inbounds i8, ptr %agg.result, i64 27
   store i8 0, ptr %arrayidx.i.i.i227, align 1
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp28) #13
   br label %return
 
 sw.bb29:                                          ; preds = %entry
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp30) #13
-  %15 = getelementptr inbounds %"class.std::__cxx11::basic_string", ptr %agg.result, i64 0, i32 2
+  %15 = getelementptr inbounds i8, ptr %agg.result, i64 16
   call void @_ZNSaIcEC2ERKS_(ptr noundef nonnull align 1 dereferenceable(1) %agg.result, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp30) #13
   store ptr %15, ptr %agg.result, align 8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(10) %15, ptr noundef nonnull align 1 dereferenceable(10) @.str.733, i64 10, i1 false)
-  %_M_string_length.i.i.i.i243 = getelementptr inbounds %"class.std::__cxx11::basic_string", ptr %agg.result, i64 0, i32 1
+  %_M_string_length.i.i.i.i243 = getelementptr inbounds i8, ptr %agg.result, i64 8
   store i64 10, ptr %_M_string_length.i.i.i.i243, align 8
-  %arrayidx.i.i.i244 = getelementptr inbounds %"class.std::__cxx11::basic_string", ptr %agg.result, i64 0, i32 2, i32 1, i64 2
+  %arrayidx.i.i.i244 = getelementptr inbounds i8, ptr %agg.result, i64 26
   store i8 0, ptr %arrayidx.i.i.i244, align 2
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp30) #13
   br label %return
 
 sw.bb31:                                          ; preds = %entry
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp32) #13
-  %16 = getelementptr inbounds %"class.std::__cxx11::basic_string", ptr %agg.result, i64 0, i32 2
+  %16 = getelementptr inbounds i8, ptr %agg.result, i64 16
   call void @_ZNSaIcEC2ERKS_(ptr noundef nonnull align 1 dereferenceable(1) %agg.result, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp32) #13
   store ptr %16, ptr %agg.result, align 8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(14) %16, ptr noundef nonnull align 1 dereferenceable(14) @.str.734, i64 14, i1 false)
-  %_M_string_length.i.i.i.i260 = getelementptr inbounds %"class.std::__cxx11::basic_string", ptr %agg.result, i64 0, i32 1
+  %_M_string_length.i.i.i.i260 = getelementptr inbounds i8, ptr %agg.result, i64 8
   store i64 14, ptr %_M_string_length.i.i.i.i260, align 8
-  %arrayidx.i.i.i261 = getelementptr inbounds %"class.std::__cxx11::basic_string", ptr %agg.result, i64 0, i32 2, i32 1, i64 6
+  %arrayidx.i.i.i261 = getelementptr inbounds i8, ptr %agg.result, i64 30
   store i8 0, ptr %arrayidx.i.i.i261, align 2
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp32) #13
   br label %return
 
 sw.bb33:                                          ; preds = %entry
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp34) #13
-  %17 = getelementptr inbounds %"class.std::__cxx11::basic_string", ptr %agg.result, i64 0, i32 2
+  %17 = getelementptr inbounds i8, ptr %agg.result, i64 16
   call void @_ZNSaIcEC2ERKS_(ptr noundef nonnull align 1 dereferenceable(1) %agg.result, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp34) #13
   store ptr %17, ptr %agg.result, align 8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(14) %17, ptr noundef nonnull align 1 dereferenceable(14) @.str.735, i64 14, i1 false)
-  %_M_string_length.i.i.i.i277 = getelementptr inbounds %"class.std::__cxx11::basic_string", ptr %agg.result, i64 0, i32 1
+  %_M_string_length.i.i.i.i277 = getelementptr inbounds i8, ptr %agg.result, i64 8
   store i64 14, ptr %_M_string_length.i.i.i.i277, align 8
-  %arrayidx.i.i.i278 = getelementptr inbounds %"class.std::__cxx11::basic_string", ptr %agg.result, i64 0, i32 2, i32 1, i64 6
+  %arrayidx.i.i.i278 = getelementptr inbounds i8, ptr %agg.result, i64 30
   store i8 0, ptr %arrayidx.i.i.i278, align 2
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp34) #13
   br label %return
 
 sw.bb35:                                          ; preds = %entry
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp36) #13
-  %18 = getelementptr inbounds %"class.std::__cxx11::basic_string", ptr %agg.result, i64 0, i32 2
+  %18 = getelementptr inbounds i8, ptr %agg.result, i64 16
   call void @_ZNSaIcEC2ERKS_(ptr noundef nonnull align 1 dereferenceable(1) %agg.result, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp36) #13
   store ptr %18, ptr %agg.result, align 8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(13) %18, ptr noundef nonnull align 1 dereferenceable(13) @.str.736, i64 13, i1 false)
-  %_M_string_length.i.i.i.i294 = getelementptr inbounds %"class.std::__cxx11::basic_string", ptr %agg.result, i64 0, i32 1
+  %_M_string_length.i.i.i.i294 = getelementptr inbounds i8, ptr %agg.result, i64 8
   store i64 13, ptr %_M_string_length.i.i.i.i294, align 8
-  %arrayidx.i.i.i295 = getelementptr inbounds %"class.std::__cxx11::basic_string", ptr %agg.result, i64 0, i32 2, i32 1, i64 5
+  %arrayidx.i.i.i295 = getelementptr inbounds i8, ptr %agg.result, i64 29
   store i8 0, ptr %arrayidx.i.i.i295, align 1
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp36) #13
   br label %return
 
 sw.bb37:                                          ; preds = %entry
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp38) #13
-  %19 = getelementptr inbounds %"class.std::__cxx11::basic_string", ptr %agg.result, i64 0, i32 2
+  %19 = getelementptr inbounds i8, ptr %agg.result, i64 16
   call void @_ZNSaIcEC2ERKS_(ptr noundef nonnull align 1 dereferenceable(1) %agg.result, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp38) #13
   store ptr %19, ptr %agg.result, align 8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(10) %19, ptr noundef nonnull align 1 dereferenceable(10) @.str.737, i64 10, i1 false)
-  %_M_string_length.i.i.i.i311 = getelementptr inbounds %"class.std::__cxx11::basic_string", ptr %agg.result, i64 0, i32 1
+  %_M_string_length.i.i.i.i311 = getelementptr inbounds i8, ptr %agg.result, i64 8
   store i64 10, ptr %_M_string_length.i.i.i.i311, align 8
-  %arrayidx.i.i.i312 = getelementptr inbounds %"class.std::__cxx11::basic_string", ptr %agg.result, i64 0, i32 2, i32 1, i64 2
+  %arrayidx.i.i.i312 = getelementptr inbounds i8, ptr %agg.result, i64 26
   store i8 0, ptr %arrayidx.i.i.i312, align 2
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp38) #13
   br label %return
 
 sw.bb39:                                          ; preds = %entry
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp40) #13
-  %20 = getelementptr inbounds %"class.std::__cxx11::basic_string", ptr %agg.result, i64 0, i32 2
+  %20 = getelementptr inbounds i8, ptr %agg.result, i64 16
   call void @_ZNSaIcEC2ERKS_(ptr noundef nonnull align 1 dereferenceable(1) %agg.result, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp40) #13
   store ptr %20, ptr %agg.result, align 8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(14) %20, ptr noundef nonnull align 1 dereferenceable(14) @.str.738, i64 14, i1 false)
-  %_M_string_length.i.i.i.i328 = getelementptr inbounds %"class.std::__cxx11::basic_string", ptr %agg.result, i64 0, i32 1
+  %_M_string_length.i.i.i.i328 = getelementptr inbounds i8, ptr %agg.result, i64 8
   store i64 14, ptr %_M_string_length.i.i.i.i328, align 8
-  %arrayidx.i.i.i329 = getelementptr inbounds %"class.std::__cxx11::basic_string", ptr %agg.result, i64 0, i32 2, i32 1, i64 6
+  %arrayidx.i.i.i329 = getelementptr inbounds i8, ptr %agg.result, i64 30
   store i8 0, ptr %arrayidx.i.i.i329, align 2
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp40) #13
   br label %return
 
 sw.bb41:                                          ; preds = %entry
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp42) #13
-  %21 = getelementptr inbounds %"class.std::__cxx11::basic_string", ptr %agg.result, i64 0, i32 2
+  %21 = getelementptr inbounds i8, ptr %agg.result, i64 16
   call void @_ZNSaIcEC2ERKS_(ptr noundef nonnull align 1 dereferenceable(1) %agg.result, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp42) #13
   store ptr %21, ptr %agg.result, align 8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(14) %21, ptr noundef nonnull align 1 dereferenceable(14) @.str.739, i64 14, i1 false)
-  %_M_string_length.i.i.i.i345 = getelementptr inbounds %"class.std::__cxx11::basic_string", ptr %agg.result, i64 0, i32 1
+  %_M_string_length.i.i.i.i345 = getelementptr inbounds i8, ptr %agg.result, i64 8
   store i64 14, ptr %_M_string_length.i.i.i.i345, align 8
-  %arrayidx.i.i.i346 = getelementptr inbounds %"class.std::__cxx11::basic_string", ptr %agg.result, i64 0, i32 2, i32 1, i64 6
+  %arrayidx.i.i.i346 = getelementptr inbounds i8, ptr %agg.result, i64 30
   store i8 0, ptr %arrayidx.i.i.i346, align 2
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp42) #13
   br label %return
 
 sw.bb43:                                          ; preds = %entry
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp44) #13
-  %22 = getelementptr inbounds %"class.std::__cxx11::basic_string", ptr %agg.result, i64 0, i32 2
+  %22 = getelementptr inbounds i8, ptr %agg.result, i64 16
   call void @_ZNSaIcEC2ERKS_(ptr noundef nonnull align 1 dereferenceable(1) %agg.result, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp44) #13
   store ptr %22, ptr %agg.result, align 8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(14) %22, ptr noundef nonnull align 1 dereferenceable(14) @.str.740, i64 14, i1 false)
-  %_M_string_length.i.i.i.i362 = getelementptr inbounds %"class.std::__cxx11::basic_string", ptr %agg.result, i64 0, i32 1
+  %_M_string_length.i.i.i.i362 = getelementptr inbounds i8, ptr %agg.result, i64 8
   store i64 14, ptr %_M_string_length.i.i.i.i362, align 8
-  %arrayidx.i.i.i363 = getelementptr inbounds %"class.std::__cxx11::basic_string", ptr %agg.result, i64 0, i32 2, i32 1, i64 6
+  %arrayidx.i.i.i363 = getelementptr inbounds i8, ptr %agg.result, i64 30
   store i8 0, ptr %arrayidx.i.i.i363, align 2
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp44) #13
   br label %return
 
 sw.bb45:                                          ; preds = %entry
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp46) #13
-  %23 = getelementptr inbounds %"class.std::__cxx11::basic_string", ptr %agg.result, i64 0, i32 2
+  %23 = getelementptr inbounds i8, ptr %agg.result, i64 16
   call void @_ZNSaIcEC2ERKS_(ptr noundef nonnull align 1 dereferenceable(1) %agg.result, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp46) #13
   store ptr %23, ptr %agg.result, align 8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(14) %23, ptr noundef nonnull align 1 dereferenceable(14) @.str.741, i64 14, i1 false)
-  %_M_string_length.i.i.i.i379 = getelementptr inbounds %"class.std::__cxx11::basic_string", ptr %agg.result, i64 0, i32 1
+  %_M_string_length.i.i.i.i379 = getelementptr inbounds i8, ptr %agg.result, i64 8
   store i64 14, ptr %_M_string_length.i.i.i.i379, align 8
-  %arrayidx.i.i.i380 = getelementptr inbounds %"class.std::__cxx11::basic_string", ptr %agg.result, i64 0, i32 2, i32 1, i64 6
+  %arrayidx.i.i.i380 = getelementptr inbounds i8, ptr %agg.result, i64 30
   store i8 0, ptr %arrayidx.i.i.i380, align 2
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp46) #13
   br label %return
 
 sw.bb47:                                          ; preds = %entry
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp48) #13
-  %24 = getelementptr inbounds %"class.std::__cxx11::basic_string", ptr %agg.result, i64 0, i32 2
+  %24 = getelementptr inbounds i8, ptr %agg.result, i64 16
   call void @_ZNSaIcEC2ERKS_(ptr noundef nonnull align 1 dereferenceable(1) %agg.result, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp48) #13
   store ptr %24, ptr %agg.result, align 8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(14) %24, ptr noundef nonnull align 1 dereferenceable(14) @.str.742, i64 14, i1 false)
-  %_M_string_length.i.i.i.i396 = getelementptr inbounds %"class.std::__cxx11::basic_string", ptr %agg.result, i64 0, i32 1
+  %_M_string_length.i.i.i.i396 = getelementptr inbounds i8, ptr %agg.result, i64 8
   store i64 14, ptr %_M_string_length.i.i.i.i396, align 8
-  %arrayidx.i.i.i397 = getelementptr inbounds %"class.std::__cxx11::basic_string", ptr %agg.result, i64 0, i32 2, i32 1, i64 6
+  %arrayidx.i.i.i397 = getelementptr inbounds i8, ptr %agg.result, i64 30
   store i8 0, ptr %arrayidx.i.i.i397, align 2
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp48) #13
   br label %return
 
 sw.bb49:                                          ; preds = %entry
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp50) #13
-  %25 = getelementptr inbounds %"class.std::__cxx11::basic_string", ptr %agg.result, i64 0, i32 2
+  %25 = getelementptr inbounds i8, ptr %agg.result, i64 16
   call void @_ZNSaIcEC2ERKS_(ptr noundef nonnull align 1 dereferenceable(1) %agg.result, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp50) #13
   store ptr %25, ptr %agg.result, align 8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(13) %25, ptr noundef nonnull align 1 dereferenceable(13) @.str.743, i64 13, i1 false)
-  %_M_string_length.i.i.i.i413 = getelementptr inbounds %"class.std::__cxx11::basic_string", ptr %agg.result, i64 0, i32 1
+  %_M_string_length.i.i.i.i413 = getelementptr inbounds i8, ptr %agg.result, i64 8
   store i64 13, ptr %_M_string_length.i.i.i.i413, align 8
-  %arrayidx.i.i.i414 = getelementptr inbounds %"class.std::__cxx11::basic_string", ptr %agg.result, i64 0, i32 2, i32 1, i64 5
+  %arrayidx.i.i.i414 = getelementptr inbounds i8, ptr %agg.result, i64 29
   store i8 0, ptr %arrayidx.i.i.i414, align 1
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp50) #13
   br label %return
 
 sw.bb51:                                          ; preds = %entry
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp52) #13
-  %26 = getelementptr inbounds %"class.std::__cxx11::basic_string", ptr %agg.result, i64 0, i32 2
+  %26 = getelementptr inbounds i8, ptr %agg.result, i64 16
   call void @_ZNSaIcEC2ERKS_(ptr noundef nonnull align 1 dereferenceable(1) %agg.result, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp52) #13
   store ptr %26, ptr %agg.result, align 8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(15) %26, ptr noundef nonnull align 1 dereferenceable(15) @.str.744, i64 15, i1 false)
-  %_M_string_length.i.i.i.i430 = getelementptr inbounds %"class.std::__cxx11::basic_string", ptr %agg.result, i64 0, i32 1
+  %_M_string_length.i.i.i.i430 = getelementptr inbounds i8, ptr %agg.result, i64 8
   store i64 15, ptr %_M_string_length.i.i.i.i430, align 8
-  %arrayidx.i.i.i431 = getelementptr inbounds %"class.std::__cxx11::basic_string", ptr %agg.result, i64 0, i32 2, i32 1, i64 7
+  %arrayidx.i.i.i431 = getelementptr inbounds i8, ptr %agg.result, i64 31
   store i8 0, ptr %arrayidx.i.i.i431, align 1
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp52) #13
   br label %return
 
 sw.bb53:                                          ; preds = %entry
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp54) #13
-  %27 = getelementptr inbounds %"class.std::__cxx11::basic_string", ptr %agg.result, i64 0, i32 2
+  %27 = getelementptr inbounds i8, ptr %agg.result, i64 16
   call void @_ZNSaIcEC2ERKS_(ptr noundef nonnull align 1 dereferenceable(1) %agg.result, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp54) #13
   store ptr %27, ptr %agg.result, align 8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(15) %27, ptr noundef nonnull align 1 dereferenceable(15) @.str.745, i64 15, i1 false)
-  %_M_string_length.i.i.i.i447 = getelementptr inbounds %"class.std::__cxx11::basic_string", ptr %agg.result, i64 0, i32 1
+  %_M_string_length.i.i.i.i447 = getelementptr inbounds i8, ptr %agg.result, i64 8
   store i64 15, ptr %_M_string_length.i.i.i.i447, align 8
-  %arrayidx.i.i.i448 = getelementptr inbounds %"class.std::__cxx11::basic_string", ptr %agg.result, i64 0, i32 2, i32 1, i64 7
+  %arrayidx.i.i.i448 = getelementptr inbounds i8, ptr %agg.result, i64 31
   store i8 0, ptr %arrayidx.i.i.i448, align 1
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp54) #13
   br label %return
 
 sw.bb55:                                          ; preds = %entry
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp56) #13
-  %28 = getelementptr inbounds %"class.std::__cxx11::basic_string", ptr %agg.result, i64 0, i32 2
+  %28 = getelementptr inbounds i8, ptr %agg.result, i64 16
   call void @_ZNSaIcEC2ERKS_(ptr noundef nonnull align 1 dereferenceable(1) %agg.result, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp56) #13
   store ptr %28, ptr %agg.result, align 8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(14) %28, ptr noundef nonnull align 1 dereferenceable(14) @.str.746, i64 14, i1 false)
-  %_M_string_length.i.i.i.i464 = getelementptr inbounds %"class.std::__cxx11::basic_string", ptr %agg.result, i64 0, i32 1
+  %_M_string_length.i.i.i.i464 = getelementptr inbounds i8, ptr %agg.result, i64 8
   store i64 14, ptr %_M_string_length.i.i.i.i464, align 8
-  %arrayidx.i.i.i465 = getelementptr inbounds %"class.std::__cxx11::basic_string", ptr %agg.result, i64 0, i32 2, i32 1, i64 6
+  %arrayidx.i.i.i465 = getelementptr inbounds i8, ptr %agg.result, i64 30
   store i8 0, ptr %arrayidx.i.i.i465, align 2
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp56) #13
   br label %return
 
 sw.bb57:                                          ; preds = %entry
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp58) #13
-  %29 = getelementptr inbounds %"class.std::__cxx11::basic_string", ptr %agg.result, i64 0, i32 2
+  %29 = getelementptr inbounds i8, ptr %agg.result, i64 16
   call void @_ZNSaIcEC2ERKS_(ptr noundef nonnull align 1 dereferenceable(1) %agg.result, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp58) #13
   store ptr %29, ptr %agg.result, align 8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(15) %29, ptr noundef nonnull align 1 dereferenceable(15) @.str.747, i64 15, i1 false)
-  %_M_string_length.i.i.i.i481 = getelementptr inbounds %"class.std::__cxx11::basic_string", ptr %agg.result, i64 0, i32 1
+  %_M_string_length.i.i.i.i481 = getelementptr inbounds i8, ptr %agg.result, i64 8
   store i64 15, ptr %_M_string_length.i.i.i.i481, align 8
-  %arrayidx.i.i.i482 = getelementptr inbounds %"class.std::__cxx11::basic_string", ptr %agg.result, i64 0, i32 2, i32 1, i64 7
+  %arrayidx.i.i.i482 = getelementptr inbounds i8, ptr %agg.result, i64 31
   store i8 0, ptr %arrayidx.i.i.i482, align 1
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp58) #13
   br label %return
 
 sw.bb59:                                          ; preds = %entry
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp60) #13
-  %30 = getelementptr inbounds %"class.std::__cxx11::basic_string", ptr %agg.result, i64 0, i32 2
+  %30 = getelementptr inbounds i8, ptr %agg.result, i64 16
   call void @_ZNSaIcEC2ERKS_(ptr noundef nonnull align 1 dereferenceable(1) %agg.result, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp60) #13
   store ptr %30, ptr %agg.result, align 8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(15) %30, ptr noundef nonnull align 1 dereferenceable(15) @.str.748, i64 15, i1 false)
-  %_M_string_length.i.i.i.i498 = getelementptr inbounds %"class.std::__cxx11::basic_string", ptr %agg.result, i64 0, i32 1
+  %_M_string_length.i.i.i.i498 = getelementptr inbounds i8, ptr %agg.result, i64 8
   store i64 15, ptr %_M_string_length.i.i.i.i498, align 8
-  %arrayidx.i.i.i499 = getelementptr inbounds %"class.std::__cxx11::basic_string", ptr %agg.result, i64 0, i32 2, i32 1, i64 7
+  %arrayidx.i.i.i499 = getelementptr inbounds i8, ptr %agg.result, i64 31
   store i8 0, ptr %arrayidx.i.i.i499, align 1
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp60) #13
   br label %return
 
 sw.bb61:                                          ; preds = %entry
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp62) #13
-  %31 = getelementptr inbounds %"class.std::__cxx11::basic_string", ptr %agg.result, i64 0, i32 2
+  %31 = getelementptr inbounds i8, ptr %agg.result, i64 16
   call void @_ZNSaIcEC2ERKS_(ptr noundef nonnull align 1 dereferenceable(1) %agg.result, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp62) #13
   store ptr %31, ptr %agg.result, align 8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(14) %31, ptr noundef nonnull align 1 dereferenceable(14) @.str.749, i64 14, i1 false)
-  %_M_string_length.i.i.i.i515 = getelementptr inbounds %"class.std::__cxx11::basic_string", ptr %agg.result, i64 0, i32 1
+  %_M_string_length.i.i.i.i515 = getelementptr inbounds i8, ptr %agg.result, i64 8
   store i64 14, ptr %_M_string_length.i.i.i.i515, align 8
-  %arrayidx.i.i.i516 = getelementptr inbounds %"class.std::__cxx11::basic_string", ptr %agg.result, i64 0, i32 2, i32 1, i64 6
+  %arrayidx.i.i.i516 = getelementptr inbounds i8, ptr %agg.result, i64 30
   store i8 0, ptr %arrayidx.i.i.i516, align 2
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp62) #13
   br label %return
 
 sw.bb63:                                          ; preds = %entry
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp64) #13
-  %32 = getelementptr inbounds %"class.std::__cxx11::basic_string", ptr %agg.result, i64 0, i32 2
+  %32 = getelementptr inbounds i8, ptr %agg.result, i64 16
   call void @_ZNSaIcEC2ERKS_(ptr noundef nonnull align 1 dereferenceable(1) %agg.result, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp64) #13
   store ptr %32, ptr %agg.result, align 8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(14) %32, ptr noundef nonnull align 1 dereferenceable(14) @.str.750, i64 14, i1 false)
-  %_M_string_length.i.i.i.i532 = getelementptr inbounds %"class.std::__cxx11::basic_string", ptr %agg.result, i64 0, i32 1
+  %_M_string_length.i.i.i.i532 = getelementptr inbounds i8, ptr %agg.result, i64 8
   store i64 14, ptr %_M_string_length.i.i.i.i532, align 8
-  %arrayidx.i.i.i533 = getelementptr inbounds %"class.std::__cxx11::basic_string", ptr %agg.result, i64 0, i32 2, i32 1, i64 6
+  %arrayidx.i.i.i533 = getelementptr inbounds i8, ptr %agg.result, i64 30
   store i8 0, ptr %arrayidx.i.i.i533, align 2
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp64) #13
   br label %return
 
 sw.bb65:                                          ; preds = %entry
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp66) #13
-  %33 = getelementptr inbounds %"class.std::__cxx11::basic_string", ptr %agg.result, i64 0, i32 2
+  %33 = getelementptr inbounds i8, ptr %agg.result, i64 16
   call void @_ZNSaIcEC2ERKS_(ptr noundef nonnull align 1 dereferenceable(1) %agg.result, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp66) #13
   store ptr %33, ptr %agg.result, align 8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(14) %33, ptr noundef nonnull align 1 dereferenceable(14) @.str.751, i64 14, i1 false)
-  %_M_string_length.i.i.i.i549 = getelementptr inbounds %"class.std::__cxx11::basic_string", ptr %agg.result, i64 0, i32 1
+  %_M_string_length.i.i.i.i549 = getelementptr inbounds i8, ptr %agg.result, i64 8
   store i64 14, ptr %_M_string_length.i.i.i.i549, align 8
-  %arrayidx.i.i.i550 = getelementptr inbounds %"class.std::__cxx11::basic_string", ptr %agg.result, i64 0, i32 2, i32 1, i64 6
+  %arrayidx.i.i.i550 = getelementptr inbounds i8, ptr %agg.result, i64 30
   store i8 0, ptr %arrayidx.i.i.i550, align 2
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp66) #13
   br label %return
 
 sw.bb67:                                          ; preds = %entry
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp68) #13
-  %34 = getelementptr inbounds %"class.std::__cxx11::basic_string", ptr %agg.result, i64 0, i32 2
+  %34 = getelementptr inbounds i8, ptr %agg.result, i64 16
   call void @_ZNSaIcEC2ERKS_(ptr noundef nonnull align 1 dereferenceable(1) %agg.result, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp68) #13
   store ptr %34, ptr %agg.result, align 8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(13) %34, ptr noundef nonnull align 1 dereferenceable(13) @.str.752, i64 13, i1 false)
-  %_M_string_length.i.i.i.i566 = getelementptr inbounds %"class.std::__cxx11::basic_string", ptr %agg.result, i64 0, i32 1
+  %_M_string_length.i.i.i.i566 = getelementptr inbounds i8, ptr %agg.result, i64 8
   store i64 13, ptr %_M_string_length.i.i.i.i566, align 8
-  %arrayidx.i.i.i567 = getelementptr inbounds %"class.std::__cxx11::basic_string", ptr %agg.result, i64 0, i32 2, i32 1, i64 5
+  %arrayidx.i.i.i567 = getelementptr inbounds i8, ptr %agg.result, i64 29
   store i8 0, ptr %arrayidx.i.i.i567, align 1
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp68) #13
   br label %return
 
 sw.bb69:                                          ; preds = %entry
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp70) #13
-  %35 = getelementptr inbounds %"class.std::__cxx11::basic_string", ptr %agg.result, i64 0, i32 2
+  %35 = getelementptr inbounds i8, ptr %agg.result, i64 16
   call void @_ZNSaIcEC2ERKS_(ptr noundef nonnull align 1 dereferenceable(1) %agg.result, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp70) #13
   store ptr %35, ptr %agg.result, align 8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(14) %35, ptr noundef nonnull align 1 dereferenceable(14) @.str.753, i64 14, i1 false)
-  %_M_string_length.i.i.i.i583 = getelementptr inbounds %"class.std::__cxx11::basic_string", ptr %agg.result, i64 0, i32 1
+  %_M_string_length.i.i.i.i583 = getelementptr inbounds i8, ptr %agg.result, i64 8
   store i64 14, ptr %_M_string_length.i.i.i.i583, align 8
-  %arrayidx.i.i.i584 = getelementptr inbounds %"class.std::__cxx11::basic_string", ptr %agg.result, i64 0, i32 2, i32 1, i64 6
+  %arrayidx.i.i.i584 = getelementptr inbounds i8, ptr %agg.result, i64 30
   store i8 0, ptr %arrayidx.i.i.i584, align 2
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp70) #13
   br label %return
 
 sw.bb71:                                          ; preds = %entry
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp72) #13
-  %36 = getelementptr inbounds %"class.std::__cxx11::basic_string", ptr %agg.result, i64 0, i32 2
+  %36 = getelementptr inbounds i8, ptr %agg.result, i64 16
   call void @_ZNSaIcEC2ERKS_(ptr noundef nonnull align 1 dereferenceable(1) %agg.result, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp72) #13
   store ptr %36, ptr %agg.result, align 8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(14) %36, ptr noundef nonnull align 1 dereferenceable(14) @.str.754, i64 14, i1 false)
-  %_M_string_length.i.i.i.i600 = getelementptr inbounds %"class.std::__cxx11::basic_string", ptr %agg.result, i64 0, i32 1
+  %_M_string_length.i.i.i.i600 = getelementptr inbounds i8, ptr %agg.result, i64 8
   store i64 14, ptr %_M_string_length.i.i.i.i600, align 8
-  %arrayidx.i.i.i601 = getelementptr inbounds %"class.std::__cxx11::basic_string", ptr %agg.result, i64 0, i32 2, i32 1, i64 6
+  %arrayidx.i.i.i601 = getelementptr inbounds i8, ptr %agg.result, i64 30
   store i8 0, ptr %arrayidx.i.i.i601, align 2
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp72) #13
   br label %return
 
 sw.bb73:                                          ; preds = %entry
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp74) #13
-  %37 = getelementptr inbounds %"class.std::__cxx11::basic_string", ptr %agg.result, i64 0, i32 2
+  %37 = getelementptr inbounds i8, ptr %agg.result, i64 16
   call void @_ZNSaIcEC2ERKS_(ptr noundef nonnull align 1 dereferenceable(1) %agg.result, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp74) #13
   store ptr %37, ptr %agg.result, align 8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(13) %37, ptr noundef nonnull align 1 dereferenceable(13) @.str.755, i64 13, i1 false)
-  %_M_string_length.i.i.i.i617 = getelementptr inbounds %"class.std::__cxx11::basic_string", ptr %agg.result, i64 0, i32 1
+  %_M_string_length.i.i.i.i617 = getelementptr inbounds i8, ptr %agg.result, i64 8
   store i64 13, ptr %_M_string_length.i.i.i.i617, align 8
-  %arrayidx.i.i.i618 = getelementptr inbounds %"class.std::__cxx11::basic_string", ptr %agg.result, i64 0, i32 2, i32 1, i64 5
+  %arrayidx.i.i.i618 = getelementptr inbounds i8, ptr %agg.result, i64 29
   store i8 0, ptr %arrayidx.i.i.i618, align 1
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp74) #13
   br label %return
 
 sw.bb75:                                          ; preds = %entry
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp76) #13
-  %38 = getelementptr inbounds %"class.std::__cxx11::basic_string", ptr %agg.result, i64 0, i32 2
+  %38 = getelementptr inbounds i8, ptr %agg.result, i64 16
   call void @_ZNSaIcEC2ERKS_(ptr noundef nonnull align 1 dereferenceable(1) %agg.result, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp76) #13
   %call5.i.i.i.i.i644 = call noalias noundef nonnull dereferenceable(19) ptr @_Znwm(i64 noundef 19) #15
   store ptr %call5.i.i.i.i.i644, ptr %agg.result, align 8
   store i64 18, ptr %38, align 8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(18) %call5.i.i.i.i.i644, ptr noundef nonnull align 1 dereferenceable(18) @.str.756, i64 18, i1 false)
-  %_M_string_length.i.i.i.i634 = getelementptr inbounds %"class.std::__cxx11::basic_string", ptr %agg.result, i64 0, i32 1
+  %_M_string_length.i.i.i.i634 = getelementptr inbounds i8, ptr %agg.result, i64 8
   store i64 18, ptr %_M_string_length.i.i.i.i634, align 8
   %arrayidx.i.i.i635 = getelementptr inbounds i8, ptr %call5.i.i.i.i.i644, i64 18
   store i8 0, ptr %arrayidx.i.i.i635, align 1
@@ -8290,13 +8290,13 @@ sw.bb75:                                          ; preds = %entry
 
 sw.bb77:                                          ; preds = %entry
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp78) #13
-  %39 = getelementptr inbounds %"class.std::__cxx11::basic_string", ptr %agg.result, i64 0, i32 2
+  %39 = getelementptr inbounds i8, ptr %agg.result, i64 16
   call void @_ZNSaIcEC2ERKS_(ptr noundef nonnull align 1 dereferenceable(1) %agg.result, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp78) #13
   %call5.i.i.i.i.i661 = call noalias noundef nonnull dereferenceable(19) ptr @_Znwm(i64 noundef 19) #15
   store ptr %call5.i.i.i.i.i661, ptr %agg.result, align 8
   store i64 18, ptr %39, align 8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(18) %call5.i.i.i.i.i661, ptr noundef nonnull align 1 dereferenceable(18) @.str.757, i64 18, i1 false)
-  %_M_string_length.i.i.i.i651 = getelementptr inbounds %"class.std::__cxx11::basic_string", ptr %agg.result, i64 0, i32 1
+  %_M_string_length.i.i.i.i651 = getelementptr inbounds i8, ptr %agg.result, i64 8
   store i64 18, ptr %_M_string_length.i.i.i.i651, align 8
   %arrayidx.i.i.i652 = getelementptr inbounds i8, ptr %call5.i.i.i.i.i661, i64 18
   store i8 0, ptr %arrayidx.i.i.i652, align 1
@@ -8305,13 +8305,13 @@ sw.bb77:                                          ; preds = %entry
 
 sw.bb79:                                          ; preds = %entry
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp80) #13
-  %40 = getelementptr inbounds %"class.std::__cxx11::basic_string", ptr %agg.result, i64 0, i32 2
+  %40 = getelementptr inbounds i8, ptr %agg.result, i64 16
   call void @_ZNSaIcEC2ERKS_(ptr noundef nonnull align 1 dereferenceable(1) %agg.result, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp80) #13
   %call5.i.i.i.i.i678 = call noalias noundef nonnull dereferenceable(18) ptr @_Znwm(i64 noundef 18) #15
   store ptr %call5.i.i.i.i.i678, ptr %agg.result, align 8
   store i64 17, ptr %40, align 8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(17) %call5.i.i.i.i.i678, ptr noundef nonnull align 1 dereferenceable(17) @.str.758, i64 17, i1 false)
-  %_M_string_length.i.i.i.i668 = getelementptr inbounds %"class.std::__cxx11::basic_string", ptr %agg.result, i64 0, i32 1
+  %_M_string_length.i.i.i.i668 = getelementptr inbounds i8, ptr %agg.result, i64 8
   store i64 17, ptr %_M_string_length.i.i.i.i668, align 8
   %arrayidx.i.i.i669 = getelementptr inbounds i8, ptr %call5.i.i.i.i.i678, i64 17
   store i8 0, ptr %arrayidx.i.i.i669, align 1
@@ -8388,208 +8388,208 @@ entry:
 
 sw.bb:                                            ; preds = %entry
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp) #13
-  %0 = getelementptr inbounds %"class.std::__cxx11::basic_string", ptr %agg.result, i64 0, i32 2
+  %0 = getelementptr inbounds i8, ptr %agg.result, i64 16
   call void @_ZNSaIcEC2ERKS_(ptr noundef nonnull align 1 dereferenceable(1) %agg.result, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp) #13
   store ptr %0, ptr %agg.result, align 8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(9) %0, ptr noundef nonnull align 1 dereferenceable(9) @.str.759, i64 9, i1 false)
-  %_M_string_length.i.i.i.i = getelementptr inbounds %"class.std::__cxx11::basic_string", ptr %agg.result, i64 0, i32 1
+  %_M_string_length.i.i.i.i = getelementptr inbounds i8, ptr %agg.result, i64 8
   store i64 9, ptr %_M_string_length.i.i.i.i, align 8
-  %arrayidx.i.i.i = getelementptr inbounds %"class.std::__cxx11::basic_string", ptr %agg.result, i64 0, i32 2, i32 1, i64 1
+  %arrayidx.i.i.i = getelementptr inbounds i8, ptr %agg.result, i64 25
   store i8 0, ptr %arrayidx.i.i.i, align 1
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp) #13
   br label %return
 
 sw.bb1:                                           ; preds = %entry
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp2) #13
-  %1 = getelementptr inbounds %"class.std::__cxx11::basic_string", ptr %agg.result, i64 0, i32 2
+  %1 = getelementptr inbounds i8, ptr %agg.result, i64 16
   call void @_ZNSaIcEC2ERKS_(ptr noundef nonnull align 1 dereferenceable(1) %agg.result, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp2) #13
   store ptr %1, ptr %agg.result, align 8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(10) %1, ptr noundef nonnull align 1 dereferenceable(10) @.str.760, i64 10, i1 false)
-  %_M_string_length.i.i.i.i5 = getelementptr inbounds %"class.std::__cxx11::basic_string", ptr %agg.result, i64 0, i32 1
+  %_M_string_length.i.i.i.i5 = getelementptr inbounds i8, ptr %agg.result, i64 8
   store i64 10, ptr %_M_string_length.i.i.i.i5, align 8
-  %arrayidx.i.i.i6 = getelementptr inbounds %"class.std::__cxx11::basic_string", ptr %agg.result, i64 0, i32 2, i32 1, i64 2
+  %arrayidx.i.i.i6 = getelementptr inbounds i8, ptr %agg.result, i64 26
   store i8 0, ptr %arrayidx.i.i.i6, align 2
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp2) #13
   br label %return
 
 sw.bb3:                                           ; preds = %entry
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp4) #13
-  %2 = getelementptr inbounds %"class.std::__cxx11::basic_string", ptr %agg.result, i64 0, i32 2
+  %2 = getelementptr inbounds i8, ptr %agg.result, i64 16
   call void @_ZNSaIcEC2ERKS_(ptr noundef nonnull align 1 dereferenceable(1) %agg.result, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp4) #13
   store ptr %2, ptr %agg.result, align 8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(10) %2, ptr noundef nonnull align 1 dereferenceable(10) @.str.761, i64 10, i1 false)
-  %_M_string_length.i.i.i.i22 = getelementptr inbounds %"class.std::__cxx11::basic_string", ptr %agg.result, i64 0, i32 1
+  %_M_string_length.i.i.i.i22 = getelementptr inbounds i8, ptr %agg.result, i64 8
   store i64 10, ptr %_M_string_length.i.i.i.i22, align 8
-  %arrayidx.i.i.i23 = getelementptr inbounds %"class.std::__cxx11::basic_string", ptr %agg.result, i64 0, i32 2, i32 1, i64 2
+  %arrayidx.i.i.i23 = getelementptr inbounds i8, ptr %agg.result, i64 26
   store i8 0, ptr %arrayidx.i.i.i23, align 2
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp4) #13
   br label %return
 
 sw.bb5:                                           ; preds = %entry
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp6) #13
-  %3 = getelementptr inbounds %"class.std::__cxx11::basic_string", ptr %agg.result, i64 0, i32 2
+  %3 = getelementptr inbounds i8, ptr %agg.result, i64 16
   call void @_ZNSaIcEC2ERKS_(ptr noundef nonnull align 1 dereferenceable(1) %agg.result, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp6) #13
   store ptr %3, ptr %agg.result, align 8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(12) %3, ptr noundef nonnull align 1 dereferenceable(12) @.str.762, i64 12, i1 false)
-  %_M_string_length.i.i.i.i39 = getelementptr inbounds %"class.std::__cxx11::basic_string", ptr %agg.result, i64 0, i32 1
+  %_M_string_length.i.i.i.i39 = getelementptr inbounds i8, ptr %agg.result, i64 8
   store i64 12, ptr %_M_string_length.i.i.i.i39, align 8
-  %arrayidx.i.i.i40 = getelementptr inbounds %"class.std::__cxx11::basic_string", ptr %agg.result, i64 0, i32 2, i32 1, i64 4
+  %arrayidx.i.i.i40 = getelementptr inbounds i8, ptr %agg.result, i64 28
   store i8 0, ptr %arrayidx.i.i.i40, align 4
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp6) #13
   br label %return
 
 sw.bb7:                                           ; preds = %entry
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp8) #13
-  %4 = getelementptr inbounds %"class.std::__cxx11::basic_string", ptr %agg.result, i64 0, i32 2
+  %4 = getelementptr inbounds i8, ptr %agg.result, i64 16
   call void @_ZNSaIcEC2ERKS_(ptr noundef nonnull align 1 dereferenceable(1) %agg.result, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp8) #13
   store ptr %4, ptr %agg.result, align 8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(11) %4, ptr noundef nonnull align 1 dereferenceable(11) @.str.763, i64 11, i1 false)
-  %_M_string_length.i.i.i.i56 = getelementptr inbounds %"class.std::__cxx11::basic_string", ptr %agg.result, i64 0, i32 1
+  %_M_string_length.i.i.i.i56 = getelementptr inbounds i8, ptr %agg.result, i64 8
   store i64 11, ptr %_M_string_length.i.i.i.i56, align 8
-  %arrayidx.i.i.i57 = getelementptr inbounds %"class.std::__cxx11::basic_string", ptr %agg.result, i64 0, i32 2, i32 1, i64 3
+  %arrayidx.i.i.i57 = getelementptr inbounds i8, ptr %agg.result, i64 27
   store i8 0, ptr %arrayidx.i.i.i57, align 1
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp8) #13
   br label %return
 
 sw.bb9:                                           ; preds = %entry
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp10) #13
-  %5 = getelementptr inbounds %"class.std::__cxx11::basic_string", ptr %agg.result, i64 0, i32 2
+  %5 = getelementptr inbounds i8, ptr %agg.result, i64 16
   call void @_ZNSaIcEC2ERKS_(ptr noundef nonnull align 1 dereferenceable(1) %agg.result, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp10) #13
   store ptr %5, ptr %agg.result, align 8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(12) %5, ptr noundef nonnull align 1 dereferenceable(12) @.str.764, i64 12, i1 false)
-  %_M_string_length.i.i.i.i73 = getelementptr inbounds %"class.std::__cxx11::basic_string", ptr %agg.result, i64 0, i32 1
+  %_M_string_length.i.i.i.i73 = getelementptr inbounds i8, ptr %agg.result, i64 8
   store i64 12, ptr %_M_string_length.i.i.i.i73, align 8
-  %arrayidx.i.i.i74 = getelementptr inbounds %"class.std::__cxx11::basic_string", ptr %agg.result, i64 0, i32 2, i32 1, i64 4
+  %arrayidx.i.i.i74 = getelementptr inbounds i8, ptr %agg.result, i64 28
   store i8 0, ptr %arrayidx.i.i.i74, align 4
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp10) #13
   br label %return
 
 sw.bb11:                                          ; preds = %entry
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp12) #13
-  %6 = getelementptr inbounds %"class.std::__cxx11::basic_string", ptr %agg.result, i64 0, i32 2
+  %6 = getelementptr inbounds i8, ptr %agg.result, i64 16
   call void @_ZNSaIcEC2ERKS_(ptr noundef nonnull align 1 dereferenceable(1) %agg.result, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp12) #13
   store ptr %6, ptr %agg.result, align 8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(12) %6, ptr noundef nonnull align 1 dereferenceable(12) @.str.765, i64 12, i1 false)
-  %_M_string_length.i.i.i.i90 = getelementptr inbounds %"class.std::__cxx11::basic_string", ptr %agg.result, i64 0, i32 1
+  %_M_string_length.i.i.i.i90 = getelementptr inbounds i8, ptr %agg.result, i64 8
   store i64 12, ptr %_M_string_length.i.i.i.i90, align 8
-  %arrayidx.i.i.i91 = getelementptr inbounds %"class.std::__cxx11::basic_string", ptr %agg.result, i64 0, i32 2, i32 1, i64 4
+  %arrayidx.i.i.i91 = getelementptr inbounds i8, ptr %agg.result, i64 28
   store i8 0, ptr %arrayidx.i.i.i91, align 4
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp12) #13
   br label %return
 
 sw.bb13:                                          ; preds = %entry
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp14) #13
-  %7 = getelementptr inbounds %"class.std::__cxx11::basic_string", ptr %agg.result, i64 0, i32 2
+  %7 = getelementptr inbounds i8, ptr %agg.result, i64 16
   call void @_ZNSaIcEC2ERKS_(ptr noundef nonnull align 1 dereferenceable(1) %agg.result, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp14) #13
   store ptr %7, ptr %agg.result, align 8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(11) %7, ptr noundef nonnull align 1 dereferenceable(11) @.str.766, i64 11, i1 false)
-  %_M_string_length.i.i.i.i107 = getelementptr inbounds %"class.std::__cxx11::basic_string", ptr %agg.result, i64 0, i32 1
+  %_M_string_length.i.i.i.i107 = getelementptr inbounds i8, ptr %agg.result, i64 8
   store i64 11, ptr %_M_string_length.i.i.i.i107, align 8
-  %arrayidx.i.i.i108 = getelementptr inbounds %"class.std::__cxx11::basic_string", ptr %agg.result, i64 0, i32 2, i32 1, i64 3
+  %arrayidx.i.i.i108 = getelementptr inbounds i8, ptr %agg.result, i64 27
   store i8 0, ptr %arrayidx.i.i.i108, align 1
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp14) #13
   br label %return
 
 sw.bb15:                                          ; preds = %entry
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp16) #13
-  %8 = getelementptr inbounds %"class.std::__cxx11::basic_string", ptr %agg.result, i64 0, i32 2
+  %8 = getelementptr inbounds i8, ptr %agg.result, i64 16
   call void @_ZNSaIcEC2ERKS_(ptr noundef nonnull align 1 dereferenceable(1) %agg.result, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp16) #13
   store ptr %8, ptr %agg.result, align 8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(10) %8, ptr noundef nonnull align 1 dereferenceable(10) @.str.767, i64 10, i1 false)
-  %_M_string_length.i.i.i.i124 = getelementptr inbounds %"class.std::__cxx11::basic_string", ptr %agg.result, i64 0, i32 1
+  %_M_string_length.i.i.i.i124 = getelementptr inbounds i8, ptr %agg.result, i64 8
   store i64 10, ptr %_M_string_length.i.i.i.i124, align 8
-  %arrayidx.i.i.i125 = getelementptr inbounds %"class.std::__cxx11::basic_string", ptr %agg.result, i64 0, i32 2, i32 1, i64 2
+  %arrayidx.i.i.i125 = getelementptr inbounds i8, ptr %agg.result, i64 26
   store i8 0, ptr %arrayidx.i.i.i125, align 2
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp16) #13
   br label %return
 
 sw.bb17:                                          ; preds = %entry
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp18) #13
-  %9 = getelementptr inbounds %"class.std::__cxx11::basic_string", ptr %agg.result, i64 0, i32 2
+  %9 = getelementptr inbounds i8, ptr %agg.result, i64 16
   call void @_ZNSaIcEC2ERKS_(ptr noundef nonnull align 1 dereferenceable(1) %agg.result, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp18) #13
   store ptr %9, ptr %agg.result, align 8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(10) %9, ptr noundef nonnull align 1 dereferenceable(10) @.str.768, i64 10, i1 false)
-  %_M_string_length.i.i.i.i141 = getelementptr inbounds %"class.std::__cxx11::basic_string", ptr %agg.result, i64 0, i32 1
+  %_M_string_length.i.i.i.i141 = getelementptr inbounds i8, ptr %agg.result, i64 8
   store i64 10, ptr %_M_string_length.i.i.i.i141, align 8
-  %arrayidx.i.i.i142 = getelementptr inbounds %"class.std::__cxx11::basic_string", ptr %agg.result, i64 0, i32 2, i32 1, i64 2
+  %arrayidx.i.i.i142 = getelementptr inbounds i8, ptr %agg.result, i64 26
   store i8 0, ptr %arrayidx.i.i.i142, align 2
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp18) #13
   br label %return
 
 sw.bb19:                                          ; preds = %entry
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp20) #13
-  %10 = getelementptr inbounds %"class.std::__cxx11::basic_string", ptr %agg.result, i64 0, i32 2
+  %10 = getelementptr inbounds i8, ptr %agg.result, i64 16
   call void @_ZNSaIcEC2ERKS_(ptr noundef nonnull align 1 dereferenceable(1) %agg.result, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp20) #13
   store ptr %10, ptr %agg.result, align 8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(14) %10, ptr noundef nonnull align 1 dereferenceable(14) @.str.769, i64 14, i1 false)
-  %_M_string_length.i.i.i.i158 = getelementptr inbounds %"class.std::__cxx11::basic_string", ptr %agg.result, i64 0, i32 1
+  %_M_string_length.i.i.i.i158 = getelementptr inbounds i8, ptr %agg.result, i64 8
   store i64 14, ptr %_M_string_length.i.i.i.i158, align 8
-  %arrayidx.i.i.i159 = getelementptr inbounds %"class.std::__cxx11::basic_string", ptr %agg.result, i64 0, i32 2, i32 1, i64 6
+  %arrayidx.i.i.i159 = getelementptr inbounds i8, ptr %agg.result, i64 30
   store i8 0, ptr %arrayidx.i.i.i159, align 2
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp20) #13
   br label %return
 
 sw.bb21:                                          ; preds = %entry
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp22) #13
-  %11 = getelementptr inbounds %"class.std::__cxx11::basic_string", ptr %agg.result, i64 0, i32 2
+  %11 = getelementptr inbounds i8, ptr %agg.result, i64 16
   call void @_ZNSaIcEC2ERKS_(ptr noundef nonnull align 1 dereferenceable(1) %agg.result, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp22) #13
   store ptr %11, ptr %agg.result, align 8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(14) %11, ptr noundef nonnull align 1 dereferenceable(14) @.str.770, i64 14, i1 false)
-  %_M_string_length.i.i.i.i175 = getelementptr inbounds %"class.std::__cxx11::basic_string", ptr %agg.result, i64 0, i32 1
+  %_M_string_length.i.i.i.i175 = getelementptr inbounds i8, ptr %agg.result, i64 8
   store i64 14, ptr %_M_string_length.i.i.i.i175, align 8
-  %arrayidx.i.i.i176 = getelementptr inbounds %"class.std::__cxx11::basic_string", ptr %agg.result, i64 0, i32 2, i32 1, i64 6
+  %arrayidx.i.i.i176 = getelementptr inbounds i8, ptr %agg.result, i64 30
   store i8 0, ptr %arrayidx.i.i.i176, align 2
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp22) #13
   br label %return
 
 sw.bb23:                                          ; preds = %entry
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp24) #13
-  %12 = getelementptr inbounds %"class.std::__cxx11::basic_string", ptr %agg.result, i64 0, i32 2
+  %12 = getelementptr inbounds i8, ptr %agg.result, i64 16
   call void @_ZNSaIcEC2ERKS_(ptr noundef nonnull align 1 dereferenceable(1) %agg.result, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp24) #13
   store ptr %12, ptr %agg.result, align 8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(15) %12, ptr noundef nonnull align 1 dereferenceable(15) @.str.771, i64 15, i1 false)
-  %_M_string_length.i.i.i.i192 = getelementptr inbounds %"class.std::__cxx11::basic_string", ptr %agg.result, i64 0, i32 1
+  %_M_string_length.i.i.i.i192 = getelementptr inbounds i8, ptr %agg.result, i64 8
   store i64 15, ptr %_M_string_length.i.i.i.i192, align 8
-  %arrayidx.i.i.i193 = getelementptr inbounds %"class.std::__cxx11::basic_string", ptr %agg.result, i64 0, i32 2, i32 1, i64 7
+  %arrayidx.i.i.i193 = getelementptr inbounds i8, ptr %agg.result, i64 31
   store i8 0, ptr %arrayidx.i.i.i193, align 1
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp24) #13
   br label %return
 
 sw.bb25:                                          ; preds = %entry
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp26) #13
-  %13 = getelementptr inbounds %"class.std::__cxx11::basic_string", ptr %agg.result, i64 0, i32 2
+  %13 = getelementptr inbounds i8, ptr %agg.result, i64 16
   call void @_ZNSaIcEC2ERKS_(ptr noundef nonnull align 1 dereferenceable(1) %agg.result, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp26) #13
   store ptr %13, ptr %agg.result, align 8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(14) %13, ptr noundef nonnull align 1 dereferenceable(14) @.str.772, i64 14, i1 false)
-  %_M_string_length.i.i.i.i209 = getelementptr inbounds %"class.std::__cxx11::basic_string", ptr %agg.result, i64 0, i32 1
+  %_M_string_length.i.i.i.i209 = getelementptr inbounds i8, ptr %agg.result, i64 8
   store i64 14, ptr %_M_string_length.i.i.i.i209, align 8
-  %arrayidx.i.i.i210 = getelementptr inbounds %"class.std::__cxx11::basic_string", ptr %agg.result, i64 0, i32 2, i32 1, i64 6
+  %arrayidx.i.i.i210 = getelementptr inbounds i8, ptr %agg.result, i64 30
   store i8 0, ptr %arrayidx.i.i.i210, align 2
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp26) #13
   br label %return
 
 sw.bb27:                                          ; preds = %entry
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp28) #13
-  %14 = getelementptr inbounds %"class.std::__cxx11::basic_string", ptr %agg.result, i64 0, i32 2
+  %14 = getelementptr inbounds i8, ptr %agg.result, i64 16
   call void @_ZNSaIcEC2ERKS_(ptr noundef nonnull align 1 dereferenceable(1) %agg.result, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp28) #13
   store ptr %14, ptr %agg.result, align 8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(14) %14, ptr noundef nonnull align 1 dereferenceable(14) @.str.773, i64 14, i1 false)
-  %_M_string_length.i.i.i.i226 = getelementptr inbounds %"class.std::__cxx11::basic_string", ptr %agg.result, i64 0, i32 1
+  %_M_string_length.i.i.i.i226 = getelementptr inbounds i8, ptr %agg.result, i64 8
   store i64 14, ptr %_M_string_length.i.i.i.i226, align 8
-  %arrayidx.i.i.i227 = getelementptr inbounds %"class.std::__cxx11::basic_string", ptr %agg.result, i64 0, i32 2, i32 1, i64 6
+  %arrayidx.i.i.i227 = getelementptr inbounds i8, ptr %agg.result, i64 30
   store i8 0, ptr %arrayidx.i.i.i227, align 2
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp28) #13
   br label %return
 
 sw.bb29:                                          ; preds = %entry
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp30) #13
-  %15 = getelementptr inbounds %"class.std::__cxx11::basic_string", ptr %agg.result, i64 0, i32 2
+  %15 = getelementptr inbounds i8, ptr %agg.result, i64 16
   call void @_ZNSaIcEC2ERKS_(ptr noundef nonnull align 1 dereferenceable(1) %agg.result, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp30) #13
   %call5.i.i.i.i.i253 = call noalias noundef nonnull dereferenceable(18) ptr @_Znwm(i64 noundef 18) #15
   store ptr %call5.i.i.i.i.i253, ptr %agg.result, align 8
   store i64 17, ptr %15, align 8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(17) %call5.i.i.i.i.i253, ptr noundef nonnull align 1 dereferenceable(17) @.str.774, i64 17, i1 false)
-  %_M_string_length.i.i.i.i243 = getelementptr inbounds %"class.std::__cxx11::basic_string", ptr %agg.result, i64 0, i32 1
+  %_M_string_length.i.i.i.i243 = getelementptr inbounds i8, ptr %agg.result, i64 8
   store i64 17, ptr %_M_string_length.i.i.i.i243, align 8
   %arrayidx.i.i.i244 = getelementptr inbounds i8, ptr %call5.i.i.i.i.i253, i64 17
   store i8 0, ptr %arrayidx.i.i.i244, align 1
@@ -8598,13 +8598,13 @@ sw.bb29:                                          ; preds = %entry
 
 sw.bb31:                                          ; preds = %entry
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp32) #13
-  %16 = getelementptr inbounds %"class.std::__cxx11::basic_string", ptr %agg.result, i64 0, i32 2
+  %16 = getelementptr inbounds i8, ptr %agg.result, i64 16
   call void @_ZNSaIcEC2ERKS_(ptr noundef nonnull align 1 dereferenceable(1) %agg.result, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp32) #13
   %call5.i.i.i.i.i270 = call noalias noundef nonnull dereferenceable(18) ptr @_Znwm(i64 noundef 18) #15
   store ptr %call5.i.i.i.i.i270, ptr %agg.result, align 8
   store i64 17, ptr %16, align 8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(17) %call5.i.i.i.i.i270, ptr noundef nonnull align 1 dereferenceable(17) @.str.775, i64 17, i1 false)
-  %_M_string_length.i.i.i.i260 = getelementptr inbounds %"class.std::__cxx11::basic_string", ptr %agg.result, i64 0, i32 1
+  %_M_string_length.i.i.i.i260 = getelementptr inbounds i8, ptr %agg.result, i64 8
   store i64 17, ptr %_M_string_length.i.i.i.i260, align 8
   %arrayidx.i.i.i261 = getelementptr inbounds i8, ptr %call5.i.i.i.i.i270, i64 17
   store i8 0, ptr %arrayidx.i.i.i261, align 1
@@ -8613,13 +8613,13 @@ sw.bb31:                                          ; preds = %entry
 
 sw.bb33:                                          ; preds = %entry
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp34) #13
-  %17 = getelementptr inbounds %"class.std::__cxx11::basic_string", ptr %agg.result, i64 0, i32 2
+  %17 = getelementptr inbounds i8, ptr %agg.result, i64 16
   call void @_ZNSaIcEC2ERKS_(ptr noundef nonnull align 1 dereferenceable(1) %agg.result, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp34) #13
   %call5.i.i.i.i.i287 = call noalias noundef nonnull dereferenceable(17) ptr @_Znwm(i64 noundef 17) #15
   store ptr %call5.i.i.i.i.i287, ptr %agg.result, align 8
   store i64 16, ptr %17, align 8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(16) %call5.i.i.i.i.i287, ptr noundef nonnull align 1 dereferenceable(16) @.str.776, i64 16, i1 false)
-  %_M_string_length.i.i.i.i277 = getelementptr inbounds %"class.std::__cxx11::basic_string", ptr %agg.result, i64 0, i32 1
+  %_M_string_length.i.i.i.i277 = getelementptr inbounds i8, ptr %agg.result, i64 8
   store i64 16, ptr %_M_string_length.i.i.i.i277, align 8
   %arrayidx.i.i.i278 = getelementptr inbounds i8, ptr %call5.i.i.i.i.i287, i64 16
   store i8 0, ptr %arrayidx.i.i.i278, align 1
@@ -8628,117 +8628,117 @@ sw.bb33:                                          ; preds = %entry
 
 sw.bb35:                                          ; preds = %entry
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp36) #13
-  %18 = getelementptr inbounds %"class.std::__cxx11::basic_string", ptr %agg.result, i64 0, i32 2
+  %18 = getelementptr inbounds i8, ptr %agg.result, i64 16
   call void @_ZNSaIcEC2ERKS_(ptr noundef nonnull align 1 dereferenceable(1) %agg.result, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp36) #13
   store ptr %18, ptr %agg.result, align 8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(10) %18, ptr noundef nonnull align 1 dereferenceable(10) @.str.777, i64 10, i1 false)
-  %_M_string_length.i.i.i.i294 = getelementptr inbounds %"class.std::__cxx11::basic_string", ptr %agg.result, i64 0, i32 1
+  %_M_string_length.i.i.i.i294 = getelementptr inbounds i8, ptr %agg.result, i64 8
   store i64 10, ptr %_M_string_length.i.i.i.i294, align 8
-  %arrayidx.i.i.i295 = getelementptr inbounds %"class.std::__cxx11::basic_string", ptr %agg.result, i64 0, i32 2, i32 1, i64 2
+  %arrayidx.i.i.i295 = getelementptr inbounds i8, ptr %agg.result, i64 26
   store i8 0, ptr %arrayidx.i.i.i295, align 2
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp36) #13
   br label %return
 
 sw.bb37:                                          ; preds = %entry
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp38) #13
-  %19 = getelementptr inbounds %"class.std::__cxx11::basic_string", ptr %agg.result, i64 0, i32 2
+  %19 = getelementptr inbounds i8, ptr %agg.result, i64 16
   call void @_ZNSaIcEC2ERKS_(ptr noundef nonnull align 1 dereferenceable(1) %agg.result, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp38) #13
   store ptr %19, ptr %agg.result, align 8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(10) %19, ptr noundef nonnull align 1 dereferenceable(10) @.str.778, i64 10, i1 false)
-  %_M_string_length.i.i.i.i311 = getelementptr inbounds %"class.std::__cxx11::basic_string", ptr %agg.result, i64 0, i32 1
+  %_M_string_length.i.i.i.i311 = getelementptr inbounds i8, ptr %agg.result, i64 8
   store i64 10, ptr %_M_string_length.i.i.i.i311, align 8
-  %arrayidx.i.i.i312 = getelementptr inbounds %"class.std::__cxx11::basic_string", ptr %agg.result, i64 0, i32 2, i32 1, i64 2
+  %arrayidx.i.i.i312 = getelementptr inbounds i8, ptr %agg.result, i64 26
   store i8 0, ptr %arrayidx.i.i.i312, align 2
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp38) #13
   br label %return
 
 sw.bb39:                                          ; preds = %entry
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp40) #13
-  %20 = getelementptr inbounds %"class.std::__cxx11::basic_string", ptr %agg.result, i64 0, i32 2
+  %20 = getelementptr inbounds i8, ptr %agg.result, i64 16
   call void @_ZNSaIcEC2ERKS_(ptr noundef nonnull align 1 dereferenceable(1) %agg.result, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp40) #13
   store ptr %20, ptr %agg.result, align 8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(9) %20, ptr noundef nonnull align 1 dereferenceable(9) @.str.779, i64 9, i1 false)
-  %_M_string_length.i.i.i.i328 = getelementptr inbounds %"class.std::__cxx11::basic_string", ptr %agg.result, i64 0, i32 1
+  %_M_string_length.i.i.i.i328 = getelementptr inbounds i8, ptr %agg.result, i64 8
   store i64 9, ptr %_M_string_length.i.i.i.i328, align 8
-  %arrayidx.i.i.i329 = getelementptr inbounds %"class.std::__cxx11::basic_string", ptr %agg.result, i64 0, i32 2, i32 1, i64 1
+  %arrayidx.i.i.i329 = getelementptr inbounds i8, ptr %agg.result, i64 25
   store i8 0, ptr %arrayidx.i.i.i329, align 1
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp40) #13
   br label %return
 
 sw.bb41:                                          ; preds = %entry
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp42) #13
-  %21 = getelementptr inbounds %"class.std::__cxx11::basic_string", ptr %agg.result, i64 0, i32 2
+  %21 = getelementptr inbounds i8, ptr %agg.result, i64 16
   call void @_ZNSaIcEC2ERKS_(ptr noundef nonnull align 1 dereferenceable(1) %agg.result, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp42) #13
   store ptr %21, ptr %agg.result, align 8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(13) %21, ptr noundef nonnull align 1 dereferenceable(13) @.str.780, i64 13, i1 false)
-  %_M_string_length.i.i.i.i345 = getelementptr inbounds %"class.std::__cxx11::basic_string", ptr %agg.result, i64 0, i32 1
+  %_M_string_length.i.i.i.i345 = getelementptr inbounds i8, ptr %agg.result, i64 8
   store i64 13, ptr %_M_string_length.i.i.i.i345, align 8
-  %arrayidx.i.i.i346 = getelementptr inbounds %"class.std::__cxx11::basic_string", ptr %agg.result, i64 0, i32 2, i32 1, i64 5
+  %arrayidx.i.i.i346 = getelementptr inbounds i8, ptr %agg.result, i64 29
   store i8 0, ptr %arrayidx.i.i.i346, align 1
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp42) #13
   br label %return
 
 sw.bb43:                                          ; preds = %entry
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp44) #13
-  %22 = getelementptr inbounds %"class.std::__cxx11::basic_string", ptr %agg.result, i64 0, i32 2
+  %22 = getelementptr inbounds i8, ptr %agg.result, i64 16
   call void @_ZNSaIcEC2ERKS_(ptr noundef nonnull align 1 dereferenceable(1) %agg.result, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp44) #13
   store ptr %22, ptr %agg.result, align 8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(13) %22, ptr noundef nonnull align 1 dereferenceable(13) @.str.781, i64 13, i1 false)
-  %_M_string_length.i.i.i.i362 = getelementptr inbounds %"class.std::__cxx11::basic_string", ptr %agg.result, i64 0, i32 1
+  %_M_string_length.i.i.i.i362 = getelementptr inbounds i8, ptr %agg.result, i64 8
   store i64 13, ptr %_M_string_length.i.i.i.i362, align 8
-  %arrayidx.i.i.i363 = getelementptr inbounds %"class.std::__cxx11::basic_string", ptr %agg.result, i64 0, i32 2, i32 1, i64 5
+  %arrayidx.i.i.i363 = getelementptr inbounds i8, ptr %agg.result, i64 29
   store i8 0, ptr %arrayidx.i.i.i363, align 1
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp44) #13
   br label %return
 
 sw.bb45:                                          ; preds = %entry
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp46) #13
-  %23 = getelementptr inbounds %"class.std::__cxx11::basic_string", ptr %agg.result, i64 0, i32 2
+  %23 = getelementptr inbounds i8, ptr %agg.result, i64 16
   call void @_ZNSaIcEC2ERKS_(ptr noundef nonnull align 1 dereferenceable(1) %agg.result, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp46) #13
   store ptr %23, ptr %agg.result, align 8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(13) %23, ptr noundef nonnull align 1 dereferenceable(13) @.str.782, i64 13, i1 false)
-  %_M_string_length.i.i.i.i379 = getelementptr inbounds %"class.std::__cxx11::basic_string", ptr %agg.result, i64 0, i32 1
+  %_M_string_length.i.i.i.i379 = getelementptr inbounds i8, ptr %agg.result, i64 8
   store i64 13, ptr %_M_string_length.i.i.i.i379, align 8
-  %arrayidx.i.i.i380 = getelementptr inbounds %"class.std::__cxx11::basic_string", ptr %agg.result, i64 0, i32 2, i32 1, i64 5
+  %arrayidx.i.i.i380 = getelementptr inbounds i8, ptr %agg.result, i64 29
   store i8 0, ptr %arrayidx.i.i.i380, align 1
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp46) #13
   br label %return
 
 sw.bb47:                                          ; preds = %entry
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp48) #13
-  %24 = getelementptr inbounds %"class.std::__cxx11::basic_string", ptr %agg.result, i64 0, i32 2
+  %24 = getelementptr inbounds i8, ptr %agg.result, i64 16
   call void @_ZNSaIcEC2ERKS_(ptr noundef nonnull align 1 dereferenceable(1) %agg.result, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp48) #13
   store ptr %24, ptr %agg.result, align 8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(11) %24, ptr noundef nonnull align 1 dereferenceable(11) @.str.783, i64 11, i1 false)
-  %_M_string_length.i.i.i.i396 = getelementptr inbounds %"class.std::__cxx11::basic_string", ptr %agg.result, i64 0, i32 1
+  %_M_string_length.i.i.i.i396 = getelementptr inbounds i8, ptr %agg.result, i64 8
   store i64 11, ptr %_M_string_length.i.i.i.i396, align 8
-  %arrayidx.i.i.i397 = getelementptr inbounds %"class.std::__cxx11::basic_string", ptr %agg.result, i64 0, i32 2, i32 1, i64 3
+  %arrayidx.i.i.i397 = getelementptr inbounds i8, ptr %agg.result, i64 27
   store i8 0, ptr %arrayidx.i.i.i397, align 1
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp48) #13
   br label %return
 
 sw.bb49:                                          ; preds = %entry
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp50) #13
-  %25 = getelementptr inbounds %"class.std::__cxx11::basic_string", ptr %agg.result, i64 0, i32 2
+  %25 = getelementptr inbounds i8, ptr %agg.result, i64 16
   call void @_ZNSaIcEC2ERKS_(ptr noundef nonnull align 1 dereferenceable(1) %agg.result, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp50) #13
   store ptr %25, ptr %agg.result, align 8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(10) %25, ptr noundef nonnull align 1 dereferenceable(10) @.str.784, i64 10, i1 false)
-  %_M_string_length.i.i.i.i413 = getelementptr inbounds %"class.std::__cxx11::basic_string", ptr %agg.result, i64 0, i32 1
+  %_M_string_length.i.i.i.i413 = getelementptr inbounds i8, ptr %agg.result, i64 8
   store i64 10, ptr %_M_string_length.i.i.i.i413, align 8
-  %arrayidx.i.i.i414 = getelementptr inbounds %"class.std::__cxx11::basic_string", ptr %agg.result, i64 0, i32 2, i32 1, i64 2
+  %arrayidx.i.i.i414 = getelementptr inbounds i8, ptr %agg.result, i64 26
   store i8 0, ptr %arrayidx.i.i.i414, align 2
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp50) #13
   br label %return
 
 sw.bb51:                                          ; preds = %entry
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp52) #13
-  %26 = getelementptr inbounds %"class.std::__cxx11::basic_string", ptr %agg.result, i64 0, i32 2
+  %26 = getelementptr inbounds i8, ptr %agg.result, i64 16
   call void @_ZNSaIcEC2ERKS_(ptr noundef nonnull align 1 dereferenceable(1) %agg.result, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp52) #13
   store ptr %26, ptr %agg.result, align 8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(13) %26, ptr noundef nonnull align 1 dereferenceable(13) @.str.785, i64 13, i1 false)
-  %_M_string_length.i.i.i.i430 = getelementptr inbounds %"class.std::__cxx11::basic_string", ptr %agg.result, i64 0, i32 1
+  %_M_string_length.i.i.i.i430 = getelementptr inbounds i8, ptr %agg.result, i64 8
   store i64 13, ptr %_M_string_length.i.i.i.i430, align 8
-  %arrayidx.i.i.i431 = getelementptr inbounds %"class.std::__cxx11::basic_string", ptr %agg.result, i64 0, i32 2, i32 1, i64 5
+  %arrayidx.i.i.i431 = getelementptr inbounds i8, ptr %agg.result, i64 29
   store i8 0, ptr %arrayidx.i.i.i431, align 1
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp52) #13
   br label %return
@@ -8825,169 +8825,169 @@ entry:
 
 sw.bb:                                            ; preds = %entry
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp) #13
-  %0 = getelementptr inbounds %"class.std::__cxx11::basic_string", ptr %agg.result, i64 0, i32 2
+  %0 = getelementptr inbounds i8, ptr %agg.result, i64 16
   call void @_ZNSaIcEC2ERKS_(ptr noundef nonnull align 1 dereferenceable(1) %agg.result, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp) #13
   store ptr %0, ptr %agg.result, align 8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(12) %0, ptr noundef nonnull align 1 dereferenceable(12) @.str.786, i64 12, i1 false)
-  %_M_string_length.i.i.i.i = getelementptr inbounds %"class.std::__cxx11::basic_string", ptr %agg.result, i64 0, i32 1
+  %_M_string_length.i.i.i.i = getelementptr inbounds i8, ptr %agg.result, i64 8
   store i64 12, ptr %_M_string_length.i.i.i.i, align 8
-  %arrayidx.i.i.i = getelementptr inbounds %"class.std::__cxx11::basic_string", ptr %agg.result, i64 0, i32 2, i32 1, i64 4
+  %arrayidx.i.i.i = getelementptr inbounds i8, ptr %agg.result, i64 28
   store i8 0, ptr %arrayidx.i.i.i, align 4
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp) #13
   br label %return
 
 sw.bb1:                                           ; preds = %entry
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp2) #13
-  %1 = getelementptr inbounds %"class.std::__cxx11::basic_string", ptr %agg.result, i64 0, i32 2
+  %1 = getelementptr inbounds i8, ptr %agg.result, i64 16
   call void @_ZNSaIcEC2ERKS_(ptr noundef nonnull align 1 dereferenceable(1) %agg.result, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp2) #13
   store ptr %1, ptr %agg.result, align 8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(15) %1, ptr noundef nonnull align 1 dereferenceable(15) @.str.787, i64 15, i1 false)
-  %_M_string_length.i.i.i.i5 = getelementptr inbounds %"class.std::__cxx11::basic_string", ptr %agg.result, i64 0, i32 1
+  %_M_string_length.i.i.i.i5 = getelementptr inbounds i8, ptr %agg.result, i64 8
   store i64 15, ptr %_M_string_length.i.i.i.i5, align 8
-  %arrayidx.i.i.i6 = getelementptr inbounds %"class.std::__cxx11::basic_string", ptr %agg.result, i64 0, i32 2, i32 1, i64 7
+  %arrayidx.i.i.i6 = getelementptr inbounds i8, ptr %agg.result, i64 31
   store i8 0, ptr %arrayidx.i.i.i6, align 1
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp2) #13
   br label %return
 
 sw.bb3:                                           ; preds = %entry
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp4) #13
-  %2 = getelementptr inbounds %"class.std::__cxx11::basic_string", ptr %agg.result, i64 0, i32 2
+  %2 = getelementptr inbounds i8, ptr %agg.result, i64 16
   call void @_ZNSaIcEC2ERKS_(ptr noundef nonnull align 1 dereferenceable(1) %agg.result, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp4) #13
   store ptr %2, ptr %agg.result, align 8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(15) %2, ptr noundef nonnull align 1 dereferenceable(15) @.str.788, i64 15, i1 false)
-  %_M_string_length.i.i.i.i22 = getelementptr inbounds %"class.std::__cxx11::basic_string", ptr %agg.result, i64 0, i32 1
+  %_M_string_length.i.i.i.i22 = getelementptr inbounds i8, ptr %agg.result, i64 8
   store i64 15, ptr %_M_string_length.i.i.i.i22, align 8
-  %arrayidx.i.i.i23 = getelementptr inbounds %"class.std::__cxx11::basic_string", ptr %agg.result, i64 0, i32 2, i32 1, i64 7
+  %arrayidx.i.i.i23 = getelementptr inbounds i8, ptr %agg.result, i64 31
   store i8 0, ptr %arrayidx.i.i.i23, align 1
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp4) #13
   br label %return
 
 sw.bb5:                                           ; preds = %entry
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp6) #13
-  %3 = getelementptr inbounds %"class.std::__cxx11::basic_string", ptr %agg.result, i64 0, i32 2
+  %3 = getelementptr inbounds i8, ptr %agg.result, i64 16
   call void @_ZNSaIcEC2ERKS_(ptr noundef nonnull align 1 dereferenceable(1) %agg.result, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp6) #13
   store ptr %3, ptr %agg.result, align 8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(15) %3, ptr noundef nonnull align 1 dereferenceable(15) @.str.789, i64 15, i1 false)
-  %_M_string_length.i.i.i.i39 = getelementptr inbounds %"class.std::__cxx11::basic_string", ptr %agg.result, i64 0, i32 1
+  %_M_string_length.i.i.i.i39 = getelementptr inbounds i8, ptr %agg.result, i64 8
   store i64 15, ptr %_M_string_length.i.i.i.i39, align 8
-  %arrayidx.i.i.i40 = getelementptr inbounds %"class.std::__cxx11::basic_string", ptr %agg.result, i64 0, i32 2, i32 1, i64 7
+  %arrayidx.i.i.i40 = getelementptr inbounds i8, ptr %agg.result, i64 31
   store i8 0, ptr %arrayidx.i.i.i40, align 1
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp6) #13
   br label %return
 
 sw.bb7:                                           ; preds = %entry
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp8) #13
-  %4 = getelementptr inbounds %"class.std::__cxx11::basic_string", ptr %agg.result, i64 0, i32 2
+  %4 = getelementptr inbounds i8, ptr %agg.result, i64 16
   call void @_ZNSaIcEC2ERKS_(ptr noundef nonnull align 1 dereferenceable(1) %agg.result, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp8) #13
   store ptr %4, ptr %agg.result, align 8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(15) %4, ptr noundef nonnull align 1 dereferenceable(15) @.str.790, i64 15, i1 false)
-  %_M_string_length.i.i.i.i56 = getelementptr inbounds %"class.std::__cxx11::basic_string", ptr %agg.result, i64 0, i32 1
+  %_M_string_length.i.i.i.i56 = getelementptr inbounds i8, ptr %agg.result, i64 8
   store i64 15, ptr %_M_string_length.i.i.i.i56, align 8
-  %arrayidx.i.i.i57 = getelementptr inbounds %"class.std::__cxx11::basic_string", ptr %agg.result, i64 0, i32 2, i32 1, i64 7
+  %arrayidx.i.i.i57 = getelementptr inbounds i8, ptr %agg.result, i64 31
   store i8 0, ptr %arrayidx.i.i.i57, align 1
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp8) #13
   br label %return
 
 sw.bb9:                                           ; preds = %entry
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp10) #13
-  %5 = getelementptr inbounds %"class.std::__cxx11::basic_string", ptr %agg.result, i64 0, i32 2
+  %5 = getelementptr inbounds i8, ptr %agg.result, i64 16
   call void @_ZNSaIcEC2ERKS_(ptr noundef nonnull align 1 dereferenceable(1) %agg.result, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp10) #13
   store ptr %5, ptr %agg.result, align 8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(14) %5, ptr noundef nonnull align 1 dereferenceable(14) @.str.791, i64 14, i1 false)
-  %_M_string_length.i.i.i.i73 = getelementptr inbounds %"class.std::__cxx11::basic_string", ptr %agg.result, i64 0, i32 1
+  %_M_string_length.i.i.i.i73 = getelementptr inbounds i8, ptr %agg.result, i64 8
   store i64 14, ptr %_M_string_length.i.i.i.i73, align 8
-  %arrayidx.i.i.i74 = getelementptr inbounds %"class.std::__cxx11::basic_string", ptr %agg.result, i64 0, i32 2, i32 1, i64 6
+  %arrayidx.i.i.i74 = getelementptr inbounds i8, ptr %agg.result, i64 30
   store i8 0, ptr %arrayidx.i.i.i74, align 2
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp10) #13
   br label %return
 
 sw.bb11:                                          ; preds = %entry
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp12) #13
-  %6 = getelementptr inbounds %"class.std::__cxx11::basic_string", ptr %agg.result, i64 0, i32 2
+  %6 = getelementptr inbounds i8, ptr %agg.result, i64 16
   call void @_ZNSaIcEC2ERKS_(ptr noundef nonnull align 1 dereferenceable(1) %agg.result, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp12) #13
   store ptr %6, ptr %agg.result, align 8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(14) %6, ptr noundef nonnull align 1 dereferenceable(14) @.str.792, i64 14, i1 false)
-  %_M_string_length.i.i.i.i90 = getelementptr inbounds %"class.std::__cxx11::basic_string", ptr %agg.result, i64 0, i32 1
+  %_M_string_length.i.i.i.i90 = getelementptr inbounds i8, ptr %agg.result, i64 8
   store i64 14, ptr %_M_string_length.i.i.i.i90, align 8
-  %arrayidx.i.i.i91 = getelementptr inbounds %"class.std::__cxx11::basic_string", ptr %agg.result, i64 0, i32 2, i32 1, i64 6
+  %arrayidx.i.i.i91 = getelementptr inbounds i8, ptr %agg.result, i64 30
   store i8 0, ptr %arrayidx.i.i.i91, align 2
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp12) #13
   br label %return
 
 sw.bb13:                                          ; preds = %entry
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp14) #13
-  %7 = getelementptr inbounds %"class.std::__cxx11::basic_string", ptr %agg.result, i64 0, i32 2
+  %7 = getelementptr inbounds i8, ptr %agg.result, i64 16
   call void @_ZNSaIcEC2ERKS_(ptr noundef nonnull align 1 dereferenceable(1) %agg.result, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp14) #13
   store ptr %7, ptr %agg.result, align 8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(14) %7, ptr noundef nonnull align 1 dereferenceable(14) @.str.793, i64 14, i1 false)
-  %_M_string_length.i.i.i.i107 = getelementptr inbounds %"class.std::__cxx11::basic_string", ptr %agg.result, i64 0, i32 1
+  %_M_string_length.i.i.i.i107 = getelementptr inbounds i8, ptr %agg.result, i64 8
   store i64 14, ptr %_M_string_length.i.i.i.i107, align 8
-  %arrayidx.i.i.i108 = getelementptr inbounds %"class.std::__cxx11::basic_string", ptr %agg.result, i64 0, i32 2, i32 1, i64 6
+  %arrayidx.i.i.i108 = getelementptr inbounds i8, ptr %agg.result, i64 30
   store i8 0, ptr %arrayidx.i.i.i108, align 2
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp14) #13
   br label %return
 
 sw.bb15:                                          ; preds = %entry
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp16) #13
-  %8 = getelementptr inbounds %"class.std::__cxx11::basic_string", ptr %agg.result, i64 0, i32 2
+  %8 = getelementptr inbounds i8, ptr %agg.result, i64 16
   call void @_ZNSaIcEC2ERKS_(ptr noundef nonnull align 1 dereferenceable(1) %agg.result, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp16) #13
   store ptr %8, ptr %agg.result, align 8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(12) %8, ptr noundef nonnull align 1 dereferenceable(12) @.str.794, i64 12, i1 false)
-  %_M_string_length.i.i.i.i124 = getelementptr inbounds %"class.std::__cxx11::basic_string", ptr %agg.result, i64 0, i32 1
+  %_M_string_length.i.i.i.i124 = getelementptr inbounds i8, ptr %agg.result, i64 8
   store i64 12, ptr %_M_string_length.i.i.i.i124, align 8
-  %arrayidx.i.i.i125 = getelementptr inbounds %"class.std::__cxx11::basic_string", ptr %agg.result, i64 0, i32 2, i32 1, i64 4
+  %arrayidx.i.i.i125 = getelementptr inbounds i8, ptr %agg.result, i64 28
   store i8 0, ptr %arrayidx.i.i.i125, align 4
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp16) #13
   br label %return
 
 sw.bb17:                                          ; preds = %entry
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp18) #13
-  %9 = getelementptr inbounds %"class.std::__cxx11::basic_string", ptr %agg.result, i64 0, i32 2
+  %9 = getelementptr inbounds i8, ptr %agg.result, i64 16
   call void @_ZNSaIcEC2ERKS_(ptr noundef nonnull align 1 dereferenceable(1) %agg.result, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp18) #13
   store ptr %9, ptr %agg.result, align 8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(14) %9, ptr noundef nonnull align 1 dereferenceable(14) @.str.795, i64 14, i1 false)
-  %_M_string_length.i.i.i.i141 = getelementptr inbounds %"class.std::__cxx11::basic_string", ptr %agg.result, i64 0, i32 1
+  %_M_string_length.i.i.i.i141 = getelementptr inbounds i8, ptr %agg.result, i64 8
   store i64 14, ptr %_M_string_length.i.i.i.i141, align 8
-  %arrayidx.i.i.i142 = getelementptr inbounds %"class.std::__cxx11::basic_string", ptr %agg.result, i64 0, i32 2, i32 1, i64 6
+  %arrayidx.i.i.i142 = getelementptr inbounds i8, ptr %agg.result, i64 30
   store i8 0, ptr %arrayidx.i.i.i142, align 2
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp18) #13
   br label %return
 
 sw.bb19:                                          ; preds = %entry
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp20) #13
-  %10 = getelementptr inbounds %"class.std::__cxx11::basic_string", ptr %agg.result, i64 0, i32 2
+  %10 = getelementptr inbounds i8, ptr %agg.result, i64 16
   call void @_ZNSaIcEC2ERKS_(ptr noundef nonnull align 1 dereferenceable(1) %agg.result, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp20) #13
   store ptr %10, ptr %agg.result, align 8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(14) %10, ptr noundef nonnull align 1 dereferenceable(14) @.str.796, i64 14, i1 false)
-  %_M_string_length.i.i.i.i158 = getelementptr inbounds %"class.std::__cxx11::basic_string", ptr %agg.result, i64 0, i32 1
+  %_M_string_length.i.i.i.i158 = getelementptr inbounds i8, ptr %agg.result, i64 8
   store i64 14, ptr %_M_string_length.i.i.i.i158, align 8
-  %arrayidx.i.i.i159 = getelementptr inbounds %"class.std::__cxx11::basic_string", ptr %agg.result, i64 0, i32 2, i32 1, i64 6
+  %arrayidx.i.i.i159 = getelementptr inbounds i8, ptr %agg.result, i64 30
   store i8 0, ptr %arrayidx.i.i.i159, align 2
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp20) #13
   br label %return
 
 sw.bb21:                                          ; preds = %entry
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp22) #13
-  %11 = getelementptr inbounds %"class.std::__cxx11::basic_string", ptr %agg.result, i64 0, i32 2
+  %11 = getelementptr inbounds i8, ptr %agg.result, i64 16
   call void @_ZNSaIcEC2ERKS_(ptr noundef nonnull align 1 dereferenceable(1) %agg.result, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp22) #13
   store ptr %11, ptr %agg.result, align 8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(14) %11, ptr noundef nonnull align 1 dereferenceable(14) @.str.797, i64 14, i1 false)
-  %_M_string_length.i.i.i.i175 = getelementptr inbounds %"class.std::__cxx11::basic_string", ptr %agg.result, i64 0, i32 1
+  %_M_string_length.i.i.i.i175 = getelementptr inbounds i8, ptr %agg.result, i64 8
   store i64 14, ptr %_M_string_length.i.i.i.i175, align 8
-  %arrayidx.i.i.i176 = getelementptr inbounds %"class.std::__cxx11::basic_string", ptr %agg.result, i64 0, i32 2, i32 1, i64 6
+  %arrayidx.i.i.i176 = getelementptr inbounds i8, ptr %agg.result, i64 30
   store i8 0, ptr %arrayidx.i.i.i176, align 2
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp22) #13
   br label %return
 
 sw.bb23:                                          ; preds = %entry
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp24) #13
-  %12 = getelementptr inbounds %"class.std::__cxx11::basic_string", ptr %agg.result, i64 0, i32 2
+  %12 = getelementptr inbounds i8, ptr %agg.result, i64 16
   call void @_ZNSaIcEC2ERKS_(ptr noundef nonnull align 1 dereferenceable(1) %agg.result, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp24) #13
   %call5.i.i.i.i.i202 = call noalias noundef nonnull dereferenceable(18) ptr @_Znwm(i64 noundef 18) #15
   store ptr %call5.i.i.i.i.i202, ptr %agg.result, align 8
   store i64 17, ptr %12, align 8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(17) %call5.i.i.i.i.i202, ptr noundef nonnull align 1 dereferenceable(17) @.str.798, i64 17, i1 false)
-  %_M_string_length.i.i.i.i192 = getelementptr inbounds %"class.std::__cxx11::basic_string", ptr %agg.result, i64 0, i32 1
+  %_M_string_length.i.i.i.i192 = getelementptr inbounds i8, ptr %agg.result, i64 8
   store i64 17, ptr %_M_string_length.i.i.i.i192, align 8
   %arrayidx.i.i.i193 = getelementptr inbounds i8, ptr %call5.i.i.i.i.i202, i64 17
   store i8 0, ptr %arrayidx.i.i.i193, align 1
@@ -8996,13 +8996,13 @@ sw.bb23:                                          ; preds = %entry
 
 sw.bb25:                                          ; preds = %entry
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp26) #13
-  %13 = getelementptr inbounds %"class.std::__cxx11::basic_string", ptr %agg.result, i64 0, i32 2
+  %13 = getelementptr inbounds i8, ptr %agg.result, i64 16
   call void @_ZNSaIcEC2ERKS_(ptr noundef nonnull align 1 dereferenceable(1) %agg.result, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp26) #13
   %call5.i.i.i.i.i219 = call noalias noundef nonnull dereferenceable(17) ptr @_Znwm(i64 noundef 17) #15
   store ptr %call5.i.i.i.i.i219, ptr %agg.result, align 8
   store i64 16, ptr %13, align 8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(16) %call5.i.i.i.i.i219, ptr noundef nonnull align 1 dereferenceable(16) @.str.799, i64 16, i1 false)
-  %_M_string_length.i.i.i.i209 = getelementptr inbounds %"class.std::__cxx11::basic_string", ptr %agg.result, i64 0, i32 1
+  %_M_string_length.i.i.i.i209 = getelementptr inbounds i8, ptr %agg.result, i64 8
   store i64 16, ptr %_M_string_length.i.i.i.i209, align 8
   %arrayidx.i.i.i210 = getelementptr inbounds i8, ptr %call5.i.i.i.i.i219, i64 16
   store i8 0, ptr %arrayidx.i.i.i210, align 1
@@ -9011,39 +9011,39 @@ sw.bb25:                                          ; preds = %entry
 
 sw.bb27:                                          ; preds = %entry
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp28) #13
-  %14 = getelementptr inbounds %"class.std::__cxx11::basic_string", ptr %agg.result, i64 0, i32 2
+  %14 = getelementptr inbounds i8, ptr %agg.result, i64 16
   call void @_ZNSaIcEC2ERKS_(ptr noundef nonnull align 1 dereferenceable(1) %agg.result, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp28) #13
   store ptr %14, ptr %agg.result, align 8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(15) %14, ptr noundef nonnull align 1 dereferenceable(15) @.str.800, i64 15, i1 false)
-  %_M_string_length.i.i.i.i226 = getelementptr inbounds %"class.std::__cxx11::basic_string", ptr %agg.result, i64 0, i32 1
+  %_M_string_length.i.i.i.i226 = getelementptr inbounds i8, ptr %agg.result, i64 8
   store i64 15, ptr %_M_string_length.i.i.i.i226, align 8
-  %arrayidx.i.i.i227 = getelementptr inbounds %"class.std::__cxx11::basic_string", ptr %agg.result, i64 0, i32 2, i32 1, i64 7
+  %arrayidx.i.i.i227 = getelementptr inbounds i8, ptr %agg.result, i64 31
   store i8 0, ptr %arrayidx.i.i.i227, align 1
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp28) #13
   br label %return
 
 sw.bb29:                                          ; preds = %entry
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp30) #13
-  %15 = getelementptr inbounds %"class.std::__cxx11::basic_string", ptr %agg.result, i64 0, i32 2
+  %15 = getelementptr inbounds i8, ptr %agg.result, i64 16
   call void @_ZNSaIcEC2ERKS_(ptr noundef nonnull align 1 dereferenceable(1) %agg.result, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp30) #13
   store ptr %15, ptr %agg.result, align 8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(12) %15, ptr noundef nonnull align 1 dereferenceable(12) @.str.801, i64 12, i1 false)
-  %_M_string_length.i.i.i.i243 = getelementptr inbounds %"class.std::__cxx11::basic_string", ptr %agg.result, i64 0, i32 1
+  %_M_string_length.i.i.i.i243 = getelementptr inbounds i8, ptr %agg.result, i64 8
   store i64 12, ptr %_M_string_length.i.i.i.i243, align 8
-  %arrayidx.i.i.i244 = getelementptr inbounds %"class.std::__cxx11::basic_string", ptr %agg.result, i64 0, i32 2, i32 1, i64 4
+  %arrayidx.i.i.i244 = getelementptr inbounds i8, ptr %agg.result, i64 28
   store i8 0, ptr %arrayidx.i.i.i244, align 4
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp30) #13
   br label %return
 
 sw.bb31:                                          ; preds = %entry
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp32) #13
-  %16 = getelementptr inbounds %"class.std::__cxx11::basic_string", ptr %agg.result, i64 0, i32 2
+  %16 = getelementptr inbounds i8, ptr %agg.result, i64 16
   call void @_ZNSaIcEC2ERKS_(ptr noundef nonnull align 1 dereferenceable(1) %agg.result, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp32) #13
   %call5.i.i.i.i.i270 = call noalias noundef nonnull dereferenceable(17) ptr @_Znwm(i64 noundef 17) #15
   store ptr %call5.i.i.i.i.i270, ptr %agg.result, align 8
   store i64 16, ptr %16, align 8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(16) %call5.i.i.i.i.i270, ptr noundef nonnull align 1 dereferenceable(16) @.str.802, i64 16, i1 false)
-  %_M_string_length.i.i.i.i260 = getelementptr inbounds %"class.std::__cxx11::basic_string", ptr %agg.result, i64 0, i32 1
+  %_M_string_length.i.i.i.i260 = getelementptr inbounds i8, ptr %agg.result, i64 8
   store i64 16, ptr %_M_string_length.i.i.i.i260, align 8
   %arrayidx.i.i.i261 = getelementptr inbounds i8, ptr %call5.i.i.i.i.i270, i64 16
   store i8 0, ptr %arrayidx.i.i.i261, align 1
@@ -9052,13 +9052,13 @@ sw.bb31:                                          ; preds = %entry
 
 sw.bb33:                                          ; preds = %entry
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp34) #13
-  %17 = getelementptr inbounds %"class.std::__cxx11::basic_string", ptr %agg.result, i64 0, i32 2
+  %17 = getelementptr inbounds i8, ptr %agg.result, i64 16
   call void @_ZNSaIcEC2ERKS_(ptr noundef nonnull align 1 dereferenceable(1) %agg.result, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp34) #13
   %call5.i.i.i.i.i287 = call noalias noundef nonnull dereferenceable(17) ptr @_Znwm(i64 noundef 17) #15
   store ptr %call5.i.i.i.i.i287, ptr %agg.result, align 8
   store i64 16, ptr %17, align 8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(16) %call5.i.i.i.i.i287, ptr noundef nonnull align 1 dereferenceable(16) @.str.803, i64 16, i1 false)
-  %_M_string_length.i.i.i.i277 = getelementptr inbounds %"class.std::__cxx11::basic_string", ptr %agg.result, i64 0, i32 1
+  %_M_string_length.i.i.i.i277 = getelementptr inbounds i8, ptr %agg.result, i64 8
   store i64 16, ptr %_M_string_length.i.i.i.i277, align 8
   %arrayidx.i.i.i278 = getelementptr inbounds i8, ptr %call5.i.i.i.i.i287, i64 16
   store i8 0, ptr %arrayidx.i.i.i278, align 1
@@ -9067,13 +9067,13 @@ sw.bb33:                                          ; preds = %entry
 
 sw.bb35:                                          ; preds = %entry
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp36) #13
-  %18 = getelementptr inbounds %"class.std::__cxx11::basic_string", ptr %agg.result, i64 0, i32 2
+  %18 = getelementptr inbounds i8, ptr %agg.result, i64 16
   call void @_ZNSaIcEC2ERKS_(ptr noundef nonnull align 1 dereferenceable(1) %agg.result, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp36) #13
   %call5.i.i.i.i.i304 = call noalias noundef nonnull dereferenceable(17) ptr @_Znwm(i64 noundef 17) #15
   store ptr %call5.i.i.i.i.i304, ptr %agg.result, align 8
   store i64 16, ptr %18, align 8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(16) %call5.i.i.i.i.i304, ptr noundef nonnull align 1 dereferenceable(16) @.str.804, i64 16, i1 false)
-  %_M_string_length.i.i.i.i294 = getelementptr inbounds %"class.std::__cxx11::basic_string", ptr %agg.result, i64 0, i32 1
+  %_M_string_length.i.i.i.i294 = getelementptr inbounds i8, ptr %agg.result, i64 8
   store i64 16, ptr %_M_string_length.i.i.i.i294, align 8
   %arrayidx.i.i.i295 = getelementptr inbounds i8, ptr %call5.i.i.i.i.i304, i64 16
   store i8 0, ptr %arrayidx.i.i.i295, align 1
@@ -9082,52 +9082,52 @@ sw.bb35:                                          ; preds = %entry
 
 sw.bb37:                                          ; preds = %entry
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp38) #13
-  %19 = getelementptr inbounds %"class.std::__cxx11::basic_string", ptr %agg.result, i64 0, i32 2
+  %19 = getelementptr inbounds i8, ptr %agg.result, i64 16
   call void @_ZNSaIcEC2ERKS_(ptr noundef nonnull align 1 dereferenceable(1) %agg.result, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp38) #13
   store ptr %19, ptr %agg.result, align 8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(13) %19, ptr noundef nonnull align 1 dereferenceable(13) @.str.805, i64 13, i1 false)
-  %_M_string_length.i.i.i.i311 = getelementptr inbounds %"class.std::__cxx11::basic_string", ptr %agg.result, i64 0, i32 1
+  %_M_string_length.i.i.i.i311 = getelementptr inbounds i8, ptr %agg.result, i64 8
   store i64 13, ptr %_M_string_length.i.i.i.i311, align 8
-  %arrayidx.i.i.i312 = getelementptr inbounds %"class.std::__cxx11::basic_string", ptr %agg.result, i64 0, i32 2, i32 1, i64 5
+  %arrayidx.i.i.i312 = getelementptr inbounds i8, ptr %agg.result, i64 29
   store i8 0, ptr %arrayidx.i.i.i312, align 1
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp38) #13
   br label %return
 
 sw.bb39:                                          ; preds = %entry
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp40) #13
-  %20 = getelementptr inbounds %"class.std::__cxx11::basic_string", ptr %agg.result, i64 0, i32 2
+  %20 = getelementptr inbounds i8, ptr %agg.result, i64 16
   call void @_ZNSaIcEC2ERKS_(ptr noundef nonnull align 1 dereferenceable(1) %agg.result, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp40) #13
   store ptr %20, ptr %agg.result, align 8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(13) %20, ptr noundef nonnull align 1 dereferenceable(13) @.str.806, i64 13, i1 false)
-  %_M_string_length.i.i.i.i328 = getelementptr inbounds %"class.std::__cxx11::basic_string", ptr %agg.result, i64 0, i32 1
+  %_M_string_length.i.i.i.i328 = getelementptr inbounds i8, ptr %agg.result, i64 8
   store i64 13, ptr %_M_string_length.i.i.i.i328, align 8
-  %arrayidx.i.i.i329 = getelementptr inbounds %"class.std::__cxx11::basic_string", ptr %agg.result, i64 0, i32 2, i32 1, i64 5
+  %arrayidx.i.i.i329 = getelementptr inbounds i8, ptr %agg.result, i64 29
   store i8 0, ptr %arrayidx.i.i.i329, align 1
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp40) #13
   br label %return
 
 sw.bb41:                                          ; preds = %entry
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp42) #13
-  %21 = getelementptr inbounds %"class.std::__cxx11::basic_string", ptr %agg.result, i64 0, i32 2
+  %21 = getelementptr inbounds i8, ptr %agg.result, i64 16
   call void @_ZNSaIcEC2ERKS_(ptr noundef nonnull align 1 dereferenceable(1) %agg.result, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp42) #13
   store ptr %21, ptr %agg.result, align 8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(14) %21, ptr noundef nonnull align 1 dereferenceable(14) @.str.807, i64 14, i1 false)
-  %_M_string_length.i.i.i.i345 = getelementptr inbounds %"class.std::__cxx11::basic_string", ptr %agg.result, i64 0, i32 1
+  %_M_string_length.i.i.i.i345 = getelementptr inbounds i8, ptr %agg.result, i64 8
   store i64 14, ptr %_M_string_length.i.i.i.i345, align 8
-  %arrayidx.i.i.i346 = getelementptr inbounds %"class.std::__cxx11::basic_string", ptr %agg.result, i64 0, i32 2, i32 1, i64 6
+  %arrayidx.i.i.i346 = getelementptr inbounds i8, ptr %agg.result, i64 30
   store i8 0, ptr %arrayidx.i.i.i346, align 2
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp42) #13
   br label %return
 
 sw.bb43:                                          ; preds = %entry
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp44) #13
-  %22 = getelementptr inbounds %"class.std::__cxx11::basic_string", ptr %agg.result, i64 0, i32 2
+  %22 = getelementptr inbounds i8, ptr %agg.result, i64 16
   call void @_ZNSaIcEC2ERKS_(ptr noundef nonnull align 1 dereferenceable(1) %agg.result, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp44) #13
   %call5.i.i.i.i.i372 = call noalias noundef nonnull dereferenceable(17) ptr @_Znwm(i64 noundef 17) #15
   store ptr %call5.i.i.i.i.i372, ptr %agg.result, align 8
   store i64 16, ptr %22, align 8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(16) %call5.i.i.i.i.i372, ptr noundef nonnull align 1 dereferenceable(16) @.str.808, i64 16, i1 false)
-  %_M_string_length.i.i.i.i362 = getelementptr inbounds %"class.std::__cxx11::basic_string", ptr %agg.result, i64 0, i32 1
+  %_M_string_length.i.i.i.i362 = getelementptr inbounds i8, ptr %agg.result, i64 8
   store i64 16, ptr %_M_string_length.i.i.i.i362, align 8
   %arrayidx.i.i.i363 = getelementptr inbounds i8, ptr %call5.i.i.i.i.i372, i64 16
   store i8 0, ptr %arrayidx.i.i.i363, align 1
@@ -9136,13 +9136,13 @@ sw.bb43:                                          ; preds = %entry
 
 sw.bb45:                                          ; preds = %entry
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp46) #13
-  %23 = getelementptr inbounds %"class.std::__cxx11::basic_string", ptr %agg.result, i64 0, i32 2
+  %23 = getelementptr inbounds i8, ptr %agg.result, i64 16
   call void @_ZNSaIcEC2ERKS_(ptr noundef nonnull align 1 dereferenceable(1) %agg.result, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp46) #13
   %call5.i.i.i.i.i389 = call noalias noundef nonnull dereferenceable(18) ptr @_Znwm(i64 noundef 18) #15
   store ptr %call5.i.i.i.i.i389, ptr %agg.result, align 8
   store i64 17, ptr %23, align 8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(17) %call5.i.i.i.i.i389, ptr noundef nonnull align 1 dereferenceable(17) @.str.809, i64 17, i1 false)
-  %_M_string_length.i.i.i.i379 = getelementptr inbounds %"class.std::__cxx11::basic_string", ptr %agg.result, i64 0, i32 1
+  %_M_string_length.i.i.i.i379 = getelementptr inbounds i8, ptr %agg.result, i64 8
   store i64 17, ptr %_M_string_length.i.i.i.i379, align 8
   %arrayidx.i.i.i380 = getelementptr inbounds i8, ptr %call5.i.i.i.i.i389, i64 17
   store i8 0, ptr %arrayidx.i.i.i380, align 1
@@ -9151,13 +9151,13 @@ sw.bb45:                                          ; preds = %entry
 
 sw.bb47:                                          ; preds = %entry
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp48) #13
-  %24 = getelementptr inbounds %"class.std::__cxx11::basic_string", ptr %agg.result, i64 0, i32 2
+  %24 = getelementptr inbounds i8, ptr %agg.result, i64 16
   call void @_ZNSaIcEC2ERKS_(ptr noundef nonnull align 1 dereferenceable(1) %agg.result, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp48) #13
   %call5.i.i.i.i.i406 = call noalias noundef nonnull dereferenceable(17) ptr @_Znwm(i64 noundef 17) #15
   store ptr %call5.i.i.i.i.i406, ptr %agg.result, align 8
   store i64 16, ptr %24, align 8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(16) %call5.i.i.i.i.i406, ptr noundef nonnull align 1 dereferenceable(16) @.str.810, i64 16, i1 false)
-  %_M_string_length.i.i.i.i396 = getelementptr inbounds %"class.std::__cxx11::basic_string", ptr %agg.result, i64 0, i32 1
+  %_M_string_length.i.i.i.i396 = getelementptr inbounds i8, ptr %agg.result, i64 8
   store i64 16, ptr %_M_string_length.i.i.i.i396, align 8
   %arrayidx.i.i.i397 = getelementptr inbounds i8, ptr %call5.i.i.i.i.i406, i64 16
   store i8 0, ptr %arrayidx.i.i.i397, align 1
@@ -9166,13 +9166,13 @@ sw.bb47:                                          ; preds = %entry
 
 sw.bb49:                                          ; preds = %entry
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp50) #13
-  %25 = getelementptr inbounds %"class.std::__cxx11::basic_string", ptr %agg.result, i64 0, i32 2
+  %25 = getelementptr inbounds i8, ptr %agg.result, i64 16
   call void @_ZNSaIcEC2ERKS_(ptr noundef nonnull align 1 dereferenceable(1) %agg.result, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp50) #13
   %call5.i.i.i.i.i423 = call noalias noundef nonnull dereferenceable(17) ptr @_Znwm(i64 noundef 17) #15
   store ptr %call5.i.i.i.i.i423, ptr %agg.result, align 8
   store i64 16, ptr %25, align 8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(16) %call5.i.i.i.i.i423, ptr noundef nonnull align 1 dereferenceable(16) @.str.811, i64 16, i1 false)
-  %_M_string_length.i.i.i.i413 = getelementptr inbounds %"class.std::__cxx11::basic_string", ptr %agg.result, i64 0, i32 1
+  %_M_string_length.i.i.i.i413 = getelementptr inbounds i8, ptr %agg.result, i64 8
   store i64 16, ptr %_M_string_length.i.i.i.i413, align 8
   %arrayidx.i.i.i414 = getelementptr inbounds i8, ptr %call5.i.i.i.i.i423, i64 16
   store i8 0, ptr %arrayidx.i.i.i414, align 1
@@ -9181,13 +9181,13 @@ sw.bb49:                                          ; preds = %entry
 
 sw.bb51:                                          ; preds = %entry
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp52) #13
-  %26 = getelementptr inbounds %"class.std::__cxx11::basic_string", ptr %agg.result, i64 0, i32 2
+  %26 = getelementptr inbounds i8, ptr %agg.result, i64 16
   call void @_ZNSaIcEC2ERKS_(ptr noundef nonnull align 1 dereferenceable(1) %agg.result, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp52) #13
   %call5.i.i.i.i.i440 = call noalias noundef nonnull dereferenceable(17) ptr @_Znwm(i64 noundef 17) #15
   store ptr %call5.i.i.i.i.i440, ptr %agg.result, align 8
   store i64 16, ptr %26, align 8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(16) %call5.i.i.i.i.i440, ptr noundef nonnull align 1 dereferenceable(16) @.str.812, i64 16, i1 false)
-  %_M_string_length.i.i.i.i430 = getelementptr inbounds %"class.std::__cxx11::basic_string", ptr %agg.result, i64 0, i32 1
+  %_M_string_length.i.i.i.i430 = getelementptr inbounds i8, ptr %agg.result, i64 8
   store i64 16, ptr %_M_string_length.i.i.i.i430, align 8
   %arrayidx.i.i.i431 = getelementptr inbounds i8, ptr %call5.i.i.i.i.i440, i64 16
   store i8 0, ptr %arrayidx.i.i.i431, align 1
@@ -9196,13 +9196,13 @@ sw.bb51:                                          ; preds = %entry
 
 sw.bb53:                                          ; preds = %entry
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp54) #13
-  %27 = getelementptr inbounds %"class.std::__cxx11::basic_string", ptr %agg.result, i64 0, i32 2
+  %27 = getelementptr inbounds i8, ptr %agg.result, i64 16
   call void @_ZNSaIcEC2ERKS_(ptr noundef nonnull align 1 dereferenceable(1) %agg.result, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp54) #13
   %call5.i.i.i.i.i457 = call noalias noundef nonnull dereferenceable(17) ptr @_Znwm(i64 noundef 17) #15
   store ptr %call5.i.i.i.i.i457, ptr %agg.result, align 8
   store i64 16, ptr %27, align 8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(16) %call5.i.i.i.i.i457, ptr noundef nonnull align 1 dereferenceable(16) @.str.813, i64 16, i1 false)
-  %_M_string_length.i.i.i.i447 = getelementptr inbounds %"class.std::__cxx11::basic_string", ptr %agg.result, i64 0, i32 1
+  %_M_string_length.i.i.i.i447 = getelementptr inbounds i8, ptr %agg.result, i64 8
   store i64 16, ptr %_M_string_length.i.i.i.i447, align 8
   %arrayidx.i.i.i448 = getelementptr inbounds i8, ptr %call5.i.i.i.i.i457, i64 16
   store i8 0, ptr %arrayidx.i.i.i448, align 1
@@ -9211,13 +9211,13 @@ sw.bb53:                                          ; preds = %entry
 
 sw.bb55:                                          ; preds = %entry
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp56) #13
-  %28 = getelementptr inbounds %"class.std::__cxx11::basic_string", ptr %agg.result, i64 0, i32 2
+  %28 = getelementptr inbounds i8, ptr %agg.result, i64 16
   call void @_ZNSaIcEC2ERKS_(ptr noundef nonnull align 1 dereferenceable(1) %agg.result, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp56) #13
   %call5.i.i.i.i.i474 = call noalias noundef nonnull dereferenceable(17) ptr @_Znwm(i64 noundef 17) #15
   store ptr %call5.i.i.i.i.i474, ptr %agg.result, align 8
   store i64 16, ptr %28, align 8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(16) %call5.i.i.i.i.i474, ptr noundef nonnull align 1 dereferenceable(16) @.str.814, i64 16, i1 false)
-  %_M_string_length.i.i.i.i464 = getelementptr inbounds %"class.std::__cxx11::basic_string", ptr %agg.result, i64 0, i32 1
+  %_M_string_length.i.i.i.i464 = getelementptr inbounds i8, ptr %agg.result, i64 8
   store i64 16, ptr %_M_string_length.i.i.i.i464, align 8
   %arrayidx.i.i.i465 = getelementptr inbounds i8, ptr %call5.i.i.i.i.i474, i64 16
   store i8 0, ptr %arrayidx.i.i.i465, align 1
@@ -9226,52 +9226,52 @@ sw.bb55:                                          ; preds = %entry
 
 sw.bb57:                                          ; preds = %entry
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp58) #13
-  %29 = getelementptr inbounds %"class.std::__cxx11::basic_string", ptr %agg.result, i64 0, i32 2
+  %29 = getelementptr inbounds i8, ptr %agg.result, i64 16
   call void @_ZNSaIcEC2ERKS_(ptr noundef nonnull align 1 dereferenceable(1) %agg.result, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp58) #13
   store ptr %29, ptr %agg.result, align 8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(15) %29, ptr noundef nonnull align 1 dereferenceable(15) @.str.815, i64 15, i1 false)
-  %_M_string_length.i.i.i.i481 = getelementptr inbounds %"class.std::__cxx11::basic_string", ptr %agg.result, i64 0, i32 1
+  %_M_string_length.i.i.i.i481 = getelementptr inbounds i8, ptr %agg.result, i64 8
   store i64 15, ptr %_M_string_length.i.i.i.i481, align 8
-  %arrayidx.i.i.i482 = getelementptr inbounds %"class.std::__cxx11::basic_string", ptr %agg.result, i64 0, i32 2, i32 1, i64 7
+  %arrayidx.i.i.i482 = getelementptr inbounds i8, ptr %agg.result, i64 31
   store i8 0, ptr %arrayidx.i.i.i482, align 1
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp58) #13
   br label %return
 
 sw.bb59:                                          ; preds = %entry
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp60) #13
-  %30 = getelementptr inbounds %"class.std::__cxx11::basic_string", ptr %agg.result, i64 0, i32 2
+  %30 = getelementptr inbounds i8, ptr %agg.result, i64 16
   call void @_ZNSaIcEC2ERKS_(ptr noundef nonnull align 1 dereferenceable(1) %agg.result, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp60) #13
   store ptr %30, ptr %agg.result, align 8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(15) %30, ptr noundef nonnull align 1 dereferenceable(15) @.str.816, i64 15, i1 false)
-  %_M_string_length.i.i.i.i498 = getelementptr inbounds %"class.std::__cxx11::basic_string", ptr %agg.result, i64 0, i32 1
+  %_M_string_length.i.i.i.i498 = getelementptr inbounds i8, ptr %agg.result, i64 8
   store i64 15, ptr %_M_string_length.i.i.i.i498, align 8
-  %arrayidx.i.i.i499 = getelementptr inbounds %"class.std::__cxx11::basic_string", ptr %agg.result, i64 0, i32 2, i32 1, i64 7
+  %arrayidx.i.i.i499 = getelementptr inbounds i8, ptr %agg.result, i64 31
   store i8 0, ptr %arrayidx.i.i.i499, align 1
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp60) #13
   br label %return
 
 sw.bb61:                                          ; preds = %entry
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp62) #13
-  %31 = getelementptr inbounds %"class.std::__cxx11::basic_string", ptr %agg.result, i64 0, i32 2
+  %31 = getelementptr inbounds i8, ptr %agg.result, i64 16
   call void @_ZNSaIcEC2ERKS_(ptr noundef nonnull align 1 dereferenceable(1) %agg.result, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp62) #13
   store ptr %31, ptr %agg.result, align 8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(15) %31, ptr noundef nonnull align 1 dereferenceable(15) @.str.817, i64 15, i1 false)
-  %_M_string_length.i.i.i.i515 = getelementptr inbounds %"class.std::__cxx11::basic_string", ptr %agg.result, i64 0, i32 1
+  %_M_string_length.i.i.i.i515 = getelementptr inbounds i8, ptr %agg.result, i64 8
   store i64 15, ptr %_M_string_length.i.i.i.i515, align 8
-  %arrayidx.i.i.i516 = getelementptr inbounds %"class.std::__cxx11::basic_string", ptr %agg.result, i64 0, i32 2, i32 1, i64 7
+  %arrayidx.i.i.i516 = getelementptr inbounds i8, ptr %agg.result, i64 31
   store i8 0, ptr %arrayidx.i.i.i516, align 1
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp62) #13
   br label %return
 
 sw.bb63:                                          ; preds = %entry
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp64) #13
-  %32 = getelementptr inbounds %"class.std::__cxx11::basic_string", ptr %agg.result, i64 0, i32 2
+  %32 = getelementptr inbounds i8, ptr %agg.result, i64 16
   call void @_ZNSaIcEC2ERKS_(ptr noundef nonnull align 1 dereferenceable(1) %agg.result, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp64) #13
   store ptr %32, ptr %agg.result, align 8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(15) %32, ptr noundef nonnull align 1 dereferenceable(15) @.str.818, i64 15, i1 false)
-  %_M_string_length.i.i.i.i532 = getelementptr inbounds %"class.std::__cxx11::basic_string", ptr %agg.result, i64 0, i32 1
+  %_M_string_length.i.i.i.i532 = getelementptr inbounds i8, ptr %agg.result, i64 8
   store i64 15, ptr %_M_string_length.i.i.i.i532, align 8
-  %arrayidx.i.i.i533 = getelementptr inbounds %"class.std::__cxx11::basic_string", ptr %agg.result, i64 0, i32 2, i32 1, i64 7
+  %arrayidx.i.i.i533 = getelementptr inbounds i8, ptr %agg.result, i64 31
   store i8 0, ptr %arrayidx.i.i.i533, align 1
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp64) #13
   br label %return

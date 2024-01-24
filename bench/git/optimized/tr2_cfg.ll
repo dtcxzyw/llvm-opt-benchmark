@@ -5,7 +5,6 @@ target triple = "x86_64-unknown-linux-gnu"
 
 %struct.key_value_info = type { ptr, i32, i32, i32, ptr }
 %struct.tr2_cfg_data = type { ptr, i32 }
-%struct.strbuf = type { i64, i64, ptr }
 
 @tr2_cfg_patterns = internal unnamed_addr global ptr null, align 8
 @tr2_cfg_count_patterns = internal unnamed_addr global i32 0, align 4
@@ -59,7 +58,7 @@ define dso_local void @tr2_cfg_list_config_fl(ptr noundef %file, i32 noundef %li
 entry:
   %data = alloca %struct.tr2_cfg_data, align 8
   store ptr %file, ptr %data, align 8
-  %line2 = getelementptr inbounds %struct.tr2_cfg_data, ptr %data, i64 0, i32 1
+  %line2 = getelementptr inbounds i8, ptr %data, i64 8
   store i32 %line, ptr %line2, align 8
   %call = tail call fastcc i32 @tr2_cfg_load_patterns()
   %cmp = icmp sgt i32 %call, 0
@@ -109,13 +108,13 @@ if.end4:                                          ; preds = %lor.lhs.false
 for.body:                                         ; preds = %if.end4, %if.end15
   %4 = phi ptr [ %11, %if.end15 ], [ %3, %if.end4 ]
   %s.016 = phi ptr [ %incdec.ptr, %if.end15 ], [ %call6, %if.end4 ]
-  %len = getelementptr inbounds %struct.strbuf, ptr %4, i64 0, i32 1
+  %len = getelementptr inbounds i8, ptr %4, i64 8
   %5 = load i64, ptr %len, align 8
   %tobool8.not = icmp eq i64 %5, 0
   br i1 %tobool8.not, label %if.end15, label %land.lhs.true
 
 land.lhs.true:                                    ; preds = %for.body
-  %buf9 = getelementptr inbounds %struct.strbuf, ptr %4, i64 0, i32 2
+  %buf9 = getelementptr inbounds i8, ptr %4, i64 16
   %6 = load ptr, ptr %buf9, align 8
   %sub = add i64 %5, -1
   %arrayidx = getelementptr inbounds i8, ptr %6, i64 %sub
@@ -147,7 +146,7 @@ if.end15:                                         ; preds = %if.then4.i, %if.end
   tail call void @strbuf_trim_trailing_newline(ptr noundef %9) #7
   %10 = load ptr, ptr %s.016, align 8
   tail call void @strbuf_trim(ptr noundef %10) #7
-  %incdec.ptr = getelementptr inbounds ptr, ptr %s.016, i64 1
+  %incdec.ptr = getelementptr inbounds i8, ptr %s.016, i64 8
   %11 = load ptr, ptr %incdec.ptr, align 8
   %tobool7.not = icmp eq ptr %11, null
   br i1 %tobool7.not, label %for.end.loopexit, label %for.body, !llvm.loop !5
@@ -183,7 +182,7 @@ entry:
   br i1 %tobool.not5, label %return, label %for.body
 
 for.cond:                                         ; preds = %for.body
-  %incdec.ptr = getelementptr inbounds ptr, ptr %s.06, i64 1
+  %incdec.ptr = getelementptr inbounds i8, ptr %s.06, i64 8
   %2 = load ptr, ptr %incdec.ptr, align 8
   %tobool.not = icmp eq ptr %2, null
   br i1 %tobool.not, label %return, label %for.body, !llvm.loop !7
@@ -191,7 +190,7 @@ for.cond:                                         ; preds = %for.body
 for.body:                                         ; preds = %entry, %for.cond
   %3 = phi ptr [ %2, %for.cond ], [ %1, %entry ]
   %s.06 = phi ptr [ %incdec.ptr, %for.cond ], [ %0, %entry ]
-  %buf1 = getelementptr inbounds %struct.strbuf, ptr %3, i64 0, i32 2
+  %buf1 = getelementptr inbounds i8, ptr %3, i64 16
   %4 = load ptr, ptr %buf1, align 8
   %call = tail call i32 @wildmatch(ptr noundef %4, ptr noundef %key, i32 noundef 1) #7
   %cmp = icmp eq i32 %call, 0
@@ -199,7 +198,7 @@ for.body:                                         ; preds = %entry, %for.cond
 
 if.then:                                          ; preds = %for.body
   %5 = load ptr, ptr %d, align 8
-  %line = getelementptr inbounds %struct.tr2_cfg_data, ptr %d, i64 0, i32 1
+  %line = getelementptr inbounds i8, ptr %d, i64 8
   %6 = load i32, ptr %line, align 8
   %7 = load ptr, ptr %ctx, align 8
   tail call void @trace2_def_param_fl(ptr noundef %5, i32 noundef %6, ptr noundef %key, ptr noundef %value, ptr noundef %7) #7
@@ -248,13 +247,13 @@ if.end4.i:                                        ; preds = %lor.lhs.false.i
 for.body.i:                                       ; preds = %if.end4.i, %if.end15.i
   %4 = phi ptr [ %11, %if.end15.i ], [ %3, %if.end4.i ]
   %s.016.i = phi ptr [ %incdec.ptr.i, %if.end15.i ], [ %call6.i, %if.end4.i ]
-  %len.i = getelementptr inbounds %struct.strbuf, ptr %4, i64 0, i32 1
+  %len.i = getelementptr inbounds i8, ptr %4, i64 8
   %5 = load i64, ptr %len.i, align 8
   %tobool8.not.i = icmp eq i64 %5, 0
   br i1 %tobool8.not.i, label %if.end15.i, label %land.lhs.true.i
 
 land.lhs.true.i:                                  ; preds = %for.body.i
-  %buf9.i = getelementptr inbounds %struct.strbuf, ptr %4, i64 0, i32 2
+  %buf9.i = getelementptr inbounds i8, ptr %4, i64 16
   %6 = load ptr, ptr %buf9.i, align 8
   %sub.i = add i64 %5, -1
   %arrayidx.i = getelementptr inbounds i8, ptr %6, i64 %sub.i
@@ -286,7 +285,7 @@ if.end15.i:                                       ; preds = %if.then4.i.i, %if.e
   call void @strbuf_trim_trailing_newline(ptr noundef %9) #7
   %10 = load ptr, ptr %s.016.i, align 8
   call void @strbuf_trim(ptr noundef %10) #7
-  %incdec.ptr.i = getelementptr inbounds ptr, ptr %s.016.i, i64 1
+  %incdec.ptr.i = getelementptr inbounds i8, ptr %s.016.i, i64 8
   %11 = load ptr, ptr %incdec.ptr.i, align 8
   %tobool7.not.i = icmp eq ptr %11, null
   br i1 %tobool7.not.i, label %for.end.loopexit.i, label %for.body.i, !llvm.loop !8
@@ -320,7 +319,7 @@ if.end:                                           ; preds = %tr2_load_env_vars.e
 for.body:                                         ; preds = %if.end, %for.inc
   %15 = phi ptr [ %18, %for.inc ], [ %14, %if.end ]
   %s.07 = phi ptr [ %incdec.ptr, %for.inc ], [ %13, %if.end ]
-  %buf1 = getelementptr inbounds %struct.strbuf, ptr %15, i64 0, i32 2
+  %buf1 = getelementptr inbounds i8, ptr %15, i64 16
   %16 = load ptr, ptr %buf1, align 8
   %call2 = call ptr @getenv(ptr noundef %16) #7
   %tobool3.not = icmp eq ptr %call2, null
@@ -336,7 +335,7 @@ if.then5:                                         ; preds = %land.lhs.true
   br label %for.inc
 
 for.inc:                                          ; preds = %for.body, %land.lhs.true, %if.then5
-  %incdec.ptr = getelementptr inbounds ptr, ptr %s.07, i64 1
+  %incdec.ptr = getelementptr inbounds i8, ptr %s.07, i64 8
   %18 = load ptr, ptr %incdec.ptr, align 8
   %tobool.not = icmp eq ptr %18, null
   br i1 %tobool.not, label %for.end, label %for.body, !llvm.loop !9
@@ -371,7 +370,7 @@ if.then:                                          ; preds = %entry
   br i1 %tobool.not5.i, label %if.end, label %for.body.i
 
 for.cond.i:                                       ; preds = %for.body.i
-  %incdec.ptr.i = getelementptr inbounds ptr, ptr %s.06.i, i64 1
+  %incdec.ptr.i = getelementptr inbounds i8, ptr %s.06.i, i64 8
   %2 = load ptr, ptr %incdec.ptr.i, align 8
   %tobool.not.i = icmp eq ptr %2, null
   br i1 %tobool.not.i, label %if.end, label %for.body.i, !llvm.loop !7
@@ -379,7 +378,7 @@ for.cond.i:                                       ; preds = %for.body.i
 for.body.i:                                       ; preds = %if.then, %for.cond.i
   %3 = phi ptr [ %2, %for.cond.i ], [ %1, %if.then ]
   %s.06.i = phi ptr [ %incdec.ptr.i, %for.cond.i ], [ %0, %if.then ]
-  %buf1.i = getelementptr inbounds %struct.strbuf, ptr %3, i64 0, i32 2
+  %buf1.i = getelementptr inbounds i8, ptr %3, i64 16
   %4 = load ptr, ptr %buf1.i, align 8
   %call.i = tail call i32 @wildmatch(ptr noundef %4, ptr noundef %key, i32 noundef 1) #7
   %cmp.i = icmp eq i32 %call.i, 0

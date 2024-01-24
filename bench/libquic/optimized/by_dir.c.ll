@@ -7,8 +7,6 @@ target triple = "x86_64-unknown-linux-gnu"
 %struct.CRYPTO_STATIC_MUTEX = type { %union.pthread_rwlock_t }
 %union.pthread_rwlock_t = type { %struct.__pthread_rwlock_arch_t }
 %struct.__pthread_rwlock_arch_t = type { i32, i32, i32, i32, i32, i32, i32, i32, i8, [7 x i8], i64, i32 }
-%struct.lookup_dir_st = type { ptr, ptr }
-%struct.x509_lookup_st = type { i32, i32, ptr, ptr, ptr }
 %union.anon = type { %struct.anon }
 %struct.anon = type { %struct.x509_st, %struct.x509_cinf_st }
 %struct.x509_st = type { ptr, ptr, ptr, i32, i32, ptr, %struct.crypto_ex_data_st, i64, i64, i64, i64, i64, i64, ptr, ptr, ptr, ptr, ptr, ptr, [20 x i8], ptr }
@@ -20,13 +18,6 @@ target triple = "x86_64-unknown-linux-gnu"
 %struct.lookup_dir_hashes_st = type { i64, i32 }
 %struct.stat = type { i64, i64, i64, i32, i32, i32, i32, i64, i64, i64, i64, %struct.timespec, %struct.timespec, %struct.timespec, [3 x i64] }
 %struct.timespec = type { i64, i64 }
-%struct.anon.0 = type { %struct.X509_crl_st, %struct.X509_crl_info_st }
-%struct.X509_crl_st = type { ptr, ptr, ptr, i32, i32, ptr, ptr, i32, i32, ptr, ptr, [20 x i8], ptr, ptr, ptr }
-%struct.X509_crl_info_st = type { ptr, ptr, ptr, ptr, ptr, ptr, ptr, %struct.ASN1_ENCODING_st }
-%struct.buf_mem_st = type { i64, ptr, i64 }
-%struct.lookup_dir_entry_st = type { ptr, i32, ptr }
-%struct.x509_store_st = type { i32, ptr, %union.crypto_mutex_st, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, i32 }
-%union.crypto_mutex_st = type { double, [48 x i8] }
 
 @x509_dir_lookup = internal global %struct.x509_lookup_method_st { ptr @.str, ptr @new_dir, ptr @free_dir, ptr null, ptr null, ptr @dir_ctrl, ptr @get_cert_by_subject, ptr null, ptr null, ptr null }, align 8
 @.str = private unnamed_addr constant [37 x i8] c"Load certs from files in a directory\00", align 1
@@ -60,9 +51,9 @@ if.then3:                                         ; preds = %if.end
   br label %return
 
 if.end4:                                          ; preds = %if.end
-  %dirs = getelementptr inbounds %struct.lookup_dir_st, ptr %call, i64 0, i32 1
+  %dirs = getelementptr inbounds i8, ptr %call, i64 8
   store ptr null, ptr %dirs, align 8
-  %method_data = getelementptr inbounds %struct.x509_lookup_st, ptr %lu, i64 0, i32 3
+  %method_data = getelementptr inbounds i8, ptr %lu, i64 16
   store ptr %call, ptr %method_data, align 8
   br label %return
 
@@ -74,9 +65,9 @@ return:                                           ; preds = %entry, %if.end4, %i
 ; Function Attrs: nounwind uwtable
 define internal void @free_dir(ptr nocapture noundef readonly %lu) #1 {
 entry:
-  %method_data = getelementptr inbounds %struct.x509_lookup_st, ptr %lu, i64 0, i32 3
+  %method_data = getelementptr inbounds i8, ptr %lu, i64 16
   %0 = load ptr, ptr %method_data, align 8
-  %dirs = getelementptr inbounds %struct.lookup_dir_st, ptr %0, i64 0, i32 1
+  %dirs = getelementptr inbounds i8, ptr %0, i64 8
   %1 = load ptr, ptr %dirs, align 8
   %cmp.not = icmp eq ptr %1, null
   br i1 %cmp.not, label %if.end, label %if.then
@@ -102,7 +93,7 @@ if.end5:                                          ; preds = %if.then3, %if.end
 ; Function Attrs: nounwind uwtable
 define internal noundef i32 @dir_ctrl(ptr nocapture noundef readonly %ctx, i32 noundef %cmd, ptr noundef %argp, i64 noundef %argl, ptr nocapture readnone %retp) #1 {
 entry:
-  %method_data = getelementptr inbounds %struct.x509_lookup_st, ptr %ctx, i64 0, i32 3
+  %method_data = getelementptr inbounds i8, ptr %ctx, i64 16
   %0 = load ptr, ptr %method_data, align 8
   %cond = icmp eq i32 %cmd, 2
   br i1 %cond, label %sw.bb, label %sw.epilog
@@ -160,33 +151,25 @@ entry:
 if.end:                                           ; preds = %entry
   store i32 %type, ptr %stmp, align 8
   %cmp2 = icmp eq i32 %type, 1
-  br i1 %cmp2, label %if.then3, label %if.else
-
-if.then3:                                         ; preds = %if.end
-  %st_x509_cinf = getelementptr inbounds %struct.anon, ptr %data, i64 0, i32 1
-  store ptr %st_x509_cinf, ptr %data, align 8
-  %subject = getelementptr inbounds %struct.anon, ptr %data, i64 0, i32 1, i32 5
-  br label %if.end14
+  br i1 %cmp2, label %if.end14, label %if.else
 
 if.else:                                          ; preds = %if.end
   %cmp7 = icmp eq i32 %type, 2
-  br i1 %cmp7, label %if.then8, label %if.else12
-
-if.then8:                                         ; preds = %if.else
-  %st_crl_info = getelementptr inbounds %struct.anon.0, ptr %data, i64 0, i32 1
-  store ptr %st_crl_info, ptr %data, align 8
-  %issuer = getelementptr inbounds %struct.anon.0, ptr %data, i64 0, i32 1, i32 2
-  br label %if.end14
+  br i1 %cmp7, label %if.end14, label %if.else12
 
 if.else12:                                        ; preds = %if.else
   tail call void @ERR_put_error(i32 noundef 11, i32 noundef 0, i32 noundef 133, ptr noundef nonnull @.str.1, i32 noundef 295) #12
   br label %return
 
-if.end14:                                         ; preds = %if.then8, %if.then3
-  %issuer.sink = phi ptr [ %issuer, %if.then8 ], [ %subject, %if.then3 ]
-  %postfix.0 = phi ptr [ @.str.3, %if.then8 ], [ @.str.2, %if.then3 ]
-  store ptr %name, ptr %issuer.sink, align 8
-  %data11 = getelementptr inbounds %struct.x509_object_st, ptr %stmp, i64 0, i32 1
+if.end14:                                         ; preds = %if.else, %if.end
+  %.sink125 = phi i64 [ 176, %if.end ], [ 120, %if.else ]
+  %.sink = phi i64 [ 216, %if.end ], [ 136, %if.else ]
+  %postfix.0 = phi ptr [ @.str.2, %if.end ], [ @.str.3, %if.else ]
+  %st_crl_info = getelementptr inbounds i8, ptr %data, i64 %.sink125
+  store ptr %st_crl_info, ptr %data, align 8
+  %issuer = getelementptr inbounds i8, ptr %data, i64 %.sink
+  store ptr %name, ptr %issuer, align 8
+  %data11 = getelementptr inbounds i8, ptr %stmp, i64 8
   store ptr %data, ptr %data11, align 8
   %call = call ptr @BUF_MEM_new() #12
   %cmp15 = icmp eq ptr %call, null
@@ -197,18 +180,18 @@ if.then16:                                        ; preds = %if.end14
   br label %return
 
 if.end17:                                         ; preds = %if.end14
-  %method_data = getelementptr inbounds %struct.x509_lookup_st, ptr %xl, i64 0, i32 3
+  %method_data = getelementptr inbounds i8, ptr %xl, i64 16
   %0 = load ptr, ptr %method_data, align 8
   %call18 = call i64 @X509_NAME_hash(ptr noundef nonnull %name) #12
   store i64 %call18, ptr %hash_array, align 16
   %call19 = call i64 @X509_NAME_hash_old(ptr noundef nonnull %name) #12
-  %arrayidx20 = getelementptr inbounds [2 x i64], ptr %hash_array, i64 0, i64 1
+  %arrayidx20 = getelementptr inbounds i8, ptr %hash_array, i64 8
   store i64 %call19, ptr %arrayidx20, align 8
-  %dirs = getelementptr inbounds %struct.lookup_dir_st, ptr %0, i64 0, i32 1
+  %dirs = getelementptr inbounds i8, ptr %0, i64 8
   %cmp38 = icmp eq i32 %type, 2
-  %data61 = getelementptr inbounds %struct.buf_mem_st, ptr %call, i64 0, i32 1
-  %max62 = getelementptr inbounds %struct.buf_mem_st, ptr %call, i64 0, i32 2
-  %store_ctx = getelementptr inbounds %struct.x509_lookup_st, ptr %xl, i64 0, i32 4
+  %data61 = getelementptr inbounds i8, ptr %call, i64 8
+  %max62 = getelementptr inbounds i8, ptr %call, i64 16
+  %store_ctx = getelementptr inbounds i8, ptr %xl, i64 24
   br label %for.body
 
 for.body:                                         ; preds = %if.end17, %for.inc152
@@ -249,7 +232,7 @@ if.end37:                                         ; preds = %for.body26
   br i1 %cmp38, label %land.lhs.true, label %if.end51
 
 land.lhs.true:                                    ; preds = %if.end37
-  %hashes = getelementptr inbounds %struct.lookup_dir_entry_st, ptr %call28, i64 0, i32 2
+  %hashes = getelementptr inbounds i8, ptr %call28, i64 16
   %6 = load ptr, ptr %hashes, align 8
   %tobool40.not = icmp eq ptr %6, null
   br i1 %tobool40.not, label %if.end51, label %if.then41
@@ -266,7 +249,7 @@ if.then45:                                        ; preds = %if.then41
   %8 = load ptr, ptr %hashes, align 8
   %9 = load i64, ptr %idx, align 8
   %call47 = call ptr @sk_value(ptr noundef %8, i64 noundef %9) #12
-  %suffix = getelementptr inbounds %struct.lookup_dir_hashes_st, ptr %call47, i64 0, i32 1
+  %suffix = getelementptr inbounds i8, ptr %call47, i64 8
   %10 = load i32, ptr %suffix, align 8
   br label %if.end49
 
@@ -289,7 +272,7 @@ if.end51:                                         ; preds = %if.end37, %land.lhs
   br i1 %cmp6985, label %for.end, label %if.end72.lr.ph
 
 if.end72.lr.ph:                                   ; preds = %if.end51
-  %dir_type87 = getelementptr inbounds %struct.lookup_dir_entry_st, ptr %call28, i64 0, i32 1
+  %dir_type87 = getelementptr inbounds i8, ptr %call28, i64 8
   br i1 %cmp2, label %if.end72.us, label %if.end72.lr.ph.split
 
 if.end72.us:                                      ; preds = %if.end72.lr.ph, %if.end94.us
@@ -348,10 +331,10 @@ if.end72:                                         ; preds = %if.end72.lr.ph.spli
 for.end:                                          ; preds = %if.end72, %if.end94.us92, %if.end72.us90, %if.end94.us, %if.end72.us, %if.end51
   %k.2.lcssa = phi i32 [ %k.1, %if.end51 ], [ %k.286.us, %if.end72.us ], [ %inc.us, %if.end94.us ], [ %k.286.us91, %if.end72.us90 ], [ %inc.us93, %if.end94.us92 ], [ %inc, %if.end72 ]
   %31 = load ptr, ptr %store_ctx, align 8
-  %objs_lock = getelementptr inbounds %struct.x509_store_st, ptr %31, i64 0, i32 2
+  %objs_lock = getelementptr inbounds i8, ptr %31, i64 16
   call void @CRYPTO_MUTEX_lock_write(ptr noundef nonnull %objs_lock) #12
   %32 = load ptr, ptr %store_ctx, align 8
-  %objs = getelementptr inbounds %struct.x509_store_st, ptr %32, i64 0, i32 1
+  %objs = getelementptr inbounds i8, ptr %32, i64 8
   %33 = load ptr, ptr %objs, align 8
   %call96 = call i32 @sk_find(ptr noundef %33, ptr noundef nonnull %idx, ptr noundef nonnull %stmp) #12
   %tobool97.not = icmp eq i32 %call96, 0
@@ -359,7 +342,7 @@ for.end:                                          ; preds = %if.end72, %if.end94
 
 if.then98:                                        ; preds = %for.end
   %34 = load ptr, ptr %store_ctx, align 8
-  %objs100 = getelementptr inbounds %struct.x509_store_st, ptr %34, i64 0, i32 1
+  %objs100 = getelementptr inbounds i8, ptr %34, i64 8
   %35 = load ptr, ptr %objs100, align 8
   %36 = load i64, ptr %idx, align 8
   %call101 = call ptr @sk_value(ptr noundef %35, i64 noundef %36) #12
@@ -368,7 +351,7 @@ if.then98:                                        ; preds = %for.end
 if.end102:                                        ; preds = %if.then98, %for.end
   %tmp.0 = phi ptr [ %call101, %if.then98 ], [ null, %for.end ]
   %37 = load ptr, ptr %store_ctx, align 8
-  %objs_lock104 = getelementptr inbounds %struct.x509_store_st, ptr %37, i64 0, i32 2
+  %objs_lock104 = getelementptr inbounds i8, ptr %37, i64 16
   call void @CRYPTO_MUTEX_unlock(ptr noundef nonnull %objs_lock104) #12
   br i1 %cmp38, label %if.then107, label %if.end141
 
@@ -379,7 +362,7 @@ if.then107:                                       ; preds = %if.end102
 
 if.then109:                                       ; preds = %if.then107
   store i64 %1, ptr %htmp, align 8
-  %hashes111 = getelementptr inbounds %struct.lookup_dir_entry_st, ptr %call28, i64 0, i32 2
+  %hashes111 = getelementptr inbounds i8, ptr %call28, i64 16
   %38 = load ptr, ptr %hashes111, align 8
   %call112 = call i32 @sk_find(ptr noundef %38, ptr noundef nonnull %idx, ptr noundef nonnull %htmp) #12
   %tobool113.not = icmp eq i32 %call112, 0
@@ -403,7 +386,7 @@ if.then124:                                       ; preds = %if.then120
 
 if.end125:                                        ; preds = %if.then120
   store i64 %1, ptr %call121, align 8
-  %suffix127 = getelementptr inbounds %struct.lookup_dir_hashes_st, ptr %call121, i64 0, i32 1
+  %suffix127 = getelementptr inbounds i8, ptr %call121, i64 8
   store i32 %k.2.lcssa, ptr %suffix127, align 8
   %41 = load ptr, ptr %hashes111, align 8
   %call129 = call i64 @sk_push(ptr noundef %41, ptr noundef nonnull %call121) #12
@@ -417,7 +400,7 @@ if.then131:                                       ; preds = %if.end125
 
 if.else133:                                       ; preds = %if.then107, %if.end118
   %hent.269 = phi ptr [ %call116, %if.end118 ], [ %hent.1, %if.then107 ]
-  %suffix134 = getelementptr inbounds %struct.lookup_dir_hashes_st, ptr %hent.269, i64 0, i32 1
+  %suffix134 = getelementptr inbounds i8, ptr %hent.269, i64 8
   %42 = load i32, ptr %suffix134, align 8
   %cmp135 = icmp slt i32 %42, %k.2.lcssa
   br i1 %cmp135, label %if.then137, label %if.end140
@@ -437,8 +420,8 @@ if.end141:                                        ; preds = %if.end140, %if.end1
 if.then144:                                       ; preds = %if.end141
   %43 = load i32, ptr %tmp.0, align 8
   store i32 %43, ptr %ret, align 8
-  %data147 = getelementptr inbounds %struct.x509_object_st, ptr %ret, i64 0, i32 1
-  %data148 = getelementptr inbounds %struct.x509_object_st, ptr %tmp.0, i64 0, i32 1
+  %data147 = getelementptr inbounds i8, ptr %ret, i64 8
+  %data148 = getelementptr inbounds i8, ptr %tmp.0, i64 8
   %44 = load i64, ptr %data148, align 8
   store i64 %44, ptr %data147, align 8
   br label %if.then157
@@ -478,7 +461,7 @@ if.then:                                          ; preds = %entry
   br label %if.end
 
 if.end:                                           ; preds = %if.then, %entry
-  %hashes = getelementptr inbounds %struct.lookup_dir_entry_st, ptr %ent, i64 0, i32 2
+  %hashes = getelementptr inbounds i8, ptr %ent, i64 16
   %1 = load ptr, ptr %hashes, align 8
   %tobool2.not = icmp eq ptr %1, null
   br i1 %tobool2.not, label %if.end5, label %if.then3
@@ -518,7 +501,7 @@ lor.lhs.false:                                    ; preds = %entry
   br i1 %tobool.not, label %if.then, label %do.body.preheader
 
 do.body.preheader:                                ; preds = %lor.lhs.false
-  %dirs = getelementptr inbounds %struct.lookup_dir_st, ptr %ctx, i64 0, i32 1
+  %dirs = getelementptr inbounds i8, ptr %ctx, i64 8
   br label %do.body
 
 if.then:                                          ; preds = %lor.lhs.false, %entry
@@ -602,10 +585,10 @@ if.end42:                                         ; preds = %if.then35, %if.end3
   br i1 %tobool44.not, label %return, label %if.end46
 
 if.end46:                                         ; preds = %if.end42
-  %dir_type = getelementptr inbounds %struct.lookup_dir_entry_st, ptr %call43, i64 0, i32 1
+  %dir_type = getelementptr inbounds i8, ptr %call43, i64 8
   store i32 %type, ptr %dir_type, align 8
   %call47 = tail call ptr @sk_new(ptr noundef nonnull @by_dir_hash_cmp) #12
-  %hashes = getelementptr inbounds %struct.lookup_dir_entry_st, ptr %call43, i64 0, i32 2
+  %hashes = getelementptr inbounds i8, ptr %call43, i64 16
   store ptr %call47, ptr %hashes, align 8
   %add = add i64 %sub.ptr.sub, 1
   %call48 = tail call noalias ptr @malloc(i64 noundef %add) #11
@@ -642,7 +625,7 @@ if.end56:                                         ; preds = %lor.lhs.false52
   br i1 %tobool62.not, label %if.then63, label %do.cond
 
 if.then63:                                        ; preds = %if.end56
-  %hashes.le = getelementptr inbounds %struct.lookup_dir_entry_st, ptr %call43, i64 0, i32 2
+  %hashes.le = getelementptr inbounds i8, ptr %call43, i64 16
   %9 = load ptr, ptr %call43, align 8
   %tobool.not.i36 = icmp eq ptr %9, null
   br i1 %tobool.not.i36, label %if.end.i38, label %if.then.i37

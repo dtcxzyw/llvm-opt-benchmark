@@ -18,12 +18,8 @@ target triple = "x86_64-unknown-linux-gnu"
 %"struct.std::__atomic_base.8" = type { ptr }
 %"struct.std::atomic.2" = type { %"struct.std::__atomic_base.3" }
 %"struct.std::__atomic_base.3" = type { i32 }
-%"class.folly::hazptr_rec" = type { %"struct.std::atomic.10", ptr, ptr, ptr, [96 x i8] }
-%"struct.std::atomic.10" = type { %"struct.std::__atomic_base.11" }
-%"struct.std::__atomic_base.11" = type { ptr }
 %"class.folly::hazptr_obj_list" = type <{ %"class.folly::hazptr_detail::linked_list", i32, [4 x i8] }>
 %"class.folly::hazptr_detail::linked_list" = type { ptr, ptr }
-%"class.folly::hazptr_obj" = type { ptr, ptr, i64 }
 
 $_ZN5folly13hazptr_domainISt6atomicED2Ev = comdat any
 
@@ -46,7 +42,7 @@ declare void @_ZN6google14FlagRegistererC1IbEEPKcS3_S3_PT_S5_(ptr noundef nonnul
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZN5folly13hazptr_domainISt6atomicED2Ev(ptr noundef nonnull align 8 dereferenceable(444) %this) unnamed_addr #1 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  %shutdown_ = getelementptr inbounds %"class.folly::hazptr_domain", ptr %this, i64 0, i32 5
+  %shutdown_ = getelementptr inbounds i8, ptr %this, i64 30
   store i8 1, ptr %shutdown_, align 2, !tbaa !7
   invoke void @_ZN5folly13hazptr_domainISt6atomicE19reclaim_all_objectsEv(ptr noundef nonnull align 8 dereferenceable(444) %this)
           to label %invoke.cont unwind label %terminate.lpad
@@ -66,7 +62,7 @@ while.body.preheader.i:                           ; preds = %if.end.i
 
 while.body.i:                                     ; preds = %while.body.i, %while.body.preheader.i
   %rec.08.i = phi ptr [ %1, %while.body.i ], [ %atomic-temp.0.i.i.i.i, %while.body.preheader.i ]
-  %next_.i.i = getelementptr inbounds %"class.folly::hazptr_rec", ptr %rec.08.i, i64 0, i32 2
+  %next_.i.i = getelementptr inbounds i8, ptr %rec.08.i, i64 16
   %1 = load ptr, ptr %next_.i.i, align 16, !tbaa !26
   tail call void @free(ptr noundef nonnull %rec.08.i) #11
   %tobool.not.i = icmp eq ptr %1, null
@@ -90,7 +86,7 @@ declare i32 @__cxa_atexit(ptr, ptr, ptr) local_unnamed_addr #2
 define linkonce_odr void @_ZN5folly13hazptr_domainISt6atomicE19reclaim_all_objectsEv(ptr noundef nonnull align 8 dereferenceable(444) %this) local_unnamed_addr #3 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %children.i = alloca %"class.folly::hazptr_obj_list", align 8
-  %arrayidx = getelementptr inbounds %"class.folly::hazptr_domain", ptr %this, i64 0, i32 7, i64 0
+  %arrayidx = getelementptr inbounds i8, ptr %this, i64 32
   %0 = atomicrmw xchg ptr %arrayidx, i64 0 acq_rel, align 8
   %tobool.not3.i = icmp eq i64 %0, 0
   br i1 %tobool.not3.i, label %_ZN5folly13hazptr_domainISt6atomicE23reclaim_list_transitiveEPNS_10hazptr_objIS1_EE.exit, label %while.body.i.preheader
@@ -107,7 +103,7 @@ while.body.i:                                     ; preds = %_ZN5folly13hazptr_d
 
 while.body.i.i:                                   ; preds = %while.body.i.i, %while.body.i
   %head.addr.07.i.i = phi ptr [ %1, %while.body.i.i ], [ %head.addr.04.i, %while.body.i ]
-  %next_.i.i.i = getelementptr inbounds %"class.folly::hazptr_obj", ptr %head.addr.07.i.i, i64 0, i32 1
+  %next_.i.i.i = getelementptr inbounds i8, ptr %head.addr.07.i.i, i64 8
   %1 = load ptr, ptr %next_.i.i.i, align 8, !tbaa !32
   %2 = load ptr, ptr %head.addr.07.i.i, align 8, !tbaa !34
   call void %2(ptr noundef nonnull %head.addr.07.i.i, ptr noundef nonnull align 8 dereferenceable(20) %children.i)
@@ -121,7 +117,7 @@ _ZN5folly13hazptr_domainISt6atomicE21reclaim_unconditionalEPNS_10hazptr_objIS1_E
   br i1 %tobool.not.i, label %_ZN5folly13hazptr_domainISt6atomicE23reclaim_list_transitiveEPNS_10hazptr_objIS1_EE.exit, label %while.body.i, !llvm.loop !38
 
 _ZN5folly13hazptr_domainISt6atomicE23reclaim_list_transitiveEPNS_10hazptr_objIS1_EE.exit: ; preds = %_ZN5folly13hazptr_domainISt6atomicE21reclaim_unconditionalEPNS_10hazptr_objIS1_EERNS_15hazptr_obj_listIS1_EE.exit.i, %entry
-  %arrayidx.1 = getelementptr inbounds %"class.folly::hazptr_domain", ptr %this, i64 0, i32 7, i64 1
+  %arrayidx.1 = getelementptr inbounds i8, ptr %this, i64 56
   %4 = atomicrmw xchg ptr %arrayidx.1, i64 0 acq_rel, align 8
   %tobool.not3.i.1 = icmp eq i64 %4, 0
   br i1 %tobool.not3.i.1, label %_ZN5folly13hazptr_domainISt6atomicE23reclaim_list_transitiveEPNS_10hazptr_objIS1_EE.exit.1, label %while.body.i.preheader.1
@@ -138,7 +134,7 @@ while.body.i.1:                                   ; preds = %_ZN5folly13hazptr_d
 
 while.body.i.i.1:                                 ; preds = %while.body.i.i.1, %while.body.i.1
   %head.addr.07.i.i.1 = phi ptr [ %5, %while.body.i.i.1 ], [ %head.addr.04.i.1, %while.body.i.1 ]
-  %next_.i.i.i.1 = getelementptr inbounds %"class.folly::hazptr_obj", ptr %head.addr.07.i.i.1, i64 0, i32 1
+  %next_.i.i.i.1 = getelementptr inbounds i8, ptr %head.addr.07.i.i.1, i64 8
   %5 = load ptr, ptr %next_.i.i.i.1, align 8, !tbaa !32
   %6 = load ptr, ptr %head.addr.07.i.i.1, align 8, !tbaa !34
   call void %6(ptr noundef nonnull %head.addr.07.i.i.1, ptr noundef nonnull align 8 dereferenceable(20) %children.i)
@@ -152,7 +148,7 @@ _ZN5folly13hazptr_domainISt6atomicE21reclaim_unconditionalEPNS_10hazptr_objIS1_E
   br i1 %tobool.not.i.1, label %_ZN5folly13hazptr_domainISt6atomicE23reclaim_list_transitiveEPNS_10hazptr_objIS1_EE.exit.1, label %while.body.i.1, !llvm.loop !38
 
 _ZN5folly13hazptr_domainISt6atomicE23reclaim_list_transitiveEPNS_10hazptr_objIS1_EE.exit.1: ; preds = %_ZN5folly13hazptr_domainISt6atomicE21reclaim_unconditionalEPNS_10hazptr_objIS1_EERNS_15hazptr_obj_listIS1_EE.exit.i.1, %_ZN5folly13hazptr_domainISt6atomicE23reclaim_list_transitiveEPNS_10hazptr_objIS1_EE.exit
-  %arrayidx.2 = getelementptr inbounds %"class.folly::hazptr_domain", ptr %this, i64 0, i32 7, i64 2
+  %arrayidx.2 = getelementptr inbounds i8, ptr %this, i64 80
   %8 = atomicrmw xchg ptr %arrayidx.2, i64 0 acq_rel, align 8
   %tobool.not3.i.2 = icmp eq i64 %8, 0
   br i1 %tobool.not3.i.2, label %_ZN5folly13hazptr_domainISt6atomicE23reclaim_list_transitiveEPNS_10hazptr_objIS1_EE.exit.2, label %while.body.i.preheader.2
@@ -169,7 +165,7 @@ while.body.i.2:                                   ; preds = %_ZN5folly13hazptr_d
 
 while.body.i.i.2:                                 ; preds = %while.body.i.i.2, %while.body.i.2
   %head.addr.07.i.i.2 = phi ptr [ %9, %while.body.i.i.2 ], [ %head.addr.04.i.2, %while.body.i.2 ]
-  %next_.i.i.i.2 = getelementptr inbounds %"class.folly::hazptr_obj", ptr %head.addr.07.i.i.2, i64 0, i32 1
+  %next_.i.i.i.2 = getelementptr inbounds i8, ptr %head.addr.07.i.i.2, i64 8
   %9 = load ptr, ptr %next_.i.i.i.2, align 8, !tbaa !32
   %10 = load ptr, ptr %head.addr.07.i.i.2, align 8, !tbaa !34
   call void %10(ptr noundef nonnull %head.addr.07.i.i.2, ptr noundef nonnull align 8 dereferenceable(20) %children.i)
@@ -183,7 +179,7 @@ _ZN5folly13hazptr_domainISt6atomicE21reclaim_unconditionalEPNS_10hazptr_objIS1_E
   br i1 %tobool.not.i.2, label %_ZN5folly13hazptr_domainISt6atomicE23reclaim_list_transitiveEPNS_10hazptr_objIS1_EE.exit.2, label %while.body.i.2, !llvm.loop !38
 
 _ZN5folly13hazptr_domainISt6atomicE23reclaim_list_transitiveEPNS_10hazptr_objIS1_EE.exit.2: ; preds = %_ZN5folly13hazptr_domainISt6atomicE21reclaim_unconditionalEPNS_10hazptr_objIS1_EERNS_15hazptr_obj_listIS1_EE.exit.i.2, %_ZN5folly13hazptr_domainISt6atomicE23reclaim_list_transitiveEPNS_10hazptr_objIS1_EE.exit.1
-  %arrayidx.3 = getelementptr inbounds %"class.folly::hazptr_domain", ptr %this, i64 0, i32 7, i64 3
+  %arrayidx.3 = getelementptr inbounds i8, ptr %this, i64 104
   %12 = atomicrmw xchg ptr %arrayidx.3, i64 0 acq_rel, align 8
   %tobool.not3.i.3 = icmp eq i64 %12, 0
   br i1 %tobool.not3.i.3, label %_ZN5folly13hazptr_domainISt6atomicE23reclaim_list_transitiveEPNS_10hazptr_objIS1_EE.exit.3, label %while.body.i.preheader.3
@@ -200,7 +196,7 @@ while.body.i.3:                                   ; preds = %_ZN5folly13hazptr_d
 
 while.body.i.i.3:                                 ; preds = %while.body.i.i.3, %while.body.i.3
   %head.addr.07.i.i.3 = phi ptr [ %13, %while.body.i.i.3 ], [ %head.addr.04.i.3, %while.body.i.3 ]
-  %next_.i.i.i.3 = getelementptr inbounds %"class.folly::hazptr_obj", ptr %head.addr.07.i.i.3, i64 0, i32 1
+  %next_.i.i.i.3 = getelementptr inbounds i8, ptr %head.addr.07.i.i.3, i64 8
   %13 = load ptr, ptr %next_.i.i.i.3, align 8, !tbaa !32
   %14 = load ptr, ptr %head.addr.07.i.i.3, align 8, !tbaa !34
   call void %14(ptr noundef nonnull %head.addr.07.i.i.3, ptr noundef nonnull align 8 dereferenceable(20) %children.i)
@@ -214,7 +210,7 @@ _ZN5folly13hazptr_domainISt6atomicE21reclaim_unconditionalEPNS_10hazptr_objIS1_E
   br i1 %tobool.not.i.3, label %_ZN5folly13hazptr_domainISt6atomicE23reclaim_list_transitiveEPNS_10hazptr_objIS1_EE.exit.3, label %while.body.i.3, !llvm.loop !38
 
 _ZN5folly13hazptr_domainISt6atomicE23reclaim_list_transitiveEPNS_10hazptr_objIS1_EE.exit.3: ; preds = %_ZN5folly13hazptr_domainISt6atomicE21reclaim_unconditionalEPNS_10hazptr_objIS1_EERNS_15hazptr_obj_listIS1_EE.exit.i.3, %_ZN5folly13hazptr_domainISt6atomicE23reclaim_list_transitiveEPNS_10hazptr_objIS1_EE.exit.2
-  %arrayidx.4 = getelementptr inbounds %"class.folly::hazptr_domain", ptr %this, i64 0, i32 7, i64 4
+  %arrayidx.4 = getelementptr inbounds i8, ptr %this, i64 128
   %16 = atomicrmw xchg ptr %arrayidx.4, i64 0 acq_rel, align 8
   %tobool.not3.i.4 = icmp eq i64 %16, 0
   br i1 %tobool.not3.i.4, label %_ZN5folly13hazptr_domainISt6atomicE23reclaim_list_transitiveEPNS_10hazptr_objIS1_EE.exit.4, label %while.body.i.preheader.4
@@ -231,7 +227,7 @@ while.body.i.4:                                   ; preds = %_ZN5folly13hazptr_d
 
 while.body.i.i.4:                                 ; preds = %while.body.i.i.4, %while.body.i.4
   %head.addr.07.i.i.4 = phi ptr [ %17, %while.body.i.i.4 ], [ %head.addr.04.i.4, %while.body.i.4 ]
-  %next_.i.i.i.4 = getelementptr inbounds %"class.folly::hazptr_obj", ptr %head.addr.07.i.i.4, i64 0, i32 1
+  %next_.i.i.i.4 = getelementptr inbounds i8, ptr %head.addr.07.i.i.4, i64 8
   %17 = load ptr, ptr %next_.i.i.i.4, align 8, !tbaa !32
   %18 = load ptr, ptr %head.addr.07.i.i.4, align 8, !tbaa !34
   call void %18(ptr noundef nonnull %head.addr.07.i.i.4, ptr noundef nonnull align 8 dereferenceable(20) %children.i)
@@ -245,7 +241,7 @@ _ZN5folly13hazptr_domainISt6atomicE21reclaim_unconditionalEPNS_10hazptr_objIS1_E
   br i1 %tobool.not.i.4, label %_ZN5folly13hazptr_domainISt6atomicE23reclaim_list_transitiveEPNS_10hazptr_objIS1_EE.exit.4, label %while.body.i.4, !llvm.loop !38
 
 _ZN5folly13hazptr_domainISt6atomicE23reclaim_list_transitiveEPNS_10hazptr_objIS1_EE.exit.4: ; preds = %_ZN5folly13hazptr_domainISt6atomicE21reclaim_unconditionalEPNS_10hazptr_objIS1_EERNS_15hazptr_obj_listIS1_EE.exit.i.4, %_ZN5folly13hazptr_domainISt6atomicE23reclaim_list_transitiveEPNS_10hazptr_objIS1_EE.exit.3
-  %arrayidx.5 = getelementptr inbounds %"class.folly::hazptr_domain", ptr %this, i64 0, i32 7, i64 5
+  %arrayidx.5 = getelementptr inbounds i8, ptr %this, i64 152
   %20 = atomicrmw xchg ptr %arrayidx.5, i64 0 acq_rel, align 8
   %tobool.not3.i.5 = icmp eq i64 %20, 0
   br i1 %tobool.not3.i.5, label %_ZN5folly13hazptr_domainISt6atomicE23reclaim_list_transitiveEPNS_10hazptr_objIS1_EE.exit.5, label %while.body.i.preheader.5
@@ -262,7 +258,7 @@ while.body.i.5:                                   ; preds = %_ZN5folly13hazptr_d
 
 while.body.i.i.5:                                 ; preds = %while.body.i.i.5, %while.body.i.5
   %head.addr.07.i.i.5 = phi ptr [ %21, %while.body.i.i.5 ], [ %head.addr.04.i.5, %while.body.i.5 ]
-  %next_.i.i.i.5 = getelementptr inbounds %"class.folly::hazptr_obj", ptr %head.addr.07.i.i.5, i64 0, i32 1
+  %next_.i.i.i.5 = getelementptr inbounds i8, ptr %head.addr.07.i.i.5, i64 8
   %21 = load ptr, ptr %next_.i.i.i.5, align 8, !tbaa !32
   %22 = load ptr, ptr %head.addr.07.i.i.5, align 8, !tbaa !34
   call void %22(ptr noundef nonnull %head.addr.07.i.i.5, ptr noundef nonnull align 8 dereferenceable(20) %children.i)
@@ -276,7 +272,7 @@ _ZN5folly13hazptr_domainISt6atomicE21reclaim_unconditionalEPNS_10hazptr_objIS1_E
   br i1 %tobool.not.i.5, label %_ZN5folly13hazptr_domainISt6atomicE23reclaim_list_transitiveEPNS_10hazptr_objIS1_EE.exit.5, label %while.body.i.5, !llvm.loop !38
 
 _ZN5folly13hazptr_domainISt6atomicE23reclaim_list_transitiveEPNS_10hazptr_objIS1_EE.exit.5: ; preds = %_ZN5folly13hazptr_domainISt6atomicE21reclaim_unconditionalEPNS_10hazptr_objIS1_EERNS_15hazptr_obj_listIS1_EE.exit.i.5, %_ZN5folly13hazptr_domainISt6atomicE23reclaim_list_transitiveEPNS_10hazptr_objIS1_EE.exit.4
-  %arrayidx.6 = getelementptr inbounds %"class.folly::hazptr_domain", ptr %this, i64 0, i32 7, i64 6
+  %arrayidx.6 = getelementptr inbounds i8, ptr %this, i64 176
   %24 = atomicrmw xchg ptr %arrayidx.6, i64 0 acq_rel, align 8
   %tobool.not3.i.6 = icmp eq i64 %24, 0
   br i1 %tobool.not3.i.6, label %_ZN5folly13hazptr_domainISt6atomicE23reclaim_list_transitiveEPNS_10hazptr_objIS1_EE.exit.6, label %while.body.i.preheader.6
@@ -293,7 +289,7 @@ while.body.i.6:                                   ; preds = %_ZN5folly13hazptr_d
 
 while.body.i.i.6:                                 ; preds = %while.body.i.i.6, %while.body.i.6
   %head.addr.07.i.i.6 = phi ptr [ %25, %while.body.i.i.6 ], [ %head.addr.04.i.6, %while.body.i.6 ]
-  %next_.i.i.i.6 = getelementptr inbounds %"class.folly::hazptr_obj", ptr %head.addr.07.i.i.6, i64 0, i32 1
+  %next_.i.i.i.6 = getelementptr inbounds i8, ptr %head.addr.07.i.i.6, i64 8
   %25 = load ptr, ptr %next_.i.i.i.6, align 8, !tbaa !32
   %26 = load ptr, ptr %head.addr.07.i.i.6, align 8, !tbaa !34
   call void %26(ptr noundef nonnull %head.addr.07.i.i.6, ptr noundef nonnull align 8 dereferenceable(20) %children.i)
@@ -307,7 +303,7 @@ _ZN5folly13hazptr_domainISt6atomicE21reclaim_unconditionalEPNS_10hazptr_objIS1_E
   br i1 %tobool.not.i.6, label %_ZN5folly13hazptr_domainISt6atomicE23reclaim_list_transitiveEPNS_10hazptr_objIS1_EE.exit.6, label %while.body.i.6, !llvm.loop !38
 
 _ZN5folly13hazptr_domainISt6atomicE23reclaim_list_transitiveEPNS_10hazptr_objIS1_EE.exit.6: ; preds = %_ZN5folly13hazptr_domainISt6atomicE21reclaim_unconditionalEPNS_10hazptr_objIS1_EERNS_15hazptr_obj_listIS1_EE.exit.i.6, %_ZN5folly13hazptr_domainISt6atomicE23reclaim_list_transitiveEPNS_10hazptr_objIS1_EE.exit.5
-  %arrayidx.7 = getelementptr inbounds %"class.folly::hazptr_domain", ptr %this, i64 0, i32 7, i64 7
+  %arrayidx.7 = getelementptr inbounds i8, ptr %this, i64 200
   %28 = atomicrmw xchg ptr %arrayidx.7, i64 0 acq_rel, align 8
   %tobool.not3.i.7 = icmp eq i64 %28, 0
   br i1 %tobool.not3.i.7, label %_ZN5folly13hazptr_domainISt6atomicE23reclaim_list_transitiveEPNS_10hazptr_objIS1_EE.exit.7, label %while.body.i.preheader.7
@@ -324,7 +320,7 @@ while.body.i.7:                                   ; preds = %_ZN5folly13hazptr_d
 
 while.body.i.i.7:                                 ; preds = %while.body.i.i.7, %while.body.i.7
   %head.addr.07.i.i.7 = phi ptr [ %29, %while.body.i.i.7 ], [ %head.addr.04.i.7, %while.body.i.7 ]
-  %next_.i.i.i.7 = getelementptr inbounds %"class.folly::hazptr_obj", ptr %head.addr.07.i.i.7, i64 0, i32 1
+  %next_.i.i.i.7 = getelementptr inbounds i8, ptr %head.addr.07.i.i.7, i64 8
   %29 = load ptr, ptr %next_.i.i.i.7, align 8, !tbaa !32
   %30 = load ptr, ptr %head.addr.07.i.i.7, align 8, !tbaa !34
   call void %30(ptr noundef nonnull %head.addr.07.i.i.7, ptr noundef nonnull align 8 dereferenceable(20) %children.i)

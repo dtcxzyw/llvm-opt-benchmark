@@ -28,7 +28,6 @@ target triple = "x86_64-unknown-linux-gnu"
 %"struct.std::ios_base::_Words" = type { ptr, i64 }
 %"class.std::__cxx11::basic_istringstream" = type { %"class.std::basic_istream.base", %"class.std::__cxx11::basic_stringbuf", %"class.std::basic_ios" }
 %"class.std::basic_istream.base" = type { ptr, i64 }
-%"struct.std::_Vector_base<unsigned char, std::allocator<unsigned char>>::_Vector_impl_data" = type { ptr, ptr, ptr }
 
 $_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag = comdat any
 
@@ -86,10 +85,10 @@ entry:
 if.then:                                          ; preds = %entry
   %call4 = tail call noundef i64 @_ZN7simdutf22utf16_length_from_utf8EPKcm(ptr noundef %string.coerce1, i64 noundef %string.coerce0) #8
   store i64 0, ptr %buffer, align 8
-  %capacity_.i.i = getelementptr inbounds %"class.node::MaybeStackBuffer", ptr %buffer, i64 0, i32 1
-  %buf_st_.i.i = getelementptr inbounds %"class.node::MaybeStackBuffer", ptr %buffer, i64 0, i32 3
+  %capacity_.i.i = getelementptr inbounds i8, ptr %buffer, i64 8
+  %buf_st_.i.i = getelementptr inbounds i8, ptr %buffer, i64 24
   store i64 1024, ptr %capacity_.i.i, align 8
-  %buf_.i.i = getelementptr inbounds %"class.node::MaybeStackBuffer", ptr %buffer, i64 0, i32 2
+  %buf_.i.i = getelementptr inbounds i8, ptr %buffer, i64 16
   store ptr %buf_st_.i.i, ptr %buf_.i.i, align 8
   store i16 0, ptr %buf_st_.i.i, align 8
   %cmp.i.i = icmp ugt i64 %call4, 1024
@@ -176,10 +175,10 @@ if.then:                                          ; preds = %entry
 if.end:                                           ; preds = %entry
   %call3 = tail call noundef i64 @_ZN7simdutf22utf16_length_from_utf8EPKcm(ptr noundef %string.coerce1, i64 noundef %string.coerce0) #8
   store i64 0, ptr %buffer, align 8
-  %capacity_.i.i = getelementptr inbounds %"class.node::MaybeStackBuffer", ptr %buffer, i64 0, i32 1
-  %buf_st_.i.i = getelementptr inbounds %"class.node::MaybeStackBuffer", ptr %buffer, i64 0, i32 3
+  %capacity_.i.i = getelementptr inbounds i8, ptr %buffer, i64 8
+  %buf_st_.i.i = getelementptr inbounds i8, ptr %buffer, i64 24
   store i64 1024, ptr %capacity_.i.i, align 8
-  %buf_.i.i = getelementptr inbounds %"class.node::MaybeStackBuffer", ptr %buffer, i64 0, i32 2
+  %buf_.i.i = getelementptr inbounds i8, ptr %buffer, i64 16
   store ptr %buf_st_.i.i, ptr %buf_.i.i, align 8
   store i16 0, ptr %buf_st_.i.i, align 8
   %cmp.i.i = icmp ugt i64 %call3, 1024
@@ -245,7 +244,7 @@ declare void @_ZN4node9inspector8protocol19parseJSONCharactersEPKtj(ptr sret(%"c
 ; Function Attrs: mustprogress nounwind uwtable
 define dso_local void @_ZN4node9inspector8protocol10StringUtil9parseJSONEN12v8_inspector10StringViewE(ptr noalias sret(%"class.std::unique_ptr") align 8 %agg.result, ptr nocapture noundef readonly byval(%"class.v8_inspector::StringView") align 8 %string) local_unnamed_addr #0 {
 entry:
-  %m_length.i = getelementptr inbounds %"class.v8_inspector::StringView", ptr %string, i64 0, i32 1
+  %m_length.i = getelementptr inbounds i8, ptr %string, i64 8
   %0 = load i64, ptr %m_length.i, align 8
   %cmp = icmp eq i64 %0, 0
   br i1 %cmp, label %if.then, label %if.end
@@ -258,7 +257,7 @@ if.end:                                           ; preds = %entry
   %1 = load i8, ptr %string, align 8
   %2 = and i8 %1, 1
   %tobool.i.not = icmp eq i8 %2, 0
-  %3 = getelementptr inbounds %"class.v8_inspector::StringView", ptr %string, i64 0, i32 2
+  %3 = getelementptr inbounds i8, ptr %string, i64 16
   %4 = load ptr, ptr %3, align 8
   %conv8 = trunc i64 %0 to i32
   br i1 %tobool.i.not, label %if.end5, label %if.then2
@@ -284,7 +283,7 @@ entry:
   %ref.tmp5 = alloca %"class.std::allocator", align 1
   %buffer = alloca %"class.node::MaybeStackBuffer.3", align 8
   %ref.tmp23 = alloca %"class.std::allocator", align 1
-  %m_length.i = getelementptr inbounds %"class.v8_inspector::StringView", ptr %view, i64 0, i32 1
+  %m_length.i = getelementptr inbounds i8, ptr %view, i64 8
   %0 = load i64, ptr %m_length.i, align 8
   %cmp = icmp eq i64 %0, 0
   br i1 %cmp, label %if.then, label %if.end
@@ -301,7 +300,7 @@ if.end:                                           ; preds = %entry
   %1 = load i8, ptr %view, align 8
   %2 = and i8 %1, 1
   %tobool.i.not = icmp eq i8 %2, 0
-  %3 = getelementptr inbounds %"class.v8_inspector::StringView", ptr %view, i64 0, i32 2
+  %3 = getelementptr inbounds i8, ptr %view, i64 16
   %4 = load ptr, ptr %3, align 8
   br i1 %tobool.i.not, label %if.end6, label %if.then2
 
@@ -314,10 +313,10 @@ if.then2:                                         ; preds = %if.end
 if.end6:                                          ; preds = %if.end
   %call9 = tail call noundef i64 @_ZN7simdutf22utf8_length_from_utf16EPKDsm(ptr noundef %4, i64 noundef %0) #8
   store i64 0, ptr %buffer, align 8
-  %capacity_.i.i = getelementptr inbounds %"class.node::MaybeStackBuffer.3", ptr %buffer, i64 0, i32 1
-  %buf_st_.i.i = getelementptr inbounds %"class.node::MaybeStackBuffer.3", ptr %buffer, i64 0, i32 3
+  %capacity_.i.i = getelementptr inbounds i8, ptr %buffer, i64 8
+  %buf_st_.i.i = getelementptr inbounds i8, ptr %buffer, i64 24
   store i64 1024, ptr %capacity_.i.i, align 8
-  %buf_.i.i = getelementptr inbounds %"class.node::MaybeStackBuffer.3", ptr %buffer, i64 0, i32 2
+  %buf_.i.i = getelementptr inbounds i8, ptr %buffer, i64 16
   store ptr %buf_st_.i.i, ptr %buf_.i.i, align 8
   store i8 0, ptr %buf_st_.i.i, align 8
   call void @_ZN4node16MaybeStackBufferIcLm1024EE25AllocateSufficientStorageEm(ptr noundef nonnull align 8 dereferenceable(1048) %buffer, i64 noundef %call9)
@@ -462,7 +461,7 @@ define dso_local void @_ZN4node9inspector8protocol10StringUtil15binaryToMessageB
 entry:
   %ref.tmp = alloca %"class.std::allocator", align 1
   %0 = load ptr, ptr %message, align 8
-  %_M_finish.i = getelementptr inbounds %"struct.std::_Vector_base<unsigned char, std::allocator<unsigned char>>::_Vector_impl_data", ptr %message, i64 0, i32 1
+  %_M_finish.i = getelementptr inbounds i8, ptr %message, i64 8
   %1 = load ptr, ptr %_M_finish.i, align 8
   %sub.ptr.lhs.cast.i = ptrtoint ptr %1 to i64
   %sub.ptr.rhs.cast.i = ptrtoint ptr %0 to i64
@@ -490,10 +489,10 @@ entry:
   %ref.tmp = alloca %"class.std::allocator", align 1
   %call = tail call noundef i64 @_ZN7simdutf22utf8_length_from_utf16EPKDsm(ptr noundef %data, i64 noundef %length) #8
   store i64 0, ptr %buffer, align 8
-  %capacity_.i.i = getelementptr inbounds %"class.node::MaybeStackBuffer.3", ptr %buffer, i64 0, i32 1
-  %buf_st_.i.i = getelementptr inbounds %"class.node::MaybeStackBuffer.3", ptr %buffer, i64 0, i32 3
+  %capacity_.i.i = getelementptr inbounds i8, ptr %buffer, i64 8
+  %buf_st_.i.i = getelementptr inbounds i8, ptr %buffer, i64 24
   store i64 1024, ptr %capacity_.i.i, align 8
-  %buf_.i.i = getelementptr inbounds %"class.node::MaybeStackBuffer.3", ptr %buffer, i64 0, i32 2
+  %buf_.i.i = getelementptr inbounds i8, ptr %buffer, i64 16
   store ptr %buf_st_.i.i, ptr %buf_.i.i, align 8
   store i8 0, ptr %buf_st_.i.i, align 8
   call void @_ZN4node16MaybeStackBufferIcLm1024EE25AllocateSufficientStorageEm(ptr noundef nonnull align 8 dereferenceable(1048) %buffer, i64 noundef %call)
@@ -646,7 +645,7 @@ declare void @_ZN4node21LowMemoryNotificationEv() local_unnamed_addr #1
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr dso_local void @_ZN4node16MaybeStackBufferIcLm1024EE25AllocateSufficientStorageEm(ptr noundef nonnull align 8 dereferenceable(1048) %this, i64 noundef %storage) local_unnamed_addr #0 comdat align 2 {
 entry:
-  %buf_.i = getelementptr inbounds %"class.node::MaybeStackBuffer.3", ptr %this, i64 0, i32 2
+  %buf_.i = getelementptr inbounds i8, ptr %this, i64 16
   %0 = load ptr, ptr %buf_.i, align 8
   %cmp.i = icmp eq ptr %0, null
   br i1 %cmp.i, label %do.body5, label %do.end6
@@ -657,13 +656,13 @@ do.body5:                                         ; preds = %entry
   unreachable
 
 do.end6:                                          ; preds = %entry
-  %capacity_.i = getelementptr inbounds %"class.node::MaybeStackBuffer.3", ptr %this, i64 0, i32 1
+  %capacity_.i = getelementptr inbounds i8, ptr %this, i64 8
   %1 = load i64, ptr %capacity_.i, align 8
   %cmp = icmp ult i64 %1, %storage
   br i1 %cmp, label %if.end.i.i, label %if.end18
 
 if.end.i.i:                                       ; preds = %do.end6
-  %buf_st_.i = getelementptr inbounds %"class.node::MaybeStackBuffer.3", ptr %this, i64 0, i32 3
+  %buf_st_.i = getelementptr inbounds i8, ptr %this, i64 24
   %cmp.i5.not = icmp eq ptr %0, %buf_st_.i
   %cond = select i1 %cmp.i5.not, ptr null, ptr %0
   %call1.i.i = tail call ptr @realloc(ptr noundef %cond, i64 noundef %storage) #10

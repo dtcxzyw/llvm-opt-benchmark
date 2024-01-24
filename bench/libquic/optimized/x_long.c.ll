@@ -17,7 +17,7 @@ target triple = "x86_64-unknown-linux-gnu"
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
 define internal noundef i32 @long_new(ptr nocapture noundef writeonly %pval, ptr nocapture noundef readonly %it) #0 {
 entry:
-  %size = getelementptr inbounds %struct.ASN1_ITEM_st, ptr %it, i64 0, i32 5
+  %size = getelementptr inbounds i8, ptr %it, i64 40
   %0 = load i64, ptr %size, align 8
   store i64 %0, ptr %pval, align 8
   ret i32 1
@@ -26,7 +26,7 @@ entry:
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
 define internal void @long_free(ptr nocapture noundef writeonly %pval, ptr nocapture noundef readonly %it) #0 {
 entry:
-  %size = getelementptr inbounds %struct.ASN1_ITEM_st, ptr %it, i64 0, i32 5
+  %size = getelementptr inbounds i8, ptr %it, i64 40
   %0 = load i64, ptr %size, align 8
   store i64 %0, ptr %pval, align 8
   ret void
@@ -95,7 +95,7 @@ for.end:                                          ; preds = %for.body, %for.body
   %tobool17.not26 = phi i64 [ 0, %if.end3 ], [ -1, %if.end3.thread ], [ 0, %if.end ], [ 0, %for.body.us ], [ -1, %for.body ]
   %utmp.0.lcssa = phi i64 [ 0, %if.end3 ], [ 0, %if.end3.thread ], [ 0, %if.end ], [ %utmp.1.us, %for.body.us ], [ %utmp.1, %for.body ]
   %spec.select = xor i64 %utmp.0.lcssa, %tobool17.not26
-  %size = getelementptr inbounds %struct.ASN1_ITEM_st, ptr %it, i64 0, i32 5
+  %size = getelementptr inbounds i8, ptr %it, i64 40
   %4 = load i64, ptr %size, align 8
   %cmp21 = icmp eq i64 %spec.select, %4
   br i1 %cmp21, label %if.then23, label %if.end24
@@ -117,7 +117,7 @@ return:                                           ; preds = %if.end24, %if.then2
 define internal i32 @long_i2c(ptr nocapture noundef readonly %pval, ptr noundef writeonly %cont, ptr nocapture readnone %putype, ptr nocapture noundef readonly %it) #1 {
 entry:
   %ltmp.0.copyload = load i64, ptr %pval, align 1
-  %size = getelementptr inbounds %struct.ASN1_ITEM_st, ptr %it, i64 0, i32 5
+  %size = getelementptr inbounds i8, ptr %it, i64 40
   %0 = load i64, ptr %size, align 8
   %cmp = icmp eq i64 %ltmp.0.copyload, %0
   br i1 %cmp, label %return, label %if.end

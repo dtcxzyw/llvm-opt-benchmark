@@ -3,9 +3,6 @@ source_filename = "bench/libquic/original/engine.c.ll"
 target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:128-n8:16:32:64-S128"
 target triple = "x86_64-unknown-linux-gnu"
 
-%struct.openssl_method_common_st = type { i32, i8 }
-%struct.engine_st = type { ptr, ptr }
-
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(inaccessiblemem: readwrite) uwtable
 define hidden noalias noundef ptr @ENGINE_new() local_unnamed_addr #0 {
 entry:
@@ -30,7 +27,7 @@ entry:
   br i1 %cmp.not.i, label %lor.lhs.false.i, label %set_method.exit
 
 lor.lhs.false.i:                                  ; preds = %entry
-  %is_static.i = getelementptr inbounds %struct.openssl_method_common_st, ptr %method, i64 0, i32 1
+  %is_static.i = getelementptr inbounds i8, ptr %method, i64 4
   %0 = load i8, ptr %is_static.i, align 4
   %tobool.not.i = icmp eq i8 %0, 0
   br i1 %tobool.not.i, label %set_method.exit, label %if.end.i
@@ -54,12 +51,12 @@ entry:
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
 define hidden noundef i32 @ENGINE_set_ECDSA_method(ptr nocapture noundef writeonly %engine, ptr noundef %method, i64 noundef %method_size) local_unnamed_addr #3 {
 entry:
-  %ecdsa_method = getelementptr inbounds %struct.engine_st, ptr %engine, i64 0, i32 1
+  %ecdsa_method = getelementptr inbounds i8, ptr %engine, i64 8
   %cmp.not.i = icmp eq i64 %method_size, 64
   br i1 %cmp.not.i, label %lor.lhs.false.i, label %set_method.exit
 
 lor.lhs.false.i:                                  ; preds = %entry
-  %is_static.i = getelementptr inbounds %struct.openssl_method_common_st, ptr %method, i64 0, i32 1
+  %is_static.i = getelementptr inbounds i8, ptr %method, i64 4
   %0 = load i8, ptr %is_static.i, align 4
   %tobool.not.i = icmp eq i8 %0, 0
   br i1 %tobool.not.i, label %set_method.exit, label %if.end.i
@@ -76,7 +73,7 @@ set_method.exit:                                  ; preds = %entry, %lor.lhs.fal
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
 define hidden ptr @ENGINE_get_ECDSA_method(ptr nocapture noundef readonly %engine) local_unnamed_addr #4 {
 entry:
-  %ecdsa_method = getelementptr inbounds %struct.engine_st, ptr %engine, i64 0, i32 1
+  %ecdsa_method = getelementptr inbounds i8, ptr %engine, i64 8
   %0 = load ptr, ptr %ecdsa_method, align 8
   ret ptr %0
 }

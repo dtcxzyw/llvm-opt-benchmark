@@ -183,7 +183,7 @@ entry:
   %agg.tmp912 = alloca %"class.eastl::intrusive_list_iterator", align 8
   store i32 0, ptr %nErrorCount, align 4
   %call = call noundef i32 @_ZN2EA8UnitTest12TestInternal17EATEST_VERIFY_IMPEbRiPKciS4_(i1 noundef zeroext true, ptr noundef nonnull align 4 dereferenceable(4) %nErrorCount, ptr noundef nonnull @.str, i32 noundef 98, ptr noundef nonnull @.str.1)
-  %invariant.gep = getelementptr inbounds %"struct.(anonymous namespace)::IntNode", ptr %nodes, i64 0, i32 1
+  %invariant.gep = getelementptr inbounds i8, ptr %nodes, i64 16
   br label %arrayctor.loop
 
 arrayctor.loop:                                   ; preds = %arrayctor.loop, %entry
@@ -195,7 +195,7 @@ arrayctor.loop:                                   ; preds = %arrayctor.loop, %en
   br i1 %arrayctor.done, label %_ZN5eastl14intrusive_listIN12_GLOBAL__N_17IntNodeEE6spliceENS_23intrusive_list_iteratorIS2_PKS2_RS5_EERS3_.exit, label %arrayctor.loop
 
 _ZN5eastl14intrusive_listIN12_GLOBAL__N_17IntNodeEE6spliceENS_23intrusive_list_iteratorIS2_PKS2_RS5_EERS3_.exit: ; preds = %arrayctor.loop
-  %mpPrev.i.i = getelementptr inbounds %"struct.eastl::intrusive_list_node", ptr %ilist, i64 0, i32 1
+  %mpPrev.i.i = getelementptr inbounds i8, ptr %ilist, i64 8
   store ptr %ilist, ptr %mpPrev.i.i, align 8
   store ptr %ilist, ptr %ilist, align 8
   store ptr %ilist, ptr %agg.tmp, align 8, !alias.scope !5
@@ -203,61 +203,61 @@ _ZN5eastl14intrusive_listIN12_GLOBAL__N_17IntNodeEE6spliceENS_23intrusive_list_i
   %call6 = call noundef zeroext i1 (ptr, ptr, i32, ptr, ...) @_Z14VerifySequenceIN5eastl23intrusive_list_iteratorIN12_GLOBAL__N_17IntNodeEPS3_RS3_EEiEbT_S7_T0_PKcz(ptr noundef nonnull %agg.tmp, ptr noundef nonnull %agg.tmp4, i32 poison, ptr noundef nonnull @.str.2, i32 noundef -1)
   %call8 = call noundef i32 @_ZN2EA8UnitTest12TestInternal17EATEST_VERIFY_IMPEbRiPKciS4_(i1 noundef zeroext %call6, ptr noundef nonnull align 4 dereferenceable(4) %nErrorCount, ptr noundef nonnull @.str, i32 noundef 122, ptr noundef nonnull @.str.3)
   store i32 0, ptr %invariant.gep, align 16
-  %incdec.ptr.i = getelementptr inbounds %"struct.(anonymous namespace)::IntNode", ptr %nodes, i64 1
-  %mpPrev2.i.i = getelementptr inbounds %"struct.eastl::intrusive_list_node", ptr %nodes, i64 0, i32 1
+  %incdec.ptr.i = getelementptr inbounds i8, ptr %nodes, i64 24
+  %mpPrev2.i.i = getelementptr inbounds i8, ptr %nodes, i64 8
   store ptr %ilist, ptr %mpPrev2.i.i, align 8
   store ptr %nodes, ptr %ilist, align 8
-  %mX.i87 = getelementptr inbounds %"struct.(anonymous namespace)::IntNode", ptr %nodes, i64 1, i32 1
+  %mX.i87 = getelementptr inbounds i8, ptr %nodes, i64 40
   store i32 1, ptr %mX.i87, align 8
-  %incdec.ptr.i88 = getelementptr inbounds %"struct.(anonymous namespace)::IntNode", ptr %nodes, i64 2
-  %mpPrev2.i.i90 = getelementptr inbounds %"struct.(anonymous namespace)::IntNode", ptr %nodes, i64 1, i32 0, i32 1
+  %incdec.ptr.i88 = getelementptr inbounds i8, ptr %nodes, i64 48
+  %mpPrev2.i.i90 = getelementptr inbounds i8, ptr %nodes, i64 32
   store ptr %nodes, ptr %mpPrev2.i.i90, align 16
   store ptr %incdec.ptr.i, ptr %nodes, align 16
-  %mX.i92 = getelementptr inbounds %"struct.(anonymous namespace)::IntNode", ptr %nodes, i64 2, i32 1
+  %mX.i92 = getelementptr inbounds i8, ptr %nodes, i64 64
   store i32 2, ptr %mX.i92, align 16
-  %incdec.ptr.i93 = getelementptr inbounds %"struct.(anonymous namespace)::IntNode", ptr %nodes, i64 3
-  %mpPrev2.i.i95 = getelementptr inbounds %"struct.(anonymous namespace)::IntNode", ptr %nodes, i64 2, i32 0, i32 1
+  %incdec.ptr.i93 = getelementptr inbounds i8, ptr %nodes, i64 72
+  %mpPrev2.i.i95 = getelementptr inbounds i8, ptr %nodes, i64 56
   store ptr %incdec.ptr.i, ptr %mpPrev2.i.i95, align 8
   store ptr %incdec.ptr.i88, ptr %incdec.ptr.i, align 8
-  %mX.i97 = getelementptr inbounds %"struct.(anonymous namespace)::IntNode", ptr %nodes, i64 3, i32 1
+  %mX.i97 = getelementptr inbounds i8, ptr %nodes, i64 88
   store i32 3, ptr %mX.i97, align 8
-  %incdec.ptr.i98 = getelementptr inbounds %"struct.(anonymous namespace)::IntNode", ptr %nodes, i64 4
-  %mpPrev2.i.i100 = getelementptr inbounds %"struct.(anonymous namespace)::IntNode", ptr %nodes, i64 3, i32 0, i32 1
+  %incdec.ptr.i98 = getelementptr inbounds i8, ptr %nodes, i64 96
+  %mpPrev2.i.i100 = getelementptr inbounds i8, ptr %nodes, i64 80
   store ptr %incdec.ptr.i88, ptr %mpPrev2.i.i100, align 16
   store ptr %incdec.ptr.i93, ptr %incdec.ptr.i88, align 16
-  %mX.i102 = getelementptr inbounds %"struct.(anonymous namespace)::IntNode", ptr %nodes, i64 4, i32 1
+  %mX.i102 = getelementptr inbounds i8, ptr %nodes, i64 112
   store i32 4, ptr %mX.i102, align 16
-  %incdec.ptr.i103 = getelementptr inbounds %"struct.(anonymous namespace)::IntNode", ptr %nodes, i64 5
-  %mpPrev2.i.i105 = getelementptr inbounds %"struct.(anonymous namespace)::IntNode", ptr %nodes, i64 4, i32 0, i32 1
+  %incdec.ptr.i103 = getelementptr inbounds i8, ptr %nodes, i64 120
+  %mpPrev2.i.i105 = getelementptr inbounds i8, ptr %nodes, i64 104
   store ptr %incdec.ptr.i93, ptr %mpPrev2.i.i105, align 8
   store ptr %incdec.ptr.i98, ptr %incdec.ptr.i93, align 8
-  %mX.i107 = getelementptr inbounds %"struct.(anonymous namespace)::IntNode", ptr %nodes, i64 5, i32 1
+  %mX.i107 = getelementptr inbounds i8, ptr %nodes, i64 136
   store i32 5, ptr %mX.i107, align 8
-  %incdec.ptr.i108 = getelementptr inbounds %"struct.(anonymous namespace)::IntNode", ptr %nodes, i64 6
-  %mpPrev2.i.i110 = getelementptr inbounds %"struct.(anonymous namespace)::IntNode", ptr %nodes, i64 5, i32 0, i32 1
+  %incdec.ptr.i108 = getelementptr inbounds i8, ptr %nodes, i64 144
+  %mpPrev2.i.i110 = getelementptr inbounds i8, ptr %nodes, i64 128
   store ptr %incdec.ptr.i98, ptr %mpPrev2.i.i110, align 16
   store ptr %incdec.ptr.i103, ptr %incdec.ptr.i98, align 16
-  %mX.i112 = getelementptr inbounds %"struct.(anonymous namespace)::IntNode", ptr %nodes, i64 6, i32 1
+  %mX.i112 = getelementptr inbounds i8, ptr %nodes, i64 160
   store i32 6, ptr %mX.i112, align 16
-  %incdec.ptr.i113 = getelementptr inbounds %"struct.(anonymous namespace)::IntNode", ptr %nodes, i64 7
-  %mpPrev2.i.i115 = getelementptr inbounds %"struct.(anonymous namespace)::IntNode", ptr %nodes, i64 6, i32 0, i32 1
+  %incdec.ptr.i113 = getelementptr inbounds i8, ptr %nodes, i64 168
+  %mpPrev2.i.i115 = getelementptr inbounds i8, ptr %nodes, i64 152
   store ptr %incdec.ptr.i103, ptr %mpPrev2.i.i115, align 8
   store ptr %incdec.ptr.i108, ptr %incdec.ptr.i103, align 8
-  %mX.i117 = getelementptr inbounds %"struct.(anonymous namespace)::IntNode", ptr %nodes, i64 7, i32 1
+  %mX.i117 = getelementptr inbounds i8, ptr %nodes, i64 184
   store i32 7, ptr %mX.i117, align 8
-  %incdec.ptr.i118 = getelementptr inbounds %"struct.(anonymous namespace)::IntNode", ptr %nodes, i64 8
-  %mpPrev2.i.i120 = getelementptr inbounds %"struct.(anonymous namespace)::IntNode", ptr %nodes, i64 7, i32 0, i32 1
+  %incdec.ptr.i118 = getelementptr inbounds i8, ptr %nodes, i64 192
+  %mpPrev2.i.i120 = getelementptr inbounds i8, ptr %nodes, i64 176
   store ptr %incdec.ptr.i108, ptr %mpPrev2.i.i120, align 16
   store ptr %incdec.ptr.i113, ptr %incdec.ptr.i108, align 16
-  %mX.i122 = getelementptr inbounds %"struct.(anonymous namespace)::IntNode", ptr %nodes, i64 8, i32 1
+  %mX.i122 = getelementptr inbounds i8, ptr %nodes, i64 208
   store i32 8, ptr %mX.i122, align 16
-  %incdec.ptr.i123 = getelementptr inbounds %"struct.(anonymous namespace)::IntNode", ptr %nodes, i64 9
-  %mpPrev2.i.i125 = getelementptr inbounds %"struct.(anonymous namespace)::IntNode", ptr %nodes, i64 8, i32 0, i32 1
+  %incdec.ptr.i123 = getelementptr inbounds i8, ptr %nodes, i64 216
+  %mpPrev2.i.i125 = getelementptr inbounds i8, ptr %nodes, i64 200
   store ptr %incdec.ptr.i113, ptr %mpPrev2.i.i125, align 8
   store ptr %incdec.ptr.i118, ptr %incdec.ptr.i113, align 8
-  %mX.i127 = getelementptr inbounds %"struct.(anonymous namespace)::IntNode", ptr %nodes, i64 9, i32 1
+  %mX.i127 = getelementptr inbounds i8, ptr %nodes, i64 232
   store i32 9, ptr %mX.i127, align 8
-  %mpPrev2.i.i130 = getelementptr inbounds %"struct.(anonymous namespace)::IntNode", ptr %nodes, i64 9, i32 0, i32 1
+  %mpPrev2.i.i130 = getelementptr inbounds i8, ptr %nodes, i64 224
   store ptr %incdec.ptr.i118, ptr %mpPrev2.i.i130, align 16
   store ptr %ilist, ptr %incdec.ptr.i123, align 8
   store ptr %incdec.ptr.i123, ptr %mpPrev.i.i, align 8
@@ -267,51 +267,51 @@ _ZN5eastl14intrusive_listIN12_GLOBAL__N_17IntNodeEE6spliceENS_23intrusive_list_i
   %call33 = call noundef zeroext i1 (ptr, ptr, i32, ptr, ...) @_Z14VerifySequenceIN5eastl23intrusive_list_iteratorIN12_GLOBAL__N_17IntNodeEPS3_RS3_EEiEbT_S7_T0_PKcz(ptr noundef nonnull %agg.tmp30, ptr noundef nonnull %agg.tmp31, i32 poison, ptr noundef nonnull @.str.4, i32 noundef 0, i32 noundef 1, i32 noundef 2, i32 noundef 3, i32 noundef 4, i32 noundef 5, i32 noundef 6, i32 noundef 7, i32 noundef 8, i32 noundef 9, i32 noundef -1)
   %call35 = call noundef i32 @_ZN2EA8UnitTest12TestInternal17EATEST_VERIFY_IMPEbRiPKciS4_(i1 noundef zeroext %call33, ptr noundef nonnull align 4 dereferenceable(4) %nErrorCount, ptr noundef nonnull @.str, i32 noundef 127, ptr noundef nonnull @.str.5)
   %ilist.val24 = load ptr, ptr %ilist, align 8
-  %mX = getelementptr inbounds %"struct.(anonymous namespace)::IntNode", ptr %ilist.val24, i64 0, i32 1
+  %mX = getelementptr inbounds i8, ptr %ilist.val24, i64 16
   %0 = load i32, ptr %mX, align 8
   %cmp = icmp eq i32 %0, 0
   %call39 = call noundef i32 @_ZN2EA8UnitTest12TestInternal17EATEST_VERIFY_IMPEbRiPKciS4_(i1 noundef zeroext %cmp, ptr noundef nonnull align 4 dereferenceable(4) %nErrorCount, ptr noundef nonnull @.str, i32 noundef 132, ptr noundef nonnull @.str.6)
   %1 = load ptr, ptr %ilist.val24, align 8
-  %mX44 = getelementptr inbounds %"struct.(anonymous namespace)::IntNode", ptr %1, i64 0, i32 1
+  %mX44 = getelementptr inbounds i8, ptr %1, i64 16
   %2 = load i32, ptr %mX44, align 8
   %cmp45 = icmp eq i32 %2, 1
   %call47 = call noundef i32 @_ZN2EA8UnitTest12TestInternal17EATEST_VERIFY_IMPEbRiPKciS4_(i1 noundef zeroext %cmp45, ptr noundef nonnull align 4 dereferenceable(4) %nErrorCount, ptr noundef nonnull @.str, i32 noundef 134, ptr noundef nonnull @.str.7)
   %3 = load ptr, ptr %1, align 8
-  %mX52 = getelementptr inbounds %"struct.(anonymous namespace)::IntNode", ptr %3, i64 0, i32 1
+  %mX52 = getelementptr inbounds i8, ptr %3, i64 16
   %4 = load i32, ptr %mX52, align 8
   %cmp53 = icmp eq i32 %4, 2
   %call55 = call noundef i32 @_ZN2EA8UnitTest12TestInternal17EATEST_VERIFY_IMPEbRiPKciS4_(i1 noundef zeroext %cmp53, ptr noundef nonnull align 4 dereferenceable(4) %nErrorCount, ptr noundef nonnull @.str, i32 noundef 136, ptr noundef nonnull @.str.8)
   %5 = load ptr, ptr %3, align 8
-  %mX60 = getelementptr inbounds %"struct.(anonymous namespace)::IntNode", ptr %5, i64 0, i32 1
+  %mX60 = getelementptr inbounds i8, ptr %5, i64 16
   %6 = load i32, ptr %mX60, align 8
   %cmp61 = icmp eq i32 %6, 3
   %call63 = call noundef i32 @_ZN2EA8UnitTest12TestInternal17EATEST_VERIFY_IMPEbRiPKciS4_(i1 noundef zeroext %cmp61, ptr noundef nonnull align 4 dereferenceable(4) %nErrorCount, ptr noundef nonnull @.str, i32 noundef 138, ptr noundef nonnull @.str.9)
-  %mpPrev.i.i131 = getelementptr inbounds %"struct.eastl::intrusive_list_node", ptr %cilist, i64 0, i32 1
+  %mpPrev.i.i131 = getelementptr inbounds i8, ptr %cilist, i64 8
   store ptr %cilist, ptr %mpPrev.i.i131, align 8
   store ptr %cilist, ptr %cilist, align 8
   %itr.val.val = load ptr, ptr %mpPrev.i.i, align 8
-  %mX86 = getelementptr inbounds %"struct.(anonymous namespace)::IntNode", ptr %itr.val.val, i64 0, i32 1
+  %mX86 = getelementptr inbounds i8, ptr %itr.val.val, i64 16
   %7 = load i32, ptr %mX86, align 8
   %cmp87 = icmp eq i32 %7, 9
   %call89 = call noundef i32 @_ZN2EA8UnitTest12TestInternal17EATEST_VERIFY_IMPEbRiPKciS4_(i1 noundef zeroext %cmp87, ptr noundef nonnull align 4 dereferenceable(4) %nErrorCount, ptr noundef nonnull @.str, i32 noundef 150, ptr noundef nonnull @.str.11)
   %8 = load ptr, ptr %mpPrev.i.i, align 8
   %9 = getelementptr i8, ptr %8, i64 8
   %itr.val73.val = load ptr, ptr %9, align 8
-  %mX94 = getelementptr inbounds %"struct.(anonymous namespace)::IntNode", ptr %itr.val73.val, i64 0, i32 1
+  %mX94 = getelementptr inbounds i8, ptr %itr.val73.val, i64 16
   %10 = load i32, ptr %mX94, align 8
   %cmp95 = icmp eq i32 %10, 8
   %call97 = call noundef i32 @_ZN2EA8UnitTest12TestInternal17EATEST_VERIFY_IMPEbRiPKciS4_(i1 noundef zeroext %cmp95, ptr noundef nonnull align 4 dereferenceable(4) %nErrorCount, ptr noundef nonnull @.str, i32 noundef 152, ptr noundef nonnull @.str.12)
   %11 = load ptr, ptr %9, align 8
   %12 = getelementptr i8, ptr %11, i64 8
   %itr.val74.val = load ptr, ptr %12, align 8
-  %mX102 = getelementptr inbounds %"struct.(anonymous namespace)::IntNode", ptr %itr.val74.val, i64 0, i32 1
+  %mX102 = getelementptr inbounds i8, ptr %itr.val74.val, i64 16
   %13 = load i32, ptr %mX102, align 8
   %cmp103 = icmp eq i32 %13, 7
   %call105 = call noundef i32 @_ZN2EA8UnitTest12TestInternal17EATEST_VERIFY_IMPEbRiPKciS4_(i1 noundef zeroext %cmp103, ptr noundef nonnull align 4 dereferenceable(4) %nErrorCount, ptr noundef nonnull @.str, i32 noundef 154, ptr noundef nonnull @.str.13)
   %14 = load ptr, ptr %12, align 8
   %15 = getelementptr i8, ptr %14, i64 8
   %itr.val75.val = load ptr, ptr %15, align 8
-  %mX110 = getelementptr inbounds %"struct.(anonymous namespace)::IntNode", ptr %itr.val75.val, i64 0, i32 1
+  %mX110 = getelementptr inbounds i8, ptr %itr.val75.val, i64 16
   %16 = load i32, ptr %mX110, align 8
   %cmp111 = icmp eq i32 %16, 6
   %call113 = call noundef i32 @_ZN2EA8UnitTest12TestInternal17EATEST_VERIFY_IMPEbRiPKciS4_(i1 noundef zeroext %cmp111, ptr noundef nonnull align 4 dereferenceable(4) %nErrorCount, ptr noundef nonnull @.str, i32 noundef 156, ptr noundef nonnull @.str.14)
@@ -355,7 +355,7 @@ _ZN5eastl14intrusive_listIN12_GLOBAL__N_17IntNodeEE6spliceENS_23intrusive_list_i
   store i32 9, ptr %mX.i127, align 8
   store ptr %incdec.ptr.i118, ptr %mpPrev.i.i, align 8
   store ptr %ilist, ptr %incdec.ptr.i118, align 16
-  %mpPrev9.i = getelementptr inbounds %"struct.(anonymous namespace)::IntNode", ptr %nodes, i64 1, i32 0, i32 1
+  %mpPrev9.i = getelementptr inbounds i8, ptr %nodes, i64 32
   store ptr %incdec.ptr.i123, ptr %nodes, align 16
   store ptr %incdec.ptr.i123, ptr %mpPrev9.i, align 16
   store ptr %nodes, ptr %mpPrev2.i.i130, align 16
@@ -364,65 +364,65 @@ _ZN5eastl14intrusive_listIN12_GLOBAL__N_17IntNodeEE6spliceENS_23intrusive_list_i
   store ptr %ilist, ptr %agg.tmp194, align 8, !alias.scope !26
   %call196 = call noundef zeroext i1 (ptr, ptr, i32, ptr, ...) @_Z14VerifySequenceIN5eastl23intrusive_list_iteratorIN12_GLOBAL__N_17IntNodeEPS3_RS3_EEiEbT_S7_T0_PKcz(ptr noundef nonnull %agg.tmp193, ptr noundef nonnull %agg.tmp194, i32 poison, ptr noundef nonnull @.str.23, i32 noundef 0, i32 noundef 9, i32 noundef 1, i32 noundef 2, i32 noundef 3, i32 noundef 4, i32 noundef 5, i32 noundef 6, i32 noundef 7, i32 noundef 8, i32 noundef -1)
   %call198 = call noundef i32 @_ZN2EA8UnitTest12TestInternal17EATEST_VERIFY_IMPEbRiPKciS4_(i1 noundef zeroext %call196, ptr noundef nonnull align 4 dereferenceable(4) %nErrorCount, ptr noundef nonnull @.str, i32 noundef 186, ptr noundef nonnull @.str.24)
-  %mpPrev.i.i201 = getelementptr inbounds %"struct.eastl::intrusive_list_node", ptr %ilist2, i64 0, i32 1
-  %add.ptr = getelementptr inbounds %"struct.(anonymous namespace)::IntNode", ptr %nodes, i64 10
-  %mX.i205 = getelementptr inbounds %"struct.(anonymous namespace)::IntNode", ptr %nodes, i64 10, i32 1
+  %mpPrev.i.i201 = getelementptr inbounds i8, ptr %ilist2, i64 8
+  %add.ptr = getelementptr inbounds i8, ptr %nodes, i64 240
+  %mX.i205 = getelementptr inbounds i8, ptr %nodes, i64 256
   store i32 10, ptr %mX.i205, align 16
-  %incdec.ptr.i206 = getelementptr inbounds %"struct.(anonymous namespace)::IntNode", ptr %nodes, i64 11
-  %mpPrev2.i.i208 = getelementptr inbounds %"struct.(anonymous namespace)::IntNode", ptr %nodes, i64 10, i32 0, i32 1
+  %incdec.ptr.i206 = getelementptr inbounds i8, ptr %nodes, i64 264
+  %mpPrev2.i.i208 = getelementptr inbounds i8, ptr %nodes, i64 248
   store ptr %ilist2, ptr %mpPrev2.i.i208, align 8
   store ptr %add.ptr, ptr %ilist2, align 8
-  %mX.i210 = getelementptr inbounds %"struct.(anonymous namespace)::IntNode", ptr %nodes, i64 11, i32 1
+  %mX.i210 = getelementptr inbounds i8, ptr %nodes, i64 280
   store i32 11, ptr %mX.i210, align 8
-  %incdec.ptr.i211 = getelementptr inbounds %"struct.(anonymous namespace)::IntNode", ptr %nodes, i64 12
-  %mpPrev2.i.i213 = getelementptr inbounds %"struct.(anonymous namespace)::IntNode", ptr %nodes, i64 11, i32 0, i32 1
+  %incdec.ptr.i211 = getelementptr inbounds i8, ptr %nodes, i64 288
+  %mpPrev2.i.i213 = getelementptr inbounds i8, ptr %nodes, i64 272
   store ptr %add.ptr, ptr %mpPrev2.i.i213, align 16
   store ptr %incdec.ptr.i206, ptr %add.ptr, align 16
-  %mX.i215 = getelementptr inbounds %"struct.(anonymous namespace)::IntNode", ptr %nodes, i64 12, i32 1
+  %mX.i215 = getelementptr inbounds i8, ptr %nodes, i64 304
   store i32 12, ptr %mX.i215, align 16
-  %incdec.ptr.i216 = getelementptr inbounds %"struct.(anonymous namespace)::IntNode", ptr %nodes, i64 13
-  %mpPrev2.i.i218 = getelementptr inbounds %"struct.(anonymous namespace)::IntNode", ptr %nodes, i64 12, i32 0, i32 1
+  %incdec.ptr.i216 = getelementptr inbounds i8, ptr %nodes, i64 312
+  %mpPrev2.i.i218 = getelementptr inbounds i8, ptr %nodes, i64 296
   store ptr %incdec.ptr.i206, ptr %mpPrev2.i.i218, align 8
   store ptr %incdec.ptr.i211, ptr %incdec.ptr.i206, align 8
-  %mX.i220 = getelementptr inbounds %"struct.(anonymous namespace)::IntNode", ptr %nodes, i64 13, i32 1
+  %mX.i220 = getelementptr inbounds i8, ptr %nodes, i64 328
   store i32 13, ptr %mX.i220, align 8
-  %incdec.ptr.i221 = getelementptr inbounds %"struct.(anonymous namespace)::IntNode", ptr %nodes, i64 14
-  %mpPrev2.i.i223 = getelementptr inbounds %"struct.(anonymous namespace)::IntNode", ptr %nodes, i64 13, i32 0, i32 1
+  %incdec.ptr.i221 = getelementptr inbounds i8, ptr %nodes, i64 336
+  %mpPrev2.i.i223 = getelementptr inbounds i8, ptr %nodes, i64 320
   store ptr %incdec.ptr.i211, ptr %mpPrev2.i.i223, align 16
   store ptr %incdec.ptr.i216, ptr %incdec.ptr.i211, align 16
-  %mX.i225 = getelementptr inbounds %"struct.(anonymous namespace)::IntNode", ptr %nodes, i64 14, i32 1
+  %mX.i225 = getelementptr inbounds i8, ptr %nodes, i64 352
   store i32 14, ptr %mX.i225, align 16
-  %incdec.ptr.i226 = getelementptr inbounds %"struct.(anonymous namespace)::IntNode", ptr %nodes, i64 15
-  %mpPrev2.i.i228 = getelementptr inbounds %"struct.(anonymous namespace)::IntNode", ptr %nodes, i64 14, i32 0, i32 1
+  %incdec.ptr.i226 = getelementptr inbounds i8, ptr %nodes, i64 360
+  %mpPrev2.i.i228 = getelementptr inbounds i8, ptr %nodes, i64 344
   store ptr %incdec.ptr.i216, ptr %mpPrev2.i.i228, align 8
   store ptr %incdec.ptr.i221, ptr %incdec.ptr.i216, align 8
-  %mX.i230 = getelementptr inbounds %"struct.(anonymous namespace)::IntNode", ptr %nodes, i64 15, i32 1
+  %mX.i230 = getelementptr inbounds i8, ptr %nodes, i64 376
   store i32 15, ptr %mX.i230, align 8
-  %incdec.ptr.i231 = getelementptr inbounds %"struct.(anonymous namespace)::IntNode", ptr %nodes, i64 16
-  %mpPrev2.i.i233 = getelementptr inbounds %"struct.(anonymous namespace)::IntNode", ptr %nodes, i64 15, i32 0, i32 1
+  %incdec.ptr.i231 = getelementptr inbounds i8, ptr %nodes, i64 384
+  %mpPrev2.i.i233 = getelementptr inbounds i8, ptr %nodes, i64 368
   store ptr %incdec.ptr.i221, ptr %mpPrev2.i.i233, align 16
   store ptr %incdec.ptr.i226, ptr %incdec.ptr.i221, align 16
-  %mX.i235 = getelementptr inbounds %"struct.(anonymous namespace)::IntNode", ptr %nodes, i64 16, i32 1
+  %mX.i235 = getelementptr inbounds i8, ptr %nodes, i64 400
   store i32 16, ptr %mX.i235, align 16
-  %incdec.ptr.i236 = getelementptr inbounds %"struct.(anonymous namespace)::IntNode", ptr %nodes, i64 17
-  %mpPrev2.i.i238 = getelementptr inbounds %"struct.(anonymous namespace)::IntNode", ptr %nodes, i64 16, i32 0, i32 1
+  %incdec.ptr.i236 = getelementptr inbounds i8, ptr %nodes, i64 408
+  %mpPrev2.i.i238 = getelementptr inbounds i8, ptr %nodes, i64 392
   store ptr %incdec.ptr.i226, ptr %mpPrev2.i.i238, align 8
   store ptr %incdec.ptr.i231, ptr %incdec.ptr.i226, align 8
-  %mX.i240 = getelementptr inbounds %"struct.(anonymous namespace)::IntNode", ptr %nodes, i64 17, i32 1
+  %mX.i240 = getelementptr inbounds i8, ptr %nodes, i64 424
   store i32 17, ptr %mX.i240, align 8
-  %incdec.ptr.i241 = getelementptr inbounds %"struct.(anonymous namespace)::IntNode", ptr %nodes, i64 18
-  %mpPrev2.i.i243 = getelementptr inbounds %"struct.(anonymous namespace)::IntNode", ptr %nodes, i64 17, i32 0, i32 1
+  %incdec.ptr.i241 = getelementptr inbounds i8, ptr %nodes, i64 432
+  %mpPrev2.i.i243 = getelementptr inbounds i8, ptr %nodes, i64 416
   store ptr %incdec.ptr.i231, ptr %mpPrev2.i.i243, align 16
   store ptr %incdec.ptr.i236, ptr %incdec.ptr.i231, align 16
-  %mX.i245 = getelementptr inbounds %"struct.(anonymous namespace)::IntNode", ptr %nodes, i64 18, i32 1
+  %mX.i245 = getelementptr inbounds i8, ptr %nodes, i64 448
   store i32 18, ptr %mX.i245, align 16
-  %incdec.ptr.i246 = getelementptr inbounds %"struct.(anonymous namespace)::IntNode", ptr %nodes, i64 19
-  %mpPrev2.i.i248 = getelementptr inbounds %"struct.(anonymous namespace)::IntNode", ptr %nodes, i64 18, i32 0, i32 1
+  %incdec.ptr.i246 = getelementptr inbounds i8, ptr %nodes, i64 456
+  %mpPrev2.i.i248 = getelementptr inbounds i8, ptr %nodes, i64 440
   store ptr %incdec.ptr.i236, ptr %mpPrev2.i.i248, align 8
   store ptr %incdec.ptr.i241, ptr %incdec.ptr.i236, align 8
-  %mX.i250 = getelementptr inbounds %"struct.(anonymous namespace)::IntNode", ptr %nodes, i64 19, i32 1
+  %mX.i250 = getelementptr inbounds i8, ptr %nodes, i64 472
   store i32 19, ptr %mX.i250, align 8
-  %mpPrev2.i.i253 = getelementptr inbounds %"struct.(anonymous namespace)::IntNode", ptr %nodes, i64 19, i32 0, i32 1
+  %mpPrev2.i.i253 = getelementptr inbounds i8, ptr %nodes, i64 464
   store ptr %incdec.ptr.i241, ptr %mpPrev2.i.i253, align 16
   store ptr %ilist2, ptr %incdec.ptr.i246, align 8
   store ptr %incdec.ptr.i246, ptr %mpPrev.i.i201, align 8
@@ -430,10 +430,10 @@ _ZN5eastl14intrusive_listIN12_GLOBAL__N_17IntNodeEE6spliceENS_23intrusive_list_i
   %ilist.val30 = load ptr, ptr %ilist, align 8
   %19 = load ptr, ptr %ilist.val30, align 8
   %20 = load ptr, ptr %19, align 8
-  %mpPrev.i255 = getelementptr inbounds %"struct.eastl::intrusive_list_node", ptr %20, i64 0, i32 1
+  %mpPrev.i255 = getelementptr inbounds i8, ptr %20, i64 8
   %21 = load ptr, ptr %mpPrev.i255, align 8
   store ptr %add.ptr, ptr %21, align 8
-  %mpPrev8.i = getelementptr inbounds %"struct.(anonymous namespace)::IntNode", ptr %nodes, i64 10, i32 0, i32 1
+  %mpPrev8.i = getelementptr inbounds i8, ptr %nodes, i64 248
   store ptr %21, ptr %mpPrev8.i, align 8
   store ptr %20, ptr %incdec.ptr.i246, align 8
   store ptr %incdec.ptr.i246, ptr %mpPrev.i255, align 8
@@ -452,22 +452,22 @@ _ZN5eastl14intrusive_listIN12_GLOBAL__N_17IntNodeEE6spliceENS_23intrusive_list_i
   %22 = load ptr, ptr %ilist.val32, align 8
   %23 = load ptr, ptr %22, align 8
   %24 = load ptr, ptr %mpPrev.i.i, align 8
-  %mpPrev.i257 = getelementptr inbounds %"struct.eastl::intrusive_list_node", ptr %24, i64 0, i32 1
+  %mpPrev.i257 = getelementptr inbounds i8, ptr %24, i64 8
   %25 = load ptr, ptr %mpPrev.i257, align 8
   %cmp.i.not.i258 = icmp eq ptr %23, %25
   br i1 %cmp.i.not.i258, label %invoke.cont265, label %if.then.i259
 
 if.then.i259:                                     ; preds = %_ZN5eastl14intrusive_listIN12_GLOBAL__N_17IntNodeEE6spliceENS_23intrusive_list_iteratorIS2_PKS2_RS5_EERS3_.exit
-  %mpPrev.i260 = getelementptr inbounds %"struct.eastl::intrusive_list_node", ptr %25, i64 0, i32 1
+  %mpPrev.i260 = getelementptr inbounds i8, ptr %25, i64 8
   %26 = load ptr, ptr %mpPrev.i260, align 8
-  %mpPrev7.i = getelementptr inbounds %"struct.eastl::intrusive_list_node", ptr %23, i64 0, i32 1
+  %mpPrev7.i = getelementptr inbounds i8, ptr %23, i64 8
   %27 = load ptr, ptr %mpPrev7.i, align 8
   %28 = load ptr, ptr %26, align 8
-  %mpPrev8.i261 = getelementptr inbounds %"struct.eastl::intrusive_list_node", ptr %28, i64 0, i32 1
+  %mpPrev8.i261 = getelementptr inbounds i8, ptr %28, i64 8
   store ptr %27, ptr %mpPrev8.i261, align 8
   %29 = load ptr, ptr %26, align 8
   store ptr %29, ptr %27, align 8
-  %mpPrev14.i = getelementptr inbounds %"struct.eastl::intrusive_list_node", ptr %ilist.val32, i64 0, i32 1
+  %mpPrev14.i = getelementptr inbounds i8, ptr %ilist.val32, i64 8
   %30 = load ptr, ptr %mpPrev14.i, align 8
   store ptr %23, ptr %30, align 8
   store ptr %30, ptr %mpPrev7.i, align 8
@@ -500,7 +500,7 @@ if.else.i:                                        ; preds = %invoke.cont265
   %32 = load ptr, ptr %mpPrev.i.i, align 8
   store ptr %ilist, ptr %32, align 8
   %33 = load ptr, ptr %ilist, align 8
-  %mpPrev17.i = getelementptr inbounds %"struct.eastl::intrusive_list_node", ptr %33, i64 0, i32 1
+  %mpPrev17.i = getelementptr inbounds i8, ptr %33, i64 8
   br label %if.end.i
 
 if.end.i:                                         ; preds = %if.else.i, %if.then.i265
@@ -518,7 +518,7 @@ if.else28.i:                                      ; preds = %if.end.i
   %35 = load ptr, ptr %mpPrev.i.i201, align 8
   store ptr %ilist2, ptr %35, align 8
   %36 = load ptr, ptr %ilist2, align 8
-  %mpPrev35.i = getelementptr inbounds %"struct.eastl::intrusive_list_node", ptr %36, i64 0, i32 1
+  %mpPrev35.i = getelementptr inbounds i8, ptr %36, i64 8
   br label %_ZN5eastl14intrusive_listIN12_GLOBAL__N_17IntNodeEE4swapERS3_.exit
 
 _ZN5eastl14intrusive_listIN12_GLOBAL__N_17IntNodeEE4swapERS3_.exit: ; preds = %if.then22.i, %if.else28.i
@@ -546,11 +546,11 @@ _ZN5eastl14intrusive_listIN12_GLOBAL__N_17IntNodeEE4swapERS3_.exit: ; preds = %i
 
 if.then.i268:                                     ; preds = %_ZN5eastl14intrusive_listIN12_GLOBAL__N_17IntNodeEE4swapERS3_.exit
   %ilist.val37 = load ptr, ptr %ilist, align 8
-  %mpPrev.i269 = getelementptr inbounds %"struct.eastl::intrusive_list_node", ptr %ilist.val37, i64 0, i32 1
+  %mpPrev.i269 = getelementptr inbounds i8, ptr %ilist.val37, i64 8
   %39 = load ptr, ptr %mpPrev.i269, align 8
   %40 = load ptr, ptr %mpPrev.i.i201, align 8
   store ptr %38, ptr %39, align 8
-  %mpPrev8.i271 = getelementptr inbounds %"struct.eastl::intrusive_list_node", ptr %38, i64 0, i32 1
+  %mpPrev8.i271 = getelementptr inbounds i8, ptr %38, i64 8
   store ptr %39, ptr %mpPrev8.i271, align 8
   store ptr %ilist.val37, ptr %40, align 8
   store ptr %40, ptr %mpPrev.i269, align 8
@@ -598,9 +598,9 @@ _ZN5eastl14intrusive_listIN12_GLOBAL__N_17IntNodeEE6spliceENS_23intrusive_list_i
   br i1 %cmp.not.i307, label %_ZN5eastl14intrusive_listIN12_GLOBAL__N_17IntNodeEE6spliceENS_23intrusive_list_iteratorIS2_PKS2_RS5_EERS2_.exit313, label %if.then.i308
 
 if.then.i308:                                     ; preds = %_ZN5eastl14intrusive_listIN12_GLOBAL__N_17IntNodeEE6spliceENS_23intrusive_list_iteratorIS2_PKS2_RS5_EERS3_.exit273
-  %mpPrev.i309 = getelementptr inbounds %"struct.eastl::intrusive_list_node", ptr %42, i64 0, i32 1
+  %mpPrev.i309 = getelementptr inbounds i8, ptr %42, i64 8
   %44 = load ptr, ptr %mpPrev.i309, align 8
-  %mpPrev2.i310 = getelementptr inbounds %"struct.eastl::intrusive_list_node", ptr %43, i64 0, i32 1
+  %mpPrev2.i310 = getelementptr inbounds i8, ptr %43, i64 8
   store ptr %44, ptr %mpPrev2.i310, align 8
   store ptr %43, ptr %44, align 8
   %45 = load ptr, ptr %mpPrev2.i310, align 8
@@ -652,9 +652,9 @@ for.body406:                                      ; preds = %_ZN5eastl14intrusiv
   %arrayidx40711411142 = phi ptr [ %ilist, %_ZN5eastl14intrusive_listIN12_GLOBAL__N_17IntNodeEE6spliceENS_23intrusive_list_iteratorIS2_PKS2_RS5_EERS2_.exit313 ], [ %arrayidx407, %for.body406 ]
   %arrayidx407 = getelementptr inbounds [20 x %"struct.(anonymous namespace)::IntNode"], ptr %nodes, i64 0, i64 %indvars.iv
   store ptr %arrayidx40711411142, ptr %arrayidx407, align 8
-  %mpPrev.i351 = getelementptr inbounds %"struct.eastl::intrusive_list_node", ptr %arrayidx407, i64 0, i32 1
+  %mpPrev.i351 = getelementptr inbounds i8, ptr %arrayidx407, i64 8
   store ptr %ilist, ptr %mpPrev.i351, align 8
-  %mpPrev7.i352 = getelementptr inbounds %"struct.eastl::intrusive_list_node", ptr %arrayidx40711411142, i64 0, i32 1
+  %mpPrev7.i352 = getelementptr inbounds i8, ptr %arrayidx40711411142, i64 8
   store ptr %arrayidx407, ptr %mpPrev7.i352, align 8
   %indvars.iv.next = add nsw i64 %indvars.iv, -1
   %cmp405.not = icmp eq i64 %indvars.iv, 0
@@ -664,7 +664,7 @@ for.body413:                                      ; preds = %for.cond411.prehead
   %indvars.iv1158 = phi i64 [ 5, %for.cond411.preheader ], [ %indvars.iv.next1159, %for.body413 ]
   %arrayidx415 = getelementptr inbounds [20 x %"struct.(anonymous namespace)::IntNode"], ptr %nodes, i64 0, i64 %indvars.iv1158
   %46 = load ptr, ptr %mpPrev.i.i201, align 8
-  %mpPrev2.i354 = getelementptr inbounds %"struct.eastl::intrusive_list_node", ptr %arrayidx415, i64 0, i32 1
+  %mpPrev2.i354 = getelementptr inbounds i8, ptr %arrayidx415, i64 8
   store ptr %46, ptr %mpPrev2.i354, align 8
   store ptr %ilist2, ptr %arrayidx415, align 8
   store ptr %arrayidx415, ptr %mpPrev.i.i201, align 8
@@ -690,16 +690,16 @@ for.body433:                                      ; preds = %for.end418, %for.bo
   %i.21145 = phi i32 [ 4, %for.end418 ], [ %dec437, %for.body433 ]
   %47 = load ptr, ptr %ilist, align 8
   %48 = load ptr, ptr %47, align 8
-  %mpPrev.i355 = getelementptr inbounds %"struct.eastl::intrusive_list_node", ptr %48, i64 0, i32 1
+  %mpPrev.i355 = getelementptr inbounds i8, ptr %48, i64 8
   store ptr %ilist, ptr %mpPrev.i355, align 8
   %49 = load ptr, ptr %47, align 8
   store ptr %49, ptr %ilist, align 8
   %50 = load ptr, ptr %mpPrev.i.i201, align 8
-  %mpPrev3.i = getelementptr inbounds %"struct.eastl::intrusive_list_node", ptr %50, i64 0, i32 1
+  %mpPrev3.i = getelementptr inbounds i8, ptr %50, i64 8
   %51 = load ptr, ptr %mpPrev3.i, align 8
   store ptr %ilist2, ptr %51, align 8
   %52 = load ptr, ptr %mpPrev.i.i201, align 8
-  %mpPrev6.i357 = getelementptr inbounds %"struct.eastl::intrusive_list_node", ptr %52, i64 0, i32 1
+  %mpPrev6.i357 = getelementptr inbounds i8, ptr %52, i64 8
   %53 = load ptr, ptr %mpPrev6.i357, align 8
   store ptr %53, ptr %mpPrev.i.i201, align 8
   %dec437 = add nsw i32 %i.21145, -1
@@ -728,7 +728,7 @@ for.body457:                                      ; preds = %for.end438, %for.bo
   %indvars.iv1161 = phi i64 [ 0, %for.end438 ], [ %indvars.iv.next1162, %for.body457 ]
   %arrayidx459 = getelementptr inbounds [20 x %"struct.(anonymous namespace)::IntNode"], ptr %nodes, i64 0, i64 %indvars.iv1161
   %56 = load ptr, ptr %mpPrev.i.i, align 8
-  %mpPrev2.i363 = getelementptr inbounds %"struct.eastl::intrusive_list_node", ptr %arrayidx459, i64 0, i32 1
+  %mpPrev2.i363 = getelementptr inbounds i8, ptr %arrayidx459, i64 8
   store ptr %56, ptr %mpPrev2.i363, align 8
   store ptr %ilist, ptr %arrayidx459, align 8
   store ptr %arrayidx459, ptr %mpPrev.i.i, align 8
@@ -774,7 +774,7 @@ for.body.i:                                       ; preds = %for.cond.i372
 
 invoke.cont477:                                   ; preds = %for.body.i, %for.cond.i372
   %storemerge.i = phi ptr [ %incdec.ptr.i93, %for.body.i ], [ %ilist, %for.cond.i372 ]
-  %mX482 = getelementptr inbounds %"struct.(anonymous namespace)::IntNode", ptr %storemerge.i, i64 0, i32 1
+  %mX482 = getelementptr inbounds i8, ptr %storemerge.i, i64 16
   %57 = load i32, ptr %mX482, align 8
   %cmp483 = icmp eq i32 %57, 3
   %call485 = call noundef i32 @_ZN2EA8UnitTest12TestInternal17EATEST_VERIFY_IMPEbRiPKciS4_(i1 noundef zeroext %cmp483, ptr noundef nonnull align 4 dereferenceable(4) %nErrorCount, ptr noundef nonnull @.str, i32 noundef 253, ptr noundef nonnull @.str.9)
@@ -863,7 +863,7 @@ if.else.i411:                                     ; preds = %invoke.cont524
   %59 = load ptr, ptr %mpPrev.i.i, align 8
   store ptr %ilist, ptr %59, align 8
   %60 = load ptr, ptr %ilist, align 8
-  %mpPrev17.i412 = getelementptr inbounds %"struct.eastl::intrusive_list_node", ptr %60, i64 0, i32 1
+  %mpPrev17.i412 = getelementptr inbounds i8, ptr %60, i64 8
   br label %if.end.i413
 
 if.end.i413:                                      ; preds = %if.else.i411, %if.then.i421
@@ -881,7 +881,7 @@ if.else28.i417:                                   ; preds = %if.end.i413
   %62 = load ptr, ptr %mpPrev.i.i201, align 8
   store ptr %ilist2, ptr %62, align 8
   %63 = load ptr, ptr %ilist2, align 8
-  %mpPrev35.i418 = getelementptr inbounds %"struct.eastl::intrusive_list_node", ptr %63, i64 0, i32 1
+  %mpPrev35.i418 = getelementptr inbounds i8, ptr %63, i64 8
   br label %_ZN5eastl14intrusive_listIN12_GLOBAL__N_17IntNodeEE4swapERS3_.exit422
 
 _ZN5eastl14intrusive_listIN12_GLOBAL__N_17IntNodeEE4swapERS3_.exit422: ; preds = %if.then22.i420, %if.else28.i417
@@ -949,12 +949,12 @@ _ZN5eastl14intrusive_listIN12_GLOBAL__N_17IntNodeEE4swapERS3_.exit422: ; preds =
   %ilist2.val61 = load ptr, ptr %ilist2, align 8
   %65 = load ptr, ptr %ilist2.val61, align 8
   %66 = load ptr, ptr %mpPrev.i.i201, align 8
-  %mpPrev.i479 = getelementptr inbounds %"struct.eastl::intrusive_list_node", ptr %66, i64 0, i32 1
+  %mpPrev.i479 = getelementptr inbounds i8, ptr %66, i64 8
   %67 = load ptr, ptr %mpPrev.i479, align 8
   %68 = getelementptr i8, ptr %65, i64 8
   %.val80 = load ptr, ptr %68, align 8
   store ptr %67, ptr %.val80, align 8, !noalias !166
-  %mpPrev4.i480 = getelementptr inbounds %"struct.eastl::intrusive_list_node", ptr %67, i64 0, i32 1
+  %mpPrev4.i480 = getelementptr inbounds i8, ptr %67, i64 8
   store ptr %.val80, ptr %mpPrev4.i480, align 8, !noalias !166
   %ilist2.val62 = load ptr, ptr %ilist2, align 8
   store ptr %ilist2.val62, ptr %agg.tmp616, align 8, !alias.scope !169
@@ -976,7 +976,7 @@ _ZNK5eastl19intrusive_list_base4sizeEv.exit:      ; preds = %do.body.i
   %call625 = call noundef i32 @_ZN2EA8UnitTest12TestInternal17EATEST_VERIFY_IMPEbRiPKciS4_(i1 noundef zeroext %cmp623, ptr noundef nonnull align 4 dereferenceable(4) %nErrorCount, ptr noundef nonnull @.str, i32 noundef 291, ptr noundef nonnull @.str.61)
   %70 = load ptr, ptr %ilist2, align 8
   %71 = load ptr, ptr %70, align 8
-  %mpPrev.i483 = getelementptr inbounds %"struct.eastl::intrusive_list_node", ptr %71, i64 0, i32 1
+  %mpPrev.i483 = getelementptr inbounds i8, ptr %71, i64 8
   store ptr %ilist2, ptr %mpPrev.i483, align 8
   %72 = load ptr, ptr %70, align 8
   store ptr %72, ptr %ilist2, align 8
@@ -985,11 +985,11 @@ _ZNK5eastl19intrusive_list_base4sizeEv.exit:      ; preds = %do.body.i
   %call630 = call noundef zeroext i1 (ptr, ptr, i32, ptr, ...) @_Z14VerifySequenceIN5eastl23intrusive_list_iteratorIN12_GLOBAL__N_17IntNodeEPS3_RS3_EEiEbT_S7_T0_PKcz(ptr noundef nonnull %agg.tmp627, ptr noundef nonnull %agg.tmp628, i32 poison, ptr noundef nonnull @.str.41, i32 noundef 3, i32 noundef 4, i32 noundef -1)
   %call632 = call noundef i32 @_ZN2EA8UnitTest12TestInternal17EATEST_VERIFY_IMPEbRiPKciS4_(i1 noundef zeroext %call630, ptr noundef nonnull align 4 dereferenceable(4) %nErrorCount, ptr noundef nonnull @.str, i32 noundef 296, ptr noundef nonnull @.str.62)
   %73 = load ptr, ptr %mpPrev.i.i201, align 8
-  %mpPrev3.i485 = getelementptr inbounds %"struct.eastl::intrusive_list_node", ptr %73, i64 0, i32 1
+  %mpPrev3.i485 = getelementptr inbounds i8, ptr %73, i64 8
   %74 = load ptr, ptr %mpPrev3.i485, align 8
   store ptr %ilist2, ptr %74, align 8
   %75 = load ptr, ptr %mpPrev.i.i201, align 8
-  %mpPrev6.i486 = getelementptr inbounds %"struct.eastl::intrusive_list_node", ptr %75, i64 0, i32 1
+  %mpPrev6.i486 = getelementptr inbounds i8, ptr %75, i64 8
   %76 = load ptr, ptr %mpPrev6.i486, align 8
   store ptr %76, ptr %mpPrev.i.i201, align 8
   %ilist2.val64 = load ptr, ptr %ilist2, align 8
@@ -997,13 +997,13 @@ _ZNK5eastl19intrusive_list_base4sizeEv.exit:      ; preds = %do.body.i
   store ptr %ilist2, ptr %agg.tmp635, align 8, !alias.scope !185
   %call637 = call noundef zeroext i1 (ptr, ptr, i32, ptr, ...) @_Z14VerifySequenceIN5eastl23intrusive_list_iteratorIN12_GLOBAL__N_17IntNodeEPS3_RS3_EEiEbT_S7_T0_PKcz(ptr noundef nonnull %agg.tmp634, ptr noundef nonnull %agg.tmp635, i32 poison, ptr noundef nonnull @.str.43, i32 noundef 3, i32 noundef -1)
   %call639 = call noundef i32 @_ZN2EA8UnitTest12TestInternal17EATEST_VERIFY_IMPEbRiPKciS4_(i1 noundef zeroext %call637, ptr noundef nonnull align 4 dereferenceable(4) %nErrorCount, ptr noundef nonnull @.str, i32 noundef 299, ptr noundef nonnull @.str.63)
-  %mpPrev.i.i487 = getelementptr inbounds %"struct.eastl::intrusive_list_node", ptr %ilist1, i64 0, i32 1
+  %mpPrev.i.i487 = getelementptr inbounds i8, ptr %ilist1, i64 8
   store ptr %ilist1, ptr %mpPrev.i.i487, align 8
   store ptr %ilist1, ptr %ilist1, align 8
-  %mpPrev.i.i488 = getelementptr inbounds %"struct.eastl::intrusive_list_node", ptr %ilist2641, i64 0, i32 1
+  %mpPrev.i.i488 = getelementptr inbounds i8, ptr %ilist2641, i64 8
   store ptr %ilist2641, ptr %mpPrev.i.i488, align 8
   store ptr %ilist2641, ptr %ilist2641, align 8
-  %invariant.gep1147 = getelementptr inbounds %"struct.(anonymous namespace)::IntNode", ptr %nodes649, i64 0, i32 1
+  %invariant.gep1147 = getelementptr inbounds i8, ptr %nodes649, i64 16
   br label %arrayctor.loop652
 
 arrayctor.loop652:                                ; preds = %arrayctor.loop652, %_ZNK5eastl19intrusive_list_base4sizeEv.exit
@@ -1015,7 +1015,7 @@ arrayctor.loop652:                                ; preds = %arrayctor.loop652, 
   br i1 %arrayctor.done655, label %arrayctor.cont656, label %arrayctor.loop652
 
 arrayctor.cont656:                                ; preds = %arrayctor.loop652
-  %mpPrev.i.i490 = getelementptr inbounds %"struct.eastl::intrusive_list_node", ptr %listEmpty, i64 0, i32 1
+  %mpPrev.i.i490 = getelementptr inbounds i8, ptr %listEmpty, i64 8
   store ptr %listEmpty, ptr %mpPrev.i.i490, align 8
   store ptr %listEmpty, ptr %listEmpty, align 8
   call fastcc void @_ZN5eastl14intrusive_listIN12_GLOBAL__N_17IntNodeEE4sortEv(ptr noundef nonnull align 8 dereferenceable(16) %listEmpty)
@@ -1024,9 +1024,9 @@ arrayctor.cont656:                                ; preds = %arrayctor.loop652
   store ptr %listEmpty, ptr %agg.tmp660, align 8, !alias.scope !191
   %call662 = call noundef zeroext i1 (ptr, ptr, i32, ptr, ...) @_Z14VerifySequenceIN5eastl23intrusive_list_iteratorIN12_GLOBAL__N_17IntNodeEPS3_RS3_EEiEbT_S7_T0_PKcz(ptr noundef nonnull %agg.tmp659, ptr noundef nonnull %agg.tmp660, i32 poison, ptr noundef nonnull @.str.64, i32 noundef -1)
   %call664 = call noundef i32 @_ZN2EA8UnitTest12TestInternal17EATEST_VERIFY_IMPEbRiPKciS4_(i1 noundef zeroext %call662, ptr noundef nonnull align 4 dereferenceable(4) %nErrorCount, ptr noundef nonnull @.str, i32 noundef 322, ptr noundef nonnull @.str.65)
-  %mpPrev.i.i491 = getelementptr inbounds %"struct.eastl::intrusive_list_node", ptr %list1, i64 0, i32 1
+  %mpPrev.i.i491 = getelementptr inbounds i8, ptr %list1, i64 8
   store i32 1, ptr %invariant.gep1147, align 16
-  %mpPrev2.i.i498 = getelementptr inbounds %"struct.eastl::intrusive_list_node", ptr %nodes649, i64 0, i32 1
+  %mpPrev2.i.i498 = getelementptr inbounds i8, ptr %nodes649, i64 8
   store ptr %list1, ptr %mpPrev2.i.i498, align 8
   store ptr %list1, ptr %nodes649, align 16
   store ptr %nodes649, ptr %mpPrev.i.i491, align 8
@@ -1039,26 +1039,26 @@ arrayctor.cont656:                                ; preds = %arrayctor.loop652
   %call678 = call noundef i32 @_ZN2EA8UnitTest12TestInternal17EATEST_VERIFY_IMPEbRiPKciS4_(i1 noundef zeroext %call676, ptr noundef nonnull align 4 dereferenceable(4) %nErrorCount, ptr noundef nonnull @.str, i32 noundef 327, ptr noundef nonnull @.str.66)
   store ptr %list1, ptr %mpPrev.i.i491, align 8
   store ptr %list1, ptr %list1, align 8
-  %mpPrev.i.i500 = getelementptr inbounds %"struct.eastl::intrusive_list_node", ptr %list4, i64 0, i32 1
+  %mpPrev.i.i500 = getelementptr inbounds i8, ptr %list4, i64 8
   store i32 1, ptr %invariant.gep1147, align 16
-  %incdec.ptr.i505 = getelementptr inbounds %"struct.(anonymous namespace)::IntNode", ptr %nodes649, i64 1
+  %incdec.ptr.i505 = getelementptr inbounds i8, ptr %nodes649, i64 24
   store ptr %list4, ptr %mpPrev2.i.i498, align 8
   store ptr %nodes649, ptr %list4, align 8
-  %mX.i509 = getelementptr inbounds %"struct.(anonymous namespace)::IntNode", ptr %nodes649, i64 1, i32 1
+  %mX.i509 = getelementptr inbounds i8, ptr %nodes649, i64 40
   store i32 9, ptr %mX.i509, align 8
-  %incdec.ptr.i510 = getelementptr inbounds %"struct.(anonymous namespace)::IntNode", ptr %nodes649, i64 2
-  %mpPrev2.i.i512 = getelementptr inbounds %"struct.(anonymous namespace)::IntNode", ptr %nodes649, i64 1, i32 0, i32 1
+  %incdec.ptr.i510 = getelementptr inbounds i8, ptr %nodes649, i64 48
+  %mpPrev2.i.i512 = getelementptr inbounds i8, ptr %nodes649, i64 32
   store ptr %nodes649, ptr %mpPrev2.i.i512, align 16
   store ptr %incdec.ptr.i505, ptr %nodes649, align 16
-  %mX.i514 = getelementptr inbounds %"struct.(anonymous namespace)::IntNode", ptr %nodes649, i64 2, i32 1
+  %mX.i514 = getelementptr inbounds i8, ptr %nodes649, i64 64
   store i32 2, ptr %mX.i514, align 16
-  %incdec.ptr.i515 = getelementptr inbounds %"struct.(anonymous namespace)::IntNode", ptr %nodes649, i64 3
-  %mpPrev2.i.i517 = getelementptr inbounds %"struct.(anonymous namespace)::IntNode", ptr %nodes649, i64 2, i32 0, i32 1
+  %incdec.ptr.i515 = getelementptr inbounds i8, ptr %nodes649, i64 72
+  %mpPrev2.i.i517 = getelementptr inbounds i8, ptr %nodes649, i64 56
   store ptr %incdec.ptr.i505, ptr %mpPrev2.i.i517, align 8
   store ptr %incdec.ptr.i510, ptr %incdec.ptr.i505, align 8
-  %mX.i519 = getelementptr inbounds %"struct.(anonymous namespace)::IntNode", ptr %nodes649, i64 3, i32 1
+  %mX.i519 = getelementptr inbounds i8, ptr %nodes649, i64 88
   store i32 3, ptr %mX.i519, align 8
-  %mpPrev2.i.i522 = getelementptr inbounds %"struct.(anonymous namespace)::IntNode", ptr %nodes649, i64 3, i32 0, i32 1
+  %mpPrev2.i.i522 = getelementptr inbounds i8, ptr %nodes649, i64 80
   store ptr %incdec.ptr.i510, ptr %mpPrev2.i.i522, align 16
   store ptr %list4, ptr %incdec.ptr.i515, align 8
   store ptr %incdec.ptr.i515, ptr %mpPrev.i.i500, align 8
@@ -1071,7 +1071,7 @@ arrayctor.cont656:                                ; preds = %arrayctor.loop652
   %call698 = call noundef i32 @_ZN2EA8UnitTest12TestInternal17EATEST_VERIFY_IMPEbRiPKciS4_(i1 noundef zeroext %call696, ptr noundef nonnull align 4 dereferenceable(4) %nErrorCount, ptr noundef nonnull @.str, i32 noundef 333, ptr noundef nonnull @.str.67)
   store ptr %list4, ptr %mpPrev.i.i500, align 8
   store ptr %list4, ptr %list4, align 8
-  %mpPrev.i.i524 = getelementptr inbounds %"struct.eastl::intrusive_list_node", ptr %listA, i64 0, i32 1
+  %mpPrev.i.i524 = getelementptr inbounds i8, ptr %listA, i64 8
   store i32 1, ptr %invariant.gep1147, align 16
   store ptr %listA, ptr %mpPrev2.i.i498, align 8
   store ptr %nodes649, ptr %listA, align 8
@@ -1082,42 +1082,42 @@ arrayctor.cont656:                                ; preds = %arrayctor.loop652
   store ptr %incdec.ptr.i505, ptr %mpPrev2.i.i517, align 8
   store ptr %incdec.ptr.i510, ptr %incdec.ptr.i505, align 8
   store i32 3, ptr %mX.i519, align 8
-  %incdec.ptr.i544 = getelementptr inbounds %"struct.(anonymous namespace)::IntNode", ptr %nodes649, i64 4
+  %incdec.ptr.i544 = getelementptr inbounds i8, ptr %nodes649, i64 96
   store ptr %incdec.ptr.i510, ptr %mpPrev2.i.i522, align 16
   store ptr %incdec.ptr.i515, ptr %incdec.ptr.i510, align 16
-  %mX.i548 = getelementptr inbounds %"struct.(anonymous namespace)::IntNode", ptr %nodes649, i64 4, i32 1
+  %mX.i548 = getelementptr inbounds i8, ptr %nodes649, i64 112
   store i32 5, ptr %mX.i548, align 16
-  %incdec.ptr.i549 = getelementptr inbounds %"struct.(anonymous namespace)::IntNode", ptr %nodes649, i64 5
-  %mpPrev2.i.i551 = getelementptr inbounds %"struct.(anonymous namespace)::IntNode", ptr %nodes649, i64 4, i32 0, i32 1
+  %incdec.ptr.i549 = getelementptr inbounds i8, ptr %nodes649, i64 120
+  %mpPrev2.i.i551 = getelementptr inbounds i8, ptr %nodes649, i64 104
   store ptr %incdec.ptr.i515, ptr %mpPrev2.i.i551, align 8
   store ptr %incdec.ptr.i544, ptr %incdec.ptr.i515, align 8
-  %mX.i553 = getelementptr inbounds %"struct.(anonymous namespace)::IntNode", ptr %nodes649, i64 5, i32 1
+  %mX.i553 = getelementptr inbounds i8, ptr %nodes649, i64 136
   store i32 7, ptr %mX.i553, align 8
-  %incdec.ptr.i554 = getelementptr inbounds %"struct.(anonymous namespace)::IntNode", ptr %nodes649, i64 6
-  %mpPrev2.i.i556 = getelementptr inbounds %"struct.(anonymous namespace)::IntNode", ptr %nodes649, i64 5, i32 0, i32 1
+  %incdec.ptr.i554 = getelementptr inbounds i8, ptr %nodes649, i64 144
+  %mpPrev2.i.i556 = getelementptr inbounds i8, ptr %nodes649, i64 128
   store ptr %incdec.ptr.i544, ptr %mpPrev2.i.i556, align 16
   store ptr %incdec.ptr.i549, ptr %incdec.ptr.i544, align 16
-  %mX.i558 = getelementptr inbounds %"struct.(anonymous namespace)::IntNode", ptr %nodes649, i64 6, i32 1
+  %mX.i558 = getelementptr inbounds i8, ptr %nodes649, i64 160
   store i32 4, ptr %mX.i558, align 16
-  %incdec.ptr.i559 = getelementptr inbounds %"struct.(anonymous namespace)::IntNode", ptr %nodes649, i64 7
-  %mpPrev2.i.i561 = getelementptr inbounds %"struct.(anonymous namespace)::IntNode", ptr %nodes649, i64 6, i32 0, i32 1
+  %incdec.ptr.i559 = getelementptr inbounds i8, ptr %nodes649, i64 168
+  %mpPrev2.i.i561 = getelementptr inbounds i8, ptr %nodes649, i64 152
   store ptr %incdec.ptr.i549, ptr %mpPrev2.i.i561, align 8
   store ptr %incdec.ptr.i554, ptr %incdec.ptr.i549, align 8
-  %mX.i563 = getelementptr inbounds %"struct.(anonymous namespace)::IntNode", ptr %nodes649, i64 7, i32 1
+  %mX.i563 = getelementptr inbounds i8, ptr %nodes649, i64 184
   store i32 6, ptr %mX.i563, align 8
-  %incdec.ptr.i564 = getelementptr inbounds %"struct.(anonymous namespace)::IntNode", ptr %nodes649, i64 8
-  %mpPrev2.i.i566 = getelementptr inbounds %"struct.(anonymous namespace)::IntNode", ptr %nodes649, i64 7, i32 0, i32 1
+  %incdec.ptr.i564 = getelementptr inbounds i8, ptr %nodes649, i64 192
+  %mpPrev2.i.i566 = getelementptr inbounds i8, ptr %nodes649, i64 176
   store ptr %incdec.ptr.i554, ptr %mpPrev2.i.i566, align 16
   store ptr %incdec.ptr.i559, ptr %incdec.ptr.i554, align 16
-  %mX.i568 = getelementptr inbounds %"struct.(anonymous namespace)::IntNode", ptr %nodes649, i64 8, i32 1
+  %mX.i568 = getelementptr inbounds i8, ptr %nodes649, i64 208
   store i32 8, ptr %mX.i568, align 16
-  %incdec.ptr.i569 = getelementptr inbounds %"struct.(anonymous namespace)::IntNode", ptr %nodes649, i64 9
-  %mpPrev2.i.i571 = getelementptr inbounds %"struct.(anonymous namespace)::IntNode", ptr %nodes649, i64 8, i32 0, i32 1
+  %incdec.ptr.i569 = getelementptr inbounds i8, ptr %nodes649, i64 216
+  %mpPrev2.i.i571 = getelementptr inbounds i8, ptr %nodes649, i64 200
   store ptr %incdec.ptr.i559, ptr %mpPrev2.i.i571, align 8
   store ptr %incdec.ptr.i564, ptr %incdec.ptr.i559, align 8
-  %mX.i573 = getelementptr inbounds %"struct.(anonymous namespace)::IntNode", ptr %nodes649, i64 9, i32 1
+  %mX.i573 = getelementptr inbounds i8, ptr %nodes649, i64 232
   store i32 0, ptr %mX.i573, align 8
-  %mpPrev2.i.i576 = getelementptr inbounds %"struct.(anonymous namespace)::IntNode", ptr %nodes649, i64 9, i32 0, i32 1
+  %mpPrev2.i.i576 = getelementptr inbounds i8, ptr %nodes649, i64 224
   store ptr %incdec.ptr.i564, ptr %mpPrev2.i.i576, align 16
   store ptr %listA, ptr %incdec.ptr.i569, align 8
   store ptr %incdec.ptr.i569, ptr %mpPrev.i.i524, align 8
@@ -1130,7 +1130,7 @@ arrayctor.cont656:                                ; preds = %arrayctor.loop652
   %call730 = call noundef i32 @_ZN2EA8UnitTest12TestInternal17EATEST_VERIFY_IMPEbRiPKciS4_(i1 noundef zeroext %call728, ptr noundef nonnull align 4 dereferenceable(4) %nErrorCount, ptr noundef nonnull @.str, i32 noundef 339, ptr noundef nonnull @.str.68)
   store ptr %listA, ptr %mpPrev.i.i524, align 8
   store ptr %listA, ptr %listA, align 8
-  %mpPrev.i.i578 = getelementptr inbounds %"struct.eastl::intrusive_list_node", ptr %listB, i64 0, i32 1
+  %mpPrev.i.i578 = getelementptr inbounds i8, ptr %listB, i64 8
   store i32 1, ptr %invariant.gep1147, align 16
   store ptr %listB, ptr %mpPrev2.i.i498, align 8
   store ptr %nodes649, ptr %listB, align 8
@@ -1171,7 +1171,7 @@ arrayctor.cont656:                                ; preds = %arrayctor.loop652
   %call763 = call noundef i32 @_ZN2EA8UnitTest12TestInternal17EATEST_VERIFY_IMPEbRiPKciS4_(i1 noundef zeroext %call761, ptr noundef nonnull align 4 dereferenceable(4) %nErrorCount, ptr noundef nonnull @.str, i32 noundef 345, ptr noundef nonnull @.str.69)
   store ptr %listB, ptr %mpPrev.i.i578, align 8
   store ptr %listB, ptr %listB, align 8
-  %invariant.gep1149 = getelementptr inbounds %"struct.(anonymous namespace)::IntNode", ptr %nodesA, i64 0, i32 1
+  %invariant.gep1149 = getelementptr inbounds i8, ptr %nodesA, i64 16
   br label %arrayctor.loop772
 
 arrayctor.loop772:                                ; preds = %arrayctor.loop772, %arrayctor.cont656
@@ -1183,7 +1183,7 @@ arrayctor.loop772:                                ; preds = %arrayctor.loop772, 
   br i1 %arrayctor.done775, label %arrayctor.loop779.preheader, label %arrayctor.loop772
 
 arrayctor.loop779.preheader:                      ; preds = %arrayctor.loop772
-  %invariant.gep1151 = getelementptr inbounds %"struct.(anonymous namespace)::IntNode", ptr %nodesB, i64 0, i32 1
+  %invariant.gep1151 = getelementptr inbounds i8, ptr %nodesB, i64 16
   br label %arrayctor.loop779
 
 arrayctor.loop779:                                ; preds = %arrayctor.loop779.preheader, %arrayctor.loop779
@@ -1195,100 +1195,100 @@ arrayctor.loop779:                                ; preds = %arrayctor.loop779.p
   br i1 %arrayctor.done782, label %invoke.cont825, label %arrayctor.loop779
 
 invoke.cont825:                                   ; preds = %arrayctor.loop779
-  %mpPrev.i.i634 = getelementptr inbounds %"struct.eastl::intrusive_list_node", ptr %listA784, i64 0, i32 1
+  %mpPrev.i.i634 = getelementptr inbounds i8, ptr %listA784, i64 8
   store i32 1, ptr %invariant.gep1149, align 16
-  %incdec.ptr.i639 = getelementptr inbounds %"struct.(anonymous namespace)::IntNode", ptr %nodesA, i64 1
-  %mpPrev2.i.i641 = getelementptr inbounds %"struct.eastl::intrusive_list_node", ptr %nodesA, i64 0, i32 1
+  %incdec.ptr.i639 = getelementptr inbounds i8, ptr %nodesA, i64 24
+  %mpPrev2.i.i641 = getelementptr inbounds i8, ptr %nodesA, i64 8
   store ptr %listA784, ptr %mpPrev2.i.i641, align 8
   store ptr %nodesA, ptr %listA784, align 8
-  %mX.i643 = getelementptr inbounds %"struct.(anonymous namespace)::IntNode", ptr %nodesA, i64 1, i32 1
+  %mX.i643 = getelementptr inbounds i8, ptr %nodesA, i64 40
   store i32 2, ptr %mX.i643, align 8
-  %incdec.ptr.i644 = getelementptr inbounds %"struct.(anonymous namespace)::IntNode", ptr %nodesA, i64 2
-  %mpPrev2.i.i646 = getelementptr inbounds %"struct.(anonymous namespace)::IntNode", ptr %nodesA, i64 1, i32 0, i32 1
+  %incdec.ptr.i644 = getelementptr inbounds i8, ptr %nodesA, i64 48
+  %mpPrev2.i.i646 = getelementptr inbounds i8, ptr %nodesA, i64 32
   store ptr %nodesA, ptr %mpPrev2.i.i646, align 16
   store ptr %incdec.ptr.i639, ptr %nodesA, align 16
-  %mX.i648 = getelementptr inbounds %"struct.(anonymous namespace)::IntNode", ptr %nodesA, i64 2, i32 1
+  %mX.i648 = getelementptr inbounds i8, ptr %nodesA, i64 64
   store i32 3, ptr %mX.i648, align 16
-  %incdec.ptr.i649 = getelementptr inbounds %"struct.(anonymous namespace)::IntNode", ptr %nodesA, i64 3
-  %mpPrev2.i.i651 = getelementptr inbounds %"struct.(anonymous namespace)::IntNode", ptr %nodesA, i64 2, i32 0, i32 1
+  %incdec.ptr.i649 = getelementptr inbounds i8, ptr %nodesA, i64 72
+  %mpPrev2.i.i651 = getelementptr inbounds i8, ptr %nodesA, i64 56
   store ptr %incdec.ptr.i639, ptr %mpPrev2.i.i651, align 8
   store ptr %incdec.ptr.i644, ptr %incdec.ptr.i639, align 8
-  %mX.i653 = getelementptr inbounds %"struct.(anonymous namespace)::IntNode", ptr %nodesA, i64 3, i32 1
+  %mX.i653 = getelementptr inbounds i8, ptr %nodesA, i64 88
   store i32 4, ptr %mX.i653, align 8
-  %incdec.ptr.i654 = getelementptr inbounds %"struct.(anonymous namespace)::IntNode", ptr %nodesA, i64 4
-  %mpPrev2.i.i656 = getelementptr inbounds %"struct.(anonymous namespace)::IntNode", ptr %nodesA, i64 3, i32 0, i32 1
+  %incdec.ptr.i654 = getelementptr inbounds i8, ptr %nodesA, i64 96
+  %mpPrev2.i.i656 = getelementptr inbounds i8, ptr %nodesA, i64 80
   store ptr %incdec.ptr.i644, ptr %mpPrev2.i.i656, align 16
   store ptr %incdec.ptr.i649, ptr %incdec.ptr.i644, align 16
-  %mX.i658 = getelementptr inbounds %"struct.(anonymous namespace)::IntNode", ptr %nodesA, i64 4, i32 1
+  %mX.i658 = getelementptr inbounds i8, ptr %nodesA, i64 112
   store i32 4, ptr %mX.i658, align 16
-  %incdec.ptr.i659 = getelementptr inbounds %"struct.(anonymous namespace)::IntNode", ptr %nodesA, i64 5
-  %mpPrev2.i.i661 = getelementptr inbounds %"struct.(anonymous namespace)::IntNode", ptr %nodesA, i64 4, i32 0, i32 1
+  %incdec.ptr.i659 = getelementptr inbounds i8, ptr %nodesA, i64 120
+  %mpPrev2.i.i661 = getelementptr inbounds i8, ptr %nodesA, i64 104
   store ptr %incdec.ptr.i649, ptr %mpPrev2.i.i661, align 8
   store ptr %incdec.ptr.i654, ptr %incdec.ptr.i649, align 8
-  %mX.i663 = getelementptr inbounds %"struct.(anonymous namespace)::IntNode", ptr %nodesA, i64 5, i32 1
+  %mX.i663 = getelementptr inbounds i8, ptr %nodesA, i64 136
   store i32 5, ptr %mX.i663, align 8
-  %incdec.ptr.i664 = getelementptr inbounds %"struct.(anonymous namespace)::IntNode", ptr %nodesA, i64 6
-  %mpPrev2.i.i666 = getelementptr inbounds %"struct.(anonymous namespace)::IntNode", ptr %nodesA, i64 5, i32 0, i32 1
+  %incdec.ptr.i664 = getelementptr inbounds i8, ptr %nodesA, i64 144
+  %mpPrev2.i.i666 = getelementptr inbounds i8, ptr %nodesA, i64 128
   store ptr %incdec.ptr.i654, ptr %mpPrev2.i.i666, align 16
   store ptr %incdec.ptr.i659, ptr %incdec.ptr.i654, align 16
-  %mX.i668 = getelementptr inbounds %"struct.(anonymous namespace)::IntNode", ptr %nodesA, i64 6, i32 1
+  %mX.i668 = getelementptr inbounds i8, ptr %nodesA, i64 160
   store i32 9, ptr %mX.i668, align 16
-  %incdec.ptr.i669 = getelementptr inbounds %"struct.(anonymous namespace)::IntNode", ptr %nodesA, i64 7
-  %mpPrev2.i.i671 = getelementptr inbounds %"struct.(anonymous namespace)::IntNode", ptr %nodesA, i64 6, i32 0, i32 1
+  %incdec.ptr.i669 = getelementptr inbounds i8, ptr %nodesA, i64 168
+  %mpPrev2.i.i671 = getelementptr inbounds i8, ptr %nodesA, i64 152
   store ptr %incdec.ptr.i659, ptr %mpPrev2.i.i671, align 8
   store ptr %incdec.ptr.i664, ptr %incdec.ptr.i659, align 8
-  %mX.i673 = getelementptr inbounds %"struct.(anonymous namespace)::IntNode", ptr %nodesA, i64 7, i32 1
+  %mX.i673 = getelementptr inbounds i8, ptr %nodesA, i64 184
   store i32 9, ptr %mX.i673, align 8
-  %mpPrev2.i.i676 = getelementptr inbounds %"struct.(anonymous namespace)::IntNode", ptr %nodesA, i64 7, i32 0, i32 1
+  %mpPrev2.i.i676 = getelementptr inbounds i8, ptr %nodesA, i64 176
   store ptr %incdec.ptr.i664, ptr %mpPrev2.i.i676, align 16
   store ptr %listA784, ptr %incdec.ptr.i669, align 8
   store ptr %incdec.ptr.i669, ptr %mpPrev.i.i634, align 8
   store ptr %incdec.ptr.i669, ptr %incdec.ptr.i664, align 16
-  %mpPrev.i.i677 = getelementptr inbounds %"struct.eastl::intrusive_list_node", ptr %listB805, i64 0, i32 1
+  %mpPrev.i.i677 = getelementptr inbounds i8, ptr %listB805, i64 8
   store i32 1, ptr %invariant.gep1151, align 16
-  %incdec.ptr.i682 = getelementptr inbounds %"struct.(anonymous namespace)::IntNode", ptr %nodesB, i64 1
-  %mpPrev2.i.i684 = getelementptr inbounds %"struct.eastl::intrusive_list_node", ptr %nodesB, i64 0, i32 1
+  %incdec.ptr.i682 = getelementptr inbounds i8, ptr %nodesB, i64 24
+  %mpPrev2.i.i684 = getelementptr inbounds i8, ptr %nodesB, i64 8
   store ptr %listB805, ptr %mpPrev2.i.i684, align 8
   store ptr %nodesB, ptr %listB805, align 8
-  %mX.i686 = getelementptr inbounds %"struct.(anonymous namespace)::IntNode", ptr %nodesB, i64 1, i32 1
+  %mX.i686 = getelementptr inbounds i8, ptr %nodesB, i64 40
   store i32 2, ptr %mX.i686, align 8
-  %incdec.ptr.i687 = getelementptr inbounds %"struct.(anonymous namespace)::IntNode", ptr %nodesB, i64 2
-  %mpPrev2.i.i689 = getelementptr inbounds %"struct.(anonymous namespace)::IntNode", ptr %nodesB, i64 1, i32 0, i32 1
+  %incdec.ptr.i687 = getelementptr inbounds i8, ptr %nodesB, i64 48
+  %mpPrev2.i.i689 = getelementptr inbounds i8, ptr %nodesB, i64 32
   store ptr %nodesB, ptr %mpPrev2.i.i689, align 16
   store ptr %incdec.ptr.i682, ptr %nodesB, align 16
-  %mX.i691 = getelementptr inbounds %"struct.(anonymous namespace)::IntNode", ptr %nodesB, i64 2, i32 1
+  %mX.i691 = getelementptr inbounds i8, ptr %nodesB, i64 64
   store i32 3, ptr %mX.i691, align 16
-  %incdec.ptr.i692 = getelementptr inbounds %"struct.(anonymous namespace)::IntNode", ptr %nodesB, i64 3
-  %mpPrev2.i.i694 = getelementptr inbounds %"struct.(anonymous namespace)::IntNode", ptr %nodesB, i64 2, i32 0, i32 1
+  %incdec.ptr.i692 = getelementptr inbounds i8, ptr %nodesB, i64 72
+  %mpPrev2.i.i694 = getelementptr inbounds i8, ptr %nodesB, i64 56
   store ptr %incdec.ptr.i682, ptr %mpPrev2.i.i694, align 8
   store ptr %incdec.ptr.i687, ptr %incdec.ptr.i682, align 8
-  %mX.i696 = getelementptr inbounds %"struct.(anonymous namespace)::IntNode", ptr %nodesB, i64 3, i32 1
+  %mX.i696 = getelementptr inbounds i8, ptr %nodesB, i64 88
   store i32 4, ptr %mX.i696, align 8
-  %incdec.ptr.i697 = getelementptr inbounds %"struct.(anonymous namespace)::IntNode", ptr %nodesB, i64 4
-  %mpPrev2.i.i699 = getelementptr inbounds %"struct.(anonymous namespace)::IntNode", ptr %nodesB, i64 3, i32 0, i32 1
+  %incdec.ptr.i697 = getelementptr inbounds i8, ptr %nodesB, i64 96
+  %mpPrev2.i.i699 = getelementptr inbounds i8, ptr %nodesB, i64 80
   store ptr %incdec.ptr.i687, ptr %mpPrev2.i.i699, align 16
   store ptr %incdec.ptr.i692, ptr %incdec.ptr.i687, align 16
-  %mX.i701 = getelementptr inbounds %"struct.(anonymous namespace)::IntNode", ptr %nodesB, i64 4, i32 1
+  %mX.i701 = getelementptr inbounds i8, ptr %nodesB, i64 112
   store i32 4, ptr %mX.i701, align 16
-  %incdec.ptr.i702 = getelementptr inbounds %"struct.(anonymous namespace)::IntNode", ptr %nodesB, i64 5
-  %mpPrev2.i.i704 = getelementptr inbounds %"struct.(anonymous namespace)::IntNode", ptr %nodesB, i64 4, i32 0, i32 1
+  %incdec.ptr.i702 = getelementptr inbounds i8, ptr %nodesB, i64 120
+  %mpPrev2.i.i704 = getelementptr inbounds i8, ptr %nodesB, i64 104
   store ptr %incdec.ptr.i692, ptr %mpPrev2.i.i704, align 8
   store ptr %incdec.ptr.i697, ptr %incdec.ptr.i692, align 8
-  %mX.i706 = getelementptr inbounds %"struct.(anonymous namespace)::IntNode", ptr %nodesB, i64 5, i32 1
+  %mX.i706 = getelementptr inbounds i8, ptr %nodesB, i64 136
   store i32 5, ptr %mX.i706, align 8
-  %incdec.ptr.i707 = getelementptr inbounds %"struct.(anonymous namespace)::IntNode", ptr %nodesB, i64 6
-  %mpPrev2.i.i709 = getelementptr inbounds %"struct.(anonymous namespace)::IntNode", ptr %nodesB, i64 5, i32 0, i32 1
+  %incdec.ptr.i707 = getelementptr inbounds i8, ptr %nodesB, i64 144
+  %mpPrev2.i.i709 = getelementptr inbounds i8, ptr %nodesB, i64 128
   store ptr %incdec.ptr.i697, ptr %mpPrev2.i.i709, align 16
   store ptr %incdec.ptr.i702, ptr %incdec.ptr.i697, align 16
-  %mX.i711 = getelementptr inbounds %"struct.(anonymous namespace)::IntNode", ptr %nodesB, i64 6, i32 1
+  %mX.i711 = getelementptr inbounds i8, ptr %nodesB, i64 160
   store i32 9, ptr %mX.i711, align 16
-  %incdec.ptr.i712 = getelementptr inbounds %"struct.(anonymous namespace)::IntNode", ptr %nodesB, i64 7
-  %mpPrev2.i.i714 = getelementptr inbounds %"struct.(anonymous namespace)::IntNode", ptr %nodesB, i64 6, i32 0, i32 1
+  %incdec.ptr.i712 = getelementptr inbounds i8, ptr %nodesB, i64 168
+  %mpPrev2.i.i714 = getelementptr inbounds i8, ptr %nodesB, i64 152
   store ptr %incdec.ptr.i702, ptr %mpPrev2.i.i714, align 8
   store ptr %incdec.ptr.i707, ptr %incdec.ptr.i702, align 8
-  %mX.i716 = getelementptr inbounds %"struct.(anonymous namespace)::IntNode", ptr %nodesB, i64 7, i32 1
+  %mX.i716 = getelementptr inbounds i8, ptr %nodesB, i64 184
   store i32 9, ptr %mX.i716, align 8
-  %mpPrev2.i.i719 = getelementptr inbounds %"struct.(anonymous namespace)::IntNode", ptr %nodesB, i64 7, i32 0, i32 1
+  %mpPrev2.i.i719 = getelementptr inbounds i8, ptr %nodesB, i64 176
   store ptr %incdec.ptr.i707, ptr %mpPrev2.i.i719, align 16
   store ptr %listB805, ptr %incdec.ptr.i712, align 8
   store ptr %incdec.ptr.i712, ptr %mpPrev.i.i677, align 8
@@ -1313,16 +1313,16 @@ if.then9.i:                                       ; preds = %while.body.i
   br i1 %cmp.i.not.i.i, label %if.end.i723, label %if.then.i.i
 
 if.then.i.i:                                      ; preds = %if.then9.i
-  %mpPrev.i.i724 = getelementptr inbounds %"struct.eastl::intrusive_list_node", ptr %79, i64 0, i32 1
+  %mpPrev.i.i724 = getelementptr inbounds i8, ptr %79, i64 8
   %80 = load ptr, ptr %mpPrev.i.i724, align 8
-  %mpPrev7.i.i = getelementptr inbounds %"struct.eastl::intrusive_list_node", ptr %firstX.sroa.0.027.i, i64 0, i32 1
+  %mpPrev7.i.i = getelementptr inbounds i8, ptr %firstX.sroa.0.027.i, i64 8
   %81 = load ptr, ptr %mpPrev7.i.i, align 8
   %82 = load ptr, ptr %80, align 8
-  %mpPrev8.i.i = getelementptr inbounds %"struct.eastl::intrusive_list_node", ptr %82, i64 0, i32 1
+  %mpPrev8.i.i = getelementptr inbounds i8, ptr %82, i64 8
   store ptr %81, ptr %mpPrev8.i.i, align 8
   %83 = load ptr, ptr %80, align 8
   store ptr %83, ptr %81, align 8
-  %mpPrev14.i.i = getelementptr inbounds %"struct.eastl::intrusive_list_node", ptr %first.sroa.0.028.i, i64 0, i32 1
+  %mpPrev14.i.i = getelementptr inbounds i8, ptr %first.sroa.0.028.i, i64 8
   %84 = load ptr, ptr %mpPrev14.i.i, align 8
   store ptr %firstX.sroa.0.027.i, ptr %84, align 8
   store ptr %84, ptr %mpPrev7.i.i, align 8
@@ -1349,10 +1349,10 @@ while.end.i:                                      ; preds = %if.end.i723
 _ZN5eastl14intrusive_listIN12_GLOBAL__N_17IntNodeEE6spliceENS_23intrusive_list_iteratorIS2_PKS2_RS5_EERS3_S8_S8_.exit23.i: ; preds = %invoke.cont825, %while.end.i
   %firstX.sroa.0.0.lcssa.i1171 = phi ptr [ %firstX.sroa.0.1.i, %while.end.i ], [ %nodesB, %invoke.cont825 ]
   %86 = load ptr, ptr %mpPrev.i.i677, align 8
-  %mpPrev7.i20.i = getelementptr inbounds %"struct.eastl::intrusive_list_node", ptr %firstX.sroa.0.0.lcssa.i1171, i64 0, i32 1
+  %mpPrev7.i20.i = getelementptr inbounds i8, ptr %firstX.sroa.0.0.lcssa.i1171, i64 8
   %87 = load ptr, ptr %mpPrev7.i20.i, align 8
   %88 = load ptr, ptr %86, align 8
-  %mpPrev8.i21.i = getelementptr inbounds %"struct.eastl::intrusive_list_node", ptr %88, i64 0, i32 1
+  %mpPrev8.i21.i = getelementptr inbounds i8, ptr %88, i64 8
   store ptr %87, ptr %mpPrev8.i21.i, align 8
   %89 = load ptr, ptr %86, align 8
   store ptr %89, ptr %87, align 8
@@ -1374,7 +1374,7 @@ invoke.cont827:                                   ; preds = %_ZN5eastl14intrusiv
   store ptr %listB805, ptr %agg.tmp835, align 8, !alias.scope !228
   %call837 = call noundef zeroext i1 (ptr, ptr, i32, ptr, ...) @_Z14VerifySequenceIN5eastl23intrusive_list_iteratorIN12_GLOBAL__N_17IntNodeEPS3_RS3_EEiEbT_S7_T0_PKcz(ptr noundef nonnull %agg.tmp834, ptr noundef nonnull %agg.tmp835, i32 poison, ptr noundef nonnull @.str.70, i32 noundef -1)
   %call839 = call noundef i32 @_ZN2EA8UnitTest12TestInternal17EATEST_VERIFY_IMPEbRiPKciS4_(i1 noundef zeroext %call837, ptr noundef nonnull align 4 dereferenceable(4) %nErrorCount, ptr noundef nonnull @.str, i32 noundef 366, ptr noundef nonnull @.str.72)
-  %invariant.gep1153 = getelementptr inbounds %"struct.(anonymous namespace)::IntNode", ptr %nodesA843, i64 0, i32 1
+  %invariant.gep1153 = getelementptr inbounds i8, ptr %nodesA843, i64 16
   br label %arrayctor.loop846
 
 arrayctor.loop846:                                ; preds = %invoke.cont827, %arrayctor.loop846
@@ -1386,7 +1386,7 @@ arrayctor.loop846:                                ; preds = %invoke.cont827, %ar
   br i1 %arrayctor.done849, label %arrayctor.loop854.preheader, label %arrayctor.loop846
 
 arrayctor.loop854.preheader:                      ; preds = %arrayctor.loop846
-  %invariant.gep1155 = getelementptr inbounds %"struct.(anonymous namespace)::IntNode", ptr %nodesB851, i64 0, i32 1
+  %invariant.gep1155 = getelementptr inbounds i8, ptr %nodesB851, i64 16
   br label %arrayctor.loop854
 
 arrayctor.loop854:                                ; preds = %arrayctor.loop854.preheader, %arrayctor.loop854
@@ -1398,51 +1398,51 @@ arrayctor.loop854:                                ; preds = %arrayctor.loop854.p
   br i1 %arrayctor.done857, label %while.body.i772.preheader, label %arrayctor.loop854
 
 while.body.i772.preheader:                        ; preds = %arrayctor.loop854
-  %mpPrev.i.i727 = getelementptr inbounds %"struct.eastl::intrusive_list_node", ptr %listA859, i64 0, i32 1
+  %mpPrev.i.i727 = getelementptr inbounds i8, ptr %listA859, i64 8
   store i32 1, ptr %invariant.gep1153, align 16
-  %incdec.ptr.i732 = getelementptr inbounds %"struct.(anonymous namespace)::IntNode", ptr %nodesA843, i64 1
-  %mpPrev2.i.i734 = getelementptr inbounds %"struct.eastl::intrusive_list_node", ptr %nodesA843, i64 0, i32 1
+  %incdec.ptr.i732 = getelementptr inbounds i8, ptr %nodesA843, i64 24
+  %mpPrev2.i.i734 = getelementptr inbounds i8, ptr %nodesA843, i64 8
   store ptr %listA859, ptr %mpPrev2.i.i734, align 8
   store ptr %nodesA843, ptr %listA859, align 8
-  %mX.i736 = getelementptr inbounds %"struct.(anonymous namespace)::IntNode", ptr %nodesA843, i64 1, i32 1
+  %mX.i736 = getelementptr inbounds i8, ptr %nodesA843, i64 40
   store i32 2, ptr %mX.i736, align 8
-  %incdec.ptr.i737 = getelementptr inbounds %"struct.(anonymous namespace)::IntNode", ptr %nodesA843, i64 2
-  %mpPrev2.i.i739 = getelementptr inbounds %"struct.(anonymous namespace)::IntNode", ptr %nodesA843, i64 1, i32 0, i32 1
+  %incdec.ptr.i737 = getelementptr inbounds i8, ptr %nodesA843, i64 48
+  %mpPrev2.i.i739 = getelementptr inbounds i8, ptr %nodesA843, i64 32
   store ptr %nodesA843, ptr %mpPrev2.i.i739, align 16
   store ptr %incdec.ptr.i732, ptr %nodesA843, align 16
-  %mX.i741 = getelementptr inbounds %"struct.(anonymous namespace)::IntNode", ptr %nodesA843, i64 2, i32 1
+  %mX.i741 = getelementptr inbounds i8, ptr %nodesA843, i64 64
   store i32 3, ptr %mX.i741, align 16
-  %incdec.ptr.i742 = getelementptr inbounds %"struct.(anonymous namespace)::IntNode", ptr %nodesA843, i64 3
-  %mpPrev2.i.i744 = getelementptr inbounds %"struct.(anonymous namespace)::IntNode", ptr %nodesA843, i64 2, i32 0, i32 1
+  %incdec.ptr.i742 = getelementptr inbounds i8, ptr %nodesA843, i64 72
+  %mpPrev2.i.i744 = getelementptr inbounds i8, ptr %nodesA843, i64 56
   store ptr %incdec.ptr.i732, ptr %mpPrev2.i.i744, align 8
   store ptr %incdec.ptr.i737, ptr %incdec.ptr.i732, align 8
-  %mX.i746 = getelementptr inbounds %"struct.(anonymous namespace)::IntNode", ptr %nodesA843, i64 3, i32 1
+  %mX.i746 = getelementptr inbounds i8, ptr %nodesA843, i64 88
   store i32 4, ptr %mX.i746, align 8
-  %incdec.ptr.i747 = getelementptr inbounds %"struct.(anonymous namespace)::IntNode", ptr %nodesA843, i64 4
-  %mpPrev2.i.i749 = getelementptr inbounds %"struct.(anonymous namespace)::IntNode", ptr %nodesA843, i64 3, i32 0, i32 1
+  %incdec.ptr.i747 = getelementptr inbounds i8, ptr %nodesA843, i64 96
+  %mpPrev2.i.i749 = getelementptr inbounds i8, ptr %nodesA843, i64 80
   store ptr %incdec.ptr.i737, ptr %mpPrev2.i.i749, align 16
   store ptr %incdec.ptr.i742, ptr %incdec.ptr.i737, align 16
-  %mX.i751 = getelementptr inbounds %"struct.(anonymous namespace)::IntNode", ptr %nodesA843, i64 4, i32 1
+  %mX.i751 = getelementptr inbounds i8, ptr %nodesA843, i64 112
   store i32 4, ptr %mX.i751, align 16
-  %incdec.ptr.i752 = getelementptr inbounds %"struct.(anonymous namespace)::IntNode", ptr %nodesA843, i64 5
-  %mpPrev2.i.i754 = getelementptr inbounds %"struct.(anonymous namespace)::IntNode", ptr %nodesA843, i64 4, i32 0, i32 1
+  %incdec.ptr.i752 = getelementptr inbounds i8, ptr %nodesA843, i64 120
+  %mpPrev2.i.i754 = getelementptr inbounds i8, ptr %nodesA843, i64 104
   store ptr %incdec.ptr.i742, ptr %mpPrev2.i.i754, align 8
   store ptr %incdec.ptr.i747, ptr %incdec.ptr.i742, align 8
-  %mX.i756 = getelementptr inbounds %"struct.(anonymous namespace)::IntNode", ptr %nodesA843, i64 5, i32 1
+  %mX.i756 = getelementptr inbounds i8, ptr %nodesA843, i64 136
   store i32 5, ptr %mX.i756, align 8
-  %incdec.ptr.i757 = getelementptr inbounds %"struct.(anonymous namespace)::IntNode", ptr %nodesA843, i64 6
-  %mpPrev2.i.i759 = getelementptr inbounds %"struct.(anonymous namespace)::IntNode", ptr %nodesA843, i64 5, i32 0, i32 1
+  %incdec.ptr.i757 = getelementptr inbounds i8, ptr %nodesA843, i64 144
+  %mpPrev2.i.i759 = getelementptr inbounds i8, ptr %nodesA843, i64 128
   store ptr %incdec.ptr.i747, ptr %mpPrev2.i.i759, align 16
   store ptr %incdec.ptr.i752, ptr %incdec.ptr.i747, align 16
-  %mX.i761 = getelementptr inbounds %"struct.(anonymous namespace)::IntNode", ptr %nodesA843, i64 6, i32 1
+  %mX.i761 = getelementptr inbounds i8, ptr %nodesA843, i64 160
   store i32 9, ptr %mX.i761, align 16
-  %incdec.ptr.i762 = getelementptr inbounds %"struct.(anonymous namespace)::IntNode", ptr %nodesA843, i64 7
-  %mpPrev2.i.i764 = getelementptr inbounds %"struct.(anonymous namespace)::IntNode", ptr %nodesA843, i64 6, i32 0, i32 1
+  %incdec.ptr.i762 = getelementptr inbounds i8, ptr %nodesA843, i64 168
+  %mpPrev2.i.i764 = getelementptr inbounds i8, ptr %nodesA843, i64 152
   store ptr %incdec.ptr.i752, ptr %mpPrev2.i.i764, align 8
   store ptr %incdec.ptr.i757, ptr %incdec.ptr.i752, align 8
-  %mX.i766 = getelementptr inbounds %"struct.(anonymous namespace)::IntNode", ptr %nodesA843, i64 7, i32 1
+  %mX.i766 = getelementptr inbounds i8, ptr %nodesA843, i64 184
   store i32 9, ptr %mX.i766, align 8
-  %mpPrev2.i.i769 = getelementptr inbounds %"struct.(anonymous namespace)::IntNode", ptr %nodesA843, i64 7, i32 0, i32 1
+  %mpPrev2.i.i769 = getelementptr inbounds i8, ptr %nodesA843, i64 176
   store ptr %incdec.ptr.i757, ptr %mpPrev2.i.i769, align 16
   store ptr %listA859, ptr %incdec.ptr.i762, align 8
   store ptr %incdec.ptr.i762, ptr %mpPrev.i.i727, align 8
@@ -1464,7 +1464,7 @@ if.then9.i776:                                    ; preds = %while.body.i772
   %94 = getelementptr i8, ptr %91, i64 8
   %.val7.i = load ptr, ptr %94, align 8
   store ptr %.val.i, ptr %.val7.i, align 8, !noalias !231
-  %mpPrev4.i.i = getelementptr inbounds %"struct.eastl::intrusive_list_node", ptr %.val.i, i64 0, i32 1
+  %mpPrev4.i.i = getelementptr inbounds i8, ptr %.val.i, i64 8
   store ptr %.val7.i, ptr %mpPrev4.i.i, align 8, !noalias !231
   br label %if.end.i774
 
@@ -1480,51 +1480,51 @@ while.body.i823.preheader:                        ; preds = %if.end.i774
   store ptr %listA859, ptr %agg.tmp882, align 8, !alias.scope !238
   %call884 = call noundef zeroext i1 (ptr, ptr, i32, ptr, ...) @_Z14VerifySequenceIN5eastl23intrusive_list_iteratorIN12_GLOBAL__N_17IntNodeEPS3_RS3_EEiEbT_S7_T0_PKcz(ptr noundef nonnull %agg.tmp881, ptr noundef nonnull %agg.tmp882, i32 poison, ptr noundef nonnull @.str.73, i32 noundef 1, i32 noundef 2, i32 noundef 3, i32 noundef 4, i32 noundef 5, i32 noundef 9, i32 noundef -1)
   %call886 = call noundef i32 @_ZN2EA8UnitTest12TestInternal17EATEST_VERIFY_IMPEbRiPKciS4_(i1 noundef zeroext %call884, ptr noundef nonnull align 4 dereferenceable(4) %nErrorCount, ptr noundef nonnull @.str, i32 noundef 381, ptr noundef nonnull @.str.74)
-  %mpPrev.i.i777 = getelementptr inbounds %"struct.eastl::intrusive_list_node", ptr %listB887, i64 0, i32 1
+  %mpPrev.i.i777 = getelementptr inbounds i8, ptr %listB887, i64 8
   store i32 1, ptr %invariant.gep1155, align 16
-  %incdec.ptr.i782 = getelementptr inbounds %"struct.(anonymous namespace)::IntNode", ptr %nodesB851, i64 1
-  %mpPrev2.i.i784 = getelementptr inbounds %"struct.eastl::intrusive_list_node", ptr %nodesB851, i64 0, i32 1
+  %incdec.ptr.i782 = getelementptr inbounds i8, ptr %nodesB851, i64 24
+  %mpPrev2.i.i784 = getelementptr inbounds i8, ptr %nodesB851, i64 8
   store ptr %listB887, ptr %mpPrev2.i.i784, align 8
   store ptr %nodesB851, ptr %listB887, align 8
-  %mX.i786 = getelementptr inbounds %"struct.(anonymous namespace)::IntNode", ptr %nodesB851, i64 1, i32 1
+  %mX.i786 = getelementptr inbounds i8, ptr %nodesB851, i64 40
   store i32 2, ptr %mX.i786, align 8
-  %incdec.ptr.i787 = getelementptr inbounds %"struct.(anonymous namespace)::IntNode", ptr %nodesB851, i64 2
-  %mpPrev2.i.i789 = getelementptr inbounds %"struct.(anonymous namespace)::IntNode", ptr %nodesB851, i64 1, i32 0, i32 1
+  %incdec.ptr.i787 = getelementptr inbounds i8, ptr %nodesB851, i64 48
+  %mpPrev2.i.i789 = getelementptr inbounds i8, ptr %nodesB851, i64 32
   store ptr %nodesB851, ptr %mpPrev2.i.i789, align 16
   store ptr %incdec.ptr.i782, ptr %nodesB851, align 16
-  %mX.i791 = getelementptr inbounds %"struct.(anonymous namespace)::IntNode", ptr %nodesB851, i64 2, i32 1
+  %mX.i791 = getelementptr inbounds i8, ptr %nodesB851, i64 64
   store i32 3, ptr %mX.i791, align 16
-  %incdec.ptr.i792 = getelementptr inbounds %"struct.(anonymous namespace)::IntNode", ptr %nodesB851, i64 3
-  %mpPrev2.i.i794 = getelementptr inbounds %"struct.(anonymous namespace)::IntNode", ptr %nodesB851, i64 2, i32 0, i32 1
+  %incdec.ptr.i792 = getelementptr inbounds i8, ptr %nodesB851, i64 72
+  %mpPrev2.i.i794 = getelementptr inbounds i8, ptr %nodesB851, i64 56
   store ptr %incdec.ptr.i782, ptr %mpPrev2.i.i794, align 8
   store ptr %incdec.ptr.i787, ptr %incdec.ptr.i782, align 8
-  %mX.i796 = getelementptr inbounds %"struct.(anonymous namespace)::IntNode", ptr %nodesB851, i64 3, i32 1
+  %mX.i796 = getelementptr inbounds i8, ptr %nodesB851, i64 88
   store i32 4, ptr %mX.i796, align 8
-  %incdec.ptr.i797 = getelementptr inbounds %"struct.(anonymous namespace)::IntNode", ptr %nodesB851, i64 4
-  %mpPrev2.i.i799 = getelementptr inbounds %"struct.(anonymous namespace)::IntNode", ptr %nodesB851, i64 3, i32 0, i32 1
+  %incdec.ptr.i797 = getelementptr inbounds i8, ptr %nodesB851, i64 96
+  %mpPrev2.i.i799 = getelementptr inbounds i8, ptr %nodesB851, i64 80
   store ptr %incdec.ptr.i787, ptr %mpPrev2.i.i799, align 16
   store ptr %incdec.ptr.i792, ptr %incdec.ptr.i787, align 16
-  %mX.i801 = getelementptr inbounds %"struct.(anonymous namespace)::IntNode", ptr %nodesB851, i64 4, i32 1
+  %mX.i801 = getelementptr inbounds i8, ptr %nodesB851, i64 112
   store i32 4, ptr %mX.i801, align 16
-  %incdec.ptr.i802 = getelementptr inbounds %"struct.(anonymous namespace)::IntNode", ptr %nodesB851, i64 5
-  %mpPrev2.i.i804 = getelementptr inbounds %"struct.(anonymous namespace)::IntNode", ptr %nodesB851, i64 4, i32 0, i32 1
+  %incdec.ptr.i802 = getelementptr inbounds i8, ptr %nodesB851, i64 120
+  %mpPrev2.i.i804 = getelementptr inbounds i8, ptr %nodesB851, i64 104
   store ptr %incdec.ptr.i792, ptr %mpPrev2.i.i804, align 8
   store ptr %incdec.ptr.i797, ptr %incdec.ptr.i792, align 8
-  %mX.i806 = getelementptr inbounds %"struct.(anonymous namespace)::IntNode", ptr %nodesB851, i64 5, i32 1
+  %mX.i806 = getelementptr inbounds i8, ptr %nodesB851, i64 136
   store i32 5, ptr %mX.i806, align 8
-  %incdec.ptr.i807 = getelementptr inbounds %"struct.(anonymous namespace)::IntNode", ptr %nodesB851, i64 6
-  %mpPrev2.i.i809 = getelementptr inbounds %"struct.(anonymous namespace)::IntNode", ptr %nodesB851, i64 5, i32 0, i32 1
+  %incdec.ptr.i807 = getelementptr inbounds i8, ptr %nodesB851, i64 144
+  %mpPrev2.i.i809 = getelementptr inbounds i8, ptr %nodesB851, i64 128
   store ptr %incdec.ptr.i797, ptr %mpPrev2.i.i809, align 16
   store ptr %incdec.ptr.i802, ptr %incdec.ptr.i797, align 16
-  %mX.i811 = getelementptr inbounds %"struct.(anonymous namespace)::IntNode", ptr %nodesB851, i64 6, i32 1
+  %mX.i811 = getelementptr inbounds i8, ptr %nodesB851, i64 160
   store i32 9, ptr %mX.i811, align 16
-  %incdec.ptr.i812 = getelementptr inbounds %"struct.(anonymous namespace)::IntNode", ptr %nodesB851, i64 7
-  %mpPrev2.i.i814 = getelementptr inbounds %"struct.(anonymous namespace)::IntNode", ptr %nodesB851, i64 6, i32 0, i32 1
+  %incdec.ptr.i812 = getelementptr inbounds i8, ptr %nodesB851, i64 168
+  %mpPrev2.i.i814 = getelementptr inbounds i8, ptr %nodesB851, i64 152
   store ptr %incdec.ptr.i802, ptr %mpPrev2.i.i814, align 8
   store ptr %incdec.ptr.i807, ptr %incdec.ptr.i802, align 8
-  %mX.i816 = getelementptr inbounds %"struct.(anonymous namespace)::IntNode", ptr %nodesB851, i64 7, i32 1
+  %mX.i816 = getelementptr inbounds i8, ptr %nodesB851, i64 184
   store i32 9, ptr %mX.i816, align 8
-  %mpPrev2.i.i819 = getelementptr inbounds %"struct.(anonymous namespace)::IntNode", ptr %nodesB851, i64 7, i32 0, i32 1
+  %mpPrev2.i.i819 = getelementptr inbounds i8, ptr %nodesB851, i64 176
   store ptr %incdec.ptr.i807, ptr %mpPrev2.i.i819, align 16
   store ptr %listB887, ptr %incdec.ptr.i812, align 8
   store ptr %incdec.ptr.i812, ptr %mpPrev.i.i777, align 8
@@ -1546,7 +1546,7 @@ if.then11.i:                                      ; preds = %while.body.i823
   %99 = getelementptr i8, ptr %96, i64 8
   %.val7.i829 = load ptr, ptr %99, align 8
   store ptr %.val.i828, ptr %.val7.i829, align 8, !noalias !241
-  %mpPrev4.i.i830 = getelementptr inbounds %"struct.eastl::intrusive_list_node", ptr %.val.i828, i64 0, i32 1
+  %mpPrev4.i.i830 = getelementptr inbounds i8, ptr %.val.i828, i64 8
   store ptr %.val7.i829, ptr %mpPrev4.i.i830, align 8, !noalias !241
   br label %if.end.i825
 
@@ -1581,8 +1581,8 @@ entry:
   br i1 %cmp.i.not22, label %if.then19, label %for.body.lr.ph
 
 for.body.lr.ph:                                   ; preds = %entry
-  %overflow_arg_area_p = getelementptr inbounds %struct.__va_list_tag, ptr %args, i64 0, i32 2
-  %1 = getelementptr inbounds %struct.__va_list_tag, ptr %args, i64 0, i32 3
+  %overflow_arg_area_p = getelementptr inbounds i8, ptr %args, i64 8
+  %1 = getelementptr inbounds i8, ptr %args, i64 16
   %tobool.not = icmp eq ptr %pName, null
   br i1 %tobool.not, label %for.body.us, label %for.body
 
@@ -1699,7 +1699,7 @@ if.then19:                                        ; preds = %entry, %for.end17
   br i1 %fits_in_gp23, label %vaarg.in_reg24, label %vaarg.in_mem26
 
 vaarg.in_reg24:                                   ; preds = %if.then19
-  %17 = getelementptr inbounds %struct.__va_list_tag, ptr %args, i64 0, i32 3
+  %17 = getelementptr inbounds i8, ptr %args, i64 16
   %reg_save_area25 = load ptr, ptr %17, align 16
   %18 = zext nneg i32 %gp_offset22 to i64
   %19 = getelementptr i8, ptr %reg_save_area25, i64 %18
@@ -1708,7 +1708,7 @@ vaarg.in_reg24:                                   ; preds = %if.then19
   br label %vaarg.end30
 
 vaarg.in_mem26:                                   ; preds = %if.then19
-  %overflow_arg_area_p27 = getelementptr inbounds %struct.__va_list_tag, ptr %args, i64 0, i32 2
+  %overflow_arg_area_p27 = getelementptr inbounds i8, ptr %args, i64 8
   %overflow_arg_area28 = load ptr, ptr %overflow_arg_area_p27, align 8
   %overflow_arg_area.next29 = getelementptr i8, ptr %overflow_arg_area28, i64 8
   store ptr %overflow_arg_area.next29, ptr %overflow_arg_area_p27, align 8
@@ -1722,14 +1722,14 @@ vaarg.end30:                                      ; preds = %vaarg.in_mem26, %va
   br i1 %cmp32, label %if.end54, label %do.body.preheader
 
 do.body.preheader:                                ; preds = %vaarg.end30
-  %overflow_arg_area_p42 = getelementptr inbounds %struct.__va_list_tag, ptr %args, i64 0, i32 2
-  %22 = getelementptr inbounds %struct.__va_list_tag, ptr %args, i64 0, i32 3
+  %overflow_arg_area_p42 = getelementptr inbounds i8, ptr %args, i64 8
+  %22 = getelementptr inbounds i8, ptr %args, i64 16
   %reg_save_area40 = load ptr, ptr %22, align 16
   %overflow_arg_area_p42.promoted = load ptr, ptr %overflow_arg_area_p42, align 8
   br label %do.body
 
 do.body:                                          ; preds = %do.body.preheader, %vaarg.end45
-  %overflow_arg_area.next4440 = phi ptr [ %overflow_arg_area.next4439, %vaarg.end45 ], [ %overflow_arg_area_p42.promoted, %do.body.preheader ]
+  %overflow_arg_area4340 = phi ptr [ %overflow_arg_area4339, %vaarg.end45 ], [ %overflow_arg_area_p42.promoted, %do.body.preheader ]
   %gp_offset3738 = phi i32 [ %gp_offset3737, %vaarg.end45 ], [ %args.promoted, %do.body.preheader ]
   %argIndex.1 = phi i32 [ %inc34, %vaarg.end45 ], [ %argIndex.0.lcssa49, %do.body.preheader ]
   %inc34 = add nuw nsw i32 %argIndex.1, 1
@@ -1744,14 +1744,14 @@ vaarg.in_reg39:                                   ; preds = %do.body
   br label %vaarg.end45
 
 vaarg.in_mem41:                                   ; preds = %do.body
-  %overflow_arg_area.next44 = getelementptr i8, ptr %overflow_arg_area.next4440, i64 8
+  %overflow_arg_area.next44 = getelementptr i8, ptr %overflow_arg_area4340, i64 8
   store ptr %overflow_arg_area.next44, ptr %overflow_arg_area_p42, align 8
   br label %vaarg.end45
 
 vaarg.end45:                                      ; preds = %vaarg.in_mem41, %vaarg.in_reg39
-  %overflow_arg_area.next4439 = phi ptr [ %overflow_arg_area.next4440, %vaarg.in_reg39 ], [ %overflow_arg_area.next44, %vaarg.in_mem41 ]
+  %overflow_arg_area4339 = phi ptr [ %overflow_arg_area4340, %vaarg.in_reg39 ], [ %overflow_arg_area.next44, %vaarg.in_mem41 ]
   %gp_offset3737 = phi i32 [ %25, %vaarg.in_reg39 ], [ %gp_offset3738, %vaarg.in_mem41 ]
-  %vaarg.addr46 = phi ptr [ %24, %vaarg.in_reg39 ], [ %overflow_arg_area.next4440, %vaarg.in_mem41 ]
+  %vaarg.addr46 = phi ptr [ %24, %vaarg.in_reg39 ], [ %overflow_arg_area4340, %vaarg.in_mem41 ]
   %26 = load i32, ptr %vaarg.addr46, align 4
   %cmp47.not = icmp eq i32 %26, -1
   br i1 %cmp47.not, label %do.end, label %do.body, !llvm.loop !252
@@ -1791,17 +1791,17 @@ entry:
   %rightList = alloca %"class.eastl::intrusive_list", align 8
   %0 = load ptr, ptr %this, align 8
   %cmp.not = icmp eq ptr %0, %this
-  %mpPrev = getelementptr inbounds %"struct.eastl::intrusive_list_node", ptr %this, i64 0, i32 1
+  %mpPrev = getelementptr inbounds i8, ptr %this, i64 8
   %1 = load ptr, ptr %mpPrev, align 8
   %cmp6.not = icmp eq ptr %0, %1
   %or.cond = select i1 %cmp.not, i1 true, i1 %cmp6.not
   br i1 %or.cond, label %if.end, label %invoke.cont
 
 invoke.cont:                                      ; preds = %entry
-  %mpPrev.i.i = getelementptr inbounds %"struct.eastl::intrusive_list_node", ptr %leftList, i64 0, i32 1
+  %mpPrev.i.i = getelementptr inbounds i8, ptr %leftList, i64 8
   store ptr %leftList, ptr %mpPrev.i.i, align 8
   store ptr %leftList, ptr %leftList, align 8
-  %mpPrev.i.i5 = getelementptr inbounds %"struct.eastl::intrusive_list_node", ptr %rightList, i64 0, i32 1
+  %mpPrev.i.i5 = getelementptr inbounds i8, ptr %rightList, i64 8
   store ptr %rightList, ptr %mpPrev.i.i5, align 8
   store ptr %rightList, ptr %rightList, align 8
   br label %do.body.i
@@ -1835,12 +1835,12 @@ invoke.cont8:                                     ; preds = %while.body.i.i.i
   br i1 %cmp.i.not.i, label %invoke.cont17, label %if.then.i
 
 if.then.i:                                        ; preds = %invoke.cont8
-  %mpPrev.i = getelementptr inbounds %"struct.eastl::intrusive_list_node", ptr %4, i64 0, i32 1
+  %mpPrev.i = getelementptr inbounds i8, ptr %4, i64 8
   %5 = load ptr, ptr %mpPrev.i, align 8
-  %mpPrev7.i = getelementptr inbounds %"struct.eastl::intrusive_list_node", ptr %0, i64 0, i32 1
+  %mpPrev7.i = getelementptr inbounds i8, ptr %0, i64 8
   %6 = load ptr, ptr %mpPrev7.i, align 8
   %7 = load ptr, ptr %5, align 8
-  %mpPrev8.i = getelementptr inbounds %"struct.eastl::intrusive_list_node", ptr %7, i64 0, i32 1
+  %mpPrev8.i = getelementptr inbounds i8, ptr %7, i64 8
   store ptr %6, ptr %mpPrev8.i, align 8
   %8 = load ptr, ptr %5, align 8
   store ptr %8, ptr %6, align 8
@@ -1859,11 +1859,11 @@ invoke.cont17:                                    ; preds = %_ZNK5eastl19intrusi
 
 if.then.i7:                                       ; preds = %invoke.cont17
   %rightList.val = load ptr, ptr %rightList, align 8
-  %mpPrev.i8 = getelementptr inbounds %"struct.eastl::intrusive_list_node", ptr %rightList.val, i64 0, i32 1
+  %mpPrev.i8 = getelementptr inbounds i8, ptr %rightList.val, i64 8
   %11 = load ptr, ptr %mpPrev.i8, align 8
   %12 = load ptr, ptr %mpPrev, align 8
   store ptr %10, ptr %11, align 8
-  %mpPrev8.i9 = getelementptr inbounds %"struct.eastl::intrusive_list_node", ptr %10, i64 0, i32 1
+  %mpPrev8.i9 = getelementptr inbounds i8, ptr %10, i64 8
   store ptr %11, ptr %mpPrev8.i9, align 8
   store ptr %rightList.val, ptr %12, align 8
   store ptr %12, ptr %mpPrev.i8, align 8
@@ -1880,11 +1880,11 @@ _ZN5eastl14intrusive_listIN12_GLOBAL__N_17IntNodeEE6spliceENS_23intrusive_list_i
 
 if.then.i11:                                      ; preds = %_ZN5eastl14intrusive_listIN12_GLOBAL__N_17IntNodeEE6spliceENS_23intrusive_list_iteratorIS2_PKS2_RS5_EERS3_.exit
   %this.val = load ptr, ptr %this, align 8
-  %mpPrev.i12 = getelementptr inbounds %"struct.eastl::intrusive_list_node", ptr %this.val, i64 0, i32 1
+  %mpPrev.i12 = getelementptr inbounds i8, ptr %this.val, i64 8
   %14 = load ptr, ptr %mpPrev.i12, align 8
   %15 = load ptr, ptr %mpPrev.i.i, align 8
   store ptr %13, ptr %14, align 8
-  %mpPrev8.i14 = getelementptr inbounds %"struct.eastl::intrusive_list_node", ptr %13, i64 0, i32 1
+  %mpPrev8.i14 = getelementptr inbounds i8, ptr %13, i64 8
   store ptr %14, ptr %mpPrev8.i14, align 8
   store ptr %this.val, ptr %15, align 8
   store ptr %15, ptr %mpPrev.i12, align 8
@@ -1920,16 +1920,16 @@ if.then9.i:                                       ; preds = %while.body.i
   br i1 %cmp.i.not.i.i, label %if.end.i, label %if.then.i.i
 
 if.then.i.i:                                      ; preds = %if.then9.i
-  %mpPrev.i.i18 = getelementptr inbounds %"struct.eastl::intrusive_list_node", ptr %18, i64 0, i32 1
+  %mpPrev.i.i18 = getelementptr inbounds i8, ptr %18, i64 8
   %19 = load ptr, ptr %mpPrev.i.i18, align 8
-  %mpPrev7.i.i = getelementptr inbounds %"struct.eastl::intrusive_list_node", ptr %firstX.sroa.0.027.i, i64 0, i32 1
+  %mpPrev7.i.i = getelementptr inbounds i8, ptr %firstX.sroa.0.027.i, i64 8
   %20 = load ptr, ptr %mpPrev7.i.i, align 8
   %21 = load ptr, ptr %19, align 8
-  %mpPrev8.i.i = getelementptr inbounds %"struct.eastl::intrusive_list_node", ptr %21, i64 0, i32 1
+  %mpPrev8.i.i = getelementptr inbounds i8, ptr %21, i64 8
   store ptr %20, ptr %mpPrev8.i.i, align 8
   %22 = load ptr, ptr %19, align 8
   store ptr %22, ptr %20, align 8
-  %mpPrev14.i.i = getelementptr inbounds %"struct.eastl::intrusive_list_node", ptr %first.sroa.0.028.i, i64 0, i32 1
+  %mpPrev14.i.i = getelementptr inbounds i8, ptr %first.sroa.0.028.i, i64 8
   %23 = load ptr, ptr %mpPrev14.i.i, align 8
   store ptr %firstX.sroa.0.027.i, ptr %23, align 8
   store ptr %23, ptr %mpPrev7.i.i, align 8
@@ -1956,10 +1956,10 @@ while.end.i:                                      ; preds = %if.end.i, %if.then.
 
 _ZN5eastl14intrusive_listIN12_GLOBAL__N_17IntNodeEE6spliceENS_23intrusive_list_iteratorIS2_PKS2_RS5_EERS3_S8_S8_.exit23.i: ; preds = %while.end.i
   %25 = load ptr, ptr %mpPrev.i.i5, align 8
-  %mpPrev7.i20.i = getelementptr inbounds %"struct.eastl::intrusive_list_node", ptr %firstX.sroa.0.0.lcssa.i, i64 0, i32 1
+  %mpPrev7.i20.i = getelementptr inbounds i8, ptr %firstX.sroa.0.0.lcssa.i, i64 8
   %26 = load ptr, ptr %mpPrev7.i20.i, align 8
   %27 = load ptr, ptr %25, align 8
-  %mpPrev8.i21.i = getelementptr inbounds %"struct.eastl::intrusive_list_node", ptr %27, i64 0, i32 1
+  %mpPrev8.i21.i = getelementptr inbounds i8, ptr %27, i64 8
   store ptr %26, ptr %mpPrev8.i21.i, align 8
   %28 = load ptr, ptr %25, align 8
   store ptr %28, ptr %26, align 8
@@ -1981,17 +1981,17 @@ entry:
   %rightList = alloca %"class.eastl::intrusive_list", align 8
   %0 = load ptr, ptr %this, align 8
   %cmp.not = icmp eq ptr %0, %this
-  %mpPrev = getelementptr inbounds %"struct.eastl::intrusive_list_node", ptr %this, i64 0, i32 1
+  %mpPrev = getelementptr inbounds i8, ptr %this, i64 8
   %1 = load ptr, ptr %mpPrev, align 8
   %cmp6.not = icmp eq ptr %0, %1
   %or.cond = select i1 %cmp.not, i1 true, i1 %cmp6.not
   br i1 %or.cond, label %if.end, label %invoke.cont
 
 invoke.cont:                                      ; preds = %entry
-  %mpPrev.i.i = getelementptr inbounds %"struct.eastl::intrusive_list_node", ptr %leftList, i64 0, i32 1
+  %mpPrev.i.i = getelementptr inbounds i8, ptr %leftList, i64 8
   store ptr %leftList, ptr %mpPrev.i.i, align 8
   store ptr %leftList, ptr %leftList, align 8
-  %mpPrev.i.i5 = getelementptr inbounds %"struct.eastl::intrusive_list_node", ptr %rightList, i64 0, i32 1
+  %mpPrev.i.i5 = getelementptr inbounds i8, ptr %rightList, i64 8
   store ptr %rightList, ptr %mpPrev.i.i5, align 8
   store ptr %rightList, ptr %rightList, align 8
   br label %do.body.i
@@ -2025,12 +2025,12 @@ invoke.cont8:                                     ; preds = %while.body.i.i.i
   br i1 %cmp.i.not.i, label %invoke.cont17, label %if.then.i
 
 if.then.i:                                        ; preds = %invoke.cont8
-  %mpPrev.i = getelementptr inbounds %"struct.eastl::intrusive_list_node", ptr %4, i64 0, i32 1
+  %mpPrev.i = getelementptr inbounds i8, ptr %4, i64 8
   %5 = load ptr, ptr %mpPrev.i, align 8
-  %mpPrev7.i = getelementptr inbounds %"struct.eastl::intrusive_list_node", ptr %0, i64 0, i32 1
+  %mpPrev7.i = getelementptr inbounds i8, ptr %0, i64 8
   %6 = load ptr, ptr %mpPrev7.i, align 8
   %7 = load ptr, ptr %5, align 8
-  %mpPrev8.i = getelementptr inbounds %"struct.eastl::intrusive_list_node", ptr %7, i64 0, i32 1
+  %mpPrev8.i = getelementptr inbounds i8, ptr %7, i64 8
   store ptr %6, ptr %mpPrev8.i, align 8
   %8 = load ptr, ptr %5, align 8
   store ptr %8, ptr %6, align 8
@@ -2049,11 +2049,11 @@ invoke.cont17:                                    ; preds = %_ZNK5eastl19intrusi
 
 if.then.i7:                                       ; preds = %invoke.cont17
   %rightList.val = load ptr, ptr %rightList, align 8
-  %mpPrev.i8 = getelementptr inbounds %"struct.eastl::intrusive_list_node", ptr %rightList.val, i64 0, i32 1
+  %mpPrev.i8 = getelementptr inbounds i8, ptr %rightList.val, i64 8
   %11 = load ptr, ptr %mpPrev.i8, align 8
   %12 = load ptr, ptr %mpPrev, align 8
   store ptr %10, ptr %11, align 8
-  %mpPrev8.i9 = getelementptr inbounds %"struct.eastl::intrusive_list_node", ptr %10, i64 0, i32 1
+  %mpPrev8.i9 = getelementptr inbounds i8, ptr %10, i64 8
   store ptr %11, ptr %mpPrev8.i9, align 8
   store ptr %rightList.val, ptr %12, align 8
   store ptr %12, ptr %mpPrev.i8, align 8
@@ -2070,11 +2070,11 @@ _ZN5eastl14intrusive_listIN12_GLOBAL__N_17IntNodeEE6spliceENS_23intrusive_list_i
 
 if.then.i11:                                      ; preds = %_ZN5eastl14intrusive_listIN12_GLOBAL__N_17IntNodeEE6spliceENS_23intrusive_list_iteratorIS2_PKS2_RS5_EERS3_.exit
   %this.val = load ptr, ptr %this, align 8
-  %mpPrev.i12 = getelementptr inbounds %"struct.eastl::intrusive_list_node", ptr %this.val, i64 0, i32 1
+  %mpPrev.i12 = getelementptr inbounds i8, ptr %this.val, i64 8
   %14 = load ptr, ptr %mpPrev.i12, align 8
   %15 = load ptr, ptr %mpPrev.i.i, align 8
   store ptr %13, ptr %14, align 8
-  %mpPrev8.i14 = getelementptr inbounds %"struct.eastl::intrusive_list_node", ptr %13, i64 0, i32 1
+  %mpPrev8.i14 = getelementptr inbounds i8, ptr %13, i64 8
   store ptr %14, ptr %mpPrev8.i14, align 8
   store ptr %this.val, ptr %15, align 8
   store ptr %15, ptr %mpPrev.i12, align 8
@@ -2110,16 +2110,16 @@ if.then10.i:                                      ; preds = %while.body.i
   br i1 %cmp.i.not.i.i, label %if.end.i, label %if.then.i.i
 
 if.then.i.i:                                      ; preds = %if.then10.i
-  %mpPrev.i.i18 = getelementptr inbounds %"struct.eastl::intrusive_list_node", ptr %18, i64 0, i32 1
+  %mpPrev.i.i18 = getelementptr inbounds i8, ptr %18, i64 8
   %19 = load ptr, ptr %mpPrev.i.i18, align 8
-  %mpPrev7.i.i = getelementptr inbounds %"struct.eastl::intrusive_list_node", ptr %firstX.sroa.0.028.i, i64 0, i32 1
+  %mpPrev7.i.i = getelementptr inbounds i8, ptr %firstX.sroa.0.028.i, i64 8
   %20 = load ptr, ptr %mpPrev7.i.i, align 8
   %21 = load ptr, ptr %19, align 8
-  %mpPrev8.i.i = getelementptr inbounds %"struct.eastl::intrusive_list_node", ptr %21, i64 0, i32 1
+  %mpPrev8.i.i = getelementptr inbounds i8, ptr %21, i64 8
   store ptr %20, ptr %mpPrev8.i.i, align 8
   %22 = load ptr, ptr %19, align 8
   store ptr %22, ptr %20, align 8
-  %mpPrev14.i.i = getelementptr inbounds %"struct.eastl::intrusive_list_node", ptr %first.sroa.0.029.i, i64 0, i32 1
+  %mpPrev14.i.i = getelementptr inbounds i8, ptr %first.sroa.0.029.i, i64 8
   %23 = load ptr, ptr %mpPrev14.i.i, align 8
   store ptr %firstX.sroa.0.028.i, ptr %23, align 8
   store ptr %23, ptr %mpPrev7.i.i, align 8
@@ -2146,10 +2146,10 @@ while.end.i:                                      ; preds = %if.end.i, %if.then.
 
 _ZN5eastl14intrusive_listIN12_GLOBAL__N_17IntNodeEE6spliceENS_23intrusive_list_iteratorIS2_PKS2_RS5_EERS3_S8_S8_.exit24.i: ; preds = %while.end.i
   %25 = load ptr, ptr %mpPrev.i.i5, align 8
-  %mpPrev7.i21.i = getelementptr inbounds %"struct.eastl::intrusive_list_node", ptr %firstX.sroa.0.0.lcssa.i, i64 0, i32 1
+  %mpPrev7.i21.i = getelementptr inbounds i8, ptr %firstX.sroa.0.0.lcssa.i, i64 8
   %26 = load ptr, ptr %mpPrev7.i21.i, align 8
   %27 = load ptr, ptr %25, align 8
-  %mpPrev8.i22.i = getelementptr inbounds %"struct.eastl::intrusive_list_node", ptr %27, i64 0, i32 1
+  %mpPrev8.i22.i = getelementptr inbounds i8, ptr %27, i64 8
   store ptr %26, ptr %mpPrev8.i22.i, align 8
   %28 = load ptr, ptr %25, align 8
   store ptr %28, ptr %26, align 8

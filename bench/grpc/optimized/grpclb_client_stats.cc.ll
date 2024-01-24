@@ -3,31 +3,12 @@ source_filename = "bench/grpc/original/grpclb_client_stats.cc.ll"
 target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:128-n8:16:32:64-S128"
 target triple = "x86_64-unknown-linux-gnu"
 
-%"class.grpc_core::GrpcLbClientStats" = type { %"class.grpc_core::RefCounted", i64, i64, i64, i64, %"class.absl::lts_20230802::Mutex", %"class.std::unique_ptr" }
-%"class.grpc_core::RefCounted" = type { %"class.grpc_core::PolymorphicRefCount", %"class.grpc_core::RefCount" }
-%"class.grpc_core::PolymorphicRefCount" = type { ptr }
-%"class.grpc_core::RefCount" = type { %"struct.std::atomic" }
-%"struct.std::atomic" = type { %"struct.std::__atomic_base" }
-%"struct.std::__atomic_base" = type { i64 }
-%"class.absl::lts_20230802::Mutex" = type { %"struct.std::atomic" }
-%"class.std::unique_ptr" = type { %"struct.std::__uniq_ptr_data" }
-%"struct.std::__uniq_ptr_data" = type { %"class.std::__uniq_ptr_impl" }
-%"class.std::__uniq_ptr_impl" = type { %"class.std::tuple" }
-%"class.std::tuple" = type { %"struct.std::_Tuple_impl" }
-%"struct.std::_Tuple_impl" = type { %"struct.std::_Head_base.1" }
-%"struct.std::_Head_base.1" = type { ptr }
 %"class.std::unique_ptr.3" = type { %"struct.std::__uniq_ptr_data.4" }
 %"struct.std::__uniq_ptr_data.4" = type { %"class.std::__uniq_ptr_impl.5" }
 %"class.std::__uniq_ptr_impl.5" = type { %"class.std::tuple.6" }
 %"class.std::tuple.6" = type { %"struct.std::_Tuple_impl.7" }
 %"struct.std::_Tuple_impl.7" = type { %"struct.std::_Head_base.10" }
 %"struct.std::_Head_base.10" = type { ptr }
-%"class.absl::lts_20230802::inlined_vector_internal::Storage" = type { %"class.absl::lts_20230802::container_internal::CompressedTuple", %"union.absl::lts_20230802::inlined_vector_internal::Storage<grpc_core::GrpcLbClientStats::DropTokenCount, 10, std::allocator<grpc_core::GrpcLbClientStats::DropTokenCount>>::Data" }
-%"class.absl::lts_20230802::container_internal::CompressedTuple" = type { %"struct.absl::lts_20230802::container_internal::internal_compressed_tuple::CompressedTupleImpl" }
-%"struct.absl::lts_20230802::container_internal::internal_compressed_tuple::CompressedTupleImpl" = type { %"struct.absl::lts_20230802::container_internal::internal_compressed_tuple::Storage.2" }
-%"struct.absl::lts_20230802::container_internal::internal_compressed_tuple::Storage.2" = type { i64 }
-%"union.absl::lts_20230802::inlined_vector_internal::Storage<grpc_core::GrpcLbClientStats::DropTokenCount, 10, std::allocator<grpc_core::GrpcLbClientStats::DropTokenCount>>::Data" = type { %"struct.absl::lts_20230802::inlined_vector_internal::Storage<grpc_core::GrpcLbClientStats::DropTokenCount, 10, std::allocator<grpc_core::GrpcLbClientStats::DropTokenCount>>::Allocated", [144 x i8] }
-%"struct.absl::lts_20230802::inlined_vector_internal::Storage<grpc_core::GrpcLbClientStats::DropTokenCount, 10, std::allocator<grpc_core::GrpcLbClientStats::DropTokenCount>>::Allocated" = type { ptr, i64 }
 %"struct.grpc_core::GrpcLbClientStats::DropTokenCount" = type { %"class.std::unique_ptr.3", i64 }
 
 $_ZNSt10unique_ptrIcN9grpc_core17DefaultDeleteCharEED2Ev = comdat any
@@ -41,7 +22,7 @@ $_ZN4absl12lts_2023080223inlined_vector_internal7StorageIN9grpc_core17GrpcLbClie
 ; Function Attrs: mustprogress nofree norecurse nounwind willreturn memory(argmem: readwrite) uwtable
 define void @_ZN9grpc_core17GrpcLbClientStats14AddCallStartedEv(ptr nocapture noundef nonnull align 8 dereferenceable(64) %this) local_unnamed_addr #0 align 2 {
 entry:
-  %num_calls_started_ = getelementptr inbounds %"class.grpc_core::GrpcLbClientStats", ptr %this, i64 0, i32 1
+  %num_calls_started_ = getelementptr inbounds i8, ptr %this, i64 16
   %0 = atomicrmw add ptr %num_calls_started_, i64 1 acq_rel, align 8
   ret void
 }
@@ -49,12 +30,12 @@ entry:
 ; Function Attrs: mustprogress nofree norecurse nounwind willreturn memory(argmem: readwrite) uwtable
 define void @_ZN9grpc_core17GrpcLbClientStats15AddCallFinishedEbb(ptr nocapture noundef nonnull align 8 dereferenceable(64) %this, i1 noundef zeroext %finished_with_client_failed_to_send, i1 noundef zeroext %finished_known_received) local_unnamed_addr #0 align 2 {
 entry:
-  %num_calls_finished_ = getelementptr inbounds %"class.grpc_core::GrpcLbClientStats", ptr %this, i64 0, i32 2
+  %num_calls_finished_ = getelementptr inbounds i8, ptr %this, i64 24
   %0 = atomicrmw add ptr %num_calls_finished_, i64 1 acq_rel, align 8
   br i1 %finished_with_client_failed_to_send, label %if.then, label %if.end
 
 if.then:                                          ; preds = %entry
-  %num_calls_finished_with_client_failed_to_send_ = getelementptr inbounds %"class.grpc_core::GrpcLbClientStats", ptr %this, i64 0, i32 3
+  %num_calls_finished_with_client_failed_to_send_ = getelementptr inbounds i8, ptr %this, i64 32
   %1 = atomicrmw add ptr %num_calls_finished_with_client_failed_to_send_, i64 1 acq_rel, align 8
   br label %if.end
 
@@ -62,7 +43,7 @@ if.end:                                           ; preds = %if.then, %entry
   br i1 %finished_known_received, label %if.then6, label %if.end9
 
 if.then6:                                         ; preds = %if.end
-  %num_calls_finished_known_received_ = getelementptr inbounds %"class.grpc_core::GrpcLbClientStats", ptr %this, i64 0, i32 4
+  %num_calls_finished_known_received_ = getelementptr inbounds i8, ptr %this, i64 40
   %2 = atomicrmw add ptr %num_calls_finished_known_received_, i64 1 acq_rel, align 8
   br label %if.end9
 
@@ -75,13 +56,13 @@ define void @_ZN9grpc_core17GrpcLbClientStats14AddCallDroppedEPKc(ptr noundef no
 entry:
   %ref.tmp26 = alloca %"class.std::unique_ptr.3", align 8
   %ref.tmp29 = alloca i32, align 4
-  %num_calls_started_ = getelementptr inbounds %"class.grpc_core::GrpcLbClientStats", ptr %this, i64 0, i32 1
+  %num_calls_started_ = getelementptr inbounds i8, ptr %this, i64 16
   %0 = atomicrmw add ptr %num_calls_started_, i64 1 acq_rel, align 8
-  %num_calls_finished_ = getelementptr inbounds %"class.grpc_core::GrpcLbClientStats", ptr %this, i64 0, i32 2
+  %num_calls_finished_ = getelementptr inbounds i8, ptr %this, i64 24
   %1 = atomicrmw add ptr %num_calls_finished_, i64 1 acq_rel, align 8
-  %drop_count_mu_ = getelementptr inbounds %"class.grpc_core::GrpcLbClientStats", ptr %this, i64 0, i32 5
+  %drop_count_mu_ = getelementptr inbounds i8, ptr %this, i64 48
   tail call void @_ZN4absl12lts_202308025Mutex4LockEv(ptr noundef nonnull align 8 dereferenceable(8) %drop_count_mu_)
-  %drop_token_counts_ = getelementptr inbounds %"class.grpc_core::GrpcLbClientStats", ptr %this, i64 0, i32 6
+  %drop_token_counts_ = getelementptr inbounds i8, ptr %this, i64 56
   %2 = load ptr, ptr %drop_token_counts_, align 8
   %cmp.i.not.i = icmp eq ptr %2, null
   br i1 %cmp.i.not.i, label %if.then, label %if.end
@@ -103,39 +84,39 @@ lpad:                                             ; preds = %if.then, %for.end
 if.end:                                           ; preds = %entry
   %.pre = load i64, ptr %2, align 8
   %shr.i.i = lshr i64 %.pre, 1
-  %cmp23.not = icmp ult i64 %.pre, 2
-  br i1 %cmp23.not, label %for.end, label %for.body.lr.ph
+  %cmp22.not = icmp ult i64 %.pre, 2
+  br i1 %cmp22.not, label %for.end, label %for.body.lr.ph
 
 for.body.lr.ph:                                   ; preds = %if.end
   %and.i.i.i = and i64 %.pre, 1
   %tobool.i.not.i.i = icmp eq i64 %and.i.i.i, 0
-  %data_.i.i.i = getelementptr inbounds %"class.absl::lts_20230802::inlined_vector_internal::Storage", ptr %2, i64 0, i32 1
+  %data_.i.i.i = getelementptr inbounds i8, ptr %2, i64 8
   %4 = load ptr, ptr %data_.i.i.i, align 8
   %cond.i.i = select i1 %tobool.i.not.i.i, ptr %data_.i.i.i, ptr %4
   br label %for.body
 
-for.body:                                         ; preds = %for.body.lr.ph, %for.inc
-  %i.024 = phi i64 [ 0, %for.body.lr.ph ], [ %inc23, %for.inc ]
-  %arrayidx.i = getelementptr inbounds %"struct.grpc_core::GrpcLbClientStats::DropTokenCount", ptr %cond.i.i, i64 %i.024
+for.cond:                                         ; preds = %for.body
+  %inc23 = add nuw nsw i64 %i.023, 1
+  %exitcond.not = icmp eq i64 %inc23, %shr.i.i
+  br i1 %exitcond.not, label %for.end, label %for.body, !llvm.loop !7
+
+for.body:                                         ; preds = %for.body.lr.ph, %for.cond
+  %i.023 = phi i64 [ 0, %for.body.lr.ph ], [ %inc23, %for.cond ]
+  %arrayidx.i = getelementptr inbounds %"struct.grpc_core::GrpcLbClientStats::DropTokenCount", ptr %cond.i.i, i64 %i.023
   %5 = load ptr, ptr %arrayidx.i, align 8
   %call15 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %5, ptr noundef nonnull dereferenceable(1) %token) #10
   %cmp16 = icmp eq i32 %call15, 0
-  br i1 %cmp16, label %if.then17, label %for.inc
+  br i1 %cmp16, label %if.then17, label %for.cond
 
 if.then17:                                        ; preds = %for.body
-  %count = getelementptr inbounds %"struct.grpc_core::GrpcLbClientStats::DropTokenCount", ptr %cond.i.i, i64 %i.024, i32 1
+  %count = getelementptr inbounds i8, ptr %arrayidx.i, i64 8
   %6 = load i64, ptr %count, align 8
   %inc = add nsw i64 %6, 1
   store i64 %inc, ptr %count, align 8
   br label %cleanup
 
-for.inc:                                          ; preds = %for.body
-  %inc23 = add nuw nsw i64 %i.024, 1
-  %exitcond.not = icmp eq i64 %inc23, %shr.i.i
-  br i1 %exitcond.not, label %for.end, label %for.body, !llvm.loop !7
-
-for.end:                                          ; preds = %for.inc, %if.end.thread, %if.end
-  %7 = phi ptr [ %call.i6, %if.end.thread ], [ %2, %if.end ], [ %2, %for.inc ]
+for.end:                                          ; preds = %for.cond, %if.end.thread, %if.end
+  %7 = phi ptr [ %call.i6, %if.end.thread ], [ %2, %if.end ], [ %2, %for.cond ]
   %call28 = invoke ptr @gpr_strdup(ptr noundef %token)
           to label %invoke.cont27 unwind label %lpad
 
@@ -145,7 +126,7 @@ invoke.cont27:                                    ; preds = %for.end
   %8 = load i64, ptr %7, align 8, !noalias !9
   %and.i.i.i.i = and i64 %8, 1
   %tobool.i.not.i.i.i = icmp eq i64 %and.i.i.i.i, 0
-  %allocated_capacity.i.i.i.i = getelementptr inbounds %"class.absl::lts_20230802::inlined_vector_internal::Storage", ptr %7, i64 0, i32 1, i32 0, i32 1
+  %allocated_capacity.i.i.i.i = getelementptr inbounds i8, ptr %7, i64 16
   %9 = load i64, ptr %allocated_capacity.i.i.i.i, align 8, !noalias !9
   %.sink.i.i.i = select i1 %tobool.i.not.i.i.i, i64 10, i64 %9
   %shr.i.sink.i.i.i = lshr i64 %8, 1
@@ -154,13 +135,13 @@ invoke.cont27:                                    ; preds = %for.end
 
 if.then.i.i:                                      ; preds = %invoke.cont27
   %10 = ptrtoint ptr %call28 to i64
-  %data_.i1.i.i.i = getelementptr inbounds %"class.absl::lts_20230802::inlined_vector_internal::Storage", ptr %7, i64 0, i32 1
+  %data_.i1.i.i.i = getelementptr inbounds i8, ptr %7, i64 8
   %11 = load ptr, ptr %data_.i1.i.i.i, align 8, !noalias !9
   %.sink3.i.i.i = select i1 %tobool.i.not.i.i.i, ptr %data_.i1.i.i.i, ptr %11
   %add.ptr.i.i = getelementptr inbounds %"struct.grpc_core::GrpcLbClientStats::DropTokenCount", ptr %.sink3.i.i.i, i64 %shr.i.sink.i.i.i
   store ptr null, ptr %ref.tmp26, align 8
   store i64 %10, ptr %add.ptr.i.i, align 8
-  %count3.i.i.i.i.i = getelementptr inbounds %"struct.grpc_core::GrpcLbClientStats::DropTokenCount", ptr %.sink3.i.i.i, i64 %shr.i.sink.i.i.i, i32 1
+  %count3.i.i.i.i.i = getelementptr inbounds i8, ptr %add.ptr.i.i, i64 8
   store i64 1, ptr %count3.i.i.i.i.i, align 8
   %12 = load i64, ptr %7, align 8
   %add.i.i.i = add i64 %12, 2
@@ -260,21 +241,21 @@ terminate.lpad:                                   ; preds = %if.end.i
 ; Function Attrs: mustprogress uwtable
 define void @_ZN9grpc_core17GrpcLbClientStats3GetEPlS1_S1_S1_PSt10unique_ptrIN4absl12lts_2023080213InlinedVectorINS0_14DropTokenCountELm10ESaIS6_EEESt14default_deleteIS8_EE(ptr noundef nonnull align 8 dereferenceable(64) %this, ptr nocapture noundef writeonly %num_calls_started, ptr nocapture noundef writeonly %num_calls_finished, ptr nocapture noundef writeonly %num_calls_finished_with_client_failed_to_send, ptr nocapture noundef writeonly %num_calls_finished_known_received, ptr noundef %drop_token_counts) local_unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  %num_calls_started_ = getelementptr inbounds %"class.grpc_core::GrpcLbClientStats", ptr %this, i64 0, i32 1
+  %num_calls_started_ = getelementptr inbounds i8, ptr %this, i64 16
   %0 = atomicrmw xchg ptr %num_calls_started_, i64 0 acq_rel, align 8
   store i64 %0, ptr %num_calls_started, align 8
-  %num_calls_finished_ = getelementptr inbounds %"class.grpc_core::GrpcLbClientStats", ptr %this, i64 0, i32 2
+  %num_calls_finished_ = getelementptr inbounds i8, ptr %this, i64 24
   %1 = atomicrmw xchg ptr %num_calls_finished_, i64 0 acq_rel, align 8
   store i64 %1, ptr %num_calls_finished, align 8
-  %num_calls_finished_with_client_failed_to_send_ = getelementptr inbounds %"class.grpc_core::GrpcLbClientStats", ptr %this, i64 0, i32 3
+  %num_calls_finished_with_client_failed_to_send_ = getelementptr inbounds i8, ptr %this, i64 32
   %2 = atomicrmw xchg ptr %num_calls_finished_with_client_failed_to_send_, i64 0 acq_rel, align 8
   store i64 %2, ptr %num_calls_finished_with_client_failed_to_send, align 8
-  %num_calls_finished_known_received_ = getelementptr inbounds %"class.grpc_core::GrpcLbClientStats", ptr %this, i64 0, i32 4
+  %num_calls_finished_known_received_ = getelementptr inbounds i8, ptr %this, i64 40
   %3 = atomicrmw xchg ptr %num_calls_finished_known_received_, i64 0 acq_rel, align 8
   store i64 %3, ptr %num_calls_finished_known_received, align 8
-  %drop_count_mu_ = getelementptr inbounds %"class.grpc_core::GrpcLbClientStats", ptr %this, i64 0, i32 5
+  %drop_count_mu_ = getelementptr inbounds i8, ptr %this, i64 48
   tail call void @_ZN4absl12lts_202308025Mutex4LockEv(ptr noundef nonnull align 8 dereferenceable(8) %drop_count_mu_)
-  %drop_token_counts_ = getelementptr inbounds %"class.grpc_core::GrpcLbClientStats", ptr %this, i64 0, i32 6
+  %drop_token_counts_ = getelementptr inbounds i8, ptr %this, i64 56
   %call.i.i = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSt15__uniq_ptr_implIN4absl12lts_2023080213InlinedVectorIN9grpc_core17GrpcLbClientStats14DropTokenCountELm10ESaIS5_EEESt14default_deleteIS7_EEaSEOSA_(ptr noundef nonnull align 8 dereferenceable(8) %drop_token_counts, ptr noundef nonnull align 8 dereferenceable(8) %drop_token_counts_) #12
   invoke void @_ZN4absl12lts_202308025Mutex6UnlockEv(ptr noundef nonnull align 8 dereferenceable(8) %drop_count_mu_)
           to label %_ZN4absl12lts_202308029MutexLockD2Ev.exit unwind label %terminate.lpad.i
@@ -310,7 +291,7 @@ delete.notnull.i.i:                               ; preds = %entry
 if.end.i.i.i.i:                                   ; preds = %delete.notnull.i.i
   %and.i.i.i.i.i.i = and i64 %2, 1
   %tobool.i.not.i.i.i.i.i = icmp eq i64 %and.i.i.i.i.i.i, 0
-  %data_.i.i.i.i.i.i = getelementptr inbounds %"class.absl::lts_20230802::inlined_vector_internal::Storage", ptr %1, i64 0, i32 1
+  %data_.i.i.i.i.i.i = getelementptr inbounds i8, ptr %1, i64 8
   %3 = load ptr, ptr %data_.i.i.i.i.i.i, align 8
   %cond.i.i.i.i.i = select i1 %tobool.i.not.i.i.i.i.i, ptr %data_.i.i.i.i.i.i, ptr %3
   %cmp.not3.i.i.i.i.i.i = icmp eq i64 %2, 1
@@ -394,9 +375,9 @@ entry:
   %0 = load i64, ptr %this, align 8, !noalias !13
   %and.i.i = and i64 %0, 1
   %tobool.i.not.i = icmp eq i64 %and.i.i, 0
-  %data_.i1.i = getelementptr inbounds %"class.absl::lts_20230802::inlined_vector_internal::Storage", ptr %this, i64 0, i32 1
+  %data_.i1.i = getelementptr inbounds i8, ptr %this, i64 8
   %1 = load ptr, ptr %data_.i1.i, align 8, !noalias !13
-  %allocated_capacity.i.i = getelementptr inbounds %"class.absl::lts_20230802::inlined_vector_internal::Storage", ptr %this, i64 0, i32 1, i32 0, i32 1
+  %allocated_capacity.i.i = getelementptr inbounds i8, ptr %this, i64 16
   %2 = load i64, ptr %allocated_capacity.i.i, align 8, !noalias !13
   %.sink3.i = select i1 %tobool.i.not.i, ptr %data_.i1.i, ptr %1
   %3 = shl i64 %2, 1
@@ -426,7 +407,7 @@ _ZN4absl12lts_2023080223inlined_vector_internal13MallocAdapterISaIN9grpc_core17G
   %5 = load i32, ptr %args1, align 4
   %conv.i.i = sext i32 %5 to i64
   store i64 %4, ptr %add.ptr, align 8
-  %count3.i.i.i = getelementptr inbounds %"struct.grpc_core::GrpcLbClientStats::DropTokenCount", ptr %call5.i.i.i.i5, i64 %shr.i.sink.i, i32 1
+  %count3.i.i.i = getelementptr inbounds i8, ptr %add.ptr, i64 8
   store i64 %conv.i.i, ptr %count3.i.i.i, align 8
   %cmp6.not.i = icmp ult i64 %0, 2
   br i1 %cmp6.not.i, label %_ZN4absl12lts_2023080223inlined_vector_internal14DestroyAdapterISaIN9grpc_core17GrpcLbClientStats14DropTokenCountEELb0EE15DestroyElementsERS6_PS5_m.exit, label %for.inc.i
@@ -438,11 +419,11 @@ for.inc.i:                                        ; preds = %_ZN4absl12lts_20230
   %6 = load i64, ptr %move_values.sroa.0.0, align 8
   store i64 %6, ptr %add.ptr.i, align 8
   store ptr null, ptr %move_values.sroa.0.0, align 8
-  %count.i.i.i.i.i = getelementptr inbounds %"struct.grpc_core::GrpcLbClientStats::DropTokenCount", ptr %call5.i.i.i.i5, i64 %i.07.i, i32 1
-  %count3.i.i.i.i.i = getelementptr inbounds %"struct.grpc_core::GrpcLbClientStats::DropTokenCount", ptr %move_values.sroa.0.0, i64 0, i32 1
+  %count.i.i.i.i.i = getelementptr inbounds i8, ptr %add.ptr.i, i64 8
+  %count3.i.i.i.i.i = getelementptr inbounds i8, ptr %move_values.sroa.0.0, i64 8
   %7 = load i64, ptr %count3.i.i.i.i.i, align 8
   store i64 %7, ptr %count.i.i.i.i.i, align 8
-  %incdec.ptr.i.i.i = getelementptr inbounds %"struct.grpc_core::GrpcLbClientStats::DropTokenCount", ptr %move_values.sroa.0.0, i64 1
+  %incdec.ptr.i.i.i = getelementptr inbounds i8, ptr %move_values.sroa.0.0, i64 16
   %inc.i = add nuw nsw i64 %i.07.i, 1
   %exitcond.not.i = icmp eq i64 %inc.i, %shr.i.sink.i
   br i1 %exitcond.not.i, label %for.body.i, label %for.inc.i, !llvm.loop !16

@@ -28,18 +28,18 @@ entry:
   %6 = extractvalue { i64, i64 } %call19, 0
   %7 = extractvalue { i64, i64 } %call19, 1
   %add21 = add i64 %6, %add
-  %arrayidx22 = getelementptr i64, ptr %zPtr, i64 1
+  %arrayidx22 = getelementptr i8, ptr %zPtr, i64 8
   store i64 %add21, ptr %arrayidx22, align 8
   %cmp24 = icmp ult i64 %add21, %6
   %conv26 = zext i1 %cmp24 to i64
   %add28 = add i64 %7, %conv26
   %add30 = add i64 %add28, %add11
-  %arrayidx31 = getelementptr i64, ptr %zPtr, i64 2
+  %arrayidx31 = getelementptr i8, ptr %zPtr, i64 16
   store i64 %add30, ptr %arrayidx31, align 8
   %cmp33 = icmp ult i64 %add30, %add28
   %conv35 = zext i1 %cmp33 to i64
   %add36 = add i64 %add17, %conv35
-  %arrayidx37 = getelementptr i64, ptr %zPtr, i64 3
+  %arrayidx37 = getelementptr i8, ptr %zPtr, i64 24
   store i64 %add36, ptr %arrayidx37, align 8
   ret void
 }

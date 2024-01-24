@@ -6,7 +6,6 @@ target triple = "x86_64-unknown-linux-gnu"
 %struct.reftable_table_vtable = type { ptr, ptr, ptr, ptr }
 %struct.reftable_iterator_vtable = type { ptr, ptr }
 %struct.reftable_table = type { ptr, ptr }
-%struct.reftable_merged_table = type { ptr, i64, i32, i32, i64, i64 }
 %struct.reftable_record = type { i8, %union.anon }
 %union.anon = type { %struct.reftable_ref_record }
 %struct.reftable_ref_record = type { ptr, i64, i32, %union.anon.0 }
@@ -58,13 +57,13 @@ for.end:                                          ; preds = %if.end, %entry
   %call17 = tail call ptr @reftable_calloc(i64 noundef 40) #10
   store ptr %stack, ptr %call17, align 8
   %conv = sext i32 %n to i64
-  %stack_len = getelementptr inbounds %struct.reftable_merged_table, ptr %call17, i64 0, i32 1
+  %stack_len = getelementptr inbounds i8, ptr %call17, i64 8
   store i64 %conv, ptr %stack_len, align 8
-  %min19 = getelementptr inbounds %struct.reftable_merged_table, ptr %call17, i64 0, i32 4
+  %min19 = getelementptr inbounds i8, ptr %call17, i64 24
   store i64 %first_min.0.lcssa, ptr %min19, align 8
-  %max20 = getelementptr inbounds %struct.reftable_merged_table, ptr %call17, i64 0, i32 5
+  %max20 = getelementptr inbounds i8, ptr %call17, i64 32
   store i64 %last_max.0.lcssa, ptr %max20, align 8
-  %hash_id21 = getelementptr inbounds %struct.reftable_merged_table, ptr %call17, i64 0, i32 2
+  %hash_id21 = getelementptr inbounds i8, ptr %call17, i64 16
   store i32 %hash_id, ptr %hash_id21, align 8
   store ptr %call17, ptr %dest, align 8
   br label %return
@@ -116,7 +115,7 @@ declare void @reftable_free(ptr noundef) local_unnamed_addr #1
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
 define dso_local i64 @reftable_merged_table_max_update_index(ptr nocapture noundef readonly %mt) local_unnamed_addr #4 {
 entry:
-  %max = getelementptr inbounds %struct.reftable_merged_table, ptr %mt, i64 0, i32 5
+  %max = getelementptr inbounds i8, ptr %mt, i64 32
   %0 = load i64, ptr %max, align 8
   ret i64 %0
 }
@@ -124,7 +123,7 @@ entry:
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
 define dso_local i64 @reftable_merged_table_min_update_index(ptr nocapture noundef readonly %mt) local_unnamed_addr #4 {
 entry:
-  %min = getelementptr inbounds %struct.reftable_merged_table, ptr %mt, i64 0, i32 4
+  %min = getelementptr inbounds i8, ptr %mt, i64 24
   %0 = load i64, ptr %min, align 8
   ret i64 %0
 }
@@ -135,7 +134,7 @@ entry:
   %rec = alloca %struct.reftable_record, align 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(96) %rec, i8 0, i64 96, i1 false)
   store i8 114, ptr %rec, align 8
-  %u = getelementptr inbounds %struct.reftable_record, ptr %rec, i64 0, i32 1
+  %u = getelementptr inbounds i8, ptr %rec, i64 8
   store ptr %name, ptr %u, align 8
   %call = call fastcc i32 @merged_table_seek_record(ptr noundef %mt, ptr noundef %it, ptr noundef nonnull %rec), !range !7
   ret i32 %call
@@ -150,30 +149,30 @@ entry:
   %rec.i = alloca %struct.reftable_record, align 8
   %e.i = alloca %struct.pq_entry, align 8
   %merged = alloca %struct.merged_iter, align 8
-  %stack_len = getelementptr inbounds %struct.reftable_merged_table, ptr %mt, i64 0, i32 1
+  %stack_len = getelementptr inbounds i8, ptr %mt, i64 8
   %0 = load i64, ptr %stack_len, align 8
   %mul = shl i64 %0, 4
   %call = tail call ptr @reftable_calloc(i64 noundef %mul) #10
   store ptr %call, ptr %merged, align 8
-  %hash_id = getelementptr inbounds %struct.merged_iter, ptr %merged, i64 0, i32 1
-  %hash_id1 = getelementptr inbounds %struct.reftable_merged_table, ptr %mt, i64 0, i32 2
+  %hash_id = getelementptr inbounds i8, ptr %merged, i64 8
+  %hash_id1 = getelementptr inbounds i8, ptr %mt, i64 16
   %1 = load i32, ptr %hash_id1, align 8
   store i32 %1, ptr %hash_id, align 8
-  %stack_len2 = getelementptr inbounds %struct.merged_iter, ptr %merged, i64 0, i32 2
-  %typ = getelementptr inbounds %struct.merged_iter, ptr %merged, i64 0, i32 3
+  %stack_len2 = getelementptr inbounds i8, ptr %merged, i64 16
+  %typ = getelementptr inbounds i8, ptr %merged, i64 24
   %call3 = tail call zeroext i8 @reftable_record_type(ptr noundef %rec) #10
   store i8 %call3, ptr %typ, align 8
-  %suppress_deletions = getelementptr inbounds %struct.merged_iter, ptr %merged, i64 0, i32 4
-  %suppress_deletions4 = getelementptr inbounds %struct.reftable_merged_table, ptr %mt, i64 0, i32 3
+  %suppress_deletions = getelementptr inbounds i8, ptr %merged, i64 28
+  %suppress_deletions4 = getelementptr inbounds i8, ptr %mt, i64 20
   %2 = load i32, ptr %suppress_deletions4, align 4
   store i32 %2, ptr %suppress_deletions, align 4
-  %pq = getelementptr inbounds %struct.merged_iter, ptr %merged, i64 0, i32 5
-  %key = getelementptr inbounds %struct.merged_iter, ptr %merged, i64 0, i32 6
-  %buf = getelementptr inbounds %struct.merged_iter, ptr %merged, i64 0, i32 6, i32 2
+  %pq = getelementptr inbounds i8, ptr %merged, i64 32
+  %key = getelementptr inbounds i8, ptr %merged, i64 56
+  %buf = getelementptr inbounds i8, ptr %merged, i64 72
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %pq, i8 0, i64 40, i1 false)
   store ptr @strbuf_slopbuf, ptr %buf, align 8
-  %entry_key = getelementptr inbounds %struct.merged_iter, ptr %merged, i64 0, i32 7
-  %buf7 = getelementptr inbounds %struct.merged_iter, ptr %merged, i64 0, i32 7, i32 2
+  %entry_key = getelementptr inbounds i8, ptr %merged, i64 80
+  %buf7 = getelementptr inbounds i8, ptr %merged, i64 96
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %entry_key, i8 0, i64 16, i1 false)
   store ptr @strbuf_slopbuf, ptr %buf7, align 8
   %3 = load i64, ptr %stack_len, align 8
@@ -242,7 +241,7 @@ if.end36:                                         ; preds = %for.end
   br i1 %cmp11.not.i, label %if.else, label %for.body.lr.ph.i
 
 for.body.lr.ph.i:                                 ; preds = %if.end36
-  %rec10.i = getelementptr inbounds %struct.pq_entry, ptr %e.i, i64 0, i32 1
+  %rec10.i = getelementptr inbounds i8, ptr %e.i, i64 8
   br label %for.body.i
 
 for.body.i:                                       ; preds = %for.inc.i, %for.body.lr.ph.i
@@ -309,7 +308,7 @@ if.else:                                          ; preds = %for.inc.i, %if.end3
   call void @llvm.lifetime.end.p0(i64 104, ptr nonnull %e.i)
   %call43 = call ptr @reftable_malloc(i64 noundef 104) #10
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(104) %call43, ptr noundef nonnull align 8 dereferenceable(104) %merged, i64 104, i1 false)
-  %iter_arg.i = getelementptr inbounds %struct.reftable_iterator, ptr %it, i64 0, i32 1
+  %iter_arg.i = getelementptr inbounds i8, ptr %it, i64 8
   store ptr %call43, ptr %iter_arg.i, align 8
   store ptr @merged_iter_vtable, ptr %it, align 8
   br label %return
@@ -325,9 +324,9 @@ entry:
   %rec = alloca %struct.reftable_record, align 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(96) %rec, i8 0, i64 96, i1 false)
   store i8 103, ptr %rec, align 8
-  %u = getelementptr inbounds %struct.reftable_record, ptr %rec, i64 0, i32 1
+  %u = getelementptr inbounds i8, ptr %rec, i64 8
   store ptr %name, ptr %u, align 8
-  %update_index1 = getelementptr inbounds %struct.reftable_record, ptr %rec, i64 0, i32 1, i32 0, i32 1
+  %update_index1 = getelementptr inbounds i8, ptr %rec, i64 16
   store i64 %update_index, ptr %update_index1, align 8
   %call = call fastcc i32 @merged_table_seek_record(ptr noundef %mt, ptr noundef %it, ptr noundef nonnull %rec), !range !7
   ret i32 %call
@@ -340,9 +339,9 @@ entry:
   call void @llvm.lifetime.start.p0(i64 96, ptr nonnull %rec.i)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(96) %rec.i, i8 0, i64 96, i1 false)
   store i8 103, ptr %rec.i, align 8
-  %u.i = getelementptr inbounds %struct.reftable_record, ptr %rec.i, i64 0, i32 1
+  %u.i = getelementptr inbounds i8, ptr %rec.i, i64 8
   store ptr %name, ptr %u.i, align 8
-  %update_index1.i = getelementptr inbounds %struct.reftable_record, ptr %rec.i, i64 0, i32 1, i32 0, i32 1
+  %update_index1.i = getelementptr inbounds i8, ptr %rec.i, i64 16
   store i64 -1, ptr %update_index1.i, align 8
   %call.i = call fastcc i32 @merged_table_seek_record(ptr noundef %mt, ptr noundef %it, ptr noundef nonnull %rec.i), !range !7
   call void @llvm.lifetime.end.p0(i64 96, ptr nonnull %rec.i)
@@ -352,7 +351,7 @@ entry:
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
 define dso_local i32 @reftable_merged_table_hash_id(ptr nocapture noundef readonly %mt) local_unnamed_addr #4 {
 entry:
-  %hash_id = getelementptr inbounds %struct.reftable_merged_table, ptr %mt, i64 0, i32 2
+  %hash_id = getelementptr inbounds i8, ptr %mt, i64 16
   %0 = load i32, ptr %hash_id, align 8
   ret i32 %0
 }
@@ -361,7 +360,7 @@ entry:
 define dso_local void @reftable_table_from_merged_table(ptr nocapture noundef writeonly %tab, ptr noundef %merged) local_unnamed_addr #6 {
 entry:
   store ptr @merged_table_vtable, ptr %tab, align 8
-  %table_arg = getelementptr inbounds %struct.reftable_table, ptr %tab, i64 0, i32 1
+  %table_arg = getelementptr inbounds i8, ptr %tab, i64 8
   store ptr %merged, ptr %table_arg, align 8
   ret void
 }
@@ -373,9 +372,9 @@ declare void @reftable_iterator_destroy(ptr noundef) local_unnamed_addr #1
 ; Function Attrs: nounwind uwtable
 define internal void @merged_iter_close(ptr noundef %p) #0 {
 entry:
-  %pq = getelementptr inbounds %struct.merged_iter, ptr %p, i64 0, i32 5
+  %pq = getelementptr inbounds i8, ptr %p, i64 32
   tail call void @merged_iter_pqueue_release(ptr noundef nonnull %pq) #10
-  %stack_len = getelementptr inbounds %struct.merged_iter, ptr %p, i64 0, i32 2
+  %stack_len = getelementptr inbounds i8, ptr %p, i64 16
   %0 = load i64, ptr %stack_len, align 8
   %cmp8.not = icmp eq i64 %0, 0
   br i1 %cmp8.not, label %for.end, label %for.body
@@ -393,9 +392,9 @@ for.body:                                         ; preds = %entry, %for.body
 for.end:                                          ; preds = %for.body, %entry
   %3 = load ptr, ptr %p, align 8
   tail call void @reftable_free(ptr noundef %3) #10
-  %key = getelementptr inbounds %struct.merged_iter, ptr %p, i64 0, i32 6
+  %key = getelementptr inbounds i8, ptr %p, i64 56
   tail call void @strbuf_release(ptr noundef nonnull %key) #10
-  %entry_key = getelementptr inbounds %struct.merged_iter, ptr %p, i64 0, i32 7
+  %entry_key = getelementptr inbounds i8, ptr %p, i64 80
   tail call void @strbuf_release(ptr noundef nonnull %entry_key) #10
   ret void
 }
@@ -424,17 +423,17 @@ entry:
   %tmp.i.i = alloca %struct.pq_entry, align 8
   %top.i.i = alloca %struct.pq_entry, align 8
   %tmp22.i.i = alloca %struct.pq_entry, align 8
-  %pq = getelementptr inbounds %struct.merged_iter, ptr %p, i64 0, i32 5
+  %pq = getelementptr inbounds i8, ptr %p, i64 32
   %call = tail call i32 @merged_iter_pqueue_is_empty(ptr noundef nonnull byval(%struct.merged_iter_pqueue) align 8 %pq) #10
   %tobool.not = icmp eq i32 %call, 0
   br i1 %tobool.not, label %if.end, label %return
 
 if.end:                                           ; preds = %entry
-  %rec7.i.i = getelementptr inbounds %struct.pq_entry, ptr %entry1.i.i, i64 0, i32 1
-  %entry_key.i.i = getelementptr inbounds %struct.merged_iter, ptr %p, i64 0, i32 7
-  %rec13.i.i = getelementptr inbounds %struct.pq_entry, ptr %top.i.i, i64 0, i32 1
-  %key.i.i = getelementptr inbounds %struct.merged_iter, ptr %p, i64 0, i32 6
-  %suppress_deletions.i = getelementptr inbounds %struct.merged_iter, ptr %p, i64 0, i32 4
+  %rec7.i.i = getelementptr inbounds i8, ptr %entry1.i.i, i64 8
+  %entry_key.i.i = getelementptr inbounds i8, ptr %p, i64 80
+  %rec13.i.i = getelementptr inbounds i8, ptr %top.i.i, i64 8
+  %key.i.i = getelementptr inbounds i8, ptr %p, i64 56
+  %suppress_deletions.i = getelementptr inbounds i8, ptr %p, i64 28
   br label %while.body.i
 
 while.body.i:                                     ; preds = %land.lhs.true1.i, %if.end
@@ -535,8 +534,8 @@ if.end:                                           ; preds = %entry
   call void @llvm.lifetime.start.p0(i64 104, ptr nonnull %e.i)
   %conv.i = trunc i64 %idx to i32
   store i32 %conv.i, ptr %e.i, align 8
-  %rec.i = getelementptr inbounds %struct.pq_entry, ptr %e.i, i64 0, i32 1
-  %typ.i = getelementptr inbounds %struct.merged_iter, ptr %mi, i64 0, i32 3
+  %rec.i = getelementptr inbounds i8, ptr %e.i, i64 8
+  %typ.i = getelementptr inbounds i8, ptr %mi, i64 24
   %1 = load i8, ptr %typ.i, align 8
   call void @reftable_new_record(ptr nonnull sret(%struct.reftable_record) align 8 %rec.i, i8 noundef zeroext %1) #10
   %2 = load ptr, ptr %mi, align 8
@@ -557,7 +556,7 @@ if.then5.i:                                       ; preds = %if.end.i
   br label %merged_iter_advance_nonnull_subiter.exit
 
 if.end9.i:                                        ; preds = %if.end.i
-  %pq.i = getelementptr inbounds %struct.merged_iter, ptr %mi, i64 0, i32 5
+  %pq.i = getelementptr inbounds i8, ptr %mi, i64 32
   call void @merged_iter_pqueue_add(ptr noundef nonnull %pq.i, ptr noundef nonnull %e.i) #10
   br label %merged_iter_advance_nonnull_subiter.exit
 
@@ -589,7 +588,7 @@ entry:
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
 define internal i32 @reftable_merged_table_hash_id_void(ptr nocapture noundef readonly %tab) #4 {
 entry:
-  %hash_id.i = getelementptr inbounds %struct.reftable_merged_table, ptr %tab, i64 0, i32 2
+  %hash_id.i = getelementptr inbounds i8, ptr %tab, i64 16
   %0 = load i32, ptr %hash_id.i, align 8
   ret i32 %0
 }
@@ -597,7 +596,7 @@ entry:
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
 define internal i64 @reftable_merged_table_min_update_index_void(ptr nocapture noundef readonly %tab) #4 {
 entry:
-  %min.i = getelementptr inbounds %struct.reftable_merged_table, ptr %tab, i64 0, i32 4
+  %min.i = getelementptr inbounds i8, ptr %tab, i64 24
   %0 = load i64, ptr %min.i, align 8
   ret i64 %0
 }
@@ -605,7 +604,7 @@ entry:
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
 define internal i64 @reftable_merged_table_max_update_index_void(ptr nocapture noundef readonly %tab) #4 {
 entry:
-  %max.i = getelementptr inbounds %struct.reftable_merged_table, ptr %tab, i64 0, i32 5
+  %max.i = getelementptr inbounds i8, ptr %tab, i64 32
   %0 = load i64, ptr %max.i, align 8
   ret i64 %0
 }

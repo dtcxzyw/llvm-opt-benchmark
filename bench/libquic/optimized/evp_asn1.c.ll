@@ -5,8 +5,6 @@ target triple = "x86_64-unknown-linux-gnu"
 
 %struct.evp_pkey_asn1_method_st = type { i32, [9 x i8], i8, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr }
 %struct.cbs_st = type { ptr, i64 }
-%struct.evp_pkey_st = type { i32, i32, %union.anon, ptr }
-%union.anon = type { ptr }
 
 @.str = private unnamed_addr constant [125 x i8] c"generated/home/dtcxzyw/WorkSpace/Projects/compilers/llvm-opt-benchmark/bench/libquic/libquic/boringssl/crypto/evp/evp_asn1.c\00", align 1
 @kASN1Methods = internal unnamed_addr constant [3 x ptr] [ptr @rsa_asn1_meth, ptr @ec_asn1_meth, ptr @dsa_asn1_meth], align 16
@@ -42,7 +40,7 @@ for.body.i:                                       ; preds = %lor.lhs.false3, %fo
   %arrayidx.i = getelementptr inbounds [3 x ptr], ptr @kASN1Methods, i64 0, i64 %indvars.iv.i
   %0 = load ptr, ptr %arrayidx.i, align 8
   %call2.i = call i64 @CBS_len(ptr noundef nonnull %oid.i) #4
-  %oid_len.i = getelementptr inbounds %struct.evp_pkey_asn1_method_st, ptr %0, i64 0, i32 2
+  %oid_len.i = getelementptr inbounds i8, ptr %0, i64 13
   %1 = load i8, ptr %oid_len.i, align 1
   %conv3.i = zext i8 %1 to i64
   %cmp4.i = icmp eq i64 %call2.i, %conv3.i
@@ -50,7 +48,7 @@ for.body.i:                                       ; preds = %lor.lhs.false3, %fo
 
 land.lhs.true.i:                                  ; preds = %for.body.i
   %call6.i = call ptr @CBS_data(ptr noundef nonnull %oid.i) #4
-  %oid7.i = getelementptr inbounds %struct.evp_pkey_asn1_method_st, ptr %0, i64 0, i32 1
+  %oid7.i = getelementptr inbounds i8, ptr %0, i64 4
   %2 = load i8, ptr %oid_len.i, align 1
   %conv9.i = zext i8 %2 to i64
   %bcmp.i = call i32 @bcmp(ptr %call6.i, ptr nonnull %oid7.i, i64 %conv9.i)
@@ -101,9 +99,9 @@ lor.lhs.false20:                                  ; preds = %if.end
   br i1 %tobool22.not, label %err, label %if.end24
 
 if.end24:                                         ; preds = %lor.lhs.false20
-  %ameth = getelementptr inbounds %struct.evp_pkey_st, ptr %call17, i64 0, i32 3
+  %ameth = getelementptr inbounds i8, ptr %call17, i64 16
   %5 = load ptr, ptr %ameth, align 8
-  %pub_decode = getelementptr inbounds %struct.evp_pkey_asn1_method_st, ptr %5, i64 0, i32 3
+  %pub_decode = getelementptr inbounds i8, ptr %5, i64 16
   %6 = load ptr, ptr %pub_decode, align 8
   %cmp25 = icmp eq ptr %6, null
   br i1 %cmp25, label %if.then27, label %if.end28
@@ -143,13 +141,13 @@ declare void @EVP_PKEY_free(ptr noundef) local_unnamed_addr #1
 ; Function Attrs: nounwind uwtable
 define hidden i32 @EVP_marshal_public_key(ptr noundef %cbb, ptr noundef %key) local_unnamed_addr #0 {
 entry:
-  %ameth = getelementptr inbounds %struct.evp_pkey_st, ptr %key, i64 0, i32 3
+  %ameth = getelementptr inbounds i8, ptr %key, i64 16
   %0 = load ptr, ptr %ameth, align 8
   %cmp = icmp eq ptr %0, null
   br i1 %cmp, label %if.then, label %lor.lhs.false
 
 lor.lhs.false:                                    ; preds = %entry
-  %pub_encode = getelementptr inbounds %struct.evp_pkey_asn1_method_st, ptr %0, i64 0, i32 4
+  %pub_encode = getelementptr inbounds i8, ptr %0, i64 24
   %1 = load ptr, ptr %pub_encode, align 8
   %cmp2 = icmp eq ptr %1, null
   br i1 %cmp2, label %if.then, label %if.end
@@ -203,7 +201,7 @@ for.body.i:                                       ; preds = %lor.lhs.false7, %fo
   %arrayidx.i = getelementptr inbounds [3 x ptr], ptr @kASN1Methods, i64 0, i64 %indvars.iv.i
   %1 = load ptr, ptr %arrayidx.i, align 8
   %call2.i = call i64 @CBS_len(ptr noundef nonnull %oid.i) #4
-  %oid_len.i = getelementptr inbounds %struct.evp_pkey_asn1_method_st, ptr %1, i64 0, i32 2
+  %oid_len.i = getelementptr inbounds i8, ptr %1, i64 13
   %2 = load i8, ptr %oid_len.i, align 1
   %conv3.i = zext i8 %2 to i64
   %cmp4.i = icmp eq i64 %call2.i, %conv3.i
@@ -211,7 +209,7 @@ for.body.i:                                       ; preds = %lor.lhs.false7, %fo
 
 land.lhs.true.i:                                  ; preds = %for.body.i
   %call6.i = call ptr @CBS_data(ptr noundef nonnull %oid.i) #4
-  %oid7.i = getelementptr inbounds %struct.evp_pkey_asn1_method_st, ptr %1, i64 0, i32 1
+  %oid7.i = getelementptr inbounds i8, ptr %1, i64 4
   %3 = load i8, ptr %oid_len.i, align 1
   %conv9.i = zext i8 %3 to i64
   %bcmp.i = call i32 @bcmp(ptr %call6.i, ptr nonnull %oid7.i, i64 %conv9.i)
@@ -249,9 +247,9 @@ lor.lhs.false15:                                  ; preds = %if.end
   br i1 %tobool17.not, label %err, label %if.end19
 
 if.end19:                                         ; preds = %lor.lhs.false15
-  %ameth = getelementptr inbounds %struct.evp_pkey_st, ptr %call13, i64 0, i32 3
+  %ameth = getelementptr inbounds i8, ptr %call13, i64 16
   %5 = load ptr, ptr %ameth, align 8
-  %priv_decode = getelementptr inbounds %struct.evp_pkey_asn1_method_st, ptr %5, i64 0, i32 6
+  %priv_decode = getelementptr inbounds i8, ptr %5, i64 40
   %6 = load ptr, ptr %priv_decode, align 8
   %cmp20 = icmp eq ptr %6, null
   br i1 %cmp20, label %if.then21, label %if.end22
@@ -279,13 +277,13 @@ declare i32 @CBS_get_asn1_uint64(ptr noundef, ptr noundef) local_unnamed_addr #1
 ; Function Attrs: nounwind uwtable
 define hidden i32 @EVP_marshal_private_key(ptr noundef %cbb, ptr noundef %key) local_unnamed_addr #0 {
 entry:
-  %ameth = getelementptr inbounds %struct.evp_pkey_st, ptr %key, i64 0, i32 3
+  %ameth = getelementptr inbounds i8, ptr %key, i64 16
   %0 = load ptr, ptr %ameth, align 8
   %cmp = icmp eq ptr %0, null
   br i1 %cmp, label %if.then, label %lor.lhs.false
 
 lor.lhs.false:                                    ; preds = %entry
-  %priv_encode = getelementptr inbounds %struct.evp_pkey_asn1_method_st, ptr %0, i64 0, i32 7
+  %priv_encode = getelementptr inbounds i8, ptr %0, i64 48
   %1 = load ptr, ptr %priv_encode, align 8
   %cmp2 = icmp eq ptr %1, null
   br i1 %cmp2, label %if.then, label %if.end
@@ -387,7 +385,7 @@ if.then2:                                         ; preds = %err.i, %if.end
   br i1 %cmp4, label %return, label %if.end6
 
 if.end6:                                          ; preds = %if.then2
-  %type7 = getelementptr inbounds %struct.evp_pkey_st, ptr %call3, i64 0, i32 1
+  %type7 = getelementptr inbounds i8, ptr %call3, i64 4
   %2 = load i32, ptr %type7, align 4
   %cmp8.not = icmp eq i32 %2, %type
   br i1 %cmp8.not, label %if.end11, label %if.then9
@@ -519,7 +517,7 @@ return:                                           ; preds = %sw.default, %sw.bb1
 ; Function Attrs: nounwind uwtable
 define hidden i32 @i2d_PublicKey(ptr nocapture noundef readonly %key, ptr noundef %outp) local_unnamed_addr #0 {
 entry:
-  %type = getelementptr inbounds %struct.evp_pkey_st, ptr %key, i64 0, i32 1
+  %type = getelementptr inbounds i8, ptr %key, i64 4
   %0 = load i32, ptr %type, align 4
   switch i32 %0, label %sw.default [
     i32 6, label %sw.bb
@@ -528,19 +526,19 @@ entry:
   ]
 
 sw.bb:                                            ; preds = %entry
-  %pkey = getelementptr inbounds %struct.evp_pkey_st, ptr %key, i64 0, i32 2
+  %pkey = getelementptr inbounds i8, ptr %key, i64 8
   %1 = load ptr, ptr %pkey, align 8
   %call = tail call i32 @i2d_RSAPublicKey(ptr noundef %1, ptr noundef %outp) #4
   br label %return
 
 sw.bb1:                                           ; preds = %entry
-  %pkey2 = getelementptr inbounds %struct.evp_pkey_st, ptr %key, i64 0, i32 2
+  %pkey2 = getelementptr inbounds i8, ptr %key, i64 8
   %2 = load ptr, ptr %pkey2, align 8
   %call3 = tail call i32 @i2d_DSAPublicKey(ptr noundef %2, ptr noundef %outp) #4
   br label %return
 
 sw.bb4:                                           ; preds = %entry
-  %pkey5 = getelementptr inbounds %struct.evp_pkey_st, ptr %key, i64 0, i32 2
+  %pkey5 = getelementptr inbounds i8, ptr %key, i64 8
   %3 = load ptr, ptr %pkey5, align 8
   %call6 = tail call i32 @i2o_ECPublicKey(ptr noundef %3, ptr noundef %outp) #4
   br label %return

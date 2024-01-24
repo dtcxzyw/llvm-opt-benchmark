@@ -4,10 +4,6 @@ target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:
 target triple = "x86_64-unknown-linux-gnu"
 
 %struct.git_hash_algo = type { ptr, i32, i64, i64, i64, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr }
-%struct.repository = type { ptr, ptr, ptr, ptr, ptr, %struct.repo_path_cache, ptr, ptr, ptr, ptr, %struct.repo_settings, ptr, ptr, ptr, ptr, ptr, i32, i32, i32, ptr, ptr, i32, i8 }
-%struct.repo_path_cache = type { ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr }
-%struct.repo_settings = type { i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, ptr, i32, i32, i32, i32, i32, i32 }
-%struct.object_id = type { [32 x i8], i32 }
 
 @the_repository = external local_unnamed_addr global ptr, align 8
 @.str = private unnamed_addr constant [14 x i8] c"hash-lookup.c\00", align 1
@@ -25,9 +21,9 @@ entry:
 
 for.cond.preheader:                               ; preds = %entry
   %0 = load ptr, ptr @the_repository, align 8
-  %hash_algo67 = getelementptr inbounds %struct.repository, ptr %0, i64 0, i32 15
+  %hash_algo67 = getelementptr inbounds i8, ptr %0, i64 256
   %1 = load ptr, ptr %hash_algo67, align 8
-  %rawsz68 = getelementptr inbounds %struct.git_hash_algo, ptr %1, i64 0, i32 2
+  %rawsz68 = getelementptr inbounds i8, ptr %1, i64 16
   %2 = load i64, ptr %rawsz68, align 8
   %cmp270.not = icmp eq i64 %2, 2
   br i1 %cmp270.not, label %do.body.preheader, label %for.body.lr.ph
@@ -39,9 +35,9 @@ for.body.lr.ph:                                   ; preds = %for.cond.preheader
 for.cond:                                         ; preds = %if.end18
   %add = add i64 %ofs.071, 2
   %3 = load ptr, ptr @the_repository, align 8
-  %hash_algo = getelementptr inbounds %struct.repository, ptr %3, i64 0, i32 15
+  %hash_algo = getelementptr inbounds i8, ptr %3, i64 256
   %4 = load ptr, ptr %hash_algo, align 8
-  %rawsz = getelementptr inbounds %struct.git_hash_algo, ptr %4, i64 0, i32 2
+  %rawsz = getelementptr inbounds i8, ptr %4, i64 16
   %5 = load i64, ptr %rawsz, align 8
   %sub = add i64 %5, -2
   %cmp2 = icmp ult i64 %add, %sub
@@ -124,14 +120,14 @@ do.body:                                          ; preds = %do.body.preheader, 
   %lo.0 = phi i64 [ %lo.1, %if.end39 ], [ 0, %do.body.preheader ]
   %hi.0 = phi i64 [ %hi.1, %if.end39 ], [ %nr, %do.body.preheader ]
   %call34 = tail call ptr %fn(i64 noundef %mi.1, ptr noundef %table) #4
-  %algo.i = getelementptr inbounds %struct.object_id, ptr %call34, i64 0, i32 1
+  %algo.i = getelementptr inbounds i8, ptr %call34, i64 32
   %12 = load i32, ptr %algo.i, align 4
   %tobool.not.i = icmp eq i32 %12, 0
   br i1 %tobool.not.i, label %if.then.i51, label %if.else.i
 
 if.then.i51:                                      ; preds = %do.body
   %13 = load ptr, ptr @the_repository, align 8
-  %hash_algo.i = getelementptr inbounds %struct.repository, ptr %13, i64 0, i32 15
+  %hash_algo.i = getelementptr inbounds i8, ptr %13, i64 256
   %14 = load ptr, ptr %hash_algo.i, align 8
   br label %if.end.i
 
@@ -222,7 +218,7 @@ cond.end:                                         ; preds = %if.else.i17, %entry
 
 while.body.lr.ph:                                 ; preds = %cond.end
   %5 = load ptr, ptr @the_repository, align 8
-  %hash_algo.i = getelementptr inbounds %struct.repository, ptr %5, i64 0, i32 15
+  %hash_algo.i = getelementptr inbounds i8, ptr %5, i64 256
   %6 = load ptr, ptr %hash_algo.i, align 8
   %7 = getelementptr i8, ptr %6, i64 16
   %.val.i = load i64, ptr %7, align 8

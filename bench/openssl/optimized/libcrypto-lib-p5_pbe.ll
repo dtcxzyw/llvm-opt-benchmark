@@ -5,7 +5,6 @@ target triple = "x86_64-unknown-linux-gnu"
 
 %struct.ASN1_ITEM_st = type { i8, i64, ptr, i64, ptr, i64, ptr }
 %struct.ASN1_TEMPLATE_st = type { i64, i64, i64, ptr, ptr }
-%struct.PBEPARAM_st = type { ptr, ptr }
 
 @PBEPARAM_it.local_it = internal constant %struct.ASN1_ITEM_st { i8 1, i64 16, ptr @PBEPARAM_seq_tt, i64 2, ptr null, i64 16, ptr @.str }, align 8
 @PBEPARAM_seq_tt = internal constant [2 x %struct.ASN1_TEMPLATE_st] [%struct.ASN1_TEMPLATE_st { i64 0, i64 0, i64 0, ptr @.str.2, ptr @ASN1_OCTET_STRING_it }, %struct.ASN1_TEMPLATE_st { i64 0, i64 0, i64 8, ptr @.str.3, ptr @ASN1_INTEGER_it }], align 16
@@ -17,7 +16,7 @@ target triple = "x86_64-unknown-linux-gnu"
 @.str.3 = private unnamed_addr constant [5 x i8] c"iter\00", align 1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define nonnull ptr @PBEPARAM_it() local_unnamed_addr #0 {
+define noundef nonnull ptr @PBEPARAM_it() local_unnamed_addr #0 {
 entry:
   ret ptr @PBEPARAM_it.local_it
 }
@@ -59,7 +58,7 @@ entry:
 declare void @ASN1_item_free(ptr noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define i32 @PKCS5_pbe_set0_algor_ex(ptr noundef %algor, i32 noundef %alg, i32 noundef %iter, ptr noundef readonly %salt, i32 noundef %saltlen, ptr noundef %ctx) local_unnamed_addr #1 {
+define noundef i32 @PKCS5_pbe_set0_algor_ex(ptr noundef %algor, i32 noundef %alg, i32 noundef %iter, ptr noundef readonly %salt, i32 noundef %saltlen, ptr noundef %ctx) local_unnamed_addr #1 {
 entry:
   %pbe_str = alloca ptr, align 8
   store ptr null, ptr %pbe_str, align 8
@@ -76,7 +75,7 @@ if.then:                                          ; preds = %entry
 if.end:                                           ; preds = %entry
   %cmp1 = icmp slt i32 %iter, 1
   %spec.store.select = select i1 %cmp1, i32 2048, i32 %iter
-  %iter4 = getelementptr inbounds %struct.PBEPARAM_st, ptr %call1.i, i64 0, i32 1
+  %iter4 = getelementptr inbounds i8, ptr %call1.i, i64 8
   %0 = load ptr, ptr %iter4, align 8
   %conv = zext nneg i32 %spec.store.select to i64
   %call5 = tail call i32 @ASN1_INTEGER_set(ptr noundef %0, i64 noundef %conv) #4
@@ -177,7 +176,7 @@ declare void @CRYPTO_free(ptr noundef, ptr noundef, i32 noundef) local_unnamed_a
 declare void @ASN1_STRING_free(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define i32 @PKCS5_pbe_set0_algor(ptr noundef %algor, i32 noundef %alg, i32 noundef %iter, ptr noundef %salt, i32 noundef %saltlen) local_unnamed_addr #1 {
+define noundef i32 @PKCS5_pbe_set0_algor(ptr noundef %algor, i32 noundef %alg, i32 noundef %iter, ptr noundef %salt, i32 noundef %saltlen) local_unnamed_addr #1 {
 entry:
   %call = tail call i32 @PKCS5_pbe_set0_algor_ex(ptr noundef %algor, i32 noundef %alg, i32 noundef %iter, ptr noundef %salt, i32 noundef %saltlen, ptr noundef null), !range !4
   ret i32 %call

@@ -3,11 +3,6 @@ source_filename = "bench/openssl/original/libcrypto-shlib-pk7_mime.ll"
 target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:128-n8:16:32:64-S128"
 target triple = "x86_64-unknown-linux-gnu"
 
-%struct.pkcs7_st = type { ptr, i64, i32, i32, ptr, %union.anon, %struct.PKCS7_CTX_st }
-%union.anon = type { ptr }
-%struct.PKCS7_CTX_st = type { ptr, ptr }
-%struct.pkcs7_signed_st = type { ptr, ptr, ptr, ptr, ptr, ptr }
-
 @.str = private unnamed_addr constant [6 x i8] c"PKCS7\00", align 1
 
 ; Function Attrs: nounwind uwtable
@@ -35,7 +30,7 @@ declare i32 @PEM_write_bio_ASN1_stream(ptr noundef, ptr noundef, ptr noundef, i3
 ; Function Attrs: nounwind uwtable
 define i32 @SMIME_write_PKCS7(ptr noundef %bio, ptr noundef %p7, ptr noundef %data, i32 noundef %flags) local_unnamed_addr #0 {
 entry:
-  %type = getelementptr inbounds %struct.pkcs7_st, ptr %p7, i64 0, i32 4
+  %type = getelementptr inbounds i8, ptr %p7, i64 24
   %0 = load ptr, ptr %type, align 8
   %call = tail call i32 @OBJ_obj2nid(ptr noundef %0) #2
   %call1 = tail call ptr @ossl_pkcs7_get0_ctx(ptr noundef %p7) #2
@@ -43,9 +38,9 @@ entry:
   br i1 %cmp, label %if.then, label %if.end
 
 if.then:                                          ; preds = %entry
-  %d = getelementptr inbounds %struct.pkcs7_st, ptr %p7, i64 0, i32 5
+  %d = getelementptr inbounds i8, ptr %p7, i64 32
   %1 = load ptr, ptr %d, align 8
-  %md_algs = getelementptr inbounds %struct.pkcs7_signed_st, ptr %1, i64 0, i32 1
+  %md_algs = getelementptr inbounds i8, ptr %1, i64 8
   %2 = load ptr, ptr %md_algs, align 8
   br label %if.end
 
@@ -81,9 +76,9 @@ land.lhs.true:                                    ; preds = %entry
   br i1 %cmp1.not, label %if.end, label %if.then
 
 if.then:                                          ; preds = %land.lhs.true
-  %ctx = getelementptr inbounds %struct.pkcs7_st, ptr %0, i64 0, i32 6
+  %ctx = getelementptr inbounds i8, ptr %0, i64 40
   %1 = load ptr, ptr %ctx, align 8
-  %propq4 = getelementptr inbounds %struct.pkcs7_st, ptr %0, i64 0, i32 6, i32 1
+  %propq4 = getelementptr inbounds i8, ptr %0, i64 48
   %2 = load ptr, ptr %propq4, align 8
   br label %if.end
 

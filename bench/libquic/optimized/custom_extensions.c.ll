@@ -4,19 +4,6 @@ target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:
 target triple = "x86_64-unknown-linux-gnu"
 
 %struct.cbb_st = type { ptr, ptr, i64, i8, i8, i8 }
-%struct.ssl_st = type { i32, i16, i16, ptr, ptr, ptr, ptr, ptr, i32, i32, ptr, ptr, i32, i32, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, i32, i32, [32 x i8], ptr, ptr, ptr, ptr, ptr, ptr, ptr, i64, %struct.crypto_ex_data_st, ptr, i32, i32, i32, i32, i16, ptr, i32, i64, ptr, ptr, ptr, ptr, ptr, ptr, i32, i32, ptr, ptr, i8, i8, i32 }
-%struct.crypto_ex_data_st = type { ptr }
-%struct.ssl_ctx_st = type { ptr, %union.crypto_mutex_st, i16, i16, ptr, ptr, ptr, ptr, ptr, ptr, i64, ptr, ptr, i32, i32, i64, ptr, ptr, ptr, i32, ptr, ptr, ptr, ptr, ptr, ptr, %struct.crypto_ex_data_st, ptr, ptr, ptr, ptr, i32, i32, i32, ptr, ptr, ptr, i32, i32, [32 x i8], ptr, ptr, ptr, ptr, i16, ptr, ptr, [16 x i8], [16 x i8], [16 x i8], ptr, ptr, ptr, ptr, i8, ptr, ptr, ptr, ptr, ptr, ptr, ptr, i32, ptr, i64, ptr, ptr, ptr, i64, ptr, i64, ptr, ptr, i8, ptr, i32 }
-%union.crypto_mutex_st = type { double, [48 x i8] }
-%struct.ssl3_state_st = type { [8 x i8], [8 x i8], [32 x i8], [32 x i8], i8, i8, %struct.ssl3_buffer_st, %struct.ssl3_buffer_st, %struct.ssl3_record_st, i8, i32, i32, i32, i32, ptr, ptr, %struct.env_md_ctx_st, %struct.env_md_ctx_st, i8, i32, [2 x i8], i32, i8, i8, ptr, ptr, ptr, %struct.anon, [64 x i8], i8, [64 x i8], i8, i32, i32, ptr, i64, ptr, i64, i8, [64 x i8] }
-%struct.ssl3_buffer_st = type { ptr, i16, i16, i16 }
-%struct.ssl3_record_st = type { i8, i16, ptr }
-%struct.env_md_ctx_st = type { ptr, ptr, ptr, ptr }
-%struct.anon = type { [64 x i8], i32, [64 x i8], i32, i64, i32, ptr, i32, i32, %union.anon, %union.anon.0, i8, i32, ptr, ptr, i64, ptr, i8, i8, i8, i8, i32, i8, ptr, i64, i8, ptr, i8, i8, i8, %struct.ssl_ecdh_ctx_st, ptr, i16 }
-%union.anon = type { i32 }
-%union.anon.0 = type { i16 }
-%struct.ssl_ecdh_ctx_st = type { ptr, ptr }
-%struct.ssl_custom_extension = type { ptr, ptr, ptr, ptr, ptr, i16 }
 
 @.str = private unnamed_addr constant [127 x i8] c"generated/home/dtcxzyw/WorkSpace/Projects/compilers/llvm-opt-benchmark/bench/libquic/libquic/boringssl/ssl/custom_extensions.c\00", align 1
 @.str.1 = private unnamed_addr constant [14 x i8] c"extension: %u\00", align 1
@@ -45,15 +32,14 @@ entry:
   %contents_len = alloca i64, align 8
   %alert = alloca i32, align 4
   %contents_cbb = alloca %struct.cbb_st, align 8
-  %ctx = getelementptr inbounds %struct.ssl_st, ptr %ssl, i64 0, i32 31
+  %ctx = getelementptr inbounds i8, ptr %ssl, i64 232
   %0 = load ptr, ptr %ctx, align 8
-  %client_custom_extensions = getelementptr inbounds %struct.ssl_ctx_st, ptr %0, i64 0, i32 27
-  %server = getelementptr inbounds %struct.ssl_st, ptr %ssl, i64 0, i32 54
+  %server = getelementptr inbounds i8, ptr %ssl, i64 385
   %bf.load = load i8, ptr %server, align 1
   %1 = and i8 %bf.load, 2
   %tobool.not = icmp eq i8 %1, 0
-  %server_custom_extensions = getelementptr inbounds %struct.ssl_ctx_st, ptr %0, i64 0, i32 28
-  %spec.select = select i1 %tobool.not, ptr %client_custom_extensions, ptr %server_custom_extensions
+  %spec.select.v = select i1 %tobool.not, i64 248, i64 256
+  %spec.select = getelementptr inbounds i8, ptr %0, i64 %spec.select.v
   %stack.0 = load ptr, ptr %spec.select, align 8
   %cmp = icmp eq ptr %stack.0, null
   br i1 %cmp, label %return, label %for.cond.preheader
@@ -64,7 +50,7 @@ for.cond.preheader:                               ; preds = %entry
   br i1 %cmp438.not, label %return, label %for.body.lr.ph
 
 for.body.lr.ph:                                   ; preds = %for.cond.preheader
-  %s3 = getelementptr inbounds %struct.ssl_st, ptr %ssl, i64 0, i32 14
+  %s3 = getelementptr inbounds i8, ptr %ssl, i64 80
   br label %for.body
 
 for.body:                                         ; preds = %for.body.lr.ph, %for.inc
@@ -77,7 +63,7 @@ for.body:                                         ; preds = %for.body.lr.ph, %fo
 
 land.lhs.true:                                    ; preds = %for.body
   %3 = load ptr, ptr %s3, align 8
-  %custom_extensions = getelementptr inbounds %struct.ssl3_state_st, ptr %3, i64 0, i32 27, i32 10
+  %custom_extensions = getelementptr inbounds i8, ptr %3, i64 460
   %4 = load i16, ptr %custom_extensions, align 4
   %conv = zext i16 %4 to i32
   %sh_prom = trunc i64 %i.039 to i32
@@ -89,10 +75,10 @@ land.lhs.true:                                    ; preds = %for.body
 if.end14:                                         ; preds = %land.lhs.true, %for.body
   store i32 50, ptr %alert, align 4
   %5 = load ptr, ptr %call5, align 8
-  %value = getelementptr inbounds %struct.ssl_custom_extension, ptr %call5, i64 0, i32 5
+  %value = getelementptr inbounds i8, ptr %call5, i64 40
   %6 = load i16, ptr %value, align 8
   %conv15 = zext i16 %6 to i32
-  %add_arg = getelementptr inbounds %struct.ssl_custom_extension, ptr %call5, i64 0, i32 1
+  %add_arg = getelementptr inbounds i8, ptr %call5, i64 8
   %7 = load ptr, ptr %add_arg, align 8
   %call16 = call i32 %5(ptr noundef nonnull %ssl, i32 noundef %conv15, ptr noundef nonnull %contents, ptr noundef nonnull %contents_len, ptr noundef nonnull %alert, ptr noundef %7) #6
   switch i32 %call16, label %sw.default [
@@ -128,7 +114,7 @@ if.then28:                                        ; preds = %lor.lhs.false25, %l
   %11 = load i16, ptr %value, align 8
   %conv30 = zext i16 %11 to i32
   call void (ptr, ...) @ERR_add_error_dataf(ptr noundef nonnull @.str.1, i32 noundef %conv30) #6
-  %free_callback = getelementptr inbounds %struct.ssl_custom_extension, ptr %call5, i64 0, i32 2
+  %free_callback = getelementptr inbounds i8, ptr %call5, i64 16
   %12 = load ptr, ptr %free_callback, align 8
   %tobool31 = icmp ne ptr %12, null
   %13 = load i64, ptr %contents_len, align 8
@@ -145,7 +131,7 @@ if.then35:                                        ; preds = %if.then28
   br label %return
 
 if.end41:                                         ; preds = %lor.lhs.false25
-  %free_callback42 = getelementptr inbounds %struct.ssl_custom_extension, ptr %call5, i64 0, i32 2
+  %free_callback42 = getelementptr inbounds i8, ptr %call5, i64 16
   %17 = load ptr, ptr %free_callback42, align 8
   %tobool43 = icmp ne ptr %17, null
   %18 = load i64, ptr %contents_len, align 8
@@ -171,7 +157,7 @@ if.then59:                                        ; preds = %if.end52
   %sh_prom60 = trunc i64 %i.039 to i32
   %shl61 = shl nuw i32 1, %sh_prom60
   %23 = load ptr, ptr %s3, align 8
-  %custom_extensions64 = getelementptr inbounds %struct.ssl3_state_st, ptr %23, i64 0, i32 27, i32 10
+  %custom_extensions64 = getelementptr inbounds i8, ptr %23, i64 460
   %24 = load i16, ptr %custom_extensions64, align 4
   %25 = trunc i32 %shl61 to i16
   %conv66 = or i16 %24, %25
@@ -201,9 +187,9 @@ return:                                           ; preds = %for.inc, %for.cond.
 ; Function Attrs: nounwind uwtable
 define hidden noundef i32 @custom_ext_parse_serverhello(ptr noundef %ssl, ptr noundef %out_alert, i16 noundef zeroext %value, ptr noundef %extension) local_unnamed_addr #2 {
 entry:
-  %ctx = getelementptr inbounds %struct.ssl_st, ptr %ssl, i64 0, i32 31
+  %ctx = getelementptr inbounds i8, ptr %ssl, i64 232
   %0 = load ptr, ptr %ctx, align 8
-  %client_custom_extensions = getelementptr inbounds %struct.ssl_ctx_st, ptr %0, i64 0, i32 27
+  %client_custom_extensions = getelementptr inbounds i8, ptr %0, i64 248
   %1 = load ptr, ptr %client_custom_extensions, align 8
   %call8.i = tail call i64 @sk_num(ptr noundef %1) #6
   %cmp9.not.i = icmp eq i64 %call8.i, 0
@@ -212,7 +198,7 @@ entry:
 for.body.i:                                       ; preds = %entry, %for.inc.i
   %i.010.i = phi i64 [ %inc.i, %for.inc.i ], [ 0, %entry ]
   %call1.i = tail call ptr @sk_value(ptr noundef %1, i64 noundef %i.010.i) #6
-  %value2.i = getelementptr inbounds %struct.ssl_custom_extension, ptr %call1.i, i64 0, i32 5
+  %value2.i = getelementptr inbounds i8, ptr %call1.i, i64 40
   %2 = load i16, ptr %value2.i, align 8
   %cmp4.i = icmp eq i16 %2, %value
   br i1 %cmp4.i, label %lor.lhs.false, label %for.inc.i
@@ -224,11 +210,11 @@ for.inc.i:                                        ; preds = %for.body.i
   br i1 %cmp.i, label %for.body.i, label %if.then, !llvm.loop !10
 
 lor.lhs.false:                                    ; preds = %for.body.i
-  %value2.i.le = getelementptr inbounds %struct.ssl_custom_extension, ptr %call1.i, i64 0, i32 5
+  %value2.i.le = getelementptr inbounds i8, ptr %call1.i, i64 40
   %conv9.i = trunc i64 %i.010.i to i32
-  %s3 = getelementptr inbounds %struct.ssl_st, ptr %ssl, i64 0, i32 14
+  %s3 = getelementptr inbounds i8, ptr %ssl, i64 80
   %3 = load ptr, ptr %s3, align 8
-  %custom_extensions = getelementptr inbounds %struct.ssl3_state_st, ptr %3, i64 0, i32 27, i32 10
+  %custom_extensions = getelementptr inbounds i8, ptr %3, i64 460
   %4 = load i16, ptr %custom_extensions, align 4
   %conv = zext i16 %4 to i32
   %shl = shl nuw i32 1, %conv9.i
@@ -244,7 +230,7 @@ if.then:                                          ; preds = %for.inc.i, %entry, 
   br label %return
 
 if.end:                                           ; preds = %lor.lhs.false
-  %parse_callback = getelementptr inbounds %struct.ssl_custom_extension, ptr %call1.i, i64 0, i32 3
+  %parse_callback = getelementptr inbounds i8, ptr %call1.i, i64 24
   %5 = load ptr, ptr %parse_callback, align 8
   %cmp2.not = icmp eq ptr %5, null
   br i1 %cmp2.not, label %return, label %land.lhs.true
@@ -253,7 +239,7 @@ land.lhs.true:                                    ; preds = %if.end
   %conv5 = zext i16 %value to i32
   %call6 = tail call ptr @CBS_data(ptr noundef %extension) #6
   %call7 = tail call i64 @CBS_len(ptr noundef %extension) #6
-  %parse_arg = getelementptr inbounds %struct.ssl_custom_extension, ptr %call1.i, i64 0, i32 4
+  %parse_arg = getelementptr inbounds i8, ptr %call1.i, i64 32
   %6 = load ptr, ptr %parse_arg, align 8
   %call8 = tail call i32 %5(ptr noundef nonnull %ssl, i32 noundef %conv5, ptr noundef %call6, i64 noundef %call7, ptr noundef %out_alert, ptr noundef %6) #6
   %tobool9.not = icmp eq i32 %call8, 0
@@ -282,9 +268,9 @@ declare i64 @CBS_len(ptr noundef) local_unnamed_addr #3
 ; Function Attrs: nounwind uwtable
 define hidden noundef i32 @custom_ext_parse_clienthello(ptr noundef %ssl, ptr noundef %out_alert, i16 noundef zeroext %value, ptr noundef %extension) local_unnamed_addr #2 {
 entry:
-  %ctx = getelementptr inbounds %struct.ssl_st, ptr %ssl, i64 0, i32 31
+  %ctx = getelementptr inbounds i8, ptr %ssl, i64 232
   %0 = load ptr, ptr %ctx, align 8
-  %server_custom_extensions = getelementptr inbounds %struct.ssl_ctx_st, ptr %0, i64 0, i32 28
+  %server_custom_extensions = getelementptr inbounds i8, ptr %0, i64 256
   %1 = load ptr, ptr %server_custom_extensions, align 8
   %call8.i = tail call i64 @sk_num(ptr noundef %1) #6
   %cmp9.not.i = icmp eq i64 %call8.i, 0
@@ -293,7 +279,7 @@ entry:
 for.body.i:                                       ; preds = %entry, %for.inc.i
   %i.010.i = phi i64 [ %inc.i, %for.inc.i ], [ 0, %entry ]
   %call1.i = tail call ptr @sk_value(ptr noundef %1, i64 noundef %i.010.i) #6
-  %value2.i = getelementptr inbounds %struct.ssl_custom_extension, ptr %call1.i, i64 0, i32 5
+  %value2.i = getelementptr inbounds i8, ptr %call1.i, i64 40
   %2 = load i16, ptr %value2.i, align 8
   %cmp4.i = icmp eq i16 %2, %value
   br i1 %cmp4.i, label %if.end, label %for.inc.i
@@ -305,17 +291,17 @@ for.inc.i:                                        ; preds = %for.body.i
   br i1 %cmp.i, label %for.body.i, label %return, !llvm.loop !10
 
 if.end:                                           ; preds = %for.body.i
-  %value2.i.le = getelementptr inbounds %struct.ssl_custom_extension, ptr %call1.i, i64 0, i32 5
+  %value2.i.le = getelementptr inbounds i8, ptr %call1.i, i64 40
   %conv9.i = trunc i64 %i.010.i to i32
   %shl = shl nuw i32 1, %conv9.i
-  %s3 = getelementptr inbounds %struct.ssl_st, ptr %ssl, i64 0, i32 14
+  %s3 = getelementptr inbounds i8, ptr %ssl, i64 80
   %3 = load ptr, ptr %s3, align 8
-  %custom_extensions = getelementptr inbounds %struct.ssl3_state_st, ptr %3, i64 0, i32 27, i32 10
+  %custom_extensions = getelementptr inbounds i8, ptr %3, i64 460
   %4 = load i16, ptr %custom_extensions, align 4
   %5 = trunc i32 %shl to i16
   %conv1 = or i16 %4, %5
   store i16 %conv1, ptr %custom_extensions, align 4
-  %parse_callback = getelementptr inbounds %struct.ssl_custom_extension, ptr %call1.i, i64 0, i32 3
+  %parse_callback = getelementptr inbounds i8, ptr %call1.i, i64 24
   %6 = load ptr, ptr %parse_callback, align 8
   %tobool.not = icmp eq ptr %6, null
   br i1 %tobool.not, label %return, label %land.lhs.true
@@ -324,7 +310,7 @@ land.lhs.true:                                    ; preds = %if.end
   %conv3 = zext i16 %value to i32
   %call4 = tail call ptr @CBS_data(ptr noundef %extension) #6
   %call5 = tail call i64 @CBS_len(ptr noundef %extension) #6
-  %parse_arg = getelementptr inbounds %struct.ssl_custom_extension, ptr %call1.i, i64 0, i32 4
+  %parse_arg = getelementptr inbounds i8, ptr %call1.i, i64 32
   %7 = load ptr, ptr %parse_arg, align 8
   %call6 = tail call i32 %6(ptr noundef nonnull %ssl, i32 noundef %conv3, ptr noundef %call4, i64 noundef %call5, ptr noundef %out_alert, ptr noundef %7) #6
   %tobool7.not = icmp eq i32 %call6, 0
@@ -352,7 +338,7 @@ entry:
 ; Function Attrs: nounwind uwtable
 define hidden noundef i32 @SSL_CTX_add_client_custom_ext(ptr nocapture noundef %ctx, i32 noundef %extension_value, ptr noundef %add_cb, ptr noundef %free_cb, ptr noundef %add_arg, ptr noundef %parse_cb, ptr noundef %parse_arg) local_unnamed_addr #2 {
 entry:
-  %client_custom_extensions = getelementptr inbounds %struct.ssl_ctx_st, ptr %ctx, i64 0, i32 27
+  %client_custom_extensions = getelementptr inbounds i8, ptr %ctx, i64 248
   %tobool.not = icmp eq ptr %add_cb, null
   %cond = select i1 %tobool.not, ptr @default_add_callback, ptr %add_cb
   %call = tail call fastcc i32 @custom_ext_append(ptr noundef nonnull %client_custom_extensions, i32 noundef %extension_value, ptr noundef nonnull %cond, ptr noundef %free_cb, ptr noundef %add_arg, ptr noundef %parse_cb, ptr noundef %parse_arg), !range !7
@@ -392,7 +378,7 @@ lor.lhs.false7:                                   ; preds = %land.lhs.true
 for.body.i:                                       ; preds = %lor.lhs.false7, %for.inc.i
   %i.010.i = phi i64 [ %inc.i, %for.inc.i ], [ 0, %lor.lhs.false7 ]
   %call1.i = tail call ptr @sk_value(ptr noundef %1, i64 noundef %i.010.i) #6
-  %value2.i = getelementptr inbounds %struct.ssl_custom_extension, ptr %call1.i, i64 0, i32 5
+  %value2.i = getelementptr inbounds i8, ptr %call1.i, i64 40
   %2 = load i16, ptr %value2.i, align 8
   %cmp4.i = icmp eq i16 %2, %conv
   br i1 %cmp4.i, label %return, label %for.inc.i
@@ -410,16 +396,16 @@ if.end:                                           ; preds = %for.inc.i, %lor.lhs
 
 if.end15:                                         ; preds = %if.end
   store ptr %add_cb, ptr %call11, align 8
-  %add_arg16 = getelementptr inbounds %struct.ssl_custom_extension, ptr %call11, i64 0, i32 1
+  %add_arg16 = getelementptr inbounds i8, ptr %call11, i64 8
   store ptr %add_arg, ptr %add_arg16, align 8
-  %free_callback = getelementptr inbounds %struct.ssl_custom_extension, ptr %call11, i64 0, i32 2
+  %free_callback = getelementptr inbounds i8, ptr %call11, i64 16
   store ptr %free_cb, ptr %free_callback, align 8
-  %parse_callback = getelementptr inbounds %struct.ssl_custom_extension, ptr %call11, i64 0, i32 3
+  %parse_callback = getelementptr inbounds i8, ptr %call11, i64 24
   store ptr %parse_cb, ptr %parse_callback, align 8
-  %parse_arg17 = getelementptr inbounds %struct.ssl_custom_extension, ptr %call11, i64 0, i32 4
+  %parse_arg17 = getelementptr inbounds i8, ptr %call11, i64 32
   store ptr %parse_arg, ptr %parse_arg17, align 8
   %conv18 = trunc i32 %extension_value to i16
-  %value = getelementptr inbounds %struct.ssl_custom_extension, ptr %call11, i64 0, i32 5
+  %value = getelementptr inbounds i8, ptr %call11, i64 40
   store i16 %conv18, ptr %value, align 8
   %3 = load ptr, ptr %stack, align 8
   %cmp19 = icmp eq ptr %3, null
@@ -462,7 +448,7 @@ return:                                           ; preds = %for.body.i, %if.end
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
 define internal noundef i32 @default_add_callback(ptr nocapture noundef readonly %ssl, i32 %extension_value, ptr nocapture readnone %out, ptr nocapture noundef writeonly %out_len, ptr nocapture readnone %out_alert_value, ptr nocapture readnone %add_arg) #4 {
 entry:
-  %server = getelementptr inbounds %struct.ssl_st, ptr %ssl, i64 0, i32 54
+  %server = getelementptr inbounds i8, ptr %ssl, i64 385
   %bf.load = load i8, ptr %server, align 1
   %0 = and i8 %bf.load, 2
   %tobool.not = icmp eq i8 %0, 0
@@ -480,7 +466,7 @@ return:                                           ; preds = %entry, %if.end
 ; Function Attrs: nounwind uwtable
 define hidden noundef i32 @SSL_CTX_add_server_custom_ext(ptr nocapture noundef %ctx, i32 noundef %extension_value, ptr noundef %add_cb, ptr noundef %free_cb, ptr noundef %add_arg, ptr noundef %parse_cb, ptr noundef %parse_arg) local_unnamed_addr #2 {
 entry:
-  %server_custom_extensions = getelementptr inbounds %struct.ssl_ctx_st, ptr %ctx, i64 0, i32 28
+  %server_custom_extensions = getelementptr inbounds i8, ptr %ctx, i64 256
   %tobool.not = icmp eq ptr %add_cb, null
   %cond = select i1 %tobool.not, ptr @default_add_callback, ptr %add_cb
   %call = tail call fastcc i32 @custom_ext_append(ptr noundef nonnull %server_custom_extensions, i32 noundef %extension_value, ptr noundef nonnull %cond, ptr noundef %free_cb, ptr noundef %add_arg, ptr noundef %parse_cb, ptr noundef %parse_arg), !range !7

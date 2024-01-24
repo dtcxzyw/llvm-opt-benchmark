@@ -3,17 +3,6 @@ source_filename = "bench/abseil-cpp/original/stdcpp_waiter.cc.ll"
 target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:128-n8:16:32:64-S128"
 target triple = "x86_64-unknown-linux-gnu"
 
-%"class.absl::synchronization_internal::StdcppWaiter" = type { %"class.std::mutex", %"class.std::condition_variable", i32, i32 }
-%"class.std::mutex" = type { %"class.std::__mutex_base" }
-%"class.std::__mutex_base" = type { %union.pthread_mutex_t }
-%union.pthread_mutex_t = type { %struct.__pthread_mutex_s }
-%struct.__pthread_mutex_s = type { i32, i32, i32, i32, i32, i16, i16, %struct.__pthread_internal_list }
-%struct.__pthread_internal_list = type { ptr, ptr }
-%"class.std::condition_variable" = type { %"class.std::__condvar" }
-%"class.std::__condvar" = type { %union.pthread_cond_t }
-%union.pthread_cond_t = type { %struct.__pthread_cond_s }
-%struct.__pthread_cond_s = type { %union.__atomic_wide_counter, %union.__atomic_wide_counter, [2 x i32], [2 x i32], i32, i32, [2 x i32] }
-%union.__atomic_wide_counter = type { i64 }
 %struct.timespec = type { i64, i64 }
 %"class.absl::synchronization_internal::KernelTimeout" = type { i64 }
 %"class.std::unique_lock" = type <{ ptr, i8, [7 x i8] }>
@@ -24,11 +13,11 @@ target triple = "x86_64-unknown-linux-gnu"
 define dso_local void @_ZN4absl24synchronization_internal12StdcppWaiterC2Ev(ptr noundef nonnull align 8 dereferenceable(96) %this) unnamed_addr #0 align 2 {
 entry:
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %this, i8 0, i64 40, i1 false)
-  %cv_ = getelementptr inbounds %"class.absl::synchronization_internal::StdcppWaiter", ptr %this, i64 0, i32 1
+  %cv_ = getelementptr inbounds i8, ptr %this, i64 40
   tail call void @_ZNSt18condition_variableC1Ev(ptr noundef nonnull align 8 dereferenceable(48) %cv_) #7
-  %waiter_count_ = getelementptr inbounds %"class.absl::synchronization_internal::StdcppWaiter", ptr %this, i64 0, i32 2
+  %waiter_count_ = getelementptr inbounds i8, ptr %this, i64 88
   store i32 0, ptr %waiter_count_, align 8
-  %wakeup_count_ = getelementptr inbounds %"class.absl::synchronization_internal::StdcppWaiter", ptr %this, i64 0, i32 3
+  %wakeup_count_ = getelementptr inbounds i8, ptr %this, i64 92
   store i32 0, ptr %wakeup_count_, align 4
   ret void
 }
@@ -45,7 +34,7 @@ entry:
   %lock = alloca %"class.std::unique_lock", align 8
   store i64 %t.coerce, ptr %t, align 8
   store ptr %this, ptr %lock, align 8
-  %_M_owns.i = getelementptr inbounds %"class.std::unique_lock", ptr %lock, i64 0, i32 1
+  %_M_owns.i = getelementptr inbounds i8, ptr %lock, i64 8
   %call1.i.i.i.i = tail call noundef i32 @pthread_mutex_lock(ptr noundef nonnull %this) #7
   %tobool.not.i.i.i = icmp eq i32 %call1.i.i.i.i, 0
   br i1 %tobool.not.i.i.i, label %_ZNSt11unique_lockISt5mutexEC2ERS0_.exit, label %if.then.i.i.i
@@ -56,19 +45,19 @@ if.then.i.i.i:                                    ; preds = %entry
 
 _ZNSt11unique_lockISt5mutexEC2ERS0_.exit:         ; preds = %entry
   store i8 1, ptr %_M_owns.i, align 8
-  %waiter_count_ = getelementptr inbounds %"class.absl::synchronization_internal::StdcppWaiter", ptr %this, i64 0, i32 2
+  %waiter_count_ = getelementptr inbounds i8, ptr %this, i64 88
   %0 = load i32, ptr %waiter_count_, align 8
   %inc = add nsw i32 %0, 1
   store i32 %inc, ptr %waiter_count_, align 8
-  %wakeup_count_ = getelementptr inbounds %"class.absl::synchronization_internal::StdcppWaiter", ptr %this, i64 0, i32 3
+  %wakeup_count_ = getelementptr inbounds i8, ptr %this, i64 92
   %1 = load i32, ptr %wakeup_count_, align 4
   %cmp21.not = icmp eq i32 %1, 0
   br i1 %cmp21.not, label %while.body.lr.ph, label %while.end
 
 while.body.lr.ph:                                 ; preds = %_ZNSt11unique_lockISt5mutexEC2ERS0_.exit
-  %cv_7 = getelementptr inbounds %"class.absl::synchronization_internal::StdcppWaiter", ptr %this, i64 0, i32 1
-  %tv_nsec.i.i.i = getelementptr inbounds %struct.timespec, ptr %__ts.i.i.i, i64 0, i32 1
-  %tv_nsec.i.i = getelementptr inbounds %struct.timespec, ptr %__ts.i.i, i64 0, i32 1
+  %cv_7 = getelementptr inbounds i8, ptr %this, i64 40
+  %tv_nsec.i.i.i = getelementptr inbounds i8, ptr %__ts.i.i.i, i64 8
+  %tv_nsec.i.i = getelementptr inbounds i8, ptr %__ts.i.i, i64 8
   br label %if.end
 
 if.then:                                          ; preds = %if.end25
@@ -209,17 +198,17 @@ if.then.i.i:                                      ; preds = %entry
   unreachable
 
 _ZNSt10lock_guardISt5mutexEC2ERS0_.exit:          ; preds = %entry
-  %wakeup_count_ = getelementptr inbounds %"class.absl::synchronization_internal::StdcppWaiter", ptr %this, i64 0, i32 3
+  %wakeup_count_ = getelementptr inbounds i8, ptr %this, i64 92
   %0 = load i32, ptr %wakeup_count_, align 4
   %inc = add nsw i32 %0, 1
   store i32 %inc, ptr %wakeup_count_, align 4
-  %waiter_count_.i = getelementptr inbounds %"class.absl::synchronization_internal::StdcppWaiter", ptr %this, i64 0, i32 2
+  %waiter_count_.i = getelementptr inbounds i8, ptr %this, i64 88
   %1 = load i32, ptr %waiter_count_.i, align 8
   %cmp.not.i = icmp eq i32 %1, 0
   br i1 %cmp.not.i, label %_ZN4absl24synchronization_internal12StdcppWaiter19InternalCondVarPokeEv.exit, label %if.then.i
 
 if.then.i:                                        ; preds = %_ZNSt10lock_guardISt5mutexEC2ERS0_.exit
-  %cv_.i = getelementptr inbounds %"class.absl::synchronization_internal::StdcppWaiter", ptr %this, i64 0, i32 1
+  %cv_.i = getelementptr inbounds i8, ptr %this, i64 40
   tail call void @_ZNSt18condition_variable10notify_oneEv(ptr noundef nonnull align 8 dereferenceable(48) %cv_.i) #7
   br label %_ZN4absl24synchronization_internal12StdcppWaiter19InternalCondVarPokeEv.exit
 
@@ -231,13 +220,13 @@ _ZN4absl24synchronization_internal12StdcppWaiter19InternalCondVarPokeEv.exit: ; 
 ; Function Attrs: mustprogress nounwind uwtable
 define dso_local void @_ZN4absl24synchronization_internal12StdcppWaiter19InternalCondVarPokeEv(ptr noundef nonnull align 8 dereferenceable(96) %this) local_unnamed_addr #0 align 2 {
 entry:
-  %waiter_count_ = getelementptr inbounds %"class.absl::synchronization_internal::StdcppWaiter", ptr %this, i64 0, i32 2
+  %waiter_count_ = getelementptr inbounds i8, ptr %this, i64 88
   %0 = load i32, ptr %waiter_count_, align 8
   %cmp.not = icmp eq i32 %0, 0
   br i1 %cmp.not, label %if.end, label %if.then
 
 if.then:                                          ; preds = %entry
-  %cv_ = getelementptr inbounds %"class.absl::synchronization_internal::StdcppWaiter", ptr %this, i64 0, i32 1
+  %cv_ = getelementptr inbounds i8, ptr %this, i64 40
   tail call void @_ZNSt18condition_variable10notify_oneEv(ptr noundef nonnull align 8 dereferenceable(48) %cv_) #7
   br label %if.end
 
@@ -257,13 +246,13 @@ if.then.i.i:                                      ; preds = %entry
   unreachable
 
 _ZNSt10lock_guardISt5mutexEC2ERS0_.exit:          ; preds = %entry
-  %waiter_count_.i = getelementptr inbounds %"class.absl::synchronization_internal::StdcppWaiter", ptr %this, i64 0, i32 2
+  %waiter_count_.i = getelementptr inbounds i8, ptr %this, i64 88
   %0 = load i32, ptr %waiter_count_.i, align 8
   %cmp.not.i = icmp eq i32 %0, 0
   br i1 %cmp.not.i, label %_ZN4absl24synchronization_internal12StdcppWaiter19InternalCondVarPokeEv.exit, label %if.then.i
 
 if.then.i:                                        ; preds = %_ZNSt10lock_guardISt5mutexEC2ERS0_.exit
-  %cv_.i = getelementptr inbounds %"class.absl::synchronization_internal::StdcppWaiter", ptr %this, i64 0, i32 1
+  %cv_.i = getelementptr inbounds i8, ptr %this, i64 40
   tail call void @_ZNSt18condition_variable10notify_oneEv(ptr noundef nonnull align 8 dereferenceable(48) %cv_.i) #7
   br label %_ZN4absl24synchronization_internal12StdcppWaiter19InternalCondVarPokeEv.exit
 

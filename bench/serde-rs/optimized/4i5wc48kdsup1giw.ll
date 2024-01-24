@@ -17,8 +17,8 @@ define void @_ZN4core3str7pattern8Searcher11next_reject17hb7d960017b3904dfE(ptr 
   ]
 
 6:                                                ; preds = %4
-  %7 = getelementptr inbounds { [1 x i64], i64, i64 }, ptr %3, i64 0, i32 1
-  %8 = getelementptr inbounds { [1 x i64], { i64, i64 } }, ptr %0, i64 0, i32 1
+  %7 = getelementptr inbounds i8, ptr %3, i64 8
+  %8 = getelementptr inbounds i8, ptr %0, i64 8
   %9 = load <2 x i64>, ptr %7, align 8
   store <2 x i64> %9, ptr %8, align 8
   br label %.loopexit

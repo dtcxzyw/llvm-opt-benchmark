@@ -3,31 +3,6 @@ source_filename = "bench/libquic/original/general_loss_algorithm.cc.ll"
 target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:128-n8:16:32:64-S128"
 target triple = "x86_64-unknown-linux-gnu"
 
-%"class.net::GeneralLossAlgorithm" = type { %"class.net::LossDetectionInterface", %"class.net::QuicTime", i64, i32, i32 }
-%"class.net::LossDetectionInterface" = type { ptr }
-%"class.net::QuicTime" = type { i64 }
-%"class.net::RttStats" = type { %"class.net::QuicTime::Delta", %"class.net::QuicTime::Delta", %"class.net::QuicTime::Delta", %"class.net::QuicTime::Delta", %"class.net::QuicTime::Delta", i64, %"class.net::QuicTime::Delta", %"class.net::QuicTime", i32, %"class.net::WindowedFilter" }
-%"class.net::QuicTime::Delta" = type { %"class.base::TimeDelta", i64 }
-%"class.base::TimeDelta" = type { i64 }
-%"class.net::WindowedFilter" = type { %"class.net::QuicTime::Delta", %"class.net::QuicTime::Delta", [3 x %"struct.net::WindowedFilter<net::QuicTime::Delta, net::MinFilter<net::QuicTime::Delta>, net::QuicTime, net::QuicTime::Delta>::Sample"] }
-%"struct.net::WindowedFilter<net::QuicTime::Delta, net::MinFilter<net::QuicTime::Delta>, net::QuicTime, net::QuicTime::Delta>::Sample" = type { %"class.net::QuicTime::Delta", %"class.net::QuicTime" }
-%"class.net::QuicUnackedPacketMap" = type { i64, i64, %"class.std::deque", i64, i64, i64 }
-%"class.std::deque" = type { %"class.std::_Deque_base" }
-%"class.std::_Deque_base" = type { %"struct.std::_Deque_base<net::TransmissionInfo, std::allocator<net::TransmissionInfo>>::_Deque_impl" }
-%"struct.std::_Deque_base<net::TransmissionInfo, std::allocator<net::TransmissionInfo>>::_Deque_impl" = type { %"struct.std::_Deque_base<net::TransmissionInfo, std::allocator<net::TransmissionInfo>>::_Deque_impl_data" }
-%"struct.std::_Deque_base<net::TransmissionInfo, std::allocator<net::TransmissionInfo>>::_Deque_impl_data" = type { ptr, i64, %"struct.std::_Deque_iterator", %"struct.std::_Deque_iterator" }
-%"struct.std::_Deque_iterator" = type { ptr, ptr, ptr, ptr }
-%"struct.std::_Vector_base<std::pair<unsigned long, unsigned short>, std::allocator<std::pair<unsigned long, unsigned short>>>::_Vector_impl_data" = type { ptr, ptr, ptr }
-%"struct.net::TransmissionInfo" = type { %"class.std::vector", i8, i8, i16, %"class.net::QuicTime", i8, i8, i8, i8, i16, i64, %"class.std::__cxx11::list" }
-%"class.std::vector" = type { %"struct.std::_Vector_base" }
-%"struct.std::_Vector_base" = type { %"struct.std::_Vector_base<net::QuicFrame, std::allocator<net::QuicFrame>>::_Vector_impl" }
-%"struct.std::_Vector_base<net::QuicFrame, std::allocator<net::QuicFrame>>::_Vector_impl" = type { %"struct.std::_Vector_base<net::QuicFrame, std::allocator<net::QuicFrame>>::_Vector_impl_data" }
-%"struct.std::_Vector_base<net::QuicFrame, std::allocator<net::QuicFrame>>::_Vector_impl_data" = type { ptr, ptr, ptr }
-%"class.std::__cxx11::list" = type { %"class.std::__cxx11::_List_base" }
-%"class.std::__cxx11::_List_base" = type { %"struct.std::__cxx11::_List_base<net::AckListenerWrapper, std::allocator<net::AckListenerWrapper>>::_List_impl" }
-%"struct.std::__cxx11::_List_base<net::AckListenerWrapper, std::allocator<net::AckListenerWrapper>>::_List_impl" = type { %"struct.std::__detail::_List_node_header" }
-%"struct.std::__detail::_List_node_header" = type { %"struct.std::__detail::_List_node_base", i64 }
-%"struct.std::__detail::_List_node_base" = type { ptr, ptr }
 %"struct.std::pair" = type <{ i64, i16, [6 x i8] }>
 
 $_ZN3net20GeneralLossAlgorithmD2Ev = comdat any
@@ -54,8 +29,8 @@ $_ZTIN3net22LossDetectionInterfaceE = comdat any
 define dso_local void @_ZN3net20GeneralLossAlgorithmC2Ev(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(32) %this) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 invoke.cont:
   store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTVN3net20GeneralLossAlgorithmE, i64 0, inrange i32 0, i64 2), ptr %this, align 8
-  %loss_detection_timeout_ = getelementptr inbounds %"class.net::GeneralLossAlgorithm", ptr %this, i64 0, i32 1
-  %reordering_shift_ = getelementptr inbounds %"class.net::GeneralLossAlgorithm", ptr %this, i64 0, i32 4
+  %loss_detection_timeout_ = getelementptr inbounds i8, ptr %this, i64 8
+  %reordering_shift_ = getelementptr inbounds i8, ptr %this, i64 28
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(20) %loss_detection_timeout_, i8 0, i64 20, i1 false)
   store i32 2, ptr %reordering_shift_, align 4
   ret void
@@ -67,11 +42,11 @@ declare i32 @__gxx_personality_v0(...)
 define dso_local void @_ZN3net20GeneralLossAlgorithmC2ENS_17LossDetectionTypeE(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(32) %this, i32 noundef %loss_type) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 invoke.cont:
   store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTVN3net20GeneralLossAlgorithmE, i64 0, inrange i32 0, i64 2), ptr %this, align 8
-  %loss_detection_timeout_ = getelementptr inbounds %"class.net::GeneralLossAlgorithm", ptr %this, i64 0, i32 1
-  %loss_type_ = getelementptr inbounds %"class.net::GeneralLossAlgorithm", ptr %this, i64 0, i32 3
+  %loss_detection_timeout_ = getelementptr inbounds i8, ptr %this, i64 8
+  %loss_type_ = getelementptr inbounds i8, ptr %this, i64 24
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %loss_detection_timeout_, i8 0, i64 16, i1 false)
   store i32 %loss_type, ptr %loss_type_, align 8
-  %reordering_shift_ = getelementptr inbounds %"class.net::GeneralLossAlgorithm", ptr %this, i64 0, i32 4
+  %reordering_shift_ = getelementptr inbounds i8, ptr %this, i64 28
   %cmp = icmp eq i32 %loss_type, 2
   %cond = select i1 %cmp, i32 4, i32 2
   store i32 %cond, ptr %reordering_shift_, align 4
@@ -81,7 +56,7 @@ invoke.cont:
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
 define dso_local noundef i32 @_ZNK3net20GeneralLossAlgorithm20GetLossDetectionTypeEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %this) unnamed_addr #1 align 2 {
 entry:
-  %loss_type_ = getelementptr inbounds %"class.net::GeneralLossAlgorithm", ptr %this, i64 0, i32 3
+  %loss_type_ = getelementptr inbounds i8, ptr %this, i64 24
   %0 = load i32, ptr %loss_type_, align 8
   ret i32 %0
 }
@@ -89,13 +64,13 @@ entry:
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
 define dso_local void @_ZN3net20GeneralLossAlgorithm20SetLossDetectionTypeENS_17LossDetectionTypeE(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(32) %this, i32 noundef %loss_type) local_unnamed_addr #0 align 2 {
 entry:
-  %loss_detection_timeout_ = getelementptr inbounds %"class.net::GeneralLossAlgorithm", ptr %this, i64 0, i32 1
-  %loss_type_ = getelementptr inbounds %"class.net::GeneralLossAlgorithm", ptr %this, i64 0, i32 3
+  %loss_detection_timeout_ = getelementptr inbounds i8, ptr %this, i64 8
+  %loss_type_ = getelementptr inbounds i8, ptr %this, i64 24
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %loss_detection_timeout_, i8 0, i64 16, i1 false)
   store i32 %loss_type, ptr %loss_type_, align 8
   %cmp = icmp eq i32 %loss_type, 2
   %cond = select i1 %cmp, i32 4, i32 2
-  %reordering_shift_ = getelementptr inbounds %"class.net::GeneralLossAlgorithm", ptr %this, i64 0, i32 4
+  %reordering_shift_ = getelementptr inbounds i8, ptr %this, i64 28
   store i32 %cond, ptr %reordering_shift_, align 4
   ret void
 }
@@ -106,23 +81,23 @@ declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias
 ; Function Attrs: mustprogress uwtable
 define dso_local void @_ZN3net20GeneralLossAlgorithm12DetectLossesERKNS_20QuicUnackedPacketMapENS_8QuicTimeERKNS_8RttStatsEmPSt6vectorISt4pairImtESaISA_EE(ptr nocapture noundef nonnull align 8 dereferenceable(32) %this, ptr noundef nonnull align 8 dereferenceable(120) %unacked_packets, i64 %time.coerce, ptr nocapture noundef nonnull readonly align 8 dereferenceable(224) %rtt_stats, i64 noundef %largest_newly_acked, ptr nocapture noundef %packets_lost) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  %loss_detection_timeout_ = getelementptr inbounds %"class.net::GeneralLossAlgorithm", ptr %this, i64 0, i32 1
+  %loss_detection_timeout_ = getelementptr inbounds i8, ptr %this, i64 8
   store i64 0, ptr %loss_detection_timeout_, align 8
-  %retval.sroa.2.0.previous_srtt_.sroa_idx.i = getelementptr inbounds %"class.net::RttStats", ptr %rtt_stats, i64 0, i32 3, i32 1
+  %retval.sroa.2.0.previous_srtt_.sroa_idx.i = getelementptr inbounds i8, ptr %rtt_stats, i64 56
   %retval.sroa.2.0.copyload.i = load i64, ptr %retval.sroa.2.0.previous_srtt_.sroa_idx.i, align 8
   %retval.sroa.2.0.latest_rtt_.sroa_idx.i = getelementptr inbounds i8, ptr %rtt_stats, i64 8
   %retval.sroa.2.0.copyload.i14 = load i64, ptr %retval.sroa.2.0.latest_rtt_.sroa_idx.i, align 8
   %max_rtt.sroa.3.0.copyload.sroa.speculated = tail call i64 @llvm.smax.i64(i64 %retval.sroa.2.0.copyload.i, i64 %retval.sroa.2.0.copyload.i14)
-  %reordering_shift_ = getelementptr inbounds %"class.net::GeneralLossAlgorithm", ptr %this, i64 0, i32 4
+  %reordering_shift_ = getelementptr inbounds i8, ptr %this, i64 28
   %0 = load i32, ptr %reordering_shift_, align 4
   %conv152 = zext nneg i32 %0 to i64
   %shr.i = ashr i64 %max_rtt.sroa.3.0.copyload.sroa.speculated, %conv152
   %add.i = add nsw i64 %shr.i, %max_rtt.sroa.3.0.copyload.sroa.speculated
   %loss_delay.sroa.2.0.copyload.sroa.speculated = tail call i64 @llvm.smax.i64(i64 %add.i, i64 5000)
   %call16 = tail call noundef i64 @_ZNK3net20QuicUnackedPacketMap15GetLeastUnackedEv(ptr noundef nonnull align 8 dereferenceable(120) %unacked_packets)
-  %_M_start.i.i = getelementptr inbounds %"class.net::QuicUnackedPacketMap", ptr %unacked_packets, i64 0, i32 2, i32 0, i32 0, i32 0, i32 2
+  %_M_start.i.i = getelementptr inbounds i8, ptr %unacked_packets, i64 32
   %1 = load ptr, ptr %_M_start.i.i, align 8, !noalias !5
-  %_M_finish.i.i = getelementptr inbounds %"class.net::QuicUnackedPacketMap", ptr %unacked_packets, i64 0, i32 2, i32 0, i32 0, i32 0, i32 3
+  %_M_finish.i.i = getelementptr inbounds i8, ptr %unacked_packets, i64 64
   %2 = load ptr, ptr %_M_finish.i.i, align 8, !noalias !10
   %cmp.i.i31154 = icmp ne ptr %1, %2
   %cmp155 = icmp ule i64 %call16, %largest_newly_acked
@@ -130,14 +105,14 @@ entry:
   br i1 %3, label %for.body.lr.ph, label %for.end
 
 for.body.lr.ph:                                   ; preds = %entry
-  %_M_node5.i.i.i = getelementptr inbounds %"class.net::QuicUnackedPacketMap", ptr %unacked_packets, i64 0, i32 2, i32 0, i32 0, i32 0, i32 2, i32 3
+  %_M_node5.i.i.i = getelementptr inbounds i8, ptr %unacked_packets, i64 56
   %4 = load ptr, ptr %_M_node5.i.i.i, align 8, !noalias !5
-  %_M_last4.i.i.i = getelementptr inbounds %"class.net::QuicUnackedPacketMap", ptr %unacked_packets, i64 0, i32 2, i32 0, i32 0, i32 0, i32 2, i32 2
+  %_M_last4.i.i.i = getelementptr inbounds i8, ptr %unacked_packets, i64 48
   %5 = load ptr, ptr %_M_last4.i.i.i, align 8, !noalias !5
-  %loss_type_ = getelementptr inbounds %"class.net::GeneralLossAlgorithm", ptr %this, i64 0, i32 3
-  %retval.sroa.2.0.smoothed_rtt_.sroa_idx.i = getelementptr inbounds %"class.net::RttStats", ptr %rtt_stats, i64 0, i32 2, i32 1
-  %_M_finish.i.i87 = getelementptr inbounds %"struct.std::_Vector_base<std::pair<unsigned long, unsigned short>, std::allocator<std::pair<unsigned long, unsigned short>>>::_Vector_impl_data", ptr %packets_lost, i64 0, i32 1
-  %_M_end_of_storage.i.i88 = getelementptr inbounds %"struct.std::_Vector_base<std::pair<unsigned long, unsigned short>, std::allocator<std::pair<unsigned long, unsigned short>>>::_Vector_impl_data", ptr %packets_lost, i64 0, i32 2
+  %loss_type_ = getelementptr inbounds i8, ptr %this, i64 24
+  %retval.sroa.2.0.smoothed_rtt_.sroa_idx.i = getelementptr inbounds i8, ptr %rtt_stats, i64 40
+  %_M_finish.i.i87 = getelementptr inbounds i8, ptr %packets_lost, i64 8
+  %_M_end_of_storage.i.i88 = getelementptr inbounds i8, ptr %packets_lost, i64 16
   br label %for.body
 
 for.body:                                         ; preds = %for.body.lr.ph, %_ZNSt15_Deque_iteratorIN3net16TransmissionInfoERKS1_PS2_EppEv.exit
@@ -145,7 +120,7 @@ for.body:                                         ; preds = %for.body.lr.ph, %_Z
   %it.sroa.17.0158 = phi ptr [ %4, %for.body.lr.ph ], [ %it.sroa.17.1, %_ZNSt15_Deque_iteratorIN3net16TransmissionInfoERKS1_PS2_EppEv.exit ]
   %it.sroa.14.0157 = phi ptr [ %5, %for.body.lr.ph ], [ %it.sroa.14.1, %_ZNSt15_Deque_iteratorIN3net16TransmissionInfoERKS1_PS2_EppEv.exit ]
   %it.sroa.0.0156 = phi ptr [ %1, %for.body.lr.ph ], [ %it.sroa.0.1, %_ZNSt15_Deque_iteratorIN3net16TransmissionInfoERKS1_PS2_EppEv.exit ]
-  %in_flight = getelementptr inbounds %"struct.net::TransmissionInfo", ptr %it.sroa.0.0156, i64 0, i32 6
+  %in_flight = getelementptr inbounds i8, ptr %it.sroa.0.0156, i64 41
   %6 = load i8, ptr %in_flight, align 1
   %7 = and i8 %6, 1
   %tobool.not = icmp eq i8 %7, 0
@@ -160,7 +135,7 @@ if.end:                                           ; preds = %for.body
   br i1 %or.cond, label %if.then23, label %if.end28
 
 if.then23:                                        ; preds = %if.end
-  %bytes_sent = getelementptr inbounds %"struct.net::TransmissionInfo", ptr %it.sroa.0.0156, i64 0, i32 3
+  %bytes_sent = getelementptr inbounds i8, ptr %it.sroa.0.0156, i64 26
   %9 = load i16, ptr %bytes_sent, align 2
   %10 = load ptr, ptr %_M_finish.i.i87, align 8
   %11 = load ptr, ptr %_M_end_of_storage.i.i88, align 8
@@ -172,7 +147,7 @@ if.then.i.i:                                      ; preds = %if.then23
   %ref.tmp24.sroa.3.0..sroa_idx = getelementptr inbounds i8, ptr %10, i64 8
   store i16 %9, ptr %ref.tmp24.sroa.3.0..sroa_idx, align 8
   %12 = load ptr, ptr %_M_finish.i.i87, align 8
-  %incdec.ptr.i.i = getelementptr inbounds %"struct.std::pair", ptr %12, i64 1
+  %incdec.ptr.i.i = getelementptr inbounds i8, ptr %12, i64 16
   store ptr %incdec.ptr.i.i, ptr %_M_finish.i.i87, align 8
   br label %for.inc
 
@@ -216,14 +191,14 @@ for.body.i.i.i.i.i.i:                             ; preds = %_ZNSt12_Vector_base
   %__cur.07.i.i.i.i.i.i = phi ptr [ %incdec.ptr1.i.i.i.i.i.i, %for.body.i.i.i.i.i.i ], [ %cond.i10.i.i.i, %_ZNSt12_Vector_baseISt4pairImtESaIS1_EE11_M_allocateEm.exit.i.i.i ]
   %__first.addr.06.i.i.i.i.i.i = phi ptr [ %incdec.ptr.i.i.i.i.i.i, %for.body.i.i.i.i.i.i ], [ %13, %_ZNSt12_Vector_baseISt4pairImtESaIS1_EE11_M_allocateEm.exit.i.i.i ]
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %__cur.07.i.i.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(16) %__first.addr.06.i.i.i.i.i.i, i64 16, i1 false), !alias.scope !15
-  %incdec.ptr.i.i.i.i.i.i = getelementptr inbounds %"struct.std::pair", ptr %__first.addr.06.i.i.i.i.i.i, i64 1
-  %incdec.ptr1.i.i.i.i.i.i = getelementptr inbounds %"struct.std::pair", ptr %__cur.07.i.i.i.i.i.i, i64 1
+  %incdec.ptr.i.i.i.i.i.i = getelementptr inbounds i8, ptr %__first.addr.06.i.i.i.i.i.i, i64 16
+  %incdec.ptr1.i.i.i.i.i.i = getelementptr inbounds i8, ptr %__cur.07.i.i.i.i.i.i, i64 16
   %cmp.not.i.i.i.i.i.i = icmp eq ptr %incdec.ptr.i.i.i.i.i.i, %10
   br i1 %cmp.not.i.i.i.i.i.i, label %_ZNSt6vectorISt4pairImtESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit19.i.i.i, label %for.body.i.i.i.i.i.i, !llvm.loop !19
 
 _ZNSt6vectorISt4pairImtESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit19.i.i.i: ; preds = %for.body.i.i.i.i.i.i, %_ZNSt12_Vector_baseISt4pairImtESaIS1_EE11_M_allocateEm.exit.i.i.i
   %__cur.0.lcssa.i.i.i.i.i.i = phi ptr [ %cond.i10.i.i.i, %_ZNSt12_Vector_baseISt4pairImtESaIS1_EE11_M_allocateEm.exit.i.i.i ], [ %incdec.ptr1.i.i.i.i.i.i, %for.body.i.i.i.i.i.i ]
-  %incdec.ptr.i.i.i = getelementptr %"struct.std::pair", ptr %__cur.0.lcssa.i.i.i.i.i.i, i64 1
+  %incdec.ptr.i.i.i = getelementptr i8, ptr %__cur.0.lcssa.i.i.i.i.i.i, i64 16
   %tobool.not.i.i.i.i = icmp eq ptr %13, null
   br i1 %tobool.not.i.i.i.i, label %_ZNSt6vectorISt4pairImtESaIS1_EE17_M_realloc_insertIJS1_EEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_.exit.i.i, label %if.then.i20.i.i.i
 
@@ -240,7 +215,7 @@ _ZNSt6vectorISt4pairImtESaIS1_EE17_M_realloc_insertIJS1_EEEvN9__gnu_cxx17__norma
 
 if.end28:                                         ; preds = %if.end
   %15 = load ptr, ptr %it.sroa.0.0156, align 8
-  %_M_finish.i.i35 = getelementptr inbounds %"struct.std::_Vector_base<net::QuicFrame, std::allocator<net::QuicFrame>>::_Vector_impl_data", ptr %it.sroa.0.0156, i64 0, i32 1
+  %_M_finish.i.i35 = getelementptr inbounds i8, ptr %it.sroa.0.0156, i64 8
   %16 = load ptr, ptr %_M_finish.i.i35, align 8
   %cmp.i.i36 = icmp ne ptr %15, %16
   %17 = load i64, ptr %unacked_packets, align 8
@@ -249,7 +224,7 @@ if.end28:                                         ; preds = %if.end
   %.off = add i32 %8, -1
   %switch = icmp ult i32 %.off, 2
   %or.cond151 = or i1 %switch, %or.cond150
-  %sent_time = getelementptr inbounds %"struct.net::TransmissionInfo", ptr %it.sroa.0.0156, i64 0, i32 4
+  %sent_time = getelementptr inbounds i8, ptr %it.sroa.0.0156, i64 32
   %agg.tmp39.sroa.0.0.copyload = load i64, ptr %sent_time, align 8
   br i1 %or.cond151, label %if.then38, label %if.end57
 
@@ -263,7 +238,7 @@ if.then50:                                        ; preds = %if.then38
   br label %for.end
 
 if.end52:                                         ; preds = %if.then38
-  %bytes_sent55 = getelementptr inbounds %"struct.net::TransmissionInfo", ptr %it.sroa.0.0156, i64 0, i32 3
+  %bytes_sent55 = getelementptr inbounds i8, ptr %it.sroa.0.0156, i64 26
   %18 = load i16, ptr %bytes_sent55, align 2
   %19 = load ptr, ptr %_M_finish.i.i87, align 8
   %20 = load ptr, ptr %_M_end_of_storage.i.i88, align 8
@@ -275,7 +250,7 @@ if.then.i.i43:                                    ; preds = %if.end52
   %ref.tmp53.sroa.3.0..sroa_idx = getelementptr inbounds i8, ptr %19, i64 8
   store i16 %18, ptr %ref.tmp53.sroa.3.0..sroa_idx, align 8
   %21 = load ptr, ptr %_M_finish.i.i87, align 8
-  %incdec.ptr.i.i44 = getelementptr inbounds %"struct.std::pair", ptr %21, i64 1
+  %incdec.ptr.i.i44 = getelementptr inbounds i8, ptr %21, i64 16
   store ptr %incdec.ptr.i.i44, ptr %_M_finish.i.i87, align 8
   br label %for.inc
 
@@ -319,14 +294,14 @@ for.body.i.i.i.i.i.i64:                           ; preds = %_ZNSt12_Vector_base
   %__cur.07.i.i.i.i.i.i65 = phi ptr [ %incdec.ptr1.i.i.i.i.i.i68, %for.body.i.i.i.i.i.i64 ], [ %cond.i10.i.i.i61, %_ZNSt12_Vector_baseISt4pairImtESaIS1_EE11_M_allocateEm.exit.i.i.i60 ]
   %__first.addr.06.i.i.i.i.i.i66 = phi ptr [ %incdec.ptr.i.i.i.i.i.i67, %for.body.i.i.i.i.i.i64 ], [ %22, %_ZNSt12_Vector_baseISt4pairImtESaIS1_EE11_M_allocateEm.exit.i.i.i60 ]
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %__cur.07.i.i.i.i.i.i65, ptr noundef nonnull align 8 dereferenceable(16) %__first.addr.06.i.i.i.i.i.i66, i64 16, i1 false), !alias.scope !21
-  %incdec.ptr.i.i.i.i.i.i67 = getelementptr inbounds %"struct.std::pair", ptr %__first.addr.06.i.i.i.i.i.i66, i64 1
-  %incdec.ptr1.i.i.i.i.i.i68 = getelementptr inbounds %"struct.std::pair", ptr %__cur.07.i.i.i.i.i.i65, i64 1
+  %incdec.ptr.i.i.i.i.i.i67 = getelementptr inbounds i8, ptr %__first.addr.06.i.i.i.i.i.i66, i64 16
+  %incdec.ptr1.i.i.i.i.i.i68 = getelementptr inbounds i8, ptr %__cur.07.i.i.i.i.i.i65, i64 16
   %cmp.not.i.i.i.i.i.i69 = icmp eq ptr %incdec.ptr.i.i.i.i.i.i67, %19
   br i1 %cmp.not.i.i.i.i.i.i69, label %_ZNSt6vectorISt4pairImtESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit19.i.i.i70, label %for.body.i.i.i.i.i.i64, !llvm.loop !19
 
 _ZNSt6vectorISt4pairImtESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit19.i.i.i70: ; preds = %for.body.i.i.i.i.i.i64, %_ZNSt12_Vector_baseISt4pairImtESaIS1_EE11_M_allocateEm.exit.i.i.i60
   %__cur.0.lcssa.i.i.i.i.i.i71 = phi ptr [ %cond.i10.i.i.i61, %_ZNSt12_Vector_baseISt4pairImtESaIS1_EE11_M_allocateEm.exit.i.i.i60 ], [ %incdec.ptr1.i.i.i.i.i.i68, %for.body.i.i.i.i.i.i64 ]
-  %incdec.ptr.i.i.i72 = getelementptr %"struct.std::pair", ptr %__cur.0.lcssa.i.i.i.i.i.i71, i64 1
+  %incdec.ptr.i.i.i72 = getelementptr i8, ptr %__cur.0.lcssa.i.i.i.i.i.i71, i64 16
   %tobool.not.i.i.i.i73 = icmp eq ptr %22, null
   br i1 %tobool.not.i.i.i.i73, label %_ZNSt6vectorISt4pairImtESaIS1_EE17_M_realloc_insertIJS1_EEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_.exit.i.i75, label %if.then.i20.i.i.i74
 
@@ -345,13 +320,13 @@ if.end57:                                         ; preds = %if.end28
   %retval.sroa.2.0.copyload.i80 = load i64, ptr %retval.sroa.2.0.smoothed_rtt_.sroa_idx.i, align 8
   %add.i83 = add nsw i64 %retval.sroa.2.0.copyload.i80, %agg.tmp39.sroa.0.0.copyload
   %call68 = tail call noundef nonnull align 8 dereferenceable(80) ptr @_ZNK3net20QuicUnackedPacketMap19GetTransmissionInfoEm(ptr noundef nonnull align 8 dereferenceable(120) %unacked_packets, i64 noundef %largest_newly_acked)
-  %sent_time69 = getelementptr inbounds %"struct.net::TransmissionInfo", ptr %call68, i64 0, i32 4
+  %sent_time69 = getelementptr inbounds i8, ptr %call68, i64 32
   %agg.tmp67.sroa.0.0.copyload = load i64, ptr %sent_time69, align 8
   %cmp.i84 = icmp slt i64 %add.i83, %agg.tmp67.sroa.0.0.copyload
   br i1 %cmp.i84, label %if.then73, label %for.inc
 
 if.then73:                                        ; preds = %if.end57
-  %bytes_sent76 = getelementptr inbounds %"struct.net::TransmissionInfo", ptr %it.sroa.0.0156, i64 0, i32 3
+  %bytes_sent76 = getelementptr inbounds i8, ptr %it.sroa.0.0156, i64 26
   %24 = load i16, ptr %bytes_sent76, align 2
   %25 = load ptr, ptr %_M_finish.i.i87, align 8
   %26 = load ptr, ptr %_M_end_of_storage.i.i88, align 8
@@ -363,7 +338,7 @@ if.then.i.i90:                                    ; preds = %if.then73
   %ref.tmp74.sroa.3.0..sroa_idx = getelementptr inbounds i8, ptr %25, i64 8
   store i16 %24, ptr %ref.tmp74.sroa.3.0..sroa_idx, align 8
   %27 = load ptr, ptr %_M_finish.i.i87, align 8
-  %incdec.ptr.i.i91 = getelementptr inbounds %"struct.std::pair", ptr %27, i64 1
+  %incdec.ptr.i.i91 = getelementptr inbounds i8, ptr %27, i64 16
   store ptr %incdec.ptr.i.i91, ptr %_M_finish.i.i87, align 8
   br label %for.inc
 
@@ -407,14 +382,14 @@ for.body.i.i.i.i.i.i111:                          ; preds = %_ZNSt12_Vector_base
   %__cur.07.i.i.i.i.i.i112 = phi ptr [ %incdec.ptr1.i.i.i.i.i.i115, %for.body.i.i.i.i.i.i111 ], [ %cond.i10.i.i.i108, %_ZNSt12_Vector_baseISt4pairImtESaIS1_EE11_M_allocateEm.exit.i.i.i107 ]
   %__first.addr.06.i.i.i.i.i.i113 = phi ptr [ %incdec.ptr.i.i.i.i.i.i114, %for.body.i.i.i.i.i.i111 ], [ %28, %_ZNSt12_Vector_baseISt4pairImtESaIS1_EE11_M_allocateEm.exit.i.i.i107 ]
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %__cur.07.i.i.i.i.i.i112, ptr noundef nonnull align 8 dereferenceable(16) %__first.addr.06.i.i.i.i.i.i113, i64 16, i1 false), !alias.scope !25
-  %incdec.ptr.i.i.i.i.i.i114 = getelementptr inbounds %"struct.std::pair", ptr %__first.addr.06.i.i.i.i.i.i113, i64 1
-  %incdec.ptr1.i.i.i.i.i.i115 = getelementptr inbounds %"struct.std::pair", ptr %__cur.07.i.i.i.i.i.i112, i64 1
+  %incdec.ptr.i.i.i.i.i.i114 = getelementptr inbounds i8, ptr %__first.addr.06.i.i.i.i.i.i113, i64 16
+  %incdec.ptr1.i.i.i.i.i.i115 = getelementptr inbounds i8, ptr %__cur.07.i.i.i.i.i.i112, i64 16
   %cmp.not.i.i.i.i.i.i116 = icmp eq ptr %incdec.ptr.i.i.i.i.i.i114, %25
   br i1 %cmp.not.i.i.i.i.i.i116, label %_ZNSt6vectorISt4pairImtESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit19.i.i.i117, label %for.body.i.i.i.i.i.i111, !llvm.loop !19
 
 _ZNSt6vectorISt4pairImtESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit19.i.i.i117: ; preds = %for.body.i.i.i.i.i.i111, %_ZNSt12_Vector_baseISt4pairImtESaIS1_EE11_M_allocateEm.exit.i.i.i107
   %__cur.0.lcssa.i.i.i.i.i.i118 = phi ptr [ %cond.i10.i.i.i108, %_ZNSt12_Vector_baseISt4pairImtESaIS1_EE11_M_allocateEm.exit.i.i.i107 ], [ %incdec.ptr1.i.i.i.i.i.i115, %for.body.i.i.i.i.i.i111 ]
-  %incdec.ptr.i.i.i119 = getelementptr %"struct.std::pair", ptr %__cur.0.lcssa.i.i.i.i.i.i118, i64 1
+  %incdec.ptr.i.i.i119 = getelementptr i8, ptr %__cur.0.lcssa.i.i.i.i.i.i118, i64 16
   %tobool.not.i.i.i.i120 = icmp eq ptr %28, null
   br i1 %tobool.not.i.i.i.i120, label %_ZNSt6vectorISt4pairImtESaIS1_EE17_M_realloc_insertIJS1_EEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_.exit.i.i122, label %if.then.i20.i.i.i121
 
@@ -430,14 +405,14 @@ _ZNSt6vectorISt4pairImtESaIS1_EE17_M_realloc_insertIJS1_EEEvN9__gnu_cxx17__norma
   br label %for.inc
 
 for.inc:                                          ; preds = %_ZNSt6vectorISt4pairImtESaIS1_EE17_M_realloc_insertIJS1_EEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_.exit.i.i122, %if.then.i.i90, %_ZNSt6vectorISt4pairImtESaIS1_EE17_M_realloc_insertIJS1_EEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_.exit.i.i75, %if.then.i.i43, %_ZNSt6vectorISt4pairImtESaIS1_EE17_M_realloc_insertIJS1_EEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_.exit.i.i, %if.then.i.i, %if.end57, %for.body
-  %incdec.ptr.i = getelementptr inbounds %"struct.net::TransmissionInfo", ptr %it.sroa.0.0156, i64 1
+  %incdec.ptr.i = getelementptr inbounds i8, ptr %it.sroa.0.0156, i64 80
   %cmp.i126 = icmp eq ptr %incdec.ptr.i, %it.sroa.14.0157
   br i1 %cmp.i126, label %if.then.i, label %_ZNSt15_Deque_iteratorIN3net16TransmissionInfoERKS1_PS2_EppEv.exit
 
 if.then.i:                                        ; preds = %for.inc
-  %add.ptr.i = getelementptr inbounds ptr, ptr %it.sroa.17.0158, i64 1
+  %add.ptr.i = getelementptr inbounds i8, ptr %it.sroa.17.0158, i64 8
   %30 = load ptr, ptr %add.ptr.i, align 8
-  %add.ptr.i.i = getelementptr inbounds %"struct.net::TransmissionInfo", ptr %30, i64 6
+  %add.ptr.i.i = getelementptr inbounds i8, ptr %30, i64 480
   br label %_ZNSt15_Deque_iteratorIN3net16TransmissionInfoERKS1_PS2_EppEv.exit
 
 _ZNSt15_Deque_iteratorIN3net16TransmissionInfoERKS1_PS2_EppEv.exit: ; preds = %for.inc, %if.then.i
@@ -462,7 +437,7 @@ declare noundef nonnull align 8 dereferenceable(80) ptr @_ZNK3net20QuicUnackedPa
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
 define dso_local i64 @_ZNK3net20GeneralLossAlgorithm14GetLossTimeoutEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %this) unnamed_addr #1 align 2 {
 entry:
-  %loss_detection_timeout_ = getelementptr inbounds %"class.net::GeneralLossAlgorithm", ptr %this, i64 0, i32 1
+  %loss_detection_timeout_ = getelementptr inbounds i8, ptr %this, i64 8
   %retval.sroa.0.0.copyload = load i64, ptr %loss_detection_timeout_, align 8
   ret i64 %retval.sroa.0.0.copyload
 }
@@ -470,19 +445,19 @@ entry:
 ; Function Attrs: mustprogress uwtable
 define dso_local void @_ZN3net20GeneralLossAlgorithm26SpuriousRetransmitDetectedERKNS_20QuicUnackedPacketMapENS_8QuicTimeERKNS_8RttStatsEm(ptr nocapture noundef nonnull align 8 dereferenceable(32) %this, ptr noundef nonnull align 8 dereferenceable(120) %unacked_packets, i64 %time.coerce, ptr nocapture noundef nonnull readonly align 8 dereferenceable(224) %rtt_stats, i64 noundef %spurious_retransmission) unnamed_addr #3 align 2 {
 entry:
-  %loss_type_ = getelementptr inbounds %"class.net::GeneralLossAlgorithm", ptr %this, i64 0, i32 3
+  %loss_type_ = getelementptr inbounds i8, ptr %this, i64 24
   %0 = load i32, ptr %loss_type_, align 8
   %cmp.not = icmp eq i32 %0, 2
   br i1 %cmp.not, label %lor.lhs.false, label %do.end
 
 lor.lhs.false:                                    ; preds = %entry
-  %reordering_shift_ = getelementptr inbounds %"class.net::GeneralLossAlgorithm", ptr %this, i64 0, i32 4
+  %reordering_shift_ = getelementptr inbounds i8, ptr %this, i64 28
   %1 = load i32, ptr %reordering_shift_, align 4
   %cmp2 = icmp eq i32 %1, 0
   br i1 %cmp2, label %do.end, label %if.end
 
 if.end:                                           ; preds = %lor.lhs.false
-  %largest_sent_on_spurious_retransmit_ = getelementptr inbounds %"class.net::GeneralLossAlgorithm", ptr %this, i64 0, i32 2
+  %largest_sent_on_spurious_retransmit_ = getelementptr inbounds i8, ptr %this, i64 16
   %2 = load i64, ptr %largest_sent_on_spurious_retransmit_, align 8
   %cmp3.not = icmp ult i64 %2, %spurious_retransmission
   br i1 %cmp3.not, label %if.end5, label %do.end
@@ -491,10 +466,10 @@ if.end5:                                          ; preds = %if.end
   %3 = load i64, ptr %unacked_packets, align 8
   store i64 %3, ptr %largest_sent_on_spurious_retransmit_, align 8
   %call8 = tail call noundef nonnull align 8 dereferenceable(80) ptr @_ZNK3net20QuicUnackedPacketMap19GetTransmissionInfoEm(ptr noundef nonnull align 8 dereferenceable(120) %unacked_packets, i64 noundef %spurious_retransmission)
-  %sent_time = getelementptr inbounds %"struct.net::TransmissionInfo", ptr %call8, i64 0, i32 4
+  %sent_time = getelementptr inbounds i8, ptr %call8, i64 32
   %agg.tmp7.sroa.0.0.copyload = load i64, ptr %sent_time, align 8
   %sub.i = sub nsw i64 %time.coerce, %agg.tmp7.sroa.0.0.copyload
-  %retval.sroa.2.0.previous_srtt_.sroa_idx.i = getelementptr inbounds %"class.net::RttStats", ptr %rtt_stats, i64 0, i32 3, i32 1
+  %retval.sroa.2.0.previous_srtt_.sroa_idx.i = getelementptr inbounds i8, ptr %rtt_stats, i64 56
   %retval.sroa.2.0.copyload.i = load i64, ptr %retval.sroa.2.0.previous_srtt_.sroa_idx.i, align 8
   %retval.sroa.2.0.latest_rtt_.sroa_idx.i = getelementptr inbounds i8, ptr %rtt_stats, i64 8
   %retval.sroa.2.0.copyload.i6 = load i64, ptr %retval.sroa.2.0.latest_rtt_.sroa_idx.i, align 8

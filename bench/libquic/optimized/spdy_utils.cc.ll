@@ -70,26 +70,6 @@ target triple = "x86_64-unknown-linux-gnu"
 %"struct.std::_Vector_base" = type { %"struct.std::_Vector_base<std::__cxx11::basic_string<char>, std::allocator<std::__cxx11::basic_string<char>>>::_Vector_impl" }
 %"struct.std::_Vector_base<std::__cxx11::basic_string<char>, std::allocator<std::__cxx11::basic_string<char>>>::_Vector_impl" = type { %"struct.std::_Vector_base<std::__cxx11::basic_string<char>, std::allocator<std::__cxx11::basic_string<char>>>::_Vector_impl_data" }
 %"struct.std::_Vector_base<std::__cxx11::basic_string<char>, std::allocator<std::__cxx11::basic_string<char>>>::_Vector_impl_data" = type { ptr, ptr, ptr }
-%class.linked_hash_map = type { %"class.std::unordered_map", %"class.std::__cxx11::list" }
-%"class.std::unordered_map" = type { %"class.std::_Hashtable" }
-%"class.std::_Hashtable" = type { ptr, i64, %"struct.std::__detail::_Hash_node_base", i64, %"struct.std::__detail::_Prime_rehash_policy", ptr }
-%"struct.std::__detail::_Hash_node_base" = type { ptr }
-%"struct.std::__detail::_Prime_rehash_policy" = type { float, i64 }
-%"class.std::__cxx11::list" = type { %"class.std::__cxx11::_List_base" }
-%"class.std::__cxx11::_List_base" = type { %"struct.std::__cxx11::_List_base<std::pair<base::BasicStringPiece<std::string>, base::BasicStringPiece<std::string>>, std::allocator<std::pair<base::BasicStringPiece<std::string>, base::BasicStringPiece<std::string>>>>::_List_impl" }
-%"struct.std::__cxx11::_List_base<std::pair<base::BasicStringPiece<std::string>, base::BasicStringPiece<std::string>>, std::allocator<std::pair<base::BasicStringPiece<std::string>, base::BasicStringPiece<std::string>>>>::_List_impl" = type { %"struct.std::__detail::_List_node_header" }
-%"struct.std::__detail::_List_node_header" = type { %"struct.std::__detail::_List_node_base", i64 }
-%"struct.std::__detail::_List_node_base" = type { ptr, ptr }
-%"struct.std::_List_node" = type { %"struct.std::__detail::_List_node_base", %"struct.__gnu_cxx::__aligned_membuf" }
-%"struct.__gnu_cxx::__aligned_membuf" = type { [32 x i8] }
-%"class.net::QuicHeaderList" = type { %"class.net::SpdyHeadersHandlerInterface", %"class.std::deque", i64 }
-%"class.net::SpdyHeadersHandlerInterface" = type { ptr }
-%"class.std::deque" = type { %"class.std::_Deque_base" }
-%"class.std::_Deque_base" = type { %"struct.std::_Deque_base<std::pair<std::__cxx11::basic_string<char>, std::__cxx11::basic_string<char>>, std::allocator<std::pair<std::__cxx11::basic_string<char>, std::__cxx11::basic_string<char>>>>::_Deque_impl" }
-%"struct.std::_Deque_base<std::pair<std::__cxx11::basic_string<char>, std::__cxx11::basic_string<char>>, std::allocator<std::pair<std::__cxx11::basic_string<char>, std::__cxx11::basic_string<char>>>>::_Deque_impl" = type { %"struct.std::_Deque_base<std::pair<std::__cxx11::basic_string<char>, std::__cxx11::basic_string<char>>, std::allocator<std::pair<std::__cxx11::basic_string<char>, std::__cxx11::basic_string<char>>>>::_Deque_impl_data" }
-%"struct.std::_Deque_base<std::pair<std::__cxx11::basic_string<char>, std::__cxx11::basic_string<char>>, std::allocator<std::pair<std::__cxx11::basic_string<char>, std::__cxx11::basic_string<char>>>>::_Deque_impl_data" = type { ptr, i64, %"struct.std::_Deque_iterator", %"struct.std::_Deque_iterator" }
-%"struct.std::_Deque_iterator" = type { ptr, ptr, ptr, ptr }
-%"struct.std::pair.73" = type { %"class.std::__cxx11::basic_string", %"class.std::__cxx11::basic_string" }
 %class.GURL = type { %"class.std::__cxx11::basic_string", i8, %"struct.url::Parsed", %"class.std::unique_ptr.76" }
 %"struct.url::Parsed" = type { %"struct.url::Component", %"struct.url::Component", %"struct.url::Component", %"struct.url::Component", %"struct.url::Component", %"struct.url::Component", %"struct.url::Component", %"struct.url::Component", ptr }
 %"struct.url::Component" = type { i32, i32 }
@@ -161,7 +141,7 @@ invoke.cont3:                                     ; preds = %invoke.cont2
 
 invoke.cont8:                                     ; preds = %invoke.cont3
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp) #9
-  %owns_buffer_.i = getelementptr inbounds %"class.net::SpdySerializedFrame", ptr %block, i64 0, i32 2
+  %owns_buffer_.i = getelementptr inbounds i8, ptr %block, i64 16
   %1 = load i8, ptr %owns_buffer_.i, align 8
   %2 = and i8 %1, 1
   %tobool.not.i = icmp eq i8 %2, 0
@@ -195,7 +175,7 @@ lpad7:                                            ; preds = %invoke.cont3
   %6 = landingpad { ptr, i32 }
           cleanup
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp) #9
-  %owns_buffer_.i7 = getelementptr inbounds %"class.net::SpdySerializedFrame", ptr %block, i64 0, i32 2
+  %owns_buffer_.i7 = getelementptr inbounds i8, ptr %block, i64 16
   %7 = load i8, ptr %owns_buffer_.i7, align 8
   %8 = and i8 %7, 1
   %tobool.not.i8 = icmp eq i8 %8, 0
@@ -235,7 +215,7 @@ declare void @_ZNK3net10SpdyFramer38SerializeHeaderBlockWithoutCompressionEPNS_1
 define linkonce_odr dso_local void @_ZN3net16SpdyFrameBuilder4takeEv(ptr noalias sret(%"class.net::SpdySerializedFrame") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(36) %this) local_unnamed_addr #0 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp5 = alloca %"class.logging::LogMessage", align 8
-  %version_ = getelementptr inbounds %"class.net::SpdyFrameBuilder", ptr %this, i64 0, i32 4
+  %version_ = getelementptr inbounds i8, ptr %this, i64 32
   %0 = load i32, ptr %version_, align 8
   %cmp = icmp eq i32 %0, 2
   br i1 %cmp, label %if.then, label %if.end
@@ -247,14 +227,14 @@ if.then:                                          ; preds = %entry
 land.lhs.true:                                    ; preds = %if.then
   %1 = load i32, ptr %version_, align 8
   %call3 = tail call noundef i64 @_ZN3net13SpdyConstants20GetMaxFrameSizeLimitENS_16SpdyMajorVersionE(i32 noundef %1)
-  %length_ = getelementptr inbounds %"class.net::SpdyFrameBuilder", ptr %this, i64 0, i32 2
+  %length_ = getelementptr inbounds i8, ptr %this, i64 16
   %2 = load i64, ptr %length_, align 8
   %cmp4 = icmp ult i64 %call3, %2
   br i1 %cmp4, label %cond.false, label %if.end
 
 cond.false:                                       ; preds = %land.lhs.true
   call void @_ZN7logging10LogMessageC1EPKcii(ptr noundef nonnull align 8 dereferenceable(404) %ref.tmp5, ptr noundef nonnull @.str.10, i32 noundef 80, i32 noundef 2)
-  %stream_.i = getelementptr inbounds %"class.logging::LogMessage", ptr %ref.tmp5, i64 0, i32 2
+  %stream_.i = getelementptr inbounds i8, ptr %ref.tmp5, i64 8
   %call8 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc(ptr noundef nonnull align 8 dereferenceable(8) %stream_.i, ptr noundef nonnull @.str.11)
           to label %invoke.cont7 unwind label %lpad
 
@@ -280,17 +260,17 @@ lpad:                                             ; preds = %invoke.cont10, %inv
 if.end:                                           ; preds = %land.lhs.true, %if.then, %invoke.cont12, %entry
   %5 = load ptr, ptr %this, align 8
   store ptr null, ptr %this, align 8
-  %offset_.i = getelementptr inbounds %"class.net::SpdyFrameBuilder", ptr %this, i64 0, i32 3
+  %offset_.i = getelementptr inbounds i8, ptr %this, i64 24
   %6 = load i64, ptr %offset_.i, align 8
-  %length_.i = getelementptr inbounds %"class.net::SpdyFrameBuilder", ptr %this, i64 0, i32 2
+  %length_.i = getelementptr inbounds i8, ptr %this, i64 16
   %7 = load i64, ptr %length_.i, align 8
   %add.i = add i64 %7, %6
   store ptr %5, ptr %agg.result, align 8
-  %size_.i = getelementptr inbounds %"class.net::SpdySerializedFrame", ptr %agg.result, i64 0, i32 1
+  %size_.i = getelementptr inbounds i8, ptr %agg.result, i64 8
   store i64 %add.i, ptr %size_.i, align 8
-  %owns_buffer_.i = getelementptr inbounds %"class.net::SpdySerializedFrame", ptr %agg.result, i64 0, i32 2
+  %owns_buffer_.i = getelementptr inbounds i8, ptr %agg.result, i64 16
   store i8 1, ptr %owns_buffer_.i, align 8
-  %capacity_ = getelementptr inbounds %"class.net::SpdyFrameBuilder", ptr %this, i64 0, i32 1
+  %capacity_ = getelementptr inbounds i8, ptr %this, i64 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %capacity_, i8 0, i64 24, i1 false)
   ret void
 }
@@ -330,7 +310,7 @@ invoke.cont:                                      ; preds = %entry
   br i1 %call, label %invoke.cont1, label %cleanup35
 
 invoke.cont1:                                     ; preds = %invoke.cont
-  %list_.i.i = getelementptr inbounds %class.linked_hash_map, ptr %headers, i64 0, i32 1
+  %list_.i.i = getelementptr inbounds i8, ptr %headers, i64 56
   %0 = load ptr, ptr %list_.i.i, align 8
   %cmp.i.i.i = icmp eq ptr %0, %list_.i.i
   br i1 %cmp.i.i.i, label %cleanup35, label %if.end
@@ -347,11 +327,11 @@ if.end:                                           ; preds = %invoke.cont1
 
 .noexc:                                           ; preds = %if.end
   %2 = load ptr, ptr %agg.tmp.i, align 8
-  %3 = getelementptr inbounds { ptr, i64 }, ptr %agg.tmp.i, i64 0, i32 1
+  %3 = getelementptr inbounds i8, ptr %agg.tmp.i, i64 8
   %4 = load i64, ptr %3, align 8
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %key.i.i)
   store ptr %2, ptr %key.i.i, align 8
-  %5 = getelementptr inbounds { ptr, i64 }, ptr %key.i.i, i64 0, i32 1
+  %5 = getelementptr inbounds i8, ptr %key.i.i, i64 8
   store i64 %4, ptr %5, align 8
   %call.i.i.i.i8 = invoke ptr @_ZNKSt10_HashtableIN4base16BasicStringPieceINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEESt4pairIKS8_St14_List_iteratorIS9_IS8_S8_EEESaISE_ENSt8__detail10_Select1stESt8equal_toIS8_ENS0_15StringPieceHashENSG_18_Mod_range_hashingENSG_20_Default_ranged_hashENSG_20_Prime_rehash_policyENSG_17_Hashtable_traitsILb1ELb0ELb1EEEE4findERSA_(ptr noundef nonnull align 8 dereferenceable(56) %headers, ptr noundef nonnull align 8 dereferenceable(16) %key.i.i)
           to label %call.i.i.i.i.noexc unwind label %lpad
@@ -379,7 +359,7 @@ if.then5:                                         ; preds = %invoke.cont3
 
 invoke.cont6:                                     ; preds = %if.then5
   %7 = load ptr, ptr %agg.tmp, align 8
-  %8 = getelementptr inbounds { ptr, i64 }, ptr %agg.tmp, i64 0, i32 1
+  %8 = getelementptr inbounds i8, ptr %agg.tmp, i64 8
   %9 = load i64, ptr %8, align 8
   invoke void @_ZN3net15SpdyHeaderBlockixEN4base16BasicStringPieceINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEE(ptr nonnull sret(%"class.net::SpdyHeaderBlock::StringPieceProxy") align 8 %ref.tmp, ptr noundef nonnull align 8 dereferenceable(88) %headers, ptr %7, i64 %9)
           to label %invoke.cont7 unwind label %lpad
@@ -397,14 +377,14 @@ invoke.cont13:                                    ; preds = %invoke.cont9
   %10 = extractvalue { ptr, i64 } %call10, 1
   %11 = extractvalue { ptr, i64 } %call10, 0
   %12 = load ptr, ptr %agg.tmp12, align 8
-  %13 = getelementptr inbounds { ptr, i64 }, ptr %agg.tmp12, i64 0, i32 1
+  %13 = getelementptr inbounds i8, ptr %agg.tmp12, i64 8
   %14 = load i64, ptr %13, align 8
   invoke void @_ZN4base11SplitStringENS_16BasicStringPieceINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEES7_NS_18WhitespaceHandlingENS_11SplitResultE(ptr nonnull sret(%"class.std::vector") align 8 %values, ptr %11, i64 %10, ptr %12, i64 %14, i32 noundef 1, i32 noundef 0)
           to label %invoke.cont14 unwind label %lpad
 
 invoke.cont14:                                    ; preds = %invoke.cont13
   %15 = load ptr, ptr %values, align 8
-  %_M_finish.i = getelementptr inbounds %"struct.std::_Vector_base<std::__cxx11::basic_string<char>, std::allocator<std::__cxx11::basic_string<char>>>::_Vector_impl_data", ptr %values, i64 0, i32 1
+  %_M_finish.i = getelementptr inbounds i8, ptr %values, i64 8
   %16 = load ptr, ptr %_M_finish.i, align 8
   %cmp.i.not27 = icmp eq ptr %15, %16
   br i1 %cmp.i.not27, label %invoke.cont.i19, label %for.body
@@ -450,7 +430,7 @@ if.end29:                                         ; preds = %if.end26
   br i1 %cmp30.not, label %for.inc, label %cleanup
 
 for.inc:                                          ; preds = %if.end29, %if.then28
-  %incdec.ptr.i = getelementptr inbounds %"class.std::__cxx11::basic_string", ptr %__begin2.sroa.0.028, i64 1
+  %incdec.ptr.i = getelementptr inbounds i8, ptr %__begin2.sroa.0.028, i64 32
   %cmp.i.not = icmp eq ptr %incdec.ptr.i, %16
   br i1 %cmp.i.not, label %if.end34.critedge, label %for.body
 
@@ -463,7 +443,7 @@ cleanup:                                          ; preds = %if.end29, %invoke.c
 for.body.i.i.i.i:                                 ; preds = %cleanup, %for.body.i.i.i.i
   %__first.addr.04.i.i.i.i = phi ptr [ %incdec.ptr.i.i.i.i, %for.body.i.i.i.i ], [ %21, %cleanup ]
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %__first.addr.04.i.i.i.i) #9
-  %incdec.ptr.i.i.i.i = getelementptr inbounds %"class.std::__cxx11::basic_string", ptr %__first.addr.04.i.i.i.i, i64 1
+  %incdec.ptr.i.i.i.i = getelementptr inbounds i8, ptr %__first.addr.04.i.i.i.i, i64 32
   %cmp.not.i.i.i.i = icmp eq ptr %incdec.ptr.i.i.i.i, %22
   br i1 %cmp.not.i.i.i.i, label %invoke.contthread-pre-split.i, label %for.body.i.i.i.i, !llvm.loop !5
 
@@ -489,7 +469,7 @@ if.end34.critedge:                                ; preds = %for.inc
 for.body.i.i.i.i13:                               ; preds = %if.end34.critedge, %for.body.i.i.i.i13
   %__first.addr.04.i.i.i.i14 = phi ptr [ %incdec.ptr.i.i.i.i15, %for.body.i.i.i.i13 ], [ %.pre, %if.end34.critedge ]
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %__first.addr.04.i.i.i.i14) #9
-  %incdec.ptr.i.i.i.i15 = getelementptr inbounds %"class.std::__cxx11::basic_string", ptr %__first.addr.04.i.i.i.i14, i64 1
+  %incdec.ptr.i.i.i.i15 = getelementptr inbounds i8, ptr %__first.addr.04.i.i.i.i14, i64 32
   %cmp.not.i.i.i.i16 = icmp eq ptr %incdec.ptr.i.i.i.i15, %.pre29
   br i1 %cmp.not.i.i.i.i16, label %invoke.contthread-pre-split.i17, label %for.body.i.i.i.i13, !llvm.loop !5
 
@@ -543,7 +523,7 @@ declare void @_ZN4base16BasicStringPieceINSt7__cxx1112basic_stringIcSt11char_tra
 define linkonce_odr dso_local void @_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %this) unnamed_addr #4 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %0 = load ptr, ptr %this, align 8
-  %_M_finish = getelementptr inbounds %"struct.std::_Vector_base<std::__cxx11::basic_string<char>, std::allocator<std::__cxx11::basic_string<char>>>::_Vector_impl_data", ptr %this, i64 0, i32 1
+  %_M_finish = getelementptr inbounds i8, ptr %this, i64 8
   %1 = load ptr, ptr %_M_finish, align 8
   %cmp.not3.i.i.i = icmp eq ptr %0, %1
   br i1 %cmp.not3.i.i.i, label %invoke.cont, label %for.body.i.i.i
@@ -551,7 +531,7 @@ entry:
 for.body.i.i.i:                                   ; preds = %entry, %for.body.i.i.i
   %__first.addr.04.i.i.i = phi ptr [ %incdec.ptr.i.i.i, %for.body.i.i.i ], [ %0, %entry ]
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %__first.addr.04.i.i.i) #9
-  %incdec.ptr.i.i.i = getelementptr inbounds %"class.std::__cxx11::basic_string", ptr %__first.addr.04.i.i.i, i64 1
+  %incdec.ptr.i.i.i = getelementptr inbounds i8, ptr %__first.addr.04.i.i.i, i64 32
   %cmp.not.i.i.i = icmp eq ptr %incdec.ptr.i.i.i, %1
   br i1 %cmp.not.i.i.i, label %invoke.contthread-pre-split, label %for.body.i.i.i, !llvm.loop !5
 
@@ -590,7 +570,7 @@ invoke.cont:                                      ; preds = %entry
   br i1 %call, label %invoke.cont1, label %cleanup
 
 invoke.cont1:                                     ; preds = %invoke.cont
-  %list_.i.i = getelementptr inbounds %class.linked_hash_map, ptr %trailers, i64 0, i32 1
+  %list_.i.i = getelementptr inbounds i8, ptr %trailers, i64 56
   %0 = load ptr, ptr %list_.i.i, align 8
   %cmp.i.i.i = icmp eq ptr %0, %list_.i.i
   br i1 %cmp.i.i.i, label %cleanup, label %if.end
@@ -617,11 +597,11 @@ if.end:                                           ; preds = %invoke.cont1
 
 invoke.cont3:                                     ; preds = %if.end
   %2 = load ptr, ptr %agg.tmp, align 8
-  %3 = getelementptr inbounds { ptr, i64 }, ptr %agg.tmp, i64 0, i32 1
+  %3 = getelementptr inbounds i8, ptr %agg.tmp, i64 8
   %4 = load i64, ptr %3, align 8
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %key.i)
   store ptr %2, ptr %key.i, align 8
-  %5 = getelementptr inbounds { ptr, i64 }, ptr %key.i, i64 0, i32 1
+  %5 = getelementptr inbounds i8, ptr %key.i, i64 8
   store i64 %4, ptr %5, align 8
   %call.i.i.i9 = invoke ptr @_ZNSt10_HashtableIN4base16BasicStringPieceINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEESt4pairIKS8_St14_List_iteratorIS9_IS8_S8_EEESaISE_ENSt8__detail10_Select1stESt8equal_toIS8_ENS0_15StringPieceHashENSG_18_Mod_range_hashingENSG_20_Default_ranged_hashENSG_20_Prime_rehash_policyENSG_17_Hashtable_traitsILb1ELb0ELb1EEEE4findERSA_(ptr noundef nonnull align 8 dereferenceable(56) %trailers, ptr noundef nonnull align 8 dereferenceable(16) %key.i)
           to label %call.i.i.i.noexc unwind label %lpad.loopexit.split-lp
@@ -642,8 +622,8 @@ invoke.cont4:                                     ; preds = %call.i.i.i.noexc
   br i1 %cmp.i, label %cleanup, label %lor.rhs
 
 lor.rhs:                                          ; preds = %invoke.cont4
-  %_M_storage.i.i = getelementptr inbounds %"struct.std::_List_node", ptr %retval.sroa.0.0.copyload.i.i, i64 0, i32 1
-  %second = getelementptr inbounds %"struct.std::_List_node", ptr %retval.sroa.0.0.copyload.i.i, i64 0, i32 1, i32 0, i64 16
+  %_M_storage.i.i = getelementptr inbounds i8, ptr %retval.sroa.0.0.copyload.i.i, i64 16
+  %second = getelementptr inbounds i8, ptr %retval.sroa.0.0.copyload.i.i, i64 32
   %call12 = invoke noundef zeroext i1 @_ZN4base13StringToSizeTERKNS_16BasicStringPieceINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEPm(ptr noundef nonnull align 8 dereferenceable(16) %second, ptr noundef %final_byte_offset)
           to label %invoke.cont11 unwind label %lpad.loopexit.split-lp
 
@@ -652,11 +632,11 @@ invoke.cont11:                                    ; preds = %lor.rhs
 
 if.end14:                                         ; preds = %invoke.cont11
   %agg.tmp15.sroa.0.0.copyload = load ptr, ptr %_M_storage.i.i, align 8
-  %agg.tmp15.sroa.2.0.first.sroa_idx = getelementptr inbounds %"struct.std::_List_node", ptr %retval.sroa.0.0.copyload.i.i, i64 0, i32 1, i32 0, i64 8
+  %agg.tmp15.sroa.2.0.first.sroa_idx = getelementptr inbounds i8, ptr %retval.sroa.0.0.copyload.i.i, i64 24
   %agg.tmp15.sroa.2.0.copyload = load i64, ptr %agg.tmp15.sroa.2.0.first.sroa_idx, align 8
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %key.i12)
   store ptr %agg.tmp15.sroa.0.0.copyload, ptr %key.i12, align 8
-  %6 = getelementptr inbounds { ptr, i64 }, ptr %key.i12, i64 0, i32 1
+  %6 = getelementptr inbounds i8, ptr %key.i12, i64 8
   store i64 %agg.tmp15.sroa.2.0.copyload, ptr %6, align 8
   %call.i13 = invoke noundef i64 @_ZN15linked_hash_mapIN4base16BasicStringPieceINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEES8_NS0_15StringPieceHashEE5eraseERKS8_(ptr noundef nonnull align 8 dereferenceable(80) %trailers, ptr noundef nonnull align 8 dereferenceable(16) %key.i12)
           to label %invoke.cont18 unwind label %lpad.loopexit.split-lp
@@ -672,7 +652,7 @@ for.cond:                                         ; preds = %invoke.cont30, %inv
   br i1 %cmp.i16.not, label %cleanup, label %for.body
 
 for.body:                                         ; preds = %for.cond
-  %_M_storage.i.i17 = getelementptr inbounds %"struct.std::_List_node", ptr %__begin1.sroa.0.0, i64 0, i32 1
+  %_M_storage.i.i17 = getelementptr inbounds i8, ptr %__begin1.sroa.0.0, i64 16
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %key, ptr noundef nonnull align 8 dereferenceable(16) %_M_storage.i.i17, i64 16, i1 false)
   invoke void @_ZN4base16BasicStringPieceINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEC1EPKc(ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp28, ptr noundef nonnull @.str.2)
           to label %invoke.cont29 unwind label %lpad.loopexit
@@ -718,27 +698,27 @@ entry:
   %agg.tmp65 = alloca %"class.base::BasicStringPiece", align 8
   %new_value = alloca i64, align 8
   %ref.tmp74 = alloca %"class.base::BasicStringPiece", align 8
-  %_M_start.i.i = getelementptr inbounds %"class.net::QuicHeaderList", ptr %header_list, i64 0, i32 1, i32 0, i32 0, i32 0, i32 2
+  %_M_start.i.i = getelementptr inbounds i8, ptr %header_list, i64 24
   %0 = load ptr, ptr %_M_start.i.i, align 8, !noalias !7
-  %_M_finish.i.i = getelementptr inbounds %"class.net::QuicHeaderList", ptr %header_list, i64 0, i32 1, i32 0, i32 0, i32 0, i32 3
+  %_M_finish.i.i = getelementptr inbounds i8, ptr %header_list, i64 56
   %1 = load ptr, ptr %_M_finish.i.i, align 8, !noalias !12
   %cmp.i.i.not59 = icmp eq ptr %0, %1
   br i1 %cmp.i.i.not59, label %for.end, label %for.body.lr.ph
 
 for.body.lr.ph:                                   ; preds = %entry
-  %_M_node5.i.i.i = getelementptr inbounds %"class.net::QuicHeaderList", ptr %header_list, i64 0, i32 1, i32 0, i32 0, i32 0, i32 2, i32 3
+  %_M_node5.i.i.i = getelementptr inbounds i8, ptr %header_list, i64 48
   %2 = load ptr, ptr %_M_node5.i.i.i, align 8, !noalias !7
-  %_M_last4.i.i.i = getelementptr inbounds %"class.net::QuicHeaderList", ptr %header_list, i64 0, i32 1, i32 0, i32 0, i32 0, i32 2, i32 2
+  %_M_last4.i.i.i = getelementptr inbounds i8, ptr %header_list, i64 40
   %3 = load ptr, ptr %_M_last4.i.i.i, align 8, !noalias !7
-  %4 = getelementptr inbounds { ptr, i64 }, ptr %agg.tmp13, i64 0, i32 1
-  %5 = getelementptr inbounds { ptr, i64 }, ptr %agg.tmp14, i64 0, i32 1
-  %6 = getelementptr inbounds { ptr, i64 }, ptr %agg.tmp15, i64 0, i32 1
-  %7 = getelementptr inbounds { ptr, i64 }, ptr %key.i, i64 0, i32 1
-  %list_.i.i = getelementptr inbounds %class.linked_hash_map, ptr %headers, i64 0, i32 1
-  %8 = getelementptr inbounds { ptr, i64 }, ptr %agg.tmp49, i64 0, i32 1
-  %9 = getelementptr inbounds { ptr, i64 }, ptr %agg.tmp51, i64 0, i32 1
-  %10 = getelementptr inbounds { ptr, i64 }, ptr %agg.tmp25, i64 0, i32 1
-  %11 = getelementptr inbounds { ptr, i64 }, ptr %agg.tmp22, i64 0, i32 1
+  %4 = getelementptr inbounds i8, ptr %agg.tmp13, i64 8
+  %5 = getelementptr inbounds i8, ptr %agg.tmp14, i64 8
+  %6 = getelementptr inbounds i8, ptr %agg.tmp15, i64 8
+  %7 = getelementptr inbounds i8, ptr %key.i, i64 8
+  %list_.i.i = getelementptr inbounds i8, ptr %headers, i64 56
+  %8 = getelementptr inbounds i8, ptr %agg.tmp49, i64 8
+  %9 = getelementptr inbounds i8, ptr %agg.tmp51, i64 8
+  %10 = getelementptr inbounds i8, ptr %agg.tmp25, i64 8
+  %11 = getelementptr inbounds i8, ptr %agg.tmp22, i64 8
   br label %for.body
 
 for.body:                                         ; preds = %for.body.lr.ph, %_ZNSt15_Deque_iteratorISt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES6_ERKS7_PS8_EppEv.exit
@@ -866,7 +846,7 @@ if.end11:                                         ; preds = %for.end.i.i.i.i.i, 
 
 if.then12:                                        ; preds = %if.end11
   call void @_ZN4base16BasicStringPieceINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEC1ERKS6_(ptr noundef nonnull align 8 dereferenceable(16) %agg.tmp13, ptr noundef nonnull align 8 dereferenceable(32) %__begin1.sroa.0.060)
-  %second = getelementptr inbounds %"struct.std::pair.73", ptr %__begin1.sroa.0.060, i64 0, i32 1
+  %second = getelementptr inbounds i8, ptr %__begin1.sroa.0.060, i64 32
   call void @_ZN4base16BasicStringPieceINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEC1ERKS6_(ptr noundef nonnull align 8 dereferenceable(16) %agg.tmp14, ptr noundef nonnull align 8 dereferenceable(32) %second)
   %36 = load ptr, ptr %agg.tmp13, align 8
   %37 = load i64, ptr %4, align 8
@@ -898,7 +878,7 @@ _ZN3net15SpdyHeaderBlock4findEN4base16BasicStringPieceINSt7__cxx1112basic_string
   br i1 %cmp.i, label %if.then21, label %if.else27
 
 if.then21:                                        ; preds = %_ZN3net15SpdyHeaderBlock4findEN4base16BasicStringPieceINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEE.exit.thread, %_ZN3net15SpdyHeaderBlock4findEN4base16BasicStringPieceINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEE.exit
-  %second23 = getelementptr inbounds %"struct.std::pair.73", ptr %__begin1.sroa.0.060, i64 0, i32 1
+  %second23 = getelementptr inbounds i8, ptr %__begin1.sroa.0.060, i64 32
   call void @_ZN4base16BasicStringPieceINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEC1ERKS6_(ptr noundef nonnull align 8 dereferenceable(16) %agg.tmp22, ptr noundef nonnull align 8 dereferenceable(32) %second23)
   call void @_ZN4base16BasicStringPieceINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEC1ERKS6_(ptr noundef nonnull align 8 dereferenceable(16) %agg.tmp25, ptr noundef nonnull align 8 dereferenceable(32) %__begin1.sroa.0.060)
   %42 = load ptr, ptr %agg.tmp25, align 8
@@ -920,7 +900,7 @@ lpad:                                             ; preds = %if.then21
   br label %eh.resume
 
 if.else27:                                        ; preds = %_ZN3net15SpdyHeaderBlock4findEN4base16BasicStringPieceINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEE.exit
-  %second29 = getelementptr inbounds %"struct.std::_List_node", ptr %retval.sroa.0.0.copyload.i.i, i64 0, i32 1, i32 0, i64 16
+  %second29 = getelementptr inbounds i8, ptr %retval.sroa.0.0.copyload.i.i, i64 32
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %v, ptr noundef nonnull align 8 dereferenceable(16) %second29, i64 16, i1 false)
   %call30 = call noundef ptr @_ZNK4base16BasicStringPieceINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE4dataEv(ptr noundef nonnull align 8 dereferenceable(16) %v)
   %call31 = call noundef i64 @_ZNK4base16BasicStringPieceINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE6lengthEv(ptr noundef nonnull align 8 dereferenceable(16) %v)
@@ -959,7 +939,7 @@ invoke.cont43:                                    ; preds = %if.else41
           to label %if.end45 unwind label %lpad35
 
 if.end45:                                         ; preds = %invoke.cont43, %if.then38
-  %second46 = getelementptr inbounds %"struct.std::pair.73", ptr %__begin1.sroa.0.060, i64 0, i32 1
+  %second46 = getelementptr inbounds i8, ptr %__begin1.sroa.0.060, i64 32
   %call48 = invoke noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6appendERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %s, ptr noundef nonnull align 8 dereferenceable(32) %second46)
           to label %invoke.cont47 unwind label %lpad35
 
@@ -984,14 +964,14 @@ invoke.cont53:                                    ; preds = %invoke.cont52
   br label %for.inc
 
 for.inc:                                          ; preds = %if.then12, %invoke.cont53, %invoke.cont
-  %incdec.ptr.i = getelementptr inbounds %"struct.std::pair.73", ptr %__begin1.sroa.0.060, i64 1
+  %incdec.ptr.i = getelementptr inbounds i8, ptr %__begin1.sroa.0.060, i64 64
   %cmp.i30 = icmp eq ptr %incdec.ptr.i, %__begin1.sroa.8.061
   br i1 %cmp.i30, label %if.then.i, label %_ZNSt15_Deque_iteratorISt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES6_ERKS7_PS8_EppEv.exit
 
 if.then.i:                                        ; preds = %for.inc
-  %add.ptr.i = getelementptr inbounds ptr, ptr %__begin1.sroa.11.062, i64 1
+  %add.ptr.i = getelementptr inbounds i8, ptr %__begin1.sroa.11.062, i64 8
   %53 = load ptr, ptr %add.ptr.i, align 8
-  %add.ptr.i.i = getelementptr inbounds %"struct.std::pair.73", ptr %53, i64 8
+  %add.ptr.i.i = getelementptr inbounds i8, ptr %53, i64 512
   br label %_ZNSt15_Deque_iteratorISt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES6_ERKS7_PS8_EppEv.exit
 
 _ZNSt15_Deque_iteratorISt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES6_ERKS7_PS8_EppEv.exit: ; preds = %for.inc, %if.then.i
@@ -1005,11 +985,11 @@ for.end:                                          ; preds = %_ZNSt15_Deque_itera
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %agg.tmp.i)
   call void @_ZN4base16BasicStringPieceINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEC1EPKc(ptr noundef nonnull align 8 dereferenceable(16) %agg.tmp.i, ptr noundef nonnull @.str)
   %54 = load ptr, ptr %agg.tmp.i, align 8
-  %55 = getelementptr inbounds { ptr, i64 }, ptr %agg.tmp.i, i64 0, i32 1
+  %55 = getelementptr inbounds i8, ptr %agg.tmp.i, i64 8
   %56 = load i64, ptr %55, align 8
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %key.i.i)
   store ptr %54, ptr %key.i.i, align 8
-  %57 = getelementptr inbounds { ptr, i64 }, ptr %key.i.i, i64 0, i32 1
+  %57 = getelementptr inbounds i8, ptr %key.i.i, i64 8
   store i64 %56, ptr %57, align 8
   %call.i.i.i.i = call ptr @_ZNKSt10_HashtableIN4base16BasicStringPieceINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEESt4pairIKS8_St14_List_iteratorIS9_IS8_S8_EEESaISE_ENSt8__detail10_Select1stESt8equal_toIS8_ENS0_15StringPieceHashENSG_18_Mod_range_hashingENSG_20_Default_ranged_hashENSG_20_Prime_rehash_policyENSG_17_Hashtable_traitsILb1ELb0ELb1EEEE4findERSA_(ptr noundef nonnull align 8 dereferenceable(56) %headers, ptr noundef nonnull align 8 dereferenceable(16) %key.i.i)
   %cmp.i.i.i.i = icmp eq ptr %call.i.i.i.i, null
@@ -1024,7 +1004,7 @@ _ZN4base11ContainsKeyIN3net15SpdyHeaderBlockEA15_cEEbRKT_RKT0_.exit: ; preds = %
   %second.i.i.i = getelementptr inbounds i8, ptr %call.i.i.i.i, i64 24
   %58 = load ptr, ptr %second.i.i.i, align 8
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %key.i.i)
-  %list_.i.i.i31 = getelementptr inbounds %class.linked_hash_map, ptr %headers, i64 0, i32 1
+  %list_.i.i.i31 = getelementptr inbounds i8, ptr %headers, i64 56
   %cmp.i.i32.not = icmp eq ptr %58, %list_.i.i.i31
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %agg.tmp.i)
   br i1 %cmp.i.i32.not, label %if.end90, label %if.then58
@@ -1032,7 +1012,7 @@ _ZN4base11ContainsKeyIN3net15SpdyHeaderBlockEA15_cEEbRKT_RKT0_.exit: ; preds = %
 if.then58:                                        ; preds = %_ZN4base11ContainsKeyIN3net15SpdyHeaderBlockEA15_cEEbRKT_RKT0_.exit
   call void @_ZN4base16BasicStringPieceINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEC1EPKc(ptr noundef nonnull align 8 dereferenceable(16) %agg.tmp60, ptr noundef nonnull @.str)
   %59 = load ptr, ptr %agg.tmp60, align 8
-  %60 = getelementptr inbounds { ptr, i64 }, ptr %agg.tmp60, i64 0, i32 1
+  %60 = getelementptr inbounds i8, ptr %agg.tmp60, i64 8
   %61 = load i64, ptr %60, align 8
   call void @_ZN3net15SpdyHeaderBlockixEN4base16BasicStringPieceINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEE(ptr nonnull sret(%"class.net::SpdyHeaderBlock::StringPieceProxy") align 8 %ref.tmp59, ptr noundef nonnull align 8 dereferenceable(88) %headers, ptr %59, i64 %61)
   %call63 = invoke { ptr, i64 } @_ZNK3net15SpdyHeaderBlock16StringPieceProxycvN4base16BasicStringPieceINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEEv(ptr noundef nonnull align 8 dereferenceable(41) %ref.tmp59)
@@ -1044,11 +1024,11 @@ invoke.cont62:                                    ; preds = %if.then58
   call void @_ZN3net15SpdyHeaderBlock16StringPieceProxyD1Ev(ptr noundef nonnull align 8 dereferenceable(41) %ref.tmp59) #9
   call void @_ZN4base16BasicStringPieceINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEC1EPKcm(ptr noundef nonnull align 8 dereferenceable(16) %agg.tmp65, ptr noundef nonnull @.str.1, i64 noundef 1)
   %64 = load ptr, ptr %agg.tmp65, align 8
-  %65 = getelementptr inbounds { ptr, i64 }, ptr %agg.tmp65, i64 0, i32 1
+  %65 = getelementptr inbounds i8, ptr %agg.tmp65, i64 8
   %66 = load i64, ptr %65, align 8
   call void @_ZN4base11SplitStringENS_16BasicStringPieceINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEES7_NS_18WhitespaceHandlingENS_11SplitResultE(ptr nonnull sret(%"class.std::vector") align 8 %values, ptr %62, i64 %63, ptr %64, i64 %66, i32 noundef 1, i32 noundef 0)
   %67 = load ptr, ptr %values, align 8
-  %_M_finish.i = getelementptr inbounds %"struct.std::_Vector_base<std::__cxx11::basic_string<char>, std::allocator<std::__cxx11::basic_string<char>>>::_Vector_impl_data", ptr %values, i64 0, i32 1
+  %_M_finish.i = getelementptr inbounds i8, ptr %values, i64 8
   %68 = load ptr, ptr %_M_finish.i, align 8
   %cmp.i33.not63 = icmp eq ptr %67, %68
   br i1 %cmp.i33.not63, label %invoke.cont.i, label %for.body72
@@ -1094,7 +1074,7 @@ if.end83:                                         ; preds = %if.end80
   br i1 %cmp84.not, label %for.inc87, label %cleanup
 
 for.inc87:                                        ; preds = %if.end83, %if.then82
-  %incdec.ptr.i34 = getelementptr inbounds %"class.std::__cxx11::basic_string", ptr %__begin2.sroa.0.064, i64 1
+  %incdec.ptr.i34 = getelementptr inbounds i8, ptr %__begin2.sroa.0.064, i64 32
   %cmp.i33.not = icmp eq ptr %incdec.ptr.i34, %68
   br i1 %cmp.i33.not, label %cleanup, label %for.body72
 
@@ -1108,7 +1088,7 @@ cleanup:                                          ; preds = %invoke.cont77, %if.
 for.body.i.i.i.i:                                 ; preds = %cleanup, %for.body.i.i.i.i
   %__first.addr.04.i.i.i.i = phi ptr [ %incdec.ptr.i.i.i.i, %for.body.i.i.i.i ], [ %.pre, %cleanup ]
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %__first.addr.04.i.i.i.i) #9
-  %incdec.ptr.i.i.i.i = getelementptr inbounds %"class.std::__cxx11::basic_string", ptr %__first.addr.04.i.i.i.i, i64 1
+  %incdec.ptr.i.i.i.i = getelementptr inbounds i8, ptr %__first.addr.04.i.i.i.i, i64 32
   %cmp.not.i.i.i.i = icmp eq ptr %incdec.ptr.i.i.i.i, %.pre72
   br i1 %cmp.not.i.i.i.i, label %invoke.contthread-pre-split.i, label %for.body.i.i.i.i, !llvm.loop !5
 
@@ -1179,24 +1159,24 @@ entry:
   %agg.tmp28 = alloca %"class.base::BasicStringPiece", align 8
   %ref.tmp30 = alloca %"class.net::SpdyHeaderBlock::StringPieceProxy", align 8
   %agg.tmp31 = alloca %"class.base::BasicStringPiece", align 8
-  %_M_start.i.i = getelementptr inbounds %"class.net::QuicHeaderList", ptr %header_list, i64 0, i32 1, i32 0, i32 0, i32 0, i32 2
+  %_M_start.i.i = getelementptr inbounds i8, ptr %header_list, i64 24
   %0 = load ptr, ptr %_M_start.i.i, align 8, !noalias !18
-  %_M_finish.i.i = getelementptr inbounds %"class.net::QuicHeaderList", ptr %header_list, i64 0, i32 1, i32 0, i32 0, i32 0, i32 3
+  %_M_finish.i.i = getelementptr inbounds i8, ptr %header_list, i64 56
   %1 = load ptr, ptr %_M_finish.i.i, align 8, !noalias !23
   %cmp.i.i.not39 = icmp eq ptr %0, %1
   br i1 %cmp.i.i.not39, label %return, label %for.body.lr.ph
 
 for.body.lr.ph:                                   ; preds = %entry
-  %_M_node5.i.i.i = getelementptr inbounds %"class.net::QuicHeaderList", ptr %header_list, i64 0, i32 1, i32 0, i32 0, i32 0, i32 2, i32 3
+  %_M_node5.i.i.i = getelementptr inbounds i8, ptr %header_list, i64 48
   %2 = load ptr, ptr %_M_node5.i.i.i, align 8, !noalias !18
-  %_M_last4.i.i.i = getelementptr inbounds %"class.net::QuicHeaderList", ptr %header_list, i64 0, i32 1, i32 0, i32 0, i32 0, i32 2, i32 2
+  %_M_last4.i.i.i = getelementptr inbounds i8, ptr %header_list, i64 40
   %3 = load ptr, ptr %_M_last4.i.i.i, align 8, !noalias !18
   %4 = load ptr, ptr @_ZN3net21kFinalOffsetHeaderKeyE, align 8
-  %5 = getelementptr inbounds { ptr, i64 }, ptr %agg.tmp19, i64 0, i32 1
-  %6 = getelementptr inbounds { ptr, i64 }, ptr %key.i, i64 0, i32 1
-  %list_.i.i = getelementptr inbounds %class.linked_hash_map, ptr %trailers, i64 0, i32 1
-  %7 = getelementptr inbounds { ptr, i64 }, ptr %agg.tmp31, i64 0, i32 1
-  %8 = getelementptr inbounds { ptr, i64 }, ptr %agg.tmp28, i64 0, i32 1
+  %5 = getelementptr inbounds i8, ptr %agg.tmp19, i64 8
+  %6 = getelementptr inbounds i8, ptr %key.i, i64 8
+  %list_.i.i = getelementptr inbounds i8, ptr %trailers, i64 56
+  %7 = getelementptr inbounds i8, ptr %agg.tmp31, i64 8
+  %8 = getelementptr inbounds i8, ptr %agg.tmp28, i64 8
   br label %for.body
 
 for.body:                                         ; preds = %for.body.lr.ph, %_ZNSt15_Deque_iteratorISt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES6_ERKS7_PS8_EppEv.exit
@@ -1214,7 +1194,7 @@ land.lhs.true:                                    ; preds = %for.body
   br i1 %cmp.i, label %land.rhs, label %if.end
 
 land.rhs:                                         ; preds = %land.lhs.true
-  %second = getelementptr inbounds %"struct.std::pair.73", ptr %__begin1.sroa.0.040, i64 0, i32 1
+  %second = getelementptr inbounds i8, ptr %__begin1.sroa.0.040, i64 32
   call void @_ZN4base16BasicStringPieceINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEC1ERKS6_(ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp, ptr noundef nonnull align 8 dereferenceable(32) %second)
   %call3 = call noundef zeroext i1 @_ZN4base11StringToIntERKNS_16BasicStringPieceINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEPi(ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp, ptr noundef nonnull %offset)
   br i1 %call3, label %if.then, label %if.end
@@ -1368,7 +1348,7 @@ _ZN3net15SpdyHeaderBlock4findEN4base16BasicStringPieceINSt7__cxx1112basic_string
   br i1 %cmp.i20.not, label %if.end27, label %return
 
 if.end27:                                         ; preds = %_ZN3net15SpdyHeaderBlock4findEN4base16BasicStringPieceINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEE.exit.thread, %_ZN3net15SpdyHeaderBlock4findEN4base16BasicStringPieceINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEE.exit
-  %second29 = getelementptr inbounds %"struct.std::pair.73", ptr %__begin1.sroa.0.040, i64 0, i32 1
+  %second29 = getelementptr inbounds i8, ptr %__begin1.sroa.0.040, i64 32
   call void @_ZN4base16BasicStringPieceINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEC1ERKS6_(ptr noundef nonnull align 8 dereferenceable(16) %agg.tmp28, ptr noundef nonnull align 8 dereferenceable(32) %second29)
   call void @_ZN4base16BasicStringPieceINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEC1ERKS6_(ptr noundef nonnull align 8 dereferenceable(16) %agg.tmp31, ptr noundef nonnull align 8 dereferenceable(32) %__begin1.sroa.0.040)
   %36 = load ptr, ptr %agg.tmp31, align 8
@@ -1385,14 +1365,14 @@ invoke.cont:                                      ; preds = %if.end27
 
 for.inc:                                          ; preds = %invoke.cont, %if.then
   %found_final_byte_offset.1 = phi i8 [ %found_final_byte_offset.043, %invoke.cont ], [ 1, %if.then ]
-  %incdec.ptr.i = getelementptr inbounds %"struct.std::pair.73", ptr %__begin1.sroa.0.040, i64 1
+  %incdec.ptr.i = getelementptr inbounds i8, ptr %__begin1.sroa.0.040, i64 64
   %cmp.i21 = icmp eq ptr %incdec.ptr.i, %__begin1.sroa.8.041
   br i1 %cmp.i21, label %if.then.i, label %_ZNSt15_Deque_iteratorISt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES6_ERKS7_PS8_EppEv.exit
 
 if.then.i:                                        ; preds = %for.inc
-  %add.ptr.i = getelementptr inbounds ptr, ptr %__begin1.sroa.11.042, i64 1
+  %add.ptr.i = getelementptr inbounds i8, ptr %__begin1.sroa.11.042, i64 8
   %40 = load ptr, ptr %add.ptr.i, align 8
-  %add.ptr.i.i = getelementptr inbounds %"struct.std::pair.73", ptr %40, i64 8
+  %add.ptr.i.i = getelementptr inbounds i8, ptr %40, i64 512
   br label %_ZNSt15_Deque_iteratorISt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES6_ERKS7_PS8_EppEv.exit
 
 _ZNSt15_Deque_iteratorISt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES6_ERKS7_PS8_EppEv.exit: ; preds = %for.inc, %if.then.i
@@ -1440,11 +1420,11 @@ entry:
   %ref.tmp48 = alloca %"class.std::__cxx11::basic_string", align 8
   call void @_ZN4base16BasicStringPieceINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEC1EPKc(ptr noundef nonnull align 8 dereferenceable(16) %agg.tmp, ptr noundef nonnull @.str.5)
   %0 = load ptr, ptr %agg.tmp, align 8
-  %1 = getelementptr inbounds { ptr, i64 }, ptr %agg.tmp, i64 0, i32 1
+  %1 = getelementptr inbounds i8, ptr %agg.tmp, i64 8
   %2 = load i64, ptr %1, align 8
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %key.i)
   store ptr %0, ptr %key.i, align 8
-  %3 = getelementptr inbounds { ptr, i64 }, ptr %key.i, i64 0, i32 1
+  %3 = getelementptr inbounds i8, ptr %key.i, i64 8
   store i64 %2, ptr %3, align 8
   %call.i.i.i = call ptr @_ZNKSt10_HashtableIN4base16BasicStringPieceINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEESt4pairIKS8_St14_List_iteratorIS9_IS8_S8_EEESaISE_ENSt8__detail10_Select1stESt8equal_toIS8_ENS0_15StringPieceHashENSG_18_Mod_range_hashingENSG_20_Default_ranged_hashENSG_20_Prime_rehash_policyENSG_17_Hashtable_traitsILb1ELb0ELb1EEEE4findERSA_(ptr noundef nonnull align 8 dereferenceable(56) %headers, ptr noundef nonnull align 8 dereferenceable(16) %key.i)
   %cmp.i.i.i = icmp eq ptr %call.i.i.i, null
@@ -1458,7 +1438,7 @@ _ZNK3net15SpdyHeaderBlock4findEN4base16BasicStringPieceINSt7__cxx1112basic_strin
   %second.i.i = getelementptr inbounds i8, ptr %call.i.i.i, i64 24
   %4 = load ptr, ptr %second.i.i, align 8
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %key.i)
-  %list_.i.i = getelementptr inbounds %class.linked_hash_map, ptr %headers, i64 0, i32 1
+  %list_.i.i = getelementptr inbounds i8, ptr %headers, i64 56
   %cmp.i = icmp eq ptr %4, %list_.i.i
   br i1 %cmp.i, label %if.then, label %if.end
 
@@ -1496,7 +1476,7 @@ lpad.body:                                        ; preds = %lpad.i, %lpad
   br label %eh.resume
 
 if.end:                                           ; preds = %_ZNK3net15SpdyHeaderBlock4findEN4base16BasicStringPieceINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEE.exit
-  %second = getelementptr inbounds %"struct.std::_List_node", ptr %4, i64 0, i32 1, i32 0, i64 16
+  %second = getelementptr inbounds i8, ptr %4, i64 32
   call void @_ZNK4base16BasicStringPieceINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE9as_stringEv(ptr nonnull sret(%"class.std::__cxx11::basic_string") align 8 %url, ptr noundef nonnull align 8 dereferenceable(16) %second)
   %call8 = invoke noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6appendEPKc(ptr noundef nonnull align 8 dereferenceable(32) %url, ptr noundef nonnull @.str.7)
           to label %invoke.cont7 unwind label %lpad6
@@ -1507,11 +1487,11 @@ invoke.cont7:                                     ; preds = %if.end
 
 invoke.cont11:                                    ; preds = %invoke.cont7
   %7 = load ptr, ptr %agg.tmp10, align 8
-  %8 = getelementptr inbounds { ptr, i64 }, ptr %agg.tmp10, i64 0, i32 1
+  %8 = getelementptr inbounds i8, ptr %agg.tmp10, i64 8
   %9 = load i64, ptr %8, align 8
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %key.i10)
   store ptr %7, ptr %key.i10, align 8
-  %10 = getelementptr inbounds { ptr, i64 }, ptr %key.i10, i64 0, i32 1
+  %10 = getelementptr inbounds i8, ptr %key.i10, i64 8
   store i64 %9, ptr %10, align 8
   %call.i.i.i1118 = invoke ptr @_ZNKSt10_HashtableIN4base16BasicStringPieceINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEESt4pairIKS8_St14_List_iteratorIS9_IS8_S8_EEESaISE_ENSt8__detail10_Select1stESt8equal_toIS8_ENS0_15StringPieceHashENSG_18_Mod_range_hashingENSG_20_Default_ranged_hashENSG_20_Prime_rehash_policyENSG_17_Hashtable_traitsILb1ELb0ELb1EEEE4findERSA_(ptr noundef nonnull align 8 dereferenceable(56) %headers, ptr noundef nonnull align 8 dereferenceable(16) %key.i10)
           to label %call.i.i.i11.noexc unwind label %lpad6
@@ -1570,7 +1550,7 @@ lpad22.body:                                      ; preds = %lpad.i24, %lpad22
   br label %ehcleanup
 
 if.end24:                                         ; preds = %invoke.cont12
-  %second27 = getelementptr inbounds %"struct.std::_List_node", ptr %11, i64 0, i32 1, i32 0, i64 16
+  %second27 = getelementptr inbounds i8, ptr %11, i64 32
   invoke void @_ZNK4base16BasicStringPieceINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE9as_stringEv(ptr nonnull sret(%"class.std::__cxx11::basic_string") align 8 %ref.tmp25, ptr noundef nonnull align 8 dereferenceable(16) %second27)
           to label %invoke.cont28 unwind label %lpad6
 
@@ -1585,11 +1565,11 @@ invoke.cont30:                                    ; preds = %invoke.cont28
 
 invoke.cont34:                                    ; preds = %invoke.cont30
   %15 = load ptr, ptr %agg.tmp33, align 8
-  %16 = getelementptr inbounds { ptr, i64 }, ptr %agg.tmp33, i64 0, i32 1
+  %16 = getelementptr inbounds i8, ptr %agg.tmp33, i64 8
   %17 = load i64, ptr %16, align 8
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %key.i31)
   store ptr %15, ptr %key.i31, align 8
-  %18 = getelementptr inbounds { ptr, i64 }, ptr %key.i31, i64 0, i32 1
+  %18 = getelementptr inbounds i8, ptr %key.i31, i64 8
   store i64 %17, ptr %18, align 8
   %call.i.i.i3239 = invoke ptr @_ZNKSt10_HashtableIN4base16BasicStringPieceINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEESt4pairIKS8_St14_List_iteratorIS9_IS8_S8_EEESaISE_ENSt8__detail10_Select1stESt8equal_toIS8_ENS0_15StringPieceHashENSG_18_Mod_range_hashingENSG_20_Default_ranged_hashENSG_20_Prime_rehash_policyENSG_17_Hashtable_traitsILb1ELb0ELb1EEEE4findERSA_(ptr noundef nonnull align 8 dereferenceable(56) %headers, ptr noundef nonnull align 8 dereferenceable(16) %key.i31)
           to label %call.i.i.i32.noexc unwind label %lpad6
@@ -1649,7 +1629,7 @@ lpad45.body:                                      ; preds = %lpad.i45, %lpad45
   br label %ehcleanup
 
 if.end47:                                         ; preds = %invoke.cont35
-  %second50 = getelementptr inbounds %"struct.std::_List_node", ptr %19, i64 0, i32 1, i32 0, i64 16
+  %second50 = getelementptr inbounds i8, ptr %19, i64 32
   invoke void @_ZNK4base16BasicStringPieceINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE9as_stringEv(ptr nonnull sret(%"class.std::__cxx11::basic_string") align 8 %ref.tmp48, ptr noundef nonnull align 8 dereferenceable(16) %second50)
           to label %invoke.cont51 unwind label %lpad6
 
@@ -1702,13 +1682,13 @@ entry:
 
 invoke.cont:                                      ; preds = %entry
   %0 = load ptr, ptr %agg.tmp, align 8
-  %1 = getelementptr inbounds { ptr, i64 }, ptr %agg.tmp, i64 0, i32 1
+  %1 = getelementptr inbounds i8, ptr %agg.tmp, i64 8
   %2 = load i64, ptr %1, align 8
   invoke void @_ZN4GURLC1EN4base16BasicStringPieceINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEE(ptr noundef nonnull align 8 dereferenceable(120) %ref.tmp, ptr %0, i64 %2)
           to label %invoke.cont2 unwind label %lpad
 
 invoke.cont2:                                     ; preds = %invoke.cont
-  %len.i.i = getelementptr inbounds %class.GURL, ptr %ref.tmp, i64 0, i32 2, i32 3, i32 1
+  %len.i.i = getelementptr inbounds i8, ptr %ref.tmp, i64 68
   %3 = load i32, ptr %len.i.i, align 4, !noalias !28
   %cmp.i.i = icmp slt i32 %3, 1
   br i1 %cmp.i.i, label %if.then.i.i, label %if.end.i.i
@@ -1718,7 +1698,7 @@ if.then.i.i:                                      ; preds = %invoke.cont2
   br label %invoke.cont4
 
 if.end.i.i:                                       ; preds = %invoke.cont2
-  %host.i = getelementptr inbounds %class.GURL, ptr %ref.tmp, i64 0, i32 2, i32 3
+  %host.i = getelementptr inbounds i8, ptr %ref.tmp, i64 64
   %4 = load i32, ptr %host.i, align 8, !noalias !28
   %conv.i.i = sext i32 %4 to i64
   %conv3.i.i = zext nneg i32 %3 to i64
@@ -1769,13 +1749,13 @@ land.rhs:                                         ; preds = %entry
 
 invoke.cont1:                                     ; preds = %land.rhs
   %0 = load ptr, ptr %agg.tmp, align 8
-  %1 = getelementptr inbounds { ptr, i64 }, ptr %agg.tmp, i64 0, i32 1
+  %1 = getelementptr inbounds i8, ptr %agg.tmp, i64 8
   %2 = load i64, ptr %1, align 8
   invoke void @_ZN4GURLC1EN4base16BasicStringPieceINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEE(ptr noundef nonnull align 8 dereferenceable(120) %ref.tmp, ptr %0, i64 %2)
           to label %cleanup.action unwind label %lpad
 
 cleanup.action:                                   ; preds = %invoke.cont1
-  %is_valid_.i = getelementptr inbounds %class.GURL, ptr %ref.tmp, i64 0, i32 1
+  %is_valid_.i = getelementptr inbounds i8, ptr %ref.tmp, i64 32
   %3 = load i8, ptr %is_valid_.i, align 8
   %4 = and i8 %3, 1
   %tobool.i = icmp ne i8 %4, 0
@@ -1813,13 +1793,13 @@ declare void @_ZdaPv(ptr noundef) local_unnamed_addr #5
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr dso_local ptr @_ZNSt10_HashtableIN4base16BasicStringPieceINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEESt4pairIKS8_St14_List_iteratorIS9_IS8_S8_EEESaISE_ENSt8__detail10_Select1stESt8equal_toIS8_ENS0_15StringPieceHashENSG_18_Mod_range_hashingENSG_20_Default_ranged_hashENSG_20_Prime_rehash_policyENSG_17_Hashtable_traitsILb1ELb0ELb1EEEE4findERSA_(ptr noundef nonnull align 8 dereferenceable(56) %this, ptr noundef nonnull align 8 dereferenceable(16) %__k) local_unnamed_addr #0 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  %_M_element_count.i = getelementptr inbounds %"class.std::_Hashtable", ptr %this, i64 0, i32 3
+  %_M_element_count.i = getelementptr inbounds i8, ptr %this, i64 24
   %0 = load i64, ptr %_M_element_count.i, align 8
   %cmp.not.not = icmp eq i64 %0, 0
   br i1 %cmp.not.not, label %if.then, label %if.end15
 
 if.then:                                          ; preds = %entry
-  %_M_before_begin.i.i = getelementptr inbounds %"class.std::_Hashtable", ptr %this, i64 0, i32 2
+  %_M_before_begin.i.i = getelementptr inbounds i8, ptr %this, i64 16
   br label %for.cond
 
 for.cond:                                         ; preds = %for.body, %if.then
@@ -1853,7 +1833,7 @@ for.body.i.i:                                     ; preds = %if.end15, %for.body
 
 _ZNKSt8__detail15_Hash_code_baseIN4base16BasicStringPieceINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEESt4pairIKS9_St14_List_iteratorISA_IS9_S9_EEENS_10_Select1stENS1_15StringPieceHashENS_18_Mod_range_hashingENS_20_Default_ranged_hashELb1EE12_M_hash_codeERSB_.exit: ; preds = %for.body.i.i, %if.end15
   %result.0.lcssa.i.i = phi i64 [ 0, %if.end15 ], [ %add.i.i, %for.body.i.i ]
-  %_M_bucket_count.i = getelementptr inbounds %"class.std::_Hashtable", ptr %this, i64 0, i32 1
+  %_M_bucket_count.i = getelementptr inbounds i8, ptr %this, i64 8
   %2 = load i64, ptr %_M_bucket_count.i, align 8
   %rem.i.i.i = urem i64 %result.0.lcssa.i.i, %2
   %3 = load ptr, ptr %this, align 8
@@ -1929,13 +1909,13 @@ entry:
 if.end:                                           ; preds = %entry
   %second = getelementptr inbounds i8, ptr %call.i, i64 24
   %0 = load ptr, ptr %second, align 8
-  %_M_size.i.i.i = getelementptr inbounds %class.linked_hash_map, ptr %this, i64 0, i32 1, i32 0, i32 0, i32 0, i32 1
+  %_M_size.i.i.i = getelementptr inbounds i8, ptr %this, i64 72
   %1 = load i64, ptr %_M_size.i.i.i, align 8
   %sub.i.i.i = add i64 %1, -1
   store i64 %sub.i.i.i, ptr %_M_size.i.i.i, align 8
   tail call void @_ZNSt8__detail15_List_node_base9_M_unhookEv(ptr noundef nonnull align 8 dereferenceable(16) %0) #9
   tail call void @_ZdlPv(ptr noundef %0) #10
-  %_M_bucket_count.i.i.i.i = getelementptr inbounds %"class.std::_Hashtable", ptr %this, i64 0, i32 1
+  %_M_bucket_count.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 8
   %2 = load i64, ptr %_M_bucket_count.i.i.i.i, align 8
   %add.ptr.i.i.i.i.i = getelementptr inbounds i8, ptr %call.i, i64 32
   %3 = load i64, ptr %add.ptr.i.i.i.i.i, align 8
@@ -1978,7 +1958,7 @@ if.then3.i.i.i.i.i:                               ; preds = %cond.end.i.i.i.i
 if.end.i.i.i.i.i:                                 ; preds = %if.then3.i.i.i.i.i, %if.then.i.i.i.i
   %9 = phi ptr [ %5, %if.then.i.i.i.i ], [ %.pre24.i.i.i.i, %if.then3.i.i.i.i.i ]
   %10 = phi ptr [ %4, %if.then.i.i.i.i ], [ %.pre.i.i.i.i, %if.then3.i.i.i.i.i ]
-  %_M_before_begin.i.i.i.i.i = getelementptr inbounds %"class.std::_Hashtable", ptr %this, i64 0, i32 2
+  %_M_before_begin.i.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 16
   %arrayidx7.i.i.i.i.i = getelementptr inbounds ptr, ptr %10, i64 %rem.i.i.i.i.i.i
   %cmp8.i.i.i.i.i = icmp eq ptr %_M_before_begin.i.i.i.i.i, %9
   br i1 %cmp8.i.i.i.i.i, label %if.then9.i.i.i.i.i, label %if.end11.i.i.i.i.i
@@ -2010,7 +1990,7 @@ _ZNSt13unordered_mapIN4base16BasicStringPieceINSt7__cxx1112basic_stringIcSt11cha
   %12 = load ptr, ptr %call.i, align 8
   store ptr %12, ptr %__prev_n.0.i.i.i.i, align 8
   tail call void @_ZdlPv(ptr noundef nonnull %call.i) #10
-  %_M_element_count.i.i.i.i = getelementptr inbounds %"class.std::_Hashtable", ptr %this, i64 0, i32 3
+  %_M_element_count.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 24
   %13 = load i64, ptr %_M_element_count.i.i.i.i, align 8
   %dec.i.i.i.i = add i64 %13, -1
   store i64 %dec.i.i.i.i, ptr %_M_element_count.i.i.i.i, align 8
@@ -2030,13 +2010,13 @@ declare void @_ZdlPv(ptr noundef) local_unnamed_addr #5
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr dso_local ptr @_ZNKSt10_HashtableIN4base16BasicStringPieceINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEESt4pairIKS8_St14_List_iteratorIS9_IS8_S8_EEESaISE_ENSt8__detail10_Select1stESt8equal_toIS8_ENS0_15StringPieceHashENSG_18_Mod_range_hashingENSG_20_Default_ranged_hashENSG_20_Prime_rehash_policyENSG_17_Hashtable_traitsILb1ELb0ELb1EEEE4findERSA_(ptr noundef nonnull align 8 dereferenceable(56) %this, ptr noundef nonnull align 8 dereferenceable(16) %__k) local_unnamed_addr #0 comdat align 2 {
 entry:
-  %_M_element_count.i = getelementptr inbounds %"class.std::_Hashtable", ptr %this, i64 0, i32 3
+  %_M_element_count.i = getelementptr inbounds i8, ptr %this, i64 24
   %0 = load i64, ptr %_M_element_count.i, align 8
   %cmp.not.not = icmp eq i64 %0, 0
   br i1 %cmp.not.not, label %if.then, label %if.end15
 
 if.then:                                          ; preds = %entry
-  %_M_before_begin.i.i = getelementptr inbounds %"class.std::_Hashtable", ptr %this, i64 0, i32 2
+  %_M_before_begin.i.i = getelementptr inbounds i8, ptr %this, i64 16
   br label %for.cond
 
 for.cond:                                         ; preds = %for.body, %if.then
@@ -2070,7 +2050,7 @@ for.body.i.i:                                     ; preds = %if.end15, %for.body
 
 _ZNKSt8__detail15_Hash_code_baseIN4base16BasicStringPieceINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEESt4pairIKS9_St14_List_iteratorISA_IS9_S9_EEENS_10_Select1stENS1_15StringPieceHashENS_18_Mod_range_hashingENS_20_Default_ranged_hashELb1EE12_M_hash_codeERSB_.exit: ; preds = %for.body.i.i, %if.end15
   %result.0.lcssa.i.i = phi i64 [ 0, %if.end15 ], [ %add.i.i, %for.body.i.i ]
-  %_M_bucket_count.i = getelementptr inbounds %"class.std::_Hashtable", ptr %this, i64 0, i32 1
+  %_M_bucket_count.i = getelementptr inbounds i8, ptr %this, i64 8
   %2 = load i64, ptr %_M_bucket_count.i, align 8
   %rem.i.i.i = urem i64 %result.0.lcssa.i.i, %2
   %3 = load ptr, ptr %this, align 8

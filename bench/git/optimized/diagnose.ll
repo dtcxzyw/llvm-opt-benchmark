@@ -7,14 +7,7 @@ target triple = "x86_64-unknown-linux-gnu"
 %struct.strvec = type { ptr, i64, i64 }
 %struct.archive_dir = type { ptr, i32 }
 %struct.strbuf = type { i64, i64, ptr }
-%struct.option = type { i32, i32, ptr, ptr, ptr, ptr, i32, ptr, i64, ptr, i64, ptr }
 %struct.statvfs = type { i64, i64, i64, i64, i64, i64, i64, i64, i64, i64, i64, [6 x i32] }
-%struct.repository = type { ptr, ptr, ptr, ptr, ptr, %struct.repo_path_cache, ptr, ptr, ptr, ptr, %struct.repo_settings, ptr, ptr, ptr, ptr, ptr, i32, i32, i32, ptr, ptr, i32, i8 }
-%struct.repo_path_cache = type { ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr }
-%struct.repo_settings = type { i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, ptr, i32, i32, i32, i32, i32, i32 }
-%struct.object_directory = type { ptr, [8 x i32], ptr, i32, i32, ptr }
-%struct.dirent = type { i64, i64, i16, i8, [256 x i8] }
-%struct.git_hash_algo = type { ptr, i32, i64, i64, i64, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr }
 %struct.stat = type { i64, i64, i64, i32, i32, i32, i32, i64, i64, i64, i64, %struct.timespec, %struct.timespec, %struct.timespec, [3 x i64] }
 %struct.timespec = type { i64, i64 }
 
@@ -72,7 +65,7 @@ target triple = "x86_64-unknown-linux-gnu"
 ; Function Attrs: nounwind uwtable
 define dso_local noundef i32 @option_parse_diagnose(ptr nocapture noundef readonly %opt, ptr noundef %arg, i32 noundef %unset) local_unnamed_addr #0 {
 entry:
-  %value = getelementptr inbounds %struct.option, ptr %opt, i64 0, i32 3
+  %value = getelementptr inbounds i8, ptr %opt, i64 16
   %0 = load ptr, ptr %value, align 8
   %tobool.not = icmp eq ptr %arg, null
   br i1 %tobool.not, label %if.then, label %for.body
@@ -89,14 +82,14 @@ for.cond:                                         ; preds = %for.body
 for.body:                                         ; preds = %entry, %for.cond
   %cmp = phi i1 [ false, %for.cond ], [ true, %entry ]
   %indvars.iv = phi i64 [ 1, %for.cond ], [ 0, %entry ]
-  %option_name = getelementptr inbounds [2 x %struct.diagnose_option], ptr @diagnose_options, i64 0, i64 %indvars.iv, i32 1
+  %arrayidx = getelementptr inbounds [2 x %struct.diagnose_option], ptr @diagnose_options, i64 0, i64 %indvars.iv
+  %option_name = getelementptr inbounds i8, ptr %arrayidx, i64 8
   %1 = load ptr, ptr %option_name, align 8
   %call = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %arg, ptr noundef nonnull dereferenceable(1) %1) #11
   %tobool3.not = icmp eq i32 %call, 0
   br i1 %tobool3.not, label %if.then4, label %for.cond
 
 if.then4:                                         ; preds = %for.body
-  %arrayidx = getelementptr inbounds [2 x %struct.diagnose_option], ptr @diagnose_options, i64 0, i64 %indvars.iv
   %2 = load i32, ptr %arrayidx, align 16
   store i32 %2, ptr %0, align 4
   br label %return
@@ -112,7 +105,7 @@ if.end3.i:                                        ; preds = %for.end
 
 _.exit:                                           ; preds = %for.end, %if.end3.i
   %retval.0.i = phi ptr [ %call.i, %if.end3.i ], [ @.str, %for.end ]
-  %long_name = getelementptr inbounds %struct.option, ptr %opt, i64 0, i32 2
+  %long_name = getelementptr inbounds i8, ptr %opt, i64 8
   %4 = load ptr, ptr %long_name, align 8
   %call9 = tail call i32 (ptr, ...) @error(ptr noundef %retval.0.i, ptr noundef %4, ptr noundef nonnull %arg) #12
   br label %return
@@ -161,7 +154,7 @@ _.exit:                                           ; preds = %if.then2, %if.end3.
   br label %if.end64
 
 if.end6:                                          ; preds = %if.end
-  %buf7 = getelementptr inbounds %struct.strbuf, ptr %zip_path, i64 0, i32 2
+  %buf7 = getelementptr inbounds i8, ptr %zip_path, i64 16
   %1 = load ptr, ptr %buf7, align 8
   %call8 = tail call i32 (ptr, i32, ...) @xopen(ptr noundef %1, i32 noundef 577, i32 noundef 438) #12
   %call9 = tail call i32 @dup2(i32 noundef %call8, i32 noundef 1) #12
@@ -185,9 +178,9 @@ _.exit18:                                         ; preds = %if.then11, %if.end3
 if.end15:                                         ; preds = %if.end6
   tail call void @init_zip_archiver() #12
   call void (ptr, ...) @strvec_pushl(ptr noundef nonnull %archiver_args, ptr noundef nonnull @.str.8, ptr noundef nonnull @.str.9, ptr noundef null) #12
-  %len2.i = getelementptr inbounds %struct.strbuf, ptr %buf, i64 0, i32 1
+  %len2.i = getelementptr inbounds i8, ptr %buf, i64 8
   store i64 0, ptr %len2.i, align 8
-  %buf.i = getelementptr inbounds %struct.strbuf, ptr %buf, i64 0, i32 2
+  %buf.i = getelementptr inbounds i8, ptr %buf, i64 16
   %3 = load ptr, ptr %buf.i, align 8
   %cmp3.not.i = icmp eq ptr %3, @strbuf_slopbuf
   br i1 %cmp3.not.i, label %strbuf_setlen.exit, label %if.then4.i
@@ -200,14 +193,14 @@ strbuf_setlen.exit:                               ; preds = %if.end15, %if.then4
   call void @strbuf_add(ptr noundef nonnull %buf, ptr noundef nonnull @.str.10, i64 noundef 28) #12
   call void @get_version_info(ptr noundef nonnull %buf, i32 noundef 1) #12
   %4 = load ptr, ptr @the_repository, align 8
-  %worktree = getelementptr inbounds %struct.repository, ptr %4, i64 0, i32 8
+  %worktree = getelementptr inbounds i8, ptr %4, i64 128
   %5 = load ptr, ptr %worktree, align 8
   call void (ptr, ptr, ...) @strbuf_addf(ptr noundef nonnull %buf, ptr noundef nonnull @.str.11, ptr noundef %5) #12
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %buf.i20)
   call void @llvm.lifetime.start.p0(i64 112, ptr nonnull %stat.i)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %buf.i20, ptr noundef nonnull align 8 dereferenceable(24) @__const.add_directory_to_archiver.abspath, i64 24, i1 false)
   %call.i21 = call ptr @strbuf_realpath(ptr noundef nonnull %buf.i20, ptr noundef nonnull @.str.26, i32 noundef 1) #12
-  %buf1.i = getelementptr inbounds %struct.strbuf, ptr %buf.i20, i64 0, i32 2
+  %buf1.i = getelementptr inbounds i8, ptr %buf.i20, i64 16
   %6 = load ptr, ptr %buf1.i, align 8
   %call2.i = call i32 @statvfs64(ptr noundef %6, ptr noundef nonnull %stat.i) #12
   %cmp.i = icmp slt i32 %call2.i, 0
@@ -232,11 +225,11 @@ if.end.i:                                         ; preds = %strbuf_setlen.exit
   %9 = load ptr, ptr %buf1.i, align 8
   call void (ptr, ptr, ...) @strbuf_addf(ptr noundef nonnull %buf, ptr noundef nonnull @.str.28, ptr noundef %9) #12
   %10 = load i64, ptr %stat.i, align 8
-  %f_bavail.i = getelementptr inbounds %struct.statvfs, ptr %stat.i, i64 0, i32 4
+  %f_bavail.i = getelementptr inbounds i8, ptr %stat.i, i64 32
   %11 = load i64, ptr %f_bavail.i, align 8
   %mul.i = mul nsw i64 %11, %10
   call void @strbuf_humanise_bytes(ptr noundef nonnull %buf, i64 noundef %mul.i) #12
-  %f_flag.i = getelementptr inbounds %struct.statvfs, ptr %stat.i, i64 0, i32 9
+  %f_flag.i = getelementptr inbounds i8, ptr %stat.i, i64 72
   %12 = load i64, ptr %f_flag.i, align 8
   call void (ptr, ptr, ...) @strbuf_addf(ptr noundef nonnull %buf, ptr noundef nonnull @.str.29, i64 noundef %12) #12
   br label %get_disk_info.exit
@@ -264,10 +257,10 @@ if.then4.i27:                                     ; preds = %get_disk_info.exit
 strbuf_setlen.exit28:                             ; preds = %get_disk_info.exit, %if.then4.i27
   call void @strbuf_add(ptr noundef nonnull %buf, ptr noundef nonnull @.str.13, i64 noundef 35) #12
   %18 = load ptr, ptr @the_repository, align 8
-  %objects = getelementptr inbounds %struct.repository, ptr %18, i64 0, i32 2
+  %objects = getelementptr inbounds i8, ptr %18, i64 16
   %19 = load ptr, ptr %objects, align 8
   %20 = load ptr, ptr %19, align 8
-  %path.i = getelementptr inbounds %struct.object_directory, ptr %20, i64 0, i32 5
+  %path.i = getelementptr inbounds i8, ptr %20, i64 56
   %21 = load ptr, ptr %path.i, align 8
   call void (ptr, ptr, ...) @strbuf_addf(ptr noundef nonnull %buf, ptr noundef nonnull @.str.30, ptr noundef %21) #12
   %22 = load ptr, ptr %path.i, align 8
@@ -303,7 +296,7 @@ if.end.i39:                                       ; preds = %strbuf_setlen.exit3
   br i1 %tobool.not.i.i.i, label %if.then.i.i, label %strbuf_avail.exit.i.i
 
 strbuf_avail.exit.i.i:                            ; preds = %if.end.i39
-  %len.i.i.i = getelementptr inbounds %struct.strbuf, ptr %count_path.i, i64 0, i32 1
+  %len.i.i.i = getelementptr inbounds i8, ptr %count_path.i, i64 8
   %26 = load i64, ptr %len.i.i.i, align 8
   %.neg.i.i = add i64 %26, 1
   %tobool.not.i.i = icmp eq i64 %25, %.neg.i.i
@@ -311,7 +304,7 @@ strbuf_avail.exit.i.i:                            ; preds = %if.end.i39
 
 if.then.i.i:                                      ; preds = %strbuf_avail.exit.i.i, %if.end.i39
   call void @strbuf_grow(ptr noundef nonnull %count_path.i, i64 noundef 1) #12
-  %len.phi.trans.insert.i.i = getelementptr inbounds %struct.strbuf, ptr %count_path.i, i64 0, i32 1
+  %len.phi.trans.insert.i.i = getelementptr inbounds i8, ptr %count_path.i, i64 8
   %.pre.i.i = load i64, ptr %len.phi.trans.insert.i.i, align 8
   %.pre8.i.i = add i64 %.pre.i.i, 1
   br label %strbuf_addch.exit.i
@@ -319,9 +312,9 @@ if.then.i.i:                                      ; preds = %strbuf_avail.exit.i
 strbuf_addch.exit.i:                              ; preds = %if.then.i.i, %strbuf_avail.exit.i.i
   %inc.pre-phi.i.i = phi i64 [ %.pre8.i.i, %if.then.i.i ], [ %.neg.i.i, %strbuf_avail.exit.i.i ]
   %27 = phi i64 [ %.pre.i.i, %if.then.i.i ], [ %26, %strbuf_avail.exit.i.i ]
-  %buf.i.i = getelementptr inbounds %struct.strbuf, ptr %count_path.i, i64 0, i32 2
+  %buf.i.i = getelementptr inbounds i8, ptr %count_path.i, i64 16
   %28 = load ptr, ptr %buf.i.i, align 8
-  %len.i.i = getelementptr inbounds %struct.strbuf, ptr %count_path.i, i64 0, i32 1
+  %len.i.i = getelementptr inbounds i8, ptr %count_path.i, i64 8
   store i64 %inc.pre-phi.i.i, ptr %len.i.i, align 8
   %arrayidx.i.i = getelementptr inbounds i8, ptr %28, i64 %27
   store i8 47, ptr %arrayidx.i.i, align 1
@@ -342,7 +335,7 @@ while.body.i:                                     ; preds = %strbuf_addch.exit.i
   br i1 %cmp3.i, label %land.lhs.true.i, label %if.end19.i
 
 land.lhs.true.i:                                  ; preds = %while.body.i
-  %d_name.i = getelementptr inbounds %struct.dirent, ptr %call15.i, i64 0, i32 4
+  %d_name.i = getelementptr inbounds i8, ptr %call15.i, i64 19
   %call5.i41 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %d_name.i) #11
   %cmp6.i = icmp eq i64 %call5.i41, 2
   br i1 %cmp6.i, label %land.lhs.true8.i, label %if.end19.i
@@ -437,7 +430,7 @@ for.body:                                         ; preds = %loose_objs_stats.ex
   %indvars.iv = phi i64 [ %indvars.iv.next, %for.cond ], [ 0, %loose_objs_stats.exit ]
   %arrayidx = getelementptr inbounds [5 x %struct.archive_dir], ptr @__const.create_diagnostics_archive.archive_dirs, i64 0, i64 %indvars.iv
   %36 = load ptr, ptr %arrayidx, align 16
-  %recursive = getelementptr inbounds [5 x %struct.archive_dir], ptr @__const.create_diagnostics_archive.archive_dirs, i64 0, i64 %indvars.iv, i32 1
+  %recursive = getelementptr inbounds i8, ptr %arrayidx, i64 8
   %37 = load i32, ptr %recursive, align 8
   %call35 = call fastcc i32 @add_directory_to_archiver(ptr noundef nonnull %archiver_args, ptr noundef %36, i32 noundef %37), !range !10
   %tobool.not = icmp eq i32 %call35, 0
@@ -459,14 +452,14 @@ _.exit48:                                         ; preds = %if.then36, %if.end3
 
 if.end44:                                         ; preds = %for.cond, %loose_objs_stats.exit
   %39 = load ptr, ptr @the_repository, align 8
-  %hash_algo = getelementptr inbounds %struct.repository, ptr %39, i64 0, i32 15
+  %hash_algo = getelementptr inbounds i8, ptr %39, i64 256
   %40 = load ptr, ptr %hash_algo, align 8
-  %empty_tree = getelementptr inbounds %struct.git_hash_algo, ptr %40, i64 0, i32 10
+  %empty_tree = getelementptr inbounds i8, ptr %40, i64 80
   %41 = load ptr, ptr %empty_tree, align 8
   %call45 = call ptr @oid_to_hex(ptr noundef %41) #12
   call void (ptr, ...) @strvec_pushl(ptr noundef nonnull %archiver_args, ptr noundef nonnull @.str.17, ptr noundef %call45, ptr noundef nonnull @.str.18, ptr noundef null) #12
   %42 = load ptr, ptr %archiver_args, align 8
-  %nr = getelementptr inbounds %struct.strvec, ptr %archiver_args, i64 0, i32 1
+  %nr = getelementptr inbounds i8, ptr %archiver_args, i64 8
   %43 = load i64, ptr %nr, align 8
   %mul = shl i64 %43, 3
   %call46 = call ptr @xmemdupz(ptr noundef %42, i64 noundef %mul) #12
@@ -546,7 +539,7 @@ declare ptr @strvec_pushf(ptr noundef, ptr noundef, ...) local_unnamed_addr #2
 ; Function Attrs: nounwind uwtable
 define internal noundef i32 @dir_file_stats(ptr nocapture noundef readonly %object_dir, ptr noundef %data) #0 {
 entry:
-  %path = getelementptr inbounds %struct.object_directory, ptr %object_dir, i64 0, i32 5
+  %path = getelementptr inbounds i8, ptr %object_dir, i64 56
   %0 = load ptr, ptr %path, align 8
   tail call void (ptr, ptr, ...) @strbuf_addf(ptr noundef %data, ptr noundef nonnull @.str.30, ptr noundef %0) #12
   %1 = load ptr, ptr %path, align 8
@@ -608,20 +601,20 @@ if.end9:                                          ; preds = %entry
 
 if.then11:                                        ; preds = %if.end9
   call void (ptr, ptr, ...) @strbuf_addf(ptr noundef nonnull %buf, ptr noundef nonnull @.str.34, ptr noundef nonnull %path) #12
-  %len13.phi.trans.insert = getelementptr inbounds %struct.strbuf, ptr %buf, i64 0, i32 1
+  %len13.phi.trans.insert = getelementptr inbounds i8, ptr %buf, i64 8
   %.pre = load i64, ptr %len13.phi.trans.insert, align 8
-  %buf14.phi.trans.insert = getelementptr inbounds %struct.strbuf, ptr %buf, i64 0, i32 2
+  %buf14.phi.trans.insert = getelementptr inbounds i8, ptr %buf, i64 16
   %.pre33 = load ptr, ptr %buf14.phi.trans.insert, align 8
   br label %if.end12
 
 if.end12:                                         ; preds = %if.then11, %if.end9
   %3 = phi ptr [ %.pre33, %if.then11 ], [ @strbuf_slopbuf, %if.end9 ]
   %4 = phi i64 [ %.pre, %if.then11 ], [ 0, %if.end9 ]
-  %len13 = getelementptr inbounds %struct.strbuf, ptr %buf, i64 0, i32 1
-  %buf14 = getelementptr inbounds %struct.strbuf, ptr %buf, i64 0, i32 2
+  %len13 = getelementptr inbounds i8, ptr %buf, i64 8
+  %buf14 = getelementptr inbounds i8, ptr %buf, i64 16
   %call15 = call ptr (ptr, ptr, ...) @strvec_pushf(ptr noundef %archiver_args, ptr noundef nonnull @.str.39, ptr noundef %3) #12
-  %len.i.i = getelementptr inbounds %struct.strbuf, ptr %abspath, i64 0, i32 1
-  %buf.i = getelementptr inbounds %struct.strbuf, ptr %abspath, i64 0, i32 2
+  %len.i.i = getelementptr inbounds i8, ptr %abspath, i64 8
+  %buf.i = getelementptr inbounds i8, ptr %abspath, i64 16
   %tobool37.not = icmp eq i32 %recurse, 0
   br label %land.rhs
 
@@ -682,7 +675,7 @@ if.then4.i:                                       ; preds = %if.end.i
   br label %strbuf_setlen.exit
 
 strbuf_setlen.exit:                               ; preds = %if.end.i, %if.then4.i
-  %d_name = getelementptr inbounds %struct.dirent, ptr %call17, i64 0, i32 4
+  %d_name = getelementptr inbounds i8, ptr %call17, i64 19
   %call.i24 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %d_name) #11
   call void @strbuf_add(ptr noundef nonnull %buf, ptr noundef nonnull %d_name, i64 noundef %call.i24) #12
   switch i8 %call24, label %if.then33 [
@@ -782,7 +775,7 @@ entry:
   br i1 %tobool.not, label %if.then, label %if.end
 
 if.then:                                          ; preds = %entry
-  %st_size = getelementptr inbounds %struct.stat, ptr %st, i64 0, i32 8
+  %st_size = getelementptr inbounds i8, ptr %st, i64 48
   %0 = load i64, ptr %st_size, align 8
   tail call void (ptr, ptr, ...) @strbuf_addf(ptr noundef %data, ptr noundef nonnull @.str.31, ptr noundef %file_name, i64 noundef %0) #12
   br label %if.end

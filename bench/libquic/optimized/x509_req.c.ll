@@ -4,15 +4,6 @@ target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:
 target triple = "x86_64-unknown-linux-gnu"
 
 %struct.ASN1_ITEM_st = type { i8, i64, ptr, i64, ptr, i64, ptr }
-%struct.X509_req_info_st = type { %struct.ASN1_ENCODING_st, ptr, ptr, ptr, ptr }
-%struct.ASN1_ENCODING_st = type { ptr, i64, i32 }
-%struct.asn1_string_st = type { i32, i32, ptr, i64 }
-%struct.evp_pkey_st = type { i32, i32, %union.anon, ptr }
-%union.anon = type { ptr }
-%struct.x509_attributes_st = type { ptr, i32, %union.anon.0 }
-%union.anon.0 = type { ptr }
-%struct.asn1_type_st = type { i32, %union.anon.1 }
-%union.anon.1 = type { ptr }
 
 @.str = private unnamed_addr constant [126 x i8] c"generated/home/dtcxzyw/WorkSpace/Projects/compilers/llvm-opt-benchmark/bench/libquic/libquic/boringssl/crypto/x509/x509_req.c\00", align 1
 @ext_nids = internal unnamed_addr global ptr @ext_nid_list, align 8
@@ -32,15 +23,15 @@ if.then:                                          ; preds = %entry
 
 if.end:                                           ; preds = %entry
   %0 = load ptr, ptr %call, align 8
-  %version = getelementptr inbounds %struct.X509_req_info_st, ptr %0, i64 0, i32 1
+  %version = getelementptr inbounds i8, ptr %0, i64 24
   %1 = load ptr, ptr %version, align 8
   store i32 1, ptr %1, align 8
   %call1 = tail call noalias dereferenceable_or_null(1) ptr @malloc(i64 noundef 1) #7
   %2 = load ptr, ptr %version, align 8
-  %data = getelementptr inbounds %struct.asn1_string_st, ptr %2, i64 0, i32 2
+  %data = getelementptr inbounds i8, ptr %2, i64 8
   store ptr %call1, ptr %data, align 8
   %3 = load ptr, ptr %version, align 8
-  %data4 = getelementptr inbounds %struct.asn1_string_st, ptr %3, i64 0, i32 2
+  %data4 = getelementptr inbounds i8, ptr %3, i64 8
   %4 = load ptr, ptr %data4, align 8
   %cmp5 = icmp eq ptr %4, null
   br i1 %cmp5, label %err, label %if.end7
@@ -114,7 +105,7 @@ lor.lhs.false:                                    ; preds = %entry
   br i1 %cmp1, label %return, label %if.end
 
 if.end:                                           ; preds = %lor.lhs.false
-  %pubkey = getelementptr inbounds %struct.X509_req_info_st, ptr %0, i64 0, i32 3
+  %pubkey = getelementptr inbounds i8, ptr %0, i64 40
   %1 = load ptr, ptr %pubkey, align 8
   %call = tail call ptr @X509_PUBKEY_get(ptr noundef %1) #6
   br label %return
@@ -138,7 +129,7 @@ lor.lhs.false.i:                                  ; preds = %entry
   br i1 %cmp1.i, label %X509_REQ_get_pubkey.exit, label %if.end.i
 
 if.end.i:                                         ; preds = %lor.lhs.false.i
-  %pubkey.i = getelementptr inbounds %struct.X509_req_info_st, ptr %0, i64 0, i32 3
+  %pubkey.i = getelementptr inbounds i8, ptr %0, i64 40
   %1 = load ptr, ptr %pubkey.i, align 8
   %call.i = tail call ptr @X509_PUBKEY_get(ptr noundef %1) #6
   br label %X509_REQ_get_pubkey.exit
@@ -165,7 +156,7 @@ sw.bb3:                                           ; preds = %X509_REQ_get_pubkey
   br label %sw.epilog
 
 sw.bb4:                                           ; preds = %X509_REQ_get_pubkey.exit
-  %type = getelementptr inbounds %struct.evp_pkey_st, ptr %k, i64 0, i32 1
+  %type = getelementptr inbounds i8, ptr %k, i64 4
   %2 = load i32, ptr %type, align 4
   switch i32 %2, label %if.end8 [
     i32 408, label %if.then
@@ -253,7 +244,7 @@ for.cond.preheader:                               ; preds = %lor.lhs.false
   br i1 %cmp3.not18, label %return, label %for.body
 
 for.cond:                                         ; preds = %for.body
-  %incdec.ptr = getelementptr inbounds i32, ptr %pnid.019, i64 1
+  %incdec.ptr = getelementptr inbounds i8, ptr %pnid.019, i64 4
   %3 = load i32, ptr %incdec.ptr, align 4
   %cmp3.not = icmp eq i32 %3, 0
   br i1 %cmp3.not, label %return, label %for.body, !llvm.loop !7
@@ -262,7 +253,7 @@ for.body:                                         ; preds = %for.cond.preheader,
   %4 = phi i32 [ %3, %for.cond ], [ %2, %for.cond.preheader ]
   %pnid.019 = phi ptr [ %incdec.ptr, %for.cond ], [ %1, %for.cond.preheader ]
   %5 = load ptr, ptr %req, align 8
-  %attributes.i = getelementptr inbounds %struct.X509_req_info_st, ptr %5, i64 0, i32 4
+  %attributes.i = getelementptr inbounds i8, ptr %5, i64 48
   %6 = load ptr, ptr %attributes.i, align 8
   %call.i = tail call i32 @X509at_get_attr_by_NID(ptr noundef %6, i32 noundef %4, i32 noundef -1) #6
   %cmp4 = icmp eq i32 %call.i, -1
@@ -270,13 +261,13 @@ for.body:                                         ; preds = %for.cond.preheader,
 
 if.end6:                                          ; preds = %for.body
   %7 = load ptr, ptr %req, align 8
-  %attributes.i14 = getelementptr inbounds %struct.X509_req_info_st, ptr %7, i64 0, i32 4
+  %attributes.i14 = getelementptr inbounds i8, ptr %7, i64 48
   %8 = load ptr, ptr %attributes.i14, align 8
   %call.i15 = tail call ptr @X509at_get_attr(ptr noundef %8, i32 noundef %call.i) #6
-  %single = getelementptr inbounds %struct.x509_attributes_st, ptr %call.i15, i64 0, i32 1
+  %single = getelementptr inbounds i8, ptr %call.i15, i64 8
   %9 = load i32, ptr %single, align 8
   %tobool8.not = icmp eq i32 %9, 0
-  %value10 = getelementptr inbounds %struct.x509_attributes_st, ptr %call.i15, i64 0, i32 2
+  %value10 = getelementptr inbounds i8, ptr %call.i15, i64 16
   %10 = load ptr, ptr %value10, align 8
   br i1 %tobool8.not, label %if.else, label %for.end
 
@@ -301,9 +292,9 @@ lor.lhs.false19:                                  ; preds = %for.end
   br i1 %cmp20.not, label %if.end22, label %return
 
 if.end22:                                         ; preds = %lor.lhs.false19
-  %value23 = getelementptr inbounds %struct.asn1_type_st, ptr %ext.0, i64 0, i32 1
+  %value23 = getelementptr inbounds i8, ptr %ext.0, i64 8
   %13 = load ptr, ptr %value23, align 8
-  %data = getelementptr inbounds %struct.asn1_string_st, ptr %13, i64 0, i32 2
+  %data = getelementptr inbounds i8, ptr %13, i64 8
   %14 = load ptr, ptr %data, align 8
   store ptr %14, ptr %p, align 8
   %15 = load i32, ptr %13, align 8
@@ -320,7 +311,7 @@ return:                                           ; preds = %for.cond, %for.cond
 define hidden i32 @X509_REQ_get_attr_by_NID(ptr nocapture noundef readonly %req, i32 noundef %nid, i32 noundef %lastpos) local_unnamed_addr #0 {
 entry:
   %0 = load ptr, ptr %req, align 8
-  %attributes = getelementptr inbounds %struct.X509_req_info_st, ptr %0, i64 0, i32 4
+  %attributes = getelementptr inbounds i8, ptr %0, i64 48
   %1 = load ptr, ptr %attributes, align 8
   %call = tail call i32 @X509at_get_attr_by_NID(ptr noundef %1, i32 noundef %nid, i32 noundef %lastpos) #6
   ret i32 %call
@@ -330,7 +321,7 @@ entry:
 define hidden ptr @X509_REQ_get_attr(ptr nocapture noundef readonly %req, i32 noundef %loc) local_unnamed_addr #0 {
 entry:
   %0 = load ptr, ptr %req, align 8
-  %attributes = getelementptr inbounds %struct.X509_req_info_st, ptr %0, i64 0, i32 4
+  %attributes = getelementptr inbounds i8, ptr %0, i64 48
   %1 = load ptr, ptr %attributes, align 8
   %call = tail call ptr @X509at_get_attr(ptr noundef %1, i32 noundef %loc) #6
   ret ptr %call
@@ -351,14 +342,14 @@ entry:
 
 lor.lhs.false:                                    ; preds = %entry
   %call1 = tail call ptr @ASN1_STRING_new() #6
-  %value = getelementptr inbounds %struct.asn1_type_st, ptr %call, i64 0, i32 1
+  %value = getelementptr inbounds i8, ptr %call, i64 8
   store ptr %call1, ptr %value, align 8
   %tobool2.not = icmp eq ptr %call1, null
   br i1 %tobool2.not, label %err, label %if.end
 
 if.end:                                           ; preds = %lor.lhs.false
   store i32 16, ptr %call, align 8
-  %data = getelementptr inbounds %struct.asn1_string_st, ptr %call1, i64 0, i32 2
+  %data = getelementptr inbounds i8, ptr %call1, i64 8
   %call4 = tail call i32 @ASN1_item_i2d(ptr noundef %exts, ptr noundef nonnull %data, ptr noundef nonnull @X509_EXTENSIONS_it) #6
   %0 = load ptr, ptr %value, align 8
   store i32 %call4, ptr %0, align 8
@@ -368,7 +359,7 @@ if.end:                                           ; preds = %lor.lhs.false
 
 if.end9:                                          ; preds = %if.end
   %call10 = tail call ptr @sk_new_null() #6
-  %value11 = getelementptr inbounds %struct.x509_attributes_st, ptr %call6, i64 0, i32 2
+  %value11 = getelementptr inbounds i8, ptr %call6, i64 16
   store ptr %call10, ptr %value11, align 8
   %tobool12.not = icmp eq ptr %call10, null
   br i1 %tobool12.not, label %err, label %if.end14
@@ -379,12 +370,12 @@ if.end14:                                         ; preds = %if.end9
   br i1 %tobool17.not, label %err, label %if.end19
 
 if.end19:                                         ; preds = %if.end14
-  %single = getelementptr inbounds %struct.x509_attributes_st, ptr %call6, i64 0, i32 1
+  %single = getelementptr inbounds i8, ptr %call6, i64 8
   store i32 0, ptr %single, align 8
   %call20 = tail call ptr @OBJ_nid2obj(i32 noundef %nid) #6
   store ptr %call20, ptr %call6, align 8
   %1 = load ptr, ptr %req, align 8
-  %attributes = getelementptr inbounds %struct.X509_req_info_st, ptr %1, i64 0, i32 4
+  %attributes = getelementptr inbounds i8, ptr %1, i64 48
   %2 = load ptr, ptr %attributes, align 8
   %tobool21.not = icmp eq ptr %2, null
   br i1 %tobool21.not, label %if.then22, label %if.end29
@@ -392,14 +383,14 @@ if.end19:                                         ; preds = %if.end14
 if.then22:                                        ; preds = %if.end19
   %call23 = tail call ptr @sk_new_null() #6
   %3 = load ptr, ptr %req, align 8
-  %attributes25 = getelementptr inbounds %struct.X509_req_info_st, ptr %3, i64 0, i32 4
+  %attributes25 = getelementptr inbounds i8, ptr %3, i64 48
   store ptr %call23, ptr %attributes25, align 8
   %tobool26.not = icmp eq ptr %call23, null
   br i1 %tobool26.not, label %err, label %if.then22.if.end29_crit_edge
 
 if.then22.if.end29_crit_edge:                     ; preds = %if.then22
   %.pre = load ptr, ptr %req, align 8
-  %attributes31.phi.trans.insert = getelementptr inbounds %struct.X509_req_info_st, ptr %.pre, i64 0, i32 4
+  %attributes31.phi.trans.insert = getelementptr inbounds i8, ptr %.pre, i64 48
   %.pre13 = load ptr, ptr %attributes31.phi.trans.insert, align 8
   br label %if.end29
 
@@ -450,7 +441,7 @@ entry:
 define hidden i32 @X509_REQ_get_attr_count(ptr nocapture noundef readonly %req) local_unnamed_addr #0 {
 entry:
   %0 = load ptr, ptr %req, align 8
-  %attributes = getelementptr inbounds %struct.X509_req_info_st, ptr %0, i64 0, i32 4
+  %attributes = getelementptr inbounds i8, ptr %0, i64 48
   %1 = load ptr, ptr %attributes, align 8
   %call = tail call i32 @X509at_get_attr_count(ptr noundef %1) #6
   ret i32 %call
@@ -464,7 +455,7 @@ declare i32 @X509at_get_attr_by_NID(ptr noundef, i32 noundef, i32 noundef) local
 define hidden i32 @X509_REQ_get_attr_by_OBJ(ptr nocapture noundef readonly %req, ptr noundef %obj, i32 noundef %lastpos) local_unnamed_addr #0 {
 entry:
   %0 = load ptr, ptr %req, align 8
-  %attributes = getelementptr inbounds %struct.X509_req_info_st, ptr %0, i64 0, i32 4
+  %attributes = getelementptr inbounds i8, ptr %0, i64 48
   %1 = load ptr, ptr %attributes, align 8
   %call = tail call i32 @X509at_get_attr_by_OBJ(ptr noundef %1, ptr noundef %obj, i32 noundef %lastpos) #6
   ret i32 %call
@@ -478,7 +469,7 @@ declare ptr @X509at_get_attr(ptr noundef, i32 noundef) local_unnamed_addr #1
 define hidden ptr @X509_REQ_delete_attr(ptr nocapture noundef readonly %req, i32 noundef %loc) local_unnamed_addr #0 {
 entry:
   %0 = load ptr, ptr %req, align 8
-  %attributes = getelementptr inbounds %struct.X509_req_info_st, ptr %0, i64 0, i32 4
+  %attributes = getelementptr inbounds i8, ptr %0, i64 48
   %1 = load ptr, ptr %attributes, align 8
   %call = tail call ptr @X509at_delete_attr(ptr noundef %1, i32 noundef %loc) #6
   ret ptr %call
@@ -490,7 +481,7 @@ declare ptr @X509at_delete_attr(ptr noundef, i32 noundef) local_unnamed_addr #1
 define hidden i32 @X509_REQ_add1_attr(ptr nocapture noundef readonly %req, ptr noundef %attr) local_unnamed_addr #0 {
 entry:
   %0 = load ptr, ptr %req, align 8
-  %attributes = getelementptr inbounds %struct.X509_req_info_st, ptr %0, i64 0, i32 4
+  %attributes = getelementptr inbounds i8, ptr %0, i64 48
   %call = tail call ptr @X509at_add1_attr(ptr noundef nonnull %attributes, ptr noundef %attr) #6
   %tobool.not = icmp ne ptr %call, null
   %. = zext i1 %tobool.not to i32
@@ -503,7 +494,7 @@ declare ptr @X509at_add1_attr(ptr noundef, ptr noundef) local_unnamed_addr #1
 define hidden i32 @X509_REQ_add1_attr_by_OBJ(ptr nocapture noundef readonly %req, ptr noundef %obj, i32 noundef %type, ptr noundef %bytes, i32 noundef %len) local_unnamed_addr #0 {
 entry:
   %0 = load ptr, ptr %req, align 8
-  %attributes = getelementptr inbounds %struct.X509_req_info_st, ptr %0, i64 0, i32 4
+  %attributes = getelementptr inbounds i8, ptr %0, i64 48
   %call = tail call ptr @X509at_add1_attr_by_OBJ(ptr noundef nonnull %attributes, ptr noundef %obj, i32 noundef %type, ptr noundef %bytes, i32 noundef %len) #6
   %tobool.not = icmp ne ptr %call, null
   %. = zext i1 %tobool.not to i32
@@ -516,7 +507,7 @@ declare ptr @X509at_add1_attr_by_OBJ(ptr noundef, ptr noundef, i32 noundef, ptr 
 define hidden i32 @X509_REQ_add1_attr_by_NID(ptr nocapture noundef readonly %req, i32 noundef %nid, i32 noundef %type, ptr noundef %bytes, i32 noundef %len) local_unnamed_addr #0 {
 entry:
   %0 = load ptr, ptr %req, align 8
-  %attributes = getelementptr inbounds %struct.X509_req_info_st, ptr %0, i64 0, i32 4
+  %attributes = getelementptr inbounds i8, ptr %0, i64 48
   %call = tail call ptr @X509at_add1_attr_by_NID(ptr noundef nonnull %attributes, i32 noundef %nid, i32 noundef %type, ptr noundef %bytes, i32 noundef %len) #6
   %tobool.not = icmp ne ptr %call, null
   %. = zext i1 %tobool.not to i32
@@ -529,7 +520,7 @@ declare ptr @X509at_add1_attr_by_NID(ptr noundef, i32 noundef, i32 noundef, ptr 
 define hidden i32 @X509_REQ_add1_attr_by_txt(ptr nocapture noundef readonly %req, ptr noundef %attrname, i32 noundef %type, ptr noundef %bytes, i32 noundef %len) local_unnamed_addr #0 {
 entry:
   %0 = load ptr, ptr %req, align 8
-  %attributes = getelementptr inbounds %struct.X509_req_info_st, ptr %0, i64 0, i32 4
+  %attributes = getelementptr inbounds i8, ptr %0, i64 48
   %call = tail call ptr @X509at_add1_attr_by_txt(ptr noundef nonnull %attributes, ptr noundef %attrname, i32 noundef %type, ptr noundef %bytes, i32 noundef %len) #6
   %tobool.not = icmp ne ptr %call, null
   %. = zext i1 %tobool.not to i32

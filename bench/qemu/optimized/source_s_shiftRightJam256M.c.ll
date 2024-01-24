@@ -3,7 +3,7 @@ source_filename = "bench/qemu/original/source_s_shiftRightJam256M.c.ll"
 target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:128-n8:16:32:64-S128"
 target triple = "x86_64-unknown-linux-gnu"
 
-; Function Attrs: nofree nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
 define dso_local void @softfloat_shiftRightJam256M(ptr nocapture noundef readonly %aPtr, i64 noundef %dist, ptr nocapture noundef %zPtr) local_unnamed_addr #0 {
 entry:
   %tobool.not = icmp ult i64 %dist, 64
@@ -20,7 +20,7 @@ do.body:                                          ; preds = %do.body, %if.then
   %i.0 = phi i8 [ %conv, %if.then ], [ %dec, %do.body ]
   %0 = load i64, ptr %ptr.0, align 8
   %tobool2.not = icmp ne i64 %0, 0
-  %incdec.ptr = getelementptr i64, ptr %ptr.0, i64 1
+  %incdec.ptr = getelementptr i8, ptr %ptr.0, i64 8
   %dec = add nsw i8 %i.0, -1
   %tobool5.not = icmp eq i8 %dec, 0
   %or.cond = select i1 %tobool2.not, i1 true, i1 %tobool5.not
@@ -93,8 +93,8 @@ for.body:                                         ; preds = %for.body.preheader,
   %ptr.238 = phi ptr [ %add.ptr25, %for.body ], [ %zPtr, %for.body.preheader ]
   %6 = load i64, ptr %aPtr.addr.040, align 8
   store i64 %6, ptr %ptr.238, align 8
-  %add.ptr24 = getelementptr i64, ptr %aPtr.addr.040, i64 1
-  %add.ptr25 = getelementptr i64, ptr %ptr.238, i64 1
+  %add.ptr24 = getelementptr i8, ptr %aPtr.addr.040, i64 8
+  %add.ptr25 = getelementptr i8, ptr %ptr.238, i64 8
   %dec26 = add i8 %i.139, -1
   %tobool23.not = icmp eq i8 %dec26, 0
   br i1 %tobool23.not, label %if.end27, label %for.body
@@ -130,7 +130,7 @@ declare i64 @llvm.umin.i64(i64, i64) #1
 ; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: write)
 declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #2
 
-attributes #0 = { nofree nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx16,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #0 = { nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx16,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
 attributes #2 = { nocallback nofree nounwind willreturn memory(argmem: write) }
 

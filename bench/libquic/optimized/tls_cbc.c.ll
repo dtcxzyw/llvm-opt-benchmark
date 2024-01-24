@@ -547,7 +547,7 @@ entry:
   %conv10 = trunc i32 %3 to i8
   %incdec.ptr11 = getelementptr inbounds i8, ptr %md_out, i64 4
   store i8 %conv10, ptr %incdec.ptr8, align 1
-  %arrayidx12 = getelementptr inbounds [5 x i32], ptr %ctx, i64 0, i64 1
+  %arrayidx12 = getelementptr inbounds i8, ptr %ctx, i64 4
   %4 = load i32, ptr %arrayidx12, align 4
   %shr13 = lshr i32 %4, 24
   %conv14 = trunc i32 %shr13 to i8
@@ -567,7 +567,7 @@ entry:
   %conv25 = trunc i32 %7 to i8
   %incdec.ptr26 = getelementptr inbounds i8, ptr %md_out, i64 8
   store i8 %conv25, ptr %incdec.ptr23, align 1
-  %arrayidx27 = getelementptr inbounds [5 x i32], ptr %ctx, i64 0, i64 2
+  %arrayidx27 = getelementptr inbounds i8, ptr %ctx, i64 8
   %8 = load i32, ptr %arrayidx27, align 4
   %shr28 = lshr i32 %8, 24
   %conv29 = trunc i32 %shr28 to i8
@@ -587,7 +587,7 @@ entry:
   %conv40 = trunc i32 %11 to i8
   %incdec.ptr41 = getelementptr inbounds i8, ptr %md_out, i64 12
   store i8 %conv40, ptr %incdec.ptr38, align 1
-  %arrayidx42 = getelementptr inbounds [5 x i32], ptr %ctx, i64 0, i64 3
+  %arrayidx42 = getelementptr inbounds i8, ptr %ctx, i64 12
   %12 = load i32, ptr %arrayidx42, align 4
   %shr43 = lshr i32 %12, 24
   %conv44 = trunc i32 %shr43 to i8
@@ -607,7 +607,7 @@ entry:
   %conv55 = trunc i32 %15 to i8
   %incdec.ptr56 = getelementptr inbounds i8, ptr %md_out, i64 16
   store i8 %conv55, ptr %incdec.ptr53, align 1
-  %arrayidx57 = getelementptr inbounds [5 x i32], ptr %ctx, i64 0, i64 4
+  %arrayidx57 = getelementptr inbounds i8, ptr %ctx, i64 16
   %16 = load i32, ptr %arrayidx57, align 4
   %shr58 = lshr i32 %16, 24
   %conv59 = trunc i32 %shr58 to i8

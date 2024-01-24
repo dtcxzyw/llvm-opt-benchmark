@@ -6,11 +6,6 @@ target triple = "x86_64-unknown-linux-gnu"
 %struct.evp_pkey_asn1_method_st = type { i32, [9 x i8], i8, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr }
 %struct.cbs_st = type { ptr, i64 }
 %struct.cbb_st = type { ptr, ptr, i64, i8, i8, i8 }
-%struct.evp_pkey_st = type { i32, i32, %union.anon, ptr }
-%union.anon = type { ptr }
-%struct.rsa_st = type { ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, %struct.crypto_ex_data_st, i32, i32, %union.crypto_mutex_st, ptr, ptr, ptr, i32, ptr, ptr }
-%struct.crypto_ex_data_st = type { ptr }
-%union.crypto_mutex_st = type { double, [48 x i8] }
 
 @rsa_asn1_meth = hidden constant %struct.evp_pkey_asn1_method_st { i32 6, [9 x i8] c"*\86H\86\F7\0D\01\01\01", i8 9, ptr @rsa_pub_decode, ptr @rsa_pub_encode, ptr @rsa_pub_cmp, ptr @rsa_priv_decode, ptr @rsa_priv_encode, ptr @rsa_opaque, ptr @rsa_supports_digest, ptr @int_rsa_size, ptr @rsa_bits, ptr null, ptr null, ptr null, ptr @int_rsa_free }, align 8
 @.str = private unnamed_addr constant [127 x i8] c"generated/home/dtcxzyw/WorkSpace/Projects/compilers/llvm-opt-benchmark/bench/libquic/libquic/boringssl/crypto/evp/p_rsa_asn1.c\00", align 1
@@ -104,7 +99,7 @@ lor.lhs.false15:                                  ; preds = %lor.lhs.false12
   br i1 %tobool17.not, label %if.then, label %lor.lhs.false18
 
 lor.lhs.false18:                                  ; preds = %lor.lhs.false15
-  %pkey = getelementptr inbounds %struct.evp_pkey_st, ptr %key, i64 0, i32 2
+  %pkey = getelementptr inbounds i8, ptr %key, i64 8
   %0 = load ptr, ptr %pkey, align 8
   %call19 = call i32 @RSA_marshal_public_key(ptr noundef nonnull %key_bitstring, ptr noundef %0) #2
   %tobool20.not = icmp eq i32 %call19, 0
@@ -127,13 +122,13 @@ return:                                           ; preds = %lor.lhs.false21, %i
 ; Function Attrs: nounwind uwtable
 define internal i32 @rsa_pub_cmp(ptr nocapture noundef readonly %a, ptr nocapture noundef readonly %b) #0 {
 entry:
-  %pkey = getelementptr inbounds %struct.evp_pkey_st, ptr %b, i64 0, i32 2
+  %pkey = getelementptr inbounds i8, ptr %b, i64 8
   %0 = load ptr, ptr %pkey, align 8
-  %n = getelementptr inbounds %struct.rsa_st, ptr %0, i64 0, i32 1
+  %n = getelementptr inbounds i8, ptr %0, i64 8
   %1 = load ptr, ptr %n, align 8
-  %pkey1 = getelementptr inbounds %struct.evp_pkey_st, ptr %a, i64 0, i32 2
+  %pkey1 = getelementptr inbounds i8, ptr %a, i64 8
   %2 = load ptr, ptr %pkey1, align 8
-  %n2 = getelementptr inbounds %struct.rsa_st, ptr %2, i64 0, i32 1
+  %n2 = getelementptr inbounds i8, ptr %2, i64 8
   %3 = load ptr, ptr %n2, align 8
   %call = tail call i32 @BN_cmp(ptr noundef %1, ptr noundef %3) #2
   %cmp = icmp eq i32 %call, 0
@@ -141,10 +136,10 @@ entry:
 
 land.rhs:                                         ; preds = %entry
   %4 = load ptr, ptr %pkey, align 8
-  %e = getelementptr inbounds %struct.rsa_st, ptr %4, i64 0, i32 2
+  %e = getelementptr inbounds i8, ptr %4, i64 16
   %5 = load ptr, ptr %e, align 8
   %6 = load ptr, ptr %pkey1, align 8
-  %e5 = getelementptr inbounds %struct.rsa_st, ptr %6, i64 0, i32 2
+  %e5 = getelementptr inbounds i8, ptr %6, i64 16
   %7 = load ptr, ptr %e5, align 8
   %call6 = tail call i32 @BN_cmp(ptr noundef %5, ptr noundef %7) #2
   %cmp7 = icmp eq i32 %call6, 0
@@ -245,7 +240,7 @@ lor.lhs.false15:                                  ; preds = %lor.lhs.false12
   br i1 %tobool17.not, label %if.then, label %lor.lhs.false18
 
 lor.lhs.false18:                                  ; preds = %lor.lhs.false15
-  %pkey = getelementptr inbounds %struct.evp_pkey_st, ptr %key, i64 0, i32 2
+  %pkey = getelementptr inbounds i8, ptr %key, i64 8
   %0 = load ptr, ptr %pkey, align 8
   %call19 = call i32 @RSA_marshal_private_key(ptr noundef nonnull %private_key, ptr noundef %0) #2
   %tobool20.not = icmp eq i32 %call19, 0
@@ -268,7 +263,7 @@ return:                                           ; preds = %lor.lhs.false21, %i
 ; Function Attrs: nounwind uwtable
 define internal i32 @rsa_opaque(ptr nocapture noundef readonly %pkey) #0 {
 entry:
-  %pkey1 = getelementptr inbounds %struct.evp_pkey_st, ptr %pkey, i64 0, i32 2
+  %pkey1 = getelementptr inbounds i8, ptr %pkey, i64 8
   %0 = load ptr, ptr %pkey1, align 8
   %call = tail call i32 @RSA_is_opaque(ptr noundef %0) #2
   ret i32 %call
@@ -277,7 +272,7 @@ entry:
 ; Function Attrs: nounwind uwtable
 define internal i32 @rsa_supports_digest(ptr nocapture noundef readonly %pkey, ptr noundef %md) #0 {
 entry:
-  %pkey1 = getelementptr inbounds %struct.evp_pkey_st, ptr %pkey, i64 0, i32 2
+  %pkey1 = getelementptr inbounds i8, ptr %pkey, i64 8
   %0 = load ptr, ptr %pkey1, align 8
   %call = tail call i32 @RSA_supports_digest(ptr noundef %0, ptr noundef %md) #2
   ret i32 %call
@@ -286,7 +281,7 @@ entry:
 ; Function Attrs: nounwind uwtable
 define internal i32 @int_rsa_size(ptr nocapture noundef readonly %pkey) #0 {
 entry:
-  %pkey1 = getelementptr inbounds %struct.evp_pkey_st, ptr %pkey, i64 0, i32 2
+  %pkey1 = getelementptr inbounds i8, ptr %pkey, i64 8
   %0 = load ptr, ptr %pkey1, align 8
   %call = tail call i32 @RSA_size(ptr noundef %0) #2
   ret i32 %call
@@ -295,9 +290,9 @@ entry:
 ; Function Attrs: nounwind uwtable
 define internal i32 @rsa_bits(ptr nocapture noundef readonly %pkey) #0 {
 entry:
-  %pkey1 = getelementptr inbounds %struct.evp_pkey_st, ptr %pkey, i64 0, i32 2
+  %pkey1 = getelementptr inbounds i8, ptr %pkey, i64 8
   %0 = load ptr, ptr %pkey1, align 8
-  %n = getelementptr inbounds %struct.rsa_st, ptr %0, i64 0, i32 1
+  %n = getelementptr inbounds i8, ptr %0, i64 8
   %1 = load ptr, ptr %n, align 8
   %call = tail call i32 @BN_num_bits(ptr noundef %1) #2
   ret i32 %call
@@ -306,7 +301,7 @@ entry:
 ; Function Attrs: nounwind uwtable
 define internal void @int_rsa_free(ptr nocapture noundef readonly %pkey) #0 {
 entry:
-  %pkey1 = getelementptr inbounds %struct.evp_pkey_st, ptr %pkey, i64 0, i32 2
+  %pkey1 = getelementptr inbounds i8, ptr %pkey, i64 8
   %0 = load ptr, ptr %pkey1, align 8
   tail call void @RSA_free(ptr noundef %0) #2
   ret void

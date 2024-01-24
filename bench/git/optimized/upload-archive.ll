@@ -43,7 +43,7 @@ entry:
   br i1 %cmp.not, label %lor.lhs.false, label %if.then
 
 lor.lhs.false:                                    ; preds = %entry
-  %arrayidx = getelementptr inbounds ptr, ptr %argv, i64 1
+  %arrayidx = getelementptr inbounds i8, ptr %argv, i64 8
   %0 = load ptr, ptr %arrayidx, align 8
   %call = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %0, ptr noundef nonnull dereferenceable(3) @.str.1) #11
   %tobool.not = icmp eq i32 %call, 0
@@ -71,7 +71,7 @@ if.end6:                                          ; preds = %if.end
   br i1 %tobool9.not7, label %for.end, label %if.end11.lr.ph
 
 if.end11.lr.ph:                                   ; preds = %if.end6
-  %nr = getelementptr inbounds %struct.strvec, ptr %sent_argv, i64 0, i32 1
+  %nr = getelementptr inbounds i8, ptr %sent_argv, i64 8
   br label %if.end11
 
 if.end11:                                         ; preds = %if.end11.lr.ph, %if.end18
@@ -101,7 +101,7 @@ if.end18:                                         ; preds = %if.end14
   br i1 %tobool9.not, label %for.end, label %if.end11
 
 for.end:                                          ; preds = %if.end18, %if.end6
-  %nr21 = getelementptr inbounds %struct.strvec, ptr %sent_argv, i64 0, i32 1
+  %nr21 = getelementptr inbounds i8, ptr %sent_argv, i64 8
   %3 = load i64, ptr %nr21, align 8
   %conv = trunc i64 %3 to i32
   %4 = load ptr, ptr %sent_argv, align 8
@@ -154,7 +154,7 @@ do.end:                                           ; preds = %entry
   br i1 %cmp, label %land.lhs.true, label %if.end3
 
 land.lhs.true:                                    ; preds = %do.end
-  %arrayidx = getelementptr inbounds ptr, ptr %argv, i64 1
+  %arrayidx = getelementptr inbounds i8, ptr %argv, i64 8
   %0 = load ptr, ptr %arrayidx, align 8
   %call = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %0, ptr noundef nonnull dereferenceable(3) @.str.1) #11
   %tobool1.not = icmp eq i32 %call, 0
@@ -165,14 +165,14 @@ if.then2:                                         ; preds = %land.lhs.true
   unreachable
 
 if.end3:                                          ; preds = %land.lhs.true, %do.end
-  %err = getelementptr inbounds %struct.child_process, ptr %writer, i64 0, i32 9
+  %err = getelementptr inbounds i8, ptr %writer, i64 88
   store i32 -1, ptr %err, align 8
-  %out = getelementptr inbounds %struct.child_process, ptr %writer, i64 0, i32 8
+  %out = getelementptr inbounds i8, ptr %writer, i64 84
   store i32 -1, ptr %out, align 4
-  %git_cmd = getelementptr inbounds %struct.child_process, ptr %writer, i64 0, i32 11
+  %git_cmd = getelementptr inbounds i8, ptr %writer, i64 104
   store i16 8, ptr %git_cmd, align 8
   %call4 = call ptr @strvec_push(ptr noundef nonnull %writer, ptr noundef nonnull @.str.8) #13
-  %add.ptr = getelementptr inbounds ptr, ptr %argv, i64 1
+  %add.ptr = getelementptr inbounds i8, ptr %argv, i64 8
   call void @strvec_pushv(ptr noundef nonnull %writer, ptr noundef nonnull %add.ptr) #13
   %call6 = call i32 @start_command(ptr noundef nonnull %writer) #13
   %tobool7.not = icmp eq i32 %call6, 0
@@ -189,11 +189,11 @@ if.then8:                                         ; preds = %if.end3
 if.end12:                                         ; preds = %if.end3
   call void (i32, ptr, ...) @packet_write_fmt(i32 noundef 1, ptr noundef nonnull @.str.11) #13
   call void @packet_flush(i32 noundef 1) #13
-  %events = getelementptr inbounds %struct.pollfd, ptr %pfd, i64 0, i32 1
-  %arrayidx17 = getelementptr inbounds [2 x %struct.pollfd], ptr %pfd, i64 0, i64 1
-  %events20 = getelementptr inbounds [2 x %struct.pollfd], ptr %pfd, i64 0, i64 1, i32 1
-  %revents = getelementptr inbounds [2 x %struct.pollfd], ptr %pfd, i64 0, i64 1, i32 2
-  %revents43 = getelementptr inbounds %struct.pollfd, ptr %pfd, i64 0, i32 2
+  %events = getelementptr inbounds i8, ptr %pfd, i64 4
+  %arrayidx17 = getelementptr inbounds i8, ptr %pfd, i64 8
+  %events20 = getelementptr inbounds i8, ptr %pfd, i64 12
+  %revents = getelementptr inbounds i8, ptr %pfd, i64 14
+  %revents43 = getelementptr inbounds i8, ptr %pfd, i64 6
   br label %while.body
 
 while.body:                                       ; preds = %while.body.backedge, %if.end12
@@ -341,9 +341,9 @@ entry:
   call void @llvm.va_start(ptr nonnull %params)
   call void @strbuf_vaddf(ptr noundef nonnull %buf, ptr noundef %fmt, ptr noundef nonnull %params) #13
   call void @llvm.va_end(ptr nonnull %params)
-  %buf3 = getelementptr inbounds %struct.strbuf, ptr %buf, i64 0, i32 2
+  %buf3 = getelementptr inbounds i8, ptr %buf, i64 16
   %0 = load ptr, ptr %buf3, align 8
-  %len = getelementptr inbounds %struct.strbuf, ptr %buf, i64 0, i32 1
+  %len = getelementptr inbounds i8, ptr %buf, i64 8
   %1 = load i64, ptr %len, align 8
   call void @send_sideband(i32 noundef 1, i32 noundef 3, ptr noundef %0, i64 noundef %1, i32 noundef 65520) #13
   %2 = load ptr, ptr %buf3, align 8

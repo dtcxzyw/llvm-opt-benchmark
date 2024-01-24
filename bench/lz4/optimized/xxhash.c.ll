@@ -3,16 +3,13 @@ source_filename = "bench/lz4/original/xxhash.c.ll"
 target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:128-n8:16:32:64-S128"
 target triple = "x86_64-unknown-linux-gnu"
 
-%struct.XXH32_state_s = type { i32, i32, i32, i32, i32, i32, [4 x i32], i32, i32 }
-%struct.XXH64_state_s = type { i64, i64, i64, i64, i64, [4 x i64], i32, [2 x i32] }
-
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define i32 @LZ4_XXH_versionNumber() local_unnamed_addr #0 {
+define noundef i32 @LZ4_XXH_versionNumber() local_unnamed_addr #0 {
 entry:
   ret i32 605
 }
 
-; Function Attrs: nofree nosync nounwind memory(read, inaccessiblemem: none) uwtable
+; Function Attrs: nofree norecurse nosync nounwind memory(read, inaccessiblemem: none) uwtable
 define i32 @LZ4_XXH32(ptr noundef readonly %input, i64 noundef %len, i32 noundef %seed) local_unnamed_addr #1 {
 entry:
   %cmp.i17 = icmp ugt i64 %len, 15
@@ -84,20 +81,20 @@ XXH32_endian_align.exit60:                        ; preds = %if.else.i18, %do.en
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(inaccessiblemem: readwrite) uwtable
-define noalias ptr @LZ4_XXH32_createState() local_unnamed_addr #2 {
+define noalias noundef ptr @LZ4_XXH32_createState() local_unnamed_addr #2 {
 entry:
-  %call.i = tail call noalias dereferenceable_or_null(48) ptr @malloc(i64 noundef 48) #14
+  %call.i = tail call noalias noundef dereferenceable_or_null(48) ptr @malloc(i64 noundef 48) #14
   ret ptr %call.i
 }
 
 ; Function Attrs: mustprogress nounwind willreturn memory(argmem: readwrite, inaccessiblemem: readwrite) uwtable
-define i32 @LZ4_XXH32_freeState(ptr nocapture noundef %statePtr) local_unnamed_addr #3 {
+define noundef i32 @LZ4_XXH32_freeState(ptr nocapture noundef %statePtr) local_unnamed_addr #3 {
 entry:
   tail call void @free(ptr noundef %statePtr) #15
   ret i32 0
 }
 
-; Function Attrs: mustprogress nofree nosync nounwind willreturn memory(argmem: readwrite) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
 define void @LZ4_XXH32_copyState(ptr nocapture noundef writeonly %dstState, ptr nocapture noundef readonly %srcState) local_unnamed_addr #4 {
 entry:
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(48) %dstState, ptr noundef nonnull align 4 dereferenceable(48) %srcState, i64 48, i1 false)
@@ -107,8 +104,8 @@ entry:
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
 declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #5
 
-; Function Attrs: mustprogress nofree nosync nounwind willreturn memory(argmem: write) uwtable
-define i32 @LZ4_XXH32_reset(ptr nocapture noundef writeonly %statePtr, i32 noundef %seed) local_unnamed_addr #6 {
+; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
+define noundef i32 @LZ4_XXH32_reset(ptr nocapture noundef writeonly %statePtr, i32 noundef %seed) local_unnamed_addr #6 {
 entry:
   %add1 = add i32 %seed, 606290984
   %add2 = add i32 %seed, -2048144777
@@ -130,8 +127,8 @@ entry:
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
 declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #7
 
-; Function Attrs: nofree nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define i32 @LZ4_XXH32_update(ptr nocapture noundef %state_in, ptr noundef %input, i64 noundef %len) local_unnamed_addr #8 {
+; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
+define noundef i32 @LZ4_XXH32_update(ptr nocapture noundef %state_in, ptr noundef %input, i64 noundef %len) local_unnamed_addr #8 {
 entry:
   %cmp.i16 = icmp eq ptr %input, null
   br i1 %cmp.i16, label %return, label %if.end.i17
@@ -146,11 +143,11 @@ if.end.i17:                                       ; preds = %entry
   %cmp4.i23 = icmp ugt i32 %add.i20, 15
   %or.i25219 = or i1 %cmp1.i21, %cmp4.i23
   %or.i25 = zext i1 %or.i25219 to i32
-  %large_len.i26 = getelementptr inbounds %struct.XXH32_state_s, ptr %state_in, i64 0, i32 1
+  %large_len.i26 = getelementptr inbounds i8, ptr %state_in, i64 4
   %1 = load i32, ptr %large_len.i26, align 4
   %or6.i27 = or i32 %1, %or.i25
   store i32 %or6.i27, ptr %large_len.i26, align 4
-  %memsize.i28 = getelementptr inbounds %struct.XXH32_state_s, ptr %state_in, i64 0, i32 7
+  %memsize.i28 = getelementptr inbounds i8, ptr %state_in, i64 40
   %2 = load i32, ptr %memsize.i28, align 4
   %conv7.i29 = zext i32 %2 to i64
   %add8.i30 = add i64 %conv7.i29, %len
@@ -158,7 +155,7 @@ if.end.i17:                                       ; preds = %entry
   br i1 %cmp9.i31, label %if.then11.i111, label %if.end17.i32
 
 if.then11.i111:                                   ; preds = %if.end.i17
-  %mem32.i112 = getelementptr inbounds %struct.XXH32_state_s, ptr %state_in, i64 0, i32 6
+  %mem32.i112 = getelementptr inbounds i8, ptr %state_in, i64 24
   %add.ptr13.i115 = getelementptr inbounds i8, ptr %mem32.i112, i64 %conv7.i29
   tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %add.ptr13.i115, ptr nonnull align 1 %input, i64 %len, i1 false)
   %3 = load i32, ptr %memsize.i28, align 4
@@ -170,12 +167,12 @@ if.end17.i32:                                     ; preds = %if.end.i17
   br i1 %tobool.i34.not, label %if.end49.i35, label %if.then19.i77
 
 if.then19.i77:                                    ; preds = %if.end17.i32
-  %mem3220.i78 = getelementptr inbounds %struct.XXH32_state_s, ptr %state_in, i64 0, i32 6
+  %mem3220.i78 = getelementptr inbounds i8, ptr %state_in, i64 24
   %add.ptr24.i81 = getelementptr inbounds i8, ptr %mem3220.i78, i64 %conv7.i29
   %sub.i83 = sub i32 16, %2
   %conv26.i84 = zext i32 %sub.i83 to i64
   tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %add.ptr24.i81, ptr nonnull align 1 %input, i64 %conv26.i84, i1 false)
-  %v1.i87 = getelementptr inbounds %struct.XXH32_state_s, ptr %state_in, i64 0, i32 2
+  %v1.i87 = getelementptr inbounds i8, ptr %state_in, i64 8
   %4 = load <4 x i32>, ptr %v1.i87, align 4
   %5 = load <4 x i32>, ptr %mem3220.i78, align 1
   %6 = mul <4 x i32> %5, <i32 -2048144777, i32 -2048144777, i32 -2048144777, i32 -2048144777>
@@ -197,7 +194,7 @@ if.end49.i35:                                     ; preds = %if.then19.i77, %if.
   br i1 %cmp51.i37.not, label %if.end81.i38, label %if.then53.i52
 
 if.then53.i52:                                    ; preds = %if.end49.i35
-  %v156.i54 = getelementptr inbounds %struct.XXH32_state_s, ptr %state_in, i64 0, i32 2
+  %v156.i54 = getelementptr inbounds i8, ptr %state_in, i64 8
   %11 = load <4 x i32>, ptr %v156.i54, align 4
   br label %do.body.i58
 
@@ -223,7 +220,7 @@ if.end81.i38:                                     ; preds = %do.end.i72, %if.end
   br i1 %cmp82.i39, label %if.then84.i41, label %return
 
 if.then84.i41:                                    ; preds = %if.end81.i38
-  %mem3285.i42 = getelementptr inbounds %struct.XXH32_state_s, ptr %state_in, i64 0, i32 6
+  %mem3285.i42 = getelementptr inbounds i8, ptr %state_in, i64 24
   %sub.ptr.lhs.cast.i43 = ptrtoint ptr %add.ptr.i18 to i64
   %sub.ptr.rhs.cast.i44 = ptrtoint ptr %p.i8.2 to i64
   %sub.ptr.sub.i45 = sub i64 %sub.ptr.lhs.cast.i43, %sub.ptr.rhs.cast.i44
@@ -241,23 +238,23 @@ return:                                           ; preds = %return.sink.split, 
   ret i32 %retval.i3.0
 }
 
-; Function Attrs: mustprogress nofree nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
 define i32 @LZ4_XXH32_digest(ptr nocapture noundef readonly %state_in) local_unnamed_addr #9 {
 entry:
-  %large_len.i6 = getelementptr inbounds %struct.XXH32_state_s, ptr %state_in, i64 0, i32 1
+  %large_len.i6 = getelementptr inbounds i8, ptr %state_in, i64 4
   %0 = load i32, ptr %large_len.i6, align 4
   %tobool.i7.not = icmp eq i32 %0, 0
   br i1 %tobool.i7.not, label %if.else.i8, label %if.then.i16
 
 if.then.i16:                                      ; preds = %entry
-  %v1.i17 = getelementptr inbounds %struct.XXH32_state_s, ptr %state_in, i64 0, i32 2
+  %v1.i17 = getelementptr inbounds i8, ptr %state_in, i64 8
   %1 = load <4 x i32>, ptr %v1.i17, align 4
   %2 = tail call <4 x i32> @llvm.fshl.v4i32(<4 x i32> %1, <4 x i32> %1, <4 x i32> <i32 1, i32 7, i32 12, i32 18>)
   %3 = tail call i32 @llvm.vector.reduce.add.v4i32(<4 x i32> %2)
   br label %XXH32_digest_endian.exit40
 
 if.else.i8:                                       ; preds = %entry
-  %v316.i9 = getelementptr inbounds %struct.XXH32_state_s, ptr %state_in, i64 0, i32 4
+  %v316.i9 = getelementptr inbounds i8, ptr %state_in, i64 16
   %4 = load i32, ptr %v316.i9, align 4
   %add17.i10 = add i32 %4, 374761393
   br label %XXH32_digest_endian.exit40
@@ -266,31 +263,31 @@ XXH32_digest_endian.exit40:                       ; preds = %if.else.i8, %if.the
   %h32.i5.0 = phi i32 [ %3, %if.then.i16 ], [ %add17.i10, %if.else.i8 ]
   %5 = load i32, ptr %state_in, align 4
   %add18.i11 = add i32 %5, %h32.i5.0
-  %mem32.i12 = getelementptr inbounds %struct.XXH32_state_s, ptr %state_in, i64 0, i32 6
-  %memsize.i13 = getelementptr inbounds %struct.XXH32_state_s, ptr %state_in, i64 0, i32 7
+  %mem32.i12 = getelementptr inbounds i8, ptr %state_in, i64 24
+  %memsize.i13 = getelementptr inbounds i8, ptr %state_in, i64 40
   %6 = load i32, ptr %memsize.i13, align 4
   %conv.i14 = zext i32 %6 to i64
   %call.i15 = tail call fastcc i32 @XXH32_finalize(i32 noundef %add18.i11, ptr noundef nonnull %mem32.i12, i64 noundef %conv.i14)
   ret i32 %call.i15
 }
 
-; Function Attrs: mustprogress nofree nosync nounwind willreturn memory(argmem: write) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
 define void @LZ4_XXH32_canonicalFromHash(ptr nocapture noundef writeonly %dst, i32 noundef %hash) local_unnamed_addr #6 {
 entry:
-  %or7.i = tail call i32 @llvm.bswap.i32(i32 %hash)
+  %or7.i = tail call noundef i32 @llvm.bswap.i32(i32 %hash)
   store i32 %or7.i, ptr %dst, align 1
   ret void
 }
 
-; Function Attrs: mustprogress nofree nosync nounwind willreturn memory(argmem: read) uwtable
-define i32 @LZ4_XXH32_hashFromCanonical(ptr nocapture noundef readonly %src) local_unnamed_addr #10 {
+; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
+define noundef i32 @LZ4_XXH32_hashFromCanonical(ptr nocapture noundef readonly %src) local_unnamed_addr #10 {
 entry:
   %src.val = load i32, ptr %src, align 1
-  %or7.i.i = tail call i32 @llvm.bswap.i32(i32 %src.val)
+  %or7.i.i = tail call noundef i32 @llvm.bswap.i32(i32 %src.val)
   ret i32 %or7.i.i
 }
 
-; Function Attrs: nofree nosync nounwind memory(read, inaccessiblemem: none) uwtable
+; Function Attrs: nofree norecurse nosync nounwind memory(read, inaccessiblemem: none) uwtable
 define i64 @LZ4_XXH64(ptr noundef readonly %input, i64 noundef %len, i64 noundef %seed) local_unnamed_addr #1 {
 entry:
   %cmp.i17 = icmp ugt i64 %len, 31
@@ -384,28 +381,28 @@ XXH64_endian_align.exit62:                        ; preds = %if.else.i18, %do.en
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(inaccessiblemem: readwrite) uwtable
-define noalias ptr @LZ4_XXH64_createState() local_unnamed_addr #2 {
+define noalias noundef ptr @LZ4_XXH64_createState() local_unnamed_addr #2 {
 entry:
-  %call.i = tail call noalias dereferenceable_or_null(88) ptr @malloc(i64 noundef 88) #14
+  %call.i = tail call noalias noundef dereferenceable_or_null(88) ptr @malloc(i64 noundef 88) #14
   ret ptr %call.i
 }
 
 ; Function Attrs: mustprogress nounwind willreturn memory(argmem: readwrite, inaccessiblemem: readwrite) uwtable
-define i32 @LZ4_XXH64_freeState(ptr nocapture noundef %statePtr) local_unnamed_addr #3 {
+define noundef i32 @LZ4_XXH64_freeState(ptr nocapture noundef %statePtr) local_unnamed_addr #3 {
 entry:
   tail call void @free(ptr noundef %statePtr) #15
   ret i32 0
 }
 
-; Function Attrs: mustprogress nofree nosync nounwind willreturn memory(argmem: readwrite) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
 define void @LZ4_XXH64_copyState(ptr nocapture noundef writeonly %dstState, ptr nocapture noundef readonly %srcState) local_unnamed_addr #4 {
 entry:
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(88) %dstState, ptr noundef nonnull align 8 dereferenceable(88) %srcState, i64 88, i1 false)
   ret void
 }
 
-; Function Attrs: mustprogress nofree nosync nounwind willreturn memory(argmem: write) uwtable
-define i32 @LZ4_XXH64_reset(ptr nocapture noundef writeonly %statePtr, i64 noundef %seed) local_unnamed_addr #6 {
+; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
+define noundef i32 @LZ4_XXH64_reset(ptr nocapture noundef writeonly %statePtr, i64 noundef %seed) local_unnamed_addr #6 {
 entry:
   %add1 = add i64 %seed, 6983438078262162902
   %add2 = add i64 %seed, -4417276706812531889
@@ -424,8 +421,8 @@ entry:
   ret i32 0
 }
 
-; Function Attrs: nofree nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define i32 @LZ4_XXH64_update(ptr nocapture noundef %state_in, ptr noundef %input, i64 noundef %len) local_unnamed_addr #8 {
+; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
+define noundef i32 @LZ4_XXH64_update(ptr nocapture noundef %state_in, ptr noundef %input, i64 noundef %len) local_unnamed_addr #8 {
 entry:
   %cmp.i15 = icmp eq ptr %input, null
   br i1 %cmp.i15, label %return, label %if.end.i16
@@ -435,7 +432,7 @@ if.end.i16:                                       ; preds = %entry
   %0 = load i64, ptr %state_in, align 8
   %add.i18 = add i64 %0, %len
   store i64 %add.i18, ptr %state_in, align 8
-  %memsize.i19 = getelementptr inbounds %struct.XXH64_state_s, ptr %state_in, i64 0, i32 6
+  %memsize.i19 = getelementptr inbounds i8, ptr %state_in, i64 72
   %1 = load i32, ptr %memsize.i19, align 8
   %conv.i20 = zext i32 %1 to i64
   %add1.i21 = add i64 %conv.i20, %len
@@ -443,7 +440,7 @@ if.end.i16:                                       ; preds = %entry
   br i1 %cmp2.i22, label %if.then4.i105, label %if.end10.i23
 
 if.then4.i105:                                    ; preds = %if.end.i16
-  %mem64.i106 = getelementptr inbounds %struct.XXH64_state_s, ptr %state_in, i64 0, i32 5
+  %mem64.i106 = getelementptr inbounds i8, ptr %state_in, i64 40
   %add.ptr6.i109 = getelementptr inbounds i8, ptr %mem64.i106, i64 %conv.i20
   tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %add.ptr6.i109, ptr nonnull align 1 %input, i64 %len, i1 false)
   %conv7.i111 = trunc i64 %len to i32
@@ -456,12 +453,12 @@ if.end10.i23:                                     ; preds = %if.end.i16
   br i1 %tobool.i25.not, label %if.end50.i26, label %if.then12.i68
 
 if.then12.i68:                                    ; preds = %if.end10.i23
-  %mem6413.i69 = getelementptr inbounds %struct.XXH64_state_s, ptr %state_in, i64 0, i32 5
+  %mem6413.i69 = getelementptr inbounds i8, ptr %state_in, i64 40
   %add.ptr17.i72 = getelementptr inbounds i8, ptr %mem6413.i69, i64 %conv.i20
   %sub.i74 = sub i32 32, %1
   %conv19.i75 = zext i32 %sub.i74 to i64
   tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %add.ptr17.i72, ptr nonnull align 1 %input, i64 %conv19.i75, i1 false)
-  %v1.i77 = getelementptr inbounds %struct.XXH64_state_s, ptr %state_in, i64 0, i32 1
+  %v1.i77 = getelementptr inbounds i8, ptr %state_in, i64 8
   %3 = load i64, ptr %v1.i77, align 8
   %mem6413.i69.val = load i64, ptr %mem6413.i69, align 1
   %mul.i = mul i64 %mem6413.i69.val, -4417276706812531889
@@ -469,27 +466,27 @@ if.then12.i68:                                    ; preds = %if.end10.i23
   %or.i = tail call i64 @llvm.fshl.i64(i64 %add.i, i64 %add.i, i64 31)
   %mul1.i = mul i64 %or.i, -7046029288634856825
   store i64 %mul1.i, ptr %v1.i77, align 8
-  %v2.i82 = getelementptr inbounds %struct.XXH64_state_s, ptr %state_in, i64 0, i32 2
+  %v2.i82 = getelementptr inbounds i8, ptr %state_in, i64 16
   %4 = load i64, ptr %v2.i82, align 8
-  %add.ptr29.i84 = getelementptr inbounds %struct.XXH64_state_s, ptr %state_in, i64 0, i32 5, i64 1
+  %add.ptr29.i84 = getelementptr inbounds i8, ptr %state_in, i64 48
   %add.ptr29.i84.val = load i64, ptr %add.ptr29.i84, align 1
   %mul.i207 = mul i64 %add.ptr29.i84.val, -4417276706812531889
   %add.i208 = add i64 %mul.i207, %4
   %or.i209 = tail call i64 @llvm.fshl.i64(i64 %add.i208, i64 %add.i208, i64 31)
   %mul1.i210 = mul i64 %or.i209, -7046029288634856825
   store i64 %mul1.i210, ptr %v2.i82, align 8
-  %v3.i88 = getelementptr inbounds %struct.XXH64_state_s, ptr %state_in, i64 0, i32 3
+  %v3.i88 = getelementptr inbounds i8, ptr %state_in, i64 24
   %5 = load i64, ptr %v3.i88, align 8
-  %add.ptr35.i90 = getelementptr inbounds %struct.XXH64_state_s, ptr %state_in, i64 0, i32 5, i64 2
+  %add.ptr35.i90 = getelementptr inbounds i8, ptr %state_in, i64 56
   %add.ptr35.i90.val = load i64, ptr %add.ptr35.i90, align 1
   %mul.i211 = mul i64 %add.ptr35.i90.val, -4417276706812531889
   %add.i212 = add i64 %mul.i211, %5
   %or.i213 = tail call i64 @llvm.fshl.i64(i64 %add.i212, i64 %add.i212, i64 31)
   %mul1.i214 = mul i64 %or.i213, -7046029288634856825
   store i64 %mul1.i214, ptr %v3.i88, align 8
-  %v4.i94 = getelementptr inbounds %struct.XXH64_state_s, ptr %state_in, i64 0, i32 4
+  %v4.i94 = getelementptr inbounds i8, ptr %state_in, i64 32
   %6 = load i64, ptr %v4.i94, align 8
-  %add.ptr41.i96 = getelementptr inbounds %struct.XXH64_state_s, ptr %state_in, i64 0, i32 5, i64 3
+  %add.ptr41.i96 = getelementptr inbounds i8, ptr %state_in, i64 64
   %add.ptr41.i96.val = load i64, ptr %add.ptr41.i96, align 1
   %mul.i215 = mul i64 %add.ptr41.i96.val, -4417276706812531889
   %add.i216 = add i64 %mul.i215, %6
@@ -511,13 +508,13 @@ if.end50.i26:                                     ; preds = %if.then12.i68, %if.
 
 if.then54.i43:                                    ; preds = %if.end50.i26
   %add.ptr55.i44 = getelementptr inbounds i8, ptr %add.ptr.i17, i64 -32
-  %v157.i45 = getelementptr inbounds %struct.XXH64_state_s, ptr %state_in, i64 0, i32 1
+  %v157.i45 = getelementptr inbounds i8, ptr %state_in, i64 8
   %8 = load i64, ptr %v157.i45, align 8
-  %v259.i46 = getelementptr inbounds %struct.XXH64_state_s, ptr %state_in, i64 0, i32 2
+  %v259.i46 = getelementptr inbounds i8, ptr %state_in, i64 16
   %9 = load i64, ptr %v259.i46, align 8
-  %v361.i47 = getelementptr inbounds %struct.XXH64_state_s, ptr %state_in, i64 0, i32 3
+  %v361.i47 = getelementptr inbounds i8, ptr %state_in, i64 24
   %10 = load i64, ptr %v361.i47, align 8
-  %v463.i48 = getelementptr inbounds %struct.XXH64_state_s, ptr %state_in, i64 0, i32 4
+  %v463.i48 = getelementptr inbounds i8, ptr %state_in, i64 32
   %11 = load i64, ptr %v463.i48, align 8
   br label %do.body.i49
 
@@ -567,7 +564,7 @@ if.end82.i29:                                     ; preds = %do.end.i63, %if.end
   br i1 %cmp83.i30, label %if.then85.i32, label %return
 
 if.then85.i32:                                    ; preds = %if.end82.i29
-  %mem6486.i33 = getelementptr inbounds %struct.XXH64_state_s, ptr %state_in, i64 0, i32 5
+  %mem6486.i33 = getelementptr inbounds i8, ptr %state_in, i64 40
   %sub.ptr.lhs.cast.i34 = ptrtoint ptr %add.ptr.i17 to i64
   %sub.ptr.rhs.cast.i35 = ptrtoint ptr %p.i8.2 to i64
   %sub.ptr.sub.i36 = sub i64 %sub.ptr.lhs.cast.i34, %sub.ptr.rhs.cast.i35
@@ -585,7 +582,7 @@ return:                                           ; preds = %return.sink.split, 
   ret i32 %retval.i3.0
 }
 
-; Function Attrs: mustprogress nofree nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
 define i64 @LZ4_XXH64_digest(ptr noundef readonly %state_in) local_unnamed_addr #9 {
 entry:
   %0 = load i64, ptr %state_in, align 8
@@ -593,13 +590,13 @@ entry:
   br i1 %cmp.i10, label %if.then.i17, label %if.else.i11
 
 if.then.i17:                                      ; preds = %entry
-  %v11.i18 = getelementptr inbounds %struct.XXH64_state_s, ptr %state_in, i64 0, i32 1
+  %v11.i18 = getelementptr inbounds i8, ptr %state_in, i64 8
   %1 = load i64, ptr %v11.i18, align 8
-  %v22.i19 = getelementptr inbounds %struct.XXH64_state_s, ptr %state_in, i64 0, i32 2
+  %v22.i19 = getelementptr inbounds i8, ptr %state_in, i64 16
   %2 = load i64, ptr %v22.i19, align 8
-  %v33.i20 = getelementptr inbounds %struct.XXH64_state_s, ptr %state_in, i64 0, i32 3
+  %v33.i20 = getelementptr inbounds i8, ptr %state_in, i64 24
   %3 = load i64, ptr %v33.i20, align 8
-  %v44.i21 = getelementptr inbounds %struct.XXH64_state_s, ptr %state_in, i64 0, i32 4
+  %v44.i21 = getelementptr inbounds i8, ptr %state_in, i64 32
   %4 = load i64, ptr %v44.i21, align 8
   %or.i24 = tail call i64 @llvm.fshl.i64(i64 %1, i64 %1, i64 1)
   %or7.i27 = tail call i64 @llvm.fshl.i64(i64 %2, i64 %2, i64 7)
@@ -635,7 +632,7 @@ if.then.i17:                                      ; preds = %entry
   br label %XXH64_digest_endian.exit41
 
 if.else.i11:                                      ; preds = %entry
-  %v319.i12 = getelementptr inbounds %struct.XXH64_state_s, ptr %state_in, i64 0, i32 3
+  %v319.i12 = getelementptr inbounds i8, ptr %state_in, i64 24
   %5 = load i64, ptr %v319.i12, align 8
   %add20.i13 = add i64 %5, 2870177450012600261
   br label %XXH64_digest_endian.exit41
@@ -643,32 +640,32 @@ if.else.i11:                                      ; preds = %entry
 XXH64_digest_endian.exit41:                       ; preds = %if.else.i11, %if.then.i17
   %h64.i5.0 = phi i64 [ %add.i61, %if.then.i17 ], [ %add20.i13, %if.else.i11 ]
   %add22.i14 = add i64 %h64.i5.0, %0
-  %mem64.i15 = getelementptr inbounds %struct.XXH64_state_s, ptr %state_in, i64 0, i32 5
+  %mem64.i15 = getelementptr inbounds i8, ptr %state_in, i64 40
   %call24.i16 = tail call fastcc i64 @XXH64_finalize(i64 noundef %add22.i14, ptr noundef nonnull %mem64.i15, i64 noundef %0)
   ret i64 %call24.i16
 }
 
-; Function Attrs: mustprogress nofree nosync nounwind willreturn memory(argmem: write) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
 define void @LZ4_XXH64_canonicalFromHash(ptr nocapture noundef writeonly %dst, i64 noundef %hash) local_unnamed_addr #6 {
 entry:
-  %or19.i = tail call i64 @llvm.bswap.i64(i64 %hash)
+  %or19.i = tail call noundef i64 @llvm.bswap.i64(i64 %hash)
   store i64 %or19.i, ptr %dst, align 1
   ret void
 }
 
-; Function Attrs: mustprogress nofree nosync nounwind willreturn memory(argmem: read) uwtable
-define i64 @LZ4_XXH64_hashFromCanonical(ptr nocapture noundef readonly %src) local_unnamed_addr #10 {
+; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
+define noundef i64 @LZ4_XXH64_hashFromCanonical(ptr nocapture noundef readonly %src) local_unnamed_addr #10 {
 entry:
   %src.val = load i64, ptr %src, align 1
-  %or19.i.i = tail call i64 @llvm.bswap.i64(i64 %src.val)
+  %or19.i.i = tail call noundef i64 @llvm.bswap.i64(i64 %src.val)
   ret i64 %or19.i.i
 }
 
-; Function Attrs: mustprogress nofree nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
 define internal fastcc i32 @XXH32_finalize(i32 noundef %h32, ptr nocapture noundef readonly %ptr, i64 noundef %len) unnamed_addr #9 {
 entry:
   %and = and i64 %len, 15
-  switch i64 %and, label %entry.unreachabledefault [
+  switch i64 %and, label %default.unreachable184 [
     i64 12, label %XXH_readLE32_align.exit396
     i64 8, label %sw.bb2
     i64 4, label %sw.bb11
@@ -864,13 +861,13 @@ sw.bb144:                                         ; preds = %sw.bb135, %entry
   %mul152 = mul i32 %or151, -1640531535
   br label %return
 
-entry.unreachabledefault:                         ; preds = %entry
+default.unreachable184:                           ; preds = %entry
   unreachable
 
 return:                                           ; preds = %entry, %sw.bb144, %sw.bb73, %sw.bb39, %sw.bb11
-  %h32.addr.11.sink186 = phi i32 [ %mul97, %sw.bb73 ], [ %mul53, %sw.bb39 ], [ %mul19, %sw.bb11 ], [ %h32, %entry ], [ %mul152, %sw.bb144 ]
-  %shr.i176 = lshr i32 %h32.addr.11.sink186, 15
-  %xor.i177 = xor i32 %shr.i176, %h32.addr.11.sink186
+  %h32.addr.11.sink187 = phi i32 [ %mul97, %sw.bb73 ], [ %mul53, %sw.bb39 ], [ %mul19, %sw.bb11 ], [ %h32, %entry ], [ %mul152, %sw.bb144 ]
+  %shr.i176 = lshr i32 %h32.addr.11.sink187, 15
+  %xor.i177 = xor i32 %shr.i176, %h32.addr.11.sink187
   %mul.i178 = mul i32 %xor.i177, -2048144777
   %shr1.i179 = lshr i32 %mul.i178, 13
   %xor2.i180 = xor i32 %shr1.i179, %mul.i178
@@ -886,11 +883,11 @@ declare noalias noundef ptr @malloc(i64 noundef) local_unnamed_addr #11
 ; Function Attrs: mustprogress nounwind willreturn allockind("free") memory(argmem: readwrite, inaccessiblemem: readwrite)
 declare void @free(ptr allocptr nocapture noundef) local_unnamed_addr #12
 
-; Function Attrs: mustprogress nofree nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
 define internal fastcc i64 @XXH64_finalize(i64 noundef %h64, ptr noundef readonly %ptr, i64 noundef %len) unnamed_addr #9 {
 entry:
   %and = and i64 %len, 31
-  switch i64 %and, label %entry.unreachabledefault [
+  switch i64 %and, label %default.unreachable494 [
     i64 24, label %XXH_readLE64_align.exit997
     i64 16, label %sw.bb2
     i64 8, label %sw.bb13
@@ -1388,13 +1385,13 @@ sw.bb394:                                         ; preds = %sw.bb385, %entry
   %mul402 = mul i64 %or401, -7046029288634856825
   br label %return
 
-entry.unreachabledefault:                         ; preds = %entry
+default.unreachable494:                           ; preds = %entry
   unreachable
 
 return:                                           ; preds = %entry, %sw.bb394, %sw.bb296, %sw.bb246, %sw.bb185, %sw.bb143, %sw.bb91, %sw.bb58, %sw.bb13
-  %h64.addr.23.sink496 = phi i64 [ %mul330, %sw.bb296 ], [ %mul272, %sw.bb246 ], [ %mul211, %sw.bb185 ], [ %mul161, %sw.bb143 ], [ %mul108, %sw.bb91 ], [ %add67, %sw.bb58 ], [ %add23, %sw.bb13 ], [ %h64, %entry ], [ %mul402, %sw.bb394 ]
-  %shr.i486 = lshr i64 %h64.addr.23.sink496, 33
-  %xor.i487 = xor i64 %shr.i486, %h64.addr.23.sink496
+  %h64.addr.23.sink497 = phi i64 [ %mul330, %sw.bb296 ], [ %mul272, %sw.bb246 ], [ %mul211, %sw.bb185 ], [ %mul161, %sw.bb143 ], [ %mul108, %sw.bb91 ], [ %add67, %sw.bb58 ], [ %add23, %sw.bb13 ], [ %h64, %entry ], [ %mul402, %sw.bb394 ]
+  %shr.i486 = lshr i64 %h64.addr.23.sink497, 33
+  %xor.i487 = xor i64 %shr.i486, %h64.addr.23.sink497
   %mul.i488 = mul i64 %xor.i487, -4417276706812531889
   %shr1.i489 = lshr i64 %mul.i488, 29
   %xor2.i490 = xor i64 %shr1.i489, %mul.i488
@@ -1423,16 +1420,16 @@ declare <4 x i32> @llvm.fshl.v4i32(<4 x i32>, <4 x i32>, <4 x i32>) #13
 declare i32 @llvm.vector.reduce.add.v4i32(<4 x i32>) #13
 
 attributes #0 = { mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #1 = { nofree nosync nounwind memory(read, inaccessiblemem: none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #1 = { nofree norecurse nosync nounwind memory(read, inaccessiblemem: none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #2 = { mustprogress nofree nounwind willreturn memory(inaccessiblemem: readwrite) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #3 = { mustprogress nounwind willreturn memory(argmem: readwrite, inaccessiblemem: readwrite) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #4 = { mustprogress nofree nosync nounwind willreturn memory(argmem: readwrite) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #4 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #5 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
-attributes #6 = { mustprogress nofree nosync nounwind willreturn memory(argmem: write) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #6 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #7 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: write) }
-attributes #8 = { nofree nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #9 = { mustprogress nofree nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #10 = { mustprogress nofree nosync nounwind willreturn memory(argmem: read) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #8 = { nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #9 = { mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #10 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #11 = { mustprogress nofree nounwind willreturn allockind("alloc,uninitialized") allocsize(0) memory(inaccessiblemem: readwrite) "alloc-family"="malloc" "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #12 = { mustprogress nounwind willreturn allockind("free") memory(argmem: readwrite, inaccessiblemem: readwrite) "alloc-family"="malloc" "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #13 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }

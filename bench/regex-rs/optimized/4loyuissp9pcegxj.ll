@@ -50,8 +50,8 @@ target triple = "x86_64-unknown-linux-gnu"
 ; Function Attrs: inlinehint nonlazybind uwtable
 define hidden zeroext i1 @"_ZN61_$LT$regex_syntax..ast..Error$u20$as$u20$core..fmt..Debug$GT$3fmt17hfb3647797b09d8eeE"(ptr align 8 %0, ptr align 8 %1) unnamed_addr #0 {
   %3 = alloca ptr, align 8
-  %4 = getelementptr inbounds { { i32, [13 x i32] }, { { { ptr, i64 }, i64 } }, { { i64, i64, i64 }, { i64, i64, i64 } } }, ptr %0, i64 0, i32 1
-  %5 = getelementptr inbounds { { i32, [13 x i32] }, { { { ptr, i64 }, i64 } }, { { i64, i64, i64 }, { i64, i64, i64 } } }, ptr %0, i64 0, i32 2
+  %4 = getelementptr inbounds i8, ptr %0, i64 56
+  %5 = getelementptr inbounds i8, ptr %0, i64 80
   store ptr %5, ptr %3, align 8
   %6 = call zeroext i1 @_ZN4core3fmt9Formatter26debug_struct_field3_finish17h12136368a5f5ee4bE(ptr align 8 %1, ptr nonnull align 1 @anon.c991577e6c070bffa135141c0346f15c.0, i64 5, ptr nonnull align 1 @anon.c991577e6c070bffa135141c0346f15c.1, i64 4, ptr align 1 %0, ptr nonnull align 8 @anon.c991577e6c070bffa135141c0346f15c.2, ptr nonnull align 1 @anon.c991577e6c070bffa135141c0346f15c.3, i64 7, ptr nonnull align 1 %4, ptr nonnull align 8 @anon.c991577e6c070bffa135141c0346f15c.4, ptr nonnull align 1 @anon.c991577e6c070bffa135141c0346f15c.5, i64 4, ptr nonnull align 1 %3, ptr nonnull align 8 @anon.c991577e6c070bffa135141c0346f15c.6)
   ret i1 %6
@@ -157,13 +157,13 @@ default.unreachable1:                             ; preds = %2
   br label %80
 
 34:                                               ; preds = %2
-  %35 = getelementptr inbounds { [1 x i64], { { i64, i64, i64 }, { i64, i64, i64 } } }, ptr %0, i64 0, i32 1
+  %35 = getelementptr inbounds i8, ptr %0, i64 8
   store ptr %35, ptr %6, align 8
   %36 = call zeroext i1 @_ZN4core3fmt9Formatter26debug_struct_field1_finish17hef868d06a7970157E(ptr align 8 %1, ptr nonnull align 1 @anon.c991577e6c070bffa135141c0346f15c.20, i64 13, ptr nonnull align 1 @anon.c991577e6c070bffa135141c0346f15c.21, i64 8, ptr nonnull align 1 %6, ptr nonnull align 8 @anon.c991577e6c070bffa135141c0346f15c.6)
   br label %80
 
 37:                                               ; preds = %2
-  %38 = getelementptr inbounds { [1 x i64], { { i64, i64, i64 }, { i64, i64, i64 } } }, ptr %0, i64 0, i32 1
+  %38 = getelementptr inbounds i8, ptr %0, i64 8
   store ptr %38, ptr %5, align 8
   %39 = call zeroext i1 @_ZN4core3fmt9Formatter26debug_struct_field1_finish17hef868d06a7970157E(ptr align 8 %1, ptr nonnull align 1 @anon.c991577e6c070bffa135141c0346f15c.22, i64 20, ptr nonnull align 1 @anon.c991577e6c070bffa135141c0346f15c.21, i64 8, ptr nonnull align 1 %5, ptr nonnull align 8 @anon.c991577e6c070bffa135141c0346f15c.6)
   br label %80
@@ -177,7 +177,7 @@ default.unreachable1:                             ; preds = %2
   br label %80
 
 44:                                               ; preds = %2
-  %45 = getelementptr inbounds { [1 x i64], { { i64, i64, i64 }, { i64, i64, i64 } } }, ptr %0, i64 0, i32 1
+  %45 = getelementptr inbounds i8, ptr %0, i64 8
   store ptr %45, ptr %4, align 8
   %46 = call zeroext i1 @_ZN4core3fmt9Formatter26debug_struct_field1_finish17hef868d06a7970157E(ptr align 8 %1, ptr nonnull align 1 @anon.c991577e6c070bffa135141c0346f15c.25, i64 18, ptr nonnull align 1 @anon.c991577e6c070bffa135141c0346f15c.21, i64 8, ptr nonnull align 1 %4, ptr nonnull align 8 @anon.c991577e6c070bffa135141c0346f15c.6)
   br label %80
@@ -203,7 +203,7 @@ default.unreachable1:                             ; preds = %2
   br label %80
 
 57:                                               ; preds = %2
-  %58 = getelementptr inbounds { [1 x i32], i32 }, ptr %0, i64 0, i32 1
+  %58 = getelementptr inbounds i8, ptr %0, i64 4
   store ptr %58, ptr %3, align 8
   %59 = call zeroext i1 @_ZN4core3fmt9Formatter25debug_tuple_field1_finish17h4a66e96f470c4e9dE(ptr align 8 %1, ptr nonnull align 1 @anon.c991577e6c070bffa135141c0346f15c.31, i64 17, ptr nonnull align 1 %3, ptr nonnull align 8 @anon.c991577e6c070bffa135141c0346f15c.32)
   br label %80

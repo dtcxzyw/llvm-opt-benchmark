@@ -6,22 +6,13 @@ target triple = "x86_64-unknown-linux-gnu"
 %"class.icu_75::UMutex" = type { [40 x i8], %"struct.std::atomic", ptr }
 %"struct.std::atomic" = type { %"struct.std::__atomic_base" }
 %"struct.std::__atomic_base" = type { ptr }
-%"class.icu_75::TimeZoneNamesDelegate" = type { %"class.icu_75::TimeZoneNames", ptr }
-%"class.icu_75::TimeZoneNames" = type { %"class.icu_75::UObject" }
-%"class.icu_75::UObject" = type { ptr }
-%"class.icu_75::Locale" = type <{ %"class.icu_75::UObject", [12 x i8], [6 x i8], [4 x i8], [2 x i8], i32, [4 x i8], ptr, [157 x i8], [3 x i8], ptr, i8, [7 x i8] }>
-%"struct.icu_75::TimeZoneNamesCacheEntry" = type { ptr, i32, double }
-%struct.UHashElement = type { i32, %union.UElement, %union.UElement }
-%union.UElement = type { ptr }
 %"class.icu_75::UnicodeString" = type { %"class.icu_75::Replaceable", %"union.icu_75::UnicodeString::StackBufferOrFields" }
 %"class.icu_75::Replaceable" = type { %"class.icu_75::UObject" }
+%"class.icu_75::UObject" = type { ptr }
 %"union.icu_75::UnicodeString::StackBufferOrFields" = type { %struct.anon.0, [32 x i8] }
 %struct.anon.0 = type { i16, i32, i32, ptr }
-%"class.icu_75::TimeZoneNames::MatchInfoCollection" = type { ptr, ptr }
 %"class.icu_75::LocalPointer" = type { %"class.icu_75::LocalPointerBase" }
 %"class.icu_75::LocalPointerBase" = type { ptr }
-%"struct.icu_75::MatchInfo" = type <{ i32, [4 x i8], %"class.icu_75::UnicodeString", i32, i8, [3 x i8] }>
-%"class.icu_75::UVector" = type { %"class.icu_75::UObject", i32, i32, ptr, ptr, ptr }
 
 $__clang_call_terminate = comdat any
 
@@ -64,7 +55,7 @@ $_ZTIN6icu_757UMemoryE = comdat any
 define void @_ZN6icu_7521TimeZoneNamesDelegateC2Ev(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(16) %this) unnamed_addr #0 align 2 {
 entry:
   store ptr getelementptr inbounds ({ [19 x ptr] }, ptr @_ZTVN6icu_7521TimeZoneNamesDelegateE, i64 0, inrange i32 0, i64 2), ptr %this, align 8
-  %fTZnamesCacheEntry = getelementptr inbounds %"class.icu_75::TimeZoneNamesDelegate", ptr %this, i64 0, i32 1
+  %fTZnamesCacheEntry = getelementptr inbounds i8, ptr %this, i64 8
   store ptr null, ptr %fTZnamesCacheEntry, align 8
   ret void
 }
@@ -126,7 +117,7 @@ if.end13:                                         ; preds = %invoke.cont10, %inv
   br i1 %cmp.i33, label %if.end18, label %cleanup
 
 if.end18:                                         ; preds = %if.end13
-  %fullName.i = getelementptr inbounds %"class.icu_75::Locale", ptr %locale, i64 0, i32 7
+  %fullName.i = getelementptr inbounds i8, ptr %locale, i64 40
   %3 = load ptr, ptr %fullName.i, align 8
   %4 = load ptr, ptr @_ZN6icu_75L19gTimeZoneNamesCacheE, align 8
   %call22 = invoke ptr @uhash_get_75(ptr noundef %4, ptr noundef %3)
@@ -182,13 +173,13 @@ invoke.cont46:                                    ; preds = %if.then45
 
 if.else50:                                        ; preds = %invoke.cont46
   store ptr %call24, ptr %call47, align 8
-  %refCount = getelementptr inbounds %"struct.icu_75::TimeZoneNamesCacheEntry", ptr %call47, i64 0, i32 1
+  %refCount = getelementptr inbounds i8, ptr %call47, i64 8
   store i32 1, ptr %refCount, align 8
   %call52 = invoke double @uprv_getUTCtime_75()
           to label %invoke.cont51 unwind label %lpad2.loopexit.split-lp
 
 invoke.cont51:                                    ; preds = %if.else50
-  %lastAccess = getelementptr inbounds %"struct.icu_75::TimeZoneNamesCacheEntry", ptr %call47, i64 0, i32 2
+  %lastAccess = getelementptr inbounds i8, ptr %call47, i64 16
   store double %call52, ptr %lastAccess, align 8
   %7 = load ptr, ptr @_ZN6icu_75L19gTimeZoneNamesCacheE, align 8
   %call54 = invoke ptr @uhash_put_75(ptr noundef %7, ptr noundef nonnull %call36, ptr noundef nonnull %call47, ptr noundef nonnull %status)
@@ -212,7 +203,7 @@ if.end63:                                         ; preds = %if.end63.sink.split
   %newKey.0576167 = phi ptr [ %call36, %if.end56 ], [ %call36, %if.end41 ], [ null, %if.end29 ], [ %newKey.0576167.ph, %if.end63.sink.split ]
   %cacheEntry.06265 = phi ptr [ %call47, %if.end56 ], [ null, %if.end41 ], [ null, %if.end29 ], [ null, %if.end63.sink.split ]
   %vtable = load ptr, ptr %call24, align 8
-  %vfn = getelementptr inbounds ptr, ptr %vtable, i64 1
+  %vfn = getelementptr inbounds i8, ptr %vtable, i64 8
   %9 = load ptr, ptr %vfn, align 8
   tail call void %9(ptr noundef nonnull align 8 dereferenceable(8) %call24) #17
   %cmp64.not = icmp eq ptr %newKey.0576167, null
@@ -231,7 +222,7 @@ if.then69:                                        ; preds = %if.end67
           to label %if.end78 unwind label %lpad2.loopexit.split-lp
 
 if.else73:                                        ; preds = %invoke.cont21
-  %refCount74 = getelementptr inbounds %"struct.icu_75::TimeZoneNamesCacheEntry", ptr %call22, i64 0, i32 1
+  %refCount74 = getelementptr inbounds i8, ptr %call22, i64 8
   %10 = load i32, ptr %refCount74, align 8
   %inc = add nsw i32 %10, 1
   store i32 %inc, ptr %refCount74, align 8
@@ -239,7 +230,7 @@ if.else73:                                        ; preds = %invoke.cont21
           to label %invoke.cont75 unwind label %lpad2.loopexit.split-lp
 
 invoke.cont75:                                    ; preds = %if.else73
-  %lastAccess77 = getelementptr inbounds %"struct.icu_75::TimeZoneNamesCacheEntry", ptr %call22, i64 0, i32 2
+  %lastAccess77 = getelementptr inbounds i8, ptr %call22, i64 16
   store double %call76, ptr %lastAccess77, align 8
   br label %if.end78
 
@@ -268,15 +259,15 @@ call13.i.noexc:                                   ; preds = %call.i.noexc
 
 while.body.i:                                     ; preds = %call13.i.noexc, %call1.i.noexc
   %call15.i = phi ptr [ %call1.i44, %call1.i.noexc ], [ %call13.i42, %call13.i.noexc ]
-  %value.i = getelementptr inbounds %struct.UHashElement, ptr %call15.i, i64 0, i32 1
+  %value.i = getelementptr inbounds i8, ptr %call15.i, i64 8
   %13 = load ptr, ptr %value.i, align 8
-  %refCount.i = getelementptr inbounds %"struct.icu_75::TimeZoneNamesCacheEntry", ptr %13, i64 0, i32 1
+  %refCount.i = getelementptr inbounds i8, ptr %13, i64 8
   %14 = load i32, ptr %refCount.i, align 8
   %cmp3.i = icmp slt i32 %14, 1
   br i1 %cmp3.i, label %land.lhs.true.i, label %if.end.i
 
 land.lhs.true.i:                                  ; preds = %while.body.i
-  %lastAccess.i = getelementptr inbounds %"struct.icu_75::TimeZoneNamesCacheEntry", ptr %13, i64 0, i32 2
+  %lastAccess.i = getelementptr inbounds i8, ptr %13, i64 16
   %15 = load double, ptr %lastAccess.i, align 8
   %sub.i = fsub double %call.i41, %15
   %cmp4.i = fcmp ogt double %sub.i, 1.800000e+05
@@ -302,7 +293,7 @@ invoke.cont82:                                    ; preds = %call1.i.noexc, %cal
   br label %if.end83
 
 if.end83:                                         ; preds = %invoke.cont82, %if.end78
-  %fTZnamesCacheEntry = getelementptr inbounds %"class.icu_75::TimeZoneNamesDelegate", ptr %this, i64 0, i32 1
+  %fTZnamesCacheEntry = getelementptr inbounds i8, ptr %this, i64 8
   store ptr %cacheEntry.1, ptr %fTZnamesCacheEntry, align 8
   br label %cleanup
 
@@ -361,7 +352,7 @@ entry:
 
 delete.notnull:                                   ; preds = %entry
   %vtable = load ptr, ptr %0, align 8
-  %vfn = getelementptr inbounds ptr, ptr %vtable, i64 1
+  %vfn = getelementptr inbounds i8, ptr %vtable, i64 8
   %1 = load ptr, ptr %vfn, align 8
   tail call void %1(ptr noundef nonnull align 8 dereferenceable(320) %0) #17
   br label %delete.end
@@ -428,13 +419,13 @@ entry:
           to label %invoke.cont unwind label %terminate.lpad
 
 invoke.cont:                                      ; preds = %entry
-  %fTZnamesCacheEntry = getelementptr inbounds %"class.icu_75::TimeZoneNamesDelegate", ptr %this, i64 0, i32 1
+  %fTZnamesCacheEntry = getelementptr inbounds i8, ptr %this, i64 8
   %0 = load ptr, ptr %fTZnamesCacheEntry, align 8
   %tobool.not = icmp eq ptr %0, null
   br i1 %tobool.not, label %if.end, label %if.then
 
 if.then:                                          ; preds = %invoke.cont
-  %refCount = getelementptr inbounds %"struct.icu_75::TimeZoneNamesCacheEntry", ptr %0, i64 0, i32 1
+  %refCount = getelementptr inbounds i8, ptr %0, i64 8
   %1 = load i32, ptr %refCount, align 8
   %dec = add nsw i32 %1, -1
   store i32 %dec, ptr %refCount, align 8
@@ -491,9 +482,9 @@ dynamic_cast.notnull:                             ; preds = %entry
   br i1 %tobool.not, label %return, label %if.then2
 
 if.then2:                                         ; preds = %dynamic_cast.notnull
-  %fTZnamesCacheEntry = getelementptr inbounds %"class.icu_75::TimeZoneNamesDelegate", ptr %this, i64 0, i32 1
+  %fTZnamesCacheEntry = getelementptr inbounds i8, ptr %this, i64 8
   %1 = load ptr, ptr %fTZnamesCacheEntry, align 8
-  %fTZnamesCacheEntry3 = getelementptr inbounds %"class.icu_75::TimeZoneNamesDelegate", ptr %0, i64 0, i32 1
+  %fTZnamesCacheEntry3 = getelementptr inbounds i8, ptr %0, i64 8
   %2 = load ptr, ptr %fTZnamesCacheEntry3, align 8
   %cmp4 = icmp eq ptr %1, %2
   br label %return
@@ -519,14 +510,14 @@ new.notnull:                                      ; preds = %entry
 
 if.then:                                          ; preds = %new.notnull
   tail call void @umtx_lock_75(ptr noundef nonnull @_ZN6icu_75L18gTimeZoneNamesLockE)
-  %fTZnamesCacheEntry = getelementptr inbounds %"class.icu_75::TimeZoneNamesDelegate", ptr %this, i64 0, i32 1
+  %fTZnamesCacheEntry = getelementptr inbounds i8, ptr %this, i64 8
   %0 = load ptr, ptr %fTZnamesCacheEntry, align 8
-  %refCount = getelementptr inbounds %"struct.icu_75::TimeZoneNamesCacheEntry", ptr %0, i64 0, i32 1
+  %refCount = getelementptr inbounds i8, ptr %0, i64 8
   %1 = load i32, ptr %refCount, align 8
   %inc = add nsw i32 %1, 1
   store i32 %inc, ptr %refCount, align 8
   %2 = load ptr, ptr %fTZnamesCacheEntry, align 8
-  %fTZnamesCacheEntry3 = getelementptr inbounds %"class.icu_75::TimeZoneNamesDelegate", ptr %call, i64 0, i32 1
+  %fTZnamesCacheEntry3 = getelementptr inbounds i8, ptr %call, i64 8
   store ptr %2, ptr %fTZnamesCacheEntry3, align 8
   tail call void @umtx_unlock_75(ptr noundef nonnull @_ZN6icu_75L18gTimeZoneNamesLockE)
   br label %if.end
@@ -544,11 +535,11 @@ if.end:                                           ; preds = %entry, %if.then
 ; Function Attrs: mustprogress uwtable
 define noundef ptr @_ZNK6icu_7521TimeZoneNamesDelegate23getAvailableMetaZoneIDsER10UErrorCode(ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %this, ptr noundef nonnull align 4 dereferenceable(4) %status) unnamed_addr #1 align 2 {
 entry:
-  %fTZnamesCacheEntry = getelementptr inbounds %"class.icu_75::TimeZoneNamesDelegate", ptr %this, i64 0, i32 1
+  %fTZnamesCacheEntry = getelementptr inbounds i8, ptr %this, i64 8
   %0 = load ptr, ptr %fTZnamesCacheEntry, align 8
   %1 = load ptr, ptr %0, align 8
   %vtable = load ptr, ptr %1, align 8
-  %vfn = getelementptr inbounds ptr, ptr %vtable, i64 5
+  %vfn = getelementptr inbounds i8, ptr %vtable, i64 40
   %2 = load ptr, ptr %vfn, align 8
   %call = tail call noundef ptr %2(ptr noundef nonnull align 8 dereferenceable(8) %1, ptr noundef nonnull align 4 dereferenceable(4) %status)
   ret ptr %call
@@ -557,11 +548,11 @@ entry:
 ; Function Attrs: mustprogress uwtable
 define noundef ptr @_ZNK6icu_7521TimeZoneNamesDelegate23getAvailableMetaZoneIDsERKNS_13UnicodeStringER10UErrorCode(ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %this, ptr noundef nonnull align 8 dereferenceable(64) %tzID, ptr noundef nonnull align 4 dereferenceable(4) %status) unnamed_addr #1 align 2 {
 entry:
-  %fTZnamesCacheEntry = getelementptr inbounds %"class.icu_75::TimeZoneNamesDelegate", ptr %this, i64 0, i32 1
+  %fTZnamesCacheEntry = getelementptr inbounds i8, ptr %this, i64 8
   %0 = load ptr, ptr %fTZnamesCacheEntry, align 8
   %1 = load ptr, ptr %0, align 8
   %vtable = load ptr, ptr %1, align 8
-  %vfn = getelementptr inbounds ptr, ptr %vtable, i64 6
+  %vfn = getelementptr inbounds i8, ptr %vtable, i64 48
   %2 = load ptr, ptr %vfn, align 8
   %call = tail call noundef ptr %2(ptr noundef nonnull align 8 dereferenceable(8) %1, ptr noundef nonnull align 8 dereferenceable(64) %tzID, ptr noundef nonnull align 4 dereferenceable(4) %status)
   ret ptr %call
@@ -570,11 +561,11 @@ entry:
 ; Function Attrs: mustprogress uwtable
 define noundef nonnull align 8 dereferenceable(64) ptr @_ZNK6icu_7521TimeZoneNamesDelegate13getMetaZoneIDERKNS_13UnicodeStringEdRS1_(ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %this, ptr noundef nonnull align 8 dereferenceable(64) %tzID, double noundef %date, ptr noundef nonnull align 8 dereferenceable(64) %mzID) unnamed_addr #1 align 2 {
 entry:
-  %fTZnamesCacheEntry = getelementptr inbounds %"class.icu_75::TimeZoneNamesDelegate", ptr %this, i64 0, i32 1
+  %fTZnamesCacheEntry = getelementptr inbounds i8, ptr %this, i64 8
   %0 = load ptr, ptr %fTZnamesCacheEntry, align 8
   %1 = load ptr, ptr %0, align 8
   %vtable = load ptr, ptr %1, align 8
-  %vfn = getelementptr inbounds ptr, ptr %vtable, i64 7
+  %vfn = getelementptr inbounds i8, ptr %vtable, i64 56
   %2 = load ptr, ptr %vfn, align 8
   %call = tail call noundef nonnull align 8 dereferenceable(64) ptr %2(ptr noundef nonnull align 8 dereferenceable(8) %1, ptr noundef nonnull align 8 dereferenceable(64) %tzID, double noundef %date, ptr noundef nonnull align 8 dereferenceable(64) %mzID)
   ret ptr %call
@@ -583,11 +574,11 @@ entry:
 ; Function Attrs: mustprogress uwtable
 define noundef nonnull align 8 dereferenceable(64) ptr @_ZNK6icu_7521TimeZoneNamesDelegate18getReferenceZoneIDERKNS_13UnicodeStringEPKcRS1_(ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %this, ptr noundef nonnull align 8 dereferenceable(64) %mzID, ptr noundef %region, ptr noundef nonnull align 8 dereferenceable(64) %tzID) unnamed_addr #1 align 2 {
 entry:
-  %fTZnamesCacheEntry = getelementptr inbounds %"class.icu_75::TimeZoneNamesDelegate", ptr %this, i64 0, i32 1
+  %fTZnamesCacheEntry = getelementptr inbounds i8, ptr %this, i64 8
   %0 = load ptr, ptr %fTZnamesCacheEntry, align 8
   %1 = load ptr, ptr %0, align 8
   %vtable = load ptr, ptr %1, align 8
-  %vfn = getelementptr inbounds ptr, ptr %vtable, i64 8
+  %vfn = getelementptr inbounds i8, ptr %vtable, i64 64
   %2 = load ptr, ptr %vfn, align 8
   %call = tail call noundef nonnull align 8 dereferenceable(64) ptr %2(ptr noundef nonnull align 8 dereferenceable(8) %1, ptr noundef nonnull align 8 dereferenceable(64) %mzID, ptr noundef %region, ptr noundef nonnull align 8 dereferenceable(64) %tzID)
   ret ptr %call
@@ -596,11 +587,11 @@ entry:
 ; Function Attrs: mustprogress uwtable
 define noundef nonnull align 8 dereferenceable(64) ptr @_ZNK6icu_7521TimeZoneNamesDelegate22getMetaZoneDisplayNameERKNS_13UnicodeStringE17UTimeZoneNameTypeRS1_(ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %this, ptr noundef nonnull align 8 dereferenceable(64) %mzID, i32 noundef %type, ptr noundef nonnull align 8 dereferenceable(64) %name) unnamed_addr #1 align 2 {
 entry:
-  %fTZnamesCacheEntry = getelementptr inbounds %"class.icu_75::TimeZoneNamesDelegate", ptr %this, i64 0, i32 1
+  %fTZnamesCacheEntry = getelementptr inbounds i8, ptr %this, i64 8
   %0 = load ptr, ptr %fTZnamesCacheEntry, align 8
   %1 = load ptr, ptr %0, align 8
   %vtable = load ptr, ptr %1, align 8
-  %vfn = getelementptr inbounds ptr, ptr %vtable, i64 9
+  %vfn = getelementptr inbounds i8, ptr %vtable, i64 72
   %2 = load ptr, ptr %vfn, align 8
   %call = tail call noundef nonnull align 8 dereferenceable(64) ptr %2(ptr noundef nonnull align 8 dereferenceable(8) %1, ptr noundef nonnull align 8 dereferenceable(64) %mzID, i32 noundef %type, ptr noundef nonnull align 8 dereferenceable(64) %name)
   ret ptr %call
@@ -609,11 +600,11 @@ entry:
 ; Function Attrs: mustprogress uwtable
 define noundef nonnull align 8 dereferenceable(64) ptr @_ZNK6icu_7521TimeZoneNamesDelegate22getTimeZoneDisplayNameERKNS_13UnicodeStringE17UTimeZoneNameTypeRS1_(ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %this, ptr noundef nonnull align 8 dereferenceable(64) %tzID, i32 noundef %type, ptr noundef nonnull align 8 dereferenceable(64) %name) unnamed_addr #1 align 2 {
 entry:
-  %fTZnamesCacheEntry = getelementptr inbounds %"class.icu_75::TimeZoneNamesDelegate", ptr %this, i64 0, i32 1
+  %fTZnamesCacheEntry = getelementptr inbounds i8, ptr %this, i64 8
   %0 = load ptr, ptr %fTZnamesCacheEntry, align 8
   %1 = load ptr, ptr %0, align 8
   %vtable = load ptr, ptr %1, align 8
-  %vfn = getelementptr inbounds ptr, ptr %vtable, i64 10
+  %vfn = getelementptr inbounds i8, ptr %vtable, i64 80
   %2 = load ptr, ptr %vfn, align 8
   %call = tail call noundef nonnull align 8 dereferenceable(64) ptr %2(ptr noundef nonnull align 8 dereferenceable(8) %1, ptr noundef nonnull align 8 dereferenceable(64) %tzID, i32 noundef %type, ptr noundef nonnull align 8 dereferenceable(64) %name)
   ret ptr %call
@@ -622,11 +613,11 @@ entry:
 ; Function Attrs: mustprogress uwtable
 define noundef nonnull align 8 dereferenceable(64) ptr @_ZNK6icu_7521TimeZoneNamesDelegate23getExemplarLocationNameERKNS_13UnicodeStringERS1_(ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %this, ptr noundef nonnull align 8 dereferenceable(64) %tzID, ptr noundef nonnull align 8 dereferenceable(64) %name) unnamed_addr #1 align 2 {
 entry:
-  %fTZnamesCacheEntry = getelementptr inbounds %"class.icu_75::TimeZoneNamesDelegate", ptr %this, i64 0, i32 1
+  %fTZnamesCacheEntry = getelementptr inbounds i8, ptr %this, i64 8
   %0 = load ptr, ptr %fTZnamesCacheEntry, align 8
   %1 = load ptr, ptr %0, align 8
   %vtable = load ptr, ptr %1, align 8
-  %vfn = getelementptr inbounds ptr, ptr %vtable, i64 11
+  %vfn = getelementptr inbounds i8, ptr %vtable, i64 88
   %2 = load ptr, ptr %vfn, align 8
   %call = tail call noundef nonnull align 8 dereferenceable(64) ptr %2(ptr noundef nonnull align 8 dereferenceable(8) %1, ptr noundef nonnull align 8 dereferenceable(64) %tzID, ptr noundef nonnull align 8 dereferenceable(64) %name)
   ret ptr %call
@@ -635,11 +626,11 @@ entry:
 ; Function Attrs: mustprogress uwtable
 define void @_ZN6icu_7521TimeZoneNamesDelegate19loadAllDisplayNamesER10UErrorCode(ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %this, ptr noundef nonnull align 4 dereferenceable(4) %status) unnamed_addr #1 align 2 {
 entry:
-  %fTZnamesCacheEntry = getelementptr inbounds %"class.icu_75::TimeZoneNamesDelegate", ptr %this, i64 0, i32 1
+  %fTZnamesCacheEntry = getelementptr inbounds i8, ptr %this, i64 8
   %0 = load ptr, ptr %fTZnamesCacheEntry, align 8
   %1 = load ptr, ptr %0, align 8
   %vtable = load ptr, ptr %1, align 8
-  %vfn = getelementptr inbounds ptr, ptr %vtable, i64 13
+  %vfn = getelementptr inbounds i8, ptr %vtable, i64 104
   %2 = load ptr, ptr %vfn, align 8
   tail call void %2(ptr noundef nonnull align 8 dereferenceable(8) %1, ptr noundef nonnull align 4 dereferenceable(4) %status)
   ret void
@@ -648,11 +639,11 @@ entry:
 ; Function Attrs: mustprogress uwtable
 define void @_ZNK6icu_7521TimeZoneNamesDelegate15getDisplayNamesERKNS_13UnicodeStringEPK17UTimeZoneNameTypeidPS1_R10UErrorCode(ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %this, ptr noundef nonnull align 8 dereferenceable(64) %tzID, ptr noundef %types, i32 noundef %numTypes, double noundef %date, ptr noundef %dest, ptr noundef nonnull align 4 dereferenceable(4) %status) unnamed_addr #1 align 2 {
 entry:
-  %fTZnamesCacheEntry = getelementptr inbounds %"class.icu_75::TimeZoneNamesDelegate", ptr %this, i64 0, i32 1
+  %fTZnamesCacheEntry = getelementptr inbounds i8, ptr %this, i64 8
   %0 = load ptr, ptr %fTZnamesCacheEntry, align 8
   %1 = load ptr, ptr %0, align 8
   %vtable = load ptr, ptr %1, align 8
-  %vfn = getelementptr inbounds ptr, ptr %vtable, i64 14
+  %vfn = getelementptr inbounds i8, ptr %vtable, i64 112
   %2 = load ptr, ptr %vfn, align 8
   tail call void %2(ptr noundef nonnull align 8 dereferenceable(8) %1, ptr noundef nonnull align 8 dereferenceable(64) %tzID, ptr noundef %types, i32 noundef %numTypes, double noundef %date, ptr noundef %dest, ptr noundef nonnull align 4 dereferenceable(4) %status)
   ret void
@@ -661,11 +652,11 @@ entry:
 ; Function Attrs: mustprogress uwtable
 define noundef ptr @_ZNK6icu_7521TimeZoneNamesDelegate4findERKNS_13UnicodeStringEijR10UErrorCode(ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %this, ptr noundef nonnull align 8 dereferenceable(64) %text, i32 noundef %start, i32 noundef %types, ptr noundef nonnull align 4 dereferenceable(4) %status) unnamed_addr #1 align 2 {
 entry:
-  %fTZnamesCacheEntry = getelementptr inbounds %"class.icu_75::TimeZoneNamesDelegate", ptr %this, i64 0, i32 1
+  %fTZnamesCacheEntry = getelementptr inbounds i8, ptr %this, i64 8
   %0 = load ptr, ptr %fTZnamesCacheEntry, align 8
   %1 = load ptr, ptr %0, align 8
   %vtable = load ptr, ptr %1, align 8
-  %vfn = getelementptr inbounds ptr, ptr %vtable, i64 15
+  %vfn = getelementptr inbounds i8, ptr %vtable, i64 120
   %2 = load ptr, ptr %vfn, align 8
   %call = tail call noundef ptr %2(ptr noundef nonnull align 8 dereferenceable(8) %1, ptr noundef nonnull align 8 dereferenceable(64) %text, i32 noundef %start, i32 noundef %types, ptr noundef nonnull align 4 dereferenceable(4) %status)
   ret ptr %call
@@ -773,10 +764,10 @@ entry:
   %mzIDBuf = alloca [32 x i16], align 16
   %mzID = alloca %"class.icu_75::UnicodeString", align 8
   %vtable = load ptr, ptr %this, align 8
-  %vfn = getelementptr inbounds ptr, ptr %vtable, i64 10
+  %vfn = getelementptr inbounds i8, ptr %vtable, i64 80
   %0 = load ptr, ptr %vfn, align 8
   %call = tail call noundef nonnull align 8 dereferenceable(64) ptr %0(ptr noundef nonnull align 8 dereferenceable(8) %this, ptr noundef nonnull align 8 dereferenceable(64) %tzID, i32 noundef %type, ptr noundef nonnull align 8 dereferenceable(64) %name)
-  %fUnion.i = getelementptr inbounds %"class.icu_75::UnicodeString", ptr %name, i64 0, i32 1
+  %fUnion.i = getelementptr inbounds i8, ptr %name, i64 8
   %1 = load i16, ptr %fUnion.i, align 8
   %cmp.i = icmp ugt i16 %1, 31
   br i1 %cmp.i, label %if.end, label %if.then
@@ -784,14 +775,14 @@ entry:
 if.then:                                          ; preds = %entry
   call void @_ZN6icu_7513UnicodeStringC1EPDsii(ptr noundef nonnull align 8 dereferenceable(64) %mzID, ptr noundef nonnull %mzIDBuf, i32 noundef 0, i32 noundef 32)
   %vtable3 = load ptr, ptr %this, align 8
-  %vfn4 = getelementptr inbounds ptr, ptr %vtable3, i64 7
+  %vfn4 = getelementptr inbounds i8, ptr %vtable3, i64 56
   %2 = load ptr, ptr %vfn4, align 8
   %call5 = invoke noundef nonnull align 8 dereferenceable(64) ptr %2(ptr noundef nonnull align 8 dereferenceable(8) %this, ptr noundef nonnull align 8 dereferenceable(64) %tzID, double noundef %date, ptr noundef nonnull align 8 dereferenceable(64) %mzID)
           to label %invoke.cont unwind label %lpad
 
 invoke.cont:                                      ; preds = %if.then
   %vtable6 = load ptr, ptr %this, align 8
-  %vfn7 = getelementptr inbounds ptr, ptr %vtable6, i64 9
+  %vfn7 = getelementptr inbounds i8, ptr %vtable6, i64 72
   %3 = load ptr, ptr %vfn7, align 8
   %call9 = invoke noundef nonnull align 8 dereferenceable(64) ptr %3(ptr noundef nonnull align 8 dereferenceable(8) %this, ptr noundef nonnull align 8 dereferenceable(64) %mzID, i32 noundef %type, ptr noundef nonnull align 8 dereferenceable(64) %name)
           to label %invoke.cont8 unwind label %lpad
@@ -827,7 +818,7 @@ entry:
   %mzID = alloca %"class.icu_75::UnicodeString", align 8
   %0 = load i32, ptr %status, align 4
   %cmp.i = icmp slt i32 %0, 1
-  %fUnion.i = getelementptr inbounds %"class.icu_75::UnicodeString", ptr %tzID, i64 0, i32 1
+  %fUnion.i = getelementptr inbounds i8, ptr %tzID, i64 8
   %1 = load i16, ptr %fUnion.i, align 8
   %cmp.i12 = icmp ugt i16 %1, 31
   %or.cond = select i1 %cmp.i, i1 %cmp.i12, i1 false
@@ -835,7 +826,7 @@ entry:
 
 if.end5:                                          ; preds = %entry
   store ptr getelementptr inbounds ({ [13 x ptr] }, ptr @_ZTVN6icu_7513UnicodeStringE, i64 0, inrange i32 0, i64 2), ptr %mzID, align 8
-  %fUnion2.i = getelementptr inbounds %"class.icu_75::UnicodeString", ptr %mzID, i64 0, i32 1
+  %fUnion2.i = getelementptr inbounds i8, ptr %mzID, i64 8
   store i16 2, ptr %fUnion2.i, align 8
   %cmp19 = icmp sgt i32 %numTypes, 0
   br i1 %cmp19, label %for.body.preheader, label %for.end
@@ -850,13 +841,13 @@ for.body:                                         ; preds = %for.body.preheader,
   %2 = load i32, ptr %arrayidx, align 4
   %arrayidx7 = getelementptr inbounds %"class.icu_75::UnicodeString", ptr %dest, i64 %indvars.iv
   %vtable = load ptr, ptr %this, align 8
-  %vfn = getelementptr inbounds ptr, ptr %vtable, i64 10
+  %vfn = getelementptr inbounds i8, ptr %vtable, i64 80
   %3 = load ptr, ptr %vfn, align 8
   %call8 = invoke noundef nonnull align 8 dereferenceable(64) ptr %3(ptr noundef nonnull align 8 dereferenceable(8) %this, ptr noundef nonnull align 8 dereferenceable(64) %tzID, i32 noundef %2, ptr noundef nonnull align 8 dereferenceable(64) %arrayidx7)
           to label %invoke.cont unwind label %lpad
 
 invoke.cont:                                      ; preds = %for.body
-  %fUnion.i13 = getelementptr inbounds %"class.icu_75::UnicodeString", ptr %dest, i64 %indvars.iv, i32 1
+  %fUnion.i13 = getelementptr inbounds i8, ptr %arrayidx7, i64 8
   %4 = load i16, ptr %fUnion.i13, align 8
   %cmp.i14 = icmp ugt i16 %4, 31
   br i1 %cmp.i14, label %for.inc, label %if.then14
@@ -868,7 +859,7 @@ if.then14:                                        ; preds = %invoke.cont
 
 if.then18:                                        ; preds = %if.then14
   %vtable19 = load ptr, ptr %this, align 8
-  %vfn20 = getelementptr inbounds ptr, ptr %vtable19, i64 7
+  %vfn20 = getelementptr inbounds i8, ptr %vtable19, i64 56
   %6 = load ptr, ptr %vfn20, align 8
   %call22 = invoke noundef nonnull align 8 dereferenceable(64) ptr %6(ptr noundef nonnull align 8 dereferenceable(8) %this, ptr noundef nonnull align 8 dereferenceable(64) %tzID, double noundef %date, ptr noundef nonnull align 8 dereferenceable(64) %mzID)
           to label %if.end23 unwind label %lpad
@@ -882,7 +873,7 @@ lpad:                                             ; preds = %if.end23, %if.then1
 if.end23:                                         ; preds = %if.then18, %if.then14
   %8 = load i32, ptr %arrayidx, align 4
   %vtable28 = load ptr, ptr %this, align 8
-  %vfn29 = getelementptr inbounds ptr, ptr %vtable28, i64 9
+  %vfn29 = getelementptr inbounds i8, ptr %vtable28, i64 72
   %9 = load ptr, ptr %vfn29, align 8
   %call31 = invoke noundef nonnull align 8 dereferenceable(64) ptr %9(ptr noundef nonnull align 8 dereferenceable(8) %this, ptr noundef nonnull align 8 dereferenceable(64) %mzID, i32 noundef %8, ptr noundef nonnull align 8 dereferenceable(64) %arrayidx7)
           to label %for.inc unwind label %lpad
@@ -904,7 +895,7 @@ return:                                           ; preds = %entry, %for.end
 define void @_ZN6icu_7513TimeZoneNames19MatchInfoCollectionC2Ev(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(16) %this) unnamed_addr #0 align 2 {
 entry:
   store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN6icu_7513TimeZoneNames19MatchInfoCollectionE, i64 0, inrange i32 0, i64 2), ptr %this, align 8
-  %fMatches = getelementptr inbounds %"class.icu_75::TimeZoneNames::MatchInfoCollection", ptr %this, i64 0, i32 1
+  %fMatches = getelementptr inbounds i8, ptr %this, i64 8
   store ptr null, ptr %fMatches, align 8
   ret void
 }
@@ -913,14 +904,14 @@ entry:
 define void @_ZN6icu_7513TimeZoneNames19MatchInfoCollectionD2Ev(ptr nocapture noundef nonnull align 8 dereferenceable(16) %this) unnamed_addr #7 align 2 {
 entry:
   store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN6icu_7513TimeZoneNames19MatchInfoCollectionE, i64 0, inrange i32 0, i64 2), ptr %this, align 8
-  %fMatches = getelementptr inbounds %"class.icu_75::TimeZoneNames::MatchInfoCollection", ptr %this, i64 0, i32 1
+  %fMatches = getelementptr inbounds i8, ptr %this, i64 8
   %0 = load ptr, ptr %fMatches, align 8
   %cmp.not = icmp eq ptr %0, null
   br i1 %cmp.not, label %if.end, label %delete.notnull
 
 delete.notnull:                                   ; preds = %entry
   %vtable = load ptr, ptr %0, align 8
-  %vfn = getelementptr inbounds ptr, ptr %vtable, i64 1
+  %vfn = getelementptr inbounds i8, ptr %vtable, i64 8
   %1 = load ptr, ptr %vfn, align 8
   tail call void %1(ptr noundef nonnull align 8 dereferenceable(40) %0) #17
   br label %if.end
@@ -951,12 +942,12 @@ if.end:                                           ; preds = %entry
   br i1 %new.isnull, label %new.cont, label %new.notnull
 
 new.notnull:                                      ; preds = %if.end
-  %id.i = getelementptr inbounds %"struct.icu_75::MatchInfo", ptr %call2, i64 0, i32 2
+  %id.i = getelementptr inbounds i8, ptr %call2, i64 8
   store ptr getelementptr inbounds ({ [13 x ptr] }, ptr @_ZTVN6icu_7513UnicodeStringE, i64 0, inrange i32 0, i64 2), ptr %id.i, align 8
-  %fUnion2.i.i = getelementptr inbounds %"struct.icu_75::MatchInfo", ptr %call2, i64 0, i32 2, i32 1
+  %fUnion2.i.i = getelementptr inbounds i8, ptr %call2, i64 16
   store i16 2, ptr %fUnion2.i.i, align 8
   store i32 %nameType, ptr %call2, align 8
-  %matchLength3.i = getelementptr inbounds %"struct.icu_75::MatchInfo", ptr %call2, i64 0, i32 3
+  %matchLength3.i = getelementptr inbounds i8, ptr %call2, i64 72
   store i32 %matchLength, ptr %matchLength3.i, align 8
   %call.i2.i = invoke noundef nonnull align 8 dereferenceable(64) ptr @_ZN6icu_7513UnicodeString8copyFromERKS0_a(ptr noundef nonnull align 8 dereferenceable(64) %id.i, ptr noundef nonnull align 8 dereferenceable(64) %tzID, i8 noundef signext 0)
           to label %new.cont.thread unwind label %lpad.i
@@ -969,7 +960,7 @@ lpad.i:                                           ; preds = %new.notnull
   br label %eh.resume
 
 new.cont.thread:                                  ; preds = %new.notnull
-  %isTZID8.i = getelementptr inbounds %"struct.icu_75::MatchInfo", ptr %call2, i64 0, i32 4
+  %isTZID8.i = getelementptr inbounds i8, ptr %call2, i64 76
   store i8 1, ptr %isTZID8.i, align 4
   store ptr %call2, ptr %matchInfo, align 8
   %.pr = load i32, ptr %status, align 4
@@ -986,7 +977,7 @@ _ZN6icu_7512LocalPointerINS_9MatchInfoEEC2EPS1_R10UErrorCode.exit.thread: ; pred
   br label %cleanup.cont
 
 if.end.i:                                         ; preds = %new.cont.thread
-  %fMatches.i = getelementptr inbounds %"class.icu_75::TimeZoneNames::MatchInfoCollection", ptr %this, i64 0, i32 1
+  %fMatches.i = getelementptr inbounds i8, ptr %this, i64 8
   %4 = load ptr, ptr %fMatches.i, align 8
   %cmp.not.i = icmp eq ptr %4, null
   br i1 %cmp.not.i, label %if.end4.i, label %if.end10
@@ -1019,7 +1010,7 @@ if.else.i:                                        ; preds = %new.notnull.i
 
 invoke.cont4:                                     ; preds = %if.else.i
   %vtable.i = load ptr, ptr %call5.i, align 8
-  %vfn.i = getelementptr inbounds ptr, ptr %vtable.i, i64 1
+  %vfn.i = getelementptr inbounds i8, ptr %vtable.i, i64 8
   %7 = load ptr, ptr %vfn.i, align 8
   tail call void %7(ptr noundef nonnull align 8 dereferenceable(40) %call5.i) #17
   store ptr null, ptr %fMatches.i, align 8
@@ -1045,7 +1036,7 @@ if.end10:                                         ; preds = %if.else.i, %if.end.
           to label %cleanup.cont unwind label %lpad3
 
 delete.notnull.i:                                 ; preds = %invoke.cont4, %if.then9.i, %new.cont.thread
-  %id.i.i = getelementptr inbounds %"struct.icu_75::MatchInfo", ptr %call2, i64 0, i32 2
+  %id.i.i = getelementptr inbounds i8, ptr %call2, i64 8
   tail call void @_ZN6icu_7513UnicodeStringD1Ev(ptr noundef nonnull align 8 dereferenceable(64) %id.i.i) #17
   tail call void @_ZN6icu_757UMemorydlEPv(ptr noundef nonnull %call2) #17
   br label %cleanup.cont
@@ -1066,7 +1057,7 @@ entry:
   br i1 %cmp.i, label %if.end, label %return
 
 if.end:                                           ; preds = %entry
-  %fMatches = getelementptr inbounds %"class.icu_75::TimeZoneNames::MatchInfoCollection", ptr %this, i64 0, i32 1
+  %fMatches = getelementptr inbounds i8, ptr %this, i64 8
   %1 = load ptr, ptr %fMatches, align 8
   %cmp.not = icmp eq ptr %1, null
   br i1 %cmp.not, label %if.end4, label %return
@@ -1100,7 +1091,7 @@ if.else:                                          ; preds = %new.notnull
 
 delete.end:                                       ; preds = %if.else
   %vtable = load ptr, ptr %call5, align 8
-  %vfn = getelementptr inbounds ptr, ptr %vtable, i64 1
+  %vfn = getelementptr inbounds i8, ptr %vtable, i64 8
   %4 = load ptr, ptr %vfn, align 8
   tail call void %4(ptr noundef nonnull align 8 dereferenceable(40) %call5) #17
   store ptr null, ptr %fMatches, align 8
@@ -1121,7 +1112,7 @@ entry:
   br i1 %isnull, label %delete.end, label %delete.notnull
 
 delete.notnull:                                   ; preds = %entry
-  %id.i = getelementptr inbounds %"struct.icu_75::MatchInfo", ptr %0, i64 0, i32 2
+  %id.i = getelementptr inbounds i8, ptr %0, i64 8
   tail call void @_ZN6icu_7513UnicodeStringD1Ev(ptr noundef nonnull align 8 dereferenceable(64) %id.i) #17
   tail call void @_ZN6icu_757UMemorydlEPv(ptr noundef nonnull %0) #17
   br label %delete.end
@@ -1144,12 +1135,12 @@ if.end:                                           ; preds = %entry
   br i1 %new.isnull, label %new.cont, label %new.notnull
 
 new.notnull:                                      ; preds = %if.end
-  %id.i = getelementptr inbounds %"struct.icu_75::MatchInfo", ptr %call2, i64 0, i32 2
+  %id.i = getelementptr inbounds i8, ptr %call2, i64 8
   store ptr getelementptr inbounds ({ [13 x ptr] }, ptr @_ZTVN6icu_7513UnicodeStringE, i64 0, inrange i32 0, i64 2), ptr %id.i, align 8
-  %fUnion2.i.i = getelementptr inbounds %"struct.icu_75::MatchInfo", ptr %call2, i64 0, i32 2, i32 1
+  %fUnion2.i.i = getelementptr inbounds i8, ptr %call2, i64 16
   store i16 2, ptr %fUnion2.i.i, align 8
   store i32 %nameType, ptr %call2, align 8
-  %matchLength3.i = getelementptr inbounds %"struct.icu_75::MatchInfo", ptr %call2, i64 0, i32 3
+  %matchLength3.i = getelementptr inbounds i8, ptr %call2, i64 72
   store i32 %matchLength, ptr %matchLength3.i, align 8
   %call.i3.i = invoke noundef nonnull align 8 dereferenceable(64) ptr @_ZN6icu_7513UnicodeString8copyFromERKS0_a(ptr noundef nonnull align 8 dereferenceable(64) %id.i, ptr noundef nonnull align 8 dereferenceable(64) %mzID, i8 noundef signext 0)
           to label %new.cont.thread unwind label %lpad.i
@@ -1162,7 +1153,7 @@ lpad.i:                                           ; preds = %new.notnull
   br label %eh.resume
 
 new.cont.thread:                                  ; preds = %new.notnull
-  %isTZID8.i = getelementptr inbounds %"struct.icu_75::MatchInfo", ptr %call2, i64 0, i32 4
+  %isTZID8.i = getelementptr inbounds i8, ptr %call2, i64 76
   store i8 0, ptr %isTZID8.i, align 4
   store ptr %call2, ptr %matchInfo, align 8
   %.pr = load i32, ptr %status, align 4
@@ -1179,7 +1170,7 @@ _ZN6icu_7512LocalPointerINS_9MatchInfoEEC2EPS1_R10UErrorCode.exit.thread: ; pred
   br label %cleanup.cont
 
 if.end.i:                                         ; preds = %new.cont.thread
-  %fMatches.i = getelementptr inbounds %"class.icu_75::TimeZoneNames::MatchInfoCollection", ptr %this, i64 0, i32 1
+  %fMatches.i = getelementptr inbounds i8, ptr %this, i64 8
   %4 = load ptr, ptr %fMatches.i, align 8
   %cmp.not.i = icmp eq ptr %4, null
   br i1 %cmp.not.i, label %if.end4.i, label %if.end10
@@ -1212,7 +1203,7 @@ if.else.i:                                        ; preds = %new.notnull.i
 
 invoke.cont4:                                     ; preds = %if.else.i
   %vtable.i = load ptr, ptr %call5.i, align 8
-  %vfn.i = getelementptr inbounds ptr, ptr %vtable.i, i64 1
+  %vfn.i = getelementptr inbounds i8, ptr %vtable.i, i64 8
   %7 = load ptr, ptr %vfn.i, align 8
   tail call void %7(ptr noundef nonnull align 8 dereferenceable(40) %call5.i) #17
   store ptr null, ptr %fMatches.i, align 8
@@ -1238,7 +1229,7 @@ if.end10:                                         ; preds = %if.else.i, %if.end.
           to label %cleanup.cont unwind label %lpad3
 
 delete.notnull.i:                                 ; preds = %invoke.cont4, %if.then9.i, %new.cont.thread
-  %id.i.i = getelementptr inbounds %"struct.icu_75::MatchInfo", ptr %call2, i64 0, i32 2
+  %id.i.i = getelementptr inbounds i8, ptr %call2, i64 8
   tail call void @_ZN6icu_7513UnicodeStringD1Ev(ptr noundef nonnull align 8 dereferenceable(64) %id.i.i) #17
   tail call void @_ZN6icu_757UMemorydlEPv(ptr noundef nonnull %call2) #17
   br label %cleanup.cont
@@ -1254,13 +1245,13 @@ eh.resume:                                        ; preds = %lpad.i, %lpad3.body
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
 define noundef i32 @_ZNK6icu_7513TimeZoneNames19MatchInfoCollection4sizeEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %this) local_unnamed_addr #14 align 2 {
 entry:
-  %fMatches = getelementptr inbounds %"class.icu_75::TimeZoneNames::MatchInfoCollection", ptr %this, i64 0, i32 1
+  %fMatches = getelementptr inbounds i8, ptr %this, i64 8
   %0 = load ptr, ptr %fMatches, align 8
   %cmp = icmp eq ptr %0, null
   br i1 %cmp, label %return, label %if.end
 
 if.end:                                           ; preds = %entry
-  %count.i = getelementptr inbounds %"class.icu_75::UVector", ptr %0, i64 0, i32 1
+  %count.i = getelementptr inbounds i8, ptr %0, i64 8
   %1 = load i32, ptr %count.i, align 8
   br label %return
 
@@ -1272,7 +1263,7 @@ return:                                           ; preds = %entry, %if.end
 ; Function Attrs: mustprogress uwtable
 define noundef i32 @_ZNK6icu_7513TimeZoneNames19MatchInfoCollection13getNameTypeAtEi(ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %this, i32 noundef %idx) local_unnamed_addr #1 align 2 {
 entry:
-  %fMatches = getelementptr inbounds %"class.icu_75::TimeZoneNames::MatchInfoCollection", ptr %this, i64 0, i32 1
+  %fMatches = getelementptr inbounds i8, ptr %this, i64 8
   %0 = load ptr, ptr %fMatches, align 8
   %call = tail call noundef ptr @_ZNK6icu_757UVector9elementAtEi(ptr noundef nonnull align 8 dereferenceable(40) %0, i32 noundef %idx)
   %tobool.not = icmp eq ptr %call, null
@@ -1292,14 +1283,14 @@ declare noundef ptr @_ZNK6icu_757UVector9elementAtEi(ptr noundef nonnull align 8
 ; Function Attrs: mustprogress uwtable
 define noundef i32 @_ZNK6icu_7513TimeZoneNames19MatchInfoCollection16getMatchLengthAtEi(ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %this, i32 noundef %idx) local_unnamed_addr #1 align 2 {
 entry:
-  %fMatches = getelementptr inbounds %"class.icu_75::TimeZoneNames::MatchInfoCollection", ptr %this, i64 0, i32 1
+  %fMatches = getelementptr inbounds i8, ptr %this, i64 8
   %0 = load ptr, ptr %fMatches, align 8
   %call = tail call noundef ptr @_ZNK6icu_757UVector9elementAtEi(ptr noundef nonnull align 8 dereferenceable(40) %0, i32 noundef %idx)
   %tobool.not = icmp eq ptr %call, null
   br i1 %tobool.not, label %return, label %if.then
 
 if.then:                                          ; preds = %entry
-  %matchLength = getelementptr inbounds %"struct.icu_75::MatchInfo", ptr %call, i64 0, i32 3
+  %matchLength = getelementptr inbounds i8, ptr %call, i64 72
   %1 = load i32, ptr %matchLength, align 8
   br label %return
 
@@ -1311,27 +1302,27 @@ return:                                           ; preds = %entry, %if.then
 ; Function Attrs: mustprogress uwtable
 define noundef signext i8 @_ZNK6icu_7513TimeZoneNames19MatchInfoCollection15getTimeZoneIDAtEiRNS_13UnicodeStringE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %this, i32 noundef %idx, ptr noundef nonnull align 8 dereferenceable(64) %tzID) local_unnamed_addr #1 align 2 {
 entry:
-  %fUnion.i.i = getelementptr inbounds %"class.icu_75::UnicodeString", ptr %tzID, i64 0, i32 1
+  %fUnion.i.i = getelementptr inbounds i8, ptr %tzID, i64 8
   %0 = load i16, ptr %fUnion.i.i, align 8
   %conv2.i3.i = and i16 %0, 1
   %tobool.not.i = icmp eq i16 %conv2.i3.i, 0
   %1 = and i16 %0, 30
   %storemerge.i = select i1 %tobool.not.i, i16 %1, i16 2
   store i16 %storemerge.i, ptr %fUnion.i.i, align 8
-  %fMatches = getelementptr inbounds %"class.icu_75::TimeZoneNames::MatchInfoCollection", ptr %this, i64 0, i32 1
+  %fMatches = getelementptr inbounds i8, ptr %this, i64 8
   %2 = load ptr, ptr %fMatches, align 8
   %call2 = tail call noundef ptr @_ZNK6icu_757UVector9elementAtEi(ptr noundef nonnull align 8 dereferenceable(40) %2, i32 noundef %idx)
   %tobool.not = icmp eq ptr %call2, null
   br i1 %tobool.not, label %return, label %land.lhs.true
 
 land.lhs.true:                                    ; preds = %entry
-  %isTZID = getelementptr inbounds %"struct.icu_75::MatchInfo", ptr %call2, i64 0, i32 4
+  %isTZID = getelementptr inbounds i8, ptr %call2, i64 76
   %3 = load i8, ptr %isTZID, align 4
   %tobool3.not = icmp eq i8 %3, 0
   br i1 %tobool3.not, label %return, label %if.then
 
 if.then:                                          ; preds = %land.lhs.true
-  %id = getelementptr inbounds %"struct.icu_75::MatchInfo", ptr %call2, i64 0, i32 2
+  %id = getelementptr inbounds i8, ptr %call2, i64 8
   %call.i = tail call noundef nonnull align 8 dereferenceable(64) ptr @_ZN6icu_7513UnicodeString8copyFromERKS0_a(ptr noundef nonnull align 8 dereferenceable(64) %tzID, ptr noundef nonnull align 8 dereferenceable(64) %id, i8 noundef signext 0)
   br label %return
 
@@ -1343,27 +1334,27 @@ return:                                           ; preds = %entry, %land.lhs.tr
 ; Function Attrs: mustprogress uwtable
 define noundef signext i8 @_ZNK6icu_7513TimeZoneNames19MatchInfoCollection15getMetaZoneIDAtEiRNS_13UnicodeStringE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %this, i32 noundef %idx, ptr noundef nonnull align 8 dereferenceable(64) %mzID) local_unnamed_addr #1 align 2 {
 entry:
-  %fUnion.i.i = getelementptr inbounds %"class.icu_75::UnicodeString", ptr %mzID, i64 0, i32 1
+  %fUnion.i.i = getelementptr inbounds i8, ptr %mzID, i64 8
   %0 = load i16, ptr %fUnion.i.i, align 8
   %conv2.i3.i = and i16 %0, 1
   %tobool.not.i = icmp eq i16 %conv2.i3.i, 0
   %1 = and i16 %0, 30
   %storemerge.i = select i1 %tobool.not.i, i16 %1, i16 2
   store i16 %storemerge.i, ptr %fUnion.i.i, align 8
-  %fMatches = getelementptr inbounds %"class.icu_75::TimeZoneNames::MatchInfoCollection", ptr %this, i64 0, i32 1
+  %fMatches = getelementptr inbounds i8, ptr %this, i64 8
   %2 = load ptr, ptr %fMatches, align 8
   %call2 = tail call noundef ptr @_ZNK6icu_757UVector9elementAtEi(ptr noundef nonnull align 8 dereferenceable(40) %2, i32 noundef %idx)
   %tobool.not = icmp eq ptr %call2, null
   br i1 %tobool.not, label %return, label %land.lhs.true
 
 land.lhs.true:                                    ; preds = %entry
-  %isTZID = getelementptr inbounds %"struct.icu_75::MatchInfo", ptr %call2, i64 0, i32 4
+  %isTZID = getelementptr inbounds i8, ptr %call2, i64 76
   %3 = load i8, ptr %isTZID, align 4
   %tobool3.not = icmp eq i8 %3, 0
   br i1 %tobool3.not, label %if.then, label %return
 
 if.then:                                          ; preds = %land.lhs.true
-  %id = getelementptr inbounds %"struct.icu_75::MatchInfo", ptr %call2, i64 0, i32 2
+  %id = getelementptr inbounds i8, ptr %call2, i64 8
   %call.i = tail call noundef nonnull align 8 dereferenceable(64) ptr @_ZN6icu_7513UnicodeString8copyFromERKS0_a(ptr noundef nonnull align 8 dereferenceable(64) %mzID, ptr noundef nonnull align 8 dereferenceable(64) %id, i8 noundef signext 0)
   br label %return
 
@@ -1379,7 +1370,7 @@ entry:
   br i1 %isnull, label %delete.end, label %delete.notnull
 
 delete.notnull:                                   ; preds = %entry
-  %id.i = getelementptr inbounds %"struct.icu_75::MatchInfo", ptr %obj, i64 0, i32 2
+  %id.i = getelementptr inbounds i8, ptr %obj, i64 8
   tail call void @_ZN6icu_7513UnicodeStringD1Ev(ptr noundef nonnull align 8 dereferenceable(64) %id.i) #17
   tail call void @_ZN6icu_757UMemorydlEPv(ptr noundef nonnull %obj) #17
   br label %delete.end
@@ -1398,7 +1389,7 @@ declare void @__cxa_pure_virtual() unnamed_addr
 define linkonce_odr noundef zeroext i1 @_ZNK6icu_7521TimeZoneNamesDelegateneERKNS_13TimeZoneNamesE(ptr noundef nonnull align 8 dereferenceable(16) %this, ptr noundef nonnull align 8 dereferenceable(8) %other) unnamed_addr #1 comdat align 2 {
 entry:
   %vtable = load ptr, ptr %this, align 8
-  %vfn = getelementptr inbounds ptr, ptr %vtable, i64 3
+  %vfn = getelementptr inbounds i8, ptr %vtable, i64 24
   %0 = load ptr, ptr %vfn, align 8
   %call = tail call noundef zeroext i1 %0(ptr noundef nonnull align 8 dereferenceable(16) %this, ptr noundef nonnull align 8 dereferenceable(8) %other)
   %lnot = xor i1 %call, true

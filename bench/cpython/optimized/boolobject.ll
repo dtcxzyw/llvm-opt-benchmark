@@ -879,7 +879,7 @@ target triple = "x86_64-unknown-linux-gnu"
 @.str.1 = private unnamed_addr constant [285 x i8] c"Bitwise inversion '~' on bool is deprecated. This returns the bitwise inversion of the underlying int object and is usually not what you expect from negating a bool. Use the 'not' operator for boolean negation or ~int(x) if you really want the bitwise inversion of the underlying int.\00", align 1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define dso_local nonnull ptr @PyBool_FromLong(i64 noundef %ok) local_unnamed_addr #0 {
+define dso_local noundef nonnull ptr @PyBool_FromLong(i64 noundef %ok) local_unnamed_addr #0 {
 entry:
   %tobool.not = icmp eq i64 %ok, 0
   %cond = select i1 %tobool.not, ptr @_Py_FalseStruct, ptr @_Py_TrueStruct
@@ -943,7 +943,7 @@ return:                                           ; preds = %if.end4, %if.end, %
 }
 
 ; Function Attrs: nounwind uwtable
-define internal ptr @bool_vectorcall(ptr nocapture readnone %type, ptr nocapture noundef readonly %args, i64 noundef %nargsf, ptr noundef %kwnames) #2 {
+define internal noundef ptr @bool_vectorcall(ptr nocapture readnone %type, ptr nocapture noundef readonly %args, i64 noundef %nargsf, ptr noundef %kwnames) #2 {
 entry:
   %cmp = icmp eq ptr %kwnames, null
   br i1 %cmp, label %if.end, label %lor.lhs.false
@@ -996,7 +996,7 @@ entry:
 
 if.end:                                           ; preds = %entry
   %1 = load ptr, ptr getelementptr inbounds (%struct._typeobject, ptr @PyLong_Type, i64 0, i32 10), align 8
-  %nb_invert = getelementptr inbounds %struct.PyNumberMethods, ptr %1, i64 0, i32 10
+  %nb_invert = getelementptr inbounds i8, ptr %1, i64 80
   %2 = load ptr, ptr %nb_invert, align 8
   %call1 = tail call ptr %2(ptr noundef %v) #4
   br label %return
@@ -1022,7 +1022,7 @@ lor.lhs.false:                                    ; preds = %entry
 
 if.then:                                          ; preds = %lor.lhs.false, %entry
   %2 = load ptr, ptr getelementptr inbounds (%struct._typeobject, ptr @PyLong_Type, i64 0, i32 10), align 8
-  %nb_and = getelementptr inbounds %struct.PyNumberMethods, ptr %2, i64 0, i32 13
+  %nb_and = getelementptr inbounds i8, ptr %2, i64 104
   %3 = load ptr, ptr %nb_and, align 8
   %call3 = tail call ptr %3(ptr noundef nonnull %a, ptr noundef %b) #4
   br label %return
@@ -1055,7 +1055,7 @@ lor.lhs.false:                                    ; preds = %entry
 
 if.then:                                          ; preds = %lor.lhs.false, %entry
   %2 = load ptr, ptr getelementptr inbounds (%struct._typeobject, ptr @PyLong_Type, i64 0, i32 10), align 8
-  %nb_xor = getelementptr inbounds %struct.PyNumberMethods, ptr %2, i64 0, i32 14
+  %nb_xor = getelementptr inbounds i8, ptr %2, i64 112
   %3 = load ptr, ptr %nb_xor, align 8
   %call3 = tail call ptr %3(ptr noundef nonnull %a, ptr noundef %b) #4
   br label %return
@@ -1088,7 +1088,7 @@ lor.lhs.false:                                    ; preds = %entry
 
 if.then:                                          ; preds = %lor.lhs.false, %entry
   %2 = load ptr, ptr getelementptr inbounds (%struct._typeobject, ptr @PyLong_Type, i64 0, i32 10), align 8
-  %nb_or = getelementptr inbounds %struct.PyNumberMethods, ptr %2, i64 0, i32 15
+  %nb_or = getelementptr inbounds i8, ptr %2, i64 120
   %3 = load ptr, ptr %nb_or, align 8
   %call3 = tail call ptr %3(ptr noundef nonnull %a, ptr noundef %b) #4
   br label %return

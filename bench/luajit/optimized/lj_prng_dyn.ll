@@ -16,7 +16,7 @@ entry:
   %shl1 = and i64 %and, -524288
   %xor2 = or disjoint i64 %shr, %shl1
   store i64 %xor2, ptr %rs, align 8
-  %arrayidx7 = getelementptr inbounds [4 x i64], ptr %rs, i64 0, i64 1
+  %arrayidx7 = getelementptr inbounds i8, ptr %rs, i64 8
   %1 = load i64, ptr %arrayidx7, align 8
   %shl8 = shl i64 %1, 19
   %xor9 = xor i64 %shl8, %1
@@ -26,7 +26,7 @@ entry:
   %xor13 = or disjoint i64 %shr10, %shl12
   %xor14 = xor i64 %xor13, %xor2
   store i64 %xor13, ptr %arrayidx7, align 8
-  %arrayidx18 = getelementptr inbounds [4 x i64], ptr %rs, i64 0, i64 2
+  %arrayidx18 = getelementptr inbounds i8, ptr %rs, i64 16
   %2 = load i64, ptr %arrayidx18, align 8
   %shl19 = shl i64 %2, 24
   %xor20 = xor i64 %shl19, %2
@@ -36,7 +36,7 @@ entry:
   %xor24 = or disjoint i64 %shr21, %shl23
   %xor25 = xor i64 %xor14, %xor24
   store i64 %xor24, ptr %arrayidx18, align 8
-  %arrayidx29 = getelementptr inbounds [4 x i64], ptr %rs, i64 0, i64 3
+  %arrayidx29 = getelementptr inbounds i8, ptr %rs, i64 24
   %3 = load i64, ptr %arrayidx29, align 8
   %shl30 = shl i64 %3, 21
   %xor31 = xor i64 %shl30, %3
@@ -60,7 +60,7 @@ entry:
   %shl1 = and i64 %and, -524288
   %xor2 = or disjoint i64 %shr, %shl1
   store i64 %xor2, ptr %rs, align 8
-  %arrayidx7 = getelementptr inbounds [4 x i64], ptr %rs, i64 0, i64 1
+  %arrayidx7 = getelementptr inbounds i8, ptr %rs, i64 8
   %1 = load i64, ptr %arrayidx7, align 8
   %shl8 = shl i64 %1, 19
   %xor9 = xor i64 %shl8, %1
@@ -70,7 +70,7 @@ entry:
   %xor13 = or disjoint i64 %shr10, %shl12
   %xor14 = xor i64 %xor13, %xor2
   store i64 %xor13, ptr %arrayidx7, align 8
-  %arrayidx18 = getelementptr inbounds [4 x i64], ptr %rs, i64 0, i64 2
+  %arrayidx18 = getelementptr inbounds i8, ptr %rs, i64 16
   %2 = load i64, ptr %arrayidx18, align 8
   %shl19 = shl i64 %2, 24
   %xor20 = xor i64 %shl19, %2
@@ -80,7 +80,7 @@ entry:
   %xor24 = or disjoint i64 %shr21, %shl23
   %xor25 = xor i64 %xor14, %xor24
   store i64 %xor24, ptr %arrayidx18, align 8
-  %arrayidx29 = getelementptr inbounds [4 x i64], ptr %rs, i64 0, i64 3
+  %arrayidx29 = getelementptr inbounds i8, ptr %rs, i64 24
   %3 = load i64, ptr %arrayidx29, align 8
   %shl30 = shl i64 %3, 21
   %xor31 = xor i64 %shl30, %3
@@ -96,7 +96,7 @@ entry:
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden i32 @lj_prng_seed_secure(ptr noundef %rs) local_unnamed_addr #1 {
+define hidden noundef i32 @lj_prng_seed_secure(ptr noundef %rs) local_unnamed_addr #1 {
 entry:
   %call = tail call i64 (i64, ...) @syscall(i64 noundef 318, ptr noundef %rs, i64 noundef 32, i32 noundef 0) #5
   %cmp = icmp eq i64 %call, 32
@@ -118,17 +118,17 @@ ok:                                               ; preds = %if.then3, %entry
   %cmp.i = icmp ult i64 %0, 2
   %add.i = or disjoint i64 %0, 2
   %spec.select = select i1 %cmp.i, i64 %add.i, i64 %0
-  %arrayidx4.i = getelementptr inbounds [4 x i64], ptr %rs, i64 0, i64 1
+  %arrayidx4.i = getelementptr inbounds i8, ptr %rs, i64 8
   %1 = load i64, ptr %arrayidx4.i, align 8
   %cmp5.i = icmp ult i64 %1, 64
   %add9.i = or disjoint i64 %1, 64
   %2 = select i1 %cmp5.i, i64 %add9.i, i64 %1
-  %arrayidx12.i = getelementptr inbounds [4 x i64], ptr %rs, i64 0, i64 2
+  %arrayidx12.i = getelementptr inbounds i8, ptr %rs, i64 16
   %3 = load i64, ptr %arrayidx12.i, align 8
   %cmp13.i = icmp ult i64 %3, 512
   %add17.i = or disjoint i64 %3, 512
   %4 = select i1 %cmp13.i, i64 %add17.i, i64 %3
-  %arrayidx20.i = getelementptr inbounds [4 x i64], ptr %rs, i64 0, i64 3
+  %arrayidx20.i = getelementptr inbounds i8, ptr %rs, i64 24
   %5 = load i64, ptr %arrayidx20.i, align 8
   %cmp21.i = icmp ult i64 %5, 131072
   %add25.i = or disjoint i64 %5, 131072

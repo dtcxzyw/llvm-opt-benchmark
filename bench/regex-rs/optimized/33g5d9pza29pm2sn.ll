@@ -62,8 +62,8 @@ define zeroext i1 @"_ZN76_$LT$regex_automata..util..escape..DebugByte$u20$as$u20
   br i1 %19, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %16
-  %20 = getelementptr inbounds { [1 x i64], { i64, i8 } }, ptr %7, i64 0, i32 1
-  %21 = getelementptr inbounds { [1 x i64], { i64, i8 } }, ptr %7, i64 0, i32 1, i32 1
+  %20 = getelementptr inbounds i8, ptr %7, i64 8
+  %21 = getelementptr inbounds i8, ptr %7, i64 16
   br label %29
 
 22:                                               ; preds = %._crit_edge, %15
@@ -81,10 +81,10 @@ define zeroext i1 @"_ZN76_$LT$regex_automata..util..escape..DebugByte$u20$as$u20
   %.fca.0.extract = extractvalue { ptr, i64 } %27, 0
   store ptr %.fca.0.extract, ptr %4, align 8
   %.fca.1.extract = extractvalue { ptr, i64 } %27, 1
-  %.fca.1.gep = getelementptr inbounds { ptr, i64 }, ptr %4, i64 0, i32 1
+  %.fca.1.gep = getelementptr inbounds i8, ptr %4, i64 8
   store i64 %.fca.1.extract, ptr %.fca.1.gep, align 8
   store ptr %4, ptr %5, align 8
-  %28 = getelementptr inbounds { ptr, ptr }, ptr %5, i64 0, i32 1
+  %28 = getelementptr inbounds i8, ptr %5, i64 8
   store ptr @"_ZN44_$LT$$RF$T$u20$as$u20$core..fmt..Display$GT$3fmt17hcef95978faf75989E", ptr %28, align 8
   call void @_ZN4core3fmt9Arguments6new_v117h051e31f362cb8353E(ptr nonnull sret({ { ptr, i64 }, { ptr, i64 }, { ptr, i64 } }) align 8 %6, ptr nonnull align 8 @anon.dabb98c87e236e01a948f12bd67d8e4c.3, i64 1, ptr nonnull align 8 %5, i64 1)
   br label %22
@@ -141,24 +141,24 @@ define zeroext i1 @"_ZN80_$LT$regex_automata..util..escape..DebugHaystack$u20$as
 
 21:                                               ; preds = %2
   %22 = load ptr, ptr %0, align 8, !nonnull !5, !align !8, !noundef !5
-  %23 = getelementptr inbounds { ptr, i64 }, ptr %0, i64 0, i32 1
+  %23 = getelementptr inbounds i8, ptr %0, i64 8
   %24 = load i64, ptr %23, align 8, !noundef !5
   %25 = call zeroext i1 @"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$8is_empty17hd906adbe4791406bE"(ptr nonnull align 1 %22, i64 %24)
   br i1 %25, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %21
-  %26 = getelementptr inbounds { [1 x i64], { ptr, i64 } }, ptr %4, i64 0, i32 1
-  %27 = getelementptr inbounds { [1 x i64], { ptr, i64 } }, ptr %4, i64 0, i32 1, i32 1
-  %.fca.1.gep90 = getelementptr inbounds { ptr, ptr }, ptr %3, i64 0, i32 1
-  %28 = getelementptr inbounds { ptr, ptr }, ptr %15, i64 0, i32 1
+  %26 = getelementptr inbounds i8, ptr %4, i64 8
+  %27 = getelementptr inbounds i8, ptr %4, i64 16
+  %.fca.1.gep90 = getelementptr inbounds i8, ptr %3, i64 8
+  %28 = getelementptr inbounds i8, ptr %15, i64 8
   %.sroa.3.0..sroa_idx15 = getelementptr inbounds i8, ptr %14, i64 16
   %.sroa.416.0..sroa_idx = getelementptr inbounds i8, ptr %14, i64 24
   %.sroa.5.0..sroa_idx = getelementptr inbounds i8, ptr %14, i64 32
   %.sroa.617.0..sroa_idx = getelementptr inbounds i8, ptr %14, i64 40
   %.sroa.7.0..sroa_idx = getelementptr inbounds i8, ptr %14, i64 44
   %.sroa.8.0..sroa_idx = getelementptr inbounds i8, ptr %14, i64 48
-  %29 = getelementptr inbounds { ptr, ptr }, ptr %7, i64 0, i32 1
-  %30 = getelementptr inbounds { ptr, ptr }, ptr %11, i64 0, i32 1
+  %29 = getelementptr inbounds i8, ptr %7, i64 8
+  %30 = getelementptr inbounds i8, ptr %11, i64 8
   %.sroa.329.0..sroa_idx = getelementptr inbounds i8, ptr %9, i64 16
   %.sroa.430.0..sroa_idx = getelementptr inbounds i8, ptr %9, i64 24
   %.sroa.531.0..sroa_idx = getelementptr inbounds i8, ptr %9, i64 32

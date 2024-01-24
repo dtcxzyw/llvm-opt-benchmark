@@ -16,109 +16,14 @@ target triple = "x86_64-unknown-linux-gnu"
 %"struct.llvh::SmallVectorStorage" = type { [16 x %"struct.llvh::AlignedCharArrayUnion"] }
 %"struct.llvh::AlignedCharArrayUnion" = type { %"struct.llvh::AlignedCharArray" }
 %"struct.llvh::AlignedCharArray" = type { [8 x i8] }
-%"class.hermes::Module" = type <{ %"class.hermes::Value", %"class.std::shared_ptr", ptr, %"class.llvh::iplist", %"class.std::vector", %"class.llvh::DenseMap", %"class.hermes::ScopeDesc", %"class.hermes::GlobalObject", %"class.hermes::LiteralEmpty", %"class.hermes::LiteralUndefined", %"class.hermes::LiteralNull", %"class.hermes::LiteralBool", %"class.hermes::LiteralBool", %"class.hermes::EmptySentinel", %"class.llvh::FoldingSet", %"class.llvh::FoldingSet.21", %"class.llvh::FoldingSet.23", %"class.llvh::DenseMap.25", %"class.std::deque", %"class.llvh::DenseMap.31", %"class.llvh::DenseMap.25", %"class.llvh::DenseMap.34", i8, [7 x i8], %"class.std::unordered_map", %"class.std::unordered_map.42", i8, [7 x i8] }>
-%"class.hermes::Value" = type { i8, %"class.hermes::Type", %"class.llvh::SmallVector.0" }
-%"class.hermes::Type" = type { i16, i16 }
-%"class.llvh::SmallVector.0" = type { %"class.llvh::SmallVectorImpl.1", %"struct.llvh::SmallVectorStorage.4" }
-%"class.llvh::SmallVectorImpl.1" = type { %"class.llvh::SmallVectorTemplateBase.2" }
-%"class.llvh::SmallVectorTemplateBase.2" = type { %"class.llvh::SmallVectorTemplateCommon.3" }
-%"class.llvh::SmallVectorTemplateCommon.3" = type { %"class.llvh::SmallVectorBase" }
-%"struct.llvh::SmallVectorStorage.4" = type { [2 x %"struct.llvh::AlignedCharArrayUnion.5"] }
-%"struct.llvh::AlignedCharArrayUnion.5" = type { %"struct.llvh::AlignedCharArray" }
-%"class.std::shared_ptr" = type { %"class.std::__shared_ptr" }
-%"class.std::__shared_ptr" = type { ptr, %"class.std::__shared_count" }
-%"class.std::__shared_count" = type { ptr }
-%"class.llvh::iplist" = type { %"class.llvh::iplist_impl" }
-%"class.llvh::iplist_impl" = type { %"class.llvh::simple_ilist" }
-%"class.llvh::simple_ilist" = type { %"class.llvh::ilist_sentinel" }
-%"class.llvh::ilist_sentinel" = type { %"class.llvh::ilist_node_impl" }
-%"class.llvh::ilist_node_impl" = type { %"class.llvh::ilist_node_base" }
-%"class.llvh::ilist_node_base" = type { ptr, ptr }
-%"class.std::vector" = type { %"struct.std::_Vector_base" }
-%"struct.std::_Vector_base" = type { %"struct.std::_Vector_base<hermes::GlobalObjectProperty *, std::allocator<hermes::GlobalObjectProperty *>>::_Vector_impl" }
-%"struct.std::_Vector_base<hermes::GlobalObjectProperty *, std::allocator<hermes::GlobalObjectProperty *>>::_Vector_impl" = type { %"struct.std::_Vector_base<hermes::GlobalObjectProperty *, std::allocator<hermes::GlobalObjectProperty *>>::_Vector_impl_data" }
-%"struct.std::_Vector_base<hermes::GlobalObjectProperty *, std::allocator<hermes::GlobalObjectProperty *>>::_Vector_impl_data" = type { ptr, ptr, ptr }
-%"class.llvh::DenseMap" = type <{ ptr, i32, i32, i32, [4 x i8] }>
-%"class.hermes::ScopeDesc" = type <{ %"class.hermes::Value", ptr, %"class.llvh::SmallVector.6", %"class.std::shared_ptr.12", ptr, %"class.llvh::SmallVector.15", i8, [7 x i8] }>
-%"class.llvh::SmallVector.6" = type { %"class.llvh::SmallVectorImpl.7", %"struct.llvh::SmallVectorStorage.10" }
-%"class.llvh::SmallVectorImpl.7" = type { %"class.llvh::SmallVectorTemplateBase.8" }
-%"class.llvh::SmallVectorTemplateBase.8" = type { %"class.llvh::SmallVectorTemplateCommon.9" }
-%"class.llvh::SmallVectorTemplateCommon.9" = type { %"class.llvh::SmallVectorBase" }
-%"struct.llvh::SmallVectorStorage.10" = type { [8 x %"struct.llvh::AlignedCharArrayUnion.11"] }
-%"struct.llvh::AlignedCharArrayUnion.11" = type { %"struct.llvh::AlignedCharArray" }
-%"class.std::shared_ptr.12" = type { %"class.std::__shared_ptr.13" }
-%"class.std::__shared_ptr.13" = type { ptr, %"class.std::__shared_count" }
-%"class.llvh::SmallVector.15" = type { %"class.llvh::SmallVectorImpl.16", %"struct.llvh::SmallVectorStorage.19" }
-%"class.llvh::SmallVectorImpl.16" = type { %"class.llvh::SmallVectorTemplateBase.17" }
-%"class.llvh::SmallVectorTemplateBase.17" = type { %"class.llvh::SmallVectorTemplateCommon.18" }
-%"class.llvh::SmallVectorTemplateCommon.18" = type { %"class.llvh::SmallVectorBase" }
-%"struct.llvh::SmallVectorStorage.19" = type { [8 x %"struct.llvh::AlignedCharArrayUnion.20"] }
-%"struct.llvh::AlignedCharArrayUnion.20" = type { %"struct.llvh::AlignedCharArray" }
-%"class.hermes::GlobalObject" = type { %"class.hermes::Literal" }
-%"class.hermes::Literal" = type { %"class.hermes::Value" }
-%"class.hermes::LiteralEmpty" = type { %"class.hermes::Literal" }
-%"class.hermes::LiteralUndefined" = type { %"class.hermes::Literal" }
-%"class.hermes::LiteralNull" = type { %"class.hermes::Literal" }
-%"class.hermes::LiteralBool" = type <{ %"class.hermes::Literal", i8, [7 x i8] }>
-%"class.hermes::EmptySentinel" = type { %"class.hermes::Value" }
-%"class.llvh::FoldingSet" = type { %"class.llvh::FoldingSetImpl" }
-%"class.llvh::FoldingSetImpl" = type { %"class.llvh::FoldingSetBase" }
-%"class.llvh::FoldingSetBase" = type { ptr, ptr, i32, i32 }
-%"class.llvh::FoldingSet.21" = type { %"class.llvh::FoldingSetImpl.22" }
-%"class.llvh::FoldingSetImpl.22" = type { %"class.llvh::FoldingSetBase" }
-%"class.llvh::FoldingSet.23" = type { %"class.llvh::FoldingSetImpl.24" }
-%"class.llvh::FoldingSetImpl.24" = type { %"class.llvh::FoldingSetBase" }
-%"class.std::deque" = type { %"class.std::_Deque_base" }
-%"class.std::_Deque_base" = type { %"struct.std::_Deque_base<hermes::Module::CJSModule, std::allocator<hermes::Module::CJSModule>>::_Deque_impl" }
-%"struct.std::_Deque_base<hermes::Module::CJSModule, std::allocator<hermes::Module::CJSModule>>::_Deque_impl" = type { %"struct.std::_Deque_base<hermes::Module::CJSModule, std::allocator<hermes::Module::CJSModule>>::_Deque_impl_data" }
-%"struct.std::_Deque_base<hermes::Module::CJSModule, std::allocator<hermes::Module::CJSModule>>::_Deque_impl_data" = type { ptr, i64, %"struct.std::_Deque_iterator", %"struct.std::_Deque_iterator" }
-%"struct.std::_Deque_iterator" = type { ptr, ptr, ptr, ptr }
-%"class.llvh::DenseMap.31" = type <{ ptr, i32, i32, i32, [4 x i8] }>
-%"class.llvh::DenseMap.25" = type <{ ptr, i32, i32, i32, [4 x i8] }>
-%"class.llvh::DenseMap.34" = type <{ ptr, i32, i32, i32, [4 x i8] }>
-%"class.std::unordered_map" = type { %"class.std::_Hashtable" }
-%"class.std::_Hashtable" = type { ptr, i64, %"struct.std::__detail::_Hash_node_base", i64, %"struct.std::__detail::_Prime_rehash_policy", ptr }
-%"struct.std::__detail::_Hash_node_base" = type { ptr }
-%"struct.std::__detail::_Prime_rehash_policy" = type { float, i64 }
-%"class.std::unordered_map.42" = type { %"class.std::_Hashtable.43" }
-%"class.std::_Hashtable.43" = type { ptr, i64, %"struct.std::__detail::_Hash_node_base", i64, %"struct.std::__detail::_Prime_rehash_policy", ptr }
-%"class.hermes::BasicBlock" = type { %"class.llvh::ilist_node_with_parent.93", %"class.hermes::Value", %"class.llvh::iplist.95", ptr }
-%"class.llvh::ilist_node_with_parent.93" = type { %"class.llvh::ilist_node.94" }
-%"class.llvh::ilist_node.94" = type { %"class.llvh::ilist_node_impl.69" }
-%"class.llvh::ilist_node_impl.69" = type { %"class.llvh::ilist_node_base" }
-%"class.llvh::iplist.95" = type { %"class.llvh::iplist_impl.96" }
-%"class.llvh::iplist_impl.96" = type { %"class.llvh::simple_ilist.101" }
-%"class.llvh::simple_ilist.101" = type { %"class.llvh::ilist_sentinel.102" }
-%"class.llvh::ilist_sentinel.102" = type { %"class.llvh::ilist_node_impl.103" }
-%"class.llvh::ilist_node_impl.103" = type { %"class.llvh::ilist_node_base" }
 %"struct.llvh::detail::DenseMapPair" = type { %"struct.std::pair" }
 %"struct.std::pair" = type { ptr, ptr }
-%"class.hermes::Function" = type { %"class.llvh::ilist_node_with_parent", %"class.hermes::Value", ptr, i8, ptr, %"class.llvh::iplist.60", %"class.llvh::SmallVector.70", %"class.hermes::Identifier", i32, i8, %"class.llvh::SMRange", i32, %"class.hermes::Identifier", ptr, i32, %"class.hermes::OptValue", [4 x i8], %"struct.hermes::LazySource", %"class.std::shared_ptr.12", ptr }
-%"class.llvh::ilist_node_with_parent" = type { %"class.llvh::ilist_node" }
-%"class.llvh::ilist_node" = type { %"class.llvh::ilist_node_impl" }
-%"class.llvh::iplist.60" = type { %"class.llvh::iplist_impl.61" }
-%"class.llvh::iplist_impl.61" = type { %"class.llvh::simple_ilist.66" }
-%"class.llvh::simple_ilist.66" = type { %"class.llvh::ilist_sentinel.68" }
-%"class.llvh::ilist_sentinel.68" = type { %"class.llvh::ilist_node_impl.69" }
-%"class.llvh::SmallVector.70" = type { %"class.llvh::SmallVectorImpl.71", %"struct.llvh::SmallVectorStorage.74" }
-%"class.llvh::SmallVectorImpl.71" = type { %"class.llvh::SmallVectorTemplateBase.72" }
-%"class.llvh::SmallVectorTemplateBase.72" = type { %"class.llvh::SmallVectorTemplateCommon.73" }
-%"class.llvh::SmallVectorTemplateCommon.73" = type { %"class.llvh::SmallVectorBase" }
-%"struct.llvh::SmallVectorStorage.74" = type { [8 x %"struct.llvh::AlignedCharArrayUnion.75"] }
-%"struct.llvh::AlignedCharArrayUnion.75" = type { %"struct.llvh::AlignedCharArray" }
-%"class.llvh::SMRange" = type { %"class.llvh::SMLoc", %"class.llvh::SMLoc" }
-%"class.llvh::SMLoc" = type { ptr }
-%"class.hermes::Identifier" = type { ptr }
-%"class.hermes::OptValue" = type <{ i32, i8, [3 x i8] }>
-%"struct.hermes::LazySource" = type <{ i32, i32, %"class.llvh::SMRange", i8, i8, [6 x i8] }>
 %"class.std::unique_ptr" = type { %"struct.std::__uniq_ptr_data" }
 %"struct.std::__uniq_ptr_data" = type { %"class.std::__uniq_ptr_impl" }
 %"class.std::__uniq_ptr_impl" = type { %"class.std::tuple" }
 %"class.std::tuple" = type { %"struct.std::_Tuple_impl" }
 %"struct.std::_Tuple_impl" = type { %"struct.std::_Head_base.77" }
 %"struct.std::_Head_base.77" = type { ptr }
-%"class.hermes::Pass" = type { ptr, i32, %"class.llvh::StringRef" }
-%"class.llvh::StringRef" = type { ptr, i64 }
 
 $_ZN6hermes3DCED2Ev = comdat any
 
@@ -135,29 +40,29 @@ entry:
   %toRemove = alloca %"class.llvh::SmallVector", align 8
   %add.ptr.i.i.i.i.i = getelementptr inbounds i8, ptr %toDestroy, i64 16
   store ptr %add.ptr.i.i.i.i.i, ptr %toDestroy, align 8
-  %Size.i.i.i.i.i = getelementptr inbounds %"class.llvh::SmallVectorBase", ptr %toDestroy, i64 0, i32 1
+  %Size.i.i.i.i.i = getelementptr inbounds i8, ptr %toDestroy, i64 8
   store i32 0, ptr %Size.i.i.i.i.i, align 8
-  %Capacity2.i.i.i.i.i = getelementptr inbounds %"class.llvh::SmallVectorBase", ptr %toDestroy, i64 0, i32 2
+  %Capacity2.i.i.i.i.i = getelementptr inbounds i8, ptr %toDestroy, i64 12
   store i32 16, ptr %Capacity2.i.i.i.i.i, align 4
-  %Next.i.i.i.i.i = getelementptr inbounds %"class.hermes::Module", ptr %M, i64 0, i32 3, i32 0, i32 0, i32 0, i32 0, i32 0, i32 1
-  %FunctionList.i = getelementptr inbounds %"class.hermes::Module", ptr %M, i64 0, i32 3
+  %Next.i.i.i.i.i = getelementptr inbounds i8, ptr %M, i64 72
+  %FunctionList.i = getelementptr inbounds i8, ptr %M, i64 64
   %__begin1.sroa.0.061 = load ptr, ptr %Next.i.i.i.i.i, align 8
   %cmp.i.not62 = icmp eq ptr %__begin1.sroa.0.061, %FunctionList.i
   br i1 %cmp.i.not62, label %do.body10.preheader, label %for.body.lr.ph
 
 for.body.lr.ph:                                   ; preds = %entry
-  %Order.i.i = getelementptr inbounds %"class.hermes::PostOrderAnalysis", ptr %PO.i, i64 0, i32 1
-  %_M_finish.i.i.i = getelementptr inbounds %"class.hermes::PostOrderAnalysis", ptr %PO.i, i64 0, i32 1, i32 0, i32 0, i32 0, i32 1
+  %Order.i.i = getelementptr inbounds i8, ptr %PO.i, i64 8
+  %_M_finish.i.i.i = getelementptr inbounds i8, ptr %PO.i, i64 16
   br label %for.body
 
 do.body10.preheader:                              ; preds = %_ZL18performFunctionDCEPN6hermes8FunctionE.exit, %entry
   %changed.0.lcssa = phi i8 [ 0, %entry ], [ %12, %_ZL18performFunctionDCEPN6hermes8FunctionE.exit ]
   %add.ptr.i.i.i.i.i19 = getelementptr inbounds i8, ptr %toRemove, i64 16
-  %Size.i.i.i.i.i20 = getelementptr inbounds %"class.llvh::SmallVectorBase", ptr %toRemove, i64 0, i32 1
-  %Capacity2.i.i.i.i.i21 = getelementptr inbounds %"class.llvh::SmallVectorBase", ptr %toRemove, i64 0, i32 2
-  %cjsModuleFunctionMap_.i = getelementptr inbounds %"class.hermes::Module", ptr %M, i64 0, i32 19
-  %NumBuckets.i.i.i.i.i = getelementptr inbounds %"class.hermes::Module", ptr %M, i64 0, i32 19, i32 3
-  %topLevelFunction_.i = getelementptr inbounds %"class.hermes::Module", ptr %M, i64 0, i32 2
+  %Size.i.i.i.i.i20 = getelementptr inbounds i8, ptr %toRemove, i64 8
+  %Capacity2.i.i.i.i.i21 = getelementptr inbounds i8, ptr %toRemove, i64 12
+  %cjsModuleFunctionMap_.i = getelementptr inbounds i8, ptr %M, i64 840
+  %NumBuckets.i.i.i.i.i = getelementptr inbounds i8, ptr %M, i64 856
+  %topLevelFunction_.i = getelementptr inbounds i8, ptr %M, i64 56
   br label %do.body10
 
 for.body:                                         ; preds = %for.body.lr.ph, %_ZL18performFunctionDCEPN6hermes8FunctionE.exit
@@ -174,7 +79,7 @@ for.body.i:                                       ; preds = %for.body, %for.inc.
   %changed.031.i = phi i8 [ %changed.1.ph.lcssa.i, %for.inc.i ], [ 0, %for.body ]
   %__begin1.sroa.0.030.i = phi ptr [ %incdec.ptr.i.i, %for.inc.i ], [ %0, %for.body ]
   %2 = load ptr, ptr %__begin1.sroa.0.030.i, align 8
-  %InstList.i.i = getelementptr inbounds %"class.hermes::BasicBlock", ptr %2, i64 0, i32 2
+  %InstList.i.i = getelementptr inbounds i8, ptr %2, i64 56
   %3 = load ptr, ptr %InstList.i.i, align 8
   %cmp.i4.not2225.i = icmp eq ptr %3, %InstList.i.i
   br i1 %cmp.i4.not2225.i, label %for.inc.i, label %for.body11.lr.ph.i
@@ -221,7 +126,7 @@ do.end.i:                                         ; preds = %if.end.i
 
 for.inc.i:                                        ; preds = %do.end.i, %for.cond9.backedge.i, %for.body.i
   %changed.1.ph.lcssa.i = phi i8 [ %changed.031.i, %for.body.i ], [ %changed.1.ph27.i, %for.cond9.backedge.i ], [ 1, %do.end.i ]
-  %incdec.ptr.i.i = getelementptr inbounds ptr, ptr %__begin1.sroa.0.030.i, i64 1
+  %incdec.ptr.i.i = getelementptr inbounds i8, ptr %__begin1.sroa.0.030.i, i64 8
   %cmp.i.not.i = icmp eq ptr %incdec.ptr.i.i, %1
   br i1 %cmp.i.not.i, label %for.end25.loopexit.i, label %for.body.i
 
@@ -245,7 +150,7 @@ _ZL18performFunctionDCEPN6hermes8FunctionE.exit:  ; preds = %for.end25.i, %if.th
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %PO.i)
   %11 = zext i1 %changed.0.lcssa.i to i8
   %12 = or i8 %changed.063, %11
-  %Next.i.i.i = getelementptr inbounds %"class.llvh::ilist_node_base", ptr %__begin1.sroa.0.064, i64 0, i32 1
+  %Next.i.i.i = getelementptr inbounds i8, ptr %__begin1.sroa.0.064, i64 8
   %__begin1.sroa.0.0 = load ptr, ptr %Next.i.i.i, align 8
   %cmp.i.not = icmp eq ptr %__begin1.sroa.0.0, %FunctionList.i
   br i1 %cmp.i.not, label %do.body10.preheader, label %for.body
@@ -312,13 +217,13 @@ _ZNK4llvh12DenseMapBaseINS_8DenseMapIPN6hermes8FunctionEPNS2_6Module9CJSModuleEN
   br i1 %cmp.i.i, label %if.end, label %_ZNK6hermes6Module13findCJSModuleEPNS_8FunctionE.exit
 
 _ZNK6hermes6Module13findCJSModuleEPNS_8FunctionE.exit: ; preds = %_ZNK4llvh12DenseMapBaseINS_8DenseMapIPN6hermes8FunctionEPNS2_6Module9CJSModuleENS_12DenseMapInfoIS4_EENS_6detail12DenseMapPairIS4_S7_EEEES4_S7_S9_SC_E4findEPKS3_.exit.i
-  %second.i = getelementptr inbounds %"struct.std::pair", ptr %cond.sink.i.ph.pn.i.i, i64 0, i32 1
+  %second.i = getelementptr inbounds i8, ptr %cond.sink.i.ph.pn.i.i, i64 8
   %19 = load ptr, ptr %second.i, align 8
   %tobool21.not = icmp eq ptr %19, null
   br i1 %tobool21.not, label %if.end, label %for.inc30
 
 if.end:                                           ; preds = %_ZNK4llvh12DenseMapBaseINS_8DenseMapIPN6hermes8FunctionEPNS2_6Module9CJSModuleENS_12DenseMapInfoIS4_EENS_6detail12DenseMapPairIS4_S7_EEEES4_S7_S9_SC_E4findEPKS3_.exit.i, %_ZNK6hermes6Module13findCJSModuleEPNS_8FunctionE.exit
-  %isGlobal_.i = getelementptr inbounds %"class.hermes::Function", ptr %__begin2.sroa.0.069, i64 0, i32 3
+  %isGlobal_.i = getelementptr inbounds i8, ptr %__begin2.sroa.0.069, i64 64
   %20 = load i8, ptr %isGlobal_.i, align 8
   %21 = and i8 %20, 1
   %tobool.i.not = icmp eq i8 %21, 0
@@ -382,7 +287,7 @@ _ZN4llvh23SmallVectorTemplateBaseIPN6hermes8FunctionELb1EE9push_backERKS3_.exit4
 for.inc30:                                        ; preds = %if.end, %land.lhs.true, %land.lhs.true24, %_ZN4llvh23SmallVectorTemplateBaseIPN6hermes8FunctionELb1EE9push_backERKS3_.exit41, %_ZNK6hermes6Module13findCJSModuleEPNS_8FunctionE.exit
   %localChanged.1 = phi i8 [ %localChanged.067, %_ZNK6hermes6Module13findCJSModuleEPNS_8FunctionE.exit ], [ %localChanged.067, %if.end ], [ %localChanged.067, %land.lhs.true24 ], [ 1, %_ZN4llvh23SmallVectorTemplateBaseIPN6hermes8FunctionELb1EE9push_backERKS3_.exit41 ], [ %localChanged.067, %land.lhs.true ]
   %changed.3 = phi i8 [ %changed.268, %_ZNK6hermes6Module13findCJSModuleEPNS_8FunctionE.exit ], [ %changed.268, %if.end ], [ %changed.268, %land.lhs.true24 ], [ 1, %_ZN4llvh23SmallVectorTemplateBaseIPN6hermes8FunctionELb1EE9push_backERKS3_.exit41 ], [ %changed.268, %land.lhs.true ]
-  %Next.i.i.i42 = getelementptr inbounds %"class.llvh::ilist_node_base", ptr %__begin2.sroa.0.069, i64 0, i32 1
+  %Next.i.i.i42 = getelementptr inbounds i8, ptr %__begin2.sroa.0.069, i64 8
   %__begin2.sroa.0.0 = load ptr, ptr %Next.i.i.i42, align 8
   %cmp.i24.not = icmp eq ptr %__begin2.sroa.0.0, %FunctionList.i
   br i1 %cmp.i24.not, label %for.end32, label %for.body17
@@ -399,7 +304,7 @@ for.body40:                                       ; preds = %for.end32, %for.bod
   %__begin234.073 = phi ptr [ %incdec.ptr, %for.body40 ], [ %.pre, %for.end32 ]
   %35 = load ptr, ptr %__begin234.073, align 8
   call void @_ZN6hermes8Function24eraseFromParentNoDestroyEv(ptr noundef nonnull align 8 dereferenceable(304) %35) #6
-  %incdec.ptr = getelementptr inbounds ptr, ptr %__begin234.073, i64 1
+  %incdec.ptr = getelementptr inbounds i8, ptr %__begin234.073, i64 8
   %cmp39.not = icmp eq ptr %incdec.ptr, %add.ptr.i78
   br i1 %cmp39.not, label %for.end46.loopexit, label %for.body40
 
@@ -437,7 +342,7 @@ for.body57:                                       ; preds = %do.end49, %for.body
   %add.ptr59 = getelementptr inbounds i8, ptr %40, i64 16
   %spec.select = select i1 %41, ptr null, ptr %add.ptr59
   call void @_ZN6hermes5Value7destroyEPS0_(ptr noundef %spec.select) #6
-  %incdec.ptr61 = getelementptr inbounds ptr, ptr %__begin151.075, i64 1
+  %incdec.ptr61 = getelementptr inbounds i8, ptr %__begin151.075, i64 8
   %cmp56.not = icmp eq ptr %incdec.ptr61, %add.ptr.i
   br i1 %cmp56.not, label %for.end62.loopexit, label %for.body57
 
@@ -470,11 +375,11 @@ declare void @_ZN6hermes5Value7destroyEPS0_(ptr noundef) local_unnamed_addr #1
 define hidden void @_ZN6hermes9createDCEEv(ptr noalias nocapture writeonly sret(%"class.std::unique_ptr") align 8 %agg.result) local_unnamed_addr #0 {
 _ZNSt10unique_ptrIN6hermes3DCEESt14default_deleteIS1_EED2Ev.exit:
   %call.i = tail call noalias noundef nonnull dereferenceable(32) ptr @_Znwm(i64 noundef 32) #8, !noalias !8
-  %kind.i.i.i.i = getelementptr inbounds %"class.hermes::Pass", ptr %call.i, i64 0, i32 1
+  %kind.i.i.i.i = getelementptr inbounds i8, ptr %call.i, i64 8
   store i32 1, ptr %kind.i.i.i.i, align 8, !noalias !8
-  %name2.i.i.i.i = getelementptr inbounds %"class.hermes::Pass", ptr %call.i, i64 0, i32 2
+  %name2.i.i.i.i = getelementptr inbounds i8, ptr %call.i, i64 16
   store ptr @.str, ptr %name2.i.i.i.i, align 8, !noalias !8
-  %name.sroa.2.0.name2.sroa_idx.i.i.i.i = getelementptr inbounds %"class.hermes::Pass", ptr %call.i, i64 0, i32 2, i32 1
+  %name.sroa.2.0.name2.sroa_idx.i.i.i.i = getelementptr inbounds i8, ptr %call.i, i64 24
   store i64 3, ptr %name.sroa.2.0.name2.sroa_idx.i.i.i.i, align 8, !noalias !8
   store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN6hermes3DCEE, i64 0, inrange i32 0, i64 2), ptr %call.i, align 8, !noalias !8
   store ptr %call.i, ptr %agg.result, align 8

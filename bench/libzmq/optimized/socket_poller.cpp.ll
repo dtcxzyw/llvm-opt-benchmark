@@ -4,13 +4,8 @@ target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:
 target triple = "x86_64-unknown-linux-gnu"
 
 %"struct.std::nothrow_t" = type { i8 }
-%"class.zmq::socket_poller_t" = type { i32, ptr, %"class.std::vector", i8, i8, i32, ptr }
-%"class.std::vector" = type { %"struct.std::_Vector_base" }
-%"struct.std::_Vector_base" = type { %"struct.std::_Vector_base<zmq::socket_poller_t::item_t, std::allocator<zmq::socket_poller_t::item_t>>::_Vector_impl" }
-%"struct.std::_Vector_base<zmq::socket_poller_t::item_t, std::allocator<zmq::socket_poller_t::item_t>>::_Vector_impl" = type { %"struct.std::_Vector_base<zmq::socket_poller_t::item_t, std::allocator<zmq::socket_poller_t::item_t>>::_Vector_impl_data" }
-%"struct.std::_Vector_base<zmq::socket_poller_t::item_t, std::allocator<zmq::socket_poller_t::item_t>>::_Vector_impl_data" = type { ptr, ptr, ptr }
-%"struct.zmq::socket_poller_t::item_t" = type { ptr, i32, ptr, i16, i32 }
 %struct.pollfd = type { i32, i16, i16 }
+%"struct.zmq::socket_poller_t::item_t" = type { ptr, i32, ptr, i16, i32 }
 %struct.zmq_poller_event_t = type { ptr, i32, ptr, i16 }
 %"class.zmq::clock_t" = type { i64, i64 }
 
@@ -33,8 +28,8 @@ $__clang_call_terminate = comdat any
 define void @_ZN3zmq15socket_poller_tC2Ev(ptr nocapture noundef nonnull align 8 dereferenceable(56) %this) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store i32 -889275714, ptr %this, align 8
-  %_signaler = getelementptr inbounds %"class.zmq::socket_poller_t", ptr %this, i64 0, i32 1
-  %_pollfds = getelementptr inbounds %"class.zmq::socket_poller_t", ptr %this, i64 0, i32 6
+  %_signaler = getelementptr inbounds i8, ptr %this, i64 8
+  %_pollfds = getelementptr inbounds i8, ptr %this, i64 48
   store ptr null, ptr %_pollfds, align 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %_signaler, i8 0, i64 32, i1 false)
   %call = invoke noundef i32 @_ZN3zmq15socket_poller_t7rebuildEv(ptr noundef nonnull align 8 dereferenceable(56) %this)
@@ -46,7 +41,7 @@ invoke.cont:                                      ; preds = %entry
 lpad:                                             ; preds = %entry
   %0 = landingpad { ptr, i32 }
           cleanup
-  %_items = getelementptr inbounds %"class.zmq::socket_poller_t", ptr %this, i64 0, i32 2
+  %_items = getelementptr inbounds i8, ptr %this, i64 16
   %1 = load ptr, ptr %_items, align 8
   %tobool.not.i.i.i = icmp eq ptr %1, null
   br i1 %tobool.not.i.i.i, label %_ZNSt6vectorIN3zmq15socket_poller_t6item_tESaIS2_EED2Ev.exit, label %if.then.i.i.i
@@ -63,13 +58,13 @@ _ZNSt6vectorIN3zmq15socket_poller_t6item_tESaIS2_EED2Ev.exit: ; preds = %lpad, %
 define noundef i32 @_ZN3zmq15socket_poller_t7rebuildEv(ptr nocapture noundef nonnull align 8 dereferenceable(56) %this) local_unnamed_addr #0 align 2 {
 entry:
   %fd_size = alloca i64, align 8
-  %_use_signaler = getelementptr inbounds %"class.zmq::socket_poller_t", ptr %this, i64 0, i32 4
+  %_use_signaler = getelementptr inbounds i8, ptr %this, i64 41
   store i8 0, ptr %_use_signaler, align 1
-  %_pollset_size = getelementptr inbounds %"class.zmq::socket_poller_t", ptr %this, i64 0, i32 5
+  %_pollset_size = getelementptr inbounds i8, ptr %this, i64 44
   store i32 0, ptr %_pollset_size, align 4
-  %_need_rebuild = getelementptr inbounds %"class.zmq::socket_poller_t", ptr %this, i64 0, i32 3
+  %_need_rebuild = getelementptr inbounds i8, ptr %this, i64 40
   store i8 0, ptr %_need_rebuild, align 8
-  %_pollfds = getelementptr inbounds %"class.zmq::socket_poller_t", ptr %this, i64 0, i32 6
+  %_pollfds = getelementptr inbounds i8, ptr %this, i64 48
   %0 = load ptr, ptr %_pollfds, align 8
   %tobool.not = icmp eq ptr %0, null
   br i1 %tobool.not, label %if.end, label %if.then
@@ -80,16 +75,16 @@ if.then:                                          ; preds = %entry
   br label %if.end
 
 if.end:                                           ; preds = %if.then, %entry
-  %_items = getelementptr inbounds %"class.zmq::socket_poller_t", ptr %this, i64 0, i32 2
+  %_items = getelementptr inbounds i8, ptr %this, i64 16
   %1 = load ptr, ptr %_items, align 8
-  %_M_finish.i = getelementptr inbounds %"class.zmq::socket_poller_t", ptr %this, i64 0, i32 2, i32 0, i32 0, i32 0, i32 1
+  %_M_finish.i = getelementptr inbounds i8, ptr %this, i64 24
   %2 = load ptr, ptr %_M_finish.i, align 8
   %cmp.i.not28 = icmp eq ptr %1, %2
   br i1 %cmp.i.not28, label %for.end, label %for.body
 
 for.body:                                         ; preds = %if.end, %for.inc
   %it.sroa.0.029 = phi ptr [ %incdec.ptr.i, %for.inc ], [ %1, %if.end ]
-  %events = getelementptr inbounds %"struct.zmq::socket_poller_t::item_t", ptr %it.sroa.0.029, i64 0, i32 3
+  %events = getelementptr inbounds i8, ptr %it.sroa.0.029, i64 24
   %3 = load i16, ptr %events, align 8
   %tobool9.not = icmp eq i16 %3, 0
   br i1 %tobool9.not, label %for.inc, label %if.then10
@@ -120,7 +115,7 @@ for.inc.sink.split:                               ; preds = %if.then10, %land.lh
   br label %for.inc
 
 for.inc:                                          ; preds = %for.inc.sink.split, %for.body, %if.then16
-  %incdec.ptr.i = getelementptr inbounds %"struct.zmq::socket_poller_t::item_t", ptr %it.sroa.0.029, i64 1
+  %incdec.ptr.i = getelementptr inbounds i8, ptr %it.sroa.0.029, i64 32
   %cmp.i.not = icmp eq ptr %incdec.ptr.i, %2
   br i1 %cmp.i.not, label %for.end, label %for.body, !llvm.loop !5
 
@@ -150,13 +145,13 @@ if.end39:                                         ; preds = %if.end30
   br i1 %tobool41.not, label %if.end48, label %if.then42
 
 if.then42:                                        ; preds = %if.end39
-  %_signaler = getelementptr inbounds %"class.zmq::socket_poller_t", ptr %this, i64 0, i32 1
+  %_signaler = getelementptr inbounds i8, ptr %this, i64 8
   %11 = load ptr, ptr %_signaler, align 8
   %call43 = tail call noundef i32 @_ZNK3zmq10signaler_t6get_fdEv(ptr noundef nonnull align 4 dereferenceable(12) %11)
   %12 = load ptr, ptr %_pollfds, align 8
   store i32 %call43, ptr %12, align 4
   %13 = load ptr, ptr %_pollfds, align 8
-  %events47 = getelementptr inbounds %struct.pollfd, ptr %13, i64 0, i32 1
+  %events47 = getelementptr inbounds i8, ptr %13, i64 4
   store i16 1, ptr %events47, align 4
   br label %if.end48
 
@@ -170,7 +165,7 @@ if.end48:                                         ; preds = %if.then42, %if.end3
 for.body59:                                       ; preds = %if.end48, %for.inc123
   %item_nbr.132 = phi i32 [ %item_nbr.2, %for.inc123 ], [ %item_nbr.0, %if.end48 ]
   %it49.sroa.0.031 = phi ptr [ %incdec.ptr.i13, %for.inc123 ], [ %14, %if.end48 ]
-  %events61 = getelementptr inbounds %"struct.zmq::socket_poller_t::item_t", ptr %it49.sroa.0.031, i64 0, i32 3
+  %events61 = getelementptr inbounds i8, ptr %it49.sroa.0.031, i64 24
   %16 = load i16, ptr %events61, align 8
   %tobool62.not = icmp eq i16 %16, 0
   br i1 %tobool62.not, label %for.inc123, label %if.then63
@@ -210,7 +205,7 @@ do.end:                                           ; preds = %if.then71, %if.then
   br label %for.inc123
 
 if.else90:                                        ; preds = %if.then63
-  %fd92 = getelementptr inbounds %"struct.zmq::socket_poller_t::item_t", ptr %it49.sroa.0.031, i64 0, i32 1
+  %fd92 = getelementptr inbounds i8, ptr %it49.sroa.0.031, i64 8
   %23 = load i32, ptr %fd92, align 8
   %24 = load ptr, ptr %_pollfds, align 8
   %idxprom94 = sext i32 %item_nbr.132 to i64
@@ -227,14 +222,14 @@ if.else90:                                        ; preds = %if.then63
   %31 = load ptr, ptr %_pollfds, align 8
   %events118 = getelementptr inbounds %struct.pollfd, ptr %31, i64 %idxprom94, i32 1
   store i16 %or1139, ptr %events118, align 4
-  %pollfd_index = getelementptr inbounds %"struct.zmq::socket_poller_t::item_t", ptr %it49.sroa.0.031, i64 0, i32 4
+  %pollfd_index = getelementptr inbounds i8, ptr %it49.sroa.0.031, i64 28
   store i32 %item_nbr.132, ptr %pollfd_index, align 4
   %inc120 = add nsw i32 %item_nbr.132, 1
   br label %for.inc123
 
 for.inc123:                                       ; preds = %for.body59, %if.then67, %do.end, %if.else90
   %item_nbr.2 = phi i32 [ %item_nbr.132, %if.then67 ], [ %inc88, %do.end ], [ %inc120, %if.else90 ], [ %item_nbr.132, %for.body59 ]
-  %incdec.ptr.i13 = getelementptr inbounds %"struct.zmq::socket_poller_t::item_t", ptr %it49.sroa.0.031, i64 1
+  %incdec.ptr.i13 = getelementptr inbounds i8, ptr %it49.sroa.0.031, i64 32
   %cmp.i11.not = icmp eq ptr %incdec.ptr.i13, %15
   br i1 %cmp.i11.not, label %return, label %for.body59, !llvm.loop !7
 
@@ -249,15 +244,15 @@ declare i32 @__gxx_personality_v0(...)
 define void @_ZN3zmq15socket_poller_tD2Ev(ptr nocapture noundef nonnull align 8 dereferenceable(56) %this) unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store i32 -559038737, ptr %this, align 8
-  %_items = getelementptr inbounds %"class.zmq::socket_poller_t", ptr %this, i64 0, i32 2
+  %_items = getelementptr inbounds i8, ptr %this, i64 16
   %0 = load ptr, ptr %_items, align 8
-  %_M_finish.i = getelementptr inbounds %"class.zmq::socket_poller_t", ptr %this, i64 0, i32 2, i32 0, i32 0, i32 0, i32 1
+  %_M_finish.i = getelementptr inbounds i8, ptr %this, i64 24
   %1 = load ptr, ptr %_M_finish.i, align 8
   %cmp.i.not8 = icmp eq ptr %0, %1
   br i1 %cmp.i.not8, label %for.end, label %for.body.lr.ph
 
 for.body.lr.ph:                                   ; preds = %entry
-  %_signaler = getelementptr inbounds %"class.zmq::socket_poller_t", ptr %this, i64 0, i32 1
+  %_signaler = getelementptr inbounds i8, ptr %this, i64 8
   br label %for.body
 
 for.body:                                         ; preds = %for.body.lr.ph, %for.inc
@@ -288,12 +283,12 @@ if.then:                                          ; preds = %invoke.cont13
           to label %for.inc unwind label %terminate.lpad
 
 for.inc:                                          ; preds = %for.body, %invoke.cont, %invoke.cont13, %if.then
-  %incdec.ptr.i = getelementptr inbounds %"struct.zmq::socket_poller_t::item_t", ptr %it.sroa.0.09, i64 1
+  %incdec.ptr.i = getelementptr inbounds i8, ptr %it.sroa.0.09, i64 32
   %cmp.i.not = icmp eq ptr %incdec.ptr.i, %1
   br i1 %cmp.i.not, label %for.end, label %for.body, !llvm.loop !8
 
 for.end:                                          ; preds = %for.inc, %entry
-  %_signaler19 = getelementptr inbounds %"class.zmq::socket_poller_t", ptr %this, i64 0, i32 1
+  %_signaler19 = getelementptr inbounds i8, ptr %this, i64 8
   %6 = load ptr, ptr %_signaler19, align 8
   %cmp.not = icmp eq ptr %6, null
   br i1 %cmp.not, label %if.end23, label %delete.notnull
@@ -305,7 +300,7 @@ delete.notnull:                                   ; preds = %for.end
   br label %if.end23
 
 if.end23:                                         ; preds = %delete.notnull, %for.end
-  %_pollfds = getelementptr inbounds %"class.zmq::socket_poller_t", ptr %this, i64 0, i32 6
+  %_pollfds = getelementptr inbounds i8, ptr %this, i64 48
   %7 = load ptr, ptr %_pollfds, align 8
   %tobool24.not = icmp eq ptr %7, null
   br i1 %tobool24.not, label %if.end28, label %if.then25
@@ -370,7 +365,7 @@ entry:
 ; Function Attrs: mustprogress uwtable
 define noundef i32 @_ZNK3zmq15socket_poller_t11signaler_fdEPi(ptr nocapture noundef nonnull readonly align 8 dereferenceable(56) %this, ptr nocapture noundef writeonly %fd_) local_unnamed_addr #0 align 2 {
 entry:
-  %_signaler = getelementptr inbounds %"class.zmq::socket_poller_t", ptr %this, i64 0, i32 1
+  %_signaler = getelementptr inbounds i8, ptr %this, i64 8
   %0 = load ptr, ptr %_signaler, align 8
   %tobool.not = icmp eq ptr %0, null
   br i1 %tobool.not, label %if.end, label %if.then
@@ -398,9 +393,9 @@ declare ptr @__errno_location() local_unnamed_addr #8
 ; Function Attrs: mustprogress uwtable
 define noundef i32 @_ZN3zmq15socket_poller_t3addEPNS_13socket_base_tEPvs(ptr nocapture noundef nonnull align 8 dereferenceable(56) %this, ptr noundef %socket_, ptr noundef %user_data_, i16 noundef signext %events_) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  %_items = getelementptr inbounds %"class.zmq::socket_poller_t", ptr %this, i64 0, i32 2
+  %_items = getelementptr inbounds i8, ptr %this, i64 16
   %0 = load ptr, ptr %_items, align 8
-  %_M_finish.i = getelementptr inbounds %"class.zmq::socket_poller_t", ptr %this, i64 0, i32 2, i32 0, i32 0, i32 0, i32 1
+  %_M_finish.i = getelementptr inbounds i8, ptr %this, i64 24
   %1 = load ptr, ptr %_M_finish.i, align 8
   %cmp.i.not3.i = icmp eq ptr %0, %1
   br i1 %cmp.i.not3.i, label %_ZL8find_if2IN9__gnu_cxx17__normal_iteratorIPN3zmq15socket_poller_t6item_tESt6vectorIS4_SaIS4_EEEEPNS2_13socket_base_tEPFbRKS4_PKSA_EET_SI_SI_RKT0_T1_.exit, label %for.body.i
@@ -412,7 +407,7 @@ for.body.i:                                       ; preds = %entry, %for.inc.i
   br i1 %cmp.i1.i, label %_ZL8find_if2IN9__gnu_cxx17__normal_iteratorIPN3zmq15socket_poller_t6item_tESt6vectorIS4_SaIS4_EEEEPNS2_13socket_base_tEPFbRKS4_PKSA_EET_SI_SI_RKT0_T1_.exit, label %for.inc.i
 
 for.inc.i:                                        ; preds = %for.body.i
-  %incdec.ptr.i.i = getelementptr inbounds %"struct.zmq::socket_poller_t::item_t", ptr %b_.sroa.0.04.i, i64 1
+  %incdec.ptr.i.i = getelementptr inbounds i8, ptr %b_.sroa.0.04.i, i64 32
   %cmp.i.not.i = icmp eq ptr %incdec.ptr.i.i, %1
   br i1 %cmp.i.not.i, label %if.end, label %for.body.i, !llvm.loop !9
 
@@ -431,7 +426,7 @@ if.end:                                           ; preds = %for.inc.i, %_ZL8fin
   br i1 %call.i, label %if.then17, label %if.end34
 
 if.then17:                                        ; preds = %if.end
-  %_signaler = getelementptr inbounds %"class.zmq::socket_poller_t", ptr %this, i64 0, i32 1
+  %_signaler = getelementptr inbounds i8, ptr %this, i64 8
   %3 = load ptr, ptr %_signaler, align 8
   %cmp = icmp eq ptr %3, null
   br i1 %cmp, label %if.then18, label %if.end32
@@ -485,7 +480,7 @@ if.end32:                                         ; preds = %if.end24, %if.then1
 
 if.end34:                                         ; preds = %if.end32, %if.end
   %6 = load ptr, ptr %_M_finish.i, align 8
-  %_M_end_of_storage.i = getelementptr inbounds %"class.zmq::socket_poller_t", ptr %this, i64 0, i32 2, i32 0, i32 0, i32 0, i32 2
+  %_M_end_of_storage.i = getelementptr inbounds i8, ptr %this, i64 32
   %7 = load ptr, ptr %_M_end_of_storage.i, align 8
   %cmp.not.i = icmp eq ptr %6, %7
   br i1 %cmp.not.i, label %if.else.i, label %if.then.i
@@ -501,7 +496,7 @@ if.then.i:                                        ; preds = %if.end34
   %item.sroa.615.0..sroa_idx = getelementptr inbounds i8, ptr %6, i64 28
   store i32 -1, ptr %item.sroa.615.0..sroa_idx, align 4
   %8 = load ptr, ptr %_M_finish.i, align 8
-  %incdec.ptr.i = getelementptr inbounds %"struct.zmq::socket_poller_t::item_t", ptr %8, i64 1
+  %incdec.ptr.i = getelementptr inbounds i8, ptr %8, i64 32
   store ptr %incdec.ptr.i, ptr %_M_finish.i, align 8
   br label %try.cont
 
@@ -556,7 +551,7 @@ if.then.i.i.i.i.i.i:                              ; preds = %_ZNSt12_Vector_base
 
 _ZNSt6vectorIN3zmq15socket_poller_t6item_tESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit17.i.i: ; preds = %if.then.i.i.i.i.i.i, %_ZNSt12_Vector_baseIN3zmq15socket_poller_t6item_tESaIS2_EE11_M_allocateEm.exit.i.i
   %add.ptr.i.i.i.i.i.i = getelementptr inbounds i8, ptr %cond.i10.i.i, i64 %sub.ptr.sub.i.i.i.i
-  %incdec.ptr.i.i6 = getelementptr inbounds %"struct.zmq::socket_poller_t::item_t", ptr %add.ptr.i.i.i.i.i.i, i64 1
+  %incdec.ptr.i.i6 = getelementptr inbounds i8, ptr %add.ptr.i.i.i.i.i.i, i64 32
   %tobool.not.i.i.i = icmp eq ptr %9, null
   br i1 %tobool.not.i.i.i, label %_ZNSt6vectorIN3zmq15socket_poller_t6item_tESaIS2_EE17_M_realloc_insertIJRKS2_EEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_.exit.i, label %if.then.i18.i.i
 
@@ -588,7 +583,7 @@ catch:                                            ; preds = %lpad36
   br label %return
 
 try.cont:                                         ; preds = %_ZNSt6vectorIN3zmq15socket_poller_t6item_tESaIS2_EE17_M_realloc_insertIJRKS2_EEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_.exit.i, %if.then.i
-  %_need_rebuild = getelementptr inbounds %"class.zmq::socket_poller_t", ptr %this, i64 0, i32 3
+  %_need_rebuild = getelementptr inbounds i8, ptr %this, i64 40
   store i8 1, ptr %_need_rebuild, align 8
   br label %return
 
@@ -621,9 +616,9 @@ declare void @__cxa_end_catch() local_unnamed_addr
 ; Function Attrs: mustprogress uwtable
 define noundef i32 @_ZN3zmq15socket_poller_t6add_fdEiPvs(ptr nocapture noundef nonnull align 8 dereferenceable(56) %this, i32 noundef %fd_, ptr noundef %user_data_, i16 noundef signext %events_) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  %_items = getelementptr inbounds %"class.zmq::socket_poller_t", ptr %this, i64 0, i32 2
+  %_items = getelementptr inbounds i8, ptr %this, i64 16
   %0 = load ptr, ptr %_items, align 8
-  %_M_finish.i = getelementptr inbounds %"class.zmq::socket_poller_t", ptr %this, i64 0, i32 2, i32 0, i32 0, i32 0, i32 1
+  %_M_finish.i = getelementptr inbounds i8, ptr %this, i64 24
   %1 = load ptr, ptr %_M_finish.i, align 8
   %cmp.i.not3.i = icmp eq ptr %0, %1
   br i1 %cmp.i.not3.i, label %_ZL8find_if2IN9__gnu_cxx17__normal_iteratorIPN3zmq15socket_poller_t6item_tESt6vectorIS4_SaIS4_EEEEiPFbRKS4_iEET_SE_SE_RKT0_T1_.exit, label %for.body.i
@@ -632,14 +627,14 @@ for.body.i:                                       ; preds = %entry, %for.inc.i
   %b_.sroa.0.04.i = phi ptr [ %incdec.ptr.i.i, %for.inc.i ], [ %0, %entry ]
   %2 = load ptr, ptr %b_.sroa.0.04.i, align 8
   %tobool.not.i.i = icmp eq ptr %2, null
-  %fd.i.i = getelementptr inbounds %"struct.zmq::socket_poller_t::item_t", ptr %b_.sroa.0.04.i, i64 0, i32 1
+  %fd.i.i = getelementptr inbounds i8, ptr %b_.sroa.0.04.i, i64 8
   %3 = load i32, ptr %fd.i.i, align 8
   %cmp.i1.i = icmp eq i32 %3, %fd_
   %4 = select i1 %tobool.not.i.i, i1 %cmp.i1.i, i1 false
   br i1 %4, label %_ZL8find_if2IN9__gnu_cxx17__normal_iteratorIPN3zmq15socket_poller_t6item_tESt6vectorIS4_SaIS4_EEEEiPFbRKS4_iEET_SE_SE_RKT0_T1_.exit, label %for.inc.i
 
 for.inc.i:                                        ; preds = %for.body.i
-  %incdec.ptr.i.i = getelementptr inbounds %"struct.zmq::socket_poller_t::item_t", ptr %b_.sroa.0.04.i, i64 1
+  %incdec.ptr.i.i = getelementptr inbounds i8, ptr %b_.sroa.0.04.i, i64 32
   %cmp.i.not.i = icmp eq ptr %incdec.ptr.i.i, %1
   br i1 %cmp.i.not.i, label %if.end, label %for.body.i, !llvm.loop !10
 
@@ -654,7 +649,7 @@ if.then:                                          ; preds = %_ZL8find_if2IN9__gn
   br label %return
 
 if.end:                                           ; preds = %for.inc.i, %_ZL8find_if2IN9__gnu_cxx17__normal_iteratorIPN3zmq15socket_poller_t6item_tESt6vectorIS4_SaIS4_EEEEiPFbRKS4_iEET_SE_SE_RKT0_T1_.exit
-  %_M_end_of_storage.i = getelementptr inbounds %"class.zmq::socket_poller_t", ptr %this, i64 0, i32 2, i32 0, i32 0, i32 0, i32 2
+  %_M_end_of_storage.i = getelementptr inbounds i8, ptr %this, i64 32
   %5 = load ptr, ptr %_M_end_of_storage.i, align 8
   %cmp.not.i = icmp eq ptr %1, %5
   br i1 %cmp.not.i, label %if.else.i, label %if.then.i
@@ -670,7 +665,7 @@ if.then.i:                                        ; preds = %if.end
   %item.sroa.613.0..sroa_idx = getelementptr inbounds i8, ptr %1, i64 28
   store i32 -1, ptr %item.sroa.613.0..sroa_idx, align 4
   %6 = load ptr, ptr %_M_finish.i, align 8
-  %incdec.ptr.i = getelementptr inbounds %"struct.zmq::socket_poller_t::item_t", ptr %6, i64 1
+  %incdec.ptr.i = getelementptr inbounds i8, ptr %6, i64 32
   store ptr %incdec.ptr.i, ptr %_M_finish.i, align 8
   br label %try.cont
 
@@ -724,7 +719,7 @@ if.then.i.i.i.i.i.i:                              ; preds = %_ZNSt12_Vector_base
 
 _ZNSt6vectorIN3zmq15socket_poller_t6item_tESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit17.i.i: ; preds = %if.then.i.i.i.i.i.i, %_ZNSt12_Vector_baseIN3zmq15socket_poller_t6item_tESaIS2_EE11_M_allocateEm.exit.i.i
   %add.ptr.i.i.i.i.i.i = getelementptr inbounds i8, ptr %cond.i10.i.i, i64 %sub.ptr.sub.i.i.i.i
-  %incdec.ptr.i.i4 = getelementptr inbounds %"struct.zmq::socket_poller_t::item_t", ptr %add.ptr.i.i.i.i.i.i, i64 1
+  %incdec.ptr.i.i4 = getelementptr inbounds i8, ptr %add.ptr.i.i.i.i.i.i, i64 32
   %tobool.not.i.i.i = icmp eq ptr %0, null
   br i1 %tobool.not.i.i.i, label %_ZNSt6vectorIN3zmq15socket_poller_t6item_tESaIS2_EE17_M_realloc_insertIJRKS2_EEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_.exit.i, label %if.then.i18.i.i
 
@@ -756,7 +751,7 @@ catch:                                            ; preds = %lpad
   br label %return
 
 try.cont:                                         ; preds = %_ZNSt6vectorIN3zmq15socket_poller_t6item_tESaIS2_EE17_M_realloc_insertIJRKS2_EEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_.exit.i, %if.then.i
-  %_need_rebuild = getelementptr inbounds %"class.zmq::socket_poller_t", ptr %this, i64 0, i32 3
+  %_need_rebuild = getelementptr inbounds i8, ptr %this, i64 40
   store i8 1, ptr %_need_rebuild, align 8
   br label %return
 
@@ -771,9 +766,9 @@ eh.resume:                                        ; preds = %lpad
 ; Function Attrs: mustprogress nofree nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
 define noundef i32 @_ZN3zmq15socket_poller_t6modifyEPKNS_13socket_base_tEs(ptr nocapture noundef nonnull align 8 dereferenceable(56) %this, ptr noundef readnone %socket_, i16 noundef signext %events_) local_unnamed_addr #11 align 2 {
 entry:
-  %_items = getelementptr inbounds %"class.zmq::socket_poller_t", ptr %this, i64 0, i32 2
+  %_items = getelementptr inbounds i8, ptr %this, i64 16
   %0 = load ptr, ptr %_items, align 8
-  %_M_finish.i = getelementptr inbounds %"class.zmq::socket_poller_t", ptr %this, i64 0, i32 2, i32 0, i32 0, i32 0, i32 1
+  %_M_finish.i = getelementptr inbounds i8, ptr %this, i64 24
   %1 = load ptr, ptr %_M_finish.i, align 8
   %cmp.i.not3.i = icmp eq ptr %0, %1
   br i1 %cmp.i.not3.i, label %_ZL8find_if2IN9__gnu_cxx17__normal_iteratorIPN3zmq15socket_poller_t6item_tESt6vectorIS4_SaIS4_EEEEPKNS2_13socket_base_tEPFbRKS4_SC_EET_SH_SH_RKT0_T1_.exit, label %for.body.i
@@ -785,7 +780,7 @@ for.body.i:                                       ; preds = %entry, %for.inc.i
   br i1 %cmp.i1.i, label %_ZL8find_if2IN9__gnu_cxx17__normal_iteratorIPN3zmq15socket_poller_t6item_tESt6vectorIS4_SaIS4_EEEEPKNS2_13socket_base_tEPFbRKS4_SC_EET_SH_SH_RKT0_T1_.exit, label %for.inc.i
 
 for.inc.i:                                        ; preds = %for.body.i
-  %incdec.ptr.i.i = getelementptr inbounds %"struct.zmq::socket_poller_t::item_t", ptr %b_.sroa.0.04.i, i64 1
+  %incdec.ptr.i.i = getelementptr inbounds i8, ptr %b_.sroa.0.04.i, i64 32
   %cmp.i.not.i = icmp eq ptr %incdec.ptr.i.i, %1
   br i1 %cmp.i.not.i, label %if.then, label %for.body.i, !llvm.loop !11
 
@@ -800,9 +795,9 @@ if.then:                                          ; preds = %for.inc.i, %_ZL8fin
   br label %return
 
 if.end:                                           ; preds = %_ZL8find_if2IN9__gnu_cxx17__normal_iteratorIPN3zmq15socket_poller_t6item_tESt6vectorIS4_SaIS4_EEEEPKNS2_13socket_base_tEPFbRKS4_SC_EET_SH_SH_RKT0_T1_.exit
-  %events = getelementptr inbounds %"struct.zmq::socket_poller_t::item_t", ptr %b_.sroa.0.0.lcssa.i, i64 0, i32 3
+  %events = getelementptr inbounds i8, ptr %b_.sroa.0.0.lcssa.i, i64 24
   store i16 %events_, ptr %events, align 8
-  %_need_rebuild = getelementptr inbounds %"class.zmq::socket_poller_t", ptr %this, i64 0, i32 3
+  %_need_rebuild = getelementptr inbounds i8, ptr %this, i64 40
   store i8 1, ptr %_need_rebuild, align 8
   br label %return
 
@@ -814,9 +809,9 @@ return:                                           ; preds = %if.end, %if.then
 ; Function Attrs: mustprogress nofree nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
 define noundef i32 @_ZN3zmq15socket_poller_t9modify_fdEis(ptr nocapture noundef nonnull align 8 dereferenceable(56) %this, i32 noundef %fd_, i16 noundef signext %events_) local_unnamed_addr #11 align 2 {
 entry:
-  %_items = getelementptr inbounds %"class.zmq::socket_poller_t", ptr %this, i64 0, i32 2
+  %_items = getelementptr inbounds i8, ptr %this, i64 16
   %0 = load ptr, ptr %_items, align 8
-  %_M_finish.i = getelementptr inbounds %"class.zmq::socket_poller_t", ptr %this, i64 0, i32 2, i32 0, i32 0, i32 0, i32 1
+  %_M_finish.i = getelementptr inbounds i8, ptr %this, i64 24
   %1 = load ptr, ptr %_M_finish.i, align 8
   %cmp.i.not3.i = icmp eq ptr %0, %1
   br i1 %cmp.i.not3.i, label %_ZL8find_if2IN9__gnu_cxx17__normal_iteratorIPN3zmq15socket_poller_t6item_tESt6vectorIS4_SaIS4_EEEEiPFbRKS4_iEET_SE_SE_RKT0_T1_.exit, label %for.body.i
@@ -825,14 +820,14 @@ for.body.i:                                       ; preds = %entry, %for.inc.i
   %b_.sroa.0.04.i = phi ptr [ %incdec.ptr.i.i, %for.inc.i ], [ %0, %entry ]
   %2 = load ptr, ptr %b_.sroa.0.04.i, align 8
   %tobool.not.i.i = icmp eq ptr %2, null
-  %fd.i.i = getelementptr inbounds %"struct.zmq::socket_poller_t::item_t", ptr %b_.sroa.0.04.i, i64 0, i32 1
+  %fd.i.i = getelementptr inbounds i8, ptr %b_.sroa.0.04.i, i64 8
   %3 = load i32, ptr %fd.i.i, align 8
   %cmp.i1.i = icmp eq i32 %3, %fd_
   %4 = select i1 %tobool.not.i.i, i1 %cmp.i1.i, i1 false
   br i1 %4, label %_ZL8find_if2IN9__gnu_cxx17__normal_iteratorIPN3zmq15socket_poller_t6item_tESt6vectorIS4_SaIS4_EEEEiPFbRKS4_iEET_SE_SE_RKT0_T1_.exit, label %for.inc.i
 
 for.inc.i:                                        ; preds = %for.body.i
-  %incdec.ptr.i.i = getelementptr inbounds %"struct.zmq::socket_poller_t::item_t", ptr %b_.sroa.0.04.i, i64 1
+  %incdec.ptr.i.i = getelementptr inbounds i8, ptr %b_.sroa.0.04.i, i64 32
   %cmp.i.not.i = icmp eq ptr %incdec.ptr.i.i, %1
   br i1 %cmp.i.not.i, label %if.then, label %for.body.i, !llvm.loop !10
 
@@ -847,9 +842,9 @@ if.then:                                          ; preds = %for.inc.i, %_ZL8fin
   br label %return
 
 if.end:                                           ; preds = %_ZL8find_if2IN9__gnu_cxx17__normal_iteratorIPN3zmq15socket_poller_t6item_tESt6vectorIS4_SaIS4_EEEEiPFbRKS4_iEET_SE_SE_RKT0_T1_.exit
-  %events = getelementptr inbounds %"struct.zmq::socket_poller_t::item_t", ptr %b_.sroa.0.0.lcssa.i, i64 0, i32 3
+  %events = getelementptr inbounds i8, ptr %b_.sroa.0.0.lcssa.i, i64 24
   store i16 %events_, ptr %events, align 8
-  %_need_rebuild = getelementptr inbounds %"class.zmq::socket_poller_t", ptr %this, i64 0, i32 3
+  %_need_rebuild = getelementptr inbounds i8, ptr %this, i64 40
   store i8 1, ptr %_need_rebuild, align 8
   br label %return
 
@@ -861,9 +856,9 @@ return:                                           ; preds = %if.end, %if.then
 ; Function Attrs: mustprogress uwtable
 define noundef i32 @_ZN3zmq15socket_poller_t6removeEPNS_13socket_base_tE(ptr nocapture noundef nonnull align 8 dereferenceable(56) %this, ptr noundef %socket_) local_unnamed_addr #0 align 2 {
 entry:
-  %_items = getelementptr inbounds %"class.zmq::socket_poller_t", ptr %this, i64 0, i32 2
+  %_items = getelementptr inbounds i8, ptr %this, i64 16
   %0 = load ptr, ptr %_items, align 8
-  %_M_finish.i = getelementptr inbounds %"class.zmq::socket_poller_t", ptr %this, i64 0, i32 2, i32 0, i32 0, i32 0, i32 1
+  %_M_finish.i = getelementptr inbounds i8, ptr %this, i64 24
   %1 = load ptr, ptr %_M_finish.i, align 8
   %cmp.i.not3.i = icmp eq ptr %0, %1
   br i1 %cmp.i.not3.i, label %_ZL8find_if2IN9__gnu_cxx17__normal_iteratorIPN3zmq15socket_poller_t6item_tESt6vectorIS4_SaIS4_EEEEPNS2_13socket_base_tEPFbRKS4_PKSA_EET_SI_SI_RKT0_T1_.exit, label %for.body.i
@@ -875,7 +870,7 @@ for.body.i:                                       ; preds = %entry, %for.inc.i
   br i1 %cmp.i1.i, label %_ZL8find_if2IN9__gnu_cxx17__normal_iteratorIPN3zmq15socket_poller_t6item_tESt6vectorIS4_SaIS4_EEEEPNS2_13socket_base_tEPFbRKS4_PKSA_EET_SI_SI_RKT0_T1_.exit, label %for.inc.i
 
 for.inc.i:                                        ; preds = %for.body.i
-  %incdec.ptr.i.i = getelementptr inbounds %"struct.zmq::socket_poller_t::item_t", ptr %b_.sroa.0.04.i, i64 1
+  %incdec.ptr.i.i = getelementptr inbounds i8, ptr %b_.sroa.0.04.i, i64 32
   %cmp.i.not.i = icmp eq ptr %incdec.ptr.i.i, %1
   br i1 %cmp.i.not.i, label %if.then, label %for.body.i, !llvm.loop !9
 
@@ -894,7 +889,7 @@ if.end:                                           ; preds = %_ZL8find_if2IN9__gn
   %sub.ptr.rhs.cast.i.i = ptrtoint ptr %0 to i64
   %sub.ptr.sub.i.i = sub i64 %sub.ptr.lhs.cast.i.i, %sub.ptr.rhs.cast.i.i
   %add.ptr.i.i = getelementptr inbounds i8, ptr %0, i64 %sub.ptr.sub.i.i
-  %add.ptr.i.i.i = getelementptr inbounds %"struct.zmq::socket_poller_t::item_t", ptr %add.ptr.i.i, i64 1
+  %add.ptr.i.i.i = getelementptr inbounds i8, ptr %add.ptr.i.i, i64 32
   %cmp.i.not.i.i = icmp eq ptr %add.ptr.i.i.i, %1
   br i1 %cmp.i.not.i.i, label %_ZNSt6vectorIN3zmq15socket_poller_t6item_tESaIS2_EE5eraseEN9__gnu_cxx17__normal_iteratorIPKS2_S4_EE.exit, label %_ZSt4moveIN9__gnu_cxx17__normal_iteratorIPN3zmq15socket_poller_t6item_tESt6vectorIS4_SaIS4_EEEES9_ET0_T_SB_SA_.exit.i.i
 
@@ -908,15 +903,15 @@ _ZSt4moveIN9__gnu_cxx17__normal_iteratorIPN3zmq15socket_poller_t6item_tESt6vecto
 
 _ZNSt6vectorIN3zmq15socket_poller_t6item_tESaIS2_EE5eraseEN9__gnu_cxx17__normal_iteratorIPKS2_S4_EE.exit: ; preds = %if.end, %_ZSt4moveIN9__gnu_cxx17__normal_iteratorIPN3zmq15socket_poller_t6item_tESt6vectorIS4_SaIS4_EEEES9_ET0_T_SB_SA_.exit.i.i
   %3 = phi ptr [ %.pre.i.i, %_ZSt4moveIN9__gnu_cxx17__normal_iteratorIPN3zmq15socket_poller_t6item_tESt6vectorIS4_SaIS4_EEEES9_ET0_T_SB_SA_.exit.i.i ], [ %1, %if.end ]
-  %incdec.ptr.i.i2 = getelementptr inbounds %"struct.zmq::socket_poller_t::item_t", ptr %3, i64 -1
+  %incdec.ptr.i.i2 = getelementptr inbounds i8, ptr %3, i64 -32
   store ptr %incdec.ptr.i.i2, ptr %_M_finish.i, align 8
-  %_need_rebuild = getelementptr inbounds %"class.zmq::socket_poller_t", ptr %this, i64 0, i32 3
+  %_need_rebuild = getelementptr inbounds i8, ptr %this, i64 40
   store i8 1, ptr %_need_rebuild, align 8
   %call.i = tail call noundef zeroext i1 @_ZNK3zmq13socket_base_t14is_thread_safeEv(ptr noundef nonnull align 8 dereferenceable(1825) %socket_)
   br i1 %call.i, label %if.then21, label %return
 
 if.then21:                                        ; preds = %_ZNSt6vectorIN3zmq15socket_poller_t6item_tESaIS2_EE5eraseEN9__gnu_cxx17__normal_iteratorIPKS2_S4_EE.exit
-  %_signaler = getelementptr inbounds %"class.zmq::socket_poller_t", ptr %this, i64 0, i32 1
+  %_signaler = getelementptr inbounds i8, ptr %this, i64 8
   %4 = load ptr, ptr %_signaler, align 8
   tail call void @_ZN3zmq13socket_base_t15remove_signalerEPNS_10signaler_tE(ptr noundef nonnull align 8 dereferenceable(1825) %socket_, ptr noundef %4)
   br label %return
@@ -929,9 +924,9 @@ return:                                           ; preds = %_ZNSt6vectorIN3zmq1
 ; Function Attrs: mustprogress nofree nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
 define noundef i32 @_ZN3zmq15socket_poller_t9remove_fdEi(ptr nocapture noundef nonnull align 8 dereferenceable(56) %this, i32 noundef %fd_) local_unnamed_addr #11 align 2 {
 entry:
-  %_items = getelementptr inbounds %"class.zmq::socket_poller_t", ptr %this, i64 0, i32 2
+  %_items = getelementptr inbounds i8, ptr %this, i64 16
   %0 = load ptr, ptr %_items, align 8
-  %_M_finish.i = getelementptr inbounds %"class.zmq::socket_poller_t", ptr %this, i64 0, i32 2, i32 0, i32 0, i32 0, i32 1
+  %_M_finish.i = getelementptr inbounds i8, ptr %this, i64 24
   %1 = load ptr, ptr %_M_finish.i, align 8
   %cmp.i.not3.i = icmp eq ptr %0, %1
   br i1 %cmp.i.not3.i, label %_ZL8find_if2IN9__gnu_cxx17__normal_iteratorIPN3zmq15socket_poller_t6item_tESt6vectorIS4_SaIS4_EEEEiPFbRKS4_iEET_SE_SE_RKT0_T1_.exit, label %for.body.i
@@ -940,14 +935,14 @@ for.body.i:                                       ; preds = %entry, %for.inc.i
   %b_.sroa.0.04.i = phi ptr [ %incdec.ptr.i.i, %for.inc.i ], [ %0, %entry ]
   %2 = load ptr, ptr %b_.sroa.0.04.i, align 8
   %tobool.not.i.i = icmp eq ptr %2, null
-  %fd.i.i = getelementptr inbounds %"struct.zmq::socket_poller_t::item_t", ptr %b_.sroa.0.04.i, i64 0, i32 1
+  %fd.i.i = getelementptr inbounds i8, ptr %b_.sroa.0.04.i, i64 8
   %3 = load i32, ptr %fd.i.i, align 8
   %cmp.i1.i = icmp eq i32 %3, %fd_
   %4 = select i1 %tobool.not.i.i, i1 %cmp.i1.i, i1 false
   br i1 %4, label %_ZL8find_if2IN9__gnu_cxx17__normal_iteratorIPN3zmq15socket_poller_t6item_tESt6vectorIS4_SaIS4_EEEEiPFbRKS4_iEET_SE_SE_RKT0_T1_.exit, label %for.inc.i
 
 for.inc.i:                                        ; preds = %for.body.i
-  %incdec.ptr.i.i = getelementptr inbounds %"struct.zmq::socket_poller_t::item_t", ptr %b_.sroa.0.04.i, i64 1
+  %incdec.ptr.i.i = getelementptr inbounds i8, ptr %b_.sroa.0.04.i, i64 32
   %cmp.i.not.i = icmp eq ptr %incdec.ptr.i.i, %1
   br i1 %cmp.i.not.i, label %if.then, label %for.body.i, !llvm.loop !10
 
@@ -966,7 +961,7 @@ if.end:                                           ; preds = %_ZL8find_if2IN9__gn
   %sub.ptr.rhs.cast.i.i = ptrtoint ptr %0 to i64
   %sub.ptr.sub.i.i = sub i64 %sub.ptr.lhs.cast.i.i, %sub.ptr.rhs.cast.i.i
   %add.ptr.i.i = getelementptr inbounds i8, ptr %0, i64 %sub.ptr.sub.i.i
-  %add.ptr.i.i.i = getelementptr inbounds %"struct.zmq::socket_poller_t::item_t", ptr %add.ptr.i.i, i64 1
+  %add.ptr.i.i.i = getelementptr inbounds i8, ptr %add.ptr.i.i, i64 32
   %cmp.i.not.i.i = icmp eq ptr %add.ptr.i.i.i, %1
   br i1 %cmp.i.not.i.i, label %_ZNSt6vectorIN3zmq15socket_poller_t6item_tESaIS2_EE5eraseEN9__gnu_cxx17__normal_iteratorIPKS2_S4_EE.exit, label %_ZSt4moveIN9__gnu_cxx17__normal_iteratorIPN3zmq15socket_poller_t6item_tESt6vectorIS4_SaIS4_EEEES9_ET0_T_SB_SA_.exit.i.i
 
@@ -980,9 +975,9 @@ _ZSt4moveIN9__gnu_cxx17__normal_iteratorIPN3zmq15socket_poller_t6item_tESt6vecto
 
 _ZNSt6vectorIN3zmq15socket_poller_t6item_tESaIS2_EE5eraseEN9__gnu_cxx17__normal_iteratorIPKS2_S4_EE.exit: ; preds = %if.end, %_ZSt4moveIN9__gnu_cxx17__normal_iteratorIPN3zmq15socket_poller_t6item_tESt6vectorIS4_SaIS4_EEEES9_ET0_T_SB_SA_.exit.i.i
   %5 = phi ptr [ %.pre.i.i, %_ZSt4moveIN9__gnu_cxx17__normal_iteratorIPN3zmq15socket_poller_t6item_tESt6vectorIS4_SaIS4_EEEES9_ET0_T_SB_SA_.exit.i.i ], [ %1, %if.end ]
-  %incdec.ptr.i.i2 = getelementptr inbounds %"struct.zmq::socket_poller_t::item_t", ptr %5, i64 -1
+  %incdec.ptr.i.i2 = getelementptr inbounds i8, ptr %5, i64 -32
   store ptr %incdec.ptr.i.i2, ptr %_M_finish.i, align 8
-  %_need_rebuild = getelementptr inbounds %"class.zmq::socket_poller_t", ptr %this, i64 0, i32 3
+  %_need_rebuild = getelementptr inbounds i8, ptr %this, i64 40
   store i8 1, ptr %_need_rebuild, align 8
   br label %return
 
@@ -1019,11 +1014,11 @@ for.body:                                         ; preds = %for.body.preheader,
   %indvars.iv = phi i64 [ %0, %for.body.preheader ], [ %indvars.iv.next, %for.body ]
   %arrayidx = getelementptr inbounds %struct.zmq_poller_event_t, ptr %events_, i64 %indvars.iv
   store ptr null, ptr %arrayidx, align 8
-  %fd = getelementptr inbounds %struct.zmq_poller_event_t, ptr %events_, i64 %indvars.iv, i32 1
+  %fd = getelementptr inbounds i8, ptr %arrayidx, i64 8
   store i32 -1, ptr %fd, align 8
-  %user_data = getelementptr inbounds %struct.zmq_poller_event_t, ptr %events_, i64 %indvars.iv, i32 2
+  %user_data = getelementptr inbounds i8, ptr %arrayidx, i64 16
   store ptr null, ptr %user_data, align 8
-  %events = getelementptr inbounds %struct.zmq_poller_event_t, ptr %events_, i64 %indvars.iv, i32 3
+  %events = getelementptr inbounds i8, ptr %arrayidx, i64 24
   store i16 0, ptr %events, align 8
   %indvars.iv.next = add nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
@@ -1038,9 +1033,9 @@ define noundef i32 @_ZN3zmq15socket_poller_t12check_eventsEP18zmq_poller_event_t
 entry:
   %events_size = alloca i64, align 8
   %events = alloca i32, align 4
-  %_items = getelementptr inbounds %"class.zmq::socket_poller_t", ptr %this, i64 0, i32 2
+  %_items = getelementptr inbounds i8, ptr %this, i64 16
   %0 = load ptr, ptr %_items, align 8
-  %_M_finish.i = getelementptr inbounds %"class.zmq::socket_poller_t", ptr %this, i64 0, i32 2, i32 0, i32 0, i32 0, i32 1
+  %_M_finish.i = getelementptr inbounds i8, ptr %this, i64 24
   %1 = load ptr, ptr %_M_finish.i, align 8
   %cmp.i39 = icmp ne ptr %0, %1
   %cmp40 = icmp sgt i32 %n_events_, 0
@@ -1048,7 +1043,7 @@ entry:
   br i1 %2, label %for.body.lr.ph, label %return
 
 for.body.lr.ph:                                   ; preds = %entry
-  %_pollfds = getelementptr inbounds %"class.zmq::socket_poller_t", ptr %this, i64 0, i32 6
+  %_pollfds = getelementptr inbounds i8, ptr %this, i64 48
   br label %for.body
 
 for.body:                                         ; preds = %for.body.lr.ph, %for.inc
@@ -1065,7 +1060,7 @@ if.then:                                          ; preds = %for.body
   br i1 %cmp10, label %return, label %if.end
 
 if.end:                                           ; preds = %if.then
-  %events13 = getelementptr inbounds %"struct.zmq::socket_poller_t::item_t", ptr %it.sroa.0.041, i64 0, i32 3
+  %events13 = getelementptr inbounds i8, ptr %it.sroa.0.041, i64 24
   %4 = load i16, ptr %events13, align 8
   %conv = sext i16 %4 to i32
   %5 = load i32, ptr %events, align 4
@@ -1078,11 +1073,11 @@ if.then15:                                        ; preds = %if.end
   %idxprom = sext i32 %found.042 to i64
   %arrayidx = getelementptr inbounds %struct.zmq_poller_event_t, ptr %events_, i64 %idxprom
   store ptr %6, ptr %arrayidx, align 8
-  %fd = getelementptr inbounds %struct.zmq_poller_event_t, ptr %events_, i64 %idxprom, i32 1
+  %fd = getelementptr inbounds i8, ptr %arrayidx, i64 8
   store i32 -1, ptr %fd, align 8
-  %user_data = getelementptr inbounds %"struct.zmq::socket_poller_t::item_t", ptr %it.sroa.0.041, i64 0, i32 2
+  %user_data = getelementptr inbounds i8, ptr %it.sroa.0.041, i64 16
   %7 = load ptr, ptr %user_data, align 8
-  %user_data24 = getelementptr inbounds %struct.zmq_poller_event_t, ptr %events_, i64 %idxprom, i32 2
+  %user_data24 = getelementptr inbounds i8, ptr %arrayidx, i64 16
   store ptr %7, ptr %user_data24, align 8
   %8 = load i16, ptr %events13, align 8
   %9 = trunc i32 %5 to i16
@@ -1090,13 +1085,13 @@ if.then15:                                        ; preds = %if.end
   br label %for.inc.sink.split
 
 if.else:                                          ; preds = %for.body
-  %events35 = getelementptr inbounds %"struct.zmq::socket_poller_t::item_t", ptr %it.sroa.0.041, i64 0, i32 3
+  %events35 = getelementptr inbounds i8, ptr %it.sroa.0.041, i64 24
   %10 = load i16, ptr %events35, align 8
   %tobool36.not = icmp eq i16 %10, 0
   br i1 %tobool36.not, label %for.inc, label %do.body
 
 do.body:                                          ; preds = %if.else
-  %pollfd_index = getelementptr inbounds %"struct.zmq::socket_poller_t::item_t", ptr %it.sroa.0.041, i64 0, i32 4
+  %pollfd_index = getelementptr inbounds i8, ptr %it.sroa.0.041, i64 28
   %11 = load i32, ptr %pollfd_index, align 4
   %cmp39 = icmp slt i32 %11, 0
   br i1 %cmp39, label %if.then41, label %do.end
@@ -1133,31 +1128,31 @@ if.then83:                                        ; preds = %do.end
   %idxprom84 = sext i32 %found.042 to i64
   %arrayidx85 = getelementptr inbounds %struct.zmq_poller_event_t, ptr %events_, i64 %idxprom84
   store ptr null, ptr %arrayidx85, align 8
-  %fd88 = getelementptr inbounds %"struct.zmq::socket_poller_t::item_t", ptr %it.sroa.0.041, i64 0, i32 1
+  %fd88 = getelementptr inbounds i8, ptr %it.sroa.0.041, i64 8
   %22 = load i32, ptr %fd88, align 8
-  %fd91 = getelementptr inbounds %struct.zmq_poller_event_t, ptr %events_, i64 %idxprom84, i32 1
+  %fd91 = getelementptr inbounds i8, ptr %arrayidx85, i64 8
   store i32 %22, ptr %fd91, align 8
-  %user_data93 = getelementptr inbounds %"struct.zmq::socket_poller_t::item_t", ptr %it.sroa.0.041, i64 0, i32 2
+  %user_data93 = getelementptr inbounds i8, ptr %it.sroa.0.041, i64 16
   %23 = load ptr, ptr %user_data93, align 8
-  %user_data96 = getelementptr inbounds %struct.zmq_poller_event_t, ptr %events_, i64 %idxprom84, i32 2
+  %user_data96 = getelementptr inbounds i8, ptr %arrayidx85, i64 16
   store ptr %23, ptr %user_data96, align 8
   br label %for.inc.sink.split
 
 for.inc.sink.split:                               ; preds = %if.then83, %if.then15
-  %idxprom.sink = phi i64 [ %idxprom, %if.then15 ], [ %idxprom84, %if.then83 ]
+  %24 = phi i64 [ %idxprom, %if.then15 ], [ %idxprom84, %if.then83 ]
   %conv29.sink = phi i16 [ %conv29, %if.then15 ], [ %events50.3, %if.then83 ]
-  %events32 = getelementptr inbounds %struct.zmq_poller_event_t, ptr %events_, i64 %idxprom.sink, i32 3
+  %events32 = getelementptr inbounds %struct.zmq_poller_event_t, ptr %events_, i64 %24, i32 3
   store i16 %conv29.sink, ptr %events32, align 8
   %inc = add nsw i32 %found.042, 1
   br label %for.inc
 
 for.inc:                                          ; preds = %for.inc.sink.split, %if.end, %do.end, %if.else
   %found.1 = phi i32 [ %found.042, %if.end ], [ %found.042, %do.end ], [ %found.042, %if.else ], [ %inc, %for.inc.sink.split ]
-  %incdec.ptr.i = getelementptr inbounds %"struct.zmq::socket_poller_t::item_t", ptr %it.sroa.0.041, i64 1
+  %incdec.ptr.i = getelementptr inbounds i8, ptr %it.sroa.0.041, i64 32
   %cmp.i = icmp ne ptr %incdec.ptr.i, %1
   %cmp = icmp slt i32 %found.1, %n_events_
-  %24 = select i1 %cmp.i, i1 %cmp, i1 false
-  br i1 %24, label %for.body, label %return, !llvm.loop !13
+  %25 = select i1 %cmp.i, i1 %cmp, i1 false
+  br i1 %25, label %for.body, label %return, !llvm.loop !13
 
 return:                                           ; preds = %if.then, %for.inc, %entry
   %retval.0 = phi i32 [ 0, %entry ], [ %found.1, %for.inc ], [ -1, %if.then ]
@@ -1215,9 +1210,9 @@ declare noundef i64 @_ZN3zmq7clock_t6now_msEv(ptr noundef nonnull align 8 derefe
 define noundef i32 @_ZN3zmq15socket_poller_t4waitEP18zmq_poller_event_til(ptr nocapture noundef nonnull align 8 dereferenceable(56) %this, ptr nocapture noundef writeonly %events_, i32 noundef %n_events_, i64 noundef %timeout_) local_unnamed_addr #0 align 2 {
 entry:
   %clock = alloca %"class.zmq::clock_t", align 8
-  %_items = getelementptr inbounds %"class.zmq::socket_poller_t", ptr %this, i64 0, i32 2
+  %_items = getelementptr inbounds i8, ptr %this, i64 16
   %0 = load ptr, ptr %_items, align 8
-  %_M_finish.i.i = getelementptr inbounds %"class.zmq::socket_poller_t", ptr %this, i64 0, i32 2, i32 0, i32 0, i32 0, i32 1
+  %_M_finish.i.i = getelementptr inbounds i8, ptr %this, i64 24
   %1 = load ptr, ptr %_M_finish.i.i, align 8
   %cmp.i.i = icmp eq ptr %0, %1
   %cmp = icmp slt i64 %timeout_, 0
@@ -1230,7 +1225,7 @@ if.then:                                          ; preds = %entry
   br label %return
 
 if.end:                                           ; preds = %entry
-  %_need_rebuild = getelementptr inbounds %"class.zmq::socket_poller_t", ptr %this, i64 0, i32 3
+  %_need_rebuild = getelementptr inbounds i8, ptr %this, i64 40
   %2 = load i8, ptr %_need_rebuild, align 8
   %3 = and i8 %2, 1
   %tobool.not = icmp eq i8 %3, 0
@@ -1242,7 +1237,7 @@ if.then3:                                         ; preds = %if.end
   br i1 %cmp5, label %return, label %if.end8
 
 if.end8:                                          ; preds = %if.then3, %if.end
-  %_pollset_size = getelementptr inbounds %"class.zmq::socket_poller_t", ptr %this, i64 0, i32 5
+  %_pollset_size = getelementptr inbounds i8, ptr %this, i64 44
   %4 = load i32, ptr %_pollset_size, align 4
   %cmp9 = icmp eq i32 %4, 0
   br i1 %cmp9, label %if.then10, label %if.end20
@@ -1268,9 +1263,9 @@ if.end18:                                         ; preds = %if.end14
 
 if.end20:                                         ; preds = %if.end8
   call void @_ZN3zmq7clock_tC1Ev(ptr noundef nonnull align 8 dereferenceable(16) %clock)
-  %_pollfds = getelementptr inbounds %"class.zmq::socket_poller_t", ptr %this, i64 0, i32 6
-  %_use_signaler = getelementptr inbounds %"class.zmq::socket_poller_t", ptr %this, i64 0, i32 4
-  %_signaler = getelementptr inbounds %"class.zmq::socket_poller_t", ptr %this, i64 0, i32 1
+  %_pollfds = getelementptr inbounds i8, ptr %this, i64 48
+  %_use_signaler = getelementptr inbounds i8, ptr %this, i64 41
+  %_signaler = getelementptr inbounds i8, ptr %this, i64 8
   %cmp.i13 = icmp eq i64 %timeout_, 0
   br label %while.body
 
@@ -1327,7 +1322,7 @@ do.end:                                           ; preds = %do.body, %if.then43
 
 land.lhs.true50:                                  ; preds = %do.end
   %15 = load ptr, ptr %_pollfds, align 8
-  %revents = getelementptr inbounds %struct.pollfd, ptr %15, i64 0, i32 2
+  %revents = getelementptr inbounds i8, ptr %15, i64 6
   %16 = load i16, ptr %revents, align 2
   %17 = and i16 %16, 1
   %tobool53.not = icmp eq i16 %17, 0
@@ -1358,11 +1353,11 @@ for.body.i:                                       ; preds = %for.body.i, %for.bo
   %indvars.iv.i = phi i64 [ %19, %for.body.preheader.i ], [ %indvars.iv.next.i, %for.body.i ]
   %arrayidx.i = getelementptr inbounds %struct.zmq_poller_event_t, ptr %events_, i64 %indvars.iv.i
   store ptr null, ptr %arrayidx.i, align 8
-  %fd.i = getelementptr inbounds %struct.zmq_poller_event_t, ptr %events_, i64 %indvars.iv.i, i32 1
+  %fd.i = getelementptr inbounds i8, ptr %arrayidx.i, i64 8
   store i32 -1, ptr %fd.i, align 8
-  %user_data.i = getelementptr inbounds %struct.zmq_poller_event_t, ptr %events_, i64 %indvars.iv.i, i32 2
+  %user_data.i = getelementptr inbounds i8, ptr %arrayidx.i, i64 16
   store ptr null, ptr %user_data.i, align 8
-  %events.i = getelementptr inbounds %struct.zmq_poller_event_t, ptr %events_, i64 %indvars.iv.i, i32 3
+  %events.i = getelementptr inbounds i8, ptr %arrayidx.i, i64 24
   store i16 0, ptr %events.i, align 8
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %wide.trip.count.i

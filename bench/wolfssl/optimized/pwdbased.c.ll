@@ -268,9 +268,9 @@ for.body.i.i.us:                                  ; preds = %if.end62.us, %for.b
   %tpb.sroa.0.0.i.us = phi ptr [ %incdec.ptr1.i.i.us, %for.body.i.i.us ], [ %output.addr.045.us, %if.end62.us ]
   %tpm.sroa.0.0.i.us = phi ptr [ %incdec.ptr.i.i.us, %for.body.i.i.us ], [ %buffer, %if.end62.us ]
   %i.03.i.i.us = phi i32 [ %inc.i.i.us, %for.body.i.i.us ], [ 0, %if.end62.us ]
-  %incdec.ptr.i.i.us = getelementptr inbounds i64, ptr %tpm.sroa.0.0.i.us, i64 1
+  %incdec.ptr.i.i.us = getelementptr inbounds i8, ptr %tpm.sroa.0.0.i.us, i64 8
   %5 = load i64, ptr %tpm.sroa.0.0.i.us, align 8
-  %incdec.ptr1.i.i.us = getelementptr inbounds i64, ptr %tpb.sroa.0.0.i.us, i64 1
+  %incdec.ptr1.i.i.us = getelementptr inbounds i8, ptr %tpb.sroa.0.0.i.us, i64 8
   %6 = load i64, ptr %tpb.sroa.0.0.i.us, align 8
   %xor.i.i.us = xor i64 %6, %5
   store i64 %xor.i.i.us, ptr %tpb.sroa.0.0.i.us, align 8

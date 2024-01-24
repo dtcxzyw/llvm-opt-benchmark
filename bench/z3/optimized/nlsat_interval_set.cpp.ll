@@ -7,11 +7,6 @@ target triple = "x86_64-unknown-linux-gnu"
 %"struct.nlsat::interval" = type { i8, %"class.sat::literal", ptr, %"class.algebraic_numbers::anum", %"class.algebraic_numbers::anum" }
 %"class.sat::literal" = type { i32 }
 %"class.algebraic_numbers::anum" = type { ptr }
-%"class.nlsat::interval_set_manager" = type <{ ptr, ptr, %class.svector, %class.random_gen, [4 x i8] }>
-%class.svector = type { %class.vector }
-%class.vector = type { ptr }
-%class.random_gen = type { i32 }
-%"class.nlsat::interval_set" = type { i32, i32, [0 x %"struct.nlsat::interval"] }
 %class.sbuffer = type { %class.buffer }
 %class.buffer = type { ptr, i32, i32, [128 x %"union.std::aligned_storage<32, 8>::type"] }
 %"union.std::aligned_storage<32, 8>::type" = type { [32 x i8] }
@@ -19,20 +14,9 @@ target triple = "x86_64-unknown-linux-gnu"
 %"struct.std::__cxx11::basic_string<char>::_Alloc_hider" = type { ptr }
 %union.anon = type { i64, [8 x i8] }
 %"class.std::allocator" = type { i8 }
-%class.default_exception = type { %class.z3_exception, %"class.std::__cxx11::basic_string" }
-%class.z3_exception = type { ptr }
 %class._scoped_numeral = type { ptr, %class.mpq }
 %class.mpq = type { %class.mpz, %class.mpz }
 %class.mpz = type { i32, i8, ptr }
-%class.mpq_manager = type { %class.mpz_manager, %class.mpz, %class.mpz, %class.mpz, %class.mpz, %class.mpq, %class.mpq }
-%class.mpz_manager = type { %class.small_object_allocator, %"class.std::recursive_mutex", %class.mpn_manager, i32, %class.mpz, %class.mpz }
-%class.small_object_allocator = type { [32 x ptr], [32 x ptr], i64 }
-%"class.std::recursive_mutex" = type { %"class.std::__recursive_mutex_base" }
-%"class.std::__recursive_mutex_base" = type { %union.pthread_mutex_t }
-%union.pthread_mutex_t = type { %struct.__pthread_mutex_s }
-%struct.__pthread_mutex_s = type { i32, i32, i32, i32, i32, i16, i16, %struct.__pthread_internal_list }
-%struct.__pthread_internal_list = type { ptr, ptr }
-%class.mpn_manager = type { i8 }
 %struct._Guard = type { ptr }
 
 $_ZN5nlsat9push_backERN17algebraic_numbers7managerER7sbufferINS_8intervalELj128EEbbRKNS0_4anumEbbS9_N3sat7literalE = comdat any
@@ -100,14 +84,14 @@ if.else:                                          ; preds = %entry
   %tobool4.not = icmp eq i8 %bf.clear2, 0
   %.str.5..str.4 = select i1 %tobool4.not, ptr @.str.5, ptr @.str.4
   %call8 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc(ptr noundef nonnull align 8 dereferenceable(8) %out, ptr noundef nonnull %.str.5..str.4)
-  %m_lower = getelementptr inbounds %"struct.nlsat::interval", ptr %curr, i64 0, i32 3
+  %m_lower = getelementptr inbounds i8, ptr %curr, i64 16
   %call9 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZNK17algebraic_numbers7manager15display_decimalERSoRKNS_4anumEj(ptr noundef nonnull align 8 dereferenceable(17) %am, ptr noundef nonnull align 8 dereferenceable(8) %out, ptr noundef nonnull align 8 dereferenceable(8) %m_lower, i32 noundef 10)
   br label %if.end11
 
 if.end11:                                         ; preds = %entry, %if.else
   %.str.6.sink = phi ptr [ @.str.6, %if.else ], [ @.str, %entry ]
   %call10 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc(ptr noundef nonnull align 8 dereferenceable(8) %out, ptr noundef nonnull %.str.6.sink)
-  %m_justification = getelementptr inbounds %"struct.nlsat::interval", ptr %curr, i64 0, i32 1
+  %m_justification = getelementptr inbounds i8, ptr %curr, i64 4
   %1 = load i32, ptr %m_justification, align 4
   %2 = and i32 %1, 1
   %tobool.i.not = icmp eq i32 %2, 0
@@ -129,7 +113,7 @@ if.end15:                                         ; preds = %if.then13, %if.end1
   br i1 %tobool25.not, label %if.else28, label %if.end40
 
 if.else28:                                        ; preds = %if.end15
-  %m_upper = getelementptr inbounds %"struct.nlsat::interval", ptr %curr, i64 0, i32 4
+  %m_upper = getelementptr inbounds i8, ptr %curr, i64 24
   %call29 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZNK17algebraic_numbers7manager15display_decimalERSoRKNS_4anumEj(ptr noundef nonnull align 8 dereferenceable(17) %am, ptr noundef nonnull align 8 dereferenceable(8) %out, ptr noundef nonnull align 8 dereferenceable(8) %m_upper, i32 noundef 10)
   %bf.load30 = load i8, ptr %curr, align 8
   %5 = and i8 %bf.load30, 2
@@ -158,8 +142,8 @@ entry:
   br i1 %or.cond, label %if.then, label %if.end
 
 if.then:                                          ; preds = %entry
-  %m_lower = getelementptr inbounds %"struct.nlsat::interval", ptr %i, i64 0, i32 3
-  %m_upper = getelementptr inbounds %"struct.nlsat::interval", ptr %i, i64 0, i32 4
+  %m_lower = getelementptr inbounds i8, ptr %i, i64 16
+  %m_upper = getelementptr inbounds i8, ptr %i, i64 24
   %call = tail call noundef i32 @_ZN17algebraic_numbers7manager7compareERKNS_4anumES3_(ptr noundef nonnull align 8 dereferenceable(17) %am, ptr noundef nonnull align 8 dereferenceable(8) %m_lower, ptr noundef nonnull align 8 dereferenceable(8) %m_upper)
   br label %if.end
 
@@ -172,8 +156,8 @@ declare noundef i32 @_ZN17algebraic_numbers7manager7compareERKNS_4anumES3_(ptr n
 ; Function Attrs: mustprogress uwtable
 define hidden noundef zeroext i1 @_ZN5nlsat16check_no_overlapERN17algebraic_numbers7managerERKNS_8intervalES5_(ptr noundef nonnull align 8 dereferenceable(17) %am, ptr noundef nonnull align 8 dereferenceable(32) %curr, ptr noundef nonnull align 8 dereferenceable(32) %next) local_unnamed_addr #3 {
 entry:
-  %m_upper = getelementptr inbounds %"struct.nlsat::interval", ptr %curr, i64 0, i32 4
-  %m_lower = getelementptr inbounds %"struct.nlsat::interval", ptr %next, i64 0, i32 3
+  %m_upper = getelementptr inbounds i8, ptr %curr, i64 24
+  %m_lower = getelementptr inbounds i8, ptr %next, i64 16
   %call = tail call noundef i32 @_ZN17algebraic_numbers7manager7compareERKNS_4anumES3_(ptr noundef nonnull align 8 dereferenceable(17) %am, ptr noundef nonnull align 8 dereferenceable(8) %m_upper, ptr noundef nonnull align 8 dereferenceable(8) %m_lower)
   ret i1 true
 }
@@ -188,11 +172,11 @@ entry:
 define hidden void @_ZN5nlsat20interval_set_managerC2ERN17algebraic_numbers7managerER22small_object_allocator(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(28) %this, ptr noundef nonnull align 8 dereferenceable(17) %m, ptr noundef nonnull align 8 dereferenceable(520) %a) unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store ptr %m, ptr %this, align 8
-  %m_allocator = getelementptr inbounds %"class.nlsat::interval_set_manager", ptr %this, i64 0, i32 1
+  %m_allocator = getelementptr inbounds i8, ptr %this, i64 8
   store ptr %a, ptr %m_allocator, align 8
-  %m_already_visited = getelementptr inbounds %"class.nlsat::interval_set_manager", ptr %this, i64 0, i32 2
+  %m_already_visited = getelementptr inbounds i8, ptr %this, i64 16
   store ptr null, ptr %m_already_visited, align 8
-  %m_rand = getelementptr inbounds %"class.nlsat::interval_set_manager", ptr %this, i64 0, i32 3
+  %m_rand = getelementptr inbounds i8, ptr %this, i64 24
   store i32 0, ptr %m_rand, align 8
   ret void
 }
@@ -202,13 +186,13 @@ declare i32 @__gxx_personality_v0(...)
 ; Function Attrs: mustprogress nounwind uwtable
 define hidden void @_ZN5nlsat20interval_set_managerD2Ev(ptr nocapture noundef nonnull readonly align 8 dereferenceable(28) %this) unnamed_addr #6 align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  %m_already_visited = getelementptr inbounds %"class.nlsat::interval_set_manager", ptr %this, i64 0, i32 2
+  %m_already_visited = getelementptr inbounds i8, ptr %this, i64 16
   %0 = load ptr, ptr %m_already_visited, align 8
   %tobool.not.i.i.i = icmp eq ptr %0, null
   br i1 %tobool.not.i.i.i, label %_ZN7svectorIcjED2Ev.exit, label %if.then.i.i.i
 
 if.then.i.i.i:                                    ; preds = %entry
-  %add.ptr.i.i.i.i = getelementptr inbounds i32, ptr %0, i64 -2
+  %add.ptr.i.i.i.i = getelementptr inbounds i8, ptr %0, i64 -8
   invoke void @_ZN6memory10deallocateEPv(ptr noundef nonnull %add.ptr.i.i.i.i)
           to label %_ZN7svectorIcjED2Ev.exit unwind label %terminate.lpad.i.i
 
@@ -234,26 +218,28 @@ if.end:                                           ; preds = %entry
   %mul.i = shl i32 %0, 5
   %add.i = or disjoint i32 %mul.i, 8
   %cmp29.not = icmp eq i32 %0, 0
-  br i1 %cmp29.not, label %for.end, label %for.body.preheader
+  br i1 %cmp29.not, label %for.end, label %for.body.lr.ph
 
-for.body.preheader:                               ; preds = %if.end
+for.body.lr.ph:                                   ; preds = %if.end
+  %m_intervals = getelementptr inbounds i8, ptr %s, i64 8
   %wide.trip.count = zext i32 %0 to i64
   br label %for.body
 
-for.body:                                         ; preds = %for.body.preheader, %for.body
-  %indvars.iv = phi i64 [ 0, %for.body.preheader ], [ %indvars.iv.next, %for.body ]
+for.body:                                         ; preds = %for.body.lr.ph, %for.body
+  %indvars.iv = phi i64 [ 0, %for.body.lr.ph ], [ %indvars.iv.next, %for.body ]
   %1 = load ptr, ptr %this, align 8
-  %m_lower = getelementptr inbounds %"class.nlsat::interval_set", ptr %s, i64 0, i32 2, i64 %indvars.iv, i32 3
+  %arrayidx = getelementptr inbounds [0 x %"struct.nlsat::interval"], ptr %m_intervals, i64 0, i64 %indvars.iv
+  %m_lower = getelementptr inbounds i8, ptr %arrayidx, i64 16
   tail call void @_ZN17algebraic_numbers7manager3delERNS_4anumE(ptr noundef nonnull align 8 dereferenceable(17) %1, ptr noundef nonnull align 8 dereferenceable(8) %m_lower)
   %2 = load ptr, ptr %this, align 8
-  %m_upper = getelementptr inbounds %"class.nlsat::interval_set", ptr %s, i64 0, i32 2, i64 %indvars.iv, i32 4
+  %m_upper = getelementptr inbounds i8, ptr %arrayidx, i64 24
   tail call void @_ZN17algebraic_numbers7manager3delERNS_4anumE(ptr noundef nonnull align 8 dereferenceable(17) %2, ptr noundef nonnull align 8 dereferenceable(8) %m_upper)
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
   br i1 %exitcond.not, label %for.end, label %for.body, !llvm.loop !4
 
 for.end:                                          ; preds = %for.body, %if.end
-  %m_allocator = getelementptr inbounds %"class.nlsat::interval_set_manager", ptr %this, i64 0, i32 1
+  %m_allocator = getelementptr inbounds i8, ptr %this, i64 8
   %3 = load ptr, ptr %m_allocator, align 8
   %conv = zext i32 %add.i to i64
   tail call void @_ZN22small_object_allocator10deallocateEmPv(ptr noundef nonnull align 8 dereferenceable(520) %3, i64 noundef %conv, ptr noundef nonnull %s)
@@ -270,7 +256,7 @@ declare void @_ZN22small_object_allocator10deallocateEmPv(ptr noundef nonnull al
 ; Function Attrs: mustprogress uwtable
 define hidden void @_ZN5nlsat20interval_set_manager7dec_refEPNS_12interval_setE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(28) %this, ptr noundef %s) local_unnamed_addr #3 align 2 {
 entry:
-  %m_ref_count = getelementptr inbounds %"class.nlsat::interval_set", ptr %s, i64 0, i32 1
+  %m_ref_count = getelementptr inbounds i8, ptr %s, i64 4
   %bf.load = load i32, ptr %m_ref_count, align 4
   %dec = add i32 %bf.load, 2147483647
   %bf.value = and i32 %dec, 2147483647
@@ -285,26 +271,28 @@ if.end.i:                                         ; preds = %entry
   %mul.i.i = shl i32 %0, 5
   %add.i.i = or disjoint i32 %mul.i.i, 8
   %cmp29.not.i = icmp eq i32 %0, 0
-  br i1 %cmp29.not.i, label %_ZN5nlsat20interval_set_manager3delEPNS_12interval_setE.exit, label %for.body.preheader.i
+  br i1 %cmp29.not.i, label %_ZN5nlsat20interval_set_manager3delEPNS_12interval_setE.exit, label %for.body.lr.ph.i
 
-for.body.preheader.i:                             ; preds = %if.end.i
+for.body.lr.ph.i:                                 ; preds = %if.end.i
+  %m_intervals.i = getelementptr inbounds i8, ptr %s, i64 8
   %wide.trip.count.i = zext i32 %0 to i64
   br label %for.body.i
 
-for.body.i:                                       ; preds = %for.body.i, %for.body.preheader.i
-  %indvars.iv.i = phi i64 [ 0, %for.body.preheader.i ], [ %indvars.iv.next.i, %for.body.i ]
+for.body.i:                                       ; preds = %for.body.i, %for.body.lr.ph.i
+  %indvars.iv.i = phi i64 [ 0, %for.body.lr.ph.i ], [ %indvars.iv.next.i, %for.body.i ]
   %1 = load ptr, ptr %this, align 8
-  %m_lower.i = getelementptr inbounds %"class.nlsat::interval_set", ptr %s, i64 0, i32 2, i64 %indvars.iv.i, i32 3
+  %arrayidx.i = getelementptr inbounds [0 x %"struct.nlsat::interval"], ptr %m_intervals.i, i64 0, i64 %indvars.iv.i
+  %m_lower.i = getelementptr inbounds i8, ptr %arrayidx.i, i64 16
   tail call void @_ZN17algebraic_numbers7manager3delERNS_4anumE(ptr noundef nonnull align 8 dereferenceable(17) %1, ptr noundef nonnull align 8 dereferenceable(8) %m_lower.i)
   %2 = load ptr, ptr %this, align 8
-  %m_upper.i = getelementptr inbounds %"class.nlsat::interval_set", ptr %s, i64 0, i32 2, i64 %indvars.iv.i, i32 4
+  %m_upper.i = getelementptr inbounds i8, ptr %arrayidx.i, i64 24
   tail call void @_ZN17algebraic_numbers7manager3delERNS_4anumE(ptr noundef nonnull align 8 dereferenceable(17) %2, ptr noundef nonnull align 8 dereferenceable(8) %m_upper.i)
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %wide.trip.count.i
   br i1 %exitcond.not.i, label %_ZN5nlsat20interval_set_manager3delEPNS_12interval_setE.exit, label %for.body.i, !llvm.loop !4
 
 _ZN5nlsat20interval_set_manager3delEPNS_12interval_setE.exit: ; preds = %for.body.i, %if.end.i
-  %m_allocator.i = getelementptr inbounds %"class.nlsat::interval_set_manager", ptr %this, i64 0, i32 1
+  %m_allocator.i = getelementptr inbounds i8, ptr %this, i64 8
   %3 = load ptr, ptr %m_allocator.i, align 8
   %conv.i = zext i32 %add.i.i to i64
   tail call void @_ZN22small_object_allocator10deallocateEmPv(ptr noundef nonnull align 8 dereferenceable(520) %3, i64 noundef %conv.i, ptr noundef nonnull %s)
@@ -317,7 +305,7 @@ if.end:                                           ; preds = %_ZN5nlsat20interval
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
 define hidden void @_ZN5nlsat20interval_set_manager7inc_refEPNS_12interval_setE(ptr nocapture noundef nonnull readnone align 8 dereferenceable(28) %this, ptr nocapture noundef %s) local_unnamed_addr #7 align 2 {
 entry:
-  %m_ref_count = getelementptr inbounds %"class.nlsat::interval_set", ptr %s, i64 0, i32 1
+  %m_ref_count = getelementptr inbounds i8, ptr %s, i64 4
   %bf.load = load i32, ptr %m_ref_count, align 4
   %inc = add i32 %bf.load, 1
   %bf.value = and i32 %inc, 2147483647
@@ -330,18 +318,18 @@ entry:
 ; Function Attrs: mustprogress uwtable
 define hidden noundef ptr @_ZN5nlsat20interval_set_manager2mkEbbRKN17algebraic_numbers4anumEbbS4_N3sat7literalEPKNS_6clauseE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(28) %this, i1 noundef zeroext %lower_open, i1 noundef zeroext %lower_inf, ptr noundef nonnull align 8 dereferenceable(8) %lower, i1 noundef zeroext %upper_open, i1 noundef zeroext %upper_inf, ptr noundef nonnull align 8 dereferenceable(8) %upper, i32 %justification.coerce, ptr noundef %cls) local_unnamed_addr #3 align 2 {
 entry:
-  %m_allocator = getelementptr inbounds %"class.nlsat::interval_set_manager", ptr %this, i64 0, i32 1
+  %m_allocator = getelementptr inbounds i8, ptr %this, i64 8
   %0 = load ptr, ptr %m_allocator, align 8
   %call5 = tail call noundef ptr @_ZN22small_object_allocator8allocateEm(ptr noundef nonnull align 8 dereferenceable(520) %0, i64 noundef 40)
   store i64 1, ptr %call5, align 8
-  %m_ref_count = getelementptr inbounds %"class.nlsat::interval_set", ptr %call5, i64 0, i32 1
+  %m_ref_count = getelementptr inbounds i8, ptr %call5, i64 4
   %1 = and i1 %lower_inf, %upper_inf
   %bf.shl = select i1 %1, i32 -2147483648, i32 0
   store i32 %bf.shl, ptr %m_ref_count, align 4
-  %m_intervals = getelementptr inbounds %"class.nlsat::interval_set", ptr %call5, i64 0, i32 2
+  %m_intervals = getelementptr inbounds i8, ptr %call5, i64 8
   store i64 0, ptr %m_intervals, align 8
-  %m_justification.i = getelementptr inbounds %"class.nlsat::interval_set", ptr %call5, i64 1, i32 1
-  %m_lower.i = getelementptr inbounds %"class.nlsat::interval_set", ptr %call5, i64 3
+  %m_justification.i = getelementptr inbounds i8, ptr %call5, i64 12
+  %m_lower.i = getelementptr inbounds i8, ptr %call5, i64 24
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %m_lower.i, i8 0, i64 16, i1 false)
   %2 = zext i1 %lower_open to i8
   %bf.shl21 = select i1 %lower_inf, i8 4, i8 0
@@ -352,7 +340,7 @@ entry:
   %bf.set37 = or disjoint i8 %bf.set30, %bf.shl35
   store i8 %bf.set37, ptr %m_intervals, align 8
   store i32 %justification.coerce, ptr %m_justification.i, align 4
-  %m_clause = getelementptr inbounds %"class.nlsat::interval_set", ptr %call5, i64 2
+  %m_clause = getelementptr inbounds i8, ptr %call5, i64 16
   store ptr %cls, ptr %m_clause, align 8
   br i1 %lower_inf, label %if.end, label %if.then
 
@@ -366,7 +354,7 @@ if.end:                                           ; preds = %if.then, %entry
 
 if.then40:                                        ; preds = %if.end
   %4 = load ptr, ptr %this, align 8
-  %m_upper = getelementptr inbounds %"class.nlsat::interval_set", ptr %call5, i64 4
+  %m_upper = getelementptr inbounds i8, ptr %call5, i64 32
   tail call void @_ZN17algebraic_numbers7manager3setERNS_4anumERKS1_(ptr noundef nonnull align 8 dereferenceable(17) %4, ptr noundef nonnull align 8 dereferenceable(8) %m_upper, ptr noundef nonnull align 8 dereferenceable(8) %upper)
   br label %if.end42
 
@@ -387,8 +375,8 @@ declare void @_ZN17algebraic_numbers7manager3setERNS_4anumERKS1_(ptr noundef non
 ; Function Attrs: mustprogress uwtable
 define hidden noundef zeroext i1 @_ZN5nlsat8adjacentERN17algebraic_numbers7managerERKNS_8intervalES5_(ptr noundef nonnull align 8 dereferenceable(17) %am, ptr noundef nonnull align 8 dereferenceable(32) %curr, ptr noundef nonnull align 8 dereferenceable(32) %next) local_unnamed_addr #3 {
 entry:
-  %m_upper = getelementptr inbounds %"struct.nlsat::interval", ptr %curr, i64 0, i32 4
-  %m_lower = getelementptr inbounds %"struct.nlsat::interval", ptr %next, i64 0, i32 3
+  %m_upper = getelementptr inbounds i8, ptr %curr, i64 24
+  %m_lower = getelementptr inbounds i8, ptr %next, i64 16
   %call = tail call noundef i32 @_ZN17algebraic_numbers7manager7compareERKNS_4anumES3_(ptr noundef nonnull align 8 dereferenceable(17) %am, ptr noundef nonnull align 8 dereferenceable(8) %m_upper, ptr noundef nonnull align 8 dereferenceable(8) %m_lower)
   %cmp.i = icmp eq i32 %call, 0
   br i1 %cmp.i, label %if.then, label %return
@@ -422,13 +410,13 @@ if.end:                                           ; preds = %entry
   br i1 %cmp3, label %return, label %if.end5
 
 if.end5:                                          ; preds = %if.end
-  %m_full = getelementptr inbounds %"class.nlsat::interval_set", ptr %s1, i64 0, i32 1
+  %m_full = getelementptr inbounds i8, ptr %s1, i64 4
   %bf.load = load i32, ptr %m_full, align 4
   %tobool.not = icmp sgt i32 %bf.load, -1
   br i1 %tobool.not, label %if.end7, label %return
 
 if.end7:                                          ; preds = %if.end5
-  %m_full8 = getelementptr inbounds %"class.nlsat::interval_set", ptr %s2, i64 0, i32 1
+  %m_full8 = getelementptr inbounds i8, ptr %s2, i64 4
   %bf.load9 = load i32, ptr %m_full8, align 4
   %tobool11.not = icmp sgt i32 %bf.load9, -1
   br i1 %tobool11.not, label %if.end13, label %return
@@ -437,40 +425,46 @@ if.end13:                                         ; preds = %if.end7
   %0 = getelementptr inbounds i8, ptr %result, i64 16
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(4112) %0, i8 0, i64 4096, i1 false)
   store ptr %0, ptr %result, align 8
-  %m_pos.i.i = getelementptr inbounds %class.buffer, ptr %result, i64 0, i32 1
+  %m_pos.i.i = getelementptr inbounds i8, ptr %result, i64 8
   store i32 0, ptr %m_pos.i.i, align 8
-  %m_capacity.i.i = getelementptr inbounds %class.buffer, ptr %result, i64 0, i32 2
+  %m_capacity.i.i = getelementptr inbounds i8, ptr %result, i64 12
   store i32 128, ptr %m_capacity.i.i, align 4
   %1 = load i32, ptr %s1, align 8
   %2 = load i32, ptr %s2, align 8
   %cmp15.not328.not = icmp eq i32 %1, 0
-  br i1 %cmp15.not328.not, label %while.cond17.preheader, label %if.end20
+  br i1 %cmp15.not328.not, label %while.cond17.preheader, label %if.end20.lr.ph
+
+if.end20.lr.ph:                                   ; preds = %if.end13
+  %m_intervals34 = getelementptr inbounds i8, ptr %s1, i64 8
+  %m_intervals37 = getelementptr inbounds i8, ptr %s2, i64 8
+  br label %if.end20
 
 while.cond17.preheader:                           ; preds = %if.end182, %if.end13
   %i2.0.lcssa = phi i32 [ 0, %if.end13 ], [ %i2.2, %if.end182 ]
   %cmp18331 = icmp ult i32 %i2.0.lcssa, %2
-  br i1 %cmp18331, label %while.body19.preheader, label %while.end183
+  br i1 %cmp18331, label %while.body19.lr.ph, label %while.end183
 
-while.body19.preheader:                           ; preds = %while.cond17.preheader
+while.body19.lr.ph:                               ; preds = %while.cond17.preheader
+  %m_intervals = getelementptr inbounds i8, ptr %s2, i64 8
   %3 = zext i32 %i2.0.lcssa to i64
   br label %while.body19
 
-while.body19:                                     ; preds = %while.body19.preheader, %invoke.cont
-  %indvars.iv350 = phi i64 [ %3, %while.body19.preheader ], [ %indvars.iv.next351, %invoke.cont ]
+while.body19:                                     ; preds = %while.body19.lr.ph, %invoke.cont
+  %indvars.iv350 = phi i64 [ %3, %while.body19.lr.ph ], [ %indvars.iv.next351, %invoke.cont ]
   %4 = load ptr, ptr %this, align 8
-  %arrayidx = getelementptr inbounds %"class.nlsat::interval_set", ptr %s2, i64 0, i32 2, i64 %indvars.iv350
+  %arrayidx = getelementptr inbounds [0 x %"struct.nlsat::interval"], ptr %m_intervals, i64 0, i64 %indvars.iv350
   %bf.load.i = load i8, ptr %arrayidx, align 8
   %bf.clear.i = and i8 %bf.load.i, 1
   %tobool.i = icmp ne i8 %bf.clear.i, 0
   %5 = and i8 %bf.load.i, 4
   %tobool4.i = icmp ne i8 %5, 0
-  %m_lower.i = getelementptr inbounds %"class.nlsat::interval_set", ptr %s2, i64 0, i32 2, i64 %indvars.iv350, i32 3
+  %m_lower.i = getelementptr inbounds i8, ptr %arrayidx, i64 16
   %6 = and i8 %bf.load.i, 2
   %tobool9.i = icmp ne i8 %6, 0
   %7 = and i8 %bf.load.i, 8
   %tobool14.i = icmp ne i8 %7, 0
-  %m_upper.i = getelementptr inbounds %"class.nlsat::interval_set", ptr %s2, i64 0, i32 2, i64 %indvars.iv350, i32 4
-  %m_justification.i = getelementptr inbounds %"class.nlsat::interval_set", ptr %s2, i64 0, i32 2, i64 %indvars.iv350, i32 1
+  %m_upper.i = getelementptr inbounds i8, ptr %arrayidx, i64 24
+  %m_justification.i = getelementptr inbounds i8, ptr %arrayidx, i64 4
   %agg.tmp.sroa.0.0.copyload.i = load i32, ptr %m_justification.i, align 4
   invoke void @_ZN5nlsat9push_backERN17algebraic_numbers7managerER7sbufferINS_8intervalELj128EEbbRKNS0_4anumEbbS9_N3sat7literalE(ptr noundef nonnull align 8 dereferenceable(17) %4, ptr noundef nonnull align 8 dereferenceable(4112) %result, i1 noundef zeroext %tobool.i, i1 noundef zeroext %tobool4.i, ptr noundef nonnull align 8 dereferenceable(8) %m_lower.i, i1 noundef zeroext %tobool9.i, i1 noundef zeroext %tobool14.i, ptr noundef nonnull align 8 dereferenceable(8) %m_upper.i, i32 %agg.tmp.sroa.0.0.copyload.i)
           to label %invoke.cont unwind label %lpad.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit
@@ -521,37 +515,37 @@ lpad:                                             ; preds = %lpad.loopexit.split
   call void @_ZN7sbufferIN5nlsat8intervalELj128EED2Ev(ptr noundef nonnull align 8 dereferenceable(4112) %result) #18
   resume { ptr, i32 } %lpad.phi
 
-if.end20:                                         ; preds = %if.end13, %if.end182
-  %i1.0330 = phi i32 [ %i1.2, %if.end182 ], [ 0, %if.end13 ]
-  %i2.0329 = phi i32 [ %i2.2, %if.end182 ], [ 0, %if.end13 ]
+if.end20:                                         ; preds = %if.end20.lr.ph, %if.end182
+  %i1.0330 = phi i32 [ 0, %if.end20.lr.ph ], [ %i1.2, %if.end182 ]
+  %i2.0329 = phi i32 [ 0, %if.end20.lr.ph ], [ %i2.2, %if.end182 ]
   %cmp21.not = icmp ult i32 %i2.0329, %2
   br i1 %cmp21.not, label %if.end33, label %while.cond23.preheader
 
 while.cond23.preheader:                           ; preds = %if.end20
   %cmp24333 = icmp ult i32 %i1.0330, %1
-  br i1 %cmp24333, label %while.body25.preheader, label %while.end183
+  br i1 %cmp24333, label %while.body25.lr.ph, label %while.end183
 
-while.body25.preheader:                           ; preds = %while.cond23.preheader
+while.body25.lr.ph:                               ; preds = %while.cond23.preheader
   %8 = zext i32 %i1.0330 to i64
   %wide.trip.count = zext i32 %1 to i64
   br label %while.body25
 
-while.body25:                                     ; preds = %while.body25.preheader, %invoke.cont30
-  %indvars.iv = phi i64 [ %8, %while.body25.preheader ], [ %indvars.iv.next, %invoke.cont30 ]
+while.body25:                                     ; preds = %while.body25.lr.ph, %invoke.cont30
+  %indvars.iv = phi i64 [ %8, %while.body25.lr.ph ], [ %indvars.iv.next, %invoke.cont30 ]
   %9 = load ptr, ptr %this, align 8
-  %arrayidx29 = getelementptr inbounds %"class.nlsat::interval_set", ptr %s1, i64 0, i32 2, i64 %indvars.iv
+  %arrayidx29 = getelementptr inbounds [0 x %"struct.nlsat::interval"], ptr %m_intervals34, i64 0, i64 %indvars.iv
   %bf.load.i119 = load i8, ptr %arrayidx29, align 8
   %bf.clear.i120 = and i8 %bf.load.i119, 1
   %tobool.i121 = icmp ne i8 %bf.clear.i120, 0
   %10 = and i8 %bf.load.i119, 4
   %tobool4.i122 = icmp ne i8 %10, 0
-  %m_lower.i123 = getelementptr inbounds %"class.nlsat::interval_set", ptr %s1, i64 0, i32 2, i64 %indvars.iv, i32 3
+  %m_lower.i123 = getelementptr inbounds i8, ptr %arrayidx29, i64 16
   %11 = and i8 %bf.load.i119, 2
   %tobool9.i124 = icmp ne i8 %11, 0
   %12 = and i8 %bf.load.i119, 8
   %tobool14.i125 = icmp ne i8 %12, 0
-  %m_upper.i126 = getelementptr inbounds %"class.nlsat::interval_set", ptr %s1, i64 0, i32 2, i64 %indvars.iv, i32 4
-  %m_justification.i127 = getelementptr inbounds %"class.nlsat::interval_set", ptr %s1, i64 0, i32 2, i64 %indvars.iv, i32 1
+  %m_upper.i126 = getelementptr inbounds i8, ptr %arrayidx29, i64 24
+  %m_justification.i127 = getelementptr inbounds i8, ptr %arrayidx29, i64 4
   %agg.tmp.sroa.0.0.copyload.i128 = load i32, ptr %m_justification.i127, align 4
   invoke void @_ZN5nlsat9push_backERN17algebraic_numbers7managerER7sbufferINS_8intervalELj128EEbbRKNS0_4anumEbbS9_N3sat7literalE(ptr noundef nonnull align 8 dereferenceable(17) %9, ptr noundef nonnull align 8 dereferenceable(4112) %result, i1 noundef zeroext %tobool.i121, i1 noundef zeroext %tobool4.i122, ptr noundef nonnull align 8 dereferenceable(8) %m_lower.i123, i1 noundef zeroext %tobool9.i124, i1 noundef zeroext %tobool14.i125, ptr noundef nonnull align 8 dereferenceable(8) %m_upper.i126, i32 %agg.tmp.sroa.0.0.copyload.i128)
           to label %invoke.cont30 unwind label %lpad.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit
@@ -563,9 +557,9 @@ invoke.cont30:                                    ; preds = %while.body25
 
 if.end33:                                         ; preds = %if.end20
   %idxprom35 = zext i32 %i1.0330 to i64
-  %arrayidx36 = getelementptr inbounds %"class.nlsat::interval_set", ptr %s1, i64 0, i32 2, i64 %idxprom35
+  %arrayidx36 = getelementptr inbounds [0 x %"struct.nlsat::interval"], ptr %m_intervals34, i64 0, i64 %idxprom35
   %idxprom38 = zext i32 %i2.0329 to i64
-  %arrayidx39 = getelementptr inbounds %"class.nlsat::interval_set", ptr %s2, i64 0, i32 2, i64 %idxprom38
+  %arrayidx39 = getelementptr inbounds [0 x %"struct.nlsat::interval"], ptr %m_intervals37, i64 0, i64 %idxprom38
   %13 = load ptr, ptr %this, align 8
   %bf.load.i130 = load i8, ptr %arrayidx36, align 8
   %14 = and i8 %bf.load.i130, 4
@@ -586,8 +580,8 @@ if.end12.i:                                       ; preds = %if.end33
   br i1 %tobool17.not.i, label %if.end19.i, label %invoke.cont41
 
 if.end19.i:                                       ; preds = %if.end12.i
-  %m_lower.i131 = getelementptr inbounds %"class.nlsat::interval_set", ptr %s1, i64 0, i32 2, i64 %idxprom35, i32 3
-  %m_lower20.i = getelementptr inbounds %"class.nlsat::interval_set", ptr %s2, i64 0, i32 2, i64 %idxprom38, i32 3
+  %m_lower.i131 = getelementptr inbounds i8, ptr %arrayidx36, i64 16
+  %m_lower20.i = getelementptr inbounds i8, ptr %arrayidx39, i64 16
   %call.i132 = invoke noundef i32 @_ZN17algebraic_numbers7manager7compareERKNS_4anumES3_(ptr noundef nonnull align 8 dereferenceable(17) %13, ptr noundef nonnull align 8 dereferenceable(8) %m_lower.i131, ptr noundef nonnull align 8 dereferenceable(8) %m_lower20.i)
           to label %call.i.noexc unwind label %lpad.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit
 
@@ -627,8 +621,8 @@ if.end12.i140:                                    ; preds = %invoke.cont41
   br i1 %tobool17.not.i136, label %if.end19.i141, label %invoke.cont43.thread
 
 if.end19.i141:                                    ; preds = %if.end12.i140
-  %m_upper.i142 = getelementptr inbounds %"class.nlsat::interval_set", ptr %s1, i64 0, i32 2, i64 %idxprom35, i32 4
-  %m_upper20.i = getelementptr inbounds %"class.nlsat::interval_set", ptr %s2, i64 0, i32 2, i64 %idxprom38, i32 4
+  %m_upper.i142 = getelementptr inbounds i8, ptr %arrayidx36, i64 24
+  %m_upper20.i = getelementptr inbounds i8, ptr %arrayidx39, i64 24
   %call.i149 = invoke noundef i32 @_ZN17algebraic_numbers7manager7compareERKNS_4anumES3_(ptr noundef nonnull align 8 dereferenceable(17) %18, ptr noundef nonnull align 8 dereferenceable(8) %m_upper.i142, ptr noundef nonnull align 8 dereferenceable(8) %m_upper20.i)
           to label %call.i.noexc148 unwind label %lpad.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit
 
@@ -675,13 +669,13 @@ if.then48:                                        ; preds = %invoke.cont43.threa
   %tobool.i152 = icmp ne i8 %bf.clear.i151, 0
   %22 = and i8 %bf.load.i150, 4
   %tobool4.i153 = icmp ne i8 %22, 0
-  %m_lower.i154 = getelementptr inbounds %"class.nlsat::interval_set", ptr %s1, i64 0, i32 2, i64 %idxprom35, i32 3
+  %m_lower.i154 = getelementptr inbounds i8, ptr %arrayidx36, i64 16
   %23 = and i8 %bf.load.i150, 2
   %tobool9.i155 = icmp ne i8 %23, 0
   %24 = and i8 %bf.load.i150, 8
   %tobool14.i156 = icmp ne i8 %24, 0
-  %m_upper.i157 = getelementptr inbounds %"class.nlsat::interval_set", ptr %s1, i64 0, i32 2, i64 %idxprom35, i32 4
-  %m_justification.i158 = getelementptr inbounds %"class.nlsat::interval_set", ptr %s1, i64 0, i32 2, i64 %idxprom35, i32 1
+  %m_upper.i157 = getelementptr inbounds i8, ptr %arrayidx36, i64 24
+  %m_justification.i158 = getelementptr inbounds i8, ptr %arrayidx36, i64 4
   %agg.tmp.sroa.0.0.copyload.i159 = load i32, ptr %m_justification.i158, align 4
   invoke void @_ZN5nlsat9push_backERN17algebraic_numbers7managerER7sbufferINS_8intervalELj128EEbbRKNS0_4anumEbbS9_N3sat7literalE(ptr noundef nonnull align 8 dereferenceable(17) %21, ptr noundef nonnull align 8 dereferenceable(4112) %result, i1 noundef zeroext %tobool.i152, i1 noundef zeroext %tobool4.i153, ptr noundef nonnull align 8 dereferenceable(8) %m_lower.i154, i1 noundef zeroext %tobool9.i155, i1 noundef zeroext %tobool14.i156, ptr noundef nonnull align 8 dereferenceable(8) %m_upper.i157, i32 %agg.tmp.sroa.0.0.copyload.i159)
           to label %invoke.cont50 unwind label %lpad.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit
@@ -718,8 +712,8 @@ lor.lhs.false.i:                                  ; preds = %if.else56
   br i1 %tobool5.not.i, label %if.end.i, label %if.else83
 
 if.end.i:                                         ; preds = %lor.lhs.false.i
-  %m_upper.i164 = getelementptr inbounds %"class.nlsat::interval_set", ptr %s1, i64 0, i32 2, i64 %idxprom35, i32 4
-  %m_lower.i165 = getelementptr inbounds %"class.nlsat::interval_set", ptr %s2, i64 0, i32 2, i64 %idxprom38, i32 3
+  %m_upper.i164 = getelementptr inbounds i8, ptr %arrayidx36, i64 24
+  %m_lower.i165 = getelementptr inbounds i8, ptr %arrayidx39, i64 16
   %call.i171 = invoke noundef i32 @_ZN17algebraic_numbers7manager7compareERKNS_4anumES3_(ptr noundef nonnull align 8 dereferenceable(17) %25, ptr noundef nonnull align 8 dereferenceable(8) %m_upper.i164, ptr noundef nonnull align 8 dereferenceable(8) %m_lower.i165)
           to label %call.i.noexc170 unwind label %lpad.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit
 
@@ -756,11 +750,11 @@ if.then61:                                        ; preds = %invoke.cont58.if.th
   %tobool.i174 = icmp ne i8 %bf.clear.i173, 0
   %30 = and i8 %bf.load.i172, 4
   %tobool4.i175 = icmp ne i8 %30, 0
-  %m_lower.i176 = getelementptr inbounds %"class.nlsat::interval_set", ptr %s1, i64 0, i32 2, i64 %idxprom35, i32 3
+  %m_lower.i176 = getelementptr inbounds i8, ptr %arrayidx36, i64 16
   %tobool9.i177 = icmp ne i8 %.pre-phi, 0
   %31 = and i8 %bf.load.i172, 8
   %tobool14.i178 = icmp ne i8 %31, 0
-  %m_justification.i180 = getelementptr inbounds %"class.nlsat::interval_set", ptr %s1, i64 0, i32 2, i64 %idxprom35, i32 1
+  %m_justification.i180 = getelementptr inbounds i8, ptr %arrayidx36, i64 4
   %agg.tmp.sroa.0.0.copyload.i181 = load i32, ptr %m_justification.i180, align 4
   invoke void @_ZN5nlsat9push_backERN17algebraic_numbers7managerER7sbufferINS_8intervalELj128EEbbRKNS0_4anumEbbS9_N3sat7literalE(ptr noundef nonnull align 8 dereferenceable(17) %29, ptr noundef nonnull align 8 dereferenceable(4112) %result, i1 noundef zeroext %tobool.i174, i1 noundef zeroext %tobool4.i175, ptr noundef nonnull align 8 dereferenceable(8) %m_lower.i176, i1 noundef zeroext %tobool9.i177, i1 noundef zeroext %tobool14.i178, ptr noundef nonnull align 8 dereferenceable(8) %m_upper.i164, i32 %agg.tmp.sroa.0.0.copyload.i181)
           to label %invoke.cont63 unwind label %lpad.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit
@@ -779,8 +773,8 @@ if.then69:                                        ; preds = %if.then67
   %tobool72 = icmp ne i8 %bf.clear, 0
   %33 = and i8 %bf.load9.i, 4
   %tobool77 = icmp ne i8 %33, 0
-  %m_lower = getelementptr inbounds %"class.nlsat::interval_set", ptr %s1, i64 0, i32 2, i64 %idxprom35, i32 3
-  %m_justification = getelementptr inbounds %"class.nlsat::interval_set", ptr %s1, i64 0, i32 2, i64 %idxprom35, i32 1
+  %m_lower = getelementptr inbounds i8, ptr %arrayidx36, i64 16
+  %m_justification = getelementptr inbounds i8, ptr %arrayidx36, i64 4
   %agg.tmp.sroa.0.0.copyload = load i32, ptr %m_justification, align 4
   invoke void @_ZN5nlsat9push_backERN17algebraic_numbers7managerER7sbufferINS_8intervalELj128EEbbRKNS0_4anumEbbS9_N3sat7literalE(ptr noundef nonnull align 8 dereferenceable(17) %32, ptr noundef nonnull align 8 dereferenceable(4112) %result, i1 noundef zeroext %tobool72, i1 noundef zeroext %tobool77, ptr noundef nonnull align 8 dereferenceable(8) %m_lower, i1 noundef zeroext true, i1 noundef zeroext false, ptr noundef nonnull align 8 dereferenceable(8) %m_upper.i164, i32 %agg.tmp.sroa.0.0.copyload)
           to label %invoke.cont78 unwind label %lpad.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit
@@ -808,12 +802,12 @@ if.else87:                                        ; preds = %if.else83
   %tobool92 = icmp ne i8 %bf.clear90, 0
   %35 = and i8 %bf.load89, 4
   %tobool97 = icmp ne i8 %35, 0
-  %m_lower98 = getelementptr inbounds %"class.nlsat::interval_set", ptr %s1, i64 0, i32 2, i64 %idxprom35, i32 3
+  %m_lower98 = getelementptr inbounds i8, ptr %arrayidx36, i64 16
   %bf.load99 = load i8, ptr %arrayidx39, align 8
   %bf.clear100 = and i8 %bf.load99, 1
   %tobool102.not = icmp eq i8 %bf.clear100, 0
-  %m_lower103 = getelementptr inbounds %"class.nlsat::interval_set", ptr %s2, i64 0, i32 2, i64 %idxprom38, i32 3
-  %m_justification105 = getelementptr inbounds %"class.nlsat::interval_set", ptr %s1, i64 0, i32 2, i64 %idxprom35, i32 1
+  %m_lower103 = getelementptr inbounds i8, ptr %arrayidx39, i64 16
+  %m_justification105 = getelementptr inbounds i8, ptr %arrayidx36, i64 4
   %agg.tmp104.sroa.0.0.copyload = load i32, ptr %m_justification105, align 4
   invoke void @_ZN5nlsat9push_backERN17algebraic_numbers7managerER7sbufferINS_8intervalELj128EEbbRKNS0_4anumEbbS9_N3sat7literalE(ptr noundef nonnull align 8 dereferenceable(17) %34, ptr noundef nonnull align 8 dereferenceable(4112) %result, i1 noundef zeroext %tobool92, i1 noundef zeroext %tobool97, ptr noundef nonnull align 8 dereferenceable(8) %m_lower98, i1 noundef zeroext %tobool102.not, i1 noundef zeroext false, ptr noundef nonnull align 8 dereferenceable(8) %m_lower103, i32 %agg.tmp104.sroa.0.0.copyload)
           to label %invoke.cont107 unwind label %lpad.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit
@@ -832,13 +826,13 @@ if.then116:                                       ; preds = %invoke.cont43.threa
   %tobool.i185 = icmp ne i8 %bf.clear.i184, 0
   %37 = and i8 %bf.load.i183, 4
   %tobool4.i186 = icmp ne i8 %37, 0
-  %m_lower.i187 = getelementptr inbounds %"class.nlsat::interval_set", ptr %s2, i64 0, i32 2, i64 %idxprom38, i32 3
+  %m_lower.i187 = getelementptr inbounds i8, ptr %arrayidx39, i64 16
   %38 = and i8 %bf.load.i183, 2
   %tobool9.i188 = icmp ne i8 %38, 0
   %39 = and i8 %bf.load.i183, 8
   %tobool14.i189 = icmp ne i8 %39, 0
-  %m_upper.i190 = getelementptr inbounds %"class.nlsat::interval_set", ptr %s2, i64 0, i32 2, i64 %idxprom38, i32 4
-  %m_justification.i191 = getelementptr inbounds %"class.nlsat::interval_set", ptr %s2, i64 0, i32 2, i64 %idxprom38, i32 1
+  %m_upper.i190 = getelementptr inbounds i8, ptr %arrayidx39, i64 24
+  %m_justification.i191 = getelementptr inbounds i8, ptr %arrayidx39, i64 4
   %agg.tmp.sroa.0.0.copyload.i192 = load i32, ptr %m_justification.i191, align 4
   invoke void @_ZN5nlsat9push_backERN17algebraic_numbers7managerER7sbufferINS_8intervalELj128EEbbRKNS0_4anumEbbS9_N3sat7literalE(ptr noundef nonnull align 8 dereferenceable(17) %36, ptr noundef nonnull align 8 dereferenceable(4112) %result, i1 noundef zeroext %tobool.i185, i1 noundef zeroext %tobool4.i186, ptr noundef nonnull align 8 dereferenceable(8) %m_lower.i187, i1 noundef zeroext %tobool9.i188, i1 noundef zeroext %tobool14.i189, ptr noundef nonnull align 8 dereferenceable(8) %m_upper.i190, i32 %agg.tmp.sroa.0.0.copyload.i192)
           to label %invoke.cont118 unwind label %lpad.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit
@@ -868,8 +862,8 @@ if.else125:                                       ; preds = %if.else121
   br i1 %or.cond396, label %if.end.i200, label %if.else155
 
 if.end.i200:                                      ; preds = %if.else125
-  %m_upper.i201 = getelementptr inbounds %"class.nlsat::interval_set", ptr %s2, i64 0, i32 2, i64 %idxprom38, i32 4
-  %m_lower.i202 = getelementptr inbounds %"class.nlsat::interval_set", ptr %s1, i64 0, i32 2, i64 %idxprom35, i32 3
+  %m_upper.i201 = getelementptr inbounds i8, ptr %arrayidx39, i64 24
+  %m_lower.i202 = getelementptr inbounds i8, ptr %arrayidx36, i64 16
   %call.i213 = invoke noundef i32 @_ZN17algebraic_numbers7manager7compareERKNS_4anumES3_(ptr noundef nonnull align 8 dereferenceable(17) %40, ptr noundef nonnull align 8 dereferenceable(8) %m_upper.i201, ptr noundef nonnull align 8 dereferenceable(8) %m_lower.i202)
           to label %call.i.noexc212 unwind label %lpad.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit
 
@@ -911,11 +905,11 @@ if.then130:                                       ; preds = %invoke.cont127.if.t
   %tobool.i217 = icmp ne i8 %bf.clear.i216, 0
   %45 = and i8 %bf.load.i215, 4
   %tobool4.i218 = icmp ne i8 %45, 0
-  %m_lower.i219 = getelementptr inbounds %"class.nlsat::interval_set", ptr %s2, i64 0, i32 2, i64 %idxprom38, i32 3
+  %m_lower.i219 = getelementptr inbounds i8, ptr %arrayidx39, i64 16
   %tobool9.i220 = icmp ne i8 %.pre-phi378, 0
   %46 = and i8 %bf.load.i215, 8
   %tobool14.i221 = icmp ne i8 %46, 0
-  %m_justification.i223 = getelementptr inbounds %"class.nlsat::interval_set", ptr %s2, i64 0, i32 2, i64 %idxprom38, i32 1
+  %m_justification.i223 = getelementptr inbounds i8, ptr %arrayidx39, i64 4
   %agg.tmp.sroa.0.0.copyload.i224 = load i32, ptr %m_justification.i223, align 4
   invoke void @_ZN5nlsat9push_backERN17algebraic_numbers7managerER7sbufferINS_8intervalELj128EEbbRKNS0_4anumEbbS9_N3sat7literalE(ptr noundef nonnull align 8 dereferenceable(17) %44, ptr noundef nonnull align 8 dereferenceable(4112) %result, i1 noundef zeroext %tobool.i217, i1 noundef zeroext %tobool4.i218, ptr noundef nonnull align 8 dereferenceable(8) %m_lower.i219, i1 noundef zeroext %tobool9.i220, i1 noundef zeroext %tobool14.i221, ptr noundef nonnull align 8 dereferenceable(8) %m_upper.i201, i32 %agg.tmp.sroa.0.0.copyload.i224)
           to label %invoke.cont132 unwind label %lpad.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit
@@ -930,8 +924,8 @@ if.then137:                                       ; preds = %land.lhs.true.i208
   %tobool142 = icmp ne i8 %bf.clear140, 0
   %48 = and i8 %bf.load9.i205, 4
   %tobool147 = icmp ne i8 %48, 0
-  %m_lower148 = getelementptr inbounds %"class.nlsat::interval_set", ptr %s2, i64 0, i32 2, i64 %idxprom38, i32 3
-  %m_justification151 = getelementptr inbounds %"class.nlsat::interval_set", ptr %s2, i64 0, i32 2, i64 %idxprom38, i32 1
+  %m_lower148 = getelementptr inbounds i8, ptr %arrayidx39, i64 16
+  %m_justification151 = getelementptr inbounds i8, ptr %arrayidx39, i64 4
   %agg.tmp150.sroa.0.0.copyload = load i32, ptr %m_justification151, align 4
   invoke void @_ZN5nlsat9push_backERN17algebraic_numbers7managerER7sbufferINS_8intervalELj128EEbbRKNS0_4anumEbbS9_N3sat7literalE(ptr noundef nonnull align 8 dereferenceable(17) %47, ptr noundef nonnull align 8 dereferenceable(4112) %result, i1 noundef zeroext %tobool142, i1 noundef zeroext %tobool147, ptr noundef nonnull align 8 dereferenceable(8) %m_lower148, i1 noundef zeroext true, i1 noundef zeroext false, ptr noundef nonnull align 8 dereferenceable(8) %m_upper.i201, i32 %agg.tmp150.sroa.0.0.copyload)
           to label %invoke.cont153 unwind label %lpad.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit
@@ -948,11 +942,11 @@ if.else155:                                       ; preds = %invoke.cont127.if.e
   %tobool160 = icmp ne i8 %bf.clear158, 0
   %50 = and i8 %bf.load157, 4
   %tobool165 = icmp ne i8 %50, 0
-  %m_lower166 = getelementptr inbounds %"class.nlsat::interval_set", ptr %s2, i64 0, i32 2, i64 %idxprom38, i32 3
+  %m_lower166 = getelementptr inbounds i8, ptr %arrayidx39, i64 16
   %bf.clear168 = and i8 %bf.load167, 1
   %tobool170.not = icmp eq i8 %bf.clear168, 0
-  %m_lower172 = getelementptr inbounds %"class.nlsat::interval_set", ptr %s1, i64 0, i32 2, i64 %idxprom35, i32 3
-  %m_justification174 = getelementptr inbounds %"class.nlsat::interval_set", ptr %s2, i64 0, i32 2, i64 %idxprom38, i32 1
+  %m_lower172 = getelementptr inbounds i8, ptr %arrayidx36, i64 16
+  %m_justification174 = getelementptr inbounds i8, ptr %arrayidx39, i64 4
   %agg.tmp173.sroa.0.0.copyload = load i32, ptr %m_justification174, align 4
   invoke void @_ZN5nlsat9push_backERN17algebraic_numbers7managerER7sbufferINS_8intervalELj128EEbbRKNS0_4anumEbbS9_N3sat7literalE(ptr noundef nonnull align 8 dereferenceable(17) %49, ptr noundef nonnull align 8 dereferenceable(4112) %result, i1 noundef zeroext %tobool160, i1 noundef zeroext %tobool165, ptr noundef nonnull align 8 dereferenceable(8) %m_lower166, i1 noundef zeroext %tobool170.not, i1 noundef zeroext false, ptr noundef nonnull align 8 dereferenceable(8) %m_lower172, i32 %agg.tmp173.sroa.0.0.copyload)
           to label %invoke.cont176 unwind label %lpad.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit
@@ -983,8 +977,8 @@ for.body:                                         ; preds = %for.body.preheader,
   %idxprom.i = zext i32 %j.0337 to i64
   %arrayidx.i = getelementptr inbounds %"struct.nlsat::interval", ptr %52, i64 %idxprom.i
   %arrayidx.i228 = getelementptr inbounds %"struct.nlsat::interval", ptr %52, i64 %indvars.iv354
-  %m_justification191 = getelementptr inbounds %"struct.nlsat::interval", ptr %52, i64 %idxprom.i, i32 1
-  %m_justification192 = getelementptr inbounds %"struct.nlsat::interval", ptr %52, i64 %indvars.iv354, i32 1
+  %m_justification191 = getelementptr inbounds i8, ptr %arrayidx.i, i64 4
+  %m_justification192 = getelementptr inbounds i8, ptr %arrayidx.i228, i64 4
   %53 = load i32, ptr %m_justification191, align 4
   %54 = load i32, ptr %m_justification192, align 4
   %cmp.i229 = icmp eq i32 %53, %54
@@ -992,8 +986,8 @@ for.body:                                         ; preds = %for.body.preheader,
 
 land.lhs.true:                                    ; preds = %for.body
   %55 = load ptr, ptr %this, align 8
-  %m_upper.i230 = getelementptr inbounds %"struct.nlsat::interval", ptr %52, i64 %idxprom.i, i32 4
-  %m_lower.i231 = getelementptr inbounds %"struct.nlsat::interval", ptr %52, i64 %indvars.iv354, i32 3
+  %m_upper.i230 = getelementptr inbounds i8, ptr %arrayidx.i, i64 24
+  %m_lower.i231 = getelementptr inbounds i8, ptr %arrayidx.i228, i64 16
   %call.i238 = invoke noundef i32 @_ZN17algebraic_numbers7manager7compareERKNS_4anumES3_(ptr noundef nonnull align 8 dereferenceable(17) %55, ptr noundef nonnull align 8 dereferenceable(8) %m_upper.i230, ptr noundef nonnull align 8 dereferenceable(8) %m_lower.i231)
           to label %call.i.noexc237 unwind label %lpad.loopexit.split-lp.loopexit.split-lp.loopexit
 
@@ -1022,7 +1016,7 @@ if.then198:                                       ; preds = %invoke.cont196
   %bf.set213 = or disjoint i8 %bf.clear212, %bf.clear207
   store i8 %bf.set213, ptr %arrayidx.i, align 8
   %58 = load ptr, ptr %this, align 8
-  %m_upper216 = getelementptr inbounds %"struct.nlsat::interval", ptr %52, i64 %indvars.iv354, i32 4
+  %m_upper216 = getelementptr inbounds i8, ptr %arrayidx.i228, i64 24
   call void @_ZN17algebraic_numbers7manager4swapERNS_4anumES2_(ptr noundef nonnull align 8 dereferenceable(17) %58, ptr noundef nonnull align 8 dereferenceable(8) %m_upper.i230, ptr noundef nonnull align 8 dereferenceable(8) %m_upper216) #18
   br label %for.inc
 
@@ -1047,8 +1041,8 @@ if.then220:                                       ; preds = %if.else217
   %bf.set238 = or disjoint i8 %bf.clear237, %bf.clear233
   store i8 %bf.set238, ptr %arrayidx.i240, align 8
   %61 = load ptr, ptr %this, align 8
-  %m_lower240 = getelementptr inbounds %"struct.nlsat::interval", ptr %60, i64 %59, i32 3
-  %m_lower241 = getelementptr inbounds %"struct.nlsat::interval", ptr %52, i64 %indvars.iv354, i32 3
+  %m_lower240 = getelementptr inbounds i8, ptr %arrayidx.i240, i64 16
+  %m_lower241 = getelementptr inbounds i8, ptr %arrayidx.i228, i64 16
   call void @_ZN17algebraic_numbers7manager4swapERNS_4anumES2_(ptr noundef nonnull align 8 dereferenceable(17) %61, ptr noundef nonnull align 8 dereferenceable(8) %m_lower240, ptr noundef nonnull align 8 dereferenceable(8) %m_lower241) #18
   %bf.load242 = load i8, ptr %arrayidx.i228, align 8
   %bf.clear244 = and i8 %bf.load242, 8
@@ -1062,10 +1056,10 @@ if.then220:                                       ; preds = %if.else217
   %bf.set259 = or disjoint i8 %bf.clear258, %bf.clear253
   store i8 %bf.set259, ptr %arrayidx.i240, align 8
   %62 = load ptr, ptr %this, align 8
-  %m_upper261 = getelementptr inbounds %"struct.nlsat::interval", ptr %60, i64 %59, i32 4
-  %m_upper262 = getelementptr inbounds %"struct.nlsat::interval", ptr %52, i64 %indvars.iv354, i32 4
+  %m_upper261 = getelementptr inbounds i8, ptr %arrayidx.i240, i64 24
+  %m_upper262 = getelementptr inbounds i8, ptr %arrayidx.i228, i64 24
   call void @_ZN17algebraic_numbers7manager4swapERNS_4anumES2_(ptr noundef nonnull align 8 dereferenceable(17) %62, ptr noundef nonnull align 8 dereferenceable(8) %m_upper261, ptr noundef nonnull align 8 dereferenceable(8) %m_upper262) #18
-  %m_justification264 = getelementptr inbounds %"struct.nlsat::interval", ptr %60, i64 %59, i32 1
+  %m_justification264 = getelementptr inbounds i8, ptr %arrayidx.i240, i64 4
   %63 = load i32, ptr %m_justification192, align 4
   store i32 %63, ptr %m_justification264, align 4
   br label %for.inc
@@ -1089,14 +1083,15 @@ for.body272.preheader:                            ; preds = %for.end
 for.body272:                                      ; preds = %for.body272.preheader, %for.inc282
   %indvars.iv359 = phi i64 [ %64, %for.body272.preheader ], [ %indvars.iv.next360, %for.inc282 ]
   %65 = load ptr, ptr %result, align 8
+  %arrayidx.i242 = getelementptr inbounds %"struct.nlsat::interval", ptr %65, i64 %indvars.iv359
   %66 = load ptr, ptr %this, align 8
-  %m_lower277 = getelementptr inbounds %"struct.nlsat::interval", ptr %65, i64 %indvars.iv359, i32 3
+  %m_lower277 = getelementptr inbounds i8, ptr %arrayidx.i242, i64 16
   invoke void @_ZN17algebraic_numbers7manager3delERNS_4anumE(ptr noundef nonnull align 8 dereferenceable(17) %66, ptr noundef nonnull align 8 dereferenceable(8) %m_lower277)
           to label %invoke.cont278 unwind label %lpad.loopexit.split-lp.loopexit
 
 invoke.cont278:                                   ; preds = %for.body272
   %67 = load ptr, ptr %this, align 8
-  %m_upper280 = getelementptr inbounds %"struct.nlsat::interval", ptr %65, i64 %indvars.iv359, i32 4
+  %m_upper280 = getelementptr inbounds i8, ptr %arrayidx.i242, i64 24
   invoke void @_ZN17algebraic_numbers7manager3delERNS_4anumE(ptr noundef nonnull align 8 dereferenceable(17) %67, ptr noundef nonnull align 8 dereferenceable(8) %m_upper280)
           to label %for.inc282 unwind label %lpad.loopexit.split-lp.loopexit
 
@@ -1147,8 +1142,8 @@ for.body307:                                      ; preds = %for.body307.prehead
   %arrayidx.i247 = getelementptr inbounds %"struct.nlsat::interval", ptr %77, i64 %indvars.iv364
   %indvars.iv.next365 = add nuw nsw i64 %indvars.iv364, 1
   %arrayidx.i249 = getelementptr inbounds %"struct.nlsat::interval", ptr %77, i64 %indvars.iv.next365
-  %m_upper.i250 = getelementptr inbounds %"struct.nlsat::interval", ptr %77, i64 %indvars.iv364, i32 4
-  %m_lower.i251 = getelementptr inbounds %"struct.nlsat::interval", ptr %77, i64 %indvars.iv.next365, i32 3
+  %m_upper.i250 = getelementptr inbounds i8, ptr %arrayidx.i247, i64 24
+  %m_lower.i251 = getelementptr inbounds i8, ptr %arrayidx.i249, i64 16
   %call.i261 = invoke noundef i32 @_ZN17algebraic_numbers7manager7compareERKNS_4anumES3_(ptr noundef nonnull align 8 dereferenceable(17) %76, ptr noundef nonnull align 8 dereferenceable(8) %m_upper.i250, ptr noundef nonnull align 8 dereferenceable(8) %m_lower.i251)
           to label %call.i.noexc260 unwind label %lpad.loopexit
 
@@ -1180,7 +1175,7 @@ for.end319.loopexit:                              ; preds = %call.i.noexc260, %i
 for.end319:                                       ; preds = %invoke.cont285, %for.end319.loopexit, %lor.end
   %83 = phi i32 [ %69, %lor.end ], [ %.pre375, %for.end319.loopexit ], [ %69, %invoke.cont285 ]
   %found_slack.0.lcssa = phi i8 [ %73, %lor.end ], [ %82, %for.end319.loopexit ], [ 1, %invoke.cont285 ]
-  %m_allocator = getelementptr inbounds %"class.nlsat::interval_set_manager", ptr %this, i64 0, i32 1
+  %m_allocator = getelementptr inbounds i8, ptr %this, i64 8
   %84 = load ptr, ptr %m_allocator, align 8
   %mul.i.i = shl i32 %83, 5
   %add.i.i = or disjoint i32 %mul.i.i, 8
@@ -1189,13 +1184,13 @@ for.end319:                                       ; preds = %invoke.cont285, %fo
           to label %invoke.cont322 unwind label %lpad.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp
 
 invoke.cont322:                                   ; preds = %for.end319
-  %m_full.i = getelementptr inbounds %"class.nlsat::interval_set", ptr %call2.i264, i64 0, i32 1
+  %m_full.i = getelementptr inbounds i8, ptr %call2.i264, i64 4
   %85 = zext nneg i8 %found_slack.0.lcssa to i32
   %86 = xor i32 %85, -1
   %bf.shl.i = shl i32 %86, 31
   store i32 %bf.shl.i, ptr %m_full.i, align 4
   store i32 %83, ptr %call2.i264, align 8
-  %m_intervals.i = getelementptr inbounds %"class.nlsat::interval_set", ptr %call2.i264, i64 0, i32 2
+  %m_intervals.i = getelementptr inbounds i8, ptr %call2.i264, i64 8
   %87 = load ptr, ptr %result, align 8
   %conv8.i = zext i32 %83 to i64
   %mul.i = shl nuw nsw i64 %conv8.i, 5
@@ -1224,9 +1219,9 @@ return:                                           ; preds = %if.end.i.i.i.i.i, %
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr hidden void @_ZN5nlsat9push_backERN17algebraic_numbers7managerER7sbufferINS_8intervalELj128EEbbRKNS0_4anumEbbS9_N3sat7literalE(ptr noundef nonnull align 8 dereferenceable(17) %am, ptr noundef nonnull align 8 dereferenceable(4112) %buf, i1 noundef zeroext %lower_open, i1 noundef zeroext %lower_inf, ptr noundef nonnull align 8 dereferenceable(8) %lower, i1 noundef zeroext %upper_open, i1 noundef zeroext %upper_inf, ptr noundef nonnull align 8 dereferenceable(8) %upper, i32 %justification.coerce) local_unnamed_addr #3 comdat {
 entry:
-  %m_pos.i = getelementptr inbounds %class.buffer, ptr %buf, i64 0, i32 1
+  %m_pos.i = getelementptr inbounds i8, ptr %buf, i64 8
   %0 = load i32, ptr %m_pos.i, align 8
-  %m_capacity.i = getelementptr inbounds %class.buffer, ptr %buf, i64 0, i32 2
+  %m_capacity.i = getelementptr inbounds i8, ptr %buf, i64 12
   %1 = load i32, ptr %m_capacity.i, align 4
   %cmp.not.i = icmp ult i32 %0, %1
   br i1 %cmp.not.i, label %entry.if.end_crit_edge.i, label %if.then.i
@@ -1259,7 +1254,7 @@ for.body.i.i:                                     ; preds = %for.body.i.i, %for.
   br i1 %exitcond.not.i.i, label %for.end.i.i, label %for.body.i.i, !llvm.loop !12
 
 for.end.i.i:                                      ; preds = %for.body.i.i, %if.then.i
-  %m_initial_buffer.i.i.i = getelementptr inbounds %class.buffer, ptr %buf, i64 0, i32 3
+  %m_initial_buffer.i.i.i = getelementptr inbounds i8, ptr %buf, i64 16
   %cmp.not.i.i.i = icmp eq ptr %.pre.i.i, %m_initial_buffer.i.i.i
   %cmp.i.i.i.i = icmp eq ptr %.pre.i.i, null
   %or.cond.i.i.i = or i1 %cmp.not.i.i.i, %cmp.i.i.i.i
@@ -1299,7 +1294,7 @@ _ZN6bufferIN5nlsat8intervalELb0ELj128EE9push_backEOS1_.exit: ; preds = %entry.if
   %bf.set = or disjoint i8 %bf.shl, %7
   %bf.set9 = or disjoint i8 %bf.set, %bf.clear
   store i8 %bf.set9, ptr %arrayidx.i, align 8
-  %m_lower = getelementptr inbounds %"struct.nlsat::interval", ptr %6, i64 %idxprom.i, i32 3
+  %m_lower = getelementptr inbounds i8, ptr %arrayidx.i, i64 16
   tail call void @_ZN17algebraic_numbers7manager3setERNS_4anumERKS1_(ptr noundef nonnull align 8 dereferenceable(17) %am, ptr noundef nonnull align 8 dereferenceable(8) %m_lower, ptr noundef nonnull align 8 dereferenceable(8) %lower)
   %bf.load12 = load i8, ptr %arrayidx.i, align 8
   %bf.shl14 = select i1 %upper_open, i8 2, i8 0
@@ -1308,9 +1303,9 @@ _ZN6bufferIN5nlsat8intervalELb0ELj128EE9push_backEOS1_.exit: ; preds = %entry.if
   %bf.set16 = or disjoint i8 %bf.shl21, %bf.shl14
   %bf.set23 = or disjoint i8 %bf.set16, %bf.clear15
   store i8 %bf.set23, ptr %arrayidx.i, align 8
-  %m_upper = getelementptr inbounds %"struct.nlsat::interval", ptr %6, i64 %idxprom.i, i32 4
+  %m_upper = getelementptr inbounds i8, ptr %arrayidx.i, i64 24
   tail call void @_ZN17algebraic_numbers7manager3setERNS_4anumERKS1_(ptr noundef nonnull align 8 dereferenceable(17) %am, ptr noundef nonnull align 8 dereferenceable(8) %m_upper, ptr noundef nonnull align 8 dereferenceable(8) %upper)
-  %m_justification = getelementptr inbounds %"struct.nlsat::interval", ptr %6, i64 %idxprom.i, i32 1
+  %m_justification = getelementptr inbounds i8, ptr %arrayidx.i, i64 4
   store i32 %justification.coerce, ptr %m_justification, align 4
   ret void
 }
@@ -1322,7 +1317,7 @@ declare void @_ZN17algebraic_numbers7manager4swapERNS_4anumES2_(ptr noundef nonn
 define linkonce_odr hidden void @_ZN7sbufferIN5nlsat8intervalELj128EED2Ev(ptr noundef nonnull align 8 dereferenceable(4112) %this) unnamed_addr #6 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %0 = load ptr, ptr %this, align 8
-  %m_initial_buffer.i.i.i = getelementptr inbounds %class.buffer, ptr %this, i64 0, i32 3
+  %m_initial_buffer.i.i.i = getelementptr inbounds i8, ptr %this, i64 16
   %cmp.not.i.i.i = icmp eq ptr %0, %m_initial_buffer.i.i.i
   %cmp.i.i.i.i = icmp eq ptr %0, null
   %or.cond.i.i.i = or i1 %cmp.not.i.i.i, %cmp.i.i.i.i
@@ -1350,7 +1345,7 @@ entry:
   br i1 %cmp, label %return, label %if.end
 
 if.end:                                           ; preds = %entry
-  %m_full = getelementptr inbounds %"class.nlsat::interval_set", ptr %s, i64 0, i32 1
+  %m_full = getelementptr inbounds i8, ptr %s, i64 4
   %bf.load = load i32, ptr %m_full, align 4
   %cmp2 = icmp slt i32 %bf.load, 0
   br label %return
@@ -1388,13 +1383,13 @@ if.end4:                                          ; preds = %entry
   br i1 %cmp5, label %return, label %if.end7
 
 if.end7:                                          ; preds = %if.end4
-  %m_full = getelementptr inbounds %"class.nlsat::interval_set", ptr %s2, i64 0, i32 1
+  %m_full = getelementptr inbounds i8, ptr %s2, i64 4
   %bf.load = load i32, ptr %m_full, align 4
   %tobool.not = icmp sgt i32 %bf.load, -1
   br i1 %tobool.not, label %if.end9, label %return
 
 if.end9:                                          ; preds = %if.end7
-  %m_full10 = getelementptr inbounds %"class.nlsat::interval_set", ptr %s1, i64 0, i32 1
+  %m_full10 = getelementptr inbounds i8, ptr %s1, i64 4
   %bf.load11 = load i32, ptr %m_full10, align 4
   %tobool13.not = icmp sgt i32 %bf.load11, -1
   br i1 %tobool13.not, label %if.end15, label %return
@@ -1408,6 +1403,8 @@ if.end15:                                         ; preds = %if.end9
   br i1 %2, label %while.body.lr.ph, label %while.end60
 
 while.body.lr.ph:                                 ; preds = %if.end15
+  %m_intervals = getelementptr inbounds i8, ptr %s1, i64 8
+  %m_intervals19 = getelementptr inbounds i8, ptr %s2, i64 8
   %sub = add i32 %1, -1
   br label %while.body
 
@@ -1415,9 +1412,9 @@ while.body:                                       ; preds = %while.body.lr.ph, %
   %i1.097 = phi i32 [ 0, %while.body.lr.ph ], [ %i1.1, %while.end ]
   %i2.096 = phi i32 [ 0, %while.body.lr.ph ], [ %i2.2, %while.end ]
   %idxprom = zext i32 %i1.097 to i64
-  %arrayidx = getelementptr inbounds %"class.nlsat::interval_set", ptr %s1, i64 0, i32 2, i64 %idxprom
+  %arrayidx = getelementptr inbounds [0 x %"struct.nlsat::interval"], ptr %m_intervals, i64 0, i64 %idxprom
   %idxprom20 = zext i32 %i2.096 to i64
-  %arrayidx21 = getelementptr inbounds %"class.nlsat::interval_set", ptr %s2, i64 0, i32 2, i64 %idxprom20
+  %arrayidx21 = getelementptr inbounds [0 x %"struct.nlsat::interval"], ptr %m_intervals19, i64 0, i64 %idxprom20
   %3 = load ptr, ptr %this, align 8
   %bf.load.i = load i8, ptr %arrayidx, align 8
   %4 = and i8 %bf.load.i, 4
@@ -1438,8 +1435,8 @@ if.end12.i:                                       ; preds = %while.body
   br i1 %tobool17.not.i, label %if.end19.i, label %while.cond25.preheader
 
 if.end19.i:                                       ; preds = %if.end12.i
-  %m_lower.i = getelementptr inbounds %"class.nlsat::interval_set", ptr %s1, i64 0, i32 2, i64 %idxprom, i32 3
-  %m_lower20.i = getelementptr inbounds %"class.nlsat::interval_set", ptr %s2, i64 0, i32 2, i64 %idxprom20, i32 3
+  %m_lower.i = getelementptr inbounds i8, ptr %arrayidx, i64 16
+  %m_lower20.i = getelementptr inbounds i8, ptr %arrayidx21, i64 16
   %call.i = tail call noundef i32 @_ZN17algebraic_numbers7manager7compareERKNS_4anumES3_(ptr noundef nonnull align 8 dereferenceable(17) %3, ptr noundef nonnull align 8 dereferenceable(8) %m_lower.i, ptr noundef nonnull align 8 dereferenceable(8) %m_lower20.i)
   %cmp.i.i = icmp eq i32 %call.i, 0
   br i1 %cmp.i.i, label %if.end23.i, label %_ZN5nlsat19compare_lower_lowerERN17algebraic_numbers7managerERKNS_8intervalES5_.exit
@@ -1460,8 +1457,8 @@ _ZN5nlsat19compare_lower_lowerERN17algebraic_numbers7managerERKNS_8intervalES5_.
   br i1 %cmp22, label %return, label %while.cond25.preheader
 
 while.cond25.preheader:                           ; preds = %if.end23.i, %if.end12.i, %_ZN5nlsat19compare_lower_lowerERN17algebraic_numbers7managerERKNS_8intervalES5_.exit
-  %m_upper.i = getelementptr inbounds %"class.nlsat::interval_set", ptr %s1, i64 0, i32 2, i64 %idxprom, i32 4
-  %m_lower.i50 = getelementptr inbounds %"class.nlsat::interval_set", ptr %s1, i64 0, i32 2, i64 %idxprom, i32 3
+  %m_upper.i = getelementptr inbounds i8, ptr %arrayidx, i64 24
+  %m_lower.i50 = getelementptr inbounds i8, ptr %arrayidx, i64 16
   %umax = tail call i32 @llvm.umax.i32(i32 %i2.096, i32 %1)
   br label %while.cond25
 
@@ -1472,7 +1469,7 @@ while.cond25:                                     ; preds = %while.cond25.prehea
 
 while.body27:                                     ; preds = %while.cond25
   %idxprom30 = zext i32 %i2.1 to i64
-  %arrayidx31 = getelementptr inbounds %"class.nlsat::interval_set", ptr %s2, i64 0, i32 2, i64 %idxprom30
+  %arrayidx31 = getelementptr inbounds [0 x %"struct.nlsat::interval"], ptr %m_intervals19, i64 0, i64 %idxprom30
   %9 = load ptr, ptr %this, align 8
   %bf.load.i31 = load i8, ptr %arrayidx, align 8
   %10 = and i8 %bf.load.i31, 8
@@ -1486,7 +1483,7 @@ if.end12.i38:                                     ; preds = %while.body27
   br i1 %tobool17.not.i34.not, label %if.end19.i39, label %if.then38
 
 if.end19.i39:                                     ; preds = %if.end12.i38
-  %m_upper20.i = getelementptr inbounds %"class.nlsat::interval_set", ptr %s2, i64 0, i32 2, i64 %idxprom30, i32 4
+  %m_upper20.i = getelementptr inbounds i8, ptr %arrayidx31, i64 24
   %call.i40 = tail call noundef i32 @_ZN17algebraic_numbers7manager7compareERKNS_4anumES3_(ptr noundef nonnull align 8 dereferenceable(17) %9, ptr noundef nonnull align 8 dereferenceable(8) %m_upper.i, ptr noundef nonnull align 8 dereferenceable(8) %m_upper20.i)
   %cmp.i.i41 = icmp eq i32 %call.i40, 0
   br i1 %cmp.i.i41, label %if.end23.i42, label %if.else
@@ -1539,7 +1536,7 @@ lor.lhs.false.i:                                  ; preds = %if.else40
   br i1 %tobool5.not.i, label %if.end.i, label %if.end46
 
 if.end.i:                                         ; preds = %lor.lhs.false.i
-  %m_upper.i49 = getelementptr inbounds %"class.nlsat::interval_set", ptr %s2, i64 0, i32 2, i64 %idxprom30, i32 4
+  %m_upper.i49 = getelementptr inbounds i8, ptr %arrayidx31, i64 24
   %call.i51 = tail call noundef i32 @_ZN17algebraic_numbers7manager7compareERKNS_4anumES3_(ptr noundef nonnull align 8 dereferenceable(17) %12, ptr noundef nonnull align 8 dereferenceable(8) %m_upper.i49, ptr noundef nonnull align 8 dereferenceable(8) %m_lower.i50)
   %cmp.i.i52 = icmp eq i32 %call.i51, 0
   br i1 %cmp.i.i52, label %if.end8.i, label %_ZN5nlsat19compare_upper_lowerERN17algebraic_numbers7managerERKNS_8intervalES5_.exit
@@ -1571,15 +1568,15 @@ if.end46:                                         ; preds = %land.lhs.true.i54, 
 if.end49:                                         ; preds = %if.end46
   %add = add i32 %i2.1, 1
   %idxprom51 = zext i32 %add to i64
+  %arrayidx52 = getelementptr inbounds [0 x %"struct.nlsat::interval"], ptr %m_intervals19, i64 0, i64 %idxprom51
   %16 = load ptr, ptr %this, align 8
-  %m_upper.i56 = getelementptr inbounds %"class.nlsat::interval_set", ptr %s2, i64 0, i32 2, i64 %idxprom30, i32 4
-  %m_lower.i57 = getelementptr inbounds %"class.nlsat::interval_set", ptr %s2, i64 0, i32 2, i64 %idxprom51, i32 3
+  %m_upper.i56 = getelementptr inbounds i8, ptr %arrayidx31, i64 24
+  %m_lower.i57 = getelementptr inbounds i8, ptr %arrayidx52, i64 16
   %call.i58 = tail call noundef i32 @_ZN17algebraic_numbers7manager7compareERKNS_4anumES3_(ptr noundef nonnull align 8 dereferenceable(17) %16, ptr noundef nonnull align 8 dereferenceable(8) %m_upper.i56, ptr noundef nonnull align 8 dereferenceable(8) %m_lower.i57)
   %cmp.i.i59 = icmp eq i32 %call.i58, 0
   br i1 %cmp.i.i59, label %_ZN5nlsat8adjacentERN17algebraic_numbers7managerERKNS_8intervalES5_.exit, label %return
 
 _ZN5nlsat8adjacentERN17algebraic_numbers7managerERKNS_8intervalES5_.exit: ; preds = %if.end49
-  %arrayidx52 = getelementptr inbounds %"class.nlsat::interval_set", ptr %s2, i64 0, i32 2, i64 %idxprom51
   %bf.load.i61 = load i8, ptr %arrayidx31, align 8
   %17 = and i8 %bf.load.i61, 2
   %tobool.not.i62 = icmp eq i8 %17, 0
@@ -1620,10 +1617,10 @@ if.then:                                          ; preds = %entry
   br label %return
 
 if.end:                                           ; preds = %entry
-  %m_full = getelementptr inbounds %"class.nlsat::interval_set", ptr %s1, i64 0, i32 1
+  %m_full = getelementptr inbounds i8, ptr %s1, i64 4
   %bf.load = load i32, ptr %m_full, align 4
   %tobool.not = icmp sgt i32 %bf.load, -1
-  %m_full5 = getelementptr inbounds %"class.nlsat::interval_set", ptr %s2, i64 0, i32 1
+  %m_full5 = getelementptr inbounds i8, ptr %s2, i64 4
   %bf.load6 = load i32, ptr %m_full5, align 4
   %tobool8.not = icmp sgt i32 %bf.load6, -1
   %or.cond12 = select i1 %tobool.not, i1 %tobool8.not, i1 false
@@ -1666,8 +1663,13 @@ if.end:                                           ; preds = %entry
   br i1 %cmp5.not, label %for.cond.preheader, label %return
 
 for.cond.preheader:                               ; preds = %if.end
+  %m_intervals = getelementptr inbounds i8, ptr %s1, i64 8
   %cmp929.not = icmp eq i32 %0, 0
-  br i1 %cmp929.not, label %return, label %for.body
+  br i1 %cmp929.not, label %return, label %for.body.lr.ph
+
+for.body.lr.ph:                                   ; preds = %for.cond.preheader
+  %m_intervals10 = getelementptr inbounds i8, ptr %s2, i64 8
+  br label %for.body
 
 for.cond:                                         ; preds = %lor.lhs.false51
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
@@ -1676,10 +1678,10 @@ for.cond:                                         ; preds = %lor.lhs.false51
   %cmp9 = icmp ult i64 %indvars.iv.next, %3
   br i1 %cmp9, label %for.body, label %return, !llvm.loop !15
 
-for.body:                                         ; preds = %for.cond.preheader, %for.cond
-  %indvars.iv = phi i64 [ %indvars.iv.next, %for.cond ], [ 0, %for.cond.preheader ]
-  %arrayidx = getelementptr inbounds %"class.nlsat::interval_set", ptr %s1, i64 0, i32 2, i64 %indvars.iv
-  %arrayidx12 = getelementptr inbounds %"class.nlsat::interval_set", ptr %s2, i64 0, i32 2, i64 %indvars.iv
+for.body:                                         ; preds = %for.body.lr.ph, %for.cond
+  %indvars.iv = phi i64 [ 0, %for.body.lr.ph ], [ %indvars.iv.next, %for.cond ]
+  %arrayidx = getelementptr inbounds [0 x %"struct.nlsat::interval"], ptr %m_intervals, i64 0, i64 %indvars.iv
+  %arrayidx12 = getelementptr inbounds [0 x %"struct.nlsat::interval"], ptr %m_intervals10, i64 0, i64 %indvars.iv
   %bf.load = load i8, ptr %arrayidx, align 8
   %bf.load13 = load i8, ptr %arrayidx12, align 8
   %bf.lshr23 = xor i8 %bf.load13, %bf.load
@@ -1688,8 +1690,8 @@ for.body:                                         ; preds = %for.cond.preheader,
   br i1 %or.cond28, label %lor.lhs.false46, label %return
 
 lor.lhs.false46:                                  ; preds = %for.body
-  %m_justification = getelementptr inbounds %"class.nlsat::interval_set", ptr %s1, i64 0, i32 2, i64 %indvars.iv, i32 1
-  %m_justification47 = getelementptr inbounds %"class.nlsat::interval_set", ptr %s2, i64 0, i32 2, i64 %indvars.iv, i32 1
+  %m_justification = getelementptr inbounds i8, ptr %arrayidx, i64 4
+  %m_justification47 = getelementptr inbounds i8, ptr %arrayidx12, i64 4
   %5 = load i32, ptr %m_justification, align 4
   %6 = load i32, ptr %m_justification47, align 4
   %cmp.i.not = icmp eq i32 %5, %6
@@ -1697,15 +1699,15 @@ lor.lhs.false46:                                  ; preds = %for.body
 
 lor.lhs.false48:                                  ; preds = %lor.lhs.false46
   %7 = load ptr, ptr %this, align 8
-  %m_lower = getelementptr inbounds %"class.nlsat::interval_set", ptr %s1, i64 0, i32 2, i64 %indvars.iv, i32 3
-  %m_lower49 = getelementptr inbounds %"class.nlsat::interval_set", ptr %s2, i64 0, i32 2, i64 %indvars.iv, i32 3
+  %m_lower = getelementptr inbounds i8, ptr %arrayidx, i64 16
+  %m_lower49 = getelementptr inbounds i8, ptr %arrayidx12, i64 16
   %call50 = tail call noundef zeroext i1 @_ZN17algebraic_numbers7manager2eqERKNS_4anumES3_(ptr noundef nonnull align 8 dereferenceable(17) %7, ptr noundef nonnull align 8 dereferenceable(8) %m_lower, ptr noundef nonnull align 8 dereferenceable(8) %m_lower49)
   br i1 %call50, label %lor.lhs.false51, label %return
 
 lor.lhs.false51:                                  ; preds = %lor.lhs.false48
   %8 = load ptr, ptr %this, align 8
-  %m_upper = getelementptr inbounds %"class.nlsat::interval_set", ptr %s1, i64 0, i32 2, i64 %indvars.iv, i32 4
-  %m_upper53 = getelementptr inbounds %"class.nlsat::interval_set", ptr %s2, i64 0, i32 2, i64 %indvars.iv, i32 4
+  %m_upper = getelementptr inbounds i8, ptr %arrayidx, i64 24
+  %m_upper53 = getelementptr inbounds i8, ptr %arrayidx12, i64 24
   %call54 = tail call noundef zeroext i1 @_ZN17algebraic_numbers7manager2eqERKNS_4anumES3_(ptr noundef nonnull align 8 dereferenceable(17) %8, ptr noundef nonnull align 8 dereferenceable(8) %m_upper, ptr noundef nonnull align 8 dereferenceable(8) %m_upper53)
   br i1 %call54, label %for.cond, label %return
 
@@ -1726,7 +1728,7 @@ entry:
   br i1 %tobool.not.i, label %_ZN6vectorIN3sat7literalELb0EjE5resetEv.exit, label %if.then.i
 
 if.then.i:                                        ; preds = %entry
-  %arrayidx.i = getelementptr inbounds i32, ptr %0, i64 -1
+  %arrayidx.i = getelementptr inbounds i8, ptr %0, i64 -4
   store i32 0, ptr %arrayidx.i, align 4
   br label %_ZN6vectorIN3sat7literalELb0EjE5resetEv.exit
 
@@ -1736,7 +1738,7 @@ _ZN6vectorIN3sat7literalELb0EjE5resetEv.exit:     ; preds = %entry, %if.then.i
   br i1 %tobool.not.i15, label %_ZN6vectorIPN5nlsat6clauseELb0EjE5resetEv.exit, label %if.then.i16
 
 if.then.i16:                                      ; preds = %_ZN6vectorIN3sat7literalELb0EjE5resetEv.exit
-  %arrayidx.i17 = getelementptr inbounds i32, ptr %1, i64 -1
+  %arrayidx.i17 = getelementptr inbounds i8, ptr %1, i64 -4
   store i32 0, ptr %arrayidx.i17, align 4
   br label %_ZN6vectorIPN5nlsat6clauseELb0EjE5resetEv.exit
 
@@ -1750,7 +1752,8 @@ _ZNK5nlsat20interval_set_manager13num_intervalsEPKNS_12interval_setE.exit: ; pre
   br i1 %cmp69.not, label %for.end35, label %for.body.lr.ph
 
 for.body.lr.ph:                                   ; preds = %_ZNK5nlsat20interval_set_manager13num_intervalsEPKNS_12interval_setE.exit
-  %m_already_visited = getelementptr inbounds %"class.nlsat::interval_set_manager", ptr %this, i64 0, i32 2
+  %m_intervals = getelementptr inbounds i8, ptr %s, i64 8
+  %m_already_visited = getelementptr inbounds i8, ptr %this, i64 16
   %wide.trip.count = zext i32 %2 to i64
   br label %for.body
 
@@ -1758,20 +1761,22 @@ for.cond21.preheader:                             ; preds = %for.inc
   br i1 %cmp69.not, label %for.end35, label %for.body23.lr.ph
 
 for.body23.lr.ph:                                 ; preds = %for.cond21.preheader
-  %m_already_visited31 = getelementptr inbounds %"class.nlsat::interval_set_manager", ptr %this, i64 0, i32 2
+  %m_intervals25 = getelementptr inbounds i8, ptr %s, i64 8
+  %m_already_visited31 = getelementptr inbounds i8, ptr %this, i64 16
   %wide.trip.count77 = zext i32 %2 to i64
   br label %for.body23
 
 for.body:                                         ; preds = %for.body.lr.ph, %for.inc
   %indvars.iv = phi i64 [ 0, %for.body.lr.ph ], [ %indvars.iv.next, %for.inc ]
-  %m_justification = getelementptr inbounds %"class.nlsat::interval_set", ptr %s, i64 0, i32 2, i64 %indvars.iv, i32 1
+  %arrayidx = getelementptr inbounds [0 x %"struct.nlsat::interval"], ptr %m_intervals, i64 0, i64 %indvars.iv
+  %m_justification = getelementptr inbounds i8, ptr %arrayidx, i64 4
   %3 = load i32, ptr %m_justification, align 4
   %4 = load ptr, ptr %m_already_visited, align 8
   %cmp.i.i = icmp eq ptr %4, null
   br i1 %cmp.i.i, label %_ZNK6vectorIcLb0EjE4sizeEv.exit.i.i, label %_ZNK6vectorIcLb0EjE3getEjRKc.exit
 
 _ZNK6vectorIcLb0EjE3getEjRKc.exit:                ; preds = %for.body
-  %arrayidx.i.i = getelementptr inbounds i32, ptr %4, i64 -1
+  %arrayidx.i.i = getelementptr inbounds i8, ptr %4, i64 -4
   %5 = load i32, ptr %arrayidx.i.i, align 4
   %cmp.not.i = icmp ugt i32 %5, %3
   %idxprom.i = zext i32 %3 to i64
@@ -1811,7 +1816,7 @@ while.cond.i.i:                                   ; preds = %while.cond.i.i.preh
   br i1 %cmp.i10.i.i, label %if.then.i50, label %_ZNK6vectorIcLb0EjE8capacityEv.exit.i.i.thread
 
 _ZNK6vectorIcLb0EjE8capacityEv.exit.i.i.thread:   ; preds = %while.cond.i.i
-  %arrayidx.i12.i.i = getelementptr inbounds i32, ptr %6, i64 -2
+  %arrayidx.i12.i.i = getelementptr inbounds i8, ptr %6, i64 -8
   %7 = load i32, ptr %arrayidx.i12.i.i, align 4
   %cmp3.i.i87 = icmp ult i32 %7, %add8.i.ph
   br i1 %cmp3.i.i87, label %if.else.i, label %while.end.i.i
@@ -1821,16 +1826,16 @@ if.then.i50:                                      ; preds = %while.cond.i.i
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %ref.tmp18.i)
   %call.i = tail call noalias noundef ptr @_ZN6memory8allocateEm(i64 noundef 10)
   store i32 2, ptr %call.i, align 4
-  %incdec.ptr.i = getelementptr inbounds i32, ptr %call.i, i64 1
+  %incdec.ptr.i = getelementptr inbounds i8, ptr %call.i, i64 4
   store i32 0, ptr %incdec.ptr.i, align 4
-  %incdec.ptr2.i = getelementptr inbounds i32, ptr %call.i, i64 2
+  %incdec.ptr2.i = getelementptr inbounds i8, ptr %call.i, i64 8
   store ptr %incdec.ptr2.i, ptr %m_already_visited, align 8
   br label %_ZN6vectorIcLb0EjE13expand_vectorEv.exit
 
 if.else.i:                                        ; preds = %_ZNK6vectorIcLb0EjE8capacityEv.exit.i.i.thread
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %ref.tmp.i)
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %ref.tmp18.i)
-  %arrayidx.i47 = getelementptr inbounds i32, ptr %6, i64 -2
+  %arrayidx.i47 = getelementptr inbounds i8, ptr %6, i64 -8
   %8 = load i32, ptr %arrayidx.i47, align 4
   %mul9.i = mul i32 %8, 3
   %add10.i = add i32 %mul9.i, 1
@@ -1850,7 +1855,7 @@ if.then17.i:                                      ; preds = %if.else.i
 
 invoke.cont.i:                                    ; preds = %if.then17.i
   store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTV17default_exception, i64 0, inrange i32 0, i64 2), ptr %exception.i, align 8
-  %m_msg.i.i = getelementptr inbounds %class.default_exception, ptr %exception.i, i64 0, i32 1
+  %m_msg.i.i = getelementptr inbounds i8, ptr %exception.i, i64 8
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EOS4_(ptr noundef nonnull align 8 dereferenceable(32) %m_msg.i.i, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp.i) #18
   invoke void @__cxa_throw(ptr nonnull %exception.i, ptr nonnull @_ZTI17default_exception, ptr nonnull @_ZN17default_exceptionD2Ev) #19
           to label %unreachable.i unwind label %ehcleanup.i
@@ -1872,7 +1877,7 @@ cleanup.action.i:                                 ; preds = %if.then17.i
 if.end.i49:                                       ; preds = %if.else.i
   %conv24.i = zext i32 %narrow.i to i64
   %call25.i = tail call noalias noundef ptr @_ZN6memory10reallocateEPvm(ptr noundef nonnull %arrayidx.i47, i64 noundef %conv24.i)
-  %add.ptr26.i = getelementptr inbounds i32, ptr %call25.i, i64 2
+  %add.ptr26.i = getelementptr inbounds i8, ptr %call25.i, i64 8
   store ptr %add.ptr26.i, ptr %m_already_visited, align 8
   store i32 %shr.i, ptr %call25.i, align 4
   br label %_ZN6vectorIcLb0EjE13expand_vectorEv.exit
@@ -1891,7 +1896,7 @@ _ZN6vectorIcLb0EjE13expand_vectorEv.exit:         ; preds = %if.then.i50, %if.en
   br label %while.cond.i.i, !llvm.loop !16
 
 while.end.i.i:                                    ; preds = %_ZNK6vectorIcLb0EjE8capacityEv.exit.i.i.thread
-  %arrayidx.i3.i = getelementptr inbounds i32, ptr %6, i64 -1
+  %arrayidx.i3.i = getelementptr inbounds i8, ptr %6, i64 -4
   store i32 %add8.i.ph, ptr %arrayidx.i3.i, align 4
   %cmp8.not17.i.i = icmp eq i32 %retval.0.i16.i.i.ph, %add8.i.ph
   br i1 %cmp8.not17.i.i, label %_ZN6vectorIcLb0EjE4setxEjRKcS2_.exit, label %for.body.preheader.i.i
@@ -1915,9 +1920,9 @@ _ZN6vectorIcLb0EjE4setxEjRKcS2_.exit:             ; preds = %_ZNK6vectorIcLb0EjE
   br i1 %cmp.i26, label %if.then.i29, label %lor.lhs.false.i
 
 lor.lhs.false.i:                                  ; preds = %_ZN6vectorIcLb0EjE4setxEjRKcS2_.exit
-  %arrayidx.i27 = getelementptr inbounds i32, ptr %14, i64 -1
+  %arrayidx.i27 = getelementptr inbounds i8, ptr %14, i64 -4
   %15 = load i32, ptr %arrayidx.i27, align 4
-  %arrayidx4.i = getelementptr inbounds i32, ptr %14, i64 -2
+  %arrayidx4.i = getelementptr inbounds i8, ptr %14, i64 -8
   %16 = load i32, ptr %arrayidx4.i, align 4
   %cmp5.i = icmp eq i32 %15, %16
   br i1 %cmp5.i, label %if.then.i29, label %_ZN6vectorIN3sat7literalELb0EjE9push_backERKS1_.exit
@@ -1925,7 +1930,7 @@ lor.lhs.false.i:                                  ; preds = %_ZN6vectorIcLb0EjE4
 if.then.i29:                                      ; preds = %lor.lhs.false.i, %_ZN6vectorIcLb0EjE4setxEjRKcS2_.exit
   tail call void @_ZN6vectorIN3sat7literalELb0EjE13expand_vectorEv(ptr noundef nonnull align 8 dereferenceable(8) %js)
   %.pre.i = load ptr, ptr %js, align 8
-  %arrayidx8.phi.trans.insert.i = getelementptr inbounds i32, ptr %.pre.i, i64 -1
+  %arrayidx8.phi.trans.insert.i = getelementptr inbounds i8, ptr %.pre.i, i64 -4
   %.pre1.i = load i32, ptr %arrayidx8.phi.trans.insert.i, align 4
   br label %_ZN6vectorIN3sat7literalELb0EjE9push_backERKS1_.exit
 
@@ -1936,11 +1941,11 @@ _ZN6vectorIN3sat7literalELb0EjE9push_backERKS1_.exit: ; preds = %lor.lhs.false.i
   %add.ptr.i = getelementptr inbounds %"class.sat::literal", ptr %18, i64 %idx.ext.i
   store i32 %3, ptr %add.ptr.i, align 4
   %19 = load ptr, ptr %js, align 8
-  %arrayidx10.i = getelementptr inbounds i32, ptr %19, i64 -1
+  %arrayidx10.i = getelementptr inbounds i8, ptr %19, i64 -4
   %20 = load i32, ptr %arrayidx10.i, align 4
   %inc.i = add i32 %20, 1
   store i32 %inc.i, ptr %arrayidx10.i, align 4
-  %m_clause = getelementptr inbounds %"class.nlsat::interval_set", ptr %s, i64 0, i32 2, i64 %indvars.iv, i32 2
+  %m_clause = getelementptr inbounds i8, ptr %arrayidx, i64 8
   %21 = load ptr, ptr %m_clause, align 8
   %tobool11.not = icmp eq ptr %21, null
   br i1 %tobool11.not, label %for.inc, label %if.then12
@@ -1951,9 +1956,9 @@ if.then12:                                        ; preds = %_ZN6vectorIN3sat7li
   br i1 %cmp.i30, label %if.then.i40, label %lor.lhs.false.i31
 
 lor.lhs.false.i31:                                ; preds = %if.then12
-  %arrayidx.i32 = getelementptr inbounds i32, ptr %22, i64 -1
+  %arrayidx.i32 = getelementptr inbounds i8, ptr %22, i64 -4
   %23 = load i32, ptr %arrayidx.i32, align 4
-  %arrayidx4.i33 = getelementptr inbounds i32, ptr %22, i64 -2
+  %arrayidx4.i33 = getelementptr inbounds i8, ptr %22, i64 -8
   %24 = load i32, ptr %arrayidx4.i33, align 4
   %cmp5.i34 = icmp eq i32 %23, %24
   br i1 %cmp5.i34, label %if.then.i40, label %_ZN6vectorIPN5nlsat6clauseELb0EjE9push_backEOS2_.exit
@@ -1961,7 +1966,7 @@ lor.lhs.false.i31:                                ; preds = %if.then12
 if.then.i40:                                      ; preds = %lor.lhs.false.i31, %if.then12
   tail call void @_ZN6vectorIPN5nlsat6clauseELb0EjE13expand_vectorEv(ptr noundef nonnull align 8 dereferenceable(8) %clauses)
   %.pre.i41 = load ptr, ptr %clauses, align 8
-  %arrayidx8.phi.trans.insert.i42 = getelementptr inbounds i32, ptr %.pre.i41, i64 -1
+  %arrayidx8.phi.trans.insert.i42 = getelementptr inbounds i8, ptr %.pre.i41, i64 -4
   %.pre1.i43 = load i32, ptr %arrayidx8.phi.trans.insert.i42, align 4
   br label %_ZN6vectorIPN5nlsat6clauseELb0EjE9push_backEOS2_.exit
 
@@ -1972,7 +1977,7 @@ _ZN6vectorIPN5nlsat6clauseELb0EjE9push_backEOS2_.exit: ; preds = %lor.lhs.false.
   %add.ptr.i37 = getelementptr inbounds ptr, ptr %26, i64 %idx.ext.i36
   store ptr %21, ptr %add.ptr.i37, align 8
   %27 = load ptr, ptr %clauses, align 8
-  %arrayidx10.i38 = getelementptr inbounds i32, ptr %27, i64 -1
+  %arrayidx10.i38 = getelementptr inbounds i8, ptr %27, i64 -4
   %28 = load i32, ptr %arrayidx10.i38, align 4
   %inc.i39 = add i32 %28, 1
   store i32 %inc.i39, ptr %arrayidx10.i38, align 4
@@ -1985,7 +1990,7 @@ for.inc:                                          ; preds = %_ZN6vectorIN3sat7li
 
 for.body23:                                       ; preds = %for.body23.lr.ph, %for.body23
   %indvars.iv74 = phi i64 [ 0, %for.body23.lr.ph ], [ %indvars.iv.next75, %for.body23 ]
-  %m_justification28 = getelementptr inbounds %"class.nlsat::interval_set", ptr %s, i64 0, i32 2, i64 %indvars.iv74, i32 1
+  %m_justification28 = getelementptr inbounds [0 x %"struct.nlsat::interval"], ptr %m_intervals25, i64 0, i64 %indvars.iv74, i32 1
   %29 = load i32, ptr %m_justification28, align 4
   %30 = load ptr, ptr %m_already_visited31, align 8
   %idxprom.i44 = zext i32 %29 to i64
@@ -2006,25 +2011,26 @@ entry:
   %0 = getelementptr inbounds i8, ptr %result, i64 16
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(4112) %0, i8 0, i64 4096, i1 false)
   store ptr %0, ptr %result, align 8
-  %m_pos.i.i = getelementptr inbounds %class.buffer, ptr %result, i64 0, i32 1
+  %m_pos.i.i = getelementptr inbounds i8, ptr %result, i64 8
   store i32 0, ptr %m_pos.i.i, align 8
-  %m_capacity.i.i = getelementptr inbounds %class.buffer, ptr %result, i64 0, i32 2
+  %m_capacity.i.i = getelementptr inbounds i8, ptr %result, i64 12
   store i32 128, ptr %m_capacity.i.i, align 4
   %1 = load ptr, ptr %this, align 8
+  %m_intervals = getelementptr inbounds i8, ptr %s, i64 8
   %idxprom = zext i32 %idx to i64
-  %arrayidx = getelementptr inbounds %"class.nlsat::interval_set", ptr %s, i64 0, i32 2, i64 %idxprom
+  %arrayidx = getelementptr inbounds [0 x %"struct.nlsat::interval"], ptr %m_intervals, i64 0, i64 %idxprom
   %bf.load.i = load i8, ptr %arrayidx, align 8
   %bf.clear.i = and i8 %bf.load.i, 1
   %tobool.i = icmp ne i8 %bf.clear.i, 0
   %2 = and i8 %bf.load.i, 4
   %tobool4.i = icmp ne i8 %2, 0
-  %m_lower.i = getelementptr inbounds %"class.nlsat::interval_set", ptr %s, i64 0, i32 2, i64 %idxprom, i32 3
+  %m_lower.i = getelementptr inbounds i8, ptr %arrayidx, i64 16
   %3 = and i8 %bf.load.i, 2
   %tobool9.i = icmp ne i8 %3, 0
   %4 = and i8 %bf.load.i, 8
   %tobool14.i = icmp ne i8 %4, 0
-  %m_upper.i = getelementptr inbounds %"class.nlsat::interval_set", ptr %s, i64 0, i32 2, i64 %idxprom, i32 4
-  %m_justification.i = getelementptr inbounds %"class.nlsat::interval_set", ptr %s, i64 0, i32 2, i64 %idxprom, i32 1
+  %m_upper.i = getelementptr inbounds i8, ptr %arrayidx, i64 24
+  %m_justification.i = getelementptr inbounds i8, ptr %arrayidx, i64 4
   %agg.tmp.sroa.0.0.copyload.i = load i32, ptr %m_justification.i, align 4
   invoke void @_ZN5nlsat9push_backERN17algebraic_numbers7managerER7sbufferINS_8intervalELj128EEbbRKNS0_4anumEbbS9_N3sat7literalE(ptr noundef nonnull align 8 dereferenceable(17) %1, ptr noundef nonnull align 8 dereferenceable(4112) %result, i1 noundef zeroext %tobool.i, i1 noundef zeroext %tobool4.i, ptr noundef nonnull align 8 dereferenceable(8) %m_lower.i, i1 noundef zeroext %tobool9.i, i1 noundef zeroext %tobool14.i, ptr noundef nonnull align 8 dereferenceable(8) %m_upper.i, i32 %agg.tmp.sroa.0.0.copyload.i)
           to label %invoke.cont unwind label %lpad
@@ -2032,7 +2038,7 @@ entry:
 invoke.cont:                                      ; preds = %entry
   %5 = load ptr, ptr %result, align 8
   %bf.load = load i8, ptr %5, align 8
-  %m_allocator = getelementptr inbounds %"class.nlsat::interval_set_manager", ptr %this, i64 0, i32 1
+  %m_allocator = getelementptr inbounds i8, ptr %this, i64 8
   %6 = load ptr, ptr %m_allocator, align 8
   %7 = load i32, ptr %m_pos.i.i, align 8
   %mul.i.i = shl i32 %7, 5
@@ -2044,11 +2050,11 @@ invoke.cont:                                      ; preds = %entry
 invoke.cont12:                                    ; preds = %invoke.cont
   %8 = and i8 %bf.load, 12
   %lnot11 = icmp eq i8 %8, 12
-  %m_full.i = getelementptr inbounds %"class.nlsat::interval_set", ptr %call2.i2, i64 0, i32 1
+  %m_full.i = getelementptr inbounds i8, ptr %call2.i2, i64 4
   %bf.shl.i = select i1 %lnot11, i32 -2147483648, i32 0
   store i32 %bf.shl.i, ptr %m_full.i, align 4
   store i32 %7, ptr %call2.i2, align 8
-  %m_intervals.i = getelementptr inbounds %"class.nlsat::interval_set", ptr %call2.i2, i64 0, i32 2
+  %m_intervals.i = getelementptr inbounds i8, ptr %call2.i2, i64 8
   %9 = load ptr, ptr %result, align 8
   %conv8.i = zext i32 %7 to i64
   %mul.i = shl nuw nsw i64 %conv8.i, 5
@@ -2090,7 +2096,7 @@ if.then:                                          ; preds = %entry
   br i1 %randomize, label %if.then3, label %if.else
 
 if.then3:                                         ; preds = %if.then
-  %m_rand = getelementptr inbounds %"class.nlsat::interval_set_manager", ptr %this, i64 0, i32 3
+  %m_rand = getelementptr inbounds i8, ptr %this, i64 24
   %0 = load i32, ptr %m_rand, align 8
   %mul.i = mul i32 %0, 214013
   %add.i = add i32 %mul.i, 2531011
@@ -2100,17 +2106,17 @@ if.then3:                                         ; preds = %if.then
   %1 = load ptr, ptr %this, align 8
   %call10 = tail call noundef nonnull align 8 dereferenceable(728) ptr @_ZNK17algebraic_numbers7manager2qmEv(ptr noundef nonnull align 8 dereferenceable(17) %1)
   store ptr %call10, ptr %_w, align 8
-  %m_num.i = getelementptr inbounds %class._scoped_numeral, ptr %_w, i64 0, i32 1
+  %m_num.i = getelementptr inbounds i8, ptr %_w, i64 8
   store i32 0, ptr %m_num.i, align 8
-  %m_kind.i.i.i = getelementptr inbounds %class._scoped_numeral, ptr %_w, i64 0, i32 1, i32 0, i32 1
+  %m_kind.i.i.i = getelementptr inbounds i8, ptr %_w, i64 12
   store i8 0, ptr %m_kind.i.i.i, align 4
-  %m_ptr.i.i.i = getelementptr inbounds %class._scoped_numeral, ptr %_w, i64 0, i32 1, i32 0, i32 2
+  %m_ptr.i.i.i = getelementptr inbounds i8, ptr %_w, i64 16
   store ptr null, ptr %m_ptr.i.i.i, align 8
-  %m_den.i.i = getelementptr inbounds %class._scoped_numeral, ptr %_w, i64 0, i32 1, i32 1
+  %m_den.i.i = getelementptr inbounds i8, ptr %_w, i64 24
   store i32 1, ptr %m_den.i.i, align 8
-  %m_kind.i1.i.i = getelementptr inbounds %class._scoped_numeral, ptr %_w, i64 0, i32 1, i32 1, i32 1
+  %m_kind.i1.i.i = getelementptr inbounds i8, ptr %_w, i64 28
   store i8 0, ptr %m_kind.i1.i.i, align 4
-  %m_ptr.i4.i.i = getelementptr inbounds %class._scoped_numeral, ptr %_w, i64 0, i32 1, i32 1, i32 2
+  %m_ptr.i4.i.i = getelementptr inbounds i8, ptr %_w, i64 32
   store ptr null, ptr %m_ptr.i4.i.i, align 8
   %2 = load ptr, ptr %this, align 8
   %call12 = invoke noundef nonnull align 8 dereferenceable(728) ptr @_ZNK17algebraic_numbers7manager2qmEv(ptr noundef nonnull align 8 dereferenceable(17) %2)
@@ -2128,12 +2134,12 @@ invoke.cont:                                      ; preds = %if.then3
   store i8 0, ptr %m_kind.i.i.i, align 4
   store i32 %cond9, ptr %m_den.i.i, align 8
   store i8 0, ptr %m_kind.i1.i.i, align 4
-  %m_tmp1.i.i = getelementptr inbounds %class.mpq_manager, ptr %call12, i64 0, i32 1
+  %m_tmp1.i.i = getelementptr inbounds i8, ptr %call12, i64 600
   invoke void @_ZN11mpz_managerILb0EE3gcdERK3mpzS3_RS1_(ptr noundef nonnull align 8 dereferenceable(600) %call12, ptr noundef nonnull align 8 dereferenceable(16) %m_num.i, ptr noundef nonnull align 8 dereferenceable(16) %m_den.i.i, ptr noundef nonnull align 8 dereferenceable(16) %m_tmp1.i.i)
           to label %.noexc unwind label %lpad
 
 .noexc:                                           ; preds = %invoke.cont
-  %m_kind.i.i.i.i.i = getelementptr inbounds %class.mpq_manager, ptr %call12, i64 0, i32 1, i32 1
+  %m_kind.i.i.i.i.i = getelementptr inbounds i8, ptr %call12, i64 604
   %bf.load.i.i.i.i.i = load i8, ptr %m_kind.i.i.i.i.i, align 4
   %bf.clear.i.i.i.i.i = and i8 %bf.load.i.i.i.i.i, 1
   %cmp.i.i.i.i.i = icmp eq i8 %bf.clear.i.i.i.i.i, 0
@@ -2184,7 +2190,7 @@ if.else:                                          ; preds = %if.then
 
 _ZNK5nlsat20interval_set_manager13num_intervalsEPKNS_12interval_setE.exit: ; preds = %entry
   %12 = load i32, ptr %s, align 8
-  %m_intervals = getelementptr inbounds %"class.nlsat::interval_set", ptr %s, i64 0, i32 2
+  %m_intervals = getelementptr inbounds i8, ptr %s, i64 8
   %bf.load = load i8, ptr %m_intervals, align 8
   %13 = and i8 %bf.load, 4
   %tobool23.not.not = icmp eq i8 %13, 0
@@ -2192,14 +2198,14 @@ _ZNK5nlsat20interval_set_manager13num_intervalsEPKNS_12interval_setE.exit: ; pre
 
 if.then24:                                        ; preds = %_ZNK5nlsat20interval_set_manager13num_intervalsEPKNS_12interval_setE.exit
   %14 = load ptr, ptr %this, align 8
-  %m_lower = getelementptr inbounds %"class.nlsat::interval_set", ptr %s, i64 3
+  %m_lower = getelementptr inbounds i8, ptr %s, i64 24
   tail call void @_ZN17algebraic_numbers7manager6int_ltERKNS_4anumERS1_(ptr noundef nonnull align 8 dereferenceable(17) %14, ptr noundef nonnull align 8 dereferenceable(8) %m_lower, ptr noundef nonnull align 8 dereferenceable(8) %w)
   br i1 %randomize, label %if.end31, label %return
 
 if.end31:                                         ; preds = %if.then24
   %sub = add i32 %12, -1
   %idxprom = zext i32 %sub to i64
-  %arrayidx33 = getelementptr inbounds %"class.nlsat::interval_set", ptr %s, i64 0, i32 2, i64 %idxprom
+  %arrayidx33 = getelementptr inbounds [0 x %"struct.nlsat::interval"], ptr %m_intervals, i64 0, i64 %idxprom
   %bf.load34 = load i8, ptr %arrayidx33, align 8
   %15 = and i8 %bf.load34, 8
   %tobool38.not = icmp eq i8 %15, 0
@@ -2208,14 +2214,14 @@ if.end31:                                         ; preds = %if.then24
 if.end31.thread:                                  ; preds = %_ZNK5nlsat20interval_set_manager13num_intervalsEPKNS_12interval_setE.exit
   %sub68 = add i32 %12, -1
   %idxprom69 = zext i32 %sub68 to i64
-  %arrayidx3370 = getelementptr inbounds %"class.nlsat::interval_set", ptr %s, i64 0, i32 2, i64 %idxprom69
+  %arrayidx3370 = getelementptr inbounds [0 x %"struct.nlsat::interval"], ptr %m_intervals, i64 0, i64 %idxprom69
   %bf.load3471 = load i8, ptr %arrayidx3370, align 8
   %16 = and i8 %bf.load3471, 8
   %tobool38.not72 = icmp eq i8 %16, 0
   br i1 %tobool38.not72, label %if.end52, label %if.end56.thread
 
 lor.lhs.false:                                    ; preds = %if.end31
-  %m_rand42 = getelementptr inbounds %"class.nlsat::interval_set_manager", ptr %this, i64 0, i32 3
+  %m_rand42 = getelementptr inbounds i8, ptr %this, i64 24
   %17 = load i32, ptr %m_rand42, align 8
   %mul.i59 = mul i32 %17, 214013
   %add.i60 = add i32 %mul.i59, 2531011
@@ -2226,13 +2232,13 @@ lor.lhs.false:                                    ; preds = %if.end31
 
 if.end52.thread82:                                ; preds = %lor.lhs.false
   %19 = load ptr, ptr %this, align 8
-  %m_upper85 = getelementptr inbounds %"class.nlsat::interval_set", ptr %s, i64 0, i32 2, i64 %idxprom, i32 4
+  %m_upper85 = getelementptr inbounds i8, ptr %arrayidx33, i64 24
   tail call void @_ZN17algebraic_numbers7manager6int_gtERKNS_4anumERS1_(ptr noundef nonnull align 8 dereferenceable(17) %19, ptr noundef nonnull align 8 dereferenceable(8) %m_upper85, ptr noundef nonnull align 8 dereferenceable(8) %w)
   br label %if.end56
 
 if.end52:                                         ; preds = %if.end31.thread
   %20 = load ptr, ptr %this, align 8
-  %m_upper = getelementptr inbounds %"class.nlsat::interval_set", ptr %s, i64 0, i32 2, i64 %idxprom69, i32 4
+  %m_upper = getelementptr inbounds i8, ptr %arrayidx3370, i64 24
   tail call void @_ZN17algebraic_numbers7manager6int_gtERKNS_4anumERS1_(ptr noundef nonnull align 8 dereferenceable(17) %20, ptr noundef nonnull align 8 dereferenceable(8) %m_upper, ptr noundef nonnull align 8 dereferenceable(8) %w)
   br i1 %randomize, label %if.end56, label %return
 
@@ -2248,7 +2254,7 @@ if.end56.thread:                                  ; preds = %if.end31.thread
 for.body.lr.ph:                                   ; preds = %if.end56.thread, %if.end56
   %n.1121 = phi i32 [ 0, %if.end56.thread ], [ %n.1, %if.end56 ]
   %cmp71120 = phi i1 [ true, %if.end56.thread ], [ false, %if.end56 ]
-  %m_rand73 = getelementptr inbounds %"class.nlsat::interval_set_manager", ptr %this, i64 0, i32 3
+  %m_rand73 = getelementptr inbounds i8, ptr %this, i64 24
   %wide.trip.count107 = zext i32 %12 to i64
   br i1 %randomize, label %for.body.us, label %for.body
 
@@ -2257,8 +2263,8 @@ for.body.us:                                      ; preds = %for.body.lr.ph, %fo
   %n.289.us = phi i32 [ %n.3.us, %for.inc.us ], [ %n.1121, %for.body.lr.ph ]
   %21 = load ptr, ptr %this, align 8
   %22 = add nsw i64 %indvars.iv103, -1
-  %m_upper63.us = getelementptr inbounds %"class.nlsat::interval_set", ptr %s, i64 0, i32 2, i64 %22, i32 4
-  %m_lower67.us = getelementptr inbounds %"class.nlsat::interval_set", ptr %s, i64 0, i32 2, i64 %indvars.iv103, i32 3
+  %m_upper63.us = getelementptr inbounds [0 x %"struct.nlsat::interval"], ptr %m_intervals, i64 0, i64 %22, i32 4
+  %m_lower67.us = getelementptr inbounds [0 x %"struct.nlsat::interval"], ptr %m_intervals, i64 0, i64 %indvars.iv103, i32 3
   %call68.us = tail call noundef zeroext i1 @_ZN17algebraic_numbers7manager2ltERKNS_4anumES3_(ptr noundef nonnull align 8 dereferenceable(17) %21, ptr noundef nonnull align 8 dereferenceable(8) %m_upper63.us, ptr noundef nonnull align 8 dereferenceable(8) %m_lower67.us)
   br i1 %call68.us, label %if.then69.us, label %for.inc.us
 
@@ -2293,8 +2299,8 @@ for.body:                                         ; preds = %for.body.lr.ph, %fo
   %indvars.iv = phi i64 [ %indvars.iv.next, %for.inc ], [ 1, %for.body.lr.ph ]
   %25 = load ptr, ptr %this, align 8
   %26 = add nsw i64 %indvars.iv, -1
-  %m_upper63 = getelementptr inbounds %"class.nlsat::interval_set", ptr %s, i64 0, i32 2, i64 %26, i32 4
-  %m_lower67 = getelementptr inbounds %"class.nlsat::interval_set", ptr %s, i64 0, i32 2, i64 %indvars.iv, i32 3
+  %m_upper63 = getelementptr inbounds [0 x %"struct.nlsat::interval"], ptr %m_intervals, i64 0, i64 %26, i32 4
+  %m_lower67 = getelementptr inbounds [0 x %"struct.nlsat::interval"], ptr %m_intervals, i64 0, i64 %indvars.iv, i32 3
   %call68 = tail call noundef zeroext i1 @_ZN17algebraic_numbers7manager2ltERKNS_4anumES3_(ptr noundef nonnull align 8 dereferenceable(17) %25, ptr noundef nonnull align 8 dereferenceable(8) %m_upper63, ptr noundef nonnull align 8 dereferenceable(8) %m_lower67)
   br i1 %call68, label %if.then69, label %for.inc
 
@@ -2336,14 +2342,14 @@ for.body100:                                      ; preds = %for.body100.prehead
   %indvars.iv109 = phi i64 [ 1, %for.body100.preheader ], [ %indvars.iv.next110, %for.inc138 ]
   %irrational_i.095 = phi i32 [ -1, %for.body100.preheader ], [ %irrational_i.1, %for.inc138 ]
   %29 = add nsw i64 %indvars.iv109, -1
-  %arrayidx104 = getelementptr inbounds %"class.nlsat::interval_set", ptr %s, i64 0, i32 2, i64 %29
+  %arrayidx104 = getelementptr inbounds [0 x %"struct.nlsat::interval"], ptr %m_intervals, i64 0, i64 %29
   %bf.load105 = load i8, ptr %arrayidx104, align 8
   %30 = and i8 %bf.load105, 2
   %tobool109.not = icmp eq i8 %30, 0
   br i1 %tobool109.not, label %for.inc138, label %land.lhs.true
 
 land.lhs.true:                                    ; preds = %for.body100
-  %arrayidx112 = getelementptr inbounds %"class.nlsat::interval_set", ptr %s, i64 0, i32 2, i64 %indvars.iv109
+  %arrayidx112 = getelementptr inbounds [0 x %"struct.nlsat::interval"], ptr %m_intervals, i64 0, i64 %indvars.iv109
   %bf.load113 = load i8, ptr %arrayidx112, align 8
   %bf.clear114 = and i8 %bf.load113, 1
   %tobool116.not = icmp eq i8 %bf.clear114, 0
@@ -2351,7 +2357,7 @@ land.lhs.true:                                    ; preds = %for.body100
 
 if.then117:                                       ; preds = %land.lhs.true
   %31 = load ptr, ptr %this, align 8
-  %m_upper123 = getelementptr inbounds %"class.nlsat::interval_set", ptr %s, i64 0, i32 2, i64 %29, i32 4
+  %m_upper123 = getelementptr inbounds i8, ptr %arrayidx104, i64 24
   %call124 = tail call noundef zeroext i1 @_ZN17algebraic_numbers7manager11is_rationalERKNS_4anumE(ptr noundef nonnull align 8 dereferenceable(17) %31, ptr noundef nonnull align 8 dereferenceable(8) %m_upper123)
   br i1 %call124, label %if.then125, label %if.end132
 
@@ -2379,7 +2385,7 @@ for.end140.loopexit:                              ; preds = %for.inc138
 for.end140:                                       ; preds = %if.end56.thread, %for.end140.loopexit
   %irrational_i.0.lcssa = phi i64 [ %34, %for.end140.loopexit ], [ 4294967295, %if.end56.thread ]
   %35 = load ptr, ptr %this, align 8
-  %m_upper145 = getelementptr inbounds %"class.nlsat::interval_set", ptr %s, i64 0, i32 2, i64 %irrational_i.0.lcssa, i32 4
+  %m_upper145 = getelementptr inbounds [0 x %"struct.nlsat::interval"], ptr %m_intervals, i64 0, i64 %irrational_i.0.lcssa, i32 4
   tail call void @_ZN17algebraic_numbers7manager3setERNS_4anumERKS1_(ptr noundef nonnull align 8 dereferenceable(17) %35, ptr noundef nonnull align 8 dereferenceable(8) %w, ptr noundef nonnull align 8 dereferenceable(8) %m_upper145)
   br label %return
 
@@ -2395,12 +2401,12 @@ declare void @_ZN17algebraic_numbers7manager3setERNS_4anumERK3mpq(ptr noundef no
 define linkonce_odr hidden void @_ZN15_scoped_numeralI11mpq_managerILb0EEED2Ev(ptr noundef nonnull align 8 dereferenceable(40) %this) unnamed_addr #6 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %0 = load ptr, ptr %this, align 8
-  %m_num = getelementptr inbounds %class._scoped_numeral, ptr %this, i64 0, i32 1
+  %m_num = getelementptr inbounds i8, ptr %this, i64 8
   invoke void @_ZN11mpz_managerILb0EE3delEPS0_R3mpz(ptr noundef nonnull %0, ptr noundef nonnull align 8 dereferenceable(16) %m_num)
           to label %.noexc unwind label %terminate.lpad
 
 .noexc:                                           ; preds = %entry
-  %m_den.i = getelementptr inbounds %class._scoped_numeral, ptr %this, i64 0, i32 1, i32 1
+  %m_den.i = getelementptr inbounds i8, ptr %this, i64 24
   invoke void @_ZN11mpz_managerILb0EE3delEPS0_R3mpz(ptr noundef nonnull %0, ptr noundef nonnull align 8 dereferenceable(16) %m_den.i)
           to label %invoke.cont unwind label %terminate.lpad
 
@@ -2437,10 +2443,14 @@ if.end:                                           ; preds = %entry
   %call2 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc(ptr noundef nonnull align 8 dereferenceable(8) %out, ptr noundef nonnull @.str.13)
   %0 = load i32, ptr %s, align 8
   %cmp314.not = icmp eq i32 %0, 0
-  br i1 %cmp314.not, label %for.end, label %for.body
+  br i1 %cmp314.not, label %for.end, label %for.body.lr.ph
 
-for.body:                                         ; preds = %if.end, %if.end7
-  %indvars.iv = phi i64 [ %indvars.iv.next, %if.end7 ], [ 0, %if.end ]
+for.body.lr.ph:                                   ; preds = %if.end
+  %m_intervals = getelementptr inbounds i8, ptr %s, i64 8
+  br label %for.body
+
+for.body:                                         ; preds = %for.body.lr.ph, %if.end7
+  %indvars.iv = phi i64 [ 0, %for.body.lr.ph ], [ %indvars.iv.next, %if.end7 ]
   %cmp4.not = icmp eq i64 %indvars.iv, 0
   br i1 %cmp4.not, label %if.end7, label %if.then5
 
@@ -2450,7 +2460,7 @@ if.then5:                                         ; preds = %for.body
 
 if.end7:                                          ; preds = %if.then5, %for.body
   %1 = load ptr, ptr %this, align 8
-  %arrayidx = getelementptr inbounds %"class.nlsat::interval_set", ptr %s, i64 0, i32 2, i64 %indvars.iv
+  %arrayidx = getelementptr inbounds [0 x %"struct.nlsat::interval"], ptr %m_intervals, i64 0, i64 %indvars.iv
   tail call void @_ZN5nlsat7displayERSoRN17algebraic_numbers7managerERKNS_8intervalE(ptr noundef nonnull align 8 dereferenceable(8) %out, ptr noundef nonnull align 8 dereferenceable(17) %1, ptr noundef nonnull align 8 dereferenceable(32) %arrayidx)
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %2 = load i32, ptr %s, align 8
@@ -2460,7 +2470,7 @@ if.end7:                                          ; preds = %if.then5, %for.body
 
 for.end:                                          ; preds = %if.end7, %if.end
   %call8 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc(ptr noundef nonnull align 8 dereferenceable(8) %out, ptr noundef nonnull @.str.14)
-  %m_full = getelementptr inbounds %"class.nlsat::interval_set", ptr %s, i64 0, i32 1
+  %m_full = getelementptr inbounds i8, ptr %s, i64 4
   %bf.load = load i32, ptr %m_full, align 4
   %tobool.not = icmp sgt i32 %bf.load, -1
   br i1 %tobool.not, label %return, label %return.sink.split
@@ -2501,14 +2511,14 @@ entry:
 if.then:                                          ; preds = %entry
   %call = tail call noalias noundef ptr @_ZN6memory8allocateEm(i64 noundef 16)
   store i32 2, ptr %call, align 4
-  %incdec.ptr = getelementptr inbounds i32, ptr %call, i64 1
+  %incdec.ptr = getelementptr inbounds i8, ptr %call, i64 4
   store i32 0, ptr %incdec.ptr, align 4
-  %incdec.ptr2 = getelementptr inbounds i32, ptr %call, i64 2
+  %incdec.ptr2 = getelementptr inbounds i8, ptr %call, i64 8
   store ptr %incdec.ptr2, ptr %this, align 8
   br label %if.end28
 
 if.else:                                          ; preds = %entry
-  %arrayidx = getelementptr inbounds i32, ptr %0, i64 -2
+  %arrayidx = getelementptr inbounds i8, ptr %0, i64 -8
   %1 = load i32, ptr %arrayidx, align 4
   %mul9 = mul i32 %1, 3
   %add10 = add i32 %mul9, 1
@@ -2532,7 +2542,7 @@ if.then17:                                        ; preds = %lor.lhs.false, %if.
 
 invoke.cont:                                      ; preds = %if.then17
   store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTV17default_exception, i64 0, inrange i32 0, i64 2), ptr %exception, align 8
-  %m_msg.i = getelementptr inbounds %class.default_exception, ptr %exception, i64 0, i32 1
+  %m_msg.i = getelementptr inbounds i8, ptr %exception, i64 8
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EOS4_(ptr noundef nonnull align 8 dereferenceable(32) %m_msg.i, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp) #18
   invoke void @__cxa_throw(ptr nonnull %exception, ptr nonnull @_ZTI17default_exception, ptr nonnull @_ZN17default_exceptionD2Ev) #19
           to label %unreachable unwind label %ehcleanup
@@ -2554,7 +2564,7 @@ cleanup.action:                                   ; preds = %if.then17
 if.end:                                           ; preds = %lor.lhs.false
   %conv24 = zext i32 %add13 to i64
   %call25 = tail call noalias noundef ptr @_ZN6memory10reallocateEPvm(ptr noundef nonnull %arrayidx, i64 noundef %conv24)
-  %add.ptr26 = getelementptr inbounds i32, ptr %call25, i64 2
+  %add.ptr26 = getelementptr inbounds i8, ptr %call25, i64 8
   store ptr %add.ptr26, ptr %this, align 8
   store i32 %shr, ptr %call25, align 4
   br label %if.end28
@@ -2610,7 +2620,7 @@ invoke.cont4:                                     ; preds = %if.end
 define linkonce_odr hidden void @_ZN17default_exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(40) %this) unnamed_addr #6 comdat align 2 {
 entry:
   store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTV17default_exception, i64 0, inrange i32 0, i64 2), ptr %this, align 8
-  %m_msg = getelementptr inbounds %class.default_exception, ptr %this, i64 0, i32 1
+  %m_msg = getelementptr inbounds i8, ptr %this, i64 8
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %m_msg) #18
   ret void
 }
@@ -2744,14 +2754,14 @@ entry:
 if.then:                                          ; preds = %entry
   %call = tail call noalias noundef ptr @_ZN6memory8allocateEm(i64 noundef 24)
   store i32 2, ptr %call, align 4
-  %incdec.ptr = getelementptr inbounds i32, ptr %call, i64 1
+  %incdec.ptr = getelementptr inbounds i8, ptr %call, i64 4
   store i32 0, ptr %incdec.ptr, align 4
-  %incdec.ptr2 = getelementptr inbounds i32, ptr %call, i64 2
+  %incdec.ptr2 = getelementptr inbounds i8, ptr %call, i64 8
   store ptr %incdec.ptr2, ptr %this, align 8
   br label %if.end28
 
 if.else:                                          ; preds = %entry
-  %arrayidx = getelementptr inbounds i32, ptr %0, i64 -2
+  %arrayidx = getelementptr inbounds i8, ptr %0, i64 -8
   %1 = load i32, ptr %arrayidx, align 4
   %mul9 = mul i32 %1, 3
   %add10 = add i32 %mul9, 1
@@ -2775,7 +2785,7 @@ if.then17:                                        ; preds = %lor.lhs.false, %if.
 
 invoke.cont:                                      ; preds = %if.then17
   store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTV17default_exception, i64 0, inrange i32 0, i64 2), ptr %exception, align 8
-  %m_msg.i = getelementptr inbounds %class.default_exception, ptr %exception, i64 0, i32 1
+  %m_msg.i = getelementptr inbounds i8, ptr %exception, i64 8
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EOS4_(ptr noundef nonnull align 8 dereferenceable(32) %m_msg.i, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp) #18
   invoke void @__cxa_throw(ptr nonnull %exception, ptr nonnull @_ZTI17default_exception, ptr nonnull @_ZN17default_exceptionD2Ev) #19
           to label %unreachable unwind label %ehcleanup
@@ -2797,7 +2807,7 @@ cleanup.action:                                   ; preds = %if.then17
 if.end:                                           ; preds = %lor.lhs.false
   %conv24 = zext i32 %add13 to i64
   %call25 = tail call noalias noundef ptr @_ZN6memory10reallocateEPvm(ptr noundef nonnull %arrayidx, i64 noundef %conv24)
-  %add.ptr26 = getelementptr inbounds i32, ptr %call25, i64 2
+  %add.ptr26 = getelementptr inbounds i8, ptr %call25, i64 8
   store ptr %add.ptr26, ptr %this, align 8
   store i32 %shr, ptr %call25, align 4
   br label %if.end28

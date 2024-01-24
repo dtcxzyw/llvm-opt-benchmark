@@ -3,25 +3,6 @@ source_filename = "bench/yoga/original/PixelGrid.cpp.ll"
 target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:128-n8:16:32:64-S128"
 target triple = "x86_64-unknown-linux-gnu"
 
-%"class.facebook::yoga::Node" = type { i8, ptr, ptr, ptr, ptr, ptr, %"class.facebook::yoga::Style", %"struct.facebook::yoga::LayoutResults", i64, ptr, %"class.std::vector", ptr, %"struct.std::array.5" }
-%"class.facebook::yoga::Style" = type { i8, [3 x i8], %"struct.facebook::yoga::FloatOptional", %"struct.facebook::yoga::FloatOptional", %"struct.facebook::yoga::FloatOptional", %"class.facebook::yoga::CompactValue", %"struct.std::array", %"struct.std::array", %"struct.std::array", %"struct.std::array", %"struct.std::array.0", %"struct.std::array.1", %"struct.std::array.1", %"struct.std::array.1", %"struct.facebook::yoga::FloatOptional" }
-%"class.facebook::yoga::CompactValue" = type { i32 }
-%"struct.std::array" = type { [9 x %"class.facebook::yoga::CompactValue"] }
-%"struct.std::array.0" = type { [3 x %"class.facebook::yoga::CompactValue"] }
-%"struct.std::array.1" = type { [2 x %"class.facebook::yoga::CompactValue"] }
-%"struct.facebook::yoga::FloatOptional" = type { float }
-%"struct.facebook::yoga::LayoutResults" = type { i32, %"struct.facebook::yoga::FloatOptional", i32, i8, i32, %"struct.std::array.2", %"struct.facebook::yoga::CachedMeasurement", i8, %"struct.std::array.3", %"struct.std::array.3", %"struct.std::array.4", %"struct.std::array.4", %"struct.std::array.4", %"struct.std::array.4" }
-%"struct.std::array.2" = type { [8 x %"struct.facebook::yoga::CachedMeasurement"] }
-%"struct.facebook::yoga::CachedMeasurement" = type { float, float, i32, i32, float, float }
-%"struct.std::array.3" = type { [2 x float] }
-%"struct.std::array.4" = type { [4 x float] }
-%"class.std::vector" = type { %"struct.std::_Vector_base" }
-%"struct.std::_Vector_base" = type { %"struct.std::_Vector_base<facebook::yoga::Node *, std::allocator<facebook::yoga::Node *>>::_Vector_impl" }
-%"struct.std::_Vector_base<facebook::yoga::Node *, std::allocator<facebook::yoga::Node *>>::_Vector_impl" = type { %"struct.std::_Vector_base<facebook::yoga::Node *, std::allocator<facebook::yoga::Node *>>::_Vector_impl_data" }
-%"struct.std::_Vector_base<facebook::yoga::Node *, std::allocator<facebook::yoga::Node *>>::_Vector_impl_data" = type { ptr, ptr, ptr }
-%"struct.std::array.5" = type { [2 x %struct.YGValue] }
-%struct.YGValue = type { float, i32 }
-
 @.str = private unnamed_addr constant [35 x i8] c"Edge must be top/left/bottom/right\00", align 1
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(write) uwtable
@@ -104,21 +85,21 @@ declare double @fmod(double noundef, double noundef) local_unnamed_addr #1
 ; Function Attrs: mustprogress uwtable
 define hidden void @_ZN8facebook4yoga29roundLayoutResultsToPixelGridEPNS0_4NodeEdd(ptr noundef %node, double noundef %absoluteLeft, double noundef %absoluteTop) local_unnamed_addr #2 {
 entry:
-  %config_.i = getelementptr inbounds %"class.facebook::yoga::Node", ptr %node, i64 0, i32 11
+  %config_.i = getelementptr inbounds i8, ptr %node, i64 616
   %0 = load ptr, ptr %config_.i, align 8
   %call1 = tail call noundef float @_ZNK8facebook4yoga6Config19getPointScaleFactorEv(ptr noundef nonnull align 8 dereferenceable(48) %0)
   tail call void @_ZN8facebook4yoga11assertFatalEbPKc(i1 noundef zeroext true, ptr noundef nonnull @.str)
-  %position_.i = getelementptr inbounds %"class.facebook::yoga::Node", ptr %node, i64 0, i32 7, i32 10
+  %position_.i = getelementptr inbounds i8, ptr %node, i64 508
   %1 = load float, ptr %position_.i, align 4
   %conv = fpext float %1 to double
   tail call void @_ZN8facebook4yoga11assertFatalEbPKc(i1 noundef zeroext true, ptr noundef nonnull @.str)
-  %arrayidx.i.i.i = getelementptr inbounds %"class.facebook::yoga::Node", ptr %node, i64 0, i32 7, i32 10, i32 0, i64 1
+  %arrayidx.i.i.i = getelementptr inbounds i8, ptr %node, i64 512
   %2 = load float, ptr %arrayidx.i.i.i, align 4
   %conv6 = fpext float %2 to double
-  %dimensions_.i = getelementptr inbounds %"class.facebook::yoga::Node", ptr %node, i64 0, i32 7, i32 8
+  %dimensions_.i = getelementptr inbounds i8, ptr %node, i64 492
   %3 = load float, ptr %dimensions_.i, align 4
   %conv9 = fpext float %3 to double
-  %arrayidx.i.i.i46 = getelementptr inbounds %"class.facebook::yoga::Node", ptr %node, i64 0, i32 7, i32 8, i32 0, i64 1
+  %arrayidx.i.i.i46 = getelementptr inbounds i8, ptr %node, i64 496
   %4 = load float, ptr %arrayidx.i.i.i46, align 4
   %conv12 = fpext float %4 to double
   %add = fadd double %conv, %absoluteLeft
@@ -566,9 +547,9 @@ _ZN8facebook4yoga21roundValueToPixelGridEddbb.exit251: ; preds = %if.then3.i249,
   br label %if.end
 
 if.end:                                           ; preds = %_ZN8facebook4yoga21roundValueToPixelGridEddbb.exit251, %entry
-  %children_.i = getelementptr inbounds %"class.facebook::yoga::Node", ptr %node, i64 0, i32 10
+  %children_.i = getelementptr inbounds i8, ptr %node, i64 592
   %46 = load ptr, ptr %children_.i, align 8
-  %_M_finish.i = getelementptr inbounds %"class.facebook::yoga::Node", ptr %node, i64 0, i32 10, i32 0, i32 0, i32 0, i32 1
+  %_M_finish.i = getelementptr inbounds i8, ptr %node, i64 600
   %47 = load ptr, ptr %_M_finish.i, align 8
   %cmp.i252258 = icmp eq ptr %46, %47
   br i1 %cmp.i252258, label %for.end, label %for.body
@@ -577,7 +558,7 @@ for.body:                                         ; preds = %if.end, %for.body
   %__begin2.sroa.0.0259 = phi ptr [ %incdec.ptr.i, %for.body ], [ %46, %if.end ]
   %48 = load ptr, ptr %__begin2.sroa.0.0259, align 8
   tail call void @_ZN8facebook4yoga29roundLayoutResultsToPixelGridEPNS0_4NodeEdd(ptr noundef %48, double noundef %add, double noundef %add13)
-  %incdec.ptr.i = getelementptr inbounds ptr, ptr %__begin2.sroa.0.0259, i64 1
+  %incdec.ptr.i = getelementptr inbounds i8, ptr %__begin2.sroa.0.0259, i64 8
   %cmp.i252 = icmp eq ptr %incdec.ptr.i, %47
   br i1 %cmp.i252, label %for.end, label %for.body
 

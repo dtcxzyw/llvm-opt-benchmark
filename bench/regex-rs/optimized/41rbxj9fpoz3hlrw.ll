@@ -28,7 +28,7 @@ target triple = "x86_64-unknown-linux-gnu"
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: write) uwtable
 define void @_ZN14regex_automata4util5start6Config3new17h3a9c6fd198d0ca4dE(ptr nocapture writeonly sret({ { i32, i32 }, { i8, i8 }, [2 x i8] }) align 4 %0) unnamed_addr #0 {
-  %2 = getelementptr inbounds { { i32, i32 }, { i8, i8 }, [2 x i8] }, ptr %0, i64 0, i32 1
+  %2 = getelementptr inbounds i8, ptr %0, i64 8
   store i8 0, ptr %2, align 4
   store i32 0, ptr %0, align 4
   ret void
@@ -49,12 +49,12 @@ define void @_ZN14regex_automata4util5start6Config18from_input_forward17hc23bfb4
   %12 = tail call { i32, i32 } @_ZN14regex_automata4util6search5Input12get_anchored17h7eac29f50a61aaafE(ptr nonnull align 8 %1)
   %13 = extractvalue { i32, i32 } %12, 0
   %14 = extractvalue { i32, i32 } %12, 1
-  %15 = getelementptr inbounds { { i32, i32 }, { i8, i8 }, [2 x i8] }, ptr %0, i64 0, i32 1
+  %15 = getelementptr inbounds i8, ptr %0, i64 8
   store i8 %10, ptr %15, align 4
-  %16 = getelementptr inbounds { { i32, i32 }, { i8, i8 }, [2 x i8] }, ptr %0, i64 0, i32 1, i32 1
+  %16 = getelementptr inbounds i8, ptr %0, i64 9
   store i8 %11, ptr %16, align 1
   store i32 %13, ptr %0, align 4
-  %17 = getelementptr inbounds { i32, i32 }, ptr %0, i64 0, i32 1
+  %17 = getelementptr inbounds i8, ptr %0, i64 4
   store i32 %14, ptr %17, align 4
   ret void
 }
@@ -73,22 +73,22 @@ define void @_ZN14regex_automata4util5start6Config18from_input_reverse17h544b0b9
   %12 = tail call { i32, i32 } @_ZN14regex_automata4util6search5Input12get_anchored17h7eac29f50a61aaafE(ptr align 8 %1)
   %13 = extractvalue { i32, i32 } %12, 0
   %14 = extractvalue { i32, i32 } %12, 1
-  %15 = getelementptr inbounds { { i32, i32 }, { i8, i8 }, [2 x i8] }, ptr %0, i64 0, i32 1
+  %15 = getelementptr inbounds i8, ptr %0, i64 8
   store i8 %10, ptr %15, align 4
-  %16 = getelementptr inbounds { { i32, i32 }, { i8, i8 }, [2 x i8] }, ptr %0, i64 0, i32 1, i32 1
+  %16 = getelementptr inbounds i8, ptr %0, i64 9
   store i8 %11, ptr %16, align 1
   store i32 %13, ptr %0, align 4
-  %17 = getelementptr inbounds { i32, i32 }, ptr %0, i64 0, i32 1
+  %17 = getelementptr inbounds i8, ptr %0, i64 4
   store i32 %14, ptr %17, align 4
   ret void
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: readwrite) uwtable
 define void @_ZN14regex_automata4util5start6Config11look_behind17h5a8287f48642effcE(ptr nocapture writeonly sret({ { i32, i32 }, { i8, i8 }, [2 x i8] }) align 4 %0, ptr nocapture align 4 %1, i1 zeroext %2, i8 %3) unnamed_addr #2 {
-  %5 = getelementptr inbounds { { i32, i32 }, { i8, i8 }, [2 x i8] }, ptr %1, i64 0, i32 1
+  %5 = getelementptr inbounds i8, ptr %1, i64 8
   %6 = zext i1 %2 to i8
   store i8 %6, ptr %5, align 4
-  %7 = getelementptr inbounds { { i32, i32 }, { i8, i8 }, [2 x i8] }, ptr %1, i64 0, i32 1, i32 1
+  %7 = getelementptr inbounds i8, ptr %1, i64 9
   store i8 %3, ptr %7, align 1
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %0, ptr noundef nonnull align 4 dereferenceable(12) %1, i64 12, i1 false)
   ret void
@@ -97,7 +97,7 @@ define void @_ZN14regex_automata4util5start6Config11look_behind17h5a8287f48642ef
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: readwrite) uwtable
 define void @_ZN14regex_automata4util5start6Config8anchored17h0df471514c41b6a9E(ptr nocapture writeonly sret({ { i32, i32 }, { i8, i8 }, [2 x i8] }) align 4 %0, ptr nocapture align 4 %1, i32 %2, i32 %3) unnamed_addr #2 {
   store i32 %2, ptr %1, align 4
-  %5 = getelementptr inbounds { i32, i32 }, ptr %1, i64 0, i32 1
+  %5 = getelementptr inbounds i8, ptr %1, i64 4
   store i32 %3, ptr %5, align 4
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %0, ptr noundef nonnull align 4 dereferenceable(12) %1, i64 12, i1 false)
   ret void
@@ -105,9 +105,9 @@ define void @_ZN14regex_automata4util5start6Config8anchored17h0df471514c41b6a9E(
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: read) uwtable
 define { i8, i8 } @_ZN14regex_automata4util5start6Config15get_look_behind17hfb30ca8c0cd9b9b4E(ptr nocapture readonly align 4 %0) unnamed_addr #3 {
-  %2 = getelementptr inbounds { { i32, i32 }, { i8, i8 }, [2 x i8] }, ptr %0, i64 0, i32 1
+  %2 = getelementptr inbounds i8, ptr %0, i64 8
   %3 = load i8, ptr %2, align 4, !range !5, !noundef !6
-  %4 = getelementptr inbounds { { i32, i32 }, { i8, i8 }, [2 x i8] }, ptr %0, i64 0, i32 1, i32 1
+  %4 = getelementptr inbounds i8, ptr %0, i64 9
   %5 = load i8, ptr %4, align 1
   %6 = insertvalue { i8, i8 } poison, i8 %3, 0
   %7 = insertvalue { i8, i8 } %6, i8 %5, 1
@@ -117,7 +117,7 @@ define { i8, i8 } @_ZN14regex_automata4util5start6Config15get_look_behind17hfb30
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: read) uwtable
 define { i32, i32 } @_ZN14regex_automata4util5start6Config12get_anchored17h48f8a6e1550a20e3E(ptr nocapture readonly align 4 %0) unnamed_addr #3 {
   %2 = load i32, ptr %0, align 4, !range !7, !noundef !6
-  %3 = getelementptr inbounds { i32, i32 }, ptr %0, i64 0, i32 1
+  %3 = getelementptr inbounds i8, ptr %0, i64 4
   %4 = load i32, ptr %3, align 4
   %5 = insertvalue { i32, i32 } poison, i32 %2, 0
   %6 = insertvalue { i32, i32 } %5, i32 %4, 1
@@ -129,11 +129,11 @@ define hidden void @_ZN14regex_automata4util5start12StartByteMap3new17hbe90ebded
 .preheader17.preheader:
   %2 = alloca [256 x i8], align 1
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(256) %2, i8 0, i64 256, i1 false)
-  %3 = getelementptr inbounds [256 x i8], ptr %2, i64 0, i64 10
+  %3 = getelementptr inbounds i8, ptr %2, i64 10
   store i8 3, ptr %3, align 1
-  %4 = getelementptr inbounds [256 x i8], ptr %2, i64 0, i64 13
+  %4 = getelementptr inbounds i8, ptr %2, i64 13
   store i8 4, ptr %4, align 1
-  %5 = getelementptr inbounds [256 x i8], ptr %2, i64 0, i64 95
+  %5 = getelementptr inbounds i8, ptr %2, i64 95
   store i8 1, ptr %5, align 1
   %scevgep = getelementptr inbounds i8, ptr %2, i64 48
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(10) %scevgep, i8 1, i64 10, i1 false)
@@ -177,9 +177,9 @@ define zeroext i1 @"_ZN78_$LT$regex_automata..util..start..StartByteMap$u20$as$u
   %14 = call i24 @"_ZN4core3ops5range25RangeInclusive$LT$Idx$GT$3new17hbf2726551e960618E"(i8 0, i8 -1)
   %15 = call i24 @"_ZN63_$LT$I$u20$as$u20$core..iter..traits..collect..IntoIterator$GT$9into_iter17ha06ee16e7b4a3cbfE"(i24 %14)
   store i24 %15, ptr %9, align 4
-  %16 = getelementptr inbounds { ptr, ptr }, ptr %5, i64 0, i32 1
-  %17 = getelementptr inbounds [2 x { ptr, ptr }], ptr %5, i64 0, i64 1
-  %18 = getelementptr inbounds [2 x { ptr, ptr }], ptr %5, i64 0, i64 1, i32 1
+  %16 = getelementptr inbounds i8, ptr %5, i64 8
+  %17 = getelementptr inbounds i8, ptr %5, i64 16
+  %18 = getelementptr inbounds i8, ptr %5, i64 24
   br label %19
 
 19:                                               ; preds = %32, %13

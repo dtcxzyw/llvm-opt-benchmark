@@ -10,11 +10,7 @@ target triple = "x86_64-unknown-linux-gnu"
 %struct.PyMethodDef = type { ptr, ptr, i32, ptr }
 %struct.timeval = type { i64, i64 }
 %struct._keymap_entry = type { i8, ptr }
-%struct.readlinestate = type { ptr, ptr, ptr, ptr, ptr, ptr }
 %struct.fd_set = type { [16 x i64] }
-%struct._hist_state = type { ptr, i32, i32, i32, i32 }
-%struct.PyBytesObject = type { %struct.PyVarObject, i64, [1 x i8] }
-%struct.PyVarObject = type { %struct._object, i64 }
 
 @.str = private unnamed_addr constant [9 x i8] c"readline\00", align 1
 @rl_library_version = external local_unnamed_addr global ptr, align 8
@@ -263,10 +259,10 @@ if.then26.i:                                      ; preds = %if.end19.i
 if.end27.i:                                       ; preds = %if.then26.i, %if.end19.i
   store ptr %call24.i, ptr @rl_completer_word_break_characters, align 8
   %call28.i = tail call ptr @PyLong_FromLong(i64 noundef 0) #14
-  %begidx.i = getelementptr inbounds %struct.readlinestate, ptr %call26, i64 0, i32 4
+  %begidx.i = getelementptr inbounds i8, ptr %call26, i64 32
   store ptr %call28.i, ptr %begidx.i, align 8
   %call29.i = tail call ptr @PyLong_FromLong(i64 noundef 0) #14
-  %endidx.i = getelementptr inbounds %struct.readlinestate, ptr %call26, i64 0, i32 5
+  %endidx.i = getelementptr inbounds i8, ptr %call26, i64 40
   store ptr %call29.i, ptr %endidx.i, align 8
   %.b6.i = load i1, ptr @using_libedit_emulation, align 4
   br i1 %.b6.i, label %if.then39.i, label %if.then31.i
@@ -493,7 +489,7 @@ if.end18:                                         ; preds = %if.end10
 
 if.then22:                                        ; preds = %if.end18
   %call.i31 = call ptr @history_get_history_state() #14
-  %length1.i = getelementptr inbounds %struct._hist_state, ptr %call.i31, i64 0, i32 2
+  %length1.i = getelementptr inbounds i8, ptr %call.i31, i64 12
   %13 = load i32, ptr %length1.i, align 4
   call void @free(ptr noundef %call.i31) #14
   %cmp24 = icmp sgt i32 %13, 0
@@ -567,7 +563,7 @@ if.then:                                          ; preds = %entry
   br i1 %tobool3.not, label %do.body6, label %return
 
 do.body6:                                         ; preds = %if.then, %entry
-  %startup_hook = getelementptr inbounds %struct.readlinestate, ptr %call.i, i64 0, i32 1
+  %startup_hook = getelementptr inbounds i8, ptr %call.i, i64 8
   %1 = load ptr, ptr %startup_hook, align 8
   %tobool7.not = icmp eq ptr %1, null
   br i1 %tobool7.not, label %do.body17, label %if.then8
@@ -578,7 +574,7 @@ if.then8:                                         ; preds = %do.body6
   br i1 %tobool12.not, label %do.body17, label %return
 
 do.body17:                                        ; preds = %if.then8, %do.body6
-  %pre_input_hook = getelementptr inbounds %struct.readlinestate, ptr %call.i, i64 0, i32 2
+  %pre_input_hook = getelementptr inbounds i8, ptr %call.i, i64 16
   %2 = load ptr, ptr %pre_input_hook, align 8
   %tobool18.not = icmp eq ptr %2, null
   br i1 %tobool18.not, label %do.body28, label %if.then19
@@ -589,7 +585,7 @@ if.then19:                                        ; preds = %do.body17
   br i1 %tobool23.not, label %do.body28, label %return
 
 do.body28:                                        ; preds = %if.then19, %do.body17
-  %completer = getelementptr inbounds %struct.readlinestate, ptr %call.i, i64 0, i32 3
+  %completer = getelementptr inbounds i8, ptr %call.i, i64 24
   %3 = load ptr, ptr %completer, align 8
   %tobool29.not = icmp eq ptr %3, null
   br i1 %tobool29.not, label %do.body39, label %if.then30
@@ -600,7 +596,7 @@ if.then30:                                        ; preds = %do.body28
   br i1 %tobool34.not, label %do.body39, label %return
 
 do.body39:                                        ; preds = %if.then30, %do.body28
-  %begidx = getelementptr inbounds %struct.readlinestate, ptr %call.i, i64 0, i32 4
+  %begidx = getelementptr inbounds i8, ptr %call.i, i64 32
   %4 = load ptr, ptr %begidx, align 8
   %tobool40.not = icmp eq ptr %4, null
   br i1 %tobool40.not, label %do.body50, label %if.then41
@@ -611,7 +607,7 @@ if.then41:                                        ; preds = %do.body39
   br i1 %tobool45.not, label %do.body50, label %return
 
 do.body50:                                        ; preds = %if.then41, %do.body39
-  %endidx = getelementptr inbounds %struct.readlinestate, ptr %call.i, i64 0, i32 5
+  %endidx = getelementptr inbounds i8, ptr %call.i, i64 40
   %5 = load ptr, ptr %endidx, align 8
   %tobool51.not = icmp eq ptr %5, null
   br i1 %tobool51.not, label %do.end60, label %if.then52
@@ -630,7 +626,7 @@ return:                                           ; preds = %if.then52, %if.then
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @readline_clear(ptr noundef %m) #0 {
+define internal noundef i32 @readline_clear(ptr noundef %m) #0 {
 entry:
   %call.i = tail call ptr @PyModule_GetState(ptr noundef %m) #14
   %0 = load ptr, ptr %call.i, align 8
@@ -655,7 +651,7 @@ if.then1.i78:                                     ; preds = %if.end.i75
   br label %do.body1
 
 do.body1:                                         ; preds = %if.end.i75, %if.then1.i78, %if.then, %entry
-  %startup_hook = getelementptr inbounds %struct.readlinestate, ptr %call.i, i64 0, i32 1
+  %startup_hook = getelementptr inbounds i8, ptr %call.i, i64 8
   %3 = load ptr, ptr %startup_hook, align 8
   %cmp4.not = icmp eq ptr %3, null
   br i1 %cmp4.not, label %do.body8, label %if.then5
@@ -678,7 +674,7 @@ if.then1.i69:                                     ; preds = %if.end.i66
   br label %do.body8
 
 do.body8:                                         ; preds = %if.end.i66, %if.then1.i69, %if.then5, %do.body1
-  %pre_input_hook = getelementptr inbounds %struct.readlinestate, ptr %call.i, i64 0, i32 2
+  %pre_input_hook = getelementptr inbounds i8, ptr %call.i, i64 16
   %6 = load ptr, ptr %pre_input_hook, align 8
   %cmp11.not = icmp eq ptr %6, null
   br i1 %cmp11.not, label %do.body15, label %if.then12
@@ -701,7 +697,7 @@ if.then1.i60:                                     ; preds = %if.end.i57
   br label %do.body15
 
 do.body15:                                        ; preds = %if.end.i57, %if.then1.i60, %if.then12, %do.body8
-  %completer = getelementptr inbounds %struct.readlinestate, ptr %call.i, i64 0, i32 3
+  %completer = getelementptr inbounds i8, ptr %call.i, i64 24
   %9 = load ptr, ptr %completer, align 8
   %cmp18.not = icmp eq ptr %9, null
   br i1 %cmp18.not, label %do.body22, label %if.then19
@@ -724,7 +720,7 @@ if.then1.i51:                                     ; preds = %if.end.i48
   br label %do.body22
 
 do.body22:                                        ; preds = %if.end.i48, %if.then1.i51, %if.then19, %do.body15
-  %begidx = getelementptr inbounds %struct.readlinestate, ptr %call.i, i64 0, i32 4
+  %begidx = getelementptr inbounds i8, ptr %call.i, i64 32
   %12 = load ptr, ptr %begidx, align 8
   %cmp25.not = icmp eq ptr %12, null
   br i1 %cmp25.not, label %do.body29, label %if.then26
@@ -747,7 +743,7 @@ if.then1.i42:                                     ; preds = %if.end.i39
   br label %do.body29
 
 do.body29:                                        ; preds = %if.end.i39, %if.then1.i42, %if.then26, %do.body22
-  %endidx = getelementptr inbounds %struct.readlinestate, ptr %call.i, i64 0, i32 5
+  %endidx = getelementptr inbounds i8, ptr %call.i, i64 40
   %15 = load ptr, ptr %endidx, align 8
   %cmp32.not = icmp eq ptr %15, null
   br i1 %cmp32.not, label %do.end35, label %if.then33
@@ -816,7 +812,7 @@ Py_DECREF.exit18:                                 ; preds = %if.then4, %if.then1
   br label %return
 
 if.end6:                                          ; preds = %if.end
-  %ob_sval.i = getelementptr inbounds %struct.PyBytesObject, ptr %call.i, i64 0, i32 2
+  %ob_sval.i = getelementptr inbounds i8, ptr %call.i, i64 32
   %call8 = tail call ptr @strcpy(ptr noundef nonnull dereferenceable(1) %call2, ptr noundef nonnull dereferenceable(1) %ob_sval.i) #14
   %3 = load i64, ptr %call.i, align 8
   %4 = and i64 %3, 2147483648
@@ -852,14 +848,14 @@ entry:
 }
 
 ; Function Attrs: nounwind uwtable
-define internal ptr @readline_insert_text(ptr nocapture readnone %module, ptr noundef %string) #0 {
+define internal noundef ptr @readline_insert_text(ptr nocapture readnone %module, ptr noundef %string) #0 {
 entry:
   %call.i = tail call ptr @PyUnicode_EncodeLocale(ptr noundef %string, ptr noundef nonnull @.str.33) #14
   %cmp = icmp eq ptr %call.i, null
   br i1 %cmp, label %return, label %if.end
 
 if.end:                                           ; preds = %entry
-  %ob_sval.i = getelementptr inbounds %struct.PyBytesObject, ptr %call.i, i64 0, i32 2
+  %ob_sval.i = getelementptr inbounds i8, ptr %call.i, i64 32
   %call2 = tail call i32 @rl_insert_text(ptr noundef nonnull %ob_sval.i) #14
   %0 = load i64, ptr %call.i, align 8
   %1 = and i64 %0, 2147483648
@@ -882,7 +878,7 @@ return:                                           ; preds = %if.end.i, %if.then1
 }
 
 ; Function Attrs: nounwind uwtable
-define internal nonnull ptr @readline_redisplay(ptr nocapture readnone %module, ptr nocapture readnone %_unused_ignored) #0 {
+define internal noundef nonnull ptr @readline_redisplay(ptr nocapture readnone %module, ptr nocapture readnone %_unused_ignored) #0 {
 entry:
   tail call void @rl_redisplay() #14
   ret ptr @_Py_NoneStruct
@@ -921,7 +917,7 @@ if.then.i:                                        ; preds = %skip_optional
 
 if.end.i:                                         ; preds = %if.then.i
   %1 = load ptr, ptr %filename_bytes.i, align 8
-  %ob_sval.i.i = getelementptr inbounds %struct.PyBytesObject, ptr %1, i64 0, i32 2
+  %ob_sval.i.i = getelementptr inbounds i8, ptr %1, i64 32
   %call3.i = call i32 @rl_read_init_file(ptr noundef nonnull %ob_sval.i.i) #14
   %call4.i = tail call ptr @__errno_location() #16
   store i32 %call3.i, ptr %call4.i, align 4
@@ -1012,7 +1008,7 @@ if.then.i:                                        ; preds = %skip_optional
 
 if.end.i:                                         ; preds = %if.then.i
   %1 = load ptr, ptr %filename_bytes.i, align 8
-  %ob_sval.i.i = getelementptr inbounds %struct.PyBytesObject, ptr %1, i64 0, i32 2
+  %ob_sval.i.i = getelementptr inbounds i8, ptr %1, i64 32
   %call3.i = call i32 @read_history(ptr noundef nonnull %ob_sval.i.i) #14
   %call4.i = tail call ptr @__errno_location() #16
   store i32 %call3.i, ptr %call4.i, align 4
@@ -1095,7 +1091,7 @@ if.then.i:                                        ; preds = %skip_optional
 
 if.end.i:                                         ; preds = %if.then.i
   %1 = load ptr, ptr %filename_bytes.i, align 8
-  %ob_sval.i.i = getelementptr inbounds %struct.PyBytesObject, ptr %1, i64 0, i32 2
+  %ob_sval.i.i = getelementptr inbounds i8, ptr %1, i64 32
   br label %if.end3.i
 
 if.else.i:                                        ; preds = %skip_optional.thread, %skip_optional
@@ -1190,7 +1186,7 @@ skip_optional.thread:                             ; preds = %if.end8
   br label %if.else.i
 
 skip_optional:                                    ; preds = %if.end8
-  %arrayidx12 = getelementptr ptr, ptr %args, i64 1
+  %arrayidx12 = getelementptr i8, ptr %args, i64 8
   %2 = load ptr, ptr %arrayidx12, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %filename_bytes.i)
   %cmp.not.i = icmp eq ptr %2, @_Py_NoneStruct
@@ -1203,7 +1199,7 @@ if.then.i:                                        ; preds = %skip_optional
 
 if.end.i:                                         ; preds = %if.then.i
   %3 = load ptr, ptr %filename_bytes.i, align 8
-  %ob_sval.i.i = getelementptr inbounds %struct.PyBytesObject, ptr %3, i64 0, i32 2
+  %ob_sval.i.i = getelementptr inbounds i8, ptr %3, i64 32
   br label %if.end3.i
 
 if.else.i:                                        ; preds = %skip_optional.thread, %skip_optional
@@ -1281,7 +1277,7 @@ entry.split:                                      ; preds = %entry
 
 if.then.i:                                        ; preds = %entry.split
   %call.i.i = tail call ptr @history_get_history_state() #14
-  %length1.i.i = getelementptr inbounds %struct._hist_state, ptr %call.i.i, i64 0, i32 2
+  %length1.i.i = getelementptr inbounds i8, ptr %call.i.i, i64 12
   %0 = load i32, ptr %length1.i.i, align 4
   tail call void @free(ptr noundef %call.i.i) #14
   %sub.i = add i32 %call, -1
@@ -1338,7 +1334,7 @@ exit:                                             ; preds = %if.then.i12, %if.th
 define internal ptr @readline_get_current_history_length(ptr nocapture readnone %module, ptr nocapture readnone %_unused_ignored) #0 {
 entry:
   %call.i.i = tail call ptr @history_get_history_state() #14
-  %length1.i.i = getelementptr inbounds %struct._hist_state, ptr %call.i.i, i64 0, i32 2
+  %length1.i.i = getelementptr inbounds i8, ptr %call.i.i, i64 12
   %0 = load i32, ptr %length1.i.i, align 4
   tail call void @free(ptr noundef %call.i.i) #14
   %conv.i = sext i32 %0 to i64
@@ -1347,7 +1343,7 @@ entry:
 }
 
 ; Function Attrs: nounwind uwtable
-define internal ptr @readline_set_history_length(ptr nocapture readnone %module, ptr noundef %arg) #0 {
+define internal noundef ptr @readline_set_history_length(ptr nocapture readnone %module, ptr noundef %arg) #0 {
 entry:
   %call = tail call i32 @PyLong_AsInt(ptr noundef %arg) #14
   %cmp = icmp eq i32 %call, -1
@@ -1378,7 +1374,7 @@ entry:
 }
 
 ; Function Attrs: nounwind uwtable
-define internal ptr @readline_set_completer(ptr noundef %module, ptr nocapture noundef readonly %args, i64 noundef %nargs) #0 {
+define internal noundef ptr @readline_set_completer(ptr noundef %module, ptr nocapture noundef readonly %args, i64 noundef %nargs) #0 {
 entry:
   %or.cond = icmp ult i64 %nargs, 2
   br i1 %or.cond, label %if.end, label %lor.lhs.false
@@ -1399,8 +1395,8 @@ if.end4:                                          ; preds = %if.end
 skip_optional:                                    ; preds = %if.end, %if.end4
   %function.0 = phi ptr [ @_Py_NoneStruct, %if.end ], [ %0, %if.end4 ]
   %call.i.i = tail call ptr @PyModule_GetState(ptr noundef %module) #14
-  %completer.i = getelementptr inbounds %struct.readlinestate, ptr %call.i.i, i64 0, i32 3
-  %call1.i = tail call fastcc ptr @set_hook(ptr noundef nonnull @.str.36, ptr noundef nonnull %completer.i, ptr noundef %function.0)
+  %completer.i = getelementptr inbounds i8, ptr %call.i.i, i64 24
+  %call1.i = tail call fastcc noundef ptr @set_hook(ptr noundef nonnull @.str.36, ptr noundef nonnull %completer.i, ptr noundef %function.0)
   br label %exit
 
 exit:                                             ; preds = %lor.lhs.false, %skip_optional
@@ -1412,7 +1408,7 @@ exit:                                             ; preds = %lor.lhs.false, %ski
 define internal ptr @readline_get_completer(ptr noundef %module, ptr nocapture readnone %_unused_ignored) #0 {
 entry:
   %call.i.i = tail call ptr @PyModule_GetState(ptr noundef %module) #14
-  %completer.i = getelementptr inbounds %struct.readlinestate, ptr %call.i.i, i64 0, i32 3
+  %completer.i = getelementptr inbounds i8, ptr %call.i.i, i64 24
   %0 = load ptr, ptr %completer.i, align 8
   %cmp.i = icmp eq ptr %0, null
   br i1 %cmp.i, label %readline_get_completer_impl.exit, label %if.end.i
@@ -1442,10 +1438,10 @@ entry:
 }
 
 ; Function Attrs: nounwind uwtable
-define internal ptr @readline_get_begidx(ptr noundef %module, ptr nocapture readnone %_unused_ignored) #0 {
+define internal noundef ptr @readline_get_begidx(ptr noundef %module, ptr nocapture readnone %_unused_ignored) #0 {
 entry:
   %call.i.i = tail call ptr @PyModule_GetState(ptr noundef %module) #14
-  %begidx.i = getelementptr inbounds %struct.readlinestate, ptr %call.i.i, i64 0, i32 4
+  %begidx.i = getelementptr inbounds i8, ptr %call.i.i, i64 32
   %0 = load ptr, ptr %begidx.i, align 8
   %1 = load i32, ptr %0, align 8
   %add.i.i.i = add i32 %1, 1
@@ -1461,10 +1457,10 @@ readline_get_begidx_impl.exit:                    ; preds = %entry, %if.end.i.i.
 }
 
 ; Function Attrs: nounwind uwtable
-define internal ptr @readline_get_endidx(ptr noundef %module, ptr nocapture readnone %_unused_ignored) #0 {
+define internal noundef ptr @readline_get_endidx(ptr noundef %module, ptr nocapture readnone %_unused_ignored) #0 {
 entry:
   %call.i.i = tail call ptr @PyModule_GetState(ptr noundef %module) #14
-  %endidx.i = getelementptr inbounds %struct.readlinestate, ptr %call.i.i, i64 0, i32 5
+  %endidx.i = getelementptr inbounds i8, ptr %call.i.i, i64 40
   %0 = load ptr, ptr %endidx.i, align 8
   %1 = load i32, ptr %0, align 8
   %add.i.i.i = add i32 %1, 1
@@ -1487,7 +1483,7 @@ entry:
   br i1 %cmp, label %return, label %if.end
 
 if.end:                                           ; preds = %entry
-  %ob_sval.i = getelementptr inbounds %struct.PyBytesObject, ptr %call.i, i64 0, i32 2
+  %ob_sval.i = getelementptr inbounds i8, ptr %call.i, i64 32
   %call2 = tail call noalias ptr @strdup(ptr noundef nonnull %ob_sval.i) #14
   %0 = load i64, ptr %call.i, align 8
   %1 = and i64 %0, 2147483648
@@ -1533,7 +1529,7 @@ return:                                           ; preds = %entry, %if.else, %i
 }
 
 ; Function Attrs: nounwind uwtable
-define internal ptr @readline_set_auto_history(ptr nocapture readnone %module, ptr noundef %arg) #0 {
+define internal noundef ptr @readline_set_auto_history(ptr nocapture readnone %module, ptr noundef %arg) #0 {
 entry:
   %call = tail call i32 @PyObject_IsTrue(ptr noundef %arg) #14
   %cmp = icmp slt i32 %call, 0
@@ -1549,14 +1545,14 @@ exit:                                             ; preds = %entry, %if.end
 }
 
 ; Function Attrs: nounwind uwtable
-define internal ptr @readline_add_history(ptr nocapture readnone %module, ptr noundef %string) #0 {
+define internal noundef ptr @readline_add_history(ptr nocapture readnone %module, ptr noundef %string) #0 {
 entry:
   %call.i = tail call ptr @PyUnicode_EncodeLocale(ptr noundef %string, ptr noundef nonnull @.str.33) #14
   %cmp = icmp eq ptr %call.i, null
   br i1 %cmp, label %return, label %if.end
 
 if.end:                                           ; preds = %entry
-  %ob_sval.i = getelementptr inbounds %struct.PyBytesObject, ptr %call.i, i64 0, i32 2
+  %ob_sval.i = getelementptr inbounds i8, ptr %call.i, i64 32
   tail call void @add_history(ptr noundef nonnull %ob_sval.i) #14
   %0 = load i64, ptr %call.i, align 8
   %1 = and i64 %0, 2147483648
@@ -1579,7 +1575,7 @@ return:                                           ; preds = %if.end.i, %if.then1
 }
 
 ; Function Attrs: nounwind uwtable
-define internal ptr @readline_remove_history_item(ptr nocapture readnone %module, ptr noundef %arg) #0 {
+define internal noundef ptr @readline_remove_history_item(ptr nocapture readnone %module, ptr noundef %arg) #0 {
 entry:
   %call = tail call i32 @PyLong_AsInt(ptr noundef %arg) #14
   %cmp = icmp eq i32 %call, -1
@@ -1625,7 +1621,7 @@ exit:                                             ; preds = %if.end4.i, %if.then
 }
 
 ; Function Attrs: nounwind uwtable
-define internal ptr @readline_replace_history_item(ptr nocapture readnone %module, ptr nocapture noundef readonly %args, i64 noundef %nargs) #0 {
+define internal noundef ptr @readline_replace_history_item(ptr nocapture readnone %module, ptr nocapture noundef readonly %args, i64 noundef %nargs) #0 {
 entry:
   %or.cond = icmp eq i64 %nargs, 2
   br i1 %or.cond, label %if.end, label %lor.lhs.false
@@ -1647,7 +1643,7 @@ land.lhs.true4:                                   ; preds = %if.end
   br i1 %tobool6.not, label %if.end8.thread, label %exit
 
 if.end8:                                          ; preds = %if.end
-  %arrayidx9 = getelementptr ptr, ptr %args, i64 1
+  %arrayidx9 = getelementptr i8, ptr %args, i64 8
   %1 = load ptr, ptr %arrayidx9, align 8
   %2 = getelementptr i8, ptr %1, i64 8
   %.val = load ptr, ptr %2, align 8
@@ -1658,7 +1654,7 @@ if.end8:                                          ; preds = %if.end
   br i1 %tobool12.not, label %if.then13, label %if.end15
 
 if.end8.thread:                                   ; preds = %land.lhs.true4
-  %arrayidx98 = getelementptr ptr, ptr %args, i64 1
+  %arrayidx98 = getelementptr i8, ptr %args, i64 8
   %5 = load ptr, ptr %arrayidx98, align 8
   %6 = getelementptr i8, ptr %5, i64 8
   %.val9 = load ptr, ptr %6, align 8
@@ -1691,7 +1687,7 @@ if.end3.i:                                        ; preds = %if.end.i
   %.b.i = load i1, ptr @libedit_append_replace_history_offset, align 1
   %conv.i7 = zext i1 %.b.i to i32
   %add.i = add nuw i32 %call2, %conv.i7
-  %ob_sval.i.i = getelementptr inbounds %struct.PyBytesObject, ptr %call.i.i, i64 0, i32 2
+  %ob_sval.i.i = getelementptr inbounds i8, ptr %call.i.i, i64 32
   %call5.i = tail call ptr @replace_history_entry(i32 noundef %add.i, ptr noundef nonnull %ob_sval.i.i, ptr noundef null) #14
   %11 = load i64, ptr %call.i.i, align 8
   %12 = and i64 %11, 2147483648
@@ -1736,7 +1732,7 @@ entry:
 }
 
 ; Function Attrs: nounwind uwtable
-define internal ptr @readline_set_completion_display_matches_hook(ptr noundef %module, ptr nocapture noundef readonly %args, i64 noundef %nargs) #0 {
+define internal noundef ptr @readline_set_completion_display_matches_hook(ptr noundef %module, ptr nocapture noundef readonly %args, i64 noundef %nargs) #0 {
 entry:
   %or.cond = icmp ult i64 %nargs, 2
   br i1 %or.cond, label %if.end, label %lor.lhs.false
@@ -1757,7 +1753,7 @@ if.end4:                                          ; preds = %if.end
 skip_optional:                                    ; preds = %if.end, %if.end4
   %function.0 = phi ptr [ @_Py_NoneStruct, %if.end ], [ %0, %if.end4 ]
   %call.i.i = tail call ptr @PyModule_GetState(ptr noundef %module) #14
-  %call1.i = tail call fastcc ptr @set_hook(ptr noundef nonnull @.str.42, ptr noundef %call.i.i, ptr noundef %function.0)
+  %call1.i = tail call fastcc noundef ptr @set_hook(ptr noundef nonnull @.str.42, ptr noundef %call.i.i, ptr noundef %function.0)
   %1 = load ptr, ptr %call.i.i, align 8
   %tobool.not.i = icmp eq ptr %1, null
   %cond.i = select i1 %tobool.not.i, ptr null, ptr @on_completion_display_matches_hook
@@ -1770,7 +1766,7 @@ exit:                                             ; preds = %lor.lhs.false, %ski
 }
 
 ; Function Attrs: nounwind uwtable
-define internal ptr @readline_set_startup_hook(ptr noundef %module, ptr nocapture noundef readonly %args, i64 noundef %nargs) #0 {
+define internal noundef ptr @readline_set_startup_hook(ptr noundef %module, ptr nocapture noundef readonly %args, i64 noundef %nargs) #0 {
 entry:
   %or.cond = icmp ult i64 %nargs, 2
   br i1 %or.cond, label %if.end, label %lor.lhs.false
@@ -1791,8 +1787,8 @@ if.end4:                                          ; preds = %if.end
 skip_optional:                                    ; preds = %if.end, %if.end4
   %function.0 = phi ptr [ @_Py_NoneStruct, %if.end ], [ %0, %if.end4 ]
   %call.i.i = tail call ptr @PyModule_GetState(ptr noundef %module) #14
-  %startup_hook.i = getelementptr inbounds %struct.readlinestate, ptr %call.i.i, i64 0, i32 1
-  %call1.i = tail call fastcc ptr @set_hook(ptr noundef nonnull @.str.44, ptr noundef nonnull %startup_hook.i, ptr noundef %function.0)
+  %startup_hook.i = getelementptr inbounds i8, ptr %call.i.i, i64 8
+  %call1.i = tail call fastcc noundef ptr @set_hook(ptr noundef nonnull @.str.44, ptr noundef nonnull %startup_hook.i, ptr noundef %function.0)
   br label %exit
 
 exit:                                             ; preds = %lor.lhs.false, %skip_optional
@@ -1801,7 +1797,7 @@ exit:                                             ; preds = %lor.lhs.false, %ski
 }
 
 ; Function Attrs: nounwind uwtable
-define internal ptr @readline_set_pre_input_hook(ptr noundef %module, ptr nocapture noundef readonly %args, i64 noundef %nargs) #0 {
+define internal noundef ptr @readline_set_pre_input_hook(ptr noundef %module, ptr nocapture noundef readonly %args, i64 noundef %nargs) #0 {
 entry:
   %or.cond = icmp ult i64 %nargs, 2
   br i1 %or.cond, label %if.end, label %lor.lhs.false
@@ -1822,8 +1818,8 @@ if.end4:                                          ; preds = %if.end
 skip_optional:                                    ; preds = %if.end, %if.end4
   %function.0 = phi ptr [ @_Py_NoneStruct, %if.end ], [ %0, %if.end4 ]
   %call.i.i = tail call ptr @PyModule_GetState(ptr noundef %module) #14
-  %pre_input_hook.i = getelementptr inbounds %struct.readlinestate, ptr %call.i.i, i64 0, i32 2
-  %call1.i = tail call fastcc ptr @set_hook(ptr noundef nonnull @.str.45, ptr noundef nonnull %pre_input_hook.i, ptr noundef %function.0)
+  %pre_input_hook.i = getelementptr inbounds i8, ptr %call.i.i, i64 16
+  %call1.i = tail call fastcc noundef ptr @set_hook(ptr noundef nonnull @.str.45, ptr noundef nonnull %pre_input_hook.i, ptr noundef %function.0)
   br label %exit
 
 exit:                                             ; preds = %lor.lhs.false, %skip_optional
@@ -1832,7 +1828,7 @@ exit:                                             ; preds = %lor.lhs.false, %ski
 }
 
 ; Function Attrs: nounwind uwtable
-define internal nonnull ptr @readline_clear_history(ptr nocapture readnone %module, ptr nocapture readnone %_unused_ignored) #0 {
+define internal noundef nonnull ptr @readline_clear_history(ptr nocapture readnone %module, ptr nocapture readnone %_unused_ignored) #0 {
 entry:
   tail call void @clear_history() #14
   ret ptr @_Py_NoneStruct
@@ -1888,7 +1884,7 @@ declare void @free(ptr allocptr nocapture noundef) local_unnamed_addr #5
 declare ptr @PyLong_FromLong(i64 noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc ptr @set_hook(ptr noundef %funcname, ptr nocapture noundef %hook_var, ptr noundef %function) unnamed_addr #0 {
+define internal fastcc noundef ptr @set_hook(ptr noundef %funcname, ptr nocapture noundef %hook_var, ptr noundef %function) unnamed_addr #0 {
 entry:
   %cmp = icmp eq ptr %function, @_Py_NoneStruct
   br i1 %cmp, label %do.body, label %if.else
@@ -2282,7 +2278,7 @@ get_hook_module_state.exit:                       ; preds = %Py_INCREF.exit.i, %
   br i1 %cmp, label %return, label %if.end
 
 if.end:                                           ; preds = %get_hook_module_state.exit
-  %startup_hook = getelementptr inbounds %struct.readlinestate, ptr %call.i.i, i64 0, i32 1
+  %startup_hook = getelementptr inbounds i8, ptr %call.i.i, i64 8
   %3 = load ptr, ptr %startup_hook, align 8
   %call2 = tail call fastcc i32 @on_hook(ptr noundef %3)
   br label %return
@@ -2337,7 +2333,7 @@ get_hook_module_state.exit:                       ; preds = %Py_INCREF.exit.i, %
   br i1 %cmp, label %return, label %if.end
 
 if.end:                                           ; preds = %get_hook_module_state.exit
-  %pre_input_hook = getelementptr inbounds %struct.readlinestate, ptr %call.i.i, i64 0, i32 2
+  %pre_input_hook = getelementptr inbounds i8, ptr %call.i.i, i64 16
   %3 = load ptr, ptr %pre_input_hook, align 8
   %call2 = tail call fastcc i32 @on_hook(ptr noundef %3)
   br label %return
@@ -2438,7 +2434,7 @@ done:                                             ; preds = %if.end, %get_hook_m
   br i1 %tobool.not, label %if.end25, label %if.then18
 
 if.then18:                                        ; preds = %done
-  %begidx = getelementptr inbounds %struct.readlinestate, ptr %retval.0.i, i64 0, i32 4
+  %begidx = getelementptr inbounds i8, ptr %retval.0.i, i64 32
   %13 = load ptr, ptr %begidx, align 8
   %cmp.not.i = icmp eq ptr %13, null
   br i1 %cmp.not.i, label %Py_XDECREF.exit, label %if.then.i17
@@ -2460,7 +2456,7 @@ if.then1.i.i22:                                   ; preds = %if.end.i.i19
   br label %Py_XDECREF.exit
 
 Py_XDECREF.exit:                                  ; preds = %if.then18, %if.then.i17, %if.end.i.i19, %if.then1.i.i22
-  %endidx = getelementptr inbounds %struct.readlinestate, ptr %retval.0.i, i64 0, i32 5
+  %endidx = getelementptr inbounds i8, ptr %retval.0.i, i64 40
   %16 = load ptr, ptr %endidx, align 8
   %cmp.not.i23 = icmp eq ptr %16, null
   br i1 %cmp.not.i23, label %Py_XDECREF.exit31, label %if.then.i24
@@ -2619,7 +2615,7 @@ get_hook_module_state.exit:                       ; preds = %Py_INCREF.exit.i, %
   br i1 %cmp, label %return, label %if.end
 
 if.end:                                           ; preds = %get_hook_module_state.exit
-  %completer = getelementptr inbounds %struct.readlinestate, ptr %call.i.i, i64 0, i32 3
+  %completer = getelementptr inbounds i8, ptr %call.i.i, i64 24
   %3 = load ptr, ptr %completer, align 8
   %cmp2.not = icmp eq ptr %3, null
   br i1 %cmp2.not, label %return, label %if.then3
@@ -2663,7 +2659,7 @@ if.then1.i.i26:                                   ; preds = %if.end.i.i23
   br label %return
 
 if.end15:                                         ; preds = %if.else
-  %ob_sval.i = getelementptr inbounds %struct.PyBytesObject, ptr %call.i20, i64 0, i32 2
+  %ob_sval.i = getelementptr inbounds i8, ptr %call.i20, i64 32
   %call17 = tail call noalias ptr @strdup(ptr noundef nonnull %ob_sval.i) #14
   %7 = load i64, ptr %call.i20, align 8
   %8 = and i64 %7, 2147483648

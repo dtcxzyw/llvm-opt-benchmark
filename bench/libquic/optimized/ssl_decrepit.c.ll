@@ -3,9 +3,6 @@ source_filename = "bench/libquic/original/ssl_decrepit.c.ll"
 target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:128-n8:16:32:64-S128"
 target triple = "x86_64-unknown-linux-gnu"
 
-%struct.OPENSSL_DIR_CTX = type { ptr, %struct.dirent }
-%struct.dirent = type { i64, i64, i16, i8, [256 x i8] }
-
 @.str = private unnamed_addr constant [131 x i8] c"generated/home/dtcxzyw/WorkSpace/Projects/compilers/llvm-opt-benchmark/bench/libquic/libquic/boringssl/decrepit/ssl/ssl_decrepit.c\00", align 1
 @.str.1 = private unnamed_addr constant [6 x i8] c"%s/%s\00", align 1
 @.str.2 = private unnamed_addr constant [25 x i8] c"OPENSSL_DIR_read(&ctx, '\00", align 1
@@ -55,7 +52,7 @@ if.then13.i:                                      ; preds = %if.end9.i
 if.end17.i:                                       ; preds = %if.end9.i, %if.end.if.end17_crit_edge.i
   %d.1 = phi ptr [ %calloc.i, %if.end9.i ], [ %d.0, %if.end.if.end17_crit_edge.i ]
   %1 = phi ptr [ %call10.i, %if.end9.i ], [ %.pre.i, %if.end.if.end17_crit_edge.i ]
-  %dirent19.i = getelementptr inbounds %struct.OPENSSL_DIR_CTX, ptr %d.1, i64 0, i32 1
+  %dirent19.i = getelementptr inbounds i8, ptr %d.1, i64 8
   %call20.i = call i32 @readdir_r(ptr noundef %1, ptr noundef nonnull %dirent19.i, ptr noundef nonnull %dirent.i) #9
   %cmp21.i = icmp ne i32 %call20.i, 0
   %2 = load ptr, ptr %dirent.i, align 8
@@ -64,7 +61,7 @@ if.end17.i:                                       ; preds = %if.end9.i, %if.end.
   br i1 %or.cond1.i, label %while.end.loopexit, label %while.body
 
 while.body:                                       ; preds = %if.end17.i
-  %d_name.i = getelementptr inbounds %struct.OPENSSL_DIR_CTX, ptr %d.1, i64 0, i32 1, i32 4
+  %d_name.i = getelementptr inbounds i8, ptr %d.1, i64 27
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %dirent.i)
   %call1 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %dir) #10
   %call2 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %d_name.i) #10

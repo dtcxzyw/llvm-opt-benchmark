@@ -27,12 +27,12 @@ for.body:                                         ; preds = %entry, %for.body
 
 for.end:                                          ; preds = %for.body
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %uuid, ptr noundef nonnull align 16 dereferenceable(16) %tmp, i64 16, i1 false)
-  %arrayidx1 = getelementptr [16 x i8], ptr %uuid, i64 0, i64 8
+  %arrayidx1 = getelementptr i8, ptr %uuid, i64 8
   %0 = load i8, ptr %arrayidx1, align 4
   %1 = and i8 %0, 63
   %2 = or disjoint i8 %1, -128
   store i8 %2, ptr %arrayidx1, align 4
-  %arrayidx4 = getelementptr [16 x i8], ptr %uuid, i64 0, i64 6
+  %arrayidx4 = getelementptr i8, ptr %uuid, i64 6
   %3 = load i8, ptr %arrayidx4, align 2
   %4 = and i8 %3, 15
   %5 = or disjoint i8 %4, 64
@@ -177,7 +177,7 @@ entry:
 declare noalias ptr @g_strdup_printf(ptr noundef, ...) local_unnamed_addr #1
 
 ; Function Attrs: nofree nounwind sspstrong uwtable
-define dso_local i32 @qemu_uuid_parse(ptr nocapture noundef readonly %str, ptr noundef %uuid) local_unnamed_addr #5 {
+define dso_local noundef i32 @qemu_uuid_parse(ptr nocapture noundef readonly %str, ptr noundef %uuid) local_unnamed_addr #5 {
 entry:
   %call.i = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %str) #13
   %cmp24.not.i = icmp eq i64 %call.i, 0
@@ -260,7 +260,7 @@ return:                                           ; preds = %switch.early.test.i
 ; Function Attrs: nofree nounwind
 declare noundef i32 @__isoc99_sscanf(ptr nocapture noundef readonly, ptr nocapture noundef readonly, ...) local_unnamed_addr #6
 
-; Function Attrs: mustprogress nofree nosync nounwind sspstrong willreturn memory(none) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(none) uwtable
 define dso_local { i64, i64 } @qemu_uuid_bswap(i64 %uuid.coerce0, i64 %uuid.coerce1) local_unnamed_addr #7 {
 entry:
   %uuid.sroa.0.0.extract.trunc = trunc i64 %uuid.coerce0 to i32
@@ -323,7 +323,7 @@ attributes #3 = { mustprogress nofree nounwind sspstrong willreturn memory(read,
 attributes #4 = { mustprogress nofree nounwind sspstrong willreturn memory(argmem: read) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx16,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #5 = { nofree nounwind sspstrong uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx16,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #6 = { nofree nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx16,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #7 = { mustprogress nofree nosync nounwind sspstrong willreturn memory(none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx16,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #7 = { mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx16,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #8 = { nofree norecurse nosync nounwind sspstrong memory(argmem: read) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx16,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #9 = { mustprogress nofree nounwind willreturn memory(argmem: read) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx16,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #10 = { mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none) }

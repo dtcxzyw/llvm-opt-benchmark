@@ -4,7 +4,6 @@ target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:
 target triple = "x86_64-unknown-linux-gnu"
 
 %struct.DhParams = type { ptr, i32, ptr, i32 }
-%struct.DhKey = type { %struct.sp_int, %struct.sp_int, %struct.sp_int, ptr, i32 }
 %struct.sp_int = type { i32, i32, [129 x i64] }
 
 @wc_Dh_ffdhe2048_Get.ffdhe2048 = internal constant %struct.DhParams { ptr @dh_ffdhe2048_p, i32 256, ptr @dh_ffdhe2048_g, i32 1 }, align 8
@@ -25,12 +24,12 @@ entry:
   br i1 %cmp, label %return, label %if.end
 
 if.end:                                           ; preds = %entry
-  %heap1 = getelementptr inbounds %struct.DhKey, ptr %key, i64 0, i32 3
+  %heap1 = getelementptr inbounds i8, ptr %key, i64 3120
   store ptr %heap, ptr %heap1, align 8
-  %trustedGroup = getelementptr inbounds %struct.DhKey, ptr %key, i64 0, i32 4
+  %trustedGroup = getelementptr inbounds i8, ptr %key, i64 3128
   store i32 0, ptr %trustedGroup, align 8
-  %g = getelementptr inbounds %struct.DhKey, ptr %key, i64 0, i32 1
-  %q = getelementptr inbounds %struct.DhKey, ptr %key, i64 0, i32 2
+  %g = getelementptr inbounds i8, ptr %key, i64 1040
+  %q = getelementptr inbounds i8, ptr %key, i64 2080
   %call = tail call i32 @sp_init_multi(ptr noundef nonnull %key, ptr noundef nonnull %g, ptr noundef nonnull %q, ptr noundef null, ptr noundef null, ptr noundef null) #13
   %cmp2.not = icmp eq i32 %call, 0
   br i1 %cmp2.not, label %if.end4, label %return
@@ -53,12 +52,12 @@ entry:
   br i1 %cmp.i, label %wc_InitDhKey_ex.exit, label %if.end.i
 
 if.end.i:                                         ; preds = %entry
-  %heap1.i = getelementptr inbounds %struct.DhKey, ptr %key, i64 0, i32 3
+  %heap1.i = getelementptr inbounds i8, ptr %key, i64 3120
   store ptr null, ptr %heap1.i, align 8
-  %trustedGroup.i = getelementptr inbounds %struct.DhKey, ptr %key, i64 0, i32 4
+  %trustedGroup.i = getelementptr inbounds i8, ptr %key, i64 3128
   store i32 0, ptr %trustedGroup.i, align 8
-  %g.i = getelementptr inbounds %struct.DhKey, ptr %key, i64 0, i32 1
-  %q.i = getelementptr inbounds %struct.DhKey, ptr %key, i64 0, i32 2
+  %g.i = getelementptr inbounds i8, ptr %key, i64 1040
+  %q.i = getelementptr inbounds i8, ptr %key, i64 2080
   %call.i = tail call i32 @sp_init_multi(ptr noundef nonnull %key, ptr noundef nonnull %g.i, ptr noundef nonnull %q.i, ptr noundef null, ptr noundef null, ptr noundef null) #13
   %cmp2.not.i = icmp eq i32 %call.i, 0
   br i1 %cmp2.not.i, label %if.end4.i, label %wc_InitDhKey_ex.exit
@@ -80,9 +79,9 @@ entry:
 
 if.then:                                          ; preds = %entry
   tail call void @sp_clear(ptr noundef nonnull %key) #13
-  %g = getelementptr inbounds %struct.DhKey, ptr %key, i64 0, i32 1
+  %g = getelementptr inbounds i8, ptr %key, i64 1040
   tail call void @sp_clear(ptr noundef nonnull %g) #13
-  %q = getelementptr inbounds %struct.DhKey, ptr %key, i64 0, i32 2
+  %q = getelementptr inbounds i8, ptr %key, i64 2080
   tail call void @sp_clear(ptr noundef nonnull %q) #13
   br label %if.end
 
@@ -129,7 +128,7 @@ if.then14:                                        ; preds = %do.end
   br i1 %cmp17.not, label %land.lhs.true36, label %if.end120
 
 if.else:                                          ; preds = %do.end
-  %q20 = getelementptr inbounds %struct.DhKey, ptr %key, i64 0, i32 2
+  %q20 = getelementptr inbounds i8, ptr %key, i64 2080
   %0 = load i32, ptr %q20, align 8
   %cmp21.not = icmp eq i32 %0, 0
   br i1 %cmp21.not, label %if.end33, label %if.then24
@@ -177,7 +176,7 @@ land.lhs.true76:                                  ; preds = %if.end72
   br i1 %cmp13, label %if.end94, label %lor.lhs.false79
 
 lor.lhs.false79:                                  ; preds = %land.lhs.true76
-  %q80 = getelementptr inbounds %struct.DhKey, ptr %key, i64 0, i32 2
+  %q80 = getelementptr inbounds i8, ptr %key, i64 2080
   %2 = load i32, ptr %q80, align 8
   %cmp82.not = icmp eq i32 %2, 0
   br i1 %cmp82.not, label %if.end120, label %if.end94
@@ -364,7 +363,7 @@ if.then14:                                        ; preds = %if.then12
   br i1 %cmp17.not, label %if.then37, label %if.end85
 
 if.else:                                          ; preds = %if.then12
-  %q20 = getelementptr inbounds %struct.DhKey, ptr %key, i64 0, i32 2
+  %q20 = getelementptr inbounds i8, ptr %key, i64 2080
   %0 = load i32, ptr %q20, align 8
   %cmp21.not = icmp eq i32 %0, 0
   br i1 %cmp21.not, label %if.then37, label %if.then24
@@ -385,7 +384,7 @@ if.then47:                                        ; preds = %if.then37
   br i1 %cmp50.not, label %if.end85, label %if.then54
 
 if.then54:                                        ; preds = %if.then47
-  %q55 = getelementptr inbounds %struct.DhKey, ptr %key, i64 0, i32 2
+  %q55 = getelementptr inbounds i8, ptr %key, i64 2080
   %call57 = call i32 @sp_copy(ptr noundef nonnull %q55, ptr noundef nonnull %q) #13
   %cmp58.not = icmp eq i32 %call57, 0
   br i1 %cmp58.not, label %if.then64, label %if.end85
@@ -453,7 +452,7 @@ if.end.i:                                         ; preds = %entry
   br i1 %cmp4.not.i, label %if.end9.i, label %land.rhs.i
 
 land.rhs.i:                                       ; preds = %if.end.i
-  %dp.i = getelementptr inbounds %struct.sp_int, ptr %key, i64 0, i32 2
+  %dp.i = getelementptr inbounds i8, ptr %key, i64 8
   %1 = load i64, ptr %dp.i, align 8
   %and.i = and i64 %1, 1
   %cmp6.i = icmp eq i64 %and.i, 0
@@ -475,7 +474,7 @@ lor.lhs.false18.i:                                ; preds = %do.end.i
   br i1 %cmp21.not.i, label %if.then25.i, label %if.end42.i
 
 if.then25.i:                                      ; preds = %lor.lhs.false18.i
-  %g.i = getelementptr inbounds %struct.DhKey, ptr %key, i64 0, i32 1
+  %g.i = getelementptr inbounds i8, ptr %key, i64 1040
   %call29.i = call i32 @sp_exptmod(ptr noundef nonnull %g.i, ptr noundef nonnull %privateKey.i, ptr noundef nonnull %key, ptr noundef nonnull %checkKey.i) #13
   %cmp30.not.i = icmp eq i32 %call29.i, 0
   br i1 %cmp30.not.i, label %if.then35.i, label %if.end42.i
@@ -528,14 +527,14 @@ do.end.i:                                         ; preds = %entry
   br i1 %cmp.not.i.i, label %if.else.i.i, label %land.rhs.i.i
 
 land.rhs.i.i:                                     ; preds = %do.end.i
-  %dp.i.i = getelementptr inbounds %struct.sp_int, ptr %key, i64 0, i32 2
+  %dp.i.i = getelementptr inbounds i8, ptr %key, i64 8
   %8 = load i64, ptr %dp.i.i, align 8
   %and.i.i = and i64 %8, 1
   %cmp2.i.i = icmp eq i64 %and.i.i, 0
   br i1 %cmp2.i.i, label %return, label %if.else.i.i
 
 if.else.i.i:                                      ; preds = %land.rhs.i.i, %do.end.i
-  %q.i.i = getelementptr inbounds %struct.DhKey, ptr %key, i64 0, i32 2
+  %q.i.i = getelementptr inbounds i8, ptr %key, i64 2080
   %9 = load i32, ptr %q.i.i, align 8
   %cmp5.not.i.i = icmp eq i32 %9, 0
   br i1 %cmp5.not.i.i, label %if.else9.i.i, label %if.end.i.i.i
@@ -546,7 +545,7 @@ if.end.i.i.i:                                     ; preds = %if.else.i.i
   call void @llvm.lifetime.start.p0(i64 4104, ptr nonnull %cBuf.i.i.i)
   %call.i.i.i = tail call i32 @sp_unsigned_bin_size(ptr noundef nonnull %q.i.i) #13
   %call4.i.i.i = tail call i32 @sp_unsigned_bin_size(ptr noundef nonnull %key) #13
-  %trustedGroup.i.i.i = getelementptr inbounds %struct.DhKey, ptr %key, i64 0, i32 4
+  %trustedGroup.i.i.i = getelementptr inbounds i8, ptr %key, i64 3128
   %10 = load i32, ptr %trustedGroup.i.i.i, align 8
   %tobool.not.i.i.i = icmp eq i32 %10, 0
   br i1 %tobool.not.i.i.i, label %land.lhs.true.i.i.i, label %if.end12.i.i.i
@@ -613,7 +612,7 @@ while.cond9.preheader.i.i.i.i:                    ; preds = %for.body.i.i.i.i, %
 for.body.i.i.i.i:                                 ; preds = %for.cond.preheader.i.i.i.i, %for.body.i.i.i.i
   %w.017.i.i.i.i = phi ptr [ %incdec.ptr7.i.i.i.i, %for.body.i.i.i.i ], [ %cBuf.i.i.i, %for.cond.preheader.i.i.i.i ]
   %len.addr.016.i.i.i.i = phi i32 [ %sub8.i.i.i.i, %for.body.i.i.i.i ], [ %add.i.i.i, %for.cond.preheader.i.i.i.i ]
-  %incdec.ptr7.i.i.i.i = getelementptr inbounds i64, ptr %w.017.i.i.i.i, i64 1
+  %incdec.ptr7.i.i.i.i = getelementptr inbounds i8, ptr %w.017.i.i.i.i, i64 8
   store volatile i64 0, ptr %w.017.i.i.i.i, align 8
   %sub8.i.i.i.i = add i32 %len.addr.016.i.i.i.i, -8
   %cmp5.i.i.i.i = icmp ugt i32 %sub8.i.i.i.i, 7
@@ -766,7 +765,7 @@ if.end5.i.i:                                      ; preds = %if.end.i.i
   br i1 %cmp8.not.i.i, label %land.lhs.true.i.i, label %if.end30.i.i
 
 land.lhs.true.i.i:                                ; preds = %if.end5.i.i
-  %g.i.i = getelementptr inbounds %struct.DhKey, ptr %key, i64 0, i32 1
+  %g.i.i = getelementptr inbounds i8, ptr %key, i64 1040
   %call15.i.i = call i32 @sp_exptmod(ptr noundef nonnull %g.i.i, ptr noundef nonnull %x.i.i, ptr noundef nonnull %key, ptr noundef nonnull %y.i.i) #13
   %cmp16.not.i.i = icmp eq i32 %call15.i.i, 0
   br i1 %cmp16.not.i.i, label %land.lhs.true20.i.i, label %if.end30.i.i
@@ -824,7 +823,7 @@ if.end:                                           ; preds = %entry
   br i1 %cmp.not.i, label %if.end.i, label %land.rhs.i
 
 land.rhs.i:                                       ; preds = %if.end
-  %dp.i = getelementptr inbounds %struct.sp_int, ptr %key, i64 0, i32 2
+  %dp.i = getelementptr inbounds i8, ptr %key, i64 8
   %8 = load i64, ptr %dp.i, align 8
   %and.i = and i64 %8, 1
   %cmp2.i = icmp eq i64 %and.i, 0
@@ -984,7 +983,7 @@ if.end68:                                         ; preds = %if.end60, %if.end50
   br i1 %cmp69, label %land.lhs.true71, label %if.end116.thread106
 
 land.lhs.true71:                                  ; preds = %if.end68
-  %g72 = getelementptr inbounds %struct.DhKey, ptr %key, i64 0, i32 1
+  %g72 = getelementptr inbounds i8, ptr %key, i64 1040
   %call73 = call i32 @sp_init(ptr noundef nonnull %g72) #13
   %cmp74.not = icmp eq i32 %call73, 0
   br i1 %cmp74.not, label %if.end89, label %if.end116.thread106
@@ -998,7 +997,7 @@ if.end89:                                         ; preds = %land.lhs.true71
   br i1 %or.cond6, label %if.then95, label %if.end102
 
 if.then95:                                        ; preds = %if.end89
-  %q96 = getelementptr inbounds %struct.DhKey, ptr %key, i64 0, i32 2
+  %q96 = getelementptr inbounds i8, ptr %key, i64 2080
   %call97 = call i32 @sp_init(ptr noundef nonnull %q96) #13
   %cmp98.not = icmp eq i32 %call97, 0
   %spec.select53 = select i1 %cmp98.not, i32 0, i32 -110
@@ -1011,13 +1010,13 @@ if.end102:                                        ; preds = %if.then95, %if.end8
   br i1 %or.cond7, label %if.then108, label %if.end116
 
 if.then108:                                       ; preds = %if.end102
-  %q109 = getelementptr inbounds %struct.DhKey, ptr %key, i64 0, i32 2
+  %q109 = getelementptr inbounds i8, ptr %key, i64 2080
   %call110 = call i32 @sp_read_unsigned_bin(ptr noundef nonnull %q109, ptr noundef nonnull %q.addr.166, i32 noundef %qSz.addr.168) #13
   %cmp111.not = icmp eq i32 %call110, 0
   br i1 %cmp111.not, label %if.end116.thread, label %if.end116
 
 if.end116.thread:                                 ; preds = %if.then108
-  %trustedGroup = getelementptr inbounds %struct.DhKey, ptr %key, i64 0, i32 4
+  %trustedGroup = getelementptr inbounds i8, ptr %key, i64 3128
   store i32 %trusted, ptr %trustedGroup, align 8
   br label %do.end131
 

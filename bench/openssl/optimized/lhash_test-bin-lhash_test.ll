@@ -50,7 +50,7 @@ target triple = "x86_64-unknown-linux-gnu"
 @.str.38 = private unnamed_addr constant [26 x i8] c"lhash stress bad value %d\00", align 1
 
 ; Function Attrs: nounwind uwtable
-define dso_local i32 @setup_tests() local_unnamed_addr #0 {
+define dso_local noundef i32 @setup_tests() local_unnamed_addr #0 {
 entry:
   tail call void @add_test(ptr noundef nonnull @.str, ptr noundef nonnull @test_int_lhash) #5
   tail call void @add_test(ptr noundef nonnull @.str.1, ptr noundef nonnull @test_stress) #5
@@ -228,7 +228,7 @@ for.body102:                                      ; preds = %for.inc96, %for.inc
   %call.i46 = call ptr @OPENSSL_LH_delete(ptr noundef %call.i, ptr noundef nonnull %arrayidx104) #5
   %cmp106 = icmp eq ptr %call.i46, null
   %conv107 = zext i1 %cmp106 to i32
-  %null = getelementptr inbounds [6 x %struct.anon], ptr @test_int_lhash.dels, i64 0, i64 %indvars.iv83, i32 1
+  %null = getelementptr inbounds i8, ptr %arrayidx104, i64 4
   %11 = load i32, ptr %null, align 4
   %xor = xor i32 %11, %conv107
   %call110 = call i32 @test_int_eq(ptr noundef nonnull @.str.2, i32 noundef 167, ptr noundef nonnull @.str.29, ptr noundef nonnull @.str.22, i32 noundef %xor, i32 noundef 0) #5
@@ -259,7 +259,7 @@ end:                                              ; preds = %for.end116, %if.end
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @test_stress() #0 {
+define internal noundef i32 @test_stress() #0 {
 entry:
   %j = alloca i32, align 4
   %call.i = tail call ptr @OPENSSL_LH_new(ptr noundef nonnull @stress_hash, ptr noundef nonnull @int_cmp) #5

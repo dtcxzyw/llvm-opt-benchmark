@@ -9,34 +9,6 @@ target triple = "x86_64-unknown-linux-gnu"
 %union.pthread_mutex_t = type { %struct.__pthread_mutex_s }
 %struct.__pthread_mutex_s = type { i32, i32, i32, i32, i32, i16, i16, %struct.__pthread_internal_list }
 %struct.__pthread_internal_list = type { ptr, ptr }
-%struct.CPUState = type { %struct.DeviceState, ptr, i32, i32, ptr, i32, i8, i8, ptr, i8, i8, i8, i8, i8, i8, i8, i8, i32, i32, i32, i32, i64, i64, i64, [1 x %struct.__jmp_buf_tag], %struct.QemuMutex, %struct.anon, ptr, i32, ptr, ptr, ptr, ptr, i32, i32, %union.anon, %union.anon.0, %union.anon.1, ptr, ptr, i64, i32, ptr, ptr, ptr, i32, i64, i32, %struct.QemuLockCnt, [1 x i64], ptr, i32, i32, i32, i32, i32, ptr, i8, i8, i64, i8, i8, ptr, [8 x i8], [0 x i8], %struct.CPUNegativeOffsetState }
-%struct.DeviceState = type { %struct.Object, ptr, ptr, i8, i8, i64, ptr, i32, i8, ptr, %struct.NamedGPIOListHead, %struct.NamedClockListHead, %struct.BusStateHead, i32, i32, i32, %struct.ResettableState, ptr, %struct.MemReentrancyGuard }
-%struct.Object = type { ptr, ptr, ptr, i32, ptr }
-%struct.NamedGPIOListHead = type { ptr }
-%struct.NamedClockListHead = type { ptr }
-%struct.BusStateHead = type { ptr }
-%struct.ResettableState = type { i32, i8, i8 }
-%struct.MemReentrancyGuard = type { i8 }
-%struct.__jmp_buf_tag = type { [8 x i64], i32, %struct.__sigset_t }
-%struct.__sigset_t = type { [16 x i64] }
-%struct.anon = type { ptr, ptr }
-%union.anon = type { %struct.QTailQLink }
-%union.anon.0 = type { %struct.QTailQLink }
-%union.anon.1 = type { %struct.QTailQLink }
-%struct.QemuLockCnt = type { i32 }
-%struct.CPUNegativeOffsetState = type { %struct.CPUTLB, %union.IcountDecr, i8, [11 x i8] }
-%struct.CPUTLB = type { %struct.CPUTLBCommon, [16 x %struct.CPUTLBDesc], [16 x %struct.CPUTLBDescFast] }
-%struct.CPUTLBCommon = type { %struct.QemuSpin, i16, i64, i64, i64 }
-%struct.QemuSpin = type { i32 }
-%struct.CPUTLBDesc = type { i64, i64, i64, i64, i64, i64, [8 x %union.CPUTLBEntry], [8 x %struct.CPUTLBEntryFull], ptr }
-%union.CPUTLBEntry = type { %struct.anon.2 }
-%struct.anon.2 = type { i64, i64, i64, i64 }
-%struct.CPUTLBEntryFull = type { i64, i64, %struct.MemTxAttrs, i8, i8, [3 x i8], %union.anon.3 }
-%struct.MemTxAttrs = type { i32 }
-%union.anon.3 = type { %struct.anon.4 }
-%struct.anon.4 = type { i8, i8, i8 }
-%struct.CPUTLBDescFast = type { i64, ptr }
-%union.IcountDecr = type { i32 }
 %struct.Notifier = type { ptr, %struct.anon.6 }
 %struct.anon.6 = type { ptr, ptr }
 
@@ -71,7 +43,7 @@ for.body:                                         ; preds = %entry, %for.body
   %cpu.0.in4 = phi i64 [ %1, %for.body ], [ %0, %entry ]
   %cpu.0 = inttoptr i64 %cpu.0.in4 to ptr
   tail call void @cpu_exit(ptr noundef nonnull %cpu.0) #8
-  %node = getelementptr inbounds %struct.CPUState, ptr %cpu.0, i64 0, i32 35
+  %node = getelementptr inbounds i8, ptr %cpu.0, i64 568
   %1 = load atomic i64, ptr %node monotonic, align 8
   tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #8, !srcloc !6
   %tobool.not = icmp eq i64 %1, 0
@@ -107,10 +79,10 @@ do.end:                                           ; preds = %entry
 
 if.then2:                                         ; preds = %do.end
   %call = tail call noalias dereferenceable_or_null(8) ptr @g_malloc0_n(i64 noundef 1, i64 noundef 8) #10
-  %thread = getelementptr inbounds %struct.CPUState, ptr %cpu, i64 0, i32 4
+  %thread = getelementptr inbounds i8, ptr %cpu, i64 176
   store ptr %call, ptr %thread, align 16
   %call3 = tail call noalias dereferenceable_or_null(56) ptr @g_malloc0_n(i64 noundef 1, i64 noundef 56) #10
-  %halt_cond = getelementptr inbounds %struct.CPUState, ptr %cpu, i64 0, i32 8
+  %halt_cond = getelementptr inbounds i8, ptr %cpu, i64 192
   store ptr %call3, ptr %halt_cond, align 16
   tail call void @qemu_cond_init(ptr noundef %call3) #8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(13) %thread_name, ptr noundef nonnull align 1 dereferenceable(13) @.str.2, i64 13, i1 false)
@@ -123,21 +95,21 @@ if.then2:                                         ; preds = %do.end
   br label %if.end16
 
 if.else10:                                        ; preds = %do.end
-  %thread11 = getelementptr inbounds %struct.CPUState, ptr %cpu, i64 0, i32 4
+  %thread11 = getelementptr inbounds i8, ptr %cpu, i64 176
   store ptr %2, ptr %thread11, align 16
   %6 = load ptr, ptr @rr_start_vcpu_thread.single_tcg_halt_cond, align 8
-  %halt_cond12 = getelementptr inbounds %struct.CPUState, ptr %cpu, i64 0, i32 8
+  %halt_cond12 = getelementptr inbounds i8, ptr %cpu, i64 192
   store ptr %6, ptr %halt_cond12, align 16
   %7 = load atomic i64, ptr @cpus_queue monotonic, align 8
   %8 = inttoptr i64 %7 to ptr
   tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #8, !srcloc !9
-  %thread_id = getelementptr inbounds %struct.CPUState, ptr %8, i64 0, i32 5
+  %thread_id = getelementptr inbounds i8, ptr %8, i64 184
   %9 = load i32, ptr %thread_id, align 8
-  %thread_id15 = getelementptr inbounds %struct.CPUState, ptr %cpu, i64 0, i32 5
+  %thread_id15 = getelementptr inbounds i8, ptr %cpu, i64 184
   store i32 %9, ptr %thread_id15, align 8
-  %can_do_io = getelementptr inbounds %struct.CPUState, ptr %cpu, i64 0, i32 65, i32 2
+  %can_do_io = getelementptr inbounds i8, ptr %cpu, i64 10164
   store i8 1, ptr %can_do_io, align 4
-  %created = getelementptr inbounds %struct.CPUState, ptr %cpu, i64 0, i32 10
+  %created = getelementptr inbounds i8, ptr %cpu, i64 201
   store i8 1, ptr %created, align 1
   br label %if.end16
 
@@ -173,22 +145,22 @@ if.end:                                           ; preds = %entry
   call void @rcu_add_force_rcu_notifier(ptr noundef nonnull %force_rcu) #8
   call void @tcg_register_thread() #8
   call void @qemu_mutex_lock_iothread_impl(ptr noundef nonnull @.str, i32 noundef 191) #8
-  %thread = getelementptr inbounds %struct.CPUState, ptr %arg, i64 0, i32 4
+  %thread = getelementptr inbounds i8, ptr %arg, i64 176
   %2 = load ptr, ptr %thread, align 16
   call void @qemu_thread_get_self(ptr noundef %2) #8
   %call = call i32 @qemu_get_thread_id() #8
-  %thread_id = getelementptr inbounds %struct.CPUState, ptr %arg, i64 0, i32 5
+  %thread_id = getelementptr inbounds i8, ptr %arg, i64 184
   store i32 %call, ptr %thread_id, align 8
-  %can_do_io = getelementptr inbounds %struct.CPUState, ptr %arg, i64 0, i32 65, i32 2
+  %can_do_io = getelementptr inbounds i8, ptr %arg, i64 10164
   store i8 1, ptr %can_do_io, align 4
   call void @cpu_thread_signal_created(ptr noundef %arg) #8
-  %random_seed = getelementptr inbounds %struct.CPUState, ptr %arg, i64 0, i32 23
+  %random_seed = getelementptr inbounds i8, ptr %arg, i64 240
   %3 = load i64, ptr %random_seed, align 16
   call void @qemu_guest_random_seed_thread_part2(i64 noundef %3) #8
   %4 = load atomic i64, ptr @cpus_queue monotonic, align 8
   %5 = inttoptr i64 %4 to ptr
   call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #8, !srcloc !10
-  %stopped62 = getelementptr inbounds %struct.CPUState, ptr %5, i64 0, i32 12
+  %stopped62 = getelementptr inbounds i8, ptr %5, i64 203
   %6 = load i8, ptr %stopped62, align 1
   %7 = and i8 %6, 1
   %tobool2.not63 = icmp eq i8 %7, 0
@@ -199,7 +171,7 @@ while.cond.loopexit:                              ; preds = %for.body, %while.en
   %8 = load atomic i64, ptr @cpus_queue monotonic, align 8
   %9 = inttoptr i64 %8 to ptr
   call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #8, !srcloc !10
-  %stopped = getelementptr inbounds %struct.CPUState, ptr %9, i64 0, i32 12
+  %stopped = getelementptr inbounds i8, ptr %9, i64 203
   %10 = load i8, ptr %stopped, align 1
   %11 = and i8 %10, 1
   %tobool2.not = icmp eq i8 %11, 0
@@ -209,7 +181,7 @@ while.end8:                                       ; preds = %if.end, %while.cond
   %12 = load atomic i64, ptr @cpus_queue monotonic, align 8
   %13 = inttoptr i64 %12 to ptr
   call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #8, !srcloc !12
-  %halt_cond = getelementptr inbounds %struct.CPUState, ptr %13, i64 0, i32 8
+  %halt_cond = getelementptr inbounds i8, ptr %13, i64 192
   %14 = load ptr, ptr %halt_cond, align 16
   call void @qemu_cond_wait_iothread(ptr noundef %14) #8
   %15 = load atomic i64, ptr @cpus_queue monotonic, align 8
@@ -222,7 +194,7 @@ for.body:                                         ; preds = %while.end8, %for.bo
   %cpu.0 = inttoptr i64 %cpu.0.in61 to ptr
   store ptr %cpu.0, ptr %.pre, align 8
   call void @qemu_wait_io_event_common(ptr noundef nonnull %cpu.0) #8
-  %node = getelementptr inbounds %struct.CPUState, ptr %cpu.0, i64 0, i32 35
+  %node = getelementptr inbounds i8, ptr %cpu.0, i64 568
   %16 = load atomic i64, ptr %node monotonic, align 8
   call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #8, !srcloc !14
   %tobool16.not = icmp eq i64 %16, 0
@@ -233,7 +205,7 @@ while.end23:                                      ; preds = %while.cond.loopexit
   %17 = load atomic i64, ptr @cpus_queue monotonic, align 8
   %18 = inttoptr i64 %17 to ptr
   call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #8, !srcloc !16
-  %exit_request = getelementptr inbounds %struct.CPUState, ptr %18, i64 0, i32 16
+  %exit_request = getelementptr inbounds i8, ptr %18, i64 207
   store i8 1, ptr %exit_request, align 1
   br label %while.body31
 
@@ -268,7 +240,7 @@ for.body.i:                                       ; preds = %if.then.i, %for.bod
   %24 = load i32, ptr @rr_cpu_count.cpu_count, align 4
   %inc.i = add i32 %24, 1
   store i32 %inc.i, ptr @rr_cpu_count.cpu_count, align 4
-  %node.i = getelementptr inbounds %struct.CPUState, ptr %cpu.0.i, i64 0, i32 35
+  %node.i = getelementptr inbounds i8, ptr %cpu.0.i, i64 568
   %25 = load atomic i64, ptr %node.i monotonic, align 8
   call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #8, !srcloc !18
   %tobool.not.i = icmp eq i64 %25, 0
@@ -314,7 +286,7 @@ land.lhs.true:                                    ; preds = %land.lhs.true.prehe
   br i1 %call48, label %land.rhs, label %while.end103.thread
 
 land.rhs:                                         ; preds = %land.lhs.true
-  %exit_request49 = getelementptr inbounds %struct.CPUState, ptr %cpu.365, i64 0, i32 16
+  %exit_request49 = getelementptr inbounds i8, ptr %cpu.365, i64 207
   %29 = load i8, ptr %exit_request49, align 1
   %30 = and i8 %29, 1
   %tobool50.not = icmp eq i8 %30, 0
@@ -325,7 +297,7 @@ while.end56:                                      ; preds = %land.rhs
   %32 = atomicrmw xchg ptr @rr_current_cpu, i64 %31 seq_cst, align 8
   fence syncscope("singlethread") seq_cst
   store ptr %cpu.365, ptr %.pre, align 8
-  %singlestep_enabled = getelementptr inbounds %struct.CPUState, ptr %cpu.365, i64 0, i32 20
+  %singlestep_enabled = getelementptr inbounds i8, ptr %cpu.365, i64 220
   %33 = load i32, ptr %singlestep_enabled, align 4
   %and = and i32 %33, 4
   %cmp = icmp eq i32 %and, 0
@@ -371,21 +343,21 @@ if.then72:                                        ; preds = %if.end67
   br label %while.end103.thread
 
 if.else75:                                        ; preds = %while.end56
-  %stop = getelementptr inbounds %struct.CPUState, ptr %cpu.365, i64 0, i32 11
+  %stop = getelementptr inbounds i8, ptr %cpu.365, i64 202
   %36 = load i8, ptr %stop, align 2
   %37 = and i8 %36, 1
   %tobool76.not = icmp eq i8 %37, 0
   br i1 %tobool76.not, label %while.end94, label %if.then77
 
 if.then77:                                        ; preds = %if.else75
-  %unplug = getelementptr inbounds %struct.CPUState, ptr %cpu.365, i64 0, i32 14
+  %unplug = getelementptr inbounds i8, ptr %cpu.365, i64 205
   %38 = load i8, ptr %unplug, align 1
   %39 = and i8 %38, 1
   %tobool78.not = icmp eq i8 %39, 0
   br i1 %tobool78.not, label %while.end103.thread, label %while.end103
 
 while.end94:                                      ; preds = %if.end67, %if.else75
-  %node95 = getelementptr inbounds %struct.CPUState, ptr %cpu.365, i64 0, i32 35
+  %node95 = getelementptr inbounds i8, ptr %cpu.365, i64 568
   %40 = load atomic i64, ptr %node95 monotonic, align 8
   %41 = inttoptr i64 %40 to ptr
   call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #8, !srcloc !21
@@ -397,7 +369,7 @@ while.end103.thread:                              ; preds = %land.rhs, %land.lhs
   br label %land.lhs.true107
 
 while.end103:                                     ; preds = %if.then77
-  %node85 = getelementptr inbounds %struct.CPUState, ptr %cpu.365, i64 0, i32 35
+  %node85 = getelementptr inbounds i8, ptr %cpu.365, i64 568
   %42 = load atomic i64, ptr %node85 monotonic, align 8
   %43 = inttoptr i64 %42 to ptr
   call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #8, !srcloc !23
@@ -407,7 +379,7 @@ while.end103:                                     ; preds = %if.then77
 
 land.lhs.true107:                                 ; preds = %while.end103.thread, %while.end103
   %cpu.449 = phi ptr [ %cpu.365, %while.end103.thread ], [ %43, %while.end103 ]
-  %exit_request108 = getelementptr inbounds %struct.CPUState, ptr %cpu.449, i64 0, i32 16
+  %exit_request108 = getelementptr inbounds i8, ptr %cpu.449, i64 207
   %44 = load i8, ptr %exit_request108, align 1
   %45 = and i8 %44, 1
   %tobool109.not = icmp eq i8 %45, 0
@@ -454,7 +426,7 @@ rr_stop_kick_timer.exit.i:                        ; preds = %if.then.i.i, %land.
   %50 = load atomic i64, ptr @cpus_queue monotonic, align 8
   %51 = inttoptr i64 %50 to ptr
   call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #8, !srcloc !24
-  %halt_cond.i = getelementptr inbounds %struct.CPUState, ptr %51, i64 0, i32 8
+  %halt_cond.i = getelementptr inbounds i8, ptr %51, i64 192
   %52 = load ptr, ptr %halt_cond.i, align 16
   call void @qemu_cond_wait_iothread(ptr noundef %52) #8
   %call.i = call zeroext i1 @all_cpu_threads_idle() #8
@@ -469,7 +441,7 @@ while.end5.i:                                     ; preds = %while.end3.i
   %54 = load atomic i64, ptr @cpus_queue monotonic, align 8
   %55 = inttoptr i64 %54 to ptr
   call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #8, !srcloc !26
-  %node.i45 = getelementptr inbounds %struct.CPUState, ptr %55, i64 0, i32 35
+  %node.i45 = getelementptr inbounds i8, ptr %55, i64 568
   %56 = load atomic i64, ptr %node.i45 monotonic, align 8
   call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #8, !srcloc !27
   %tobool7.not.i = icmp eq i64 %56, 0
@@ -512,7 +484,7 @@ for.body.i31:                                     ; preds = %rr_start_kick_timer
   %cpu.0.in5.i = phi i64 [ %61, %for.body.i31 ], [ %60, %rr_start_kick_timer.exit ]
   %cpu.0.i32 = inttoptr i64 %cpu.0.in5.i to ptr
   call void @qemu_wait_io_event_common(ptr noundef nonnull %cpu.0.i32) #8
-  %node.i33 = getelementptr inbounds %struct.CPUState, ptr %cpu.0.i32, i64 0, i32 35
+  %node.i33 = getelementptr inbounds i8, ptr %cpu.0.i32, i64 568
   %61 = load atomic i64, ptr %node.i33 monotonic, align 8
   call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #8, !srcloc !29
   %tobool.not.i34 = icmp eq i64 %61, 0
@@ -530,7 +502,7 @@ while.body31.backedge:                            ; preds = %while.end6.i, %rr_w
 for.body.i36:                                     ; preds = %rr_wait_io_event.exit, %while.end6.i
   %cpu.08.in.i = phi i64 [ %65, %while.end6.i ], [ %62, %rr_wait_io_event.exit ]
   %cpu.08.i = inttoptr i64 %cpu.08.in.i to ptr
-  %unplug.i = getelementptr inbounds %struct.CPUState, ptr %cpu.08.i, i64 0, i32 14
+  %unplug.i = getelementptr inbounds i8, ptr %cpu.08.i, i64 205
   %63 = load i8, ptr %unplug.i, align 1
   %64 = and i8 %63, 1
   %tobool1.not.i = icmp eq i8 %64, 0
@@ -545,7 +517,7 @@ if.then.i38:                                      ; preds = %land.lhs.true.i
   br label %while.body31.backedge
 
 while.end6.i:                                     ; preds = %land.lhs.true.i, %for.body.i36
-  %node.i40 = getelementptr inbounds %struct.CPUState, ptr %cpu.08.i, i64 0, i32 35
+  %node.i40 = getelementptr inbounds i8, ptr %cpu.08.i, i64 568
   %65 = load atomic i64, ptr %node.i40 monotonic, align 8
   call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #8, !srcloc !32
   %tobool.not.i41 = icmp eq i64 %65, 0
@@ -616,7 +588,7 @@ while.end5:                                       ; preds = %entry
   %1 = load atomic i64, ptr @cpus_queue monotonic, align 8
   %2 = inttoptr i64 %1 to ptr
   tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #8, !srcloc !26
-  %node = getelementptr inbounds %struct.CPUState, ptr %2, i64 0, i32 35
+  %node = getelementptr inbounds i8, ptr %2, i64 568
   %3 = load atomic i64, ptr %node monotonic, align 8
   tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #8, !srcloc !27
   %tobool7.not = icmp eq i64 %3, 0

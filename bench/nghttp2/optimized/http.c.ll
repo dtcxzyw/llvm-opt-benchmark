@@ -3,31 +3,29 @@ source_filename = "bench/nghttp2/original/http.c.ll"
 target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:128-n8:16:32:64-S128"
 target triple = "x86_64-unknown-linux-gnu"
 
-%struct.llhttp__internal_s = type { i32, ptr, ptr, i32, ptr, ptr, ptr, ptr, i64, i8, i8, i8, i8, i8, i8, i8, i8, i16, i16, i8, ptr }
-
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
 define noundef i32 @llhttp__before_headers_complete(ptr nocapture noundef %parser, ptr nocapture noundef readnone %p, ptr nocapture noundef readnone %endp) local_unnamed_addr #0 {
 entry:
-  %flags = getelementptr inbounds %struct.llhttp__internal_s, ptr %parser, i64 0, i32 17
+  %flags = getelementptr inbounds i8, ptr %parser, i64 80
   %0 = load i16, ptr %flags, align 8
   %1 = and i16 %0, 20
   %or.cond.not = icmp eq i16 %1, 20
   br i1 %or.cond.not, label %if.then, label %if.else
 
 if.then:                                          ; preds = %entry
-  %type = getelementptr inbounds %struct.llhttp__internal_s, ptr %parser, i64 0, i32 9
+  %type = getelementptr inbounds i8, ptr %parser, i64 72
   %2 = load i8, ptr %type, align 8
   %cmp = icmp eq i8 %2, 1
   br i1 %cmp, label %if.end, label %lor.rhs
 
 lor.rhs:                                          ; preds = %if.then
-  %status_code = getelementptr inbounds %struct.llhttp__internal_s, ptr %parser, i64 0, i32 18
+  %status_code = getelementptr inbounds i8, ptr %parser, i64 82
   %3 = load i16, ptr %status_code, align 2
   %cmp8 = icmp eq i16 %3, 101
   br label %if.end
 
 if.else:                                          ; preds = %entry
-  %method = getelementptr inbounds %struct.llhttp__internal_s, ptr %parser, i64 0, i32 10
+  %method = getelementptr inbounds i8, ptr %parser, i64 73
   %4 = load i8, ptr %method, align 1
   %cmp12 = icmp eq i8 %4, 5
   br label %if.end
@@ -35,7 +33,7 @@ if.else:                                          ; preds = %entry
 if.end:                                           ; preds = %if.then, %lor.rhs, %if.else
   %conv14.sink.shrunk = phi i1 [ %cmp12, %if.else ], [ true, %if.then ], [ %cmp8, %lor.rhs ]
   %conv14.sink = zext i1 %conv14.sink.shrunk to i8
-  %upgrade15 = getelementptr inbounds %struct.llhttp__internal_s, ptr %parser, i64 0, i32 15
+  %upgrade15 = getelementptr inbounds i8, ptr %parser, i64 78
   store i8 %conv14.sink, ptr %upgrade15, align 2
   ret i32 0
 }
@@ -43,7 +41,7 @@ if.end:                                           ; preds = %if.then, %lor.rhs, 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
 define i32 @llhttp__after_headers_complete(ptr nocapture noundef readonly %parser, ptr nocapture noundef readnone %p, ptr nocapture noundef readnone %endp) local_unnamed_addr #1 {
 entry:
-  %flags = getelementptr inbounds %struct.llhttp__internal_s, ptr %parser, i64 0, i32 17
+  %flags = getelementptr inbounds i8, ptr %parser, i64 80
   %0 = load i16, ptr %flags, align 8
   %.fr23 = freeze i16 %0
   %1 = and i16 %.fr23, 8
@@ -51,20 +49,20 @@ entry:
   br i1 %tobool.not, label %lor.rhs, label %lor.end
 
 lor.rhs:                                          ; preds = %entry
-  %content_length = getelementptr inbounds %struct.llhttp__internal_s, ptr %parser, i64 0, i32 8
+  %content_length = getelementptr inbounds i8, ptr %parser, i64 64
   %2 = load i64, ptr %content_length, align 8
   %cmp = icmp ne i64 %2, 0
   br label %lor.end
 
 lor.end:                                          ; preds = %lor.rhs, %entry
   %3 = phi i1 [ true, %entry ], [ %cmp, %lor.rhs ]
-  %upgrade = getelementptr inbounds %struct.llhttp__internal_s, ptr %parser, i64 0, i32 15
+  %upgrade = getelementptr inbounds i8, ptr %parser, i64 78
   %4 = load i8, ptr %upgrade, align 2
   %tobool3.not = icmp eq i8 %4, 0
   br i1 %tobool3.not, label %if.end, label %land.lhs.true
 
 land.lhs.true:                                    ; preds = %lor.end
-  %method = getelementptr inbounds %struct.llhttp__internal_s, ptr %parser, i64 0, i32 10
+  %method = getelementptr inbounds i8, ptr %parser, i64 73
   %5 = load i8, ptr %method, align 1
   %cmp5 = icmp eq i8 %5, 5
   br i1 %cmp5, label %return, label %lor.lhs.false
@@ -92,13 +90,13 @@ if.else23:                                        ; preds = %if.else
   br i1 %tobool27.not, label %if.else45, label %if.then28
 
 if.then28:                                        ; preds = %if.else23
-  %type = getelementptr inbounds %struct.llhttp__internal_s, ptr %parser, i64 0, i32 9
+  %type = getelementptr inbounds i8, ptr %parser, i64 72
   %7 = load i8, ptr %type, align 8
   %cmp30 = icmp eq i8 %7, 1
   br i1 %cmp30, label %land.lhs.true32, label %if.else44
 
 land.lhs.true32:                                  ; preds = %if.then28
-  %lenient_flags = getelementptr inbounds %struct.llhttp__internal_s, ptr %parser, i64 0, i32 14
+  %lenient_flags = getelementptr inbounds i8, ptr %parser, i64 77
   %8 = load i8, ptr %lenient_flags, align 1
   %9 = and i8 %8, 10
   %or.cond14 = icmp eq i8 %9, 0
@@ -113,13 +111,13 @@ if.else45:                                        ; preds = %if.else23
   br i1 %tobool49.not, label %if.then50, label %if.else54
 
 if.then50:                                        ; preds = %if.else45
-  %type.i = getelementptr inbounds %struct.llhttp__internal_s, ptr %parser, i64 0, i32 9
+  %type.i = getelementptr inbounds i8, ptr %parser, i64 72
   %10 = load i8, ptr %type.i, align 8
   %cmp.i = icmp eq i8 %10, 1
   br i1 %cmp.i, label %llhttp_message_needs_eof.exit.thread, label %if.end.i
 
 if.end.i:                                         ; preds = %if.then50
-  %status_code.i = getelementptr inbounds %struct.llhttp__internal_s, ptr %parser, i64 0, i32 18
+  %status_code.i = getelementptr inbounds i8, ptr %parser, i64 82
   %11 = load i16, ptr %status_code.i, align 2
   %.fr.i = freeze i16 %11
   %conv2.i = zext i16 %.fr.i to i32
@@ -142,7 +140,7 @@ llhttp_message_needs_eof.exit.thread:             ; preds = %if.end.i, %switch.e
   br label %return
 
 if.else54:                                        ; preds = %if.else45
-  %content_length55 = getelementptr inbounds %struct.llhttp__internal_s, ptr %parser, i64 0, i32 8
+  %content_length55 = getelementptr inbounds i8, ptr %parser, i64 64
   %13 = load i64, ptr %content_length55, align 8
   %cmp56 = icmp eq i64 %13, 0
   %.15 = select i1 %cmp56, i32 0, i32 3
@@ -156,13 +154,13 @@ return:                                           ; preds = %llhttp_message_need
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
 define i32 @llhttp_message_needs_eof(ptr nocapture noundef readonly %parser) local_unnamed_addr #1 {
 entry:
-  %type = getelementptr inbounds %struct.llhttp__internal_s, ptr %parser, i64 0, i32 9
+  %type = getelementptr inbounds i8, ptr %parser, i64 72
   %0 = load i8, ptr %type, align 8
   %cmp = icmp eq i8 %0, 1
   br i1 %cmp, label %return, label %if.end
 
 if.end:                                           ; preds = %entry
-  %status_code = getelementptr inbounds %struct.llhttp__internal_s, ptr %parser, i64 0, i32 18
+  %status_code = getelementptr inbounds i8, ptr %parser, i64 82
   %1 = load i16, ptr %status_code, align 2
   %.fr = freeze i16 %1
   %conv2 = zext i16 %.fr to i32
@@ -177,7 +175,7 @@ switch.early.test:                                ; preds = %if.end
   ]
 
 lor.lhs.false14:                                  ; preds = %switch.early.test
-  %flags = getelementptr inbounds %struct.llhttp__internal_s, ptr %parser, i64 0, i32 17
+  %flags = getelementptr inbounds i8, ptr %parser, i64 80
   %2 = load i16, ptr %flags, align 8
   %conv15 = zext i16 %2 to i32
   %and = and i32 %conv15, 64
@@ -203,26 +201,26 @@ return:                                           ; preds = %switch.early.test, 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
 define i32 @llhttp__after_message_complete(ptr nocapture noundef %parser, ptr nocapture noundef readnone %p, ptr nocapture noundef readnone %endp) local_unnamed_addr #0 {
 entry:
-  %http_major.i = getelementptr inbounds %struct.llhttp__internal_s, ptr %parser, i64 0, i32 11
+  %http_major.i = getelementptr inbounds i8, ptr %parser, i64 74
   %0 = load i8, ptr %http_major.i, align 2
   %cmp.not.i = icmp eq i8 %0, 0
   br i1 %cmp.not.i, label %if.else.i, label %land.lhs.true.i
 
 land.lhs.true.i:                                  ; preds = %entry
-  %http_minor.i = getelementptr inbounds %struct.llhttp__internal_s, ptr %parser, i64 0, i32 12
+  %http_minor.i = getelementptr inbounds i8, ptr %parser, i64 75
   %1 = load i8, ptr %http_minor.i, align 1
   %cmp3.not.i = icmp eq i8 %1, 0
   br i1 %cmp3.not.i, label %if.else.i, label %if.then.i
 
 if.then.i:                                        ; preds = %land.lhs.true.i
-  %flags.i = getelementptr inbounds %struct.llhttp__internal_s, ptr %parser, i64 0, i32 17
+  %flags.i = getelementptr inbounds i8, ptr %parser, i64 80
   %2 = load i16, ptr %flags.i, align 8
   %3 = and i16 %2, 2
   %tobool.not.i = icmp eq i16 %3, 0
   br i1 %tobool.not.i, label %if.end13.i, label %llhttp_should_keep_alive.exit
 
 if.else.i:                                        ; preds = %land.lhs.true.i, %entry
-  %flags7.i = getelementptr inbounds %struct.llhttp__internal_s, ptr %parser, i64 0, i32 17
+  %flags7.i = getelementptr inbounds i8, ptr %parser, i64 80
   %4 = load i16, ptr %flags7.i, align 8
   %5 = and i16 %4, 1
   %tobool10.not.i = icmp eq i16 %5, 0
@@ -230,13 +228,13 @@ if.else.i:                                        ; preds = %land.lhs.true.i, %e
 
 if.end13.i:                                       ; preds = %if.else.i, %if.then.i
   %6 = phi i16 [ %4, %if.else.i ], [ %2, %if.then.i ]
-  %type.i.i = getelementptr inbounds %struct.llhttp__internal_s, ptr %parser, i64 0, i32 9
+  %type.i.i = getelementptr inbounds i8, ptr %parser, i64 72
   %7 = load i8, ptr %type.i.i, align 8
   %cmp.i.i = icmp eq i8 %7, 1
   br i1 %cmp.i.i, label %llhttp_should_keep_alive.exit, label %if.end.i.i
 
 if.end.i.i:                                       ; preds = %if.end13.i
-  %status_code.i.i = getelementptr inbounds %struct.llhttp__internal_s, ptr %parser, i64 0, i32 18
+  %status_code.i.i = getelementptr inbounds i8, ptr %parser, i64 82
   %8 = load i16, ptr %status_code.i.i, align 2
   %.fr.i.i = freeze i16 %8
   %conv2.i.i = zext i16 %.fr.i.i to i32
@@ -269,9 +267,9 @@ if.end28.i.i:                                     ; preds = %if.end17.i.i
 
 llhttp_should_keep_alive.exit:                    ; preds = %if.then.i, %if.else.i, %if.end13.i, %if.end.i.i, %switch.early.test.i.i, %switch.early.test.i.i, %lor.lhs.false14.i.i, %if.end17.i.i, %if.end28.i.i
   %retval.0.i = phi i32 [ 0, %if.then.i ], [ 0, %if.else.i ], [ 1, %if.end13.i ], [ 1, %lor.lhs.false14.i.i ], [ 1, %switch.early.test.i.i ], [ 0, %if.end17.i.i ], [ %11, %if.end28.i.i ], [ 1, %if.end.i.i ], [ 1, %switch.early.test.i.i ]
-  %finish = getelementptr inbounds %struct.llhttp__internal_s, ptr %parser, i64 0, i32 16
+  %finish = getelementptr inbounds i8, ptr %parser, i64 79
   store i8 0, ptr %finish, align 1
-  %flags = getelementptr inbounds %struct.llhttp__internal_s, ptr %parser, i64 0, i32 17
+  %flags = getelementptr inbounds i8, ptr %parser, i64 80
   store i16 0, ptr %flags, align 8
   ret i32 %retval.0.i
 }
@@ -279,26 +277,26 @@ llhttp_should_keep_alive.exit:                    ; preds = %if.then.i, %if.else
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
 define i32 @llhttp_should_keep_alive(ptr nocapture noundef readonly %parser) local_unnamed_addr #1 {
 entry:
-  %http_major = getelementptr inbounds %struct.llhttp__internal_s, ptr %parser, i64 0, i32 11
+  %http_major = getelementptr inbounds i8, ptr %parser, i64 74
   %0 = load i8, ptr %http_major, align 2
   %cmp.not = icmp eq i8 %0, 0
   br i1 %cmp.not, label %if.else, label %land.lhs.true
 
 land.lhs.true:                                    ; preds = %entry
-  %http_minor = getelementptr inbounds %struct.llhttp__internal_s, ptr %parser, i64 0, i32 12
+  %http_minor = getelementptr inbounds i8, ptr %parser, i64 75
   %1 = load i8, ptr %http_minor, align 1
   %cmp3.not = icmp eq i8 %1, 0
   br i1 %cmp3.not, label %if.else, label %if.then
 
 if.then:                                          ; preds = %land.lhs.true
-  %flags = getelementptr inbounds %struct.llhttp__internal_s, ptr %parser, i64 0, i32 17
+  %flags = getelementptr inbounds i8, ptr %parser, i64 80
   %2 = load i16, ptr %flags, align 8
   %3 = and i16 %2, 2
   %tobool.not = icmp eq i16 %3, 0
   br i1 %tobool.not, label %if.end13, label %return
 
 if.else:                                          ; preds = %land.lhs.true, %entry
-  %flags7 = getelementptr inbounds %struct.llhttp__internal_s, ptr %parser, i64 0, i32 17
+  %flags7 = getelementptr inbounds i8, ptr %parser, i64 80
   %4 = load i16, ptr %flags7, align 8
   %5 = and i16 %4, 1
   %tobool10.not = icmp eq i16 %5, 0
@@ -306,13 +304,13 @@ if.else:                                          ; preds = %land.lhs.true, %ent
 
 if.end13:                                         ; preds = %if.else, %if.then
   %6 = phi i16 [ %4, %if.else ], [ %2, %if.then ]
-  %type.i = getelementptr inbounds %struct.llhttp__internal_s, ptr %parser, i64 0, i32 9
+  %type.i = getelementptr inbounds i8, ptr %parser, i64 72
   %7 = load i8, ptr %type.i, align 8
   %cmp.i = icmp eq i8 %7, 1
   br i1 %cmp.i, label %return, label %if.end.i
 
 if.end.i:                                         ; preds = %if.end13
-  %status_code.i = getelementptr inbounds %struct.llhttp__internal_s, ptr %parser, i64 0, i32 18
+  %status_code.i = getelementptr inbounds i8, ptr %parser, i64 82
   %8 = load i16, ptr %status_code.i, align 2
   %.fr.i = freeze i16 %8
   %conv2.i = zext i16 %.fr.i to i32

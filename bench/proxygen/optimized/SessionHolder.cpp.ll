@@ -6,106 +6,21 @@ target triple = "x86_64-unknown-linux-gnu"
 %"class.std::ios_base::Init" = type { i8 }
 %"struct.google::SiteFlag" = type { ptr, ptr, i64, ptr }
 %"class.folly::ThreadLocalPRNG" = type { i8 }
-%"class.proxygen::SessionHolder" = type { %"class.proxygen::HTTPSessionBase::InfoCallback", %"class.boost::intrusive::list_member_hook", %"class.boost::intrusive::list_member_hook", ptr, ptr, ptr, %"class.std::chrono::time_point", double, i32, [4 x i8], %"class.proxygen::Endpoint", ptr }
-%"class.proxygen::HTTPSessionBase::InfoCallback" = type { ptr }
-%"class.boost::intrusive::list_member_hook" = type { %"class.boost::intrusive::generic_hook" }
-%"class.boost::intrusive::generic_hook" = type { %"struct.boost::intrusive::list_node" }
-%"struct.boost::intrusive::list_node" = type { ptr, ptr }
-%"class.std::chrono::time_point" = type { %"class.std::chrono::duration" }
-%"class.std::chrono::duration" = type { i64 }
-%"class.proxygen::Endpoint" = type <{ %"class.std::__cxx11::basic_string", i16, [6 x i8], i64, i8, [7 x i8] }>
-%"class.std::__cxx11::basic_string" = type { %"struct.std::__cxx11::basic_string<char>::_Alloc_hider", i64, %union.anon }
-%"struct.std::__cxx11::basic_string<char>::_Alloc_hider" = type { ptr }
-%union.anon = type { i64, [8 x i8] }
-%"class.proxygen::HTTPSessionBase" = type <{ %"class.wangle::ManagedConnection", ptr, ptr, %"struct.wangle::TransportInfo", %"class.proxygen::FilterChain", %"class.proxygen::HTTP2PriorityQueue", %"class.folly::SocketAddress", %"class.folly::SocketAddress", %"class.folly::Optional.34", i8, [7 x i8], %"class.std::unique_ptr", %"struct.std::array.38", ptr, %"class.std::chrono::time_point", %"class.std::chrono::duration.39", i32, i32, i32, i32, i32, i32, i64, i64, i32, i8, i8, [2 x i8] }>
-%"class.wangle::ManagedConnection" = type { %"class.folly::HHWheelTimerBase<std::chrono::duration<long, std::ratio<1, 1000>>>::Callback", %"class.folly::DelayedDestruction.base", i32, ptr, %"class.wangle::ConnectionAgeTimeout", %"class.folly::Optional", %"class.std::chrono::time_point", %"class.boost::intrusive::list_member_hook" }
-%"class.folly::HHWheelTimerBase<std::chrono::duration<long, std::ratio<1, 1000>>>::Callback" = type { ptr, %"class.boost::intrusive::list_base_hook", ptr, %"class.std::chrono::time_point", i32, %"class.std::shared_ptr" }
-%"class.boost::intrusive::list_base_hook" = type { %"class.boost::intrusive::generic_hook.0" }
-%"class.boost::intrusive::generic_hook.0" = type { %"struct.boost::intrusive::node_holder" }
-%"struct.boost::intrusive::node_holder" = type { %"struct.boost::intrusive::list_node" }
-%"class.std::shared_ptr" = type { %"class.std::__shared_ptr" }
-%"class.std::__shared_ptr" = type { ptr, %"class.std::__shared_count" }
-%"class.std::__shared_count" = type { ptr }
-%"class.folly::DelayedDestruction.base" = type { %"class.folly::DelayedDestructionBase.base", i8 }
-%"class.folly::DelayedDestructionBase.base" = type <{ ptr, i32 }>
-%"class.wangle::ConnectionAgeTimeout" = type { %"class.folly::HHWheelTimerBase<std::chrono::duration<long, std::ratio<1, 1000>>>::Callback", ptr }
-%"class.folly::Optional" = type { %"struct.folly::Optional<std::chrono::time_point<std::chrono::_V2::steady_clock, std::chrono::duration<long, std::ratio<1, 1000000000>>>>::StorageTriviallyDestructible" }
-%"struct.folly::Optional<std::chrono::time_point<std::chrono::_V2::steady_clock, std::chrono::duration<long, std::ratio<1, 1000000000>>>>::StorageTriviallyDestructible" = type <{ %union.anon.2, i8, [7 x i8] }>
-%union.anon.2 = type { %"class.std::chrono::time_point" }
-%"struct.wangle::TransportInfo" = type { %"class.std::chrono::time_point", %"class.std::chrono::time_point", %"class.std::chrono::duration.3", i64, i64, i64, i64, i64, i64, i64, i64, i64, %"class.std::__cxx11::basic_string", i32, %struct.tcp_info, %"class.std::chrono::duration.4", %"class.std::chrono::duration.4", %"class.std::shared_ptr.5", %"class.std::shared_ptr.5", %"class.std::shared_ptr.5", %"class.std::shared_ptr.5", %"class.std::shared_ptr.5", %"class.std::shared_ptr.5", %"class.std::shared_ptr.5", %"class.std::shared_ptr.5", %"class.std::shared_ptr.5", %"class.std::shared_ptr.5", %"class.std::shared_ptr.5", %"class.std::shared_ptr.5", %"class.std::shared_ptr.8", i64, i64, i64, %"class.std::shared_ptr.11", %"class.std::shared_ptr.11", %"class.std::shared_ptr.11", i32, i32, i32, %"class.std::__cxx11::basic_string", i16, %"class.std::shared_ptr.5", i16, i8, i32, i8, i8, %"class.std::__cxx11::basic_string", %"class.std::shared_ptr.14", %"class.std::shared_ptr.5", %"class.std::shared_ptr.5", i8, %"class.folly::Optional.17", %"class.std::__cxx11::basic_string" }
-%"class.std::chrono::duration.3" = type { i64 }
-%struct.tcp_info = type { i8, i8, i8, i8, i8, i8, i8, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32 }
-%"class.std::chrono::duration.4" = type { i64 }
-%"class.std::shared_ptr.8" = type { %"class.std::__shared_ptr.9" }
-%"class.std::__shared_ptr.9" = type { ptr, %"class.std::__shared_count" }
-%"class.std::shared_ptr.11" = type { %"class.std::__shared_ptr.12" }
-%"class.std::__shared_ptr.12" = type { ptr, %"class.std::__shared_count" }
-%"class.std::shared_ptr.14" = type { %"class.std::__shared_ptr.15" }
-%"class.std::__shared_ptr.15" = type { ptr, %"class.std::__shared_count" }
-%"class.std::shared_ptr.5" = type { %"class.std::__shared_ptr.6" }
-%"class.std::__shared_ptr.6" = type { ptr, %"class.std::__shared_count" }
-%"class.folly::Optional.17" = type { %"struct.folly::Optional<unsigned char>::StorageTriviallyDestructible" }
-%"struct.folly::Optional<unsigned char>::StorageTriviallyDestructible" = type { %union.anon.18, i8 }
-%union.anon.18 = type { i8 }
-%"class.proxygen::FilterChain" = type { %"class.proxygen::PassThroughHTTPCodecFilter", ptr }
-%"class.proxygen::PassThroughHTTPCodecFilter" = type { %"class.proxygen::GenericFilter" }
-%"class.proxygen::GenericFilter" = type { %"class.proxygen::HTTPCodec", %"class.proxygen::HTTPCodec::Callback", i8, i8, ptr, ptr, ptr, ptr, ptr, ptr }
-%"class.proxygen::HTTPCodec" = type { ptr }
-%"class.proxygen::HTTPCodec::Callback" = type { ptr }
-%"class.proxygen::HTTP2PriorityQueue" = type { %"class.proxygen::HTTP2PriorityQueueBase", %"class.folly::F14FastMap", %"class.proxygen::HTTP2PriorityQueue::Node", i32, i64, i32, i32, %"class.folly::Optional.30", i8, %"class.proxygen::WheelTimerInstance", ptr }
-%"class.proxygen::HTTP2PriorityQueueBase" = type { %"class.proxygen::HTTPCodec::PriorityQueue", i64 }
-%"class.proxygen::HTTPCodec::PriorityQueue" = type { ptr }
-%"class.folly::F14FastMap" = type { %"class.folly::F14ValueMap" }
-%"class.folly::F14ValueMap" = type { %"class.folly::f14::detail::F14BasicMap" }
-%"class.folly::f14::detail::F14BasicMap" = type { %"class.folly::f14::detail::F14Table" }
-%"class.folly::f14::detail::F14Table" = type { ptr, %"struct.folly::f14::detail::SizeAndChunkShiftAndPackedBegin" }
-%"struct.folly::f14::detail::SizeAndChunkShiftAndPackedBegin" = type { %"struct.folly::f14::detail::PackedSizeAndChunkShift", %"class.folly::f14::detail::PackedChunkItemPtr" }
-%"struct.folly::f14::detail::PackedSizeAndChunkShift" = type { i64 }
-%"class.folly::f14::detail::PackedChunkItemPtr" = type { i64 }
-%"class.proxygen::HTTP2PriorityQueue::Node" = type { %"class.proxygen::HTTP2PriorityQueueBase::BaseNode", %"class.folly::HHWheelTimerBase<std::chrono::duration<long, std::ratio<1, 1000>>>::Callback", ptr, ptr, i64, i16, ptr, i8, i8, i64, i64, %"class.std::__cxx11::list", %"struct.std::_List_iterator", %"class.boost::intrusive::list_member_hook.27", %"class.boost::intrusive::list" }
-%"class.proxygen::HTTP2PriorityQueueBase::BaseNode" = type { ptr }
-%"class.std::__cxx11::list" = type { %"class.std::__cxx11::_List_base" }
-%"class.std::__cxx11::_List_base" = type { %"struct.std::__cxx11::_List_base<std::unique_ptr<proxygen::HTTP2PriorityQueue::Node>, std::allocator<std::unique_ptr<proxygen::HTTP2PriorityQueue::Node>>>::_List_impl" }
-%"struct.std::__cxx11::_List_base<std::unique_ptr<proxygen::HTTP2PriorityQueue::Node>, std::allocator<std::unique_ptr<proxygen::HTTP2PriorityQueue::Node>>>::_List_impl" = type { %"struct.std::__detail::_List_node_header" }
-%"struct.std::__detail::_List_node_header" = type { %"struct.std::__detail::_List_node_base", i64 }
-%"struct.std::__detail::_List_node_base" = type { ptr, ptr }
-%"struct.std::_List_iterator" = type { ptr }
-%"class.boost::intrusive::list_member_hook.27" = type { %"class.boost::intrusive::generic_hook.28" }
-%"class.boost::intrusive::generic_hook.28" = type { %"struct.boost::intrusive::list_node" }
-%"class.boost::intrusive::list" = type { %"class.boost::intrusive::list_impl" }
-%"class.boost::intrusive::list_impl" = type { %"struct.boost::intrusive::list_impl<boost::intrusive::mhtraits<proxygen::HTTP2PriorityQueue::Node, boost::intrusive::list_member_hook<boost::intrusive::link_mode<boost::intrusive::auto_unlink>>, &proxygen::HTTP2PriorityQueue::Node::enqueuedHook_>, unsigned long, false, void>::data_t" }
-%"struct.boost::intrusive::list_impl<boost::intrusive::mhtraits<proxygen::HTTP2PriorityQueue::Node, boost::intrusive::list_member_hook<boost::intrusive::link_mode<boost::intrusive::auto_unlink>>, &proxygen::HTTP2PriorityQueue::Node::enqueuedHook_>, unsigned long, false, void>::data_t" = type { %"struct.boost::intrusive::list_impl<boost::intrusive::mhtraits<proxygen::HTTP2PriorityQueue::Node, boost::intrusive::list_member_hook<boost::intrusive::link_mode<boost::intrusive::auto_unlink>>, &proxygen::HTTP2PriorityQueue::Node::enqueuedHook_>, unsigned long, false, void>::root_plus_size" }
-%"struct.boost::intrusive::list_impl<boost::intrusive::mhtraits<proxygen::HTTP2PriorityQueue::Node, boost::intrusive::list_member_hook<boost::intrusive::link_mode<boost::intrusive::auto_unlink>>, &proxygen::HTTP2PriorityQueue::Node::enqueuedHook_>, unsigned long, false, void>::root_plus_size" = type { %"struct.boost::intrusive::detail::default_header_holder" }
-%"struct.boost::intrusive::detail::default_header_holder" = type { %"struct.boost::intrusive::list_node" }
-%"class.folly::Optional.30" = type { %"struct.folly::Optional<unsigned long>::StorageTriviallyDestructible" }
-%"struct.folly::Optional<unsigned long>::StorageTriviallyDestructible" = type <{ %union.anon.31, i8, [7 x i8] }>
-%union.anon.31 = type { i64 }
-%"class.proxygen::WheelTimerInstance" = type { ptr, %"class.std::chrono::duration.4" }
-%"class.folly::SocketAddress" = type <{ %"union.folly::SocketAddress::AddrStorage", i16, i8, [5 x i8] }>
-%"union.folly::SocketAddress::AddrStorage" = type { %"struct.folly::SocketAddress::ExternalUnixAddr", [8 x i8] }
-%"struct.folly::SocketAddress::ExternalUnixAddr" = type { ptr, i32 }
-%"class.folly::Optional.34" = type { %"struct.folly::Optional<std::__cxx11::basic_string<char>>::StorageNonTriviallyDestructible" }
-%"struct.folly::Optional<std::__cxx11::basic_string<char>>::StorageNonTriviallyDestructible" = type <{ %union.anon.35, i8, [7 x i8] }>
-%union.anon.35 = type { %"class.std::__cxx11::basic_string" }
-%"class.std::unique_ptr" = type { %"struct.std::__uniq_ptr_data" }
-%"struct.std::__uniq_ptr_data" = type { %"class.std::__uniq_ptr_impl" }
-%"class.std::__uniq_ptr_impl" = type { %"class.std::tuple" }
-%"class.std::tuple" = type { %"struct.std::_Tuple_impl" }
-%"struct.std::_Tuple_impl" = type { %"struct.std::_Head_base.37" }
-%"struct.std::_Head_base.37" = type { ptr }
-%"struct.std::array.38" = type { [4 x ptr] }
-%"class.std::chrono::duration.39" = type { i64 }
 %"class.google::LogMessageFatal" = type { %"class.google::LogMessage" }
 %"class.google::LogMessage" = type { ptr, ptr, %"struct.google::LogMessageTime" }
 %"struct.google::LogMessageTime" = type { %struct.tm, i64, i32, i64 }
 %struct.tm = type { i32, i32, i32, i32, i32, i32, i32, i32, i32, i64, ptr }
 %"struct.google::CheckOpString" = type { ptr }
 %"class.std::allocator" = type { i8 }
-%"class.folly::IPAddress" = type <{ %"union.folly::IPAddress::IPAddressV46", i16, [2 x i8] }>
-%"union.folly::IPAddress::IPAddressV46" = type { %"class.folly::IPAddressV4", [16 x i8] }
-%"class.folly::IPAddressV4" = type { %"union.folly::IPAddressV4::AddressStorage" }
-%"union.folly::IPAddressV4::AddressStorage" = type { %struct.in_addr }
-%struct.in_addr = type { i32 }
+%"class.std::__cxx11::basic_string" = type { %"struct.std::__cxx11::basic_string<char>::_Alloc_hider", i64, %union.anon }
+%"struct.std::__cxx11::basic_string<char>::_Alloc_hider" = type { ptr }
+%union.anon = type { i64, [8 x i8] }
+%"class.folly::Optional.30" = type { %"struct.folly::Optional<unsigned long>::StorageTriviallyDestructible" }
+%"struct.folly::Optional<unsigned long>::StorageTriviallyDestructible" = type <{ %union.anon.31, i8, [7 x i8] }>
+%union.anon.31 = type { i64 }
+%"class.folly::SocketAddress" = type <{ %"union.folly::SocketAddress::AddrStorage", i16, i8, [5 x i8] }>
+%"union.folly::SocketAddress::AddrStorage" = type { %"struct.folly::SocketAddress::ExternalUnixAddr", [8 x i8] }
+%"struct.folly::SocketAddress::ExternalUnixAddr" = type { ptr, i32 }
 %struct._Guard = type { ptr }
 
 $_ZN6google12CheckNotNullIRPN8proxygen15HTTPSessionBaseEEET_PKciS7_OS5_ = comdat any
@@ -217,19 +132,19 @@ entry:
   store ptr %sess, ptr %sess.addr, align 8
   store ptr %parent, ptr %parent.addr, align 8
   store ptr getelementptr inbounds ({ [32 x ptr] }, ptr @_ZTVN8proxygen13SessionHolderE, i64 0, inrange i32 0, i64 2), ptr %this, align 8
-  %listHook = getelementptr inbounds %"class.proxygen::SessionHolder", ptr %this, i64 0, i32 1
-  %session_ = getelementptr inbounds %"class.proxygen::SessionHolder", ptr %this, i64 0, i32 3
+  %listHook = getelementptr inbounds i8, ptr %this, i64 8
+  %session_ = getelementptr inbounds i8, ptr %this, i64 40
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %listHook, i8 0, i64 32, i1 false)
   %call = call noundef nonnull align 8 dereferenceable(8) ptr @_ZN6google12CheckNotNullIRPN8proxygen15HTTPSessionBaseEEET_PKciS7_OS5_(ptr noundef nonnull @.str, i32 noundef 28, ptr noundef nonnull @.str.1, ptr noundef nonnull align 8 dereferenceable(8) %sess.addr)
   %0 = load ptr, ptr %call, align 8
   store ptr %0, ptr %session_, align 8
   %call3 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZN6google12CheckNotNullIRPN8proxygen13SessionHolder8CallbackEEET_PKciS8_OS6_(ptr noundef nonnull @.str, i32 noundef 29, ptr noundef nonnull @.str.2, ptr noundef nonnull align 8 dereferenceable(8) %parent.addr)
-  %parent_ = getelementptr inbounds %"class.proxygen::SessionHolder", ptr %this, i64 0, i32 4
+  %parent_ = getelementptr inbounds i8, ptr %this, i64 48
   %1 = load ptr, ptr %call3, align 8
   store ptr %1, ptr %parent_, align 8
-  %stats_ = getelementptr inbounds %"class.proxygen::SessionHolder", ptr %this, i64 0, i32 5
+  %stats_ = getelementptr inbounds i8, ptr %this, i64 56
   store ptr %stats, ptr %stats_, align 8
-  %lastUseTime_ = getelementptr inbounds %"class.proxygen::SessionHolder", ptr %this, i64 0, i32 6
+  %lastUseTime_ = getelementptr inbounds i8, ptr %this, i64 64
   store i64 0, ptr %lastUseTime_, align 8
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %ref.tmp.i)
   %call.i.i.i.i.i.i.i = call noundef x86_fp80 @logl(x86_fp80 noundef 0xK401F8000000000000000) #21
@@ -268,22 +183,22 @@ invoke.cont5:                                     ; preds = %if.then.i.i.i.i.i.i
   %__ret.0.i.i.i.i.i.i = phi double [ %call20.i.i.i.i.i.i, %if.then.i.i.i.i.i.i ], [ %div17.i.i.i.i.i.i, %for.end.i.i.i.i.i.i ]
   %3 = call noundef double @llvm.fmuladd.f64(double %__ret.0.i.i.i.i.i.i, double 6.000000e-01, double -3.000000e-01)
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %ref.tmp.i)
-  %jitter_ = getelementptr inbounds %"class.proxygen::SessionHolder", ptr %this, i64 0, i32 7
+  %jitter_ = getelementptr inbounds i8, ptr %this, i64 72
   store double %3, ptr %jitter_, align 8
-  %state_ = getelementptr inbounds %"class.proxygen::SessionHolder", ptr %this, i64 0, i32 8
+  %state_ = getelementptr inbounds i8, ptr %this, i64 80
   store i32 0, ptr %state_, align 8
-  %endpoint_ = getelementptr inbounds %"class.proxygen::SessionHolder", ptr %this, i64 0, i32 10
+  %endpoint_ = getelementptr inbounds i8, ptr %this, i64 88
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EOS4_(ptr noundef nonnull align 8 dereferenceable(32) %endpoint_, ptr noundef nonnull align 8 dereferenceable(32) %endpoint) #21
-  %port_.i = getelementptr inbounds %"class.proxygen::SessionHolder", ptr %this, i64 0, i32 10, i32 1
-  %port_3.i = getelementptr inbounds %"class.proxygen::Endpoint", ptr %endpoint, i64 0, i32 1
+  %port_.i = getelementptr inbounds i8, ptr %this, i64 120
+  %port_3.i = getelementptr inbounds i8, ptr %endpoint, i64 32
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(17) %port_.i, ptr noundef nonnull align 8 dereferenceable(17) %port_3.i, i64 17, i1 false)
-  %originalSessionInfoCb_ = getelementptr inbounds %"class.proxygen::SessionHolder", ptr %this, i64 0, i32 11
+  %originalSessionInfoCb_ = getelementptr inbounds i8, ptr %this, i64 144
   %4 = load ptr, ptr %sess.addr, align 8
-  %infoCallback_.i = getelementptr inbounds %"class.proxygen::HTTPSessionBase", ptr %4, i64 0, i32 2
+  %infoCallback_.i = getelementptr inbounds i8, ptr %4, i64 216
   %5 = load ptr, ptr %infoCallback_.i, align 8
   store ptr %5, ptr %originalSessionInfoCb_, align 8
   %6 = load ptr, ptr %session_, align 8
-  %infoCallback_.i2 = getelementptr inbounds %"class.proxygen::HTTPSessionBase", ptr %6, i64 0, i32 2
+  %infoCallback_.i2 = getelementptr inbounds i8, ptr %6, i64 216
   store ptr %this, ptr %infoCallback_.i2, align 8
   ret void
 }
@@ -389,7 +304,7 @@ entry:
   %ref.tmp15 = alloca %"class.google::LogMessageFatal", align 8
   %ref.tmp34 = alloca %"class.google::LogMessageFatal", align 8
   store ptr getelementptr inbounds ({ [32 x ptr] }, ptr @_ZTVN8proxygen13SessionHolderE, i64 0, inrange i32 0, i64 2), ptr %this, align 8
-  %state_ = getelementptr inbounds %"class.proxygen::SessionHolder", ptr %this, i64 0, i32 8
+  %state_ = getelementptr inbounds i8, ptr %this, i64 80
   %0 = load i32, ptr %state_, align 8
   %cmp.not.not = icmp eq i32 %0, 0
   br i1 %cmp.not.not, label %cleanup.done, label %cond.false
@@ -411,7 +326,7 @@ cleanup.action:                                   ; preds = %invoke.cont4
   unreachable
 
 cleanup.done:                                     ; preds = %entry
-  %listHook = getelementptr inbounds %"class.proxygen::SessionHolder", ptr %this, i64 0, i32 1
+  %listHook = getelementptr inbounds i8, ptr %this, i64 8
   %1 = load ptr, ptr %listHook, align 8
   %tobool.not.i = icmp eq ptr %1, null
   %cmp.i = icmp eq ptr %1, %listHook
@@ -435,7 +350,7 @@ cleanup.action25:                                 ; preds = %invoke.cont18
   unreachable
 
 cleanup.done26:                                   ; preds = %cleanup.done
-  %secondaryListHook = getelementptr inbounds %"class.proxygen::SessionHolder", ptr %this, i64 0, i32 2
+  %secondaryListHook = getelementptr inbounds i8, ptr %this, i64 24
   %3 = load ptr, ptr %secondaryListHook, align 8
   %tobool.not.i1 = icmp eq ptr %3, null
   %cmp.i2 = icmp eq ptr %3, %secondaryListHook
@@ -459,7 +374,7 @@ cleanup.action44:                                 ; preds = %invoke.cont37
   unreachable
 
 cleanup.done45:                                   ; preds = %cleanup.done26
-  %endpoint_ = getelementptr inbounds %"class.proxygen::SessionHolder", ptr %this, i64 0, i32 10
+  %endpoint_ = getelementptr inbounds i8, ptr %this, i64 88
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %endpoint_) #21
   ret void
 
@@ -506,14 +421,14 @@ declare void @_ZdlPv(ptr noundef) local_unnamed_addr #7
 define noundef zeroext i1 @_ZN8proxygen13SessionHolder10isPoolableEPKNS_15HTTPSessionBaseE(ptr noundef %sess) local_unnamed_addr #3 align 2 {
 entry:
   %vtable = load ptr, ptr %sess, align 8
-  %vfn = getelementptr inbounds ptr, ptr %vtable, i64 53
+  %vfn = getelementptr inbounds i8, ptr %vtable, i64 424
   %0 = load ptr, ptr %vfn, align 8
   %call = tail call noundef zeroext i1 %0(ptr noundef nonnull align 8 dereferenceable(1582) %sess)
   br i1 %call, label %land.end, label %land.rhs
 
 land.rhs:                                         ; preds = %entry
   %vtable1 = load ptr, ptr %sess, align 8
-  %vfn2 = getelementptr inbounds ptr, ptr %vtable1, i64 26
+  %vfn2 = getelementptr inbounds i8, ptr %vtable1, i64 208
   %1 = load ptr, ptr %vfn2, align 8
   %call3 = tail call noundef i32 %1(ptr noundef nonnull align 8 dereferenceable(1582) %sess)
   %tobool.not = icmp eq i32 %call3, 0
@@ -521,7 +436,7 @@ land.rhs:                                         ; preds = %entry
 
 lor.rhs:                                          ; preds = %land.rhs
   %vtable4 = load ptr, ptr %sess, align 8
-  %vfn5 = getelementptr inbounds ptr, ptr %vtable4, i64 52
+  %vfn5 = getelementptr inbounds i8, ptr %vtable4, i64 416
   %2 = load ptr, ptr %vfn5, align 8
   %call6 = tail call noundef zeroext i1 %2(ptr noundef nonnull align 8 dereferenceable(1582) %sess)
   br label %land.end
@@ -538,14 +453,14 @@ entry:
   br i1 %cmp, label %return, label %if.end
 
 if.end:                                           ; preds = %entry
-  %jitter_ = getelementptr inbounds %"class.proxygen::SessionHolder", ptr %this, i64 0, i32 7
+  %jitter_ = getelementptr inbounds i8, ptr %this, i64 72
   %0 = load double, ptr %jitter_, align 8
   %add = fadd double %0, 1.000000e+00
   %conv = sitofp i64 %maxAge.coerce to double
   %mul = fmul double %add, %conv
-  %session_ = getelementptr inbounds %"class.proxygen::SessionHolder", ptr %this, i64 0, i32 3
+  %session_ = getelementptr inbounds i8, ptr %this, i64 40
   %1 = load ptr, ptr %session_, align 8
-  %transportInfo_.i = getelementptr inbounds %"class.proxygen::HTTPSessionBase", ptr %1, i64 0, i32 3
+  %transportInfo_.i = getelementptr inbounds i8, ptr %1, i64 224
   %agg.tmp.sroa.0.0.copyload = load i64, ptr %transportInfo_.i, align 8
   %call.i.i = tail call i64 @_ZNSt6chrono3_V212steady_clock3nowEv() #21
   %sub.i.i.i.i = sub nsw i64 %call.i.i, %agg.tmp.sroa.0.0.copyload
@@ -565,7 +480,7 @@ declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
 define noundef nonnull align 8 dereferenceable(1582) ptr @_ZNK8proxygen13SessionHolder10getSessionEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(152) %this) local_unnamed_addr #9 align 2 {
 entry:
-  %session_ = getelementptr inbounds %"class.proxygen::SessionHolder", ptr %this, i64 0, i32 3
+  %session_ = getelementptr inbounds i8, ptr %this, i64 40
   %0 = load ptr, ptr %session_, align 8
   ret ptr %0
 }
@@ -573,10 +488,10 @@ entry:
 ; Function Attrs: mustprogress uwtable
 define noundef ptr @_ZN8proxygen13SessionHolder14newTransactionEPNS_22HTTPTransactionHandlerE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(152) %this, ptr noundef %handler) local_unnamed_addr #3 align 2 {
 entry:
-  %session_ = getelementptr inbounds %"class.proxygen::SessionHolder", ptr %this, i64 0, i32 3
+  %session_ = getelementptr inbounds i8, ptr %this, i64 40
   %0 = load ptr, ptr %session_, align 8
   %vtable = load ptr, ptr %0, align 8
-  %vfn = getelementptr inbounds ptr, ptr %vtable, i64 50
+  %vfn = getelementptr inbounds i8, ptr %vtable, i64 400
   %1 = load ptr, ptr %vfn, align 8
   %call = tail call noundef ptr %1(ptr noundef nonnull align 8 dereferenceable(1582) %0, ptr noundef %handler)
   ret ptr %call
@@ -585,7 +500,7 @@ entry:
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
 define i64 @_ZNK8proxygen13SessionHolder14getLastUseTimeEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(152) %this) local_unnamed_addr #9 align 2 {
 entry:
-  %lastUseTime_ = getelementptr inbounds %"class.proxygen::SessionHolder", ptr %this, i64 0, i32 6
+  %lastUseTime_ = getelementptr inbounds i8, ptr %this, i64 64
   %retval.sroa.0.0.copyload = load i64, ptr %lastUseTime_, align 8
   ret i64 %retval.sroa.0.0.copyload
 }
@@ -625,7 +540,7 @@ cleanup.action:                                   ; preds = %invoke.cont7
   br label %cleanup.done
 
 cleanup.done:                                     ; preds = %cond.true, %cond.end, %cleanup.action
-  %state_ = getelementptr inbounds %"class.proxygen::SessionHolder", ptr %this, i64 0, i32 8
+  %state_ = getelementptr inbounds i8, ptr %this, i64 80
   %2 = load i32, ptr %state_, align 8
   %cmp16.not = icmp eq i32 %2, 0
   br i1 %cmp16.not, label %if.end, label %if.then
@@ -641,20 +556,20 @@ lpad:                                             ; preds = %invoke.cont7, %invo
   resume { ptr, i32 } %3
 
 if.end:                                           ; preds = %if.then, %cleanup.done
-  %stats_ = getelementptr inbounds %"class.proxygen::SessionHolder", ptr %this, i64 0, i32 5
+  %stats_ = getelementptr inbounds i8, ptr %this, i64 56
   %4 = load ptr, ptr %stats_, align 8
   %tobool17.not = icmp eq ptr %4, null
   br i1 %tobool17.not, label %if.end28, label %if.then18
 
 if.then18:                                        ; preds = %if.end
   %vtable = load ptr, ptr %4, align 8
-  %vfn = getelementptr inbounds ptr, ptr %vtable, i64 3
+  %vfn = getelementptr inbounds i8, ptr %vtable, i64 24
   %5 = load ptr, ptr %vfn, align 8
   call void %5(ptr noundef nonnull align 8 dereferenceable(8) %4)
-  %session_ = getelementptr inbounds %"class.proxygen::SessionHolder", ptr %this, i64 0, i32 3
+  %session_ = getelementptr inbounds i8, ptr %this, i64 40
   %6 = load ptr, ptr %session_, align 8
   %vtable20 = load ptr, ptr %6, align 8
-  %vfn21 = getelementptr inbounds ptr, ptr %vtable20, i64 23
+  %vfn21 = getelementptr inbounds i8, ptr %vtable20, i64 184
   %7 = load ptr, ptr %vfn21, align 8
   %call22 = call noundef zeroext i1 %7(ptr noundef nonnull align 8 dereferenceable(1582) %6)
   br i1 %call22, label %if.then23, label %if.end28
@@ -662,33 +577,33 @@ if.then18:                                        ; preds = %if.end
 if.then23:                                        ; preds = %if.then18
   %8 = load ptr, ptr %stats_, align 8
   %vtable25 = load ptr, ptr %8, align 8
-  %vfn26 = getelementptr inbounds ptr, ptr %vtable25, i64 5
+  %vfn26 = getelementptr inbounds i8, ptr %vtable25, i64 40
   %9 = load ptr, ptr %vfn26, align 8
   call void %9(ptr noundef nonnull align 8 dereferenceable(8) %8)
   br label %if.end28
 
 if.end28:                                         ; preds = %if.then18, %if.then23, %if.end
-  %session_29 = getelementptr inbounds %"class.proxygen::SessionHolder", ptr %this, i64 0, i32 3
+  %session_29 = getelementptr inbounds i8, ptr %this, i64 40
   %10 = load ptr, ptr %session_29, align 8
-  %originalSessionInfoCb_ = getelementptr inbounds %"class.proxygen::SessionHolder", ptr %this, i64 0, i32 11
+  %originalSessionInfoCb_ = getelementptr inbounds i8, ptr %this, i64 144
   %11 = load ptr, ptr %originalSessionInfoCb_, align 8
-  %infoCallback_.i = getelementptr inbounds %"class.proxygen::HTTPSessionBase", ptr %10, i64 0, i32 2
+  %infoCallback_.i = getelementptr inbounds i8, ptr %10, i64 216
   store ptr %11, ptr %infoCallback_.i, align 8
   store ptr null, ptr %originalSessionInfoCb_, align 8
-  %parent_ = getelementptr inbounds %"class.proxygen::SessionHolder", ptr %this, i64 0, i32 4
+  %parent_ = getelementptr inbounds i8, ptr %this, i64 48
   %12 = load ptr, ptr %parent_, align 8
   %13 = load ptr, ptr %session_29, align 8
   %vtable32 = load ptr, ptr %12, align 8
-  %vfn33 = getelementptr inbounds ptr, ptr %vtable32, i64 8
+  %vfn33 = getelementptr inbounds i8, ptr %vtable32, i64 64
   %14 = load ptr, ptr %vfn33, align 8
   call void %14(ptr noundef nonnull align 8 dereferenceable(8) %12, ptr noundef %13)
   %15 = load ptr, ptr %session_29, align 8
   %vtable35 = load ptr, ptr %15, align 8
-  %vfn36 = getelementptr inbounds ptr, ptr %vtable35, i64 54
+  %vfn36 = getelementptr inbounds i8, ptr %vtable35, i64 432
   %16 = load ptr, ptr %vfn36, align 8
   call void %16(ptr noundef nonnull align 8 dereferenceable(1582) %15)
   %vtable37 = load ptr, ptr %this, align 8
-  %vfn38 = getelementptr inbounds ptr, ptr %vtable37, i64 1
+  %vfn38 = getelementptr inbounds i8, ptr %vtable37, i64 8
   %17 = load ptr, ptr %vfn38, align 8
   call void %17(ptr noundef nonnull align 8 dereferenceable(152) %this) #21
   ret void
@@ -707,7 +622,7 @@ entry:
   %ref.tmp2 = alloca %"class.google::LogMessageFatal", align 8
   %ref.tmp14 = alloca %"class.google::LogMessageFatal", align 8
   %ref.tmp39 = alloca %"class.google::LogMessageFatal", align 8
-  %parent_ = getelementptr inbounds %"class.proxygen::SessionHolder", ptr %this, i64 0, i32 4
+  %parent_ = getelementptr inbounds i8, ptr %this, i64 48
   %0 = load ptr, ptr %parent_, align 8
   %tobool.not = icmp eq ptr %0, null
   br i1 %tobool.not, label %cond.false, label %cleanup.done
@@ -732,7 +647,7 @@ lpad:                                             ; preds = %invoke.cont, %cond.
   unreachable
 
 cleanup.done:                                     ; preds = %entry
-  %listHook = getelementptr inbounds %"class.proxygen::SessionHolder", ptr %this, i64 0, i32 1
+  %listHook = getelementptr inbounds i8, ptr %this, i64 8
   %2 = load ptr, ptr %listHook, align 8
   %tobool.not.i = icmp eq ptr %2, null
   %cmp.i = icmp eq ptr %2, %listHook
@@ -759,7 +674,7 @@ lpad16:                                           ; preds = %invoke.cont17, %con
   unreachable
 
 cleanup.done25:                                   ; preds = %cleanup.done
-  %state_ = getelementptr inbounds %"class.proxygen::SessionHolder", ptr %this, i64 0, i32 8
+  %state_ = getelementptr inbounds i8, ptr %this, i64 80
   %5 = load i32, ptr %state_, align 8
   switch i32 %5, label %sw.epilog [
     i32 1, label %sw.epilog.sink.split
@@ -794,9 +709,9 @@ lpad40:                                           ; preds = %invoke.cont41, %sw.
   unreachable
 
 sw.epilog.sink.split:                             ; preds = %cleanup.done25, %sw.bb30, %sw.bb34
-  %.sink = phi i64 [ 4, %sw.bb34 ], [ 3, %sw.bb30 ], [ 2, %cleanup.done25 ]
+  %.sink = phi i64 [ 32, %sw.bb34 ], [ 24, %sw.bb30 ], [ 16, %cleanup.done25 ]
   %vtable36 = load ptr, ptr %0, align 8
-  %vfn37 = getelementptr inbounds ptr, ptr %vtable36, i64 %.sink
+  %vfn37 = getelementptr inbounds i8, ptr %vtable36, i64 %.sink
   %7 = load ptr, ptr %vfn37, align 8
   tail call void %7(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef nonnull %this)
   br label %sw.epilog
@@ -811,7 +726,7 @@ define void @_ZN8proxygen13SessionHolder14closeWithResetEv(ptr noundef nonnull a
 entry:
   %ref.tmp = alloca %"class.std::__cxx11::basic_string", align 8
   %ref.tmp15 = alloca %"class.std::allocator", align 1
-  %state_ = getelementptr inbounds %"class.proxygen::SessionHolder", ptr %this, i64 0, i32 8
+  %state_ = getelementptr inbounds i8, ptr %this, i64 80
   %0 = load i32, ptr %state_, align 8
   %cmp.not = icmp eq i32 %0, 0
   br i1 %cmp.not, label %if.end, label %if.then
@@ -821,20 +736,20 @@ if.then:                                          ; preds = %entry
   br label %if.end
 
 if.end:                                           ; preds = %if.then, %entry
-  %stats_ = getelementptr inbounds %"class.proxygen::SessionHolder", ptr %this, i64 0, i32 5
+  %stats_ = getelementptr inbounds i8, ptr %this, i64 56
   %1 = load ptr, ptr %stats_, align 8
   %tobool.not = icmp eq ptr %1, null
   br i1 %tobool.not, label %if.end11, label %if.then2
 
 if.then2:                                         ; preds = %if.end
   %vtable = load ptr, ptr %1, align 8
-  %vfn = getelementptr inbounds ptr, ptr %vtable, i64 3
+  %vfn = getelementptr inbounds i8, ptr %vtable, i64 24
   %2 = load ptr, ptr %vfn, align 8
   tail call void %2(ptr noundef nonnull align 8 dereferenceable(8) %1)
-  %session_ = getelementptr inbounds %"class.proxygen::SessionHolder", ptr %this, i64 0, i32 3
+  %session_ = getelementptr inbounds i8, ptr %this, i64 40
   %3 = load ptr, ptr %session_, align 8
   %vtable4 = load ptr, ptr %3, align 8
-  %vfn5 = getelementptr inbounds ptr, ptr %vtable4, i64 23
+  %vfn5 = getelementptr inbounds i8, ptr %vtable4, i64 184
   %4 = load ptr, ptr %vfn5, align 8
   %call = tail call noundef zeroext i1 %4(ptr noundef nonnull align 8 dereferenceable(1582) %3)
   br i1 %call, label %if.then6, label %if.end11
@@ -842,17 +757,17 @@ if.then2:                                         ; preds = %if.end
 if.then6:                                         ; preds = %if.then2
   %5 = load ptr, ptr %stats_, align 8
   %vtable8 = load ptr, ptr %5, align 8
-  %vfn9 = getelementptr inbounds ptr, ptr %vtable8, i64 5
+  %vfn9 = getelementptr inbounds i8, ptr %vtable8, i64 40
   %6 = load ptr, ptr %vfn9, align 8
   tail call void %6(ptr noundef nonnull align 8 dereferenceable(8) %5)
   br label %if.end11
 
 if.end11:                                         ; preds = %if.then2, %if.then6, %if.end
-  %session_12 = getelementptr inbounds %"class.proxygen::SessionHolder", ptr %this, i64 0, i32 3
+  %session_12 = getelementptr inbounds i8, ptr %this, i64 40
   %7 = load ptr, ptr %session_12, align 8
-  %originalSessionInfoCb_ = getelementptr inbounds %"class.proxygen::SessionHolder", ptr %this, i64 0, i32 11
+  %originalSessionInfoCb_ = getelementptr inbounds i8, ptr %this, i64 144
   %8 = load ptr, ptr %originalSessionInfoCb_, align 8
-  %infoCallback_.i = getelementptr inbounds %"class.proxygen::HTTPSessionBase", ptr %7, i64 0, i32 2
+  %infoCallback_.i = getelementptr inbounds i8, ptr %7, i64 216
   store ptr %8, ptr %infoCallback_.i, align 8
   store ptr null, ptr %originalSessionInfoCb_, align 8
   %9 = load ptr, ptr %session_12, align 8
@@ -876,7 +791,7 @@ lpad.i:                                           ; preds = %.noexc
 
 invoke.cont:                                      ; preds = %.noexc
   %vtable16 = load ptr, ptr %9, align 8
-  %vfn17 = getelementptr inbounds ptr, ptr %vtable16, i64 10
+  %vfn17 = getelementptr inbounds i8, ptr %vtable16, i64 80
   %11 = load ptr, ptr %vfn17, align 8
   invoke void %11(ptr noundef nonnull align 8 dereferenceable(208) %9, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp)
           to label %invoke.cont19 unwind label %lpad18
@@ -885,7 +800,7 @@ invoke.cont19:                                    ; preds = %invoke.cont
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp) #21
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp15) #21
   %vtable20 = load ptr, ptr %this, align 8
-  %vfn21 = getelementptr inbounds ptr, ptr %vtable20, i64 1
+  %vfn21 = getelementptr inbounds i8, ptr %vtable20, i64 8
   %12 = load ptr, ptr %vfn21, align 8
   call void %12(ptr noundef nonnull align 8 dereferenceable(152) %this) #21
   ret void
@@ -952,7 +867,7 @@ define void @_ZN8proxygen13SessionHolder4linkEv(ptr noundef nonnull align 8 dere
 entry:
   %ref.tmp2 = alloca %"class.google::LogMessageFatal", align 8
   %ref.tmp21 = alloca %"class.google::LogMessage", align 8
-  %state_ = getelementptr inbounds %"class.proxygen::SessionHolder", ptr %this, i64 0, i32 8
+  %state_ = getelementptr inbounds i8, ptr %this, i64 80
   %0 = load i32, ptr %state_, align 8
   %cmp.not.not = icmp eq i32 %0, 0
   br i1 %cmp.not.not, label %cleanup.done, label %cond.false
@@ -977,23 +892,23 @@ lpad:                                             ; preds = %invoke.cont, %cond.
   unreachable
 
 cleanup.done:                                     ; preds = %entry
-  %parent_ = getelementptr inbounds %"class.proxygen::SessionHolder", ptr %this, i64 0, i32 4
+  %parent_ = getelementptr inbounds i8, ptr %this, i64 48
   %2 = load ptr, ptr %parent_, align 8
   %tobool.not = icmp eq ptr %2, null
   br i1 %tobool.not, label %if.end69, label %if.end
 
 if.end:                                           ; preds = %cleanup.done
-  %session_ = getelementptr inbounds %"class.proxygen::SessionHolder", ptr %this, i64 0, i32 3
+  %session_ = getelementptr inbounds i8, ptr %this, i64 40
   %3 = load ptr, ptr %session_, align 8
   %vtable.i = load ptr, ptr %3, align 8
-  %vfn.i = getelementptr inbounds ptr, ptr %vtable.i, i64 53
+  %vfn.i = getelementptr inbounds i8, ptr %vtable.i, i64 424
   %4 = load ptr, ptr %vfn.i, align 8
   %call.i = tail call noundef zeroext i1 %4(ptr noundef nonnull align 8 dereferenceable(1582) %3)
   br i1 %call.i, label %if.then10, label %land.rhs.i
 
 land.rhs.i:                                       ; preds = %if.end
   %vtable1.i = load ptr, ptr %3, align 8
-  %vfn2.i = getelementptr inbounds ptr, ptr %vtable1.i, i64 26
+  %vfn2.i = getelementptr inbounds i8, ptr %vtable1.i, i64 208
   %5 = load ptr, ptr %vfn2.i, align 8
   %call3.i = tail call noundef i32 %5(ptr noundef nonnull align 8 dereferenceable(1582) %3)
   %tobool.not.i = icmp eq i32 %call3.i, 0
@@ -1001,7 +916,7 @@ land.rhs.i:                                       ; preds = %if.end
 
 _ZN8proxygen13SessionHolder10isPoolableEPKNS_15HTTPSessionBaseE.exit: ; preds = %land.rhs.i
   %vtable4.i = load ptr, ptr %3, align 8
-  %vfn5.i = getelementptr inbounds ptr, ptr %vtable4.i, i64 52
+  %vfn5.i = getelementptr inbounds i8, ptr %vtable4.i, i64 416
   %6 = load ptr, ptr %vfn5.i, align 8
   %call6.i = tail call noundef zeroext i1 %6(ptr noundef nonnull align 8 dereferenceable(1582) %3)
   br i1 %call6.i, label %if.end38, label %if.then10
@@ -1049,16 +964,16 @@ lpad23:                                           ; preds = %invoke.cont24, %inv
 
 if.end38:                                         ; preds = %land.rhs.i, %_ZN8proxygen13SessionHolder10isPoolableEPKNS_15HTTPSessionBaseE.exit
   %call40 = tail call i64 @_ZNSt6chrono3_V212steady_clock3nowEv() #21
-  %lastUseTime_ = getelementptr inbounds %"class.proxygen::SessionHolder", ptr %this, i64 0, i32 6
+  %lastUseTime_ = getelementptr inbounds i8, ptr %this, i64 64
   store i64 %call40, ptr %lastUseTime_, align 8
   %10 = load ptr, ptr %session_, align 8
   %vtable = load ptr, ptr %10, align 8
-  %vfn = getelementptr inbounds ptr, ptr %vtable, i64 26
+  %vfn = getelementptr inbounds i8, ptr %vtable, i64 208
   %11 = load ptr, ptr %vfn, align 8
   %call43 = tail call noundef i32 %11(ptr noundef nonnull align 8 dereferenceable(1582) %10)
   %12 = load ptr, ptr %session_, align 8
   %vtable45 = load ptr, ptr %12, align 8
-  %vfn46 = getelementptr inbounds ptr, ptr %vtable45, i64 24
+  %vfn46 = getelementptr inbounds i8, ptr %vtable45, i64 192
   %13 = load ptr, ptr %vfn46, align 8
   %call47 = tail call noundef zeroext i1 %13(ptr noundef nonnull align 8 dereferenceable(1582) %12)
   br i1 %call47, label %if.else, label %if.then48
@@ -1067,7 +982,7 @@ if.then48:                                        ; preds = %if.end38
   store i32 3, ptr %state_, align 8
   %14 = load ptr, ptr %parent_, align 8
   %vtable51 = load ptr, ptr %14, align 8
-  %vfn52 = getelementptr inbounds ptr, ptr %vtable51, i64 7
+  %vfn52 = getelementptr inbounds i8, ptr %vtable51, i64 56
   %15 = load ptr, ptr %vfn52, align 8
   tail call void %15(ptr noundef nonnull align 8 dereferenceable(8) %14, ptr noundef nonnull %this)
   br label %if.end69
@@ -1079,7 +994,7 @@ if.else:                                          ; preds = %if.end38
 land.lhs.true:                                    ; preds = %if.else
   %16 = load ptr, ptr %session_, align 8
   %vtable55 = load ptr, ptr %16, align 8
-  %vfn56 = getelementptr inbounds ptr, ptr %vtable55, i64 47
+  %vfn56 = getelementptr inbounds i8, ptr %vtable55, i64 376
   %17 = load ptr, ptr %vfn56, align 8
   %call57 = tail call noundef zeroext i1 %17(ptr noundef nonnull align 8 dereferenceable(1582) %16, i1 noundef zeroext false)
   br i1 %call57, label %if.then58, label %if.else63
@@ -1088,7 +1003,7 @@ if.then58:                                        ; preds = %land.lhs.true
   store i32 1, ptr %state_, align 8
   %18 = load ptr, ptr %parent_, align 8
   %vtable61 = load ptr, ptr %18, align 8
-  %vfn62 = getelementptr inbounds ptr, ptr %vtable61, i64 5
+  %vfn62 = getelementptr inbounds i8, ptr %vtable61, i64 40
   %19 = load ptr, ptr %vfn62, align 8
   tail call void %19(ptr noundef nonnull align 8 dereferenceable(8) %18, ptr noundef nonnull %this)
   br label %if.end69
@@ -1097,7 +1012,7 @@ if.else63:                                        ; preds = %land.lhs.true, %if.
   store i32 2, ptr %state_, align 8
   %20 = load ptr, ptr %parent_, align 8
   %vtable66 = load ptr, ptr %20, align 8
-  %vfn67 = getelementptr inbounds ptr, ptr %vtable66, i64 6
+  %vfn67 = getelementptr inbounds i8, ptr %vtable66, i64 48
   %21 = load ptr, ptr %vfn67, align 8
   tail call void %21(ptr noundef nonnull align 8 dereferenceable(8) %20, ptr noundef nonnull %this)
   br label %if.end69
@@ -1135,14 +1050,14 @@ lpad:                                             ; preds = %invoke.cont, %entry
 ; Function Attrs: mustprogress uwtable
 define void @_ZN8proxygen13SessionHolder14onIngressErrorERKNS_15HTTPSessionBaseENS_13ProxygenErrorE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(152) %this, ptr noundef nonnull align 8 dereferenceable(1582) %session, i32 noundef %error) unnamed_addr #3 align 2 {
 entry:
-  %originalSessionInfoCb_ = getelementptr inbounds %"class.proxygen::SessionHolder", ptr %this, i64 0, i32 11
+  %originalSessionInfoCb_ = getelementptr inbounds i8, ptr %this, i64 144
   %0 = load ptr, ptr %originalSessionInfoCb_, align 8
   %tobool.not = icmp eq ptr %0, null
   br i1 %tobool.not, label %if.end, label %if.then
 
 if.then:                                          ; preds = %entry
   %vtable = load ptr, ptr %0, align 8
-  %vfn = getelementptr inbounds ptr, ptr %vtable, i64 6
+  %vfn = getelementptr inbounds i8, ptr %vtable, i64 48
   %1 = load ptr, ptr %vfn, align 8
   tail call void %1(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef nonnull align 8 dereferenceable(1582) %session, i32 noundef %error)
   br label %if.end
@@ -1156,10 +1071,10 @@ define void @_ZN8proxygen13SessionHolder6onReadERKNS_15HTTPSessionBaseEm(ptr nou
 entry:
   %agg.tmp = alloca %"class.folly::Optional.30", align 8
   store i8 0, ptr %agg.tmp, align 8
-  %hasValue.i.i = getelementptr inbounds %"struct.folly::Optional<unsigned long>::StorageTriviallyDestructible", ptr %agg.tmp, i64 0, i32 1
+  %hasValue.i.i = getelementptr inbounds i8, ptr %agg.tmp, i64 8
   store i8 0, ptr %hasValue.i.i, align 8
   %vtable = load ptr, ptr %this, align 8
-  %vfn = getelementptr inbounds ptr, ptr %vtable, i64 9
+  %vfn = getelementptr inbounds i8, ptr %vtable, i64 72
   %0 = load ptr, ptr %vfn, align 8
   call void %0(ptr noundef nonnull align 8 dereferenceable(152) %this, ptr noundef nonnull align 8 dereferenceable(1582) %session, i64 noundef %bytesRead, ptr noundef nonnull %agg.tmp)
   ret void
@@ -1169,29 +1084,29 @@ entry:
 define void @_ZN8proxygen13SessionHolder6onReadERKNS_15HTTPSessionBaseEmN5folly8OptionalImEE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(152) %this, ptr noundef nonnull align 8 dereferenceable(1582) %session, i64 noundef %bytesRead, ptr nocapture noundef readonly %streamId) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %agg.tmp = alloca %"class.folly::Optional.30", align 8
-  %stats_ = getelementptr inbounds %"class.proxygen::SessionHolder", ptr %this, i64 0, i32 5
+  %stats_ = getelementptr inbounds i8, ptr %this, i64 56
   %0 = load ptr, ptr %stats_, align 8
   %tobool.not = icmp eq ptr %0, null
   br i1 %tobool.not, label %if.end, label %if.then
 
 if.then:                                          ; preds = %entry
   %vtable = load ptr, ptr %0, align 8
-  %vfn = getelementptr inbounds ptr, ptr %vtable, i64 6
+  %vfn = getelementptr inbounds i8, ptr %vtable, i64 48
   %1 = load ptr, ptr %vfn, align 8
   tail call void %1(ptr noundef nonnull align 8 dereferenceable(8) %0, i64 noundef %bytesRead)
   br label %if.end
 
 if.end:                                           ; preds = %if.then, %entry
-  %originalSessionInfoCb_ = getelementptr inbounds %"class.proxygen::SessionHolder", ptr %this, i64 0, i32 11
+  %originalSessionInfoCb_ = getelementptr inbounds i8, ptr %this, i64 144
   %2 = load ptr, ptr %originalSessionInfoCb_, align 8
   %tobool3.not = icmp eq ptr %2, null
   br i1 %tobool3.not, label %if.end8, label %if.then4
 
 if.then4:                                         ; preds = %if.end
   store i8 0, ptr %agg.tmp, align 8
-  %hasValue.i.i = getelementptr inbounds %"struct.folly::Optional<unsigned long>::StorageTriviallyDestructible", ptr %agg.tmp, i64 0, i32 1
+  %hasValue.i.i = getelementptr inbounds i8, ptr %agg.tmp, i64 8
   store i8 0, ptr %hasValue.i.i, align 8
-  %hasValue.i.i.i = getelementptr inbounds %"struct.folly::Optional<unsigned long>::StorageTriviallyDestructible", ptr %streamId, i64 0, i32 1
+  %hasValue.i.i.i = getelementptr inbounds i8, ptr %streamId, i64 8
   %3 = load i8, ptr %hasValue.i.i.i, align 8
   %4 = and i8 %3, 1
   %tobool.i.i.not.i = icmp eq i8 %4, 0
@@ -1205,7 +1120,7 @@ invoke.cont2.i:                                   ; preds = %if.then4
 
 _ZN5folly8OptionalImEC2ERKS1_.exit:               ; preds = %if.then4, %invoke.cont2.i
   %vtable6 = load ptr, ptr %2, align 8
-  %vfn7 = getelementptr inbounds ptr, ptr %vtable6, i64 9
+  %vfn7 = getelementptr inbounds i8, ptr %vtable6, i64 72
   %6 = load ptr, ptr %vfn7, align 8
   call void %6(ptr noundef nonnull align 8 dereferenceable(8) %2, ptr noundef nonnull align 8 dereferenceable(1582) %session, i64 noundef %bytesRead, ptr noundef nonnull %agg.tmp)
   br label %if.end8
@@ -1217,27 +1132,27 @@ if.end8:                                          ; preds = %_ZN5folly8OptionalI
 ; Function Attrs: mustprogress uwtable
 define void @_ZN8proxygen13SessionHolder7onWriteERKNS_15HTTPSessionBaseEm(ptr nocapture noundef nonnull readonly align 8 dereferenceable(152) %this, ptr noundef nonnull align 8 dereferenceable(1582) %session, i64 noundef %bytesWritten) unnamed_addr #3 align 2 {
 entry:
-  %stats_ = getelementptr inbounds %"class.proxygen::SessionHolder", ptr %this, i64 0, i32 5
+  %stats_ = getelementptr inbounds i8, ptr %this, i64 56
   %0 = load ptr, ptr %stats_, align 8
   %tobool.not = icmp eq ptr %0, null
   br i1 %tobool.not, label %if.end, label %if.then
 
 if.then:                                          ; preds = %entry
   %vtable = load ptr, ptr %0, align 8
-  %vfn = getelementptr inbounds ptr, ptr %vtable, i64 7
+  %vfn = getelementptr inbounds i8, ptr %vtable, i64 56
   %1 = load ptr, ptr %vfn, align 8
   tail call void %1(ptr noundef nonnull align 8 dereferenceable(8) %0, i64 noundef %bytesWritten)
   br label %if.end
 
 if.end:                                           ; preds = %if.then, %entry
-  %originalSessionInfoCb_ = getelementptr inbounds %"class.proxygen::SessionHolder", ptr %this, i64 0, i32 11
+  %originalSessionInfoCb_ = getelementptr inbounds i8, ptr %this, i64 144
   %2 = load ptr, ptr %originalSessionInfoCb_, align 8
   %tobool3.not = icmp eq ptr %2, null
   br i1 %tobool3.not, label %if.end8, label %if.then4
 
 if.then4:                                         ; preds = %if.end
   %vtable6 = load ptr, ptr %2, align 8
-  %vfn7 = getelementptr inbounds ptr, ptr %vtable6, i64 10
+  %vfn7 = getelementptr inbounds i8, ptr %vtable6, i64 80
   %3 = load ptr, ptr %vfn7, align 8
   tail call void %3(ptr noundef nonnull align 8 dereferenceable(8) %2, ptr noundef nonnull align 8 dereferenceable(1582) %session, i64 noundef %bytesWritten)
   br label %if.end8
@@ -1249,14 +1164,14 @@ if.end8:                                          ; preds = %if.then4, %if.end
 ; Function Attrs: mustprogress uwtable
 define void @_ZN8proxygen13SessionHolder14onRequestBeginERKNS_15HTTPSessionBaseE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(152) %this, ptr noundef nonnull align 8 dereferenceable(1582) %session) unnamed_addr #3 align 2 {
 entry:
-  %originalSessionInfoCb_ = getelementptr inbounds %"class.proxygen::SessionHolder", ptr %this, i64 0, i32 11
+  %originalSessionInfoCb_ = getelementptr inbounds i8, ptr %this, i64 144
   %0 = load ptr, ptr %originalSessionInfoCb_, align 8
   %tobool.not = icmp eq ptr %0, null
   br i1 %tobool.not, label %if.end, label %if.then
 
 if.then:                                          ; preds = %entry
   %vtable = load ptr, ptr %0, align 8
-  %vfn = getelementptr inbounds ptr, ptr %vtable, i64 11
+  %vfn = getelementptr inbounds i8, ptr %vtable, i64 88
   %1 = load ptr, ptr %vfn, align 8
   tail call void %1(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef nonnull align 8 dereferenceable(1582) %session)
   br label %if.end
@@ -1268,14 +1183,14 @@ if.end:                                           ; preds = %if.then, %entry
 ; Function Attrs: mustprogress uwtable
 define void @_ZN8proxygen13SessionHolder12onRequestEndERKNS_15HTTPSessionBaseEj(ptr nocapture noundef nonnull readonly align 8 dereferenceable(152) %this, ptr noundef nonnull align 8 dereferenceable(1582) %session, i32 noundef %maxIngressQueueSize) unnamed_addr #3 align 2 {
 entry:
-  %originalSessionInfoCb_ = getelementptr inbounds %"class.proxygen::SessionHolder", ptr %this, i64 0, i32 11
+  %originalSessionInfoCb_ = getelementptr inbounds i8, ptr %this, i64 144
   %0 = load ptr, ptr %originalSessionInfoCb_, align 8
   %tobool.not = icmp eq ptr %0, null
   br i1 %tobool.not, label %if.end, label %if.then
 
 if.then:                                          ; preds = %entry
   %vtable = load ptr, ptr %0, align 8
-  %vfn = getelementptr inbounds ptr, ptr %vtable, i64 12
+  %vfn = getelementptr inbounds i8, ptr %vtable, i64 96
   %1 = load ptr, ptr %vfn, align 8
   tail call void %1(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef nonnull align 8 dereferenceable(1582) %session, i32 noundef %maxIngressQueueSize)
   br label %if.end
@@ -1287,27 +1202,27 @@ if.end:                                           ; preds = %if.then, %entry
 ; Function Attrs: mustprogress uwtable
 define void @_ZN8proxygen13SessionHolder20onActivateConnectionERKNS_15HTTPSessionBaseE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(152) %this, ptr noundef nonnull align 8 dereferenceable(1582) %session) unnamed_addr #3 align 2 {
 entry:
-  %stats_ = getelementptr inbounds %"class.proxygen::SessionHolder", ptr %this, i64 0, i32 5
+  %stats_ = getelementptr inbounds i8, ptr %this, i64 56
   %0 = load ptr, ptr %stats_, align 8
   %tobool.not = icmp eq ptr %0, null
   br i1 %tobool.not, label %if.end, label %if.then
 
 if.then:                                          ; preds = %entry
   %vtable = load ptr, ptr %0, align 8
-  %vfn = getelementptr inbounds ptr, ptr %vtable, i64 4
+  %vfn = getelementptr inbounds i8, ptr %vtable, i64 32
   %1 = load ptr, ptr %vfn, align 8
   tail call void %1(ptr noundef nonnull align 8 dereferenceable(8) %0)
   br label %if.end
 
 if.end:                                           ; preds = %if.then, %entry
-  %originalSessionInfoCb_ = getelementptr inbounds %"class.proxygen::SessionHolder", ptr %this, i64 0, i32 11
+  %originalSessionInfoCb_ = getelementptr inbounds i8, ptr %this, i64 144
   %2 = load ptr, ptr %originalSessionInfoCb_, align 8
   %tobool3.not = icmp eq ptr %2, null
   br i1 %tobool3.not, label %if.end8, label %if.then4
 
 if.then4:                                         ; preds = %if.end
   %vtable6 = load ptr, ptr %2, align 8
-  %vfn7 = getelementptr inbounds ptr, ptr %vtable6, i64 13
+  %vfn7 = getelementptr inbounds i8, ptr %vtable6, i64 104
   %3 = load ptr, ptr %vfn7, align 8
   tail call void %3(ptr noundef nonnull align 8 dereferenceable(8) %2, ptr noundef nonnull align 8 dereferenceable(1582) %session)
   br label %if.end8
@@ -1319,27 +1234,27 @@ if.end8:                                          ; preds = %if.then4, %if.end
 ; Function Attrs: mustprogress uwtable
 define void @_ZN8proxygen13SessionHolder22onDeactivateConnectionERKNS_15HTTPSessionBaseE(ptr noundef nonnull align 8 dereferenceable(152) %this, ptr noundef nonnull align 8 dereferenceable(1582) %sess) unnamed_addr #3 align 2 {
 entry:
-  %stats_ = getelementptr inbounds %"class.proxygen::SessionHolder", ptr %this, i64 0, i32 5
+  %stats_ = getelementptr inbounds i8, ptr %this, i64 56
   %0 = load ptr, ptr %stats_, align 8
   %tobool.not = icmp eq ptr %0, null
   br i1 %tobool.not, label %if.end, label %if.then
 
 if.then:                                          ; preds = %entry
   %vtable = load ptr, ptr %0, align 8
-  %vfn = getelementptr inbounds ptr, ptr %vtable, i64 5
+  %vfn = getelementptr inbounds i8, ptr %vtable, i64 40
   %1 = load ptr, ptr %vfn, align 8
   tail call void %1(ptr noundef nonnull align 8 dereferenceable(8) %0)
   br label %if.end
 
 if.end:                                           ; preds = %if.then, %entry
-  %originalSessionInfoCb_ = getelementptr inbounds %"class.proxygen::SessionHolder", ptr %this, i64 0, i32 11
+  %originalSessionInfoCb_ = getelementptr inbounds i8, ptr %this, i64 144
   %2 = load ptr, ptr %originalSessionInfoCb_, align 8
   %tobool3.not = icmp eq ptr %2, null
   br i1 %tobool3.not, label %if.end8, label %if.then4
 
 if.then4:                                         ; preds = %if.end
   %vtable6 = load ptr, ptr %2, align 8
-  %vfn7 = getelementptr inbounds ptr, ptr %vtable6, i64 14
+  %vfn7 = getelementptr inbounds i8, ptr %vtable6, i64 112
   %3 = load ptr, ptr %vfn7, align 8
   tail call void %3(ptr noundef nonnull align 8 dereferenceable(8) %2, ptr noundef nonnull align 8 dereferenceable(1582) %sess)
   br label %if.end8
@@ -1353,7 +1268,7 @@ if.end8:                                          ; preds = %if.then4, %if.end
 define void @_ZN8proxygen13SessionHolder25handleTransactionDetachedEv(ptr noundef nonnull align 8 dereferenceable(152) %this) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp2 = alloca %"class.google::LogMessageFatal", align 8
-  %state_ = getelementptr inbounds %"class.proxygen::SessionHolder", ptr %this, i64 0, i32 8
+  %state_ = getelementptr inbounds i8, ptr %this, i64 80
   %0 = load i32, ptr %state_, align 8
   %cmp.not = icmp eq i32 %0, 0
   br i1 %cmp.not, label %cond.false, label %cleanup.done
@@ -1387,7 +1302,7 @@ cleanup.done:                                     ; preds = %entry
 define void @_ZN8proxygen13SessionHolder9onDestroyERKNS_15HTTPSessionBaseE(ptr noundef nonnull align 8 dereferenceable(152) %this, ptr noundef nonnull align 8 dereferenceable(1582) %session) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp16 = alloca %"class.google::LogMessage", align 8
-  %state_ = getelementptr inbounds %"class.proxygen::SessionHolder", ptr %this, i64 0, i32 8
+  %state_ = getelementptr inbounds i8, ptr %this, i64 80
   %0 = load i32, ptr %state_, align 8
   %cmp.not = icmp eq i32 %0, 0
   br i1 %cmp.not, label %if.end, label %if.then
@@ -1397,27 +1312,27 @@ if.then:                                          ; preds = %entry
   br label %if.end
 
 if.end:                                           ; preds = %if.then, %entry
-  %stats_ = getelementptr inbounds %"class.proxygen::SessionHolder", ptr %this, i64 0, i32 5
+  %stats_ = getelementptr inbounds i8, ptr %this, i64 56
   %1 = load ptr, ptr %stats_, align 8
   %tobool.not = icmp eq ptr %1, null
   br i1 %tobool.not, label %if.end4, label %if.then2
 
 if.then2:                                         ; preds = %if.end
   %vtable = load ptr, ptr %1, align 8
-  %vfn = getelementptr inbounds ptr, ptr %vtable, i64 3
+  %vfn = getelementptr inbounds i8, ptr %vtable, i64 24
   %2 = load ptr, ptr %vfn, align 8
   tail call void %2(ptr noundef nonnull align 8 dereferenceable(8) %1)
   br label %if.end4
 
 if.end4:                                          ; preds = %if.then2, %if.end
-  %originalSessionInfoCb_ = getelementptr inbounds %"class.proxygen::SessionHolder", ptr %this, i64 0, i32 11
+  %originalSessionInfoCb_ = getelementptr inbounds i8, ptr %this, i64 144
   %3 = load ptr, ptr %originalSessionInfoCb_, align 8
   %tobool5.not = icmp eq ptr %3, null
   br i1 %tobool5.not, label %if.end10, label %if.then6
 
 if.then6:                                         ; preds = %if.end4
   %vtable8 = load ptr, ptr %3, align 8
-  %vfn9 = getelementptr inbounds ptr, ptr %vtable8, i64 15
+  %vfn9 = getelementptr inbounds i8, ptr %vtable8, i64 120
   %4 = load ptr, ptr %vfn9, align 8
   tail call void %4(ptr noundef nonnull align 8 dereferenceable(8) %3, ptr noundef nonnull align 8 dereferenceable(1582) %session)
   br label %if.end10
@@ -1455,7 +1370,7 @@ cleanup.action:                                   ; preds = %invoke.cont18
 
 delete.notnull:                                   ; preds = %cond.true, %cleanup.action, %cond.end
   %vtable27 = load ptr, ptr %this, align 8
-  %vfn28 = getelementptr inbounds ptr, ptr %vtable27, i64 1
+  %vfn28 = getelementptr inbounds i8, ptr %vtable27, i64 8
   %7 = load ptr, ptr %vfn28, align 8
   call void %7(ptr noundef nonnull align 8 dereferenceable(152) %this) #21
   ret void
@@ -1470,14 +1385,14 @@ lpad:                                             ; preds = %invoke.cont, %invok
 ; Function Attrs: mustprogress uwtable
 define void @_ZN8proxygen13SessionHolder16onIngressMessageERKNS_15HTTPSessionBaseERKNS_11HTTPMessageE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(152) %this, ptr noundef nonnull align 8 dereferenceable(1582) %session, ptr noundef nonnull align 8 dereferenceable(616) %msg) unnamed_addr #3 align 2 {
 entry:
-  %originalSessionInfoCb_ = getelementptr inbounds %"class.proxygen::SessionHolder", ptr %this, i64 0, i32 11
+  %originalSessionInfoCb_ = getelementptr inbounds i8, ptr %this, i64 144
   %0 = load ptr, ptr %originalSessionInfoCb_, align 8
   %tobool.not = icmp eq ptr %0, null
   br i1 %tobool.not, label %if.end, label %if.then
 
 if.then:                                          ; preds = %entry
   %vtable = load ptr, ptr %0, align 8
-  %vfn = getelementptr inbounds ptr, ptr %vtable, i64 16
+  %vfn = getelementptr inbounds i8, ptr %vtable, i64 128
   %1 = load ptr, ptr %vfn, align 8
   tail call void %1(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef nonnull align 8 dereferenceable(1582) %session, ptr noundef nonnull align 8 dereferenceable(616) %msg)
   br label %if.end
@@ -1489,14 +1404,14 @@ if.end:                                           ; preds = %if.then, %entry
 ; Function Attrs: mustprogress uwtable
 define void @_ZN8proxygen13SessionHolder22onIngressLimitExceededERKNS_15HTTPSessionBaseE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(152) %this, ptr noundef nonnull align 8 dereferenceable(1582) %session) unnamed_addr #3 align 2 {
 entry:
-  %originalSessionInfoCb_ = getelementptr inbounds %"class.proxygen::SessionHolder", ptr %this, i64 0, i32 11
+  %originalSessionInfoCb_ = getelementptr inbounds i8, ptr %this, i64 144
   %0 = load ptr, ptr %originalSessionInfoCb_, align 8
   %tobool.not = icmp eq ptr %0, null
   br i1 %tobool.not, label %if.end, label %if.then
 
 if.then:                                          ; preds = %entry
   %vtable = load ptr, ptr %0, align 8
-  %vfn = getelementptr inbounds ptr, ptr %vtable, i64 17
+  %vfn = getelementptr inbounds i8, ptr %vtable, i64 136
   %1 = load ptr, ptr %vfn, align 8
   tail call void %1(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef nonnull align 8 dereferenceable(1582) %session)
   br label %if.end
@@ -1508,14 +1423,14 @@ if.end:                                           ; preds = %if.then, %entry
 ; Function Attrs: mustprogress uwtable
 define void @_ZN8proxygen13SessionHolder15onIngressPausedERKNS_15HTTPSessionBaseE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(152) %this, ptr noundef nonnull align 8 dereferenceable(1582) %session) unnamed_addr #3 align 2 {
 entry:
-  %originalSessionInfoCb_ = getelementptr inbounds %"class.proxygen::SessionHolder", ptr %this, i64 0, i32 11
+  %originalSessionInfoCb_ = getelementptr inbounds i8, ptr %this, i64 144
   %0 = load ptr, ptr %originalSessionInfoCb_, align 8
   %tobool.not = icmp eq ptr %0, null
   br i1 %tobool.not, label %if.end, label %if.then
 
 if.then:                                          ; preds = %entry
   %vtable = load ptr, ptr %0, align 8
-  %vfn = getelementptr inbounds ptr, ptr %vtable, i64 18
+  %vfn = getelementptr inbounds i8, ptr %vtable, i64 144
   %1 = load ptr, ptr %vfn, align 8
   tail call void %1(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef nonnull align 8 dereferenceable(1582) %session)
   br label %if.end
@@ -1527,14 +1442,14 @@ if.end:                                           ; preds = %if.then, %entry
 ; Function Attrs: mustprogress uwtable
 define void @_ZN8proxygen13SessionHolder21onTransactionAttachedERKNS_15HTTPSessionBaseE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(152) %this, ptr noundef nonnull align 8 dereferenceable(1582) %session) unnamed_addr #3 align 2 {
 entry:
-  %originalSessionInfoCb_ = getelementptr inbounds %"class.proxygen::SessionHolder", ptr %this, i64 0, i32 11
+  %originalSessionInfoCb_ = getelementptr inbounds i8, ptr %this, i64 144
   %0 = load ptr, ptr %originalSessionInfoCb_, align 8
   %tobool.not = icmp eq ptr %0, null
   br i1 %tobool.not, label %if.end, label %if.then
 
 if.then:                                          ; preds = %entry
   %vtable = load ptr, ptr %0, align 8
-  %vfn = getelementptr inbounds ptr, ptr %vtable, i64 19
+  %vfn = getelementptr inbounds i8, ptr %vtable, i64 152
   %1 = load ptr, ptr %vfn, align 8
   tail call void %1(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef nonnull align 8 dereferenceable(1582) %session)
   br label %if.end
@@ -1546,14 +1461,14 @@ if.end:                                           ; preds = %if.then, %entry
 ; Function Attrs: mustprogress uwtable
 define void @_ZN8proxygen13SessionHolder21onTransactionDetachedERKNS_15HTTPSessionBaseE(ptr noundef nonnull align 8 dereferenceable(152) %this, ptr noundef nonnull align 8 dereferenceable(1582) %session) unnamed_addr #3 align 2 {
 entry:
-  %originalSessionInfoCb_ = getelementptr inbounds %"class.proxygen::SessionHolder", ptr %this, i64 0, i32 11
+  %originalSessionInfoCb_ = getelementptr inbounds i8, ptr %this, i64 144
   %0 = load ptr, ptr %originalSessionInfoCb_, align 8
   %tobool.not = icmp eq ptr %0, null
   br i1 %tobool.not, label %if.end, label %if.then
 
 if.then:                                          ; preds = %entry
   %vtable = load ptr, ptr %0, align 8
-  %vfn = getelementptr inbounds ptr, ptr %vtable, i64 20
+  %vfn = getelementptr inbounds i8, ptr %vtable, i64 160
   %1 = load ptr, ptr %vfn, align 8
   tail call void %1(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef nonnull align 8 dereferenceable(1582) %session)
   br label %if.end
@@ -1566,14 +1481,14 @@ if.end:                                           ; preds = %if.then, %entry
 ; Function Attrs: mustprogress uwtable
 define void @_ZN8proxygen13SessionHolder15onPingReplySentEl(ptr nocapture noundef nonnull readonly align 8 dereferenceable(152) %this, i64 noundef %latency) unnamed_addr #3 align 2 {
 entry:
-  %originalSessionInfoCb_ = getelementptr inbounds %"class.proxygen::SessionHolder", ptr %this, i64 0, i32 11
+  %originalSessionInfoCb_ = getelementptr inbounds i8, ptr %this, i64 144
   %0 = load ptr, ptr %originalSessionInfoCb_, align 8
   %tobool.not = icmp eq ptr %0, null
   br i1 %tobool.not, label %if.end, label %if.then
 
 if.then:                                          ; preds = %entry
   %vtable = load ptr, ptr %0, align 8
-  %vfn = getelementptr inbounds ptr, ptr %vtable, i64 21
+  %vfn = getelementptr inbounds i8, ptr %vtable, i64 168
   %1 = load ptr, ptr %vfn, align 8
   tail call void %1(ptr noundef nonnull align 8 dereferenceable(8) %0, i64 noundef %latency)
   br label %if.end
@@ -1585,14 +1500,14 @@ if.end:                                           ; preds = %if.then, %entry
 ; Function Attrs: mustprogress uwtable
 define void @_ZN8proxygen13SessionHolder19onPingReplyReceivedEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(152) %this) unnamed_addr #3 align 2 {
 entry:
-  %originalSessionInfoCb_ = getelementptr inbounds %"class.proxygen::SessionHolder", ptr %this, i64 0, i32 11
+  %originalSessionInfoCb_ = getelementptr inbounds i8, ptr %this, i64 144
   %0 = load ptr, ptr %originalSessionInfoCb_, align 8
   %tobool.not = icmp eq ptr %0, null
   br i1 %tobool.not, label %if.end, label %if.then
 
 if.then:                                          ; preds = %entry
   %vtable = load ptr, ptr %0, align 8
-  %vfn = getelementptr inbounds ptr, ptr %vtable, i64 22
+  %vfn = getelementptr inbounds i8, ptr %vtable, i64 176
   %1 = load ptr, ptr %vfn, align 8
   tail call void %1(ptr noundef nonnull align 8 dereferenceable(8) %0)
   br label %if.end
@@ -1604,20 +1519,20 @@ if.end:                                           ; preds = %if.then, %entry
 ; Function Attrs: mustprogress uwtable
 define void @_ZN8proxygen13SessionHolder29onSettingsOutgoingStreamsFullERKNS_15HTTPSessionBaseE(ptr noundef nonnull align 8 dereferenceable(152) %this, ptr noundef nonnull align 8 dereferenceable(1582) %session) unnamed_addr #3 align 2 {
 entry:
-  %originalSessionInfoCb_ = getelementptr inbounds %"class.proxygen::SessionHolder", ptr %this, i64 0, i32 11
+  %originalSessionInfoCb_ = getelementptr inbounds i8, ptr %this, i64 144
   %0 = load ptr, ptr %originalSessionInfoCb_, align 8
   %tobool.not = icmp eq ptr %0, null
   br i1 %tobool.not, label %if.end, label %if.then
 
 if.then:                                          ; preds = %entry
   %vtable = load ptr, ptr %0, align 8
-  %vfn = getelementptr inbounds ptr, ptr %vtable, i64 23
+  %vfn = getelementptr inbounds i8, ptr %vtable, i64 184
   %1 = load ptr, ptr %vfn, align 8
   tail call void %1(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef nonnull align 8 dereferenceable(1582) %session)
   br label %if.end
 
 if.end:                                           ; preds = %if.then, %entry
-  %state_ = getelementptr inbounds %"class.proxygen::SessionHolder", ptr %this, i64 0, i32 8
+  %state_ = getelementptr inbounds i8, ptr %this, i64 80
   %2 = load i32, ptr %state_, align 8
   switch i32 %2, label %if.then5 [
     i32 0, label %if.end6
@@ -1636,20 +1551,20 @@ if.end6:                                          ; preds = %if.end, %if.end, %i
 ; Function Attrs: mustprogress uwtable
 define void @_ZN8proxygen13SessionHolder32onSettingsOutgoingStreamsNotFullERKNS_15HTTPSessionBaseE(ptr noundef nonnull align 8 dereferenceable(152) %this, ptr noundef nonnull align 8 dereferenceable(1582) %session) unnamed_addr #3 align 2 {
 entry:
-  %originalSessionInfoCb_ = getelementptr inbounds %"class.proxygen::SessionHolder", ptr %this, i64 0, i32 11
+  %originalSessionInfoCb_ = getelementptr inbounds i8, ptr %this, i64 144
   %0 = load ptr, ptr %originalSessionInfoCb_, align 8
   %tobool.not = icmp eq ptr %0, null
   br i1 %tobool.not, label %if.end, label %if.then
 
 if.then:                                          ; preds = %entry
   %vtable = load ptr, ptr %0, align 8
-  %vfn = getelementptr inbounds ptr, ptr %vtable, i64 24
+  %vfn = getelementptr inbounds i8, ptr %vtable, i64 192
   %1 = load ptr, ptr %vfn, align 8
   tail call void %1(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef nonnull align 8 dereferenceable(1582) %session)
   br label %if.end
 
 if.end:                                           ; preds = %if.then, %entry
-  %state_ = getelementptr inbounds %"class.proxygen::SessionHolder", ptr %this, i64 0, i32 8
+  %state_ = getelementptr inbounds i8, ptr %this, i64 80
   %2 = load i32, ptr %state_, align 8
   %cond = icmp eq i32 %2, 3
   br i1 %cond, label %if.then5, label %if.end6
@@ -1666,14 +1581,14 @@ if.end6:                                          ; preds = %if.end, %if.then5
 ; Function Attrs: mustprogress uwtable
 define void @_ZN8proxygen13SessionHolder25onFlowControlWindowClosedERKNS_15HTTPSessionBaseE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(152) %this, ptr noundef nonnull align 8 dereferenceable(1582) %session) unnamed_addr #3 align 2 {
 entry:
-  %originalSessionInfoCb_ = getelementptr inbounds %"class.proxygen::SessionHolder", ptr %this, i64 0, i32 11
+  %originalSessionInfoCb_ = getelementptr inbounds i8, ptr %this, i64 144
   %0 = load ptr, ptr %originalSessionInfoCb_, align 8
   %tobool.not = icmp eq ptr %0, null
   br i1 %tobool.not, label %if.end, label %if.then
 
 if.then:                                          ; preds = %entry
   %vtable = load ptr, ptr %0, align 8
-  %vfn = getelementptr inbounds ptr, ptr %vtable, i64 25
+  %vfn = getelementptr inbounds i8, ptr %vtable, i64 200
   %1 = load ptr, ptr %vfn, align 8
   tail call void %1(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef nonnull align 8 dereferenceable(1582) %session)
   br label %if.end
@@ -1685,14 +1600,14 @@ if.end:                                           ; preds = %if.then, %entry
 ; Function Attrs: mustprogress uwtable
 define void @_ZN8proxygen13SessionHolder16onEgressBufferedERKNS_15HTTPSessionBaseE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(152) %this, ptr noundef nonnull align 8 dereferenceable(1582) %session) unnamed_addr #3 align 2 {
 entry:
-  %originalSessionInfoCb_ = getelementptr inbounds %"class.proxygen::SessionHolder", ptr %this, i64 0, i32 11
+  %originalSessionInfoCb_ = getelementptr inbounds i8, ptr %this, i64 144
   %0 = load ptr, ptr %originalSessionInfoCb_, align 8
   %tobool.not = icmp eq ptr %0, null
   br i1 %tobool.not, label %if.end, label %if.then
 
 if.then:                                          ; preds = %entry
   %vtable = load ptr, ptr %0, align 8
-  %vfn = getelementptr inbounds ptr, ptr %vtable, i64 26
+  %vfn = getelementptr inbounds i8, ptr %vtable, i64 208
   %1 = load ptr, ptr %vfn, align 8
   tail call void %1(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef nonnull align 8 dereferenceable(1582) %session)
   br label %if.end
@@ -1704,14 +1619,14 @@ if.end:                                           ; preds = %if.then, %entry
 ; Function Attrs: mustprogress uwtable
 define void @_ZN8proxygen13SessionHolder21onEgressBufferClearedERKNS_15HTTPSessionBaseE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(152) %this, ptr noundef nonnull align 8 dereferenceable(1582) %session) unnamed_addr #3 align 2 {
 entry:
-  %originalSessionInfoCb_ = getelementptr inbounds %"class.proxygen::SessionHolder", ptr %this, i64 0, i32 11
+  %originalSessionInfoCb_ = getelementptr inbounds i8, ptr %this, i64 144
   %0 = load ptr, ptr %originalSessionInfoCb_, align 8
   %tobool.not = icmp eq ptr %0, null
   br i1 %tobool.not, label %if.end, label %if.then
 
 if.then:                                          ; preds = %entry
   %vtable = load ptr, ptr %0, align 8
-  %vfn = getelementptr inbounds ptr, ptr %vtable, i64 27
+  %vfn = getelementptr inbounds i8, ptr %vtable, i64 216
   %1 = load ptr, ptr %vfn, align 8
   tail call void %1(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef nonnull align 8 dereferenceable(1582) %session)
   br label %if.end
@@ -1723,14 +1638,14 @@ if.end:                                           ; preds = %if.then, %entry
 ; Function Attrs: mustprogress uwtable
 define void @_ZN8proxygen13SessionHolder10onSettingsERKNS_15HTTPSessionBaseERKSt6vectorINS_11HTTPSettingESaIS5_EE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(152) %this, ptr noundef nonnull align 8 dereferenceable(1582) %sess, ptr noundef nonnull align 8 dereferenceable(24) %settings) unnamed_addr #3 align 2 {
 entry:
-  %originalSessionInfoCb_ = getelementptr inbounds %"class.proxygen::SessionHolder", ptr %this, i64 0, i32 11
+  %originalSessionInfoCb_ = getelementptr inbounds i8, ptr %this, i64 144
   %0 = load ptr, ptr %originalSessionInfoCb_, align 8
   %tobool.not = icmp eq ptr %0, null
   br i1 %tobool.not, label %if.end, label %if.then
 
 if.then:                                          ; preds = %entry
   %vtable = load ptr, ptr %0, align 8
-  %vfn = getelementptr inbounds ptr, ptr %vtable, i64 28
+  %vfn = getelementptr inbounds i8, ptr %vtable, i64 224
   %1 = load ptr, ptr %vfn, align 8
   tail call void %1(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef nonnull align 8 dereferenceable(1582) %sess, ptr noundef nonnull align 8 dereferenceable(24) %settings)
   br label %if.end
@@ -1742,14 +1657,14 @@ if.end:                                           ; preds = %if.then, %entry
 ; Function Attrs: mustprogress uwtable
 define void @_ZN8proxygen13SessionHolder13onSettingsAckERKNS_15HTTPSessionBaseE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(152) %this, ptr noundef nonnull align 8 dereferenceable(1582) %sess) unnamed_addr #3 align 2 {
 entry:
-  %originalSessionInfoCb_ = getelementptr inbounds %"class.proxygen::SessionHolder", ptr %this, i64 0, i32 11
+  %originalSessionInfoCb_ = getelementptr inbounds i8, ptr %this, i64 144
   %0 = load ptr, ptr %originalSessionInfoCb_, align 8
   %tobool.not = icmp eq ptr %0, null
   br i1 %tobool.not, label %if.end, label %if.then
 
 if.then:                                          ; preds = %entry
   %vtable = load ptr, ptr %0, align 8
-  %vfn = getelementptr inbounds ptr, ptr %vtable, i64 29
+  %vfn = getelementptr inbounds i8, ptr %vtable, i64 232
   %1 = load ptr, ptr %vfn, align 8
   tail call void %1(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef nonnull align 8 dereferenceable(1582) %sess)
   br label %if.end
@@ -1763,10 +1678,10 @@ define void @_ZNK8proxygen13SessionHolder8describeERSo(ptr nocapture noundef non
 entry:
   %localAddr = alloca %"class.folly::SocketAddress", align 8
   %serverAddr = alloca %"class.folly::SocketAddress", align 8
-  %session_ = getelementptr inbounds %"class.proxygen::SessionHolder", ptr %this, i64 0, i32 3
+  %session_ = getelementptr inbounds i8, ptr %this, i64 40
   %0 = load ptr, ptr %session_, align 8
   %vtable = load ptr, ptr %0, align 8
-  %vfn = getelementptr inbounds ptr, ptr %vtable, i64 20
+  %vfn = getelementptr inbounds i8, ptr %vtable, i64 160
   %1 = load ptr, ptr %vfn, align 8
   %call = tail call noundef ptr %1(ptr noundef nonnull align 8 dereferenceable(1582) %0)
   %tobool.not = icmp eq ptr %call, null
@@ -1784,7 +1699,7 @@ dynamic_cast.notnull.i.i:                         ; preds = %entry, %if.end.i.i
 
 if.end.i.i:                                       ; preds = %dynamic_cast.notnull.i.i
   %vtable.i.i = load ptr, ptr %current.04.i.i, align 8
-  %vfn.i.i = getelementptr inbounds ptr, ptr %vtable.i.i, i64 41
+  %vfn.i.i = getelementptr inbounds i8, ptr %vtable.i.i, i64 328
   %3 = load ptr, ptr %vfn.i.i, align 8
   %call.i.i = tail call noundef ptr %3(ptr noundef nonnull align 8 dereferenceable(48) %current.04.i.i)
   %tobool.not.i.i = icmp eq ptr %call.i.i, null
@@ -1793,32 +1708,32 @@ if.end.i.i:                                       ; preds = %dynamic_cast.notnul
 if.then5:                                         ; preds = %dynamic_cast.notnull.i.i
   %call6 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc(ptr noundef nonnull align 8 dereferenceable(8) %os, ptr noundef nonnull @.str.15)
   %vtable7 = load ptr, ptr %2, align 8
-  %vfn8 = getelementptr inbounds ptr, ptr %vtable7, i64 49
+  %vfn8 = getelementptr inbounds i8, ptr %vtable7, i64 392
   %4 = load ptr, ptr %vfn8, align 8
   %call9 = tail call i32 %4(ptr noundef nonnull align 8 dereferenceable(1113) %2)
   %call11 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSolsEi(ptr noundef nonnull align 8 dereferenceable(8) %call6, i32 noundef %call9)
   call void @_ZN5folly9IPAddressC1Ev(ptr noundef nonnull align 4 dereferenceable(22) %localAddr)
-  %port_.i = getelementptr inbounds %"class.folly::SocketAddress", ptr %localAddr, i64 0, i32 1
+  %port_.i = getelementptr inbounds i8, ptr %localAddr, i64 24
   store i16 0, ptr %port_.i, align 8
-  %external_.i = getelementptr inbounds %"class.folly::SocketAddress", ptr %localAddr, i64 0, i32 2
+  %external_.i = getelementptr inbounds i8, ptr %localAddr, i64 26
   store i8 0, ptr %external_.i, align 2
   invoke void @_ZN5folly9IPAddressC1Ev(ptr noundef nonnull align 4 dereferenceable(22) %serverAddr)
           to label %invoke.cont unwind label %lpad
 
 invoke.cont:                                      ; preds = %if.then5
-  %port_.i13 = getelementptr inbounds %"class.folly::SocketAddress", ptr %serverAddr, i64 0, i32 1
+  %port_.i13 = getelementptr inbounds i8, ptr %serverAddr, i64 24
   store i16 0, ptr %port_.i13, align 8
-  %external_.i14 = getelementptr inbounds %"class.folly::SocketAddress", ptr %serverAddr, i64 0, i32 2
+  %external_.i14 = getelementptr inbounds i8, ptr %serverAddr, i64 26
   store i8 0, ptr %external_.i14, align 2
   %vtable12 = load ptr, ptr %2, align 8
-  %vfn13 = getelementptr inbounds ptr, ptr %vtable12, i64 20
+  %vfn13 = getelementptr inbounds i8, ptr %vtable12, i64 160
   %5 = load ptr, ptr %vfn13, align 8
   invoke void %5(ptr noundef nonnull align 8 dereferenceable(1113) %2, ptr noundef nonnull %localAddr)
           to label %invoke.cont15 unwind label %lpad14
 
 invoke.cont15:                                    ; preds = %invoke.cont
   %vtable16 = load ptr, ptr %2, align 8
-  %vfn17 = getelementptr inbounds ptr, ptr %vtable16, i64 22
+  %vfn17 = getelementptr inbounds i8, ptr %vtable16, i64 176
   %6 = load ptr, ptr %vfn17, align 8
   invoke void %6(ptr noundef nonnull align 8 dereferenceable(1113) %2, ptr noundef nonnull %serverAddr)
           to label %invoke.cont21 unwind label %lpad14
@@ -1840,7 +1755,7 @@ invoke.cont21:                                    ; preds = %invoke.cont15, %lpa
   %11 = load i8, ptr %external_.i, align 2
   %12 = and i8 %11, 1
   %tobool.not.i.i15 = icmp ne i8 %12, 0
-  %family_.i.i.i = getelementptr inbounds %"class.folly::IPAddress", ptr %localAddr, i64 0, i32 1
+  %family_.i.i.i = getelementptr inbounds i8, ptr %localAddr, i64 20
   %13 = load i16, ptr %family_.i.i.i, align 4
   %cmp1.i = icmp ne i16 %13, 0
   %cmp.i = select i1 %tobool.not.i.i15, i1 true, i1 %cmp1.i
@@ -1879,7 +1794,7 @@ invoke.cont31:                                    ; preds = %invoke.cont24, %if.
   %18 = load i8, ptr %external_.i14, align 2
   %19 = and i8 %18, 1
   %tobool.not.i.i18 = icmp ne i8 %19, 0
-  %family_.i.i.i19 = getelementptr inbounds %"class.folly::IPAddress", ptr %serverAddr, i64 0, i32 1
+  %family_.i.i.i19 = getelementptr inbounds i8, ptr %serverAddr, i64 20
   %20 = load i16, ptr %family_.i.i.i19, align 4
   %cmp1.i20 = icmp ne i16 %20, 0
   %cmp.i21 = select i1 %tobool.not.i.i18, i1 true, i1 %cmp1.i20
@@ -1952,7 +1867,7 @@ if.else42:                                        ; preds = %if.end.i.i
 
 if.end44:                                         ; preds = %delete.notnull.i.i32, %if.then.i30, %_ZN5folly13SocketAddressD2Ev.exit27, %if.else42
   %call45 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc(ptr noundef nonnull align 8 dereferenceable(8) %os, ptr noundef nonnull @.str.21)
-  %state_ = getelementptr inbounds %"class.proxygen::SessionHolder", ptr %this, i64 0, i32 8
+  %state_ = getelementptr inbounds i8, ptr %this, i64 80
   %30 = load i32, ptr %state_, align 8
   %call46 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSolsEj(ptr noundef nonnull align 8 dereferenceable(8) %call45, i32 noundef %30)
   br label %return

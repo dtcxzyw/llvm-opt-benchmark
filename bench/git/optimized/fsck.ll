@@ -9,22 +9,10 @@ target triple = "x86_64-unknown-linux-gnu"
 %struct.credential = type { %struct.string_list, %struct.strvec, i8, ptr, ptr, ptr, ptr, ptr, ptr, i64 }
 %struct.string_list = type { ptr, i64, i64, i8, ptr }
 %struct.strvec = type { ptr, i64, i64 }
-%struct.fsck_options = type { ptr, ptr, i8, ptr, %struct.oidset, %struct.oidset, %struct.oidset, %struct.oidset, %struct.oidset, ptr }
-%struct.oidset = type { %struct.kh_oid_set }
-%struct.kh_oid_set = type { i32, i32, i32, i32, ptr, ptr, ptr }
 %struct.object_id = type { [32 x i8], i32 }
-%struct.kh_oid_map = type { i32, i32, i32, i32, ptr, ptr, ptr }
-%struct.repository = type { ptr, ptr, ptr, ptr, ptr, %struct.repo_path_cache, ptr, ptr, ptr, ptr, %struct.repo_settings, ptr, ptr, ptr, ptr, ptr, i32, i32, i32, ptr, ptr, i32, i8 }
-%struct.repo_path_cache = type { ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr }
-%struct.repo_settings = type { i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, ptr, i32, i32, i32, i32, i32, i32 }
 %struct.__va_list_tag = type { i32, i32, ptr, ptr }
 %struct.tree_desc = type { ptr, %struct.name_entry, i32, i32 }
 %struct.name_entry = type { %struct.object_id, ptr, i32, i32 }
-%struct.object = type { i32, %struct.object_id }
-%struct.tree = type { %struct.object, ptr, i64 }
-%struct.commit = type { %struct.object, i64, ptr, ptr, i32 }
-%struct.commit_list = type { ptr, ptr }
-%struct.tag = type { %struct.object, ptr, ptr, i64 }
 %struct.name_stack = type { ptr, i64, i64 }
 %struct.config_options = type { i8, ptr, ptr, ptr, ptr, i32 }
 %struct.fsck_gitmodules_data = type { ptr, ptr, i32 }
@@ -245,7 +233,7 @@ for.body:                                         ; preds = %entry, %while.end43
   %sext = shl i64 %call, 32
   %conv1 = ashr exact i64 %sext, 32
   %call2 = tail call ptr @xmalloc(i64 noundef %conv1) #16
-  %downcased = getelementptr inbounds [59 x %struct.anon], ptr @msg_id_info, i64 0, i64 %indvars.iv, i32 1
+  %downcased = getelementptr inbounds i8, ptr %arrayidx, i64 8
   store ptr %call2, ptr %downcased, align 8
   br label %while.cond
 
@@ -278,7 +266,7 @@ while.end:                                        ; preds = %while.cond
   store i8 0, ptr %q.0, align 1
   %6 = load ptr, ptr %arrayidx, align 16
   %call20 = tail call ptr @xmalloc(i64 noundef %conv1) #16
-  %camelcased = getelementptr inbounds [59 x %struct.anon], ptr @msg_id_info, i64 0, i64 %indvars.iv, i32 2
+  %camelcased = getelementptr inbounds i8, ptr %arrayidx, i64 16
   store ptr %call20, ptr %camelcased, align 16
   br label %while.cond23.outer
 
@@ -383,14 +371,14 @@ return:                                           ; preds = %for.inc.i, %if.else
 ; Function Attrs: nounwind uwtable
 define dso_local void @fsck_set_msg_type_from_ids(ptr nocapture noundef %options, i32 noundef %msg_id, i32 noundef %msg_type) local_unnamed_addr #0 {
 entry:
-  %msg_type1 = getelementptr inbounds %struct.fsck_options, ptr %options, i64 0, i32 3
+  %msg_type1 = getelementptr inbounds i8, ptr %options, i64 24
   %0 = load ptr, ptr %msg_type1, align 8
   %tobool.not = icmp eq ptr %0, null
   br i1 %tobool.not, label %if.then, label %if.end
 
 if.then:                                          ; preds = %entry
   %call2 = tail call ptr @xmalloc(i64 noundef 232) #16
-  %strict.i = getelementptr inbounds %struct.fsck_options, ptr %options, i64 0, i32 2
+  %strict.i = getelementptr inbounds i8, ptr %options, i64 16
   br label %for.body
 
 for.body:                                         ; preds = %if.then, %fsck_msg_type.exit
@@ -510,14 +498,14 @@ if.else8.i:                                       ; preds = %if.else4.i
   unreachable
 
 if.end11.split:                                   ; preds = %if.end11
-  %msg_type1.i = getelementptr inbounds %struct.fsck_options, ptr %options, i64 0, i32 3
+  %msg_type1.i = getelementptr inbounds i8, ptr %options, i64 24
   %2 = load ptr, ptr %msg_type1.i, align 8
   %tobool.not.i18 = icmp eq ptr %2, null
   br i1 %tobool.not.i18, label %if.then.i, label %fsck_set_msg_type_from_ids.exit
 
 if.then.i:                                        ; preds = %if.end11.split
   %call2.i = tail call ptr @xmalloc(i64 noundef 232) #16
-  %strict.i.i = getelementptr inbounds %struct.fsck_options, ptr %options, i64 0, i32 2
+  %strict.i.i = getelementptr inbounds i8, ptr %options, i64 16
   br label %for.body.i19
 
 for.body.i19:                                     ; preds = %fsck_msg_type.exit.i, %if.then.i
@@ -570,14 +558,14 @@ land.lhs.true:                                    ; preds = %if.else.i, %if.else
   br i1 %cmp15, label %if.then16, label %land.lhs.true.split
 
 land.lhs.true.split:                              ; preds = %land.lhs.true
-  %msg_type1.i23 = getelementptr inbounds %struct.fsck_options, ptr %options, i64 0, i32 3
+  %msg_type1.i23 = getelementptr inbounds i8, ptr %options, i64 24
   %8 = load ptr, ptr %msg_type1.i23, align 8
   %tobool.not.i24 = icmp eq ptr %8, null
   br i1 %tobool.not.i24, label %if.then.i27, label %fsck_set_msg_type_from_ids.exit49
 
 if.then.i27:                                      ; preds = %land.lhs.true.split
   %call2.i28 = tail call ptr @xmalloc(i64 noundef 232) #16
-  %strict.i.i29 = getelementptr inbounds %struct.fsck_options, ptr %options, i64 0, i32 2
+  %strict.i.i29 = getelementptr inbounds i8, ptr %options, i64 16
   br label %for.body.i30
 
 for.body.i30:                                     ; preds = %fsck_msg_type.exit.i35, %if.then.i27
@@ -646,7 +634,7 @@ declare void @free(ptr allocptr nocapture noundef) local_unnamed_addr #4
 define dso_local void @fsck_set_msg_types(ptr noundef %options, ptr noundef %values) local_unnamed_addr #0 {
 entry:
   %call = tail call ptr @xstrdup(ptr noundef %values) #16
-  %skiplist = getelementptr inbounds %struct.fsck_options, ptr %options, i64 0, i32 4
+  %skiplist = getelementptr inbounds i8, ptr %options, i64 32
   br label %while.body
 
 while.body:                                       ; preds = %entry, %while.cond.backedge
@@ -756,7 +744,7 @@ declare void @oidset_parse_file(ptr noundef, ptr noundef) local_unnamed_addr #1
 ; Function Attrs: nounwind uwtable
 define dso_local void @fsck_enable_object_names(ptr nocapture noundef %options) local_unnamed_addr #0 {
 entry:
-  %object_names = getelementptr inbounds %struct.fsck_options, ptr %options, i64 0, i32 9
+  %object_names = getelementptr inbounds i8, ptr %options, i64 232
   %0 = load ptr, ptr %object_names, align 8
   %tobool.not = icmp eq ptr %0, null
   br i1 %tobool.not, label %if.then, label %if.end
@@ -775,7 +763,7 @@ define dso_local ptr @fsck_get_object_name(ptr nocapture noundef readonly %optio
 entry:
   %byval-temp.i = alloca %struct.object_id, align 8
   %byval-temp5 = alloca %struct.object_id, align 8
-  %object_names = getelementptr inbounds %struct.fsck_options, ptr %options, i64 0, i32 9
+  %object_names = getelementptr inbounds i8, ptr %options, i64 232
   %0 = load ptr, ptr %object_names, align 8
   %tobool.not = icmp eq ptr %0, null
   br i1 %tobool.not, label %return, label %if.end
@@ -792,12 +780,12 @@ if.then.i:                                        ; preds = %if.end
   %sub.i = add i32 %1, -1
   %key.val.i = load i32, ptr %byval-temp5, align 8
   %and.i = and i32 %key.val.i, %sub.i
-  %flags.i = getelementptr inbounds %struct.kh_oid_map, ptr %0, i64 0, i32 4
+  %flags.i = getelementptr inbounds i8, ptr %0, i64 16
   %2 = load ptr, ptr %flags.i, align 8
-  %keys.i = getelementptr inbounds %struct.kh_oid_map, ptr %0, i64 0, i32 5
-  %algo.i.i.i = getelementptr inbounds %struct.object_id, ptr %byval-temp.i, i64 0, i32 1
+  %keys.i = getelementptr inbounds i8, ptr %0, i64 24
+  %algo.i.i.i = getelementptr inbounds i8, ptr %byval-temp.i, i64 32
   %3 = load ptr, ptr @the_repository, align 8
-  %hash_algo.i.i.i = getelementptr inbounds %struct.repository, ptr %3, i64 0, i32 15
+  %hash_algo.i.i.i = getelementptr inbounds i8, ptr %3, i64 256
   br label %while.cond.i
 
 while.cond.i:                                     ; preds = %while.body.i, %if.then.i
@@ -884,7 +872,7 @@ kh_get_oid_map.exit:                              ; preds = %if.end, %while.end.
   br i1 %cmp.not, label %if.end4, label %return
 
 if.end4:                                          ; preds = %kh_get_oid_map.exit
-  %vals = getelementptr inbounds %struct.kh_oid_map, ptr %0, i64 0, i32 6
+  %vals = getelementptr inbounds i8, ptr %0, i64 32
   %11 = load ptr, ptr %vals, align 8
   %idxprom = zext i32 %retval.0.i to i64
   %arrayidx = getelementptr inbounds ptr, ptr %11, i64 %idxprom
@@ -909,7 +897,7 @@ entry:
   %ap = alloca [1 x %struct.__va_list_tag], align 16
   %buf = alloca %struct.strbuf, align 8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %buf, ptr noundef nonnull align 8 dereferenceable(24) @__const.report.sb, i64 24, i1 false)
-  %object_names = getelementptr inbounds %struct.fsck_options, ptr %options, i64 0, i32 9
+  %object_names = getelementptr inbounds i8, ptr %options, i64 232
   %0 = load ptr, ptr %object_names, align 8
   %tobool.not = icmp eq ptr %0, null
   br i1 %tobool.not, label %return, label %if.end
@@ -918,16 +906,16 @@ if.end:                                           ; preds = %entry
   call void @llvm.lifetime.start.p0(i64 36, ptr nonnull %byval-temp3)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(36) %byval-temp3, ptr noundef nonnull align 4 dereferenceable(36) %oid, i64 36, i1 false)
   call void @llvm.lifetime.start.p0(i64 36, ptr nonnull %byval-temp.i)
-  %n_occupied.i = getelementptr inbounds %struct.kh_oid_map, ptr %0, i64 0, i32 2
+  %n_occupied.i = getelementptr inbounds i8, ptr %0, i64 8
   %1 = load i32, ptr %n_occupied.i, align 8
-  %upper_bound.i = getelementptr inbounds %struct.kh_oid_map, ptr %0, i64 0, i32 3
+  %upper_bound.i = getelementptr inbounds i8, ptr %0, i64 12
   %2 = load i32, ptr %upper_bound.i, align 4
   %cmp.not.i = icmp ult i32 %1, %2
   %.pre = load i32, ptr %0, align 8
   br i1 %cmp.not.i, label %if.end5.i, label %if.then.i
 
 if.then.i:                                        ; preds = %if.end
-  %size.i = getelementptr inbounds %struct.kh_oid_map, ptr %0, i64 0, i32 1
+  %size.i = getelementptr inbounds i8, ptr %0, i64 4
   %3 = load i32, ptr %size.i, align 4
   %shl.i = shl i32 %3, 1
   %cmp1.i = icmp ugt i32 %.pre, %shl.i
@@ -968,12 +956,12 @@ st_mult.exit.i:                                   ; preds = %if.then.i
 
 if.end38.i:                                       ; preds = %st_mult.exit.i
   %conv29.i = zext i32 %spec.store.select.i to i64
-  %keys.i19 = getelementptr inbounds %struct.kh_oid_map, ptr %0, i64 0, i32 5
+  %keys.i19 = getelementptr inbounds i8, ptr %0, i64 24
   %9 = load ptr, ptr %keys.i19, align 8
   %mul.i87.i = mul nuw nsw i64 %conv29.i, 36
   %call31.i = tail call ptr @xrealloc(ptr noundef %9, i64 noundef %mul.i87.i) #16
   store ptr %call31.i, ptr %keys.i19, align 8
-  %vals.i = getelementptr inbounds %struct.kh_oid_map, ptr %0, i64 0, i32 6
+  %vals.i = getelementptr inbounds i8, ptr %0, i64 32
   %10 = load ptr, ptr %vals.i, align 8
   %mul.i92.i = shl nuw nsw i64 %conv29.i, 3
   %call35.i = tail call ptr @xrealloc(ptr noundef %10, i64 noundef %mul.i92.i) #16
@@ -984,10 +972,10 @@ if.end38.i:                                       ; preds = %st_mult.exit.i
 
 for.body.lr.ph.i:                                 ; preds = %if.end38.i, %st_mult.exit.i
   %11 = phi i32 [ %.pre.i20, %if.end38.i ], [ %8, %st_mult.exit.i ]
-  %flags.i7 = getelementptr inbounds %struct.kh_oid_map, ptr %0, i64 0, i32 4
-  %keys49.i = getelementptr inbounds %struct.kh_oid_map, ptr %0, i64 0, i32 5
+  %flags.i7 = getelementptr inbounds i8, ptr %0, i64 16
+  %keys49.i = getelementptr inbounds i8, ptr %0, i64 24
   %sub.i8 = add i32 %spec.store.select.i, -1
-  %vals52.i = getelementptr inbounds %struct.kh_oid_map, ptr %0, i64 0, i32 6
+  %vals52.i = getelementptr inbounds i8, ptr %0, i64 32
   br label %for.body.i
 
 for.body.i:                                       ; preds = %for.inc.i, %for.body.lr.ph.i
@@ -1133,7 +1121,7 @@ if.then141.i:                                     ; preds = %for.end.i
   br label %if.end152.i
 
 if.end152.i:                                      ; preds = %if.then141.i, %for.end.i, %if.end38.i
-  %flags153.i = getelementptr inbounds %struct.kh_oid_map, ptr %0, i64 0, i32 4
+  %flags153.i = getelementptr inbounds i8, ptr %0, i64 16
   %41 = load ptr, ptr %flags153.i, align 8
   tail call void @free(ptr noundef %41) #16
   store ptr %call17.i, ptr %flags153.i, align 8
@@ -1154,7 +1142,7 @@ if.end5.i:                                        ; preds = %kh_resize_oid_map.e
   %sub7.i = add i32 %44, -1
   %key.val.i = load i32, ptr %byval-temp3, align 8
   %and.i = and i32 %key.val.i, %sub7.i
-  %flags.i = getelementptr inbounds %struct.kh_oid_map, ptr %0, i64 0, i32 4
+  %flags.i = getelementptr inbounds i8, ptr %0, i64 16
   %45 = load ptr, ptr %flags.i, align 8
   %shr.i = lshr i32 %and.i, 4
   %idxprom.i = zext nneg i32 %shr.i to i64
@@ -1168,10 +1156,10 @@ if.end5.i:                                        ; preds = %kh_resize_oid_map.e
   br i1 %tobool.not.i, label %while.cond.preheader.i, label %if.end71.i
 
 while.cond.preheader.i:                           ; preds = %if.end5.i
-  %keys.i = getelementptr inbounds %struct.kh_oid_map, ptr %0, i64 0, i32 5
-  %algo.i.i.i = getelementptr inbounds %struct.object_id, ptr %byval-temp.i, i64 0, i32 1
+  %keys.i = getelementptr inbounds i8, ptr %0, i64 24
+  %algo.i.i.i = getelementptr inbounds i8, ptr %byval-temp.i, i64 32
   %49 = load ptr, ptr @the_repository, align 8
-  %hash_algo.i.i.i = getelementptr inbounds %struct.repository, ptr %49, i64 0, i32 15
+  %hash_algo.i.i.i = getelementptr inbounds i8, ptr %49, i64 256
   br label %while.cond.i
 
 while.cond.i:                                     ; preds = %while.body.i, %while.cond.preheader.i
@@ -1276,7 +1264,7 @@ if.end71.i:                                       ; preds = %if.then55.i, %while
   br i1 %tobool80.not.i, label %if.else98.i, label %if.then81.i
 
 if.then81.i:                                      ; preds = %if.end71.i
-  %keys82.i = getelementptr inbounds %struct.kh_oid_map, ptr %0, i64 0, i32 5
+  %keys82.i = getelementptr inbounds i8, ptr %0, i64 24
   %59 = load ptr, ptr %keys82.i, align 8
   %idxprom83.i = zext i32 %x.1.i to i64
   %arrayidx84.i = getelementptr inbounds %struct.object_id, ptr %59, i64 %idxprom83.i
@@ -1288,7 +1276,7 @@ if.then81.i:                                      ; preds = %if.end71.i
   %61 = load i32, ptr %arrayidx91.i, align 4
   %and92.i = and i32 %61, %not.i
   store i32 %and92.i, ptr %arrayidx91.i, align 4
-  %size94.i = getelementptr inbounds %struct.kh_oid_map, ptr %0, i64 0, i32 1
+  %size94.i = getelementptr inbounds i8, ptr %0, i64 4
   %62 = load <2 x i32>, ptr %size94.i, align 4
   %63 = add <2 x i32> %62, <i32 1, i32 1>
   store <2 x i32> %63, ptr %size94.i, align 4
@@ -1300,7 +1288,7 @@ if.else98.i:                                      ; preds = %if.end71.i
   br i1 %tobool107.not.i, label %kh_put_oid_map.exit, label %if.then108.i
 
 if.then108.i:                                     ; preds = %if.else98.i
-  %keys109.i = getelementptr inbounds %struct.kh_oid_map, ptr %0, i64 0, i32 5
+  %keys109.i = getelementptr inbounds i8, ptr %0, i64 24
   %64 = load ptr, ptr %keys109.i, align 8
   %idxprom110.i = zext i32 %x.1.i to i64
   %arrayidx111.i = getelementptr inbounds %struct.object_id, ptr %64, i64 %idxprom110.i
@@ -1312,7 +1300,7 @@ if.then108.i:                                     ; preds = %if.else98.i
   %66 = load i32, ptr %arrayidx120.i, align 4
   %and122.i = and i32 %66, %not116.i
   store i32 %and122.i, ptr %arrayidx120.i, align 4
-  %size124.i = getelementptr inbounds %struct.kh_oid_map, ptr %0, i64 0, i32 1
+  %size124.i = getelementptr inbounds i8, ptr %0, i64 4
   %67 = load i32, ptr %size124.i, align 4
   %inc125.i = add i32 %67, 1
   store i32 %inc125.i, ptr %size124.i, align 4
@@ -1331,7 +1319,7 @@ if.end4:                                          ; preds = %if.then108.i, %if.t
   call void @strbuf_vaddf(ptr noundef nonnull %buf, ptr noundef %fmt, ptr noundef nonnull %ap) #16
   %call6 = call ptr @strbuf_detach(ptr noundef nonnull %buf, ptr noundef null) #16
   %68 = load ptr, ptr %object_names, align 8
-  %vals = getelementptr inbounds %struct.kh_oid_map, ptr %68, i64 0, i32 6
+  %vals = getelementptr inbounds i8, ptr %68, i64 32
   %69 = load ptr, ptr %vals, align 8
   %arrayidx = getelementptr inbounds ptr, ptr %69, i64 %idxprom.pre-phi
   store ptr %call6, ptr %arrayidx, align 8
@@ -1362,9 +1350,9 @@ entry:
   %add = add nuw nsw i32 %0, 1
   %1 = and i32 %add, 3
   store i32 %1, ptr @fsck_describe_object.b, align 4
-  %len2.i = getelementptr inbounds %struct.strbuf, ptr @fsck_describe_object.bufs, i64 %idx.ext, i32 1
+  %len2.i = getelementptr inbounds i8, ptr %add.ptr, i64 8
   store i64 0, ptr %len2.i, align 8
-  %buf.i = getelementptr inbounds %struct.strbuf, ptr @fsck_describe_object.bufs, i64 %idx.ext, i32 2
+  %buf.i = getelementptr inbounds i8, ptr %add.ptr, i64 16
   %2 = load ptr, ptr %buf.i, align 8
   %cmp3.not.i = icmp eq ptr %2, @strbuf_slopbuf
   br i1 %cmp3.not.i, label %strbuf_setlen.exit, label %if.then4.i
@@ -1409,7 +1397,7 @@ if.end:                                           ; preds = %entry
 
 if.then1:                                         ; preds = %if.end
   %1 = load ptr, ptr @the_repository, align 8
-  %oid = getelementptr inbounds %struct.object, ptr %obj, i64 0, i32 1
+  %oid = getelementptr inbounds i8, ptr %obj, i64 4
   %call = tail call ptr @parse_object(ptr noundef %1, ptr noundef nonnull %oid) #16
   %bf.load3.pre = load i32, ptr %obj, align 4
   br label %if.end2
@@ -1433,20 +1421,20 @@ sw.bb6:                                           ; preds = %if.end2
   br i1 %tobool.not.i, label %if.end.i, label %fsck_walk_tree.exit
 
 if.end.i:                                         ; preds = %sw.bb6
-  %oid.i = getelementptr inbounds %struct.object, ptr %obj, i64 0, i32 1
+  %oid.i = getelementptr inbounds i8, ptr %obj, i64 4
   %call2.i = tail call ptr @fsck_get_object_name(ptr noundef %options, ptr noundef nonnull %oid.i)
-  %buffer.i = getelementptr inbounds %struct.tree, ptr %obj, i64 0, i32 1
+  %buffer.i = getelementptr inbounds i8, ptr %obj, i64 40
   %2 = load ptr, ptr %buffer.i, align 8
-  %size.i = getelementptr inbounds %struct.tree, ptr %obj, i64 0, i32 2
+  %size.i = getelementptr inbounds i8, ptr %obj, i64 48
   %3 = load i64, ptr %size.i, align 8
   %call3.i = call i32 @init_tree_desc_gently(ptr noundef nonnull %desc.i, ptr noundef %2, i64 noundef %3, i32 noundef 0) #16
   %tobool4.not.i = icmp eq i32 %call3.i, 0
   br i1 %tobool4.not.i, label %while.cond.preheader.i, label %fsck_walk_tree.exit
 
 while.cond.preheader.i:                           ; preds = %if.end.i
-  %mode.i = getelementptr inbounds %struct.name_entry, ptr %entry1.i, i64 0, i32 3
+  %mode.i = getelementptr inbounds i8, ptr %entry1.i, i64 52
   %tobool32.i = icmp ne ptr %call2.i, null
-  %path37.i = getelementptr inbounds %struct.name_entry, ptr %entry1.i, i64 0, i32 1
+  %path37.i = getelementptr inbounds i8, ptr %entry1.i, i64 40
   br label %while.cond.outer.i
 
 while.cond.outer.i:                               ; preds = %if.end53.i, %while.cond.preheader.i
@@ -1512,9 +1500,9 @@ if.else41.i:                                      ; preds = %while.body.i
   %add.i.i = add nuw nsw i32 %13, 1
   %14 = and i32 %add.i.i, 3
   store i32 %14, ptr @fsck_describe_object.b, align 4
-  %len2.i.i.i = getelementptr inbounds %struct.strbuf, ptr @fsck_describe_object.bufs, i64 %idx.ext.i.i, i32 1
+  %len2.i.i.i = getelementptr inbounds i8, ptr %add.ptr.i.i, i64 8
   store i64 0, ptr %len2.i.i.i, align 8
-  %buf.i.i.i = getelementptr inbounds %struct.strbuf, ptr @fsck_describe_object.bufs, i64 %idx.ext.i.i, i32 2
+  %buf.i.i.i = getelementptr inbounds i8, ptr %add.ptr.i.i, i64 16
   %15 = load ptr, ptr %buf.i.i.i, align 8
   %cmp3.not.i.i.i = icmp eq ptr %15, @strbuf_slopbuf
   br i1 %cmp3.not.i.i.i, label %strbuf_setlen.exit.i.i, label %if.then4.i.i.i
@@ -1564,7 +1552,7 @@ sw.bb8:                                           ; preds = %if.end2
   br i1 %tobool.not.i14, label %if.end.i16, label %return
 
 if.end.i16:                                       ; preds = %sw.bb8
-  %oid.i17 = getelementptr inbounds %struct.object, ptr %obj, i64 0, i32 1
+  %oid.i17 = getelementptr inbounds i8, ptr %obj, i64 4
   %call1.i = tail call ptr @fsck_get_object_name(ptr noundef %options, ptr noundef nonnull %oid.i17)
   %tobool2.i = icmp ne ptr %call1.i, null
   br i1 %tobool2.i, label %if.then3.i, label %if.end5.i
@@ -1583,7 +1571,7 @@ if.end5.i:                                        ; preds = %if.then3.i, %if.end
   br i1 %cmp.i, label %return, label %if.end9.i
 
 if.end9.i:                                        ; preds = %if.end5.i
-  %parents10.i = getelementptr inbounds %struct.commit, ptr %obj, i64 0, i32 2
+  %parents10.i = getelementptr inbounds i8, ptr %obj, i64 48
   %22 = load ptr, ptr %parents10.i, align 8
   %tobool12.i = icmp ne ptr %22, null
   %or.cond.i19 = select i1 %tobool2.i, i1 %tobool12.i, i1 false
@@ -1676,7 +1664,7 @@ while.body.us.us.i:                               ; preds = %while.body.us.us.i.
   %res.064.us.us.i = phi i32 [ %spec.select.us.us.i, %if.end76.us.us.i ], [ %call7.i18, %while.body.us.us.i.preheader ]
   %parents.063.us.us.i = phi ptr [ %35, %if.end76.us.us.i ], [ %22, %while.body.us.us.i.preheader ]
   %32 = load ptr, ptr %parents.063.us.us.i, align 8
-  %oid58.us.us.i = getelementptr inbounds %struct.object, ptr %32, i64 0, i32 1
+  %oid58.us.us.i = getelementptr inbounds i8, ptr %32, i64 4
   %tobool59.not.us.us.i = icmp eq i32 %counter.065.us.us.i, 0
   br i1 %tobool59.not.us.us.i, label %if.else61.us.us.i, label %if.then60.us.us.i
 
@@ -1700,7 +1688,7 @@ if.end69.us.us.i:                                 ; preds = %if.else61.us.us.i, 
 if.end76.us.us.i:                                 ; preds = %if.end69.us.us.i
   %tobool77.not.us.us.i = icmp eq i32 %res.064.us.us.i, 0
   %spec.select.us.us.i = select i1 %tobool77.not.us.us.i, i32 %call72.us.us.i, i32 %res.064.us.us.i
-  %next.us.us.i = getelementptr inbounds %struct.commit_list, ptr %parents.063.us.us.i, i64 0, i32 1
+  %next.us.us.i = getelementptr inbounds i8, ptr %parents.063.us.us.i, i64 8
   %35 = load ptr, ptr %next.us.us.i, align 8
   %tobool53.not.us.us.i = icmp eq ptr %35, null
   br i1 %tobool53.not.us.us.i, label %return, label %while.body.us.us.i, !llvm.loop !20
@@ -1710,7 +1698,7 @@ while.body.us.i:                                  ; preds = %while.body.us.i.pre
   %res.064.us.i = phi i32 [ %spec.select.us.i, %if.end76.us.i ], [ %call7.i18, %while.body.us.i.preheader ]
   %parents.063.us.i = phi ptr [ %39, %if.end76.us.i ], [ %22, %while.body.us.i.preheader ]
   %36 = load ptr, ptr %parents.063.us.i, align 8
-  %oid58.us.i = getelementptr inbounds %struct.object, ptr %36, i64 0, i32 1
+  %oid58.us.i = getelementptr inbounds i8, ptr %36, i64 4
   %tobool59.not.us.i = icmp eq i32 %counter.065.us.i, 0
   br i1 %tobool59.not.us.i, label %if.else61.us.i, label %if.then60.us.i
 
@@ -1734,7 +1722,7 @@ if.end69.us.i:                                    ; preds = %if.else61.us.i, %if
 if.end76.us.i:                                    ; preds = %if.end69.us.i
   %tobool77.not.us.i = icmp eq i32 %res.064.us.i, 0
   %spec.select.us.i = select i1 %tobool77.not.us.i, i32 %call72.us.i, i32 %res.064.us.i
-  %next.us.i = getelementptr inbounds %struct.commit_list, ptr %parents.063.us.i, i64 0, i32 1
+  %next.us.i = getelementptr inbounds i8, ptr %parents.063.us.i, i64 8
   %39 = load ptr, ptr %next.us.i, align 8
   %tobool53.not.us.i = icmp eq ptr %39, null
   br i1 %tobool53.not.us.i, label %return, label %while.body.us.i, !llvm.loop !20
@@ -1751,13 +1739,13 @@ while.body.i20:                                   ; preds = %while.body.lr.ph.i,
 if.end76.i:                                       ; preds = %while.body.i20
   %tobool77.not.i = icmp eq i32 %res.064.i, 0
   %spec.select.i21 = select i1 %tobool77.not.i, i32 %call72.i, i32 %res.064.i
-  %next.i = getelementptr inbounds %struct.commit_list, ptr %parents.063.i, i64 0, i32 1
+  %next.i = getelementptr inbounds i8, ptr %parents.063.i, i64 8
   %42 = load ptr, ptr %next.i, align 8
   %tobool53.not.i = icmp eq ptr %42, null
   br i1 %tobool53.not.i, label %return, label %while.body.i20, !llvm.loop !20
 
 sw.bb10:                                          ; preds = %if.end2
-  %oid.i22 = getelementptr inbounds %struct.object, ptr %obj, i64 0, i32 1
+  %oid.i22 = getelementptr inbounds i8, ptr %obj, i64 4
   %call.i = tail call ptr @fsck_get_object_name(ptr noundef %options, ptr noundef nonnull %oid.i22)
   %call1.i23 = tail call i32 @parse_tag(ptr noundef nonnull %obj) #16
   %tobool.not.i24 = icmp eq i32 %call1.i23, 0
@@ -1768,21 +1756,21 @@ if.end.i26:                                       ; preds = %sw.bb10
   br i1 %tobool2.not.i, label %if.end5.i28, label %if.then3.i27
 
 if.then3.i27:                                     ; preds = %if.end.i26
-  %tagged.i = getelementptr inbounds %struct.tag, ptr %obj, i64 0, i32 1
+  %tagged.i = getelementptr inbounds i8, ptr %obj, i64 40
   %43 = load ptr, ptr %tagged.i, align 8
-  %oid4.i = getelementptr inbounds %struct.object, ptr %43, i64 0, i32 1
+  %oid4.i = getelementptr inbounds i8, ptr %43, i64 4
   tail call void (ptr, ptr, ptr, ...) @fsck_put_object_name(ptr noundef %options, ptr noundef nonnull %oid4.i, ptr noundef nonnull @.str.105, ptr noundef nonnull %call.i)
   br label %if.end5.i28
 
 if.end5.i28:                                      ; preds = %if.then3.i27, %if.end.i26
   %44 = load ptr, ptr %options, align 8
-  %tagged6.i = getelementptr inbounds %struct.tag, ptr %obj, i64 0, i32 1
+  %tagged6.i = getelementptr inbounds i8, ptr %obj, i64 40
   %45 = load ptr, ptr %tagged6.i, align 8
   %call7.i29 = tail call i32 %44(ptr noundef %45, i32 noundef 8, ptr noundef %data, ptr noundef nonnull %options) #16
   br label %return
 
 sw.default:                                       ; preds = %if.end2
-  %oid12 = getelementptr inbounds %struct.object, ptr %obj, i64 0, i32 1
+  %oid12 = getelementptr inbounds i8, ptr %obj, i64 4
   %call.i30 = tail call ptr @fsck_get_object_name(ptr noundef %options, ptr noundef nonnull %oid12)
   %46 = load i32, ptr @fsck_describe_object.b, align 4
   %idx.ext.i = zext nneg i32 %46 to i64
@@ -1790,9 +1778,9 @@ sw.default:                                       ; preds = %if.end2
   %add.i31 = add nuw nsw i32 %46, 1
   %47 = and i32 %add.i31, 3
   store i32 %47, ptr @fsck_describe_object.b, align 4
-  %len2.i.i = getelementptr inbounds %struct.strbuf, ptr @fsck_describe_object.bufs, i64 %idx.ext.i, i32 1
+  %len2.i.i = getelementptr inbounds i8, ptr %add.ptr.i, i64 8
   store i64 0, ptr %len2.i.i, align 8
-  %buf.i.i = getelementptr inbounds %struct.strbuf, ptr @fsck_describe_object.bufs, i64 %idx.ext.i, i32 2
+  %buf.i.i = getelementptr inbounds i8, ptr %add.ptr.i, i64 16
   %48 = load ptr, ptr %buf.i.i, align 8
   %cmp3.not.i.i = icmp eq ptr %48, @strbuf_slopbuf
   br i1 %cmp3.not.i.i, label %strbuf_setlen.exit.i, label %if.then4.i.i
@@ -2032,7 +2020,7 @@ if.end56:                                         ; preds = %if.end48
   %sub.ptr.sub59 = sub i64 %sub.ptr.lhs.cast57, %sub.ptr.rhs.cast50
   %conv60 = trunc i64 %sub.ptr.sub59 to i32
   call void (ptr, ptr, ...) @strbuf_addf(ptr noundef nonnull %sb, ptr noundef nonnull @.str.18, i32 noundef %conv60, ptr noundef nonnull %scevgep91) #16
-  %buf = getelementptr inbounds %struct.strbuf, ptr %sb, i64 0, i32 2
+  %buf = getelementptr inbounds i8, ptr %sb, i64 16
   %12 = load ptr, ptr %buf, align 8
   %call61 = call i32 @check_refname_format(ptr noundef %12, i32 noundef 0) #16
   %tobool62.not = icmp eq i32 %call61, 0
@@ -2105,7 +2093,7 @@ entry:
   %ap = alloca [1 x %struct.__va_list_tag], align 16
   %sb = alloca %struct.strbuf, align 8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %sb, ptr noundef nonnull align 8 dereferenceable(24) @__const.report.sb, i64 24, i1 false)
-  %msg_type.i = getelementptr inbounds %struct.fsck_options, ptr %options, i64 0, i32 3
+  %msg_type.i = getelementptr inbounds i8, ptr %options, i64 24
   %0 = load ptr, ptr %msg_type.i, align 8
   %tobool.not.i = icmp eq ptr %0, null
   %idxprom.i = zext i32 %msg_id to i64
@@ -2114,7 +2102,7 @@ entry:
 if.then.i:                                        ; preds = %entry
   %msg_type2.i = getelementptr inbounds [59 x %struct.anon], ptr @msg_id_info, i64 0, i64 %idxprom.i, i32 3
   %1 = load i32, ptr %msg_type2.i, align 8
-  %strict.i = getelementptr inbounds %struct.fsck_options, ptr %options, i64 0, i32 2
+  %strict.i = getelementptr inbounds i8, ptr %options, i64 16
   %bf.load.i = load i8, ptr %strict.i, align 8
   %bf.clear.i = and i8 %bf.load.i, 1
   %tobool3.i = icmp ne i8 %bf.clear.i, 0
@@ -2138,7 +2126,7 @@ if.end:                                           ; preds = %if.then.i, %fsck_ms
   br i1 %tobool1.i.not, label %if.end3, label %object_on_skiplist.exit
 
 object_on_skiplist.exit:                          ; preds = %if.end
-  %skiplist.i = getelementptr inbounds %struct.fsck_options, ptr %options, i64 0, i32 4
+  %skiplist.i = getelementptr inbounds i8, ptr %options, i64 32
   %call.i = tail call i32 @oidset_contains(ptr noundef nonnull %skiplist.i, ptr noundef nonnull %oid) #16
   %tobool2.i.not = icmp eq i32 %call.i, 0
   br i1 %tobool2.i.not, label %if.end3, label %return
@@ -2154,9 +2142,9 @@ if.end3:                                          ; preds = %if.end, %object_on_
   call void (ptr, ptr, ...) @strbuf_addf(ptr noundef nonnull %sb, ptr noundef nonnull @.str.108, ptr noundef %3) #16
   call void @llvm.va_start(ptr nonnull %ap)
   call void @strbuf_vaddf(ptr noundef nonnull %sb, ptr noundef %fmt, ptr noundef nonnull %ap) #16
-  %error_func = getelementptr inbounds %struct.fsck_options, ptr %options, i64 0, i32 1
+  %error_func = getelementptr inbounds i8, ptr %options, i64 8
   %4 = load ptr, ptr %error_func, align 8
-  %buf = getelementptr inbounds %struct.strbuf, ptr %sb, i64 0, i32 2
+  %buf = getelementptr inbounds i8, ptr %sb, i64 16
   %5 = load ptr, ptr %buf, align 8
   %call11 = call i32 %4(ptr noundef nonnull %options, ptr noundef %oid, i32 noundef %object_type, i32 noundef %msg_type.0, i32 noundef %msg_id, ptr noundef %5) #16
   call void @strbuf_release(ptr noundef nonnull %sb) #16
@@ -2395,7 +2383,7 @@ if.then:                                          ; preds = %entry
   br label %return
 
 if.end:                                           ; preds = %entry
-  %oid = getelementptr inbounds %struct.object, ptr %obj, i64 0, i32 1
+  %oid = getelementptr inbounds i8, ptr %obj, i64 4
   %bf.load = load i32, ptr %obj, align 4
   %bf.lshr = lshr i32 %bf.load, 1
   %bf.clear = and i32 %bf.lshr, 7
@@ -2438,22 +2426,22 @@ if.then2:                                         ; preds = %entry
   br i1 %tobool.not.i, label %while.cond.preheader.i, label %if.then.i
 
 while.cond.preheader.i:                           ; preds = %if.then2
-  %size3.i = getelementptr inbounds %struct.tree_desc, ptr %desc.i, i64 0, i32 2
+  %size3.i = getelementptr inbounds i8, ptr %desc.i, i64 64
   %0 = load i32, ptr %size3.i, align 8
   %tobool4.not146.i = icmp eq i32 %0, 0
   br i1 %tobool4.not146.i, label %fsck_tree.exit, label %while.body.lr.ph.i
 
 while.body.lr.ph.i:                               ; preds = %while.cond.preheader.i
-  %entry1.i.i = getelementptr inbounds %struct.tree_desc, ptr %desc.i, i64 0, i32 1
-  %path.i.i = getelementptr inbounds %struct.tree_desc, ptr %desc.i, i64 0, i32 1, i32 1
-  %mode.i.i = getelementptr inbounds %struct.tree_desc, ptr %desc.i, i64 0, i32 1, i32 3
-  %algo.i.i.i = getelementptr inbounds %struct.tree_desc, ptr %desc.i, i64 0, i32 1, i32 0, i32 1
-  %1 = getelementptr inbounds %struct.tree_desc, ptr %desc.i, i64 0, i32 1, i32 2
-  %gitmodules_found.i = getelementptr inbounds %struct.fsck_options, ptr %options, i64 0, i32 5
-  %gitattributes_found.i = getelementptr inbounds %struct.fsck_options, ptr %options, i64 0, i32 7
-  %strict.i = getelementptr inbounds %struct.fsck_options, ptr %options, i64 0, i32 2
-  %nr.i.i.i = getelementptr inbounds %struct.name_stack, ptr %df_dup_candidates.i, i64 0, i32 1
-  %alloc.i.i.i = getelementptr inbounds %struct.name_stack, ptr %df_dup_candidates.i, i64 0, i32 2
+  %entry1.i.i = getelementptr inbounds i8, ptr %desc.i, i64 8
+  %path.i.i = getelementptr inbounds i8, ptr %desc.i, i64 48
+  %mode.i.i = getelementptr inbounds i8, ptr %desc.i, i64 60
+  %algo.i.i.i = getelementptr inbounds i8, ptr %desc.i, i64 40
+  %1 = getelementptr inbounds i8, ptr %desc.i, i64 56
+  %gitmodules_found.i = getelementptr inbounds i8, ptr %options, i64 72
+  %gitattributes_found.i = getelementptr inbounds i8, ptr %options, i64 152
+  %strict.i = getelementptr inbounds i8, ptr %options, i64 16
+  %nr.i.i.i = getelementptr inbounds i8, ptr %df_dup_candidates.i, i64 8
+  %alloc.i.i.i = getelementptr inbounds i8, ptr %df_dup_candidates.i, i64 16
   br label %while.body.i
 
 if.then.i:                                        ; preds = %if.then2
@@ -2485,7 +2473,7 @@ while.body.i:                                     ; preds = %if.end138.i, %while
 
 if.then.i.i.i:                                    ; preds = %while.body.i
   %5 = load ptr, ptr @the_repository, align 8
-  %hash_algo.i.i.i = getelementptr inbounds %struct.repository, ptr %5, i64 0, i32 15
+  %hash_algo.i.i.i = getelementptr inbounds i8, ptr %5, i64 256
   %6 = load ptr, ptr %hash_algo.i.i.i, align 8
   br label %if.end.i.i.i
 
@@ -3303,20 +3291,20 @@ entry:
   br i1 %or.cond.i, label %object_on_skiplist.exit, label %if.end
 
 object_on_skiplist.exit:                          ; preds = %entry
-  %skiplist.i = getelementptr inbounds %struct.fsck_options, ptr %options, i64 0, i32 4
+  %skiplist.i = getelementptr inbounds i8, ptr %options, i64 32
   %call.i = tail call i32 @oidset_contains(ptr noundef nonnull %skiplist.i, ptr noundef nonnull %oid) #16
   %tobool2.i.not = icmp eq i32 %call.i, 0
   br i1 %tobool2.i.not, label %if.end, label %return
 
 if.end:                                           ; preds = %entry, %object_on_skiplist.exit
-  %gitmodules_found = getelementptr inbounds %struct.fsck_options, ptr %options, i64 0, i32 5
+  %gitmodules_found = getelementptr inbounds i8, ptr %options, i64 72
   %call1 = tail call i32 @oidset_contains(ptr noundef nonnull %gitmodules_found, ptr noundef %oid) #16
   %tobool2.not = icmp eq i32 %call1, 0
   br i1 %tobool2.not, label %if.end20, label %if.then3
 
 if.then3:                                         ; preds = %if.end
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %config_opts, i8 0, i64 48, i1 false)
-  %gitmodules_done = getelementptr inbounds %struct.fsck_options, ptr %options, i64 0, i32 6
+  %gitmodules_done = getelementptr inbounds i8, ptr %options, i64 112
   %call4 = tail call i32 @oidset_insert(ptr noundef nonnull %gitmodules_done, ptr noundef %oid) #16
   %tobool5.not = icmp eq ptr %buf, null
   br i1 %tobool5.not, label %if.then6, label %if.end8
@@ -3327,11 +3315,11 @@ if.then6:                                         ; preds = %if.then3
 
 if.end8:                                          ; preds = %if.then3
   store ptr %oid, ptr %data, align 8
-  %options10 = getelementptr inbounds %struct.fsck_gitmodules_data, ptr %data, i64 0, i32 1
+  %options10 = getelementptr inbounds i8, ptr %data, i64 8
   store ptr %options, ptr %options10, align 8
-  %ret11 = getelementptr inbounds %struct.fsck_gitmodules_data, ptr %data, i64 0, i32 2
+  %ret11 = getelementptr inbounds i8, ptr %data, i64 16
   store i32 0, ptr %ret11, align 8
-  %error_action = getelementptr inbounds %struct.config_options, ptr %config_opts, i64 0, i32 5
+  %error_action = getelementptr inbounds i8, ptr %config_opts, i64 40
   store i32 3, ptr %error_action, align 8
   %call12 = call i32 @git_config_from_mem(ptr noundef nonnull @fsck_gitmodules_fn, i32 noundef 1, ptr noundef nonnull @.str.27, ptr noundef nonnull %buf, i64 noundef %size, ptr noundef nonnull %data, i32 noundef 0, ptr noundef nonnull %config_opts) #16
   %tobool13.not = icmp eq i32 %call12, 0
@@ -3350,13 +3338,13 @@ if.then14:                                        ; preds = %if.end8
 
 if.end20:                                         ; preds = %if.then14, %if.end8.if.end17_crit_edge, %if.end
   %ret.0 = phi i32 [ 0, %if.end ], [ %.pre, %if.end8.if.end17_crit_edge ], [ %or, %if.then14 ]
-  %gitattributes_found = getelementptr inbounds %struct.fsck_options, ptr %options, i64 0, i32 7
+  %gitattributes_found = getelementptr inbounds i8, ptr %options, i64 152
   %call21 = call i32 @oidset_contains(ptr noundef nonnull %gitattributes_found, ptr noundef %oid) #16
   %tobool22.not = icmp eq i32 %call21, 0
   br i1 %tobool22.not, label %return, label %if.then23
 
 if.then23:                                        ; preds = %if.end20
-  %gitattributes_done = getelementptr inbounds %struct.fsck_options, ptr %options, i64 0, i32 8
+  %gitattributes_done = getelementptr inbounds i8, ptr %options, i64 192
   %call24 = call i32 @oidset_insert(ptr noundef nonnull %gitattributes_done, ptr noundef %oid) #16
   %tobool25 = icmp eq ptr %buf, null
   %cmp = icmp ugt i64 %size, 104857600
@@ -3411,9 +3399,9 @@ entry:
   %add.i = add nuw nsw i32 %0, 1
   %1 = and i32 %add.i, 3
   store i32 %1, ptr @fsck_describe_object.b, align 4
-  %len2.i.i = getelementptr inbounds %struct.strbuf, ptr @fsck_describe_object.bufs, i64 %idx.ext.i, i32 1
+  %len2.i.i = getelementptr inbounds i8, ptr %add.ptr.i, i64 8
   store i64 0, ptr %len2.i.i, align 8
-  %buf.i.i = getelementptr inbounds %struct.strbuf, ptr @fsck_describe_object.bufs, i64 %idx.ext.i, i32 2
+  %buf.i.i = getelementptr inbounds i8, ptr %add.ptr.i, i64 16
   %2 = load ptr, ptr %buf.i.i, align 8
   %cmp3.not.i.i = icmp eq ptr %2, @strbuf_slopbuf
   br i1 %cmp, label %if.then, label %if.end
@@ -3474,11 +3462,11 @@ declare void @warning(ptr noundef, ...) local_unnamed_addr #1
 ; Function Attrs: nounwind uwtable
 define dso_local i32 @fsck_finish(ptr noundef %options) local_unnamed_addr #0 {
 entry:
-  %gitmodules_found = getelementptr inbounds %struct.fsck_options, ptr %options, i64 0, i32 5
-  %gitmodules_done = getelementptr inbounds %struct.fsck_options, ptr %options, i64 0, i32 6
+  %gitmodules_found = getelementptr inbounds i8, ptr %options, i64 72
+  %gitmodules_done = getelementptr inbounds i8, ptr %options, i64 112
   %call = tail call fastcc i32 @fsck_blobs(ptr noundef nonnull %gitmodules_found, ptr noundef nonnull %gitmodules_done, i32 noundef 29, i32 noundef 30, ptr noundef %options, ptr noundef nonnull @.str.27)
-  %gitattributes_found = getelementptr inbounds %struct.fsck_options, ptr %options, i64 0, i32 7
-  %gitattributes_done = getelementptr inbounds %struct.fsck_options, ptr %options, i64 0, i32 8
+  %gitattributes_found = getelementptr inbounds i8, ptr %options, i64 152
+  %gitattributes_done = getelementptr inbounds i8, ptr %options, i64 192
   %call1 = tail call fastcc i32 @fsck_blobs(ptr noundef nonnull %gitattributes_found, ptr noundef nonnull %gitattributes_done, i32 noundef 37, i32 noundef 40, ptr noundef %options, ptr noundef nonnull @.str.28)
   %or2 = or i32 %call1, %call
   ret i32 %or2
@@ -3494,8 +3482,8 @@ entry:
   br i1 %cmp.not12.i2731, label %while.end, label %for.body.lr.ph.i.lr.ph.lr.ph
 
 for.body.lr.ph.i.lr.ph.lr.ph:                     ; preds = %entry
-  %flags.i = getelementptr inbounds %struct.kh_oid_set, ptr %blobs_found, i64 0, i32 4
-  %keys.i = getelementptr inbounds %struct.kh_oid_set, ptr %blobs_found, i64 0, i32 5
+  %flags.i = getelementptr inbounds i8, ptr %blobs_found, i64 16
+  %keys.i = getelementptr inbounds i8, ptr %blobs_found, i64 24
   br label %for.body.lr.ph.i.lr.ph
 
 for.body.lr.ph.i.lr.ph:                           ; preds = %for.body.lr.ph.i.lr.ph.lr.ph, %while.cond.outer.backedge
@@ -3618,7 +3606,7 @@ if.end:                                           ; preds = %if.then
   call void (ptr, ptr, ...) @strbuf_addf(ptr noundef nonnull %sb, ptr noundef nonnull @.str.30, ptr noundef %0) #16
   %1 = load ptr, ptr %path, align 8
   call void @free(ptr noundef %1) #16
-  %buf = getelementptr inbounds %struct.strbuf, ptr %sb, i64 0, i32 2
+  %buf = getelementptr inbounds i8, ptr %sb, i64 16
   %2 = load ptr, ptr %buf, align 8
   call void @fsck_set_msg_types(ptr noundef %cb, ptr noundef %2)
   call void @strbuf_release(ptr noundef nonnull %sb) #16
@@ -3765,11 +3753,11 @@ if.end:                                           ; preds = %entry
   br i1 %cmp3, label %if.then4, label %if.end6
 
 if.then4:                                         ; preds = %if.end
-  %options = getelementptr inbounds %struct.fsck_gitmodules_data, ptr %vdata, i64 0, i32 1
+  %options = getelementptr inbounds i8, ptr %vdata, i64 8
   %2 = load ptr, ptr %options, align 8
   %3 = load ptr, ptr %vdata, align 8
   %call5 = call i32 (ptr, ptr, i32, i32, ptr, ...) @report(ptr noundef %2, ptr noundef %3, i32 noundef 3, i32 noundef 32, ptr noundef nonnull @.str.124, ptr noundef %call1)
-  %ret = getelementptr inbounds %struct.fsck_gitmodules_data, ptr %vdata, i64 0, i32 2
+  %ret = getelementptr inbounds i8, ptr %vdata, i64 16
   %4 = load i32, ptr %ret, align 8
   %or = or i32 %4, %call5
   store i32 %or, ptr %ret, align 8
@@ -3940,7 +3928,7 @@ if.then24.i:                                      ; preds = %do.body.i.i.i, %do.
   br i1 %tobool26.not.i, label %lor.lhs.false27.i, label %if.end30.i.thread
 
 lor.lhs.false27.i:                                ; preds = %if.then24.i
-  %host.i = getelementptr inbounds %struct.credential, ptr %c.i, i64 0, i32 6
+  %host.i = getelementptr inbounds i8, ptr %c.i, i64 96
   %14 = load ptr, ptr %host.i, align 8
   %15 = load i8, ptr %14, align 1
   %tobool28.not.i = icmp eq i8 %15, 0
@@ -3973,11 +3961,11 @@ check_submodule_url.exit:                         ; preds = %count_leading_dotdo
   ]
 
 if.then13:                                        ; preds = %check_submodule_url.exit, %check_submodule_url.exit, %if.end30.i.thread, %check_submodule_url.exit.thread
-  %options14 = getelementptr inbounds %struct.fsck_gitmodules_data, ptr %vdata, i64 0, i32 1
+  %options14 = getelementptr inbounds i8, ptr %vdata, i64 8
   %17 = load ptr, ptr %options14, align 8
   %18 = load ptr, ptr %vdata, align 8
   %call16 = call i32 (ptr, ptr, i32, i32, ptr, ...) @report(ptr noundef %17, ptr noundef %18, i32 noundef 3, i32 noundef 34, ptr noundef nonnull @.str.126, ptr noundef nonnull %value)
-  %ret17 = getelementptr inbounds %struct.fsck_gitmodules_data, ptr %vdata, i64 0, i32 2
+  %ret17 = getelementptr inbounds i8, ptr %vdata, i64 16
   %19 = load i32, ptr %ret17, align 8
   %or18 = or i32 %19, %call16
   store i32 %or18, ptr %ret17, align 8
@@ -3996,11 +3984,11 @@ land.lhs.true24:                                  ; preds = %if.end19
   br i1 %tobool26.not, label %if.end33, label %if.then27
 
 if.then27:                                        ; preds = %land.lhs.true24
-  %options28 = getelementptr inbounds %struct.fsck_gitmodules_data, ptr %vdata, i64 0, i32 1
+  %options28 = getelementptr inbounds i8, ptr %vdata, i64 8
   %21 = load ptr, ptr %options28, align 8
   %22 = load ptr, ptr %vdata, align 8
   %call30 = call i32 (ptr, ptr, i32, i32, ptr, ...) @report(ptr noundef %21, ptr noundef %22, i32 noundef 3, i32 noundef 35, ptr noundef nonnull @.str.128, ptr noundef nonnull %value)
-  %ret31 = getelementptr inbounds %struct.fsck_gitmodules_data, ptr %vdata, i64 0, i32 2
+  %ret31 = getelementptr inbounds i8, ptr %vdata, i64 16
   %23 = load i32, ptr %ret31, align 8
   %or32 = or i32 %23, %call30
   store i32 %or32, ptr %ret31, align 8
@@ -4019,11 +4007,11 @@ land.lhs.true38:                                  ; preds = %if.end33
   br i1 %cmp40, label %if.then41, label %if.end47
 
 if.then41:                                        ; preds = %land.lhs.true38
-  %options42 = getelementptr inbounds %struct.fsck_gitmodules_data, ptr %vdata, i64 0, i32 1
+  %options42 = getelementptr inbounds i8, ptr %vdata, i64 8
   %25 = load ptr, ptr %options42, align 8
   %26 = load ptr, ptr %vdata, align 8
   %call44 = call i32 (ptr, ptr, i32, i32, ptr, ...) @report(ptr noundef %25, ptr noundef %26, i32 noundef 3, i32 noundef 36, ptr noundef nonnull @.str.130, ptr noundef nonnull %value)
-  %ret45 = getelementptr inbounds %struct.fsck_gitmodules_data, ptr %vdata, i64 0, i32 2
+  %ret45 = getelementptr inbounds i8, ptr %vdata, i64 16
   %27 = load i32, ptr %ret45, align 8
   %or46 = or i32 %27, %call44
   store i32 %or46, ptr %ret45, align 8
@@ -4080,10 +4068,10 @@ declare ptr @null_oid() local_unnamed_addr #1
 ; Function Attrs: nounwind uwtable
 define internal fastcc void @name_stack_push(ptr nocapture noundef %stack, ptr noundef %name) unnamed_addr #0 {
 entry:
-  %nr = getelementptr inbounds %struct.name_stack, ptr %stack, i64 0, i32 1
+  %nr = getelementptr inbounds i8, ptr %stack, i64 8
   %0 = load i64, ptr %nr, align 8
   %add = add i64 %0, 1
-  %alloc = getelementptr inbounds %struct.name_stack, ptr %stack, i64 0, i32 2
+  %alloc = getelementptr inbounds i8, ptr %stack, i64 16
   %1 = load i64, ptr %alloc, align 8
   %cmp = icmp ugt i64 %add, %1
   br i1 %cmp, label %if.then, label %entry.do.end_crit_edge

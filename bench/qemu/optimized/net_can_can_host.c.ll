@@ -5,15 +5,6 @@ target triple = "x86_64-unknown-linux-gnu"
 
 %struct.TypeInfo = type { ptr, ptr, i64, i64, ptr, ptr, ptr, i8, i64, ptr, ptr, ptr, ptr }
 %struct.InterfaceInfo = type { ptr }
-%struct.ObjectClass = type { ptr, ptr, [4 x ptr], [4 x ptr], ptr, ptr }
-%struct.UserCreatableClass = type { %struct.InterfaceClass, ptr, ptr }
-%struct.InterfaceClass = type { %struct.ObjectClass, ptr, ptr }
-%struct.CanHostState = type { %struct.Object, ptr, %struct.CanBusClientState }
-%struct.Object = type { ptr, ptr, ptr, i32, ptr }
-%struct.CanBusClientState = type { ptr, ptr, i32, %union.anon, ptr, ptr, ptr, ptr, i8 }
-%union.anon = type { %struct.QTailQLink }
-%struct.QTailQLink = type { ptr, ptr }
-%struct.CanHostClass = type { %struct.ObjectClass, ptr, ptr }
 
 @can_host_info = internal constant %struct.TypeInfo { ptr @.str, ptr @.str.1, i64 128, i64 0, ptr null, ptr null, ptr null, i8 1, i64 112, ptr @can_host_class_init, ptr null, ptr null, ptr @.compoundliteral }, align 8
 @.str = private unnamed_addr constant [9 x i8] c"can-host\00", align 1
@@ -55,9 +46,9 @@ define internal void @can_host_class_init(ptr noundef %klass, ptr nocapture read
 entry:
   %call.i = tail call ptr @object_class_dynamic_cast_assert(ptr noundef %klass, ptr noundef nonnull @.str.2, ptr noundef nonnull @.str.5, i32 noundef 12, ptr noundef nonnull @__func__.USER_CREATABLE_CLASS) #3
   %call1 = tail call ptr @object_class_property_add_link(ptr noundef %klass, ptr noundef nonnull @.str.3, ptr noundef nonnull @.str.4, i64 noundef 40, ptr noundef nonnull @object_property_allow_set_link, i32 noundef 1) #3
-  %unparent = getelementptr inbounds %struct.ObjectClass, ptr %klass, i64 0, i32 4
+  %unparent = getelementptr inbounds i8, ptr %klass, i64 80
   store ptr @can_host_unparent, ptr %unparent, align 8
-  %complete = getelementptr inbounds %struct.UserCreatableClass, ptr %call.i, i64 0, i32 1
+  %complete = getelementptr inbounds i8, ptr %call.i, i64 112
   store ptr @can_host_complete, ptr %complete, align 8
   ret void
 }
@@ -72,9 +63,9 @@ entry:
   %call.i = tail call ptr @object_dynamic_cast_assert(ptr noundef %obj, ptr noundef nonnull @.str, ptr noundef nonnull @.str.6, i32 noundef 35, ptr noundef nonnull @__func__.CAN_HOST) #3
   %call.i.i = tail call ptr @object_get_class(ptr noundef %call.i) #3
   %call1.i.i = tail call ptr @object_class_dynamic_cast_assert(ptr noundef %call.i.i, ptr noundef nonnull @.str, ptr noundef nonnull @.str.6, i32 noundef 35, ptr noundef nonnull @__func__.CAN_HOST_GET_CLASS) #3
-  %bus_client.i = getelementptr inbounds %struct.CanHostState, ptr %call.i, i64 0, i32 2
+  %bus_client.i = getelementptr inbounds i8, ptr %call.i, i64 48
   %call1.i = tail call i32 @can_bus_remove_client(ptr noundef nonnull %bus_client.i) #3
-  %disconnect.i = getelementptr inbounds %struct.CanHostClass, ptr %call1.i.i, i64 0, i32 2
+  %disconnect.i = getelementptr inbounds i8, ptr %call1.i.i, i64 104
   %0 = load ptr, ptr %disconnect.i, align 8
   tail call void %0(ptr noundef %call.i) #3
   ret void
@@ -89,7 +80,7 @@ entry:
   %call.i.i = tail call ptr @object_get_class(ptr noundef %call.i) #3
   %call1.i.i = tail call ptr @object_class_dynamic_cast_assert(ptr noundef %call.i.i, ptr noundef nonnull @.str, ptr noundef nonnull @.str.6, i32 noundef 35, ptr noundef nonnull @__func__.CAN_HOST_GET_CLASS) #3
   store ptr null, ptr %local_err.i, align 8
-  %bus.i = getelementptr inbounds %struct.CanHostState, ptr %call.i, i64 0, i32 1
+  %bus.i = getelementptr inbounds i8, ptr %call.i, i64 40
   %0 = load ptr, ptr %bus.i, align 8
   %cmp.i = icmp eq ptr %0, null
   br i1 %cmp.i, label %if.then.i, label %if.end.i
@@ -99,7 +90,7 @@ if.then.i:                                        ; preds = %entry
   br label %can_host_connect.exit
 
 if.end.i:                                         ; preds = %entry
-  %connect.i = getelementptr inbounds %struct.CanHostClass, ptr %call1.i.i, i64 0, i32 1
+  %connect.i = getelementptr inbounds i8, ptr %call1.i.i, i64 96
   %1 = load ptr, ptr %connect.i, align 8
   call void %1(ptr noundef nonnull %call.i, ptr noundef nonnull %local_err.i) #3
   %2 = load ptr, ptr %local_err.i, align 8
@@ -112,7 +103,7 @@ if.then1.i:                                       ; preds = %if.end.i
 
 if.end2.i:                                        ; preds = %if.end.i
   %3 = load ptr, ptr %bus.i, align 8
-  %bus_client.i = getelementptr inbounds %struct.CanHostState, ptr %call.i, i64 0, i32 2
+  %bus_client.i = getelementptr inbounds i8, ptr %call.i, i64 48
   %call4.i = call i32 @can_bus_insert_client(ptr noundef %3, ptr noundef nonnull %bus_client.i) #3
   br label %can_host_connect.exit
 

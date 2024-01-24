@@ -3,8 +3,8 @@ source_filename = "bench/libsodium/original/libsodium_la-blake2b-ref.ll"
 target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:128-n8:16:32:64-S128"
 target triple = "x86_64-unknown-linux-gnu"
 
-%struct.blake2b_state = type <{ [8 x i64], [2 x i64], [2 x i64], [256 x i8], i64, i8 }>
 %struct.blake2b_param_ = type { i8, i8, i8, i8, [4 x i8], [8 x i8], i8, i8, [14 x i8], [16 x i8], [16 x i8] }
+%struct.blake2b_state = type <{ [8 x i64], [2 x i64], [2 x i64], [256 x i8], i64, i8 }>
 
 @blake2b_compress = internal unnamed_addr global ptr @_sodium_blake2b_compress_ref, align 8
 @blake2b_IV = internal unnamed_addr constant [8 x i64] [i64 7640891576956012808, i64 -4942790177534073029, i64 4354685564936845355, i64 -6534734903238641935, i64 5840696475078001361, i64 -7276294671716946913, i64 2270897969802886507, i64 6620516959819538809], align 16
@@ -13,7 +13,7 @@ target triple = "x86_64-unknown-linux-gnu"
 define hidden noundef i32 @_sodium_blake2b_init_param(ptr nocapture noundef %S, ptr nocapture noundef readonly %P) local_unnamed_addr #0 {
 entry:
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(64) %S, ptr noundef nonnull align 16 dereferenceable(64) @blake2b_IV, i64 64, i1 false)
-  %t.i = getelementptr inbounds %struct.blake2b_state, ptr %S, i64 0, i32 1
+  %t.i = getelementptr inbounds i8, ptr %S, i64 64
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(297) %t.i, i8 0, i64 297, i1 false)
   br label %for.body
 
@@ -48,16 +48,16 @@ if.then:                                          ; preds = %entry
 
 if.end:                                           ; preds = %entry
   store i8 %outlen, ptr %P, align 16
-  %key_length = getelementptr inbounds %struct.blake2b_param_, ptr %P, i64 0, i32 1
+  %key_length = getelementptr inbounds i8, ptr %P, i64 1
   store i8 0, ptr %key_length, align 1
-  %fanout = getelementptr inbounds %struct.blake2b_param_, ptr %P, i64 0, i32 2
+  %fanout = getelementptr inbounds i8, ptr %P, i64 2
   store i8 1, ptr %fanout, align 2
-  %depth = getelementptr inbounds %struct.blake2b_param_, ptr %P, i64 0, i32 3
+  %depth = getelementptr inbounds i8, ptr %P, i64 3
   store i8 1, ptr %depth, align 1
-  %leaf_length = getelementptr inbounds %struct.blake2b_param_, ptr %P, i64 0, i32 4
+  %leaf_length = getelementptr inbounds i8, ptr %P, i64 4
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(60) %leaf_length, i8 0, i64 60, i1 false)
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(64) %S, ptr noundef nonnull align 16 dereferenceable(64) @blake2b_IV, i64 64, i1 false)
-  %t.i.i = getelementptr inbounds %struct.blake2b_state, ptr %S, i64 0, i32 1
+  %t.i.i = getelementptr inbounds i8, ptr %S, i64 64
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(297) %t.i.i, i8 0, i64 297, i1 false)
   br label %for.body.i
 
@@ -98,16 +98,16 @@ if.then:                                          ; preds = %entry
 
 if.end:                                           ; preds = %entry
   store i8 %outlen, ptr %P, align 16
-  %key_length = getelementptr inbounds %struct.blake2b_param_, ptr %P, i64 0, i32 1
+  %key_length = getelementptr inbounds i8, ptr %P, i64 1
   store i8 0, ptr %key_length, align 1
-  %fanout = getelementptr inbounds %struct.blake2b_param_, ptr %P, i64 0, i32 2
+  %fanout = getelementptr inbounds i8, ptr %P, i64 2
   store i8 1, ptr %fanout, align 2
-  %depth = getelementptr inbounds %struct.blake2b_param_, ptr %P, i64 0, i32 3
+  %depth = getelementptr inbounds i8, ptr %P, i64 3
   store i8 1, ptr %depth, align 1
-  %leaf_length = getelementptr inbounds %struct.blake2b_param_, ptr %P, i64 0, i32 4
+  %leaf_length = getelementptr inbounds i8, ptr %P, i64 4
   %cmp13.not = icmp eq ptr %salt, null
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(28) %leaf_length, i8 0, i64 28, i1 false)
-  %salt18 = getelementptr inbounds %struct.blake2b_param_, ptr %P, i64 0, i32 9
+  %salt18 = getelementptr inbounds i8, ptr %P, i64 32
   br i1 %cmp13.not, label %if.else, label %if.then15
 
 if.then15:                                        ; preds = %if.end
@@ -120,7 +120,7 @@ if.else:                                          ; preds = %if.end
 
 if.end20:                                         ; preds = %if.else, %if.then15
   %cmp21.not = icmp eq ptr %personal, null
-  %personal28 = getelementptr inbounds %struct.blake2b_param_, ptr %P, i64 0, i32 10
+  %personal28 = getelementptr inbounds i8, ptr %P, i64 48
   br i1 %cmp21.not, label %if.else26, label %if.then23
 
 if.then23:                                        ; preds = %if.end20
@@ -133,7 +133,7 @@ if.else26:                                        ; preds = %if.end20
 
 if.end30:                                         ; preds = %if.else26, %if.then23
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(64) %S, ptr noundef nonnull align 16 dereferenceable(64) @blake2b_IV, i64 64, i1 false)
-  %t.i.i = getelementptr inbounds %struct.blake2b_state, ptr %S, i64 0, i32 1
+  %t.i.i = getelementptr inbounds i8, ptr %S, i64 64
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(297) %t.i.i, i8 0, i64 297, i1 false)
   br label %for.body.i
 
@@ -180,16 +180,16 @@ if.then9:                                         ; preds = %if.end
 
 if.end10:                                         ; preds = %if.end
   store i8 %outlen, ptr %P, align 16
-  %key_length = getelementptr inbounds %struct.blake2b_param_, ptr %P, i64 0, i32 1
+  %key_length = getelementptr inbounds i8, ptr %P, i64 1
   store i8 %keylen, ptr %key_length, align 1
-  %fanout = getelementptr inbounds %struct.blake2b_param_, ptr %P, i64 0, i32 2
+  %fanout = getelementptr inbounds i8, ptr %P, i64 2
   store i8 1, ptr %fanout, align 2
-  %depth = getelementptr inbounds %struct.blake2b_param_, ptr %P, i64 0, i32 3
+  %depth = getelementptr inbounds i8, ptr %P, i64 3
   store i8 1, ptr %depth, align 1
-  %leaf_length = getelementptr inbounds %struct.blake2b_param_, ptr %P, i64 0, i32 4
+  %leaf_length = getelementptr inbounds i8, ptr %P, i64 4
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(60) %leaf_length, i8 0, i64 60, i1 false)
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(64) %S, ptr noundef nonnull align 16 dereferenceable(64) @blake2b_IV, i64 64, i1 false)
-  %t.i.i = getelementptr inbounds %struct.blake2b_state, ptr %S, i64 0, i32 1
+  %t.i.i = getelementptr inbounds i8, ptr %S, i64 64
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(297) %t.i.i, i8 0, i64 297, i1 false)
   br label %for.body.i
 
@@ -214,10 +214,10 @@ _sodium_blake2b_init_param.exit:                  ; preds = %for.body.i
   %7 = getelementptr i8, ptr %block, i64 %conv33
   call void @llvm.memset.p0.i64(ptr align 1 %7, i8 0, i64 %6, i1 false)
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 16 %block, ptr align 1 %key, i64 %conv33, i1 false)
-  %buflen.i = getelementptr inbounds %struct.blake2b_state, ptr %S, i64 0, i32 4
-  %buf15.i = getelementptr inbounds %struct.blake2b_state, ptr %S, i64 0, i32 3
-  %arrayidx.i.i = getelementptr %struct.blake2b_state, ptr %S, i64 0, i32 1, i64 1
-  %add.ptr10.i = getelementptr %struct.blake2b_state, ptr %S, i64 0, i32 3, i64 128
+  %buflen.i = getelementptr inbounds i8, ptr %S, i64 352
+  %buf15.i = getelementptr inbounds i8, ptr %S, i64 96
+  %arrayidx.i.i = getelementptr i8, ptr %S, i64 72
+  %add.ptr10.i = getelementptr i8, ptr %S, i64 224
   %.pre.i = load i64, ptr %buflen.i, align 1
   br label %while.body.i
 
@@ -280,11 +280,11 @@ entry:
   br i1 %cmp.not27, label %while.end, label %while.body.lr.ph
 
 while.body.lr.ph:                                 ; preds = %entry
-  %buflen = getelementptr inbounds %struct.blake2b_state, ptr %S, i64 0, i32 4
-  %buf15 = getelementptr inbounds %struct.blake2b_state, ptr %S, i64 0, i32 3
-  %t1.i = getelementptr inbounds %struct.blake2b_state, ptr %S, i64 0, i32 1
-  %arrayidx.i = getelementptr %struct.blake2b_state, ptr %S, i64 0, i32 1, i64 1
-  %add.ptr10 = getelementptr %struct.blake2b_state, ptr %S, i64 0, i32 3, i64 128
+  %buflen = getelementptr inbounds i8, ptr %S, i64 352
+  %buf15 = getelementptr inbounds i8, ptr %S, i64 96
+  %t1.i = getelementptr inbounds i8, ptr %S, i64 64
+  %arrayidx.i = getelementptr i8, ptr %S, i64 72
+  %add.ptr10 = getelementptr i8, ptr %S, i64 224
   %.pre = load i64, ptr %buflen, align 1
   br label %while.body
 
@@ -364,16 +364,16 @@ if.then9:                                         ; preds = %if.end
 
 if.end10:                                         ; preds = %if.end
   store i8 %outlen, ptr %P, align 16
-  %key_length = getelementptr inbounds %struct.blake2b_param_, ptr %P, i64 0, i32 1
+  %key_length = getelementptr inbounds i8, ptr %P, i64 1
   store i8 %keylen, ptr %key_length, align 1
-  %fanout = getelementptr inbounds %struct.blake2b_param_, ptr %P, i64 0, i32 2
+  %fanout = getelementptr inbounds i8, ptr %P, i64 2
   store i8 1, ptr %fanout, align 2
-  %depth = getelementptr inbounds %struct.blake2b_param_, ptr %P, i64 0, i32 3
+  %depth = getelementptr inbounds i8, ptr %P, i64 3
   store i8 1, ptr %depth, align 1
-  %leaf_length = getelementptr inbounds %struct.blake2b_param_, ptr %P, i64 0, i32 4
+  %leaf_length = getelementptr inbounds i8, ptr %P, i64 4
   %cmp22.not = icmp eq ptr %salt, null
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(28) %leaf_length, i8 0, i64 28, i1 false)
-  %salt27 = getelementptr inbounds %struct.blake2b_param_, ptr %P, i64 0, i32 9
+  %salt27 = getelementptr inbounds i8, ptr %P, i64 32
   br i1 %cmp22.not, label %if.else, label %if.then24
 
 if.then24:                                        ; preds = %if.end10
@@ -386,7 +386,7 @@ if.else:                                          ; preds = %if.end10
 
 if.end29:                                         ; preds = %if.else, %if.then24
   %cmp30.not = icmp eq ptr %personal, null
-  %personal37 = getelementptr inbounds %struct.blake2b_param_, ptr %P, i64 0, i32 10
+  %personal37 = getelementptr inbounds i8, ptr %P, i64 48
   br i1 %cmp30.not, label %if.else35, label %if.then32
 
 if.then32:                                        ; preds = %if.end29
@@ -399,7 +399,7 @@ if.else35:                                        ; preds = %if.end29
 
 if.end39:                                         ; preds = %if.else35, %if.then32
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(64) %S, ptr noundef nonnull align 16 dereferenceable(64) @blake2b_IV, i64 64, i1 false)
-  %t.i.i = getelementptr inbounds %struct.blake2b_state, ptr %S, i64 0, i32 1
+  %t.i.i = getelementptr inbounds i8, ptr %S, i64 64
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(297) %t.i.i, i8 0, i64 297, i1 false)
   br label %for.body.i
 
@@ -424,10 +424,10 @@ _sodium_blake2b_init_param.exit:                  ; preds = %for.body.i
   %7 = getelementptr i8, ptr %block, i64 %conv48
   call void @llvm.memset.p0.i64(ptr align 1 %7, i8 0, i64 %6, i1 false)
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 16 %block, ptr align 1 %key, i64 %conv48, i1 false)
-  %buflen.i = getelementptr inbounds %struct.blake2b_state, ptr %S, i64 0, i32 4
-  %buf15.i = getelementptr inbounds %struct.blake2b_state, ptr %S, i64 0, i32 3
-  %arrayidx.i.i = getelementptr %struct.blake2b_state, ptr %S, i64 0, i32 1, i64 1
-  %add.ptr10.i = getelementptr %struct.blake2b_state, ptr %S, i64 0, i32 3, i64 128
+  %buflen.i = getelementptr inbounds i8, ptr %S, i64 352
+  %buf15.i = getelementptr inbounds i8, ptr %S, i64 96
+  %arrayidx.i.i = getelementptr i8, ptr %S, i64 72
+  %add.ptr10.i = getelementptr i8, ptr %S, i64 224
   %.pre.i = load i64, ptr %buflen.i, align 1
   br label %while.body.i
 
@@ -499,14 +499,14 @@ if.end:                                           ; preds = %entry
   br i1 %cmp.i.not, label %if.end4, label %return
 
 if.end4:                                          ; preds = %if.end
-  %buflen = getelementptr inbounds %struct.blake2b_state, ptr %S, i64 0, i32 4
+  %buflen = getelementptr inbounds i8, ptr %S, i64 352
   %2 = load i64, ptr %buflen, align 1
   %cmp5 = icmp ugt i64 %2, 128
   br i1 %cmp5, label %if.then7, label %if.end16
 
 if.then7:                                         ; preds = %if.end4
-  %t1.i = getelementptr inbounds %struct.blake2b_state, ptr %S, i64 0, i32 1
-  %arrayidx.i = getelementptr %struct.blake2b_state, ptr %S, i64 0, i32 1, i64 1
+  %t1.i = getelementptr inbounds i8, ptr %S, i64 64
+  %arrayidx.i = getelementptr i8, ptr %S, i64 72
   %3 = load i64, ptr %arrayidx.i, align 1
   %conv.i29 = zext i64 %3 to i128
   %shl.i = shl nuw i128 %conv.i29, 64
@@ -520,20 +520,20 @@ if.then7:                                         ; preds = %if.end4
   %conv10.i = trunc i128 %shr9.i to i64
   store i64 %conv10.i, ptr %arrayidx.i, align 1
   %5 = load ptr, ptr @blake2b_compress, align 8
-  %buf = getelementptr inbounds %struct.blake2b_state, ptr %S, i64 0, i32 3
+  %buf = getelementptr inbounds i8, ptr %S, i64 96
   %call9 = tail call i32 %5(ptr noundef nonnull %S, ptr noundef nonnull %buf) #8, !callees !7
   %6 = load i64, ptr %buflen, align 1
   %sub = add i64 %6, -128
   store i64 %sub, ptr %buflen, align 1
-  %add.ptr = getelementptr %struct.blake2b_state, ptr %S, i64 0, i32 3, i64 128
+  %add.ptr = getelementptr i8, ptr %S, i64 224
   tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %buf, ptr align 1 %add.ptr, i64 %sub, i1 false)
   %.pre = load i64, ptr %buflen, align 1
   br label %if.end16
 
 if.end16:                                         ; preds = %if.then7, %if.end4
   %7 = phi i64 [ %.pre, %if.then7 ], [ %2, %if.end4 ]
-  %t1.i30 = getelementptr inbounds %struct.blake2b_state, ptr %S, i64 0, i32 1
-  %arrayidx.i31 = getelementptr %struct.blake2b_state, ptr %S, i64 0, i32 1, i64 1
+  %t1.i30 = getelementptr inbounds i8, ptr %S, i64 64
+  %arrayidx.i31 = getelementptr i8, ptr %S, i64 72
   %8 = load i64, ptr %arrayidx.i31, align 1
   %conv.i32 = zext i64 %8 to i128
   %shl.i33 = shl nuw i128 %conv.i32, 64
@@ -547,19 +547,19 @@ if.end16:                                         ; preds = %if.then7, %if.end4
   %shr9.i38 = lshr i128 %add.i36, 64
   %conv10.i39 = trunc i128 %shr9.i38 to i64
   store i64 %conv10.i39, ptr %arrayidx.i31, align 1
-  %last_node.i = getelementptr inbounds %struct.blake2b_state, ptr %S, i64 0, i32 5
+  %last_node.i = getelementptr inbounds i8, ptr %S, i64 360
   %10 = load i8, ptr %last_node.i, align 1
   %tobool.not.i = icmp eq i8 %10, 0
   br i1 %tobool.not.i, label %blake2b_set_lastblock.exit, label %if.then.i
 
 if.then.i:                                        ; preds = %if.end16
-  %arrayidx.i.i = getelementptr %struct.blake2b_state, ptr %S, i64 0, i32 2, i64 1
+  %arrayidx.i.i = getelementptr i8, ptr %S, i64 88
   store i64 -1, ptr %arrayidx.i.i, align 1
   br label %blake2b_set_lastblock.exit
 
 blake2b_set_lastblock.exit:                       ; preds = %if.end16, %if.then.i
   store i64 -1, ptr %1, align 1
-  %buf20 = getelementptr inbounds %struct.blake2b_state, ptr %S, i64 0, i32 3
+  %buf20 = getelementptr inbounds i8, ptr %S, i64 96
   %add.ptr23 = getelementptr i8, ptr %buf20, i64 %7
   %sub25 = sub i64 256, %7
   tail call void @llvm.memset.p0.i64(ptr align 1 %add.ptr23, i8 0, i64 %sub25, i1 false)
@@ -567,15 +567,15 @@ blake2b_set_lastblock.exit:                       ; preds = %if.end16, %if.then.
   %call28 = tail call i32 %11(ptr noundef nonnull %S, ptr noundef nonnull %buf20) #8, !callees !7
   %12 = load <2 x i64>, ptr %S, align 1
   store <2 x i64> %12, ptr %buffer, align 16
-  %arrayidx38 = getelementptr [8 x i64], ptr %S, i64 0, i64 2
+  %arrayidx38 = getelementptr i8, ptr %S, i64 16
   %13 = load <2 x i64>, ptr %arrayidx38, align 1
   %buffer.16.buffer.16.buffer.16.add.ptr36.sroa_idx = getelementptr inbounds i8, ptr %buffer, i64 16
   store <2 x i64> %13, ptr %buffer.16.buffer.16.buffer.16.add.ptr36.sroa_idx, align 16
-  %arrayidx46 = getelementptr [8 x i64], ptr %S, i64 0, i64 4
+  %arrayidx46 = getelementptr i8, ptr %S, i64 32
   %14 = load <2 x i64>, ptr %arrayidx46, align 1
   %buffer.32.buffer.32.buffer.32.add.ptr44.sroa_idx = getelementptr inbounds i8, ptr %buffer, i64 32
   store <2 x i64> %14, ptr %buffer.32.buffer.32.buffer.32.add.ptr44.sroa_idx, align 16
-  %arrayidx54 = getelementptr [8 x i64], ptr %S, i64 0, i64 6
+  %arrayidx54 = getelementptr i8, ptr %S, i64 48
   %15 = load <2 x i64>, ptr %arrayidx54, align 1
   %buffer.48.buffer.48.buffer.48.add.ptr52.sroa_idx = getelementptr inbounds i8, ptr %buffer, i64 48
   store <2 x i64> %15, ptr %buffer.48.buffer.48.buffer.48.add.ptr52.sroa_idx, align 16
@@ -649,16 +649,16 @@ if.then25:                                        ; preds = %if.end21
 if.end.i:                                         ; preds = %if.end21
   call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %P.i)
   store i8 %outlen, ptr %P.i, align 16
-  %key_length.i = getelementptr inbounds %struct.blake2b_param_, ptr %P.i, i64 0, i32 1
+  %key_length.i = getelementptr inbounds i8, ptr %P.i, i64 1
   store i8 0, ptr %key_length.i, align 1
-  %fanout.i = getelementptr inbounds %struct.blake2b_param_, ptr %P.i, i64 0, i32 2
+  %fanout.i = getelementptr inbounds i8, ptr %P.i, i64 2
   store i8 1, ptr %fanout.i, align 2
-  %depth.i = getelementptr inbounds %struct.blake2b_param_, ptr %P.i, i64 0, i32 3
+  %depth.i = getelementptr inbounds i8, ptr %P.i, i64 3
   store i8 1, ptr %depth.i, align 1
-  %leaf_length.i = getelementptr inbounds %struct.blake2b_param_, ptr %P.i, i64 0, i32 4
+  %leaf_length.i = getelementptr inbounds i8, ptr %P.i, i64 4
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(60) %leaf_length.i, i8 0, i64 60, i1 false)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 64 dereferenceable(64) %S, ptr noundef nonnull align 16 dereferenceable(64) @blake2b_IV, i64 64, i1 false)
-  %t.i.i.i = getelementptr inbounds %struct.blake2b_state, ptr %S, i64 0, i32 1
+  %t.i.i.i = getelementptr inbounds i8, ptr %S, i64 64
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 64 dereferenceable(297) %t.i.i.i, i8 0, i64 297, i1 false)
   br label %for.body.i.i
 
@@ -684,11 +684,11 @@ if.end36:                                         ; preds = %_sodium_blake2b_ini
   br i1 %cmp.not27.i, label %_sodium_blake2b_update.exit, label %while.body.lr.ph.i
 
 while.body.lr.ph.i:                               ; preds = %if.end36
-  %buflen.i = getelementptr inbounds %struct.blake2b_state, ptr %S, i64 0, i32 4
-  %buf15.i = getelementptr inbounds %struct.blake2b_state, ptr %S, i64 0, i32 3
-  %t1.i.i = getelementptr inbounds %struct.blake2b_state, ptr %S, i64 0, i32 1
-  %arrayidx.i.i14 = getelementptr inbounds %struct.blake2b_state, ptr %S, i64 0, i32 1, i64 1
-  %add.ptr10.i = getelementptr inbounds %struct.blake2b_state, ptr %S, i64 0, i32 3, i64 128
+  %buflen.i = getelementptr inbounds i8, ptr %S, i64 352
+  %buf15.i = getelementptr inbounds i8, ptr %S, i64 96
+  %t1.i.i = getelementptr inbounds i8, ptr %S, i64 64
+  %arrayidx.i.i14 = getelementptr inbounds i8, ptr %S, i64 72
+  %add.ptr10.i = getelementptr inbounds i8, ptr %S, i64 224
   %.pre.i = load i64, ptr %buflen.i, align 32
   br label %while.body.i
 
@@ -800,16 +800,16 @@ if.then25:                                        ; preds = %if.end21
 if.end.i:                                         ; preds = %if.end21
   call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %P.i)
   store i8 %outlen, ptr %P.i, align 16
-  %key_length.i = getelementptr inbounds %struct.blake2b_param_, ptr %P.i, i64 0, i32 1
+  %key_length.i = getelementptr inbounds i8, ptr %P.i, i64 1
   store i8 0, ptr %key_length.i, align 1
-  %fanout.i = getelementptr inbounds %struct.blake2b_param_, ptr %P.i, i64 0, i32 2
+  %fanout.i = getelementptr inbounds i8, ptr %P.i, i64 2
   store i8 1, ptr %fanout.i, align 2
-  %depth.i = getelementptr inbounds %struct.blake2b_param_, ptr %P.i, i64 0, i32 3
+  %depth.i = getelementptr inbounds i8, ptr %P.i, i64 3
   store i8 1, ptr %depth.i, align 1
-  %leaf_length.i = getelementptr inbounds %struct.blake2b_param_, ptr %P.i, i64 0, i32 4
+  %leaf_length.i = getelementptr inbounds i8, ptr %P.i, i64 4
   %cmp13.not.i = icmp eq ptr %salt, null
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(28) %leaf_length.i, i8 0, i64 28, i1 false)
-  %salt18.i = getelementptr inbounds %struct.blake2b_param_, ptr %P.i, i64 0, i32 9
+  %salt18.i = getelementptr inbounds i8, ptr %P.i, i64 32
   br i1 %cmp13.not.i, label %if.else.i, label %if.then15.i
 
 if.then15.i:                                      ; preds = %if.end.i
@@ -822,7 +822,7 @@ if.else.i:                                        ; preds = %if.end.i
 
 if.end20.i:                                       ; preds = %if.else.i, %if.then15.i
   %cmp21.not.i = icmp eq ptr %personal, null
-  %personal28.i = getelementptr inbounds %struct.blake2b_param_, ptr %P.i, i64 0, i32 10
+  %personal28.i = getelementptr inbounds i8, ptr %P.i, i64 48
   br i1 %cmp21.not.i, label %if.else26.i, label %if.then23.i
 
 if.then23.i:                                      ; preds = %if.end20.i
@@ -835,7 +835,7 @@ if.else26.i:                                      ; preds = %if.end20.i
 
 if.end30.i:                                       ; preds = %if.else26.i, %if.then23.i
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 64 dereferenceable(64) %S, ptr noundef nonnull align 16 dereferenceable(64) @blake2b_IV, i64 64, i1 false)
-  %t.i.i.i = getelementptr inbounds %struct.blake2b_state, ptr %S, i64 0, i32 1
+  %t.i.i.i = getelementptr inbounds i8, ptr %S, i64 64
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 64 dereferenceable(297) %t.i.i.i, i8 0, i64 297, i1 false)
   br label %for.body.i.i
 
@@ -861,11 +861,11 @@ if.end36:                                         ; preds = %_sodium_blake2b_ini
   br i1 %cmp.not27.i, label %_sodium_blake2b_update.exit, label %while.body.lr.ph.i
 
 while.body.lr.ph.i:                               ; preds = %if.end36
-  %buflen.i = getelementptr inbounds %struct.blake2b_state, ptr %S, i64 0, i32 4
-  %buf15.i = getelementptr inbounds %struct.blake2b_state, ptr %S, i64 0, i32 3
-  %t1.i.i = getelementptr inbounds %struct.blake2b_state, ptr %S, i64 0, i32 1
-  %arrayidx.i.i16 = getelementptr inbounds %struct.blake2b_state, ptr %S, i64 0, i32 1, i64 1
-  %add.ptr10.i = getelementptr inbounds %struct.blake2b_state, ptr %S, i64 0, i32 3, i64 128
+  %buflen.i = getelementptr inbounds i8, ptr %S, i64 352
+  %buf15.i = getelementptr inbounds i8, ptr %S, i64 96
+  %t1.i.i = getelementptr inbounds i8, ptr %S, i64 64
+  %arrayidx.i.i16 = getelementptr inbounds i8, ptr %S, i64 72
+  %add.ptr10.i = getelementptr inbounds i8, ptr %S, i64 224
   %.pre.i = load i64, ptr %buflen.i, align 32
   br label %while.body.i
 

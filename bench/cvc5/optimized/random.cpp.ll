@@ -3,8 +3,6 @@ source_filename = "bench/cvc5/original/random.cpp.ll"
 target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:128-n8:16:32:64-S128"
 target triple = "x86_64-unknown-linux-gnu"
 
-%"class.cvc5::internal::Random" = type { i64, i64 }
-
 @_ZN4cvc58internal6RandomC1Em = hidden unnamed_addr alias void (ptr, i64), ptr @_ZN4cvc58internal6RandomC2Em
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
@@ -13,7 +11,7 @@ entry:
   %cmp.i = icmp eq i64 %seed, 0
   %cond.i = select i1 %cmp.i, i64 -1, i64 %seed
   store i64 %cond.i, ptr %this, align 8
-  %d_state.i = getelementptr inbounds %"class.cvc5::internal::Random", ptr %this, i64 0, i32 1
+  %d_state.i = getelementptr inbounds i8, ptr %this, i64 8
   store i64 %cond.i, ptr %d_state.i, align 8
   ret void
 }
@@ -24,7 +22,7 @@ entry:
   %cmp = icmp eq i64 %seed, 0
   %cond = select i1 %cmp, i64 -1, i64 %seed
   store i64 %cond, ptr %this, align 8
-  %d_state = getelementptr inbounds %"class.cvc5::internal::Random", ptr %this, i64 0, i32 1
+  %d_state = getelementptr inbounds i8, ptr %this, i64 8
   store i64 %cond, ptr %d_state, align 8
   ret void
 }
@@ -32,7 +30,7 @@ entry:
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
 define hidden noundef i64 @_ZN4cvc58internal6RandomclEv(ptr nocapture noundef nonnull align 8 dereferenceable(16) %this) local_unnamed_addr #1 align 2 {
 entry:
-  %d_state.i = getelementptr inbounds %"class.cvc5::internal::Random", ptr %this, i64 0, i32 1
+  %d_state.i = getelementptr inbounds i8, ptr %this, i64 8
   %0 = load i64, ptr %d_state.i, align 8
   %shr.i = lshr i64 %0, 12
   %xor.i = xor i64 %shr.i, %0
@@ -48,7 +46,7 @@ entry:
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
 define hidden noundef i64 @_ZN4cvc58internal6Random4randEv(ptr nocapture noundef nonnull align 8 dereferenceable(16) %this) local_unnamed_addr #1 align 2 {
 entry:
-  %d_state = getelementptr inbounds %"class.cvc5::internal::Random", ptr %this, i64 0, i32 1
+  %d_state = getelementptr inbounds i8, ptr %this, i64 8
   %0 = load i64, ptr %d_state, align 8
   %shr = lshr i64 %0, 12
   %xor = xor i64 %shr, %0
@@ -64,7 +62,7 @@ entry:
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
 define hidden noundef i64 @_ZN4cvc58internal6Random4pickEmm(ptr nocapture noundef nonnull align 8 dereferenceable(16) %this, i64 noundef %from, i64 noundef %to) local_unnamed_addr #1 align 2 {
 entry:
-  %d_state.i = getelementptr inbounds %"class.cvc5::internal::Random", ptr %this, i64 0, i32 1
+  %d_state.i = getelementptr inbounds i8, ptr %this, i64 8
   %0 = load i64, ptr %d_state.i, align 8
   %shr.i = lshr i64 %0, 12
   %xor.i = xor i64 %shr.i, %0
@@ -81,10 +79,10 @@ entry:
   ret i64 %add2
 }
 
-; Function Attrs: mustprogress nofree nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define hidden noundef double @_ZN4cvc58internal6Random10pickDoubleEdd(ptr nocapture noundef nonnull align 8 dereferenceable(16) %this, double noundef %from, double noundef %to) local_unnamed_addr #2 align 2 {
+; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
+define hidden noundef double @_ZN4cvc58internal6Random10pickDoubleEdd(ptr nocapture noundef nonnull align 8 dereferenceable(16) %this, double noundef %from, double noundef %to) local_unnamed_addr #1 align 2 {
 entry:
-  %d_state.i = getelementptr inbounds %"class.cvc5::internal::Random", ptr %this, i64 0, i32 1
+  %d_state.i = getelementptr inbounds i8, ptr %this, i64 8
   %0 = load i64, ptr %d_state.i, align 8
   %shr.i = lshr i64 %0, 12
   %xor.i = xor i64 %shr.i, %0
@@ -101,14 +99,14 @@ entry:
 }
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare double @llvm.fmuladd.f64(double, double, double) #3
+declare double @llvm.fmuladd.f64(double, double, double) #2
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
 define hidden noundef zeroext i1 @_ZN4cvc58internal6Random12pickWithProbEd(ptr nocapture noundef nonnull align 8 dereferenceable(16) %this, double noundef %probability) local_unnamed_addr #1 align 2 {
 entry:
   %mul = fmul double %probability, 1.000000e+03
   %conv = fptoui double %mul to i64
-  %d_state.i.i = getelementptr inbounds %"class.cvc5::internal::Random", ptr %this, i64 0, i32 1
+  %d_state.i.i = getelementptr inbounds i8, ptr %this, i64 8
   %0 = load i64, ptr %d_state.i.i, align 8
   %shr.i.i = lshr i64 %0, 12
   %xor.i.i = xor i64 %shr.i.i, %0
@@ -125,8 +123,7 @@ entry:
 
 attributes #0 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #2 = { mustprogress nofree nosync nounwind willreturn memory(argmem: readwrite) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #3 = { mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none) }
+attributes #2 = { mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none) }
 
 !llvm.module.flags = !{!0, !1, !2, !3}
 

@@ -39,7 +39,7 @@ if.then1:                                         ; preds = %do.end
   unreachable
 
 if.end2:                                          ; preds = %do.end
-  %arrayidx = getelementptr inbounds ptr, ptr %argv, i64 2
+  %arrayidx = getelementptr inbounds i8, ptr %argv, i64 16
   %0 = load ptr, ptr %arrayidx, align 8
   %call = call i64 @strtoul(ptr noundef %0, ptr noundef nonnull %end, i32 noundef 10) #11
   %conv = trunc i64 %call to i32

@@ -8,18 +8,10 @@ target triple = "x86_64-unknown-linux-gnu"
 %"struct.std::_Vector_base" = type { %"struct.std::_Vector_base<msdfgen::Scanline::Intersection, std::allocator<msdfgen::Scanline::Intersection>>::_Vector_impl" }
 %"struct.std::_Vector_base<msdfgen::Scanline::Intersection, std::allocator<msdfgen::Scanline::Intersection>>::_Vector_impl" = type { %"struct.std::_Vector_base<msdfgen::Scanline::Intersection, std::allocator<msdfgen::Scanline::Intersection>>::_Vector_impl_data" }
 %"struct.std::_Vector_base<msdfgen::Scanline::Intersection, std::allocator<msdfgen::Scanline::Intersection>>::_Vector_impl_data" = type { ptr, ptr, ptr }
-%"struct.msdfgen::BitmapRef" = type { ptr, i32, i32 }
-%"class.msdfgen::Shape" = type <{ %"class.std::vector.0", i8, [7 x i8] }>
-%"class.std::vector.0" = type { %"struct.std::_Vector_base.1" }
-%"struct.std::_Vector_base.1" = type { %"struct.std::_Vector_base<msdfgen::Contour, std::allocator<msdfgen::Contour>>::_Vector_impl" }
-%"struct.std::_Vector_base<msdfgen::Contour, std::allocator<msdfgen::Contour>>::_Vector_impl" = type { %"struct.std::_Vector_base<msdfgen::Contour, std::allocator<msdfgen::Contour>>::_Vector_impl_data" }
-%"struct.std::_Vector_base<msdfgen::Contour, std::allocator<msdfgen::Contour>>::_Vector_impl_data" = type { ptr, ptr, ptr }
 %"class.std::vector.7" = type { %"struct.std::_Vector_base.8" }
 %"struct.std::_Vector_base.8" = type { %"struct.std::_Vector_base<char, std::allocator<char>>::_Vector_impl" }
 %"struct.std::_Vector_base<char, std::allocator<char>>::_Vector_impl" = type { %"struct.std::_Vector_base<char, std::allocator<char>>::_Vector_impl_data" }
 %"struct.std::_Vector_base<char, std::allocator<char>>::_Vector_impl_data" = type { ptr, ptr, ptr }
-%"struct.msdfgen::BitmapRef.5" = type { ptr, i32, i32 }
-%"struct.msdfgen::BitmapRef.6" = type { ptr, i32, i32 }
 %"class.msdfgen::Projection" = type { %"struct.msdfgen::Vector2", %"struct.msdfgen::Vector2" }
 %"struct.msdfgen::Vector2" = type { double, double }
 
@@ -32,14 +24,14 @@ define dso_local void @_ZN7msdfgen9rasterizeERKNS_9BitmapRefIfLi1EEERKNS_5ShapeE
 entry:
   %scanline = alloca %"class.msdfgen::Scanline", align 8
   call void @_ZN7msdfgen8ScanlineC1Ev(ptr noundef nonnull align 8 dereferenceable(28) %scanline)
-  %height = getelementptr inbounds %"struct.msdfgen::BitmapRef", ptr %output, i64 0, i32 2
+  %height = getelementptr inbounds i8, ptr %output, i64 12
   %0 = load i32, ptr %height, align 4
   %cmp20 = icmp sgt i32 %0, 0
   br i1 %cmp20, label %for.body.lr.ph, label %for.end18
 
 for.body.lr.ph:                                   ; preds = %entry
-  %inverseYAxis = getelementptr inbounds %"class.msdfgen::Shape", ptr %shape, i64 0, i32 1
-  %width = getelementptr inbounds %"struct.msdfgen::BitmapRef", ptr %output, i64 0, i32 1
+  %inverseYAxis = getelementptr inbounds i8, ptr %shape, i64 24
+  %width = getelementptr inbounds i8, ptr %output, i64 8
   br label %for.body
 
 for.body:                                         ; preds = %for.body.lr.ph, %for.inc16
@@ -149,14 +141,14 @@ define dso_local void @_ZN7msdfgen22distanceSignCorrectionERKNS_9BitmapRefIfLi1E
 entry:
   %scanline = alloca %"class.msdfgen::Scanline", align 8
   call void @_ZN7msdfgen8ScanlineC1Ev(ptr noundef nonnull align 8 dereferenceable(28) %scanline)
-  %height = getelementptr inbounds %"struct.msdfgen::BitmapRef", ptr %sdf, i64 0, i32 2
+  %height = getelementptr inbounds i8, ptr %sdf, i64 12
   %0 = load i32, ptr %height, align 4
   %cmp22 = icmp sgt i32 %0, 0
   br i1 %cmp22, label %for.body.lr.ph, label %for.end23
 
 for.body.lr.ph:                                   ; preds = %entry
-  %inverseYAxis = getelementptr inbounds %"class.msdfgen::Shape", ptr %shape, i64 0, i32 1
-  %width = getelementptr inbounds %"struct.msdfgen::BitmapRef", ptr %sdf, i64 0, i32 1
+  %inverseYAxis = getelementptr inbounds i8, ptr %shape, i64 24
+  %width = getelementptr inbounds i8, ptr %sdf, i64 8
   br label %for.body
 
 for.body:                                         ; preds = %for.body.lr.ph, %for.inc21
@@ -266,10 +258,10 @@ entry:
   %matchMap.i = alloca %"class.std::vector.7", align 8
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %scanline.i)
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %matchMap.i)
-  %width.i = getelementptr inbounds %"struct.msdfgen::BitmapRef.5", ptr %sdf, i64 0, i32 1
+  %width.i = getelementptr inbounds i8, ptr %sdf, i64 8
   %0 = load i32, ptr %width.i, align 8
   %.fr.i = freeze i32 %0
-  %height.i = getelementptr inbounds %"struct.msdfgen::BitmapRef.5", ptr %sdf, i64 0, i32 2
+  %height.i = getelementptr inbounds i8, ptr %sdf, i64 12
   %1 = load i32, ptr %height.i, align 4
   %mul.i = mul nsw i32 %1, %.fr.i
   %tobool.not.i = icmp eq i32 %mul.i, 0
@@ -280,8 +272,8 @@ if.else.i.i.i:                                    ; preds = %entry
   call void @_ZNSaIcEC2Ev(ptr noundef nonnull align 1 dereferenceable(1) %matchMap.i) #10
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %matchMap.i, i8 0, i64 24, i1 false)
   %conv.i = sext i32 %mul.i to i64
-  %_M_finish.i.i.i = getelementptr inbounds %"struct.std::_Vector_base<char, std::allocator<char>>::_Vector_impl_data", ptr %matchMap.i, i64 0, i32 1
-  %_M_end_of_storage.i.i.i = getelementptr inbounds %"struct.std::_Vector_base<char, std::allocator<char>>::_Vector_impl_data", ptr %matchMap.i, i64 0, i32 2
+  %_M_finish.i.i.i = getelementptr inbounds i8, ptr %matchMap.i, i64 8
+  %_M_end_of_storage.i.i.i = getelementptr inbounds i8, ptr %matchMap.i, i64 16
   %cmp.i.i.i.i = icmp slt i32 %mul.i, 0
   br i1 %cmp.i.i.i.i, label %if.then.i.i.i.i, label %_ZNKSt6vectorIcSaIcEE12_M_check_lenEmPKc.exit.i.i.i
 
@@ -316,7 +308,7 @@ invoke.cont.i:                                    ; preds = %if.then.i.i.i.i.i.i
   br i1 %cmp88.i, label %if.then.i.i.i70.i, label %for.body.lr.ph.i
 
 for.body.lr.ph.i:                                 ; preds = %invoke.cont.i
-  %inverseYAxis.i = getelementptr inbounds %"class.msdfgen::Shape", ptr %shape, i64 0, i32 1
+  %inverseYAxis.i = getelementptr inbounds i8, ptr %shape, i64 24
   %cmp983.i = icmp sgt i32 %.fr.i, 0
   br i1 %cmp983.i, label %for.body.us.i, label %for.body.i
 
@@ -361,7 +353,7 @@ invoke.cont21.us.i:                               ; preds = %invoke.cont13.us.i
   %idx.ext.i.us.i = sext i32 %mul2.i.us.i to i64
   %add.ptr.i63.us.i = getelementptr inbounds float, ptr %5, i64 %idx.ext.i.us.i
   %7 = load <2 x float>, ptr %add.ptr.i63.us.i, align 4
-  %arrayidx20.us.i = getelementptr inbounds float, ptr %add.ptr.i63.us.i, i64 2
+  %arrayidx20.us.i = getelementptr inbounds i8, ptr %add.ptr.i63.us.i, i64 8
   %8 = load float, ptr %arrayidx20.us.i, align 4
   %9 = extractelement <2 x float> %7, i64 0
   %10 = extractelement <2 x float> %7, i64 1
@@ -541,7 +533,7 @@ if.then95.us129.i:                                ; preds = %if.end93.us126.i
   %26 = load <2 x float>, ptr %add.ptr.i69.us134.i, align 4
   %27 = fsub <2 x float> <float 1.000000e+00, float 1.000000e+00>, %26
   store <2 x float> %27, ptr %add.ptr.i69.us134.i, align 4
-  %arrayidx105.us138.i = getelementptr inbounds float, ptr %add.ptr.i69.us134.i, i64 2
+  %arrayidx105.us138.i = getelementptr inbounds i8, ptr %add.ptr.i69.us134.i, i64 8
   %28 = load float, ptr %arrayidx105.us138.i, align 4
   %sub106.us139.i = fsub float 1.000000e+00, %28
   store float %sub106.us139.i, ptr %arrayidx105.us138.i, align 4
@@ -615,7 +607,7 @@ if.then95.us.us.i:                                ; preds = %if.end93.us.us.i
   %35 = load <2 x float>, ptr %add.ptr.i69.us.us.i, align 4
   %36 = fsub <2 x float> <float 1.000000e+00, float 1.000000e+00>, %35
   store <2 x float> %36, ptr %add.ptr.i69.us.us.i, align 4
-  %arrayidx105.us.us.i = getelementptr inbounds float, ptr %add.ptr.i69.us.us.i, i64 2
+  %arrayidx105.us.us.i = getelementptr inbounds i8, ptr %add.ptr.i69.us.us.i, i64 8
   %37 = load float, ptr %arrayidx105.us.us.i, align 4
   %sub106.us.us.i = fsub float 1.000000e+00, %37
   store float %sub106.us.us.i, ptr %arrayidx105.us.us.i, align 4
@@ -660,10 +652,10 @@ entry:
   %matchMap.i = alloca %"class.std::vector.7", align 8
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %scanline.i)
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %matchMap.i)
-  %width.i = getelementptr inbounds %"struct.msdfgen::BitmapRef.6", ptr %sdf, i64 0, i32 1
+  %width.i = getelementptr inbounds i8, ptr %sdf, i64 8
   %0 = load i32, ptr %width.i, align 8
   %.fr.i = freeze i32 %0
-  %height.i = getelementptr inbounds %"struct.msdfgen::BitmapRef.6", ptr %sdf, i64 0, i32 2
+  %height.i = getelementptr inbounds i8, ptr %sdf, i64 12
   %1 = load i32, ptr %height.i, align 4
   %mul.i = mul nsw i32 %1, %.fr.i
   %tobool.not.i = icmp eq i32 %mul.i, 0
@@ -674,8 +666,8 @@ if.else.i.i.i:                                    ; preds = %entry
   call void @_ZNSaIcEC2Ev(ptr noundef nonnull align 1 dereferenceable(1) %matchMap.i) #10
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %matchMap.i, i8 0, i64 24, i1 false)
   %conv.i = sext i32 %mul.i to i64
-  %_M_finish.i.i.i = getelementptr inbounds %"struct.std::_Vector_base<char, std::allocator<char>>::_Vector_impl_data", ptr %matchMap.i, i64 0, i32 1
-  %_M_end_of_storage.i.i.i = getelementptr inbounds %"struct.std::_Vector_base<char, std::allocator<char>>::_Vector_impl_data", ptr %matchMap.i, i64 0, i32 2
+  %_M_finish.i.i.i = getelementptr inbounds i8, ptr %matchMap.i, i64 8
+  %_M_end_of_storage.i.i.i = getelementptr inbounds i8, ptr %matchMap.i, i64 16
   %cmp.i.i.i.i = icmp slt i32 %mul.i, 0
   br i1 %cmp.i.i.i.i, label %if.then.i.i.i.i, label %_ZNKSt6vectorIcSaIcEE12_M_check_lenEmPKc.exit.i.i.i
 
@@ -710,7 +702,7 @@ invoke.cont.i:                                    ; preds = %if.then.i.i.i.i.i.i
   br i1 %cmp92.i, label %if.then.i.i.i74.i, label %for.body.lr.ph.i
 
 for.body.lr.ph.i:                                 ; preds = %invoke.cont.i
-  %inverseYAxis.i = getelementptr inbounds %"class.msdfgen::Shape", ptr %shape, i64 0, i32 1
+  %inverseYAxis.i = getelementptr inbounds i8, ptr %shape, i64 24
   %cmp987.i = icmp sgt i32 %.fr.i, 0
   br i1 %cmp987.i, label %for.body.us.i, label %for.body.i
 
@@ -755,7 +747,7 @@ invoke.cont21.us.i:                               ; preds = %invoke.cont13.us.i
   %idx.ext.i.us.i = sext i32 %mul2.i.us.i to i64
   %add.ptr.i67.us.i = getelementptr inbounds float, ptr %5, i64 %idx.ext.i.us.i
   %7 = load <2 x float>, ptr %add.ptr.i67.us.i, align 4
-  %arrayidx20.us.i = getelementptr inbounds float, ptr %add.ptr.i67.us.i, i64 2
+  %arrayidx20.us.i = getelementptr inbounds i8, ptr %add.ptr.i67.us.i, i64 8
   %8 = load float, ptr %arrayidx20.us.i, align 4
   %9 = extractelement <2 x float> %7, i64 0
   %10 = extractelement <2 x float> %7, i64 1
@@ -789,7 +781,7 @@ if.end42.us.sink.split.i:                         ; preds = %if.then30.us.i, %if
 
 if.end42.us.i:                                    ; preds = %if.end42.us.sink.split.i, %invoke.cont21.us.i
   %ambiguous.2.us.i = phi i8 [ 1, %invoke.cont21.us.i ], [ %ambiguous.190.us.i, %if.end42.us.sink.split.i ]
-  %arrayidx43.us.i = getelementptr inbounds float, ptr %add.ptr.i67.us.i, i64 3
+  %arrayidx43.us.i = getelementptr inbounds i8, ptr %add.ptr.i67.us.i, i64 12
   %13 = load float, ptr %arrayidx43.us.i, align 4
   %14 = fcmp ule float %13, 5.000000e-01
   %cmp48.not.us.i = xor i1 %call16.us.i, %14
@@ -947,7 +939,7 @@ if.then106.us133.i:                               ; preds = %if.end104.us130.i
   %28 = load <2 x float>, ptr %add.ptr.i73.us138.i, align 4
   %29 = fsub <2 x float> <float 1.000000e+00, float 1.000000e+00>, %28
   store <2 x float> %29, ptr %add.ptr.i73.us138.i, align 4
-  %arrayidx116.us142.i = getelementptr inbounds float, ptr %add.ptr.i73.us138.i, i64 2
+  %arrayidx116.us142.i = getelementptr inbounds i8, ptr %add.ptr.i73.us138.i, i64 8
   %30 = load float, ptr %arrayidx116.us142.i, align 4
   %sub117.us143.i = fsub float 1.000000e+00, %30
   store float %sub117.us143.i, ptr %arrayidx116.us142.i, align 4
@@ -1021,7 +1013,7 @@ if.then106.us.us.i:                               ; preds = %if.end104.us.us.i
   %37 = load <2 x float>, ptr %add.ptr.i73.us.us.i, align 4
   %38 = fsub <2 x float> <float 1.000000e+00, float 1.000000e+00>, %37
   store <2 x float> %38, ptr %add.ptr.i73.us.us.i, align 4
-  %arrayidx116.us.us.i = getelementptr inbounds float, ptr %add.ptr.i73.us.us.i, i64 2
+  %arrayidx116.us.us.i = getelementptr inbounds i8, ptr %add.ptr.i73.us.us.i, i64 8
   %39 = load float, ptr %arrayidx116.us.us.i, align 4
   %sub117.us.us.i = fsub float 1.000000e+00, %39
   store float %sub117.us.us.i, ptr %arrayidx116.us.us.i, align 4

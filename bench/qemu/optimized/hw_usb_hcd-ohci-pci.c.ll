@@ -10,51 +10,6 @@ target triple = "x86_64-unknown-linux-gnu"
 %struct.VMStateDescription = type { ptr, i8, i8, i32, i32, i32, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr }
 %struct.PropertyInfo = type { ptr, ptr, ptr, i8, ptr, ptr, ptr, ptr, ptr, ptr }
 %struct.VMStateField = type { ptr, ptr, i64, i64, i64, i32, i64, i64, ptr, i32, ptr, i32, i32, ptr }
-%struct.PCIDeviceClass = type { %struct.DeviceClass, ptr, ptr, ptr, ptr, i16, i16, i8, i16, i16, i16, ptr }
-%struct.DeviceClass = type { %struct.ObjectClass, [1 x i64], ptr, ptr, ptr, i8, i8, ptr, ptr, ptr, ptr, ptr }
-%struct.ObjectClass = type { ptr, ptr, [4 x ptr], [4 x ptr], ptr, ptr }
-%struct.PCIDevice = type { %struct.DeviceState, i8, i8, ptr, ptr, ptr, ptr, ptr, i32, %struct.PCIReqIDCache, [64 x i8], [7 x %struct.PCIIORegion], %struct.AddressSpace, %struct.MemoryRegion, %struct.MemoryRegion, ptr, ptr, [3 x ptr], i8, i8, i32, i8, i32, ptr, ptr, ptr, ptr, ptr, ptr, %struct.MemoryRegion, %struct.MemoryRegion, %struct.MemoryRegion, ptr, i8, i32, i8, %struct.PCIExpressDevice, ptr, ptr, i32, i8, %struct.MemoryRegion, i32, ptr, ptr, ptr, ptr, ptr, i32 }
-%struct.DeviceState = type { %struct.Object, ptr, ptr, i8, i8, i64, ptr, i32, i8, ptr, %struct.NamedGPIOListHead, %struct.NamedClockListHead, %struct.BusStateHead, i32, i32, i32, %struct.ResettableState, ptr, %struct.MemReentrancyGuard }
-%struct.Object = type { ptr, ptr, ptr, i32, ptr }
-%struct.NamedGPIOListHead = type { ptr }
-%struct.NamedClockListHead = type { ptr }
-%struct.BusStateHead = type { ptr }
-%struct.ResettableState = type { i32, i8, i8 }
-%struct.MemReentrancyGuard = type { i8 }
-%struct.PCIReqIDCache = type { ptr, i32 }
-%struct.PCIIORegion = type { i64, i64, i8, ptr, ptr }
-%struct.AddressSpace = type { %struct.rcu_head, ptr, ptr, ptr, i32, i32, ptr, %union.anon.0, %union.anon.1 }
-%struct.rcu_head = type { ptr, ptr }
-%union.anon.0 = type { %struct.QTailQLink }
-%struct.QTailQLink = type { ptr, ptr }
-%union.anon.1 = type { %struct.QTailQLink }
-%struct.PCIExpressDevice = type { i8, i8, i8, i16, %struct.PCIEAERLog, i16, i16, i16, %struct.PCIESriovPF, %struct.PCIESriovVF }
-%struct.PCIEAERLog = type { i16, i16, ptr }
-%struct.PCIESriovPF = type { i16, [7 x i8], ptr, ptr }
-%struct.PCIESriovVF = type { ptr, i16 }
-%struct.MemoryRegion = type { %struct.Object, i8, i8, i8, i8, i8, i8, i8, i8, i8, i8, ptr, ptr, ptr, ptr, ptr, ptr, i32, i128, i64, ptr, i64, i8, i8, i8, i8, i8, ptr, i64, i32, %union.anon.2, %union.anon.3, %union.anon.4, ptr, i32, ptr, ptr, i8 }
-%union.anon.2 = type { %struct.QTailQLink }
-%union.anon.3 = type { %struct.QTailQLink }
-%union.anon.4 = type { %struct.QTailQLink }
-%struct.OHCIPCIState = type { %struct.PCIDevice, %struct.OHCIState, ptr, i32, i32 }
-%struct.OHCIState = type { %struct.USBBus, ptr, %struct.MemoryRegion, ptr, i32, ptr, ptr, i64, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i16, i8, i16, i8, i16, i16, i32, i32, i32, i32, i32, [15 x %struct.OHCIPort], i32, i32, i32, i32, i64, i32, %struct.USBPacket, [8192 x i8], i32, i8, ptr }
-%struct.USBBus = type { %struct.BusState, ptr, i32, i32, i32, %union.anon.5, %union.anon.6, %union.anon.7 }
-%struct.BusState = type { %struct.Object, ptr, ptr, ptr, i32, i8, i8, i32, %union.BusChildHead, %struct.BusStateEntry, %struct.ResettableState }
-%union.BusChildHead = type { %struct.QTailQLink }
-%struct.BusStateEntry = type { ptr, ptr }
-%union.anon.5 = type { %struct.QTailQLink }
-%union.anon.6 = type { %struct.QTailQLink }
-%union.anon.7 = type { %struct.QTailQLink }
-%struct.OHCIPort = type { %struct.USBPort, i32 }
-%struct.USBPort = type { ptr, i32, i32, [16 x i8], ptr, ptr, i32, %union.anon.8 }
-%union.anon.8 = type { %struct.QTailQLink }
-%struct.USBPacket = type { i32, i64, ptr, i32, %struct.QEMUIOVector, i64, i8, i8, i32, i32, i32, ptr, %union.anon.11, %union.anon.12 }
-%struct.QEMUIOVector = type { ptr, i32, %union.anon.9 }
-%union.anon.9 = type { %struct.anon }
-%struct.anon = type { i32, %struct.iovec }
-%struct.iovec = type { ptr, i64 }
-%union.anon.11 = type { %struct.QTailQLink }
-%union.anon.12 = type { %struct.QTailQLink }
 %struct.timeval = type { i64, i64 }
 
 @ohci_pci_info = internal constant %struct.TypeInfo { ptr @.str, ptr @.str.1, i64 12800, i64 0, ptr null, ptr null, ptr null, i8 0, i64 0, ptr @ohci_pci_class_init, ptr null, ptr null, ptr @.compoundliteral }, align 8
@@ -116,28 +71,28 @@ define internal void @ohci_pci_class_init(ptr noundef %klass, ptr nocapture read
 entry:
   %call.i = tail call ptr @object_class_dynamic_cast_assert(ptr noundef %klass, ptr noundef nonnull @.str.4, ptr noundef nonnull @.str.5, i32 noundef 77, ptr noundef nonnull @__func__.DEVICE_CLASS) #4
   %call.i11 = tail call ptr @object_class_dynamic_cast_assert(ptr noundef %klass, ptr noundef nonnull @.str.1, ptr noundef nonnull @.str.6, i32 noundef 10, ptr noundef nonnull @__func__.PCI_DEVICE_CLASS) #4
-  %realize = getelementptr inbounds %struct.PCIDeviceClass, ptr %call.i11, i64 0, i32 1
+  %realize = getelementptr inbounds i8, ptr %call.i11, i64 176
   store ptr @usb_ohci_realize_pci, ptr %realize, align 8
-  %exit = getelementptr inbounds %struct.PCIDeviceClass, ptr %call.i11, i64 0, i32 2
+  %exit = getelementptr inbounds i8, ptr %call.i11, i64 184
   store ptr @usb_ohci_exit, ptr %exit, align 8
-  %vendor_id = getelementptr inbounds %struct.PCIDeviceClass, ptr %call.i11, i64 0, i32 5
+  %vendor_id = getelementptr inbounds i8, ptr %call.i11, i64 208
   store i16 4203, ptr %vendor_id, align 8
-  %device_id = getelementptr inbounds %struct.PCIDeviceClass, ptr %call.i11, i64 0, i32 6
+  %device_id = getelementptr inbounds i8, ptr %call.i11, i64 210
   store i16 63, ptr %device_id, align 2
-  %class_id = getelementptr inbounds %struct.PCIDeviceClass, ptr %call.i11, i64 0, i32 8
+  %class_id = getelementptr inbounds i8, ptr %call.i11, i64 214
   store i16 3075, ptr %class_id, align 2
-  %categories = getelementptr inbounds %struct.DeviceClass, ptr %call.i, i64 0, i32 1
+  %categories = getelementptr inbounds i8, ptr %call.i, i64 96
   %0 = load i64, ptr %categories, align 8
   %or.i = or i64 %0, 2
   store i64 %or.i, ptr %categories, align 8
-  %desc = getelementptr inbounds %struct.DeviceClass, ptr %call.i, i64 0, i32 3
+  %desc = getelementptr inbounds i8, ptr %call.i, i64 112
   store ptr @.str.3, ptr %desc, align 8
   tail call void @device_class_set_props(ptr noundef %call.i, ptr noundef nonnull @ohci_pci_properties) #4
-  %hotpluggable = getelementptr inbounds %struct.DeviceClass, ptr %call.i, i64 0, i32 6
+  %hotpluggable = getelementptr inbounds i8, ptr %call.i, i64 129
   store i8 0, ptr %hotpluggable, align 1
-  %vmsd = getelementptr inbounds %struct.DeviceClass, ptr %call.i, i64 0, i32 10
+  %vmsd = getelementptr inbounds i8, ptr %call.i, i64 160
   store ptr @vmstate_ohci, ptr %vmsd, align 8
-  %reset = getelementptr inbounds %struct.DeviceClass, ptr %call.i, i64 0, i32 7
+  %reset = getelementptr inbounds i8, ptr %call.i, i64 136
   store ptr @usb_ohci_reset_pci, ptr %reset, align 8
   ret void
 }
@@ -148,22 +103,22 @@ entry:
   %err = alloca ptr, align 8
   store ptr null, ptr %err, align 8
   %call.i = tail call ptr @object_dynamic_cast_assert(ptr noundef %dev, ptr noundef nonnull @.str, ptr noundef nonnull @.str.7, i32 noundef 35, ptr noundef nonnull @__func__.PCI_OHCI) #4
-  %config = getelementptr inbounds %struct.PCIDevice, ptr %dev, i64 0, i32 3
+  %config = getelementptr inbounds i8, ptr %dev, i64 168
   %0 = load ptr, ptr %config, align 8
   %arrayidx = getelementptr i8, ptr %0, i64 9
   store i8 16, ptr %arrayidx, align 1
   %1 = load ptr, ptr %config, align 8
   %arrayidx2 = getelementptr i8, ptr %1, i64 61
   store i8 1, ptr %arrayidx2, align 1
-  %state = getelementptr inbounds %struct.OHCIPCIState, ptr %call.i, i64 0, i32 1
+  %state = getelementptr inbounds i8, ptr %call.i, i64 2608
   %call.i12 = tail call ptr @object_dynamic_cast_assert(ptr noundef %dev, ptr noundef nonnull @.str.4, ptr noundef nonnull @.str.5, i32 noundef 77, ptr noundef nonnull @__func__.DEVICE) #4
-  %num_ports = getelementptr inbounds %struct.OHCIPCIState, ptr %call.i, i64 0, i32 3
+  %num_ports = getelementptr inbounds i8, ptr %call.i, i64 12792
   %2 = load i32, ptr %num_ports, align 8
-  %masterbus = getelementptr inbounds %struct.OHCIPCIState, ptr %call.i, i64 0, i32 2
+  %masterbus = getelementptr inbounds i8, ptr %call.i, i64 12784
   %3 = load ptr, ptr %masterbus, align 16
-  %firstport = getelementptr inbounds %struct.OHCIPCIState, ptr %call.i, i64 0, i32 4
+  %firstport = getelementptr inbounds i8, ptr %call.i, i64 12796
   %4 = load i32, ptr %firstport, align 4
-  %bus_master_as.i = getelementptr inbounds %struct.PCIDevice, ptr %dev, i64 0, i32 12
+  %bus_master_as.i = getelementptr inbounds i8, ptr %dev, i64 576
   call void @usb_ohci_init(ptr noundef nonnull %state, ptr noundef %call.i12, i32 noundef %2, i64 noundef 0, ptr noundef %3, i32 noundef %4, ptr noundef nonnull %bus_master_as.i, ptr noundef nonnull @ohci_pci_die, ptr noundef nonnull %err) #4
   %5 = load ptr, ptr %err, align 8
   %tobool.not = icmp eq ptr %5, null
@@ -175,9 +130,9 @@ if.then:                                          ; preds = %entry
 
 if.end:                                           ; preds = %entry
   %call5 = call ptr @pci_allocate_irq(ptr noundef nonnull %dev) #4
-  %irq = getelementptr inbounds %struct.OHCIPCIState, ptr %call.i, i64 0, i32 1, i32 1
+  %irq = getelementptr inbounds i8, ptr %call.i, i64 2800
   store ptr %call5, ptr %irq, align 16
-  %mem = getelementptr inbounds %struct.OHCIPCIState, ptr %call.i, i64 0, i32 1, i32 2
+  %mem = getelementptr inbounds i8, ptr %call.i, i64 2816
   call void @pci_register_bar(ptr noundef nonnull %dev, i32 noundef 0, i8 noundef zeroext 0, ptr noundef nonnull %mem) #4
   br label %return
 
@@ -190,8 +145,8 @@ define internal void @usb_ohci_exit(ptr noundef %dev) #0 {
 entry:
   %_now.i.i = alloca %struct.timeval, align 8
   %call.i = tail call ptr @object_dynamic_cast_assert(ptr noundef %dev, ptr noundef nonnull @.str, ptr noundef nonnull @.str.7, i32 noundef 35, ptr noundef nonnull @__func__.PCI_OHCI) #4
-  %state = getelementptr inbounds %struct.OHCIPCIState, ptr %call.i, i64 0, i32 1
-  %name = getelementptr inbounds %struct.OHCIPCIState, ptr %call.i, i64 0, i32 1, i32 5
+  %state = getelementptr inbounds i8, ptr %call.i, i64 2608
+  %name = getelementptr inbounds i8, ptr %call.i, i64 3104
   %0 = load ptr, ptr %name, align 16
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %_now.i.i)
   %1 = load i32, ptr @trace_events_enabled_count, align 4
@@ -217,7 +172,7 @@ if.then8.i.i:                                     ; preds = %if.then.i.i
   %call9.i.i = call i32 @gettimeofday(ptr noundef nonnull %_now.i.i, ptr noundef null) #4
   %call10.i.i = tail call i32 @qemu_get_thread_id() #4
   %6 = load i64, ptr %_now.i.i, align 8
-  %tv_usec.i.i = getelementptr inbounds %struct.timeval, ptr %_now.i.i, i64 0, i32 1
+  %tv_usec.i.i = getelementptr inbounds i8, ptr %_now.i.i, i64 8
   %7 = load i64, ptr %tv_usec.i.i, align 8
   tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.8, i32 noundef %call10.i.i, i64 noundef %6, i64 noundef %7, ptr noundef %0) #4
   br label %trace_usb_ohci_exit.exit
@@ -229,20 +184,20 @@ if.else.i.i:                                      ; preds = %if.then.i.i
 trace_usb_ohci_exit.exit:                         ; preds = %entry, %land.lhs.true5.i.i, %if.then8.i.i, %if.else.i.i
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %_now.i.i)
   tail call void @ohci_bus_stop(ptr noundef nonnull %state) #4
-  %async_td = getelementptr inbounds %struct.OHCIPCIState, ptr %call.i, i64 0, i32 1, i32 40
+  %async_td = getelementptr inbounds i8, ptr %call.i, i64 12768
   %8 = load i32, ptr %async_td, align 16
   %tobool.not = icmp eq i32 %8, 0
   br i1 %tobool.not, label %if.end, label %if.then
 
 if.then:                                          ; preds = %trace_usb_ohci_exit.exit
-  %usb_packet = getelementptr inbounds %struct.OHCIPCIState, ptr %call.i, i64 0, i32 1, i32 38
+  %usb_packet = getelementptr inbounds i8, ptr %call.i, i64 4440
   tail call void @usb_cancel_packet(ptr noundef nonnull %usb_packet) #4
   store i32 0, ptr %async_td, align 16
   br label %if.end
 
 if.end:                                           ; preds = %if.then, %trace_usb_ohci_exit.exit
   tail call void @ohci_stop_endpoints(ptr noundef nonnull %state) #4
-  %masterbus = getelementptr inbounds %struct.OHCIPCIState, ptr %call.i, i64 0, i32 2
+  %masterbus = getelementptr inbounds i8, ptr %call.i, i64 12784
   %9 = load ptr, ptr %masterbus, align 16
   %tobool2.not = icmp eq ptr %9, null
   br i1 %tobool2.not, label %if.then3, label %if.end4
@@ -252,7 +207,7 @@ if.then3:                                         ; preds = %if.end
   br label %if.end4
 
 if.end4:                                          ; preds = %if.then3, %if.end
-  %eof_timer = getelementptr inbounds %struct.OHCIPCIState, ptr %call.i, i64 0, i32 1, i32 6
+  %eof_timer = getelementptr inbounds i8, ptr %call.i, i64 3112
   %10 = load ptr, ptr %eof_timer, align 8
   %tobool.not.i = icmp eq ptr %10, null
   br i1 %tobool.not.i, label %timer_free.exit, label %if.then.i
@@ -273,7 +228,7 @@ define internal void @usb_ohci_reset_pci(ptr noundef %d) #0 {
 entry:
   %call.i = tail call ptr @object_dynamic_cast_assert(ptr noundef %d, ptr noundef nonnull @.str.1, ptr noundef nonnull @.str.6, i32 noundef 10, ptr noundef nonnull @__func__.PCI_DEVICE) #4
   %call.i1 = tail call ptr @object_dynamic_cast_assert(ptr noundef %call.i, ptr noundef nonnull @.str, ptr noundef nonnull @.str.7, i32 noundef 35, ptr noundef nonnull @__func__.PCI_OHCI) #4
-  %state = getelementptr inbounds %struct.OHCIPCIState, ptr %call.i1, i64 0, i32 1
+  %state = getelementptr inbounds i8, ptr %call.i1, i64 2608
   tail call void @ohci_hard_reset(ptr noundef nonnull %state) #4
   ret void
 }

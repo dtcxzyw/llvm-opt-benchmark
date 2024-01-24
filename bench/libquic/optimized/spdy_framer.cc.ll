@@ -17,7 +17,6 @@ target triple = "x86_64-unknown-linux-gnu"
 %"class.std::basic_ios" = type { %"class.std::ios_base", ptr, i8, i8, ptr, ptr, ptr, ptr }
 %"class.std::ios_base" = type { ptr, i64, i64, i32, i32, i32, ptr, %"struct.std::ios_base::_Words", [8 x %"struct.std::ios_base::_Words"], i32, ptr, %"class.std::locale" }
 %"struct.std::ios_base::_Words" = type { ptr, i64 }
-%"class.net::SettingsFlagsAndId" = type { i8, i32 }
 %"class.std::allocator" = type { i8 }
 %"class.std::unique_ptr.42" = type { %"struct.std::__uniq_ptr_data.43" }
 %"struct.std::__uniq_ptr_data.43" = type { %"class.std::__uniq_ptr_impl.44" }
@@ -25,115 +24,22 @@ target triple = "x86_64-unknown-linux-gnu"
 %"class.std::tuple.45" = type { %"struct.std::_Tuple_impl.46" }
 %"struct.std::_Tuple_impl.46" = type { %"struct.std::_Head_base.49" }
 %"struct.std::_Head_base.49" = type { ptr }
-%"class.net::SpdyFramer" = type <{ ptr, i32, i32, i32, [4 x i8], i64, i64, i64, i64, i64, %"class.net::SpdyFramer::CharBuffer", i32, i32, i32, i32, %"struct.net::SpdyFramer::SpdySettingsScratch", %"class.std::unique_ptr.2", %"class.std::unique_ptr.10", %"class.std::unique_ptr.10", %"class.std::unique_ptr.18", %"class.std::unique_ptr.26", ptr, ptr, %"class.std::unique_ptr.34", ptr, %"class.std::__cxx11::basic_string", %"class.std::unique_ptr.42", i32, i8, i8, i8, i8, i8, i8, i8, [5 x i8] }>
-%"class.net::SpdyFramer::CharBuffer" = type { %"class.std::unique_ptr", i64, i64 }
+%"class.net::SpdyFrameReader" = type { ptr, i64, i64 }
+%"class.base::BasicStringPiece" = type { ptr, i64 }
+%"class.std::vector.69" = type { %"struct.std::_Vector_base.70" }
+%"struct.std::_Vector_base.70" = type { %"struct.std::_Vector_base<net::SpdyAltSvcWireFormat::AlternativeService, std::allocator<net::SpdyAltSvcWireFormat::AlternativeService>>::_Vector_impl" }
+%"struct.std::_Vector_base<net::SpdyAltSvcWireFormat::AlternativeService, std::allocator<net::SpdyAltSvcWireFormat::AlternativeService>>::_Vector_impl" = type { %"struct.std::_Vector_base<net::SpdyAltSvcWireFormat::AlternativeService, std::allocator<net::SpdyAltSvcWireFormat::AlternativeService>>::_Vector_impl_data" }
+%"struct.std::_Vector_base<net::SpdyAltSvcWireFormat::AlternativeService, std::allocator<net::SpdyAltSvcWireFormat::AlternativeService>>::_Vector_impl_data" = type { ptr, ptr, ptr }
+%"class.net::SpdyFrameBuilder" = type <{ %"class.std::unique_ptr", i64, i64, i64, i32, [4 x i8] }>
 %"class.std::unique_ptr" = type { %"struct.std::__uniq_ptr_data" }
 %"struct.std::__uniq_ptr_data" = type { %"class.std::__uniq_ptr_impl" }
 %"class.std::__uniq_ptr_impl" = type { %"class.std::tuple" }
 %"class.std::tuple" = type { %"struct.std::_Tuple_impl" }
 %"struct.std::_Tuple_impl" = type { %"struct.std::_Head_base.1" }
 %"struct.std::_Head_base.1" = type { ptr }
-%"struct.net::SpdyFramer::SpdySettingsScratch" = type <{ %"class.net::SpdyFramer::CharBuffer", i32, [4 x i8] }>
-%"class.std::unique_ptr.2" = type { %"struct.std::__uniq_ptr_data.3" }
-%"struct.std::__uniq_ptr_data.3" = type { %"class.std::__uniq_ptr_impl.4" }
-%"class.std::__uniq_ptr_impl.4" = type { %"class.std::tuple.5" }
-%"class.std::tuple.5" = type { %"struct.std::_Tuple_impl.6" }
-%"struct.std::_Tuple_impl.6" = type { %"struct.std::_Head_base.9" }
-%"struct.std::_Head_base.9" = type { ptr }
-%"class.std::unique_ptr.10" = type { %"struct.std::__uniq_ptr_data.11" }
-%"struct.std::__uniq_ptr_data.11" = type { %"class.std::__uniq_ptr_impl.12" }
-%"class.std::__uniq_ptr_impl.12" = type { %"class.std::tuple.13" }
-%"class.std::tuple.13" = type { %"struct.std::_Tuple_impl.14" }
-%"struct.std::_Tuple_impl.14" = type { %"struct.std::_Head_base.17" }
-%"struct.std::_Head_base.17" = type { ptr }
-%"class.std::unique_ptr.18" = type { %"struct.std::__uniq_ptr_data.19" }
-%"struct.std::__uniq_ptr_data.19" = type { %"class.std::__uniq_ptr_impl.20" }
-%"class.std::__uniq_ptr_impl.20" = type { %"class.std::tuple.21" }
-%"class.std::tuple.21" = type { %"struct.std::_Tuple_impl.22" }
-%"struct.std::_Tuple_impl.22" = type { %"struct.std::_Head_base.25" }
-%"struct.std::_Head_base.25" = type { ptr }
-%"class.std::unique_ptr.26" = type { %"struct.std::__uniq_ptr_data.27" }
-%"struct.std::__uniq_ptr_data.27" = type { %"class.std::__uniq_ptr_impl.28" }
-%"class.std::__uniq_ptr_impl.28" = type { %"class.std::tuple.29" }
-%"class.std::tuple.29" = type { %"struct.std::_Tuple_impl.30" }
-%"struct.std::_Tuple_impl.30" = type { %"struct.std::_Head_base.33" }
-%"struct.std::_Head_base.33" = type { ptr }
-%"class.std::unique_ptr.34" = type { %"struct.std::__uniq_ptr_data.35" }
-%"struct.std::__uniq_ptr_data.35" = type { %"class.std::__uniq_ptr_impl.36" }
-%"class.std::__uniq_ptr_impl.36" = type { %"class.std::tuple.37" }
-%"class.std::tuple.37" = type { %"struct.std::_Tuple_impl.38" }
-%"struct.std::_Tuple_impl.38" = type { %"struct.std::_Head_base.41" }
-%"struct.std::_Head_base.41" = type { ptr }
-%"class.net::SpdyFrameReader" = type { ptr, i64, i64 }
-%"class.net::SpdyHeadersBlockParser" = type <{ ptr, i32, [4 x i8], i64, i64, i32, i32, ptr, %"struct.net::SpdyPinnableBufferPiece", %"struct.net::SpdyPinnableBufferPiece", i32, i32, i32, [4 x i8] }>
-%"struct.net::SpdyPinnableBufferPiece" = type { ptr, i64, %"class.std::unique_ptr" }
-%"class.base::BasicStringPiece" = type { ptr, i64 }
-%"class.std::vector.69" = type { %"struct.std::_Vector_base.70" }
-%"struct.std::_Vector_base.70" = type { %"struct.std::_Vector_base<net::SpdyAltSvcWireFormat::AlternativeService, std::allocator<net::SpdyAltSvcWireFormat::AlternativeService>>::_Vector_impl" }
-%"struct.std::_Vector_base<net::SpdyAltSvcWireFormat::AlternativeService, std::allocator<net::SpdyAltSvcWireFormat::AlternativeService>>::_Vector_impl" = type { %"struct.std::_Vector_base<net::SpdyAltSvcWireFormat::AlternativeService, std::allocator<net::SpdyAltSvcWireFormat::AlternativeService>>::_Vector_impl_data" }
-%"struct.std::_Vector_base<net::SpdyAltSvcWireFormat::AlternativeService, std::allocator<net::SpdyAltSvcWireFormat::AlternativeService>>::_Vector_impl_data" = type { ptr, ptr, ptr }
-%"struct.net::SpdyAltSvcWireFormat::AlternativeService" = type { %"class.std::__cxx11::basic_string", %"class.std::__cxx11::basic_string", i16, i32, %"class.std::vector.164" }
-%"class.std::vector.164" = type { %"struct.std::_Vector_base.165" }
-%"struct.std::_Vector_base.165" = type { %"struct.std::_Vector_base<unsigned short, std::allocator<unsigned short>>::_Vector_impl" }
-%"struct.std::_Vector_base<unsigned short, std::allocator<unsigned short>>::_Vector_impl" = type { %"struct.std::_Vector_base<unsigned short, std::allocator<unsigned short>>::_Vector_impl_data" }
-%"struct.std::_Vector_base<unsigned short, std::allocator<unsigned short>>::_Vector_impl_data" = type { ptr, ptr, ptr }
-%class.linked_hash_map = type { %"class.std::unordered_map", %"class.std::__cxx11::list" }
-%"class.std::unordered_map" = type { %"class.std::_Hashtable" }
-%"class.std::_Hashtable" = type { ptr, i64, %"struct.std::__detail::_Hash_node_base", i64, %"struct.std::__detail::_Prime_rehash_policy", ptr }
-%"struct.std::__detail::_Hash_node_base" = type { ptr }
-%"struct.std::__detail::_Prime_rehash_policy" = type { float, i64 }
-%"class.std::__cxx11::list" = type { %"class.std::__cxx11::_List_base" }
-%"class.std::__cxx11::_List_base" = type { %"struct.std::__cxx11::_List_base<std::pair<base::BasicStringPiece<std::string>, base::BasicStringPiece<std::string>>, std::allocator<std::pair<base::BasicStringPiece<std::string>, base::BasicStringPiece<std::string>>>>::_List_impl" }
-%"struct.std::__cxx11::_List_base<std::pair<base::BasicStringPiece<std::string>, base::BasicStringPiece<std::string>>, std::allocator<std::pair<base::BasicStringPiece<std::string>, base::BasicStringPiece<std::string>>>>::_List_impl" = type { %"struct.std::__detail::_List_node_header" }
-%"struct.std::__detail::_List_node_header" = type { %"struct.std::__detail::_List_node_base", i64 }
-%"struct.std::__detail::_List_node_base" = type { ptr, ptr }
-%"struct.std::_List_node" = type { %"struct.std::__detail::_List_node_base", %"struct.__gnu_cxx::__aligned_membuf" }
-%"struct.__gnu_cxx::__aligned_membuf" = type { [32 x i8] }
-%struct.z_stream_s = type { ptr, i32, i64, ptr, i32, i64, ptr, ptr, ptr, ptr, ptr, i32, i64, i64, i32 }
-%"class.net::SpdyFrameBuilder" = type <{ %"class.std::unique_ptr", i64, i64, i64, i32, [4 x i8] }>
 %"class.net::SpdySerializedFrame" = type <{ ptr, i64, i8, [7 x i8] }>
 %"class.net::SpdyHeaderBlock::StringPieceProxy" = type <{ ptr, ptr, %"struct.std::_List_iterator", %"class.base::BasicStringPiece", i8, [7 x i8] }>
 %"struct.std::_List_iterator" = type { ptr }
-%"class.net::SpdyFrameWithFinIR" = type { %"class.net::SpdyFrameWithStreamIdIR.base", i8, [3 x i8] }
-%"class.net::SpdyFrameWithStreamIdIR.base" = type <{ %"class.net::SpdyFrameIR", i32 }>
-%"class.net::SpdyFrameIR" = type { ptr }
-%"class.net::SpdyDataIR" = type { %"class.net::SpdyFrameWithFinIR.base", %"class.std::unique_ptr.74", %"class.base::BasicStringPiece", i8, i32 }
-%"class.net::SpdyFrameWithFinIR.base" = type { %"class.net::SpdyFrameWithStreamIdIR.base", i8 }
-%"class.std::unique_ptr.74" = type { %"struct.std::__uniq_ptr_data.75" }
-%"struct.std::__uniq_ptr_data.75" = type { %"class.std::__uniq_ptr_impl.76" }
-%"class.std::__uniq_ptr_impl.76" = type { %"class.std::tuple.77" }
-%"class.std::tuple.77" = type { %"struct.std::_Tuple_impl.78" }
-%"struct.std::_Tuple_impl.78" = type { %"struct.std::_Head_base.81" }
-%"struct.std::_Head_base.81" = type { ptr }
-%"class.net::SpdyFrameWithStreamIdIR" = type <{ %"class.net::SpdyFrameIR", i32, [4 x i8] }>
-%"class.net::SpdySynStreamIR" = type <{ %"class.net::SpdyFrameWithHeaderBlockIR", i32, i8, i8, [2 x i8] }>
-%"class.net::SpdyFrameWithHeaderBlockIR" = type { %"class.net::SpdyFrameWithFinIR.base", %"class.net::SpdyHeaderBlock" }
-%"class.net::SpdyHeaderBlock" = type { %class.linked_hash_map, %"class.std::unique_ptr.58" }
-%"class.std::unique_ptr.58" = type { %"struct.std::__uniq_ptr_data.59" }
-%"struct.std::__uniq_ptr_data.59" = type { %"class.std::__uniq_ptr_impl.60" }
-%"class.std::__uniq_ptr_impl.60" = type { %"class.std::tuple.61" }
-%"class.std::tuple.61" = type { %"struct.std::_Tuple_impl.62" }
-%"struct.std::_Tuple_impl.62" = type { %"struct.std::_Head_base.65" }
-%"struct.std::_Head_base.65" = type { ptr }
-%"class.net::SpdyRstStreamIR" = type { %"class.net::SpdyFrameWithStreamIdIR.base", i32 }
-%"class.net::SpdySettingsIR" = type <{ %"class.net::SpdyFrameIR", %"class.std::map", i8, i8, [6 x i8] }>
-%"class.std::map" = type { %"class.std::_Rb_tree" }
-%"class.std::_Rb_tree" = type { %"struct.std::_Rb_tree<net::SpdySettingsIds, std::pair<const net::SpdySettingsIds, net::SpdySettingsIR::Value>, std::_Select1st<std::pair<const net::SpdySettingsIds, net::SpdySettingsIR::Value>>, std::less<net::SpdySettingsIds>>::_Rb_tree_impl" }
-%"struct.std::_Rb_tree<net::SpdySettingsIds, std::pair<const net::SpdySettingsIds, net::SpdySettingsIR::Value>, std::_Select1st<std::pair<const net::SpdySettingsIds, net::SpdySettingsIR::Value>>, std::less<net::SpdySettingsIds>>::_Rb_tree_impl" = type { %"struct.std::_Rb_tree_key_compare", %"struct.std::_Rb_tree_header" }
-%"struct.std::_Rb_tree_key_compare" = type { %"struct.std::less" }
-%"struct.std::less" = type { i8 }
-%"struct.std::_Rb_tree_header" = type { %"struct.std::_Rb_tree_node_base", i64 }
-%"struct.std::_Rb_tree_node_base" = type { i32, ptr, ptr, ptr }
-%"struct.std::_Rb_tree_node" = type <{ %"struct.std::_Rb_tree_node_base", %"struct.__gnu_cxx::__aligned_membuf.169", [4 x i8] }>
-%"struct.__gnu_cxx::__aligned_membuf.169" = type { [12 x i8] }
-%"class.net::SpdyPingIR" = type <{ %"class.net::SpdyFrameIR", i64, i8, [7 x i8] }>
-%"class.net::SpdyGoAwayIR" = type { %"class.net::SpdyFrameIR", i32, i32, %"class.std::__cxx11::basic_string", %"class.base::BasicStringPiece" }
-%"class.net::SpdyHeadersIR" = type <{ %"class.net::SpdyFrameWithHeaderBlockIR", i8, [3 x i8], i32, i32, i8, i8, [2 x i8], i32, [4 x i8] }>
-%"class.net::SpdyWindowUpdateIR" = type { %"class.net::SpdyFrameWithStreamIdIR.base", i32 }
-%"class.net::SpdyPushPromiseIR" = type <{ %"class.net::SpdyFrameWithHeaderBlockIR", i32, i8, [3 x i8], i32, [4 x i8] }>
-%"class.net::SpdyContinuationIR" = type <{ %"class.net::SpdyFrameWithHeaderBlockIR", i8, [7 x i8] }>
-%"class.net::SpdyAltSvcIR" = type { %"class.net::SpdyFrameWithStreamIdIR.base", %"class.std::__cxx11::basic_string", %"class.std::vector.69" }
-%"class.net::SpdyPriorityIR" = type <{ %"class.net::SpdyFrameWithStreamIdIR.base", i32, i32, i8, [3 x i8] }>
 %"class.net::(anonymous namespace)::FrameSerializationVisitor" = type { %"class.net::SpdyFrameVisitor", ptr, %"class.net::SpdySerializedFrame" }
 %"class.net::SpdyFrameVisitor" = type { ptr }
 %"class.std::unique_ptr.120" = type { %"struct.std::__uniq_ptr_data.121" }
@@ -142,16 +48,6 @@ target triple = "x86_64-unknown-linux-gnu"
 %"class.std::tuple.123" = type { %"struct.std::_Tuple_impl.124" }
 %"struct.std::_Tuple_impl.124" = type { %"struct.std::_Head_base.127" }
 %"struct.std::_Head_base.127" = type { ptr }
-%"class.net::HpackHeaderTable" = type { ptr, %"class.std::deque", ptr, ptr, %"class.std::unordered_set", %"class.std::unordered_map.106", i64, i64, i64, i64, %"class.std::unique_ptr.120" }
-%"class.std::deque" = type { %"class.std::_Deque_base" }
-%"class.std::_Deque_base" = type { %"struct.std::_Deque_base<net::HpackEntry, std::allocator<net::HpackEntry>>::_Deque_impl" }
-%"struct.std::_Deque_base<net::HpackEntry, std::allocator<net::HpackEntry>>::_Deque_impl" = type { %"struct.std::_Deque_base<net::HpackEntry, std::allocator<net::HpackEntry>>::_Deque_impl_data" }
-%"struct.std::_Deque_base<net::HpackEntry, std::allocator<net::HpackEntry>>::_Deque_impl_data" = type { ptr, i64, %"struct.std::_Deque_iterator", %"struct.std::_Deque_iterator" }
-%"struct.std::_Deque_iterator" = type { ptr, ptr, ptr, ptr }
-%"class.std::unordered_set" = type { %"class.std::_Hashtable.91" }
-%"class.std::_Hashtable.91" = type { ptr, i64, %"struct.std::__detail::_Hash_node_base", i64, %"struct.std::__detail::_Prime_rehash_policy", ptr }
-%"class.std::unordered_map.106" = type { %"class.std::_Hashtable.107" }
-%"class.std::_Hashtable.107" = type { ptr, i64, %"struct.std::__detail::_Hash_node_base", i64, %"struct.std::__detail::_Prime_rehash_policy", ptr }
 %struct._Guard = type { ptr }
 
 $_ZNSt10unique_ptrIN3net12HpackEncoderESt14default_deleteIS1_EED2Ev = comdat any
@@ -374,7 +270,7 @@ define dso_local void @_ZN3net18SettingsFlagsAndIdC2Ehj(ptr nocapture noundef no
 entry:
   %ref.tmp2 = alloca %"class.logging::LogMessage", align 8
   store i8 %flags, ptr %this, align 4
-  %id_ = getelementptr inbounds %"class.net::SettingsFlagsAndId", ptr %this, i64 0, i32 1
+  %id_ = getelementptr inbounds i8, ptr %this, i64 4
   %and = and i32 %id, 16777215
   store i32 %and, ptr %id_, align 4
   %call = tail call noundef zeroext i1 @_ZN7logging22ShouldCreateLogMessageEi(i32 noundef 2)
@@ -384,7 +280,7 @@ entry:
 
 cond.false:                                       ; preds = %entry
   call void @_ZN7logging10LogMessageC1EPKcii(ptr noundef nonnull align 8 dereferenceable(404) %ref.tmp2, ptr noundef nonnull @.str, i32 noundef 168, i32 noundef 2)
-  %stream_.i = getelementptr inbounds %"class.logging::LogMessage", ptr %ref.tmp2, i64 0, i32 2
+  %stream_.i = getelementptr inbounds i8, ptr %ref.tmp2, i64 8
   %call5 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc(ptr noundef nonnull align 8 dereferenceable(8) %stream_.i, ptr noundef nonnull @.str.1)
           to label %invoke.cont4 unwind label %lpad
 
@@ -422,7 +318,7 @@ declare void @_ZN7logging10LogMessageD1Ev(ptr noundef nonnull align 8 dereferenc
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
 define dso_local noundef i32 @_ZNK3net18SettingsFlagsAndId13GetWireFormatENS_16SpdyMajorVersionE(ptr nocapture noundef nonnull readonly align 4 dereferenceable(8) %this, i32 noundef %version) local_unnamed_addr #3 align 2 {
 entry:
-  %id_ = getelementptr inbounds %"class.net::SettingsFlagsAndId", ptr %this, i64 0, i32 1
+  %id_ = getelementptr inbounds i8, ptr %this, i64 4
   %0 = load i32, ptr %id_, align 4
   %and = and i32 %0, 16777215
   %1 = tail call noundef i32 @llvm.bswap.i32(i32 %and)
@@ -450,38 +346,38 @@ entry:
   %ref.tmp = alloca %"class.std::allocator", align 1
   %ref.tmp7 = alloca %"class.std::unique_ptr.42", align 8
   store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN3net10SpdyFramerE, i64 0, inrange i32 0, i64 2), ptr %this, align 8
-  %send_frame_size_limit_ = getelementptr inbounds %"class.net::SpdyFramer", ptr %this, i64 0, i32 8
+  %send_frame_size_limit_ = getelementptr inbounds i8, ptr %this, i64 48
   store i64 16384, ptr %send_frame_size_limit_, align 8
-  %recv_frame_size_limit_ = getelementptr inbounds %"class.net::SpdyFramer", ptr %this, i64 0, i32 9
+  %recv_frame_size_limit_ = getelementptr inbounds i8, ptr %this, i64 56
   store i64 16384, ptr %recv_frame_size_limit_, align 8
-  %current_frame_buffer_ = getelementptr inbounds %"class.net::SpdyFramer", ptr %this, i64 0, i32 10
+  %current_frame_buffer_ = getelementptr inbounds i8, ptr %this, i64 64
   %call.i = tail call noalias noundef nonnull dereferenceable(19) ptr @_Znam(i64 noundef 19) #24
   store ptr %call.i, ptr %current_frame_buffer_, align 8
-  %capacity_.i = getelementptr inbounds %"class.net::SpdyFramer", ptr %this, i64 0, i32 10, i32 1
+  %capacity_.i = getelementptr inbounds i8, ptr %this, i64 72
   store i64 19, ptr %capacity_.i, align 8
-  %len_.i = getelementptr inbounds %"class.net::SpdyFramer", ptr %this, i64 0, i32 10, i32 2
+  %len_.i = getelementptr inbounds i8, ptr %this, i64 80
   store i64 0, ptr %len_.i, align 8
-  %expect_continuation_ = getelementptr inbounds %"class.net::SpdyFramer", ptr %this, i64 0, i32 14
+  %expect_continuation_ = getelementptr inbounds i8, ptr %this, i64 100
   store i32 0, ptr %expect_continuation_, align 4
-  %settings_scratch_ = getelementptr inbounds %"class.net::SpdyFramer", ptr %this, i64 0, i32 15
+  %settings_scratch_ = getelementptr inbounds i8, ptr %this, i64 104
   %call.i.i5 = invoke noalias noundef nonnull dereferenceable(8) ptr @_Znam(i64 noundef 8) #24
           to label %invoke.cont unwind label %ehcleanup16.thread
 
 invoke.cont:                                      ; preds = %entry
   store ptr %call.i.i5, ptr %settings_scratch_, align 8
-  %capacity_.i.i = getelementptr inbounds %"class.net::SpdyFramer", ptr %this, i64 0, i32 15, i32 0, i32 1
+  %capacity_.i.i = getelementptr inbounds i8, ptr %this, i64 112
   store i64 8, ptr %capacity_.i.i, align 8
-  %len_.i.i = getelementptr inbounds %"class.net::SpdyFramer", ptr %this, i64 0, i32 15, i32 0, i32 2
+  %len_.i.i = getelementptr inbounds i8, ptr %this, i64 120
   store i64 0, ptr %len_.i.i, align 8
-  %last_setting_id.i = getelementptr inbounds %"class.net::SpdyFramer", ptr %this, i64 0, i32 15, i32 1
+  %last_setting_id.i = getelementptr inbounds i8, ptr %this, i64 128
   store i32 -1, ptr %last_setting_id.i, align 8
-  %altsvc_scratch_ = getelementptr inbounds %"class.net::SpdyFramer", ptr %this, i64 0, i32 16
-  %header_compressor_ = getelementptr inbounds %"class.net::SpdyFramer", ptr %this, i64 0, i32 17
-  %header_decompressor_ = getelementptr inbounds %"class.net::SpdyFramer", ptr %this, i64 0, i32 18
-  %hpack_encoder_ = getelementptr inbounds %"class.net::SpdyFramer", ptr %this, i64 0, i32 19
-  %hpack_decoder_ = getelementptr inbounds %"class.net::SpdyFramer", ptr %this, i64 0, i32 20
-  %header_parser_ = getelementptr inbounds %"class.net::SpdyFramer", ptr %this, i64 0, i32 23
-  %display_protocol_ = getelementptr inbounds %"class.net::SpdyFramer", ptr %this, i64 0, i32 25
+  %altsvc_scratch_ = getelementptr inbounds i8, ptr %this, i64 136
+  %header_compressor_ = getelementptr inbounds i8, ptr %this, i64 144
+  %header_decompressor_ = getelementptr inbounds i8, ptr %this, i64 152
+  %hpack_encoder_ = getelementptr inbounds i8, ptr %this, i64 160
+  %hpack_decoder_ = getelementptr inbounds i8, ptr %this, i64 168
+  %header_parser_ = getelementptr inbounds i8, ptr %this, i64 192
+  %display_protocol_ = getelementptr inbounds i8, ptr %this, i64 208
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(72) %altsvc_scratch_, i8 0, i64 72, i1 false)
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp) #23
   %call.i67 = invoke noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_M_local_dataEv(ptr noundef nonnull align 8 dereferenceable(32) %display_protocol_)
@@ -503,31 +399,31 @@ lpad.i:                                           ; preds = %.noexc
 
 if.end.i:                                         ; preds = %.noexc
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp) #23
-  %decoder_adapter_ = getelementptr inbounds %"class.net::SpdyFramer", ptr %this, i64 0, i32 26
+  %decoder_adapter_ = getelementptr inbounds i8, ptr %this, i64 240
   store ptr null, ptr %decoder_adapter_, align 8
-  %protocol_version_ = getelementptr inbounds %"class.net::SpdyFramer", ptr %this, i64 0, i32 27
+  %protocol_version_ = getelementptr inbounds i8, ptr %this, i64 248
   store i32 %version, ptr %protocol_version_, align 8
-  %enable_compression_ = getelementptr inbounds %"class.net::SpdyFramer", ptr %this, i64 0, i32 29
+  %enable_compression_ = getelementptr inbounds i8, ptr %this, i64 253
   store i8 1, ptr %enable_compression_, align 1
-  %syn_frame_processed_ = getelementptr inbounds %"class.net::SpdyFramer", ptr %this, i64 0, i32 30
-  %use_new_methods_ = getelementptr inbounds %"class.net::SpdyFramer", ptr %this, i64 0, i32 34
+  %syn_frame_processed_ = getelementptr inbounds i8, ptr %this, i64 254
+  %use_new_methods_ = getelementptr inbounds i8, ptr %this, i64 258
   store i32 0, ptr %syn_frame_processed_, align 2
   %1 = load i8, ptr @FLAGS_chromium_http2_flag_spdy_framer_use_new_methods4, align 1
   %2 = and i8 %1, 1
   store i8 %2, ptr %use_new_methods_, align 2
-  %state_.i = getelementptr inbounds %"class.net::SpdyFramer", ptr %this, i64 0, i32 1
+  %state_.i = getelementptr inbounds i8, ptr %this, i64 8
   store i32 1, ptr %state_.i, align 8
-  %previous_state_.i = getelementptr inbounds %"class.net::SpdyFramer", ptr %this, i64 0, i32 2
+  %previous_state_.i = getelementptr inbounds i8, ptr %this, i64 12
   store i32 1, ptr %previous_state_.i, align 4
-  %error_code_.i = getelementptr inbounds %"class.net::SpdyFramer", ptr %this, i64 0, i32 3
+  %error_code_.i = getelementptr inbounds i8, ptr %this, i64 16
   store i32 0, ptr %error_code_.i, align 8
-  %remaining_data_length_.i = getelementptr inbounds %"class.net::SpdyFramer", ptr %this, i64 0, i32 5
+  %remaining_data_length_.i = getelementptr inbounds i8, ptr %this, i64 24
   store i64 0, ptr %remaining_data_length_.i, align 8
-  %remaining_control_header_.i = getelementptr inbounds %"class.net::SpdyFramer", ptr %this, i64 0, i32 7
+  %remaining_control_header_.i = getelementptr inbounds i8, ptr %this, i64 40
   store i64 0, ptr %remaining_control_header_.i, align 8
-  %current_frame_flags_.i = getelementptr inbounds %"class.net::SpdyFramer", ptr %this, i64 0, i32 28
+  %current_frame_flags_.i = getelementptr inbounds i8, ptr %this, i64 252
   store i8 0, ptr %current_frame_flags_.i, align 4
-  %current_frame_stream_id_.i = getelementptr inbounds %"class.net::SpdyFramer", ptr %this, i64 0, i32 13
+  %current_frame_stream_id_.i = getelementptr inbounds i8, ptr %this, i64 96
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %len_.i, i8 0, i64 16, i1 false)
   store i32 -1, ptr %current_frame_stream_id_.i, align 8
   store i64 0, ptr %len_.i.i, align 8
@@ -551,7 +447,7 @@ _ZNKSt14default_deleteIN3net10SpdyFramer10CharBufferEEclEPS2_.exit.i.i.i: ; pred
   br label %invoke.cont5
 
 invoke.cont5:                                     ; preds = %_ZNKSt14default_deleteIN3net10SpdyFramer10CharBufferEEclEPS2_.exit.i.i.i, %if.end.i
-  %remaining_padding_payload_length_.i = getelementptr inbounds %"class.net::SpdyFramer", ptr %this, i64 0, i32 6
+  %remaining_padding_payload_length_.i = getelementptr inbounds i8, ptr %this, i64 32
   store i64 0, ptr %remaining_padding_payload_length_.i, align 8
   %cmp = icmp eq i32 %version, 2
   %cmp6 = icmp ne ptr %adapter_factory, null
@@ -572,7 +468,7 @@ invoke.cont8:                                     ; preds = %if.then
 
 _ZNSt10unique_ptrIN3net24SpdyFramerDecoderAdapterESt14default_deleteIS1_EEaSEOS4_.exit: ; preds = %invoke.cont8
   %vtable.i.i.i.i.i = load ptr, ptr %6, align 8
-  %vfn.i.i.i.i.i = getelementptr inbounds ptr, ptr %vtable.i.i.i.i.i, i64 1
+  %vfn.i.i.i.i.i = getelementptr inbounds i8, ptr %vtable.i.i.i.i.i, i64 8
   %7 = load ptr, ptr %vfn.i.i.i.i.i, align 8
   call void %7(ptr noundef nonnull align 8 dereferenceable(25) %6) #23
   %.pr = load ptr, ptr %ref.tmp7, align 8
@@ -581,7 +477,7 @@ _ZNSt10unique_ptrIN3net24SpdyFramerDecoderAdapterESt14default_deleteIS1_EEaSEOS4
 
 _ZNKSt14default_deleteIN3net24SpdyFramerDecoderAdapterEEclEPS1_.exit.i: ; preds = %_ZNSt10unique_ptrIN3net24SpdyFramerDecoderAdapterESt14default_deleteIS1_EEaSEOS4_.exit
   %vtable.i.i = load ptr, ptr %.pr, align 8
-  %vfn.i.i = getelementptr inbounds ptr, ptr %vtable.i.i, i64 1
+  %vfn.i.i = getelementptr inbounds i8, ptr %vtable.i.i, i64 8
   %8 = load ptr, ptr %vfn.i.i, align 8
   call void %8(ptr noundef nonnull align 8 dereferenceable(25) %.pr) #23
   br label %if.end
@@ -610,7 +506,7 @@ lpad4:                                            ; preds = %if.then
 
 _ZNKSt14default_deleteIN3net24SpdyFramerDecoderAdapterEEclEPS1_.exit.i12: ; preds = %lpad4
   %vtable.i.i13 = load ptr, ptr %12, align 8
-  %vfn.i.i14 = getelementptr inbounds ptr, ptr %vtable.i.i13, i64 1
+  %vfn.i.i14 = getelementptr inbounds i8, ptr %vtable.i.i13, i64 8
   %13 = load ptr, ptr %vfn.i.i14, align 8
   call void %13(ptr noundef nonnull align 8 dereferenceable(25) %12) #23
   br label %_ZNSt10unique_ptrIN3net24SpdyFramerDecoderAdapterESt14default_deleteIS1_EED2Ev.exit16
@@ -631,7 +527,7 @@ ehcleanup:                                        ; preds = %_ZNSt10unique_ptrIN
 
 _ZNKSt14default_deleteIN3net22SpdyHeadersBlockParserEEclEPS1_.exit.i: ; preds = %ehcleanup
   %vtable.i.i18 = load ptr, ptr %14, align 8
-  %vfn.i.i19 = getelementptr inbounds ptr, ptr %vtable.i.i18, i64 1
+  %vfn.i.i19 = getelementptr inbounds i8, ptr %vtable.i.i18, i64 8
   %15 = load ptr, ptr %vfn.i.i19, align 8
   call void %15(ptr noundef nonnull align 8 dereferenceable(108) %14) #23
   br label %_ZNSt10unique_ptrIN3net22SpdyHeadersBlockParserESt14default_deleteIS1_EED2Ev.exit
@@ -644,7 +540,7 @@ _ZNSt10unique_ptrIN3net22SpdyHeadersBlockParserESt14default_deleteIS1_EED2Ev.exi
 
 _ZNKSt14default_deleteIN3net21HpackDecoderInterfaceEEclEPS1_.exit.i: ; preds = %_ZNSt10unique_ptrIN3net22SpdyHeadersBlockParserESt14default_deleteIS1_EED2Ev.exit
   %vtable.i.i22 = load ptr, ptr %16, align 8
-  %vfn.i.i23 = getelementptr inbounds ptr, ptr %vtable.i.i22, i64 1
+  %vfn.i.i23 = getelementptr inbounds i8, ptr %vtable.i.i22, i64 8
   %17 = load ptr, ptr %vfn.i.i23, align 8
   call void %17(ptr noundef nonnull align 8 dereferenceable(8) %16) #23
   br label %_ZNSt10unique_ptrIN3net21HpackDecoderInterfaceESt14default_deleteIS1_EED2Ev.exit
@@ -708,40 +604,40 @@ declare void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1)) unnam
 ; Function Attrs: mustprogress uwtable
 define dso_local void @_ZN3net10SpdyFramer5ResetEv(ptr nocapture noundef nonnull align 8 dereferenceable(259) %this) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  %decoder_adapter_ = getelementptr inbounds %"class.net::SpdyFramer", ptr %this, i64 0, i32 26
+  %decoder_adapter_ = getelementptr inbounds i8, ptr %this, i64 240
   %0 = load ptr, ptr %decoder_adapter_, align 8
   %cmp.i.i.not = icmp eq ptr %0, null
   br i1 %cmp.i.i.not, label %if.end, label %if.then
 
 if.then:                                          ; preds = %entry
   %vtable = load ptr, ptr %0, align 8
-  %vfn = getelementptr inbounds ptr, ptr %vtable, i64 7
+  %vfn = getelementptr inbounds i8, ptr %vtable, i64 56
   %1 = load ptr, ptr %vfn, align 8
   tail call void %1(ptr noundef nonnull align 8 dereferenceable(25) %0)
   br label %if.end
 
 if.end:                                           ; preds = %if.then, %entry
-  %state_ = getelementptr inbounds %"class.net::SpdyFramer", ptr %this, i64 0, i32 1
+  %state_ = getelementptr inbounds i8, ptr %this, i64 8
   store i32 1, ptr %state_, align 8
-  %previous_state_ = getelementptr inbounds %"class.net::SpdyFramer", ptr %this, i64 0, i32 2
+  %previous_state_ = getelementptr inbounds i8, ptr %this, i64 12
   store i32 1, ptr %previous_state_, align 4
-  %error_code_ = getelementptr inbounds %"class.net::SpdyFramer", ptr %this, i64 0, i32 3
+  %error_code_ = getelementptr inbounds i8, ptr %this, i64 16
   store i32 0, ptr %error_code_, align 8
-  %remaining_data_length_ = getelementptr inbounds %"class.net::SpdyFramer", ptr %this, i64 0, i32 5
+  %remaining_data_length_ = getelementptr inbounds i8, ptr %this, i64 24
   store i64 0, ptr %remaining_data_length_, align 8
-  %remaining_control_header_ = getelementptr inbounds %"class.net::SpdyFramer", ptr %this, i64 0, i32 7
+  %remaining_control_header_ = getelementptr inbounds i8, ptr %this, i64 40
   store i64 0, ptr %remaining_control_header_, align 8
-  %len_.i = getelementptr inbounds %"class.net::SpdyFramer", ptr %this, i64 0, i32 10, i32 2
-  %current_frame_flags_ = getelementptr inbounds %"class.net::SpdyFramer", ptr %this, i64 0, i32 28
+  %len_.i = getelementptr inbounds i8, ptr %this, i64 80
+  %current_frame_flags_ = getelementptr inbounds i8, ptr %this, i64 252
   store i8 0, ptr %current_frame_flags_, align 4
-  %current_frame_stream_id_ = getelementptr inbounds %"class.net::SpdyFramer", ptr %this, i64 0, i32 13
+  %current_frame_stream_id_ = getelementptr inbounds i8, ptr %this, i64 96
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %len_.i, i8 0, i64 16, i1 false)
   store i32 -1, ptr %current_frame_stream_id_, align 8
-  %len_.i.i = getelementptr inbounds %"class.net::SpdyFramer", ptr %this, i64 0, i32 15, i32 0, i32 2
+  %len_.i.i = getelementptr inbounds i8, ptr %this, i64 120
   store i64 0, ptr %len_.i.i, align 8
-  %last_setting_id.i = getelementptr inbounds %"class.net::SpdyFramer", ptr %this, i64 0, i32 15, i32 1
+  %last_setting_id.i = getelementptr inbounds i8, ptr %this, i64 128
   store i32 -1, ptr %last_setting_id.i, align 8
-  %altsvc_scratch_ = getelementptr inbounds %"class.net::SpdyFramer", ptr %this, i64 0, i32 16
+  %altsvc_scratch_ = getelementptr inbounds i8, ptr %this, i64 136
   %2 = load ptr, ptr %altsvc_scratch_, align 8
   store ptr null, ptr %altsvc_scratch_, align 8
   %tobool.not.i.i = icmp eq ptr %2, null
@@ -761,7 +657,7 @@ _ZNKSt14default_deleteIN3net10SpdyFramer10CharBufferEEclEPS2_.exit.i.i: ; preds 
   br label %_ZNSt10unique_ptrIN3net10SpdyFramer10CharBufferESt14default_deleteIS2_EE5resetEPS2_.exit
 
 _ZNSt10unique_ptrIN3net10SpdyFramer10CharBufferESt14default_deleteIS2_EE5resetEPS2_.exit: ; preds = %if.end, %_ZNKSt14default_deleteIN3net10SpdyFramer10CharBufferEEclEPS2_.exit.i.i
-  %remaining_padding_payload_length_ = getelementptr inbounds %"class.net::SpdyFramer", ptr %this, i64 0, i32 6
+  %remaining_padding_payload_length_ = getelementptr inbounds i8, ptr %this, i64 32
   store i64 0, ptr %remaining_padding_payload_length_, align 8
   ret void
 }
@@ -842,7 +738,7 @@ return:                                           ; preds = %if.end, %if.then
 define dso_local void @_ZN3net10SpdyFramerD2Ev(ptr noundef nonnull align 8 dereferenceable(259) %this) unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN3net10SpdyFramerE, i64 0, inrange i32 0, i64 2), ptr %this, align 8
-  %header_compressor_ = getelementptr inbounds %"class.net::SpdyFramer", ptr %this, i64 0, i32 17
+  %header_compressor_ = getelementptr inbounds i8, ptr %this, i64 144
   %0 = load ptr, ptr %header_compressor_, align 8
   %tobool.not = icmp eq ptr %0, null
   br i1 %tobool.not, label %if.end, label %if.then
@@ -852,7 +748,7 @@ if.then:                                          ; preds = %entry
           to label %if.end unwind label %terminate.lpad
 
 if.end:                                           ; preds = %if.then, %entry
-  %header_decompressor_ = getelementptr inbounds %"class.net::SpdyFramer", ptr %this, i64 0, i32 18
+  %header_decompressor_ = getelementptr inbounds i8, ptr %this, i64 152
   %1 = load ptr, ptr %header_decompressor_, align 8
   %tobool6.not = icmp eq ptr %1, null
   br i1 %tobool6.not, label %if.end12, label %if.then7
@@ -862,51 +758,51 @@ if.then7:                                         ; preds = %if.end
           to label %if.end12 unwind label %terminate.lpad
 
 if.end12:                                         ; preds = %if.then7, %if.end
-  %decoder_adapter_ = getelementptr inbounds %"class.net::SpdyFramer", ptr %this, i64 0, i32 26
+  %decoder_adapter_ = getelementptr inbounds i8, ptr %this, i64 240
   %2 = load ptr, ptr %decoder_adapter_, align 8
   %cmp.not.i = icmp eq ptr %2, null
   br i1 %cmp.not.i, label %_ZNSt10unique_ptrIN3net24SpdyFramerDecoderAdapterESt14default_deleteIS1_EED2Ev.exit, label %_ZNKSt14default_deleteIN3net24SpdyFramerDecoderAdapterEEclEPS1_.exit.i
 
 _ZNKSt14default_deleteIN3net24SpdyFramerDecoderAdapterEEclEPS1_.exit.i: ; preds = %if.end12
   %vtable.i.i = load ptr, ptr %2, align 8
-  %vfn.i.i = getelementptr inbounds ptr, ptr %vtable.i.i, i64 1
+  %vfn.i.i = getelementptr inbounds i8, ptr %vtable.i.i, i64 8
   %3 = load ptr, ptr %vfn.i.i, align 8
   tail call void %3(ptr noundef nonnull align 8 dereferenceable(25) %2) #23
   br label %_ZNSt10unique_ptrIN3net24SpdyFramerDecoderAdapterESt14default_deleteIS1_EED2Ev.exit
 
 _ZNSt10unique_ptrIN3net24SpdyFramerDecoderAdapterESt14default_deleteIS1_EED2Ev.exit: ; preds = %if.end12, %_ZNKSt14default_deleteIN3net24SpdyFramerDecoderAdapterEEclEPS1_.exit.i
   store ptr null, ptr %decoder_adapter_, align 8
-  %display_protocol_ = getelementptr inbounds %"class.net::SpdyFramer", ptr %this, i64 0, i32 25
+  %display_protocol_ = getelementptr inbounds i8, ptr %this, i64 208
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %display_protocol_) #23
-  %header_parser_ = getelementptr inbounds %"class.net::SpdyFramer", ptr %this, i64 0, i32 23
+  %header_parser_ = getelementptr inbounds i8, ptr %this, i64 192
   %4 = load ptr, ptr %header_parser_, align 8
   %cmp.not.i1 = icmp eq ptr %4, null
   br i1 %cmp.not.i1, label %_ZNSt10unique_ptrIN3net22SpdyHeadersBlockParserESt14default_deleteIS1_EED2Ev.exit, label %_ZNKSt14default_deleteIN3net22SpdyHeadersBlockParserEEclEPS1_.exit.i
 
 _ZNKSt14default_deleteIN3net22SpdyHeadersBlockParserEEclEPS1_.exit.i: ; preds = %_ZNSt10unique_ptrIN3net24SpdyFramerDecoderAdapterESt14default_deleteIS1_EED2Ev.exit
   %vtable.i.i2 = load ptr, ptr %4, align 8
-  %vfn.i.i3 = getelementptr inbounds ptr, ptr %vtable.i.i2, i64 1
+  %vfn.i.i3 = getelementptr inbounds i8, ptr %vtable.i.i2, i64 8
   %5 = load ptr, ptr %vfn.i.i3, align 8
   tail call void %5(ptr noundef nonnull align 8 dereferenceable(108) %4) #23
   br label %_ZNSt10unique_ptrIN3net22SpdyHeadersBlockParserESt14default_deleteIS1_EED2Ev.exit
 
 _ZNSt10unique_ptrIN3net22SpdyHeadersBlockParserESt14default_deleteIS1_EED2Ev.exit: ; preds = %_ZNSt10unique_ptrIN3net24SpdyFramerDecoderAdapterESt14default_deleteIS1_EED2Ev.exit, %_ZNKSt14default_deleteIN3net22SpdyHeadersBlockParserEEclEPS1_.exit.i
   store ptr null, ptr %header_parser_, align 8
-  %hpack_decoder_ = getelementptr inbounds %"class.net::SpdyFramer", ptr %this, i64 0, i32 20
+  %hpack_decoder_ = getelementptr inbounds i8, ptr %this, i64 168
   %6 = load ptr, ptr %hpack_decoder_, align 8
   %cmp.not.i4 = icmp eq ptr %6, null
   br i1 %cmp.not.i4, label %_ZNSt10unique_ptrIN3net21HpackDecoderInterfaceESt14default_deleteIS1_EED2Ev.exit, label %_ZNKSt14default_deleteIN3net21HpackDecoderInterfaceEEclEPS1_.exit.i
 
 _ZNKSt14default_deleteIN3net21HpackDecoderInterfaceEEclEPS1_.exit.i: ; preds = %_ZNSt10unique_ptrIN3net22SpdyHeadersBlockParserESt14default_deleteIS1_EED2Ev.exit
   %vtable.i.i5 = load ptr, ptr %6, align 8
-  %vfn.i.i6 = getelementptr inbounds ptr, ptr %vtable.i.i5, i64 1
+  %vfn.i.i6 = getelementptr inbounds i8, ptr %vtable.i.i5, i64 8
   %7 = load ptr, ptr %vfn.i.i6, align 8
   tail call void %7(ptr noundef nonnull align 8 dereferenceable(8) %6) #23
   br label %_ZNSt10unique_ptrIN3net21HpackDecoderInterfaceESt14default_deleteIS1_EED2Ev.exit
 
 _ZNSt10unique_ptrIN3net21HpackDecoderInterfaceESt14default_deleteIS1_EED2Ev.exit: ; preds = %_ZNSt10unique_ptrIN3net22SpdyHeadersBlockParserESt14default_deleteIS1_EED2Ev.exit, %_ZNKSt14default_deleteIN3net21HpackDecoderInterfaceEEclEPS1_.exit.i
   store ptr null, ptr %hpack_decoder_, align 8
-  %hpack_encoder_ = getelementptr inbounds %"class.net::SpdyFramer", ptr %this, i64 0, i32 19
+  %hpack_encoder_ = getelementptr inbounds i8, ptr %this, i64 160
   %8 = load ptr, ptr %hpack_encoder_, align 8
   %cmp.not.i7 = icmp eq ptr %8, null
   br i1 %cmp.not.i7, label %_ZNSt10unique_ptrIN3net12HpackEncoderESt14default_deleteIS1_EED2Ev.exit, label %_ZNKSt14default_deleteIN3net12HpackEncoderEEclEPS1_.exit.i
@@ -938,7 +834,7 @@ _ZNKSt14default_deleteI10z_stream_sEclEPS0_.exit.i10: ; preds = %_ZNSt10unique_p
 
 _ZNSt10unique_ptrI10z_stream_sSt14default_deleteIS0_EED2Ev.exit11: ; preds = %_ZNSt10unique_ptrI10z_stream_sSt14default_deleteIS0_EED2Ev.exit, %_ZNKSt14default_deleteI10z_stream_sEclEPS0_.exit.i10
   store ptr null, ptr %header_compressor_, align 8
-  %altsvc_scratch_ = getelementptr inbounds %"class.net::SpdyFramer", ptr %this, i64 0, i32 16
+  %altsvc_scratch_ = getelementptr inbounds i8, ptr %this, i64 136
   %11 = load ptr, ptr %altsvc_scratch_, align 8
   %cmp.not.i12 = icmp eq ptr %11, null
   br i1 %cmp.not.i12, label %_ZNSt10unique_ptrIN3net10SpdyFramer10CharBufferESt14default_deleteIS2_EED2Ev.exit, label %delete.notnull.i.i
@@ -958,7 +854,7 @@ _ZNKSt14default_deleteIN3net10SpdyFramer10CharBufferEEclEPS2_.exit.i: ; preds = 
 
 _ZNSt10unique_ptrIN3net10SpdyFramer10CharBufferESt14default_deleteIS2_EED2Ev.exit: ; preds = %_ZNSt10unique_ptrI10z_stream_sSt14default_deleteIS0_EED2Ev.exit11, %_ZNKSt14default_deleteIN3net10SpdyFramer10CharBufferEEclEPS2_.exit.i
   store ptr null, ptr %altsvc_scratch_, align 8
-  %settings_scratch_ = getelementptr inbounds %"class.net::SpdyFramer", ptr %this, i64 0, i32 15
+  %settings_scratch_ = getelementptr inbounds i8, ptr %this, i64 104
   %13 = load ptr, ptr %settings_scratch_, align 8
   %cmp.not.i.i.i = icmp eq ptr %13, null
   br i1 %cmp.not.i.i.i, label %_ZN3net10SpdyFramer19SpdySettingsScratchD2Ev.exit, label %_ZNKSt14default_deleteIA_cEclIcEENSt9enable_ifIXsr14is_convertibleIPA_T_PS0_EE5valueEvE4typeEPS4_.exit.i.i.i
@@ -969,7 +865,7 @@ _ZNKSt14default_deleteIA_cEclIcEENSt9enable_ifIXsr14is_convertibleIPA_T_PS0_EE5v
 
 _ZN3net10SpdyFramer19SpdySettingsScratchD2Ev.exit: ; preds = %_ZNSt10unique_ptrIN3net10SpdyFramer10CharBufferESt14default_deleteIS2_EED2Ev.exit, %_ZNKSt14default_deleteIA_cEclIcEENSt9enable_ifIXsr14is_convertibleIPA_T_PS0_EE5valueEvE4typeEPS4_.exit.i.i.i
   store ptr null, ptr %settings_scratch_, align 8
-  %current_frame_buffer_ = getelementptr inbounds %"class.net::SpdyFramer", ptr %this, i64 0, i32 10
+  %current_frame_buffer_ = getelementptr inbounds i8, ptr %this, i64 64
   %14 = load ptr, ptr %current_frame_buffer_, align 8
   %cmp.not.i.i = icmp eq ptr %14, null
   br i1 %cmp.not.i.i, label %_ZN3net10SpdyFramer10CharBufferD2Ev.exit, label %_ZNKSt14default_deleteIA_cEclIcEENSt9enable_ifIXsr14is_convertibleIPA_T_PS0_EE5valueEvE4typeEPS4_.exit.i.i
@@ -1019,7 +915,7 @@ declare void @_ZdlPv(ptr noundef) local_unnamed_addr #7
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
 define dso_local void @_ZN3net10SpdyFramer10CharBuffer6RewindEv(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(24) %this) local_unnamed_addr #8 align 2 {
 entry:
-  %len_ = getelementptr inbounds %"class.net::SpdyFramer::CharBuffer", ptr %this, i64 0, i32 2
+  %len_ = getelementptr inbounds i8, ptr %this, i64 16
   store i64 0, ptr %len_, align 8
   ret void
 }
@@ -1027,9 +923,9 @@ entry:
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
 define dso_local void @_ZN3net10SpdyFramer19SpdySettingsScratch5ResetEv(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(28) %this) local_unnamed_addr #8 align 2 {
 entry:
-  %len_.i = getelementptr inbounds %"class.net::SpdyFramer::CharBuffer", ptr %this, i64 0, i32 2
+  %len_.i = getelementptr inbounds i8, ptr %this, i64 16
   store i64 0, ptr %len_.i, align 8
-  %last_setting_id = getelementptr inbounds %"struct.net::SpdyFramer::SpdySettingsScratch", ptr %this, i64 0, i32 1
+  %last_setting_id = getelementptr inbounds i8, ptr %this, i64 24
   store i32 -1, ptr %last_setting_id, align 8
   ret void
 }
@@ -1037,20 +933,20 @@ entry:
 ; Function Attrs: mustprogress uwtable
 define dso_local void @_ZN3net10SpdyFramer11set_visitorEPNS_26SpdyFramerVisitorInterfaceE(ptr nocapture noundef nonnull align 8 dereferenceable(259) %this, ptr noundef %visitor) local_unnamed_addr #0 align 2 {
 entry:
-  %decoder_adapter_ = getelementptr inbounds %"class.net::SpdyFramer", ptr %this, i64 0, i32 26
+  %decoder_adapter_ = getelementptr inbounds i8, ptr %this, i64 240
   %0 = load ptr, ptr %decoder_adapter_, align 8
   %cmp.i.i.not = icmp eq ptr %0, null
   br i1 %cmp.i.i.not, label %if.end, label %if.then
 
 if.then:                                          ; preds = %entry
   %vtable = load ptr, ptr %0, align 8
-  %vfn = getelementptr inbounds ptr, ptr %vtable, i64 2
+  %vfn = getelementptr inbounds i8, ptr %vtable, i64 16
   %1 = load ptr, ptr %vfn, align 8
   tail call void %1(ptr noundef nonnull align 8 dereferenceable(25) %0, ptr noundef %visitor)
   br label %if.end
 
 if.end:                                           ; preds = %if.then, %entry
-  %visitor_ = getelementptr inbounds %"class.net::SpdyFramer", ptr %this, i64 0, i32 21
+  %visitor_ = getelementptr inbounds i8, ptr %this, i64 176
   store ptr %visitor, ptr %visitor_, align 8
   ret void
 }
@@ -1058,20 +954,20 @@ if.end:                                           ; preds = %if.then, %entry
 ; Function Attrs: mustprogress uwtable
 define dso_local void @_ZN3net10SpdyFramer17set_debug_visitorEPNS_31SpdyFramerDebugVisitorInterfaceE(ptr nocapture noundef nonnull align 8 dereferenceable(259) %this, ptr noundef %debug_visitor) local_unnamed_addr #0 align 2 {
 entry:
-  %decoder_adapter_ = getelementptr inbounds %"class.net::SpdyFramer", ptr %this, i64 0, i32 26
+  %decoder_adapter_ = getelementptr inbounds i8, ptr %this, i64 240
   %0 = load ptr, ptr %decoder_adapter_, align 8
   %cmp.i.i.not = icmp eq ptr %0, null
   br i1 %cmp.i.i.not, label %if.end, label %if.then
 
 if.then:                                          ; preds = %entry
   %vtable = load ptr, ptr %0, align 8
-  %vfn = getelementptr inbounds ptr, ptr %vtable, i64 3
+  %vfn = getelementptr inbounds i8, ptr %vtable, i64 24
   %1 = load ptr, ptr %vfn, align 8
   tail call void %1(ptr noundef nonnull align 8 dereferenceable(25) %0, ptr noundef %debug_visitor)
   br label %if.end
 
 if.end:                                           ; preds = %if.then, %entry
-  %debug_visitor_ = getelementptr inbounds %"class.net::SpdyFramer", ptr %this, i64 0, i32 22
+  %debug_visitor_ = getelementptr inbounds i8, ptr %this, i64 184
   store ptr %debug_visitor, ptr %debug_visitor_, align 8
   ret void
 }
@@ -1079,21 +975,21 @@ if.end:                                           ; preds = %if.then, %entry
 ; Function Attrs: mustprogress uwtable
 define dso_local void @_ZN3net10SpdyFramer30set_process_single_input_frameEb(ptr nocapture noundef nonnull align 8 dereferenceable(259) %this, i1 noundef zeroext %v) local_unnamed_addr #0 align 2 {
 entry:
-  %decoder_adapter_ = getelementptr inbounds %"class.net::SpdyFramer", ptr %this, i64 0, i32 26
+  %decoder_adapter_ = getelementptr inbounds i8, ptr %this, i64 240
   %0 = load ptr, ptr %decoder_adapter_, align 8
   %cmp.i.i.not = icmp eq ptr %0, null
   br i1 %cmp.i.i.not, label %if.end, label %if.then
 
 if.then:                                          ; preds = %entry
   %vtable = load ptr, ptr %0, align 8
-  %vfn = getelementptr inbounds ptr, ptr %vtable, i64 5
+  %vfn = getelementptr inbounds i8, ptr %vtable, i64 40
   %1 = load ptr, ptr %vfn, align 8
   tail call void %1(ptr noundef nonnull align 8 dereferenceable(25) %0, i1 noundef zeroext %v)
   br label %if.end
 
 if.end:                                           ; preds = %if.then, %entry
   %frombool = zext i1 %v to i8
-  %process_single_input_frame_ = getelementptr inbounds %"class.net::SpdyFramer", ptr %this, i64 0, i32 33
+  %process_single_input_frame_ = getelementptr inbounds i8, ptr %this, i64 257
   store i8 %frombool, ptr %process_single_input_frame_, align 1
   ret void
 }
@@ -1101,20 +997,20 @@ if.end:                                           ; preds = %if.then, %entry
 ; Function Attrs: mustprogress uwtable
 define dso_local noundef zeroext i1 @_ZNK3net10SpdyFramer22probable_http_responseEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(259) %this) local_unnamed_addr #0 align 2 {
 entry:
-  %decoder_adapter_ = getelementptr inbounds %"class.net::SpdyFramer", ptr %this, i64 0, i32 26
+  %decoder_adapter_ = getelementptr inbounds i8, ptr %this, i64 240
   %0 = load ptr, ptr %decoder_adapter_, align 8
   %cmp.i.not = icmp eq ptr %0, null
   br i1 %cmp.i.not, label %if.end, label %if.then
 
 if.then:                                          ; preds = %entry
   %vtable = load ptr, ptr %0, align 8
-  %vfn = getelementptr inbounds ptr, ptr %vtable, i64 10
+  %vfn = getelementptr inbounds i8, ptr %vtable, i64 80
   %1 = load ptr, ptr %vfn, align 8
   %call4 = tail call noundef zeroext i1 %1(ptr noundef nonnull align 8 dereferenceable(25) %0)
   br label %return
 
 if.end:                                           ; preds = %entry
-  %probable_http_response_ = getelementptr inbounds %"class.net::SpdyFramer", ptr %this, i64 0, i32 31
+  %probable_http_response_ = getelementptr inbounds i8, ptr %this, i64 255
   %2 = load i8, ptr %probable_http_response_, align 1
   %3 = and i8 %2, 1
   %tobool = icmp ne i8 %3, 0
@@ -1128,20 +1024,20 @@ return:                                           ; preds = %if.end, %if.then
 ; Function Attrs: mustprogress uwtable
 define dso_local noundef i32 @_ZNK3net10SpdyFramer10error_codeEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(259) %this) local_unnamed_addr #0 align 2 {
 entry:
-  %decoder_adapter_ = getelementptr inbounds %"class.net::SpdyFramer", ptr %this, i64 0, i32 26
+  %decoder_adapter_ = getelementptr inbounds i8, ptr %this, i64 240
   %0 = load ptr, ptr %decoder_adapter_, align 8
   %cmp.i.i.not = icmp eq ptr %0, null
   br i1 %cmp.i.i.not, label %if.end, label %if.then
 
 if.then:                                          ; preds = %entry
   %vtable = load ptr, ptr %0, align 8
-  %vfn = getelementptr inbounds ptr, ptr %vtable, i64 9
+  %vfn = getelementptr inbounds i8, ptr %vtable, i64 72
   %1 = load ptr, ptr %vfn, align 8
   %call4 = tail call noundef i32 %1(ptr noundef nonnull align 8 dereferenceable(25) %0)
   br label %return
 
 if.end:                                           ; preds = %entry
-  %error_code_ = getelementptr inbounds %"class.net::SpdyFramer", ptr %this, i64 0, i32 3
+  %error_code_ = getelementptr inbounds i8, ptr %this, i64 16
   %2 = load i32, ptr %error_code_, align 8
   br label %return
 
@@ -1153,20 +1049,20 @@ return:                                           ; preds = %if.end, %if.then
 ; Function Attrs: mustprogress uwtable
 define dso_local noundef i32 @_ZNK3net10SpdyFramer5stateEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(259) %this) local_unnamed_addr #0 align 2 {
 entry:
-  %decoder_adapter_ = getelementptr inbounds %"class.net::SpdyFramer", ptr %this, i64 0, i32 26
+  %decoder_adapter_ = getelementptr inbounds i8, ptr %this, i64 240
   %0 = load ptr, ptr %decoder_adapter_, align 8
   %cmp.i.i.not = icmp eq ptr %0, null
   br i1 %cmp.i.i.not, label %if.end, label %if.then
 
 if.then:                                          ; preds = %entry
   %vtable = load ptr, ptr %0, align 8
-  %vfn = getelementptr inbounds ptr, ptr %vtable, i64 8
+  %vfn = getelementptr inbounds i8, ptr %vtable, i64 64
   %1 = load ptr, ptr %vfn, align 8
   %call4 = tail call noundef i32 %1(ptr noundef nonnull align 8 dereferenceable(25) %0)
   br label %return
 
 if.end:                                           ; preds = %entry
-  %state_ = getelementptr inbounds %"class.net::SpdyFramer", ptr %this, i64 0, i32 1
+  %state_ = getelementptr inbounds i8, ptr %this, i64 8
   %2 = load i32, ptr %state_, align 8
   br label %return
 
@@ -1178,7 +1074,7 @@ return:                                           ; preds = %if.end, %if.then
 ; Function Attrs: mustprogress uwtable
 define dso_local noundef i64 @_ZNK3net10SpdyFramer23GetDataFrameMinimumSizeEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(259) %this) local_unnamed_addr #0 align 2 {
 entry:
-  %protocol_version_ = getelementptr inbounds %"class.net::SpdyFramer", ptr %this, i64 0, i32 27
+  %protocol_version_ = getelementptr inbounds i8, ptr %this, i64 248
   %0 = load i32, ptr %protocol_version_, align 8
   %call = tail call noundef i64 @_ZN3net13SpdyConstants23GetDataFrameMinimumSizeENS_16SpdyMajorVersionE(i32 noundef %0)
   ret i64 %call
@@ -1189,7 +1085,7 @@ declare noundef i64 @_ZN3net13SpdyConstants23GetDataFrameMinimumSizeENS_16SpdyMa
 ; Function Attrs: mustprogress uwtable
 define dso_local noundef i64 @_ZNK3net10SpdyFramer18GetFrameHeaderSizeEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(259) %this) local_unnamed_addr #0 align 2 {
 entry:
-  %protocol_version_ = getelementptr inbounds %"class.net::SpdyFramer", ptr %this, i64 0, i32 27
+  %protocol_version_ = getelementptr inbounds i8, ptr %this, i64 248
   %0 = load i32, ptr %protocol_version_, align 8
   %call = tail call noundef i64 @_ZN3net13SpdyConstants18GetFrameHeaderSizeENS_16SpdyMajorVersionE(i32 noundef %0)
   ret i64 %call
@@ -1200,7 +1096,7 @@ declare noundef i64 @_ZN3net13SpdyConstants18GetFrameHeaderSizeENS_16SpdyMajorVe
 ; Function Attrs: mustprogress uwtable
 define dso_local noundef i64 @_ZNK3net10SpdyFramer23GetSynStreamMinimumSizeEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(259) %this) local_unnamed_addr #0 align 2 {
 entry:
-  %protocol_version_ = getelementptr inbounds %"class.net::SpdyFramer", ptr %this, i64 0, i32 27
+  %protocol_version_ = getelementptr inbounds i8, ptr %this, i64 248
   %0 = load i32, ptr %protocol_version_, align 8
   %cmp = icmp eq i32 %0, 1
   %.4 = select i1 %cmp, i64 10, i64 5
@@ -1212,7 +1108,7 @@ entry:
 ; Function Attrs: mustprogress uwtable
 define dso_local noundef i64 @_ZNK3net10SpdyFramer22GetSynReplyMinimumSizeEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(259) %this) local_unnamed_addr #0 align 2 {
 entry:
-  %protocol_version_.i = getelementptr inbounds %"class.net::SpdyFramer", ptr %this, i64 0, i32 27
+  %protocol_version_.i = getelementptr inbounds i8, ptr %this, i64 248
   %0 = load i32, ptr %protocol_version_.i, align 8
   %call.i = tail call noundef i64 @_ZN3net13SpdyConstants18GetFrameHeaderSizeENS_16SpdyMajorVersionE(i32 noundef %0)
   %1 = load i32, ptr %protocol_version_.i, align 8
@@ -1225,7 +1121,7 @@ entry:
 ; Function Attrs: mustprogress uwtable
 define dso_local noundef i64 @_ZNK3net10SpdyFramer23GetRstStreamMinimumSizeEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(259) %this) local_unnamed_addr #0 align 2 {
 entry:
-  %protocol_version_ = getelementptr inbounds %"class.net::SpdyFramer", ptr %this, i64 0, i32 27
+  %protocol_version_ = getelementptr inbounds i8, ptr %this, i64 248
   %0 = load i32, ptr %protocol_version_, align 8
   %cmp = icmp eq i32 %0, 1
   %.4 = select i1 %cmp, i64 8, i64 4
@@ -1237,7 +1133,7 @@ entry:
 ; Function Attrs: mustprogress uwtable
 define dso_local noundef i64 @_ZNK3net10SpdyFramer22GetSettingsMinimumSizeEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(259) %this) local_unnamed_addr #0 align 2 {
 entry:
-  %protocol_version_ = getelementptr inbounds %"class.net::SpdyFramer", ptr %this, i64 0, i32 27
+  %protocol_version_ = getelementptr inbounds i8, ptr %this, i64 248
   %0 = load i32, ptr %protocol_version_, align 8
   %cmp = icmp eq i32 %0, 1
   br i1 %cmp, label %if.then, label %if.else
@@ -1259,7 +1155,7 @@ return:                                           ; preds = %if.else, %if.then
 ; Function Attrs: mustprogress uwtable
 define dso_local noundef i64 @_ZNK3net10SpdyFramer11GetPingSizeEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(259) %this) local_unnamed_addr #0 align 2 {
 entry:
-  %protocol_version_ = getelementptr inbounds %"class.net::SpdyFramer", ptr %this, i64 0, i32 27
+  %protocol_version_ = getelementptr inbounds i8, ptr %this, i64 248
   %0 = load i32, ptr %protocol_version_, align 8
   %cmp = icmp eq i32 %0, 1
   %.4 = select i1 %cmp, i64 4, i64 8
@@ -1271,7 +1167,7 @@ entry:
 ; Function Attrs: mustprogress uwtable
 define dso_local noundef i64 @_ZNK3net10SpdyFramer20GetGoAwayMinimumSizeEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(259) %this) local_unnamed_addr #0 align 2 {
 entry:
-  %protocol_version_.i = getelementptr inbounds %"class.net::SpdyFramer", ptr %this, i64 0, i32 27
+  %protocol_version_.i = getelementptr inbounds i8, ptr %this, i64 248
   %0 = load i32, ptr %protocol_version_.i, align 8
   %call.i = tail call noundef i64 @_ZN3net13SpdyConstants18GetFrameHeaderSizeENS_16SpdyMajorVersionE(i32 noundef %0)
   %add = add i64 %call.i, 8
@@ -1281,7 +1177,7 @@ entry:
 ; Function Attrs: mustprogress uwtable
 define dso_local noundef i64 @_ZNK3net10SpdyFramer21GetHeadersMinimumSizeEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(259) %this) local_unnamed_addr #0 align 2 {
 entry:
-  %protocol_version_.i = getelementptr inbounds %"class.net::SpdyFramer", ptr %this, i64 0, i32 27
+  %protocol_version_.i = getelementptr inbounds i8, ptr %this, i64 248
   %0 = load i32, ptr %protocol_version_.i, align 8
   %call.i = tail call noundef i64 @_ZN3net13SpdyConstants18GetFrameHeaderSizeENS_16SpdyMajorVersionE(i32 noundef %0)
   %1 = load i32, ptr %protocol_version_.i, align 8
@@ -1294,7 +1190,7 @@ entry:
 ; Function Attrs: mustprogress uwtable
 define dso_local noundef i64 @_ZNK3net10SpdyFramer19GetWindowUpdateSizeEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(259) %this) local_unnamed_addr #0 align 2 {
 entry:
-  %protocol_version_ = getelementptr inbounds %"class.net::SpdyFramer", ptr %this, i64 0, i32 27
+  %protocol_version_ = getelementptr inbounds i8, ptr %this, i64 248
   %0 = load i32, ptr %protocol_version_, align 8
   %cmp = icmp eq i32 %0, 1
   %.4 = select i1 %cmp, i64 8, i64 4
@@ -1306,7 +1202,7 @@ entry:
 ; Function Attrs: mustprogress uwtable
 define dso_local noundef i64 @_ZNK3net10SpdyFramer14GetBlockedSizeEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(259) %this) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 if.end:
-  %protocol_version_.i = getelementptr inbounds %"class.net::SpdyFramer", ptr %this, i64 0, i32 27
+  %protocol_version_.i = getelementptr inbounds i8, ptr %this, i64 248
   %0 = load i32, ptr %protocol_version_.i, align 8
   %call.i = tail call noundef i64 @_ZN3net13SpdyConstants18GetFrameHeaderSizeENS_16SpdyMajorVersionE(i32 noundef %0)
   ret i64 %call.i
@@ -1315,7 +1211,7 @@ if.end:
 ; Function Attrs: mustprogress uwtable
 define dso_local noundef i64 @_ZNK3net10SpdyFramer25GetPushPromiseMinimumSizeEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(259) %this) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 if.end:
-  %protocol_version_.i = getelementptr inbounds %"class.net::SpdyFramer", ptr %this, i64 0, i32 27
+  %protocol_version_.i = getelementptr inbounds i8, ptr %this, i64 248
   %0 = load i32, ptr %protocol_version_.i, align 8
   %call.i = tail call noundef i64 @_ZN3net13SpdyConstants18GetFrameHeaderSizeENS_16SpdyMajorVersionE(i32 noundef %0)
   %add = add i64 %call.i, 4
@@ -1325,7 +1221,7 @@ if.end:
 ; Function Attrs: mustprogress uwtable
 define dso_local noundef i64 @_ZNK3net10SpdyFramer26GetContinuationMinimumSizeEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(259) %this) local_unnamed_addr #0 align 2 {
 entry:
-  %protocol_version_.i = getelementptr inbounds %"class.net::SpdyFramer", ptr %this, i64 0, i32 27
+  %protocol_version_.i = getelementptr inbounds i8, ptr %this, i64 248
   %0 = load i32, ptr %protocol_version_.i, align 8
   %call.i = tail call noundef i64 @_ZN3net13SpdyConstants18GetFrameHeaderSizeENS_16SpdyMajorVersionE(i32 noundef %0)
   ret i64 %call.i
@@ -1334,7 +1230,7 @@ entry:
 ; Function Attrs: mustprogress uwtable
 define dso_local noundef i64 @_ZNK3net10SpdyFramer20GetAltSvcMinimumSizeEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(259) %this) local_unnamed_addr #0 align 2 {
 entry:
-  %protocol_version_.i = getelementptr inbounds %"class.net::SpdyFramer", ptr %this, i64 0, i32 27
+  %protocol_version_.i = getelementptr inbounds i8, ptr %this, i64 248
   %0 = load i32, ptr %protocol_version_.i, align 8
   %call.i = tail call noundef i64 @_ZN3net13SpdyConstants18GetFrameHeaderSizeENS_16SpdyMajorVersionE(i32 noundef %0)
   %add = add i64 %call.i, 2
@@ -1344,7 +1240,7 @@ entry:
 ; Function Attrs: mustprogress uwtable
 define dso_local noundef i64 @_ZNK3net10SpdyFramer15GetPrioritySizeEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(259) %this) local_unnamed_addr #0 align 2 {
 entry:
-  %protocol_version_.i = getelementptr inbounds %"class.net::SpdyFramer", ptr %this, i64 0, i32 27
+  %protocol_version_.i = getelementptr inbounds i8, ptr %this, i64 248
   %0 = load i32, ptr %protocol_version_.i, align 8
   %call.i = tail call noundef i64 @_ZN3net13SpdyConstants18GetFrameHeaderSizeENS_16SpdyMajorVersionE(i32 noundef %0)
   %add2 = add i64 %call.i, 5
@@ -1354,7 +1250,7 @@ entry:
 ; Function Attrs: mustprogress uwtable
 define dso_local noundef i64 @_ZNK3net10SpdyFramer19GetFrameMinimumSizeEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(259) %this) local_unnamed_addr #0 align 2 {
 entry:
-  %protocol_version_.i = getelementptr inbounds %"class.net::SpdyFramer", ptr %this, i64 0, i32 27
+  %protocol_version_.i = getelementptr inbounds i8, ptr %this, i64 248
   %0 = load i32, ptr %protocol_version_.i, align 8
   %call.i = tail call noundef i64 @_ZN3net13SpdyConstants18GetFrameHeaderSizeENS_16SpdyMajorVersionE(i32 noundef %0)
   ret i64 %call.i
@@ -1363,13 +1259,13 @@ entry:
 ; Function Attrs: mustprogress uwtable
 define dso_local noundef i64 @_ZNK3net10SpdyFramer19GetFrameMaximumSizeEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(259) %this) local_unnamed_addr #0 align 2 {
 entry:
-  %protocol_version_ = getelementptr inbounds %"class.net::SpdyFramer", ptr %this, i64 0, i32 27
+  %protocol_version_ = getelementptr inbounds i8, ptr %this, i64 248
   %0 = load i32, ptr %protocol_version_, align 8
   %cmp = icmp eq i32 %0, 2
   br i1 %cmp, label %if.then, label %if.else
 
 if.then:                                          ; preds = %entry
-  %send_frame_size_limit_ = getelementptr inbounds %"class.net::SpdyFramer", ptr %this, i64 0, i32 8
+  %send_frame_size_limit_ = getelementptr inbounds i8, ptr %this, i64 48
   %1 = load i64, ptr %send_frame_size_limit_, align 8
   %call = tail call noundef i64 @_ZN3net13SpdyConstants18GetFrameHeaderSizeENS_16SpdyMajorVersionE(i32 noundef 2)
   %add = add i64 %call, %1
@@ -1389,13 +1285,13 @@ declare noundef i64 @_ZN3net13SpdyConstants20GetMaxFrameSizeLimitENS_16SpdyMajor
 ; Function Attrs: mustprogress uwtable
 define dso_local noundef i64 @_ZNK3net10SpdyFramer26GetDataFrameMaximumPayloadEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(259) %this) local_unnamed_addr #0 align 2 {
 entry:
-  %protocol_version_ = getelementptr inbounds %"class.net::SpdyFramer", ptr %this, i64 0, i32 27
+  %protocol_version_ = getelementptr inbounds i8, ptr %this, i64 248
   %0 = load i32, ptr %protocol_version_, align 8
   %cmp = icmp eq i32 %0, 2
   br i1 %cmp, label %_ZNK3net10SpdyFramer19GetFrameMaximumSizeEv.exit, label %_ZNK3net10SpdyFramer19GetFrameMaximumSizeEv.exit13
 
 _ZNK3net10SpdyFramer19GetFrameMaximumSizeEv.exit: ; preds = %entry
-  %send_frame_size_limit_.i = getelementptr inbounds %"class.net::SpdyFramer", ptr %this, i64 0, i32 8
+  %send_frame_size_limit_.i = getelementptr inbounds i8, ptr %this, i64 48
   %1 = load i64, ptr %send_frame_size_limit_.i, align 8
   %call.i = tail call noundef i64 @_ZN3net13SpdyConstants18GetFrameHeaderSizeENS_16SpdyMajorVersionE(i32 noundef 2)
   %add.i = add i64 %call.i, %1
@@ -1437,21 +1333,21 @@ return:                                           ; preds = %entry, %switch.look
 ; Function Attrs: mustprogress uwtable
 define dso_local void @_ZN3net10SpdyFramer9set_errorENS0_9SpdyErrorE(ptr noundef nonnull align 8 dereferenceable(259) %this, i32 noundef %error) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 if.end:
-  %error_code_ = getelementptr inbounds %"class.net::SpdyFramer", ptr %this, i64 0, i32 3
+  %error_code_ = getelementptr inbounds i8, ptr %this, i64 16
   store i32 %error, ptr %error_code_, align 8
-  %expect_continuation_ = getelementptr inbounds %"class.net::SpdyFramer", ptr %this, i64 0, i32 14
+  %expect_continuation_ = getelementptr inbounds i8, ptr %this, i64 100
   store i32 0, ptr %expect_continuation_, align 4
-  %end_stream_when_done_ = getelementptr inbounds %"class.net::SpdyFramer", ptr %this, i64 0, i32 32
+  %end_stream_when_done_ = getelementptr inbounds i8, ptr %this, i64 256
   store i8 0, ptr %end_stream_when_done_, align 8
-  %state_ = getelementptr inbounds %"class.net::SpdyFramer", ptr %this, i64 0, i32 1
+  %state_ = getelementptr inbounds i8, ptr %this, i64 8
   %0 = load i32, ptr %state_, align 8
-  %previous_state_ = getelementptr inbounds %"class.net::SpdyFramer", ptr %this, i64 0, i32 2
+  %previous_state_ = getelementptr inbounds i8, ptr %this, i64 12
   store i32 %0, ptr %previous_state_, align 4
   store i32 0, ptr %state_, align 8
-  %visitor_ = getelementptr inbounds %"class.net::SpdyFramer", ptr %this, i64 0, i32 21
+  %visitor_ = getelementptr inbounds i8, ptr %this, i64 176
   %1 = load ptr, ptr %visitor_, align 8
   %vtable = load ptr, ptr %1, align 8
-  %vfn = getelementptr inbounds ptr, ptr %vtable, i64 2
+  %vfn = getelementptr inbounds i8, ptr %vtable, i64 16
   %2 = load ptr, ptr %vfn, align 8
   tail call void %2(ptr noundef nonnull align 8 dereferenceable(8) %1, ptr noundef nonnull %this)
   ret void
@@ -1512,36 +1408,36 @@ return:                                           ; preds = %entry, %switch.look
 define dso_local noundef i64 @_ZN3net10SpdyFramer12ProcessInputEPKcm(ptr noundef nonnull align 8 dereferenceable(259) %this, ptr noundef %data, i64 noundef %len) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp122 = alloca %"class.logging::LogMessage", align 8
-  %decoder_adapter_ = getelementptr inbounds %"class.net::SpdyFramer", ptr %this, i64 0, i32 26
+  %decoder_adapter_ = getelementptr inbounds i8, ptr %this, i64 240
   %0 = load ptr, ptr %decoder_adapter_, align 8
   %cmp.i.i.not = icmp eq ptr %0, null
   br i1 %cmp.i.i.not, label %do.body.preheader, label %if.then
 
 do.body.preheader:                                ; preds = %entry
-  %state_ = getelementptr inbounds %"class.net::SpdyFramer", ptr %this, i64 0, i32 1
-  %previous_state_ = getelementptr inbounds %"class.net::SpdyFramer", ptr %this, i64 0, i32 2
-  %remaining_data_length_.i108 = getelementptr inbounds %"class.net::SpdyFramer", ptr %this, i64 0, i32 5
-  %remaining_padding_payload_length_.i109 = getelementptr inbounds %"class.net::SpdyFramer", ptr %this, i64 0, i32 6
-  %visitor_.i116 = getelementptr inbounds %"class.net::SpdyFramer", ptr %this, i64 0, i32 21
-  %current_frame_stream_id_.i117 = getelementptr inbounds %"class.net::SpdyFramer", ptr %this, i64 0, i32 13
-  %current_frame_flags_.i87 = getelementptr inbounds %"class.net::SpdyFramer", ptr %this, i64 0, i32 28
-  %error_code_.i.i = getelementptr inbounds %"class.net::SpdyFramer", ptr %this, i64 0, i32 3
-  %expect_continuation_.i.i = getelementptr inbounds %"class.net::SpdyFramer", ptr %this, i64 0, i32 14
-  %end_stream_when_done_.i.i = getelementptr inbounds %"class.net::SpdyFramer", ptr %this, i64 0, i32 32
-  %protocol_version_ = getelementptr inbounds %"class.net::SpdyFramer", ptr %this, i64 0, i32 27
-  %remaining_control_header_.i76 = getelementptr inbounds %"class.net::SpdyFramer", ptr %this, i64 0, i32 7
-  %current_frame_buffer_.i.i = getelementptr inbounds %"class.net::SpdyFramer", ptr %this, i64 0, i32 10
-  %len_.i.i.i78 = getelementptr inbounds %"class.net::SpdyFramer", ptr %this, i64 0, i32 10, i32 2
-  %len_.i.i.i = getelementptr inbounds %"class.net::SpdyFramer", ptr %this, i64 0, i32 15, i32 0, i32 2
-  %last_setting_id.i.i = getelementptr inbounds %"class.net::SpdyFramer", ptr %this, i64 0, i32 15, i32 1
-  %altsvc_scratch_.i = getelementptr inbounds %"class.net::SpdyFramer", ptr %this, i64 0, i32 16
-  %process_single_input_frame_ = getelementptr inbounds %"class.net::SpdyFramer", ptr %this, i64 0, i32 33
+  %state_ = getelementptr inbounds i8, ptr %this, i64 8
+  %previous_state_ = getelementptr inbounds i8, ptr %this, i64 12
+  %remaining_data_length_.i108 = getelementptr inbounds i8, ptr %this, i64 24
+  %remaining_padding_payload_length_.i109 = getelementptr inbounds i8, ptr %this, i64 32
+  %visitor_.i116 = getelementptr inbounds i8, ptr %this, i64 176
+  %current_frame_stream_id_.i117 = getelementptr inbounds i8, ptr %this, i64 96
+  %current_frame_flags_.i87 = getelementptr inbounds i8, ptr %this, i64 252
+  %error_code_.i.i = getelementptr inbounds i8, ptr %this, i64 16
+  %expect_continuation_.i.i = getelementptr inbounds i8, ptr %this, i64 100
+  %end_stream_when_done_.i.i = getelementptr inbounds i8, ptr %this, i64 256
+  %protocol_version_ = getelementptr inbounds i8, ptr %this, i64 248
+  %remaining_control_header_.i76 = getelementptr inbounds i8, ptr %this, i64 40
+  %current_frame_buffer_.i.i = getelementptr inbounds i8, ptr %this, i64 64
+  %len_.i.i.i78 = getelementptr inbounds i8, ptr %this, i64 80
+  %len_.i.i.i = getelementptr inbounds i8, ptr %this, i64 120
+  %last_setting_id.i.i = getelementptr inbounds i8, ptr %this, i64 128
+  %altsvc_scratch_.i = getelementptr inbounds i8, ptr %this, i64 136
+  %process_single_input_frame_ = getelementptr inbounds i8, ptr %this, i64 257
   %.pre = load i32, ptr %state_, align 8
   br label %do.body
 
 if.then:                                          ; preds = %entry
   %vtable = load ptr, ptr %0, align 8
-  %vfn = getelementptr inbounds ptr, ptr %vtable, i64 6
+  %vfn = getelementptr inbounds i8, ptr %vtable, i64 48
   %1 = load ptr, ptr %vfn, align 8
   %call4 = tail call noundef i64 %1(ptr noundef nonnull align 8 dereferenceable(25) %0, ptr noundef %data, i64 noundef %len)
   br label %return
@@ -1577,7 +1473,7 @@ if.end11:                                         ; preds = %do.body
 
 if.then.i:                                        ; preds = %if.end11
   %vtable.i = load ptr, ptr %3, align 8
-  %vfn.i = getelementptr inbounds ptr, ptr %vtable.i, i64 7
+  %vfn.i = getelementptr inbounds i8, ptr %vtable.i, i64 56
   %4 = load ptr, ptr %vfn.i, align 8
   tail call void %4(ptr noundef nonnull align 8 dereferenceable(25) %3)
   br label %if.end.i
@@ -1701,7 +1597,7 @@ land.lhs.true.i:                                  ; preds = %if.then7.i
 if.end14.i:                                       ; preds = %land.lhs.true.i
   %20 = load ptr, ptr %visitor_.i116, align 8
   %vtable.i83 = load ptr, ptr %20, align 8
-  %vfn.i84 = getelementptr inbounds ptr, ptr %vtable.i83, i64 16
+  %vfn.i84 = getelementptr inbounds i8, ptr %vtable.i83, i64 128
   %21 = load ptr, ptr %vfn.i84, align 8
   tail call void %21(ptr noundef nonnull align 8 dereferenceable(8) %20)
   br label %_ZN3net10SpdyFramer26ProcessSettingsFrameHeaderEPKcm.exit.sink.split
@@ -1710,7 +1606,7 @@ if.end34.i:                                       ; preds = %land.lhs.true.i, %i
   %.pre-phi.i = phi i1 [ %19, %if.then7.if.end34_crit_edge.i ], [ false, %land.lhs.true.i ]
   %22 = load ptr, ptr %visitor_.i116, align 8
   %vtable22.i = load ptr, ptr %22, align 8
-  %vfn23.i = getelementptr inbounds ptr, ptr %vtable22.i, i64 14
+  %vfn23.i = getelementptr inbounds i8, ptr %vtable22.i, i64 112
   %23 = load ptr, ptr %vfn23.i, align 8
   tail call void %23(ptr noundef nonnull align 8 dereferenceable(8) %22, i1 noundef zeroext %.pre-phi.i)
   br label %_ZN3net10SpdyFramer26ProcessSettingsFrameHeaderEPKcm.exit.sink.split
@@ -1795,7 +1691,7 @@ if.then27.i:                                      ; preds = %if.then25.i
   store i32 0, ptr %state_, align 8
   %29 = load ptr, ptr %visitor_.i116, align 8
   %vtable.i.i = load ptr, ptr %29, align 8
-  %vfn.i.i = getelementptr inbounds ptr, ptr %vtable.i.i, i64 2
+  %vfn.i.i = getelementptr inbounds i8, ptr %vtable.i.i, i64 16
   %30 = load ptr, ptr %vfn.i.i, align 8
   tail call void %30(ptr noundef nonnull align 8 dereferenceable(8) %29, ptr noundef nonnull %this)
   br label %_ZN3net10SpdyFramer29ProcessDataFramePaddingLengthEPKcm.exit
@@ -1810,7 +1706,7 @@ if.end28.i:                                       ; preds = %if.then25.i
   %32 = load ptr, ptr %visitor_.i116, align 8
   %33 = load i32, ptr %current_frame_stream_id_.i117, align 8
   %vtable.i94 = load ptr, ptr %32, align 8
-  %vfn.i95 = getelementptr inbounds ptr, ptr %vtable.i94, i64 7
+  %vfn.i95 = getelementptr inbounds i8, ptr %vtable.i94, i64 56
   %34 = load ptr, ptr %vfn.i95, align 8
   tail call void %34(ptr noundef nonnull align 8 dereferenceable(8) %32, i32 noundef %33, i64 noundef 1)
   br label %if.end34.i96
@@ -1831,7 +1727,7 @@ if.then38.i:                                      ; preds = %if.end34.i96
   store i32 0, ptr %state_, align 8
   %38 = load ptr, ptr %visitor_.i116, align 8
   %vtable.i15.i = load ptr, ptr %38, align 8
-  %vfn.i16.i = getelementptr inbounds ptr, ptr %vtable.i15.i, i64 2
+  %vfn.i16.i = getelementptr inbounds i8, ptr %vtable.i15.i, i64 16
   %39 = load ptr, ptr %vfn.i16.i, align 8
   tail call void %39(ptr noundef nonnull align 8 dereferenceable(8) %38, ptr noundef nonnull %this)
   br label %_ZN3net10SpdyFramer29ProcessDataFramePaddingLengthEPKcm.exit
@@ -1896,7 +1792,7 @@ if.then8.i:                                       ; preds = %if.then.i111
   %44 = load ptr, ptr %visitor_.i116, align 8
   %45 = load i32, ptr %current_frame_stream_id_.i117, align 8
   %vtable.i118 = load ptr, ptr %44, align 8
-  %vfn.i119 = getelementptr inbounds ptr, ptr %vtable.i118, i64 5
+  %vfn.i119 = getelementptr inbounds i8, ptr %vtable.i118, i64 40
   %46 = load ptr, ptr %vfn.i119, align 8
   tail call void %46(ptr noundef nonnull align 8 dereferenceable(8) %44, i32 noundef %45, ptr noundef %data.addr.0, i64 noundef %.sroa.speculated.i113)
   %.pre.i120 = load i64, ptr %remaining_data_length_.i108, align 8
@@ -1935,12 +1831,12 @@ sw.default:                                       ; preds = %do.body
 
 cond.false:                                       ; preds = %sw.default
   call void @_ZN7logging10LogMessageC1EPKcii(ptr noundef nonnull align 8 dereferenceable(404) %ref.tmp122, ptr noundef nonnull @.str, i32 noundef 734, i32 noundef 2)
-  %stream_.i122 = getelementptr inbounds %"class.logging::LogMessage", ptr %ref.tmp122, i64 0, i32 2
+  %stream_.i122 = getelementptr inbounds i8, ptr %ref.tmp122, i64 8
   %call127 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc(ptr noundef nonnull align 8 dereferenceable(8) %stream_.i122, ptr noundef nonnull @.str.66)
           to label %invoke.cont126 unwind label %lpad123
 
 invoke.cont126:                                   ; preds = %cond.false
-  %display_protocol_ = getelementptr inbounds %"class.net::SpdyFramer", ptr %this, i64 0, i32 25
+  %display_protocol_ = getelementptr inbounds i8, ptr %this, i64 208
   %call129 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsIcSt11char_traitsIcESaIcEERSt13basic_ostreamIT_T0_ES7_RKNSt7__cxx1112basic_stringIS4_S5_T1_EE(ptr noundef nonnull align 8 dereferenceable(8) %call127, ptr noundef nonnull align 8 dereferenceable(32) %display_protocol_)
           to label %invoke.cont128 unwind label %lpad123
 
@@ -1992,10 +1888,10 @@ if.end:
   %control_frame_type_field_uint8 = alloca i8, align 1
   %ref.tmp141 = alloca %"class.logging::LogMessage", align 8
   %ref.tmp163 = alloca %"class.logging::LogMessage", align 8
-  %current_frame_buffer_ = getelementptr inbounds %"class.net::SpdyFramer", ptr %this, i64 0, i32 10
-  %len_.i = getelementptr inbounds %"class.net::SpdyFramer", ptr %this, i64 0, i32 10, i32 2
+  %current_frame_buffer_ = getelementptr inbounds i8, ptr %this, i64 64
+  %len_.i = getelementptr inbounds i8, ptr %this, i64 80
   %0 = load i64, ptr %len_.i, align 8
-  %protocol_version_.i = getelementptr inbounds %"class.net::SpdyFramer", ptr %this, i64 0, i32 27
+  %protocol_version_.i = getelementptr inbounds i8, ptr %this, i64 248
   %1 = load i32, ptr %protocol_version_.i, align 8
   %call.i = tail call noundef i64 @_ZN3net13SpdyConstants18GetFrameHeaderSizeENS_16SpdyMajorVersionE(i32 noundef %1)
   %cmp = icmp ult i64 %0, %call.i
@@ -2042,7 +1938,7 @@ if.end18:                                         ; preds = %if.end11
   call void @_ZN3net15SpdyFrameReaderC1EPKcm(ptr noundef nonnull align 8 dereferenceable(24) %reader, ptr noundef %8, i64 noundef %9)
   %10 = load i32, ptr %protocol_version_.i, align 8
   %call25 = call noundef i32 @_ZN3net13SpdyConstants13DataFrameTypeENS_16SpdyMajorVersionE(i32 noundef %10)
-  %current_frame_type_ = getelementptr inbounds %"class.net::SpdyFramer", ptr %this, i64 0, i32 11
+  %current_frame_type_ = getelementptr inbounds i8, ptr %this, i64 88
   store i32 0, ptr %current_frame_type_, align 8
   %11 = load i32, ptr %protocol_version_.i, align 8
   %cmp27 = icmp eq i32 %11, 1
@@ -2062,21 +1958,21 @@ if.then33:                                        ; preds = %if.then28
   br i1 %cmp38.not, label %if.end41, label %if.then39
 
 if.then39:                                        ; preds = %if.then33
-  %error_code_.i = getelementptr inbounds %"class.net::SpdyFramer", ptr %this, i64 0, i32 3
+  %error_code_.i = getelementptr inbounds i8, ptr %this, i64 16
   store i32 5, ptr %error_code_.i, align 8
-  %expect_continuation_.i = getelementptr inbounds %"class.net::SpdyFramer", ptr %this, i64 0, i32 14
+  %expect_continuation_.i = getelementptr inbounds i8, ptr %this, i64 100
   store i32 0, ptr %expect_continuation_.i, align 4
-  %end_stream_when_done_.i = getelementptr inbounds %"class.net::SpdyFramer", ptr %this, i64 0, i32 32
+  %end_stream_when_done_.i = getelementptr inbounds i8, ptr %this, i64 256
   store i8 0, ptr %end_stream_when_done_.i, align 8
-  %state_.i = getelementptr inbounds %"class.net::SpdyFramer", ptr %this, i64 0, i32 1
+  %state_.i = getelementptr inbounds i8, ptr %this, i64 8
   %14 = load i32, ptr %state_.i, align 8
-  %previous_state_.i = getelementptr inbounds %"class.net::SpdyFramer", ptr %this, i64 0, i32 2
+  %previous_state_.i = getelementptr inbounds i8, ptr %this, i64 12
   store i32 %14, ptr %previous_state_.i, align 4
   store i32 0, ptr %state_.i, align 8
-  %visitor_.i = getelementptr inbounds %"class.net::SpdyFramer", ptr %this, i64 0, i32 21
+  %visitor_.i = getelementptr inbounds i8, ptr %this, i64 176
   %15 = load ptr, ptr %visitor_.i, align 8
   %vtable.i = load ptr, ptr %15, align 8
-  %vfn.i = getelementptr inbounds ptr, ptr %vtable.i, i64 2
+  %vfn.i = getelementptr inbounds i8, ptr %vtable.i, i64 16
   %16 = load ptr, ptr %vfn.i, align 8
   call void %16(ptr noundef nonnull align 8 dereferenceable(8) %15, ptr noundef nonnull %this)
   br label %return
@@ -2088,27 +1984,27 @@ if.end41:                                         ; preds = %if.then33
   br label %if.end51
 
 if.else46:                                        ; preds = %if.then28
-  %ofs_.i = getelementptr inbounds %"class.net::SpdyFrameReader", ptr %reader, i64 0, i32 2
+  %ofs_.i = getelementptr inbounds i8, ptr %reader, i64 16
   store i64 0, ptr %ofs_.i, align 8
-  %current_frame_stream_id_ = getelementptr inbounds %"class.net::SpdyFramer", ptr %this, i64 0, i32 13
+  %current_frame_stream_id_ = getelementptr inbounds i8, ptr %this, i64 96
   %call49 = call noundef zeroext i1 @_ZN3net15SpdyFrameReader10ReadUInt31EPj(ptr noundef nonnull align 8 dereferenceable(24) %reader, ptr noundef nonnull %current_frame_stream_id_)
   br label %if.end51
 
 if.end51:                                         ; preds = %if.else46, %if.end41
   %control_frame_type_field.0 = phi i32 [ %conv45, %if.end41 ], [ %call25, %if.else46 ]
-  %current_frame_flags_ = getelementptr inbounds %"class.net::SpdyFramer", ptr %this, i64 0, i32 28
+  %current_frame_flags_ = getelementptr inbounds i8, ptr %this, i64 252
   %call53 = call noundef zeroext i1 @_ZN3net15SpdyFrameReader9ReadUInt8EPh(ptr noundef nonnull align 8 dereferenceable(24) %reader, ptr noundef nonnull %current_frame_flags_)
   store i32 0, ptr %length_field, align 4
   %call56 = call noundef zeroext i1 @_ZN3net15SpdyFrameReader10ReadUInt24EPj(ptr noundef nonnull align 8 dereferenceable(24) %reader, ptr noundef nonnull %length_field)
   %18 = load i32, ptr %length_field, align 4
   %conv58 = zext i32 %18 to i64
-  %remaining_data_length_ = getelementptr inbounds %"class.net::SpdyFramer", ptr %this, i64 0, i32 5
+  %remaining_data_length_ = getelementptr inbounds i8, ptr %this, i64 24
   store i64 %conv58, ptr %remaining_data_length_, align 8
-  %ofs_.i16 = getelementptr inbounds %"class.net::SpdyFrameReader", ptr %reader, i64 0, i32 2
+  %ofs_.i16 = getelementptr inbounds i8, ptr %reader, i64 16
   %19 = load i64, ptr %ofs_.i16, align 8
   %20 = trunc i64 %19 to i32
   %conv62 = add i32 %18, %20
-  %current_frame_length_ = getelementptr inbounds %"class.net::SpdyFramer", ptr %this, i64 0, i32 12
+  %current_frame_length_ = getelementptr inbounds i8, ptr %this, i64 92
   store i32 %conv62, ptr %current_frame_length_, align 4
   br label %if.end126
 
@@ -2126,18 +2022,18 @@ if.else63:                                        ; preds = %if.end18
   %call.i1819 = call noundef i64 @_ZN3net13SpdyConstants18GetFrameHeaderSizeENS_16SpdyMajorVersionE(i32 noundef %24)
   %25 = trunc i64 %call.i1819 to i32
   %conv82 = add i32 %23, %25
-  %current_frame_length_83 = getelementptr inbounds %"class.net::SpdyFramer", ptr %this, i64 0, i32 12
+  %current_frame_length_83 = getelementptr inbounds i8, ptr %this, i64 92
   store i32 %conv82, ptr %current_frame_length_83, align 4
-  %current_frame_flags_84 = getelementptr inbounds %"class.net::SpdyFramer", ptr %this, i64 0, i32 28
+  %current_frame_flags_84 = getelementptr inbounds i8, ptr %this, i64 252
   %call86 = call noundef zeroext i1 @_ZN3net15SpdyFrameReader9ReadUInt8EPh(ptr noundef nonnull align 8 dereferenceable(24) %reader, ptr noundef nonnull %current_frame_flags_84)
-  %current_frame_stream_id_88 = getelementptr inbounds %"class.net::SpdyFramer", ptr %this, i64 0, i32 13
+  %current_frame_stream_id_88 = getelementptr inbounds i8, ptr %this, i64 96
   %call90 = call noundef zeroext i1 @_ZN3net15SpdyFrameReader10ReadUInt31EPj(ptr noundef nonnull align 8 dereferenceable(24) %reader, ptr noundef nonnull %current_frame_stream_id_88)
   %26 = load i32, ptr %current_frame_length_83, align 4
   %conv93 = zext i32 %26 to i64
-  %ofs_.i20 = getelementptr inbounds %"class.net::SpdyFrameReader", ptr %reader, i64 0, i32 2
+  %ofs_.i20 = getelementptr inbounds i8, ptr %reader, i64 16
   %27 = load i64, ptr %ofs_.i20, align 8
   %sub96 = sub i64 %conv93, %27
-  %remaining_data_length_97 = getelementptr inbounds %"class.net::SpdyFramer", ptr %this, i64 0, i32 5
+  %remaining_data_length_97 = getelementptr inbounds i8, ptr %this, i64 24
   store i64 %sub96, ptr %remaining_data_length_97, align 8
   br label %if.end126
 
@@ -2145,12 +2041,12 @@ if.end126:                                        ; preds = %if.else63, %if.end5
   %28 = phi i64 [ %conv58, %if.end51 ], [ %sub96, %if.else63 ]
   %is_control_frame.0 = phi i1 [ %cmp31, %if.end51 ], [ %cmp76, %if.else63 ]
   %control_frame_type_field.1 = phi i32 [ %control_frame_type_field.0, %if.end51 ], [ %conv72, %if.else63 ]
-  %remaining_data_length_127 = getelementptr inbounds %"class.net::SpdyFramer", ptr %this, i64 0, i32 5
+  %remaining_data_length_127 = getelementptr inbounds i8, ptr %this, i64 24
   %cmp128 = icmp ugt i64 %28, 1000000
   br i1 %cmp128, label %if.then129, label %if.end185
 
 if.then129:                                       ; preds = %if.end126
-  %syn_frame_processed_ = getelementptr inbounds %"class.net::SpdyFramer", ptr %this, i64 0, i32 30
+  %syn_frame_processed_ = getelementptr inbounds i8, ptr %this, i64 254
   %29 = load i8, ptr %syn_frame_processed_, align 2
   %30 = and i8 %29, 1
   %tobool130.not = icmp eq i8 %30, 0
@@ -2168,12 +2064,12 @@ if.then136:                                       ; preds = %land.lhs.true
 
 cond.false:                                       ; preds = %if.then136
   call void @_ZN7logging10LogMessageC1EPKcii(ptr noundef nonnull align 8 dereferenceable(404) %ref.tmp141, ptr noundef nonnull @.str, i32 noundef 946, i32 noundef 1)
-  %stream_.i25 = getelementptr inbounds %"class.logging::LogMessage", ptr %ref.tmp141, i64 0, i32 2
+  %stream_.i25 = getelementptr inbounds i8, ptr %ref.tmp141, i64 8
   %call147 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc(ptr noundef nonnull align 8 dereferenceable(8) %stream_.i25, ptr noundef nonnull @.str.69)
           to label %invoke.cont146 unwind label %lpad143
 
 invoke.cont146:                                   ; preds = %cond.false
-  %display_protocol_ = getelementptr inbounds %"class.net::SpdyFramer", ptr %this, i64 0, i32 25
+  %display_protocol_ = getelementptr inbounds i8, ptr %this, i64 208
   %call149 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsIcSt11char_traitsIcESaIcEERSt13basic_ostreamIT_T0_ES7_RKNSt7__cxx1112basic_stringIS4_S5_T1_EE(ptr noundef nonnull align 8 dereferenceable(8) %call147, ptr noundef nonnull align 8 dereferenceable(32) %display_protocol_)
           to label %invoke.cont148 unwind label %lpad143
 
@@ -2186,7 +2082,7 @@ cleanup.action:                                   ; preds = %invoke.cont148
   br label %cleanup.done
 
 cleanup.done:                                     ; preds = %if.then136, %cleanup.action
-  %probable_http_response_ = getelementptr inbounds %"class.net::SpdyFramer", ptr %this, i64 0, i32 31
+  %probable_http_response_ = getelementptr inbounds i8, ptr %this, i64 255
   store i8 1, ptr %probable_http_response_, align 1
   br label %if.end185
 
@@ -2201,12 +2097,12 @@ if.else156:                                       ; preds = %land.lhs.true, %if.
 
 cond.false160:                                    ; preds = %if.else156
   call void @_ZN7logging10LogMessageC1EPKcii(ptr noundef nonnull align 8 dereferenceable(404) %ref.tmp163, ptr noundef nonnull @.str, i32 noundef 950, i32 noundef 1)
-  %stream_.i26 = getelementptr inbounds %"class.logging::LogMessage", ptr %ref.tmp163, i64 0, i32 2
+  %stream_.i26 = getelementptr inbounds i8, ptr %ref.tmp163, i64 8
   %call170 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc(ptr noundef nonnull align 8 dereferenceable(8) %stream_.i26, ptr noundef nonnull @.str.71)
           to label %invoke.cont169 unwind label %lpad166
 
 invoke.cont169:                                   ; preds = %cond.false160
-  %display_protocol_171 = getelementptr inbounds %"class.net::SpdyFramer", ptr %this, i64 0, i32 25
+  %display_protocol_171 = getelementptr inbounds i8, ptr %this, i64 208
   %call173 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsIcSt11char_traitsIcESaIcEERSt13basic_ostreamIT_T0_ES7_RKNSt7__cxx1112basic_stringIS4_S5_T1_EE(ptr noundef nonnull align 8 dereferenceable(8) %call170, ptr noundef nonnull align 8 dereferenceable(32) %display_protocol_171)
           to label %invoke.cont172 unwind label %lpad166
 
@@ -2224,22 +2120,22 @@ lpad166:                                          ; preds = %invoke.cont172, %in
   br label %ehcleanup
 
 if.end185:                                        ; preds = %if.else156, %cleanup.done, %cleanup.action179, %if.end126
-  %visitor_ = getelementptr inbounds %"class.net::SpdyFramer", ptr %this, i64 0, i32 21
+  %visitor_ = getelementptr inbounds i8, ptr %this, i64 176
   %34 = load ptr, ptr %visitor_, align 8
-  %current_frame_stream_id_186 = getelementptr inbounds %"class.net::SpdyFramer", ptr %this, i64 0, i32 13
+  %current_frame_stream_id_186 = getelementptr inbounds i8, ptr %this, i64 96
   %35 = load i32, ptr %current_frame_stream_id_186, align 8
   %36 = load i64, ptr %remaining_data_length_127, align 8
   %conv188 = trunc i32 %control_frame_type_field.1 to i8
-  %current_frame_flags_189 = getelementptr inbounds %"class.net::SpdyFramer", ptr %this, i64 0, i32 28
+  %current_frame_flags_189 = getelementptr inbounds i8, ptr %this, i64 252
   %37 = load i8, ptr %current_frame_flags_189, align 4
   %vtable = load ptr, ptr %34, align 8
-  %vfn = getelementptr inbounds ptr, ptr %vtable, i64 3
+  %vfn = getelementptr inbounds i8, ptr %vtable, i64 24
   %38 = load ptr, ptr %vfn, align 8
   call void %38(ptr noundef nonnull align 8 dereferenceable(8) %34, i32 noundef %35, i64 noundef %36, i8 noundef zeroext %conv188, i8 noundef zeroext %37)
   %39 = load i64, ptr %remaining_data_length_127, align 8
   %call194 = call noundef i32 @_ZN3net10SpdyFramer19ValidateFrameHeaderEbim(ptr noundef nonnull align 8 dereferenceable(259) %this, i1 noundef zeroext %is_control_frame.0, i32 noundef %control_frame_type_field.1, i64 noundef %39)
   store i32 %call194, ptr %current_frame_type_, align 8
-  %state_ = getelementptr inbounds %"class.net::SpdyFramer", ptr %this, i64 0, i32 1
+  %state_ = getelementptr inbounds i8, ptr %this, i64 8
   %40 = load i32, ptr %state_, align 8
   switch i32 %40, label %if.end201 [
     i32 0, label %if.then199
@@ -2264,18 +2160,18 @@ if.then203:                                       ; preds = %if.end201
   br i1 %tobool213.not, label %if.else216, label %if.then214
 
 if.then214:                                       ; preds = %if.then203
-  %error_code_.i27 = getelementptr inbounds %"class.net::SpdyFramer", ptr %this, i64 0, i32 3
+  %error_code_.i27 = getelementptr inbounds i8, ptr %this, i64 16
   store i32 11, ptr %error_code_.i27, align 8
-  %expect_continuation_.i28 = getelementptr inbounds %"class.net::SpdyFramer", ptr %this, i64 0, i32 14
+  %expect_continuation_.i28 = getelementptr inbounds i8, ptr %this, i64 100
   store i32 0, ptr %expect_continuation_.i28, align 4
-  %end_stream_when_done_.i29 = getelementptr inbounds %"class.net::SpdyFramer", ptr %this, i64 0, i32 32
+  %end_stream_when_done_.i29 = getelementptr inbounds i8, ptr %this, i64 256
   store i8 0, ptr %end_stream_when_done_.i29, align 8
-  %previous_state_.i31 = getelementptr inbounds %"class.net::SpdyFramer", ptr %this, i64 0, i32 2
+  %previous_state_.i31 = getelementptr inbounds i8, ptr %this, i64 12
   store i32 %40, ptr %previous_state_.i31, align 4
   store i32 0, ptr %state_, align 8
   %43 = load ptr, ptr %visitor_, align 8
   %vtable.i33 = load ptr, ptr %43, align 8
-  %vfn.i34 = getelementptr inbounds ptr, ptr %vtable.i33, i64 2
+  %vfn.i34 = getelementptr inbounds i8, ptr %vtable.i33, i64 16
   %44 = load ptr, ptr %vfn.i34, align 8
   call void %44(ptr noundef nonnull align 8 dereferenceable(8) %43, ptr noundef nonnull %this)
   br label %if.end282
@@ -2287,7 +2183,7 @@ if.else216:                                       ; preds = %if.then203
   %and222 = and i32 %conv210, 1
   %tobool223 = icmp ne i32 %and222, 0
   %vtable224 = load ptr, ptr %45, align 8
-  %vfn225 = getelementptr inbounds ptr, ptr %vtable224, i64 4
+  %vfn225 = getelementptr inbounds i8, ptr %vtable224, i64 32
   %48 = load ptr, ptr %vfn225, align 8
   call void %48(ptr noundef nonnull align 8 dereferenceable(8) %45, i32 noundef %46, i64 noundef %47, i1 noundef zeroext %tobool223)
   %49 = load i64, ptr %remaining_data_length_127, align 8
@@ -2296,7 +2192,7 @@ if.else216:                                       ; preds = %if.then203
 
 if.end243:                                        ; preds = %if.else216
   %50 = load i32, ptr %state_, align 8
-  %previous_state_ = getelementptr inbounds %"class.net::SpdyFramer", ptr %this, i64 0, i32 2
+  %previous_state_ = getelementptr inbounds i8, ptr %this, i64 12
   store i32 %50, ptr %previous_state_, align 4
   store i32 5, ptr %state_, align 8
   br label %if.end282
@@ -2311,14 +2207,14 @@ if.then251:                                       ; preds = %if.else246
   %53 = load ptr, ptr %visitor_, align 8
   %54 = load i32, ptr %current_frame_stream_id_186, align 8
   %vtable254 = load ptr, ptr %53, align 8
-  %vfn255 = getelementptr inbounds ptr, ptr %vtable254, i64 6
+  %vfn255 = getelementptr inbounds i8, ptr %vtable254, i64 48
   %55 = load ptr, ptr %vfn255, align 8
   call void %55(ptr noundef nonnull align 8 dereferenceable(8) %53, i32 noundef %54)
   br label %if.end272
 
 if.end272:                                        ; preds = %if.then251, %if.else246
   %56 = load i32, ptr %state_, align 8
-  %previous_state_274 = getelementptr inbounds %"class.net::SpdyFramer", ptr %this, i64 0, i32 2
+  %previous_state_274 = getelementptr inbounds i8, ptr %this, i64 12
   store i32 %56, ptr %previous_state_274, align 4
   store i32 2, ptr %state_, align 8
   br label %if.end282
@@ -2354,7 +2250,7 @@ if.end:
   %pad_payload_len251 = alloca i8, align 1
   %promised_stream_id = alloca i32, align 4
   %ref.tmp352 = alloca %"class.logging::LogMessage", align 8
-  %remaining_control_header_ = getelementptr inbounds %"class.net::SpdyFramer", ptr %this, i64 0, i32 7
+  %remaining_control_header_ = getelementptr inbounds i8, ptr %this, i64 40
   %0 = load i64, ptr %remaining_control_header_, align 8
   %cmp.not = icmp eq i64 %0, 0
   br i1 %cmp.not, label %if.then12, label %if.then4
@@ -2365,9 +2261,9 @@ if.then4:                                         ; preds = %if.end
   br i1 %cmp.not.i, label %if.end9, label %if.then.i
 
 if.then.i:                                        ; preds = %if.then4
-  %current_frame_buffer_.i = getelementptr inbounds %"class.net::SpdyFramer", ptr %this, i64 0, i32 10
+  %current_frame_buffer_.i = getelementptr inbounds i8, ptr %this, i64 64
   %1 = load ptr, ptr %current_frame_buffer_.i, align 8
-  %len_.i.i = getelementptr inbounds %"class.net::SpdyFramer", ptr %this, i64 0, i32 10, i32 2
+  %len_.i.i = getelementptr inbounds i8, ptr %this, i64 80
   %2 = load i64, ptr %len_.i.i, align 8
   %add.ptr.i.i = getelementptr inbounds i8, ptr %1, i64 %2
   tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %add.ptr.i.i, ptr align 1 %data, i64 %.sroa.speculated.i, i1 false)
@@ -2383,7 +2279,7 @@ if.end9:                                          ; preds = %if.then.i, %if.then
   %len.addr.0 = phi i64 [ 0, %if.then4 ], [ %sub.i, %if.then.i ]
   %sub = sub i64 %4, %.sroa.speculated.i
   store i64 %sub, ptr %remaining_control_header_, align 8
-  %remaining_data_length_ = getelementptr inbounds %"class.net::SpdyFramer", ptr %this, i64 0, i32 5
+  %remaining_data_length_ = getelementptr inbounds i8, ptr %this, i64 24
   %5 = load i64, ptr %remaining_data_length_, align 8
   %sub8 = sub i64 %5, %.sroa.speculated.i
   store i64 %sub8, ptr %remaining_data_length_, align 8
@@ -2392,16 +2288,16 @@ if.end9:                                          ; preds = %if.then.i, %if.then
 
 if.then12:                                        ; preds = %if.end, %if.end9
   %len.addr.1108 = phi i64 [ %len.addr.0, %if.end9 ], [ %len, %if.end ]
-  %current_frame_buffer_ = getelementptr inbounds %"class.net::SpdyFramer", ptr %this, i64 0, i32 10
+  %current_frame_buffer_ = getelementptr inbounds i8, ptr %this, i64 64
   %6 = load ptr, ptr %current_frame_buffer_, align 8
-  %len_.i = getelementptr inbounds %"class.net::SpdyFramer", ptr %this, i64 0, i32 10, i32 2
+  %len_.i = getelementptr inbounds i8, ptr %this, i64 80
   %7 = load i64, ptr %len_.i, align 8
   call void @_ZN3net15SpdyFrameReaderC1EPKcm(ptr noundef nonnull align 8 dereferenceable(24) %reader, ptr noundef %6, i64 noundef %7)
-  %protocol_version_.i = getelementptr inbounds %"class.net::SpdyFramer", ptr %this, i64 0, i32 27
+  %protocol_version_.i = getelementptr inbounds i8, ptr %this, i64 248
   %8 = load i32, ptr %protocol_version_.i, align 8
   %call.i17 = call noundef i64 @_ZN3net13SpdyConstants18GetFrameHeaderSizeENS_16SpdyMajorVersionE(i32 noundef %8)
   %call20 = call noundef zeroext i1 @_ZN3net15SpdyFrameReader4SeekEm(ptr noundef nonnull align 8 dereferenceable(24) %reader, i64 noundef %call.i17)
-  %current_frame_type_ = getelementptr inbounds %"class.net::SpdyFramer", ptr %this, i64 0, i32 11
+  %current_frame_type_ = getelementptr inbounds i8, ptr %this, i64 88
   %9 = load i32, ptr %current_frame_type_, align 8
   switch i32 %9, label %sw.default [
     i32 1, label %if.end34
@@ -2412,28 +2308,28 @@ if.then12:                                        ; preds = %if.end, %if.end9
   ]
 
 if.end34:                                         ; preds = %if.then12
-  %current_frame_stream_id_ = getelementptr inbounds %"class.net::SpdyFramer", ptr %this, i64 0, i32 13
+  %current_frame_stream_id_ = getelementptr inbounds i8, ptr %this, i64 96
   %call36 = call noundef zeroext i1 @_ZN3net15SpdyFrameReader10ReadUInt31EPj(ptr noundef nonnull align 8 dereferenceable(24) %reader, ptr noundef nonnull %current_frame_stream_id_)
   %10 = load i32, ptr %current_frame_stream_id_, align 8
   %cmp38 = icmp eq i32 %10, 0
   br i1 %cmp38, label %if.then39, label %if.end42
 
 if.then39:                                        ; preds = %if.end34
-  %error_code_.i = getelementptr inbounds %"class.net::SpdyFramer", ptr %this, i64 0, i32 3
+  %error_code_.i = getelementptr inbounds i8, ptr %this, i64 16
   store i32 2, ptr %error_code_.i, align 8
-  %expect_continuation_.i = getelementptr inbounds %"class.net::SpdyFramer", ptr %this, i64 0, i32 14
+  %expect_continuation_.i = getelementptr inbounds i8, ptr %this, i64 100
   store i32 0, ptr %expect_continuation_.i, align 4
-  %end_stream_when_done_.i = getelementptr inbounds %"class.net::SpdyFramer", ptr %this, i64 0, i32 32
+  %end_stream_when_done_.i = getelementptr inbounds i8, ptr %this, i64 256
   store i8 0, ptr %end_stream_when_done_.i, align 8
-  %state_.i = getelementptr inbounds %"class.net::SpdyFramer", ptr %this, i64 0, i32 1
+  %state_.i = getelementptr inbounds i8, ptr %this, i64 8
   %11 = load i32, ptr %state_.i, align 8
-  %previous_state_.i = getelementptr inbounds %"class.net::SpdyFramer", ptr %this, i64 0, i32 2
+  %previous_state_.i = getelementptr inbounds i8, ptr %this, i64 12
   store i32 %11, ptr %previous_state_.i, align 4
   store i32 0, ptr %state_.i, align 8
-  %visitor_.i = getelementptr inbounds %"class.net::SpdyFramer", ptr %this, i64 0, i32 21
+  %visitor_.i = getelementptr inbounds i8, ptr %this, i64 176
   %12 = load ptr, ptr %visitor_.i, align 8
   %vtable.i = load ptr, ptr %12, align 8
-  %vfn.i = getelementptr inbounds ptr, ptr %vtable.i, i64 2
+  %vfn.i = getelementptr inbounds i8, ptr %vtable.i, i64 16
   %13 = load ptr, ptr %vfn.i, align 8
   call void %13(ptr noundef nonnull align 8 dereferenceable(8) %12, ptr noundef nonnull %this)
   br label %return
@@ -2447,7 +2343,7 @@ if.end42:                                         ; preds = %if.end34
   %15 = lshr i8 %14, 5
   store i8 %15, ptr %priority, align 1
   %call51 = call noundef zeroext i1 @_ZN3net15SpdyFrameReader4SeekEm(ptr noundef nonnull align 8 dereferenceable(24) %reader, i64 noundef 1)
-  %debug_visitor_ = getelementptr inbounds %"class.net::SpdyFramer", ptr %this, i64 0, i32 22
+  %debug_visitor_ = getelementptr inbounds i8, ptr %this, i64 184
   %16 = load ptr, ptr %debug_visitor_, align 8
   %tobool.not = icmp eq ptr %16, null
   br i1 %tobool.not, label %if.end58, label %if.then52
@@ -2455,22 +2351,22 @@ if.end42:                                         ; preds = %if.end34
 if.then52:                                        ; preds = %if.end42
   %17 = load i32, ptr %current_frame_stream_id_, align 8
   %18 = load i32, ptr %current_frame_type_, align 8
-  %current_frame_length_ = getelementptr inbounds %"class.net::SpdyFramer", ptr %this, i64 0, i32 12
+  %current_frame_length_ = getelementptr inbounds i8, ptr %this, i64 92
   %19 = load i32, ptr %current_frame_length_, align 4
   %conv56 = zext i32 %19 to i64
   %vtable = load ptr, ptr %16, align 8
-  %vfn = getelementptr inbounds ptr, ptr %vtable, i64 3
+  %vfn = getelementptr inbounds i8, ptr %vtable, i64 24
   %20 = load ptr, ptr %vfn, align 8
   call void %20(ptr noundef nonnull align 8 dereferenceable(8) %16, i32 noundef %17, i32 noundef %18, i64 noundef %conv56)
   br label %if.end58
 
 if.end58:                                         ; preds = %if.then52, %if.end42
-  %visitor_ = getelementptr inbounds %"class.net::SpdyFramer", ptr %this, i64 0, i32 21
+  %visitor_ = getelementptr inbounds i8, ptr %this, i64 176
   %21 = load ptr, ptr %visitor_, align 8
   %22 = load i32, ptr %current_frame_stream_id_, align 8
   %23 = load i32, ptr %associated_to_stream_id, align 4
   %24 = load i8, ptr %priority, align 1
-  %current_frame_flags_ = getelementptr inbounds %"class.net::SpdyFramer", ptr %this, i64 0, i32 28
+  %current_frame_flags_ = getelementptr inbounds i8, ptr %this, i64 252
   %25 = load i8, ptr %current_frame_flags_, align 4
   %conv60 = zext i8 %25 to i32
   %and = and i32 %conv60, 1
@@ -2478,7 +2374,7 @@ if.end58:                                         ; preds = %if.then52, %if.end4
   %and64 = and i32 %conv60, 2
   %cmp65 = icmp ne i32 %and64, 0
   %vtable66 = load ptr, ptr %21, align 8
-  %vfn67 = getelementptr inbounds ptr, ptr %vtable66, i64 11
+  %vfn67 = getelementptr inbounds i8, ptr %vtable66, i64 88
   %26 = load ptr, ptr %vfn67, align 8
   call void %26(ptr noundef nonnull align 8 dereferenceable(8) %21, i32 noundef %22, i32 noundef %23, i8 noundef zeroext %24, i1 noundef zeroext %cmp61, i1 noundef zeroext %cmp65)
   br label %sw.epilog
@@ -2489,32 +2385,32 @@ sw.bb84:                                          ; preds = %if.then12, %if.then
   br i1 %cmp86, label %if.then87, label %if.end92
 
 if.then87:                                        ; preds = %sw.bb84
-  %current_frame_stream_id_88 = getelementptr inbounds %"class.net::SpdyFramer", ptr %this, i64 0, i32 13
+  %current_frame_stream_id_88 = getelementptr inbounds i8, ptr %this, i64 96
   %call90 = call noundef zeroext i1 @_ZN3net15SpdyFrameReader10ReadUInt31EPj(ptr noundef nonnull align 8 dereferenceable(24) %reader, ptr noundef nonnull %current_frame_stream_id_88)
   br label %if.end92
 
 if.end92:                                         ; preds = %if.then87, %sw.bb84
-  %current_frame_stream_id_93 = getelementptr inbounds %"class.net::SpdyFramer", ptr %this, i64 0, i32 13
+  %current_frame_stream_id_93 = getelementptr inbounds i8, ptr %this, i64 96
   %28 = load i32, ptr %current_frame_stream_id_93, align 8
   %cmp94 = icmp eq i32 %28, 0
   br i1 %cmp94, label %if.then95, label %if.end98
 
 if.then95:                                        ; preds = %if.end92
-  %error_code_.i22 = getelementptr inbounds %"class.net::SpdyFramer", ptr %this, i64 0, i32 3
+  %error_code_.i22 = getelementptr inbounds i8, ptr %this, i64 16
   store i32 2, ptr %error_code_.i22, align 8
-  %expect_continuation_.i23 = getelementptr inbounds %"class.net::SpdyFramer", ptr %this, i64 0, i32 14
+  %expect_continuation_.i23 = getelementptr inbounds i8, ptr %this, i64 100
   store i32 0, ptr %expect_continuation_.i23, align 4
-  %end_stream_when_done_.i24 = getelementptr inbounds %"class.net::SpdyFramer", ptr %this, i64 0, i32 32
+  %end_stream_when_done_.i24 = getelementptr inbounds i8, ptr %this, i64 256
   store i8 0, ptr %end_stream_when_done_.i24, align 8
-  %state_.i25 = getelementptr inbounds %"class.net::SpdyFramer", ptr %this, i64 0, i32 1
+  %state_.i25 = getelementptr inbounds i8, ptr %this, i64 8
   %29 = load i32, ptr %state_.i25, align 8
-  %previous_state_.i26 = getelementptr inbounds %"class.net::SpdyFramer", ptr %this, i64 0, i32 2
+  %previous_state_.i26 = getelementptr inbounds i8, ptr %this, i64 12
   store i32 %29, ptr %previous_state_.i26, align 4
   store i32 0, ptr %state_.i25, align 8
-  %visitor_.i27 = getelementptr inbounds %"class.net::SpdyFramer", ptr %this, i64 0, i32 21
+  %visitor_.i27 = getelementptr inbounds i8, ptr %this, i64 176
   %30 = load ptr, ptr %visitor_.i27, align 8
   %vtable.i28 = load ptr, ptr %30, align 8
-  %vfn.i29 = getelementptr inbounds ptr, ptr %vtable.i28, i64 2
+  %vfn.i29 = getelementptr inbounds i8, ptr %vtable.i28, i64 16
   %31 = load ptr, ptr %vfn.i29, align 8
   call void %31(ptr noundef nonnull align 8 dereferenceable(8) %30, ptr noundef nonnull %this)
   br label %return
@@ -2522,7 +2418,7 @@ if.then95:                                        ; preds = %if.end92
 if.end98:                                         ; preds = %if.end92
   %32 = load i32, ptr %protocol_version_.i, align 8
   %cmp100 = icmp eq i32 %32, 2
-  %current_frame_flags_101 = getelementptr inbounds %"class.net::SpdyFramer", ptr %this, i64 0, i32 28
+  %current_frame_flags_101 = getelementptr inbounds i8, ptr %this, i64 252
   br i1 %cmp100, label %land.lhs.true, label %if.end164
 
 land.lhs.true:                                    ; preds = %if.end98
@@ -2535,10 +2431,10 @@ land.lhs.true:                                    ; preds = %if.end98
   br i1 %or.cond, label %if.then108, label %land.lhs.true118
 
 if.then108:                                       ; preds = %land.lhs.true
-  %expect_continuation_ = getelementptr inbounds %"class.net::SpdyFramer", ptr %this, i64 0, i32 14
+  %expect_continuation_ = getelementptr inbounds i8, ptr %this, i64 100
   store i32 %28, ptr %expect_continuation_, align 4
   %36 = and i8 %33, 1
-  %end_stream_when_done_ = getelementptr inbounds %"class.net::SpdyFramer", ptr %this, i64 0, i32 32
+  %end_stream_when_done_ = getelementptr inbounds i8, ptr %this, i64 256
   store i8 %36, ptr %end_stream_when_done_, align 8
   br label %land.lhs.true118
 
@@ -2552,7 +2448,7 @@ if.end137:                                        ; preds = %land.lhs.true118
   %call139 = call noundef zeroext i1 @_ZN3net15SpdyFrameReader9ReadUInt8EPh(ptr noundef nonnull align 8 dereferenceable(24) %reader, ptr noundef nonnull %pad_payload_len)
   %38 = load i8, ptr %pad_payload_len, align 1
   %conv141 = zext i8 %38 to i64
-  %remaining_padding_payload_length_ = getelementptr inbounds %"class.net::SpdyFramer", ptr %this, i64 0, i32 6
+  %remaining_padding_payload_length_ = getelementptr inbounds i8, ptr %this, i64 32
   store i64 %conv141, ptr %remaining_padding_payload_length_, align 8
   %.pre119 = load i32, ptr %protocol_version_.i, align 8
   %39 = icmp ne i32 %.pre119, 2
@@ -2560,7 +2456,7 @@ if.end137:                                        ; preds = %land.lhs.true118
 
 if.end142:                                        ; preds = %if.end137, %land.lhs.true118
   %cmp149 = phi i1 [ %39, %if.end137 ], [ false, %land.lhs.true118 ]
-  %current_frame_flags_143 = getelementptr inbounds %"class.net::SpdyFramer", ptr %this, i64 0, i32 28
+  %current_frame_flags_143 = getelementptr inbounds i8, ptr %this, i64 252
   %40 = load i8, ptr %current_frame_flags_143, align 4
   %41 = and i8 %40, 32
   %cmp146.not = icmp eq i8 %41, 0
@@ -2588,7 +2484,7 @@ if.end164:                                        ; preds = %if.end98, %if.then1
   %exclusive.0 = phi i8 [ 0, %if.end142 ], [ %frombool.i, %if.then161 ], [ %frombool.i, %if.then152 ], [ 0, %if.end98 ]
   %parent_stream_id.0 = phi i32 [ 0, %if.end142 ], [ %and.i, %if.then161 ], [ %and.i, %if.then152 ], [ 0, %if.end98 ]
   %weight.0 = phi i32 [ 0, %if.end142 ], [ %add, %if.then161 ], [ 0, %if.then152 ], [ 0, %if.end98 ]
-  %debug_visitor_165 = getelementptr inbounds %"class.net::SpdyFramer", ptr %this, i64 0, i32 22
+  %debug_visitor_165 = getelementptr inbounds i8, ptr %this, i64 184
   %44 = load ptr, ptr %debug_visitor_165, align 8
   %tobool166.not = icmp eq ptr %44, null
   %.pre121 = load i32, ptr %current_frame_type_, align 8
@@ -2596,11 +2492,11 @@ if.end164:                                        ; preds = %if.end98, %if.then1
 
 if.then167:                                       ; preds = %if.end164
   %45 = load i32, ptr %current_frame_stream_id_93, align 8
-  %current_frame_length_171 = getelementptr inbounds %"class.net::SpdyFramer", ptr %this, i64 0, i32 12
+  %current_frame_length_171 = getelementptr inbounds i8, ptr %this, i64 92
   %46 = load i32, ptr %current_frame_length_171, align 4
   %conv172 = zext i32 %46 to i64
   %vtable173 = load ptr, ptr %44, align 8
-  %vfn174 = getelementptr inbounds ptr, ptr %vtable173, i64 3
+  %vfn174 = getelementptr inbounds i8, ptr %vtable173, i64 24
   %47 = load ptr, ptr %vfn174, align 8
   call void %47(ptr noundef nonnull align 8 dereferenceable(8) %44, i32 noundef %45, i32 noundef %.pre121, i64 noundef %conv172)
   %.pre120 = load i32, ptr %current_frame_type_, align 8
@@ -2609,7 +2505,7 @@ if.then167:                                       ; preds = %if.end164
 if.end176:                                        ; preds = %if.then167, %if.end164
   %48 = phi i32 [ %.pre120, %if.then167 ], [ %.pre121, %if.end164 ]
   %cmp178 = icmp eq i32 %48, 2
-  %visitor_180 = getelementptr inbounds %"class.net::SpdyFramer", ptr %this, i64 0, i32 21
+  %visitor_180 = getelementptr inbounds i8, ptr %this, i64 176
   %49 = load ptr, ptr %visitor_180, align 8
   %50 = load i32, ptr %current_frame_stream_id_93, align 8
   %51 = load i8, ptr %current_frame_flags_143129, align 4
@@ -2619,7 +2515,7 @@ if.then179:                                       ; preds = %if.end176
   %52 = and i8 %51, 1
   %cmp185 = icmp ne i8 %52, 0
   %vtable186 = load ptr, ptr %49, align 8
-  %vfn187 = getelementptr inbounds ptr, ptr %vtable186, i64 12
+  %vfn187 = getelementptr inbounds i8, ptr %vtable186, i64 96
   %53 = load ptr, ptr %vfn187, align 8
   call void %53(ptr noundef nonnull align 8 dereferenceable(8) %49, i32 noundef %50, i1 noundef zeroext %cmp185)
   br label %sw.epilog
@@ -2631,37 +2527,37 @@ if.else189:                                       ; preds = %if.end176
   %tobool196 = icmp ne i8 %exclusive.0, 0
   %and199 = and i32 %conv193, 1
   %cmp200 = icmp ne i32 %and199, 0
-  %expect_continuation_201 = getelementptr inbounds %"class.net::SpdyFramer", ptr %this, i64 0, i32 14
+  %expect_continuation_201 = getelementptr inbounds i8, ptr %this, i64 100
   %54 = load i32, ptr %expect_continuation_201, align 4
   %cmp202 = icmp eq i32 %54, 0
   %vtable203 = load ptr, ptr %49, align 8
-  %vfn204 = getelementptr inbounds ptr, ptr %vtable203, i64 20
+  %vfn204 = getelementptr inbounds i8, ptr %vtable203, i64 160
   %55 = load ptr, ptr %vfn204, align 8
   call void %55(ptr noundef nonnull align 8 dereferenceable(8) %49, i32 noundef %50, i1 noundef zeroext %cmp195, i32 noundef %weight.0, i32 noundef %parent_stream_id.0, i1 noundef zeroext %tobool196, i1 noundef zeroext %cmp200, i1 noundef zeroext %cmp202)
   br label %sw.epilog
 
 if.end221:                                        ; preds = %if.then12
-  %current_frame_stream_id_222 = getelementptr inbounds %"class.net::SpdyFramer", ptr %this, i64 0, i32 13
+  %current_frame_stream_id_222 = getelementptr inbounds i8, ptr %this, i64 96
   %56 = load i32, ptr %current_frame_stream_id_222, align 8
   %cmp223 = icmp eq i32 %56, 0
   br i1 %cmp223, label %if.then224, label %if.end227
 
 if.then224:                                       ; preds = %if.end221
-  %error_code_.i35 = getelementptr inbounds %"class.net::SpdyFramer", ptr %this, i64 0, i32 3
+  %error_code_.i35 = getelementptr inbounds i8, ptr %this, i64 16
   store i32 2, ptr %error_code_.i35, align 8
-  %expect_continuation_.i36 = getelementptr inbounds %"class.net::SpdyFramer", ptr %this, i64 0, i32 14
+  %expect_continuation_.i36 = getelementptr inbounds i8, ptr %this, i64 100
   store i32 0, ptr %expect_continuation_.i36, align 4
-  %end_stream_when_done_.i37 = getelementptr inbounds %"class.net::SpdyFramer", ptr %this, i64 0, i32 32
+  %end_stream_when_done_.i37 = getelementptr inbounds i8, ptr %this, i64 256
   store i8 0, ptr %end_stream_when_done_.i37, align 8
-  %state_.i38 = getelementptr inbounds %"class.net::SpdyFramer", ptr %this, i64 0, i32 1
+  %state_.i38 = getelementptr inbounds i8, ptr %this, i64 8
   %57 = load i32, ptr %state_.i38, align 8
-  %previous_state_.i39 = getelementptr inbounds %"class.net::SpdyFramer", ptr %this, i64 0, i32 2
+  %previous_state_.i39 = getelementptr inbounds i8, ptr %this, i64 12
   store i32 %57, ptr %previous_state_.i39, align 4
   store i32 0, ptr %state_.i38, align 8
-  %visitor_.i40 = getelementptr inbounds %"class.net::SpdyFramer", ptr %this, i64 0, i32 21
+  %visitor_.i40 = getelementptr inbounds i8, ptr %this, i64 176
   %58 = load ptr, ptr %visitor_.i40, align 8
   %vtable.i41 = load ptr, ptr %58, align 8
-  %vfn.i42 = getelementptr inbounds ptr, ptr %vtable.i41, i64 2
+  %vfn.i42 = getelementptr inbounds i8, ptr %vtable.i41, i64 16
   %59 = load ptr, ptr %vfn.i42, align 8
   call void %59(ptr noundef nonnull align 8 dereferenceable(8) %58, ptr noundef nonnull %this)
   br label %return
@@ -2672,7 +2568,7 @@ if.end227:                                        ; preds = %if.end221
   br i1 %cmp230, label %land.lhs.true231, label %if.end257
 
 land.lhs.true231:                                 ; preds = %if.end227
-  %current_frame_flags_232 = getelementptr inbounds %"class.net::SpdyFramer", ptr %this, i64 0, i32 28
+  %current_frame_flags_232 = getelementptr inbounds i8, ptr %this, i64 252
   %61 = load i8, ptr %current_frame_flags_232, align 4
   %62 = and i8 %61, 8
   %tobool235.not = icmp eq i8 %62, 0
@@ -2683,7 +2579,7 @@ if.end250:                                        ; preds = %land.lhs.true231
   %call253 = call noundef zeroext i1 @_ZN3net15SpdyFrameReader9ReadUInt8EPh(ptr noundef nonnull align 8 dereferenceable(24) %reader, ptr noundef nonnull %pad_payload_len251)
   %63 = load i8, ptr %pad_payload_len251, align 1
   %conv255 = zext i8 %63 to i64
-  %remaining_padding_payload_length_256 = getelementptr inbounds %"class.net::SpdyFramer", ptr %this, i64 0, i32 6
+  %remaining_padding_payload_length_256 = getelementptr inbounds i8, ptr %this, i64 32
   store i64 %conv255, ptr %remaining_padding_payload_length_256, align 8
   br label %if.end257
 
@@ -2695,27 +2591,27 @@ if.end257:                                        ; preds = %if.end250, %land.lh
   br i1 %cmp262, label %if.then263, label %if.end266
 
 if.then263:                                       ; preds = %if.end257
-  %error_code_.i46 = getelementptr inbounds %"class.net::SpdyFramer", ptr %this, i64 0, i32 3
+  %error_code_.i46 = getelementptr inbounds i8, ptr %this, i64 16
   store i32 2, ptr %error_code_.i46, align 8
-  %expect_continuation_.i47 = getelementptr inbounds %"class.net::SpdyFramer", ptr %this, i64 0, i32 14
+  %expect_continuation_.i47 = getelementptr inbounds i8, ptr %this, i64 100
   store i32 0, ptr %expect_continuation_.i47, align 4
-  %end_stream_when_done_.i48 = getelementptr inbounds %"class.net::SpdyFramer", ptr %this, i64 0, i32 32
+  %end_stream_when_done_.i48 = getelementptr inbounds i8, ptr %this, i64 256
   store i8 0, ptr %end_stream_when_done_.i48, align 8
-  %state_.i49 = getelementptr inbounds %"class.net::SpdyFramer", ptr %this, i64 0, i32 1
+  %state_.i49 = getelementptr inbounds i8, ptr %this, i64 8
   %65 = load i32, ptr %state_.i49, align 8
-  %previous_state_.i50 = getelementptr inbounds %"class.net::SpdyFramer", ptr %this, i64 0, i32 2
+  %previous_state_.i50 = getelementptr inbounds i8, ptr %this, i64 12
   store i32 %65, ptr %previous_state_.i50, align 4
   store i32 0, ptr %state_.i49, align 8
-  %visitor_.i51 = getelementptr inbounds %"class.net::SpdyFramer", ptr %this, i64 0, i32 21
+  %visitor_.i51 = getelementptr inbounds i8, ptr %this, i64 176
   %66 = load ptr, ptr %visitor_.i51, align 8
   %vtable.i52 = load ptr, ptr %66, align 8
-  %vfn.i53 = getelementptr inbounds ptr, ptr %vtable.i52, i64 2
+  %vfn.i53 = getelementptr inbounds i8, ptr %vtable.i52, i64 16
   %67 = load ptr, ptr %vfn.i53, align 8
   call void %67(ptr noundef nonnull align 8 dereferenceable(8) %66, ptr noundef nonnull %this)
   br label %return
 
 if.end266:                                        ; preds = %if.end257
-  %current_frame_flags_267 = getelementptr inbounds %"class.net::SpdyFramer", ptr %this, i64 0, i32 28
+  %current_frame_flags_267 = getelementptr inbounds i8, ptr %this, i64 252
   %68 = load i8, ptr %current_frame_flags_267, align 4
   %69 = and i8 %68, 4
   %tobool270.not = icmp eq i8 %69, 0
@@ -2723,23 +2619,23 @@ if.end266:                                        ; preds = %if.end257
   br i1 %tobool270.not, label %if.then271, label %if.end274
 
 if.then271:                                       ; preds = %if.end266
-  %expect_continuation_273 = getelementptr inbounds %"class.net::SpdyFramer", ptr %this, i64 0, i32 14
+  %expect_continuation_273 = getelementptr inbounds i8, ptr %this, i64 100
   store i32 %.pre116.pre, ptr %expect_continuation_273, align 4
   br label %if.end274
 
 if.end274:                                        ; preds = %if.then271, %if.end266
-  %debug_visitor_275 = getelementptr inbounds %"class.net::SpdyFramer", ptr %this, i64 0, i32 22
+  %debug_visitor_275 = getelementptr inbounds i8, ptr %this, i64 184
   %70 = load ptr, ptr %debug_visitor_275, align 8
   %tobool276.not = icmp eq ptr %70, null
   br i1 %tobool276.not, label %if.end286, label %if.then277
 
 if.then277:                                       ; preds = %if.end274
   %71 = load i32, ptr %current_frame_type_, align 8
-  %current_frame_length_281 = getelementptr inbounds %"class.net::SpdyFramer", ptr %this, i64 0, i32 12
+  %current_frame_length_281 = getelementptr inbounds i8, ptr %this, i64 92
   %72 = load i32, ptr %current_frame_length_281, align 4
   %conv282 = zext i32 %72 to i64
   %vtable283 = load ptr, ptr %70, align 8
-  %vfn284 = getelementptr inbounds ptr, ptr %vtable283, i64 3
+  %vfn284 = getelementptr inbounds i8, ptr %vtable283, i64 24
   %73 = load ptr, ptr %vfn284, align 8
   call void %73(ptr noundef nonnull align 8 dereferenceable(8) %70, i32 noundef %.pre116.pre, i32 noundef %71, i64 noundef %conv282)
   %.pre115 = load i32, ptr %current_frame_stream_id_222, align 8
@@ -2752,44 +2648,44 @@ if.end286:                                        ; preds = %if.then277, %if.end
   %.pre-phi = phi i8 [ %.pre122, %if.then277 ], [ %69, %if.end274 ]
   %74 = phi i32 [ %.pre117, %if.then277 ], [ %64, %if.end274 ]
   %75 = phi i32 [ %.pre115, %if.then277 ], [ %.pre116.pre, %if.end274 ]
-  %visitor_287 = getelementptr inbounds %"class.net::SpdyFramer", ptr %this, i64 0, i32 21
+  %visitor_287 = getelementptr inbounds i8, ptr %this, i64 176
   %76 = load ptr, ptr %visitor_287, align 8
   %cmp292 = icmp ne i8 %.pre-phi, 0
   %vtable293 = load ptr, ptr %76, align 8
-  %vfn294 = getelementptr inbounds ptr, ptr %vtable293, i64 25
+  %vfn294 = getelementptr inbounds i8, ptr %vtable293, i64 200
   %77 = load ptr, ptr %vfn294, align 8
   call void %77(ptr noundef nonnull align 8 dereferenceable(8) %76, i32 noundef %75, i32 noundef %74, i1 noundef zeroext %cmp292)
   br label %sw.epilog
 
 sw.bb296:                                         ; preds = %if.then12
-  %current_frame_stream_id_297 = getelementptr inbounds %"class.net::SpdyFramer", ptr %this, i64 0, i32 13
+  %current_frame_stream_id_297 = getelementptr inbounds i8, ptr %this, i64 96
   %78 = load i32, ptr %current_frame_stream_id_297, align 8
-  %expect_continuation_298 = getelementptr inbounds %"class.net::SpdyFramer", ptr %this, i64 0, i32 14
+  %expect_continuation_298 = getelementptr inbounds i8, ptr %this, i64 100
   %79 = load i32, ptr %expect_continuation_298, align 4
   %cmp299.not = icmp eq i32 %78, %79
   br i1 %cmp299.not, label %if.end303, label %if.then300
 
 if.then300:                                       ; preds = %sw.bb296
-  %error_code_.i55 = getelementptr inbounds %"class.net::SpdyFramer", ptr %this, i64 0, i32 3
+  %error_code_.i55 = getelementptr inbounds i8, ptr %this, i64 16
   store i32 13, ptr %error_code_.i55, align 8
   store i32 0, ptr %expect_continuation_298, align 4
-  %end_stream_when_done_.i57 = getelementptr inbounds %"class.net::SpdyFramer", ptr %this, i64 0, i32 32
+  %end_stream_when_done_.i57 = getelementptr inbounds i8, ptr %this, i64 256
   store i8 0, ptr %end_stream_when_done_.i57, align 8
-  %state_.i58 = getelementptr inbounds %"class.net::SpdyFramer", ptr %this, i64 0, i32 1
+  %state_.i58 = getelementptr inbounds i8, ptr %this, i64 8
   %80 = load i32, ptr %state_.i58, align 8
-  %previous_state_.i59 = getelementptr inbounds %"class.net::SpdyFramer", ptr %this, i64 0, i32 2
+  %previous_state_.i59 = getelementptr inbounds i8, ptr %this, i64 12
   store i32 %80, ptr %previous_state_.i59, align 4
   store i32 0, ptr %state_.i58, align 8
-  %visitor_.i60 = getelementptr inbounds %"class.net::SpdyFramer", ptr %this, i64 0, i32 21
+  %visitor_.i60 = getelementptr inbounds i8, ptr %this, i64 176
   %81 = load ptr, ptr %visitor_.i60, align 8
   %vtable.i61 = load ptr, ptr %81, align 8
-  %vfn.i62 = getelementptr inbounds ptr, ptr %vtable.i61, i64 2
+  %vfn.i62 = getelementptr inbounds i8, ptr %vtable.i61, i64 16
   %82 = load ptr, ptr %vfn.i62, align 8
   call void %82(ptr noundef nonnull align 8 dereferenceable(8) %81, ptr noundef nonnull %this)
   br label %return
 
 if.end303:                                        ; preds = %sw.bb296
-  %current_frame_flags_304 = getelementptr inbounds %"class.net::SpdyFramer", ptr %this, i64 0, i32 28
+  %current_frame_flags_304 = getelementptr inbounds i8, ptr %this, i64 252
   %83 = load i8, ptr %current_frame_flags_304, align 4
   %84 = and i8 %83, 4
   %tobool307.not = icmp eq i8 %84, 0
@@ -2800,17 +2696,17 @@ if.then308:                                       ; preds = %if.end303
   br label %if.end310
 
 if.end310:                                        ; preds = %if.then308, %if.end303
-  %debug_visitor_311 = getelementptr inbounds %"class.net::SpdyFramer", ptr %this, i64 0, i32 22
+  %debug_visitor_311 = getelementptr inbounds i8, ptr %this, i64 184
   %85 = load ptr, ptr %debug_visitor_311, align 8
   %tobool312.not = icmp eq ptr %85, null
   br i1 %tobool312.not, label %if.end322, label %if.then313
 
 if.then313:                                       ; preds = %if.end310
-  %current_frame_length_317 = getelementptr inbounds %"class.net::SpdyFramer", ptr %this, i64 0, i32 12
+  %current_frame_length_317 = getelementptr inbounds i8, ptr %this, i64 92
   %86 = load i32, ptr %current_frame_length_317, align 4
   %conv318 = zext i32 %86 to i64
   %vtable319 = load ptr, ptr %85, align 8
-  %vfn320 = getelementptr inbounds ptr, ptr %vtable319, i64 3
+  %vfn320 = getelementptr inbounds i8, ptr %vtable319, i64 24
   %87 = load ptr, ptr %vfn320, align 8
   call void %87(ptr noundef nonnull align 8 dereferenceable(8) %85, i32 noundef %78, i32 noundef 10, i64 noundef %conv318)
   %.pre113 = load i32, ptr %current_frame_stream_id_297, align 8
@@ -2821,37 +2717,37 @@ if.then313:                                       ; preds = %if.end310
 if.end322:                                        ; preds = %if.then313, %if.end310
   %.pre-phi124 = phi i8 [ %.pre123, %if.then313 ], [ %84, %if.end310 ]
   %88 = phi i32 [ %.pre113, %if.then313 ], [ %78, %if.end310 ]
-  %visitor_323 = getelementptr inbounds %"class.net::SpdyFramer", ptr %this, i64 0, i32 21
+  %visitor_323 = getelementptr inbounds i8, ptr %this, i64 176
   %89 = load ptr, ptr %visitor_323, align 8
   %cmp328 = icmp ne i8 %.pre-phi124, 0
   %vtable329 = load ptr, ptr %89, align 8
-  %vfn330 = getelementptr inbounds ptr, ptr %vtable329, i64 26
+  %vfn330 = getelementptr inbounds i8, ptr %vtable329, i64 208
   %90 = load ptr, ptr %vfn330, align 8
   call void %90(ptr noundef nonnull align 8 dereferenceable(8) %89, i32 noundef %88, i1 noundef zeroext %cmp328)
   br label %sw.epilog
 
 sw.default:                                       ; preds = %if.then12
-  %error_code_.i64 = getelementptr inbounds %"class.net::SpdyFramer", ptr %this, i64 0, i32 3
+  %error_code_.i64 = getelementptr inbounds i8, ptr %this, i64 16
   store i32 2, ptr %error_code_.i64, align 8
-  %expect_continuation_.i65 = getelementptr inbounds %"class.net::SpdyFramer", ptr %this, i64 0, i32 14
+  %expect_continuation_.i65 = getelementptr inbounds i8, ptr %this, i64 100
   store i32 0, ptr %expect_continuation_.i65, align 4
-  %end_stream_when_done_.i66 = getelementptr inbounds %"class.net::SpdyFramer", ptr %this, i64 0, i32 32
+  %end_stream_when_done_.i66 = getelementptr inbounds i8, ptr %this, i64 256
   store i8 0, ptr %end_stream_when_done_.i66, align 8
-  %state_.i67 = getelementptr inbounds %"class.net::SpdyFramer", ptr %this, i64 0, i32 1
+  %state_.i67 = getelementptr inbounds i8, ptr %this, i64 8
   %91 = load i32, ptr %state_.i67, align 8
-  %previous_state_.i68 = getelementptr inbounds %"class.net::SpdyFramer", ptr %this, i64 0, i32 2
+  %previous_state_.i68 = getelementptr inbounds i8, ptr %this, i64 12
   store i32 %91, ptr %previous_state_.i68, align 4
   store i32 0, ptr %state_.i67, align 8
-  %visitor_.i69 = getelementptr inbounds %"class.net::SpdyFramer", ptr %this, i64 0, i32 21
+  %visitor_.i69 = getelementptr inbounds i8, ptr %this, i64 176
   %92 = load ptr, ptr %visitor_.i69, align 8
   %vtable.i70 = load ptr, ptr %92, align 8
-  %vfn.i71 = getelementptr inbounds ptr, ptr %vtable.i70, i64 2
+  %vfn.i71 = getelementptr inbounds i8, ptr %vtable.i70, i64 16
   %93 = load ptr, ptr %vfn.i71, align 8
   call void %93(ptr noundef nonnull align 8 dereferenceable(8) %92, ptr noundef nonnull %this)
   br label %return
 
 sw.epilog:                                        ; preds = %if.end58, %if.then179, %if.else189, %if.end286, %if.end322
-  %use_new_methods_ = getelementptr inbounds %"class.net::SpdyFramer", ptr %this, i64 0, i32 34
+  %use_new_methods_ = getelementptr inbounds i8, ptr %this, i64 258
   %94 = load i8, ptr %use_new_methods_, align 2
   %95 = and i8 %94, 1
   %tobool334.not = icmp eq i8 %95, 0
@@ -2861,15 +2757,15 @@ sw.epilog:                                        ; preds = %if.end58, %if.then1
   br i1 %or.cond16, label %cleanup, label %if.then338
 
 if.then338:                                       ; preds = %sw.epilog
-  %visitor_339 = getelementptr inbounds %"class.net::SpdyFramer", ptr %this, i64 0, i32 21
+  %visitor_339 = getelementptr inbounds i8, ptr %this, i64 176
   %97 = load ptr, ptr %visitor_339, align 8
-  %current_frame_stream_id_340 = getelementptr inbounds %"class.net::SpdyFramer", ptr %this, i64 0, i32 13
+  %current_frame_stream_id_340 = getelementptr inbounds i8, ptr %this, i64 96
   %98 = load i32, ptr %current_frame_stream_id_340, align 8
   %vtable341 = load ptr, ptr %97, align 8
-  %vfn342 = getelementptr inbounds ptr, ptr %vtable341, i64 8
+  %vfn342 = getelementptr inbounds i8, ptr %vtable341, i64 64
   %99 = load ptr, ptr %vfn342, align 8
   %call344 = call noundef ptr %99(ptr noundef nonnull align 8 dereferenceable(8) %97, i32 noundef %98)
-  %header_handler_ = getelementptr inbounds %"class.net::SpdyFramer", ptr %this, i64 0, i32 24
+  %header_handler_ = getelementptr inbounds i8, ptr %this, i64 200
   store ptr %call344, ptr %header_handler_, align 8
   %cmp346 = icmp eq ptr %call344, null
   br i1 %cmp346, label %if.then347, label %if.end365
@@ -2880,7 +2776,7 @@ if.then347:                                       ; preds = %if.then338
 
 cond.false:                                       ; preds = %if.then347
   call void @_ZN7logging10LogMessageC1EPKcii(ptr noundef nonnull align 8 dereferenceable(404) %ref.tmp352, ptr noundef nonnull @.str, i32 noundef 1701, i32 noundef 2)
-  %stream_.i73 = getelementptr inbounds %"class.logging::LogMessage", ptr %ref.tmp352, i64 0, i32 2
+  %stream_.i73 = getelementptr inbounds i8, ptr %ref.tmp352, i64 8
   %call358 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc(ptr noundef nonnull align 8 dereferenceable(8) %stream_.i73, ptr noundef nonnull @.str.103)
           to label %cleanup.action unwind label %lpad354
 
@@ -2889,20 +2785,20 @@ cleanup.action:                                   ; preds = %cond.false
   br label %cleanup.done
 
 cleanup.done:                                     ; preds = %if.then347, %cleanup.action
-  %error_code_.i74 = getelementptr inbounds %"class.net::SpdyFramer", ptr %this, i64 0, i32 3
+  %error_code_.i74 = getelementptr inbounds i8, ptr %this, i64 16
   store i32 14, ptr %error_code_.i74, align 8
-  %expect_continuation_.i75 = getelementptr inbounds %"class.net::SpdyFramer", ptr %this, i64 0, i32 14
+  %expect_continuation_.i75 = getelementptr inbounds i8, ptr %this, i64 100
   store i32 0, ptr %expect_continuation_.i75, align 4
-  %end_stream_when_done_.i76 = getelementptr inbounds %"class.net::SpdyFramer", ptr %this, i64 0, i32 32
+  %end_stream_when_done_.i76 = getelementptr inbounds i8, ptr %this, i64 256
   store i8 0, ptr %end_stream_when_done_.i76, align 8
-  %state_.i77 = getelementptr inbounds %"class.net::SpdyFramer", ptr %this, i64 0, i32 1
+  %state_.i77 = getelementptr inbounds i8, ptr %this, i64 8
   %100 = load i32, ptr %state_.i77, align 8
-  %previous_state_.i78 = getelementptr inbounds %"class.net::SpdyFramer", ptr %this, i64 0, i32 2
+  %previous_state_.i78 = getelementptr inbounds i8, ptr %this, i64 12
   store i32 %100, ptr %previous_state_.i78, align 4
   store i32 0, ptr %state_.i77, align 8
   %101 = load ptr, ptr %visitor_339, align 8
   %vtable.i80 = load ptr, ptr %101, align 8
-  %vfn.i81 = getelementptr inbounds ptr, ptr %vtable.i80, i64 2
+  %vfn.i81 = getelementptr inbounds i8, ptr %vtable.i80, i64 16
   %102 = load ptr, ptr %vfn.i81, align 8
   call void %102(ptr noundef nonnull align 8 dereferenceable(8) %101, ptr noundef nonnull %this)
   br label %return
@@ -2924,7 +2820,7 @@ if.then369:                                       ; preds = %if.end365
           to label %invoke.cont376 unwind label %lpad372
 
 invoke.cont376:                                   ; preds = %if.then369
-  %header_parser_ = getelementptr inbounds %"class.net::SpdyFramer", ptr %this, i64 0, i32 23
+  %header_parser_ = getelementptr inbounds i8, ptr %this, i64 192
   %105 = load ptr, ptr %header_parser_, align 8
   store ptr %call371, ptr %header_parser_, align 8
   %tobool.not.i.i = icmp eq ptr %105, null
@@ -2932,7 +2828,7 @@ invoke.cont376:                                   ; preds = %if.then369
 
 _ZNKSt14default_deleteIN3net22SpdyHeadersBlockParserEEclEPS1_.exit.i.i: ; preds = %invoke.cont376
   %vtable.i.i.i = load ptr, ptr %105, align 8
-  %vfn.i.i.i = getelementptr inbounds ptr, ptr %vtable.i.i.i, i64 1
+  %vfn.i.i.i = getelementptr inbounds i8, ptr %vtable.i.i.i, i64 8
   %106 = load ptr, ptr %vfn.i.i.i, align 8
   call void %106(ptr noundef nonnull align 8 dereferenceable(108) %105) #23
   br label %cleanup
@@ -2944,7 +2840,7 @@ lpad372:                                          ; preds = %if.then369
   br label %ehcleanup
 
 if.else377:                                       ; preds = %if.end365
-  %hpack_decoder_.i = getelementptr inbounds %"class.net::SpdyFramer", ptr %this, i64 0, i32 20
+  %hpack_decoder_.i = getelementptr inbounds i8, ptr %this, i64 168
   %108 = load ptr, ptr %hpack_decoder_.i, align 8
   %cmp.i = icmp eq ptr %108, null
   br i1 %cmp.i, label %if.then5.i, label %invoke.cont378
@@ -2962,7 +2858,7 @@ invoke.cont9.i:                                   ; preds = %if.then5.i
 
 _ZNKSt14default_deleteIN3net21HpackDecoderInterfaceEEclEPS1_.exit.i.i.i: ; preds = %invoke.cont9.i
   %vtable.i.i.i.i = load ptr, ptr %109, align 8
-  %vfn.i.i.i.i = getelementptr inbounds ptr, ptr %vtable.i.i.i.i, i64 1
+  %vfn.i.i.i.i = getelementptr inbounds i8, ptr %vtable.i.i.i.i, i64 8
   %110 = load ptr, ptr %vfn.i.i.i.i, align 8
   call void %110(ptr noundef nonnull align 8 dereferenceable(8) %109) #23
   %.pre.i = load ptr, ptr %hpack_decoder_.i, align 8
@@ -2978,15 +2874,15 @@ invoke.cont378:                                   ; preds = %_ZNKSt14default_del
   %112 = phi ptr [ %.pre.i, %_ZNKSt14default_deleteIN3net21HpackDecoderInterfaceEEclEPS1_.exit.i.i.i ], [ %call7.i85, %invoke.cont9.i ], [ %108, %if.else377 ]
   %113 = load ptr, ptr %header_handler_, align 8
   %vtable381 = load ptr, ptr %112, align 8
-  %vfn382 = getelementptr inbounds ptr, ptr %vtable381, i64 3
+  %vfn382 = getelementptr inbounds i8, ptr %vtable381, i64 24
   %114 = load ptr, ptr %vfn382, align 8
   call void %114(ptr noundef nonnull align 8 dereferenceable(8) %112, ptr noundef %113)
   br label %cleanup
 
 cleanup:                                          ; preds = %invoke.cont378, %_ZNKSt14default_deleteIN3net22SpdyHeadersBlockParserEEclEPS1_.exit.i.i, %invoke.cont376, %sw.epilog
-  %state_ = getelementptr inbounds %"class.net::SpdyFramer", ptr %this, i64 0, i32 1
+  %state_ = getelementptr inbounds i8, ptr %this, i64 8
   %115 = load i32, ptr %state_, align 8
-  %previous_state_ = getelementptr inbounds %"class.net::SpdyFramer", ptr %this, i64 0, i32 2
+  %previous_state_ = getelementptr inbounds i8, ptr %this, i64 12
   store i32 %115, ptr %previous_state_, align 4
   store i32 10, ptr %state_, align 8
   br label %return
@@ -3004,7 +2900,7 @@ return:                                           ; preds = %if.end9, %cleanup, 
 ; Function Attrs: mustprogress uwtable
 define dso_local noundef i64 @_ZN3net10SpdyFramer26ProcessSettingsFrameHeaderEPKcm(ptr nocapture noundef nonnull align 8 dereferenceable(259) %this, ptr nocapture noundef readonly %data, i64 noundef %len) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  %remaining_control_header_ = getelementptr inbounds %"class.net::SpdyFramer", ptr %this, i64 0, i32 7
+  %remaining_control_header_ = getelementptr inbounds i8, ptr %this, i64 40
   %0 = load i64, ptr %remaining_control_header_, align 8
   %cmp.not = icmp eq i64 %0, 0
   br i1 %cmp.not, label %if.then7, label %if.then
@@ -3015,9 +2911,9 @@ if.then:                                          ; preds = %entry
   br i1 %cmp.not.i, label %if.end, label %if.then.i
 
 if.then.i:                                        ; preds = %if.then
-  %current_frame_buffer_.i = getelementptr inbounds %"class.net::SpdyFramer", ptr %this, i64 0, i32 10
+  %current_frame_buffer_.i = getelementptr inbounds i8, ptr %this, i64 64
   %1 = load ptr, ptr %current_frame_buffer_.i, align 8
-  %len_.i.i = getelementptr inbounds %"class.net::SpdyFramer", ptr %this, i64 0, i32 10, i32 2
+  %len_.i.i = getelementptr inbounds i8, ptr %this, i64 80
   %2 = load i64, ptr %len_.i.i, align 8
   %add.ptr.i.i = getelementptr inbounds i8, ptr %1, i64 %2
   tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %add.ptr.i.i, ptr align 1 %data, i64 %.sroa.speculated.i, i1 false)
@@ -3031,7 +2927,7 @@ if.end:                                           ; preds = %if.then.i, %if.then
   %4 = phi i64 [ %.pre, %if.then.i ], [ %0, %if.then ]
   %sub = sub i64 %4, %.sroa.speculated.i
   store i64 %sub, ptr %remaining_control_header_, align 8
-  %remaining_data_length_ = getelementptr inbounds %"class.net::SpdyFramer", ptr %this, i64 0, i32 5
+  %remaining_data_length_ = getelementptr inbounds i8, ptr %this, i64 24
   %5 = load i64, ptr %remaining_data_length_, align 8
   %sub4 = sub i64 %5, %.sroa.speculated.i
   store i64 %sub4, ptr %remaining_data_length_, align 8
@@ -3040,10 +2936,10 @@ if.end:                                           ; preds = %if.then.i, %if.then
 
 if.then7:                                         ; preds = %entry, %if.end
   %bytes_read.012 = phi i64 [ %.sroa.speculated.i, %if.end ], [ 0, %entry ]
-  %protocol_version_ = getelementptr inbounds %"class.net::SpdyFramer", ptr %this, i64 0, i32 27
+  %protocol_version_ = getelementptr inbounds i8, ptr %this, i64 248
   %6 = load i32, ptr %protocol_version_, align 8
   %cmp8 = icmp eq i32 %6, 2
-  %current_frame_flags_ = getelementptr inbounds %"class.net::SpdyFramer", ptr %this, i64 0, i32 28
+  %current_frame_flags_ = getelementptr inbounds i8, ptr %this, i64 252
   %7 = load i8, ptr %current_frame_flags_, align 4
   %8 = and i8 %7, 1
   br i1 %cmp8, label %land.lhs.true, label %if.then7.if.end34_crit_edge
@@ -3057,30 +2953,30 @@ land.lhs.true:                                    ; preds = %if.then7
   br i1 %tobool.not, label %if.end34, label %if.end14
 
 if.end14:                                         ; preds = %land.lhs.true
-  %visitor_ = getelementptr inbounds %"class.net::SpdyFramer", ptr %this, i64 0, i32 21
+  %visitor_ = getelementptr inbounds i8, ptr %this, i64 176
   %10 = load ptr, ptr %visitor_, align 8
   %vtable = load ptr, ptr %10, align 8
-  %vfn = getelementptr inbounds ptr, ptr %vtable, i64 16
+  %vfn = getelementptr inbounds i8, ptr %vtable, i64 128
   %11 = load ptr, ptr %vfn, align 8
   tail call void %11(ptr noundef nonnull align 8 dereferenceable(8) %10)
-  %state_ = getelementptr inbounds %"class.net::SpdyFramer", ptr %this, i64 0, i32 1
+  %state_ = getelementptr inbounds i8, ptr %this, i64 8
   %12 = load i32, ptr %state_, align 8
-  %previous_state_ = getelementptr inbounds %"class.net::SpdyFramer", ptr %this, i64 0, i32 2
+  %previous_state_ = getelementptr inbounds i8, ptr %this, i64 12
   store i32 %12, ptr %previous_state_, align 4
   store i32 2, ptr %state_, align 8
   br label %if.end40
 
 if.end34:                                         ; preds = %if.then7.if.end34_crit_edge, %land.lhs.true
   %.pre-phi = phi i1 [ %9, %if.then7.if.end34_crit_edge ], [ false, %land.lhs.true ]
-  %visitor_17 = getelementptr inbounds %"class.net::SpdyFramer", ptr %this, i64 0, i32 21
+  %visitor_17 = getelementptr inbounds i8, ptr %this, i64 176
   %13 = load ptr, ptr %visitor_17, align 8
   %vtable22 = load ptr, ptr %13, align 8
-  %vfn23 = getelementptr inbounds ptr, ptr %vtable22, i64 14
+  %vfn23 = getelementptr inbounds i8, ptr %vtable22, i64 112
   %14 = load ptr, ptr %vfn23, align 8
   tail call void %14(ptr noundef nonnull align 8 dereferenceable(8) %13, i1 noundef zeroext %.pre-phi)
-  %state_35 = getelementptr inbounds %"class.net::SpdyFramer", ptr %this, i64 0, i32 1
+  %state_35 = getelementptr inbounds i8, ptr %this, i64 8
   %15 = load i32, ptr %state_35, align 8
-  %previous_state_36 = getelementptr inbounds %"class.net::SpdyFramer", ptr %this, i64 0, i32 2
+  %previous_state_36 = getelementptr inbounds i8, ptr %this, i64 12
   store i32 %15, ptr %previous_state_36, align 4
   store i32 14, ptr %state_35, align 8
   br label %if.end40
@@ -3093,18 +2989,18 @@ if.end40:                                         ; preds = %if.end14, %if.end34
 ; Function Attrs: mustprogress uwtable
 define dso_local noundef i64 @_ZN3net10SpdyFramer27ProcessSettingsFramePayloadEPKcm(ptr noundef nonnull align 8 dereferenceable(259) %this, ptr nocapture noundef readonly %data, i64 noundef %data_len) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 if.end13:
-  %remaining_data_length_ = getelementptr inbounds %"class.net::SpdyFramer", ptr %this, i64 0, i32 5
+  %remaining_data_length_ = getelementptr inbounds i8, ptr %this, i64 24
   %0 = load i64, ptr %remaining_data_length_, align 8
   %.sroa.speculated37 = tail call i64 @llvm.umin.i64(i64 %0, i64 %data_len)
-  %protocol_version_ = getelementptr inbounds %"class.net::SpdyFramer", ptr %this, i64 0, i32 27
+  %protocol_version_ = getelementptr inbounds i8, ptr %this, i64 248
   %1 = load i32, ptr %protocol_version_, align 8
   %call15 = tail call noundef i64 @_ZN3net13SpdyConstants14GetSettingSizeENS_16SpdyMajorVersionE(i32 noundef %1)
   %cmp.not42 = icmp eq i64 %.sroa.speculated37, 0
   br i1 %cmp.not42, label %while.end, label %while.body.lr.ph
 
 while.body.lr.ph:                                 ; preds = %if.end13
-  %settings_scratch_ = getelementptr inbounds %"class.net::SpdyFramer", ptr %this, i64 0, i32 15
-  %len_.i = getelementptr inbounds %"class.net::SpdyFramer", ptr %this, i64 0, i32 15, i32 0, i32 2
+  %settings_scratch_ = getelementptr inbounds i8, ptr %this, i64 104
+  %len_.i = getelementptr inbounds i8, ptr %this, i64 120
   br label %while.body
 
 while.body:                                       ; preds = %while.body.lr.ph, %if.end42
@@ -3122,21 +3018,21 @@ if.then20:                                        ; preds = %while.body
   br i1 %call21, label %if.end42, label %if.then22
 
 if.then22:                                        ; preds = %if.then20
-  %error_code_.i = getelementptr inbounds %"class.net::SpdyFramer", ptr %this, i64 0, i32 3
+  %error_code_.i = getelementptr inbounds i8, ptr %this, i64 16
   store i32 2, ptr %error_code_.i, align 8
-  %expect_continuation_.i = getelementptr inbounds %"class.net::SpdyFramer", ptr %this, i64 0, i32 14
+  %expect_continuation_.i = getelementptr inbounds i8, ptr %this, i64 100
   store i32 0, ptr %expect_continuation_.i, align 4
-  %end_stream_when_done_.i = getelementptr inbounds %"class.net::SpdyFramer", ptr %this, i64 0, i32 32
+  %end_stream_when_done_.i = getelementptr inbounds i8, ptr %this, i64 256
   store i8 0, ptr %end_stream_when_done_.i, align 8
-  %state_.i = getelementptr inbounds %"class.net::SpdyFramer", ptr %this, i64 0, i32 1
+  %state_.i = getelementptr inbounds i8, ptr %this, i64 8
   %3 = load i32, ptr %state_.i, align 8
-  %previous_state_.i = getelementptr inbounds %"class.net::SpdyFramer", ptr %this, i64 0, i32 2
+  %previous_state_.i = getelementptr inbounds i8, ptr %this, i64 12
   store i32 %3, ptr %previous_state_.i, align 4
   store i32 0, ptr %state_.i, align 8
-  %visitor_.i = getelementptr inbounds %"class.net::SpdyFramer", ptr %this, i64 0, i32 21
+  %visitor_.i = getelementptr inbounds i8, ptr %this, i64 176
   %4 = load ptr, ptr %visitor_.i, align 8
   %vtable.i = load ptr, ptr %4, align 8
-  %vfn.i = getelementptr inbounds ptr, ptr %vtable.i, i64 2
+  %vfn.i = getelementptr inbounds i8, ptr %vtable.i, i64 16
   %5 = load ptr, ptr %vfn.i, align 8
   tail call void %5(ptr noundef nonnull align 8 dereferenceable(8) %4, ptr noundef nonnull %this)
   br label %return
@@ -3157,21 +3053,21 @@ if.then32:                                        ; preds = %if.else24
   br i1 %call36, label %if.end38, label %if.then37
 
 if.then37:                                        ; preds = %if.then32
-  %error_code_.i19 = getelementptr inbounds %"class.net::SpdyFramer", ptr %this, i64 0, i32 3
+  %error_code_.i19 = getelementptr inbounds i8, ptr %this, i64 16
   store i32 2, ptr %error_code_.i19, align 8
-  %expect_continuation_.i20 = getelementptr inbounds %"class.net::SpdyFramer", ptr %this, i64 0, i32 14
+  %expect_continuation_.i20 = getelementptr inbounds i8, ptr %this, i64 100
   store i32 0, ptr %expect_continuation_.i20, align 4
-  %end_stream_when_done_.i21 = getelementptr inbounds %"class.net::SpdyFramer", ptr %this, i64 0, i32 32
+  %end_stream_when_done_.i21 = getelementptr inbounds i8, ptr %this, i64 256
   store i8 0, ptr %end_stream_when_done_.i21, align 8
-  %state_.i22 = getelementptr inbounds %"class.net::SpdyFramer", ptr %this, i64 0, i32 1
+  %state_.i22 = getelementptr inbounds i8, ptr %this, i64 8
   %9 = load i32, ptr %state_.i22, align 8
-  %previous_state_.i23 = getelementptr inbounds %"class.net::SpdyFramer", ptr %this, i64 0, i32 2
+  %previous_state_.i23 = getelementptr inbounds i8, ptr %this, i64 12
   store i32 %9, ptr %previous_state_.i23, align 4
   store i32 0, ptr %state_.i22, align 8
-  %visitor_.i24 = getelementptr inbounds %"class.net::SpdyFramer", ptr %this, i64 0, i32 21
+  %visitor_.i24 = getelementptr inbounds i8, ptr %this, i64 176
   %10 = load ptr, ptr %visitor_.i24, align 8
   %vtable.i25 = load ptr, ptr %10, align 8
-  %vfn.i26 = getelementptr inbounds ptr, ptr %vtable.i25, i64 2
+  %vfn.i26 = getelementptr inbounds i8, ptr %vtable.i25, i64 16
   %11 = load ptr, ptr %vfn.i26, align 8
   tail call void %11(ptr noundef nonnull align 8 dereferenceable(8) %10, ptr noundef nonnull %this)
   br label %return
@@ -3195,15 +3091,15 @@ while.end:                                        ; preds = %if.end42, %if.end13
   br i1 %cmp47, label %if.end58, label %return
 
 if.end58:                                         ; preds = %while.end
-  %visitor_ = getelementptr inbounds %"class.net::SpdyFramer", ptr %this, i64 0, i32 21
+  %visitor_ = getelementptr inbounds i8, ptr %this, i64 176
   %13 = load ptr, ptr %visitor_, align 8
   %vtable = load ptr, ptr %13, align 8
-  %vfn = getelementptr inbounds ptr, ptr %vtable, i64 17
+  %vfn = getelementptr inbounds i8, ptr %vtable, i64 136
   %14 = load ptr, ptr %vfn, align 8
   tail call void %14(ptr noundef nonnull align 8 dereferenceable(8) %13)
-  %state_ = getelementptr inbounds %"class.net::SpdyFramer", ptr %this, i64 0, i32 1
+  %state_ = getelementptr inbounds i8, ptr %this, i64 8
   %15 = load i32, ptr %state_, align 8
-  %previous_state_ = getelementptr inbounds %"class.net::SpdyFramer", ptr %this, i64 0, i32 2
+  %previous_state_ = getelementptr inbounds i8, ptr %this, i64 12
   store i32 %15, ptr %previous_state_, align 4
   store i32 2, ptr %state_, align 8
   br label %return
@@ -3218,7 +3114,7 @@ define dso_local noundef i64 @_ZN3net10SpdyFramer30ProcessControlFrameHeaderBloc
 if.end:
   %ref.tmp18 = alloca %"class.logging::LogMessage", align 8
   %compressed_len = alloca i64, align 8
-  %current_frame_type_ = getelementptr inbounds %"class.net::SpdyFramer", ptr %this, i64 0, i32 11
+  %current_frame_type_ = getelementptr inbounds i8, ptr %this, i64 88
   %0 = load i32, ptr %current_frame_type_, align 8
   switch i32 %0, label %if.then15 [
     i32 1, label %if.end28
@@ -3234,7 +3130,7 @@ if.then15:                                        ; preds = %if.end
 
 cond.false:                                       ; preds = %if.then15
   call void @_ZN7logging10LogMessageC1EPKcii(ptr noundef nonnull align 8 dereferenceable(404) %ref.tmp18, ptr noundef nonnull @.str, i32 noundef 1732, i32 noundef 2)
-  %stream_.i15 = getelementptr inbounds %"class.logging::LogMessage", ptr %ref.tmp18, i64 0, i32 2
+  %stream_.i15 = getelementptr inbounds i8, ptr %ref.tmp18, i64 8
   %call23 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc(ptr noundef nonnull align 8 dereferenceable(8) %stream_.i15, ptr noundef nonnull @.str.104)
           to label %cleanup.action unwind label %lpad19
 
@@ -3253,29 +3149,29 @@ lpad19:                                           ; preds = %cond.false
   br label %common.resume
 
 if.end28:                                         ; preds = %if.then15, %if.end, %if.end, %if.end, %if.end, %if.end, %cleanup.action
-  %remaining_padding_payload_length_ = getelementptr inbounds %"class.net::SpdyFramer", ptr %this, i64 0, i32 6
+  %remaining_padding_payload_length_ = getelementptr inbounds i8, ptr %this, i64 32
   %2 = load i64, ptr %remaining_padding_payload_length_, align 8
-  %remaining_data_length_ = getelementptr inbounds %"class.net::SpdyFramer", ptr %this, i64 0, i32 5
+  %remaining_data_length_ = getelementptr inbounds i8, ptr %this, i64 24
   %3 = load i64, ptr %remaining_data_length_, align 8
   %cmp29 = icmp ugt i64 %2, %3
   br i1 %cmp29, label %if.then30, label %if.end31
 
 if.then30:                                        ; preds = %if.end28
-  %error_code_.i = getelementptr inbounds %"class.net::SpdyFramer", ptr %this, i64 0, i32 3
+  %error_code_.i = getelementptr inbounds i8, ptr %this, i64 16
   store i32 10, ptr %error_code_.i, align 8
-  %expect_continuation_.i = getelementptr inbounds %"class.net::SpdyFramer", ptr %this, i64 0, i32 14
+  %expect_continuation_.i = getelementptr inbounds i8, ptr %this, i64 100
   store i32 0, ptr %expect_continuation_.i, align 4
-  %end_stream_when_done_.i = getelementptr inbounds %"class.net::SpdyFramer", ptr %this, i64 0, i32 32
+  %end_stream_when_done_.i = getelementptr inbounds i8, ptr %this, i64 256
   store i8 0, ptr %end_stream_when_done_.i, align 8
-  %state_.i = getelementptr inbounds %"class.net::SpdyFramer", ptr %this, i64 0, i32 1
+  %state_.i = getelementptr inbounds i8, ptr %this, i64 8
   %4 = load i32, ptr %state_.i, align 8
-  %previous_state_.i = getelementptr inbounds %"class.net::SpdyFramer", ptr %this, i64 0, i32 2
+  %previous_state_.i = getelementptr inbounds i8, ptr %this, i64 12
   store i32 %4, ptr %previous_state_.i, align 4
   store i32 0, ptr %state_.i, align 8
-  %visitor_.i = getelementptr inbounds %"class.net::SpdyFramer", ptr %this, i64 0, i32 21
+  %visitor_.i = getelementptr inbounds i8, ptr %this, i64 176
   %5 = load ptr, ptr %visitor_.i, align 8
   %vtable.i = load ptr, ptr %5, align 8
-  %vfn.i = getelementptr inbounds ptr, ptr %vtable.i, i64 2
+  %vfn.i = getelementptr inbounds i8, ptr %vtable.i, i64 16
   %6 = load ptr, ptr %vfn.i, align 8
   call void %6(ptr noundef nonnull align 8 dereferenceable(8) %5, ptr noundef nonnull %this)
   br label %return
@@ -3286,7 +3182,7 @@ if.end31:                                         ; preds = %if.end28
   br i1 %is_hpack_header_block, label %if.then36, label %if.else41
 
 if.then36:                                        ; preds = %if.end31
-  %hpack_decoder_.i = getelementptr inbounds %"class.net::SpdyFramer", ptr %this, i64 0, i32 20
+  %hpack_decoder_.i = getelementptr inbounds i8, ptr %this, i64 168
   %7 = load ptr, ptr %hpack_decoder_.i, align 8
   %cmp.i16 = icmp eq ptr %7, null
   br i1 %cmp.i16, label %if.then5.i, label %_ZN3net10SpdyFramer15GetHpackDecoderEv.exit
@@ -3304,7 +3200,7 @@ invoke.cont9.i:                                   ; preds = %if.then5.i
 
 _ZNKSt14default_deleteIN3net21HpackDecoderInterfaceEEclEPS1_.exit.i.i.i: ; preds = %invoke.cont9.i
   %vtable.i.i.i.i = load ptr, ptr %8, align 8
-  %vfn.i.i.i.i = getelementptr inbounds ptr, ptr %vtable.i.i.i.i, i64 1
+  %vfn.i.i.i.i = getelementptr inbounds i8, ptr %vtable.i.i.i.i, i64 8
   %9 = load ptr, ptr %vfn.i.i.i.i, align 8
   call void %9(ptr noundef nonnull align 8 dereferenceable(8) %8) #23
   %.pre.i = load ptr, ptr %hpack_decoder_.i, align 8
@@ -3319,27 +3215,27 @@ lpad8.i:                                          ; preds = %if.then5.i
 _ZN3net10SpdyFramer15GetHpackDecoderEv.exit:      ; preds = %if.then36, %invoke.cont9.i, %_ZNKSt14default_deleteIN3net21HpackDecoderInterfaceEEclEPS1_.exit.i.i.i
   %11 = phi ptr [ %.pre.i, %_ZNKSt14default_deleteIN3net21HpackDecoderInterfaceEEclEPS1_.exit.i.i.i ], [ %call7.i, %invoke.cont9.i ], [ %7, %if.then36 ]
   %vtable = load ptr, ptr %11, align 8
-  %vfn = getelementptr inbounds ptr, ptr %vtable, i64 4
+  %vfn = getelementptr inbounds i8, ptr %vtable, i64 32
   %12 = load ptr, ptr %vfn, align 8
   %call38 = call noundef zeroext i1 %12(ptr noundef nonnull align 8 dereferenceable(8) %11, ptr noundef %data, i64 noundef %.sroa.speculated)
   br i1 %call38, label %if.end56, label %if.then39
 
 if.then39:                                        ; preds = %_ZN3net10SpdyFramer15GetHpackDecoderEv.exit
-  %error_code_.i17 = getelementptr inbounds %"class.net::SpdyFramer", ptr %this, i64 0, i32 3
+  %error_code_.i17 = getelementptr inbounds i8, ptr %this, i64 16
   store i32 6, ptr %error_code_.i17, align 8
-  %expect_continuation_.i18 = getelementptr inbounds %"class.net::SpdyFramer", ptr %this, i64 0, i32 14
+  %expect_continuation_.i18 = getelementptr inbounds i8, ptr %this, i64 100
   store i32 0, ptr %expect_continuation_.i18, align 4
-  %end_stream_when_done_.i19 = getelementptr inbounds %"class.net::SpdyFramer", ptr %this, i64 0, i32 32
+  %end_stream_when_done_.i19 = getelementptr inbounds i8, ptr %this, i64 256
   store i8 0, ptr %end_stream_when_done_.i19, align 8
-  %state_.i20 = getelementptr inbounds %"class.net::SpdyFramer", ptr %this, i64 0, i32 1
+  %state_.i20 = getelementptr inbounds i8, ptr %this, i64 8
   %13 = load i32, ptr %state_.i20, align 8
-  %previous_state_.i21 = getelementptr inbounds %"class.net::SpdyFramer", ptr %this, i64 0, i32 2
+  %previous_state_.i21 = getelementptr inbounds i8, ptr %this, i64 12
   store i32 %13, ptr %previous_state_.i21, align 4
   store i32 0, ptr %state_.i20, align 8
-  %visitor_.i22 = getelementptr inbounds %"class.net::SpdyFramer", ptr %this, i64 0, i32 21
+  %visitor_.i22 = getelementptr inbounds i8, ptr %this, i64 176
   %14 = load ptr, ptr %visitor_.i22, align 8
   %vtable.i23 = load ptr, ptr %14, align 8
-  %vfn.i24 = getelementptr inbounds ptr, ptr %vtable.i23, i64 2
+  %vfn.i24 = getelementptr inbounds i8, ptr %vtable.i23, i64 16
   %15 = load ptr, ptr %vfn.i24, align 8
   call void %15(ptr noundef nonnull align 8 dereferenceable(8) %14, ptr noundef nonnull %this)
   br label %if.end56
@@ -3349,35 +3245,35 @@ if.else41:                                        ; preds = %if.end31
   br i1 %cmp42.not, label %if.end56, label %if.then43
 
 if.then43:                                        ; preds = %if.else41
-  %protocol_version_ = getelementptr inbounds %"class.net::SpdyFramer", ptr %this, i64 0, i32 27
+  %protocol_version_ = getelementptr inbounds i8, ptr %this, i64 248
   %16 = load i32, ptr %protocol_version_, align 8
   %cmp44 = icmp eq i32 %16, 1
   br i1 %cmp44, label %land.lhs.true45, label %while.body.lr.ph.i
 
 land.lhs.true45:                                  ; preds = %if.then43
-  %enable_compression_ = getelementptr inbounds %"class.net::SpdyFramer", ptr %this, i64 0, i32 29
+  %enable_compression_ = getelementptr inbounds i8, ptr %this, i64 253
   %17 = load i8, ptr %enable_compression_, align 1
   %18 = and i8 %17, 1
   %tobool46.not = icmp eq i8 %18, 0
   br i1 %tobool46.not, label %while.body.lr.ph.i, label %if.then47
 
 if.then47:                                        ; preds = %land.lhs.true45
-  %current_frame_stream_id_ = getelementptr inbounds %"class.net::SpdyFramer", ptr %this, i64 0, i32 13
+  %current_frame_stream_id_ = getelementptr inbounds i8, ptr %this, i64 96
   %19 = load i32, ptr %current_frame_stream_id_, align 8
   %call48 = call noundef zeroext i1 @_ZN3net10SpdyFramer45IncrementallyDecompressControlFrameHeaderDataEjPKcm(ptr noundef nonnull align 8 dereferenceable(259) %this, i32 noundef %19, ptr noundef %data, i64 noundef %.sroa.speculated)
   br label %if.end56
 
 while.body.lr.ph.i:                               ; preds = %if.then43, %land.lhs.true45
-  %current_frame_stream_id_51 = getelementptr inbounds %"class.net::SpdyFramer", ptr %this, i64 0, i32 13
+  %current_frame_stream_id_51 = getelementptr inbounds i8, ptr %this, i64 96
   %20 = load i32, ptr %current_frame_stream_id_51, align 8
-  %use_new_methods_.i = getelementptr inbounds %"class.net::SpdyFramer", ptr %this, i64 0, i32 34
-  %header_parser_.i = getelementptr inbounds %"class.net::SpdyFramer", ptr %this, i64 0, i32 23
-  %visitor_.i25 = getelementptr inbounds %"class.net::SpdyFramer", ptr %this, i64 0, i32 21
-  %error_code_.i.i = getelementptr inbounds %"class.net::SpdyFramer", ptr %this, i64 0, i32 3
-  %expect_continuation_.i.i = getelementptr inbounds %"class.net::SpdyFramer", ptr %this, i64 0, i32 14
-  %end_stream_when_done_.i.i = getelementptr inbounds %"class.net::SpdyFramer", ptr %this, i64 0, i32 32
-  %state_.i.i = getelementptr inbounds %"class.net::SpdyFramer", ptr %this, i64 0, i32 1
-  %previous_state_.i.i = getelementptr inbounds %"class.net::SpdyFramer", ptr %this, i64 0, i32 2
+  %use_new_methods_.i = getelementptr inbounds i8, ptr %this, i64 258
+  %header_parser_.i = getelementptr inbounds i8, ptr %this, i64 192
+  %visitor_.i25 = getelementptr inbounds i8, ptr %this, i64 176
+  %error_code_.i.i = getelementptr inbounds i8, ptr %this, i64 16
+  %expect_continuation_.i.i = getelementptr inbounds i8, ptr %this, i64 100
+  %end_stream_when_done_.i.i = getelementptr inbounds i8, ptr %this, i64 256
+  %state_.i.i = getelementptr inbounds i8, ptr %this, i64 8
+  %previous_state_.i.i = getelementptr inbounds i8, ptr %this, i64 12
   br label %while.body.i
 
 while.body.i:                                     ; preds = %if.end15.i, %while.body.lr.ph.i
@@ -3392,7 +3288,7 @@ while.body.i:                                     ; preds = %if.end15.i, %while.
 if.else.i:                                        ; preds = %while.body.i
   %23 = load ptr, ptr %visitor_.i25, align 8
   %vtable.i26 = load ptr, ptr %23, align 8
-  %vfn.i27 = getelementptr inbounds ptr, ptr %vtable.i26, i64 10
+  %vfn.i27 = getelementptr inbounds i8, ptr %vtable.i26, i64 80
   %24 = load ptr, ptr %vfn.i27, align 8
   %call10.i = call noundef zeroext i1 %24(ptr noundef nonnull align 8 dereferenceable(8) %23, i32 noundef %20, ptr noundef %data.addr.025.i, i64 noundef %.sroa.speculated.i)
   br i1 %call10.i, label %if.end15.i, label %if.end15.thread.i
@@ -3401,7 +3297,7 @@ if.end12.i:                                       ; preds = %while.body.i
   %25 = load ptr, ptr %header_parser_.i, align 8
   %call4.i = call noundef zeroext i1 @_ZN3net22SpdyHeadersBlockParser29HandleControlFrameHeadersDataEjPKcm(ptr noundef nonnull align 8 dereferenceable(108) %25, i32 noundef %20, ptr noundef %data.addr.025.i, i64 noundef %.sroa.speculated.i)
   %26 = load ptr, ptr %header_parser_.i, align 8
-  %error_.i.i = getelementptr inbounds %"class.net::SpdyHeadersBlockParser", ptr %26, i64 0, i32 11
+  %error_.i.i = getelementptr inbounds i8, ptr %26, i64 100
   %27 = load i32, ptr %error_.i.i, align 4
   %cmp8.i = icmp eq i32 %27, 1
   %spec.select.i = or i1 %call4.i, %cmp8.i
@@ -3416,7 +3312,7 @@ if.end15.thread.i:                                ; preds = %if.end12.i, %if.els
   store i32 0, ptr %state_.i.i, align 8
   %29 = load ptr, ptr %visitor_.i25, align 8
   %vtable.i.i = load ptr, ptr %29, align 8
-  %vfn.i.i = getelementptr inbounds ptr, ptr %vtable.i.i, i64 2
+  %vfn.i.i = getelementptr inbounds i8, ptr %vtable.i.i, i64 16
   %30 = load ptr, ptr %vfn.i.i, align 8
   call void %30(ptr noundef nonnull align 8 dereferenceable(8) %29, ptr noundef nonnull %this)
   br label %if.end56
@@ -3438,7 +3334,7 @@ if.end56:                                         ; preds = %if.end15.i, %if.end
   br i1 %brmerge.not, label %if.then64, label %if.end122
 
 if.then64:                                        ; preds = %if.end56
-  %expect_continuation_ = getelementptr inbounds %"class.net::SpdyFramer", ptr %this, i64 0, i32 14
+  %expect_continuation_ = getelementptr inbounds i8, ptr %this, i64 100
   %33 = load i32, ptr %expect_continuation_, align 4
   %cmp65 = icmp eq i32 %33, 0
   br i1 %cmp65, label %if.then66, label %if.end122.thread62
@@ -3448,7 +3344,7 @@ if.then66:                                        ; preds = %if.then64
 
 if.then68:                                        ; preds = %if.then66
   store i64 0, ptr %compressed_len, align 8
-  %hpack_decoder_.i28 = getelementptr inbounds %"class.net::SpdyFramer", ptr %this, i64 0, i32 20
+  %hpack_decoder_.i28 = getelementptr inbounds i8, ptr %this, i64 168
   %34 = load ptr, ptr %hpack_decoder_.i28, align 8
   %cmp.i29 = icmp eq ptr %34, null
   br i1 %cmp.i29, label %if.then5.i30, label %_ZN3net10SpdyFramer15GetHpackDecoderEv.exit39
@@ -3466,7 +3362,7 @@ invoke.cont9.i33:                                 ; preds = %if.then5.i30
 
 _ZNKSt14default_deleteIN3net21HpackDecoderInterfaceEEclEPS1_.exit.i.i.i35: ; preds = %invoke.cont9.i33
   %vtable.i.i.i.i36 = load ptr, ptr %35, align 8
-  %vfn.i.i.i.i37 = getelementptr inbounds ptr, ptr %vtable.i.i.i.i36, i64 1
+  %vfn.i.i.i.i37 = getelementptr inbounds i8, ptr %vtable.i.i.i.i36, i64 8
   %36 = load ptr, ptr %vfn.i.i.i.i37, align 8
   call void %36(ptr noundef nonnull align 8 dereferenceable(8) %35) #23
   %.pre.i38 = load ptr, ptr %hpack_decoder_.i28, align 8
@@ -3481,28 +3377,28 @@ lpad8.i32:                                        ; preds = %if.then5.i30
 _ZN3net10SpdyFramer15GetHpackDecoderEv.exit39:    ; preds = %if.then68, %invoke.cont9.i33, %_ZNKSt14default_deleteIN3net21HpackDecoderInterfaceEEclEPS1_.exit.i.i.i35
   %38 = phi ptr [ %.pre.i38, %_ZNKSt14default_deleteIN3net21HpackDecoderInterfaceEEclEPS1_.exit.i.i.i35 ], [ %call7.i31, %invoke.cont9.i33 ], [ %34, %if.then68 ]
   %vtable70 = load ptr, ptr %38, align 8
-  %vfn71 = getelementptr inbounds ptr, ptr %vtable70, i64 5
+  %vfn71 = getelementptr inbounds i8, ptr %vtable70, i64 40
   %39 = load ptr, ptr %vfn71, align 8
   %call72 = call noundef zeroext i1 %39(ptr noundef nonnull align 8 dereferenceable(8) %38, ptr noundef nonnull %compressed_len)
   br i1 %call72, label %if.then73, label %if.end122.thread
 
 if.then73:                                        ; preds = %_ZN3net10SpdyFramer15GetHpackDecoderEv.exit39
-  %use_new_methods_ = getelementptr inbounds %"class.net::SpdyFramer", ptr %this, i64 0, i32 34
+  %use_new_methods_ = getelementptr inbounds i8, ptr %this, i64 258
   %40 = load i8, ptr %use_new_methods_, align 2
   %41 = and i8 %40, 1
   %tobool74.not = icmp eq i8 %41, 0
   br i1 %tobool74.not, label %if.else82, label %if.then75
 
 if.then75:                                        ; preds = %if.then73
-  %visitor_ = getelementptr inbounds %"class.net::SpdyFramer", ptr %this, i64 0, i32 21
+  %visitor_ = getelementptr inbounds i8, ptr %this, i64 176
   %42 = load ptr, ptr %visitor_, align 8
-  %current_frame_stream_id_76 = getelementptr inbounds %"class.net::SpdyFramer", ptr %this, i64 0, i32 13
+  %current_frame_stream_id_76 = getelementptr inbounds i8, ptr %this, i64 96
   %43 = load i32, ptr %current_frame_stream_id_76, align 8
   %vtable77 = load ptr, ptr %42, align 8
-  %vfn78 = getelementptr inbounds ptr, ptr %vtable77, i64 9
+  %vfn78 = getelementptr inbounds i8, ptr %vtable77, i64 72
   %44 = load ptr, ptr %vfn78, align 8
   call void %44(ptr noundef nonnull align 8 dereferenceable(8) %42, i32 noundef %43, i1 noundef zeroext true)
-  %state_ = getelementptr inbounds %"class.net::SpdyFramer", ptr %this, i64 0, i32 1
+  %state_ = getelementptr inbounds i8, ptr %this, i64 8
   %45 = load i32, ptr %state_, align 8
   %cmp79 = icmp eq i32 %45, 0
   br i1 %cmp79, label %return, label %if.end122.thread62
@@ -3513,55 +3409,55 @@ if.else82:                                        ; preds = %if.then73
   br label %return
 
 if.end122.thread:                                 ; preds = %_ZN3net10SpdyFramer15GetHpackDecoderEv.exit39
-  %error_code_.i40 = getelementptr inbounds %"class.net::SpdyFramer", ptr %this, i64 0, i32 3
+  %error_code_.i40 = getelementptr inbounds i8, ptr %this, i64 16
   store i32 6, ptr %error_code_.i40, align 8
   store i32 0, ptr %expect_continuation_, align 4
-  %end_stream_when_done_.i42 = getelementptr inbounds %"class.net::SpdyFramer", ptr %this, i64 0, i32 32
+  %end_stream_when_done_.i42 = getelementptr inbounds i8, ptr %this, i64 256
   store i8 0, ptr %end_stream_when_done_.i42, align 8
-  %state_.i43 = getelementptr inbounds %"class.net::SpdyFramer", ptr %this, i64 0, i32 1
+  %state_.i43 = getelementptr inbounds i8, ptr %this, i64 8
   %47 = load i32, ptr %state_.i43, align 8
-  %previous_state_.i44 = getelementptr inbounds %"class.net::SpdyFramer", ptr %this, i64 0, i32 2
+  %previous_state_.i44 = getelementptr inbounds i8, ptr %this, i64 12
   store i32 %47, ptr %previous_state_.i44, align 4
   store i32 0, ptr %state_.i43, align 8
-  %visitor_.i45 = getelementptr inbounds %"class.net::SpdyFramer", ptr %this, i64 0, i32 21
+  %visitor_.i45 = getelementptr inbounds i8, ptr %this, i64 176
   %48 = load ptr, ptr %visitor_.i45, align 8
   %vtable.i46 = load ptr, ptr %48, align 8
-  %vfn.i47 = getelementptr inbounds ptr, ptr %vtable.i46, i64 2
+  %vfn.i47 = getelementptr inbounds i8, ptr %vtable.i46, i64 16
   %49 = load ptr, ptr %vfn.i47, align 8
   call void %49(ptr noundef nonnull align 8 dereferenceable(8) %48, ptr noundef nonnull %this)
   br label %58
 
 if.else86:                                        ; preds = %if.then66
-  %use_new_methods_87 = getelementptr inbounds %"class.net::SpdyFramer", ptr %this, i64 0, i32 34
+  %use_new_methods_87 = getelementptr inbounds i8, ptr %this, i64 258
   %50 = load i8, ptr %use_new_methods_87, align 2
   %51 = and i8 %50, 1
   %tobool88.not = icmp eq i8 %51, 0
-  %visitor_99 = getelementptr inbounds %"class.net::SpdyFramer", ptr %this, i64 0, i32 21
+  %visitor_99 = getelementptr inbounds i8, ptr %this, i64 176
   %52 = load ptr, ptr %visitor_99, align 8
-  %current_frame_stream_id_100 = getelementptr inbounds %"class.net::SpdyFramer", ptr %this, i64 0, i32 13
+  %current_frame_stream_id_100 = getelementptr inbounds i8, ptr %this, i64 96
   %53 = load i32, ptr %current_frame_stream_id_100, align 8
   %vtable101 = load ptr, ptr %52, align 8
   br i1 %tobool88.not, label %if.else98, label %if.then89
 
 if.then89:                                        ; preds = %if.else86
-  %vfn93 = getelementptr inbounds ptr, ptr %vtable101, i64 9
+  %vfn93 = getelementptr inbounds i8, ptr %vtable101, i64 72
   %54 = load ptr, ptr %vfn93, align 8
   call void %54(ptr noundef nonnull align 8 dereferenceable(8) %52, i32 noundef %53, i1 noundef zeroext true)
-  %state_94 = getelementptr inbounds %"class.net::SpdyFramer", ptr %this, i64 0, i32 1
+  %state_94 = getelementptr inbounds i8, ptr %this, i64 8
   %55 = load i32, ptr %state_94, align 8
   %cmp95 = icmp eq i32 %55, 0
   br i1 %cmp95, label %return, label %if.end122.thread62
 
 if.else98:                                        ; preds = %if.else86
-  %vfn102 = getelementptr inbounds ptr, ptr %vtable101, i64 10
+  %vfn102 = getelementptr inbounds i8, ptr %vtable101, i64 80
   %56 = load ptr, ptr %vfn102, align 8
   %call103 = call noundef zeroext i1 %56(ptr noundef nonnull align 8 dereferenceable(8) %52, i32 noundef %53, ptr noundef null, i64 noundef 0)
   br label %if.end122.thread62
 
 if.end122.thread62:                               ; preds = %if.then75, %if.then89, %if.else98, %if.then64
-  %state_119 = getelementptr inbounds %"class.net::SpdyFramer", ptr %this, i64 0, i32 1
+  %state_119 = getelementptr inbounds i8, ptr %this, i64 8
   %57 = load i32, ptr %state_119, align 8
-  %previous_state_ = getelementptr inbounds %"class.net::SpdyFramer", ptr %this, i64 0, i32 2
+  %previous_state_ = getelementptr inbounds i8, ptr %this, i64 12
   store i32 %57, ptr %previous_state_, align 4
   store i32 6, ptr %state_119, align 8
   br label %return
@@ -3586,17 +3482,17 @@ entry:
   br i1 %cmp, label %return, label %if.end
 
 if.end:                                           ; preds = %entry
-  %remaining_data_length_ = getelementptr inbounds %"class.net::SpdyFramer", ptr %this, i64 0, i32 5
+  %remaining_data_length_ = getelementptr inbounds i8, ptr %this, i64 24
   %0 = load i64, ptr %remaining_data_length_, align 8
   %spec.select18 = tail call i64 @llvm.umin.i64(i64 %0, i64 %len)
-  %protocol_version_.i = getelementptr inbounds %"class.net::SpdyFramer", ptr %this, i64 0, i32 27
+  %protocol_version_.i = getelementptr inbounds i8, ptr %this, i64 248
   %1 = load i32, ptr %protocol_version_.i, align 8
   %cmp.i = icmp eq i32 %1, 1
   %.4.i = select i1 %cmp.i, i64 8, i64 4
   %call.i2.i = tail call noundef i64 @_ZN3net13SpdyConstants18GetFrameHeaderSizeENS_16SpdyMajorVersionE(i32 noundef %1)
   %add3.i = add i64 %.4.i, %call.i2.i
-  %current_frame_buffer_ = getelementptr inbounds %"class.net::SpdyFramer", ptr %this, i64 0, i32 10
-  %len_.i = getelementptr inbounds %"class.net::SpdyFramer", ptr %this, i64 0, i32 10, i32 2
+  %current_frame_buffer_ = getelementptr inbounds i8, ptr %this, i64 64
+  %len_.i = getelementptr inbounds i8, ptr %this, i64 80
   %2 = load i64, ptr %len_.i, align 8
   %cmp7 = icmp eq i64 %add3.i, %2
   br i1 %cmp7, label %if.end46, label %if.then8
@@ -3636,7 +3532,7 @@ if.then13:                                        ; preds = %_ZN3net10SpdyFramer
   br i1 %cmp21, label %if.then22, label %if.end26
 
 if.then22:                                        ; preds = %if.then13
-  %current_frame_stream_id_ = getelementptr inbounds %"class.net::SpdyFramer", ptr %this, i64 0, i32 13
+  %current_frame_stream_id_ = getelementptr inbounds i8, ptr %this, i64 96
   %call24 = call noundef zeroext i1 @_ZN3net15SpdyFrameReader10ReadUInt31EPj(ptr noundef nonnull align 8 dereferenceable(24) %reader, ptr noundef nonnull %current_frame_stream_id_)
   br label %if.end26
 
@@ -3661,12 +3557,12 @@ if.else:                                          ; preds = %if.end26
 
 if.end42:                                         ; preds = %if.then34, %if.else
   %status.0 = phi i32 [ %call37, %if.then34 ], [ %spec.select, %if.else ]
-  %visitor_ = getelementptr inbounds %"class.net::SpdyFramer", ptr %this, i64 0, i32 21
+  %visitor_ = getelementptr inbounds i8, ptr %this, i64 176
   %13 = load ptr, ptr %visitor_, align 8
-  %current_frame_stream_id_43 = getelementptr inbounds %"class.net::SpdyFramer", ptr %this, i64 0, i32 13
+  %current_frame_stream_id_43 = getelementptr inbounds i8, ptr %this, i64 96
   %14 = load i32, ptr %current_frame_stream_id_43, align 8
   %vtable = load ptr, ptr %13, align 8
-  %vfn = getelementptr inbounds ptr, ptr %vtable, i64 13
+  %vfn = getelementptr inbounds i8, ptr %vtable, i64 104
   %15 = load ptr, ptr %vfn, align 8
   call void %15(ptr noundef nonnull align 8 dereferenceable(8) %13, i32 noundef %14, i32 noundef %status.0)
   br label %if.end46
@@ -3684,10 +3580,10 @@ if.end54.thread:                                  ; preds = %if.end46
   br label %if.else59
 
 if.end54:                                         ; preds = %if.end46
-  %visitor_49 = getelementptr inbounds %"class.net::SpdyFramer", ptr %this, i64 0, i32 21
+  %visitor_49 = getelementptr inbounds i8, ptr %this, i64 176
   %17 = load ptr, ptr %visitor_49, align 8
   %vtable50 = load ptr, ptr %17, align 8
-  %vfn51 = getelementptr inbounds ptr, ptr %vtable50, i64 23
+  %vfn51 = getelementptr inbounds i8, ptr %vtable50, i64 184
   %18 = load ptr, ptr %vfn51, align 8
   %call52 = call noundef zeroext i1 %18(ptr noundef nonnull align 8 dereferenceable(8) %17, ptr noundef %data.addr.1, i64 noundef %len.addr.2)
   %19 = load i64, ptr %remaining_data_length_, align 8
@@ -3696,20 +3592,20 @@ if.end54:                                         ; preds = %if.end46
   br i1 %call52, label %if.else59, label %if.then58
 
 if.then58:                                        ; preds = %if.end54
-  %error_code_.i = getelementptr inbounds %"class.net::SpdyFramer", ptr %this, i64 0, i32 3
+  %error_code_.i = getelementptr inbounds i8, ptr %this, i64 16
   store i32 9, ptr %error_code_.i, align 8
-  %expect_continuation_.i = getelementptr inbounds %"class.net::SpdyFramer", ptr %this, i64 0, i32 14
+  %expect_continuation_.i = getelementptr inbounds i8, ptr %this, i64 100
   store i32 0, ptr %expect_continuation_.i, align 4
-  %end_stream_when_done_.i = getelementptr inbounds %"class.net::SpdyFramer", ptr %this, i64 0, i32 32
+  %end_stream_when_done_.i = getelementptr inbounds i8, ptr %this, i64 256
   store i8 0, ptr %end_stream_when_done_.i, align 8
-  %state_.i = getelementptr inbounds %"class.net::SpdyFramer", ptr %this, i64 0, i32 1
+  %state_.i = getelementptr inbounds i8, ptr %this, i64 8
   %20 = load i32, ptr %state_.i, align 8
-  %previous_state_.i = getelementptr inbounds %"class.net::SpdyFramer", ptr %this, i64 0, i32 2
+  %previous_state_.i = getelementptr inbounds i8, ptr %this, i64 12
   store i32 %20, ptr %previous_state_.i, align 4
   store i32 0, ptr %state_.i, align 8
   %21 = load ptr, ptr %visitor_49, align 8
   %vtable.i = load ptr, ptr %21, align 8
-  %vfn.i = getelementptr inbounds ptr, ptr %vtable.i, i64 2
+  %vfn.i = getelementptr inbounds i8, ptr %vtable.i, i64 16
   %22 = load ptr, ptr %vfn.i, align 8
   call void %22(ptr noundef nonnull align 8 dereferenceable(8) %21, ptr noundef nonnull %this)
   br label %return
@@ -3720,15 +3616,15 @@ if.else59:                                        ; preds = %if.end54.thread, %i
   br i1 %cmp61, label %if.end74, label %return
 
 if.end74:                                         ; preds = %if.else59
-  %visitor_63 = getelementptr inbounds %"class.net::SpdyFramer", ptr %this, i64 0, i32 21
+  %visitor_63 = getelementptr inbounds i8, ptr %this, i64 176
   %24 = load ptr, ptr %visitor_63, align 8
   %vtable64 = load ptr, ptr %24, align 8
-  %vfn65 = getelementptr inbounds ptr, ptr %vtable64, i64 23
+  %vfn65 = getelementptr inbounds i8, ptr %vtable64, i64 184
   %25 = load ptr, ptr %vfn65, align 8
   %call66 = call noundef zeroext i1 %25(ptr noundef nonnull align 8 dereferenceable(8) %24, ptr noundef null, i64 noundef 0)
-  %state_ = getelementptr inbounds %"class.net::SpdyFramer", ptr %this, i64 0, i32 1
+  %state_ = getelementptr inbounds i8, ptr %this, i64 8
   %26 = load i32, ptr %state_, align 8
-  %previous_state_ = getelementptr inbounds %"class.net::SpdyFramer", ptr %this, i64 0, i32 2
+  %previous_state_ = getelementptr inbounds i8, ptr %this, i64 12
   store i32 %26, ptr %previous_state_, align 4
   store i32 2, ptr %state_, align 8
   br label %return
@@ -3747,15 +3643,15 @@ entry:
   br i1 %cmp, label %return, label %if.end
 
 if.end:                                           ; preds = %entry
-  %remaining_data_length_ = getelementptr inbounds %"class.net::SpdyFramer", ptr %this, i64 0, i32 5
+  %remaining_data_length_ = getelementptr inbounds i8, ptr %this, i64 24
   %0 = load i64, ptr %remaining_data_length_, align 8
   %spec.select16 = tail call i64 @llvm.umin.i64(i64 %0, i64 %len)
-  %protocol_version_.i.i = getelementptr inbounds %"class.net::SpdyFramer", ptr %this, i64 0, i32 27
+  %protocol_version_.i.i = getelementptr inbounds i8, ptr %this, i64 248
   %1 = load i32, ptr %protocol_version_.i.i, align 8
   %call.i.i = tail call noundef i64 @_ZN3net13SpdyConstants18GetFrameHeaderSizeENS_16SpdyMajorVersionE(i32 noundef %1)
   %add.i = add i64 %call.i.i, 8
-  %current_frame_buffer_ = getelementptr inbounds %"class.net::SpdyFramer", ptr %this, i64 0, i32 10
-  %len_.i = getelementptr inbounds %"class.net::SpdyFramer", ptr %this, i64 0, i32 10, i32 2
+  %current_frame_buffer_ = getelementptr inbounds i8, ptr %this, i64 64
+  %len_.i = getelementptr inbounds i8, ptr %this, i64 80
   %2 = load i64, ptr %len_.i, align 8
   %cmp7 = icmp eq i64 %add.i, %2
   br i1 %cmp7, label %if.end41, label %if.then8
@@ -3790,7 +3686,7 @@ if.then13:                                        ; preds = %_ZN3net10SpdyFramer
   %7 = load i32, ptr %protocol_version_.i.i, align 8
   %call.i7 = call noundef i64 @_ZN3net13SpdyConstants18GetFrameHeaderSizeENS_16SpdyMajorVersionE(i32 noundef %7)
   %call20 = call noundef zeroext i1 @_ZN3net15SpdyFrameReader4SeekEm(ptr noundef nonnull align 8 dereferenceable(24) %reader, i64 noundef %call.i7)
-  %current_frame_stream_id_ = getelementptr inbounds %"class.net::SpdyFramer", ptr %this, i64 0, i32 13
+  %current_frame_stream_id_ = getelementptr inbounds i8, ptr %this, i64 96
   %call22 = call noundef zeroext i1 @_ZN3net15SpdyFrameReader10ReadUInt31EPj(ptr noundef nonnull align 8 dereferenceable(24) %reader, ptr noundef nonnull %current_frame_stream_id_)
   store i32 0, ptr %status_raw, align 4
   %call25 = call noundef zeroext i1 @_ZN3net15SpdyFrameReader10ReadUInt32EPj(ptr noundef nonnull align 8 dereferenceable(24) %reader, ptr noundef nonnull %status_raw)
@@ -3812,11 +3708,11 @@ if.else:                                          ; preds = %if.then13
 
 if.end37:                                         ; preds = %if.then29, %if.else
   %status.0 = phi i32 [ %call32, %if.then29 ], [ %spec.select, %if.else ]
-  %visitor_ = getelementptr inbounds %"class.net::SpdyFramer", ptr %this, i64 0, i32 21
+  %visitor_ = getelementptr inbounds i8, ptr %this, i64 176
   %12 = load ptr, ptr %visitor_, align 8
   %13 = load i32, ptr %current_frame_stream_id_, align 8
   %vtable = load ptr, ptr %12, align 8
-  %vfn = getelementptr inbounds ptr, ptr %vtable, i64 19
+  %vfn = getelementptr inbounds i8, ptr %vtable, i64 152
   %14 = load ptr, ptr %vfn, align 8
   call void %14(ptr noundef nonnull align 8 dereferenceable(8) %12, i32 noundef %13, i32 noundef %status.0)
   br label %if.end41
@@ -3834,10 +3730,10 @@ if.end49.thread:                                  ; preds = %if.end41
   br label %if.else54
 
 if.end49:                                         ; preds = %if.end41
-  %visitor_44 = getelementptr inbounds %"class.net::SpdyFramer", ptr %this, i64 0, i32 21
+  %visitor_44 = getelementptr inbounds i8, ptr %this, i64 176
   %16 = load ptr, ptr %visitor_44, align 8
   %vtable45 = load ptr, ptr %16, align 8
-  %vfn46 = getelementptr inbounds ptr, ptr %vtable45, i64 22
+  %vfn46 = getelementptr inbounds i8, ptr %vtable45, i64 176
   %17 = load ptr, ptr %vfn46, align 8
   %call47 = call noundef zeroext i1 %17(ptr noundef nonnull align 8 dereferenceable(8) %16, ptr noundef %data.addr.1, i64 noundef %len.addr.2)
   %18 = load i64, ptr %remaining_data_length_, align 8
@@ -3846,20 +3742,20 @@ if.end49:                                         ; preds = %if.end41
   br i1 %call47, label %if.else54, label %if.then53
 
 if.then53:                                        ; preds = %if.end49
-  %error_code_.i = getelementptr inbounds %"class.net::SpdyFramer", ptr %this, i64 0, i32 3
+  %error_code_.i = getelementptr inbounds i8, ptr %this, i64 16
   store i32 8, ptr %error_code_.i, align 8
-  %expect_continuation_.i = getelementptr inbounds %"class.net::SpdyFramer", ptr %this, i64 0, i32 14
+  %expect_continuation_.i = getelementptr inbounds i8, ptr %this, i64 100
   store i32 0, ptr %expect_continuation_.i, align 4
-  %end_stream_when_done_.i = getelementptr inbounds %"class.net::SpdyFramer", ptr %this, i64 0, i32 32
+  %end_stream_when_done_.i = getelementptr inbounds i8, ptr %this, i64 256
   store i8 0, ptr %end_stream_when_done_.i, align 8
-  %state_.i = getelementptr inbounds %"class.net::SpdyFramer", ptr %this, i64 0, i32 1
+  %state_.i = getelementptr inbounds i8, ptr %this, i64 8
   %19 = load i32, ptr %state_.i, align 8
-  %previous_state_.i = getelementptr inbounds %"class.net::SpdyFramer", ptr %this, i64 0, i32 2
+  %previous_state_.i = getelementptr inbounds i8, ptr %this, i64 12
   store i32 %19, ptr %previous_state_.i, align 4
   store i32 0, ptr %state_.i, align 8
   %20 = load ptr, ptr %visitor_44, align 8
   %vtable.i = load ptr, ptr %20, align 8
-  %vfn.i = getelementptr inbounds ptr, ptr %vtable.i, i64 2
+  %vfn.i = getelementptr inbounds i8, ptr %vtable.i, i64 16
   %21 = load ptr, ptr %vfn.i, align 8
   call void %21(ptr noundef nonnull align 8 dereferenceable(8) %20, ptr noundef nonnull %this)
   br label %return
@@ -3870,15 +3766,15 @@ if.else54:                                        ; preds = %if.end49.thread, %i
   br i1 %cmp56, label %if.end69, label %return
 
 if.end69:                                         ; preds = %if.else54
-  %visitor_58 = getelementptr inbounds %"class.net::SpdyFramer", ptr %this, i64 0, i32 21
+  %visitor_58 = getelementptr inbounds i8, ptr %this, i64 176
   %23 = load ptr, ptr %visitor_58, align 8
   %vtable59 = load ptr, ptr %23, align 8
-  %vfn60 = getelementptr inbounds ptr, ptr %vtable59, i64 22
+  %vfn60 = getelementptr inbounds i8, ptr %vtable59, i64 176
   %24 = load ptr, ptr %vfn60, align 8
   %call61 = call noundef zeroext i1 %24(ptr noundef nonnull align 8 dereferenceable(8) %23, ptr noundef null, i64 noundef 0)
-  %state_ = getelementptr inbounds %"class.net::SpdyFramer", ptr %this, i64 0, i32 1
+  %state_ = getelementptr inbounds i8, ptr %this, i64 8
   %25 = load i32, ptr %state_, align 8
-  %previous_state_ = getelementptr inbounds %"class.net::SpdyFramer", ptr %this, i64 0, i32 2
+  %previous_state_ = getelementptr inbounds i8, ptr %this, i64 12
   store i32 %25, ptr %previous_state_, align 4
   store i32 2, ptr %state_, align 8
   br label %return
@@ -3899,19 +3795,19 @@ entry:
   br i1 %cmp, label %return, label %if.end
 
 if.end:                                           ; preds = %entry
-  %remaining_data_length_ = getelementptr inbounds %"class.net::SpdyFramer", ptr %this, i64 0, i32 5
+  %remaining_data_length_ = getelementptr inbounds i8, ptr %this, i64 24
   %0 = load i64, ptr %remaining_data_length_, align 8
   %.sroa.speculated = tail call i64 @llvm.umin.i64(i64 %0, i64 %len)
-  %altsvc_scratch_ = getelementptr inbounds %"class.net::SpdyFramer", ptr %this, i64 0, i32 16
+  %altsvc_scratch_ = getelementptr inbounds i8, ptr %this, i64 136
   %1 = load ptr, ptr %altsvc_scratch_, align 8
   %cmp.i.not.i = icmp eq ptr %1, null
   br i1 %cmp.i.not.i, label %if.then3, label %if.end7
 
 if.then3:                                         ; preds = %if.end
-  %current_frame_length_ = getelementptr inbounds %"class.net::SpdyFramer", ptr %this, i64 0, i32 12
+  %current_frame_length_ = getelementptr inbounds i8, ptr %this, i64 92
   %2 = load i32, ptr %current_frame_length_, align 4
   %conv = zext i32 %2 to i64
-  %protocol_version_.i = getelementptr inbounds %"class.net::SpdyFramer", ptr %this, i64 0, i32 27
+  %protocol_version_.i = getelementptr inbounds i8, ptr %this, i64 248
   %3 = load i32, ptr %protocol_version_.i, align 8
   %call.i = tail call noundef i64 @_ZN3net13SpdyConstants18GetFrameHeaderSizeENS_16SpdyMajorVersionE(i32 noundef %3)
   %sub = sub i64 %conv, %call.i
@@ -3921,9 +3817,9 @@ if.then3:                                         ; preds = %if.end
 
 invoke.cont:                                      ; preds = %if.then3
   store ptr %call.i34, ptr %call6, align 8
-  %capacity_.i = getelementptr inbounds %"class.net::SpdyFramer::CharBuffer", ptr %call6, i64 0, i32 1
+  %capacity_.i = getelementptr inbounds i8, ptr %call6, i64 8
   store i64 %sub, ptr %capacity_.i, align 8
-  %len_.i = getelementptr inbounds %"class.net::SpdyFramer::CharBuffer", ptr %call6, i64 0, i32 2
+  %len_.i = getelementptr inbounds i8, ptr %call6, i64 16
   store i64 0, ptr %len_.i, align 8
   %4 = load ptr, ptr %altsvc_scratch_, align 8
   store ptr %call6, ptr %altsvc_scratch_, align 8
@@ -3953,7 +3849,7 @@ lpad:                                             ; preds = %if.then3
 if.end7:                                          ; preds = %_ZNKSt14default_deleteIN3net10SpdyFramer10CharBufferEEclEPS2_.exit.i.i, %invoke.cont, %if.end
   %7 = phi ptr [ %.pre, %_ZNKSt14default_deleteIN3net10SpdyFramer10CharBufferEEclEPS2_.exit.i.i ], [ %call6, %invoke.cont ], [ %1, %if.end ]
   %8 = load ptr, ptr %7, align 8
-  %len_.i5 = getelementptr inbounds %"class.net::SpdyFramer::CharBuffer", ptr %7, i64 0, i32 2
+  %len_.i5 = getelementptr inbounds i8, ptr %7, i64 16
   %9 = load i64, ptr %len_.i5, align 8
   %add.ptr.i = getelementptr inbounds i8, ptr %8, i64 %9
   tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %add.ptr.i, ptr align 1 %data, i64 %.sroa.speculated, i1 false)
@@ -3969,7 +3865,7 @@ if.end7:                                          ; preds = %_ZNKSt14default_del
 if.end15:                                         ; preds = %if.end7
   %12 = load ptr, ptr %altsvc_scratch_, align 8
   %13 = load ptr, ptr %12, align 8
-  %len_.i6 = getelementptr inbounds %"class.net::SpdyFramer::CharBuffer", ptr %12, i64 0, i32 2
+  %len_.i6 = getelementptr inbounds i8, ptr %12, i64 16
   %14 = load i64, ptr %len_.i6, align 8
   call void @_ZN3net15SpdyFrameReaderC1EPKcm(ptr noundef nonnull align 8 dereferenceable(24) %reader, ptr noundef %13, i64 noundef %14)
   call void @_ZN4base16BasicStringPieceINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEC1Ev(ptr noundef nonnull align 8 dereferenceable(16) %origin)
@@ -3977,21 +3873,21 @@ if.end15:                                         ; preds = %if.end7
   br i1 %call25, label %if.end28, label %if.then26
 
 if.then26:                                        ; preds = %if.end15
-  %error_code_.i = getelementptr inbounds %"class.net::SpdyFramer", ptr %this, i64 0, i32 3
+  %error_code_.i = getelementptr inbounds i8, ptr %this, i64 16
   store i32 2, ptr %error_code_.i, align 8
-  %expect_continuation_.i = getelementptr inbounds %"class.net::SpdyFramer", ptr %this, i64 0, i32 14
+  %expect_continuation_.i = getelementptr inbounds i8, ptr %this, i64 100
   store i32 0, ptr %expect_continuation_.i, align 4
-  %end_stream_when_done_.i = getelementptr inbounds %"class.net::SpdyFramer", ptr %this, i64 0, i32 32
+  %end_stream_when_done_.i = getelementptr inbounds i8, ptr %this, i64 256
   store i8 0, ptr %end_stream_when_done_.i, align 8
-  %state_.i = getelementptr inbounds %"class.net::SpdyFramer", ptr %this, i64 0, i32 1
+  %state_.i = getelementptr inbounds i8, ptr %this, i64 8
   %15 = load i32, ptr %state_.i, align 8
-  %previous_state_.i = getelementptr inbounds %"class.net::SpdyFramer", ptr %this, i64 0, i32 2
+  %previous_state_.i = getelementptr inbounds i8, ptr %this, i64 12
   store i32 %15, ptr %previous_state_.i, align 4
   store i32 0, ptr %state_.i, align 8
-  %visitor_.i = getelementptr inbounds %"class.net::SpdyFramer", ptr %this, i64 0, i32 21
+  %visitor_.i = getelementptr inbounds i8, ptr %this, i64 176
   %16 = load ptr, ptr %visitor_.i, align 8
   %vtable.i = load ptr, ptr %16, align 8
-  %vfn.i = getelementptr inbounds ptr, ptr %vtable.i, i64 2
+  %vfn.i = getelementptr inbounds i8, ptr %vtable.i, i64 16
   %17 = load ptr, ptr %vfn.i, align 8
   call void %17(ptr noundef nonnull align 8 dereferenceable(8) %16, ptr noundef nonnull %this)
   br label %return
@@ -3999,10 +3895,10 @@ if.then26:                                        ; preds = %if.end15
 if.end28:                                         ; preds = %if.end15
   %18 = load ptr, ptr %altsvc_scratch_, align 8
   %19 = load ptr, ptr %18, align 8
-  %ofs_.i = getelementptr inbounds %"class.net::SpdyFrameReader", ptr %reader, i64 0, i32 2
+  %ofs_.i = getelementptr inbounds i8, ptr %reader, i64 16
   %20 = load i64, ptr %ofs_.i, align 8
   %add.ptr = getelementptr inbounds i8, ptr %19, i64 %20
-  %len_.i7 = getelementptr inbounds %"class.net::SpdyFramer::CharBuffer", ptr %18, i64 0, i32 2
+  %len_.i7 = getelementptr inbounds i8, ptr %18, i64 16
   %21 = load i64, ptr %len_.i7, align 8
   %sub41 = sub i64 %21, %20
   call void @_ZN4base16BasicStringPieceINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEC1EPKcm(ptr noundef nonnull align 8 dereferenceable(16) %value, ptr noundef %add.ptr, i64 noundef %sub41)
@@ -4017,21 +3913,21 @@ invoke.cont44:                                    ; preds = %if.end28
   br i1 %call45, label %if.end50, label %if.then48
 
 if.then48:                                        ; preds = %invoke.cont44
-  %error_code_.i9 = getelementptr inbounds %"class.net::SpdyFramer", ptr %this, i64 0, i32 3
+  %error_code_.i9 = getelementptr inbounds i8, ptr %this, i64 16
   store i32 2, ptr %error_code_.i9, align 8
-  %expect_continuation_.i10 = getelementptr inbounds %"class.net::SpdyFramer", ptr %this, i64 0, i32 14
+  %expect_continuation_.i10 = getelementptr inbounds i8, ptr %this, i64 100
   store i32 0, ptr %expect_continuation_.i10, align 4
-  %end_stream_when_done_.i11 = getelementptr inbounds %"class.net::SpdyFramer", ptr %this, i64 0, i32 32
+  %end_stream_when_done_.i11 = getelementptr inbounds i8, ptr %this, i64 256
   store i8 0, ptr %end_stream_when_done_.i11, align 8
-  %state_.i12 = getelementptr inbounds %"class.net::SpdyFramer", ptr %this, i64 0, i32 1
+  %state_.i12 = getelementptr inbounds i8, ptr %this, i64 8
   %22 = load i32, ptr %state_.i12, align 8
-  %previous_state_.i13 = getelementptr inbounds %"class.net::SpdyFramer", ptr %this, i64 0, i32 2
+  %previous_state_.i13 = getelementptr inbounds i8, ptr %this, i64 12
   store i32 %22, ptr %previous_state_.i13, align 4
   store i32 0, ptr %state_.i12, align 8
-  %visitor_.i14 = getelementptr inbounds %"class.net::SpdyFramer", ptr %this, i64 0, i32 21
+  %visitor_.i14 = getelementptr inbounds i8, ptr %this, i64 176
   %23 = load ptr, ptr %visitor_.i14, align 8
   %vtable.i15 = load ptr, ptr %23, align 8
-  %vfn.i16 = getelementptr inbounds ptr, ptr %vtable.i15, i64 2
+  %vfn.i16 = getelementptr inbounds i8, ptr %vtable.i15, i64 16
   %24 = load ptr, ptr %vfn.i16, align 8
   invoke void %24(ptr noundef nonnull align 8 dereferenceable(8) %23, ptr noundef nonnull %this)
           to label %cleanup unwind label %lpad43
@@ -4043,23 +3939,23 @@ lpad43:                                           ; preds = %if.then48, %if.end5
   br label %eh.resume
 
 if.end50:                                         ; preds = %invoke.cont44
-  %visitor_ = getelementptr inbounds %"class.net::SpdyFramer", ptr %this, i64 0, i32 21
+  %visitor_ = getelementptr inbounds i8, ptr %this, i64 176
   %26 = load ptr, ptr %visitor_, align 8
-  %current_frame_stream_id_ = getelementptr inbounds %"class.net::SpdyFramer", ptr %this, i64 0, i32 13
+  %current_frame_stream_id_ = getelementptr inbounds i8, ptr %this, i64 96
   %27 = load i32, ptr %current_frame_stream_id_, align 8
   %agg.tmp51.sroa.0.0.copyload = load ptr, ptr %origin, align 8
   %agg.tmp51.sroa.2.0.origin.sroa_idx = getelementptr inbounds i8, ptr %origin, i64 8
   %agg.tmp51.sroa.2.0.copyload = load i64, ptr %agg.tmp51.sroa.2.0.origin.sroa_idx, align 8
   %vtable = load ptr, ptr %26, align 8
-  %vfn = getelementptr inbounds ptr, ptr %vtable, i64 27
+  %vfn = getelementptr inbounds i8, ptr %vtable, i64 216
   %28 = load ptr, ptr %vfn, align 8
   invoke void %28(ptr noundef nonnull align 8 dereferenceable(8) %26, i32 noundef %27, ptr %agg.tmp51.sroa.0.0.copyload, i64 %agg.tmp51.sroa.2.0.copyload, ptr noundef nonnull align 8 dereferenceable(24) %altsvc_vector)
           to label %if.end63 unwind label %lpad43
 
 if.end63:                                         ; preds = %if.end50
-  %state_ = getelementptr inbounds %"class.net::SpdyFramer", ptr %this, i64 0, i32 1
+  %state_ = getelementptr inbounds i8, ptr %this, i64 8
   %29 = load i32, ptr %state_, align 8
-  %previous_state_ = getelementptr inbounds %"class.net::SpdyFramer", ptr %this, i64 0, i32 2
+  %previous_state_ = getelementptr inbounds i8, ptr %this, i64 12
   store i32 %29, ptr %previous_state_, align 4
   store i32 2, ptr %state_, align 8
   br label %cleanup
@@ -4067,7 +3963,7 @@ if.end63:                                         ; preds = %if.end50
 cleanup:                                          ; preds = %if.then48, %if.end63
   %retval.0 = phi i64 [ %.sroa.speculated, %if.end63 ], [ 0, %if.then48 ]
   %30 = load ptr, ptr %altsvc_vector, align 8
-  %_M_finish.i = getelementptr inbounds %"struct.std::_Vector_base<net::SpdyAltSvcWireFormat::AlternativeService, std::allocator<net::SpdyAltSvcWireFormat::AlternativeService>>::_Vector_impl_data", ptr %altsvc_vector, i64 0, i32 1
+  %_M_finish.i = getelementptr inbounds i8, ptr %altsvc_vector, i64 8
   %31 = load ptr, ptr %_M_finish.i, align 8
   %cmp.not3.i.i.i.i = icmp eq ptr %30, %31
   br i1 %cmp.not3.i.i.i.i, label %invoke.cont.i, label %for.body.i.i.i.i
@@ -4075,7 +3971,7 @@ cleanup:                                          ; preds = %if.then48, %if.end6
 for.body.i.i.i.i:                                 ; preds = %cleanup, %for.body.i.i.i.i
   %__first.addr.04.i.i.i.i = phi ptr [ %incdec.ptr.i.i.i.i, %for.body.i.i.i.i ], [ %30, %cleanup ]
   call void @_ZN3net20SpdyAltSvcWireFormat18AlternativeServiceD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %__first.addr.04.i.i.i.i) #23
-  %incdec.ptr.i.i.i.i = getelementptr inbounds %"struct.net::SpdyAltSvcWireFormat::AlternativeService", ptr %__first.addr.04.i.i.i.i, i64 1
+  %incdec.ptr.i.i.i.i = getelementptr inbounds i8, ptr %__first.addr.04.i.i.i.i, i64 96
   %cmp.not.i.i.i.i = icmp eq ptr %incdec.ptr.i.i.i.i, %31
   br i1 %cmp.not.i.i.i.i, label %invoke.contthread-pre-split.i, label %for.body.i.i.i.i, !llvm.loop !9
 
@@ -4111,16 +4007,16 @@ entry:
   %stream_dependency = alloca i32, align 4
   %serialized_weight = alloca i8, align 1
   %ref.tmp92 = alloca %"class.logging::LogMessage", align 8
-  %remaining_data_length_ = getelementptr inbounds %"class.net::SpdyFramer", ptr %this, i64 0, i32 5
+  %remaining_data_length_ = getelementptr inbounds i8, ptr %this, i64 24
   %0 = load i64, ptr %remaining_data_length_, align 8
   %.sroa.speculated.i = tail call i64 @llvm.umin.i64(i64 %len, i64 %0)
   %cmp.not.i = icmp eq i64 %.sroa.speculated.i, 0
   br i1 %cmp.not.i, label %_ZN3net10SpdyFramer24UpdateCurrentFrameBufferEPPKcPmm.exit, label %if.then.i
 
 if.then.i:                                        ; preds = %entry
-  %current_frame_buffer_.i = getelementptr inbounds %"class.net::SpdyFramer", ptr %this, i64 0, i32 10
+  %current_frame_buffer_.i = getelementptr inbounds i8, ptr %this, i64 64
   %1 = load ptr, ptr %current_frame_buffer_.i, align 8
-  %len_.i.i = getelementptr inbounds %"class.net::SpdyFramer", ptr %this, i64 0, i32 10, i32 2
+  %len_.i.i = getelementptr inbounds i8, ptr %this, i64 80
   %2 = load i64, ptr %len_.i.i, align 8
   %add.ptr.i.i = getelementptr inbounds i8, ptr %1, i64 %2
   tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %add.ptr.i.i, ptr align 1 %data, i64 %.sroa.speculated.i, i1 false)
@@ -4140,16 +4036,16 @@ _ZN3net10SpdyFramer24UpdateCurrentFrameBufferEPPKcPmm.exit: ; preds = %entry, %i
   br i1 %cmp, label %if.then, label %if.end121
 
 if.then:                                          ; preds = %_ZN3net10SpdyFramer24UpdateCurrentFrameBufferEPPKcPmm.exit
-  %current_frame_buffer_ = getelementptr inbounds %"class.net::SpdyFramer", ptr %this, i64 0, i32 10
+  %current_frame_buffer_ = getelementptr inbounds i8, ptr %this, i64 64
   %5 = load ptr, ptr %current_frame_buffer_, align 8
-  %len_.i = getelementptr inbounds %"class.net::SpdyFramer", ptr %this, i64 0, i32 10, i32 2
+  %len_.i = getelementptr inbounds i8, ptr %this, i64 80
   %6 = load i64, ptr %len_.i, align 8
   call void @_ZN3net15SpdyFrameReaderC1EPKcm(ptr noundef nonnull align 8 dereferenceable(24) %reader, ptr noundef %5, i64 noundef %6)
-  %protocol_version_.i = getelementptr inbounds %"class.net::SpdyFramer", ptr %this, i64 0, i32 27
+  %protocol_version_.i = getelementptr inbounds i8, ptr %this, i64 248
   %7 = load i32, ptr %protocol_version_.i, align 8
   %call.i2 = call noundef i64 @_ZN3net13SpdyConstants18GetFrameHeaderSizeENS_16SpdyMajorVersionE(i32 noundef %7)
   %call9 = call noundef zeroext i1 @_ZN3net15SpdyFrameReader4SeekEm(ptr noundef nonnull align 8 dereferenceable(24) %reader, i64 noundef %call.i2)
-  %current_frame_type_ = getelementptr inbounds %"class.net::SpdyFramer", ptr %this, i64 0, i32 11
+  %current_frame_type_ = getelementptr inbounds i8, ptr %this, i64 88
   %8 = load i32, ptr %current_frame_type_, align 8
   switch i32 %8, label %sw.default [
     i32 5, label %sw.bb
@@ -4162,7 +4058,7 @@ sw.bb:                                            ; preds = %if.then
   store i64 0, ptr %id, align 8
   %9 = load i32, ptr %protocol_version_.i, align 8
   %cmp10 = icmp eq i32 %9, 2
-  %current_frame_flags_ = getelementptr inbounds %"class.net::SpdyFramer", ptr %this, i64 0, i32 28
+  %current_frame_flags_ = getelementptr inbounds i8, ptr %this, i64 252
   %10 = load i8, ptr %current_frame_flags_, align 4
   %11 = and i8 %10, 1
   %tobool = icmp ne i8 %11, 0
@@ -4185,10 +4081,10 @@ if.else:                                          ; preds = %sw.bb
 
 if.end:                                           ; preds = %if.else, %if.then13
   %14 = phi i64 [ %.pre14, %if.else ], [ %conv17, %if.then13 ]
-  %visitor_ = getelementptr inbounds %"class.net::SpdyFramer", ptr %this, i64 0, i32 21
+  %visitor_ = getelementptr inbounds i8, ptr %this, i64 176
   %15 = load ptr, ptr %visitor_, align 8
   %vtable = load ptr, ptr %15, align 8
-  %vfn = getelementptr inbounds ptr, ptr %vtable, i64 18
+  %vfn = getelementptr inbounds i8, ptr %vtable, i64 144
   %16 = load ptr, ptr %vfn, align 8
   call void %16(ptr noundef nonnull align 8 dereferenceable(8) %15, i64 noundef %14, i1 noundef zeroext %12)
   br label %if.end119
@@ -4200,30 +4096,30 @@ sw.bb23:                                          ; preds = %if.then
   br i1 %cmp26, label %if.then27, label %if.end31
 
 if.then27:                                        ; preds = %sw.bb23
-  %current_frame_stream_id_ = getelementptr inbounds %"class.net::SpdyFramer", ptr %this, i64 0, i32 13
+  %current_frame_stream_id_ = getelementptr inbounds i8, ptr %this, i64 96
   %call29 = call noundef zeroext i1 @_ZN3net15SpdyFrameReader10ReadUInt31EPj(ptr noundef nonnull align 8 dereferenceable(24) %reader, ptr noundef nonnull %current_frame_stream_id_)
   br label %if.end31
 
 if.end31:                                         ; preds = %if.then27, %sw.bb23
   %call33 = call noundef zeroext i1 @_ZN3net15SpdyFrameReader10ReadUInt32EPj(ptr noundef nonnull align 8 dereferenceable(24) %reader, ptr noundef nonnull %delta_window_size)
-  %visitor_35 = getelementptr inbounds %"class.net::SpdyFramer", ptr %this, i64 0, i32 21
+  %visitor_35 = getelementptr inbounds i8, ptr %this, i64 176
   %18 = load ptr, ptr %visitor_35, align 8
-  %current_frame_stream_id_36 = getelementptr inbounds %"class.net::SpdyFramer", ptr %this, i64 0, i32 13
+  %current_frame_stream_id_36 = getelementptr inbounds i8, ptr %this, i64 96
   %19 = load i32, ptr %current_frame_stream_id_36, align 8
   %20 = load i32, ptr %delta_window_size, align 4
   %vtable37 = load ptr, ptr %18, align 8
-  %vfn38 = getelementptr inbounds ptr, ptr %vtable37, i64 21
+  %vfn38 = getelementptr inbounds i8, ptr %vtable37, i64 168
   %21 = load ptr, ptr %vfn38, align 8
   call void %21(ptr noundef nonnull align 8 dereferenceable(8) %18, i32 noundef %19, i32 noundef %20)
   br label %if.end119
 
 if.end52:                                         ; preds = %if.then
-  %visitor_53 = getelementptr inbounds %"class.net::SpdyFramer", ptr %this, i64 0, i32 21
+  %visitor_53 = getelementptr inbounds i8, ptr %this, i64 176
   %22 = load ptr, ptr %visitor_53, align 8
-  %current_frame_stream_id_54 = getelementptr inbounds %"class.net::SpdyFramer", ptr %this, i64 0, i32 13
+  %current_frame_stream_id_54 = getelementptr inbounds i8, ptr %this, i64 96
   %23 = load i32, ptr %current_frame_stream_id_54, align 8
   %vtable55 = load ptr, ptr %22, align 8
-  %vfn56 = getelementptr inbounds ptr, ptr %vtable55, i64 24
+  %vfn56 = getelementptr inbounds i8, ptr %vtable55, i64 192
   %24 = load ptr, ptr %vfn56, align 8
   call void %24(ptr noundef nonnull align 8 dereferenceable(8) %22, i32 noundef %23)
   br label %if.end119
@@ -4236,13 +4132,13 @@ if.end72:                                         ; preds = %if.then
   %26 = load i8, ptr %serialized_weight, align 1
   %conv81 = zext i8 %26 to i32
   %add = add nuw nsw i32 %conv81, 1
-  %visitor_82 = getelementptr inbounds %"class.net::SpdyFramer", ptr %this, i64 0, i32 21
+  %visitor_82 = getelementptr inbounds i8, ptr %this, i64 176
   %27 = load ptr, ptr %visitor_82, align 8
-  %current_frame_stream_id_83 = getelementptr inbounds %"class.net::SpdyFramer", ptr %this, i64 0, i32 13
+  %current_frame_stream_id_83 = getelementptr inbounds i8, ptr %this, i64 96
   %28 = load i32, ptr %current_frame_stream_id_83, align 8
   %tobool84 = icmp slt i32 %25, 0
   %vtable85 = load ptr, ptr %27, align 8
-  %vfn86 = getelementptr inbounds ptr, ptr %vtable85, i64 28
+  %vfn86 = getelementptr inbounds i8, ptr %vtable85, i64 224
   %29 = load ptr, ptr %vfn86, align 8
   call void %29(ptr noundef nonnull align 8 dereferenceable(8) %27, i32 noundef %28, i32 noundef %and.i, i32 noundef %add, i1 noundef zeroext %tobool84)
   br label %if.end119
@@ -4253,7 +4149,7 @@ sw.default:                                       ; preds = %if.then
 
 cond.false:                                       ; preds = %sw.default
   call void @_ZN7logging10LogMessageC1EPKcii(ptr noundef nonnull align 8 dereferenceable(404) %ref.tmp92, ptr noundef nonnull @.str, i32 noundef 2055, i32 noundef 3)
-  %stream_.i5 = getelementptr inbounds %"class.logging::LogMessage", ptr %ref.tmp92, i64 0, i32 2
+  %stream_.i5 = getelementptr inbounds i8, ptr %ref.tmp92, i64 8
   %call98 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc(ptr noundef nonnull align 8 dereferenceable(8) %stream_.i5, ptr noundef nonnull @.str.106)
           to label %invoke.cont97 unwind label %lpad94
 
@@ -4273,9 +4169,9 @@ lpad94:                                           ; preds = %invoke.cont97, %con
   resume { ptr, i32 } %31
 
 if.end119:                                        ; preds = %if.end, %if.end31, %if.end52, %if.end72, %cleanup.action, %sw.default
-  %state_ = getelementptr inbounds %"class.net::SpdyFramer", ptr %this, i64 0, i32 1
+  %state_ = getelementptr inbounds i8, ptr %this, i64 8
   %32 = load i32, ptr %state_, align 8
-  %previous_state_ = getelementptr inbounds %"class.net::SpdyFramer", ptr %this, i64 0, i32 2
+  %previous_state_ = getelementptr inbounds i8, ptr %this, i64 12
   store i32 %32, ptr %previous_state_, align 4
   store i32 7, ptr %state_, align 8
   br label %if.end121
@@ -4288,7 +4184,7 @@ if.end121:                                        ; preds = %if.end119, %_ZN3net
 ; Function Attrs: mustprogress uwtable
 define dso_local noundef i64 @_ZN3net10SpdyFramer29ProcessDataFramePaddingLengthEPKcm(ptr noundef nonnull align 8 dereferenceable(259) %this, ptr nocapture noundef readonly %data, i64 noundef %len) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 if.end23:
-  %current_frame_flags_ = getelementptr inbounds %"class.net::SpdyFramer", ptr %this, i64 0, i32 28
+  %current_frame_flags_ = getelementptr inbounds i8, ptr %this, i64 252
   %0 = load i8, ptr %current_frame_flags_, align 4
   %1 = and i8 %0, 8
   %tobool.not = icmp eq i8 %1, 0
@@ -4299,27 +4195,27 @@ if.then24:                                        ; preds = %if.end23
   br i1 %cmp.not, label %return, label %if.then25
 
 if.then25:                                        ; preds = %if.then24
-  %remaining_data_length_ = getelementptr inbounds %"class.net::SpdyFramer", ptr %this, i64 0, i32 5
+  %remaining_data_length_ = getelementptr inbounds i8, ptr %this, i64 24
   %2 = load i64, ptr %remaining_data_length_, align 8
   %cmp26 = icmp eq i64 %2, 0
   br i1 %cmp26, label %if.then27, label %if.end28
 
 if.then27:                                        ; preds = %if.then25
-  %error_code_.i = getelementptr inbounds %"class.net::SpdyFramer", ptr %this, i64 0, i32 3
+  %error_code_.i = getelementptr inbounds i8, ptr %this, i64 16
   store i32 11, ptr %error_code_.i, align 8
-  %expect_continuation_.i = getelementptr inbounds %"class.net::SpdyFramer", ptr %this, i64 0, i32 14
+  %expect_continuation_.i = getelementptr inbounds i8, ptr %this, i64 100
   store i32 0, ptr %expect_continuation_.i, align 4
-  %end_stream_when_done_.i = getelementptr inbounds %"class.net::SpdyFramer", ptr %this, i64 0, i32 32
+  %end_stream_when_done_.i = getelementptr inbounds i8, ptr %this, i64 256
   store i8 0, ptr %end_stream_when_done_.i, align 8
-  %state_.i = getelementptr inbounds %"class.net::SpdyFramer", ptr %this, i64 0, i32 1
+  %state_.i = getelementptr inbounds i8, ptr %this, i64 8
   %3 = load i32, ptr %state_.i, align 8
-  %previous_state_.i = getelementptr inbounds %"class.net::SpdyFramer", ptr %this, i64 0, i32 2
+  %previous_state_.i = getelementptr inbounds i8, ptr %this, i64 12
   store i32 %3, ptr %previous_state_.i, align 4
   store i32 0, ptr %state_.i, align 8
-  %visitor_.i = getelementptr inbounds %"class.net::SpdyFramer", ptr %this, i64 0, i32 21
+  %visitor_.i = getelementptr inbounds i8, ptr %this, i64 176
   %4 = load ptr, ptr %visitor_.i, align 8
   %vtable.i = load ptr, ptr %4, align 8
-  %vfn.i = getelementptr inbounds ptr, ptr %vtable.i, i64 2
+  %vfn.i = getelementptr inbounds i8, ptr %vtable.i, i64 16
   %5 = load ptr, ptr %vfn.i, align 8
   tail call void %5(ptr noundef nonnull align 8 dereferenceable(8) %4, ptr noundef nonnull %this)
   br label %return
@@ -4327,54 +4223,54 @@ if.then27:                                        ; preds = %if.then25
 if.end28:                                         ; preds = %if.then25
   %6 = load i8, ptr %data, align 1
   %conv29 = zext i8 %6 to i64
-  %remaining_padding_payload_length_ = getelementptr inbounds %"class.net::SpdyFramer", ptr %this, i64 0, i32 6
+  %remaining_padding_payload_length_ = getelementptr inbounds i8, ptr %this, i64 32
   store i64 %conv29, ptr %remaining_padding_payload_length_, align 8
   %dec = add i64 %len, -1
   %dec31 = add i64 %2, -1
   store i64 %dec31, ptr %remaining_data_length_, align 8
-  %visitor_ = getelementptr inbounds %"class.net::SpdyFramer", ptr %this, i64 0, i32 21
+  %visitor_ = getelementptr inbounds i8, ptr %this, i64 176
   %7 = load ptr, ptr %visitor_, align 8
-  %current_frame_stream_id_ = getelementptr inbounds %"class.net::SpdyFramer", ptr %this, i64 0, i32 13
+  %current_frame_stream_id_ = getelementptr inbounds i8, ptr %this, i64 96
   %8 = load i32, ptr %current_frame_stream_id_, align 8
   %vtable = load ptr, ptr %7, align 8
-  %vfn = getelementptr inbounds ptr, ptr %vtable, i64 7
+  %vfn = getelementptr inbounds i8, ptr %vtable, i64 56
   %9 = load ptr, ptr %vfn, align 8
   tail call void %9(ptr noundef nonnull align 8 dereferenceable(8) %7, i32 noundef %8, i64 noundef 1)
   br label %if.end34
 
 if.end34:                                         ; preds = %if.end28, %if.end23
   %len.addr.0 = phi i64 [ %dec, %if.end28 ], [ %len, %if.end23 ]
-  %remaining_padding_payload_length_35 = getelementptr inbounds %"class.net::SpdyFramer", ptr %this, i64 0, i32 6
+  %remaining_padding_payload_length_35 = getelementptr inbounds i8, ptr %this, i64 32
   %10 = load i64, ptr %remaining_padding_payload_length_35, align 8
-  %remaining_data_length_36 = getelementptr inbounds %"class.net::SpdyFramer", ptr %this, i64 0, i32 5
+  %remaining_data_length_36 = getelementptr inbounds i8, ptr %this, i64 24
   %11 = load i64, ptr %remaining_data_length_36, align 8
   %cmp37 = icmp ugt i64 %10, %11
   br i1 %cmp37, label %if.then38, label %if.end49
 
 if.then38:                                        ; preds = %if.end34
-  %error_code_.i9 = getelementptr inbounds %"class.net::SpdyFramer", ptr %this, i64 0, i32 3
+  %error_code_.i9 = getelementptr inbounds i8, ptr %this, i64 16
   store i32 10, ptr %error_code_.i9, align 8
-  %expect_continuation_.i10 = getelementptr inbounds %"class.net::SpdyFramer", ptr %this, i64 0, i32 14
+  %expect_continuation_.i10 = getelementptr inbounds i8, ptr %this, i64 100
   store i32 0, ptr %expect_continuation_.i10, align 4
-  %end_stream_when_done_.i11 = getelementptr inbounds %"class.net::SpdyFramer", ptr %this, i64 0, i32 32
+  %end_stream_when_done_.i11 = getelementptr inbounds i8, ptr %this, i64 256
   store i8 0, ptr %end_stream_when_done_.i11, align 8
-  %state_.i12 = getelementptr inbounds %"class.net::SpdyFramer", ptr %this, i64 0, i32 1
+  %state_.i12 = getelementptr inbounds i8, ptr %this, i64 8
   %12 = load i32, ptr %state_.i12, align 8
-  %previous_state_.i13 = getelementptr inbounds %"class.net::SpdyFramer", ptr %this, i64 0, i32 2
+  %previous_state_.i13 = getelementptr inbounds i8, ptr %this, i64 12
   store i32 %12, ptr %previous_state_.i13, align 4
   store i32 0, ptr %state_.i12, align 8
-  %visitor_.i14 = getelementptr inbounds %"class.net::SpdyFramer", ptr %this, i64 0, i32 21
+  %visitor_.i14 = getelementptr inbounds i8, ptr %this, i64 176
   %13 = load ptr, ptr %visitor_.i14, align 8
   %vtable.i15 = load ptr, ptr %13, align 8
-  %vfn.i16 = getelementptr inbounds ptr, ptr %vtable.i15, i64 2
+  %vfn.i16 = getelementptr inbounds i8, ptr %vtable.i15, i64 16
   %14 = load ptr, ptr %vfn.i16, align 8
   tail call void %14(ptr noundef nonnull align 8 dereferenceable(8) %13, ptr noundef nonnull %this)
   br label %return
 
 if.end49:                                         ; preds = %if.end34
-  %state_ = getelementptr inbounds %"class.net::SpdyFramer", ptr %this, i64 0, i32 1
+  %state_ = getelementptr inbounds i8, ptr %this, i64 8
   %15 = load i32, ptr %state_, align 8
-  %previous_state_ = getelementptr inbounds %"class.net::SpdyFramer", ptr %this, i64 0, i32 2
+  %previous_state_ = getelementptr inbounds i8, ptr %this, i64 12
   store i32 %15, ptr %previous_state_, align 4
   store i32 8, ptr %state_, align 8
   %sub = sub i64 %len, %len.addr.0
@@ -4389,19 +4285,19 @@ return:                                           ; preds = %if.then24, %if.end4
 define dso_local noundef i64 @_ZN3net10SpdyFramer19ProcessFramePaddingEPKcm(ptr nocapture noundef nonnull align 8 dereferenceable(259) %this, ptr nocapture readnone %data, i64 noundef %len) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 if.end:
   %ref.tmp24 = alloca %"class.logging::LogMessage", align 8
-  %remaining_padding_payload_length_ = getelementptr inbounds %"class.net::SpdyFramer", ptr %this, i64 0, i32 6
+  %remaining_padding_payload_length_ = getelementptr inbounds i8, ptr %this, i64 32
   %0 = load i64, ptr %remaining_padding_payload_length_, align 8
   %cmp.not = icmp eq i64 %0, 0
   br i1 %cmp.not, label %if.end.if.end41_crit_edge, label %if.end14
 
 if.end.if.end41_crit_edge:                        ; preds = %if.end
-  %remaining_data_length_42.phi.trans.insert = getelementptr inbounds %"class.net::SpdyFramer", ptr %this, i64 0, i32 5
+  %remaining_data_length_42.phi.trans.insert = getelementptr inbounds i8, ptr %this, i64 24
   %.pre21 = load i64, ptr %remaining_data_length_42.phi.trans.insert, align 8
   br label %if.end41
 
 if.end14:                                         ; preds = %if.end
   %.sroa.speculated = tail call i64 @llvm.umin.i64(i64 %0, i64 %len)
-  %current_frame_type_ = getelementptr inbounds %"class.net::SpdyFramer", ptr %this, i64 0, i32 11
+  %current_frame_type_ = getelementptr inbounds i8, ptr %this, i64 88
   %1 = load i32, ptr %current_frame_type_, align 8
   %cmp17 = icmp eq i32 %1, 0
   %cmp18 = icmp ne i64 %len, 0
@@ -4413,14 +4309,14 @@ if.then19:                                        ; preds = %if.end14
   br i1 %call20, label %land.lhs.true21, label %cleanup.done
 
 land.lhs.true21:                                  ; preds = %if.then19
-  %protocol_version_ = getelementptr inbounds %"class.net::SpdyFramer", ptr %this, i64 0, i32 27
+  %protocol_version_ = getelementptr inbounds i8, ptr %this, i64 248
   %2 = load i32, ptr %protocol_version_, align 8
   %cmp22 = icmp eq i32 %2, 1
   br i1 %cmp22, label %cond.false, label %cleanup.done
 
 cond.false:                                       ; preds = %land.lhs.true21
   call void @_ZN7logging10LogMessageC1EPKcii(ptr noundef nonnull align 8 dereferenceable(404) %ref.tmp24, ptr noundef nonnull @.str, i32 noundef 2278, i32 noundef 2)
-  %stream_.i8 = getelementptr inbounds %"class.logging::LogMessage", ptr %ref.tmp24, i64 0, i32 2
+  %stream_.i8 = getelementptr inbounds i8, ptr %ref.tmp24, i64 8
   %call29 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc(ptr noundef nonnull align 8 dereferenceable(8) %stream_.i8, ptr noundef nonnull @.str.107)
           to label %invoke.cont28 unwind label %lpad25
 
@@ -4434,12 +4330,12 @@ invoke.cont31:                                    ; preds = %invoke.cont28
   br label %cleanup.done
 
 cleanup.done:                                     ; preds = %land.lhs.true21, %if.then19, %invoke.cont31
-  %visitor_ = getelementptr inbounds %"class.net::SpdyFramer", ptr %this, i64 0, i32 21
+  %visitor_ = getelementptr inbounds i8, ptr %this, i64 176
   %4 = load ptr, ptr %visitor_, align 8
-  %current_frame_stream_id_ = getelementptr inbounds %"class.net::SpdyFramer", ptr %this, i64 0, i32 13
+  %current_frame_stream_id_ = getelementptr inbounds i8, ptr %this, i64 96
   %5 = load i32, ptr %current_frame_stream_id_, align 8
   %vtable = load ptr, ptr %4, align 8
-  %vfn = getelementptr inbounds ptr, ptr %vtable, i64 7
+  %vfn = getelementptr inbounds i8, ptr %vtable, i64 56
   %6 = load ptr, ptr %vfn, align 8
   call void %6(ptr noundef nonnull align 8 dereferenceable(8) %4, i32 noundef %5, i64 noundef %.sroa.speculated)
   %.pre = load i64, ptr %remaining_padding_payload_length_, align 8
@@ -4456,7 +4352,7 @@ if.end37:                                         ; preds = %cleanup.done, %if.e
   %sub = sub i64 %len, %.sroa.speculated
   %sub39 = sub i64 %8, %.sroa.speculated
   store i64 %sub39, ptr %remaining_padding_payload_length_, align 8
-  %remaining_data_length_ = getelementptr inbounds %"class.net::SpdyFramer", ptr %this, i64 0, i32 5
+  %remaining_data_length_ = getelementptr inbounds i8, ptr %this, i64 24
   %9 = load i64, ptr %remaining_data_length_, align 8
   %sub40 = sub i64 %9, %.sroa.speculated
   store i64 %sub40, ptr %remaining_data_length_, align 8
@@ -4469,42 +4365,42 @@ if.end41:                                         ; preds = %if.end.if.end41_cri
   br i1 %cmp43, label %if.then44, label %if.end66
 
 if.then44:                                        ; preds = %if.end41
-  %expect_continuation_ = getelementptr inbounds %"class.net::SpdyFramer", ptr %this, i64 0, i32 14
+  %expect_continuation_ = getelementptr inbounds i8, ptr %this, i64 100
   %11 = load i32, ptr %expect_continuation_, align 4
   %cmp45 = icmp eq i32 %11, 0
   br i1 %cmp45, label %land.lhs.true46, label %if.end64
 
 land.lhs.true46:                                  ; preds = %if.then44
-  %current_frame_flags_ = getelementptr inbounds %"class.net::SpdyFramer", ptr %this, i64 0, i32 28
+  %current_frame_flags_ = getelementptr inbounds i8, ptr %this, i64 252
   %12 = load i8, ptr %current_frame_flags_, align 4
   %13 = and i8 %12, 1
   %cmp47.not = icmp eq i8 %13, 0
   br i1 %cmp47.not, label %lor.lhs.false, label %if.then48
 
 lor.lhs.false:                                    ; preds = %land.lhs.true46
-  %end_stream_when_done_ = getelementptr inbounds %"class.net::SpdyFramer", ptr %this, i64 0, i32 32
+  %end_stream_when_done_ = getelementptr inbounds i8, ptr %this, i64 256
   %14 = load i8, ptr %end_stream_when_done_, align 8
   %15 = and i8 %14, 1
   %tobool.not = icmp eq i8 %15, 0
   br i1 %tobool.not, label %if.end64, label %if.then48
 
 if.then48:                                        ; preds = %lor.lhs.false, %land.lhs.true46
-  %end_stream_when_done_49 = getelementptr inbounds %"class.net::SpdyFramer", ptr %this, i64 0, i32 32
+  %end_stream_when_done_49 = getelementptr inbounds i8, ptr %this, i64 256
   store i8 0, ptr %end_stream_when_done_49, align 8
-  %visitor_50 = getelementptr inbounds %"class.net::SpdyFramer", ptr %this, i64 0, i32 21
+  %visitor_50 = getelementptr inbounds i8, ptr %this, i64 176
   %16 = load ptr, ptr %visitor_50, align 8
-  %current_frame_stream_id_51 = getelementptr inbounds %"class.net::SpdyFramer", ptr %this, i64 0, i32 13
+  %current_frame_stream_id_51 = getelementptr inbounds i8, ptr %this, i64 96
   %17 = load i32, ptr %current_frame_stream_id_51, align 8
   %vtable52 = load ptr, ptr %16, align 8
-  %vfn53 = getelementptr inbounds ptr, ptr %vtable52, i64 6
+  %vfn53 = getelementptr inbounds i8, ptr %vtable52, i64 48
   %18 = load ptr, ptr %vfn53, align 8
   call void %18(ptr noundef nonnull align 8 dereferenceable(8) %16, i32 noundef %17)
   br label %if.end64
 
 if.end64:                                         ; preds = %if.then48, %lor.lhs.false, %if.then44
-  %state_ = getelementptr inbounds %"class.net::SpdyFramer", ptr %this, i64 0, i32 1
+  %state_ = getelementptr inbounds i8, ptr %this, i64 8
   %19 = load i32, ptr %state_, align 8
-  %previous_state_ = getelementptr inbounds %"class.net::SpdyFramer", ptr %this, i64 0, i32 2
+  %previous_state_ = getelementptr inbounds i8, ptr %this, i64 12
   store i32 %19, ptr %previous_state_, align 4
   store i32 2, ptr %state_, align 8
   br label %if.end66
@@ -4517,7 +4413,7 @@ if.end66:                                         ; preds = %if.end64, %if.end41
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
 define dso_local noundef i64 @_ZN3net10SpdyFramer33ProcessIgnoredControlFramePayloadEm(ptr nocapture noundef nonnull align 8 dereferenceable(259) %this, i64 noundef %len) local_unnamed_addr #9 align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  %remaining_data_length_ = getelementptr inbounds %"class.net::SpdyFramer", ptr %this, i64 0, i32 5
+  %remaining_data_length_ = getelementptr inbounds i8, ptr %this, i64 24
   %0 = load i64, ptr %remaining_data_length_, align 8
   %cmp.not = icmp eq i64 %0, 0
   br i1 %cmp.not, label %if.end12, label %if.end
@@ -4532,9 +4428,9 @@ if.end:                                           ; preds = %entry
 
 if.end12:                                         ; preds = %entry, %if.end
   %len.addr.011 = phi i64 [ %sub, %if.end ], [ %len, %entry ]
-  %state_ = getelementptr inbounds %"class.net::SpdyFramer", ptr %this, i64 0, i32 1
+  %state_ = getelementptr inbounds i8, ptr %this, i64 8
   %1 = load i32, ptr %state_, align 8
-  %previous_state_ = getelementptr inbounds %"class.net::SpdyFramer", ptr %this, i64 0, i32 2
+  %previous_state_ = getelementptr inbounds i8, ptr %this, i64 12
   store i32 %1, ptr %previous_state_, align 4
   store i32 2, ptr %state_, align 8
   br label %if.end14
@@ -4548,9 +4444,9 @@ if.end14:                                         ; preds = %if.end12, %if.end
 ; Function Attrs: mustprogress uwtable
 define dso_local noundef i64 @_ZN3net10SpdyFramer23ProcessDataFramePayloadEPKcm(ptr nocapture noundef nonnull align 8 dereferenceable(259) %this, ptr noundef %data, i64 noundef %len) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  %remaining_data_length_ = getelementptr inbounds %"class.net::SpdyFramer", ptr %this, i64 0, i32 5
+  %remaining_data_length_ = getelementptr inbounds i8, ptr %this, i64 24
   %0 = load i64, ptr %remaining_data_length_, align 8
-  %remaining_padding_payload_length_ = getelementptr inbounds %"class.net::SpdyFramer", ptr %this, i64 0, i32 6
+  %remaining_padding_payload_length_ = getelementptr inbounds i8, ptr %this, i64 32
   %1 = load i64, ptr %remaining_padding_payload_length_, align 8
   %cmp.not = icmp eq i64 %0, %1
   br i1 %cmp.not, label %if.end23, label %if.then
@@ -4559,19 +4455,19 @@ if.then:                                          ; preds = %entry
   %sub = sub i64 %0, %1
   %.sroa.speculated = tail call i64 @llvm.umin.i64(i64 %sub, i64 %len)
   %tobool.not = icmp eq i64 %.sroa.speculated, 0
-  %state_ = getelementptr inbounds %"class.net::SpdyFramer", ptr %this, i64 0, i32 1
+  %state_ = getelementptr inbounds i8, ptr %this, i64 8
   %2 = load i32, ptr %state_, align 8
   %cmp5.not = icmp eq i32 %2, 7
   %or.cond = select i1 %tobool.not, i1 true, i1 %cmp5.not
   br i1 %or.cond, label %if.end13, label %if.then8
 
 if.then8:                                         ; preds = %if.then
-  %visitor_ = getelementptr inbounds %"class.net::SpdyFramer", ptr %this, i64 0, i32 21
+  %visitor_ = getelementptr inbounds i8, ptr %this, i64 176
   %3 = load ptr, ptr %visitor_, align 8
-  %current_frame_stream_id_ = getelementptr inbounds %"class.net::SpdyFramer", ptr %this, i64 0, i32 13
+  %current_frame_stream_id_ = getelementptr inbounds i8, ptr %this, i64 96
   %4 = load i32, ptr %current_frame_stream_id_, align 8
   %vtable = load ptr, ptr %3, align 8
-  %vfn = getelementptr inbounds ptr, ptr %vtable, i64 5
+  %vfn = getelementptr inbounds i8, ptr %vtable, i64 40
   %5 = load ptr, ptr %vfn, align 8
   tail call void %5(ptr noundef nonnull align 8 dereferenceable(8) %3, i32 noundef %4, ptr noundef %data, i64 noundef %.sroa.speculated)
   %.pre = load i64, ptr %remaining_data_length_, align 8
@@ -4589,9 +4485,9 @@ if.end13:                                         ; preds = %if.then, %if.then8
 
 if.end23:                                         ; preds = %entry, %if.end13
   %len.addr.017 = phi i64 [ %sub10, %if.end13 ], [ %len, %entry ]
-  %state_24 = getelementptr inbounds %"class.net::SpdyFramer", ptr %this, i64 0, i32 1
+  %state_24 = getelementptr inbounds i8, ptr %this, i64 8
   %7 = load i32, ptr %state_24, align 8
-  %previous_state_ = getelementptr inbounds %"class.net::SpdyFramer", ptr %this, i64 0, i32 2
+  %previous_state_ = getelementptr inbounds i8, ptr %this, i64 12
   store i32 %7, ptr %previous_state_, align 4
   store i32 6, ptr %state_24, align 8
   br label %if.end26
@@ -4611,9 +4507,9 @@ define dso_local void @_ZN3net10SpdyFramer10CharBufferC2Em(ptr nocapture noundef
 entry:
   %call = tail call noalias noundef nonnull ptr @_Znam(i64 noundef %capacity) #24
   store ptr %call, ptr %this, align 8
-  %capacity_ = getelementptr inbounds %"class.net::SpdyFramer::CharBuffer", ptr %this, i64 0, i32 1
+  %capacity_ = getelementptr inbounds i8, ptr %this, i64 8
   store i64 %capacity, ptr %capacity_, align 8
-  %len_ = getelementptr inbounds %"class.net::SpdyFramer::CharBuffer", ptr %this, i64 0, i32 2
+  %len_ = getelementptr inbounds i8, ptr %this, i64 16
   store i64 0, ptr %len_, align 8
   ret void
 }
@@ -4641,7 +4537,7 @@ _ZNSt10unique_ptrIA_cSt14default_deleteIS0_EED2Ev.exit: ; preds = %entry, %_ZNKS
 define dso_local void @_ZN3net10SpdyFramer10CharBuffer8CopyFromEPKcm(ptr nocapture noundef nonnull align 8 dereferenceable(24) %this, ptr nocapture noundef readonly %data, i64 noundef %size) local_unnamed_addr #11 align 2 personality ptr @__gxx_personality_v0 {
 if.end:
   %0 = load ptr, ptr %this, align 8
-  %len_ = getelementptr inbounds %"class.net::SpdyFramer::CharBuffer", ptr %this, i64 0, i32 2
+  %len_ = getelementptr inbounds i8, ptr %this, i64 16
   %1 = load i64, ptr %len_, align 8
   %add.ptr = getelementptr inbounds i8, ptr %0, i64 %1
   tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %add.ptr, ptr align 1 %data, i64 %size, i1 false)
@@ -4659,11 +4555,11 @@ define dso_local void @_ZN3net10SpdyFramer19SpdySettingsScratchC2Ev(ptr nocaptur
 entry:
   %call.i = tail call noalias noundef nonnull dereferenceable(8) ptr @_Znam(i64 noundef 8) #24
   store ptr %call.i, ptr %this, align 8
-  %capacity_.i = getelementptr inbounds %"class.net::SpdyFramer::CharBuffer", ptr %this, i64 0, i32 1
+  %capacity_.i = getelementptr inbounds i8, ptr %this, i64 8
   store i64 8, ptr %capacity_.i, align 8
-  %len_.i = getelementptr inbounds %"class.net::SpdyFramer::CharBuffer", ptr %this, i64 0, i32 2
+  %len_.i = getelementptr inbounds i8, ptr %this, i64 16
   store i64 0, ptr %len_.i, align 8
-  %last_setting_id = getelementptr inbounds %"struct.net::SpdyFramer::SpdySettingsScratch", ptr %this, i64 0, i32 1
+  %last_setting_id = getelementptr inbounds i8, ptr %this, i64 24
   store i32 -1, ptr %last_setting_id, align 8
   ret void
 }
@@ -4671,7 +4567,7 @@ entry:
 ; Function Attrs: mustprogress uwtable
 define dso_local noundef i32 @_ZN3net10SpdyFramer19ValidateFrameHeaderEbim(ptr noundef nonnull align 8 dereferenceable(259) %this, i1 noundef zeroext %is_control_frame, i32 noundef %frame_type_field, i64 noundef %payload_length_field) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  %protocol_version_ = getelementptr inbounds %"class.net::SpdyFramer", ptr %this, i64 0, i32 27
+  %protocol_version_ = getelementptr inbounds i8, ptr %this, i64 248
   %0 = load i32, ptr %protocol_version_, align 8
   %call = tail call noundef zeroext i1 @_ZN3net13SpdyConstants16IsValidFrameTypeENS_16SpdyMajorVersionEi(i32 noundef %0, i32 noundef %frame_type_field)
   %1 = load i32, ptr %protocol_version_, align 8
@@ -4685,53 +4581,53 @@ if.then3:                                         ; preds = %if.then
   br i1 %is_control_frame, label %if.then4, label %return
 
 if.then4:                                         ; preds = %if.then3
-  %error_code_.i = getelementptr inbounds %"class.net::SpdyFramer", ptr %this, i64 0, i32 3
+  %error_code_.i = getelementptr inbounds i8, ptr %this, i64 16
   store i32 2, ptr %error_code_.i, align 8
-  %expect_continuation_.i = getelementptr inbounds %"class.net::SpdyFramer", ptr %this, i64 0, i32 14
+  %expect_continuation_.i = getelementptr inbounds i8, ptr %this, i64 100
   store i32 0, ptr %expect_continuation_.i, align 4
-  %end_stream_when_done_.i = getelementptr inbounds %"class.net::SpdyFramer", ptr %this, i64 0, i32 32
+  %end_stream_when_done_.i = getelementptr inbounds i8, ptr %this, i64 256
   store i8 0, ptr %end_stream_when_done_.i, align 8
-  %state_.i = getelementptr inbounds %"class.net::SpdyFramer", ptr %this, i64 0, i32 1
+  %state_.i = getelementptr inbounds i8, ptr %this, i64 8
   %2 = load i32, ptr %state_.i, align 8
-  %previous_state_.i = getelementptr inbounds %"class.net::SpdyFramer", ptr %this, i64 0, i32 2
+  %previous_state_.i = getelementptr inbounds i8, ptr %this, i64 12
   store i32 %2, ptr %previous_state_.i, align 4
   store i32 0, ptr %state_.i, align 8
-  %visitor_.i = getelementptr inbounds %"class.net::SpdyFramer", ptr %this, i64 0, i32 21
+  %visitor_.i = getelementptr inbounds i8, ptr %this, i64 176
   %3 = load ptr, ptr %visitor_.i, align 8
   %vtable.i = load ptr, ptr %3, align 8
-  %vfn.i = getelementptr inbounds ptr, ptr %vtable.i, i64 2
+  %vfn.i = getelementptr inbounds i8, ptr %vtable.i, i64 16
   %4 = load ptr, ptr %vfn.i, align 8
   tail call void %4(ptr noundef nonnull align 8 dereferenceable(8) %3, ptr noundef nonnull %this)
   br label %return
 
 if.else5:                                         ; preds = %if.then
-  %visitor_ = getelementptr inbounds %"class.net::SpdyFramer", ptr %this, i64 0, i32 21
+  %visitor_ = getelementptr inbounds i8, ptr %this, i64 176
   %5 = load ptr, ptr %visitor_, align 8
-  %current_frame_stream_id_ = getelementptr inbounds %"class.net::SpdyFramer", ptr %this, i64 0, i32 13
+  %current_frame_stream_id_ = getelementptr inbounds i8, ptr %this, i64 96
   %6 = load i32, ptr %current_frame_stream_id_, align 8
   %vtable = load ptr, ptr %5, align 8
-  %vfn = getelementptr inbounds ptr, ptr %vtable, i64 29
+  %vfn = getelementptr inbounds i8, ptr %vtable, i64 232
   %7 = load ptr, ptr %vfn, align 8
   %call6 = tail call noundef zeroext i1 %7(ptr noundef nonnull align 8 dereferenceable(8) %5, i32 noundef %6, i32 noundef %frame_type_field)
-  %expect_continuation_ = getelementptr inbounds %"class.net::SpdyFramer", ptr %this, i64 0, i32 14
+  %expect_continuation_ = getelementptr inbounds i8, ptr %this, i64 100
   %8 = load i32, ptr %expect_continuation_, align 4
   %tobool8.not = icmp eq i32 %8, 0
   br i1 %tobool8.not, label %if.else10, label %if.then9
 
 if.then9:                                         ; preds = %if.else5
-  %error_code_.i7 = getelementptr inbounds %"class.net::SpdyFramer", ptr %this, i64 0, i32 3
+  %error_code_.i7 = getelementptr inbounds i8, ptr %this, i64 16
   store i32 13, ptr %error_code_.i7, align 8
   store i32 0, ptr %expect_continuation_, align 4
-  %end_stream_when_done_.i9 = getelementptr inbounds %"class.net::SpdyFramer", ptr %this, i64 0, i32 32
+  %end_stream_when_done_.i9 = getelementptr inbounds i8, ptr %this, i64 256
   store i8 0, ptr %end_stream_when_done_.i9, align 8
-  %state_.i10 = getelementptr inbounds %"class.net::SpdyFramer", ptr %this, i64 0, i32 1
+  %state_.i10 = getelementptr inbounds i8, ptr %this, i64 8
   %9 = load i32, ptr %state_.i10, align 8
-  %previous_state_.i11 = getelementptr inbounds %"class.net::SpdyFramer", ptr %this, i64 0, i32 2
+  %previous_state_.i11 = getelementptr inbounds i8, ptr %this, i64 12
   store i32 %9, ptr %previous_state_.i11, align 4
   store i32 0, ptr %state_.i10, align 8
   %10 = load ptr, ptr %visitor_, align 8
   %vtable.i13 = load ptr, ptr %10, align 8
-  %vfn.i14 = getelementptr inbounds ptr, ptr %vtable.i13, i64 2
+  %vfn.i14 = getelementptr inbounds i8, ptr %vtable.i13, i64 16
   %11 = load ptr, ptr %vfn.i14, align 8
   tail call void %11(ptr noundef nonnull align 8 dereferenceable(8) %10, ptr noundef nonnull %this)
   br label %return
@@ -4740,27 +4636,27 @@ if.else10:                                        ; preds = %if.else5
   br i1 %call6, label %if.end19, label %if.then12
 
 if.then12:                                        ; preds = %if.else10
-  %error_code_.i15 = getelementptr inbounds %"class.net::SpdyFramer", ptr %this, i64 0, i32 3
+  %error_code_.i15 = getelementptr inbounds i8, ptr %this, i64 16
   store i32 2, ptr %error_code_.i15, align 8
   store i32 0, ptr %expect_continuation_, align 4
-  %end_stream_when_done_.i17 = getelementptr inbounds %"class.net::SpdyFramer", ptr %this, i64 0, i32 32
+  %end_stream_when_done_.i17 = getelementptr inbounds i8, ptr %this, i64 256
   store i8 0, ptr %end_stream_when_done_.i17, align 8
-  %state_.i18 = getelementptr inbounds %"class.net::SpdyFramer", ptr %this, i64 0, i32 1
+  %state_.i18 = getelementptr inbounds i8, ptr %this, i64 8
   %12 = load i32, ptr %state_.i18, align 8
-  %previous_state_.i19 = getelementptr inbounds %"class.net::SpdyFramer", ptr %this, i64 0, i32 2
+  %previous_state_.i19 = getelementptr inbounds i8, ptr %this, i64 12
   store i32 %12, ptr %previous_state_.i19, align 4
   store i32 0, ptr %state_.i18, align 8
   %13 = load ptr, ptr %visitor_, align 8
   %vtable.i21 = load ptr, ptr %13, align 8
-  %vfn.i22 = getelementptr inbounds ptr, ptr %vtable.i21, i64 2
+  %vfn.i22 = getelementptr inbounds i8, ptr %vtable.i21, i64 16
   %14 = load ptr, ptr %vfn.i22, align 8
   tail call void %14(ptr noundef nonnull align 8 dereferenceable(8) %13, ptr noundef nonnull %this)
   br label %return
 
 if.end19:                                         ; preds = %if.else10
-  %state_ = getelementptr inbounds %"class.net::SpdyFramer", ptr %this, i64 0, i32 1
+  %state_ = getelementptr inbounds i8, ptr %this, i64 8
   %15 = load i32, ptr %state_, align 8
-  %previous_state_ = getelementptr inbounds %"class.net::SpdyFramer", ptr %this, i64 0, i32 2
+  %previous_state_ = getelementptr inbounds i8, ptr %this, i64 12
   store i32 %15, ptr %previous_state_, align 4
   store i32 7, ptr %state_, align 8
   br label %return
@@ -4772,54 +4668,54 @@ if.end24:                                         ; preds = %entry
   br i1 %cmp28, label %if.then29, label %return
 
 if.then29:                                        ; preds = %if.end24
-  %current_frame_stream_id_30 = getelementptr inbounds %"class.net::SpdyFramer", ptr %this, i64 0, i32 13
+  %current_frame_stream_id_30 = getelementptr inbounds i8, ptr %this, i64 96
   %17 = load i32, ptr %current_frame_stream_id_30, align 8
   %call31 = tail call noundef zeroext i1 @_ZN3net13SpdyConstants25IsValidHTTP2FrameStreamIdEjNS_13SpdyFrameTypeE(i32 noundef %17, i32 noundef %call26)
   br i1 %call31, label %if.end33, label %if.then32
 
 if.then32:                                        ; preds = %if.then29
-  %error_code_.i23 = getelementptr inbounds %"class.net::SpdyFramer", ptr %this, i64 0, i32 3
+  %error_code_.i23 = getelementptr inbounds i8, ptr %this, i64 16
   store i32 1, ptr %error_code_.i23, align 8
-  %expect_continuation_.i24 = getelementptr inbounds %"class.net::SpdyFramer", ptr %this, i64 0, i32 14
+  %expect_continuation_.i24 = getelementptr inbounds i8, ptr %this, i64 100
   store i32 0, ptr %expect_continuation_.i24, align 4
-  %end_stream_when_done_.i25 = getelementptr inbounds %"class.net::SpdyFramer", ptr %this, i64 0, i32 32
+  %end_stream_when_done_.i25 = getelementptr inbounds i8, ptr %this, i64 256
   store i8 0, ptr %end_stream_when_done_.i25, align 8
-  %state_.i26 = getelementptr inbounds %"class.net::SpdyFramer", ptr %this, i64 0, i32 1
+  %state_.i26 = getelementptr inbounds i8, ptr %this, i64 8
   %18 = load i32, ptr %state_.i26, align 8
-  %previous_state_.i27 = getelementptr inbounds %"class.net::SpdyFramer", ptr %this, i64 0, i32 2
+  %previous_state_.i27 = getelementptr inbounds i8, ptr %this, i64 12
   store i32 %18, ptr %previous_state_.i27, align 4
   store i32 0, ptr %state_.i26, align 8
-  %visitor_.i28 = getelementptr inbounds %"class.net::SpdyFramer", ptr %this, i64 0, i32 21
+  %visitor_.i28 = getelementptr inbounds i8, ptr %this, i64 176
   %19 = load ptr, ptr %visitor_.i28, align 8
   %vtable.i29 = load ptr, ptr %19, align 8
-  %vfn.i30 = getelementptr inbounds ptr, ptr %vtable.i29, i64 2
+  %vfn.i30 = getelementptr inbounds i8, ptr %vtable.i29, i64 16
   %20 = load ptr, ptr %vfn.i30, align 8
   tail call void %20(ptr noundef nonnull align 8 dereferenceable(8) %19, ptr noundef nonnull %this)
   br label %return
 
 if.end33:                                         ; preds = %if.then29
   %cmp34 = icmp eq i32 %call26, 10
-  %expect_continuation_35 = getelementptr inbounds %"class.net::SpdyFramer", ptr %this, i64 0, i32 14
+  %expect_continuation_35 = getelementptr inbounds i8, ptr %this, i64 100
   %21 = load i32, ptr %expect_continuation_35, align 4
   %22 = icmp eq i32 %21, 0
   %cmp38.not = xor i1 %cmp34, %22
   br i1 %cmp38.not, label %if.end46, label %if.end44
 
 if.end44:                                         ; preds = %if.end33
-  %error_code_.i31 = getelementptr inbounds %"class.net::SpdyFramer", ptr %this, i64 0, i32 3
+  %error_code_.i31 = getelementptr inbounds i8, ptr %this, i64 16
   store i32 13, ptr %error_code_.i31, align 8
   store i32 0, ptr %expect_continuation_35, align 4
-  %end_stream_when_done_.i33 = getelementptr inbounds %"class.net::SpdyFramer", ptr %this, i64 0, i32 32
+  %end_stream_when_done_.i33 = getelementptr inbounds i8, ptr %this, i64 256
   store i8 0, ptr %end_stream_when_done_.i33, align 8
-  %state_.i34 = getelementptr inbounds %"class.net::SpdyFramer", ptr %this, i64 0, i32 1
+  %state_.i34 = getelementptr inbounds i8, ptr %this, i64 8
   %23 = load i32, ptr %state_.i34, align 8
-  %previous_state_.i35 = getelementptr inbounds %"class.net::SpdyFramer", ptr %this, i64 0, i32 2
+  %previous_state_.i35 = getelementptr inbounds i8, ptr %this, i64 12
   store i32 %23, ptr %previous_state_.i35, align 4
   store i32 0, ptr %state_.i34, align 8
-  %visitor_.i36 = getelementptr inbounds %"class.net::SpdyFramer", ptr %this, i64 0, i32 21
+  %visitor_.i36 = getelementptr inbounds i8, ptr %this, i64 176
   %24 = load ptr, ptr %visitor_.i36, align 8
   %vtable.i37 = load ptr, ptr %24, align 8
-  %vfn.i38 = getelementptr inbounds ptr, ptr %vtable.i37, i64 2
+  %vfn.i38 = getelementptr inbounds i8, ptr %vtable.i37, i64 16
   %25 = load ptr, ptr %vfn.i38, align 8
   tail call void %25(ptr noundef nonnull align 8 dereferenceable(8) %24, ptr noundef nonnull %this)
   br label %return
@@ -4827,28 +4723,28 @@ if.end44:                                         ; preds = %if.end33
 if.end46:                                         ; preds = %if.end33
   %.pre = load i32, ptr %protocol_version_, align 8
   %26 = icmp eq i32 %.pre, 2
-  %recv_frame_size_limit_ = getelementptr inbounds %"class.net::SpdyFramer", ptr %this, i64 0, i32 9
+  %recv_frame_size_limit_ = getelementptr inbounds i8, ptr %this, i64 56
   %27 = load i64, ptr %recv_frame_size_limit_, align 8
   %cmp49 = icmp ult i64 %27, %payload_length_field
   %or.cond = select i1 %26, i1 %cmp49, i1 false
   br i1 %or.cond, label %if.then50, label %return
 
 if.then50:                                        ; preds = %if.end46
-  %error_code_.i39 = getelementptr inbounds %"class.net::SpdyFramer", ptr %this, i64 0, i32 3
+  %error_code_.i39 = getelementptr inbounds i8, ptr %this, i64 16
   store i32 16, ptr %error_code_.i39, align 8
-  %expect_continuation_.i40 = getelementptr inbounds %"class.net::SpdyFramer", ptr %this, i64 0, i32 14
+  %expect_continuation_.i40 = getelementptr inbounds i8, ptr %this, i64 100
   store i32 0, ptr %expect_continuation_.i40, align 4
-  %end_stream_when_done_.i41 = getelementptr inbounds %"class.net::SpdyFramer", ptr %this, i64 0, i32 32
+  %end_stream_when_done_.i41 = getelementptr inbounds i8, ptr %this, i64 256
   store i8 0, ptr %end_stream_when_done_.i41, align 8
-  %state_.i42 = getelementptr inbounds %"class.net::SpdyFramer", ptr %this, i64 0, i32 1
+  %state_.i42 = getelementptr inbounds i8, ptr %this, i64 8
   %28 = load i32, ptr %state_.i42, align 8
-  %previous_state_.i43 = getelementptr inbounds %"class.net::SpdyFramer", ptr %this, i64 0, i32 2
+  %previous_state_.i43 = getelementptr inbounds i8, ptr %this, i64 12
   store i32 %28, ptr %previous_state_.i43, align 4
   store i32 0, ptr %state_.i42, align 8
-  %visitor_.i44 = getelementptr inbounds %"class.net::SpdyFramer", ptr %this, i64 0, i32 21
+  %visitor_.i44 = getelementptr inbounds i8, ptr %this, i64 176
   %29 = load ptr, ptr %visitor_.i44, align 8
   %vtable.i45 = load ptr, ptr %29, align 8
-  %vfn.i46 = getelementptr inbounds ptr, ptr %vtable.i45, i64 2
+  %vfn.i46 = getelementptr inbounds i8, ptr %vtable.i45, i64 16
   %30 = load ptr, ptr %vfn.i46, align 8
   tail call void %30(ptr noundef nonnull align 8 dereferenceable(8) %29, ptr noundef nonnull %this)
   br label %return
@@ -4873,10 +4769,10 @@ entry:
   br i1 %cmp.not, label %if.end, label %if.then
 
 if.then:                                          ; preds = %entry
-  %current_frame_buffer_ = getelementptr inbounds %"class.net::SpdyFramer", ptr %this, i64 0, i32 10
+  %current_frame_buffer_ = getelementptr inbounds i8, ptr %this, i64 64
   %1 = load ptr, ptr %data, align 8
   %2 = load ptr, ptr %current_frame_buffer_, align 8
-  %len_.i = getelementptr inbounds %"class.net::SpdyFramer", ptr %this, i64 0, i32 10, i32 2
+  %len_.i = getelementptr inbounds i8, ptr %this, i64 80
   %3 = load i64, ptr %len_.i, align 8
   %add.ptr.i = getelementptr inbounds i8, ptr %2, i64 %3
   tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %add.ptr.i, ptr align 1 %1, i64 %.sroa.speculated, i1 false)
@@ -4931,7 +4827,7 @@ if.end13:
   %ref.tmp649 = alloca %"class.logging::LogMessage", align 8
   %ref.tmp677 = alloca %"class.logging::LogMessage", align 8
   %ref.tmp846 = alloca %"class.logging::LogMessage", align 8
-  %current_frame_type_ = getelementptr inbounds %"class.net::SpdyFramer", ptr %this, i64 0, i32 11
+  %current_frame_type_ = getelementptr inbounds i8, ptr %this, i64 88
   %0 = load i32, ptr %current_frame_type_, align 8
   switch i32 %0, label %sw.default [
     i32 1, label %sw.bb
@@ -4950,10 +4846,10 @@ if.end13:
   ]
 
 sw.bb:                                            ; preds = %if.end13
-  %current_frame_length_ = getelementptr inbounds %"class.net::SpdyFramer", ptr %this, i64 0, i32 12
+  %current_frame_length_ = getelementptr inbounds i8, ptr %this, i64 92
   %1 = load i32, ptr %current_frame_length_, align 4
   %conv = zext i32 %1 to i64
-  %protocol_version_.i = getelementptr inbounds %"class.net::SpdyFramer", ptr %this, i64 0, i32 27
+  %protocol_version_.i = getelementptr inbounds i8, ptr %this, i64 248
   %2 = load i32, ptr %protocol_version_.i, align 8
   %cmp.i = icmp eq i32 %2, 1
   %.4.i = select i1 %cmp.i, i64 10, i64 5
@@ -4963,56 +4859,56 @@ sw.bb:                                            ; preds = %if.end13
   br i1 %cmp, label %if.then15, label %if.else16
 
 if.then15:                                        ; preds = %sw.bb
-  %error_code_.i = getelementptr inbounds %"class.net::SpdyFramer", ptr %this, i64 0, i32 3
+  %error_code_.i = getelementptr inbounds i8, ptr %this, i64 16
   store i32 2, ptr %error_code_.i, align 8
-  %expect_continuation_.i = getelementptr inbounds %"class.net::SpdyFramer", ptr %this, i64 0, i32 14
+  %expect_continuation_.i = getelementptr inbounds i8, ptr %this, i64 100
   store i32 0, ptr %expect_continuation_.i, align 4
-  %end_stream_when_done_.i = getelementptr inbounds %"class.net::SpdyFramer", ptr %this, i64 0, i32 32
+  %end_stream_when_done_.i = getelementptr inbounds i8, ptr %this, i64 256
   store i8 0, ptr %end_stream_when_done_.i, align 8
-  %state_.i = getelementptr inbounds %"class.net::SpdyFramer", ptr %this, i64 0, i32 1
+  %state_.i = getelementptr inbounds i8, ptr %this, i64 8
   %3 = load i32, ptr %state_.i, align 8
-  %previous_state_.i = getelementptr inbounds %"class.net::SpdyFramer", ptr %this, i64 0, i32 2
+  %previous_state_.i = getelementptr inbounds i8, ptr %this, i64 12
   store i32 %3, ptr %previous_state_.i, align 4
   store i32 0, ptr %state_.i, align 8
-  %visitor_.i = getelementptr inbounds %"class.net::SpdyFramer", ptr %this, i64 0, i32 21
+  %visitor_.i = getelementptr inbounds i8, ptr %this, i64 176
   %4 = load ptr, ptr %visitor_.i, align 8
   %vtable.i = load ptr, ptr %4, align 8
-  %vfn.i = getelementptr inbounds ptr, ptr %vtable.i, i64 2
+  %vfn.i = getelementptr inbounds i8, ptr %vtable.i, i64 16
   %5 = load ptr, ptr %vfn.i, align 8
   tail call void %5(ptr noundef nonnull align 8 dereferenceable(8) %4, ptr noundef nonnull %this)
   br label %sw.epilog
 
 if.else16:                                        ; preds = %sw.bb
-  %current_frame_flags_ = getelementptr inbounds %"class.net::SpdyFramer", ptr %this, i64 0, i32 28
+  %current_frame_flags_ = getelementptr inbounds i8, ptr %this, i64 252
   %6 = load i8, ptr %current_frame_flags_, align 4
   %tobool.not = icmp ult i8 %6, 4
   br i1 %tobool.not, label %sw.epilog, label %if.then18
 
 if.then18:                                        ; preds = %if.else16
-  %error_code_.i13 = getelementptr inbounds %"class.net::SpdyFramer", ptr %this, i64 0, i32 3
+  %error_code_.i13 = getelementptr inbounds i8, ptr %this, i64 16
   store i32 12, ptr %error_code_.i13, align 8
-  %expect_continuation_.i14 = getelementptr inbounds %"class.net::SpdyFramer", ptr %this, i64 0, i32 14
+  %expect_continuation_.i14 = getelementptr inbounds i8, ptr %this, i64 100
   store i32 0, ptr %expect_continuation_.i14, align 4
-  %end_stream_when_done_.i15 = getelementptr inbounds %"class.net::SpdyFramer", ptr %this, i64 0, i32 32
+  %end_stream_when_done_.i15 = getelementptr inbounds i8, ptr %this, i64 256
   store i8 0, ptr %end_stream_when_done_.i15, align 8
-  %state_.i16 = getelementptr inbounds %"class.net::SpdyFramer", ptr %this, i64 0, i32 1
+  %state_.i16 = getelementptr inbounds i8, ptr %this, i64 8
   %7 = load i32, ptr %state_.i16, align 8
-  %previous_state_.i17 = getelementptr inbounds %"class.net::SpdyFramer", ptr %this, i64 0, i32 2
+  %previous_state_.i17 = getelementptr inbounds i8, ptr %this, i64 12
   store i32 %7, ptr %previous_state_.i17, align 4
   store i32 0, ptr %state_.i16, align 8
-  %visitor_.i18 = getelementptr inbounds %"class.net::SpdyFramer", ptr %this, i64 0, i32 21
+  %visitor_.i18 = getelementptr inbounds i8, ptr %this, i64 176
   %8 = load ptr, ptr %visitor_.i18, align 8
   %vtable.i19 = load ptr, ptr %8, align 8
-  %vfn.i20 = getelementptr inbounds ptr, ptr %vtable.i19, i64 2
+  %vfn.i20 = getelementptr inbounds i8, ptr %vtable.i19, i64 16
   %9 = load ptr, ptr %vfn.i20, align 8
   tail call void %9(ptr noundef nonnull align 8 dereferenceable(8) %8, ptr noundef nonnull %this)
   br label %sw.epilog
 
 sw.bb21:                                          ; preds = %if.end13
-  %current_frame_length_22 = getelementptr inbounds %"class.net::SpdyFramer", ptr %this, i64 0, i32 12
+  %current_frame_length_22 = getelementptr inbounds i8, ptr %this, i64 92
   %10 = load i32, ptr %current_frame_length_22, align 4
   %conv23 = zext i32 %10 to i64
-  %protocol_version_.i.i = getelementptr inbounds %"class.net::SpdyFramer", ptr %this, i64 0, i32 27
+  %protocol_version_.i.i = getelementptr inbounds i8, ptr %this, i64 248
   %11 = load i32, ptr %protocol_version_.i.i, align 8
   %call.i.i = tail call noundef i64 @_ZN3net13SpdyConstants18GetFrameHeaderSizeENS_16SpdyMajorVersionE(i32 noundef %11)
   %12 = load i32, ptr %protocol_version_.i.i, align 8
@@ -5023,56 +4919,56 @@ sw.bb21:                                          ; preds = %if.end13
   br i1 %cmp25, label %if.then26, label %if.else27
 
 if.then26:                                        ; preds = %sw.bb21
-  %error_code_.i22 = getelementptr inbounds %"class.net::SpdyFramer", ptr %this, i64 0, i32 3
+  %error_code_.i22 = getelementptr inbounds i8, ptr %this, i64 16
   store i32 2, ptr %error_code_.i22, align 8
-  %expect_continuation_.i23 = getelementptr inbounds %"class.net::SpdyFramer", ptr %this, i64 0, i32 14
+  %expect_continuation_.i23 = getelementptr inbounds i8, ptr %this, i64 100
   store i32 0, ptr %expect_continuation_.i23, align 4
-  %end_stream_when_done_.i24 = getelementptr inbounds %"class.net::SpdyFramer", ptr %this, i64 0, i32 32
+  %end_stream_when_done_.i24 = getelementptr inbounds i8, ptr %this, i64 256
   store i8 0, ptr %end_stream_when_done_.i24, align 8
-  %state_.i25 = getelementptr inbounds %"class.net::SpdyFramer", ptr %this, i64 0, i32 1
+  %state_.i25 = getelementptr inbounds i8, ptr %this, i64 8
   %13 = load i32, ptr %state_.i25, align 8
-  %previous_state_.i26 = getelementptr inbounds %"class.net::SpdyFramer", ptr %this, i64 0, i32 2
+  %previous_state_.i26 = getelementptr inbounds i8, ptr %this, i64 12
   store i32 %13, ptr %previous_state_.i26, align 4
   store i32 0, ptr %state_.i25, align 8
-  %visitor_.i27 = getelementptr inbounds %"class.net::SpdyFramer", ptr %this, i64 0, i32 21
+  %visitor_.i27 = getelementptr inbounds i8, ptr %this, i64 176
   %14 = load ptr, ptr %visitor_.i27, align 8
   %vtable.i28 = load ptr, ptr %14, align 8
-  %vfn.i29 = getelementptr inbounds ptr, ptr %vtable.i28, i64 2
+  %vfn.i29 = getelementptr inbounds i8, ptr %vtable.i28, i64 16
   %15 = load ptr, ptr %vfn.i29, align 8
   tail call void %15(ptr noundef nonnull align 8 dereferenceable(8) %14, ptr noundef nonnull %this)
   br label %sw.epilog
 
 if.else27:                                        ; preds = %sw.bb21
-  %current_frame_flags_28 = getelementptr inbounds %"class.net::SpdyFramer", ptr %this, i64 0, i32 28
+  %current_frame_flags_28 = getelementptr inbounds i8, ptr %this, i64 252
   %16 = load i8, ptr %current_frame_flags_28, align 4
   %tobool31.not = icmp ult i8 %16, 2
   br i1 %tobool31.not, label %sw.epilog, label %if.then32
 
 if.then32:                                        ; preds = %if.else27
-  %error_code_.i30 = getelementptr inbounds %"class.net::SpdyFramer", ptr %this, i64 0, i32 3
+  %error_code_.i30 = getelementptr inbounds i8, ptr %this, i64 16
   store i32 12, ptr %error_code_.i30, align 8
-  %expect_continuation_.i31 = getelementptr inbounds %"class.net::SpdyFramer", ptr %this, i64 0, i32 14
+  %expect_continuation_.i31 = getelementptr inbounds i8, ptr %this, i64 100
   store i32 0, ptr %expect_continuation_.i31, align 4
-  %end_stream_when_done_.i32 = getelementptr inbounds %"class.net::SpdyFramer", ptr %this, i64 0, i32 32
+  %end_stream_when_done_.i32 = getelementptr inbounds i8, ptr %this, i64 256
   store i8 0, ptr %end_stream_when_done_.i32, align 8
-  %state_.i33 = getelementptr inbounds %"class.net::SpdyFramer", ptr %this, i64 0, i32 1
+  %state_.i33 = getelementptr inbounds i8, ptr %this, i64 8
   %17 = load i32, ptr %state_.i33, align 8
-  %previous_state_.i34 = getelementptr inbounds %"class.net::SpdyFramer", ptr %this, i64 0, i32 2
+  %previous_state_.i34 = getelementptr inbounds i8, ptr %this, i64 12
   store i32 %17, ptr %previous_state_.i34, align 4
   store i32 0, ptr %state_.i33, align 8
-  %visitor_.i35 = getelementptr inbounds %"class.net::SpdyFramer", ptr %this, i64 0, i32 21
+  %visitor_.i35 = getelementptr inbounds i8, ptr %this, i64 176
   %18 = load ptr, ptr %visitor_.i35, align 8
   %vtable.i36 = load ptr, ptr %18, align 8
-  %vfn.i37 = getelementptr inbounds ptr, ptr %vtable.i36, i64 2
+  %vfn.i37 = getelementptr inbounds i8, ptr %vtable.i36, i64 16
   %19 = load ptr, ptr %vfn.i37, align 8
   tail call void %19(ptr noundef nonnull align 8 dereferenceable(8) %18, ptr noundef nonnull %this)
   br label %sw.epilog
 
 sw.bb35:                                          ; preds = %if.end13
-  %current_frame_length_36 = getelementptr inbounds %"class.net::SpdyFramer", ptr %this, i64 0, i32 12
+  %current_frame_length_36 = getelementptr inbounds i8, ptr %this, i64 92
   %20 = load i32, ptr %current_frame_length_36, align 4
   %conv37 = zext i32 %20 to i64
-  %protocol_version_.i38 = getelementptr inbounds %"class.net::SpdyFramer", ptr %this, i64 0, i32 27
+  %protocol_version_.i38 = getelementptr inbounds i8, ptr %this, i64 248
   %21 = load i32, ptr %protocol_version_.i38, align 8
   %cmp.i39 = icmp eq i32 %21, 1
   %.4.i40 = select i1 %cmp.i39, i64 8, i64 4
@@ -5082,27 +4978,27 @@ sw.bb35:                                          ; preds = %if.end13
   br i1 %cmp39.not, label %if.else41, label %if.then40
 
 if.then40:                                        ; preds = %sw.bb35
-  %error_code_.i42 = getelementptr inbounds %"class.net::SpdyFramer", ptr %this, i64 0, i32 3
+  %error_code_.i42 = getelementptr inbounds i8, ptr %this, i64 16
   store i32 15, ptr %error_code_.i42, align 8
-  %expect_continuation_.i43 = getelementptr inbounds %"class.net::SpdyFramer", ptr %this, i64 0, i32 14
+  %expect_continuation_.i43 = getelementptr inbounds i8, ptr %this, i64 100
   store i32 0, ptr %expect_continuation_.i43, align 4
-  %end_stream_when_done_.i44 = getelementptr inbounds %"class.net::SpdyFramer", ptr %this, i64 0, i32 32
+  %end_stream_when_done_.i44 = getelementptr inbounds i8, ptr %this, i64 256
   store i8 0, ptr %end_stream_when_done_.i44, align 8
-  %state_.i45 = getelementptr inbounds %"class.net::SpdyFramer", ptr %this, i64 0, i32 1
+  %state_.i45 = getelementptr inbounds i8, ptr %this, i64 8
   %22 = load i32, ptr %state_.i45, align 8
-  %previous_state_.i46 = getelementptr inbounds %"class.net::SpdyFramer", ptr %this, i64 0, i32 2
+  %previous_state_.i46 = getelementptr inbounds i8, ptr %this, i64 12
   store i32 %22, ptr %previous_state_.i46, align 4
   store i32 0, ptr %state_.i45, align 8
-  %visitor_.i47 = getelementptr inbounds %"class.net::SpdyFramer", ptr %this, i64 0, i32 21
+  %visitor_.i47 = getelementptr inbounds i8, ptr %this, i64 176
   %23 = load ptr, ptr %visitor_.i47, align 8
   %vtable.i48 = load ptr, ptr %23, align 8
-  %vfn.i49 = getelementptr inbounds ptr, ptr %vtable.i48, i64 2
+  %vfn.i49 = getelementptr inbounds i8, ptr %vtable.i48, i64 16
   %24 = load ptr, ptr %vfn.i49, align 8
   tail call void %24(ptr noundef nonnull align 8 dereferenceable(8) %23, ptr noundef nonnull %this)
   br label %sw.epilog
 
 if.else41:                                        ; preds = %sw.bb35
-  %current_frame_flags_42 = getelementptr inbounds %"class.net::SpdyFramer", ptr %this, i64 0, i32 28
+  %current_frame_flags_42 = getelementptr inbounds i8, ptr %this, i64 252
   %25 = load i8, ptr %current_frame_flags_42, align 4
   %cmp44.not = icmp eq i8 %25, 0
   br i1 %cmp44.not, label %sw.epilog, label %if.then45
@@ -5114,7 +5010,7 @@ if.then45:                                        ; preds = %if.else41
 
 cond.false:                                       ; preds = %if.then45
   call void @_ZN7logging10LogMessageC1EPKcii(ptr noundef nonnull align 8 dereferenceable(404) %ref.tmp49, ptr noundef nonnull @.str, i32 noundef 1022, i32 noundef -1)
-  %stream_.i50 = getelementptr inbounds %"class.logging::LogMessage", ptr %ref.tmp49, i64 0, i32 2
+  %stream_.i50 = getelementptr inbounds i8, ptr %ref.tmp49, i64 8
   %call54 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc(ptr noundef nonnull align 8 dereferenceable(8) %stream_.i50, ptr noundef nonnull @.str.73)
           to label %invoke.cont53 unwind label %lpad50
 
@@ -5142,10 +5038,10 @@ lpad50:                                           ; preds = %invoke.cont55, %inv
   br label %eh.resume
 
 sw.bb68:                                          ; preds = %if.end13
-  %protocol_version_ = getelementptr inbounds %"class.net::SpdyFramer", ptr %this, i64 0, i32 27
+  %protocol_version_ = getelementptr inbounds i8, ptr %this, i64 248
   %28 = load i32, ptr %protocol_version_, align 8
   %call72 = tail call noundef i64 @_ZN3net13SpdyConstants14GetSettingSizeENS_16SpdyMajorVersionE(i32 noundef %28)
-  %current_frame_length_73 = getelementptr inbounds %"class.net::SpdyFramer", ptr %this, i64 0, i32 12
+  %current_frame_length_73 = getelementptr inbounds i8, ptr %this, i64 92
   %29 = load i32, ptr %current_frame_length_73, align 4
   %conv74 = zext i32 %29 to i64
   %30 = load i32, ptr %protocol_version_, align 8
@@ -5179,21 +5075,21 @@ lor.lhs.false:                                    ; preds = %_ZNK3net10SpdyFrame
   br i1 %cmp80.not, label %if.else82, label %if.then81
 
 if.then81:                                        ; preds = %lor.lhs.false, %_ZNK3net10SpdyFramer22GetSettingsMinimumSizeEv.exit
-  %error_code_.i58 = getelementptr inbounds %"class.net::SpdyFramer", ptr %this, i64 0, i32 3
+  %error_code_.i58 = getelementptr inbounds i8, ptr %this, i64 16
   store i32 15, ptr %error_code_.i58, align 8
-  %expect_continuation_.i59 = getelementptr inbounds %"class.net::SpdyFramer", ptr %this, i64 0, i32 14
+  %expect_continuation_.i59 = getelementptr inbounds i8, ptr %this, i64 100
   store i32 0, ptr %expect_continuation_.i59, align 4
-  %end_stream_when_done_.i60 = getelementptr inbounds %"class.net::SpdyFramer", ptr %this, i64 0, i32 32
+  %end_stream_when_done_.i60 = getelementptr inbounds i8, ptr %this, i64 256
   store i8 0, ptr %end_stream_when_done_.i60, align 8
-  %state_.i61 = getelementptr inbounds %"class.net::SpdyFramer", ptr %this, i64 0, i32 1
+  %state_.i61 = getelementptr inbounds i8, ptr %this, i64 8
   %33 = load i32, ptr %state_.i61, align 8
-  %previous_state_.i62 = getelementptr inbounds %"class.net::SpdyFramer", ptr %this, i64 0, i32 2
+  %previous_state_.i62 = getelementptr inbounds i8, ptr %this, i64 12
   store i32 %33, ptr %previous_state_.i62, align 4
   store i32 0, ptr %state_.i61, align 8
-  %visitor_.i63 = getelementptr inbounds %"class.net::SpdyFramer", ptr %this, i64 0, i32 21
+  %visitor_.i63 = getelementptr inbounds i8, ptr %this, i64 176
   %34 = load ptr, ptr %visitor_.i63, align 8
   %vtable.i64 = load ptr, ptr %34, align 8
-  %vfn.i65 = getelementptr inbounds ptr, ptr %vtable.i64, i64 2
+  %vfn.i65 = getelementptr inbounds i8, ptr %vtable.i64, i64 16
   %35 = load ptr, ptr %vfn.i65, align 8
   tail call void %35(ptr noundef nonnull align 8 dereferenceable(8) %34, ptr noundef nonnull %this)
   br label %sw.epilog
@@ -5201,28 +5097,28 @@ if.then81:                                        ; preds = %lor.lhs.false, %_ZN
 if.else82:                                        ; preds = %lor.lhs.false
   %36 = load i32, ptr %protocol_version_, align 8
   %cmp84 = icmp ne i32 %36, 1
-  %current_frame_flags_85 = getelementptr inbounds %"class.net::SpdyFramer", ptr %this, i64 0, i32 28
+  %current_frame_flags_85 = getelementptr inbounds i8, ptr %this, i64 252
   %37 = load i8, ptr %current_frame_flags_85, align 4
   %tobool88.not = icmp ult i8 %37, 2
   %or.cond = select i1 %cmp84, i1 true, i1 %tobool88.not
   br i1 %or.cond, label %if.else90, label %if.then89
 
 if.then89:                                        ; preds = %if.else82
-  %error_code_.i66 = getelementptr inbounds %"class.net::SpdyFramer", ptr %this, i64 0, i32 3
+  %error_code_.i66 = getelementptr inbounds i8, ptr %this, i64 16
   store i32 12, ptr %error_code_.i66, align 8
-  %expect_continuation_.i67 = getelementptr inbounds %"class.net::SpdyFramer", ptr %this, i64 0, i32 14
+  %expect_continuation_.i67 = getelementptr inbounds i8, ptr %this, i64 100
   store i32 0, ptr %expect_continuation_.i67, align 4
-  %end_stream_when_done_.i68 = getelementptr inbounds %"class.net::SpdyFramer", ptr %this, i64 0, i32 32
+  %end_stream_when_done_.i68 = getelementptr inbounds i8, ptr %this, i64 256
   store i8 0, ptr %end_stream_when_done_.i68, align 8
-  %state_.i69 = getelementptr inbounds %"class.net::SpdyFramer", ptr %this, i64 0, i32 1
+  %state_.i69 = getelementptr inbounds i8, ptr %this, i64 8
   %38 = load i32, ptr %state_.i69, align 8
-  %previous_state_.i70 = getelementptr inbounds %"class.net::SpdyFramer", ptr %this, i64 0, i32 2
+  %previous_state_.i70 = getelementptr inbounds i8, ptr %this, i64 12
   store i32 %38, ptr %previous_state_.i70, align 4
   store i32 0, ptr %state_.i69, align 8
-  %visitor_.i71 = getelementptr inbounds %"class.net::SpdyFramer", ptr %this, i64 0, i32 21
+  %visitor_.i71 = getelementptr inbounds i8, ptr %this, i64 176
   %39 = load ptr, ptr %visitor_.i71, align 8
   %vtable.i72 = load ptr, ptr %39, align 8
-  %vfn.i73 = getelementptr inbounds ptr, ptr %vtable.i72, i64 2
+  %vfn.i73 = getelementptr inbounds i8, ptr %vtable.i72, i64 16
   %40 = load ptr, ptr %vfn.i73, align 8
   tail call void %40(ptr noundef nonnull align 8 dereferenceable(8) %39, ptr noundef nonnull %this)
   br label %sw.epilog
@@ -5247,21 +5143,21 @@ land.lhs.true98.if.else104_crit_edge:             ; preds = %land.lhs.true98
   br label %if.else104
 
 if.then103:                                       ; preds = %land.lhs.true98
-  %error_code_.i74 = getelementptr inbounds %"class.net::SpdyFramer", ptr %this, i64 0, i32 3
+  %error_code_.i74 = getelementptr inbounds i8, ptr %this, i64 16
   store i32 15, ptr %error_code_.i74, align 8
-  %expect_continuation_.i75 = getelementptr inbounds %"class.net::SpdyFramer", ptr %this, i64 0, i32 14
+  %expect_continuation_.i75 = getelementptr inbounds i8, ptr %this, i64 100
   store i32 0, ptr %expect_continuation_.i75, align 4
-  %end_stream_when_done_.i76 = getelementptr inbounds %"class.net::SpdyFramer", ptr %this, i64 0, i32 32
+  %end_stream_when_done_.i76 = getelementptr inbounds i8, ptr %this, i64 256
   store i8 0, ptr %end_stream_when_done_.i76, align 8
-  %state_.i77 = getelementptr inbounds %"class.net::SpdyFramer", ptr %this, i64 0, i32 1
+  %state_.i77 = getelementptr inbounds i8, ptr %this, i64 8
   %43 = load i32, ptr %state_.i77, align 8
-  %previous_state_.i78 = getelementptr inbounds %"class.net::SpdyFramer", ptr %this, i64 0, i32 2
+  %previous_state_.i78 = getelementptr inbounds i8, ptr %this, i64 12
   store i32 %43, ptr %previous_state_.i78, align 4
   store i32 0, ptr %state_.i77, align 8
-  %visitor_.i79 = getelementptr inbounds %"class.net::SpdyFramer", ptr %this, i64 0, i32 21
+  %visitor_.i79 = getelementptr inbounds i8, ptr %this, i64 176
   %44 = load ptr, ptr %visitor_.i79, align 8
   %vtable.i80 = load ptr, ptr %44, align 8
-  %vfn.i81 = getelementptr inbounds ptr, ptr %vtable.i80, i64 2
+  %vfn.i81 = getelementptr inbounds i8, ptr %vtable.i80, i64 16
   %45 = load ptr, ptr %vfn.i81, align 8
   tail call void %45(ptr noundef nonnull align 8 dereferenceable(8) %44, ptr noundef nonnull %this)
   br label %sw.epilog
@@ -5281,7 +5177,7 @@ if.then112:                                       ; preds = %if.else104
 
 cond.false116:                                    ; preds = %if.then112
   call void @_ZN7logging10LogMessageC1EPKcii(ptr noundef nonnull align 8 dereferenceable(404) %ref.tmp118, ptr noundef nonnull @.str, i32 noundef 1050, i32 noundef -1)
-  %stream_.i83 = getelementptr inbounds %"class.logging::LogMessage", ptr %ref.tmp118, i64 0, i32 2
+  %stream_.i83 = getelementptr inbounds i8, ptr %ref.tmp118, i64 8
   %call124 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc(ptr noundef nonnull align 8 dereferenceable(8) %stream_.i83, ptr noundef nonnull @.str.74)
           to label %invoke.cont123 unwind label %lpad120
 
@@ -5311,10 +5207,10 @@ lpad120:                                          ; preds = %invoke.cont125, %in
   br label %eh.resume
 
 sw.bb147:                                         ; preds = %if.end13
-  %current_frame_length_148 = getelementptr inbounds %"class.net::SpdyFramer", ptr %this, i64 0, i32 12
+  %current_frame_length_148 = getelementptr inbounds i8, ptr %this, i64 92
   %52 = load i32, ptr %current_frame_length_148, align 4
   %conv149 = zext i32 %52 to i64
-  %protocol_version_.i84 = getelementptr inbounds %"class.net::SpdyFramer", ptr %this, i64 0, i32 27
+  %protocol_version_.i84 = getelementptr inbounds i8, ptr %this, i64 248
   %53 = load i32, ptr %protocol_version_.i84, align 8
   %cmp.i85 = icmp eq i32 %53, 1
   %.4.i86 = select i1 %cmp.i85, i64 4, i64 8
@@ -5324,21 +5220,21 @@ sw.bb147:                                         ; preds = %if.end13
   br i1 %cmp151.not, label %if.else153, label %if.then152
 
 if.then152:                                       ; preds = %sw.bb147
-  %error_code_.i89 = getelementptr inbounds %"class.net::SpdyFramer", ptr %this, i64 0, i32 3
+  %error_code_.i89 = getelementptr inbounds i8, ptr %this, i64 16
   store i32 15, ptr %error_code_.i89, align 8
-  %expect_continuation_.i90 = getelementptr inbounds %"class.net::SpdyFramer", ptr %this, i64 0, i32 14
+  %expect_continuation_.i90 = getelementptr inbounds i8, ptr %this, i64 100
   store i32 0, ptr %expect_continuation_.i90, align 4
-  %end_stream_when_done_.i91 = getelementptr inbounds %"class.net::SpdyFramer", ptr %this, i64 0, i32 32
+  %end_stream_when_done_.i91 = getelementptr inbounds i8, ptr %this, i64 256
   store i8 0, ptr %end_stream_when_done_.i91, align 8
-  %state_.i92 = getelementptr inbounds %"class.net::SpdyFramer", ptr %this, i64 0, i32 1
+  %state_.i92 = getelementptr inbounds i8, ptr %this, i64 8
   %54 = load i32, ptr %state_.i92, align 8
-  %previous_state_.i93 = getelementptr inbounds %"class.net::SpdyFramer", ptr %this, i64 0, i32 2
+  %previous_state_.i93 = getelementptr inbounds i8, ptr %this, i64 12
   store i32 %54, ptr %previous_state_.i93, align 4
   store i32 0, ptr %state_.i92, align 8
-  %visitor_.i94 = getelementptr inbounds %"class.net::SpdyFramer", ptr %this, i64 0, i32 21
+  %visitor_.i94 = getelementptr inbounds i8, ptr %this, i64 176
   %55 = load ptr, ptr %visitor_.i94, align 8
   %vtable.i95 = load ptr, ptr %55, align 8
-  %vfn.i96 = getelementptr inbounds ptr, ptr %vtable.i95, i64 2
+  %vfn.i96 = getelementptr inbounds i8, ptr %vtable.i95, i64 16
   %56 = load ptr, ptr %vfn.i96, align 8
   tail call void %56(ptr noundef nonnull align 8 dereferenceable(8) %55, ptr noundef nonnull %this)
   br label %sw.epilog
@@ -5351,7 +5247,7 @@ if.else153:                                       ; preds = %sw.bb147
   ]
 
 land.lhs.true156:                                 ; preds = %if.else153
-  %current_frame_flags_157 = getelementptr inbounds %"class.net::SpdyFramer", ptr %this, i64 0, i32 28
+  %current_frame_flags_157 = getelementptr inbounds i8, ptr %this, i64 252
   %58 = load i8, ptr %current_frame_flags_157, align 4
   %cmp159.not = icmp eq i8 %58, 0
   br i1 %cmp159.not, label %sw.epilog, label %if.then160
@@ -5363,7 +5259,7 @@ if.then160:                                       ; preds = %land.lhs.true156
 
 cond.false164:                                    ; preds = %if.then160
   call void @_ZN7logging10LogMessageC1EPKcii(ptr noundef nonnull align 8 dereferenceable(404) %ref.tmp166, ptr noundef nonnull @.str, i32 noundef 1061, i32 noundef -1)
-  %stream_.i98 = getelementptr inbounds %"class.logging::LogMessage", ptr %ref.tmp166, i64 0, i32 2
+  %stream_.i98 = getelementptr inbounds i8, ptr %ref.tmp166, i64 8
   %call172 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc(ptr noundef nonnull align 8 dereferenceable(8) %stream_.i98, ptr noundef nonnull @.str.75)
           to label %invoke.cont171 unwind label %lpad168
 
@@ -5391,7 +5287,7 @@ lpad168:                                          ; preds = %invoke.cont173, %in
   br label %eh.resume
 
 land.lhs.true191:                                 ; preds = %if.else153
-  %current_frame_flags_192 = getelementptr inbounds %"class.net::SpdyFramer", ptr %this, i64 0, i32 28
+  %current_frame_flags_192 = getelementptr inbounds i8, ptr %this, i64 252
   %61 = load i8, ptr %current_frame_flags_192, align 4
   %tobool195.not = icmp ult i8 %61, 2
   br i1 %tobool195.not, label %sw.epilog, label %if.then196
@@ -5403,7 +5299,7 @@ if.then196:                                       ; preds = %land.lhs.true191
 
 cond.false200:                                    ; preds = %if.then196
   call void @_ZN7logging10LogMessageC1EPKcii(ptr noundef nonnull align 8 dereferenceable(404) %ref.tmp202, ptr noundef nonnull @.str, i32 noundef 1066, i32 noundef -1)
-  %stream_.i100 = getelementptr inbounds %"class.logging::LogMessage", ptr %ref.tmp202, i64 0, i32 2
+  %stream_.i100 = getelementptr inbounds i8, ptr %ref.tmp202, i64 8
   %call208 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc(ptr noundef nonnull align 8 dereferenceable(8) %stream_.i100, ptr noundef nonnull @.str.75)
           to label %invoke.cont207 unwind label %lpad204
 
@@ -5433,13 +5329,13 @@ lpad204:                                          ; preds = %invoke.cont209, %in
   br label %eh.resume
 
 sw.bb230:                                         ; preds = %if.end13
-  %protocol_version_231 = getelementptr inbounds %"class.net::SpdyFramer", ptr %this, i64 0, i32 27
+  %protocol_version_231 = getelementptr inbounds i8, ptr %this, i64 248
   %66 = load i32, ptr %protocol_version_231, align 8
   %cmp232 = icmp eq i32 %66, 1
   br i1 %cmp232, label %land.lhs.true233, label %lor.lhs.false238
 
 land.lhs.true233:                                 ; preds = %sw.bb230
-  %current_frame_length_234 = getelementptr inbounds %"class.net::SpdyFramer", ptr %this, i64 0, i32 12
+  %current_frame_length_234 = getelementptr inbounds i8, ptr %this, i64 92
   %67 = load i32, ptr %current_frame_length_234, align 4
   %conv235 = zext i32 %67 to i64
   %call.i.i102 = tail call noundef i64 @_ZN3net13SpdyConstants18GetFrameHeaderSizeENS_16SpdyMajorVersionE(i32 noundef 1)
@@ -5457,7 +5353,7 @@ lor.lhs.false238:                                 ; preds = %lor.lhs.false238thr
   br i1 %cmp240, label %land.lhs.true241, label %if.else247
 
 land.lhs.true241:                                 ; preds = %lor.lhs.false238
-  %current_frame_length_242 = getelementptr inbounds %"class.net::SpdyFramer", ptr %this, i64 0, i32 12
+  %current_frame_length_242 = getelementptr inbounds i8, ptr %this, i64 92
   %69 = load i32, ptr %current_frame_length_242, align 4
   %conv243 = zext i32 %69 to i64
   %call.i.i105 = tail call noundef i64 @_ZN3net13SpdyConstants18GetFrameHeaderSizeENS_16SpdyMajorVersionE(i32 noundef 2)
@@ -5466,27 +5362,27 @@ land.lhs.true241:                                 ; preds = %lor.lhs.false238
   br i1 %cmp245, label %if.then246, label %if.else247
 
 if.then246:                                       ; preds = %land.lhs.true241, %land.lhs.true233
-  %error_code_.i107 = getelementptr inbounds %"class.net::SpdyFramer", ptr %this, i64 0, i32 3
+  %error_code_.i107 = getelementptr inbounds i8, ptr %this, i64 16
   store i32 2, ptr %error_code_.i107, align 8
-  %expect_continuation_.i108 = getelementptr inbounds %"class.net::SpdyFramer", ptr %this, i64 0, i32 14
+  %expect_continuation_.i108 = getelementptr inbounds i8, ptr %this, i64 100
   store i32 0, ptr %expect_continuation_.i108, align 4
-  %end_stream_when_done_.i109 = getelementptr inbounds %"class.net::SpdyFramer", ptr %this, i64 0, i32 32
+  %end_stream_when_done_.i109 = getelementptr inbounds i8, ptr %this, i64 256
   store i8 0, ptr %end_stream_when_done_.i109, align 8
-  %state_.i110 = getelementptr inbounds %"class.net::SpdyFramer", ptr %this, i64 0, i32 1
+  %state_.i110 = getelementptr inbounds i8, ptr %this, i64 8
   %70 = load i32, ptr %state_.i110, align 8
-  %previous_state_.i111 = getelementptr inbounds %"class.net::SpdyFramer", ptr %this, i64 0, i32 2
+  %previous_state_.i111 = getelementptr inbounds i8, ptr %this, i64 12
   store i32 %70, ptr %previous_state_.i111, align 4
   store i32 0, ptr %state_.i110, align 8
-  %visitor_.i112 = getelementptr inbounds %"class.net::SpdyFramer", ptr %this, i64 0, i32 21
+  %visitor_.i112 = getelementptr inbounds i8, ptr %this, i64 176
   %71 = load ptr, ptr %visitor_.i112, align 8
   %vtable.i113 = load ptr, ptr %71, align 8
-  %vfn.i114 = getelementptr inbounds ptr, ptr %vtable.i113, i64 2
+  %vfn.i114 = getelementptr inbounds i8, ptr %vtable.i113, i64 16
   %72 = load ptr, ptr %vfn.i114, align 8
   tail call void %72(ptr noundef nonnull align 8 dereferenceable(8) %71, ptr noundef nonnull %this)
   br label %sw.epilog
 
 if.else247:                                       ; preds = %land.lhs.true241, %lor.lhs.false238
-  %current_frame_flags_248 = getelementptr inbounds %"class.net::SpdyFramer", ptr %this, i64 0, i32 28
+  %current_frame_flags_248 = getelementptr inbounds i8, ptr %this, i64 252
   %73 = load i8, ptr %current_frame_flags_248, align 4
   %cmp250.not = icmp eq i8 %73, 0
   br i1 %cmp250.not, label %sw.epilog, label %if.then251
@@ -5498,7 +5394,7 @@ if.then251:                                       ; preds = %if.else247
 
 cond.false255:                                    ; preds = %if.then251
   call void @_ZN7logging10LogMessageC1EPKcii(ptr noundef nonnull align 8 dereferenceable(404) %ref.tmp257, ptr noundef nonnull @.str, i32 noundef 1083, i32 noundef -1)
-  %stream_.i116 = getelementptr inbounds %"class.logging::LogMessage", ptr %ref.tmp257, i64 0, i32 2
+  %stream_.i116 = getelementptr inbounds i8, ptr %ref.tmp257, i64 8
   %call263 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc(ptr noundef nonnull align 8 dereferenceable(8) %stream_.i116, ptr noundef nonnull @.str.76)
           to label %invoke.cont262 unwind label %lpad259
 
@@ -5526,7 +5422,7 @@ lpad259:                                          ; preds = %invoke.cont264, %in
   br label %eh.resume
 
 sw.bb281:                                         ; preds = %if.end13
-  %protocol_version_.i.i117 = getelementptr inbounds %"class.net::SpdyFramer", ptr %this, i64 0, i32 27
+  %protocol_version_.i.i117 = getelementptr inbounds i8, ptr %this, i64 248
   %76 = load i32, ptr %protocol_version_.i.i117, align 8
   %call.i.i118 = tail call noundef i64 @_ZN3net13SpdyConstants18GetFrameHeaderSizeENS_16SpdyMajorVersionE(i32 noundef %76)
   %77 = load i32, ptr %protocol_version_.i.i117, align 8
@@ -5537,7 +5433,7 @@ sw.bb281:                                         ; preds = %if.end13
   br i1 %cmp284, label %land.lhs.true285, label %if.end291
 
 land.lhs.true285:                                 ; preds = %sw.bb281
-  %current_frame_flags_286 = getelementptr inbounds %"class.net::SpdyFramer", ptr %this, i64 0, i32 28
+  %current_frame_flags_286 = getelementptr inbounds i8, ptr %this, i64 252
   %78 = load i8, ptr %current_frame_flags_286, align 4
   %79 = lshr i8 %78, 3
   %80 = and i8 %79, 4
@@ -5547,28 +5443,28 @@ land.lhs.true285:                                 ; preds = %sw.bb281
 
 if.end291:                                        ; preds = %land.lhs.true285, %sw.bb281
   %min_size.0 = phi i64 [ %spec.select.i121, %sw.bb281 ], [ %spec.select, %land.lhs.true285 ]
-  %current_frame_length_292 = getelementptr inbounds %"class.net::SpdyFramer", ptr %this, i64 0, i32 12
+  %current_frame_length_292 = getelementptr inbounds i8, ptr %this, i64 92
   %82 = load i32, ptr %current_frame_length_292, align 4
   %conv293 = zext i32 %82 to i64
   %cmp294 = icmp ugt i64 %min_size.0, %conv293
   br i1 %cmp294, label %if.then295, label %if.else296
 
 if.then295:                                       ; preds = %if.end291
-  %error_code_.i122 = getelementptr inbounds %"class.net::SpdyFramer", ptr %this, i64 0, i32 3
+  %error_code_.i122 = getelementptr inbounds i8, ptr %this, i64 16
   store i32 2, ptr %error_code_.i122, align 8
-  %expect_continuation_.i123 = getelementptr inbounds %"class.net::SpdyFramer", ptr %this, i64 0, i32 14
+  %expect_continuation_.i123 = getelementptr inbounds i8, ptr %this, i64 100
   store i32 0, ptr %expect_continuation_.i123, align 4
-  %end_stream_when_done_.i124 = getelementptr inbounds %"class.net::SpdyFramer", ptr %this, i64 0, i32 32
+  %end_stream_when_done_.i124 = getelementptr inbounds i8, ptr %this, i64 256
   store i8 0, ptr %end_stream_when_done_.i124, align 8
-  %state_.i125 = getelementptr inbounds %"class.net::SpdyFramer", ptr %this, i64 0, i32 1
+  %state_.i125 = getelementptr inbounds i8, ptr %this, i64 8
   %83 = load i32, ptr %state_.i125, align 8
-  %previous_state_.i126 = getelementptr inbounds %"class.net::SpdyFramer", ptr %this, i64 0, i32 2
+  %previous_state_.i126 = getelementptr inbounds i8, ptr %this, i64 12
   store i32 %83, ptr %previous_state_.i126, align 4
   store i32 0, ptr %state_.i125, align 8
-  %visitor_.i127 = getelementptr inbounds %"class.net::SpdyFramer", ptr %this, i64 0, i32 21
+  %visitor_.i127 = getelementptr inbounds i8, ptr %this, i64 176
   %84 = load ptr, ptr %visitor_.i127, align 8
   %vtable.i128 = load ptr, ptr %84, align 8
-  %vfn.i129 = getelementptr inbounds ptr, ptr %vtable.i128, i64 2
+  %vfn.i129 = getelementptr inbounds i8, ptr %vtable.i128, i64 16
   %85 = load ptr, ptr %vfn.i129, align 8
   tail call void %85(ptr noundef nonnull align 8 dereferenceable(8) %84, ptr noundef nonnull %this)
   br label %sw.epilog
@@ -5577,7 +5473,7 @@ if.else296:                                       ; preds = %if.end291
   br i1 %cmp.i119, label %land.lhs.true299, label %if.else335
 
 land.lhs.true299:                                 ; preds = %if.else296
-  %current_frame_flags_300 = getelementptr inbounds %"class.net::SpdyFramer", ptr %this, i64 0, i32 28
+  %current_frame_flags_300 = getelementptr inbounds i8, ptr %this, i64 252
   %86 = load i8, ptr %current_frame_flags_300, align 4
   %tobool303.not = icmp ult i8 %86, 2
   br i1 %tobool303.not, label %sw.epilog, label %if.then304
@@ -5589,7 +5485,7 @@ if.then304:                                       ; preds = %land.lhs.true299
 
 cond.false308:                                    ; preds = %if.then304
   call void @_ZN7logging10LogMessageC1EPKcii(ptr noundef nonnull align 8 dereferenceable(404) %ref.tmp310, ptr noundef nonnull @.str, i32 noundef 1102, i32 noundef -1)
-  %stream_.i131 = getelementptr inbounds %"class.logging::LogMessage", ptr %ref.tmp310, i64 0, i32 2
+  %stream_.i131 = getelementptr inbounds i8, ptr %ref.tmp310, i64 8
   %call316 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc(ptr noundef nonnull align 8 dereferenceable(8) %stream_.i131, ptr noundef nonnull @.str.77)
           to label %invoke.cont315 unwind label %lpad312
 
@@ -5622,7 +5518,7 @@ if.else335:                                       ; preds = %if.else296
   br i1 %cmp284, label %land.lhs.true338, label %sw.epilog
 
 land.lhs.true338:                                 ; preds = %if.else335
-  %current_frame_flags_339 = getelementptr inbounds %"class.net::SpdyFramer", ptr %this, i64 0, i32 28
+  %current_frame_flags_339 = getelementptr inbounds i8, ptr %this, i64 252
   %91 = load i8, ptr %current_frame_flags_339, align 4
   %92 = and i8 %91, -46
   %tobool342.not = icmp eq i8 %92, 0
@@ -5635,7 +5531,7 @@ if.then343:                                       ; preds = %land.lhs.true338
 
 cond.false347:                                    ; preds = %if.then343
   call void @_ZN7logging10LogMessageC1EPKcii(ptr noundef nonnull align 8 dereferenceable(404) %ref.tmp349, ptr noundef nonnull @.str, i32 noundef 1109, i32 noundef -1)
-  %stream_.i133 = getelementptr inbounds %"class.logging::LogMessage", ptr %ref.tmp349, i64 0, i32 2
+  %stream_.i133 = getelementptr inbounds i8, ptr %ref.tmp349, i64 8
   %call355 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc(ptr noundef nonnull align 8 dereferenceable(8) %stream_.i133, ptr noundef nonnull @.str.77)
           to label %invoke.cont354 unwind label %lpad351
 
@@ -5665,10 +5561,10 @@ lpad351:                                          ; preds = %invoke.cont356, %in
   br label %eh.resume
 
 sw.bb377:                                         ; preds = %if.end13
-  %current_frame_length_378 = getelementptr inbounds %"class.net::SpdyFramer", ptr %this, i64 0, i32 12
+  %current_frame_length_378 = getelementptr inbounds i8, ptr %this, i64 92
   %97 = load i32, ptr %current_frame_length_378, align 4
   %conv379 = zext i32 %97 to i64
-  %protocol_version_.i134 = getelementptr inbounds %"class.net::SpdyFramer", ptr %this, i64 0, i32 27
+  %protocol_version_.i134 = getelementptr inbounds i8, ptr %this, i64 248
   %98 = load i32, ptr %protocol_version_.i134, align 8
   %cmp.i135 = icmp eq i32 %98, 1
   %.4.i136 = select i1 %cmp.i135, i64 8, i64 4
@@ -5678,27 +5574,27 @@ sw.bb377:                                         ; preds = %if.end13
   br i1 %cmp381.not, label %if.else383, label %if.then382
 
 if.then382:                                       ; preds = %sw.bb377
-  %error_code_.i139 = getelementptr inbounds %"class.net::SpdyFramer", ptr %this, i64 0, i32 3
+  %error_code_.i139 = getelementptr inbounds i8, ptr %this, i64 16
   store i32 15, ptr %error_code_.i139, align 8
-  %expect_continuation_.i140 = getelementptr inbounds %"class.net::SpdyFramer", ptr %this, i64 0, i32 14
+  %expect_continuation_.i140 = getelementptr inbounds i8, ptr %this, i64 100
   store i32 0, ptr %expect_continuation_.i140, align 4
-  %end_stream_when_done_.i141 = getelementptr inbounds %"class.net::SpdyFramer", ptr %this, i64 0, i32 32
+  %end_stream_when_done_.i141 = getelementptr inbounds i8, ptr %this, i64 256
   store i8 0, ptr %end_stream_when_done_.i141, align 8
-  %state_.i142 = getelementptr inbounds %"class.net::SpdyFramer", ptr %this, i64 0, i32 1
+  %state_.i142 = getelementptr inbounds i8, ptr %this, i64 8
   %99 = load i32, ptr %state_.i142, align 8
-  %previous_state_.i143 = getelementptr inbounds %"class.net::SpdyFramer", ptr %this, i64 0, i32 2
+  %previous_state_.i143 = getelementptr inbounds i8, ptr %this, i64 12
   store i32 %99, ptr %previous_state_.i143, align 4
   store i32 0, ptr %state_.i142, align 8
-  %visitor_.i144 = getelementptr inbounds %"class.net::SpdyFramer", ptr %this, i64 0, i32 21
+  %visitor_.i144 = getelementptr inbounds i8, ptr %this, i64 176
   %100 = load ptr, ptr %visitor_.i144, align 8
   %vtable.i145 = load ptr, ptr %100, align 8
-  %vfn.i146 = getelementptr inbounds ptr, ptr %vtable.i145, i64 2
+  %vfn.i146 = getelementptr inbounds i8, ptr %vtable.i145, i64 16
   %101 = load ptr, ptr %vfn.i146, align 8
   tail call void %101(ptr noundef nonnull align 8 dereferenceable(8) %100, ptr noundef nonnull %this)
   br label %sw.epilog
 
 if.else383:                                       ; preds = %sw.bb377
-  %current_frame_flags_384 = getelementptr inbounds %"class.net::SpdyFramer", ptr %this, i64 0, i32 28
+  %current_frame_flags_384 = getelementptr inbounds i8, ptr %this, i64 252
   %102 = load i8, ptr %current_frame_flags_384, align 4
   %cmp386.not = icmp eq i8 %102, 0
   br i1 %cmp386.not, label %sw.epilog, label %if.then387
@@ -5710,7 +5606,7 @@ if.then387:                                       ; preds = %if.else383
 
 cond.false391:                                    ; preds = %if.then387
   call void @_ZN7logging10LogMessageC1EPKcii(ptr noundef nonnull align 8 dereferenceable(404) %ref.tmp393, ptr noundef nonnull @.str, i32 noundef 1121, i32 noundef -1)
-  %stream_.i148 = getelementptr inbounds %"class.logging::LogMessage", ptr %ref.tmp393, i64 0, i32 2
+  %stream_.i148 = getelementptr inbounds i8, ptr %ref.tmp393, i64 8
   %call399 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc(ptr noundef nonnull align 8 dereferenceable(8) %stream_.i148, ptr noundef nonnull @.str.78)
           to label %invoke.cont398 unwind label %lpad395
 
@@ -5738,13 +5634,13 @@ lpad395:                                          ; preds = %invoke.cont400, %in
   br label %eh.resume
 
 sw.bb417:                                         ; preds = %if.end13
-  %protocol_version_418 = getelementptr inbounds %"class.net::SpdyFramer", ptr %this, i64 0, i32 27
+  %protocol_version_418 = getelementptr inbounds i8, ptr %this, i64 248
   %105 = load i32, ptr %protocol_version_418, align 8
   %cmp419 = icmp eq i32 %105, 1
   br i1 %cmp419, label %if.then425, label %lor.lhs.false420
 
 lor.lhs.false420:                                 ; preds = %sw.bb417
-  %current_frame_length_421 = getelementptr inbounds %"class.net::SpdyFramer", ptr %this, i64 0, i32 12
+  %current_frame_length_421 = getelementptr inbounds i8, ptr %this, i64 92
   %106 = load i32, ptr %current_frame_length_421, align 4
   %conv422 = zext i32 %106 to i64
   %call.i.i150 = tail call noundef i64 @_ZN3net13SpdyConstants18GetFrameHeaderSizeENS_16SpdyMajorVersionE(i32 noundef %105)
@@ -5752,27 +5648,27 @@ lor.lhs.false420:                                 ; preds = %sw.bb417
   br i1 %cmp424.not, label %if.else426, label %if.then425
 
 if.then425:                                       ; preds = %lor.lhs.false420, %sw.bb417
-  %error_code_.i151 = getelementptr inbounds %"class.net::SpdyFramer", ptr %this, i64 0, i32 3
+  %error_code_.i151 = getelementptr inbounds i8, ptr %this, i64 16
   store i32 2, ptr %error_code_.i151, align 8
-  %expect_continuation_.i152 = getelementptr inbounds %"class.net::SpdyFramer", ptr %this, i64 0, i32 14
+  %expect_continuation_.i152 = getelementptr inbounds i8, ptr %this, i64 100
   store i32 0, ptr %expect_continuation_.i152, align 4
-  %end_stream_when_done_.i153 = getelementptr inbounds %"class.net::SpdyFramer", ptr %this, i64 0, i32 32
+  %end_stream_when_done_.i153 = getelementptr inbounds i8, ptr %this, i64 256
   store i8 0, ptr %end_stream_when_done_.i153, align 8
-  %state_.i154 = getelementptr inbounds %"class.net::SpdyFramer", ptr %this, i64 0, i32 1
+  %state_.i154 = getelementptr inbounds i8, ptr %this, i64 8
   %107 = load i32, ptr %state_.i154, align 8
-  %previous_state_.i155 = getelementptr inbounds %"class.net::SpdyFramer", ptr %this, i64 0, i32 2
+  %previous_state_.i155 = getelementptr inbounds i8, ptr %this, i64 12
   store i32 %107, ptr %previous_state_.i155, align 4
   store i32 0, ptr %state_.i154, align 8
-  %visitor_.i156 = getelementptr inbounds %"class.net::SpdyFramer", ptr %this, i64 0, i32 21
+  %visitor_.i156 = getelementptr inbounds i8, ptr %this, i64 176
   %108 = load ptr, ptr %visitor_.i156, align 8
   %vtable.i157 = load ptr, ptr %108, align 8
-  %vfn.i158 = getelementptr inbounds ptr, ptr %vtable.i157, i64 2
+  %vfn.i158 = getelementptr inbounds i8, ptr %vtable.i157, i64 16
   %109 = load ptr, ptr %vfn.i158, align 8
   tail call void %109(ptr noundef nonnull align 8 dereferenceable(8) %108, ptr noundef nonnull %this)
   br label %sw.epilog
 
 if.else426:                                       ; preds = %lor.lhs.false420
-  %current_frame_flags_427 = getelementptr inbounds %"class.net::SpdyFramer", ptr %this, i64 0, i32 28
+  %current_frame_flags_427 = getelementptr inbounds i8, ptr %this, i64 252
   %110 = load i8, ptr %current_frame_flags_427, align 4
   %cmp429.not = icmp eq i8 %110, 0
   br i1 %cmp429.not, label %sw.epilog, label %if.then430
@@ -5784,7 +5680,7 @@ if.then430:                                       ; preds = %if.else426
 
 cond.false434:                                    ; preds = %if.then430
   call void @_ZN7logging10LogMessageC1EPKcii(ptr noundef nonnull align 8 dereferenceable(404) %ref.tmp436, ptr noundef nonnull @.str, i32 noundef 1131, i32 noundef -1)
-  %stream_.i160 = getelementptr inbounds %"class.logging::LogMessage", ptr %ref.tmp436, i64 0, i32 2
+  %stream_.i160 = getelementptr inbounds i8, ptr %ref.tmp436, i64 8
   %call442 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc(ptr noundef nonnull align 8 dereferenceable(8) %stream_.i160, ptr noundef nonnull @.str.79)
           to label %invoke.cont441 unwind label %lpad438
 
@@ -5812,10 +5708,10 @@ lpad438:                                          ; preds = %invoke.cont443, %in
   br label %eh.resume
 
 sw.bb460:                                         ; preds = %if.end13
-  %current_frame_length_461 = getelementptr inbounds %"class.net::SpdyFramer", ptr %this, i64 0, i32 12
+  %current_frame_length_461 = getelementptr inbounds i8, ptr %this, i64 92
   %113 = load i32, ptr %current_frame_length_461, align 4
   %conv462 = zext i32 %113 to i64
-  %protocol_version_.i.i161 = getelementptr inbounds %"class.net::SpdyFramer", ptr %this, i64 0, i32 27
+  %protocol_version_.i.i161 = getelementptr inbounds i8, ptr %this, i64 248
   %114 = load i32, ptr %protocol_version_.i.i161, align 8
   %call.i.i162 = tail call noundef i64 @_ZN3net13SpdyConstants18GetFrameHeaderSizeENS_16SpdyMajorVersionE(i32 noundef %114)
   %add.i163 = add i64 %call.i.i162, 4
@@ -5823,21 +5719,21 @@ sw.bb460:                                         ; preds = %if.end13
   br i1 %cmp464, label %if.then465, label %if.else466
 
 if.then465:                                       ; preds = %sw.bb460
-  %error_code_.i164 = getelementptr inbounds %"class.net::SpdyFramer", ptr %this, i64 0, i32 3
+  %error_code_.i164 = getelementptr inbounds i8, ptr %this, i64 16
   store i32 2, ptr %error_code_.i164, align 8
-  %expect_continuation_.i165 = getelementptr inbounds %"class.net::SpdyFramer", ptr %this, i64 0, i32 14
+  %expect_continuation_.i165 = getelementptr inbounds i8, ptr %this, i64 100
   store i32 0, ptr %expect_continuation_.i165, align 4
-  %end_stream_when_done_.i166 = getelementptr inbounds %"class.net::SpdyFramer", ptr %this, i64 0, i32 32
+  %end_stream_when_done_.i166 = getelementptr inbounds i8, ptr %this, i64 256
   store i8 0, ptr %end_stream_when_done_.i166, align 8
-  %state_.i167 = getelementptr inbounds %"class.net::SpdyFramer", ptr %this, i64 0, i32 1
+  %state_.i167 = getelementptr inbounds i8, ptr %this, i64 8
   %115 = load i32, ptr %state_.i167, align 8
-  %previous_state_.i168 = getelementptr inbounds %"class.net::SpdyFramer", ptr %this, i64 0, i32 2
+  %previous_state_.i168 = getelementptr inbounds i8, ptr %this, i64 12
   store i32 %115, ptr %previous_state_.i168, align 4
   store i32 0, ptr %state_.i167, align 8
-  %visitor_.i169 = getelementptr inbounds %"class.net::SpdyFramer", ptr %this, i64 0, i32 21
+  %visitor_.i169 = getelementptr inbounds i8, ptr %this, i64 176
   %116 = load ptr, ptr %visitor_.i169, align 8
   %vtable.i170 = load ptr, ptr %116, align 8
-  %vfn.i171 = getelementptr inbounds ptr, ptr %vtable.i170, i64 2
+  %vfn.i171 = getelementptr inbounds i8, ptr %vtable.i170, i64 16
   %117 = load ptr, ptr %vfn.i171, align 8
   tail call void %117(ptr noundef nonnull align 8 dereferenceable(8) %116, ptr noundef nonnull %this)
   br label %sw.epilog
@@ -5850,7 +5746,7 @@ if.else466:                                       ; preds = %sw.bb460
   ]
 
 land.lhs.true469:                                 ; preds = %if.else466
-  %current_frame_flags_470 = getelementptr inbounds %"class.net::SpdyFramer", ptr %this, i64 0, i32 28
+  %current_frame_flags_470 = getelementptr inbounds i8, ptr %this, i64 252
   %119 = load i8, ptr %current_frame_flags_470, align 4
   %cmp472.not = icmp eq i8 %119, 0
   br i1 %cmp472.not, label %sw.epilog, label %if.then473
@@ -5862,7 +5758,7 @@ if.then473:                                       ; preds = %land.lhs.true469
 
 cond.false477:                                    ; preds = %if.then473
   call void @_ZN7logging10LogMessageC1EPKcii(ptr noundef nonnull align 8 dereferenceable(404) %ref.tmp479, ptr noundef nonnull @.str, i32 noundef 1140, i32 noundef -1)
-  %stream_.i173 = getelementptr inbounds %"class.logging::LogMessage", ptr %ref.tmp479, i64 0, i32 2
+  %stream_.i173 = getelementptr inbounds i8, ptr %ref.tmp479, i64 8
   %call485 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc(ptr noundef nonnull align 8 dereferenceable(8) %stream_.i173, ptr noundef nonnull @.str.80)
           to label %invoke.cont484 unwind label %lpad481
 
@@ -5890,7 +5786,7 @@ lpad481:                                          ; preds = %invoke.cont486, %in
   br label %eh.resume
 
 land.lhs.true504:                                 ; preds = %if.else466
-  %current_frame_flags_505 = getelementptr inbounds %"class.net::SpdyFramer", ptr %this, i64 0, i32 28
+  %current_frame_flags_505 = getelementptr inbounds i8, ptr %this, i64 252
   %122 = load i8, ptr %current_frame_flags_505, align 4
   %123 = and i8 %122, -13
   %tobool508.not = icmp eq i8 %123, 0
@@ -5903,7 +5799,7 @@ if.then509:                                       ; preds = %land.lhs.true504
 
 cond.false513:                                    ; preds = %if.then509
   call void @_ZN7logging10LogMessageC1EPKcii(ptr noundef nonnull align 8 dereferenceable(404) %ref.tmp515, ptr noundef nonnull @.str, i32 noundef 1147, i32 noundef -1)
-  %stream_.i175 = getelementptr inbounds %"class.logging::LogMessage", ptr %ref.tmp515, i64 0, i32 2
+  %stream_.i175 = getelementptr inbounds i8, ptr %ref.tmp515, i64 8
   %call521 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc(ptr noundef nonnull align 8 dereferenceable(8) %stream_.i175, ptr noundef nonnull @.str.80)
           to label %invoke.cont520 unwind label %lpad517
 
@@ -5933,13 +5829,13 @@ lpad517:                                          ; preds = %invoke.cont522, %in
   br label %eh.resume
 
 sw.bb543:                                         ; preds = %if.end13
-  %protocol_version_544 = getelementptr inbounds %"class.net::SpdyFramer", ptr %this, i64 0, i32 27
+  %protocol_version_544 = getelementptr inbounds i8, ptr %this, i64 248
   %128 = load i32, ptr %protocol_version_544, align 8
   %cmp545 = icmp eq i32 %128, 1
   br i1 %cmp545, label %if.then551, label %lor.lhs.false546
 
 lor.lhs.false546:                                 ; preds = %sw.bb543
-  %current_frame_length_547 = getelementptr inbounds %"class.net::SpdyFramer", ptr %this, i64 0, i32 12
+  %current_frame_length_547 = getelementptr inbounds i8, ptr %this, i64 92
   %129 = load i32, ptr %current_frame_length_547, align 4
   %conv548 = zext i32 %129 to i64
   %call.i.i177 = tail call noundef i64 @_ZN3net13SpdyConstants18GetFrameHeaderSizeENS_16SpdyMajorVersionE(i32 noundef %128)
@@ -5947,27 +5843,27 @@ lor.lhs.false546:                                 ; preds = %sw.bb543
   br i1 %cmp550, label %if.then551, label %if.else552
 
 if.then551:                                       ; preds = %lor.lhs.false546, %sw.bb543
-  %error_code_.i178 = getelementptr inbounds %"class.net::SpdyFramer", ptr %this, i64 0, i32 3
+  %error_code_.i178 = getelementptr inbounds i8, ptr %this, i64 16
   store i32 2, ptr %error_code_.i178, align 8
-  %expect_continuation_.i179 = getelementptr inbounds %"class.net::SpdyFramer", ptr %this, i64 0, i32 14
+  %expect_continuation_.i179 = getelementptr inbounds i8, ptr %this, i64 100
   store i32 0, ptr %expect_continuation_.i179, align 4
-  %end_stream_when_done_.i180 = getelementptr inbounds %"class.net::SpdyFramer", ptr %this, i64 0, i32 32
+  %end_stream_when_done_.i180 = getelementptr inbounds i8, ptr %this, i64 256
   store i8 0, ptr %end_stream_when_done_.i180, align 8
-  %state_.i181 = getelementptr inbounds %"class.net::SpdyFramer", ptr %this, i64 0, i32 1
+  %state_.i181 = getelementptr inbounds i8, ptr %this, i64 8
   %130 = load i32, ptr %state_.i181, align 8
-  %previous_state_.i182 = getelementptr inbounds %"class.net::SpdyFramer", ptr %this, i64 0, i32 2
+  %previous_state_.i182 = getelementptr inbounds i8, ptr %this, i64 12
   store i32 %130, ptr %previous_state_.i182, align 4
   store i32 0, ptr %state_.i181, align 8
-  %visitor_.i183 = getelementptr inbounds %"class.net::SpdyFramer", ptr %this, i64 0, i32 21
+  %visitor_.i183 = getelementptr inbounds i8, ptr %this, i64 176
   %131 = load ptr, ptr %visitor_.i183, align 8
   %vtable.i184 = load ptr, ptr %131, align 8
-  %vfn.i185 = getelementptr inbounds ptr, ptr %vtable.i184, i64 2
+  %vfn.i185 = getelementptr inbounds i8, ptr %vtable.i184, i64 16
   %132 = load ptr, ptr %vfn.i185, align 8
   tail call void %132(ptr noundef nonnull align 8 dereferenceable(8) %131, ptr noundef nonnull %this)
   br label %sw.epilog
 
 if.else552:                                       ; preds = %lor.lhs.false546
-  %current_frame_flags_553 = getelementptr inbounds %"class.net::SpdyFramer", ptr %this, i64 0, i32 28
+  %current_frame_flags_553 = getelementptr inbounds i8, ptr %this, i64 252
   %133 = load i8, ptr %current_frame_flags_553, align 4
   %134 = and i8 %133, -5
   %tobool556.not = icmp eq i8 %134, 0
@@ -5980,7 +5876,7 @@ if.then557:                                       ; preds = %if.else552
 
 cond.false561:                                    ; preds = %if.then557
   call void @_ZN7logging10LogMessageC1EPKcii(ptr noundef nonnull align 8 dereferenceable(404) %ref.tmp563, ptr noundef nonnull @.str, i32 noundef 1158, i32 noundef -1)
-  %stream_.i187 = getelementptr inbounds %"class.logging::LogMessage", ptr %ref.tmp563, i64 0, i32 2
+  %stream_.i187 = getelementptr inbounds i8, ptr %ref.tmp563, i64 8
   %call569 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc(ptr noundef nonnull align 8 dereferenceable(8) %stream_.i187, ptr noundef nonnull @.str.81)
           to label %invoke.cont568 unwind label %lpad565
 
@@ -6010,10 +5906,10 @@ lpad565:                                          ; preds = %invoke.cont570, %in
   br label %eh.resume
 
 sw.bb590:                                         ; preds = %if.end13
-  %current_frame_length_591 = getelementptr inbounds %"class.net::SpdyFramer", ptr %this, i64 0, i32 12
+  %current_frame_length_591 = getelementptr inbounds i8, ptr %this, i64 92
   %139 = load i32, ptr %current_frame_length_591, align 4
   %conv592 = zext i32 %139 to i64
-  %protocol_version_.i.i188 = getelementptr inbounds %"class.net::SpdyFramer", ptr %this, i64 0, i32 27
+  %protocol_version_.i.i188 = getelementptr inbounds i8, ptr %this, i64 248
   %140 = load i32, ptr %protocol_version_.i.i188, align 8
   %call.i.i189 = tail call noundef i64 @_ZN3net13SpdyConstants18GetFrameHeaderSizeENS_16SpdyMajorVersionE(i32 noundef %140)
   %add.i190 = add i64 %call.i.i189, 2
@@ -6021,27 +5917,27 @@ sw.bb590:                                         ; preds = %if.end13
   br i1 %cmp594.not, label %if.else596, label %if.then595
 
 if.then595:                                       ; preds = %sw.bb590
-  %error_code_.i191 = getelementptr inbounds %"class.net::SpdyFramer", ptr %this, i64 0, i32 3
+  %error_code_.i191 = getelementptr inbounds i8, ptr %this, i64 16
   store i32 2, ptr %error_code_.i191, align 8
-  %expect_continuation_.i192 = getelementptr inbounds %"class.net::SpdyFramer", ptr %this, i64 0, i32 14
+  %expect_continuation_.i192 = getelementptr inbounds i8, ptr %this, i64 100
   store i32 0, ptr %expect_continuation_.i192, align 4
-  %end_stream_when_done_.i193 = getelementptr inbounds %"class.net::SpdyFramer", ptr %this, i64 0, i32 32
+  %end_stream_when_done_.i193 = getelementptr inbounds i8, ptr %this, i64 256
   store i8 0, ptr %end_stream_when_done_.i193, align 8
-  %state_.i194 = getelementptr inbounds %"class.net::SpdyFramer", ptr %this, i64 0, i32 1
+  %state_.i194 = getelementptr inbounds i8, ptr %this, i64 8
   %141 = load i32, ptr %state_.i194, align 8
-  %previous_state_.i195 = getelementptr inbounds %"class.net::SpdyFramer", ptr %this, i64 0, i32 2
+  %previous_state_.i195 = getelementptr inbounds i8, ptr %this, i64 12
   store i32 %141, ptr %previous_state_.i195, align 4
   store i32 0, ptr %state_.i194, align 8
-  %visitor_.i196 = getelementptr inbounds %"class.net::SpdyFramer", ptr %this, i64 0, i32 21
+  %visitor_.i196 = getelementptr inbounds i8, ptr %this, i64 176
   %142 = load ptr, ptr %visitor_.i196, align 8
   %vtable.i197 = load ptr, ptr %142, align 8
-  %vfn.i198 = getelementptr inbounds ptr, ptr %vtable.i197, i64 2
+  %vfn.i198 = getelementptr inbounds i8, ptr %vtable.i197, i64 16
   %143 = load ptr, ptr %vfn.i198, align 8
   tail call void %143(ptr noundef nonnull align 8 dereferenceable(8) %142, ptr noundef nonnull %this)
   br label %sw.epilog
 
 if.else596:                                       ; preds = %sw.bb590
-  %current_frame_flags_597 = getelementptr inbounds %"class.net::SpdyFramer", ptr %this, i64 0, i32 28
+  %current_frame_flags_597 = getelementptr inbounds i8, ptr %this, i64 252
   %144 = load i8, ptr %current_frame_flags_597, align 4
   %cmp599.not = icmp eq i8 %144, 0
   br i1 %cmp599.not, label %sw.epilog, label %if.then600
@@ -6053,7 +5949,7 @@ if.then600:                                       ; preds = %if.else596
 
 cond.false604:                                    ; preds = %if.then600
   call void @_ZN7logging10LogMessageC1EPKcii(ptr noundef nonnull align 8 dereferenceable(404) %ref.tmp606, ptr noundef nonnull @.str, i32 noundef 1167, i32 noundef -1)
-  %stream_.i200 = getelementptr inbounds %"class.logging::LogMessage", ptr %ref.tmp606, i64 0, i32 2
+  %stream_.i200 = getelementptr inbounds i8, ptr %ref.tmp606, i64 8
   %call612 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc(ptr noundef nonnull align 8 dereferenceable(8) %stream_.i200, ptr noundef nonnull @.str.82)
           to label %invoke.cont611 unwind label %lpad608
 
@@ -6081,13 +5977,13 @@ lpad608:                                          ; preds = %invoke.cont613, %in
   br label %eh.resume
 
 sw.bb630:                                         ; preds = %if.end13
-  %protocol_version_631 = getelementptr inbounds %"class.net::SpdyFramer", ptr %this, i64 0, i32 27
+  %protocol_version_631 = getelementptr inbounds i8, ptr %this, i64 248
   %147 = load i32, ptr %protocol_version_631, align 8
   %cmp632 = icmp eq i32 %147, 1
   br i1 %cmp632, label %if.then638, label %lor.lhs.false633
 
 lor.lhs.false633:                                 ; preds = %sw.bb630
-  %current_frame_length_634 = getelementptr inbounds %"class.net::SpdyFramer", ptr %this, i64 0, i32 12
+  %current_frame_length_634 = getelementptr inbounds i8, ptr %this, i64 92
   %148 = load i32, ptr %current_frame_length_634, align 4
   %conv635 = zext i32 %148 to i64
   %call.i.i202 = tail call noundef i64 @_ZN3net13SpdyConstants18GetFrameHeaderSizeENS_16SpdyMajorVersionE(i32 noundef %147)
@@ -6096,27 +5992,27 @@ lor.lhs.false633:                                 ; preds = %sw.bb630
   br i1 %cmp637.not, label %if.else639, label %if.then638
 
 if.then638:                                       ; preds = %lor.lhs.false633, %sw.bb630
-  %error_code_.i203 = getelementptr inbounds %"class.net::SpdyFramer", ptr %this, i64 0, i32 3
+  %error_code_.i203 = getelementptr inbounds i8, ptr %this, i64 16
   store i32 15, ptr %error_code_.i203, align 8
-  %expect_continuation_.i204 = getelementptr inbounds %"class.net::SpdyFramer", ptr %this, i64 0, i32 14
+  %expect_continuation_.i204 = getelementptr inbounds i8, ptr %this, i64 100
   store i32 0, ptr %expect_continuation_.i204, align 4
-  %end_stream_when_done_.i205 = getelementptr inbounds %"class.net::SpdyFramer", ptr %this, i64 0, i32 32
+  %end_stream_when_done_.i205 = getelementptr inbounds i8, ptr %this, i64 256
   store i8 0, ptr %end_stream_when_done_.i205, align 8
-  %state_.i206 = getelementptr inbounds %"class.net::SpdyFramer", ptr %this, i64 0, i32 1
+  %state_.i206 = getelementptr inbounds i8, ptr %this, i64 8
   %149 = load i32, ptr %state_.i206, align 8
-  %previous_state_.i207 = getelementptr inbounds %"class.net::SpdyFramer", ptr %this, i64 0, i32 2
+  %previous_state_.i207 = getelementptr inbounds i8, ptr %this, i64 12
   store i32 %149, ptr %previous_state_.i207, align 4
   store i32 0, ptr %state_.i206, align 8
-  %visitor_.i208 = getelementptr inbounds %"class.net::SpdyFramer", ptr %this, i64 0, i32 21
+  %visitor_.i208 = getelementptr inbounds i8, ptr %this, i64 176
   %150 = load ptr, ptr %visitor_.i208, align 8
   %vtable.i209 = load ptr, ptr %150, align 8
-  %vfn.i210 = getelementptr inbounds ptr, ptr %vtable.i209, i64 2
+  %vfn.i210 = getelementptr inbounds i8, ptr %vtable.i209, i64 16
   %151 = load ptr, ptr %vfn.i210, align 8
   tail call void %151(ptr noundef nonnull align 8 dereferenceable(8) %150, ptr noundef nonnull %this)
   br label %sw.epilog
 
 if.else639:                                       ; preds = %lor.lhs.false633
-  %current_frame_flags_640 = getelementptr inbounds %"class.net::SpdyFramer", ptr %this, i64 0, i32 28
+  %current_frame_flags_640 = getelementptr inbounds i8, ptr %this, i64 252
   %152 = load i8, ptr %current_frame_flags_640, align 4
   %cmp642.not = icmp eq i8 %152, 0
   br i1 %cmp642.not, label %sw.epilog, label %if.then643
@@ -6128,7 +6024,7 @@ if.then643:                                       ; preds = %if.else639
 
 cond.false647:                                    ; preds = %if.then643
   call void @_ZN7logging10LogMessageC1EPKcii(ptr noundef nonnull align 8 dereferenceable(404) %ref.tmp649, ptr noundef nonnull @.str, i32 noundef 1177, i32 noundef -1)
-  %stream_.i212 = getelementptr inbounds %"class.logging::LogMessage", ptr %ref.tmp649, i64 0, i32 2
+  %stream_.i212 = getelementptr inbounds i8, ptr %ref.tmp649, i64 8
   %call655 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc(ptr noundef nonnull align 8 dereferenceable(8) %stream_.i212, ptr noundef nonnull @.str.83)
           to label %invoke.cont654 unwind label %lpad651
 
@@ -6161,12 +6057,12 @@ sw.default:                                       ; preds = %if.end13
 
 cond.false675:                                    ; preds = %sw.default
   call void @_ZN7logging10LogMessageC1EPKcii(ptr noundef nonnull align 8 dereferenceable(404) %ref.tmp677, ptr noundef nonnull @.str, i32 noundef 1183, i32 noundef 1)
-  %stream_.i213 = getelementptr inbounds %"class.logging::LogMessage", ptr %ref.tmp677, i64 0, i32 2
+  %stream_.i213 = getelementptr inbounds i8, ptr %ref.tmp677, i64 8
   %call683 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc(ptr noundef nonnull align 8 dereferenceable(8) %stream_.i213, ptr noundef nonnull @.str.84)
           to label %invoke.cont682 unwind label %lpad679
 
 invoke.cont682:                                   ; preds = %cond.false675
-  %display_protocol_ = getelementptr inbounds %"class.net::SpdyFramer", ptr %this, i64 0, i32 25
+  %display_protocol_ = getelementptr inbounds i8, ptr %this, i64 208
   %call685 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsIcSt11char_traitsIcESaIcEERSt13basic_ostreamIT_T0_ES7_RKNSt7__cxx1112basic_stringIS4_S5_T1_EE(ptr noundef nonnull align 8 dereferenceable(8) %call683, ptr noundef nonnull align 8 dereferenceable(32) %display_protocol_)
           to label %invoke.cont684 unwind label %lpad679
 
@@ -6184,21 +6080,21 @@ cleanup.action694:                                ; preds = %invoke.cont686
   br label %cleanup.done695
 
 cleanup.done695:                                  ; preds = %sw.default, %cleanup.action694
-  %error_code_.i214 = getelementptr inbounds %"class.net::SpdyFramer", ptr %this, i64 0, i32 3
+  %error_code_.i214 = getelementptr inbounds i8, ptr %this, i64 16
   store i32 2, ptr %error_code_.i214, align 8
-  %expect_continuation_.i215 = getelementptr inbounds %"class.net::SpdyFramer", ptr %this, i64 0, i32 14
+  %expect_continuation_.i215 = getelementptr inbounds i8, ptr %this, i64 100
   store i32 0, ptr %expect_continuation_.i215, align 4
-  %end_stream_when_done_.i216 = getelementptr inbounds %"class.net::SpdyFramer", ptr %this, i64 0, i32 32
+  %end_stream_when_done_.i216 = getelementptr inbounds i8, ptr %this, i64 256
   store i8 0, ptr %end_stream_when_done_.i216, align 8
-  %state_.i217 = getelementptr inbounds %"class.net::SpdyFramer", ptr %this, i64 0, i32 1
+  %state_.i217 = getelementptr inbounds i8, ptr %this, i64 8
   %156 = load i32, ptr %state_.i217, align 8
-  %previous_state_.i218 = getelementptr inbounds %"class.net::SpdyFramer", ptr %this, i64 0, i32 2
+  %previous_state_.i218 = getelementptr inbounds i8, ptr %this, i64 12
   store i32 %156, ptr %previous_state_.i218, align 4
   store i32 0, ptr %state_.i217, align 8
-  %visitor_.i219 = getelementptr inbounds %"class.net::SpdyFramer", ptr %this, i64 0, i32 21
+  %visitor_.i219 = getelementptr inbounds i8, ptr %this, i64 176
   %157 = load ptr, ptr %visitor_.i219, align 8
   %vtable.i220 = load ptr, ptr %157, align 8
-  %vfn.i221 = getelementptr inbounds ptr, ptr %vtable.i220, i64 2
+  %vfn.i221 = getelementptr inbounds i8, ptr %vtable.i220, i64 16
   %158 = load ptr, ptr %vfn.i221, align 8
   call void %158(ptr noundef nonnull align 8 dereferenceable(8) %157, ptr noundef nonnull %this)
   br label %sw.epilog
@@ -6209,19 +6105,19 @@ lpad679:                                          ; preds = %invoke.cont686, %in
   br label %eh.resume
 
 sw.epilog:                                        ; preds = %if.else466, %if.else153, %land.lhs.true469, %land.lhs.true299, %land.lhs.true156, %if.then638, %cleanup.done666, %if.else639, %if.then595, %cleanup.done623, %if.else596, %if.then551, %cleanup.done580, %if.else552, %if.then465, %land.lhs.true504, %cleanup.done532, %cleanup.done496, %if.then425, %cleanup.done453, %if.else426, %if.then382, %cleanup.done410, %if.else383, %if.then295, %if.else335, %land.lhs.true338, %cleanup.done366, %cleanup.done327, %if.then246, %cleanup.done274, %if.else247, %if.then152, %land.lhs.true191, %cleanup.done219, %cleanup.done183, %if.then81, %if.then103, %cleanup.done135, %if.else104, %if.then89, %if.then40, %cleanup.done, %if.else41, %if.then26, %if.then32, %if.else27, %if.then15, %if.then18, %if.else16, %cleanup.done695
-  %state_ = getelementptr inbounds %"class.net::SpdyFramer", ptr %this, i64 0, i32 1
+  %state_ = getelementptr inbounds i8, ptr %this, i64 8
   %160 = load i32, ptr %state_, align 8
   %cmp699 = icmp eq i32 %160, 0
   br i1 %cmp699, label %do.end931, label %if.end701
 
 if.end701:                                        ; preds = %sw.epilog
-  %protocol_version_702 = getelementptr inbounds %"class.net::SpdyFramer", ptr %this, i64 0, i32 27
+  %protocol_version_702 = getelementptr inbounds i8, ptr %this, i64 248
   %161 = load i32, ptr %protocol_version_702, align 8
   %cmp703 = icmp eq i32 %161, 1
   br i1 %cmp703, label %land.lhs.true704, label %if.end712
 
 land.lhs.true704:                                 ; preds = %if.end701
-  %current_frame_length_705 = getelementptr inbounds %"class.net::SpdyFramer", ptr %this, i64 0, i32 12
+  %current_frame_length_705 = getelementptr inbounds i8, ptr %this, i64 92
   %162 = load i32, ptr %current_frame_length_705, align 4
   %conv706 = zext i32 %162 to i64
   %call708 = call noundef i64 @_ZN3net13SpdyConstants18GetFrameHeaderSizeENS_16SpdyMajorVersionE(i32 noundef 1)
@@ -6230,20 +6126,20 @@ land.lhs.true704:                                 ; preds = %if.end701
   br i1 %cmp710, label %if.then711, label %if.end712
 
 if.then711:                                       ; preds = %land.lhs.true704
-  %error_code_.i222 = getelementptr inbounds %"class.net::SpdyFramer", ptr %this, i64 0, i32 3
+  %error_code_.i222 = getelementptr inbounds i8, ptr %this, i64 16
   store i32 3, ptr %error_code_.i222, align 8
-  %expect_continuation_.i223 = getelementptr inbounds %"class.net::SpdyFramer", ptr %this, i64 0, i32 14
+  %expect_continuation_.i223 = getelementptr inbounds i8, ptr %this, i64 100
   store i32 0, ptr %expect_continuation_.i223, align 4
-  %end_stream_when_done_.i224 = getelementptr inbounds %"class.net::SpdyFramer", ptr %this, i64 0, i32 32
+  %end_stream_when_done_.i224 = getelementptr inbounds i8, ptr %this, i64 256
   store i8 0, ptr %end_stream_when_done_.i224, align 8
   %163 = load i32, ptr %state_, align 8
-  %previous_state_.i226 = getelementptr inbounds %"class.net::SpdyFramer", ptr %this, i64 0, i32 2
+  %previous_state_.i226 = getelementptr inbounds i8, ptr %this, i64 12
   store i32 %163, ptr %previous_state_.i226, align 4
   store i32 0, ptr %state_, align 8
-  %visitor_.i227 = getelementptr inbounds %"class.net::SpdyFramer", ptr %this, i64 0, i32 21
+  %visitor_.i227 = getelementptr inbounds i8, ptr %this, i64 176
   %164 = load ptr, ptr %visitor_.i227, align 8
   %vtable.i228 = load ptr, ptr %164, align 8
-  %vfn.i229 = getelementptr inbounds ptr, ptr %vtable.i228, i64 2
+  %vfn.i229 = getelementptr inbounds i8, ptr %vtable.i228, i64 16
   %165 = load ptr, ptr %vfn.i229, align 8
   call void %165(ptr noundef nonnull align 8 dereferenceable(8) %164, ptr noundef nonnull %this)
   br label %do.end931
@@ -6264,27 +6160,27 @@ if.end712:                                        ; preds = %land.lhs.true704, %
 
 if.end725:                                        ; preds = %if.end712
   %167 = load i32, ptr %state_, align 8
-  %previous_state_ = getelementptr inbounds %"class.net::SpdyFramer", ptr %this, i64 0, i32 2
+  %previous_state_ = getelementptr inbounds i8, ptr %this, i64 12
   store i32 %167, ptr %previous_state_, align 4
   store i32 11, ptr %state_, align 8
   br label %do.end931
 
 if.end742:                                        ; preds = %if.end712
   %168 = load i32, ptr %state_, align 8
-  %previous_state_744 = getelementptr inbounds %"class.net::SpdyFramer", ptr %this, i64 0, i32 2
+  %previous_state_744 = getelementptr inbounds i8, ptr %this, i64 12
   store i32 %168, ptr %previous_state_744, align 4
   store i32 12, ptr %state_, align 8
   br label %do.end931
 
 if.end761:                                        ; preds = %if.end712
   %169 = load i32, ptr %state_, align 8
-  %previous_state_763 = getelementptr inbounds %"class.net::SpdyFramer", ptr %this, i64 0, i32 2
+  %previous_state_763 = getelementptr inbounds i8, ptr %this, i64 12
   store i32 %169, ptr %previous_state_763, align 4
   store i32 15, ptr %state_, align 8
   br label %do.end931
 
 sw.bb768:                                         ; preds = %if.end712
-  %syn_frame_processed_ = getelementptr inbounds %"class.net::SpdyFramer", ptr %this, i64 0, i32 30
+  %syn_frame_processed_ = getelementptr inbounds i8, ptr %this, i64 254
   store i8 1, ptr %syn_frame_processed_, align 2
   %170 = load i32, ptr %protocol_version_702, align 8
   %cmp.i237 = icmp eq i32 %170, 1
@@ -6295,7 +6191,7 @@ sw.bb768:                                         ; preds = %if.end712
   br label %sw.epilog822
 
 sw.bb771:                                         ; preds = %if.end712
-  %syn_frame_processed_772 = getelementptr inbounds %"class.net::SpdyFramer", ptr %this, i64 0, i32 30
+  %syn_frame_processed_772 = getelementptr inbounds i8, ptr %this, i64 254
   store i8 1, ptr %syn_frame_processed_772, align 2
   %171 = load i32, ptr %protocol_version_702, align 8
   %call.i.i242 = call noundef i64 @_ZN3net13SpdyConstants18GetFrameHeaderSizeENS_16SpdyMajorVersionE(i32 noundef %171)
@@ -6337,7 +6233,7 @@ sw.bb778:                                         ; preds = %if.end712
   br i1 %cmp782, label %if.then783, label %sw.epilog822
 
 if.then783:                                       ; preds = %sw.bb778
-  %current_frame_flags_784 = getelementptr inbounds %"class.net::SpdyFramer", ptr %this, i64 0, i32 28
+  %current_frame_flags_784 = getelementptr inbounds i8, ptr %this, i64 252
   %176 = load i8, ptr %current_frame_flags_784, align 4
   %177 = lshr i8 %176, 3
   %178 = and i8 %177, 1
@@ -6359,7 +6255,7 @@ sw.bb803:                                         ; preds = %if.end712
   br i1 %cmp807, label %land.lhs.true808, label %sw.epilog822
 
 land.lhs.true808:                                 ; preds = %sw.bb803
-  %current_frame_flags_809 = getelementptr inbounds %"class.net::SpdyFramer", ptr %this, i64 0, i32 28
+  %current_frame_flags_809 = getelementptr inbounds i8, ptr %this, i64 252
   %184 = load i8, ptr %current_frame_flags_809, align 4
   %185 = and i8 %184, 8
   %tobool812.not = icmp eq i8 %185, 0
@@ -6376,14 +6272,14 @@ sw.bb818:                                         ; preds = %if.end712
 sw.epilog822:                                     ; preds = %land.lhs.true808, %if.then783, %sw.bb803, %sw.bb778, %sw.bb818, %_ZNK3net10SpdyFramer22GetSettingsMinimumSizeEv.exit254, %sw.bb771, %sw.bb768
   %frame_size_without_variable_data.1 = phi i32 [ %conv820, %sw.bb818 ], [ %conv805, %sw.bb803 ], [ %conv780, %sw.bb778 ], [ %conv777, %_ZNK3net10SpdyFramer22GetSettingsMinimumSizeEv.exit254 ], [ %conv774, %sw.bb771 ], [ %conv770, %sw.bb768 ], [ %spec.select10, %if.then783 ], [ %spec.select306, %land.lhs.true808 ]
   %cmp823 = icmp eq i32 %frame_size_without_variable_data.1, -1
-  %current_frame_length_825 = getelementptr inbounds %"class.net::SpdyFramer", ptr %this, i64 0, i32 12
+  %current_frame_length_825 = getelementptr inbounds i8, ptr %this, i64 92
   %187 = load i32, ptr %current_frame_length_825, align 4
   %cmp827 = icmp ugt i32 %187, 19
   %or.cond9 = select i1 %cmp823, i1 %cmp827, i1 false
   br i1 %or.cond9, label %if.end838, label %if.end865
 
 sw.epilog822.thread:                              ; preds = %if.end712
-  %current_frame_length_825298 = getelementptr inbounds %"class.net::SpdyFramer", ptr %this, i64 0, i32 12
+  %current_frame_length_825298 = getelementptr inbounds i8, ptr %this, i64 92
   %188 = load i32, ptr %current_frame_length_825298, align 4
   %cmp827299 = icmp ugt i32 %188, 19
   br i1 %cmp827299, label %if.end838, label %if.end927
@@ -6399,8 +6295,8 @@ if.then841:                                       ; preds = %if.end838
 
 cond.false844:                                    ; preds = %if.then841
   call void @_ZN7logging10LogMessageC1EPKcii(ptr noundef nonnull align 8 dereferenceable(404) %ref.tmp846, ptr noundef nonnull @.str, i32 noundef 1271, i32 noundef 2)
-  %stream_.i267 = getelementptr inbounds %"class.logging::LogMessage", ptr %ref.tmp846, i64 0, i32 2
-  %display_protocol_851 = getelementptr inbounds %"class.net::SpdyFramer", ptr %this, i64 0, i32 25
+  %stream_.i267 = getelementptr inbounds i8, ptr %ref.tmp846, i64 8
+  %display_protocol_851 = getelementptr inbounds i8, ptr %this, i64 208
   %call853 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsIcSt11char_traitsIcESaIcEERSt13basic_ostreamIT_T0_ES7_RKNSt7__cxx1112basic_stringIS4_S5_T1_EE(ptr noundef nonnull align 8 dereferenceable(8) %stream_.i267, ptr noundef nonnull align 8 dereferenceable(32) %display_protocol_851)
           to label %invoke.cont852 unwind label %lpad848
 
@@ -6413,20 +6309,20 @@ cleanup.action859:                                ; preds = %invoke.cont852
   br label %cleanup.done860
 
 cleanup.done860:                                  ; preds = %if.then841, %cleanup.action859
-  %error_code_.i268 = getelementptr inbounds %"class.net::SpdyFramer", ptr %this, i64 0, i32 3
+  %error_code_.i268 = getelementptr inbounds i8, ptr %this, i64 16
   store i32 3, ptr %error_code_.i268, align 8
-  %expect_continuation_.i269 = getelementptr inbounds %"class.net::SpdyFramer", ptr %this, i64 0, i32 14
+  %expect_continuation_.i269 = getelementptr inbounds i8, ptr %this, i64 100
   store i32 0, ptr %expect_continuation_.i269, align 4
-  %end_stream_when_done_.i270 = getelementptr inbounds %"class.net::SpdyFramer", ptr %this, i64 0, i32 32
+  %end_stream_when_done_.i270 = getelementptr inbounds i8, ptr %this, i64 256
   store i8 0, ptr %end_stream_when_done_.i270, align 8
   %190 = load i32, ptr %state_, align 8
-  %previous_state_.i272 = getelementptr inbounds %"class.net::SpdyFramer", ptr %this, i64 0, i32 2
+  %previous_state_.i272 = getelementptr inbounds i8, ptr %this, i64 12
   store i32 %190, ptr %previous_state_.i272, align 4
   store i32 0, ptr %state_, align 8
-  %visitor_.i273 = getelementptr inbounds %"class.net::SpdyFramer", ptr %this, i64 0, i32 21
+  %visitor_.i273 = getelementptr inbounds i8, ptr %this, i64 176
   %191 = load ptr, ptr %visitor_.i273, align 8
   %vtable.i274 = load ptr, ptr %191, align 8
-  %vfn.i275 = getelementptr inbounds ptr, ptr %vtable.i274, i64 2
+  %vfn.i275 = getelementptr inbounds i8, ptr %vtable.i274, i64 16
   %192 = load ptr, ptr %vfn.i275, align 8
   call void %192(ptr noundef nonnull align 8 dereferenceable(8) %191, ptr noundef nonnull %this)
   br label %do.end931
@@ -6442,15 +6338,15 @@ if.end865:                                        ; preds = %sw.epilog822
 
 if.end877:                                        ; preds = %if.end865
   %conv878 = zext nneg i32 %frame_size_without_variable_data.1 to i64
-  %len_.i = getelementptr inbounds %"class.net::SpdyFramer", ptr %this, i64 0, i32 10, i32 2
+  %len_.i = getelementptr inbounds i8, ptr %this, i64 80
   %194 = load i64, ptr %len_.i, align 8
   %sub880 = sub i64 %conv878, %194
-  %remaining_control_header_ = getelementptr inbounds %"class.net::SpdyFramer", ptr %this, i64 0, i32 7
+  %remaining_control_header_ = getelementptr inbounds i8, ptr %this, i64 40
   store i64 %sub880, ptr %remaining_control_header_, align 8
   %195 = load i32, ptr %current_frame_type_, align 8
   %cmp882 = icmp eq i32 %195, 4
   %196 = load i32, ptr %state_, align 8
-  %previous_state_896 = getelementptr inbounds %"class.net::SpdyFramer", ptr %this, i64 0, i32 2
+  %previous_state_896 = getelementptr inbounds i8, ptr %this, i64 12
   store i32 %196, ptr %previous_state_896, align 4
   br i1 %cmp882, label %if.end894, label %if.end910
 
@@ -6464,7 +6360,7 @@ if.end910:                                        ; preds = %if.end877
 
 if.end927:                                        ; preds = %sw.epilog822.thread, %if.end865
   %197 = load i32, ptr %state_, align 8
-  %previous_state_929 = getelementptr inbounds %"class.net::SpdyFramer", ptr %this, i64 0, i32 2
+  %previous_state_929 = getelementptr inbounds i8, ptr %this, i64 12
   store i32 %197, ptr %previous_state_929, align 4
   store i32 4, ptr %state_, align 8
   br label %do.end931
@@ -6484,7 +6380,7 @@ declare noundef nonnull align 8 dereferenceable(8) ptr @_ZNSolsEPFRSt8ios_baseS0
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr dso_local noundef nonnull align 8 dereferenceable(216) ptr @_ZSt3hexRSt8ios_base(ptr noundef nonnull align 8 dereferenceable(216) %__base) #0 comdat {
 entry:
-  %_M_flags.i = getelementptr inbounds %"class.std::ios_base", ptr %__base, i64 0, i32 3
+  %_M_flags.i = getelementptr inbounds i8, ptr %__base, i64 24
   %0 = load i32, ptr %_M_flags.i, align 8
   %and.i.i.i = and i32 %0, -75
   %or.i.i.i = or disjoint i32 %and.i.i.i, 8
@@ -6497,7 +6393,7 @@ declare noundef i64 @_ZN3net13SpdyConstants14GetSettingSizeENS_16SpdyMajorVersio
 ; Function Attrs: mustprogress uwtable
 define dso_local noundef i64 @_ZN3net10SpdyFramer19GetSerializedLengthENS_16SpdyMajorVersionEPKNS_15SpdyHeaderBlockE(i32 noundef %spdy_version, ptr noundef readonly %headers) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  %list_.i.i = getelementptr inbounds %class.linked_hash_map, ptr %headers, i64 0, i32 1
+  %list_.i.i = getelementptr inbounds i8, ptr %headers, i64 56
   %__begin1.sroa.0.07 = load ptr, ptr %list_.i.i, align 8
   %cmp.i.not8 = icmp eq ptr %__begin1.sroa.0.07, %list_.i.i
   br i1 %cmp.i.not8, label %for.end, label %for.body
@@ -6505,9 +6401,9 @@ entry:
 for.body:                                         ; preds = %entry, %for.body
   %__begin1.sroa.0.010 = phi ptr [ %__begin1.sroa.0.0, %for.body ], [ %__begin1.sroa.0.07, %entry ]
   %total_length.09 = phi i64 [ %add9, %for.body ], [ 4, %entry ]
-  %_M_storage.i.i = getelementptr inbounds %"struct.std::_List_node", ptr %__begin1.sroa.0.010, i64 0, i32 1
+  %_M_storage.i.i = getelementptr inbounds i8, ptr %__begin1.sroa.0.010, i64 16
   %call5 = tail call noundef i64 @_ZNK4base16BasicStringPieceINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %_M_storage.i.i)
-  %second = getelementptr inbounds %"struct.std::_List_node", ptr %__begin1.sroa.0.010, i64 0, i32 1, i32 0, i64 16
+  %second = getelementptr inbounds i8, ptr %__begin1.sroa.0.010, i64 32
   %call7 = tail call noundef i64 @_ZNK4base16BasicStringPieceINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %second)
   %add6 = add i64 %total_length.09, 8
   %add8 = add i64 %add6, %call5
@@ -6560,7 +6456,7 @@ entry:
   %ref.tmp184 = alloca %"class.base::BasicStringPiece", align 8
   %ref.tmp189 = alloca %"class.base::BasicStringPiece", align 8
   %ref.tmp194 = alloca %"class.base::BasicStringPiece", align 8
-  %_M_size.i.i.i.i.i = getelementptr inbounds %class.linked_hash_map, ptr %headers, i64 0, i32 1, i32 0, i32 0, i32 0, i32 1
+  %_M_size.i.i.i.i.i = getelementptr inbounds i8, ptr %headers, i64 72
   %0 = load i64, ptr %_M_size.i.i.i.i.i, align 8
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %buf.i)
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %ref.tmp3.i)
@@ -6580,30 +6476,30 @@ for.body.i:                                       ; preds = %for.body.i, %entry
 
 _ZN3netL12WriteLengthZEmjNS_10ZDataClassEP10z_stream_s.exit: ; preds = %for.body.i
   call void @_ZN4base16BasicStringPieceINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEC1EPKcm(ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp3.i, ptr noundef nonnull %buf.i, i64 noundef 4)
-  %clas1.i.i = getelementptr inbounds %struct.z_stream_s, ptr %z, i64 0, i32 14
+  %clas1.i.i = getelementptr inbounds i8, ptr %z, i64 112
   %call24.i.i = call noundef ptr @_ZNK4base16BasicStringPieceINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE4dataEv(ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp3.i)
   store ptr %call24.i.i, ptr %z, align 8
   %call25.i.i = call noundef i64 @_ZNK4base16BasicStringPieceINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp3.i)
   %conv.i.i = trunc i64 %call25.i.i to i32
-  %avail_in26.i.i = getelementptr inbounds %struct.z_stream_s, ptr %z, i64 0, i32 1
+  %avail_in26.i.i = getelementptr inbounds i8, ptr %z, i64 8
   store i32 %conv.i.i, ptr %avail_in26.i.i, align 8
   store i32 0, ptr %clas1.i.i, align 8
   %call32.i.i = call i32 @MOZ_Z_deflate(ptr noundef nonnull %z, i32 noundef 0)
   %call34.i.i = call noundef zeroext i1 @_ZNK4base16BasicStringPieceINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE5emptyEv(ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp3.i)
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %buf.i)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %ref.tmp3.i)
-  %list_.i.i = getelementptr inbounds %class.linked_hash_map, ptr %headers, i64 0, i32 1
+  %list_.i.i = getelementptr inbounds i8, ptr %headers, i64 56
   %it.sroa.0.0328 = load ptr, ptr %list_.i.i, align 8
   %cmp.i.not329 = icmp eq ptr %it.sroa.0.0328, %list_.i.i
   br i1 %cmp.i.not329, label %if.end224, label %for.body.lr.ph
 
 for.body.lr.ph:                                   ; preds = %_ZN3netL12WriteLengthZEmjNS_10ZDataClassEP10z_stream_s.exit
-  %2 = getelementptr inbounds { ptr, i64 }, ptr %ref.tmp43, i64 0, i32 1
+  %2 = getelementptr inbounds i8, ptr %ref.tmp43, i64 8
   br label %for.body
 
 for.body:                                         ; preds = %for.body.lr.ph, %for.inc211
   %it.sroa.0.0333 = phi ptr [ %it.sroa.0.0328, %for.body.lr.ph ], [ %it.sroa.0.0, %for.inc211 ]
-  %_M_storage.i.i = getelementptr inbounds %"struct.std::_List_node", ptr %it.sroa.0.0333, i64 0, i32 1
+  %_M_storage.i.i = getelementptr inbounds i8, ptr %it.sroa.0.0333, i64 16
   %call8 = call noundef i64 @_ZNK4base16BasicStringPieceINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %_M_storage.i.i)
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %buf.i39)
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %ref.tmp3.i40)
@@ -6646,7 +6542,7 @@ _ZN3netL12WriteLengthZEmjNS_10ZDataClassEP10z_stream_s.exit56: ; preds = %for.bo
   br i1 %call14, label %if.then, label %if.else132
 
 if.then:                                          ; preds = %_ZN3netL12WriteLengthZEmjNS_10ZDataClassEP10z_stream_s.exit56
-  %second = getelementptr inbounds %"struct.std::_List_node", ptr %it.sroa.0.0333, i64 0, i32 1, i32 0, i64 16
+  %second = getelementptr inbounds i8, ptr %it.sroa.0.0333, i64 32
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %cookie_data, ptr noundef nonnull align 8 dereferenceable(16) %second, i64 16, i1 false)
   br label %for.cond16
 
@@ -6879,8 +6775,8 @@ for.body.i.i.i.i.i.i:                             ; preds = %_ZNSt12_Vector_base
   %__cur.07.i.i.i.i.i.i = phi ptr [ %incdec.ptr1.i.i.i.i.i.i, %for.body.i.i.i.i.i.i ], [ %cond.i10.i.i.i, %_ZNSt12_Vector_baseIN4base16BasicStringPieceINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEESaIS8_EE11_M_allocateEm.exit.i.i.i ]
   %__first.addr.06.i.i.i.i.i.i = phi ptr [ %incdec.ptr.i.i.i.i.i.i, %for.body.i.i.i.i.i.i ], [ %cookie_values.sroa.0.1, %_ZNSt12_Vector_baseIN4base16BasicStringPieceINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEESaIS8_EE11_M_allocateEm.exit.i.i.i ]
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %__cur.07.i.i.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(16) %__first.addr.06.i.i.i.i.i.i, i64 16, i1 false), !alias.scope !14
-  %incdec.ptr.i.i.i.i.i.i = getelementptr inbounds %"class.base::BasicStringPiece", ptr %__first.addr.06.i.i.i.i.i.i, i64 1
-  %incdec.ptr1.i.i.i.i.i.i = getelementptr inbounds %"class.base::BasicStringPiece", ptr %__cur.07.i.i.i.i.i.i, i64 1
+  %incdec.ptr.i.i.i.i.i.i = getelementptr inbounds i8, ptr %__first.addr.06.i.i.i.i.i.i, i64 16
+  %incdec.ptr1.i.i.i.i.i.i = getelementptr inbounds i8, ptr %__cur.07.i.i.i.i.i.i, i64 16
   %cmp.not.i.i.i.i.i.i = icmp eq ptr %incdec.ptr.i.i.i.i.i.i, %cookie_values.sroa.25.1
   br i1 %cmp.not.i.i.i.i.i.i, label %_ZNSt6vectorIN4base16BasicStringPieceINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEESaIS8_EE11_S_relocateEPS8_SB_SB_RS9_.exit19.i.i.i, label %for.body.i.i.i.i.i.i, !llvm.loop !18
 
@@ -6901,7 +6797,7 @@ invoke.cont52:                                    ; preds = %_ZNSt6vectorIN4base
   %cookie_values.sroa.25.2 = phi ptr [ %add.ptr19.i.i.i, %_ZNSt6vectorIN4base16BasicStringPieceINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEESaIS8_EE17_M_realloc_insertIJS8_EEEvN9__gnu_cxx17__normal_iteratorIPS8_SA_EEDpOT_.exit.i.i ], [ %cookie_values.sroa.25.1, %if.then.i.i ]
   %__cur.0.lcssa.i.i.i.i.i.i.pn = phi ptr [ %__cur.0.lcssa.i.i.i.i.i.i, %_ZNSt6vectorIN4base16BasicStringPieceINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEESaIS8_EE17_M_realloc_insertIJS8_EEEvN9__gnu_cxx17__normal_iteratorIPS8_SA_EEDpOT_.exit.i.i ], [ %cookie_values.sroa.14.1, %if.then.i.i ]
   %cookie_values.sroa.0.3 = phi ptr [ %cond.i10.i.i.i, %_ZNSt6vectorIN4base16BasicStringPieceINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEESaIS8_EE17_M_realloc_insertIJS8_EEEvN9__gnu_cxx17__normal_iteratorIPS8_SA_EEDpOT_.exit.i.i ], [ %cookie_values.sroa.0.1, %if.then.i.i ]
-  %cookie_values.sroa.14.2 = getelementptr inbounds %"class.base::BasicStringPiece", ptr %__cur.0.lcssa.i.i.i.i.i.i.pn, i64 1
+  %cookie_values.sroa.14.2 = getelementptr inbounds i8, ptr %__cur.0.lcssa.i.i.i.i.i.i.pn, i64 16
   %add = add i64 %cookie_length.0, 2
   %add53 = add i64 %add, %i.0
   br label %if.end54
@@ -7027,8 +6923,8 @@ for.body.i.i.i.i.i:                               ; preds = %_ZNSt12_Vector_base
   %__cur.07.i.i.i.i.i = phi ptr [ %incdec.ptr1.i.i.i.i.i, %for.body.i.i.i.i.i ], [ %cond.i10.i.i, %_ZNSt12_Vector_baseIN4base16BasicStringPieceINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEESaIS8_EE11_M_allocateEm.exit.i.i ]
   %__first.addr.06.i.i.i.i.i = phi ptr [ %incdec.ptr.i.i.i.i.i, %for.body.i.i.i.i.i ], [ %cookie_values.sroa.0.1, %_ZNSt12_Vector_baseIN4base16BasicStringPieceINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEESaIS8_EE11_M_allocateEm.exit.i.i ]
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %__cur.07.i.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(16) %__first.addr.06.i.i.i.i.i, i64 16, i1 false), !alias.scope !19
-  %incdec.ptr.i.i.i.i.i = getelementptr inbounds %"class.base::BasicStringPiece", ptr %__first.addr.06.i.i.i.i.i, i64 1
-  %incdec.ptr1.i.i.i.i.i = getelementptr inbounds %"class.base::BasicStringPiece", ptr %__cur.07.i.i.i.i.i, i64 1
+  %incdec.ptr.i.i.i.i.i = getelementptr inbounds i8, ptr %__first.addr.06.i.i.i.i.i, i64 16
+  %incdec.ptr1.i.i.i.i.i = getelementptr inbounds i8, ptr %__cur.07.i.i.i.i.i, i64 16
   %cmp.not.i.i.i.i.i = icmp eq ptr %incdec.ptr.i.i.i.i.i, %cookie_values.sroa.25.1
   br i1 %cmp.not.i.i.i.i.i, label %_ZNSt6vectorIN4base16BasicStringPieceINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEESaIS8_EE11_S_relocateEPS8_SB_SB_RS9_.exit19.i.i, label %for.body.i.i.i.i.i, !llvm.loop !18
 
@@ -7053,7 +6949,7 @@ invoke.cont60:                                    ; preds = %_ZNSt6vectorIN4base
           to label %invoke.cont61 unwind label %lpad.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit
 
 invoke.cont61:                                    ; preds = %invoke.cont60
-  %cookie_values.sroa.14.4 = getelementptr inbounds %"class.base::BasicStringPiece", ptr %__cur.0.lcssa.i.i.i.i.i.pn, i64 1
+  %cookie_values.sroa.14.4 = getelementptr inbounds i8, ptr %__cur.0.lcssa.i.i.i.i.i.pn, i64 16
   %add63 = add i64 %call62, %cookie_length.0
   br label %if.end68
 
@@ -7372,7 +7268,7 @@ lor.rhs191:                                       ; preds = %lor.lhs.false186
   br i1 %call195, label %if.then197, label %if.else203
 
 if.then197:                                       ; preds = %lor.lhs.false186, %lor.lhs.false181, %lor.lhs.false176, %lor.lhs.false171, %lor.lhs.false166, %lor.lhs.false161, %lor.lhs.false156, %lor.lhs.false151, %lor.lhs.false146, %lor.lhs.false141, %lor.lhs.false, %if.else132, %lor.rhs191
-  %second199 = getelementptr inbounds %"struct.std::_List_node", ptr %it.sroa.0.0333, i64 0, i32 1, i32 0, i64 16
+  %second199 = getelementptr inbounds i8, ptr %it.sroa.0.0333, i64 32
   %call200 = call noundef i64 @_ZNK4base16BasicStringPieceINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %second199)
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %buf.i192)
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %ref.tmp3.i193)
@@ -7413,7 +7309,7 @@ _ZN3netL12WriteLengthZEmjNS_10ZDataClassEP10z_stream_s.exit210: ; preds = %for.b
   br label %for.inc211
 
 if.else203:                                       ; preds = %lor.rhs191
-  %second205 = getelementptr inbounds %"struct.std::_List_node", ptr %it.sroa.0.0333, i64 0, i32 1, i32 0, i64 16
+  %second205 = getelementptr inbounds i8, ptr %it.sroa.0.0333, i64 32
   %call206 = call noundef i64 @_ZNK4base16BasicStringPieceINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %second205)
   call fastcc void @_ZN3netL12WriteLengthZEmjNS_10ZDataClassEP10z_stream_s(i64 noundef %call206, ptr noundef nonnull %z)
   call fastcc void @_ZN3netL6WriteZERKN4base16BasicStringPieceINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEENS_10ZDataClassEP10z_stream_s(ptr noundef nonnull align 8 dereferenceable(16) %second205, i32 noundef 2, ptr noundef nonnull %z)
@@ -7452,12 +7348,12 @@ for.body:                                         ; preds = %if.end, %for.body
 
 for.end:                                          ; preds = %for.body
   call void @_ZN4base16BasicStringPieceINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEC1EPKcm(ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp3, ptr noundef nonnull %buf, i64 noundef 4)
-  %clas1.i = getelementptr inbounds %struct.z_stream_s, ptr %out, i64 0, i32 14
+  %clas1.i = getelementptr inbounds i8, ptr %out, i64 112
   %call24.i = call noundef ptr @_ZNK4base16BasicStringPieceINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE4dataEv(ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp3)
   store ptr %call24.i, ptr %out, align 8
   %call25.i = call noundef i64 @_ZNK4base16BasicStringPieceINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp3)
   %conv.i = trunc i64 %call25.i to i32
-  %avail_in26.i = getelementptr inbounds %struct.z_stream_s, ptr %out, i64 0, i32 1
+  %avail_in26.i = getelementptr inbounds i8, ptr %out, i64 8
   store i32 %conv.i, ptr %avail_in26.i, align 8
   store i32 0, ptr %clas1.i, align 8
   %call32.i = call i32 @MOZ_Z_deflate(ptr noundef nonnull %out, i32 noundef 0)
@@ -7468,7 +7364,7 @@ for.end:                                          ; preds = %for.body
 ; Function Attrs: mustprogress uwtable
 define internal fastcc void @_ZN3netL6WriteZERKN4base16BasicStringPieceINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEENS_10ZDataClassEP10z_stream_s(ptr noundef nonnull align 8 dereferenceable(16) %data, i32 noundef %clas, ptr noundef %out) unnamed_addr #0 {
 entry:
-  %clas1 = getelementptr inbounds %struct.z_stream_s, ptr %out, i64 0, i32 14
+  %clas1 = getelementptr inbounds i8, ptr %out, i64 112
   %0 = load i32, ptr %clas1, align 8
   %cmp = icmp eq i32 %0, 0
   %cmp2 = icmp ne i32 %clas, 0
@@ -7476,7 +7372,7 @@ entry:
   br i1 %or.cond, label %if.end14, label %if.end23
 
 if.end14:                                         ; preds = %entry
-  %avail_in = getelementptr inbounds %struct.z_stream_s, ptr %out, i64 0, i32 1
+  %avail_in = getelementptr inbounds i8, ptr %out, i64 8
   store i32 0, ptr %avail_in, align 8
   %call = tail call i32 @MOZ_Z_deflate(ptr noundef nonnull %out, i32 noundef 1)
   br label %if.end23
@@ -7486,7 +7382,7 @@ if.end23:                                         ; preds = %if.end14, %entry
   store ptr %call24, ptr %out, align 8
   %call25 = tail call noundef i64 @_ZNK4base16BasicStringPieceINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %data)
   %conv = trunc i64 %call25 to i32
-  %avail_in26 = getelementptr inbounds %struct.z_stream_s, ptr %out, i64 0, i32 1
+  %avail_in26 = getelementptr inbounds i8, ptr %out, i64 8
   store i32 %conv, ptr %avail_in26, align 8
   store i32 %clas, ptr %clas1, align 8
   %cmp28 = icmp ne i32 %clas, 0
@@ -7532,7 +7428,7 @@ declare void @_ZN3net22SpdyHeadersBlockParserC1ENS_16SpdyMajorVersionEPNS_27Spdy
 ; Function Attrs: mustprogress uwtable
 define dso_local noundef ptr @_ZN3net10SpdyFramer15GetHpackDecoderEv(ptr nocapture noundef nonnull align 8 dereferenceable(259) %this) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 if.end:
-  %hpack_decoder_ = getelementptr inbounds %"class.net::SpdyFramer", ptr %this, i64 0, i32 20
+  %hpack_decoder_ = getelementptr inbounds i8, ptr %this, i64 168
   %0 = load ptr, ptr %hpack_decoder_, align 8
   %cmp = icmp eq ptr %0, null
   br i1 %cmp, label %if.then5, label %if.end10
@@ -7550,7 +7446,7 @@ invoke.cont9:                                     ; preds = %if.then5
 
 _ZNKSt14default_deleteIN3net21HpackDecoderInterfaceEEclEPS1_.exit.i.i: ; preds = %invoke.cont9
   %vtable.i.i.i = load ptr, ptr %1, align 8
-  %vfn.i.i.i = getelementptr inbounds ptr, ptr %vtable.i.i.i, i64 1
+  %vfn.i.i.i = getelementptr inbounds i8, ptr %vtable.i.i.i, i64 8
   %2 = load ptr, ptr %vfn.i.i.i, align 8
   tail call void %2(ptr noundef nonnull align 8 dereferenceable(8) %1) #23
   %.pre = load ptr, ptr %hpack_decoder_, align 8
@@ -7582,7 +7478,7 @@ if.then:                                          ; preds = %entry
 
 cond.false:                                       ; preds = %if.then
   call void @_ZN7logging10LogMessageC1EPKcii(ptr noundef nonnull align 8 dereferenceable(404) %ref.tmp3, ptr noundef nonnull @.str, i32 noundef 3156, i32 noundef 2)
-  %stream_.i = getelementptr inbounds %"class.logging::LogMessage", ptr %ref.tmp3, i64 0, i32 2
+  %stream_.i = getelementptr inbounds i8, ptr %ref.tmp3, i64 8
   %call6 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc(ptr noundef nonnull align 8 dereferenceable(8) %stream_.i, ptr noundef nonnull @.str.115)
           to label %cleanup.action unwind label %lpad
 
@@ -7591,18 +7487,18 @@ cleanup.action:                                   ; preds = %cond.false
   br label %cleanup.done
 
 cleanup.done:                                     ; preds = %if.then, %cleanup.action
-  %error_code_.i = getelementptr inbounds %"class.net::SpdyFramer", ptr %this, i64 0, i32 3
+  %error_code_.i = getelementptr inbounds i8, ptr %this, i64 16
   store i32 6, ptr %error_code_.i, align 8
-  %expect_continuation_.i = getelementptr inbounds %"class.net::SpdyFramer", ptr %this, i64 0, i32 14
+  %expect_continuation_.i = getelementptr inbounds i8, ptr %this, i64 100
   store i32 0, ptr %expect_continuation_.i, align 4
-  %end_stream_when_done_.i = getelementptr inbounds %"class.net::SpdyFramer", ptr %this, i64 0, i32 32
+  %end_stream_when_done_.i = getelementptr inbounds i8, ptr %this, i64 256
   store i8 0, ptr %end_stream_when_done_.i, align 8
-  %state_.i = getelementptr inbounds %"class.net::SpdyFramer", ptr %this, i64 0, i32 1
+  %state_.i = getelementptr inbounds i8, ptr %this, i64 8
   %0 = load i32, ptr %state_.i, align 8
-  %previous_state_.i = getelementptr inbounds %"class.net::SpdyFramer", ptr %this, i64 0, i32 2
+  %previous_state_.i = getelementptr inbounds i8, ptr %this, i64 12
   store i32 %0, ptr %previous_state_.i, align 4
   store i32 0, ptr %state_.i, align 8
-  %visitor_.i = getelementptr inbounds %"class.net::SpdyFramer", ptr %this, i64 0, i32 21
+  %visitor_.i = getelementptr inbounds i8, ptr %this, i64 176
   br label %return.sink.split
 
 lpad:                                             ; preds = %cond.false
@@ -7614,23 +7510,23 @@ lpad:                                             ; preds = %cond.false
 if.end18:                                         ; preds = %entry
   store ptr %data, ptr %call, align 8
   %conv = trunc i64 %len to i32
-  %avail_in = getelementptr inbounds %struct.z_stream_s, ptr %call, i64 0, i32 1
+  %avail_in = getelementptr inbounds i8, ptr %call, i64 8
   store i32 %conv, ptr %avail_in, align 8
   %cmp2041.not = icmp eq i32 %conv, 0
   br i1 %cmp2041.not, label %return, label %while.body.lr.ph
 
 while.body.lr.ph:                                 ; preds = %if.end18
-  %next_out = getelementptr inbounds %struct.z_stream_s, ptr %call, i64 0, i32 3
-  %avail_out = getelementptr inbounds %struct.z_stream_s, ptr %call, i64 0, i32 4
-  %adler = getelementptr inbounds %struct.z_stream_s, ptr %call, i64 0, i32 12
-  %error_code_.i29 = getelementptr inbounds %"class.net::SpdyFramer", ptr %this, i64 0, i32 3
-  %expect_continuation_.i30 = getelementptr inbounds %"class.net::SpdyFramer", ptr %this, i64 0, i32 14
-  %end_stream_when_done_.i31 = getelementptr inbounds %"class.net::SpdyFramer", ptr %this, i64 0, i32 32
-  %state_.i32 = getelementptr inbounds %"class.net::SpdyFramer", ptr %this, i64 0, i32 1
-  %previous_state_.i33 = getelementptr inbounds %"class.net::SpdyFramer", ptr %this, i64 0, i32 2
-  %visitor_.i34 = getelementptr inbounds %"class.net::SpdyFramer", ptr %this, i64 0, i32 21
-  %use_new_methods_ = getelementptr inbounds %"class.net::SpdyFramer", ptr %this, i64 0, i32 34
-  %header_parser_ = getelementptr inbounds %"class.net::SpdyFramer", ptr %this, i64 0, i32 23
+  %next_out = getelementptr inbounds i8, ptr %call, i64 24
+  %avail_out = getelementptr inbounds i8, ptr %call, i64 32
+  %adler = getelementptr inbounds i8, ptr %call, i64 96
+  %error_code_.i29 = getelementptr inbounds i8, ptr %this, i64 16
+  %expect_continuation_.i30 = getelementptr inbounds i8, ptr %this, i64 100
+  %end_stream_when_done_.i31 = getelementptr inbounds i8, ptr %this, i64 256
+  %state_.i32 = getelementptr inbounds i8, ptr %this, i64 8
+  %previous_state_.i33 = getelementptr inbounds i8, ptr %this, i64 12
+  %visitor_.i34 = getelementptr inbounds i8, ptr %this, i64 176
+  %use_new_methods_ = getelementptr inbounds i8, ptr %this, i64 258
+  %header_parser_ = getelementptr inbounds i8, ptr %this, i64 192
   br label %while.body
 
 while.body:                                       ; preds = %while.body.lr.ph, %if.end68
@@ -7708,7 +7604,7 @@ if.then47:                                        ; preds = %if.then45
   %12 = load ptr, ptr %header_parser_, align 8
   %call50 = call noundef zeroext i1 @_ZN3net22SpdyHeadersBlockParser29HandleControlFrameHeadersDataEjPKcm(ptr noundef nonnull align 8 dereferenceable(108) %12, i32 noundef %stream_id, ptr noundef nonnull %buffer, i64 noundef %sub)
   %13 = load ptr, ptr %header_parser_, align 8
-  %error_.i = getelementptr inbounds %"class.net::SpdyHeadersBlockParser", ptr %13, i64 0, i32 11
+  %error_.i = getelementptr inbounds i8, ptr %13, i64 100
   %14 = load i32, ptr %error_.i, align 4
   %cmp55 = icmp eq i32 %14, 1
   %narrow = or i1 %call50, %cmp55
@@ -7718,7 +7614,7 @@ if.then47:                                        ; preds = %if.then45
 if.else58:                                        ; preds = %if.then45
   %15 = load ptr, ptr %visitor_.i34, align 8
   %vtable = load ptr, ptr %15, align 8
-  %vfn = getelementptr inbounds ptr, ptr %vtable, i64 10
+  %vfn = getelementptr inbounds i8, ptr %vtable, i64 80
   %16 = load ptr, ptr %vfn, align 8
   %call60 = call noundef zeroext i1 %16(ptr noundef nonnull align 8 dereferenceable(8) %15, i32 noundef %stream_id, ptr noundef nonnull %buffer, i64 noundef %sub)
   %frombool61 = zext i1 %call60 to i8
@@ -7739,7 +7635,7 @@ if.then65:                                        ; preds = %if.end63
   store i32 0, ptr %state_.i32, align 8
   %19 = load ptr, ptr %visitor_.i34, align 8
   %vtable.i27 = load ptr, ptr %19, align 8
-  %vfn.i28 = getelementptr inbounds ptr, ptr %vtable.i27, i64 2
+  %vfn.i28 = getelementptr inbounds i8, ptr %vtable.i27, i64 16
   %20 = load ptr, ptr %vfn.i28, align 8
   call void %20(ptr noundef nonnull align 8 dereferenceable(8) %19, ptr noundef nonnull %this)
   br label %if.end68
@@ -7765,7 +7661,7 @@ return.sink.split:                                ; preds = %cleanup.done, %if.e
   %visitor_.i.sink = phi ptr [ %visitor_.i, %cleanup.done ], [ %visitor_.i34, %if.end68.thread ]
   %25 = load ptr, ptr %visitor_.i.sink, align 8
   %vtable.i35 = load ptr, ptr %25, align 8
-  %vfn.i36 = getelementptr inbounds ptr, ptr %vtable.i35, i64 2
+  %vfn.i36 = getelementptr inbounds i8, ptr %vtable.i35, i64 16
   %26 = load ptr, ptr %vfn.i36, align 8
   call void %26(ptr noundef nonnull align 8 dereferenceable(8) %25, ptr noundef nonnull %this)
   br label %return
@@ -7782,14 +7678,14 @@ entry:
   br i1 %cmp23.not, label %while.end, label %while.body.lr.ph
 
 while.body.lr.ph:                                 ; preds = %entry
-  %use_new_methods_ = getelementptr inbounds %"class.net::SpdyFramer", ptr %this, i64 0, i32 34
-  %header_parser_ = getelementptr inbounds %"class.net::SpdyFramer", ptr %this, i64 0, i32 23
-  %visitor_ = getelementptr inbounds %"class.net::SpdyFramer", ptr %this, i64 0, i32 21
-  %error_code_.i = getelementptr inbounds %"class.net::SpdyFramer", ptr %this, i64 0, i32 3
-  %expect_continuation_.i = getelementptr inbounds %"class.net::SpdyFramer", ptr %this, i64 0, i32 14
-  %end_stream_when_done_.i = getelementptr inbounds %"class.net::SpdyFramer", ptr %this, i64 0, i32 32
-  %state_.i = getelementptr inbounds %"class.net::SpdyFramer", ptr %this, i64 0, i32 1
-  %previous_state_.i = getelementptr inbounds %"class.net::SpdyFramer", ptr %this, i64 0, i32 2
+  %use_new_methods_ = getelementptr inbounds i8, ptr %this, i64 258
+  %header_parser_ = getelementptr inbounds i8, ptr %this, i64 192
+  %visitor_ = getelementptr inbounds i8, ptr %this, i64 176
+  %error_code_.i = getelementptr inbounds i8, ptr %this, i64 16
+  %expect_continuation_.i = getelementptr inbounds i8, ptr %this, i64 100
+  %end_stream_when_done_.i = getelementptr inbounds i8, ptr %this, i64 256
+  %state_.i = getelementptr inbounds i8, ptr %this, i64 8
+  %previous_state_.i = getelementptr inbounds i8, ptr %this, i64 12
   br label %while.body
 
 while.body:                                       ; preds = %while.body.lr.ph, %if.end15
@@ -7804,7 +7700,7 @@ while.body:                                       ; preds = %while.body.lr.ph, %
 if.else:                                          ; preds = %while.body
   %2 = load ptr, ptr %visitor_, align 8
   %vtable = load ptr, ptr %2, align 8
-  %vfn = getelementptr inbounds ptr, ptr %vtable, i64 10
+  %vfn = getelementptr inbounds i8, ptr %vtable, i64 80
   %3 = load ptr, ptr %vfn, align 8
   %call10 = tail call noundef zeroext i1 %3(ptr noundef nonnull align 8 dereferenceable(8) %2, i32 noundef %stream_id, ptr noundef %data.addr.025, i64 noundef %.sroa.speculated)
   br i1 %call10, label %if.end15, label %if.end15.thread
@@ -7813,7 +7709,7 @@ if.end12:                                         ; preds = %while.body
   %4 = load ptr, ptr %header_parser_, align 8
   %call4 = tail call noundef zeroext i1 @_ZN3net22SpdyHeadersBlockParser29HandleControlFrameHeadersDataEjPKcm(ptr noundef nonnull align 8 dereferenceable(108) %4, i32 noundef %stream_id, ptr noundef %data.addr.025, i64 noundef %.sroa.speculated)
   %5 = load ptr, ptr %header_parser_, align 8
-  %error_.i = getelementptr inbounds %"class.net::SpdyHeadersBlockParser", ptr %5, i64 0, i32 11
+  %error_.i = getelementptr inbounds i8, ptr %5, i64 100
   %6 = load i32, ptr %error_.i, align 4
   %cmp8 = icmp eq i32 %6, 1
   %spec.select = or i1 %call4, %cmp8
@@ -7828,7 +7724,7 @@ if.end15.thread:                                  ; preds = %if.end12, %if.else
   store i32 0, ptr %state_.i, align 8
   %8 = load ptr, ptr %visitor_, align 8
   %vtable.i = load ptr, ptr %8, align 8
-  %vfn.i = getelementptr inbounds ptr, ptr %vtable.i, i64 2
+  %vfn.i = getelementptr inbounds i8, ptr %vtable.i, i64 16
   %9 = load ptr, ptr %vfn.i, align 8
   tail call void %9(ptr noundef nonnull align 8 dereferenceable(8) %8, ptr noundef nonnull %this)
   br label %while.end
@@ -7850,7 +7746,7 @@ if.end13:
   %value.addr.i.i = alloca i32, align 4
   %builder = alloca %"class.net::SpdyFrameBuilder", align 8
   %frame = alloca %"class.net::SpdySerializedFrame", align 8
-  %hpack_decoder_.i = getelementptr inbounds %"class.net::SpdyFramer", ptr %this, i64 0, i32 20
+  %hpack_decoder_.i = getelementptr inbounds i8, ptr %this, i64 168
   %0 = load ptr, ptr %hpack_decoder_.i, align 8
   %cmp.i = icmp eq ptr %0, null
   br i1 %cmp.i, label %if.then5.i, label %_ZN3net10SpdyFramer15GetHpackDecoderEv.exit
@@ -7868,7 +7764,7 @@ invoke.cont9.i:                                   ; preds = %if.then5.i
 
 _ZNKSt14default_deleteIN3net21HpackDecoderInterfaceEEclEPS1_.exit.i.i.i: ; preds = %invoke.cont9.i
   %vtable.i.i.i.i = load ptr, ptr %1, align 8
-  %vfn.i.i.i.i = getelementptr inbounds ptr, ptr %vtable.i.i.i.i, i64 1
+  %vfn.i.i.i.i = getelementptr inbounds i8, ptr %vtable.i.i.i.i, i64 8
   %2 = load ptr, ptr %vfn.i.i.i.i, align 8
   tail call void %2(ptr noundef nonnull align 8 dereferenceable(8) %1) #23
   %.pre.i = load ptr, ptr %hpack_decoder_.i, align 8
@@ -7887,10 +7783,10 @@ lpad8.i:                                          ; preds = %if.then5.i
 _ZN3net10SpdyFramer15GetHpackDecoderEv.exit:      ; preds = %if.end13, %invoke.cont9.i, %_ZNKSt14default_deleteIN3net21HpackDecoderInterfaceEEclEPS1_.exit.i.i.i
   %4 = phi ptr [ %.pre.i, %_ZNKSt14default_deleteIN3net21HpackDecoderInterfaceEEclEPS1_.exit.i.i.i ], [ %call7.i, %invoke.cont9.i ], [ %0, %if.end13 ]
   %vtable = load ptr, ptr %4, align 8
-  %vfn = getelementptr inbounds ptr, ptr %vtable, i64 6
+  %vfn = getelementptr inbounds i8, ptr %vtable, i64 48
   %5 = load ptr, ptr %vfn, align 8
   %call15 = tail call noundef nonnull align 8 dereferenceable(88) ptr %5(ptr noundef nonnull align 8 dereferenceable(8) %4)
-  %list_.i.i = getelementptr inbounds %class.linked_hash_map, ptr %call15, i64 0, i32 1
+  %list_.i.i = getelementptr inbounds i8, ptr %call15, i64 56
   %6 = load ptr, ptr %list_.i.i, align 8
   %cmp.i.i.i = icmp eq ptr %6, %list_.i.i
   br i1 %cmp.i.i.i, label %if.then17, label %for.body.i
@@ -7902,9 +7798,9 @@ if.then17:                                        ; preds = %_ZN3net10SpdyFramer
 for.body.i:                                       ; preds = %_ZN3net10SpdyFramer15GetHpackDecoderEv.exit, %for.body.i
   %__begin1.sroa.0.010.i = phi ptr [ %__begin1.sroa.0.0.i, %for.body.i ], [ %6, %_ZN3net10SpdyFramer15GetHpackDecoderEv.exit ]
   %total_length.09.i = phi i64 [ %add9.i, %for.body.i ], [ 4, %_ZN3net10SpdyFramer15GetHpackDecoderEv.exit ]
-  %_M_storage.i.i.i = getelementptr inbounds %"struct.std::_List_node", ptr %__begin1.sroa.0.010.i, i64 0, i32 1
+  %_M_storage.i.i.i = getelementptr inbounds i8, ptr %__begin1.sroa.0.010.i, i64 16
   %call5.i = tail call noundef i64 @_ZNK4base16BasicStringPieceINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %_M_storage.i.i.i)
-  %second.i = getelementptr inbounds %"struct.std::_List_node", ptr %__begin1.sroa.0.010.i, i64 0, i32 1, i32 0, i64 16
+  %second.i = getelementptr inbounds i8, ptr %__begin1.sroa.0.010.i, i64 32
   %call7.i11 = tail call noundef i64 @_ZNK4base16BasicStringPieceINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %second.i)
   %add6.i = add i64 %total_length.09.i, 8
   %add8.i = add i64 %add6.i, %call5.i
@@ -7915,7 +7811,7 @@ for.body.i:                                       ; preds = %_ZN3net10SpdyFramer
 
 _ZN3net10SpdyFramer19GetSerializedLengthENS_16SpdyMajorVersionEPKNS_15SpdyHeaderBlockE.exit: ; preds = %for.body.i
   call void @_ZN3net16SpdyFrameBuilderC1EmNS_16SpdyMajorVersionE(ptr noundef nonnull align 8 dereferenceable(36) %builder, i64 noundef %add9.i, i32 noundef 1)
-  %_M_size.i.i.i.i.i.i = getelementptr inbounds %class.linked_hash_map, ptr %call15, i64 0, i32 1, i32 0, i32 0, i32 0, i32 1
+  %_M_size.i.i.i.i.i.i = getelementptr inbounds i8, ptr %call15, i64 72
   %7 = load i64, ptr %_M_size.i.i.i.i.i.i, align 8
   %conv.i = trunc i64 %7 to i32
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %value.addr.i.i)
@@ -7932,12 +7828,12 @@ call2.i.i.noexc:                                  ; preds = %_ZN3net10SpdyFramer
 
 for.body.i13:                                     ; preds = %call2.i.i.noexc, %call9.i.noexc
   %__begin1.sroa.0.011.i = phi ptr [ %__begin1.sroa.0.0.i16, %call9.i.noexc ], [ %__begin1.sroa.0.09.i, %call2.i.i.noexc ]
-  %_M_storage.i.i.i14 = getelementptr inbounds %"struct.std::_List_node", ptr %__begin1.sroa.0.011.i, i64 0, i32 1
+  %_M_storage.i.i.i14 = getelementptr inbounds i8, ptr %__begin1.sroa.0.011.i, i64 16
   %call8.i19 = invoke noundef zeroext i1 @_ZN3net16SpdyFrameBuilder18WriteStringPiece32ERKN4base16BasicStringPieceINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEE(ptr noundef nonnull align 8 dereferenceable(36) %builder, ptr noundef nonnull align 8 dereferenceable(16) %_M_storage.i.i.i14)
           to label %call8.i.noexc unwind label %lpad21.loopexit
 
 call8.i.noexc:                                    ; preds = %for.body.i13
-  %second.i15 = getelementptr inbounds %"struct.std::_List_node", ptr %__begin1.sroa.0.011.i, i64 0, i32 1, i32 0, i64 16
+  %second.i15 = getelementptr inbounds i8, ptr %__begin1.sroa.0.011.i, i64 32
   %call9.i20 = invoke noundef zeroext i1 @_ZN3net16SpdyFrameBuilder18WriteStringPiece32ERKN4base16BasicStringPieceINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEE(ptr noundef nonnull align 8 dereferenceable(36) %builder, ptr noundef nonnull align 8 dereferenceable(16) %second.i15)
           to label %call9.i.noexc unwind label %lpad21.loopexit
 
@@ -7951,12 +7847,12 @@ invoke.cont22:                                    ; preds = %call9.i.noexc, %cal
           to label %invoke.cont23 unwind label %lpad21.loopexit.split-lp
 
 invoke.cont23:                                    ; preds = %invoke.cont22
-  %remaining_padding_payload_length_ = getelementptr inbounds %"class.net::SpdyFramer", ptr %this, i64 0, i32 6
+  %remaining_padding_payload_length_ = getelementptr inbounds i8, ptr %this, i64 32
   %9 = load i64, ptr %remaining_padding_payload_length_, align 8
   store i64 0, ptr %remaining_padding_payload_length_, align 8
-  %size_.i = getelementptr inbounds %"class.net::SpdySerializedFrame", ptr %frame, i64 0, i32 1
+  %size_.i = getelementptr inbounds i8, ptr %frame, i64 8
   %10 = load i64, ptr %size_.i, align 8
-  %remaining_data_length_ = getelementptr inbounds %"class.net::SpdyFramer", ptr %this, i64 0, i32 5
+  %remaining_data_length_ = getelementptr inbounds i8, ptr %this, i64 24
   store i64 %10, ptr %remaining_data_length_, align 8
   %cmp.not = icmp eq i64 %add9.i, 0
   br i1 %cmp.not, label %if.end42, label %if.then28
@@ -7993,7 +7889,7 @@ lpad21.loopexit.split-lp:                         ; preds = %invoke.cont22, %_ZN
 lpad25:                                           ; preds = %if.end42, %if.end36, %if.then32
   %15 = landingpad { ptr, i32 }
           cleanup
-  %owns_buffer_.i = getelementptr inbounds %"class.net::SpdySerializedFrame", ptr %frame, i64 0, i32 2
+  %owns_buffer_.i = getelementptr inbounds i8, ptr %frame, i64 16
   %16 = load i8, ptr %owns_buffer_.i, align 8
   %17 = and i8 %16, 1
   %tobool.not.i21 = icmp eq i8 %17, 0
@@ -8011,7 +7907,7 @@ delete.notnull.i:                                 ; preds = %if.then.i
 if.end36:                                         ; preds = %invoke.cont33, %if.then28
   %histogram_pointer.0 = phi ptr [ %13, %if.then28 ], [ %call34, %invoke.cont33 ]
   %vtable37 = load ptr, ptr %histogram_pointer.0, align 8
-  %vfn38 = getelementptr inbounds ptr, ptr %vtable37, i64 5
+  %vfn38 = getelementptr inbounds i8, ptr %vtable37, i64 40
   %19 = load ptr, ptr %vfn38, align 8
   invoke void %19(ptr noundef nonnull align 8 dereferenceable(44) %histogram_pointer.0, i32 noundef %conv)
           to label %if.end36.if.end42_crit_edge unwind label %lpad25
@@ -8029,7 +7925,7 @@ if.end42:                                         ; preds = %if.end36.if.end42_c
 invoke.cont47:                                    ; preds = %if.end42
   store i64 %9, ptr %remaining_padding_payload_length_, align 8
   store i64 %9, ptr %remaining_data_length_, align 8
-  %owns_buffer_.i23 = getelementptr inbounds %"class.net::SpdySerializedFrame", ptr %frame, i64 0, i32 2
+  %owns_buffer_.i23 = getelementptr inbounds i8, ptr %frame, i64 16
   %22 = load i8, ptr %owns_buffer_.i23, align 8
   %23 = and i8 %22, 1
   %tobool.not.i24 = icmp eq i8 %23, 0
@@ -8060,7 +7956,7 @@ ehcleanup:                                        ; preds = %lpad21.loopexit, %l
 ; Function Attrs: mustprogress uwtable
 define dso_local noundef zeroext i1 @_ZN3net10SpdyFramer14ProcessSettingEPKc(ptr nocapture noundef nonnull align 8 dereferenceable(259) %this, ptr nocapture noundef readonly %data) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  %protocol_version_ = getelementptr inbounds %"class.net::SpdyFramer", ptr %this, i64 0, i32 27
+  %protocol_version_ = getelementptr inbounds i8, ptr %this, i64 248
   %0 = load i32, ptr %protocol_version_, align 8
   %cmp = icmp eq i32 %0, 1
   br i1 %cmp, label %if.then, label %if.else
@@ -8107,7 +8003,7 @@ if.end16:                                         ; preds = %if.end
   br i1 %cmp20, label %if.then21, label %if.end32
 
 if.then21:                                        ; preds = %if.end16
-  %last_setting_id = getelementptr inbounds %"class.net::SpdyFramer", ptr %this, i64 0, i32 15, i32 1
+  %last_setting_id = getelementptr inbounds i8, ptr %this, i64 128
   %12 = load i32, ptr %last_setting_id, align 8
   %cmp22.not = icmp sgt i32 %call18, %12
   br i1 %cmp22.not, label %if.end24, label %return
@@ -8118,10 +8014,10 @@ if.end24:                                         ; preds = %if.then21
   br i1 %cmp29.not, label %if.end32, label %return
 
 if.end32:                                         ; preds = %if.end24, %if.end16
-  %visitor_ = getelementptr inbounds %"class.net::SpdyFramer", ptr %this, i64 0, i32 21
+  %visitor_ = getelementptr inbounds i8, ptr %this, i64 176
   %13 = load ptr, ptr %visitor_, align 8
   %vtable = load ptr, ptr %13, align 8
-  %vfn = getelementptr inbounds ptr, ptr %vtable, i64 15
+  %vfn = getelementptr inbounds i8, ptr %vtable, i64 120
   %14 = load ptr, ptr %vfn, align 8
   tail call void %14(ptr noundef nonnull align 8 dereferenceable(8) %13, i32 noundef %call18, i8 noundef zeroext %flags.0, i32 noundef %value.0)
   br label %return
@@ -8137,7 +8033,7 @@ declare void @_ZN3net16SpdyFrameBuilderC1EmNS_16SpdyMajorVersionE(ptr noundef no
 define dso_local void @_ZNK3net10SpdyFramer38SerializeHeaderBlockWithoutCompressionEPNS_16SpdyFrameBuilderERKNS_15SpdyHeaderBlockE(ptr nocapture noundef nonnull readnone align 8 dereferenceable(259) %this, ptr noundef nonnull %builder, ptr noundef nonnull readonly align 8 dereferenceable(88) %header_block) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %value.addr.i = alloca i32, align 4
-  %_M_size.i.i.i.i.i = getelementptr inbounds %class.linked_hash_map, ptr %header_block, i64 0, i32 1, i32 0, i32 0, i32 0, i32 1
+  %_M_size.i.i.i.i.i = getelementptr inbounds i8, ptr %header_block, i64 72
   %0 = load i64, ptr %_M_size.i.i.i.i.i, align 8
   %conv = trunc i64 %0 to i32
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %value.addr.i)
@@ -8145,16 +8041,16 @@ entry:
   store i32 %1, ptr %value.addr.i, align 4
   %call2.i = call noundef zeroext i1 @_ZN3net16SpdyFrameBuilder10WriteBytesEPKvj(ptr noundef nonnull align 8 dereferenceable(36) %builder, ptr noundef nonnull %value.addr.i, i32 noundef 4)
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %value.addr.i)
-  %list_.i.i = getelementptr inbounds %class.linked_hash_map, ptr %header_block, i64 0, i32 1
+  %list_.i.i = getelementptr inbounds i8, ptr %header_block, i64 56
   %__begin1.sroa.0.09 = load ptr, ptr %list_.i.i, align 8
   %cmp.i.not10 = icmp eq ptr %__begin1.sroa.0.09, %list_.i.i
   br i1 %cmp.i.not10, label %for.end, label %for.body
 
 for.body:                                         ; preds = %entry, %for.body
   %__begin1.sroa.0.011 = phi ptr [ %__begin1.sroa.0.0, %for.body ], [ %__begin1.sroa.0.09, %entry ]
-  %_M_storage.i.i = getelementptr inbounds %"struct.std::_List_node", ptr %__begin1.sroa.0.011, i64 0, i32 1
+  %_M_storage.i.i = getelementptr inbounds i8, ptr %__begin1.sroa.0.011, i64 16
   %call8 = call noundef zeroext i1 @_ZN3net16SpdyFrameBuilder18WriteStringPiece32ERKN4base16BasicStringPieceINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEE(ptr noundef nonnull align 8 dereferenceable(36) %builder, ptr noundef nonnull align 8 dereferenceable(16) %_M_storage.i.i)
-  %second = getelementptr inbounds %"struct.std::_List_node", ptr %__begin1.sroa.0.011, i64 0, i32 1, i32 0, i64 16
+  %second = getelementptr inbounds i8, ptr %__begin1.sroa.0.011, i64 32
   %call9 = call noundef zeroext i1 @_ZN3net16SpdyFrameBuilder18WriteStringPiece32ERKN4base16BasicStringPieceINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEE(ptr noundef nonnull align 8 dereferenceable(36) %builder, ptr noundef nonnull align 8 dereferenceable(16) %second)
   %__begin1.sroa.0.0 = load ptr, ptr %__begin1.sroa.0.011, align 8
   %cmp.i.not = icmp eq ptr %__begin1.sroa.0.0, %list_.i.i
@@ -8168,7 +8064,7 @@ for.end:                                          ; preds = %for.body, %entry
 define linkonce_odr dso_local void @_ZN3net16SpdyFrameBuilder4takeEv(ptr noalias sret(%"class.net::SpdySerializedFrame") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(36) %this) local_unnamed_addr #0 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp5 = alloca %"class.logging::LogMessage", align 8
-  %version_ = getelementptr inbounds %"class.net::SpdyFrameBuilder", ptr %this, i64 0, i32 4
+  %version_ = getelementptr inbounds i8, ptr %this, i64 32
   %0 = load i32, ptr %version_, align 8
   %cmp = icmp eq i32 %0, 2
   br i1 %cmp, label %if.then, label %if.end
@@ -8180,14 +8076,14 @@ if.then:                                          ; preds = %entry
 land.lhs.true:                                    ; preds = %if.then
   %1 = load i32, ptr %version_, align 8
   %call3 = tail call noundef i64 @_ZN3net13SpdyConstants20GetMaxFrameSizeLimitENS_16SpdyMajorVersionE(i32 noundef %1)
-  %length_ = getelementptr inbounds %"class.net::SpdyFrameBuilder", ptr %this, i64 0, i32 2
+  %length_ = getelementptr inbounds i8, ptr %this, i64 16
   %2 = load i64, ptr %length_, align 8
   %cmp4 = icmp ult i64 %call3, %2
   br i1 %cmp4, label %cond.false, label %if.end
 
 cond.false:                                       ; preds = %land.lhs.true
   call void @_ZN7logging10LogMessageC1EPKcii(ptr noundef nonnull align 8 dereferenceable(404) %ref.tmp5, ptr noundef nonnull @.str.117, i32 noundef 80, i32 noundef 2)
-  %stream_.i = getelementptr inbounds %"class.logging::LogMessage", ptr %ref.tmp5, i64 0, i32 2
+  %stream_.i = getelementptr inbounds i8, ptr %ref.tmp5, i64 8
   %call7 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc(ptr noundef nonnull align 8 dereferenceable(8) %stream_.i, ptr noundef nonnull @.str.118)
           to label %invoke.cont unwind label %lpad
 
@@ -8213,17 +8109,17 @@ lpad:                                             ; preds = %invoke.cont9, %invo
 if.end:                                           ; preds = %land.lhs.true, %if.then, %invoke.cont11, %entry
   %5 = load ptr, ptr %this, align 8
   store ptr null, ptr %this, align 8
-  %offset_.i = getelementptr inbounds %"class.net::SpdyFrameBuilder", ptr %this, i64 0, i32 3
+  %offset_.i = getelementptr inbounds i8, ptr %this, i64 24
   %6 = load i64, ptr %offset_.i, align 8
-  %length_.i = getelementptr inbounds %"class.net::SpdyFrameBuilder", ptr %this, i64 0, i32 2
+  %length_.i = getelementptr inbounds i8, ptr %this, i64 16
   %7 = load i64, ptr %length_.i, align 8
   %add.i = add i64 %7, %6
   store ptr %5, ptr %agg.result, align 8
-  %size_.i = getelementptr inbounds %"class.net::SpdySerializedFrame", ptr %agg.result, i64 0, i32 1
+  %size_.i = getelementptr inbounds i8, ptr %agg.result, i64 8
   store i64 %add.i, ptr %size_.i, align 8
-  %owns_buffer_.i = getelementptr inbounds %"class.net::SpdySerializedFrame", ptr %agg.result, i64 0, i32 2
+  %owns_buffer_.i = getelementptr inbounds i8, ptr %agg.result, i64 16
   store i8 1, ptr %owns_buffer_.i, align 8
-  %capacity_ = getelementptr inbounds %"class.net::SpdyFrameBuilder", ptr %this, i64 0, i32 1
+  %capacity_ = getelementptr inbounds i8, ptr %this, i64 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %capacity_, i8 0, i64 24, i1 false)
   ret void
 }
@@ -8259,7 +8155,7 @@ declare noundef zeroext i1 @_ZN3net20SpdyAltSvcWireFormat21ParseHeaderFieldValue
 define linkonce_odr dso_local void @_ZNSt6vectorIN3net20SpdyAltSvcWireFormat18AlternativeServiceESaIS2_EED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %this) unnamed_addr #5 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %0 = load ptr, ptr %this, align 8
-  %_M_finish = getelementptr inbounds %"struct.std::_Vector_base<net::SpdyAltSvcWireFormat::AlternativeService, std::allocator<net::SpdyAltSvcWireFormat::AlternativeService>>::_Vector_impl_data", ptr %this, i64 0, i32 1
+  %_M_finish = getelementptr inbounds i8, ptr %this, i64 8
   %1 = load ptr, ptr %_M_finish, align 8
   %cmp.not3.i.i.i = icmp eq ptr %0, %1
   br i1 %cmp.not3.i.i.i, label %invoke.cont, label %for.body.i.i.i
@@ -8267,7 +8163,7 @@ entry:
 for.body.i.i.i:                                   ; preds = %entry, %for.body.i.i.i
   %__first.addr.04.i.i.i = phi ptr [ %incdec.ptr.i.i.i, %for.body.i.i.i ], [ %0, %entry ]
   tail call void @_ZN3net20SpdyAltSvcWireFormat18AlternativeServiceD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %__first.addr.04.i.i.i) #23
-  %incdec.ptr.i.i.i = getelementptr inbounds %"struct.net::SpdyAltSvcWireFormat::AlternativeService", ptr %__first.addr.04.i.i.i, i64 1
+  %incdec.ptr.i.i.i = getelementptr inbounds i8, ptr %__first.addr.04.i.i.i, i64 96
   %cmp.not.i.i.i = icmp eq ptr %incdec.ptr.i.i.i, %1
   br i1 %cmp.not.i.i.i, label %invoke.contthread-pre-split, label %for.body.i.i.i, !llvm.loop !9
 
@@ -8312,11 +8208,11 @@ for.cond.preheader:                               ; preds = %entry
   br i1 %cmp16.not, label %for.end, label %for.body.lr.ph
 
 for.body.lr.ph:                                   ; preds = %for.cond.preheader
-  %1 = getelementptr inbounds { ptr, i64 }, ptr %agg.tmp, i64 0, i32 1
-  %2 = getelementptr inbounds { ptr, i64 }, ptr %key.i, i64 0, i32 1
-  %list_.i.i = getelementptr inbounds %class.linked_hash_map, ptr %block, i64 0, i32 1
-  %3 = getelementptr inbounds { ptr, i64 }, ptr %agg.tmp28, i64 0, i32 1
-  %4 = getelementptr inbounds { ptr, i64 }, ptr %agg.tmp25, i64 0, i32 1
+  %1 = getelementptr inbounds i8, ptr %agg.tmp, i64 8
+  %2 = getelementptr inbounds i8, ptr %key.i, i64 8
+  %list_.i.i = getelementptr inbounds i8, ptr %block, i64 56
+  %3 = getelementptr inbounds i8, ptr %agg.tmp28, i64 8
+  %4 = getelementptr inbounds i8, ptr %agg.tmp25, i64 8
   br label %for.body
 
 for.body:                                         ; preds = %for.body.lr.ph, %invoke.cont32
@@ -8430,7 +8326,7 @@ ehcleanup35:                                      ; preds = %ehcleanup, %lpad8
   br label %ehcleanup66
 
 for.end:                                          ; preds = %invoke.cont32, %for.cond.preheader
-  %ofs_.i = getelementptr inbounds %"class.net::SpdyFrameReader", ptr %reader, i64 0, i32 2
+  %ofs_.i = getelementptr inbounds i8, ptr %reader, i64 16
   %15 = load i64, ptr %ofs_.i, align 8
   %cmp38.not = icmp eq i64 %15, %header_length
   br i1 %cmp38.not, label %cleanup65, label %if.then39
@@ -8441,7 +8337,7 @@ if.then39:                                        ; preds = %for.end
 
 cond.false:                                       ; preds = %if.then39
   call void @_ZN7logging10LogMessageC1EPKcii(ptr noundef nonnull align 8 dereferenceable(404) %ref.tmp44, ptr noundef nonnull @.str, i32 noundef 2383, i32 noundef 2)
-  %stream_.i = getelementptr inbounds %"class.logging::LogMessage", ptr %ref.tmp44, i64 0, i32 2
+  %stream_.i = getelementptr inbounds i8, ptr %ref.tmp44, i64 8
   %call50 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc(ptr noundef nonnull align 8 dereferenceable(8) %stream_.i, ptr noundef nonnull @.str.108)
           to label %invoke.cont49 unwind label %lpad46
 
@@ -8502,28 +8398,28 @@ entry:
   %ref.tmp72 = alloca %"class.base::BasicStringPiece", align 8
   %padding = alloca %"class.std::__cxx11::basic_string", align 8
   %ref.tmp87 = alloca %"class.std::allocator", align 1
-  %fin_.i = getelementptr inbounds %"class.net::SpdyFrameWithFinIR", ptr %data_ir, i64 0, i32 1
+  %fin_.i = getelementptr inbounds i8, ptr %data_ir, i64 12
   %0 = load i8, ptr %fin_.i, align 4
   %1 = and i8 %0, 1
-  %protocol_version_ = getelementptr inbounds %"class.net::SpdyFramer", ptr %this, i64 0, i32 27
+  %protocol_version_ = getelementptr inbounds i8, ptr %this, i64 248
   %2 = load i32, ptr %protocol_version_, align 8
   %cmp = icmp eq i32 %2, 1
   br i1 %cmp, label %if.then2, label %if.else35
 
 if.then2:                                         ; preds = %entry
   %call.i = tail call noundef i64 @_ZN3net13SpdyConstants23GetDataFrameMinimumSizeENS_16SpdyMajorVersionE(i32 noundef 1)
-  %data_.i = getelementptr inbounds %"class.net::SpdyDataIR", ptr %data_ir, i64 0, i32 2
+  %data_.i = getelementptr inbounds i8, ptr %data_ir, i64 24
   %retval.sroa.0.0.copyload.i = load ptr, ptr %data_.i, align 8
-  %retval.sroa.2.0.data_.sroa_idx.i = getelementptr inbounds %"class.net::SpdyDataIR", ptr %data_ir, i64 0, i32 2, i32 1
+  %retval.sroa.2.0.data_.sroa_idx.i = getelementptr inbounds i8, ptr %data_ir, i64 32
   %retval.sroa.2.0.copyload.i = load i64, ptr %retval.sroa.2.0.data_.sroa_idx.i, align 8
   store ptr %retval.sroa.0.0.copyload.i, ptr %ref.tmp, align 8
-  %3 = getelementptr inbounds { ptr, i64 }, ptr %ref.tmp, i64 0, i32 1
+  %3 = getelementptr inbounds i8, ptr %ref.tmp, i64 8
   store i64 %retval.sroa.2.0.copyload.i, ptr %3, align 8
   %call5 = call noundef i64 @_ZNK4base16BasicStringPieceINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE6lengthEv(ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp)
   %add = add i64 %call5, %call.i
   %4 = load i32, ptr %protocol_version_, align 8
   call void @_ZN3net16SpdyFrameBuilderC1EmNS_16SpdyMajorVersionE(ptr noundef nonnull align 8 dereferenceable(36) %builder, i64 noundef %add, i32 noundef %4)
-  %stream_id_.i = getelementptr inbounds %"class.net::SpdyFrameWithStreamIdIR", ptr %data_ir, i64 0, i32 1
+  %stream_id_.i = getelementptr inbounds i8, ptr %data_ir, i64 8
   %5 = load i32, ptr %stream_id_.i, align 8
   %call9 = invoke noundef zeroext i1 @_ZN3net16SpdyFrameBuilder20WriteDataFrameHeaderERKNS_10SpdyFramerEjh(ptr noundef nonnull align 8 dereferenceable(36) %builder, ptr noundef nonnull align 8 dereferenceable(259) %this, i32 noundef %5, i8 noundef zeroext %1)
           to label %invoke.cont8 unwind label %lpad
@@ -8532,7 +8428,7 @@ invoke.cont8:                                     ; preds = %if.then2
   %retval.sroa.0.0.copyload.i24 = load ptr, ptr %data_.i, align 8
   %retval.sroa.2.0.copyload.i26 = load i64, ptr %retval.sroa.2.0.data_.sroa_idx.i, align 8
   store ptr %retval.sroa.0.0.copyload.i24, ptr %ref.tmp10, align 8
-  %6 = getelementptr inbounds { ptr, i64 }, ptr %ref.tmp10, i64 0, i32 1
+  %6 = getelementptr inbounds i8, ptr %ref.tmp10, i64 8
   store i64 %retval.sroa.2.0.copyload.i26, ptr %6, align 8
   %call14 = invoke noundef ptr @_ZNK4base16BasicStringPieceINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE4dataEv(ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp10)
           to label %invoke.cont13 unwind label %lpad
@@ -8541,7 +8437,7 @@ invoke.cont13:                                    ; preds = %invoke.cont8
   %retval.sroa.0.0.copyload.i30 = load ptr, ptr %data_.i, align 8
   %retval.sroa.2.0.copyload.i32 = load i64, ptr %retval.sroa.2.0.data_.sroa_idx.i, align 8
   store ptr %retval.sroa.0.0.copyload.i30, ptr %ref.tmp15, align 8
-  %7 = getelementptr inbounds { ptr, i64 }, ptr %ref.tmp15, i64 0, i32 1
+  %7 = getelementptr inbounds i8, ptr %ref.tmp15, i64 8
   store i64 %retval.sroa.2.0.copyload.i32, ptr %7, align 8
   %call19 = invoke noundef i64 @_ZNK4base16BasicStringPieceINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE6lengthEv(ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp15)
           to label %invoke.cont18 unwind label %lpad
@@ -8561,22 +8457,22 @@ if.end33:                                         ; preds = %invoke.cont18
           to label %return unwind label %lpad
 
 if.else35:                                        ; preds = %entry
-  %padded_.i = getelementptr inbounds %"class.net::SpdyDataIR", ptr %data_ir, i64 0, i32 3
+  %padded_.i = getelementptr inbounds i8, ptr %data_ir, i64 40
   %9 = load i8, ptr %padded_.i, align 8
   %10 = and i8 %9, 1
   %spec.select21 = zext nneg i8 %10 to i64
   %11 = shl nuw nsw i8 %10, 3
   %spec.select22 = or disjoint i8 %11, %1
-  %data_.i36 = getelementptr inbounds %"class.net::SpdyDataIR", ptr %data_ir, i64 0, i32 2
+  %data_.i36 = getelementptr inbounds i8, ptr %data_ir, i64 24
   %retval.sroa.0.0.copyload.i37 = load ptr, ptr %data_.i36, align 8
-  %retval.sroa.2.0.data_.sroa_idx.i38 = getelementptr inbounds %"class.net::SpdyDataIR", ptr %data_ir, i64 0, i32 2, i32 1
+  %retval.sroa.2.0.data_.sroa_idx.i38 = getelementptr inbounds i8, ptr %data_ir, i64 32
   %retval.sroa.2.0.copyload.i39 = load i64, ptr %retval.sroa.2.0.data_.sroa_idx.i38, align 8
   store ptr %retval.sroa.0.0.copyload.i37, ptr %ref.tmp42, align 8
-  %12 = getelementptr inbounds { ptr, i64 }, ptr %ref.tmp42, i64 0, i32 1
+  %12 = getelementptr inbounds i8, ptr %ref.tmp42, i64 8
   store i64 %retval.sroa.2.0.copyload.i39, ptr %12, align 8
   %call44 = call noundef i64 @_ZNK4base16BasicStringPieceINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE6lengthEv(ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp42)
   %add45 = add i64 %call44, %spec.select21
-  %padding_payload_len_.i = getelementptr inbounds %"class.net::SpdyDataIR", ptr %data_ir, i64 0, i32 4
+  %padding_payload_len_.i = getelementptr inbounds i8, ptr %data_ir, i64 44
   %13 = load i32, ptr %padding_payload_len_.i, align 4
   %conv47 = sext i32 %13 to i64
   %add48 = add i64 %add45, %conv47
@@ -8585,7 +8481,7 @@ if.else35:                                        ; preds = %entry
   %add50 = add i64 %add48, %call.i43
   %15 = load i32, ptr %protocol_version_, align 8
   call void @_ZN3net16SpdyFrameBuilderC1EmNS_16SpdyMajorVersionE(ptr noundef nonnull align 8 dereferenceable(36) %builder51, i64 noundef %add50, i32 noundef %15)
-  %stream_id_.i44 = getelementptr inbounds %"class.net::SpdyFrameWithStreamIdIR", ptr %data_ir, i64 0, i32 1
+  %stream_id_.i44 = getelementptr inbounds i8, ptr %data_ir, i64 8
   %16 = load i32, ptr %stream_id_.i44, align 8
   %call57 = invoke noundef zeroext i1 @_ZN3net16SpdyFrameBuilder20WriteDataFrameHeaderERKNS_10SpdyFramerEjh(ptr noundef nonnull align 8 dereferenceable(36) %builder51, ptr noundef nonnull align 8 dereferenceable(259) %this, i32 noundef %16, i8 noundef zeroext %spec.select22)
           to label %invoke.cont56 unwind label %lpad53
@@ -8617,7 +8513,7 @@ if.end66:                                         ; preds = %_ZN3net16SpdyFrameB
   %retval.sroa.0.0.copyload.i51 = load ptr, ptr %data_.i36, align 8
   %retval.sroa.2.0.copyload.i53 = load i64, ptr %retval.sroa.2.0.data_.sroa_idx.i38, align 8
   store ptr %retval.sroa.0.0.copyload.i51, ptr %ref.tmp67, align 8
-  %21 = getelementptr inbounds { ptr, i64 }, ptr %ref.tmp67, i64 0, i32 1
+  %21 = getelementptr inbounds i8, ptr %ref.tmp67, i64 8
   store i64 %retval.sroa.2.0.copyload.i53, ptr %21, align 8
   %call71 = invoke noundef ptr @_ZNK4base16BasicStringPieceINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE4dataEv(ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp67)
           to label %invoke.cont70 unwind label %lpad53
@@ -8626,7 +8522,7 @@ invoke.cont70:                                    ; preds = %if.end66
   %retval.sroa.0.0.copyload.i57 = load ptr, ptr %data_.i36, align 8
   %retval.sroa.2.0.copyload.i59 = load i64, ptr %retval.sroa.2.0.data_.sroa_idx.i38, align 8
   store ptr %retval.sroa.0.0.copyload.i57, ptr %ref.tmp72, align 8
-  %22 = getelementptr inbounds { ptr, i64 }, ptr %ref.tmp72, i64 0, i32 1
+  %22 = getelementptr inbounds i8, ptr %ref.tmp72, i64 8
   store i64 %retval.sroa.2.0.copyload.i59, ptr %22, align 8
   %call76 = invoke noundef i64 @_ZNK4base16BasicStringPieceINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE6lengthEv(ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp72)
           to label %invoke.cont75 unwind label %lpad53
@@ -8726,10 +8622,10 @@ entry:
   %builder = alloca %"class.net::SpdyFrameBuilder", align 8
   %ref.tmp = alloca %"class.base::BasicStringPiece", align 8
   %ref.tmp36 = alloca %"class.base::BasicStringPiece", align 8
-  %fin_.i = getelementptr inbounds %"class.net::SpdyFrameWithFinIR", ptr %data_ir, i64 0, i32 1
+  %fin_.i = getelementptr inbounds i8, ptr %data_ir, i64 12
   %0 = load i8, ptr %fin_.i, align 4
   %1 = and i8 %0, 1
-  %protocol_version_.i = getelementptr inbounds %"class.net::SpdyFramer", ptr %this, i64 0, i32 27
+  %protocol_version_.i = getelementptr inbounds i8, ptr %this, i64 248
   %2 = load i32, ptr %protocol_version_.i, align 8
   %call.i = tail call noundef i64 @_ZN3net13SpdyConstants23GetDataFrameMinimumSizeENS_16SpdyMajorVersionE(i32 noundef %2)
   %3 = load i32, ptr %protocol_version_.i, align 8
@@ -8737,7 +8633,7 @@ entry:
   br i1 %cmp, label %if.then3, label %if.end8
 
 if.then3:                                         ; preds = %entry
-  %padded_.i = getelementptr inbounds %"class.net::SpdyDataIR", ptr %data_ir, i64 0, i32 3
+  %padded_.i = getelementptr inbounds i8, ptr %data_ir, i64 40
   %4 = load i8, ptr %padded_.i, align 8
   %5 = and i8 %4, 1
   %spec.select12 = zext nneg i8 %5 to i64
@@ -8751,7 +8647,7 @@ if.end8:                                          ; preds = %if.then3, %entry
   %frame_size.0 = phi i64 [ %add, %if.then3 ], [ %call.i, %entry ]
   %flags.2 = phi i8 [ %spec.select13, %if.then3 ], [ %1, %entry ]
   call void @_ZN3net16SpdyFrameBuilderC1EmNS_16SpdyMajorVersionE(ptr noundef nonnull align 8 dereferenceable(36) %builder, i64 noundef %frame_size.0, i32 noundef %3)
-  %stream_id_.i = getelementptr inbounds %"class.net::SpdyFrameWithStreamIdIR", ptr %data_ir, i64 0, i32 1
+  %stream_id_.i = getelementptr inbounds i8, ptr %data_ir, i64 8
   %7 = load i32, ptr %stream_id_.i, align 8
   %call12 = invoke noundef zeroext i1 @_ZN3net16SpdyFrameBuilder20WriteDataFrameHeaderERKNS_10SpdyFramerEjh(ptr noundef nonnull align 8 dereferenceable(36) %builder, ptr noundef nonnull align 8 dereferenceable(259) %this, i32 noundef %7, i8 noundef zeroext %flags.2)
           to label %invoke.cont11 unwind label %lpad
@@ -8762,14 +8658,14 @@ invoke.cont11:                                    ; preds = %if.end8
   br i1 %cmp14, label %if.then15, label %if.else
 
 if.then15:                                        ; preds = %invoke.cont11
-  %padded_.i15 = getelementptr inbounds %"class.net::SpdyDataIR", ptr %data_ir, i64 0, i32 3
+  %padded_.i15 = getelementptr inbounds i8, ptr %data_ir, i64 40
   %9 = load i8, ptr %padded_.i15, align 8
   %10 = and i8 %9, 1
   %tobool.i16.not = icmp eq i8 %10, 0
   br i1 %tobool.i16.not, label %if.end24, label %if.then18
 
 if.then18:                                        ; preds = %if.then15
-  %padding_payload_len_.i = getelementptr inbounds %"class.net::SpdyDataIR", ptr %data_ir, i64 0, i32 4
+  %padding_payload_len_.i = getelementptr inbounds i8, ptr %data_ir, i64 44
   %11 = load i32, ptr %padding_payload_len_.i, align 4
   %conv21 = trunc i32 %11 to i8
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %value.addr.i)
@@ -8788,31 +8684,31 @@ lpad:                                             ; preds = %invoke.cont39.invok
   resume { ptr, i32 } %12
 
 if.end24:                                         ; preds = %_ZN3net16SpdyFrameBuilder10WriteUInt8Eh.exit, %if.then15
-  %data_.i = getelementptr inbounds %"class.net::SpdyDataIR", ptr %data_ir, i64 0, i32 2
+  %data_.i = getelementptr inbounds i8, ptr %data_ir, i64 24
   %retval.sroa.0.0.copyload.i = load ptr, ptr %data_.i, align 8
-  %retval.sroa.2.0.data_.sroa_idx.i = getelementptr inbounds %"class.net::SpdyDataIR", ptr %data_ir, i64 0, i32 2, i32 1
+  %retval.sroa.2.0.data_.sroa_idx.i = getelementptr inbounds i8, ptr %data_ir, i64 32
   %retval.sroa.2.0.copyload.i = load i64, ptr %retval.sroa.2.0.data_.sroa_idx.i, align 8
   store ptr %retval.sroa.0.0.copyload.i, ptr %ref.tmp, align 8
-  %13 = getelementptr inbounds { ptr, i64 }, ptr %ref.tmp, i64 0, i32 1
+  %13 = getelementptr inbounds i8, ptr %ref.tmp, i64 8
   store i64 %retval.sroa.2.0.copyload.i, ptr %13, align 8
   %call28 = invoke noundef i64 @_ZNK4base16BasicStringPieceINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE6lengthEv(ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp)
           to label %invoke.cont27 unwind label %lpad
 
 invoke.cont27:                                    ; preds = %if.end24
   %add29 = add i64 %call28, %num_padding_fields.1
-  %padding_payload_len_.i19 = getelementptr inbounds %"class.net::SpdyDataIR", ptr %data_ir, i64 0, i32 4
+  %padding_payload_len_.i19 = getelementptr inbounds i8, ptr %data_ir, i64 44
   %14 = load i32, ptr %padding_payload_len_.i19, align 4
   %conv32 = sext i32 %14 to i64
   %add33 = add i64 %add29, %conv32
   br label %invoke.cont39.invoke
 
 if.else:                                          ; preds = %invoke.cont11
-  %data_.i20 = getelementptr inbounds %"class.net::SpdyDataIR", ptr %data_ir, i64 0, i32 2
+  %data_.i20 = getelementptr inbounds i8, ptr %data_ir, i64 24
   %retval.sroa.0.0.copyload.i21 = load ptr, ptr %data_.i20, align 8
-  %retval.sroa.2.0.data_.sroa_idx.i22 = getelementptr inbounds %"class.net::SpdyDataIR", ptr %data_ir, i64 0, i32 2, i32 1
+  %retval.sroa.2.0.data_.sroa_idx.i22 = getelementptr inbounds i8, ptr %data_ir, i64 32
   %retval.sroa.2.0.copyload.i23 = load i64, ptr %retval.sroa.2.0.data_.sroa_idx.i22, align 8
   store ptr %retval.sroa.0.0.copyload.i21, ptr %ref.tmp36, align 8
-  %15 = getelementptr inbounds { ptr, i64 }, ptr %ref.tmp36, i64 0, i32 1
+  %15 = getelementptr inbounds i8, ptr %ref.tmp36, i64 8
   store i64 %retval.sroa.2.0.copyload.i23, ptr %15, align 8
   %call40 = invoke noundef i64 @_ZNK4base16BasicStringPieceINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE6lengthEv(ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp36)
           to label %invoke.cont39.invoke unwind label %lpad
@@ -8842,15 +8738,15 @@ if.end:
   %value.addr.i = alloca i32, align 4
   %ref.tmp21 = alloca %"class.logging::LogMessage", align 8
   %builder = alloca %"class.net::SpdyFrameBuilder", align 8
-  %fin_.i = getelementptr inbounds %"class.net::SpdyFrameWithFinIR", ptr %syn_stream, i64 0, i32 1
+  %fin_.i = getelementptr inbounds i8, ptr %syn_stream, i64 12
   %0 = load i8, ptr %fin_.i, align 4
   %1 = and i8 %0, 1
-  %unidirectional_.i = getelementptr inbounds %"class.net::SpdySynStreamIR", ptr %syn_stream, i64 0, i32 3
+  %unidirectional_.i = getelementptr inbounds i8, ptr %syn_stream, i64 109
   %2 = load i8, ptr %unidirectional_.i, align 1
   %3 = shl i8 %2, 1
   %4 = and i8 %3, 2
   %flags.1 = or disjoint i8 %4, %1
-  %priority_.i = getelementptr inbounds %"class.net::SpdySynStreamIR", ptr %syn_stream, i64 0, i32 2
+  %priority_.i = getelementptr inbounds i8, ptr %syn_stream, i64 108
   %5 = load i8, ptr %priority_.i, align 4
   %cmp = icmp ugt i8 %5, 7
   br i1 %cmp, label %if.then18, label %if.end32
@@ -8861,7 +8757,7 @@ if.then18:                                        ; preds = %if.end
 
 cond.false:                                       ; preds = %if.then18
   call void @_ZN7logging10LogMessageC1EPKcii(ptr noundef nonnull align 8 dereferenceable(404) %ref.tmp21, ptr noundef nonnull @.str, i32 noundef 2476, i32 noundef 2)
-  %stream_.i14 = getelementptr inbounds %"class.logging::LogMessage", ptr %ref.tmp21, i64 0, i32 2
+  %stream_.i14 = getelementptr inbounds i8, ptr %ref.tmp21, i64 8
   %call26 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc(ptr noundef nonnull align 8 dereferenceable(8) %stream_.i14, ptr noundef nonnull @.str.110)
           to label %cleanup.action unwind label %lpad22
 
@@ -8877,13 +8773,13 @@ lpad22:                                           ; preds = %cond.false
 
 if.end32:                                         ; preds = %cleanup.action, %if.then18, %if.end
   %priority.0 = phi i8 [ %5, %if.end ], [ 7, %if.then18 ], [ 7, %cleanup.action ]
-  %protocol_version_.i = getelementptr inbounds %"class.net::SpdyFramer", ptr %this, i64 0, i32 27
+  %protocol_version_.i = getelementptr inbounds i8, ptr %this, i64 248
   %7 = load i32, ptr %protocol_version_.i, align 8
   %cmp.i = icmp eq i32 %7, 1
   %.4.i = select i1 %cmp.i, i64 10, i64 5
   %call.i2.i = call noundef i64 @_ZN3net13SpdyConstants18GetFrameHeaderSizeENS_16SpdyMajorVersionE(i32 noundef %7)
   %add4.i = add i64 %.4.i, %call.i2.i
-  %list_.i.i.i.i = getelementptr inbounds %"class.net::SpdyFrameWithHeaderBlockIR", ptr %syn_stream, i64 0, i32 1, i32 0, i32 1
+  %list_.i.i.i.i = getelementptr inbounds i8, ptr %syn_stream, i64 72
   %__begin1.sroa.0.07.i.i = load ptr, ptr %list_.i.i.i.i, align 8
   %cmp.i.not8.i.i = icmp eq ptr %__begin1.sroa.0.07.i.i, %list_.i.i.i.i
   br i1 %cmp.i.not8.i.i, label %_ZN3net10SpdyFramer19GetSerializedLengthENS_16SpdyMajorVersionEPKNS_15SpdyHeaderBlockE.exit.i, label %for.body.i.i
@@ -8891,9 +8787,9 @@ if.end32:                                         ; preds = %cleanup.action, %if
 for.body.i.i:                                     ; preds = %if.end32, %for.body.i.i
   %__begin1.sroa.0.010.i.i = phi ptr [ %__begin1.sroa.0.0.i.i, %for.body.i.i ], [ %__begin1.sroa.0.07.i.i, %if.end32 ]
   %total_length.09.i.i = phi i64 [ %add9.i.i, %for.body.i.i ], [ 4, %if.end32 ]
-  %_M_storage.i.i.i.i = getelementptr inbounds %"struct.std::_List_node", ptr %__begin1.sroa.0.010.i.i, i64 0, i32 1
+  %_M_storage.i.i.i.i = getelementptr inbounds i8, ptr %__begin1.sroa.0.010.i.i, i64 16
   %call5.i.i = call noundef i64 @_ZNK4base16BasicStringPieceINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %_M_storage.i.i.i.i)
-  %second.i.i = getelementptr inbounds %"struct.std::_List_node", ptr %__begin1.sroa.0.010.i.i, i64 0, i32 1, i32 0, i64 16
+  %second.i.i = getelementptr inbounds i8, ptr %__begin1.sroa.0.010.i.i, i64 32
   %call7.i.i = call noundef i64 @_ZNK4base16BasicStringPieceINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %second.i.i)
   %add6.i.i = add i64 %total_length.09.i.i, 8
   %add8.i.i = add i64 %add6.i.i, %call5.i.i
@@ -8904,7 +8800,7 @@ for.body.i.i:                                     ; preds = %if.end32, %for.body
 
 _ZN3net10SpdyFramer19GetSerializedLengthENS_16SpdyMajorVersionEPKNS_15SpdyHeaderBlockE.exit.i: ; preds = %for.body.i.i, %if.end32
   %total_length.0.lcssa.i.i = phi i64 [ 4, %if.end32 ], [ %add9.i.i, %for.body.i.i ]
-  %enable_compression_.i = getelementptr inbounds %"class.net::SpdyFramer", ptr %this, i64 0, i32 29
+  %enable_compression_.i = getelementptr inbounds i8, ptr %this, i64 253
   %8 = load i8, ptr %enable_compression_.i, align 1
   %9 = and i8 %8, 1
   %tobool.not.i15 = icmp eq i8 %9, 0
@@ -8925,7 +8821,7 @@ _ZN3net10SpdyFramer19GetSerializedLengthERKNS_15SpdyHeaderBlockE.exit: ; preds =
           to label %invoke.cont37 unwind label %lpad36.loopexit.split-lp
 
 invoke.cont37:                                    ; preds = %_ZN3net10SpdyFramer19GetSerializedLengthERKNS_15SpdyHeaderBlockE.exit
-  %stream_id_.i = getelementptr inbounds %"class.net::SpdyFrameWithStreamIdIR", ptr %syn_stream, i64 0, i32 1
+  %stream_id_.i = getelementptr inbounds i8, ptr %syn_stream, i64 8
   %11 = load i32, ptr %stream_id_.i, align 8
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %value.addr.i)
   %12 = call noundef i32 @llvm.bswap.i32(i32 %11)
@@ -8935,7 +8831,7 @@ invoke.cont37:                                    ; preds = %_ZN3net10SpdyFramer
 
 invoke.cont41:                                    ; preds = %invoke.cont37
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %value.addr.i)
-  %associated_to_stream_id_.i = getelementptr inbounds %"class.net::SpdySynStreamIR", ptr %syn_stream, i64 0, i32 1
+  %associated_to_stream_id_.i = getelementptr inbounds i8, ptr %syn_stream, i64 104
   %13 = load i32, ptr %associated_to_stream_id_.i, align 8
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %value.addr.i18)
   %14 = call noundef i32 @llvm.bswap.i32(i32 %13)
@@ -8979,7 +8875,7 @@ if.end66:                                         ; preds = %invoke.cont49
           to label %invoke.cont67 unwind label %lpad36.loopexit.split-lp
 
 invoke.cont67:                                    ; preds = %if.end66
-  %debug_visitor_ = getelementptr inbounds %"class.net::SpdyFramer", ptr %this, i64 0, i32 22
+  %debug_visitor_ = getelementptr inbounds i8, ptr %this, i64 184
   %15 = load ptr, ptr %debug_visitor_, align 8
   %tobool.not = icmp eq ptr %15, null
   br i1 %tobool.not, label %if.end80, label %if.then68
@@ -8992,12 +8888,12 @@ if.then68:                                        ; preds = %invoke.cont67
 for.body.i:                                       ; preds = %if.then68, %call7.i.noexc
   %__begin1.sroa.0.010.i = phi ptr [ %__begin1.sroa.0.0.i, %call7.i.noexc ], [ %__begin1.sroa.0.07.i, %if.then68 ]
   %total_length.09.i = phi i64 [ %add9.i, %call7.i.noexc ], [ 4, %if.then68 ]
-  %_M_storage.i.i.i = getelementptr inbounds %"struct.std::_List_node", ptr %__begin1.sroa.0.010.i, i64 0, i32 1
+  %_M_storage.i.i.i = getelementptr inbounds i8, ptr %__begin1.sroa.0.010.i, i64 16
   %call5.i30 = invoke noundef i64 @_ZNK4base16BasicStringPieceINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %_M_storage.i.i.i)
           to label %call5.i.noexc unwind label %lpad36.loopexit
 
 call5.i.noexc:                                    ; preds = %for.body.i
-  %second.i = getelementptr inbounds %"struct.std::_List_node", ptr %__begin1.sroa.0.010.i, i64 0, i32 1, i32 0, i64 16
+  %second.i = getelementptr inbounds i8, ptr %__begin1.sroa.0.010.i, i64 32
   %call7.i31 = invoke noundef i64 @_ZNK4base16BasicStringPieceINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %second.i)
           to label %call7.i.noexc unwind label %lpad36.loopexit
 
@@ -9017,13 +8913,13 @@ invoke.cont72:                                    ; preds = %invoke.cont72.loope
   %16 = phi ptr [ %15, %if.then68 ], [ %.pre, %invoke.cont72.loopexit ]
   %total_length.0.lcssa.i = phi i64 [ 4, %if.then68 ], [ %add9.i, %invoke.cont72.loopexit ]
   %17 = load i32, ptr %stream_id_.i, align 8
-  %offset_.i = getelementptr inbounds %"class.net::SpdyFrameBuilder", ptr %builder, i64 0, i32 3
+  %offset_.i = getelementptr inbounds i8, ptr %builder, i64 24
   %18 = load i64, ptr %offset_.i, align 8
-  %length_.i = getelementptr inbounds %"class.net::SpdyFrameBuilder", ptr %builder, i64 0, i32 2
+  %length_.i = getelementptr inbounds i8, ptr %builder, i64 16
   %19 = load i64, ptr %length_.i, align 8
   %add.i = add i64 %19, %18
   %vtable = load ptr, ptr %16, align 8
-  %vfn = getelementptr inbounds ptr, ptr %vtable, i64 2
+  %vfn = getelementptr inbounds i8, ptr %vtable, i64 16
   %20 = load ptr, ptr %vfn, align 8
   invoke void %20(ptr noundef nonnull align 8 dereferenceable(8) %16, i32 noundef %17, i32 noundef 1, i64 noundef %total_length.0.lcssa.i, i64 noundef %add.i)
           to label %if.end80 unwind label %lpad36.loopexit.split-lp
@@ -9044,7 +8940,7 @@ eh.resume:                                        ; preds = %lpad22, %lpad36
 ; Function Attrs: mustprogress uwtable
 define dso_local noundef i64 @_ZN3net10SpdyFramer19GetSerializedLengthERKNS_15SpdyHeaderBlockE(ptr nocapture noundef nonnull align 8 dereferenceable(259) %this, ptr noundef nonnull readonly align 8 dereferenceable(88) %headers) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  %list_.i.i.i = getelementptr inbounds %class.linked_hash_map, ptr %headers, i64 0, i32 1
+  %list_.i.i.i = getelementptr inbounds i8, ptr %headers, i64 56
   %__begin1.sroa.0.07.i = load ptr, ptr %list_.i.i.i, align 8
   %cmp.i.not8.i = icmp eq ptr %__begin1.sroa.0.07.i, %list_.i.i.i
   br i1 %cmp.i.not8.i, label %_ZN3net10SpdyFramer19GetSerializedLengthENS_16SpdyMajorVersionEPKNS_15SpdyHeaderBlockE.exit, label %for.body.i
@@ -9052,9 +8948,9 @@ entry:
 for.body.i:                                       ; preds = %entry, %for.body.i
   %__begin1.sroa.0.010.i = phi ptr [ %__begin1.sroa.0.0.i, %for.body.i ], [ %__begin1.sroa.0.07.i, %entry ]
   %total_length.09.i = phi i64 [ %add9.i, %for.body.i ], [ 4, %entry ]
-  %_M_storage.i.i.i = getelementptr inbounds %"struct.std::_List_node", ptr %__begin1.sroa.0.010.i, i64 0, i32 1
+  %_M_storage.i.i.i = getelementptr inbounds i8, ptr %__begin1.sroa.0.010.i, i64 16
   %call5.i = tail call noundef i64 @_ZNK4base16BasicStringPieceINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %_M_storage.i.i.i)
-  %second.i = getelementptr inbounds %"struct.std::_List_node", ptr %__begin1.sroa.0.010.i, i64 0, i32 1, i32 0, i64 16
+  %second.i = getelementptr inbounds i8, ptr %__begin1.sroa.0.010.i, i64 32
   %call7.i = tail call noundef i64 @_ZNK4base16BasicStringPieceINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %second.i)
   %add6.i = add i64 %total_length.09.i, 8
   %add8.i = add i64 %add6.i, %call5.i
@@ -9065,7 +8961,7 @@ for.body.i:                                       ; preds = %entry, %for.body.i
 
 _ZN3net10SpdyFramer19GetSerializedLengthENS_16SpdyMajorVersionEPKNS_15SpdyHeaderBlockE.exit: ; preds = %for.body.i, %entry
   %total_length.0.lcssa.i = phi i64 [ 4, %entry ], [ %add9.i, %for.body.i ]
-  %enable_compression_ = getelementptr inbounds %"class.net::SpdyFramer", ptr %this, i64 0, i32 29
+  %enable_compression_ = getelementptr inbounds i8, ptr %this, i64 253
   %0 = load i8, ptr %enable_compression_, align 1
   %1 = and i8 %0, 1
   %tobool.not = icmp eq i8 %1, 0
@@ -9092,14 +8988,14 @@ entry:
   %uncompressed_builder = alloca %"class.net::SpdyFrameBuilder", align 8
   %uncompressed_payload = alloca %"class.net::SpdySerializedFrame", align 8
   %ref.tmp16 = alloca %"class.logging::LogMessage", align 8
-  %enable_compression_ = getelementptr inbounds %"class.net::SpdyFramer", ptr %this, i64 0, i32 29
+  %enable_compression_ = getelementptr inbounds i8, ptr %this, i64 253
   %0 = load i8, ptr %enable_compression_, align 1
   %1 = and i8 %0, 1
   %tobool.not = icmp eq i8 %1, 0
   br i1 %tobool.not, label %if.then, label %if.end
 
 if.then:                                          ; preds = %entry
-  %_M_size.i.i.i.i.i.i = getelementptr inbounds %"class.net::SpdyFrameWithHeaderBlockIR", ptr %frame, i64 0, i32 1, i32 0, i32 1, i32 0, i32 0, i32 0, i32 1
+  %_M_size.i.i.i.i.i.i = getelementptr inbounds i8, ptr %frame, i64 88
   %2 = load i64, ptr %_M_size.i.i.i.i.i.i, align 8
   %conv.i = trunc i64 %2 to i32
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %value.addr.i.i)
@@ -9107,25 +9003,25 @@ if.then:                                          ; preds = %entry
   store i32 %3, ptr %value.addr.i.i, align 4
   %call2.i.i = call noundef zeroext i1 @_ZN3net16SpdyFrameBuilder10WriteBytesEPKvj(ptr noundef nonnull align 8 dereferenceable(36) %builder, ptr noundef nonnull %value.addr.i.i, i32 noundef 4)
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %value.addr.i.i)
-  %list_.i.i.i = getelementptr inbounds %"class.net::SpdyFrameWithHeaderBlockIR", ptr %frame, i64 0, i32 1, i32 0, i32 1
+  %list_.i.i.i = getelementptr inbounds i8, ptr %frame, i64 72
   %__begin1.sroa.0.09.i = load ptr, ptr %list_.i.i.i, align 8
   %cmp.i.not10.i = icmp eq ptr %__begin1.sroa.0.09.i, %list_.i.i.i
   br i1 %cmp.i.not10.i, label %cleanup.cont, label %for.body.i
 
 for.body.i:                                       ; preds = %if.then, %for.body.i
   %__begin1.sroa.0.011.i = phi ptr [ %__begin1.sroa.0.0.i, %for.body.i ], [ %__begin1.sroa.0.09.i, %if.then ]
-  %_M_storage.i.i.i = getelementptr inbounds %"struct.std::_List_node", ptr %__begin1.sroa.0.011.i, i64 0, i32 1
+  %_M_storage.i.i.i = getelementptr inbounds i8, ptr %__begin1.sroa.0.011.i, i64 16
   %call8.i = call noundef zeroext i1 @_ZN3net16SpdyFrameBuilder18WriteStringPiece32ERKN4base16BasicStringPieceINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEE(ptr noundef nonnull align 8 dereferenceable(36) %builder, ptr noundef nonnull align 8 dereferenceable(16) %_M_storage.i.i.i)
-  %second.i = getelementptr inbounds %"struct.std::_List_node", ptr %__begin1.sroa.0.011.i, i64 0, i32 1, i32 0, i64 16
+  %second.i = getelementptr inbounds i8, ptr %__begin1.sroa.0.011.i, i64 32
   %call9.i = call noundef zeroext i1 @_ZN3net16SpdyFrameBuilder18WriteStringPiece32ERKN4base16BasicStringPieceINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEE(ptr noundef nonnull align 8 dereferenceable(36) %builder, ptr noundef nonnull align 8 dereferenceable(16) %second.i)
   %__begin1.sroa.0.0.i = load ptr, ptr %__begin1.sroa.0.011.i, align 8
   %cmp.i.not.i = icmp eq ptr %__begin1.sroa.0.0.i, %list_.i.i.i
   br i1 %cmp.i.not.i, label %cleanup.cont, label %for.body.i
 
 if.end:                                           ; preds = %entry
-  %protocol_version_ = getelementptr inbounds %"class.net::SpdyFramer", ptr %this, i64 0, i32 27
-  %header_block_.i17 = getelementptr inbounds %"class.net::SpdyFrameWithHeaderBlockIR", ptr %frame, i64 0, i32 1
-  %list_.i.i.i18 = getelementptr inbounds %"class.net::SpdyFrameWithHeaderBlockIR", ptr %frame, i64 0, i32 1, i32 0, i32 1
+  %protocol_version_ = getelementptr inbounds i8, ptr %this, i64 248
+  %header_block_.i17 = getelementptr inbounds i8, ptr %frame, i64 16
+  %list_.i.i.i18 = getelementptr inbounds i8, ptr %frame, i64 72
   %__begin1.sroa.0.07.i = load ptr, ptr %list_.i.i.i18, align 8
   %cmp.i.not8.i = icmp eq ptr %__begin1.sroa.0.07.i, %list_.i.i.i18
   br i1 %cmp.i.not8.i, label %_ZN3net10SpdyFramer19GetSerializedLengthENS_16SpdyMajorVersionEPKNS_15SpdyHeaderBlockE.exit, label %for.body.i19
@@ -9133,9 +9029,9 @@ if.end:                                           ; preds = %entry
 for.body.i19:                                     ; preds = %if.end, %for.body.i19
   %__begin1.sroa.0.010.i = phi ptr [ %__begin1.sroa.0.0.i22, %for.body.i19 ], [ %__begin1.sroa.0.07.i, %if.end ]
   %total_length.09.i = phi i64 [ %add9.i, %for.body.i19 ], [ 4, %if.end ]
-  %_M_storage.i.i.i20 = getelementptr inbounds %"struct.std::_List_node", ptr %__begin1.sroa.0.010.i, i64 0, i32 1
+  %_M_storage.i.i.i20 = getelementptr inbounds i8, ptr %__begin1.sroa.0.010.i, i64 16
   %call5.i = tail call noundef i64 @_ZNK4base16BasicStringPieceINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %_M_storage.i.i.i20)
-  %second.i21 = getelementptr inbounds %"struct.std::_List_node", ptr %__begin1.sroa.0.010.i, i64 0, i32 1, i32 0, i64 16
+  %second.i21 = getelementptr inbounds i8, ptr %__begin1.sroa.0.010.i, i64 32
   %call7.i = tail call noundef i64 @_ZNK4base16BasicStringPieceINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %second.i21)
   %add6.i = add i64 %total_length.09.i, 8
   %add8.i = add i64 %add6.i, %call5.i
@@ -9148,7 +9044,7 @@ _ZN3net10SpdyFramer19GetSerializedLengthENS_16SpdyMajorVersionEPKNS_15SpdyHeader
   %total_length.0.lcssa.i = phi i64 [ 4, %if.end ], [ %add9.i, %for.body.i19 ]
   %4 = load i32, ptr %protocol_version_, align 8
   call void @_ZN3net16SpdyFrameBuilderC1EmNS_16SpdyMajorVersionE(ptr noundef nonnull align 8 dereferenceable(36) %uncompressed_builder, i64 noundef %total_length.0.lcssa.i, i32 noundef %4)
-  %_M_size.i.i.i.i.i.i26 = getelementptr inbounds %"class.net::SpdyFrameWithHeaderBlockIR", ptr %frame, i64 0, i32 1, i32 0, i32 1, i32 0, i32 0, i32 0, i32 1
+  %_M_size.i.i.i.i.i.i26 = getelementptr inbounds i8, ptr %frame, i64 88
   %5 = load i64, ptr %_M_size.i.i.i.i.i.i26, align 8
   %conv.i27 = trunc i64 %5 to i32
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %value.addr.i.i25)
@@ -9165,12 +9061,12 @@ call2.i.i28.noexc:                                ; preds = %_ZN3net10SpdyFramer
 
 for.body.i32:                                     ; preds = %call2.i.i28.noexc, %call9.i37.noexc
   %__begin1.sroa.0.011.i33 = phi ptr [ %__begin1.sroa.0.0.i38, %call9.i37.noexc ], [ %__begin1.sroa.0.09.i30, %call2.i.i28.noexc ]
-  %_M_storage.i.i.i34 = getelementptr inbounds %"struct.std::_List_node", ptr %__begin1.sroa.0.011.i33, i64 0, i32 1
+  %_M_storage.i.i.i34 = getelementptr inbounds i8, ptr %__begin1.sroa.0.011.i33, i64 16
   %call8.i3541 = invoke noundef zeroext i1 @_ZN3net16SpdyFrameBuilder18WriteStringPiece32ERKN4base16BasicStringPieceINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEE(ptr noundef nonnull align 8 dereferenceable(36) %uncompressed_builder, ptr noundef nonnull align 8 dereferenceable(16) %_M_storage.i.i.i34)
           to label %call8.i35.noexc unwind label %lpad.loopexit
 
 call8.i35.noexc:                                  ; preds = %for.body.i32
-  %second.i36 = getelementptr inbounds %"struct.std::_List_node", ptr %__begin1.sroa.0.011.i33, i64 0, i32 1, i32 0, i64 16
+  %second.i36 = getelementptr inbounds i8, ptr %__begin1.sroa.0.011.i33, i64 32
   %call9.i3742 = invoke noundef zeroext i1 @_ZN3net16SpdyFrameBuilder18WriteStringPiece32ERKN4base16BasicStringPieceINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEE(ptr noundef nonnull align 8 dereferenceable(36) %uncompressed_builder, ptr noundef nonnull align 8 dereferenceable(16) %second.i36)
           to label %call9.i37.noexc unwind label %lpad.loopexit
 
@@ -9203,7 +9099,7 @@ cond.false:                                       ; preds = %invoke.cont13
           to label %invoke.cont17 unwind label %lpad8
 
 invoke.cont17:                                    ; preds = %cond.false
-  %stream_.i = getelementptr inbounds %"class.logging::LogMessage", ptr %ref.tmp16, i64 0, i32 2
+  %stream_.i = getelementptr inbounds i8, ptr %ref.tmp16, i64 8
   %call22 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc(ptr noundef nonnull align 8 dereferenceable(8) %stream_.i, ptr noundef nonnull @.str.116)
           to label %cleanup.action unwind label %lpad18
 
@@ -9244,9 +9140,9 @@ invoke.cont28:                                    ; preds = %if.end27
           to label %invoke.cont31 unwind label %lpad8
 
 invoke.cont31:                                    ; preds = %invoke.cont28
-  %next_out = getelementptr inbounds %struct.z_stream_s, ptr %call10, i64 0, i32 3
+  %next_out = getelementptr inbounds i8, ptr %call10, i64 24
   store ptr %call32, ptr %next_out, align 8
-  %avail_out = getelementptr inbounds %struct.z_stream_s, ptr %call10, i64 0, i32 4
+  %avail_out = getelementptr inbounds i8, ptr %call10, i64 32
   store i32 %conv, ptr %avail_out, align 8
   invoke void @_ZNK3net10SpdyFramer19WriteHeaderBlockToZEPKNS_15SpdyHeaderBlockEP10z_stream_s(ptr nonnull align 8 poison, ptr noundef nonnull %header_block_.i17, ptr noundef nonnull %call10)
           to label %invoke.cont35 unwind label %lpad8
@@ -9263,7 +9159,7 @@ invoke.cont38:                                    ; preds = %invoke.cont35
           to label %cleanup unwind label %lpad8
 
 cleanup:                                          ; preds = %invoke.cont38, %cleanup.action, %invoke.cont13
-  %owns_buffer_.i = getelementptr inbounds %"class.net::SpdySerializedFrame", ptr %uncompressed_payload, i64 0, i32 2
+  %owns_buffer_.i = getelementptr inbounds i8, ptr %uncompressed_payload, i64 16
   %10 = load i8, ptr %owns_buffer_.i, align 8
   %11 = and i8 %10, 1
   %tobool.not.i = icmp eq i8 %11, 0
@@ -9287,7 +9183,7 @@ cleanup.cont:                                     ; preds = %for.body.i, %if.the
 
 ehcleanup:                                        ; preds = %lpad18, %lpad8
   %.pn = phi { ptr, i32 } [ %7, %lpad8 ], [ %8, %lpad18 ]
-  %owns_buffer_.i45 = getelementptr inbounds %"class.net::SpdySerializedFrame", ptr %uncompressed_payload, i64 0, i32 2
+  %owns_buffer_.i45 = getelementptr inbounds i8, ptr %uncompressed_payload, i64 16
   %13 = load i8, ptr %owns_buffer_.i45, align 8
   %14 = and i8 %13, 1
   %tobool.not.i46 = icmp eq i8 %14, 0
@@ -9313,17 +9209,17 @@ define dso_local void @_ZN3net10SpdyFramer17SerializeSynReplyERKNS_14SpdySynRepl
 if.end:
   %value.addr.i = alloca i32, align 4
   %builder = alloca %"class.net::SpdyFrameBuilder", align 8
-  %fin_.i = getelementptr inbounds %"class.net::SpdyFrameWithFinIR", ptr %syn_reply, i64 0, i32 1
+  %fin_.i = getelementptr inbounds i8, ptr %syn_reply, i64 12
   %0 = load i8, ptr %fin_.i, align 4
   %1 = and i8 %0, 1
-  %protocol_version_.i.i = getelementptr inbounds %"class.net::SpdyFramer", ptr %this, i64 0, i32 27
+  %protocol_version_.i.i = getelementptr inbounds i8, ptr %this, i64 248
   %2 = load i32, ptr %protocol_version_.i.i, align 8
   %call.i.i = tail call noundef i64 @_ZN3net13SpdyConstants18GetFrameHeaderSizeENS_16SpdyMajorVersionE(i32 noundef %2)
   %3 = load i32, ptr %protocol_version_.i.i, align 8
   %cmp.i = icmp eq i32 %3, 1
   %add.i = add i64 %call.i.i, 4
   %spec.select.i = select i1 %cmp.i, i64 %add.i, i64 %call.i.i
-  %list_.i.i.i.i = getelementptr inbounds %"class.net::SpdyFrameWithHeaderBlockIR", ptr %syn_reply, i64 0, i32 1, i32 0, i32 1
+  %list_.i.i.i.i = getelementptr inbounds i8, ptr %syn_reply, i64 72
   %__begin1.sroa.0.07.i.i = load ptr, ptr %list_.i.i.i.i, align 8
   %cmp.i.not8.i.i = icmp eq ptr %__begin1.sroa.0.07.i.i, %list_.i.i.i.i
   br i1 %cmp.i.not8.i.i, label %_ZN3net10SpdyFramer19GetSerializedLengthENS_16SpdyMajorVersionEPKNS_15SpdyHeaderBlockE.exit.i, label %for.body.i.i
@@ -9331,9 +9227,9 @@ if.end:
 for.body.i.i:                                     ; preds = %if.end, %for.body.i.i
   %__begin1.sroa.0.010.i.i = phi ptr [ %__begin1.sroa.0.0.i.i, %for.body.i.i ], [ %__begin1.sroa.0.07.i.i, %if.end ]
   %total_length.09.i.i = phi i64 [ %add9.i.i, %for.body.i.i ], [ 4, %if.end ]
-  %_M_storage.i.i.i.i = getelementptr inbounds %"struct.std::_List_node", ptr %__begin1.sroa.0.010.i.i, i64 0, i32 1
+  %_M_storage.i.i.i.i = getelementptr inbounds i8, ptr %__begin1.sroa.0.010.i.i, i64 16
   %call5.i.i = tail call noundef i64 @_ZNK4base16BasicStringPieceINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %_M_storage.i.i.i.i)
-  %second.i.i = getelementptr inbounds %"struct.std::_List_node", ptr %__begin1.sroa.0.010.i.i, i64 0, i32 1, i32 0, i64 16
+  %second.i.i = getelementptr inbounds i8, ptr %__begin1.sroa.0.010.i.i, i64 32
   %call7.i.i = tail call noundef i64 @_ZNK4base16BasicStringPieceINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %second.i.i)
   %add6.i.i = add i64 %total_length.09.i.i, 8
   %add8.i.i = add i64 %add6.i.i, %call5.i.i
@@ -9344,7 +9240,7 @@ for.body.i.i:                                     ; preds = %if.end, %for.body.i
 
 _ZN3net10SpdyFramer19GetSerializedLengthENS_16SpdyMajorVersionEPKNS_15SpdyHeaderBlockE.exit.i: ; preds = %for.body.i.i, %if.end
   %total_length.0.lcssa.i.i = phi i64 [ 4, %if.end ], [ %add9.i.i, %for.body.i.i ]
-  %enable_compression_.i = getelementptr inbounds %"class.net::SpdyFramer", ptr %this, i64 0, i32 29
+  %enable_compression_.i = getelementptr inbounds i8, ptr %this, i64 253
   %4 = load i8, ptr %enable_compression_.i, align 1
   %5 = and i8 %4, 1
   %tobool.not.i7 = icmp eq i8 %5, 0
@@ -9365,7 +9261,7 @@ _ZN3net10SpdyFramer19GetSerializedLengthERKNS_15SpdyHeaderBlockE.exit: ; preds =
           to label %invoke.cont12 unwind label %lpad11.loopexit.split-lp
 
 invoke.cont12:                                    ; preds = %_ZN3net10SpdyFramer19GetSerializedLengthERKNS_15SpdyHeaderBlockE.exit
-  %stream_id_.i = getelementptr inbounds %"class.net::SpdyFrameWithStreamIdIR", ptr %syn_reply, i64 0, i32 1
+  %stream_id_.i = getelementptr inbounds i8, ptr %syn_reply, i64 8
   %7 = load i32, ptr %stream_id_.i, align 8
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %value.addr.i)
   %8 = call noundef i32 @llvm.bswap.i32(i32 %7)
@@ -9394,7 +9290,7 @@ if.end31:                                         ; preds = %invoke.cont12
           to label %invoke.cont32 unwind label %lpad11.loopexit.split-lp
 
 invoke.cont32:                                    ; preds = %if.end31
-  %debug_visitor_ = getelementptr inbounds %"class.net::SpdyFramer", ptr %this, i64 0, i32 22
+  %debug_visitor_ = getelementptr inbounds i8, ptr %this, i64 184
   %9 = load ptr, ptr %debug_visitor_, align 8
   %tobool.not = icmp eq ptr %9, null
   br i1 %tobool.not, label %if.end45, label %if.then33
@@ -9407,12 +9303,12 @@ if.then33:                                        ; preds = %invoke.cont32
 for.body.i:                                       ; preds = %if.then33, %call7.i.noexc
   %__begin1.sroa.0.010.i = phi ptr [ %__begin1.sroa.0.0.i, %call7.i.noexc ], [ %__begin1.sroa.0.07.i, %if.then33 ]
   %total_length.09.i = phi i64 [ %add9.i, %call7.i.noexc ], [ 4, %if.then33 ]
-  %_M_storage.i.i.i = getelementptr inbounds %"struct.std::_List_node", ptr %__begin1.sroa.0.010.i, i64 0, i32 1
+  %_M_storage.i.i.i = getelementptr inbounds i8, ptr %__begin1.sroa.0.010.i, i64 16
   %call5.i13 = invoke noundef i64 @_ZNK4base16BasicStringPieceINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %_M_storage.i.i.i)
           to label %call5.i.noexc unwind label %lpad11.loopexit
 
 call5.i.noexc:                                    ; preds = %for.body.i
-  %second.i = getelementptr inbounds %"struct.std::_List_node", ptr %__begin1.sroa.0.010.i, i64 0, i32 1, i32 0, i64 16
+  %second.i = getelementptr inbounds i8, ptr %__begin1.sroa.0.010.i, i64 32
   %call7.i14 = invoke noundef i64 @_ZNK4base16BasicStringPieceINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %second.i)
           to label %call7.i.noexc unwind label %lpad11.loopexit
 
@@ -9432,13 +9328,13 @@ invoke.cont37:                                    ; preds = %invoke.cont37.loope
   %10 = phi ptr [ %9, %if.then33 ], [ %.pre, %invoke.cont37.loopexit ]
   %total_length.0.lcssa.i = phi i64 [ 4, %if.then33 ], [ %add9.i, %invoke.cont37.loopexit ]
   %11 = load i32, ptr %stream_id_.i, align 8
-  %offset_.i = getelementptr inbounds %"class.net::SpdyFrameBuilder", ptr %builder, i64 0, i32 3
+  %offset_.i = getelementptr inbounds i8, ptr %builder, i64 24
   %12 = load i64, ptr %offset_.i, align 8
-  %length_.i = getelementptr inbounds %"class.net::SpdyFrameBuilder", ptr %builder, i64 0, i32 2
+  %length_.i = getelementptr inbounds i8, ptr %builder, i64 16
   %13 = load i64, ptr %length_.i, align 8
   %add.i16 = add i64 %13, %12
   %vtable = load ptr, ptr %10, align 8
-  %vfn = getelementptr inbounds ptr, ptr %vtable, i64 2
+  %vfn = getelementptr inbounds i8, ptr %vtable, i64 16
   %14 = load ptr, ptr %vfn, align 8
   invoke void %14(ptr noundef nonnull align 8 dereferenceable(8) %10, i32 noundef %11, i32 noundef 2, i64 noundef %total_length.0.lcssa.i, i64 noundef %add.i16)
           to label %if.end45 unwind label %lpad11.loopexit.split-lp
@@ -9458,7 +9354,7 @@ entry:
   %value.addr.i5 = alloca i32, align 4
   %value.addr.i = alloca i32, align 4
   %builder = alloca %"class.net::SpdyFrameBuilder", align 8
-  %protocol_version_.i = getelementptr inbounds %"class.net::SpdyFramer", ptr %this, i64 0, i32 27
+  %protocol_version_.i = getelementptr inbounds i8, ptr %this, i64 248
   %0 = load i32, ptr %protocol_version_.i, align 8
   %cmp.i = icmp eq i32 %0, 1
   %.4.i = select i1 %cmp.i, i64 8, i64 4
@@ -9475,7 +9371,7 @@ if.then:                                          ; preds = %entry
           to label %invoke.cont unwind label %lpad
 
 invoke.cont:                                      ; preds = %if.then
-  %stream_id_.i = getelementptr inbounds %"class.net::SpdyFrameWithStreamIdIR", ptr %rst_stream, i64 0, i32 1
+  %stream_id_.i = getelementptr inbounds i8, ptr %rst_stream, i64 8
   %3 = load i32, ptr %stream_id_.i, align 8
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %value.addr.i)
   %4 = call noundef i32 @llvm.bswap.i32(i32 %3)
@@ -9494,14 +9390,14 @@ lpad:                                             ; preds = %invoke.cont15, %inv
   resume { ptr, i32 } %5
 
 if.else:                                          ; preds = %entry
-  %stream_id_.i4 = getelementptr inbounds %"class.net::SpdyFrameWithStreamIdIR", ptr %rst_stream, i64 0, i32 1
+  %stream_id_.i4 = getelementptr inbounds i8, ptr %rst_stream, i64 8
   %6 = load i32, ptr %stream_id_.i4, align 8
   %call11 = invoke noundef zeroext i1 @_ZN3net16SpdyFrameBuilder13BeginNewFrameERKNS_10SpdyFramerENS_13SpdyFrameTypeEhj(ptr noundef nonnull align 8 dereferenceable(36) %builder, ptr noundef nonnull align 8 dereferenceable(259) %this, i32 noundef 3, i8 noundef zeroext 0, i32 noundef %6)
           to label %if.end unwind label %lpad
 
 if.end:                                           ; preds = %_ZN3net16SpdyFrameBuilder11WriteUInt32Ej.exit, %if.else
   %7 = load i32, ptr %protocol_version_.i, align 8
-  %status_.i = getelementptr inbounds %"class.net::SpdyRstStreamIR", ptr %rst_stream, i64 0, i32 1
+  %status_.i = getelementptr inbounds i8, ptr %rst_stream, i64 12
   %8 = load i32, ptr %status_.i, align 4
   %call16 = invoke noundef i32 @_ZN3net13SpdyConstants24SerializeRstStreamStatusENS_16SpdyMajorVersionENS_19SpdyRstStreamStatusE(i32 noundef %7, i32 noundef %8)
           to label %invoke.cont15 unwind label %lpad
@@ -9536,14 +9432,12 @@ entry:
   %value.addr.i = alloca i32, align 4
   %builder = alloca %"class.net::SpdyFrameBuilder", align 8
   %id_and_flags_wire = alloca i32, align 4
-  %protocol_version_ = getelementptr inbounds %"class.net::SpdyFramer", ptr %this, i64 0, i32 27
+  %protocol_version_ = getelementptr inbounds i8, ptr %this, i64 248
   %0 = load i32, ptr %protocol_version_, align 8
   %cmp = icmp eq i32 %0, 1
-  %clear_settings_.i = getelementptr inbounds %"class.net::SpdySettingsIR", ptr %settings, i64 0, i32 2
-  %is_ack_.i = getelementptr inbounds %"class.net::SpdySettingsIR", ptr %settings, i64 0, i32 3
-  %clear_settings_.i.val = load i8, ptr %clear_settings_.i, align 8
-  %is_ack_.i.val = load i8, ptr %is_ack_.i, align 1
-  %flags.0.in = select i1 %cmp, i8 %clear_settings_.i.val, i8 %is_ack_.i.val
+  %flags.0.in.in.v = select i1 %cmp, i64 56, i64 57
+  %flags.0.in.in = getelementptr inbounds i8, ptr %settings, i64 %flags.0.in.in.v
+  %flags.0.in = load i8, ptr %flags.0.in.in, align 1
   %flags.0 = and i8 %flags.0.in, 1
   %call13 = tail call noundef i64 @_ZN3net13SpdyConstants14GetSettingSizeENS_16SpdyMajorVersionE(i32 noundef %0)
   %1 = load i32, ptr %protocol_version_, align 8
@@ -9561,7 +9455,7 @@ if.else.i:                                        ; preds = %entry
 
 _ZNK3net10SpdyFramer22GetSettingsMinimumSizeEv.exit: ; preds = %if.then.i, %if.else.i
   %retval.0.i = phi i64 [ %add.i, %if.then.i ], [ %call.i2.i, %if.else.i ]
-  %_M_node_count.i.i = getelementptr inbounds %"class.net::SpdySettingsIR", ptr %settings, i64 0, i32 1, i32 0, i32 0, i32 1, i32 1
+  %_M_node_count.i.i = getelementptr inbounds i8, ptr %settings, i64 48
   %2 = load i64, ptr %_M_node_count.i.i, align 8
   %mul = mul i64 %2, %call13
   %add = add i64 %mul, %retval.0.i
@@ -9602,7 +9496,8 @@ if.end24:                                         ; preds = %if.else21, %if.then
   ]
 
 land.lhs.true:                                    ; preds = %if.end24
-  %6 = load i8, ptr %is_ack_.i, align 1
+  %is_ack_.i16 = getelementptr inbounds i8, ptr %settings, i64 57
+  %6 = load i8, ptr %is_ack_.i16, align 1
   %7 = and i8 %6, 1
   %tobool.i17.not = icmp eq i8 %7, 0
   br i1 %tobool.i17.not, label %if.end51, label %if.then29.invoke
@@ -9625,20 +9520,20 @@ _ZN3net16SpdyFrameBuilder11WriteUInt32Ej.exit:    ; preds = %if.then34
   br label %if.end51
 
 if.end51:                                         ; preds = %if.end24, %land.lhs.true, %_ZN3net16SpdyFrameBuilder11WriteUInt32Ej.exit
-  %_M_left.i.i = getelementptr inbounds %"class.net::SpdySettingsIR", ptr %settings, i64 0, i32 1, i32 0, i32 0, i32 1, i32 0, i32 2
+  %_M_left.i.i = getelementptr inbounds i8, ptr %settings, i64 32
   %10 = load ptr, ptr %_M_left.i.i, align 8
-  %add.ptr.i.i = getelementptr inbounds %"class.net::SpdySettingsIR", ptr %settings, i64 0, i32 1, i32 0, i32 0, i32 1
+  %add.ptr.i.i = getelementptr inbounds i8, ptr %settings, i64 16
   %cmp.i20.not48 = icmp eq ptr %10, %add.ptr.i.i
   br i1 %cmp.i20.not48, label %if.then29.invoke, label %for.body.lr.ph
 
 for.body.lr.ph:                                   ; preds = %if.end51
-  %stream_.i.i = getelementptr inbounds %"class.logging::LogMessage", ptr %ref.tmp2.i, i64 0, i32 2
+  %stream_.i.i = getelementptr inbounds i8, ptr %ref.tmp2.i, i64 8
   br label %for.body
 
 for.body:                                         ; preds = %for.body.lr.ph, %for.inc
   %it.sroa.0.049 = phi ptr [ %10, %for.body.lr.ph ], [ %call.i, %for.inc ]
   %11 = load i32, ptr %protocol_version_, align 8
-  %_M_storage.i.i = getelementptr inbounds %"struct.std::_Rb_tree_node", ptr %it.sroa.0.049, i64 0, i32 1
+  %_M_storage.i.i = getelementptr inbounds i8, ptr %it.sroa.0.049, i64 32
   %12 = load i32, ptr %_M_storage.i.i, align 4
   %call60 = invoke noundef i32 @_ZN3net13SpdyConstants18SerializeSettingIdENS_16SpdyMajorVersionENS_15SpdySettingsIdsE(i32 noundef %11, i32 noundef %12)
           to label %if.end74 unwind label %lpad.loopexit
@@ -9649,10 +9544,10 @@ if.end74:                                         ; preds = %for.body
   br i1 %cmp76, label %if.then77, label %if.else98
 
 if.then77:                                        ; preds = %if.end74
-  %second = getelementptr inbounds %"struct.std::_Rb_tree_node", ptr %it.sroa.0.049, i64 0, i32 1, i32 0, i64 4
+  %second = getelementptr inbounds i8, ptr %it.sroa.0.049, i64 36
   %14 = load i8, ptr %second, align 4
   %15 = and i8 %14, 1
-  %persisted = getelementptr inbounds %"struct.std::_Rb_tree_node", ptr %it.sroa.0.049, i64 0, i32 1, i32 0, i64 5
+  %persisted = getelementptr inbounds i8, ptr %it.sroa.0.049, i64 37
   %16 = load i8, ptr %persisted, align 1
   %17 = shl i8 %16, 1
   %18 = and i8 %17, 2
@@ -9711,7 +9606,7 @@ _ZN3net16SpdyFrameBuilder11WriteUInt16Et.exit:    ; preds = %if.else98
   br label %if.end102
 
 if.end102:                                        ; preds = %_ZN3net16SpdyFrameBuilder11WriteUInt16Et.exit, %invoke.cont94
-  %value = getelementptr inbounds %"struct.std::_Rb_tree_node", ptr %it.sroa.0.049, i64 0, i32 1, i32 0, i64 8
+  %value = getelementptr inbounds i8, ptr %it.sroa.0.049, i64 40
   %22 = load i32, ptr %value, align 4
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %value.addr.i32)
   %23 = call noundef i32 @llvm.bswap.i32(i32 %22)
@@ -9739,7 +9634,7 @@ entry:
   %lower.i = alloca i32, align 4
   %value.addr.i = alloca i32, align 4
   %builder = alloca %"class.net::SpdyFrameBuilder", align 8
-  %protocol_version_.i = getelementptr inbounds %"class.net::SpdyFramer", ptr %this, i64 0, i32 27
+  %protocol_version_.i = getelementptr inbounds i8, ptr %this, i64 248
   %0 = load i32, ptr %protocol_version_.i, align 8
   %cmp.i = icmp eq i32 %0, 1
   %.4.i = select i1 %cmp.i, i64 4, i64 8
@@ -9756,7 +9651,7 @@ if.then:                                          ; preds = %entry
           to label %invoke.cont unwind label %lpad
 
 invoke.cont:                                      ; preds = %if.then
-  %id_.i = getelementptr inbounds %"class.net::SpdyPingIR", ptr %ping, i64 0, i32 1
+  %id_.i = getelementptr inbounds i8, ptr %ping, i64 8
   %3 = load i64, ptr %id_.i, align 8
   %conv = trunc i64 %3 to i32
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %value.addr.i)
@@ -9776,14 +9671,14 @@ lpad:                                             ; preds = %land.rhs.i, %invoke
   resume { ptr, i32 } %5
 
 if.else:                                          ; preds = %entry
-  %is_ack_.i = getelementptr inbounds %"class.net::SpdyPingIR", ptr %ping, i64 0, i32 2
+  %is_ack_.i = getelementptr inbounds i8, ptr %ping, i64 16
   %6 = load i8, ptr %is_ack_.i, align 8
   %7 = and i8 %6, 1
   %call14 = invoke noundef zeroext i1 @_ZN3net16SpdyFrameBuilder13BeginNewFrameERKNS_10SpdyFramerENS_13SpdyFrameTypeEhj(ptr noundef nonnull align 8 dereferenceable(36) %builder, ptr noundef nonnull align 8 dereferenceable(259) %this, i32 noundef 5, i8 noundef zeroext %7, i32 noundef 0)
           to label %invoke.cont13 unwind label %lpad
 
 invoke.cont13:                                    ; preds = %if.else
-  %id_.i5 = getelementptr inbounds %"class.net::SpdyPingIR", ptr %ping, i64 0, i32 1
+  %id_.i5 = getelementptr inbounds i8, ptr %ping, i64 8
   %8 = load i64, ptr %id_.i5, align 8
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %upper.i)
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %lower.i)
@@ -9824,7 +9719,7 @@ entry:
   %value.addr.i8 = alloca i32, align 4
   %value.addr.i = alloca i32, align 4
   %builder = alloca %"class.net::SpdyFrameBuilder", align 8
-  %protocol_version_.i.i = getelementptr inbounds %"class.net::SpdyFramer", ptr %this, i64 0, i32 27
+  %protocol_version_.i.i = getelementptr inbounds i8, ptr %this, i64 248
   %0 = load i32, ptr %protocol_version_.i.i, align 8
   %call.i.i = tail call noundef i64 @_ZN3net13SpdyConstants18GetFrameHeaderSizeENS_16SpdyMajorVersionE(i32 noundef %0)
   %add.i = add i64 %call.i.i, 8
@@ -9833,7 +9728,7 @@ entry:
   br i1 %cmp, label %if.then, label %if.end
 
 if.then:                                          ; preds = %entry
-  %description_.i = getelementptr inbounds %"class.net::SpdyGoAwayIR", ptr %goaway, i64 0, i32 4
+  %description_.i = getelementptr inbounds i8, ptr %goaway, i64 48
   %call3 = tail call noundef i64 @_ZNK4base16BasicStringPieceINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %description_.i)
   %add = add i64 %call3, %add.i
   %.pre = load i32, ptr %protocol_version_.i.i, align 8
@@ -9862,7 +9757,7 @@ if.else:                                          ; preds = %if.end
           to label %if.end11 unwind label %lpad
 
 if.end11:                                         ; preds = %if.else, %if.then7
-  %last_good_stream_id_.i = getelementptr inbounds %"class.net::SpdyGoAwayIR", ptr %goaway, i64 0, i32 1
+  %last_good_stream_id_.i = getelementptr inbounds i8, ptr %goaway, i64 8
   %5 = load i32, ptr %last_good_stream_id_.i, align 8
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %value.addr.i)
   %6 = call noundef i32 @llvm.bswap.i32(i32 %5)
@@ -9873,7 +9768,7 @@ if.end11:                                         ; preds = %if.else, %if.then7
 invoke.cont14:                                    ; preds = %if.end11
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %value.addr.i)
   %7 = load i32, ptr %protocol_version_.i.i, align 8
-  %status_.i = getelementptr inbounds %"class.net::SpdyGoAwayIR", ptr %goaway, i64 0, i32 2
+  %status_.i = getelementptr inbounds i8, ptr %goaway, i64 12
   %8 = load i32, ptr %status_.i, align 4
   %call20 = invoke noundef i32 @_ZN3net13SpdyConstants21SerializeGoAwayStatusENS_16SpdyMajorVersionENS_16SpdyGoAwayStatusE(i32 noundef %7, i32 noundef %8)
           to label %invoke.cont19 unwind label %lpad
@@ -9892,7 +9787,7 @@ invoke.cont21:                                    ; preds = %invoke.cont19
   br i1 %cmp24, label %land.lhs.true, label %if.end53
 
 land.lhs.true:                                    ; preds = %invoke.cont21
-  %description_.i11 = getelementptr inbounds %"class.net::SpdyGoAwayIR", ptr %goaway, i64 0, i32 4
+  %description_.i11 = getelementptr inbounds i8, ptr %goaway, i64 48
   %call28 = invoke noundef i64 @_ZNK4base16BasicStringPieceINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %description_.i11)
           to label %invoke.cont27 unwind label %lpad
 
@@ -9933,21 +9828,21 @@ entry:
   %value.addr.i = alloca i32, align 4
   %hpack_encoding = alloca %"class.std::__cxx11::basic_string", align 8
   %builder = alloca %"class.net::SpdyFrameBuilder", align 8
-  %fin_.i = getelementptr inbounds %"class.net::SpdyFrameWithFinIR", ptr %headers, i64 0, i32 1
+  %fin_.i = getelementptr inbounds i8, ptr %headers, i64 12
   %0 = load i8, ptr %fin_.i, align 4
   %1 = and i8 %0, 1
-  %protocol_version_ = getelementptr inbounds %"class.net::SpdyFramer", ptr %this, i64 0, i32 27
+  %protocol_version_ = getelementptr inbounds i8, ptr %this, i64 248
   %2 = load i32, ptr %protocol_version_, align 8
   %cmp = icmp eq i32 %2, 2
   br i1 %cmp, label %if.then3, label %if.end19
 
 if.then3:                                         ; preds = %entry
-  %has_priority_.i = getelementptr inbounds %"class.net::SpdyHeadersIR", ptr %headers, i64 0, i32 1
+  %has_priority_.i = getelementptr inbounds i8, ptr %headers, i64 104
   %3 = load i8, ptr %has_priority_.i, align 8
   %4 = and i8 %3, 1
   %tobool.i39.not = icmp eq i8 %4, 0
   %spec.select37.v = select i1 %tobool.i39.not, i8 4, i8 36
-  %padded_.i = getelementptr inbounds %"class.net::SpdyHeadersIR", ptr %headers, i64 0, i32 6
+  %padded_.i = getelementptr inbounds i8, ptr %headers, i64 117
   %5 = load i8, ptr %padded_.i, align 1
   %6 = shl i8 %5, 3
   %7 = and i8 %6, 8
@@ -9966,7 +9861,7 @@ if.end19:                                         ; preds = %if.then3, %entry
   br i1 %cmp22, label %land.lhs.true, label %if.end28
 
 land.lhs.true:                                    ; preds = %if.end19
-  %padded_.i41 = getelementptr inbounds %"class.net::SpdyHeadersIR", ptr %headers, i64 0, i32 6
+  %padded_.i41 = getelementptr inbounds i8, ptr %headers, i64 117
   %10 = load i8, ptr %padded_.i41, align 1
   %11 = and i8 %10, 1
   %tobool.i42.not = icmp eq i8 %11, 0
@@ -9974,7 +9869,7 @@ land.lhs.true:                                    ; preds = %if.end19
 
 if.then24:                                        ; preds = %land.lhs.true
   %add = add i64 %call.i.i, 1
-  %padding_payload_len_.i = getelementptr inbounds %"class.net::SpdyHeadersIR", ptr %headers, i64 0, i32 8
+  %padding_payload_len_.i = getelementptr inbounds i8, ptr %headers, i64 120
   %12 = load i32, ptr %padding_payload_len_.i, align 8
   %conv26 = sext i32 %12 to i64
   %add27 = add i64 %add, %conv26
@@ -9982,14 +9877,14 @@ if.then24:                                        ; preds = %land.lhs.true
 
 if.end28:                                         ; preds = %if.then24, %land.lhs.true, %if.end19
   %size.0 = phi i64 [ %add27, %if.then24 ], [ %spec.select.i, %land.lhs.true ], [ %spec.select.i, %if.end19 ]
-  %has_priority_.i43 = getelementptr inbounds %"class.net::SpdyHeadersIR", ptr %headers, i64 0, i32 1
+  %has_priority_.i43 = getelementptr inbounds i8, ptr %headers, i64 104
   %13 = load i8, ptr %has_priority_.i43, align 8
   %14 = and i8 %13, 1
   %tobool.i44.not = icmp eq i8 %14, 0
   br i1 %tobool.i44.not, label %if.end34, label %if.then30
 
 if.then30:                                        ; preds = %if.end28
-  %weight_.i = getelementptr inbounds %"class.net::SpdyHeadersIR", ptr %headers, i64 0, i32 3
+  %weight_.i = getelementptr inbounds i8, ptr %headers, i64 108
   %15 = load i32, ptr %weight_.i, align 4
   %call32 = tail call noundef i32 @_ZN3net16ClampHttp2WeightEi(i32 noundef %15)
   %add33 = add i64 %size.0, 5
@@ -10004,7 +9899,7 @@ if.end34:                                         ; preds = %if.then30, %if.end2
   br i1 %cmp36, label %if.then37, label %if.else
 
 if.then37:                                        ; preds = %if.end34
-  %list_.i.i.i.i = getelementptr inbounds %"class.net::SpdyFrameWithHeaderBlockIR", ptr %headers, i64 0, i32 1, i32 0, i32 1
+  %list_.i.i.i.i = getelementptr inbounds i8, ptr %headers, i64 72
   %__begin1.sroa.0.07.i.i = load ptr, ptr %list_.i.i.i.i, align 8
   %cmp.i.not8.i.i = icmp eq ptr %__begin1.sroa.0.07.i.i, %list_.i.i.i.i
   br i1 %cmp.i.not8.i.i, label %_ZN3net10SpdyFramer19GetSerializedLengthENS_16SpdyMajorVersionEPKNS_15SpdyHeaderBlockE.exit.i, label %for.body.i.i
@@ -10012,12 +9907,12 @@ if.then37:                                        ; preds = %if.end34
 for.body.i.i:                                     ; preds = %if.then37, %call7.i.i.noexc
   %__begin1.sroa.0.010.i.i = phi ptr [ %__begin1.sroa.0.0.i.i, %call7.i.i.noexc ], [ %__begin1.sroa.0.07.i.i, %if.then37 ]
   %total_length.09.i.i = phi i64 [ %add9.i.i, %call7.i.i.noexc ], [ 4, %if.then37 ]
-  %_M_storage.i.i.i.i = getelementptr inbounds %"struct.std::_List_node", ptr %__begin1.sroa.0.010.i.i, i64 0, i32 1
+  %_M_storage.i.i.i.i = getelementptr inbounds i8, ptr %__begin1.sroa.0.010.i.i, i64 16
   %call5.i.i45 = invoke noundef i64 @_ZNK4base16BasicStringPieceINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %_M_storage.i.i.i.i)
           to label %call5.i.i.noexc unwind label %lpad.loopexit103
 
 call5.i.i.noexc:                                  ; preds = %for.body.i.i
-  %second.i.i = getelementptr inbounds %"struct.std::_List_node", ptr %__begin1.sroa.0.010.i.i, i64 0, i32 1, i32 0, i64 16
+  %second.i.i = getelementptr inbounds i8, ptr %__begin1.sroa.0.010.i.i, i64 32
   %call7.i.i46 = invoke noundef i64 @_ZNK4base16BasicStringPieceINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %second.i.i)
           to label %call7.i.i.noexc unwind label %lpad.loopexit103
 
@@ -10031,7 +9926,7 @@ call7.i.i.noexc:                                  ; preds = %call5.i.i.noexc
 
 _ZN3net10SpdyFramer19GetSerializedLengthENS_16SpdyMajorVersionEPKNS_15SpdyHeaderBlockE.exit.i: ; preds = %call7.i.i.noexc, %if.then37
   %total_length.0.lcssa.i.i = phi i64 [ 4, %if.then37 ], [ %add9.i.i, %call7.i.i.noexc ]
-  %enable_compression_.i = getelementptr inbounds %"class.net::SpdyFramer", ptr %this, i64 0, i32 29
+  %enable_compression_.i = getelementptr inbounds i8, ptr %this, i64 253
   %17 = load i8, ptr %enable_compression_.i, align 1
   %18 = and i8 %17, 1
   %tobool.not.i = icmp eq i8 %18, 0
@@ -10065,11 +9960,11 @@ lpad.loopexit.split-lp104:                        ; preds = %invoke.cont43, %inv
   br label %ehcleanup150
 
 if.else:                                          ; preds = %if.end34
-  %enable_compression_ = getelementptr inbounds %"class.net::SpdyFramer", ptr %this, i64 0, i32 29
+  %enable_compression_ = getelementptr inbounds i8, ptr %this, i64 253
   %19 = load i8, ptr %enable_compression_, align 1
   %20 = and i8 %19, 1
   %tobool.not = icmp eq i8 %20, 0
-  %hpack_encoder_.i54 = getelementptr inbounds %"class.net::SpdyFramer", ptr %this, i64 0, i32 19
+  %hpack_encoder_.i54 = getelementptr inbounds i8, ptr %this, i64 160
   %21 = load ptr, ptr %hpack_encoder_.i54, align 8
   %cmp.i55 = icmp eq ptr %21, null
   br i1 %tobool.not, label %if.else49, label %if.then42
@@ -10109,7 +10004,7 @@ lpad8.i:                                          ; preds = %invoke.cont9.i, %ca
 
 invoke.cont43:                                    ; preds = %_ZNKSt14default_deleteIN3net12HpackEncoderEEclEPS1_.exit.i.i.i, %invoke.cont11.i, %if.then42
   %24 = phi ptr [ %.pre.i, %_ZNKSt14default_deleteIN3net12HpackEncoderEEclEPS1_.exit.i.i.i ], [ %call7.i51, %invoke.cont11.i ], [ %21, %if.then42 ]
-  %header_block_.i52 = getelementptr inbounds %"class.net::SpdyFrameWithHeaderBlockIR", ptr %headers, i64 0, i32 1
+  %header_block_.i52 = getelementptr inbounds i8, ptr %headers, i64 16
   %call48 = invoke noundef zeroext i1 @_ZN3net12HpackEncoder15EncodeHeaderSetERKNS_15SpdyHeaderBlockEPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(346) %24, ptr noundef nonnull align 8 dereferenceable(88) %header_block_.i52, ptr noundef nonnull %hpack_encoding)
           to label %if.end56 unwind label %lpad.loopexit.split-lp104
 
@@ -10148,7 +10043,7 @@ lpad8.i58:                                        ; preds = %invoke.cont9.i59, %
 
 invoke.cont50:                                    ; preds = %_ZNKSt14default_deleteIN3net12HpackEncoderEEclEPS1_.exit.i.i.i62, %invoke.cont11.i60, %if.else49
   %27 = phi ptr [ %.pre.i63, %_ZNKSt14default_deleteIN3net12HpackEncoderEEclEPS1_.exit.i.i.i62 ], [ %call7.i65, %invoke.cont11.i60 ], [ %21, %if.else49 ]
-  %header_block_.i69 = getelementptr inbounds %"class.net::SpdyFrameWithHeaderBlockIR", ptr %headers, i64 0, i32 1
+  %header_block_.i69 = getelementptr inbounds i8, ptr %headers, i64 16
   %call55 = invoke noundef zeroext i1 @_ZN3net12HpackEncoder33EncodeHeaderSetWithoutCompressionERKNS_15SpdyHeaderBlockEPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(346) %27, ptr noundef nonnull align 8 dereferenceable(88) %header_block_.i69, ptr noundef nonnull %hpack_encoding)
           to label %if.end56 unwind label %lpad.loopexit.split-lp104
 
@@ -10195,7 +10090,7 @@ if.then74:                                        ; preds = %invoke.cont71
           to label %invoke.cont76 unwind label %lpad75.loopexit.split-lp
 
 invoke.cont76:                                    ; preds = %if.then74
-  %stream_id_.i = getelementptr inbounds %"class.net::SpdyFrameWithStreamIdIR", ptr %headers, i64 0, i32 1
+  %stream_id_.i = getelementptr inbounds i8, ptr %headers, i64 8
   %33 = load i32, ptr %stream_id_.i, align 8
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %value.addr.i)
   %34 = call noundef i32 @llvm.bswap.i32(i32 %33)
@@ -10223,7 +10118,7 @@ lpad75:                                           ; preds = %lpad75.loopexit.spl
   br label %ehcleanup150
 
 if.else82:                                        ; preds = %invoke.cont71
-  %stream_id_.i77 = getelementptr inbounds %"class.net::SpdyFrameWithStreamIdIR", ptr %headers, i64 0, i32 1
+  %stream_id_.i77 = getelementptr inbounds i8, ptr %headers, i64 8
   %35 = load i32, ptr %stream_id_.i77, align 8
   %call86 = invoke noundef zeroext i1 @_ZN3net16SpdyFrameBuilder13BeginNewFrameERKNS_10SpdyFramerENS_13SpdyFrameTypeEhj(ptr noundef nonnull align 8 dereferenceable(36) %builder, ptr noundef nonnull align 8 dereferenceable(259) %this, i32 noundef 7, i8 noundef zeroext %flags.3, i32 noundef %35)
           to label %if.end99 unwind label %lpad75.loopexit.split-lp
@@ -10238,14 +10133,14 @@ if.then102:                                       ; preds = %if.end99
           to label %if.end134 unwind label %lpad75.loopexit.split-lp
 
 if.else104:                                       ; preds = %if.end99
-  %padded_.i79 = getelementptr inbounds %"class.net::SpdyHeadersIR", ptr %headers, i64 0, i32 6
+  %padded_.i79 = getelementptr inbounds i8, ptr %headers, i64 117
   %37 = load i8, ptr %padded_.i79, align 1
   %38 = and i8 %37, 1
   %tobool.i80.not = icmp eq i8 %38, 0
   br i1 %tobool.i80.not, label %if.end115, label %if.then107
 
 if.then107:                                       ; preds = %if.else104
-  %padding_payload_len_.i81 = getelementptr inbounds %"class.net::SpdyHeadersIR", ptr %headers, i64 0, i32 8
+  %padding_payload_len_.i81 = getelementptr inbounds i8, ptr %headers, i64 120
   %39 = load i32, ptr %padding_payload_len_.i81, align 8
   %conv110 = trunc i32 %39 to i8
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %value.addr.i82)
@@ -10266,9 +10161,9 @@ if.end115:                                        ; preds = %invoke.cont111, %if
   br i1 %tobool.i86.not, label %if.end130, label %if.then118
 
 if.then118:                                       ; preds = %if.end115
-  %exclusive_.i = getelementptr inbounds %"class.net::SpdyHeadersIR", ptr %headers, i64 0, i32 5
+  %exclusive_.i = getelementptr inbounds i8, ptr %headers, i64 116
   %43 = load i8, ptr %exclusive_.i, align 4
-  %parent_stream_id_.i = getelementptr inbounds %"class.net::SpdyHeadersIR", ptr %headers, i64 0, i32 4
+  %parent_stream_id_.i = getelementptr inbounds i8, ptr %headers, i64 112
   %44 = load i32, ptr %parent_stream_id_.i, align 8
   %and.i = and i32 %44, 2147483647
   %45 = zext i8 %43 to i32
@@ -10294,19 +10189,19 @@ _ZN3net16SpdyFrameBuilder10WriteUInt8Eh.exit94:   ; preds = %invoke.cont125
   br label %if.end130
 
 if.end130:                                        ; preds = %_ZN3net16SpdyFrameBuilder10WriteUInt8Eh.exit94, %if.end115
-  %stream_id_.i95 = getelementptr inbounds %"class.net::SpdyFrameWithStreamIdIR", ptr %headers, i64 0, i32 1
+  %stream_id_.i95 = getelementptr inbounds i8, ptr %headers, i64 8
   %48 = load i32, ptr %stream_id_.i95, align 8
   invoke void @_ZN3net10SpdyFramer28WritePayloadWithContinuationEPNS_16SpdyFrameBuilderERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEjNS_13SpdyFrameTypeEi(ptr noundef nonnull align 8 dereferenceable(259) %this, ptr noundef nonnull %builder, ptr noundef nonnull align 8 dereferenceable(32) %hpack_encoding, i32 noundef %48, i32 noundef 7, i32 noundef %padding_payload_len.0)
           to label %if.end134 unwind label %lpad75.loopexit.split-lp
 
 if.end134:                                        ; preds = %if.end130, %if.then102
-  %debug_visitor_ = getelementptr inbounds %"class.net::SpdyFramer", ptr %this, i64 0, i32 22
+  %debug_visitor_ = getelementptr inbounds i8, ptr %this, i64 184
   %49 = load ptr, ptr %debug_visitor_, align 8
   %tobool135.not = icmp eq ptr %49, null
   br i1 %tobool135.not, label %if.end148, label %if.then136
 
 if.then136:                                       ; preds = %if.end134
-  %list_.i.i.i = getelementptr inbounds %"class.net::SpdyFrameWithHeaderBlockIR", ptr %headers, i64 0, i32 1, i32 0, i32 1
+  %list_.i.i.i = getelementptr inbounds i8, ptr %headers, i64 72
   %__begin1.sroa.0.07.i = load ptr, ptr %list_.i.i.i, align 8
   %cmp.i.not8.i = icmp eq ptr %__begin1.sroa.0.07.i, %list_.i.i.i
   br i1 %cmp.i.not8.i, label %invoke.cont140, label %for.body.i
@@ -10314,12 +10209,12 @@ if.then136:                                       ; preds = %if.end134
 for.body.i:                                       ; preds = %if.then136, %call7.i.noexc98
   %__begin1.sroa.0.010.i = phi ptr [ %__begin1.sroa.0.0.i, %call7.i.noexc98 ], [ %__begin1.sroa.0.07.i, %if.then136 ]
   %total_length.09.i = phi i64 [ %add9.i, %call7.i.noexc98 ], [ 4, %if.then136 ]
-  %_M_storage.i.i.i = getelementptr inbounds %"struct.std::_List_node", ptr %__begin1.sroa.0.010.i, i64 0, i32 1
+  %_M_storage.i.i.i = getelementptr inbounds i8, ptr %__begin1.sroa.0.010.i, i64 16
   %call5.i97 = invoke noundef i64 @_ZNK4base16BasicStringPieceINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %_M_storage.i.i.i)
           to label %call5.i.noexc unwind label %lpad75.loopexit
 
 call5.i.noexc:                                    ; preds = %for.body.i
-  %second.i = getelementptr inbounds %"struct.std::_List_node", ptr %__begin1.sroa.0.010.i, i64 0, i32 1, i32 0, i64 16
+  %second.i = getelementptr inbounds i8, ptr %__begin1.sroa.0.010.i, i64 32
   %call7.i99 = invoke noundef i64 @_ZNK4base16BasicStringPieceINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %second.i)
           to label %call7.i.noexc98 unwind label %lpad75.loopexit
 
@@ -10338,15 +10233,15 @@ invoke.cont140.loopexit:                          ; preds = %call7.i.noexc98
 invoke.cont140:                                   ; preds = %invoke.cont140.loopexit, %if.then136
   %50 = phi ptr [ %49, %if.then136 ], [ %.pre, %invoke.cont140.loopexit ]
   %total_length.0.lcssa.i = phi i64 [ 4, %if.then136 ], [ %add9.i, %invoke.cont140.loopexit ]
-  %stream_id_.i100 = getelementptr inbounds %"class.net::SpdyFrameWithStreamIdIR", ptr %headers, i64 0, i32 1
+  %stream_id_.i100 = getelementptr inbounds i8, ptr %headers, i64 8
   %51 = load i32, ptr %stream_id_.i100, align 8
-  %offset_.i = getelementptr inbounds %"class.net::SpdyFrameBuilder", ptr %builder, i64 0, i32 3
+  %offset_.i = getelementptr inbounds i8, ptr %builder, i64 24
   %52 = load i64, ptr %offset_.i, align 8
-  %length_.i = getelementptr inbounds %"class.net::SpdyFrameBuilder", ptr %builder, i64 0, i32 2
+  %length_.i = getelementptr inbounds i8, ptr %builder, i64 16
   %53 = load i64, ptr %length_.i, align 8
   %add.i101 = add i64 %53, %52
   %vtable = load ptr, ptr %50, align 8
-  %vfn = getelementptr inbounds ptr, ptr %vtable, i64 2
+  %vfn = getelementptr inbounds i8, ptr %vtable, i64 16
   %54 = load ptr, ptr %vfn, align 8
   invoke void %54(ptr noundef nonnull align 8 dereferenceable(8) %50, i32 noundef %51, i32 noundef 7, i64 noundef %total_length.0.lcssa.i, i64 noundef %add.i101)
           to label %if.end148 unwind label %lpad75.loopexit.split-lp
@@ -10371,7 +10266,7 @@ declare noundef i32 @_ZN3net16ClampHttp2WeightEi(i32 noundef) local_unnamed_addr
 ; Function Attrs: mustprogress uwtable
 define dso_local noundef ptr @_ZN3net10SpdyFramer15GetHpackEncoderEv(ptr nocapture noundef nonnull align 8 dereferenceable(259) %this) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 if.end:
-  %hpack_encoder_ = getelementptr inbounds %"class.net::SpdyFramer", ptr %this, i64 0, i32 19
+  %hpack_encoder_ = getelementptr inbounds i8, ptr %this, i64 160
   %0 = load ptr, ptr %hpack_encoder_, align 8
   %cmp = icmp eq ptr %0, null
   br i1 %cmp, label %if.then5, label %if.end12
@@ -10418,7 +10313,7 @@ declare noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4size
 ; Function Attrs: mustprogress uwtable
 define dso_local noundef i64 @_ZN3net10SpdyFramer35GetNumberRequiredContinuationFramesEm(ptr nocapture noundef nonnull readonly align 8 dereferenceable(259) %this, i64 noundef %size) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 if.end13:
-  %protocol_version_.i.i = getelementptr inbounds %"class.net::SpdyFramer", ptr %this, i64 0, i32 27
+  %protocol_version_.i.i = getelementptr inbounds i8, ptr %this, i64 248
   %0 = load i32, ptr %protocol_version_.i.i, align 8
   %call.i.i = tail call noundef i64 @_ZN3net13SpdyConstants18GetFrameHeaderSizeENS_16SpdyMajorVersionE(i32 noundef %0)
   %sub15 = sub i64 16383, %call.i.i
@@ -10439,9 +10334,9 @@ entry:
   %1 = select i1 %switch.selectcmp, i8 4, i8 0
   %call = tail call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4sizeEv(ptr noundef nonnull align 8 dereferenceable(32) %hpack_encoding) #23
   %call6 = tail call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4sizeEv(ptr noundef nonnull align 8 dereferenceable(32) %hpack_encoding) #23
-  %offset_.i = getelementptr inbounds %"class.net::SpdyFrameBuilder", ptr %builder, i64 0, i32 3
+  %offset_.i = getelementptr inbounds i8, ptr %builder, i64 24
   %2 = load i64, ptr %offset_.i, align 8
-  %length_.i = getelementptr inbounds %"class.net::SpdyFrameBuilder", ptr %builder, i64 0, i32 2
+  %length_.i = getelementptr inbounds i8, ptr %builder, i64 16
   %3 = load i64, ptr %length_.i, align 8
   %conv = sext i32 %padding_payload_len to i64
   %4 = add i64 %2, %conv
@@ -10509,7 +10404,7 @@ if.end27:                                         ; preds = %invoke.cont25, %ent
   br i1 %cond, label %while.end, label %if.then29
 
 if.then29:                                        ; preds = %if.end27
-  %protocol_version_.i = getelementptr inbounds %"class.net::SpdyFramer", ptr %this, i64 0, i32 27
+  %protocol_version_.i = getelementptr inbounds i8, ptr %this, i64 248
   %9 = load i32, ptr %protocol_version_.i, align 8
   %call.i = call noundef i64 @_ZN3net13SpdyConstants18GetFrameHeaderSizeENS_16SpdyMajorVersionE(i32 noundef %9)
   %sub31 = sub i64 16383, %call.i
@@ -10550,7 +10445,7 @@ entry:
   %value.addr.i5 = alloca i32, align 4
   %value.addr.i = alloca i32, align 4
   %builder = alloca %"class.net::SpdyFrameBuilder", align 8
-  %protocol_version_.i = getelementptr inbounds %"class.net::SpdyFramer", ptr %this, i64 0, i32 27
+  %protocol_version_.i = getelementptr inbounds i8, ptr %this, i64 248
   %0 = load i32, ptr %protocol_version_.i, align 8
   %cmp.i = icmp eq i32 %0, 1
   %.4.i = select i1 %cmp.i, i64 8, i64 4
@@ -10567,7 +10462,7 @@ if.then:                                          ; preds = %entry
           to label %invoke.cont unwind label %lpad
 
 invoke.cont:                                      ; preds = %if.then
-  %stream_id_.i = getelementptr inbounds %"class.net::SpdyFrameWithStreamIdIR", ptr %window_update, i64 0, i32 1
+  %stream_id_.i = getelementptr inbounds i8, ptr %window_update, i64 8
   %3 = load i32, ptr %stream_id_.i, align 8
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %value.addr.i)
   %4 = call noundef i32 @llvm.bswap.i32(i32 %3)
@@ -10586,13 +10481,13 @@ lpad:                                             ; preds = %if.end, %invoke.con
   resume { ptr, i32 } %5
 
 if.else:                                          ; preds = %entry
-  %stream_id_.i4 = getelementptr inbounds %"class.net::SpdyFrameWithStreamIdIR", ptr %window_update, i64 0, i32 1
+  %stream_id_.i4 = getelementptr inbounds i8, ptr %window_update, i64 8
   %6 = load i32, ptr %stream_id_.i4, align 8
   %call11 = invoke noundef zeroext i1 @_ZN3net16SpdyFrameBuilder13BeginNewFrameERKNS_10SpdyFramerENS_13SpdyFrameTypeEhj(ptr noundef nonnull align 8 dereferenceable(36) %builder, ptr noundef nonnull align 8 dereferenceable(259) %this, i32 noundef 8, i8 noundef zeroext 0, i32 noundef %6)
           to label %if.end unwind label %lpad
 
 if.end:                                           ; preds = %_ZN3net16SpdyFrameBuilder11WriteUInt32Ej.exit, %if.else
-  %delta_.i = getelementptr inbounds %"class.net::SpdyWindowUpdateIR", ptr %window_update, i64 0, i32 1
+  %delta_.i = getelementptr inbounds i8, ptr %window_update, i64 12
   %7 = load i32, ptr %delta_.i, align 4
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %value.addr.i5)
   %8 = call noundef i32 @llvm.bswap.i32(i32 %7)
@@ -10614,12 +10509,12 @@ invoke.cont28:                                    ; preds = %if.end27
 define dso_local void @_ZNK3net10SpdyFramer16SerializeBlockedERKNS_13SpdyBlockedIRE(ptr noalias sret(%"class.net::SpdySerializedFrame") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(259) %this, ptr nocapture noundef nonnull readonly align 8 dereferenceable(12) %blocked) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 if.end:
   %builder = alloca %"class.net::SpdyFrameBuilder", align 8
-  %protocol_version_.i.i = getelementptr inbounds %"class.net::SpdyFramer", ptr %this, i64 0, i32 27
+  %protocol_version_.i.i = getelementptr inbounds i8, ptr %this, i64 248
   %0 = load i32, ptr %protocol_version_.i.i, align 8
   %call.i.i = tail call noundef i64 @_ZN3net13SpdyConstants18GetFrameHeaderSizeENS_16SpdyMajorVersionE(i32 noundef %0)
   %1 = load i32, ptr %protocol_version_.i.i, align 8
   call void @_ZN3net16SpdyFrameBuilderC1EmNS_16SpdyMajorVersionE(ptr noundef nonnull align 8 dereferenceable(36) %builder, i64 noundef %call.i.i, i32 noundef %1)
-  %stream_id_.i = getelementptr inbounds %"class.net::SpdyFrameWithStreamIdIR", ptr %blocked, i64 0, i32 1
+  %stream_id_.i = getelementptr inbounds i8, ptr %blocked, i64 8
   %2 = load i32, ptr %stream_id_.i, align 8
   %call9 = invoke noundef zeroext i1 @_ZN3net16SpdyFrameBuilder13BeginNewFrameERKNS_10SpdyFramerENS_13SpdyFrameTypeEhj(ptr noundef nonnull align 8 dereferenceable(36) %builder, ptr noundef nonnull align 8 dereferenceable(259) %this, i32 noundef 12, i8 noundef zeroext 0, i32 noundef %2)
           to label %invoke.cont8 unwind label %lpad5
@@ -10647,27 +10542,27 @@ if.end:
   %value.addr.i = alloca i8, align 1
   %hpack_encoding = alloca %"class.std::__cxx11::basic_string", align 8
   %builder = alloca %"class.net::SpdyFrameBuilder", align 8
-  %protocol_version_.i.i = getelementptr inbounds %"class.net::SpdyFramer", ptr %this, i64 0, i32 27
+  %protocol_version_.i.i = getelementptr inbounds i8, ptr %this, i64 248
   %0 = load i32, ptr %protocol_version_.i.i, align 8
   %call.i.i = tail call noundef i64 @_ZN3net13SpdyConstants18GetFrameHeaderSizeENS_16SpdyMajorVersionE(i32 noundef %0)
   %add.i = add i64 %call.i.i, 4
-  %padded_.i = getelementptr inbounds %"class.net::SpdyPushPromiseIR", ptr %push_promise, i64 0, i32 2
+  %padded_.i = getelementptr inbounds i8, ptr %push_promise, i64 108
   %1 = load i8, ptr %padded_.i, align 4
   %2 = and i8 %1, 1
   %tobool.i.not = icmp eq i8 %2, 0
   %add = add i64 %call.i.i, 5
-  %padding_payload_len_.i = getelementptr inbounds %"class.net::SpdyPushPromiseIR", ptr %push_promise, i64 0, i32 4
+  %padding_payload_len_.i = getelementptr inbounds i8, ptr %push_promise, i64 112
   %3 = load i32, ptr %padding_payload_len_.i, align 8
   %conv12 = sext i32 %3 to i64
   %add13 = add i64 %add, %conv12
   %flags.0 = select i1 %tobool.i.not, i8 4, i8 12
   %size.0 = select i1 %tobool.i.not, i64 %add.i, i64 %add13
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(32) %hpack_encoding) #23
-  %enable_compression_ = getelementptr inbounds %"class.net::SpdyFramer", ptr %this, i64 0, i32 29
+  %enable_compression_ = getelementptr inbounds i8, ptr %this, i64 253
   %4 = load i8, ptr %enable_compression_, align 1
   %5 = and i8 %4, 1
   %tobool.not = icmp eq i8 %5, 0
-  %hpack_encoder_.i24 = getelementptr inbounds %"class.net::SpdyFramer", ptr %this, i64 0, i32 19
+  %hpack_encoder_.i24 = getelementptr inbounds i8, ptr %this, i64 160
   %6 = load ptr, ptr %hpack_encoder_.i24, align 8
   %cmp.i25 = icmp eq ptr %6, null
   br i1 %tobool.not, label %if.else23, label %if.then15
@@ -10707,7 +10602,7 @@ lpad8.i:                                          ; preds = %invoke.cont9.i, %ca
 
 invoke.cont17:                                    ; preds = %_ZNKSt14default_deleteIN3net12HpackEncoderEEclEPS1_.exit.i.i.i, %invoke.cont11.i, %if.then15
   %9 = phi ptr [ %.pre.i, %_ZNKSt14default_deleteIN3net12HpackEncoderEEclEPS1_.exit.i.i.i ], [ %call7.i23, %invoke.cont11.i ], [ %6, %if.then15 ]
-  %header_block_.i = getelementptr inbounds %"class.net::SpdyFrameWithHeaderBlockIR", ptr %push_promise, i64 0, i32 1
+  %header_block_.i = getelementptr inbounds i8, ptr %push_promise, i64 16
   %call22 = invoke noundef zeroext i1 @_ZN3net12HpackEncoder15EncodeHeaderSetERKNS_15SpdyHeaderBlockEPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(346) %9, ptr noundef nonnull align 8 dereferenceable(88) %header_block_.i, ptr noundef nonnull %hpack_encoding)
           to label %if.end30 unwind label %lpad16
 
@@ -10751,7 +10646,7 @@ lpad8.i28:                                        ; preds = %invoke.cont9.i29, %
 
 invoke.cont24:                                    ; preds = %_ZNKSt14default_deleteIN3net12HpackEncoderEEclEPS1_.exit.i.i.i32, %invoke.cont11.i30, %if.else23
   %13 = phi ptr [ %.pre.i33, %_ZNKSt14default_deleteIN3net12HpackEncoderEEclEPS1_.exit.i.i.i32 ], [ %call7.i35, %invoke.cont11.i30 ], [ %6, %if.else23 ]
-  %header_block_.i39 = getelementptr inbounds %"class.net::SpdyFrameWithHeaderBlockIR", ptr %push_promise, i64 0, i32 1
+  %header_block_.i39 = getelementptr inbounds i8, ptr %push_promise, i64 16
   %call29 = invoke noundef zeroext i1 @_ZN3net12HpackEncoder33EncodeHeaderSetWithoutCompressionERKNS_15SpdyHeaderBlockEPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(346) %13, ptr noundef nonnull align 8 dereferenceable(88) %header_block_.i39, ptr noundef nonnull %hpack_encoding)
           to label %if.end30 unwind label %lpad16
 
@@ -10789,7 +10684,7 @@ if.end41:                                         ; preds = %invoke.cont36, %if.
           to label %invoke.cont42 unwind label %lpad16
 
 invoke.cont42:                                    ; preds = %if.end41
-  %stream_id_.i = getelementptr inbounds %"class.net::SpdyFrameWithStreamIdIR", ptr %push_promise, i64 0, i32 1
+  %stream_id_.i = getelementptr inbounds i8, ptr %push_promise, i64 8
   %18 = load i32, ptr %stream_id_.i, align 8
   %call47 = invoke noundef zeroext i1 @_ZN3net16SpdyFrameBuilder13BeginNewFrameERKNS_10SpdyFramerENS_13SpdyFrameTypeEhj(ptr noundef nonnull align 8 dereferenceable(36) %builder, ptr noundef nonnull align 8 dereferenceable(259) %this, i32 noundef 9, i8 noundef zeroext %flags.1, i32 noundef %18)
           to label %invoke.cont46 unwind label %lpad43.loopexit.split-lp
@@ -10810,7 +10705,7 @@ if.then50:                                        ; preds = %invoke.cont46
 
 invoke.cont54:                                    ; preds = %if.then50
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %value.addr.i)
-  %promised_stream_id_.i = getelementptr inbounds %"class.net::SpdyPushPromiseIR", ptr %push_promise, i64 0, i32 1
+  %promised_stream_id_.i = getelementptr inbounds i8, ptr %push_promise, i64 104
   %22 = load i32, ptr %promised_stream_id_.i, align 8
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %value.addr.i49)
   %23 = call noundef i32 @llvm.bswap.i32(i32 %22)
@@ -10839,7 +10734,7 @@ if.end73:                                         ; preds = %invoke.cont54
   br label %if.end95
 
 if.else76:                                        ; preds = %invoke.cont46
-  %promised_stream_id_.i54 = getelementptr inbounds %"class.net::SpdyPushPromiseIR", ptr %push_promise, i64 0, i32 1
+  %promised_stream_id_.i54 = getelementptr inbounds i8, ptr %push_promise, i64 104
   %25 = load i32, ptr %promised_stream_id_.i54, align 8
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %value.addr.i55)
   %26 = call noundef i32 @llvm.bswap.i32(i32 %25)
@@ -10858,13 +10753,13 @@ if.end95:                                         ; preds = %invoke.cont79, %if.
           to label %invoke.cont98 unwind label %lpad43.loopexit.split-lp
 
 invoke.cont98:                                    ; preds = %if.end95
-  %debug_visitor_ = getelementptr inbounds %"class.net::SpdyFramer", ptr %this, i64 0, i32 22
+  %debug_visitor_ = getelementptr inbounds i8, ptr %this, i64 184
   %28 = load ptr, ptr %debug_visitor_, align 8
   %tobool99.not = icmp eq ptr %28, null
   br i1 %tobool99.not, label %if.end112, label %if.then100
 
 if.then100:                                       ; preds = %invoke.cont98
-  %list_.i.i.i = getelementptr inbounds %"class.net::SpdyFrameWithHeaderBlockIR", ptr %push_promise, i64 0, i32 1, i32 0, i32 1
+  %list_.i.i.i = getelementptr inbounds i8, ptr %push_promise, i64 72
   %__begin1.sroa.0.07.i = load ptr, ptr %list_.i.i.i, align 8
   %cmp.i.not8.i = icmp eq ptr %__begin1.sroa.0.07.i, %list_.i.i.i
   br i1 %cmp.i.not8.i, label %invoke.cont104, label %for.body.i
@@ -10872,12 +10767,12 @@ if.then100:                                       ; preds = %invoke.cont98
 for.body.i:                                       ; preds = %if.then100, %call7.i.noexc63
   %__begin1.sroa.0.010.i = phi ptr [ %__begin1.sroa.0.0.i, %call7.i.noexc63 ], [ %__begin1.sroa.0.07.i, %if.then100 ]
   %total_length.09.i = phi i64 [ %add9.i, %call7.i.noexc63 ], [ 4, %if.then100 ]
-  %_M_storage.i.i.i = getelementptr inbounds %"struct.std::_List_node", ptr %__begin1.sroa.0.010.i, i64 0, i32 1
+  %_M_storage.i.i.i = getelementptr inbounds i8, ptr %__begin1.sroa.0.010.i, i64 16
   %call5.i62 = invoke noundef i64 @_ZNK4base16BasicStringPieceINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %_M_storage.i.i.i)
           to label %call5.i.noexc unwind label %lpad43.loopexit
 
 call5.i.noexc:                                    ; preds = %for.body.i
-  %second.i = getelementptr inbounds %"struct.std::_List_node", ptr %__begin1.sroa.0.010.i, i64 0, i32 1, i32 0, i64 16
+  %second.i = getelementptr inbounds i8, ptr %__begin1.sroa.0.010.i, i64 32
   %call7.i64 = invoke noundef i64 @_ZNK4base16BasicStringPieceINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %second.i)
           to label %call7.i.noexc63 unwind label %lpad43.loopexit
 
@@ -10897,13 +10792,13 @@ invoke.cont104:                                   ; preds = %invoke.cont104.loop
   %29 = phi ptr [ %28, %if.then100 ], [ %.pre, %invoke.cont104.loopexit ]
   %total_length.0.lcssa.i = phi i64 [ 4, %if.then100 ], [ %add9.i, %invoke.cont104.loopexit ]
   %30 = load i32, ptr %stream_id_.i, align 8
-  %offset_.i = getelementptr inbounds %"class.net::SpdyFrameBuilder", ptr %builder, i64 0, i32 3
+  %offset_.i = getelementptr inbounds i8, ptr %builder, i64 24
   %31 = load i64, ptr %offset_.i, align 8
-  %length_.i = getelementptr inbounds %"class.net::SpdyFrameBuilder", ptr %builder, i64 0, i32 2
+  %length_.i = getelementptr inbounds i8, ptr %builder, i64 16
   %32 = load i64, ptr %length_.i, align 8
   %add.i66 = add i64 %32, %31
   %vtable = load ptr, ptr %29, align 8
-  %vfn = getelementptr inbounds ptr, ptr %vtable, i64 2
+  %vfn = getelementptr inbounds i8, ptr %vtable, i64 16
   %33 = load ptr, ptr %vfn, align 8
   invoke void %33(ptr noundef nonnull align 8 dereferenceable(8) %29, i32 noundef %30, i32 noundef 9, i64 noundef %total_length.0.lcssa.i, i64 noundef %add.i66)
           to label %if.end112 unwind label %lpad43.loopexit.split-lp
@@ -10931,7 +10826,7 @@ entry:
   %hpack_encoding = alloca %"class.std::__cxx11::basic_string", align 8
   %builder = alloca %"class.net::SpdyFrameBuilder", align 8
   store i32 2, ptr %ref.tmp, align 4
-  %protocol_version_ = getelementptr inbounds %"class.net::SpdyFramer", ptr %this, i64 0, i32 27
+  %protocol_version_ = getelementptr inbounds i8, ptr %this, i64 248
   %0 = load i32, ptr %protocol_version_, align 8
   %cmp.i = icmp eq i32 %0, 2
   br i1 %cmp.i, label %if.end, label %_ZN7logging11CheckEQImplIN3net16SpdyMajorVersionES2_EEPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKT_RKT0_PKc.exit
@@ -10947,18 +10842,18 @@ if.else:                                          ; preds = %_ZN7logging11CheckE
   br label %if.end
 
 if.end:                                           ; preds = %entry, %_ZN7logging11CheckEQImplIN3net16SpdyMajorVersionES2_EEPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKT_RKT0_PKc.exit, %if.else
-  %end_headers_.i = getelementptr inbounds %"class.net::SpdyContinuationIR", ptr %continuation, i64 0, i32 1
+  %end_headers_.i = getelementptr inbounds i8, ptr %continuation, i64 104
   %1 = load i8, ptr %end_headers_.i, align 8
   %2 = shl i8 %1, 2
   %spec.select = and i8 %2, 4
   %3 = load i32, ptr %protocol_version_, align 8
   %call.i.i = call noundef i64 @_ZN3net13SpdyConstants18GetFrameHeaderSizeENS_16SpdyMajorVersionE(i32 noundef %3)
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(32) %hpack_encoding) #23
-  %enable_compression_ = getelementptr inbounds %"class.net::SpdyFramer", ptr %this, i64 0, i32 29
+  %enable_compression_ = getelementptr inbounds i8, ptr %this, i64 253
   %4 = load i8, ptr %enable_compression_, align 1
   %5 = and i8 %4, 1
   %tobool.not = icmp eq i8 %5, 0
-  %hpack_encoder_.i9 = getelementptr inbounds %"class.net::SpdyFramer", ptr %this, i64 0, i32 19
+  %hpack_encoder_.i9 = getelementptr inbounds i8, ptr %this, i64 160
   %6 = load ptr, ptr %hpack_encoder_.i9, align 8
   %cmp.i10 = icmp eq ptr %6, null
   br i1 %tobool.not, label %if.else19, label %if.then11
@@ -10998,7 +10893,7 @@ lpad8.i:                                          ; preds = %invoke.cont9.i, %ca
 
 invoke.cont13:                                    ; preds = %_ZNKSt14default_deleteIN3net12HpackEncoderEEclEPS1_.exit.i.i.i, %invoke.cont11.i, %if.then11
   %9 = phi ptr [ %.pre.i, %_ZNKSt14default_deleteIN3net12HpackEncoderEEclEPS1_.exit.i.i.i ], [ %call7.i8, %invoke.cont11.i ], [ %6, %if.then11 ]
-  %header_block_.i = getelementptr inbounds %"class.net::SpdyFrameWithHeaderBlockIR", ptr %continuation, i64 0, i32 1
+  %header_block_.i = getelementptr inbounds i8, ptr %continuation, i64 16
   %call18 = invoke noundef zeroext i1 @_ZN3net12HpackEncoder15EncodeHeaderSetERKNS_15SpdyHeaderBlockEPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(346) %9, ptr noundef nonnull align 8 dereferenceable(88) %header_block_.i, ptr noundef nonnull %hpack_encoding)
           to label %if.end26 unwind label %lpad12
 
@@ -11042,7 +10937,7 @@ lpad8.i13:                                        ; preds = %invoke.cont9.i14, %
 
 invoke.cont20:                                    ; preds = %_ZNKSt14default_deleteIN3net12HpackEncoderEEclEPS1_.exit.i.i.i17, %invoke.cont11.i15, %if.else19
   %13 = phi ptr [ %.pre.i18, %_ZNKSt14default_deleteIN3net12HpackEncoderEEclEPS1_.exit.i.i.i17 ], [ %call7.i20, %invoke.cont11.i15 ], [ %6, %if.else19 ]
-  %header_block_.i24 = getelementptr inbounds %"class.net::SpdyFrameWithHeaderBlockIR", ptr %continuation, i64 0, i32 1
+  %header_block_.i24 = getelementptr inbounds i8, ptr %continuation, i64 16
   %call25 = invoke noundef zeroext i1 @_ZN3net12HpackEncoder33EncodeHeaderSetWithoutCompressionERKNS_15SpdyHeaderBlockEPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(346) %13, ptr noundef nonnull align 8 dereferenceable(88) %header_block_.i24, ptr noundef nonnull %hpack_encoding)
           to label %if.end26 unwind label %lpad12
 
@@ -11054,7 +10949,7 @@ if.end26:                                         ; preds = %invoke.cont20, %inv
           to label %invoke.cont29 unwind label %lpad12
 
 invoke.cont29:                                    ; preds = %if.end26
-  %stream_id_.i = getelementptr inbounds %"class.net::SpdyFrameWithStreamIdIR", ptr %continuation, i64 0, i32 1
+  %stream_id_.i = getelementptr inbounds i8, ptr %continuation, i64 8
   %15 = load i32, ptr %stream_id_.i, align 8
   %call34 = invoke noundef zeroext i1 @_ZN3net16SpdyFrameBuilder13BeginNewFrameERKNS_10SpdyFramerENS_13SpdyFrameTypeEhj(ptr noundef nonnull align 8 dereferenceable(36) %builder, ptr noundef nonnull align 8 dereferenceable(259) %this, i32 noundef 10, i8 noundef zeroext %spec.select, i32 noundef %15)
           to label %if.end48 unwind label %lpad30
@@ -11104,16 +10999,16 @@ if.end:
   %ref.tmp17 = alloca %"class.std::__cxx11::basic_string", align 8
   %ref.tmp23 = alloca %"class.std::__cxx11::basic_string", align 8
   %ref.tmp26 = alloca %"class.std::__cxx11::basic_string", align 8
-  %protocol_version_.i.i = getelementptr inbounds %"class.net::SpdyFramer", ptr %this, i64 0, i32 27
+  %protocol_version_.i.i = getelementptr inbounds i8, ptr %this, i64 248
   %0 = load i32, ptr %protocol_version_.i.i, align 8
   %call.i.i = tail call noundef i64 @_ZN3net13SpdyConstants18GetFrameHeaderSizeENS_16SpdyMajorVersionE(i32 noundef %0)
   %add.i = add i64 %call.i.i, 2
-  %origin_.i = getelementptr inbounds %"class.net::SpdyAltSvcIR", ptr %altsvc_ir, i64 0, i32 1
+  %origin_.i = getelementptr inbounds i8, ptr %altsvc_ir, i64 16
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1ERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp5, ptr noundef nonnull align 8 dereferenceable(32) %origin_.i)
   %call6 = call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6lengthEv(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp5) #23
   %add = add i64 %add.i, %call6
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp5) #23
-  %altsvc_vector_.i = getelementptr inbounds %"class.net::SpdyAltSvcIR", ptr %altsvc_ir, i64 0, i32 2
+  %altsvc_vector_.i = getelementptr inbounds i8, ptr %altsvc_ir, i64 48
   call void @_ZN3net20SpdyAltSvcWireFormat25SerializeHeaderFieldValueB5cxx11ERKSt6vectorINS0_18AlternativeServiceESaIS2_EE(ptr nonnull sret(%"class.std::__cxx11::basic_string") align 8 %value, ptr noundef nonnull align 8 dereferenceable(24) %altsvc_vector_.i)
   %call8 = call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6lengthEv(ptr noundef nonnull align 8 dereferenceable(32) %value) #23
   %add9 = add i64 %add, %call8
@@ -11122,7 +11017,7 @@ if.end:
           to label %invoke.cont11 unwind label %lpad10
 
 invoke.cont11:                                    ; preds = %if.end
-  %stream_id_.i = getelementptr inbounds %"class.net::SpdyFrameWithStreamIdIR", ptr %altsvc_ir, i64 0, i32 1
+  %stream_id_.i = getelementptr inbounds i8, ptr %altsvc_ir, i64 8
   %2 = load i32, ptr %stream_id_.i, align 8
   %call16 = invoke noundef zeroext i1 @_ZN3net16SpdyFrameBuilder13BeginNewFrameERKNS_10SpdyFramerENS_13SpdyFrameTypeEhj(ptr noundef nonnull align 8 dereferenceable(36) %builder, ptr noundef nonnull align 8 dereferenceable(259) %this, i32 noundef 13, i8 noundef zeroext 0, i32 noundef %2)
           to label %invoke.cont15 unwind label %lpad12
@@ -11226,21 +11121,21 @@ if.end:
   %value.addr.i5 = alloca i8, align 1
   %value.addr.i = alloca i32, align 4
   %builder = alloca %"class.net::SpdyFrameBuilder", align 8
-  %protocol_version_.i.i = getelementptr inbounds %"class.net::SpdyFramer", ptr %this, i64 0, i32 27
+  %protocol_version_.i.i = getelementptr inbounds i8, ptr %this, i64 248
   %0 = load i32, ptr %protocol_version_.i.i, align 8
   %call.i.i = tail call noundef i64 @_ZN3net13SpdyConstants18GetFrameHeaderSizeENS_16SpdyMajorVersionE(i32 noundef %0)
   %add2.i = add i64 %call.i.i, 5
   %1 = load i32, ptr %protocol_version_.i.i, align 8
   call void @_ZN3net16SpdyFrameBuilderC1EmNS_16SpdyMajorVersionE(ptr noundef nonnull align 8 dereferenceable(36) %builder, i64 noundef %add2.i, i32 noundef %1)
-  %stream_id_.i = getelementptr inbounds %"class.net::SpdyFrameWithStreamIdIR", ptr %priority, i64 0, i32 1
+  %stream_id_.i = getelementptr inbounds i8, ptr %priority, i64 8
   %2 = load i32, ptr %stream_id_.i, align 8
   %call9 = invoke noundef zeroext i1 @_ZN3net16SpdyFrameBuilder13BeginNewFrameERKNS_10SpdyFramerENS_13SpdyFrameTypeEhj(ptr noundef nonnull align 8 dereferenceable(36) %builder, ptr noundef nonnull align 8 dereferenceable(259) %this, i32 noundef 11, i8 noundef zeroext 0, i32 noundef %2)
           to label %invoke.cont8 unwind label %lpad5
 
 invoke.cont8:                                     ; preds = %if.end
-  %exclusive_.i = getelementptr inbounds %"class.net::SpdyPriorityIR", ptr %priority, i64 0, i32 3
+  %exclusive_.i = getelementptr inbounds i8, ptr %priority, i64 20
   %3 = load i8, ptr %exclusive_.i, align 4
-  %parent_stream_id_.i = getelementptr inbounds %"class.net::SpdyPriorityIR", ptr %priority, i64 0, i32 1
+  %parent_stream_id_.i = getelementptr inbounds i8, ptr %priority, i64 12
   %4 = load i32, ptr %parent_stream_id_.i, align 4
   %and.i = and i32 %4, 2147483647
   %5 = zext i8 %3 to i32
@@ -11254,7 +11149,7 @@ invoke.cont8:                                     ; preds = %if.end
 
 invoke.cont16:                                    ; preds = %invoke.cont8
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %value.addr.i)
-  %weight_.i = getelementptr inbounds %"class.net::SpdyPriorityIR", ptr %priority, i64 0, i32 2
+  %weight_.i = getelementptr inbounds i8, ptr %priority, i64 16
   %7 = load i32, ptr %weight_.i, align 8
   %8 = trunc i32 %7 to i8
   %conv = add i8 %8, -1
@@ -11284,16 +11179,16 @@ define dso_local void @_ZN3net10SpdyFramer14SerializeFrameERKNS_11SpdyFrameIRE(p
 entry:
   %visitor = alloca %"class.net::(anonymous namespace)::FrameSerializationVisitor", align 8
   store ptr getelementptr inbounds ({ [18 x ptr] }, ptr @_ZTVN3net12_GLOBAL__N_125FrameSerializationVisitorE, i64 0, inrange i32 0, i64 2), ptr %visitor, align 8
-  %framer_.i = getelementptr inbounds %"class.net::(anonymous namespace)::FrameSerializationVisitor", ptr %visitor, i64 0, i32 1
+  %framer_.i = getelementptr inbounds i8, ptr %visitor, i64 8
   store ptr %this, ptr %framer_.i, align 8
-  %frame_.i = getelementptr inbounds %"class.net::(anonymous namespace)::FrameSerializationVisitor", ptr %visitor, i64 0, i32 2
+  %frame_.i = getelementptr inbounds i8, ptr %visitor, i64 16
   store ptr @.str.120, ptr %frame_.i, align 8
-  %size_.i.i = getelementptr inbounds %"class.net::(anonymous namespace)::FrameSerializationVisitor", ptr %visitor, i64 0, i32 2, i32 1
+  %size_.i.i = getelementptr inbounds i8, ptr %visitor, i64 24
   store i64 0, ptr %size_.i.i, align 8
-  %owns_buffer_.i.i = getelementptr inbounds %"class.net::(anonymous namespace)::FrameSerializationVisitor", ptr %visitor, i64 0, i32 2, i32 2
+  %owns_buffer_.i.i = getelementptr inbounds i8, ptr %visitor, i64 32
   store i8 0, ptr %owns_buffer_.i.i, align 8
   %vtable = load ptr, ptr %frame, align 8
-  %vfn = getelementptr inbounds ptr, ptr %vtable, i64 2
+  %vfn = getelementptr inbounds i8, ptr %vtable, i64 16
   %0 = load ptr, ptr %vfn, align 8
   invoke void %0(ptr noundef nonnull align 8 dereferenceable(8) %frame, ptr noundef nonnull %visitor)
           to label %_ZN3net12_GLOBAL__N_125FrameSerializationVisitorD2Ev.exit unwind label %lpad
@@ -11302,10 +11197,10 @@ _ZN3net12_GLOBAL__N_125FrameSerializationVisitorD2Ev.exit: ; preds = %entry
   call void @llvm.experimental.noalias.scope.decl(metadata !30)
   %1 = load ptr, ptr %frame_.i, align 8
   store ptr %1, ptr %agg.result, align 8, !alias.scope !30
-  %size_.i.i2 = getelementptr inbounds %"class.net::SpdySerializedFrame", ptr %agg.result, i64 0, i32 1
+  %size_.i.i2 = getelementptr inbounds i8, ptr %agg.result, i64 8
   %2 = load i64, ptr %size_.i.i, align 8, !noalias !30
   store i64 %2, ptr %size_.i.i2, align 8, !alias.scope !30
-  %owns_buffer_.i.i3 = getelementptr inbounds %"class.net::SpdySerializedFrame", ptr %agg.result, i64 0, i32 2
+  %owns_buffer_.i.i3 = getelementptr inbounds i8, ptr %agg.result, i64 16
   %3 = load i8, ptr %owns_buffer_.i.i, align 8, !noalias !30
   %4 = and i8 %3, 1
   store i8 %4, ptr %owns_buffer_.i.i3, align 8, !alias.scope !30
@@ -11337,14 +11232,14 @@ _ZN3net12_GLOBAL__N_125FrameSerializationVisitorD2Ev.exit12: ; preds = %lpad, %i
 define internal void @_ZN3net12_GLOBAL__N_125FrameSerializationVisitorD2Ev(ptr nocapture noundef nonnull align 8 dereferenceable(40) %this) unnamed_addr #5 align 2 {
 entry:
   store ptr getelementptr inbounds ({ [18 x ptr] }, ptr @_ZTVN3net12_GLOBAL__N_125FrameSerializationVisitorE, i64 0, inrange i32 0, i64 2), ptr %this, align 8
-  %owns_buffer_.i = getelementptr inbounds %"class.net::(anonymous namespace)::FrameSerializationVisitor", ptr %this, i64 0, i32 2, i32 2
+  %owns_buffer_.i = getelementptr inbounds i8, ptr %this, i64 32
   %0 = load i8, ptr %owns_buffer_.i, align 8
   %1 = and i8 %0, 1
   %tobool.not.i = icmp eq i8 %1, 0
   br i1 %tobool.not.i, label %_ZN3net19SpdySerializedFrameD2Ev.exit, label %if.then.i
 
 if.then.i:                                        ; preds = %entry
-  %frame_ = getelementptr inbounds %"class.net::(anonymous namespace)::FrameSerializationVisitor", ptr %this, i64 0, i32 2
+  %frame_ = getelementptr inbounds i8, ptr %this, i64 16
   %2 = load ptr, ptr %frame_, align 8
   %isnull.i = icmp eq ptr %2, null
   br i1 %isnull.i, label %_ZN3net19SpdySerializedFrameD2Ev.exit, label %delete.notnull.i
@@ -11361,7 +11256,7 @@ _ZN3net19SpdySerializedFrameD2Ev.exit:            ; preds = %entry, %if.then.i, 
 define dso_local noundef ptr @_ZN3net10SpdyFramer19GetHeaderCompressorEv(ptr nocapture noundef nonnull align 8 dereferenceable(259) %this) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp19 = alloca %"class.logging::LogMessage", align 8
-  %header_compressor_ = getelementptr inbounds %"class.net::SpdyFramer", ptr %this, i64 0, i32 17
+  %header_compressor_ = getelementptr inbounds i8, ptr %this, i64 144
   %0 = load ptr, ptr %header_compressor_, align 8
   %tobool.not = icmp eq ptr %0, null
   br i1 %tobool.not, label %_ZNSt10unique_ptrI10z_stream_sSt14default_deleteIS0_EE5resetEPS0_.exit, label %return
@@ -11387,7 +11282,7 @@ if.then17:                                        ; preds = %_ZNSt10unique_ptrI1
 
 cond.false:                                       ; preds = %if.then17
   call void @_ZN7logging10LogMessageC1EPKcii(ptr noundef nonnull align 8 dereferenceable(404) %ref.tmp19, ptr noundef nonnull @.str, i32 noundef 3105, i32 noundef 1)
-  %stream_.i = getelementptr inbounds %"class.logging::LogMessage", ptr %ref.tmp19, i64 0, i32 2
+  %stream_.i = getelementptr inbounds i8, ptr %ref.tmp19, i64 8
   %call22 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc(ptr noundef nonnull align 8 dereferenceable(8) %stream_.i, ptr noundef nonnull @.str.113)
           to label %invoke.cont21 unwind label %lpad
 
@@ -11440,7 +11335,7 @@ declare i32 @MOZ_Z_deflateSetDictionary(ptr noundef, ptr noundef, i32 noundef) l
 define dso_local noundef ptr @_ZN3net10SpdyFramer21GetHeaderDecompressorEv(ptr nocapture noundef nonnull align 8 dereferenceable(259) %this) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp13 = alloca %"class.logging::LogMessage", align 8
-  %header_decompressor_ = getelementptr inbounds %"class.net::SpdyFramer", ptr %this, i64 0, i32 18
+  %header_decompressor_ = getelementptr inbounds i8, ptr %this, i64 152
   %0 = load ptr, ptr %header_decompressor_, align 8
   %tobool.not = icmp eq ptr %0, null
   br i1 %tobool.not, label %_ZNSt10unique_ptrI10z_stream_sSt14default_deleteIS0_EE5resetEPS0_.exit, label %return
@@ -11459,7 +11354,7 @@ if.then11:                                        ; preds = %_ZNSt10unique_ptrI1
 
 cond.false:                                       ; preds = %if.then11
   call void @_ZN7logging10LogMessageC1EPKcii(ptr noundef nonnull align 8 dereferenceable(404) %ref.tmp13, ptr noundef nonnull @.str, i32 noundef 3122, i32 noundef 1)
-  %stream_.i = getelementptr inbounds %"class.logging::LogMessage", ptr %ref.tmp13, i64 0, i32 2
+  %stream_.i = getelementptr inbounds i8, ptr %ref.tmp13, i64 8
   %call16 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc(ptr noundef nonnull align 8 dereferenceable(8) %stream_.i, ptr noundef nonnull @.str.114)
           to label %invoke.cont15 unwind label %lpad
 
@@ -11515,7 +11410,7 @@ define dso_local void @_ZN3net10SpdyFramer33SetDecoderHeaderTableDebugVisitorESt
 entry:
   %agg.tmp = alloca %"class.std::unique_ptr.120", align 8
   %agg.tmp5 = alloca %"class.std::unique_ptr.120", align 8
-  %decoder_adapter_ = getelementptr inbounds %"class.net::SpdyFramer", ptr %this, i64 0, i32 26
+  %decoder_adapter_ = getelementptr inbounds i8, ptr %this, i64 240
   %0 = load ptr, ptr %decoder_adapter_, align 8
   %cmp.i.i.not = icmp eq ptr %0, null
   br i1 %cmp.i.i.not, label %if.else, label %if.then
@@ -11525,7 +11420,7 @@ if.then:                                          ; preds = %entry
   store i64 %1, ptr %agg.tmp, align 8
   store ptr null, ptr %visitor, align 8
   %vtable = load ptr, ptr %0, align 8
-  %vfn = getelementptr inbounds ptr, ptr %vtable, i64 4
+  %vfn = getelementptr inbounds i8, ptr %vtable, i64 32
   %2 = load ptr, ptr %vfn, align 8
   invoke void %2(ptr noundef nonnull align 8 dereferenceable(25) %0, ptr noundef nonnull %agg.tmp)
           to label %invoke.cont unwind label %lpad
@@ -11544,13 +11439,13 @@ lpad:                                             ; preds = %if.then
 
 _ZNKSt14default_deleteIN3net16HpackHeaderTable21DebugVisitorInterfaceEEclEPS2_.exit.i3: ; preds = %lpad
   %vtable.i.i4 = load ptr, ptr %5, align 8
-  %vfn.i.i5 = getelementptr inbounds ptr, ptr %vtable.i.i4, i64 1
+  %vfn.i.i5 = getelementptr inbounds i8, ptr %vtable.i.i4, i64 8
   %6 = load ptr, ptr %vfn.i.i5, align 8
   call void %6(ptr noundef nonnull align 8 dereferenceable(8) %5) #23
   br label %common.resume
 
 if.else:                                          ; preds = %entry
-  %hpack_decoder_.i = getelementptr inbounds %"class.net::SpdyFramer", ptr %this, i64 0, i32 20
+  %hpack_decoder_.i = getelementptr inbounds i8, ptr %this, i64 168
   %7 = load ptr, ptr %hpack_decoder_.i, align 8
   %cmp.i = icmp eq ptr %7, null
   br i1 %cmp.i, label %if.then5.i, label %_ZN3net10SpdyFramer15GetHpackDecoderEv.exit
@@ -11568,7 +11463,7 @@ invoke.cont9.i:                                   ; preds = %if.then5.i
 
 _ZNKSt14default_deleteIN3net21HpackDecoderInterfaceEEclEPS1_.exit.i.i.i: ; preds = %invoke.cont9.i
   %vtable.i.i.i.i = load ptr, ptr %8, align 8
-  %vfn.i.i.i.i = getelementptr inbounds ptr, ptr %vtable.i.i.i.i, i64 1
+  %vfn.i.i.i.i = getelementptr inbounds i8, ptr %vtable.i.i.i.i, i64 8
   %9 = load ptr, ptr %vfn.i.i.i.i, align 8
   tail call void %9(ptr noundef nonnull align 8 dereferenceable(8) %8) #23
   %.pre.i = load ptr, ptr %hpack_decoder_.i, align 8
@@ -11590,7 +11485,7 @@ _ZN3net10SpdyFramer15GetHpackDecoderEv.exit:      ; preds = %if.else, %invoke.co
   store i64 %12, ptr %agg.tmp5, align 8
   store ptr null, ptr %visitor, align 8
   %vtable6 = load ptr, ptr %11, align 8
-  %vfn7 = getelementptr inbounds ptr, ptr %vtable6, i64 7
+  %vfn7 = getelementptr inbounds i8, ptr %vtable6, i64 56
   %13 = load ptr, ptr %vfn7, align 8
   invoke void %13(ptr noundef nonnull align 8 dereferenceable(8) %11, ptr noundef nonnull %agg.tmp5)
           to label %invoke.cont9 unwind label %lpad8
@@ -11609,7 +11504,7 @@ lpad8:                                            ; preds = %_ZN3net10SpdyFramer
 
 _ZNKSt14default_deleteIN3net16HpackHeaderTable21DebugVisitorInterfaceEEclEPS2_.exit.i13: ; preds = %lpad8
   %vtable.i.i14 = load ptr, ptr %16, align 8
-  %vfn.i.i15 = getelementptr inbounds ptr, ptr %vtable.i.i14, i64 1
+  %vfn.i.i15 = getelementptr inbounds i8, ptr %vtable.i.i14, i64 8
   %17 = load ptr, ptr %vfn.i.i15, align 8
   call void %17(ptr noundef nonnull align 8 dereferenceable(8) %16) #23
   br label %common.resume
@@ -11617,7 +11512,7 @@ _ZNKSt14default_deleteIN3net16HpackHeaderTable21DebugVisitorInterfaceEEclEPS2_.e
 if.end.sink.split:                                ; preds = %invoke.cont9, %invoke.cont
   %.sink18 = phi ptr [ %3, %invoke.cont ], [ %14, %invoke.cont9 ]
   %vtable.i.i9 = load ptr, ptr %.sink18, align 8
-  %vfn.i.i10 = getelementptr inbounds ptr, ptr %vtable.i.i9, i64 1
+  %vfn.i.i10 = getelementptr inbounds i8, ptr %vtable.i.i9, i64 8
   %18 = load ptr, ptr %vfn.i.i10, align 8
   call void %18(ptr noundef nonnull align 8 dereferenceable(8) %.sink18) #23
   br label %if.end
@@ -11629,7 +11524,7 @@ if.end:                                           ; preds = %if.end.sink.split, 
 ; Function Attrs: mustprogress uwtable
 define dso_local void @_ZN3net10SpdyFramer33SetEncoderHeaderTableDebugVisitorESt10unique_ptrINS_16HpackHeaderTable21DebugVisitorInterfaceESt14default_deleteIS3_EE(ptr nocapture noundef nonnull align 8 dereferenceable(259) %this, ptr nocapture noundef %visitor) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  %hpack_encoder_.i = getelementptr inbounds %"class.net::SpdyFramer", ptr %this, i64 0, i32 19
+  %hpack_encoder_.i = getelementptr inbounds i8, ptr %this, i64 160
   %0 = load ptr, ptr %hpack_encoder_.i, align 8
   %cmp.i = icmp eq ptr %0, null
   br i1 %cmp.i, label %if.then5.i, label %_ZN3net10SpdyFramer15GetHpackEncoderEv.exit
@@ -11666,7 +11561,7 @@ _ZN3net10SpdyFramer15GetHpackEncoderEv.exit:      ; preds = %entry, %invoke.cont
   %4 = load i64, ptr %visitor, align 8
   %5 = inttoptr i64 %4 to ptr
   store ptr null, ptr %visitor, align 8
-  %debug_visitor_.i.i = getelementptr inbounds %"class.net::HpackHeaderTable", ptr %3, i64 0, i32 10
+  %debug_visitor_.i.i = getelementptr inbounds i8, ptr %3, i64 248
   %6 = load ptr, ptr %debug_visitor_.i.i, align 8
   store ptr %5, ptr %debug_visitor_.i.i, align 8
   %tobool.not.i.i.i.i.i.i = icmp eq ptr %6, null
@@ -11674,7 +11569,7 @@ _ZN3net10SpdyFramer15GetHpackEncoderEv.exit:      ; preds = %entry, %invoke.cont
 
 _ZNKSt14default_deleteIN3net16HpackHeaderTable21DebugVisitorInterfaceEEclEPS2_.exit.i.i.i.i.i.i: ; preds = %_ZN3net10SpdyFramer15GetHpackEncoderEv.exit
   %vtable.i.i.i.i.i.i.i = load ptr, ptr %6, align 8
-  %vfn.i.i.i.i.i.i.i = getelementptr inbounds ptr, ptr %vtable.i.i.i.i.i.i.i, i64 1
+  %vfn.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %vtable.i.i.i.i.i.i.i, i64 8
   %7 = load ptr, ptr %vfn.i.i.i.i.i.i.i, align 8
   tail call void %7(ptr noundef nonnull align 8 dereferenceable(8) %6) #23
   br label %_ZNSt10unique_ptrIN3net16HpackHeaderTable21DebugVisitorInterfaceESt14default_deleteIS2_EED2Ev.exit
@@ -11686,7 +11581,7 @@ _ZNSt10unique_ptrIN3net16HpackHeaderTable21DebugVisitorInterfaceESt14default_del
 ; Function Attrs: mustprogress uwtable
 define dso_local void @_ZN3net10SpdyFramer28UpdateHeaderEncoderTableSizeEj(ptr nocapture noundef nonnull align 8 dereferenceable(259) %this, i32 noundef %value) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  %hpack_encoder_.i = getelementptr inbounds %"class.net::SpdyFramer", ptr %this, i64 0, i32 19
+  %hpack_encoder_.i = getelementptr inbounds i8, ptr %this, i64 160
   %0 = load ptr, ptr %hpack_encoder_.i, align 8
   %cmp.i = icmp eq ptr %0, null
   br i1 %cmp.i, label %if.then5.i, label %_ZN3net10SpdyFramer15GetHpackEncoderEv.exit
@@ -11730,7 +11625,7 @@ declare void @_ZN3net12HpackEncoder27ApplyHeaderTableSizeSettingEm(ptr noundef n
 ; Function Attrs: mustprogress uwtable
 define dso_local void @_ZN3net10SpdyFramer28UpdateHeaderDecoderTableSizeEj(ptr nocapture noundef nonnull align 8 dereferenceable(259) %this, i32 noundef %value) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  %hpack_decoder_.i = getelementptr inbounds %"class.net::SpdyFramer", ptr %this, i64 0, i32 20
+  %hpack_decoder_.i = getelementptr inbounds i8, ptr %this, i64 168
   %0 = load ptr, ptr %hpack_decoder_.i, align 8
   %cmp.i = icmp eq ptr %0, null
   br i1 %cmp.i, label %if.then5.i, label %_ZN3net10SpdyFramer15GetHpackDecoderEv.exit
@@ -11748,7 +11643,7 @@ invoke.cont9.i:                                   ; preds = %if.then5.i
 
 _ZNKSt14default_deleteIN3net21HpackDecoderInterfaceEEclEPS1_.exit.i.i.i: ; preds = %invoke.cont9.i
   %vtable.i.i.i.i = load ptr, ptr %1, align 8
-  %vfn.i.i.i.i = getelementptr inbounds ptr, ptr %vtable.i.i.i.i, i64 1
+  %vfn.i.i.i.i = getelementptr inbounds i8, ptr %vtable.i.i.i.i, i64 8
   %2 = load ptr, ptr %vfn.i.i.i.i, align 8
   tail call void %2(ptr noundef nonnull align 8 dereferenceable(8) %1) #23
   %.pre.i = load ptr, ptr %hpack_decoder_.i, align 8
@@ -11764,7 +11659,7 @@ _ZN3net10SpdyFramer15GetHpackDecoderEv.exit:      ; preds = %entry, %invoke.cont
   %4 = phi ptr [ %.pre.i, %_ZNKSt14default_deleteIN3net21HpackDecoderInterfaceEEclEPS1_.exit.i.i.i ], [ %call7.i, %invoke.cont9.i ], [ %0, %entry ]
   %conv = zext i32 %value to i64
   %vtable = load ptr, ptr %4, align 8
-  %vfn = getelementptr inbounds ptr, ptr %vtable, i64 2
+  %vfn = getelementptr inbounds i8, ptr %vtable, i64 16
   %5 = load ptr, ptr %vfn, align 8
   tail call void %5(ptr noundef nonnull align 8 dereferenceable(8) %4, i64 noundef %conv)
   ret void
@@ -11773,13 +11668,13 @@ _ZN3net10SpdyFramer15GetHpackDecoderEv.exit:      ; preds = %entry, %invoke.cont
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
 define dso_local noundef i64 @_ZNK3net10SpdyFramer25header_encoder_table_sizeEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(259) %this) local_unnamed_addr #15 align 2 {
 entry:
-  %hpack_encoder_ = getelementptr inbounds %"class.net::SpdyFramer", ptr %this, i64 0, i32 19
+  %hpack_encoder_ = getelementptr inbounds i8, ptr %this, i64 160
   %0 = load ptr, ptr %hpack_encoder_, align 8
   %cmp.i.not.i = icmp eq ptr %0, null
   br i1 %cmp.i.not.i, label %return, label %if.else
 
 if.else:                                          ; preds = %entry
-  %settings_size_bound_.i.i = getelementptr inbounds %"class.net::HpackHeaderTable", ptr %0, i64 0, i32 6
+  %settings_size_bound_.i.i = getelementptr inbounds i8, ptr %0, i64 216
   %1 = load i64, ptr %settings_size_bound_.i.i, align 8
   br label %return
 
@@ -11863,13 +11758,13 @@ declare i16 @llvm.bswap.i16(i16) #16
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr dso_local ptr @_ZNSt10_HashtableIN4base16BasicStringPieceINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEESt4pairIKS8_St14_List_iteratorIS9_IS8_S8_EEESaISE_ENSt8__detail10_Select1stESt8equal_toIS8_ENS0_15StringPieceHashENSG_18_Mod_range_hashingENSG_20_Default_ranged_hashENSG_20_Prime_rehash_policyENSG_17_Hashtable_traitsILb1ELb0ELb1EEEE4findERSA_(ptr noundef nonnull align 8 dereferenceable(56) %this, ptr noundef nonnull align 8 dereferenceable(16) %__k) local_unnamed_addr #0 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  %_M_element_count.i = getelementptr inbounds %"class.std::_Hashtable", ptr %this, i64 0, i32 3
+  %_M_element_count.i = getelementptr inbounds i8, ptr %this, i64 24
   %0 = load i64, ptr %_M_element_count.i, align 8
   %cmp.not.not = icmp eq i64 %0, 0
   br i1 %cmp.not.not, label %if.then, label %if.end15
 
 if.then:                                          ; preds = %entry
-  %_M_before_begin.i.i = getelementptr inbounds %"class.std::_Hashtable", ptr %this, i64 0, i32 2
+  %_M_before_begin.i.i = getelementptr inbounds i8, ptr %this, i64 16
   br label %for.cond
 
 for.cond:                                         ; preds = %for.body, %if.then
@@ -11903,7 +11798,7 @@ for.body.i.i:                                     ; preds = %if.end15, %for.body
 
 _ZNKSt8__detail15_Hash_code_baseIN4base16BasicStringPieceINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEESt4pairIKS9_St14_List_iteratorISA_IS9_S9_EEENS_10_Select1stENS1_15StringPieceHashENS_18_Mod_range_hashingENS_20_Default_ranged_hashELb1EE12_M_hash_codeERSB_.exit: ; preds = %for.body.i.i, %if.end15
   %result.0.lcssa.i.i = phi i64 [ 0, %if.end15 ], [ %add.i.i, %for.body.i.i ]
-  %_M_bucket_count.i = getelementptr inbounds %"class.std::_Hashtable", ptr %this, i64 0, i32 1
+  %_M_bucket_count.i = getelementptr inbounds i8, ptr %this, i64 8
   %2 = load i64, ptr %_M_bucket_count.i, align 8
   %rem.i.i.i = urem i64 %result.0.lcssa.i.i, %2
   %3 = load ptr, ptr %this, align 8
@@ -11962,11 +11857,11 @@ declare void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1ERKS4_(ptr 
 define internal void @_ZN3net12_GLOBAL__N_125FrameSerializationVisitor14VisitSynStreamERKNS_15SpdySynStreamIRE(ptr nocapture noundef nonnull align 8 dereferenceable(40) %this, ptr noundef nonnull align 8 dereferenceable(110) %syn_stream) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp = alloca %"class.net::SpdySerializedFrame", align 8
-  %framer_ = getelementptr inbounds %"class.net::(anonymous namespace)::FrameSerializationVisitor", ptr %this, i64 0, i32 1
+  %framer_ = getelementptr inbounds i8, ptr %this, i64 8
   %0 = load ptr, ptr %framer_, align 8
   call void @_ZN3net10SpdyFramer18SerializeSynStreamERKNS_15SpdySynStreamIRE(ptr nonnull sret(%"class.net::SpdySerializedFrame") align 8 %ref.tmp, ptr noundef nonnull align 8 dereferenceable(259) %0, ptr noundef nonnull align 8 dereferenceable(110) %syn_stream)
-  %frame_ = getelementptr inbounds %"class.net::(anonymous namespace)::FrameSerializationVisitor", ptr %this, i64 0, i32 2
-  %owns_buffer_.i = getelementptr inbounds %"class.net::(anonymous namespace)::FrameSerializationVisitor", ptr %this, i64 0, i32 2, i32 2
+  %frame_ = getelementptr inbounds i8, ptr %this, i64 16
+  %owns_buffer_.i = getelementptr inbounds i8, ptr %this, i64 32
   %1 = load i8, ptr %owns_buffer_.i, align 8
   %2 = and i8 %1, 1
   %tobool.not.i = icmp eq i8 %2, 0
@@ -11984,11 +11879,11 @@ delete.notnull.i:                                 ; preds = %if.then.i
 _ZN3net19SpdySerializedFrameD2Ev.exit:            ; preds = %delete.notnull.i, %if.then.i, %entry
   %4 = load ptr, ptr %ref.tmp, align 8
   store ptr %4, ptr %frame_, align 8
-  %size_.i = getelementptr inbounds %"class.net::SpdySerializedFrame", ptr %ref.tmp, i64 0, i32 1
+  %size_.i = getelementptr inbounds i8, ptr %ref.tmp, i64 8
   %5 = load i64, ptr %size_.i, align 8
-  %size_4.i = getelementptr inbounds %"class.net::(anonymous namespace)::FrameSerializationVisitor", ptr %this, i64 0, i32 2, i32 1
+  %size_4.i = getelementptr inbounds i8, ptr %this, i64 24
   store i64 %5, ptr %size_4.i, align 8
-  %owns_buffer_5.i = getelementptr inbounds %"class.net::SpdySerializedFrame", ptr %ref.tmp, i64 0, i32 2
+  %owns_buffer_5.i = getelementptr inbounds i8, ptr %ref.tmp, i64 16
   %6 = load i8, ptr %owns_buffer_5.i, align 8
   %7 = and i8 %6, 1
   store i8 %7, ptr %owns_buffer_.i, align 8
@@ -11999,11 +11894,11 @@ _ZN3net19SpdySerializedFrameD2Ev.exit:            ; preds = %delete.notnull.i, %
 define internal void @_ZN3net12_GLOBAL__N_125FrameSerializationVisitor13VisitSynReplyERKNS_14SpdySynReplyIRE(ptr nocapture noundef nonnull align 8 dereferenceable(40) %this, ptr noundef nonnull align 8 dereferenceable(104) %syn_reply) unnamed_addr #0 align 2 {
 entry:
   %ref.tmp = alloca %"class.net::SpdySerializedFrame", align 8
-  %framer_ = getelementptr inbounds %"class.net::(anonymous namespace)::FrameSerializationVisitor", ptr %this, i64 0, i32 1
+  %framer_ = getelementptr inbounds i8, ptr %this, i64 8
   %0 = load ptr, ptr %framer_, align 8
   call void @_ZN3net10SpdyFramer17SerializeSynReplyERKNS_14SpdySynReplyIRE(ptr nonnull sret(%"class.net::SpdySerializedFrame") align 8 %ref.tmp, ptr noundef nonnull align 8 dereferenceable(259) %0, ptr noundef nonnull align 8 dereferenceable(104) %syn_reply)
-  %frame_ = getelementptr inbounds %"class.net::(anonymous namespace)::FrameSerializationVisitor", ptr %this, i64 0, i32 2
-  %owns_buffer_.i = getelementptr inbounds %"class.net::(anonymous namespace)::FrameSerializationVisitor", ptr %this, i64 0, i32 2, i32 2
+  %frame_ = getelementptr inbounds i8, ptr %this, i64 16
+  %owns_buffer_.i = getelementptr inbounds i8, ptr %this, i64 32
   %1 = load i8, ptr %owns_buffer_.i, align 8
   %2 = and i8 %1, 1
   %tobool.not.i = icmp eq i8 %2, 0
@@ -12021,11 +11916,11 @@ delete.notnull.i:                                 ; preds = %if.then.i
 _ZN3net19SpdySerializedFrameD2Ev.exit:            ; preds = %delete.notnull.i, %if.then.i, %entry
   %4 = load ptr, ptr %ref.tmp, align 8
   store ptr %4, ptr %frame_, align 8
-  %size_.i = getelementptr inbounds %"class.net::SpdySerializedFrame", ptr %ref.tmp, i64 0, i32 1
+  %size_.i = getelementptr inbounds i8, ptr %ref.tmp, i64 8
   %5 = load i64, ptr %size_.i, align 8
-  %size_4.i = getelementptr inbounds %"class.net::(anonymous namespace)::FrameSerializationVisitor", ptr %this, i64 0, i32 2, i32 1
+  %size_4.i = getelementptr inbounds i8, ptr %this, i64 24
   store i64 %5, ptr %size_4.i, align 8
-  %owns_buffer_5.i = getelementptr inbounds %"class.net::SpdySerializedFrame", ptr %ref.tmp, i64 0, i32 2
+  %owns_buffer_5.i = getelementptr inbounds i8, ptr %ref.tmp, i64 16
   %6 = load i8, ptr %owns_buffer_5.i, align 8
   %7 = and i8 %6, 1
   store i8 %7, ptr %owns_buffer_.i, align 8
@@ -12036,11 +11931,11 @@ _ZN3net19SpdySerializedFrameD2Ev.exit:            ; preds = %delete.notnull.i, %
 define internal void @_ZN3net12_GLOBAL__N_125FrameSerializationVisitor14VisitRstStreamERKNS_15SpdyRstStreamIRE(ptr nocapture noundef nonnull align 8 dereferenceable(40) %this, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %rst_stream) unnamed_addr #0 align 2 {
 entry:
   %ref.tmp = alloca %"class.net::SpdySerializedFrame", align 8
-  %framer_ = getelementptr inbounds %"class.net::(anonymous namespace)::FrameSerializationVisitor", ptr %this, i64 0, i32 1
+  %framer_ = getelementptr inbounds i8, ptr %this, i64 8
   %0 = load ptr, ptr %framer_, align 8
   call void @_ZNK3net10SpdyFramer18SerializeRstStreamERKNS_15SpdyRstStreamIRE(ptr nonnull sret(%"class.net::SpdySerializedFrame") align 8 %ref.tmp, ptr noundef nonnull align 8 dereferenceable(259) %0, ptr noundef nonnull align 8 dereferenceable(16) %rst_stream)
-  %frame_ = getelementptr inbounds %"class.net::(anonymous namespace)::FrameSerializationVisitor", ptr %this, i64 0, i32 2
-  %owns_buffer_.i = getelementptr inbounds %"class.net::(anonymous namespace)::FrameSerializationVisitor", ptr %this, i64 0, i32 2, i32 2
+  %frame_ = getelementptr inbounds i8, ptr %this, i64 16
+  %owns_buffer_.i = getelementptr inbounds i8, ptr %this, i64 32
   %1 = load i8, ptr %owns_buffer_.i, align 8
   %2 = and i8 %1, 1
   %tobool.not.i = icmp eq i8 %2, 0
@@ -12058,11 +11953,11 @@ delete.notnull.i:                                 ; preds = %if.then.i
 _ZN3net19SpdySerializedFrameD2Ev.exit:            ; preds = %delete.notnull.i, %if.then.i, %entry
   %4 = load ptr, ptr %ref.tmp, align 8
   store ptr %4, ptr %frame_, align 8
-  %size_.i = getelementptr inbounds %"class.net::SpdySerializedFrame", ptr %ref.tmp, i64 0, i32 1
+  %size_.i = getelementptr inbounds i8, ptr %ref.tmp, i64 8
   %5 = load i64, ptr %size_.i, align 8
-  %size_4.i = getelementptr inbounds %"class.net::(anonymous namespace)::FrameSerializationVisitor", ptr %this, i64 0, i32 2, i32 1
+  %size_4.i = getelementptr inbounds i8, ptr %this, i64 24
   store i64 %5, ptr %size_4.i, align 8
-  %owns_buffer_5.i = getelementptr inbounds %"class.net::SpdySerializedFrame", ptr %ref.tmp, i64 0, i32 2
+  %owns_buffer_5.i = getelementptr inbounds i8, ptr %ref.tmp, i64 16
   %6 = load i8, ptr %owns_buffer_5.i, align 8
   %7 = and i8 %6, 1
   store i8 %7, ptr %owns_buffer_.i, align 8
@@ -12073,11 +11968,11 @@ _ZN3net19SpdySerializedFrameD2Ev.exit:            ; preds = %delete.notnull.i, %
 define internal void @_ZN3net12_GLOBAL__N_125FrameSerializationVisitor13VisitSettingsERKNS_14SpdySettingsIRE(ptr nocapture noundef nonnull align 8 dereferenceable(40) %this, ptr noundef nonnull align 8 dereferenceable(58) %settings) unnamed_addr #0 align 2 {
 entry:
   %ref.tmp = alloca %"class.net::SpdySerializedFrame", align 8
-  %framer_ = getelementptr inbounds %"class.net::(anonymous namespace)::FrameSerializationVisitor", ptr %this, i64 0, i32 1
+  %framer_ = getelementptr inbounds i8, ptr %this, i64 8
   %0 = load ptr, ptr %framer_, align 8
   call void @_ZNK3net10SpdyFramer17SerializeSettingsERKNS_14SpdySettingsIRE(ptr nonnull sret(%"class.net::SpdySerializedFrame") align 8 %ref.tmp, ptr noundef nonnull align 8 dereferenceable(259) %0, ptr noundef nonnull align 8 dereferenceable(58) %settings)
-  %frame_ = getelementptr inbounds %"class.net::(anonymous namespace)::FrameSerializationVisitor", ptr %this, i64 0, i32 2
-  %owns_buffer_.i = getelementptr inbounds %"class.net::(anonymous namespace)::FrameSerializationVisitor", ptr %this, i64 0, i32 2, i32 2
+  %frame_ = getelementptr inbounds i8, ptr %this, i64 16
+  %owns_buffer_.i = getelementptr inbounds i8, ptr %this, i64 32
   %1 = load i8, ptr %owns_buffer_.i, align 8
   %2 = and i8 %1, 1
   %tobool.not.i = icmp eq i8 %2, 0
@@ -12095,11 +11990,11 @@ delete.notnull.i:                                 ; preds = %if.then.i
 _ZN3net19SpdySerializedFrameD2Ev.exit:            ; preds = %delete.notnull.i, %if.then.i, %entry
   %4 = load ptr, ptr %ref.tmp, align 8
   store ptr %4, ptr %frame_, align 8
-  %size_.i = getelementptr inbounds %"class.net::SpdySerializedFrame", ptr %ref.tmp, i64 0, i32 1
+  %size_.i = getelementptr inbounds i8, ptr %ref.tmp, i64 8
   %5 = load i64, ptr %size_.i, align 8
-  %size_4.i = getelementptr inbounds %"class.net::(anonymous namespace)::FrameSerializationVisitor", ptr %this, i64 0, i32 2, i32 1
+  %size_4.i = getelementptr inbounds i8, ptr %this, i64 24
   store i64 %5, ptr %size_4.i, align 8
-  %owns_buffer_5.i = getelementptr inbounds %"class.net::SpdySerializedFrame", ptr %ref.tmp, i64 0, i32 2
+  %owns_buffer_5.i = getelementptr inbounds i8, ptr %ref.tmp, i64 16
   %6 = load i8, ptr %owns_buffer_5.i, align 8
   %7 = and i8 %6, 1
   store i8 %7, ptr %owns_buffer_.i, align 8
@@ -12110,11 +12005,11 @@ _ZN3net19SpdySerializedFrameD2Ev.exit:            ; preds = %delete.notnull.i, %
 define internal void @_ZN3net12_GLOBAL__N_125FrameSerializationVisitor9VisitPingERKNS_10SpdyPingIRE(ptr nocapture noundef nonnull align 8 dereferenceable(40) %this, ptr nocapture noundef nonnull readonly align 8 dereferenceable(17) %ping) unnamed_addr #0 align 2 {
 entry:
   %ref.tmp = alloca %"class.net::SpdySerializedFrame", align 8
-  %framer_ = getelementptr inbounds %"class.net::(anonymous namespace)::FrameSerializationVisitor", ptr %this, i64 0, i32 1
+  %framer_ = getelementptr inbounds i8, ptr %this, i64 8
   %0 = load ptr, ptr %framer_, align 8
   call void @_ZNK3net10SpdyFramer13SerializePingERKNS_10SpdyPingIRE(ptr nonnull sret(%"class.net::SpdySerializedFrame") align 8 %ref.tmp, ptr noundef nonnull align 8 dereferenceable(259) %0, ptr noundef nonnull align 8 dereferenceable(17) %ping)
-  %frame_ = getelementptr inbounds %"class.net::(anonymous namespace)::FrameSerializationVisitor", ptr %this, i64 0, i32 2
-  %owns_buffer_.i = getelementptr inbounds %"class.net::(anonymous namespace)::FrameSerializationVisitor", ptr %this, i64 0, i32 2, i32 2
+  %frame_ = getelementptr inbounds i8, ptr %this, i64 16
+  %owns_buffer_.i = getelementptr inbounds i8, ptr %this, i64 32
   %1 = load i8, ptr %owns_buffer_.i, align 8
   %2 = and i8 %1, 1
   %tobool.not.i = icmp eq i8 %2, 0
@@ -12132,11 +12027,11 @@ delete.notnull.i:                                 ; preds = %if.then.i
 _ZN3net19SpdySerializedFrameD2Ev.exit:            ; preds = %delete.notnull.i, %if.then.i, %entry
   %4 = load ptr, ptr %ref.tmp, align 8
   store ptr %4, ptr %frame_, align 8
-  %size_.i = getelementptr inbounds %"class.net::SpdySerializedFrame", ptr %ref.tmp, i64 0, i32 1
+  %size_.i = getelementptr inbounds i8, ptr %ref.tmp, i64 8
   %5 = load i64, ptr %size_.i, align 8
-  %size_4.i = getelementptr inbounds %"class.net::(anonymous namespace)::FrameSerializationVisitor", ptr %this, i64 0, i32 2, i32 1
+  %size_4.i = getelementptr inbounds i8, ptr %this, i64 24
   store i64 %5, ptr %size_4.i, align 8
-  %owns_buffer_5.i = getelementptr inbounds %"class.net::SpdySerializedFrame", ptr %ref.tmp, i64 0, i32 2
+  %owns_buffer_5.i = getelementptr inbounds i8, ptr %ref.tmp, i64 16
   %6 = load i8, ptr %owns_buffer_5.i, align 8
   %7 = and i8 %6, 1
   store i8 %7, ptr %owns_buffer_.i, align 8
@@ -12147,11 +12042,11 @@ _ZN3net19SpdySerializedFrameD2Ev.exit:            ; preds = %delete.notnull.i, %
 define internal void @_ZN3net12_GLOBAL__N_125FrameSerializationVisitor11VisitGoAwayERKNS_12SpdyGoAwayIRE(ptr nocapture noundef nonnull align 8 dereferenceable(40) %this, ptr noundef nonnull align 8 dereferenceable(64) %goaway) unnamed_addr #0 align 2 {
 entry:
   %ref.tmp = alloca %"class.net::SpdySerializedFrame", align 8
-  %framer_ = getelementptr inbounds %"class.net::(anonymous namespace)::FrameSerializationVisitor", ptr %this, i64 0, i32 1
+  %framer_ = getelementptr inbounds i8, ptr %this, i64 8
   %0 = load ptr, ptr %framer_, align 8
   call void @_ZNK3net10SpdyFramer15SerializeGoAwayERKNS_12SpdyGoAwayIRE(ptr nonnull sret(%"class.net::SpdySerializedFrame") align 8 %ref.tmp, ptr noundef nonnull align 8 dereferenceable(259) %0, ptr noundef nonnull align 8 dereferenceable(64) %goaway)
-  %frame_ = getelementptr inbounds %"class.net::(anonymous namespace)::FrameSerializationVisitor", ptr %this, i64 0, i32 2
-  %owns_buffer_.i = getelementptr inbounds %"class.net::(anonymous namespace)::FrameSerializationVisitor", ptr %this, i64 0, i32 2, i32 2
+  %frame_ = getelementptr inbounds i8, ptr %this, i64 16
+  %owns_buffer_.i = getelementptr inbounds i8, ptr %this, i64 32
   %1 = load i8, ptr %owns_buffer_.i, align 8
   %2 = and i8 %1, 1
   %tobool.not.i = icmp eq i8 %2, 0
@@ -12169,11 +12064,11 @@ delete.notnull.i:                                 ; preds = %if.then.i
 _ZN3net19SpdySerializedFrameD2Ev.exit:            ; preds = %delete.notnull.i, %if.then.i, %entry
   %4 = load ptr, ptr %ref.tmp, align 8
   store ptr %4, ptr %frame_, align 8
-  %size_.i = getelementptr inbounds %"class.net::SpdySerializedFrame", ptr %ref.tmp, i64 0, i32 1
+  %size_.i = getelementptr inbounds i8, ptr %ref.tmp, i64 8
   %5 = load i64, ptr %size_.i, align 8
-  %size_4.i = getelementptr inbounds %"class.net::(anonymous namespace)::FrameSerializationVisitor", ptr %this, i64 0, i32 2, i32 1
+  %size_4.i = getelementptr inbounds i8, ptr %this, i64 24
   store i64 %5, ptr %size_4.i, align 8
-  %owns_buffer_5.i = getelementptr inbounds %"class.net::SpdySerializedFrame", ptr %ref.tmp, i64 0, i32 2
+  %owns_buffer_5.i = getelementptr inbounds i8, ptr %ref.tmp, i64 16
   %6 = load i8, ptr %owns_buffer_5.i, align 8
   %7 = and i8 %6, 1
   store i8 %7, ptr %owns_buffer_.i, align 8
@@ -12184,11 +12079,11 @@ _ZN3net19SpdySerializedFrameD2Ev.exit:            ; preds = %delete.notnull.i, %
 define internal void @_ZN3net12_GLOBAL__N_125FrameSerializationVisitor12VisitHeadersERKNS_13SpdyHeadersIRE(ptr nocapture noundef nonnull align 8 dereferenceable(40) %this, ptr noundef nonnull align 8 dereferenceable(124) %headers) unnamed_addr #0 align 2 {
 entry:
   %ref.tmp = alloca %"class.net::SpdySerializedFrame", align 8
-  %framer_ = getelementptr inbounds %"class.net::(anonymous namespace)::FrameSerializationVisitor", ptr %this, i64 0, i32 1
+  %framer_ = getelementptr inbounds i8, ptr %this, i64 8
   %0 = load ptr, ptr %framer_, align 8
   call void @_ZN3net10SpdyFramer16SerializeHeadersERKNS_13SpdyHeadersIRE(ptr nonnull sret(%"class.net::SpdySerializedFrame") align 8 %ref.tmp, ptr noundef nonnull align 8 dereferenceable(259) %0, ptr noundef nonnull align 8 dereferenceable(124) %headers)
-  %frame_ = getelementptr inbounds %"class.net::(anonymous namespace)::FrameSerializationVisitor", ptr %this, i64 0, i32 2
-  %owns_buffer_.i = getelementptr inbounds %"class.net::(anonymous namespace)::FrameSerializationVisitor", ptr %this, i64 0, i32 2, i32 2
+  %frame_ = getelementptr inbounds i8, ptr %this, i64 16
+  %owns_buffer_.i = getelementptr inbounds i8, ptr %this, i64 32
   %1 = load i8, ptr %owns_buffer_.i, align 8
   %2 = and i8 %1, 1
   %tobool.not.i = icmp eq i8 %2, 0
@@ -12206,11 +12101,11 @@ delete.notnull.i:                                 ; preds = %if.then.i
 _ZN3net19SpdySerializedFrameD2Ev.exit:            ; preds = %delete.notnull.i, %if.then.i, %entry
   %4 = load ptr, ptr %ref.tmp, align 8
   store ptr %4, ptr %frame_, align 8
-  %size_.i = getelementptr inbounds %"class.net::SpdySerializedFrame", ptr %ref.tmp, i64 0, i32 1
+  %size_.i = getelementptr inbounds i8, ptr %ref.tmp, i64 8
   %5 = load i64, ptr %size_.i, align 8
-  %size_4.i = getelementptr inbounds %"class.net::(anonymous namespace)::FrameSerializationVisitor", ptr %this, i64 0, i32 2, i32 1
+  %size_4.i = getelementptr inbounds i8, ptr %this, i64 24
   store i64 %5, ptr %size_4.i, align 8
-  %owns_buffer_5.i = getelementptr inbounds %"class.net::SpdySerializedFrame", ptr %ref.tmp, i64 0, i32 2
+  %owns_buffer_5.i = getelementptr inbounds i8, ptr %ref.tmp, i64 16
   %6 = load i8, ptr %owns_buffer_5.i, align 8
   %7 = and i8 %6, 1
   store i8 %7, ptr %owns_buffer_.i, align 8
@@ -12221,11 +12116,11 @@ _ZN3net19SpdySerializedFrameD2Ev.exit:            ; preds = %delete.notnull.i, %
 define internal void @_ZN3net12_GLOBAL__N_125FrameSerializationVisitor17VisitWindowUpdateERKNS_18SpdyWindowUpdateIRE(ptr nocapture noundef nonnull align 8 dereferenceable(40) %this, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %window_update) unnamed_addr #0 align 2 {
 entry:
   %ref.tmp = alloca %"class.net::SpdySerializedFrame", align 8
-  %framer_ = getelementptr inbounds %"class.net::(anonymous namespace)::FrameSerializationVisitor", ptr %this, i64 0, i32 1
+  %framer_ = getelementptr inbounds i8, ptr %this, i64 8
   %0 = load ptr, ptr %framer_, align 8
   call void @_ZNK3net10SpdyFramer21SerializeWindowUpdateERKNS_18SpdyWindowUpdateIRE(ptr nonnull sret(%"class.net::SpdySerializedFrame") align 8 %ref.tmp, ptr noundef nonnull align 8 dereferenceable(259) %0, ptr noundef nonnull align 8 dereferenceable(16) %window_update)
-  %frame_ = getelementptr inbounds %"class.net::(anonymous namespace)::FrameSerializationVisitor", ptr %this, i64 0, i32 2
-  %owns_buffer_.i = getelementptr inbounds %"class.net::(anonymous namespace)::FrameSerializationVisitor", ptr %this, i64 0, i32 2, i32 2
+  %frame_ = getelementptr inbounds i8, ptr %this, i64 16
+  %owns_buffer_.i = getelementptr inbounds i8, ptr %this, i64 32
   %1 = load i8, ptr %owns_buffer_.i, align 8
   %2 = and i8 %1, 1
   %tobool.not.i = icmp eq i8 %2, 0
@@ -12243,11 +12138,11 @@ delete.notnull.i:                                 ; preds = %if.then.i
 _ZN3net19SpdySerializedFrameD2Ev.exit:            ; preds = %delete.notnull.i, %if.then.i, %entry
   %4 = load ptr, ptr %ref.tmp, align 8
   store ptr %4, ptr %frame_, align 8
-  %size_.i = getelementptr inbounds %"class.net::SpdySerializedFrame", ptr %ref.tmp, i64 0, i32 1
+  %size_.i = getelementptr inbounds i8, ptr %ref.tmp, i64 8
   %5 = load i64, ptr %size_.i, align 8
-  %size_4.i = getelementptr inbounds %"class.net::(anonymous namespace)::FrameSerializationVisitor", ptr %this, i64 0, i32 2, i32 1
+  %size_4.i = getelementptr inbounds i8, ptr %this, i64 24
   store i64 %5, ptr %size_4.i, align 8
-  %owns_buffer_5.i = getelementptr inbounds %"class.net::SpdySerializedFrame", ptr %ref.tmp, i64 0, i32 2
+  %owns_buffer_5.i = getelementptr inbounds i8, ptr %ref.tmp, i64 16
   %6 = load i8, ptr %owns_buffer_5.i, align 8
   %7 = and i8 %6, 1
   store i8 %7, ptr %owns_buffer_.i, align 8
@@ -12259,15 +12154,15 @@ define internal void @_ZN3net12_GLOBAL__N_125FrameSerializationVisitor12VisitBlo
 entry:
   %builder.i = alloca %"class.net::SpdyFrameBuilder", align 8
   %ref.tmp = alloca %"class.net::SpdySerializedFrame", align 8
-  %framer_ = getelementptr inbounds %"class.net::(anonymous namespace)::FrameSerializationVisitor", ptr %this, i64 0, i32 1
+  %framer_ = getelementptr inbounds i8, ptr %this, i64 8
   %0 = load ptr, ptr %framer_, align 8
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %builder.i)
-  %protocol_version_.i.i.i = getelementptr inbounds %"class.net::SpdyFramer", ptr %0, i64 0, i32 27
+  %protocol_version_.i.i.i = getelementptr inbounds i8, ptr %0, i64 248
   %1 = load i32, ptr %protocol_version_.i.i.i, align 8, !noalias !36
   %call.i.i.i = tail call noundef i64 @_ZN3net13SpdyConstants18GetFrameHeaderSizeENS_16SpdyMajorVersionE(i32 noundef %1), !noalias !36
   %2 = load i32, ptr %protocol_version_.i.i.i, align 8, !noalias !36
   call void @_ZN3net16SpdyFrameBuilderC1EmNS_16SpdyMajorVersionE(ptr noundef nonnull align 8 dereferenceable(36) %builder.i, i64 noundef %call.i.i.i, i32 noundef %2), !noalias !36
-  %stream_id_.i.i = getelementptr inbounds %"class.net::SpdyFrameWithStreamIdIR", ptr %blocked, i64 0, i32 1
+  %stream_id_.i.i = getelementptr inbounds i8, ptr %blocked, i64 8
   %3 = load i32, ptr %stream_id_.i.i, align 8, !noalias !36
   %call9.i = invoke noundef zeroext i1 @_ZN3net16SpdyFrameBuilder13BeginNewFrameERKNS_10SpdyFramerENS_13SpdyFrameTypeEhj(ptr noundef nonnull align 8 dereferenceable(36) %builder.i, ptr noundef nonnull align 8 dereferenceable(259) %0, i32 noundef 12, i8 noundef zeroext 0, i32 noundef %3)
           to label %invoke.cont8.i unwind label %lpad5.i, !noalias !36
@@ -12285,8 +12180,8 @@ lpad5.i:                                          ; preds = %invoke.cont8.i, %en
 _ZNK3net10SpdyFramer16SerializeBlockedERKNS_13SpdyBlockedIRE.exit: ; preds = %invoke.cont8.i
   call void @_ZN3net16SpdyFrameBuilderD1Ev(ptr noundef nonnull align 8 dereferenceable(36) %builder.i) #23
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %builder.i)
-  %frame_ = getelementptr inbounds %"class.net::(anonymous namespace)::FrameSerializationVisitor", ptr %this, i64 0, i32 2
-  %owns_buffer_.i = getelementptr inbounds %"class.net::(anonymous namespace)::FrameSerializationVisitor", ptr %this, i64 0, i32 2, i32 2
+  %frame_ = getelementptr inbounds i8, ptr %this, i64 16
+  %owns_buffer_.i = getelementptr inbounds i8, ptr %this, i64 32
   %5 = load i8, ptr %owns_buffer_.i, align 8
   %6 = and i8 %5, 1
   %tobool.not.i = icmp eq i8 %6, 0
@@ -12304,11 +12199,11 @@ delete.notnull.i:                                 ; preds = %if.then.i
 _ZN3net19SpdySerializedFrameD2Ev.exit:            ; preds = %delete.notnull.i, %if.then.i, %_ZNK3net10SpdyFramer16SerializeBlockedERKNS_13SpdyBlockedIRE.exit
   %8 = load ptr, ptr %ref.tmp, align 8
   store ptr %8, ptr %frame_, align 8
-  %size_.i = getelementptr inbounds %"class.net::SpdySerializedFrame", ptr %ref.tmp, i64 0, i32 1
+  %size_.i = getelementptr inbounds i8, ptr %ref.tmp, i64 8
   %9 = load i64, ptr %size_.i, align 8
-  %size_4.i = getelementptr inbounds %"class.net::(anonymous namespace)::FrameSerializationVisitor", ptr %this, i64 0, i32 2, i32 1
+  %size_4.i = getelementptr inbounds i8, ptr %this, i64 24
   store i64 %9, ptr %size_4.i, align 8
-  %owns_buffer_5.i = getelementptr inbounds %"class.net::SpdySerializedFrame", ptr %ref.tmp, i64 0, i32 2
+  %owns_buffer_5.i = getelementptr inbounds i8, ptr %ref.tmp, i64 16
   %10 = load i8, ptr %owns_buffer_5.i, align 8
   %11 = and i8 %10, 1
   store i8 %11, ptr %owns_buffer_.i, align 8
@@ -12319,11 +12214,11 @@ _ZN3net19SpdySerializedFrameD2Ev.exit:            ; preds = %delete.notnull.i, %
 define internal void @_ZN3net12_GLOBAL__N_125FrameSerializationVisitor16VisitPushPromiseERKNS_17SpdyPushPromiseIRE(ptr nocapture noundef nonnull align 8 dereferenceable(40) %this, ptr noundef nonnull align 8 dereferenceable(116) %push_promise) unnamed_addr #0 align 2 {
 entry:
   %ref.tmp = alloca %"class.net::SpdySerializedFrame", align 8
-  %framer_ = getelementptr inbounds %"class.net::(anonymous namespace)::FrameSerializationVisitor", ptr %this, i64 0, i32 1
+  %framer_ = getelementptr inbounds i8, ptr %this, i64 8
   %0 = load ptr, ptr %framer_, align 8
   call void @_ZN3net10SpdyFramer20SerializePushPromiseERKNS_17SpdyPushPromiseIRE(ptr nonnull sret(%"class.net::SpdySerializedFrame") align 8 %ref.tmp, ptr noundef nonnull align 8 dereferenceable(259) %0, ptr noundef nonnull align 8 dereferenceable(116) %push_promise)
-  %frame_ = getelementptr inbounds %"class.net::(anonymous namespace)::FrameSerializationVisitor", ptr %this, i64 0, i32 2
-  %owns_buffer_.i = getelementptr inbounds %"class.net::(anonymous namespace)::FrameSerializationVisitor", ptr %this, i64 0, i32 2, i32 2
+  %frame_ = getelementptr inbounds i8, ptr %this, i64 16
+  %owns_buffer_.i = getelementptr inbounds i8, ptr %this, i64 32
   %1 = load i8, ptr %owns_buffer_.i, align 8
   %2 = and i8 %1, 1
   %tobool.not.i = icmp eq i8 %2, 0
@@ -12341,11 +12236,11 @@ delete.notnull.i:                                 ; preds = %if.then.i
 _ZN3net19SpdySerializedFrameD2Ev.exit:            ; preds = %delete.notnull.i, %if.then.i, %entry
   %4 = load ptr, ptr %ref.tmp, align 8
   store ptr %4, ptr %frame_, align 8
-  %size_.i = getelementptr inbounds %"class.net::SpdySerializedFrame", ptr %ref.tmp, i64 0, i32 1
+  %size_.i = getelementptr inbounds i8, ptr %ref.tmp, i64 8
   %5 = load i64, ptr %size_.i, align 8
-  %size_4.i = getelementptr inbounds %"class.net::(anonymous namespace)::FrameSerializationVisitor", ptr %this, i64 0, i32 2, i32 1
+  %size_4.i = getelementptr inbounds i8, ptr %this, i64 24
   store i64 %5, ptr %size_4.i, align 8
-  %owns_buffer_5.i = getelementptr inbounds %"class.net::SpdySerializedFrame", ptr %ref.tmp, i64 0, i32 2
+  %owns_buffer_5.i = getelementptr inbounds i8, ptr %ref.tmp, i64 16
   %6 = load i8, ptr %owns_buffer_5.i, align 8
   %7 = and i8 %6, 1
   store i8 %7, ptr %owns_buffer_.i, align 8
@@ -12356,11 +12251,11 @@ _ZN3net19SpdySerializedFrameD2Ev.exit:            ; preds = %delete.notnull.i, %
 define internal void @_ZN3net12_GLOBAL__N_125FrameSerializationVisitor17VisitContinuationERKNS_18SpdyContinuationIRE(ptr nocapture noundef nonnull align 8 dereferenceable(40) %this, ptr noundef nonnull align 8 dereferenceable(105) %continuation) unnamed_addr #0 align 2 {
 entry:
   %ref.tmp = alloca %"class.net::SpdySerializedFrame", align 8
-  %framer_ = getelementptr inbounds %"class.net::(anonymous namespace)::FrameSerializationVisitor", ptr %this, i64 0, i32 1
+  %framer_ = getelementptr inbounds i8, ptr %this, i64 8
   %0 = load ptr, ptr %framer_, align 8
   call void @_ZN3net10SpdyFramer21SerializeContinuationERKNS_18SpdyContinuationIRE(ptr nonnull sret(%"class.net::SpdySerializedFrame") align 8 %ref.tmp, ptr noundef nonnull align 8 dereferenceable(259) %0, ptr noundef nonnull align 8 dereferenceable(105) %continuation)
-  %frame_ = getelementptr inbounds %"class.net::(anonymous namespace)::FrameSerializationVisitor", ptr %this, i64 0, i32 2
-  %owns_buffer_.i = getelementptr inbounds %"class.net::(anonymous namespace)::FrameSerializationVisitor", ptr %this, i64 0, i32 2, i32 2
+  %frame_ = getelementptr inbounds i8, ptr %this, i64 16
+  %owns_buffer_.i = getelementptr inbounds i8, ptr %this, i64 32
   %1 = load i8, ptr %owns_buffer_.i, align 8
   %2 = and i8 %1, 1
   %tobool.not.i = icmp eq i8 %2, 0
@@ -12378,11 +12273,11 @@ delete.notnull.i:                                 ; preds = %if.then.i
 _ZN3net19SpdySerializedFrameD2Ev.exit:            ; preds = %delete.notnull.i, %if.then.i, %entry
   %4 = load ptr, ptr %ref.tmp, align 8
   store ptr %4, ptr %frame_, align 8
-  %size_.i = getelementptr inbounds %"class.net::SpdySerializedFrame", ptr %ref.tmp, i64 0, i32 1
+  %size_.i = getelementptr inbounds i8, ptr %ref.tmp, i64 8
   %5 = load i64, ptr %size_.i, align 8
-  %size_4.i = getelementptr inbounds %"class.net::(anonymous namespace)::FrameSerializationVisitor", ptr %this, i64 0, i32 2, i32 1
+  %size_4.i = getelementptr inbounds i8, ptr %this, i64 24
   store i64 %5, ptr %size_4.i, align 8
-  %owns_buffer_5.i = getelementptr inbounds %"class.net::SpdySerializedFrame", ptr %ref.tmp, i64 0, i32 2
+  %owns_buffer_5.i = getelementptr inbounds i8, ptr %ref.tmp, i64 16
   %6 = load i8, ptr %owns_buffer_5.i, align 8
   %7 = and i8 %6, 1
   store i8 %7, ptr %owns_buffer_.i, align 8
@@ -12393,11 +12288,11 @@ _ZN3net19SpdySerializedFrameD2Ev.exit:            ; preds = %delete.notnull.i, %
 define internal void @_ZN3net12_GLOBAL__N_125FrameSerializationVisitor11VisitAltSvcERKNS_12SpdyAltSvcIRE(ptr nocapture noundef nonnull align 8 dereferenceable(40) %this, ptr noundef nonnull align 8 dereferenceable(72) %altsvc) unnamed_addr #0 align 2 {
 entry:
   %ref.tmp = alloca %"class.net::SpdySerializedFrame", align 8
-  %framer_ = getelementptr inbounds %"class.net::(anonymous namespace)::FrameSerializationVisitor", ptr %this, i64 0, i32 1
+  %framer_ = getelementptr inbounds i8, ptr %this, i64 8
   %0 = load ptr, ptr %framer_, align 8
   call void @_ZN3net10SpdyFramer15SerializeAltSvcERKNS_12SpdyAltSvcIRE(ptr nonnull sret(%"class.net::SpdySerializedFrame") align 8 %ref.tmp, ptr noundef nonnull align 8 dereferenceable(259) %0, ptr noundef nonnull align 8 dereferenceable(72) %altsvc)
-  %frame_ = getelementptr inbounds %"class.net::(anonymous namespace)::FrameSerializationVisitor", ptr %this, i64 0, i32 2
-  %owns_buffer_.i = getelementptr inbounds %"class.net::(anonymous namespace)::FrameSerializationVisitor", ptr %this, i64 0, i32 2, i32 2
+  %frame_ = getelementptr inbounds i8, ptr %this, i64 16
+  %owns_buffer_.i = getelementptr inbounds i8, ptr %this, i64 32
   %1 = load i8, ptr %owns_buffer_.i, align 8
   %2 = and i8 %1, 1
   %tobool.not.i = icmp eq i8 %2, 0
@@ -12415,11 +12310,11 @@ delete.notnull.i:                                 ; preds = %if.then.i
 _ZN3net19SpdySerializedFrameD2Ev.exit:            ; preds = %delete.notnull.i, %if.then.i, %entry
   %4 = load ptr, ptr %ref.tmp, align 8
   store ptr %4, ptr %frame_, align 8
-  %size_.i = getelementptr inbounds %"class.net::SpdySerializedFrame", ptr %ref.tmp, i64 0, i32 1
+  %size_.i = getelementptr inbounds i8, ptr %ref.tmp, i64 8
   %5 = load i64, ptr %size_.i, align 8
-  %size_4.i = getelementptr inbounds %"class.net::(anonymous namespace)::FrameSerializationVisitor", ptr %this, i64 0, i32 2, i32 1
+  %size_4.i = getelementptr inbounds i8, ptr %this, i64 24
   store i64 %5, ptr %size_4.i, align 8
-  %owns_buffer_5.i = getelementptr inbounds %"class.net::SpdySerializedFrame", ptr %ref.tmp, i64 0, i32 2
+  %owns_buffer_5.i = getelementptr inbounds i8, ptr %ref.tmp, i64 16
   %6 = load i8, ptr %owns_buffer_5.i, align 8
   %7 = and i8 %6, 1
   store i8 %7, ptr %owns_buffer_.i, align 8
@@ -12430,11 +12325,11 @@ _ZN3net19SpdySerializedFrameD2Ev.exit:            ; preds = %delete.notnull.i, %
 define internal void @_ZN3net12_GLOBAL__N_125FrameSerializationVisitor13VisitPriorityERKNS_14SpdyPriorityIRE(ptr nocapture noundef nonnull align 8 dereferenceable(40) %this, ptr nocapture noundef nonnull readonly align 8 dereferenceable(21) %priority) unnamed_addr #0 align 2 {
 entry:
   %ref.tmp = alloca %"class.net::SpdySerializedFrame", align 8
-  %framer_ = getelementptr inbounds %"class.net::(anonymous namespace)::FrameSerializationVisitor", ptr %this, i64 0, i32 1
+  %framer_ = getelementptr inbounds i8, ptr %this, i64 8
   %0 = load ptr, ptr %framer_, align 8
   call void @_ZNK3net10SpdyFramer17SerializePriorityERKNS_14SpdyPriorityIRE(ptr nonnull sret(%"class.net::SpdySerializedFrame") align 8 %ref.tmp, ptr noundef nonnull align 8 dereferenceable(259) %0, ptr noundef nonnull align 8 dereferenceable(21) %priority)
-  %frame_ = getelementptr inbounds %"class.net::(anonymous namespace)::FrameSerializationVisitor", ptr %this, i64 0, i32 2
-  %owns_buffer_.i = getelementptr inbounds %"class.net::(anonymous namespace)::FrameSerializationVisitor", ptr %this, i64 0, i32 2, i32 2
+  %frame_ = getelementptr inbounds i8, ptr %this, i64 16
+  %owns_buffer_.i = getelementptr inbounds i8, ptr %this, i64 32
   %1 = load i8, ptr %owns_buffer_.i, align 8
   %2 = and i8 %1, 1
   %tobool.not.i = icmp eq i8 %2, 0
@@ -12452,11 +12347,11 @@ delete.notnull.i:                                 ; preds = %if.then.i
 _ZN3net19SpdySerializedFrameD2Ev.exit:            ; preds = %delete.notnull.i, %if.then.i, %entry
   %4 = load ptr, ptr %ref.tmp, align 8
   store ptr %4, ptr %frame_, align 8
-  %size_.i = getelementptr inbounds %"class.net::SpdySerializedFrame", ptr %ref.tmp, i64 0, i32 1
+  %size_.i = getelementptr inbounds i8, ptr %ref.tmp, i64 8
   %5 = load i64, ptr %size_.i, align 8
-  %size_4.i = getelementptr inbounds %"class.net::(anonymous namespace)::FrameSerializationVisitor", ptr %this, i64 0, i32 2, i32 1
+  %size_4.i = getelementptr inbounds i8, ptr %this, i64 24
   store i64 %5, ptr %size_4.i, align 8
-  %owns_buffer_5.i = getelementptr inbounds %"class.net::SpdySerializedFrame", ptr %ref.tmp, i64 0, i32 2
+  %owns_buffer_5.i = getelementptr inbounds i8, ptr %ref.tmp, i64 16
   %6 = load i8, ptr %owns_buffer_5.i, align 8
   %7 = and i8 %6, 1
   store i8 %7, ptr %owns_buffer_.i, align 8
@@ -12467,11 +12362,11 @@ _ZN3net19SpdySerializedFrameD2Ev.exit:            ; preds = %delete.notnull.i, %
 define internal void @_ZN3net12_GLOBAL__N_125FrameSerializationVisitor9VisitDataERKNS_10SpdyDataIRE(ptr nocapture noundef nonnull align 8 dereferenceable(40) %this, ptr nocapture noundef nonnull readonly align 8 dereferenceable(48) %data) unnamed_addr #0 align 2 {
 entry:
   %ref.tmp = alloca %"class.net::SpdySerializedFrame", align 8
-  %framer_ = getelementptr inbounds %"class.net::(anonymous namespace)::FrameSerializationVisitor", ptr %this, i64 0, i32 1
+  %framer_ = getelementptr inbounds i8, ptr %this, i64 8
   %0 = load ptr, ptr %framer_, align 8
   call void @_ZNK3net10SpdyFramer13SerializeDataERKNS_10SpdyDataIRE(ptr nonnull sret(%"class.net::SpdySerializedFrame") align 8 %ref.tmp, ptr noundef nonnull align 8 dereferenceable(259) %0, ptr noundef nonnull align 8 dereferenceable(48) %data)
-  %frame_ = getelementptr inbounds %"class.net::(anonymous namespace)::FrameSerializationVisitor", ptr %this, i64 0, i32 2
-  %owns_buffer_.i = getelementptr inbounds %"class.net::(anonymous namespace)::FrameSerializationVisitor", ptr %this, i64 0, i32 2, i32 2
+  %frame_ = getelementptr inbounds i8, ptr %this, i64 16
+  %owns_buffer_.i = getelementptr inbounds i8, ptr %this, i64 32
   %1 = load i8, ptr %owns_buffer_.i, align 8
   %2 = and i8 %1, 1
   %tobool.not.i = icmp eq i8 %2, 0
@@ -12489,11 +12384,11 @@ delete.notnull.i:                                 ; preds = %if.then.i
 _ZN3net19SpdySerializedFrameD2Ev.exit:            ; preds = %delete.notnull.i, %if.then.i, %entry
   %4 = load ptr, ptr %ref.tmp, align 8
   store ptr %4, ptr %frame_, align 8
-  %size_.i = getelementptr inbounds %"class.net::SpdySerializedFrame", ptr %ref.tmp, i64 0, i32 1
+  %size_.i = getelementptr inbounds i8, ptr %ref.tmp, i64 8
   %5 = load i64, ptr %size_.i, align 8
-  %size_4.i = getelementptr inbounds %"class.net::(anonymous namespace)::FrameSerializationVisitor", ptr %this, i64 0, i32 2, i32 1
+  %size_4.i = getelementptr inbounds i8, ptr %this, i64 24
   store i64 %5, ptr %size_4.i, align 8
-  %owns_buffer_5.i = getelementptr inbounds %"class.net::SpdySerializedFrame", ptr %ref.tmp, i64 0, i32 2
+  %owns_buffer_5.i = getelementptr inbounds i8, ptr %ref.tmp, i64 16
   %6 = load i8, ptr %owns_buffer_5.i, align 8
   %7 = and i8 %6, 1
   store i8 %7, ptr %owns_buffer_.i, align 8
@@ -12504,14 +12399,14 @@ _ZN3net19SpdySerializedFrameD2Ev.exit:            ; preds = %delete.notnull.i, %
 define internal void @_ZN3net12_GLOBAL__N_125FrameSerializationVisitorD0Ev(ptr noundef nonnull align 8 dereferenceable(40) %this) unnamed_addr #5 align 2 {
 entry:
   store ptr getelementptr inbounds ({ [18 x ptr] }, ptr @_ZTVN3net12_GLOBAL__N_125FrameSerializationVisitorE, i64 0, inrange i32 0, i64 2), ptr %this, align 8
-  %owns_buffer_.i.i = getelementptr inbounds %"class.net::(anonymous namespace)::FrameSerializationVisitor", ptr %this, i64 0, i32 2, i32 2
+  %owns_buffer_.i.i = getelementptr inbounds i8, ptr %this, i64 32
   %0 = load i8, ptr %owns_buffer_.i.i, align 8
   %1 = and i8 %0, 1
   %tobool.not.i.i = icmp eq i8 %1, 0
   br i1 %tobool.not.i.i, label %_ZN3net12_GLOBAL__N_125FrameSerializationVisitorD2Ev.exit, label %if.then.i.i
 
 if.then.i.i:                                      ; preds = %entry
-  %frame_.i = getelementptr inbounds %"class.net::(anonymous namespace)::FrameSerializationVisitor", ptr %this, i64 0, i32 2
+  %frame_.i = getelementptr inbounds i8, ptr %this, i64 16
   %2 = load ptr, ptr %frame_.i, align 8
   %isnull.i.i = icmp eq ptr %2, null
   br i1 %isnull.i.i, label %_ZN3net12_GLOBAL__N_125FrameSerializationVisitorD2Ev.exit, label %delete.notnull.i.i

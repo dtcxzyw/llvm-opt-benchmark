@@ -21,18 +21,18 @@ entry:
 for.body:                                         ; preds = %entry, %for.inc
   %i.015 = phi i64 [ 0, %entry ], [ %inc, %for.inc ]
   %arrayidx = getelementptr inbounds [7 x %struct.hkdf_test_vector_t], ptr @kTests, i64 0, i64 %i.015
-  %out_len = getelementptr inbounds [7 x %struct.hkdf_test_vector_t], ptr @kTests, i64 0, i64 %i.015, i32 7
+  %out_len = getelementptr inbounds i8, ptr %arrayidx, i64 272
   %0 = load i64, ptr %out_len, align 16
   %1 = load ptr, ptr %arrayidx, align 16
   %call = call ptr %1() #5
-  %ikm = getelementptr inbounds [7 x %struct.hkdf_test_vector_t], ptr @kTests, i64 0, i64 %i.015, i32 1
-  %ikm_len = getelementptr inbounds [7 x %struct.hkdf_test_vector_t], ptr @kTests, i64 0, i64 %i.015, i32 2
+  %ikm = getelementptr inbounds i8, ptr %arrayidx, i64 8
+  %ikm_len = getelementptr inbounds i8, ptr %arrayidx, i64 88
   %2 = load i64, ptr %ikm_len, align 8
-  %salt = getelementptr inbounds [7 x %struct.hkdf_test_vector_t], ptr @kTests, i64 0, i64 %i.015, i32 3
-  %salt_len = getelementptr inbounds [7 x %struct.hkdf_test_vector_t], ptr @kTests, i64 0, i64 %i.015, i32 4
+  %salt = getelementptr inbounds i8, ptr %arrayidx, i64 96
+  %salt_len = getelementptr inbounds i8, ptr %arrayidx, i64 176
   %3 = load i64, ptr %salt_len, align 16
-  %info = getelementptr inbounds [7 x %struct.hkdf_test_vector_t], ptr @kTests, i64 0, i64 %i.015, i32 5
-  %info_len = getelementptr inbounds [7 x %struct.hkdf_test_vector_t], ptr @kTests, i64 0, i64 %i.015, i32 6
+  %info = getelementptr inbounds i8, ptr %arrayidx, i64 184
+  %info_len = getelementptr inbounds i8, ptr %arrayidx, i64 264
   %4 = load i64, ptr %info_len, align 8
   %call4 = call i32 @HKDF(ptr noundef nonnull %buf, i64 noundef %0, ptr noundef %call, ptr noundef nonnull %ikm, i64 noundef %2, ptr noundef nonnull %salt, i64 noundef %3, ptr noundef nonnull %info, i64 noundef %4) #5
   %tobool.not = icmp eq i32 %call4, 0
@@ -46,7 +46,7 @@ if.then:                                          ; preds = %for.body
   br label %return
 
 if.end:                                           ; preds = %for.body
-  %out = getelementptr inbounds [7 x %struct.hkdf_test_vector_t], ptr @kTests, i64 0, i64 %i.015, i32 8
+  %out = getelementptr inbounds i8, ptr %arrayidx, i64 280
   %bcmp = call i32 @bcmp(ptr nonnull %buf, ptr nonnull %out, i64 %0)
   %cmp10.not = icmp eq i32 %bcmp, 0
   br i1 %cmp10.not, label %for.inc, label %if.then11

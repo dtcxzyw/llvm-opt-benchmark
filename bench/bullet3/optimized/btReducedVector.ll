@@ -49,17 +49,17 @@ define dso_local void @_ZNK15btReducedVector4projERKS_(ptr noalias sret(%class.b
 entry:
   %ret = alloca %class.btReducedVector, align 8
   %ref.tmp = alloca %class.btReducedVector, align 8
-  %m_sz = getelementptr inbounds %class.btReducedVector, ptr %this, i64 0, i32 2
+  %m_sz = getelementptr inbounds i8, ptr %this, i64 64
   %0 = load i32, ptr %m_sz, align 8
-  %m_ownsMemory.i.i.i = getelementptr inbounds %class.btAlignedObjectArray, ptr %ret, i64 0, i32 6
-  %m_data.i.i.i = getelementptr inbounds %class.btAlignedObjectArray, ptr %ret, i64 0, i32 5
-  %m_size.i.i.i = getelementptr inbounds %class.btAlignedObjectArray, ptr %ret, i64 0, i32 2
-  %m_capacity.i.i.i = getelementptr inbounds %class.btAlignedObjectArray, ptr %ret, i64 0, i32 3
-  %m_ownsMemory.i.i2.i = getelementptr inbounds %class.btReducedVector, ptr %ret, i64 0, i32 1, i32 6
-  %m_data.i.i3.i = getelementptr inbounds %class.btReducedVector, ptr %ret, i64 0, i32 1, i32 5
-  %m_size.i.i4.i = getelementptr inbounds %class.btReducedVector, ptr %ret, i64 0, i32 1, i32 2
-  %m_capacity.i.i5.i = getelementptr inbounds %class.btReducedVector, ptr %ret, i64 0, i32 1, i32 3
-  %m_sz.i = getelementptr inbounds %class.btReducedVector, ptr %ret, i64 0, i32 2
+  %m_ownsMemory.i.i.i = getelementptr inbounds i8, ptr %ret, i64 24
+  %m_data.i.i.i = getelementptr inbounds i8, ptr %ret, i64 16
+  %m_size.i.i.i = getelementptr inbounds i8, ptr %ret, i64 4
+  %m_capacity.i.i.i = getelementptr inbounds i8, ptr %ret, i64 8
+  %m_ownsMemory.i.i2.i = getelementptr inbounds i8, ptr %ret, i64 56
+  %m_data.i.i3.i = getelementptr inbounds i8, ptr %ret, i64 48
+  %m_size.i.i4.i = getelementptr inbounds i8, ptr %ret, i64 36
+  %m_capacity.i.i5.i = getelementptr inbounds i8, ptr %ret, i64 40
+  %m_sz.i = getelementptr inbounds i8, ptr %ret, i64 64
   store i32 %0, ptr %m_sz.i, align 8
   store i8 1, ptr %m_ownsMemory.i.i.i, align 8
   store ptr null, ptr %m_data.i.i.i, align 8
@@ -69,15 +69,15 @@ entry:
   store ptr null, ptr %m_data.i.i3.i, align 8
   store i32 0, ptr %m_size.i.i4.i, align 4
   store i32 0, ptr %m_capacity.i.i5.i, align 8
-  %m_size.i.i.i5 = getelementptr inbounds %class.btAlignedObjectArray, ptr %other, i64 0, i32 2
+  %m_size.i.i.i5 = getelementptr inbounds i8, ptr %other, i64 4
   %1 = load i32, ptr %m_size.i.i.i5, align 4
   %cmp36.i.i = icmp sgt i32 %1, 0
   br i1 %cmp36.i.i, label %while.cond.preheader.lr.ph.i.i, label %if.then
 
 while.cond.preheader.lr.ph.i.i:                   ; preds = %entry
-  %m_data.i.i.i6 = getelementptr inbounds %class.btAlignedObjectArray, ptr %other, i64 0, i32 5
+  %m_data.i.i.i6 = getelementptr inbounds i8, ptr %other, i64 16
   %2 = load ptr, ptr %m_data.i.i.i6, align 8
-  %m_data.i26.i.i = getelementptr inbounds %class.btReducedVector, ptr %other, i64 0, i32 1, i32 5
+  %m_data.i26.i.i = getelementptr inbounds i8, ptr %other, i64 48
   %3 = load ptr, ptr %m_data.i26.i.i, align 8
   %wide.trip.count.i.i = zext nneg i32 %1 to i64
   br label %while.cond.preheader.i.i
@@ -122,15 +122,15 @@ if.then.i.i:                                      ; preds = %land.lhs.true.i.i
   %arrayidx.i31.i.i = getelementptr inbounds %class.btVector3, ptr %3, i64 %idxprom.i21.i.i
   %9 = load float, ptr %arrayidx.i28.i.i, align 4
   %10 = load float, ptr %arrayidx.i31.i.i, align 4
-  %arrayidx5.i.i.i = getelementptr inbounds [4 x float], ptr %arrayidx.i28.i.i, i64 0, i64 1
+  %arrayidx5.i.i.i = getelementptr inbounds i8, ptr %arrayidx.i28.i.i, i64 4
   %11 = load float, ptr %arrayidx5.i.i.i, align 4
-  %arrayidx7.i.i.i = getelementptr inbounds [4 x float], ptr %arrayidx.i31.i.i, i64 0, i64 1
+  %arrayidx7.i.i.i = getelementptr inbounds i8, ptr %arrayidx.i31.i.i, i64 4
   %12 = load float, ptr %arrayidx7.i.i.i, align 4
   %mul8.i.i.i = fmul float %11, %12
   %13 = tail call float @llvm.fmuladd.f32(float %9, float %10, float %mul8.i.i.i)
-  %arrayidx10.i.i.i = getelementptr inbounds [4 x float], ptr %arrayidx.i28.i.i, i64 0, i64 2
+  %arrayidx10.i.i.i = getelementptr inbounds i8, ptr %arrayidx.i28.i.i, i64 8
   %14 = load float, ptr %arrayidx10.i.i.i, align 4
-  %arrayidx12.i.i.i = getelementptr inbounds [4 x float], ptr %arrayidx.i31.i.i, i64 0, i64 2
+  %arrayidx12.i.i.i = getelementptr inbounds i8, ptr %arrayidx.i31.i.i, i64 8
   %15 = load float, ptr %arrayidx12.i.i.i, align 4
   %16 = tail call noundef float @llvm.fmuladd.f32(float %14, float %15, float %13)
   %add.i.i = fadd float %ret.037.i.i, %16
@@ -157,15 +157,15 @@ lpad:                                             ; preds = %_ZNK15btReducedVect
   br label %ehcleanup
 
 if.end:                                           ; preds = %invoke.cont
-  %m_size.i.i = getelementptr inbounds %class.btAlignedObjectArray, ptr %this, i64 0, i32 2
+  %m_size.i.i = getelementptr inbounds i8, ptr %this, i64 4
   %18 = load i32, ptr %m_size.i.i, align 4
   %cmp36.i = icmp sgt i32 %18, 0
   br i1 %cmp36.i, label %while.cond.preheader.lr.ph.i, label %_ZNK15btReducedVector3dotERKS_.exit
 
 while.cond.preheader.lr.ph.i:                     ; preds = %if.end
-  %m_data.i16.i = getelementptr inbounds %class.btAlignedObjectArray, ptr %this, i64 0, i32 5
+  %m_data.i16.i = getelementptr inbounds i8, ptr %this, i64 16
   %19 = load ptr, ptr %m_data.i16.i, align 8
-  %m_data.i26.i = getelementptr inbounds %class.btReducedVector, ptr %this, i64 0, i32 1, i32 5
+  %m_data.i26.i = getelementptr inbounds i8, ptr %this, i64 48
   %20 = load ptr, ptr %m_data.i26.i, align 8
   %wide.trip.count.i = zext nneg i32 %18 to i64
   br label %while.cond.preheader.i
@@ -210,15 +210,15 @@ if.then.i:                                        ; preds = %land.lhs.true.i
   %arrayidx.i31.i = getelementptr inbounds %class.btVector3, ptr %3, i64 %idxprom.i21.i
   %26 = load float, ptr %arrayidx.i28.i, align 4
   %27 = load float, ptr %arrayidx.i31.i, align 4
-  %arrayidx5.i.i = getelementptr inbounds [4 x float], ptr %arrayidx.i28.i, i64 0, i64 1
+  %arrayidx5.i.i = getelementptr inbounds i8, ptr %arrayidx.i28.i, i64 4
   %28 = load float, ptr %arrayidx5.i.i, align 4
-  %arrayidx7.i.i = getelementptr inbounds [4 x float], ptr %arrayidx.i31.i, i64 0, i64 1
+  %arrayidx7.i.i = getelementptr inbounds i8, ptr %arrayidx.i31.i, i64 4
   %29 = load float, ptr %arrayidx7.i.i, align 4
   %mul8.i.i = fmul float %28, %29
   %30 = tail call float @llvm.fmuladd.f32(float %26, float %27, float %mul8.i.i)
-  %arrayidx10.i.i = getelementptr inbounds [4 x float], ptr %arrayidx.i28.i, i64 0, i64 2
+  %arrayidx10.i.i = getelementptr inbounds i8, ptr %arrayidx.i28.i, i64 8
   %31 = load float, ptr %arrayidx10.i.i, align 4
-  %arrayidx12.i.i = getelementptr inbounds [4 x float], ptr %arrayidx.i31.i, i64 0, i64 2
+  %arrayidx12.i.i = getelementptr inbounds i8, ptr %arrayidx.i31.i, i64 8
   %32 = load float, ptr %arrayidx12.i.i, align 4
   %33 = tail call noundef float @llvm.fmuladd.f32(float %31, float %32, float %30)
   %add.i = fadd float %ret.037.i, %33
@@ -242,13 +242,13 @@ invoke.cont5:                                     ; preds = %_ZNK15btReducedVect
           to label %invoke.cont7 unwind label %lpad6
 
 invoke.cont7:                                     ; preds = %invoke.cont5
-  %m_data.i.i.i.i = getelementptr inbounds %class.btReducedVector, ptr %ref.tmp, i64 0, i32 1, i32 5
+  %m_data.i.i.i.i = getelementptr inbounds i8, ptr %ref.tmp, i64 48
   %34 = load ptr, ptr %m_data.i.i.i.i, align 8
   %tobool.not.i.i.i.i = icmp eq ptr %34, null
   br i1 %tobool.not.i.i.i.i, label %_ZN20btAlignedObjectArrayI9btVector3ED2Ev.exit.i, label %if.then.i.i.i.i
 
 if.then.i.i.i.i:                                  ; preds = %invoke.cont7
-  %m_ownsMemory.i.i.i.i = getelementptr inbounds %class.btReducedVector, ptr %ref.tmp, i64 0, i32 1, i32 6
+  %m_ownsMemory.i.i.i.i = getelementptr inbounds i8, ptr %ref.tmp, i64 56
   %35 = load i8, ptr %m_ownsMemory.i.i.i.i, align 8
   %36 = and i8 %35, 1
   %tobool2.not.i.i.i.i = icmp eq i8 %36, 0
@@ -266,20 +266,20 @@ terminate.lpad.i.i:                               ; preds = %if.then3.i.i.i.i
   unreachable
 
 _ZN20btAlignedObjectArrayI9btVector3ED2Ev.exit.i: ; preds = %if.then3.i.i.i.i, %if.then.i.i.i.i, %invoke.cont7
-  %m_size.i.i.i.i = getelementptr inbounds %class.btReducedVector, ptr %ref.tmp, i64 0, i32 1, i32 2
-  %m_ownsMemory.i1.i.i.i = getelementptr inbounds %class.btReducedVector, ptr %ref.tmp, i64 0, i32 1, i32 6
+  %m_size.i.i.i.i = getelementptr inbounds i8, ptr %ref.tmp, i64 36
+  %m_ownsMemory.i1.i.i.i = getelementptr inbounds i8, ptr %ref.tmp, i64 56
   store i8 1, ptr %m_ownsMemory.i1.i.i.i, align 8
   store ptr null, ptr %m_data.i.i.i.i, align 8
   store i32 0, ptr %m_size.i.i.i.i, align 4
-  %m_capacity.i.i.i.i = getelementptr inbounds %class.btReducedVector, ptr %ref.tmp, i64 0, i32 1, i32 3
+  %m_capacity.i.i.i.i = getelementptr inbounds i8, ptr %ref.tmp, i64 40
   store i32 0, ptr %m_capacity.i.i.i.i, align 8
-  %m_data.i.i.i1.i = getelementptr inbounds %class.btAlignedObjectArray, ptr %ref.tmp, i64 0, i32 5
+  %m_data.i.i.i1.i = getelementptr inbounds i8, ptr %ref.tmp, i64 16
   %39 = load ptr, ptr %m_data.i.i.i1.i, align 8
   %tobool.not.i.i.i2.i = icmp eq ptr %39, null
   br i1 %tobool.not.i.i.i2.i, label %_ZN15btReducedVectorD2Ev.exit, label %if.then.i.i.i3.i
 
 if.then.i.i.i3.i:                                 ; preds = %_ZN20btAlignedObjectArrayI9btVector3ED2Ev.exit.i
-  %m_ownsMemory.i.i.i4.i = getelementptr inbounds %class.btAlignedObjectArray, ptr %ref.tmp, i64 0, i32 6
+  %m_ownsMemory.i.i.i4.i = getelementptr inbounds i8, ptr %ref.tmp, i64 24
   %40 = load i8, ptr %m_ownsMemory.i.i.i4.i, align 8
   %41 = and i8 %40, 1
   %tobool2.not.i.i.i5.i = icmp eq i8 %41, 0
@@ -297,12 +297,12 @@ terminate.lpad.i7.i:                              ; preds = %if.then3.i.i.i6.i
   unreachable
 
 _ZN15btReducedVectorD2Ev.exit:                    ; preds = %_ZN20btAlignedObjectArrayI9btVector3ED2Ev.exit.i, %if.then.i.i.i3.i, %if.then3.i.i.i6.i
-  %m_size.i.i.i8.i = getelementptr inbounds %class.btAlignedObjectArray, ptr %ref.tmp, i64 0, i32 2
-  %m_ownsMemory.i1.i.i9.i = getelementptr inbounds %class.btAlignedObjectArray, ptr %ref.tmp, i64 0, i32 6
+  %m_size.i.i.i8.i = getelementptr inbounds i8, ptr %ref.tmp, i64 4
+  %m_ownsMemory.i1.i.i9.i = getelementptr inbounds i8, ptr %ref.tmp, i64 24
   store i8 1, ptr %m_ownsMemory.i1.i.i9.i, align 8
   store ptr null, ptr %m_data.i.i.i1.i, align 8
   store i32 0, ptr %m_size.i.i.i8.i, align 4
-  %m_capacity.i.i.i10.i = getelementptr inbounds %class.btAlignedObjectArray, ptr %ref.tmp, i64 0, i32 3
+  %m_capacity.i.i.i10.i = getelementptr inbounds i8, ptr %ref.tmp, i64 8
   store i32 0, ptr %m_capacity.i.i.i10.i, align 8
   br label %cleanup
 
@@ -374,15 +374,15 @@ declare i32 @__gxx_personality_v0(...)
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr dso_local void @_ZN15btReducedVectorC2ERKS_(ptr noundef nonnull align 8 dereferenceable(68) %this, ptr noundef nonnull align 8 dereferenceable(68) %0) unnamed_addr #0 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  %m_ownsMemory.i.i = getelementptr inbounds %class.btAlignedObjectArray, ptr %this, i64 0, i32 6
+  %m_ownsMemory.i.i = getelementptr inbounds i8, ptr %this, i64 24
   store i8 1, ptr %m_ownsMemory.i.i, align 8
-  %m_data.i.i = getelementptr inbounds %class.btAlignedObjectArray, ptr %this, i64 0, i32 5
+  %m_data.i.i = getelementptr inbounds i8, ptr %this, i64 16
   store ptr null, ptr %m_data.i.i, align 8
-  %m_size.i.i = getelementptr inbounds %class.btAlignedObjectArray, ptr %this, i64 0, i32 2
+  %m_size.i.i = getelementptr inbounds i8, ptr %this, i64 4
   store i32 0, ptr %m_size.i.i, align 4
-  %m_capacity.i.i = getelementptr inbounds %class.btAlignedObjectArray, ptr %this, i64 0, i32 3
+  %m_capacity.i.i = getelementptr inbounds i8, ptr %this, i64 8
   store i32 0, ptr %m_capacity.i.i, align 8
-  %m_size.i3.i = getelementptr inbounds %class.btAlignedObjectArray, ptr %0, i64 0, i32 2
+  %m_size.i3.i = getelementptr inbounds i8, ptr %0, i64 4
   %1 = load i32, ptr %m_size.i3.i, align 4
   %or.cond.i = icmp sgt i32 %1, 0
   br i1 %or.cond.i, label %_ZN20btAlignedObjectArrayIiE8allocateEi.exit.i.i.i, label %_ZN20btAlignedObjectArrayIiE6resizeEiRKi.exit.thread.i
@@ -447,7 +447,7 @@ for.body8.i.i:                                    ; preds = %for.body8.i.i, %for
 for.body.lr.ph.i.i:                               ; preds = %for.body8.i.i
   %.pre.i = load ptr, ptr %m_data.i.i, align 8
   store i32 %1, ptr %m_size.i.i, align 4
-  %m_data.i4.i = getelementptr inbounds %class.btAlignedObjectArray, ptr %0, i64 0, i32 5
+  %m_data.i4.i = getelementptr inbounds i8, ptr %0, i64 16
   br label %for.body.i.i
 
 for.body.i.i:                                     ; preds = %for.body.i.i, %for.body.lr.ph.i.i
@@ -462,15 +462,15 @@ for.body.i.i:                                     ; preds = %for.body.i.i, %for.
   br i1 %exitcond.not.i8.i, label %_ZN20btAlignedObjectArrayIiEC2ERKS0_.exit, label %for.body.i.i, !llvm.loop !8
 
 _ZN20btAlignedObjectArrayIiEC2ERKS0_.exit:        ; preds = %for.body.i.i, %_ZN20btAlignedObjectArrayIiE6resizeEiRKi.exit.thread.i
-  %m_ownsMemory.i.i3 = getelementptr inbounds %class.btReducedVector, ptr %this, i64 0, i32 1, i32 6
+  %m_ownsMemory.i.i3 = getelementptr inbounds i8, ptr %this, i64 56
   store i8 1, ptr %m_ownsMemory.i.i3, align 8
-  %m_data.i.i4 = getelementptr inbounds %class.btReducedVector, ptr %this, i64 0, i32 1, i32 5
+  %m_data.i.i4 = getelementptr inbounds i8, ptr %this, i64 48
   store ptr null, ptr %m_data.i.i4, align 8
-  %m_size.i.i5 = getelementptr inbounds %class.btReducedVector, ptr %this, i64 0, i32 1, i32 2
+  %m_size.i.i5 = getelementptr inbounds i8, ptr %this, i64 36
   store i32 0, ptr %m_size.i.i5, align 4
-  %m_capacity.i.i6 = getelementptr inbounds %class.btReducedVector, ptr %this, i64 0, i32 1, i32 3
+  %m_capacity.i.i6 = getelementptr inbounds i8, ptr %this, i64 40
   store i32 0, ptr %m_capacity.i.i6, align 8
-  %m_size.i3.i7 = getelementptr inbounds %class.btReducedVector, ptr %0, i64 0, i32 1, i32 2
+  %m_size.i3.i7 = getelementptr inbounds i8, ptr %0, i64 36
   %10 = load i32, ptr %m_size.i3.i7, align 4
   %or.cond.i8 = icmp sgt i32 %10, 0
   br i1 %or.cond.i8, label %_ZN20btAlignedObjectArrayI9btVector3E8allocateEi.exit.i.i.i, label %_ZN20btAlignedObjectArrayI9btVector3E6resizeEiRKS0_.exit.thread.i
@@ -524,7 +524,7 @@ for.body.lr.ph.i.i18:                             ; preds = %_ZNK20btAlignedObje
   store ptr %call.i.i.i.i.i1135, ptr %m_data.i.i4, align 8
   store i32 %10, ptr %m_capacity.i.i6, align 8
   store i32 %10, ptr %m_size.i.i5, align 4
-  %m_data.i4.i19 = getelementptr inbounds %class.btReducedVector, ptr %0, i64 0, i32 1, i32 5
+  %m_data.i4.i19 = getelementptr inbounds i8, ptr %0, i64 48
   br label %for.body.i.i21
 
 for.body.i.i21:                                   ; preds = %for.body.i.i21, %for.body.lr.ph.i.i18
@@ -538,8 +538,8 @@ for.body.i.i21:                                   ; preds = %for.body.i.i21, %fo
   br i1 %exitcond.not.i8.i26, label %invoke.cont, label %for.body.i.i21, !llvm.loop !10
 
 invoke.cont:                                      ; preds = %for.body.i.i21, %_ZN20btAlignedObjectArrayI9btVector3E6resizeEiRKS0_.exit.thread.i
-  %m_sz = getelementptr inbounds %class.btReducedVector, ptr %this, i64 0, i32 2
-  %m_sz4 = getelementptr inbounds %class.btReducedVector, ptr %0, i64 0, i32 2
+  %m_sz = getelementptr inbounds i8, ptr %this, i64 64
+  %m_sz4 = getelementptr inbounds i8, ptr %0, i64 64
   %16 = load i32, ptr %m_sz4, align 8
   store i32 %16, ptr %m_sz, align 8
   ret void
@@ -554,17 +554,17 @@ lpad:                                             ; preds = %if.then3.i.i.i.i17,
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr dso_local void @_ZmlRK15btReducedVectorf(ptr noalias sret(%class.btReducedVector) align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(68) %v, float noundef %s) local_unnamed_addr #1 comdat personality ptr @__gxx_personality_v0 {
 entry:
-  %m_sz = getelementptr inbounds %class.btReducedVector, ptr %v, i64 0, i32 2
+  %m_sz = getelementptr inbounds i8, ptr %v, i64 64
   %0 = load i32, ptr %m_sz, align 8
-  %m_ownsMemory.i.i.i = getelementptr inbounds %class.btAlignedObjectArray, ptr %agg.result, i64 0, i32 6
-  %m_data.i.i.i = getelementptr inbounds %class.btAlignedObjectArray, ptr %agg.result, i64 0, i32 5
-  %m_size.i.i.i = getelementptr inbounds %class.btAlignedObjectArray, ptr %agg.result, i64 0, i32 2
-  %m_capacity.i.i.i = getelementptr inbounds %class.btAlignedObjectArray, ptr %agg.result, i64 0, i32 3
-  %m_ownsMemory.i.i2.i = getelementptr inbounds %class.btReducedVector, ptr %agg.result, i64 0, i32 1, i32 6
-  %m_data.i.i3.i = getelementptr inbounds %class.btReducedVector, ptr %agg.result, i64 0, i32 1, i32 5
-  %m_size.i.i4.i = getelementptr inbounds %class.btReducedVector, ptr %agg.result, i64 0, i32 1, i32 2
-  %m_capacity.i.i5.i = getelementptr inbounds %class.btReducedVector, ptr %agg.result, i64 0, i32 1, i32 3
-  %m_sz.i = getelementptr inbounds %class.btReducedVector, ptr %agg.result, i64 0, i32 2
+  %m_ownsMemory.i.i.i = getelementptr inbounds i8, ptr %agg.result, i64 24
+  %m_data.i.i.i = getelementptr inbounds i8, ptr %agg.result, i64 16
+  %m_size.i.i.i = getelementptr inbounds i8, ptr %agg.result, i64 4
+  %m_capacity.i.i.i = getelementptr inbounds i8, ptr %agg.result, i64 8
+  %m_ownsMemory.i.i2.i = getelementptr inbounds i8, ptr %agg.result, i64 56
+  %m_data.i.i3.i = getelementptr inbounds i8, ptr %agg.result, i64 48
+  %m_size.i.i4.i = getelementptr inbounds i8, ptr %agg.result, i64 36
+  %m_capacity.i.i5.i = getelementptr inbounds i8, ptr %agg.result, i64 40
+  %m_sz.i = getelementptr inbounds i8, ptr %agg.result, i64 64
   store i32 %0, ptr %m_sz.i, align 8
   store i8 1, ptr %m_ownsMemory.i.i.i, align 8
   store ptr null, ptr %m_data.i.i.i, align 8
@@ -574,14 +574,14 @@ entry:
   store ptr null, ptr %m_data.i.i3.i, align 8
   store i32 0, ptr %m_size.i.i4.i, align 4
   store i32 0, ptr %m_capacity.i.i5.i, align 8
-  %m_size.i = getelementptr inbounds %class.btAlignedObjectArray, ptr %v, i64 0, i32 2
+  %m_size.i = getelementptr inbounds i8, ptr %v, i64 4
   %1 = load i32, ptr %m_size.i, align 4
   %cmp59 = icmp sgt i32 %1, 0
   br i1 %cmp59, label %for.body.lr.ph, label %for.end
 
 for.body.lr.ph:                                   ; preds = %entry
-  %m_data.i = getelementptr inbounds %class.btAlignedObjectArray, ptr %v, i64 0, i32 5
-  %m_data.i13 = getelementptr inbounds %class.btReducedVector, ptr %v, i64 0, i32 1, i32 5
+  %m_data.i = getelementptr inbounds i8, ptr %v, i64 16
+  %m_data.i13 = getelementptr inbounds i8, ptr %v, i64 48
   %2 = insertelement <2 x float> poison, float %s, i64 0
   %3 = shufflevector <2 x float> %2, <2 x float> poison, <2 x i32> zeroinitializer
   br label %for.body
@@ -673,7 +673,7 @@ invoke.cont8:                                     ; preds = %for.body, %if.then.
   %arrayidx.i15 = getelementptr inbounds %class.btVector3, ptr %17, i64 %indvars.iv
   %18 = load <2 x float>, ptr %arrayidx.i15, align 4
   %19 = fmul <2 x float> %18, %3
-  %arrayidx7.i.i = getelementptr inbounds [4 x float], ptr %arrayidx.i15, i64 0, i64 2
+  %arrayidx7.i.i = getelementptr inbounds i8, ptr %arrayidx.i15, i64 8
   %20 = load float, ptr %arrayidx7.i.i, align 4
   %mul8.i.i = fmul float %20, %s
   %retval.sroa.3.12.vec.insert.i.i = insertelement <2 x float> <float poison, float 0.000000e+00>, float %mul8.i.i, i64 0
@@ -788,13 +788,13 @@ nrvo.skipdtor:                                    ; preds = %for.end
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr dso_local void @_ZN15btReducedVectorD2Ev(ptr noundef nonnull align 8 dereferenceable(68) %this) unnamed_addr #2 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  %m_data.i.i.i = getelementptr inbounds %class.btReducedVector, ptr %this, i64 0, i32 1, i32 5
+  %m_data.i.i.i = getelementptr inbounds i8, ptr %this, i64 48
   %0 = load ptr, ptr %m_data.i.i.i, align 8
   %tobool.not.i.i.i = icmp eq ptr %0, null
   br i1 %tobool.not.i.i.i, label %_ZN20btAlignedObjectArrayI9btVector3ED2Ev.exit, label %if.then.i.i.i
 
 if.then.i.i.i:                                    ; preds = %entry
-  %m_ownsMemory.i.i.i = getelementptr inbounds %class.btReducedVector, ptr %this, i64 0, i32 1, i32 6
+  %m_ownsMemory.i.i.i = getelementptr inbounds i8, ptr %this, i64 56
   %1 = load i8, ptr %m_ownsMemory.i.i.i, align 8
   %2 = and i8 %1, 1
   %tobool2.not.i.i.i = icmp eq i8 %2, 0
@@ -812,20 +812,20 @@ terminate.lpad.i:                                 ; preds = %if.then3.i.i.i
   unreachable
 
 _ZN20btAlignedObjectArrayI9btVector3ED2Ev.exit:   ; preds = %entry, %if.then.i.i.i, %if.then3.i.i.i
-  %m_size.i.i.i = getelementptr inbounds %class.btReducedVector, ptr %this, i64 0, i32 1, i32 2
-  %m_ownsMemory.i1.i.i = getelementptr inbounds %class.btReducedVector, ptr %this, i64 0, i32 1, i32 6
+  %m_size.i.i.i = getelementptr inbounds i8, ptr %this, i64 36
+  %m_ownsMemory.i1.i.i = getelementptr inbounds i8, ptr %this, i64 56
   store i8 1, ptr %m_ownsMemory.i1.i.i, align 8
   store ptr null, ptr %m_data.i.i.i, align 8
   store i32 0, ptr %m_size.i.i.i, align 4
-  %m_capacity.i.i.i = getelementptr inbounds %class.btReducedVector, ptr %this, i64 0, i32 1, i32 3
+  %m_capacity.i.i.i = getelementptr inbounds i8, ptr %this, i64 40
   store i32 0, ptr %m_capacity.i.i.i, align 8
-  %m_data.i.i.i1 = getelementptr inbounds %class.btAlignedObjectArray, ptr %this, i64 0, i32 5
+  %m_data.i.i.i1 = getelementptr inbounds i8, ptr %this, i64 16
   %5 = load ptr, ptr %m_data.i.i.i1, align 8
   %tobool.not.i.i.i2 = icmp eq ptr %5, null
   br i1 %tobool.not.i.i.i2, label %_ZN20btAlignedObjectArrayIiED2Ev.exit, label %if.then.i.i.i3
 
 if.then.i.i.i3:                                   ; preds = %_ZN20btAlignedObjectArrayI9btVector3ED2Ev.exit
-  %m_ownsMemory.i.i.i4 = getelementptr inbounds %class.btAlignedObjectArray, ptr %this, i64 0, i32 6
+  %m_ownsMemory.i.i.i4 = getelementptr inbounds i8, ptr %this, i64 24
   %6 = load i8, ptr %m_ownsMemory.i.i.i4, align 8
   %7 = and i8 %6, 1
   %tobool2.not.i.i.i5 = icmp eq i8 %7, 0
@@ -843,12 +843,12 @@ terminate.lpad.i7:                                ; preds = %if.then3.i.i.i6
   unreachable
 
 _ZN20btAlignedObjectArrayIiED2Ev.exit:            ; preds = %_ZN20btAlignedObjectArrayI9btVector3ED2Ev.exit, %if.then.i.i.i3, %if.then3.i.i.i6
-  %m_size.i.i.i8 = getelementptr inbounds %class.btAlignedObjectArray, ptr %this, i64 0, i32 2
-  %m_ownsMemory.i1.i.i9 = getelementptr inbounds %class.btAlignedObjectArray, ptr %this, i64 0, i32 6
+  %m_size.i.i.i8 = getelementptr inbounds i8, ptr %this, i64 4
+  %m_ownsMemory.i1.i.i9 = getelementptr inbounds i8, ptr %this, i64 24
   store i8 1, ptr %m_ownsMemory.i1.i.i9, align 8
   store ptr null, ptr %m_data.i.i.i1, align 8
   store i32 0, ptr %m_size.i.i.i8, align 4
-  %m_capacity.i.i.i10 = getelementptr inbounds %class.btAlignedObjectArray, ptr %this, i64 0, i32 3
+  %m_capacity.i.i.i10 = getelementptr inbounds i8, ptr %this, i64 8
   store i32 0, ptr %m_capacity.i.i.i10, align 8
   ret void
 }
@@ -856,15 +856,15 @@ _ZN20btAlignedObjectArrayIiED2Ev.exit:            ; preds = %_ZN20btAlignedObjec
 ; Function Attrs: mustprogress uwtable
 define dso_local void @_ZN15btReducedVector9normalizeEv(ptr noundef nonnull align 8 dereferenceable(68) %this) local_unnamed_addr #0 align 2 {
 entry:
-  %m_size.i.i.i = getelementptr inbounds %class.btAlignedObjectArray, ptr %this, i64 0, i32 2
+  %m_size.i.i.i = getelementptr inbounds i8, ptr %this, i64 4
   %0 = load i32, ptr %m_size.i.i.i, align 4
   %cmp36.i.i = icmp sgt i32 %0, 0
-  %m_data.i.i.i = getelementptr inbounds %class.btAlignedObjectArray, ptr %this, i64 0, i32 5
+  %m_data.i.i.i = getelementptr inbounds i8, ptr %this, i64 16
   %1 = load ptr, ptr %m_data.i.i.i, align 8
   br i1 %cmp36.i.i, label %while.cond.preheader.lr.ph.i.i, label %if.then
 
 while.cond.preheader.lr.ph.i.i:                   ; preds = %entry
-  %m_data.i26.i.i = getelementptr inbounds %class.btReducedVector, ptr %this, i64 0, i32 1, i32 5
+  %m_data.i26.i.i = getelementptr inbounds i8, ptr %this, i64 48
   %2 = load ptr, ptr %m_data.i26.i.i, align 8
   %wide.trip.count.i.i = zext nneg i32 %0 to i64
   br label %while.cond.preheader.i.i
@@ -909,15 +909,15 @@ if.then.i.i:                                      ; preds = %land.lhs.true.i.i
   %arrayidx.i31.i.i = getelementptr inbounds %class.btVector3, ptr %2, i64 %idxprom.i21.i.i
   %8 = load float, ptr %arrayidx.i28.i.i, align 4
   %9 = load float, ptr %arrayidx.i31.i.i, align 4
-  %arrayidx5.i.i.i = getelementptr inbounds [4 x float], ptr %arrayidx.i28.i.i, i64 0, i64 1
+  %arrayidx5.i.i.i = getelementptr inbounds i8, ptr %arrayidx.i28.i.i, i64 4
   %10 = load float, ptr %arrayidx5.i.i.i, align 4
-  %arrayidx7.i.i.i = getelementptr inbounds [4 x float], ptr %arrayidx.i31.i.i, i64 0, i64 1
+  %arrayidx7.i.i.i = getelementptr inbounds i8, ptr %arrayidx.i31.i.i, i64 4
   %11 = load float, ptr %arrayidx7.i.i.i, align 4
   %mul8.i.i.i = fmul float %10, %11
   %12 = tail call float @llvm.fmuladd.f32(float %8, float %9, float %mul8.i.i.i)
-  %arrayidx10.i.i.i = getelementptr inbounds [4 x float], ptr %arrayidx.i28.i.i, i64 0, i64 2
+  %arrayidx10.i.i.i = getelementptr inbounds i8, ptr %arrayidx.i28.i.i, i64 8
   %13 = load float, ptr %arrayidx10.i.i.i, align 4
-  %arrayidx12.i.i.i = getelementptr inbounds [4 x float], ptr %arrayidx.i31.i.i, i64 0, i64 2
+  %arrayidx12.i.i.i = getelementptr inbounds i8, ptr %arrayidx.i31.i.i, i64 8
   %14 = load float, ptr %arrayidx12.i.i.i, align 4
   %15 = tail call noundef float @llvm.fmuladd.f32(float %13, float %14, float %12)
   %add.i.i = fadd float %ret.037.i.i, %15
@@ -935,12 +935,12 @@ _ZNK15btReducedVector7length2Ev.exit:             ; preds = %for.inc.i.i
   br i1 %cmp, label %if.then, label %while.cond.preheader.i.i18
 
 if.then:                                          ; preds = %entry, %_ZNK15btReducedVector7length2Ev.exit
-  %m_data.i.i = getelementptr inbounds %class.btAlignedObjectArray, ptr %this, i64 0, i32 5
+  %m_data.i.i = getelementptr inbounds i8, ptr %this, i64 16
   %tobool.not.i.i = icmp eq ptr %1, null
   br i1 %tobool.not.i.i, label %_ZN20btAlignedObjectArrayIiE5clearEv.exit, label %if.then.i.i1
 
 if.then.i.i1:                                     ; preds = %if.then
-  %m_ownsMemory.i.i = getelementptr inbounds %class.btAlignedObjectArray, ptr %this, i64 0, i32 6
+  %m_ownsMemory.i.i = getelementptr inbounds i8, ptr %this, i64 24
   %16 = load i8, ptr %m_ownsMemory.i.i, align 8
   %17 = and i8 %16, 1
   %tobool2.not.i.i = icmp eq i8 %17, 0
@@ -951,19 +951,19 @@ if.then3.i.i:                                     ; preds = %if.then.i.i1
   br label %_ZN20btAlignedObjectArrayIiE5clearEv.exit
 
 _ZN20btAlignedObjectArrayIiE5clearEv.exit:        ; preds = %if.then, %if.then.i.i1, %if.then3.i.i
-  %m_ownsMemory.i1.i = getelementptr inbounds %class.btAlignedObjectArray, ptr %this, i64 0, i32 6
+  %m_ownsMemory.i1.i = getelementptr inbounds i8, ptr %this, i64 24
   store i8 1, ptr %m_ownsMemory.i1.i, align 8
   store ptr null, ptr %m_data.i.i, align 8
   store i32 0, ptr %m_size.i.i.i, align 4
-  %m_capacity.i.i = getelementptr inbounds %class.btAlignedObjectArray, ptr %this, i64 0, i32 3
+  %m_capacity.i.i = getelementptr inbounds i8, ptr %this, i64 8
   store i32 0, ptr %m_capacity.i.i, align 8
-  %m_data.i.i2 = getelementptr inbounds %class.btReducedVector, ptr %this, i64 0, i32 1, i32 5
+  %m_data.i.i2 = getelementptr inbounds i8, ptr %this, i64 48
   %18 = load ptr, ptr %m_data.i.i2, align 8
   %tobool.not.i.i3 = icmp eq ptr %18, null
   br i1 %tobool.not.i.i3, label %_ZN20btAlignedObjectArrayI9btVector3E5clearEv.exit, label %if.then.i.i4
 
 if.then.i.i4:                                     ; preds = %_ZN20btAlignedObjectArrayIiE5clearEv.exit
-  %m_ownsMemory.i.i5 = getelementptr inbounds %class.btReducedVector, ptr %this, i64 0, i32 1, i32 6
+  %m_ownsMemory.i.i5 = getelementptr inbounds i8, ptr %this, i64 56
   %19 = load i8, ptr %m_ownsMemory.i.i5, align 8
   %20 = and i8 %19, 1
   %tobool2.not.i.i6 = icmp eq i8 %20, 0
@@ -974,12 +974,12 @@ if.then3.i.i7:                                    ; preds = %if.then.i.i4
   br label %_ZN20btAlignedObjectArrayI9btVector3E5clearEv.exit
 
 _ZN20btAlignedObjectArrayI9btVector3E5clearEv.exit: ; preds = %_ZN20btAlignedObjectArrayIiE5clearEv.exit, %if.then.i.i4, %if.then3.i.i7
-  %m_size.i.i8 = getelementptr inbounds %class.btReducedVector, ptr %this, i64 0, i32 1, i32 2
-  %m_ownsMemory.i1.i9 = getelementptr inbounds %class.btReducedVector, ptr %this, i64 0, i32 1, i32 6
+  %m_size.i.i8 = getelementptr inbounds i8, ptr %this, i64 36
+  %m_ownsMemory.i1.i9 = getelementptr inbounds i8, ptr %this, i64 56
   store i8 1, ptr %m_ownsMemory.i1.i9, align 8
   store ptr null, ptr %m_data.i.i2, align 8
   store i32 0, ptr %m_size.i.i8, align 4
-  %m_capacity.i.i10 = getelementptr inbounds %class.btReducedVector, ptr %this, i64 0, i32 1, i32 3
+  %m_capacity.i.i10 = getelementptr inbounds i8, ptr %this, i64 40
   store i32 0, ptr %m_capacity.i.i10, align 8
   br label %return
 
@@ -1023,15 +1023,15 @@ if.then.i.i39:                                    ; preds = %land.lhs.true.i.i34
   %arrayidx.i31.i.i41 = getelementptr inbounds %class.btVector3, ptr %2, i64 %idxprom.i21.i.i36
   %26 = load float, ptr %arrayidx.i28.i.i40, align 4
   %27 = load float, ptr %arrayidx.i31.i.i41, align 4
-  %arrayidx5.i.i.i42 = getelementptr inbounds [4 x float], ptr %arrayidx.i28.i.i40, i64 0, i64 1
+  %arrayidx5.i.i.i42 = getelementptr inbounds i8, ptr %arrayidx.i28.i.i40, i64 4
   %28 = load float, ptr %arrayidx5.i.i.i42, align 4
-  %arrayidx7.i.i.i43 = getelementptr inbounds [4 x float], ptr %arrayidx.i31.i.i41, i64 0, i64 1
+  %arrayidx7.i.i.i43 = getelementptr inbounds i8, ptr %arrayidx.i31.i.i41, i64 4
   %29 = load float, ptr %arrayidx7.i.i.i43, align 4
   %mul8.i.i.i44 = fmul float %28, %29
   %30 = tail call float @llvm.fmuladd.f32(float %26, float %27, float %mul8.i.i.i44)
-  %arrayidx10.i.i.i45 = getelementptr inbounds [4 x float], ptr %arrayidx.i28.i.i40, i64 0, i64 2
+  %arrayidx10.i.i.i45 = getelementptr inbounds i8, ptr %arrayidx.i28.i.i40, i64 8
   %31 = load float, ptr %arrayidx10.i.i.i45, align 4
-  %arrayidx12.i.i.i46 = getelementptr inbounds [4 x float], ptr %arrayidx.i31.i.i41, i64 0, i64 2
+  %arrayidx12.i.i.i46 = getelementptr inbounds i8, ptr %arrayidx.i31.i.i41, i64 8
   %32 = load float, ptr %arrayidx12.i.i.i46, align 4
   %33 = tail call noundef float @llvm.fmuladd.f32(float %31, float %32, float %30)
   %add.i.i47 = fadd float %ret.037.i.i21, %33
@@ -1063,13 +1063,13 @@ entry:
           to label %invoke.cont unwind label %lpad
 
 invoke.cont:                                      ; preds = %entry
-  %m_data.i.i.i.i = getelementptr inbounds %class.btReducedVector, ptr %ref.tmp, i64 0, i32 1, i32 5
+  %m_data.i.i.i.i = getelementptr inbounds i8, ptr %ref.tmp, i64 48
   %0 = load ptr, ptr %m_data.i.i.i.i, align 8
   %tobool.not.i.i.i.i = icmp eq ptr %0, null
   br i1 %tobool.not.i.i.i.i, label %_ZN20btAlignedObjectArrayI9btVector3ED2Ev.exit.i, label %if.then.i.i.i.i
 
 if.then.i.i.i.i:                                  ; preds = %invoke.cont
-  %m_ownsMemory.i.i.i.i = getelementptr inbounds %class.btReducedVector, ptr %ref.tmp, i64 0, i32 1, i32 6
+  %m_ownsMemory.i.i.i.i = getelementptr inbounds i8, ptr %ref.tmp, i64 56
   %1 = load i8, ptr %m_ownsMemory.i.i.i.i, align 8
   %2 = and i8 %1, 1
   %tobool2.not.i.i.i.i = icmp eq i8 %2, 0
@@ -1087,20 +1087,20 @@ terminate.lpad.i.i:                               ; preds = %if.then3.i.i.i.i
   unreachable
 
 _ZN20btAlignedObjectArrayI9btVector3ED2Ev.exit.i: ; preds = %if.then3.i.i.i.i, %if.then.i.i.i.i, %invoke.cont
-  %m_size.i.i.i.i = getelementptr inbounds %class.btReducedVector, ptr %ref.tmp, i64 0, i32 1, i32 2
-  %m_ownsMemory.i1.i.i.i = getelementptr inbounds %class.btReducedVector, ptr %ref.tmp, i64 0, i32 1, i32 6
+  %m_size.i.i.i.i = getelementptr inbounds i8, ptr %ref.tmp, i64 36
+  %m_ownsMemory.i1.i.i.i = getelementptr inbounds i8, ptr %ref.tmp, i64 56
   store i8 1, ptr %m_ownsMemory.i1.i.i.i, align 8
   store ptr null, ptr %m_data.i.i.i.i, align 8
   store i32 0, ptr %m_size.i.i.i.i, align 4
-  %m_capacity.i.i.i.i = getelementptr inbounds %class.btReducedVector, ptr %ref.tmp, i64 0, i32 1, i32 3
+  %m_capacity.i.i.i.i = getelementptr inbounds i8, ptr %ref.tmp, i64 40
   store i32 0, ptr %m_capacity.i.i.i.i, align 8
-  %m_data.i.i.i1.i = getelementptr inbounds %class.btAlignedObjectArray, ptr %ref.tmp, i64 0, i32 5
+  %m_data.i.i.i1.i = getelementptr inbounds i8, ptr %ref.tmp, i64 16
   %5 = load ptr, ptr %m_data.i.i.i1.i, align 8
   %tobool.not.i.i.i2.i = icmp eq ptr %5, null
   br i1 %tobool.not.i.i.i2.i, label %_ZN15btReducedVectorD2Ev.exit, label %if.then.i.i.i3.i
 
 if.then.i.i.i3.i:                                 ; preds = %_ZN20btAlignedObjectArrayI9btVector3ED2Ev.exit.i
-  %m_ownsMemory.i.i.i4.i = getelementptr inbounds %class.btAlignedObjectArray, ptr %ref.tmp, i64 0, i32 6
+  %m_ownsMemory.i.i.i4.i = getelementptr inbounds i8, ptr %ref.tmp, i64 24
   %6 = load i8, ptr %m_ownsMemory.i.i.i4.i, align 8
   %7 = and i8 %6, 1
   %tobool2.not.i.i.i5.i = icmp eq i8 %7, 0
@@ -1141,13 +1141,13 @@ if.then.i.i.i:
   %ans = alloca %class.btReducedVector, align 8
   %ref.tmp87 = alloca %class.btReducedVector, align 8
   %ref.tmp92 = alloca %class.btReducedVector, align 8
-  %m_ownsMemory.i.i = getelementptr inbounds %class.btAlignedObjectArray, ptr %id1, i64 0, i32 6
+  %m_ownsMemory.i.i = getelementptr inbounds i8, ptr %id1, i64 24
   store i8 1, ptr %m_ownsMemory.i.i, align 8
-  %m_data.i.i = getelementptr inbounds %class.btAlignedObjectArray, ptr %id1, i64 0, i32 5
+  %m_data.i.i = getelementptr inbounds i8, ptr %id1, i64 16
   store ptr null, ptr %m_data.i.i, align 8
-  %m_size.i.i = getelementptr inbounds %class.btAlignedObjectArray, ptr %id1, i64 0, i32 2
+  %m_size.i.i = getelementptr inbounds i8, ptr %id1, i64 4
   store i32 0, ptr %m_size.i.i, align 4
-  %m_capacity.i.i = getelementptr inbounds %class.btAlignedObjectArray, ptr %id1, i64 0, i32 3
+  %m_capacity.i.i = getelementptr inbounds i8, ptr %id1, i64 8
   store i32 0, ptr %m_capacity.i.i, align 8
   %call.i.i.i.i17 = invoke noundef ptr @_Z22btAlignedAllocInternalmi(i64 noundef 4, i32 noundef 16)
           to label %_ZN20btAlignedObjectArrayIiE8allocateEi.exit.i.i unwind label %lpad
@@ -1275,13 +1275,13 @@ if.then.i.i.i80:                                  ; preds = %_ZN20btAlignedObjec
   %15 = load i32, ptr %m_size.i.i, align 4
   %inc.i24 = add nsw i32 %15, 1
   store i32 %inc.i24, ptr %m_size.i.i, align 4
-  %m_ownsMemory.i.i62 = getelementptr inbounds %class.btAlignedObjectArray.0, ptr %v1, i64 0, i32 6
+  %m_ownsMemory.i.i62 = getelementptr inbounds i8, ptr %v1, i64 24
   store i8 1, ptr %m_ownsMemory.i.i62, align 8
-  %m_data.i.i63 = getelementptr inbounds %class.btAlignedObjectArray.0, ptr %v1, i64 0, i32 5
+  %m_data.i.i63 = getelementptr inbounds i8, ptr %v1, i64 16
   store ptr null, ptr %m_data.i.i63, align 8
-  %m_size.i.i64 = getelementptr inbounds %class.btAlignedObjectArray.0, ptr %v1, i64 0, i32 2
+  %m_size.i.i64 = getelementptr inbounds i8, ptr %v1, i64 4
   store i32 0, ptr %m_size.i.i64, align 4
-  %m_capacity.i.i65 = getelementptr inbounds %class.btAlignedObjectArray.0, ptr %v1, i64 0, i32 3
+  %m_capacity.i.i65 = getelementptr inbounds i8, ptr %v1, i64 8
   store i32 0, ptr %m_capacity.i.i65, align 8
   %call.i.i.i.i104 = invoke noundef ptr @_Z22btAlignedAllocInternalmi(i64 noundef 16, i32 noundef 16)
           to label %_ZN20btAlignedObjectArrayI9btVector3E8allocateEi.exit.i.i unwind label %lpad9
@@ -1413,13 +1413,13 @@ if.then.i.i.i171:                                 ; preds = %_ZN20btAlignedObjec
   %25 = load i32, ptr %m_size.i.i64, align 4
   %inc.i115 = add nsw i32 %25, 1
   store i32 %inc.i115, ptr %m_size.i.i64, align 4
-  %m_ownsMemory.i.i153 = getelementptr inbounds %class.btAlignedObjectArray, ptr %id2, i64 0, i32 6
+  %m_ownsMemory.i.i153 = getelementptr inbounds i8, ptr %id2, i64 24
   store i8 1, ptr %m_ownsMemory.i.i153, align 8
-  %m_data.i.i154 = getelementptr inbounds %class.btAlignedObjectArray, ptr %id2, i64 0, i32 5
+  %m_data.i.i154 = getelementptr inbounds i8, ptr %id2, i64 16
   store ptr null, ptr %m_data.i.i154, align 8
-  %m_size.i.i155 = getelementptr inbounds %class.btAlignedObjectArray, ptr %id2, i64 0, i32 2
+  %m_size.i.i155 = getelementptr inbounds i8, ptr %id2, i64 4
   store i32 0, ptr %m_size.i.i155, align 4
-  %m_capacity.i.i156 = getelementptr inbounds %class.btAlignedObjectArray, ptr %id2, i64 0, i32 3
+  %m_capacity.i.i156 = getelementptr inbounds i8, ptr %id2, i64 8
   store i32 0, ptr %m_capacity.i.i156, align 8
   %call.i.i.i.i198 = invoke noundef ptr @_Z22btAlignedAllocInternalmi(i64 noundef 4, i32 noundef 16)
           to label %_ZN20btAlignedObjectArrayIiE8allocateEi.exit.i.i175 unwind label %lpad20
@@ -1624,13 +1624,13 @@ if.then.i.i.i310:                                 ; preds = %_ZN20btAlignedObjec
   %51 = load i32, ptr %m_size.i.i155, align 4
   %inc.i251 = add nsw i32 %51, 1
   store i32 %inc.i251, ptr %m_size.i.i155, align 4
-  %m_ownsMemory.i.i289 = getelementptr inbounds %class.btAlignedObjectArray.0, ptr %v2, i64 0, i32 6
+  %m_ownsMemory.i.i289 = getelementptr inbounds i8, ptr %v2, i64 24
   store i8 1, ptr %m_ownsMemory.i.i289, align 8
-  %m_data.i.i290 = getelementptr inbounds %class.btAlignedObjectArray.0, ptr %v2, i64 0, i32 5
+  %m_data.i.i290 = getelementptr inbounds i8, ptr %v2, i64 16
   store ptr null, ptr %m_data.i.i290, align 8
-  %m_size.i.i291 = getelementptr inbounds %class.btAlignedObjectArray.0, ptr %v2, i64 0, i32 2
+  %m_size.i.i291 = getelementptr inbounds i8, ptr %v2, i64 4
   store i32 0, ptr %m_size.i.i291, align 4
-  %m_capacity.i.i292 = getelementptr inbounds %class.btAlignedObjectArray.0, ptr %v2, i64 0, i32 3
+  %m_capacity.i.i292 = getelementptr inbounds i8, ptr %v2, i64 8
   store i32 0, ptr %m_capacity.i.i292, align 8
   %call.i.i.i.i337 = invoke noundef ptr @_Z22btAlignedAllocInternalmi(i64 noundef 16, i32 noundef 16)
           to label %_ZN20btAlignedObjectArrayI9btVector3E8allocateEi.exit.i.i314 unwind label %lpad31
@@ -1841,13 +1841,13 @@ if.then.i.i.i452:                                 ; preds = %_ZN20btAlignedObjec
   %68 = load i32, ptr %m_size.i.i291, align 4
   %inc.i396 = add nsw i32 %68, 1
   store i32 %inc.i396, ptr %m_size.i.i291, align 4
-  %m_ownsMemory.i.i434 = getelementptr inbounds %class.btAlignedObjectArray, ptr %id3, i64 0, i32 6
+  %m_ownsMemory.i.i434 = getelementptr inbounds i8, ptr %id3, i64 24
   store i8 1, ptr %m_ownsMemory.i.i434, align 8
-  %m_data.i.i435 = getelementptr inbounds %class.btAlignedObjectArray, ptr %id3, i64 0, i32 5
+  %m_data.i.i435 = getelementptr inbounds i8, ptr %id3, i64 16
   store ptr null, ptr %m_data.i.i435, align 8
-  %m_size.i.i436 = getelementptr inbounds %class.btAlignedObjectArray, ptr %id3, i64 0, i32 2
+  %m_size.i.i436 = getelementptr inbounds i8, ptr %id3, i64 4
   store i32 0, ptr %m_size.i.i436, align 4
-  %m_capacity.i.i437 = getelementptr inbounds %class.btAlignedObjectArray, ptr %id3, i64 0, i32 3
+  %m_capacity.i.i437 = getelementptr inbounds i8, ptr %id3, i64 8
   store i32 0, ptr %m_capacity.i.i437, align 8
   %call.i.i.i.i479 = invoke noundef ptr @_Z22btAlignedAllocInternalmi(i64 noundef 4, i32 noundef 16)
           to label %_ZN20btAlignedObjectArrayIiE8allocateEi.exit.i.i456 unwind label %lpad48
@@ -2129,13 +2129,13 @@ if.then.i.i.i635:                                 ; preds = %_ZN20btAlignedObjec
   %104 = load i32, ptr %m_size.i.i436, align 4
   %inc.i576 = add nsw i32 %104, 1
   store i32 %inc.i576, ptr %m_size.i.i436, align 4
-  %m_ownsMemory.i.i614 = getelementptr inbounds %class.btAlignedObjectArray.0, ptr %v3, i64 0, i32 6
+  %m_ownsMemory.i.i614 = getelementptr inbounds i8, ptr %v3, i64 24
   store i8 1, ptr %m_ownsMemory.i.i614, align 8
-  %m_data.i.i615 = getelementptr inbounds %class.btAlignedObjectArray.0, ptr %v3, i64 0, i32 5
+  %m_data.i.i615 = getelementptr inbounds i8, ptr %v3, i64 16
   store ptr null, ptr %m_data.i.i615, align 8
-  %m_size.i.i616 = getelementptr inbounds %class.btAlignedObjectArray.0, ptr %v3, i64 0, i32 2
+  %m_size.i.i616 = getelementptr inbounds i8, ptr %v3, i64 4
   store i32 0, ptr %m_size.i.i616, align 4
-  %m_capacity.i.i617 = getelementptr inbounds %class.btAlignedObjectArray.0, ptr %v3, i64 0, i32 3
+  %m_capacity.i.i617 = getelementptr inbounds i8, ptr %v3, i64 8
   store i32 0, ptr %m_capacity.i.i617, align 8
   %call.i.i.i.i662 = invoke noundef ptr @_Z22btAlignedAllocInternalmi(i64 noundef 16, i32 noundef 16)
           to label %_ZN20btAlignedObjectArrayI9btVector3E8allocateEi.exit.i.i639 unwind label %lpad61
@@ -2441,17 +2441,17 @@ invoke.cont86:                                    ; preds = %invoke.cont84
           to label %invoke.cont89 unwind label %lpad88
 
 invoke.cont89:                                    ; preds = %invoke.cont86
-  %m_sz.i = getelementptr inbounds %class.btReducedVector, ptr %ans, i64 0, i32 2
+  %m_sz.i = getelementptr inbounds i8, ptr %ans, i64 64
   %129 = load i32, ptr %m_sz.i, align 8
-  %m_sz2.i = getelementptr inbounds %class.btReducedVector, ptr %ref.tmp87, i64 0, i32 2
+  %m_sz2.i = getelementptr inbounds i8, ptr %ref.tmp87, i64 64
   %130 = load i32, ptr %m_sz2.i, align 8
   %cmp.not.i = icmp eq i32 %129, %130
   br i1 %cmp.not.i, label %if.end.i, label %cleanup.done
 
 if.end.i:                                         ; preds = %invoke.cont89
-  %m_size.i.i806 = getelementptr inbounds %class.btAlignedObjectArray, ptr %ans, i64 0, i32 2
+  %m_size.i.i806 = getelementptr inbounds i8, ptr %ans, i64 4
   %131 = load i32, ptr %m_size.i.i806, align 4
-  %m_size.i9.i = getelementptr inbounds %class.btAlignedObjectArray, ptr %ref.tmp87, i64 0, i32 2
+  %m_size.i9.i = getelementptr inbounds i8, ptr %ref.tmp87, i64 4
   %132 = load i32, ptr %m_size.i9.i, align 4
   %cmp5.not.i = icmp eq i32 %131, %132
   br i1 %cmp5.not.i, label %for.cond.preheader.i, label %cleanup.done
@@ -2461,13 +2461,13 @@ for.cond.preheader.i:                             ; preds = %if.end.i
   br i1 %cmp1021.i, label %for.body.lr.ph.i, label %land.rhs
 
 for.body.lr.ph.i:                                 ; preds = %for.cond.preheader.i
-  %m_data.i14.i = getelementptr inbounds %class.btReducedVector, ptr %ans, i64 0, i32 1, i32 5
-  %m_data.i.i807 = getelementptr inbounds %class.btAlignedObjectArray, ptr %ans, i64 0, i32 5
+  %m_data.i14.i = getelementptr inbounds i8, ptr %ans, i64 48
+  %m_data.i.i807 = getelementptr inbounds i8, ptr %ans, i64 16
   %133 = load ptr, ptr %m_data.i.i807, align 8
-  %m_data.i11.i = getelementptr inbounds %class.btAlignedObjectArray, ptr %ref.tmp87, i64 0, i32 5
+  %m_data.i11.i = getelementptr inbounds i8, ptr %ref.tmp87, i64 16
   %134 = load ptr, ptr %m_data.i11.i, align 8
   %135 = load ptr, ptr %m_data.i14.i, align 8
-  %m_data.i17.i = getelementptr inbounds %class.btReducedVector, ptr %ref.tmp87, i64 0, i32 1, i32 5
+  %m_data.i17.i = getelementptr inbounds i8, ptr %ref.tmp87, i64 48
   %136 = load ptr, ptr %m_data.i17.i, align 8
   %wide.trip.count.i = zext nneg i32 %131 to i64
   br label %for.body.i
@@ -2489,25 +2489,25 @@ for.body.i:                                       ; preds = %for.cond.i, %for.bo
 lor.lhs.false.i:                                  ; preds = %for.body.i
   %arrayidx.i16.i = getelementptr inbounds %class.btVector3, ptr %135, i64 %indvars.iv.i
   %arrayidx.i19.i = getelementptr inbounds %class.btVector3, ptr %136, i64 %indvars.iv.i
-  %arrayidx.i.i.i808 = getelementptr inbounds [4 x float], ptr %arrayidx.i16.i, i64 0, i64 3
+  %arrayidx.i.i.i808 = getelementptr inbounds i8, ptr %arrayidx.i16.i, i64 12
   %139 = load float, ptr %arrayidx.i.i.i808, align 4
-  %arrayidx3.i.i.i809 = getelementptr inbounds [4 x float], ptr %arrayidx.i19.i, i64 0, i64 3
+  %arrayidx3.i.i.i809 = getelementptr inbounds i8, ptr %arrayidx.i19.i, i64 12
   %140 = load float, ptr %arrayidx3.i.i.i809, align 4
   %cmp.i.i.i = fcmp oeq float %139, %140
   br i1 %cmp.i.i.i, label %land.lhs.true.i.i.i, label %cleanup.done
 
 land.lhs.true.i.i.i:                              ; preds = %lor.lhs.false.i
-  %arrayidx5.i.i.i = getelementptr inbounds [4 x float], ptr %arrayidx.i16.i, i64 0, i64 2
+  %arrayidx5.i.i.i = getelementptr inbounds i8, ptr %arrayidx.i16.i, i64 8
   %141 = load float, ptr %arrayidx5.i.i.i, align 4
-  %arrayidx7.i.i.i = getelementptr inbounds [4 x float], ptr %arrayidx.i19.i, i64 0, i64 2
+  %arrayidx7.i.i.i = getelementptr inbounds i8, ptr %arrayidx.i19.i, i64 8
   %142 = load float, ptr %arrayidx7.i.i.i, align 4
   %cmp8.i.i.i = fcmp oeq float %141, %142
   br i1 %cmp8.i.i.i, label %land.lhs.true9.i.i.i, label %cleanup.done
 
 land.lhs.true9.i.i.i:                             ; preds = %land.lhs.true.i.i.i
-  %arrayidx11.i.i.i = getelementptr inbounds [4 x float], ptr %arrayidx.i16.i, i64 0, i64 1
+  %arrayidx11.i.i.i = getelementptr inbounds i8, ptr %arrayidx.i16.i, i64 4
   %143 = load float, ptr %arrayidx11.i.i.i, align 4
-  %arrayidx13.i.i.i = getelementptr inbounds [4 x float], ptr %arrayidx.i19.i, i64 0, i64 1
+  %arrayidx13.i.i.i = getelementptr inbounds i8, ptr %arrayidx.i19.i, i64 4
   %144 = load float, ptr %arrayidx13.i.i.i, align 4
   %cmp14.i.i.i = fcmp oeq float %143, %144
   br i1 %cmp14.i.i.i, label %_ZNK9btVector3neERKS_.exit.i, label %cleanup.done
@@ -2524,14 +2524,14 @@ land.rhs:                                         ; preds = %for.cond.i, %for.co
 
 invoke.cont93:                                    ; preds = %land.rhs
   %147 = load i32, ptr %m_sz.i, align 8
-  %m_sz2.i811 = getelementptr inbounds %class.btReducedVector, ptr %ref.tmp92, i64 0, i32 2
+  %m_sz2.i811 = getelementptr inbounds i8, ptr %ref.tmp92, i64 64
   %148 = load i32, ptr %m_sz2.i811, align 8
   %cmp.not.i812 = icmp eq i32 %147, %148
   br i1 %cmp.not.i812, label %if.end.i814, label %cleanup.action
 
 if.end.i814:                                      ; preds = %invoke.cont93
   %149 = load i32, ptr %m_size.i.i806, align 4
-  %m_size.i9.i816 = getelementptr inbounds %class.btAlignedObjectArray, ptr %ref.tmp92, i64 0, i32 2
+  %m_size.i9.i816 = getelementptr inbounds i8, ptr %ref.tmp92, i64 4
   %150 = load i32, ptr %m_size.i9.i816, align 4
   %cmp5.not.i817 = icmp eq i32 %149, %150
   br i1 %cmp5.not.i817, label %for.cond.preheader.i818, label %cleanup.action
@@ -2541,13 +2541,13 @@ for.cond.preheader.i818:                          ; preds = %if.end.i814
   br i1 %cmp1021.i819, label %for.body.lr.ph.i820, label %cleanup.action
 
 for.body.lr.ph.i820:                              ; preds = %for.cond.preheader.i818
-  %m_data.i14.i821 = getelementptr inbounds %class.btReducedVector, ptr %ans, i64 0, i32 1, i32 5
-  %m_data.i.i822 = getelementptr inbounds %class.btAlignedObjectArray, ptr %ans, i64 0, i32 5
+  %m_data.i14.i821 = getelementptr inbounds i8, ptr %ans, i64 48
+  %m_data.i.i822 = getelementptr inbounds i8, ptr %ans, i64 16
   %151 = load ptr, ptr %m_data.i.i822, align 8
-  %m_data.i11.i823 = getelementptr inbounds %class.btAlignedObjectArray, ptr %ref.tmp92, i64 0, i32 5
+  %m_data.i11.i823 = getelementptr inbounds i8, ptr %ref.tmp92, i64 16
   %152 = load ptr, ptr %m_data.i11.i823, align 8
   %153 = load ptr, ptr %m_data.i14.i821, align 8
-  %m_data.i17.i824 = getelementptr inbounds %class.btReducedVector, ptr %ref.tmp92, i64 0, i32 1, i32 5
+  %m_data.i17.i824 = getelementptr inbounds i8, ptr %ref.tmp92, i64 48
   %154 = load ptr, ptr %m_data.i17.i824, align 8
   %wide.trip.count.i825 = zext nneg i32 %149 to i64
   br label %for.body.i826
@@ -2569,25 +2569,25 @@ for.body.i826:                                    ; preds = %for.cond.i847, %for
 lor.lhs.false.i831:                               ; preds = %for.body.i826
   %arrayidx.i16.i832 = getelementptr inbounds %class.btVector3, ptr %153, i64 %indvars.iv.i827
   %arrayidx.i19.i833 = getelementptr inbounds %class.btVector3, ptr %154, i64 %indvars.iv.i827
-  %arrayidx.i.i.i834 = getelementptr inbounds [4 x float], ptr %arrayidx.i16.i832, i64 0, i64 3
+  %arrayidx.i.i.i834 = getelementptr inbounds i8, ptr %arrayidx.i16.i832, i64 12
   %157 = load float, ptr %arrayidx.i.i.i834, align 4
-  %arrayidx3.i.i.i835 = getelementptr inbounds [4 x float], ptr %arrayidx.i19.i833, i64 0, i64 3
+  %arrayidx3.i.i.i835 = getelementptr inbounds i8, ptr %arrayidx.i19.i833, i64 12
   %158 = load float, ptr %arrayidx3.i.i.i835, align 4
   %cmp.i.i.i836 = fcmp oeq float %157, %158
   br i1 %cmp.i.i.i836, label %land.lhs.true.i.i.i837, label %cleanup.action
 
 land.lhs.true.i.i.i837:                           ; preds = %lor.lhs.false.i831
-  %arrayidx5.i.i.i838 = getelementptr inbounds [4 x float], ptr %arrayidx.i16.i832, i64 0, i64 2
+  %arrayidx5.i.i.i838 = getelementptr inbounds i8, ptr %arrayidx.i16.i832, i64 8
   %159 = load float, ptr %arrayidx5.i.i.i838, align 4
-  %arrayidx7.i.i.i839 = getelementptr inbounds [4 x float], ptr %arrayidx.i19.i833, i64 0, i64 2
+  %arrayidx7.i.i.i839 = getelementptr inbounds i8, ptr %arrayidx.i19.i833, i64 8
   %160 = load float, ptr %arrayidx7.i.i.i839, align 4
   %cmp8.i.i.i840 = fcmp oeq float %159, %160
   br i1 %cmp8.i.i.i840, label %land.lhs.true9.i.i.i841, label %cleanup.action
 
 land.lhs.true9.i.i.i841:                          ; preds = %land.lhs.true.i.i.i837
-  %arrayidx11.i.i.i842 = getelementptr inbounds [4 x float], ptr %arrayidx.i16.i832, i64 0, i64 1
+  %arrayidx11.i.i.i842 = getelementptr inbounds i8, ptr %arrayidx.i16.i832, i64 4
   %161 = load float, ptr %arrayidx11.i.i.i842, align 4
-  %arrayidx13.i.i.i843 = getelementptr inbounds [4 x float], ptr %arrayidx.i19.i833, i64 0, i64 1
+  %arrayidx13.i.i.i843 = getelementptr inbounds i8, ptr %arrayidx.i19.i833, i64 4
   %162 = load float, ptr %arrayidx13.i.i.i843, align 4
   %cmp14.i.i.i844 = fcmp oeq float %161, %162
   br i1 %cmp14.i.i.i844, label %_ZNK9btVector3neERKS_.exit.i845, label %cleanup.action
@@ -2600,13 +2600,13 @@ _ZNK9btVector3neERKS_.exit.i845:                  ; preds = %land.lhs.true9.i.i.
 
 cleanup.action:                                   ; preds = %for.cond.i847, %for.body.i826, %lor.lhs.false.i831, %land.lhs.true.i.i.i837, %land.lhs.true9.i.i.i841, %_ZNK9btVector3neERKS_.exit.i845, %invoke.cont93, %if.end.i814, %for.cond.preheader.i818
   %.ph = phi i1 [ true, %for.cond.preheader.i818 ], [ false, %if.end.i814 ], [ false, %invoke.cont93 ], [ false, %_ZNK9btVector3neERKS_.exit.i845 ], [ false, %for.body.i826 ], [ true, %for.cond.i847 ], [ false, %land.lhs.true9.i.i.i841 ], [ false, %land.lhs.true.i.i.i837 ], [ false, %lor.lhs.false.i831 ]
-  %m_data.i.i.i.i = getelementptr inbounds %class.btReducedVector, ptr %ref.tmp92, i64 0, i32 1, i32 5
+  %m_data.i.i.i.i = getelementptr inbounds i8, ptr %ref.tmp92, i64 48
   %165 = load ptr, ptr %m_data.i.i.i.i, align 8
   %tobool.not.i.i.i.i = icmp eq ptr %165, null
   br i1 %tobool.not.i.i.i.i, label %_ZN20btAlignedObjectArrayI9btVector3ED2Ev.exit.i, label %if.then.i.i.i.i
 
 if.then.i.i.i.i:                                  ; preds = %cleanup.action
-  %m_ownsMemory.i.i.i.i = getelementptr inbounds %class.btReducedVector, ptr %ref.tmp92, i64 0, i32 1, i32 6
+  %m_ownsMemory.i.i.i.i = getelementptr inbounds i8, ptr %ref.tmp92, i64 56
   %166 = load i8, ptr %m_ownsMemory.i.i.i.i, align 8
   %167 = and i8 %166, 1
   %tobool2.not.i.i.i.i = icmp eq i8 %167, 0
@@ -2624,20 +2624,20 @@ terminate.lpad.i.i:                               ; preds = %if.then3.i.i.i.i
   unreachable
 
 _ZN20btAlignedObjectArrayI9btVector3ED2Ev.exit.i: ; preds = %if.then3.i.i.i.i, %if.then.i.i.i.i, %cleanup.action
-  %m_size.i.i.i.i = getelementptr inbounds %class.btReducedVector, ptr %ref.tmp92, i64 0, i32 1, i32 2
-  %m_ownsMemory.i1.i.i.i = getelementptr inbounds %class.btReducedVector, ptr %ref.tmp92, i64 0, i32 1, i32 6
+  %m_size.i.i.i.i = getelementptr inbounds i8, ptr %ref.tmp92, i64 36
+  %m_ownsMemory.i1.i.i.i = getelementptr inbounds i8, ptr %ref.tmp92, i64 56
   store i8 1, ptr %m_ownsMemory.i1.i.i.i, align 8
   store ptr null, ptr %m_data.i.i.i.i, align 8
   store i32 0, ptr %m_size.i.i.i.i, align 4
-  %m_capacity.i.i.i.i = getelementptr inbounds %class.btReducedVector, ptr %ref.tmp92, i64 0, i32 1, i32 3
+  %m_capacity.i.i.i.i = getelementptr inbounds i8, ptr %ref.tmp92, i64 40
   store i32 0, ptr %m_capacity.i.i.i.i, align 8
-  %m_data.i.i.i1.i = getelementptr inbounds %class.btAlignedObjectArray, ptr %ref.tmp92, i64 0, i32 5
+  %m_data.i.i.i1.i = getelementptr inbounds i8, ptr %ref.tmp92, i64 16
   %170 = load ptr, ptr %m_data.i.i.i1.i, align 8
   %tobool.not.i.i.i2.i = icmp eq ptr %170, null
   br i1 %tobool.not.i.i.i2.i, label %_ZN15btReducedVectorD2Ev.exit, label %if.then.i.i.i3.i
 
 if.then.i.i.i3.i:                                 ; preds = %_ZN20btAlignedObjectArrayI9btVector3ED2Ev.exit.i
-  %m_ownsMemory.i.i.i4.i = getelementptr inbounds %class.btAlignedObjectArray, ptr %ref.tmp92, i64 0, i32 6
+  %m_ownsMemory.i.i.i4.i = getelementptr inbounds i8, ptr %ref.tmp92, i64 24
   %171 = load i8, ptr %m_ownsMemory.i.i.i4.i, align 8
   %172 = and i8 %171, 1
   %tobool2.not.i.i.i5.i = icmp eq i8 %172, 0
@@ -2655,24 +2655,24 @@ terminate.lpad.i7.i:                              ; preds = %if.then3.i.i.i6.i
   unreachable
 
 _ZN15btReducedVectorD2Ev.exit:                    ; preds = %_ZN20btAlignedObjectArrayI9btVector3ED2Ev.exit.i, %if.then.i.i.i3.i, %if.then3.i.i.i6.i
-  %m_size.i.i.i8.i = getelementptr inbounds %class.btAlignedObjectArray, ptr %ref.tmp92, i64 0, i32 2
-  %m_ownsMemory.i1.i.i9.i = getelementptr inbounds %class.btAlignedObjectArray, ptr %ref.tmp92, i64 0, i32 6
+  %m_size.i.i.i8.i = getelementptr inbounds i8, ptr %ref.tmp92, i64 4
+  %m_ownsMemory.i1.i.i9.i = getelementptr inbounds i8, ptr %ref.tmp92, i64 24
   store i8 1, ptr %m_ownsMemory.i1.i.i9.i, align 8
   store ptr null, ptr %m_data.i.i.i1.i, align 8
   store i32 0, ptr %m_size.i.i.i8.i, align 4
-  %m_capacity.i.i.i10.i = getelementptr inbounds %class.btAlignedObjectArray, ptr %ref.tmp92, i64 0, i32 3
+  %m_capacity.i.i.i10.i = getelementptr inbounds i8, ptr %ref.tmp92, i64 8
   store i32 0, ptr %m_capacity.i.i.i10.i, align 8
   br label %cleanup.done
 
 cleanup.done:                                     ; preds = %lor.lhs.false.i, %land.lhs.true.i.i.i, %land.lhs.true9.i.i.i, %for.body.i, %_ZNK9btVector3neERKS_.exit.i, %if.end.i, %invoke.cont89, %_ZN15btReducedVectorD2Ev.exit
   %175 = phi i1 [ %.ph, %_ZN15btReducedVectorD2Ev.exit ], [ false, %invoke.cont89 ], [ false, %if.end.i ], [ false, %_ZNK9btVector3neERKS_.exit.i ], [ false, %for.body.i ], [ false, %land.lhs.true9.i.i.i ], [ false, %land.lhs.true.i.i.i ], [ false, %lor.lhs.false.i ]
-  %m_data.i.i.i.i851 = getelementptr inbounds %class.btReducedVector, ptr %ref.tmp87, i64 0, i32 1, i32 5
+  %m_data.i.i.i.i851 = getelementptr inbounds i8, ptr %ref.tmp87, i64 48
   %176 = load ptr, ptr %m_data.i.i.i.i851, align 8
   %tobool.not.i.i.i.i852 = icmp eq ptr %176, null
   br i1 %tobool.not.i.i.i.i852, label %_ZN20btAlignedObjectArrayI9btVector3ED2Ev.exit.i858, label %if.then.i.i.i.i853
 
 if.then.i.i.i.i853:                               ; preds = %cleanup.done
-  %m_ownsMemory.i.i.i.i854 = getelementptr inbounds %class.btReducedVector, ptr %ref.tmp87, i64 0, i32 1, i32 6
+  %m_ownsMemory.i.i.i.i854 = getelementptr inbounds i8, ptr %ref.tmp87, i64 56
   %177 = load i8, ptr %m_ownsMemory.i.i.i.i854, align 8
   %178 = and i8 %177, 1
   %tobool2.not.i.i.i.i855 = icmp eq i8 %178, 0
@@ -2690,20 +2690,20 @@ terminate.lpad.i.i857:                            ; preds = %if.then3.i.i.i.i856
   unreachable
 
 _ZN20btAlignedObjectArrayI9btVector3ED2Ev.exit.i858: ; preds = %if.then3.i.i.i.i856, %if.then.i.i.i.i853, %cleanup.done
-  %m_size.i.i.i.i859 = getelementptr inbounds %class.btReducedVector, ptr %ref.tmp87, i64 0, i32 1, i32 2
-  %m_ownsMemory.i1.i.i.i860 = getelementptr inbounds %class.btReducedVector, ptr %ref.tmp87, i64 0, i32 1, i32 6
+  %m_size.i.i.i.i859 = getelementptr inbounds i8, ptr %ref.tmp87, i64 36
+  %m_ownsMemory.i1.i.i.i860 = getelementptr inbounds i8, ptr %ref.tmp87, i64 56
   store i8 1, ptr %m_ownsMemory.i1.i.i.i860, align 8
   store ptr null, ptr %m_data.i.i.i.i851, align 8
   store i32 0, ptr %m_size.i.i.i.i859, align 4
-  %m_capacity.i.i.i.i861 = getelementptr inbounds %class.btReducedVector, ptr %ref.tmp87, i64 0, i32 1, i32 3
+  %m_capacity.i.i.i.i861 = getelementptr inbounds i8, ptr %ref.tmp87, i64 40
   store i32 0, ptr %m_capacity.i.i.i.i861, align 8
-  %m_data.i.i.i1.i862 = getelementptr inbounds %class.btAlignedObjectArray, ptr %ref.tmp87, i64 0, i32 5
+  %m_data.i.i.i1.i862 = getelementptr inbounds i8, ptr %ref.tmp87, i64 16
   %181 = load ptr, ptr %m_data.i.i.i1.i862, align 8
   %tobool.not.i.i.i2.i863 = icmp eq ptr %181, null
   br i1 %tobool.not.i.i.i2.i863, label %_ZN15btReducedVectorD2Ev.exit872, label %if.then.i.i.i3.i864
 
 if.then.i.i.i3.i864:                              ; preds = %_ZN20btAlignedObjectArrayI9btVector3ED2Ev.exit.i858
-  %m_ownsMemory.i.i.i4.i865 = getelementptr inbounds %class.btAlignedObjectArray, ptr %ref.tmp87, i64 0, i32 6
+  %m_ownsMemory.i.i.i4.i865 = getelementptr inbounds i8, ptr %ref.tmp87, i64 24
   %182 = load i8, ptr %m_ownsMemory.i.i.i4.i865, align 8
   %183 = and i8 %182, 1
   %tobool2.not.i.i.i5.i866 = icmp eq i8 %183, 0
@@ -2721,12 +2721,12 @@ terminate.lpad.i7.i868:                           ; preds = %if.then3.i.i.i6.i86
   unreachable
 
 _ZN15btReducedVectorD2Ev.exit872:                 ; preds = %_ZN20btAlignedObjectArrayI9btVector3ED2Ev.exit.i858, %if.then.i.i.i3.i864, %if.then3.i.i.i6.i867
-  %m_size.i.i.i8.i869 = getelementptr inbounds %class.btAlignedObjectArray, ptr %ref.tmp87, i64 0, i32 2
-  %m_ownsMemory.i1.i.i9.i870 = getelementptr inbounds %class.btAlignedObjectArray, ptr %ref.tmp87, i64 0, i32 6
+  %m_size.i.i.i8.i869 = getelementptr inbounds i8, ptr %ref.tmp87, i64 4
+  %m_ownsMemory.i1.i.i9.i870 = getelementptr inbounds i8, ptr %ref.tmp87, i64 24
   store i8 1, ptr %m_ownsMemory.i1.i.i9.i870, align 8
   store ptr null, ptr %m_data.i.i.i1.i862, align 8
   store i32 0, ptr %m_size.i.i.i8.i869, align 4
-  %m_capacity.i.i.i10.i871 = getelementptr inbounds %class.btAlignedObjectArray, ptr %ref.tmp87, i64 0, i32 3
+  %m_capacity.i.i.i10.i871 = getelementptr inbounds i8, ptr %ref.tmp87, i64 8
   store i32 0, ptr %m_capacity.i.i.i10.i871, align 8
   br i1 %175, label %if.end, label %if.then
 
@@ -2786,13 +2786,13 @@ lpad90:                                           ; preds = %land.rhs
   br label %ehcleanup103
 
 if.end:                                           ; preds = %if.then, %_ZN15btReducedVectorD2Ev.exit872
-  %m_data.i.i.i.i873 = getelementptr inbounds %class.btReducedVector, ptr %ans, i64 0, i32 1, i32 5
+  %m_data.i.i.i.i873 = getelementptr inbounds i8, ptr %ans, i64 48
   %196 = load ptr, ptr %m_data.i.i.i.i873, align 8
   %tobool.not.i.i.i.i874 = icmp eq ptr %196, null
   br i1 %tobool.not.i.i.i.i874, label %_ZN20btAlignedObjectArrayI9btVector3ED2Ev.exit.i880, label %if.then.i.i.i.i875
 
 if.then.i.i.i.i875:                               ; preds = %if.end
-  %m_ownsMemory.i.i.i.i876 = getelementptr inbounds %class.btReducedVector, ptr %ans, i64 0, i32 1, i32 6
+  %m_ownsMemory.i.i.i.i876 = getelementptr inbounds i8, ptr %ans, i64 56
   %197 = load i8, ptr %m_ownsMemory.i.i.i.i876, align 8
   %198 = and i8 %197, 1
   %tobool2.not.i.i.i.i877 = icmp eq i8 %198, 0
@@ -2810,20 +2810,20 @@ terminate.lpad.i.i879:                            ; preds = %if.then3.i.i.i.i878
   unreachable
 
 _ZN20btAlignedObjectArrayI9btVector3ED2Ev.exit.i880: ; preds = %if.then3.i.i.i.i878, %if.then.i.i.i.i875, %if.end
-  %m_size.i.i.i.i881 = getelementptr inbounds %class.btReducedVector, ptr %ans, i64 0, i32 1, i32 2
-  %m_ownsMemory.i1.i.i.i882 = getelementptr inbounds %class.btReducedVector, ptr %ans, i64 0, i32 1, i32 6
+  %m_size.i.i.i.i881 = getelementptr inbounds i8, ptr %ans, i64 36
+  %m_ownsMemory.i1.i.i.i882 = getelementptr inbounds i8, ptr %ans, i64 56
   store i8 1, ptr %m_ownsMemory.i1.i.i.i882, align 8
   store ptr null, ptr %m_data.i.i.i.i873, align 8
   store i32 0, ptr %m_size.i.i.i.i881, align 4
-  %m_capacity.i.i.i.i883 = getelementptr inbounds %class.btReducedVector, ptr %ans, i64 0, i32 1, i32 3
+  %m_capacity.i.i.i.i883 = getelementptr inbounds i8, ptr %ans, i64 40
   store i32 0, ptr %m_capacity.i.i.i.i883, align 8
-  %m_data.i.i.i1.i884 = getelementptr inbounds %class.btAlignedObjectArray, ptr %ans, i64 0, i32 5
+  %m_data.i.i.i1.i884 = getelementptr inbounds i8, ptr %ans, i64 16
   %201 = load ptr, ptr %m_data.i.i.i1.i884, align 8
   %tobool.not.i.i.i2.i885 = icmp eq ptr %201, null
   br i1 %tobool.not.i.i.i2.i885, label %_ZN15btReducedVectorD2Ev.exit894, label %if.then.i.i.i3.i886
 
 if.then.i.i.i3.i886:                              ; preds = %_ZN20btAlignedObjectArrayI9btVector3ED2Ev.exit.i880
-  %m_ownsMemory.i.i.i4.i887 = getelementptr inbounds %class.btAlignedObjectArray, ptr %ans, i64 0, i32 6
+  %m_ownsMemory.i.i.i4.i887 = getelementptr inbounds i8, ptr %ans, i64 24
   %202 = load i8, ptr %m_ownsMemory.i.i.i4.i887, align 8
   %203 = and i8 %202, 1
   %tobool2.not.i.i.i5.i888 = icmp eq i8 %203, 0
@@ -2841,20 +2841,20 @@ terminate.lpad.i7.i890:                           ; preds = %if.then3.i.i.i6.i88
   unreachable
 
 _ZN15btReducedVectorD2Ev.exit894:                 ; preds = %_ZN20btAlignedObjectArrayI9btVector3ED2Ev.exit.i880, %if.then.i.i.i3.i886, %if.then3.i.i.i6.i889
-  %m_size.i.i.i8.i891 = getelementptr inbounds %class.btAlignedObjectArray, ptr %ans, i64 0, i32 2
-  %m_ownsMemory.i1.i.i9.i892 = getelementptr inbounds %class.btAlignedObjectArray, ptr %ans, i64 0, i32 6
+  %m_size.i.i.i8.i891 = getelementptr inbounds i8, ptr %ans, i64 4
+  %m_ownsMemory.i1.i.i9.i892 = getelementptr inbounds i8, ptr %ans, i64 24
   store i8 1, ptr %m_ownsMemory.i1.i.i9.i892, align 8
   store ptr null, ptr %m_data.i.i.i1.i884, align 8
   store i32 0, ptr %m_size.i.i.i8.i891, align 4
-  %m_capacity.i.i.i10.i893 = getelementptr inbounds %class.btAlignedObjectArray, ptr %ans, i64 0, i32 3
+  %m_capacity.i.i.i10.i893 = getelementptr inbounds i8, ptr %ans, i64 8
   store i32 0, ptr %m_capacity.i.i.i10.i893, align 8
-  %m_data.i.i.i.i895 = getelementptr inbounds %class.btReducedVector, ptr %rv2, i64 0, i32 1, i32 5
+  %m_data.i.i.i.i895 = getelementptr inbounds i8, ptr %rv2, i64 48
   %206 = load ptr, ptr %m_data.i.i.i.i895, align 8
   %tobool.not.i.i.i.i896 = icmp eq ptr %206, null
   br i1 %tobool.not.i.i.i.i896, label %_ZN20btAlignedObjectArrayI9btVector3ED2Ev.exit.i902, label %if.then.i.i.i.i897
 
 if.then.i.i.i.i897:                               ; preds = %_ZN15btReducedVectorD2Ev.exit894
-  %m_ownsMemory.i.i.i.i898 = getelementptr inbounds %class.btReducedVector, ptr %rv2, i64 0, i32 1, i32 6
+  %m_ownsMemory.i.i.i.i898 = getelementptr inbounds i8, ptr %rv2, i64 56
   %207 = load i8, ptr %m_ownsMemory.i.i.i.i898, align 8
   %208 = and i8 %207, 1
   %tobool2.not.i.i.i.i899 = icmp eq i8 %208, 0
@@ -2872,20 +2872,20 @@ terminate.lpad.i.i901:                            ; preds = %if.then3.i.i.i.i900
   unreachable
 
 _ZN20btAlignedObjectArrayI9btVector3ED2Ev.exit.i902: ; preds = %if.then3.i.i.i.i900, %if.then.i.i.i.i897, %_ZN15btReducedVectorD2Ev.exit894
-  %m_size.i.i.i.i903 = getelementptr inbounds %class.btReducedVector, ptr %rv2, i64 0, i32 1, i32 2
-  %m_ownsMemory.i1.i.i.i904 = getelementptr inbounds %class.btReducedVector, ptr %rv2, i64 0, i32 1, i32 6
+  %m_size.i.i.i.i903 = getelementptr inbounds i8, ptr %rv2, i64 36
+  %m_ownsMemory.i1.i.i.i904 = getelementptr inbounds i8, ptr %rv2, i64 56
   store i8 1, ptr %m_ownsMemory.i1.i.i.i904, align 8
   store ptr null, ptr %m_data.i.i.i.i895, align 8
   store i32 0, ptr %m_size.i.i.i.i903, align 4
-  %m_capacity.i.i.i.i905 = getelementptr inbounds %class.btReducedVector, ptr %rv2, i64 0, i32 1, i32 3
+  %m_capacity.i.i.i.i905 = getelementptr inbounds i8, ptr %rv2, i64 40
   store i32 0, ptr %m_capacity.i.i.i.i905, align 8
-  %m_data.i.i.i1.i906 = getelementptr inbounds %class.btAlignedObjectArray, ptr %rv2, i64 0, i32 5
+  %m_data.i.i.i1.i906 = getelementptr inbounds i8, ptr %rv2, i64 16
   %211 = load ptr, ptr %m_data.i.i.i1.i906, align 8
   %tobool.not.i.i.i2.i907 = icmp eq ptr %211, null
   br i1 %tobool.not.i.i.i2.i907, label %_ZN15btReducedVectorD2Ev.exit916, label %if.then.i.i.i3.i908
 
 if.then.i.i.i3.i908:                              ; preds = %_ZN20btAlignedObjectArrayI9btVector3ED2Ev.exit.i902
-  %m_ownsMemory.i.i.i4.i909 = getelementptr inbounds %class.btAlignedObjectArray, ptr %rv2, i64 0, i32 6
+  %m_ownsMemory.i.i.i4.i909 = getelementptr inbounds i8, ptr %rv2, i64 24
   %212 = load i8, ptr %m_ownsMemory.i.i.i4.i909, align 8
   %213 = and i8 %212, 1
   %tobool2.not.i.i.i5.i910 = icmp eq i8 %213, 0
@@ -2903,20 +2903,20 @@ terminate.lpad.i7.i912:                           ; preds = %if.then3.i.i.i6.i91
   unreachable
 
 _ZN15btReducedVectorD2Ev.exit916:                 ; preds = %_ZN20btAlignedObjectArrayI9btVector3ED2Ev.exit.i902, %if.then.i.i.i3.i908, %if.then3.i.i.i6.i911
-  %m_size.i.i.i8.i913 = getelementptr inbounds %class.btAlignedObjectArray, ptr %rv2, i64 0, i32 2
-  %m_ownsMemory.i1.i.i9.i914 = getelementptr inbounds %class.btAlignedObjectArray, ptr %rv2, i64 0, i32 6
+  %m_size.i.i.i8.i913 = getelementptr inbounds i8, ptr %rv2, i64 4
+  %m_ownsMemory.i1.i.i9.i914 = getelementptr inbounds i8, ptr %rv2, i64 24
   store i8 1, ptr %m_ownsMemory.i1.i.i9.i914, align 8
   store ptr null, ptr %m_data.i.i.i1.i906, align 8
   store i32 0, ptr %m_size.i.i.i8.i913, align 4
-  %m_capacity.i.i.i10.i915 = getelementptr inbounds %class.btAlignedObjectArray, ptr %rv2, i64 0, i32 3
+  %m_capacity.i.i.i10.i915 = getelementptr inbounds i8, ptr %rv2, i64 8
   store i32 0, ptr %m_capacity.i.i.i10.i915, align 8
-  %m_data.i.i.i.i917 = getelementptr inbounds %class.btReducedVector, ptr %rv1, i64 0, i32 1, i32 5
+  %m_data.i.i.i.i917 = getelementptr inbounds i8, ptr %rv1, i64 48
   %216 = load ptr, ptr %m_data.i.i.i.i917, align 8
   %tobool.not.i.i.i.i918 = icmp eq ptr %216, null
   br i1 %tobool.not.i.i.i.i918, label %_ZN20btAlignedObjectArrayI9btVector3ED2Ev.exit.i924, label %if.then.i.i.i.i919
 
 if.then.i.i.i.i919:                               ; preds = %_ZN15btReducedVectorD2Ev.exit916
-  %m_ownsMemory.i.i.i.i920 = getelementptr inbounds %class.btReducedVector, ptr %rv1, i64 0, i32 1, i32 6
+  %m_ownsMemory.i.i.i.i920 = getelementptr inbounds i8, ptr %rv1, i64 56
   %217 = load i8, ptr %m_ownsMemory.i.i.i.i920, align 8
   %218 = and i8 %217, 1
   %tobool2.not.i.i.i.i921 = icmp eq i8 %218, 0
@@ -2934,20 +2934,20 @@ terminate.lpad.i.i923:                            ; preds = %if.then3.i.i.i.i922
   unreachable
 
 _ZN20btAlignedObjectArrayI9btVector3ED2Ev.exit.i924: ; preds = %if.then3.i.i.i.i922, %if.then.i.i.i.i919, %_ZN15btReducedVectorD2Ev.exit916
-  %m_size.i.i.i.i925 = getelementptr inbounds %class.btReducedVector, ptr %rv1, i64 0, i32 1, i32 2
-  %m_ownsMemory.i1.i.i.i926 = getelementptr inbounds %class.btReducedVector, ptr %rv1, i64 0, i32 1, i32 6
+  %m_size.i.i.i.i925 = getelementptr inbounds i8, ptr %rv1, i64 36
+  %m_ownsMemory.i1.i.i.i926 = getelementptr inbounds i8, ptr %rv1, i64 56
   store i8 1, ptr %m_ownsMemory.i1.i.i.i926, align 8
   store ptr null, ptr %m_data.i.i.i.i917, align 8
   store i32 0, ptr %m_size.i.i.i.i925, align 4
-  %m_capacity.i.i.i.i927 = getelementptr inbounds %class.btReducedVector, ptr %rv1, i64 0, i32 1, i32 3
+  %m_capacity.i.i.i.i927 = getelementptr inbounds i8, ptr %rv1, i64 40
   store i32 0, ptr %m_capacity.i.i.i.i927, align 8
-  %m_data.i.i.i1.i928 = getelementptr inbounds %class.btAlignedObjectArray, ptr %rv1, i64 0, i32 5
+  %m_data.i.i.i1.i928 = getelementptr inbounds i8, ptr %rv1, i64 16
   %221 = load ptr, ptr %m_data.i.i.i1.i928, align 8
   %tobool.not.i.i.i2.i929 = icmp eq ptr %221, null
   br i1 %tobool.not.i.i.i2.i929, label %_ZN15btReducedVectorD2Ev.exit938, label %if.then.i.i.i3.i930
 
 if.then.i.i.i3.i930:                              ; preds = %_ZN20btAlignedObjectArrayI9btVector3ED2Ev.exit.i924
-  %m_ownsMemory.i.i.i4.i931 = getelementptr inbounds %class.btAlignedObjectArray, ptr %rv1, i64 0, i32 6
+  %m_ownsMemory.i.i.i4.i931 = getelementptr inbounds i8, ptr %rv1, i64 24
   %222 = load i8, ptr %m_ownsMemory.i.i.i4.i931, align 8
   %223 = and i8 %222, 1
   %tobool2.not.i.i.i5.i932 = icmp eq i8 %223, 0
@@ -2965,12 +2965,12 @@ terminate.lpad.i7.i934:                           ; preds = %if.then3.i.i.i6.i93
   unreachable
 
 _ZN15btReducedVectorD2Ev.exit938:                 ; preds = %_ZN20btAlignedObjectArrayI9btVector3ED2Ev.exit.i924, %if.then.i.i.i3.i930, %if.then3.i.i.i6.i933
-  %m_size.i.i.i8.i935 = getelementptr inbounds %class.btAlignedObjectArray, ptr %rv1, i64 0, i32 2
-  %m_ownsMemory.i1.i.i9.i936 = getelementptr inbounds %class.btAlignedObjectArray, ptr %rv1, i64 0, i32 6
+  %m_size.i.i.i8.i935 = getelementptr inbounds i8, ptr %rv1, i64 4
+  %m_ownsMemory.i1.i.i9.i936 = getelementptr inbounds i8, ptr %rv1, i64 24
   store i8 1, ptr %m_ownsMemory.i1.i.i9.i936, align 8
   store ptr null, ptr %m_data.i.i.i1.i928, align 8
   store i32 0, ptr %m_size.i.i.i8.i935, align 4
-  %m_capacity.i.i.i10.i937 = getelementptr inbounds %class.btAlignedObjectArray, ptr %rv1, i64 0, i32 3
+  %m_capacity.i.i.i10.i937 = getelementptr inbounds i8, ptr %rv1, i64 8
   store i32 0, ptr %m_capacity.i.i.i10.i937, align 8
   %226 = load ptr, ptr %m_data.i.i615, align 8
   %tobool.not.i.i.i940 = icmp eq ptr %226, null
@@ -3175,15 +3175,15 @@ ehcleanup111:                                     ; preds = %ehcleanup110, %lpad
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr dso_local void @_ZN15btReducedVectorC2EiRK20btAlignedObjectArrayIiERKS0_I9btVector3E(ptr noundef nonnull align 8 dereferenceable(68) %this, i32 noundef %sz, ptr noundef nonnull align 8 dereferenceable(25) %indices, ptr noundef nonnull align 8 dereferenceable(25) %vecs) unnamed_addr #0 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  %m_ownsMemory.i.i = getelementptr inbounds %class.btAlignedObjectArray, ptr %this, i64 0, i32 6
+  %m_ownsMemory.i.i = getelementptr inbounds i8, ptr %this, i64 24
   store i8 1, ptr %m_ownsMemory.i.i, align 8
-  %m_data.i.i = getelementptr inbounds %class.btAlignedObjectArray, ptr %this, i64 0, i32 5
+  %m_data.i.i = getelementptr inbounds i8, ptr %this, i64 16
   store ptr null, ptr %m_data.i.i, align 8
-  %m_size.i.i = getelementptr inbounds %class.btAlignedObjectArray, ptr %this, i64 0, i32 2
+  %m_size.i.i = getelementptr inbounds i8, ptr %this, i64 4
   store i32 0, ptr %m_size.i.i, align 4
-  %m_capacity.i.i = getelementptr inbounds %class.btAlignedObjectArray, ptr %this, i64 0, i32 3
+  %m_capacity.i.i = getelementptr inbounds i8, ptr %this, i64 8
   store i32 0, ptr %m_capacity.i.i, align 8
-  %m_size.i3.i = getelementptr inbounds %class.btAlignedObjectArray, ptr %indices, i64 0, i32 2
+  %m_size.i3.i = getelementptr inbounds i8, ptr %indices, i64 4
   %0 = load i32, ptr %m_size.i3.i, align 4
   %or.cond.i = icmp sgt i32 %0, 0
   br i1 %or.cond.i, label %_ZN20btAlignedObjectArrayIiE8allocateEi.exit.i.i.i, label %_ZN20btAlignedObjectArrayIiE6resizeEiRKi.exit.thread.i
@@ -3248,7 +3248,7 @@ for.body8.i.i:                                    ; preds = %for.body8.i.i, %for
 for.body.lr.ph.i.i:                               ; preds = %for.body8.i.i
   %.pre.i = load ptr, ptr %m_data.i.i, align 8
   store i32 %0, ptr %m_size.i.i, align 4
-  %m_data.i4.i = getelementptr inbounds %class.btAlignedObjectArray, ptr %indices, i64 0, i32 5
+  %m_data.i4.i = getelementptr inbounds i8, ptr %indices, i64 16
   br label %for.body.i.i
 
 for.body.i.i:                                     ; preds = %for.body.i.i, %for.body.lr.ph.i.i
@@ -3263,15 +3263,15 @@ for.body.i.i:                                     ; preds = %for.body.i.i, %for.
   br i1 %exitcond.not.i8.i, label %_ZN20btAlignedObjectArrayIiEC2ERKS0_.exit, label %for.body.i.i, !llvm.loop !8
 
 _ZN20btAlignedObjectArrayIiEC2ERKS0_.exit:        ; preds = %for.body.i.i, %_ZN20btAlignedObjectArrayIiE6resizeEiRKi.exit.thread.i
-  %m_ownsMemory.i.i1 = getelementptr inbounds %class.btReducedVector, ptr %this, i64 0, i32 1, i32 6
+  %m_ownsMemory.i.i1 = getelementptr inbounds i8, ptr %this, i64 56
   store i8 1, ptr %m_ownsMemory.i.i1, align 8
-  %m_data.i.i2 = getelementptr inbounds %class.btReducedVector, ptr %this, i64 0, i32 1, i32 5
+  %m_data.i.i2 = getelementptr inbounds i8, ptr %this, i64 48
   store ptr null, ptr %m_data.i.i2, align 8
-  %m_size.i.i3 = getelementptr inbounds %class.btReducedVector, ptr %this, i64 0, i32 1, i32 2
+  %m_size.i.i3 = getelementptr inbounds i8, ptr %this, i64 36
   store i32 0, ptr %m_size.i.i3, align 4
-  %m_capacity.i.i4 = getelementptr inbounds %class.btReducedVector, ptr %this, i64 0, i32 1, i32 3
+  %m_capacity.i.i4 = getelementptr inbounds i8, ptr %this, i64 40
   store i32 0, ptr %m_capacity.i.i4, align 8
-  %m_size.i3.i5 = getelementptr inbounds %class.btAlignedObjectArray.0, ptr %vecs, i64 0, i32 2
+  %m_size.i3.i5 = getelementptr inbounds i8, ptr %vecs, i64 4
   %9 = load i32, ptr %m_size.i3.i5, align 4
   %or.cond.i6 = icmp sgt i32 %9, 0
   br i1 %or.cond.i6, label %_ZN20btAlignedObjectArrayI9btVector3E8allocateEi.exit.i.i.i, label %_ZN20btAlignedObjectArrayI9btVector3E6resizeEiRKS0_.exit.thread.i
@@ -3325,7 +3325,7 @@ for.body.lr.ph.i.i16:                             ; preds = %_ZNK20btAlignedObje
   store ptr %call.i.i.i.i.i933, ptr %m_data.i.i2, align 8
   store i32 %9, ptr %m_capacity.i.i4, align 8
   store i32 %9, ptr %m_size.i.i3, align 4
-  %m_data.i4.i17 = getelementptr inbounds %class.btAlignedObjectArray.0, ptr %vecs, i64 0, i32 5
+  %m_data.i4.i17 = getelementptr inbounds i8, ptr %vecs, i64 16
   br label %for.body.i.i19
 
 for.body.i.i19:                                   ; preds = %for.body.i.i19, %for.body.lr.ph.i.i16
@@ -3339,7 +3339,7 @@ for.body.i.i19:                                   ; preds = %for.body.i.i19, %fo
   br i1 %exitcond.not.i8.i24, label %invoke.cont, label %for.body.i.i19, !llvm.loop !10
 
 invoke.cont:                                      ; preds = %for.body.i.i19, %_ZN20btAlignedObjectArrayI9btVector3E6resizeEiRKS0_.exit.thread.i
-  %m_sz = getelementptr inbounds %class.btReducedVector, ptr %this, i64 0, i32 2
+  %m_sz = getelementptr inbounds i8, ptr %this, i64 64
   store i32 %sz, ptr %m_sz, align 8
   ret void
 
@@ -3353,17 +3353,17 @@ lpad:                                             ; preds = %if.then3.i.i.i.i15,
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr dso_local void @_ZN15btReducedVectorplERKS_(ptr noalias sret(%class.btReducedVector) align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(68) %this, ptr noundef nonnull align 8 dereferenceable(68) %other) local_unnamed_addr #1 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  %m_sz = getelementptr inbounds %class.btReducedVector, ptr %this, i64 0, i32 2
+  %m_sz = getelementptr inbounds i8, ptr %this, i64 64
   %0 = load i32, ptr %m_sz, align 8
-  %m_ownsMemory.i.i.i = getelementptr inbounds %class.btAlignedObjectArray, ptr %agg.result, i64 0, i32 6
-  %m_data.i.i.i = getelementptr inbounds %class.btAlignedObjectArray, ptr %agg.result, i64 0, i32 5
-  %m_size.i.i.i = getelementptr inbounds %class.btAlignedObjectArray, ptr %agg.result, i64 0, i32 2
-  %m_capacity.i.i.i = getelementptr inbounds %class.btAlignedObjectArray, ptr %agg.result, i64 0, i32 3
-  %m_ownsMemory.i.i2.i = getelementptr inbounds %class.btReducedVector, ptr %agg.result, i64 0, i32 1, i32 6
-  %m_data.i.i3.i = getelementptr inbounds %class.btReducedVector, ptr %agg.result, i64 0, i32 1, i32 5
-  %m_size.i.i4.i = getelementptr inbounds %class.btReducedVector, ptr %agg.result, i64 0, i32 1, i32 2
-  %m_capacity.i.i5.i = getelementptr inbounds %class.btReducedVector, ptr %agg.result, i64 0, i32 1, i32 3
-  %m_sz.i = getelementptr inbounds %class.btReducedVector, ptr %agg.result, i64 0, i32 2
+  %m_ownsMemory.i.i.i = getelementptr inbounds i8, ptr %agg.result, i64 24
+  %m_data.i.i.i = getelementptr inbounds i8, ptr %agg.result, i64 16
+  %m_size.i.i.i = getelementptr inbounds i8, ptr %agg.result, i64 4
+  %m_capacity.i.i.i = getelementptr inbounds i8, ptr %agg.result, i64 8
+  %m_ownsMemory.i.i2.i = getelementptr inbounds i8, ptr %agg.result, i64 56
+  %m_data.i.i3.i = getelementptr inbounds i8, ptr %agg.result, i64 48
+  %m_size.i.i4.i = getelementptr inbounds i8, ptr %agg.result, i64 36
+  %m_capacity.i.i5.i = getelementptr inbounds i8, ptr %agg.result, i64 40
+  %m_sz.i = getelementptr inbounds i8, ptr %agg.result, i64 64
   store i32 %0, ptr %m_sz.i, align 8
   store i8 1, ptr %m_ownsMemory.i.i.i, align 8
   store ptr null, ptr %m_data.i.i.i, align 8
@@ -3373,8 +3373,8 @@ entry:
   store ptr null, ptr %m_data.i.i3.i, align 8
   store i32 0, ptr %m_size.i.i4.i, align 4
   store i32 0, ptr %m_capacity.i.i5.i, align 8
-  %m_size.i = getelementptr inbounds %class.btAlignedObjectArray, ptr %this, i64 0, i32 2
-  %m_size.i33 = getelementptr inbounds %class.btAlignedObjectArray, ptr %other, i64 0, i32 2
+  %m_size.i = getelementptr inbounds i8, ptr %this, i64 4
+  %m_size.i33 = getelementptr inbounds i8, ptr %other, i64 4
   %1 = load i32, ptr %m_size.i, align 4
   %cmp487 = icmp sgt i32 %1, 0
   %2 = load i32, ptr %m_size.i33, align 4
@@ -3383,10 +3383,10 @@ entry:
   br i1 %or.cond489, label %while.body.lr.ph, label %while.cond47.preheader
 
 while.body.lr.ph:                                 ; preds = %entry
-  %m_data.i = getelementptr inbounds %class.btAlignedObjectArray, ptr %this, i64 0, i32 5
-  %m_data.i34 = getelementptr inbounds %class.btAlignedObjectArray, ptr %other, i64 0, i32 5
-  %m_data.i236 = getelementptr inbounds %class.btReducedVector, ptr %this, i64 0, i32 1, i32 5
-  %m_data.i239 = getelementptr inbounds %class.btReducedVector, ptr %other, i64 0, i32 1, i32 5
+  %m_data.i = getelementptr inbounds i8, ptr %this, i64 16
+  %m_data.i34 = getelementptr inbounds i8, ptr %other, i64 16
+  %m_data.i236 = getelementptr inbounds i8, ptr %this, i64 48
+  %m_data.i239 = getelementptr inbounds i8, ptr %other, i64 48
   br label %while.body
 
 while.cond47.preheader:                           ; preds = %if.end46, %entry
@@ -3398,8 +3398,8 @@ while.cond47.preheader:                           ; preds = %if.end46, %entry
   br i1 %cmp50493, label %while.body51.lr.ph, label %while.cond62.preheader
 
 while.body51.lr.ph:                               ; preds = %while.cond47.preheader
-  %m_data.i287 = getelementptr inbounds %class.btAlignedObjectArray, ptr %this, i64 0, i32 5
-  %m_data.i334 = getelementptr inbounds %class.btReducedVector, ptr %this, i64 0, i32 1, i32 5
+  %m_data.i287 = getelementptr inbounds i8, ptr %this, i64 16
+  %m_data.i334 = getelementptr inbounds i8, ptr %this, i64 48
   %5 = sext i32 %i.0.lcssa to i64
   br label %while.body51
 
@@ -3857,9 +3857,9 @@ invoke.cont41:                                    ; preds = %if.else31, %if.then
   %68 = load <2 x float>, ptr %arrayidx.i238, align 4
   %69 = load <2 x float>, ptr %arrayidx.i241, align 4
   %70 = fadd <2 x float> %68, %69
-  %arrayidx11.i = getelementptr inbounds [4 x float], ptr %arrayidx.i238, i64 0, i64 2
+  %arrayidx11.i = getelementptr inbounds i8, ptr %arrayidx.i238, i64 8
   %71 = load float, ptr %arrayidx11.i, align 4
-  %arrayidx13.i = getelementptr inbounds [4 x float], ptr %arrayidx.i241, i64 0, i64 2
+  %arrayidx13.i = getelementptr inbounds i8, ptr %arrayidx.i241, i64 8
   %72 = load float, ptr %arrayidx13.i, align 4
   %add14.i = fadd float %71, %72
   %retval.sroa.3.12.vec.insert.i = insertelement <2 x float> <float poison, float 0.000000e+00>, float %add14.i, i64 0
@@ -3966,8 +3966,8 @@ while.cond62.preheader:                           ; preds = %while.cond62.prehea
   br i1 %cmp65495, label %while.body66.lr.ph, label %while.end76
 
 while.body66.lr.ph:                               ; preds = %while.cond62.preheader
-  %m_data.i382 = getelementptr inbounds %class.btAlignedObjectArray, ptr %other, i64 0, i32 5
-  %m_data.i429 = getelementptr inbounds %class.btReducedVector, ptr %other, i64 0, i32 1, i32 5
+  %m_data.i382 = getelementptr inbounds i8, ptr %other, i64 16
+  %m_data.i429 = getelementptr inbounds i8, ptr %other, i64 48
   %86 = sext i32 %j.0.lcssa to i64
   br label %while.body66
 
@@ -4318,13 +4318,13 @@ nrvo.skipdtor:                                    ; preds = %while.end76
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr dso_local void @_ZN20btAlignedObjectArrayI9btVector3ED2Ev(ptr noundef nonnull align 8 dereferenceable(25) %this) unnamed_addr #2 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  %m_data.i.i = getelementptr inbounds %class.btAlignedObjectArray.0, ptr %this, i64 0, i32 5
+  %m_data.i.i = getelementptr inbounds i8, ptr %this, i64 16
   %0 = load ptr, ptr %m_data.i.i, align 8
   %tobool.not.i.i = icmp eq ptr %0, null
   br i1 %tobool.not.i.i, label %invoke.cont, label %if.then.i.i
 
 if.then.i.i:                                      ; preds = %entry
-  %m_ownsMemory.i.i = getelementptr inbounds %class.btAlignedObjectArray.0, ptr %this, i64 0, i32 6
+  %m_ownsMemory.i.i = getelementptr inbounds i8, ptr %this, i64 24
   %1 = load i8, ptr %m_ownsMemory.i.i, align 8
   %2 = and i8 %1, 1
   %tobool2.not.i.i = icmp eq i8 %2, 0
@@ -4335,12 +4335,12 @@ if.then3.i.i:                                     ; preds = %if.then.i.i
           to label %invoke.cont unwind label %terminate.lpad
 
 invoke.cont:                                      ; preds = %if.then.i.i, %entry, %if.then3.i.i
-  %m_size.i.i = getelementptr inbounds %class.btAlignedObjectArray.0, ptr %this, i64 0, i32 2
-  %m_ownsMemory.i1.i = getelementptr inbounds %class.btAlignedObjectArray.0, ptr %this, i64 0, i32 6
+  %m_size.i.i = getelementptr inbounds i8, ptr %this, i64 4
+  %m_ownsMemory.i1.i = getelementptr inbounds i8, ptr %this, i64 24
   store i8 1, ptr %m_ownsMemory.i1.i, align 8
   store ptr null, ptr %m_data.i.i, align 8
   store i32 0, ptr %m_size.i.i, align 4
-  %m_capacity.i.i = getelementptr inbounds %class.btAlignedObjectArray.0, ptr %this, i64 0, i32 3
+  %m_capacity.i.i = getelementptr inbounds i8, ptr %this, i64 8
   store i32 0, ptr %m_capacity.i.i, align 8
   ret void
 
@@ -4355,13 +4355,13 @@ terminate.lpad:                                   ; preds = %if.then3.i.i
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr dso_local void @_ZN20btAlignedObjectArrayIiED2Ev(ptr noundef nonnull align 8 dereferenceable(25) %this) unnamed_addr #2 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  %m_data.i.i = getelementptr inbounds %class.btAlignedObjectArray, ptr %this, i64 0, i32 5
+  %m_data.i.i = getelementptr inbounds i8, ptr %this, i64 16
   %0 = load ptr, ptr %m_data.i.i, align 8
   %tobool.not.i.i = icmp eq ptr %0, null
   br i1 %tobool.not.i.i, label %invoke.cont, label %if.then.i.i
 
 if.then.i.i:                                      ; preds = %entry
-  %m_ownsMemory.i.i = getelementptr inbounds %class.btAlignedObjectArray, ptr %this, i64 0, i32 6
+  %m_ownsMemory.i.i = getelementptr inbounds i8, ptr %this, i64 24
   %1 = load i8, ptr %m_ownsMemory.i.i, align 8
   %2 = and i8 %1, 1
   %tobool2.not.i.i = icmp eq i8 %2, 0
@@ -4372,12 +4372,12 @@ if.then3.i.i:                                     ; preds = %if.then.i.i
           to label %invoke.cont unwind label %terminate.lpad
 
 invoke.cont:                                      ; preds = %if.then.i.i, %entry, %if.then3.i.i
-  %m_size.i.i = getelementptr inbounds %class.btAlignedObjectArray, ptr %this, i64 0, i32 2
-  %m_ownsMemory.i1.i = getelementptr inbounds %class.btAlignedObjectArray, ptr %this, i64 0, i32 6
+  %m_size.i.i = getelementptr inbounds i8, ptr %this, i64 4
+  %m_ownsMemory.i1.i = getelementptr inbounds i8, ptr %this, i64 24
   store i8 1, ptr %m_ownsMemory.i1.i, align 8
   store ptr null, ptr %m_data.i.i, align 8
   store i32 0, ptr %m_size.i.i, align 4
-  %m_capacity.i.i = getelementptr inbounds %class.btAlignedObjectArray, ptr %this, i64 0, i32 3
+  %m_capacity.i.i = getelementptr inbounds i8, ptr %this, i64 8
   store i32 0, ptr %m_capacity.i.i, align 8
   ret void
 
@@ -4402,13 +4402,13 @@ if.then.i.i.i:
   %rv2 = alloca %class.btReducedVector, align 8
   %ans = alloca %class.btReducedVector, align 8
   %ref.tmp87 = alloca %class.btReducedVector, align 8
-  %m_ownsMemory.i.i = getelementptr inbounds %class.btAlignedObjectArray, ptr %id1, i64 0, i32 6
+  %m_ownsMemory.i.i = getelementptr inbounds i8, ptr %id1, i64 24
   store i8 1, ptr %m_ownsMemory.i.i, align 8
-  %m_data.i.i = getelementptr inbounds %class.btAlignedObjectArray, ptr %id1, i64 0, i32 5
+  %m_data.i.i = getelementptr inbounds i8, ptr %id1, i64 16
   store ptr null, ptr %m_data.i.i, align 8
-  %m_size.i.i = getelementptr inbounds %class.btAlignedObjectArray, ptr %id1, i64 0, i32 2
+  %m_size.i.i = getelementptr inbounds i8, ptr %id1, i64 4
   store i32 0, ptr %m_size.i.i, align 4
-  %m_capacity.i.i = getelementptr inbounds %class.btAlignedObjectArray, ptr %id1, i64 0, i32 3
+  %m_capacity.i.i = getelementptr inbounds i8, ptr %id1, i64 8
   store i32 0, ptr %m_capacity.i.i, align 8
   %call.i.i.i.i16 = invoke noundef ptr @_Z22btAlignedAllocInternalmi(i64 noundef 4, i32 noundef 16)
           to label %_ZN20btAlignedObjectArrayIiE8allocateEi.exit.i.i unwind label %lpad
@@ -4536,13 +4536,13 @@ if.then.i.i.i79:                                  ; preds = %_ZN20btAlignedObjec
   %15 = load i32, ptr %m_size.i.i, align 4
   %inc.i23 = add nsw i32 %15, 1
   store i32 %inc.i23, ptr %m_size.i.i, align 4
-  %m_ownsMemory.i.i61 = getelementptr inbounds %class.btAlignedObjectArray.0, ptr %v1, i64 0, i32 6
+  %m_ownsMemory.i.i61 = getelementptr inbounds i8, ptr %v1, i64 24
   store i8 1, ptr %m_ownsMemory.i.i61, align 8
-  %m_data.i.i62 = getelementptr inbounds %class.btAlignedObjectArray.0, ptr %v1, i64 0, i32 5
+  %m_data.i.i62 = getelementptr inbounds i8, ptr %v1, i64 16
   store ptr null, ptr %m_data.i.i62, align 8
-  %m_size.i.i63 = getelementptr inbounds %class.btAlignedObjectArray.0, ptr %v1, i64 0, i32 2
+  %m_size.i.i63 = getelementptr inbounds i8, ptr %v1, i64 4
   store i32 0, ptr %m_size.i.i63, align 4
-  %m_capacity.i.i64 = getelementptr inbounds %class.btAlignedObjectArray.0, ptr %v1, i64 0, i32 3
+  %m_capacity.i.i64 = getelementptr inbounds i8, ptr %v1, i64 8
   store i32 0, ptr %m_capacity.i.i64, align 8
   %call.i.i.i.i103 = invoke noundef ptr @_Z22btAlignedAllocInternalmi(i64 noundef 16, i32 noundef 16)
           to label %_ZN20btAlignedObjectArrayI9btVector3E8allocateEi.exit.i.i unwind label %lpad9
@@ -4674,13 +4674,13 @@ if.then.i.i.i170:                                 ; preds = %_ZN20btAlignedObjec
   %25 = load i32, ptr %m_size.i.i63, align 4
   %inc.i114 = add nsw i32 %25, 1
   store i32 %inc.i114, ptr %m_size.i.i63, align 4
-  %m_ownsMemory.i.i152 = getelementptr inbounds %class.btAlignedObjectArray, ptr %id2, i64 0, i32 6
+  %m_ownsMemory.i.i152 = getelementptr inbounds i8, ptr %id2, i64 24
   store i8 1, ptr %m_ownsMemory.i.i152, align 8
-  %m_data.i.i153 = getelementptr inbounds %class.btAlignedObjectArray, ptr %id2, i64 0, i32 5
+  %m_data.i.i153 = getelementptr inbounds i8, ptr %id2, i64 16
   store ptr null, ptr %m_data.i.i153, align 8
-  %m_size.i.i154 = getelementptr inbounds %class.btAlignedObjectArray, ptr %id2, i64 0, i32 2
+  %m_size.i.i154 = getelementptr inbounds i8, ptr %id2, i64 4
   store i32 0, ptr %m_size.i.i154, align 4
-  %m_capacity.i.i155 = getelementptr inbounds %class.btAlignedObjectArray, ptr %id2, i64 0, i32 3
+  %m_capacity.i.i155 = getelementptr inbounds i8, ptr %id2, i64 8
   store i32 0, ptr %m_capacity.i.i155, align 8
   %call.i.i.i.i197 = invoke noundef ptr @_Z22btAlignedAllocInternalmi(i64 noundef 4, i32 noundef 16)
           to label %_ZN20btAlignedObjectArrayIiE8allocateEi.exit.i.i174 unwind label %lpad20
@@ -4885,13 +4885,13 @@ if.then.i.i.i309:                                 ; preds = %_ZN20btAlignedObjec
   %51 = load i32, ptr %m_size.i.i154, align 4
   %inc.i250 = add nsw i32 %51, 1
   store i32 %inc.i250, ptr %m_size.i.i154, align 4
-  %m_ownsMemory.i.i288 = getelementptr inbounds %class.btAlignedObjectArray.0, ptr %v2, i64 0, i32 6
+  %m_ownsMemory.i.i288 = getelementptr inbounds i8, ptr %v2, i64 24
   store i8 1, ptr %m_ownsMemory.i.i288, align 8
-  %m_data.i.i289 = getelementptr inbounds %class.btAlignedObjectArray.0, ptr %v2, i64 0, i32 5
+  %m_data.i.i289 = getelementptr inbounds i8, ptr %v2, i64 16
   store ptr null, ptr %m_data.i.i289, align 8
-  %m_size.i.i290 = getelementptr inbounds %class.btAlignedObjectArray.0, ptr %v2, i64 0, i32 2
+  %m_size.i.i290 = getelementptr inbounds i8, ptr %v2, i64 4
   store i32 0, ptr %m_size.i.i290, align 4
-  %m_capacity.i.i291 = getelementptr inbounds %class.btAlignedObjectArray.0, ptr %v2, i64 0, i32 3
+  %m_capacity.i.i291 = getelementptr inbounds i8, ptr %v2, i64 8
   store i32 0, ptr %m_capacity.i.i291, align 8
   %call.i.i.i.i336 = invoke noundef ptr @_Z22btAlignedAllocInternalmi(i64 noundef 16, i32 noundef 16)
           to label %_ZN20btAlignedObjectArrayI9btVector3E8allocateEi.exit.i.i313 unwind label %lpad31
@@ -5102,13 +5102,13 @@ if.then.i.i.i451:                                 ; preds = %_ZN20btAlignedObjec
   %68 = load i32, ptr %m_size.i.i290, align 4
   %inc.i395 = add nsw i32 %68, 1
   store i32 %inc.i395, ptr %m_size.i.i290, align 4
-  %m_ownsMemory.i.i433 = getelementptr inbounds %class.btAlignedObjectArray, ptr %id3, i64 0, i32 6
+  %m_ownsMemory.i.i433 = getelementptr inbounds i8, ptr %id3, i64 24
   store i8 1, ptr %m_ownsMemory.i.i433, align 8
-  %m_data.i.i434 = getelementptr inbounds %class.btAlignedObjectArray, ptr %id3, i64 0, i32 5
+  %m_data.i.i434 = getelementptr inbounds i8, ptr %id3, i64 16
   store ptr null, ptr %m_data.i.i434, align 8
-  %m_size.i.i435 = getelementptr inbounds %class.btAlignedObjectArray, ptr %id3, i64 0, i32 2
+  %m_size.i.i435 = getelementptr inbounds i8, ptr %id3, i64 4
   store i32 0, ptr %m_size.i.i435, align 4
-  %m_capacity.i.i436 = getelementptr inbounds %class.btAlignedObjectArray, ptr %id3, i64 0, i32 3
+  %m_capacity.i.i436 = getelementptr inbounds i8, ptr %id3, i64 8
   store i32 0, ptr %m_capacity.i.i436, align 8
   %call.i.i.i.i478 = invoke noundef ptr @_Z22btAlignedAllocInternalmi(i64 noundef 4, i32 noundef 16)
           to label %_ZN20btAlignedObjectArrayIiE8allocateEi.exit.i.i455 unwind label %lpad48
@@ -5390,13 +5390,13 @@ if.then.i.i.i634:                                 ; preds = %_ZN20btAlignedObjec
   %104 = load i32, ptr %m_size.i.i435, align 4
   %inc.i575 = add nsw i32 %104, 1
   store i32 %inc.i575, ptr %m_size.i.i435, align 4
-  %m_ownsMemory.i.i613 = getelementptr inbounds %class.btAlignedObjectArray.0, ptr %v3, i64 0, i32 6
+  %m_ownsMemory.i.i613 = getelementptr inbounds i8, ptr %v3, i64 24
   store i8 1, ptr %m_ownsMemory.i.i613, align 8
-  %m_data.i.i614 = getelementptr inbounds %class.btAlignedObjectArray.0, ptr %v3, i64 0, i32 5
+  %m_data.i.i614 = getelementptr inbounds i8, ptr %v3, i64 16
   store ptr null, ptr %m_data.i.i614, align 8
-  %m_size.i.i615 = getelementptr inbounds %class.btAlignedObjectArray.0, ptr %v3, i64 0, i32 2
+  %m_size.i.i615 = getelementptr inbounds i8, ptr %v3, i64 4
   store i32 0, ptr %m_size.i.i615, align 4
-  %m_capacity.i.i616 = getelementptr inbounds %class.btAlignedObjectArray.0, ptr %v3, i64 0, i32 3
+  %m_capacity.i.i616 = getelementptr inbounds i8, ptr %v3, i64 8
   store i32 0, ptr %m_capacity.i.i616, align 8
   %call.i.i.i.i661 = invoke noundef ptr @_Z22btAlignedAllocInternalmi(i64 noundef 16, i32 noundef 16)
           to label %_ZN20btAlignedObjectArrayI9btVector3E8allocateEi.exit.i.i638 unwind label %lpad61
@@ -5702,17 +5702,17 @@ invoke.cont86:                                    ; preds = %invoke.cont84
           to label %invoke.cont89 unwind label %lpad88
 
 invoke.cont89:                                    ; preds = %invoke.cont86
-  %m_sz.i = getelementptr inbounds %class.btReducedVector, ptr %ans, i64 0, i32 2
+  %m_sz.i = getelementptr inbounds i8, ptr %ans, i64 64
   %129 = load i32, ptr %m_sz.i, align 8
-  %m_sz2.i = getelementptr inbounds %class.btReducedVector, ptr %ref.tmp87, i64 0, i32 2
+  %m_sz2.i = getelementptr inbounds i8, ptr %ref.tmp87, i64 64
   %130 = load i32, ptr %m_sz2.i, align 8
   %cmp.not.i = icmp eq i32 %129, %130
   br i1 %cmp.not.i, label %if.end.i, label %invoke.cont91
 
 if.end.i:                                         ; preds = %invoke.cont89
-  %m_size.i.i805 = getelementptr inbounds %class.btAlignedObjectArray, ptr %ans, i64 0, i32 2
+  %m_size.i.i805 = getelementptr inbounds i8, ptr %ans, i64 4
   %131 = load i32, ptr %m_size.i.i805, align 4
-  %m_size.i9.i = getelementptr inbounds %class.btAlignedObjectArray, ptr %ref.tmp87, i64 0, i32 2
+  %m_size.i9.i = getelementptr inbounds i8, ptr %ref.tmp87, i64 4
   %132 = load i32, ptr %m_size.i9.i, align 4
   %cmp5.not.i = icmp eq i32 %131, %132
   br i1 %cmp5.not.i, label %for.cond.preheader.i, label %invoke.cont91
@@ -5722,13 +5722,13 @@ for.cond.preheader.i:                             ; preds = %if.end.i
   br i1 %cmp1021.i, label %for.body.lr.ph.i, label %invoke.cont91
 
 for.body.lr.ph.i:                                 ; preds = %for.cond.preheader.i
-  %m_data.i14.i = getelementptr inbounds %class.btReducedVector, ptr %ans, i64 0, i32 1, i32 5
-  %m_data.i.i806 = getelementptr inbounds %class.btAlignedObjectArray, ptr %ans, i64 0, i32 5
+  %m_data.i14.i = getelementptr inbounds i8, ptr %ans, i64 48
+  %m_data.i.i806 = getelementptr inbounds i8, ptr %ans, i64 16
   %133 = load ptr, ptr %m_data.i.i806, align 8
-  %m_data.i11.i = getelementptr inbounds %class.btAlignedObjectArray, ptr %ref.tmp87, i64 0, i32 5
+  %m_data.i11.i = getelementptr inbounds i8, ptr %ref.tmp87, i64 16
   %134 = load ptr, ptr %m_data.i11.i, align 8
   %135 = load ptr, ptr %m_data.i14.i, align 8
-  %m_data.i17.i = getelementptr inbounds %class.btReducedVector, ptr %ref.tmp87, i64 0, i32 1, i32 5
+  %m_data.i17.i = getelementptr inbounds i8, ptr %ref.tmp87, i64 48
   %136 = load ptr, ptr %m_data.i17.i, align 8
   %wide.trip.count.i = zext nneg i32 %131 to i64
   br label %for.body.i
@@ -5750,25 +5750,25 @@ for.body.i:                                       ; preds = %for.cond.i, %for.bo
 lor.lhs.false.i:                                  ; preds = %for.body.i
   %arrayidx.i16.i = getelementptr inbounds %class.btVector3, ptr %135, i64 %indvars.iv.i
   %arrayidx.i19.i = getelementptr inbounds %class.btVector3, ptr %136, i64 %indvars.iv.i
-  %arrayidx.i.i.i807 = getelementptr inbounds [4 x float], ptr %arrayidx.i16.i, i64 0, i64 3
+  %arrayidx.i.i.i807 = getelementptr inbounds i8, ptr %arrayidx.i16.i, i64 12
   %139 = load float, ptr %arrayidx.i.i.i807, align 4
-  %arrayidx3.i.i.i808 = getelementptr inbounds [4 x float], ptr %arrayidx.i19.i, i64 0, i64 3
+  %arrayidx3.i.i.i808 = getelementptr inbounds i8, ptr %arrayidx.i19.i, i64 12
   %140 = load float, ptr %arrayidx3.i.i.i808, align 4
   %cmp.i.i.i = fcmp oeq float %139, %140
   br i1 %cmp.i.i.i, label %land.lhs.true.i.i.i, label %invoke.cont91
 
 land.lhs.true.i.i.i:                              ; preds = %lor.lhs.false.i
-  %arrayidx5.i.i.i = getelementptr inbounds [4 x float], ptr %arrayidx.i16.i, i64 0, i64 2
+  %arrayidx5.i.i.i = getelementptr inbounds i8, ptr %arrayidx.i16.i, i64 8
   %141 = load float, ptr %arrayidx5.i.i.i, align 4
-  %arrayidx7.i.i.i = getelementptr inbounds [4 x float], ptr %arrayidx.i19.i, i64 0, i64 2
+  %arrayidx7.i.i.i = getelementptr inbounds i8, ptr %arrayidx.i19.i, i64 8
   %142 = load float, ptr %arrayidx7.i.i.i, align 4
   %cmp8.i.i.i = fcmp oeq float %141, %142
   br i1 %cmp8.i.i.i, label %land.lhs.true9.i.i.i, label %invoke.cont91
 
 land.lhs.true9.i.i.i:                             ; preds = %land.lhs.true.i.i.i
-  %arrayidx11.i.i.i = getelementptr inbounds [4 x float], ptr %arrayidx.i16.i, i64 0, i64 1
+  %arrayidx11.i.i.i = getelementptr inbounds i8, ptr %arrayidx.i16.i, i64 4
   %143 = load float, ptr %arrayidx11.i.i.i, align 4
-  %arrayidx13.i.i.i = getelementptr inbounds [4 x float], ptr %arrayidx.i19.i, i64 0, i64 1
+  %arrayidx13.i.i.i = getelementptr inbounds i8, ptr %arrayidx.i19.i, i64 4
   %144 = load float, ptr %arrayidx13.i.i.i, align 4
   %cmp14.i.i.i = fcmp oeq float %143, %144
   br i1 %cmp14.i.i.i, label %_ZNK9btVector3neERKS_.exit.i, label %invoke.cont91
@@ -5781,13 +5781,13 @@ _ZNK9btVector3neERKS_.exit.i:                     ; preds = %land.lhs.true9.i.i.
 
 invoke.cont91:                                    ; preds = %_ZNK9btVector3neERKS_.exit.i, %land.lhs.true9.i.i.i, %land.lhs.true.i.i.i, %lor.lhs.false.i, %for.body.i, %for.cond.i, %for.cond.preheader.i, %if.end.i, %invoke.cont89
   %retval.0.i = phi i1 [ false, %invoke.cont89 ], [ false, %if.end.i ], [ true, %for.cond.preheader.i ], [ false, %lor.lhs.false.i ], [ false, %land.lhs.true.i.i.i ], [ false, %land.lhs.true9.i.i.i ], [ true, %for.cond.i ], [ false, %for.body.i ], [ false, %_ZNK9btVector3neERKS_.exit.i ]
-  %m_data.i.i.i.i = getelementptr inbounds %class.btReducedVector, ptr %ref.tmp87, i64 0, i32 1, i32 5
+  %m_data.i.i.i.i = getelementptr inbounds i8, ptr %ref.tmp87, i64 48
   %147 = load ptr, ptr %m_data.i.i.i.i, align 8
   %tobool.not.i.i.i.i = icmp eq ptr %147, null
   br i1 %tobool.not.i.i.i.i, label %_ZN20btAlignedObjectArrayI9btVector3ED2Ev.exit.i, label %if.then.i.i.i.i
 
 if.then.i.i.i.i:                                  ; preds = %invoke.cont91
-  %m_ownsMemory.i.i.i.i = getelementptr inbounds %class.btReducedVector, ptr %ref.tmp87, i64 0, i32 1, i32 6
+  %m_ownsMemory.i.i.i.i = getelementptr inbounds i8, ptr %ref.tmp87, i64 56
   %148 = load i8, ptr %m_ownsMemory.i.i.i.i, align 8
   %149 = and i8 %148, 1
   %tobool2.not.i.i.i.i = icmp eq i8 %149, 0
@@ -5805,20 +5805,20 @@ terminate.lpad.i.i:                               ; preds = %if.then3.i.i.i.i
   unreachable
 
 _ZN20btAlignedObjectArrayI9btVector3ED2Ev.exit.i: ; preds = %if.then3.i.i.i.i, %if.then.i.i.i.i, %invoke.cont91
-  %m_size.i.i.i.i = getelementptr inbounds %class.btReducedVector, ptr %ref.tmp87, i64 0, i32 1, i32 2
-  %m_ownsMemory.i1.i.i.i = getelementptr inbounds %class.btReducedVector, ptr %ref.tmp87, i64 0, i32 1, i32 6
+  %m_size.i.i.i.i = getelementptr inbounds i8, ptr %ref.tmp87, i64 36
+  %m_ownsMemory.i1.i.i.i = getelementptr inbounds i8, ptr %ref.tmp87, i64 56
   store i8 1, ptr %m_ownsMemory.i1.i.i.i, align 8
   store ptr null, ptr %m_data.i.i.i.i, align 8
   store i32 0, ptr %m_size.i.i.i.i, align 4
-  %m_capacity.i.i.i.i = getelementptr inbounds %class.btReducedVector, ptr %ref.tmp87, i64 0, i32 1, i32 3
+  %m_capacity.i.i.i.i = getelementptr inbounds i8, ptr %ref.tmp87, i64 40
   store i32 0, ptr %m_capacity.i.i.i.i, align 8
-  %m_data.i.i.i1.i = getelementptr inbounds %class.btAlignedObjectArray, ptr %ref.tmp87, i64 0, i32 5
+  %m_data.i.i.i1.i = getelementptr inbounds i8, ptr %ref.tmp87, i64 16
   %152 = load ptr, ptr %m_data.i.i.i1.i, align 8
   %tobool.not.i.i.i2.i = icmp eq ptr %152, null
   br i1 %tobool.not.i.i.i2.i, label %_ZN15btReducedVectorD2Ev.exit, label %if.then.i.i.i3.i
 
 if.then.i.i.i3.i:                                 ; preds = %_ZN20btAlignedObjectArrayI9btVector3ED2Ev.exit.i
-  %m_ownsMemory.i.i.i4.i = getelementptr inbounds %class.btAlignedObjectArray, ptr %ref.tmp87, i64 0, i32 6
+  %m_ownsMemory.i.i.i4.i = getelementptr inbounds i8, ptr %ref.tmp87, i64 24
   %153 = load i8, ptr %m_ownsMemory.i.i.i4.i, align 8
   %154 = and i8 %153, 1
   %tobool2.not.i.i.i5.i = icmp eq i8 %154, 0
@@ -5836,12 +5836,12 @@ terminate.lpad.i7.i:                              ; preds = %if.then3.i.i.i6.i
   unreachable
 
 _ZN15btReducedVectorD2Ev.exit:                    ; preds = %_ZN20btAlignedObjectArrayI9btVector3ED2Ev.exit.i, %if.then.i.i.i3.i, %if.then3.i.i.i6.i
-  %m_size.i.i.i8.i = getelementptr inbounds %class.btAlignedObjectArray, ptr %ref.tmp87, i64 0, i32 2
-  %m_ownsMemory.i1.i.i9.i = getelementptr inbounds %class.btAlignedObjectArray, ptr %ref.tmp87, i64 0, i32 6
+  %m_size.i.i.i8.i = getelementptr inbounds i8, ptr %ref.tmp87, i64 4
+  %m_ownsMemory.i1.i.i9.i = getelementptr inbounds i8, ptr %ref.tmp87, i64 24
   store i8 1, ptr %m_ownsMemory.i1.i.i9.i, align 8
   store ptr null, ptr %m_data.i.i.i1.i, align 8
   store i32 0, ptr %m_size.i.i.i8.i, align 4
-  %m_capacity.i.i.i10.i = getelementptr inbounds %class.btAlignedObjectArray, ptr %ref.tmp87, i64 0, i32 3
+  %m_capacity.i.i.i10.i = getelementptr inbounds i8, ptr %ref.tmp87, i64 8
   store i32 0, ptr %m_capacity.i.i.i10.i, align 8
   br i1 %retval.0.i, label %if.end, label %if.then
 
@@ -5896,13 +5896,13 @@ lpad88:                                           ; preds = %invoke.cont86
   br label %ehcleanup95
 
 if.end:                                           ; preds = %if.then, %_ZN15btReducedVectorD2Ev.exit
-  %m_data.i.i.i.i809 = getelementptr inbounds %class.btReducedVector, ptr %ans, i64 0, i32 1, i32 5
+  %m_data.i.i.i.i809 = getelementptr inbounds i8, ptr %ans, i64 48
   %166 = load ptr, ptr %m_data.i.i.i.i809, align 8
   %tobool.not.i.i.i.i810 = icmp eq ptr %166, null
   br i1 %tobool.not.i.i.i.i810, label %_ZN20btAlignedObjectArrayI9btVector3ED2Ev.exit.i816, label %if.then.i.i.i.i811
 
 if.then.i.i.i.i811:                               ; preds = %if.end
-  %m_ownsMemory.i.i.i.i812 = getelementptr inbounds %class.btReducedVector, ptr %ans, i64 0, i32 1, i32 6
+  %m_ownsMemory.i.i.i.i812 = getelementptr inbounds i8, ptr %ans, i64 56
   %167 = load i8, ptr %m_ownsMemory.i.i.i.i812, align 8
   %168 = and i8 %167, 1
   %tobool2.not.i.i.i.i813 = icmp eq i8 %168, 0
@@ -5920,20 +5920,20 @@ terminate.lpad.i.i815:                            ; preds = %if.then3.i.i.i.i814
   unreachable
 
 _ZN20btAlignedObjectArrayI9btVector3ED2Ev.exit.i816: ; preds = %if.then3.i.i.i.i814, %if.then.i.i.i.i811, %if.end
-  %m_size.i.i.i.i817 = getelementptr inbounds %class.btReducedVector, ptr %ans, i64 0, i32 1, i32 2
-  %m_ownsMemory.i1.i.i.i818 = getelementptr inbounds %class.btReducedVector, ptr %ans, i64 0, i32 1, i32 6
+  %m_size.i.i.i.i817 = getelementptr inbounds i8, ptr %ans, i64 36
+  %m_ownsMemory.i1.i.i.i818 = getelementptr inbounds i8, ptr %ans, i64 56
   store i8 1, ptr %m_ownsMemory.i1.i.i.i818, align 8
   store ptr null, ptr %m_data.i.i.i.i809, align 8
   store i32 0, ptr %m_size.i.i.i.i817, align 4
-  %m_capacity.i.i.i.i819 = getelementptr inbounds %class.btReducedVector, ptr %ans, i64 0, i32 1, i32 3
+  %m_capacity.i.i.i.i819 = getelementptr inbounds i8, ptr %ans, i64 40
   store i32 0, ptr %m_capacity.i.i.i.i819, align 8
-  %m_data.i.i.i1.i820 = getelementptr inbounds %class.btAlignedObjectArray, ptr %ans, i64 0, i32 5
+  %m_data.i.i.i1.i820 = getelementptr inbounds i8, ptr %ans, i64 16
   %171 = load ptr, ptr %m_data.i.i.i1.i820, align 8
   %tobool.not.i.i.i2.i821 = icmp eq ptr %171, null
   br i1 %tobool.not.i.i.i2.i821, label %_ZN15btReducedVectorD2Ev.exit830, label %if.then.i.i.i3.i822
 
 if.then.i.i.i3.i822:                              ; preds = %_ZN20btAlignedObjectArrayI9btVector3ED2Ev.exit.i816
-  %m_ownsMemory.i.i.i4.i823 = getelementptr inbounds %class.btAlignedObjectArray, ptr %ans, i64 0, i32 6
+  %m_ownsMemory.i.i.i4.i823 = getelementptr inbounds i8, ptr %ans, i64 24
   %172 = load i8, ptr %m_ownsMemory.i.i.i4.i823, align 8
   %173 = and i8 %172, 1
   %tobool2.not.i.i.i5.i824 = icmp eq i8 %173, 0
@@ -5951,20 +5951,20 @@ terminate.lpad.i7.i826:                           ; preds = %if.then3.i.i.i6.i82
   unreachable
 
 _ZN15btReducedVectorD2Ev.exit830:                 ; preds = %_ZN20btAlignedObjectArrayI9btVector3ED2Ev.exit.i816, %if.then.i.i.i3.i822, %if.then3.i.i.i6.i825
-  %m_size.i.i.i8.i827 = getelementptr inbounds %class.btAlignedObjectArray, ptr %ans, i64 0, i32 2
-  %m_ownsMemory.i1.i.i9.i828 = getelementptr inbounds %class.btAlignedObjectArray, ptr %ans, i64 0, i32 6
+  %m_size.i.i.i8.i827 = getelementptr inbounds i8, ptr %ans, i64 4
+  %m_ownsMemory.i1.i.i9.i828 = getelementptr inbounds i8, ptr %ans, i64 24
   store i8 1, ptr %m_ownsMemory.i1.i.i9.i828, align 8
   store ptr null, ptr %m_data.i.i.i1.i820, align 8
   store i32 0, ptr %m_size.i.i.i8.i827, align 4
-  %m_capacity.i.i.i10.i829 = getelementptr inbounds %class.btAlignedObjectArray, ptr %ans, i64 0, i32 3
+  %m_capacity.i.i.i10.i829 = getelementptr inbounds i8, ptr %ans, i64 8
   store i32 0, ptr %m_capacity.i.i.i10.i829, align 8
-  %m_data.i.i.i.i831 = getelementptr inbounds %class.btReducedVector, ptr %rv2, i64 0, i32 1, i32 5
+  %m_data.i.i.i.i831 = getelementptr inbounds i8, ptr %rv2, i64 48
   %176 = load ptr, ptr %m_data.i.i.i.i831, align 8
   %tobool.not.i.i.i.i832 = icmp eq ptr %176, null
   br i1 %tobool.not.i.i.i.i832, label %_ZN20btAlignedObjectArrayI9btVector3ED2Ev.exit.i838, label %if.then.i.i.i.i833
 
 if.then.i.i.i.i833:                               ; preds = %_ZN15btReducedVectorD2Ev.exit830
-  %m_ownsMemory.i.i.i.i834 = getelementptr inbounds %class.btReducedVector, ptr %rv2, i64 0, i32 1, i32 6
+  %m_ownsMemory.i.i.i.i834 = getelementptr inbounds i8, ptr %rv2, i64 56
   %177 = load i8, ptr %m_ownsMemory.i.i.i.i834, align 8
   %178 = and i8 %177, 1
   %tobool2.not.i.i.i.i835 = icmp eq i8 %178, 0
@@ -5982,20 +5982,20 @@ terminate.lpad.i.i837:                            ; preds = %if.then3.i.i.i.i836
   unreachable
 
 _ZN20btAlignedObjectArrayI9btVector3ED2Ev.exit.i838: ; preds = %if.then3.i.i.i.i836, %if.then.i.i.i.i833, %_ZN15btReducedVectorD2Ev.exit830
-  %m_size.i.i.i.i839 = getelementptr inbounds %class.btReducedVector, ptr %rv2, i64 0, i32 1, i32 2
-  %m_ownsMemory.i1.i.i.i840 = getelementptr inbounds %class.btReducedVector, ptr %rv2, i64 0, i32 1, i32 6
+  %m_size.i.i.i.i839 = getelementptr inbounds i8, ptr %rv2, i64 36
+  %m_ownsMemory.i1.i.i.i840 = getelementptr inbounds i8, ptr %rv2, i64 56
   store i8 1, ptr %m_ownsMemory.i1.i.i.i840, align 8
   store ptr null, ptr %m_data.i.i.i.i831, align 8
   store i32 0, ptr %m_size.i.i.i.i839, align 4
-  %m_capacity.i.i.i.i841 = getelementptr inbounds %class.btReducedVector, ptr %rv2, i64 0, i32 1, i32 3
+  %m_capacity.i.i.i.i841 = getelementptr inbounds i8, ptr %rv2, i64 40
   store i32 0, ptr %m_capacity.i.i.i.i841, align 8
-  %m_data.i.i.i1.i842 = getelementptr inbounds %class.btAlignedObjectArray, ptr %rv2, i64 0, i32 5
+  %m_data.i.i.i1.i842 = getelementptr inbounds i8, ptr %rv2, i64 16
   %181 = load ptr, ptr %m_data.i.i.i1.i842, align 8
   %tobool.not.i.i.i2.i843 = icmp eq ptr %181, null
   br i1 %tobool.not.i.i.i2.i843, label %_ZN15btReducedVectorD2Ev.exit852, label %if.then.i.i.i3.i844
 
 if.then.i.i.i3.i844:                              ; preds = %_ZN20btAlignedObjectArrayI9btVector3ED2Ev.exit.i838
-  %m_ownsMemory.i.i.i4.i845 = getelementptr inbounds %class.btAlignedObjectArray, ptr %rv2, i64 0, i32 6
+  %m_ownsMemory.i.i.i4.i845 = getelementptr inbounds i8, ptr %rv2, i64 24
   %182 = load i8, ptr %m_ownsMemory.i.i.i4.i845, align 8
   %183 = and i8 %182, 1
   %tobool2.not.i.i.i5.i846 = icmp eq i8 %183, 0
@@ -6013,20 +6013,20 @@ terminate.lpad.i7.i848:                           ; preds = %if.then3.i.i.i6.i84
   unreachable
 
 _ZN15btReducedVectorD2Ev.exit852:                 ; preds = %_ZN20btAlignedObjectArrayI9btVector3ED2Ev.exit.i838, %if.then.i.i.i3.i844, %if.then3.i.i.i6.i847
-  %m_size.i.i.i8.i849 = getelementptr inbounds %class.btAlignedObjectArray, ptr %rv2, i64 0, i32 2
-  %m_ownsMemory.i1.i.i9.i850 = getelementptr inbounds %class.btAlignedObjectArray, ptr %rv2, i64 0, i32 6
+  %m_size.i.i.i8.i849 = getelementptr inbounds i8, ptr %rv2, i64 4
+  %m_ownsMemory.i1.i.i9.i850 = getelementptr inbounds i8, ptr %rv2, i64 24
   store i8 1, ptr %m_ownsMemory.i1.i.i9.i850, align 8
   store ptr null, ptr %m_data.i.i.i1.i842, align 8
   store i32 0, ptr %m_size.i.i.i8.i849, align 4
-  %m_capacity.i.i.i10.i851 = getelementptr inbounds %class.btAlignedObjectArray, ptr %rv2, i64 0, i32 3
+  %m_capacity.i.i.i10.i851 = getelementptr inbounds i8, ptr %rv2, i64 8
   store i32 0, ptr %m_capacity.i.i.i10.i851, align 8
-  %m_data.i.i.i.i853 = getelementptr inbounds %class.btReducedVector, ptr %rv1, i64 0, i32 1, i32 5
+  %m_data.i.i.i.i853 = getelementptr inbounds i8, ptr %rv1, i64 48
   %186 = load ptr, ptr %m_data.i.i.i.i853, align 8
   %tobool.not.i.i.i.i854 = icmp eq ptr %186, null
   br i1 %tobool.not.i.i.i.i854, label %_ZN20btAlignedObjectArrayI9btVector3ED2Ev.exit.i860, label %if.then.i.i.i.i855
 
 if.then.i.i.i.i855:                               ; preds = %_ZN15btReducedVectorD2Ev.exit852
-  %m_ownsMemory.i.i.i.i856 = getelementptr inbounds %class.btReducedVector, ptr %rv1, i64 0, i32 1, i32 6
+  %m_ownsMemory.i.i.i.i856 = getelementptr inbounds i8, ptr %rv1, i64 56
   %187 = load i8, ptr %m_ownsMemory.i.i.i.i856, align 8
   %188 = and i8 %187, 1
   %tobool2.not.i.i.i.i857 = icmp eq i8 %188, 0
@@ -6044,20 +6044,20 @@ terminate.lpad.i.i859:                            ; preds = %if.then3.i.i.i.i858
   unreachable
 
 _ZN20btAlignedObjectArrayI9btVector3ED2Ev.exit.i860: ; preds = %if.then3.i.i.i.i858, %if.then.i.i.i.i855, %_ZN15btReducedVectorD2Ev.exit852
-  %m_size.i.i.i.i861 = getelementptr inbounds %class.btReducedVector, ptr %rv1, i64 0, i32 1, i32 2
-  %m_ownsMemory.i1.i.i.i862 = getelementptr inbounds %class.btReducedVector, ptr %rv1, i64 0, i32 1, i32 6
+  %m_size.i.i.i.i861 = getelementptr inbounds i8, ptr %rv1, i64 36
+  %m_ownsMemory.i1.i.i.i862 = getelementptr inbounds i8, ptr %rv1, i64 56
   store i8 1, ptr %m_ownsMemory.i1.i.i.i862, align 8
   store ptr null, ptr %m_data.i.i.i.i853, align 8
   store i32 0, ptr %m_size.i.i.i.i861, align 4
-  %m_capacity.i.i.i.i863 = getelementptr inbounds %class.btReducedVector, ptr %rv1, i64 0, i32 1, i32 3
+  %m_capacity.i.i.i.i863 = getelementptr inbounds i8, ptr %rv1, i64 40
   store i32 0, ptr %m_capacity.i.i.i.i863, align 8
-  %m_data.i.i.i1.i864 = getelementptr inbounds %class.btAlignedObjectArray, ptr %rv1, i64 0, i32 5
+  %m_data.i.i.i1.i864 = getelementptr inbounds i8, ptr %rv1, i64 16
   %191 = load ptr, ptr %m_data.i.i.i1.i864, align 8
   %tobool.not.i.i.i2.i865 = icmp eq ptr %191, null
   br i1 %tobool.not.i.i.i2.i865, label %_ZN15btReducedVectorD2Ev.exit874, label %if.then.i.i.i3.i866
 
 if.then.i.i.i3.i866:                              ; preds = %_ZN20btAlignedObjectArrayI9btVector3ED2Ev.exit.i860
-  %m_ownsMemory.i.i.i4.i867 = getelementptr inbounds %class.btAlignedObjectArray, ptr %rv1, i64 0, i32 6
+  %m_ownsMemory.i.i.i4.i867 = getelementptr inbounds i8, ptr %rv1, i64 24
   %192 = load i8, ptr %m_ownsMemory.i.i.i4.i867, align 8
   %193 = and i8 %192, 1
   %tobool2.not.i.i.i5.i868 = icmp eq i8 %193, 0
@@ -6075,12 +6075,12 @@ terminate.lpad.i7.i870:                           ; preds = %if.then3.i.i.i6.i86
   unreachable
 
 _ZN15btReducedVectorD2Ev.exit874:                 ; preds = %_ZN20btAlignedObjectArrayI9btVector3ED2Ev.exit.i860, %if.then.i.i.i3.i866, %if.then3.i.i.i6.i869
-  %m_size.i.i.i8.i871 = getelementptr inbounds %class.btAlignedObjectArray, ptr %rv1, i64 0, i32 2
-  %m_ownsMemory.i1.i.i9.i872 = getelementptr inbounds %class.btAlignedObjectArray, ptr %rv1, i64 0, i32 6
+  %m_size.i.i.i8.i871 = getelementptr inbounds i8, ptr %rv1, i64 4
+  %m_ownsMemory.i1.i.i9.i872 = getelementptr inbounds i8, ptr %rv1, i64 24
   store i8 1, ptr %m_ownsMemory.i1.i.i9.i872, align 8
   store ptr null, ptr %m_data.i.i.i1.i864, align 8
   store i32 0, ptr %m_size.i.i.i8.i871, align 4
-  %m_capacity.i.i.i10.i873 = getelementptr inbounds %class.btAlignedObjectArray, ptr %rv1, i64 0, i32 3
+  %m_capacity.i.i.i10.i873 = getelementptr inbounds i8, ptr %rv1, i64 8
   store i32 0, ptr %m_capacity.i.i.i10.i873, align 8
   %196 = load ptr, ptr %m_data.i.i614, align 8
   %tobool.not.i.i.i876 = icmp eq ptr %196, null
@@ -6280,17 +6280,17 @@ ehcleanup102:                                     ; preds = %ehcleanup101, %lpad
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr dso_local void @_ZN15btReducedVectormiERKS_(ptr noalias sret(%class.btReducedVector) align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(68) %this, ptr noundef nonnull align 8 dereferenceable(68) %other) local_unnamed_addr #1 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  %m_sz = getelementptr inbounds %class.btReducedVector, ptr %this, i64 0, i32 2
+  %m_sz = getelementptr inbounds i8, ptr %this, i64 64
   %0 = load i32, ptr %m_sz, align 8
-  %m_ownsMemory.i.i.i = getelementptr inbounds %class.btAlignedObjectArray, ptr %agg.result, i64 0, i32 6
-  %m_data.i.i.i = getelementptr inbounds %class.btAlignedObjectArray, ptr %agg.result, i64 0, i32 5
-  %m_size.i.i.i = getelementptr inbounds %class.btAlignedObjectArray, ptr %agg.result, i64 0, i32 2
-  %m_capacity.i.i.i = getelementptr inbounds %class.btAlignedObjectArray, ptr %agg.result, i64 0, i32 3
-  %m_ownsMemory.i.i2.i = getelementptr inbounds %class.btReducedVector, ptr %agg.result, i64 0, i32 1, i32 6
-  %m_data.i.i3.i = getelementptr inbounds %class.btReducedVector, ptr %agg.result, i64 0, i32 1, i32 5
-  %m_size.i.i4.i = getelementptr inbounds %class.btReducedVector, ptr %agg.result, i64 0, i32 1, i32 2
-  %m_capacity.i.i5.i = getelementptr inbounds %class.btReducedVector, ptr %agg.result, i64 0, i32 1, i32 3
-  %m_sz.i = getelementptr inbounds %class.btReducedVector, ptr %agg.result, i64 0, i32 2
+  %m_ownsMemory.i.i.i = getelementptr inbounds i8, ptr %agg.result, i64 24
+  %m_data.i.i.i = getelementptr inbounds i8, ptr %agg.result, i64 16
+  %m_size.i.i.i = getelementptr inbounds i8, ptr %agg.result, i64 4
+  %m_capacity.i.i.i = getelementptr inbounds i8, ptr %agg.result, i64 8
+  %m_ownsMemory.i.i2.i = getelementptr inbounds i8, ptr %agg.result, i64 56
+  %m_data.i.i3.i = getelementptr inbounds i8, ptr %agg.result, i64 48
+  %m_size.i.i4.i = getelementptr inbounds i8, ptr %agg.result, i64 36
+  %m_capacity.i.i5.i = getelementptr inbounds i8, ptr %agg.result, i64 40
+  %m_sz.i = getelementptr inbounds i8, ptr %agg.result, i64 64
   store i32 %0, ptr %m_sz.i, align 8
   store i8 1, ptr %m_ownsMemory.i.i.i, align 8
   store ptr null, ptr %m_data.i.i.i, align 8
@@ -6300,8 +6300,8 @@ entry:
   store ptr null, ptr %m_data.i.i3.i, align 8
   store i32 0, ptr %m_size.i.i4.i, align 4
   store i32 0, ptr %m_capacity.i.i5.i, align 8
-  %m_size.i = getelementptr inbounds %class.btAlignedObjectArray, ptr %this, i64 0, i32 2
-  %m_size.i33 = getelementptr inbounds %class.btAlignedObjectArray, ptr %other, i64 0, i32 2
+  %m_size.i = getelementptr inbounds i8, ptr %this, i64 4
+  %m_size.i33 = getelementptr inbounds i8, ptr %other, i64 4
   %1 = load i32, ptr %m_size.i, align 4
   %cmp503 = icmp sgt i32 %1, 0
   %2 = load i32, ptr %m_size.i33, align 4
@@ -6310,10 +6310,10 @@ entry:
   br i1 %or.cond505, label %while.body.lr.ph, label %while.cond51.preheader
 
 while.body.lr.ph:                                 ; preds = %entry
-  %m_data.i = getelementptr inbounds %class.btAlignedObjectArray, ptr %this, i64 0, i32 5
-  %m_data.i34 = getelementptr inbounds %class.btAlignedObjectArray, ptr %other, i64 0, i32 5
-  %m_data.i236 = getelementptr inbounds %class.btReducedVector, ptr %this, i64 0, i32 1, i32 5
-  %m_data.i239 = getelementptr inbounds %class.btReducedVector, ptr %other, i64 0, i32 1, i32 5
+  %m_data.i = getelementptr inbounds i8, ptr %this, i64 16
+  %m_data.i34 = getelementptr inbounds i8, ptr %other, i64 16
+  %m_data.i236 = getelementptr inbounds i8, ptr %this, i64 48
+  %m_data.i239 = getelementptr inbounds i8, ptr %other, i64 48
   br label %while.body
 
 while.cond51.preheader:                           ; preds = %if.end50, %entry
@@ -6325,8 +6325,8 @@ while.cond51.preheader:                           ; preds = %if.end50, %entry
   br i1 %cmp54509, label %while.body55.lr.ph, label %while.cond66.preheader
 
 while.body55.lr.ph:                               ; preds = %while.cond51.preheader
-  %m_data.i293 = getelementptr inbounds %class.btAlignedObjectArray, ptr %this, i64 0, i32 5
-  %m_data.i340 = getelementptr inbounds %class.btReducedVector, ptr %this, i64 0, i32 1, i32 5
+  %m_data.i293 = getelementptr inbounds i8, ptr %this, i64 16
+  %m_data.i340 = getelementptr inbounds i8, ptr %this, i64 48
   %5 = sext i32 %i.0.lcssa to i64
   br label %while.body55
 
@@ -6621,7 +6621,7 @@ invoke.cont29:                                    ; preds = %if.then21, %if.then
   %arrayidx.i144 = getelementptr inbounds %class.btVector3, ptr %45, i64 %idxprom.i35
   %46 = load <2 x float>, ptr %arrayidx.i144, align 4
   %47 = fneg <2 x float> %46
-  %arrayidx7.i = getelementptr inbounds [4 x float], ptr %arrayidx.i144, i64 0, i64 2
+  %arrayidx7.i = getelementptr inbounds i8, ptr %arrayidx.i144, i64 8
   %48 = load float, ptr %arrayidx7.i, align 4
   %fneg8.i = fneg float %48
   %retval.sroa.3.12.vec.insert.i = insertelement <2 x float> <float poison, float 0.000000e+00>, float %fneg8.i, i64 0
@@ -6792,9 +6792,9 @@ invoke.cont44:                                    ; preds = %if.else33, %if.then
   %71 = load <2 x float>, ptr %arrayidx.i238, align 4
   %72 = load <2 x float>, ptr %arrayidx.i241, align 4
   %73 = fsub <2 x float> %71, %72
-  %arrayidx11.i = getelementptr inbounds [4 x float], ptr %arrayidx.i238, i64 0, i64 2
+  %arrayidx11.i = getelementptr inbounds i8, ptr %arrayidx.i238, i64 8
   %74 = load float, ptr %arrayidx11.i, align 4
-  %arrayidx13.i = getelementptr inbounds [4 x float], ptr %arrayidx.i241, i64 0, i64 2
+  %arrayidx13.i = getelementptr inbounds i8, ptr %arrayidx.i241, i64 8
   %75 = load float, ptr %arrayidx13.i, align 4
   %sub14.i = fsub float %74, %75
   %retval.sroa.3.12.vec.insert.i245 = insertelement <2 x float> <float poison, float 0.000000e+00>, float %sub14.i, i64 0
@@ -6901,8 +6901,8 @@ while.cond66.preheader:                           ; preds = %while.cond66.prehea
   br i1 %cmp69511, label %while.body70.lr.ph, label %while.end84
 
 while.body70.lr.ph:                               ; preds = %while.cond66.preheader
-  %m_data.i388 = getelementptr inbounds %class.btAlignedObjectArray, ptr %other, i64 0, i32 5
-  %m_data.i435 = getelementptr inbounds %class.btReducedVector, ptr %other, i64 0, i32 1, i32 5
+  %m_data.i388 = getelementptr inbounds i8, ptr %other, i64 16
+  %m_data.i435 = getelementptr inbounds i8, ptr %other, i64 48
   %89 = sext i32 %j.0.lcssa to i64
   br label %while.body70
 
@@ -7161,7 +7161,7 @@ invoke.cont79:                                    ; preds = %while.body70, %if.t
   %arrayidx.i437 = getelementptr inbounds %class.btVector3, ptr %129, i64 %indvars.iv514
   %130 = load <2 x float>, ptr %arrayidx.i437, align 4
   %131 = fneg <2 x float> %130
-  %arrayidx7.i441 = getelementptr inbounds [4 x float], ptr %arrayidx.i437, i64 0, i64 2
+  %arrayidx7.i441 = getelementptr inbounds i8, ptr %arrayidx.i437, i64 8
   %132 = load float, ptr %arrayidx7.i441, align 4
   %fneg8.i442 = fneg float %132
   %retval.sroa.3.12.vec.insert.i445 = insertelement <2 x float> <float poison, float 0.000000e+00>, float %fneg8.i442, i64 0
@@ -7267,13 +7267,13 @@ if.then.i.i.i:
   %v2 = alloca %class.btAlignedObjectArray.0, align 8
   %rv1 = alloca %class.btReducedVector, align 8
   %rv2 = alloca %class.btReducedVector, align 8
-  %m_ownsMemory.i.i = getelementptr inbounds %class.btAlignedObjectArray, ptr %id1, i64 0, i32 6
+  %m_ownsMemory.i.i = getelementptr inbounds i8, ptr %id1, i64 24
   store i8 1, ptr %m_ownsMemory.i.i, align 8
-  %m_data.i.i = getelementptr inbounds %class.btAlignedObjectArray, ptr %id1, i64 0, i32 5
+  %m_data.i.i = getelementptr inbounds i8, ptr %id1, i64 16
   store ptr null, ptr %m_data.i.i, align 8
-  %m_size.i.i = getelementptr inbounds %class.btAlignedObjectArray, ptr %id1, i64 0, i32 2
+  %m_size.i.i = getelementptr inbounds i8, ptr %id1, i64 4
   store i32 0, ptr %m_size.i.i, align 4
-  %m_capacity.i.i = getelementptr inbounds %class.btAlignedObjectArray, ptr %id1, i64 0, i32 3
+  %m_capacity.i.i = getelementptr inbounds i8, ptr %id1, i64 8
   store i32 0, ptr %m_capacity.i.i, align 8
   %call.i.i.i.i14 = invoke noundef ptr @_Z22btAlignedAllocInternalmi(i64 noundef 4, i32 noundef 16)
           to label %_ZN20btAlignedObjectArrayIiE8allocateEi.exit.i.i unwind label %lpad
@@ -7401,13 +7401,13 @@ if.then.i.i.i77:                                  ; preds = %_ZN20btAlignedObjec
   %15 = load i32, ptr %m_size.i.i, align 4
   %inc.i21 = add nsw i32 %15, 1
   store i32 %inc.i21, ptr %m_size.i.i, align 4
-  %m_ownsMemory.i.i59 = getelementptr inbounds %class.btAlignedObjectArray.0, ptr %v1, i64 0, i32 6
+  %m_ownsMemory.i.i59 = getelementptr inbounds i8, ptr %v1, i64 24
   store i8 1, ptr %m_ownsMemory.i.i59, align 8
-  %m_data.i.i60 = getelementptr inbounds %class.btAlignedObjectArray.0, ptr %v1, i64 0, i32 5
+  %m_data.i.i60 = getelementptr inbounds i8, ptr %v1, i64 16
   store ptr null, ptr %m_data.i.i60, align 8
-  %m_size.i.i61 = getelementptr inbounds %class.btAlignedObjectArray.0, ptr %v1, i64 0, i32 2
+  %m_size.i.i61 = getelementptr inbounds i8, ptr %v1, i64 4
   store i32 0, ptr %m_size.i.i61, align 4
-  %m_capacity.i.i62 = getelementptr inbounds %class.btAlignedObjectArray.0, ptr %v1, i64 0, i32 3
+  %m_capacity.i.i62 = getelementptr inbounds i8, ptr %v1, i64 8
   store i32 0, ptr %m_capacity.i.i62, align 8
   %call.i.i.i.i101 = invoke noundef ptr @_Z22btAlignedAllocInternalmi(i64 noundef 16, i32 noundef 16)
           to label %_ZN20btAlignedObjectArrayI9btVector3E8allocateEi.exit.i.i unwind label %lpad9
@@ -7539,13 +7539,13 @@ if.then.i.i.i168:                                 ; preds = %_ZN20btAlignedObjec
   %25 = load i32, ptr %m_size.i.i61, align 4
   %inc.i112 = add nsw i32 %25, 1
   store i32 %inc.i112, ptr %m_size.i.i61, align 4
-  %m_ownsMemory.i.i150 = getelementptr inbounds %class.btAlignedObjectArray, ptr %id2, i64 0, i32 6
+  %m_ownsMemory.i.i150 = getelementptr inbounds i8, ptr %id2, i64 24
   store i8 1, ptr %m_ownsMemory.i.i150, align 8
-  %m_data.i.i151 = getelementptr inbounds %class.btAlignedObjectArray, ptr %id2, i64 0, i32 5
+  %m_data.i.i151 = getelementptr inbounds i8, ptr %id2, i64 16
   store ptr null, ptr %m_data.i.i151, align 8
-  %m_size.i.i152 = getelementptr inbounds %class.btAlignedObjectArray, ptr %id2, i64 0, i32 2
+  %m_size.i.i152 = getelementptr inbounds i8, ptr %id2, i64 4
   store i32 0, ptr %m_size.i.i152, align 4
-  %m_capacity.i.i153 = getelementptr inbounds %class.btAlignedObjectArray, ptr %id2, i64 0, i32 3
+  %m_capacity.i.i153 = getelementptr inbounds i8, ptr %id2, i64 8
   store i32 0, ptr %m_capacity.i.i153, align 8
   %call.i.i.i.i195 = invoke noundef ptr @_Z22btAlignedAllocInternalmi(i64 noundef 4, i32 noundef 16)
           to label %_ZN20btAlignedObjectArrayIiE8allocateEi.exit.i.i172 unwind label %lpad20
@@ -7750,13 +7750,13 @@ if.then.i.i.i307:                                 ; preds = %_ZN20btAlignedObjec
   %51 = load i32, ptr %m_size.i.i152, align 4
   %inc.i248 = add nsw i32 %51, 1
   store i32 %inc.i248, ptr %m_size.i.i152, align 4
-  %m_ownsMemory.i.i286 = getelementptr inbounds %class.btAlignedObjectArray.0, ptr %v2, i64 0, i32 6
+  %m_ownsMemory.i.i286 = getelementptr inbounds i8, ptr %v2, i64 24
   store i8 1, ptr %m_ownsMemory.i.i286, align 8
-  %m_data.i.i287 = getelementptr inbounds %class.btAlignedObjectArray.0, ptr %v2, i64 0, i32 5
+  %m_data.i.i287 = getelementptr inbounds i8, ptr %v2, i64 16
   store ptr null, ptr %m_data.i.i287, align 8
-  %m_size.i.i288 = getelementptr inbounds %class.btAlignedObjectArray.0, ptr %v2, i64 0, i32 2
+  %m_size.i.i288 = getelementptr inbounds i8, ptr %v2, i64 4
   store i32 0, ptr %m_size.i.i288, align 4
-  %m_capacity.i.i289 = getelementptr inbounds %class.btAlignedObjectArray.0, ptr %v2, i64 0, i32 3
+  %m_capacity.i.i289 = getelementptr inbounds i8, ptr %v2, i64 8
   store i32 0, ptr %m_capacity.i.i289, align 8
   %call.i.i.i.i334 = invoke noundef ptr @_Z22btAlignedAllocInternalmi(i64 noundef 16, i32 noundef 16)
           to label %_ZN20btAlignedObjectArrayI9btVector3E8allocateEi.exit.i.i311 unwind label %lpad31
@@ -7975,21 +7975,21 @@ invoke.cont46:                                    ; preds = %invoke.cont45
           to label %invoke.cont48 unwind label %lpad47
 
 invoke.cont48:                                    ; preds = %invoke.cont46
-  %m_size.i.i431 = getelementptr inbounds %class.btAlignedObjectArray, ptr %rv2, i64 0, i32 2
+  %m_size.i.i431 = getelementptr inbounds i8, ptr %rv2, i64 4
   %69 = load i32, ptr %m_size.i.i431, align 4
   %cmp36.i = icmp sgt i32 %69, 0
   br i1 %cmp36.i, label %while.cond.preheader.lr.ph.i, label %if.then
 
 while.cond.preheader.lr.ph.i:                     ; preds = %invoke.cont48
-  %m_size.i15.i = getelementptr inbounds %class.btAlignedObjectArray, ptr %rv1, i64 0, i32 2
+  %m_size.i15.i = getelementptr inbounds i8, ptr %rv1, i64 4
   %70 = load i32, ptr %m_size.i15.i, align 4
-  %m_data.i.i432 = getelementptr inbounds %class.btAlignedObjectArray, ptr %rv1, i64 0, i32 5
+  %m_data.i.i432 = getelementptr inbounds i8, ptr %rv1, i64 16
   %71 = load ptr, ptr %m_data.i.i432, align 8
-  %m_data.i16.i = getelementptr inbounds %class.btAlignedObjectArray, ptr %rv2, i64 0, i32 5
+  %m_data.i16.i = getelementptr inbounds i8, ptr %rv2, i64 16
   %72 = load ptr, ptr %m_data.i16.i, align 8
-  %m_data.i26.i = getelementptr inbounds %class.btReducedVector, ptr %rv2, i64 0, i32 1, i32 5
+  %m_data.i26.i = getelementptr inbounds i8, ptr %rv2, i64 48
   %73 = load ptr, ptr %m_data.i26.i, align 8
-  %m_data.i29.i = getelementptr inbounds %class.btReducedVector, ptr %rv1, i64 0, i32 1, i32 5
+  %m_data.i29.i = getelementptr inbounds i8, ptr %rv1, i64 48
   %74 = load ptr, ptr %m_data.i29.i, align 8
   %wide.trip.count.i = zext nneg i32 %69 to i64
   br label %while.cond.preheader.i
@@ -8034,15 +8034,15 @@ if.then.i433:                                     ; preds = %land.lhs.true.i
   %arrayidx.i31.i = getelementptr inbounds %class.btVector3, ptr %74, i64 %idxprom.i21.i
   %80 = load float, ptr %arrayidx.i28.i, align 4
   %81 = load float, ptr %arrayidx.i31.i, align 4
-  %arrayidx5.i.i = getelementptr inbounds [4 x float], ptr %arrayidx.i28.i, i64 0, i64 1
+  %arrayidx5.i.i = getelementptr inbounds i8, ptr %arrayidx.i28.i, i64 4
   %82 = load float, ptr %arrayidx5.i.i, align 4
-  %arrayidx7.i.i = getelementptr inbounds [4 x float], ptr %arrayidx.i31.i, i64 0, i64 1
+  %arrayidx7.i.i = getelementptr inbounds i8, ptr %arrayidx.i31.i, i64 4
   %83 = load float, ptr %arrayidx7.i.i, align 4
   %mul8.i.i = fmul float %82, %83
   %84 = call float @llvm.fmuladd.f32(float %80, float %81, float %mul8.i.i)
-  %arrayidx10.i.i = getelementptr inbounds [4 x float], ptr %arrayidx.i28.i, i64 0, i64 2
+  %arrayidx10.i.i = getelementptr inbounds i8, ptr %arrayidx.i28.i, i64 8
   %85 = load float, ptr %arrayidx10.i.i, align 4
-  %arrayidx12.i.i = getelementptr inbounds [4 x float], ptr %arrayidx.i31.i, i64 0, i64 2
+  %arrayidx12.i.i = getelementptr inbounds i8, ptr %arrayidx.i31.i, i64 8
   %86 = load float, ptr %arrayidx12.i.i, align 4
   %87 = call noundef float @llvm.fmuladd.f32(float %85, float %86, float %84)
   %add.i = fadd float %ret.037.i, %87
@@ -8107,15 +8107,15 @@ if.then.i465:                                     ; preds = %land.lhs.true.i460
   %arrayidx.i31.i467 = getelementptr inbounds %class.btVector3, ptr %73, i64 %idxprom.i21.i462
   %93 = load float, ptr %arrayidx.i28.i466, align 4
   %94 = load float, ptr %arrayidx.i31.i467, align 4
-  %arrayidx5.i.i468 = getelementptr inbounds [4 x float], ptr %arrayidx.i28.i466, i64 0, i64 1
+  %arrayidx5.i.i468 = getelementptr inbounds i8, ptr %arrayidx.i28.i466, i64 4
   %95 = load float, ptr %arrayidx5.i.i468, align 4
-  %arrayidx7.i.i469 = getelementptr inbounds [4 x float], ptr %arrayidx.i31.i467, i64 0, i64 1
+  %arrayidx7.i.i469 = getelementptr inbounds i8, ptr %arrayidx.i31.i467, i64 4
   %96 = load float, ptr %arrayidx7.i.i469, align 4
   %mul8.i.i470 = fmul float %95, %96
   %97 = call float @llvm.fmuladd.f32(float %93, float %94, float %mul8.i.i470)
-  %arrayidx10.i.i471 = getelementptr inbounds [4 x float], ptr %arrayidx.i28.i466, i64 0, i64 2
+  %arrayidx10.i.i471 = getelementptr inbounds i8, ptr %arrayidx.i28.i466, i64 8
   %98 = load float, ptr %arrayidx10.i.i471, align 4
-  %arrayidx12.i.i472 = getelementptr inbounds [4 x float], ptr %arrayidx.i31.i467, i64 0, i64 2
+  %arrayidx12.i.i472 = getelementptr inbounds i8, ptr %arrayidx.i31.i467, i64 8
   %99 = load float, ptr %arrayidx12.i.i472, align 4
   %100 = call noundef float @llvm.fmuladd.f32(float %98, float %99, float %97)
   %add.i473 = fadd float %ret.037.i447, %100
@@ -8177,15 +8177,15 @@ if.then.i510:                                     ; preds = %land.lhs.true.i505
   %arrayidx.i31.i512 = getelementptr inbounds %class.btVector3, ptr %73, i64 %idxprom.i21.i507
   %106 = load float, ptr %arrayidx.i28.i511, align 4
   %107 = load float, ptr %arrayidx.i31.i512, align 4
-  %arrayidx5.i.i513 = getelementptr inbounds [4 x float], ptr %arrayidx.i28.i511, i64 0, i64 1
+  %arrayidx5.i.i513 = getelementptr inbounds i8, ptr %arrayidx.i28.i511, i64 4
   %108 = load float, ptr %arrayidx5.i.i513, align 4
-  %arrayidx7.i.i514 = getelementptr inbounds [4 x float], ptr %arrayidx.i31.i512, i64 0, i64 1
+  %arrayidx7.i.i514 = getelementptr inbounds i8, ptr %arrayidx.i31.i512, i64 4
   %109 = load float, ptr %arrayidx7.i.i514, align 4
   %mul8.i.i515 = fmul float %108, %109
   %110 = call float @llvm.fmuladd.f32(float %106, float %107, float %mul8.i.i515)
-  %arrayidx10.i.i516 = getelementptr inbounds [4 x float], ptr %arrayidx.i28.i511, i64 0, i64 2
+  %arrayidx10.i.i516 = getelementptr inbounds i8, ptr %arrayidx.i28.i511, i64 8
   %111 = load float, ptr %arrayidx10.i.i516, align 4
-  %arrayidx12.i.i517 = getelementptr inbounds [4 x float], ptr %arrayidx.i31.i512, i64 0, i64 2
+  %arrayidx12.i.i517 = getelementptr inbounds i8, ptr %arrayidx.i31.i512, i64 8
   %112 = load float, ptr %arrayidx12.i.i517, align 4
   %113 = call noundef float @llvm.fmuladd.f32(float %111, float %112, float %110)
   %add.i518 = fadd float %ret.037.i492, %113
@@ -8205,7 +8205,7 @@ _ZNK15btReducedVector3dotERKS_.exit523:           ; preds = %for.inc.i494
 
 if.then:                                          ; preds = %invoke.cont48, %_ZNK15btReducedVector3dotERKS_.exit523
   %puts = call i32 @puts(ptr nonnull dereferenceable(1) @str.2)
-  %m_data.i.i.i.i.phi.trans.insert = getelementptr inbounds %class.btReducedVector, ptr %rv2, i64 0, i32 1, i32 5
+  %m_data.i.i.i.i.phi.trans.insert = getelementptr inbounds i8, ptr %rv2, i64 48
   %.pre609 = load ptr, ptr %m_data.i.i.i.i.phi.trans.insert, align 8
   br label %if.end
 
@@ -8238,12 +8238,12 @@ lpad47:                                           ; preds = %invoke.cont46
 if.end:                                           ; preds = %if.then, %_ZNK15btReducedVector3dotERKS_.exit523
   %119 = phi ptr [ %.pre609, %if.then ], [ %73, %_ZNK15btReducedVector3dotERKS_.exit523 ]
   %tobool58593 = phi i1 [ false, %if.then ], [ true, %_ZNK15btReducedVector3dotERKS_.exit523 ]
-  %m_data.i.i.i.i = getelementptr inbounds %class.btReducedVector, ptr %rv2, i64 0, i32 1, i32 5
+  %m_data.i.i.i.i = getelementptr inbounds i8, ptr %rv2, i64 48
   %tobool.not.i.i.i.i = icmp eq ptr %119, null
   br i1 %tobool.not.i.i.i.i, label %_ZN20btAlignedObjectArrayI9btVector3ED2Ev.exit.i, label %if.then.i.i.i.i
 
 if.then.i.i.i.i:                                  ; preds = %if.end
-  %m_ownsMemory.i.i.i.i = getelementptr inbounds %class.btReducedVector, ptr %rv2, i64 0, i32 1, i32 6
+  %m_ownsMemory.i.i.i.i = getelementptr inbounds i8, ptr %rv2, i64 56
   %120 = load i8, ptr %m_ownsMemory.i.i.i.i, align 8
   %121 = and i8 %120, 1
   %tobool2.not.i.i.i.i = icmp eq i8 %121, 0
@@ -8261,20 +8261,20 @@ terminate.lpad.i.i:                               ; preds = %if.then3.i.i.i.i
   unreachable
 
 _ZN20btAlignedObjectArrayI9btVector3ED2Ev.exit.i: ; preds = %if.then3.i.i.i.i, %if.then.i.i.i.i, %if.end
-  %m_size.i.i.i.i = getelementptr inbounds %class.btReducedVector, ptr %rv2, i64 0, i32 1, i32 2
-  %m_ownsMemory.i1.i.i.i = getelementptr inbounds %class.btReducedVector, ptr %rv2, i64 0, i32 1, i32 6
+  %m_size.i.i.i.i = getelementptr inbounds i8, ptr %rv2, i64 36
+  %m_ownsMemory.i1.i.i.i = getelementptr inbounds i8, ptr %rv2, i64 56
   store i8 1, ptr %m_ownsMemory.i1.i.i.i, align 8
   store ptr null, ptr %m_data.i.i.i.i, align 8
   store i32 0, ptr %m_size.i.i.i.i, align 4
-  %m_capacity.i.i.i.i = getelementptr inbounds %class.btReducedVector, ptr %rv2, i64 0, i32 1, i32 3
+  %m_capacity.i.i.i.i = getelementptr inbounds i8, ptr %rv2, i64 40
   store i32 0, ptr %m_capacity.i.i.i.i, align 8
-  %m_data.i.i.i1.i = getelementptr inbounds %class.btAlignedObjectArray, ptr %rv2, i64 0, i32 5
+  %m_data.i.i.i1.i = getelementptr inbounds i8, ptr %rv2, i64 16
   %124 = load ptr, ptr %m_data.i.i.i1.i, align 8
   %tobool.not.i.i.i2.i = icmp eq ptr %124, null
   br i1 %tobool.not.i.i.i2.i, label %_ZN15btReducedVectorD2Ev.exit, label %if.then.i.i.i3.i
 
 if.then.i.i.i3.i:                                 ; preds = %_ZN20btAlignedObjectArrayI9btVector3ED2Ev.exit.i
-  %m_ownsMemory.i.i.i4.i = getelementptr inbounds %class.btAlignedObjectArray, ptr %rv2, i64 0, i32 6
+  %m_ownsMemory.i.i.i4.i = getelementptr inbounds i8, ptr %rv2, i64 24
   %125 = load i8, ptr %m_ownsMemory.i.i.i4.i, align 8
   %126 = and i8 %125, 1
   %tobool2.not.i.i.i5.i = icmp eq i8 %126, 0
@@ -8292,19 +8292,19 @@ terminate.lpad.i7.i:                              ; preds = %if.then3.i.i.i6.i
   unreachable
 
 _ZN15btReducedVectorD2Ev.exit:                    ; preds = %_ZN20btAlignedObjectArrayI9btVector3ED2Ev.exit.i, %if.then.i.i.i3.i, %if.then3.i.i.i6.i
-  %m_ownsMemory.i1.i.i9.i = getelementptr inbounds %class.btAlignedObjectArray, ptr %rv2, i64 0, i32 6
+  %m_ownsMemory.i1.i.i9.i = getelementptr inbounds i8, ptr %rv2, i64 24
   store i8 1, ptr %m_ownsMemory.i1.i.i9.i, align 8
   store ptr null, ptr %m_data.i.i.i1.i, align 8
   store i32 0, ptr %m_size.i.i431, align 4
-  %m_capacity.i.i.i10.i = getelementptr inbounds %class.btAlignedObjectArray, ptr %rv2, i64 0, i32 3
+  %m_capacity.i.i.i10.i = getelementptr inbounds i8, ptr %rv2, i64 8
   store i32 0, ptr %m_capacity.i.i.i10.i, align 8
-  %m_data.i.i.i.i524 = getelementptr inbounds %class.btReducedVector, ptr %rv1, i64 0, i32 1, i32 5
+  %m_data.i.i.i.i524 = getelementptr inbounds i8, ptr %rv1, i64 48
   %129 = load ptr, ptr %m_data.i.i.i.i524, align 8
   %tobool.not.i.i.i.i525 = icmp eq ptr %129, null
   br i1 %tobool.not.i.i.i.i525, label %_ZN20btAlignedObjectArrayI9btVector3ED2Ev.exit.i531, label %if.then.i.i.i.i526
 
 if.then.i.i.i.i526:                               ; preds = %_ZN15btReducedVectorD2Ev.exit
-  %m_ownsMemory.i.i.i.i527 = getelementptr inbounds %class.btReducedVector, ptr %rv1, i64 0, i32 1, i32 6
+  %m_ownsMemory.i.i.i.i527 = getelementptr inbounds i8, ptr %rv1, i64 56
   %130 = load i8, ptr %m_ownsMemory.i.i.i.i527, align 8
   %131 = and i8 %130, 1
   %tobool2.not.i.i.i.i528 = icmp eq i8 %131, 0
@@ -8322,20 +8322,20 @@ terminate.lpad.i.i530:                            ; preds = %if.then3.i.i.i.i529
   unreachable
 
 _ZN20btAlignedObjectArrayI9btVector3ED2Ev.exit.i531: ; preds = %if.then3.i.i.i.i529, %if.then.i.i.i.i526, %_ZN15btReducedVectorD2Ev.exit
-  %m_size.i.i.i.i532 = getelementptr inbounds %class.btReducedVector, ptr %rv1, i64 0, i32 1, i32 2
-  %m_ownsMemory.i1.i.i.i533 = getelementptr inbounds %class.btReducedVector, ptr %rv1, i64 0, i32 1, i32 6
+  %m_size.i.i.i.i532 = getelementptr inbounds i8, ptr %rv1, i64 36
+  %m_ownsMemory.i1.i.i.i533 = getelementptr inbounds i8, ptr %rv1, i64 56
   store i8 1, ptr %m_ownsMemory.i1.i.i.i533, align 8
   store ptr null, ptr %m_data.i.i.i.i524, align 8
   store i32 0, ptr %m_size.i.i.i.i532, align 4
-  %m_capacity.i.i.i.i534 = getelementptr inbounds %class.btReducedVector, ptr %rv1, i64 0, i32 1, i32 3
+  %m_capacity.i.i.i.i534 = getelementptr inbounds i8, ptr %rv1, i64 40
   store i32 0, ptr %m_capacity.i.i.i.i534, align 8
-  %m_data.i.i.i1.i535 = getelementptr inbounds %class.btAlignedObjectArray, ptr %rv1, i64 0, i32 5
+  %m_data.i.i.i1.i535 = getelementptr inbounds i8, ptr %rv1, i64 16
   %134 = load ptr, ptr %m_data.i.i.i1.i535, align 8
   %tobool.not.i.i.i2.i536 = icmp eq ptr %134, null
   br i1 %tobool.not.i.i.i2.i536, label %_ZN15btReducedVectorD2Ev.exit545, label %if.then.i.i.i3.i537
 
 if.then.i.i.i3.i537:                              ; preds = %_ZN20btAlignedObjectArrayI9btVector3ED2Ev.exit.i531
-  %m_ownsMemory.i.i.i4.i538 = getelementptr inbounds %class.btAlignedObjectArray, ptr %rv1, i64 0, i32 6
+  %m_ownsMemory.i.i.i4.i538 = getelementptr inbounds i8, ptr %rv1, i64 24
   %135 = load i8, ptr %m_ownsMemory.i.i.i4.i538, align 8
   %136 = and i8 %135, 1
   %tobool2.not.i.i.i5.i539 = icmp eq i8 %136, 0
@@ -8353,12 +8353,12 @@ terminate.lpad.i7.i541:                           ; preds = %if.then3.i.i.i6.i54
   unreachable
 
 _ZN15btReducedVectorD2Ev.exit545:                 ; preds = %_ZN20btAlignedObjectArrayI9btVector3ED2Ev.exit.i531, %if.then.i.i.i3.i537, %if.then3.i.i.i6.i540
-  %m_size.i.i.i8.i542 = getelementptr inbounds %class.btAlignedObjectArray, ptr %rv1, i64 0, i32 2
-  %m_ownsMemory.i1.i.i9.i543 = getelementptr inbounds %class.btAlignedObjectArray, ptr %rv1, i64 0, i32 6
+  %m_size.i.i.i8.i542 = getelementptr inbounds i8, ptr %rv1, i64 4
+  %m_ownsMemory.i1.i.i9.i543 = getelementptr inbounds i8, ptr %rv1, i64 24
   store i8 1, ptr %m_ownsMemory.i1.i.i9.i543, align 8
   store ptr null, ptr %m_data.i.i.i1.i535, align 8
   store i32 0, ptr %m_size.i.i.i8.i542, align 4
-  %m_capacity.i.i.i10.i544 = getelementptr inbounds %class.btAlignedObjectArray, ptr %rv1, i64 0, i32 3
+  %m_capacity.i.i.i10.i544 = getelementptr inbounds i8, ptr %rv1, i64 8
   store i32 0, ptr %m_capacity.i.i.i10.i544, align 8
   %139 = load ptr, ptr %m_data.i.i287, align 8
   %tobool.not.i.i.i547 = icmp eq ptr %139, null
@@ -8493,13 +8493,13 @@ if.then.i.i.i:
   %v2 = alloca %class.btAlignedObjectArray.0, align 8
   %ans = alloca %class.btReducedVector, align 8
   %ref.tmp41 = alloca %class.btReducedVector, align 8
-  %m_ownsMemory.i.i = getelementptr inbounds %class.btAlignedObjectArray, ptr %id1, i64 0, i32 6
+  %m_ownsMemory.i.i = getelementptr inbounds i8, ptr %id1, i64 24
   store i8 1, ptr %m_ownsMemory.i.i, align 8
-  %m_data.i.i = getelementptr inbounds %class.btAlignedObjectArray, ptr %id1, i64 0, i32 5
+  %m_data.i.i = getelementptr inbounds i8, ptr %id1, i64 16
   store ptr null, ptr %m_data.i.i, align 8
-  %m_size.i.i = getelementptr inbounds %class.btAlignedObjectArray, ptr %id1, i64 0, i32 2
+  %m_size.i.i = getelementptr inbounds i8, ptr %id1, i64 4
   store i32 0, ptr %m_size.i.i, align 4
-  %m_capacity.i.i = getelementptr inbounds %class.btAlignedObjectArray, ptr %id1, i64 0, i32 3
+  %m_capacity.i.i = getelementptr inbounds i8, ptr %id1, i64 8
   store i32 0, ptr %m_capacity.i.i, align 8
   %call.i.i.i.i12 = invoke noundef ptr @_Z22btAlignedAllocInternalmi(i64 noundef 4, i32 noundef 16)
           to label %_ZN20btAlignedObjectArrayIiE8allocateEi.exit.i.i unwind label %lpad
@@ -8627,13 +8627,13 @@ if.then.i.i.i75:                                  ; preds = %_ZN20btAlignedObjec
   %15 = load i32, ptr %m_size.i.i, align 4
   %inc.i19 = add nsw i32 %15, 1
   store i32 %inc.i19, ptr %m_size.i.i, align 4
-  %m_ownsMemory.i.i57 = getelementptr inbounds %class.btAlignedObjectArray.0, ptr %v1, i64 0, i32 6
+  %m_ownsMemory.i.i57 = getelementptr inbounds i8, ptr %v1, i64 24
   store i8 1, ptr %m_ownsMemory.i.i57, align 8
-  %m_data.i.i58 = getelementptr inbounds %class.btAlignedObjectArray.0, ptr %v1, i64 0, i32 5
+  %m_data.i.i58 = getelementptr inbounds i8, ptr %v1, i64 16
   store ptr null, ptr %m_data.i.i58, align 8
-  %m_size.i.i59 = getelementptr inbounds %class.btAlignedObjectArray.0, ptr %v1, i64 0, i32 2
+  %m_size.i.i59 = getelementptr inbounds i8, ptr %v1, i64 4
   store i32 0, ptr %m_size.i.i59, align 4
-  %m_capacity.i.i60 = getelementptr inbounds %class.btAlignedObjectArray.0, ptr %v1, i64 0, i32 3
+  %m_capacity.i.i60 = getelementptr inbounds i8, ptr %v1, i64 8
   store i32 0, ptr %m_capacity.i.i60, align 8
   %call.i.i.i.i99 = invoke noundef ptr @_Z22btAlignedAllocInternalmi(i64 noundef 16, i32 noundef 16)
           to label %_ZN20btAlignedObjectArrayI9btVector3E8allocateEi.exit.i.i unwind label %lpad9
@@ -8769,13 +8769,13 @@ invoke.cont17:                                    ; preds = %_ZN20btAlignedObjec
           to label %if.then.i.i.i166 unwind label %lpad9
 
 if.then.i.i.i166:                                 ; preds = %invoke.cont17
-  %m_ownsMemory.i.i148 = getelementptr inbounds %class.btAlignedObjectArray, ptr %id2, i64 0, i32 6
+  %m_ownsMemory.i.i148 = getelementptr inbounds i8, ptr %id2, i64 24
   store i8 1, ptr %m_ownsMemory.i.i148, align 8
-  %m_data.i.i149 = getelementptr inbounds %class.btAlignedObjectArray, ptr %id2, i64 0, i32 5
+  %m_data.i.i149 = getelementptr inbounds i8, ptr %id2, i64 16
   store ptr null, ptr %m_data.i.i149, align 8
-  %m_size.i.i150 = getelementptr inbounds %class.btAlignedObjectArray, ptr %id2, i64 0, i32 2
+  %m_size.i.i150 = getelementptr inbounds i8, ptr %id2, i64 4
   store i32 0, ptr %m_size.i.i150, align 4
-  %m_capacity.i.i151 = getelementptr inbounds %class.btAlignedObjectArray, ptr %id2, i64 0, i32 3
+  %m_capacity.i.i151 = getelementptr inbounds i8, ptr %id2, i64 8
   store i32 0, ptr %m_capacity.i.i151, align 8
   %call.i.i.i.i193 = invoke noundef ptr @_Z22btAlignedAllocInternalmi(i64 noundef 4, i32 noundef 16)
           to label %_ZN20btAlignedObjectArrayIiE8allocateEi.exit.i.i170 unwind label %lpad22
@@ -8903,13 +8903,13 @@ if.then.i.i.i261:                                 ; preds = %_ZN20btAlignedObjec
   %41 = load i32, ptr %m_size.i.i150, align 4
   %inc.i202 = add nsw i32 %41, 1
   store i32 %inc.i202, ptr %m_size.i.i150, align 4
-  %m_ownsMemory.i.i240 = getelementptr inbounds %class.btAlignedObjectArray.0, ptr %v2, i64 0, i32 6
+  %m_ownsMemory.i.i240 = getelementptr inbounds i8, ptr %v2, i64 24
   store i8 1, ptr %m_ownsMemory.i.i240, align 8
-  %m_data.i.i241 = getelementptr inbounds %class.btAlignedObjectArray.0, ptr %v2, i64 0, i32 5
+  %m_data.i.i241 = getelementptr inbounds i8, ptr %v2, i64 16
   store ptr null, ptr %m_data.i.i241, align 8
-  %m_size.i.i242 = getelementptr inbounds %class.btAlignedObjectArray.0, ptr %v2, i64 0, i32 2
+  %m_size.i.i242 = getelementptr inbounds i8, ptr %v2, i64 4
   store i32 0, ptr %m_size.i.i242, align 4
-  %m_capacity.i.i243 = getelementptr inbounds %class.btAlignedObjectArray.0, ptr %v2, i64 0, i32 3
+  %m_capacity.i.i243 = getelementptr inbounds i8, ptr %v2, i64 8
   store i32 0, ptr %m_capacity.i.i243, align 8
   %call.i.i.i.i288 = invoke noundef ptr @_Z22btAlignedAllocInternalmi(i64 noundef 16, i32 noundef 16)
           to label %_ZN20btAlignedObjectArrayI9btVector3E8allocateEi.exit.i.i265 unwind label %lpad31
@@ -9043,17 +9043,17 @@ invoke.cont40:                                    ; preds = %invoke.cont39
           to label %invoke.cont43 unwind label %lpad42
 
 invoke.cont43:                                    ; preds = %invoke.cont40
-  %m_sz.i = getelementptr inbounds %class.btReducedVector, ptr %ans, i64 0, i32 2
+  %m_sz.i = getelementptr inbounds i8, ptr %ans, i64 64
   %56 = load i32, ptr %m_sz.i, align 8
-  %m_sz2.i = getelementptr inbounds %class.btReducedVector, ptr %ref.tmp41, i64 0, i32 2
+  %m_sz2.i = getelementptr inbounds i8, ptr %ref.tmp41, i64 64
   %57 = load i32, ptr %m_sz2.i, align 8
   %cmp.not.i = icmp eq i32 %56, %57
   br i1 %cmp.not.i, label %if.end.i, label %invoke.cont45
 
 if.end.i:                                         ; preds = %invoke.cont43
-  %m_size.i.i338 = getelementptr inbounds %class.btAlignedObjectArray, ptr %ans, i64 0, i32 2
+  %m_size.i.i338 = getelementptr inbounds i8, ptr %ans, i64 4
   %58 = load i32, ptr %m_size.i.i338, align 4
-  %m_size.i9.i = getelementptr inbounds %class.btAlignedObjectArray, ptr %ref.tmp41, i64 0, i32 2
+  %m_size.i9.i = getelementptr inbounds i8, ptr %ref.tmp41, i64 4
   %59 = load i32, ptr %m_size.i9.i, align 4
   %cmp5.not.i = icmp eq i32 %58, %59
   br i1 %cmp5.not.i, label %for.cond.preheader.i, label %invoke.cont45
@@ -9063,13 +9063,13 @@ for.cond.preheader.i:                             ; preds = %if.end.i
   br i1 %cmp1021.i, label %for.body.lr.ph.i, label %invoke.cont45
 
 for.body.lr.ph.i:                                 ; preds = %for.cond.preheader.i
-  %m_data.i14.i = getelementptr inbounds %class.btReducedVector, ptr %ans, i64 0, i32 1, i32 5
-  %m_data.i.i339 = getelementptr inbounds %class.btAlignedObjectArray, ptr %ans, i64 0, i32 5
+  %m_data.i14.i = getelementptr inbounds i8, ptr %ans, i64 48
+  %m_data.i.i339 = getelementptr inbounds i8, ptr %ans, i64 16
   %60 = load ptr, ptr %m_data.i.i339, align 8
-  %m_data.i11.i = getelementptr inbounds %class.btAlignedObjectArray, ptr %ref.tmp41, i64 0, i32 5
+  %m_data.i11.i = getelementptr inbounds i8, ptr %ref.tmp41, i64 16
   %61 = load ptr, ptr %m_data.i11.i, align 8
   %62 = load ptr, ptr %m_data.i14.i, align 8
-  %m_data.i17.i = getelementptr inbounds %class.btReducedVector, ptr %ref.tmp41, i64 0, i32 1, i32 5
+  %m_data.i17.i = getelementptr inbounds i8, ptr %ref.tmp41, i64 48
   %63 = load ptr, ptr %m_data.i17.i, align 8
   %wide.trip.count.i = zext nneg i32 %58 to i64
   br label %for.body.i
@@ -9091,25 +9091,25 @@ for.body.i:                                       ; preds = %for.cond.i, %for.bo
 lor.lhs.false.i:                                  ; preds = %for.body.i
   %arrayidx.i16.i = getelementptr inbounds %class.btVector3, ptr %62, i64 %indvars.iv.i
   %arrayidx.i19.i = getelementptr inbounds %class.btVector3, ptr %63, i64 %indvars.iv.i
-  %arrayidx.i.i.i340 = getelementptr inbounds [4 x float], ptr %arrayidx.i16.i, i64 0, i64 3
+  %arrayidx.i.i.i340 = getelementptr inbounds i8, ptr %arrayidx.i16.i, i64 12
   %66 = load float, ptr %arrayidx.i.i.i340, align 4
-  %arrayidx3.i.i.i341 = getelementptr inbounds [4 x float], ptr %arrayidx.i19.i, i64 0, i64 3
+  %arrayidx3.i.i.i341 = getelementptr inbounds i8, ptr %arrayidx.i19.i, i64 12
   %67 = load float, ptr %arrayidx3.i.i.i341, align 4
   %cmp.i.i.i = fcmp oeq float %66, %67
   br i1 %cmp.i.i.i, label %land.lhs.true.i.i.i, label %invoke.cont45
 
 land.lhs.true.i.i.i:                              ; preds = %lor.lhs.false.i
-  %arrayidx5.i.i.i = getelementptr inbounds [4 x float], ptr %arrayidx.i16.i, i64 0, i64 2
+  %arrayidx5.i.i.i = getelementptr inbounds i8, ptr %arrayidx.i16.i, i64 8
   %68 = load float, ptr %arrayidx5.i.i.i, align 4
-  %arrayidx7.i.i.i = getelementptr inbounds [4 x float], ptr %arrayidx.i19.i, i64 0, i64 2
+  %arrayidx7.i.i.i = getelementptr inbounds i8, ptr %arrayidx.i19.i, i64 8
   %69 = load float, ptr %arrayidx7.i.i.i, align 4
   %cmp8.i.i.i = fcmp oeq float %68, %69
   br i1 %cmp8.i.i.i, label %land.lhs.true9.i.i.i, label %invoke.cont45
 
 land.lhs.true9.i.i.i:                             ; preds = %land.lhs.true.i.i.i
-  %arrayidx11.i.i.i = getelementptr inbounds [4 x float], ptr %arrayidx.i16.i, i64 0, i64 1
+  %arrayidx11.i.i.i = getelementptr inbounds i8, ptr %arrayidx.i16.i, i64 4
   %70 = load float, ptr %arrayidx11.i.i.i, align 4
-  %arrayidx13.i.i.i = getelementptr inbounds [4 x float], ptr %arrayidx.i19.i, i64 0, i64 1
+  %arrayidx13.i.i.i = getelementptr inbounds i8, ptr %arrayidx.i19.i, i64 4
   %71 = load float, ptr %arrayidx13.i.i.i, align 4
   %cmp14.i.i.i = fcmp oeq float %70, %71
   br i1 %cmp14.i.i.i, label %_ZNK9btVector3neERKS_.exit.i, label %invoke.cont45
@@ -9122,13 +9122,13 @@ _ZNK9btVector3neERKS_.exit.i:                     ; preds = %land.lhs.true9.i.i.
 
 invoke.cont45:                                    ; preds = %_ZNK9btVector3neERKS_.exit.i, %land.lhs.true9.i.i.i, %land.lhs.true.i.i.i, %lor.lhs.false.i, %for.body.i, %for.cond.i, %for.cond.preheader.i, %if.end.i, %invoke.cont43
   %retval.0.i = phi i1 [ false, %invoke.cont43 ], [ false, %if.end.i ], [ true, %for.cond.preheader.i ], [ false, %lor.lhs.false.i ], [ false, %land.lhs.true.i.i.i ], [ false, %land.lhs.true9.i.i.i ], [ true, %for.cond.i ], [ false, %for.body.i ], [ false, %_ZNK9btVector3neERKS_.exit.i ]
-  %m_data.i.i.i.i = getelementptr inbounds %class.btReducedVector, ptr %ref.tmp41, i64 0, i32 1, i32 5
+  %m_data.i.i.i.i = getelementptr inbounds i8, ptr %ref.tmp41, i64 48
   %74 = load ptr, ptr %m_data.i.i.i.i, align 8
   %tobool.not.i.i.i.i = icmp eq ptr %74, null
   br i1 %tobool.not.i.i.i.i, label %_ZN20btAlignedObjectArrayI9btVector3ED2Ev.exit.i, label %if.then.i.i.i.i
 
 if.then.i.i.i.i:                                  ; preds = %invoke.cont45
-  %m_ownsMemory.i.i.i.i = getelementptr inbounds %class.btReducedVector, ptr %ref.tmp41, i64 0, i32 1, i32 6
+  %m_ownsMemory.i.i.i.i = getelementptr inbounds i8, ptr %ref.tmp41, i64 56
   %75 = load i8, ptr %m_ownsMemory.i.i.i.i, align 8
   %76 = and i8 %75, 1
   %tobool2.not.i.i.i.i = icmp eq i8 %76, 0
@@ -9146,20 +9146,20 @@ terminate.lpad.i.i:                               ; preds = %if.then3.i.i.i.i
   unreachable
 
 _ZN20btAlignedObjectArrayI9btVector3ED2Ev.exit.i: ; preds = %if.then3.i.i.i.i, %if.then.i.i.i.i, %invoke.cont45
-  %m_size.i.i.i.i = getelementptr inbounds %class.btReducedVector, ptr %ref.tmp41, i64 0, i32 1, i32 2
-  %m_ownsMemory.i1.i.i.i = getelementptr inbounds %class.btReducedVector, ptr %ref.tmp41, i64 0, i32 1, i32 6
+  %m_size.i.i.i.i = getelementptr inbounds i8, ptr %ref.tmp41, i64 36
+  %m_ownsMemory.i1.i.i.i = getelementptr inbounds i8, ptr %ref.tmp41, i64 56
   store i8 1, ptr %m_ownsMemory.i1.i.i.i, align 8
   store ptr null, ptr %m_data.i.i.i.i, align 8
   store i32 0, ptr %m_size.i.i.i.i, align 4
-  %m_capacity.i.i.i.i = getelementptr inbounds %class.btReducedVector, ptr %ref.tmp41, i64 0, i32 1, i32 3
+  %m_capacity.i.i.i.i = getelementptr inbounds i8, ptr %ref.tmp41, i64 40
   store i32 0, ptr %m_capacity.i.i.i.i, align 8
-  %m_data.i.i.i1.i = getelementptr inbounds %class.btAlignedObjectArray, ptr %ref.tmp41, i64 0, i32 5
+  %m_data.i.i.i1.i = getelementptr inbounds i8, ptr %ref.tmp41, i64 16
   %79 = load ptr, ptr %m_data.i.i.i1.i, align 8
   %tobool.not.i.i.i2.i = icmp eq ptr %79, null
   br i1 %tobool.not.i.i.i2.i, label %_ZN15btReducedVectorD2Ev.exit, label %if.then.i.i.i3.i
 
 if.then.i.i.i3.i:                                 ; preds = %_ZN20btAlignedObjectArrayI9btVector3ED2Ev.exit.i
-  %m_ownsMemory.i.i.i4.i = getelementptr inbounds %class.btAlignedObjectArray, ptr %ref.tmp41, i64 0, i32 6
+  %m_ownsMemory.i.i.i4.i = getelementptr inbounds i8, ptr %ref.tmp41, i64 24
   %80 = load i8, ptr %m_ownsMemory.i.i.i4.i, align 8
   %81 = and i8 %80, 1
   %tobool2.not.i.i.i5.i = icmp eq i8 %81, 0
@@ -9177,12 +9177,12 @@ terminate.lpad.i7.i:                              ; preds = %if.then3.i.i.i6.i
   unreachable
 
 _ZN15btReducedVectorD2Ev.exit:                    ; preds = %_ZN20btAlignedObjectArrayI9btVector3ED2Ev.exit.i, %if.then.i.i.i3.i, %if.then3.i.i.i6.i
-  %m_size.i.i.i8.i = getelementptr inbounds %class.btAlignedObjectArray, ptr %ref.tmp41, i64 0, i32 2
-  %m_ownsMemory.i1.i.i9.i = getelementptr inbounds %class.btAlignedObjectArray, ptr %ref.tmp41, i64 0, i32 6
+  %m_size.i.i.i8.i = getelementptr inbounds i8, ptr %ref.tmp41, i64 4
+  %m_ownsMemory.i1.i.i9.i = getelementptr inbounds i8, ptr %ref.tmp41, i64 24
   store i8 1, ptr %m_ownsMemory.i1.i.i9.i, align 8
   store ptr null, ptr %m_data.i.i.i1.i, align 8
   store i32 0, ptr %m_size.i.i.i8.i, align 4
-  %m_capacity.i.i.i10.i = getelementptr inbounds %class.btAlignedObjectArray, ptr %ref.tmp41, i64 0, i32 3
+  %m_capacity.i.i.i10.i = getelementptr inbounds i8, ptr %ref.tmp41, i64 8
   store i32 0, ptr %m_capacity.i.i.i10.i, align 8
   br i1 %retval.0.i, label %if.end, label %if.then
 
@@ -9217,13 +9217,13 @@ lpad42:                                           ; preds = %invoke.cont40
   br label %ehcleanup49
 
 if.end:                                           ; preds = %if.then, %_ZN15btReducedVectorD2Ev.exit
-  %m_data.i.i.i.i342 = getelementptr inbounds %class.btReducedVector, ptr %ans, i64 0, i32 1, i32 5
+  %m_data.i.i.i.i342 = getelementptr inbounds i8, ptr %ans, i64 48
   %89 = load ptr, ptr %m_data.i.i.i.i342, align 8
   %tobool.not.i.i.i.i343 = icmp eq ptr %89, null
   br i1 %tobool.not.i.i.i.i343, label %_ZN20btAlignedObjectArrayI9btVector3ED2Ev.exit.i349, label %if.then.i.i.i.i344
 
 if.then.i.i.i.i344:                               ; preds = %if.end
-  %m_ownsMemory.i.i.i.i345 = getelementptr inbounds %class.btReducedVector, ptr %ans, i64 0, i32 1, i32 6
+  %m_ownsMemory.i.i.i.i345 = getelementptr inbounds i8, ptr %ans, i64 56
   %90 = load i8, ptr %m_ownsMemory.i.i.i.i345, align 8
   %91 = and i8 %90, 1
   %tobool2.not.i.i.i.i346 = icmp eq i8 %91, 0
@@ -9241,20 +9241,20 @@ terminate.lpad.i.i348:                            ; preds = %if.then3.i.i.i.i347
   unreachable
 
 _ZN20btAlignedObjectArrayI9btVector3ED2Ev.exit.i349: ; preds = %if.then3.i.i.i.i347, %if.then.i.i.i.i344, %if.end
-  %m_size.i.i.i.i350 = getelementptr inbounds %class.btReducedVector, ptr %ans, i64 0, i32 1, i32 2
-  %m_ownsMemory.i1.i.i.i351 = getelementptr inbounds %class.btReducedVector, ptr %ans, i64 0, i32 1, i32 6
+  %m_size.i.i.i.i350 = getelementptr inbounds i8, ptr %ans, i64 36
+  %m_ownsMemory.i1.i.i.i351 = getelementptr inbounds i8, ptr %ans, i64 56
   store i8 1, ptr %m_ownsMemory.i1.i.i.i351, align 8
   store ptr null, ptr %m_data.i.i.i.i342, align 8
   store i32 0, ptr %m_size.i.i.i.i350, align 4
-  %m_capacity.i.i.i.i352 = getelementptr inbounds %class.btReducedVector, ptr %ans, i64 0, i32 1, i32 3
+  %m_capacity.i.i.i.i352 = getelementptr inbounds i8, ptr %ans, i64 40
   store i32 0, ptr %m_capacity.i.i.i.i352, align 8
-  %m_data.i.i.i1.i353 = getelementptr inbounds %class.btAlignedObjectArray, ptr %ans, i64 0, i32 5
+  %m_data.i.i.i1.i353 = getelementptr inbounds i8, ptr %ans, i64 16
   %94 = load ptr, ptr %m_data.i.i.i1.i353, align 8
   %tobool.not.i.i.i2.i354 = icmp eq ptr %94, null
   br i1 %tobool.not.i.i.i2.i354, label %_ZN15btReducedVectorD2Ev.exit363, label %if.then.i.i.i3.i355
 
 if.then.i.i.i3.i355:                              ; preds = %_ZN20btAlignedObjectArrayI9btVector3ED2Ev.exit.i349
-  %m_ownsMemory.i.i.i4.i356 = getelementptr inbounds %class.btAlignedObjectArray, ptr %ans, i64 0, i32 6
+  %m_ownsMemory.i.i.i4.i356 = getelementptr inbounds i8, ptr %ans, i64 24
   %95 = load i8, ptr %m_ownsMemory.i.i.i4.i356, align 8
   %96 = and i8 %95, 1
   %tobool2.not.i.i.i5.i357 = icmp eq i8 %96, 0
@@ -9272,12 +9272,12 @@ terminate.lpad.i7.i359:                           ; preds = %if.then3.i.i.i6.i35
   unreachable
 
 _ZN15btReducedVectorD2Ev.exit363:                 ; preds = %_ZN20btAlignedObjectArrayI9btVector3ED2Ev.exit.i349, %if.then.i.i.i3.i355, %if.then3.i.i.i6.i358
-  %m_size.i.i.i8.i360 = getelementptr inbounds %class.btAlignedObjectArray, ptr %ans, i64 0, i32 2
-  %m_ownsMemory.i1.i.i9.i361 = getelementptr inbounds %class.btAlignedObjectArray, ptr %ans, i64 0, i32 6
+  %m_size.i.i.i8.i360 = getelementptr inbounds i8, ptr %ans, i64 4
+  %m_ownsMemory.i1.i.i9.i361 = getelementptr inbounds i8, ptr %ans, i64 24
   store i8 1, ptr %m_ownsMemory.i1.i.i9.i361, align 8
   store ptr null, ptr %m_data.i.i.i1.i353, align 8
   store i32 0, ptr %m_size.i.i.i8.i360, align 4
-  %m_capacity.i.i.i10.i362 = getelementptr inbounds %class.btAlignedObjectArray, ptr %ans, i64 0, i32 3
+  %m_capacity.i.i.i10.i362 = getelementptr inbounds i8, ptr %ans, i64 8
   store i32 0, ptr %m_capacity.i.i.i10.i362, align 8
   %99 = load ptr, ptr %m_data.i.i241, align 8
   %tobool.not.i.i.i365 = icmp eq ptr %99, null
@@ -9331,13 +9331,13 @@ _ZN20btAlignedObjectArrayIiED2Ev.exit:            ; preds = %_ZN20btAlignedObjec
   store ptr null, ptr %m_data.i.i149, align 8
   store i32 0, ptr %m_size.i.i150, align 4
   store i32 0, ptr %m_capacity.i.i151, align 8
-  %m_data.i.i.i.i380 = getelementptr inbounds %class.btReducedVector, ptr %rv1, i64 0, i32 1, i32 5
+  %m_data.i.i.i.i380 = getelementptr inbounds i8, ptr %rv1, i64 48
   %109 = load ptr, ptr %m_data.i.i.i.i380, align 8
   %tobool.not.i.i.i.i381 = icmp eq ptr %109, null
   br i1 %tobool.not.i.i.i.i381, label %_ZN20btAlignedObjectArrayI9btVector3ED2Ev.exit.i387, label %if.then.i.i.i.i382
 
 if.then.i.i.i.i382:                               ; preds = %_ZN20btAlignedObjectArrayIiED2Ev.exit
-  %m_ownsMemory.i.i.i.i383 = getelementptr inbounds %class.btReducedVector, ptr %rv1, i64 0, i32 1, i32 6
+  %m_ownsMemory.i.i.i.i383 = getelementptr inbounds i8, ptr %rv1, i64 56
   %110 = load i8, ptr %m_ownsMemory.i.i.i.i383, align 8
   %111 = and i8 %110, 1
   %tobool2.not.i.i.i.i384 = icmp eq i8 %111, 0
@@ -9355,20 +9355,20 @@ terminate.lpad.i.i386:                            ; preds = %if.then3.i.i.i.i385
   unreachable
 
 _ZN20btAlignedObjectArrayI9btVector3ED2Ev.exit.i387: ; preds = %if.then3.i.i.i.i385, %if.then.i.i.i.i382, %_ZN20btAlignedObjectArrayIiED2Ev.exit
-  %m_size.i.i.i.i388 = getelementptr inbounds %class.btReducedVector, ptr %rv1, i64 0, i32 1, i32 2
-  %m_ownsMemory.i1.i.i.i389 = getelementptr inbounds %class.btReducedVector, ptr %rv1, i64 0, i32 1, i32 6
+  %m_size.i.i.i.i388 = getelementptr inbounds i8, ptr %rv1, i64 36
+  %m_ownsMemory.i1.i.i.i389 = getelementptr inbounds i8, ptr %rv1, i64 56
   store i8 1, ptr %m_ownsMemory.i1.i.i.i389, align 8
   store ptr null, ptr %m_data.i.i.i.i380, align 8
   store i32 0, ptr %m_size.i.i.i.i388, align 4
-  %m_capacity.i.i.i.i390 = getelementptr inbounds %class.btReducedVector, ptr %rv1, i64 0, i32 1, i32 3
+  %m_capacity.i.i.i.i390 = getelementptr inbounds i8, ptr %rv1, i64 40
   store i32 0, ptr %m_capacity.i.i.i.i390, align 8
-  %m_data.i.i.i1.i391 = getelementptr inbounds %class.btAlignedObjectArray, ptr %rv1, i64 0, i32 5
+  %m_data.i.i.i1.i391 = getelementptr inbounds i8, ptr %rv1, i64 16
   %114 = load ptr, ptr %m_data.i.i.i1.i391, align 8
   %tobool.not.i.i.i2.i392 = icmp eq ptr %114, null
   br i1 %tobool.not.i.i.i2.i392, label %_ZN15btReducedVectorD2Ev.exit401, label %if.then.i.i.i3.i393
 
 if.then.i.i.i3.i393:                              ; preds = %_ZN20btAlignedObjectArrayI9btVector3ED2Ev.exit.i387
-  %m_ownsMemory.i.i.i4.i394 = getelementptr inbounds %class.btAlignedObjectArray, ptr %rv1, i64 0, i32 6
+  %m_ownsMemory.i.i.i4.i394 = getelementptr inbounds i8, ptr %rv1, i64 24
   %115 = load i8, ptr %m_ownsMemory.i.i.i4.i394, align 8
   %116 = and i8 %115, 1
   %tobool2.not.i.i.i5.i395 = icmp eq i8 %116, 0
@@ -9386,12 +9386,12 @@ terminate.lpad.i7.i397:                           ; preds = %if.then3.i.i.i6.i39
   unreachable
 
 _ZN15btReducedVectorD2Ev.exit401:                 ; preds = %_ZN20btAlignedObjectArrayI9btVector3ED2Ev.exit.i387, %if.then.i.i.i3.i393, %if.then3.i.i.i6.i396
-  %m_size.i.i.i8.i398 = getelementptr inbounds %class.btAlignedObjectArray, ptr %rv1, i64 0, i32 2
-  %m_ownsMemory.i1.i.i9.i399 = getelementptr inbounds %class.btAlignedObjectArray, ptr %rv1, i64 0, i32 6
+  %m_size.i.i.i8.i398 = getelementptr inbounds i8, ptr %rv1, i64 4
+  %m_ownsMemory.i1.i.i9.i399 = getelementptr inbounds i8, ptr %rv1, i64 24
   store i8 1, ptr %m_ownsMemory.i1.i.i9.i399, align 8
   store ptr null, ptr %m_data.i.i.i1.i391, align 8
   store i32 0, ptr %m_size.i.i.i8.i398, align 4
-  %m_capacity.i.i.i10.i400 = getelementptr inbounds %class.btAlignedObjectArray, ptr %rv1, i64 0, i32 3
+  %m_capacity.i.i.i10.i400 = getelementptr inbounds i8, ptr %rv1, i64 8
   store i32 0, ptr %m_capacity.i.i.i10.i400, align 8
   %119 = load ptr, ptr %m_data.i.i58, align 8
   %tobool.not.i.i.i403 = icmp eq ptr %119, null
@@ -9504,14 +9504,14 @@ define linkonce_odr dso_local void @_ZN15btReducedVector8simplifyEv(ptr noundef 
 entry:
   %old_indices = alloca %class.btAlignedObjectArray, align 8
   %old_vecs = alloca %class.btAlignedObjectArray.0, align 8
-  %m_ownsMemory.i.i = getelementptr inbounds %class.btAlignedObjectArray, ptr %old_indices, i64 0, i32 6
+  %m_ownsMemory.i.i = getelementptr inbounds i8, ptr %old_indices, i64 24
   store i8 1, ptr %m_ownsMemory.i.i, align 8
-  %m_data.i.i = getelementptr inbounds %class.btAlignedObjectArray, ptr %old_indices, i64 0, i32 5
+  %m_data.i.i = getelementptr inbounds i8, ptr %old_indices, i64 16
   store ptr null, ptr %m_data.i.i, align 8
-  %m_size.i.i = getelementptr inbounds %class.btAlignedObjectArray, ptr %old_indices, i64 0, i32 2
-  %m_capacity.i.i = getelementptr inbounds %class.btAlignedObjectArray, ptr %old_indices, i64 0, i32 3
+  %m_size.i.i = getelementptr inbounds i8, ptr %old_indices, i64 4
+  %m_capacity.i.i = getelementptr inbounds i8, ptr %old_indices, i64 8
   store i32 0, ptr %m_capacity.i.i, align 8
-  %m_size.i3.i = getelementptr inbounds %class.btAlignedObjectArray, ptr %this, i64 0, i32 2
+  %m_size.i3.i = getelementptr inbounds i8, ptr %this, i64 4
   %0 = load i32, ptr %m_size.i3.i, align 4
   %or.cond.i = icmp sgt i32 %0, 0
   br i1 %or.cond.i, label %for.body8.lr.ph.i.i, label %_ZN20btAlignedObjectArrayIiE6resizeEiRKi.exit.thread.i
@@ -9539,7 +9539,7 @@ for.body8.i.i:                                    ; preds = %for.body8.i.i, %for
 
 for.body.lr.ph.i.i:                               ; preds = %for.body8.i.i
   store i32 %0, ptr %m_size.i.i, align 4
-  %m_data.i4.i = getelementptr inbounds %class.btAlignedObjectArray, ptr %this, i64 0, i32 5
+  %m_data.i4.i = getelementptr inbounds i8, ptr %this, i64 16
   br label %for.body.i.i
 
 for.body.i.i:                                     ; preds = %for.body.i.i, %for.body.lr.ph.i.i
@@ -9555,15 +9555,15 @@ for.body.i.i:                                     ; preds = %for.body.i.i, %for.
 
 _ZN20btAlignedObjectArrayIiEC2ERKS0_.exit:        ; preds = %for.body.i.i, %_ZN20btAlignedObjectArrayIiE6resizeEiRKi.exit.thread.i
   %3 = phi ptr [ null, %_ZN20btAlignedObjectArrayIiE6resizeEiRKi.exit.thread.i ], [ %call.i.i.i.i.i, %for.body.i.i ]
-  %m_ownsMemory.i.i6 = getelementptr inbounds %class.btAlignedObjectArray.0, ptr %old_vecs, i64 0, i32 6
+  %m_ownsMemory.i.i6 = getelementptr inbounds i8, ptr %old_vecs, i64 24
   store i8 1, ptr %m_ownsMemory.i.i6, align 8
-  %m_data.i.i7 = getelementptr inbounds %class.btAlignedObjectArray.0, ptr %old_vecs, i64 0, i32 5
+  %m_data.i.i7 = getelementptr inbounds i8, ptr %old_vecs, i64 16
   store ptr null, ptr %m_data.i.i7, align 8
-  %m_size.i.i8 = getelementptr inbounds %class.btAlignedObjectArray.0, ptr %old_vecs, i64 0, i32 2
+  %m_size.i.i8 = getelementptr inbounds i8, ptr %old_vecs, i64 4
   store i32 0, ptr %m_size.i.i8, align 4
-  %m_capacity.i.i9 = getelementptr inbounds %class.btAlignedObjectArray.0, ptr %old_vecs, i64 0, i32 3
+  %m_capacity.i.i9 = getelementptr inbounds i8, ptr %old_vecs, i64 8
   store i32 0, ptr %m_capacity.i.i9, align 8
-  %m_size.i3.i10 = getelementptr inbounds %class.btReducedVector, ptr %this, i64 0, i32 1, i32 2
+  %m_size.i3.i10 = getelementptr inbounds i8, ptr %this, i64 36
   %4 = load i32, ptr %m_size.i3.i10, align 4
   %or.cond.i11 = icmp sgt i32 %4, 0
   br i1 %or.cond.i11, label %_ZN20btAlignedObjectArrayI9btVector3E8allocateEi.exit.i.i.i, label %_ZN20btAlignedObjectArrayI9btVector3E6resizeEiRKS0_.exit.thread.i
@@ -9583,7 +9583,7 @@ for.body.lr.ph.i.i21:                             ; preds = %_ZN20btAlignedObjec
   store ptr %call.i.i.i.i.i1438, ptr %m_data.i.i7, align 8
   store i32 %4, ptr %m_capacity.i.i9, align 8
   store i32 %4, ptr %m_size.i.i8, align 4
-  %m_data.i4.i22 = getelementptr inbounds %class.btReducedVector, ptr %this, i64 0, i32 1, i32 5
+  %m_data.i4.i22 = getelementptr inbounds i8, ptr %this, i64 48
   br label %for.body.i.i24
 
 for.body.i.i24:                                   ; preds = %for.body.i.i24, %for.body.lr.ph.i.i21
@@ -9603,19 +9603,19 @@ invoke.cont:                                      ; preds = %for.body.i.i24, %_Z
   br i1 %cmp3.i, label %if.then4.i, label %invoke.cont4
 
 if.then4.i:                                       ; preds = %invoke.cont
-  %m_capacity.i.i.i = getelementptr inbounds %class.btAlignedObjectArray, ptr %this, i64 0, i32 3
+  %m_capacity.i.i.i = getelementptr inbounds i8, ptr %this, i64 8
   %8 = load i32, ptr %m_capacity.i.i.i, align 8
   %cmp.i.i = icmp slt i32 %8, 0
   br i1 %cmp.i.i, label %_ZNK20btAlignedObjectArrayIiE4copyEiiPi.exit.i.i, label %for.body8.lr.ph.i
 
 _ZNK20btAlignedObjectArrayIiE4copyEiiPi.exit.i.i: ; preds = %if.then4.i
-  %m_data.i5.i.i = getelementptr inbounds %class.btAlignedObjectArray, ptr %this, i64 0, i32 5
+  %m_data.i5.i.i = getelementptr inbounds i8, ptr %this, i64 16
   %9 = load ptr, ptr %m_data.i5.i.i, align 8
   %tobool.not.i6.i.i = icmp eq ptr %9, null
   br i1 %tobool.not.i6.i.i, label %if.end.i, label %if.then.i7.i.i
 
 if.then.i7.i.i:                                   ; preds = %_ZNK20btAlignedObjectArrayIiE4copyEiiPi.exit.i.i
-  %m_ownsMemory.i.i.i = getelementptr inbounds %class.btAlignedObjectArray, ptr %this, i64 0, i32 6
+  %m_ownsMemory.i.i.i = getelementptr inbounds i8, ptr %this, i64 24
   %10 = load i8, ptr %m_ownsMemory.i.i.i, align 8
   %11 = and i8 %10, 1
   %tobool2.not.i.i.i = icmp eq i8 %11, 0
@@ -9626,14 +9626,14 @@ if.then3.i.i.i:                                   ; preds = %if.then.i7.i.i
           to label %if.end.i unwind label %lpad3.loopexit.split-lp
 
 if.end.i:                                         ; preds = %if.then3.i.i.i, %if.then.i7.i.i, %_ZNK20btAlignedObjectArrayIiE4copyEiiPi.exit.i.i
-  %m_ownsMemory.i.i40 = getelementptr inbounds %class.btAlignedObjectArray, ptr %this, i64 0, i32 6
+  %m_ownsMemory.i.i40 = getelementptr inbounds i8, ptr %this, i64 24
   store i8 1, ptr %m_ownsMemory.i.i40, align 8
   store ptr null, ptr %m_data.i5.i.i, align 8
   store i32 0, ptr %m_capacity.i.i.i, align 8
   br label %for.body8.lr.ph.i
 
 for.body8.lr.ph.i:                                ; preds = %if.end.i, %if.then4.i
-  %m_data9.i = getelementptr inbounds %class.btAlignedObjectArray, ptr %this, i64 0, i32 5
+  %m_data9.i = getelementptr inbounds i8, ptr %this, i64 16
   %12 = sext i32 %7 to i64
   br label %for.body8.i
 
@@ -9653,19 +9653,19 @@ invoke.cont4:                                     ; preds = %for.body8.i, %invok
   br i1 %cmp3.i45, label %if.then4.i46, label %invoke.cont8
 
 if.then4.i46:                                     ; preds = %invoke.cont4
-  %m_capacity.i.i.i47 = getelementptr inbounds %class.btReducedVector, ptr %this, i64 0, i32 1, i32 3
+  %m_capacity.i.i.i47 = getelementptr inbounds i8, ptr %this, i64 40
   %15 = load i32, ptr %m_capacity.i.i.i47, align 8
   %cmp.i.i48 = icmp slt i32 %15, 0
   br i1 %cmp.i.i48, label %_ZNK20btAlignedObjectArrayI9btVector3E4copyEiiPS0_.exit.i.i, label %invoke.cont8
 
 _ZNK20btAlignedObjectArrayI9btVector3E4copyEiiPS0_.exit.i.i: ; preds = %if.then4.i46
-  %m_data.i5.i.i58 = getelementptr inbounds %class.btReducedVector, ptr %this, i64 0, i32 1, i32 5
+  %m_data.i5.i.i58 = getelementptr inbounds i8, ptr %this, i64 48
   %16 = load ptr, ptr %m_data.i5.i.i58, align 8
   %tobool.not.i6.i.i59 = icmp eq ptr %16, null
   br i1 %tobool.not.i6.i.i59, label %if.end.i64, label %if.then.i7.i.i60
 
 if.then.i7.i.i60:                                 ; preds = %_ZNK20btAlignedObjectArrayI9btVector3E4copyEiiPS0_.exit.i.i
-  %m_ownsMemory.i.i.i61 = getelementptr inbounds %class.btReducedVector, ptr %this, i64 0, i32 1, i32 6
+  %m_ownsMemory.i.i.i61 = getelementptr inbounds i8, ptr %this, i64 56
   %17 = load i8, ptr %m_ownsMemory.i.i.i61, align 8
   %18 = and i8 %17, 1
   %tobool2.not.i.i.i62 = icmp eq i8 %18, 0
@@ -9676,7 +9676,7 @@ if.then3.i.i.i63:                                 ; preds = %if.then.i7.i.i60
           to label %if.end.i64 unwind label %lpad3.loopexit.split-lp
 
 if.end.i64:                                       ; preds = %if.then3.i.i.i63, %if.then.i7.i.i60, %_ZNK20btAlignedObjectArrayI9btVector3E4copyEiiPS0_.exit.i.i
-  %m_ownsMemory.i.i65 = getelementptr inbounds %class.btReducedVector, ptr %this, i64 0, i32 1, i32 6
+  %m_ownsMemory.i.i65 = getelementptr inbounds i8, ptr %this, i64 56
   store i8 1, ptr %m_ownsMemory.i.i65, align 8
   store ptr null, ptr %m_data.i5.i.i58, align 8
   store i32 0, ptr %m_capacity.i.i.i47, align 8
@@ -9684,13 +9684,13 @@ if.end.i64:                                       ; preds = %if.then3.i.i.i63, %
 
 invoke.cont8:                                     ; preds = %if.then4.i46, %if.end.i64, %invoke.cont4
   store i32 0, ptr %m_size.i3.i10, align 4
-  %m_data.i.i76 = getelementptr inbounds %class.btAlignedObjectArray, ptr %this, i64 0, i32 5
+  %m_data.i.i76 = getelementptr inbounds i8, ptr %this, i64 16
   %19 = load ptr, ptr %m_data.i.i76, align 8
   %tobool.not.i.i = icmp eq ptr %19, null
   br i1 %tobool.not.i.i, label %invoke.cont10, label %if.then.i.i77
 
 if.then.i.i77:                                    ; preds = %invoke.cont8
-  %m_ownsMemory.i.i78 = getelementptr inbounds %class.btAlignedObjectArray, ptr %this, i64 0, i32 6
+  %m_ownsMemory.i.i78 = getelementptr inbounds i8, ptr %this, i64 24
   %20 = load i8, ptr %m_ownsMemory.i.i78, align 8
   %21 = and i8 %20, 1
   %tobool2.not.i.i = icmp eq i8 %21, 0
@@ -9701,19 +9701,19 @@ if.then3.i.i:                                     ; preds = %if.then.i.i77
           to label %invoke.cont10 unwind label %lpad3.loopexit.split-lp
 
 invoke.cont10:                                    ; preds = %if.then.i.i77, %invoke.cont8, %if.then3.i.i
-  %m_ownsMemory.i1.i = getelementptr inbounds %class.btAlignedObjectArray, ptr %this, i64 0, i32 6
+  %m_ownsMemory.i1.i = getelementptr inbounds i8, ptr %this, i64 24
   store i8 1, ptr %m_ownsMemory.i1.i, align 8
   store ptr null, ptr %m_data.i.i76, align 8
   store i32 0, ptr %m_size.i3.i, align 4
-  %m_capacity.i.i80 = getelementptr inbounds %class.btAlignedObjectArray, ptr %this, i64 0, i32 3
+  %m_capacity.i.i80 = getelementptr inbounds i8, ptr %this, i64 8
   store i32 0, ptr %m_capacity.i.i80, align 8
-  %m_data.i.i82 = getelementptr inbounds %class.btReducedVector, ptr %this, i64 0, i32 1, i32 5
+  %m_data.i.i82 = getelementptr inbounds i8, ptr %this, i64 48
   %22 = load ptr, ptr %m_data.i.i82, align 8
   %tobool.not.i.i83 = icmp eq ptr %22, null
   br i1 %tobool.not.i.i83, label %_ZN20btAlignedObjectArrayI9btVector3E5clearEv.exit, label %if.then.i.i84
 
 if.then.i.i84:                                    ; preds = %invoke.cont10
-  %m_ownsMemory.i.i85 = getelementptr inbounds %class.btReducedVector, ptr %this, i64 0, i32 1, i32 6
+  %m_ownsMemory.i.i85 = getelementptr inbounds i8, ptr %this, i64 56
   %23 = load i8, ptr %m_ownsMemory.i.i85, align 8
   %24 = and i8 %23, 1
   %tobool2.not.i.i86 = icmp eq i8 %24, 0
@@ -9724,11 +9724,11 @@ if.then3.i.i87:                                   ; preds = %if.then.i.i84
           to label %_ZN20btAlignedObjectArrayI9btVector3E5clearEv.exit unwind label %lpad3.loopexit.split-lp
 
 _ZN20btAlignedObjectArrayI9btVector3E5clearEv.exit: ; preds = %if.then3.i.i87, %invoke.cont10, %if.then.i.i84
-  %m_ownsMemory.i1.i89 = getelementptr inbounds %class.btReducedVector, ptr %this, i64 0, i32 1, i32 6
+  %m_ownsMemory.i1.i89 = getelementptr inbounds i8, ptr %this, i64 56
   store i8 1, ptr %m_ownsMemory.i1.i89, align 8
   store ptr null, ptr %m_data.i.i82, align 8
   store i32 0, ptr %m_size.i3.i10, align 4
-  %m_capacity.i.i90 = getelementptr inbounds %class.btReducedVector, ptr %this, i64 0, i32 1, i32 3
+  %m_capacity.i.i90 = getelementptr inbounds i8, ptr %this, i64 40
   store i32 0, ptr %m_capacity.i.i90, align 8
   br i1 %or.cond.i, label %invoke.cont15.preheader, label %for.end
 
@@ -9740,11 +9740,11 @@ invoke.cont15:                                    ; preds = %invoke.cont15.prehe
   %indvars.iv = phi i64 [ 0, %invoke.cont15.preheader ], [ %indvars.iv.next, %for.inc ]
   %arrayidx.i = getelementptr inbounds %class.btVector3, ptr %6, i64 %indvars.iv
   %26 = load float, ptr %arrayidx.i, align 4
-  %arrayidx5.i.i = getelementptr inbounds [4 x float], ptr %arrayidx.i, i64 0, i64 1
+  %arrayidx5.i.i = getelementptr inbounds i8, ptr %arrayidx.i, i64 4
   %27 = load float, ptr %arrayidx5.i.i, align 4
   %mul8.i.i = fmul float %27, %27
   %28 = tail call float @llvm.fmuladd.f32(float %26, float %26, float %mul8.i.i)
-  %arrayidx10.i.i = getelementptr inbounds [4 x float], ptr %arrayidx.i, i64 0, i64 2
+  %arrayidx10.i.i = getelementptr inbounds i8, ptr %arrayidx.i, i64 8
   %29 = load float, ptr %arrayidx10.i.i, align 4
   %30 = tail call noundef float @llvm.fmuladd.f32(float %29, float %29, float %28)
   %cmp17 = fcmp ogt float %30, 0x3E80000000000000
@@ -9985,20 +9985,20 @@ entry:
   br i1 %cmp, label %return, label %if.end
 
 if.end:                                           ; preds = %entry
-  %m_sz = getelementptr inbounds %class.btReducedVector, ptr %other, i64 0, i32 2
+  %m_sz = getelementptr inbounds i8, ptr %other, i64 64
   %0 = load i32, ptr %m_sz, align 8
-  %m_sz2 = getelementptr inbounds %class.btReducedVector, ptr %this, i64 0, i32 2
+  %m_sz2 = getelementptr inbounds i8, ptr %this, i64 64
   store i32 %0, ptr %m_sz2, align 8
   tail call void @_ZN20btAlignedObjectArrayIiE13copyFromArrayERKS0_(ptr noundef nonnull align 8 dereferenceable(25) %this, ptr noundef nonnull align 8 dereferenceable(25) %other)
-  %m_size.i.i = getelementptr inbounds %class.btReducedVector, ptr %other, i64 0, i32 1, i32 2
+  %m_size.i.i = getelementptr inbounds i8, ptr %other, i64 36
   %1 = load i32, ptr %m_size.i.i, align 4
-  %m_size.i.i.i = getelementptr inbounds %class.btReducedVector, ptr %this, i64 0, i32 1, i32 2
+  %m_size.i.i.i = getelementptr inbounds i8, ptr %this, i64 36
   %2 = load i32, ptr %m_size.i.i.i, align 4
   %cmp3.i.i = icmp slt i32 %2, %1
   br i1 %cmp3.i.i, label %if.then4.i.i, label %_ZN20btAlignedObjectArrayI9btVector3E6resizeEiRKS0_.exit.i
 
 if.then4.i.i:                                     ; preds = %if.end
-  %m_capacity.i.i.i.i = getelementptr inbounds %class.btReducedVector, ptr %this, i64 0, i32 1, i32 3
+  %m_capacity.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 40
   %3 = load i32, ptr %m_capacity.i.i.i.i, align 8
   %cmp.i.i.i = icmp slt i32 %3, %1
   br i1 %cmp.i.i.i, label %if.then.i.i.i, label %_ZN20btAlignedObjectArrayI9btVector3E6resizeEiRKS0_.exit.i
@@ -10021,7 +10021,7 @@ _ZN20btAlignedObjectArrayI9btVector3E8allocateEi.exit.i.i.i: ; preds = %if.then.
   br i1 %cmp4.i.i.i.i, label %for.body.lr.ph.i.i.i.i, label %_ZNK20btAlignedObjectArrayI9btVector3E4copyEiiPS0_.exit.i.i.i
 
 for.body.lr.ph.i.i.i.i:                           ; preds = %_ZN20btAlignedObjectArrayI9btVector3E8allocateEi.exit.i.i.i
-  %m_data.i.i.i.i = getelementptr inbounds %class.btReducedVector, ptr %this, i64 0, i32 1, i32 5
+  %m_data.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 48
   %wide.trip.count.i.i.i.i = zext nneg i32 %4 to i64
   br label %for.body.i.i.i.i
 
@@ -10036,13 +10036,13 @@ for.body.i.i.i.i:                                 ; preds = %for.body.i.i.i.i, %
   br i1 %exitcond.not.i.i.i.i, label %_ZNK20btAlignedObjectArrayI9btVector3E4copyEiiPS0_.exit.i.i.i, label %for.body.i.i.i.i, !llvm.loop !10
 
 _ZNK20btAlignedObjectArrayI9btVector3E4copyEiiPS0_.exit.i.i.i: ; preds = %for.body.i.i.i.i, %_ZN20btAlignedObjectArrayI9btVector3E8allocateEi.exit.i.i.i
-  %m_data.i5.i.i.i = getelementptr inbounds %class.btReducedVector, ptr %this, i64 0, i32 1, i32 5
+  %m_data.i5.i.i.i = getelementptr inbounds i8, ptr %this, i64 48
   %6 = load ptr, ptr %m_data.i5.i.i.i, align 8
   %tobool.not.i6.i.i.i = icmp eq ptr %6, null
   br i1 %tobool.not.i6.i.i.i, label %if.end.i.i, label %if.then.i7.i.i.i
 
 if.then.i7.i.i.i:                                 ; preds = %_ZNK20btAlignedObjectArrayI9btVector3E4copyEiiPS0_.exit.i.i.i
-  %m_ownsMemory.i.i.i.i = getelementptr inbounds %class.btReducedVector, ptr %this, i64 0, i32 1, i32 6
+  %m_ownsMemory.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 56
   %7 = load i8, ptr %m_ownsMemory.i.i.i.i, align 8
   %8 = and i8 %7, 1
   %tobool2.not.i.i.i.i = icmp eq i8 %8, 0
@@ -10053,7 +10053,7 @@ if.then3.i.i.i.i:                                 ; preds = %if.then.i7.i.i.i
   br label %if.end.i.i
 
 if.end.i.i:                                       ; preds = %if.then3.i.i.i.i, %if.then.i7.i.i.i, %_ZNK20btAlignedObjectArrayI9btVector3E4copyEiiPS0_.exit.i.i.i
-  %m_ownsMemory.i.i.i = getelementptr inbounds %class.btReducedVector, ptr %this, i64 0, i32 1, i32 6
+  %m_ownsMemory.i.i.i = getelementptr inbounds i8, ptr %this, i64 56
   store i8 1, ptr %m_ownsMemory.i.i.i, align 8
   store ptr %retval.0.i.i.i.i, ptr %m_data.i5.i.i.i, align 8
   store i32 %1, ptr %m_capacity.i.i.i.i, align 8
@@ -10061,13 +10061,13 @@ if.end.i.i:                                       ; preds = %if.then3.i.i.i.i, %
 
 _ZN20btAlignedObjectArrayI9btVector3E6resizeEiRKS0_.exit.i: ; preds = %if.end.i.i, %if.then4.i.i, %if.end
   store i32 %1, ptr %m_size.i.i.i, align 4
-  %m_data.i = getelementptr inbounds %class.btReducedVector, ptr %this, i64 0, i32 1, i32 5
+  %m_data.i = getelementptr inbounds i8, ptr %this, i64 48
   %9 = load ptr, ptr %m_data.i, align 8
   %cmp4.i.i = icmp sgt i32 %1, 0
   br i1 %cmp4.i.i, label %for.body.lr.ph.i.i, label %return
 
 for.body.lr.ph.i.i:                               ; preds = %_ZN20btAlignedObjectArrayI9btVector3E6resizeEiRKS0_.exit.i
-  %m_data.i.i = getelementptr inbounds %class.btReducedVector, ptr %other, i64 0, i32 1, i32 5
+  %m_data.i.i = getelementptr inbounds i8, ptr %other, i64 48
   %wide.trip.count.i3.i = zext nneg i32 %1 to i64
   br label %for.body.i.i
 
@@ -10088,15 +10088,15 @@ return:                                           ; preds = %for.body.i.i, %_ZN2
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr dso_local void @_ZN20btAlignedObjectArrayIiE13copyFromArrayERKS0_(ptr noundef nonnull align 8 dereferenceable(25) %this, ptr noundef nonnull align 8 dereferenceable(25) %otherArray) local_unnamed_addr #0 comdat align 2 {
 entry:
-  %m_size.i = getelementptr inbounds %class.btAlignedObjectArray, ptr %otherArray, i64 0, i32 2
+  %m_size.i = getelementptr inbounds i8, ptr %otherArray, i64 4
   %0 = load i32, ptr %m_size.i, align 4
-  %m_size.i.i = getelementptr inbounds %class.btAlignedObjectArray, ptr %this, i64 0, i32 2
+  %m_size.i.i = getelementptr inbounds i8, ptr %this, i64 4
   %1 = load i32, ptr %m_size.i.i, align 4
   %cmp3.i = icmp slt i32 %1, %0
   br i1 %cmp3.i, label %if.then4.i, label %_ZN20btAlignedObjectArrayIiE6resizeEiRKi.exit
 
 if.then4.i:                                       ; preds = %entry
-  %m_capacity.i.i.i = getelementptr inbounds %class.btAlignedObjectArray, ptr %this, i64 0, i32 3
+  %m_capacity.i.i.i = getelementptr inbounds i8, ptr %this, i64 8
   %2 = load i32, ptr %m_capacity.i.i.i, align 8
   %cmp.i.i = icmp slt i32 %2, %0
   br i1 %cmp.i.i, label %if.then.i.i, label %for.body8.lr.ph.i
@@ -10119,7 +10119,7 @@ _ZN20btAlignedObjectArrayIiE8allocateEi.exit.i.i: ; preds = %if.then.i.i.i, %if.
   br i1 %cmp4.i.i.i, label %for.body.lr.ph.i.i.i, label %_ZNK20btAlignedObjectArrayIiE4copyEiiPi.exit.i.i
 
 for.body.lr.ph.i.i.i:                             ; preds = %_ZN20btAlignedObjectArrayIiE8allocateEi.exit.i.i
-  %m_data.i.i.i = getelementptr inbounds %class.btAlignedObjectArray, ptr %this, i64 0, i32 5
+  %m_data.i.i.i = getelementptr inbounds i8, ptr %this, i64 16
   %wide.trip.count.i.i.i = zext nneg i32 %3 to i64
   br label %for.body.i.i.i
 
@@ -10135,13 +10135,13 @@ for.body.i.i.i:                                   ; preds = %for.body.i.i.i, %fo
   br i1 %exitcond.not.i.i.i, label %_ZNK20btAlignedObjectArrayIiE4copyEiiPi.exit.i.i, label %for.body.i.i.i, !llvm.loop !8
 
 _ZNK20btAlignedObjectArrayIiE4copyEiiPi.exit.i.i: ; preds = %for.body.i.i.i, %_ZN20btAlignedObjectArrayIiE8allocateEi.exit.i.i
-  %m_data.i5.i.i = getelementptr inbounds %class.btAlignedObjectArray, ptr %this, i64 0, i32 5
+  %m_data.i5.i.i = getelementptr inbounds i8, ptr %this, i64 16
   %6 = load ptr, ptr %m_data.i5.i.i, align 8
   %tobool.not.i6.i.i = icmp eq ptr %6, null
   br i1 %tobool.not.i6.i.i, label %if.end.i, label %if.then.i7.i.i
 
 if.then.i7.i.i:                                   ; preds = %_ZNK20btAlignedObjectArrayIiE4copyEiiPi.exit.i.i
-  %m_ownsMemory.i.i.i = getelementptr inbounds %class.btAlignedObjectArray, ptr %this, i64 0, i32 6
+  %m_ownsMemory.i.i.i = getelementptr inbounds i8, ptr %this, i64 24
   %7 = load i8, ptr %m_ownsMemory.i.i.i, align 8
   %8 = and i8 %7, 1
   %tobool2.not.i.i.i = icmp eq i8 %8, 0
@@ -10152,14 +10152,14 @@ if.then3.i.i.i:                                   ; preds = %if.then.i7.i.i
   br label %if.end.i
 
 if.end.i:                                         ; preds = %if.then3.i.i.i, %if.then.i7.i.i, %_ZNK20btAlignedObjectArrayIiE4copyEiiPi.exit.i.i
-  %m_ownsMemory.i.i = getelementptr inbounds %class.btAlignedObjectArray, ptr %this, i64 0, i32 6
+  %m_ownsMemory.i.i = getelementptr inbounds i8, ptr %this, i64 24
   store i8 1, ptr %m_ownsMemory.i.i, align 8
   store ptr %retval.0.i.i.i, ptr %m_data.i5.i.i, align 8
   store i32 %0, ptr %m_capacity.i.i.i, align 8
   br label %for.body8.lr.ph.i
 
 for.body8.lr.ph.i:                                ; preds = %if.end.i, %if.then4.i
-  %m_data9.i = getelementptr inbounds %class.btAlignedObjectArray, ptr %this, i64 0, i32 5
+  %m_data9.i = getelementptr inbounds i8, ptr %this, i64 16
   %9 = sext i32 %1 to i64
   %wide.trip.count.i = sext i32 %0 to i64
   br label %for.body8.i
@@ -10175,13 +10175,13 @@ for.body8.i:                                      ; preds = %for.body8.i, %for.b
 
 _ZN20btAlignedObjectArrayIiE6resizeEiRKi.exit:    ; preds = %for.body8.i, %entry
   store i32 %0, ptr %m_size.i.i, align 4
-  %m_data = getelementptr inbounds %class.btAlignedObjectArray, ptr %this, i64 0, i32 5
+  %m_data = getelementptr inbounds i8, ptr %this, i64 16
   %11 = load ptr, ptr %m_data, align 8
   %cmp4.i = icmp sgt i32 %0, 0
   br i1 %cmp4.i, label %for.body.lr.ph.i, label %_ZNK20btAlignedObjectArrayIiE4copyEiiPi.exit
 
 for.body.lr.ph.i:                                 ; preds = %_ZN20btAlignedObjectArrayIiE6resizeEiRKi.exit
-  %m_data.i = getelementptr inbounds %class.btAlignedObjectArray, ptr %otherArray, i64 0, i32 5
+  %m_data.i = getelementptr inbounds i8, ptr %otherArray, i64 16
   %wide.trip.count.i3 = zext nneg i32 %0 to i64
   br label %for.body.i
 

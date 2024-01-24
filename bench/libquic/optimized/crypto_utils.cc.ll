@@ -25,27 +25,12 @@ target triple = "x86_64-unknown-linux-gnu"
 %"class.std::basic_ios" = type { %"class.std::ios_base", ptr, i8, i8, ptr, ptr, ptr, ptr }
 %"class.std::ios_base" = type { ptr, i64, i64, i32, i32, i32, ptr, %"struct.std::ios_base::_Words", [8 x %"struct.std::ios_base::_Words"], i32, ptr, %"class.std::locale" }
 %"struct.std::ios_base::_Words" = type { ptr, i64 }
-%"struct.net::CrypterPair" = type { %"class.std::unique_ptr", %"class.std::unique_ptr.2" }
-%"class.std::unique_ptr" = type { %"struct.std::__uniq_ptr_data" }
-%"struct.std::__uniq_ptr_data" = type { %"class.std::__uniq_ptr_impl" }
-%"class.std::__uniq_ptr_impl" = type { %"class.std::tuple" }
-%"class.std::tuple" = type { %"struct.std::_Tuple_impl" }
-%"struct.std::_Tuple_impl" = type { %"struct.std::_Head_base.1" }
-%"struct.std::_Head_base.1" = type { ptr }
-%"class.std::unique_ptr.2" = type { %"struct.std::__uniq_ptr_data.3" }
-%"struct.std::__uniq_ptr_data.3" = type { %"class.std::__uniq_ptr_impl.4" }
-%"class.std::__uniq_ptr_impl.4" = type { %"class.std::tuple.5" }
-%"class.std::tuple.5" = type { %"struct.std::_Tuple_impl.6" }
-%"struct.std::_Tuple_impl.6" = type { %"struct.std::_Head_base.9" }
-%"struct.std::_Head_base.9" = type { ptr }
-%"struct.std::_Vector_base<net::QuicVersion, std::allocator<net::QuicVersion>>::_Vector_impl_data" = type { ptr, ptr, ptr }
 %"class.std::unique_ptr.29" = type { %"struct.std::__uniq_ptr_data.30" }
 %"struct.std::__uniq_ptr_data.30" = type { %"class.std::__uniq_ptr_impl.31" }
 %"class.std::__uniq_ptr_impl.31" = type { %"class.std::tuple.32" }
 %"class.std::tuple.32" = type { %"struct.std::_Tuple_impl.33" }
 %"struct.std::_Tuple_impl.33" = type { %"struct.std::_Head_base.36" }
 %"struct.std::_Head_base.36" = type { ptr }
-%"class.net::QuicData" = type <{ ptr, ptr, i64, i8, [7 x i8] }>
 
 @.str = private unnamed_addr constant [134 x i8] c"generated/home/dtcxzyw/WorkSpace/Projects/compilers/llvm-opt-benchmark/bench/libquic/libquic/src/net/quic/core/crypto/crypto_utils.cc\00", align 1
 @.str.1 = private unnamed_addr constant [45 x i8] c"Pending diversification is only for clients.\00", align 1
@@ -89,7 +74,7 @@ entry:
   %orbit = alloca %"class.base::BasicStringPiece", align 8
   store i64 %now.coerce, ptr %now, align 8
   store ptr %orbit.coerce0, ptr %orbit, align 8
-  %0 = getelementptr inbounds { ptr, i64 }, ptr %orbit, i64 0, i32 1
+  %0 = getelementptr inbounds i8, ptr %orbit, i64 8
   store i64 %orbit.coerce1, ptr %0, align 8
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE7reserveEm(ptr noundef nonnull align 8 dereferenceable(32) %nonce, i64 noundef 32)
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6resizeEm(ptr noundef nonnull align 8 dereferenceable(32) %nonce, i64 noundef 32)
@@ -127,7 +112,7 @@ if.end:                                           ; preds = %if.then, %entry
   %call16 = call noundef nonnull align 1 dereferenceable(1) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEixEm(ptr noundef nonnull align 8 dereferenceable(32) %nonce, i64 noundef %bytes_written.0)
   %sub = sub i64 32, %bytes_written.0
   %vtable = load ptr, ptr %random_generator, align 8
-  %vfn = getelementptr inbounds ptr, ptr %vtable, i64 2
+  %vfn = getelementptr inbounds i8, ptr %vtable, i64 16
   %1 = load ptr, ptr %vfn, align 8
   call void %1(ptr noundef nonnull align 8 dereferenceable(8) %random_generator, ptr noundef nonnull %call16, i64 noundef %sub)
   ret void
@@ -157,7 +142,7 @@ entry:
   %agg.tmp = alloca %"class.base::BasicStringPiece", align 8
   %ref.tmp = alloca %"class.std::__cxx11::basic_string", align 8
   store ptr %sni.coerce0, ptr %sni, align 8
-  %0 = getelementptr inbounds { ptr, i64 }, ptr %sni, i64 0, i32 1
+  %0 = getelementptr inbounds i8, ptr %sni, i64 8
   store i64 %sni.coerce1, ptr %0, align 8
   store <4 x i32> <i32 0, i32 0, i32 0, i32 -1>, ptr %host_info, align 16
   call void @_ZNK4base16BasicStringPieceINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE9as_stringEv(ptr nonnull sret(%"class.std::__cxx11::basic_string") align 8 %ref.tmp, ptr noundef nonnull align 8 dereferenceable(16) %sni)
@@ -166,7 +151,7 @@ entry:
 
 invoke.cont:                                      ; preds = %entry
   %1 = load ptr, ptr %agg.tmp, align 8
-  %2 = getelementptr inbounds { ptr, i64 }, ptr %agg.tmp, i64 0, i32 1
+  %2 = getelementptr inbounds i8, ptr %agg.tmp, i64 8
   %3 = load i64, ptr %2, align 8
   invoke void @_ZN3net16CanonicalizeHostEN4base16BasicStringPieceINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEPN3url13CanonHostInfoE(ptr nonnull sret(%"class.std::__cxx11::basic_string") align 8 %canonicalized_host, ptr %1, i64 %3, ptr noundef nonnull %host_info)
           to label %invoke.cont1 unwind label %lpad
@@ -238,7 +223,7 @@ entry:
   store <4 x i32> <i32 0, i32 0, i32 0, i32 -1>, ptr %host_info, align 16
   call void @_ZN4base16BasicStringPieceINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEC1EPKc(ptr noundef nonnull align 8 dereferenceable(16) %agg.tmp, ptr noundef %hostname)
   %0 = load ptr, ptr %agg.tmp, align 8
-  %1 = getelementptr inbounds { ptr, i64 }, ptr %agg.tmp, i64 0, i32 1
+  %1 = getelementptr inbounds i8, ptr %agg.tmp, i64 8
   %2 = load i64, ptr %1, align 8
   call void @_ZN3net16CanonicalizeHostEN4base16BasicStringPieceINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEPN3url13CanonHostInfoE(ptr sret(%"class.std::__cxx11::basic_string") align 8 %agg.result, ptr %0, i64 %2, ptr noundef nonnull %host_info)
   %call = call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6lengthEv(ptr noundef nonnull align 8 dereferenceable(32) %agg.result) #6
@@ -317,10 +302,10 @@ entry:
   %agg.tmp243 = alloca %"class.base::BasicStringPiece", align 8
   %ref.tmp256 = alloca %"class.base::BasicStringPiece", align 8
   store ptr %premaster_secret.coerce0, ptr %premaster_secret, align 8
-  %0 = getelementptr inbounds { ptr, i64 }, ptr %premaster_secret, i64 0, i32 1
+  %0 = getelementptr inbounds i8, ptr %premaster_secret, i64 8
   store i64 %premaster_secret.coerce1, ptr %0, align 8
   store ptr %client_nonce.coerce0, ptr %client_nonce, align 8
-  %1 = getelementptr inbounds { ptr, i64 }, ptr %client_nonce, i64 0, i32 1
+  %1 = getelementptr inbounds i8, ptr %client_nonce, i64 8
   store i64 %client_nonce.coerce1, ptr %1, align 8
   %call = tail call noundef ptr @_ZN3net13QuicEncrypter6CreateEj(i32 noundef %aead)
   %2 = load ptr, ptr %crypters, align 8
@@ -330,13 +315,13 @@ entry:
 
 _ZNKSt14default_deleteIN3net13QuicEncrypterEEclEPS1_.exit.i.i: ; preds = %entry
   %vtable.i.i.i = load ptr, ptr %2, align 8
-  %vfn.i.i.i = getelementptr inbounds ptr, ptr %vtable.i.i.i, i64 1
+  %vfn.i.i.i = getelementptr inbounds i8, ptr %vtable.i.i.i, i64 8
   %3 = load ptr, ptr %vfn.i.i.i, align 8
   tail call void %3(ptr noundef nonnull align 8 dereferenceable(8) %2) #6
   br label %_ZNSt10unique_ptrIN3net13QuicEncrypterESt14default_deleteIS1_EE5resetEPS1_.exit
 
 _ZNSt10unique_ptrIN3net13QuicEncrypterESt14default_deleteIS1_EE5resetEPS1_.exit: ; preds = %entry, %_ZNKSt14default_deleteIN3net13QuicEncrypterEEclEPS1_.exit.i.i
-  %decrypter = getelementptr inbounds %"struct.net::CrypterPair", ptr %crypters, i64 0, i32 1
+  %decrypter = getelementptr inbounds i8, ptr %crypters, i64 8
   %call1 = tail call noundef ptr @_ZN3net13QuicDecrypter6CreateEj(i32 noundef %aead)
   %4 = load ptr, ptr %decrypter, align 8
   store ptr %call1, ptr %decrypter, align 8
@@ -345,7 +330,7 @@ _ZNSt10unique_ptrIN3net13QuicEncrypterESt14default_deleteIS1_EE5resetEPS1_.exit:
 
 _ZNKSt14default_deleteIN3net13QuicDecrypterEEclEPS1_.exit.i.i: ; preds = %_ZNSt10unique_ptrIN3net13QuicEncrypterESt14default_deleteIS1_EE5resetEPS1_.exit
   %vtable.i.i.i33 = load ptr, ptr %4, align 8
-  %vfn.i.i.i34 = getelementptr inbounds ptr, ptr %vtable.i.i.i33, i64 1
+  %vfn.i.i.i34 = getelementptr inbounds i8, ptr %vtable.i.i.i33, i64 8
   %5 = load ptr, ptr %vfn.i.i.i34, align 8
   tail call void %5(ptr noundef nonnull align 8 dereferenceable(8) %4) #6
   br label %_ZNSt10unique_ptrIN3net13QuicDecrypterESt14default_deleteIS1_EE5resetEPS1_.exit
@@ -353,12 +338,12 @@ _ZNKSt14default_deleteIN3net13QuicDecrypterEEclEPS1_.exit.i.i: ; preds = %_ZNSt1
 _ZNSt10unique_ptrIN3net13QuicDecrypterESt14default_deleteIS1_EE5resetEPS1_.exit: ; preds = %_ZNSt10unique_ptrIN3net13QuicEncrypterESt14default_deleteIS1_EE5resetEPS1_.exit, %_ZNKSt14default_deleteIN3net13QuicDecrypterEEclEPS1_.exit.i.i
   %6 = load ptr, ptr %crypters, align 8
   %vtable = load ptr, ptr %6, align 8
-  %vfn = getelementptr inbounds ptr, ptr %vtable, i64 5
+  %vfn = getelementptr inbounds i8, ptr %vtable, i64 40
   %7 = load ptr, ptr %vfn, align 8
   %call4 = tail call noundef i64 %7(ptr noundef nonnull align 8 dereferenceable(8) %6)
   %8 = load ptr, ptr %crypters, align 8
   %vtable7 = load ptr, ptr %8, align 8
-  %vfn8 = getelementptr inbounds ptr, ptr %vtable7, i64 6
+  %vfn8 = getelementptr inbounds i8, ptr %vtable7, i64 48
   %9 = load ptr, ptr %vfn8, align 8
   %call9 = tail call noundef i64 %9(ptr noundef nonnull align 8 dereferenceable(8) %8)
   %cmp = icmp eq ptr %subkey_secret, null
@@ -467,14 +452,14 @@ sw.bb:                                            ; preds = %invoke.cont24
   %cmp28 = icmp eq i32 %perspective, 0
   %15 = load ptr, ptr %crypters, align 8
   %vtable34 = load ptr, ptr %15, align 8
-  %vfn35 = getelementptr inbounds ptr, ptr %vtable34, i64 2
+  %vfn35 = getelementptr inbounds i8, ptr %vtable34, i64 16
   %16 = load ptr, ptr %vfn35, align 8
   br i1 %cmp28, label %if.then29, label %if.else
 
 if.then29:                                        ; preds = %sw.bb
-  %server_write_key_.i = getelementptr inbounds %"class.crypto::HKDF", ptr %hkdf, i64 0, i32 2
+  %server_write_key_.i = getelementptr inbounds i8, ptr %hkdf, i64 40
   %retval.sroa.0.0.copyload.i = load ptr, ptr %server_write_key_.i, align 8
-  %retval.sroa.2.0.server_write_key_.sroa_idx.i = getelementptr inbounds %"class.crypto::HKDF", ptr %hkdf, i64 0, i32 2, i32 1
+  %retval.sroa.2.0.server_write_key_.sroa_idx.i = getelementptr inbounds i8, ptr %hkdf, i64 48
   %retval.sroa.2.0.copyload.i = load i64, ptr %retval.sroa.2.0.server_write_key_.sroa_idx.i, align 8
   %call37 = invoke noundef zeroext i1 %16(ptr noundef nonnull align 8 dereferenceable(8) %15, ptr %retval.sroa.0.0.copyload.i, i64 %retval.sroa.2.0.copyload.i)
           to label %invoke.cont36 unwind label %lpad25
@@ -484,12 +469,12 @@ invoke.cont36:                                    ; preds = %if.then29
 
 lor.lhs.false:                                    ; preds = %invoke.cont36
   %17 = load ptr, ptr %crypters, align 8
-  %server_write_iv_.i = getelementptr inbounds %"class.crypto::HKDF", ptr %hkdf, i64 0, i32 4
+  %server_write_iv_.i = getelementptr inbounds i8, ptr %hkdf, i64 72
   %retval.sroa.0.0.copyload.i37 = load ptr, ptr %server_write_iv_.i, align 8
-  %retval.sroa.2.0.server_write_iv_.sroa_idx.i = getelementptr inbounds %"class.crypto::HKDF", ptr %hkdf, i64 0, i32 4, i32 1
+  %retval.sroa.2.0.server_write_iv_.sroa_idx.i = getelementptr inbounds i8, ptr %hkdf, i64 80
   %retval.sroa.2.0.copyload.i38 = load i64, ptr %retval.sroa.2.0.server_write_iv_.sroa_idx.i, align 8
   %vtable43 = load ptr, ptr %17, align 8
-  %vfn44 = getelementptr inbounds ptr, ptr %vtable43, i64 3
+  %vfn44 = getelementptr inbounds i8, ptr %vtable43, i64 24
   %18 = load ptr, ptr %vfn44, align 8
   %call46 = invoke noundef zeroext i1 %18(ptr noundef nonnull align 8 dereferenceable(8) %17, ptr %retval.sroa.0.0.copyload.i37, i64 %retval.sroa.2.0.copyload.i38)
           to label %invoke.cont45 unwind label %lpad25
@@ -499,12 +484,12 @@ invoke.cont45:                                    ; preds = %lor.lhs.false
 
 lor.lhs.false47:                                  ; preds = %invoke.cont45
   %19 = load ptr, ptr %decrypter, align 8
-  %client_write_key_.i = getelementptr inbounds %"class.crypto::HKDF", ptr %hkdf, i64 0, i32 1
+  %client_write_key_.i = getelementptr inbounds i8, ptr %hkdf, i64 24
   %retval.sroa.0.0.copyload.i41 = load ptr, ptr %client_write_key_.i, align 8
-  %retval.sroa.2.0.client_write_key_.sroa_idx.i = getelementptr inbounds %"class.crypto::HKDF", ptr %hkdf, i64 0, i32 1, i32 1
+  %retval.sroa.2.0.client_write_key_.sroa_idx.i = getelementptr inbounds i8, ptr %hkdf, i64 32
   %retval.sroa.2.0.copyload.i42 = load i64, ptr %retval.sroa.2.0.client_write_key_.sroa_idx.i, align 8
   %vtable53 = load ptr, ptr %19, align 8
-  %vfn54 = getelementptr inbounds ptr, ptr %vtable53, i64 2
+  %vfn54 = getelementptr inbounds i8, ptr %vtable53, i64 16
   %20 = load ptr, ptr %vfn54, align 8
   %call56 = invoke noundef zeroext i1 %20(ptr noundef nonnull align 8 dereferenceable(8) %19, ptr %retval.sroa.0.0.copyload.i41, i64 %retval.sroa.2.0.copyload.i42)
           to label %invoke.cont55 unwind label %lpad25
@@ -514,12 +499,12 @@ invoke.cont55:                                    ; preds = %lor.lhs.false47
 
 lor.lhs.false57:                                  ; preds = %invoke.cont55
   %21 = load ptr, ptr %decrypter, align 8
-  %client_write_iv_.i = getelementptr inbounds %"class.crypto::HKDF", ptr %hkdf, i64 0, i32 3
+  %client_write_iv_.i = getelementptr inbounds i8, ptr %hkdf, i64 56
   %retval.sroa.0.0.copyload.i45 = load ptr, ptr %client_write_iv_.i, align 8
-  %retval.sroa.2.0.client_write_iv_.sroa_idx.i = getelementptr inbounds %"class.crypto::HKDF", ptr %hkdf, i64 0, i32 3, i32 1
+  %retval.sroa.2.0.client_write_iv_.sroa_idx.i = getelementptr inbounds i8, ptr %hkdf, i64 64
   %retval.sroa.2.0.copyload.i46 = load i64, ptr %retval.sroa.2.0.client_write_iv_.sroa_idx.i, align 8
   %vtable63 = load ptr, ptr %21, align 8
-  %vfn64 = getelementptr inbounds ptr, ptr %vtable63, i64 3
+  %vfn64 = getelementptr inbounds i8, ptr %vtable63, i64 24
   %22 = load ptr, ptr %vfn64, align 8
   %call66 = invoke noundef zeroext i1 %22(ptr noundef nonnull align 8 dereferenceable(8) %21, ptr %retval.sroa.0.0.copyload.i45, i64 %retval.sroa.2.0.copyload.i46)
           to label %invoke.cont65 unwind label %lpad25
@@ -530,9 +515,9 @@ invoke.cont65:                                    ; preds = %lor.lhs.false57
   br i1 %brmerge126, label %cleanup261, label %if.then255
 
 if.else:                                          ; preds = %sw.bb
-  %client_write_key_.i49 = getelementptr inbounds %"class.crypto::HKDF", ptr %hkdf, i64 0, i32 1
+  %client_write_key_.i49 = getelementptr inbounds i8, ptr %hkdf, i64 24
   %retval.sroa.0.0.copyload.i50 = load ptr, ptr %client_write_key_.i49, align 8
-  %retval.sroa.2.0.client_write_key_.sroa_idx.i51 = getelementptr inbounds %"class.crypto::HKDF", ptr %hkdf, i64 0, i32 1, i32 1
+  %retval.sroa.2.0.client_write_key_.sroa_idx.i51 = getelementptr inbounds i8, ptr %hkdf, i64 32
   %retval.sroa.2.0.copyload.i52 = load i64, ptr %retval.sroa.2.0.client_write_key_.sroa_idx.i51, align 8
   %call77 = invoke noundef zeroext i1 %16(ptr noundef nonnull align 8 dereferenceable(8) %15, ptr %retval.sroa.0.0.copyload.i50, i64 %retval.sroa.2.0.copyload.i52)
           to label %invoke.cont76 unwind label %lpad25
@@ -542,12 +527,12 @@ invoke.cont76:                                    ; preds = %if.else
 
 lor.lhs.false78:                                  ; preds = %invoke.cont76
   %23 = load ptr, ptr %crypters, align 8
-  %client_write_iv_.i55 = getelementptr inbounds %"class.crypto::HKDF", ptr %hkdf, i64 0, i32 3
+  %client_write_iv_.i55 = getelementptr inbounds i8, ptr %hkdf, i64 56
   %retval.sroa.0.0.copyload.i56 = load ptr, ptr %client_write_iv_.i55, align 8
-  %retval.sroa.2.0.client_write_iv_.sroa_idx.i57 = getelementptr inbounds %"class.crypto::HKDF", ptr %hkdf, i64 0, i32 3, i32 1
+  %retval.sroa.2.0.client_write_iv_.sroa_idx.i57 = getelementptr inbounds i8, ptr %hkdf, i64 64
   %retval.sroa.2.0.copyload.i58 = load i64, ptr %retval.sroa.2.0.client_write_iv_.sroa_idx.i57, align 8
   %vtable84 = load ptr, ptr %23, align 8
-  %vfn85 = getelementptr inbounds ptr, ptr %vtable84, i64 3
+  %vfn85 = getelementptr inbounds i8, ptr %vtable84, i64 24
   %24 = load ptr, ptr %vfn85, align 8
   %call87 = invoke noundef zeroext i1 %24(ptr noundef nonnull align 8 dereferenceable(8) %23, ptr %retval.sroa.0.0.copyload.i56, i64 %retval.sroa.2.0.copyload.i58)
           to label %invoke.cont86 unwind label %lpad25
@@ -557,12 +542,12 @@ invoke.cont86:                                    ; preds = %lor.lhs.false78
 
 lor.lhs.false88:                                  ; preds = %invoke.cont86
   %25 = load ptr, ptr %decrypter, align 8
-  %server_write_key_.i61 = getelementptr inbounds %"class.crypto::HKDF", ptr %hkdf, i64 0, i32 2
+  %server_write_key_.i61 = getelementptr inbounds i8, ptr %hkdf, i64 40
   %retval.sroa.0.0.copyload.i62 = load ptr, ptr %server_write_key_.i61, align 8
-  %retval.sroa.2.0.server_write_key_.sroa_idx.i63 = getelementptr inbounds %"class.crypto::HKDF", ptr %hkdf, i64 0, i32 2, i32 1
+  %retval.sroa.2.0.server_write_key_.sroa_idx.i63 = getelementptr inbounds i8, ptr %hkdf, i64 48
   %retval.sroa.2.0.copyload.i64 = load i64, ptr %retval.sroa.2.0.server_write_key_.sroa_idx.i63, align 8
   %vtable94 = load ptr, ptr %25, align 8
-  %vfn95 = getelementptr inbounds ptr, ptr %vtable94, i64 2
+  %vfn95 = getelementptr inbounds i8, ptr %vtable94, i64 16
   %26 = load ptr, ptr %vfn95, align 8
   %call97 = invoke noundef zeroext i1 %26(ptr noundef nonnull align 8 dereferenceable(8) %25, ptr %retval.sroa.0.0.copyload.i62, i64 %retval.sroa.2.0.copyload.i64)
           to label %invoke.cont96 unwind label %lpad25
@@ -572,12 +557,12 @@ invoke.cont96:                                    ; preds = %lor.lhs.false88
 
 lor.lhs.false98:                                  ; preds = %invoke.cont96
   %27 = load ptr, ptr %decrypter, align 8
-  %server_write_iv_.i67 = getelementptr inbounds %"class.crypto::HKDF", ptr %hkdf, i64 0, i32 4
+  %server_write_iv_.i67 = getelementptr inbounds i8, ptr %hkdf, i64 72
   %retval.sroa.0.0.copyload.i68 = load ptr, ptr %server_write_iv_.i67, align 8
-  %retval.sroa.2.0.server_write_iv_.sroa_idx.i69 = getelementptr inbounds %"class.crypto::HKDF", ptr %hkdf, i64 0, i32 4, i32 1
+  %retval.sroa.2.0.server_write_iv_.sroa_idx.i69 = getelementptr inbounds i8, ptr %hkdf, i64 80
   %retval.sroa.2.0.copyload.i70 = load i64, ptr %retval.sroa.2.0.server_write_iv_.sroa_idx.i69, align 8
   %vtable104 = load ptr, ptr %27, align 8
-  %vfn105 = getelementptr inbounds ptr, ptr %vtable104, i64 3
+  %vfn105 = getelementptr inbounds i8, ptr %vtable104, i64 24
   %28 = load ptr, ptr %vfn105, align 8
   %call107 = invoke noundef zeroext i1 %28(ptr noundef nonnull align 8 dereferenceable(8) %27, ptr %retval.sroa.0.0.copyload.i68, i64 %retval.sroa.2.0.copyload.i70)
           to label %invoke.cont106 unwind label %lpad25
@@ -603,7 +588,7 @@ cond.false117:                                    ; preds = %invoke.cont114
           to label %invoke.cont121 unwind label %lpad25
 
 invoke.cont121:                                   ; preds = %cond.false117
-  %stream_.i = getelementptr inbounds %"class.logging::LogMessage", ptr %ref.tmp120, i64 0, i32 2
+  %stream_.i = getelementptr inbounds i8, ptr %ref.tmp120, i64 8
   %call126 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc(ptr noundef nonnull align 8 dereferenceable(8) %stream_.i, ptr noundef nonnull @.str.1)
           to label %cleanup.action unwind label %lpad122
 
@@ -619,12 +604,12 @@ lpad122:                                          ; preds = %invoke.cont121
 
 if.end133:                                        ; preds = %sw.bb111
   %30 = load ptr, ptr %crypters, align 8
-  %client_write_key_.i73 = getelementptr inbounds %"class.crypto::HKDF", ptr %hkdf, i64 0, i32 1
+  %client_write_key_.i73 = getelementptr inbounds i8, ptr %hkdf, i64 24
   %retval.sroa.0.0.copyload.i74 = load ptr, ptr %client_write_key_.i73, align 8
-  %retval.sroa.2.0.client_write_key_.sroa_idx.i75 = getelementptr inbounds %"class.crypto::HKDF", ptr %hkdf, i64 0, i32 1, i32 1
+  %retval.sroa.2.0.client_write_key_.sroa_idx.i75 = getelementptr inbounds i8, ptr %hkdf, i64 32
   %retval.sroa.2.0.copyload.i76 = load i64, ptr %retval.sroa.2.0.client_write_key_.sroa_idx.i75, align 8
   %vtable139 = load ptr, ptr %30, align 8
-  %vfn140 = getelementptr inbounds ptr, ptr %vtable139, i64 2
+  %vfn140 = getelementptr inbounds i8, ptr %vtable139, i64 16
   %31 = load ptr, ptr %vfn140, align 8
   %call142 = invoke noundef zeroext i1 %31(ptr noundef nonnull align 8 dereferenceable(8) %30, ptr %retval.sroa.0.0.copyload.i74, i64 %retval.sroa.2.0.copyload.i76)
           to label %invoke.cont141 unwind label %lpad25
@@ -634,12 +619,12 @@ invoke.cont141:                                   ; preds = %if.end133
 
 lor.lhs.false143:                                 ; preds = %invoke.cont141
   %32 = load ptr, ptr %crypters, align 8
-  %client_write_iv_.i79 = getelementptr inbounds %"class.crypto::HKDF", ptr %hkdf, i64 0, i32 3
+  %client_write_iv_.i79 = getelementptr inbounds i8, ptr %hkdf, i64 56
   %retval.sroa.0.0.copyload.i80 = load ptr, ptr %client_write_iv_.i79, align 8
-  %retval.sroa.2.0.client_write_iv_.sroa_idx.i81 = getelementptr inbounds %"class.crypto::HKDF", ptr %hkdf, i64 0, i32 3, i32 1
+  %retval.sroa.2.0.client_write_iv_.sroa_idx.i81 = getelementptr inbounds i8, ptr %hkdf, i64 64
   %retval.sroa.2.0.copyload.i82 = load i64, ptr %retval.sroa.2.0.client_write_iv_.sroa_idx.i81, align 8
   %vtable149 = load ptr, ptr %32, align 8
-  %vfn150 = getelementptr inbounds ptr, ptr %vtable149, i64 3
+  %vfn150 = getelementptr inbounds i8, ptr %vtable149, i64 24
   %33 = load ptr, ptr %vfn150, align 8
   %call152 = invoke noundef zeroext i1 %33(ptr noundef nonnull align 8 dereferenceable(8) %32, ptr %retval.sroa.0.0.copyload.i80, i64 %retval.sroa.2.0.copyload.i82)
           to label %invoke.cont151 unwind label %lpad25
@@ -649,12 +634,12 @@ invoke.cont151:                                   ; preds = %lor.lhs.false143
 
 lor.lhs.false153:                                 ; preds = %invoke.cont151
   %34 = load ptr, ptr %decrypter, align 8
-  %server_write_key_.i85 = getelementptr inbounds %"class.crypto::HKDF", ptr %hkdf, i64 0, i32 2
+  %server_write_key_.i85 = getelementptr inbounds i8, ptr %hkdf, i64 40
   %retval.sroa.0.0.copyload.i86 = load ptr, ptr %server_write_key_.i85, align 8
-  %retval.sroa.2.0.server_write_key_.sroa_idx.i87 = getelementptr inbounds %"class.crypto::HKDF", ptr %hkdf, i64 0, i32 2, i32 1
+  %retval.sroa.2.0.server_write_key_.sroa_idx.i87 = getelementptr inbounds i8, ptr %hkdf, i64 48
   %retval.sroa.2.0.copyload.i88 = load i64, ptr %retval.sroa.2.0.server_write_key_.sroa_idx.i87, align 8
   %vtable159 = load ptr, ptr %34, align 8
-  %vfn160 = getelementptr inbounds ptr, ptr %vtable159, i64 4
+  %vfn160 = getelementptr inbounds i8, ptr %vtable159, i64 32
   %35 = load ptr, ptr %vfn160, align 8
   %call162 = invoke noundef zeroext i1 %35(ptr noundef nonnull align 8 dereferenceable(8) %34, ptr %retval.sroa.0.0.copyload.i86, i64 %retval.sroa.2.0.copyload.i88)
           to label %invoke.cont161 unwind label %lpad25
@@ -664,12 +649,12 @@ invoke.cont161:                                   ; preds = %lor.lhs.false153
 
 lor.lhs.false163:                                 ; preds = %invoke.cont161
   %36 = load ptr, ptr %decrypter, align 8
-  %server_write_iv_.i91 = getelementptr inbounds %"class.crypto::HKDF", ptr %hkdf, i64 0, i32 4
+  %server_write_iv_.i91 = getelementptr inbounds i8, ptr %hkdf, i64 72
   %retval.sroa.0.0.copyload.i92 = load ptr, ptr %server_write_iv_.i91, align 8
-  %retval.sroa.2.0.server_write_iv_.sroa_idx.i93 = getelementptr inbounds %"class.crypto::HKDF", ptr %hkdf, i64 0, i32 4, i32 1
+  %retval.sroa.2.0.server_write_iv_.sroa_idx.i93 = getelementptr inbounds i8, ptr %hkdf, i64 80
   %retval.sroa.2.0.copyload.i94 = load i64, ptr %retval.sroa.2.0.server_write_iv_.sroa_idx.i93, align 8
   %vtable169 = load ptr, ptr %36, align 8
-  %vfn170 = getelementptr inbounds ptr, ptr %vtable169, i64 3
+  %vfn170 = getelementptr inbounds i8, ptr %vtable169, i64 24
   %37 = load ptr, ptr %vfn170, align 8
   %call172 = invoke noundef zeroext i1 %37(ptr noundef nonnull align 8 dereferenceable(8) %36, ptr %retval.sroa.0.0.copyload.i92, i64 %retval.sroa.2.0.copyload.i94)
           to label %invoke.cont171 unwind label %lpad25
@@ -695,7 +680,7 @@ cond.false181:                                    ; preds = %invoke.cont178
           to label %invoke.cont185 unwind label %lpad25
 
 invoke.cont185:                                   ; preds = %cond.false181
-  %stream_.i97 = getelementptr inbounds %"class.logging::LogMessage", ptr %ref.tmp184, i64 0, i32 2
+  %stream_.i97 = getelementptr inbounds i8, ptr %ref.tmp184, i64 8
   %call191 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc(ptr noundef nonnull align 8 dereferenceable(8) %stream_.i97, ptr noundef nonnull @.str.2)
           to label %cleanup.action195 unwind label %lpad187
 
@@ -712,27 +697,27 @@ lpad187:                                          ; preds = %invoke.cont185
 invoke.cont209:                                   ; preds = %sw.bb175
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(32) %key) #6
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(32) %nonce_prefix) #6
-  %server_write_key_.i98 = getelementptr inbounds %"class.crypto::HKDF", ptr %hkdf, i64 0, i32 2
+  %server_write_key_.i98 = getelementptr inbounds i8, ptr %hkdf, i64 40
   %retval.sroa.0.0.copyload.i99 = load ptr, ptr %server_write_key_.i98, align 8
-  %retval.sroa.2.0.server_write_key_.sroa_idx.i100 = getelementptr inbounds %"class.crypto::HKDF", ptr %hkdf, i64 0, i32 2, i32 1
+  %retval.sroa.2.0.server_write_key_.sroa_idx.i100 = getelementptr inbounds i8, ptr %hkdf, i64 48
   %retval.sroa.2.0.copyload.i101 = load i64, ptr %retval.sroa.2.0.server_write_key_.sroa_idx.i100, align 8
-  %server_write_iv_.i104 = getelementptr inbounds %"class.crypto::HKDF", ptr %hkdf, i64 0, i32 4
+  %server_write_iv_.i104 = getelementptr inbounds i8, ptr %hkdf, i64 72
   %retval.sroa.0.0.copyload.i105 = load ptr, ptr %server_write_iv_.i104, align 8
-  %retval.sroa.2.0.server_write_iv_.sroa_idx.i106 = getelementptr inbounds %"class.crypto::HKDF", ptr %hkdf, i64 0, i32 4, i32 1
+  %retval.sroa.2.0.server_write_iv_.sroa_idx.i106 = getelementptr inbounds i8, ptr %hkdf, i64 80
   %retval.sroa.2.0.copyload.i107 = load i64, ptr %retval.sroa.2.0.server_write_iv_.sroa_idx.i106, align 8
-  %nonce_.i = getelementptr inbounds %"class.net::CryptoUtils::Diversification", ptr %diversification, i64 0, i32 1
+  %nonce_.i = getelementptr inbounds i8, ptr %diversification, i64 8
   %39 = load ptr, ptr %nonce_.i, align 8
   invoke void @_ZN3net13QuicDecrypter23DiversifyPreliminaryKeyEN4base16BasicStringPieceINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEES9_RKSt5arrayIcLm32EEmmPS8_SE_(ptr %retval.sroa.0.0.copyload.i99, i64 %retval.sroa.2.0.copyload.i101, ptr %retval.sroa.0.0.copyload.i105, i64 %retval.sroa.2.0.copyload.i107, ptr noundef nonnull align 1 %39, i64 noundef %call4, i64 noundef %call9, ptr noundef nonnull %key, ptr noundef nonnull %nonce_prefix)
           to label %invoke.cont211 unwind label %lpad203
 
 invoke.cont211:                                   ; preds = %invoke.cont209
   %40 = load ptr, ptr %decrypter, align 8
-  %client_write_key_.i110 = getelementptr inbounds %"class.crypto::HKDF", ptr %hkdf, i64 0, i32 1
+  %client_write_key_.i110 = getelementptr inbounds i8, ptr %hkdf, i64 24
   %retval.sroa.0.0.copyload.i111 = load ptr, ptr %client_write_key_.i110, align 8
-  %retval.sroa.2.0.client_write_key_.sroa_idx.i112 = getelementptr inbounds %"class.crypto::HKDF", ptr %hkdf, i64 0, i32 1, i32 1
+  %retval.sroa.2.0.client_write_key_.sroa_idx.i112 = getelementptr inbounds i8, ptr %hkdf, i64 32
   %retval.sroa.2.0.copyload.i113 = load i64, ptr %retval.sroa.2.0.client_write_key_.sroa_idx.i112, align 8
   %vtable217 = load ptr, ptr %40, align 8
-  %vfn218 = getelementptr inbounds ptr, ptr %vtable217, i64 2
+  %vfn218 = getelementptr inbounds i8, ptr %vtable217, i64 16
   %41 = load ptr, ptr %vfn218, align 8
   %call220 = invoke noundef zeroext i1 %41(ptr noundef nonnull align 8 dereferenceable(8) %40, ptr %retval.sroa.0.0.copyload.i111, i64 %retval.sroa.2.0.copyload.i113)
           to label %invoke.cont219 unwind label %lpad203
@@ -742,12 +727,12 @@ invoke.cont219:                                   ; preds = %invoke.cont211
 
 lor.lhs.false221:                                 ; preds = %invoke.cont219
   %42 = load ptr, ptr %decrypter, align 8
-  %client_write_iv_.i116 = getelementptr inbounds %"class.crypto::HKDF", ptr %hkdf, i64 0, i32 3
+  %client_write_iv_.i116 = getelementptr inbounds i8, ptr %hkdf, i64 56
   %retval.sroa.0.0.copyload.i117 = load ptr, ptr %client_write_iv_.i116, align 8
-  %retval.sroa.2.0.client_write_iv_.sroa_idx.i118 = getelementptr inbounds %"class.crypto::HKDF", ptr %hkdf, i64 0, i32 3, i32 1
+  %retval.sroa.2.0.client_write_iv_.sroa_idx.i118 = getelementptr inbounds i8, ptr %hkdf, i64 64
   %retval.sroa.2.0.copyload.i119 = load i64, ptr %retval.sroa.2.0.client_write_iv_.sroa_idx.i118, align 8
   %vtable227 = load ptr, ptr %42, align 8
-  %vfn228 = getelementptr inbounds ptr, ptr %vtable227, i64 3
+  %vfn228 = getelementptr inbounds i8, ptr %vtable227, i64 24
   %43 = load ptr, ptr %vfn228, align 8
   %call230 = invoke noundef zeroext i1 %43(ptr noundef nonnull align 8 dereferenceable(8) %42, ptr %retval.sroa.0.0.copyload.i117, i64 %retval.sroa.2.0.copyload.i119)
           to label %invoke.cont229 unwind label %lpad203
@@ -762,10 +747,10 @@ lor.lhs.false231:                                 ; preds = %invoke.cont229
 
 invoke.cont235:                                   ; preds = %lor.lhs.false231
   %45 = load ptr, ptr %agg.tmp234, align 8
-  %46 = getelementptr inbounds { ptr, i64 }, ptr %agg.tmp234, i64 0, i32 1
+  %46 = getelementptr inbounds i8, ptr %agg.tmp234, i64 8
   %47 = load i64, ptr %46, align 8
   %vtable236 = load ptr, ptr %44, align 8
-  %vfn237 = getelementptr inbounds ptr, ptr %vtable236, i64 2
+  %vfn237 = getelementptr inbounds i8, ptr %vtable236, i64 16
   %48 = load ptr, ptr %vfn237, align 8
   %call239 = invoke noundef zeroext i1 %48(ptr noundef nonnull align 8 dereferenceable(8) %44, ptr %45, i64 %47)
           to label %invoke.cont238 unwind label %lpad203
@@ -780,10 +765,10 @@ lor.lhs.false240:                                 ; preds = %invoke.cont238
 
 invoke.cont244:                                   ; preds = %lor.lhs.false240
   %50 = load ptr, ptr %agg.tmp243, align 8
-  %51 = getelementptr inbounds { ptr, i64 }, ptr %agg.tmp243, i64 0, i32 1
+  %51 = getelementptr inbounds i8, ptr %agg.tmp243, i64 8
   %52 = load i64, ptr %51, align 8
   %vtable245 = load ptr, ptr %49, align 8
-  %vfn246 = getelementptr inbounds ptr, ptr %vtable245, i64 3
+  %vfn246 = getelementptr inbounds i8, ptr %vtable245, i64 24
   %53 = load ptr, ptr %vfn246, align 8
   %call248 = invoke noundef zeroext i1 %53(ptr noundef nonnull align 8 dereferenceable(8) %49, ptr %50, i64 %52)
           to label %invoke.cont247 unwind label %lpad203
@@ -812,12 +797,12 @@ sw.epilog:                                        ; preds = %if.end250, %invoke.
   br i1 %cmp, label %cleanup261, label %if.then255
 
 if.then255:                                       ; preds = %invoke.cont106, %invoke.cont65, %invoke.cont171, %sw.epilog
-  %subkey_secret_.i = getelementptr inbounds %"class.crypto::HKDF", ptr %hkdf, i64 0, i32 5
+  %subkey_secret_.i = getelementptr inbounds i8, ptr %hkdf, i64 88
   %retval.sroa.0.0.copyload.i122 = load ptr, ptr %subkey_secret_.i, align 8
-  %retval.sroa.2.0.subkey_secret_.sroa_idx.i = getelementptr inbounds %"class.crypto::HKDF", ptr %hkdf, i64 0, i32 5, i32 1
+  %retval.sroa.2.0.subkey_secret_.sroa_idx.i = getelementptr inbounds i8, ptr %hkdf, i64 96
   %retval.sroa.2.0.copyload.i123 = load i64, ptr %retval.sroa.2.0.subkey_secret_.sroa_idx.i, align 8
   store ptr %retval.sroa.0.0.copyload.i122, ptr %ref.tmp256, align 8
-  %55 = getelementptr inbounds { ptr, i64 }, ptr %ref.tmp256, i64 0, i32 1
+  %55 = getelementptr inbounds i8, ptr %ref.tmp256, i64 8
   store i64 %retval.sroa.2.0.copyload.i123, ptr %55, align 8
   invoke void @_ZNK4base16BasicStringPieceINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE12CopyToStringEPS6_(ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp256, ptr noundef nonnull %subkey_secret)
           to label %cleanup261 unwind label %lpad25
@@ -886,13 +871,13 @@ entry:
   %ref.tmp51 = alloca %"class.base::BasicStringPiece", align 8
   %ref.tmp54 = alloca %"class.base::BasicStringPiece", align 8
   store ptr %subkey_secret.coerce0, ptr %subkey_secret, align 8
-  %0 = getelementptr inbounds { ptr, i64 }, ptr %subkey_secret, i64 0, i32 1
+  %0 = getelementptr inbounds i8, ptr %subkey_secret, i64 8
   store i64 %subkey_secret.coerce1, ptr %0, align 8
   store ptr %label.coerce0, ptr %label, align 8
-  %1 = getelementptr inbounds { ptr, i64 }, ptr %label, i64 0, i32 1
+  %1 = getelementptr inbounds i8, ptr %label, i64 8
   store i64 %label.coerce1, ptr %1, align 8
   store ptr %context.coerce0, ptr %context, align 8
-  %2 = getelementptr inbounds { ptr, i64 }, ptr %context, i64 0, i32 1
+  %2 = getelementptr inbounds i8, ptr %context, i64 8
   store i64 %context.coerce1, ptr %2, align 8
   %call8 = call noundef i64 @_ZNK4base16BasicStringPieceINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE6lengthEv(ptr noundef nonnull align 8 dereferenceable(16) %label)
   %cmp9.not = icmp eq i64 %call8, 0
@@ -916,7 +901,7 @@ if.then:                                          ; preds = %for.body
 
 cond.false:                                       ; preds = %if.then
   call void @_ZN7logging10LogMessageC1EPKcii(ptr noundef nonnull align 8 dereferenceable(404) %ref.tmp4, ptr noundef nonnull @.str, i32 noundef 189, i32 noundef 2)
-  %stream_.i = getelementptr inbounds %"class.logging::LogMessage", ptr %ref.tmp4, i64 0, i32 2
+  %stream_.i = getelementptr inbounds i8, ptr %ref.tmp4, i64 8
   %call7 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc(ptr noundef nonnull align 8 dereferenceable(8) %stream_.i, ptr noundef nonnull @.str.3)
           to label %cleanup.action unwind label %lpad
 
@@ -941,7 +926,7 @@ if.then16:                                        ; preds = %for.end
 
 cond.false19:                                     ; preds = %if.then16
   call void @_ZN7logging10LogMessageC1EPKcii(ptr noundef nonnull align 8 dereferenceable(404) %ref.tmp21, ptr noundef nonnull @.str, i32 noundef 195, i32 noundef 2)
-  %stream_.i6 = getelementptr inbounds %"class.logging::LogMessage", ptr %ref.tmp21, i64 0, i32 2
+  %stream_.i6 = getelementptr inbounds i8, ptr %ref.tmp21, i64 8
   %call27 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc(ptr noundef nonnull align 8 dereferenceable(8) %stream_.i6, ptr noundef nonnull @.str.4)
           to label %cleanup.action31 unwind label %lpad23
 
@@ -992,12 +977,12 @@ invoke.cont52:                                    ; preds = %invoke.cont50
           to label %invoke.cont53 unwind label %lpad39
 
 invoke.cont53:                                    ; preds = %invoke.cont52
-  %client_write_key_.i = getelementptr inbounds %"class.crypto::HKDF", ptr %hkdf, i64 0, i32 1
+  %client_write_key_.i = getelementptr inbounds i8, ptr %hkdf, i64 24
   %retval.sroa.0.0.copyload.i = load ptr, ptr %client_write_key_.i, align 8
-  %retval.sroa.2.0.client_write_key_.sroa_idx.i = getelementptr inbounds %"class.crypto::HKDF", ptr %hkdf, i64 0, i32 1, i32 1
+  %retval.sroa.2.0.client_write_key_.sroa_idx.i = getelementptr inbounds i8, ptr %hkdf, i64 32
   %retval.sroa.2.0.copyload.i = load i64, ptr %retval.sroa.2.0.client_write_key_.sroa_idx.i, align 8
   store ptr %retval.sroa.0.0.copyload.i, ptr %ref.tmp54, align 8
-  %5 = getelementptr inbounds { ptr, i64 }, ptr %ref.tmp54, i64 0, i32 1
+  %5 = getelementptr inbounds i8, ptr %ref.tmp54, i64 8
   store i64 %retval.sroa.2.0.copyload.i, ptr %5, align 8
   invoke void @_ZNK4base16BasicStringPieceINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE12CopyToStringEPS6_(ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp54, ptr noundef %result)
           to label %invoke.cont58 unwind label %lpad55
@@ -1082,7 +1067,7 @@ if.then4:                                         ; preds = %if.end
 
 if.end6:                                          ; preds = %if.end
   %1 = load ptr, ptr %negotiated_versions, align 8
-  %_M_finish.i.i = getelementptr inbounds %"struct.std::_Vector_base<net::QuicVersion, std::allocator<net::QuicVersion>>::_Vector_impl_data", ptr %negotiated_versions, i64 0, i32 1
+  %_M_finish.i.i = getelementptr inbounds i8, ptr %negotiated_versions, i64 8
   %2 = load ptr, ptr %_M_finish.i.i, align 8
   %cmp.i.i = icmp eq ptr %1, %2
   br i1 %cmp.i.i, label %return, label %if.then8
@@ -1161,7 +1146,7 @@ if.end6:                                          ; preds = %if.end
   br i1 %cmp8.not, label %return, label %for.cond.preheader
 
 for.cond.preheader:                               ; preds = %if.end6
-  %_M_finish.i = getelementptr inbounds %"struct.std::_Vector_base<net::QuicVersion, std::allocator<net::QuicVersion>>::_Vector_impl_data", ptr %supported_versions, i64 0, i32 1
+  %_M_finish.i = getelementptr inbounds i8, ptr %supported_versions, i64 8
   %2 = load ptr, ptr %_M_finish.i, align 8
   %3 = load ptr, ptr %supported_versions, align 8
   %cmp118.not = icmp eq ptr %2, %3
@@ -1223,12 +1208,12 @@ entry:
   %call = tail call noundef nonnull align 8 dereferenceable(25) ptr @_ZNK3net22CryptoHandshakeMessage13GetSerializedEv(ptr noundef nonnull align 8 dereferenceable(72) %message)
   call void @_ZN6crypto10SecureHash6CreateENS0_9AlgorithmE(ptr nonnull sret(%"class.std::unique_ptr.29") align 8 %hash, i32 noundef 0)
   %0 = load ptr, ptr %hash, align 8
-  %buffer_.i = getelementptr inbounds %"class.net::QuicData", ptr %call, i64 0, i32 1
+  %buffer_.i = getelementptr inbounds i8, ptr %call, i64 8
   %1 = load ptr, ptr %buffer_.i, align 8
-  %length_.i = getelementptr inbounds %"class.net::QuicData", ptr %call, i64 0, i32 2
+  %length_.i = getelementptr inbounds i8, ptr %call, i64 16
   %2 = load i64, ptr %length_.i, align 8
   %vtable = load ptr, ptr %0, align 8
-  %vfn = getelementptr inbounds ptr, ptr %vtable, i64 2
+  %vfn = getelementptr inbounds i8, ptr %vtable, i64 16
   %3 = load ptr, ptr %vfn, align 8
   invoke void %3(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %1, i64 noundef %2)
           to label %invoke.cont5 unwind label %lpad
@@ -1236,7 +1221,7 @@ entry:
 invoke.cont5:                                     ; preds = %entry
   %4 = load ptr, ptr %hash, align 8
   %vtable7 = load ptr, ptr %4, align 8
-  %vfn8 = getelementptr inbounds ptr, ptr %vtable7, i64 3
+  %vfn8 = getelementptr inbounds i8, ptr %vtable7, i64 24
   %5 = load ptr, ptr %vfn8, align 8
   invoke void %5(ptr noundef nonnull align 8 dereferenceable(8) %4, ptr noundef nonnull %digest, i64 noundef 32)
           to label %invoke.cont9 unwind label %lpad
@@ -1252,7 +1237,7 @@ invoke.cont10:                                    ; preds = %invoke.cont9
 
 _ZNKSt14default_deleteIN6crypto10SecureHashEEclEPS1_.exit.i: ; preds = %invoke.cont10
   %vtable.i.i = load ptr, ptr %6, align 8
-  %vfn.i.i = getelementptr inbounds ptr, ptr %vtable.i.i, i64 1
+  %vfn.i.i = getelementptr inbounds i8, ptr %vtable.i.i, i64 8
   %7 = load ptr, ptr %vfn.i.i, align 8
   call void %7(ptr noundef nonnull align 8 dereferenceable(8) %6) #6
   br label %_ZNSt10unique_ptrIN6crypto10SecureHashESt14default_deleteIS1_EED2Ev.exit
@@ -1269,7 +1254,7 @@ lpad:                                             ; preds = %invoke.cont9, %invo
 
 _ZNKSt14default_deleteIN6crypto10SecureHashEEclEPS1_.exit.i3: ; preds = %lpad
   %vtable.i.i4 = load ptr, ptr %9, align 8
-  %vfn.i.i5 = getelementptr inbounds ptr, ptr %vtable.i.i4, i64 1
+  %vfn.i.i5 = getelementptr inbounds i8, ptr %vtable.i.i4, i64 8
   %10 = load ptr, ptr %vfn.i.i5, align 8
   call void %10(ptr noundef nonnull align 8 dereferenceable(8) %9) #6
   br label %_ZNSt10unique_ptrIN6crypto10SecureHashESt14default_deleteIS1_EED2Ev.exit6

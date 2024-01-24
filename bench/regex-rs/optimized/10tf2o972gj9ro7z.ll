@@ -11,19 +11,19 @@ define void @"_ZN4core6result19Result$LT$T$C$E$GT$3map17h5675ae668c3d8134E"(ptr 
   %5 = alloca { { ptr, ptr }, { ptr, i64 } }, align 8
   %6 = alloca { ptr, i64 }, align 8
   store ptr %2, ptr %6, align 8
-  %7 = getelementptr inbounds { ptr, i64 }, ptr %6, i64 0, i32 1
+  %7 = getelementptr inbounds i8, ptr %6, i64 8
   store i64 %3, ptr %7, align 8
   %8 = load i32, ptr %1, align 8, !range !5, !noundef !6
   %.not = icmp eq i32 %8, 2
   br i1 %.not, label %.thread, label %15
 
 .thread:                                          ; preds = %4
-  %9 = getelementptr inbounds { [1 x i64], { ptr, ptr } }, ptr %1, i64 0, i32 1
+  %9 = getelementptr inbounds i8, ptr %1, i64 8
   %10 = load ptr, ptr %9, align 8, !nonnull !6, !noundef !6
-  %11 = getelementptr inbounds { [1 x i64], { ptr, ptr } }, ptr %1, i64 0, i32 1, i32 1
+  %11 = getelementptr inbounds i8, ptr %1, i64 16
   %12 = load ptr, ptr %11, align 8, !nonnull !6, !align !7, !noundef !6
   call void @"_ZN5regex8builders7Builder16build_one_string28_$u7b$$u7b$closure$u7d$$u7d$17he277408dcdc16624E"(ptr nonnull sret({ { ptr, ptr }, { ptr, i64 } }) align 8 %5, ptr nonnull %2, i64 %3, ptr nonnull %10, ptr nonnull align 8 %12)
-  %13 = getelementptr inbounds { [1 x i64], { { ptr, ptr }, { ptr, i64 } } }, ptr %0, i64 0, i32 1
+  %13 = getelementptr inbounds i8, ptr %0, i64 8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %13, ptr noundef nonnull align 8 dereferenceable(32) %5, i64 32, i1 false)
   store i32 2, ptr %0, align 8
   br label %14
@@ -42,19 +42,19 @@ define void @"_ZN4core6result19Result$LT$T$C$E$GT$3map17h7424517a69be150bE"(ptr 
   %5 = alloca { { ptr, ptr }, { ptr, i64 } }, align 8
   %6 = alloca { ptr, i64 }, align 8
   store ptr %2, ptr %6, align 8
-  %7 = getelementptr inbounds { ptr, i64 }, ptr %6, i64 0, i32 1
+  %7 = getelementptr inbounds i8, ptr %6, i64 8
   store i64 %3, ptr %7, align 8
   %8 = load i32, ptr %1, align 8, !range !5, !noundef !6
   %.not = icmp eq i32 %8, 2
   br i1 %.not, label %.thread, label %15
 
 .thread:                                          ; preds = %4
-  %9 = getelementptr inbounds { [1 x i64], { ptr, ptr } }, ptr %1, i64 0, i32 1
+  %9 = getelementptr inbounds i8, ptr %1, i64 8
   %10 = load ptr, ptr %9, align 8, !nonnull !6, !noundef !6
-  %11 = getelementptr inbounds { [1 x i64], { ptr, ptr } }, ptr %1, i64 0, i32 1, i32 1
+  %11 = getelementptr inbounds i8, ptr %1, i64 16
   %12 = load ptr, ptr %11, align 8, !nonnull !6, !align !7, !noundef !6
   call void @"_ZN5regex8builders7Builder15build_one_bytes28_$u7b$$u7b$closure$u7d$$u7d$17hd4e6f9d4537fea4dE"(ptr nonnull sret({ { ptr, ptr }, { ptr, i64 } }) align 8 %5, ptr nonnull %2, i64 %3, ptr nonnull %10, ptr nonnull align 8 %12)
-  %13 = getelementptr inbounds { [1 x i64], { { ptr, ptr }, { ptr, i64 } } }, ptr %0, i64 0, i32 1
+  %13 = getelementptr inbounds i8, ptr %0, i64 8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %13, ptr noundef nonnull align 8 dereferenceable(32) %5, i64 32, i1 false)
   store i32 2, ptr %0, align 8
   br label %14
@@ -73,19 +73,19 @@ define void @"_ZN4core6result19Result$LT$T$C$E$GT$3map17hd2acb4b6cb1d4142E"(ptr 
   %5 = alloca { { ptr, ptr }, { ptr, i64 } }, align 8
   %6 = alloca { ptr, i64 }, align 8
   store ptr %2, ptr %6, align 8
-  %7 = getelementptr inbounds { ptr, i64 }, ptr %6, i64 0, i32 1
+  %7 = getelementptr inbounds i8, ptr %6, i64 8
   store i64 %3, ptr %7, align 8
   %8 = load i32, ptr %1, align 8, !range !5, !noundef !6
   %.not = icmp eq i32 %8, 2
   br i1 %.not, label %.thread, label %15
 
 .thread:                                          ; preds = %4
-  %9 = getelementptr inbounds { [1 x i64], { ptr, ptr } }, ptr %1, i64 0, i32 1
+  %9 = getelementptr inbounds i8, ptr %1, i64 8
   %10 = load ptr, ptr %9, align 8, !nonnull !6, !noundef !6
-  %11 = getelementptr inbounds { [1 x i64], { ptr, ptr } }, ptr %1, i64 0, i32 1, i32 1
+  %11 = getelementptr inbounds i8, ptr %1, i64 16
   %12 = load ptr, ptr %11, align 8, !nonnull !6, !align !7, !noundef !6
   call void @"_ZN5regex8builders7Builder17build_many_string28_$u7b$$u7b$closure$u7d$$u7d$17h9d16b4c98070823cE"(ptr nonnull sret({ { ptr, ptr }, { ptr, i64 } }) align 8 %5, ptr nonnull %2, i64 %3, ptr nonnull %10, ptr nonnull align 8 %12)
-  %13 = getelementptr inbounds { [1 x i64], { { ptr, ptr }, { ptr, i64 } } }, ptr %0, i64 0, i32 1
+  %13 = getelementptr inbounds i8, ptr %0, i64 8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %13, ptr noundef nonnull align 8 dereferenceable(32) %5, i64 32, i1 false)
   store i32 2, ptr %0, align 8
   br label %14
@@ -104,19 +104,19 @@ define void @"_ZN4core6result19Result$LT$T$C$E$GT$3map17hf888d0c0389f28eeE"(ptr 
   %5 = alloca { { ptr, ptr }, { ptr, i64 } }, align 8
   %6 = alloca { ptr, i64 }, align 8
   store ptr %2, ptr %6, align 8
-  %7 = getelementptr inbounds { ptr, i64 }, ptr %6, i64 0, i32 1
+  %7 = getelementptr inbounds i8, ptr %6, i64 8
   store i64 %3, ptr %7, align 8
   %8 = load i32, ptr %1, align 8, !range !5, !noundef !6
   %.not = icmp eq i32 %8, 2
   br i1 %.not, label %.thread, label %15
 
 .thread:                                          ; preds = %4
-  %9 = getelementptr inbounds { [1 x i64], { ptr, ptr } }, ptr %1, i64 0, i32 1
+  %9 = getelementptr inbounds i8, ptr %1, i64 8
   %10 = load ptr, ptr %9, align 8, !nonnull !6, !noundef !6
-  %11 = getelementptr inbounds { [1 x i64], { ptr, ptr } }, ptr %1, i64 0, i32 1, i32 1
+  %11 = getelementptr inbounds i8, ptr %1, i64 16
   %12 = load ptr, ptr %11, align 8, !nonnull !6, !align !7, !noundef !6
   call void @"_ZN5regex8builders7Builder16build_many_bytes28_$u7b$$u7b$closure$u7d$$u7d$17hf8a23c8210ab6819E"(ptr nonnull sret({ { ptr, ptr }, { ptr, i64 } }) align 8 %5, ptr nonnull %2, i64 %3, ptr nonnull %10, ptr nonnull align 8 %12)
-  %13 = getelementptr inbounds { [1 x i64], { { ptr, ptr }, { ptr, i64 } } }, ptr %0, i64 0, i32 1
+  %13 = getelementptr inbounds i8, ptr %0, i64 8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %13, ptr noundef nonnull align 8 dereferenceable(32) %5, i64 32, i1 false)
   store i32 2, ptr %0, align 8
   br label %14
@@ -142,7 +142,7 @@ define void @"_ZN4core6result19Result$LT$T$C$E$GT$6unwrap17h00507babe11ac987E"(p
   ret void
 
 7:                                                ; preds = %3
-  %8 = getelementptr inbounds { [1 x i64], { ptr, [2 x i64] } }, ptr %1, i64 0, i32 1
+  %8 = getelementptr inbounds i8, ptr %1, i64 8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %4, ptr noundef nonnull align 8 dereferenceable(24) %8, i64 24, i1 false)
   invoke void @_ZN4core6result13unwrap_failed17hddb4fea594200c52E(ptr nonnull align 1 @anon.2bcc440c04d57407e2097a51ee04e67a.0, i64 43, ptr nonnull align 1 %4, ptr nonnull align 8 @anon.2bcc440c04d57407e2097a51ee04e67a.1, ptr align 8 %2) #6
           to label %11 unwind label %9
@@ -178,7 +178,7 @@ define void @"_ZN4core6result19Result$LT$T$C$E$GT$6unwrap17h7d48e4e7da079a41E"(p
   ret void
 
 7:                                                ; preds = %3
-  %8 = getelementptr inbounds { [1 x i64], { ptr, [2 x i64] } }, ptr %1, i64 0, i32 1
+  %8 = getelementptr inbounds i8, ptr %1, i64 8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %4, ptr noundef nonnull align 8 dereferenceable(24) %8, i64 24, i1 false)
   invoke void @_ZN4core6result13unwrap_failed17hddb4fea594200c52E(ptr nonnull align 1 @anon.2bcc440c04d57407e2097a51ee04e67a.0, i64 43, ptr nonnull align 1 %4, ptr nonnull align 8 @anon.2bcc440c04d57407e2097a51ee04e67a.1, ptr align 8 %2) #6
           to label %11 unwind label %9
@@ -211,14 +211,14 @@ define void @"_ZN4core6result19Result$LT$T$C$E$GT$7map_err17h101ba071ddf4c106E"(
   br i1 %6, label %7, label %9
 
 7:                                                ; preds = %2
-  %8 = getelementptr inbounds { [1 x i64], { { ptr, ptr }, { ptr, i64 } } }, ptr %1, i64 0, i32 1
+  %8 = getelementptr inbounds i8, ptr %1, i64 8
   tail call void @llvm.memmove.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef nonnull align 8 dereferenceable(32) %8, i64 32, i1 false)
   br label %11
 
 9:                                                ; preds = %2
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(136) %3, ptr noundef nonnull align 8 dereferenceable(136) %1, i64 136, i1 false)
   call void @_ZN4core3ops8function6FnOnce9call_once17hb03e73243ac4f3f8E(ptr nonnull sret({ ptr, [2 x i64] }) align 8 %4, ptr nonnull align 8 %3)
-  %10 = getelementptr inbounds { [1 x i64], { ptr, [2 x i64] } }, ptr %0, i64 0, i32 1
+  %10 = getelementptr inbounds i8, ptr %0, i64 8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %10, ptr noundef nonnull align 8 dereferenceable(24) %4, i64 24, i1 false)
   store ptr null, ptr %0, align 8
   br label %11
@@ -236,13 +236,13 @@ define void @"_ZN4core6result19Result$LT$T$C$E$GT$7map_err17h4bf4e88df9bbca93E"(
   br i1 %7, label %8, label %15
 
 8:                                                ; preds = %3
-  %9 = getelementptr inbounds { [1 x i64], { i64, ptr } }, ptr %1, i64 0, i32 1
+  %9 = getelementptr inbounds i8, ptr %1, i64 8
   %10 = load i64, ptr %9, align 8, !range !9, !noundef !6
-  %11 = getelementptr inbounds { [1 x i64], { i64, ptr } }, ptr %1, i64 0, i32 1, i32 1
+  %11 = getelementptr inbounds i8, ptr %1, i64 16
   %12 = load ptr, ptr %11, align 8, !noundef !6
-  %13 = getelementptr inbounds { [1 x i64], { i64, ptr } }, ptr %0, i64 0, i32 1
+  %13 = getelementptr inbounds i8, ptr %0, i64 8
   store i64 %10, ptr %13, align 8
-  %14 = getelementptr inbounds { [1 x i64], { i64, ptr } }, ptr %0, i64 0, i32 1, i32 1
+  %14 = getelementptr inbounds i8, ptr %0, i64 16
   store ptr %12, ptr %14, align 8
   store i32 2, ptr %0, align 8
   br label %16
@@ -266,14 +266,14 @@ define void @"_ZN4core6result19Result$LT$T$C$E$GT$7map_err17h53d03d361240252aE"(
   br i1 %6, label %7, label %9
 
 7:                                                ; preds = %2
-  %8 = getelementptr inbounds { [1 x i64], { { ptr, ptr }, { ptr, i64 } } }, ptr %1, i64 0, i32 1
+  %8 = getelementptr inbounds i8, ptr %1, i64 8
   tail call void @llvm.memmove.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef nonnull align 8 dereferenceable(32) %8, i64 32, i1 false)
   br label %11
 
 9:                                                ; preds = %2
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(136) %3, ptr noundef nonnull align 8 dereferenceable(136) %1, i64 136, i1 false)
   call void @_ZN4core3ops8function6FnOnce9call_once17hb03e73243ac4f3f8E(ptr nonnull sret({ ptr, [2 x i64] }) align 8 %4, ptr nonnull align 8 %3)
-  %10 = getelementptr inbounds { [1 x i64], { ptr, [2 x i64] } }, ptr %0, i64 0, i32 1
+  %10 = getelementptr inbounds i8, ptr %0, i64 8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %10, ptr noundef nonnull align 8 dereferenceable(24) %4, i64 24, i1 false)
   store ptr null, ptr %0, align 8
   br label %11
@@ -286,13 +286,13 @@ define void @"_ZN4core6result19Result$LT$T$C$E$GT$7map_err17h53d03d361240252aE"(
 define void @"_ZN4core6result19Result$LT$T$C$E$GT$7map_err17h7abcde0794e85e55E"(ptr nocapture writeonly sret({ i32, [33 x i32] }) align 8 %0, ptr nocapture readonly align 8 %1, ptr align 4 %2) unnamed_addr #0 {
   %4 = alloca { { { { { ptr, i64 }, i64 } }, { { i64, i64, i64 }, { i64, i64, i64 } }, i8, [7 x i8] } }, align 8
   %5 = alloca { { i32, [33 x i32] } }, align 8
-  %6 = getelementptr inbounds { [72 x i8], i8, [7 x i8] }, ptr %1, i64 0, i32 1
+  %6 = getelementptr inbounds i8, ptr %1, i64 72
   %7 = load i8, ptr %6, align 8, !range !10, !noundef !6
   %8 = icmp eq i8 %7, 7
   br i1 %8, label %9, label %11
 
 9:                                                ; preds = %3
-  %10 = getelementptr inbounds { [1 x i64], { { i64, [4 x i64] }, ptr } }, ptr %0, i64 0, i32 1
+  %10 = getelementptr inbounds i8, ptr %0, i64 8
   tail call void @llvm.memmove.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %10, ptr noundef nonnull align 8 dereferenceable(48) %1, i64 48, i1 false)
   store i32 2, ptr %0, align 8
   br label %12
@@ -316,14 +316,14 @@ define void @"_ZN4core6result19Result$LT$T$C$E$GT$7map_err17hbad974d60f2c23a3E"(
   br i1 %6, label %7, label %9
 
 7:                                                ; preds = %2
-  %8 = getelementptr inbounds { [1 x i64], { { ptr, ptr }, { ptr, i64 } } }, ptr %1, i64 0, i32 1
+  %8 = getelementptr inbounds i8, ptr %1, i64 8
   tail call void @llvm.memmove.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef nonnull align 8 dereferenceable(32) %8, i64 32, i1 false)
   br label %11
 
 9:                                                ; preds = %2
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(136) %3, ptr noundef nonnull align 8 dereferenceable(136) %1, i64 136, i1 false)
   call void @_ZN4core3ops8function6FnOnce9call_once17hb03e73243ac4f3f8E(ptr nonnull sret({ ptr, [2 x i64] }) align 8 %4, ptr nonnull align 8 %3)
-  %10 = getelementptr inbounds { [1 x i64], { ptr, [2 x i64] } }, ptr %0, i64 0, i32 1
+  %10 = getelementptr inbounds i8, ptr %0, i64 8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %10, ptr noundef nonnull align 8 dereferenceable(24) %4, i64 24, i1 false)
   store ptr null, ptr %0, align 8
   br label %11
@@ -341,14 +341,14 @@ define void @"_ZN4core6result19Result$LT$T$C$E$GT$7map_err17hc27faee0096dc7efE"(
   br i1 %6, label %7, label %9
 
 7:                                                ; preds = %2
-  %8 = getelementptr inbounds { [1 x i64], { { ptr, ptr }, { ptr, i64 } } }, ptr %1, i64 0, i32 1
+  %8 = getelementptr inbounds i8, ptr %1, i64 8
   tail call void @llvm.memmove.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef nonnull align 8 dereferenceable(32) %8, i64 32, i1 false)
   br label %11
 
 9:                                                ; preds = %2
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(136) %3, ptr noundef nonnull align 8 dereferenceable(136) %1, i64 136, i1 false)
   call void @_ZN4core3ops8function6FnOnce9call_once17hb03e73243ac4f3f8E(ptr nonnull sret({ ptr, [2 x i64] }) align 8 %4, ptr nonnull align 8 %3)
-  %10 = getelementptr inbounds { [1 x i64], { ptr, [2 x i64] } }, ptr %0, i64 0, i32 1
+  %10 = getelementptr inbounds i8, ptr %0, i64 8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %10, ptr noundef nonnull align 8 dereferenceable(24) %4, i64 24, i1 false)
   store ptr null, ptr %0, align 8
   br label %11

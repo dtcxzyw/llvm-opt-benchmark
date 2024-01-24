@@ -6,9 +6,6 @@ target triple = "x86_64-unknown-linux-gnu"
 %struct.tr2_counter_metadata = type { ptr, ptr, i8 }
 %struct.tr2_counter_block = type { [5 x %struct.tr2_counter] }
 %struct.tr2_counter = type { i64 }
-%struct.tr2tls_thread_ctx = type { ptr, ptr, i64, i64, i32, %struct.tr2_timer_block, %struct.tr2_counter_block, i8 }
-%struct.tr2_timer_block = type { [2 x %struct.tr2_timer] }
-%struct.tr2_timer = type { i64, i64, i64, i64, i64, i32 }
 
 @tr2_counter_metadata = internal global [5 x %struct.tr2_counter_metadata] [%struct.tr2_counter_metadata { ptr @.str, ptr @.str.1, i8 0 }, %struct.tr2_counter_metadata { ptr @.str, ptr @.str.2, i8 1 }, %struct.tr2_counter_metadata { ptr @.str.3, ptr @.str.4, i8 0 }, %struct.tr2_counter_metadata { ptr @.str.5, ptr @.str.6, i8 0 }, %struct.tr2_counter_metadata { ptr @.str.5, ptr @.str.7, i8 0 }], align 16
 @final_counter_block = internal global %struct.tr2_counter_block zeroinitializer, align 8
@@ -25,13 +22,13 @@ target triple = "x86_64-unknown-linux-gnu"
 define dso_local void @tr2_counter_increment(i32 noundef %cid, i64 noundef %value) local_unnamed_addr #0 {
 entry:
   %call = tail call ptr @tr2tls_get_self() #2
-  %counter_block = getelementptr inbounds %struct.tr2tls_thread_ctx, ptr %call, i64 0, i32 6
+  %counter_block = getelementptr inbounds i8, ptr %call, i64 136
   %idxprom = zext i32 %cid to i64
   %arrayidx = getelementptr inbounds [5 x %struct.tr2_counter], ptr %counter_block, i64 0, i64 %idxprom
   %0 = load i64, ptr %arrayidx, align 8
   %add = add i64 %0, %value
   store i64 %add, ptr %arrayidx, align 8
-  %used_any_counter = getelementptr inbounds %struct.tr2tls_thread_ctx, ptr %call, i64 0, i32 7
+  %used_any_counter = getelementptr inbounds i8, ptr %call, i64 176
   %bf.load = load i8, ptr %used_any_counter, align 8
   %bf.set = or i8 %bf.load, 4
   store i8 %bf.set, ptr %used_any_counter, align 8
@@ -56,14 +53,14 @@ declare ptr @tr2tls_get_self() local_unnamed_addr #1
 define dso_local void @tr2_update_final_counters() local_unnamed_addr #0 {
 entry:
   %call = tail call ptr @tr2tls_get_self() #2
-  %used_any_counter = getelementptr inbounds %struct.tr2tls_thread_ctx, ptr %call, i64 0, i32 7
+  %used_any_counter = getelementptr inbounds i8, ptr %call, i64 176
   %bf.load = load i8, ptr %used_any_counter, align 8
   %0 = and i8 %bf.load, 4
   %tobool.not = icmp eq i8 %0, 0
   br i1 %tobool.not, label %for.end, label %for.cond.preheader
 
 for.cond.preheader:                               ; preds = %entry
-  %counter_block = getelementptr inbounds %struct.tr2tls_thread_ctx, ptr %call, i64 0, i32 6
+  %counter_block = getelementptr inbounds i8, ptr %call, i64 136
   br label %for.body
 
 for.body:                                         ; preds = %for.cond.preheader, %for.body
@@ -86,20 +83,20 @@ for.end:                                          ; preds = %for.body, %entry
 define dso_local void @tr2_emit_per_thread_counters(ptr nocapture noundef readonly %fn_apply) local_unnamed_addr #0 {
 entry:
   %call = tail call ptr @tr2tls_get_self() #2
-  %used_any_per_thread_counter = getelementptr inbounds %struct.tr2tls_thread_ctx, ptr %call, i64 0, i32 7
+  %used_any_per_thread_counter = getelementptr inbounds i8, ptr %call, i64 176
   %bf.load = load i8, ptr %used_any_per_thread_counter, align 8
   %0 = and i8 %bf.load, 8
   %tobool.not = icmp eq i8 %0, 0
   br i1 %tobool.not, label %for.end, label %for.cond.preheader
 
 for.cond.preheader:                               ; preds = %entry
-  %counter_block = getelementptr inbounds %struct.tr2tls_thread_ctx, ptr %call, i64 0, i32 6
+  %counter_block = getelementptr inbounds i8, ptr %call, i64 136
   br label %for.body
 
 for.body:                                         ; preds = %for.cond.preheader, %for.inc
   %indvars.iv = phi i64 [ 0, %for.cond.preheader ], [ %indvars.iv.next, %for.inc ]
   %arrayidx = getelementptr inbounds [5 x %struct.tr2_counter_metadata], ptr @tr2_counter_metadata, i64 0, i64 %indvars.iv
-  %want_per_thread_events = getelementptr inbounds [5 x %struct.tr2_counter_metadata], ptr @tr2_counter_metadata, i64 0, i64 %indvars.iv, i32 2
+  %want_per_thread_events = getelementptr inbounds i8, ptr %arrayidx, i64 16
   %bf.load1 = load i8, ptr %want_per_thread_events, align 8
   %bf.clear2 = and i8 %bf.load1, 1
   %tobool4.not = icmp eq i8 %bf.clear2, 0

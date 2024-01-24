@@ -7,21 +7,9 @@ target triple = "x86_64-unknown-linux-gnu"
 %"class.eastl::fixed_pool_with_overflow" = type { %"struct.eastl::fixed_pool_base", %"class.eastl::allocator", ptr }
 %"struct.eastl::fixed_pool_base" = type { ptr, ptr, ptr, i64 }
 %"class.eastl::allocator" = type { i8 }
-%"class.eastl::fixed_list" = type <{ %"class.eastl::list", [47 x i8], i8 }>
-%"class.eastl::list" = type { %"class.eastl::ListBase" }
-%"class.eastl::ListBase" = type { %"class.eastl::compressed_pair", i64 }
-%"class.eastl::compressed_pair" = type { %"class.eastl::compressed_pair_imp" }
-%"class.eastl::compressed_pair_imp" = type { %"struct.eastl::ListNodeBase", %"class.eastl::fixed_node_allocator" }
-%"struct.eastl::ListNodeBase" = type { ptr, ptr }
-%"struct.eastl::ListNode" = type <{ %"struct.eastl::ListNodeBase", i32, [4 x i8] }>
 %"struct.eastl::ListIterator.0" = type { ptr }
 %"class.eastl::fixed_node_allocator.6" = type { %"class.eastl::fixed_pool" }
 %"class.eastl::fixed_pool" = type { %"struct.eastl::fixed_pool_base" }
-%"class.eastl::fixed_list.1" = type <{ %"class.eastl::list.2", [47 x i8], i8 }>
-%"class.eastl::list.2" = type { %"class.eastl::ListBase.3" }
-%"class.eastl::ListBase.3" = type { %"class.eastl::compressed_pair.4", i64 }
-%"class.eastl::compressed_pair.4" = type { %"class.eastl::compressed_pair_imp.5" }
-%"class.eastl::compressed_pair_imp.5" = type { %"struct.eastl::ListNodeBase", %"class.eastl::fixed_node_allocator.6" }
 %"class.eastl::fixed_node_allocator.27" = type { %"class.eastl::fixed_pool_with_overflow.28" }
 %"class.eastl::fixed_pool_with_overflow.28" = type { %"struct.eastl::fixed_pool_base", %class.MallocAllocator, ptr }
 %class.MallocAllocator = type { i32, i32, i64 }
@@ -43,6 +31,7 @@ target triple = "x86_64-unknown-linux-gnu"
 %"class.eastl::ListBase.10" = type { %"class.eastl::compressed_pair.11", i64 }
 %"class.eastl::compressed_pair.11" = type { %"class.eastl::compressed_pair_imp.12" }
 %"class.eastl::compressed_pair_imp.12" = type { %"struct.eastl::ListNodeBase", %"class.eastl::fixed_node_allocator.13" }
+%"struct.eastl::ListNodeBase" = type { ptr, ptr }
 %"class.eastl::fixed_list.15" = type <{ %"class.eastl::list.16", [1559 x i8], i8 }>
 %"class.eastl::list.16" = type { %"class.eastl::ListBase.17" }
 %"class.eastl::ListBase.17" = type { %"class.eastl::compressed_pair.18", i64 }
@@ -94,10 +83,17 @@ target triple = "x86_64-unknown-linux-gnu"
 %"class.eastl::ListBase.83" = type { %"class.eastl::compressed_pair.84", i64 }
 %"class.eastl::compressed_pair.84" = type { %"class.eastl::compressed_pair_imp.85" }
 %"class.eastl::compressed_pair_imp.85" = type { %"struct.eastl::ListNodeBase", %"class.eastl::fixed_node_allocator.86" }
-%"struct.eastl::ListNode.88" = type { %"struct.eastl::ListNodeBase", [48 x i8], %struct.Align64 }
-%struct.Align64 = type { i32, [60 x i8] }
-%"struct.eastl::ListNode.89" = type { %"struct.eastl::ListNodeBase", %struct.TestObject }
 %struct.__va_list_tag = type { i32, i32, ptr, ptr }
+%"class.eastl::fixed_list" = type <{ %"class.eastl::list", [47 x i8], i8 }>
+%"class.eastl::list" = type { %"class.eastl::ListBase" }
+%"class.eastl::ListBase" = type { %"class.eastl::compressed_pair", i64 }
+%"class.eastl::compressed_pair" = type { %"class.eastl::compressed_pair_imp" }
+%"class.eastl::compressed_pair_imp" = type { %"struct.eastl::ListNodeBase", %"class.eastl::fixed_node_allocator" }
+%"class.eastl::fixed_list.1" = type <{ %"class.eastl::list.2", [47 x i8], i8 }>
+%"class.eastl::list.2" = type { %"class.eastl::ListBase.3" }
+%"class.eastl::ListBase.3" = type { %"class.eastl::compressed_pair.4", i64 }
+%"class.eastl::compressed_pair.4" = type { %"class.eastl::compressed_pair_imp.5" }
+%"class.eastl::compressed_pair_imp.5" = type { %"struct.eastl::ListNodeBase", %"class.eastl::fixed_node_allocator.6" }
 
 $_ZN5eastl10fixed_listIiLm1ELb1ENS_9allocatorEEC5Ev = comdat any
 
@@ -358,23 +354,23 @@ $_ZN5eastl4listI10TestObjectNS_20fixed_node_allocatorILm40ELm16ELm8ELm0ELb1E15Ma
 define weak_odr dso_local void @_ZN5eastl10fixed_listIiLm1ELb1ENS_9allocatorEEC2Ev(ptr noundef nonnull align 8 dereferenceable(119) %this) unnamed_addr #0 comdat($_ZN5eastl10fixed_listIiLm1ELb1ENS_9allocatorEEC5Ev) align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp = alloca %"class.eastl::fixed_node_allocator", align 8
-  %mBuffer = getelementptr inbounds %"class.eastl::fixed_list", ptr %this, i64 0, i32 1
+  %mBuffer = getelementptr inbounds i8, ptr %this, i64 72
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp, i8 0, i64 32, i1 false)
   call void @_ZN5eastl15fixed_pool_base4initEPvmmmm(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp, ptr noundef nonnull %mBuffer, i64 noundef 24, i64 noundef 24, i64 noundef 8, i64 noundef 0)
-  %mpPoolBegin.i.i = getelementptr inbounds %"class.eastl::fixed_pool_with_overflow", ptr %ref.tmp, i64 0, i32 2
+  %mpPoolBegin.i.i = getelementptr inbounds i8, ptr %ref.tmp, i64 40
   store ptr %mBuffer, ptr %mpPoolBegin.i.i, align 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %this, i8 0, i64 16, i1 false)
-  %mSecond.i.i.i.i = getelementptr inbounds %"class.eastl::compressed_pair_imp", ptr %this, i64 0, i32 1
-  %mpNext.i.i.i.i.i = getelementptr inbounds %"struct.eastl::fixed_pool_base", ptr %ref.tmp, i64 0, i32 1
+  %mSecond.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 16
+  %mpNext.i.i.i.i.i = getelementptr inbounds i8, ptr %ref.tmp, i64 8
   %0 = load ptr, ptr %mpNext.i.i.i.i.i, align 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %mSecond.i.i.i.i, i8 0, i64 32, i1 false)
   call void @_ZN5eastl15fixed_pool_base4initEPvmmmm(ptr noundef nonnull align 8 dereferenceable(32) %mSecond.i.i.i.i, ptr noundef %0, i64 noundef 24, i64 noundef 24, i64 noundef 8, i64 noundef 0)
-  %mpPoolBegin.i.i.i.i.i.i = getelementptr inbounds %"class.eastl::compressed_pair_imp", ptr %this, i64 0, i32 1, i32 0, i32 2
+  %mpPoolBegin.i.i.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 56
   store ptr %0, ptr %mpPoolBegin.i.i.i.i.i.i, align 8
-  %mSize.i.i = getelementptr inbounds %"class.eastl::ListBase", ptr %this, i64 0, i32 1
+  %mSize.i.i = getelementptr inbounds i8, ptr %this, i64 64
   store i64 0, ptr %mSize.i.i, align 8
   store ptr %this, ptr %this, align 8
-  %mpPrev.i.i.i = getelementptr inbounds %"struct.eastl::ListNodeBase", ptr %this, i64 0, i32 1
+  %mpPrev.i.i.i = getelementptr inbounds i8, ptr %this, i64 8
   store ptr %this, ptr %mpPrev.i.i.i, align 8
   ret void
 }
@@ -383,23 +379,23 @@ entry:
 define weak_odr dso_local void @_ZN5eastl10fixed_listIiLm1ELb1ENS_9allocatorEEC2ERKS1_(ptr noundef nonnull align 8 dereferenceable(119) %this, ptr noundef nonnull align 1 dereferenceable(1) %overflowAllocator) unnamed_addr #0 comdat($_ZN5eastl10fixed_listIiLm1ELb1ENS_9allocatorEEC5ERKS1_) align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp = alloca %"class.eastl::fixed_node_allocator", align 8
-  %mBuffer = getelementptr inbounds %"class.eastl::fixed_list", ptr %this, i64 0, i32 1
+  %mBuffer = getelementptr inbounds i8, ptr %this, i64 72
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp, i8 0, i64 32, i1 false)
   call void @_ZN5eastl15fixed_pool_base4initEPvmmmm(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp, ptr noundef nonnull %mBuffer, i64 noundef 24, i64 noundef 24, i64 noundef 8, i64 noundef 0)
-  %mpPoolBegin.i.i = getelementptr inbounds %"class.eastl::fixed_pool_with_overflow", ptr %ref.tmp, i64 0, i32 2
+  %mpPoolBegin.i.i = getelementptr inbounds i8, ptr %ref.tmp, i64 40
   store ptr %mBuffer, ptr %mpPoolBegin.i.i, align 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %this, i8 0, i64 16, i1 false)
-  %mSecond.i.i.i.i = getelementptr inbounds %"class.eastl::compressed_pair_imp", ptr %this, i64 0, i32 1
-  %mpNext.i.i.i.i.i = getelementptr inbounds %"struct.eastl::fixed_pool_base", ptr %ref.tmp, i64 0, i32 1
+  %mSecond.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 16
+  %mpNext.i.i.i.i.i = getelementptr inbounds i8, ptr %ref.tmp, i64 8
   %0 = load ptr, ptr %mpNext.i.i.i.i.i, align 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %mSecond.i.i.i.i, i8 0, i64 32, i1 false)
   call void @_ZN5eastl15fixed_pool_base4initEPvmmmm(ptr noundef nonnull align 8 dereferenceable(32) %mSecond.i.i.i.i, ptr noundef %0, i64 noundef 24, i64 noundef 24, i64 noundef 8, i64 noundef 0)
-  %mpPoolBegin.i.i.i.i.i.i = getelementptr inbounds %"class.eastl::compressed_pair_imp", ptr %this, i64 0, i32 1, i32 0, i32 2
+  %mpPoolBegin.i.i.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 56
   store ptr %0, ptr %mpPoolBegin.i.i.i.i.i.i, align 8
-  %mSize.i.i = getelementptr inbounds %"class.eastl::ListBase", ptr %this, i64 0, i32 1
+  %mSize.i.i = getelementptr inbounds i8, ptr %this, i64 64
   store i64 0, ptr %mSize.i.i, align 8
   store ptr %this, ptr %this, align 8
-  %mpPrev.i.i.i = getelementptr inbounds %"struct.eastl::ListNodeBase", ptr %this, i64 0, i32 1
+  %mpPrev.i.i.i = getelementptr inbounds i8, ptr %this, i64 8
   store ptr %this, ptr %mpPrev.i.i.i, align 8
   ret void
 }
@@ -409,23 +405,23 @@ define weak_odr dso_local void @_ZN5eastl10fixed_listIiLm1ELb1ENS_9allocatorEEC2
 entry:
   %ref.tmp.i = alloca i32, align 4
   %ref.tmp = alloca %"class.eastl::fixed_node_allocator", align 8
-  %mBuffer = getelementptr inbounds %"class.eastl::fixed_list", ptr %this, i64 0, i32 1
+  %mBuffer = getelementptr inbounds i8, ptr %this, i64 72
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp, i8 0, i64 32, i1 false)
   call void @_ZN5eastl15fixed_pool_base4initEPvmmmm(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp, ptr noundef nonnull %mBuffer, i64 noundef 24, i64 noundef 24, i64 noundef 8, i64 noundef 0)
-  %mpPoolBegin.i.i = getelementptr inbounds %"class.eastl::fixed_pool_with_overflow", ptr %ref.tmp, i64 0, i32 2
+  %mpPoolBegin.i.i = getelementptr inbounds i8, ptr %ref.tmp, i64 40
   store ptr %mBuffer, ptr %mpPoolBegin.i.i, align 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %this, i8 0, i64 16, i1 false)
-  %mSecond.i.i.i.i = getelementptr inbounds %"class.eastl::compressed_pair_imp", ptr %this, i64 0, i32 1
-  %mpNext.i.i.i.i.i = getelementptr inbounds %"struct.eastl::fixed_pool_base", ptr %ref.tmp, i64 0, i32 1
+  %mSecond.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 16
+  %mpNext.i.i.i.i.i = getelementptr inbounds i8, ptr %ref.tmp, i64 8
   %0 = load ptr, ptr %mpNext.i.i.i.i.i, align 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %mSecond.i.i.i.i, i8 0, i64 32, i1 false)
   call void @_ZN5eastl15fixed_pool_base4initEPvmmmm(ptr noundef nonnull align 8 dereferenceable(32) %mSecond.i.i.i.i, ptr noundef %0, i64 noundef 24, i64 noundef 24, i64 noundef 8, i64 noundef 0)
-  %mpPoolBegin.i.i.i.i.i.i = getelementptr inbounds %"class.eastl::compressed_pair_imp", ptr %this, i64 0, i32 1, i32 0, i32 2
+  %mpPoolBegin.i.i.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 56
   store ptr %0, ptr %mpPoolBegin.i.i.i.i.i.i, align 8
-  %mSize.i.i = getelementptr inbounds %"class.eastl::ListBase", ptr %this, i64 0, i32 1
+  %mSize.i.i = getelementptr inbounds i8, ptr %this, i64 64
   store i64 0, ptr %mSize.i.i, align 8
   store ptr %this, ptr %this, align 8
-  %mpPrev.i.i.i = getelementptr inbounds %"struct.eastl::ListNodeBase", ptr %this, i64 0, i32 1
+  %mpPrev.i.i.i = getelementptr inbounds i8, ptr %this, i64 8
   store ptr %this, ptr %mpPrev.i.i.i, align 8
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %ref.tmp.i)
   store i32 0, ptr %ref.tmp.i, align 4
@@ -453,9 +449,9 @@ entry:
   br i1 %cmp.not3.i.i, label %_ZN5eastl8ListBaseIiNS_20fixed_node_allocatorILm24ELm1ELm8ELm0ELb1ENS_9allocatorEEEED2Ev.exit, label %while.body.lr.ph.i.i
 
 while.body.lr.ph.i.i:                             ; preds = %entry
-  %mpPoolBegin.i.i.i.i = getelementptr inbounds %"class.eastl::compressed_pair_imp", ptr %this, i64 0, i32 1, i32 0, i32 2
-  %mpCapacity.i.i.i.i = getelementptr inbounds %"class.eastl::compressed_pair_imp", ptr %this, i64 0, i32 1, i32 0, i32 0, i32 2
-  %mSecond.i.i.i.i.i = getelementptr inbounds %"class.eastl::compressed_pair_imp", ptr %this, i64 0, i32 1
+  %mpPoolBegin.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 56
+  %mpCapacity.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 32
+  %mSecond.i.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 16
   br label %while.body.i.i
 
 while.body.i.i:                                   ; preds = %_ZN5eastl20fixed_node_allocatorILm24ELm1ELm8ELm0ELb1ENS_9allocatorEE10deallocateEPvm.exit.i.i, %while.body.lr.ph.i.i
@@ -490,23 +486,23 @@ _ZN5eastl8ListBaseIiNS_20fixed_node_allocatorILm24ELm1ELm8ELm0ELb1ENS_9allocator
 define weak_odr dso_local void @_ZN5eastl10fixed_listIiLm1ELb1ENS_9allocatorEEC2EmRKi(ptr noundef nonnull align 8 dereferenceable(119) %this, i64 noundef %n, ptr noundef nonnull align 4 dereferenceable(4) %value) unnamed_addr #0 comdat($_ZN5eastl10fixed_listIiLm1ELb1ENS_9allocatorEEC5EmRKi) align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp = alloca %"class.eastl::fixed_node_allocator", align 8
-  %mBuffer = getelementptr inbounds %"class.eastl::fixed_list", ptr %this, i64 0, i32 1
+  %mBuffer = getelementptr inbounds i8, ptr %this, i64 72
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp, i8 0, i64 32, i1 false)
   call void @_ZN5eastl15fixed_pool_base4initEPvmmmm(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp, ptr noundef nonnull %mBuffer, i64 noundef 24, i64 noundef 24, i64 noundef 8, i64 noundef 0)
-  %mpPoolBegin.i.i = getelementptr inbounds %"class.eastl::fixed_pool_with_overflow", ptr %ref.tmp, i64 0, i32 2
+  %mpPoolBegin.i.i = getelementptr inbounds i8, ptr %ref.tmp, i64 40
   store ptr %mBuffer, ptr %mpPoolBegin.i.i, align 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %this, i8 0, i64 16, i1 false)
-  %mSecond.i.i.i.i = getelementptr inbounds %"class.eastl::compressed_pair_imp", ptr %this, i64 0, i32 1
-  %mpNext.i.i.i.i.i = getelementptr inbounds %"struct.eastl::fixed_pool_base", ptr %ref.tmp, i64 0, i32 1
+  %mSecond.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 16
+  %mpNext.i.i.i.i.i = getelementptr inbounds i8, ptr %ref.tmp, i64 8
   %0 = load ptr, ptr %mpNext.i.i.i.i.i, align 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %mSecond.i.i.i.i, i8 0, i64 32, i1 false)
   call void @_ZN5eastl15fixed_pool_base4initEPvmmmm(ptr noundef nonnull align 8 dereferenceable(32) %mSecond.i.i.i.i, ptr noundef %0, i64 noundef 24, i64 noundef 24, i64 noundef 8, i64 noundef 0)
-  %mpPoolBegin.i.i.i.i.i.i = getelementptr inbounds %"class.eastl::compressed_pair_imp", ptr %this, i64 0, i32 1, i32 0, i32 2
+  %mpPoolBegin.i.i.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 56
   store ptr %0, ptr %mpPoolBegin.i.i.i.i.i.i, align 8
-  %mSize.i.i = getelementptr inbounds %"class.eastl::ListBase", ptr %this, i64 0, i32 1
+  %mSize.i.i = getelementptr inbounds i8, ptr %this, i64 64
   store i64 0, ptr %mSize.i.i, align 8
   store ptr %this, ptr %this, align 8
-  %mpPrev.i.i.i = getelementptr inbounds %"struct.eastl::ListNodeBase", ptr %this, i64 0, i32 1
+  %mpPrev.i.i.i = getelementptr inbounds i8, ptr %this, i64 8
   store ptr %this, ptr %mpPrev.i.i.i, align 8
   invoke void @_ZN5eastl4listIiNS_20fixed_node_allocatorILm24ELm1ELm8ELm0ELb1ENS_9allocatorEEEE6resizeEmRKi(ptr noundef nonnull align 8 dereferenceable(72) %this, i64 noundef %n, ptr noundef nonnull align 4 dereferenceable(4) %value)
           to label %invoke.cont unwind label %lpad
@@ -545,21 +541,21 @@ if.then:                                          ; preds = %while.end
   br i1 %cmp.i.not2.i, label %if.end, label %while.body.lr.ph.i
 
 while.body.lr.ph.i:                               ; preds = %if.then
-  %mpPoolBegin.i.i.i.i.i.i = getelementptr inbounds %"class.eastl::compressed_pair_imp", ptr %this, i64 0, i32 1, i32 0, i32 2
-  %mpCapacity.i.i.i.i.i.i = getelementptr inbounds %"class.eastl::compressed_pair_imp", ptr %this, i64 0, i32 1, i32 0, i32 0, i32 2
-  %mSecond.i.i.i.i.i.i.i = getelementptr inbounds %"class.eastl::compressed_pair_imp", ptr %this, i64 0, i32 1
-  %mSize.i.i.i = getelementptr inbounds %"class.eastl::ListBase", ptr %this, i64 0, i32 1
+  %mpPoolBegin.i.i.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 56
+  %mpCapacity.i.i.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 32
+  %mSecond.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 16
+  %mSize.i.i.i = getelementptr inbounds i8, ptr %this, i64 64
   br label %while.body.i
 
 while.body.i:                                     ; preds = %_ZN5eastl4listIiNS_20fixed_node_allocatorILm24ELm1ELm8ELm0ELb1ENS_9allocatorEEEE5eraseENS_12ListIteratorIiPKiRS6_EE.exit.i, %while.body.lr.ph.i
   %first.sroa.0.03.i = phi ptr [ %current.sroa.0.0, %while.body.lr.ph.i ], [ %1, %_ZN5eastl4listIiNS_20fixed_node_allocatorILm24ELm1ELm8ELm0ELb1ENS_9allocatorEEEE5eraseENS_12ListIteratorIiPKiRS6_EE.exit.i ]
   %1 = load ptr, ptr %first.sroa.0.03.i, align 8, !noalias !8
-  %mpPrev.i.i = getelementptr inbounds %"struct.eastl::ListNodeBase", ptr %1, i64 0, i32 1
+  %mpPrev.i.i = getelementptr inbounds i8, ptr %1, i64 8
   %2 = load ptr, ptr %mpPrev.i.i, align 8, !noalias !8
-  %mpPrev.i.i.i.i = getelementptr inbounds %"struct.eastl::ListNodeBase", ptr %2, i64 0, i32 1
+  %mpPrev.i.i.i.i = getelementptr inbounds i8, ptr %2, i64 8
   %3 = load ptr, ptr %mpPrev.i.i.i.i, align 8, !noalias !8
   %4 = load ptr, ptr %2, align 8, !noalias !8
-  %mpPrev2.i.i.i.i = getelementptr inbounds %"struct.eastl::ListNodeBase", ptr %4, i64 0, i32 1
+  %mpPrev2.i.i.i.i = getelementptr inbounds i8, ptr %4, i64 8
   store ptr %3, ptr %mpPrev2.i.i.i.i, align 8, !noalias !8
   %5 = load ptr, ptr %2, align 8, !noalias !8
   store ptr %5, ptr %3, align 8, !noalias !8
@@ -589,16 +585,16 @@ _ZN5eastl4listIiNS_20fixed_node_allocatorILm24ELm1ELm8ELm0ELb1ENS_9allocatorEEEE
 
 if.else:                                          ; preds = %while.end
   %sub = sub i64 %n, %i.0
-  %mpPrev.i.i6 = getelementptr inbounds %"struct.eastl::ListNodeBase", ptr %this, i64 0, i32 1
+  %mpPrev.i.i6 = getelementptr inbounds i8, ptr %this, i64 8
   %cmp.not2.i.i = icmp eq i64 %sub, 0
   br i1 %cmp.not2.i.i, label %if.end, label %for.body.lr.ph.i.i
 
 for.body.lr.ph.i.i:                               ; preds = %if.else
-  %mSecond.i.i.i.i.i.i.i.i = getelementptr inbounds %"class.eastl::compressed_pair_imp", ptr %this, i64 0, i32 1
-  %mpNext3.i.i.i.i.i.i.i.i = getelementptr inbounds %"class.eastl::compressed_pair_imp", ptr %this, i64 0, i32 1, i32 0, i32 0, i32 1
-  %mpCapacity.i.i.i.i.i.i.i.i = getelementptr inbounds %"class.eastl::compressed_pair_imp", ptr %this, i64 0, i32 1, i32 0, i32 0, i32 2
-  %mnNodeSize9.i.i.i.i.i.i.i.i = getelementptr inbounds %"class.eastl::compressed_pair_imp", ptr %this, i64 0, i32 1, i32 0, i32 0, i32 3
-  %mSize.i.i.i7 = getelementptr inbounds %"class.eastl::ListBase", ptr %this, i64 0, i32 1
+  %mSecond.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 16
+  %mpNext3.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 24
+  %mpCapacity.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 32
+  %mnNodeSize9.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 40
+  %mSize.i.i.i7 = getelementptr inbounds i8, ptr %this, i64 64
   br label %for.body.i.i
 
 for.body.i.i:                                     ; preds = %_ZN5eastl4listIiNS_20fixed_node_allocatorILm24ELm1ELm8ELm0ELb1ENS_9allocatorEEEE13DoInsertValueIJRKiEEEvPNS_12ListNodeBaseEDpOT_.exit.i.i, %for.body.lr.ph.i.i
@@ -630,12 +626,12 @@ if.else8.i.i.i.i.i.i.i.i:                         ; preds = %if.else.i.i.i.i.i.i
 
 _ZN5eastl4listIiNS_20fixed_node_allocatorILm24ELm1ELm8ELm0ELb1ENS_9allocatorEEEE13DoInsertValueIJRKiEEEvPNS_12ListNodeBaseEDpOT_.exit.i.i: ; preds = %if.else8.i.i.i.i.i.i.i.i, %if.then4.i.i.i.i.i.i.i.i, %if.then.i.i.i.i.i.i.i.i
   %result.0.i.i.i.i.i.i = phi ptr [ %10, %if.then.i.i.i.i.i.i.i.i ], [ %12, %if.then4.i.i.i.i.i.i.i.i ], [ %call.i.i.i.i.i.i.i.i.i, %if.else8.i.i.i.i.i.i.i.i ]
-  %mValue.i.i.i.i = getelementptr inbounds %"struct.eastl::ListNode", ptr %result.0.i.i.i.i.i.i, i64 0, i32 1
+  %mValue.i.i.i.i = getelementptr inbounds i8, ptr %result.0.i.i.i.i.i.i, i64 16
   %15 = load i32, ptr %value, align 4, !noalias !14
   store i32 %15, ptr %mValue.i.i.i.i, align 4, !noalias !14
   store ptr %this, ptr %result.0.i.i.i.i.i.i, align 8, !noalias !14
   %16 = load ptr, ptr %mpPrev.i.i6, align 8, !noalias !14
-  %mpPrev2.i.i.i.i8 = getelementptr inbounds %"struct.eastl::ListNodeBase", ptr %result.0.i.i.i.i.i.i, i64 0, i32 1
+  %mpPrev2.i.i.i.i8 = getelementptr inbounds i8, ptr %result.0.i.i.i.i.i.i, i64 8
   store ptr %16, ptr %mpPrev2.i.i.i.i8, align 8, !noalias !14
   store ptr %result.0.i.i.i.i.i.i, ptr %16, align 8, !noalias !14
   store ptr %result.0.i.i.i.i.i.i, ptr %mpPrev.i.i6, align 8, !noalias !14
@@ -654,23 +650,23 @@ if.end:                                           ; preds = %_ZN5eastl4listIiNS_
 define weak_odr dso_local void @_ZN5eastl10fixed_listIiLm1ELb1ENS_9allocatorEEC2ERKS2_(ptr noundef nonnull align 8 dereferenceable(119) %this, ptr noundef nonnull align 8 dereferenceable(119) %x) unnamed_addr #0 comdat($_ZN5eastl10fixed_listIiLm1ELb1ENS_9allocatorEEC5ERKS2_) align 2 personality ptr @__gxx_personality_v0 {
 invoke.cont:
   %ref.tmp = alloca %"class.eastl::fixed_node_allocator", align 8
-  %mBuffer = getelementptr inbounds %"class.eastl::fixed_list", ptr %this, i64 0, i32 1
+  %mBuffer = getelementptr inbounds i8, ptr %this, i64 72
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp, i8 0, i64 32, i1 false)
   call void @_ZN5eastl15fixed_pool_base4initEPvmmmm(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp, ptr noundef nonnull %mBuffer, i64 noundef 24, i64 noundef 24, i64 noundef 8, i64 noundef 0)
-  %mpPoolBegin.i.i = getelementptr inbounds %"class.eastl::fixed_pool_with_overflow", ptr %ref.tmp, i64 0, i32 2
+  %mpPoolBegin.i.i = getelementptr inbounds i8, ptr %ref.tmp, i64 40
   store ptr %mBuffer, ptr %mpPoolBegin.i.i, align 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %this, i8 0, i64 16, i1 false)
-  %mSecond.i.i.i.i = getelementptr inbounds %"class.eastl::compressed_pair_imp", ptr %this, i64 0, i32 1
-  %mpNext.i.i.i.i.i = getelementptr inbounds %"struct.eastl::fixed_pool_base", ptr %ref.tmp, i64 0, i32 1
+  %mSecond.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 16
+  %mpNext.i.i.i.i.i = getelementptr inbounds i8, ptr %ref.tmp, i64 8
   %0 = load ptr, ptr %mpNext.i.i.i.i.i, align 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %mSecond.i.i.i.i, i8 0, i64 32, i1 false)
   call void @_ZN5eastl15fixed_pool_base4initEPvmmmm(ptr noundef nonnull align 8 dereferenceable(32) %mSecond.i.i.i.i, ptr noundef %0, i64 noundef 24, i64 noundef 24, i64 noundef 8, i64 noundef 0)
-  %mpPoolBegin.i.i.i.i.i.i = getelementptr inbounds %"class.eastl::compressed_pair_imp", ptr %this, i64 0, i32 1, i32 0, i32 2
+  %mpPoolBegin.i.i.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 56
   store ptr %0, ptr %mpPoolBegin.i.i.i.i.i.i, align 8
-  %mSize.i.i = getelementptr inbounds %"class.eastl::ListBase", ptr %this, i64 0, i32 1
+  %mSize.i.i = getelementptr inbounds i8, ptr %this, i64 64
   store i64 0, ptr %mSize.i.i, align 8
   store ptr %this, ptr %this, align 8
-  %mpPrev.i.i.i = getelementptr inbounds %"struct.eastl::ListNodeBase", ptr %this, i64 0, i32 1
+  %mpPrev.i.i.i = getelementptr inbounds i8, ptr %this, i64 8
   store ptr %this, ptr %mpPrev.i.i.i, align 8
   %1 = load ptr, ptr %x, align 8
   invoke void @_ZN5eastl4listIiNS_20fixed_node_allocatorILm24ELm1ELm8ELm0ELb1ENS_9allocatorEEEE8DoAssignINS_12ListIteratorIiPKiRS7_EEEEvT_SB_NS_17integral_constantIbLb0EEE(ptr noundef nonnull align 8 dereferenceable(72) %this, ptr %1, ptr nonnull %x)
@@ -692,23 +688,23 @@ invoke.cont:
   %agg.tmp.i = alloca %"struct.eastl::ListIterator.0", align 8
   %agg.tmp2.i = alloca %"struct.eastl::ListIterator.0", align 8
   %ref.tmp = alloca %"class.eastl::fixed_node_allocator", align 8
-  %mBuffer = getelementptr inbounds %"class.eastl::fixed_list", ptr %this, i64 0, i32 1
+  %mBuffer = getelementptr inbounds i8, ptr %this, i64 72
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp, i8 0, i64 32, i1 false)
   call void @_ZN5eastl15fixed_pool_base4initEPvmmmm(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp, ptr noundef nonnull %mBuffer, i64 noundef 24, i64 noundef 24, i64 noundef 8, i64 noundef 0)
-  %mpPoolBegin.i.i = getelementptr inbounds %"class.eastl::fixed_pool_with_overflow", ptr %ref.tmp, i64 0, i32 2
+  %mpPoolBegin.i.i = getelementptr inbounds i8, ptr %ref.tmp, i64 40
   store ptr %mBuffer, ptr %mpPoolBegin.i.i, align 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %this, i8 0, i64 16, i1 false)
-  %mSecond.i.i.i.i = getelementptr inbounds %"class.eastl::compressed_pair_imp", ptr %this, i64 0, i32 1
-  %mpNext.i.i.i.i.i = getelementptr inbounds %"struct.eastl::fixed_pool_base", ptr %ref.tmp, i64 0, i32 1
+  %mSecond.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 16
+  %mpNext.i.i.i.i.i = getelementptr inbounds i8, ptr %ref.tmp, i64 8
   %0 = load ptr, ptr %mpNext.i.i.i.i.i, align 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %mSecond.i.i.i.i, i8 0, i64 32, i1 false)
   call void @_ZN5eastl15fixed_pool_base4initEPvmmmm(ptr noundef nonnull align 8 dereferenceable(32) %mSecond.i.i.i.i, ptr noundef %0, i64 noundef 24, i64 noundef 24, i64 noundef 8, i64 noundef 0)
-  %mpPoolBegin.i.i.i.i.i.i = getelementptr inbounds %"class.eastl::compressed_pair_imp", ptr %this, i64 0, i32 1, i32 0, i32 2
+  %mpPoolBegin.i.i.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 56
   store ptr %0, ptr %mpPoolBegin.i.i.i.i.i.i, align 8
-  %mSize.i.i = getelementptr inbounds %"class.eastl::ListBase", ptr %this, i64 0, i32 1
+  %mSize.i.i = getelementptr inbounds i8, ptr %this, i64 64
   store i64 0, ptr %mSize.i.i, align 8
   store ptr %this, ptr %this, align 8
-  %mpPrev.i.i.i = getelementptr inbounds %"struct.eastl::ListNodeBase", ptr %this, i64 0, i32 1
+  %mpPrev.i.i.i = getelementptr inbounds i8, ptr %this, i64 8
   store ptr %this, ptr %mpPrev.i.i.i, align 8
   %1 = load ptr, ptr %x, align 8, !noalias !18
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %agg.tmp.i)
@@ -736,23 +732,23 @@ invoke.cont:
   %agg.tmp.i = alloca %"struct.eastl::ListIterator.0", align 8
   %agg.tmp2.i = alloca %"struct.eastl::ListIterator.0", align 8
   %ref.tmp = alloca %"class.eastl::fixed_node_allocator", align 8
-  %mBuffer = getelementptr inbounds %"class.eastl::fixed_list", ptr %this, i64 0, i32 1
+  %mBuffer = getelementptr inbounds i8, ptr %this, i64 72
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp, i8 0, i64 32, i1 false)
   call void @_ZN5eastl15fixed_pool_base4initEPvmmmm(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp, ptr noundef nonnull %mBuffer, i64 noundef 24, i64 noundef 24, i64 noundef 8, i64 noundef 0)
-  %mpPoolBegin.i.i = getelementptr inbounds %"class.eastl::fixed_pool_with_overflow", ptr %ref.tmp, i64 0, i32 2
+  %mpPoolBegin.i.i = getelementptr inbounds i8, ptr %ref.tmp, i64 40
   store ptr %mBuffer, ptr %mpPoolBegin.i.i, align 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %this, i8 0, i64 16, i1 false)
-  %mSecond.i.i.i.i = getelementptr inbounds %"class.eastl::compressed_pair_imp", ptr %this, i64 0, i32 1
-  %mpNext.i.i.i.i.i = getelementptr inbounds %"struct.eastl::fixed_pool_base", ptr %ref.tmp, i64 0, i32 1
+  %mSecond.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 16
+  %mpNext.i.i.i.i.i = getelementptr inbounds i8, ptr %ref.tmp, i64 8
   %0 = load ptr, ptr %mpNext.i.i.i.i.i, align 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %mSecond.i.i.i.i, i8 0, i64 32, i1 false)
   call void @_ZN5eastl15fixed_pool_base4initEPvmmmm(ptr noundef nonnull align 8 dereferenceable(32) %mSecond.i.i.i.i, ptr noundef %0, i64 noundef 24, i64 noundef 24, i64 noundef 8, i64 noundef 0)
-  %mpPoolBegin.i.i.i.i.i.i = getelementptr inbounds %"class.eastl::compressed_pair_imp", ptr %this, i64 0, i32 1, i32 0, i32 2
+  %mpPoolBegin.i.i.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 56
   store ptr %0, ptr %mpPoolBegin.i.i.i.i.i.i, align 8
-  %mSize.i.i = getelementptr inbounds %"class.eastl::ListBase", ptr %this, i64 0, i32 1
+  %mSize.i.i = getelementptr inbounds i8, ptr %this, i64 64
   store i64 0, ptr %mSize.i.i, align 8
   store ptr %this, ptr %this, align 8
-  %mpPrev.i.i.i = getelementptr inbounds %"struct.eastl::ListNodeBase", ptr %this, i64 0, i32 1
+  %mpPrev.i.i.i = getelementptr inbounds i8, ptr %this, i64 8
   store ptr %this, ptr %mpPrev.i.i.i, align 8
   %1 = load ptr, ptr %x, align 8, !noalias !21
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %agg.tmp.i)
@@ -778,23 +774,23 @@ lpad:                                             ; preds = %invoke.cont
 define weak_odr dso_local void @_ZN5eastl10fixed_listIiLm1ELb1ENS_9allocatorEEC2ESt16initializer_listIiERKS1_(ptr noundef nonnull align 8 dereferenceable(119) %this, ptr %ilist.coerce0, i64 %ilist.coerce1, ptr noundef nonnull align 1 dereferenceable(1) %overflowAllocator) unnamed_addr #0 comdat($_ZN5eastl10fixed_listIiLm1ELb1ENS_9allocatorEEC5ESt16initializer_listIiERKS1_) align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp = alloca %"class.eastl::fixed_node_allocator", align 8
-  %mBuffer = getelementptr inbounds %"class.eastl::fixed_list", ptr %this, i64 0, i32 1
+  %mBuffer = getelementptr inbounds i8, ptr %this, i64 72
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp, i8 0, i64 32, i1 false)
   call void @_ZN5eastl15fixed_pool_base4initEPvmmmm(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp, ptr noundef nonnull %mBuffer, i64 noundef 24, i64 noundef 24, i64 noundef 8, i64 noundef 0)
-  %mpPoolBegin.i.i = getelementptr inbounds %"class.eastl::fixed_pool_with_overflow", ptr %ref.tmp, i64 0, i32 2
+  %mpPoolBegin.i.i = getelementptr inbounds i8, ptr %ref.tmp, i64 40
   store ptr %mBuffer, ptr %mpPoolBegin.i.i, align 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %this, i8 0, i64 16, i1 false)
-  %mSecond.i.i.i.i = getelementptr inbounds %"class.eastl::compressed_pair_imp", ptr %this, i64 0, i32 1
-  %mpNext.i.i.i.i.i = getelementptr inbounds %"struct.eastl::fixed_pool_base", ptr %ref.tmp, i64 0, i32 1
+  %mSecond.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 16
+  %mpNext.i.i.i.i.i = getelementptr inbounds i8, ptr %ref.tmp, i64 8
   %0 = load ptr, ptr %mpNext.i.i.i.i.i, align 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %mSecond.i.i.i.i, i8 0, i64 32, i1 false)
   call void @_ZN5eastl15fixed_pool_base4initEPvmmmm(ptr noundef nonnull align 8 dereferenceable(32) %mSecond.i.i.i.i, ptr noundef %0, i64 noundef 24, i64 noundef 24, i64 noundef 8, i64 noundef 0)
-  %mpPoolBegin.i.i.i.i.i.i = getelementptr inbounds %"class.eastl::compressed_pair_imp", ptr %this, i64 0, i32 1, i32 0, i32 2
+  %mpPoolBegin.i.i.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 56
   store ptr %0, ptr %mpPoolBegin.i.i.i.i.i.i, align 8
-  %mSize.i.i = getelementptr inbounds %"class.eastl::ListBase", ptr %this, i64 0, i32 1
+  %mSize.i.i = getelementptr inbounds i8, ptr %this, i64 64
   store i64 0, ptr %mSize.i.i, align 8
   store ptr %this, ptr %this, align 8
-  %mpPrev.i.i.i = getelementptr inbounds %"struct.eastl::ListNodeBase", ptr %this, i64 0, i32 1
+  %mpPrev.i.i.i = getelementptr inbounds i8, ptr %this, i64 8
   store ptr %this, ptr %mpPrev.i.i.i, align 8
   %add.ptr.i = getelementptr inbounds i32, ptr %ilist.coerce0, i64 %ilist.coerce1
   invoke void @_ZN5eastl4listIiNS_20fixed_node_allocatorILm24ELm1ELm8ELm0ELb1ENS_9allocatorEEEE8DoAssignIPKiEEvT_S8_NS_17integral_constantIbLb0EEE(ptr noundef nonnull align 8 dereferenceable(72) %this, ptr noundef %ilist.coerce0, ptr noundef %add.ptr.i)
@@ -822,9 +818,9 @@ if.then:                                          ; preds = %entry
   br i1 %cmp.not3.i.i, label %_ZN5eastl4listIiNS_20fixed_node_allocatorILm24ELm1ELm8ELm0ELb1ENS_9allocatorEEEE5clearEv.exit, label %while.body.lr.ph.i.i
 
 while.body.lr.ph.i.i:                             ; preds = %if.then
-  %mpPoolBegin.i.i.i.i = getelementptr inbounds %"class.eastl::compressed_pair_imp", ptr %this, i64 0, i32 1, i32 0, i32 2
-  %mpCapacity.i.i.i.i = getelementptr inbounds %"class.eastl::compressed_pair_imp", ptr %this, i64 0, i32 1, i32 0, i32 0, i32 2
-  %mSecond.i.i.i.i.i = getelementptr inbounds %"class.eastl::compressed_pair_imp", ptr %this, i64 0, i32 1
+  %mpPoolBegin.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 56
+  %mpCapacity.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 32
+  %mSecond.i.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 16
   br label %while.body.i.i
 
 while.body.i.i:                                   ; preds = %_ZN5eastl20fixed_node_allocatorILm24ELm1ELm8ELm0ELb1ENS_9allocatorEE10deallocateEPvm.exit.i.i, %while.body.lr.ph.i.i
@@ -853,9 +849,9 @@ _ZN5eastl20fixed_node_allocatorILm24ELm1ELm8ELm0ELb1ENS_9allocatorEE10deallocate
 
 _ZN5eastl4listIiNS_20fixed_node_allocatorILm24ELm1ELm8ELm0ELb1ENS_9allocatorEEEE5clearEv.exit: ; preds = %_ZN5eastl20fixed_node_allocatorILm24ELm1ELm8ELm0ELb1ENS_9allocatorEE10deallocateEPvm.exit.i.i, %if.then
   store ptr %this, ptr %this, align 8
-  %mpPrev.i.i = getelementptr inbounds %"struct.eastl::ListNodeBase", ptr %this, i64 0, i32 1
+  %mpPrev.i.i = getelementptr inbounds i8, ptr %this, i64 8
   store ptr %this, ptr %mpPrev.i.i, align 8
-  %mSize.i = getelementptr inbounds %"class.eastl::ListBase", ptr %this, i64 0, i32 1
+  %mSize.i = getelementptr inbounds i8, ptr %this, i64 64
   store i64 0, ptr %mSize.i, align 8
   %5 = load ptr, ptr %x, align 8
   tail call void @_ZN5eastl4listIiNS_20fixed_node_allocatorILm24ELm1ELm8ELm0ELb1ENS_9allocatorEEEE8DoAssignINS_12ListIteratorIiPKiRS7_EEEEvT_SB_NS_17integral_constantIbLb0EEE(ptr noundef nonnull align 8 dereferenceable(72) %this, ptr %5, ptr nonnull %x)
@@ -873,9 +869,9 @@ entry:
   br i1 %cmp.not3.i.i, label %_ZN5eastl4listIiNS_20fixed_node_allocatorILm24ELm1ELm8ELm0ELb1ENS_9allocatorEEEE5clearEv.exit, label %while.body.lr.ph.i.i
 
 while.body.lr.ph.i.i:                             ; preds = %entry
-  %mpPoolBegin.i.i.i.i = getelementptr inbounds %"class.eastl::compressed_pair_imp", ptr %this, i64 0, i32 1, i32 0, i32 2
-  %mpCapacity.i.i.i.i = getelementptr inbounds %"class.eastl::compressed_pair_imp", ptr %this, i64 0, i32 1, i32 0, i32 0, i32 2
-  %mSecond.i.i.i.i.i = getelementptr inbounds %"class.eastl::compressed_pair_imp", ptr %this, i64 0, i32 1
+  %mpPoolBegin.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 56
+  %mpCapacity.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 32
+  %mSecond.i.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 16
   br label %while.body.i.i
 
 while.body.i.i:                                   ; preds = %_ZN5eastl20fixed_node_allocatorILm24ELm1ELm8ELm0ELb1ENS_9allocatorEE10deallocateEPvm.exit.i.i, %while.body.lr.ph.i.i
@@ -904,9 +900,9 @@ _ZN5eastl20fixed_node_allocatorILm24ELm1ELm8ELm0ELb1ENS_9allocatorEE10deallocate
 
 _ZN5eastl4listIiNS_20fixed_node_allocatorILm24ELm1ELm8ELm0ELb1ENS_9allocatorEEEE5clearEv.exit: ; preds = %_ZN5eastl20fixed_node_allocatorILm24ELm1ELm8ELm0ELb1ENS_9allocatorEE10deallocateEPvm.exit.i.i, %entry
   store ptr %this, ptr %this, align 8
-  %mpPrev.i.i = getelementptr inbounds %"struct.eastl::ListNodeBase", ptr %this, i64 0, i32 1
+  %mpPrev.i.i = getelementptr inbounds i8, ptr %this, i64 8
   store ptr %this, ptr %mpPrev.i.i, align 8
-  %mSize.i = getelementptr inbounds %"class.eastl::ListBase", ptr %this, i64 0, i32 1
+  %mSize.i = getelementptr inbounds i8, ptr %this, i64 64
   store i64 0, ptr %mSize.i, align 8
   %add.ptr.i = getelementptr inbounds i32, ptr %ilist.coerce0, i64 %ilist.coerce1
   tail call void @_ZN5eastl4listIiNS_20fixed_node_allocatorILm24ELm1ELm8ELm0ELb1ENS_9allocatorEEEE8DoAssignIPKiEEvT_S8_NS_17integral_constantIbLb0EEE(ptr noundef nonnull align 8 dereferenceable(72) %this, ptr noundef %ilist.coerce0, ptr noundef %add.ptr.i)
@@ -925,9 +921,9 @@ if.then.i:                                        ; preds = %entry
   br i1 %cmp.not3.i.i.i, label %_ZN5eastl4listIiNS_20fixed_node_allocatorILm24ELm1ELm8ELm0ELb1ENS_9allocatorEEEE5clearEv.exit.i, label %while.body.lr.ph.i.i.i
 
 while.body.lr.ph.i.i.i:                           ; preds = %if.then.i
-  %mpPoolBegin.i.i.i.i.i = getelementptr inbounds %"class.eastl::compressed_pair_imp", ptr %this, i64 0, i32 1, i32 0, i32 2
-  %mpCapacity.i.i.i.i.i = getelementptr inbounds %"class.eastl::compressed_pair_imp", ptr %this, i64 0, i32 1, i32 0, i32 0, i32 2
-  %mSecond.i.i.i.i.i.i = getelementptr inbounds %"class.eastl::compressed_pair_imp", ptr %this, i64 0, i32 1
+  %mpPoolBegin.i.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 56
+  %mpCapacity.i.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 32
+  %mSecond.i.i.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 16
   br label %while.body.i.i.i
 
 while.body.i.i.i:                                 ; preds = %_ZN5eastl20fixed_node_allocatorILm24ELm1ELm8ELm0ELb1ENS_9allocatorEE10deallocateEPvm.exit.i.i.i, %while.body.lr.ph.i.i.i
@@ -956,9 +952,9 @@ _ZN5eastl20fixed_node_allocatorILm24ELm1ELm8ELm0ELb1ENS_9allocatorEE10deallocate
 
 _ZN5eastl4listIiNS_20fixed_node_allocatorILm24ELm1ELm8ELm0ELb1ENS_9allocatorEEEE5clearEv.exit.i: ; preds = %_ZN5eastl20fixed_node_allocatorILm24ELm1ELm8ELm0ELb1ENS_9allocatorEE10deallocateEPvm.exit.i.i.i, %if.then.i
   store ptr %this, ptr %this, align 8
-  %mpPrev.i.i.i = getelementptr inbounds %"struct.eastl::ListNodeBase", ptr %this, i64 0, i32 1
+  %mpPrev.i.i.i = getelementptr inbounds i8, ptr %this, i64 8
   store ptr %this, ptr %mpPrev.i.i.i, align 8
-  %mSize.i.i = getelementptr inbounds %"class.eastl::ListBase", ptr %this, i64 0, i32 1
+  %mSize.i.i = getelementptr inbounds i8, ptr %this, i64 64
   store i64 0, ptr %mSize.i.i, align 8
   %5 = load ptr, ptr %x, align 8
   tail call void @_ZN5eastl4listIiNS_20fixed_node_allocatorILm24ELm1ELm8ELm0ELb1ENS_9allocatorEEEE8DoAssignINS_12ListIteratorIiPKiRS7_EEEEvT_SB_NS_17integral_constantIbLb0EEE(ptr noundef nonnull align 8 dereferenceable(72) %this, ptr %5, ptr nonnull %x)
@@ -979,14 +975,14 @@ entry:
 define weak_odr dso_local void @_ZN5eastl10fixed_listIiLm1ELb1ENS_9allocatorEE17reset_lose_memoryEv(ptr noundef nonnull align 8 dereferenceable(119) %this) local_unnamed_addr #0 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store ptr %this, ptr %this, align 8
-  %mpPrev.i.i = getelementptr inbounds %"struct.eastl::ListNodeBase", ptr %this, i64 0, i32 1
+  %mpPrev.i.i = getelementptr inbounds i8, ptr %this, i64 8
   store ptr %this, ptr %mpPrev.i.i, align 8
-  %mSize.i = getelementptr inbounds %"class.eastl::ListBase", ptr %this, i64 0, i32 1
+  %mSize.i = getelementptr inbounds i8, ptr %this, i64 64
   store i64 0, ptr %mSize.i, align 8
-  %mSecond.i.i.i.i = getelementptr inbounds %"class.eastl::compressed_pair_imp", ptr %this, i64 0, i32 1
-  %mBuffer = getelementptr inbounds %"class.eastl::fixed_list", ptr %this, i64 0, i32 1
+  %mSecond.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 16
+  %mBuffer = getelementptr inbounds i8, ptr %this, i64 72
   tail call void @_ZN5eastl15fixed_pool_base4initEPvmmmm(ptr noundef nonnull align 8 dereferenceable(32) %mSecond.i.i.i.i, ptr noundef nonnull %mBuffer, i64 noundef 47, i64 noundef 24, i64 noundef 8, i64 noundef 0)
-  %mpPoolBegin.i.i = getelementptr inbounds %"class.eastl::compressed_pair_imp", ptr %this, i64 0, i32 1, i32 0, i32 2
+  %mpPoolBegin.i.i = getelementptr inbounds i8, ptr %this, i64 56
   store ptr %mBuffer, ptr %mpPoolBegin.i.i, align 8
   ret void
 }
@@ -1000,12 +996,12 @@ entry:
 ; Function Attrs: mustprogress uwtable
 define weak_odr dso_local noundef zeroext i1 @_ZNK5eastl10fixed_listIiLm1ELb1ENS_9allocatorEE4fullEv(ptr noundef nonnull align 8 dereferenceable(119) %this) local_unnamed_addr #0 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  %mSecond.i.i.i = getelementptr inbounds %"class.eastl::compressed_pair_imp", ptr %this, i64 0, i32 1
+  %mSecond.i.i.i = getelementptr inbounds i8, ptr %this, i64 16
   %0 = load ptr, ptr %mSecond.i.i.i, align 8
   %cmp.not.i.i = icmp eq ptr %0, null
-  %mpNext.i.i = getelementptr inbounds %"class.eastl::compressed_pair_imp", ptr %this, i64 0, i32 1, i32 0, i32 0, i32 1
+  %mpNext.i.i = getelementptr inbounds i8, ptr %this, i64 24
   %1 = load ptr, ptr %mpNext.i.i, align 8
-  %mpCapacity.i.i = getelementptr inbounds %"class.eastl::compressed_pair_imp", ptr %this, i64 0, i32 1, i32 0, i32 0, i32 2
+  %mpCapacity.i.i = getelementptr inbounds i8, ptr %this, i64 32
   %2 = load ptr, ptr %mpCapacity.i.i, align 8
   %cmp2.i.i = icmp eq ptr %1, %2
   %.not = select i1 %cmp.not.i.i, i1 %cmp2.i.i, i1 false
@@ -1015,7 +1011,7 @@ entry:
 ; Function Attrs: mustprogress nounwind uwtable
 define weak_odr dso_local noundef zeroext i1 @_ZNK5eastl10fixed_listIiLm1ELb1ENS_9allocatorEE14has_overflowedEv(ptr noundef nonnull align 8 dereferenceable(119) %this) local_unnamed_addr #1 comdat align 2 {
 entry:
-  %mSize.i = getelementptr inbounds %"class.eastl::ListBase", ptr %this, i64 0, i32 1
+  %mSize.i = getelementptr inbounds i8, ptr %this, i64 64
   %0 = load i64, ptr %mSize.i, align 8
   %cmp = icmp ugt i64 %0, 1
   ret i1 %cmp
@@ -1030,14 +1026,14 @@ entry:
 ; Function Attrs: mustprogress nounwind uwtable
 define weak_odr dso_local noundef nonnull align 1 dereferenceable(1) ptr @_ZNK5eastl10fixed_listIiLm1ELb1ENS_9allocatorEE22get_overflow_allocatorEv(ptr noundef nonnull align 8 dereferenceable(119) %this) local_unnamed_addr #1 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  %mOverflowAllocator.i = getelementptr inbounds %"class.eastl::compressed_pair_imp", ptr %this, i64 0, i32 1, i32 0, i32 1
+  %mOverflowAllocator.i = getelementptr inbounds i8, ptr %this, i64 48
   ret ptr %mOverflowAllocator.i
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
 define weak_odr dso_local noundef nonnull align 1 dereferenceable(1) ptr @_ZN5eastl10fixed_listIiLm1ELb1ENS_9allocatorEE22get_overflow_allocatorEv(ptr noundef nonnull align 8 dereferenceable(119) %this) local_unnamed_addr #1 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  %mOverflowAllocator.i = getelementptr inbounds %"class.eastl::compressed_pair_imp", ptr %this, i64 0, i32 1, i32 0, i32 1
+  %mOverflowAllocator.i = getelementptr inbounds i8, ptr %this, i64 48
   ret ptr %mOverflowAllocator.i
 }
 
@@ -1051,19 +1047,19 @@ entry:
 define weak_odr dso_local void @_ZN5eastl10fixed_listIiLm1ELb0ENS_9allocatorEEC2Ev(ptr noundef nonnull align 8 dereferenceable(103) %this) unnamed_addr #0 comdat($_ZN5eastl10fixed_listIiLm1ELb0ENS_9allocatorEEC5Ev) align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp = alloca %"class.eastl::fixed_node_allocator.6", align 8
-  %mBuffer = getelementptr inbounds %"class.eastl::fixed_list.1", ptr %this, i64 0, i32 1
+  %mBuffer = getelementptr inbounds i8, ptr %this, i64 56
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp, i8 0, i64 32, i1 false)
   call void @_ZN5eastl15fixed_pool_base4initEPvmmmm(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp, ptr noundef nonnull %mBuffer, i64 noundef 24, i64 noundef 24, i64 noundef 8, i64 noundef 0)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %this, i8 0, i64 16, i1 false)
-  %mSecond.i.i.i.i = getelementptr inbounds %"class.eastl::compressed_pair_imp.5", ptr %this, i64 0, i32 1
-  %mpNext.i.i.i.i.i = getelementptr inbounds %"struct.eastl::fixed_pool_base", ptr %ref.tmp, i64 0, i32 1
+  %mSecond.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 16
+  %mpNext.i.i.i.i.i = getelementptr inbounds i8, ptr %ref.tmp, i64 8
   %0 = load ptr, ptr %mpNext.i.i.i.i.i, align 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %mSecond.i.i.i.i, i8 0, i64 32, i1 false)
   call void @_ZN5eastl15fixed_pool_base4initEPvmmmm(ptr noundef nonnull align 8 dereferenceable(32) %mSecond.i.i.i.i, ptr noundef %0, i64 noundef 24, i64 noundef 24, i64 noundef 8, i64 noundef 0)
-  %mSize.i.i = getelementptr inbounds %"class.eastl::ListBase.3", ptr %this, i64 0, i32 1
+  %mSize.i.i = getelementptr inbounds i8, ptr %this, i64 48
   store i64 0, ptr %mSize.i.i, align 8
   store ptr %this, ptr %this, align 8
-  %mpPrev.i.i.i = getelementptr inbounds %"struct.eastl::ListNodeBase", ptr %this, i64 0, i32 1
+  %mpPrev.i.i.i = getelementptr inbounds i8, ptr %this, i64 8
   store ptr %this, ptr %mpPrev.i.i.i, align 8
   ret void
 }
@@ -1072,19 +1068,19 @@ entry:
 define weak_odr dso_local void @_ZN5eastl10fixed_listIiLm1ELb0ENS_9allocatorEEC2ERKS1_(ptr noundef nonnull align 8 dereferenceable(103) %this, ptr noundef nonnull align 1 dereferenceable(1) %overflowAllocator) unnamed_addr #0 comdat($_ZN5eastl10fixed_listIiLm1ELb0ENS_9allocatorEEC5ERKS1_) align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp = alloca %"class.eastl::fixed_node_allocator.6", align 8
-  %mBuffer = getelementptr inbounds %"class.eastl::fixed_list.1", ptr %this, i64 0, i32 1
+  %mBuffer = getelementptr inbounds i8, ptr %this, i64 56
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp, i8 0, i64 32, i1 false)
   call void @_ZN5eastl15fixed_pool_base4initEPvmmmm(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp, ptr noundef nonnull %mBuffer, i64 noundef 24, i64 noundef 24, i64 noundef 8, i64 noundef 0)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %this, i8 0, i64 16, i1 false)
-  %mSecond.i.i.i.i = getelementptr inbounds %"class.eastl::compressed_pair_imp.5", ptr %this, i64 0, i32 1
-  %mpNext.i.i.i.i.i = getelementptr inbounds %"struct.eastl::fixed_pool_base", ptr %ref.tmp, i64 0, i32 1
+  %mSecond.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 16
+  %mpNext.i.i.i.i.i = getelementptr inbounds i8, ptr %ref.tmp, i64 8
   %0 = load ptr, ptr %mpNext.i.i.i.i.i, align 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %mSecond.i.i.i.i, i8 0, i64 32, i1 false)
   call void @_ZN5eastl15fixed_pool_base4initEPvmmmm(ptr noundef nonnull align 8 dereferenceable(32) %mSecond.i.i.i.i, ptr noundef %0, i64 noundef 24, i64 noundef 24, i64 noundef 8, i64 noundef 0)
-  %mSize.i.i = getelementptr inbounds %"class.eastl::ListBase.3", ptr %this, i64 0, i32 1
+  %mSize.i.i = getelementptr inbounds i8, ptr %this, i64 48
   store i64 0, ptr %mSize.i.i, align 8
   store ptr %this, ptr %this, align 8
-  %mpPrev.i.i.i = getelementptr inbounds %"struct.eastl::ListNodeBase", ptr %this, i64 0, i32 1
+  %mpPrev.i.i.i = getelementptr inbounds i8, ptr %this, i64 8
   store ptr %this, ptr %mpPrev.i.i.i, align 8
   ret void
 }
@@ -1093,19 +1089,19 @@ entry:
 define weak_odr dso_local void @_ZN5eastl10fixed_listIiLm1ELb0ENS_9allocatorEEC2Em(ptr noundef nonnull align 8 dereferenceable(103) %this, i64 noundef %n) unnamed_addr #0 comdat($_ZN5eastl10fixed_listIiLm1ELb0ENS_9allocatorEEC5Em) align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp = alloca %"class.eastl::fixed_node_allocator.6", align 8
-  %mBuffer = getelementptr inbounds %"class.eastl::fixed_list.1", ptr %this, i64 0, i32 1
+  %mBuffer = getelementptr inbounds i8, ptr %this, i64 56
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp, i8 0, i64 32, i1 false)
   call void @_ZN5eastl15fixed_pool_base4initEPvmmmm(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp, ptr noundef nonnull %mBuffer, i64 noundef 24, i64 noundef 24, i64 noundef 8, i64 noundef 0)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %this, i8 0, i64 16, i1 false)
-  %mSecond.i.i.i.i = getelementptr inbounds %"class.eastl::compressed_pair_imp.5", ptr %this, i64 0, i32 1
-  %mpNext.i.i.i.i.i = getelementptr inbounds %"struct.eastl::fixed_pool_base", ptr %ref.tmp, i64 0, i32 1
+  %mSecond.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 16
+  %mpNext.i.i.i.i.i = getelementptr inbounds i8, ptr %ref.tmp, i64 8
   %0 = load ptr, ptr %mpNext.i.i.i.i.i, align 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %mSecond.i.i.i.i, i8 0, i64 32, i1 false)
   call void @_ZN5eastl15fixed_pool_base4initEPvmmmm(ptr noundef nonnull align 8 dereferenceable(32) %mSecond.i.i.i.i, ptr noundef %0, i64 noundef 24, i64 noundef 24, i64 noundef 8, i64 noundef 0)
-  %mSize.i.i = getelementptr inbounds %"class.eastl::ListBase.3", ptr %this, i64 0, i32 1
+  %mSize.i.i = getelementptr inbounds i8, ptr %this, i64 48
   store i64 0, ptr %mSize.i.i, align 8
   store ptr %this, ptr %this, align 8
-  %mpPrev.i.i.i = getelementptr inbounds %"struct.eastl::ListNodeBase", ptr %this, i64 0, i32 1
+  %mpPrev.i.i.i = getelementptr inbounds i8, ptr %this, i64 8
   store ptr %this, ptr %mpPrev.i.i.i, align 8
   br label %while.cond.i.i
 
@@ -1130,12 +1126,12 @@ if.then.i.i:                                      ; preds = %while.end.i.i
 while.body.i.i.i:                                 ; preds = %if.then.i.i, %while.body.i.i.i
   %first.sroa.0.03.i.i.i = phi ptr [ %2, %while.body.i.i.i ], [ %current.sroa.0.0.i.i, %if.then.i.i ]
   %2 = load ptr, ptr %first.sroa.0.03.i.i.i, align 8, !noalias !25
-  %mpPrev.i.i.i.i = getelementptr inbounds %"struct.eastl::ListNodeBase", ptr %2, i64 0, i32 1
+  %mpPrev.i.i.i.i = getelementptr inbounds i8, ptr %2, i64 8
   %3 = load ptr, ptr %mpPrev.i.i.i.i, align 8, !noalias !25
-  %mpPrev.i.i.i.i.i.i = getelementptr inbounds %"struct.eastl::ListNodeBase", ptr %3, i64 0, i32 1
+  %mpPrev.i.i.i.i.i.i = getelementptr inbounds i8, ptr %3, i64 8
   %4 = load ptr, ptr %mpPrev.i.i.i.i.i.i, align 8, !noalias !25
   %5 = load ptr, ptr %3, align 8, !noalias !25
-  %mpPrev2.i.i.i.i.i.i = getelementptr inbounds %"struct.eastl::ListNodeBase", ptr %5, i64 0, i32 1
+  %mpPrev2.i.i.i.i.i.i = getelementptr inbounds i8, ptr %5, i64 8
   store ptr %4, ptr %mpPrev2.i.i.i.i.i.i, align 8, !noalias !25
   %6 = load ptr, ptr %3, align 8, !noalias !25
   store ptr %6, ptr %4, align 8, !noalias !25
@@ -1154,9 +1150,9 @@ if.else.i.i:                                      ; preds = %while.end.i.i
   br i1 %cmp.not2.i.i.i.i, label %invoke.cont, label %for.body.lr.ph.i.i.i.i
 
 for.body.lr.ph.i.i.i.i:                           ; preds = %if.else.i.i
-  %mpNext3.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds %"class.eastl::compressed_pair_imp.5", ptr %this, i64 0, i32 1, i32 0, i32 0, i32 1
-  %mpCapacity.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds %"class.eastl::compressed_pair_imp.5", ptr %this, i64 0, i32 1, i32 0, i32 0, i32 2
-  %mnNodeSize.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds %"class.eastl::compressed_pair_imp.5", ptr %this, i64 0, i32 1, i32 0, i32 0, i32 3
+  %mpNext3.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 24
+  %mpCapacity.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 32
+  %mnNodeSize.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 40
   br label %for.body.i.i.i.i
 
 for.body.i.i.i.i:                                 ; preds = %_ZN5eastl4listIiNS_20fixed_node_allocatorILm24ELm1ELm8ELm0ELb0ENS_9allocatorEEEE13DoInsertValueIJRKiEEEvPNS_12ListNodeBaseEDpOT_.exit.i.i.i.i, %for.body.lr.ph.i.i.i.i
@@ -1184,11 +1180,11 @@ if.then4.i.i.i.i.i.i.i.i.i.i:                     ; preds = %if.else.i.i.i.i.i.i
 
 _ZN5eastl4listIiNS_20fixed_node_allocatorILm24ELm1ELm8ELm0ELb0ENS_9allocatorEEEE13DoInsertValueIJRKiEEEvPNS_12ListNodeBaseEDpOT_.exit.i.i.i.i: ; preds = %if.then4.i.i.i.i.i.i.i.i.i.i, %if.else.i.i.i.i.i.i.i.i.i.i, %if.then.i.i.i.i.i.i.i.i.i.i
   %result.0.i.i.i.i.i.i.i.i = phi ptr [ %9, %if.then.i.i.i.i.i.i.i.i.i.i ], [ %11, %if.then4.i.i.i.i.i.i.i.i.i.i ], [ null, %if.else.i.i.i.i.i.i.i.i.i.i ]
-  %mValue.i.i.i.i.i.i = getelementptr inbounds %"struct.eastl::ListNode", ptr %result.0.i.i.i.i.i.i.i.i, i64 0, i32 1
+  %mValue.i.i.i.i.i.i = getelementptr inbounds i8, ptr %result.0.i.i.i.i.i.i.i.i, i64 16
   store i32 0, ptr %mValue.i.i.i.i.i.i, align 4, !noalias !31
   store ptr %this, ptr %result.0.i.i.i.i.i.i.i.i, align 8, !noalias !31
   %14 = load ptr, ptr %mpPrev.i.i.i, align 8, !noalias !31
-  %mpPrev2.i.i.i.i8.i.i = getelementptr inbounds %"struct.eastl::ListNodeBase", ptr %result.0.i.i.i.i.i.i.i.i, i64 0, i32 1
+  %mpPrev2.i.i.i.i8.i.i = getelementptr inbounds i8, ptr %result.0.i.i.i.i.i.i.i.i, i64 8
   store ptr %14, ptr %mpPrev2.i.i.i.i8.i.i, align 8, !noalias !31
   store ptr %result.0.i.i.i.i.i.i.i.i, ptr %14, align 8, !noalias !31
   store ptr %result.0.i.i.i.i.i.i.i.i, ptr %mpPrev.i.i.i, align 8, !noalias !31
@@ -1207,19 +1203,19 @@ invoke.cont:                                      ; preds = %_ZN5eastl4listIiNS_
 define weak_odr dso_local void @_ZN5eastl10fixed_listIiLm1ELb0ENS_9allocatorEEC2EmRKi(ptr noundef nonnull align 8 dereferenceable(103) %this, i64 noundef %n, ptr noundef nonnull align 4 dereferenceable(4) %value) unnamed_addr #0 comdat($_ZN5eastl10fixed_listIiLm1ELb0ENS_9allocatorEEC5EmRKi) align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp = alloca %"class.eastl::fixed_node_allocator.6", align 8
-  %mBuffer = getelementptr inbounds %"class.eastl::fixed_list.1", ptr %this, i64 0, i32 1
+  %mBuffer = getelementptr inbounds i8, ptr %this, i64 56
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp, i8 0, i64 32, i1 false)
   call void @_ZN5eastl15fixed_pool_base4initEPvmmmm(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp, ptr noundef nonnull %mBuffer, i64 noundef 24, i64 noundef 24, i64 noundef 8, i64 noundef 0)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %this, i8 0, i64 16, i1 false)
-  %mSecond.i.i.i.i = getelementptr inbounds %"class.eastl::compressed_pair_imp.5", ptr %this, i64 0, i32 1
-  %mpNext.i.i.i.i.i = getelementptr inbounds %"struct.eastl::fixed_pool_base", ptr %ref.tmp, i64 0, i32 1
+  %mSecond.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 16
+  %mpNext.i.i.i.i.i = getelementptr inbounds i8, ptr %ref.tmp, i64 8
   %0 = load ptr, ptr %mpNext.i.i.i.i.i, align 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %mSecond.i.i.i.i, i8 0, i64 32, i1 false)
   call void @_ZN5eastl15fixed_pool_base4initEPvmmmm(ptr noundef nonnull align 8 dereferenceable(32) %mSecond.i.i.i.i, ptr noundef %0, i64 noundef 24, i64 noundef 24, i64 noundef 8, i64 noundef 0)
-  %mSize.i.i = getelementptr inbounds %"class.eastl::ListBase.3", ptr %this, i64 0, i32 1
+  %mSize.i.i = getelementptr inbounds i8, ptr %this, i64 48
   store i64 0, ptr %mSize.i.i, align 8
   store ptr %this, ptr %this, align 8
-  %mpPrev.i.i.i = getelementptr inbounds %"struct.eastl::ListNodeBase", ptr %this, i64 0, i32 1
+  %mpPrev.i.i.i = getelementptr inbounds i8, ptr %this, i64 8
   store ptr %this, ptr %mpPrev.i.i.i, align 8
   br label %while.cond.i
 
@@ -1244,12 +1240,12 @@ if.then.i:                                        ; preds = %while.end.i
 while.body.i.i:                                   ; preds = %if.then.i, %while.body.i.i
   %first.sroa.0.03.i.i = phi ptr [ %2, %while.body.i.i ], [ %current.sroa.0.0.i, %if.then.i ]
   %2 = load ptr, ptr %first.sroa.0.03.i.i, align 8, !noalias !35
-  %mpPrev.i.i.i1 = getelementptr inbounds %"struct.eastl::ListNodeBase", ptr %2, i64 0, i32 1
+  %mpPrev.i.i.i1 = getelementptr inbounds i8, ptr %2, i64 8
   %3 = load ptr, ptr %mpPrev.i.i.i1, align 8, !noalias !35
-  %mpPrev.i.i.i.i.i = getelementptr inbounds %"struct.eastl::ListNodeBase", ptr %3, i64 0, i32 1
+  %mpPrev.i.i.i.i.i = getelementptr inbounds i8, ptr %3, i64 8
   %4 = load ptr, ptr %mpPrev.i.i.i.i.i, align 8, !noalias !35
   %5 = load ptr, ptr %3, align 8, !noalias !35
-  %mpPrev2.i.i.i.i.i = getelementptr inbounds %"struct.eastl::ListNodeBase", ptr %5, i64 0, i32 1
+  %mpPrev2.i.i.i.i.i = getelementptr inbounds i8, ptr %5, i64 8
   store ptr %4, ptr %mpPrev2.i.i.i.i.i, align 8, !noalias !35
   %6 = load ptr, ptr %3, align 8, !noalias !35
   store ptr %6, ptr %4, align 8, !noalias !35
@@ -1268,9 +1264,9 @@ if.else.i:                                        ; preds = %while.end.i
   br i1 %cmp.not2.i.i.i, label %invoke.cont, label %for.body.lr.ph.i.i.i
 
 for.body.lr.ph.i.i.i:                             ; preds = %if.else.i
-  %mpNext3.i.i.i.i.i.i.i.i.i = getelementptr inbounds %"class.eastl::compressed_pair_imp.5", ptr %this, i64 0, i32 1, i32 0, i32 0, i32 1
-  %mpCapacity.i.i.i.i.i.i.i.i.i = getelementptr inbounds %"class.eastl::compressed_pair_imp.5", ptr %this, i64 0, i32 1, i32 0, i32 0, i32 2
-  %mnNodeSize.i.i.i.i.i.i.i.i.i = getelementptr inbounds %"class.eastl::compressed_pair_imp.5", ptr %this, i64 0, i32 1, i32 0, i32 0, i32 3
+  %mpNext3.i.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 24
+  %mpCapacity.i.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 32
+  %mnNodeSize.i.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 40
   br label %for.body.i.i.i
 
 for.body.i.i.i:                                   ; preds = %_ZN5eastl4listIiNS_20fixed_node_allocatorILm24ELm1ELm8ELm0ELb0ENS_9allocatorEEEE13DoInsertValueIJRKiEEEvPNS_12ListNodeBaseEDpOT_.exit.i.i.i, %for.body.lr.ph.i.i.i
@@ -1298,12 +1294,12 @@ if.then4.i.i.i.i.i.i.i.i.i:                       ; preds = %if.else.i.i.i.i.i.i
 
 _ZN5eastl4listIiNS_20fixed_node_allocatorILm24ELm1ELm8ELm0ELb0ENS_9allocatorEEEE13DoInsertValueIJRKiEEEvPNS_12ListNodeBaseEDpOT_.exit.i.i.i: ; preds = %if.then4.i.i.i.i.i.i.i.i.i, %if.else.i.i.i.i.i.i.i.i.i, %if.then.i.i.i.i.i.i.i.i.i
   %result.0.i.i.i.i.i.i.i = phi ptr [ %9, %if.then.i.i.i.i.i.i.i.i.i ], [ %11, %if.then4.i.i.i.i.i.i.i.i.i ], [ null, %if.else.i.i.i.i.i.i.i.i.i ]
-  %mValue.i.i.i.i.i = getelementptr inbounds %"struct.eastl::ListNode", ptr %result.0.i.i.i.i.i.i.i, i64 0, i32 1
+  %mValue.i.i.i.i.i = getelementptr inbounds i8, ptr %result.0.i.i.i.i.i.i.i, i64 16
   %14 = load i32, ptr %value, align 4, !noalias !40
   store i32 %14, ptr %mValue.i.i.i.i.i, align 4, !noalias !40
   store ptr %this, ptr %result.0.i.i.i.i.i.i.i, align 8, !noalias !40
   %15 = load ptr, ptr %mpPrev.i.i.i, align 8, !noalias !40
-  %mpPrev2.i.i.i.i8.i = getelementptr inbounds %"struct.eastl::ListNodeBase", ptr %result.0.i.i.i.i.i.i.i, i64 0, i32 1
+  %mpPrev2.i.i.i.i8.i = getelementptr inbounds i8, ptr %result.0.i.i.i.i.i.i.i, i64 8
   store ptr %15, ptr %mpPrev2.i.i.i.i8.i, align 8, !noalias !40
   store ptr %result.0.i.i.i.i.i.i.i, ptr %15, align 8, !noalias !40
   store ptr %result.0.i.i.i.i.i.i.i, ptr %mpPrev.i.i.i, align 8, !noalias !40
@@ -1322,33 +1318,33 @@ invoke.cont:                                      ; preds = %_ZN5eastl4listIiNS_
 define weak_odr dso_local void @_ZN5eastl10fixed_listIiLm1ELb0ENS_9allocatorEEC2ERKS2_(ptr noundef nonnull align 8 dereferenceable(103) %this, ptr noundef nonnull align 8 dereferenceable(103) %x) unnamed_addr #0 comdat($_ZN5eastl10fixed_listIiLm1ELb0ENS_9allocatorEEC5ERKS2_) align 2 personality ptr @__gxx_personality_v0 {
 for.end.i.i:
   %ref.tmp = alloca %"class.eastl::fixed_node_allocator.6", align 8
-  %mBuffer = getelementptr inbounds %"class.eastl::fixed_list.1", ptr %this, i64 0, i32 1
+  %mBuffer = getelementptr inbounds i8, ptr %this, i64 56
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp, i8 0, i64 32, i1 false)
   call void @_ZN5eastl15fixed_pool_base4initEPvmmmm(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp, ptr noundef nonnull %mBuffer, i64 noundef 24, i64 noundef 24, i64 noundef 8, i64 noundef 0)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %this, i8 0, i64 16, i1 false)
-  %mSecond.i.i.i.i = getelementptr inbounds %"class.eastl::compressed_pair_imp.5", ptr %this, i64 0, i32 1
-  %mpNext.i.i.i.i.i = getelementptr inbounds %"struct.eastl::fixed_pool_base", ptr %ref.tmp, i64 0, i32 1
+  %mSecond.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 16
+  %mpNext.i.i.i.i.i = getelementptr inbounds i8, ptr %ref.tmp, i64 8
   %0 = load ptr, ptr %mpNext.i.i.i.i.i, align 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %mSecond.i.i.i.i, i8 0, i64 32, i1 false)
   call void @_ZN5eastl15fixed_pool_base4initEPvmmmm(ptr noundef nonnull align 8 dereferenceable(32) %mSecond.i.i.i.i, ptr noundef %0, i64 noundef 24, i64 noundef 24, i64 noundef 8, i64 noundef 0)
-  %mSize.i.i = getelementptr inbounds %"class.eastl::ListBase.3", ptr %this, i64 0, i32 1
+  %mSize.i.i = getelementptr inbounds i8, ptr %this, i64 48
   store i64 0, ptr %mSize.i.i, align 8
   store ptr %this, ptr %this, align 8
-  %mpPrev.i.i.i = getelementptr inbounds %"struct.eastl::ListNodeBase", ptr %this, i64 0, i32 1
+  %mpPrev.i.i.i = getelementptr inbounds i8, ptr %this, i64 8
   store ptr %this, ptr %mpPrev.i.i.i, align 8
   %1 = load ptr, ptr %x, align 8
   %cmp.i4.i.i = icmp eq ptr %1, %x
   br i1 %cmp.i4.i.i, label %invoke.cont9, label %for.body.lr.ph.i.i.i
 
 for.body.lr.ph.i.i.i:                             ; preds = %for.end.i.i
-  %mpNext3.i.i.i.i.i.i.i.i.i = getelementptr inbounds %"class.eastl::compressed_pair_imp.5", ptr %this, i64 0, i32 1, i32 0, i32 0, i32 1
-  %mpCapacity.i.i.i.i.i.i.i.i.i = getelementptr inbounds %"class.eastl::compressed_pair_imp.5", ptr %this, i64 0, i32 1, i32 0, i32 0, i32 2
-  %mnNodeSize.i.i.i.i.i.i.i.i.i = getelementptr inbounds %"class.eastl::compressed_pair_imp.5", ptr %this, i64 0, i32 1, i32 0, i32 0, i32 3
+  %mpNext3.i.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 24
+  %mpCapacity.i.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 32
+  %mnNodeSize.i.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 40
   br label %for.body.i.i.i
 
 for.body.i.i.i:                                   ; preds = %_ZN5eastl4listIiNS_20fixed_node_allocatorILm24ELm1ELm8ELm0ELb0ENS_9allocatorEEEE13DoInsertValueIJRKiEEEvPNS_12ListNodeBaseEDpOT_.exit.i.i.i, %for.body.lr.ph.i.i.i
   %first.sroa.0.04.i.i.i = phi ptr [ %1, %for.body.lr.ph.i.i.i ], [ %10, %_ZN5eastl4listIiNS_20fixed_node_allocatorILm24ELm1ELm8ELm0ELb0ENS_9allocatorEEEE13DoInsertValueIJRKiEEEvPNS_12ListNodeBaseEDpOT_.exit.i.i.i ]
-  %mValue.i.i.i.i = getelementptr inbounds %"struct.eastl::ListNode", ptr %first.sroa.0.04.i.i.i, i64 0, i32 1
+  %mValue.i.i.i.i = getelementptr inbounds i8, ptr %first.sroa.0.04.i.i.i, i64 16
   %2 = load ptr, ptr %mSecond.i.i.i.i, align 8
   %tobool.not.i.i.i.i.i.i.i.i.i = icmp eq ptr %2, null
   br i1 %tobool.not.i.i.i.i.i.i.i.i.i, label %if.else.i.i.i.i.i.i.i.i.i, label %if.then.i.i.i.i.i.i.i.i.i
@@ -1372,12 +1368,12 @@ if.then4.i.i.i.i.i.i.i.i.i:                       ; preds = %if.else.i.i.i.i.i.i
 
 _ZN5eastl4listIiNS_20fixed_node_allocatorILm24ELm1ELm8ELm0ELb0ENS_9allocatorEEEE13DoInsertValueIJRKiEEEvPNS_12ListNodeBaseEDpOT_.exit.i.i.i: ; preds = %if.then4.i.i.i.i.i.i.i.i.i, %if.else.i.i.i.i.i.i.i.i.i, %if.then.i.i.i.i.i.i.i.i.i
   %result.0.i.i.i.i.i.i.i = phi ptr [ %2, %if.then.i.i.i.i.i.i.i.i.i ], [ %4, %if.then4.i.i.i.i.i.i.i.i.i ], [ null, %if.else.i.i.i.i.i.i.i.i.i ]
-  %mValue.i.i.i.i.i = getelementptr inbounds %"struct.eastl::ListNode", ptr %result.0.i.i.i.i.i.i.i, i64 0, i32 1
+  %mValue.i.i.i.i.i = getelementptr inbounds i8, ptr %result.0.i.i.i.i.i.i.i, i64 16
   %7 = load i32, ptr %mValue.i.i.i.i, align 4
   store i32 %7, ptr %mValue.i.i.i.i.i, align 4
   store ptr %this, ptr %result.0.i.i.i.i.i.i.i, align 8
   %8 = load ptr, ptr %mpPrev.i.i.i, align 8
-  %mpPrev2.i.i.i.i.i = getelementptr inbounds %"struct.eastl::ListNodeBase", ptr %result.0.i.i.i.i.i.i.i, i64 0, i32 1
+  %mpPrev2.i.i.i.i.i = getelementptr inbounds i8, ptr %result.0.i.i.i.i.i.i.i, i64 8
   store ptr %8, ptr %mpPrev2.i.i.i.i.i, align 8
   store ptr %result.0.i.i.i.i.i.i.i, ptr %8, align 8
   store ptr %result.0.i.i.i.i.i.i.i, ptr %mpPrev.i.i.i, align 8
@@ -1396,33 +1392,33 @@ invoke.cont9:                                     ; preds = %_ZN5eastl4listIiNS_
 define weak_odr dso_local void @_ZN5eastl10fixed_listIiLm1ELb0ENS_9allocatorEEC2EOS2_(ptr noundef nonnull align 8 dereferenceable(103) %this, ptr noundef nonnull align 8 dereferenceable(103) %x) unnamed_addr #0 comdat($_ZN5eastl10fixed_listIiLm1ELb0ENS_9allocatorEEC5EOS2_) align 2 personality ptr @__gxx_personality_v0 {
 for.end.i.i:
   %ref.tmp = alloca %"class.eastl::fixed_node_allocator.6", align 8
-  %mBuffer = getelementptr inbounds %"class.eastl::fixed_list.1", ptr %this, i64 0, i32 1
+  %mBuffer = getelementptr inbounds i8, ptr %this, i64 56
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp, i8 0, i64 32, i1 false)
   call void @_ZN5eastl15fixed_pool_base4initEPvmmmm(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp, ptr noundef nonnull %mBuffer, i64 noundef 24, i64 noundef 24, i64 noundef 8, i64 noundef 0)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %this, i8 0, i64 16, i1 false)
-  %mSecond.i.i.i.i = getelementptr inbounds %"class.eastl::compressed_pair_imp.5", ptr %this, i64 0, i32 1
-  %mpNext.i.i.i.i.i = getelementptr inbounds %"struct.eastl::fixed_pool_base", ptr %ref.tmp, i64 0, i32 1
+  %mSecond.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 16
+  %mpNext.i.i.i.i.i = getelementptr inbounds i8, ptr %ref.tmp, i64 8
   %0 = load ptr, ptr %mpNext.i.i.i.i.i, align 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %mSecond.i.i.i.i, i8 0, i64 32, i1 false)
   call void @_ZN5eastl15fixed_pool_base4initEPvmmmm(ptr noundef nonnull align 8 dereferenceable(32) %mSecond.i.i.i.i, ptr noundef %0, i64 noundef 24, i64 noundef 24, i64 noundef 8, i64 noundef 0)
-  %mSize.i.i = getelementptr inbounds %"class.eastl::ListBase.3", ptr %this, i64 0, i32 1
+  %mSize.i.i = getelementptr inbounds i8, ptr %this, i64 48
   store i64 0, ptr %mSize.i.i, align 8
   store ptr %this, ptr %this, align 8
-  %mpPrev.i.i.i = getelementptr inbounds %"struct.eastl::ListNodeBase", ptr %this, i64 0, i32 1
+  %mpPrev.i.i.i = getelementptr inbounds i8, ptr %this, i64 8
   store ptr %this, ptr %mpPrev.i.i.i, align 8
   %1 = load ptr, ptr %x, align 8, !noalias !44
   %cmp.i4.i.i = icmp eq ptr %1, %x
   br i1 %cmp.i4.i.i, label %invoke.cont4, label %for.body.lr.ph.i.i.i
 
 for.body.lr.ph.i.i.i:                             ; preds = %for.end.i.i
-  %mpNext3.i.i.i.i.i.i.i.i.i = getelementptr inbounds %"class.eastl::compressed_pair_imp.5", ptr %this, i64 0, i32 1, i32 0, i32 0, i32 1
-  %mpCapacity.i.i.i.i.i.i.i.i.i = getelementptr inbounds %"class.eastl::compressed_pair_imp.5", ptr %this, i64 0, i32 1, i32 0, i32 0, i32 2
-  %mnNodeSize.i.i.i.i.i.i.i.i.i = getelementptr inbounds %"class.eastl::compressed_pair_imp.5", ptr %this, i64 0, i32 1, i32 0, i32 0, i32 3
+  %mpNext3.i.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 24
+  %mpCapacity.i.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 32
+  %mnNodeSize.i.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 40
   br label %for.body.i.i.i
 
 for.body.i.i.i:                                   ; preds = %_ZN5eastl4listIiNS_20fixed_node_allocatorILm24ELm1ELm8ELm0ELb0ENS_9allocatorEEEE13DoInsertValueIJRiEEEvPNS_12ListNodeBaseEDpOT_.exit.i.i.i, %for.body.lr.ph.i.i.i
   %agg.tmp12.sroa.0.0.i.i = phi ptr [ %1, %for.body.lr.ph.i.i.i ], [ %10, %_ZN5eastl4listIiNS_20fixed_node_allocatorILm24ELm1ELm8ELm0ELb0ENS_9allocatorEEEE13DoInsertValueIJRiEEEvPNS_12ListNodeBaseEDpOT_.exit.i.i.i ]
-  %mValue.i.i.i.i = getelementptr inbounds %"struct.eastl::ListNode", ptr %agg.tmp12.sroa.0.0.i.i, i64 0, i32 1
+  %mValue.i.i.i.i = getelementptr inbounds i8, ptr %agg.tmp12.sroa.0.0.i.i, i64 16
   %2 = load ptr, ptr %mSecond.i.i.i.i, align 8
   %tobool.not.i.i.i.i.i.i.i.i.i = icmp eq ptr %2, null
   br i1 %tobool.not.i.i.i.i.i.i.i.i.i, label %if.else.i.i.i.i.i.i.i.i.i, label %if.then.i.i.i.i.i.i.i.i.i
@@ -1446,12 +1442,12 @@ if.then4.i.i.i.i.i.i.i.i.i:                       ; preds = %if.else.i.i.i.i.i.i
 
 _ZN5eastl4listIiNS_20fixed_node_allocatorILm24ELm1ELm8ELm0ELb0ENS_9allocatorEEEE13DoInsertValueIJRiEEEvPNS_12ListNodeBaseEDpOT_.exit.i.i.i: ; preds = %if.then4.i.i.i.i.i.i.i.i.i, %if.else.i.i.i.i.i.i.i.i.i, %if.then.i.i.i.i.i.i.i.i.i
   %result.0.i.i.i.i.i.i.i = phi ptr [ %2, %if.then.i.i.i.i.i.i.i.i.i ], [ %4, %if.then4.i.i.i.i.i.i.i.i.i ], [ null, %if.else.i.i.i.i.i.i.i.i.i ]
-  %mValue.i.i.i.i.i = getelementptr inbounds %"struct.eastl::ListNode", ptr %result.0.i.i.i.i.i.i.i, i64 0, i32 1
+  %mValue.i.i.i.i.i = getelementptr inbounds i8, ptr %result.0.i.i.i.i.i.i.i, i64 16
   %7 = load i32, ptr %mValue.i.i.i.i, align 4
   store i32 %7, ptr %mValue.i.i.i.i.i, align 4
   store ptr %this, ptr %result.0.i.i.i.i.i.i.i, align 8
   %8 = load ptr, ptr %mpPrev.i.i.i, align 8
-  %mpPrev2.i.i.i.i.i = getelementptr inbounds %"struct.eastl::ListNodeBase", ptr %result.0.i.i.i.i.i.i.i, i64 0, i32 1
+  %mpPrev2.i.i.i.i.i = getelementptr inbounds i8, ptr %result.0.i.i.i.i.i.i.i, i64 8
   store ptr %8, ptr %mpPrev2.i.i.i.i.i, align 8
   store ptr %result.0.i.i.i.i.i.i.i, ptr %8, align 8
   store ptr %result.0.i.i.i.i.i.i.i, ptr %mpPrev.i.i.i, align 8
@@ -1470,33 +1466,33 @@ invoke.cont4:                                     ; preds = %_ZN5eastl4listIiNS_
 define weak_odr dso_local void @_ZN5eastl10fixed_listIiLm1ELb0ENS_9allocatorEEC2EOS2_RKS1_(ptr noundef nonnull align 8 dereferenceable(103) %this, ptr noundef nonnull align 8 dereferenceable(103) %x, ptr noundef nonnull align 1 dereferenceable(1) %overflowAllocator) unnamed_addr #0 comdat($_ZN5eastl10fixed_listIiLm1ELb0ENS_9allocatorEEC5EOS2_RKS1_) align 2 personality ptr @__gxx_personality_v0 {
 for.end.i.i:
   %ref.tmp = alloca %"class.eastl::fixed_node_allocator.6", align 8
-  %mBuffer = getelementptr inbounds %"class.eastl::fixed_list.1", ptr %this, i64 0, i32 1
+  %mBuffer = getelementptr inbounds i8, ptr %this, i64 56
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp, i8 0, i64 32, i1 false)
   call void @_ZN5eastl15fixed_pool_base4initEPvmmmm(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp, ptr noundef nonnull %mBuffer, i64 noundef 24, i64 noundef 24, i64 noundef 8, i64 noundef 0)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %this, i8 0, i64 16, i1 false)
-  %mSecond.i.i.i.i = getelementptr inbounds %"class.eastl::compressed_pair_imp.5", ptr %this, i64 0, i32 1
-  %mpNext.i.i.i.i.i = getelementptr inbounds %"struct.eastl::fixed_pool_base", ptr %ref.tmp, i64 0, i32 1
+  %mSecond.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 16
+  %mpNext.i.i.i.i.i = getelementptr inbounds i8, ptr %ref.tmp, i64 8
   %0 = load ptr, ptr %mpNext.i.i.i.i.i, align 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %mSecond.i.i.i.i, i8 0, i64 32, i1 false)
   call void @_ZN5eastl15fixed_pool_base4initEPvmmmm(ptr noundef nonnull align 8 dereferenceable(32) %mSecond.i.i.i.i, ptr noundef %0, i64 noundef 24, i64 noundef 24, i64 noundef 8, i64 noundef 0)
-  %mSize.i.i = getelementptr inbounds %"class.eastl::ListBase.3", ptr %this, i64 0, i32 1
+  %mSize.i.i = getelementptr inbounds i8, ptr %this, i64 48
   store i64 0, ptr %mSize.i.i, align 8
   store ptr %this, ptr %this, align 8
-  %mpPrev.i.i.i = getelementptr inbounds %"struct.eastl::ListNodeBase", ptr %this, i64 0, i32 1
+  %mpPrev.i.i.i = getelementptr inbounds i8, ptr %this, i64 8
   store ptr %this, ptr %mpPrev.i.i.i, align 8
   %1 = load ptr, ptr %x, align 8, !noalias !48
   %cmp.i4.i.i = icmp eq ptr %1, %x
   br i1 %cmp.i4.i.i, label %invoke.cont4, label %for.body.lr.ph.i.i.i
 
 for.body.lr.ph.i.i.i:                             ; preds = %for.end.i.i
-  %mpNext3.i.i.i.i.i.i.i.i.i = getelementptr inbounds %"class.eastl::compressed_pair_imp.5", ptr %this, i64 0, i32 1, i32 0, i32 0, i32 1
-  %mpCapacity.i.i.i.i.i.i.i.i.i = getelementptr inbounds %"class.eastl::compressed_pair_imp.5", ptr %this, i64 0, i32 1, i32 0, i32 0, i32 2
-  %mnNodeSize.i.i.i.i.i.i.i.i.i = getelementptr inbounds %"class.eastl::compressed_pair_imp.5", ptr %this, i64 0, i32 1, i32 0, i32 0, i32 3
+  %mpNext3.i.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 24
+  %mpCapacity.i.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 32
+  %mnNodeSize.i.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 40
   br label %for.body.i.i.i
 
 for.body.i.i.i:                                   ; preds = %_ZN5eastl4listIiNS_20fixed_node_allocatorILm24ELm1ELm8ELm0ELb0ENS_9allocatorEEEE13DoInsertValueIJRiEEEvPNS_12ListNodeBaseEDpOT_.exit.i.i.i, %for.body.lr.ph.i.i.i
   %agg.tmp12.sroa.0.0.i.i = phi ptr [ %1, %for.body.lr.ph.i.i.i ], [ %10, %_ZN5eastl4listIiNS_20fixed_node_allocatorILm24ELm1ELm8ELm0ELb0ENS_9allocatorEEEE13DoInsertValueIJRiEEEvPNS_12ListNodeBaseEDpOT_.exit.i.i.i ]
-  %mValue.i.i.i.i = getelementptr inbounds %"struct.eastl::ListNode", ptr %agg.tmp12.sroa.0.0.i.i, i64 0, i32 1
+  %mValue.i.i.i.i = getelementptr inbounds i8, ptr %agg.tmp12.sroa.0.0.i.i, i64 16
   %2 = load ptr, ptr %mSecond.i.i.i.i, align 8
   %tobool.not.i.i.i.i.i.i.i.i.i = icmp eq ptr %2, null
   br i1 %tobool.not.i.i.i.i.i.i.i.i.i, label %if.else.i.i.i.i.i.i.i.i.i, label %if.then.i.i.i.i.i.i.i.i.i
@@ -1520,12 +1516,12 @@ if.then4.i.i.i.i.i.i.i.i.i:                       ; preds = %if.else.i.i.i.i.i.i
 
 _ZN5eastl4listIiNS_20fixed_node_allocatorILm24ELm1ELm8ELm0ELb0ENS_9allocatorEEEE13DoInsertValueIJRiEEEvPNS_12ListNodeBaseEDpOT_.exit.i.i.i: ; preds = %if.then4.i.i.i.i.i.i.i.i.i, %if.else.i.i.i.i.i.i.i.i.i, %if.then.i.i.i.i.i.i.i.i.i
   %result.0.i.i.i.i.i.i.i = phi ptr [ %2, %if.then.i.i.i.i.i.i.i.i.i ], [ %4, %if.then4.i.i.i.i.i.i.i.i.i ], [ null, %if.else.i.i.i.i.i.i.i.i.i ]
-  %mValue.i.i.i.i.i = getelementptr inbounds %"struct.eastl::ListNode", ptr %result.0.i.i.i.i.i.i.i, i64 0, i32 1
+  %mValue.i.i.i.i.i = getelementptr inbounds i8, ptr %result.0.i.i.i.i.i.i.i, i64 16
   %7 = load i32, ptr %mValue.i.i.i.i, align 4
   store i32 %7, ptr %mValue.i.i.i.i.i, align 4
   store ptr %this, ptr %result.0.i.i.i.i.i.i.i, align 8
   %8 = load ptr, ptr %mpPrev.i.i.i, align 8
-  %mpPrev2.i.i.i.i.i = getelementptr inbounds %"struct.eastl::ListNodeBase", ptr %result.0.i.i.i.i.i.i.i, i64 0, i32 1
+  %mpPrev2.i.i.i.i.i = getelementptr inbounds i8, ptr %result.0.i.i.i.i.i.i.i, i64 8
   store ptr %8, ptr %mpPrev2.i.i.i.i.i, align 8
   store ptr %result.0.i.i.i.i.i.i.i, ptr %8, align 8
   store ptr %result.0.i.i.i.i.i.i.i, ptr %mpPrev.i.i.i, align 8
@@ -1544,28 +1540,28 @@ invoke.cont4:                                     ; preds = %_ZN5eastl4listIiNS_
 define weak_odr dso_local void @_ZN5eastl10fixed_listIiLm1ELb0ENS_9allocatorEEC2ESt16initializer_listIiERKS1_(ptr noundef nonnull align 8 dereferenceable(103) %this, ptr %ilist.coerce0, i64 %ilist.coerce1, ptr noundef nonnull align 1 dereferenceable(1) %overflowAllocator) unnamed_addr #0 comdat($_ZN5eastl10fixed_listIiLm1ELb0ENS_9allocatorEEC5ESt16initializer_listIiERKS1_) align 2 personality ptr @__gxx_personality_v0 {
 for.end.i.i:
   %ref.tmp = alloca %"class.eastl::fixed_node_allocator.6", align 8
-  %mBuffer = getelementptr inbounds %"class.eastl::fixed_list.1", ptr %this, i64 0, i32 1
+  %mBuffer = getelementptr inbounds i8, ptr %this, i64 56
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp, i8 0, i64 32, i1 false)
   call void @_ZN5eastl15fixed_pool_base4initEPvmmmm(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp, ptr noundef nonnull %mBuffer, i64 noundef 24, i64 noundef 24, i64 noundef 8, i64 noundef 0)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %this, i8 0, i64 16, i1 false)
-  %mSecond.i.i.i.i = getelementptr inbounds %"class.eastl::compressed_pair_imp.5", ptr %this, i64 0, i32 1
-  %mpNext.i.i.i.i.i = getelementptr inbounds %"struct.eastl::fixed_pool_base", ptr %ref.tmp, i64 0, i32 1
+  %mSecond.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 16
+  %mpNext.i.i.i.i.i = getelementptr inbounds i8, ptr %ref.tmp, i64 8
   %0 = load ptr, ptr %mpNext.i.i.i.i.i, align 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %mSecond.i.i.i.i, i8 0, i64 32, i1 false)
   call void @_ZN5eastl15fixed_pool_base4initEPvmmmm(ptr noundef nonnull align 8 dereferenceable(32) %mSecond.i.i.i.i, ptr noundef %0, i64 noundef 24, i64 noundef 24, i64 noundef 8, i64 noundef 0)
-  %mSize.i.i = getelementptr inbounds %"class.eastl::ListBase.3", ptr %this, i64 0, i32 1
+  %mSize.i.i = getelementptr inbounds i8, ptr %this, i64 48
   store i64 0, ptr %mSize.i.i, align 8
   store ptr %this, ptr %this, align 8
-  %mpPrev.i.i.i = getelementptr inbounds %"struct.eastl::ListNodeBase", ptr %this, i64 0, i32 1
+  %mpPrev.i.i.i = getelementptr inbounds i8, ptr %this, i64 8
   store ptr %this, ptr %mpPrev.i.i.i, align 8
   %add.ptr.i = getelementptr inbounds i32, ptr %ilist.coerce0, i64 %ilist.coerce1
   %cmp5.i.i = icmp eq i64 %ilist.coerce1, 0
   br i1 %cmp5.i.i, label %invoke.cont, label %for.body.lr.ph.i.i.i
 
 for.body.lr.ph.i.i.i:                             ; preds = %for.end.i.i
-  %mpNext3.i.i.i.i.i.i.i.i.i = getelementptr inbounds %"class.eastl::compressed_pair_imp.5", ptr %this, i64 0, i32 1, i32 0, i32 0, i32 1
-  %mpCapacity.i.i.i.i.i.i.i.i.i = getelementptr inbounds %"class.eastl::compressed_pair_imp.5", ptr %this, i64 0, i32 1, i32 0, i32 0, i32 2
-  %mnNodeSize.i.i.i.i.i.i.i.i.i = getelementptr inbounds %"class.eastl::compressed_pair_imp.5", ptr %this, i64 0, i32 1, i32 0, i32 0, i32 3
+  %mpNext3.i.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 24
+  %mpCapacity.i.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 32
+  %mnNodeSize.i.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 40
   br label %for.body.i.i.i
 
 for.body.i.i.i:                                   ; preds = %_ZN5eastl4listIiNS_20fixed_node_allocatorILm24ELm1ELm8ELm0ELb0ENS_9allocatorEEEE13DoInsertValueIJRKiEEEvPNS_12ListNodeBaseEDpOT_.exit.i.i.i, %for.body.lr.ph.i.i.i
@@ -1593,19 +1589,19 @@ if.then4.i.i.i.i.i.i.i.i.i:                       ; preds = %if.else.i.i.i.i.i.i
 
 _ZN5eastl4listIiNS_20fixed_node_allocatorILm24ELm1ELm8ELm0ELb0ENS_9allocatorEEEE13DoInsertValueIJRKiEEEvPNS_12ListNodeBaseEDpOT_.exit.i.i.i: ; preds = %if.then4.i.i.i.i.i.i.i.i.i, %if.else.i.i.i.i.i.i.i.i.i, %if.then.i.i.i.i.i.i.i.i.i
   %result.0.i.i.i.i.i.i.i = phi ptr [ %1, %if.then.i.i.i.i.i.i.i.i.i ], [ %3, %if.then4.i.i.i.i.i.i.i.i.i ], [ null, %if.else.i.i.i.i.i.i.i.i.i ]
-  %mValue.i.i.i.i.i = getelementptr inbounds %"struct.eastl::ListNode", ptr %result.0.i.i.i.i.i.i.i, i64 0, i32 1
+  %mValue.i.i.i.i.i = getelementptr inbounds i8, ptr %result.0.i.i.i.i.i.i.i, i64 16
   %6 = load i32, ptr %first.addr.04.i.i.i, align 4
   store i32 %6, ptr %mValue.i.i.i.i.i, align 4
   store ptr %this, ptr %result.0.i.i.i.i.i.i.i, align 8
   %7 = load ptr, ptr %mpPrev.i.i.i, align 8
-  %mpPrev2.i.i.i.i.i = getelementptr inbounds %"struct.eastl::ListNodeBase", ptr %result.0.i.i.i.i.i.i.i, i64 0, i32 1
+  %mpPrev2.i.i.i.i.i = getelementptr inbounds i8, ptr %result.0.i.i.i.i.i.i.i, i64 8
   store ptr %7, ptr %mpPrev2.i.i.i.i.i, align 8
   store ptr %result.0.i.i.i.i.i.i.i, ptr %7, align 8
   store ptr %result.0.i.i.i.i.i.i.i, ptr %mpPrev.i.i.i, align 8
   %8 = load i64, ptr %mSize.i.i, align 8
   %inc.i.i.i.i = add i64 %8, 1
   store i64 %inc.i.i.i.i, ptr %mSize.i.i, align 8
-  %incdec.ptr.i.i.i = getelementptr inbounds i32, ptr %first.addr.04.i.i.i, i64 1
+  %incdec.ptr.i.i.i = getelementptr inbounds i8, ptr %first.addr.04.i.i.i, i64 4
   %cmp.not.i.i.i = icmp eq ptr %incdec.ptr.i.i.i, %add.ptr.i
   br i1 %cmp.not.i.i.i, label %invoke.cont, label %for.body.i.i.i, !llvm.loop !51
 
@@ -1625,7 +1621,7 @@ if.then:                                          ; preds = %entry
   br i1 %cmp.not3.i.i, label %for.end.i.i, label %while.body.lr.ph.i.i
 
 while.body.lr.ph.i.i:                             ; preds = %if.then
-  %mSecond.i.i.i.i.i = getelementptr inbounds %"class.eastl::compressed_pair_imp.5", ptr %this, i64 0, i32 1
+  %mSecond.i.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 16
   %.pre.i.i = load ptr, ptr %mSecond.i.i.i.i.i, align 8
   br label %while.body.i.i
 
@@ -1640,24 +1636,24 @@ while.body.i.i:                                   ; preds = %while.body.i.i, %wh
 
 for.end.i.i:                                      ; preds = %while.body.i.i, %if.then
   store ptr %this, ptr %this, align 8
-  %mpPrev.i.i = getelementptr inbounds %"struct.eastl::ListNodeBase", ptr %this, i64 0, i32 1
+  %mpPrev.i.i = getelementptr inbounds i8, ptr %this, i64 8
   store ptr %this, ptr %mpPrev.i.i, align 8
-  %mSize.i = getelementptr inbounds %"class.eastl::ListBase.3", ptr %this, i64 0, i32 1
+  %mSize.i = getelementptr inbounds i8, ptr %this, i64 48
   store i64 0, ptr %mSize.i, align 8
   %3 = load ptr, ptr %x, align 8
   %cmp.i4.i.i = icmp eq ptr %3, %x
   br i1 %cmp.i4.i.i, label %if.end, label %for.body.lr.ph.i.i.i
 
 for.body.lr.ph.i.i.i:                             ; preds = %for.end.i.i
-  %mSecond.i.i.i.i.i.i.i5.i.i = getelementptr inbounds %"class.eastl::compressed_pair_imp.5", ptr %this, i64 0, i32 1
-  %mpNext3.i.i.i.i.i.i.i.i.i = getelementptr inbounds %"class.eastl::compressed_pair_imp.5", ptr %this, i64 0, i32 1, i32 0, i32 0, i32 1
-  %mpCapacity.i.i.i.i.i.i.i.i.i = getelementptr inbounds %"class.eastl::compressed_pair_imp.5", ptr %this, i64 0, i32 1, i32 0, i32 0, i32 2
-  %mnNodeSize.i.i.i.i.i.i.i.i.i = getelementptr inbounds %"class.eastl::compressed_pair_imp.5", ptr %this, i64 0, i32 1, i32 0, i32 0, i32 3
+  %mSecond.i.i.i.i.i.i.i5.i.i = getelementptr inbounds i8, ptr %this, i64 16
+  %mpNext3.i.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 24
+  %mpCapacity.i.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 32
+  %mnNodeSize.i.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 40
   br label %for.body.i.i.i
 
 for.body.i.i.i:                                   ; preds = %_ZN5eastl4listIiNS_20fixed_node_allocatorILm24ELm1ELm8ELm0ELb0ENS_9allocatorEEEE13DoInsertValueIJRKiEEEvPNS_12ListNodeBaseEDpOT_.exit.i.i.i, %for.body.lr.ph.i.i.i
   %first.sroa.0.04.i.i.i = phi ptr [ %3, %for.body.lr.ph.i.i.i ], [ %12, %_ZN5eastl4listIiNS_20fixed_node_allocatorILm24ELm1ELm8ELm0ELb0ENS_9allocatorEEEE13DoInsertValueIJRKiEEEvPNS_12ListNodeBaseEDpOT_.exit.i.i.i ]
-  %mValue.i.i.i.i = getelementptr inbounds %"struct.eastl::ListNode", ptr %first.sroa.0.04.i.i.i, i64 0, i32 1
+  %mValue.i.i.i.i = getelementptr inbounds i8, ptr %first.sroa.0.04.i.i.i, i64 16
   %4 = load ptr, ptr %mSecond.i.i.i.i.i.i.i5.i.i, align 8
   %tobool.not.i.i.i.i.i.i.i.i.i = icmp eq ptr %4, null
   br i1 %tobool.not.i.i.i.i.i.i.i.i.i, label %if.else.i.i.i.i.i.i.i.i.i, label %if.then.i.i.i.i.i.i.i.i.i
@@ -1681,12 +1677,12 @@ if.then4.i.i.i.i.i.i.i.i.i:                       ; preds = %if.else.i.i.i.i.i.i
 
 _ZN5eastl4listIiNS_20fixed_node_allocatorILm24ELm1ELm8ELm0ELb0ENS_9allocatorEEEE13DoInsertValueIJRKiEEEvPNS_12ListNodeBaseEDpOT_.exit.i.i.i: ; preds = %if.then4.i.i.i.i.i.i.i.i.i, %if.else.i.i.i.i.i.i.i.i.i, %if.then.i.i.i.i.i.i.i.i.i
   %result.0.i.i.i.i.i.i.i = phi ptr [ %4, %if.then.i.i.i.i.i.i.i.i.i ], [ %6, %if.then4.i.i.i.i.i.i.i.i.i ], [ null, %if.else.i.i.i.i.i.i.i.i.i ]
-  %mValue.i.i.i.i.i = getelementptr inbounds %"struct.eastl::ListNode", ptr %result.0.i.i.i.i.i.i.i, i64 0, i32 1
+  %mValue.i.i.i.i.i = getelementptr inbounds i8, ptr %result.0.i.i.i.i.i.i.i, i64 16
   %9 = load i32, ptr %mValue.i.i.i.i, align 4
   store i32 %9, ptr %mValue.i.i.i.i.i, align 4
   store ptr %this, ptr %result.0.i.i.i.i.i.i.i, align 8
   %10 = load ptr, ptr %mpPrev.i.i, align 8
-  %mpPrev2.i.i.i.i.i = getelementptr inbounds %"struct.eastl::ListNodeBase", ptr %result.0.i.i.i.i.i.i.i, i64 0, i32 1
+  %mpPrev2.i.i.i.i.i = getelementptr inbounds i8, ptr %result.0.i.i.i.i.i.i.i, i64 8
   store ptr %10, ptr %mpPrev2.i.i.i.i.i, align 8
   store ptr %result.0.i.i.i.i.i.i.i, ptr %10, align 8
   store ptr %result.0.i.i.i.i.i.i.i, ptr %mpPrev.i.i, align 8
@@ -1709,7 +1705,7 @@ entry:
   br i1 %cmp.not3.i.i, label %for.end.i.i, label %while.body.lr.ph.i.i
 
 while.body.lr.ph.i.i:                             ; preds = %entry
-  %mSecond.i.i.i.i.i = getelementptr inbounds %"class.eastl::compressed_pair_imp.5", ptr %this, i64 0, i32 1
+  %mSecond.i.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 16
   %.pre.i.i = load ptr, ptr %mSecond.i.i.i.i.i, align 8
   br label %while.body.i.i
 
@@ -1724,19 +1720,19 @@ while.body.i.i:                                   ; preds = %while.body.i.i, %wh
 
 for.end.i.i:                                      ; preds = %while.body.i.i, %entry
   store ptr %this, ptr %this, align 8
-  %mpPrev.i.i = getelementptr inbounds %"struct.eastl::ListNodeBase", ptr %this, i64 0, i32 1
+  %mpPrev.i.i = getelementptr inbounds i8, ptr %this, i64 8
   store ptr %this, ptr %mpPrev.i.i, align 8
-  %mSize.i = getelementptr inbounds %"class.eastl::ListBase.3", ptr %this, i64 0, i32 1
+  %mSize.i = getelementptr inbounds i8, ptr %this, i64 48
   store i64 0, ptr %mSize.i, align 8
   %add.ptr.i = getelementptr inbounds i32, ptr %ilist.coerce0, i64 %ilist.coerce1
   %cmp5.i.i = icmp eq i64 %ilist.coerce1, 0
   br i1 %cmp5.i.i, label %_ZN5eastl4listIiNS_20fixed_node_allocatorILm24ELm1ELm8ELm0ELb0ENS_9allocatorEEEE6assignIPKiEEvT_S8_.exit, label %for.body.lr.ph.i.i.i
 
 for.body.lr.ph.i.i.i:                             ; preds = %for.end.i.i
-  %mSecond.i.i.i.i.i.i.i10.i.i = getelementptr inbounds %"class.eastl::compressed_pair_imp.5", ptr %this, i64 0, i32 1
-  %mpNext3.i.i.i.i.i.i.i.i.i = getelementptr inbounds %"class.eastl::compressed_pair_imp.5", ptr %this, i64 0, i32 1, i32 0, i32 0, i32 1
-  %mpCapacity.i.i.i.i.i.i.i.i.i = getelementptr inbounds %"class.eastl::compressed_pair_imp.5", ptr %this, i64 0, i32 1, i32 0, i32 0, i32 2
-  %mnNodeSize.i.i.i.i.i.i.i.i.i = getelementptr inbounds %"class.eastl::compressed_pair_imp.5", ptr %this, i64 0, i32 1, i32 0, i32 0, i32 3
+  %mSecond.i.i.i.i.i.i.i10.i.i = getelementptr inbounds i8, ptr %this, i64 16
+  %mpNext3.i.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 24
+  %mpCapacity.i.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 32
+  %mnNodeSize.i.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 40
   br label %for.body.i.i.i
 
 for.body.i.i.i:                                   ; preds = %_ZN5eastl4listIiNS_20fixed_node_allocatorILm24ELm1ELm8ELm0ELb0ENS_9allocatorEEEE13DoInsertValueIJRKiEEEvPNS_12ListNodeBaseEDpOT_.exit.i.i.i, %for.body.lr.ph.i.i.i
@@ -1764,19 +1760,19 @@ if.then4.i.i.i.i.i.i.i.i.i:                       ; preds = %if.else.i.i.i.i.i.i
 
 _ZN5eastl4listIiNS_20fixed_node_allocatorILm24ELm1ELm8ELm0ELb0ENS_9allocatorEEEE13DoInsertValueIJRKiEEEvPNS_12ListNodeBaseEDpOT_.exit.i.i.i: ; preds = %if.then4.i.i.i.i.i.i.i.i.i, %if.else.i.i.i.i.i.i.i.i.i, %if.then.i.i.i.i.i.i.i.i.i
   %result.0.i.i.i.i.i.i.i = phi ptr [ %3, %if.then.i.i.i.i.i.i.i.i.i ], [ %5, %if.then4.i.i.i.i.i.i.i.i.i ], [ null, %if.else.i.i.i.i.i.i.i.i.i ]
-  %mValue.i.i.i.i.i = getelementptr inbounds %"struct.eastl::ListNode", ptr %result.0.i.i.i.i.i.i.i, i64 0, i32 1
+  %mValue.i.i.i.i.i = getelementptr inbounds i8, ptr %result.0.i.i.i.i.i.i.i, i64 16
   %8 = load i32, ptr %first.addr.04.i.i.i, align 4
   store i32 %8, ptr %mValue.i.i.i.i.i, align 4
   store ptr %this, ptr %result.0.i.i.i.i.i.i.i, align 8
   %9 = load ptr, ptr %mpPrev.i.i, align 8
-  %mpPrev2.i.i.i.i.i = getelementptr inbounds %"struct.eastl::ListNodeBase", ptr %result.0.i.i.i.i.i.i.i, i64 0, i32 1
+  %mpPrev2.i.i.i.i.i = getelementptr inbounds i8, ptr %result.0.i.i.i.i.i.i.i, i64 8
   store ptr %9, ptr %mpPrev2.i.i.i.i.i, align 8
   store ptr %result.0.i.i.i.i.i.i.i, ptr %9, align 8
   store ptr %result.0.i.i.i.i.i.i.i, ptr %mpPrev.i.i, align 8
   %10 = load i64, ptr %mSize.i, align 8
   %inc.i.i.i.i = add i64 %10, 1
   store i64 %inc.i.i.i.i, ptr %mSize.i, align 8
-  %incdec.ptr.i.i.i = getelementptr inbounds i32, ptr %first.addr.04.i.i.i, i64 1
+  %incdec.ptr.i.i.i = getelementptr inbounds i8, ptr %first.addr.04.i.i.i, i64 4
   %cmp.not.i.i.i = icmp eq ptr %incdec.ptr.i.i.i, %add.ptr.i
   br i1 %cmp.not.i.i.i, label %_ZN5eastl4listIiNS_20fixed_node_allocatorILm24ELm1ELm8ELm0ELb0ENS_9allocatorEEEE6assignIPKiEEvT_S8_.exit, label %for.body.i.i.i, !llvm.loop !51
 
@@ -1796,7 +1792,7 @@ if.then.i:                                        ; preds = %entry
   br i1 %cmp.not3.i.i.i, label %for.end.i.i.i, label %while.body.lr.ph.i.i.i
 
 while.body.lr.ph.i.i.i:                           ; preds = %if.then.i
-  %mSecond.i.i.i.i.i.i = getelementptr inbounds %"class.eastl::compressed_pair_imp.5", ptr %this, i64 0, i32 1
+  %mSecond.i.i.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 16
   %.pre.i.i.i = load ptr, ptr %mSecond.i.i.i.i.i.i, align 8
   br label %while.body.i.i.i
 
@@ -1811,24 +1807,24 @@ while.body.i.i.i:                                 ; preds = %while.body.i.i.i, %
 
 for.end.i.i.i:                                    ; preds = %while.body.i.i.i, %if.then.i
   store ptr %this, ptr %this, align 8
-  %mpPrev.i.i.i = getelementptr inbounds %"struct.eastl::ListNodeBase", ptr %this, i64 0, i32 1
+  %mpPrev.i.i.i = getelementptr inbounds i8, ptr %this, i64 8
   store ptr %this, ptr %mpPrev.i.i.i, align 8
-  %mSize.i.i = getelementptr inbounds %"class.eastl::ListBase.3", ptr %this, i64 0, i32 1
+  %mSize.i.i = getelementptr inbounds i8, ptr %this, i64 48
   store i64 0, ptr %mSize.i.i, align 8
   %3 = load ptr, ptr %x, align 8
   %cmp.i4.i.i.i = icmp eq ptr %3, %x
   br i1 %cmp.i4.i.i.i, label %_ZN5eastl10fixed_listIiLm1ELb0ENS_9allocatorEEaSERKS2_.exit, label %for.body.lr.ph.i.i.i.i
 
 for.body.lr.ph.i.i.i.i:                           ; preds = %for.end.i.i.i
-  %mSecond.i.i.i.i.i.i.i5.i.i.i = getelementptr inbounds %"class.eastl::compressed_pair_imp.5", ptr %this, i64 0, i32 1
-  %mpNext3.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds %"class.eastl::compressed_pair_imp.5", ptr %this, i64 0, i32 1, i32 0, i32 0, i32 1
-  %mpCapacity.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds %"class.eastl::compressed_pair_imp.5", ptr %this, i64 0, i32 1, i32 0, i32 0, i32 2
-  %mnNodeSize.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds %"class.eastl::compressed_pair_imp.5", ptr %this, i64 0, i32 1, i32 0, i32 0, i32 3
+  %mSecond.i.i.i.i.i.i.i5.i.i.i = getelementptr inbounds i8, ptr %this, i64 16
+  %mpNext3.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 24
+  %mpCapacity.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 32
+  %mnNodeSize.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 40
   br label %for.body.i.i.i.i
 
 for.body.i.i.i.i:                                 ; preds = %_ZN5eastl4listIiNS_20fixed_node_allocatorILm24ELm1ELm8ELm0ELb0ENS_9allocatorEEEE13DoInsertValueIJRKiEEEvPNS_12ListNodeBaseEDpOT_.exit.i.i.i.i, %for.body.lr.ph.i.i.i.i
   %first.sroa.0.04.i.i.i.i = phi ptr [ %3, %for.body.lr.ph.i.i.i.i ], [ %12, %_ZN5eastl4listIiNS_20fixed_node_allocatorILm24ELm1ELm8ELm0ELb0ENS_9allocatorEEEE13DoInsertValueIJRKiEEEvPNS_12ListNodeBaseEDpOT_.exit.i.i.i.i ]
-  %mValue.i.i.i.i.i = getelementptr inbounds %"struct.eastl::ListNode", ptr %first.sroa.0.04.i.i.i.i, i64 0, i32 1
+  %mValue.i.i.i.i.i = getelementptr inbounds i8, ptr %first.sroa.0.04.i.i.i.i, i64 16
   %4 = load ptr, ptr %mSecond.i.i.i.i.i.i.i5.i.i.i, align 8
   %tobool.not.i.i.i.i.i.i.i.i.i.i = icmp eq ptr %4, null
   br i1 %tobool.not.i.i.i.i.i.i.i.i.i.i, label %if.else.i.i.i.i.i.i.i.i.i.i, label %if.then.i.i.i.i.i.i.i.i.i.i
@@ -1852,12 +1848,12 @@ if.then4.i.i.i.i.i.i.i.i.i.i:                     ; preds = %if.else.i.i.i.i.i.i
 
 _ZN5eastl4listIiNS_20fixed_node_allocatorILm24ELm1ELm8ELm0ELb0ENS_9allocatorEEEE13DoInsertValueIJRKiEEEvPNS_12ListNodeBaseEDpOT_.exit.i.i.i.i: ; preds = %if.then4.i.i.i.i.i.i.i.i.i.i, %if.else.i.i.i.i.i.i.i.i.i.i, %if.then.i.i.i.i.i.i.i.i.i.i
   %result.0.i.i.i.i.i.i.i.i = phi ptr [ %4, %if.then.i.i.i.i.i.i.i.i.i.i ], [ %6, %if.then4.i.i.i.i.i.i.i.i.i.i ], [ null, %if.else.i.i.i.i.i.i.i.i.i.i ]
-  %mValue.i.i.i.i.i.i = getelementptr inbounds %"struct.eastl::ListNode", ptr %result.0.i.i.i.i.i.i.i.i, i64 0, i32 1
+  %mValue.i.i.i.i.i.i = getelementptr inbounds i8, ptr %result.0.i.i.i.i.i.i.i.i, i64 16
   %9 = load i32, ptr %mValue.i.i.i.i.i, align 4
   store i32 %9, ptr %mValue.i.i.i.i.i.i, align 4
   store ptr %this, ptr %result.0.i.i.i.i.i.i.i.i, align 8
   %10 = load ptr, ptr %mpPrev.i.i.i, align 8
-  %mpPrev2.i.i.i.i.i.i = getelementptr inbounds %"struct.eastl::ListNodeBase", ptr %result.0.i.i.i.i.i.i.i.i, i64 0, i32 1
+  %mpPrev2.i.i.i.i.i.i = getelementptr inbounds i8, ptr %result.0.i.i.i.i.i.i.i.i, i64 8
   store ptr %10, ptr %mpPrev2.i.i.i.i.i.i, align 8
   store ptr %result.0.i.i.i.i.i.i.i.i, ptr %10, align 8
   store ptr %result.0.i.i.i.i.i.i.i.i, ptr %mpPrev.i.i.i, align 8
@@ -1883,12 +1879,12 @@ entry:
 define weak_odr dso_local void @_ZN5eastl10fixed_listIiLm1ELb0ENS_9allocatorEE17reset_lose_memoryEv(ptr noundef nonnull align 8 dereferenceable(103) %this) local_unnamed_addr #0 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store ptr %this, ptr %this, align 8
-  %mpPrev.i.i = getelementptr inbounds %"struct.eastl::ListNodeBase", ptr %this, i64 0, i32 1
+  %mpPrev.i.i = getelementptr inbounds i8, ptr %this, i64 8
   store ptr %this, ptr %mpPrev.i.i, align 8
-  %mSize.i = getelementptr inbounds %"class.eastl::ListBase.3", ptr %this, i64 0, i32 1
+  %mSize.i = getelementptr inbounds i8, ptr %this, i64 48
   store i64 0, ptr %mSize.i, align 8
-  %mSecond.i.i.i.i = getelementptr inbounds %"class.eastl::compressed_pair_imp.5", ptr %this, i64 0, i32 1
-  %mBuffer = getelementptr inbounds %"class.eastl::fixed_list.1", ptr %this, i64 0, i32 1
+  %mSecond.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 16
+  %mBuffer = getelementptr inbounds i8, ptr %this, i64 56
   tail call void @_ZN5eastl15fixed_pool_base4initEPvmmmm(ptr noundef nonnull align 8 dereferenceable(32) %mSecond.i.i.i.i, ptr noundef nonnull %mBuffer, i64 noundef 47, i64 noundef 24, i64 noundef 8, i64 noundef 0)
   ret void
 }
@@ -1902,12 +1898,12 @@ entry:
 ; Function Attrs: mustprogress uwtable
 define weak_odr dso_local noundef zeroext i1 @_ZNK5eastl10fixed_listIiLm1ELb0ENS_9allocatorEE4fullEv(ptr noundef nonnull align 8 dereferenceable(103) %this) local_unnamed_addr #0 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  %mSecond.i.i.i = getelementptr inbounds %"class.eastl::compressed_pair_imp.5", ptr %this, i64 0, i32 1
+  %mSecond.i.i.i = getelementptr inbounds i8, ptr %this, i64 16
   %0 = load ptr, ptr %mSecond.i.i.i, align 8
   %cmp.not.i.i = icmp eq ptr %0, null
-  %mpNext.i.i = getelementptr inbounds %"class.eastl::compressed_pair_imp.5", ptr %this, i64 0, i32 1, i32 0, i32 0, i32 1
+  %mpNext.i.i = getelementptr inbounds i8, ptr %this, i64 24
   %1 = load ptr, ptr %mpNext.i.i, align 8
-  %mpCapacity.i.i = getelementptr inbounds %"class.eastl::compressed_pair_imp.5", ptr %this, i64 0, i32 1, i32 0, i32 0, i32 2
+  %mpCapacity.i.i = getelementptr inbounds i8, ptr %this, i64 32
   %2 = load ptr, ptr %mpCapacity.i.i, align 8
   %cmp2.i.i = icmp eq ptr %1, %2
   %.not = select i1 %cmp.not.i.i, i1 %cmp2.i.i, i1 false
@@ -1917,7 +1913,7 @@ entry:
 ; Function Attrs: mustprogress nounwind uwtable
 define weak_odr dso_local noundef zeroext i1 @_ZNK5eastl10fixed_listIiLm1ELb0ENS_9allocatorEE14has_overflowedEv(ptr noundef nonnull align 8 dereferenceable(103) %this) local_unnamed_addr #1 comdat align 2 {
 entry:
-  %mSize.i = getelementptr inbounds %"class.eastl::ListBase.3", ptr %this, i64 0, i32 1
+  %mSize.i = getelementptr inbounds i8, ptr %this, i64 48
   %0 = load i64, ptr %mSize.i, align 8
   %cmp = icmp ugt i64 %0, 1
   ret i1 %cmp
@@ -2118,19 +2114,19 @@ entry:
   %c = alloca %"class.eastl::fixed_list.22", align 8
   store i32 0, ptr %nErrorCount, align 4
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %ref.tmp.i)
-  %mBuffer.i = getelementptr inbounds %"class.eastl::fixed_list.8", ptr %listInt64, i64 0, i32 1
+  %mBuffer.i = getelementptr inbounds i8, ptr %listInt64, i64 56
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp.i, i8 0, i64 32, i1 false)
   call void @_ZN5eastl15fixed_pool_base4initEPvmmmm(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp.i, ptr noundef nonnull %mBuffer.i, i64 noundef 1536, i64 noundef 24, i64 noundef 8, i64 noundef 0)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %listInt64, i8 0, i64 16, i1 false)
-  %mSecond.i.i.i.i.i = getelementptr inbounds %"class.eastl::compressed_pair_imp.12", ptr %listInt64, i64 0, i32 1
-  %mpNext.i.i.i.i.i.i = getelementptr inbounds %"struct.eastl::fixed_pool_base", ptr %ref.tmp.i, i64 0, i32 1
+  %mSecond.i.i.i.i.i = getelementptr inbounds i8, ptr %listInt64, i64 16
+  %mpNext.i.i.i.i.i.i = getelementptr inbounds i8, ptr %ref.tmp.i, i64 8
   %0 = load ptr, ptr %mpNext.i.i.i.i.i.i, align 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %mSecond.i.i.i.i.i, i8 0, i64 32, i1 false)
   call void @_ZN5eastl15fixed_pool_base4initEPvmmmm(ptr noundef nonnull align 8 dereferenceable(32) %mSecond.i.i.i.i.i, ptr noundef %0, i64 noundef 1536, i64 noundef 24, i64 noundef 8, i64 noundef 0)
-  %mSize.i.i.i = getelementptr inbounds %"class.eastl::ListBase.10", ptr %listInt64, i64 0, i32 1
+  %mSize.i.i.i = getelementptr inbounds i8, ptr %listInt64, i64 48
   store i64 0, ptr %mSize.i.i.i, align 8
   store ptr %listInt64, ptr %listInt64, align 8
-  %mpPrev.i.i.i.i = getelementptr inbounds %"struct.eastl::ListNodeBase", ptr %listInt64, i64 0, i32 1
+  %mpPrev.i.i.i.i = getelementptr inbounds i8, ptr %listInt64, i64 8
   store ptr %listInt64, ptr %mpPrev.i.i.i.i, align 8
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %ref.tmp.i)
   %call1 = invoke noundef i32 @_ZN2EA8UnitTest12TestInternal17EATEST_VERIFY_IMPEbRiPKciS4_(i1 noundef zeroext true, ptr noundef nonnull align 4 dereferenceable(4) %nErrorCount, ptr noundef nonnull @.str, i32 noundef 50, ptr noundef nonnull @.str.1)
@@ -2157,15 +2153,15 @@ if.then.i.i.i.i.i.i.i.i:                          ; preds = %invoke.cont8
   br label %invoke.cont10
 
 if.else.i.i.i.i.i.i.i.i:                          ; preds = %invoke.cont8
-  %mpNext3.i.i.i.i.i.i.i.i = getelementptr inbounds %"class.eastl::compressed_pair_imp.12", ptr %listInt64, i64 0, i32 1, i32 0, i32 0, i32 1
+  %mpNext3.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %listInt64, i64 24
   %4 = load ptr, ptr %mpNext3.i.i.i.i.i.i.i.i, align 8, !noalias !53
-  %mpCapacity.i.i.i.i.i.i.i.i = getelementptr inbounds %"class.eastl::compressed_pair_imp.12", ptr %listInt64, i64 0, i32 1, i32 0, i32 0, i32 2
+  %mpCapacity.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %listInt64, i64 32
   %5 = load ptr, ptr %mpCapacity.i.i.i.i.i.i.i.i, align 8, !noalias !53
   %cmp.not.i.i.i.i.i.i.i.i = icmp eq ptr %4, %5
   br i1 %cmp.not.i.i.i.i.i.i.i.i, label %invoke.cont10, label %if.then4.i.i.i.i.i.i.i.i
 
 if.then4.i.i.i.i.i.i.i.i:                         ; preds = %if.else.i.i.i.i.i.i.i.i
-  %mnNodeSize.i.i.i.i.i.i.i.i = getelementptr inbounds %"class.eastl::compressed_pair_imp.12", ptr %listInt64, i64 0, i32 1, i32 0, i32 0, i32 3
+  %mnNodeSize.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %listInt64, i64 40
   %6 = load i64, ptr %mnNodeSize.i.i.i.i.i.i.i.i, align 8, !noalias !53
   %add.ptr.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %4, i64 %6
   store ptr %add.ptr.i.i.i.i.i.i.i.i, ptr %mpNext3.i.i.i.i.i.i.i.i, align 8, !noalias !53
@@ -2173,11 +2169,11 @@ if.then4.i.i.i.i.i.i.i.i:                         ; preds = %if.else.i.i.i.i.i.i
 
 invoke.cont10:                                    ; preds = %if.then4.i.i.i.i.i.i.i.i, %if.else.i.i.i.i.i.i.i.i, %if.then.i.i.i.i.i.i.i.i
   %result.0.i.i.i.i.i.i = phi ptr [ %2, %if.then.i.i.i.i.i.i.i.i ], [ %4, %if.then4.i.i.i.i.i.i.i.i ], [ null, %if.else.i.i.i.i.i.i.i.i ]
-  %mValue.i.i.i.i = getelementptr inbounds %"struct.eastl::ListNode", ptr %result.0.i.i.i.i.i.i, i64 0, i32 1
+  %mValue.i.i.i.i = getelementptr inbounds i8, ptr %result.0.i.i.i.i.i.i, i64 16
   store i32 1, ptr %mValue.i.i.i.i, align 4, !noalias !53
   store ptr %listInt64, ptr %result.0.i.i.i.i.i.i, align 8, !noalias !53
   %7 = load ptr, ptr %mpPrev.i.i.i.i, align 8, !noalias !53
-  %mpPrev2.i.i.i.i = getelementptr inbounds %"struct.eastl::ListNodeBase", ptr %result.0.i.i.i.i.i.i, i64 0, i32 1
+  %mpPrev2.i.i.i.i = getelementptr inbounds i8, ptr %result.0.i.i.i.i.i.i, i64 8
   store ptr %7, ptr %mpPrev2.i.i.i.i, align 8, !noalias !53
   store ptr %result.0.i.i.i.i.i.i, ptr %7, align 8, !noalias !53
   store ptr %result.0.i.i.i.i.i.i, ptr %mpPrev.i.i.i.i, align 8, !noalias !53
@@ -2219,12 +2215,12 @@ if.then.i.invoke.cont19_crit_edge:                ; preds = %if.then.i
 while.body.i.i:                                   ; preds = %if.then.i, %while.body.i.i
   %first.sroa.0.03.i.i = phi ptr [ %11, %while.body.i.i ], [ %current.sroa.0.0.i, %if.then.i ]
   %11 = load ptr, ptr %first.sroa.0.03.i.i, align 8, !noalias !57
-  %mpPrev.i.i.i = getelementptr inbounds %"struct.eastl::ListNodeBase", ptr %11, i64 0, i32 1
+  %mpPrev.i.i.i = getelementptr inbounds i8, ptr %11, i64 8
   %12 = load ptr, ptr %mpPrev.i.i.i, align 8, !noalias !57
-  %mpPrev.i.i.i.i.i = getelementptr inbounds %"struct.eastl::ListNodeBase", ptr %12, i64 0, i32 1
+  %mpPrev.i.i.i.i.i = getelementptr inbounds i8, ptr %12, i64 8
   %13 = load ptr, ptr %mpPrev.i.i.i.i.i, align 8, !noalias !57
   %14 = load ptr, ptr %12, align 8, !noalias !57
-  %mpPrev2.i.i.i.i.i = getelementptr inbounds %"struct.eastl::ListNodeBase", ptr %14, i64 0, i32 1
+  %mpPrev2.i.i.i.i.i = getelementptr inbounds i8, ptr %14, i64 8
   store ptr %13, ptr %mpPrev2.i.i.i.i.i, align 8, !noalias !57
   %15 = load ptr, ptr %12, align 8, !noalias !57
   store ptr %15, ptr %13, align 8, !noalias !57
@@ -2239,9 +2235,9 @@ while.body.i.i:                                   ; preds = %if.then.i, %while.b
 
 if.else.i:                                        ; preds = %while.end.i
   %sub.i = sub nuw nsw i64 3, %i.0.i
-  %mpNext3.i.i.i.i.i.i.i.i.i = getelementptr inbounds %"class.eastl::compressed_pair_imp.12", ptr %listInt64, i64 0, i32 1, i32 0, i32 0, i32 1
-  %mpCapacity.i.i.i.i.i.i.i.i.i = getelementptr inbounds %"class.eastl::compressed_pair_imp.12", ptr %listInt64, i64 0, i32 1, i32 0, i32 0, i32 2
-  %mnNodeSize.i.i.i.i.i.i.i.i.i = getelementptr inbounds %"class.eastl::compressed_pair_imp.12", ptr %listInt64, i64 0, i32 1, i32 0, i32 0, i32 3
+  %mpNext3.i.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %listInt64, i64 24
+  %mpCapacity.i.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %listInt64, i64 32
+  %mnNodeSize.i.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %listInt64, i64 40
   br label %for.body.i.i.i
 
 for.body.i.i.i:                                   ; preds = %_ZN5eastl4listIiNS_20fixed_node_allocatorILm24ELm64ELm8ELm0ELb0ENS_9allocatorEEEE13DoInsertValueIJRKiEEEvPNS_12ListNodeBaseEDpOT_.exit.i.i.i, %if.else.i
@@ -2269,11 +2265,11 @@ if.then4.i.i.i.i.i.i.i.i.i:                       ; preds = %if.else.i.i.i.i.i.i
 
 _ZN5eastl4listIiNS_20fixed_node_allocatorILm24ELm64ELm8ELm0ELb0ENS_9allocatorEEEE13DoInsertValueIJRKiEEEvPNS_12ListNodeBaseEDpOT_.exit.i.i.i: ; preds = %if.then4.i.i.i.i.i.i.i.i.i, %if.else.i.i.i.i.i.i.i.i.i, %if.then.i.i.i.i.i.i.i.i.i
   %result.0.i.i.i.i.i.i.i = phi ptr [ %18, %if.then.i.i.i.i.i.i.i.i.i ], [ %20, %if.then4.i.i.i.i.i.i.i.i.i ], [ null, %if.else.i.i.i.i.i.i.i.i.i ]
-  %mValue.i.i.i.i.i = getelementptr inbounds %"struct.eastl::ListNode", ptr %result.0.i.i.i.i.i.i.i, i64 0, i32 1
+  %mValue.i.i.i.i.i = getelementptr inbounds i8, ptr %result.0.i.i.i.i.i.i.i, i64 16
   store i32 2, ptr %mValue.i.i.i.i.i, align 4, !noalias !63
   store ptr %listInt64, ptr %result.0.i.i.i.i.i.i.i, align 8, !noalias !63
   %23 = load ptr, ptr %mpPrev.i.i.i.i, align 8, !noalias !63
-  %mpPrev2.i.i.i.i8.i = getelementptr inbounds %"struct.eastl::ListNodeBase", ptr %result.0.i.i.i.i.i.i.i, i64 0, i32 1
+  %mpPrev2.i.i.i.i8.i = getelementptr inbounds i8, ptr %result.0.i.i.i.i.i.i.i, i64 8
   store ptr %23, ptr %mpPrev2.i.i.i.i8.i, align 8, !noalias !63
   store ptr %result.0.i.i.i.i.i.i.i, ptr %23, align 8, !noalias !63
   store ptr %result.0.i.i.i.i.i.i.i, ptr %mpPrev.i.i.i.i, align 8, !noalias !63
@@ -2298,7 +2294,7 @@ invoke.cont22:                                    ; preds = %invoke.cont19
 
 invoke.cont26:                                    ; preds = %invoke.cont22
   %27 = load ptr, ptr %listInt64, align 8, !noalias !67
-  %mValue.i = getelementptr inbounds %"struct.eastl::ListNode", ptr %27, i64 0, i32 1
+  %mValue.i = getelementptr inbounds i8, ptr %27, i64 16
   %28 = load i32, ptr %mValue.i, align 4
   %cmp29 = icmp eq i32 %28, 1
   %call31 = invoke noundef i32 @_ZN2EA8UnitTest12TestInternal17EATEST_VERIFY_IMPEbRiPKciS4_(i1 noundef zeroext %cmp29, ptr noundef nonnull align 4 dereferenceable(4) %nErrorCount, ptr noundef nonnull @.str, i32 noundef 63, ptr noundef nonnull @.str.7)
@@ -2306,7 +2302,7 @@ invoke.cont26:                                    ; preds = %invoke.cont22
 
 invoke.cont30:                                    ; preds = %invoke.cont26
   %29 = load ptr, ptr %27, align 8
-  %mValue.i50 = getelementptr inbounds %"struct.eastl::ListNode", ptr %29, i64 0, i32 1
+  %mValue.i50 = getelementptr inbounds i8, ptr %29, i64 16
   %30 = load i32, ptr %mValue.i50, align 4
   %cmp34 = icmp eq i32 %30, 2
   %call36 = invoke noundef i32 @_ZN2EA8UnitTest12TestInternal17EATEST_VERIFY_IMPEbRiPKciS4_(i1 noundef zeroext %cmp34, ptr noundef nonnull align 4 dereferenceable(4) %nErrorCount, ptr noundef nonnull @.str, i32 noundef 64, ptr noundef nonnull @.str.8)
@@ -2314,7 +2310,7 @@ invoke.cont30:                                    ; preds = %invoke.cont26
 
 invoke.cont35:                                    ; preds = %invoke.cont30
   %31 = load ptr, ptr %29, align 8
-  %mValue.i51 = getelementptr inbounds %"struct.eastl::ListNode", ptr %31, i64 0, i32 1
+  %mValue.i51 = getelementptr inbounds i8, ptr %31, i64 16
   %32 = load i32, ptr %mValue.i51, align 4
   %cmp39 = icmp eq i32 %32, 2
   %call41 = invoke noundef i32 @_ZN2EA8UnitTest12TestInternal17EATEST_VERIFY_IMPEbRiPKciS4_(i1 noundef zeroext %cmp39, ptr noundef nonnull align 4 dereferenceable(4) %nErrorCount, ptr noundef nonnull @.str, i32 noundef 65, ptr noundef nonnull @.str.8)
@@ -2338,12 +2334,12 @@ invoke.cont45.invoke.cont47_crit_edge:            ; preds = %invoke.cont45
 while.body.i.i.i:                                 ; preds = %invoke.cont45, %while.body.i.i.i
   %first.sroa.0.03.i.i.i = phi ptr [ %34, %while.body.i.i.i ], [ %current.sroa.0.0.i.i, %invoke.cont45 ]
   %34 = load ptr, ptr %first.sroa.0.03.i.i.i, align 8, !noalias !70
-  %mpPrev.i.i.i.i55 = getelementptr inbounds %"struct.eastl::ListNodeBase", ptr %34, i64 0, i32 1
+  %mpPrev.i.i.i.i55 = getelementptr inbounds i8, ptr %34, i64 8
   %35 = load ptr, ptr %mpPrev.i.i.i.i55, align 8, !noalias !70
-  %mpPrev.i.i.i.i.i.i = getelementptr inbounds %"struct.eastl::ListNodeBase", ptr %35, i64 0, i32 1
+  %mpPrev.i.i.i.i.i.i = getelementptr inbounds i8, ptr %35, i64 8
   %36 = load ptr, ptr %mpPrev.i.i.i.i.i.i, align 8, !noalias !70
   %37 = load ptr, ptr %35, align 8, !noalias !70
-  %mpPrev2.i.i.i.i.i.i = getelementptr inbounds %"struct.eastl::ListNodeBase", ptr %37, i64 0, i32 1
+  %mpPrev2.i.i.i.i.i.i = getelementptr inbounds i8, ptr %37, i64 8
   store ptr %36, ptr %mpPrev2.i.i.i.i.i.i, align 8, !noalias !70
   %38 = load ptr, ptr %35, align 8, !noalias !70
   store ptr %38, ptr %36, align 8, !noalias !70
@@ -2374,9 +2370,9 @@ while.condthread-pre-split:                       ; preds = %invoke.cont49
   br i1 %cmp562203, label %while.body.lr.ph, label %while.end
 
 while.body.lr.ph:                                 ; preds = %while.condthread-pre-split
-  %mpNext3.i.i.i.i.i.i.i.i70 = getelementptr inbounds %"class.eastl::compressed_pair_imp.12", ptr %listInt64, i64 0, i32 1, i32 0, i32 0, i32 1
-  %mpCapacity.i.i.i.i.i.i.i.i71 = getelementptr inbounds %"class.eastl::compressed_pair_imp.12", ptr %listInt64, i64 0, i32 1, i32 0, i32 0, i32 2
-  %mnNodeSize.i.i.i.i.i.i.i.i74 = getelementptr inbounds %"class.eastl::compressed_pair_imp.12", ptr %listInt64, i64 0, i32 1, i32 0, i32 0, i32 3
+  %mpNext3.i.i.i.i.i.i.i.i70 = getelementptr inbounds i8, ptr %listInt64, i64 24
+  %mpCapacity.i.i.i.i.i.i.i.i71 = getelementptr inbounds i8, ptr %listInt64, i64 32
+  %mnNodeSize.i.i.i.i.i.i.i.i74 = getelementptr inbounds i8, ptr %listInt64, i64 40
   br label %while.body
 
 while.body:                                       ; preds = %while.body.lr.ph, %_ZN5eastl4listIiNS_20fixed_node_allocatorILm24ELm64ELm8ELm0ELb0ENS_9allocatorEEEE9push_backEOi.exit76
@@ -2403,11 +2399,11 @@ if.then4.i.i.i.i.i.i.i.i73:                       ; preds = %if.else.i.i.i.i.i.i
 
 _ZN5eastl4listIiNS_20fixed_node_allocatorILm24ELm64ELm8ELm0ELb0ENS_9allocatorEEEE9push_backEOi.exit76: ; preds = %if.then.i.i.i.i.i.i.i.i62, %if.else.i.i.i.i.i.i.i.i69, %if.then4.i.i.i.i.i.i.i.i73
   %result.0.i.i.i.i.i.i63 = phi ptr [ %43, %if.then.i.i.i.i.i.i.i.i62 ], [ %45, %if.then4.i.i.i.i.i.i.i.i73 ], [ null, %if.else.i.i.i.i.i.i.i.i69 ]
-  %mValue.i.i.i.i64 = getelementptr inbounds %"struct.eastl::ListNode", ptr %result.0.i.i.i.i.i.i63, i64 0, i32 1
+  %mValue.i.i.i.i64 = getelementptr inbounds i8, ptr %result.0.i.i.i.i.i.i63, i64 16
   store i32 0, ptr %mValue.i.i.i.i64, align 4, !noalias !75
   store ptr %listInt64, ptr %result.0.i.i.i.i.i.i63, align 8, !noalias !75
   %48 = load ptr, ptr %mpPrev.i.i.i.i, align 8, !noalias !75
-  %mpPrev2.i.i.i.i66 = getelementptr inbounds %"struct.eastl::ListNodeBase", ptr %result.0.i.i.i.i.i.i63, i64 0, i32 1
+  %mpPrev2.i.i.i.i66 = getelementptr inbounds i8, ptr %result.0.i.i.i.i.i.i63, i64 8
   store ptr %48, ptr %mpPrev2.i.i.i.i66, align 8, !noalias !75
   store ptr %result.0.i.i.i.i.i.i63, ptr %48, align 8, !noalias !75
   store ptr %result.0.i.i.i.i.i.i63, ptr %mpPrev.i.i.i.i, align 8, !noalias !75
@@ -2443,15 +2439,15 @@ while.end:                                        ; preds = %_ZN5eastl4listIiNS_
   br i1 %tobool.not.i.i, label %if.else.i.i, label %if.then
 
 if.else.i.i:                                      ; preds = %while.end
-  %mpNext3.i.i = getelementptr inbounds %"class.eastl::compressed_pair_imp.12", ptr %listInt64, i64 0, i32 1, i32 0, i32 0, i32 1
+  %mpNext3.i.i = getelementptr inbounds i8, ptr %listInt64, i64 24
   %55 = load ptr, ptr %mpNext3.i.i, align 8
-  %mpCapacity.i.i = getelementptr inbounds %"class.eastl::compressed_pair_imp.12", ptr %listInt64, i64 0, i32 1, i32 0, i32 0, i32 2
+  %mpCapacity.i.i = getelementptr inbounds i8, ptr %listInt64, i64 32
   %56 = load ptr, ptr %mpCapacity.i.i, align 8
   %cmp.not.i.i = icmp eq ptr %55, %56
   br i1 %cmp.not.i.i, label %if.end, label %_ZN5eastl20fixed_node_allocatorILm24ELm64ELm8ELm0ELb0ENS_9allocatorEE8allocateEmi.exit
 
 _ZN5eastl20fixed_node_allocatorILm24ELm64ELm8ELm0ELb0ENS_9allocatorEE8allocateEmi.exit: ; preds = %if.else.i.i
-  %mnNodeSize.i.i = getelementptr inbounds %"class.eastl::compressed_pair_imp.12", ptr %listInt64, i64 0, i32 1, i32 0, i32 0, i32 3
+  %mnNodeSize.i.i = getelementptr inbounds i8, ptr %listInt64, i64 40
   %57 = load i64, ptr %mnNodeSize.i.i, align 8
   %add.ptr.i.i = getelementptr inbounds i8, ptr %55, i64 %57
   store ptr %add.ptr.i.i, ptr %mpNext3.i.i, align 8
@@ -2470,15 +2466,15 @@ if.then.i.i78:                                    ; preds = %if.then
   br label %_ZN5eastl20fixed_node_allocatorILm24ELm64ELm8ELm0ELb0ENS_9allocatorEE8allocateEmi.exit87
 
 if.else.i.i80:                                    ; preds = %_ZN5eastl20fixed_node_allocatorILm24ELm64ELm8ELm0ELb0ENS_9allocatorEE8allocateEmi.exit, %if.then
-  %mpNext3.i.i81 = getelementptr inbounds %"class.eastl::compressed_pair_imp.12", ptr %listInt64, i64 0, i32 1, i32 0, i32 0, i32 1
+  %mpNext3.i.i81 = getelementptr inbounds i8, ptr %listInt64, i64 24
   %60 = load ptr, ptr %mpNext3.i.i81, align 8
-  %mpCapacity.i.i82 = getelementptr inbounds %"class.eastl::compressed_pair_imp.12", ptr %listInt64, i64 0, i32 1, i32 0, i32 0, i32 2
+  %mpCapacity.i.i82 = getelementptr inbounds i8, ptr %listInt64, i64 32
   %61 = load ptr, ptr %mpCapacity.i.i82, align 8
   %cmp.not.i.i83 = icmp eq ptr %60, %61
   br i1 %cmp.not.i.i83, label %_ZN5eastl20fixed_node_allocatorILm24ELm64ELm8ELm0ELb0ENS_9allocatorEE8allocateEmi.exit87, label %if.then4.i.i84
 
 if.then4.i.i84:                                   ; preds = %if.else.i.i80
-  %mnNodeSize.i.i85 = getelementptr inbounds %"class.eastl::compressed_pair_imp.12", ptr %listInt64, i64 0, i32 1, i32 0, i32 0, i32 3
+  %mnNodeSize.i.i85 = getelementptr inbounds i8, ptr %listInt64, i64 40
   %62 = load i64, ptr %mnNodeSize.i.i85, align 8
   %add.ptr.i.i86 = getelementptr inbounds i8, ptr %60, i64 %62
   store ptr %add.ptr.i.i86, ptr %mpNext3.i.i81, align 8
@@ -2510,23 +2506,23 @@ while.body.i.i.i.i92:                             ; preds = %while.body.i.i.i.i9
 
 _ZN5eastl10fixed_listIiLm64ELb0ENS_9allocatorEED2Ev.exit95: ; preds = %while.body.i.i.i.i92, %if.end
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %ref.tmp.i96)
-  %mBuffer.i97 = getelementptr inbounds %"class.eastl::fixed_list.15", ptr %listInt6467, i64 0, i32 1
+  %mBuffer.i97 = getelementptr inbounds i8, ptr %listInt6467, i64 72
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp.i96, i8 0, i64 32, i1 false)
   call void @_ZN5eastl15fixed_pool_base4initEPvmmmm(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp.i96, ptr noundef nonnull %mBuffer.i97, i64 noundef 1536, i64 noundef 24, i64 noundef 8, i64 noundef 0)
-  %mpPoolBegin.i.i.i = getelementptr inbounds %"class.eastl::fixed_pool_with_overflow", ptr %ref.tmp.i96, i64 0, i32 2
+  %mpPoolBegin.i.i.i = getelementptr inbounds i8, ptr %ref.tmp.i96, i64 40
   store ptr %mBuffer.i97, ptr %mpPoolBegin.i.i.i, align 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %listInt6467, i8 0, i64 16, i1 false)
-  %mSecond.i.i.i.i.i98 = getelementptr inbounds %"class.eastl::compressed_pair_imp.19", ptr %listInt6467, i64 0, i32 1
-  %mpNext.i.i.i.i.i.i99 = getelementptr inbounds %"struct.eastl::fixed_pool_base", ptr %ref.tmp.i96, i64 0, i32 1
+  %mSecond.i.i.i.i.i98 = getelementptr inbounds i8, ptr %listInt6467, i64 16
+  %mpNext.i.i.i.i.i.i99 = getelementptr inbounds i8, ptr %ref.tmp.i96, i64 8
   %66 = load ptr, ptr %mpNext.i.i.i.i.i.i99, align 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %mSecond.i.i.i.i.i98, i8 0, i64 32, i1 false)
   call void @_ZN5eastl15fixed_pool_base4initEPvmmmm(ptr noundef nonnull align 8 dereferenceable(32) %mSecond.i.i.i.i.i98, ptr noundef %66, i64 noundef 1536, i64 noundef 24, i64 noundef 8, i64 noundef 0)
-  %mpPoolBegin.i.i.i.i.i.i.i = getelementptr inbounds %"class.eastl::compressed_pair_imp.19", ptr %listInt6467, i64 0, i32 1, i32 0, i32 2
+  %mpPoolBegin.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %listInt6467, i64 56
   store ptr %66, ptr %mpPoolBegin.i.i.i.i.i.i.i, align 8
-  %mSize.i.i.i100 = getelementptr inbounds %"class.eastl::ListBase.17", ptr %listInt6467, i64 0, i32 1
+  %mSize.i.i.i100 = getelementptr inbounds i8, ptr %listInt6467, i64 64
   store i64 0, ptr %mSize.i.i.i100, align 8
   store ptr %listInt6467, ptr %listInt6467, align 8
-  %mpPrev.i.i.i.i101 = getelementptr inbounds %"struct.eastl::ListNodeBase", ptr %listInt6467, i64 0, i32 1
+  %mpPrev.i.i.i.i101 = getelementptr inbounds i8, ptr %listInt6467, i64 8
   store ptr %listInt6467, ptr %mpPrev.i.i.i.i101, align 8
   call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %ref.tmp.i96)
   %call71 = invoke noundef i32 @_ZN2EA8UnitTest12TestInternal17EATEST_VERIFY_IMPEbRiPKciS4_(i1 noundef zeroext true, ptr noundef nonnull align 4 dereferenceable(4) %nErrorCount, ptr noundef nonnull @.str, i32 noundef 92, ptr noundef nonnull @.str.1)
@@ -2549,12 +2545,12 @@ if.then.i.i.i.i.i.i.i.i107:                       ; preds = %invoke.cont74
   br label %invoke.cont77
 
 if.else.i.i.i.i.i.i.i.i114:                       ; preds = %invoke.cont74
-  %mpNext3.i.i.i.i.i.i.i.i115 = getelementptr inbounds %"class.eastl::compressed_pair_imp.19", ptr %listInt6467, i64 0, i32 1, i32 0, i32 0, i32 1
+  %mpNext3.i.i.i.i.i.i.i.i115 = getelementptr inbounds i8, ptr %listInt6467, i64 24
   %70 = load ptr, ptr %mpNext3.i.i.i.i.i.i.i.i115, align 8, !noalias !79
-  %mpCapacity.i.i.i.i.i.i.i.i116 = getelementptr inbounds %"class.eastl::compressed_pair_imp.19", ptr %listInt6467, i64 0, i32 1, i32 0, i32 0, i32 2
+  %mpCapacity.i.i.i.i.i.i.i.i116 = getelementptr inbounds i8, ptr %listInt6467, i64 32
   %71 = load ptr, ptr %mpCapacity.i.i.i.i.i.i.i.i116, align 8, !noalias !79
   %cmp.not.i.i.i.i.i.i.i.i117 = icmp eq ptr %70, %71
-  %mnNodeSize9.i.i.i.i.i.i.i.i = getelementptr inbounds %"class.eastl::compressed_pair_imp.19", ptr %listInt6467, i64 0, i32 1, i32 0, i32 0, i32 3
+  %mnNodeSize9.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %listInt6467, i64 40
   %72 = load i64, ptr %mnNodeSize9.i.i.i.i.i.i.i.i, align 8, !noalias !79
   br i1 %cmp.not.i.i.i.i.i.i.i.i117, label %if.else8.i.i.i.i.i.i.i.i, label %if.then4.i.i.i.i.i.i.i.i118
 
@@ -2569,11 +2565,11 @@ if.else8.i.i.i.i.i.i.i.i:                         ; preds = %if.else.i.i.i.i.i.i
 
 invoke.cont77:                                    ; preds = %if.then4.i.i.i.i.i.i.i.i118, %if.then.i.i.i.i.i.i.i.i107, %if.else8.i.i.i.i.i.i.i.i
   %result.0.i.i.i.i.i.i108 = phi ptr [ %68, %if.then.i.i.i.i.i.i.i.i107 ], [ %70, %if.then4.i.i.i.i.i.i.i.i118 ], [ %call.i.i.i.i.i.i.i.i.i120, %if.else8.i.i.i.i.i.i.i.i ]
-  %mValue.i.i.i.i109 = getelementptr inbounds %"struct.eastl::ListNode", ptr %result.0.i.i.i.i.i.i108, i64 0, i32 1
+  %mValue.i.i.i.i109 = getelementptr inbounds i8, ptr %result.0.i.i.i.i.i.i108, i64 16
   store i32 1, ptr %mValue.i.i.i.i109, align 4, !noalias !79
   store ptr %listInt6467, ptr %result.0.i.i.i.i.i.i108, align 8, !noalias !79
   %73 = load ptr, ptr %mpPrev.i.i.i.i101, align 8, !noalias !79
-  %mpPrev2.i.i.i.i111 = getelementptr inbounds %"struct.eastl::ListNodeBase", ptr %result.0.i.i.i.i.i.i108, i64 0, i32 1
+  %mpPrev2.i.i.i.i111 = getelementptr inbounds i8, ptr %result.0.i.i.i.i.i.i108, i64 8
   store ptr %73, ptr %mpPrev2.i.i.i.i111, align 8, !noalias !79
   store ptr %result.0.i.i.i.i.i.i108, ptr %73, align 8, !noalias !79
   store ptr %result.0.i.i.i.i.i.i108, ptr %mpPrev.i.i.i.i101, align 8, !noalias !79
@@ -2609,7 +2605,7 @@ invoke.cont90:                                    ; preds = %invoke.cont87
 
 invoke.cont94:                                    ; preds = %invoke.cont90
   %78 = load ptr, ptr %listInt6467, align 8, !noalias !82
-  %mValue.i127 = getelementptr inbounds %"struct.eastl::ListNode", ptr %78, i64 0, i32 1
+  %mValue.i127 = getelementptr inbounds i8, ptr %78, i64 16
   %79 = load i32, ptr %mValue.i127, align 4
   %cmp98 = icmp eq i32 %79, 1
   %call100 = invoke noundef i32 @_ZN2EA8UnitTest12TestInternal17EATEST_VERIFY_IMPEbRiPKciS4_(i1 noundef zeroext %cmp98, ptr noundef nonnull align 4 dereferenceable(4) %nErrorCount, ptr noundef nonnull @.str, i32 noundef 104, ptr noundef nonnull @.str.7)
@@ -2617,7 +2613,7 @@ invoke.cont94:                                    ; preds = %invoke.cont90
 
 invoke.cont99:                                    ; preds = %invoke.cont94
   %80 = load ptr, ptr %78, align 8
-  %mValue.i128 = getelementptr inbounds %"struct.eastl::ListNode", ptr %80, i64 0, i32 1
+  %mValue.i128 = getelementptr inbounds i8, ptr %80, i64 16
   %81 = load i32, ptr %mValue.i128, align 4
   %cmp103 = icmp eq i32 %81, 2
   %call105 = invoke noundef i32 @_ZN2EA8UnitTest12TestInternal17EATEST_VERIFY_IMPEbRiPKciS4_(i1 noundef zeroext %cmp103, ptr noundef nonnull align 4 dereferenceable(4) %nErrorCount, ptr noundef nonnull @.str, i32 noundef 105, ptr noundef nonnull @.str.8)
@@ -2625,7 +2621,7 @@ invoke.cont99:                                    ; preds = %invoke.cont94
 
 invoke.cont104:                                   ; preds = %invoke.cont99
   %82 = load ptr, ptr %80, align 8
-  %mValue.i129 = getelementptr inbounds %"struct.eastl::ListNode", ptr %82, i64 0, i32 1
+  %mValue.i129 = getelementptr inbounds i8, ptr %82, i64 16
   %83 = load i32, ptr %mValue.i129, align 4
   %cmp108 = icmp eq i32 %83, 2
   %call110 = invoke noundef i32 @_ZN2EA8UnitTest12TestInternal17EATEST_VERIFY_IMPEbRiPKciS4_(i1 noundef zeroext %cmp108, ptr noundef nonnull align 4 dereferenceable(4) %nErrorCount, ptr noundef nonnull @.str, i32 noundef 106, ptr noundef nonnull @.str.8)
@@ -2662,9 +2658,9 @@ while.cond124thread-pre-split:                    ; preds = %invoke.cont118
   br i1 %cmp1262204, label %while.body127.lr.ph, label %while.end130
 
 while.body127.lr.ph:                              ; preds = %while.cond124thread-pre-split
-  %mpNext3.i.i.i.i.i.i.i.i146 = getelementptr inbounds %"class.eastl::compressed_pair_imp.19", ptr %listInt6467, i64 0, i32 1, i32 0, i32 0, i32 1
-  %mpCapacity.i.i.i.i.i.i.i.i147 = getelementptr inbounds %"class.eastl::compressed_pair_imp.19", ptr %listInt6467, i64 0, i32 1, i32 0, i32 0, i32 2
-  %mnNodeSize9.i.i.i.i.i.i.i.i149 = getelementptr inbounds %"class.eastl::compressed_pair_imp.19", ptr %listInt6467, i64 0, i32 1, i32 0, i32 0, i32 3
+  %mpNext3.i.i.i.i.i.i.i.i146 = getelementptr inbounds i8, ptr %listInt6467, i64 24
+  %mpCapacity.i.i.i.i.i.i.i.i147 = getelementptr inbounds i8, ptr %listInt6467, i64 32
+  %mnNodeSize9.i.i.i.i.i.i.i.i149 = getelementptr inbounds i8, ptr %listInt6467, i64 40
   br label %while.body127
 
 while.body127:                                    ; preds = %while.body127.lr.ph, %_ZN5eastl4listIiNS_20fixed_node_allocatorILm24ELm64ELm8ELm0ELb1ENS_9allocatorEEEE9push_backEOi.exit155
@@ -2695,11 +2691,11 @@ if.else8.i.i.i.i.i.i.i.i152:                      ; preds = %if.else.i.i.i.i.i.i
 
 _ZN5eastl4listIiNS_20fixed_node_allocatorILm24ELm64ELm8ELm0ELb1ENS_9allocatorEEEE9push_backEOi.exit155: ; preds = %if.else8.i.i.i.i.i.i.i.i152, %if.then.i.i.i.i.i.i.i.i138, %if.then4.i.i.i.i.i.i.i.i150
   %result.0.i.i.i.i.i.i139 = phi ptr [ %87, %if.then.i.i.i.i.i.i.i.i138 ], [ %89, %if.then4.i.i.i.i.i.i.i.i150 ], [ %call.i.i.i.i.i.i.i.i.i154, %if.else8.i.i.i.i.i.i.i.i152 ]
-  %mValue.i.i.i.i140 = getelementptr inbounds %"struct.eastl::ListNode", ptr %result.0.i.i.i.i.i.i139, i64 0, i32 1
+  %mValue.i.i.i.i140 = getelementptr inbounds i8, ptr %result.0.i.i.i.i.i.i139, i64 16
   store i32 0, ptr %mValue.i.i.i.i140, align 4, !noalias !85
   store ptr %listInt6467, ptr %result.0.i.i.i.i.i.i139, align 8, !noalias !85
   %92 = load ptr, ptr %mpPrev.i.i.i.i101, align 8, !noalias !85
-  %mpPrev2.i.i.i.i142 = getelementptr inbounds %"struct.eastl::ListNodeBase", ptr %result.0.i.i.i.i.i.i139, i64 0, i32 1
+  %mpPrev2.i.i.i.i142 = getelementptr inbounds i8, ptr %result.0.i.i.i.i.i.i139, i64 8
   store ptr %92, ptr %mpPrev2.i.i.i.i142, align 8, !noalias !85
   store ptr %result.0.i.i.i.i.i.i139, ptr %92, align 8, !noalias !85
   store ptr %result.0.i.i.i.i.i.i139, ptr %mpPrev.i.i.i.i101, align 8, !noalias !85
@@ -2735,12 +2731,12 @@ if.then.i.i158:                                   ; preds = %while.end130
   br label %invoke.cont134
 
 if.else.i.i159:                                   ; preds = %while.end130
-  %mpNext3.i.i160 = getelementptr inbounds %"class.eastl::compressed_pair_imp.19", ptr %listInt6467, i64 0, i32 1, i32 0, i32 0, i32 1
+  %mpNext3.i.i160 = getelementptr inbounds i8, ptr %listInt6467, i64 24
   %96 = load ptr, ptr %mpNext3.i.i160, align 8
-  %mpCapacity.i.i161 = getelementptr inbounds %"class.eastl::compressed_pair_imp.19", ptr %listInt6467, i64 0, i32 1, i32 0, i32 0, i32 2
+  %mpCapacity.i.i161 = getelementptr inbounds i8, ptr %listInt6467, i64 32
   %97 = load ptr, ptr %mpCapacity.i.i161, align 8
   %cmp.not.i.i162 = icmp eq ptr %96, %97
-  %mnNodeSize9.i.i = getelementptr inbounds %"class.eastl::compressed_pair_imp.19", ptr %listInt6467, i64 0, i32 1, i32 0, i32 0, i32 3
+  %mnNodeSize9.i.i = getelementptr inbounds i8, ptr %listInt6467, i64 40
   %98 = load i64, ptr %mnNodeSize9.i.i, align 8
   br i1 %cmp.not.i.i162, label %if.else8.i.i, label %if.then4.i.i163
 
@@ -2762,7 +2758,7 @@ invoke.cont134:                                   ; preds = %if.then4.i.i163, %i
 invoke.cont137:                                   ; preds = %invoke.cont134
   %99 = load ptr, ptr %mpPoolBegin.i.i.i.i.i.i.i, align 8
   %cmp.not.i.i166 = icmp ule ptr %99, %p.0.i.i
-  %mpCapacity.i.i167 = getelementptr inbounds %"class.eastl::compressed_pair_imp.19", ptr %listInt6467, i64 0, i32 1, i32 0, i32 0, i32 2
+  %mpCapacity.i.i167 = getelementptr inbounds i8, ptr %listInt6467, i64 32
   %100 = load ptr, ptr %mpCapacity.i.i167, align 8
   %cmp2.i.i = icmp ugt ptr %100, %p.0.i.i
   %or.cond.i.i = select i1 %cmp.not.i.i166, i1 %cmp2.i.i, i1 false
@@ -2813,31 +2809,31 @@ _ZN5eastl20fixed_node_allocatorILm24ELm64ELm8ELm0ELb1ENS_9allocatorEE10deallocat
 
 _ZN5eastl10fixed_listIiLm64ELb1ENS_9allocatorEED2Ev.exit: ; preds = %_ZN5eastl20fixed_node_allocatorILm24ELm64ELm8ELm0ELb1ENS_9allocatorEE10deallocateEPvm.exit.i.i.i.i, %invoke.cont139
   call void @llvm.lifetime.start.p0(i64 56, ptr nonnull %ref.tmp.i178)
-  %mBuffer.i179 = getelementptr inbounds %"class.eastl::fixed_list.22", ptr %listInt64145, i64 0, i32 1
+  %mBuffer.i179 = getelementptr inbounds i8, ptr %listInt64145, i64 80
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %ref.tmp.i178, i8 0, i64 48, i1 false)
   call void @_ZN5eastl15fixed_pool_base4initEPvmmmm(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp.i178, ptr noundef nonnull %mBuffer.i179, i64 noundef 1536, i64 noundef 24, i64 noundef 8, i64 noundef 0)
-  %mpPoolBegin.i.i.i180 = getelementptr inbounds %"class.eastl::fixed_pool_with_overflow.28", ptr %ref.tmp.i178, i64 0, i32 2
+  %mpPoolBegin.i.i.i180 = getelementptr inbounds i8, ptr %ref.tmp.i178, i64 48
   store ptr %mBuffer.i179, ptr %mpPoolBegin.i.i.i180, align 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %listInt64145, i8 0, i64 16, i1 false)
-  %mSecond.i.i.i.i.i181 = getelementptr inbounds %"class.eastl::compressed_pair_imp.26", ptr %listInt64145, i64 0, i32 1
-  %mpNext.i.i.i.i.i.i182 = getelementptr inbounds %"struct.eastl::fixed_pool_base", ptr %ref.tmp.i178, i64 0, i32 1
+  %mSecond.i.i.i.i.i181 = getelementptr inbounds i8, ptr %listInt64145, i64 16
+  %mpNext.i.i.i.i.i.i182 = getelementptr inbounds i8, ptr %ref.tmp.i178, i64 8
   %107 = load ptr, ptr %mpNext.i.i.i.i.i.i182, align 8
-  %mOverflowAllocator.i.i.i.i.i.i = getelementptr inbounds %"class.eastl::fixed_pool_with_overflow.28", ptr %ref.tmp.i178, i64 0, i32 1
-  %mOverflowAllocator.i.i.i.i.i.i.i = getelementptr inbounds %"class.eastl::compressed_pair_imp.26", ptr %listInt64145, i64 0, i32 1, i32 0, i32 1
+  %mOverflowAllocator.i.i.i.i.i.i = getelementptr inbounds i8, ptr %ref.tmp.i178, i64 32
+  %mOverflowAllocator.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %listInt64145, i64 48
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %mSecond.i.i.i.i.i181, i8 0, i64 32, i1 false)
   %108 = load <2 x i32>, ptr %mOverflowAllocator.i.i.i.i.i.i, align 8
   store <2 x i32> %108, ptr %mOverflowAllocator.i.i.i.i.i.i.i, align 8
-  %mAllocVolume.i.i.i.i.i.i.i.i = getelementptr inbounds %"class.eastl::compressed_pair_imp.26", ptr %listInt64145, i64 0, i32 1, i32 0, i32 1, i32 2
-  %mAllocVolume4.i.i.i.i.i.i.i.i = getelementptr inbounds %"class.eastl::fixed_pool_with_overflow.28", ptr %ref.tmp.i178, i64 0, i32 1, i32 2
+  %mAllocVolume.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %listInt64145, i64 56
+  %mAllocVolume4.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %ref.tmp.i178, i64 40
   %109 = load i64, ptr %mAllocVolume4.i.i.i.i.i.i.i.i, align 8
   store i64 %109, ptr %mAllocVolume.i.i.i.i.i.i.i.i, align 8
   call void @_ZN5eastl15fixed_pool_base4initEPvmmmm(ptr noundef nonnull align 8 dereferenceable(32) %mSecond.i.i.i.i.i181, ptr noundef %107, i64 noundef 1536, i64 noundef 24, i64 noundef 8, i64 noundef 0)
-  %mpPoolBegin.i.i.i.i.i.i.i183 = getelementptr inbounds %"class.eastl::compressed_pair_imp.26", ptr %listInt64145, i64 0, i32 1, i32 0, i32 2
+  %mpPoolBegin.i.i.i.i.i.i.i183 = getelementptr inbounds i8, ptr %listInt64145, i64 64
   store ptr %107, ptr %mpPoolBegin.i.i.i.i.i.i.i183, align 8
-  %mSize.i.i.i184 = getelementptr inbounds %"class.eastl::ListBase.24", ptr %listInt64145, i64 0, i32 1
+  %mSize.i.i.i184 = getelementptr inbounds i8, ptr %listInt64145, i64 72
   store i64 0, ptr %mSize.i.i.i184, align 8
   store ptr %listInt64145, ptr %listInt64145, align 8
-  %mpPrev.i.i.i.i185 = getelementptr inbounds %"struct.eastl::ListNodeBase", ptr %listInt64145, i64 0, i32 1
+  %mpPrev.i.i.i.i185 = getelementptr inbounds i8, ptr %listInt64145, i64 8
   store ptr %listInt64145, ptr %mpPrev.i.i.i.i185, align 8
   call void @llvm.lifetime.end.p0(i64 56, ptr nonnull %ref.tmp.i178)
   %call149 = invoke noundef i32 @_ZN2EA8UnitTest12TestInternal17EATEST_VERIFY_IMPEbRiPKciS4_(i1 noundef zeroext true, ptr noundef nonnull align 4 dereferenceable(4) %nErrorCount, ptr noundef nonnull @.str, i32 noundef 133, ptr noundef nonnull @.str.1)
@@ -2860,12 +2856,12 @@ if.then.i.i.i.i.i.i.i.i191:                       ; preds = %invoke.cont152
   br label %invoke.cont155
 
 if.else.i.i.i.i.i.i.i.i198:                       ; preds = %invoke.cont152
-  %mpNext3.i.i.i.i.i.i.i.i199 = getelementptr inbounds %"class.eastl::compressed_pair_imp.26", ptr %listInt64145, i64 0, i32 1, i32 0, i32 0, i32 1
+  %mpNext3.i.i.i.i.i.i.i.i199 = getelementptr inbounds i8, ptr %listInt64145, i64 24
   %113 = load ptr, ptr %mpNext3.i.i.i.i.i.i.i.i199, align 8, !noalias !89
-  %mpCapacity.i.i.i.i.i.i.i.i200 = getelementptr inbounds %"class.eastl::compressed_pair_imp.26", ptr %listInt64145, i64 0, i32 1, i32 0, i32 0, i32 2
+  %mpCapacity.i.i.i.i.i.i.i.i200 = getelementptr inbounds i8, ptr %listInt64145, i64 32
   %114 = load ptr, ptr %mpCapacity.i.i.i.i.i.i.i.i200, align 8, !noalias !89
   %cmp.not.i.i.i.i.i.i.i.i201 = icmp eq ptr %113, %114
-  %mnNodeSize9.i.i.i.i.i.i.i.i206 = getelementptr inbounds %"class.eastl::compressed_pair_imp.26", ptr %listInt64145, i64 0, i32 1, i32 0, i32 0, i32 3
+  %mnNodeSize9.i.i.i.i.i.i.i.i206 = getelementptr inbounds i8, ptr %listInt64145, i64 40
   %115 = load i64, ptr %mnNodeSize9.i.i.i.i.i.i.i.i206, align 8, !noalias !89
   br i1 %cmp.not.i.i.i.i.i.i.i.i201, label %if.else8.i.i.i.i.i.i.i.i205, label %if.then4.i.i.i.i.i.i.i.i202
 
@@ -2880,11 +2876,11 @@ if.else8.i.i.i.i.i.i.i.i205:                      ; preds = %if.else.i.i.i.i.i.i
 
 invoke.cont155:                                   ; preds = %if.then4.i.i.i.i.i.i.i.i202, %if.then.i.i.i.i.i.i.i.i191, %if.else8.i.i.i.i.i.i.i.i205
   %result.0.i.i.i.i.i.i192 = phi ptr [ %111, %if.then.i.i.i.i.i.i.i.i191 ], [ %113, %if.then4.i.i.i.i.i.i.i.i202 ], [ %call.i.i.i.i.i.i.i.i207, %if.else8.i.i.i.i.i.i.i.i205 ]
-  %mValue.i.i.i.i193 = getelementptr inbounds %"struct.eastl::ListNode", ptr %result.0.i.i.i.i.i.i192, i64 0, i32 1
+  %mValue.i.i.i.i193 = getelementptr inbounds i8, ptr %result.0.i.i.i.i.i.i192, i64 16
   store i32 1, ptr %mValue.i.i.i.i193, align 4, !noalias !89
   store ptr %listInt64145, ptr %result.0.i.i.i.i.i.i192, align 8, !noalias !89
   %116 = load ptr, ptr %mpPrev.i.i.i.i185, align 8, !noalias !89
-  %mpPrev2.i.i.i.i195 = getelementptr inbounds %"struct.eastl::ListNodeBase", ptr %result.0.i.i.i.i.i.i192, i64 0, i32 1
+  %mpPrev2.i.i.i.i195 = getelementptr inbounds i8, ptr %result.0.i.i.i.i.i.i192, i64 8
   store ptr %116, ptr %mpPrev2.i.i.i.i195, align 8, !noalias !89
   store ptr %result.0.i.i.i.i.i.i192, ptr %116, align 8, !noalias !89
   store ptr %result.0.i.i.i.i.i.i192, ptr %mpPrev.i.i.i.i185, align 8, !noalias !89
@@ -2920,7 +2916,7 @@ invoke.cont168:                                   ; preds = %invoke.cont165
 
 invoke.cont172:                                   ; preds = %invoke.cont168
   %121 = load ptr, ptr %listInt64145, align 8, !noalias !92
-  %mValue.i214 = getelementptr inbounds %"struct.eastl::ListNode", ptr %121, i64 0, i32 1
+  %mValue.i214 = getelementptr inbounds i8, ptr %121, i64 16
   %122 = load i32, ptr %mValue.i214, align 4
   %cmp176 = icmp eq i32 %122, 1
   %call178 = invoke noundef i32 @_ZN2EA8UnitTest12TestInternal17EATEST_VERIFY_IMPEbRiPKciS4_(i1 noundef zeroext %cmp176, ptr noundef nonnull align 4 dereferenceable(4) %nErrorCount, ptr noundef nonnull @.str, i32 noundef 145, ptr noundef nonnull @.str.7)
@@ -2928,7 +2924,7 @@ invoke.cont172:                                   ; preds = %invoke.cont168
 
 invoke.cont177:                                   ; preds = %invoke.cont172
   %123 = load ptr, ptr %121, align 8
-  %mValue.i215 = getelementptr inbounds %"struct.eastl::ListNode", ptr %123, i64 0, i32 1
+  %mValue.i215 = getelementptr inbounds i8, ptr %123, i64 16
   %124 = load i32, ptr %mValue.i215, align 4
   %cmp181 = icmp eq i32 %124, 2
   %call183 = invoke noundef i32 @_ZN2EA8UnitTest12TestInternal17EATEST_VERIFY_IMPEbRiPKciS4_(i1 noundef zeroext %cmp181, ptr noundef nonnull align 4 dereferenceable(4) %nErrorCount, ptr noundef nonnull @.str, i32 noundef 146, ptr noundef nonnull @.str.8)
@@ -2936,7 +2932,7 @@ invoke.cont177:                                   ; preds = %invoke.cont172
 
 invoke.cont182:                                   ; preds = %invoke.cont177
   %125 = load ptr, ptr %123, align 8
-  %mValue.i216 = getelementptr inbounds %"struct.eastl::ListNode", ptr %125, i64 0, i32 1
+  %mValue.i216 = getelementptr inbounds i8, ptr %125, i64 16
   %126 = load i32, ptr %mValue.i216, align 4
   %cmp186 = icmp eq i32 %126, 2
   %call188 = invoke noundef i32 @_ZN2EA8UnitTest12TestInternal17EATEST_VERIFY_IMPEbRiPKciS4_(i1 noundef zeroext %cmp186, ptr noundef nonnull align 4 dereferenceable(4) %nErrorCount, ptr noundef nonnull @.str, i32 noundef 147, ptr noundef nonnull @.str.8)
@@ -2973,9 +2969,9 @@ while.cond202thread-pre-split:                    ; preds = %invoke.cont196
   br i1 %cmp2042205, label %while.body205.lr.ph, label %while.end208
 
 while.body205.lr.ph:                              ; preds = %while.cond202thread-pre-split
-  %mpNext3.i.i.i.i.i.i.i.i233 = getelementptr inbounds %"class.eastl::compressed_pair_imp.26", ptr %listInt64145, i64 0, i32 1, i32 0, i32 0, i32 1
-  %mpCapacity.i.i.i.i.i.i.i.i234 = getelementptr inbounds %"class.eastl::compressed_pair_imp.26", ptr %listInt64145, i64 0, i32 1, i32 0, i32 0, i32 2
-  %mnNodeSize.i.i.i.i.i.i.i.i237 = getelementptr inbounds %"class.eastl::compressed_pair_imp.26", ptr %listInt64145, i64 0, i32 1, i32 0, i32 0, i32 3
+  %mpNext3.i.i.i.i.i.i.i.i233 = getelementptr inbounds i8, ptr %listInt64145, i64 24
+  %mpCapacity.i.i.i.i.i.i.i.i234 = getelementptr inbounds i8, ptr %listInt64145, i64 32
+  %mnNodeSize.i.i.i.i.i.i.i.i237 = getelementptr inbounds i8, ptr %listInt64145, i64 40
   br label %while.body205
 
 while.body205:                                    ; preds = %while.body205.lr.ph, %_ZN5eastl4listIiNS_20fixed_node_allocatorILm24ELm64ELm8ELm0ELb1E15MallocAllocatorEEE9push_backEOi.exit244
@@ -3006,11 +3002,11 @@ if.else8.i.i.i.i.i.i.i.i239:                      ; preds = %if.else.i.i.i.i.i.i
 
 _ZN5eastl4listIiNS_20fixed_node_allocatorILm24ELm64ELm8ELm0ELb1E15MallocAllocatorEEE9push_backEOi.exit244: ; preds = %if.else8.i.i.i.i.i.i.i.i239, %if.then.i.i.i.i.i.i.i.i225, %if.then4.i.i.i.i.i.i.i.i236
   %result.0.i.i.i.i.i.i226 = phi ptr [ %130, %if.then.i.i.i.i.i.i.i.i225 ], [ %132, %if.then4.i.i.i.i.i.i.i.i236 ], [ %call.i.i.i.i.i.i.i.i243, %if.else8.i.i.i.i.i.i.i.i239 ]
-  %mValue.i.i.i.i227 = getelementptr inbounds %"struct.eastl::ListNode", ptr %result.0.i.i.i.i.i.i226, i64 0, i32 1
+  %mValue.i.i.i.i227 = getelementptr inbounds i8, ptr %result.0.i.i.i.i.i.i226, i64 16
   store i32 0, ptr %mValue.i.i.i.i227, align 4, !noalias !95
   store ptr %listInt64145, ptr %result.0.i.i.i.i.i.i226, align 8, !noalias !95
   %135 = load ptr, ptr %mpPrev.i.i.i.i185, align 8, !noalias !95
-  %mpPrev2.i.i.i.i229 = getelementptr inbounds %"struct.eastl::ListNodeBase", ptr %result.0.i.i.i.i.i.i226, i64 0, i32 1
+  %mpPrev2.i.i.i.i229 = getelementptr inbounds i8, ptr %result.0.i.i.i.i.i.i226, i64 8
   store ptr %135, ptr %mpPrev2.i.i.i.i229, align 8, !noalias !95
   store ptr %result.0.i.i.i.i.i.i226, ptr %135, align 8, !noalias !95
   store ptr %result.0.i.i.i.i.i.i226, ptr %mpPrev.i.i.i.i185, align 8, !noalias !95
@@ -3046,12 +3042,12 @@ if.then.i.i247:                                   ; preds = %while.end208
   br label %invoke.cont212
 
 if.else.i.i249:                                   ; preds = %while.end208
-  %mpNext3.i.i250 = getelementptr inbounds %"class.eastl::compressed_pair_imp.26", ptr %listInt64145, i64 0, i32 1, i32 0, i32 0, i32 1
+  %mpNext3.i.i250 = getelementptr inbounds i8, ptr %listInt64145, i64 24
   %139 = load ptr, ptr %mpNext3.i.i250, align 8
-  %mpCapacity.i.i251 = getelementptr inbounds %"class.eastl::compressed_pair_imp.26", ptr %listInt64145, i64 0, i32 1, i32 0, i32 0, i32 2
+  %mpCapacity.i.i251 = getelementptr inbounds i8, ptr %listInt64145, i64 32
   %140 = load ptr, ptr %mpCapacity.i.i251, align 8
   %cmp.not.i.i252 = icmp eq ptr %139, %140
-  %mnNodeSize9.i.i257 = getelementptr inbounds %"class.eastl::compressed_pair_imp.26", ptr %listInt64145, i64 0, i32 1, i32 0, i32 0, i32 3
+  %mnNodeSize9.i.i257 = getelementptr inbounds i8, ptr %listInt64145, i64 40
   %141 = load i64, ptr %mnNodeSize9.i.i257, align 8
   br i1 %cmp.not.i.i252, label %if.else8.i.i256, label %if.then4.i.i253
 
@@ -3073,7 +3069,7 @@ invoke.cont212:                                   ; preds = %if.then4.i.i253, %i
 invoke.cont215:                                   ; preds = %invoke.cont212
   %142 = load ptr, ptr %mpPoolBegin.i.i.i.i.i.i.i183, align 8
   %cmp.not.i.i260 = icmp ule ptr %142, %p.0.i.i248
-  %mpCapacity.i.i261 = getelementptr inbounds %"class.eastl::compressed_pair_imp.26", ptr %listInt64145, i64 0, i32 1, i32 0, i32 0, i32 2
+  %mpCapacity.i.i261 = getelementptr inbounds i8, ptr %listInt64145, i64 32
   %143 = load ptr, ptr %mpCapacity.i.i261, align 8
   %cmp2.i.i262 = icmp ugt ptr %143, %p.0.i.i248
   %or.cond.i.i263 = select i1 %cmp.not.i.i260, i1 %cmp2.i.i262, i1 false
@@ -3086,7 +3082,7 @@ if.then.i.i267:                                   ; preds = %invoke.cont215
   br label %invoke.cont217
 
 if.else.i.i264:                                   ; preds = %invoke.cont215
-  %mnNodeSize.i.i266 = getelementptr inbounds %"class.eastl::compressed_pair_imp.26", ptr %listInt64145, i64 0, i32 1, i32 0, i32 0, i32 3
+  %mnNodeSize.i.i266 = getelementptr inbounds i8, ptr %listInt64145, i64 40
   %145 = load i64, ptr %mnNodeSize.i.i266, align 8
   invoke void @_ZN15MallocAllocator10deallocateEPvm(ptr noundef nonnull align 8 dereferenceable(16) %mOverflowAllocator.i.i.i.i.i.i.i, ptr noundef %p.0.i.i248, i64 noundef %145)
           to label %invoke.cont217 unwind label %lpad147.loopexit.split-lp
@@ -3097,7 +3093,7 @@ invoke.cont217:                                   ; preds = %if.then.i.i267, %if
   br i1 %cmp.not3.i.i.i.i268, label %_ZN5eastl10fixed_listIiLm64ELb1E15MallocAllocatorED2Ev.exit, label %while.body.lr.ph.i.i.i.i269
 
 while.body.lr.ph.i.i.i.i269:                      ; preds = %invoke.cont217
-  %mnNodeSize.i.i.i.i.i.i = getelementptr inbounds %"class.eastl::compressed_pair_imp.26", ptr %listInt64145, i64 0, i32 1, i32 0, i32 0, i32 3
+  %mnNodeSize.i.i.i.i.i.i = getelementptr inbounds i8, ptr %listInt64145, i64 40
   br label %while.body.i.i.i.i274
 
 while.body.i.i.i.i274:                            ; preds = %_ZN5eastl20fixed_node_allocatorILm24ELm64ELm8ELm0ELb1E15MallocAllocatorE10deallocateEPvm.exit.i.i.i.i, %while.body.lr.ph.i.i.i.i269
@@ -3134,23 +3130,23 @@ terminate.lpad.i.i.i:                             ; preds = %if.else.i.i.i.i.i.i
 
 _ZN5eastl10fixed_listIiLm64ELb1E15MallocAllocatorED2Ev.exit: ; preds = %_ZN5eastl20fixed_node_allocatorILm24ELm64ELm8ELm0ELb1E15MallocAllocatorE10deallocateEPvm.exit.i.i.i.i, %invoke.cont217
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %ref.tmp.i281)
-  %mBuffer.i282 = getelementptr inbounds %"class.eastl::fixed_list.30", ptr %fl, i64 0, i32 1
+  %mBuffer.i282 = getelementptr inbounds i8, ptr %fl, i64 72
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp.i281, i8 0, i64 32, i1 false)
   call void @_ZN5eastl15fixed_pool_base4initEPvmmmm(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp.i281, ptr noundef nonnull %mBuffer.i282, i64 noundef 128, i64 noundef 128, i64 noundef 64, i64 noundef 0)
-  %mpPoolBegin.i.i.i283 = getelementptr inbounds %"class.eastl::fixed_pool_with_overflow.36", ptr %ref.tmp.i281, i64 0, i32 2
+  %mpPoolBegin.i.i.i283 = getelementptr inbounds i8, ptr %ref.tmp.i281, i64 40
   store ptr %mBuffer.i282, ptr %mpPoolBegin.i.i.i283, align 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %fl, i8 0, i64 16, i1 false)
-  %mSecond.i.i.i.i.i284 = getelementptr inbounds %"class.eastl::compressed_pair_imp.34", ptr %fl, i64 0, i32 1
-  %mpNext.i.i.i.i.i.i285 = getelementptr inbounds %"struct.eastl::fixed_pool_base", ptr %ref.tmp.i281, i64 0, i32 1
+  %mSecond.i.i.i.i.i284 = getelementptr inbounds i8, ptr %fl, i64 16
+  %mpNext.i.i.i.i.i.i285 = getelementptr inbounds i8, ptr %ref.tmp.i281, i64 8
   %154 = load ptr, ptr %mpNext.i.i.i.i.i.i285, align 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %mSecond.i.i.i.i.i284, i8 0, i64 32, i1 false)
   call void @_ZN5eastl15fixed_pool_base4initEPvmmmm(ptr noundef nonnull align 8 dereferenceable(32) %mSecond.i.i.i.i.i284, ptr noundef %154, i64 noundef 128, i64 noundef 128, i64 noundef 64, i64 noundef 0)
-  %mpPoolBegin.i.i.i.i.i.i.i286 = getelementptr inbounds %"class.eastl::compressed_pair_imp.34", ptr %fl, i64 0, i32 1, i32 0, i32 2
+  %mpPoolBegin.i.i.i.i.i.i.i286 = getelementptr inbounds i8, ptr %fl, i64 56
   store ptr %154, ptr %mpPoolBegin.i.i.i.i.i.i.i286, align 8
-  %mSize.i.i.i287 = getelementptr inbounds %"class.eastl::ListBase.32", ptr %fl, i64 0, i32 1
+  %mSize.i.i.i287 = getelementptr inbounds i8, ptr %fl, i64 64
   store i64 0, ptr %mSize.i.i.i287, align 8
   store ptr %fl, ptr %fl, align 8
-  %mpPrev.i.i.i.i288 = getelementptr inbounds %"struct.eastl::ListNodeBase", ptr %fl, i64 0, i32 1
+  %mpPrev.i.i.i.i288 = getelementptr inbounds i8, ptr %fl, i64 8
   store ptr %fl, ptr %mpPrev.i.i.i.i288, align 8
   call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %ref.tmp.i281)
   %155 = load ptr, ptr %mSecond.i.i.i.i.i284, align 8
@@ -3163,36 +3159,36 @@ if.then.i.i7.i.i.i.i.i:                           ; preds = %_ZN5eastl10fixed_li
   br label %invoke.cont221
 
 if.else.i.i9.i.i.i.i.i:                           ; preds = %_ZN5eastl10fixed_listIiLm64ELb1E15MallocAllocatorED2Ev.exit
-  %mpNext3.i.i10.i.i.i.i.i = getelementptr inbounds %"class.eastl::compressed_pair_imp.34", ptr %fl, i64 0, i32 1, i32 0, i32 0, i32 1
+  %mpNext3.i.i10.i.i.i.i.i = getelementptr inbounds i8, ptr %fl, i64 24
   %157 = load ptr, ptr %mpNext3.i.i10.i.i.i.i.i, align 8
-  %mpCapacity.i.i11.i.i.i.i.i = getelementptr inbounds %"class.eastl::compressed_pair_imp.34", ptr %fl, i64 0, i32 1, i32 0, i32 0, i32 2
+  %mpCapacity.i.i11.i.i.i.i.i = getelementptr inbounds i8, ptr %fl, i64 32
   %158 = load ptr, ptr %mpCapacity.i.i11.i.i.i.i.i, align 8
   %cmp.not.i.i12.i.i.i.i.i = icmp eq ptr %157, %158
   br i1 %cmp.not.i.i12.i.i.i.i.i, label %if.else.i.i.i.i.i.i.i.i291, label %if.then4.i.i13.i.i.i.i.i
 
 if.then4.i.i13.i.i.i.i.i:                         ; preds = %if.else.i.i9.i.i.i.i.i
-  %mnNodeSize.i.i14.i.i.i.i.i = getelementptr inbounds %"class.eastl::compressed_pair_imp.34", ptr %fl, i64 0, i32 1, i32 0, i32 0, i32 3
+  %mnNodeSize.i.i14.i.i.i.i.i = getelementptr inbounds i8, ptr %fl, i64 40
   %159 = load i64, ptr %mnNodeSize.i.i14.i.i.i.i.i, align 8
   %add.ptr.i.i15.i.i.i.i.i = getelementptr inbounds i8, ptr %157, i64 %159
   store ptr %add.ptr.i.i15.i.i.i.i.i, ptr %mpNext3.i.i10.i.i.i.i.i, align 8
   br label %invoke.cont221
 
 if.else.i.i.i.i.i.i.i.i291:                       ; preds = %if.else.i.i9.i.i.i.i.i
-  %mOverflowAllocator.i.i17.i.i.i.i.i = getelementptr inbounds %"class.eastl::compressed_pair_imp.34", ptr %fl, i64 0, i32 1, i32 0, i32 1
-  %mnNodeSize9.i.i18.i.i.i.i.i = getelementptr inbounds %"class.eastl::compressed_pair_imp.34", ptr %fl, i64 0, i32 1, i32 0, i32 0, i32 3
+  %mOverflowAllocator.i.i17.i.i.i.i.i = getelementptr inbounds i8, ptr %fl, i64 48
+  %mnNodeSize9.i.i18.i.i.i.i.i = getelementptr inbounds i8, ptr %fl, i64 40
   %160 = load i64, ptr %mnNodeSize9.i.i18.i.i.i.i.i, align 8
   %call1.i.i.i.i.i.i.i.i292 = invoke noundef ptr @_ZN15CustomAllocator8allocateEmmmi(ptr noundef nonnull align 1 dereferenceable(1) %mOverflowAllocator.i.i17.i.i.i.i.i, i64 noundef %160, i64 noundef 64, i64 noundef 0, i32 noundef 0)
           to label %invoke.cont221 unwind label %lpad219.loopexit.split-lp
 
 invoke.cont221:                                   ; preds = %if.then4.i.i13.i.i.i.i.i, %if.then.i.i7.i.i.i.i.i, %if.else.i.i.i.i.i.i.i.i291
   %result.0.i.i.i.i.i = phi ptr [ %155, %if.then.i.i7.i.i.i.i.i ], [ %157, %if.then4.i.i13.i.i.i.i.i ], [ %call1.i.i.i.i.i.i.i.i292, %if.else.i.i.i.i.i.i.i.i291 ]
-  %mValue.i.i.i = getelementptr inbounds %"struct.eastl::ListNode.88", ptr %result.0.i.i.i.i.i, i64 0, i32 2
+  %mValue.i.i.i = getelementptr inbounds i8, ptr %result.0.i.i.i.i.i, i64 64
   store i32 0, ptr %mValue.i.i.i, align 64
-  %a218.sroa.6.0.mValue.i.i.i.sroa_idx = getelementptr inbounds %"struct.eastl::ListNode.88", ptr %result.0.i.i.i.i.i, i64 0, i32 2, i32 1
+  %a218.sroa.6.0.mValue.i.i.i.sroa_idx = getelementptr inbounds i8, ptr %result.0.i.i.i.i.i, i64 68
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(60) %a218.sroa.6.0.mValue.i.i.i.sroa_idx, ptr noundef nonnull align 4 dereferenceable(60) %a218.sroa.6, i64 60, i1 false)
   store ptr %fl, ptr %result.0.i.i.i.i.i, align 8
   %161 = load ptr, ptr %mpPrev.i.i.i.i288, align 8
-  %mpPrev2.i.i.i = getelementptr inbounds %"struct.eastl::ListNodeBase", ptr %result.0.i.i.i.i.i, i64 0, i32 1
+  %mpPrev2.i.i.i = getelementptr inbounds i8, ptr %result.0.i.i.i.i.i, i64 8
   store ptr %161, ptr %mpPrev2.i.i.i, align 8
   store ptr %result.0.i.i.i.i.i, ptr %161, align 8
   store ptr %result.0.i.i.i.i.i, ptr %mpPrev.i.i.i.i288, align 8
@@ -3209,36 +3205,36 @@ if.then.i.i7.i.i.i.i.i295:                        ; preds = %invoke.cont221
   br label %invoke.cont222
 
 if.else.i.i9.i.i.i.i.i302:                        ; preds = %invoke.cont221
-  %mpNext3.i.i10.i.i.i.i.i303 = getelementptr inbounds %"class.eastl::compressed_pair_imp.34", ptr %fl, i64 0, i32 1, i32 0, i32 0, i32 1
+  %mpNext3.i.i10.i.i.i.i.i303 = getelementptr inbounds i8, ptr %fl, i64 24
   %165 = load ptr, ptr %mpNext3.i.i10.i.i.i.i.i303, align 8
-  %mpCapacity.i.i11.i.i.i.i.i304 = getelementptr inbounds %"class.eastl::compressed_pair_imp.34", ptr %fl, i64 0, i32 1, i32 0, i32 0, i32 2
+  %mpCapacity.i.i11.i.i.i.i.i304 = getelementptr inbounds i8, ptr %fl, i64 32
   %166 = load ptr, ptr %mpCapacity.i.i11.i.i.i.i.i304, align 8
   %cmp.not.i.i12.i.i.i.i.i305 = icmp eq ptr %165, %166
   br i1 %cmp.not.i.i12.i.i.i.i.i305, label %if.else.i.i.i.i.i.i.i.i309, label %if.then4.i.i13.i.i.i.i.i306
 
 if.then4.i.i13.i.i.i.i.i306:                      ; preds = %if.else.i.i9.i.i.i.i.i302
-  %mnNodeSize.i.i14.i.i.i.i.i307 = getelementptr inbounds %"class.eastl::compressed_pair_imp.34", ptr %fl, i64 0, i32 1, i32 0, i32 0, i32 3
+  %mnNodeSize.i.i14.i.i.i.i.i307 = getelementptr inbounds i8, ptr %fl, i64 40
   %167 = load i64, ptr %mnNodeSize.i.i14.i.i.i.i.i307, align 8
   %add.ptr.i.i15.i.i.i.i.i308 = getelementptr inbounds i8, ptr %165, i64 %167
   store ptr %add.ptr.i.i15.i.i.i.i.i308, ptr %mpNext3.i.i10.i.i.i.i.i303, align 8
   br label %invoke.cont222
 
 if.else.i.i.i.i.i.i.i.i309:                       ; preds = %if.else.i.i9.i.i.i.i.i302
-  %mOverflowAllocator.i.i17.i.i.i.i.i310 = getelementptr inbounds %"class.eastl::compressed_pair_imp.34", ptr %fl, i64 0, i32 1, i32 0, i32 1
-  %mnNodeSize9.i.i18.i.i.i.i.i311 = getelementptr inbounds %"class.eastl::compressed_pair_imp.34", ptr %fl, i64 0, i32 1, i32 0, i32 0, i32 3
+  %mOverflowAllocator.i.i17.i.i.i.i.i310 = getelementptr inbounds i8, ptr %fl, i64 48
+  %mnNodeSize9.i.i18.i.i.i.i.i311 = getelementptr inbounds i8, ptr %fl, i64 40
   %168 = load i64, ptr %mnNodeSize9.i.i18.i.i.i.i.i311, align 8
   %call1.i.i.i.i.i.i.i.i313 = invoke noundef ptr @_ZN15CustomAllocator8allocateEmmmi(ptr noundef nonnull align 1 dereferenceable(1) %mOverflowAllocator.i.i17.i.i.i.i.i310, i64 noundef %168, i64 noundef 64, i64 noundef 0, i32 noundef 0)
           to label %invoke.cont222 unwind label %lpad219.loopexit.split-lp
 
 invoke.cont222:                                   ; preds = %if.then4.i.i13.i.i.i.i.i306, %if.then.i.i7.i.i.i.i.i295, %if.else.i.i.i.i.i.i.i.i309
   %result.0.i.i.i.i.i296 = phi ptr [ %163, %if.then.i.i7.i.i.i.i.i295 ], [ %165, %if.then4.i.i13.i.i.i.i.i306 ], [ %call1.i.i.i.i.i.i.i.i313, %if.else.i.i.i.i.i.i.i.i309 ]
-  %mValue.i.i.i297 = getelementptr inbounds %"struct.eastl::ListNode.88", ptr %result.0.i.i.i.i.i296, i64 0, i32 2
+  %mValue.i.i.i297 = getelementptr inbounds i8, ptr %result.0.i.i.i.i.i296, i64 64
   store i32 0, ptr %mValue.i.i.i297, align 64
-  %a218.sroa.6.0.mValue.i.i.i297.sroa_idx = getelementptr inbounds %"struct.eastl::ListNode.88", ptr %result.0.i.i.i.i.i296, i64 0, i32 2, i32 1
+  %a218.sroa.6.0.mValue.i.i.i297.sroa_idx = getelementptr inbounds i8, ptr %result.0.i.i.i.i.i296, i64 68
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(60) %a218.sroa.6.0.mValue.i.i.i297.sroa_idx, ptr noundef nonnull align 4 dereferenceable(60) %a218.sroa.6, i64 60, i1 false)
   store ptr %fl, ptr %result.0.i.i.i.i.i296, align 8
   %169 = load ptr, ptr %mpPrev.i.i.i.i288, align 8
-  %mpPrev2.i.i.i299 = getelementptr inbounds %"struct.eastl::ListNodeBase", ptr %result.0.i.i.i.i.i296, i64 0, i32 1
+  %mpPrev2.i.i.i299 = getelementptr inbounds i8, ptr %result.0.i.i.i.i.i296, i64 8
   store ptr %169, ptr %mpPrev2.i.i.i299, align 8
   store ptr %result.0.i.i.i.i.i296, ptr %169, align 8
   store ptr %result.0.i.i.i.i.i296, ptr %mpPrev.i.i.i.i288, align 8
@@ -3255,36 +3251,36 @@ if.then.i.i7.i.i.i.i.i317:                        ; preds = %invoke.cont222
   br label %invoke.cont223
 
 if.else.i.i9.i.i.i.i.i324:                        ; preds = %invoke.cont222
-  %mpNext3.i.i10.i.i.i.i.i325 = getelementptr inbounds %"class.eastl::compressed_pair_imp.34", ptr %fl, i64 0, i32 1, i32 0, i32 0, i32 1
+  %mpNext3.i.i10.i.i.i.i.i325 = getelementptr inbounds i8, ptr %fl, i64 24
   %173 = load ptr, ptr %mpNext3.i.i10.i.i.i.i.i325, align 8
-  %mpCapacity.i.i11.i.i.i.i.i326 = getelementptr inbounds %"class.eastl::compressed_pair_imp.34", ptr %fl, i64 0, i32 1, i32 0, i32 0, i32 2
+  %mpCapacity.i.i11.i.i.i.i.i326 = getelementptr inbounds i8, ptr %fl, i64 32
   %174 = load ptr, ptr %mpCapacity.i.i11.i.i.i.i.i326, align 8
   %cmp.not.i.i12.i.i.i.i.i327 = icmp eq ptr %173, %174
   br i1 %cmp.not.i.i12.i.i.i.i.i327, label %if.else.i.i.i.i.i.i.i.i331, label %if.then4.i.i13.i.i.i.i.i328
 
 if.then4.i.i13.i.i.i.i.i328:                      ; preds = %if.else.i.i9.i.i.i.i.i324
-  %mnNodeSize.i.i14.i.i.i.i.i329 = getelementptr inbounds %"class.eastl::compressed_pair_imp.34", ptr %fl, i64 0, i32 1, i32 0, i32 0, i32 3
+  %mnNodeSize.i.i14.i.i.i.i.i329 = getelementptr inbounds i8, ptr %fl, i64 40
   %175 = load i64, ptr %mnNodeSize.i.i14.i.i.i.i.i329, align 8
   %add.ptr.i.i15.i.i.i.i.i330 = getelementptr inbounds i8, ptr %173, i64 %175
   store ptr %add.ptr.i.i15.i.i.i.i.i330, ptr %mpNext3.i.i10.i.i.i.i.i325, align 8
   br label %invoke.cont223
 
 if.else.i.i.i.i.i.i.i.i331:                       ; preds = %if.else.i.i9.i.i.i.i.i324
-  %mOverflowAllocator.i.i17.i.i.i.i.i332 = getelementptr inbounds %"class.eastl::compressed_pair_imp.34", ptr %fl, i64 0, i32 1, i32 0, i32 1
-  %mnNodeSize9.i.i18.i.i.i.i.i333 = getelementptr inbounds %"class.eastl::compressed_pair_imp.34", ptr %fl, i64 0, i32 1, i32 0, i32 0, i32 3
+  %mOverflowAllocator.i.i17.i.i.i.i.i332 = getelementptr inbounds i8, ptr %fl, i64 48
+  %mnNodeSize9.i.i18.i.i.i.i.i333 = getelementptr inbounds i8, ptr %fl, i64 40
   %176 = load i64, ptr %mnNodeSize9.i.i18.i.i.i.i.i333, align 8
   %call1.i.i.i.i.i.i.i.i335 = invoke noundef ptr @_ZN15CustomAllocator8allocateEmmmi(ptr noundef nonnull align 1 dereferenceable(1) %mOverflowAllocator.i.i17.i.i.i.i.i332, i64 noundef %176, i64 noundef 64, i64 noundef 0, i32 noundef 0)
           to label %invoke.cont223 unwind label %lpad219.loopexit.split-lp
 
 invoke.cont223:                                   ; preds = %if.then4.i.i13.i.i.i.i.i328, %if.then.i.i7.i.i.i.i.i317, %if.else.i.i.i.i.i.i.i.i331
   %result.0.i.i.i.i.i318 = phi ptr [ %171, %if.then.i.i7.i.i.i.i.i317 ], [ %173, %if.then4.i.i13.i.i.i.i.i328 ], [ %call1.i.i.i.i.i.i.i.i335, %if.else.i.i.i.i.i.i.i.i331 ]
-  %mValue.i.i.i319 = getelementptr inbounds %"struct.eastl::ListNode.88", ptr %result.0.i.i.i.i.i318, i64 0, i32 2
+  %mValue.i.i.i319 = getelementptr inbounds i8, ptr %result.0.i.i.i.i.i318, i64 64
   store i32 0, ptr %mValue.i.i.i319, align 64
-  %a218.sroa.6.0.mValue.i.i.i319.sroa_idx = getelementptr inbounds %"struct.eastl::ListNode.88", ptr %result.0.i.i.i.i.i318, i64 0, i32 2, i32 1
+  %a218.sroa.6.0.mValue.i.i.i319.sroa_idx = getelementptr inbounds i8, ptr %result.0.i.i.i.i.i318, i64 68
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(60) %a218.sroa.6.0.mValue.i.i.i319.sroa_idx, ptr noundef nonnull align 4 dereferenceable(60) %a218.sroa.6, i64 60, i1 false)
   store ptr %fl, ptr %result.0.i.i.i.i.i318, align 8
   %177 = load ptr, ptr %mpPrev.i.i.i.i288, align 8
-  %mpPrev2.i.i.i321 = getelementptr inbounds %"struct.eastl::ListNodeBase", ptr %result.0.i.i.i.i.i318, i64 0, i32 1
+  %mpPrev2.i.i.i321 = getelementptr inbounds i8, ptr %result.0.i.i.i.i.i318, i64 8
   store ptr %177, ptr %mpPrev2.i.i.i321, align 8
   store ptr %result.0.i.i.i.i.i318, ptr %177, align 8
   store ptr %result.0.i.i.i.i.i318, ptr %mpPrev.i.i.i.i288, align 8
@@ -3301,36 +3297,36 @@ if.then.i.i7.i.i.i.i.i339:                        ; preds = %invoke.cont223
   br label %invoke.cont224
 
 if.else.i.i9.i.i.i.i.i346:                        ; preds = %invoke.cont223
-  %mpNext3.i.i10.i.i.i.i.i347 = getelementptr inbounds %"class.eastl::compressed_pair_imp.34", ptr %fl, i64 0, i32 1, i32 0, i32 0, i32 1
+  %mpNext3.i.i10.i.i.i.i.i347 = getelementptr inbounds i8, ptr %fl, i64 24
   %181 = load ptr, ptr %mpNext3.i.i10.i.i.i.i.i347, align 8
-  %mpCapacity.i.i11.i.i.i.i.i348 = getelementptr inbounds %"class.eastl::compressed_pair_imp.34", ptr %fl, i64 0, i32 1, i32 0, i32 0, i32 2
+  %mpCapacity.i.i11.i.i.i.i.i348 = getelementptr inbounds i8, ptr %fl, i64 32
   %182 = load ptr, ptr %mpCapacity.i.i11.i.i.i.i.i348, align 8
   %cmp.not.i.i12.i.i.i.i.i349 = icmp eq ptr %181, %182
   br i1 %cmp.not.i.i12.i.i.i.i.i349, label %if.else.i.i.i.i.i.i.i.i353, label %if.then4.i.i13.i.i.i.i.i350
 
 if.then4.i.i13.i.i.i.i.i350:                      ; preds = %if.else.i.i9.i.i.i.i.i346
-  %mnNodeSize.i.i14.i.i.i.i.i351 = getelementptr inbounds %"class.eastl::compressed_pair_imp.34", ptr %fl, i64 0, i32 1, i32 0, i32 0, i32 3
+  %mnNodeSize.i.i14.i.i.i.i.i351 = getelementptr inbounds i8, ptr %fl, i64 40
   %183 = load i64, ptr %mnNodeSize.i.i14.i.i.i.i.i351, align 8
   %add.ptr.i.i15.i.i.i.i.i352 = getelementptr inbounds i8, ptr %181, i64 %183
   store ptr %add.ptr.i.i15.i.i.i.i.i352, ptr %mpNext3.i.i10.i.i.i.i.i347, align 8
   br label %invoke.cont224
 
 if.else.i.i.i.i.i.i.i.i353:                       ; preds = %if.else.i.i9.i.i.i.i.i346
-  %mOverflowAllocator.i.i17.i.i.i.i.i354 = getelementptr inbounds %"class.eastl::compressed_pair_imp.34", ptr %fl, i64 0, i32 1, i32 0, i32 1
-  %mnNodeSize9.i.i18.i.i.i.i.i355 = getelementptr inbounds %"class.eastl::compressed_pair_imp.34", ptr %fl, i64 0, i32 1, i32 0, i32 0, i32 3
+  %mOverflowAllocator.i.i17.i.i.i.i.i354 = getelementptr inbounds i8, ptr %fl, i64 48
+  %mnNodeSize9.i.i18.i.i.i.i.i355 = getelementptr inbounds i8, ptr %fl, i64 40
   %184 = load i64, ptr %mnNodeSize9.i.i18.i.i.i.i.i355, align 8
   %call1.i.i.i.i.i.i.i.i357 = invoke noundef ptr @_ZN15CustomAllocator8allocateEmmmi(ptr noundef nonnull align 1 dereferenceable(1) %mOverflowAllocator.i.i17.i.i.i.i.i354, i64 noundef %184, i64 noundef 64, i64 noundef 0, i32 noundef 0)
           to label %invoke.cont224 unwind label %lpad219.loopexit.split-lp
 
 invoke.cont224:                                   ; preds = %if.then4.i.i13.i.i.i.i.i350, %if.then.i.i7.i.i.i.i.i339, %if.else.i.i.i.i.i.i.i.i353
   %result.0.i.i.i.i.i340 = phi ptr [ %179, %if.then.i.i7.i.i.i.i.i339 ], [ %181, %if.then4.i.i13.i.i.i.i.i350 ], [ %call1.i.i.i.i.i.i.i.i357, %if.else.i.i.i.i.i.i.i.i353 ]
-  %mValue.i.i.i341 = getelementptr inbounds %"struct.eastl::ListNode.88", ptr %result.0.i.i.i.i.i340, i64 0, i32 2
+  %mValue.i.i.i341 = getelementptr inbounds i8, ptr %result.0.i.i.i.i.i340, i64 64
   store i32 0, ptr %mValue.i.i.i341, align 64
-  %a218.sroa.6.0.mValue.i.i.i341.sroa_idx = getelementptr inbounds %"struct.eastl::ListNode.88", ptr %result.0.i.i.i.i.i340, i64 0, i32 2, i32 1
+  %a218.sroa.6.0.mValue.i.i.i341.sroa_idx = getelementptr inbounds i8, ptr %result.0.i.i.i.i.i340, i64 68
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(60) %a218.sroa.6.0.mValue.i.i.i341.sroa_idx, ptr noundef nonnull align 4 dereferenceable(60) %a218.sroa.6, i64 60, i1 false)
   store ptr %fl, ptr %result.0.i.i.i.i.i340, align 8
   %185 = load ptr, ptr %mpPrev.i.i.i.i288, align 8
-  %mpPrev2.i.i.i343 = getelementptr inbounds %"struct.eastl::ListNodeBase", ptr %result.0.i.i.i.i.i340, i64 0, i32 1
+  %mpPrev2.i.i.i343 = getelementptr inbounds i8, ptr %result.0.i.i.i.i.i340, i64 8
   store ptr %185, ptr %mpPrev2.i.i.i343, align 8
   store ptr %result.0.i.i.i.i.i340, ptr %185, align 8
   store ptr %result.0.i.i.i.i.i340, ptr %mpPrev.i.i.i.i288, align 8
@@ -3347,36 +3343,36 @@ if.then.i.i7.i.i.i.i.i361:                        ; preds = %invoke.cont224
   br label %invoke.cont225
 
 if.else.i.i9.i.i.i.i.i368:                        ; preds = %invoke.cont224
-  %mpNext3.i.i10.i.i.i.i.i369 = getelementptr inbounds %"class.eastl::compressed_pair_imp.34", ptr %fl, i64 0, i32 1, i32 0, i32 0, i32 1
+  %mpNext3.i.i10.i.i.i.i.i369 = getelementptr inbounds i8, ptr %fl, i64 24
   %189 = load ptr, ptr %mpNext3.i.i10.i.i.i.i.i369, align 8
-  %mpCapacity.i.i11.i.i.i.i.i370 = getelementptr inbounds %"class.eastl::compressed_pair_imp.34", ptr %fl, i64 0, i32 1, i32 0, i32 0, i32 2
+  %mpCapacity.i.i11.i.i.i.i.i370 = getelementptr inbounds i8, ptr %fl, i64 32
   %190 = load ptr, ptr %mpCapacity.i.i11.i.i.i.i.i370, align 8
   %cmp.not.i.i12.i.i.i.i.i371 = icmp eq ptr %189, %190
   br i1 %cmp.not.i.i12.i.i.i.i.i371, label %if.else.i.i.i.i.i.i.i.i375, label %if.then4.i.i13.i.i.i.i.i372
 
 if.then4.i.i13.i.i.i.i.i372:                      ; preds = %if.else.i.i9.i.i.i.i.i368
-  %mnNodeSize.i.i14.i.i.i.i.i373 = getelementptr inbounds %"class.eastl::compressed_pair_imp.34", ptr %fl, i64 0, i32 1, i32 0, i32 0, i32 3
+  %mnNodeSize.i.i14.i.i.i.i.i373 = getelementptr inbounds i8, ptr %fl, i64 40
   %191 = load i64, ptr %mnNodeSize.i.i14.i.i.i.i.i373, align 8
   %add.ptr.i.i15.i.i.i.i.i374 = getelementptr inbounds i8, ptr %189, i64 %191
   store ptr %add.ptr.i.i15.i.i.i.i.i374, ptr %mpNext3.i.i10.i.i.i.i.i369, align 8
   br label %invoke.cont225
 
 if.else.i.i.i.i.i.i.i.i375:                       ; preds = %if.else.i.i9.i.i.i.i.i368
-  %mOverflowAllocator.i.i17.i.i.i.i.i376 = getelementptr inbounds %"class.eastl::compressed_pair_imp.34", ptr %fl, i64 0, i32 1, i32 0, i32 1
-  %mnNodeSize9.i.i18.i.i.i.i.i377 = getelementptr inbounds %"class.eastl::compressed_pair_imp.34", ptr %fl, i64 0, i32 1, i32 0, i32 0, i32 3
+  %mOverflowAllocator.i.i17.i.i.i.i.i376 = getelementptr inbounds i8, ptr %fl, i64 48
+  %mnNodeSize9.i.i18.i.i.i.i.i377 = getelementptr inbounds i8, ptr %fl, i64 40
   %192 = load i64, ptr %mnNodeSize9.i.i18.i.i.i.i.i377, align 8
   %call1.i.i.i.i.i.i.i.i379 = invoke noundef ptr @_ZN15CustomAllocator8allocateEmmmi(ptr noundef nonnull align 1 dereferenceable(1) %mOverflowAllocator.i.i17.i.i.i.i.i376, i64 noundef %192, i64 noundef 64, i64 noundef 0, i32 noundef 0)
           to label %invoke.cont225 unwind label %lpad219.loopexit.split-lp
 
 invoke.cont225:                                   ; preds = %if.then4.i.i13.i.i.i.i.i372, %if.then.i.i7.i.i.i.i.i361, %if.else.i.i.i.i.i.i.i.i375
   %result.0.i.i.i.i.i362 = phi ptr [ %187, %if.then.i.i7.i.i.i.i.i361 ], [ %189, %if.then4.i.i13.i.i.i.i.i372 ], [ %call1.i.i.i.i.i.i.i.i379, %if.else.i.i.i.i.i.i.i.i375 ]
-  %mValue.i.i.i363 = getelementptr inbounds %"struct.eastl::ListNode.88", ptr %result.0.i.i.i.i.i362, i64 0, i32 2
+  %mValue.i.i.i363 = getelementptr inbounds i8, ptr %result.0.i.i.i.i.i362, i64 64
   store i32 0, ptr %mValue.i.i.i363, align 64
-  %a218.sroa.6.0.mValue.i.i.i363.sroa_idx = getelementptr inbounds %"struct.eastl::ListNode.88", ptr %result.0.i.i.i.i.i362, i64 0, i32 2, i32 1
+  %a218.sroa.6.0.mValue.i.i.i363.sroa_idx = getelementptr inbounds i8, ptr %result.0.i.i.i.i.i362, i64 68
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(60) %a218.sroa.6.0.mValue.i.i.i363.sroa_idx, ptr noundef nonnull align 4 dereferenceable(60) %a218.sroa.6, i64 60, i1 false)
   store ptr %fl, ptr %result.0.i.i.i.i.i362, align 8
   %193 = load ptr, ptr %mpPrev.i.i.i.i288, align 8
-  %mpPrev2.i.i.i365 = getelementptr inbounds %"struct.eastl::ListNodeBase", ptr %result.0.i.i.i.i.i362, i64 0, i32 1
+  %mpPrev2.i.i.i365 = getelementptr inbounds i8, ptr %result.0.i.i.i.i.i362, i64 8
   store ptr %193, ptr %mpPrev2.i.i.i365, align 8
   store ptr %result.0.i.i.i.i.i362, ptr %193, align 8
   store ptr %result.0.i.i.i.i.i362, ptr %mpPrev.i.i.i.i288, align 8
@@ -3416,9 +3412,9 @@ for.end:                                          ; preds = %for.cond
   br i1 %cmp.not3.i.i.i.i383, label %_ZN5eastl10fixed_listI7Align64Lm1ELb1E15CustomAllocatorED2Ev.exit, label %while.body.lr.ph.i.i.i.i384
 
 while.body.lr.ph.i.i.i.i384:                      ; preds = %for.end
-  %mpCapacity.i.i.i.i.i.i386 = getelementptr inbounds %"class.eastl::compressed_pair_imp.34", ptr %fl, i64 0, i32 1, i32 0, i32 0, i32 2
-  %mOverflowAllocator.i.i.i.i.i.i387 = getelementptr inbounds %"class.eastl::compressed_pair_imp.34", ptr %fl, i64 0, i32 1, i32 0, i32 1
-  %mnNodeSize.i.i.i.i.i.i388 = getelementptr inbounds %"class.eastl::compressed_pair_imp.34", ptr %fl, i64 0, i32 1, i32 0, i32 0, i32 3
+  %mpCapacity.i.i.i.i.i.i386 = getelementptr inbounds i8, ptr %fl, i64 32
+  %mOverflowAllocator.i.i.i.i.i.i387 = getelementptr inbounds i8, ptr %fl, i64 48
+  %mnNodeSize.i.i.i.i.i.i388 = getelementptr inbounds i8, ptr %fl, i64 40
   br label %while.body.i.i.i.i390
 
 while.body.i.i.i.i390:                            ; preds = %_ZN5eastl20fixed_node_allocatorILm128ELm1ELm64ELm0ELb1E15CustomAllocatorE10deallocateEPvm.exit.i.i.i.i, %while.body.lr.ph.i.i.i.i384
@@ -3456,56 +3452,56 @@ terminate.lpad.i.i.i396:                          ; preds = %if.else.i.i.i.i.i.i
 _ZN5eastl10fixed_listI7Align64Lm1ELb1E15CustomAllocatorED2Ev.exit: ; preds = %_ZN5eastl20fixed_node_allocatorILm128ELm1ELm64ELm0ELb1E15CustomAllocatorE10deallocateEPvm.exit.i.i.i.i, %for.end
   %call234 = call noalias noundef nonnull dereferenceable(1632) ptr @_Znwm(i64 noundef 1632) #14
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %ref.tmp.i399)
-  %mBuffer.i400 = getelementptr inbounds %"class.eastl::fixed_list.15", ptr %call234, i64 0, i32 1
+  %mBuffer.i400 = getelementptr inbounds i8, ptr %call234, i64 72
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp.i399, i8 0, i64 32, i1 false)
   invoke void @_ZN5eastl15fixed_pool_base4initEPvmmmm(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp.i399, ptr noundef nonnull %mBuffer.i400, i64 noundef 1536, i64 noundef 24, i64 noundef 8, i64 noundef 0)
           to label %.noexc407 unwind label %lpad235
 
 .noexc407:                                        ; preds = %_ZN5eastl10fixed_listI7Align64Lm1ELb1E15CustomAllocatorED2Ev.exit
-  %mpPoolBegin.i.i.i401 = getelementptr inbounds %"class.eastl::fixed_pool_with_overflow", ptr %ref.tmp.i399, i64 0, i32 2
+  %mpPoolBegin.i.i.i401 = getelementptr inbounds i8, ptr %ref.tmp.i399, i64 40
   store ptr %mBuffer.i400, ptr %mpPoolBegin.i.i.i401, align 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %call234, i8 0, i64 16, i1 false)
-  %mSecond.i.i.i.i.i402 = getelementptr inbounds %"class.eastl::compressed_pair_imp.19", ptr %call234, i64 0, i32 1
-  %mpNext.i.i.i.i.i.i403 = getelementptr inbounds %"struct.eastl::fixed_pool_base", ptr %ref.tmp.i399, i64 0, i32 1
+  %mSecond.i.i.i.i.i402 = getelementptr inbounds i8, ptr %call234, i64 16
+  %mpNext.i.i.i.i.i.i403 = getelementptr inbounds i8, ptr %ref.tmp.i399, i64 8
   %203 = load ptr, ptr %mpNext.i.i.i.i.i.i403, align 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %mSecond.i.i.i.i.i402, i8 0, i64 32, i1 false)
   invoke void @_ZN5eastl15fixed_pool_base4initEPvmmmm(ptr noundef nonnull align 8 dereferenceable(32) %mSecond.i.i.i.i.i402, ptr noundef %203, i64 noundef 1536, i64 noundef 24, i64 noundef 8, i64 noundef 0)
           to label %invoke.cont236 unwind label %lpad235
 
 invoke.cont236:                                   ; preds = %.noexc407
-  %mpPoolBegin.i.i.i.i.i.i.i404 = getelementptr inbounds %"class.eastl::compressed_pair_imp.19", ptr %call234, i64 0, i32 1, i32 0, i32 2
+  %mpPoolBegin.i.i.i.i.i.i.i404 = getelementptr inbounds i8, ptr %call234, i64 56
   store ptr %203, ptr %mpPoolBegin.i.i.i.i.i.i.i404, align 8
-  %mSize.i.i.i405 = getelementptr inbounds %"class.eastl::ListBase.17", ptr %call234, i64 0, i32 1
+  %mSize.i.i.i405 = getelementptr inbounds i8, ptr %call234, i64 64
   store i64 0, ptr %mSize.i.i.i405, align 8
   store ptr %call234, ptr %call234, align 8
-  %mpPrev.i.i.i.i406 = getelementptr inbounds %"struct.eastl::ListNodeBase", ptr %call234, i64 0, i32 1
+  %mpPrev.i.i.i.i406 = getelementptr inbounds i8, ptr %call234, i64 8
   store ptr %call234, ptr %mpPrev.i.i.i.i406, align 8
   call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %ref.tmp.i399)
   %call237 = call noalias noundef nonnull dereferenceable(1632) ptr @_Znwm(i64 noundef 1632) #14
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %ref.tmp.i409)
-  %mBuffer.i410 = getelementptr inbounds %"class.eastl::fixed_list.15", ptr %call237, i64 0, i32 1
+  %mBuffer.i410 = getelementptr inbounds i8, ptr %call237, i64 72
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp.i409, i8 0, i64 32, i1 false)
   invoke void @_ZN5eastl15fixed_pool_base4initEPvmmmm(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp.i409, ptr noundef nonnull %mBuffer.i410, i64 noundef 1536, i64 noundef 24, i64 noundef 8, i64 noundef 0)
           to label %.noexc417 unwind label %lpad238
 
 .noexc417:                                        ; preds = %invoke.cont236
-  %mpPoolBegin.i.i.i411 = getelementptr inbounds %"class.eastl::fixed_pool_with_overflow", ptr %ref.tmp.i409, i64 0, i32 2
+  %mpPoolBegin.i.i.i411 = getelementptr inbounds i8, ptr %ref.tmp.i409, i64 40
   store ptr %mBuffer.i410, ptr %mpPoolBegin.i.i.i411, align 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %call237, i8 0, i64 16, i1 false)
-  %mSecond.i.i.i.i.i412 = getelementptr inbounds %"class.eastl::compressed_pair_imp.19", ptr %call237, i64 0, i32 1
-  %mpNext.i.i.i.i.i.i413 = getelementptr inbounds %"struct.eastl::fixed_pool_base", ptr %ref.tmp.i409, i64 0, i32 1
+  %mSecond.i.i.i.i.i412 = getelementptr inbounds i8, ptr %call237, i64 16
+  %mpNext.i.i.i.i.i.i413 = getelementptr inbounds i8, ptr %ref.tmp.i409, i64 8
   %204 = load ptr, ptr %mpNext.i.i.i.i.i.i413, align 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %mSecond.i.i.i.i.i412, i8 0, i64 32, i1 false)
   invoke void @_ZN5eastl15fixed_pool_base4initEPvmmmm(ptr noundef nonnull align 8 dereferenceable(32) %mSecond.i.i.i.i.i412, ptr noundef %204, i64 noundef 1536, i64 noundef 24, i64 noundef 8, i64 noundef 0)
           to label %invoke.cont239 unwind label %lpad238
 
 invoke.cont239:                                   ; preds = %.noexc417
-  %mpPoolBegin.i.i.i.i.i.i.i414 = getelementptr inbounds %"class.eastl::compressed_pair_imp.19", ptr %call237, i64 0, i32 1, i32 0, i32 2
+  %mpPoolBegin.i.i.i.i.i.i.i414 = getelementptr inbounds i8, ptr %call237, i64 56
   store ptr %204, ptr %mpPoolBegin.i.i.i.i.i.i.i414, align 8
-  %mSize.i.i.i415 = getelementptr inbounds %"class.eastl::ListBase.17", ptr %call237, i64 0, i32 1
+  %mSize.i.i.i415 = getelementptr inbounds i8, ptr %call237, i64 64
   store i64 0, ptr %mSize.i.i.i415, align 8
   store ptr %call237, ptr %call237, align 8
-  %mpPrev.i.i.i.i416 = getelementptr inbounds %"struct.eastl::ListNodeBase", ptr %call237, i64 0, i32 1
+  %mpPrev.i.i.i.i416 = getelementptr inbounds i8, ptr %call237, i64 8
   store ptr %call237, ptr %mpPrev.i.i.i.i416, align 8
   call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %ref.tmp.i409)
   %205 = load ptr, ptr %mSecond.i.i.i.i.i402, align 8, !noalias !101
@@ -3518,12 +3514,12 @@ if.then.i.i.i.i.i.i.i.i422:                       ; preds = %invoke.cont239
   br label %_ZN5eastl4listIiNS_20fixed_node_allocatorILm24ELm64ELm8ELm0ELb1ENS_9allocatorEEEE9push_backEOi.exit437
 
 if.else.i.i.i.i.i.i.i.i429:                       ; preds = %invoke.cont239
-  %mpNext3.i.i.i.i.i.i.i.i430 = getelementptr inbounds %"class.eastl::compressed_pair_imp.19", ptr %call234, i64 0, i32 1, i32 0, i32 0, i32 1
+  %mpNext3.i.i.i.i.i.i.i.i430 = getelementptr inbounds i8, ptr %call234, i64 24
   %207 = load ptr, ptr %mpNext3.i.i.i.i.i.i.i.i430, align 8, !noalias !101
-  %mpCapacity.i.i.i.i.i.i.i.i431 = getelementptr inbounds %"class.eastl::compressed_pair_imp.19", ptr %call234, i64 0, i32 1, i32 0, i32 0, i32 2
+  %mpCapacity.i.i.i.i.i.i.i.i431 = getelementptr inbounds i8, ptr %call234, i64 32
   %208 = load ptr, ptr %mpCapacity.i.i.i.i.i.i.i.i431, align 8, !noalias !101
   %cmp.not.i.i.i.i.i.i.i.i432 = icmp eq ptr %207, %208
-  %mnNodeSize9.i.i.i.i.i.i.i.i433 = getelementptr inbounds %"class.eastl::compressed_pair_imp.19", ptr %call234, i64 0, i32 1, i32 0, i32 0, i32 3
+  %mnNodeSize9.i.i.i.i.i.i.i.i433 = getelementptr inbounds i8, ptr %call234, i64 40
   %209 = load i64, ptr %mnNodeSize9.i.i.i.i.i.i.i.i433, align 8, !noalias !101
   br i1 %cmp.not.i.i.i.i.i.i.i.i432, label %if.else8.i.i.i.i.i.i.i.i436, label %if.then4.i.i.i.i.i.i.i.i434
 
@@ -3538,11 +3534,11 @@ if.else8.i.i.i.i.i.i.i.i436:                      ; preds = %if.else.i.i.i.i.i.i
 
 _ZN5eastl4listIiNS_20fixed_node_allocatorILm24ELm64ELm8ELm0ELb1ENS_9allocatorEEEE9push_backEOi.exit437: ; preds = %if.then.i.i.i.i.i.i.i.i422, %if.then4.i.i.i.i.i.i.i.i434, %if.else8.i.i.i.i.i.i.i.i436
   %result.0.i.i.i.i.i.i423 = phi ptr [ %205, %if.then.i.i.i.i.i.i.i.i422 ], [ %207, %if.then4.i.i.i.i.i.i.i.i434 ], [ %call.i.i.i.i.i.i.i.i.i, %if.else8.i.i.i.i.i.i.i.i436 ]
-  %mValue.i.i.i.i424 = getelementptr inbounds %"struct.eastl::ListNode", ptr %result.0.i.i.i.i.i.i423, i64 0, i32 1
+  %mValue.i.i.i.i424 = getelementptr inbounds i8, ptr %result.0.i.i.i.i.i.i423, i64 16
   store i32 0, ptr %mValue.i.i.i.i424, align 4, !noalias !101
   store ptr %call234, ptr %result.0.i.i.i.i.i.i423, align 8, !noalias !101
   %210 = load ptr, ptr %mpPrev.i.i.i.i406, align 8, !noalias !101
-  %mpPrev2.i.i.i.i426 = getelementptr inbounds %"struct.eastl::ListNodeBase", ptr %result.0.i.i.i.i.i.i423, i64 0, i32 1
+  %mpPrev2.i.i.i.i426 = getelementptr inbounds i8, ptr %result.0.i.i.i.i.i.i423, i64 8
   store ptr %210, ptr %mpPrev2.i.i.i.i426, align 8, !noalias !101
   store ptr %result.0.i.i.i.i.i.i423, ptr %210, align 8, !noalias !101
   store ptr %result.0.i.i.i.i.i.i423, ptr %mpPrev.i.i.i.i406, align 8, !noalias !101
@@ -3559,12 +3555,12 @@ if.then.i.i.i.i.i.i.i.i440:                       ; preds = %_ZN5eastl4listIiNS_
   br label %_ZN5eastl4listIiNS_20fixed_node_allocatorILm24ELm64ELm8ELm0ELb1ENS_9allocatorEEEE9push_backEOi.exit456
 
 if.else.i.i.i.i.i.i.i.i447:                       ; preds = %_ZN5eastl4listIiNS_20fixed_node_allocatorILm24ELm64ELm8ELm0ELb1ENS_9allocatorEEEE9push_backEOi.exit437
-  %mpNext3.i.i.i.i.i.i.i.i448 = getelementptr inbounds %"class.eastl::compressed_pair_imp.19", ptr %call237, i64 0, i32 1, i32 0, i32 0, i32 1
+  %mpNext3.i.i.i.i.i.i.i.i448 = getelementptr inbounds i8, ptr %call237, i64 24
   %214 = load ptr, ptr %mpNext3.i.i.i.i.i.i.i.i448, align 8, !noalias !104
-  %mpCapacity.i.i.i.i.i.i.i.i449 = getelementptr inbounds %"class.eastl::compressed_pair_imp.19", ptr %call237, i64 0, i32 1, i32 0, i32 0, i32 2
+  %mpCapacity.i.i.i.i.i.i.i.i449 = getelementptr inbounds i8, ptr %call237, i64 32
   %215 = load ptr, ptr %mpCapacity.i.i.i.i.i.i.i.i449, align 8, !noalias !104
   %cmp.not.i.i.i.i.i.i.i.i450 = icmp eq ptr %214, %215
-  %mnNodeSize9.i.i.i.i.i.i.i.i451 = getelementptr inbounds %"class.eastl::compressed_pair_imp.19", ptr %call237, i64 0, i32 1, i32 0, i32 0, i32 3
+  %mnNodeSize9.i.i.i.i.i.i.i.i451 = getelementptr inbounds i8, ptr %call237, i64 40
   %216 = load i64, ptr %mnNodeSize9.i.i.i.i.i.i.i.i451, align 8, !noalias !104
   br i1 %cmp.not.i.i.i.i.i.i.i.i450, label %if.else8.i.i.i.i.i.i.i.i454, label %if.then4.i.i.i.i.i.i.i.i452
 
@@ -3579,11 +3575,11 @@ if.else8.i.i.i.i.i.i.i.i454:                      ; preds = %if.else.i.i.i.i.i.i
 
 _ZN5eastl4listIiNS_20fixed_node_allocatorILm24ELm64ELm8ELm0ELb1ENS_9allocatorEEEE9push_backEOi.exit456: ; preds = %if.then.i.i.i.i.i.i.i.i440, %if.then4.i.i.i.i.i.i.i.i452, %if.else8.i.i.i.i.i.i.i.i454
   %result.0.i.i.i.i.i.i441 = phi ptr [ %212, %if.then.i.i.i.i.i.i.i.i440 ], [ %214, %if.then4.i.i.i.i.i.i.i.i452 ], [ %call.i.i.i.i.i.i.i.i.i455, %if.else8.i.i.i.i.i.i.i.i454 ]
-  %mValue.i.i.i.i442 = getelementptr inbounds %"struct.eastl::ListNode", ptr %result.0.i.i.i.i.i.i441, i64 0, i32 1
+  %mValue.i.i.i.i442 = getelementptr inbounds i8, ptr %result.0.i.i.i.i.i.i441, i64 16
   store i32 0, ptr %mValue.i.i.i.i442, align 4, !noalias !104
   store ptr %call237, ptr %result.0.i.i.i.i.i.i441, align 8, !noalias !104
   %217 = load ptr, ptr %mpPrev.i.i.i.i416, align 8, !noalias !104
-  %mpPrev2.i.i.i.i444 = getelementptr inbounds %"struct.eastl::ListNodeBase", ptr %result.0.i.i.i.i.i.i441, i64 0, i32 1
+  %mpPrev2.i.i.i.i444 = getelementptr inbounds i8, ptr %result.0.i.i.i.i.i.i441, i64 8
   store ptr %217, ptr %mpPrev2.i.i.i.i444, align 8, !noalias !104
   store ptr %result.0.i.i.i.i.i.i441, ptr %217, align 8, !noalias !104
   store ptr %result.0.i.i.i.i.i.i441, ptr %mpPrev.i.i.i.i416, align 8, !noalias !104
@@ -3596,7 +3592,7 @@ _ZN5eastl4listIiNS_20fixed_node_allocatorILm24ELm64ELm8ELm0ELb1ENS_9allocatorEEE
   br i1 %cmp.not3.i.i.i.i457, label %_ZN5eastl10fixed_listIiLm64ELb1ENS_9allocatorEED2Ev.exit471, label %while.body.lr.ph.i.i.i.i458
 
 while.body.lr.ph.i.i.i.i458:                      ; preds = %_ZN5eastl4listIiNS_20fixed_node_allocatorILm24ELm64ELm8ELm0ELb1ENS_9allocatorEEEE9push_backEOi.exit456
-  %mpCapacity.i.i.i.i.i.i460 = getelementptr inbounds %"class.eastl::compressed_pair_imp.19", ptr %call234, i64 0, i32 1, i32 0, i32 0, i32 2
+  %mpCapacity.i.i.i.i.i.i460 = getelementptr inbounds i8, ptr %call234, i64 32
   br label %while.body.i.i.i.i462
 
 while.body.i.i.i.i462:                            ; preds = %_ZN5eastl20fixed_node_allocatorILm24ELm64ELm8ELm0ELb1ENS_9allocatorEE10deallocateEPvm.exit.i.i.i.i468, %while.body.lr.ph.i.i.i.i458
@@ -3630,7 +3626,7 @@ _ZN5eastl10fixed_listIiLm64ELb1ENS_9allocatorEED2Ev.exit471: ; preds = %_ZN5east
   br i1 %cmp.not3.i.i.i.i472, label %_ZN5eastl10fixed_listIiLm64ELb1ENS_9allocatorEED2Ev.exit486, label %while.body.lr.ph.i.i.i.i473
 
 while.body.lr.ph.i.i.i.i473:                      ; preds = %_ZN5eastl10fixed_listIiLm64ELb1ENS_9allocatorEED2Ev.exit471
-  %mpCapacity.i.i.i.i.i.i475 = getelementptr inbounds %"class.eastl::compressed_pair_imp.19", ptr %call237, i64 0, i32 1, i32 0, i32 0, i32 2
+  %mpCapacity.i.i.i.i.i.i475 = getelementptr inbounds i8, ptr %call237, i64 32
   br label %while.body.i.i.i.i477
 
 while.body.i.i.i.i477:                            ; preds = %_ZN5eastl20fixed_node_allocatorILm24ELm64ELm8ELm0ELb1ENS_9allocatorEE10deallocateEPvm.exit.i.i.i.i483, %while.body.lr.ph.i.i.i.i473
@@ -3661,56 +3657,56 @@ _ZN5eastl10fixed_listIiLm64ELb1ENS_9allocatorEED2Ev.exit486: ; preds = %_ZN5east
   call void @_ZdlPv(ptr noundef nonnull %call237) #12
   %call246 = call noalias noundef nonnull dereferenceable(1632) ptr @_Znwm(i64 noundef 1632) #14
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %ref.tmp.i487)
-  %mBuffer.i488 = getelementptr inbounds %"class.eastl::fixed_list.15", ptr %call246, i64 0, i32 1
+  %mBuffer.i488 = getelementptr inbounds i8, ptr %call246, i64 72
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp.i487, i8 0, i64 32, i1 false)
   invoke void @_ZN5eastl15fixed_pool_base4initEPvmmmm(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp.i487, ptr noundef nonnull %mBuffer.i488, i64 noundef 1536, i64 noundef 24, i64 noundef 8, i64 noundef 0)
           to label %.noexc495 unwind label %lpad247
 
 .noexc495:                                        ; preds = %_ZN5eastl10fixed_listIiLm64ELb1ENS_9allocatorEED2Ev.exit486
-  %mpPoolBegin.i.i.i489 = getelementptr inbounds %"class.eastl::fixed_pool_with_overflow", ptr %ref.tmp.i487, i64 0, i32 2
+  %mpPoolBegin.i.i.i489 = getelementptr inbounds i8, ptr %ref.tmp.i487, i64 40
   store ptr %mBuffer.i488, ptr %mpPoolBegin.i.i.i489, align 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %call246, i8 0, i64 16, i1 false)
-  %mSecond.i.i.i.i.i490 = getelementptr inbounds %"class.eastl::compressed_pair_imp.19", ptr %call246, i64 0, i32 1
-  %mpNext.i.i.i.i.i.i491 = getelementptr inbounds %"struct.eastl::fixed_pool_base", ptr %ref.tmp.i487, i64 0, i32 1
+  %mSecond.i.i.i.i.i490 = getelementptr inbounds i8, ptr %call246, i64 16
+  %mpNext.i.i.i.i.i.i491 = getelementptr inbounds i8, ptr %ref.tmp.i487, i64 8
   %229 = load ptr, ptr %mpNext.i.i.i.i.i.i491, align 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %mSecond.i.i.i.i.i490, i8 0, i64 32, i1 false)
   invoke void @_ZN5eastl15fixed_pool_base4initEPvmmmm(ptr noundef nonnull align 8 dereferenceable(32) %mSecond.i.i.i.i.i490, ptr noundef %229, i64 noundef 1536, i64 noundef 24, i64 noundef 8, i64 noundef 0)
           to label %invoke.cont248 unwind label %lpad247
 
 invoke.cont248:                                   ; preds = %.noexc495
-  %mpPoolBegin.i.i.i.i.i.i.i492 = getelementptr inbounds %"class.eastl::compressed_pair_imp.19", ptr %call246, i64 0, i32 1, i32 0, i32 2
+  %mpPoolBegin.i.i.i.i.i.i.i492 = getelementptr inbounds i8, ptr %call246, i64 56
   store ptr %229, ptr %mpPoolBegin.i.i.i.i.i.i.i492, align 8
-  %mSize.i.i.i493 = getelementptr inbounds %"class.eastl::ListBase.17", ptr %call246, i64 0, i32 1
+  %mSize.i.i.i493 = getelementptr inbounds i8, ptr %call246, i64 64
   store i64 0, ptr %mSize.i.i.i493, align 8
   store ptr %call246, ptr %call246, align 8
-  %mpPrev.i.i.i.i494 = getelementptr inbounds %"struct.eastl::ListNodeBase", ptr %call246, i64 0, i32 1
+  %mpPrev.i.i.i.i494 = getelementptr inbounds i8, ptr %call246, i64 8
   store ptr %call246, ptr %mpPrev.i.i.i.i494, align 8
   call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %ref.tmp.i487)
   %call250 = call noalias noundef nonnull dereferenceable(1632) ptr @_Znwm(i64 noundef 1632) #14
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %ref.tmp.i498)
-  %mBuffer.i499 = getelementptr inbounds %"class.eastl::fixed_list.15", ptr %call250, i64 0, i32 1
+  %mBuffer.i499 = getelementptr inbounds i8, ptr %call250, i64 72
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp.i498, i8 0, i64 32, i1 false)
   invoke void @_ZN5eastl15fixed_pool_base4initEPvmmmm(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp.i498, ptr noundef nonnull %mBuffer.i499, i64 noundef 1536, i64 noundef 24, i64 noundef 8, i64 noundef 0)
           to label %.noexc506 unwind label %lpad251
 
 .noexc506:                                        ; preds = %invoke.cont248
-  %mpPoolBegin.i.i.i500 = getelementptr inbounds %"class.eastl::fixed_pool_with_overflow", ptr %ref.tmp.i498, i64 0, i32 2
+  %mpPoolBegin.i.i.i500 = getelementptr inbounds i8, ptr %ref.tmp.i498, i64 40
   store ptr %mBuffer.i499, ptr %mpPoolBegin.i.i.i500, align 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %call250, i8 0, i64 16, i1 false)
-  %mSecond.i.i.i.i.i501 = getelementptr inbounds %"class.eastl::compressed_pair_imp.19", ptr %call250, i64 0, i32 1
-  %mpNext.i.i.i.i.i.i502 = getelementptr inbounds %"struct.eastl::fixed_pool_base", ptr %ref.tmp.i498, i64 0, i32 1
+  %mSecond.i.i.i.i.i501 = getelementptr inbounds i8, ptr %call250, i64 16
+  %mpNext.i.i.i.i.i.i502 = getelementptr inbounds i8, ptr %ref.tmp.i498, i64 8
   %230 = load ptr, ptr %mpNext.i.i.i.i.i.i502, align 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %mSecond.i.i.i.i.i501, i8 0, i64 32, i1 false)
   invoke void @_ZN5eastl15fixed_pool_base4initEPvmmmm(ptr noundef nonnull align 8 dereferenceable(32) %mSecond.i.i.i.i.i501, ptr noundef %230, i64 noundef 1536, i64 noundef 24, i64 noundef 8, i64 noundef 0)
           to label %invoke.cont252 unwind label %lpad251
 
 invoke.cont252:                                   ; preds = %.noexc506
-  %mpPoolBegin.i.i.i.i.i.i.i503 = getelementptr inbounds %"class.eastl::compressed_pair_imp.19", ptr %call250, i64 0, i32 1, i32 0, i32 2
+  %mpPoolBegin.i.i.i.i.i.i.i503 = getelementptr inbounds i8, ptr %call250, i64 56
   store ptr %230, ptr %mpPoolBegin.i.i.i.i.i.i.i503, align 8
-  %mSize.i.i.i504 = getelementptr inbounds %"class.eastl::ListBase.17", ptr %call250, i64 0, i32 1
+  %mSize.i.i.i504 = getelementptr inbounds i8, ptr %call250, i64 64
   store i64 0, ptr %mSize.i.i.i504, align 8
   store ptr %call250, ptr %call250, align 8
-  %mpPrev.i.i.i.i505 = getelementptr inbounds %"struct.eastl::ListNodeBase", ptr %call250, i64 0, i32 1
+  %mpPrev.i.i.i.i505 = getelementptr inbounds i8, ptr %call250, i64 8
   store ptr %call250, ptr %mpPrev.i.i.i.i505, align 8
   call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %ref.tmp.i498)
   %231 = load ptr, ptr %mSecond.i.i.i.i.i490, align 8, !noalias !107
@@ -3723,12 +3719,12 @@ if.then.i.i.i.i.i.i.i.i511:                       ; preds = %invoke.cont252
   br label %_ZN5eastl4listIiNS_20fixed_node_allocatorILm24ELm64ELm8ELm0ELb1ENS_9allocatorEEEE9push_backEOi.exit527
 
 if.else.i.i.i.i.i.i.i.i518:                       ; preds = %invoke.cont252
-  %mpNext3.i.i.i.i.i.i.i.i519 = getelementptr inbounds %"class.eastl::compressed_pair_imp.19", ptr %call246, i64 0, i32 1, i32 0, i32 0, i32 1
+  %mpNext3.i.i.i.i.i.i.i.i519 = getelementptr inbounds i8, ptr %call246, i64 24
   %233 = load ptr, ptr %mpNext3.i.i.i.i.i.i.i.i519, align 8, !noalias !107
-  %mpCapacity.i.i.i.i.i.i.i.i520 = getelementptr inbounds %"class.eastl::compressed_pair_imp.19", ptr %call246, i64 0, i32 1, i32 0, i32 0, i32 2
+  %mpCapacity.i.i.i.i.i.i.i.i520 = getelementptr inbounds i8, ptr %call246, i64 32
   %234 = load ptr, ptr %mpCapacity.i.i.i.i.i.i.i.i520, align 8, !noalias !107
   %cmp.not.i.i.i.i.i.i.i.i521 = icmp eq ptr %233, %234
-  %mnNodeSize9.i.i.i.i.i.i.i.i522 = getelementptr inbounds %"class.eastl::compressed_pair_imp.19", ptr %call246, i64 0, i32 1, i32 0, i32 0, i32 3
+  %mnNodeSize9.i.i.i.i.i.i.i.i522 = getelementptr inbounds i8, ptr %call246, i64 40
   %235 = load i64, ptr %mnNodeSize9.i.i.i.i.i.i.i.i522, align 8, !noalias !107
   br i1 %cmp.not.i.i.i.i.i.i.i.i521, label %if.else8.i.i.i.i.i.i.i.i525, label %if.then4.i.i.i.i.i.i.i.i523
 
@@ -3743,11 +3739,11 @@ if.else8.i.i.i.i.i.i.i.i525:                      ; preds = %if.else.i.i.i.i.i.i
 
 _ZN5eastl4listIiNS_20fixed_node_allocatorILm24ELm64ELm8ELm0ELb1ENS_9allocatorEEEE9push_backEOi.exit527: ; preds = %if.then.i.i.i.i.i.i.i.i511, %if.then4.i.i.i.i.i.i.i.i523, %if.else8.i.i.i.i.i.i.i.i525
   %result.0.i.i.i.i.i.i512 = phi ptr [ %231, %if.then.i.i.i.i.i.i.i.i511 ], [ %233, %if.then4.i.i.i.i.i.i.i.i523 ], [ %call.i.i.i.i.i.i.i.i.i526, %if.else8.i.i.i.i.i.i.i.i525 ]
-  %mValue.i.i.i.i513 = getelementptr inbounds %"struct.eastl::ListNode", ptr %result.0.i.i.i.i.i.i512, i64 0, i32 1
+  %mValue.i.i.i.i513 = getelementptr inbounds i8, ptr %result.0.i.i.i.i.i.i512, i64 16
   store i32 0, ptr %mValue.i.i.i.i513, align 4, !noalias !107
   store ptr %call246, ptr %result.0.i.i.i.i.i.i512, align 8, !noalias !107
   %236 = load ptr, ptr %mpPrev.i.i.i.i494, align 8, !noalias !107
-  %mpPrev2.i.i.i.i515 = getelementptr inbounds %"struct.eastl::ListNodeBase", ptr %result.0.i.i.i.i.i.i512, i64 0, i32 1
+  %mpPrev2.i.i.i.i515 = getelementptr inbounds i8, ptr %result.0.i.i.i.i.i.i512, i64 8
   store ptr %236, ptr %mpPrev2.i.i.i.i515, align 8, !noalias !107
   store ptr %result.0.i.i.i.i.i.i512, ptr %236, align 8, !noalias !107
   store ptr %result.0.i.i.i.i.i.i512, ptr %mpPrev.i.i.i.i494, align 8, !noalias !107
@@ -3764,12 +3760,12 @@ if.then.i.i.i.i.i.i.i.i530:                       ; preds = %_ZN5eastl4listIiNS_
   br label %_ZN5eastl4listIiNS_20fixed_node_allocatorILm24ELm64ELm8ELm0ELb1ENS_9allocatorEEEE9push_backEOi.exit546
 
 if.else.i.i.i.i.i.i.i.i537:                       ; preds = %_ZN5eastl4listIiNS_20fixed_node_allocatorILm24ELm64ELm8ELm0ELb1ENS_9allocatorEEEE9push_backEOi.exit527
-  %mpNext3.i.i.i.i.i.i.i.i538 = getelementptr inbounds %"class.eastl::compressed_pair_imp.19", ptr %call250, i64 0, i32 1, i32 0, i32 0, i32 1
+  %mpNext3.i.i.i.i.i.i.i.i538 = getelementptr inbounds i8, ptr %call250, i64 24
   %240 = load ptr, ptr %mpNext3.i.i.i.i.i.i.i.i538, align 8, !noalias !110
-  %mpCapacity.i.i.i.i.i.i.i.i539 = getelementptr inbounds %"class.eastl::compressed_pair_imp.19", ptr %call250, i64 0, i32 1, i32 0, i32 0, i32 2
+  %mpCapacity.i.i.i.i.i.i.i.i539 = getelementptr inbounds i8, ptr %call250, i64 32
   %241 = load ptr, ptr %mpCapacity.i.i.i.i.i.i.i.i539, align 8, !noalias !110
   %cmp.not.i.i.i.i.i.i.i.i540 = icmp eq ptr %240, %241
-  %mnNodeSize9.i.i.i.i.i.i.i.i541 = getelementptr inbounds %"class.eastl::compressed_pair_imp.19", ptr %call250, i64 0, i32 1, i32 0, i32 0, i32 3
+  %mnNodeSize9.i.i.i.i.i.i.i.i541 = getelementptr inbounds i8, ptr %call250, i64 40
   %242 = load i64, ptr %mnNodeSize9.i.i.i.i.i.i.i.i541, align 8, !noalias !110
   br i1 %cmp.not.i.i.i.i.i.i.i.i540, label %if.else8.i.i.i.i.i.i.i.i544, label %if.then4.i.i.i.i.i.i.i.i542
 
@@ -3784,11 +3780,11 @@ if.else8.i.i.i.i.i.i.i.i544:                      ; preds = %if.else.i.i.i.i.i.i
 
 _ZN5eastl4listIiNS_20fixed_node_allocatorILm24ELm64ELm8ELm0ELb1ENS_9allocatorEEEE9push_backEOi.exit546: ; preds = %if.then.i.i.i.i.i.i.i.i530, %if.then4.i.i.i.i.i.i.i.i542, %if.else8.i.i.i.i.i.i.i.i544
   %result.0.i.i.i.i.i.i531 = phi ptr [ %238, %if.then.i.i.i.i.i.i.i.i530 ], [ %240, %if.then4.i.i.i.i.i.i.i.i542 ], [ %call.i.i.i.i.i.i.i.i.i545, %if.else8.i.i.i.i.i.i.i.i544 ]
-  %mValue.i.i.i.i532 = getelementptr inbounds %"struct.eastl::ListNode", ptr %result.0.i.i.i.i.i.i531, i64 0, i32 1
+  %mValue.i.i.i.i532 = getelementptr inbounds i8, ptr %result.0.i.i.i.i.i.i531, i64 16
   store i32 0, ptr %mValue.i.i.i.i532, align 4, !noalias !110
   store ptr %call250, ptr %result.0.i.i.i.i.i.i531, align 8, !noalias !110
   %243 = load ptr, ptr %mpPrev.i.i.i.i505, align 8, !noalias !110
-  %mpPrev2.i.i.i.i534 = getelementptr inbounds %"struct.eastl::ListNodeBase", ptr %result.0.i.i.i.i.i.i531, i64 0, i32 1
+  %mpPrev2.i.i.i.i534 = getelementptr inbounds i8, ptr %result.0.i.i.i.i.i.i531, i64 8
   store ptr %243, ptr %mpPrev2.i.i.i.i534, align 8, !noalias !110
   store ptr %result.0.i.i.i.i.i.i531, ptr %243, align 8, !noalias !110
   store ptr %result.0.i.i.i.i.i.i531, ptr %mpPrev.i.i.i.i505, align 8, !noalias !110
@@ -3804,7 +3800,7 @@ if.then.i547:                                     ; preds = %_ZN5eastl4listIiNS_
   br i1 %cmp.not3.i.i.i, label %_ZN5eastl4listIiNS_20fixed_node_allocatorILm24ELm64ELm8ELm0ELb1ENS_9allocatorEEEE5clearEv.exit.i, label %while.body.lr.ph.i.i.i548
 
 while.body.lr.ph.i.i.i548:                        ; preds = %if.then.i547
-  %mpCapacity.i.i.i.i.i = getelementptr inbounds %"class.eastl::compressed_pair_imp.19", ptr %call246, i64 0, i32 1, i32 0, i32 0, i32 2
+  %mpCapacity.i.i.i.i.i = getelementptr inbounds i8, ptr %call246, i64 32
   br label %while.body.i.i.i549
 
 while.body.i.i.i549:                              ; preds = %_ZN5eastl20fixed_node_allocatorILm24ELm64ELm8ELm0ELb1ENS_9allocatorEE10deallocateEPvm.exit.i.i.i, %while.body.lr.ph.i.i.i548
@@ -3845,7 +3841,7 @@ _ZN5eastl10fixed_listIiLm64ELb1ENS_9allocatorEEaSERKS2_.exit: ; preds = %_ZN5eas
   br i1 %cmp.not3.i.i.i.i553, label %_ZN5eastl10fixed_listIiLm64ELb1ENS_9allocatorEED2Ev.exit567, label %while.body.lr.ph.i.i.i.i554
 
 while.body.lr.ph.i.i.i.i554:                      ; preds = %_ZN5eastl10fixed_listIiLm64ELb1ENS_9allocatorEEaSERKS2_.exit
-  %mpCapacity.i.i.i.i.i.i556 = getelementptr inbounds %"class.eastl::compressed_pair_imp.19", ptr %call246, i64 0, i32 1, i32 0, i32 0, i32 2
+  %mpCapacity.i.i.i.i.i.i556 = getelementptr inbounds i8, ptr %call246, i64 32
   br label %while.body.i.i.i.i558
 
 while.body.i.i.i.i558:                            ; preds = %_ZN5eastl20fixed_node_allocatorILm24ELm64ELm8ELm0ELb1ENS_9allocatorEE10deallocateEPvm.exit.i.i.i.i564, %while.body.lr.ph.i.i.i.i554
@@ -3879,7 +3875,7 @@ _ZN5eastl10fixed_listIiLm64ELb1ENS_9allocatorEED2Ev.exit567: ; preds = %_ZN5east
   br i1 %cmp.not3.i.i.i.i568, label %_ZN5eastl10fixed_listIiLm64ELb1ENS_9allocatorEED2Ev.exit582, label %while.body.lr.ph.i.i.i.i569
 
 while.body.lr.ph.i.i.i.i569:                      ; preds = %_ZN5eastl10fixed_listIiLm64ELb1ENS_9allocatorEED2Ev.exit567
-  %mpCapacity.i.i.i.i.i.i571 = getelementptr inbounds %"class.eastl::compressed_pair_imp.19", ptr %call250, i64 0, i32 1, i32 0, i32 0, i32 2
+  %mpCapacity.i.i.i.i.i.i571 = getelementptr inbounds i8, ptr %call250, i64 32
   br label %while.body.i.i.i.i573
 
 while.body.i.i.i.i573:                            ; preds = %_ZN5eastl20fixed_node_allocatorILm24ELm64ELm8ELm0ELb1ENS_9allocatorEE10deallocateEPvm.exit.i.i.i.i579, %while.body.lr.ph.i.i.i.i569
@@ -3909,19 +3905,19 @@ _ZN5eastl20fixed_node_allocatorILm24ELm64ELm8ELm0ELb1ENS_9allocatorEE10deallocat
 _ZN5eastl10fixed_listIiLm64ELb1ENS_9allocatorEED2Ev.exit582: ; preds = %_ZN5eastl20fixed_node_allocatorILm24ELm64ELm8ELm0ELb1ENS_9allocatorEE10deallocateEPvm.exit.i.i.i.i579, %_ZN5eastl10fixed_listIiLm64ELb1ENS_9allocatorEED2Ev.exit567
   call void @_ZdlPv(ptr noundef nonnull %call250) #12
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %ref.tmp.i583)
-  %mBuffer.i584 = getelementptr inbounds %"class.eastl::fixed_list.40", ptr %listInt5, i64 0, i32 1
+  %mBuffer.i584 = getelementptr inbounds i8, ptr %listInt5, i64 56
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp.i583, i8 0, i64 32, i1 false)
   call void @_ZN5eastl15fixed_pool_base4initEPvmmmm(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp.i583, ptr noundef nonnull %mBuffer.i584, i64 noundef 120, i64 noundef 24, i64 noundef 8, i64 noundef 0)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %listInt5, i8 0, i64 16, i1 false)
-  %mSecond.i.i.i.i.i585 = getelementptr inbounds %"class.eastl::compressed_pair_imp.44", ptr %listInt5, i64 0, i32 1
-  %mpNext.i.i.i.i.i.i586 = getelementptr inbounds %"struct.eastl::fixed_pool_base", ptr %ref.tmp.i583, i64 0, i32 1
+  %mSecond.i.i.i.i.i585 = getelementptr inbounds i8, ptr %listInt5, i64 16
+  %mpNext.i.i.i.i.i.i586 = getelementptr inbounds i8, ptr %ref.tmp.i583, i64 8
   %261 = load ptr, ptr %mpNext.i.i.i.i.i.i586, align 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %mSecond.i.i.i.i.i585, i8 0, i64 32, i1 false)
   call void @_ZN5eastl15fixed_pool_base4initEPvmmmm(ptr noundef nonnull align 8 dereferenceable(32) %mSecond.i.i.i.i.i585, ptr noundef %261, i64 noundef 120, i64 noundef 24, i64 noundef 8, i64 noundef 0)
-  %mSize.i.i.i587 = getelementptr inbounds %"class.eastl::ListBase.42", ptr %listInt5, i64 0, i32 1
+  %mSize.i.i.i587 = getelementptr inbounds i8, ptr %listInt5, i64 48
   store i64 0, ptr %mSize.i.i.i587, align 8
   store ptr %listInt5, ptr %listInt5, align 8
-  %mpPrev.i.i.i.i588 = getelementptr inbounds %"struct.eastl::ListNodeBase", ptr %listInt5, i64 0, i32 1
+  %mpPrev.i.i.i.i588 = getelementptr inbounds i8, ptr %listInt5, i64 8
   store ptr %listInt5, ptr %mpPrev.i.i.i.i588, align 8
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %ref.tmp.i583)
   %call267 = invoke noundef i32 @_ZN2EA8UnitTest12TestInternal17EATEST_VERIFY_IMPEbRiPKciS4_(i1 noundef zeroext true, ptr noundef nonnull align 4 dereferenceable(4) %nErrorCount, ptr noundef nonnull @.str, i32 noundef 224, ptr noundef nonnull @.str.13)
@@ -3956,15 +3952,15 @@ if.then.i.i.i.i.i.i.i.i596:                       ; preds = %invoke.cont278
   br label %invoke.cont281
 
 if.else.i.i.i.i.i.i.i.i603:                       ; preds = %invoke.cont278
-  %mpNext3.i.i.i.i.i.i.i.i604 = getelementptr inbounds %"class.eastl::compressed_pair_imp.44", ptr %listInt5, i64 0, i32 1, i32 0, i32 0, i32 1
+  %mpNext3.i.i.i.i.i.i.i.i604 = getelementptr inbounds i8, ptr %listInt5, i64 24
   %267 = load ptr, ptr %mpNext3.i.i.i.i.i.i.i.i604, align 8, !noalias !113
-  %mpCapacity.i.i.i.i.i.i.i.i605 = getelementptr inbounds %"class.eastl::compressed_pair_imp.44", ptr %listInt5, i64 0, i32 1, i32 0, i32 0, i32 2
+  %mpCapacity.i.i.i.i.i.i.i.i605 = getelementptr inbounds i8, ptr %listInt5, i64 32
   %268 = load ptr, ptr %mpCapacity.i.i.i.i.i.i.i.i605, align 8, !noalias !113
   %cmp.not.i.i.i.i.i.i.i.i606 = icmp eq ptr %267, %268
   br i1 %cmp.not.i.i.i.i.i.i.i.i606, label %invoke.cont281, label %if.then4.i.i.i.i.i.i.i.i607
 
 if.then4.i.i.i.i.i.i.i.i607:                      ; preds = %if.else.i.i.i.i.i.i.i.i603
-  %mnNodeSize.i.i.i.i.i.i.i.i608 = getelementptr inbounds %"class.eastl::compressed_pair_imp.44", ptr %listInt5, i64 0, i32 1, i32 0, i32 0, i32 3
+  %mnNodeSize.i.i.i.i.i.i.i.i608 = getelementptr inbounds i8, ptr %listInt5, i64 40
   %269 = load i64, ptr %mnNodeSize.i.i.i.i.i.i.i.i608, align 8, !noalias !113
   %add.ptr.i.i.i.i.i.i.i.i609 = getelementptr inbounds i8, ptr %267, i64 %269
   store ptr %add.ptr.i.i.i.i.i.i.i.i609, ptr %mpNext3.i.i.i.i.i.i.i.i604, align 8, !noalias !113
@@ -3972,11 +3968,11 @@ if.then4.i.i.i.i.i.i.i.i607:                      ; preds = %if.else.i.i.i.i.i.i
 
 invoke.cont281:                                   ; preds = %if.then4.i.i.i.i.i.i.i.i607, %if.else.i.i.i.i.i.i.i.i603, %if.then.i.i.i.i.i.i.i.i596
   %result.0.i.i.i.i.i.i597 = phi ptr [ %265, %if.then.i.i.i.i.i.i.i.i596 ], [ %267, %if.then4.i.i.i.i.i.i.i.i607 ], [ null, %if.else.i.i.i.i.i.i.i.i603 ]
-  %mValue.i.i.i.i598 = getelementptr inbounds %"struct.eastl::ListNode", ptr %result.0.i.i.i.i.i.i597, i64 0, i32 1
+  %mValue.i.i.i.i598 = getelementptr inbounds i8, ptr %result.0.i.i.i.i.i.i597, i64 16
   store i32 37, ptr %mValue.i.i.i.i598, align 4, !noalias !113
   store ptr %listInt5, ptr %result.0.i.i.i.i.i.i597, align 8, !noalias !113
   %270 = load ptr, ptr %mpPrev.i.i.i.i588, align 8, !noalias !113
-  %mpPrev2.i.i.i.i600 = getelementptr inbounds %"struct.eastl::ListNodeBase", ptr %result.0.i.i.i.i.i.i597, i64 0, i32 1
+  %mpPrev2.i.i.i.i600 = getelementptr inbounds i8, ptr %result.0.i.i.i.i.i.i597, i64 8
   store ptr %270, ptr %mpPrev2.i.i.i.i600, align 8, !noalias !113
   store ptr %result.0.i.i.i.i.i.i597, ptr %270, align 8, !noalias !113
   store ptr %result.0.i.i.i.i.i.i597, ptr %mpPrev.i.i.i.i588, align 8, !noalias !113
@@ -3993,15 +3989,15 @@ if.then.i.i.i.i.i.i.i.i612:                       ; preds = %invoke.cont281
   br label %invoke.cont283
 
 if.else.i.i.i.i.i.i.i.i619:                       ; preds = %invoke.cont281
-  %mpNext3.i.i.i.i.i.i.i.i620 = getelementptr inbounds %"class.eastl::compressed_pair_imp.44", ptr %listInt5, i64 0, i32 1, i32 0, i32 0, i32 1
+  %mpNext3.i.i.i.i.i.i.i.i620 = getelementptr inbounds i8, ptr %listInt5, i64 24
   %274 = load ptr, ptr %mpNext3.i.i.i.i.i.i.i.i620, align 8, !noalias !116
-  %mpCapacity.i.i.i.i.i.i.i.i621 = getelementptr inbounds %"class.eastl::compressed_pair_imp.44", ptr %listInt5, i64 0, i32 1, i32 0, i32 0, i32 2
+  %mpCapacity.i.i.i.i.i.i.i.i621 = getelementptr inbounds i8, ptr %listInt5, i64 32
   %275 = load ptr, ptr %mpCapacity.i.i.i.i.i.i.i.i621, align 8, !noalias !116
   %cmp.not.i.i.i.i.i.i.i.i622 = icmp eq ptr %274, %275
   br i1 %cmp.not.i.i.i.i.i.i.i.i622, label %invoke.cont283, label %if.then4.i.i.i.i.i.i.i.i623
 
 if.then4.i.i.i.i.i.i.i.i623:                      ; preds = %if.else.i.i.i.i.i.i.i.i619
-  %mnNodeSize.i.i.i.i.i.i.i.i624 = getelementptr inbounds %"class.eastl::compressed_pair_imp.44", ptr %listInt5, i64 0, i32 1, i32 0, i32 0, i32 3
+  %mnNodeSize.i.i.i.i.i.i.i.i624 = getelementptr inbounds i8, ptr %listInt5, i64 40
   %276 = load i64, ptr %mnNodeSize.i.i.i.i.i.i.i.i624, align 8, !noalias !116
   %add.ptr.i.i.i.i.i.i.i.i625 = getelementptr inbounds i8, ptr %274, i64 %276
   store ptr %add.ptr.i.i.i.i.i.i.i.i625, ptr %mpNext3.i.i.i.i.i.i.i.i620, align 8, !noalias !116
@@ -4009,11 +4005,11 @@ if.then4.i.i.i.i.i.i.i.i623:                      ; preds = %if.else.i.i.i.i.i.i
 
 invoke.cont283:                                   ; preds = %if.then4.i.i.i.i.i.i.i.i623, %if.else.i.i.i.i.i.i.i.i619, %if.then.i.i.i.i.i.i.i.i612
   %result.0.i.i.i.i.i.i613 = phi ptr [ %272, %if.then.i.i.i.i.i.i.i.i612 ], [ %274, %if.then4.i.i.i.i.i.i.i.i623 ], [ null, %if.else.i.i.i.i.i.i.i.i619 ]
-  %mValue.i.i.i.i614 = getelementptr inbounds %"struct.eastl::ListNode", ptr %result.0.i.i.i.i.i.i613, i64 0, i32 1
+  %mValue.i.i.i.i614 = getelementptr inbounds i8, ptr %result.0.i.i.i.i.i.i613, i64 16
   store i32 37, ptr %mValue.i.i.i.i614, align 4, !noalias !116
   store ptr %listInt5, ptr %result.0.i.i.i.i.i.i613, align 8, !noalias !116
   %277 = load ptr, ptr %mpPrev.i.i.i.i588, align 8, !noalias !116
-  %mpPrev2.i.i.i.i616 = getelementptr inbounds %"struct.eastl::ListNodeBase", ptr %result.0.i.i.i.i.i.i613, i64 0, i32 1
+  %mpPrev2.i.i.i.i616 = getelementptr inbounds i8, ptr %result.0.i.i.i.i.i.i613, i64 8
   store ptr %277, ptr %mpPrev2.i.i.i.i616, align 8, !noalias !116
   store ptr %result.0.i.i.i.i.i.i613, ptr %277, align 8, !noalias !116
   store ptr %result.0.i.i.i.i.i.i613, ptr %mpPrev.i.i.i.i588, align 8, !noalias !116
@@ -4030,15 +4026,15 @@ if.then.i.i.i.i.i.i.i.i629:                       ; preds = %invoke.cont283
   br label %invoke.cont285
 
 if.else.i.i.i.i.i.i.i.i636:                       ; preds = %invoke.cont283
-  %mpNext3.i.i.i.i.i.i.i.i637 = getelementptr inbounds %"class.eastl::compressed_pair_imp.44", ptr %listInt5, i64 0, i32 1, i32 0, i32 0, i32 1
+  %mpNext3.i.i.i.i.i.i.i.i637 = getelementptr inbounds i8, ptr %listInt5, i64 24
   %281 = load ptr, ptr %mpNext3.i.i.i.i.i.i.i.i637, align 8, !noalias !119
-  %mpCapacity.i.i.i.i.i.i.i.i638 = getelementptr inbounds %"class.eastl::compressed_pair_imp.44", ptr %listInt5, i64 0, i32 1, i32 0, i32 0, i32 2
+  %mpCapacity.i.i.i.i.i.i.i.i638 = getelementptr inbounds i8, ptr %listInt5, i64 32
   %282 = load ptr, ptr %mpCapacity.i.i.i.i.i.i.i.i638, align 8, !noalias !119
   %cmp.not.i.i.i.i.i.i.i.i639 = icmp eq ptr %281, %282
   br i1 %cmp.not.i.i.i.i.i.i.i.i639, label %invoke.cont285, label %if.then4.i.i.i.i.i.i.i.i640
 
 if.then4.i.i.i.i.i.i.i.i640:                      ; preds = %if.else.i.i.i.i.i.i.i.i636
-  %mnNodeSize.i.i.i.i.i.i.i.i641 = getelementptr inbounds %"class.eastl::compressed_pair_imp.44", ptr %listInt5, i64 0, i32 1, i32 0, i32 0, i32 3
+  %mnNodeSize.i.i.i.i.i.i.i.i641 = getelementptr inbounds i8, ptr %listInt5, i64 40
   %283 = load i64, ptr %mnNodeSize.i.i.i.i.i.i.i.i641, align 8, !noalias !119
   %add.ptr.i.i.i.i.i.i.i.i642 = getelementptr inbounds i8, ptr %281, i64 %283
   store ptr %add.ptr.i.i.i.i.i.i.i.i642, ptr %mpNext3.i.i.i.i.i.i.i.i637, align 8, !noalias !119
@@ -4046,11 +4042,11 @@ if.then4.i.i.i.i.i.i.i.i640:                      ; preds = %if.else.i.i.i.i.i.i
 
 invoke.cont285:                                   ; preds = %if.then4.i.i.i.i.i.i.i.i640, %if.else.i.i.i.i.i.i.i.i636, %if.then.i.i.i.i.i.i.i.i629
   %result.0.i.i.i.i.i.i630 = phi ptr [ %279, %if.then.i.i.i.i.i.i.i.i629 ], [ %281, %if.then4.i.i.i.i.i.i.i.i640 ], [ null, %if.else.i.i.i.i.i.i.i.i636 ]
-  %mValue.i.i.i.i631 = getelementptr inbounds %"struct.eastl::ListNode", ptr %result.0.i.i.i.i.i.i630, i64 0, i32 1
+  %mValue.i.i.i.i631 = getelementptr inbounds i8, ptr %result.0.i.i.i.i.i.i630, i64 16
   store i32 37, ptr %mValue.i.i.i.i631, align 4, !noalias !119
   store ptr %listInt5, ptr %result.0.i.i.i.i.i.i630, align 8, !noalias !119
   %284 = load ptr, ptr %mpPrev.i.i.i.i588, align 8, !noalias !119
-  %mpPrev2.i.i.i.i633 = getelementptr inbounds %"struct.eastl::ListNodeBase", ptr %result.0.i.i.i.i.i.i630, i64 0, i32 1
+  %mpPrev2.i.i.i.i633 = getelementptr inbounds i8, ptr %result.0.i.i.i.i.i.i630, i64 8
   store ptr %284, ptr %mpPrev2.i.i.i.i633, align 8, !noalias !119
   store ptr %result.0.i.i.i.i.i.i630, ptr %284, align 8, !noalias !119
   store ptr %result.0.i.i.i.i.i.i630, ptr %mpPrev.i.i.i.i588, align 8, !noalias !119
@@ -4084,15 +4080,15 @@ if.then.i.i.i.i.i.i.i.i651:                       ; preds = %invoke.cont297
   br label %invoke.cont300
 
 if.else.i.i.i.i.i.i.i.i658:                       ; preds = %invoke.cont297
-  %mpNext3.i.i.i.i.i.i.i.i659 = getelementptr inbounds %"class.eastl::compressed_pair_imp.44", ptr %listInt5, i64 0, i32 1, i32 0, i32 0, i32 1
+  %mpNext3.i.i.i.i.i.i.i.i659 = getelementptr inbounds i8, ptr %listInt5, i64 24
   %290 = load ptr, ptr %mpNext3.i.i.i.i.i.i.i.i659, align 8, !noalias !122
-  %mpCapacity.i.i.i.i.i.i.i.i660 = getelementptr inbounds %"class.eastl::compressed_pair_imp.44", ptr %listInt5, i64 0, i32 1, i32 0, i32 0, i32 2
+  %mpCapacity.i.i.i.i.i.i.i.i660 = getelementptr inbounds i8, ptr %listInt5, i64 32
   %291 = load ptr, ptr %mpCapacity.i.i.i.i.i.i.i.i660, align 8, !noalias !122
   %cmp.not.i.i.i.i.i.i.i.i661 = icmp eq ptr %290, %291
   br i1 %cmp.not.i.i.i.i.i.i.i.i661, label %invoke.cont300, label %if.then4.i.i.i.i.i.i.i.i662
 
 if.then4.i.i.i.i.i.i.i.i662:                      ; preds = %if.else.i.i.i.i.i.i.i.i658
-  %mnNodeSize.i.i.i.i.i.i.i.i663 = getelementptr inbounds %"class.eastl::compressed_pair_imp.44", ptr %listInt5, i64 0, i32 1, i32 0, i32 0, i32 3
+  %mnNodeSize.i.i.i.i.i.i.i.i663 = getelementptr inbounds i8, ptr %listInt5, i64 40
   %292 = load i64, ptr %mnNodeSize.i.i.i.i.i.i.i.i663, align 8, !noalias !122
   %add.ptr.i.i.i.i.i.i.i.i664 = getelementptr inbounds i8, ptr %290, i64 %292
   store ptr %add.ptr.i.i.i.i.i.i.i.i664, ptr %mpNext3.i.i.i.i.i.i.i.i659, align 8, !noalias !122
@@ -4100,11 +4096,11 @@ if.then4.i.i.i.i.i.i.i.i662:                      ; preds = %if.else.i.i.i.i.i.i
 
 invoke.cont300:                                   ; preds = %if.then4.i.i.i.i.i.i.i.i662, %if.else.i.i.i.i.i.i.i.i658, %if.then.i.i.i.i.i.i.i.i651
   %result.0.i.i.i.i.i.i652 = phi ptr [ %288, %if.then.i.i.i.i.i.i.i.i651 ], [ %290, %if.then4.i.i.i.i.i.i.i.i662 ], [ null, %if.else.i.i.i.i.i.i.i.i658 ]
-  %mValue.i.i.i.i653 = getelementptr inbounds %"struct.eastl::ListNode", ptr %result.0.i.i.i.i.i.i652, i64 0, i32 1
+  %mValue.i.i.i.i653 = getelementptr inbounds i8, ptr %result.0.i.i.i.i.i.i652, i64 16
   store i32 37, ptr %mValue.i.i.i.i653, align 4, !noalias !122
   store ptr %listInt5, ptr %result.0.i.i.i.i.i.i652, align 8, !noalias !122
   %293 = load ptr, ptr %mpPrev.i.i.i.i588, align 8, !noalias !122
-  %mpPrev2.i.i.i.i655 = getelementptr inbounds %"struct.eastl::ListNodeBase", ptr %result.0.i.i.i.i.i.i652, i64 0, i32 1
+  %mpPrev2.i.i.i.i655 = getelementptr inbounds i8, ptr %result.0.i.i.i.i.i.i652, i64 8
   store ptr %293, ptr %mpPrev2.i.i.i.i655, align 8, !noalias !122
   store ptr %result.0.i.i.i.i.i.i652, ptr %293, align 8, !noalias !122
   store ptr %result.0.i.i.i.i.i.i652, ptr %mpPrev.i.i.i.i588, align 8, !noalias !122
@@ -4121,15 +4117,15 @@ if.then.i.i.i.i.i.i.i.i668:                       ; preds = %invoke.cont300
   br label %invoke.cont302
 
 if.else.i.i.i.i.i.i.i.i675:                       ; preds = %invoke.cont300
-  %mpNext3.i.i.i.i.i.i.i.i676 = getelementptr inbounds %"class.eastl::compressed_pair_imp.44", ptr %listInt5, i64 0, i32 1, i32 0, i32 0, i32 1
+  %mpNext3.i.i.i.i.i.i.i.i676 = getelementptr inbounds i8, ptr %listInt5, i64 24
   %297 = load ptr, ptr %mpNext3.i.i.i.i.i.i.i.i676, align 8, !noalias !125
-  %mpCapacity.i.i.i.i.i.i.i.i677 = getelementptr inbounds %"class.eastl::compressed_pair_imp.44", ptr %listInt5, i64 0, i32 1, i32 0, i32 0, i32 2
+  %mpCapacity.i.i.i.i.i.i.i.i677 = getelementptr inbounds i8, ptr %listInt5, i64 32
   %298 = load ptr, ptr %mpCapacity.i.i.i.i.i.i.i.i677, align 8, !noalias !125
   %cmp.not.i.i.i.i.i.i.i.i678 = icmp eq ptr %297, %298
   br i1 %cmp.not.i.i.i.i.i.i.i.i678, label %invoke.cont302, label %if.then4.i.i.i.i.i.i.i.i679
 
 if.then4.i.i.i.i.i.i.i.i679:                      ; preds = %if.else.i.i.i.i.i.i.i.i675
-  %mnNodeSize.i.i.i.i.i.i.i.i680 = getelementptr inbounds %"class.eastl::compressed_pair_imp.44", ptr %listInt5, i64 0, i32 1, i32 0, i32 0, i32 3
+  %mnNodeSize.i.i.i.i.i.i.i.i680 = getelementptr inbounds i8, ptr %listInt5, i64 40
   %299 = load i64, ptr %mnNodeSize.i.i.i.i.i.i.i.i680, align 8, !noalias !125
   %add.ptr.i.i.i.i.i.i.i.i681 = getelementptr inbounds i8, ptr %297, i64 %299
   store ptr %add.ptr.i.i.i.i.i.i.i.i681, ptr %mpNext3.i.i.i.i.i.i.i.i676, align 8, !noalias !125
@@ -4137,11 +4133,11 @@ if.then4.i.i.i.i.i.i.i.i679:                      ; preds = %if.else.i.i.i.i.i.i
 
 invoke.cont302:                                   ; preds = %if.then4.i.i.i.i.i.i.i.i679, %if.else.i.i.i.i.i.i.i.i675, %if.then.i.i.i.i.i.i.i.i668
   %result.0.i.i.i.i.i.i669 = phi ptr [ %295, %if.then.i.i.i.i.i.i.i.i668 ], [ %297, %if.then4.i.i.i.i.i.i.i.i679 ], [ null, %if.else.i.i.i.i.i.i.i.i675 ]
-  %mValue.i.i.i.i670 = getelementptr inbounds %"struct.eastl::ListNode", ptr %result.0.i.i.i.i.i.i669, i64 0, i32 1
+  %mValue.i.i.i.i670 = getelementptr inbounds i8, ptr %result.0.i.i.i.i.i.i669, i64 16
   store i32 37, ptr %mValue.i.i.i.i670, align 4, !noalias !125
   store ptr %listInt5, ptr %result.0.i.i.i.i.i.i669, align 8, !noalias !125
   %300 = load ptr, ptr %mpPrev.i.i.i.i588, align 8, !noalias !125
-  %mpPrev2.i.i.i.i672 = getelementptr inbounds %"struct.eastl::ListNodeBase", ptr %result.0.i.i.i.i.i.i669, i64 0, i32 1
+  %mpPrev2.i.i.i.i672 = getelementptr inbounds i8, ptr %result.0.i.i.i.i.i.i669, i64 8
   store ptr %300, ptr %mpPrev2.i.i.i.i672, align 8, !noalias !125
   store ptr %result.0.i.i.i.i.i.i669, ptr %300, align 8, !noalias !125
   store ptr %result.0.i.i.i.i.i.i669, ptr %mpPrev.i.i.i.i588, align 8, !noalias !125
@@ -4166,10 +4162,10 @@ invoke.cont309:                                   ; preds = %invoke.cont305
 
 invoke.cont316:                                   ; preds = %invoke.cont309
   %304 = load ptr, ptr %mpPrev.i.i.i.i588, align 8
-  %mpPrev.i.i.i688 = getelementptr inbounds %"struct.eastl::ListNodeBase", ptr %304, i64 0, i32 1
+  %mpPrev.i.i.i688 = getelementptr inbounds i8, ptr %304, i64 8
   %305 = load ptr, ptr %mpPrev.i.i.i688, align 8
   %306 = load ptr, ptr %304, align 8
-  %mpPrev2.i.i.i689 = getelementptr inbounds %"struct.eastl::ListNodeBase", ptr %306, i64 0, i32 1
+  %mpPrev2.i.i.i689 = getelementptr inbounds i8, ptr %306, i64 8
   store ptr %305, ptr %mpPrev2.i.i.i689, align 8
   %307 = load ptr, ptr %304, align 8
   store ptr %307, ptr %305, align 8
@@ -4215,23 +4211,23 @@ while.body.i.i.i.i701:                            ; preds = %while.body.i.i.i.i7
 
 _ZN5eastl10fixed_listIiLm5ELb0ENS_9allocatorEED2Ev.exit: ; preds = %while.body.i.i.i.i701, %invoke.cont328
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %ref.tmp.i704)
-  %mBuffer.i705 = getelementptr inbounds %"class.eastl::fixed_list.47", ptr %listInt5330, i64 0, i32 1
+  %mBuffer.i705 = getelementptr inbounds i8, ptr %listInt5330, i64 72
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp.i704, i8 0, i64 32, i1 false)
   call void @_ZN5eastl15fixed_pool_base4initEPvmmmm(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp.i704, ptr noundef nonnull %mBuffer.i705, i64 noundef 120, i64 noundef 24, i64 noundef 8, i64 noundef 0)
-  %mpPoolBegin.i.i.i706 = getelementptr inbounds %"class.eastl::fixed_pool_with_overflow", ptr %ref.tmp.i704, i64 0, i32 2
+  %mpPoolBegin.i.i.i706 = getelementptr inbounds i8, ptr %ref.tmp.i704, i64 40
   store ptr %mBuffer.i705, ptr %mpPoolBegin.i.i.i706, align 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %listInt5330, i8 0, i64 16, i1 false)
-  %mSecond.i.i.i.i.i707 = getelementptr inbounds %"class.eastl::compressed_pair_imp.51", ptr %listInt5330, i64 0, i32 1
-  %mpNext.i.i.i.i.i.i708 = getelementptr inbounds %"struct.eastl::fixed_pool_base", ptr %ref.tmp.i704, i64 0, i32 1
+  %mSecond.i.i.i.i.i707 = getelementptr inbounds i8, ptr %listInt5330, i64 16
+  %mpNext.i.i.i.i.i.i708 = getelementptr inbounds i8, ptr %ref.tmp.i704, i64 8
   %315 = load ptr, ptr %mpNext.i.i.i.i.i.i708, align 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %mSecond.i.i.i.i.i707, i8 0, i64 32, i1 false)
   call void @_ZN5eastl15fixed_pool_base4initEPvmmmm(ptr noundef nonnull align 8 dereferenceable(32) %mSecond.i.i.i.i.i707, ptr noundef %315, i64 noundef 120, i64 noundef 24, i64 noundef 8, i64 noundef 0)
-  %mpPoolBegin.i.i.i.i.i.i.i709 = getelementptr inbounds %"class.eastl::compressed_pair_imp.51", ptr %listInt5330, i64 0, i32 1, i32 0, i32 2
+  %mpPoolBegin.i.i.i.i.i.i.i709 = getelementptr inbounds i8, ptr %listInt5330, i64 56
   store ptr %315, ptr %mpPoolBegin.i.i.i.i.i.i.i709, align 8
-  %mSize.i.i.i710 = getelementptr inbounds %"class.eastl::ListBase.49", ptr %listInt5330, i64 0, i32 1
+  %mSize.i.i.i710 = getelementptr inbounds i8, ptr %listInt5330, i64 64
   store i64 0, ptr %mSize.i.i.i710, align 8
   store ptr %listInt5330, ptr %listInt5330, align 8
-  %mpPrev.i.i.i.i711 = getelementptr inbounds %"struct.eastl::ListNodeBase", ptr %listInt5330, i64 0, i32 1
+  %mpPrev.i.i.i.i711 = getelementptr inbounds i8, ptr %listInt5330, i64 8
   store ptr %listInt5330, ptr %mpPrev.i.i.i.i711, align 8
   call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %ref.tmp.i704)
   %call336 = invoke noundef i32 @_ZN2EA8UnitTest12TestInternal17EATEST_VERIFY_IMPEbRiPKciS4_(i1 noundef zeroext true, ptr noundef nonnull align 4 dereferenceable(4) %nErrorCount, ptr noundef nonnull @.str, i32 noundef 261, ptr noundef nonnull @.str.13)
@@ -4266,12 +4262,12 @@ if.then.i.i.i.i.i.i.i.i719:                       ; preds = %invoke.cont347
   br label %invoke.cont350
 
 if.else.i.i.i.i.i.i.i.i726:                       ; preds = %invoke.cont347
-  %mpNext3.i.i.i.i.i.i.i.i727 = getelementptr inbounds %"class.eastl::compressed_pair_imp.51", ptr %listInt5330, i64 0, i32 1, i32 0, i32 0, i32 1
+  %mpNext3.i.i.i.i.i.i.i.i727 = getelementptr inbounds i8, ptr %listInt5330, i64 24
   %321 = load ptr, ptr %mpNext3.i.i.i.i.i.i.i.i727, align 8, !noalias !129
-  %mpCapacity.i.i.i.i.i.i.i.i728 = getelementptr inbounds %"class.eastl::compressed_pair_imp.51", ptr %listInt5330, i64 0, i32 1, i32 0, i32 0, i32 2
+  %mpCapacity.i.i.i.i.i.i.i.i728 = getelementptr inbounds i8, ptr %listInt5330, i64 32
   %322 = load ptr, ptr %mpCapacity.i.i.i.i.i.i.i.i728, align 8, !noalias !129
   %cmp.not.i.i.i.i.i.i.i.i729 = icmp eq ptr %321, %322
-  %mnNodeSize9.i.i.i.i.i.i.i.i730 = getelementptr inbounds %"class.eastl::compressed_pair_imp.51", ptr %listInt5330, i64 0, i32 1, i32 0, i32 0, i32 3
+  %mnNodeSize9.i.i.i.i.i.i.i.i730 = getelementptr inbounds i8, ptr %listInt5330, i64 40
   %323 = load i64, ptr %mnNodeSize9.i.i.i.i.i.i.i.i730, align 8, !noalias !129
   br i1 %cmp.not.i.i.i.i.i.i.i.i729, label %if.else8.i.i.i.i.i.i.i.i733, label %if.then4.i.i.i.i.i.i.i.i731
 
@@ -4286,11 +4282,11 @@ if.else8.i.i.i.i.i.i.i.i733:                      ; preds = %if.else.i.i.i.i.i.i
 
 invoke.cont350:                                   ; preds = %if.then4.i.i.i.i.i.i.i.i731, %if.then.i.i.i.i.i.i.i.i719, %if.else8.i.i.i.i.i.i.i.i733
   %result.0.i.i.i.i.i.i720 = phi ptr [ %319, %if.then.i.i.i.i.i.i.i.i719 ], [ %321, %if.then4.i.i.i.i.i.i.i.i731 ], [ %call.i.i.i.i.i.i.i.i.i734735, %if.else8.i.i.i.i.i.i.i.i733 ]
-  %mValue.i.i.i.i721 = getelementptr inbounds %"struct.eastl::ListNode", ptr %result.0.i.i.i.i.i.i720, i64 0, i32 1
+  %mValue.i.i.i.i721 = getelementptr inbounds i8, ptr %result.0.i.i.i.i.i.i720, i64 16
   store i32 37, ptr %mValue.i.i.i.i721, align 4, !noalias !129
   store ptr %listInt5330, ptr %result.0.i.i.i.i.i.i720, align 8, !noalias !129
   %324 = load ptr, ptr %mpPrev.i.i.i.i711, align 8, !noalias !129
-  %mpPrev2.i.i.i.i723 = getelementptr inbounds %"struct.eastl::ListNodeBase", ptr %result.0.i.i.i.i.i.i720, i64 0, i32 1
+  %mpPrev2.i.i.i.i723 = getelementptr inbounds i8, ptr %result.0.i.i.i.i.i.i720, i64 8
   store ptr %324, ptr %mpPrev2.i.i.i.i723, align 8, !noalias !129
   store ptr %result.0.i.i.i.i.i.i720, ptr %324, align 8, !noalias !129
   store ptr %result.0.i.i.i.i.i.i720, ptr %mpPrev.i.i.i.i711, align 8, !noalias !129
@@ -4307,12 +4303,12 @@ if.then.i.i.i.i.i.i.i.i738:                       ; preds = %invoke.cont350
   br label %invoke.cont352
 
 if.else.i.i.i.i.i.i.i.i745:                       ; preds = %invoke.cont350
-  %mpNext3.i.i.i.i.i.i.i.i746 = getelementptr inbounds %"class.eastl::compressed_pair_imp.51", ptr %listInt5330, i64 0, i32 1, i32 0, i32 0, i32 1
+  %mpNext3.i.i.i.i.i.i.i.i746 = getelementptr inbounds i8, ptr %listInt5330, i64 24
   %328 = load ptr, ptr %mpNext3.i.i.i.i.i.i.i.i746, align 8, !noalias !132
-  %mpCapacity.i.i.i.i.i.i.i.i747 = getelementptr inbounds %"class.eastl::compressed_pair_imp.51", ptr %listInt5330, i64 0, i32 1, i32 0, i32 0, i32 2
+  %mpCapacity.i.i.i.i.i.i.i.i747 = getelementptr inbounds i8, ptr %listInt5330, i64 32
   %329 = load ptr, ptr %mpCapacity.i.i.i.i.i.i.i.i747, align 8, !noalias !132
   %cmp.not.i.i.i.i.i.i.i.i748 = icmp eq ptr %328, %329
-  %mnNodeSize9.i.i.i.i.i.i.i.i749 = getelementptr inbounds %"class.eastl::compressed_pair_imp.51", ptr %listInt5330, i64 0, i32 1, i32 0, i32 0, i32 3
+  %mnNodeSize9.i.i.i.i.i.i.i.i749 = getelementptr inbounds i8, ptr %listInt5330, i64 40
   %330 = load i64, ptr %mnNodeSize9.i.i.i.i.i.i.i.i749, align 8, !noalias !132
   br i1 %cmp.not.i.i.i.i.i.i.i.i748, label %if.else8.i.i.i.i.i.i.i.i752, label %if.then4.i.i.i.i.i.i.i.i750
 
@@ -4327,11 +4323,11 @@ if.else8.i.i.i.i.i.i.i.i752:                      ; preds = %if.else.i.i.i.i.i.i
 
 invoke.cont352:                                   ; preds = %if.then4.i.i.i.i.i.i.i.i750, %if.then.i.i.i.i.i.i.i.i738, %if.else8.i.i.i.i.i.i.i.i752
   %result.0.i.i.i.i.i.i739 = phi ptr [ %326, %if.then.i.i.i.i.i.i.i.i738 ], [ %328, %if.then4.i.i.i.i.i.i.i.i750 ], [ %call.i.i.i.i.i.i.i.i.i753754, %if.else8.i.i.i.i.i.i.i.i752 ]
-  %mValue.i.i.i.i740 = getelementptr inbounds %"struct.eastl::ListNode", ptr %result.0.i.i.i.i.i.i739, i64 0, i32 1
+  %mValue.i.i.i.i740 = getelementptr inbounds i8, ptr %result.0.i.i.i.i.i.i739, i64 16
   store i32 37, ptr %mValue.i.i.i.i740, align 4, !noalias !132
   store ptr %listInt5330, ptr %result.0.i.i.i.i.i.i739, align 8, !noalias !132
   %331 = load ptr, ptr %mpPrev.i.i.i.i711, align 8, !noalias !132
-  %mpPrev2.i.i.i.i742 = getelementptr inbounds %"struct.eastl::ListNodeBase", ptr %result.0.i.i.i.i.i.i739, i64 0, i32 1
+  %mpPrev2.i.i.i.i742 = getelementptr inbounds i8, ptr %result.0.i.i.i.i.i.i739, i64 8
   store ptr %331, ptr %mpPrev2.i.i.i.i742, align 8, !noalias !132
   store ptr %result.0.i.i.i.i.i.i739, ptr %331, align 8, !noalias !132
   store ptr %result.0.i.i.i.i.i.i739, ptr %mpPrev.i.i.i.i711, align 8, !noalias !132
@@ -4348,12 +4344,12 @@ if.then.i.i.i.i.i.i.i.i758:                       ; preds = %invoke.cont352
   br label %invoke.cont354
 
 if.else.i.i.i.i.i.i.i.i765:                       ; preds = %invoke.cont352
-  %mpNext3.i.i.i.i.i.i.i.i766 = getelementptr inbounds %"class.eastl::compressed_pair_imp.51", ptr %listInt5330, i64 0, i32 1, i32 0, i32 0, i32 1
+  %mpNext3.i.i.i.i.i.i.i.i766 = getelementptr inbounds i8, ptr %listInt5330, i64 24
   %335 = load ptr, ptr %mpNext3.i.i.i.i.i.i.i.i766, align 8, !noalias !135
-  %mpCapacity.i.i.i.i.i.i.i.i767 = getelementptr inbounds %"class.eastl::compressed_pair_imp.51", ptr %listInt5330, i64 0, i32 1, i32 0, i32 0, i32 2
+  %mpCapacity.i.i.i.i.i.i.i.i767 = getelementptr inbounds i8, ptr %listInt5330, i64 32
   %336 = load ptr, ptr %mpCapacity.i.i.i.i.i.i.i.i767, align 8, !noalias !135
   %cmp.not.i.i.i.i.i.i.i.i768 = icmp eq ptr %335, %336
-  %mnNodeSize9.i.i.i.i.i.i.i.i769 = getelementptr inbounds %"class.eastl::compressed_pair_imp.51", ptr %listInt5330, i64 0, i32 1, i32 0, i32 0, i32 3
+  %mnNodeSize9.i.i.i.i.i.i.i.i769 = getelementptr inbounds i8, ptr %listInt5330, i64 40
   %337 = load i64, ptr %mnNodeSize9.i.i.i.i.i.i.i.i769, align 8, !noalias !135
   br i1 %cmp.not.i.i.i.i.i.i.i.i768, label %if.else8.i.i.i.i.i.i.i.i772, label %if.then4.i.i.i.i.i.i.i.i770
 
@@ -4368,11 +4364,11 @@ if.else8.i.i.i.i.i.i.i.i772:                      ; preds = %if.else.i.i.i.i.i.i
 
 invoke.cont354:                                   ; preds = %if.then4.i.i.i.i.i.i.i.i770, %if.then.i.i.i.i.i.i.i.i758, %if.else8.i.i.i.i.i.i.i.i772
   %result.0.i.i.i.i.i.i759 = phi ptr [ %333, %if.then.i.i.i.i.i.i.i.i758 ], [ %335, %if.then4.i.i.i.i.i.i.i.i770 ], [ %call.i.i.i.i.i.i.i.i.i773774, %if.else8.i.i.i.i.i.i.i.i772 ]
-  %mValue.i.i.i.i760 = getelementptr inbounds %"struct.eastl::ListNode", ptr %result.0.i.i.i.i.i.i759, i64 0, i32 1
+  %mValue.i.i.i.i760 = getelementptr inbounds i8, ptr %result.0.i.i.i.i.i.i759, i64 16
   store i32 37, ptr %mValue.i.i.i.i760, align 4, !noalias !135
   store ptr %listInt5330, ptr %result.0.i.i.i.i.i.i759, align 8, !noalias !135
   %338 = load ptr, ptr %mpPrev.i.i.i.i711, align 8, !noalias !135
-  %mpPrev2.i.i.i.i762 = getelementptr inbounds %"struct.eastl::ListNodeBase", ptr %result.0.i.i.i.i.i.i759, i64 0, i32 1
+  %mpPrev2.i.i.i.i762 = getelementptr inbounds i8, ptr %result.0.i.i.i.i.i.i759, i64 8
   store ptr %338, ptr %mpPrev2.i.i.i.i762, align 8, !noalias !135
   store ptr %result.0.i.i.i.i.i.i759, ptr %338, align 8, !noalias !135
   store ptr %result.0.i.i.i.i.i.i759, ptr %mpPrev.i.i.i.i711, align 8, !noalias !135
@@ -4406,12 +4402,12 @@ if.then.i.i.i.i.i.i.i.i783:                       ; preds = %invoke.cont366
   br label %invoke.cont369
 
 if.else.i.i.i.i.i.i.i.i790:                       ; preds = %invoke.cont366
-  %mpNext3.i.i.i.i.i.i.i.i791 = getelementptr inbounds %"class.eastl::compressed_pair_imp.51", ptr %listInt5330, i64 0, i32 1, i32 0, i32 0, i32 1
+  %mpNext3.i.i.i.i.i.i.i.i791 = getelementptr inbounds i8, ptr %listInt5330, i64 24
   %344 = load ptr, ptr %mpNext3.i.i.i.i.i.i.i.i791, align 8, !noalias !138
-  %mpCapacity.i.i.i.i.i.i.i.i792 = getelementptr inbounds %"class.eastl::compressed_pair_imp.51", ptr %listInt5330, i64 0, i32 1, i32 0, i32 0, i32 2
+  %mpCapacity.i.i.i.i.i.i.i.i792 = getelementptr inbounds i8, ptr %listInt5330, i64 32
   %345 = load ptr, ptr %mpCapacity.i.i.i.i.i.i.i.i792, align 8, !noalias !138
   %cmp.not.i.i.i.i.i.i.i.i793 = icmp eq ptr %344, %345
-  %mnNodeSize9.i.i.i.i.i.i.i.i794 = getelementptr inbounds %"class.eastl::compressed_pair_imp.51", ptr %listInt5330, i64 0, i32 1, i32 0, i32 0, i32 3
+  %mnNodeSize9.i.i.i.i.i.i.i.i794 = getelementptr inbounds i8, ptr %listInt5330, i64 40
   %346 = load i64, ptr %mnNodeSize9.i.i.i.i.i.i.i.i794, align 8, !noalias !138
   br i1 %cmp.not.i.i.i.i.i.i.i.i793, label %if.else8.i.i.i.i.i.i.i.i797, label %if.then4.i.i.i.i.i.i.i.i795
 
@@ -4426,11 +4422,11 @@ if.else8.i.i.i.i.i.i.i.i797:                      ; preds = %if.else.i.i.i.i.i.i
 
 invoke.cont369:                                   ; preds = %if.then4.i.i.i.i.i.i.i.i795, %if.then.i.i.i.i.i.i.i.i783, %if.else8.i.i.i.i.i.i.i.i797
   %result.0.i.i.i.i.i.i784 = phi ptr [ %342, %if.then.i.i.i.i.i.i.i.i783 ], [ %344, %if.then4.i.i.i.i.i.i.i.i795 ], [ %call.i.i.i.i.i.i.i.i.i798799, %if.else8.i.i.i.i.i.i.i.i797 ]
-  %mValue.i.i.i.i785 = getelementptr inbounds %"struct.eastl::ListNode", ptr %result.0.i.i.i.i.i.i784, i64 0, i32 1
+  %mValue.i.i.i.i785 = getelementptr inbounds i8, ptr %result.0.i.i.i.i.i.i784, i64 16
   store i32 37, ptr %mValue.i.i.i.i785, align 4, !noalias !138
   store ptr %listInt5330, ptr %result.0.i.i.i.i.i.i784, align 8, !noalias !138
   %347 = load ptr, ptr %mpPrev.i.i.i.i711, align 8, !noalias !138
-  %mpPrev2.i.i.i.i787 = getelementptr inbounds %"struct.eastl::ListNodeBase", ptr %result.0.i.i.i.i.i.i784, i64 0, i32 1
+  %mpPrev2.i.i.i.i787 = getelementptr inbounds i8, ptr %result.0.i.i.i.i.i.i784, i64 8
   store ptr %347, ptr %mpPrev2.i.i.i.i787, align 8, !noalias !138
   store ptr %result.0.i.i.i.i.i.i784, ptr %347, align 8, !noalias !138
   store ptr %result.0.i.i.i.i.i.i784, ptr %mpPrev.i.i.i.i711, align 8, !noalias !138
@@ -4447,12 +4443,12 @@ if.then.i.i.i.i.i.i.i.i803:                       ; preds = %invoke.cont369
   br label %invoke.cont371
 
 if.else.i.i.i.i.i.i.i.i810:                       ; preds = %invoke.cont369
-  %mpNext3.i.i.i.i.i.i.i.i811 = getelementptr inbounds %"class.eastl::compressed_pair_imp.51", ptr %listInt5330, i64 0, i32 1, i32 0, i32 0, i32 1
+  %mpNext3.i.i.i.i.i.i.i.i811 = getelementptr inbounds i8, ptr %listInt5330, i64 24
   %351 = load ptr, ptr %mpNext3.i.i.i.i.i.i.i.i811, align 8, !noalias !141
-  %mpCapacity.i.i.i.i.i.i.i.i812 = getelementptr inbounds %"class.eastl::compressed_pair_imp.51", ptr %listInt5330, i64 0, i32 1, i32 0, i32 0, i32 2
+  %mpCapacity.i.i.i.i.i.i.i.i812 = getelementptr inbounds i8, ptr %listInt5330, i64 32
   %352 = load ptr, ptr %mpCapacity.i.i.i.i.i.i.i.i812, align 8, !noalias !141
   %cmp.not.i.i.i.i.i.i.i.i813 = icmp eq ptr %351, %352
-  %mnNodeSize9.i.i.i.i.i.i.i.i814 = getelementptr inbounds %"class.eastl::compressed_pair_imp.51", ptr %listInt5330, i64 0, i32 1, i32 0, i32 0, i32 3
+  %mnNodeSize9.i.i.i.i.i.i.i.i814 = getelementptr inbounds i8, ptr %listInt5330, i64 40
   %353 = load i64, ptr %mnNodeSize9.i.i.i.i.i.i.i.i814, align 8, !noalias !141
   br i1 %cmp.not.i.i.i.i.i.i.i.i813, label %if.else8.i.i.i.i.i.i.i.i817, label %if.then4.i.i.i.i.i.i.i.i815
 
@@ -4467,11 +4463,11 @@ if.else8.i.i.i.i.i.i.i.i817:                      ; preds = %if.else.i.i.i.i.i.i
 
 invoke.cont371:                                   ; preds = %if.then4.i.i.i.i.i.i.i.i815, %if.then.i.i.i.i.i.i.i.i803, %if.else8.i.i.i.i.i.i.i.i817
   %result.0.i.i.i.i.i.i804 = phi ptr [ %349, %if.then.i.i.i.i.i.i.i.i803 ], [ %351, %if.then4.i.i.i.i.i.i.i.i815 ], [ %call.i.i.i.i.i.i.i.i.i818819, %if.else8.i.i.i.i.i.i.i.i817 ]
-  %mValue.i.i.i.i805 = getelementptr inbounds %"struct.eastl::ListNode", ptr %result.0.i.i.i.i.i.i804, i64 0, i32 1
+  %mValue.i.i.i.i805 = getelementptr inbounds i8, ptr %result.0.i.i.i.i.i.i804, i64 16
   store i32 37, ptr %mValue.i.i.i.i805, align 4, !noalias !141
   store ptr %listInt5330, ptr %result.0.i.i.i.i.i.i804, align 8, !noalias !141
   %354 = load ptr, ptr %mpPrev.i.i.i.i711, align 8, !noalias !141
-  %mpPrev2.i.i.i.i807 = getelementptr inbounds %"struct.eastl::ListNodeBase", ptr %result.0.i.i.i.i.i.i804, i64 0, i32 1
+  %mpPrev2.i.i.i.i807 = getelementptr inbounds i8, ptr %result.0.i.i.i.i.i.i804, i64 8
   store ptr %354, ptr %mpPrev2.i.i.i.i807, align 8, !noalias !141
   store ptr %result.0.i.i.i.i.i.i804, ptr %354, align 8, !noalias !141
   store ptr %result.0.i.i.i.i.i.i804, ptr %mpPrev.i.i.i.i711, align 8, !noalias !141
@@ -4505,12 +4501,12 @@ if.then.i.i.i.i.i.i.i.i828:                       ; preds = %invoke.cont383
   br label %invoke.cont386
 
 if.else.i.i.i.i.i.i.i.i835:                       ; preds = %invoke.cont383
-  %mpNext3.i.i.i.i.i.i.i.i836 = getelementptr inbounds %"class.eastl::compressed_pair_imp.51", ptr %listInt5330, i64 0, i32 1, i32 0, i32 0, i32 1
+  %mpNext3.i.i.i.i.i.i.i.i836 = getelementptr inbounds i8, ptr %listInt5330, i64 24
   %360 = load ptr, ptr %mpNext3.i.i.i.i.i.i.i.i836, align 8, !noalias !144
-  %mpCapacity.i.i.i.i.i.i.i.i837 = getelementptr inbounds %"class.eastl::compressed_pair_imp.51", ptr %listInt5330, i64 0, i32 1, i32 0, i32 0, i32 2
+  %mpCapacity.i.i.i.i.i.i.i.i837 = getelementptr inbounds i8, ptr %listInt5330, i64 32
   %361 = load ptr, ptr %mpCapacity.i.i.i.i.i.i.i.i837, align 8, !noalias !144
   %cmp.not.i.i.i.i.i.i.i.i838 = icmp eq ptr %360, %361
-  %mnNodeSize9.i.i.i.i.i.i.i.i839 = getelementptr inbounds %"class.eastl::compressed_pair_imp.51", ptr %listInt5330, i64 0, i32 1, i32 0, i32 0, i32 3
+  %mnNodeSize9.i.i.i.i.i.i.i.i839 = getelementptr inbounds i8, ptr %listInt5330, i64 40
   %362 = load i64, ptr %mnNodeSize9.i.i.i.i.i.i.i.i839, align 8, !noalias !144
   br i1 %cmp.not.i.i.i.i.i.i.i.i838, label %if.else8.i.i.i.i.i.i.i.i842, label %if.then4.i.i.i.i.i.i.i.i840
 
@@ -4525,11 +4521,11 @@ if.else8.i.i.i.i.i.i.i.i842:                      ; preds = %if.else.i.i.i.i.i.i
 
 invoke.cont386:                                   ; preds = %if.then4.i.i.i.i.i.i.i.i840, %if.then.i.i.i.i.i.i.i.i828, %if.else8.i.i.i.i.i.i.i.i842
   %result.0.i.i.i.i.i.i829 = phi ptr [ %358, %if.then.i.i.i.i.i.i.i.i828 ], [ %360, %if.then4.i.i.i.i.i.i.i.i840 ], [ %call.i.i.i.i.i.i.i.i.i843844, %if.else8.i.i.i.i.i.i.i.i842 ]
-  %mValue.i.i.i.i830 = getelementptr inbounds %"struct.eastl::ListNode", ptr %result.0.i.i.i.i.i.i829, i64 0, i32 1
+  %mValue.i.i.i.i830 = getelementptr inbounds i8, ptr %result.0.i.i.i.i.i.i829, i64 16
   store i32 37, ptr %mValue.i.i.i.i830, align 4, !noalias !144
   store ptr %listInt5330, ptr %result.0.i.i.i.i.i.i829, align 8, !noalias !144
   %363 = load ptr, ptr %mpPrev.i.i.i.i711, align 8, !noalias !144
-  %mpPrev2.i.i.i.i832 = getelementptr inbounds %"struct.eastl::ListNodeBase", ptr %result.0.i.i.i.i.i.i829, i64 0, i32 1
+  %mpPrev2.i.i.i.i832 = getelementptr inbounds i8, ptr %result.0.i.i.i.i.i.i829, i64 8
   store ptr %363, ptr %mpPrev2.i.i.i.i832, align 8, !noalias !144
   store ptr %result.0.i.i.i.i.i.i829, ptr %363, align 8, !noalias !144
   store ptr %result.0.i.i.i.i.i.i829, ptr %mpPrev.i.i.i.i711, align 8, !noalias !144
@@ -4554,16 +4550,16 @@ invoke.cont393:                                   ; preds = %invoke.cont389
 
 invoke.cont397:                                   ; preds = %invoke.cont393
   %367 = load ptr, ptr %mpPrev.i.i.i.i711, align 8
-  %mpPrev.i.i.i852 = getelementptr inbounds %"struct.eastl::ListNodeBase", ptr %367, i64 0, i32 1
+  %mpPrev.i.i.i852 = getelementptr inbounds i8, ptr %367, i64 8
   %368 = load ptr, ptr %mpPrev.i.i.i852, align 8
   %369 = load ptr, ptr %367, align 8
-  %mpPrev2.i.i.i853 = getelementptr inbounds %"struct.eastl::ListNodeBase", ptr %369, i64 0, i32 1
+  %mpPrev2.i.i.i853 = getelementptr inbounds i8, ptr %369, i64 8
   store ptr %368, ptr %mpPrev2.i.i.i853, align 8
   %370 = load ptr, ptr %367, align 8
   store ptr %370, ptr %368, align 8
   %371 = load ptr, ptr %mpPoolBegin.i.i.i.i.i.i.i709, align 8
   %cmp.not.i.i.i.i.i855 = icmp ule ptr %371, %367
-  %mpCapacity.i.i.i.i.i856 = getelementptr inbounds %"class.eastl::compressed_pair_imp.51", ptr %listInt5330, i64 0, i32 1, i32 0, i32 0, i32 2
+  %mpCapacity.i.i.i.i.i856 = getelementptr inbounds i8, ptr %listInt5330, i64 32
   %372 = load ptr, ptr %mpCapacity.i.i.i.i.i856, align 8
   %cmp2.i.i.i.i.i857 = icmp ugt ptr %372, %367
   %or.cond.i.i.i.i.i858 = select i1 %cmp.not.i.i.i.i.i855, i1 %cmp2.i.i.i.i.i857, i1 false
@@ -4627,25 +4623,25 @@ _ZN5eastl10fixed_listIiLm5ELb1ENS_9allocatorEED2Ev.exit: ; preds = %_ZN5eastl20f
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(20) %B, ptr noundef nonnull align 16 dereferenceable(20) @__const._Z13TestFixedListv.B, i64 20, i1 false)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(20) %C, ptr noundef nonnull align 16 dereferenceable(20) @__const._Z13TestFixedListv.C, i64 20, i1 false)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(44) %D, ptr noundef nonnull align 16 dereferenceable(44) @__const._Z13TestFixedListv.D, i64 44, i1 false)
-  %add.ptr = getelementptr inbounds i32, ptr %A, i64 6
+  %add.ptr = getelementptr inbounds i8, ptr %A, i64 24
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %ref.tmp.i880)
-  %mBuffer.i881 = getelementptr inbounds %"class.eastl::fixed_list.54", ptr %list0401, i64 0, i32 1
+  %mBuffer.i881 = getelementptr inbounds i8, ptr %list0401, i64 72
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp.i880, i8 0, i64 32, i1 false)
   call void @_ZN5eastl15fixed_pool_base4initEPvmmmm(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp.i880, ptr noundef nonnull %mBuffer.i881, i64 noundef 768, i64 noundef 24, i64 noundef 8, i64 noundef 0)
-  %mpPoolBegin.i.i.i882 = getelementptr inbounds %"class.eastl::fixed_pool_with_overflow", ptr %ref.tmp.i880, i64 0, i32 2
+  %mpPoolBegin.i.i.i882 = getelementptr inbounds i8, ptr %ref.tmp.i880, i64 40
   store ptr %mBuffer.i881, ptr %mpPoolBegin.i.i.i882, align 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %list0401, i8 0, i64 16, i1 false)
-  %mSecond.i.i.i.i.i883 = getelementptr inbounds %"class.eastl::compressed_pair_imp.58", ptr %list0401, i64 0, i32 1
-  %mpNext.i.i.i.i.i.i884 = getelementptr inbounds %"struct.eastl::fixed_pool_base", ptr %ref.tmp.i880, i64 0, i32 1
+  %mSecond.i.i.i.i.i883 = getelementptr inbounds i8, ptr %list0401, i64 16
+  %mpNext.i.i.i.i.i.i884 = getelementptr inbounds i8, ptr %ref.tmp.i880, i64 8
   %381 = load ptr, ptr %mpNext.i.i.i.i.i.i884, align 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %mSecond.i.i.i.i.i883, i8 0, i64 32, i1 false)
   call void @_ZN5eastl15fixed_pool_base4initEPvmmmm(ptr noundef nonnull align 8 dereferenceable(32) %mSecond.i.i.i.i.i883, ptr noundef %381, i64 noundef 768, i64 noundef 24, i64 noundef 8, i64 noundef 0)
-  %mpPoolBegin.i.i.i.i.i.i.i885 = getelementptr inbounds %"class.eastl::compressed_pair_imp.58", ptr %list0401, i64 0, i32 1, i32 0, i32 2
+  %mpPoolBegin.i.i.i.i.i.i.i885 = getelementptr inbounds i8, ptr %list0401, i64 56
   store ptr %381, ptr %mpPoolBegin.i.i.i.i.i.i.i885, align 8
-  %mSize.i.i.i886 = getelementptr inbounds %"class.eastl::ListBase.56", ptr %list0401, i64 0, i32 1
+  %mSize.i.i.i886 = getelementptr inbounds i8, ptr %list0401, i64 64
   store i64 0, ptr %mSize.i.i.i886, align 8
   store ptr %list0401, ptr %list0401, align 8
-  %mpPrev.i.i.i.i887 = getelementptr inbounds %"struct.eastl::ListNodeBase", ptr %list0401, i64 0, i32 1
+  %mpPrev.i.i.i.i887 = getelementptr inbounds i8, ptr %list0401, i64 8
   store ptr %list0401, ptr %mpPrev.i.i.i.i887, align 8
   invoke void @_ZN5eastl4listIiNS_20fixed_node_allocatorILm24ELm32ELm8ELm0ELb1ENS_9allocatorEEEE8DoAssignIPKiEEvT_S8_NS_17integral_constantIbLb0EEE(ptr noundef nonnull align 8 dereferenceable(72) %list0401, ptr noundef nonnull %A, ptr noundef nonnull %add.ptr)
           to label %_ZN5eastl10fixed_listIiLm32ELb1ENS_9allocatorEEC2IPKiEET_S6_.exit unwind label %lpad.i
@@ -4662,31 +4658,31 @@ lpad.i:                                           ; preds = %_ZN5eastl10fixed_li
 
 _ZN5eastl10fixed_listIiLm32ELb1ENS_9allocatorEEC2IPKiEET_S6_.exit: ; preds = %_ZN5eastl10fixed_listIiLm5ELb1ENS_9allocatorEED2Ev.exit
   call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %ref.tmp.i880)
-  %add.ptr411 = getelementptr inbounds i32, ptr %B, i64 5
+  %add.ptr411 = getelementptr inbounds i8, ptr %B, i64 20
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %ref.tmp.i888)
-  %mBuffer.i889 = getelementptr inbounds %"class.eastl::fixed_list.54", ptr %list0402, i64 0, i32 1
+  %mBuffer.i889 = getelementptr inbounds i8, ptr %list0402, i64 72
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp.i888, i8 0, i64 32, i1 false)
   invoke void @_ZN5eastl15fixed_pool_base4initEPvmmmm(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp.i888, ptr noundef nonnull %mBuffer.i889, i64 noundef 768, i64 noundef 24, i64 noundef 8, i64 noundef 0)
           to label %.noexc897 unwind label %lpad412
 
 .noexc897:                                        ; preds = %_ZN5eastl10fixed_listIiLm32ELb1ENS_9allocatorEEC2IPKiEET_S6_.exit
-  %mpPoolBegin.i.i.i890 = getelementptr inbounds %"class.eastl::fixed_pool_with_overflow", ptr %ref.tmp.i888, i64 0, i32 2
+  %mpPoolBegin.i.i.i890 = getelementptr inbounds i8, ptr %ref.tmp.i888, i64 40
   store ptr %mBuffer.i889, ptr %mpPoolBegin.i.i.i890, align 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %list0402, i8 0, i64 16, i1 false)
-  %mSecond.i.i.i.i.i891 = getelementptr inbounds %"class.eastl::compressed_pair_imp.58", ptr %list0402, i64 0, i32 1
-  %mpNext.i.i.i.i.i.i892 = getelementptr inbounds %"struct.eastl::fixed_pool_base", ptr %ref.tmp.i888, i64 0, i32 1
+  %mSecond.i.i.i.i.i891 = getelementptr inbounds i8, ptr %list0402, i64 16
+  %mpNext.i.i.i.i.i.i892 = getelementptr inbounds i8, ptr %ref.tmp.i888, i64 8
   %383 = load ptr, ptr %mpNext.i.i.i.i.i.i892, align 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %mSecond.i.i.i.i.i891, i8 0, i64 32, i1 false)
   invoke void @_ZN5eastl15fixed_pool_base4initEPvmmmm(ptr noundef nonnull align 8 dereferenceable(32) %mSecond.i.i.i.i.i891, ptr noundef %383, i64 noundef 768, i64 noundef 24, i64 noundef 8, i64 noundef 0)
           to label %.noexc898 unwind label %lpad412
 
 .noexc898:                                        ; preds = %.noexc897
-  %mpPoolBegin.i.i.i.i.i.i.i893 = getelementptr inbounds %"class.eastl::compressed_pair_imp.58", ptr %list0402, i64 0, i32 1, i32 0, i32 2
+  %mpPoolBegin.i.i.i.i.i.i.i893 = getelementptr inbounds i8, ptr %list0402, i64 56
   store ptr %383, ptr %mpPoolBegin.i.i.i.i.i.i.i893, align 8
-  %mSize.i.i.i894 = getelementptr inbounds %"class.eastl::ListBase.56", ptr %list0402, i64 0, i32 1
+  %mSize.i.i.i894 = getelementptr inbounds i8, ptr %list0402, i64 64
   store i64 0, ptr %mSize.i.i.i894, align 8
   store ptr %list0402, ptr %list0402, align 8
-  %mpPrev.i.i.i.i895 = getelementptr inbounds %"struct.eastl::ListNodeBase", ptr %list0402, i64 0, i32 1
+  %mpPrev.i.i.i.i895 = getelementptr inbounds i8, ptr %list0402, i64 8
   store ptr %list0402, ptr %mpPrev.i.i.i.i895, align 8
   invoke void @_ZN5eastl4listIiNS_20fixed_node_allocatorILm24ELm32ELm8ELm0ELb1ENS_9allocatorEEEE8DoAssignIPKiEEvT_S8_NS_17integral_constantIbLb0EEE(ptr noundef nonnull align 8 dereferenceable(72) %list0402, ptr noundef nonnull %B, ptr noundef nonnull %add.ptr411)
           to label %invoke.cont413 unwind label %lpad.i896
@@ -4699,31 +4695,31 @@ lpad.i896:                                        ; preds = %.noexc898
 
 invoke.cont413:                                   ; preds = %.noexc898
   call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %ref.tmp.i888)
-  %add.ptr416 = getelementptr inbounds i32, ptr %C, i64 5
+  %add.ptr416 = getelementptr inbounds i8, ptr %C, i64 20
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %ref.tmp.i900)
-  %mBuffer.i901 = getelementptr inbounds %"class.eastl::fixed_list.54", ptr %list0403, i64 0, i32 1
+  %mBuffer.i901 = getelementptr inbounds i8, ptr %list0403, i64 72
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp.i900, i8 0, i64 32, i1 false)
   invoke void @_ZN5eastl15fixed_pool_base4initEPvmmmm(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp.i900, ptr noundef nonnull %mBuffer.i901, i64 noundef 768, i64 noundef 24, i64 noundef 8, i64 noundef 0)
           to label %.noexc909 unwind label %lpad417
 
 .noexc909:                                        ; preds = %invoke.cont413
-  %mpPoolBegin.i.i.i902 = getelementptr inbounds %"class.eastl::fixed_pool_with_overflow", ptr %ref.tmp.i900, i64 0, i32 2
+  %mpPoolBegin.i.i.i902 = getelementptr inbounds i8, ptr %ref.tmp.i900, i64 40
   store ptr %mBuffer.i901, ptr %mpPoolBegin.i.i.i902, align 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %list0403, i8 0, i64 16, i1 false)
-  %mSecond.i.i.i.i.i903 = getelementptr inbounds %"class.eastl::compressed_pair_imp.58", ptr %list0403, i64 0, i32 1
-  %mpNext.i.i.i.i.i.i904 = getelementptr inbounds %"struct.eastl::fixed_pool_base", ptr %ref.tmp.i900, i64 0, i32 1
+  %mSecond.i.i.i.i.i903 = getelementptr inbounds i8, ptr %list0403, i64 16
+  %mpNext.i.i.i.i.i.i904 = getelementptr inbounds i8, ptr %ref.tmp.i900, i64 8
   %385 = load ptr, ptr %mpNext.i.i.i.i.i.i904, align 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %mSecond.i.i.i.i.i903, i8 0, i64 32, i1 false)
   invoke void @_ZN5eastl15fixed_pool_base4initEPvmmmm(ptr noundef nonnull align 8 dereferenceable(32) %mSecond.i.i.i.i.i903, ptr noundef %385, i64 noundef 768, i64 noundef 24, i64 noundef 8, i64 noundef 0)
           to label %.noexc910 unwind label %lpad417
 
 .noexc910:                                        ; preds = %.noexc909
-  %mpPoolBegin.i.i.i.i.i.i.i905 = getelementptr inbounds %"class.eastl::compressed_pair_imp.58", ptr %list0403, i64 0, i32 1, i32 0, i32 2
+  %mpPoolBegin.i.i.i.i.i.i.i905 = getelementptr inbounds i8, ptr %list0403, i64 56
   store ptr %385, ptr %mpPoolBegin.i.i.i.i.i.i.i905, align 8
-  %mSize.i.i.i906 = getelementptr inbounds %"class.eastl::ListBase.56", ptr %list0403, i64 0, i32 1
+  %mSize.i.i.i906 = getelementptr inbounds i8, ptr %list0403, i64 64
   store i64 0, ptr %mSize.i.i.i906, align 8
   store ptr %list0403, ptr %list0403, align 8
-  %mpPrev.i.i.i.i907 = getelementptr inbounds %"struct.eastl::ListNodeBase", ptr %list0403, i64 0, i32 1
+  %mpPrev.i.i.i.i907 = getelementptr inbounds i8, ptr %list0403, i64 8
   store ptr %list0403, ptr %mpPrev.i.i.i.i907, align 8
   invoke void @_ZN5eastl4listIiNS_20fixed_node_allocatorILm24ELm32ELm8ELm0ELb1ENS_9allocatorEEEE8DoAssignIPKiEEvT_S8_NS_17integral_constantIbLb0EEE(ptr noundef nonnull align 8 dereferenceable(72) %list0403, ptr noundef nonnull %C, ptr noundef nonnull %add.ptr416)
           to label %invoke.cont418 unwind label %lpad.i908
@@ -4736,31 +4732,31 @@ lpad.i908:                                        ; preds = %.noexc910
 
 invoke.cont418:                                   ; preds = %.noexc910
   call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %ref.tmp.i900)
-  %add.ptr421 = getelementptr inbounds i32, ptr %D, i64 11
+  %add.ptr421 = getelementptr inbounds i8, ptr %D, i64 44
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %ref.tmp.i913)
-  %mBuffer.i914 = getelementptr inbounds %"class.eastl::fixed_list.54", ptr %list0404, i64 0, i32 1
+  %mBuffer.i914 = getelementptr inbounds i8, ptr %list0404, i64 72
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp.i913, i8 0, i64 32, i1 false)
   invoke void @_ZN5eastl15fixed_pool_base4initEPvmmmm(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp.i913, ptr noundef nonnull %mBuffer.i914, i64 noundef 768, i64 noundef 24, i64 noundef 8, i64 noundef 0)
           to label %.noexc922 unwind label %lpad422
 
 .noexc922:                                        ; preds = %invoke.cont418
-  %mpPoolBegin.i.i.i915 = getelementptr inbounds %"class.eastl::fixed_pool_with_overflow", ptr %ref.tmp.i913, i64 0, i32 2
+  %mpPoolBegin.i.i.i915 = getelementptr inbounds i8, ptr %ref.tmp.i913, i64 40
   store ptr %mBuffer.i914, ptr %mpPoolBegin.i.i.i915, align 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %list0404, i8 0, i64 16, i1 false)
-  %mSecond.i.i.i.i.i916 = getelementptr inbounds %"class.eastl::compressed_pair_imp.58", ptr %list0404, i64 0, i32 1
-  %mpNext.i.i.i.i.i.i917 = getelementptr inbounds %"struct.eastl::fixed_pool_base", ptr %ref.tmp.i913, i64 0, i32 1
+  %mSecond.i.i.i.i.i916 = getelementptr inbounds i8, ptr %list0404, i64 16
+  %mpNext.i.i.i.i.i.i917 = getelementptr inbounds i8, ptr %ref.tmp.i913, i64 8
   %387 = load ptr, ptr %mpNext.i.i.i.i.i.i917, align 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %mSecond.i.i.i.i.i916, i8 0, i64 32, i1 false)
   invoke void @_ZN5eastl15fixed_pool_base4initEPvmmmm(ptr noundef nonnull align 8 dereferenceable(32) %mSecond.i.i.i.i.i916, ptr noundef %387, i64 noundef 768, i64 noundef 24, i64 noundef 8, i64 noundef 0)
           to label %.noexc923 unwind label %lpad422
 
 .noexc923:                                        ; preds = %.noexc922
-  %mpPoolBegin.i.i.i.i.i.i.i918 = getelementptr inbounds %"class.eastl::compressed_pair_imp.58", ptr %list0404, i64 0, i32 1, i32 0, i32 2
+  %mpPoolBegin.i.i.i.i.i.i.i918 = getelementptr inbounds i8, ptr %list0404, i64 56
   store ptr %387, ptr %mpPoolBegin.i.i.i.i.i.i.i918, align 8
-  %mSize.i.i.i919 = getelementptr inbounds %"class.eastl::ListBase.56", ptr %list0404, i64 0, i32 1
+  %mSize.i.i.i919 = getelementptr inbounds i8, ptr %list0404, i64 64
   store i64 0, ptr %mSize.i.i.i919, align 8
   store ptr %list0404, ptr %list0404, align 8
-  %mpPrev.i.i.i.i920 = getelementptr inbounds %"struct.eastl::ListNodeBase", ptr %list0404, i64 0, i32 1
+  %mpPrev.i.i.i.i920 = getelementptr inbounds i8, ptr %list0404, i64 8
   store ptr %list0404, ptr %mpPrev.i.i.i.i920, align 8
   invoke void @_ZN5eastl4listIiNS_20fixed_node_allocatorILm24ELm32ELm8ELm0ELb1ENS_9allocatorEEEE8DoAssignIPKiEEvT_S8_NS_17integral_constantIbLb0EEE(ptr noundef nonnull align 8 dereferenceable(72) %list0404, ptr noundef nonnull %D, ptr noundef nonnull %add.ptr421)
           to label %invoke.cont423 unwind label %lpad.i921
@@ -4774,29 +4770,29 @@ lpad.i921:                                        ; preds = %.noexc923
 invoke.cont423:                                   ; preds = %.noexc923
   call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %ref.tmp.i913)
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %ref.tmp.i926)
-  %mBuffer.i927 = getelementptr inbounds %"class.eastl::fixed_list.54", ptr %list0405, i64 0, i32 1
+  %mBuffer.i927 = getelementptr inbounds i8, ptr %list0405, i64 72
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp.i926, i8 0, i64 32, i1 false)
   invoke void @_ZN5eastl15fixed_pool_base4initEPvmmmm(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp.i926, ptr noundef nonnull %mBuffer.i927, i64 noundef 768, i64 noundef 24, i64 noundef 8, i64 noundef 0)
           to label %.noexc935 unwind label %lpad427
 
 .noexc935:                                        ; preds = %invoke.cont423
-  %mpPoolBegin.i.i.i928 = getelementptr inbounds %"class.eastl::fixed_pool_with_overflow", ptr %ref.tmp.i926, i64 0, i32 2
+  %mpPoolBegin.i.i.i928 = getelementptr inbounds i8, ptr %ref.tmp.i926, i64 40
   store ptr %mBuffer.i927, ptr %mpPoolBegin.i.i.i928, align 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %list0405, i8 0, i64 16, i1 false)
-  %mSecond.i.i.i.i.i929 = getelementptr inbounds %"class.eastl::compressed_pair_imp.58", ptr %list0405, i64 0, i32 1
-  %mpNext.i.i.i.i.i.i930 = getelementptr inbounds %"struct.eastl::fixed_pool_base", ptr %ref.tmp.i926, i64 0, i32 1
+  %mSecond.i.i.i.i.i929 = getelementptr inbounds i8, ptr %list0405, i64 16
+  %mpNext.i.i.i.i.i.i930 = getelementptr inbounds i8, ptr %ref.tmp.i926, i64 8
   %389 = load ptr, ptr %mpNext.i.i.i.i.i.i930, align 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %mSecond.i.i.i.i.i929, i8 0, i64 32, i1 false)
   invoke void @_ZN5eastl15fixed_pool_base4initEPvmmmm(ptr noundef nonnull align 8 dereferenceable(32) %mSecond.i.i.i.i.i929, ptr noundef %389, i64 noundef 768, i64 noundef 24, i64 noundef 8, i64 noundef 0)
           to label %.noexc936 unwind label %lpad427
 
 .noexc936:                                        ; preds = %.noexc935
-  %mpPoolBegin.i.i.i.i.i.i.i931 = getelementptr inbounds %"class.eastl::compressed_pair_imp.58", ptr %list0405, i64 0, i32 1, i32 0, i32 2
+  %mpPoolBegin.i.i.i.i.i.i.i931 = getelementptr inbounds i8, ptr %list0405, i64 56
   store ptr %389, ptr %mpPoolBegin.i.i.i.i.i.i.i931, align 8
-  %mSize.i.i.i932 = getelementptr inbounds %"class.eastl::ListBase.56", ptr %list0405, i64 0, i32 1
+  %mSize.i.i.i932 = getelementptr inbounds i8, ptr %list0405, i64 64
   store i64 0, ptr %mSize.i.i.i932, align 8
   store ptr %list0405, ptr %list0405, align 8
-  %mpPrev.i.i.i.i933 = getelementptr inbounds %"struct.eastl::ListNodeBase", ptr %list0405, i64 0, i32 1
+  %mpPrev.i.i.i.i933 = getelementptr inbounds i8, ptr %list0405, i64 8
   store ptr %list0405, ptr %mpPrev.i.i.i.i933, align 8
   invoke void @_ZN5eastl4listIiNS_20fixed_node_allocatorILm24ELm32ELm8ELm0ELb1ENS_9allocatorEEEE8DoAssignIPKiEEvT_S8_NS_17integral_constantIbLb0EEE(ptr noundef nonnull align 8 dereferenceable(72) %list0405, ptr noundef nonnull %A, ptr noundef nonnull %add.ptr)
           to label %invoke.cont428 unwind label %lpad.i934
@@ -4840,9 +4836,9 @@ while.cond.i943:                                  ; preds = %invoke.cont430, %la
 
 land.rhs.i:                                       ; preds = %while.cond.i943
   %ib.sroa.0.0.i = load ptr, ptr %ib.sroa.0.0.in.i, align 8
-  %mValue.i.i = getelementptr inbounds %"struct.eastl::ListNode", ptr %ia.sroa.0.0.i, i64 0, i32 1
+  %mValue.i.i = getelementptr inbounds i8, ptr %ia.sroa.0.0.i, i64 16
   %395 = load i32, ptr %mValue.i.i, align 4
-  %mValue.i5.i = getelementptr inbounds %"struct.eastl::ListNode", ptr %ib.sroa.0.0.i, i64 0, i32 1
+  %mValue.i5.i = getelementptr inbounds i8, ptr %ib.sroa.0.0.i, i64 16
   %396 = load i32, ptr %mValue.i5.i, align 4
   %cmp10.i = icmp eq i32 %395, %396
   br i1 %cmp10.i, label %while.cond.i943, label %while.end.i944, !llvm.loop !154
@@ -4868,8 +4864,8 @@ invoke.cont433:                                   ; preds = %_ZN5eastleqIiNS_20f
 while.body.i:                                     ; preds = %invoke.cont433, %if.end.i
   %first.sroa.0.025.i = phi ptr [ %first.sroa.0.1.i, %if.end.i ], [ %397, %invoke.cont433 ]
   %firstX.sroa.0.024.i = phi ptr [ %firstX.sroa.0.1.i, %if.end.i ], [ %398, %invoke.cont433 ]
-  %mValue.i.i947 = getelementptr inbounds %"struct.eastl::ListNode", ptr %firstX.sroa.0.024.i, i64 0, i32 1
-  %mValue.i6.i = getelementptr inbounds %"struct.eastl::ListNode", ptr %first.sroa.0.025.i, i64 0, i32 1
+  %mValue.i.i947 = getelementptr inbounds i8, ptr %firstX.sroa.0.024.i, i64 16
+  %mValue.i6.i = getelementptr inbounds i8, ptr %first.sroa.0.025.i, i64 16
   %399 = load i32, ptr %mValue.i.i947, align 4
   %400 = load i32, ptr %mValue.i6.i, align 4
   %cmp.i7.i = icmp slt i32 %399, %400
@@ -4997,7 +4993,7 @@ invoke.cont456:                                   ; preds = %_ZNK5eastl4listIiNS
   br i1 %cmp.not3.i.i.i.i998, label %_ZN5eastl10fixed_listIiLm32ELb1ENS_9allocatorEED2Ev.exit, label %while.body.lr.ph.i.i.i.i999
 
 while.body.lr.ph.i.i.i.i999:                      ; preds = %invoke.cont456
-  %mpCapacity.i.i.i.i.i.i1001 = getelementptr inbounds %"class.eastl::compressed_pair_imp.58", ptr %list0405, i64 0, i32 1, i32 0, i32 0, i32 2
+  %mpCapacity.i.i.i.i.i.i1001 = getelementptr inbounds i8, ptr %list0405, i64 32
   br label %while.body.i.i.i.i1003
 
 while.body.i.i.i.i1003:                           ; preds = %_ZN5eastl20fixed_node_allocatorILm24ELm32ELm8ELm0ELb1ENS_9allocatorEE10deallocateEPvm.exit.i.i.i.i, %while.body.lr.ph.i.i.i.i999
@@ -5030,7 +5026,7 @@ _ZN5eastl10fixed_listIiLm32ELb1ENS_9allocatorEED2Ev.exit: ; preds = %_ZN5eastl20
   br i1 %cmp.not3.i.i.i.i1011, label %_ZN5eastl10fixed_listIiLm32ELb1ENS_9allocatorEED2Ev.exit1025, label %while.body.lr.ph.i.i.i.i1012
 
 while.body.lr.ph.i.i.i.i1012:                     ; preds = %_ZN5eastl10fixed_listIiLm32ELb1ENS_9allocatorEED2Ev.exit
-  %mpCapacity.i.i.i.i.i.i1014 = getelementptr inbounds %"class.eastl::compressed_pair_imp.58", ptr %list0404, i64 0, i32 1, i32 0, i32 0, i32 2
+  %mpCapacity.i.i.i.i.i.i1014 = getelementptr inbounds i8, ptr %list0404, i64 32
   br label %while.body.i.i.i.i1016
 
 while.body.i.i.i.i1016:                           ; preds = %_ZN5eastl20fixed_node_allocatorILm24ELm32ELm8ELm0ELb1ENS_9allocatorEE10deallocateEPvm.exit.i.i.i.i1022, %while.body.lr.ph.i.i.i.i1012
@@ -5063,7 +5059,7 @@ _ZN5eastl10fixed_listIiLm32ELb1ENS_9allocatorEED2Ev.exit1025: ; preds = %_ZN5eas
   br i1 %cmp.not3.i.i.i.i1026, label %_ZN5eastl10fixed_listIiLm32ELb1ENS_9allocatorEED2Ev.exit1040, label %while.body.lr.ph.i.i.i.i1027
 
 while.body.lr.ph.i.i.i.i1027:                     ; preds = %_ZN5eastl10fixed_listIiLm32ELb1ENS_9allocatorEED2Ev.exit1025
-  %mpCapacity.i.i.i.i.i.i1029 = getelementptr inbounds %"class.eastl::compressed_pair_imp.58", ptr %list0403, i64 0, i32 1, i32 0, i32 0, i32 2
+  %mpCapacity.i.i.i.i.i.i1029 = getelementptr inbounds i8, ptr %list0403, i64 32
   br label %while.body.i.i.i.i1031
 
 while.body.i.i.i.i1031:                           ; preds = %_ZN5eastl20fixed_node_allocatorILm24ELm32ELm8ELm0ELb1ENS_9allocatorEE10deallocateEPvm.exit.i.i.i.i1037, %while.body.lr.ph.i.i.i.i1027
@@ -5096,7 +5092,7 @@ _ZN5eastl10fixed_listIiLm32ELb1ENS_9allocatorEED2Ev.exit1040: ; preds = %_ZN5eas
   br i1 %cmp.not3.i.i.i.i1041, label %_ZN5eastl10fixed_listIiLm32ELb1ENS_9allocatorEED2Ev.exit1055, label %while.body.lr.ph.i.i.i.i1042
 
 while.body.lr.ph.i.i.i.i1042:                     ; preds = %_ZN5eastl10fixed_listIiLm32ELb1ENS_9allocatorEED2Ev.exit1040
-  %mpCapacity.i.i.i.i.i.i1044 = getelementptr inbounds %"class.eastl::compressed_pair_imp.58", ptr %list0402, i64 0, i32 1, i32 0, i32 0, i32 2
+  %mpCapacity.i.i.i.i.i.i1044 = getelementptr inbounds i8, ptr %list0402, i64 32
   br label %while.body.i.i.i.i1046
 
 while.body.i.i.i.i1046:                           ; preds = %_ZN5eastl20fixed_node_allocatorILm24ELm32ELm8ELm0ELb1ENS_9allocatorEE10deallocateEPvm.exit.i.i.i.i1052, %while.body.lr.ph.i.i.i.i1042
@@ -5129,7 +5125,7 @@ _ZN5eastl10fixed_listIiLm32ELb1ENS_9allocatorEED2Ev.exit1055: ; preds = %_ZN5eas
   br i1 %cmp.not3.i.i.i.i1056, label %_ZN5eastl10fixed_listIiLm32ELb1ENS_9allocatorEED2Ev.exit1070, label %while.body.lr.ph.i.i.i.i1057
 
 while.body.lr.ph.i.i.i.i1057:                     ; preds = %_ZN5eastl10fixed_listIiLm32ELb1ENS_9allocatorEED2Ev.exit1055
-  %mpCapacity.i.i.i.i.i.i1059 = getelementptr inbounds %"class.eastl::compressed_pair_imp.58", ptr %list0401, i64 0, i32 1, i32 0, i32 0, i32 2
+  %mpCapacity.i.i.i.i.i.i1059 = getelementptr inbounds i8, ptr %list0401, i64 32
   br label %while.body.i.i.i.i1061
 
 while.body.i.i.i.i1061:                           ; preds = %_ZN5eastl20fixed_node_allocatorILm24ELm32ELm8ELm0ELb1ENS_9allocatorEE10deallocateEPvm.exit.i.i.i.i1067, %while.body.lr.ph.i.i.i.i1057
@@ -5159,23 +5155,23 @@ _ZN5eastl20fixed_node_allocatorILm24ELm32ELm8ELm0ELb1ENS_9allocatorEE10deallocat
 _ZN5eastl10fixed_listIiLm32ELb1ENS_9allocatorEED2Ev.exit1070: ; preds = %_ZN5eastl20fixed_node_allocatorILm24ELm32ELm8ELm0ELb1ENS_9allocatorEE10deallocateEPvm.exit.i.i.i.i1067, %_ZN5eastl10fixed_listIiLm32ELb1ENS_9allocatorEED2Ev.exit1055
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(40) %A461, ptr noundef nonnull align 16 dereferenceable(40) @__const._Z13TestFixedListv.A.29, i64 40, i1 false)
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %ref.tmp.i1071)
-  %mBuffer.i1072 = getelementptr inbounds %"class.eastl::fixed_list.54", ptr %listEmpty, i64 0, i32 1
+  %mBuffer.i1072 = getelementptr inbounds i8, ptr %listEmpty, i64 72
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp.i1071, i8 0, i64 32, i1 false)
   call void @_ZN5eastl15fixed_pool_base4initEPvmmmm(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp.i1071, ptr noundef nonnull %mBuffer.i1072, i64 noundef 768, i64 noundef 24, i64 noundef 8, i64 noundef 0)
-  %mpPoolBegin.i.i.i1073 = getelementptr inbounds %"class.eastl::fixed_pool_with_overflow", ptr %ref.tmp.i1071, i64 0, i32 2
+  %mpPoolBegin.i.i.i1073 = getelementptr inbounds i8, ptr %ref.tmp.i1071, i64 40
   store ptr %mBuffer.i1072, ptr %mpPoolBegin.i.i.i1073, align 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %listEmpty, i8 0, i64 16, i1 false)
-  %mSecond.i.i.i.i.i1074 = getelementptr inbounds %"class.eastl::compressed_pair_imp.58", ptr %listEmpty, i64 0, i32 1
-  %mpNext.i.i.i.i.i.i1075 = getelementptr inbounds %"struct.eastl::fixed_pool_base", ptr %ref.tmp.i1071, i64 0, i32 1
+  %mSecond.i.i.i.i.i1074 = getelementptr inbounds i8, ptr %listEmpty, i64 16
+  %mpNext.i.i.i.i.i.i1075 = getelementptr inbounds i8, ptr %ref.tmp.i1071, i64 8
   %435 = load ptr, ptr %mpNext.i.i.i.i.i.i1075, align 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %mSecond.i.i.i.i.i1074, i8 0, i64 32, i1 false)
   call void @_ZN5eastl15fixed_pool_base4initEPvmmmm(ptr noundef nonnull align 8 dereferenceable(32) %mSecond.i.i.i.i.i1074, ptr noundef %435, i64 noundef 768, i64 noundef 24, i64 noundef 8, i64 noundef 0)
-  %mpPoolBegin.i.i.i.i.i.i.i1076 = getelementptr inbounds %"class.eastl::compressed_pair_imp.58", ptr %listEmpty, i64 0, i32 1, i32 0, i32 2
+  %mpPoolBegin.i.i.i.i.i.i.i1076 = getelementptr inbounds i8, ptr %listEmpty, i64 56
   store ptr %435, ptr %mpPoolBegin.i.i.i.i.i.i.i1076, align 8
-  %mSize.i.i.i1077 = getelementptr inbounds %"class.eastl::ListBase.56", ptr %listEmpty, i64 0, i32 1
+  %mSize.i.i.i1077 = getelementptr inbounds i8, ptr %listEmpty, i64 64
   store i64 0, ptr %mSize.i.i.i1077, align 8
   store ptr %listEmpty, ptr %listEmpty, align 8
-  %mpPrev.i.i.i.i1078 = getelementptr inbounds %"struct.eastl::ListNodeBase", ptr %listEmpty, i64 0, i32 1
+  %mpPrev.i.i.i.i1078 = getelementptr inbounds i8, ptr %listEmpty, i64 8
   store ptr %listEmpty, ptr %mpPrev.i.i.i.i1078, align 8
   call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %ref.tmp.i1071)
   store ptr %listEmpty, ptr %agg.tmp462, align 8, !alias.scope !170
@@ -5217,31 +5213,31 @@ invoke.cont472:                                   ; preds = %invoke.cont469
           to label %invoke.cont474 unwind label %lpad464
 
 invoke.cont474:                                   ; preds = %invoke.cont472
-  %add.ptr478 = getelementptr inbounds i32, ptr %A461, i64 1
+  %add.ptr478 = getelementptr inbounds i8, ptr %A461, i64 4
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %ref.tmp.i1086)
-  %mBuffer.i1087 = getelementptr inbounds %"class.eastl::fixed_list.54", ptr %list1, i64 0, i32 1
+  %mBuffer.i1087 = getelementptr inbounds i8, ptr %list1, i64 72
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp.i1086, i8 0, i64 32, i1 false)
   invoke void @_ZN5eastl15fixed_pool_base4initEPvmmmm(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp.i1086, ptr noundef nonnull %mBuffer.i1087, i64 noundef 768, i64 noundef 24, i64 noundef 8, i64 noundef 0)
           to label %.noexc1095 unwind label %lpad464
 
 .noexc1095:                                       ; preds = %invoke.cont474
-  %mpPoolBegin.i.i.i1088 = getelementptr inbounds %"class.eastl::fixed_pool_with_overflow", ptr %ref.tmp.i1086, i64 0, i32 2
+  %mpPoolBegin.i.i.i1088 = getelementptr inbounds i8, ptr %ref.tmp.i1086, i64 40
   store ptr %mBuffer.i1087, ptr %mpPoolBegin.i.i.i1088, align 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %list1, i8 0, i64 16, i1 false)
-  %mSecond.i.i.i.i.i1089 = getelementptr inbounds %"class.eastl::compressed_pair_imp.58", ptr %list1, i64 0, i32 1
-  %mpNext.i.i.i.i.i.i1090 = getelementptr inbounds %"struct.eastl::fixed_pool_base", ptr %ref.tmp.i1086, i64 0, i32 1
+  %mSecond.i.i.i.i.i1089 = getelementptr inbounds i8, ptr %list1, i64 16
+  %mpNext.i.i.i.i.i.i1090 = getelementptr inbounds i8, ptr %ref.tmp.i1086, i64 8
   %439 = load ptr, ptr %mpNext.i.i.i.i.i.i1090, align 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %mSecond.i.i.i.i.i1089, i8 0, i64 32, i1 false)
   invoke void @_ZN5eastl15fixed_pool_base4initEPvmmmm(ptr noundef nonnull align 8 dereferenceable(32) %mSecond.i.i.i.i.i1089, ptr noundef %439, i64 noundef 768, i64 noundef 24, i64 noundef 8, i64 noundef 0)
           to label %.noexc1096 unwind label %lpad464
 
 .noexc1096:                                       ; preds = %.noexc1095
-  %mpPoolBegin.i.i.i.i.i.i.i1091 = getelementptr inbounds %"class.eastl::compressed_pair_imp.58", ptr %list1, i64 0, i32 1, i32 0, i32 2
+  %mpPoolBegin.i.i.i.i.i.i.i1091 = getelementptr inbounds i8, ptr %list1, i64 56
   store ptr %439, ptr %mpPoolBegin.i.i.i.i.i.i.i1091, align 8
-  %mSize.i.i.i1092 = getelementptr inbounds %"class.eastl::ListBase.56", ptr %list1, i64 0, i32 1
+  %mSize.i.i.i1092 = getelementptr inbounds i8, ptr %list1, i64 64
   store i64 0, ptr %mSize.i.i.i1092, align 8
   store ptr %list1, ptr %list1, align 8
-  %mpPrev.i.i.i.i1093 = getelementptr inbounds %"struct.eastl::ListNodeBase", ptr %list1, i64 0, i32 1
+  %mpPrev.i.i.i.i1093 = getelementptr inbounds i8, ptr %list1, i64 8
   store ptr %list1, ptr %mpPrev.i.i.i.i1093, align 8
   invoke void @_ZN5eastl4listIiNS_20fixed_node_allocatorILm24ELm32ELm8ELm0ELb1ENS_9allocatorEEEE8DoAssignIPKiEEvT_S8_NS_17integral_constantIbLb0EEE(ptr noundef nonnull align 8 dereferenceable(72) %list1, ptr noundef nonnull %A461, ptr noundef nonnull %add.ptr478)
           to label %invoke.cont479 unwind label %lpad.i1094
@@ -5295,31 +5291,31 @@ invoke.cont490:                                   ; preds = %invoke.cont487
           to label %invoke.cont492 unwind label %lpad482
 
 invoke.cont492:                                   ; preds = %invoke.cont490
-  %add.ptr496 = getelementptr inbounds i32, ptr %A461, i64 4
+  %add.ptr496 = getelementptr inbounds i8, ptr %A461, i64 16
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %ref.tmp.i1106)
-  %mBuffer.i1107 = getelementptr inbounds %"class.eastl::fixed_list.54", ptr %list4, i64 0, i32 1
+  %mBuffer.i1107 = getelementptr inbounds i8, ptr %list4, i64 72
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp.i1106, i8 0, i64 32, i1 false)
   invoke void @_ZN5eastl15fixed_pool_base4initEPvmmmm(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp.i1106, ptr noundef nonnull %mBuffer.i1107, i64 noundef 768, i64 noundef 24, i64 noundef 8, i64 noundef 0)
           to label %.noexc1115 unwind label %lpad482
 
 .noexc1115:                                       ; preds = %invoke.cont492
-  %mpPoolBegin.i.i.i1108 = getelementptr inbounds %"class.eastl::fixed_pool_with_overflow", ptr %ref.tmp.i1106, i64 0, i32 2
+  %mpPoolBegin.i.i.i1108 = getelementptr inbounds i8, ptr %ref.tmp.i1106, i64 40
   store ptr %mBuffer.i1107, ptr %mpPoolBegin.i.i.i1108, align 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %list4, i8 0, i64 16, i1 false)
-  %mSecond.i.i.i.i.i1109 = getelementptr inbounds %"class.eastl::compressed_pair_imp.58", ptr %list4, i64 0, i32 1
-  %mpNext.i.i.i.i.i.i1110 = getelementptr inbounds %"struct.eastl::fixed_pool_base", ptr %ref.tmp.i1106, i64 0, i32 1
+  %mSecond.i.i.i.i.i1109 = getelementptr inbounds i8, ptr %list4, i64 16
+  %mpNext.i.i.i.i.i.i1110 = getelementptr inbounds i8, ptr %ref.tmp.i1106, i64 8
   %445 = load ptr, ptr %mpNext.i.i.i.i.i.i1110, align 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %mSecond.i.i.i.i.i1109, i8 0, i64 32, i1 false)
   invoke void @_ZN5eastl15fixed_pool_base4initEPvmmmm(ptr noundef nonnull align 8 dereferenceable(32) %mSecond.i.i.i.i.i1109, ptr noundef %445, i64 noundef 768, i64 noundef 24, i64 noundef 8, i64 noundef 0)
           to label %.noexc1116 unwind label %lpad482
 
 .noexc1116:                                       ; preds = %.noexc1115
-  %mpPoolBegin.i.i.i.i.i.i.i1111 = getelementptr inbounds %"class.eastl::compressed_pair_imp.58", ptr %list4, i64 0, i32 1, i32 0, i32 2
+  %mpPoolBegin.i.i.i.i.i.i.i1111 = getelementptr inbounds i8, ptr %list4, i64 56
   store ptr %445, ptr %mpPoolBegin.i.i.i.i.i.i.i1111, align 8
-  %mSize.i.i.i1112 = getelementptr inbounds %"class.eastl::ListBase.56", ptr %list4, i64 0, i32 1
+  %mSize.i.i.i1112 = getelementptr inbounds i8, ptr %list4, i64 64
   store i64 0, ptr %mSize.i.i.i1112, align 8
   store ptr %list4, ptr %list4, align 8
-  %mpPrev.i.i.i.i1113 = getelementptr inbounds %"struct.eastl::ListNodeBase", ptr %list4, i64 0, i32 1
+  %mpPrev.i.i.i.i1113 = getelementptr inbounds i8, ptr %list4, i64 8
   store ptr %list4, ptr %mpPrev.i.i.i.i1113, align 8
   invoke void @_ZN5eastl4listIiNS_20fixed_node_allocatorILm24ELm32ELm8ELm0ELb1ENS_9allocatorEEEE8DoAssignIPKiEEvT_S8_NS_17integral_constantIbLb0EEE(ptr noundef nonnull align 8 dereferenceable(72) %list4, ptr noundef nonnull %A461, ptr noundef nonnull %add.ptr496)
           to label %invoke.cont497 unwind label %lpad.i1114
@@ -5373,31 +5369,31 @@ invoke.cont508:                                   ; preds = %invoke.cont505
           to label %invoke.cont510 unwind label %lpad500
 
 invoke.cont510:                                   ; preds = %invoke.cont508
-  %add.ptr514 = getelementptr inbounds i32, ptr %A461, i64 10
+  %add.ptr514 = getelementptr inbounds i8, ptr %A461, i64 40
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %ref.tmp.i1126)
-  %mBuffer.i1127 = getelementptr inbounds %"class.eastl::fixed_list.54", ptr %listA, i64 0, i32 1
+  %mBuffer.i1127 = getelementptr inbounds i8, ptr %listA, i64 72
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp.i1126, i8 0, i64 32, i1 false)
   invoke void @_ZN5eastl15fixed_pool_base4initEPvmmmm(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp.i1126, ptr noundef nonnull %mBuffer.i1127, i64 noundef 768, i64 noundef 24, i64 noundef 8, i64 noundef 0)
           to label %.noexc1135 unwind label %lpad500
 
 .noexc1135:                                       ; preds = %invoke.cont510
-  %mpPoolBegin.i.i.i1128 = getelementptr inbounds %"class.eastl::fixed_pool_with_overflow", ptr %ref.tmp.i1126, i64 0, i32 2
+  %mpPoolBegin.i.i.i1128 = getelementptr inbounds i8, ptr %ref.tmp.i1126, i64 40
   store ptr %mBuffer.i1127, ptr %mpPoolBegin.i.i.i1128, align 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %listA, i8 0, i64 16, i1 false)
-  %mSecond.i.i.i.i.i1129 = getelementptr inbounds %"class.eastl::compressed_pair_imp.58", ptr %listA, i64 0, i32 1
-  %mpNext.i.i.i.i.i.i1130 = getelementptr inbounds %"struct.eastl::fixed_pool_base", ptr %ref.tmp.i1126, i64 0, i32 1
+  %mSecond.i.i.i.i.i1129 = getelementptr inbounds i8, ptr %listA, i64 16
+  %mpNext.i.i.i.i.i.i1130 = getelementptr inbounds i8, ptr %ref.tmp.i1126, i64 8
   %451 = load ptr, ptr %mpNext.i.i.i.i.i.i1130, align 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %mSecond.i.i.i.i.i1129, i8 0, i64 32, i1 false)
   invoke void @_ZN5eastl15fixed_pool_base4initEPvmmmm(ptr noundef nonnull align 8 dereferenceable(32) %mSecond.i.i.i.i.i1129, ptr noundef %451, i64 noundef 768, i64 noundef 24, i64 noundef 8, i64 noundef 0)
           to label %.noexc1136 unwind label %lpad500
 
 .noexc1136:                                       ; preds = %.noexc1135
-  %mpPoolBegin.i.i.i.i.i.i.i1131 = getelementptr inbounds %"class.eastl::compressed_pair_imp.58", ptr %listA, i64 0, i32 1, i32 0, i32 2
+  %mpPoolBegin.i.i.i.i.i.i.i1131 = getelementptr inbounds i8, ptr %listA, i64 56
   store ptr %451, ptr %mpPoolBegin.i.i.i.i.i.i.i1131, align 8
-  %mSize.i.i.i1132 = getelementptr inbounds %"class.eastl::ListBase.56", ptr %listA, i64 0, i32 1
+  %mSize.i.i.i1132 = getelementptr inbounds i8, ptr %listA, i64 64
   store i64 0, ptr %mSize.i.i.i1132, align 8
   store ptr %listA, ptr %listA, align 8
-  %mpPrev.i.i.i.i1133 = getelementptr inbounds %"struct.eastl::ListNodeBase", ptr %listA, i64 0, i32 1
+  %mpPrev.i.i.i.i1133 = getelementptr inbounds i8, ptr %listA, i64 8
   store ptr %listA, ptr %mpPrev.i.i.i.i1133, align 8
   invoke void @_ZN5eastl4listIiNS_20fixed_node_allocatorILm24ELm32ELm8ELm0ELb1ENS_9allocatorEEEE8DoAssignIPKiEEvT_S8_NS_17integral_constantIbLb0EEE(ptr noundef nonnull align 8 dereferenceable(72) %listA, ptr noundef nonnull %A461, ptr noundef nonnull %add.ptr514)
           to label %invoke.cont515 unwind label %lpad.i1134
@@ -5501,7 +5497,7 @@ invoke.cont546:                                   ; preds = %invoke.cont544
   br i1 %cmp.not3.i.i.i.i1154, label %_ZN5eastl10fixed_listIiLm32ELb1ENS_9allocatorEED2Ev.exit1168, label %while.body.lr.ph.i.i.i.i1155
 
 while.body.lr.ph.i.i.i.i1155:                     ; preds = %invoke.cont546
-  %mpCapacity.i.i.i.i.i.i1157 = getelementptr inbounds %"class.eastl::compressed_pair_imp.58", ptr %listA, i64 0, i32 1, i32 0, i32 0, i32 2
+  %mpCapacity.i.i.i.i.i.i1157 = getelementptr inbounds i8, ptr %listA, i64 32
   br label %while.body.i.i.i.i1159
 
 while.body.i.i.i.i1159:                           ; preds = %_ZN5eastl20fixed_node_allocatorILm24ELm32ELm8ELm0ELb1ENS_9allocatorEE10deallocateEPvm.exit.i.i.i.i1165, %while.body.lr.ph.i.i.i.i1155
@@ -5534,7 +5530,7 @@ _ZN5eastl10fixed_listIiLm32ELb1ENS_9allocatorEED2Ev.exit1168: ; preds = %_ZN5eas
   br i1 %cmp.not3.i.i.i.i1169, label %_ZN5eastl10fixed_listIiLm32ELb1ENS_9allocatorEED2Ev.exit1183, label %while.body.lr.ph.i.i.i.i1170
 
 while.body.lr.ph.i.i.i.i1170:                     ; preds = %_ZN5eastl10fixed_listIiLm32ELb1ENS_9allocatorEED2Ev.exit1168
-  %mpCapacity.i.i.i.i.i.i1172 = getelementptr inbounds %"class.eastl::compressed_pair_imp.58", ptr %list4, i64 0, i32 1, i32 0, i32 0, i32 2
+  %mpCapacity.i.i.i.i.i.i1172 = getelementptr inbounds i8, ptr %list4, i64 32
   br label %while.body.i.i.i.i1174
 
 while.body.i.i.i.i1174:                           ; preds = %_ZN5eastl20fixed_node_allocatorILm24ELm32ELm8ELm0ELb1ENS_9allocatorEE10deallocateEPvm.exit.i.i.i.i1180, %while.body.lr.ph.i.i.i.i1170
@@ -5567,7 +5563,7 @@ _ZN5eastl10fixed_listIiLm32ELb1ENS_9allocatorEED2Ev.exit1183: ; preds = %_ZN5eas
   br i1 %cmp.not3.i.i.i.i1184, label %_ZN5eastl10fixed_listIiLm32ELb1ENS_9allocatorEED2Ev.exit1198, label %while.body.lr.ph.i.i.i.i1185
 
 while.body.lr.ph.i.i.i.i1185:                     ; preds = %_ZN5eastl10fixed_listIiLm32ELb1ENS_9allocatorEED2Ev.exit1183
-  %mpCapacity.i.i.i.i.i.i1187 = getelementptr inbounds %"class.eastl::compressed_pair_imp.58", ptr %list1, i64 0, i32 1, i32 0, i32 0, i32 2
+  %mpCapacity.i.i.i.i.i.i1187 = getelementptr inbounds i8, ptr %list1, i64 32
   br label %while.body.i.i.i.i1189
 
 while.body.i.i.i.i1189:                           ; preds = %_ZN5eastl20fixed_node_allocatorILm24ELm32ELm8ELm0ELb1ENS_9allocatorEE10deallocateEPvm.exit.i.i.i.i1195, %while.body.lr.ph.i.i.i.i1185
@@ -5600,7 +5596,7 @@ _ZN5eastl10fixed_listIiLm32ELb1ENS_9allocatorEED2Ev.exit1198: ; preds = %_ZN5eas
   br i1 %cmp.not3.i.i.i.i1199, label %_ZN5eastl10fixed_listIiLm32ELb1ENS_9allocatorEED2Ev.exit1213, label %while.body.lr.ph.i.i.i.i1200
 
 while.body.lr.ph.i.i.i.i1200:                     ; preds = %_ZN5eastl10fixed_listIiLm32ELb1ENS_9allocatorEED2Ev.exit1198
-  %mpCapacity.i.i.i.i.i.i1202 = getelementptr inbounds %"class.eastl::compressed_pair_imp.58", ptr %listEmpty, i64 0, i32 1, i32 0, i32 0, i32 2
+  %mpCapacity.i.i.i.i.i.i1202 = getelementptr inbounds i8, ptr %listEmpty, i64 32
   br label %while.body.i.i.i.i1204
 
 while.body.i.i.i.i1204:                           ; preds = %_ZN5eastl20fixed_node_allocatorILm24ELm32ELm8ELm0ELb1ENS_9allocatorEE10deallocateEPvm.exit.i.i.i.i1210, %while.body.lr.ph.i.i.i.i1200
@@ -5630,25 +5626,25 @@ _ZN5eastl20fixed_node_allocatorILm24ELm32ELm8ELm0ELb1ENS_9allocatorEE10deallocat
 _ZN5eastl10fixed_listIiLm32ELb1ENS_9allocatorEED2Ev.exit1213: ; preds = %_ZN5eastl20fixed_node_allocatorILm24ELm32ELm8ELm0ELb1ENS_9allocatorEE10deallocateEPvm.exit.i.i.i.i1210, %_ZN5eastl10fixed_listIiLm32ELb1ENS_9allocatorEED2Ev.exit1198
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(32) %A553, ptr noundef nonnull align 16 dereferenceable(32) @__const._Z13TestFixedListv.B.48, i64 32, i1 false)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(32) %B554, ptr noundef nonnull align 16 dereferenceable(32) @__const._Z13TestFixedListv.B.48, i64 32, i1 false)
-  %add.ptr558 = getelementptr inbounds i32, ptr %A553, i64 8
+  %add.ptr558 = getelementptr inbounds i8, ptr %A553, i64 32
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %ref.tmp.i1214)
-  %mBuffer.i1215 = getelementptr inbounds %"class.eastl::fixed_list.54", ptr %listA555, i64 0, i32 1
+  %mBuffer.i1215 = getelementptr inbounds i8, ptr %listA555, i64 72
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp.i1214, i8 0, i64 32, i1 false)
   call void @_ZN5eastl15fixed_pool_base4initEPvmmmm(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp.i1214, ptr noundef nonnull %mBuffer.i1215, i64 noundef 768, i64 noundef 24, i64 noundef 8, i64 noundef 0)
-  %mpPoolBegin.i.i.i1216 = getelementptr inbounds %"class.eastl::fixed_pool_with_overflow", ptr %ref.tmp.i1214, i64 0, i32 2
+  %mpPoolBegin.i.i.i1216 = getelementptr inbounds i8, ptr %ref.tmp.i1214, i64 40
   store ptr %mBuffer.i1215, ptr %mpPoolBegin.i.i.i1216, align 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %listA555, i8 0, i64 16, i1 false)
-  %mSecond.i.i.i.i.i1217 = getelementptr inbounds %"class.eastl::compressed_pair_imp.58", ptr %listA555, i64 0, i32 1
-  %mpNext.i.i.i.i.i.i1218 = getelementptr inbounds %"struct.eastl::fixed_pool_base", ptr %ref.tmp.i1214, i64 0, i32 1
+  %mSecond.i.i.i.i.i1217 = getelementptr inbounds i8, ptr %listA555, i64 16
+  %mpNext.i.i.i.i.i.i1218 = getelementptr inbounds i8, ptr %ref.tmp.i1214, i64 8
   %481 = load ptr, ptr %mpNext.i.i.i.i.i.i1218, align 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %mSecond.i.i.i.i.i1217, i8 0, i64 32, i1 false)
   call void @_ZN5eastl15fixed_pool_base4initEPvmmmm(ptr noundef nonnull align 8 dereferenceable(32) %mSecond.i.i.i.i.i1217, ptr noundef %481, i64 noundef 768, i64 noundef 24, i64 noundef 8, i64 noundef 0)
-  %mpPoolBegin.i.i.i.i.i.i.i1219 = getelementptr inbounds %"class.eastl::compressed_pair_imp.58", ptr %listA555, i64 0, i32 1, i32 0, i32 2
+  %mpPoolBegin.i.i.i.i.i.i.i1219 = getelementptr inbounds i8, ptr %listA555, i64 56
   store ptr %481, ptr %mpPoolBegin.i.i.i.i.i.i.i1219, align 8
-  %mSize.i.i.i1220 = getelementptr inbounds %"class.eastl::ListBase.56", ptr %listA555, i64 0, i32 1
+  %mSize.i.i.i1220 = getelementptr inbounds i8, ptr %listA555, i64 64
   store i64 0, ptr %mSize.i.i.i1220, align 8
   store ptr %listA555, ptr %listA555, align 8
-  %mpPrev.i.i.i.i1221 = getelementptr inbounds %"struct.eastl::ListNodeBase", ptr %listA555, i64 0, i32 1
+  %mpPrev.i.i.i.i1221 = getelementptr inbounds i8, ptr %listA555, i64 8
   store ptr %listA555, ptr %mpPrev.i.i.i.i1221, align 8
   invoke void @_ZN5eastl4listIiNS_20fixed_node_allocatorILm24ELm32ELm8ELm0ELb1ENS_9allocatorEEEE8DoAssignIPKiEEvT_S8_NS_17integral_constantIbLb0EEE(ptr noundef nonnull align 8 dereferenceable(72) %listA555, ptr noundef nonnull %A553, ptr noundef nonnull %add.ptr558)
           to label %_ZN5eastl10fixed_listIiLm32ELb1ENS_9allocatorEEC2IPKiEET_S6_.exit1223 unwind label %lpad.i1222
@@ -5661,31 +5657,31 @@ lpad.i1222:                                       ; preds = %_ZN5eastl10fixed_li
 
 _ZN5eastl10fixed_listIiLm32ELb1ENS_9allocatorEEC2IPKiEET_S6_.exit1223: ; preds = %_ZN5eastl10fixed_listIiLm32ELb1ENS_9allocatorEED2Ev.exit1213
   call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %ref.tmp.i1214)
-  %add.ptr561 = getelementptr inbounds i32, ptr %B554, i64 8
+  %add.ptr561 = getelementptr inbounds i8, ptr %B554, i64 32
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %ref.tmp.i1224)
-  %mBuffer.i1225 = getelementptr inbounds %"class.eastl::fixed_list.54", ptr %listB, i64 0, i32 1
+  %mBuffer.i1225 = getelementptr inbounds i8, ptr %listB, i64 72
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp.i1224, i8 0, i64 32, i1 false)
   invoke void @_ZN5eastl15fixed_pool_base4initEPvmmmm(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp.i1224, ptr noundef nonnull %mBuffer.i1225, i64 noundef 768, i64 noundef 24, i64 noundef 8, i64 noundef 0)
           to label %.noexc1233 unwind label %lpad562
 
 .noexc1233:                                       ; preds = %_ZN5eastl10fixed_listIiLm32ELb1ENS_9allocatorEEC2IPKiEET_S6_.exit1223
-  %mpPoolBegin.i.i.i1226 = getelementptr inbounds %"class.eastl::fixed_pool_with_overflow", ptr %ref.tmp.i1224, i64 0, i32 2
+  %mpPoolBegin.i.i.i1226 = getelementptr inbounds i8, ptr %ref.tmp.i1224, i64 40
   store ptr %mBuffer.i1225, ptr %mpPoolBegin.i.i.i1226, align 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %listB, i8 0, i64 16, i1 false)
-  %mSecond.i.i.i.i.i1227 = getelementptr inbounds %"class.eastl::compressed_pair_imp.58", ptr %listB, i64 0, i32 1
-  %mpNext.i.i.i.i.i.i1228 = getelementptr inbounds %"struct.eastl::fixed_pool_base", ptr %ref.tmp.i1224, i64 0, i32 1
+  %mSecond.i.i.i.i.i1227 = getelementptr inbounds i8, ptr %listB, i64 16
+  %mpNext.i.i.i.i.i.i1228 = getelementptr inbounds i8, ptr %ref.tmp.i1224, i64 8
   %483 = load ptr, ptr %mpNext.i.i.i.i.i.i1228, align 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %mSecond.i.i.i.i.i1227, i8 0, i64 32, i1 false)
   invoke void @_ZN5eastl15fixed_pool_base4initEPvmmmm(ptr noundef nonnull align 8 dereferenceable(32) %mSecond.i.i.i.i.i1227, ptr noundef %483, i64 noundef 768, i64 noundef 24, i64 noundef 8, i64 noundef 0)
           to label %.noexc1234 unwind label %lpad562
 
 .noexc1234:                                       ; preds = %.noexc1233
-  %mpPoolBegin.i.i.i.i.i.i.i1229 = getelementptr inbounds %"class.eastl::compressed_pair_imp.58", ptr %listB, i64 0, i32 1, i32 0, i32 2
+  %mpPoolBegin.i.i.i.i.i.i.i1229 = getelementptr inbounds i8, ptr %listB, i64 56
   store ptr %483, ptr %mpPoolBegin.i.i.i.i.i.i.i1229, align 8
-  %mSize.i.i.i1230 = getelementptr inbounds %"class.eastl::ListBase.56", ptr %listB, i64 0, i32 1
+  %mSize.i.i.i1230 = getelementptr inbounds i8, ptr %listB, i64 64
   store i64 0, ptr %mSize.i.i.i1230, align 8
   store ptr %listB, ptr %listB, align 8
-  %mpPrev.i.i.i.i1231 = getelementptr inbounds %"struct.eastl::ListNodeBase", ptr %listB, i64 0, i32 1
+  %mpPrev.i.i.i.i1231 = getelementptr inbounds i8, ptr %listB, i64 8
   store ptr %listB, ptr %mpPrev.i.i.i.i1231, align 8
   invoke void @_ZN5eastl4listIiNS_20fixed_node_allocatorILm24ELm32ELm8ELm0ELb1ENS_9allocatorEEEE8DoAssignIPKiEEvT_S8_NS_17integral_constantIbLb0EEE(ptr noundef nonnull align 8 dereferenceable(72) %listB, ptr noundef nonnull %B554, ptr noundef nonnull %add.ptr561)
           to label %invoke.cont563 unwind label %lpad.i1232
@@ -5708,9 +5704,9 @@ invoke.cont563:                                   ; preds = %.noexc1234
 while.body.i1241:                                 ; preds = %invoke.cont563, %if.end.i1246
   %first.sroa.0.024.i = phi ptr [ %first.sroa.0.1.i1248, %if.end.i1246 ], [ %485, %invoke.cont563 ]
   %firstX.sroa.0.023.i = phi ptr [ %firstX.sroa.0.1.i1247, %if.end.i1246 ], [ %486, %invoke.cont563 ]
-  %mValue.i.i1242 = getelementptr inbounds %"struct.eastl::ListNode", ptr %firstX.sroa.0.023.i, i64 0, i32 1
+  %mValue.i.i1242 = getelementptr inbounds i8, ptr %firstX.sroa.0.023.i, i64 16
   %487 = load i32, ptr %mValue.i.i1242, align 4
-  %mValue.i6.i1243 = getelementptr inbounds %"struct.eastl::ListNode", ptr %first.sroa.0.024.i, i64 0, i32 1
+  %mValue.i6.i1243 = getelementptr inbounds i8, ptr %first.sroa.0.024.i, i64 16
   %488 = load i32, ptr %mValue.i6.i1243, align 4
   %cmp5.i1244 = icmp slt i32 %487, %488
   br i1 %cmp5.i1244, label %if.then6.i1252, label %if.else.i1245
@@ -5747,7 +5743,7 @@ invoke.cont565:                                   ; preds = %while.end.i1238, %i
   br i1 %cmp.not3.i.i.i.i1255, label %_ZN5eastl10fixed_listIiLm32ELb1ENS_9allocatorEED2Ev.exit1269, label %while.body.lr.ph.i.i.i.i1256
 
 while.body.lr.ph.i.i.i.i1256:                     ; preds = %invoke.cont565
-  %mpCapacity.i.i.i.i.i.i1258 = getelementptr inbounds %"class.eastl::compressed_pair_imp.58", ptr %listB, i64 0, i32 1, i32 0, i32 0, i32 2
+  %mpCapacity.i.i.i.i.i.i1258 = getelementptr inbounds i8, ptr %listB, i64 32
   br label %while.body.i.i.i.i1260
 
 while.body.i.i.i.i1260:                           ; preds = %_ZN5eastl20fixed_node_allocatorILm24ELm32ELm8ELm0ELb1ENS_9allocatorEE10deallocateEPvm.exit.i.i.i.i1266, %while.body.lr.ph.i.i.i.i1256
@@ -5780,7 +5776,7 @@ _ZN5eastl10fixed_listIiLm32ELb1ENS_9allocatorEED2Ev.exit1269: ; preds = %_ZN5eas
   br i1 %cmp.not3.i.i.i.i1270, label %_ZN5eastl10fixed_listIiLm32ELb1ENS_9allocatorEED2Ev.exit1284, label %while.body.lr.ph.i.i.i.i1271
 
 while.body.lr.ph.i.i.i.i1271:                     ; preds = %_ZN5eastl10fixed_listIiLm32ELb1ENS_9allocatorEED2Ev.exit1269
-  %mpCapacity.i.i.i.i.i.i1273 = getelementptr inbounds %"class.eastl::compressed_pair_imp.58", ptr %listA555, i64 0, i32 1, i32 0, i32 0, i32 2
+  %mpCapacity.i.i.i.i.i.i1273 = getelementptr inbounds i8, ptr %listA555, i64 32
   br label %while.body.i.i.i.i1275
 
 while.body.i.i.i.i1275:                           ; preds = %_ZN5eastl20fixed_node_allocatorILm24ELm32ELm8ELm0ELb1ENS_9allocatorEE10deallocateEPvm.exit.i.i.i.i1281, %while.body.lr.ph.i.i.i.i1271
@@ -5810,25 +5806,25 @@ _ZN5eastl20fixed_node_allocatorILm24ELm32ELm8ELm0ELb1ENS_9allocatorEE10deallocat
 _ZN5eastl10fixed_listIiLm32ELb1ENS_9allocatorEED2Ev.exit1284: ; preds = %_ZN5eastl20fixed_node_allocatorILm24ELm32ELm8ELm0ELb1ENS_9allocatorEE10deallocateEPvm.exit.i.i.i.i1281, %_ZN5eastl10fixed_listIiLm32ELb1ENS_9allocatorEED2Ev.exit1269
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(32) %A569, ptr noundef nonnull align 16 dereferenceable(32) @__const._Z13TestFixedListv.B.48, i64 32, i1 false)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(32) %B570, ptr noundef nonnull align 16 dereferenceable(32) @__const._Z13TestFixedListv.B.48, i64 32, i1 false)
-  %add.ptr574 = getelementptr inbounds i32, ptr %A569, i64 8
+  %add.ptr574 = getelementptr inbounds i8, ptr %A569, i64 32
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %ref.tmp.i1285)
-  %mBuffer.i1286 = getelementptr inbounds %"class.eastl::fixed_list.54", ptr %listA571, i64 0, i32 1
+  %mBuffer.i1286 = getelementptr inbounds i8, ptr %listA571, i64 72
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp.i1285, i8 0, i64 32, i1 false)
   call void @_ZN5eastl15fixed_pool_base4initEPvmmmm(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp.i1285, ptr noundef nonnull %mBuffer.i1286, i64 noundef 768, i64 noundef 24, i64 noundef 8, i64 noundef 0)
-  %mpPoolBegin.i.i.i1287 = getelementptr inbounds %"class.eastl::fixed_pool_with_overflow", ptr %ref.tmp.i1285, i64 0, i32 2
+  %mpPoolBegin.i.i.i1287 = getelementptr inbounds i8, ptr %ref.tmp.i1285, i64 40
   store ptr %mBuffer.i1286, ptr %mpPoolBegin.i.i.i1287, align 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %listA571, i8 0, i64 16, i1 false)
-  %mSecond.i.i.i.i.i1288 = getelementptr inbounds %"class.eastl::compressed_pair_imp.58", ptr %listA571, i64 0, i32 1
-  %mpNext.i.i.i.i.i.i1289 = getelementptr inbounds %"struct.eastl::fixed_pool_base", ptr %ref.tmp.i1285, i64 0, i32 1
+  %mSecond.i.i.i.i.i1288 = getelementptr inbounds i8, ptr %listA571, i64 16
+  %mpNext.i.i.i.i.i.i1289 = getelementptr inbounds i8, ptr %ref.tmp.i1285, i64 8
   %501 = load ptr, ptr %mpNext.i.i.i.i.i.i1289, align 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %mSecond.i.i.i.i.i1288, i8 0, i64 32, i1 false)
   call void @_ZN5eastl15fixed_pool_base4initEPvmmmm(ptr noundef nonnull align 8 dereferenceable(32) %mSecond.i.i.i.i.i1288, ptr noundef %501, i64 noundef 768, i64 noundef 24, i64 noundef 8, i64 noundef 0)
-  %mpPoolBegin.i.i.i.i.i.i.i1290 = getelementptr inbounds %"class.eastl::compressed_pair_imp.58", ptr %listA571, i64 0, i32 1, i32 0, i32 2
+  %mpPoolBegin.i.i.i.i.i.i.i1290 = getelementptr inbounds i8, ptr %listA571, i64 56
   store ptr %501, ptr %mpPoolBegin.i.i.i.i.i.i.i1290, align 8
-  %mSize.i.i.i1291 = getelementptr inbounds %"class.eastl::ListBase.56", ptr %listA571, i64 0, i32 1
+  %mSize.i.i.i1291 = getelementptr inbounds i8, ptr %listA571, i64 64
   store i64 0, ptr %mSize.i.i.i1291, align 8
   store ptr %listA571, ptr %listA571, align 8
-  %mpPrev.i.i.i.i1292 = getelementptr inbounds %"struct.eastl::ListNodeBase", ptr %listA571, i64 0, i32 1
+  %mpPrev.i.i.i.i1292 = getelementptr inbounds i8, ptr %listA571, i64 8
   store ptr %listA571, ptr %mpPrev.i.i.i.i1292, align 8
   invoke void @_ZN5eastl4listIiNS_20fixed_node_allocatorILm24ELm32ELm8ELm0ELb1ENS_9allocatorEEEE8DoAssignIPKiEEvT_S8_NS_17integral_constantIbLb0EEE(ptr noundef nonnull align 8 dereferenceable(72) %listA571, ptr noundef nonnull %A569, ptr noundef nonnull %add.ptr574)
           to label %_ZN5eastl10fixed_listIiLm32ELb1ENS_9allocatorEEC2IPKiEET_S6_.exit1294 unwind label %lpad.i1293
@@ -5841,31 +5837,31 @@ lpad.i1293:                                       ; preds = %_ZN5eastl10fixed_li
 
 _ZN5eastl10fixed_listIiLm32ELb1ENS_9allocatorEEC2IPKiEET_S6_.exit1294: ; preds = %_ZN5eastl10fixed_listIiLm32ELb1ENS_9allocatorEED2Ev.exit1284
   call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %ref.tmp.i1285)
-  %add.ptr578 = getelementptr inbounds i32, ptr %B570, i64 8
+  %add.ptr578 = getelementptr inbounds i8, ptr %B570, i64 32
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %ref.tmp.i1295)
-  %mBuffer.i1296 = getelementptr inbounds %"class.eastl::fixed_list.54", ptr %listB575, i64 0, i32 1
+  %mBuffer.i1296 = getelementptr inbounds i8, ptr %listB575, i64 72
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp.i1295, i8 0, i64 32, i1 false)
   invoke void @_ZN5eastl15fixed_pool_base4initEPvmmmm(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp.i1295, ptr noundef nonnull %mBuffer.i1296, i64 noundef 768, i64 noundef 24, i64 noundef 8, i64 noundef 0)
           to label %.noexc1304 unwind label %lpad579
 
 .noexc1304:                                       ; preds = %_ZN5eastl10fixed_listIiLm32ELb1ENS_9allocatorEEC2IPKiEET_S6_.exit1294
-  %mpPoolBegin.i.i.i1297 = getelementptr inbounds %"class.eastl::fixed_pool_with_overflow", ptr %ref.tmp.i1295, i64 0, i32 2
+  %mpPoolBegin.i.i.i1297 = getelementptr inbounds i8, ptr %ref.tmp.i1295, i64 40
   store ptr %mBuffer.i1296, ptr %mpPoolBegin.i.i.i1297, align 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %listB575, i8 0, i64 16, i1 false)
-  %mSecond.i.i.i.i.i1298 = getelementptr inbounds %"class.eastl::compressed_pair_imp.58", ptr %listB575, i64 0, i32 1
-  %mpNext.i.i.i.i.i.i1299 = getelementptr inbounds %"struct.eastl::fixed_pool_base", ptr %ref.tmp.i1295, i64 0, i32 1
+  %mSecond.i.i.i.i.i1298 = getelementptr inbounds i8, ptr %listB575, i64 16
+  %mpNext.i.i.i.i.i.i1299 = getelementptr inbounds i8, ptr %ref.tmp.i1295, i64 8
   %503 = load ptr, ptr %mpNext.i.i.i.i.i.i1299, align 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %mSecond.i.i.i.i.i1298, i8 0, i64 32, i1 false)
   invoke void @_ZN5eastl15fixed_pool_base4initEPvmmmm(ptr noundef nonnull align 8 dereferenceable(32) %mSecond.i.i.i.i.i1298, ptr noundef %503, i64 noundef 768, i64 noundef 24, i64 noundef 8, i64 noundef 0)
           to label %.noexc1305 unwind label %lpad579
 
 .noexc1305:                                       ; preds = %.noexc1304
-  %mpPoolBegin.i.i.i.i.i.i.i1300 = getelementptr inbounds %"class.eastl::compressed_pair_imp.58", ptr %listB575, i64 0, i32 1, i32 0, i32 2
+  %mpPoolBegin.i.i.i.i.i.i.i1300 = getelementptr inbounds i8, ptr %listB575, i64 56
   store ptr %503, ptr %mpPoolBegin.i.i.i.i.i.i.i1300, align 8
-  %mSize.i.i.i1301 = getelementptr inbounds %"class.eastl::ListBase.56", ptr %listB575, i64 0, i32 1
+  %mSize.i.i.i1301 = getelementptr inbounds i8, ptr %listB575, i64 64
   store i64 0, ptr %mSize.i.i.i1301, align 8
   store ptr %listB575, ptr %listB575, align 8
-  %mpPrev.i.i.i.i1302 = getelementptr inbounds %"struct.eastl::ListNodeBase", ptr %listB575, i64 0, i32 1
+  %mpPrev.i.i.i.i1302 = getelementptr inbounds i8, ptr %listB575, i64 8
   store ptr %listB575, ptr %mpPrev.i.i.i.i1302, align 8
   invoke void @_ZN5eastl4listIiNS_20fixed_node_allocatorILm24ELm32ELm8ELm0ELb1ENS_9allocatorEEEE8DoAssignIPKiEEvT_S8_NS_17integral_constantIbLb0EEE(ptr noundef nonnull align 8 dereferenceable(72) %listB575, ptr noundef nonnull %B570, ptr noundef nonnull %add.ptr578)
           to label %invoke.cont580 unwind label %lpad.i1303
@@ -5993,7 +5989,7 @@ invoke.cont639:                                   ; preds = %invoke.cont637
   br i1 %cmp.not3.i.i.i.i1316, label %_ZN5eastl10fixed_listIiLm32ELb1ENS_9allocatorEED2Ev.exit1330, label %while.body.lr.ph.i.i.i.i1317
 
 while.body.lr.ph.i.i.i.i1317:                     ; preds = %invoke.cont639
-  %mpCapacity.i.i.i.i.i.i1319 = getelementptr inbounds %"class.eastl::compressed_pair_imp.58", ptr %listB575, i64 0, i32 1, i32 0, i32 0, i32 2
+  %mpCapacity.i.i.i.i.i.i1319 = getelementptr inbounds i8, ptr %listB575, i64 32
   br label %while.body.i.i.i.i1321
 
 while.body.i.i.i.i1321:                           ; preds = %_ZN5eastl20fixed_node_allocatorILm24ELm32ELm8ELm0ELb1ENS_9allocatorEE10deallocateEPvm.exit.i.i.i.i1327, %while.body.lr.ph.i.i.i.i1317
@@ -6026,7 +6022,7 @@ _ZN5eastl10fixed_listIiLm32ELb1ENS_9allocatorEED2Ev.exit1330: ; preds = %_ZN5eas
   br i1 %cmp.not3.i.i.i.i1331, label %_ZN5eastl10fixed_listIiLm32ELb1ENS_9allocatorEED2Ev.exit1345, label %while.body.lr.ph.i.i.i.i1332
 
 while.body.lr.ph.i.i.i.i1332:                     ; preds = %_ZN5eastl10fixed_listIiLm32ELb1ENS_9allocatorEED2Ev.exit1330
-  %mpCapacity.i.i.i.i.i.i1334 = getelementptr inbounds %"class.eastl::compressed_pair_imp.58", ptr %listA571, i64 0, i32 1, i32 0, i32 0, i32 2
+  %mpCapacity.i.i.i.i.i.i1334 = getelementptr inbounds i8, ptr %listA571, i64 32
   br label %while.body.i.i.i.i1336
 
 while.body.i.i.i.i1336:                           ; preds = %_ZN5eastl20fixed_node_allocatorILm24ELm32ELm8ELm0ELb1ENS_9allocatorEE10deallocateEPvm.exit.i.i.i.i1342, %while.body.lr.ph.i.i.i.i1332
@@ -6056,25 +6052,25 @@ _ZN5eastl20fixed_node_allocatorILm24ELm32ELm8ELm0ELb1ENS_9allocatorEE10deallocat
 _ZN5eastl10fixed_listIiLm32ELb1ENS_9allocatorEED2Ev.exit1345: ; preds = %_ZN5eastl20fixed_node_allocatorILm24ELm32ELm8ELm0ELb1ENS_9allocatorEE10deallocateEPvm.exit.i.i.i.i1342, %_ZN5eastl10fixed_listIiLm32ELb1ENS_9allocatorEED2Ev.exit1330
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(32) %A644, ptr noundef nonnull align 16 dereferenceable(32) @__const._Z13TestFixedListv.B.48, i64 32, i1 false)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(32) %B645, ptr noundef nonnull align 16 dereferenceable(32) @__const._Z13TestFixedListv.B.48, i64 32, i1 false)
-  %add.ptr649 = getelementptr inbounds i32, ptr %A644, i64 8
+  %add.ptr649 = getelementptr inbounds i8, ptr %A644, i64 32
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %ref.tmp.i1346)
-  %mBuffer.i1347 = getelementptr inbounds %"class.eastl::fixed_list.54", ptr %listA646, i64 0, i32 1
+  %mBuffer.i1347 = getelementptr inbounds i8, ptr %listA646, i64 72
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp.i1346, i8 0, i64 32, i1 false)
   call void @_ZN5eastl15fixed_pool_base4initEPvmmmm(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp.i1346, ptr noundef nonnull %mBuffer.i1347, i64 noundef 768, i64 noundef 24, i64 noundef 8, i64 noundef 0)
-  %mpPoolBegin.i.i.i1348 = getelementptr inbounds %"class.eastl::fixed_pool_with_overflow", ptr %ref.tmp.i1346, i64 0, i32 2
+  %mpPoolBegin.i.i.i1348 = getelementptr inbounds i8, ptr %ref.tmp.i1346, i64 40
   store ptr %mBuffer.i1347, ptr %mpPoolBegin.i.i.i1348, align 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %listA646, i8 0, i64 16, i1 false)
-  %mSecond.i.i.i.i.i1349 = getelementptr inbounds %"class.eastl::compressed_pair_imp.58", ptr %listA646, i64 0, i32 1
-  %mpNext.i.i.i.i.i.i1350 = getelementptr inbounds %"struct.eastl::fixed_pool_base", ptr %ref.tmp.i1346, i64 0, i32 1
+  %mSecond.i.i.i.i.i1349 = getelementptr inbounds i8, ptr %listA646, i64 16
+  %mpNext.i.i.i.i.i.i1350 = getelementptr inbounds i8, ptr %ref.tmp.i1346, i64 8
   %529 = load ptr, ptr %mpNext.i.i.i.i.i.i1350, align 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %mSecond.i.i.i.i.i1349, i8 0, i64 32, i1 false)
   call void @_ZN5eastl15fixed_pool_base4initEPvmmmm(ptr noundef nonnull align 8 dereferenceable(32) %mSecond.i.i.i.i.i1349, ptr noundef %529, i64 noundef 768, i64 noundef 24, i64 noundef 8, i64 noundef 0)
-  %mpPoolBegin.i.i.i.i.i.i.i1351 = getelementptr inbounds %"class.eastl::compressed_pair_imp.58", ptr %listA646, i64 0, i32 1, i32 0, i32 2
+  %mpPoolBegin.i.i.i.i.i.i.i1351 = getelementptr inbounds i8, ptr %listA646, i64 56
   store ptr %529, ptr %mpPoolBegin.i.i.i.i.i.i.i1351, align 8
-  %mSize.i.i.i1352 = getelementptr inbounds %"class.eastl::ListBase.56", ptr %listA646, i64 0, i32 1
+  %mSize.i.i.i1352 = getelementptr inbounds i8, ptr %listA646, i64 64
   store i64 0, ptr %mSize.i.i.i1352, align 8
   store ptr %listA646, ptr %listA646, align 8
-  %mpPrev.i.i.i.i1353 = getelementptr inbounds %"struct.eastl::ListNodeBase", ptr %listA646, i64 0, i32 1
+  %mpPrev.i.i.i.i1353 = getelementptr inbounds i8, ptr %listA646, i64 8
   store ptr %listA646, ptr %mpPrev.i.i.i.i1353, align 8
   invoke void @_ZN5eastl4listIiNS_20fixed_node_allocatorILm24ELm32ELm8ELm0ELb1ENS_9allocatorEEEE8DoAssignIPKiEEvT_S8_NS_17integral_constantIbLb0EEE(ptr noundef nonnull align 8 dereferenceable(72) %listA646, ptr noundef nonnull %A644, ptr noundef nonnull %add.ptr649)
           to label %_ZN5eastl10fixed_listIiLm32ELb1ENS_9allocatorEEC2IPKiEET_S6_.exit1355 unwind label %lpad.i1354
@@ -6097,24 +6093,24 @@ while.cond.preheader.i:                           ; preds = %_ZN5eastl10fixed_li
   br i1 %cmp.i1.not9.i, label %invoke.cont651, label %while.body.lr.ph.i
 
 while.body.lr.ph.i:                               ; preds = %while.cond.preheader.i
-  %mpCapacity.i.i.i.i.i1358 = getelementptr inbounds %"class.eastl::compressed_pair_imp.58", ptr %listA646, i64 0, i32 1, i32 0, i32 0, i32 2
+  %mpCapacity.i.i.i.i.i1358 = getelementptr inbounds i8, ptr %listA646, i64 32
   br label %while.body.i1361
 
 while.body.i1361:                                 ; preds = %if.end.i1364, %while.body.lr.ph.i
   %533 = phi ptr [ %532, %while.body.lr.ph.i ], [ %543, %if.end.i1364 ]
   %first.sroa.0.010.i = phi ptr [ %531, %while.body.lr.ph.i ], [ %first.sroa.0.1.i1365, %if.end.i1364 ]
-  %mValue.i.i1362 = getelementptr inbounds %"struct.eastl::ListNode", ptr %first.sroa.0.010.i, i64 0, i32 1
+  %mValue.i.i1362 = getelementptr inbounds i8, ptr %first.sroa.0.010.i, i64 16
   %534 = load i32, ptr %mValue.i.i1362, align 4
-  %mValue.i2.i = getelementptr inbounds %"struct.eastl::ListNode", ptr %533, i64 0, i32 1
+  %mValue.i2.i = getelementptr inbounds i8, ptr %533, i64 16
   %535 = load i32, ptr %mValue.i2.i, align 4
   %cmp.i1363 = icmp eq i32 %534, %535
   br i1 %cmp.i1363, label %if.then6.i1366, label %if.end.i1364
 
 if.then6.i1366:                                   ; preds = %while.body.i1361
-  %mpPrev.i.i.i1367 = getelementptr inbounds %"struct.eastl::ListNodeBase", ptr %533, i64 0, i32 1
+  %mpPrev.i.i.i1367 = getelementptr inbounds i8, ptr %533, i64 8
   %536 = load ptr, ptr %mpPrev.i.i.i1367, align 8
   %537 = load ptr, ptr %533, align 8
-  %mpPrev2.i.i.i1368 = getelementptr inbounds %"struct.eastl::ListNodeBase", ptr %537, i64 0, i32 1
+  %mpPrev2.i.i.i1368 = getelementptr inbounds i8, ptr %537, i64 8
   store ptr %536, ptr %mpPrev2.i.i.i1368, align 8
   %538 = load ptr, ptr %533, align 8
   store ptr %538, ptr %536, align 8
@@ -6164,31 +6160,31 @@ invoke.cont654:                                   ; preds = %invoke.cont651
           to label %invoke.cont656 unwind label %lpad650
 
 invoke.cont656:                                   ; preds = %invoke.cont654
-  %add.ptr661 = getelementptr inbounds i32, ptr %B645, i64 8
+  %add.ptr661 = getelementptr inbounds i8, ptr %B645, i64 32
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %ref.tmp.i1375)
-  %mBuffer.i1376 = getelementptr inbounds %"class.eastl::fixed_list.54", ptr %listB658, i64 0, i32 1
+  %mBuffer.i1376 = getelementptr inbounds i8, ptr %listB658, i64 72
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp.i1375, i8 0, i64 32, i1 false)
   invoke void @_ZN5eastl15fixed_pool_base4initEPvmmmm(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp.i1375, ptr noundef nonnull %mBuffer.i1376, i64 noundef 768, i64 noundef 24, i64 noundef 8, i64 noundef 0)
           to label %.noexc1384 unwind label %lpad650
 
 .noexc1384:                                       ; preds = %invoke.cont656
-  %mpPoolBegin.i.i.i1377 = getelementptr inbounds %"class.eastl::fixed_pool_with_overflow", ptr %ref.tmp.i1375, i64 0, i32 2
+  %mpPoolBegin.i.i.i1377 = getelementptr inbounds i8, ptr %ref.tmp.i1375, i64 40
   store ptr %mBuffer.i1376, ptr %mpPoolBegin.i.i.i1377, align 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %listB658, i8 0, i64 16, i1 false)
-  %mSecond.i.i.i.i.i1378 = getelementptr inbounds %"class.eastl::compressed_pair_imp.58", ptr %listB658, i64 0, i32 1
-  %mpNext.i.i.i.i.i.i1379 = getelementptr inbounds %"struct.eastl::fixed_pool_base", ptr %ref.tmp.i1375, i64 0, i32 1
+  %mSecond.i.i.i.i.i1378 = getelementptr inbounds i8, ptr %listB658, i64 16
+  %mpNext.i.i.i.i.i.i1379 = getelementptr inbounds i8, ptr %ref.tmp.i1375, i64 8
   %545 = load ptr, ptr %mpNext.i.i.i.i.i.i1379, align 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %mSecond.i.i.i.i.i1378, i8 0, i64 32, i1 false)
   invoke void @_ZN5eastl15fixed_pool_base4initEPvmmmm(ptr noundef nonnull align 8 dereferenceable(32) %mSecond.i.i.i.i.i1378, ptr noundef %545, i64 noundef 768, i64 noundef 24, i64 noundef 8, i64 noundef 0)
           to label %.noexc1385 unwind label %lpad650
 
 .noexc1385:                                       ; preds = %.noexc1384
-  %mpPoolBegin.i.i.i.i.i.i.i1380 = getelementptr inbounds %"class.eastl::compressed_pair_imp.58", ptr %listB658, i64 0, i32 1, i32 0, i32 2
+  %mpPoolBegin.i.i.i.i.i.i.i1380 = getelementptr inbounds i8, ptr %listB658, i64 56
   store ptr %545, ptr %mpPoolBegin.i.i.i.i.i.i.i1380, align 8
-  %mSize.i.i.i1381 = getelementptr inbounds %"class.eastl::ListBase.56", ptr %listB658, i64 0, i32 1
+  %mSize.i.i.i1381 = getelementptr inbounds i8, ptr %listB658, i64 64
   store i64 0, ptr %mSize.i.i.i1381, align 8
   store ptr %listB658, ptr %listB658, align 8
-  %mpPrev.i.i.i.i1382 = getelementptr inbounds %"struct.eastl::ListNodeBase", ptr %listB658, i64 0, i32 1
+  %mpPrev.i.i.i.i1382 = getelementptr inbounds i8, ptr %listB658, i64 8
   store ptr %listB658, ptr %mpPrev.i.i.i.i1382, align 8
   invoke void @_ZN5eastl4listIiNS_20fixed_node_allocatorILm24ELm32ELm8ELm0ELb1ENS_9allocatorEEEE8DoAssignIPKiEEvT_S8_NS_17integral_constantIbLb0EEE(ptr noundef nonnull align 8 dereferenceable(72) %listB658, ptr noundef nonnull %B645, ptr noundef nonnull %add.ptr661)
           to label %invoke.cont662 unwind label %lpad.i1383
@@ -6211,24 +6207,24 @@ while.cond.preheader.i1389:                       ; preds = %invoke.cont662
   br i1 %cmp.i1.not10.i, label %invoke.cont665, label %while.body.lr.ph.i1390
 
 while.body.lr.ph.i1390:                           ; preds = %while.cond.preheader.i1389
-  %mpCapacity.i.i.i.i.i1392 = getelementptr inbounds %"class.eastl::compressed_pair_imp.58", ptr %listB658, i64 0, i32 1, i32 0, i32 0, i32 2
+  %mpCapacity.i.i.i.i.i1392 = getelementptr inbounds i8, ptr %listB658, i64 32
   br label %while.body.i1395
 
 while.body.i1395:                                 ; preds = %if.end.i1398, %while.body.lr.ph.i1390
   %549 = phi ptr [ %548, %while.body.lr.ph.i1390 ], [ %559, %if.end.i1398 ]
   %first.sroa.0.011.i = phi ptr [ %547, %while.body.lr.ph.i1390 ], [ %first.sroa.0.1.i1399, %if.end.i1398 ]
-  %mValue.i.i1396 = getelementptr inbounds %"struct.eastl::ListNode", ptr %first.sroa.0.011.i, i64 0, i32 1
-  %mValue.i2.i1397 = getelementptr inbounds %"struct.eastl::ListNode", ptr %549, i64 0, i32 1
+  %mValue.i.i1396 = getelementptr inbounds i8, ptr %first.sroa.0.011.i, i64 16
+  %mValue.i2.i1397 = getelementptr inbounds i8, ptr %549, i64 16
   %550 = load i32, ptr %mValue.i.i1396, align 4
   %551 = load i32, ptr %mValue.i2.i1397, align 4
   %cmp.i3.i = icmp eq i32 %550, %551
   br i1 %cmp.i3.i, label %if.then7.i, label %if.end.i1398
 
 if.then7.i:                                       ; preds = %while.body.i1395
-  %mpPrev.i.i.i1401 = getelementptr inbounds %"struct.eastl::ListNodeBase", ptr %549, i64 0, i32 1
+  %mpPrev.i.i.i1401 = getelementptr inbounds i8, ptr %549, i64 8
   %552 = load ptr, ptr %mpPrev.i.i.i1401, align 8
   %553 = load ptr, ptr %549, align 8
-  %mpPrev2.i.i.i1402 = getelementptr inbounds %"struct.eastl::ListNodeBase", ptr %553, i64 0, i32 1
+  %mpPrev2.i.i.i1402 = getelementptr inbounds i8, ptr %553, i64 8
   store ptr %552, ptr %mpPrev2.i.i.i1402, align 8
   %554 = load ptr, ptr %549, align 8
   store ptr %554, ptr %552, align 8
@@ -6279,7 +6275,7 @@ invoke.cont670:                                   ; preds = %invoke.cont668
   br i1 %cmp.not3.i.i.i.i1410, label %_ZN5eastl10fixed_listIiLm32ELb1ENS_9allocatorEED2Ev.exit1424, label %while.body.lr.ph.i.i.i.i1411
 
 while.body.lr.ph.i.i.i.i1411:                     ; preds = %invoke.cont670
-  %mpCapacity.i.i.i.i.i.i1413 = getelementptr inbounds %"class.eastl::compressed_pair_imp.58", ptr %listB658, i64 0, i32 1, i32 0, i32 0, i32 2
+  %mpCapacity.i.i.i.i.i.i1413 = getelementptr inbounds i8, ptr %listB658, i64 32
   br label %while.body.i.i.i.i1415
 
 while.body.i.i.i.i1415:                           ; preds = %_ZN5eastl20fixed_node_allocatorILm24ELm32ELm8ELm0ELb1ENS_9allocatorEE10deallocateEPvm.exit.i.i.i.i1421, %while.body.lr.ph.i.i.i.i1411
@@ -6312,7 +6308,7 @@ _ZN5eastl10fixed_listIiLm32ELb1ENS_9allocatorEED2Ev.exit1424: ; preds = %_ZN5eas
   br i1 %cmp.not3.i.i.i.i1425, label %_ZN5eastl10fixed_listIiLm32ELb1ENS_9allocatorEED2Ev.exit1439, label %while.body.lr.ph.i.i.i.i1426
 
 while.body.lr.ph.i.i.i.i1426:                     ; preds = %_ZN5eastl10fixed_listIiLm32ELb1ENS_9allocatorEED2Ev.exit1424
-  %mpCapacity.i.i.i.i.i.i1428 = getelementptr inbounds %"class.eastl::compressed_pair_imp.58", ptr %listA646, i64 0, i32 1, i32 0, i32 0, i32 2
+  %mpCapacity.i.i.i.i.i.i1428 = getelementptr inbounds i8, ptr %listA646, i64 32
   br label %while.body.i.i.i.i1430
 
 while.body.i.i.i.i1430:                           ; preds = %_ZN5eastl20fixed_node_allocatorILm24ELm32ELm8ELm0ELb1ENS_9allocatorEE10deallocateEPvm.exit.i.i.i.i1436, %while.body.lr.ph.i.i.i.i1426
@@ -6341,9 +6337,9 @@ _ZN5eastl20fixed_node_allocatorILm24ELm32ELm8ELm0ELb1ENS_9allocatorEE10deallocat
 
 _ZN5eastl10fixed_listIiLm32ELb1ENS_9allocatorEED2Ev.exit1439: ; preds = %_ZN5eastl20fixed_node_allocatorILm24ELm32ELm8ELm0ELb1ENS_9allocatorEE10deallocateEPvm.exit.i.i.i.i1436, %_ZN5eastl10fixed_listIiLm32ELb1ENS_9allocatorEED2Ev.exit1424
   store i32 33, ptr %ref.tmp674, align 8
-  %mbThrowOnCopy.i = getelementptr inbounds %struct.TestObject, ptr %ref.tmp674, i64 0, i32 1
+  %mbThrowOnCopy.i = getelementptr inbounds i8, ptr %ref.tmp674, i64 4
   store i8 0, ptr %mbThrowOnCopy.i, align 4
-  %mMagicValue.i = getelementptr inbounds %struct.TestObject, ptr %ref.tmp674, i64 0, i32 4
+  %mMagicValue.i = getelementptr inbounds i8, ptr %ref.tmp674, i64 16
   store i32 32623592, ptr %mMagicValue.i, align 8
   %571 = load i64, ptr @_ZN10TestObject8sTOCountE, align 8
   %inc.i1440 = add nsw i64 %571, 1
@@ -6354,32 +6350,32 @@ _ZN5eastl10fixed_listIiLm32ELb1ENS_9allocatorEED2Ev.exit1439: ; preds = %_ZN5eas
   %573 = load i64, ptr @_ZN10TestObject19sTODefaultCtorCountE, align 8
   %inc4.i = add nsw i64 %573, 1
   store i64 %inc4.i, ptr @_ZN10TestObject19sTODefaultCtorCountE, align 8
-  %mId.i = getelementptr inbounds %struct.TestObject, ptr %ref.tmp674, i64 0, i32 3
+  %mId.i = getelementptr inbounds i8, ptr %ref.tmp674, i64 8
   store i64 %inc3.i, ptr %mId.i, align 8
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %ref.tmp.i1441)
-  %mBuffer.i1442 = getelementptr inbounds %"class.eastl::fixed_list.61", ptr %list3TO33, i64 0, i32 1
+  %mBuffer.i1442 = getelementptr inbounds i8, ptr %list3TO33, i64 72
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp.i1441, i8 0, i64 32, i1 false)
   invoke void @_ZN5eastl15fixed_pool_base4initEPvmmmm(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp.i1441, ptr noundef nonnull %mBuffer.i1442, i64 noundef 640, i64 noundef 40, i64 noundef 8, i64 noundef 0)
           to label %.noexc1450 unwind label %lpad675
 
 .noexc1450:                                       ; preds = %_ZN5eastl10fixed_listIiLm32ELb1ENS_9allocatorEED2Ev.exit1439
-  %mpPoolBegin.i.i.i1443 = getelementptr inbounds %"class.eastl::fixed_pool_with_overflow", ptr %ref.tmp.i1441, i64 0, i32 2
+  %mpPoolBegin.i.i.i1443 = getelementptr inbounds i8, ptr %ref.tmp.i1441, i64 40
   store ptr %mBuffer.i1442, ptr %mpPoolBegin.i.i.i1443, align 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %list3TO33, i8 0, i64 16, i1 false)
-  %mSecond.i.i.i.i.i1444 = getelementptr inbounds %"class.eastl::compressed_pair_imp.65", ptr %list3TO33, i64 0, i32 1
-  %mpNext.i.i.i.i.i.i1445 = getelementptr inbounds %"struct.eastl::fixed_pool_base", ptr %ref.tmp.i1441, i64 0, i32 1
+  %mSecond.i.i.i.i.i1444 = getelementptr inbounds i8, ptr %list3TO33, i64 16
+  %mpNext.i.i.i.i.i.i1445 = getelementptr inbounds i8, ptr %ref.tmp.i1441, i64 8
   %574 = load ptr, ptr %mpNext.i.i.i.i.i.i1445, align 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %mSecond.i.i.i.i.i1444, i8 0, i64 32, i1 false)
   invoke void @_ZN5eastl15fixed_pool_base4initEPvmmmm(ptr noundef nonnull align 8 dereferenceable(32) %mSecond.i.i.i.i.i1444, ptr noundef %574, i64 noundef 640, i64 noundef 40, i64 noundef 8, i64 noundef 0)
           to label %.noexc1451 unwind label %lpad675
 
 .noexc1451:                                       ; preds = %.noexc1450
-  %mpPoolBegin.i.i.i.i.i.i.i1446 = getelementptr inbounds %"class.eastl::compressed_pair_imp.65", ptr %list3TO33, i64 0, i32 1, i32 0, i32 2
+  %mpPoolBegin.i.i.i.i.i.i.i1446 = getelementptr inbounds i8, ptr %list3TO33, i64 56
   store ptr %574, ptr %mpPoolBegin.i.i.i.i.i.i.i1446, align 8
-  %mSize.i.i.i1447 = getelementptr inbounds %"class.eastl::ListBase.63", ptr %list3TO33, i64 0, i32 1
+  %mSize.i.i.i1447 = getelementptr inbounds i8, ptr %list3TO33, i64 64
   store i64 0, ptr %mSize.i.i.i1447, align 8
   store ptr %list3TO33, ptr %list3TO33, align 8
-  %mpPrev.i.i.i.i1448 = getelementptr inbounds %"struct.eastl::ListNodeBase", ptr %list3TO33, i64 0, i32 1
+  %mpPrev.i.i.i.i1448 = getelementptr inbounds i8, ptr %list3TO33, i64 8
   store ptr %list3TO33, ptr %mpPrev.i.i.i.i1448, align 8
   invoke void @_ZN5eastl4listI10TestObjectNS_20fixed_node_allocatorILm40ELm16ELm8ELm0ELb1ENS_9allocatorEEEE6resizeEmRKS1_(ptr noundef nonnull align 8 dereferenceable(72) %list3TO33, i64 noundef 3, ptr noundef nonnull align 8 dereferenceable(20) %ref.tmp674)
           to label %invoke.cont676 unwind label %lpad.i1449
@@ -6411,29 +6407,29 @@ _ZN10TestObjectD2Ev.exit:                         ; preds = %invoke.cont676, %if
   %inc3.i1458 = add nsw i64 %579, 1
   store i64 %inc3.i1458, ptr @_ZN10TestObject12sTODtorCountE, align 8
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %ref.tmp.i1459)
-  %mBuffer.i1460 = getelementptr inbounds %"class.eastl::fixed_list.61", ptr %toListA, i64 0, i32 1
+  %mBuffer.i1460 = getelementptr inbounds i8, ptr %toListA, i64 72
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp.i1459, i8 0, i64 32, i1 false)
   invoke void @_ZN5eastl15fixed_pool_base4initEPvmmmm(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp.i1459, ptr noundef nonnull %mBuffer.i1460, i64 noundef 640, i64 noundef 40, i64 noundef 8, i64 noundef 0)
           to label %.noexc1468 unwind label %lpad679
 
 .noexc1468:                                       ; preds = %_ZN10TestObjectD2Ev.exit
-  %mpPoolBegin.i.i.i1461 = getelementptr inbounds %"class.eastl::fixed_pool_with_overflow", ptr %ref.tmp.i1459, i64 0, i32 2
+  %mpPoolBegin.i.i.i1461 = getelementptr inbounds i8, ptr %ref.tmp.i1459, i64 40
   store ptr %mBuffer.i1460, ptr %mpPoolBegin.i.i.i1461, align 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %toListA, i8 0, i64 16, i1 false)
-  %mSecond.i.i.i.i.i1462 = getelementptr inbounds %"class.eastl::compressed_pair_imp.65", ptr %toListA, i64 0, i32 1
-  %mpNext.i.i.i.i.i.i1463 = getelementptr inbounds %"struct.eastl::fixed_pool_base", ptr %ref.tmp.i1459, i64 0, i32 1
+  %mSecond.i.i.i.i.i1462 = getelementptr inbounds i8, ptr %toListA, i64 16
+  %mpNext.i.i.i.i.i.i1463 = getelementptr inbounds i8, ptr %ref.tmp.i1459, i64 8
   %580 = load ptr, ptr %mpNext.i.i.i.i.i.i1463, align 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %mSecond.i.i.i.i.i1462, i8 0, i64 32, i1 false)
   invoke void @_ZN5eastl15fixed_pool_base4initEPvmmmm(ptr noundef nonnull align 8 dereferenceable(32) %mSecond.i.i.i.i.i1462, ptr noundef %580, i64 noundef 640, i64 noundef 40, i64 noundef 8, i64 noundef 0)
           to label %.noexc1469 unwind label %lpad679
 
 .noexc1469:                                       ; preds = %.noexc1468
-  %mpPoolBegin.i.i.i.i.i.i.i1464 = getelementptr inbounds %"class.eastl::compressed_pair_imp.65", ptr %toListA, i64 0, i32 1, i32 0, i32 2
+  %mpPoolBegin.i.i.i.i.i.i.i1464 = getelementptr inbounds i8, ptr %toListA, i64 56
   store ptr %580, ptr %mpPoolBegin.i.i.i.i.i.i.i1464, align 8
-  %mSize.i.i.i1465 = getelementptr inbounds %"class.eastl::ListBase.63", ptr %toListA, i64 0, i32 1
+  %mSize.i.i.i1465 = getelementptr inbounds i8, ptr %toListA, i64 64
   store i64 0, ptr %mSize.i.i.i1465, align 8
   store ptr %toListA, ptr %toListA, align 8
-  %mpPrev.i.i.i.i1466 = getelementptr inbounds %"struct.eastl::ListNodeBase", ptr %toListA, i64 0, i32 1
+  %mpPrev.i.i.i.i1466 = getelementptr inbounds i8, ptr %toListA, i64 8
   store ptr %toListA, ptr %mpPrev.i.i.i.i1466, align 8
   %581 = load ptr, ptr %list3TO33, align 8, !noalias !334
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %agg.tmp.i.i)
@@ -6459,7 +6455,7 @@ invoke.cont680:                                   ; preds = %.noexc1469
 
 land.rhs:                                         ; preds = %invoke.cont680
   %584 = load ptr, ptr %toListA, align 8
-  %mValue.i1472 = getelementptr inbounds %"struct.eastl::ListNode.89", ptr %584, i64 0, i32 1
+  %mValue.i1472 = getelementptr inbounds i8, ptr %584, i64 16
   %585 = load i32, ptr %mValue.i1472, align 8
   %cmp686 = icmp eq i32 %585, 33
   br label %land.end
@@ -6471,9 +6467,9 @@ land.end:                                         ; preds = %land.rhs, %invoke.c
 
 invoke.cont687:                                   ; preds = %land.end
   store i32 44, ptr %ref.tmp689, align 8
-  %mbThrowOnCopy.i1473 = getelementptr inbounds %struct.TestObject, ptr %ref.tmp689, i64 0, i32 1
+  %mbThrowOnCopy.i1473 = getelementptr inbounds i8, ptr %ref.tmp689, i64 4
   store i8 0, ptr %mbThrowOnCopy.i1473, align 4
-  %mMagicValue.i1474 = getelementptr inbounds %struct.TestObject, ptr %ref.tmp689, i64 0, i32 4
+  %mMagicValue.i1474 = getelementptr inbounds i8, ptr %ref.tmp689, i64 16
   store i32 32623592, ptr %mMagicValue.i1474, align 8
   %587 = load i64, ptr @_ZN10TestObject8sTOCountE, align 8
   %inc.i1475 = add nsw i64 %587, 1
@@ -6484,40 +6480,40 @@ invoke.cont687:                                   ; preds = %land.end
   %589 = load i64, ptr @_ZN10TestObject19sTODefaultCtorCountE, align 8
   %inc4.i1477 = add nsw i64 %589, 1
   store i64 %inc4.i1477, ptr @_ZN10TestObject19sTODefaultCtorCountE, align 8
-  %mId.i1478 = getelementptr inbounds %struct.TestObject, ptr %ref.tmp689, i64 0, i32 3
+  %mId.i1478 = getelementptr inbounds i8, ptr %ref.tmp689, i64 8
   store i64 %inc3.i1476, ptr %mId.i1478, align 8
   call void @llvm.lifetime.start.p0(i64 56, ptr nonnull %ref.tmp.i1479)
-  %mBuffer.i1480 = getelementptr inbounds %"class.eastl::fixed_list.68", ptr %list4TO44, i64 0, i32 1
+  %mBuffer.i1480 = getelementptr inbounds i8, ptr %list4TO44, i64 80
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %ref.tmp.i1479, i8 0, i64 48, i1 false)
   invoke void @_ZN5eastl15fixed_pool_base4initEPvmmmm(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp.i1479, ptr noundef nonnull %mBuffer.i1480, i64 noundef 640, i64 noundef 40, i64 noundef 8, i64 noundef 0)
           to label %.noexc1494 unwind label %lpad691
 
 .noexc1494:                                       ; preds = %invoke.cont687
-  %mpPoolBegin.i.i.i1481 = getelementptr inbounds %"class.eastl::fixed_pool_with_overflow.28", ptr %ref.tmp.i1479, i64 0, i32 2
+  %mpPoolBegin.i.i.i1481 = getelementptr inbounds i8, ptr %ref.tmp.i1479, i64 48
   store ptr %mBuffer.i1480, ptr %mpPoolBegin.i.i.i1481, align 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %list4TO44, i8 0, i64 16, i1 false)
-  %mSecond.i.i.i.i.i1482 = getelementptr inbounds %"class.eastl::compressed_pair_imp.72", ptr %list4TO44, i64 0, i32 1
-  %mpNext.i.i.i.i.i.i1483 = getelementptr inbounds %"struct.eastl::fixed_pool_base", ptr %ref.tmp.i1479, i64 0, i32 1
+  %mSecond.i.i.i.i.i1482 = getelementptr inbounds i8, ptr %list4TO44, i64 16
+  %mpNext.i.i.i.i.i.i1483 = getelementptr inbounds i8, ptr %ref.tmp.i1479, i64 8
   %590 = load ptr, ptr %mpNext.i.i.i.i.i.i1483, align 8
-  %mOverflowAllocator.i.i.i.i.i.i1484 = getelementptr inbounds %"class.eastl::fixed_pool_with_overflow.28", ptr %ref.tmp.i1479, i64 0, i32 1
-  %mOverflowAllocator.i.i.i.i.i.i.i1485 = getelementptr inbounds %"class.eastl::compressed_pair_imp.72", ptr %list4TO44, i64 0, i32 1, i32 0, i32 1
+  %mOverflowAllocator.i.i.i.i.i.i1484 = getelementptr inbounds i8, ptr %ref.tmp.i1479, i64 32
+  %mOverflowAllocator.i.i.i.i.i.i.i1485 = getelementptr inbounds i8, ptr %list4TO44, i64 48
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %mSecond.i.i.i.i.i1482, i8 0, i64 32, i1 false)
   %591 = load <2 x i32>, ptr %mOverflowAllocator.i.i.i.i.i.i1484, align 8
   store <2 x i32> %591, ptr %mOverflowAllocator.i.i.i.i.i.i.i1485, align 8
-  %mAllocVolume.i.i.i.i.i.i.i.i1488 = getelementptr inbounds %"class.eastl::compressed_pair_imp.72", ptr %list4TO44, i64 0, i32 1, i32 0, i32 1, i32 2
-  %mAllocVolume4.i.i.i.i.i.i.i.i1489 = getelementptr inbounds %"class.eastl::fixed_pool_with_overflow.28", ptr %ref.tmp.i1479, i64 0, i32 1, i32 2
+  %mAllocVolume.i.i.i.i.i.i.i.i1488 = getelementptr inbounds i8, ptr %list4TO44, i64 56
+  %mAllocVolume4.i.i.i.i.i.i.i.i1489 = getelementptr inbounds i8, ptr %ref.tmp.i1479, i64 40
   %592 = load i64, ptr %mAllocVolume4.i.i.i.i.i.i.i.i1489, align 8
   store i64 %592, ptr %mAllocVolume.i.i.i.i.i.i.i.i1488, align 8
   invoke void @_ZN5eastl15fixed_pool_base4initEPvmmmm(ptr noundef nonnull align 8 dereferenceable(32) %mSecond.i.i.i.i.i1482, ptr noundef %590, i64 noundef 640, i64 noundef 40, i64 noundef 8, i64 noundef 0)
           to label %.noexc1495 unwind label %lpad691
 
 .noexc1495:                                       ; preds = %.noexc1494
-  %mpPoolBegin.i.i.i.i.i.i.i1490 = getelementptr inbounds %"class.eastl::compressed_pair_imp.72", ptr %list4TO44, i64 0, i32 1, i32 0, i32 2
+  %mpPoolBegin.i.i.i.i.i.i.i1490 = getelementptr inbounds i8, ptr %list4TO44, i64 64
   store ptr %590, ptr %mpPoolBegin.i.i.i.i.i.i.i1490, align 8
-  %mSize.i.i.i1491 = getelementptr inbounds %"class.eastl::ListBase.70", ptr %list4TO44, i64 0, i32 1
+  %mSize.i.i.i1491 = getelementptr inbounds i8, ptr %list4TO44, i64 72
   store i64 0, ptr %mSize.i.i.i1491, align 8
   store ptr %list4TO44, ptr %list4TO44, align 8
-  %mpPrev.i.i.i.i1492 = getelementptr inbounds %"struct.eastl::ListNodeBase", ptr %list4TO44, i64 0, i32 1
+  %mpPrev.i.i.i.i1492 = getelementptr inbounds i8, ptr %list4TO44, i64 8
   store ptr %list4TO44, ptr %mpPrev.i.i.i.i1492, align 8
   invoke void @_ZN5eastl4listI10TestObjectNS_20fixed_node_allocatorILm40ELm16ELm8ELm0ELb1E15MallocAllocatorEEE6resizeEmRKS1_(ptr noundef nonnull align 8 dereferenceable(80) %list4TO44, i64 noundef 4, ptr noundef nonnull align 8 dereferenceable(20) %ref.tmp689)
           to label %invoke.cont692 unwind label %lpad.i1493
@@ -6553,14 +6549,14 @@ _ZN10TestObjectD2Ev.exit1504:                     ; preds = %invoke.cont692, %if
           to label %invoke.cont698 unwind label %lpad696
 
 invoke.cont698:                                   ; preds = %_ZN10TestObjectD2Ev.exit1504
-  %mSize.i1505 = getelementptr inbounds %"class.eastl::ListBase.70", ptr %toListB, i64 0, i32 1
+  %mSize.i1505 = getelementptr inbounds i8, ptr %toListB, i64 72
   %598 = load i64, ptr %mSize.i1505, align 8
   %cmp700 = icmp eq i64 %598, 4
   br i1 %cmp700, label %land.rhs701, label %land.end707
 
 land.rhs701:                                      ; preds = %invoke.cont698
   %599 = load ptr, ptr %toListB, align 8
-  %mValue.i1506 = getelementptr inbounds %"struct.eastl::ListNode.89", ptr %599, i64 0, i32 1
+  %mValue.i1506 = getelementptr inbounds i8, ptr %599, i64 16
   %600 = load i32, ptr %mValue.i1506, align 8
   %cmp706 = icmp eq i32 %600, 44
   br label %land.end707
@@ -6572,9 +6568,9 @@ land.end707:                                      ; preds = %land.rhs701, %invok
 
 invoke.cont708:                                   ; preds = %land.end707
   store i32 55, ptr %ref.tmp710, align 8
-  %mbThrowOnCopy.i1507 = getelementptr inbounds %struct.TestObject, ptr %ref.tmp710, i64 0, i32 1
+  %mbThrowOnCopy.i1507 = getelementptr inbounds i8, ptr %ref.tmp710, i64 4
   store i8 0, ptr %mbThrowOnCopy.i1507, align 4
-  %mMagicValue.i1508 = getelementptr inbounds %struct.TestObject, ptr %ref.tmp710, i64 0, i32 4
+  %mMagicValue.i1508 = getelementptr inbounds i8, ptr %ref.tmp710, i64 16
   store i32 32623592, ptr %mMagicValue.i1508, align 8
   %602 = load i64, ptr @_ZN10TestObject8sTOCountE, align 8
   %inc.i1509 = add nsw i64 %602, 1
@@ -6585,40 +6581,40 @@ invoke.cont708:                                   ; preds = %land.end707
   %604 = load i64, ptr @_ZN10TestObject19sTODefaultCtorCountE, align 8
   %inc4.i1511 = add nsw i64 %604, 1
   store i64 %inc4.i1511, ptr @_ZN10TestObject19sTODefaultCtorCountE, align 8
-  %mId.i1512 = getelementptr inbounds %struct.TestObject, ptr %ref.tmp710, i64 0, i32 3
+  %mId.i1512 = getelementptr inbounds i8, ptr %ref.tmp710, i64 8
   store i64 %inc3.i1510, ptr %mId.i1512, align 8
   call void @llvm.lifetime.start.p0(i64 56, ptr nonnull %ref.tmp.i1513)
-  %mBuffer.i1514 = getelementptr inbounds %"class.eastl::fixed_list.68", ptr %list5TO55, i64 0, i32 1
+  %mBuffer.i1514 = getelementptr inbounds i8, ptr %list5TO55, i64 80
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %ref.tmp.i1513, i8 0, i64 48, i1 false)
   invoke void @_ZN5eastl15fixed_pool_base4initEPvmmmm(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp.i1513, ptr noundef nonnull %mBuffer.i1514, i64 noundef 640, i64 noundef 40, i64 noundef 8, i64 noundef 0)
           to label %.noexc1528 unwind label %lpad712
 
 .noexc1528:                                       ; preds = %invoke.cont708
-  %mpPoolBegin.i.i.i1515 = getelementptr inbounds %"class.eastl::fixed_pool_with_overflow.28", ptr %ref.tmp.i1513, i64 0, i32 2
+  %mpPoolBegin.i.i.i1515 = getelementptr inbounds i8, ptr %ref.tmp.i1513, i64 48
   store ptr %mBuffer.i1514, ptr %mpPoolBegin.i.i.i1515, align 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %list5TO55, i8 0, i64 16, i1 false)
-  %mSecond.i.i.i.i.i1516 = getelementptr inbounds %"class.eastl::compressed_pair_imp.72", ptr %list5TO55, i64 0, i32 1
-  %mpNext.i.i.i.i.i.i1517 = getelementptr inbounds %"struct.eastl::fixed_pool_base", ptr %ref.tmp.i1513, i64 0, i32 1
+  %mSecond.i.i.i.i.i1516 = getelementptr inbounds i8, ptr %list5TO55, i64 16
+  %mpNext.i.i.i.i.i.i1517 = getelementptr inbounds i8, ptr %ref.tmp.i1513, i64 8
   %605 = load ptr, ptr %mpNext.i.i.i.i.i.i1517, align 8
-  %mOverflowAllocator.i.i.i.i.i.i1518 = getelementptr inbounds %"class.eastl::fixed_pool_with_overflow.28", ptr %ref.tmp.i1513, i64 0, i32 1
-  %mOverflowAllocator.i.i.i.i.i.i.i1519 = getelementptr inbounds %"class.eastl::compressed_pair_imp.72", ptr %list5TO55, i64 0, i32 1, i32 0, i32 1
+  %mOverflowAllocator.i.i.i.i.i.i1518 = getelementptr inbounds i8, ptr %ref.tmp.i1513, i64 32
+  %mOverflowAllocator.i.i.i.i.i.i.i1519 = getelementptr inbounds i8, ptr %list5TO55, i64 48
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %mSecond.i.i.i.i.i1516, i8 0, i64 32, i1 false)
   %606 = load <2 x i32>, ptr %mOverflowAllocator.i.i.i.i.i.i1518, align 8
   store <2 x i32> %606, ptr %mOverflowAllocator.i.i.i.i.i.i.i1519, align 8
-  %mAllocVolume.i.i.i.i.i.i.i.i1522 = getelementptr inbounds %"class.eastl::compressed_pair_imp.72", ptr %list5TO55, i64 0, i32 1, i32 0, i32 1, i32 2
-  %mAllocVolume4.i.i.i.i.i.i.i.i1523 = getelementptr inbounds %"class.eastl::fixed_pool_with_overflow.28", ptr %ref.tmp.i1513, i64 0, i32 1, i32 2
+  %mAllocVolume.i.i.i.i.i.i.i.i1522 = getelementptr inbounds i8, ptr %list5TO55, i64 56
+  %mAllocVolume4.i.i.i.i.i.i.i.i1523 = getelementptr inbounds i8, ptr %ref.tmp.i1513, i64 40
   %607 = load i64, ptr %mAllocVolume4.i.i.i.i.i.i.i.i1523, align 8
   store i64 %607, ptr %mAllocVolume.i.i.i.i.i.i.i.i1522, align 8
   invoke void @_ZN5eastl15fixed_pool_base4initEPvmmmm(ptr noundef nonnull align 8 dereferenceable(32) %mSecond.i.i.i.i.i1516, ptr noundef %605, i64 noundef 640, i64 noundef 40, i64 noundef 8, i64 noundef 0)
           to label %.noexc1529 unwind label %lpad712
 
 .noexc1529:                                       ; preds = %.noexc1528
-  %mpPoolBegin.i.i.i.i.i.i.i1524 = getelementptr inbounds %"class.eastl::compressed_pair_imp.72", ptr %list5TO55, i64 0, i32 1, i32 0, i32 2
+  %mpPoolBegin.i.i.i.i.i.i.i1524 = getelementptr inbounds i8, ptr %list5TO55, i64 64
   store ptr %605, ptr %mpPoolBegin.i.i.i.i.i.i.i1524, align 8
-  %mSize.i.i.i1525 = getelementptr inbounds %"class.eastl::ListBase.70", ptr %list5TO55, i64 0, i32 1
+  %mSize.i.i.i1525 = getelementptr inbounds i8, ptr %list5TO55, i64 72
   store i64 0, ptr %mSize.i.i.i1525, align 8
   store ptr %list5TO55, ptr %list5TO55, align 8
-  %mpPrev.i.i.i.i1526 = getelementptr inbounds %"struct.eastl::ListNodeBase", ptr %list5TO55, i64 0, i32 1
+  %mpPrev.i.i.i.i1526 = getelementptr inbounds i8, ptr %list5TO55, i64 8
   store ptr %list5TO55, ptr %mpPrev.i.i.i.i1526, align 8
   invoke void @_ZN5eastl4listI10TestObjectNS_20fixed_node_allocatorILm40ELm16ELm8ELm0ELb1E15MallocAllocatorEEE6resizeEmRKS1_(ptr noundef nonnull align 8 dereferenceable(80) %list5TO55, i64 noundef 5, ptr noundef nonnull align 8 dereferenceable(20) %ref.tmp710)
           to label %invoke.cont713 unwind label %lpad.i1527
@@ -6659,7 +6655,7 @@ invoke.cont717:                                   ; preds = %_ZN10TestObjectD2Ev
 
 land.rhs721:                                      ; preds = %invoke.cont717
   %614 = load ptr, ptr %toListB, align 8
-  %mValue.i1542 = getelementptr inbounds %"struct.eastl::ListNode.89", ptr %614, i64 0, i32 1
+  %mValue.i1542 = getelementptr inbounds i8, ptr %614, i64 16
   %615 = load i32, ptr %mValue.i1542, align 8
   %cmp725 = icmp eq i32 %615, 55
   br label %land.end726
@@ -6675,14 +6671,14 @@ invoke.cont727:                                   ; preds = %land.end726
   br i1 %cmp.not6.i.i.i.i, label %_ZN5eastl10fixed_listI10TestObjectLm16ELb1E15MallocAllocatorED2Ev.exit, label %while.body.lr.ph.i.i.i.i1543
 
 while.body.lr.ph.i.i.i.i1543:                     ; preds = %invoke.cont727
-  %mpCapacity.i.i.i.i.i.i1545 = getelementptr inbounds %"class.eastl::compressed_pair_imp.72", ptr %list5TO55, i64 0, i32 1, i32 0, i32 0, i32 2
-  %mnNodeSize.i.i.i.i.i.i1547 = getelementptr inbounds %"class.eastl::compressed_pair_imp.72", ptr %list5TO55, i64 0, i32 1, i32 0, i32 0, i32 3
+  %mpCapacity.i.i.i.i.i.i1545 = getelementptr inbounds i8, ptr %list5TO55, i64 32
+  %mnNodeSize.i.i.i.i.i.i1547 = getelementptr inbounds i8, ptr %list5TO55, i64 40
   br label %while.body.i.i.i.i1549
 
 while.body.i.i.i.i1549:                           ; preds = %_ZN5eastl20fixed_node_allocatorILm40ELm16ELm8ELm0ELb1E15MallocAllocatorE10deallocateEPvm.exit.i.i.i.i, %while.body.lr.ph.i.i.i.i1543
   %p.07.i.i.i.i = phi ptr [ %617, %while.body.lr.ph.i.i.i.i1543 ], [ %618, %_ZN5eastl20fixed_node_allocatorILm40ELm16ELm8ELm0ELb1E15MallocAllocatorE10deallocateEPvm.exit.i.i.i.i ]
   %618 = load ptr, ptr %p.07.i.i.i.i, align 8
-  %mMagicValue.i.i.i.i.i.i = getelementptr inbounds %"struct.eastl::ListNode.89", ptr %p.07.i.i.i.i, i64 0, i32 1, i32 4
+  %mMagicValue.i.i.i.i.i.i = getelementptr inbounds i8, ptr %p.07.i.i.i.i, i64 32
   %619 = load i32, ptr %mMagicValue.i.i.i.i.i.i, align 8
   %cmp.not.i.i.i.i.i.i1550 = icmp eq i32 %619, 32623592
   br i1 %cmp.not.i.i.i.i.i.i1550, label %_ZN5eastl8ListNodeI10TestObjectED2Ev.exit.i.i.i.i, label %if.then.i.i.i.i.i.i1551
@@ -6736,17 +6732,17 @@ _ZN5eastl10fixed_listI10TestObjectLm16ELb1E15MallocAllocatorED2Ev.exit: ; preds 
   br i1 %cmp.not6.i.i.i.i1557, label %_ZN5eastl10fixed_listI10TestObjectLm16ELb1E15MallocAllocatorED2Ev.exit1581, label %while.body.lr.ph.i.i.i.i1558
 
 while.body.lr.ph.i.i.i.i1558:                     ; preds = %_ZN5eastl10fixed_listI10TestObjectLm16ELb1E15MallocAllocatorED2Ev.exit
-  %mpPoolBegin.i.i.i.i.i.i1559 = getelementptr inbounds %"class.eastl::compressed_pair_imp.72", ptr %toListB, i64 0, i32 1, i32 0, i32 2
-  %mpCapacity.i.i.i.i.i.i1560 = getelementptr inbounds %"class.eastl::compressed_pair_imp.72", ptr %toListB, i64 0, i32 1, i32 0, i32 0, i32 2
-  %mOverflowAllocator.i.i.i.i.i.i1561 = getelementptr inbounds %"class.eastl::compressed_pair_imp.72", ptr %toListB, i64 0, i32 1, i32 0, i32 1
-  %mnNodeSize.i.i.i.i.i.i1562 = getelementptr inbounds %"class.eastl::compressed_pair_imp.72", ptr %toListB, i64 0, i32 1, i32 0, i32 0, i32 3
-  %mSecond.i.i.i.i.i.i.i1563 = getelementptr inbounds %"class.eastl::compressed_pair_imp.72", ptr %toListB, i64 0, i32 1
+  %mpPoolBegin.i.i.i.i.i.i1559 = getelementptr inbounds i8, ptr %toListB, i64 64
+  %mpCapacity.i.i.i.i.i.i1560 = getelementptr inbounds i8, ptr %toListB, i64 32
+  %mOverflowAllocator.i.i.i.i.i.i1561 = getelementptr inbounds i8, ptr %toListB, i64 48
+  %mnNodeSize.i.i.i.i.i.i1562 = getelementptr inbounds i8, ptr %toListB, i64 40
+  %mSecond.i.i.i.i.i.i.i1563 = getelementptr inbounds i8, ptr %toListB, i64 16
   br label %while.body.i.i.i.i1564
 
 while.body.i.i.i.i1564:                           ; preds = %_ZN5eastl20fixed_node_allocatorILm40ELm16ELm8ELm0ELb1E15MallocAllocatorE10deallocateEPvm.exit.i.i.i.i1578, %while.body.lr.ph.i.i.i.i1558
   %p.07.i.i.i.i1565 = phi ptr [ %629, %while.body.lr.ph.i.i.i.i1558 ], [ %630, %_ZN5eastl20fixed_node_allocatorILm40ELm16ELm8ELm0ELb1E15MallocAllocatorE10deallocateEPvm.exit.i.i.i.i1578 ]
   %630 = load ptr, ptr %p.07.i.i.i.i1565, align 8
-  %mMagicValue.i.i.i.i.i.i1566 = getelementptr inbounds %"struct.eastl::ListNode.89", ptr %p.07.i.i.i.i1565, i64 0, i32 1, i32 4
+  %mMagicValue.i.i.i.i.i.i1566 = getelementptr inbounds i8, ptr %p.07.i.i.i.i1565, i64 32
   %631 = load i32, ptr %mMagicValue.i.i.i.i.i.i1566, align 8
   %cmp.not.i.i.i.i.i.i1567 = icmp eq i32 %631, 32623592
   br i1 %cmp.not.i.i.i.i.i.i1567, label %_ZN5eastl8ListNodeI10TestObjectED2Ev.exit.i.i.i.i1570, label %if.then.i.i.i.i.i.i1568
@@ -6800,14 +6796,14 @@ _ZN5eastl10fixed_listI10TestObjectLm16ELb1E15MallocAllocatorED2Ev.exit1581: ; pr
   br i1 %cmp.not6.i.i.i.i1582, label %_ZN5eastl10fixed_listI10TestObjectLm16ELb1E15MallocAllocatorED2Ev.exit1606, label %while.body.lr.ph.i.i.i.i1583
 
 while.body.lr.ph.i.i.i.i1583:                     ; preds = %_ZN5eastl10fixed_listI10TestObjectLm16ELb1E15MallocAllocatorED2Ev.exit1581
-  %mpCapacity.i.i.i.i.i.i1585 = getelementptr inbounds %"class.eastl::compressed_pair_imp.72", ptr %list4TO44, i64 0, i32 1, i32 0, i32 0, i32 2
-  %mnNodeSize.i.i.i.i.i.i1587 = getelementptr inbounds %"class.eastl::compressed_pair_imp.72", ptr %list4TO44, i64 0, i32 1, i32 0, i32 0, i32 3
+  %mpCapacity.i.i.i.i.i.i1585 = getelementptr inbounds i8, ptr %list4TO44, i64 32
+  %mnNodeSize.i.i.i.i.i.i1587 = getelementptr inbounds i8, ptr %list4TO44, i64 40
   br label %while.body.i.i.i.i1589
 
 while.body.i.i.i.i1589:                           ; preds = %_ZN5eastl20fixed_node_allocatorILm40ELm16ELm8ELm0ELb1E15MallocAllocatorE10deallocateEPvm.exit.i.i.i.i1603, %while.body.lr.ph.i.i.i.i1583
   %p.07.i.i.i.i1590 = phi ptr [ %641, %while.body.lr.ph.i.i.i.i1583 ], [ %642, %_ZN5eastl20fixed_node_allocatorILm40ELm16ELm8ELm0ELb1E15MallocAllocatorE10deallocateEPvm.exit.i.i.i.i1603 ]
   %642 = load ptr, ptr %p.07.i.i.i.i1590, align 8
-  %mMagicValue.i.i.i.i.i.i1591 = getelementptr inbounds %"struct.eastl::ListNode.89", ptr %p.07.i.i.i.i1590, i64 0, i32 1, i32 4
+  %mMagicValue.i.i.i.i.i.i1591 = getelementptr inbounds i8, ptr %p.07.i.i.i.i1590, i64 32
   %643 = load i32, ptr %mMagicValue.i.i.i.i.i.i1591, align 8
   %cmp.not.i.i.i.i.i.i1592 = icmp eq i32 %643, 32623592
   br i1 %cmp.not.i.i.i.i.i.i1592, label %_ZN5eastl8ListNodeI10TestObjectED2Ev.exit.i.i.i.i1595, label %if.then.i.i.i.i.i.i1593
@@ -6861,13 +6857,13 @@ _ZN5eastl10fixed_listI10TestObjectLm16ELb1E15MallocAllocatorED2Ev.exit1606: ; pr
   br i1 %cmp.not6.i.i.i.i1607, label %_ZN5eastl10fixed_listI10TestObjectLm16ELb1ENS_9allocatorEED2Ev.exit, label %while.body.lr.ph.i.i.i.i1608
 
 while.body.lr.ph.i.i.i.i1608:                     ; preds = %_ZN5eastl10fixed_listI10TestObjectLm16ELb1E15MallocAllocatorED2Ev.exit1606
-  %mpCapacity.i.i.i.i.i.i1610 = getelementptr inbounds %"class.eastl::compressed_pair_imp.65", ptr %toListA, i64 0, i32 1, i32 0, i32 0, i32 2
+  %mpCapacity.i.i.i.i.i.i1610 = getelementptr inbounds i8, ptr %toListA, i64 32
   br label %while.body.i.i.i.i1612
 
 while.body.i.i.i.i1612:                           ; preds = %_ZN5eastl20fixed_node_allocatorILm40ELm16ELm8ELm0ELb1ENS_9allocatorEE10deallocateEPvm.exit.i.i.i.i, %while.body.lr.ph.i.i.i.i1608
   %p.07.i.i.i.i1613 = phi ptr [ %653, %while.body.lr.ph.i.i.i.i1608 ], [ %654, %_ZN5eastl20fixed_node_allocatorILm40ELm16ELm8ELm0ELb1ENS_9allocatorEE10deallocateEPvm.exit.i.i.i.i ]
   %654 = load ptr, ptr %p.07.i.i.i.i1613, align 8
-  %mMagicValue.i.i.i.i.i.i1614 = getelementptr inbounds %"struct.eastl::ListNode.89", ptr %p.07.i.i.i.i1613, i64 0, i32 1, i32 4
+  %mMagicValue.i.i.i.i.i.i1614 = getelementptr inbounds i8, ptr %p.07.i.i.i.i1613, i64 32
   %655 = load i32, ptr %mMagicValue.i.i.i.i.i.i1614, align 8
   %cmp.not.i.i.i.i.i.i1615 = icmp eq i32 %655, 32623592
   br i1 %cmp.not.i.i.i.i.i.i1615, label %_ZN5eastl8ListNodeI10TestObjectED2Ev.exit.i.i.i.i1618, label %if.then.i.i.i.i.i.i1616
@@ -6913,13 +6909,13 @@ _ZN5eastl10fixed_listI10TestObjectLm16ELb1ENS_9allocatorEED2Ev.exit: ; preds = %
   br i1 %cmp.not6.i.i.i.i1627, label %_ZN5eastl10fixed_listI10TestObjectLm16ELb1ENS_9allocatorEED2Ev.exit1648, label %while.body.lr.ph.i.i.i.i1628
 
 while.body.lr.ph.i.i.i.i1628:                     ; preds = %_ZN5eastl10fixed_listI10TestObjectLm16ELb1ENS_9allocatorEED2Ev.exit
-  %mpCapacity.i.i.i.i.i.i1630 = getelementptr inbounds %"class.eastl::compressed_pair_imp.65", ptr %list3TO33, i64 0, i32 1, i32 0, i32 0, i32 2
+  %mpCapacity.i.i.i.i.i.i1630 = getelementptr inbounds i8, ptr %list3TO33, i64 32
   br label %while.body.i.i.i.i1632
 
 while.body.i.i.i.i1632:                           ; preds = %_ZN5eastl20fixed_node_allocatorILm40ELm16ELm8ELm0ELb1ENS_9allocatorEE10deallocateEPvm.exit.i.i.i.i1645, %while.body.lr.ph.i.i.i.i1628
   %p.07.i.i.i.i1633 = phi ptr [ %662, %while.body.lr.ph.i.i.i.i1628 ], [ %663, %_ZN5eastl20fixed_node_allocatorILm40ELm16ELm8ELm0ELb1ENS_9allocatorEE10deallocateEPvm.exit.i.i.i.i1645 ]
   %663 = load ptr, ptr %p.07.i.i.i.i1633, align 8
-  %mMagicValue.i.i.i.i.i.i1634 = getelementptr inbounds %"struct.eastl::ListNode.89", ptr %p.07.i.i.i.i1633, i64 0, i32 1, i32 4
+  %mMagicValue.i.i.i.i.i.i1634 = getelementptr inbounds i8, ptr %p.07.i.i.i.i1633, i64 32
   %664 = load i32, ptr %mMagicValue.i.i.i.i.i.i1634, align 8
   %cmp.not.i.i.i.i.i.i1635 = icmp eq i32 %664, 32623592
   br i1 %cmp.not.i.i.i.i.i.i1635, label %_ZN5eastl8ListNodeI10TestObjectED2Ev.exit.i.i.i.i1638, label %if.then.i.i.i.i.i.i1636
@@ -6971,23 +6967,23 @@ _ZN5eastl10fixed_listI10TestObjectLm16ELb1ENS_9allocatorEED2Ev.exit1648: ; preds
   store i64 0, ptr @_ZN10TestObject18sTOMoveAssignCountE, align 8
   store i32 0, ptr @_ZN10TestObject16sMagicErrorCountE, align 4
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %ref.tmp.i1649)
-  %mBuffer.i1650 = getelementptr inbounds %"class.eastl::fixed_list.61", ptr %toListA734, i64 0, i32 1
+  %mBuffer.i1650 = getelementptr inbounds i8, ptr %toListA734, i64 72
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp.i1649, i8 0, i64 32, i1 false)
   call void @_ZN5eastl15fixed_pool_base4initEPvmmmm(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp.i1649, ptr noundef nonnull %mBuffer.i1650, i64 noundef 640, i64 noundef 40, i64 noundef 8, i64 noundef 0)
-  %mpPoolBegin.i.i.i1651 = getelementptr inbounds %"class.eastl::fixed_pool_with_overflow", ptr %ref.tmp.i1649, i64 0, i32 2
+  %mpPoolBegin.i.i.i1651 = getelementptr inbounds i8, ptr %ref.tmp.i1649, i64 40
   store ptr %mBuffer.i1650, ptr %mpPoolBegin.i.i.i1651, align 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %toListA734, i8 0, i64 16, i1 false)
-  %mSecond.i.i.i.i.i1652 = getelementptr inbounds %"class.eastl::compressed_pair_imp.65", ptr %toListA734, i64 0, i32 1
-  %mpNext.i.i.i.i.i.i1653 = getelementptr inbounds %"struct.eastl::fixed_pool_base", ptr %ref.tmp.i1649, i64 0, i32 1
+  %mSecond.i.i.i.i.i1652 = getelementptr inbounds i8, ptr %toListA734, i64 16
+  %mpNext.i.i.i.i.i.i1653 = getelementptr inbounds i8, ptr %ref.tmp.i1649, i64 8
   %671 = load ptr, ptr %mpNext.i.i.i.i.i.i1653, align 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %mSecond.i.i.i.i.i1652, i8 0, i64 32, i1 false)
   call void @_ZN5eastl15fixed_pool_base4initEPvmmmm(ptr noundef nonnull align 8 dereferenceable(32) %mSecond.i.i.i.i.i1652, ptr noundef %671, i64 noundef 640, i64 noundef 40, i64 noundef 8, i64 noundef 0)
-  %mpPoolBegin.i.i.i.i.i.i.i1654 = getelementptr inbounds %"class.eastl::compressed_pair_imp.65", ptr %toListA734, i64 0, i32 1, i32 0, i32 2
+  %mpPoolBegin.i.i.i.i.i.i.i1654 = getelementptr inbounds i8, ptr %toListA734, i64 56
   store ptr %671, ptr %mpPoolBegin.i.i.i.i.i.i.i1654, align 8
-  %mSize.i.i.i1655 = getelementptr inbounds %"class.eastl::ListBase.63", ptr %toListA734, i64 0, i32 1
+  %mSize.i.i.i1655 = getelementptr inbounds i8, ptr %toListA734, i64 64
   store i64 0, ptr %mSize.i.i.i1655, align 8
   store ptr %toListA734, ptr %toListA734, align 8
-  %mpPrev.i.i.i.i1656 = getelementptr inbounds %"struct.eastl::ListNodeBase", ptr %toListA734, i64 0, i32 1
+  %mpPrev.i.i.i.i1656 = getelementptr inbounds i8, ptr %toListA734, i64 8
   store ptr %toListA734, ptr %mpPrev.i.i.i.i1656, align 8
   call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %ref.tmp.i1649)
   %672 = load ptr, ptr %mSecond.i.i.i.i.i1652, align 8
@@ -7000,12 +6996,12 @@ if.then.i.i.i.i.i.i.i:                            ; preds = %_ZN5eastl10fixed_li
   br label %invoke.cont739
 
 if.else.i.i.i.i.i.i.i:                            ; preds = %_ZN5eastl10fixed_listI10TestObjectLm16ELb1ENS_9allocatorEED2Ev.exit1648
-  %mpNext3.i.i.i.i.i.i.i = getelementptr inbounds %"class.eastl::compressed_pair_imp.65", ptr %toListA734, i64 0, i32 1, i32 0, i32 0, i32 1
+  %mpNext3.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %toListA734, i64 24
   %674 = load ptr, ptr %mpNext3.i.i.i.i.i.i.i, align 8
-  %mpCapacity.i.i.i.i.i.i.i = getelementptr inbounds %"class.eastl::compressed_pair_imp.65", ptr %toListA734, i64 0, i32 1, i32 0, i32 0, i32 2
+  %mpCapacity.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %toListA734, i64 32
   %675 = load ptr, ptr %mpCapacity.i.i.i.i.i.i.i, align 8
   %cmp.not.i.i.i.i.i.i.i = icmp eq ptr %674, %675
-  %mnNodeSize9.i.i.i.i.i.i.i = getelementptr inbounds %"class.eastl::compressed_pair_imp.65", ptr %toListA734, i64 0, i32 1, i32 0, i32 0, i32 3
+  %mnNodeSize9.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %toListA734, i64 40
   %676 = load i64, ptr %mnNodeSize9.i.i.i.i.i.i.i, align 8
   br i1 %cmp.not.i.i.i.i.i.i.i, label %if.else8.i.i.i.i.i.i.i, label %if.then4.i.i.i.i.i.i.i
 
@@ -7020,11 +7016,11 @@ if.else8.i.i.i.i.i.i.i:                           ; preds = %if.else.i.i.i.i.i.i
 
 invoke.cont739:                                   ; preds = %if.then4.i.i.i.i.i.i.i, %if.then.i.i.i.i.i.i.i, %if.else8.i.i.i.i.i.i.i
   %result.0.i.i.i.i.i1659 = phi ptr [ %672, %if.then.i.i.i.i.i.i.i ], [ %674, %if.then4.i.i.i.i.i.i.i ], [ %call.i.i.i.i.i.i.i.i1667, %if.else8.i.i.i.i.i.i.i ]
-  %mValue.i.i.i1660 = getelementptr inbounds %"struct.eastl::ListNode.89", ptr %result.0.i.i.i.i.i1659, i64 0, i32 1
+  %mValue.i.i.i1660 = getelementptr inbounds i8, ptr %result.0.i.i.i.i.i1659, i64 16
   store i32 6, ptr %mValue.i.i.i1660, align 8
-  %mbThrowOnCopy.i.i.i.i = getelementptr inbounds %"struct.eastl::ListNode.89", ptr %result.0.i.i.i.i.i1659, i64 0, i32 1, i32 1
+  %mbThrowOnCopy.i.i.i.i = getelementptr inbounds i8, ptr %result.0.i.i.i.i.i1659, i64 20
   store i8 0, ptr %mbThrowOnCopy.i.i.i.i, align 4
-  %mMagicValue.i.i.i.i = getelementptr inbounds %"struct.eastl::ListNode.89", ptr %result.0.i.i.i.i.i1659, i64 0, i32 1, i32 4
+  %mMagicValue.i.i.i.i = getelementptr inbounds i8, ptr %result.0.i.i.i.i.i1659, i64 32
   store i32 32623592, ptr %mMagicValue.i.i.i.i, align 8
   %677 = load i64, ptr @_ZN10TestObject8sTOCountE, align 8
   %inc.i.i.i.i1661 = add nsw i64 %677, 1
@@ -7035,11 +7031,11 @@ invoke.cont739:                                   ; preds = %if.then4.i.i.i.i.i.
   %679 = load i64, ptr @_ZN10TestObject15sTOArgCtorCountE, align 8
   %inc5.i.i.i.i = add nsw i64 %679, 1
   store i64 %inc5.i.i.i.i, ptr @_ZN10TestObject15sTOArgCtorCountE, align 8
-  %mId.i.i.i.i = getelementptr inbounds %"struct.eastl::ListNode.89", ptr %result.0.i.i.i.i.i1659, i64 0, i32 1, i32 3
+  %mId.i.i.i.i = getelementptr inbounds i8, ptr %result.0.i.i.i.i.i1659, i64 24
   store i64 %inc4.i.i.i.i, ptr %mId.i.i.i.i, align 8
   store ptr %toListA734, ptr %result.0.i.i.i.i.i1659, align 8
   %680 = load ptr, ptr %mpPrev.i.i.i.i1656, align 8
-  %mpPrev2.i.i.i1663 = getelementptr inbounds %"struct.eastl::ListNodeBase", ptr %result.0.i.i.i.i.i1659, i64 0, i32 1
+  %mpPrev2.i.i.i1663 = getelementptr inbounds i8, ptr %result.0.i.i.i.i.i1659, i64 8
   store ptr %680, ptr %mpPrev2.i.i.i1663, align 8
   store ptr %result.0.i.i.i.i.i1659, ptr %680, align 8
   store ptr %result.0.i.i.i.i.i1659, ptr %mpPrev.i.i.i.i1656, align 8
@@ -7051,7 +7047,7 @@ invoke.cont739:                                   ; preds = %if.then4.i.i.i.i.i.
 
 land.lhs.true:                                    ; preds = %invoke.cont739
   %682 = load ptr, ptr %toListA734, align 8
-  %mValue.i1669 = getelementptr inbounds %"struct.eastl::ListNode.89", ptr %682, i64 0, i32 1
+  %mValue.i1669 = getelementptr inbounds i8, ptr %682, i64 16
   %683 = load i32, ptr %mValue.i1669, align 8
   %cmp745 = icmp eq i32 %683, 6
   br i1 %cmp745, label %land.rhs746, label %land.end748
@@ -7077,12 +7073,12 @@ if.then.i.i.i.i.i.i.i1672:                        ; preds = %invoke.cont749
   br label %invoke.cont754
 
 if.else.i.i.i.i.i.i.i1687:                        ; preds = %invoke.cont749
-  %mpNext3.i.i.i.i.i.i.i1688 = getelementptr inbounds %"class.eastl::compressed_pair_imp.65", ptr %toListA734, i64 0, i32 1, i32 0, i32 0, i32 1
+  %mpNext3.i.i.i.i.i.i.i1688 = getelementptr inbounds i8, ptr %toListA734, i64 24
   %688 = load ptr, ptr %mpNext3.i.i.i.i.i.i.i1688, align 8
-  %mpCapacity.i.i.i.i.i.i.i1689 = getelementptr inbounds %"class.eastl::compressed_pair_imp.65", ptr %toListA734, i64 0, i32 1, i32 0, i32 0, i32 2
+  %mpCapacity.i.i.i.i.i.i.i1689 = getelementptr inbounds i8, ptr %toListA734, i64 32
   %689 = load ptr, ptr %mpCapacity.i.i.i.i.i.i.i1689, align 8
   %cmp.not.i.i.i.i.i.i.i1690 = icmp eq ptr %688, %689
-  %mnNodeSize9.i.i.i.i.i.i.i1691 = getelementptr inbounds %"class.eastl::compressed_pair_imp.65", ptr %toListA734, i64 0, i32 1, i32 0, i32 0, i32 3
+  %mnNodeSize9.i.i.i.i.i.i.i1691 = getelementptr inbounds i8, ptr %toListA734, i64 40
   %690 = load i64, ptr %mnNodeSize9.i.i.i.i.i.i.i1691, align 8
   br i1 %cmp.not.i.i.i.i.i.i.i1690, label %if.else8.i.i.i.i.i.i.i1694, label %if.then4.i.i.i.i.i.i.i1692
 
@@ -7097,11 +7093,11 @@ if.else8.i.i.i.i.i.i.i1694:                       ; preds = %if.else.i.i.i.i.i.i
 
 invoke.cont754:                                   ; preds = %if.then4.i.i.i.i.i.i.i1692, %if.then.i.i.i.i.i.i.i1672, %if.else8.i.i.i.i.i.i.i1694
   %result.0.i.i.i.i.i1673 = phi ptr [ %686, %if.then.i.i.i.i.i.i.i1672 ], [ %688, %if.then4.i.i.i.i.i.i.i1692 ], [ %call.i.i.i.i.i.i.i.i1696, %if.else8.i.i.i.i.i.i.i1694 ]
-  %mValue.i.i.i1674 = getelementptr inbounds %"struct.eastl::ListNode.89", ptr %result.0.i.i.i.i.i1673, i64 0, i32 1
+  %mValue.i.i.i1674 = getelementptr inbounds i8, ptr %result.0.i.i.i.i.i1673, i64 16
   store i32 9, ptr %mValue.i.i.i1674, align 8
-  %mbThrowOnCopy.i.i.i.i1677 = getelementptr inbounds %"struct.eastl::ListNode.89", ptr %result.0.i.i.i.i.i1673, i64 0, i32 1, i32 1
+  %mbThrowOnCopy.i.i.i.i1677 = getelementptr inbounds i8, ptr %result.0.i.i.i.i.i1673, i64 20
   store i8 0, ptr %mbThrowOnCopy.i.i.i.i1677, align 4
-  %mMagicValue.i.i.i.i1678 = getelementptr inbounds %"struct.eastl::ListNode.89", ptr %result.0.i.i.i.i.i1673, i64 0, i32 1, i32 4
+  %mMagicValue.i.i.i.i1678 = getelementptr inbounds i8, ptr %result.0.i.i.i.i.i1673, i64 32
   store i32 32623592, ptr %mMagicValue.i.i.i.i1678, align 8
   %691 = load i64, ptr @_ZN10TestObject8sTOCountE, align 8
   %inc.i.i.i.i1679 = add nsw i64 %691, 1
@@ -7112,11 +7108,11 @@ invoke.cont754:                                   ; preds = %if.then4.i.i.i.i.i.
   %693 = load i64, ptr @_ZN10TestObject15sTOArgCtorCountE, align 8
   %inc5.i.i.i.i1681 = add nsw i64 %693, 1
   store i64 %inc5.i.i.i.i1681, ptr @_ZN10TestObject15sTOArgCtorCountE, align 8
-  %mId.i.i.i.i1682 = getelementptr inbounds %"struct.eastl::ListNode.89", ptr %result.0.i.i.i.i.i1673, i64 0, i32 1, i32 3
+  %mId.i.i.i.i1682 = getelementptr inbounds i8, ptr %result.0.i.i.i.i.i1673, i64 24
   store i64 %inc4.i.i.i.i1680, ptr %mId.i.i.i.i1682, align 8
   store ptr %toListA734, ptr %result.0.i.i.i.i.i1673, align 8
   %694 = load ptr, ptr %mpPrev.i.i.i.i1656, align 8
-  %mpPrev2.i.i.i1684 = getelementptr inbounds %"struct.eastl::ListNodeBase", ptr %result.0.i.i.i.i.i1673, i64 0, i32 1
+  %mpPrev2.i.i.i1684 = getelementptr inbounds i8, ptr %result.0.i.i.i.i.i1673, i64 8
   store ptr %694, ptr %mpPrev2.i.i.i1684, align 8
   store ptr %result.0.i.i.i.i.i1673, ptr %694, align 8
   store ptr %result.0.i.i.i.i.i1673, ptr %mpPrev.i.i.i.i1656, align 8
@@ -7153,12 +7149,12 @@ if.then.i.i.i.i.i.i.i1702:                        ; preds = %invoke.cont765
   br label %invoke.cont773
 
 if.else.i.i.i.i.i.i.i1717:                        ; preds = %invoke.cont765
-  %mpNext3.i.i.i.i.i.i.i1718 = getelementptr inbounds %"class.eastl::compressed_pair_imp.65", ptr %toListA734, i64 0, i32 1, i32 0, i32 0, i32 1
+  %mpNext3.i.i.i.i.i.i.i1718 = getelementptr inbounds i8, ptr %toListA734, i64 24
   %702 = load ptr, ptr %mpNext3.i.i.i.i.i.i.i1718, align 8, !noalias !342
-  %mpCapacity.i.i.i.i.i.i.i1719 = getelementptr inbounds %"class.eastl::compressed_pair_imp.65", ptr %toListA734, i64 0, i32 1, i32 0, i32 0, i32 2
+  %mpCapacity.i.i.i.i.i.i.i1719 = getelementptr inbounds i8, ptr %toListA734, i64 32
   %703 = load ptr, ptr %mpCapacity.i.i.i.i.i.i.i1719, align 8, !noalias !342
   %cmp.not.i.i.i.i.i.i.i1720 = icmp eq ptr %702, %703
-  %mnNodeSize9.i.i.i.i.i.i.i1721 = getelementptr inbounds %"class.eastl::compressed_pair_imp.65", ptr %toListA734, i64 0, i32 1, i32 0, i32 0, i32 3
+  %mnNodeSize9.i.i.i.i.i.i.i1721 = getelementptr inbounds i8, ptr %toListA734, i64 40
   %704 = load i64, ptr %mnNodeSize9.i.i.i.i.i.i.i1721, align 8, !noalias !342
   br i1 %cmp.not.i.i.i.i.i.i.i1720, label %if.else8.i.i.i.i.i.i.i1724, label %if.then4.i.i.i.i.i.i.i1722
 
@@ -7173,11 +7169,11 @@ if.else8.i.i.i.i.i.i.i1724:                       ; preds = %if.else.i.i.i.i.i.i
 
 invoke.cont773:                                   ; preds = %if.then4.i.i.i.i.i.i.i1722, %if.then.i.i.i.i.i.i.i1702, %if.else8.i.i.i.i.i.i.i1724
   %result.0.i.i.i.i.i1703 = phi ptr [ %700, %if.then.i.i.i.i.i.i.i1702 ], [ %702, %if.then4.i.i.i.i.i.i.i1722 ], [ %call.i.i.i.i.i.i.i.i1726, %if.else8.i.i.i.i.i.i.i1724 ]
-  %mValue.i.i.i1704 = getelementptr inbounds %"struct.eastl::ListNode.89", ptr %result.0.i.i.i.i.i1703, i64 0, i32 1
+  %mValue.i.i.i1704 = getelementptr inbounds i8, ptr %result.0.i.i.i.i.i1703, i64 16
   store i32 12, ptr %mValue.i.i.i1704, align 8, !noalias !342
-  %mbThrowOnCopy.i.i.i.i1707 = getelementptr inbounds %"struct.eastl::ListNode.89", ptr %result.0.i.i.i.i.i1703, i64 0, i32 1, i32 1
+  %mbThrowOnCopy.i.i.i.i1707 = getelementptr inbounds i8, ptr %result.0.i.i.i.i.i1703, i64 20
   store i8 0, ptr %mbThrowOnCopy.i.i.i.i1707, align 4, !noalias !342
-  %mMagicValue.i.i.i.i1708 = getelementptr inbounds %"struct.eastl::ListNode.89", ptr %result.0.i.i.i.i.i1703, i64 0, i32 1, i32 4
+  %mMagicValue.i.i.i.i1708 = getelementptr inbounds i8, ptr %result.0.i.i.i.i.i1703, i64 32
   store i32 32623592, ptr %mMagicValue.i.i.i.i1708, align 8, !noalias !342
   %705 = load i64, ptr @_ZN10TestObject8sTOCountE, align 8, !noalias !342
   %inc.i.i.i.i1709 = add nsw i64 %705, 1
@@ -7188,12 +7184,12 @@ invoke.cont773:                                   ; preds = %if.then4.i.i.i.i.i.
   %707 = load i64, ptr @_ZN10TestObject15sTOArgCtorCountE, align 8, !noalias !342
   %inc5.i.i.i.i1711 = add nsw i64 %707, 1
   store i64 %inc5.i.i.i.i1711, ptr @_ZN10TestObject15sTOArgCtorCountE, align 8, !noalias !342
-  %mId.i.i.i.i1712 = getelementptr inbounds %"struct.eastl::ListNode.89", ptr %result.0.i.i.i.i.i1703, i64 0, i32 1, i32 3
+  %mId.i.i.i.i1712 = getelementptr inbounds i8, ptr %result.0.i.i.i.i.i1703, i64 24
   store i64 %inc4.i.i.i.i1710, ptr %mId.i.i.i.i1712, align 8, !noalias !342
   store ptr %699, ptr %result.0.i.i.i.i.i1703, align 8, !noalias !342
-  %mpPrev.i.i.i1713 = getelementptr inbounds %"struct.eastl::ListNodeBase", ptr %699, i64 0, i32 1
+  %mpPrev.i.i.i1713 = getelementptr inbounds i8, ptr %699, i64 8
   %708 = load ptr, ptr %mpPrev.i.i.i1713, align 8, !noalias !342
-  %mpPrev2.i.i.i1714 = getelementptr inbounds %"struct.eastl::ListNodeBase", ptr %result.0.i.i.i.i.i1703, i64 0, i32 1
+  %mpPrev2.i.i.i1714 = getelementptr inbounds i8, ptr %result.0.i.i.i.i.i1703, i64 8
   store ptr %708, ptr %mpPrev2.i.i.i1714, align 8, !noalias !342
   store ptr %result.0.i.i.i.i.i1703, ptr %708, align 8, !noalias !342
   store ptr %result.0.i.i.i.i.i1703, ptr %mpPrev.i.i.i1713, align 8, !noalias !342
@@ -7205,7 +7201,7 @@ invoke.cont773:                                   ; preds = %if.then4.i.i.i.i.i.
 
 land.lhs.true776:                                 ; preds = %invoke.cont773
   %710 = load ptr, ptr %toListA734, align 8
-  %mValue.i1728 = getelementptr inbounds %"struct.eastl::ListNode.89", ptr %710, i64 0, i32 1
+  %mValue.i1728 = getelementptr inbounds i8, ptr %710, i64 16
   %711 = load i32, ptr %mValue.i1728, align 8
   %cmp780 = icmp eq i32 %711, 12
   br i1 %cmp780, label %land.rhs781, label %land.end783
@@ -7232,29 +7228,29 @@ invoke.cont784:                                   ; preds = %land.end783
   store i64 0, ptr @_ZN10TestObject18sTOMoveAssignCountE, align 8
   store i32 0, ptr @_ZN10TestObject16sMagicErrorCountE, align 4
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %ref.tmp.i1729)
-  %mBuffer.i1730 = getelementptr inbounds %"class.eastl::fixed_list.61", ptr %toListC, i64 0, i32 1
+  %mBuffer.i1730 = getelementptr inbounds i8, ptr %toListC, i64 72
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp.i1729, i8 0, i64 32, i1 false)
   invoke void @_ZN5eastl15fixed_pool_base4initEPvmmmm(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp.i1729, ptr noundef nonnull %mBuffer.i1730, i64 noundef 640, i64 noundef 40, i64 noundef 8, i64 noundef 0)
           to label %.noexc1737 unwind label %lpad738
 
 .noexc1737:                                       ; preds = %invoke.cont784
-  %mpPoolBegin.i.i.i1731 = getelementptr inbounds %"class.eastl::fixed_pool_with_overflow", ptr %ref.tmp.i1729, i64 0, i32 2
+  %mpPoolBegin.i.i.i1731 = getelementptr inbounds i8, ptr %ref.tmp.i1729, i64 40
   store ptr %mBuffer.i1730, ptr %mpPoolBegin.i.i.i1731, align 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %toListC, i8 0, i64 16, i1 false)
-  %mSecond.i.i.i.i.i1732 = getelementptr inbounds %"class.eastl::compressed_pair_imp.65", ptr %toListC, i64 0, i32 1
-  %mpNext.i.i.i.i.i.i1733 = getelementptr inbounds %"struct.eastl::fixed_pool_base", ptr %ref.tmp.i1729, i64 0, i32 1
+  %mSecond.i.i.i.i.i1732 = getelementptr inbounds i8, ptr %toListC, i64 16
+  %mpNext.i.i.i.i.i.i1733 = getelementptr inbounds i8, ptr %ref.tmp.i1729, i64 8
   %714 = load ptr, ptr %mpNext.i.i.i.i.i.i1733, align 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %mSecond.i.i.i.i.i1732, i8 0, i64 32, i1 false)
   invoke void @_ZN5eastl15fixed_pool_base4initEPvmmmm(ptr noundef nonnull align 8 dereferenceable(32) %mSecond.i.i.i.i.i1732, ptr noundef %714, i64 noundef 640, i64 noundef 40, i64 noundef 8, i64 noundef 0)
           to label %invoke.cont787 unwind label %lpad738
 
 invoke.cont787:                                   ; preds = %.noexc1737
-  %mpPoolBegin.i.i.i.i.i.i.i1734 = getelementptr inbounds %"class.eastl::compressed_pair_imp.65", ptr %toListC, i64 0, i32 1, i32 0, i32 2
+  %mpPoolBegin.i.i.i.i.i.i.i1734 = getelementptr inbounds i8, ptr %toListC, i64 56
   store ptr %714, ptr %mpPoolBegin.i.i.i.i.i.i.i1734, align 8
-  %mSize.i.i.i1735 = getelementptr inbounds %"class.eastl::ListBase.63", ptr %toListC, i64 0, i32 1
+  %mSize.i.i.i1735 = getelementptr inbounds i8, ptr %toListC, i64 64
   store i64 0, ptr %mSize.i.i.i1735, align 8
   store ptr %toListC, ptr %toListC, align 8
-  %mpPrev.i.i.i.i1736 = getelementptr inbounds %"struct.eastl::ListNodeBase", ptr %toListC, i64 0, i32 1
+  %mpPrev.i.i.i.i1736 = getelementptr inbounds i8, ptr %toListC, i64 8
   store ptr %toListC, ptr %mpPrev.i.i.i.i1736, align 8
   call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %ref.tmp.i1729)
   %715 = load i64, ptr @_ZN10TestObject8sTOCountE, align 8
@@ -7276,12 +7272,12 @@ if.then.i.i.i.i.i.i.i.i1746:                      ; preds = %invoke.cont787
   br label %_ZN10TestObjectD2Ev.exit1770
 
 if.else.i.i.i.i.i.i.i.i1753:                      ; preds = %invoke.cont787
-  %mpNext3.i.i.i.i.i.i.i.i1754 = getelementptr inbounds %"class.eastl::compressed_pair_imp.65", ptr %toListC, i64 0, i32 1, i32 0, i32 0, i32 1
+  %mpNext3.i.i.i.i.i.i.i.i1754 = getelementptr inbounds i8, ptr %toListC, i64 24
   %720 = load ptr, ptr %mpNext3.i.i.i.i.i.i.i.i1754, align 8, !noalias !345
-  %mpCapacity.i.i.i.i.i.i.i.i1755 = getelementptr inbounds %"class.eastl::compressed_pair_imp.65", ptr %toListC, i64 0, i32 1, i32 0, i32 0, i32 2
+  %mpCapacity.i.i.i.i.i.i.i.i1755 = getelementptr inbounds i8, ptr %toListC, i64 32
   %721 = load ptr, ptr %mpCapacity.i.i.i.i.i.i.i.i1755, align 8, !noalias !345
   %cmp.not.i.i.i.i.i.i.i.i1756 = icmp eq ptr %720, %721
-  %mnNodeSize9.i.i.i.i.i.i.i.i1757 = getelementptr inbounds %"class.eastl::compressed_pair_imp.65", ptr %toListC, i64 0, i32 1, i32 0, i32 0, i32 3
+  %mnNodeSize9.i.i.i.i.i.i.i.i1757 = getelementptr inbounds i8, ptr %toListC, i64 40
   %722 = load i64, ptr %mnNodeSize9.i.i.i.i.i.i.i.i1757, align 8, !noalias !345
   br i1 %cmp.not.i.i.i.i.i.i.i.i1756, label %if.else8.i.i.i.i.i.i.i.i1760, label %if.then4.i.i.i.i.i.i.i.i1758
 
@@ -7303,11 +7299,11 @@ _ZN10TestObjectD2Ev.exit1770:                     ; preds = %if.else8.i.i.i.i.i.
   %723 = phi i64 [ %inc4.i1742, %if.then.i.i.i.i.i.i.i.i1746 ], [ %inc4.i1742, %if.then4.i.i.i.i.i.i.i.i1758 ], [ %.pre2218, %if.else8.i.i.i.i.i.i.i.i1760._ZN10TestObjectD2Ev.exit1770_crit_edge ]
   %724 = phi i64 [ %inc.i1741, %if.then.i.i.i.i.i.i.i.i1746 ], [ %inc.i1741, %if.then4.i.i.i.i.i.i.i.i1758 ], [ %.pre2217, %if.else8.i.i.i.i.i.i.i.i1760._ZN10TestObjectD2Ev.exit1770_crit_edge ]
   %result.0.i.i.i.i.i.i1747 = phi ptr [ %718, %if.then.i.i.i.i.i.i.i.i1746 ], [ %720, %if.then4.i.i.i.i.i.i.i.i1758 ], [ %call.i.i.i.i.i.i.i.i.i17611762, %if.else8.i.i.i.i.i.i.i.i1760._ZN10TestObjectD2Ev.exit1770_crit_edge ]
-  %mValue.i.i.i.i1748 = getelementptr inbounds %"struct.eastl::ListNode.89", ptr %result.0.i.i.i.i.i.i1747, i64 0, i32 1
+  %mValue.i.i.i.i1748 = getelementptr inbounds i8, ptr %result.0.i.i.i.i.i.i1747, i64 16
   store i32 6, ptr %mValue.i.i.i.i1748, align 8, !noalias !345
-  %mbThrowOnCopy.i.i.i.i.i = getelementptr inbounds %"struct.eastl::ListNode.89", ptr %result.0.i.i.i.i.i.i1747, i64 0, i32 1, i32 1
+  %mbThrowOnCopy.i.i.i.i.i = getelementptr inbounds i8, ptr %result.0.i.i.i.i.i.i1747, i64 20
   store i8 0, ptr %mbThrowOnCopy.i.i.i.i.i, align 4, !noalias !345
-  %mMagicValue.i.i.i.i.i = getelementptr inbounds %"struct.eastl::ListNode.89", ptr %result.0.i.i.i.i.i.i1747, i64 0, i32 1, i32 4
+  %mMagicValue.i.i.i.i.i = getelementptr inbounds i8, ptr %result.0.i.i.i.i.i.i1747, i64 32
   store i32 32623592, ptr %mMagicValue.i.i.i.i.i, align 8, !noalias !345
   %inc.i.i.i.i.i = add nsw i64 %724, 1
   store i64 %inc.i.i.i.i.i, ptr @_ZN10TestObject8sTOCountE, align 8, !noalias !345
@@ -7316,11 +7312,11 @@ _ZN10TestObjectD2Ev.exit1770:                     ; preds = %if.else8.i.i.i.i.i.
   %725 = load i64, ptr @_ZN10TestObject16sTOMoveCtorCountE, align 8, !noalias !345
   %inc6.i.i.i.i.i = add nsw i64 %725, 1
   store i64 %inc6.i.i.i.i.i, ptr @_ZN10TestObject16sTOMoveCtorCountE, align 8, !noalias !345
-  %mId.i.i.i.i.i = getelementptr inbounds %"struct.eastl::ListNode.89", ptr %result.0.i.i.i.i.i.i1747, i64 0, i32 1, i32 3
+  %mId.i.i.i.i.i = getelementptr inbounds i8, ptr %result.0.i.i.i.i.i.i1747, i64 24
   store i64 %inc5.i.i.i.i.i, ptr %mId.i.i.i.i.i, align 8, !noalias !345
   store ptr %toListC, ptr %result.0.i.i.i.i.i.i1747, align 8, !noalias !345
   %726 = load ptr, ptr %mpPrev.i.i.i.i1736, align 8, !noalias !345
-  %mpPrev2.i.i.i.i1750 = getelementptr inbounds %"struct.eastl::ListNodeBase", ptr %result.0.i.i.i.i.i.i1747, i64 0, i32 1
+  %mpPrev2.i.i.i.i1750 = getelementptr inbounds i8, ptr %result.0.i.i.i.i.i.i1747, i64 8
   store ptr %726, ptr %mpPrev2.i.i.i.i1750, align 8, !noalias !345
   store ptr %result.0.i.i.i.i.i.i1747, ptr %726, align 8, !noalias !345
   store ptr %result.0.i.i.i.i.i.i1747, ptr %mpPrev.i.i.i.i1736, align 8, !noalias !345
@@ -7338,7 +7334,7 @@ _ZN10TestObjectD2Ev.exit1770:                     ; preds = %if.else8.i.i.i.i.i.
 
 land.lhs.true796:                                 ; preds = %_ZN10TestObjectD2Ev.exit1770
   %730 = load ptr, ptr %toListC, align 8
-  %mValue.i1772 = getelementptr inbounds %"struct.eastl::ListNode.89", ptr %730, i64 0, i32 1
+  %mValue.i1772 = getelementptr inbounds i8, ptr %730, i64 16
   %731 = load i32, ptr %mValue.i1772, align 8
   %cmp800 = icmp eq i32 %731, 6
   br i1 %cmp800, label %land.rhs801, label %land.end803
@@ -7373,12 +7369,12 @@ if.then.i.i.i.i.i.i.i.i1781:                      ; preds = %invoke.cont804
   br label %_ZN10TestObjectD2Ev.exit1813
 
 if.else.i.i.i.i.i.i.i.i1796:                      ; preds = %invoke.cont804
-  %mpNext3.i.i.i.i.i.i.i.i1797 = getelementptr inbounds %"class.eastl::compressed_pair_imp.65", ptr %toListC, i64 0, i32 1, i32 0, i32 0, i32 1
+  %mpNext3.i.i.i.i.i.i.i.i1797 = getelementptr inbounds i8, ptr %toListC, i64 24
   %739 = load ptr, ptr %mpNext3.i.i.i.i.i.i.i.i1797, align 8, !noalias !348
-  %mpCapacity.i.i.i.i.i.i.i.i1798 = getelementptr inbounds %"class.eastl::compressed_pair_imp.65", ptr %toListC, i64 0, i32 1, i32 0, i32 0, i32 2
+  %mpCapacity.i.i.i.i.i.i.i.i1798 = getelementptr inbounds i8, ptr %toListC, i64 32
   %740 = load ptr, ptr %mpCapacity.i.i.i.i.i.i.i.i1798, align 8, !noalias !348
   %cmp.not.i.i.i.i.i.i.i.i1799 = icmp eq ptr %739, %740
-  %mnNodeSize9.i.i.i.i.i.i.i.i1800 = getelementptr inbounds %"class.eastl::compressed_pair_imp.65", ptr %toListC, i64 0, i32 1, i32 0, i32 0, i32 3
+  %mnNodeSize9.i.i.i.i.i.i.i.i1800 = getelementptr inbounds i8, ptr %toListC, i64 40
   %741 = load i64, ptr %mnNodeSize9.i.i.i.i.i.i.i.i1800, align 8, !noalias !348
   br i1 %cmp.not.i.i.i.i.i.i.i.i1799, label %if.else8.i.i.i.i.i.i.i.i1803, label %if.then4.i.i.i.i.i.i.i.i1801
 
@@ -7400,11 +7396,11 @@ _ZN10TestObjectD2Ev.exit1813:                     ; preds = %if.else8.i.i.i.i.i.
   %742 = phi i64 [ %inc4.i1776, %if.then.i.i.i.i.i.i.i.i1781 ], [ %inc4.i1776, %if.then4.i.i.i.i.i.i.i.i1801 ], [ %.pre2220, %if.else8.i.i.i.i.i.i.i.i1803._ZN10TestObjectD2Ev.exit1813_crit_edge ]
   %743 = phi i64 [ %inc.i1775, %if.then.i.i.i.i.i.i.i.i1781 ], [ %inc.i1775, %if.then4.i.i.i.i.i.i.i.i1801 ], [ %.pre2219, %if.else8.i.i.i.i.i.i.i.i1803._ZN10TestObjectD2Ev.exit1813_crit_edge ]
   %result.0.i.i.i.i.i.i1782 = phi ptr [ %737, %if.then.i.i.i.i.i.i.i.i1781 ], [ %739, %if.then4.i.i.i.i.i.i.i.i1801 ], [ %call.i.i.i.i.i.i.i.i.i18041805, %if.else8.i.i.i.i.i.i.i.i1803._ZN10TestObjectD2Ev.exit1813_crit_edge ]
-  %mValue.i.i.i.i1783 = getelementptr inbounds %"struct.eastl::ListNode.89", ptr %result.0.i.i.i.i.i.i1782, i64 0, i32 1
+  %mValue.i.i.i.i1783 = getelementptr inbounds i8, ptr %result.0.i.i.i.i.i.i1782, i64 16
   store i32 9, ptr %mValue.i.i.i.i1783, align 8, !noalias !348
-  %mbThrowOnCopy.i.i.i.i.i1784 = getelementptr inbounds %"struct.eastl::ListNode.89", ptr %result.0.i.i.i.i.i.i1782, i64 0, i32 1, i32 1
+  %mbThrowOnCopy.i.i.i.i.i1784 = getelementptr inbounds i8, ptr %result.0.i.i.i.i.i.i1782, i64 20
   store i8 0, ptr %mbThrowOnCopy.i.i.i.i.i1784, align 4, !noalias !348
-  %mMagicValue.i.i.i.i.i1786 = getelementptr inbounds %"struct.eastl::ListNode.89", ptr %result.0.i.i.i.i.i.i1782, i64 0, i32 1, i32 4
+  %mMagicValue.i.i.i.i.i1786 = getelementptr inbounds i8, ptr %result.0.i.i.i.i.i.i1782, i64 32
   store i32 32623592, ptr %mMagicValue.i.i.i.i.i1786, align 8, !noalias !348
   %inc.i.i.i.i.i1788 = add nsw i64 %743, 1
   store i64 %inc.i.i.i.i.i1788, ptr @_ZN10TestObject8sTOCountE, align 8, !noalias !348
@@ -7413,11 +7409,11 @@ _ZN10TestObjectD2Ev.exit1813:                     ; preds = %if.else8.i.i.i.i.i.
   %744 = load i64, ptr @_ZN10TestObject16sTOMoveCtorCountE, align 8, !noalias !348
   %inc6.i.i.i.i.i1790 = add nsw i64 %744, 1
   store i64 %inc6.i.i.i.i.i1790, ptr @_ZN10TestObject16sTOMoveCtorCountE, align 8, !noalias !348
-  %mId.i.i.i.i.i1791 = getelementptr inbounds %"struct.eastl::ListNode.89", ptr %result.0.i.i.i.i.i.i1782, i64 0, i32 1, i32 3
+  %mId.i.i.i.i.i1791 = getelementptr inbounds i8, ptr %result.0.i.i.i.i.i.i1782, i64 24
   store i64 %inc5.i.i.i.i.i1789, ptr %mId.i.i.i.i.i1791, align 8, !noalias !348
   store ptr %toListC, ptr %result.0.i.i.i.i.i.i1782, align 8, !noalias !348
   %745 = load ptr, ptr %mpPrev.i.i.i.i1736, align 8, !noalias !348
-  %mpPrev2.i.i.i.i1793 = getelementptr inbounds %"struct.eastl::ListNodeBase", ptr %result.0.i.i.i.i.i.i1782, i64 0, i32 1
+  %mpPrev2.i.i.i.i1793 = getelementptr inbounds i8, ptr %result.0.i.i.i.i.i.i1782, i64 8
   store ptr %745, ptr %mpPrev2.i.i.i.i1793, align 8, !noalias !348
   store ptr %result.0.i.i.i.i.i.i1782, ptr %745, align 8, !noalias !348
   store ptr %result.0.i.i.i.i.i.i1782, ptr %mpPrev.i.i.i.i1736, align 8, !noalias !348
@@ -7469,12 +7465,12 @@ if.then.i.i.i.i.i.i.i.i1825:                      ; preds = %invoke.cont821
   br label %_ZN10TestObjectD2Ev.exit1857
 
 if.else.i.i.i.i.i.i.i.i1840:                      ; preds = %invoke.cont821
-  %mpNext3.i.i.i.i.i.i.i.i1841 = getelementptr inbounds %"class.eastl::compressed_pair_imp.65", ptr %toListC, i64 0, i32 1, i32 0, i32 0, i32 1
+  %mpNext3.i.i.i.i.i.i.i.i1841 = getelementptr inbounds i8, ptr %toListC, i64 24
   %758 = load ptr, ptr %mpNext3.i.i.i.i.i.i.i.i1841, align 8, !noalias !354
-  %mpCapacity.i.i.i.i.i.i.i.i1842 = getelementptr inbounds %"class.eastl::compressed_pair_imp.65", ptr %toListC, i64 0, i32 1, i32 0, i32 0, i32 2
+  %mpCapacity.i.i.i.i.i.i.i.i1842 = getelementptr inbounds i8, ptr %toListC, i64 32
   %759 = load ptr, ptr %mpCapacity.i.i.i.i.i.i.i.i1842, align 8, !noalias !354
   %cmp.not.i.i.i.i.i.i.i.i1843 = icmp eq ptr %758, %759
-  %mnNodeSize9.i.i.i.i.i.i.i.i1844 = getelementptr inbounds %"class.eastl::compressed_pair_imp.65", ptr %toListC, i64 0, i32 1, i32 0, i32 0, i32 3
+  %mnNodeSize9.i.i.i.i.i.i.i.i1844 = getelementptr inbounds i8, ptr %toListC, i64 40
   %760 = load i64, ptr %mnNodeSize9.i.i.i.i.i.i.i.i1844, align 8, !noalias !354
   br i1 %cmp.not.i.i.i.i.i.i.i.i1843, label %if.else8.i.i.i.i.i.i.i.i1847, label %if.then4.i.i.i.i.i.i.i.i1845
 
@@ -7496,11 +7492,11 @@ _ZN10TestObjectD2Ev.exit1857:                     ; preds = %if.else8.i.i.i.i.i.
   %761 = phi i64 [ %inc4.i1820, %if.then.i.i.i.i.i.i.i.i1825 ], [ %inc4.i1820, %if.then4.i.i.i.i.i.i.i.i1845 ], [ %.pre2222, %if.else8.i.i.i.i.i.i.i.i1847._ZN10TestObjectD2Ev.exit1857_crit_edge ]
   %762 = phi i64 [ %inc.i1819, %if.then.i.i.i.i.i.i.i.i1825 ], [ %inc.i1819, %if.then4.i.i.i.i.i.i.i.i1845 ], [ %.pre2221, %if.else8.i.i.i.i.i.i.i.i1847._ZN10TestObjectD2Ev.exit1857_crit_edge ]
   %result.0.i.i.i.i.i.i1826 = phi ptr [ %756, %if.then.i.i.i.i.i.i.i.i1825 ], [ %758, %if.then4.i.i.i.i.i.i.i.i1845 ], [ %call.i.i.i.i.i.i.i.i.i18481849, %if.else8.i.i.i.i.i.i.i.i1847._ZN10TestObjectD2Ev.exit1857_crit_edge ]
-  %mValue.i.i.i.i1827 = getelementptr inbounds %"struct.eastl::ListNode.89", ptr %result.0.i.i.i.i.i.i1826, i64 0, i32 1
+  %mValue.i.i.i.i1827 = getelementptr inbounds i8, ptr %result.0.i.i.i.i.i.i1826, i64 16
   store i32 12, ptr %mValue.i.i.i.i1827, align 8, !noalias !354
-  %mbThrowOnCopy.i.i.i.i.i1828 = getelementptr inbounds %"struct.eastl::ListNode.89", ptr %result.0.i.i.i.i.i.i1826, i64 0, i32 1, i32 1
+  %mbThrowOnCopy.i.i.i.i.i1828 = getelementptr inbounds i8, ptr %result.0.i.i.i.i.i.i1826, i64 20
   store i8 0, ptr %mbThrowOnCopy.i.i.i.i.i1828, align 4, !noalias !354
-  %mMagicValue.i.i.i.i.i1830 = getelementptr inbounds %"struct.eastl::ListNode.89", ptr %result.0.i.i.i.i.i.i1826, i64 0, i32 1, i32 4
+  %mMagicValue.i.i.i.i.i1830 = getelementptr inbounds i8, ptr %result.0.i.i.i.i.i.i1826, i64 32
   store i32 32623592, ptr %mMagicValue.i.i.i.i.i1830, align 8, !noalias !354
   %inc.i.i.i.i.i1832 = add nsw i64 %762, 1
   store i64 %inc.i.i.i.i.i1832, ptr @_ZN10TestObject8sTOCountE, align 8, !noalias !354
@@ -7509,12 +7505,12 @@ _ZN10TestObjectD2Ev.exit1857:                     ; preds = %if.else8.i.i.i.i.i.
   %763 = load i64, ptr @_ZN10TestObject16sTOMoveCtorCountE, align 8, !noalias !354
   %inc6.i.i.i.i.i1834 = add nsw i64 %763, 1
   store i64 %inc6.i.i.i.i.i1834, ptr @_ZN10TestObject16sTOMoveCtorCountE, align 8, !noalias !354
-  %mId.i.i.i.i.i1835 = getelementptr inbounds %"struct.eastl::ListNode.89", ptr %result.0.i.i.i.i.i.i1826, i64 0, i32 1, i32 3
+  %mId.i.i.i.i.i1835 = getelementptr inbounds i8, ptr %result.0.i.i.i.i.i.i1826, i64 24
   store i64 %inc5.i.i.i.i.i1833, ptr %mId.i.i.i.i.i1835, align 8, !noalias !354
   store ptr %752, ptr %result.0.i.i.i.i.i.i1826, align 8, !noalias !354
-  %mpPrev.i.i.i.i1836 = getelementptr inbounds %"struct.eastl::ListNodeBase", ptr %752, i64 0, i32 1
+  %mpPrev.i.i.i.i1836 = getelementptr inbounds i8, ptr %752, i64 8
   %764 = load ptr, ptr %mpPrev.i.i.i.i1836, align 8, !noalias !354
-  %mpPrev2.i.i.i.i1837 = getelementptr inbounds %"struct.eastl::ListNodeBase", ptr %result.0.i.i.i.i.i.i1826, i64 0, i32 1
+  %mpPrev2.i.i.i.i1837 = getelementptr inbounds i8, ptr %result.0.i.i.i.i.i.i1826, i64 8
   store ptr %764, ptr %mpPrev2.i.i.i.i1837, align 8, !noalias !354
   store ptr %result.0.i.i.i.i.i.i1826, ptr %764, align 8, !noalias !354
   store ptr %result.0.i.i.i.i.i.i1826, ptr %mpPrev.i.i.i.i1836, align 8, !noalias !354
@@ -7532,7 +7528,7 @@ _ZN10TestObjectD2Ev.exit1857:                     ; preds = %if.else8.i.i.i.i.i.
 
 land.lhs.true834:                                 ; preds = %_ZN10TestObjectD2Ev.exit1857
   %768 = load ptr, ptr %toListC, align 8
-  %mValue.i1859 = getelementptr inbounds %"struct.eastl::ListNode.89", ptr %768, i64 0, i32 1
+  %mValue.i1859 = getelementptr inbounds i8, ptr %768, i64 16
   %769 = load i32, ptr %mValue.i1859, align 8
   %cmp838 = icmp eq i32 %769, 12
   br i1 %cmp838, label %land.rhs839, label %land.end841
@@ -7553,13 +7549,13 @@ invoke.cont842:                                   ; preds = %land.end841
   br i1 %cmp.not6.i.i.i.i1860, label %_ZN5eastl10fixed_listI10TestObjectLm16ELb1ENS_9allocatorEED2Ev.exit1881, label %while.body.lr.ph.i.i.i.i1861
 
 while.body.lr.ph.i.i.i.i1861:                     ; preds = %invoke.cont842
-  %mpCapacity.i.i.i.i.i.i1863 = getelementptr inbounds %"class.eastl::compressed_pair_imp.65", ptr %toListC, i64 0, i32 1, i32 0, i32 0, i32 2
+  %mpCapacity.i.i.i.i.i.i1863 = getelementptr inbounds i8, ptr %toListC, i64 32
   br label %while.body.i.i.i.i1865
 
 while.body.i.i.i.i1865:                           ; preds = %_ZN5eastl20fixed_node_allocatorILm40ELm16ELm8ELm0ELb1ENS_9allocatorEE10deallocateEPvm.exit.i.i.i.i1878, %while.body.lr.ph.i.i.i.i1861
   %p.07.i.i.i.i1866 = phi ptr [ %772, %while.body.lr.ph.i.i.i.i1861 ], [ %773, %_ZN5eastl20fixed_node_allocatorILm40ELm16ELm8ELm0ELb1ENS_9allocatorEE10deallocateEPvm.exit.i.i.i.i1878 ]
   %773 = load ptr, ptr %p.07.i.i.i.i1866, align 8
-  %mMagicValue.i.i.i.i.i.i1867 = getelementptr inbounds %"struct.eastl::ListNode.89", ptr %p.07.i.i.i.i1866, i64 0, i32 1, i32 4
+  %mMagicValue.i.i.i.i.i.i1867 = getelementptr inbounds i8, ptr %p.07.i.i.i.i1866, i64 32
   %774 = load i32, ptr %mMagicValue.i.i.i.i.i.i1867, align 8
   %cmp.not.i.i.i.i.i.i1868 = icmp eq i32 %774, 32623592
   br i1 %cmp.not.i.i.i.i.i.i1868, label %_ZN5eastl8ListNodeI10TestObjectED2Ev.exit.i.i.i.i1871, label %if.then.i.i.i.i.i.i1869
@@ -7605,13 +7601,13 @@ _ZN5eastl10fixed_listI10TestObjectLm16ELb1ENS_9allocatorEED2Ev.exit1881: ; preds
   br i1 %cmp.not6.i.i.i.i1882, label %_ZN5eastl10fixed_listI10TestObjectLm16ELb1ENS_9allocatorEED2Ev.exit1903, label %while.body.lr.ph.i.i.i.i1883
 
 while.body.lr.ph.i.i.i.i1883:                     ; preds = %_ZN5eastl10fixed_listI10TestObjectLm16ELb1ENS_9allocatorEED2Ev.exit1881
-  %mpCapacity.i.i.i.i.i.i1885 = getelementptr inbounds %"class.eastl::compressed_pair_imp.65", ptr %toListA734, i64 0, i32 1, i32 0, i32 0, i32 2
+  %mpCapacity.i.i.i.i.i.i1885 = getelementptr inbounds i8, ptr %toListA734, i64 32
   br label %while.body.i.i.i.i1887
 
 while.body.i.i.i.i1887:                           ; preds = %_ZN5eastl20fixed_node_allocatorILm40ELm16ELm8ELm0ELb1ENS_9allocatorEE10deallocateEPvm.exit.i.i.i.i1900, %while.body.lr.ph.i.i.i.i1883
   %p.07.i.i.i.i1888 = phi ptr [ %781, %while.body.lr.ph.i.i.i.i1883 ], [ %782, %_ZN5eastl20fixed_node_allocatorILm40ELm16ELm8ELm0ELb1ENS_9allocatorEE10deallocateEPvm.exit.i.i.i.i1900 ]
   %782 = load ptr, ptr %p.07.i.i.i.i1888, align 8
-  %mMagicValue.i.i.i.i.i.i1889 = getelementptr inbounds %"struct.eastl::ListNode.89", ptr %p.07.i.i.i.i1888, i64 0, i32 1, i32 4
+  %mMagicValue.i.i.i.i.i.i1889 = getelementptr inbounds i8, ptr %p.07.i.i.i.i1888, i64 32
   %783 = load i32, ptr %mMagicValue.i.i.i.i.i.i1889, align 8
   %cmp.not.i.i.i.i.i.i1890 = icmp eq i32 %783, 32623592
   br i1 %cmp.not.i.i.i.i.i.i1890, label %_ZN5eastl8ListNodeI10TestObjectED2Ev.exit.i.i.i.i1893, label %if.then.i.i.i.i.i.i1891
@@ -7653,14 +7649,14 @@ _ZN5eastl20fixed_node_allocatorILm40ELm16ELm8ELm0ELb1ENS_9allocatorEE10deallocat
 
 _ZN5eastl10fixed_listI10TestObjectLm16ELb1ENS_9allocatorEED2Ev.exit1903: ; preds = %_ZN5eastl20fixed_node_allocatorILm40ELm16ELm8ELm0ELb1ENS_9allocatorEE10deallocateEPvm.exit.i.i.i.i1900, %_ZN5eastl10fixed_listI10TestObjectLm16ELb1ENS_9allocatorEED2Ev.exit1881
   store i32 0, ptr %ref.tmp847, align 4
-  %arrayinit.element = getelementptr inbounds i32, ptr %ref.tmp847, i64 1
+  %arrayinit.element = getelementptr inbounds i8, ptr %ref.tmp847, i64 4
   store i32 1, ptr %arrayinit.element, align 4
-  %arrayinit.element848 = getelementptr inbounds i32, ptr %ref.tmp847, i64 2
+  %arrayinit.element848 = getelementptr inbounds i8, ptr %ref.tmp847, i64 8
   store i32 2, ptr %arrayinit.element848, align 4
   %790 = getelementptr inbounds i8, ptr %intList, i64 16
   store i64 0, ptr %790, align 8
   store ptr %intList, ptr %intList, align 8
-  %mpPrev.i.i.i1904 = getelementptr inbounds %"struct.eastl::ListNodeBase", ptr %intList, i64 0, i32 1
+  %mpPrev.i.i.i1904 = getelementptr inbounds i8, ptr %intList, i64 8
   store ptr %intList, ptr %mpPrev.i.i.i1904, align 8
   br label %for.body.i.i
 
@@ -7671,12 +7667,12 @@ for.body.i.i:                                     ; preds = %call.i.i.i.i.i.i.no
 
 call.i.i.i.i.i.i.noexc.i:                         ; preds = %for.body.i.i
   %first.addr.04.i.i.ptr = getelementptr inbounds i8, ptr %ref.tmp847, i64 %first.addr.04.i.i.idx
-  %mValue.i.i.i.i1910 = getelementptr inbounds %"struct.eastl::ListNode", ptr %call.i.i.i.i.i.i1.i, i64 0, i32 1
+  %mValue.i.i.i.i1910 = getelementptr inbounds i8, ptr %call.i.i.i.i.i.i1.i, i64 16
   %791 = load i32, ptr %first.addr.04.i.i.ptr, align 4
   store i32 %791, ptr %mValue.i.i.i.i1910, align 4
   store ptr %intList, ptr %call.i.i.i.i.i.i1.i, align 8
   %792 = load ptr, ptr %mpPrev.i.i.i1904, align 8
-  %mpPrev2.i.i.i.i1911 = getelementptr inbounds %"struct.eastl::ListNodeBase", ptr %call.i.i.i.i.i.i1.i, i64 0, i32 1
+  %mpPrev2.i.i.i.i1911 = getelementptr inbounds i8, ptr %call.i.i.i.i.i.i1.i, i64 8
   store ptr %792, ptr %mpPrev2.i.i.i.i1911, align 8
   store ptr %call.i.i.i.i.i.i1.i, ptr %792, align 8
   store ptr %call.i.i.i.i.i.i1.i, ptr %mpPrev.i.i.i1904, align 8
@@ -7715,9 +7711,9 @@ invoke.cont853:                                   ; preds = %_ZN5eastl4listIiNS_
 
 invoke.cont855:                                   ; preds = %invoke.cont853
   store i32 13, ptr %ref.tmp858, align 4
-  %arrayinit.element860 = getelementptr inbounds i32, ptr %ref.tmp858, i64 1
+  %arrayinit.element860 = getelementptr inbounds i8, ptr %ref.tmp858, i64 4
   store i32 14, ptr %arrayinit.element860, align 4
-  %arrayinit.element861 = getelementptr inbounds i32, ptr %ref.tmp858, i64 2
+  %arrayinit.element861 = getelementptr inbounds i8, ptr %ref.tmp858, i64 8
   store i32 15, ptr %arrayinit.element861, align 4
   %pNode.011.i = load ptr, ptr %intList, align 8
   %cmp12.i.not = icmp eq ptr %pNode.011.i, %intList
@@ -7728,7 +7724,7 @@ for.body.i:                                       ; preds = %invoke.cont855, %fo
   %first.addr.014.i.idx = phi i64 [ %first.addr.014.i.add, %for.body.i ], [ 0, %invoke.cont855 ]
   %first.addr.014.i.ptr = getelementptr inbounds i8, ptr %ref.tmp858, i64 %first.addr.014.i.idx
   %798 = load i32, ptr %first.addr.014.i.ptr, align 4
-  %mValue.i2083 = getelementptr inbounds %"struct.eastl::ListNode", ptr %pNode.015.i, i64 0, i32 1
+  %mValue.i2083 = getelementptr inbounds i8, ptr %pNode.015.i, i64 16
   store i32 %798, ptr %mValue.i2083, align 8
   %first.addr.014.i.add = add nuw nsw i64 %first.addr.014.i.idx, 4
   %pNode.0.i = load ptr, ptr %pNode.015.i, align 8
@@ -7752,12 +7748,12 @@ if.then.i2072:                                    ; preds = %for.end.i
 while.body.i.i2076:                               ; preds = %if.then.i2072, %while.body.i.i2076
   %first.sroa.0.03.i.i2077 = phi ptr [ %800, %while.body.i.i2076 ], [ %pNode.0.i, %if.then.i2072 ]
   %800 = load ptr, ptr %first.sroa.0.03.i.i2077, align 8, !noalias !368
-  %mpPrev.i.i.i2078 = getelementptr inbounds %"struct.eastl::ListNodeBase", ptr %800, i64 0, i32 1
+  %mpPrev.i.i.i2078 = getelementptr inbounds i8, ptr %800, i64 8
   %801 = load ptr, ptr %mpPrev.i.i.i2078, align 8, !noalias !368
-  %mpPrev.i.i.i.i.i2079 = getelementptr inbounds %"struct.eastl::ListNodeBase", ptr %801, i64 0, i32 1
+  %mpPrev.i.i.i.i.i2079 = getelementptr inbounds i8, ptr %801, i64 8
   %802 = load ptr, ptr %mpPrev.i.i.i.i.i2079, align 8, !noalias !368
   %803 = load ptr, ptr %801, align 8, !noalias !368
-  %mpPrev2.i.i.i.i.i2080 = getelementptr inbounds %"struct.eastl::ListNodeBase", ptr %803, i64 0, i32 1
+  %mpPrev2.i.i.i.i.i2080 = getelementptr inbounds i8, ptr %803, i64 8
   store ptr %802, ptr %mpPrev2.i.i.i.i.i2080, align 8, !noalias !368
   %804 = load ptr, ptr %801, align 8, !noalias !368
   store ptr %804, ptr %802, align 8, !noalias !368
@@ -7775,12 +7771,12 @@ for.body.i.i2064:                                 ; preds = %for.body.i.i2064.pr
 
 call.i.i.i.i.i.i.i.noexc2086:                     ; preds = %for.body.i.i2064
   %first.addr.04.i.i2065.ptr = getelementptr inbounds i8, ptr %ref.tmp858, i64 %first.addr.04.i.i2065.idx
-  %mValue.i.i.i.i2066 = getelementptr inbounds %"struct.eastl::ListNode", ptr %call.i.i.i.i.i.i.i2087, i64 0, i32 1
+  %mValue.i.i.i.i2066 = getelementptr inbounds i8, ptr %call.i.i.i.i.i.i.i2087, i64 16
   %806 = load i32, ptr %first.addr.04.i.i2065.ptr, align 4
   store i32 %806, ptr %mValue.i.i.i.i2066, align 4
   store ptr %intList, ptr %call.i.i.i.i.i.i.i2087, align 8
   %807 = load ptr, ptr %mpPrev.i.i.i1904, align 8
-  %mpPrev2.i.i.i.i2067 = getelementptr inbounds %"struct.eastl::ListNodeBase", ptr %call.i.i.i.i.i.i.i2087, i64 0, i32 1
+  %mpPrev2.i.i.i.i2067 = getelementptr inbounds i8, ptr %call.i.i.i.i.i.i.i2087, i64 8
   store ptr %807, ptr %mpPrev2.i.i.i.i2067, align 8
   store ptr %call.i.i.i.i.i.i.i2087, ptr %807, align 8
   store ptr %call.i.i.i.i.i.i.i2087, ptr %mpPrev.i.i.i1904, align 8
@@ -7805,9 +7801,9 @@ invoke.cont869:                                   ; preds = %invoke.cont865
 
 invoke.cont871:                                   ; preds = %invoke.cont869
   store i32 16, ptr %ref.tmp874, align 4
-  %arrayinit.element876 = getelementptr inbounds i32, ptr %ref.tmp874, i64 1
+  %arrayinit.element876 = getelementptr inbounds i8, ptr %ref.tmp874, i64 4
   store i32 17, ptr %arrayinit.element876, align 4
-  %arrayinit.element877 = getelementptr inbounds i32, ptr %ref.tmp874, i64 2
+  %arrayinit.element877 = getelementptr inbounds i8, ptr %ref.tmp874, i64 8
   store i32 18, ptr %arrayinit.element877, align 4
   %pNode.011.i2088 = load ptr, ptr %intList, align 8
   %cmp12.i2089.not = icmp eq ptr %pNode.011.i2088, %intList
@@ -7818,7 +7814,7 @@ for.body.i2116:                                   ; preds = %invoke.cont871, %fo
   %first.addr.014.i2118.idx = phi i64 [ %first.addr.014.i2118.add, %for.body.i2116 ], [ 0, %invoke.cont871 ]
   %first.addr.014.i2118.ptr = getelementptr inbounds i8, ptr %ref.tmp874, i64 %first.addr.014.i2118.idx
   %810 = load i32, ptr %first.addr.014.i2118.ptr, align 4
-  %mValue.i2119 = getelementptr inbounds %"struct.eastl::ListNode", ptr %pNode.015.i2117, i64 0, i32 1
+  %mValue.i2119 = getelementptr inbounds i8, ptr %pNode.015.i2117, i64 16
   store i32 %810, ptr %mValue.i2119, align 8
   %first.addr.014.i2118.add = add nuw nsw i64 %first.addr.014.i2118.idx, 4
   %pNode.0.i2121 = load ptr, ptr %pNode.015.i2117, align 8
@@ -7842,12 +7838,12 @@ if.then.i2105:                                    ; preds = %for.end.i2090
 while.body.i.i2109:                               ; preds = %if.then.i2105, %while.body.i.i2109
   %first.sroa.0.03.i.i2110 = phi ptr [ %812, %while.body.i.i2109 ], [ %pNode.0.i2121, %if.then.i2105 ]
   %812 = load ptr, ptr %first.sroa.0.03.i.i2110, align 8, !noalias !380
-  %mpPrev.i.i.i2111 = getelementptr inbounds %"struct.eastl::ListNodeBase", ptr %812, i64 0, i32 1
+  %mpPrev.i.i.i2111 = getelementptr inbounds i8, ptr %812, i64 8
   %813 = load ptr, ptr %mpPrev.i.i.i2111, align 8, !noalias !380
-  %mpPrev.i.i.i.i.i2112 = getelementptr inbounds %"struct.eastl::ListNodeBase", ptr %813, i64 0, i32 1
+  %mpPrev.i.i.i.i.i2112 = getelementptr inbounds i8, ptr %813, i64 8
   %814 = load ptr, ptr %mpPrev.i.i.i.i.i2112, align 8, !noalias !380
   %815 = load ptr, ptr %813, align 8, !noalias !380
-  %mpPrev2.i.i.i.i.i2113 = getelementptr inbounds %"struct.eastl::ListNodeBase", ptr %815, i64 0, i32 1
+  %mpPrev2.i.i.i.i.i2113 = getelementptr inbounds i8, ptr %815, i64 8
   store ptr %814, ptr %mpPrev2.i.i.i.i.i2113, align 8, !noalias !380
   %816 = load ptr, ptr %813, align 8, !noalias !380
   store ptr %816, ptr %814, align 8, !noalias !380
@@ -7865,12 +7861,12 @@ for.body.i.i2097:                                 ; preds = %for.body.i.i2097.pr
 
 call.i.i.i.i.i.i.i.noexc2124:                     ; preds = %for.body.i.i2097
   %first.addr.04.i.i2098.ptr = getelementptr inbounds i8, ptr %ref.tmp874, i64 %first.addr.04.i.i2098.idx
-  %mValue.i.i.i.i2099 = getelementptr inbounds %"struct.eastl::ListNode", ptr %call.i.i.i.i.i.i.i2125, i64 0, i32 1
+  %mValue.i.i.i.i2099 = getelementptr inbounds i8, ptr %call.i.i.i.i.i.i.i2125, i64 16
   %818 = load i32, ptr %first.addr.04.i.i2098.ptr, align 4
   store i32 %818, ptr %mValue.i.i.i.i2099, align 4
   store ptr %intList, ptr %call.i.i.i.i.i.i.i2125, align 8
   %819 = load ptr, ptr %mpPrev.i.i.i1904, align 8
-  %mpPrev2.i.i.i.i2100 = getelementptr inbounds %"struct.eastl::ListNodeBase", ptr %call.i.i.i.i.i.i.i2125, i64 0, i32 1
+  %mpPrev2.i.i.i.i2100 = getelementptr inbounds i8, ptr %call.i.i.i.i.i.i.i2125, i64 8
   store ptr %819, ptr %mpPrev2.i.i.i.i2100, align 8
   store ptr %call.i.i.i.i.i.i.i2125, ptr %819, align 8
   store ptr %call.i.i.i.i.i.i.i2125, ptr %mpPrev.i.i.i1904, align 8
@@ -7896,9 +7892,9 @@ invoke.cont884:                                   ; preds = %invoke.cont881
 invoke.cont886:                                   ; preds = %invoke.cont884
   %822 = load ptr, ptr %intList, align 8, !noalias !391
   store i32 14, ptr %ref.tmp891, align 4
-  %arrayinit.element893 = getelementptr inbounds i32, ptr %ref.tmp891, i64 1
+  %arrayinit.element893 = getelementptr inbounds i8, ptr %ref.tmp891, i64 4
   store i32 15, ptr %arrayinit.element893, align 4
-  %mpPrev.i.i = getelementptr inbounds %"struct.eastl::ListNodeBase", ptr %822, i64 0, i32 1
+  %mpPrev.i.i = getelementptr inbounds i8, ptr %822, i64 8
   br label %for.body.i.i1920
 
 for.body.i.i1920:                                 ; preds = %call.i.i.i.i.i.i.i.noexc, %invoke.cont886
@@ -7908,12 +7904,12 @@ for.body.i.i1920:                                 ; preds = %call.i.i.i.i.i.i.i.
 
 call.i.i.i.i.i.i.i.noexc:                         ; preds = %for.body.i.i1920
   %first.addr.04.i.i1921.ptr = getelementptr inbounds i8, ptr %ref.tmp891, i64 %first.addr.04.i.i1921.idx
-  %mValue.i.i.i.i1922 = getelementptr inbounds %"struct.eastl::ListNode", ptr %call.i.i.i.i.i.i.i1927, i64 0, i32 1
+  %mValue.i.i.i.i1922 = getelementptr inbounds i8, ptr %call.i.i.i.i.i.i.i1927, i64 16
   %823 = load i32, ptr %first.addr.04.i.i1921.ptr, align 4, !noalias !394
   store i32 %823, ptr %mValue.i.i.i.i1922, align 4, !noalias !394
   store ptr %822, ptr %call.i.i.i.i.i.i.i1927, align 8, !noalias !394
   %824 = load ptr, ptr %mpPrev.i.i, align 8, !noalias !394
-  %mpPrev2.i.i.i.i1923 = getelementptr inbounds %"struct.eastl::ListNodeBase", ptr %call.i.i.i.i.i.i.i1927, i64 0, i32 1
+  %mpPrev2.i.i.i.i1923 = getelementptr inbounds i8, ptr %call.i.i.i.i.i.i.i1927, i64 8
   store ptr %824, ptr %mpPrev2.i.i.i.i1923, align 8, !noalias !394
   store ptr %call.i.i.i.i.i.i.i1927, ptr %824, align 8, !noalias !394
   store ptr %call.i.i.i.i.i.i.i1927, ptr %mpPrev.i.i, align 8, !noalias !394
@@ -7950,32 +7946,32 @@ _ZN5eastl9allocator10deallocateEPvm.exit.i.i.i1929: ; preds = %invoke.cont904, %
 
 _ZN5eastl4listIiNS_9allocatorEED2Ev.exit:         ; preds = %_ZN5eastl9allocator10deallocateEPvm.exit.i.i.i1929, %invoke.cont904
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %ref.tmp.i.i)
-  %mBuffer.i.i = getelementptr inbounds %"class.eastl::fixed_list.81", ptr %d, i64 0, i32 1
+  %mBuffer.i.i = getelementptr inbounds i8, ptr %d, i64 56
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp.i.i, i8 0, i64 32, i1 false)
   call void @_ZN5eastl15fixed_pool_base4initEPvmmmm(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp.i.i, ptr noundef nonnull %mBuffer.i.i, i64 noundef 240, i64 noundef 24, i64 noundef 8, i64 noundef 0)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %d, i8 0, i64 16, i1 false)
-  %mSecond.i.i.i.i.i.i1933 = getelementptr inbounds %"class.eastl::compressed_pair_imp.85", ptr %d, i64 0, i32 1
-  %mpNext.i.i.i.i.i.i.i = getelementptr inbounds %"struct.eastl::fixed_pool_base", ptr %ref.tmp.i.i, i64 0, i32 1
+  %mSecond.i.i.i.i.i.i1933 = getelementptr inbounds i8, ptr %d, i64 16
+  %mpNext.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %ref.tmp.i.i, i64 8
   %829 = load ptr, ptr %mpNext.i.i.i.i.i.i.i, align 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %mSecond.i.i.i.i.i.i1933, i8 0, i64 32, i1 false)
   call void @_ZN5eastl15fixed_pool_base4initEPvmmmm(ptr noundef nonnull align 8 dereferenceable(32) %mSecond.i.i.i.i.i.i1933, ptr noundef %829, i64 noundef 240, i64 noundef 24, i64 noundef 8, i64 noundef 0)
-  %mSize.i.i.i.i1934 = getelementptr inbounds %"class.eastl::ListBase.83", ptr %d, i64 0, i32 1
+  %mSize.i.i.i.i1934 = getelementptr inbounds i8, ptr %d, i64 48
   store i64 0, ptr %mSize.i.i.i.i1934, align 8
   store ptr %d, ptr %d, align 8
-  %mpPrev.i.i.i.i.i1935 = getelementptr inbounds %"struct.eastl::ListNodeBase", ptr %d, i64 0, i32 1
+  %mpPrev.i.i.i.i.i1935 = getelementptr inbounds i8, ptr %d, i64 8
   store ptr %d, ptr %mpPrev.i.i.i.i.i1935, align 8
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %ref.tmp.i.i)
-  %mCollection2.i = getelementptr inbounds %struct.Dummy, ptr %d, i64 0, i32 1
+  %mCollection2.i = getelementptr inbounds i8, ptr %d, i64 320
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %ref.tmp.i1.i)
-  %mBuffer.i2.i = getelementptr inbounds %struct.Dummy, ptr %d, i64 0, i32 1, i32 1
+  %mBuffer.i2.i = getelementptr inbounds i8, ptr %d, i64 376
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp.i1.i, i8 0, i64 32, i1 false)
   invoke void @_ZN5eastl15fixed_pool_base4initEPvmmmm(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp.i1.i, ptr noundef nonnull %mBuffer.i2.i, i64 noundef 240, i64 noundef 24, i64 noundef 8, i64 noundef 0)
           to label %.noexc.i unwind label %lpad.i1936
 
 .noexc.i:                                         ; preds = %_ZN5eastl4listIiNS_9allocatorEED2Ev.exit
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %mCollection2.i, i8 0, i64 16, i1 false)
-  %mSecond.i.i.i.i.i3.i = getelementptr inbounds %struct.Dummy, ptr %d, i64 0, i32 1, i32 0, i32 0, i32 0, i32 0, i32 1
-  %mpNext.i.i.i.i.i.i4.i = getelementptr inbounds %"struct.eastl::fixed_pool_base", ptr %ref.tmp.i1.i, i64 0, i32 1
+  %mSecond.i.i.i.i.i3.i = getelementptr inbounds i8, ptr %d, i64 336
+  %mpNext.i.i.i.i.i.i4.i = getelementptr inbounds i8, ptr %ref.tmp.i1.i, i64 8
   %830 = load ptr, ptr %mpNext.i.i.i.i.i.i4.i, align 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %mSecond.i.i.i.i.i3.i, i8 0, i64 32, i1 false)
   invoke void @_ZN5eastl15fixed_pool_base4initEPvmmmm(ptr noundef nonnull align 8 dereferenceable(32) %mSecond.i.i.i.i.i3.i, ptr noundef %830, i64 noundef 240, i64 noundef 24, i64 noundef 8, i64 noundef 0)
@@ -8002,10 +7998,10 @@ while.body.i.i.i.i.i:                             ; preds = %while.body.i.i.i.i.
   br i1 %cmp.not.i.i.i.i.i1937, label %common.resume, label %while.body.i.i.i.i.i, !llvm.loop !403
 
 _ZZ13TestFixedListvEN5DummyC2Ev.exit:             ; preds = %.noexc.i
-  %mSize.i.i.i5.i = getelementptr inbounds %struct.Dummy, ptr %d, i64 0, i32 1, i32 0, i32 0, i32 1
+  %mSize.i.i.i5.i = getelementptr inbounds i8, ptr %d, i64 368
   store i64 0, ptr %mSize.i.i.i5.i, align 8
   store ptr %mCollection2.i, ptr %mCollection2.i, align 8
-  %mpPrev.i.i.i.i6.i = getelementptr inbounds %struct.Dummy, ptr %d, i64 0, i32 1, i32 0, i32 0, i32 0, i32 0, i32 0, i32 1
+  %mpPrev.i.i.i.i6.i = getelementptr inbounds i8, ptr %d, i64 328
   store ptr %mCollection2.i, ptr %mpPrev.i.i.i.i6.i, align 8
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %ref.tmp.i1.i)
   %835 = load i64, ptr %mSize.i.i.i.i1934, align 8
@@ -8053,36 +8049,36 @@ _ZZ13TestFixedListvEN5DummyD2Ev.exit:             ; preds = %while.body.i.i.i.i5
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %overflowAllocator, i8 0, i64 16, i1 false)
   %call914 = call noundef ptr @_ZN15MallocAllocator8allocateEmi(ptr noundef nonnull align 8 dereferenceable(16) %overflowAllocator, i64 noundef 1, i32 noundef 0)
   call void @llvm.lifetime.start.p0(i64 56, ptr nonnull %ref.tmp.i1949)
-  %mBuffer.i1950 = getelementptr inbounds %"class.eastl::fixed_list.22", ptr %c, i64 0, i32 1
-  %mOverflowAllocator.i.i.i = getelementptr inbounds %"class.eastl::fixed_pool_with_overflow.28", ptr %ref.tmp.i1949, i64 0, i32 1
+  %mBuffer.i1950 = getelementptr inbounds i8, ptr %c, i64 80
+  %mOverflowAllocator.i.i.i = getelementptr inbounds i8, ptr %ref.tmp.i1949, i64 32
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp.i1949, i8 0, i64 32, i1 false)
   %842 = load <2 x i32>, ptr %overflowAllocator, align 8
   store <2 x i32> %842, ptr %mOverflowAllocator.i.i.i, align 8
-  %mAllocVolume.i.i.i.i = getelementptr inbounds %"class.eastl::fixed_pool_with_overflow.28", ptr %ref.tmp.i1949, i64 0, i32 1, i32 2
-  %mAllocVolume4.i.i.i.i = getelementptr inbounds %class.MallocAllocator, ptr %overflowAllocator, i64 0, i32 2
+  %mAllocVolume.i.i.i.i = getelementptr inbounds i8, ptr %ref.tmp.i1949, i64 40
+  %mAllocVolume4.i.i.i.i = getelementptr inbounds i8, ptr %overflowAllocator, i64 8
   %843 = load i64, ptr %mAllocVolume4.i.i.i.i, align 8
   store i64 %843, ptr %mAllocVolume.i.i.i.i, align 8
   call void @_ZN5eastl15fixed_pool_base4initEPvmmmm(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp.i1949, ptr noundef nonnull %mBuffer.i1950, i64 noundef 1536, i64 noundef 24, i64 noundef 8, i64 noundef 0)
-  %mpPoolBegin.i.i.i1951 = getelementptr inbounds %"class.eastl::fixed_pool_with_overflow.28", ptr %ref.tmp.i1949, i64 0, i32 2
+  %mpPoolBegin.i.i.i1951 = getelementptr inbounds i8, ptr %ref.tmp.i1949, i64 48
   store ptr %mBuffer.i1950, ptr %mpPoolBegin.i.i.i1951, align 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %c, i8 0, i64 16, i1 false)
-  %mSecond.i.i.i.i.i1952 = getelementptr inbounds %"class.eastl::compressed_pair_imp.26", ptr %c, i64 0, i32 1
-  %mpNext.i.i.i.i.i.i1953 = getelementptr inbounds %"struct.eastl::fixed_pool_base", ptr %ref.tmp.i1949, i64 0, i32 1
+  %mSecond.i.i.i.i.i1952 = getelementptr inbounds i8, ptr %c, i64 16
+  %mpNext.i.i.i.i.i.i1953 = getelementptr inbounds i8, ptr %ref.tmp.i1949, i64 8
   %844 = load ptr, ptr %mpNext.i.i.i.i.i.i1953, align 8
-  %mOverflowAllocator.i.i.i.i.i.i.i1954 = getelementptr inbounds %"class.eastl::compressed_pair_imp.26", ptr %c, i64 0, i32 1, i32 0, i32 1
+  %mOverflowAllocator.i.i.i.i.i.i.i1954 = getelementptr inbounds i8, ptr %c, i64 48
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %mSecond.i.i.i.i.i1952, i8 0, i64 32, i1 false)
   %845 = load <2 x i32>, ptr %mOverflowAllocator.i.i.i, align 8
   store <2 x i32> %845, ptr %mOverflowAllocator.i.i.i.i.i.i.i1954, align 8
-  %mAllocVolume.i.i.i.i.i.i.i.i1956 = getelementptr inbounds %"class.eastl::compressed_pair_imp.26", ptr %c, i64 0, i32 1, i32 0, i32 1, i32 2
+  %mAllocVolume.i.i.i.i.i.i.i.i1956 = getelementptr inbounds i8, ptr %c, i64 56
   %846 = load i64, ptr %mAllocVolume.i.i.i.i, align 8
   store i64 %846, ptr %mAllocVolume.i.i.i.i.i.i.i.i1956, align 8
   call void @_ZN5eastl15fixed_pool_base4initEPvmmmm(ptr noundef nonnull align 8 dereferenceable(32) %mSecond.i.i.i.i.i1952, ptr noundef %844, i64 noundef 1536, i64 noundef 24, i64 noundef 8, i64 noundef 0)
-  %mpPoolBegin.i.i.i.i.i.i.i1957 = getelementptr inbounds %"class.eastl::compressed_pair_imp.26", ptr %c, i64 0, i32 1, i32 0, i32 2
+  %mpPoolBegin.i.i.i.i.i.i.i1957 = getelementptr inbounds i8, ptr %c, i64 64
   store ptr %844, ptr %mpPoolBegin.i.i.i.i.i.i.i1957, align 8
-  %mSize.i.i.i1958 = getelementptr inbounds %"class.eastl::ListBase.24", ptr %c, i64 0, i32 1
+  %mSize.i.i.i1958 = getelementptr inbounds i8, ptr %c, i64 72
   store i64 0, ptr %mSize.i.i.i1958, align 8
   store ptr %c, ptr %c, align 8
-  %mpPrev.i.i.i.i1959 = getelementptr inbounds %"struct.eastl::ListNodeBase", ptr %c, i64 0, i32 1
+  %mpPrev.i.i.i.i1959 = getelementptr inbounds i8, ptr %c, i64 8
   store ptr %c, ptr %mpPrev.i.i.i.i1959, align 8
   call void @llvm.lifetime.end.p0(i64 56, ptr nonnull %ref.tmp.i1949)
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %ref.tmp.i1960)
@@ -8107,8 +8103,8 @@ invoke.cont921:                                   ; preds = %invoke.cont919
   br i1 %cmp.not3.i.i.i.i1964, label %_ZN5eastl10fixed_listIiLm64ELb1E15MallocAllocatorED2Ev.exit1981, label %while.body.lr.ph.i.i.i.i1965
 
 while.body.lr.ph.i.i.i.i1965:                     ; preds = %invoke.cont921
-  %mpCapacity.i.i.i.i.i.i1967 = getelementptr inbounds %"class.eastl::compressed_pair_imp.26", ptr %c, i64 0, i32 1, i32 0, i32 0, i32 2
-  %mnNodeSize.i.i.i.i.i.i1969 = getelementptr inbounds %"class.eastl::compressed_pair_imp.26", ptr %c, i64 0, i32 1, i32 0, i32 0, i32 3
+  %mpCapacity.i.i.i.i.i.i1967 = getelementptr inbounds i8, ptr %c, i64 32
+  %mnNodeSize.i.i.i.i.i.i1969 = getelementptr inbounds i8, ptr %c, i64 40
   br label %while.body.i.i.i.i1971
 
 while.body.i.i.i.i1971:                           ; preds = %_ZN5eastl20fixed_node_allocatorILm24ELm64ELm8ELm0ELb1E15MallocAllocatorE10deallocateEPvm.exit.i.i.i.i1978, %while.body.lr.ph.i.i.i.i1965
@@ -8641,21 +8637,21 @@ if.then:                                          ; preds = %while.end
   br i1 %cmp.i.not2.i, label %if.end, label %while.body.lr.ph.i
 
 while.body.lr.ph.i:                               ; preds = %if.then
-  %mpPoolBegin.i.i.i.i.i.i = getelementptr inbounds %"class.eastl::compressed_pair_imp.19", ptr %this, i64 0, i32 1, i32 0, i32 2
-  %mpCapacity.i.i.i.i.i.i = getelementptr inbounds %"class.eastl::compressed_pair_imp.19", ptr %this, i64 0, i32 1, i32 0, i32 0, i32 2
-  %mSecond.i.i.i.i.i.i.i = getelementptr inbounds %"class.eastl::compressed_pair_imp.19", ptr %this, i64 0, i32 1
-  %mSize.i.i.i = getelementptr inbounds %"class.eastl::ListBase.17", ptr %this, i64 0, i32 1
+  %mpPoolBegin.i.i.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 56
+  %mpCapacity.i.i.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 32
+  %mSecond.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 16
+  %mSize.i.i.i = getelementptr inbounds i8, ptr %this, i64 64
   br label %while.body.i
 
 while.body.i:                                     ; preds = %_ZN5eastl4listIiNS_20fixed_node_allocatorILm24ELm64ELm8ELm0ELb1ENS_9allocatorEEEE5eraseENS_12ListIteratorIiPKiRS6_EE.exit.i, %while.body.lr.ph.i
   %first.sroa.0.03.i = phi ptr [ %current.sroa.0.0, %while.body.lr.ph.i ], [ %1, %_ZN5eastl4listIiNS_20fixed_node_allocatorILm24ELm64ELm8ELm0ELb1ENS_9allocatorEEEE5eraseENS_12ListIteratorIiPKiRS6_EE.exit.i ]
   %1 = load ptr, ptr %first.sroa.0.03.i, align 8, !noalias !405
-  %mpPrev.i.i = getelementptr inbounds %"struct.eastl::ListNodeBase", ptr %1, i64 0, i32 1
+  %mpPrev.i.i = getelementptr inbounds i8, ptr %1, i64 8
   %2 = load ptr, ptr %mpPrev.i.i, align 8, !noalias !405
-  %mpPrev.i.i.i.i = getelementptr inbounds %"struct.eastl::ListNodeBase", ptr %2, i64 0, i32 1
+  %mpPrev.i.i.i.i = getelementptr inbounds i8, ptr %2, i64 8
   %3 = load ptr, ptr %mpPrev.i.i.i.i, align 8, !noalias !405
   %4 = load ptr, ptr %2, align 8, !noalias !405
-  %mpPrev2.i.i.i.i = getelementptr inbounds %"struct.eastl::ListNodeBase", ptr %4, i64 0, i32 1
+  %mpPrev2.i.i.i.i = getelementptr inbounds i8, ptr %4, i64 8
   store ptr %3, ptr %mpPrev2.i.i.i.i, align 8, !noalias !405
   %5 = load ptr, ptr %2, align 8, !noalias !405
   store ptr %5, ptr %3, align 8, !noalias !405
@@ -8685,16 +8681,16 @@ _ZN5eastl4listIiNS_20fixed_node_allocatorILm24ELm64ELm8ELm0ELb1ENS_9allocatorEEE
 
 if.else:                                          ; preds = %while.end
   %sub = sub i64 %n, %i.0
-  %mpPrev.i.i6 = getelementptr inbounds %"struct.eastl::ListNodeBase", ptr %this, i64 0, i32 1
+  %mpPrev.i.i6 = getelementptr inbounds i8, ptr %this, i64 8
   %cmp.not2.i.i = icmp eq i64 %sub, 0
   br i1 %cmp.not2.i.i, label %if.end, label %for.body.lr.ph.i.i
 
 for.body.lr.ph.i.i:                               ; preds = %if.else
-  %mSecond.i.i.i.i.i.i.i.i = getelementptr inbounds %"class.eastl::compressed_pair_imp.19", ptr %this, i64 0, i32 1
-  %mpNext3.i.i.i.i.i.i.i.i = getelementptr inbounds %"class.eastl::compressed_pair_imp.19", ptr %this, i64 0, i32 1, i32 0, i32 0, i32 1
-  %mpCapacity.i.i.i.i.i.i.i.i = getelementptr inbounds %"class.eastl::compressed_pair_imp.19", ptr %this, i64 0, i32 1, i32 0, i32 0, i32 2
-  %mnNodeSize9.i.i.i.i.i.i.i.i = getelementptr inbounds %"class.eastl::compressed_pair_imp.19", ptr %this, i64 0, i32 1, i32 0, i32 0, i32 3
-  %mSize.i.i.i7 = getelementptr inbounds %"class.eastl::ListBase.17", ptr %this, i64 0, i32 1
+  %mSecond.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 16
+  %mpNext3.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 24
+  %mpCapacity.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 32
+  %mnNodeSize9.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 40
+  %mSize.i.i.i7 = getelementptr inbounds i8, ptr %this, i64 64
   br label %for.body.i.i
 
 for.body.i.i:                                     ; preds = %_ZN5eastl4listIiNS_20fixed_node_allocatorILm24ELm64ELm8ELm0ELb1ENS_9allocatorEEEE13DoInsertValueIJRKiEEEvPNS_12ListNodeBaseEDpOT_.exit.i.i, %for.body.lr.ph.i.i
@@ -8726,12 +8722,12 @@ if.else8.i.i.i.i.i.i.i.i:                         ; preds = %if.else.i.i.i.i.i.i
 
 _ZN5eastl4listIiNS_20fixed_node_allocatorILm24ELm64ELm8ELm0ELb1ENS_9allocatorEEEE13DoInsertValueIJRKiEEEvPNS_12ListNodeBaseEDpOT_.exit.i.i: ; preds = %if.else8.i.i.i.i.i.i.i.i, %if.then4.i.i.i.i.i.i.i.i, %if.then.i.i.i.i.i.i.i.i
   %result.0.i.i.i.i.i.i = phi ptr [ %10, %if.then.i.i.i.i.i.i.i.i ], [ %12, %if.then4.i.i.i.i.i.i.i.i ], [ %call.i.i.i.i.i.i.i.i.i, %if.else8.i.i.i.i.i.i.i.i ]
-  %mValue.i.i.i.i = getelementptr inbounds %"struct.eastl::ListNode", ptr %result.0.i.i.i.i.i.i, i64 0, i32 1
+  %mValue.i.i.i.i = getelementptr inbounds i8, ptr %result.0.i.i.i.i.i.i, i64 16
   %15 = load i32, ptr %value, align 4, !noalias !411
   store i32 %15, ptr %mValue.i.i.i.i, align 4, !noalias !411
   store ptr %this, ptr %result.0.i.i.i.i.i.i, align 8, !noalias !411
   %16 = load ptr, ptr %mpPrev.i.i6, align 8, !noalias !411
-  %mpPrev2.i.i.i.i8 = getelementptr inbounds %"struct.eastl::ListNodeBase", ptr %result.0.i.i.i.i.i.i, i64 0, i32 1
+  %mpPrev2.i.i.i.i8 = getelementptr inbounds i8, ptr %result.0.i.i.i.i.i.i, i64 8
   store ptr %16, ptr %mpPrev2.i.i.i.i8, align 8, !noalias !411
   store ptr %result.0.i.i.i.i.i.i, ptr %16, align 8, !noalias !411
   store ptr %result.0.i.i.i.i.i.i, ptr %mpPrev.i.i6, align 8, !noalias !411
@@ -8754,9 +8750,9 @@ entry:
   br i1 %cmp.not3.i.i.i, label %_ZN5eastl4listIiNS_20fixed_node_allocatorILm24ELm64ELm8ELm0ELb1ENS_9allocatorEEEED2Ev.exit, label %while.body.lr.ph.i.i.i
 
 while.body.lr.ph.i.i.i:                           ; preds = %entry
-  %mpPoolBegin.i.i.i.i.i = getelementptr inbounds %"class.eastl::compressed_pair_imp.19", ptr %this, i64 0, i32 1, i32 0, i32 2
-  %mpCapacity.i.i.i.i.i = getelementptr inbounds %"class.eastl::compressed_pair_imp.19", ptr %this, i64 0, i32 1, i32 0, i32 0, i32 2
-  %mSecond.i.i.i.i.i.i = getelementptr inbounds %"class.eastl::compressed_pair_imp.19", ptr %this, i64 0, i32 1
+  %mpPoolBegin.i.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 56
+  %mpCapacity.i.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 32
+  %mSecond.i.i.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 16
   br label %while.body.i.i.i
 
 while.body.i.i.i:                                 ; preds = %_ZN5eastl20fixed_node_allocatorILm24ELm64ELm8ELm0ELb1ENS_9allocatorEE10deallocateEPvm.exit.i.i.i, %while.body.lr.ph.i.i.i
@@ -8811,23 +8807,23 @@ if.then:                                          ; preds = %while.end
   br i1 %cmp.i.not2.i, label %if.end, label %while.body.lr.ph.i
 
 while.body.lr.ph.i:                               ; preds = %if.then
-  %mpPoolBegin.i.i.i.i.i.i = getelementptr inbounds %"class.eastl::compressed_pair_imp.26", ptr %this, i64 0, i32 1, i32 0, i32 2
-  %mpCapacity.i.i.i.i.i.i = getelementptr inbounds %"class.eastl::compressed_pair_imp.26", ptr %this, i64 0, i32 1, i32 0, i32 0, i32 2
-  %mOverflowAllocator.i.i.i.i.i.i = getelementptr inbounds %"class.eastl::compressed_pair_imp.26", ptr %this, i64 0, i32 1, i32 0, i32 1
-  %mnNodeSize.i.i.i.i.i.i = getelementptr inbounds %"class.eastl::compressed_pair_imp.26", ptr %this, i64 0, i32 1, i32 0, i32 0, i32 3
-  %mSecond.i.i.i.i.i.i.i = getelementptr inbounds %"class.eastl::compressed_pair_imp.26", ptr %this, i64 0, i32 1
-  %mSize.i.i.i = getelementptr inbounds %"class.eastl::ListBase.24", ptr %this, i64 0, i32 1
+  %mpPoolBegin.i.i.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 64
+  %mpCapacity.i.i.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 32
+  %mOverflowAllocator.i.i.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 48
+  %mnNodeSize.i.i.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 40
+  %mSecond.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 16
+  %mSize.i.i.i = getelementptr inbounds i8, ptr %this, i64 72
   br label %while.body.i
 
 while.body.i:                                     ; preds = %_ZN5eastl4listIiNS_20fixed_node_allocatorILm24ELm64ELm8ELm0ELb1E15MallocAllocatorEEE5eraseENS_12ListIteratorIiPKiRS6_EE.exit.i, %while.body.lr.ph.i
   %first.sroa.0.03.i = phi ptr [ %current.sroa.0.0, %while.body.lr.ph.i ], [ %1, %_ZN5eastl4listIiNS_20fixed_node_allocatorILm24ELm64ELm8ELm0ELb1E15MallocAllocatorEEE5eraseENS_12ListIteratorIiPKiRS6_EE.exit.i ]
   %1 = load ptr, ptr %first.sroa.0.03.i, align 8, !noalias !416
-  %mpPrev.i.i = getelementptr inbounds %"struct.eastl::ListNodeBase", ptr %1, i64 0, i32 1
+  %mpPrev.i.i = getelementptr inbounds i8, ptr %1, i64 8
   %2 = load ptr, ptr %mpPrev.i.i, align 8, !noalias !416
-  %mpPrev.i.i.i.i = getelementptr inbounds %"struct.eastl::ListNodeBase", ptr %2, i64 0, i32 1
+  %mpPrev.i.i.i.i = getelementptr inbounds i8, ptr %2, i64 8
   %3 = load ptr, ptr %mpPrev.i.i.i.i, align 8, !noalias !416
   %4 = load ptr, ptr %2, align 8, !noalias !416
-  %mpPrev2.i.i.i.i = getelementptr inbounds %"struct.eastl::ListNodeBase", ptr %4, i64 0, i32 1
+  %mpPrev2.i.i.i.i = getelementptr inbounds i8, ptr %4, i64 8
   store ptr %3, ptr %mpPrev2.i.i.i.i, align 8, !noalias !416
   %5 = load ptr, ptr %2, align 8, !noalias !416
   store ptr %5, ptr %3, align 8, !noalias !416
@@ -8858,17 +8854,17 @@ _ZN5eastl4listIiNS_20fixed_node_allocatorILm24ELm64ELm8ELm0ELb1E15MallocAllocato
 
 if.else:                                          ; preds = %while.end
   %sub = sub i64 %n, %i.0
-  %mpPrev.i.i6 = getelementptr inbounds %"struct.eastl::ListNodeBase", ptr %this, i64 0, i32 1
+  %mpPrev.i.i6 = getelementptr inbounds i8, ptr %this, i64 8
   %cmp.not2.i.i = icmp eq i64 %sub, 0
   br i1 %cmp.not2.i.i, label %if.end, label %for.body.lr.ph.i.i
 
 for.body.lr.ph.i.i:                               ; preds = %if.else
-  %mSecond.i.i.i.i.i.i.i.i = getelementptr inbounds %"class.eastl::compressed_pair_imp.26", ptr %this, i64 0, i32 1
-  %mpNext3.i.i.i.i.i.i.i.i = getelementptr inbounds %"class.eastl::compressed_pair_imp.26", ptr %this, i64 0, i32 1, i32 0, i32 0, i32 1
-  %mpCapacity.i.i.i.i.i.i.i.i = getelementptr inbounds %"class.eastl::compressed_pair_imp.26", ptr %this, i64 0, i32 1, i32 0, i32 0, i32 2
-  %mnNodeSize.i.i.i.i.i.i.i.i = getelementptr inbounds %"class.eastl::compressed_pair_imp.26", ptr %this, i64 0, i32 1, i32 0, i32 0, i32 3
-  %mOverflowAllocator.i.i.i.i.i.i.i.i = getelementptr inbounds %"class.eastl::compressed_pair_imp.26", ptr %this, i64 0, i32 1, i32 0, i32 1
-  %mSize.i.i.i7 = getelementptr inbounds %"class.eastl::ListBase.24", ptr %this, i64 0, i32 1
+  %mSecond.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 16
+  %mpNext3.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 24
+  %mpCapacity.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 32
+  %mnNodeSize.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 40
+  %mOverflowAllocator.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 48
+  %mSize.i.i.i7 = getelementptr inbounds i8, ptr %this, i64 72
   br label %for.body.i.i
 
 for.body.i.i:                                     ; preds = %_ZN5eastl4listIiNS_20fixed_node_allocatorILm24ELm64ELm8ELm0ELb1E15MallocAllocatorEEE13DoInsertValueIJRKiEEEvPNS_12ListNodeBaseEDpOT_.exit.i.i, %for.body.lr.ph.i.i
@@ -8900,12 +8896,12 @@ if.else8.i.i.i.i.i.i.i.i:                         ; preds = %if.else.i.i.i.i.i.i
 
 _ZN5eastl4listIiNS_20fixed_node_allocatorILm24ELm64ELm8ELm0ELb1E15MallocAllocatorEEE13DoInsertValueIJRKiEEEvPNS_12ListNodeBaseEDpOT_.exit.i.i: ; preds = %if.else8.i.i.i.i.i.i.i.i, %if.then4.i.i.i.i.i.i.i.i, %if.then.i.i.i.i.i.i.i.i
   %result.0.i.i.i.i.i.i = phi ptr [ %11, %if.then.i.i.i.i.i.i.i.i ], [ %13, %if.then4.i.i.i.i.i.i.i.i ], [ %call.i.i.i.i.i.i.i.i, %if.else8.i.i.i.i.i.i.i.i ]
-  %mValue.i.i.i.i = getelementptr inbounds %"struct.eastl::ListNode", ptr %result.0.i.i.i.i.i.i, i64 0, i32 1
+  %mValue.i.i.i.i = getelementptr inbounds i8, ptr %result.0.i.i.i.i.i.i, i64 16
   %16 = load i32, ptr %value, align 4, !noalias !422
   store i32 %16, ptr %mValue.i.i.i.i, align 4, !noalias !422
   store ptr %this, ptr %result.0.i.i.i.i.i.i, align 8, !noalias !422
   %17 = load ptr, ptr %mpPrev.i.i6, align 8, !noalias !422
-  %mpPrev2.i.i.i.i8 = getelementptr inbounds %"struct.eastl::ListNodeBase", ptr %result.0.i.i.i.i.i.i, i64 0, i32 1
+  %mpPrev2.i.i.i.i8 = getelementptr inbounds i8, ptr %result.0.i.i.i.i.i.i, i64 8
   store ptr %17, ptr %mpPrev2.i.i.i.i8, align 8, !noalias !422
   store ptr %result.0.i.i.i.i.i.i, ptr %17, align 8, !noalias !422
   store ptr %result.0.i.i.i.i.i.i, ptr %mpPrev.i.i6, align 8, !noalias !422
@@ -8928,11 +8924,11 @@ entry:
   br i1 %cmp.not3.i.i.i, label %_ZN5eastl4listIiNS_20fixed_node_allocatorILm24ELm64ELm8ELm0ELb1E15MallocAllocatorEEED2Ev.exit, label %while.body.lr.ph.i.i.i
 
 while.body.lr.ph.i.i.i:                           ; preds = %entry
-  %mpPoolBegin.i.i.i.i.i = getelementptr inbounds %"class.eastl::compressed_pair_imp.26", ptr %this, i64 0, i32 1, i32 0, i32 2
-  %mpCapacity.i.i.i.i.i = getelementptr inbounds %"class.eastl::compressed_pair_imp.26", ptr %this, i64 0, i32 1, i32 0, i32 0, i32 2
-  %mOverflowAllocator.i.i.i.i.i = getelementptr inbounds %"class.eastl::compressed_pair_imp.26", ptr %this, i64 0, i32 1, i32 0, i32 1
-  %mnNodeSize.i.i.i.i.i = getelementptr inbounds %"class.eastl::compressed_pair_imp.26", ptr %this, i64 0, i32 1, i32 0, i32 0, i32 3
-  %mSecond.i.i.i.i.i.i = getelementptr inbounds %"class.eastl::compressed_pair_imp.26", ptr %this, i64 0, i32 1
+  %mpPoolBegin.i.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 64
+  %mpCapacity.i.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 32
+  %mOverflowAllocator.i.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 48
+  %mnNodeSize.i.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 40
+  %mSecond.i.i.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 16
   br label %while.body.i.i.i
 
 while.body.i.i.i:                                 ; preds = %_ZN5eastl20fixed_node_allocatorILm24ELm64ELm8ELm0ELb1E15MallocAllocatorE10deallocateEPvm.exit.i.i.i, %while.body.lr.ph.i.i.i
@@ -8979,11 +8975,11 @@ entry:
   br i1 %cmp.not3.i.i.i, label %_ZN5eastl4listI7Align64NS_20fixed_node_allocatorILm128ELm1ELm64ELm0ELb1E15CustomAllocatorEEED2Ev.exit, label %while.body.lr.ph.i.i.i
 
 while.body.lr.ph.i.i.i:                           ; preds = %entry
-  %mpPoolBegin.i.i.i.i.i = getelementptr inbounds %"class.eastl::compressed_pair_imp.34", ptr %this, i64 0, i32 1, i32 0, i32 2
-  %mpCapacity.i.i.i.i.i = getelementptr inbounds %"class.eastl::compressed_pair_imp.34", ptr %this, i64 0, i32 1, i32 0, i32 0, i32 2
-  %mOverflowAllocator.i.i.i.i.i = getelementptr inbounds %"class.eastl::compressed_pair_imp.34", ptr %this, i64 0, i32 1, i32 0, i32 1
-  %mnNodeSize.i.i.i.i.i = getelementptr inbounds %"class.eastl::compressed_pair_imp.34", ptr %this, i64 0, i32 1, i32 0, i32 0, i32 3
-  %mSecond.i.i.i.i.i.i = getelementptr inbounds %"class.eastl::compressed_pair_imp.34", ptr %this, i64 0, i32 1
+  %mpPoolBegin.i.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 56
+  %mpCapacity.i.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 32
+  %mOverflowAllocator.i.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 48
+  %mnNodeSize.i.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 40
+  %mSecond.i.i.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 16
   br label %while.body.i.i.i
 
 while.body.i.i.i:                                 ; preds = %_ZN5eastl20fixed_node_allocatorILm128ELm1ELm64ELm0ELb1E15CustomAllocatorE10deallocateEPvm.exit.i.i.i, %while.body.lr.ph.i.i.i
@@ -9036,9 +9032,9 @@ entry:
   br i1 %cmp.not3.i.i.i, label %_ZN5eastl4listIiNS_20fixed_node_allocatorILm24ELm5ELm8ELm0ELb1ENS_9allocatorEEEED2Ev.exit, label %while.body.lr.ph.i.i.i
 
 while.body.lr.ph.i.i.i:                           ; preds = %entry
-  %mpPoolBegin.i.i.i.i.i = getelementptr inbounds %"class.eastl::compressed_pair_imp.51", ptr %this, i64 0, i32 1, i32 0, i32 2
-  %mpCapacity.i.i.i.i.i = getelementptr inbounds %"class.eastl::compressed_pair_imp.51", ptr %this, i64 0, i32 1, i32 0, i32 0, i32 2
-  %mSecond.i.i.i.i.i.i = getelementptr inbounds %"class.eastl::compressed_pair_imp.51", ptr %this, i64 0, i32 1
+  %mpPoolBegin.i.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 56
+  %mpCapacity.i.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 32
+  %mSecond.i.i.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 16
   br label %while.body.i.i.i
 
 while.body.i.i.i:                                 ; preds = %_ZN5eastl20fixed_node_allocatorILm24ELm5ELm8ELm0ELb1ENS_9allocatorEE10deallocateEPvm.exit.i.i.i, %while.body.lr.ph.i.i.i
@@ -9080,9 +9076,9 @@ entry:
   br i1 %cmp.not3.i.i.i, label %_ZN5eastl4listIiNS_20fixed_node_allocatorILm24ELm32ELm8ELm0ELb1ENS_9allocatorEEEED2Ev.exit, label %while.body.lr.ph.i.i.i
 
 while.body.lr.ph.i.i.i:                           ; preds = %entry
-  %mpPoolBegin.i.i.i.i.i = getelementptr inbounds %"class.eastl::compressed_pair_imp.58", ptr %this, i64 0, i32 1, i32 0, i32 2
-  %mpCapacity.i.i.i.i.i = getelementptr inbounds %"class.eastl::compressed_pair_imp.58", ptr %this, i64 0, i32 1, i32 0, i32 0, i32 2
-  %mSecond.i.i.i.i.i.i = getelementptr inbounds %"class.eastl::compressed_pair_imp.58", ptr %this, i64 0, i32 1
+  %mpPoolBegin.i.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 56
+  %mpCapacity.i.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 32
+  %mSecond.i.i.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 16
   br label %while.body.i.i.i
 
 while.body.i.i.i:                                 ; preds = %_ZN5eastl20fixed_node_allocatorILm24ELm32ELm8ELm0ELb1ENS_9allocatorEE10deallocateEPvm.exit.i.i.i, %while.body.lr.ph.i.i.i
@@ -9124,8 +9120,8 @@ entry:
   br i1 %cmp.i.not17, label %if.then16, label %for.body.lr.ph
 
 for.body.lr.ph:                                   ; preds = %entry
-  %overflow_arg_area_p = getelementptr inbounds %struct.__va_list_tag, ptr %args, i64 0, i32 2
-  %3 = getelementptr inbounds %struct.__va_list_tag, ptr %args, i64 0, i32 3
+  %overflow_arg_area_p = getelementptr inbounds i8, ptr %args, i64 8
+  %3 = getelementptr inbounds i8, ptr %args, i64 16
   %tobool.not = icmp eq ptr %pName, null
   br i1 %tobool.not, label %for.body.us, label %for.body
 
@@ -9158,7 +9154,7 @@ vaarg.end.us:                                     ; preds = %vaarg.in_reg.us, %v
   br i1 %cmp.us, label %if.then.us, label %lor.lhs.false.us
 
 lor.lhs.false.us:                                 ; preds = %vaarg.end.us
-  %mValue.i.us = getelementptr inbounds %"struct.eastl::ListNode", ptr %4, i64 0, i32 1
+  %mValue.i.us = getelementptr inbounds i8, ptr %4, i64 16
   %9 = load i32, ptr %mValue.i.us, align 4
   %cmp3.us = icmp eq i32 %8, %9
   br i1 %cmp3.us, label %for.inc.us, label %if.then.us
@@ -9207,7 +9203,7 @@ vaarg.end:                                        ; preds = %vaarg.in_mem, %vaar
   br i1 %cmp, label %if.then, label %lor.lhs.false
 
 lor.lhs.false:                                    ; preds = %vaarg.end
-  %mValue.i = getelementptr inbounds %"struct.eastl::ListNode", ptr %13, i64 0, i32 1
+  %mValue.i = getelementptr inbounds i8, ptr %13, i64 16
   %18 = load i32, ptr %mValue.i, align 4
   %cmp3 = icmp eq i32 %17, %18
   br i1 %cmp3, label %for.inc, label %if.then
@@ -9242,7 +9238,7 @@ if.then16:                                        ; preds = %entry, %for.end14
   br i1 %fits_in_gp20, label %vaarg.in_reg21, label %vaarg.in_mem23
 
 vaarg.in_reg21:                                   ; preds = %if.then16
-  %23 = getelementptr inbounds %struct.__va_list_tag, ptr %args, i64 0, i32 3
+  %23 = getelementptr inbounds i8, ptr %args, i64 16
   %reg_save_area22 = load ptr, ptr %23, align 16
   %24 = zext nneg i32 %gp_offset19 to i64
   %25 = getelementptr i8, ptr %reg_save_area22, i64 %24
@@ -9251,7 +9247,7 @@ vaarg.in_reg21:                                   ; preds = %if.then16
   br label %vaarg.end27
 
 vaarg.in_mem23:                                   ; preds = %if.then16
-  %overflow_arg_area_p24 = getelementptr inbounds %struct.__va_list_tag, ptr %args, i64 0, i32 2
+  %overflow_arg_area_p24 = getelementptr inbounds i8, ptr %args, i64 8
   %overflow_arg_area25 = load ptr, ptr %overflow_arg_area_p24, align 8
   %overflow_arg_area.next26 = getelementptr i8, ptr %overflow_arg_area25, i64 8
   store ptr %overflow_arg_area.next26, ptr %overflow_arg_area_p24, align 8
@@ -9265,14 +9261,14 @@ vaarg.end27:                                      ; preds = %vaarg.in_mem23, %va
   br i1 %cmp29, label %if.end50, label %do.body.preheader
 
 do.body.preheader:                                ; preds = %vaarg.end27
-  %overflow_arg_area_p39 = getelementptr inbounds %struct.__va_list_tag, ptr %args, i64 0, i32 2
-  %28 = getelementptr inbounds %struct.__va_list_tag, ptr %args, i64 0, i32 3
+  %overflow_arg_area_p39 = getelementptr inbounds i8, ptr %args, i64 8
+  %28 = getelementptr inbounds i8, ptr %args, i64 16
   %reg_save_area37 = load ptr, ptr %28, align 16
   %overflow_arg_area_p39.promoted = load ptr, ptr %overflow_arg_area_p39, align 8
   br label %do.body
 
 do.body:                                          ; preds = %do.body.preheader, %vaarg.end42
-  %overflow_arg_area.next4131 = phi ptr [ %overflow_arg_area.next4130, %vaarg.end42 ], [ %overflow_arg_area_p39.promoted, %do.body.preheader ]
+  %overflow_arg_area4031 = phi ptr [ %overflow_arg_area4030, %vaarg.end42 ], [ %overflow_arg_area_p39.promoted, %do.body.preheader ]
   %gp_offset3429 = phi i32 [ %gp_offset3428, %vaarg.end42 ], [ %args.promoted, %do.body.preheader ]
   %argIndex.1 = phi i32 [ %inc31, %vaarg.end42 ], [ %argIndex.0.lcssa38, %do.body.preheader ]
   %inc31 = add nuw nsw i32 %argIndex.1, 1
@@ -9287,14 +9283,14 @@ vaarg.in_reg36:                                   ; preds = %do.body
   br label %vaarg.end42
 
 vaarg.in_mem38:                                   ; preds = %do.body
-  %overflow_arg_area.next41 = getelementptr i8, ptr %overflow_arg_area.next4131, i64 8
+  %overflow_arg_area.next41 = getelementptr i8, ptr %overflow_arg_area4031, i64 8
   store ptr %overflow_arg_area.next41, ptr %overflow_arg_area_p39, align 8
   br label %vaarg.end42
 
 vaarg.end42:                                      ; preds = %vaarg.in_mem38, %vaarg.in_reg36
-  %overflow_arg_area.next4130 = phi ptr [ %overflow_arg_area.next4131, %vaarg.in_reg36 ], [ %overflow_arg_area.next41, %vaarg.in_mem38 ]
+  %overflow_arg_area4030 = phi ptr [ %overflow_arg_area4031, %vaarg.in_reg36 ], [ %overflow_arg_area.next41, %vaarg.in_mem38 ]
   %gp_offset3428 = phi i32 [ %31, %vaarg.in_reg36 ], [ %gp_offset3429, %vaarg.in_mem38 ]
-  %vaarg.addr43 = phi ptr [ %30, %vaarg.in_reg36 ], [ %overflow_arg_area.next4131, %vaarg.in_mem38 ]
+  %vaarg.addr43 = phi ptr [ %30, %vaarg.in_reg36 ], [ %overflow_arg_area4031, %vaarg.in_mem38 ]
   %32 = load i32, ptr %vaarg.addr43, align 4
   %cmp44.not = icmp eq i32 %32, -1
   br i1 %cmp44.not, label %do.end, label %do.body, !llvm.loop !427
@@ -9322,26 +9318,26 @@ if.end50:                                         ; preds = %if.then46, %if.else
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr dso_local void @_ZN5eastl4listIiNS_20fixed_node_allocatorILm24ELm32ELm8ELm0ELb1ENS_9allocatorEEEE6spliceENS_12ListIteratorIiPKiRS6_EERS4_(ptr noundef nonnull align 8 dereferenceable(72) %this, ptr %position.coerce, ptr noundef nonnull align 8 dereferenceable(72) %x) local_unnamed_addr #0 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  %mSecond.i.i.i = getelementptr inbounds %"class.eastl::compressed_pair_imp.58", ptr %this, i64 0, i32 1
-  %mSecond.i.i.i9 = getelementptr inbounds %"class.eastl::compressed_pair_imp.58", ptr %x, i64 0, i32 1
+  %mSecond.i.i.i = getelementptr inbounds i8, ptr %this, i64 16
+  %mSecond.i.i.i9 = getelementptr inbounds i8, ptr %x, i64 16
   %cmp.i = icmp eq ptr %this, %x
   br i1 %cmp.i, label %if.then, label %if.else
 
 if.then:                                          ; preds = %entry
-  %mSize = getelementptr inbounds %"class.eastl::ListBase.56", ptr %this, i64 0, i32 1
+  %mSize = getelementptr inbounds i8, ptr %this, i64 64
   %0 = load i64, ptr %mSize, align 8
   %tobool.not = icmp eq i64 %0, 0
   br i1 %tobool.not, label %if.end13, label %if.then4
 
 if.then4:                                         ; preds = %if.then
   %1 = load ptr, ptr %this, align 8
-  %mpPrev.i = getelementptr inbounds %"struct.eastl::ListNodeBase", ptr %this, i64 0, i32 1
+  %mpPrev.i = getelementptr inbounds i8, ptr %this, i64 8
   %2 = load ptr, ptr %mpPrev.i, align 8
   store ptr %position.coerce, ptr %2, align 8
-  %mpPrev2.i = getelementptr inbounds %"struct.eastl::ListNodeBase", ptr %1, i64 0, i32 1
+  %mpPrev2.i = getelementptr inbounds i8, ptr %1, i64 8
   %3 = load ptr, ptr %mpPrev2.i, align 8
   store ptr %this, ptr %3, align 8
-  %mpPrev4.i = getelementptr inbounds %"struct.eastl::ListNodeBase", ptr %position.coerce, i64 0, i32 1
+  %mpPrev4.i = getelementptr inbounds i8, ptr %position.coerce, i64 8
   %4 = load ptr, ptr %mpPrev4.i, align 8
   store ptr %1, ptr %4, align 8
   %5 = load ptr, ptr %mpPrev4.i, align 8
@@ -9354,20 +9350,20 @@ if.then4:                                         ; preds = %if.then
 
 if.else:                                          ; preds = %entry
   %8 = load ptr, ptr %x, align 8
-  %mpPrev.i.i = getelementptr inbounds %"struct.eastl::ListNodeBase", ptr %position.coerce, i64 0, i32 1
+  %mpPrev.i.i = getelementptr inbounds i8, ptr %position.coerce, i64 8
   %cmp.i.not1.i.i = icmp eq ptr %8, %x
   br i1 %cmp.i.not1.i.i, label %_ZN5eastl4listIiNS_20fixed_node_allocatorILm24ELm32ELm8ELm0ELb1ENS_9allocatorEEEE5clearEv.exit, label %for.body.lr.ph.i.i
 
 for.body.lr.ph.i.i:                               ; preds = %if.else
-  %mpNext3.i.i.i.i.i.i.i.i = getelementptr inbounds %"class.eastl::compressed_pair_imp.58", ptr %this, i64 0, i32 1, i32 0, i32 0, i32 1
-  %mpCapacity.i.i.i.i.i.i.i.i = getelementptr inbounds %"class.eastl::compressed_pair_imp.58", ptr %this, i64 0, i32 1, i32 0, i32 0, i32 2
-  %mnNodeSize9.i.i.i.i.i.i.i.i = getelementptr inbounds %"class.eastl::compressed_pair_imp.58", ptr %this, i64 0, i32 1, i32 0, i32 0, i32 3
-  %mSize.i.i.i = getelementptr inbounds %"class.eastl::ListBase.56", ptr %this, i64 0, i32 1
+  %mpNext3.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 24
+  %mpCapacity.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 32
+  %mnNodeSize9.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 40
+  %mSize.i.i.i = getelementptr inbounds i8, ptr %this, i64 64
   br label %for.body.i.i
 
 for.body.i.i:                                     ; preds = %_ZN5eastl4listIiNS_20fixed_node_allocatorILm24ELm32ELm8ELm0ELb1ENS_9allocatorEEEE13DoInsertValueIJRiEEEvPNS_12ListNodeBaseEDpOT_.exit.i.i, %for.body.lr.ph.i.i
   %agg.tmp.sroa.0.0.i = phi ptr [ %8, %for.body.lr.ph.i.i ], [ %17, %_ZN5eastl4listIiNS_20fixed_node_allocatorILm24ELm32ELm8ELm0ELb1ENS_9allocatorEEEE13DoInsertValueIJRiEEEvPNS_12ListNodeBaseEDpOT_.exit.i.i ]
-  %mValue.i.i.i = getelementptr inbounds %"struct.eastl::ListNode", ptr %agg.tmp.sroa.0.0.i, i64 0, i32 1
+  %mValue.i.i.i = getelementptr inbounds i8, ptr %agg.tmp.sroa.0.0.i, i64 16
   %9 = load ptr, ptr %mSecond.i.i.i, align 8, !noalias !428
   %tobool.not.i.i.i.i.i.i.i.i = icmp eq ptr %9, null
   br i1 %tobool.not.i.i.i.i.i.i.i.i, label %if.else.i.i.i.i.i.i.i.i, label %if.then.i.i.i.i.i.i.i.i
@@ -9395,12 +9391,12 @@ if.else8.i.i.i.i.i.i.i.i:                         ; preds = %if.else.i.i.i.i.i.i
 
 _ZN5eastl4listIiNS_20fixed_node_allocatorILm24ELm32ELm8ELm0ELb1ENS_9allocatorEEEE13DoInsertValueIJRiEEEvPNS_12ListNodeBaseEDpOT_.exit.i.i: ; preds = %if.else8.i.i.i.i.i.i.i.i, %if.then4.i.i.i.i.i.i.i.i, %if.then.i.i.i.i.i.i.i.i
   %result.0.i.i.i.i.i.i = phi ptr [ %9, %if.then.i.i.i.i.i.i.i.i ], [ %11, %if.then4.i.i.i.i.i.i.i.i ], [ %call.i.i.i.i.i.i.i.i.i, %if.else8.i.i.i.i.i.i.i.i ]
-  %mValue.i.i.i.i = getelementptr inbounds %"struct.eastl::ListNode", ptr %result.0.i.i.i.i.i.i, i64 0, i32 1
+  %mValue.i.i.i.i = getelementptr inbounds i8, ptr %result.0.i.i.i.i.i.i, i64 16
   %14 = load i32, ptr %mValue.i.i.i, align 4, !noalias !428
   store i32 %14, ptr %mValue.i.i.i.i, align 4, !noalias !428
   store ptr %position.coerce, ptr %result.0.i.i.i.i.i.i, align 8, !noalias !428
   %15 = load ptr, ptr %mpPrev.i.i, align 8, !noalias !428
-  %mpPrev2.i.i.i.i = getelementptr inbounds %"struct.eastl::ListNodeBase", ptr %result.0.i.i.i.i.i.i, i64 0, i32 1
+  %mpPrev2.i.i.i.i = getelementptr inbounds i8, ptr %result.0.i.i.i.i.i.i, i64 8
   store ptr %15, ptr %mpPrev2.i.i.i.i, align 8, !noalias !428
   store ptr %result.0.i.i.i.i.i.i, ptr %15, align 8, !noalias !428
   store ptr %result.0.i.i.i.i.i.i, ptr %mpPrev.i.i, align 8, !noalias !428
@@ -9417,8 +9413,8 @@ _ZN5eastl4listIiNS_20fixed_node_allocatorILm24ELm32ELm8ELm0ELb1ENS_9allocatorEEE
   br i1 %cmp.not3.i.i, label %_ZN5eastl4listIiNS_20fixed_node_allocatorILm24ELm32ELm8ELm0ELb1ENS_9allocatorEEEE5clearEv.exit, label %while.body.lr.ph.i.i
 
 while.body.lr.ph.i.i:                             ; preds = %_ZN5eastl4listIiNS_20fixed_node_allocatorILm24ELm32ELm8ELm0ELb1ENS_9allocatorEEEE6insertINS_12ListIteratorIiPiRiEEEES9_NS6_IiPKiRSA_EET_SE_.exit
-  %mpPoolBegin.i.i.i.i = getelementptr inbounds %"class.eastl::compressed_pair_imp.58", ptr %x, i64 0, i32 1, i32 0, i32 2
-  %mpCapacity.i.i.i.i = getelementptr inbounds %"class.eastl::compressed_pair_imp.58", ptr %x, i64 0, i32 1, i32 0, i32 0, i32 2
+  %mpPoolBegin.i.i.i.i = getelementptr inbounds i8, ptr %x, i64 56
+  %mpCapacity.i.i.i.i = getelementptr inbounds i8, ptr %x, i64 32
   br label %while.body.i.i
 
 while.body.i.i:                                   ; preds = %_ZN5eastl20fixed_node_allocatorILm24ELm32ELm8ELm0ELb1ENS_9allocatorEE10deallocateEPvm.exit.i.i, %while.body.lr.ph.i.i
@@ -9447,9 +9443,9 @@ _ZN5eastl20fixed_node_allocatorILm24ELm32ELm8ELm0ELb1ENS_9allocatorEE10deallocat
 
 _ZN5eastl4listIiNS_20fixed_node_allocatorILm24ELm32ELm8ELm0ELb1ENS_9allocatorEEEE5clearEv.exit: ; preds = %_ZN5eastl20fixed_node_allocatorILm24ELm32ELm8ELm0ELb1ENS_9allocatorEE10deallocateEPvm.exit.i.i, %if.else, %_ZN5eastl4listIiNS_20fixed_node_allocatorILm24ELm32ELm8ELm0ELb1ENS_9allocatorEEEE6insertINS_12ListIteratorIiPiRiEEEES9_NS6_IiPKiRSA_EET_SE_.exit
   store ptr %x, ptr %x, align 8
-  %mpPrev.i.i10 = getelementptr inbounds %"struct.eastl::ListNodeBase", ptr %x, i64 0, i32 1
+  %mpPrev.i.i10 = getelementptr inbounds i8, ptr %x, i64 8
   store ptr %x, ptr %mpPrev.i.i10, align 8
-  %mSize.i = getelementptr inbounds %"class.eastl::ListBase.56", ptr %x, i64 0, i32 1
+  %mSize.i = getelementptr inbounds i8, ptr %x, i64 64
   br label %if.end13.sink.split
 
 if.end13.sink.split:                              ; preds = %_ZN5eastl4listIiNS_20fixed_node_allocatorILm24ELm32ELm8ELm0ELb1ENS_9allocatorEEEE5clearEv.exit, %if.then4
@@ -9464,8 +9460,8 @@ if.end13:                                         ; preds = %if.end13.sink.split
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr dso_local void @_ZN5eastl4listIiNS_20fixed_node_allocatorILm24ELm32ELm8ELm0ELb1ENS_9allocatorEEEE6spliceENS_12ListIteratorIiPKiRS6_EERS4_S9_(ptr noundef nonnull align 8 dereferenceable(72) %this, ptr %position.coerce, ptr noundef nonnull align 8 dereferenceable(72) %x, ptr %i.coerce) local_unnamed_addr #0 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  %mSecond.i.i.i = getelementptr inbounds %"class.eastl::compressed_pair_imp.58", ptr %this, i64 0, i32 1
-  %mSecond.i.i.i3 = getelementptr inbounds %"class.eastl::compressed_pair_imp.58", ptr %x, i64 0, i32 1
+  %mSecond.i.i.i = getelementptr inbounds i8, ptr %this, i64 16
+  %mSecond.i.i.i3 = getelementptr inbounds i8, ptr %x, i64 16
   %cmp.i = icmp eq ptr %this, %x
   br i1 %cmp.i, label %if.then, label %if.else
 
@@ -9477,13 +9473,13 @@ if.then:                                          ; preds = %entry
   br i1 %or.cond, label %if.then8, label %if.end18
 
 if.then8:                                         ; preds = %if.then
-  %mpPrev.i = getelementptr inbounds %"struct.eastl::ListNodeBase", ptr %0, i64 0, i32 1
+  %mpPrev.i = getelementptr inbounds i8, ptr %0, i64 8
   %1 = load ptr, ptr %mpPrev.i, align 8
   store ptr %position.coerce, ptr %1, align 8
-  %mpPrev2.i = getelementptr inbounds %"struct.eastl::ListNodeBase", ptr %i.coerce, i64 0, i32 1
+  %mpPrev2.i = getelementptr inbounds i8, ptr %i.coerce, i64 8
   %2 = load ptr, ptr %mpPrev2.i, align 8
   store ptr %0, ptr %2, align 8
-  %mpPrev4.i = getelementptr inbounds %"struct.eastl::ListNodeBase", ptr %position.coerce, i64 0, i32 1
+  %mpPrev4.i = getelementptr inbounds i8, ptr %position.coerce, i64 8
   %3 = load ptr, ptr %mpPrev4.i, align 8
   store ptr %i.coerce, ptr %3, align 8
   %4 = load ptr, ptr %mpPrev4.i, align 8
@@ -9495,7 +9491,7 @@ if.then8:                                         ; preds = %if.then
   br label %if.end18
 
 if.else:                                          ; preds = %entry
-  %mValue.i = getelementptr inbounds %"struct.eastl::ListNode", ptr %i.coerce, i64 0, i32 1
+  %mValue.i = getelementptr inbounds i8, ptr %i.coerce, i64 16
   %7 = load ptr, ptr %mSecond.i.i.i, align 8, !noalias !432
   %tobool.not.i.i.i.i.i.i = icmp eq ptr %7, null
   br i1 %tobool.not.i.i.i.i.i.i, label %if.else.i.i.i.i.i.i, label %if.then.i.i.i.i.i.i
@@ -9506,12 +9502,12 @@ if.then.i.i.i.i.i.i:                              ; preds = %if.else
   br label %_ZN5eastl4listIiNS_20fixed_node_allocatorILm24ELm32ELm8ELm0ELb1ENS_9allocatorEEEE6insertENS_12ListIteratorIiPKiRS6_EES8_.exit
 
 if.else.i.i.i.i.i.i:                              ; preds = %if.else
-  %mpNext3.i.i.i.i.i.i = getelementptr inbounds %"class.eastl::compressed_pair_imp.58", ptr %this, i64 0, i32 1, i32 0, i32 0, i32 1
+  %mpNext3.i.i.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 24
   %9 = load ptr, ptr %mpNext3.i.i.i.i.i.i, align 8, !noalias !432
-  %mpCapacity.i.i.i.i.i.i = getelementptr inbounds %"class.eastl::compressed_pair_imp.58", ptr %this, i64 0, i32 1, i32 0, i32 0, i32 2
+  %mpCapacity.i.i.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 32
   %10 = load ptr, ptr %mpCapacity.i.i.i.i.i.i, align 8, !noalias !432
   %cmp.not.i.i.i.i.i.i = icmp eq ptr %9, %10
-  %mnNodeSize9.i.i.i.i.i.i = getelementptr inbounds %"class.eastl::compressed_pair_imp.58", ptr %this, i64 0, i32 1, i32 0, i32 0, i32 3
+  %mnNodeSize9.i.i.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 40
   %11 = load i64, ptr %mnNodeSize9.i.i.i.i.i.i, align 8, !noalias !432
   br i1 %cmp.not.i.i.i.i.i.i, label %if.else8.i.i.i.i.i.i, label %if.then4.i.i.i.i.i.i
 
@@ -9526,34 +9522,34 @@ if.else8.i.i.i.i.i.i:                             ; preds = %if.else.i.i.i.i.i.i
 
 _ZN5eastl4listIiNS_20fixed_node_allocatorILm24ELm32ELm8ELm0ELb1ENS_9allocatorEEEE6insertENS_12ListIteratorIiPKiRS6_EES8_.exit: ; preds = %if.then.i.i.i.i.i.i, %if.then4.i.i.i.i.i.i, %if.else8.i.i.i.i.i.i
   %result.0.i.i.i.i = phi ptr [ %7, %if.then.i.i.i.i.i.i ], [ %9, %if.then4.i.i.i.i.i.i ], [ %call.i.i.i.i.i.i.i, %if.else8.i.i.i.i.i.i ]
-  %mValue.i.i = getelementptr inbounds %"struct.eastl::ListNode", ptr %result.0.i.i.i.i, i64 0, i32 1
+  %mValue.i.i = getelementptr inbounds i8, ptr %result.0.i.i.i.i, i64 16
   %12 = load i32, ptr %mValue.i, align 4, !noalias !432
   store i32 %12, ptr %mValue.i.i, align 4, !noalias !432
   store ptr %position.coerce, ptr %result.0.i.i.i.i, align 8, !noalias !432
-  %mpPrev.i.i = getelementptr inbounds %"struct.eastl::ListNodeBase", ptr %position.coerce, i64 0, i32 1
+  %mpPrev.i.i = getelementptr inbounds i8, ptr %position.coerce, i64 8
   %13 = load ptr, ptr %mpPrev.i.i, align 8, !noalias !432
-  %mpPrev2.i.i = getelementptr inbounds %"struct.eastl::ListNodeBase", ptr %result.0.i.i.i.i, i64 0, i32 1
+  %mpPrev2.i.i = getelementptr inbounds i8, ptr %result.0.i.i.i.i, i64 8
   store ptr %13, ptr %mpPrev2.i.i, align 8, !noalias !432
   store ptr %result.0.i.i.i.i, ptr %13, align 8, !noalias !432
   store ptr %result.0.i.i.i.i, ptr %mpPrev.i.i, align 8, !noalias !432
-  %mSize.i = getelementptr inbounds %"class.eastl::ListBase.56", ptr %this, i64 0, i32 1
+  %mSize.i = getelementptr inbounds i8, ptr %this, i64 64
   %14 = load i64, ptr %mSize.i, align 8, !noalias !432
   %inc.i = add i64 %14, 1
   store i64 %inc.i, ptr %mSize.i, align 8, !noalias !432
   %15 = load ptr, ptr %i.coerce, align 8, !noalias !435
-  %mpPrev.i6 = getelementptr inbounds %"struct.eastl::ListNodeBase", ptr %15, i64 0, i32 1
+  %mpPrev.i6 = getelementptr inbounds i8, ptr %15, i64 8
   %16 = load ptr, ptr %mpPrev.i6, align 8, !noalias !435
-  %mpPrev.i.i.i = getelementptr inbounds %"struct.eastl::ListNodeBase", ptr %16, i64 0, i32 1
+  %mpPrev.i.i.i = getelementptr inbounds i8, ptr %16, i64 8
   %17 = load ptr, ptr %mpPrev.i.i.i, align 8, !noalias !435
   %18 = load ptr, ptr %16, align 8, !noalias !435
-  %mpPrev2.i.i.i = getelementptr inbounds %"struct.eastl::ListNodeBase", ptr %18, i64 0, i32 1
+  %mpPrev2.i.i.i = getelementptr inbounds i8, ptr %18, i64 8
   store ptr %17, ptr %mpPrev2.i.i.i, align 8, !noalias !435
   %19 = load ptr, ptr %16, align 8, !noalias !435
   store ptr %19, ptr %17, align 8, !noalias !435
-  %mpPoolBegin.i.i.i.i.i = getelementptr inbounds %"class.eastl::compressed_pair_imp.58", ptr %x, i64 0, i32 1, i32 0, i32 2
+  %mpPoolBegin.i.i.i.i.i = getelementptr inbounds i8, ptr %x, i64 56
   %20 = load ptr, ptr %mpPoolBegin.i.i.i.i.i, align 8, !noalias !435
   %cmp.not.i.i.i.i.i = icmp ule ptr %20, %16
-  %mpCapacity.i.i.i.i.i = getelementptr inbounds %"class.eastl::compressed_pair_imp.58", ptr %x, i64 0, i32 1, i32 0, i32 0, i32 2
+  %mpCapacity.i.i.i.i.i = getelementptr inbounds i8, ptr %x, i64 32
   %21 = load ptr, ptr %mpCapacity.i.i.i.i.i, align 8, !noalias !435
   %cmp2.i.i.i.i.i = icmp ugt ptr %21, %16
   %or.cond.i.i.i.i.i = select i1 %cmp.not.i.i.i.i.i, i1 %cmp2.i.i.i.i.i, i1 false
@@ -9570,7 +9566,7 @@ delete.notnull.i.i.i.i.i.i:                       ; preds = %_ZN5eastl4listIiNS_
   br label %_ZN5eastl4listIiNS_20fixed_node_allocatorILm24ELm32ELm8ELm0ELb1ENS_9allocatorEEEE5eraseENS_12ListIteratorIiPKiRS6_EE.exit
 
 _ZN5eastl4listIiNS_20fixed_node_allocatorILm24ELm32ELm8ELm0ELb1ENS_9allocatorEEEE5eraseENS_12ListIteratorIiPKiRS6_EE.exit: ; preds = %if.then.i.i.i.i.i, %delete.notnull.i.i.i.i.i.i
-  %mSize.i.i = getelementptr inbounds %"class.eastl::ListBase.56", ptr %x, i64 0, i32 1
+  %mSize.i.i = getelementptr inbounds i8, ptr %x, i64 64
   %23 = load i64, ptr %mSize.i.i, align 8, !noalias !435
   %dec.i.i = add i64 %23, -1
   store i64 %dec.i.i, ptr %mSize.i.i, align 8, !noalias !435
@@ -9583,8 +9579,8 @@ if.end18:                                         ; preds = %if.then, %if.then8,
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr dso_local void @_ZN5eastl4listIiNS_20fixed_node_allocatorILm24ELm32ELm8ELm0ELb1ENS_9allocatorEEEE6spliceENS_12ListIteratorIiPKiRS6_EERS4_S9_S9_(ptr noundef nonnull align 8 dereferenceable(72) %this, ptr %position.coerce, ptr noundef nonnull align 8 dereferenceable(72) %x, ptr %first.coerce, ptr %last.coerce) local_unnamed_addr #0 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  %mSecond.i.i.i = getelementptr inbounds %"class.eastl::compressed_pair_imp.58", ptr %this, i64 0, i32 1
-  %mSecond.i.i.i5 = getelementptr inbounds %"class.eastl::compressed_pair_imp.58", ptr %x, i64 0, i32 1
+  %mSecond.i.i.i = getelementptr inbounds i8, ptr %this, i64 16
+  %mSecond.i.i.i5 = getelementptr inbounds i8, ptr %x, i64 16
   %cmp.i = icmp eq ptr %this, %x
   br i1 %cmp.i, label %if.then, label %if.else
 
@@ -9593,13 +9589,13 @@ if.then:                                          ; preds = %entry
   br i1 %cmp.i.not3.i.i, label %if.end25, label %if.then10
 
 if.then10:                                        ; preds = %if.then
-  %mpPrev.i = getelementptr inbounds %"struct.eastl::ListNodeBase", ptr %last.coerce, i64 0, i32 1
+  %mpPrev.i = getelementptr inbounds i8, ptr %last.coerce, i64 8
   %0 = load ptr, ptr %mpPrev.i, align 8
   store ptr %position.coerce, ptr %0, align 8
-  %mpPrev2.i = getelementptr inbounds %"struct.eastl::ListNodeBase", ptr %first.coerce, i64 0, i32 1
+  %mpPrev2.i = getelementptr inbounds i8, ptr %first.coerce, i64 8
   %1 = load ptr, ptr %mpPrev2.i, align 8
   store ptr %last.coerce, ptr %1, align 8
-  %mpPrev4.i = getelementptr inbounds %"struct.eastl::ListNodeBase", ptr %position.coerce, i64 0, i32 1
+  %mpPrev4.i = getelementptr inbounds i8, ptr %position.coerce, i64 8
   %2 = load ptr, ptr %mpPrev4.i, align 8
   store ptr %first.coerce, ptr %2, align 8
   %3 = load ptr, ptr %mpPrev4.i, align 8
@@ -9611,20 +9607,20 @@ if.then10:                                        ; preds = %if.then
   br label %if.end25
 
 if.else:                                          ; preds = %entry
-  %mpPrev.i.i = getelementptr inbounds %"struct.eastl::ListNodeBase", ptr %position.coerce, i64 0, i32 1
+  %mpPrev.i.i = getelementptr inbounds i8, ptr %position.coerce, i64 8
   %cmp.i.not3.i.i6 = icmp eq ptr %first.coerce, %last.coerce
   br i1 %cmp.i.not3.i.i6, label %if.end25, label %for.body.lr.ph.i.i
 
 for.body.lr.ph.i.i:                               ; preds = %if.else
-  %mpNext3.i.i.i.i.i.i.i.i = getelementptr inbounds %"class.eastl::compressed_pair_imp.58", ptr %this, i64 0, i32 1, i32 0, i32 0, i32 1
-  %mpCapacity.i.i.i.i.i.i.i.i = getelementptr inbounds %"class.eastl::compressed_pair_imp.58", ptr %this, i64 0, i32 1, i32 0, i32 0, i32 2
-  %mnNodeSize9.i.i.i.i.i.i.i.i = getelementptr inbounds %"class.eastl::compressed_pair_imp.58", ptr %this, i64 0, i32 1, i32 0, i32 0, i32 3
-  %mSize.i.i.i = getelementptr inbounds %"class.eastl::ListBase.56", ptr %this, i64 0, i32 1
+  %mpNext3.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 24
+  %mpCapacity.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 32
+  %mnNodeSize9.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 40
+  %mSize.i.i.i = getelementptr inbounds i8, ptr %this, i64 64
   br label %for.body.i.i
 
 for.body.i.i:                                     ; preds = %_ZN5eastl4listIiNS_20fixed_node_allocatorILm24ELm32ELm8ELm0ELb1ENS_9allocatorEEEE13DoInsertValueIJRKiEEEvPNS_12ListNodeBaseEDpOT_.exit.i.i, %for.body.lr.ph.i.i
   %first.sroa.0.04.i.i7 = phi ptr [ %first.coerce, %for.body.lr.ph.i.i ], [ %14, %_ZN5eastl4listIiNS_20fixed_node_allocatorILm24ELm32ELm8ELm0ELb1ENS_9allocatorEEEE13DoInsertValueIJRKiEEEvPNS_12ListNodeBaseEDpOT_.exit.i.i ]
-  %mValue.i.i.i = getelementptr inbounds %"struct.eastl::ListNode", ptr %first.sroa.0.04.i.i7, i64 0, i32 1
+  %mValue.i.i.i = getelementptr inbounds i8, ptr %first.sroa.0.04.i.i7, i64 16
   %6 = load ptr, ptr %mSecond.i.i.i, align 8, !noalias !438
   %tobool.not.i.i.i.i.i.i.i.i = icmp eq ptr %6, null
   br i1 %tobool.not.i.i.i.i.i.i.i.i, label %if.else.i.i.i.i.i.i.i.i, label %if.then.i.i.i.i.i.i.i.i
@@ -9652,12 +9648,12 @@ if.else8.i.i.i.i.i.i.i.i:                         ; preds = %if.else.i.i.i.i.i.i
 
 _ZN5eastl4listIiNS_20fixed_node_allocatorILm24ELm32ELm8ELm0ELb1ENS_9allocatorEEEE13DoInsertValueIJRKiEEEvPNS_12ListNodeBaseEDpOT_.exit.i.i: ; preds = %if.else8.i.i.i.i.i.i.i.i, %if.then4.i.i.i.i.i.i.i.i, %if.then.i.i.i.i.i.i.i.i
   %result.0.i.i.i.i.i.i = phi ptr [ %6, %if.then.i.i.i.i.i.i.i.i ], [ %8, %if.then4.i.i.i.i.i.i.i.i ], [ %call.i.i.i.i.i.i.i.i.i, %if.else8.i.i.i.i.i.i.i.i ]
-  %mValue.i.i.i.i = getelementptr inbounds %"struct.eastl::ListNode", ptr %result.0.i.i.i.i.i.i, i64 0, i32 1
+  %mValue.i.i.i.i = getelementptr inbounds i8, ptr %result.0.i.i.i.i.i.i, i64 16
   %11 = load i32, ptr %mValue.i.i.i, align 4, !noalias !438
   store i32 %11, ptr %mValue.i.i.i.i, align 4, !noalias !438
   store ptr %position.coerce, ptr %result.0.i.i.i.i.i.i, align 8, !noalias !438
   %12 = load ptr, ptr %mpPrev.i.i, align 8, !noalias !438
-  %mpPrev2.i.i.i.i = getelementptr inbounds %"struct.eastl::ListNodeBase", ptr %result.0.i.i.i.i.i.i, i64 0, i32 1
+  %mpPrev2.i.i.i.i = getelementptr inbounds i8, ptr %result.0.i.i.i.i.i.i, i64 8
   store ptr %12, ptr %mpPrev2.i.i.i.i, align 8, !noalias !438
   store ptr %result.0.i.i.i.i.i.i, ptr %12, align 8, !noalias !438
   store ptr %result.0.i.i.i.i.i.i, ptr %mpPrev.i.i, align 8, !noalias !438
@@ -9669,20 +9665,20 @@ _ZN5eastl4listIiNS_20fixed_node_allocatorILm24ELm32ELm8ELm0ELb1ENS_9allocatorEEE
   br i1 %cmp.i.not.i.i8, label %while.body.lr.ph.i, label %for.body.i.i, !llvm.loop !441
 
 while.body.lr.ph.i:                               ; preds = %_ZN5eastl4listIiNS_20fixed_node_allocatorILm24ELm32ELm8ELm0ELb1ENS_9allocatorEEEE13DoInsertValueIJRKiEEEvPNS_12ListNodeBaseEDpOT_.exit.i.i
-  %mpPoolBegin.i.i.i.i.i.i = getelementptr inbounds %"class.eastl::compressed_pair_imp.58", ptr %x, i64 0, i32 1, i32 0, i32 2
-  %mpCapacity.i.i.i.i.i.i = getelementptr inbounds %"class.eastl::compressed_pair_imp.58", ptr %x, i64 0, i32 1, i32 0, i32 0, i32 2
-  %mSize.i.i.i9 = getelementptr inbounds %"class.eastl::ListBase.56", ptr %x, i64 0, i32 1
+  %mpPoolBegin.i.i.i.i.i.i = getelementptr inbounds i8, ptr %x, i64 56
+  %mpCapacity.i.i.i.i.i.i = getelementptr inbounds i8, ptr %x, i64 32
+  %mSize.i.i.i9 = getelementptr inbounds i8, ptr %x, i64 64
   br label %while.body.i
 
 while.body.i:                                     ; preds = %_ZN5eastl4listIiNS_20fixed_node_allocatorILm24ELm32ELm8ELm0ELb1ENS_9allocatorEEEE5eraseENS_12ListIteratorIiPKiRS6_EE.exit.i, %while.body.lr.ph.i
   %first.sroa.0.03.i = phi ptr [ %first.coerce, %while.body.lr.ph.i ], [ %15, %_ZN5eastl4listIiNS_20fixed_node_allocatorILm24ELm32ELm8ELm0ELb1ENS_9allocatorEEEE5eraseENS_12ListIteratorIiPKiRS6_EE.exit.i ]
   %15 = load ptr, ptr %first.sroa.0.03.i, align 8, !noalias !442
-  %mpPrev.i.i10 = getelementptr inbounds %"struct.eastl::ListNodeBase", ptr %15, i64 0, i32 1
+  %mpPrev.i.i10 = getelementptr inbounds i8, ptr %15, i64 8
   %16 = load ptr, ptr %mpPrev.i.i10, align 8, !noalias !442
-  %mpPrev.i.i.i.i = getelementptr inbounds %"struct.eastl::ListNodeBase", ptr %16, i64 0, i32 1
+  %mpPrev.i.i.i.i = getelementptr inbounds i8, ptr %16, i64 8
   %17 = load ptr, ptr %mpPrev.i.i.i.i, align 8, !noalias !442
   %18 = load ptr, ptr %16, align 8, !noalias !442
-  %mpPrev2.i.i.i.i11 = getelementptr inbounds %"struct.eastl::ListNodeBase", ptr %18, i64 0, i32 1
+  %mpPrev2.i.i.i.i11 = getelementptr inbounds i8, ptr %18, i64 8
   store ptr %17, ptr %mpPrev2.i.i.i.i11, align 8, !noalias !442
   %19 = load ptr, ptr %16, align 8, !noalias !442
   store ptr %19, ptr %17, align 8, !noalias !442
@@ -9720,45 +9716,45 @@ invoke.cont:
   %agg.tmp.i = alloca %"struct.eastl::ListIterator.76", align 8
   %agg.tmp2.i = alloca %"struct.eastl::ListIterator.76", align 8
   %ref.tmp = alloca %"class.eastl::fixed_node_allocator.73", align 8
-  %mBuffer = getelementptr inbounds %"class.eastl::fixed_list.68", ptr %this, i64 0, i32 1
-  %mOverflowAllocator.i.i = getelementptr inbounds %"class.eastl::fixed_pool_with_overflow.28", ptr %ref.tmp, i64 0, i32 1
+  %mBuffer = getelementptr inbounds i8, ptr %this, i64 80
+  %mOverflowAllocator.i.i = getelementptr inbounds i8, ptr %ref.tmp, i64 32
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp, i8 0, i64 32, i1 false)
   %0 = load <2 x i32>, ptr %overflowAllocator, align 8
   store <2 x i32> %0, ptr %mOverflowAllocator.i.i, align 8
-  %mAllocVolume.i.i.i = getelementptr inbounds %"class.eastl::fixed_pool_with_overflow.28", ptr %ref.tmp, i64 0, i32 1, i32 2
-  %mAllocVolume4.i.i.i = getelementptr inbounds %class.MallocAllocator, ptr %overflowAllocator, i64 0, i32 2
+  %mAllocVolume.i.i.i = getelementptr inbounds i8, ptr %ref.tmp, i64 40
+  %mAllocVolume4.i.i.i = getelementptr inbounds i8, ptr %overflowAllocator, i64 8
   %1 = load i64, ptr %mAllocVolume4.i.i.i, align 8
   store i64 %1, ptr %mAllocVolume.i.i.i, align 8
   call void @_ZN5eastl15fixed_pool_base4initEPvmmmm(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp, ptr noundef nonnull %mBuffer, i64 noundef 640, i64 noundef 40, i64 noundef 8, i64 noundef 0)
-  %mpPoolBegin.i.i = getelementptr inbounds %"class.eastl::fixed_pool_with_overflow.28", ptr %ref.tmp, i64 0, i32 2
+  %mpPoolBegin.i.i = getelementptr inbounds i8, ptr %ref.tmp, i64 48
   store ptr %mBuffer, ptr %mpPoolBegin.i.i, align 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %this, i8 0, i64 16, i1 false)
-  %mSecond.i.i.i.i = getelementptr inbounds %"class.eastl::compressed_pair_imp.72", ptr %this, i64 0, i32 1
-  %mpNext.i.i.i.i.i = getelementptr inbounds %"struct.eastl::fixed_pool_base", ptr %ref.tmp, i64 0, i32 1
+  %mSecond.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 16
+  %mpNext.i.i.i.i.i = getelementptr inbounds i8, ptr %ref.tmp, i64 8
   %2 = load ptr, ptr %mpNext.i.i.i.i.i, align 8
-  %mOverflowAllocator.i.i.i.i.i.i = getelementptr inbounds %"class.eastl::compressed_pair_imp.72", ptr %this, i64 0, i32 1, i32 0, i32 1
+  %mOverflowAllocator.i.i.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 48
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %mSecond.i.i.i.i, i8 0, i64 32, i1 false)
-  %mFreeCount.i.i.i.i.i.i.i = getelementptr inbounds %"class.eastl::compressed_pair_imp.72", ptr %this, i64 0, i32 1, i32 0, i32 1, i32 1
+  %mFreeCount.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 52
   %3 = load <2 x i32>, ptr %mOverflowAllocator.i.i, align 8
   store <2 x i32> %3, ptr %mOverflowAllocator.i.i.i.i.i.i, align 8
-  %mAllocVolume.i.i.i.i.i.i.i = getelementptr inbounds %"class.eastl::compressed_pair_imp.72", ptr %this, i64 0, i32 1, i32 0, i32 1, i32 2
+  %mAllocVolume.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 56
   %4 = load i64, ptr %mAllocVolume.i.i.i, align 8
   store i64 %4, ptr %mAllocVolume.i.i.i.i.i.i.i, align 8
   call void @_ZN5eastl15fixed_pool_base4initEPvmmmm(ptr noundef nonnull align 8 dereferenceable(32) %mSecond.i.i.i.i, ptr noundef %2, i64 noundef 640, i64 noundef 40, i64 noundef 8, i64 noundef 0)
-  %mpPoolBegin.i.i.i.i.i.i = getelementptr inbounds %"class.eastl::compressed_pair_imp.72", ptr %this, i64 0, i32 1, i32 0, i32 2
+  %mpPoolBegin.i.i.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 64
   store ptr %2, ptr %mpPoolBegin.i.i.i.i.i.i, align 8
-  %mSize.i.i = getelementptr inbounds %"class.eastl::ListBase.70", ptr %this, i64 0, i32 1
+  %mSize.i.i = getelementptr inbounds i8, ptr %this, i64 72
   store i64 0, ptr %mSize.i.i, align 8
   store ptr %this, ptr %this, align 8
-  %mpPrev.i.i.i = getelementptr inbounds %"struct.eastl::ListNodeBase", ptr %this, i64 0, i32 1
+  %mpPrev.i.i.i = getelementptr inbounds i8, ptr %this, i64 8
   store ptr %this, ptr %mpPrev.i.i.i, align 8
-  %mOverflowAllocator.i = getelementptr inbounds %"class.eastl::compressed_pair_imp.72", ptr %x, i64 0, i32 1, i32 0, i32 1
+  %mOverflowAllocator.i = getelementptr inbounds i8, ptr %x, i64 48
   %5 = load i32, ptr %mOverflowAllocator.i, align 8
   store i32 %5, ptr %mOverflowAllocator.i.i.i.i.i.i, align 8
-  %mFreeCount.i.i = getelementptr inbounds %"class.eastl::compressed_pair_imp.72", ptr %x, i64 0, i32 1, i32 0, i32 1, i32 1
+  %mFreeCount.i.i = getelementptr inbounds i8, ptr %x, i64 52
   %6 = load i32, ptr %mFreeCount.i.i, align 4
   store i32 %6, ptr %mFreeCount.i.i.i.i.i.i.i, align 4
-  %mAllocVolume.i.i = getelementptr inbounds %"class.eastl::compressed_pair_imp.72", ptr %x, i64 0, i32 1, i32 0, i32 1, i32 2
+  %mAllocVolume.i.i = getelementptr inbounds i8, ptr %x, i64 56
   %7 = load i64, ptr %mAllocVolume.i.i, align 8
   store i64 %7, ptr %mAllocVolume.i.i.i.i.i.i.i, align 8
   %8 = load ptr, ptr %x, align 8, !noalias !448
@@ -9789,17 +9785,17 @@ entry:
   br i1 %cmp.not6.i.i.i, label %_ZN5eastl4listI10TestObjectNS_20fixed_node_allocatorILm40ELm16ELm8ELm0ELb1E15MallocAllocatorEEED2Ev.exit, label %while.body.lr.ph.i.i.i
 
 while.body.lr.ph.i.i.i:                           ; preds = %entry
-  %mpPoolBegin.i.i.i.i.i = getelementptr inbounds %"class.eastl::compressed_pair_imp.72", ptr %this, i64 0, i32 1, i32 0, i32 2
-  %mpCapacity.i.i.i.i.i = getelementptr inbounds %"class.eastl::compressed_pair_imp.72", ptr %this, i64 0, i32 1, i32 0, i32 0, i32 2
-  %mOverflowAllocator.i.i.i.i.i = getelementptr inbounds %"class.eastl::compressed_pair_imp.72", ptr %this, i64 0, i32 1, i32 0, i32 1
-  %mnNodeSize.i.i.i.i.i = getelementptr inbounds %"class.eastl::compressed_pair_imp.72", ptr %this, i64 0, i32 1, i32 0, i32 0, i32 3
-  %mSecond.i.i.i.i.i.i = getelementptr inbounds %"class.eastl::compressed_pair_imp.72", ptr %this, i64 0, i32 1
+  %mpPoolBegin.i.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 64
+  %mpCapacity.i.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 32
+  %mOverflowAllocator.i.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 48
+  %mnNodeSize.i.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 40
+  %mSecond.i.i.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 16
   br label %while.body.i.i.i
 
 while.body.i.i.i:                                 ; preds = %_ZN5eastl20fixed_node_allocatorILm40ELm16ELm8ELm0ELb1E15MallocAllocatorE10deallocateEPvm.exit.i.i.i, %while.body.lr.ph.i.i.i
   %p.07.i.i.i = phi ptr [ %0, %while.body.lr.ph.i.i.i ], [ %1, %_ZN5eastl20fixed_node_allocatorILm40ELm16ELm8ELm0ELb1E15MallocAllocatorE10deallocateEPvm.exit.i.i.i ]
   %1 = load ptr, ptr %p.07.i.i.i, align 8
-  %mMagicValue.i.i.i.i.i = getelementptr inbounds %"struct.eastl::ListNode.89", ptr %p.07.i.i.i, i64 0, i32 1, i32 4
+  %mMagicValue.i.i.i.i.i = getelementptr inbounds i8, ptr %p.07.i.i.i, i64 32
   %2 = load i32, ptr %mMagicValue.i.i.i.i.i, align 8
   %cmp.not.i.i.i.i.i = icmp eq i32 %2, 32623592
   br i1 %cmp.not.i.i.i.i.i, label %_ZN5eastl8ListNodeI10TestObjectED2Ev.exit.i.i.i, label %if.then.i.i.i.i.i
@@ -9859,15 +9855,15 @@ entry:
   br i1 %cmp.not6.i.i.i, label %_ZN5eastl4listI10TestObjectNS_20fixed_node_allocatorILm40ELm16ELm8ELm0ELb1ENS_9allocatorEEEED2Ev.exit, label %while.body.lr.ph.i.i.i
 
 while.body.lr.ph.i.i.i:                           ; preds = %entry
-  %mpPoolBegin.i.i.i.i.i = getelementptr inbounds %"class.eastl::compressed_pair_imp.65", ptr %this, i64 0, i32 1, i32 0, i32 2
-  %mpCapacity.i.i.i.i.i = getelementptr inbounds %"class.eastl::compressed_pair_imp.65", ptr %this, i64 0, i32 1, i32 0, i32 0, i32 2
-  %mSecond.i.i.i.i.i.i = getelementptr inbounds %"class.eastl::compressed_pair_imp.65", ptr %this, i64 0, i32 1
+  %mpPoolBegin.i.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 56
+  %mpCapacity.i.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 32
+  %mSecond.i.i.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 16
   br label %while.body.i.i.i
 
 while.body.i.i.i:                                 ; preds = %_ZN5eastl20fixed_node_allocatorILm40ELm16ELm8ELm0ELb1ENS_9allocatorEE10deallocateEPvm.exit.i.i.i, %while.body.lr.ph.i.i.i
   %p.07.i.i.i = phi ptr [ %0, %while.body.lr.ph.i.i.i ], [ %1, %_ZN5eastl20fixed_node_allocatorILm40ELm16ELm8ELm0ELb1ENS_9allocatorEE10deallocateEPvm.exit.i.i.i ]
   %1 = load ptr, ptr %p.07.i.i.i, align 8
-  %mMagicValue.i.i.i.i.i = getelementptr inbounds %"struct.eastl::ListNode.89", ptr %p.07.i.i.i, i64 0, i32 1, i32 4
+  %mMagicValue.i.i.i.i.i = getelementptr inbounds i8, ptr %p.07.i.i.i, i64 32
   %2 = load i32, ptr %mMagicValue.i.i.i.i.i, align 8
   %cmp.not.i.i.i.i.i = icmp eq i32 %2, 32623592
   br i1 %cmp.not.i.i.i.i.i, label %_ZN5eastl8ListNodeI10TestObjectED2Ev.exit.i.i.i, label %if.then.i.i.i.i.i
@@ -9937,9 +9933,9 @@ entry:
   br i1 %cmp.not3.i.i, label %_ZN5eastl8ListBaseIiNS_20fixed_node_allocatorILm24ELm64ELm8ELm0ELb1ENS_9allocatorEEEED2Ev.exit, label %while.body.lr.ph.i.i
 
 while.body.lr.ph.i.i:                             ; preds = %entry
-  %mpPoolBegin.i.i.i.i = getelementptr inbounds %"class.eastl::compressed_pair_imp.19", ptr %this, i64 0, i32 1, i32 0, i32 2
-  %mpCapacity.i.i.i.i = getelementptr inbounds %"class.eastl::compressed_pair_imp.19", ptr %this, i64 0, i32 1, i32 0, i32 0, i32 2
-  %mSecond.i.i.i.i.i = getelementptr inbounds %"class.eastl::compressed_pair_imp.19", ptr %this, i64 0, i32 1
+  %mpPoolBegin.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 56
+  %mpCapacity.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 32
+  %mSecond.i.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 16
   br label %while.body.i.i
 
 while.body.i.i:                                   ; preds = %_ZN5eastl20fixed_node_allocatorILm24ELm64ELm8ELm0ELb1ENS_9allocatorEE10deallocateEPvm.exit.i.i, %while.body.lr.ph.i.i
@@ -9980,9 +9976,9 @@ entry:
   br i1 %cmp.not3.i.i, label %_ZN5eastl8ListBaseIiNS_20fixed_node_allocatorILm24ELm32ELm8ELm0ELb1ENS_9allocatorEEEED2Ev.exit, label %while.body.lr.ph.i.i
 
 while.body.lr.ph.i.i:                             ; preds = %entry
-  %mpPoolBegin.i.i.i.i = getelementptr inbounds %"class.eastl::compressed_pair_imp.58", ptr %this, i64 0, i32 1, i32 0, i32 2
-  %mpCapacity.i.i.i.i = getelementptr inbounds %"class.eastl::compressed_pair_imp.58", ptr %this, i64 0, i32 1, i32 0, i32 0, i32 2
-  %mSecond.i.i.i.i.i = getelementptr inbounds %"class.eastl::compressed_pair_imp.58", ptr %this, i64 0, i32 1
+  %mpPoolBegin.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 56
+  %mpCapacity.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 32
+  %mSecond.i.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 16
   br label %while.body.i.i
 
 while.body.i.i:                                   ; preds = %_ZN5eastl20fixed_node_allocatorILm24ELm32ELm8ELm0ELb1ENS_9allocatorEE10deallocateEPvm.exit.i.i, %while.body.lr.ph.i.i
@@ -10021,17 +10017,17 @@ entry:
   br i1 %cmp.not6.i.i, label %_ZN5eastl8ListBaseI10TestObjectNS_20fixed_node_allocatorILm40ELm16ELm8ELm0ELb1E15MallocAllocatorEEED2Ev.exit, label %while.body.lr.ph.i.i
 
 while.body.lr.ph.i.i:                             ; preds = %entry
-  %mpPoolBegin.i.i.i.i = getelementptr inbounds %"class.eastl::compressed_pair_imp.72", ptr %this, i64 0, i32 1, i32 0, i32 2
-  %mpCapacity.i.i.i.i = getelementptr inbounds %"class.eastl::compressed_pair_imp.72", ptr %this, i64 0, i32 1, i32 0, i32 0, i32 2
-  %mOverflowAllocator.i.i.i.i = getelementptr inbounds %"class.eastl::compressed_pair_imp.72", ptr %this, i64 0, i32 1, i32 0, i32 1
-  %mnNodeSize.i.i.i.i = getelementptr inbounds %"class.eastl::compressed_pair_imp.72", ptr %this, i64 0, i32 1, i32 0, i32 0, i32 3
-  %mSecond.i.i.i.i.i = getelementptr inbounds %"class.eastl::compressed_pair_imp.72", ptr %this, i64 0, i32 1
+  %mpPoolBegin.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 64
+  %mpCapacity.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 32
+  %mOverflowAllocator.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 48
+  %mnNodeSize.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 40
+  %mSecond.i.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 16
   br label %while.body.i.i
 
 while.body.i.i:                                   ; preds = %_ZN5eastl20fixed_node_allocatorILm40ELm16ELm8ELm0ELb1E15MallocAllocatorE10deallocateEPvm.exit.i.i, %while.body.lr.ph.i.i
   %p.07.i.i = phi ptr [ %0, %while.body.lr.ph.i.i ], [ %1, %_ZN5eastl20fixed_node_allocatorILm40ELm16ELm8ELm0ELb1E15MallocAllocatorE10deallocateEPvm.exit.i.i ]
   %1 = load ptr, ptr %p.07.i.i, align 8
-  %mMagicValue.i.i.i.i = getelementptr inbounds %"struct.eastl::ListNode.89", ptr %p.07.i.i, i64 0, i32 1, i32 4
+  %mMagicValue.i.i.i.i = getelementptr inbounds i8, ptr %p.07.i.i, i64 32
   %2 = load i32, ptr %mMagicValue.i.i.i.i, align 8
   %cmp.not.i.i.i.i = icmp eq i32 %2, 32623592
   br i1 %cmp.not.i.i.i.i, label %_ZN5eastl8ListNodeI10TestObjectED2Ev.exit.i.i, label %if.then.i.i.i.i
@@ -10091,15 +10087,15 @@ entry:
   br i1 %cmp.not6.i.i, label %_ZN5eastl8ListBaseI10TestObjectNS_20fixed_node_allocatorILm40ELm16ELm8ELm0ELb1ENS_9allocatorEEEED2Ev.exit, label %while.body.lr.ph.i.i
 
 while.body.lr.ph.i.i:                             ; preds = %entry
-  %mpPoolBegin.i.i.i.i = getelementptr inbounds %"class.eastl::compressed_pair_imp.65", ptr %this, i64 0, i32 1, i32 0, i32 2
-  %mpCapacity.i.i.i.i = getelementptr inbounds %"class.eastl::compressed_pair_imp.65", ptr %this, i64 0, i32 1, i32 0, i32 0, i32 2
-  %mSecond.i.i.i.i.i = getelementptr inbounds %"class.eastl::compressed_pair_imp.65", ptr %this, i64 0, i32 1
+  %mpPoolBegin.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 56
+  %mpCapacity.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 32
+  %mSecond.i.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 16
   br label %while.body.i.i
 
 while.body.i.i:                                   ; preds = %_ZN5eastl20fixed_node_allocatorILm40ELm16ELm8ELm0ELb1ENS_9allocatorEE10deallocateEPvm.exit.i.i, %while.body.lr.ph.i.i
   %p.07.i.i = phi ptr [ %0, %while.body.lr.ph.i.i ], [ %1, %_ZN5eastl20fixed_node_allocatorILm40ELm16ELm8ELm0ELb1ENS_9allocatorEE10deallocateEPvm.exit.i.i ]
   %1 = load ptr, ptr %p.07.i.i, align 8
-  %mMagicValue.i.i.i.i = getelementptr inbounds %"struct.eastl::ListNode.89", ptr %p.07.i.i, i64 0, i32 1, i32 4
+  %mMagicValue.i.i.i.i = getelementptr inbounds i8, ptr %p.07.i.i, i64 32
   %2 = load i32, ptr %mMagicValue.i.i.i.i, align 8
   %cmp.not.i.i.i.i = icmp eq i32 %2, 32623592
   br i1 %cmp.not.i.i.i.i, label %_ZN5eastl8ListNodeI10TestObjectED2Ev.exit.i.i, label %if.then.i.i.i.i
@@ -10164,9 +10160,9 @@ land.rhs:                                         ; preds = %entry, %for.body
   br i1 %cmp.i.not, label %while.body.lr.ph.i, label %for.body
 
 for.body:                                         ; preds = %land.rhs
-  %mValue.i = getelementptr inbounds %"struct.eastl::ListNode", ptr %first.sroa.0.017, i64 0, i32 1
+  %mValue.i = getelementptr inbounds i8, ptr %first.sroa.0.017, i64 16
   %0 = load i32, ptr %mValue.i, align 4
-  %mValue = getelementptr inbounds %"struct.eastl::ListNode", ptr %pNode.018, i64 0, i32 1
+  %mValue = getelementptr inbounds i8, ptr %pNode.018, i64 16
   store i32 %0, ptr %mValue, align 8
   %1 = load ptr, ptr %first.sroa.0.017, align 8
   %pNode.0 = load ptr, ptr %pNode.018, align 8
@@ -10179,21 +10175,21 @@ for.end:                                          ; preds = %for.body, %entry
   br i1 %cmp.i4, label %if.end, label %for.body.lr.ph.i
 
 while.body.lr.ph.i:                               ; preds = %land.rhs
-  %mpPoolBegin.i.i.i.i.i.i = getelementptr inbounds %"class.eastl::compressed_pair_imp", ptr %this, i64 0, i32 1, i32 0, i32 2
-  %mpCapacity.i.i.i.i.i.i = getelementptr inbounds %"class.eastl::compressed_pair_imp", ptr %this, i64 0, i32 1, i32 0, i32 0, i32 2
-  %mSecond.i.i.i.i.i.i.i = getelementptr inbounds %"class.eastl::compressed_pair_imp", ptr %this, i64 0, i32 1
-  %mSize.i.i.i = getelementptr inbounds %"class.eastl::ListBase", ptr %this, i64 0, i32 1
+  %mpPoolBegin.i.i.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 56
+  %mpCapacity.i.i.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 32
+  %mSecond.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 16
+  %mSize.i.i.i = getelementptr inbounds i8, ptr %this, i64 64
   br label %while.body.i
 
 while.body.i:                                     ; preds = %_ZN5eastl4listIiNS_20fixed_node_allocatorILm24ELm1ELm8ELm0ELb1ENS_9allocatorEEEE5eraseENS_12ListIteratorIiPKiRS6_EE.exit.i, %while.body.lr.ph.i
   %first.sroa.0.03.i = phi ptr [ %pNode.018, %while.body.lr.ph.i ], [ %2, %_ZN5eastl4listIiNS_20fixed_node_allocatorILm24ELm1ELm8ELm0ELb1ENS_9allocatorEEEE5eraseENS_12ListIteratorIiPKiRS6_EE.exit.i ]
   %2 = load ptr, ptr %first.sroa.0.03.i, align 8, !noalias !452
-  %mpPrev.i.i = getelementptr inbounds %"struct.eastl::ListNodeBase", ptr %2, i64 0, i32 1
+  %mpPrev.i.i = getelementptr inbounds i8, ptr %2, i64 8
   %3 = load ptr, ptr %mpPrev.i.i, align 8, !noalias !452
-  %mpPrev.i.i.i.i = getelementptr inbounds %"struct.eastl::ListNodeBase", ptr %3, i64 0, i32 1
+  %mpPrev.i.i.i.i = getelementptr inbounds i8, ptr %3, i64 8
   %4 = load ptr, ptr %mpPrev.i.i.i.i, align 8, !noalias !452
   %5 = load ptr, ptr %3, align 8, !noalias !452
-  %mpPrev2.i.i.i.i = getelementptr inbounds %"struct.eastl::ListNodeBase", ptr %5, i64 0, i32 1
+  %mpPrev2.i.i.i.i = getelementptr inbounds i8, ptr %5, i64 8
   store ptr %4, ptr %mpPrev2.i.i.i.i, align 8, !noalias !452
   %6 = load ptr, ptr %3, align 8, !noalias !452
   store ptr %6, ptr %4, align 8, !noalias !452
@@ -10222,17 +10218,17 @@ _ZN5eastl4listIiNS_20fixed_node_allocatorILm24ELm1ELm8ELm0ELb1ENS_9allocatorEEEE
   br i1 %cmp.i.not.i, label %if.end, label %while.body.i, !llvm.loop !13
 
 for.body.lr.ph.i:                                 ; preds = %for.end
-  %mSecond.i.i.i.i.i.i.i5 = getelementptr inbounds %"class.eastl::compressed_pair_imp", ptr %this, i64 0, i32 1
-  %mpNext3.i.i.i.i.i.i.i = getelementptr inbounds %"class.eastl::compressed_pair_imp", ptr %this, i64 0, i32 1, i32 0, i32 0, i32 1
-  %mpCapacity.i.i.i.i.i.i.i = getelementptr inbounds %"class.eastl::compressed_pair_imp", ptr %this, i64 0, i32 1, i32 0, i32 0, i32 2
-  %mnNodeSize9.i.i.i.i.i.i.i = getelementptr inbounds %"class.eastl::compressed_pair_imp", ptr %this, i64 0, i32 1, i32 0, i32 0, i32 3
-  %mpPrev.i.i.i = getelementptr inbounds %"struct.eastl::ListNodeBase", ptr %this, i64 0, i32 1
-  %mSize.i.i = getelementptr inbounds %"class.eastl::ListBase", ptr %this, i64 0, i32 1
+  %mSecond.i.i.i.i.i.i.i5 = getelementptr inbounds i8, ptr %this, i64 16
+  %mpNext3.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 24
+  %mpCapacity.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 32
+  %mnNodeSize9.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 40
+  %mpPrev.i.i.i = getelementptr inbounds i8, ptr %this, i64 8
+  %mSize.i.i = getelementptr inbounds i8, ptr %this, i64 64
   br label %for.body.i
 
 for.body.i:                                       ; preds = %_ZN5eastl4listIiNS_20fixed_node_allocatorILm24ELm1ELm8ELm0ELb1ENS_9allocatorEEEE13DoInsertValueIJRKiEEEvPNS_12ListNodeBaseEDpOT_.exit.i, %for.body.lr.ph.i
   %first.sroa.0.04.i = phi ptr [ %first.sroa.0.0.lcssa, %for.body.lr.ph.i ], [ %19, %_ZN5eastl4listIiNS_20fixed_node_allocatorILm24ELm1ELm8ELm0ELb1ENS_9allocatorEEEE13DoInsertValueIJRKiEEEvPNS_12ListNodeBaseEDpOT_.exit.i ]
-  %mValue.i.i = getelementptr inbounds %"struct.eastl::ListNode", ptr %first.sroa.0.04.i, i64 0, i32 1
+  %mValue.i.i = getelementptr inbounds i8, ptr %first.sroa.0.04.i, i64 16
   %11 = load ptr, ptr %mSecond.i.i.i.i.i.i.i5, align 8
   %tobool.not.i.i.i.i.i.i.i = icmp eq ptr %11, null
   br i1 %tobool.not.i.i.i.i.i.i.i, label %if.else.i.i.i.i.i.i.i, label %if.then.i.i.i.i.i.i.i
@@ -10260,12 +10256,12 @@ if.else8.i.i.i.i.i.i.i:                           ; preds = %if.else.i.i.i.i.i.i
 
 _ZN5eastl4listIiNS_20fixed_node_allocatorILm24ELm1ELm8ELm0ELb1ENS_9allocatorEEEE13DoInsertValueIJRKiEEEvPNS_12ListNodeBaseEDpOT_.exit.i: ; preds = %if.else8.i.i.i.i.i.i.i, %if.then4.i.i.i.i.i.i.i, %if.then.i.i.i.i.i.i.i
   %result.0.i.i.i.i.i = phi ptr [ %11, %if.then.i.i.i.i.i.i.i ], [ %13, %if.then4.i.i.i.i.i.i.i ], [ %call.i.i.i.i.i.i.i.i, %if.else8.i.i.i.i.i.i.i ]
-  %mValue.i.i.i = getelementptr inbounds %"struct.eastl::ListNode", ptr %result.0.i.i.i.i.i, i64 0, i32 1
+  %mValue.i.i.i = getelementptr inbounds i8, ptr %result.0.i.i.i.i.i, i64 16
   %16 = load i32, ptr %mValue.i.i, align 4
   store i32 %16, ptr %mValue.i.i.i, align 4
   store ptr %this, ptr %result.0.i.i.i.i.i, align 8
   %17 = load ptr, ptr %mpPrev.i.i.i, align 8
-  %mpPrev2.i.i.i = getelementptr inbounds %"struct.eastl::ListNodeBase", ptr %result.0.i.i.i.i.i, i64 0, i32 1
+  %mpPrev2.i.i.i = getelementptr inbounds i8, ptr %result.0.i.i.i.i.i, i64 8
   store ptr %17, ptr %mpPrev2.i.i.i, align 8
   store ptr %result.0.i.i.i.i.i, ptr %17, align 8
   store ptr %result.0.i.i.i.i.i, ptr %mpPrev.i.i.i, align 8
@@ -10296,9 +10292,9 @@ land.rhs:                                         ; preds = %entry, %for.body
   br i1 %cmp.i.not, label %while.body.lr.ph.i, label %for.body
 
 for.body:                                         ; preds = %land.rhs
-  %mValue.i = getelementptr inbounds %"struct.eastl::ListNode", ptr %1, i64 0, i32 1
+  %mValue.i = getelementptr inbounds i8, ptr %1, i64 16
   %3 = load i32, ptr %mValue.i, align 4
-  %mValue = getelementptr inbounds %"struct.eastl::ListNode", ptr %pNode.013, i64 0, i32 1
+  %mValue = getelementptr inbounds i8, ptr %pNode.013, i64 16
   store i32 %3, ptr %mValue, align 8
   %4 = load ptr, ptr %pNode.013, align 8
   %5 = load ptr, ptr %first, align 8
@@ -10314,21 +10310,21 @@ for.end:                                          ; preds = %for.body, %entry
   br i1 %cmp.i4, label %if.end, label %for.body.lr.ph.i
 
 while.body.lr.ph.i:                               ; preds = %land.rhs
-  %mpPoolBegin.i.i.i.i.i.i = getelementptr inbounds %"class.eastl::compressed_pair_imp", ptr %this, i64 0, i32 1, i32 0, i32 2
-  %mpCapacity.i.i.i.i.i.i = getelementptr inbounds %"class.eastl::compressed_pair_imp", ptr %this, i64 0, i32 1, i32 0, i32 0, i32 2
-  %mSecond.i.i.i.i.i.i.i = getelementptr inbounds %"class.eastl::compressed_pair_imp", ptr %this, i64 0, i32 1
-  %mSize.i.i.i = getelementptr inbounds %"class.eastl::ListBase", ptr %this, i64 0, i32 1
+  %mpPoolBegin.i.i.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 56
+  %mpCapacity.i.i.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 32
+  %mSecond.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 16
+  %mSize.i.i.i = getelementptr inbounds i8, ptr %this, i64 64
   br label %while.body.i
 
 while.body.i:                                     ; preds = %_ZN5eastl4listIiNS_20fixed_node_allocatorILm24ELm1ELm8ELm0ELb1ENS_9allocatorEEEE5eraseENS_12ListIteratorIiPKiRS6_EE.exit.i, %while.body.lr.ph.i
   %first.sroa.0.03.i = phi ptr [ %pNode.013, %while.body.lr.ph.i ], [ %9, %_ZN5eastl4listIiNS_20fixed_node_allocatorILm24ELm1ELm8ELm0ELb1ENS_9allocatorEEEE5eraseENS_12ListIteratorIiPKiRS6_EE.exit.i ]
   %9 = load ptr, ptr %first.sroa.0.03.i, align 8, !noalias !459
-  %mpPrev.i.i = getelementptr inbounds %"struct.eastl::ListNodeBase", ptr %9, i64 0, i32 1
+  %mpPrev.i.i = getelementptr inbounds i8, ptr %9, i64 8
   %10 = load ptr, ptr %mpPrev.i.i, align 8, !noalias !459
-  %mpPrev.i.i.i.i = getelementptr inbounds %"struct.eastl::ListNodeBase", ptr %10, i64 0, i32 1
+  %mpPrev.i.i.i.i = getelementptr inbounds i8, ptr %10, i64 8
   %11 = load ptr, ptr %mpPrev.i.i.i.i, align 8, !noalias !459
   %12 = load ptr, ptr %10, align 8, !noalias !459
-  %mpPrev2.i.i.i.i = getelementptr inbounds %"struct.eastl::ListNodeBase", ptr %12, i64 0, i32 1
+  %mpPrev2.i.i.i.i = getelementptr inbounds i8, ptr %12, i64 8
   store ptr %11, ptr %mpPrev2.i.i.i.i, align 8, !noalias !459
   %13 = load ptr, ptr %10, align 8, !noalias !459
   store ptr %13, ptr %11, align 8, !noalias !459
@@ -10357,17 +10353,17 @@ _ZN5eastl4listIiNS_20fixed_node_allocatorILm24ELm1ELm8ELm0ELb1ENS_9allocatorEEEE
   br i1 %cmp.i.not.i, label %if.end, label %while.body.i, !llvm.loop !13
 
 for.body.lr.ph.i:                                 ; preds = %for.end
-  %mSecond.i.i.i.i.i.i.i5 = getelementptr inbounds %"class.eastl::compressed_pair_imp", ptr %this, i64 0, i32 1
-  %mpNext3.i.i.i.i.i.i.i = getelementptr inbounds %"class.eastl::compressed_pair_imp", ptr %this, i64 0, i32 1, i32 0, i32 0, i32 1
-  %mpCapacity.i.i.i.i.i.i.i = getelementptr inbounds %"class.eastl::compressed_pair_imp", ptr %this, i64 0, i32 1, i32 0, i32 0, i32 2
-  %mnNodeSize9.i.i.i.i.i.i.i = getelementptr inbounds %"class.eastl::compressed_pair_imp", ptr %this, i64 0, i32 1, i32 0, i32 0, i32 3
-  %mpPrev.i.i.i = getelementptr inbounds %"struct.eastl::ListNodeBase", ptr %this, i64 0, i32 1
-  %mSize.i.i = getelementptr inbounds %"class.eastl::ListBase", ptr %this, i64 0, i32 1
+  %mSecond.i.i.i.i.i.i.i5 = getelementptr inbounds i8, ptr %this, i64 16
+  %mpNext3.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 24
+  %mpCapacity.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 32
+  %mnNodeSize9.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 40
+  %mpPrev.i.i.i = getelementptr inbounds i8, ptr %this, i64 8
+  %mSize.i.i = getelementptr inbounds i8, ptr %this, i64 64
   br label %for.body.i
 
 for.body.i:                                       ; preds = %_ZN5eastl4listIiNS_20fixed_node_allocatorILm24ELm1ELm8ELm0ELb1ENS_9allocatorEEEE13DoInsertValueIJRiEEEvPNS_12ListNodeBaseEDpOT_.exit.i, %for.body.lr.ph.i
   %agg.tmp12.sroa.0.0 = phi ptr [ %7, %for.body.lr.ph.i ], [ %26, %_ZN5eastl4listIiNS_20fixed_node_allocatorILm24ELm1ELm8ELm0ELb1ENS_9allocatorEEEE13DoInsertValueIJRiEEEvPNS_12ListNodeBaseEDpOT_.exit.i ]
-  %mValue.i.i = getelementptr inbounds %"struct.eastl::ListNode", ptr %agg.tmp12.sroa.0.0, i64 0, i32 1
+  %mValue.i.i = getelementptr inbounds i8, ptr %agg.tmp12.sroa.0.0, i64 16
   %18 = load ptr, ptr %mSecond.i.i.i.i.i.i.i5, align 8
   %tobool.not.i.i.i.i.i.i.i = icmp eq ptr %18, null
   br i1 %tobool.not.i.i.i.i.i.i.i, label %if.else.i.i.i.i.i.i.i, label %if.then.i.i.i.i.i.i.i
@@ -10395,12 +10391,12 @@ if.else8.i.i.i.i.i.i.i:                           ; preds = %if.else.i.i.i.i.i.i
 
 _ZN5eastl4listIiNS_20fixed_node_allocatorILm24ELm1ELm8ELm0ELb1ENS_9allocatorEEEE13DoInsertValueIJRiEEEvPNS_12ListNodeBaseEDpOT_.exit.i: ; preds = %if.else8.i.i.i.i.i.i.i, %if.then4.i.i.i.i.i.i.i, %if.then.i.i.i.i.i.i.i
   %result.0.i.i.i.i.i = phi ptr [ %18, %if.then.i.i.i.i.i.i.i ], [ %20, %if.then4.i.i.i.i.i.i.i ], [ %call.i.i.i.i.i.i.i.i, %if.else8.i.i.i.i.i.i.i ]
-  %mValue.i.i.i = getelementptr inbounds %"struct.eastl::ListNode", ptr %result.0.i.i.i.i.i, i64 0, i32 1
+  %mValue.i.i.i = getelementptr inbounds i8, ptr %result.0.i.i.i.i.i, i64 16
   %23 = load i32, ptr %mValue.i.i, align 4
   store i32 %23, ptr %mValue.i.i.i, align 4
   store ptr %this, ptr %result.0.i.i.i.i.i, align 8
   %24 = load ptr, ptr %mpPrev.i.i.i, align 8
-  %mpPrev2.i.i.i = getelementptr inbounds %"struct.eastl::ListNodeBase", ptr %result.0.i.i.i.i.i, i64 0, i32 1
+  %mpPrev2.i.i.i = getelementptr inbounds i8, ptr %result.0.i.i.i.i.i, i64 8
   store ptr %24, ptr %mpPrev2.i.i.i, align 8
   store ptr %result.0.i.i.i.i.i, ptr %24, align 8
   store ptr %result.0.i.i.i.i.i, ptr %mpPrev.i.i.i, align 8
@@ -10428,9 +10424,9 @@ for.body:                                         ; preds = %entry, %for.body
   %pNode.016 = phi ptr [ %pNode.0, %for.body ], [ %pNode.012, %entry ]
   %first.addr.015 = phi ptr [ %incdec.ptr, %for.body ], [ %first, %entry ]
   %1 = load i32, ptr %first.addr.015, align 4
-  %mValue = getelementptr inbounds %"struct.eastl::ListNode", ptr %pNode.016, i64 0, i32 1
+  %mValue = getelementptr inbounds i8, ptr %pNode.016, i64 16
   store i32 %1, ptr %mValue, align 8
-  %incdec.ptr = getelementptr inbounds i32, ptr %first.addr.015, i64 1
+  %incdec.ptr = getelementptr inbounds i8, ptr %first.addr.015, i64 4
   %pNode.0 = load ptr, ptr %pNode.016, align 8
   %cmp = icmp ne ptr %pNode.0, %this
   %cmp3 = icmp ne ptr %incdec.ptr, %last
@@ -10448,21 +10444,21 @@ if.then:                                          ; preds = %for.end
   br i1 %cmp.i.not2.i, label %if.end, label %while.body.lr.ph.i
 
 while.body.lr.ph.i:                               ; preds = %if.then
-  %mpPoolBegin.i.i.i.i.i.i = getelementptr inbounds %"class.eastl::compressed_pair_imp", ptr %this, i64 0, i32 1, i32 0, i32 2
-  %mpCapacity.i.i.i.i.i.i = getelementptr inbounds %"class.eastl::compressed_pair_imp", ptr %this, i64 0, i32 1, i32 0, i32 0, i32 2
-  %mSecond.i.i.i.i.i.i.i = getelementptr inbounds %"class.eastl::compressed_pair_imp", ptr %this, i64 0, i32 1
-  %mSize.i.i.i = getelementptr inbounds %"class.eastl::ListBase", ptr %this, i64 0, i32 1
+  %mpPoolBegin.i.i.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 56
+  %mpCapacity.i.i.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 32
+  %mSecond.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 16
+  %mSize.i.i.i = getelementptr inbounds i8, ptr %this, i64 64
   br label %while.body.i
 
 while.body.i:                                     ; preds = %_ZN5eastl4listIiNS_20fixed_node_allocatorILm24ELm1ELm8ELm0ELb1ENS_9allocatorEEEE5eraseENS_12ListIteratorIiPKiRS6_EE.exit.i, %while.body.lr.ph.i
   %first.sroa.0.03.i = phi ptr [ %pNode.0.lcssa, %while.body.lr.ph.i ], [ %3, %_ZN5eastl4listIiNS_20fixed_node_allocatorILm24ELm1ELm8ELm0ELb1ENS_9allocatorEEEE5eraseENS_12ListIteratorIiPKiRS6_EE.exit.i ]
   %3 = load ptr, ptr %first.sroa.0.03.i, align 8, !noalias !466
-  %mpPrev.i.i = getelementptr inbounds %"struct.eastl::ListNodeBase", ptr %3, i64 0, i32 1
+  %mpPrev.i.i = getelementptr inbounds i8, ptr %3, i64 8
   %4 = load ptr, ptr %mpPrev.i.i, align 8, !noalias !466
-  %mpPrev.i.i.i.i = getelementptr inbounds %"struct.eastl::ListNodeBase", ptr %4, i64 0, i32 1
+  %mpPrev.i.i.i.i = getelementptr inbounds i8, ptr %4, i64 8
   %5 = load ptr, ptr %mpPrev.i.i.i.i, align 8, !noalias !466
   %6 = load ptr, ptr %4, align 8, !noalias !466
-  %mpPrev2.i.i.i.i = getelementptr inbounds %"struct.eastl::ListNodeBase", ptr %6, i64 0, i32 1
+  %mpPrev2.i.i.i.i = getelementptr inbounds i8, ptr %6, i64 8
   store ptr %5, ptr %mpPrev2.i.i.i.i, align 8, !noalias !466
   %7 = load ptr, ptr %4, align 8, !noalias !466
   store ptr %7, ptr %5, align 8, !noalias !466
@@ -10491,12 +10487,12 @@ _ZN5eastl4listIiNS_20fixed_node_allocatorILm24ELm1ELm8ELm0ELb1ENS_9allocatorEEEE
   br i1 %cmp.i.not.i, label %if.end, label %while.body.i, !llvm.loop !13
 
 for.body.lr.ph.i:                                 ; preds = %for.end
-  %mSecond.i.i.i.i.i.i.i10 = getelementptr inbounds %"class.eastl::compressed_pair_imp", ptr %this, i64 0, i32 1
-  %mpNext3.i.i.i.i.i.i.i = getelementptr inbounds %"class.eastl::compressed_pair_imp", ptr %this, i64 0, i32 1, i32 0, i32 0, i32 1
-  %mpCapacity.i.i.i.i.i.i.i = getelementptr inbounds %"class.eastl::compressed_pair_imp", ptr %this, i64 0, i32 1, i32 0, i32 0, i32 2
-  %mnNodeSize9.i.i.i.i.i.i.i = getelementptr inbounds %"class.eastl::compressed_pair_imp", ptr %this, i64 0, i32 1, i32 0, i32 0, i32 3
-  %mpPrev.i.i.i = getelementptr inbounds %"struct.eastl::ListNodeBase", ptr %this, i64 0, i32 1
-  %mSize.i.i = getelementptr inbounds %"class.eastl::ListBase", ptr %this, i64 0, i32 1
+  %mSecond.i.i.i.i.i.i.i10 = getelementptr inbounds i8, ptr %this, i64 16
+  %mpNext3.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 24
+  %mpCapacity.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 32
+  %mnNodeSize9.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 40
+  %mpPrev.i.i.i = getelementptr inbounds i8, ptr %this, i64 8
+  %mSize.i.i = getelementptr inbounds i8, ptr %this, i64 64
   br label %for.body.i
 
 for.body.i:                                       ; preds = %_ZN5eastl4listIiNS_20fixed_node_allocatorILm24ELm1ELm8ELm0ELb1ENS_9allocatorEEEE13DoInsertValueIJRKiEEEvPNS_12ListNodeBaseEDpOT_.exit.i, %for.body.lr.ph.i
@@ -10528,19 +10524,19 @@ if.else8.i.i.i.i.i.i.i:                           ; preds = %if.else.i.i.i.i.i.i
 
 _ZN5eastl4listIiNS_20fixed_node_allocatorILm24ELm1ELm8ELm0ELb1ENS_9allocatorEEEE13DoInsertValueIJRKiEEEvPNS_12ListNodeBaseEDpOT_.exit.i: ; preds = %if.else8.i.i.i.i.i.i.i, %if.then4.i.i.i.i.i.i.i, %if.then.i.i.i.i.i.i.i
   %result.0.i.i.i.i.i = phi ptr [ %12, %if.then.i.i.i.i.i.i.i ], [ %14, %if.then4.i.i.i.i.i.i.i ], [ %call.i.i.i.i.i.i.i.i, %if.else8.i.i.i.i.i.i.i ]
-  %mValue.i.i.i = getelementptr inbounds %"struct.eastl::ListNode", ptr %result.0.i.i.i.i.i, i64 0, i32 1
+  %mValue.i.i.i = getelementptr inbounds i8, ptr %result.0.i.i.i.i.i, i64 16
   %17 = load i32, ptr %first.addr.04.i, align 4
   store i32 %17, ptr %mValue.i.i.i, align 4
   store ptr %this, ptr %result.0.i.i.i.i.i, align 8
   %18 = load ptr, ptr %mpPrev.i.i.i, align 8
-  %mpPrev2.i.i.i = getelementptr inbounds %"struct.eastl::ListNodeBase", ptr %result.0.i.i.i.i.i, i64 0, i32 1
+  %mpPrev2.i.i.i = getelementptr inbounds i8, ptr %result.0.i.i.i.i.i, i64 8
   store ptr %18, ptr %mpPrev2.i.i.i, align 8
   store ptr %result.0.i.i.i.i.i, ptr %18, align 8
   store ptr %result.0.i.i.i.i.i, ptr %mpPrev.i.i.i, align 8
   %19 = load i64, ptr %mSize.i.i, align 8
   %inc.i.i = add i64 %19, 1
   store i64 %inc.i.i, ptr %mSize.i.i, align 8
-  %incdec.ptr.i = getelementptr inbounds i32, ptr %first.addr.04.i, i64 1
+  %incdec.ptr.i = getelementptr inbounds i8, ptr %first.addr.04.i, i64 4
   %cmp.not.i = icmp eq ptr %incdec.ptr.i, %last
   br i1 %cmp.not.i, label %if.end, label %for.body.i, !llvm.loop !471
 
@@ -10556,23 +10552,23 @@ entry:
   %ref.tmp.i = alloca %"class.eastl::fixed_node_allocator", align 8
   %temp = alloca %"class.eastl::fixed_list", align 8
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %ref.tmp.i)
-  %mBuffer.i = getelementptr inbounds %"class.eastl::fixed_list", ptr %temp, i64 0, i32 1
+  %mBuffer.i = getelementptr inbounds i8, ptr %temp, i64 72
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp.i, i8 0, i64 32, i1 false)
   call void @_ZN5eastl15fixed_pool_base4initEPvmmmm(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp.i, ptr noundef nonnull %mBuffer.i, i64 noundef 24, i64 noundef 24, i64 noundef 8, i64 noundef 0)
-  %mpPoolBegin.i.i.i = getelementptr inbounds %"class.eastl::fixed_pool_with_overflow", ptr %ref.tmp.i, i64 0, i32 2
+  %mpPoolBegin.i.i.i = getelementptr inbounds i8, ptr %ref.tmp.i, i64 40
   store ptr %mBuffer.i, ptr %mpPoolBegin.i.i.i, align 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %temp, i8 0, i64 16, i1 false)
-  %mSecond.i.i.i.i.i = getelementptr inbounds %"class.eastl::compressed_pair_imp", ptr %temp, i64 0, i32 1
-  %mpNext.i.i.i.i.i.i = getelementptr inbounds %"struct.eastl::fixed_pool_base", ptr %ref.tmp.i, i64 0, i32 1
+  %mSecond.i.i.i.i.i = getelementptr inbounds i8, ptr %temp, i64 16
+  %mpNext.i.i.i.i.i.i = getelementptr inbounds i8, ptr %ref.tmp.i, i64 8
   %0 = load ptr, ptr %mpNext.i.i.i.i.i.i, align 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %mSecond.i.i.i.i.i, i8 0, i64 32, i1 false)
   call void @_ZN5eastl15fixed_pool_base4initEPvmmmm(ptr noundef nonnull align 8 dereferenceable(32) %mSecond.i.i.i.i.i, ptr noundef %0, i64 noundef 24, i64 noundef 24, i64 noundef 8, i64 noundef 0)
-  %mpPoolBegin.i.i.i.i.i.i.i = getelementptr inbounds %"class.eastl::compressed_pair_imp", ptr %temp, i64 0, i32 1, i32 0, i32 2
+  %mpPoolBegin.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %temp, i64 56
   store ptr %0, ptr %mpPoolBegin.i.i.i.i.i.i.i, align 8
-  %mSize.i.i.i = getelementptr inbounds %"class.eastl::ListBase", ptr %temp, i64 0, i32 1
+  %mSize.i.i.i = getelementptr inbounds i8, ptr %temp, i64 64
   store i64 0, ptr %mSize.i.i.i, align 8
   store ptr %temp, ptr %temp, align 8
-  %mpPrev.i.i.i.i = getelementptr inbounds %"struct.eastl::ListNodeBase", ptr %temp, i64 0, i32 1
+  %mpPrev.i.i.i.i = getelementptr inbounds i8, ptr %temp, i64 8
   store ptr %temp, ptr %mpPrev.i.i.i.i, align 8
   %1 = load ptr, ptr %a, align 8, !noalias !472
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %agg.tmp.i.i)
@@ -10605,9 +10601,9 @@ if.then.i.i:                                      ; preds = %_ZN5eastl10fixed_li
   br i1 %cmp.not3.i.i.i.i, label %_ZN5eastl4listIiNS_20fixed_node_allocatorILm24ELm1ELm8ELm0ELb1ENS_9allocatorEEEE5clearEv.exit.i.i, label %while.body.lr.ph.i.i.i.i
 
 while.body.lr.ph.i.i.i.i:                         ; preds = %if.then.i.i
-  %mpPoolBegin.i.i.i.i.i.i = getelementptr inbounds %"class.eastl::compressed_pair_imp", ptr %a, i64 0, i32 1, i32 0, i32 2
-  %mpCapacity.i.i.i.i.i.i = getelementptr inbounds %"class.eastl::compressed_pair_imp", ptr %a, i64 0, i32 1, i32 0, i32 0, i32 2
-  %mSecond.i.i.i.i.i.i.i = getelementptr inbounds %"class.eastl::compressed_pair_imp", ptr %a, i64 0, i32 1
+  %mpPoolBegin.i.i.i.i.i.i = getelementptr inbounds i8, ptr %a, i64 56
+  %mpCapacity.i.i.i.i.i.i = getelementptr inbounds i8, ptr %a, i64 32
+  %mSecond.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %a, i64 16
   br label %while.body.i.i.i.i
 
 while.body.i.i.i.i:                               ; preds = %_ZN5eastl20fixed_node_allocatorILm24ELm1ELm8ELm0ELb1ENS_9allocatorEE10deallocateEPvm.exit.i.i.i.i, %while.body.lr.ph.i.i.i.i
@@ -10636,9 +10632,9 @@ _ZN5eastl20fixed_node_allocatorILm24ELm1ELm8ELm0ELb1ENS_9allocatorEE10deallocate
 
 _ZN5eastl4listIiNS_20fixed_node_allocatorILm24ELm1ELm8ELm0ELb1ENS_9allocatorEEEE5clearEv.exit.i.i: ; preds = %_ZN5eastl20fixed_node_allocatorILm24ELm1ELm8ELm0ELb1ENS_9allocatorEE10deallocateEPvm.exit.i.i.i.i, %if.then.i.i
   store ptr %a, ptr %a, align 8
-  %mpPrev.i.i.i.i3 = getelementptr inbounds %"struct.eastl::ListNodeBase", ptr %a, i64 0, i32 1
+  %mpPrev.i.i.i.i3 = getelementptr inbounds i8, ptr %a, i64 8
   store ptr %a, ptr %mpPrev.i.i.i.i3, align 8
-  %mSize.i.i.i4 = getelementptr inbounds %"class.eastl::ListBase", ptr %a, i64 0, i32 1
+  %mSize.i.i.i4 = getelementptr inbounds i8, ptr %a, i64 64
   store i64 0, ptr %mSize.i.i.i4, align 8
   %8 = load ptr, ptr %b, align 8
   invoke void @_ZN5eastl4listIiNS_20fixed_node_allocatorILm24ELm1ELm8ELm0ELb1ENS_9allocatorEEEE8DoAssignINS_12ListIteratorIiPKiRS7_EEEEvT_SB_NS_17integral_constantIbLb0EEE(ptr noundef nonnull align 8 dereferenceable(72) %a, ptr %8, ptr nonnull %b)
@@ -10654,9 +10650,9 @@ if.then.i.i6:                                     ; preds = %invoke.cont
   br i1 %cmp.not3.i.i.i.i7, label %_ZN5eastl4listIiNS_20fixed_node_allocatorILm24ELm1ELm8ELm0ELb1ENS_9allocatorEEEE5clearEv.exit.i.i20, label %while.body.lr.ph.i.i.i.i8
 
 while.body.lr.ph.i.i.i.i8:                        ; preds = %if.then.i.i6
-  %mpPoolBegin.i.i.i.i.i.i9 = getelementptr inbounds %"class.eastl::compressed_pair_imp", ptr %b, i64 0, i32 1, i32 0, i32 2
-  %mpCapacity.i.i.i.i.i.i10 = getelementptr inbounds %"class.eastl::compressed_pair_imp", ptr %b, i64 0, i32 1, i32 0, i32 0, i32 2
-  %mSecond.i.i.i.i.i.i.i11 = getelementptr inbounds %"class.eastl::compressed_pair_imp", ptr %b, i64 0, i32 1
+  %mpPoolBegin.i.i.i.i.i.i9 = getelementptr inbounds i8, ptr %b, i64 56
+  %mpCapacity.i.i.i.i.i.i10 = getelementptr inbounds i8, ptr %b, i64 32
+  %mSecond.i.i.i.i.i.i.i11 = getelementptr inbounds i8, ptr %b, i64 16
   br label %while.body.i.i.i.i12
 
 while.body.i.i.i.i12:                             ; preds = %_ZN5eastl20fixed_node_allocatorILm24ELm1ELm8ELm0ELb1ENS_9allocatorEE10deallocateEPvm.exit.i.i.i.i18, %while.body.lr.ph.i.i.i.i8
@@ -10685,9 +10681,9 @@ _ZN5eastl20fixed_node_allocatorILm24ELm1ELm8ELm0ELb1ENS_9allocatorEE10deallocate
 
 _ZN5eastl4listIiNS_20fixed_node_allocatorILm24ELm1ELm8ELm0ELb1ENS_9allocatorEEEE5clearEv.exit.i.i20: ; preds = %_ZN5eastl20fixed_node_allocatorILm24ELm1ELm8ELm0ELb1ENS_9allocatorEE10deallocateEPvm.exit.i.i.i.i18, %if.then.i.i6
   store ptr %b, ptr %b, align 8
-  %mpPrev.i.i.i.i21 = getelementptr inbounds %"struct.eastl::ListNodeBase", ptr %b, i64 0, i32 1
+  %mpPrev.i.i.i.i21 = getelementptr inbounds i8, ptr %b, i64 8
   store ptr %b, ptr %mpPrev.i.i.i.i21, align 8
-  %mSize.i.i.i22 = getelementptr inbounds %"class.eastl::ListBase", ptr %b, i64 0, i32 1
+  %mSize.i.i.i22 = getelementptr inbounds i8, ptr %b, i64 64
   store i64 0, ptr %mSize.i.i.i22, align 8
   %14 = load ptr, ptr %temp, align 8
   invoke void @_ZN5eastl4listIiNS_20fixed_node_allocatorILm24ELm1ELm8ELm0ELb1ENS_9allocatorEEEE8DoAssignINS_12ListIteratorIiPKiRS7_EEEEvT_SB_NS_17integral_constantIbLb0EEE(ptr noundef nonnull align 8 dereferenceable(72) %b, ptr %14, ptr nonnull %temp)
@@ -10699,7 +10695,7 @@ invoke.cont4:                                     ; preds = %invoke.cont, %_ZN5e
   br i1 %cmp.not3.i.i.i.i26, label %_ZN5eastl10fixed_listIiLm1ELb1ENS_9allocatorEED2Ev.exit, label %while.body.lr.ph.i.i.i.i27
 
 while.body.lr.ph.i.i.i.i27:                       ; preds = %invoke.cont4
-  %mpCapacity.i.i.i.i.i.i29 = getelementptr inbounds %"class.eastl::compressed_pair_imp", ptr %temp, i64 0, i32 1, i32 0, i32 0, i32 2
+  %mpCapacity.i.i.i.i.i.i29 = getelementptr inbounds i8, ptr %temp, i64 32
   br label %while.body.i.i.i.i31
 
 while.body.i.i.i.i31:                             ; preds = %_ZN5eastl20fixed_node_allocatorILm24ELm1ELm8ELm0ELb1ENS_9allocatorEE10deallocateEPvm.exit.i.i.i.i37, %while.body.lr.ph.i.i.i.i27
@@ -10744,9 +10740,9 @@ entry:
   br i1 %cmp.not3.i.i.i, label %_ZN5eastl4listIiNS_20fixed_node_allocatorILm24ELm1ELm8ELm0ELb1ENS_9allocatorEEEED2Ev.exit, label %while.body.lr.ph.i.i.i
 
 while.body.lr.ph.i.i.i:                           ; preds = %entry
-  %mpPoolBegin.i.i.i.i.i = getelementptr inbounds %"class.eastl::compressed_pair_imp", ptr %this, i64 0, i32 1, i32 0, i32 2
-  %mpCapacity.i.i.i.i.i = getelementptr inbounds %"class.eastl::compressed_pair_imp", ptr %this, i64 0, i32 1, i32 0, i32 0, i32 2
-  %mSecond.i.i.i.i.i.i = getelementptr inbounds %"class.eastl::compressed_pair_imp", ptr %this, i64 0, i32 1
+  %mpPoolBegin.i.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 56
+  %mpCapacity.i.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 32
+  %mSecond.i.i.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 16
   br label %while.body.i.i.i
 
 while.body.i.i.i:                                 ; preds = %_ZN5eastl20fixed_node_allocatorILm24ELm1ELm8ELm0ELb1ENS_9allocatorEE10deallocateEPvm.exit.i.i.i, %while.body.lr.ph.i.i.i
@@ -10791,7 +10787,7 @@ if.then.i.i:                                      ; preds = %entry
   br i1 %cmp.not3.i.i.i.i, label %for.end.i.i.i.i, label %while.body.lr.ph.i.i.i.i
 
 while.body.lr.ph.i.i.i.i:                         ; preds = %if.then.i.i
-  %mSecond.i.i.i.i.i.i.i = getelementptr inbounds %"class.eastl::compressed_pair_imp.5", ptr %a, i64 0, i32 1
+  %mSecond.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %a, i64 16
   %.pre.i.i.i.i = load ptr, ptr %mSecond.i.i.i.i.i.i.i, align 8
   br label %while.body.i.i.i.i
 
@@ -10806,24 +10802,24 @@ while.body.i.i.i.i:                               ; preds = %while.body.i.i.i.i,
 
 for.end.i.i.i.i:                                  ; preds = %while.body.i.i.i.i, %if.then.i.i
   store ptr %a, ptr %a, align 8
-  %mpPrev.i.i.i.i = getelementptr inbounds %"struct.eastl::ListNodeBase", ptr %a, i64 0, i32 1
+  %mpPrev.i.i.i.i = getelementptr inbounds i8, ptr %a, i64 8
   store ptr %a, ptr %mpPrev.i.i.i.i, align 8
-  %mSize.i.i.i = getelementptr inbounds %"class.eastl::ListBase.3", ptr %a, i64 0, i32 1
+  %mSize.i.i.i = getelementptr inbounds i8, ptr %a, i64 48
   store i64 0, ptr %mSize.i.i.i, align 8
   %3 = load ptr, ptr %b, align 8
   %cmp.i4.i.i.i.i = icmp eq ptr %3, %b
   br i1 %cmp.i4.i.i.i.i, label %invoke.cont, label %for.body.lr.ph.i.i.i.i.i
 
 for.body.lr.ph.i.i.i.i.i:                         ; preds = %for.end.i.i.i.i
-  %mSecond.i.i.i.i.i.i.i5.i.i.i.i = getelementptr inbounds %"class.eastl::compressed_pair_imp.5", ptr %a, i64 0, i32 1
-  %mpNext3.i.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds %"class.eastl::compressed_pair_imp.5", ptr %a, i64 0, i32 1, i32 0, i32 0, i32 1
-  %mpCapacity.i.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds %"class.eastl::compressed_pair_imp.5", ptr %a, i64 0, i32 1, i32 0, i32 0, i32 2
-  %mnNodeSize.i.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds %"class.eastl::compressed_pair_imp.5", ptr %a, i64 0, i32 1, i32 0, i32 0, i32 3
+  %mSecond.i.i.i.i.i.i.i5.i.i.i.i = getelementptr inbounds i8, ptr %a, i64 16
+  %mpNext3.i.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %a, i64 24
+  %mpCapacity.i.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %a, i64 32
+  %mnNodeSize.i.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %a, i64 40
   br label %for.body.i.i.i.i.i
 
 for.body.i.i.i.i.i:                               ; preds = %_ZN5eastl4listIiNS_20fixed_node_allocatorILm24ELm1ELm8ELm0ELb0ENS_9allocatorEEEE13DoInsertValueIJRKiEEEvPNS_12ListNodeBaseEDpOT_.exit.i.i.i.i.i, %for.body.lr.ph.i.i.i.i.i
   %first.sroa.0.04.i.i.i.i.i = phi ptr [ %3, %for.body.lr.ph.i.i.i.i.i ], [ %12, %_ZN5eastl4listIiNS_20fixed_node_allocatorILm24ELm1ELm8ELm0ELb0ENS_9allocatorEEEE13DoInsertValueIJRKiEEEvPNS_12ListNodeBaseEDpOT_.exit.i.i.i.i.i ]
-  %mValue.i.i.i.i.i.i = getelementptr inbounds %"struct.eastl::ListNode", ptr %first.sroa.0.04.i.i.i.i.i, i64 0, i32 1
+  %mValue.i.i.i.i.i.i = getelementptr inbounds i8, ptr %first.sroa.0.04.i.i.i.i.i, i64 16
   %4 = load ptr, ptr %mSecond.i.i.i.i.i.i.i5.i.i.i.i, align 8
   %tobool.not.i.i.i.i.i.i.i.i.i.i.i = icmp eq ptr %4, null
   br i1 %tobool.not.i.i.i.i.i.i.i.i.i.i.i, label %if.else.i.i.i.i.i.i.i.i.i.i.i, label %if.then.i.i.i.i.i.i.i.i.i.i.i
@@ -10847,12 +10843,12 @@ if.then4.i.i.i.i.i.i.i.i.i.i.i:                   ; preds = %if.else.i.i.i.i.i.i
 
 _ZN5eastl4listIiNS_20fixed_node_allocatorILm24ELm1ELm8ELm0ELb0ENS_9allocatorEEEE13DoInsertValueIJRKiEEEvPNS_12ListNodeBaseEDpOT_.exit.i.i.i.i.i: ; preds = %if.then4.i.i.i.i.i.i.i.i.i.i.i, %if.else.i.i.i.i.i.i.i.i.i.i.i, %if.then.i.i.i.i.i.i.i.i.i.i.i
   %result.0.i.i.i.i.i.i.i.i.i = phi ptr [ %4, %if.then.i.i.i.i.i.i.i.i.i.i.i ], [ %6, %if.then4.i.i.i.i.i.i.i.i.i.i.i ], [ null, %if.else.i.i.i.i.i.i.i.i.i.i.i ]
-  %mValue.i.i.i.i.i.i.i = getelementptr inbounds %"struct.eastl::ListNode", ptr %result.0.i.i.i.i.i.i.i.i.i, i64 0, i32 1
+  %mValue.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %result.0.i.i.i.i.i.i.i.i.i, i64 16
   %9 = load i32, ptr %mValue.i.i.i.i.i.i, align 4
   store i32 %9, ptr %mValue.i.i.i.i.i.i.i, align 4
   store ptr %a, ptr %result.0.i.i.i.i.i.i.i.i.i, align 8
   %10 = load ptr, ptr %mpPrev.i.i.i.i, align 8
-  %mpPrev2.i.i.i.i.i.i.i = getelementptr inbounds %"struct.eastl::ListNodeBase", ptr %result.0.i.i.i.i.i.i.i.i.i, i64 0, i32 1
+  %mpPrev2.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %result.0.i.i.i.i.i.i.i.i.i, i64 8
   store ptr %10, ptr %mpPrev2.i.i.i.i.i.i.i, align 8
   store ptr %result.0.i.i.i.i.i.i.i.i.i, ptr %10, align 8
   store ptr %result.0.i.i.i.i.i.i.i.i.i, ptr %mpPrev.i.i.i.i, align 8
@@ -10873,7 +10869,7 @@ if.then.i.i4:                                     ; preds = %invoke.cont
   br i1 %cmp.not3.i.i.i.i5, label %for.end.i.i.i.i12, label %while.body.lr.ph.i.i.i.i6
 
 while.body.lr.ph.i.i.i.i6:                        ; preds = %if.then.i.i4
-  %mSecond.i.i.i.i.i.i.i7 = getelementptr inbounds %"class.eastl::compressed_pair_imp.5", ptr %b, i64 0, i32 1
+  %mSecond.i.i.i.i.i.i.i7 = getelementptr inbounds i8, ptr %b, i64 16
   %.pre.i.i.i.i8 = load ptr, ptr %mSecond.i.i.i.i.i.i.i7, align 8
   br label %while.body.i.i.i.i9
 
@@ -10888,24 +10884,24 @@ while.body.i.i.i.i9:                              ; preds = %while.body.i.i.i.i9
 
 for.end.i.i.i.i12:                                ; preds = %while.body.i.i.i.i9, %if.then.i.i4
   store ptr %b, ptr %b, align 8
-  %mpPrev.i.i.i.i13 = getelementptr inbounds %"struct.eastl::ListNodeBase", ptr %b, i64 0, i32 1
+  %mpPrev.i.i.i.i13 = getelementptr inbounds i8, ptr %b, i64 8
   store ptr %b, ptr %mpPrev.i.i.i.i13, align 8
-  %mSize.i.i.i14 = getelementptr inbounds %"class.eastl::ListBase.3", ptr %b, i64 0, i32 1
+  %mSize.i.i.i14 = getelementptr inbounds i8, ptr %b, i64 48
   store i64 0, ptr %mSize.i.i.i14, align 8
   %16 = load ptr, ptr %temp, align 8
   %cmp.i4.i.i.i.i15 = icmp eq ptr %16, %temp
   br i1 %cmp.i4.i.i.i.i15, label %invoke.cont4, label %for.body.lr.ph.i.i.i.i.i16
 
 for.body.lr.ph.i.i.i.i.i16:                       ; preds = %for.end.i.i.i.i12
-  %mSecond.i.i.i.i.i.i.i5.i.i.i.i17 = getelementptr inbounds %"class.eastl::compressed_pair_imp.5", ptr %b, i64 0, i32 1
-  %mpNext3.i.i.i.i.i.i.i.i.i.i.i18 = getelementptr inbounds %"class.eastl::compressed_pair_imp.5", ptr %b, i64 0, i32 1, i32 0, i32 0, i32 1
-  %mpCapacity.i.i.i.i.i.i.i.i.i.i.i19 = getelementptr inbounds %"class.eastl::compressed_pair_imp.5", ptr %b, i64 0, i32 1, i32 0, i32 0, i32 2
-  %mnNodeSize.i.i.i.i.i.i.i.i.i.i.i20 = getelementptr inbounds %"class.eastl::compressed_pair_imp.5", ptr %b, i64 0, i32 1, i32 0, i32 0, i32 3
+  %mSecond.i.i.i.i.i.i.i5.i.i.i.i17 = getelementptr inbounds i8, ptr %b, i64 16
+  %mpNext3.i.i.i.i.i.i.i.i.i.i.i18 = getelementptr inbounds i8, ptr %b, i64 24
+  %mpCapacity.i.i.i.i.i.i.i.i.i.i.i19 = getelementptr inbounds i8, ptr %b, i64 32
+  %mnNodeSize.i.i.i.i.i.i.i.i.i.i.i20 = getelementptr inbounds i8, ptr %b, i64 40
   br label %for.body.i.i.i.i.i21
 
 for.body.i.i.i.i.i21:                             ; preds = %_ZN5eastl4listIiNS_20fixed_node_allocatorILm24ELm1ELm8ELm0ELb0ENS_9allocatorEEEE13DoInsertValueIJRKiEEEvPNS_12ListNodeBaseEDpOT_.exit.i.i.i.i.i26, %for.body.lr.ph.i.i.i.i.i16
   %first.sroa.0.04.i.i.i.i.i22 = phi ptr [ %16, %for.body.lr.ph.i.i.i.i.i16 ], [ %25, %_ZN5eastl4listIiNS_20fixed_node_allocatorILm24ELm1ELm8ELm0ELb0ENS_9allocatorEEEE13DoInsertValueIJRKiEEEvPNS_12ListNodeBaseEDpOT_.exit.i.i.i.i.i26 ]
-  %mValue.i.i.i.i.i.i23 = getelementptr inbounds %"struct.eastl::ListNode", ptr %first.sroa.0.04.i.i.i.i.i22, i64 0, i32 1
+  %mValue.i.i.i.i.i.i23 = getelementptr inbounds i8, ptr %first.sroa.0.04.i.i.i.i.i22, i64 16
   %17 = load ptr, ptr %mSecond.i.i.i.i.i.i.i5.i.i.i.i17, align 8
   %tobool.not.i.i.i.i.i.i.i.i.i.i.i24 = icmp eq ptr %17, null
   br i1 %tobool.not.i.i.i.i.i.i.i.i.i.i.i24, label %if.else.i.i.i.i.i.i.i.i.i.i.i32, label %if.then.i.i.i.i.i.i.i.i.i.i.i25
@@ -10929,12 +10925,12 @@ if.then4.i.i.i.i.i.i.i.i.i.i.i34:                 ; preds = %if.else.i.i.i.i.i.i
 
 _ZN5eastl4listIiNS_20fixed_node_allocatorILm24ELm1ELm8ELm0ELb0ENS_9allocatorEEEE13DoInsertValueIJRKiEEEvPNS_12ListNodeBaseEDpOT_.exit.i.i.i.i.i26: ; preds = %if.then4.i.i.i.i.i.i.i.i.i.i.i34, %if.else.i.i.i.i.i.i.i.i.i.i.i32, %if.then.i.i.i.i.i.i.i.i.i.i.i25
   %result.0.i.i.i.i.i.i.i.i.i27 = phi ptr [ %17, %if.then.i.i.i.i.i.i.i.i.i.i.i25 ], [ %19, %if.then4.i.i.i.i.i.i.i.i.i.i.i34 ], [ null, %if.else.i.i.i.i.i.i.i.i.i.i.i32 ]
-  %mValue.i.i.i.i.i.i.i28 = getelementptr inbounds %"struct.eastl::ListNode", ptr %result.0.i.i.i.i.i.i.i.i.i27, i64 0, i32 1
+  %mValue.i.i.i.i.i.i.i28 = getelementptr inbounds i8, ptr %result.0.i.i.i.i.i.i.i.i.i27, i64 16
   %22 = load i32, ptr %mValue.i.i.i.i.i.i23, align 4
   store i32 %22, ptr %mValue.i.i.i.i.i.i.i28, align 4
   store ptr %b, ptr %result.0.i.i.i.i.i.i.i.i.i27, align 8
   %23 = load ptr, ptr %mpPrev.i.i.i.i13, align 8
-  %mpPrev2.i.i.i.i.i.i.i29 = getelementptr inbounds %"struct.eastl::ListNodeBase", ptr %result.0.i.i.i.i.i.i.i.i.i27, i64 0, i32 1
+  %mpPrev2.i.i.i.i.i.i.i29 = getelementptr inbounds i8, ptr %result.0.i.i.i.i.i.i.i.i.i27, i64 8
   store ptr %23, ptr %mpPrev2.i.i.i.i.i.i.i29, align 8
   store ptr %result.0.i.i.i.i.i.i.i.i.i27, ptr %23, align 8
   store ptr %result.0.i.i.i.i.i.i.i.i.i27, ptr %mpPrev.i.i.i.i13, align 8
@@ -10951,7 +10947,7 @@ invoke.cont4:                                     ; preds = %_ZN5eastl4listIiNS_
   br i1 %cmp.not3.i.i.i.i37, label %_ZN5eastl10fixed_listIiLm1ELb0ENS_9allocatorEED2Ev.exit, label %while.body.lr.ph.i.i.i.i38
 
 while.body.lr.ph.i.i.i.i38:                       ; preds = %invoke.cont4
-  %mSecond.i.i.i.i.i.i.i39 = getelementptr inbounds %"class.eastl::compressed_pair_imp.5", ptr %temp, i64 0, i32 1
+  %mSecond.i.i.i.i.i.i.i39 = getelementptr inbounds i8, ptr %temp, i64 16
   %.pre.i.i.i.i40 = load ptr, ptr %mSecond.i.i.i.i.i.i.i39, align 8
   br label %while.body.i.i.i.i41
 
@@ -10978,23 +10974,23 @@ entry:
   %ref.tmp.i = alloca %"class.eastl::fixed_node_allocator.20", align 8
   %temp = alloca %"class.eastl::fixed_list.15", align 8
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %ref.tmp.i)
-  %mBuffer.i = getelementptr inbounds %"class.eastl::fixed_list.15", ptr %temp, i64 0, i32 1
+  %mBuffer.i = getelementptr inbounds i8, ptr %temp, i64 72
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp.i, i8 0, i64 32, i1 false)
   call void @_ZN5eastl15fixed_pool_base4initEPvmmmm(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp.i, ptr noundef nonnull %mBuffer.i, i64 noundef 1536, i64 noundef 24, i64 noundef 8, i64 noundef 0)
-  %mpPoolBegin.i.i.i = getelementptr inbounds %"class.eastl::fixed_pool_with_overflow", ptr %ref.tmp.i, i64 0, i32 2
+  %mpPoolBegin.i.i.i = getelementptr inbounds i8, ptr %ref.tmp.i, i64 40
   store ptr %mBuffer.i, ptr %mpPoolBegin.i.i.i, align 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %temp, i8 0, i64 16, i1 false)
-  %mSecond.i.i.i.i.i = getelementptr inbounds %"class.eastl::compressed_pair_imp.19", ptr %temp, i64 0, i32 1
-  %mpNext.i.i.i.i.i.i = getelementptr inbounds %"struct.eastl::fixed_pool_base", ptr %ref.tmp.i, i64 0, i32 1
+  %mSecond.i.i.i.i.i = getelementptr inbounds i8, ptr %temp, i64 16
+  %mpNext.i.i.i.i.i.i = getelementptr inbounds i8, ptr %ref.tmp.i, i64 8
   %0 = load ptr, ptr %mpNext.i.i.i.i.i.i, align 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %mSecond.i.i.i.i.i, i8 0, i64 32, i1 false)
   call void @_ZN5eastl15fixed_pool_base4initEPvmmmm(ptr noundef nonnull align 8 dereferenceable(32) %mSecond.i.i.i.i.i, ptr noundef %0, i64 noundef 1536, i64 noundef 24, i64 noundef 8, i64 noundef 0)
-  %mpPoolBegin.i.i.i.i.i.i.i = getelementptr inbounds %"class.eastl::compressed_pair_imp.19", ptr %temp, i64 0, i32 1, i32 0, i32 2
+  %mpPoolBegin.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %temp, i64 56
   store ptr %0, ptr %mpPoolBegin.i.i.i.i.i.i.i, align 8
-  %mSize.i.i.i = getelementptr inbounds %"class.eastl::ListBase.17", ptr %temp, i64 0, i32 1
+  %mSize.i.i.i = getelementptr inbounds i8, ptr %temp, i64 64
   store i64 0, ptr %mSize.i.i.i, align 8
   store ptr %temp, ptr %temp, align 8
-  %mpPrev.i.i.i.i = getelementptr inbounds %"struct.eastl::ListNodeBase", ptr %temp, i64 0, i32 1
+  %mpPrev.i.i.i.i = getelementptr inbounds i8, ptr %temp, i64 8
   store ptr %temp, ptr %mpPrev.i.i.i.i, align 8
   %1 = load ptr, ptr %a, align 8, !noalias !475
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %agg.tmp.i.i)
@@ -11027,9 +11023,9 @@ if.then.i.i:                                      ; preds = %_ZN5eastl10fixed_li
   br i1 %cmp.not3.i.i.i.i, label %_ZN5eastl4listIiNS_20fixed_node_allocatorILm24ELm64ELm8ELm0ELb1ENS_9allocatorEEEE5clearEv.exit.i.i, label %while.body.lr.ph.i.i.i.i
 
 while.body.lr.ph.i.i.i.i:                         ; preds = %if.then.i.i
-  %mpPoolBegin.i.i.i.i.i.i = getelementptr inbounds %"class.eastl::compressed_pair_imp.19", ptr %a, i64 0, i32 1, i32 0, i32 2
-  %mpCapacity.i.i.i.i.i.i = getelementptr inbounds %"class.eastl::compressed_pair_imp.19", ptr %a, i64 0, i32 1, i32 0, i32 0, i32 2
-  %mSecond.i.i.i.i.i.i.i = getelementptr inbounds %"class.eastl::compressed_pair_imp.19", ptr %a, i64 0, i32 1
+  %mpPoolBegin.i.i.i.i.i.i = getelementptr inbounds i8, ptr %a, i64 56
+  %mpCapacity.i.i.i.i.i.i = getelementptr inbounds i8, ptr %a, i64 32
+  %mSecond.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %a, i64 16
   br label %while.body.i.i.i.i
 
 while.body.i.i.i.i:                               ; preds = %_ZN5eastl20fixed_node_allocatorILm24ELm64ELm8ELm0ELb1ENS_9allocatorEE10deallocateEPvm.exit.i.i.i.i, %while.body.lr.ph.i.i.i.i
@@ -11058,9 +11054,9 @@ _ZN5eastl20fixed_node_allocatorILm24ELm64ELm8ELm0ELb1ENS_9allocatorEE10deallocat
 
 _ZN5eastl4listIiNS_20fixed_node_allocatorILm24ELm64ELm8ELm0ELb1ENS_9allocatorEEEE5clearEv.exit.i.i: ; preds = %_ZN5eastl20fixed_node_allocatorILm24ELm64ELm8ELm0ELb1ENS_9allocatorEE10deallocateEPvm.exit.i.i.i.i, %if.then.i.i
   store ptr %a, ptr %a, align 8
-  %mpPrev.i.i.i.i3 = getelementptr inbounds %"struct.eastl::ListNodeBase", ptr %a, i64 0, i32 1
+  %mpPrev.i.i.i.i3 = getelementptr inbounds i8, ptr %a, i64 8
   store ptr %a, ptr %mpPrev.i.i.i.i3, align 8
-  %mSize.i.i.i4 = getelementptr inbounds %"class.eastl::ListBase.17", ptr %a, i64 0, i32 1
+  %mSize.i.i.i4 = getelementptr inbounds i8, ptr %a, i64 64
   store i64 0, ptr %mSize.i.i.i4, align 8
   %8 = load ptr, ptr %b, align 8
   invoke void @_ZN5eastl4listIiNS_20fixed_node_allocatorILm24ELm64ELm8ELm0ELb1ENS_9allocatorEEEE8DoAssignINS_12ListIteratorIiPKiRS7_EEEEvT_SB_NS_17integral_constantIbLb0EEE(ptr noundef nonnull align 8 dereferenceable(72) %a, ptr %8, ptr nonnull %b)
@@ -11076,9 +11072,9 @@ if.then.i.i6:                                     ; preds = %invoke.cont
   br i1 %cmp.not3.i.i.i.i7, label %_ZN5eastl4listIiNS_20fixed_node_allocatorILm24ELm64ELm8ELm0ELb1ENS_9allocatorEEEE5clearEv.exit.i.i20, label %while.body.lr.ph.i.i.i.i8
 
 while.body.lr.ph.i.i.i.i8:                        ; preds = %if.then.i.i6
-  %mpPoolBegin.i.i.i.i.i.i9 = getelementptr inbounds %"class.eastl::compressed_pair_imp.19", ptr %b, i64 0, i32 1, i32 0, i32 2
-  %mpCapacity.i.i.i.i.i.i10 = getelementptr inbounds %"class.eastl::compressed_pair_imp.19", ptr %b, i64 0, i32 1, i32 0, i32 0, i32 2
-  %mSecond.i.i.i.i.i.i.i11 = getelementptr inbounds %"class.eastl::compressed_pair_imp.19", ptr %b, i64 0, i32 1
+  %mpPoolBegin.i.i.i.i.i.i9 = getelementptr inbounds i8, ptr %b, i64 56
+  %mpCapacity.i.i.i.i.i.i10 = getelementptr inbounds i8, ptr %b, i64 32
+  %mSecond.i.i.i.i.i.i.i11 = getelementptr inbounds i8, ptr %b, i64 16
   br label %while.body.i.i.i.i12
 
 while.body.i.i.i.i12:                             ; preds = %_ZN5eastl20fixed_node_allocatorILm24ELm64ELm8ELm0ELb1ENS_9allocatorEE10deallocateEPvm.exit.i.i.i.i18, %while.body.lr.ph.i.i.i.i8
@@ -11107,9 +11103,9 @@ _ZN5eastl20fixed_node_allocatorILm24ELm64ELm8ELm0ELb1ENS_9allocatorEE10deallocat
 
 _ZN5eastl4listIiNS_20fixed_node_allocatorILm24ELm64ELm8ELm0ELb1ENS_9allocatorEEEE5clearEv.exit.i.i20: ; preds = %_ZN5eastl20fixed_node_allocatorILm24ELm64ELm8ELm0ELb1ENS_9allocatorEE10deallocateEPvm.exit.i.i.i.i18, %if.then.i.i6
   store ptr %b, ptr %b, align 8
-  %mpPrev.i.i.i.i21 = getelementptr inbounds %"struct.eastl::ListNodeBase", ptr %b, i64 0, i32 1
+  %mpPrev.i.i.i.i21 = getelementptr inbounds i8, ptr %b, i64 8
   store ptr %b, ptr %mpPrev.i.i.i.i21, align 8
-  %mSize.i.i.i22 = getelementptr inbounds %"class.eastl::ListBase.17", ptr %b, i64 0, i32 1
+  %mSize.i.i.i22 = getelementptr inbounds i8, ptr %b, i64 64
   store i64 0, ptr %mSize.i.i.i22, align 8
   %14 = load ptr, ptr %temp, align 8
   invoke void @_ZN5eastl4listIiNS_20fixed_node_allocatorILm24ELm64ELm8ELm0ELb1ENS_9allocatorEEEE8DoAssignINS_12ListIteratorIiPKiRS7_EEEEvT_SB_NS_17integral_constantIbLb0EEE(ptr noundef nonnull align 8 dereferenceable(72) %b, ptr %14, ptr nonnull %temp)
@@ -11121,7 +11117,7 @@ invoke.cont4:                                     ; preds = %invoke.cont, %_ZN5e
   br i1 %cmp.not3.i.i.i.i26, label %_ZN5eastl10fixed_listIiLm64ELb1ENS_9allocatorEED2Ev.exit, label %while.body.lr.ph.i.i.i.i27
 
 while.body.lr.ph.i.i.i.i27:                       ; preds = %invoke.cont4
-  %mpCapacity.i.i.i.i.i.i29 = getelementptr inbounds %"class.eastl::compressed_pair_imp.19", ptr %temp, i64 0, i32 1, i32 0, i32 0, i32 2
+  %mpCapacity.i.i.i.i.i.i29 = getelementptr inbounds i8, ptr %temp, i64 32
   br label %while.body.i.i.i.i31
 
 while.body.i.i.i.i31:                             ; preds = %_ZN5eastl20fixed_node_allocatorILm24ELm64ELm8ELm0ELb1ENS_9allocatorEE10deallocateEPvm.exit.i.i.i.i37, %while.body.lr.ph.i.i.i.i27
@@ -11174,9 +11170,9 @@ land.rhs:                                         ; preds = %entry, %for.body
   br i1 %cmp.i.not, label %while.body.lr.ph.i, label %for.body
 
 for.body:                                         ; preds = %land.rhs
-  %mValue.i = getelementptr inbounds %"struct.eastl::ListNode", ptr %1, i64 0, i32 1
+  %mValue.i = getelementptr inbounds i8, ptr %1, i64 16
   %3 = load i32, ptr %mValue.i, align 4
-  %mValue = getelementptr inbounds %"struct.eastl::ListNode", ptr %pNode.013, i64 0, i32 1
+  %mValue = getelementptr inbounds i8, ptr %pNode.013, i64 16
   store i32 %3, ptr %mValue, align 8
   %4 = load ptr, ptr %pNode.013, align 8
   %5 = load ptr, ptr %first, align 8
@@ -11192,21 +11188,21 @@ for.end:                                          ; preds = %for.body, %entry
   br i1 %cmp.i4, label %if.end, label %for.body.lr.ph.i
 
 while.body.lr.ph.i:                               ; preds = %land.rhs
-  %mpPoolBegin.i.i.i.i.i.i = getelementptr inbounds %"class.eastl::compressed_pair_imp.19", ptr %this, i64 0, i32 1, i32 0, i32 2
-  %mpCapacity.i.i.i.i.i.i = getelementptr inbounds %"class.eastl::compressed_pair_imp.19", ptr %this, i64 0, i32 1, i32 0, i32 0, i32 2
-  %mSecond.i.i.i.i.i.i.i = getelementptr inbounds %"class.eastl::compressed_pair_imp.19", ptr %this, i64 0, i32 1
-  %mSize.i.i.i = getelementptr inbounds %"class.eastl::ListBase.17", ptr %this, i64 0, i32 1
+  %mpPoolBegin.i.i.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 56
+  %mpCapacity.i.i.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 32
+  %mSecond.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 16
+  %mSize.i.i.i = getelementptr inbounds i8, ptr %this, i64 64
   br label %while.body.i
 
 while.body.i:                                     ; preds = %_ZN5eastl4listIiNS_20fixed_node_allocatorILm24ELm64ELm8ELm0ELb1ENS_9allocatorEEEE5eraseENS_12ListIteratorIiPKiRS6_EE.exit.i, %while.body.lr.ph.i
   %first.sroa.0.03.i = phi ptr [ %pNode.013, %while.body.lr.ph.i ], [ %9, %_ZN5eastl4listIiNS_20fixed_node_allocatorILm24ELm64ELm8ELm0ELb1ENS_9allocatorEEEE5eraseENS_12ListIteratorIiPKiRS6_EE.exit.i ]
   %9 = load ptr, ptr %first.sroa.0.03.i, align 8, !noalias !479
-  %mpPrev.i.i = getelementptr inbounds %"struct.eastl::ListNodeBase", ptr %9, i64 0, i32 1
+  %mpPrev.i.i = getelementptr inbounds i8, ptr %9, i64 8
   %10 = load ptr, ptr %mpPrev.i.i, align 8, !noalias !479
-  %mpPrev.i.i.i.i = getelementptr inbounds %"struct.eastl::ListNodeBase", ptr %10, i64 0, i32 1
+  %mpPrev.i.i.i.i = getelementptr inbounds i8, ptr %10, i64 8
   %11 = load ptr, ptr %mpPrev.i.i.i.i, align 8, !noalias !479
   %12 = load ptr, ptr %10, align 8, !noalias !479
-  %mpPrev2.i.i.i.i = getelementptr inbounds %"struct.eastl::ListNodeBase", ptr %12, i64 0, i32 1
+  %mpPrev2.i.i.i.i = getelementptr inbounds i8, ptr %12, i64 8
   store ptr %11, ptr %mpPrev2.i.i.i.i, align 8, !noalias !479
   %13 = load ptr, ptr %10, align 8, !noalias !479
   store ptr %13, ptr %11, align 8, !noalias !479
@@ -11235,17 +11231,17 @@ _ZN5eastl4listIiNS_20fixed_node_allocatorILm24ELm64ELm8ELm0ELb1ENS_9allocatorEEE
   br i1 %cmp.i.not.i, label %if.end, label %while.body.i, !llvm.loop !410
 
 for.body.lr.ph.i:                                 ; preds = %for.end
-  %mSecond.i.i.i.i.i.i.i5 = getelementptr inbounds %"class.eastl::compressed_pair_imp.19", ptr %this, i64 0, i32 1
-  %mpNext3.i.i.i.i.i.i.i = getelementptr inbounds %"class.eastl::compressed_pair_imp.19", ptr %this, i64 0, i32 1, i32 0, i32 0, i32 1
-  %mpCapacity.i.i.i.i.i.i.i = getelementptr inbounds %"class.eastl::compressed_pair_imp.19", ptr %this, i64 0, i32 1, i32 0, i32 0, i32 2
-  %mnNodeSize9.i.i.i.i.i.i.i = getelementptr inbounds %"class.eastl::compressed_pair_imp.19", ptr %this, i64 0, i32 1, i32 0, i32 0, i32 3
-  %mpPrev.i.i.i = getelementptr inbounds %"struct.eastl::ListNodeBase", ptr %this, i64 0, i32 1
-  %mSize.i.i = getelementptr inbounds %"class.eastl::ListBase.17", ptr %this, i64 0, i32 1
+  %mSecond.i.i.i.i.i.i.i5 = getelementptr inbounds i8, ptr %this, i64 16
+  %mpNext3.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 24
+  %mpCapacity.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 32
+  %mnNodeSize9.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 40
+  %mpPrev.i.i.i = getelementptr inbounds i8, ptr %this, i64 8
+  %mSize.i.i = getelementptr inbounds i8, ptr %this, i64 64
   br label %for.body.i
 
 for.body.i:                                       ; preds = %_ZN5eastl4listIiNS_20fixed_node_allocatorILm24ELm64ELm8ELm0ELb1ENS_9allocatorEEEE13DoInsertValueIJRiEEEvPNS_12ListNodeBaseEDpOT_.exit.i, %for.body.lr.ph.i
   %agg.tmp12.sroa.0.0 = phi ptr [ %7, %for.body.lr.ph.i ], [ %26, %_ZN5eastl4listIiNS_20fixed_node_allocatorILm24ELm64ELm8ELm0ELb1ENS_9allocatorEEEE13DoInsertValueIJRiEEEvPNS_12ListNodeBaseEDpOT_.exit.i ]
-  %mValue.i.i = getelementptr inbounds %"struct.eastl::ListNode", ptr %agg.tmp12.sroa.0.0, i64 0, i32 1
+  %mValue.i.i = getelementptr inbounds i8, ptr %agg.tmp12.sroa.0.0, i64 16
   %18 = load ptr, ptr %mSecond.i.i.i.i.i.i.i5, align 8
   %tobool.not.i.i.i.i.i.i.i = icmp eq ptr %18, null
   br i1 %tobool.not.i.i.i.i.i.i.i, label %if.else.i.i.i.i.i.i.i, label %if.then.i.i.i.i.i.i.i
@@ -11273,12 +11269,12 @@ if.else8.i.i.i.i.i.i.i:                           ; preds = %if.else.i.i.i.i.i.i
 
 _ZN5eastl4listIiNS_20fixed_node_allocatorILm24ELm64ELm8ELm0ELb1ENS_9allocatorEEEE13DoInsertValueIJRiEEEvPNS_12ListNodeBaseEDpOT_.exit.i: ; preds = %if.else8.i.i.i.i.i.i.i, %if.then4.i.i.i.i.i.i.i, %if.then.i.i.i.i.i.i.i
   %result.0.i.i.i.i.i = phi ptr [ %18, %if.then.i.i.i.i.i.i.i ], [ %20, %if.then4.i.i.i.i.i.i.i ], [ %call.i.i.i.i.i.i.i.i, %if.else8.i.i.i.i.i.i.i ]
-  %mValue.i.i.i = getelementptr inbounds %"struct.eastl::ListNode", ptr %result.0.i.i.i.i.i, i64 0, i32 1
+  %mValue.i.i.i = getelementptr inbounds i8, ptr %result.0.i.i.i.i.i, i64 16
   %23 = load i32, ptr %mValue.i.i, align 4
   store i32 %23, ptr %mValue.i.i.i, align 4
   store ptr %this, ptr %result.0.i.i.i.i.i, align 8
   %24 = load ptr, ptr %mpPrev.i.i.i, align 8
-  %mpPrev2.i.i.i = getelementptr inbounds %"struct.eastl::ListNodeBase", ptr %result.0.i.i.i.i.i, i64 0, i32 1
+  %mpPrev2.i.i.i = getelementptr inbounds i8, ptr %result.0.i.i.i.i.i, i64 8
   store ptr %24, ptr %mpPrev2.i.i.i, align 8
   store ptr %result.0.i.i.i.i.i, ptr %24, align 8
   store ptr %result.0.i.i.i.i.i, ptr %mpPrev.i.i.i, align 8
@@ -11307,9 +11303,9 @@ land.rhs:                                         ; preds = %entry, %for.body
   br i1 %cmp.i.not, label %while.body.lr.ph.i, label %for.body
 
 for.body:                                         ; preds = %land.rhs
-  %mValue.i = getelementptr inbounds %"struct.eastl::ListNode", ptr %first.sroa.0.017, i64 0, i32 1
+  %mValue.i = getelementptr inbounds i8, ptr %first.sroa.0.017, i64 16
   %0 = load i32, ptr %mValue.i, align 4
-  %mValue = getelementptr inbounds %"struct.eastl::ListNode", ptr %pNode.018, i64 0, i32 1
+  %mValue = getelementptr inbounds i8, ptr %pNode.018, i64 16
   store i32 %0, ptr %mValue, align 8
   %1 = load ptr, ptr %first.sroa.0.017, align 8
   %pNode.0 = load ptr, ptr %pNode.018, align 8
@@ -11322,21 +11318,21 @@ for.end:                                          ; preds = %for.body, %entry
   br i1 %cmp.i4, label %if.end, label %for.body.lr.ph.i
 
 while.body.lr.ph.i:                               ; preds = %land.rhs
-  %mpPoolBegin.i.i.i.i.i.i = getelementptr inbounds %"class.eastl::compressed_pair_imp.19", ptr %this, i64 0, i32 1, i32 0, i32 2
-  %mpCapacity.i.i.i.i.i.i = getelementptr inbounds %"class.eastl::compressed_pair_imp.19", ptr %this, i64 0, i32 1, i32 0, i32 0, i32 2
-  %mSecond.i.i.i.i.i.i.i = getelementptr inbounds %"class.eastl::compressed_pair_imp.19", ptr %this, i64 0, i32 1
-  %mSize.i.i.i = getelementptr inbounds %"class.eastl::ListBase.17", ptr %this, i64 0, i32 1
+  %mpPoolBegin.i.i.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 56
+  %mpCapacity.i.i.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 32
+  %mSecond.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 16
+  %mSize.i.i.i = getelementptr inbounds i8, ptr %this, i64 64
   br label %while.body.i
 
 while.body.i:                                     ; preds = %_ZN5eastl4listIiNS_20fixed_node_allocatorILm24ELm64ELm8ELm0ELb1ENS_9allocatorEEEE5eraseENS_12ListIteratorIiPKiRS6_EE.exit.i, %while.body.lr.ph.i
   %first.sroa.0.03.i = phi ptr [ %pNode.018, %while.body.lr.ph.i ], [ %2, %_ZN5eastl4listIiNS_20fixed_node_allocatorILm24ELm64ELm8ELm0ELb1ENS_9allocatorEEEE5eraseENS_12ListIteratorIiPKiRS6_EE.exit.i ]
   %2 = load ptr, ptr %first.sroa.0.03.i, align 8, !noalias !486
-  %mpPrev.i.i = getelementptr inbounds %"struct.eastl::ListNodeBase", ptr %2, i64 0, i32 1
+  %mpPrev.i.i = getelementptr inbounds i8, ptr %2, i64 8
   %3 = load ptr, ptr %mpPrev.i.i, align 8, !noalias !486
-  %mpPrev.i.i.i.i = getelementptr inbounds %"struct.eastl::ListNodeBase", ptr %3, i64 0, i32 1
+  %mpPrev.i.i.i.i = getelementptr inbounds i8, ptr %3, i64 8
   %4 = load ptr, ptr %mpPrev.i.i.i.i, align 8, !noalias !486
   %5 = load ptr, ptr %3, align 8, !noalias !486
-  %mpPrev2.i.i.i.i = getelementptr inbounds %"struct.eastl::ListNodeBase", ptr %5, i64 0, i32 1
+  %mpPrev2.i.i.i.i = getelementptr inbounds i8, ptr %5, i64 8
   store ptr %4, ptr %mpPrev2.i.i.i.i, align 8, !noalias !486
   %6 = load ptr, ptr %3, align 8, !noalias !486
   store ptr %6, ptr %4, align 8, !noalias !486
@@ -11365,17 +11361,17 @@ _ZN5eastl4listIiNS_20fixed_node_allocatorILm24ELm64ELm8ELm0ELb1ENS_9allocatorEEE
   br i1 %cmp.i.not.i, label %if.end, label %while.body.i, !llvm.loop !410
 
 for.body.lr.ph.i:                                 ; preds = %for.end
-  %mSecond.i.i.i.i.i.i.i5 = getelementptr inbounds %"class.eastl::compressed_pair_imp.19", ptr %this, i64 0, i32 1
-  %mpNext3.i.i.i.i.i.i.i = getelementptr inbounds %"class.eastl::compressed_pair_imp.19", ptr %this, i64 0, i32 1, i32 0, i32 0, i32 1
-  %mpCapacity.i.i.i.i.i.i.i = getelementptr inbounds %"class.eastl::compressed_pair_imp.19", ptr %this, i64 0, i32 1, i32 0, i32 0, i32 2
-  %mnNodeSize9.i.i.i.i.i.i.i = getelementptr inbounds %"class.eastl::compressed_pair_imp.19", ptr %this, i64 0, i32 1, i32 0, i32 0, i32 3
-  %mpPrev.i.i.i = getelementptr inbounds %"struct.eastl::ListNodeBase", ptr %this, i64 0, i32 1
-  %mSize.i.i = getelementptr inbounds %"class.eastl::ListBase.17", ptr %this, i64 0, i32 1
+  %mSecond.i.i.i.i.i.i.i5 = getelementptr inbounds i8, ptr %this, i64 16
+  %mpNext3.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 24
+  %mpCapacity.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 32
+  %mnNodeSize9.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 40
+  %mpPrev.i.i.i = getelementptr inbounds i8, ptr %this, i64 8
+  %mSize.i.i = getelementptr inbounds i8, ptr %this, i64 64
   br label %for.body.i
 
 for.body.i:                                       ; preds = %_ZN5eastl4listIiNS_20fixed_node_allocatorILm24ELm64ELm8ELm0ELb1ENS_9allocatorEEEE13DoInsertValueIJRKiEEEvPNS_12ListNodeBaseEDpOT_.exit.i, %for.body.lr.ph.i
   %first.sroa.0.04.i = phi ptr [ %first.sroa.0.0.lcssa, %for.body.lr.ph.i ], [ %19, %_ZN5eastl4listIiNS_20fixed_node_allocatorILm24ELm64ELm8ELm0ELb1ENS_9allocatorEEEE13DoInsertValueIJRKiEEEvPNS_12ListNodeBaseEDpOT_.exit.i ]
-  %mValue.i.i = getelementptr inbounds %"struct.eastl::ListNode", ptr %first.sroa.0.04.i, i64 0, i32 1
+  %mValue.i.i = getelementptr inbounds i8, ptr %first.sroa.0.04.i, i64 16
   %11 = load ptr, ptr %mSecond.i.i.i.i.i.i.i5, align 8
   %tobool.not.i.i.i.i.i.i.i = icmp eq ptr %11, null
   br i1 %tobool.not.i.i.i.i.i.i.i, label %if.else.i.i.i.i.i.i.i, label %if.then.i.i.i.i.i.i.i
@@ -11403,12 +11399,12 @@ if.else8.i.i.i.i.i.i.i:                           ; preds = %if.else.i.i.i.i.i.i
 
 _ZN5eastl4listIiNS_20fixed_node_allocatorILm24ELm64ELm8ELm0ELb1ENS_9allocatorEEEE13DoInsertValueIJRKiEEEvPNS_12ListNodeBaseEDpOT_.exit.i: ; preds = %if.else8.i.i.i.i.i.i.i, %if.then4.i.i.i.i.i.i.i, %if.then.i.i.i.i.i.i.i
   %result.0.i.i.i.i.i = phi ptr [ %11, %if.then.i.i.i.i.i.i.i ], [ %13, %if.then4.i.i.i.i.i.i.i ], [ %call.i.i.i.i.i.i.i.i, %if.else8.i.i.i.i.i.i.i ]
-  %mValue.i.i.i = getelementptr inbounds %"struct.eastl::ListNode", ptr %result.0.i.i.i.i.i, i64 0, i32 1
+  %mValue.i.i.i = getelementptr inbounds i8, ptr %result.0.i.i.i.i.i, i64 16
   %16 = load i32, ptr %mValue.i.i, align 4
   store i32 %16, ptr %mValue.i.i.i, align 4
   store ptr %this, ptr %result.0.i.i.i.i.i, align 8
   %17 = load ptr, ptr %mpPrev.i.i.i, align 8
-  %mpPrev2.i.i.i = getelementptr inbounds %"struct.eastl::ListNodeBase", ptr %result.0.i.i.i.i.i, i64 0, i32 1
+  %mpPrev2.i.i.i = getelementptr inbounds i8, ptr %result.0.i.i.i.i.i, i64 8
   store ptr %17, ptr %mpPrev2.i.i.i, align 8
   store ptr %result.0.i.i.i.i.i, ptr %17, align 8
   store ptr %result.0.i.i.i.i.i, ptr %mpPrev.i.i.i, align 8
@@ -11446,31 +11442,31 @@ sw.bb:                                            ; preds = %entry, %entry
 
 sw.bb2:                                           ; preds = %entry
   %1 = load ptr, ptr %end2, align 8
-  %mpPrev.i = getelementptr inbounds %"struct.eastl::ListNodeBase", ptr %1, i64 0, i32 1
+  %mpPrev.i = getelementptr inbounds i8, ptr %1, i64 8
   %2 = load ptr, ptr %mpPrev.i, align 8
   store ptr %2, ptr %end2, align 8
-  %mValue.i = getelementptr inbounds %"struct.eastl::ListNode", ptr %2, i64 0, i32 1
+  %mValue.i = getelementptr inbounds i8, ptr %2, i64 16
   %3 = load ptr, ptr %i1, align 8
-  %mValue.i19 = getelementptr inbounds %"struct.eastl::ListNode", ptr %3, i64 0, i32 1
+  %mValue.i19 = getelementptr inbounds i8, ptr %3, i64 16
   %4 = load i32, ptr %mValue.i, align 4
   %5 = load i32, ptr %mValue.i19, align 4
   %cmp.i = icmp slt i32 %4, %5
   br i1 %cmp.i, label %if.then, label %if.end
 
 if.then:                                          ; preds = %sw.bb2
-  %mpPrev.i20 = getelementptr inbounds %"struct.eastl::ListNodeBase", ptr %2, i64 0, i32 1
+  %mpPrev.i20 = getelementptr inbounds i8, ptr %2, i64 8
   %6 = load ptr, ptr %mpPrev.i20, align 8
   %7 = load ptr, ptr %2, align 8
-  %mpPrev2.i = getelementptr inbounds %"struct.eastl::ListNodeBase", ptr %7, i64 0, i32 1
+  %mpPrev2.i = getelementptr inbounds i8, ptr %7, i64 8
   store ptr %6, ptr %mpPrev2.i, align 8
   %8 = load ptr, ptr %2, align 8
   store ptr %8, ptr %6, align 8
   %9 = load ptr, ptr %end2, align 8
   %10 = load ptr, ptr %i1, align 8
   store ptr %10, ptr %9, align 8
-  %mpPrev.i21 = getelementptr inbounds %"struct.eastl::ListNodeBase", ptr %10, i64 0, i32 1
+  %mpPrev.i21 = getelementptr inbounds i8, ptr %10, i64 8
   %11 = load ptr, ptr %mpPrev.i21, align 8
-  %mpPrev2.i22 = getelementptr inbounds %"struct.eastl::ListNodeBase", ptr %9, i64 0, i32 1
+  %mpPrev2.i22 = getelementptr inbounds i8, ptr %9, i64 8
   store ptr %11, ptr %mpPrev2.i22, align 8
   store ptr %9, ptr %11, align 8
   store ptr %9, ptr %mpPrev.i21, align 8
@@ -11494,8 +11490,8 @@ for.body:                                         ; preds = %sw.bb8, %for.inc
   %16 = phi ptr [ %21, %for.inc ], [ %13, %sw.bb8 ]
   %17 = phi ptr [ %22, %for.inc ], [ %13, %sw.bb8 ]
   %current.sroa.0.076 = phi ptr [ %23, %for.inc ], [ %14, %sw.bb8 ]
-  %mValue.i24 = getelementptr inbounds %"struct.eastl::ListNode", ptr %current.sroa.0.076, i64 0, i32 1
-  %mValue.i25 = getelementptr inbounds %"struct.eastl::ListNode", ptr %17, i64 0, i32 1
+  %mValue.i24 = getelementptr inbounds i8, ptr %current.sroa.0.076, i64 16
+  %mValue.i25 = getelementptr inbounds i8, ptr %17, i64 16
   %18 = load i32, ptr %mValue.i24, align 4
   %19 = load i32, ptr %mValue.i25, align 4
   %cmp.i26 = icmp slt i32 %18, %19
@@ -11522,16 +11518,16 @@ if.then17:                                        ; preds = %sw.bb8, %for.end
   br label %if.end22
 
 if.else:                                          ; preds = %for.end
-  %mpPrev.i28 = getelementptr inbounds %"struct.eastl::ListNodeBase", ptr %21, i64 0, i32 1
+  %mpPrev.i28 = getelementptr inbounds i8, ptr %21, i64 8
   %24 = load ptr, ptr %mpPrev.i28, align 8
   %25 = load ptr, ptr %21, align 8
-  %mpPrev2.i29 = getelementptr inbounds %"struct.eastl::ListNodeBase", ptr %25, i64 0, i32 1
+  %mpPrev2.i29 = getelementptr inbounds i8, ptr %25, i64 8
   store ptr %24, ptr %mpPrev2.i29, align 8
   %26 = load ptr, ptr %21, align 8
   store ptr %26, ptr %24, align 8
   %27 = load ptr, ptr %i1, align 8
   store ptr %27, ptr %21, align 8
-  %mpPrev.i30 = getelementptr inbounds %"struct.eastl::ListNodeBase", ptr %27, i64 0, i32 1
+  %mpPrev.i30 = getelementptr inbounds i8, ptr %27, i64 8
   %28 = load ptr, ptr %mpPrev.i30, align 8
   store ptr %28, ptr %mpPrev.i28, align 8
   store ptr %21, ptr %28, align 8
@@ -11540,31 +11536,31 @@ if.else:                                          ; preds = %for.end
 
 if.end22:                                         ; preds = %if.else, %if.then17
   %29 = load ptr, ptr %end2, align 8
-  %mpPrev.i32 = getelementptr inbounds %"struct.eastl::ListNodeBase", ptr %29, i64 0, i32 1
+  %mpPrev.i32 = getelementptr inbounds i8, ptr %29, i64 8
   %30 = load ptr, ptr %mpPrev.i32, align 8
   store ptr %30, ptr %end2, align 8
-  %mValue.i33 = getelementptr inbounds %"struct.eastl::ListNode", ptr %30, i64 0, i32 1
+  %mValue.i33 = getelementptr inbounds i8, ptr %30, i64 16
   %31 = load ptr, ptr %i1, align 8
-  %mValue.i34 = getelementptr inbounds %"struct.eastl::ListNode", ptr %31, i64 0, i32 1
+  %mValue.i34 = getelementptr inbounds i8, ptr %31, i64 16
   %32 = load i32, ptr %mValue.i33, align 4
   %33 = load i32, ptr %mValue.i34, align 4
   %cmp.i35 = icmp slt i32 %32, %33
   br i1 %cmp.i35, label %if.then27, label %return
 
 if.then27:                                        ; preds = %if.end22
-  %mpPrev.i36 = getelementptr inbounds %"struct.eastl::ListNodeBase", ptr %30, i64 0, i32 1
+  %mpPrev.i36 = getelementptr inbounds i8, ptr %30, i64 8
   %34 = load ptr, ptr %mpPrev.i36, align 8
   %35 = load ptr, ptr %30, align 8
-  %mpPrev2.i37 = getelementptr inbounds %"struct.eastl::ListNodeBase", ptr %35, i64 0, i32 1
+  %mpPrev2.i37 = getelementptr inbounds i8, ptr %35, i64 8
   store ptr %34, ptr %mpPrev2.i37, align 8
   %36 = load ptr, ptr %30, align 8
   store ptr %36, ptr %34, align 8
   %37 = load ptr, ptr %end2, align 8
   %38 = load ptr, ptr %i1, align 8
   store ptr %38, ptr %37, align 8
-  %mpPrev.i38 = getelementptr inbounds %"struct.eastl::ListNodeBase", ptr %38, i64 0, i32 1
+  %mpPrev.i38 = getelementptr inbounds i8, ptr %38, i64 8
   %39 = load ptr, ptr %mpPrev.i38, align 8
-  %mpPrev2.i39 = getelementptr inbounds %"struct.eastl::ListNodeBase", ptr %37, i64 0, i32 1
+  %mpPrev2.i39 = getelementptr inbounds i8, ptr %37, i64 8
   store ptr %39, ptr %mpPrev2.i39, align 8
   store ptr %37, ptr %39, align 8
   store ptr %37, ptr %mpPrev.i38, align 8
@@ -11596,9 +11592,9 @@ _ZN5eastl4nextINS_12ListIteratorIiPiRiEEEET_S5_NS_15iterator_traitsIS5_E15differ
   %sub = sub i64 %n, %div17
   call void @_ZN5eastl4listIiNS_20fixed_node_allocatorILm24ELm32ELm8ELm0ELb1ENS_9allocatorEEEE6DoSortINS_4lessIiEEEENS_12ListIteratorIiPiRiEESB_SB_mRT_(ptr nonnull sret(%"struct.eastl::ListIterator.0") align 8 %i2, ptr noundef nonnull align 8 dereferenceable(72) %this, ptr noundef nonnull %agg.tmp34, ptr noundef nonnull %agg.tmp35, i64 noundef %sub, ptr noundef nonnull align 1 dereferenceable(1) %compare)
   %45 = load ptr, ptr %i2, align 8
-  %mValue.i40 = getelementptr inbounds %"struct.eastl::ListNode", ptr %45, i64 0, i32 1
+  %mValue.i40 = getelementptr inbounds i8, ptr %45, i64 16
   %46 = load ptr, ptr %i1, align 8
-  %mValue.i41 = getelementptr inbounds %"struct.eastl::ListNode", ptr %46, i64 0, i32 1
+  %mValue.i41 = getelementptr inbounds i8, ptr %46, i64 16
   %47 = load i32, ptr %mValue.i40, align 4
   %48 = load i32, ptr %mValue.i41, align 4
   %cmp.i42 = icmp slt i32 %47, %48
@@ -11616,27 +11612,27 @@ while.cond:                                       ; preds = %while.cond.preheade
   br i1 %cmp.i43.not, label %while.end, label %land.rhs
 
 land.rhs:                                         ; preds = %while.cond
-  %mValue.i44 = getelementptr inbounds %"struct.eastl::ListNode", ptr %ix.sroa.0.0, i64 0, i32 1
+  %mValue.i44 = getelementptr inbounds i8, ptr %ix.sroa.0.0, i64 16
   %51 = load i32, ptr %mValue.i44, align 4
   %cmp.i46 = icmp slt i32 %51, %48
   br i1 %cmp.i46, label %while.cond, label %while.end, !llvm.loop !497
 
 while.end:                                        ; preds = %while.cond, %land.rhs
   %ix.sroa.0.0.lcssa = phi ptr [ %50, %while.cond ], [ %ix.sroa.0.0, %land.rhs ]
-  %mpPrev = getelementptr inbounds %"struct.eastl::ListNodeBase", ptr %ix.sroa.0.0.lcssa, i64 0, i32 1
+  %mpPrev = getelementptr inbounds i8, ptr %ix.sroa.0.0.lcssa, i64 8
   %52 = load ptr, ptr %mpPrev, align 8
   store i64 %49, ptr %agg.result, align 8
   %.cast18 = ptrtoint ptr %ix.sroa.0.0.lcssa to i64
   store i64 %.cast18, ptr %i2, align 8
-  %mpPrev.i47 = getelementptr inbounds %"struct.eastl::ListNodeBase", ptr %45, i64 0, i32 1
+  %mpPrev.i47 = getelementptr inbounds i8, ptr %45, i64 8
   %53 = load ptr, ptr %mpPrev.i47, align 8
   %54 = load ptr, ptr %52, align 8
-  %mpPrev1.i = getelementptr inbounds %"struct.eastl::ListNodeBase", ptr %54, i64 0, i32 1
+  %mpPrev1.i = getelementptr inbounds i8, ptr %54, i64 8
   store ptr %53, ptr %mpPrev1.i, align 8
   %55 = load ptr, ptr %52, align 8
   store ptr %55, ptr %53, align 8
   %56 = load ptr, ptr %i1, align 8
-  %mpPrev.i48 = getelementptr inbounds %"struct.eastl::ListNodeBase", ptr %56, i64 0, i32 1
+  %mpPrev.i48 = getelementptr inbounds i8, ptr %56, i64 8
   %57 = load ptr, ptr %mpPrev.i48, align 8
   store ptr %45, ptr %57, align 8
   %58 = load ptr, ptr %mpPrev.i48, align 8
@@ -11668,8 +11664,8 @@ land.rhs53:                                       ; preds = %if.end49, %for.inc8
   br i1 %cmp.i50.not, label %return, label %for.body56
 
 for.body56:                                       ; preds = %land.rhs53
-  %mValue.i51 = getelementptr inbounds %"struct.eastl::ListNode", ptr %60, i64 0, i32 1
-  %mValue.i52 = getelementptr inbounds %"struct.eastl::ListNode", ptr %storemerge81, i64 0, i32 1
+  %mValue.i51 = getelementptr inbounds i8, ptr %60, i64 16
+  %mValue.i52 = getelementptr inbounds i8, ptr %storemerge81, i64 16
   %62 = load i32, ptr %mValue.i51, align 4
   %63 = load i32, ptr %mValue.i52, align 4
   %cmp.i53 = icmp slt i32 %62, %63
@@ -11682,28 +11678,28 @@ while.cond62:                                     ; preds = %for.body56, %land.r
   br i1 %cmp.i54.not, label %while.end71, label %land.rhs64
 
 land.rhs64:                                       ; preds = %while.cond62
-  %mValue.i55 = getelementptr inbounds %"struct.eastl::ListNode", ptr %ix61.sroa.0.0, i64 0, i32 1
+  %mValue.i55 = getelementptr inbounds i8, ptr %ix61.sroa.0.0, i64 16
   %64 = load i32, ptr %mValue.i55, align 4
   %cmp.i57 = icmp slt i32 %64, %63
   br i1 %cmp.i57, label %while.cond62, label %while.end71, !llvm.loop !498
 
 while.end71:                                      ; preds = %while.cond62, %land.rhs64
   %ix61.sroa.0.0.lcssa = phi ptr [ %61, %while.cond62 ], [ %ix61.sroa.0.0, %land.rhs64 ]
-  %mpPrev76 = getelementptr inbounds %"struct.eastl::ListNodeBase", ptr %ix61.sroa.0.0.lcssa, i64 0, i32 1
+  %mpPrev76 = getelementptr inbounds i8, ptr %ix61.sroa.0.0.lcssa, i64 8
   %65 = load ptr, ptr %mpPrev76, align 8
   %cmp.i58 = icmp eq ptr %end1.sroa.0.180, %60
   %spec.select = select i1 %cmp.i58, ptr %ix61.sroa.0.0.lcssa, ptr %end1.sroa.0.180
   %66 = ptrtoint ptr %ix61.sroa.0.0.lcssa to i64
   store i64 %66, ptr %i2, align 8
-  %mpPrev.i59 = getelementptr inbounds %"struct.eastl::ListNodeBase", ptr %60, i64 0, i32 1
+  %mpPrev.i59 = getelementptr inbounds i8, ptr %60, i64 8
   %67 = load ptr, ptr %mpPrev.i59, align 8
   %68 = load ptr, ptr %65, align 8
-  %mpPrev1.i60 = getelementptr inbounds %"struct.eastl::ListNodeBase", ptr %68, i64 0, i32 1
+  %mpPrev1.i60 = getelementptr inbounds i8, ptr %68, i64 8
   store ptr %67, ptr %mpPrev1.i60, align 8
   %69 = load ptr, ptr %65, align 8
   store ptr %69, ptr %67, align 8
   %70 = load ptr, ptr %i1, align 8
-  %mpPrev.i61 = getelementptr inbounds %"struct.eastl::ListNodeBase", ptr %70, i64 0, i32 1
+  %mpPrev.i61 = getelementptr inbounds i8, ptr %70, i64 8
   %71 = load ptr, ptr %mpPrev.i61, align 8
   store ptr %60, ptr %71, align 8
   %72 = load ptr, ptr %mpPrev.i61, align 8
@@ -11746,9 +11742,9 @@ for.body:                                         ; preds = %entry, %for.body
   %pNode.016 = phi ptr [ %pNode.0, %for.body ], [ %pNode.012, %entry ]
   %first.addr.015 = phi ptr [ %incdec.ptr, %for.body ], [ %first, %entry ]
   %1 = load i32, ptr %first.addr.015, align 4
-  %mValue = getelementptr inbounds %"struct.eastl::ListNode", ptr %pNode.016, i64 0, i32 1
+  %mValue = getelementptr inbounds i8, ptr %pNode.016, i64 16
   store i32 %1, ptr %mValue, align 8
-  %incdec.ptr = getelementptr inbounds i32, ptr %first.addr.015, i64 1
+  %incdec.ptr = getelementptr inbounds i8, ptr %first.addr.015, i64 4
   %pNode.0 = load ptr, ptr %pNode.016, align 8
   %cmp = icmp ne ptr %pNode.0, %this
   %cmp3 = icmp ne ptr %incdec.ptr, %last
@@ -11766,21 +11762,21 @@ if.then:                                          ; preds = %for.end
   br i1 %cmp.i.not2.i, label %if.end, label %while.body.lr.ph.i
 
 while.body.lr.ph.i:                               ; preds = %if.then
-  %mpPoolBegin.i.i.i.i.i.i = getelementptr inbounds %"class.eastl::compressed_pair_imp.58", ptr %this, i64 0, i32 1, i32 0, i32 2
-  %mpCapacity.i.i.i.i.i.i = getelementptr inbounds %"class.eastl::compressed_pair_imp.58", ptr %this, i64 0, i32 1, i32 0, i32 0, i32 2
-  %mSecond.i.i.i.i.i.i.i = getelementptr inbounds %"class.eastl::compressed_pair_imp.58", ptr %this, i64 0, i32 1
-  %mSize.i.i.i = getelementptr inbounds %"class.eastl::ListBase.56", ptr %this, i64 0, i32 1
+  %mpPoolBegin.i.i.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 56
+  %mpCapacity.i.i.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 32
+  %mSecond.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 16
+  %mSize.i.i.i = getelementptr inbounds i8, ptr %this, i64 64
   br label %while.body.i
 
 while.body.i:                                     ; preds = %_ZN5eastl4listIiNS_20fixed_node_allocatorILm24ELm32ELm8ELm0ELb1ENS_9allocatorEEEE5eraseENS_12ListIteratorIiPKiRS6_EE.exit.i, %while.body.lr.ph.i
   %first.sroa.0.03.i = phi ptr [ %pNode.0.lcssa, %while.body.lr.ph.i ], [ %3, %_ZN5eastl4listIiNS_20fixed_node_allocatorILm24ELm32ELm8ELm0ELb1ENS_9allocatorEEEE5eraseENS_12ListIteratorIiPKiRS6_EE.exit.i ]
   %3 = load ptr, ptr %first.sroa.0.03.i, align 8, !noalias !501
-  %mpPrev.i.i = getelementptr inbounds %"struct.eastl::ListNodeBase", ptr %3, i64 0, i32 1
+  %mpPrev.i.i = getelementptr inbounds i8, ptr %3, i64 8
   %4 = load ptr, ptr %mpPrev.i.i, align 8, !noalias !501
-  %mpPrev.i.i.i.i = getelementptr inbounds %"struct.eastl::ListNodeBase", ptr %4, i64 0, i32 1
+  %mpPrev.i.i.i.i = getelementptr inbounds i8, ptr %4, i64 8
   %5 = load ptr, ptr %mpPrev.i.i.i.i, align 8, !noalias !501
   %6 = load ptr, ptr %4, align 8, !noalias !501
-  %mpPrev2.i.i.i.i = getelementptr inbounds %"struct.eastl::ListNodeBase", ptr %6, i64 0, i32 1
+  %mpPrev2.i.i.i.i = getelementptr inbounds i8, ptr %6, i64 8
   store ptr %5, ptr %mpPrev2.i.i.i.i, align 8, !noalias !501
   %7 = load ptr, ptr %4, align 8, !noalias !501
   store ptr %7, ptr %5, align 8, !noalias !501
@@ -11809,12 +11805,12 @@ _ZN5eastl4listIiNS_20fixed_node_allocatorILm24ELm32ELm8ELm0ELb1ENS_9allocatorEEE
   br i1 %cmp.i.not.i, label %if.end, label %while.body.i, !llvm.loop !447
 
 for.body.lr.ph.i:                                 ; preds = %for.end
-  %mSecond.i.i.i.i.i.i.i10 = getelementptr inbounds %"class.eastl::compressed_pair_imp.58", ptr %this, i64 0, i32 1
-  %mpNext3.i.i.i.i.i.i.i = getelementptr inbounds %"class.eastl::compressed_pair_imp.58", ptr %this, i64 0, i32 1, i32 0, i32 0, i32 1
-  %mpCapacity.i.i.i.i.i.i.i = getelementptr inbounds %"class.eastl::compressed_pair_imp.58", ptr %this, i64 0, i32 1, i32 0, i32 0, i32 2
-  %mnNodeSize9.i.i.i.i.i.i.i = getelementptr inbounds %"class.eastl::compressed_pair_imp.58", ptr %this, i64 0, i32 1, i32 0, i32 0, i32 3
-  %mpPrev.i.i.i = getelementptr inbounds %"struct.eastl::ListNodeBase", ptr %this, i64 0, i32 1
-  %mSize.i.i = getelementptr inbounds %"class.eastl::ListBase.56", ptr %this, i64 0, i32 1
+  %mSecond.i.i.i.i.i.i.i10 = getelementptr inbounds i8, ptr %this, i64 16
+  %mpNext3.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 24
+  %mpCapacity.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 32
+  %mnNodeSize9.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 40
+  %mpPrev.i.i.i = getelementptr inbounds i8, ptr %this, i64 8
+  %mSize.i.i = getelementptr inbounds i8, ptr %this, i64 64
   br label %for.body.i
 
 for.body.i:                                       ; preds = %_ZN5eastl4listIiNS_20fixed_node_allocatorILm24ELm32ELm8ELm0ELb1ENS_9allocatorEEEE13DoInsertValueIJRKiEEEvPNS_12ListNodeBaseEDpOT_.exit.i, %for.body.lr.ph.i
@@ -11846,19 +11842,19 @@ if.else8.i.i.i.i.i.i.i:                           ; preds = %if.else.i.i.i.i.i.i
 
 _ZN5eastl4listIiNS_20fixed_node_allocatorILm24ELm32ELm8ELm0ELb1ENS_9allocatorEEEE13DoInsertValueIJRKiEEEvPNS_12ListNodeBaseEDpOT_.exit.i: ; preds = %if.else8.i.i.i.i.i.i.i, %if.then4.i.i.i.i.i.i.i, %if.then.i.i.i.i.i.i.i
   %result.0.i.i.i.i.i = phi ptr [ %12, %if.then.i.i.i.i.i.i.i ], [ %14, %if.then4.i.i.i.i.i.i.i ], [ %call.i.i.i.i.i.i.i.i, %if.else8.i.i.i.i.i.i.i ]
-  %mValue.i.i.i = getelementptr inbounds %"struct.eastl::ListNode", ptr %result.0.i.i.i.i.i, i64 0, i32 1
+  %mValue.i.i.i = getelementptr inbounds i8, ptr %result.0.i.i.i.i.i, i64 16
   %17 = load i32, ptr %first.addr.04.i, align 4
   store i32 %17, ptr %mValue.i.i.i, align 4
   store ptr %this, ptr %result.0.i.i.i.i.i, align 8
   %18 = load ptr, ptr %mpPrev.i.i.i, align 8
-  %mpPrev2.i.i.i = getelementptr inbounds %"struct.eastl::ListNodeBase", ptr %result.0.i.i.i.i.i, i64 0, i32 1
+  %mpPrev2.i.i.i = getelementptr inbounds i8, ptr %result.0.i.i.i.i.i, i64 8
   store ptr %18, ptr %mpPrev2.i.i.i, align 8
   store ptr %result.0.i.i.i.i.i, ptr %18, align 8
   store ptr %result.0.i.i.i.i.i, ptr %mpPrev.i.i.i, align 8
   %19 = load i64, ptr %mSize.i.i, align 8
   %inc.i.i = add i64 %19, 1
   store i64 %inc.i.i, ptr %mSize.i.i, align 8
-  %incdec.ptr.i = getelementptr inbounds i32, ptr %first.addr.04.i, i64 1
+  %incdec.ptr.i = getelementptr inbounds i8, ptr %first.addr.04.i, i64 4
   %cmp.not.i = icmp eq ptr %incdec.ptr.i, %last
   br i1 %cmp.not.i, label %if.end, label %for.body.i, !llvm.loop !506
 
@@ -11890,25 +11886,25 @@ if.then:                                          ; preds = %while.end
   br i1 %cmp.i.not2.i, label %if.end, label %while.body.lr.ph.i
 
 while.body.lr.ph.i:                               ; preds = %if.then
-  %mpPoolBegin.i.i.i.i.i.i = getelementptr inbounds %"class.eastl::compressed_pair_imp.65", ptr %this, i64 0, i32 1, i32 0, i32 2
-  %mpCapacity.i.i.i.i.i.i = getelementptr inbounds %"class.eastl::compressed_pair_imp.65", ptr %this, i64 0, i32 1, i32 0, i32 0, i32 2
-  %mSecond.i.i.i.i.i.i.i = getelementptr inbounds %"class.eastl::compressed_pair_imp.65", ptr %this, i64 0, i32 1
-  %mSize.i.i.i = getelementptr inbounds %"class.eastl::ListBase.63", ptr %this, i64 0, i32 1
+  %mpPoolBegin.i.i.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 56
+  %mpCapacity.i.i.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 32
+  %mSecond.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 16
+  %mSize.i.i.i = getelementptr inbounds i8, ptr %this, i64 64
   br label %while.body.i
 
 while.body.i:                                     ; preds = %_ZN5eastl4listI10TestObjectNS_20fixed_node_allocatorILm40ELm16ELm8ELm0ELb1ENS_9allocatorEEEE5eraseENS_12ListIteratorIS1_PKS1_RS7_EE.exit.i, %while.body.lr.ph.i
   %first.sroa.0.03.i = phi ptr [ %current.sroa.0.0, %while.body.lr.ph.i ], [ %1, %_ZN5eastl4listI10TestObjectNS_20fixed_node_allocatorILm40ELm16ELm8ELm0ELb1ENS_9allocatorEEEE5eraseENS_12ListIteratorIS1_PKS1_RS7_EE.exit.i ]
   %1 = load ptr, ptr %first.sroa.0.03.i, align 8, !noalias !508
-  %mpPrev.i.i = getelementptr inbounds %"struct.eastl::ListNodeBase", ptr %1, i64 0, i32 1
+  %mpPrev.i.i = getelementptr inbounds i8, ptr %1, i64 8
   %2 = load ptr, ptr %mpPrev.i.i, align 8, !noalias !508
-  %mpPrev.i.i.i.i = getelementptr inbounds %"struct.eastl::ListNodeBase", ptr %2, i64 0, i32 1
+  %mpPrev.i.i.i.i = getelementptr inbounds i8, ptr %2, i64 8
   %3 = load ptr, ptr %mpPrev.i.i.i.i, align 8, !noalias !508
   %4 = load ptr, ptr %2, align 8, !noalias !508
-  %mpPrev2.i.i.i.i = getelementptr inbounds %"struct.eastl::ListNodeBase", ptr %4, i64 0, i32 1
+  %mpPrev2.i.i.i.i = getelementptr inbounds i8, ptr %4, i64 8
   store ptr %3, ptr %mpPrev2.i.i.i.i, align 8, !noalias !508
   %5 = load ptr, ptr %2, align 8, !noalias !508
   store ptr %5, ptr %3, align 8, !noalias !508
-  %mMagicValue.i.i.i.i.i = getelementptr inbounds %"struct.eastl::ListNode.89", ptr %2, i64 0, i32 1, i32 4
+  %mMagicValue.i.i.i.i.i = getelementptr inbounds i8, ptr %2, i64 32
   %6 = load i32, ptr %mMagicValue.i.i.i.i.i, align 8, !noalias !508
   %cmp.not.i.i.i.i.i = icmp eq i32 %6, 32623592
   br i1 %cmp.not.i.i.i.i.i, label %_ZN5eastl8ListNodeI10TestObjectED2Ev.exit.i.i.i, label %if.then.i.i.i.i.i
@@ -11953,18 +11949,18 @@ _ZN5eastl4listI10TestObjectNS_20fixed_node_allocatorILm40ELm16ELm8ELm0ELb1ENS_9a
 
 if.else:                                          ; preds = %while.end
   %sub = sub i64 %n, %i.0
-  %mpPrev.i.i6 = getelementptr inbounds %"struct.eastl::ListNodeBase", ptr %this, i64 0, i32 1
+  %mpPrev.i.i6 = getelementptr inbounds i8, ptr %this, i64 8
   %cmp.not2.i.i = icmp eq i64 %sub, 0
   br i1 %cmp.not2.i.i, label %if.end, label %for.body.lr.ph.i.i
 
 for.body.lr.ph.i.i:                               ; preds = %if.else
-  %mSecond.i.i.i.i.i.i.i.i = getelementptr inbounds %"class.eastl::compressed_pair_imp.65", ptr %this, i64 0, i32 1
-  %mpNext3.i.i.i.i.i.i.i.i = getelementptr inbounds %"class.eastl::compressed_pair_imp.65", ptr %this, i64 0, i32 1, i32 0, i32 0, i32 1
-  %mpCapacity.i.i.i.i.i.i.i.i = getelementptr inbounds %"class.eastl::compressed_pair_imp.65", ptr %this, i64 0, i32 1, i32 0, i32 0, i32 2
-  %mnNodeSize9.i.i.i.i.i.i.i.i = getelementptr inbounds %"class.eastl::compressed_pair_imp.65", ptr %this, i64 0, i32 1, i32 0, i32 0, i32 3
-  %mbThrowOnCopy3.i.i.i.i.i = getelementptr inbounds %struct.TestObject, ptr %value, i64 0, i32 1
-  %mMagicValue4.i.i.i.i.i = getelementptr inbounds %struct.TestObject, ptr %value, i64 0, i32 4
-  %mSize.i.i.i7 = getelementptr inbounds %"class.eastl::ListBase.63", ptr %this, i64 0, i32 1
+  %mSecond.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 16
+  %mpNext3.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 24
+  %mpCapacity.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 32
+  %mnNodeSize9.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 40
+  %mbThrowOnCopy3.i.i.i.i.i = getelementptr inbounds i8, ptr %value, i64 4
+  %mMagicValue4.i.i.i.i.i = getelementptr inbounds i8, ptr %value, i64 16
+  %mSize.i.i.i7 = getelementptr inbounds i8, ptr %this, i64 64
   br label %for.body.i.i
 
 for.body.i.i:                                     ; preds = %_ZN5eastl4listI10TestObjectNS_20fixed_node_allocatorILm40ELm16ELm8ELm0ELb1ENS_9allocatorEEEE13DoInsertValueIJRKS1_EEEvPNS_12ListNodeBaseEDpOT_.exit.i.i, %for.body.lr.ph.i.i
@@ -11996,14 +11992,14 @@ if.else8.i.i.i.i.i.i.i.i:                         ; preds = %if.else.i.i.i.i.i.i
 
 _ZN5eastl4listI10TestObjectNS_20fixed_node_allocatorILm40ELm16ELm8ELm0ELb1ENS_9allocatorEEEE13DoInsertValueIJRKS1_EEEvPNS_12ListNodeBaseEDpOT_.exit.i.i: ; preds = %if.else8.i.i.i.i.i.i.i.i, %if.then4.i.i.i.i.i.i.i.i, %if.then.i.i.i.i.i.i.i.i
   %result.0.i.i.i.i.i.i = phi ptr [ %14, %if.then.i.i.i.i.i.i.i.i ], [ %16, %if.then4.i.i.i.i.i.i.i.i ], [ %call.i.i.i.i.i.i.i.i.i, %if.else8.i.i.i.i.i.i.i.i ]
-  %mValue.i.i.i.i = getelementptr inbounds %"struct.eastl::ListNode.89", ptr %result.0.i.i.i.i.i.i, i64 0, i32 1
+  %mValue.i.i.i.i = getelementptr inbounds i8, ptr %result.0.i.i.i.i.i.i, i64 16
   %19 = load i32, ptr %value, align 8, !noalias !514
   store i32 %19, ptr %mValue.i.i.i.i, align 8, !noalias !514
-  %mbThrowOnCopy.i.i.i.i.i = getelementptr inbounds %"struct.eastl::ListNode.89", ptr %result.0.i.i.i.i.i.i, i64 0, i32 1, i32 1
+  %mbThrowOnCopy.i.i.i.i.i = getelementptr inbounds i8, ptr %result.0.i.i.i.i.i.i, i64 20
   %20 = load i8, ptr %mbThrowOnCopy3.i.i.i.i.i, align 4, !noalias !514
   %21 = and i8 %20, 1
   store i8 %21, ptr %mbThrowOnCopy.i.i.i.i.i, align 4, !noalias !514
-  %mMagicValue.i.i.i.i.i8 = getelementptr inbounds %"struct.eastl::ListNode.89", ptr %result.0.i.i.i.i.i.i, i64 0, i32 1, i32 4
+  %mMagicValue.i.i.i.i.i8 = getelementptr inbounds i8, ptr %result.0.i.i.i.i.i.i, i64 32
   %22 = load i32, ptr %mMagicValue4.i.i.i.i.i, align 8, !noalias !514
   store i32 %22, ptr %mMagicValue.i.i.i.i.i8, align 8, !noalias !514
   %23 = load i64, ptr @_ZN10TestObject8sTOCountE, align 8, !noalias !514
@@ -12015,11 +12011,11 @@ _ZN5eastl4listI10TestObjectNS_20fixed_node_allocatorILm40ELm16ELm8ELm0ELb1ENS_9a
   %25 = load i64, ptr @_ZN10TestObject16sTOCopyCtorCountE, align 8, !noalias !514
   %inc6.i.i.i.i.i = add nsw i64 %25, 1
   store i64 %inc6.i.i.i.i.i, ptr @_ZN10TestObject16sTOCopyCtorCountE, align 8, !noalias !514
-  %mId.i.i.i.i.i = getelementptr inbounds %"struct.eastl::ListNode.89", ptr %result.0.i.i.i.i.i.i, i64 0, i32 1, i32 3
+  %mId.i.i.i.i.i = getelementptr inbounds i8, ptr %result.0.i.i.i.i.i.i, i64 24
   store i64 %inc5.i.i.i.i.i, ptr %mId.i.i.i.i.i, align 8, !noalias !514
   store ptr %this, ptr %result.0.i.i.i.i.i.i, align 8, !noalias !514
   %26 = load ptr, ptr %mpPrev.i.i6, align 8, !noalias !514
-  %mpPrev2.i.i.i.i10 = getelementptr inbounds %"struct.eastl::ListNodeBase", ptr %result.0.i.i.i.i.i.i, i64 0, i32 1
+  %mpPrev2.i.i.i.i10 = getelementptr inbounds i8, ptr %result.0.i.i.i.i.i.i, i64 8
   store ptr %26, ptr %mpPrev2.i.i.i.i10, align 8, !noalias !514
   store ptr %result.0.i.i.i.i.i.i, ptr %26, align 8, !noalias !514
   store ptr %result.0.i.i.i.i.i.i, ptr %mpPrev.i.i6, align 8, !noalias !514
@@ -12057,18 +12053,18 @@ for.body:                                         ; preds = %land.rhs
   br i1 %cmp.not.i, label %_ZN10TestObjectaSERKS_.exit, label %if.then.i
 
 if.then.i:                                        ; preds = %for.body
-  %mValue = getelementptr inbounds %"struct.eastl::ListNode.89", ptr %pNode.013, i64 0, i32 1
-  %mValue.i = getelementptr inbounds %"struct.eastl::ListNode.89", ptr %1, i64 0, i32 1
+  %mValue = getelementptr inbounds i8, ptr %pNode.013, i64 16
+  %mValue.i = getelementptr inbounds i8, ptr %1, i64 16
   %4 = load i32, ptr %mValue.i, align 8
   store i32 %4, ptr %mValue, align 8
-  %mMagicValue.i = getelementptr inbounds %"struct.eastl::ListNode.89", ptr %1, i64 0, i32 1, i32 4
+  %mMagicValue.i = getelementptr inbounds i8, ptr %1, i64 32
   %5 = load i32, ptr %mMagicValue.i, align 8
-  %mMagicValue3.i = getelementptr inbounds %"struct.eastl::ListNode.89", ptr %pNode.013, i64 0, i32 1, i32 4
+  %mMagicValue3.i = getelementptr inbounds i8, ptr %pNode.013, i64 32
   store i32 %5, ptr %mMagicValue3.i, align 8
-  %mbThrowOnCopy.i = getelementptr inbounds %"struct.eastl::ListNode.89", ptr %1, i64 0, i32 1, i32 1
+  %mbThrowOnCopy.i = getelementptr inbounds i8, ptr %1, i64 20
   %6 = load i8, ptr %mbThrowOnCopy.i, align 4
   %7 = and i8 %6, 1
-  %mbThrowOnCopy4.i = getelementptr inbounds %"struct.eastl::ListNode.89", ptr %pNode.013, i64 0, i32 1, i32 1
+  %mbThrowOnCopy4.i = getelementptr inbounds i8, ptr %pNode.013, i64 20
   store i8 %7, ptr %mbThrowOnCopy4.i, align 4
   br label %_ZN10TestObjectaSERKS_.exit
 
@@ -12087,25 +12083,25 @@ for.end:                                          ; preds = %_ZN10TestObjectaSER
   br i1 %cmp.i4, label %if.end, label %for.body.lr.ph.i
 
 while.body.lr.ph.i:                               ; preds = %land.rhs
-  %mpPoolBegin.i.i.i.i.i.i = getelementptr inbounds %"class.eastl::compressed_pair_imp.65", ptr %this, i64 0, i32 1, i32 0, i32 2
-  %mpCapacity.i.i.i.i.i.i = getelementptr inbounds %"class.eastl::compressed_pair_imp.65", ptr %this, i64 0, i32 1, i32 0, i32 0, i32 2
-  %mSecond.i.i.i.i.i.i.i = getelementptr inbounds %"class.eastl::compressed_pair_imp.65", ptr %this, i64 0, i32 1
-  %mSize.i.i.i = getelementptr inbounds %"class.eastl::ListBase.63", ptr %this, i64 0, i32 1
+  %mpPoolBegin.i.i.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 56
+  %mpCapacity.i.i.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 32
+  %mSecond.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 16
+  %mSize.i.i.i = getelementptr inbounds i8, ptr %this, i64 64
   br label %while.body.i
 
 while.body.i:                                     ; preds = %_ZN5eastl4listI10TestObjectNS_20fixed_node_allocatorILm40ELm16ELm8ELm0ELb1ENS_9allocatorEEEE5eraseENS_12ListIteratorIS1_PKS1_RS7_EE.exit.i, %while.body.lr.ph.i
   %first.sroa.0.03.i = phi ptr [ %pNode.013, %while.body.lr.ph.i ], [ %13, %_ZN5eastl4listI10TestObjectNS_20fixed_node_allocatorILm40ELm16ELm8ELm0ELb1ENS_9allocatorEEEE5eraseENS_12ListIteratorIS1_PKS1_RS7_EE.exit.i ]
   %13 = load ptr, ptr %first.sroa.0.03.i, align 8, !noalias !519
-  %mpPrev.i.i = getelementptr inbounds %"struct.eastl::ListNodeBase", ptr %13, i64 0, i32 1
+  %mpPrev.i.i = getelementptr inbounds i8, ptr %13, i64 8
   %14 = load ptr, ptr %mpPrev.i.i, align 8, !noalias !519
-  %mpPrev.i.i.i.i = getelementptr inbounds %"struct.eastl::ListNodeBase", ptr %14, i64 0, i32 1
+  %mpPrev.i.i.i.i = getelementptr inbounds i8, ptr %14, i64 8
   %15 = load ptr, ptr %mpPrev.i.i.i.i, align 8, !noalias !519
   %16 = load ptr, ptr %14, align 8, !noalias !519
-  %mpPrev2.i.i.i.i = getelementptr inbounds %"struct.eastl::ListNodeBase", ptr %16, i64 0, i32 1
+  %mpPrev2.i.i.i.i = getelementptr inbounds i8, ptr %16, i64 8
   store ptr %15, ptr %mpPrev2.i.i.i.i, align 8, !noalias !519
   %17 = load ptr, ptr %14, align 8, !noalias !519
   store ptr %17, ptr %15, align 8, !noalias !519
-  %mMagicValue.i.i.i.i.i = getelementptr inbounds %"struct.eastl::ListNode.89", ptr %14, i64 0, i32 1, i32 4
+  %mMagicValue.i.i.i.i.i = getelementptr inbounds i8, ptr %14, i64 32
   %18 = load i32, ptr %mMagicValue.i.i.i.i.i, align 8, !noalias !519
   %cmp.not.i.i.i.i.i = icmp eq i32 %18, 32623592
   br i1 %cmp.not.i.i.i.i.i, label %_ZN5eastl8ListNodeI10TestObjectED2Ev.exit.i.i.i, label %if.then.i.i.i.i.i
@@ -12149,17 +12145,17 @@ _ZN5eastl4listI10TestObjectNS_20fixed_node_allocatorILm40ELm16ELm8ELm0ELb1ENS_9a
   br i1 %cmp.i.not.i, label %if.end, label %while.body.i, !llvm.loop !513
 
 for.body.lr.ph.i:                                 ; preds = %for.end
-  %mSecond.i.i.i.i.i.i.i5 = getelementptr inbounds %"class.eastl::compressed_pair_imp.65", ptr %this, i64 0, i32 1
-  %mpNext3.i.i.i.i.i.i.i = getelementptr inbounds %"class.eastl::compressed_pair_imp.65", ptr %this, i64 0, i32 1, i32 0, i32 0, i32 1
-  %mpCapacity.i.i.i.i.i.i.i = getelementptr inbounds %"class.eastl::compressed_pair_imp.65", ptr %this, i64 0, i32 1, i32 0, i32 0, i32 2
-  %mnNodeSize9.i.i.i.i.i.i.i = getelementptr inbounds %"class.eastl::compressed_pair_imp.65", ptr %this, i64 0, i32 1, i32 0, i32 0, i32 3
-  %mpPrev.i.i.i = getelementptr inbounds %"struct.eastl::ListNodeBase", ptr %this, i64 0, i32 1
-  %mSize.i.i = getelementptr inbounds %"class.eastl::ListBase.63", ptr %this, i64 0, i32 1
+  %mSecond.i.i.i.i.i.i.i5 = getelementptr inbounds i8, ptr %this, i64 16
+  %mpNext3.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 24
+  %mpCapacity.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 32
+  %mnNodeSize9.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 40
+  %mpPrev.i.i.i = getelementptr inbounds i8, ptr %this, i64 8
+  %mSize.i.i = getelementptr inbounds i8, ptr %this, i64 64
   br label %for.body.i
 
 for.body.i:                                       ; preds = %_ZN5eastl4listI10TestObjectNS_20fixed_node_allocatorILm40ELm16ELm8ELm0ELb1ENS_9allocatorEEEE13DoInsertValueIJRS1_EEEvPNS_12ListNodeBaseEDpOT_.exit.i, %for.body.lr.ph.i
   %agg.tmp13.sroa.0.0 = phi ptr [ %11, %for.body.lr.ph.i ], [ %40, %_ZN5eastl4listI10TestObjectNS_20fixed_node_allocatorILm40ELm16ELm8ELm0ELb1ENS_9allocatorEEEE13DoInsertValueIJRS1_EEEvPNS_12ListNodeBaseEDpOT_.exit.i ]
-  %mValue.i.i = getelementptr inbounds %"struct.eastl::ListNode.89", ptr %agg.tmp13.sroa.0.0, i64 0, i32 1
+  %mValue.i.i = getelementptr inbounds i8, ptr %agg.tmp13.sroa.0.0, i64 16
   %26 = load ptr, ptr %mSecond.i.i.i.i.i.i.i5, align 8
   %tobool.not.i.i.i.i.i.i.i = icmp eq ptr %26, null
   br i1 %tobool.not.i.i.i.i.i.i.i, label %if.else.i.i.i.i.i.i.i, label %if.then.i.i.i.i.i.i.i
@@ -12187,16 +12183,16 @@ if.else8.i.i.i.i.i.i.i:                           ; preds = %if.else.i.i.i.i.i.i
 
 _ZN5eastl4listI10TestObjectNS_20fixed_node_allocatorILm40ELm16ELm8ELm0ELb1ENS_9allocatorEEEE13DoInsertValueIJRS1_EEEvPNS_12ListNodeBaseEDpOT_.exit.i: ; preds = %if.else8.i.i.i.i.i.i.i, %if.then4.i.i.i.i.i.i.i, %if.then.i.i.i.i.i.i.i
   %result.0.i.i.i.i.i = phi ptr [ %26, %if.then.i.i.i.i.i.i.i ], [ %28, %if.then4.i.i.i.i.i.i.i ], [ %call.i.i.i.i.i.i.i.i, %if.else8.i.i.i.i.i.i.i ]
-  %mValue.i.i.i = getelementptr inbounds %"struct.eastl::ListNode.89", ptr %result.0.i.i.i.i.i, i64 0, i32 1
+  %mValue.i.i.i = getelementptr inbounds i8, ptr %result.0.i.i.i.i.i, i64 16
   %31 = load i32, ptr %mValue.i.i, align 8
   store i32 %31, ptr %mValue.i.i.i, align 8
-  %mbThrowOnCopy.i.i.i.i = getelementptr inbounds %"struct.eastl::ListNode.89", ptr %result.0.i.i.i.i.i, i64 0, i32 1, i32 1
-  %mbThrowOnCopy3.i.i.i.i = getelementptr inbounds %"struct.eastl::ListNode.89", ptr %agg.tmp13.sroa.0.0, i64 0, i32 1, i32 1
+  %mbThrowOnCopy.i.i.i.i = getelementptr inbounds i8, ptr %result.0.i.i.i.i.i, i64 20
+  %mbThrowOnCopy3.i.i.i.i = getelementptr inbounds i8, ptr %agg.tmp13.sroa.0.0, i64 20
   %32 = load i8, ptr %mbThrowOnCopy3.i.i.i.i, align 4
   %33 = and i8 %32, 1
   store i8 %33, ptr %mbThrowOnCopy.i.i.i.i, align 4
-  %mMagicValue.i.i.i.i = getelementptr inbounds %"struct.eastl::ListNode.89", ptr %result.0.i.i.i.i.i, i64 0, i32 1, i32 4
-  %mMagicValue4.i.i.i.i = getelementptr inbounds %"struct.eastl::ListNode.89", ptr %agg.tmp13.sroa.0.0, i64 0, i32 1, i32 4
+  %mMagicValue.i.i.i.i = getelementptr inbounds i8, ptr %result.0.i.i.i.i.i, i64 32
+  %mMagicValue4.i.i.i.i = getelementptr inbounds i8, ptr %agg.tmp13.sroa.0.0, i64 32
   %34 = load i32, ptr %mMagicValue4.i.i.i.i, align 8
   store i32 %34, ptr %mMagicValue.i.i.i.i, align 8
   %35 = load i64, ptr @_ZN10TestObject8sTOCountE, align 8
@@ -12208,11 +12204,11 @@ _ZN5eastl4listI10TestObjectNS_20fixed_node_allocatorILm40ELm16ELm8ELm0ELb1ENS_9a
   %37 = load i64, ptr @_ZN10TestObject16sTOCopyCtorCountE, align 8
   %inc6.i.i.i.i = add nsw i64 %37, 1
   store i64 %inc6.i.i.i.i, ptr @_ZN10TestObject16sTOCopyCtorCountE, align 8
-  %mId.i.i.i.i = getelementptr inbounds %"struct.eastl::ListNode.89", ptr %result.0.i.i.i.i.i, i64 0, i32 1, i32 3
+  %mId.i.i.i.i = getelementptr inbounds i8, ptr %result.0.i.i.i.i.i, i64 24
   store i64 %inc5.i.i.i.i, ptr %mId.i.i.i.i, align 8
   store ptr %this, ptr %result.0.i.i.i.i.i, align 8
   %38 = load ptr, ptr %mpPrev.i.i.i, align 8
-  %mpPrev2.i.i.i = getelementptr inbounds %"struct.eastl::ListNodeBase", ptr %result.0.i.i.i.i.i, i64 0, i32 1
+  %mpPrev2.i.i.i = getelementptr inbounds i8, ptr %result.0.i.i.i.i.i, i64 8
   store ptr %38, ptr %mpPrev2.i.i.i, align 8
   store ptr %result.0.i.i.i.i.i, ptr %38, align 8
   store ptr %result.0.i.i.i.i.i, ptr %mpPrev.i.i.i, align 8
@@ -12251,27 +12247,27 @@ if.then:                                          ; preds = %while.end
   br i1 %cmp.i.not2.i, label %if.end, label %while.body.lr.ph.i
 
 while.body.lr.ph.i:                               ; preds = %if.then
-  %mpPoolBegin.i.i.i.i.i.i = getelementptr inbounds %"class.eastl::compressed_pair_imp.72", ptr %this, i64 0, i32 1, i32 0, i32 2
-  %mpCapacity.i.i.i.i.i.i = getelementptr inbounds %"class.eastl::compressed_pair_imp.72", ptr %this, i64 0, i32 1, i32 0, i32 0, i32 2
-  %mOverflowAllocator.i.i.i.i.i.i = getelementptr inbounds %"class.eastl::compressed_pair_imp.72", ptr %this, i64 0, i32 1, i32 0, i32 1
-  %mnNodeSize.i.i.i.i.i.i = getelementptr inbounds %"class.eastl::compressed_pair_imp.72", ptr %this, i64 0, i32 1, i32 0, i32 0, i32 3
-  %mSecond.i.i.i.i.i.i.i = getelementptr inbounds %"class.eastl::compressed_pair_imp.72", ptr %this, i64 0, i32 1
-  %mSize.i.i.i = getelementptr inbounds %"class.eastl::ListBase.70", ptr %this, i64 0, i32 1
+  %mpPoolBegin.i.i.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 64
+  %mpCapacity.i.i.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 32
+  %mOverflowAllocator.i.i.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 48
+  %mnNodeSize.i.i.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 40
+  %mSecond.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 16
+  %mSize.i.i.i = getelementptr inbounds i8, ptr %this, i64 72
   br label %while.body.i
 
 while.body.i:                                     ; preds = %_ZN5eastl4listI10TestObjectNS_20fixed_node_allocatorILm40ELm16ELm8ELm0ELb1E15MallocAllocatorEEE5eraseENS_12ListIteratorIS1_PKS1_RS7_EE.exit.i, %while.body.lr.ph.i
   %first.sroa.0.03.i = phi ptr [ %current.sroa.0.0, %while.body.lr.ph.i ], [ %1, %_ZN5eastl4listI10TestObjectNS_20fixed_node_allocatorILm40ELm16ELm8ELm0ELb1E15MallocAllocatorEEE5eraseENS_12ListIteratorIS1_PKS1_RS7_EE.exit.i ]
   %1 = load ptr, ptr %first.sroa.0.03.i, align 8, !noalias !526
-  %mpPrev.i.i = getelementptr inbounds %"struct.eastl::ListNodeBase", ptr %1, i64 0, i32 1
+  %mpPrev.i.i = getelementptr inbounds i8, ptr %1, i64 8
   %2 = load ptr, ptr %mpPrev.i.i, align 8, !noalias !526
-  %mpPrev.i.i.i.i = getelementptr inbounds %"struct.eastl::ListNodeBase", ptr %2, i64 0, i32 1
+  %mpPrev.i.i.i.i = getelementptr inbounds i8, ptr %2, i64 8
   %3 = load ptr, ptr %mpPrev.i.i.i.i, align 8, !noalias !526
   %4 = load ptr, ptr %2, align 8, !noalias !526
-  %mpPrev2.i.i.i.i = getelementptr inbounds %"struct.eastl::ListNodeBase", ptr %4, i64 0, i32 1
+  %mpPrev2.i.i.i.i = getelementptr inbounds i8, ptr %4, i64 8
   store ptr %3, ptr %mpPrev2.i.i.i.i, align 8, !noalias !526
   %5 = load ptr, ptr %2, align 8, !noalias !526
   store ptr %5, ptr %3, align 8, !noalias !526
-  %mMagicValue.i.i.i.i.i = getelementptr inbounds %"struct.eastl::ListNode.89", ptr %2, i64 0, i32 1, i32 4
+  %mMagicValue.i.i.i.i.i = getelementptr inbounds i8, ptr %2, i64 32
   %6 = load i32, ptr %mMagicValue.i.i.i.i.i, align 8, !noalias !526
   %cmp.not.i.i.i.i.i = icmp eq i32 %6, 32623592
   br i1 %cmp.not.i.i.i.i.i, label %_ZN5eastl8ListNodeI10TestObjectED2Ev.exit.i.i.i, label %if.then.i.i.i.i.i
@@ -12317,19 +12313,19 @@ _ZN5eastl4listI10TestObjectNS_20fixed_node_allocatorILm40ELm16ELm8ELm0ELb1E15Mal
 
 if.else:                                          ; preds = %while.end
   %sub = sub i64 %n, %i.0
-  %mpPrev.i.i6 = getelementptr inbounds %"struct.eastl::ListNodeBase", ptr %this, i64 0, i32 1
+  %mpPrev.i.i6 = getelementptr inbounds i8, ptr %this, i64 8
   %cmp.not2.i.i = icmp eq i64 %sub, 0
   br i1 %cmp.not2.i.i, label %if.end, label %for.body.lr.ph.i.i
 
 for.body.lr.ph.i.i:                               ; preds = %if.else
-  %mSecond.i.i.i.i.i.i.i.i = getelementptr inbounds %"class.eastl::compressed_pair_imp.72", ptr %this, i64 0, i32 1
-  %mpNext3.i.i.i.i.i.i.i.i = getelementptr inbounds %"class.eastl::compressed_pair_imp.72", ptr %this, i64 0, i32 1, i32 0, i32 0, i32 1
-  %mpCapacity.i.i.i.i.i.i.i.i = getelementptr inbounds %"class.eastl::compressed_pair_imp.72", ptr %this, i64 0, i32 1, i32 0, i32 0, i32 2
-  %mnNodeSize.i.i.i.i.i.i.i.i = getelementptr inbounds %"class.eastl::compressed_pair_imp.72", ptr %this, i64 0, i32 1, i32 0, i32 0, i32 3
-  %mOverflowAllocator.i.i.i.i.i.i.i.i = getelementptr inbounds %"class.eastl::compressed_pair_imp.72", ptr %this, i64 0, i32 1, i32 0, i32 1
-  %mbThrowOnCopy3.i.i.i.i.i = getelementptr inbounds %struct.TestObject, ptr %value, i64 0, i32 1
-  %mMagicValue4.i.i.i.i.i = getelementptr inbounds %struct.TestObject, ptr %value, i64 0, i32 4
-  %mSize.i.i.i7 = getelementptr inbounds %"class.eastl::ListBase.70", ptr %this, i64 0, i32 1
+  %mSecond.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 16
+  %mpNext3.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 24
+  %mpCapacity.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 32
+  %mnNodeSize.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 40
+  %mOverflowAllocator.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 48
+  %mbThrowOnCopy3.i.i.i.i.i = getelementptr inbounds i8, ptr %value, i64 4
+  %mMagicValue4.i.i.i.i.i = getelementptr inbounds i8, ptr %value, i64 16
+  %mSize.i.i.i7 = getelementptr inbounds i8, ptr %this, i64 72
   br label %for.body.i.i
 
 for.body.i.i:                                     ; preds = %_ZN5eastl4listI10TestObjectNS_20fixed_node_allocatorILm40ELm16ELm8ELm0ELb1E15MallocAllocatorEEE13DoInsertValueIJRKS1_EEEvPNS_12ListNodeBaseEDpOT_.exit.i.i, %for.body.lr.ph.i.i
@@ -12361,14 +12357,14 @@ if.else8.i.i.i.i.i.i.i.i:                         ; preds = %if.else.i.i.i.i.i.i
 
 _ZN5eastl4listI10TestObjectNS_20fixed_node_allocatorILm40ELm16ELm8ELm0ELb1E15MallocAllocatorEEE13DoInsertValueIJRKS1_EEEvPNS_12ListNodeBaseEDpOT_.exit.i.i: ; preds = %if.else8.i.i.i.i.i.i.i.i, %if.then4.i.i.i.i.i.i.i.i, %if.then.i.i.i.i.i.i.i.i
   %result.0.i.i.i.i.i.i = phi ptr [ %15, %if.then.i.i.i.i.i.i.i.i ], [ %17, %if.then4.i.i.i.i.i.i.i.i ], [ %call.i.i.i.i.i.i.i.i, %if.else8.i.i.i.i.i.i.i.i ]
-  %mValue.i.i.i.i = getelementptr inbounds %"struct.eastl::ListNode.89", ptr %result.0.i.i.i.i.i.i, i64 0, i32 1
+  %mValue.i.i.i.i = getelementptr inbounds i8, ptr %result.0.i.i.i.i.i.i, i64 16
   %20 = load i32, ptr %value, align 8, !noalias !532
   store i32 %20, ptr %mValue.i.i.i.i, align 8, !noalias !532
-  %mbThrowOnCopy.i.i.i.i.i = getelementptr inbounds %"struct.eastl::ListNode.89", ptr %result.0.i.i.i.i.i.i, i64 0, i32 1, i32 1
+  %mbThrowOnCopy.i.i.i.i.i = getelementptr inbounds i8, ptr %result.0.i.i.i.i.i.i, i64 20
   %21 = load i8, ptr %mbThrowOnCopy3.i.i.i.i.i, align 4, !noalias !532
   %22 = and i8 %21, 1
   store i8 %22, ptr %mbThrowOnCopy.i.i.i.i.i, align 4, !noalias !532
-  %mMagicValue.i.i.i.i.i8 = getelementptr inbounds %"struct.eastl::ListNode.89", ptr %result.0.i.i.i.i.i.i, i64 0, i32 1, i32 4
+  %mMagicValue.i.i.i.i.i8 = getelementptr inbounds i8, ptr %result.0.i.i.i.i.i.i, i64 32
   %23 = load i32, ptr %mMagicValue4.i.i.i.i.i, align 8, !noalias !532
   store i32 %23, ptr %mMagicValue.i.i.i.i.i8, align 8, !noalias !532
   %24 = load i64, ptr @_ZN10TestObject8sTOCountE, align 8, !noalias !532
@@ -12380,11 +12376,11 @@ _ZN5eastl4listI10TestObjectNS_20fixed_node_allocatorILm40ELm16ELm8ELm0ELb1E15Mal
   %26 = load i64, ptr @_ZN10TestObject16sTOCopyCtorCountE, align 8, !noalias !532
   %inc6.i.i.i.i.i = add nsw i64 %26, 1
   store i64 %inc6.i.i.i.i.i, ptr @_ZN10TestObject16sTOCopyCtorCountE, align 8, !noalias !532
-  %mId.i.i.i.i.i = getelementptr inbounds %"struct.eastl::ListNode.89", ptr %result.0.i.i.i.i.i.i, i64 0, i32 1, i32 3
+  %mId.i.i.i.i.i = getelementptr inbounds i8, ptr %result.0.i.i.i.i.i.i, i64 24
   store i64 %inc5.i.i.i.i.i, ptr %mId.i.i.i.i.i, align 8, !noalias !532
   store ptr %this, ptr %result.0.i.i.i.i.i.i, align 8, !noalias !532
   %27 = load ptr, ptr %mpPrev.i.i6, align 8, !noalias !532
-  %mpPrev2.i.i.i.i10 = getelementptr inbounds %"struct.eastl::ListNodeBase", ptr %result.0.i.i.i.i.i.i, i64 0, i32 1
+  %mpPrev2.i.i.i.i10 = getelementptr inbounds i8, ptr %result.0.i.i.i.i.i.i, i64 8
   store ptr %27, ptr %mpPrev2.i.i.i.i10, align 8, !noalias !532
   store ptr %result.0.i.i.i.i.i.i, ptr %27, align 8, !noalias !532
   store ptr %result.0.i.i.i.i.i.i, ptr %mpPrev.i.i6, align 8, !noalias !532
@@ -12422,18 +12418,18 @@ for.body:                                         ; preds = %land.rhs
   br i1 %cmp.not.i, label %_ZN10TestObjectaSERKS_.exit, label %if.then.i
 
 if.then.i:                                        ; preds = %for.body
-  %mValue = getelementptr inbounds %"struct.eastl::ListNode.89", ptr %pNode.013, i64 0, i32 1
-  %mValue.i = getelementptr inbounds %"struct.eastl::ListNode.89", ptr %1, i64 0, i32 1
+  %mValue = getelementptr inbounds i8, ptr %pNode.013, i64 16
+  %mValue.i = getelementptr inbounds i8, ptr %1, i64 16
   %4 = load i32, ptr %mValue.i, align 8
   store i32 %4, ptr %mValue, align 8
-  %mMagicValue.i = getelementptr inbounds %"struct.eastl::ListNode.89", ptr %1, i64 0, i32 1, i32 4
+  %mMagicValue.i = getelementptr inbounds i8, ptr %1, i64 32
   %5 = load i32, ptr %mMagicValue.i, align 8
-  %mMagicValue3.i = getelementptr inbounds %"struct.eastl::ListNode.89", ptr %pNode.013, i64 0, i32 1, i32 4
+  %mMagicValue3.i = getelementptr inbounds i8, ptr %pNode.013, i64 32
   store i32 %5, ptr %mMagicValue3.i, align 8
-  %mbThrowOnCopy.i = getelementptr inbounds %"struct.eastl::ListNode.89", ptr %1, i64 0, i32 1, i32 1
+  %mbThrowOnCopy.i = getelementptr inbounds i8, ptr %1, i64 20
   %6 = load i8, ptr %mbThrowOnCopy.i, align 4
   %7 = and i8 %6, 1
-  %mbThrowOnCopy4.i = getelementptr inbounds %"struct.eastl::ListNode.89", ptr %pNode.013, i64 0, i32 1, i32 1
+  %mbThrowOnCopy4.i = getelementptr inbounds i8, ptr %pNode.013, i64 20
   store i8 %7, ptr %mbThrowOnCopy4.i, align 4
   br label %_ZN10TestObjectaSERKS_.exit
 
@@ -12452,27 +12448,27 @@ for.end:                                          ; preds = %_ZN10TestObjectaSER
   br i1 %cmp.i4, label %if.end, label %for.body.lr.ph.i
 
 while.body.lr.ph.i:                               ; preds = %land.rhs
-  %mpPoolBegin.i.i.i.i.i.i = getelementptr inbounds %"class.eastl::compressed_pair_imp.72", ptr %this, i64 0, i32 1, i32 0, i32 2
-  %mpCapacity.i.i.i.i.i.i = getelementptr inbounds %"class.eastl::compressed_pair_imp.72", ptr %this, i64 0, i32 1, i32 0, i32 0, i32 2
-  %mOverflowAllocator.i.i.i.i.i.i = getelementptr inbounds %"class.eastl::compressed_pair_imp.72", ptr %this, i64 0, i32 1, i32 0, i32 1
-  %mnNodeSize.i.i.i.i.i.i = getelementptr inbounds %"class.eastl::compressed_pair_imp.72", ptr %this, i64 0, i32 1, i32 0, i32 0, i32 3
-  %mSecond.i.i.i.i.i.i.i = getelementptr inbounds %"class.eastl::compressed_pair_imp.72", ptr %this, i64 0, i32 1
-  %mSize.i.i.i = getelementptr inbounds %"class.eastl::ListBase.70", ptr %this, i64 0, i32 1
+  %mpPoolBegin.i.i.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 64
+  %mpCapacity.i.i.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 32
+  %mOverflowAllocator.i.i.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 48
+  %mnNodeSize.i.i.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 40
+  %mSecond.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 16
+  %mSize.i.i.i = getelementptr inbounds i8, ptr %this, i64 72
   br label %while.body.i
 
 while.body.i:                                     ; preds = %_ZN5eastl4listI10TestObjectNS_20fixed_node_allocatorILm40ELm16ELm8ELm0ELb1E15MallocAllocatorEEE5eraseENS_12ListIteratorIS1_PKS1_RS7_EE.exit.i, %while.body.lr.ph.i
   %first.sroa.0.03.i = phi ptr [ %pNode.013, %while.body.lr.ph.i ], [ %13, %_ZN5eastl4listI10TestObjectNS_20fixed_node_allocatorILm40ELm16ELm8ELm0ELb1E15MallocAllocatorEEE5eraseENS_12ListIteratorIS1_PKS1_RS7_EE.exit.i ]
   %13 = load ptr, ptr %first.sroa.0.03.i, align 8, !noalias !537
-  %mpPrev.i.i = getelementptr inbounds %"struct.eastl::ListNodeBase", ptr %13, i64 0, i32 1
+  %mpPrev.i.i = getelementptr inbounds i8, ptr %13, i64 8
   %14 = load ptr, ptr %mpPrev.i.i, align 8, !noalias !537
-  %mpPrev.i.i.i.i = getelementptr inbounds %"struct.eastl::ListNodeBase", ptr %14, i64 0, i32 1
+  %mpPrev.i.i.i.i = getelementptr inbounds i8, ptr %14, i64 8
   %15 = load ptr, ptr %mpPrev.i.i.i.i, align 8, !noalias !537
   %16 = load ptr, ptr %14, align 8, !noalias !537
-  %mpPrev2.i.i.i.i = getelementptr inbounds %"struct.eastl::ListNodeBase", ptr %16, i64 0, i32 1
+  %mpPrev2.i.i.i.i = getelementptr inbounds i8, ptr %16, i64 8
   store ptr %15, ptr %mpPrev2.i.i.i.i, align 8, !noalias !537
   %17 = load ptr, ptr %14, align 8, !noalias !537
   store ptr %17, ptr %15, align 8, !noalias !537
-  %mMagicValue.i.i.i.i.i = getelementptr inbounds %"struct.eastl::ListNode.89", ptr %14, i64 0, i32 1, i32 4
+  %mMagicValue.i.i.i.i.i = getelementptr inbounds i8, ptr %14, i64 32
   %18 = load i32, ptr %mMagicValue.i.i.i.i.i, align 8, !noalias !537
   %cmp.not.i.i.i.i.i = icmp eq i32 %18, 32623592
   br i1 %cmp.not.i.i.i.i.i, label %_ZN5eastl8ListNodeI10TestObjectED2Ev.exit.i.i.i, label %if.then.i.i.i.i.i
@@ -12517,18 +12513,18 @@ _ZN5eastl4listI10TestObjectNS_20fixed_node_allocatorILm40ELm16ELm8ELm0ELb1E15Mal
   br i1 %cmp.i.not.i, label %if.end, label %while.body.i, !llvm.loop !531
 
 for.body.lr.ph.i:                                 ; preds = %for.end
-  %mSecond.i.i.i.i.i.i.i5 = getelementptr inbounds %"class.eastl::compressed_pair_imp.72", ptr %this, i64 0, i32 1
-  %mpNext3.i.i.i.i.i.i.i = getelementptr inbounds %"class.eastl::compressed_pair_imp.72", ptr %this, i64 0, i32 1, i32 0, i32 0, i32 1
-  %mpCapacity.i.i.i.i.i.i.i = getelementptr inbounds %"class.eastl::compressed_pair_imp.72", ptr %this, i64 0, i32 1, i32 0, i32 0, i32 2
-  %mnNodeSize.i.i.i.i.i.i.i = getelementptr inbounds %"class.eastl::compressed_pair_imp.72", ptr %this, i64 0, i32 1, i32 0, i32 0, i32 3
-  %mOverflowAllocator.i.i.i.i.i.i.i = getelementptr inbounds %"class.eastl::compressed_pair_imp.72", ptr %this, i64 0, i32 1, i32 0, i32 1
-  %mpPrev.i.i.i = getelementptr inbounds %"struct.eastl::ListNodeBase", ptr %this, i64 0, i32 1
-  %mSize.i.i = getelementptr inbounds %"class.eastl::ListBase.70", ptr %this, i64 0, i32 1
+  %mSecond.i.i.i.i.i.i.i5 = getelementptr inbounds i8, ptr %this, i64 16
+  %mpNext3.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 24
+  %mpCapacity.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 32
+  %mnNodeSize.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 40
+  %mOverflowAllocator.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 48
+  %mpPrev.i.i.i = getelementptr inbounds i8, ptr %this, i64 8
+  %mSize.i.i = getelementptr inbounds i8, ptr %this, i64 72
   br label %for.body.i
 
 for.body.i:                                       ; preds = %_ZN5eastl4listI10TestObjectNS_20fixed_node_allocatorILm40ELm16ELm8ELm0ELb1E15MallocAllocatorEEE13DoInsertValueIJRS1_EEEvPNS_12ListNodeBaseEDpOT_.exit.i, %for.body.lr.ph.i
   %agg.tmp13.sroa.0.0 = phi ptr [ %11, %for.body.lr.ph.i ], [ %41, %_ZN5eastl4listI10TestObjectNS_20fixed_node_allocatorILm40ELm16ELm8ELm0ELb1E15MallocAllocatorEEE13DoInsertValueIJRS1_EEEvPNS_12ListNodeBaseEDpOT_.exit.i ]
-  %mValue.i.i = getelementptr inbounds %"struct.eastl::ListNode.89", ptr %agg.tmp13.sroa.0.0, i64 0, i32 1
+  %mValue.i.i = getelementptr inbounds i8, ptr %agg.tmp13.sroa.0.0, i64 16
   %27 = load ptr, ptr %mSecond.i.i.i.i.i.i.i5, align 8
   %tobool.not.i.i.i.i.i.i.i = icmp eq ptr %27, null
   br i1 %tobool.not.i.i.i.i.i.i.i, label %if.else.i.i.i.i.i.i.i, label %if.then.i.i.i.i.i.i.i
@@ -12556,16 +12552,16 @@ if.else8.i.i.i.i.i.i.i:                           ; preds = %if.else.i.i.i.i.i.i
 
 _ZN5eastl4listI10TestObjectNS_20fixed_node_allocatorILm40ELm16ELm8ELm0ELb1E15MallocAllocatorEEE13DoInsertValueIJRS1_EEEvPNS_12ListNodeBaseEDpOT_.exit.i: ; preds = %if.else8.i.i.i.i.i.i.i, %if.then4.i.i.i.i.i.i.i, %if.then.i.i.i.i.i.i.i
   %result.0.i.i.i.i.i = phi ptr [ %27, %if.then.i.i.i.i.i.i.i ], [ %29, %if.then4.i.i.i.i.i.i.i ], [ %call.i.i.i.i.i.i.i, %if.else8.i.i.i.i.i.i.i ]
-  %mValue.i.i.i = getelementptr inbounds %"struct.eastl::ListNode.89", ptr %result.0.i.i.i.i.i, i64 0, i32 1
+  %mValue.i.i.i = getelementptr inbounds i8, ptr %result.0.i.i.i.i.i, i64 16
   %32 = load i32, ptr %mValue.i.i, align 8
   store i32 %32, ptr %mValue.i.i.i, align 8
-  %mbThrowOnCopy.i.i.i.i = getelementptr inbounds %"struct.eastl::ListNode.89", ptr %result.0.i.i.i.i.i, i64 0, i32 1, i32 1
-  %mbThrowOnCopy3.i.i.i.i = getelementptr inbounds %"struct.eastl::ListNode.89", ptr %agg.tmp13.sroa.0.0, i64 0, i32 1, i32 1
+  %mbThrowOnCopy.i.i.i.i = getelementptr inbounds i8, ptr %result.0.i.i.i.i.i, i64 20
+  %mbThrowOnCopy3.i.i.i.i = getelementptr inbounds i8, ptr %agg.tmp13.sroa.0.0, i64 20
   %33 = load i8, ptr %mbThrowOnCopy3.i.i.i.i, align 4
   %34 = and i8 %33, 1
   store i8 %34, ptr %mbThrowOnCopy.i.i.i.i, align 4
-  %mMagicValue.i.i.i.i = getelementptr inbounds %"struct.eastl::ListNode.89", ptr %result.0.i.i.i.i.i, i64 0, i32 1, i32 4
-  %mMagicValue4.i.i.i.i = getelementptr inbounds %"struct.eastl::ListNode.89", ptr %agg.tmp13.sroa.0.0, i64 0, i32 1, i32 4
+  %mMagicValue.i.i.i.i = getelementptr inbounds i8, ptr %result.0.i.i.i.i.i, i64 32
+  %mMagicValue4.i.i.i.i = getelementptr inbounds i8, ptr %agg.tmp13.sroa.0.0, i64 32
   %35 = load i32, ptr %mMagicValue4.i.i.i.i, align 8
   store i32 %35, ptr %mMagicValue.i.i.i.i, align 8
   %36 = load i64, ptr @_ZN10TestObject8sTOCountE, align 8
@@ -12577,11 +12573,11 @@ _ZN5eastl4listI10TestObjectNS_20fixed_node_allocatorILm40ELm16ELm8ELm0ELb1E15Mal
   %38 = load i64, ptr @_ZN10TestObject16sTOCopyCtorCountE, align 8
   %inc6.i.i.i.i = add nsw i64 %38, 1
   store i64 %inc6.i.i.i.i, ptr @_ZN10TestObject16sTOCopyCtorCountE, align 8
-  %mId.i.i.i.i = getelementptr inbounds %"struct.eastl::ListNode.89", ptr %result.0.i.i.i.i.i, i64 0, i32 1, i32 3
+  %mId.i.i.i.i = getelementptr inbounds i8, ptr %result.0.i.i.i.i.i, i64 24
   store i64 %inc5.i.i.i.i, ptr %mId.i.i.i.i, align 8
   store ptr %this, ptr %result.0.i.i.i.i.i, align 8
   %39 = load ptr, ptr %mpPrev.i.i.i, align 8
-  %mpPrev2.i.i.i = getelementptr inbounds %"struct.eastl::ListNodeBase", ptr %result.0.i.i.i.i.i, i64 0, i32 1
+  %mpPrev2.i.i.i = getelementptr inbounds i8, ptr %result.0.i.i.i.i.i, i64 8
   store ptr %39, ptr %mpPrev2.i.i.i, align 8
   store ptr %result.0.i.i.i.i.i, ptr %39, align 8
   store ptr %result.0.i.i.i.i.i, ptr %mpPrev.i.i.i, align 8
@@ -12608,17 +12604,17 @@ if.then:                                          ; preds = %entry
   br i1 %cmp.not6.i.i, label %_ZN5eastl4listI10TestObjectNS_20fixed_node_allocatorILm40ELm16ELm8ELm0ELb1E15MallocAllocatorEEE5clearEv.exit, label %while.body.lr.ph.i.i
 
 while.body.lr.ph.i.i:                             ; preds = %if.then
-  %mpPoolBegin.i.i.i.i = getelementptr inbounds %"class.eastl::compressed_pair_imp.72", ptr %this, i64 0, i32 1, i32 0, i32 2
-  %mpCapacity.i.i.i.i = getelementptr inbounds %"class.eastl::compressed_pair_imp.72", ptr %this, i64 0, i32 1, i32 0, i32 0, i32 2
-  %mOverflowAllocator.i.i.i.i = getelementptr inbounds %"class.eastl::compressed_pair_imp.72", ptr %this, i64 0, i32 1, i32 0, i32 1
-  %mnNodeSize.i.i.i.i = getelementptr inbounds %"class.eastl::compressed_pair_imp.72", ptr %this, i64 0, i32 1, i32 0, i32 0, i32 3
-  %mSecond.i.i.i.i.i = getelementptr inbounds %"class.eastl::compressed_pair_imp.72", ptr %this, i64 0, i32 1
+  %mpPoolBegin.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 64
+  %mpCapacity.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 32
+  %mOverflowAllocator.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 48
+  %mnNodeSize.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 40
+  %mSecond.i.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 16
   br label %while.body.i.i
 
 while.body.i.i:                                   ; preds = %_ZN5eastl20fixed_node_allocatorILm40ELm16ELm8ELm0ELb1E15MallocAllocatorE10deallocateEPvm.exit.i.i, %while.body.lr.ph.i.i
   %p.07.i.i = phi ptr [ %0, %while.body.lr.ph.i.i ], [ %1, %_ZN5eastl20fixed_node_allocatorILm40ELm16ELm8ELm0ELb1E15MallocAllocatorE10deallocateEPvm.exit.i.i ]
   %1 = load ptr, ptr %p.07.i.i, align 8
-  %mMagicValue.i.i.i.i = getelementptr inbounds %"struct.eastl::ListNode.89", ptr %p.07.i.i, i64 0, i32 1, i32 4
+  %mMagicValue.i.i.i.i = getelementptr inbounds i8, ptr %p.07.i.i, i64 32
   %2 = load i32, ptr %mMagicValue.i.i.i.i, align 8
   %cmp.not.i.i.i.i = icmp eq i32 %2, 32623592
   br i1 %cmp.not.i.i.i.i, label %_ZN5eastl8ListNodeI10TestObjectED2Ev.exit.i.i, label %if.then.i.i.i.i
@@ -12668,9 +12664,9 @@ terminate.lpad.i:                                 ; preds = %if.else.i.i.i.i
 
 _ZN5eastl4listI10TestObjectNS_20fixed_node_allocatorILm40ELm16ELm8ELm0ELb1E15MallocAllocatorEEE5clearEv.exit: ; preds = %_ZN5eastl20fixed_node_allocatorILm40ELm16ELm8ELm0ELb1E15MallocAllocatorE10deallocateEPvm.exit.i.i, %if.then
   store ptr %this, ptr %this, align 8
-  %mpPrev.i.i = getelementptr inbounds %"struct.eastl::ListNodeBase", ptr %this, i64 0, i32 1
+  %mpPrev.i.i = getelementptr inbounds i8, ptr %this, i64 8
   store ptr %this, ptr %mpPrev.i.i, align 8
-  %mSize.i = getelementptr inbounds %"class.eastl::ListBase.70", ptr %this, i64 0, i32 1
+  %mSize.i = getelementptr inbounds i8, ptr %this, i64 72
   store i64 0, ptr %mSize.i, align 8
   %12 = load ptr, ptr %x, align 8
   tail call void @_ZN5eastl4listI10TestObjectNS_20fixed_node_allocatorILm40ELm16ELm8ELm0ELb1E15MallocAllocatorEEE8DoAssignINS_12ListIteratorIS1_PKS1_RS8_EEEEvT_SC_NS_17integral_constantIbLb0EEE(ptr noundef nonnull align 8 dereferenceable(80) %this, ptr %12, ptr nonnull %x)
@@ -12705,18 +12701,18 @@ for.body:                                         ; preds = %land.rhs
   br i1 %cmp.not.i, label %_ZN10TestObjectaSERKS_.exit, label %if.then.i
 
 if.then.i:                                        ; preds = %for.body
-  %mValue = getelementptr inbounds %"struct.eastl::ListNode.89", ptr %pNode.020, i64 0, i32 1
-  %mValue.i = getelementptr inbounds %"struct.eastl::ListNode.89", ptr %first.sroa.0.019, i64 0, i32 1
+  %mValue = getelementptr inbounds i8, ptr %pNode.020, i64 16
+  %mValue.i = getelementptr inbounds i8, ptr %first.sroa.0.019, i64 16
   %0 = load i32, ptr %mValue.i, align 8
   store i32 %0, ptr %mValue, align 8
-  %mMagicValue.i = getelementptr inbounds %"struct.eastl::ListNode.89", ptr %first.sroa.0.019, i64 0, i32 1, i32 4
+  %mMagicValue.i = getelementptr inbounds i8, ptr %first.sroa.0.019, i64 32
   %1 = load i32, ptr %mMagicValue.i, align 8
-  %mMagicValue3.i = getelementptr inbounds %"struct.eastl::ListNode.89", ptr %pNode.020, i64 0, i32 1, i32 4
+  %mMagicValue3.i = getelementptr inbounds i8, ptr %pNode.020, i64 32
   store i32 %1, ptr %mMagicValue3.i, align 8
-  %mbThrowOnCopy.i = getelementptr inbounds %"struct.eastl::ListNode.89", ptr %first.sroa.0.019, i64 0, i32 1, i32 1
+  %mbThrowOnCopy.i = getelementptr inbounds i8, ptr %first.sroa.0.019, i64 20
   %2 = load i8, ptr %mbThrowOnCopy.i, align 4
   %3 = and i8 %2, 1
-  %mbThrowOnCopy4.i = getelementptr inbounds %"struct.eastl::ListNode.89", ptr %pNode.020, i64 0, i32 1, i32 1
+  %mbThrowOnCopy4.i = getelementptr inbounds i8, ptr %pNode.020, i64 20
   store i8 %3, ptr %mbThrowOnCopy4.i, align 4
   br label %_ZN10TestObjectaSERKS_.exit
 
@@ -12732,27 +12728,27 @@ for.end:                                          ; preds = %_ZN10TestObjectaSER
   br i1 %cmp.i4, label %if.end, label %for.body.lr.ph.i
 
 while.body.lr.ph.i:                               ; preds = %land.rhs
-  %mpPoolBegin.i.i.i.i.i.i = getelementptr inbounds %"class.eastl::compressed_pair_imp.72", ptr %this, i64 0, i32 1, i32 0, i32 2
-  %mpCapacity.i.i.i.i.i.i = getelementptr inbounds %"class.eastl::compressed_pair_imp.72", ptr %this, i64 0, i32 1, i32 0, i32 0, i32 2
-  %mOverflowAllocator.i.i.i.i.i.i = getelementptr inbounds %"class.eastl::compressed_pair_imp.72", ptr %this, i64 0, i32 1, i32 0, i32 1
-  %mnNodeSize.i.i.i.i.i.i = getelementptr inbounds %"class.eastl::compressed_pair_imp.72", ptr %this, i64 0, i32 1, i32 0, i32 0, i32 3
-  %mSecond.i.i.i.i.i.i.i = getelementptr inbounds %"class.eastl::compressed_pair_imp.72", ptr %this, i64 0, i32 1
-  %mSize.i.i.i = getelementptr inbounds %"class.eastl::ListBase.70", ptr %this, i64 0, i32 1
+  %mpPoolBegin.i.i.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 64
+  %mpCapacity.i.i.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 32
+  %mOverflowAllocator.i.i.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 48
+  %mnNodeSize.i.i.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 40
+  %mSecond.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 16
+  %mSize.i.i.i = getelementptr inbounds i8, ptr %this, i64 72
   br label %while.body.i
 
 while.body.i:                                     ; preds = %_ZN5eastl4listI10TestObjectNS_20fixed_node_allocatorILm40ELm16ELm8ELm0ELb1E15MallocAllocatorEEE5eraseENS_12ListIteratorIS1_PKS1_RS7_EE.exit.i, %while.body.lr.ph.i
   %first.sroa.0.03.i = phi ptr [ %pNode.020, %while.body.lr.ph.i ], [ %5, %_ZN5eastl4listI10TestObjectNS_20fixed_node_allocatorILm40ELm16ELm8ELm0ELb1E15MallocAllocatorEEE5eraseENS_12ListIteratorIS1_PKS1_RS7_EE.exit.i ]
   %5 = load ptr, ptr %first.sroa.0.03.i, align 8, !noalias !544
-  %mpPrev.i.i = getelementptr inbounds %"struct.eastl::ListNodeBase", ptr %5, i64 0, i32 1
+  %mpPrev.i.i = getelementptr inbounds i8, ptr %5, i64 8
   %6 = load ptr, ptr %mpPrev.i.i, align 8, !noalias !544
-  %mpPrev.i.i.i.i = getelementptr inbounds %"struct.eastl::ListNodeBase", ptr %6, i64 0, i32 1
+  %mpPrev.i.i.i.i = getelementptr inbounds i8, ptr %6, i64 8
   %7 = load ptr, ptr %mpPrev.i.i.i.i, align 8, !noalias !544
   %8 = load ptr, ptr %6, align 8, !noalias !544
-  %mpPrev2.i.i.i.i = getelementptr inbounds %"struct.eastl::ListNodeBase", ptr %8, i64 0, i32 1
+  %mpPrev2.i.i.i.i = getelementptr inbounds i8, ptr %8, i64 8
   store ptr %7, ptr %mpPrev2.i.i.i.i, align 8, !noalias !544
   %9 = load ptr, ptr %6, align 8, !noalias !544
   store ptr %9, ptr %7, align 8, !noalias !544
-  %mMagicValue.i.i.i.i.i = getelementptr inbounds %"struct.eastl::ListNode.89", ptr %6, i64 0, i32 1, i32 4
+  %mMagicValue.i.i.i.i.i = getelementptr inbounds i8, ptr %6, i64 32
   %10 = load i32, ptr %mMagicValue.i.i.i.i.i, align 8, !noalias !544
   %cmp.not.i.i.i.i.i = icmp eq i32 %10, 32623592
   br i1 %cmp.not.i.i.i.i.i, label %_ZN5eastl8ListNodeI10TestObjectED2Ev.exit.i.i.i, label %if.then.i.i.i.i.i
@@ -12797,18 +12793,18 @@ _ZN5eastl4listI10TestObjectNS_20fixed_node_allocatorILm40ELm16ELm8ELm0ELb1E15Mal
   br i1 %cmp.i.not.i, label %if.end, label %while.body.i, !llvm.loop !531
 
 for.body.lr.ph.i:                                 ; preds = %for.end
-  %mSecond.i.i.i.i.i.i.i5 = getelementptr inbounds %"class.eastl::compressed_pair_imp.72", ptr %this, i64 0, i32 1
-  %mpNext3.i.i.i.i.i.i.i = getelementptr inbounds %"class.eastl::compressed_pair_imp.72", ptr %this, i64 0, i32 1, i32 0, i32 0, i32 1
-  %mpCapacity.i.i.i.i.i.i.i = getelementptr inbounds %"class.eastl::compressed_pair_imp.72", ptr %this, i64 0, i32 1, i32 0, i32 0, i32 2
-  %mnNodeSize.i.i.i.i.i.i.i = getelementptr inbounds %"class.eastl::compressed_pair_imp.72", ptr %this, i64 0, i32 1, i32 0, i32 0, i32 3
-  %mOverflowAllocator.i.i.i.i.i.i.i = getelementptr inbounds %"class.eastl::compressed_pair_imp.72", ptr %this, i64 0, i32 1, i32 0, i32 1
-  %mpPrev.i.i.i = getelementptr inbounds %"struct.eastl::ListNodeBase", ptr %this, i64 0, i32 1
-  %mSize.i.i = getelementptr inbounds %"class.eastl::ListBase.70", ptr %this, i64 0, i32 1
+  %mSecond.i.i.i.i.i.i.i5 = getelementptr inbounds i8, ptr %this, i64 16
+  %mpNext3.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 24
+  %mpCapacity.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 32
+  %mnNodeSize.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 40
+  %mOverflowAllocator.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 48
+  %mpPrev.i.i.i = getelementptr inbounds i8, ptr %this, i64 8
+  %mSize.i.i = getelementptr inbounds i8, ptr %this, i64 72
   br label %for.body.i
 
 for.body.i:                                       ; preds = %_ZN5eastl4listI10TestObjectNS_20fixed_node_allocatorILm40ELm16ELm8ELm0ELb1E15MallocAllocatorEEE13DoInsertValueIJRKS1_EEEvPNS_12ListNodeBaseEDpOT_.exit.i, %for.body.lr.ph.i
   %first.sroa.0.04.i = phi ptr [ %first.sroa.0.0.lcssa, %for.body.lr.ph.i ], [ %33, %_ZN5eastl4listI10TestObjectNS_20fixed_node_allocatorILm40ELm16ELm8ELm0ELb1E15MallocAllocatorEEE13DoInsertValueIJRKS1_EEEvPNS_12ListNodeBaseEDpOT_.exit.i ]
-  %mValue.i.i = getelementptr inbounds %"struct.eastl::ListNode.89", ptr %first.sroa.0.04.i, i64 0, i32 1
+  %mValue.i.i = getelementptr inbounds i8, ptr %first.sroa.0.04.i, i64 16
   %19 = load ptr, ptr %mSecond.i.i.i.i.i.i.i5, align 8
   %tobool.not.i.i.i.i.i.i.i = icmp eq ptr %19, null
   br i1 %tobool.not.i.i.i.i.i.i.i, label %if.else.i.i.i.i.i.i.i, label %if.then.i.i.i.i.i.i.i
@@ -12836,16 +12832,16 @@ if.else8.i.i.i.i.i.i.i:                           ; preds = %if.else.i.i.i.i.i.i
 
 _ZN5eastl4listI10TestObjectNS_20fixed_node_allocatorILm40ELm16ELm8ELm0ELb1E15MallocAllocatorEEE13DoInsertValueIJRKS1_EEEvPNS_12ListNodeBaseEDpOT_.exit.i: ; preds = %if.else8.i.i.i.i.i.i.i, %if.then4.i.i.i.i.i.i.i, %if.then.i.i.i.i.i.i.i
   %result.0.i.i.i.i.i = phi ptr [ %19, %if.then.i.i.i.i.i.i.i ], [ %21, %if.then4.i.i.i.i.i.i.i ], [ %call.i.i.i.i.i.i.i, %if.else8.i.i.i.i.i.i.i ]
-  %mValue.i.i.i = getelementptr inbounds %"struct.eastl::ListNode.89", ptr %result.0.i.i.i.i.i, i64 0, i32 1
+  %mValue.i.i.i = getelementptr inbounds i8, ptr %result.0.i.i.i.i.i, i64 16
   %24 = load i32, ptr %mValue.i.i, align 8
   store i32 %24, ptr %mValue.i.i.i, align 8
-  %mbThrowOnCopy.i.i.i.i = getelementptr inbounds %"struct.eastl::ListNode.89", ptr %result.0.i.i.i.i.i, i64 0, i32 1, i32 1
-  %mbThrowOnCopy3.i.i.i.i = getelementptr inbounds %"struct.eastl::ListNode.89", ptr %first.sroa.0.04.i, i64 0, i32 1, i32 1
+  %mbThrowOnCopy.i.i.i.i = getelementptr inbounds i8, ptr %result.0.i.i.i.i.i, i64 20
+  %mbThrowOnCopy3.i.i.i.i = getelementptr inbounds i8, ptr %first.sroa.0.04.i, i64 20
   %25 = load i8, ptr %mbThrowOnCopy3.i.i.i.i, align 4
   %26 = and i8 %25, 1
   store i8 %26, ptr %mbThrowOnCopy.i.i.i.i, align 4
-  %mMagicValue.i.i.i.i = getelementptr inbounds %"struct.eastl::ListNode.89", ptr %result.0.i.i.i.i.i, i64 0, i32 1, i32 4
-  %mMagicValue4.i.i.i.i = getelementptr inbounds %"struct.eastl::ListNode.89", ptr %first.sroa.0.04.i, i64 0, i32 1, i32 4
+  %mMagicValue.i.i.i.i = getelementptr inbounds i8, ptr %result.0.i.i.i.i.i, i64 32
+  %mMagicValue4.i.i.i.i = getelementptr inbounds i8, ptr %first.sroa.0.04.i, i64 32
   %27 = load i32, ptr %mMagicValue4.i.i.i.i, align 8
   store i32 %27, ptr %mMagicValue.i.i.i.i, align 8
   %28 = load i64, ptr @_ZN10TestObject8sTOCountE, align 8
@@ -12857,11 +12853,11 @@ _ZN5eastl4listI10TestObjectNS_20fixed_node_allocatorILm40ELm16ELm8ELm0ELb1E15Mal
   %30 = load i64, ptr @_ZN10TestObject16sTOCopyCtorCountE, align 8
   %inc6.i.i.i.i = add nsw i64 %30, 1
   store i64 %inc6.i.i.i.i, ptr @_ZN10TestObject16sTOCopyCtorCountE, align 8
-  %mId.i.i.i.i = getelementptr inbounds %"struct.eastl::ListNode.89", ptr %result.0.i.i.i.i.i, i64 0, i32 1, i32 3
+  %mId.i.i.i.i = getelementptr inbounds i8, ptr %result.0.i.i.i.i.i, i64 24
   store i64 %inc5.i.i.i.i, ptr %mId.i.i.i.i, align 8
   store ptr %this, ptr %result.0.i.i.i.i.i, align 8
   %31 = load ptr, ptr %mpPrev.i.i.i, align 8
-  %mpPrev2.i.i.i = getelementptr inbounds %"struct.eastl::ListNodeBase", ptr %result.0.i.i.i.i.i, i64 0, i32 1
+  %mpPrev2.i.i.i = getelementptr inbounds i8, ptr %result.0.i.i.i.i.i, i64 8
   store ptr %31, ptr %mpPrev2.i.i.i, align 8
   store ptr %result.0.i.i.i.i.i, ptr %31, align 8
   store ptr %result.0.i.i.i.i.i, ptr %mpPrev.i.i.i, align 8

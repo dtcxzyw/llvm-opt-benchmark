@@ -23,7 +23,7 @@ define hidden void @_ZN22serde_derive_internals9internals6respan12respan_token17
   %7 = alloca { { ptr, [3 x i64] }, {} }, align 8
   %8 = alloca { { ptr, [3 x i64] }, {} }, align 8
   %9 = alloca { { i32, [5 x i32] } }, align 8
-  %10 = getelementptr inbounds { [24 x i8], i8, [7 x i8] }, ptr %1, i64 0, i32 1
+  %10 = getelementptr inbounds i8, ptr %1, i64 24
   %11 = load i8, ptr %10, align 8, !range !5, !noundef !6
   %12 = icmp eq i8 %11, 3
   br i1 %12, label %13, label %15

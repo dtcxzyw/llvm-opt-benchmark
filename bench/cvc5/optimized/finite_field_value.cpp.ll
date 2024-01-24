@@ -3,14 +3,14 @@ source_filename = "bench/cvc5/original/finite_field_value.cpp.ll"
 target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:128-n8:16:32:64-S128"
 target triple = "x86_64-unknown-linux-gnu"
 
-%"class.cvc5::internal::FiniteFieldValue" = type { %"struct.cvc5::internal::FfSize", %"class.cvc5::internal::Integer" }
-%"struct.cvc5::internal::FfSize" = type { %"class.cvc5::internal::Integer" }
 %"class.cvc5::internal::Integer" = type { %class.__gmp_expr }
 %class.__gmp_expr = type { [1 x %struct.__mpz_struct] }
 %struct.__mpz_struct = type { i32, i32, ptr }
 %"class.std::__cxx11::basic_string" = type { %"struct.std::__cxx11::basic_string<char>::_Alloc_hider", i64, %union.anon }
 %"struct.std::__cxx11::basic_string<char>::_Alloc_hider" = type { ptr }
 %union.anon = type { i64, [8 x i8] }
+%"class.cvc5::internal::FiniteFieldValue" = type { %"struct.cvc5::internal::FfSize", %"class.cvc5::internal::Integer" }
+%"struct.cvc5::internal::FfSize" = type { %"class.cvc5::internal::Integer" }
 
 $_ZN4cvc58internal16FiniteFieldValueD2Ev = comdat any
 
@@ -19,14 +19,14 @@ $__clang_call_terminate = comdat any
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
 define hidden noundef nonnull align 8 dereferenceable(16) ptr @_ZNK4cvc58internal16FiniteFieldValue8getValueEv(ptr noundef nonnull readnone align 8 dereferenceable(32) %this) local_unnamed_addr #0 align 2 {
 entry:
-  %d_value = getelementptr inbounds %"class.cvc5::internal::FiniteFieldValue", ptr %this, i64 0, i32 1
+  %d_value = getelementptr inbounds i8, ptr %this, i64 16
   ret ptr %d_value
 }
 
 ; Function Attrs: mustprogress uwtable
 define hidden noundef zeroext i1 @_ZNK4cvc58internal16FiniteFieldValue6isZeroEv(ptr noundef nonnull align 8 dereferenceable(32) %this) local_unnamed_addr #1 align 2 {
 entry:
-  %d_value = getelementptr inbounds %"class.cvc5::internal::FiniteFieldValue", ptr %this, i64 0, i32 1
+  %d_value = getelementptr inbounds i8, ptr %this, i64 16
   %call = tail call noundef zeroext i1 @_ZNK4cvc58internal7Integer6isZeroEv(ptr noundef nonnull align 8 dereferenceable(16) %d_value)
   ret i1 %call
 }
@@ -36,7 +36,7 @@ declare noundef zeroext i1 @_ZNK4cvc58internal7Integer6isZeroEv(ptr noundef nonn
 ; Function Attrs: mustprogress uwtable
 define hidden noundef zeroext i1 @_ZNK4cvc58internal16FiniteFieldValue5isOneEv(ptr noundef nonnull align 8 dereferenceable(32) %this) local_unnamed_addr #1 align 2 {
 entry:
-  %d_value = getelementptr inbounds %"class.cvc5::internal::FiniteFieldValue", ptr %this, i64 0, i32 1
+  %d_value = getelementptr inbounds i8, ptr %this, i64 16
   %call = tail call noundef zeroext i1 @_ZNK4cvc58internal7Integer5isOneEv(ptr noundef nonnull align 8 dereferenceable(16) %d_value)
   ret i1 %call
 }
@@ -52,7 +52,7 @@ entry:
 ; Function Attrs: mustprogress uwtable
 define hidden void @_ZNK4cvc58internal16FiniteFieldValue9toIntegerEv(ptr noalias sret(%"class.cvc5::internal::Integer") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(32) %this) local_unnamed_addr #1 align 2 {
 entry:
-  %d_value = getelementptr inbounds %"class.cvc5::internal::FiniteFieldValue", ptr %this, i64 0, i32 1
+  %d_value = getelementptr inbounds i8, ptr %this, i64 16
   tail call void @__gmpz_init_set(ptr noundef nonnull %agg.result, ptr noundef nonnull %d_value)
   ret void
 }
@@ -94,7 +94,7 @@ terminate.lpad.i.i4:                              ; preds = %_ZN4cvc58internal7I
   unreachable
 
 _ZN4cvc58internal7IntegerD2Ev.exit5:              ; preds = %_ZN4cvc58internal7IntegerD2Ev.exit
-  %d_value = getelementptr inbounds %"class.cvc5::internal::FiniteFieldValue", ptr %this, i64 0, i32 1
+  %d_value = getelementptr inbounds i8, ptr %this, i64 16
   %call = invoke noundef zeroext i1 @_ZNK4cvc58internal7IntegerltERKS1_(ptr noundef nonnull align 8 dereferenceable(16) %d_value, ptr noundef nonnull align 8 dereferenceable(16) %half_size)
           to label %invoke.cont6 unwind label %lpad5
 
@@ -225,7 +225,7 @@ declare void @_ZNK4cvc58internal7Integer8toStringB5cxx11Ei(ptr sret(%"class.std:
 ; Function Attrs: mustprogress uwtable
 define hidden noundef i64 @_ZNK4cvc58internal16FiniteFieldValue4hashEv(ptr noundef nonnull align 8 dereferenceable(32) %this) local_unnamed_addr #1 align 2 {
 entry:
-  %d_value = getelementptr inbounds %"class.cvc5::internal::FiniteFieldValue", ptr %this, i64 0, i32 1
+  %d_value = getelementptr inbounds i8, ptr %this, i64 16
   %call = tail call noundef i64 @_ZNK4cvc58internal7Integer4hashEv(ptr noundef nonnull align 8 dereferenceable(16) %d_value)
   %call4 = tail call noundef i64 @_ZNK4cvc58internal7Integer4hashEv(ptr noundef nonnull align 8 dereferenceable(16) %this)
   %xor.i.i = xor i64 %call, -3750763034362895579
@@ -241,7 +241,7 @@ declare noundef i64 @_ZNK4cvc58internal7Integer4hashEv(ptr noundef nonnull align
 define hidden void @_ZN4cvc58internal16FiniteFieldValue9normalizeEv(ptr noundef nonnull align 8 dereferenceable(32) %this) local_unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp = alloca %"class.cvc5::internal::Integer", align 8
-  %d_value = getelementptr inbounds %"class.cvc5::internal::FiniteFieldValue", ptr %this, i64 0, i32 1
+  %d_value = getelementptr inbounds i8, ptr %this, i64 16
   call void @_ZNK4cvc58internal7Integer20floorDivideRemainderERKS1_(ptr nonnull sret(%"class.cvc5::internal::Integer") align 8 %ref.tmp, ptr noundef nonnull align 8 dereferenceable(16) %d_value, ptr noundef nonnull align 8 dereferenceable(16) %this)
   %call = invoke noundef nonnull align 8 dereferenceable(16) ptr @_ZN4cvc58internal7IntegeraSERKS1_(ptr noundef nonnull align 8 dereferenceable(16) %d_value, ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp)
           to label %invoke.cont unwind label %lpad
@@ -288,8 +288,8 @@ entry:
   br i1 %call.i, label %return, label %if.end
 
 if.end:                                           ; preds = %entry
-  %d_value = getelementptr inbounds %"class.cvc5::internal::FiniteFieldValue", ptr %x, i64 0, i32 1
-  %d_value2 = getelementptr inbounds %"class.cvc5::internal::FiniteFieldValue", ptr %y, i64 0, i32 1
+  %d_value = getelementptr inbounds i8, ptr %x, i64 16
+  %d_value2 = getelementptr inbounds i8, ptr %y, i64 16
   %call3 = tail call noundef zeroext i1 @_ZNK4cvc58internal7IntegereqERKS1_(ptr noundef nonnull align 8 dereferenceable(16) %d_value, ptr noundef nonnull align 8 dereferenceable(16) %d_value2)
   br label %return
 
@@ -307,8 +307,8 @@ entry:
   br i1 %call.i, label %return, label %if.end
 
 if.end:                                           ; preds = %entry
-  %d_value = getelementptr inbounds %"class.cvc5::internal::FiniteFieldValue", ptr %x, i64 0, i32 1
-  %d_value2 = getelementptr inbounds %"class.cvc5::internal::FiniteFieldValue", ptr %y, i64 0, i32 1
+  %d_value = getelementptr inbounds i8, ptr %x, i64 16
+  %d_value2 = getelementptr inbounds i8, ptr %y, i64 16
   %call3 = tail call noundef zeroext i1 @_ZNK4cvc58internal7IntegerneERKS1_(ptr noundef nonnull align 8 dereferenceable(16) %d_value, ptr noundef nonnull align 8 dereferenceable(16) %d_value2)
   br label %return
 
@@ -322,8 +322,8 @@ declare noundef zeroext i1 @_ZNK4cvc58internal7IntegerneERKS1_(ptr noundef nonnu
 ; Function Attrs: mustprogress uwtable
 define hidden noundef zeroext i1 @_ZN4cvc58internalltERKNS0_16FiniteFieldValueES3_(ptr noundef nonnull align 8 dereferenceable(32) %x, ptr noundef nonnull align 8 dereferenceable(32) %y) local_unnamed_addr #1 {
 entry:
-  %d_value = getelementptr inbounds %"class.cvc5::internal::FiniteFieldValue", ptr %x, i64 0, i32 1
-  %d_value1 = getelementptr inbounds %"class.cvc5::internal::FiniteFieldValue", ptr %y, i64 0, i32 1
+  %d_value = getelementptr inbounds i8, ptr %x, i64 16
+  %d_value1 = getelementptr inbounds i8, ptr %y, i64 16
   %call = tail call noundef zeroext i1 @_ZNK4cvc58internal7IntegerltERKS1_(ptr noundef nonnull align 8 dereferenceable(16) %d_value, ptr noundef nonnull align 8 dereferenceable(16) %d_value1)
   ret i1 %call
 }
@@ -331,8 +331,8 @@ entry:
 ; Function Attrs: mustprogress uwtable
 define hidden noundef zeroext i1 @_ZN4cvc58internalleERKNS0_16FiniteFieldValueES3_(ptr noundef nonnull align 8 dereferenceable(32) %x, ptr noundef nonnull align 8 dereferenceable(32) %y) local_unnamed_addr #1 {
 entry:
-  %d_value = getelementptr inbounds %"class.cvc5::internal::FiniteFieldValue", ptr %x, i64 0, i32 1
-  %d_value1 = getelementptr inbounds %"class.cvc5::internal::FiniteFieldValue", ptr %y, i64 0, i32 1
+  %d_value = getelementptr inbounds i8, ptr %x, i64 16
+  %d_value1 = getelementptr inbounds i8, ptr %y, i64 16
   %call = tail call noundef zeroext i1 @_ZNK4cvc58internal7IntegerleERKS1_(ptr noundef nonnull align 8 dereferenceable(16) %d_value, ptr noundef nonnull align 8 dereferenceable(16) %d_value1)
   ret i1 %call
 }
@@ -342,8 +342,8 @@ declare noundef zeroext i1 @_ZNK4cvc58internal7IntegerleERKS1_(ptr noundef nonnu
 ; Function Attrs: mustprogress uwtable
 define hidden noundef zeroext i1 @_ZN4cvc58internalgtERKNS0_16FiniteFieldValueES3_(ptr noundef nonnull align 8 dereferenceable(32) %x, ptr noundef nonnull align 8 dereferenceable(32) %y) local_unnamed_addr #1 {
 entry:
-  %d_value = getelementptr inbounds %"class.cvc5::internal::FiniteFieldValue", ptr %x, i64 0, i32 1
-  %d_value1 = getelementptr inbounds %"class.cvc5::internal::FiniteFieldValue", ptr %y, i64 0, i32 1
+  %d_value = getelementptr inbounds i8, ptr %x, i64 16
+  %d_value1 = getelementptr inbounds i8, ptr %y, i64 16
   %call = tail call noundef zeroext i1 @_ZNK4cvc58internal7IntegergtERKS1_(ptr noundef nonnull align 8 dereferenceable(16) %d_value, ptr noundef nonnull align 8 dereferenceable(16) %d_value1)
   ret i1 %call
 }
@@ -353,8 +353,8 @@ declare noundef zeroext i1 @_ZNK4cvc58internal7IntegergtERKS1_(ptr noundef nonnu
 ; Function Attrs: mustprogress uwtable
 define hidden noundef zeroext i1 @_ZN4cvc58internalgeERKNS0_16FiniteFieldValueES3_(ptr noundef nonnull align 8 dereferenceable(32) %x, ptr noundef nonnull align 8 dereferenceable(32) %y) local_unnamed_addr #1 {
 entry:
-  %d_value = getelementptr inbounds %"class.cvc5::internal::FiniteFieldValue", ptr %x, i64 0, i32 1
-  %d_value1 = getelementptr inbounds %"class.cvc5::internal::FiniteFieldValue", ptr %y, i64 0, i32 1
+  %d_value = getelementptr inbounds i8, ptr %x, i64 16
+  %d_value1 = getelementptr inbounds i8, ptr %y, i64 16
   %call = tail call noundef zeroext i1 @_ZNK4cvc58internal7IntegergeERKS1_(ptr noundef nonnull align 8 dereferenceable(16) %d_value, ptr noundef nonnull align 8 dereferenceable(16) %d_value1)
   ret i1 %call
 }
@@ -365,14 +365,14 @@ declare noundef zeroext i1 @_ZNK4cvc58internal7IntegergeERKS1_(ptr noundef nonnu
 define hidden void @_ZN4cvc58internalplERKNS0_16FiniteFieldValueES3_(ptr noalias sret(%"class.cvc5::internal::FiniteFieldValue") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(32) %x, ptr noundef nonnull align 8 dereferenceable(32) %y) local_unnamed_addr #1 personality ptr @__gxx_personality_v0 {
 entry:
   %sum = alloca %"class.cvc5::internal::Integer", align 8
-  %d_value = getelementptr inbounds %"class.cvc5::internal::FiniteFieldValue", ptr %x, i64 0, i32 1
-  %d_value1 = getelementptr inbounds %"class.cvc5::internal::FiniteFieldValue", ptr %y, i64 0, i32 1
+  %d_value = getelementptr inbounds i8, ptr %x, i64 16
+  %d_value1 = getelementptr inbounds i8, ptr %y, i64 16
   call void @_ZNK4cvc58internal7Integer6modAddERKS1_S3_(ptr nonnull sret(%"class.cvc5::internal::Integer") align 8 %sum, ptr noundef nonnull align 8 dereferenceable(16) %d_value, ptr noundef nonnull align 8 dereferenceable(16) %d_value1, ptr noundef nonnull align 8 dereferenceable(16) %x)
   invoke void @__gmpz_init_set(ptr noundef nonnull %agg.result, ptr noundef nonnull %x)
           to label %.noexc unwind label %lpad
 
 .noexc:                                           ; preds = %entry
-  %d_value.i = getelementptr inbounds %"class.cvc5::internal::FiniteFieldValue", ptr %agg.result, i64 0, i32 1
+  %d_value.i = getelementptr inbounds i8, ptr %agg.result, i64 16
   invoke void @_ZNK4cvc58internal7Integer20floorDivideRemainderERKS1_(ptr nonnull sret(%"class.cvc5::internal::Integer") align 8 %d_value.i, ptr noundef nonnull align 8 dereferenceable(16) %sum, ptr noundef nonnull align 8 dereferenceable(16) %x)
           to label %invoke.cont unwind label %lpad.i
 
@@ -430,14 +430,14 @@ declare void @_ZNK4cvc58internal7Integer6modAddERKS1_S3_(ptr sret(%"class.cvc5::
 define hidden void @_ZN4cvc58internalmiERKNS0_16FiniteFieldValueES3_(ptr noalias sret(%"class.cvc5::internal::FiniteFieldValue") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(32) %x, ptr noundef nonnull align 8 dereferenceable(32) %y) local_unnamed_addr #1 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp = alloca %"class.cvc5::internal::Integer", align 8
-  %d_value = getelementptr inbounds %"class.cvc5::internal::FiniteFieldValue", ptr %x, i64 0, i32 1
-  %d_value1 = getelementptr inbounds %"class.cvc5::internal::FiniteFieldValue", ptr %y, i64 0, i32 1
+  %d_value = getelementptr inbounds i8, ptr %x, i64 16
+  %d_value1 = getelementptr inbounds i8, ptr %y, i64 16
   call void @_ZNK4cvc58internal7IntegermiERKS1_(ptr nonnull sret(%"class.cvc5::internal::Integer") align 8 %ref.tmp, ptr noundef nonnull align 8 dereferenceable(16) %d_value, ptr noundef nonnull align 8 dereferenceable(16) %d_value1)
   invoke void @__gmpz_init_set(ptr noundef nonnull %agg.result, ptr noundef nonnull %x)
           to label %.noexc unwind label %lpad
 
 .noexc:                                           ; preds = %entry
-  %d_value.i = getelementptr inbounds %"class.cvc5::internal::FiniteFieldValue", ptr %agg.result, i64 0, i32 1
+  %d_value.i = getelementptr inbounds i8, ptr %agg.result, i64 16
   invoke void @_ZNK4cvc58internal7Integer20floorDivideRemainderERKS1_(ptr nonnull sret(%"class.cvc5::internal::Integer") align 8 %d_value.i, ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp, ptr noundef nonnull align 8 dereferenceable(16) %x)
           to label %invoke.cont unwind label %lpad.i
 
@@ -493,13 +493,13 @@ _ZN4cvc58internal7IntegerD2Ev.exit3:              ; preds = %lpad.body
 define hidden void @_ZN4cvc58internalngERKNS0_16FiniteFieldValueE(ptr noalias sret(%"class.cvc5::internal::FiniteFieldValue") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(32) %x) local_unnamed_addr #1 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp = alloca %"class.cvc5::internal::Integer", align 8
-  %d_value = getelementptr inbounds %"class.cvc5::internal::FiniteFieldValue", ptr %x, i64 0, i32 1
+  %d_value = getelementptr inbounds i8, ptr %x, i64 16
   call void @_ZNK4cvc58internal7IntegermiERKS1_(ptr nonnull sret(%"class.cvc5::internal::Integer") align 8 %ref.tmp, ptr noundef nonnull align 8 dereferenceable(16) %x, ptr noundef nonnull align 8 dereferenceable(16) %d_value)
   invoke void @__gmpz_init_set(ptr noundef nonnull %agg.result, ptr noundef nonnull %x)
           to label %.noexc unwind label %lpad
 
 .noexc:                                           ; preds = %entry
-  %d_value.i = getelementptr inbounds %"class.cvc5::internal::FiniteFieldValue", ptr %agg.result, i64 0, i32 1
+  %d_value.i = getelementptr inbounds i8, ptr %agg.result, i64 16
   invoke void @_ZNK4cvc58internal7Integer20floorDivideRemainderERKS1_(ptr nonnull sret(%"class.cvc5::internal::Integer") align 8 %d_value.i, ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp, ptr noundef nonnull align 8 dereferenceable(16) %x)
           to label %invoke.cont unwind label %lpad.i
 
@@ -555,14 +555,14 @@ _ZN4cvc58internal7IntegerD2Ev.exit4:              ; preds = %lpad.body
 define hidden void @_ZN4cvc58internalmlERKNS0_16FiniteFieldValueES3_(ptr noalias sret(%"class.cvc5::internal::FiniteFieldValue") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(32) %x, ptr noundef nonnull align 8 dereferenceable(32) %y) local_unnamed_addr #1 personality ptr @__gxx_personality_v0 {
 entry:
   %prod = alloca %"class.cvc5::internal::Integer", align 8
-  %d_value = getelementptr inbounds %"class.cvc5::internal::FiniteFieldValue", ptr %x, i64 0, i32 1
-  %d_value1 = getelementptr inbounds %"class.cvc5::internal::FiniteFieldValue", ptr %y, i64 0, i32 1
+  %d_value = getelementptr inbounds i8, ptr %x, i64 16
+  %d_value1 = getelementptr inbounds i8, ptr %y, i64 16
   call void @_ZNK4cvc58internal7Integer11modMultiplyERKS1_S3_(ptr nonnull sret(%"class.cvc5::internal::Integer") align 8 %prod, ptr noundef nonnull align 8 dereferenceable(16) %d_value, ptr noundef nonnull align 8 dereferenceable(16) %d_value1, ptr noundef nonnull align 8 dereferenceable(16) %x)
   invoke void @__gmpz_init_set(ptr noundef nonnull %agg.result, ptr noundef nonnull %x)
           to label %.noexc unwind label %lpad
 
 .noexc:                                           ; preds = %entry
-  %d_value.i = getelementptr inbounds %"class.cvc5::internal::FiniteFieldValue", ptr %agg.result, i64 0, i32 1
+  %d_value.i = getelementptr inbounds i8, ptr %agg.result, i64 16
   invoke void @_ZNK4cvc58internal7Integer20floorDivideRemainderERKS1_(ptr nonnull sret(%"class.cvc5::internal::Integer") align 8 %d_value.i, ptr noundef nonnull align 8 dereferenceable(16) %prod, ptr noundef nonnull align 8 dereferenceable(16) %x)
           to label %invoke.cont unwind label %lpad.i
 
@@ -625,7 +625,7 @@ entry:
           to label %invoke.cont unwind label %lpad
 
 invoke.cont:                                      ; preds = %entry
-  %d_value.i = getelementptr inbounds %"class.cvc5::internal::FiniteFieldValue", ptr %ref.tmp, i64 0, i32 1
+  %d_value.i = getelementptr inbounds i8, ptr %ref.tmp, i64 16
   invoke void @__gmpz_clear(ptr noundef nonnull %d_value.i)
           to label %_ZN4cvc58internal7IntegerD2Ev.exit.i unwind label %terminate.lpad.i.i.i
 
@@ -661,13 +661,13 @@ lpad:                                             ; preds = %entry
 define hidden void @_ZNK4cvc58internal16FiniteFieldValue5recipEv(ptr noalias sret(%"class.cvc5::internal::FiniteFieldValue") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(32) %this) local_unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp = alloca %"class.cvc5::internal::Integer", align 8
-  %d_value = getelementptr inbounds %"class.cvc5::internal::FiniteFieldValue", ptr %this, i64 0, i32 1
+  %d_value = getelementptr inbounds i8, ptr %this, i64 16
   call void @_ZNK4cvc58internal7Integer10modInverseERKS1_(ptr nonnull sret(%"class.cvc5::internal::Integer") align 8 %ref.tmp, ptr noundef nonnull align 8 dereferenceable(16) %d_value, ptr noundef nonnull align 8 dereferenceable(16) %this)
   invoke void @__gmpz_init_set(ptr noundef nonnull %agg.result, ptr noundef nonnull %this)
           to label %.noexc unwind label %lpad
 
 .noexc:                                           ; preds = %entry
-  %d_value.i = getelementptr inbounds %"class.cvc5::internal::FiniteFieldValue", ptr %agg.result, i64 0, i32 1
+  %d_value.i = getelementptr inbounds i8, ptr %agg.result, i64 16
   invoke void @_ZNK4cvc58internal7Integer20floorDivideRemainderERKS1_(ptr nonnull sret(%"class.cvc5::internal::Integer") align 8 %d_value.i, ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp, ptr noundef nonnull align 8 dereferenceable(16) %this)
           to label %invoke.cont unwind label %lpad.i
 
@@ -722,7 +722,7 @@ _ZN4cvc58internal7IntegerD2Ev.exit2:              ; preds = %lpad.body
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN4cvc58internal16FiniteFieldValueD2Ev(ptr noundef nonnull align 8 dereferenceable(32) %this) unnamed_addr #3 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  %d_value = getelementptr inbounds %"class.cvc5::internal::FiniteFieldValue", ptr %this, i64 0, i32 1
+  %d_value = getelementptr inbounds i8, ptr %this, i64 16
   invoke void @__gmpz_clear(ptr noundef nonnull %d_value)
           to label %_ZN4cvc58internal7IntegerD2Ev.exit unwind label %terminate.lpad.i.i
 
@@ -754,8 +754,8 @@ declare void @_ZNK4cvc58internal7Integer10modInverseERKS1_(ptr sret(%"class.cvc5
 define hidden noundef nonnull align 8 dereferenceable(32) ptr @_ZN4cvc58internal16FiniteFieldValuepLERKS1_(ptr noundef nonnull returned align 8 dereferenceable(32) %this, ptr noundef nonnull align 8 dereferenceable(32) %y) local_unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp.i = alloca %"class.cvc5::internal::Integer", align 8
-  %d_value = getelementptr inbounds %"class.cvc5::internal::FiniteFieldValue", ptr %y, i64 0, i32 1
-  %d_value2 = getelementptr inbounds %"class.cvc5::internal::FiniteFieldValue", ptr %this, i64 0, i32 1
+  %d_value = getelementptr inbounds i8, ptr %y, i64 16
+  %d_value2 = getelementptr inbounds i8, ptr %this, i64 16
   %call = tail call noundef nonnull align 8 dereferenceable(16) ptr @_ZN4cvc58internal7IntegerpLERKS1_(ptr noundef nonnull align 8 dereferenceable(16) %d_value2, ptr noundef nonnull align 8 dereferenceable(16) %d_value)
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %ref.tmp.i)
   call void @_ZNK4cvc58internal7Integer20floorDivideRemainderERKS1_(ptr nonnull sret(%"class.cvc5::internal::Integer") align 8 %ref.tmp.i, ptr noundef nonnull align 8 dereferenceable(16) %d_value2, ptr noundef nonnull align 8 dereferenceable(16) %this)
@@ -800,8 +800,8 @@ declare noundef nonnull align 8 dereferenceable(16) ptr @_ZN4cvc58internal7Integ
 define hidden noundef nonnull align 8 dereferenceable(32) ptr @_ZN4cvc58internal16FiniteFieldValuemIERKS1_(ptr noundef nonnull returned align 8 dereferenceable(32) %this, ptr noundef nonnull align 8 dereferenceable(32) %y) local_unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp.i = alloca %"class.cvc5::internal::Integer", align 8
-  %d_value = getelementptr inbounds %"class.cvc5::internal::FiniteFieldValue", ptr %y, i64 0, i32 1
-  %d_value2 = getelementptr inbounds %"class.cvc5::internal::FiniteFieldValue", ptr %this, i64 0, i32 1
+  %d_value = getelementptr inbounds i8, ptr %y, i64 16
+  %d_value2 = getelementptr inbounds i8, ptr %this, i64 16
   %call = tail call noundef nonnull align 8 dereferenceable(16) ptr @_ZN4cvc58internal7IntegermIERKS1_(ptr noundef nonnull align 8 dereferenceable(16) %d_value2, ptr noundef nonnull align 8 dereferenceable(16) %d_value)
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %ref.tmp.i)
   call void @_ZNK4cvc58internal7Integer20floorDivideRemainderERKS1_(ptr nonnull sret(%"class.cvc5::internal::Integer") align 8 %ref.tmp.i, ptr noundef nonnull align 8 dereferenceable(16) %d_value2, ptr noundef nonnull align 8 dereferenceable(16) %this)
@@ -846,8 +846,8 @@ declare noundef nonnull align 8 dereferenceable(16) ptr @_ZN4cvc58internal7Integ
 define hidden noundef nonnull align 8 dereferenceable(32) ptr @_ZN4cvc58internal16FiniteFieldValuemLERKS1_(ptr noundef nonnull returned align 8 dereferenceable(32) %this, ptr noundef nonnull align 8 dereferenceable(32) %y) local_unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp.i = alloca %"class.cvc5::internal::Integer", align 8
-  %d_value = getelementptr inbounds %"class.cvc5::internal::FiniteFieldValue", ptr %y, i64 0, i32 1
-  %d_value2 = getelementptr inbounds %"class.cvc5::internal::FiniteFieldValue", ptr %this, i64 0, i32 1
+  %d_value = getelementptr inbounds i8, ptr %y, i64 16
+  %d_value2 = getelementptr inbounds i8, ptr %this, i64 16
   %call = tail call noundef nonnull align 8 dereferenceable(16) ptr @_ZN4cvc58internal7IntegermLERKS1_(ptr noundef nonnull align 8 dereferenceable(16) %d_value2, ptr noundef nonnull align 8 dereferenceable(16) %d_value)
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %ref.tmp.i)
   call void @_ZNK4cvc58internal7Integer20floorDivideRemainderERKS1_(ptr nonnull sret(%"class.cvc5::internal::Integer") align 8 %ref.tmp.i, ptr noundef nonnull align 8 dereferenceable(16) %d_value2, ptr noundef nonnull align 8 dereferenceable(16) %this)
@@ -893,9 +893,9 @@ define hidden noundef nonnull align 8 dereferenceable(32) ptr @_ZN4cvc58internal
 entry:
   %ref.tmp.i = alloca %"class.cvc5::internal::Integer", align 8
   %ref.tmp = alloca %"class.cvc5::internal::Integer", align 8
-  %d_value = getelementptr inbounds %"class.cvc5::internal::FiniteFieldValue", ptr %y, i64 0, i32 1
+  %d_value = getelementptr inbounds i8, ptr %y, i64 16
   call void @_ZNK4cvc58internal7Integer10modInverseERKS1_(ptr nonnull sret(%"class.cvc5::internal::Integer") align 8 %ref.tmp, ptr noundef nonnull align 8 dereferenceable(16) %d_value, ptr noundef nonnull align 8 dereferenceable(16) %this)
-  %d_value2 = getelementptr inbounds %"class.cvc5::internal::FiniteFieldValue", ptr %this, i64 0, i32 1
+  %d_value2 = getelementptr inbounds i8, ptr %this, i64 16
   %call3 = invoke noundef nonnull align 8 dereferenceable(16) ptr @_ZN4cvc58internal7IntegermLERKS1_(ptr noundef nonnull align 8 dereferenceable(16) %d_value2, ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp)
           to label %invoke.cont unwind label %lpad
 
@@ -1061,7 +1061,7 @@ invoke.cont3:                                     ; preds = %invoke.cont
           to label %.noexc unwind label %lpad4
 
 .noexc:                                           ; preds = %invoke.cont3
-  %d_value.i = getelementptr inbounds %"class.cvc5::internal::FiniteFieldValue", ptr %agg.result, i64 0, i32 1
+  %d_value.i = getelementptr inbounds i8, ptr %agg.result, i64 16
   invoke void @_ZNK4cvc58internal7Integer20floorDivideRemainderERKS1_(ptr nonnull sret(%"class.cvc5::internal::Integer") align 8 %d_value.i, ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp, ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp1)
           to label %invoke.cont5 unwind label %lpad.i
 
@@ -1188,7 +1188,7 @@ invoke.cont3:                                     ; preds = %invoke.cont
           to label %.noexc unwind label %lpad4
 
 .noexc:                                           ; preds = %invoke.cont3
-  %d_value.i = getelementptr inbounds %"class.cvc5::internal::FiniteFieldValue", ptr %agg.result, i64 0, i32 1
+  %d_value.i = getelementptr inbounds i8, ptr %agg.result, i64 16
   invoke void @_ZNK4cvc58internal7Integer20floorDivideRemainderERKS1_(ptr nonnull sret(%"class.cvc5::internal::Integer") align 8 %d_value.i, ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp, ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp1)
           to label %invoke.cont5 unwind label %lpad.i
 

@@ -38,7 +38,7 @@ migration_ioc_yank_supported.exit:                ; preds = %entry
 
 if.then:                                          ; preds = %entry, %migration_ioc_yank_supported.exit
   store i32 2, ptr %.compoundliteral, align 8
-  %u = getelementptr inbounds %struct.YankInstance, ptr %.compoundliteral, i64 0, i32 1
+  %u = getelementptr inbounds i8, ptr %.compoundliteral, i64 8
   store i64 0, ptr %u, align 8
   call void @yank_register_function(ptr noundef nonnull %.compoundliteral, ptr noundef nonnull @migration_yank_iochannel, ptr noundef %ioc) #3
   br label %if.end
@@ -64,7 +64,7 @@ migration_ioc_yank_supported.exit:                ; preds = %entry
 
 if.then:                                          ; preds = %entry, %migration_ioc_yank_supported.exit
   store i32 2, ptr %.compoundliteral, align 8
-  %u = getelementptr inbounds %struct.YankInstance, ptr %.compoundliteral, i64 0, i32 1
+  %u = getelementptr inbounds i8, ptr %.compoundliteral, i64 8
   store i64 0, ptr %u, align 8
   call void @yank_unregister_function(ptr noundef nonnull %.compoundliteral, ptr noundef nonnull @migration_yank_iochannel, ptr noundef %ioc) #3
   br label %if.end
@@ -96,7 +96,7 @@ migration_ioc_yank_supported.exit.i:              ; preds = %if.then
 
 if.then.i:                                        ; preds = %migration_ioc_yank_supported.exit.i, %if.then
   store i32 2, ptr %.compoundliteral.i, align 8
-  %u.i = getelementptr inbounds %struct.YankInstance, ptr %.compoundliteral.i, i64 0, i32 1
+  %u.i = getelementptr inbounds i8, ptr %.compoundliteral.i, i64 8
   store i64 0, ptr %u.i, align 8
   call void @yank_unregister_function(ptr noundef nonnull %.compoundliteral.i, ptr noundef nonnull @migration_yank_iochannel, ptr noundef nonnull %call) #3
   br label %migration_ioc_unregister_yank.exit

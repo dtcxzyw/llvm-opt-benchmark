@@ -16,7 +16,7 @@ define hidden align 8 ptr @"_ZN14regex_automata4meta7limited26hybrid_try_search_
 define hidden zeroext i1 @"_ZN14regex_automata4meta7limited26hybrid_try_search_half_rev28_$u7b$$u7b$closure$u7d$$u7d$17hd396c477b7a1d9a2E"(ptr align 8 %0, i64 %1, i32 %2) unnamed_addr #0 {
   %4 = alloca { i64, i32 }, align 8
   store i64 %1, ptr %4, align 8
-  %5 = getelementptr inbounds { i64, i32 }, ptr %4, i64 0, i32 1
+  %5 = getelementptr inbounds i8, ptr %4, i64 8
   store i32 %2, ptr %5, align 8
   %6 = call i64 @_ZN14regex_automata4util6search9HalfMatch6offset17hf0af348b59984ef7E(ptr nonnull align 8 %4)
   %7 = icmp ne ptr %0, null

@@ -3,11 +3,6 @@ source_filename = "bench/libquic/original/x509.c.ll"
 target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:128-n8:16:32:64-S128"
 target triple = "x86_64-unknown-linux-gnu"
 
-%struct.pkcs8_priv_key_info_st = type { i32, ptr, ptr, ptr, ptr }
-%struct.asn1_string_st = type { i32, i32, ptr, i64 }
-%struct.asn1_type_st = type { i32, %union.anon }
-%union.anon = type { ptr }
-
 @.str = private unnamed_addr constant [2 x i8] c"\0A\00", align 1
 @.str.1 = private unnamed_addr constant [7 x i8] c"%02x%s\00", align 1
 @.str.2 = private unnamed_addr constant [1 x i8] zeroinitializer, align 1
@@ -20,7 +15,7 @@ entry:
   br i1 %cmp, label %if.then, label %if.end3
 
 if.then:                                          ; preds = %entry
-  %version1 = getelementptr inbounds %struct.pkcs8_priv_key_info_st, ptr %priv, i64 0, i32 1
+  %version1 = getelementptr inbounds i8, ptr %priv, i64 8
   %0 = load ptr, ptr %version1, align 8
   %conv = zext nneg i32 %version to i64
   %call = tail call i32 @ASN1_INTEGER_set(ptr noundef %0, i64 noundef %conv) #4
@@ -37,20 +32,20 @@ if.then5:                                         ; preds = %if.end3
   br i1 %tobool7.not, label %return, label %if.end9
 
 if.end9:                                          ; preds = %if.then5
-  %data = getelementptr inbounds %struct.asn1_string_st, ptr %call6, i64 0, i32 2
+  %data = getelementptr inbounds i8, ptr %call6, i64 8
   store ptr %penc, ptr %data, align 8
   store i32 %penclen, ptr %call6, align 8
   %1 = load i32, ptr %priv, align 8
   %cmp11 = icmp eq i32 %1, 1
   %. = select i1 %cmp11, i32 16, i32 4
-  %pkey = getelementptr inbounds %struct.pkcs8_priv_key_info_st, ptr %priv, i64 0, i32 3
+  %pkey = getelementptr inbounds i8, ptr %priv, i64 24
   %2 = load ptr, ptr %pkey, align 8
   tail call void @ASN1_TYPE_set(ptr noundef %2, i32 noundef %., ptr noundef nonnull %call6) #4
   br label %if.end15
 
 if.end15:                                         ; preds = %if.end9, %if.end3
   %ppenc.0 = phi ptr [ %data, %if.end9 ], [ null, %if.end3 ]
-  %pkeyalg = getelementptr inbounds %struct.pkcs8_priv_key_info_st, ptr %priv, i64 0, i32 2
+  %pkeyalg = getelementptr inbounds i8, ptr %priv, i64 16
   %3 = load ptr, ptr %pkeyalg, align 8
   %call16 = tail call i32 @X509_ALGOR_set0(ptr noundef %3, ptr noundef %aobj, i32 noundef %ptype, ptr noundef %pval) #4
   %tobool17.not = icmp eq i32 %call16, 0
@@ -84,14 +79,14 @@ entry:
   br i1 %tobool.not, label %if.end, label %if.then
 
 if.then:                                          ; preds = %entry
-  %pkeyalg = getelementptr inbounds %struct.pkcs8_priv_key_info_st, ptr %p8, i64 0, i32 2
+  %pkeyalg = getelementptr inbounds i8, ptr %p8, i64 16
   %0 = load ptr, ptr %pkeyalg, align 8
   %1 = load ptr, ptr %0, align 8
   store ptr %1, ptr %ppkalg, align 8
   br label %if.end
 
 if.end:                                           ; preds = %if.then, %entry
-  %pkey = getelementptr inbounds %struct.pkcs8_priv_key_info_st, ptr %p8, i64 0, i32 3
+  %pkey = getelementptr inbounds i8, ptr %p8, i64 24
   %2 = load ptr, ptr %pkey, align 8
   %3 = load i32, ptr %2, align 8
   switch i32 %3, label %return [
@@ -110,13 +105,13 @@ if.then11:                                        ; preds = %if.end
   br i1 %tobool13.not, label %if.end24, label %if.end24.sink.split
 
 if.end24.sink.split:                              ; preds = %if.then11, %if.then1
-  %value16 = getelementptr inbounds %struct.asn1_type_st, ptr %2, i64 0, i32 1
+  %value16 = getelementptr inbounds i8, ptr %2, i64 8
   %4 = load ptr, ptr %value16, align 8
-  %data17 = getelementptr inbounds %struct.asn1_string_st, ptr %4, i64 0, i32 2
+  %data17 = getelementptr inbounds i8, ptr %4, i64 8
   %5 = load ptr, ptr %data17, align 8
   store ptr %5, ptr %pk, align 8
   %6 = load ptr, ptr %pkey, align 8
-  %value19 = getelementptr inbounds %struct.asn1_type_st, ptr %6, i64 0, i32 1
+  %value19 = getelementptr inbounds i8, ptr %6, i64 8
   %7 = load ptr, ptr %value19, align 8
   %8 = load i32, ptr %7, align 8
   store i32 %8, ptr %ppklen, align 4
@@ -127,7 +122,7 @@ if.end24:                                         ; preds = %if.end24.sink.split
   br i1 %tobool25.not, label %return, label %if.then26
 
 if.then26:                                        ; preds = %if.end24
-  %pkeyalg27 = getelementptr inbounds %struct.pkcs8_priv_key_info_st, ptr %p8, i64 0, i32 2
+  %pkeyalg27 = getelementptr inbounds i8, ptr %p8, i64 16
   %9 = load ptr, ptr %pkeyalg27, align 8
   store ptr %9, ptr %pa, align 8
   br label %return
@@ -141,7 +136,7 @@ return:                                           ; preds = %if.end24, %if.then2
 define hidden i32 @X509_signature_dump(ptr noundef %bp, ptr nocapture noundef readonly %sig, i32 noundef %indent) local_unnamed_addr #0 {
 entry:
   %0 = load i32, ptr %sig, align 8
-  %data = getelementptr inbounds %struct.asn1_string_st, ptr %sig, i64 0, i32 2
+  %data = getelementptr inbounds i8, ptr %sig, i64 8
   %1 = load ptr, ptr %data, align 8
   %2 = zext i32 %0 to i64
   %smax = tail call i32 @llvm.smax.i32(i32 %0, i32 0)

@@ -4,8 +4,6 @@ target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:
 target triple = "x86_64-unknown-linux-gnu"
 
 %struct.evp_pkey_asn1_method_st = type { i32, [9 x i8], i8, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr }
-%struct.evp_pkey_st = type { i32, i32, %union.anon, ptr }
-%union.anon = type { ptr }
 
 @.str = private unnamed_addr constant [120 x i8] c"generated/home/dtcxzyw/WorkSpace/Projects/compilers/llvm-opt-benchmark/bench/libquic/libquic/boringssl/crypto/evp/evp.c\00", align 1
 @.str.1 = private unnamed_addr constant [13 x i8] c"algorithm %d\00", align 1
@@ -46,13 +44,13 @@ if.end:                                           ; preds = %entry
   br i1 %tobool.not, label %return, label %if.end2
 
 if.end2:                                          ; preds = %if.end
-  %ameth.i = getelementptr inbounds %struct.evp_pkey_st, ptr %pkey, i64 0, i32 3
+  %ameth.i = getelementptr inbounds i8, ptr %pkey, i64 16
   %0 = load ptr, ptr %ameth.i, align 8
   %tobool.not.i = icmp eq ptr %0, null
   br i1 %tobool.not.i, label %free_it.exit, label %land.lhs.true.i
 
 land.lhs.true.i:                                  ; preds = %if.end2
-  %pkey_free.i = getelementptr inbounds %struct.evp_pkey_asn1_method_st, ptr %0, i64 0, i32 15
+  %pkey_free.i = getelementptr inbounds i8, ptr %0, i64 112
   %1 = load ptr, ptr %pkey_free.i, align 8
   %tobool2.not.i = icmp eq ptr %1, null
   br i1 %tobool2.not.i, label %free_it.exit, label %if.then.i
@@ -86,13 +84,13 @@ declare void @CRYPTO_refcount_inc(ptr noundef) local_unnamed_addr #1
 ; Function Attrs: nounwind uwtable
 define hidden i32 @EVP_PKEY_is_opaque(ptr noundef %pkey) local_unnamed_addr #0 {
 entry:
-  %ameth = getelementptr inbounds %struct.evp_pkey_st, ptr %pkey, i64 0, i32 3
+  %ameth = getelementptr inbounds i8, ptr %pkey, i64 16
   %0 = load ptr, ptr %ameth, align 8
   %tobool.not = icmp eq ptr %0, null
   br i1 %tobool.not, label %return, label %land.lhs.true
 
 land.lhs.true:                                    ; preds = %entry
-  %pkey_opaque = getelementptr inbounds %struct.evp_pkey_asn1_method_st, ptr %0, i64 0, i32 8
+  %pkey_opaque = getelementptr inbounds i8, ptr %0, i64 56
   %1 = load ptr, ptr %pkey_opaque, align 8
   %tobool2.not = icmp eq ptr %1, null
   br i1 %tobool2.not, label %return, label %if.then
@@ -109,13 +107,13 @@ return:                                           ; preds = %entry, %land.lhs.tr
 ; Function Attrs: nounwind uwtable
 define hidden i32 @EVP_PKEY_supports_digest(ptr noundef %pkey, ptr noundef %md) local_unnamed_addr #0 {
 entry:
-  %ameth = getelementptr inbounds %struct.evp_pkey_st, ptr %pkey, i64 0, i32 3
+  %ameth = getelementptr inbounds i8, ptr %pkey, i64 16
   %0 = load ptr, ptr %ameth, align 8
   %tobool.not = icmp eq ptr %0, null
   br i1 %tobool.not, label %return, label %land.lhs.true
 
 land.lhs.true:                                    ; preds = %entry
-  %pkey_supports_digest = getelementptr inbounds %struct.evp_pkey_asn1_method_st, ptr %0, i64 0, i32 9
+  %pkey_supports_digest = getelementptr inbounds i8, ptr %0, i64 64
   %1 = load ptr, ptr %pkey_supports_digest, align 8
   %tobool2.not = icmp eq ptr %1, null
   br i1 %tobool2.not, label %return, label %if.then
@@ -132,21 +130,21 @@ return:                                           ; preds = %entry, %land.lhs.tr
 ; Function Attrs: nounwind uwtable
 define hidden i32 @EVP_PKEY_cmp(ptr noundef %a, ptr noundef %b) local_unnamed_addr #0 {
 entry:
-  %type = getelementptr inbounds %struct.evp_pkey_st, ptr %a, i64 0, i32 1
+  %type = getelementptr inbounds i8, ptr %a, i64 4
   %0 = load i32, ptr %type, align 4
-  %type1 = getelementptr inbounds %struct.evp_pkey_st, ptr %b, i64 0, i32 1
+  %type1 = getelementptr inbounds i8, ptr %b, i64 4
   %1 = load i32, ptr %type1, align 4
   %cmp.not = icmp eq i32 %0, %1
   br i1 %cmp.not, label %if.end, label %return
 
 if.end:                                           ; preds = %entry
-  %ameth = getelementptr inbounds %struct.evp_pkey_st, ptr %a, i64 0, i32 3
+  %ameth = getelementptr inbounds i8, ptr %a, i64 16
   %2 = load ptr, ptr %ameth, align 8
   %tobool.not = icmp eq ptr %2, null
   br i1 %tobool.not, label %return, label %if.then2
 
 if.then2:                                         ; preds = %if.end
-  %param_cmp = getelementptr inbounds %struct.evp_pkey_asn1_method_st, ptr %2, i64 0, i32 14
+  %param_cmp = getelementptr inbounds i8, ptr %2, i64 104
   %3 = load ptr, ptr %param_cmp, align 8
   %tobool4.not = icmp eq ptr %3, null
   br i1 %tobool4.not, label %if.end11, label %if.then5
@@ -162,7 +160,7 @@ if.then5.if.end11_crit_edge:                      ; preds = %if.then5
 
 if.end11:                                         ; preds = %if.then5.if.end11_crit_edge, %if.then2
   %4 = phi ptr [ %.pre, %if.then5.if.end11_crit_edge ], [ %2, %if.then2 ]
-  %pub_cmp = getelementptr inbounds %struct.evp_pkey_asn1_method_st, ptr %4, i64 0, i32 5
+  %pub_cmp = getelementptr inbounds i8, ptr %4, i64 32
   %5 = load ptr, ptr %pub_cmp, align 8
   %tobool13.not = icmp eq ptr %5, null
   br i1 %tobool13.not, label %return, label %if.then14
@@ -179,9 +177,9 @@ return:                                           ; preds = %if.end, %if.end11, 
 ; Function Attrs: nounwind uwtable
 define hidden i32 @EVP_PKEY_copy_parameters(ptr noundef %to, ptr noundef %from) local_unnamed_addr #0 {
 entry:
-  %type = getelementptr inbounds %struct.evp_pkey_st, ptr %to, i64 0, i32 1
+  %type = getelementptr inbounds i8, ptr %to, i64 4
   %0 = load i32, ptr %type, align 4
-  %type1 = getelementptr inbounds %struct.evp_pkey_st, ptr %from, i64 0, i32 1
+  %type1 = getelementptr inbounds i8, ptr %from, i64 4
   %1 = load i32, ptr %type1, align 4
   %cmp.not = icmp eq i32 %0, %1
   br i1 %cmp.not, label %if.end, label %if.then
@@ -191,13 +189,13 @@ if.then:                                          ; preds = %entry
   br label %return
 
 if.end:                                           ; preds = %entry
-  %ameth.i = getelementptr inbounds %struct.evp_pkey_st, ptr %from, i64 0, i32 3
+  %ameth.i = getelementptr inbounds i8, ptr %from, i64 16
   %2 = load ptr, ptr %ameth.i, align 8
   %tobool.not.i = icmp eq ptr %2, null
   br i1 %tobool.not.i, label %return, label %land.lhs.true.i
 
 land.lhs.true.i:                                  ; preds = %if.end
-  %param_missing.i = getelementptr inbounds %struct.evp_pkey_asn1_method_st, ptr %2, i64 0, i32 12
+  %param_missing.i = getelementptr inbounds i8, ptr %2, i64 88
   %3 = load ptr, ptr %param_missing.i, align 8
   %tobool2.not.i = icmp eq ptr %3, null
   br i1 %tobool2.not.i, label %land.lhs.true, label %EVP_PKEY_missing_parameters.exit
@@ -218,7 +216,7 @@ if.end3:                                          ; preds = %EVP_PKEY_missing_pa
 
 land.lhs.true:                                    ; preds = %land.lhs.true.i, %if.end3
   %.pr14 = phi ptr [ %.pr.pre, %if.end3 ], [ %2, %land.lhs.true.i ]
-  %param_copy = getelementptr inbounds %struct.evp_pkey_asn1_method_st, ptr %.pr14, i64 0, i32 13
+  %param_copy = getelementptr inbounds i8, ptr %.pr14, i64 96
   %4 = load ptr, ptr %param_copy, align 8
   %tobool6.not = icmp eq ptr %4, null
   br i1 %tobool6.not, label %return, label %if.then7
@@ -235,13 +233,13 @@ return:                                           ; preds = %if.end, %if.then, %
 ; Function Attrs: nounwind uwtable
 define hidden i32 @EVP_PKEY_missing_parameters(ptr noundef %pkey) local_unnamed_addr #0 {
 entry:
-  %ameth = getelementptr inbounds %struct.evp_pkey_st, ptr %pkey, i64 0, i32 3
+  %ameth = getelementptr inbounds i8, ptr %pkey, i64 16
   %0 = load ptr, ptr %ameth, align 8
   %tobool.not = icmp eq ptr %0, null
   br i1 %tobool.not, label %return, label %land.lhs.true
 
 land.lhs.true:                                    ; preds = %entry
-  %param_missing = getelementptr inbounds %struct.evp_pkey_asn1_method_st, ptr %0, i64 0, i32 12
+  %param_missing = getelementptr inbounds i8, ptr %0, i64 88
   %1 = load ptr, ptr %param_missing, align 8
   %tobool2.not = icmp eq ptr %1, null
   br i1 %tobool2.not, label %return, label %if.then
@@ -262,13 +260,13 @@ entry:
   br i1 %tobool.not, label %return, label %land.lhs.true
 
 land.lhs.true:                                    ; preds = %entry
-  %ameth = getelementptr inbounds %struct.evp_pkey_st, ptr %pkey, i64 0, i32 3
+  %ameth = getelementptr inbounds i8, ptr %pkey, i64 16
   %0 = load ptr, ptr %ameth, align 8
   %tobool1.not = icmp eq ptr %0, null
   br i1 %tobool1.not, label %return, label %land.lhs.true2
 
 land.lhs.true2:                                   ; preds = %land.lhs.true
-  %pkey_size = getelementptr inbounds %struct.evp_pkey_asn1_method_st, ptr %0, i64 0, i32 10
+  %pkey_size = getelementptr inbounds i8, ptr %0, i64 72
   %1 = load ptr, ptr %pkey_size, align 8
   %tobool4.not = icmp eq ptr %1, null
   br i1 %tobool4.not, label %return, label %if.then
@@ -289,13 +287,13 @@ entry:
   br i1 %tobool.not, label %return, label %land.lhs.true
 
 land.lhs.true:                                    ; preds = %entry
-  %ameth = getelementptr inbounds %struct.evp_pkey_st, ptr %pkey, i64 0, i32 3
+  %ameth = getelementptr inbounds i8, ptr %pkey, i64 16
   %0 = load ptr, ptr %ameth, align 8
   %tobool1.not = icmp eq ptr %0, null
   br i1 %tobool1.not, label %return, label %land.lhs.true2
 
 land.lhs.true2:                                   ; preds = %land.lhs.true
-  %pkey_bits = getelementptr inbounds %struct.evp_pkey_asn1_method_st, ptr %0, i64 0, i32 11
+  %pkey_bits = getelementptr inbounds i8, ptr %0, i64 80
   %1 = load ptr, ptr %pkey_bits, align 8
   %tobool4.not = icmp eq ptr %1, null
   br i1 %tobool4.not, label %return, label %if.then
@@ -312,7 +310,7 @@ return:                                           ; preds = %entry, %land.lhs.tr
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
 define hidden i32 @EVP_PKEY_id(ptr nocapture noundef readonly %pkey) local_unnamed_addr #3 {
 entry:
-  %type = getelementptr inbounds %struct.evp_pkey_st, ptr %pkey, i64 0, i32 1
+  %type = getelementptr inbounds i8, ptr %pkey, i64 4
   %0 = load i32, ptr %type, align 4
   ret i32 %0
 }
@@ -349,19 +347,19 @@ entry:
   br i1 %tobool.not.i.i.i, label %EVP_PKEY_assign_RSA.exit, label %land.lhs.true.i.i.i
 
 land.lhs.true.i.i.i:                              ; preds = %entry
-  %pkey1.i.i.i = getelementptr inbounds %struct.evp_pkey_st, ptr %pkey, i64 0, i32 2
+  %pkey1.i.i.i = getelementptr inbounds i8, ptr %pkey, i64 8
   %0 = load ptr, ptr %pkey1.i.i.i, align 8
   %tobool2.not.i.i.i = icmp eq ptr %0, null
   br i1 %tobool2.not.i.i.i, label %if.then6.i.i.i, label %if.then.i.i.i
 
 if.then.i.i.i:                                    ; preds = %land.lhs.true.i.i.i
-  %ameth.i.i.i.i = getelementptr inbounds %struct.evp_pkey_st, ptr %pkey, i64 0, i32 3
+  %ameth.i.i.i.i = getelementptr inbounds i8, ptr %pkey, i64 16
   %1 = load ptr, ptr %ameth.i.i.i.i, align 8
   %tobool.not.i.i.i.i = icmp eq ptr %1, null
   br i1 %tobool.not.i.i.i.i, label %if.then6.i.i.i, label %land.lhs.true.i.i.i.i
 
 land.lhs.true.i.i.i.i:                            ; preds = %if.then.i.i.i
-  %pkey_free.i.i.i.i = getelementptr inbounds %struct.evp_pkey_asn1_method_st, ptr %1, i64 0, i32 15
+  %pkey_free.i.i.i.i = getelementptr inbounds i8, ptr %1, i64 112
   %2 = load ptr, ptr %pkey_free.i.i.i.i, align 8
   %tobool2.not.i.i.i.i = icmp eq ptr %2, null
   br i1 %tobool2.not.i.i.i.i, label %if.then6.i.i.i, label %if.then.i.i.i.i
@@ -371,15 +369,15 @@ if.then.i.i.i.i:                                  ; preds = %land.lhs.true.i.i.i
   br label %if.then6.i.i.i
 
 if.then6.i.i.i:                                   ; preds = %if.then.i.i.i.i, %land.lhs.true.i.i.i.i, %if.then.i.i.i, %land.lhs.true.i.i.i
-  %ameth7.i.i.i = getelementptr inbounds %struct.evp_pkey_st, ptr %pkey, i64 0, i32 3
+  %ameth7.i.i.i = getelementptr inbounds i8, ptr %pkey, i64 16
   store ptr @rsa_asn1_meth, ptr %ameth7.i.i.i, align 8
   %3 = load i32, ptr @rsa_asn1_meth, align 8
-  %type9.i.i.i = getelementptr inbounds %struct.evp_pkey_st, ptr %pkey, i64 0, i32 1
+  %type9.i.i.i = getelementptr inbounds i8, ptr %pkey, i64 4
   store i32 %3, ptr %type9.i.i.i, align 4
   br label %EVP_PKEY_assign_RSA.exit
 
 EVP_PKEY_assign_RSA.exit:                         ; preds = %entry, %if.then6.i.i.i
-  %pkey1.i.i = getelementptr inbounds %struct.evp_pkey_st, ptr %pkey, i64 0, i32 2
+  %pkey1.i.i = getelementptr inbounds i8, ptr %pkey, i64 8
   store ptr %key, ptr %pkey1.i.i, align 8
   %cmp.i.i.not = icmp eq ptr %key, null
   br i1 %cmp.i.i.not, label %return, label %if.then
@@ -400,19 +398,19 @@ entry:
   br i1 %tobool.not.i.i, label %EVP_PKEY_assign.exit, label %land.lhs.true.i.i
 
 land.lhs.true.i.i:                                ; preds = %entry
-  %pkey1.i.i = getelementptr inbounds %struct.evp_pkey_st, ptr %pkey, i64 0, i32 2
+  %pkey1.i.i = getelementptr inbounds i8, ptr %pkey, i64 8
   %0 = load ptr, ptr %pkey1.i.i, align 8
   %tobool2.not.i.i = icmp eq ptr %0, null
   br i1 %tobool2.not.i.i, label %if.then6.i.i, label %if.then.i.i
 
 if.then.i.i:                                      ; preds = %land.lhs.true.i.i
-  %ameth.i.i.i = getelementptr inbounds %struct.evp_pkey_st, ptr %pkey, i64 0, i32 3
+  %ameth.i.i.i = getelementptr inbounds i8, ptr %pkey, i64 16
   %1 = load ptr, ptr %ameth.i.i.i, align 8
   %tobool.not.i.i.i = icmp eq ptr %1, null
   br i1 %tobool.not.i.i.i, label %if.then6.i.i, label %land.lhs.true.i.i.i
 
 land.lhs.true.i.i.i:                              ; preds = %if.then.i.i
-  %pkey_free.i.i.i = getelementptr inbounds %struct.evp_pkey_asn1_method_st, ptr %1, i64 0, i32 15
+  %pkey_free.i.i.i = getelementptr inbounds i8, ptr %1, i64 112
   %2 = load ptr, ptr %pkey_free.i.i.i, align 8
   %tobool2.not.i.i.i = icmp eq ptr %2, null
   br i1 %tobool2.not.i.i.i, label %if.then6.i.i, label %if.then.i.i.i
@@ -422,15 +420,15 @@ if.then.i.i.i:                                    ; preds = %land.lhs.true.i.i.i
   br label %if.then6.i.i
 
 if.then6.i.i:                                     ; preds = %if.then.i.i.i, %land.lhs.true.i.i.i, %if.then.i.i, %land.lhs.true.i.i
-  %ameth7.i.i = getelementptr inbounds %struct.evp_pkey_st, ptr %pkey, i64 0, i32 3
+  %ameth7.i.i = getelementptr inbounds i8, ptr %pkey, i64 16
   store ptr @rsa_asn1_meth, ptr %ameth7.i.i, align 8
   %3 = load i32, ptr @rsa_asn1_meth, align 8
-  %type9.i.i = getelementptr inbounds %struct.evp_pkey_st, ptr %pkey, i64 0, i32 1
+  %type9.i.i = getelementptr inbounds i8, ptr %pkey, i64 4
   store i32 %3, ptr %type9.i.i, align 4
   br label %EVP_PKEY_assign.exit
 
 EVP_PKEY_assign.exit:                             ; preds = %entry, %if.then6.i.i
-  %pkey1.i = getelementptr inbounds %struct.evp_pkey_st, ptr %pkey, i64 0, i32 2
+  %pkey1.i = getelementptr inbounds i8, ptr %pkey, i64 8
   store ptr %key, ptr %pkey1.i, align 8
   %cmp.i = icmp ne ptr %key, null
   %conv.i = zext i1 %cmp.i to i32
@@ -446,19 +444,19 @@ entry:
   br i1 %tobool.not.i, label %if.end.i, label %land.lhs.true.i
 
 land.lhs.true.i:                                  ; preds = %entry
-  %pkey1.i = getelementptr inbounds %struct.evp_pkey_st, ptr %pkey, i64 0, i32 2
+  %pkey1.i = getelementptr inbounds i8, ptr %pkey, i64 8
   %0 = load ptr, ptr %pkey1.i, align 8
   %tobool2.not.i = icmp eq ptr %0, null
   br i1 %tobool2.not.i, label %if.end.i, label %if.then.i
 
 if.then.i:                                        ; preds = %land.lhs.true.i
-  %ameth.i.i = getelementptr inbounds %struct.evp_pkey_st, ptr %pkey, i64 0, i32 3
+  %ameth.i.i = getelementptr inbounds i8, ptr %pkey, i64 16
   %1 = load ptr, ptr %ameth.i.i, align 8
   %tobool.not.i.i = icmp eq ptr %1, null
   br i1 %tobool.not.i.i, label %if.end.i, label %land.lhs.true.i.i
 
 land.lhs.true.i.i:                                ; preds = %if.then.i
-  %pkey_free.i.i = getelementptr inbounds %struct.evp_pkey_asn1_method_st, ptr %1, i64 0, i32 15
+  %pkey_free.i.i = getelementptr inbounds i8, ptr %1, i64 112
   %2 = load ptr, ptr %pkey_free.i.i, align 8
   %tobool2.not.i.i = icmp eq ptr %2, null
   br i1 %tobool2.not.i.i, label %if.end.i, label %if.then.i.i
@@ -466,7 +464,7 @@ land.lhs.true.i.i:                                ; preds = %if.then.i
 if.then.i.i:                                      ; preds = %land.lhs.true.i.i
   tail call void %2(ptr noundef nonnull %pkey) #6
   store ptr null, ptr %pkey1.i, align 8
-  %type.i.i = getelementptr inbounds %struct.evp_pkey_st, ptr %pkey, i64 0, i32 1
+  %type.i.i = getelementptr inbounds i8, ptr %pkey, i64 4
   store i32 0, ptr %type.i.i, align 4
   br label %if.end.i
 
@@ -488,10 +486,10 @@ if.end4.i:                                        ; preds = %sw.bb2.i.i, %sw.bb1
   br i1 %tobool.not.i, label %if.end, label %if.then6.i
 
 if.then6.i:                                       ; preds = %if.end4.i
-  %ameth7.i = getelementptr inbounds %struct.evp_pkey_st, ptr %pkey, i64 0, i32 3
+  %ameth7.i = getelementptr inbounds i8, ptr %pkey, i64 16
   store ptr %retval.0.i.ph.i, ptr %ameth7.i, align 8
   %3 = load i32, ptr %retval.0.i.ph.i, align 8
-  %type9.i = getelementptr inbounds %struct.evp_pkey_st, ptr %pkey, i64 0, i32 1
+  %type9.i = getelementptr inbounds i8, ptr %pkey, i64 4
   store i32 %3, ptr %type9.i, align 4
   br label %if.end
 
@@ -501,7 +499,7 @@ EVP_PKEY_set_type.exit:                           ; preds = %if.end.i
   br label %return
 
 if.end:                                           ; preds = %if.then6.i, %if.end4.i
-  %pkey1 = getelementptr inbounds %struct.evp_pkey_st, ptr %pkey, i64 0, i32 2
+  %pkey1 = getelementptr inbounds i8, ptr %pkey, i64 8
   store ptr %key, ptr %pkey1, align 8
   %cmp = icmp ne ptr %key, null
   %conv = zext i1 %cmp to i32
@@ -515,7 +513,7 @@ return:                                           ; preds = %EVP_PKEY_set_type.e
 ; Function Attrs: nounwind uwtable
 define hidden ptr @EVP_PKEY_get0_RSA(ptr nocapture noundef readonly %pkey) local_unnamed_addr #0 {
 entry:
-  %type = getelementptr inbounds %struct.evp_pkey_st, ptr %pkey, i64 0, i32 1
+  %type = getelementptr inbounds i8, ptr %pkey, i64 4
   %0 = load i32, ptr %type, align 4
   %cmp.not = icmp eq i32 %0, 6
   br i1 %cmp.not, label %if.end, label %if.then
@@ -525,7 +523,7 @@ if.then:                                          ; preds = %entry
   br label %return
 
 if.end:                                           ; preds = %entry
-  %pkey1 = getelementptr inbounds %struct.evp_pkey_st, ptr %pkey, i64 0, i32 2
+  %pkey1 = getelementptr inbounds i8, ptr %pkey, i64 8
   %1 = load ptr, ptr %pkey1, align 8
   br label %return
 
@@ -537,7 +535,7 @@ return:                                           ; preds = %if.end, %if.then
 ; Function Attrs: nounwind uwtable
 define hidden ptr @EVP_PKEY_get1_RSA(ptr nocapture noundef readonly %pkey) local_unnamed_addr #0 {
 entry:
-  %type.i = getelementptr inbounds %struct.evp_pkey_st, ptr %pkey, i64 0, i32 1
+  %type.i = getelementptr inbounds i8, ptr %pkey, i64 4
   %0 = load i32, ptr %type.i, align 4
   %cmp.not.i = icmp eq i32 %0, 6
   br i1 %cmp.not.i, label %EVP_PKEY_get0_RSA.exit, label %EVP_PKEY_get0_RSA.exit.thread
@@ -547,7 +545,7 @@ EVP_PKEY_get0_RSA.exit.thread:                    ; preds = %entry
   br label %if.end
 
 EVP_PKEY_get0_RSA.exit:                           ; preds = %entry
-  %pkey1.i = getelementptr inbounds %struct.evp_pkey_st, ptr %pkey, i64 0, i32 2
+  %pkey1.i = getelementptr inbounds i8, ptr %pkey, i64 8
   %1 = load ptr, ptr %pkey1.i, align 8
   %cmp.not = icmp eq ptr %1, null
   br i1 %cmp.not, label %if.end, label %if.then
@@ -568,19 +566,19 @@ entry:
   br i1 %tobool.not.i.i.i, label %EVP_PKEY_assign_DSA.exit, label %land.lhs.true.i.i.i
 
 land.lhs.true.i.i.i:                              ; preds = %entry
-  %pkey1.i.i.i = getelementptr inbounds %struct.evp_pkey_st, ptr %pkey, i64 0, i32 2
+  %pkey1.i.i.i = getelementptr inbounds i8, ptr %pkey, i64 8
   %0 = load ptr, ptr %pkey1.i.i.i, align 8
   %tobool2.not.i.i.i = icmp eq ptr %0, null
   br i1 %tobool2.not.i.i.i, label %if.then6.i.i.i, label %if.then.i.i.i
 
 if.then.i.i.i:                                    ; preds = %land.lhs.true.i.i.i
-  %ameth.i.i.i.i = getelementptr inbounds %struct.evp_pkey_st, ptr %pkey, i64 0, i32 3
+  %ameth.i.i.i.i = getelementptr inbounds i8, ptr %pkey, i64 16
   %1 = load ptr, ptr %ameth.i.i.i.i, align 8
   %tobool.not.i.i.i.i = icmp eq ptr %1, null
   br i1 %tobool.not.i.i.i.i, label %if.then6.i.i.i, label %land.lhs.true.i.i.i.i
 
 land.lhs.true.i.i.i.i:                            ; preds = %if.then.i.i.i
-  %pkey_free.i.i.i.i = getelementptr inbounds %struct.evp_pkey_asn1_method_st, ptr %1, i64 0, i32 15
+  %pkey_free.i.i.i.i = getelementptr inbounds i8, ptr %1, i64 112
   %2 = load ptr, ptr %pkey_free.i.i.i.i, align 8
   %tobool2.not.i.i.i.i = icmp eq ptr %2, null
   br i1 %tobool2.not.i.i.i.i, label %if.then6.i.i.i, label %if.then.i.i.i.i
@@ -590,15 +588,15 @@ if.then.i.i.i.i:                                  ; preds = %land.lhs.true.i.i.i
   br label %if.then6.i.i.i
 
 if.then6.i.i.i:                                   ; preds = %if.then.i.i.i.i, %land.lhs.true.i.i.i.i, %if.then.i.i.i, %land.lhs.true.i.i.i
-  %ameth7.i.i.i = getelementptr inbounds %struct.evp_pkey_st, ptr %pkey, i64 0, i32 3
+  %ameth7.i.i.i = getelementptr inbounds i8, ptr %pkey, i64 16
   store ptr @dsa_asn1_meth, ptr %ameth7.i.i.i, align 8
   %3 = load i32, ptr @dsa_asn1_meth, align 8
-  %type9.i.i.i = getelementptr inbounds %struct.evp_pkey_st, ptr %pkey, i64 0, i32 1
+  %type9.i.i.i = getelementptr inbounds i8, ptr %pkey, i64 4
   store i32 %3, ptr %type9.i.i.i, align 4
   br label %EVP_PKEY_assign_DSA.exit
 
 EVP_PKEY_assign_DSA.exit:                         ; preds = %entry, %if.then6.i.i.i
-  %pkey1.i.i = getelementptr inbounds %struct.evp_pkey_st, ptr %pkey, i64 0, i32 2
+  %pkey1.i.i = getelementptr inbounds i8, ptr %pkey, i64 8
   store ptr %key, ptr %pkey1.i.i, align 8
   %cmp.i.i.not = icmp eq ptr %key, null
   br i1 %cmp.i.i.not, label %return, label %if.then
@@ -619,19 +617,19 @@ entry:
   br i1 %tobool.not.i.i, label %EVP_PKEY_assign.exit, label %land.lhs.true.i.i
 
 land.lhs.true.i.i:                                ; preds = %entry
-  %pkey1.i.i = getelementptr inbounds %struct.evp_pkey_st, ptr %pkey, i64 0, i32 2
+  %pkey1.i.i = getelementptr inbounds i8, ptr %pkey, i64 8
   %0 = load ptr, ptr %pkey1.i.i, align 8
   %tobool2.not.i.i = icmp eq ptr %0, null
   br i1 %tobool2.not.i.i, label %if.then6.i.i, label %if.then.i.i
 
 if.then.i.i:                                      ; preds = %land.lhs.true.i.i
-  %ameth.i.i.i = getelementptr inbounds %struct.evp_pkey_st, ptr %pkey, i64 0, i32 3
+  %ameth.i.i.i = getelementptr inbounds i8, ptr %pkey, i64 16
   %1 = load ptr, ptr %ameth.i.i.i, align 8
   %tobool.not.i.i.i = icmp eq ptr %1, null
   br i1 %tobool.not.i.i.i, label %if.then6.i.i, label %land.lhs.true.i.i.i
 
 land.lhs.true.i.i.i:                              ; preds = %if.then.i.i
-  %pkey_free.i.i.i = getelementptr inbounds %struct.evp_pkey_asn1_method_st, ptr %1, i64 0, i32 15
+  %pkey_free.i.i.i = getelementptr inbounds i8, ptr %1, i64 112
   %2 = load ptr, ptr %pkey_free.i.i.i, align 8
   %tobool2.not.i.i.i = icmp eq ptr %2, null
   br i1 %tobool2.not.i.i.i, label %if.then6.i.i, label %if.then.i.i.i
@@ -641,15 +639,15 @@ if.then.i.i.i:                                    ; preds = %land.lhs.true.i.i.i
   br label %if.then6.i.i
 
 if.then6.i.i:                                     ; preds = %if.then.i.i.i, %land.lhs.true.i.i.i, %if.then.i.i, %land.lhs.true.i.i
-  %ameth7.i.i = getelementptr inbounds %struct.evp_pkey_st, ptr %pkey, i64 0, i32 3
+  %ameth7.i.i = getelementptr inbounds i8, ptr %pkey, i64 16
   store ptr @dsa_asn1_meth, ptr %ameth7.i.i, align 8
   %3 = load i32, ptr @dsa_asn1_meth, align 8
-  %type9.i.i = getelementptr inbounds %struct.evp_pkey_st, ptr %pkey, i64 0, i32 1
+  %type9.i.i = getelementptr inbounds i8, ptr %pkey, i64 4
   store i32 %3, ptr %type9.i.i, align 4
   br label %EVP_PKEY_assign.exit
 
 EVP_PKEY_assign.exit:                             ; preds = %entry, %if.then6.i.i
-  %pkey1.i = getelementptr inbounds %struct.evp_pkey_st, ptr %pkey, i64 0, i32 2
+  %pkey1.i = getelementptr inbounds i8, ptr %pkey, i64 8
   store ptr %key, ptr %pkey1.i, align 8
   %cmp.i = icmp ne ptr %key, null
   %conv.i = zext i1 %cmp.i to i32
@@ -661,7 +659,7 @@ declare i32 @DSA_up_ref(ptr noundef) local_unnamed_addr #1
 ; Function Attrs: nounwind uwtable
 define hidden ptr @EVP_PKEY_get0_DSA(ptr nocapture noundef readonly %pkey) local_unnamed_addr #0 {
 entry:
-  %type = getelementptr inbounds %struct.evp_pkey_st, ptr %pkey, i64 0, i32 1
+  %type = getelementptr inbounds i8, ptr %pkey, i64 4
   %0 = load i32, ptr %type, align 4
   %cmp.not = icmp eq i32 %0, 116
   br i1 %cmp.not, label %if.end, label %if.then
@@ -671,7 +669,7 @@ if.then:                                          ; preds = %entry
   br label %return
 
 if.end:                                           ; preds = %entry
-  %pkey1 = getelementptr inbounds %struct.evp_pkey_st, ptr %pkey, i64 0, i32 2
+  %pkey1 = getelementptr inbounds i8, ptr %pkey, i64 8
   %1 = load ptr, ptr %pkey1, align 8
   br label %return
 
@@ -683,7 +681,7 @@ return:                                           ; preds = %if.end, %if.then
 ; Function Attrs: nounwind uwtable
 define hidden ptr @EVP_PKEY_get1_DSA(ptr nocapture noundef readonly %pkey) local_unnamed_addr #0 {
 entry:
-  %type.i = getelementptr inbounds %struct.evp_pkey_st, ptr %pkey, i64 0, i32 1
+  %type.i = getelementptr inbounds i8, ptr %pkey, i64 4
   %0 = load i32, ptr %type.i, align 4
   %cmp.not.i = icmp eq i32 %0, 116
   br i1 %cmp.not.i, label %EVP_PKEY_get0_DSA.exit, label %EVP_PKEY_get0_DSA.exit.thread
@@ -693,7 +691,7 @@ EVP_PKEY_get0_DSA.exit.thread:                    ; preds = %entry
   br label %if.end
 
 EVP_PKEY_get0_DSA.exit:                           ; preds = %entry
-  %pkey1.i = getelementptr inbounds %struct.evp_pkey_st, ptr %pkey, i64 0, i32 2
+  %pkey1.i = getelementptr inbounds i8, ptr %pkey, i64 8
   %1 = load ptr, ptr %pkey1.i, align 8
   %cmp.not = icmp eq ptr %1, null
   br i1 %cmp.not, label %if.end, label %if.then
@@ -714,19 +712,19 @@ entry:
   br i1 %tobool.not.i.i.i, label %EVP_PKEY_assign_EC_KEY.exit, label %land.lhs.true.i.i.i
 
 land.lhs.true.i.i.i:                              ; preds = %entry
-  %pkey1.i.i.i = getelementptr inbounds %struct.evp_pkey_st, ptr %pkey, i64 0, i32 2
+  %pkey1.i.i.i = getelementptr inbounds i8, ptr %pkey, i64 8
   %0 = load ptr, ptr %pkey1.i.i.i, align 8
   %tobool2.not.i.i.i = icmp eq ptr %0, null
   br i1 %tobool2.not.i.i.i, label %if.then6.i.i.i, label %if.then.i.i.i
 
 if.then.i.i.i:                                    ; preds = %land.lhs.true.i.i.i
-  %ameth.i.i.i.i = getelementptr inbounds %struct.evp_pkey_st, ptr %pkey, i64 0, i32 3
+  %ameth.i.i.i.i = getelementptr inbounds i8, ptr %pkey, i64 16
   %1 = load ptr, ptr %ameth.i.i.i.i, align 8
   %tobool.not.i.i.i.i = icmp eq ptr %1, null
   br i1 %tobool.not.i.i.i.i, label %if.then6.i.i.i, label %land.lhs.true.i.i.i.i
 
 land.lhs.true.i.i.i.i:                            ; preds = %if.then.i.i.i
-  %pkey_free.i.i.i.i = getelementptr inbounds %struct.evp_pkey_asn1_method_st, ptr %1, i64 0, i32 15
+  %pkey_free.i.i.i.i = getelementptr inbounds i8, ptr %1, i64 112
   %2 = load ptr, ptr %pkey_free.i.i.i.i, align 8
   %tobool2.not.i.i.i.i = icmp eq ptr %2, null
   br i1 %tobool2.not.i.i.i.i, label %if.then6.i.i.i, label %if.then.i.i.i.i
@@ -736,15 +734,15 @@ if.then.i.i.i.i:                                  ; preds = %land.lhs.true.i.i.i
   br label %if.then6.i.i.i
 
 if.then6.i.i.i:                                   ; preds = %if.then.i.i.i.i, %land.lhs.true.i.i.i.i, %if.then.i.i.i, %land.lhs.true.i.i.i
-  %ameth7.i.i.i = getelementptr inbounds %struct.evp_pkey_st, ptr %pkey, i64 0, i32 3
+  %ameth7.i.i.i = getelementptr inbounds i8, ptr %pkey, i64 16
   store ptr @ec_asn1_meth, ptr %ameth7.i.i.i, align 8
   %3 = load i32, ptr @ec_asn1_meth, align 8
-  %type9.i.i.i = getelementptr inbounds %struct.evp_pkey_st, ptr %pkey, i64 0, i32 1
+  %type9.i.i.i = getelementptr inbounds i8, ptr %pkey, i64 4
   store i32 %3, ptr %type9.i.i.i, align 4
   br label %EVP_PKEY_assign_EC_KEY.exit
 
 EVP_PKEY_assign_EC_KEY.exit:                      ; preds = %entry, %if.then6.i.i.i
-  %pkey1.i.i = getelementptr inbounds %struct.evp_pkey_st, ptr %pkey, i64 0, i32 2
+  %pkey1.i.i = getelementptr inbounds i8, ptr %pkey, i64 8
   store ptr %key, ptr %pkey1.i.i, align 8
   %cmp.i.i.not = icmp eq ptr %key, null
   br i1 %cmp.i.i.not, label %return, label %if.then
@@ -765,19 +763,19 @@ entry:
   br i1 %tobool.not.i.i, label %EVP_PKEY_assign.exit, label %land.lhs.true.i.i
 
 land.lhs.true.i.i:                                ; preds = %entry
-  %pkey1.i.i = getelementptr inbounds %struct.evp_pkey_st, ptr %pkey, i64 0, i32 2
+  %pkey1.i.i = getelementptr inbounds i8, ptr %pkey, i64 8
   %0 = load ptr, ptr %pkey1.i.i, align 8
   %tobool2.not.i.i = icmp eq ptr %0, null
   br i1 %tobool2.not.i.i, label %if.then6.i.i, label %if.then.i.i
 
 if.then.i.i:                                      ; preds = %land.lhs.true.i.i
-  %ameth.i.i.i = getelementptr inbounds %struct.evp_pkey_st, ptr %pkey, i64 0, i32 3
+  %ameth.i.i.i = getelementptr inbounds i8, ptr %pkey, i64 16
   %1 = load ptr, ptr %ameth.i.i.i, align 8
   %tobool.not.i.i.i = icmp eq ptr %1, null
   br i1 %tobool.not.i.i.i, label %if.then6.i.i, label %land.lhs.true.i.i.i
 
 land.lhs.true.i.i.i:                              ; preds = %if.then.i.i
-  %pkey_free.i.i.i = getelementptr inbounds %struct.evp_pkey_asn1_method_st, ptr %1, i64 0, i32 15
+  %pkey_free.i.i.i = getelementptr inbounds i8, ptr %1, i64 112
   %2 = load ptr, ptr %pkey_free.i.i.i, align 8
   %tobool2.not.i.i.i = icmp eq ptr %2, null
   br i1 %tobool2.not.i.i.i, label %if.then6.i.i, label %if.then.i.i.i
@@ -787,15 +785,15 @@ if.then.i.i.i:                                    ; preds = %land.lhs.true.i.i.i
   br label %if.then6.i.i
 
 if.then6.i.i:                                     ; preds = %if.then.i.i.i, %land.lhs.true.i.i.i, %if.then.i.i, %land.lhs.true.i.i
-  %ameth7.i.i = getelementptr inbounds %struct.evp_pkey_st, ptr %pkey, i64 0, i32 3
+  %ameth7.i.i = getelementptr inbounds i8, ptr %pkey, i64 16
   store ptr @ec_asn1_meth, ptr %ameth7.i.i, align 8
   %3 = load i32, ptr @ec_asn1_meth, align 8
-  %type9.i.i = getelementptr inbounds %struct.evp_pkey_st, ptr %pkey, i64 0, i32 1
+  %type9.i.i = getelementptr inbounds i8, ptr %pkey, i64 4
   store i32 %3, ptr %type9.i.i, align 4
   br label %EVP_PKEY_assign.exit
 
 EVP_PKEY_assign.exit:                             ; preds = %entry, %if.then6.i.i
-  %pkey1.i = getelementptr inbounds %struct.evp_pkey_st, ptr %pkey, i64 0, i32 2
+  %pkey1.i = getelementptr inbounds i8, ptr %pkey, i64 8
   store ptr %key, ptr %pkey1.i, align 8
   %cmp.i = icmp ne ptr %key, null
   %conv.i = zext i1 %cmp.i to i32
@@ -807,7 +805,7 @@ declare i32 @EC_KEY_up_ref(ptr noundef) local_unnamed_addr #1
 ; Function Attrs: nounwind uwtable
 define hidden ptr @EVP_PKEY_get0_EC_KEY(ptr nocapture noundef readonly %pkey) local_unnamed_addr #0 {
 entry:
-  %type = getelementptr inbounds %struct.evp_pkey_st, ptr %pkey, i64 0, i32 1
+  %type = getelementptr inbounds i8, ptr %pkey, i64 4
   %0 = load i32, ptr %type, align 4
   %cmp.not = icmp eq i32 %0, 408
   br i1 %cmp.not, label %if.end, label %if.then
@@ -817,7 +815,7 @@ if.then:                                          ; preds = %entry
   br label %return
 
 if.end:                                           ; preds = %entry
-  %pkey1 = getelementptr inbounds %struct.evp_pkey_st, ptr %pkey, i64 0, i32 2
+  %pkey1 = getelementptr inbounds i8, ptr %pkey, i64 8
   %1 = load ptr, ptr %pkey1, align 8
   br label %return
 
@@ -829,7 +827,7 @@ return:                                           ; preds = %if.end, %if.then
 ; Function Attrs: nounwind uwtable
 define hidden ptr @EVP_PKEY_get1_EC_KEY(ptr nocapture noundef readonly %pkey) local_unnamed_addr #0 {
 entry:
-  %type.i = getelementptr inbounds %struct.evp_pkey_st, ptr %pkey, i64 0, i32 1
+  %type.i = getelementptr inbounds i8, ptr %pkey, i64 4
   %0 = load i32, ptr %type.i, align 4
   %cmp.not.i = icmp eq i32 %0, 408
   br i1 %cmp.not.i, label %EVP_PKEY_get0_EC_KEY.exit, label %EVP_PKEY_get0_EC_KEY.exit.thread
@@ -839,7 +837,7 @@ EVP_PKEY_get0_EC_KEY.exit.thread:                 ; preds = %entry
   br label %if.end
 
 EVP_PKEY_get0_EC_KEY.exit:                        ; preds = %entry
-  %pkey1.i = getelementptr inbounds %struct.evp_pkey_st, ptr %pkey, i64 0, i32 2
+  %pkey1.i = getelementptr inbounds i8, ptr %pkey, i64 8
   %1 = load ptr, ptr %pkey1.i, align 8
   %cmp.not = icmp eq ptr %1, null
   br i1 %cmp.not, label %if.end, label %if.then
@@ -860,19 +858,19 @@ entry:
   br i1 %tobool.not, label %if.end, label %land.lhs.true
 
 land.lhs.true:                                    ; preds = %entry
-  %pkey1 = getelementptr inbounds %struct.evp_pkey_st, ptr %pkey, i64 0, i32 2
+  %pkey1 = getelementptr inbounds i8, ptr %pkey, i64 8
   %0 = load ptr, ptr %pkey1, align 8
   %tobool2.not = icmp eq ptr %0, null
   br i1 %tobool2.not, label %if.end, label %if.then
 
 if.then:                                          ; preds = %land.lhs.true
-  %ameth.i = getelementptr inbounds %struct.evp_pkey_st, ptr %pkey, i64 0, i32 3
+  %ameth.i = getelementptr inbounds i8, ptr %pkey, i64 16
   %1 = load ptr, ptr %ameth.i, align 8
   %tobool.not.i = icmp eq ptr %1, null
   br i1 %tobool.not.i, label %if.end, label %land.lhs.true.i
 
 land.lhs.true.i:                                  ; preds = %if.then
-  %pkey_free.i = getelementptr inbounds %struct.evp_pkey_asn1_method_st, ptr %1, i64 0, i32 15
+  %pkey_free.i = getelementptr inbounds i8, ptr %1, i64 112
   %2 = load ptr, ptr %pkey_free.i, align 8
   %tobool2.not.i = icmp eq ptr %2, null
   br i1 %tobool2.not.i, label %if.end, label %if.then.i
@@ -880,7 +878,7 @@ land.lhs.true.i:                                  ; preds = %if.then
 if.then.i:                                        ; preds = %land.lhs.true.i
   tail call void %2(ptr noundef nonnull %pkey) #6
   store ptr null, ptr %pkey1, align 8
-  %type.i = getelementptr inbounds %struct.evp_pkey_st, ptr %pkey, i64 0, i32 1
+  %type.i = getelementptr inbounds i8, ptr %pkey, i64 4
   store i32 0, ptr %type.i, align 4
   br label %if.end
 
@@ -907,10 +905,10 @@ if.end4:                                          ; preds = %sw.bb2.i, %sw.bb1.i
   br i1 %tobool.not, label %return, label %if.then6
 
 if.then6:                                         ; preds = %if.end4
-  %ameth7 = getelementptr inbounds %struct.evp_pkey_st, ptr %pkey, i64 0, i32 3
+  %ameth7 = getelementptr inbounds i8, ptr %pkey, i64 16
   store ptr %retval.0.i.ph, ptr %ameth7, align 8
   %3 = load i32, ptr %retval.0.i.ph, align 8
-  %type9 = getelementptr inbounds %struct.evp_pkey_st, ptr %pkey, i64 0, i32 1
+  %type9 = getelementptr inbounds i8, ptr %pkey, i64 4
   store i32 %3, ptr %type9, align 4
   br label %return
 
@@ -924,21 +922,21 @@ declare void @ERR_add_error_dataf(ptr noundef, ...) local_unnamed_addr #1
 ; Function Attrs: nounwind uwtable
 define hidden i32 @EVP_PKEY_cmp_parameters(ptr noundef %a, ptr noundef %b) local_unnamed_addr #0 {
 entry:
-  %type = getelementptr inbounds %struct.evp_pkey_st, ptr %a, i64 0, i32 1
+  %type = getelementptr inbounds i8, ptr %a, i64 4
   %0 = load i32, ptr %type, align 4
-  %type1 = getelementptr inbounds %struct.evp_pkey_st, ptr %b, i64 0, i32 1
+  %type1 = getelementptr inbounds i8, ptr %b, i64 4
   %1 = load i32, ptr %type1, align 4
   %cmp.not = icmp eq i32 %0, %1
   br i1 %cmp.not, label %if.end, label %return
 
 if.end:                                           ; preds = %entry
-  %ameth = getelementptr inbounds %struct.evp_pkey_st, ptr %a, i64 0, i32 3
+  %ameth = getelementptr inbounds i8, ptr %a, i64 16
   %2 = load ptr, ptr %ameth, align 8
   %tobool.not = icmp eq ptr %2, null
   br i1 %tobool.not, label %return, label %land.lhs.true
 
 land.lhs.true:                                    ; preds = %if.end
-  %param_cmp = getelementptr inbounds %struct.evp_pkey_asn1_method_st, ptr %2, i64 0, i32 14
+  %param_cmp = getelementptr inbounds i8, ptr %2, i64 104
   %3 = load ptr, ptr %param_cmp, align 8
   %tobool3.not = icmp eq ptr %3, null
   br i1 %tobool3.not, label %return, label %if.then4

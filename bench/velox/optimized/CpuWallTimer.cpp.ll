@@ -3,11 +3,6 @@ source_filename = "bench/velox/original/CpuWallTimer.cpp.ll"
 target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:128-n8:16:32:64-S128"
 target triple = "x86_64-unknown-linux-gnu"
 
-%"class.facebook::velox::CpuWallTimer" = type { i64, %"class.std::chrono::time_point", ptr }
-%"class.std::chrono::time_point" = type { %"class.std::chrono::duration" }
-%"class.std::chrono::duration" = type { i64 }
-%"struct.facebook::velox::CpuWallTiming" = type { i64, i64, i64 }
-
 $__clang_call_terminate = comdat any
 
 @_ZN8facebook5velox12CpuWallTimerC1ERNS0_13CpuWallTimingE = unnamed_addr alias void (ptr, ptr), ptr @_ZN8facebook5velox12CpuWallTimerC2ERNS0_13CpuWallTimingE
@@ -16,9 +11,9 @@ $__clang_call_terminate = comdat any
 ; Function Attrs: mustprogress uwtable
 define void @_ZN8facebook5velox12CpuWallTimerC2ERNS0_13CpuWallTimingE(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(24) %this, ptr noundef nonnull align 8 dereferenceable(24) %timing) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  %wallTimeStart_ = getelementptr inbounds %"class.facebook::velox::CpuWallTimer", ptr %this, i64 0, i32 1
+  %wallTimeStart_ = getelementptr inbounds i8, ptr %this, i64 8
   store i64 0, ptr %wallTimeStart_, align 8
-  %timing_ = getelementptr inbounds %"class.facebook::velox::CpuWallTimer", ptr %this, i64 0, i32 2
+  %timing_ = getelementptr inbounds i8, ptr %this, i64 16
   store ptr %timing, ptr %timing_, align 8
   %0 = load i64, ptr %timing, align 8
   %inc = add i64 %0, 1
@@ -44,18 +39,18 @@ entry:
 invoke.cont8:                                     ; preds = %entry
   %0 = load i64, ptr %this, align 8
   %sub = sub i64 %call, %0
-  %timing_ = getelementptr inbounds %"class.facebook::velox::CpuWallTimer", ptr %this, i64 0, i32 2
+  %timing_ = getelementptr inbounds i8, ptr %this, i64 16
   %1 = load ptr, ptr %timing_, align 8
-  %cpuNanos = getelementptr inbounds %"struct.facebook::velox::CpuWallTiming", ptr %1, i64 0, i32 2
+  %cpuNanos = getelementptr inbounds i8, ptr %1, i64 16
   %2 = load i64, ptr %cpuNanos, align 8
   %add = add i64 %sub, %2
   store i64 %add, ptr %cpuNanos, align 8
   %call3 = tail call i64 @_ZNSt6chrono3_V212steady_clock3nowEv() #5
-  %wallTimeStart_ = getelementptr inbounds %"class.facebook::velox::CpuWallTimer", ptr %this, i64 0, i32 1
+  %wallTimeStart_ = getelementptr inbounds i8, ptr %this, i64 8
   %retval.sroa.0.0.copyload.i1.i = load i64, ptr %wallTimeStart_, align 8
   %sub.i.i = sub i64 %call3, %retval.sroa.0.0.copyload.i1.i
   %3 = load ptr, ptr %timing_, align 8
-  %wallNanos = getelementptr inbounds %"struct.facebook::velox::CpuWallTiming", ptr %3, i64 0, i32 1
+  %wallNanos = getelementptr inbounds i8, ptr %3, i64 8
   %4 = load i64, ptr %wallNanos, align 8
   %add14 = add i64 %sub.i.i, %4
   store i64 %add14, ptr %wallNanos, align 8

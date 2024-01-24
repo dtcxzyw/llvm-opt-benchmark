@@ -54,7 +54,7 @@ target triple = "x86_64-unknown-linux-gnu"
 @.str.39 = private unnamed_addr constant [29 x i8] c"dupctx = EVP_MD_CTX_dup(ctx)\00", align 1
 
 ; Function Attrs: nounwind uwtable
-define dso_local i32 @setup_tests() local_unnamed_addr #0 {
+define dso_local noundef i32 @setup_tests() local_unnamed_addr #0 {
 entry:
   tail call void @add_test(ptr noundef nonnull @.str, ptr noundef nonnull @shake_kat_test) #4
   tail call void @add_test(ptr noundef nonnull @.str.1, ptr noundef nonnull @shake_kat_digestfinal_test) #4
@@ -204,7 +204,7 @@ if.end:                                           ; preds = %entry
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(250) %out, i8 0, i64 250, i1 false)
   call void @OSSL_PARAM_construct_size_t(ptr nonnull sret(%struct.ossl_param_st) align 8 %tmp, ptr noundef nonnull @.str.21, ptr noundef nonnull %sz) #4
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(40) %params, ptr noundef nonnull align 8 dereferenceable(40) %tmp, i64 40, i1 false)
-  %arrayidx2 = getelementptr inbounds [2 x %struct.ossl_param_st], ptr %params, i64 0, i64 1
+  %arrayidx2 = getelementptr inbounds i8, ptr %params, i64 40
   call void @OSSL_PARAM_construct_end(ptr nonnull sret(%struct.ossl_param_st) align 8 %tmp3) #4
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %arrayidx2, ptr noundef nonnull align 8 dereferenceable(40) %tmp3, i64 40, i1 false)
   %call5 = call i32 @EVP_MD_CTX_set_params(ptr noundef %call, ptr noundef nonnull %params) #4
@@ -264,7 +264,7 @@ return:                                           ; preds = %entry, %err
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @shake_absorb_test() #0 {
+define internal noundef i32 @shake_absorb_test() #0 {
 entry:
   %out = alloca [32 x i8], align 16
   %call = tail call fastcc ptr @shake_setup(ptr noundef nonnull @.str.9)
@@ -502,7 +502,7 @@ err:                                              ; preds = %err.i, %if.end, %en
 declare i32 @test_ptr(ptr noundef, i32 noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc ptr @shake_setup(ptr noundef %name) unnamed_addr #0 {
+define internal fastcc noundef ptr @shake_setup(ptr noundef %name) unnamed_addr #0 {
 entry:
   %call = tail call ptr @EVP_MD_fetch(ptr noundef null, ptr noundef %name, ptr noundef null) #4
   %call1 = tail call i32 @test_ptr(ptr noundef nonnull @.str.7, i32 noundef 163, ptr noundef nonnull @.str.15, ptr noundef %call) #4
@@ -609,7 +609,7 @@ while.cond.preheader:                             ; preds = %if.end6
   br i1 %cmp1218.not, label %while.end, label %while.body.lr.ph
 
 while.body.lr.ph:                                 ; preds = %while.cond.preheader
-  %incsz = getelementptr inbounds [32 x %struct.anon], ptr @stride_tests, i64 0, i64 %idxprom, i32 1
+  %incsz = getelementptr inbounds i8, ptr %arrayidx, i64 8
   br label %while.body
 
 while.body:                                       ; preds = %while.body.lr.ph, %if.end24

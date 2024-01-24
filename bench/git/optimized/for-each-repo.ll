@@ -6,7 +6,6 @@ target triple = "x86_64-unknown-linux-gnu"
 %struct.option = type { i32, i32, ptr, ptr, ptr, ptr, i32, ptr, i64, ptr, i64, ptr }
 %struct.strvec = type { ptr, i64, i64 }
 %struct.child_process = type { %struct.strvec, %struct.strvec, i32, i32, i64, ptr, ptr, i32, i32, i32, ptr, i16, ptr }
-%struct.string_list = type { ptr, i64, i64, i8, ptr }
 %struct.string_list_item = type { ptr, ptr }
 
 @cmd_for_each_repo.config_key = internal global ptr null, align 8
@@ -59,7 +58,7 @@ if.else:                                          ; preds = %if.end
   br i1 %tobool6.not, label %for.cond.preheader, label %return
 
 for.cond.preheader:                               ; preds = %if.else
-  %git_cmd.i = getelementptr inbounds %struct.child_process, ptr %child.i, i64 0, i32 11
+  %git_cmd.i = getelementptr inbounds i8, ptr %child.i, i64 104
   %cmp4.i = icmp sgt i32 %call.fr, 0
   %wide.trip.count.i = zext nneg i32 %call.fr to i64
   br i1 %cmp4.i, label %land.rhs.us, label %land.rhs
@@ -67,7 +66,7 @@ for.cond.preheader:                               ; preds = %if.else
 land.rhs.us:                                      ; preds = %for.cond.preheader, %run_command_on_repo.exit.loopexit.us
   %indvars.iv11 = phi i64 [ %indvars.iv.next12, %run_command_on_repo.exit.loopexit.us ], [ 0, %for.cond.preheader ]
   %3 = load ptr, ptr %values, align 8
-  %nr.us = getelementptr inbounds %struct.string_list, ptr %3, i64 0, i32 1
+  %nr.us = getelementptr inbounds i8, ptr %3, i64 8
   %4 = load i64, ptr %nr.us, align 8
   %cmp11.us = icmp ugt i64 %4, %indvars.iv11
   br i1 %cmp11.us, label %for.body.us, label %return
@@ -103,7 +102,7 @@ run_command_on_repo.exit.loopexit.us:             ; preds = %for.body.i.us
 land.rhs:                                         ; preds = %for.cond.preheader, %for.body
   %indvars.iv = phi i64 [ %indvars.iv.next, %for.body ], [ 0, %for.cond.preheader ]
   %8 = load ptr, ptr %values, align 8
-  %nr = getelementptr inbounds %struct.string_list, ptr %8, i64 0, i32 1
+  %nr = getelementptr inbounds i8, ptr %8, i64 8
   %9 = load i64, ptr %nr, align 8
   %cmp11 = icmp ugt i64 %9, %indvars.iv
   br i1 %cmp11, label %for.body, label %return

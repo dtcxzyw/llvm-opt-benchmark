@@ -135,7 +135,7 @@ if.then.i:                                        ; preds = %if.then2
   %mul24.i = fmul double %add.i, 0x3FD5555555555555
   %call25.i = tail call double @cos(double noundef %mul24.i) #4
   %19 = tail call double @llvm.fmuladd.f64(double %mul19.i, double %call25.i, double %neg23.i)
-  %arrayidx28.i = getelementptr inbounds double, ptr %x, i64 1
+  %arrayidx28.i = getelementptr inbounds i8, ptr %x, i64 8
   store double %19, ptr %arrayidx28.i, align 8
   %sub.i = fadd double %call17.i, 0xC01921FB54442D18
   %mul29.i = fmul double %sub.i, 0x3FD5555555555555
@@ -176,10 +176,10 @@ if.then51.i:                                      ; preds = %lor.lhs.false.i, %i
   br label %return.sink.split.i
 
 return.sink.split.i:                              ; preds = %if.then51.i, %if.then.i
-  %.sink44.i = phi i64 [ 1, %if.then51.i ], [ 2, %if.then.i ]
+  %.sink44.i = phi i64 [ 8, %if.then51.i ], [ 16, %if.then.i ]
   %.sink.i = phi double [ %26, %if.then51.i ], [ %20, %if.then.i ]
   %retval.0.ph.i = phi i32 [ 2, %if.then51.i ], [ 3, %if.then.i ]
-  %arrayidx55.i = getelementptr inbounds double, ptr %x, i64 %.sink44.i
+  %arrayidx55.i = getelementptr inbounds i8, ptr %x, i64 %.sink44.i
   store double %.sink.i, ptr %arrayidx55.i, align 8
   br label %return
 

@@ -24,9 +24,9 @@ if.then.i:                                        ; preds = %entry
   unreachable
 
 check_signum.exit:                                ; preds = %entry
-  %n = getelementptr inbounds %struct.sigchain_signal, ptr @signals, i64 %idx.ext, i32 1
+  %n = getelementptr inbounds i8, ptr %add.ptr, i64 8
   %1 = load i32, ptr %n, align 8
-  %alloc = getelementptr inbounds %struct.sigchain_signal, ptr @signals, i64 %idx.ext, i32 2
+  %alloc = getelementptr inbounds i8, ptr %add.ptr, i64 12
   %2 = load i32, ptr %alloc, align 4
   %cmp.not = icmp slt i32 %1, %2
   br i1 %cmp.not, label %do.end, label %if.then
@@ -83,6 +83,7 @@ declare ptr @signal(i32 noundef, ptr noundef) local_unnamed_addr #2
 define dso_local noundef i32 @sigchain_pop(i32 noundef %sig) local_unnamed_addr #0 {
 entry:
   %idx.ext = sext i32 %sig to i64
+  %add.ptr = getelementptr inbounds %struct.sigchain_signal, ptr @signals, i64 %idx.ext
   %0 = add i32 %sig, -32
   %or.cond.i = icmp ult i32 %0, -31
   br i1 %or.cond.i, label %if.then.i, label %check_signum.exit
@@ -92,17 +93,16 @@ if.then.i:                                        ; preds = %entry
   unreachable
 
 check_signum.exit:                                ; preds = %entry
-  %n = getelementptr inbounds %struct.sigchain_signal, ptr @signals, i64 %idx.ext, i32 1
+  %n = getelementptr inbounds i8, ptr %add.ptr, i64 8
   %1 = load i32, ptr %n, align 8
   %cmp = icmp slt i32 %1, 1
   br i1 %cmp, label %return, label %if.end
 
 if.end:                                           ; preds = %check_signum.exit
-  %add.ptr = getelementptr inbounds %struct.sigchain_signal, ptr @signals, i64 %idx.ext
   %2 = load ptr, ptr %add.ptr, align 16
   %3 = zext nneg i32 %1 to i64
   %4 = getelementptr ptr, ptr %2, i64 %3
-  %arrayidx = getelementptr ptr, ptr %4, i64 -1
+  %arrayidx = getelementptr i8, ptr %4, i64 -8
   %5 = load ptr, ptr %arrayidx, align 8
   %call = tail call ptr @signal(i32 noundef %sig, ptr noundef %5) #5
   %cmp2 = icmp eq ptr %call, inttoptr (i64 -1 to ptr)
@@ -356,7 +356,7 @@ if.end.i:                                         ; preds = %entry
   %1 = load ptr, ptr getelementptr inbounds ([32 x %struct.sigchain_signal], ptr @signals, i64 0, i64 13), align 16
   %2 = zext nneg i32 %0 to i64
   %3 = getelementptr ptr, ptr %1, i64 %2
-  %arrayidx.i = getelementptr ptr, ptr %3, i64 -1
+  %arrayidx.i = getelementptr i8, ptr %3, i64 -8
   %4 = load ptr, ptr %arrayidx.i, align 8
   %call.i = tail call ptr @signal(i32 noundef 13, ptr noundef %4) #5
   %cmp2.i = icmp eq ptr %call.i, inttoptr (i64 -1 to ptr)
@@ -377,7 +377,7 @@ if.end.i2:                                        ; preds = %sigchain_pop.exit
   %7 = load ptr, ptr getelementptr inbounds ([32 x %struct.sigchain_signal], ptr @signals, i64 0, i64 3), align 16
   %8 = zext nneg i32 %6 to i64
   %9 = getelementptr ptr, ptr %7, i64 %8
-  %arrayidx.i3 = getelementptr ptr, ptr %9, i64 -1
+  %arrayidx.i3 = getelementptr i8, ptr %9, i64 -8
   %10 = load ptr, ptr %arrayidx.i3, align 8
   %call.i4 = tail call ptr @signal(i32 noundef 3, ptr noundef %10) #5
   %cmp2.i5 = icmp eq ptr %call.i4, inttoptr (i64 -1 to ptr)
@@ -398,7 +398,7 @@ if.end.i11:                                       ; preds = %sigchain_pop.exit9
   %13 = load ptr, ptr getelementptr inbounds ([32 x %struct.sigchain_signal], ptr @signals, i64 0, i64 15), align 16
   %14 = zext nneg i32 %12 to i64
   %15 = getelementptr ptr, ptr %13, i64 %14
-  %arrayidx.i12 = getelementptr ptr, ptr %15, i64 -1
+  %arrayidx.i12 = getelementptr i8, ptr %15, i64 -8
   %16 = load ptr, ptr %arrayidx.i12, align 8
   %call.i13 = tail call ptr @signal(i32 noundef 15, ptr noundef %16) #5
   %cmp2.i14 = icmp eq ptr %call.i13, inttoptr (i64 -1 to ptr)
@@ -419,7 +419,7 @@ if.end.i20:                                       ; preds = %sigchain_pop.exit18
   %19 = load ptr, ptr getelementptr inbounds ([32 x %struct.sigchain_signal], ptr @signals, i64 0, i64 1), align 16
   %20 = zext nneg i32 %18 to i64
   %21 = getelementptr ptr, ptr %19, i64 %20
-  %arrayidx.i21 = getelementptr ptr, ptr %21, i64 -1
+  %arrayidx.i21 = getelementptr i8, ptr %21, i64 -8
   %22 = load ptr, ptr %arrayidx.i21, align 8
   %call.i22 = tail call ptr @signal(i32 noundef 1, ptr noundef %22) #5
   %cmp2.i23 = icmp eq ptr %call.i22, inttoptr (i64 -1 to ptr)
@@ -440,7 +440,7 @@ if.end.i29:                                       ; preds = %sigchain_pop.exit27
   %25 = load ptr, ptr getelementptr inbounds ([32 x %struct.sigchain_signal], ptr @signals, i64 0, i64 2), align 16
   %26 = zext nneg i32 %24 to i64
   %27 = getelementptr ptr, ptr %25, i64 %26
-  %arrayidx.i30 = getelementptr ptr, ptr %27, i64 -1
+  %arrayidx.i30 = getelementptr i8, ptr %27, i64 -8
   %28 = load ptr, ptr %arrayidx.i30, align 8
   %call.i31 = tail call ptr @signal(i32 noundef 2, ptr noundef %28) #5
   %cmp2.i32 = icmp eq ptr %call.i31, inttoptr (i64 -1 to ptr)

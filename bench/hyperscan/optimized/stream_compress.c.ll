@@ -4,16 +4,9 @@ target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:
 target triple = "x86_64-unknown-linux-gnu"
 
 %struct.mmbit_sparse_state = type { i64, i32 }
-%struct.RoseEngine = type { i8, i8, i8, i8, i8, i8, i8, i8, i8, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i64, i64, i32, i32, i32, i32, i32, i32, i32, %struct.RoseStateOffsets, %struct.RoseBoundaryReports, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, %struct.scatter_full_plan }
-%struct.RoseStateOffsets = type { i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32 }
-%struct.RoseBoundaryReports = type { i32, i32, i32 }
-%struct.scatter_full_plan = type { i32, i32, i32, i32, i32, i32, i32, i32 }
-%struct.hs_stream = type { ptr, i64 }
 %struct.NfaInfo = type { i32, i32, i32, i32, i8, i8, i8 }
 %struct.mmbit_sparse_iter = type { i64, i32 }
 %struct.LeftNfaInfo = type { i32, i32, i32, i32, i8, i8, i8, i8, i32, i64 }
-%struct.NFA = type { i32, i32, i8, i8, i8, i8, %union.anon, i32, i32, i32, i32, i32, i32, i32, [20 x i8] }
-%union.anon = type { i16 }
 
 @mmbit_maxlevel_direct_lut = external local_unnamed_addr constant [32 x i8], align 16
 @mmbit_root_offset_from_level = external local_unnamed_addr constant [7 x i32], align 16
@@ -22,13 +15,13 @@ target triple = "x86_64-unknown-linux-gnu"
 define hidden i32 @expand_stream(ptr noundef %stream, ptr noundef %rose, ptr noundef %buf, i64 noundef %buf_size) local_unnamed_addr #0 {
 entry:
   %si_state.i = alloca [7 x %struct.mmbit_sparse_state], align 16
-  %stateOffsets.i = getelementptr inbounds %struct.RoseEngine, ptr %rose, i64 0, i32 75
+  %stateOffsets.i = getelementptr inbounds i8, ptr %rose, i64 284
   %add.ptr.i = getelementptr inbounds i8, ptr %stream, i64 16
   %cmp.i = icmp ult i64 %buf_size, 8
   br i1 %cmp.i, label %sc_expand.exit, label %if.end.i
 
 if.end.i:                                         ; preds = %entry
-  %offset.i = getelementptr inbounds %struct.hs_stream, ptr %stream, i64 0, i32 1
+  %offset.i = getelementptr inbounds i8, ptr %stream, i64 8
   %0 = load i64, ptr %buf, align 1
   store i64 %0, ptr %offset.i, align 8
   store ptr %rose, ptr %stream, align 8
@@ -41,7 +34,7 @@ if.end12.i:                                       ; preds = %if.end.i
   store i8 %1, ptr %add.ptr.i, align 1
   %add.ptr20.i = getelementptr inbounds i8, ptr %stream, i64 17
   %add.ptr21.i = getelementptr inbounds i8, ptr %buf, i64 9
-  %rolesWithStateCount.i = getelementptr inbounds %struct.RoseEngine, ptr %rose, i64 0, i32 22
+  %rolesWithStateCount.i = getelementptr inbounds i8, ptr %rose, i64 64
   %2 = load i32, ptr %rolesWithStateCount.i, align 8
   %cmp.i557.i = icmp ult i32 %2, 257
   br i1 %cmp.i557.i, label %if.then.i611.i, label %if.end.i558.i
@@ -150,15 +143,15 @@ if.end23.i:                                       ; preds = %if.then36.i577.i, %
   %sz.0.ph.i = phi i64 [ %conv43.i582.i, %if.then36.i577.i ], [ 8, %if.then3.i610.i ], [ %conv.i615.i, %if.then.i611.i ]
   %add24.i = add nuw nsw i64 %sz.0.ph.i, 9
   %conv.i = trunc i64 %0 to i32
-  %historyRequired.i = getelementptr inbounds %struct.RoseEngine, ptr %rose, i64 0, i32 10
+  %historyRequired.i = getelementptr inbounds i8, ptr %rose, i64 16
   %15 = load i32, ptr %historyRequired.i, align 8
   %conv..i = tail call i32 @llvm.umin.i32(i32 %15, i32 %conv.i)
-  %activeLeafArray.i = getelementptr inbounds %struct.RoseEngine, ptr %rose, i64 0, i32 75, i32 7
+  %activeLeafArray.i = getelementptr inbounds i8, ptr %rose, i64 312
   %16 = load i32, ptr %activeLeafArray.i, align 4
   %idx.ext.i = zext i32 %16 to i64
   %add.ptr37.i = getelementptr inbounds i8, ptr %add.ptr.i, i64 %idx.ext.i
   %add.ptr39.i = getelementptr inbounds i8, ptr %buf, i64 %add24.i
-  %activeArrayCount.i = getelementptr inbounds %struct.RoseEngine, ptr %rose, i64 0, i32 43
+  %activeArrayCount.i = getelementptr inbounds i8, ptr %rose, i64 148
   %17 = load i32, ptr %activeArrayCount.i, align 4
   %cmp.i480.i = icmp ult i32 %17, 257
   br i1 %cmp.i480.i, label %if.then.i534.i, label %if.end.i481.i
@@ -266,12 +259,12 @@ if.end37.i494.i:                                  ; preds = %if.end33.i491.i
 if.end44.i:                                       ; preds = %if.then36.i500.i, %if.then3.i533.i, %if.then.i534.i
   %sz35.0.ph.i = phi i64 [ %conv43.i505.i, %if.then36.i500.i ], [ 8, %if.then3.i533.i ], [ %conv.i538.i, %if.then.i534.i ]
   %add45.i = add nuw nsw i64 %sz35.0.ph.i, %add24.i
-  %activeLeftArray.i = getelementptr inbounds %struct.RoseEngine, ptr %rose, i64 0, i32 75, i32 9
+  %activeLeftArray.i = getelementptr inbounds i8, ptr %rose, i64 320
   %30 = load i32, ptr %activeLeftArray.i, align 4
   %idx.ext52.i = zext i32 %30 to i64
   %add.ptr53.i = getelementptr inbounds i8, ptr %add.ptr.i, i64 %idx.ext52.i
   %add.ptr55.i = getelementptr inbounds i8, ptr %buf, i64 %add45.i
-  %activeLeftCount.i = getelementptr inbounds %struct.RoseEngine, ptr %rose, i64 0, i32 44
+  %activeLeftCount.i = getelementptr inbounds i8, ptr %rose, i64 152
   %31 = load i32, ptr %activeLeftCount.i, align 8
   %cmp.i403.i = icmp ult i32 %31, 257
   br i1 %cmp.i403.i, label %if.then.i457.i, label %if.end.i404.i
@@ -379,7 +372,7 @@ if.end37.i417.i:                                  ; preds = %if.end33.i414.i
 if.end60.i:                                       ; preds = %if.then36.i423.i, %if.then3.i456.i, %if.then.i457.i
   %sz50.0.ph.i = phi i64 [ %conv43.i428.i, %if.then36.i423.i ], [ 8, %if.then3.i456.i ], [ %conv.i461.i, %if.then.i457.i ]
   %add61.i = add nuw nsw i64 %sz50.0.ph.i, %add45.i
-  %longLitState_size.i = getelementptr inbounds %struct.RoseEngine, ptr %rose, i64 0, i32 75, i32 16
+  %longLitState_size.i = getelementptr inbounds i8, ptr %rose, i64 348
   %44 = load i32, ptr %longLitState_size.i, align 4
   %conv66.i = zext i32 %44 to i64
   %add67.i = add nuw nsw i64 %add61.i, %conv66.i
@@ -387,7 +380,7 @@ if.end60.i:                                       ; preds = %if.then36.i423.i, %
   br i1 %cmp68.i, label %sc_expand.exit, label %if.end71.i
 
 if.end71.i:                                       ; preds = %if.end60.i
-  %longLitState.i = getelementptr inbounds %struct.RoseEngine, ptr %rose, i64 0, i32 75, i32 15
+  %longLitState.i = getelementptr inbounds i8, ptr %rose, i64 344
   %45 = load i32, ptr %longLitState.i, align 4
   %idx.ext72.i = zext i32 %45 to i64
   %add.ptr73.i = getelementptr inbounds i8, ptr %add.ptr.i, i64 %idx.ext72.i
@@ -396,14 +389,14 @@ if.end71.i:                                       ; preds = %if.end60.i
   %46 = load i32, ptr %longLitState_size.i, align 4
   %conv78.i = zext i32 %46 to i64
   %add79.i = add nuw nsw i64 %add61.i, %conv78.i
-  %anchoredDistance.i = getelementptr inbounds %struct.RoseEngine, ptr %rose, i64 0, i32 59
+  %anchoredDistance.i = getelementptr inbounds i8, ptr %rose, i64 212
   %47 = load i32, ptr %anchoredDistance.i, align 4
   %conv83.i = zext i32 %47 to i64
   %cmp84.not.i = icmp ugt i64 %0, %conv83.i
   br i1 %cmp84.not.i, label %do.body106.i, label %do.body87.i
 
 do.body87.i:                                      ; preds = %if.end71.i
-  %anchorStateSize.i = getelementptr inbounds %struct.RoseEngine, ptr %rose, i64 0, i32 24
+  %anchorStateSize.i = getelementptr inbounds i8, ptr %rose, i64 72
   %48 = load i32, ptr %anchorStateSize.i, align 8
   %conv88.i = zext i32 %48 to i64
   %add89.i = add nuw nsw i64 %add79.i, %conv88.i
@@ -411,7 +404,7 @@ do.body87.i:                                      ; preds = %if.end71.i
   br i1 %cmp90.i, label %sc_expand.exit, label %if.end93.i
 
 if.end93.i:                                       ; preds = %do.body87.i
-  %anchorState.i = getelementptr inbounds %struct.RoseEngine, ptr %rose, i64 0, i32 75, i32 12
+  %anchorState.i = getelementptr inbounds i8, ptr %rose, i64 332
   %49 = load i32, ptr %anchorState.i, align 4
   %idx.ext94.i = zext i32 %49 to i64
   %add.ptr95.i = getelementptr inbounds i8, ptr %add.ptr.i, i64 %idx.ext94.i
@@ -424,7 +417,7 @@ if.end93.i:                                       ; preds = %do.body87.i
 
 do.body106.i:                                     ; preds = %if.end93.i, %if.end71.i
   %currOffset.0.i = phi i64 [ %add101.i, %if.end93.i ], [ %add79.i, %if.end71.i ]
-  %groups_size.i = getelementptr inbounds %struct.RoseEngine, ptr %rose, i64 0, i32 75, i32 14
+  %groups_size.i = getelementptr inbounds i8, ptr %rose, i64 340
   %51 = load i32, ptr %groups_size.i, align 4
   %conv107.i = zext i32 %51 to i64
   %add108.i = add nuw nsw i64 %currOffset.0.i, %conv107.i
@@ -432,7 +425,7 @@ do.body106.i:                                     ; preds = %if.end93.i, %if.end
   br i1 %cmp109.i, label %sc_expand.exit, label %if.end112.i
 
 if.end112.i:                                      ; preds = %do.body106.i
-  %groups.i = getelementptr inbounds %struct.RoseEngine, ptr %rose, i64 0, i32 75, i32 13
+  %groups.i = getelementptr inbounds i8, ptr %rose, i64 336
   %52 = load i32, ptr %groups.i, align 4
   %idx.ext113.i = zext i32 %52 to i64
   %add.ptr114.i = getelementptr inbounds i8, ptr %add.ptr.i, i64 %idx.ext113.i
@@ -456,12 +449,12 @@ if.end133.i:                                      ; preds = %if.end112.i
   %add.ptr137.i = getelementptr inbounds i8, ptr %add.ptr135.i, i64 %idx.neg.i
   %add.ptr138.i = getelementptr inbounds i8, ptr %buf, i64 %add120.i
   tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %add.ptr137.i, ptr nonnull align 1 %add.ptr138.i, i64 %conv128.i, i1 false)
-  %exhausted.i = getelementptr inbounds %struct.RoseEngine, ptr %rose, i64 0, i32 75, i32 1
+  %exhausted.i = getelementptr inbounds i8, ptr %rose, i64 288
   %56 = load i32, ptr %exhausted.i, align 4
   %idx.ext148.i = zext i32 %56 to i64
   %add.ptr149.i = getelementptr inbounds i8, ptr %add.ptr.i, i64 %idx.ext148.i
   %add.ptr151.i = getelementptr inbounds i8, ptr %buf, i64 %add129.i
-  %ekeyCount.i = getelementptr inbounds %struct.RoseEngine, ptr %rose, i64 0, i32 11
+  %ekeyCount.i = getelementptr inbounds i8, ptr %rose, i64 20
   %57 = load i32, ptr %ekeyCount.i, align 4
   %cmp.i326.i = icmp ult i32 %57, 257
   br i1 %cmp.i326.i, label %if.then.i380.i, label %if.end.i327.i
@@ -569,14 +562,14 @@ if.end37.i340.i:                                  ; preds = %if.end33.i337.i
 if.end156.i:                                      ; preds = %if.then36.i346.i, %if.then3.i379.i, %if.then.i380.i
   %sz146.0.ph.i = phi i64 [ %conv43.i351.i, %if.then36.i346.i ], [ 8, %if.then3.i379.i ], [ %conv.i384.i, %if.then.i380.i ]
   %add157.i = add nuw nsw i64 %sz146.0.ph.i, %add129.i
-  %logicalVec.i = getelementptr inbounds %struct.RoseEngine, ptr %rose, i64 0, i32 75, i32 3
+  %logicalVec.i = getelementptr inbounds i8, ptr %rose, i64 296
   %70 = load i32, ptr %logicalVec.i, align 4
   %idx.ext164.i = zext i32 %70 to i64
   %add.ptr165.i = getelementptr inbounds i8, ptr %add.ptr.i, i64 %idx.ext164.i
   %add.ptr167.i = getelementptr inbounds i8, ptr %buf, i64 %add157.i
-  %lkeyCount.i = getelementptr inbounds %struct.RoseEngine, ptr %rose, i64 0, i32 12
+  %lkeyCount.i = getelementptr inbounds i8, ptr %rose, i64 24
   %71 = load i32, ptr %lkeyCount.i, align 8
-  %lopCount.i = getelementptr inbounds %struct.RoseEngine, ptr %rose, i64 0, i32 13
+  %lopCount.i = getelementptr inbounds i8, ptr %rose, i64 28
   %72 = load i32, ptr %lopCount.i, align 4
   %add168.i = add i32 %72, %71
   %cmp.i249.i = icmp ult i32 %add168.i, 257
@@ -685,12 +678,12 @@ if.end37.i263.i:                                  ; preds = %if.end33.i260.i
 if.end173.i:                                      ; preds = %if.then36.i269.i, %if.then3.i302.i, %if.then.i303.i
   %sz162.0.ph.i = phi i64 [ %conv43.i274.i, %if.then36.i269.i ], [ 8, %if.then3.i302.i ], [ %conv.i307.i, %if.then.i303.i ]
   %add174.i = add nuw nsw i64 %sz162.0.ph.i, %add157.i
-  %combVec.i = getelementptr inbounds %struct.RoseEngine, ptr %rose, i64 0, i32 75, i32 5
+  %combVec.i = getelementptr inbounds i8, ptr %rose, i64 304
   %85 = load i32, ptr %combVec.i, align 4
   %idx.ext181.i = zext i32 %85 to i64
   %add.ptr182.i = getelementptr inbounds i8, ptr %add.ptr.i, i64 %idx.ext181.i
   %add.ptr184.i = getelementptr inbounds i8, ptr %buf, i64 %add174.i
-  %ckeyCount.i = getelementptr inbounds %struct.RoseEngine, ptr %rose, i64 0, i32 14
+  %ckeyCount.i = getelementptr inbounds i8, ptr %rose, i64 32
   %86 = load i32, ptr %ckeyCount.i, align 8
   %cmp.i.i = icmp ult i32 %86, 257
   br i1 %cmp.i.i, label %if.then.i.i, label %if.end.i.i
@@ -1021,7 +1014,7 @@ do.end202.lr.ph.i:                                ; preds = %mmbit_iterate.exit6
   %retval.i627.0663.i = phi i32 [ %retval.i627.0.i, %mmbit_iterate.exit646.i ], [ %add96.i.i, %if.then94.i.i ], [ %cast.i.i.i, %if.then6.i.i ]
   %invariant.gep597.i = getelementptr i8, ptr %add.ptr196.i, i64 -8
   %invariant.gep595.i = getelementptr i8, ptr %add.ptr196.i, i64 -4
-  %nfaInfoOffset.i.i = getelementptr inbounds %struct.RoseEngine, ptr %rose, i64 0, i32 65
+  %nfaInfoOffset.i.i = getelementptr inbounds i8, ptr %rose, i64 236
   %sub.i.i = add i32 %100, -1
   %121 = tail call i32 @llvm.ctlz.i32(i32 %sub.i.i, i1 true), !range !5
   %idxprom.i.i1106.i = zext nneg i32 %121 to i64
@@ -1061,7 +1054,7 @@ do.end202.i:                                      ; preds = %mmbit_iterate.exit.
   br i1 %cmp208.i, label %sc_expand.exit, label %if.end211.i
 
 if.end211.i:                                      ; preds = %do.end202.i
-  %stateOffset.i = getelementptr inbounds %struct.NfaInfo, ptr %add.ptr.i647.i, i64 %idxprom.i.i, i32 1
+  %stateOffset.i = getelementptr inbounds i8, ptr %arrayidx.i.i, i64 4
   %127 = load i32, ptr %stateOffset.i, align 4
   %idx.ext212.i = zext i32 %127 to i64
   %add.ptr213.i = getelementptr inbounds i8, ptr %add.ptr.i, i64 %idx.ext212.i
@@ -1354,7 +1347,7 @@ mmbit_iterate.exit.i:                             ; preds = %if.then11.i1136.i, 
 for.end.i:                                        ; preds = %if.end19.i.i, %mmbit_iterate.exit.i, %mmbit_get_flat_block.exit1231.i, %for.end.i952.i, %if.else.i1023.i, %if.then4.i1043.i, %if.end211.i, %if.end19.i1114.i, %mmbit_iterate.exit646.i, %mmbit_get_flat_block.exit1329.i, %for.end.i.i, %if.end.i910.i, %if.end189.i
   %currOffset.1.lcssa.i = phi i64 [ %add190.i, %mmbit_iterate.exit646.i ], [ %add190.i, %if.end189.i ], [ %add190.i, %if.end.i910.i ], [ %add190.i, %mmbit_get_flat_block.exit1329.i ], [ %add190.i, %for.end.i.i ], [ %add219.i, %if.end19.i1114.i ], [ %add219.i, %if.end211.i ], [ %add219.i, %if.then4.i1043.i ], [ %add219.i, %if.else.i1023.i ], [ %add219.i, %for.end.i952.i ], [ %add219.i, %mmbit_get_flat_block.exit1231.i ], [ %add219.i, %mmbit_iterate.exit.i ], [ %add190.i, %if.end19.i.i ]
   call void @llvm.lifetime.start.p0(i64 112, ptr nonnull %si_state.i)
-  %activeLeftIterOffset.i = getelementptr inbounds %struct.RoseEngine, ptr %rose, i64 0, i32 84
+  %activeLeftIterOffset.i = getelementptr inbounds i8, ptr %rose, i64 416
   %152 = load i32, ptr %activeLeftIterOffset.i, align 8
   %tobool.not.i = icmp eq i32 %152, 0
   br i1 %tobool.not.i, label %sc_left_expand.exit, label %if.end.i1
@@ -1364,7 +1357,7 @@ if.end.i1:                                        ; preds = %for.end.i
   %idx.ext.i4 = zext i32 %153 to i64
   %add.ptr1.i = getelementptr inbounds i8, ptr %add.ptr.i, i64 %idx.ext.i4
   %154 = load i32, ptr %activeLeftCount.i, align 8
-  %leftOffset.i.i = getelementptr inbounds %struct.RoseEngine, ptr %rose, i64 0, i32 50
+  %leftOffset.i.i = getelementptr inbounds i8, ptr %rose, i64 176
   %155 = load i32, ptr %leftOffset.i.i, align 8
   %idx.ext.i44.i = zext i32 %155 to i64
   %add.ptr.i45.i = getelementptr inbounds i8, ptr %rose, i64 %idx.ext.i44.i
@@ -1428,9 +1421,9 @@ mmbit_get_flat_block.exit91.i.i:                  ; preds = %sw.default.i83.i.i,
 for.body.lr.ph.i.thread:                          ; preds = %mmbit_get_flat_block.exit91.i.i
   %161 = tail call i64 @llvm.cttz.i64(i64 %and.i.i, i1 true), !range !6
   %cast.i.i.i34 = trunc i64 %161 to i32
-  %leftfixBeginQueue320.i36 = getelementptr inbounds %struct.RoseEngine, ptr %rose, i64 0, i32 81
-  %nfaInfoOffset.i.i1337 = getelementptr inbounds %struct.RoseEngine, ptr %rose, i64 0, i32 65
-  %leftfixLagTable.i38 = getelementptr inbounds %struct.RoseEngine, ptr %rose, i64 0, i32 75, i32 11
+  %leftfixBeginQueue320.i36 = getelementptr inbounds i8, ptr %rose, i64 404
+  %nfaInfoOffset.i.i1337 = getelementptr inbounds i8, ptr %rose, i64 236
+  %leftfixLagTable.i38 = getelementptr inbounds i8, ptr %rose, i64 328
   br label %for.body.lr.ph.split.us.i
 
 if.end7.i.i:                                      ; preds = %if.then.i.i27
@@ -1439,7 +1432,7 @@ if.end7.i.i:                                      ; preds = %if.then.i.i27
   br i1 %tobool9.i.not252.i, label %sc_left_expand.exit, label %for.body.i.lr.ph.i
 
 for.body.i.lr.ph.i:                               ; preds = %if.end7.i.i
-  %val.i.i = getelementptr inbounds %struct.mmbit_sparse_iter, ptr %add.ptr.i48.i, i64 0, i32 1
+  %val.i.i = getelementptr inbounds i8, ptr %add.ptr.i48.i, i64 8
   %163 = load i32, ptr %val.i.i, align 8
   br label %for.body.i.i28
 
@@ -1517,16 +1510,16 @@ if.end30.i.i:                                     ; preds = %if.else.i72.i, %sw.
 
 if.then34.i.i:                                    ; preds = %if.end30.i.i
   store i64 %root.i.0253.i, ptr %si_state.i, align 16
-  %arrayidx36.i.i = getelementptr inbounds %struct.mmbit_sparse_state, ptr %si_state.i, i64 1
+  %arrayidx36.i.i = getelementptr inbounds i8, ptr %si_state.i, i64 16
   store i64 %and32.i.i, ptr %arrayidx36.i.i, align 16
-  %itkey.i.i = getelementptr inbounds %struct.mmbit_sparse_state, ptr %si_state.i, i64 1, i32 1
+  %itkey.i.i = getelementptr inbounds i8, ptr %si_state.i, i64 24
   store i32 %add.i.i30, ptr %itkey.i.i, align 8
   %172 = tail call i64 @llvm.cttz.i64(i64 %and32.i.i, i1 true), !range !6
   %cast.i57.i.i = trunc i64 %172 to i32
   %add45.i.i = or disjoint i32 %conv14.i.i, %cast.i57.i.i
   %.pre = add nsw i32 %154, -1
-  %.pre173 = tail call i32 @llvm.ctlz.i32(i32 %.pre, i1 true), !range !5
-  %.pre174 = zext nneg i32 %.pre173 to i64
+  %.pre172 = tail call i32 @llvm.ctlz.i32(i32 %.pre, i1 true), !range !5
+  %.pre173 = zext nneg i32 %.pre172 to i64
   br label %for.body.lr.ph.i
 
 if.end46.i.i:                                     ; preds = %if.end30.i.i
@@ -1550,7 +1543,7 @@ if.end.i93.i:                                     ; preds = %if.else.i.i6
   %176 = load i8, ptr %arrayidx.i.i.i8, align 1
   %conv.i.i95.i = zext i8 %176 to i32
   store i64 %and.i90.i, ptr %si_state.i, align 16
-  %itkey.i96.i = getelementptr inbounds %struct.mmbit_sparse_state, ptr %si_state.i, i64 0, i32 1
+  %itkey.i96.i = getelementptr inbounds i8, ptr %si_state.i, i64 8
   store i32 0, ptr %itkey.i96.i, align 8
   br label %for.cond.i183.i
 
@@ -1578,7 +1571,7 @@ if.else.i195.i:                                   ; preds = %if.then.i189.i
   %180 = tail call i64 @llvm.ctpop.i64(i64 %and.i.i192.i), !range !10
   %cast.i40.i.i = trunc i64 %180 to i32
   %inc.i.i = add i32 %level.addr.i.0.i, 1
-  %val5.i.i = getelementptr inbounds %struct.mmbit_sparse_iter, ptr %it.addr.i.0.i, i64 0, i32 1
+  %val5.i.i = getelementptr inbounds i8, ptr %it.addr.i.0.i, i64 8
   %181 = load i32, ptr %val5.i.i, align 8
   %add6.i.i = add i32 %181, %cast.i40.i.i
   %idx.ext.i196.i = zext i32 %add6.i.i to i64
@@ -1597,7 +1590,7 @@ if.else.i195.i:                                   ; preds = %if.then.i189.i
   %and.i205.i = and i64 %184, %183
   %arrayidx12.i.i = getelementptr inbounds %struct.mmbit_sparse_state, ptr %si_state.i, i64 %idxprom.i.i198.i
   store i64 %and.i205.i, ptr %arrayidx12.i.i, align 16
-  %itkey.i206.i = getelementptr inbounds %struct.mmbit_sparse_state, ptr %si_state.i, i64 %idxprom.i.i198.i, i32 1
+  %itkey.i206.i = getelementptr inbounds i8, ptr %arrayidx12.i.i, i64 8
   store i32 %add6.i.i, ptr %itkey.i206.i, align 8
   br label %for.cond.i183.i.backedge
 
@@ -1614,7 +1607,7 @@ if.end20.i.i:                                     ; preds = %if.else16.i.i
   %sub.i187.i = add i64 %185, -1
   %and27.i.i = and i64 %sub.i187.i, %185
   store i64 %and27.i.i, ptr %arrayidx22.i.i, align 16
-  %itkey30.i.i = getelementptr inbounds %struct.mmbit_sparse_state, ptr %si_state.i, i64 %idxprom21.i.i, i32 1
+  %itkey30.i.i = getelementptr inbounds i8, ptr %arrayidx22.i.i, i64 8
   %186 = load i32, ptr %itkey30.i.i, align 8
   %idx.ext31.i.i = zext i32 %186 to i64
   %add.ptr32.i.i = getelementptr inbounds %struct.mmbit_sparse_iter, ptr %add.ptr.i48.i, i64 %idx.ext31.i.i
@@ -1632,17 +1625,17 @@ if.end.i.i12:                                     ; preds = %if.then.i189.i
   br i1 %cmp.not263.i, label %sc_left_expand.exit, label %for.body.lr.ph.i
 
 for.body.lr.ph.i:                                 ; preds = %if.then34.i.i, %if.end.i.i12
-  %idxprom.i.i320.i.pre-phi = phi i64 [ %.pre174, %if.then34.i.i ], [ %idxprom.i.i.i7, %if.end.i.i12 ]
+  %idxprom.i.i320.i.pre-phi = phi i64 [ %.pre173, %if.then34.i.i ], [ %idxprom.i.i.i7, %if.end.i.i12 ]
   %key.i.0319.i = phi i32 [ %add45.i.i, %if.then34.i.i ], [ %add.i191.i, %if.end.i.i12 ]
-  %leftfixBeginQueue320.i = getelementptr inbounds %struct.RoseEngine, ptr %rose, i64 0, i32 81
-  %nfaInfoOffset.i.i13 = getelementptr inbounds %struct.RoseEngine, ptr %rose, i64 0, i32 65
-  %leftfixLagTable.i = getelementptr inbounds %struct.RoseEngine, ptr %rose, i64 0, i32 75, i32 11
+  %leftfixBeginQueue320.i = getelementptr inbounds i8, ptr %rose, i64 404
+  %nfaInfoOffset.i.i13 = getelementptr inbounds i8, ptr %rose, i64 236
+  %leftfixLagTable.i = getelementptr inbounds i8, ptr %rose, i64 328
   %arrayidx.i.i321.i = getelementptr inbounds [32 x i8], ptr @mmbit_maxlevel_direct_lut, i64 0, i64 %idxprom.i.i320.i.pre-phi
   br i1 %cmp.i.i.i, label %for.body.lr.ph.i.for.body.lr.ph.split.us.i_crit_edge, label %for.body.i
 
 for.body.lr.ph.i.for.body.lr.ph.split.us.i_crit_edge: ; preds = %for.body.lr.ph.i
   %cmp.i244.i = icmp ult i32 %154, 65
-  %arrayidx.i246.i.phi.trans.insert = getelementptr inbounds %struct.mmbit_sparse_state, ptr %si_state.i, i64 1
+  %arrayidx.i246.i.phi.trans.insert = getelementptr inbounds i8, ptr %si_state.i, i64 16
   %arrayidx.i246.promoted.i.pre = load i64, ptr %arrayidx.i246.i.phi.trans.insert, align 16
   %si_state.promoted.i.pre = load i64, ptr %si_state.i, align 16
   br label %for.body.lr.ph.split.us.i
@@ -1655,7 +1648,7 @@ for.body.lr.ph.split.us.i:                        ; preds = %for.body.lr.ph.i.fo
   %nfaInfoOffset.i.i1346 = phi ptr [ %nfaInfoOffset.i.i1337, %for.body.lr.ph.i.thread ], [ %nfaInfoOffset.i.i13, %for.body.lr.ph.i.for.body.lr.ph.split.us.i_crit_edge ]
   %leftfixBeginQueue320.i45 = phi ptr [ %leftfixBeginQueue320.i36, %for.body.lr.ph.i.thread ], [ %leftfixBeginQueue320.i, %for.body.lr.ph.i.for.body.lr.ph.split.us.i_crit_edge ]
   %key.i.0319.i44 = phi i32 [ %cast.i.i.i34, %for.body.lr.ph.i.thread ], [ %key.i.0319.i, %for.body.lr.ph.i.for.body.lr.ph.split.us.i_crit_edge ]
-  %val48.i.i49 = getelementptr inbounds %struct.mmbit_sparse_iter, ptr %add.ptr.i48.i, i64 0, i32 1
+  %val48.i.i49 = getelementptr inbounds i8, ptr %add.ptr.i48.i, i64 8
   %187 = load i32, ptr %leftfixBeginQueue320.i45, align 4
   %add.us.i101 = add i32 %187, %key.i.0319.i44
   %188 = load i32, ptr %nfaInfoOffset.i.i1346, align 4
@@ -1673,23 +1666,21 @@ for.body.lr.ph.split.us.i:                        ; preds = %for.body.lr.ph.i.fo
   br i1 %cmp9.us.i111, label %sc_left_expand.exit.thread, label %if.end12.us.i
 
 if.end12.us.i:                                    ; preds = %for.body.lr.ph.split.us.i, %mmbit_sparse_iter_next.exit.us.i
-  %conv.us.i119 = phi i64 [ %conv.us.i, %mmbit_sparse_iter_next.exit.us.i ], [ %conv.us.i109, %for.body.lr.ph.split.us.i ]
-  %gep.us.i118 = phi ptr [ %gep.us.i, %mmbit_sparse_iter_next.exit.us.i ], [ %gep.us.i108, %for.body.lr.ph.split.us.i ]
-  %idxprom.i.us.i117 = phi i64 [ %idxprom.i.us.i, %mmbit_sparse_iter_next.exit.us.i ], [ %idxprom.i.us.i105, %for.body.lr.ph.split.us.i ]
-  %191 = phi i64 [ %idx.ext.i.us.i, %mmbit_sparse_iter_next.exit.us.i ], [ %idx.ext.i.us.i103, %for.body.lr.ph.split.us.i ]
+  %conv.us.i118 = phi i64 [ %conv.us.i, %mmbit_sparse_iter_next.exit.us.i ], [ %conv.us.i109, %for.body.lr.ph.split.us.i ]
+  %gep.us.i117 = phi ptr [ %gep.us.i, %mmbit_sparse_iter_next.exit.us.i ], [ %gep.us.i108, %for.body.lr.ph.split.us.i ]
+  %arrayidx.i.us.i116 = phi ptr [ %arrayidx.i.us.i, %mmbit_sparse_iter_next.exit.us.i ], [ %arrayidx.i.us.i106, %for.body.lr.ph.split.us.i ]
   %idx.ext4.us.i115.in = phi i32 [ %cast.i.i299.us.i, %mmbit_sparse_iter_next.exit.us.i ], [ %key.i.0319.i44, %for.body.lr.ph.split.us.i ]
   %currOffset.addr.0265.us.i114 = phi i64 [ %add24.us.i, %mmbit_sparse_iter_next.exit.us.i ], [ %currOffset.1.lcssa.i, %for.body.lr.ph.split.us.i ]
   %and74.i255.lcssa256.us279.i113 = phi i64 [ %and74.i255.lcssa256.us278.i, %mmbit_sparse_iter_next.exit.us.i ], [ %arrayidx.i246.promoted.i, %for.body.lr.ph.split.us.i ]
   %and37.i.lcssa.us281.i112 = phi i64 [ %and37.i.lcssa.us282.i, %mmbit_sparse_iter_next.exit.us.i ], [ %si_state.promoted.i, %for.body.lr.ph.split.us.i ]
-  %192 = getelementptr inbounds i8, ptr %rose, i64 %191
-  %stateOffset.us.i = getelementptr inbounds %struct.NfaInfo, ptr %192, i64 %idxprom.i.us.i117, i32 1
-  %193 = load i32, ptr %stateOffset.us.i, align 4
-  %idx.ext13.us.i = zext i32 %193 to i64
+  %stateOffset.us.i = getelementptr inbounds i8, ptr %arrayidx.i.us.i116, i64 4
+  %191 = load i32, ptr %stateOffset.us.i, align 4
+  %idx.ext13.us.i = zext i32 %191 to i64
   %add.ptr14.us.i = getelementptr inbounds i8, ptr %add.ptr.i, i64 %idx.ext13.us.i
   %add.ptr15.us.i = getelementptr inbounds i8, ptr %buf, i64 %currOffset.addr.0265.us.i114
-  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %add.ptr14.us.i, ptr align 1 %add.ptr15.us.i, i64 %conv.us.i119, i1 false)
-  %194 = load i32, ptr %gep.us.i118, align 4
-  %conv19.us.i = zext i32 %194 to i64
+  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %add.ptr14.us.i, ptr align 1 %add.ptr15.us.i, i64 %conv.us.i118, i1 false)
+  %192 = load i32, ptr %gep.us.i117, align 4
+  %conv19.us.i = zext i32 %192 to i64
   %add20.us.i = add i64 %currOffset.addr.0265.us.i114, %conv19.us.i
   %add24.us.i = add i64 %add20.us.i, 1
   %cmp25.us.i = icmp ugt i64 %add24.us.i, %buf_size
@@ -1697,32 +1688,32 @@ if.end12.us.i:                                    ; preds = %for.body.lr.ph.spli
 
 if.end28.us.i:                                    ; preds = %if.end12.us.i
   %idx.ext4.us.i115 = zext i32 %idx.ext4.us.i115.in to i64
-  %195 = load i32, ptr %leftfixLagTable.i47, align 4
-  %idx.ext29.us.i = zext i32 %195 to i64
+  %193 = load i32, ptr %leftfixLagTable.i47, align 4
+  %idx.ext29.us.i = zext i32 %193 to i64
   %add.ptr30.us.i = getelementptr inbounds i8, ptr %add.ptr.i, i64 %idx.ext29.us.i
   %lagIndex.us.i = getelementptr inbounds %struct.LeftNfaInfo, ptr %add.ptr.i45.i, i64 %idx.ext4.us.i115, i32 2
-  %196 = load i32, ptr %lagIndex.us.i, align 8
-  %idx.ext31.us.i = zext i32 %196 to i64
+  %194 = load i32, ptr %lagIndex.us.i, align 8
+  %idx.ext31.us.i = zext i32 %194 to i64
   %add.ptr32.us.i = getelementptr inbounds i8, ptr %add.ptr30.us.i, i64 %idx.ext31.us.i
   %add.ptr33.us.i = getelementptr inbounds i8, ptr %buf, i64 %add20.us.i
-  %197 = load i8, ptr %add.ptr33.us.i, align 1
-  store i8 %197, ptr %add.ptr32.us.i, align 1
+  %195 = load i8, ptr %add.ptr33.us.i, align 1
+  store i8 %195, ptr %add.ptr32.us.i, align 1
   br i1 %cmp.i244.i48, label %if.then.i294.us.i, label %if.else.i245.us.i
 
 if.else.i245.us.i:                                ; preds = %if.end28.us.i
   %sub9.i.us.i = add i64 %and74.i255.lcssa256.us279.i113, -1
   %and12.i.us.i = and i64 %sub9.i.us.i, %and74.i255.lcssa256.us279.i113
-  %198 = tail call i64 @llvm.cttz.i64(i64 %and37.i.lcssa.us281.i112, i1 true), !range !6
+  %196 = tail call i64 @llvm.cttz.i64(i64 %and37.i.lcssa.us281.i112, i1 true), !range !6
   %tobool18.i.not257.us.i = icmp eq i64 %and12.i.us.i, 0
   br i1 %tobool18.i.not257.us.i, label %if.end31.i.lr.ph.us.i, label %if.then19.i287.us.i
 
 if.then19.i287.us.i:                              ; preds = %if.end72.i.us.i, %if.else.i245.us.i
   %and74.i255.lcssa.us.i = phi i64 [ %and12.i.us.i, %if.else.i245.us.i ], [ %and74.i.us.i, %if.end72.i.us.i ]
   %.lcssa254.us.i = phi i64 [ %and37.i.lcssa.us281.i112, %if.else.i245.us.i ], [ %and37.i.us275.i, %if.end72.i.us.i ]
-  %bit.i236.0.in.lcssa.us.i = phi i64 [ %198, %if.else.i245.us.i ], [ %200, %if.end72.i.us.i ]
-  %199 = tail call i64 @llvm.cttz.i64(i64 %and74.i255.lcssa.us.i, i1 true), !range !6
+  %bit.i236.0.in.lcssa.us.i = phi i64 [ %196, %if.else.i245.us.i ], [ %198, %if.end72.i.us.i ]
+  %197 = tail call i64 @llvm.cttz.i64(i64 %and74.i255.lcssa.us.i, i1 true), !range !6
   %mul.i293.us.i = shl nuw nsw i64 %bit.i236.0.in.lcssa.us.i, 6
-  %add29.i.us.i = or disjoint i64 %mul.i293.us.i, %199
+  %add29.i.us.i = or disjoint i64 %mul.i293.us.i, %197
   br label %mmbit_sparse_iter_next.exit.us.i
 
 if.end31.i.us.i:                                  ; preds = %if.end72.i.us.i
@@ -1733,25 +1724,25 @@ if.end31.i.us.i:                                  ; preds = %if.end72.i.us.i
 
 if.end42.i.us.i:                                  ; preds = %if.end42.i.us.lr.ph.i, %if.end31.i.us.i
   %and37.i.us275.i = phi i64 [ %and37.i.us273.i, %if.end42.i.us.lr.ph.i ], [ %and37.i.us.i, %if.end31.i.us.i ]
-  %200 = tail call i64 @llvm.cttz.i64(i64 %and37.i.us275.i, i1 true), !range !12
-  %notmask238.us.i = shl nsw i64 -1, %200
+  %198 = tail call i64 @llvm.cttz.i64(i64 %and37.i.us275.i, i1 true), !range !12
+  %notmask238.us.i = shl nsw i64 -1, %198
   %sub.i.i.i254.us.i = xor i64 %notmask238.us.i, -1
-  %and.i97.i.us.i = and i64 %213, %sub.i.i.i254.us.i
-  %201 = tail call i64 @llvm.ctpop.i64(i64 %and.i97.i.us.i), !range !10
-  %cast.i158.i.us.i = trunc i64 %201 to i32
-  %add49.i.us.i = add i32 %214, %cast.i158.i.us.i
+  %and.i97.i.us.i = and i64 %211, %sub.i.i.i254.us.i
+  %199 = tail call i64 @llvm.ctpop.i64(i64 %and.i97.i.us.i), !range !10
+  %cast.i158.i.us.i = trunc i64 %199 to i32
+  %add49.i.us.i = add i32 %212, %cast.i158.i.us.i
   %idx.ext51.i.us.i = zext i32 %add49.i.us.i to i64
   %add.ptr52.i.us.i = getelementptr inbounds %struct.mmbit_sparse_iter, ptr %add.ptr.i48.i, i64 %idx.ext51.i.us.i
-  %.tr239.us.i = trunc i64 %200 to i32
+  %.tr239.us.i = trunc i64 %198 to i32
   %conv55.i.us.i = shl nuw nsw i32 %.tr239.us.i, 6
   %narrow240.us.i = add nuw nsw i32 %conv55.i.us.i, 64
   %cmp59.i.us.i = icmp ugt i32 %narrow240.us.i, %154
-  %mul63.i.us.i = shl nuw nsw i64 %200, 3
+  %mul63.i.us.i = shl nuw nsw i64 %198, 3
   %add.ptr64.i.us.i = getelementptr inbounds i8, ptr %add.ptr1.i, i64 %mul63.i.us.i
   br i1 %cmp59.i.us.i, label %if.then61.i.us.i, label %if.else67.i.us.i
 
 if.else67.i.us.i:                                 ; preds = %if.end42.i.us.i
-  %202 = load i64, ptr %add.ptr64.i.us.i, align 1
+  %200 = load i64, ptr %add.ptr64.i.us.i, align 1
   br label %if.end72.i.us.i
 
 if.then61.i.us.i:                                 ; preds = %if.end42.i.us.i
@@ -1770,20 +1761,20 @@ sw.bb3.i.i262.us.i:                               ; preds = %if.then61.i.us.i, %
   %add.ptr.i.i264.us.i = getelementptr inbounds i8, ptr %add.ptr64.i.us.i, i64 %idx.ext.i.i263.us.i
   %add.ptr4.i.i265.us.i = getelementptr inbounds i8, ptr %add.ptr.i.i264.us.i, i64 -4
   %rv.i.i222.0.copyload.us.i = load i32, ptr %add.ptr4.i.i265.us.i, align 1
-  %203 = and i32 %add.i.i259.us.i, -8
-  %mul.i.i268.us.i = sub nsw i32 32, %203
+  %201 = and i32 %add.i.i259.us.i, -8
+  %mul.i.i268.us.i = sub nsw i32 32, %201
   %shr.i.i270.us.i = lshr i32 %rv.i.i222.0.copyload.us.i, %mul.i.i268.us.i
   %conv6.i.i271.us.i = zext i32 %shr.i.i270.us.i to i64
   br label %if.end72.i.us.i
 
 sw.bb1.i.i273.us.i:                               ; preds = %if.then61.i.us.i
-  %204 = load i16, ptr %add.ptr64.i.us.i, align 1
-  %conv2.i.i274.us.i = zext i16 %204 to i64
+  %202 = load i16, ptr %add.ptr64.i.us.i, align 1
+  %conv2.i.i274.us.i = zext i16 %202 to i64
   br label %if.end72.i.us.i
 
 sw.bb.i.i275.us.i:                                ; preds = %if.then61.i.us.i
-  %205 = load i8, ptr %add.ptr64.i.us.i, align 1
-  %conv.i.i276.us.i = zext i8 %205 to i64
+  %203 = load i8, ptr %add.ptr64.i.us.i, align 1
+  %conv.i.i276.us.i = zext i8 %203 to i64
   br label %if.end72.i.us.i
 
 sw.default.i.i277.us.i:                           ; preds = %if.then61.i.us.i
@@ -1791,15 +1782,15 @@ sw.default.i.i277.us.i:                           ; preds = %if.then61.i.us.i
   %add.ptr9.i.i279.us.i = getelementptr inbounds i8, ptr %add.ptr64.i.us.i, i64 %idx.ext8.i.i278.us.i
   %add.ptr10.i.i280.us.i = getelementptr inbounds i8, ptr %add.ptr9.i.i279.us.i, i64 -8
   %rv7.i.i223.0.copyload.us.i = load i64, ptr %add.ptr10.i.i280.us.i, align 1
-  %206 = shl nuw nsw i64 %idx.ext8.i.i278.us.i, 3
-  %mul13.i.i283.us.i = sub nsw i64 64, %206
+  %204 = shl nuw nsw i64 %idx.ext8.i.i278.us.i, 3
+  %mul13.i.i283.us.i = sub nsw i64 64, %204
   %shr14.i.i284.us.i = lshr i64 %rv7.i.i223.0.copyload.us.i, %mul13.i.i283.us.i
   br label %if.end72.i.us.i
 
 if.end72.i.us.i:                                  ; preds = %sw.default.i.i277.us.i, %sw.bb.i.i275.us.i, %sw.bb1.i.i273.us.i, %sw.bb3.i.i262.us.i, %if.else67.i.us.i
-  %block.i242.0.us.i = phi i64 [ %202, %if.else67.i.us.i ], [ %shr14.i.i284.us.i, %sw.default.i.i277.us.i ], [ %conv6.i.i271.us.i, %sw.bb3.i.i262.us.i ], [ %conv2.i.i274.us.i, %sw.bb1.i.i273.us.i ], [ %conv.i.i276.us.i, %sw.bb.i.i275.us.i ]
-  %207 = load i64, ptr %add.ptr52.i.us.i, align 8
-  %and74.i.us.i = and i64 %207, %block.i242.0.us.i
+  %block.i242.0.us.i = phi i64 [ %200, %if.else67.i.us.i ], [ %shr14.i.i284.us.i, %sw.default.i.i277.us.i ], [ %conv6.i.i271.us.i, %sw.bb3.i.i262.us.i ], [ %conv2.i.i274.us.i, %sw.bb1.i.i273.us.i ], [ %conv.i.i276.us.i, %sw.bb.i.i275.us.i ]
+  %205 = load i64, ptr %add.ptr52.i.us.i, align 8
+  %and74.i.us.i = and i64 %205, %block.i242.0.us.i
   %tobool18.i.not.us.i = icmp eq i64 %and74.i.us.i, 0
   br i1 %tobool18.i.not.us.i, label %if.end31.i.us.i, label %if.then19.i287.us.i
 
@@ -1810,26 +1801,26 @@ if.then.i294.us.i:                                ; preds = %if.end28.us.i
   br i1 %tobool.i297.not.us.i, label %sc_left_expand.exit, label %if.then4.i.us.i
 
 if.then4.i.us.i:                                  ; preds = %if.then.i294.us.i
-  %208 = tail call i64 @llvm.cttz.i64(i64 %and.i296.us.i, i1 true), !range !12
+  %206 = tail call i64 @llvm.cttz.i64(i64 %and.i296.us.i, i1 true), !range !12
   br label %mmbit_sparse_iter_next.exit.us.i
 
 mmbit_sparse_iter_next.exit.us.i:                 ; preds = %if.then4.i.us.i, %if.then19.i287.us.i
-  %.sink.i = phi i64 [ %208, %if.then4.i.us.i ], [ %add29.i.us.i, %if.then19.i287.us.i ]
+  %.sink.i = phi i64 [ %206, %if.then4.i.us.i ], [ %add29.i.us.i, %if.then19.i287.us.i ]
   %and37.i.lcssa.us282.i = phi i64 [ %and.i296.us.i, %if.then4.i.us.i ], [ %.lcssa254.us.i, %if.then19.i287.us.i ]
   %and74.i255.lcssa256.us278.i = phi i64 [ %and74.i255.lcssa256.us279.i113, %if.then4.i.us.i ], [ %and74.i255.lcssa.us.i, %if.then19.i287.us.i ]
   %cast.i.i299.us.i = trunc i64 %.sink.i to i32
-  %209 = load i32, ptr %leftfixBeginQueue320.i45, align 4
-  %add.us.i = add i32 %209, %cast.i.i299.us.i
-  %210 = load i32, ptr %nfaInfoOffset.i.i1346, align 4
-  %idx.ext.i.us.i = zext i32 %210 to i64
+  %207 = load i32, ptr %leftfixBeginQueue320.i45, align 4
+  %add.us.i = add i32 %207, %cast.i.i299.us.i
+  %208 = load i32, ptr %nfaInfoOffset.i.i1346, align 4
+  %idx.ext.i.us.i = zext i32 %208 to i64
   %add.ptr.i.us.i = getelementptr inbounds i8, ptr %rose, i64 %idx.ext.i.us.i
   %idxprom.i.us.i = zext i32 %add.us.i to i64
   %arrayidx.i.us.i = getelementptr inbounds %struct.NfaInfo, ptr %add.ptr.i.us.i, i64 %idxprom.i.us.i
-  %211 = load i32, ptr %arrayidx.i.us.i, align 4
-  %idx.ext.i41.us.i = zext i32 %211 to i64
+  %209 = load i32, ptr %arrayidx.i.us.i, align 4
+  %idx.ext.i41.us.i = zext i32 %209 to i64
   %gep.us.i = getelementptr inbounds i8, ptr %lopCount.i, i64 %idx.ext.i41.us.i
-  %212 = load i32, ptr %gep.us.i, align 4
-  %conv.us.i = zext i32 %212 to i64
+  %210 = load i32, ptr %gep.us.i, align 4
+  %conv.us.i = zext i32 %210 to i64
   %add8.us.i = add i64 %add24.us.i, %conv.us.i
   %cmp9.us.i = icmp ugt i64 %add8.us.i, %buf_size
   br i1 %cmp9.us.i, label %sc_left_expand.exit.thread, label %if.end12.us.i, !llvm.loop !13
@@ -1841,67 +1832,67 @@ if.end31.i.lr.ph.us.i:                            ; preds = %if.else.i245.us.i
   br i1 %tobool40.i.not.us274.i, label %sc_left_expand.exit, label %if.end42.i.us.lr.ph.i
 
 if.end42.i.us.lr.ph.i:                            ; preds = %if.end31.i.lr.ph.us.i
-  %213 = load i64, ptr %add.ptr.i48.i, align 8
-  %214 = load i32, ptr %val48.i.i49, align 8
+  %211 = load i64, ptr %add.ptr.i48.i, align 8
+  %212 = load i32, ptr %val48.i.i49, align 8
   br label %if.end42.i.us.i
 
 for.body.i:                                       ; preds = %for.body.lr.ph.i, %mmbit_sparse_iter_next.exit.i
   %ri.0266.i = phi i32 [ %add.i.i333.i, %mmbit_sparse_iter_next.exit.i ], [ %key.i.0319.i, %for.body.lr.ph.i ]
   %currOffset.addr.0265.i = phi i64 [ %add24.i23, %mmbit_sparse_iter_next.exit.i ], [ %currOffset.1.lcssa.i, %for.body.lr.ph.i ]
-  %215 = load i32, ptr %leftfixBeginQueue320.i, align 4
-  %add.i = add i32 %215, %ri.0266.i
+  %213 = load i32, ptr %leftfixBeginQueue320.i, align 4
+  %add.i = add i32 %213, %ri.0266.i
   %idx.ext4.i = zext i32 %ri.0266.i to i64
-  %216 = load i32, ptr %nfaInfoOffset.i.i13, align 4
-  %idx.ext.i.i14 = zext i32 %216 to i64
+  %214 = load i32, ptr %nfaInfoOffset.i.i13, align 4
+  %idx.ext.i.i14 = zext i32 %214 to i64
   %add.ptr.i.i15 = getelementptr inbounds i8, ptr %rose, i64 %idx.ext.i.i14
   %idxprom.i.i16 = zext i32 %add.i to i64
   %arrayidx.i.i17 = getelementptr inbounds %struct.NfaInfo, ptr %add.ptr.i.i15, i64 %idxprom.i.i16
-  %217 = load i32, ptr %arrayidx.i.i17, align 4
-  %idx.ext.i41.i = zext i32 %217 to i64
+  %215 = load i32, ptr %arrayidx.i.i17, align 4
+  %idx.ext.i41.i = zext i32 %215 to i64
   %gep.i18 = getelementptr inbounds i8, ptr %lopCount.i, i64 %idx.ext.i41.i
-  %218 = load i32, ptr %gep.i18, align 4
-  %conv.i19 = zext i32 %218 to i64
+  %216 = load i32, ptr %gep.i18, align 4
+  %conv.i19 = zext i32 %216 to i64
   %add8.i = add i64 %currOffset.addr.0265.i, %conv.i19
   %cmp9.i = icmp ugt i64 %add8.i, %buf_size
   br i1 %cmp9.i, label %sc_left_expand.exit.thread, label %if.end12.i20
 
 if.end12.i20:                                     ; preds = %for.body.i
-  %stateOffset.i21 = getelementptr inbounds %struct.NfaInfo, ptr %add.ptr.i.i15, i64 %idxprom.i.i16, i32 1
-  %219 = load i32, ptr %stateOffset.i21, align 4
-  %idx.ext13.i = zext i32 %219 to i64
+  %stateOffset.i21 = getelementptr inbounds i8, ptr %arrayidx.i.i17, i64 4
+  %217 = load i32, ptr %stateOffset.i21, align 4
+  %idx.ext13.i = zext i32 %217 to i64
   %add.ptr14.i22 = getelementptr inbounds i8, ptr %add.ptr.i, i64 %idx.ext13.i
   %add.ptr15.i = getelementptr inbounds i8, ptr %buf, i64 %currOffset.addr.0265.i
   tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %add.ptr14.i22, ptr align 1 %add.ptr15.i, i64 %conv.i19, i1 false)
-  %220 = load i32, ptr %gep.i18, align 4
-  %conv19.i = zext i32 %220 to i64
+  %218 = load i32, ptr %gep.i18, align 4
+  %conv19.i = zext i32 %218 to i64
   %add20.i = add i64 %currOffset.addr.0265.i, %conv19.i
   %add24.i23 = add i64 %add20.i, 1
   %cmp25.i = icmp ugt i64 %add24.i23, %buf_size
   br i1 %cmp25.i, label %sc_left_expand.exit.thread, label %if.end28.i
 
 if.end28.i:                                       ; preds = %if.end12.i20
-  %221 = load i32, ptr %leftfixLagTable.i, align 4
-  %idx.ext29.i = zext i32 %221 to i64
+  %219 = load i32, ptr %leftfixLagTable.i, align 4
+  %idx.ext29.i = zext i32 %219 to i64
   %add.ptr30.i = getelementptr inbounds i8, ptr %add.ptr.i, i64 %idx.ext29.i
   %lagIndex.i = getelementptr inbounds %struct.LeftNfaInfo, ptr %add.ptr.i45.i, i64 %idx.ext4.i, i32 2
-  %222 = load i32, ptr %lagIndex.i, align 8
-  %idx.ext31.i = zext i32 %222 to i64
+  %220 = load i32, ptr %lagIndex.i, align 8
+  %idx.ext31.i = zext i32 %220 to i64
   %add.ptr32.i = getelementptr inbounds i8, ptr %add.ptr30.i, i64 %idx.ext31.i
   %add.ptr33.i = getelementptr inbounds i8, ptr %buf, i64 %add20.i
-  %223 = load i8, ptr %add.ptr33.i, align 1
-  store i8 %223, ptr %add.ptr32.i, align 1
-  %224 = load i8, ptr %arrayidx.i.i321.i, align 1
-  %conv.i.i322.i = zext i8 %224 to i32
+  %221 = load i8, ptr %add.ptr33.i, align 1
+  store i8 %221, ptr %add.ptr32.i, align 1
+  %222 = load i8, ptr %arrayidx.i.i321.i, align 1
+  %conv.i.i322.i = zext i8 %222 to i32
   %shr.i323.i = lshr i32 %ri.0266.i, 6
-  %idxprom.i324.i = zext i8 %224 to i64
+  %idxprom.i324.i = zext i8 %222 to i64
   %arrayidx.i325.i = getelementptr inbounds %struct.mmbit_sparse_state, ptr %si_state.i, i64 %idxprom.i324.i
-  %225 = load i64, ptr %arrayidx.i325.i, align 16
-  %sub.i326.i = add i64 %225, -1
-  %and.i327.i = and i64 %sub.i326.i, %225
+  %223 = load i64, ptr %arrayidx.i325.i, align 16
+  %sub.i326.i = add i64 %223, -1
+  %and.i327.i = and i64 %sub.i326.i, %223
   store i64 %and.i327.i, ptr %arrayidx.i325.i, align 16
-  %itkey.i328.i = getelementptr inbounds %struct.mmbit_sparse_state, ptr %si_state.i, i64 %idxprom.i324.i, i32 1
-  %226 = load i32, ptr %itkey.i328.i, align 8
-  %idx.ext.i329.i = zext i32 %226 to i64
+  %itkey.i328.i = getelementptr inbounds i8, ptr %arrayidx.i325.i, i64 8
+  %224 = load i32, ptr %itkey.i328.i, align 8
+  %idx.ext.i329.i = zext i32 %224 to i64
   %add.ptr.i330.i = getelementptr inbounds %struct.mmbit_sparse_iter, ptr %add.ptr.i48.i, i64 %idx.ext.i329.i
   br label %for.cond.i.i.i
 
@@ -1911,46 +1902,46 @@ for.cond.i.i.i:                                   ; preds = %for.cond.i.i.i.back
   %key.addr.i.i.0.i = phi i32 [ %shr.i323.i, %if.end28.i ], [ %key.addr.i.i.0.i.be, %for.cond.i.i.i.backedge ]
   %idxprom.i7.i.i = zext i32 %level.addr.i.i305.0.i to i64
   %arrayidx.i8.i.i = getelementptr inbounds %struct.mmbit_sparse_state, ptr %si_state.i, i64 %idxprom.i7.i.i
-  %227 = load i64, ptr %arrayidx.i8.i.i, align 16
-  %tobool.i.i.not.i = icmp eq i64 %227, 0
+  %225 = load i64, ptr %arrayidx.i8.i.i, align 16
+  %tobool.i.i.not.i = icmp eq i64 %225, 0
   br i1 %tobool.i.i.not.i, label %if.else16.i.i.i, label %if.then.i.i332.i
 
 if.then.i.i332.i:                                 ; preds = %for.cond.i.i.i
-  %228 = tail call i64 @llvm.cttz.i64(i64 %227, i1 true), !range !6
-  %cast.i.i.i.i = trunc i64 %228 to i32
+  %226 = tail call i64 @llvm.cttz.i64(i64 %225, i1 true), !range !6
+  %cast.i.i.i.i = trunc i64 %226 to i32
   %shl.i.i.i = shl i32 %key.addr.i.i.0.i, 6
   %add.i.i333.i = or disjoint i32 %shl.i.i.i, %cast.i.i.i.i
   %cmp.i.i335.i = icmp eq i32 %level.addr.i.i305.0.i, %conv.i.i322.i
   br i1 %cmp.i.i335.i, label %mmbit_sparse_iter_next.exit.i, label %if.else.i.i336.i
 
 if.else.i.i336.i:                                 ; preds = %if.then.i.i332.i
-  %229 = load i64, ptr %it.addr.i.i.0.i, align 8
-  %notmask237.i = shl nsw i64 -1, %228
+  %227 = load i64, ptr %it.addr.i.i.0.i, align 8
+  %notmask237.i = shl nsw i64 -1, %226
   %sub.i.i.i.i.i = xor i64 %notmask237.i, -1
-  %and.i.i.i.i = and i64 %229, %sub.i.i.i.i.i
-  %230 = tail call i64 @llvm.ctpop.i64(i64 %and.i.i.i.i), !range !10
-  %cast.i40.i.i.i = trunc i64 %230 to i32
+  %and.i.i.i.i = and i64 %227, %sub.i.i.i.i.i
+  %228 = tail call i64 @llvm.ctpop.i64(i64 %and.i.i.i.i), !range !10
+  %cast.i40.i.i.i = trunc i64 %228 to i32
   %inc.i.i.i = add i32 %level.addr.i.i305.0.i, 1
-  %val5.i.i.i = getelementptr inbounds %struct.mmbit_sparse_iter, ptr %it.addr.i.i.0.i, i64 0, i32 1
-  %231 = load i32, ptr %val5.i.i.i, align 8
-  %add6.i.i.i = add i32 %231, %cast.i40.i.i.i
+  %val5.i.i.i = getelementptr inbounds i8, ptr %it.addr.i.i.0.i, i64 8
+  %229 = load i32, ptr %val5.i.i.i, align 8
+  %add6.i.i.i = add i32 %229, %cast.i40.i.i.i
   %idx.ext.i.i337.i = zext i32 %add6.i.i.i to i64
   %add.ptr.i.i338.i = getelementptr inbounds %struct.mmbit_sparse_iter, ptr %add.ptr.i48.i, i64 %idx.ext.i.i337.i
   %idxprom.i.i.i.i = zext i32 %inc.i.i.i to i64
   %arrayidx.i.i.i.i = getelementptr inbounds [7 x i32], ptr @mmbit_root_offset_from_level, i64 0, i64 %idxprom.i.i.i.i
-  %232 = load i32, ptr %arrayidx.i.i.i.i, align 4
-  %conv.i.i.i339.i = zext i32 %232 to i64
+  %230 = load i32, ptr %arrayidx.i.i.i.i, align 4
+  %conv.i.i.i339.i = zext i32 %230 to i64
   %mul.i.i.i.i = shl nuw nsw i64 %conv.i.i.i339.i, 3
   %add.ptr.i.i.i.i = getelementptr inbounds i8, ptr %add.ptr1.i, i64 %mul.i.i.i.i
   %conv.i10.i.i = zext i32 %add.i.i333.i to i64
   %mul.i.i340.i = shl nuw nsw i64 %conv.i10.i.i, 3
   %add.ptr8.i.i.i = getelementptr inbounds i8, ptr %add.ptr.i.i.i.i, i64 %mul.i.i340.i
-  %233 = load i64, ptr %add.ptr8.i.i.i, align 1
-  %234 = load i64, ptr %add.ptr.i.i338.i, align 8
-  %and.i.i341.i = and i64 %234, %233
+  %231 = load i64, ptr %add.ptr8.i.i.i, align 1
+  %232 = load i64, ptr %add.ptr.i.i338.i, align 8
+  %and.i.i341.i = and i64 %232, %231
   %arrayidx12.i.i.i = getelementptr inbounds %struct.mmbit_sparse_state, ptr %si_state.i, i64 %idxprom.i.i.i.i
   store i64 %and.i.i341.i, ptr %arrayidx12.i.i.i, align 16
-  %itkey.i.i.i = getelementptr inbounds %struct.mmbit_sparse_state, ptr %si_state.i, i64 %idxprom.i.i.i.i, i32 1
+  %itkey.i.i.i = getelementptr inbounds i8, ptr %arrayidx12.i.i.i, i64 8
   store i32 %add6.i.i.i, ptr %itkey.i.i.i, align 8
   br label %for.cond.i.i.i.backedge
 
@@ -1963,13 +1954,13 @@ if.end20.i.i.i:                                   ; preds = %if.else16.i.i.i
   %shr.i.i331.i = lshr i32 %key.addr.i.i.0.i, 6
   %idxprom21.i.i.i = zext i32 %dec.i.i.i to i64
   %arrayidx22.i.i.i = getelementptr inbounds %struct.mmbit_sparse_state, ptr %si_state.i, i64 %idxprom21.i.i.i
-  %235 = load i64, ptr %arrayidx22.i.i.i, align 16
-  %sub.i9.i.i = add i64 %235, -1
-  %and27.i.i.i = and i64 %sub.i9.i.i, %235
+  %233 = load i64, ptr %arrayidx22.i.i.i, align 16
+  %sub.i9.i.i = add i64 %233, -1
+  %and27.i.i.i = and i64 %sub.i9.i.i, %233
   store i64 %and27.i.i.i, ptr %arrayidx22.i.i.i, align 16
-  %itkey30.i.i.i = getelementptr inbounds %struct.mmbit_sparse_state, ptr %si_state.i, i64 %idxprom21.i.i.i, i32 1
-  %236 = load i32, ptr %itkey30.i.i.i, align 8
-  %idx.ext31.i.i.i = zext i32 %236 to i64
+  %itkey30.i.i.i = getelementptr inbounds i8, ptr %arrayidx22.i.i.i, i64 8
+  %234 = load i32, ptr %itkey30.i.i.i, align 8
+  %idx.ext31.i.i.i = zext i32 %234 to i64
   %add.ptr32.i.i.i = getelementptr inbounds %struct.mmbit_sparse_iter, ptr %add.ptr.i48.i, i64 %idx.ext31.i.i.i
   br label %for.cond.i.i.i.backedge
 
@@ -1995,20 +1986,20 @@ sc_left_expand.exit:                              ; preds = %if.else16.i.i, %if.
 
 if.end227.i:                                      ; preds = %sc_left_expand.exit
   %call228.i = tail call fastcc i64 @sc_som_expand(ptr noundef %rose, i64 noundef %retval.0.i24, ptr noundef nonnull %stream, ptr noundef nonnull %buf, i64 noundef %buf_size)
-  %237 = trunc i64 %call228.i to i32
+  %235 = trunc i64 %call228.i to i32
   br label %sc_expand.exit
 
 sc_expand.exit:                                   ; preds = %if.then19.i596.i, %if.then19.i519.i, %if.then19.i442.i, %if.then19.i365.i, %if.then19.i288.i, %if.then19.i.i, %do.end202.i, %sc_left_expand.exit.thread, %entry, %if.end.i, %if.end60.i, %do.body87.i, %do.body106.i, %if.end112.i, %sc_left_expand.exit, %if.end227.i
-  %retval.0.i = phi i32 [ 0, %entry ], [ 0, %if.end.i ], [ 0, %if.end60.i ], [ 0, %do.body87.i ], [ 0, %do.body106.i ], [ 0, %if.end112.i ], [ 0, %sc_left_expand.exit ], [ %237, %if.end227.i ], [ 0, %sc_left_expand.exit.thread ], [ 0, %do.end202.i ], [ 0, %if.then19.i.i ], [ 0, %if.then19.i288.i ], [ 0, %if.then19.i365.i ], [ 0, %if.then19.i442.i ], [ 0, %if.then19.i519.i ], [ 0, %if.then19.i596.i ]
+  %retval.0.i = phi i32 [ 0, %entry ], [ 0, %if.end.i ], [ 0, %if.end60.i ], [ 0, %do.body87.i ], [ 0, %do.body106.i ], [ 0, %if.end112.i ], [ 0, %sc_left_expand.exit ], [ %235, %if.end227.i ], [ 0, %sc_left_expand.exit.thread ], [ 0, %do.end202.i ], [ 0, %if.then19.i.i ], [ 0, %if.then19.i288.i ], [ 0, %if.then19.i365.i ], [ 0, %if.then19.i442.i ], [ 0, %if.then19.i519.i ], [ 0, %if.then19.i596.i ]
   ret i32 %retval.0.i
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
 define hidden i64 @compress_stream(ptr nocapture noundef writeonly %buf, i64 noundef %buf_size, ptr nocapture noundef readonly %rose, ptr noundef readonly %stream) local_unnamed_addr #1 {
 entry:
-  %stateOffsets.i = getelementptr inbounds %struct.RoseEngine, ptr %rose, i64 0, i32 75
+  %stateOffsets.i = getelementptr inbounds i8, ptr %rose, i64 284
   %add.ptr.i = getelementptr inbounds i8, ptr %stream, i64 16
-  %offset.i = getelementptr inbounds %struct.hs_stream, ptr %stream, i64 0, i32 1
+  %offset.i = getelementptr inbounds i8, ptr %stream, i64 8
   %0 = load i64, ptr %offset.i, align 8
   store i64 %0, ptr %buf, align 1
   %add.ptr7.i = getelementptr inbounds i8, ptr %buf, i64 8
@@ -2016,7 +2007,7 @@ entry:
   store i8 %1, ptr %add.ptr7.i, align 1
   %add.ptr14.i = getelementptr inbounds i8, ptr %stream, i64 17
   %add.ptr15.i = getelementptr inbounds i8, ptr %buf, i64 9
-  %rolesWithStateCount.i = getelementptr inbounds %struct.RoseEngine, ptr %rose, i64 0, i32 22
+  %rolesWithStateCount.i = getelementptr inbounds i8, ptr %rose, i64 64
   %2 = load i32, ptr %rolesWithStateCount.i, align 8
   %sub.i = add i64 %buf_size, -9
   %cmp.i1243.i = icmp ult i32 %2, 257
@@ -2191,15 +2182,15 @@ if.end.i:                                         ; preds = %if.end28.i1177.i, %
   %add16.i = add nuw nsw i64 %retval.i1233.0577579.i, 9
   %18 = load i64, ptr %offset.i, align 8
   %conv.i = trunc i64 %18 to i32
-  %historyRequired.i = getelementptr inbounds %struct.RoseEngine, ptr %rose, i64 0, i32 10
+  %historyRequired.i = getelementptr inbounds i8, ptr %rose, i64 16
   %19 = load i32, ptr %historyRequired.i, align 8
   %conv..i = tail call i32 @llvm.umin.i32(i32 %19, i32 %conv.i)
-  %activeLeafArray.i = getelementptr inbounds %struct.RoseEngine, ptr %rose, i64 0, i32 75, i32 7
+  %activeLeafArray.i = getelementptr inbounds i8, ptr %rose, i64 312
   %20 = load i32, ptr %activeLeafArray.i, align 4
   %idx.ext.i = zext i32 %20 to i64
   %add.ptr28.i = getelementptr inbounds i8, ptr %add.ptr.i, i64 %idx.ext.i
   %add.ptr30.i = getelementptr inbounds i8, ptr %buf, i64 %add16.i
-  %activeArrayCount.i = getelementptr inbounds %struct.RoseEngine, ptr %rose, i64 0, i32 43
+  %activeArrayCount.i = getelementptr inbounds i8, ptr %rose, i64 148
   %21 = load i32, ptr %activeArrayCount.i, align 4
   %sub31.i = sub i64 %buf_size, %add16.i
   %cmp.i1310.i = icmp ult i32 %21, 257
@@ -2372,12 +2363,12 @@ while.body.i1078.i.backedge:                      ; preds = %if.end32.i1084.i, %
 if.end35.i:                                       ; preds = %if.end28.i1081.i, %if.then6.i1122.i, %if.then2.i1123.i
   %retval.i1299.0592594.i = phi i64 [ 8, %if.then6.i1122.i ], [ %conv.i1369.i, %if.then2.i1123.i ], [ %mul33.i1332.i, %if.end28.i1081.i ]
   %add36.i = add nuw nsw i64 %retval.i1299.0592594.i, %add16.i
-  %activeLeftArray.i = getelementptr inbounds %struct.RoseEngine, ptr %rose, i64 0, i32 75, i32 9
+  %activeLeftArray.i = getelementptr inbounds i8, ptr %rose, i64 320
   %37 = load i32, ptr %activeLeftArray.i, align 4
   %idx.ext43.i = zext i32 %37 to i64
   %add.ptr44.i = getelementptr inbounds i8, ptr %add.ptr.i, i64 %idx.ext43.i
   %add.ptr46.i = getelementptr inbounds i8, ptr %buf, i64 %add36.i
-  %activeLeftCount.i = getelementptr inbounds %struct.RoseEngine, ptr %rose, i64 0, i32 44
+  %activeLeftCount.i = getelementptr inbounds i8, ptr %rose, i64 152
   %38 = load i32, ptr %activeLeftCount.i, align 8
   %sub47.i = sub i64 %buf_size, %add36.i
   %cmp.i1404.i = icmp ult i32 %38, 257
@@ -2551,18 +2542,18 @@ if.end51.i:                                       ; preds = %if.end28.i985.i, %i
   %retval.i1393.0608610.i = phi i64 [ 8, %if.then6.i1026.i ], [ %conv.i1463.i, %if.then2.i1027.i ], [ %mul33.i1426.i, %if.end28.i985.i ]
   %add52.i = add nuw nsw i64 %retval.i1393.0608610.i, %add36.i
   %add.ptr57.i = getelementptr inbounds i8, ptr %buf, i64 %add52.i
-  %longLitState.i = getelementptr inbounds %struct.RoseEngine, ptr %rose, i64 0, i32 75, i32 15
+  %longLitState.i = getelementptr inbounds i8, ptr %rose, i64 344
   %54 = load i32, ptr %longLitState.i, align 4
   %idx.ext58.i = zext i32 %54 to i64
   %add.ptr59.i = getelementptr inbounds i8, ptr %add.ptr.i, i64 %idx.ext58.i
-  %longLitState_size.i = getelementptr inbounds %struct.RoseEngine, ptr %rose, i64 0, i32 75, i32 16
+  %longLitState_size.i = getelementptr inbounds i8, ptr %rose, i64 348
   %55 = load i32, ptr %longLitState_size.i, align 4
   %conv60.i = zext i32 %55 to i64
   tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %add.ptr57.i, ptr nonnull align 1 %add.ptr59.i, i64 %conv60.i, i1 false)
   %56 = load i32, ptr %longLitState_size.i, align 4
   %conv62.i = zext i32 %56 to i64
   %add63.i = add nuw nsw i64 %add52.i, %conv62.i
-  %anchoredDistance.i = getelementptr inbounds %struct.RoseEngine, ptr %rose, i64 0, i32 59
+  %anchoredDistance.i = getelementptr inbounds i8, ptr %rose, i64 212
   %57 = load i32, ptr %anchoredDistance.i, align 4
   %conv67.i = zext i32 %57 to i64
   %cmp68.not.i = icmp ugt i64 %18, %conv67.i
@@ -2570,11 +2561,11 @@ if.end51.i:                                       ; preds = %if.end28.i985.i, %i
 
 do.body71.i:                                      ; preds = %if.end51.i
   %add.ptr72.i = getelementptr inbounds i8, ptr %buf, i64 %add63.i
-  %anchorState.i = getelementptr inbounds %struct.RoseEngine, ptr %rose, i64 0, i32 75, i32 12
+  %anchorState.i = getelementptr inbounds i8, ptr %rose, i64 332
   %58 = load i32, ptr %anchorState.i, align 4
   %idx.ext73.i = zext i32 %58 to i64
   %add.ptr74.i = getelementptr inbounds i8, ptr %add.ptr.i, i64 %idx.ext73.i
-  %anchorStateSize.i = getelementptr inbounds %struct.RoseEngine, ptr %rose, i64 0, i32 24
+  %anchorStateSize.i = getelementptr inbounds i8, ptr %rose, i64 72
   %59 = load i32, ptr %anchorStateSize.i, align 8
   %conv75.i = zext i32 %59 to i64
   tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %add.ptr72.i, ptr nonnull align 1 %add.ptr74.i, i64 %conv75.i, i1 false)
@@ -2586,11 +2577,11 @@ do.body71.i:                                      ; preds = %if.end51.i
 do.body83.i:                                      ; preds = %do.body71.i, %if.end51.i
   %currOffset.0.i = phi i64 [ %add78.i, %do.body71.i ], [ %add63.i, %if.end51.i ]
   %add.ptr84.i = getelementptr inbounds i8, ptr %buf, i64 %currOffset.0.i
-  %groups.i = getelementptr inbounds %struct.RoseEngine, ptr %rose, i64 0, i32 75, i32 13
+  %groups.i = getelementptr inbounds i8, ptr %rose, i64 336
   %61 = load i32, ptr %groups.i, align 4
   %idx.ext85.i = zext i32 %61 to i64
   %add.ptr86.i = getelementptr inbounds i8, ptr %add.ptr.i, i64 %idx.ext85.i
-  %groups_size.i = getelementptr inbounds %struct.RoseEngine, ptr %rose, i64 0, i32 75, i32 14
+  %groups_size.i = getelementptr inbounds i8, ptr %rose, i64 340
   %62 = load i32, ptr %groups_size.i, align 4
   %conv87.i = zext i32 %62 to i64
   tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %add.ptr84.i, ptr nonnull align 1 %add.ptr86.i, i64 %conv87.i, i1 false)
@@ -2608,12 +2599,12 @@ do.body83.i:                                      ; preds = %do.body71.i, %if.en
   %add.ptr102.i = getelementptr inbounds i8, ptr %add.ptr100.i, i64 %idx.neg.i
   tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %add.ptr98.i, ptr nonnull align 1 %add.ptr102.i, i64 %idx.ext101.i, i1 false)
   %add105.i = add i64 %add90.i, %idx.ext101.i
-  %exhausted.i = getelementptr inbounds %struct.RoseEngine, ptr %rose, i64 0, i32 75, i32 1
+  %exhausted.i = getelementptr inbounds i8, ptr %rose, i64 288
   %66 = load i32, ptr %exhausted.i, align 4
   %idx.ext112.i = zext i32 %66 to i64
   %add.ptr113.i = getelementptr inbounds i8, ptr %add.ptr.i, i64 %idx.ext112.i
   %add.ptr115.i = getelementptr inbounds i8, ptr %buf, i64 %add105.i
-  %ekeyCount.i = getelementptr inbounds %struct.RoseEngine, ptr %rose, i64 0, i32 11
+  %ekeyCount.i = getelementptr inbounds i8, ptr %rose, i64 20
   %67 = load i32, ptr %ekeyCount.i, align 4
   %sub116.i = sub i64 %buf_size, %add105.i
   %cmp.i1498.i = icmp ult i32 %67, 257
@@ -2786,14 +2777,14 @@ while.body.i886.i.backedge:                       ; preds = %if.end32.i892.i, %i
 if.end120.i:                                      ; preds = %if.end28.i889.i, %if.then6.i930.i, %if.then2.i931.i
   %retval.i1487.0624626.i = phi i64 [ 8, %if.then6.i930.i ], [ %conv.i1557.i, %if.then2.i931.i ], [ %mul33.i1520.i, %if.end28.i889.i ]
   %add121.i = add i64 %retval.i1487.0624626.i, %add105.i
-  %logicalVec.i = getelementptr inbounds %struct.RoseEngine, ptr %rose, i64 0, i32 75, i32 3
+  %logicalVec.i = getelementptr inbounds i8, ptr %rose, i64 296
   %83 = load i32, ptr %logicalVec.i, align 4
   %idx.ext128.i = zext i32 %83 to i64
   %add.ptr129.i = getelementptr inbounds i8, ptr %add.ptr.i, i64 %idx.ext128.i
   %add.ptr131.i = getelementptr inbounds i8, ptr %buf, i64 %add121.i
-  %lkeyCount.i = getelementptr inbounds %struct.RoseEngine, ptr %rose, i64 0, i32 12
+  %lkeyCount.i = getelementptr inbounds i8, ptr %rose, i64 24
   %84 = load i32, ptr %lkeyCount.i, align 8
-  %lopCount.i = getelementptr inbounds %struct.RoseEngine, ptr %rose, i64 0, i32 13
+  %lopCount.i = getelementptr inbounds i8, ptr %rose, i64 28
   %85 = load i32, ptr %lopCount.i, align 4
   %add132.i = add i32 %85, %84
   %sub133.i = sub i64 %buf_size, %add121.i
@@ -2967,12 +2958,12 @@ while.body.i790.i.backedge:                       ; preds = %if.end32.i796.i, %i
 if.end137.i:                                      ; preds = %if.end28.i793.i, %if.then6.i834.i, %if.then2.i835.i
   %retval.i1581.0640642.i = phi i64 [ 8, %if.then6.i834.i ], [ %conv.i1651.i, %if.then2.i835.i ], [ %mul33.i1614.i, %if.end28.i793.i ]
   %add138.i = add i64 %retval.i1581.0640642.i, %add121.i
-  %combVec.i = getelementptr inbounds %struct.RoseEngine, ptr %rose, i64 0, i32 75, i32 5
+  %combVec.i = getelementptr inbounds i8, ptr %rose, i64 304
   %101 = load i32, ptr %combVec.i, align 4
   %idx.ext145.i = zext i32 %101 to i64
   %add.ptr146.i = getelementptr inbounds i8, ptr %add.ptr.i, i64 %idx.ext145.i
   %add.ptr148.i = getelementptr inbounds i8, ptr %buf, i64 %add138.i
-  %ckeyCount.i = getelementptr inbounds %struct.RoseEngine, ptr %rose, i64 0, i32 14
+  %ckeyCount.i = getelementptr inbounds i8, ptr %rose, i64 32
   %102 = load i32, ptr %ckeyCount.i, align 8
   %sub149.i = sub i64 %buf_size, %add138.i
   %cmp.i1686.i = icmp ult i32 %102, 257
@@ -3368,7 +3359,7 @@ do.end166.lr.ph.i:                                ; preds = %mmbit_iterate.exit2
   %retval.i189.0704.i = phi i32 [ %retval.i189.0.i, %mmbit_iterate.exit208.i ], [ %add96.i.i, %if.then94.i.i ], [ %cast.i.i.i, %if.then6.i.i ]
   %invariant.gep680.i = getelementptr i8, ptr %add.ptr160.i, i64 -8
   %invariant.gep678.i = getelementptr i8, ptr %add.ptr160.i, i64 -4
-  %nfaInfoOffset.i.i = getelementptr inbounds %struct.RoseEngine, ptr %rose, i64 0, i32 65
+  %nfaInfoOffset.i.i = getelementptr inbounds i8, ptr %rose, i64 236
   %sub.i.i = add i32 %119, -1
   %140 = tail call i32 @llvm.ctlz.i32(i32 %sub.i.i, i1 true), !range !5
   %idxprom.i.i411.i = zext nneg i32 %140 to i64
@@ -3401,7 +3392,7 @@ do.end166.i:                                      ; preds = %mmbit_iterate.exit.
   %144 = load i32, ptr %arrayidx.i.i, align 4
   %idx.ext.i210.i = zext i32 %144 to i64
   %add.ptr170.i = getelementptr inbounds i8, ptr %buf, i64 %currOffset.1683.i
-  %stateOffset.i = getelementptr inbounds %struct.NfaInfo, ptr %add.ptr.i.i, i64 %idxprom.i.i, i32 1
+  %stateOffset.i = getelementptr inbounds i8, ptr %arrayidx.i.i, i64 4
   %145 = load i32, ptr %stateOffset.i, align 4
   %idx.ext171.i = zext i32 %145 to i64
   %add.ptr172.i = getelementptr inbounds i8, ptr %add.ptr.i, i64 %idx.ext171.i
@@ -3714,7 +3705,7 @@ entry:
   %si_state.i.i = alloca [7 x %struct.mmbit_sparse_state], align 16
   %add.ptr.i = getelementptr inbounds i8, ptr %stream, i64 16
   %add.ptr11.i = getelementptr inbounds i8, ptr %stream, i64 17
-  %rolesWithStateCount.i = getelementptr inbounds %struct.RoseEngine, ptr %rose, i64 0, i32 22
+  %rolesWithStateCount.i = getelementptr inbounds i8, ptr %rose, i64 64
   %0 = load i32, ptr %rolesWithStateCount.i, align 8
   %cmp.i1088.i = icmp ult i32 %0, 257
   br i1 %cmp.i1088.i, label %if.then.i1143.i, label %if.end.i1089.i
@@ -3806,17 +3797,17 @@ while.body.i1096.i.backedge:                      ; preds = %if.end34.i1102.i, %
 mmbit_compsize.exit1148.i:                        ; preds = %if.then31.i1108.i, %if.end.i1089.i, %if.then.i1143.i
   %retval.i1077.0.i = phi i64 [ %conv.i1147.i, %if.then.i1143.i ], [ %mul33.i1110.i, %if.then31.i1108.i ], [ 8, %if.end.i1089.i ]
   %add12.i = add nuw nsw i64 %retval.i1077.0.i, 9
-  %offset16.i = getelementptr inbounds %struct.hs_stream, ptr %stream, i64 0, i32 1
+  %offset16.i = getelementptr inbounds i8, ptr %stream, i64 8
   %10 = load i64, ptr %offset16.i, align 8
   %conv.i = trunc i64 %10 to i32
-  %historyRequired.i = getelementptr inbounds %struct.RoseEngine, ptr %rose, i64 0, i32 10
+  %historyRequired.i = getelementptr inbounds i8, ptr %rose, i64 16
   %11 = load i32, ptr %historyRequired.i, align 8
   %conv..i = tail call i32 @llvm.umin.i32(i32 %11, i32 %conv.i)
-  %activeLeafArray.i = getelementptr inbounds %struct.RoseEngine, ptr %rose, i64 0, i32 75, i32 7
+  %activeLeafArray.i = getelementptr inbounds i8, ptr %rose, i64 312
   %12 = load i32, ptr %activeLeafArray.i, align 4
   %idx.ext.i = zext i32 %12 to i64
   %add.ptr22.i = getelementptr inbounds i8, ptr %add.ptr.i, i64 %idx.ext.i
-  %activeArrayCount.i = getelementptr inbounds %struct.RoseEngine, ptr %rose, i64 0, i32 43
+  %activeArrayCount.i = getelementptr inbounds i8, ptr %rose, i64 148
   %13 = load i32, ptr %activeArrayCount.i, align 4
   %cmp.i994.i = icmp ult i32 %13, 257
   br i1 %cmp.i994.i, label %if.then.i1049.i, label %if.end.i995.i
@@ -3908,11 +3899,11 @@ while.body.i1002.i.backedge:                      ; preds = %if.end34.i1008.i, %
 mmbit_compsize.exit1054.i:                        ; preds = %if.then31.i1014.i, %if.end.i995.i, %if.then.i1049.i
   %retval.i983.0.i = phi i64 [ %conv.i1053.i, %if.then.i1049.i ], [ %mul33.i1016.i, %if.then31.i1014.i ], [ 8, %if.end.i995.i ]
   %add25.i = add nuw nsw i64 %add12.i, %retval.i983.0.i
-  %activeLeftArray.i = getelementptr inbounds %struct.RoseEngine, ptr %rose, i64 0, i32 75, i32 9
+  %activeLeftArray.i = getelementptr inbounds i8, ptr %rose, i64 320
   %23 = load i32, ptr %activeLeftArray.i, align 4
   %idx.ext31.i = zext i32 %23 to i64
   %add.ptr32.i = getelementptr inbounds i8, ptr %add.ptr.i, i64 %idx.ext31.i
-  %activeLeftCount.i = getelementptr inbounds %struct.RoseEngine, ptr %rose, i64 0, i32 44
+  %activeLeftCount.i = getelementptr inbounds i8, ptr %rose, i64 152
   %24 = load i32, ptr %activeLeftCount.i, align 8
   %cmp.i900.i = icmp ult i32 %24, 257
   br i1 %cmp.i900.i, label %if.then.i955.i, label %if.end.i901.i
@@ -4004,18 +3995,18 @@ while.body.i908.i.backedge:                       ; preds = %if.end34.i914.i, %i
 mmbit_compsize.exit960.i:                         ; preds = %if.then31.i920.i, %if.end.i901.i, %if.then.i955.i
   %retval.i889.0.i = phi i64 [ %conv.i959.i, %if.then.i955.i ], [ %mul33.i922.i, %if.then31.i920.i ], [ 8, %if.end.i901.i ]
   %add35.i = add nuw nsw i64 %add25.i, %retval.i889.0.i
-  %longLitState_size.i = getelementptr inbounds %struct.RoseEngine, ptr %rose, i64 0, i32 75, i32 16
+  %longLitState_size.i = getelementptr inbounds i8, ptr %rose, i64 348
   %34 = load i32, ptr %longLitState_size.i, align 4
   %conv40.i = zext i32 %34 to i64
   %add41.i = add nuw nsw i64 %add35.i, %conv40.i
-  %anchoredDistance.i = getelementptr inbounds %struct.RoseEngine, ptr %rose, i64 0, i32 59
+  %anchoredDistance.i = getelementptr inbounds i8, ptr %rose, i64 212
   %35 = load i32, ptr %anchoredDistance.i, align 4
   %conv45.i = zext i32 %35 to i64
   %cmp46.not.i = icmp ugt i64 %10, %conv45.i
   br i1 %cmp46.not.i, label %do.body54.i, label %do.body48.i
 
 do.body48.i:                                      ; preds = %mmbit_compsize.exit960.i
-  %anchorStateSize.i = getelementptr inbounds %struct.RoseEngine, ptr %rose, i64 0, i32 24
+  %anchorStateSize.i = getelementptr inbounds i8, ptr %rose, i64 72
   %36 = load i32, ptr %anchorStateSize.i, align 8
   %conv49.i = zext i32 %36 to i64
   %add50.i = add nuw nsw i64 %add41.i, %conv49.i
@@ -4023,15 +4014,15 @@ do.body48.i:                                      ; preds = %mmbit_compsize.exit
 
 do.body54.i:                                      ; preds = %do.body48.i, %mmbit_compsize.exit960.i
   %currOffset.0.i = phi i64 [ %add50.i, %do.body48.i ], [ %add41.i, %mmbit_compsize.exit960.i ]
-  %groups_size.i = getelementptr inbounds %struct.RoseEngine, ptr %rose, i64 0, i32 75, i32 14
+  %groups_size.i = getelementptr inbounds i8, ptr %rose, i64 340
   %37 = load i32, ptr %groups_size.i, align 4
   %conv55.i = zext i32 %37 to i64
   %conv64.i = zext i32 %conv..i to i64
-  %exhausted.i = getelementptr inbounds %struct.RoseEngine, ptr %rose, i64 0, i32 75, i32 1
+  %exhausted.i = getelementptr inbounds i8, ptr %rose, i64 288
   %38 = load i32, ptr %exhausted.i, align 4
   %idx.ext71.i = zext i32 %38 to i64
   %add.ptr72.i = getelementptr inbounds i8, ptr %add.ptr.i, i64 %idx.ext71.i
-  %ekeyCount.i = getelementptr inbounds %struct.RoseEngine, ptr %rose, i64 0, i32 11
+  %ekeyCount.i = getelementptr inbounds i8, ptr %rose, i64 20
   %39 = load i32, ptr %ekeyCount.i, align 4
   %cmp.i806.i = icmp ult i32 %39, 257
   br i1 %cmp.i806.i, label %if.then.i861.i, label %if.end.i807.i
@@ -4122,13 +4113,13 @@ while.body.i814.i.backedge:                       ; preds = %if.end34.i820.i, %i
 
 mmbit_compsize.exit866.i:                         ; preds = %if.then31.i826.i, %if.end.i807.i, %if.then.i861.i
   %retval.i795.0.i = phi i64 [ %conv.i865.i, %if.then.i861.i ], [ %mul33.i828.i, %if.then31.i826.i ], [ 8, %if.end.i807.i ]
-  %logicalVec.i = getelementptr inbounds %struct.RoseEngine, ptr %rose, i64 0, i32 75, i32 3
+  %logicalVec.i = getelementptr inbounds i8, ptr %rose, i64 296
   %49 = load i32, ptr %logicalVec.i, align 4
   %idx.ext81.i = zext i32 %49 to i64
   %add.ptr82.i = getelementptr inbounds i8, ptr %add.ptr.i, i64 %idx.ext81.i
-  %lkeyCount.i = getelementptr inbounds %struct.RoseEngine, ptr %rose, i64 0, i32 12
+  %lkeyCount.i = getelementptr inbounds i8, ptr %rose, i64 24
   %50 = load i32, ptr %lkeyCount.i, align 8
-  %lopCount.i = getelementptr inbounds %struct.RoseEngine, ptr %rose, i64 0, i32 13
+  %lopCount.i = getelementptr inbounds i8, ptr %rose, i64 28
   %51 = load i32, ptr %lopCount.i, align 4
   %add84.i = add i32 %51, %50
   %cmp.i712.i = icmp ult i32 %add84.i, 257
@@ -4220,11 +4211,11 @@ while.body.i720.i.backedge:                       ; preds = %if.end34.i726.i, %i
 
 mmbit_compsize.exit772.i:                         ; preds = %if.then31.i732.i, %if.end.i713.i, %if.then.i767.i
   %retval.i701.0.i = phi i64 [ %conv.i771.i, %if.then.i767.i ], [ %mul33.i734.i, %if.then31.i732.i ], [ 8, %if.end.i713.i ]
-  %combVec.i = getelementptr inbounds %struct.RoseEngine, ptr %rose, i64 0, i32 75, i32 5
+  %combVec.i = getelementptr inbounds i8, ptr %rose, i64 304
   %61 = load i32, ptr %combVec.i, align 4
   %idx.ext92.i = zext i32 %61 to i64
   %add.ptr93.i = getelementptr inbounds i8, ptr %add.ptr.i, i64 %idx.ext92.i
-  %ckeyCount.i = getelementptr inbounds %struct.RoseEngine, ptr %rose, i64 0, i32 14
+  %ckeyCount.i = getelementptr inbounds i8, ptr %rose, i64 32
   %62 = load i32, ptr %ckeyCount.i, align 8
   %cmp.i653.i = icmp ult i32 %62, 257
   br i1 %cmp.i653.i, label %if.then.i674.i, label %if.end.i654.i
@@ -4538,7 +4529,7 @@ do.end108.lr.ph.i:                                ; preds = %mmbit_iterate.exit1
   %retval.i125.0124.i = phi i32 [ %retval.i125.0.i, %mmbit_iterate.exit144.i ], [ %add96.i.i, %if.then94.i.i ], [ %cast.i.i.i, %if.then6.i.i ]
   %invariant.gep47.i = getelementptr i8, ptr %add.ptr22.i, i64 -8
   %invariant.gep45.i = getelementptr i8, ptr %add.ptr22.i, i64 -4
-  %nfaInfoOffset.i.i = getelementptr inbounds %struct.RoseEngine, ptr %rose, i64 0, i32 65
+  %nfaInfoOffset.i.i = getelementptr inbounds i8, ptr %rose, i64 236
   %92 = load i32, ptr %nfaInfoOffset.i.i, align 4
   %idx.ext.i.i = zext i32 %92 to i64
   %add.ptr.i.i = getelementptr inbounds i8, ptr %rose, i64 %idx.ext.i.i
@@ -4858,7 +4849,7 @@ mmbit_iterate.exit.i:                             ; preds = %if.then11.i377.i, %
 for.end.i:                                        ; preds = %if.end19.i.i, %mmbit_iterate.exit.i, %mmbit_get_flat_block.exit471.i, %for.end.i203.i, %if.else.i274.i, %if.then4.i294.i, %do.end108.i, %if.end19.i355.i, %mmbit_iterate.exit144.i, %mmbit_get_flat_block.exit569.i, %for.end.i.i, %if.end.i163.i, %mmbit_compsize.exit.i
   %currOffset.1.lcssa.i = phi i64 [ %add96.i, %mmbit_iterate.exit144.i ], [ %add96.i, %mmbit_compsize.exit.i ], [ %add96.i, %if.end.i163.i ], [ %add96.i, %mmbit_get_flat_block.exit569.i ], [ %add96.i, %for.end.i.i ], [ %add113.i, %if.end19.i355.i ], [ %add113.i, %do.end108.i ], [ %add113.i, %if.then4.i294.i ], [ %add113.i, %if.else.i274.i ], [ %add113.i, %for.end.i203.i ], [ %add113.i, %mmbit_get_flat_block.exit471.i ], [ %add113.i, %mmbit_iterate.exit.i ], [ %add96.i, %if.end19.i.i ]
   call void @llvm.lifetime.start.p0(i64 112, ptr nonnull %si_state.i.i)
-  %activeLeftIterOffset.i.i = getelementptr inbounds %struct.RoseEngine, ptr %rose, i64 0, i32 84
+  %activeLeftIterOffset.i.i = getelementptr inbounds i8, ptr %rose, i64 416
   %121 = load i32, ptr %activeLeftIterOffset.i.i, align 8
   %tobool.not.i.i = icmp eq i32 %121, 0
   br i1 %tobool.not.i.i, label %sc_left_size.exit.i, label %if.end.i365.i
@@ -4923,9 +4914,9 @@ mmbit_get_flat_block.exit91.i.i.i:                ; preds = %sw.default.i83.i.i.
 for.body.lr.ph.split.us.i.thread.i:               ; preds = %mmbit_get_flat_block.exit91.i.i.i
   %127 = tail call i64 @llvm.cttz.i64(i64 %and.i.i.i, i1 true), !range !6
   %cast.i.i.i.i = trunc i64 %127 to i32
-  %leftfixBeginQueue.i2.i = getelementptr inbounds %struct.RoseEngine, ptr %rose, i64 0, i32 81
+  %leftfixBeginQueue.i2.i = getelementptr inbounds i8, ptr %rose, i64 404
   %128 = load i32, ptr %leftfixBeginQueue.i2.i, align 4
-  %nfaInfoOffset.i.i3.i = getelementptr inbounds %struct.RoseEngine, ptr %rose, i64 0, i32 65
+  %nfaInfoOffset.i.i3.i = getelementptr inbounds i8, ptr %rose, i64 236
   %129 = load i32, ptr %nfaInfoOffset.i.i3.i, align 4
   %idx.ext.i.i4.i = zext i32 %129 to i64
   %add.ptr.i.i3685.i = getelementptr inbounds i8, ptr %rose, i64 %idx.ext.i.i4.i
@@ -4937,7 +4928,7 @@ if.end7.i.i.i:                                    ; preds = %if.then.i.i.i
   br i1 %tobool9.i.not9.i.i, label %sc_left_size.exit.i, label %for.body.i.lr.ph.i.i
 
 for.body.i.lr.ph.i.i:                             ; preds = %if.end7.i.i.i
-  %val.i.i.i = getelementptr inbounds %struct.mmbit_sparse_iter, ptr %add.ptr.i26.i.i, i64 0, i32 1
+  %val.i.i.i = getelementptr inbounds i8, ptr %add.ptr.i26.i.i, i64 8
   %131 = load i32, ptr %val.i.i.i, align 8
   br label %for.body.i.i.i
 
@@ -5015,9 +5006,9 @@ if.end30.i.i.i:                                   ; preds = %if.else.i50.i.i, %s
 
 if.then34.i.i.i:                                  ; preds = %if.end30.i.i.i
   store i64 %root.i.010.i.i, ptr %si_state.i.i, align 16
-  %arrayidx36.i.i.i = getelementptr inbounds %struct.mmbit_sparse_state, ptr %si_state.i.i, i64 1
+  %arrayidx36.i.i.i = getelementptr inbounds i8, ptr %si_state.i.i, i64 16
   store i64 %and32.i.i.i, ptr %arrayidx36.i.i.i, align 16
-  %itkey.i.i.i = getelementptr inbounds %struct.mmbit_sparse_state, ptr %si_state.i.i, i64 1, i32 1
+  %itkey.i.i.i = getelementptr inbounds i8, ptr %si_state.i.i, i64 24
   store i32 %add.i.i.i, ptr %itkey.i.i.i, align 8
   %140 = tail call i64 @llvm.cttz.i64(i64 %and32.i.i.i, i1 true), !range !6
   %cast.i57.i.i.i = trunc i64 %140 to i32
@@ -5045,7 +5036,7 @@ if.end.i71.i.i:                                   ; preds = %if.else.i.i.i
   %144 = load i8, ptr %arrayidx.i.i.i.i, align 1
   %conv.i.i73.i.i = zext i8 %144 to i32
   store i64 %and.i68.i.i, ptr %si_state.i.i, align 16
-  %itkey.i74.i.i = getelementptr inbounds %struct.mmbit_sparse_state, ptr %si_state.i.i, i64 0, i32 1
+  %itkey.i74.i.i = getelementptr inbounds i8, ptr %si_state.i.i, i64 8
   store i32 0, ptr %itkey.i74.i.i, align 8
   br label %for.cond.i161.i.i
 
@@ -5073,7 +5064,7 @@ if.else.i173.i.i:                                 ; preds = %if.then.i167.i.i
   %148 = tail call i64 @llvm.ctpop.i64(i64 %and.i.i170.i.i), !range !10
   %cast.i40.i.i.i = trunc i64 %148 to i32
   %inc.i.i.i = add i32 %level.addr.i.0.i.i, 1
-  %val5.i.i.i = getelementptr inbounds %struct.mmbit_sparse_iter, ptr %it.addr.i.0.i.i, i64 0, i32 1
+  %val5.i.i.i = getelementptr inbounds i8, ptr %it.addr.i.0.i.i, i64 8
   %149 = load i32, ptr %val5.i.i.i, align 8
   %add6.i.i.i = add i32 %149, %cast.i40.i.i.i
   %idx.ext.i174.i.i = zext i32 %add6.i.i.i to i64
@@ -5092,7 +5083,7 @@ if.else.i173.i.i:                                 ; preds = %if.then.i167.i.i
   %and.i183.i.i = and i64 %152, %151
   %arrayidx12.i.i.i = getelementptr inbounds %struct.mmbit_sparse_state, ptr %si_state.i.i, i64 %idxprom.i.i176.i.i
   store i64 %and.i183.i.i, ptr %arrayidx12.i.i.i, align 16
-  %itkey.i184.i.i = getelementptr inbounds %struct.mmbit_sparse_state, ptr %si_state.i.i, i64 %idxprom.i.i176.i.i, i32 1
+  %itkey.i184.i.i = getelementptr inbounds i8, ptr %arrayidx12.i.i.i, i64 8
   store i32 %add6.i.i.i, ptr %itkey.i184.i.i, align 8
   br label %for.cond.i161.i.i.backedge
 
@@ -5109,7 +5100,7 @@ if.end20.i.i.i:                                   ; preds = %if.else16.i.i.i
   %sub.i165.i.i = add i64 %153, -1
   %and27.i.i.i = and i64 %sub.i165.i.i, %153
   store i64 %and27.i.i.i, ptr %arrayidx22.i.i.i, align 16
-  %itkey30.i.i.i = getelementptr inbounds %struct.mmbit_sparse_state, ptr %si_state.i.i, i64 %idxprom21.i.i.i, i32 1
+  %itkey30.i.i.i = getelementptr inbounds i8, ptr %arrayidx22.i.i.i, i64 8
   %154 = load i32, ptr %itkey30.i.i.i, align 8
   %idx.ext31.i.i.i = zext i32 %154 to i64
   %add.ptr32.i.i.i = getelementptr inbounds %struct.mmbit_sparse_iter, ptr %add.ptr.i26.i.i, i64 %idx.ext31.i.i.i
@@ -5129,9 +5120,9 @@ if.end.i.i.i:                                     ; preds = %if.then.i167.i.i
 for.body.lr.ph.i.i:                               ; preds = %if.end.i.i.i, %if.then34.i.i.i
   %key.i.064.i.i = phi i32 [ %add.i169.i.i, %if.end.i.i.i ], [ %add45.i.i.i, %if.then34.i.i.i ]
   %155 = phi i64 [ %142, %if.end.i.i.i ], [ %130, %if.then34.i.i.i ]
-  %leftfixBeginQueue.i.i = getelementptr inbounds %struct.RoseEngine, ptr %rose, i64 0, i32 81
+  %leftfixBeginQueue.i.i = getelementptr inbounds i8, ptr %rose, i64 404
   %156 = load i32, ptr %leftfixBeginQueue.i.i, align 4
-  %nfaInfoOffset.i.i.i = getelementptr inbounds %struct.RoseEngine, ptr %rose, i64 0, i32 65
+  %nfaInfoOffset.i.i.i = getelementptr inbounds i8, ptr %rose, i64 236
   %157 = load i32, ptr %nfaInfoOffset.i.i.i, align 4
   %idx.ext.i.i.i = zext i32 %157 to i64
   %add.ptr.i.i368.i = getelementptr inbounds i8, ptr %rose, i64 %idx.ext.i.i.i
@@ -5139,12 +5130,12 @@ for.body.lr.ph.i.i:                               ; preds = %if.end.i.i.i, %if.t
 
 for.body.lr.ph.split.us.i.i:                      ; preds = %for.body.lr.ph.i.i
   %si_state.promoted.i.pre.i = load i64, ptr %si_state.i.i, align 16
-  %val48.i.i9.i = getelementptr inbounds %struct.mmbit_sparse_iter, ptr %add.ptr.i26.i.i, i64 0, i32 1
+  %val48.i.i9.i = getelementptr inbounds i8, ptr %add.ptr.i26.i.i, i64 8
   %cmp.i222.i.i = icmp ult i32 %24, 65
   br i1 %cmp.i222.i.i, label %for.body.us.us.i.preheader.i, label %for.body.us.i.i.preheader
 
 for.body.us.i.i.preheader:                        ; preds = %for.body.lr.ph.split.us.i.i
-  %arrayidx.i224.i.phi.trans.insert.i = getelementptr inbounds %struct.mmbit_sparse_state, ptr %si_state.i.i, i64 1
+  %arrayidx.i224.i.phi.trans.insert.i = getelementptr inbounds i8, ptr %si_state.i.i, i64 16
   %arrayidx.i224.promoted.i.pre.i = load i64, ptr %arrayidx.i224.i.phi.trans.insert.i, align 16
   br label %for.body.us.i.i
 
@@ -5316,7 +5307,7 @@ for.body.lr.ph.split.i.i:                         ; preds = %for.body.lr.ph.i.i
   %conv.i.i300.i.i = zext i8 %178 to i32
   %idxprom.i302.i.i = zext i8 %178 to i64
   %arrayidx.i303.i.i = getelementptr inbounds %struct.mmbit_sparse_state, ptr %si_state.i.i, i64 %idxprom.i302.i.i
-  %itkey.i306.i.i = getelementptr inbounds %struct.mmbit_sparse_state, ptr %si_state.i.i, i64 %idxprom.i302.i.i, i32 1
+  %itkey.i306.i.i = getelementptr inbounds i8, ptr %arrayidx.i303.i.i, i64 8
   br label %for.body.i369.i
 
 for.body.i369.i:                                  ; preds = %mmbit_sparse_iter_next.exit.i.i, %for.body.lr.ph.split.i.i
@@ -5368,7 +5359,7 @@ if.else.i.i314.i.i:                               ; preds = %if.then.i.i310.i.i
   %186 = tail call i64 @llvm.ctpop.i64(i64 %and.i.i.i.i.i), !range !10
   %cast.i40.i.i.i.i = trunc i64 %186 to i32
   %inc.i.i.i.i = add i32 %level.addr.i.i283.0.i.i, 1
-  %val5.i.i.i.i = getelementptr inbounds %struct.mmbit_sparse_iter, ptr %it.addr.i.i.0.i.i, i64 0, i32 1
+  %val5.i.i.i.i = getelementptr inbounds i8, ptr %it.addr.i.i.0.i.i, i64 8
   %187 = load i32, ptr %val5.i.i.i.i, align 8
   %add6.i.i.i.i = add i32 %187, %cast.i40.i.i.i.i
   %idx.ext.i.i315.i.i = zext i32 %add6.i.i.i.i to i64
@@ -5387,7 +5378,7 @@ if.else.i.i314.i.i:                               ; preds = %if.then.i.i310.i.i
   %and.i.i319.i.i = and i64 %190, %189
   %arrayidx12.i.i.i.i = getelementptr inbounds %struct.mmbit_sparse_state, ptr %si_state.i.i, i64 %idxprom.i.i.i.i.i
   store i64 %and.i.i319.i.i, ptr %arrayidx12.i.i.i.i, align 16
-  %itkey.i.i.i.i = getelementptr inbounds %struct.mmbit_sparse_state, ptr %si_state.i.i, i64 %idxprom.i.i.i.i.i, i32 1
+  %itkey.i.i.i.i = getelementptr inbounds i8, ptr %arrayidx12.i.i.i.i, i64 8
   store i32 %add6.i.i.i.i, ptr %itkey.i.i.i.i, align 8
   br label %for.cond.i.i.i.i.backedge
 
@@ -5404,7 +5395,7 @@ if.end20.i.i.i.i:                                 ; preds = %if.else16.i.i.i.i
   %sub.i9.i.i.i = add i64 %191, -1
   %and27.i.i.i.i = and i64 %sub.i9.i.i.i, %191
   store i64 %and27.i.i.i.i, ptr %arrayidx22.i.i.i.i, align 16
-  %itkey30.i.i.i.i = getelementptr inbounds %struct.mmbit_sparse_state, ptr %si_state.i.i, i64 %idxprom21.i.i.i.i, i32 1
+  %itkey30.i.i.i.i = getelementptr inbounds i8, ptr %arrayidx22.i.i.i.i, i64 8
   %192 = load i32, ptr %itkey30.i.i.i.i, align 8
   %idx.ext31.i.i.i.i = zext i32 %192 to i64
   %add.ptr32.i.i.i.i = getelementptr inbounds %struct.mmbit_sparse_iter, ptr %add.ptr.i26.i.i, i64 %idx.ext31.i.i.i.i
@@ -5427,17 +5418,17 @@ sc_left_size.exit.i:                              ; preds = %if.else16.i.i.i, %i
   br i1 %tobool.not.i, label %sc_size.exit, label %if.end120.i
 
 if.end120.i:                                      ; preds = %sc_left_size.exit.i
-  %somLocation.i.i = getelementptr inbounds %struct.RoseEngine, ptr %rose, i64 0, i32 75, i32 17
+  %somLocation.i.i = getelementptr inbounds i8, ptr %rose, i64 352
   %193 = load i32, ptr %somLocation.i.i, align 4
   %tobool.not.i373.i = icmp eq i32 %193, 0
   br i1 %tobool.not.i373.i, label %sc_size.exit, label %if.end.i374.i
 
 if.end.i374.i:                                    ; preds = %if.end120.i
-  %somWritable.i.i = getelementptr inbounds %struct.RoseEngine, ptr %rose, i64 0, i32 75, i32 19
+  %somWritable.i.i = getelementptr inbounds i8, ptr %rose, i64 360
   %194 = load i32, ptr %somWritable.i.i, align 4
   %idx.ext.i376.i = zext i32 %194 to i64
   %add.ptr1.i377.i = getelementptr inbounds i8, ptr %add.ptr.i, i64 %idx.ext.i376.i
-  %somLocationCount.i.i = getelementptr inbounds %struct.RoseEngine, ptr %rose, i64 0, i32 20
+  %somLocationCount.i.i = getelementptr inbounds i8, ptr %rose, i64 56
   %195 = load i32, ptr %somLocationCount.i.i, align 8
   %.fr.i.i = freeze i32 %195
   %cmp.i608.i.i = icmp ult i32 %.fr.i.i, 257
@@ -5447,13 +5438,13 @@ mmbit_compsize.exit668.thread.i.i:                ; preds = %if.end.i374.i
   %add.i664.i.i = add nuw nsw i32 %.fr.i.i, 7
   %div.i666219.i.i = lshr i32 %add.i664.i.i, 3
   %conv.i667.i.i = zext nneg i32 %div.i666219.i.i to i64
-  %somValid3.i.i = getelementptr inbounds %struct.RoseEngine, ptr %rose, i64 0, i32 75, i32 18
+  %somValid3.i.i = getelementptr inbounds i8, ptr %rose, i64 356
   %196 = load i32, ptr %somValid3.i.i, align 4
   %idx.ext64.i.i = zext i32 %196 to i64
   %add.ptr75.i.i = getelementptr inbounds i8, ptr %add.ptr.i, i64 %idx.ext64.i.i
   %reass.add.i.i = shl nuw nsw i64 %conv.i667.i.i, 1
   %add1142.i.i = add i64 %reass.add.i.i, %retval.0.i.i
-  %somHorizon43.i.i = getelementptr inbounds %struct.RoseEngine, ptr %rose, i64 0, i32 8
+  %somHorizon43.i.i = getelementptr inbounds i8, ptr %rose, i64 8
   %197 = load i8, ptr %somHorizon43.i.i, align 8
   %tobool.i33.not44.i.i = icmp eq i32 %.fr.i.i, 0
   br i1 %tobool.i33.not44.i.i, label %sc_size.exit, label %if.then4.i44.i.i
@@ -5543,7 +5534,7 @@ mmbit_compsize.exit668.i.i:                       ; preds = %if.end28.i619.i.i
 
 if.end.i550.i.i:                                  ; preds = %mmbit_compsize.exit668.i.i, %mmbit_compsize.exit668.thread10.i.i
   %add16.i.i = phi i64 [ %add12.i396.i, %mmbit_compsize.exit668.thread10.i.i ], [ %add.i379.i, %mmbit_compsize.exit668.i.i ]
-  %idx.ext614.pn.in.in.i.i = getelementptr inbounds %struct.RoseEngine, ptr %rose, i64 0, i32 75, i32 18
+  %idx.ext614.pn.in.in.i.i = getelementptr inbounds i8, ptr %rose, i64 356
   %idx.ext614.pn.in.i.i = load i32, ptr %idx.ext614.pn.in.in.i.i, align 4
   %idx.ext614.pn.i.i = zext i32 %idx.ext614.pn.in.i.i to i64
   %add.ptr717.i.i = getelementptr inbounds i8, ptr %add.ptr.i, i64 %idx.ext614.pn.i.i
@@ -5775,7 +5766,7 @@ if.then94.i.i.i:                                  ; preds = %mmbit_get_flat_bloc
 if.else.i41.i.i:                                  ; preds = %if.end.i35.i.i, %if.end.i35.thread.i.i
   %conv.i.i.i.pre-phi.i = phi i32 [ %conv.i.i554.i.i, %if.end.i35.i.i ], [ %.pre114.i, %if.end.i35.thread.i.i ]
   %add112635.i.i = phi i64 [ %add11.i.i, %if.end.i35.i.i ], [ %add1121.i.i, %if.end.i35.thread.i.i ]
-  %.in.i.i = getelementptr inbounds %struct.RoseEngine, ptr %rose, i64 0, i32 8
+  %.in.i.i = getelementptr inbounds i8, ptr %rose, i64 8
   %230 = load i8, ptr %.in.i.i, align 8
   br label %while.body.i.i.i
 
@@ -6192,19 +6183,19 @@ declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias
 ; Function Attrs: nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
 define internal fastcc i64 @sc_som_expand(ptr nocapture noundef readonly %rose, i64 noundef %currOffset, ptr nocapture noundef %stream, ptr noundef %buf, i64 noundef %buf_size) unnamed_addr #0 {
 entry:
-  %somLocation = getelementptr inbounds %struct.RoseEngine, ptr %rose, i64 0, i32 75, i32 17
+  %somLocation = getelementptr inbounds i8, ptr %rose, i64 352
   %0 = load i32, ptr %somLocation, align 4
   %tobool.not = icmp eq i32 %0, 0
   br i1 %tobool.not, label %return, label %if.end
 
 if.end:                                           ; preds = %entry
   %add.ptr = getelementptr inbounds i8, ptr %stream, i64 16
-  %somWritable = getelementptr inbounds %struct.RoseEngine, ptr %rose, i64 0, i32 75, i32 19
+  %somWritable = getelementptr inbounds i8, ptr %rose, i64 360
   %1 = load i32, ptr %somWritable, align 4
   %idx.ext = zext i32 %1 to i64
   %add.ptr1 = getelementptr inbounds i8, ptr %add.ptr, i64 %idx.ext
   %add.ptr2 = getelementptr inbounds i8, ptr %buf, i64 %currOffset
-  %somLocationCount = getelementptr inbounds %struct.RoseEngine, ptr %rose, i64 0, i32 20
+  %somLocationCount = getelementptr inbounds i8, ptr %rose, i64 56
   %2 = load i32, ptr %somLocationCount, align 8
   %cmp.i68 = icmp ult i32 %2, 257
   br i1 %cmp.i68, label %if.then.i122, label %if.end.i69
@@ -6312,7 +6303,7 @@ if.end37.i82:                                     ; preds = %if.end33.i79
 if.end5:                                          ; preds = %if.then.i122, %if.then3.i121, %if.then36.i88
   %sz.0.ph = phi i64 [ %conv43.i93, %if.then36.i88 ], [ 8, %if.then3.i121 ], [ %conv.i126, %if.then.i122 ]
   %add = add i64 %sz.0.ph, %currOffset
-  %somValid = getelementptr inbounds %struct.RoseEngine, ptr %rose, i64 0, i32 75, i32 18
+  %somValid = getelementptr inbounds i8, ptr %rose, i64 356
   %15 = load i32, ptr %somValid, align 4
   %idx.ext11 = zext i32 %15 to i64
   %add.ptr12 = getelementptr inbounds i8, ptr %add.ptr, i64 %idx.ext11
@@ -6429,7 +6420,7 @@ if.end20:                                         ; preds = %if.then.i, %if.then
   %add.ptr27 = getelementptr inbounds i8, ptr %add.ptr, i64 %idx.ext26
   %30 = load i32, ptr %somLocationCount, align 8
   %.fr = freeze i32 %30
-  %somHorizon = getelementptr inbounds %struct.RoseEngine, ptr %rose, i64 0, i32 8
+  %somHorizon = getelementptr inbounds i8, ptr %rose, i64 8
   %31 = load i8, ptr %somHorizon, align 8
   %conv = zext i8 %31 to i32
   %tobool.i143.not = icmp eq i32 %.fr, 0
@@ -7055,20 +7046,20 @@ declare i64 @llvm.ctpop.i64(i64) #4
 define internal fastcc i64 @sc_left_compress(ptr nocapture noundef readonly %rose, i64 noundef %currOffset, ptr nocapture noundef readonly %stream, ptr nocapture noundef writeonly %buf) unnamed_addr #0 {
 entry:
   %si_state = alloca [7 x %struct.mmbit_sparse_state], align 16
-  %activeLeftIterOffset = getelementptr inbounds %struct.RoseEngine, ptr %rose, i64 0, i32 84
+  %activeLeftIterOffset = getelementptr inbounds i8, ptr %rose, i64 416
   %0 = load i32, ptr %activeLeftIterOffset, align 8
   %tobool.not = icmp eq i32 %0, 0
   br i1 %tobool.not, label %return, label %if.end
 
 if.end:                                           ; preds = %entry
   %add.ptr = getelementptr inbounds i8, ptr %stream, i64 16
-  %activeLeftArray = getelementptr inbounds %struct.RoseEngine, ptr %rose, i64 0, i32 75, i32 9
+  %activeLeftArray = getelementptr inbounds i8, ptr %rose, i64 320
   %1 = load i32, ptr %activeLeftArray, align 4
   %idx.ext = zext i32 %1 to i64
   %add.ptr1 = getelementptr inbounds i8, ptr %add.ptr, i64 %idx.ext
-  %activeLeftCount = getelementptr inbounds %struct.RoseEngine, ptr %rose, i64 0, i32 44
+  %activeLeftCount = getelementptr inbounds i8, ptr %rose, i64 152
   %2 = load i32, ptr %activeLeftCount, align 8
-  %leftOffset.i = getelementptr inbounds %struct.RoseEngine, ptr %rose, i64 0, i32 50
+  %leftOffset.i = getelementptr inbounds i8, ptr %rose, i64 176
   %3 = load i32, ptr %leftOffset.i, align 8
   %idx.ext.i32 = zext i32 %3 to i64
   %add.ptr.i33 = getelementptr inbounds i8, ptr %rose, i64 %idx.ext.i32
@@ -7141,7 +7132,7 @@ if.end7.i:                                        ; preds = %if.then.i
   br i1 %tobool9.i.not248, label %return, label %for.body.i.lr.ph
 
 for.body.i.lr.ph:                                 ; preds = %if.end7.i
-  %val.i = getelementptr inbounds %struct.mmbit_sparse_iter, ptr %add.ptr.i36, i64 0, i32 1
+  %val.i = getelementptr inbounds i8, ptr %add.ptr.i36, i64 8
   %11 = load i32, ptr %val.i, align 8
   br label %for.body.i
 
@@ -7219,9 +7210,9 @@ if.end30.i:                                       ; preds = %sw.bb.i.i, %sw.bb1.
 
 if.then34.i:                                      ; preds = %if.end30.i
   store i64 %root.i.0249, ptr %si_state, align 16
-  %arrayidx36.i = getelementptr inbounds %struct.mmbit_sparse_state, ptr %si_state, i64 1
+  %arrayidx36.i = getelementptr inbounds i8, ptr %si_state, i64 16
   store i64 %and32.i, ptr %arrayidx36.i, align 16
-  %itkey.i = getelementptr inbounds %struct.mmbit_sparse_state, ptr %si_state, i64 1, i32 1
+  %itkey.i = getelementptr inbounds i8, ptr %si_state, i64 24
   store i32 %add.i, ptr %itkey.i, align 8
   %20 = tail call i64 @llvm.cttz.i64(i64 %and32.i, i1 true), !range !6
   %cast.i57.i = trunc i64 %20 to i32
@@ -7249,7 +7240,7 @@ if.end.i81:                                       ; preds = %if.else.i
   %24 = load i8, ptr %arrayidx.i.i, align 1
   %conv.i.i83 = zext i8 %24 to i32
   store i64 %and.i78, ptr %si_state, align 16
-  %itkey.i84 = getelementptr inbounds %struct.mmbit_sparse_state, ptr %si_state, i64 0, i32 1
+  %itkey.i84 = getelementptr inbounds i8, ptr %si_state, i64 8
   store i32 0, ptr %itkey.i84, align 8
   br label %for.cond.i171
 
@@ -7277,7 +7268,7 @@ if.else.i183:                                     ; preds = %if.then.i177
   %28 = tail call i64 @llvm.ctpop.i64(i64 %and.i.i180), !range !10
   %cast.i40.i = trunc i64 %28 to i32
   %inc.i = add i32 %level.addr.i.0, 1
-  %val5.i = getelementptr inbounds %struct.mmbit_sparse_iter, ptr %it.addr.i.0, i64 0, i32 1
+  %val5.i = getelementptr inbounds i8, ptr %it.addr.i.0, i64 8
   %29 = load i32, ptr %val5.i, align 8
   %add6.i = add i32 %29, %cast.i40.i
   %idx.ext.i184 = zext i32 %add6.i to i64
@@ -7296,7 +7287,7 @@ if.else.i183:                                     ; preds = %if.then.i177
   %and.i193 = and i64 %32, %31
   %arrayidx12.i = getelementptr inbounds %struct.mmbit_sparse_state, ptr %si_state, i64 %idxprom.i.i186
   store i64 %and.i193, ptr %arrayidx12.i, align 16
-  %itkey.i194 = getelementptr inbounds %struct.mmbit_sparse_state, ptr %si_state, i64 %idxprom.i.i186, i32 1
+  %itkey.i194 = getelementptr inbounds i8, ptr %arrayidx12.i, i64 8
   store i32 %add6.i, ptr %itkey.i194, align 8
   br label %for.cond.i171.backedge
 
@@ -7313,7 +7304,7 @@ if.end20.i:                                       ; preds = %if.else16.i
   %sub.i175 = add i64 %33, -1
   %and27.i = and i64 %sub.i175, %33
   store i64 %and27.i, ptr %arrayidx22.i, align 16
-  %itkey30.i = getelementptr inbounds %struct.mmbit_sparse_state, ptr %si_state, i64 %idxprom21.i, i32 1
+  %itkey30.i = getelementptr inbounds i8, ptr %arrayidx22.i, i64 8
   %34 = load i32, ptr %itkey30.i, align 8
   %idx.ext31.i = zext i32 %34 to i64
   %add.ptr32.i = getelementptr inbounds %struct.mmbit_sparse_iter, ptr %add.ptr.i36, i64 %idx.ext31.i
@@ -7332,11 +7323,11 @@ if.end.i:                                         ; preds = %if.then.i177
 
 for.body.lr.ph:                                   ; preds = %if.then34.i, %if.end.i63, %if.end.i
   %key.i.0303 = phi i32 [ %add.i179, %if.end.i ], [ %add45.i, %if.then34.i ], [ %cast.i.i, %if.end.i63 ]
-  %invariant.gep304 = getelementptr inbounds %struct.NFA, ptr %rose, i64 0, i32 10
-  %leftfixBeginQueue = getelementptr inbounds %struct.RoseEngine, ptr %rose, i64 0, i32 81
-  %nfaInfoOffset.i = getelementptr inbounds %struct.RoseEngine, ptr %rose, i64 0, i32 65
-  %leftfixLagTable = getelementptr inbounds %struct.RoseEngine, ptr %rose, i64 0, i32 75, i32 11
-  %val48.i = getelementptr inbounds %struct.mmbit_sparse_iter, ptr %add.ptr.i36, i64 0, i32 1
+  %invariant.gep304 = getelementptr inbounds i8, ptr %rose, i64 28
+  %leftfixBeginQueue = getelementptr inbounds i8, ptr %rose, i64 404
+  %nfaInfoOffset.i = getelementptr inbounds i8, ptr %rose, i64 236
+  %leftfixLagTable = getelementptr inbounds i8, ptr %rose, i64 328
+  %val48.i = getelementptr inbounds i8, ptr %add.ptr.i36, i64 8
   br i1 %cmp.i.i, label %for.body.lr.ph.split.us, label %for.body.lr.ph.split
 
 for.body.lr.ph.split.us:                          ; preds = %for.body.lr.ph
@@ -7345,7 +7336,7 @@ for.body.lr.ph.split.us:                          ; preds = %for.body.lr.ph
   br i1 %cmp.i232, label %for.body.us.us, label %for.body.us.preheader
 
 for.body.us.preheader:                            ; preds = %for.body.lr.ph.split.us
-  %arrayidx.i234 = getelementptr inbounds %struct.mmbit_sparse_state, ptr %si_state, i64 1
+  %arrayidx.i234 = getelementptr inbounds i8, ptr %si_state, i64 16
   %arrayidx.i234.promoted = load i64, ptr %arrayidx.i234, align 16
   br label %for.body.us
 
@@ -7364,7 +7355,7 @@ for.body.us.us:                                   ; preds = %for.body.lr.ph.spli
   %37 = load i32, ptr %arrayidx.i.us.us, align 4
   %idx.ext.i29.us.us = zext i32 %37 to i64
   %add.ptr8.us.us = getelementptr inbounds i8, ptr %buf, i64 %currOffset.addr.0261.us.us
-  %stateOffset.us.us = getelementptr inbounds %struct.NfaInfo, ptr %add.ptr.i.us.us, i64 %idxprom.i.us.us, i32 1
+  %stateOffset.us.us = getelementptr inbounds i8, ptr %arrayidx.i.us.us, i64 4
   %38 = load i32, ptr %stateOffset.us.us, align 4
   %idx.ext9.us.us = zext i32 %38 to i64
   %add.ptr10.us.us = getelementptr inbounds i8, ptr %add.ptr, i64 %idx.ext9.us.us
@@ -7412,7 +7403,7 @@ for.body.us:                                      ; preds = %for.body.us.prehead
   %47 = load i32, ptr %arrayidx.i.us, align 4
   %idx.ext.i29.us = zext i32 %47 to i64
   %add.ptr8.us = getelementptr inbounds i8, ptr %buf, i64 %currOffset.addr.0261.us
-  %stateOffset.us = getelementptr inbounds %struct.NfaInfo, ptr %add.ptr.i.us, i64 %idxprom.i.us, i32 1
+  %stateOffset.us = getelementptr inbounds i8, ptr %arrayidx.i.us, i64 4
   %48 = load i32, ptr %stateOffset.us, align 4
   %idx.ext9.us = zext i32 %48 to i64
   %add.ptr10.us = getelementptr inbounds i8, ptr %add.ptr, i64 %idx.ext9.us
@@ -7548,7 +7539,7 @@ for.body.lr.ph.split:                             ; preds = %for.body.lr.ph
   %conv.i.i310 = zext i8 %67 to i32
   %idxprom.i312 = zext i8 %67 to i64
   %arrayidx.i313 = getelementptr inbounds %struct.mmbit_sparse_state, ptr %si_state, i64 %idxprom.i312
-  %itkey.i316 = getelementptr inbounds %struct.mmbit_sparse_state, ptr %si_state, i64 %idxprom.i312, i32 1
+  %itkey.i316 = getelementptr inbounds i8, ptr %arrayidx.i313, i64 8
   br label %for.body
 
 for.body:                                         ; preds = %for.body.lr.ph.split, %mmbit_sparse_iter_next.exit
@@ -7565,7 +7556,7 @@ for.body:                                         ; preds = %for.body.lr.ph.spli
   %70 = load i32, ptr %arrayidx.i, align 4
   %idx.ext.i29 = zext i32 %70 to i64
   %add.ptr8 = getelementptr inbounds i8, ptr %buf, i64 %currOffset.addr.0261
-  %stateOffset = getelementptr inbounds %struct.NfaInfo, ptr %add.ptr.i, i64 %idxprom.i, i32 1
+  %stateOffset = getelementptr inbounds i8, ptr %arrayidx.i, i64 4
   %71 = load i32, ptr %stateOffset, align 4
   %idx.ext9 = zext i32 %71 to i64
   %add.ptr10 = getelementptr inbounds i8, ptr %add.ptr, i64 %idx.ext9
@@ -7623,7 +7614,7 @@ if.else.i.i324:                                   ; preds = %if.then.i.i320
   %82 = tail call i64 @llvm.ctpop.i64(i64 %and.i.i.i), !range !10
   %cast.i40.i.i = trunc i64 %82 to i32
   %inc.i.i = add i32 %level.addr.i.i293.0, 1
-  %val5.i.i = getelementptr inbounds %struct.mmbit_sparse_iter, ptr %it.addr.i.i.0, i64 0, i32 1
+  %val5.i.i = getelementptr inbounds i8, ptr %it.addr.i.i.0, i64 8
   %83 = load i32, ptr %val5.i.i, align 8
   %add6.i.i = add i32 %83, %cast.i40.i.i
   %idx.ext.i.i325 = zext i32 %add6.i.i to i64
@@ -7642,7 +7633,7 @@ if.else.i.i324:                                   ; preds = %if.then.i.i320
   %and.i.i329 = and i64 %86, %85
   %arrayidx12.i.i = getelementptr inbounds %struct.mmbit_sparse_state, ptr %si_state, i64 %idxprom.i.i.i
   store i64 %and.i.i329, ptr %arrayidx12.i.i, align 16
-  %itkey.i.i = getelementptr inbounds %struct.mmbit_sparse_state, ptr %si_state, i64 %idxprom.i.i.i, i32 1
+  %itkey.i.i = getelementptr inbounds i8, ptr %arrayidx12.i.i, i64 8
   store i32 %add6.i.i, ptr %itkey.i.i, align 8
   br label %for.cond.i.i.backedge
 
@@ -7659,7 +7650,7 @@ if.end20.i.i:                                     ; preds = %if.else16.i.i
   %sub.i9.i = add i64 %87, -1
   %and27.i.i = and i64 %sub.i9.i, %87
   store i64 %and27.i.i, ptr %arrayidx22.i.i, align 16
-  %itkey30.i.i = getelementptr inbounds %struct.mmbit_sparse_state, ptr %si_state, i64 %idxprom21.i.i, i32 1
+  %itkey30.i.i = getelementptr inbounds i8, ptr %arrayidx22.i.i, i64 8
   %88 = load i32, ptr %itkey30.i.i, align 8
   %idx.ext31.i.i = zext i32 %88 to i64
   %add.ptr32.i.i = getelementptr inbounds %struct.mmbit_sparse_iter, ptr %add.ptr.i36, i64 %idx.ext31.i.i
@@ -7683,19 +7674,19 @@ return:                                           ; preds = %if.else16.i, %if.en
 ; Function Attrs: nofree norecurse nosync nounwind memory(write, argmem: readwrite, inaccessiblemem: none) uwtable
 define internal fastcc i64 @sc_som_compress(ptr nocapture noundef readonly %rose, i64 noundef %currOffset, ptr nocapture noundef readonly %stream, ptr nocapture noundef writeonly %buf, i64 noundef %buf_size) unnamed_addr #5 {
 entry:
-  %somLocation = getelementptr inbounds %struct.RoseEngine, ptr %rose, i64 0, i32 75, i32 17
+  %somLocation = getelementptr inbounds i8, ptr %rose, i64 352
   %0 = load i32, ptr %somLocation, align 4
   %tobool.not = icmp eq i32 %0, 0
   br i1 %tobool.not, label %return, label %if.end
 
 if.end:                                           ; preds = %entry
   %add.ptr = getelementptr inbounds i8, ptr %stream, i64 16
-  %somWritable = getelementptr inbounds %struct.RoseEngine, ptr %rose, i64 0, i32 75, i32 19
+  %somWritable = getelementptr inbounds i8, ptr %rose, i64 360
   %1 = load i32, ptr %somWritable, align 4
   %idx.ext = zext i32 %1 to i64
   %add.ptr1 = getelementptr inbounds i8, ptr %add.ptr, i64 %idx.ext
   %add.ptr2 = getelementptr inbounds i8, ptr %buf, i64 %currOffset
-  %somLocationCount = getelementptr inbounds %struct.RoseEngine, ptr %rose, i64 0, i32 20
+  %somLocationCount = getelementptr inbounds i8, ptr %rose, i64 56
   %2 = load i32, ptr %somLocationCount, align 8
   %sub = sub i64 %buf_size, %currOffset
   %cmp.i708 = icmp ult i32 %2, 257
@@ -7868,7 +7859,7 @@ if.end32.i645:                                    ; preds = %if.end28.i642
 if.end5:                                          ; preds = %if.end28.i642, %if.then2.i684, %if.then6.i683
   %retval.i698.0306308 = phi i64 [ 8, %if.then6.i683 ], [ %conv.i741, %if.then2.i684 ], [ %mul33.i, %if.end28.i642 ]
   %add = add i64 %retval.i698.0306308, %currOffset
-  %somValid = getelementptr inbounds %struct.RoseEngine, ptr %rose, i64 0, i32 75, i32 18
+  %somValid = getelementptr inbounds i8, ptr %rose, i64 356
   %18 = load i32, ptr %somValid, align 4
   %idx.ext11 = zext i32 %18 to i64
   %add.ptr12 = getelementptr inbounds i8, ptr %add.ptr, i64 %idx.ext11
@@ -8050,7 +8041,7 @@ if.end20:                                         ; preds = %if.end28.i, %if.the
   %add.ptr27 = getelementptr inbounds i8, ptr %add.ptr, i64 %idx.ext26
   %36 = load i32, ptr %somLocationCount, align 8
   %.fr = freeze i32 %36
-  %somHorizon = getelementptr inbounds %struct.RoseEngine, ptr %rose, i64 0, i32 8
+  %somHorizon = getelementptr inbounds i8, ptr %rose, i64 8
   %37 = load i8, ptr %somHorizon, align 8
   %conv = zext i8 %37 to i32
   %tobool.i50.not = icmp eq i32 %.fr, 0

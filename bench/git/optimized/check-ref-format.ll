@@ -39,7 +39,7 @@ do.end:                                           ; preds = %entry
   ]
 
 land.lhs.true:                                    ; preds = %do.end
-  %arrayidx = getelementptr inbounds ptr, ptr %argv, i64 1
+  %arrayidx = getelementptr inbounds i8, ptr %argv, i64 8
   %0 = load ptr, ptr %arrayidx, align 8
   %call = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %0, ptr noundef nonnull dereferenceable(3) @.str.2) #9
   %tobool1.not = icmp eq i32 %call, 0
@@ -50,14 +50,14 @@ if.then2:                                         ; preds = %land.lhs.true
   unreachable
 
 land.lhs.true5:                                   ; preds = %do.end
-  %arrayidx6 = getelementptr inbounds ptr, ptr %argv, i64 1
+  %arrayidx6 = getelementptr inbounds i8, ptr %argv, i64 8
   %1 = load ptr, ptr %arrayidx6, align 8
   %call7 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %1, ptr noundef nonnull dereferenceable(9) @.str.3) #9
   %tobool8.not = icmp eq i32 %call7, 0
   br i1 %tobool8.not, label %if.then9, label %land.rhs.preheader
 
 if.then9:                                         ; preds = %land.lhs.true5
-  %arrayidx10 = getelementptr inbounds ptr, ptr %argv, i64 2
+  %arrayidx10 = getelementptr inbounds i8, ptr %argv, i64 16
   %2 = load ptr, ptr %arrayidx10, align 8
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %sb.i)
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %nongit.i)
@@ -68,7 +68,7 @@ if.then9:                                         ; preds = %land.lhs.true5
   br i1 %tobool.not.i, label %lor.lhs.false.i, label %if.then.i
 
 lor.lhs.false.i:                                  ; preds = %if.then9
-  %buf.i = getelementptr inbounds %struct.strbuf, ptr %sb.i, i64 0, i32 2
+  %buf.i = getelementptr inbounds i8, ptr %sb.i, i64 16
   %3 = load ptr, ptr %buf.i, align 8
   br label %do.body.i.i
 

@@ -6,8 +6,6 @@ target triple = "x86_64-unknown-linux-gnu"
 %"class.std::__cxx11::basic_string" = type { %"struct.std::__cxx11::basic_string<char>::_Alloc_hider", i64, %union.anon }
 %"struct.std::__cxx11::basic_string<char>::_Alloc_hider" = type { ptr }
 %union.anon = type { i64, [8 x i8] }
-%"class.net::QuicTime::Delta" = type { %"class.base::TimeDelta", i64 }
-%"class.base::TimeDelta" = type { i64 }
 
 @.str = private unnamed_addr constant [5 x i8] c"%lds\00", align 1
 @.str.1 = private unnamed_addr constant [6 x i8] c"%ldms\00", align 1
@@ -16,7 +14,7 @@ target triple = "x86_64-unknown-linux-gnu"
 ; Function Attrs: mustprogress uwtable
 define dso_local void @_ZNK3net8QuicTime5Delta12ToDebugValueB5cxx11Ev(ptr noalias sret(%"class.std::__cxx11::basic_string") align 8 %agg.result, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %this) local_unnamed_addr #0 align 2 {
 entry:
-  %time_offset_ = getelementptr inbounds %"class.net::QuicTime::Delta", ptr %this, i64 0, i32 1
+  %time_offset_ = getelementptr inbounds i8, ptr %this, i64 8
   %0 = load i64, ptr %time_offset_, align 8
   %1 = tail call noundef i64 @llvm.abs.i64(i64 %0, i1 true)
   %cmp = icmp ugt i64 %1, 1000000

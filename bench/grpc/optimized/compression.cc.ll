@@ -29,27 +29,27 @@ declare void @_ZNSt8ios_base4InitD1Ev(ptr noundef nonnull align 1 dereferenceabl
 declare i32 @__cxa_atexit(ptr, ptr, ptr) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define i32 @grpc_compression_algorithm_is_message(i32 noundef %0) local_unnamed_addr #3 {
+define noundef i32 @grpc_compression_algorithm_is_message(i32 noundef %0) local_unnamed_addr #3 {
 entry:
   ret i32 1
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define i32 @grpc_compression_algorithm_is_stream(i32 noundef %0) local_unnamed_addr #3 {
+define noundef i32 @grpc_compression_algorithm_is_stream(i32 noundef %0) local_unnamed_addr #3 {
 entry:
   ret i32 0
 }
 
 ; Function Attrs: mustprogress uwtable
-define i32 @grpc_compression_algorithm_parse(ptr noundef byval(%struct.grpc_slice) align 8 %name, ptr nocapture noundef writeonly %algorithm) local_unnamed_addr #4 {
+define noundef i32 @grpc_compression_algorithm_parse(ptr noundef byval(%struct.grpc_slice) align 8 %name, ptr nocapture noundef writeonly %algorithm) local_unnamed_addr #4 {
 entry:
   %0 = load ptr, ptr %name, align 8
   %tobool.not.i = icmp eq ptr %0, null
-  %bytes.i = getelementptr inbounds %struct.grpc_slice, ptr %name, i64 0, i32 1, i32 0, i32 1
+  %bytes.i = getelementptr inbounds i8, ptr %name, i64 16
   %1 = load ptr, ptr %bytes.i, align 8
   %bytes2.i = getelementptr inbounds i8, ptr %name, i64 9
   %cond.i = select i1 %tobool.not.i, ptr %bytes2.i, ptr %1
-  %data6.i = getelementptr inbounds %struct.grpc_slice, ptr %name, i64 0, i32 1
+  %data6.i = getelementptr inbounds i8, ptr %name, i64 8
   %2 = load i64, ptr %data6.i, align 8
   %conv.i = and i64 %2, 255
   %cond11.i = select i1 %tobool.not.i, i64 %conv.i, i64 %2
@@ -71,9 +71,9 @@ return:                                           ; preds = %entry, %_ZNRSt8opti
 declare i64 @_ZN9grpc_core25ParseCompressionAlgorithmESt17basic_string_viewIcSt11char_traitsIcEE(i64, ptr) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress uwtable
-define i32 @grpc_compression_algorithm_name(i32 noundef %algorithm, ptr noundef %name) local_unnamed_addr #4 personality ptr @__gxx_personality_v0 {
+define noundef i32 @grpc_compression_algorithm_name(i32 noundef %algorithm, ptr noundef %name) local_unnamed_addr #4 personality ptr @__gxx_personality_v0 {
 entry:
-  %0 = load atomic i8, ptr getelementptr inbounds (%"class.grpc_core::TraceFlag", ptr @grpc_api_trace, i64 0, i32 2) monotonic, align 8
+  %0 = load atomic i8, ptr getelementptr inbounds (%"class.grpc_core::TraceFlag", ptr @grpc_api_trace, i64 0, i32 2, i32 0, i32 0) monotonic, align 8
   %1 = and i8 %0, 1
   %tobool.i.i.i.not = icmp eq i8 %1, 0
   br i1 %tobool.i.i.i.not, label %if.end, label %if.then
@@ -101,7 +101,7 @@ declare void @gpr_log(ptr noundef, i32 noundef, i32 noundef, ptr noundef, ...) l
 declare noundef ptr @_ZN9grpc_core28CompressionAlgorithmAsStringE26grpc_compression_algorithm(i32 noundef) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress uwtable
-define i32 @grpc_compression_algorithm_for_level(i32 noundef %level, i32 noundef %accepted_encodings) local_unnamed_addr #4 {
+define noundef i32 @grpc_compression_algorithm_for_level(i32 noundef %level, i32 noundef %accepted_encodings) local_unnamed_addr #4 {
 entry:
   %ref.tmp = alloca %"class.grpc_core::CompressionAlgorithmSet", align 1
   %call = tail call i8 @_ZN9grpc_core23CompressionAlgorithmSet10FromUint32Ej(i32 noundef %accepted_encodings)
@@ -114,7 +114,7 @@ declare i8 @_ZN9grpc_core23CompressionAlgorithmSet10FromUint32Ej(i32 noundef) lo
 
 declare noundef i32 @_ZNK9grpc_core23CompressionAlgorithmSet28CompressionAlgorithmForLevelE22grpc_compression_level(ptr noundef nonnull align 1 dereferenceable(1), i32 noundef) local_unnamed_addr #0
 
-; Function Attrs: mustprogress nofree nosync nounwind willreturn memory(argmem: write) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
 define void @grpc_compression_options_init(ptr nocapture noundef writeonly %opts) local_unnamed_addr #5 {
 entry:
   %0 = getelementptr inbounds i8, ptr %opts, i64 4
@@ -148,7 +148,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress uwtable
-define i32 @grpc_compression_options_is_algorithm_enabled(ptr nocapture noundef readonly %opts, i32 noundef %algorithm) local_unnamed_addr #4 {
+define noundef i32 @grpc_compression_options_is_algorithm_enabled(ptr nocapture noundef readonly %opts, i32 noundef %algorithm) local_unnamed_addr #4 {
 entry:
   %ref.tmp = alloca %"class.grpc_core::CompressionAlgorithmSet", align 1
   %0 = load i32, ptr %opts, align 4
@@ -176,7 +176,7 @@ attributes #1 = { nounwind "frame-pointer"="all" "no-trapping-math"="true" "stac
 attributes #2 = { nofree nounwind }
 attributes #3 = { mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #4 = { mustprogress uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #5 = { mustprogress nofree nosync nounwind willreturn memory(argmem: write) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #5 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #6 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: write) }
 attributes #7 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #8 = { uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

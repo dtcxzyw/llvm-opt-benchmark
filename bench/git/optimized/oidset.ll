@@ -5,11 +5,7 @@ target triple = "x86_64-unknown-linux-gnu"
 
 %struct.strbuf = type { i64, i64, ptr }
 %struct.git_hash_algo = type { ptr, i32, i64, i64, i64, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr }
-%struct.kh_oid_set = type { i32, i32, i32, i32, ptr, ptr, ptr }
 %struct.object_id = type { [32 x i8], i32 }
-%struct.repository = type { ptr, ptr, ptr, ptr, ptr, %struct.repo_path_cache, ptr, ptr, ptr, ptr, %struct.repo_settings, ptr, ptr, ptr, ptr, ptr, i32, i32, i32, ptr, ptr, i32, i8 }
-%struct.repo_path_cache = type { ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr }
-%struct.repo_settings = type { i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, ptr, i32, i32, i32, i32, i32, i32 }
 
 @strbuf_slopbuf = external global [0 x i8], align 1
 @__const.oidset_parse_file_carefully.sb = private unnamed_addr constant %struct.strbuf { i64 0, i64 0, ptr @strbuf_slopbuf }, align 8
@@ -59,7 +55,7 @@ entry:
   %or8 = or i32 %shr7, %or6
   %inc = add i32 %or8, 1
   %spec.store.select = tail call i32 @llvm.umax.i32(i32 %inc, i32 4)
-  %size = getelementptr inbounds %struct.kh_oid_set, ptr %h, i64 0, i32 1
+  %size = getelementptr inbounds i8, ptr %h, i64 4
   %0 = load i32, ptr %size, align 4
   %conv = uitofp i32 %spec.store.select to double
   %1 = tail call double @llvm.fmuladd.f64(double %conv, double 7.700000e-01, double 5.000000e-01)
@@ -80,7 +76,7 @@ if.else:                                          ; preds = %entry
   br i1 %cmp26, label %if.end34, label %for.body.lr.ph
 
 if.end34:                                         ; preds = %if.else
-  %keys = getelementptr inbounds %struct.kh_oid_set, ptr %h, i64 0, i32 5
+  %keys = getelementptr inbounds i8, ptr %h, i64 24
   %6 = load ptr, ptr %keys, align 8
   %conv29 = zext i32 %spec.store.select to i64
   %mul.i70 = mul nuw nsw i64 %conv29, 36
@@ -92,8 +88,8 @@ if.end34:                                         ; preds = %if.else
 
 for.body.lr.ph:                                   ; preds = %if.else, %if.end34
   %7 = phi i32 [ %.pre, %if.end34 ], [ %5, %if.else ]
-  %flags = getelementptr inbounds %struct.kh_oid_set, ptr %h, i64 0, i32 4
-  %keys45 = getelementptr inbounds %struct.kh_oid_set, ptr %h, i64 0, i32 5
+  %flags = getelementptr inbounds i8, ptr %h, i64 16
+  %keys45 = getelementptr inbounds i8, ptr %h, i64 24
   %sub = add i32 %spec.store.select, -1
   br label %for.body
 
@@ -217,7 +213,7 @@ for.end:                                          ; preds = %for.inc
   br i1 %cmp122, label %if.then124, label %if.end130
 
 if.then124:                                       ; preds = %for.end
-  %keys125 = getelementptr inbounds %struct.kh_oid_set, ptr %h, i64 0, i32 5
+  %keys125 = getelementptr inbounds i8, ptr %h, i64 24
   %30 = load ptr, ptr %keys125, align 8
   %conv126 = zext i32 %spec.store.select to i64
   %mul.i71 = mul nuw nsw i64 %conv126, 36
@@ -226,15 +222,15 @@ if.then124:                                       ; preds = %for.end
   br label %if.end130
 
 if.end130:                                        ; preds = %if.end34, %if.then124, %for.end
-  %flags131 = getelementptr inbounds %struct.kh_oid_set, ptr %h, i64 0, i32 4
+  %flags131 = getelementptr inbounds i8, ptr %h, i64 16
   %31 = load ptr, ptr %flags131, align 8
   tail call void @free(ptr noundef %31) #15
   store ptr %call17, ptr %flags131, align 8
   store i32 %spec.store.select, ptr %h, align 8
   %32 = load i32, ptr %size, align 4
-  %n_occupied = getelementptr inbounds %struct.kh_oid_set, ptr %h, i64 0, i32 2
+  %n_occupied = getelementptr inbounds i8, ptr %h, i64 8
   store i32 %32, ptr %n_occupied, align 8
-  %upper_bound = getelementptr inbounds %struct.kh_oid_set, ptr %h, i64 0, i32 3
+  %upper_bound = getelementptr inbounds i8, ptr %h, i64 12
   store i32 %conv9, ptr %upper_bound, align 4
   br label %if.end139
 
@@ -258,12 +254,12 @@ if.then.i:                                        ; preds = %entry
   %sub.i = add i32 %0, -1
   %key.val.i = load i32, ptr %byval-temp2, align 8
   %and.i = and i32 %key.val.i, %sub.i
-  %flags.i = getelementptr inbounds %struct.kh_oid_set, ptr %set, i64 0, i32 4
+  %flags.i = getelementptr inbounds i8, ptr %set, i64 16
   %1 = load ptr, ptr %flags.i, align 8
-  %keys.i = getelementptr inbounds %struct.kh_oid_set, ptr %set, i64 0, i32 5
-  %algo.i.i.i = getelementptr inbounds %struct.object_id, ptr %byval-temp.i, i64 0, i32 1
+  %keys.i = getelementptr inbounds i8, ptr %set, i64 24
+  %algo.i.i.i = getelementptr inbounds i8, ptr %byval-temp.i, i64 32
   %2 = load ptr, ptr @the_repository, align 8
-  %hash_algo.i.i.i = getelementptr inbounds %struct.repository, ptr %2, i64 0, i32 15
+  %hash_algo.i.i.i = getelementptr inbounds i8, ptr %2, i64 256
   br label %while.cond.i
 
 while.cond.i:                                     ; preds = %while.body.i, %if.then.i
@@ -357,16 +353,16 @@ entry:
   call void @llvm.lifetime.start.p0(i64 36, ptr nonnull %byval-temp1)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(36) %byval-temp1, ptr noundef nonnull align 4 dereferenceable(36) %oid, i64 36, i1 false)
   call void @llvm.lifetime.start.p0(i64 36, ptr nonnull %byval-temp.i)
-  %n_occupied.i = getelementptr inbounds %struct.kh_oid_set, ptr %set, i64 0, i32 2
+  %n_occupied.i = getelementptr inbounds i8, ptr %set, i64 8
   %0 = load i32, ptr %n_occupied.i, align 8
-  %upper_bound.i = getelementptr inbounds %struct.kh_oid_set, ptr %set, i64 0, i32 3
+  %upper_bound.i = getelementptr inbounds i8, ptr %set, i64 12
   %1 = load i32, ptr %upper_bound.i, align 4
   %cmp.not.i = icmp ult i32 %0, %1
   br i1 %cmp.not.i, label %if.end5.i, label %if.then.i
 
 if.then.i:                                        ; preds = %entry
   %2 = load i32, ptr %set, align 8
-  %size.i = getelementptr inbounds %struct.kh_oid_set, ptr %set, i64 0, i32 1
+  %size.i = getelementptr inbounds i8, ptr %set, i64 4
   %3 = load i32, ptr %size.i, align 4
   %shl.i = shl i32 %3, 1
   %cmp1.i = icmp ugt i32 %2, %shl.i
@@ -380,7 +376,7 @@ if.end5.i:                                        ; preds = %if.then.i, %entry
   %sub7.i = add i32 %4, -1
   %key.val.i = load i32, ptr %byval-temp1, align 8
   %and.i = and i32 %key.val.i, %sub7.i
-  %flags.i = getelementptr inbounds %struct.kh_oid_set, ptr %set, i64 0, i32 4
+  %flags.i = getelementptr inbounds i8, ptr %set, i64 16
   %5 = load ptr, ptr %flags.i, align 8
   %shr.i = lshr i32 %and.i, 4
   %idxprom.i = zext nneg i32 %shr.i to i64
@@ -394,10 +390,10 @@ if.end5.i:                                        ; preds = %if.then.i, %entry
   br i1 %tobool.not.i, label %while.cond.preheader.i, label %if.end71.i
 
 while.cond.preheader.i:                           ; preds = %if.end5.i
-  %keys.i = getelementptr inbounds %struct.kh_oid_set, ptr %set, i64 0, i32 5
-  %algo.i.i.i = getelementptr inbounds %struct.object_id, ptr %byval-temp.i, i64 0, i32 1
+  %keys.i = getelementptr inbounds i8, ptr %set, i64 24
+  %algo.i.i.i = getelementptr inbounds i8, ptr %byval-temp.i, i64 32
   %9 = load ptr, ptr @the_repository, align 8
-  %hash_algo.i.i.i = getelementptr inbounds %struct.repository, ptr %9, i64 0, i32 15
+  %hash_algo.i.i.i = getelementptr inbounds i8, ptr %9, i64 256
   br label %while.cond.i
 
 while.cond.i:                                     ; preds = %while.body.i, %while.cond.preheader.i
@@ -502,7 +498,7 @@ if.end71.i:                                       ; preds = %if.then55.i, %while
   br i1 %tobool80.not.i, label %if.else98.i, label %if.then81.i
 
 if.then81.i:                                      ; preds = %if.end71.i
-  %keys82.i = getelementptr inbounds %struct.kh_oid_set, ptr %set, i64 0, i32 5
+  %keys82.i = getelementptr inbounds i8, ptr %set, i64 24
   %19 = load ptr, ptr %keys82.i, align 8
   %idxprom83.i = zext i32 %x.1.i to i64
   %arrayidx84.i = getelementptr inbounds %struct.object_id, ptr %19, i64 %idxprom83.i
@@ -514,7 +510,7 @@ if.then81.i:                                      ; preds = %if.end71.i
   %21 = load i32, ptr %arrayidx91.i, align 4
   %and92.i = and i32 %21, %not.i
   store i32 %and92.i, ptr %arrayidx91.i, align 4
-  %size94.i = getelementptr inbounds %struct.kh_oid_set, ptr %set, i64 0, i32 1
+  %size94.i = getelementptr inbounds i8, ptr %set, i64 4
   %22 = load <2 x i32>, ptr %size94.i, align 4
   %23 = add <2 x i32> %22, <i32 1, i32 1>
   store <2 x i32> %23, ptr %size94.i, align 4
@@ -526,7 +522,7 @@ if.else98.i:                                      ; preds = %if.end71.i
   br i1 %tobool107.not.i, label %kh_put_oid_set.exit, label %if.then108.i
 
 if.then108.i:                                     ; preds = %if.else98.i
-  %keys109.i = getelementptr inbounds %struct.kh_oid_set, ptr %set, i64 0, i32 5
+  %keys109.i = getelementptr inbounds i8, ptr %set, i64 24
   %24 = load ptr, ptr %keys109.i, align 8
   %idxprom110.i = zext i32 %x.1.i to i64
   %arrayidx111.i = getelementptr inbounds %struct.object_id, ptr %24, i64 %idxprom110.i
@@ -538,7 +534,7 @@ if.then108.i:                                     ; preds = %if.else98.i
   %26 = load i32, ptr %arrayidx120.i, align 4
   %and122.i = and i32 %26, %not116.i
   store i32 %and122.i, ptr %arrayidx120.i, align 4
-  %size124.i = getelementptr inbounds %struct.kh_oid_set, ptr %set, i64 0, i32 1
+  %size124.i = getelementptr inbounds i8, ptr %set, i64 4
   %27 = load i32, ptr %size124.i, align 4
   %inc125.i = add i32 %27, 1
   store i32 %inc125.i, ptr %size124.i, align 4
@@ -567,12 +563,12 @@ if.then.i:                                        ; preds = %entry
   %sub.i = add i32 %0, -1
   %key.val.i = load i32, ptr %byval-temp4, align 8
   %and.i = and i32 %key.val.i, %sub.i
-  %flags.i = getelementptr inbounds %struct.kh_oid_set, ptr %set, i64 0, i32 4
+  %flags.i = getelementptr inbounds i8, ptr %set, i64 16
   %1 = load ptr, ptr %flags.i, align 8
-  %keys.i = getelementptr inbounds %struct.kh_oid_set, ptr %set, i64 0, i32 5
-  %algo.i.i.i = getelementptr inbounds %struct.object_id, ptr %byval-temp.i, i64 0, i32 1
+  %keys.i = getelementptr inbounds i8, ptr %set, i64 24
+  %algo.i.i.i = getelementptr inbounds i8, ptr %byval-temp.i, i64 32
   %2 = load ptr, ptr @the_repository, align 8
-  %hash_algo.i.i.i = getelementptr inbounds %struct.repository, ptr %2, i64 0, i32 15
+  %hash_algo.i.i.i = getelementptr inbounds i8, ptr %2, i64 256
   br label %while.cond.i
 
 while.cond.i:                                     ; preds = %while.body.i, %if.then.i
@@ -659,7 +655,7 @@ kh_get_oid_set.exit:                              ; preds = %entry, %while.end.i
   br i1 %cmp, label %return, label %land.lhs.true.i
 
 land.lhs.true.i:                                  ; preds = %kh_get_oid_set.exit
-  %flags.i5 = getelementptr inbounds %struct.kh_oid_set, ptr %set, i64 0, i32 4
+  %flags.i5 = getelementptr inbounds i8, ptr %set, i64 16
   %10 = load ptr, ptr %flags.i5, align 8
   %shr.i6 = lshr i32 %retval.0.i, 4
   %idxprom.i7 = zext nneg i32 %shr.i6 to i64
@@ -676,7 +672,7 @@ if.then.i12:                                      ; preds = %land.lhs.true.i
   %shl5.i = shl nuw nsw i32 1, %shl.i10
   %or.i = or i32 %11, %shl5.i
   store i32 %or.i, ptr %arrayidx.i8, align 4
-  %size.i = getelementptr inbounds %struct.kh_oid_set, ptr %set, i64 0, i32 1
+  %size.i = getelementptr inbounds i8, ptr %set, i64 4
   %14 = load i32, ptr %size.i, align 4
   %dec.i = add i32 %14, -1
   store i32 %dec.i, ptr %size.i, align 4
@@ -690,13 +686,13 @@ return:                                           ; preds = %if.then.i12, %land.
 ; Function Attrs: mustprogress nounwind willreturn uwtable
 define dso_local void @oidset_clear(ptr nocapture noundef %set) local_unnamed_addr #4 {
 entry:
-  %flags.i = getelementptr inbounds %struct.kh_oid_set, ptr %set, i64 0, i32 4
+  %flags.i = getelementptr inbounds i8, ptr %set, i64 16
   %0 = load ptr, ptr %flags.i, align 8
   tail call void @free(ptr noundef %0) #15
-  %keys.i = getelementptr inbounds %struct.kh_oid_set, ptr %set, i64 0, i32 5
+  %keys.i = getelementptr inbounds i8, ptr %set, i64 24
   %1 = load ptr, ptr %keys.i, align 8
   tail call void @free(ptr noundef %1) #15
-  %vals.i = getelementptr inbounds %struct.kh_oid_set, ptr %set, i64 0, i32 6
+  %vals.i = getelementptr inbounds i8, ptr %set, i64 32
   %2 = load ptr, ptr %vals.i, align 8
   tail call void @free(ptr noundef %2) #15
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %set, i8 0, i64 40, i1 false)
@@ -727,8 +723,8 @@ while.cond.preheader:                             ; preds = %entry
   br i1 %tobool2.not11, label %while.body.lr.ph, label %while.end
 
 while.body.lr.ph:                                 ; preds = %while.cond.preheader
-  %buf = getelementptr inbounds %struct.strbuf, ptr %sb, i64 0, i32 2
-  %len2.i = getelementptr inbounds %struct.strbuf, ptr %sb, i64 0, i32 1
+  %buf = getelementptr inbounds i8, ptr %sb, i64 16
+  %len2.i = getelementptr inbounds i8, ptr %sb, i64 8
   %tobool18.not = icmp eq ptr %fn, null
   br i1 %tobool18.not, label %while.body.us, label %while.body
 

@@ -3,29 +3,9 @@ source_filename = "bench/bullet3/original/btConvexPlaneCollisionAlgorithm.ll"
 target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:128-n8:16:32:64-S128"
 target triple = "x86_64-unknown-linux-gnu"
 
-%class.btConvexPlaneCollisionAlgorithm = type <{ %class.btCollisionAlgorithm, i8, [7 x i8], ptr, i8, [3 x i8], i32, i32, [4 x i8] }>
-%class.btCollisionAlgorithm = type { ptr, ptr }
-%struct.btCollisionObjectWrapper = type { ptr, ptr, ptr, ptr, ptr, i32, i32 }
 %class.btVector3 = type { [4 x float] }
-%class.btStaticPlaneShape = type { %class.btConcaveShape.base, %class.btVector3, %class.btVector3, %class.btVector3, float, %class.btVector3 }
-%class.btConcaveShape.base = type <{ %class.btCollisionShape, float }>
-%class.btCollisionShape = type { ptr, i32, ptr, i32, i32 }
-%class.btTransform = type { %class.btMatrix3x3, %class.btVector3 }
-%class.btMatrix3x3 = type { [3 x %class.btVector3] }
-%class.btManifoldResult = type <{ %"struct.btDiscreteCollisionDetectorInterface::Result", ptr, ptr, ptr, i32, i32, i32, i32, float, [4 x i8] }>
-%"struct.btDiscreteCollisionDetectorInterface::Result" = type { ptr }
 %class.btQuaternion = type { %class.btQuadWord }
 %class.btQuadWord = type { [4 x float] }
-%class.btPersistentManifold = type { %struct.btTypedObject, [4 x i8], [4 x %class.btManifoldPoint], ptr, ptr, i32, float, float, i32, i32, i32 }
-%struct.btTypedObject = type { i32 }
-%class.btManifoldPoint = type <{ %class.btVector3, %class.btVector3, %class.btVector3, %class.btVector3, %class.btVector3, float, float, float, float, float, i32, i32, i32, i32, [4 x i8], ptr, i32, float, float, float, float, float, float, %union.anon.0, %union.anon.1, float, i32, %class.btVector3, %class.btVector3, [4 x i8] }>
-%union.anon.0 = type { float }
-%union.anon.1 = type { float }
-%class.btCollisionObject = type <{ ptr, %class.btTransform, %class.btTransform, %class.btVector3, %class.btVector3, %class.btVector3, i32, float, ptr, ptr, ptr, ptr, i32, i32, i32, i32, i32, float, float, float, float, float, float, float, i32, [4 x i8], ptr, i32, i32, i32, float, float, float, i32, [4 x i8], %class.btAlignedObjectArray, i32, %class.btVector3, [4 x i8] }>
-%class.btAlignedObjectArray = type <{ %class.btAlignedAllocator, [3 x i8], i32, i32, [4 x i8], ptr, i8, [7 x i8] }>
-%class.btAlignedAllocator = type { i8 }
-%class.btAlignedObjectArray.2 = type <{ %class.btAlignedAllocator.3, [3 x i8], i32, i32, [4 x i8], ptr, i8, [7 x i8] }>
-%class.btAlignedAllocator.3 = type { i8 }
 
 $__clang_call_terminate = comdat any
 
@@ -54,15 +34,15 @@ entry:
   %frombool = zext i1 %isSwapped to i8
   tail call void @_ZN20btCollisionAlgorithmC2ERK36btCollisionAlgorithmConstructionInfo(ptr noundef nonnull align 8 dereferenceable(16) %this, ptr noundef nonnull align 8 dereferenceable(16) %ci)
   store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTV31btConvexPlaneCollisionAlgorithm, i64 0, inrange i32 0, i64 2), ptr %this, align 8
-  %m_ownManifold = getelementptr inbounds %class.btConvexPlaneCollisionAlgorithm, ptr %this, i64 0, i32 1
+  %m_ownManifold = getelementptr inbounds i8, ptr %this, i64 16
   store i8 0, ptr %m_ownManifold, align 8
-  %m_manifoldPtr = getelementptr inbounds %class.btConvexPlaneCollisionAlgorithm, ptr %this, i64 0, i32 3
+  %m_manifoldPtr = getelementptr inbounds i8, ptr %this, i64 24
   store ptr %mf, ptr %m_manifoldPtr, align 8
-  %m_isSwapped = getelementptr inbounds %class.btConvexPlaneCollisionAlgorithm, ptr %this, i64 0, i32 4
+  %m_isSwapped = getelementptr inbounds i8, ptr %this, i64 32
   store i8 %frombool, ptr %m_isSwapped, align 8
-  %m_numPerturbationIterations = getelementptr inbounds %class.btConvexPlaneCollisionAlgorithm, ptr %this, i64 0, i32 6
+  %m_numPerturbationIterations = getelementptr inbounds i8, ptr %this, i64 36
   store i32 %numPerturbationIterations, ptr %m_numPerturbationIterations, align 4
-  %m_minimumPointsPerturbationThreshold = getelementptr inbounds %class.btConvexPlaneCollisionAlgorithm, ptr %this, i64 0, i32 7
+  %m_minimumPointsPerturbationThreshold = getelementptr inbounds i8, ptr %this, i64 40
   store i32 %minimumPointsPerturbationThreshold, ptr %m_minimumPointsPerturbationThreshold, align 8
   %tobool12.not = icmp eq ptr %mf, null
   br i1 %tobool12.not, label %land.lhs.true, label %if.end
@@ -70,14 +50,14 @@ entry:
 land.lhs.true:                                    ; preds = %entry
   %cond10 = select i1 %isSwapped, ptr %col0Wrap, ptr %col1Wrap
   %cond = select i1 %isSwapped, ptr %col1Wrap, ptr %col0Wrap
-  %m_dispatcher = getelementptr inbounds %class.btCollisionAlgorithm, ptr %this, i64 0, i32 1
+  %m_dispatcher = getelementptr inbounds i8, ptr %this, i64 8
   %0 = load ptr, ptr %m_dispatcher, align 8
-  %m_collisionObject.i = getelementptr inbounds %struct.btCollisionObjectWrapper, ptr %cond, i64 0, i32 2
+  %m_collisionObject.i = getelementptr inbounds i8, ptr %cond, i64 16
   %1 = load ptr, ptr %m_collisionObject.i, align 8
-  %m_collisionObject.i5 = getelementptr inbounds %struct.btCollisionObjectWrapper, ptr %cond10, i64 0, i32 2
+  %m_collisionObject.i5 = getelementptr inbounds i8, ptr %cond10, i64 16
   %2 = load ptr, ptr %m_collisionObject.i5, align 8
   %vtable = load ptr, ptr %0, align 8
-  %vfn = getelementptr inbounds ptr, ptr %vtable, i64 6
+  %vfn = getelementptr inbounds i8, ptr %vtable, i64 48
   %3 = load ptr, ptr %vfn, align 8
   %call16 = tail call noundef zeroext i1 %3(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %1, ptr noundef %2)
   br i1 %call16, label %if.then, label %if.end
@@ -87,7 +67,7 @@ if.then:                                          ; preds = %land.lhs.true
   %5 = load ptr, ptr %m_collisionObject.i, align 8
   %6 = load ptr, ptr %m_collisionObject.i5, align 8
   %vtable22 = load ptr, ptr %4, align 8
-  %vfn23 = getelementptr inbounds ptr, ptr %vtable22, i64 3
+  %vfn23 = getelementptr inbounds i8, ptr %vtable22, i64 24
   %7 = load ptr, ptr %vfn23, align 8
   %call25 = tail call noundef ptr %7(ptr noundef nonnull align 8 dereferenceable(8) %4, ptr noundef %5, ptr noundef %6)
   store ptr %call25, ptr %m_manifoldPtr, align 8
@@ -106,23 +86,23 @@ declare i32 @__gxx_personality_v0(...)
 define dso_local void @_ZN31btConvexPlaneCollisionAlgorithmD2Ev(ptr nocapture noundef nonnull align 8 dereferenceable(44) %this) unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTV31btConvexPlaneCollisionAlgorithm, i64 0, inrange i32 0, i64 2), ptr %this, align 8
-  %m_ownManifold = getelementptr inbounds %class.btConvexPlaneCollisionAlgorithm, ptr %this, i64 0, i32 1
+  %m_ownManifold = getelementptr inbounds i8, ptr %this, i64 16
   %0 = load i8, ptr %m_ownManifold, align 8
   %1 = and i8 %0, 1
   %tobool.not = icmp eq i8 %1, 0
   br i1 %tobool.not, label %if.end5, label %if.then
 
 if.then:                                          ; preds = %entry
-  %m_manifoldPtr = getelementptr inbounds %class.btConvexPlaneCollisionAlgorithm, ptr %this, i64 0, i32 3
+  %m_manifoldPtr = getelementptr inbounds i8, ptr %this, i64 24
   %2 = load ptr, ptr %m_manifoldPtr, align 8
   %tobool2.not = icmp eq ptr %2, null
   br i1 %tobool2.not, label %if.end5, label %if.then3
 
 if.then3:                                         ; preds = %if.then
-  %m_dispatcher = getelementptr inbounds %class.btCollisionAlgorithm, ptr %this, i64 0, i32 1
+  %m_dispatcher = getelementptr inbounds i8, ptr %this, i64 8
   %3 = load ptr, ptr %m_dispatcher, align 8
   %vtable = load ptr, ptr %3, align 8
-  %vfn = getelementptr inbounds ptr, ptr %vtable, i64 4
+  %vfn = getelementptr inbounds i8, ptr %vtable, i64 32
   %4 = load ptr, ptr %vfn, align 8
   invoke void %4(ptr noundef nonnull align 8 dereferenceable(8) %3, ptr noundef nonnull %2)
           to label %if.end5 unwind label %terminate.lpad
@@ -153,23 +133,23 @@ declare void @_ZSt9terminatev() local_unnamed_addr
 define dso_local void @_ZN31btConvexPlaneCollisionAlgorithmD0Ev(ptr noundef nonnull align 8 dereferenceable(44) %this) unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTV31btConvexPlaneCollisionAlgorithm, i64 0, inrange i32 0, i64 2), ptr %this, align 8
-  %m_ownManifold.i = getelementptr inbounds %class.btConvexPlaneCollisionAlgorithm, ptr %this, i64 0, i32 1
+  %m_ownManifold.i = getelementptr inbounds i8, ptr %this, i64 16
   %0 = load i8, ptr %m_ownManifold.i, align 8
   %1 = and i8 %0, 1
   %tobool.not.i = icmp eq i8 %1, 0
   br i1 %tobool.not.i, label %_ZN31btConvexPlaneCollisionAlgorithmD2Ev.exit, label %if.then.i
 
 if.then.i:                                        ; preds = %entry
-  %m_manifoldPtr.i = getelementptr inbounds %class.btConvexPlaneCollisionAlgorithm, ptr %this, i64 0, i32 3
+  %m_manifoldPtr.i = getelementptr inbounds i8, ptr %this, i64 24
   %2 = load ptr, ptr %m_manifoldPtr.i, align 8
   %tobool2.not.i = icmp eq ptr %2, null
   br i1 %tobool2.not.i, label %_ZN31btConvexPlaneCollisionAlgorithmD2Ev.exit, label %if.then3.i
 
 if.then3.i:                                       ; preds = %if.then.i
-  %m_dispatcher.i = getelementptr inbounds %class.btCollisionAlgorithm, ptr %this, i64 0, i32 1
+  %m_dispatcher.i = getelementptr inbounds i8, ptr %this, i64 8
   %3 = load ptr, ptr %m_dispatcher.i, align 8
   %vtable.i = load ptr, ptr %3, align 8
-  %vfn.i = getelementptr inbounds ptr, ptr %vtable.i, i64 4
+  %vfn.i = getelementptr inbounds i8, ptr %vtable.i, i64 32
   %4 = load ptr, ptr %vfn.i, align 8
   invoke void %4(ptr noundef nonnull align 8 dereferenceable(8) %3, ptr noundef nonnull %2)
           to label %_ZN31btConvexPlaneCollisionAlgorithmD2Ev.exit unwind label %terminate.lpad.i
@@ -195,53 +175,53 @@ entry:
   %ref.tmp22 = alloca %class.btVector3, align 8
   %normalOnSurfaceB = alloca %class.btVector3, align 8
   %pOnB = alloca %class.btVector3, align 8
-  %m_isSwapped = getelementptr inbounds %class.btConvexPlaneCollisionAlgorithm, ptr %this, i64 0, i32 4
+  %m_isSwapped = getelementptr inbounds i8, ptr %this, i64 32
   %0 = load i8, ptr %m_isSwapped, align 8
   %1 = and i8 %0, 1
   %tobool.not = icmp eq i8 %1, 0
   %cond = select i1 %tobool.not, ptr %body0Wrap, ptr %body1Wrap
   %cond7 = select i1 %tobool.not, ptr %body1Wrap, ptr %body0Wrap
-  %m_shape.i = getelementptr inbounds %struct.btCollisionObjectWrapper, ptr %cond, i64 0, i32 1
+  %m_shape.i = getelementptr inbounds i8, ptr %cond, i64 8
   %2 = load ptr, ptr %m_shape.i, align 8
-  %m_shape.i13 = getelementptr inbounds %struct.btCollisionObjectWrapper, ptr %cond7, i64 0, i32 1
+  %m_shape.i13 = getelementptr inbounds i8, ptr %cond7, i64 8
   %3 = load ptr, ptr %m_shape.i13, align 8
-  %m_planeNormal.i = getelementptr inbounds %class.btStaticPlaneShape, ptr %3, i64 0, i32 3
-  %m_planeConstant.i = getelementptr inbounds %class.btStaticPlaneShape, ptr %3, i64 0, i32 4
-  %m_worldTransform.i = getelementptr inbounds %struct.btCollisionObjectWrapper, ptr %cond, i64 0, i32 3
+  %m_planeNormal.i = getelementptr inbounds i8, ptr %3, i64 68
+  %m_planeConstant.i = getelementptr inbounds i8, ptr %3, i64 84
+  %m_worldTransform.i = getelementptr inbounds i8, ptr %cond, i64 24
   %4 = load ptr, ptr %m_worldTransform.i, align 8
   %convexWorldTransform.sroa.0.0.copyload = load float, ptr %4, align 4
   %convexWorldTransform.sroa.5.0..sroa_idx = getelementptr inbounds i8, ptr %4, i64 4
   %convexWorldTransform.sroa.5.0.copyload = load float, ptr %convexWorldTransform.sroa.5.0..sroa_idx, align 4
   %convexWorldTransform.sroa.9.0..sroa_idx = getelementptr inbounds i8, ptr %4, i64 8
   %convexWorldTransform.sroa.9.0.copyload = load float, ptr %convexWorldTransform.sroa.9.0..sroa_idx, align 4
-  %arrayidx6.i.i = getelementptr inbounds [3 x %class.btVector3], ptr %4, i64 0, i64 1
+  %arrayidx6.i.i = getelementptr inbounds i8, ptr %4, i64 16
   %convexWorldTransform.sroa.14.16.copyload = load float, ptr %arrayidx6.i.i, align 4
-  %convexWorldTransform.sroa.19.16.arrayidx6.i.i.sroa_idx = getelementptr inbounds [3 x %class.btVector3], ptr %4, i64 0, i64 1, i32 0, i64 1
+  %convexWorldTransform.sroa.19.16.arrayidx6.i.i.sroa_idx = getelementptr inbounds i8, ptr %4, i64 20
   %convexWorldTransform.sroa.19.16.copyload = load float, ptr %convexWorldTransform.sroa.19.16.arrayidx6.i.i.sroa_idx, align 4
-  %convexWorldTransform.sroa.23.16.arrayidx6.i.i.sroa_idx = getelementptr inbounds [3 x %class.btVector3], ptr %4, i64 0, i64 1, i32 0, i64 2
+  %convexWorldTransform.sroa.23.16.arrayidx6.i.i.sroa_idx = getelementptr inbounds i8, ptr %4, i64 24
   %convexWorldTransform.sroa.23.16.copyload = load float, ptr %convexWorldTransform.sroa.23.16.arrayidx6.i.i.sroa_idx, align 4
-  %arrayidx10.i.i = getelementptr inbounds [3 x %class.btVector3], ptr %4, i64 0, i64 2
+  %arrayidx10.i.i = getelementptr inbounds i8, ptr %4, i64 32
   %convexWorldTransform.sroa.28.32.copyload = load float, ptr %arrayidx10.i.i, align 4
-  %convexWorldTransform.sroa.33.32.arrayidx10.i.i.sroa_idx = getelementptr inbounds [3 x %class.btVector3], ptr %4, i64 0, i64 2, i32 0, i64 1
+  %convexWorldTransform.sroa.33.32.arrayidx10.i.i.sroa_idx = getelementptr inbounds i8, ptr %4, i64 36
   %convexWorldTransform.sroa.33.32.copyload = load float, ptr %convexWorldTransform.sroa.33.32.arrayidx10.i.i.sroa_idx, align 4
-  %convexWorldTransform.sroa.37.32.arrayidx10.i.i.sroa_idx = getelementptr inbounds [3 x %class.btVector3], ptr %4, i64 0, i64 2, i32 0, i64 2
+  %convexWorldTransform.sroa.37.32.arrayidx10.i.i.sroa_idx = getelementptr inbounds i8, ptr %4, i64 40
   %convexWorldTransform.sroa.37.32.copyload = load float, ptr %convexWorldTransform.sroa.37.32.arrayidx10.i.i.sroa_idx, align 4
-  %m_origin3.i = getelementptr inbounds %class.btTransform, ptr %4, i64 0, i32 1
+  %m_origin3.i = getelementptr inbounds i8, ptr %4, i64 48
   %convexWorldTransform.sroa.42.48.copyload = load float, ptr %m_origin3.i, align 4
-  %convexWorldTransform.sroa.45.48.m_origin3.i.sroa_idx = getelementptr inbounds %class.btTransform, ptr %4, i64 0, i32 1, i32 0, i64 1
+  %convexWorldTransform.sroa.45.48.m_origin3.i.sroa_idx = getelementptr inbounds i8, ptr %4, i64 52
   %convexWorldTransform.sroa.45.48.copyload = load float, ptr %convexWorldTransform.sroa.45.48.m_origin3.i.sroa_idx, align 4
-  %convexWorldTransform.sroa.47.48.m_origin3.i.sroa_idx = getelementptr inbounds %class.btTransform, ptr %4, i64 0, i32 1, i32 0, i64 2
+  %convexWorldTransform.sroa.47.48.m_origin3.i.sroa_idx = getelementptr inbounds i8, ptr %4, i64 56
   %convexWorldTransform.sroa.47.48.copyload = load float, ptr %convexWorldTransform.sroa.47.48.m_origin3.i.sroa_idx, align 4
-  %m_worldTransform.i14 = getelementptr inbounds %struct.btCollisionObjectWrapper, ptr %cond7, i64 0, i32 3
+  %m_worldTransform.i14 = getelementptr inbounds i8, ptr %cond7, i64 24
   %5 = load ptr, ptr %m_worldTransform.i14, align 8
-  %arrayidx3.i.i = getelementptr inbounds [3 x %class.btVector3], ptr %5, i64 0, i64 1
-  %arrayidx6.i.i15 = getelementptr inbounds [3 x %class.btVector3], ptr %5, i64 0, i64 2
-  %arrayidx.i.i.i = getelementptr inbounds [4 x float], ptr %5, i64 0, i64 1
-  %arrayidx.i1.i.i = getelementptr inbounds [3 x %class.btVector3], ptr %5, i64 0, i64 1, i32 0, i64 1
-  %arrayidx.i2.i.i = getelementptr inbounds [3 x %class.btVector3], ptr %5, i64 0, i64 2, i32 0, i64 1
-  %arrayidx.i3.i.i = getelementptr inbounds [4 x float], ptr %5, i64 0, i64 2
-  %arrayidx.i4.i.i = getelementptr inbounds [3 x %class.btVector3], ptr %5, i64 0, i64 1, i32 0, i64 2
-  %arrayidx.i5.i.i = getelementptr inbounds [3 x %class.btVector3], ptr %5, i64 0, i64 2, i32 0, i64 2
+  %arrayidx3.i.i = getelementptr inbounds i8, ptr %5, i64 16
+  %arrayidx6.i.i15 = getelementptr inbounds i8, ptr %5, i64 32
+  %arrayidx.i.i.i = getelementptr inbounds i8, ptr %5, i64 4
+  %arrayidx.i1.i.i = getelementptr inbounds i8, ptr %5, i64 20
+  %arrayidx.i2.i.i = getelementptr inbounds i8, ptr %5, i64 36
+  %arrayidx.i3.i.i = getelementptr inbounds i8, ptr %5, i64 8
+  %arrayidx.i4.i.i = getelementptr inbounds i8, ptr %5, i64 24
+  %arrayidx.i5.i.i = getelementptr inbounds i8, ptr %5, i64 40
   %6 = load float, ptr %5, align 4, !noalias !5
   %7 = load float, ptr %arrayidx3.i.i, align 4, !noalias !5
   %8 = load float, ptr %arrayidx6.i.i15, align 4, !noalias !5
@@ -251,13 +231,13 @@ entry:
   %12 = load float, ptr %arrayidx.i3.i.i, align 4, !noalias !5
   %13 = load float, ptr %arrayidx.i4.i.i, align 4, !noalias !5
   %14 = load float, ptr %arrayidx.i5.i.i, align 4, !noalias !5
-  %m_origin.i16 = getelementptr inbounds %class.btTransform, ptr %5, i64 0, i32 1
+  %m_origin.i16 = getelementptr inbounds i8, ptr %5, i64 48
   %15 = load float, ptr %m_origin.i16, align 4, !noalias !5
   %fneg.i.i = fneg float %15
-  %arrayidx3.i1.i = getelementptr inbounds %class.btTransform, ptr %5, i64 0, i32 1, i32 0, i64 1
+  %arrayidx3.i1.i = getelementptr inbounds i8, ptr %5, i64 52
   %16 = load float, ptr %arrayidx3.i1.i, align 4, !noalias !5
   %fneg4.i.i = fneg float %16
-  %arrayidx7.i.i = getelementptr inbounds %class.btTransform, ptr %5, i64 0, i32 1, i32 0, i64 2
+  %arrayidx7.i.i = getelementptr inbounds i8, ptr %5, i64 56
   %17 = load float, ptr %arrayidx7.i.i, align 4, !noalias !5
   %fneg8.i.i = fneg float %17
   %mul8.i.i.i = fmul float %7, %fneg4.i.i
@@ -308,16 +288,16 @@ entry:
   %add.i.i.i = fadd float %43, %19
   %add8.i.i.i = fadd float %45, %21
   %add14.i.i.i = fadd float %47, %23
-  %arrayidx7.i.i.i.i = getelementptr inbounds [4 x float], ptr %perturbeRot, i64 0, i64 2
+  %arrayidx7.i.i.i.i = getelementptr inbounds i8, ptr %perturbeRot, i64 8
   %48 = load float, ptr %arrayidx7.i.i.i.i, align 4
-  %arrayidx10.i.i.i.i24 = getelementptr inbounds [4 x float], ptr %perturbeRot, i64 0, i64 3
+  %arrayidx10.i.i.i.i24 = getelementptr inbounds i8, ptr %perturbeRot, i64 12
   %49 = load float, ptr %arrayidx10.i.i.i.i24, align 4
   %50 = load float, ptr %m_planeNormal.i, align 4
   %fneg.i = fneg float %50
-  %arrayidx3.i = getelementptr inbounds %class.btStaticPlaneShape, ptr %3, i64 0, i32 3, i32 0, i64 1
+  %arrayidx3.i = getelementptr inbounds i8, ptr %3, i64 72
   %51 = load float, ptr %arrayidx3.i, align 4
   %fneg4.i = fneg float %51
-  %arrayidx7.i = getelementptr inbounds %class.btStaticPlaneShape, ptr %3, i64 0, i32 3, i32 0, i64 2
+  %arrayidx7.i = getelementptr inbounds i8, ptr %3, i64 76
   %52 = load float, ptr %arrayidx7.i, align 4
   %fneg8.i = fneg float %52
   %53 = load <2 x float>, ptr %perturbeRot, align 4
@@ -455,10 +435,10 @@ entry:
   %170 = tail call noundef float @llvm.fmuladd.f32(float %159, float %fneg8.i, float %169)
   %retval.sroa.3.12.vec.insert.i130 = insertelement <2 x float> <float poison, float 0.000000e+00>, float %170, i64 0
   store <2 x float> %168, ptr %ref.tmp22, align 8
-  %171 = getelementptr inbounds { <2 x float>, <2 x float> }, ptr %ref.tmp22, i64 0, i32 1
+  %171 = getelementptr inbounds i8, ptr %ref.tmp22, i64 8
   store <2 x float> %retval.sroa.3.12.vec.insert.i130, ptr %171, align 8
   %vtable = load ptr, ptr %2, align 8
-  %vfn = getelementptr inbounds ptr, ptr %vtable, i64 16
+  %vfn = getelementptr inbounds i8, ptr %vtable, i64 128
   %172 = load ptr, ptr %vfn, align 8
   %call28 = call { <2 x float>, <2 x float> } %172(ptr noundef nonnull align 8 dereferenceable(32) %2, ptr noundef nonnull align 4 dereferenceable(16) %ref.tmp22)
   %173 = extractvalue { <2 x float>, <2 x float> } %call28, 0
@@ -487,33 +467,33 @@ entry:
   %186 = load float, ptr %m_planeConstant.i, align 4
   %sub = fsub float %185, %186
   %187 = load ptr, ptr %m_worldTransform.i14, align 8
-  %arrayidx.i.i.i156 = getelementptr inbounds [3 x %class.btVector3], ptr %187, i64 0, i64 1
-  %arrayidx.i1.i.i157 = getelementptr inbounds [3 x %class.btVector3], ptr %187, i64 0, i64 2
+  %arrayidx.i.i.i156 = getelementptr inbounds i8, ptr %187, i64 16
+  %arrayidx.i1.i.i157 = getelementptr inbounds i8, ptr %187, i64 32
   %188 = load float, ptr %187, align 4
-  %arrayidx7.i.i.i.i159 = getelementptr inbounds [4 x float], ptr %187, i64 0, i64 1
+  %arrayidx7.i.i.i.i159 = getelementptr inbounds i8, ptr %187, i64 4
   %189 = load float, ptr %arrayidx7.i.i.i.i159, align 4
-  %arrayidx12.i.i.i.i = getelementptr inbounds [4 x float], ptr %187, i64 0, i64 2
+  %arrayidx12.i.i.i.i = getelementptr inbounds i8, ptr %187, i64 8
   %190 = load float, ptr %arrayidx12.i.i.i.i, align 4
   %191 = load float, ptr %arrayidx.i.i.i156, align 4
-  %arrayidx7.i2.i.i.i = getelementptr inbounds [3 x %class.btVector3], ptr %187, i64 0, i64 1, i32 0, i64 1
+  %arrayidx7.i2.i.i.i = getelementptr inbounds i8, ptr %187, i64 20
   %192 = load float, ptr %arrayidx7.i2.i.i.i, align 4
-  %arrayidx12.i5.i.i.i = getelementptr inbounds [3 x %class.btVector3], ptr %187, i64 0, i64 1, i32 0, i64 2
+  %arrayidx12.i5.i.i.i = getelementptr inbounds i8, ptr %187, i64 24
   %193 = load float, ptr %arrayidx12.i5.i.i.i, align 4
   %194 = load float, ptr %arrayidx.i1.i.i157, align 4
-  %arrayidx7.i7.i.i.i = getelementptr inbounds [3 x %class.btVector3], ptr %187, i64 0, i64 2, i32 0, i64 1
+  %arrayidx7.i7.i.i.i = getelementptr inbounds i8, ptr %187, i64 36
   %195 = load float, ptr %arrayidx7.i7.i.i.i, align 4
-  %arrayidx12.i10.i.i.i = getelementptr inbounds [3 x %class.btVector3], ptr %187, i64 0, i64 2, i32 0, i64 2
+  %arrayidx12.i10.i.i.i = getelementptr inbounds i8, ptr %187, i64 40
   %196 = load float, ptr %arrayidx12.i10.i.i.i, align 4
-  %m_origin.i.i164 = getelementptr inbounds %class.btTransform, ptr %187, i64 0, i32 1
+  %m_origin.i.i164 = getelementptr inbounds i8, ptr %187, i64 48
   %197 = load <2 x float>, ptr %m_origin.i.i164, align 4
-  %arrayidx13.i.i.i168 = getelementptr inbounds %class.btTransform, ptr %187, i64 0, i32 1, i32 0, i64 2
+  %arrayidx13.i.i.i168 = getelementptr inbounds i8, ptr %187, i64 56
   %198 = load float, ptr %arrayidx13.i.i.i168, align 4
-  %m_manifoldPtr = getelementptr inbounds %class.btConvexPlaneCollisionAlgorithm, ptr %this, i64 0, i32 3
+  %m_manifoldPtr = getelementptr inbounds i8, ptr %this, i64 24
   %199 = load ptr, ptr %m_manifoldPtr, align 8
   %call41 = call noundef float @_ZNK20btPersistentManifold27getContactBreakingThresholdEv(ptr noundef nonnull align 8 dereferenceable(880) %199)
   %cmp = fcmp olt float %sub, %call41
   %200 = load ptr, ptr %m_manifoldPtr, align 8
-  %m_manifoldPtr.i = getelementptr inbounds %class.btManifoldResult, ptr %resultOut, i64 0, i32 1
+  %m_manifoldPtr.i = getelementptr inbounds i8, ptr %resultOut, i64 8
   store ptr %200, ptr %m_manifoldPtr.i, align 8
   br i1 %cmp, label %if.then, label %if.end
 
@@ -548,17 +528,17 @@ if.then:                                          ; preds = %entry
   %219 = load ptr, ptr %m_worldTransform.i14, align 8
   %220 = load float, ptr %219, align 4
   %221 = load float, ptr %m_planeNormal.i, align 4
-  %arrayidx5.i.i174 = getelementptr inbounds [4 x float], ptr %219, i64 0, i64 1
+  %arrayidx5.i.i174 = getelementptr inbounds i8, ptr %219, i64 4
   %222 = load float, ptr %arrayidx5.i.i174, align 4
   %223 = load float, ptr %arrayidx3.i, align 4
-  %arrayidx10.i.i177 = getelementptr inbounds [4 x float], ptr %219, i64 0, i64 2
+  %arrayidx10.i.i177 = getelementptr inbounds i8, ptr %219, i64 8
   %224 = load float, ptr %arrayidx10.i.i177, align 4
   %225 = load float, ptr %arrayidx7.i, align 4
-  %arrayidx.i.i179 = getelementptr inbounds [3 x %class.btVector3], ptr %219, i64 0, i64 1
+  %arrayidx.i.i179 = getelementptr inbounds i8, ptr %219, i64 16
   %226 = load float, ptr %arrayidx.i.i179, align 4
-  %arrayidx5.i5.i180 = getelementptr inbounds [3 x %class.btVector3], ptr %219, i64 0, i64 1, i32 0, i64 1
+  %arrayidx5.i5.i180 = getelementptr inbounds i8, ptr %219, i64 20
   %227 = load float, ptr %arrayidx5.i5.i180, align 4
-  %arrayidx10.i8.i182 = getelementptr inbounds [3 x %class.btVector3], ptr %219, i64 0, i64 1, i32 0, i64 2
+  %arrayidx10.i8.i182 = getelementptr inbounds i8, ptr %219, i64 24
   %228 = load float, ptr %arrayidx10.i8.i182, align 4
   %229 = insertelement <2 x float> poison, float %223, i64 0
   %230 = shufflevector <2 x float> %229, <2 x float> poison, <2 x i32> zeroinitializer
@@ -575,24 +555,24 @@ if.then:                                          ; preds = %entry
   %241 = insertelement <2 x float> poison, float %225, i64 0
   %242 = shufflevector <2 x float> %241, <2 x float> poison, <2 x i32> zeroinitializer
   %243 = call <2 x float> @llvm.fmuladd.v2f32(<2 x float> %240, <2 x float> %242, <2 x float> %238)
-  %arrayidx.i10.i183 = getelementptr inbounds [3 x %class.btVector3], ptr %219, i64 0, i64 2
+  %arrayidx.i10.i183 = getelementptr inbounds i8, ptr %219, i64 32
   %244 = load float, ptr %arrayidx.i10.i183, align 4
-  %arrayidx5.i11.i184 = getelementptr inbounds [3 x %class.btVector3], ptr %219, i64 0, i64 2, i32 0, i64 1
+  %arrayidx5.i11.i184 = getelementptr inbounds i8, ptr %219, i64 36
   %245 = load float, ptr %arrayidx5.i11.i184, align 4
   %mul8.i13.i185 = fmul float %223, %245
   %246 = call float @llvm.fmuladd.f32(float %244, float %221, float %mul8.i13.i185)
-  %arrayidx10.i14.i186 = getelementptr inbounds [3 x %class.btVector3], ptr %219, i64 0, i64 2, i32 0, i64 2
+  %arrayidx10.i14.i186 = getelementptr inbounds i8, ptr %219, i64 40
   %247 = load float, ptr %arrayidx10.i14.i186, align 4
   %248 = call noundef float @llvm.fmuladd.f32(float %247, float %225, float %246)
   %retval.sroa.3.12.vec.insert.i189 = insertelement <2 x float> <float poison, float 0.000000e+00>, float %248, i64 0
   store <2 x float> %243, ptr %normalOnSurfaceB, align 8
-  %249 = getelementptr inbounds { <2 x float>, <2 x float> }, ptr %normalOnSurfaceB, i64 0, i32 1
+  %249 = getelementptr inbounds i8, ptr %normalOnSurfaceB, i64 8
   store <2 x float> %retval.sroa.3.12.vec.insert.i189, ptr %249, align 8
   store <2 x float> %218, ptr %pOnB, align 8
   %vtxInPlaneWorld.sroa.2.0.pOnB.sroa_idx = getelementptr inbounds i8, ptr %pOnB, i64 8
   store <2 x float> %retval.sroa.3.12.vec.insert.i4.i.i172, ptr %vtxInPlaneWorld.sroa.2.0.pOnB.sroa_idx, align 8
   %vtable48 = load ptr, ptr %resultOut, align 8
-  %vfn49 = getelementptr inbounds ptr, ptr %vtable48, i64 4
+  %vfn49 = getelementptr inbounds i8, ptr %vtable48, i64 32
   %250 = load ptr, ptr %vfn49, align 8
   call void %250(ptr noundef nonnull align 8 dereferenceable(52) %resultOut, ptr noundef nonnull align 4 dereferenceable(16) %normalOnSurfaceB, ptr noundef nonnull align 4 dereferenceable(16) %pOnB, float noundef %sub)
   br label %if.end
@@ -610,58 +590,58 @@ entry:
   %normalOnSurfaceB = alloca %class.btVector3, align 8
   %pOnB = alloca %class.btVector3, align 8
   %ref.tmp67 = alloca %class.btQuaternion, align 8
-  %m_manifoldPtr = getelementptr inbounds %class.btConvexPlaneCollisionAlgorithm, ptr %this, i64 0, i32 3
+  %m_manifoldPtr = getelementptr inbounds i8, ptr %this, i64 24
   %0 = load ptr, ptr %m_manifoldPtr, align 8
   %tobool.not = icmp eq ptr %0, null
   br i1 %tobool.not, label %if.end87, label %if.end
 
 if.end:                                           ; preds = %entry
-  %m_isSwapped = getelementptr inbounds %class.btConvexPlaneCollisionAlgorithm, ptr %this, i64 0, i32 4
+  %m_isSwapped = getelementptr inbounds i8, ptr %this, i64 32
   %1 = load i8, ptr %m_isSwapped, align 8
   %2 = and i8 %1, 1
   %tobool2.not = icmp eq i8 %2, 0
   %cond = select i1 %tobool2.not, ptr %body0Wrap, ptr %body1Wrap
   %cond8 = select i1 %tobool2.not, ptr %body1Wrap, ptr %body0Wrap
-  %m_shape.i = getelementptr inbounds %struct.btCollisionObjectWrapper, ptr %cond, i64 0, i32 1
+  %m_shape.i = getelementptr inbounds i8, ptr %cond, i64 8
   %3 = load ptr, ptr %m_shape.i, align 8
-  %m_shape.i26 = getelementptr inbounds %struct.btCollisionObjectWrapper, ptr %cond8, i64 0, i32 1
+  %m_shape.i26 = getelementptr inbounds i8, ptr %cond8, i64 8
   %4 = load ptr, ptr %m_shape.i26, align 8
-  %m_planeNormal.i = getelementptr inbounds %class.btStaticPlaneShape, ptr %4, i64 0, i32 3
-  %m_planeConstant.i = getelementptr inbounds %class.btStaticPlaneShape, ptr %4, i64 0, i32 4
-  %m_worldTransform.i = getelementptr inbounds %struct.btCollisionObjectWrapper, ptr %cond, i64 0, i32 3
+  %m_planeNormal.i = getelementptr inbounds i8, ptr %4, i64 68
+  %m_planeConstant.i = getelementptr inbounds i8, ptr %4, i64 84
+  %m_worldTransform.i = getelementptr inbounds i8, ptr %cond, i64 24
   %5 = load ptr, ptr %m_worldTransform.i, align 8
-  %arrayidx3.i.i = getelementptr inbounds [3 x %class.btVector3], ptr %5, i64 0, i64 1
-  %arrayidx6.i.i = getelementptr inbounds [3 x %class.btVector3], ptr %5, i64 0, i64 2
-  %arrayidx.i3.i.i = getelementptr inbounds [4 x float], ptr %5, i64 0, i64 2
-  %arrayidx.i4.i.i = getelementptr inbounds [3 x %class.btVector3], ptr %5, i64 0, i64 1, i32 0, i64 2
-  %arrayidx.i5.i.i = getelementptr inbounds [3 x %class.btVector3], ptr %5, i64 0, i64 2, i32 0, i64 2
+  %arrayidx3.i.i = getelementptr inbounds i8, ptr %5, i64 16
+  %arrayidx6.i.i = getelementptr inbounds i8, ptr %5, i64 32
+  %arrayidx.i3.i.i = getelementptr inbounds i8, ptr %5, i64 8
+  %arrayidx.i4.i.i = getelementptr inbounds i8, ptr %5, i64 24
+  %arrayidx.i5.i.i = getelementptr inbounds i8, ptr %5, i64 40
   %6 = load float, ptr %arrayidx.i3.i.i, align 4, !noalias !5
   %7 = load float, ptr %arrayidx.i4.i.i, align 4, !noalias !5
   %8 = load float, ptr %arrayidx.i5.i.i, align 4, !noalias !5
-  %m_origin.i = getelementptr inbounds %class.btTransform, ptr %5, i64 0, i32 1
+  %m_origin.i = getelementptr inbounds i8, ptr %5, i64 48
   %9 = load float, ptr %m_origin.i, align 4, !noalias !5
-  %arrayidx3.i1.i = getelementptr inbounds %class.btTransform, ptr %5, i64 0, i32 1, i32 0, i64 1
+  %arrayidx3.i1.i = getelementptr inbounds i8, ptr %5, i64 52
   %10 = load float, ptr %arrayidx3.i1.i, align 4, !noalias !5
-  %arrayidx7.i.i = getelementptr inbounds %class.btTransform, ptr %5, i64 0, i32 1, i32 0, i64 2
+  %arrayidx7.i.i = getelementptr inbounds i8, ptr %5, i64 56
   %11 = load float, ptr %arrayidx7.i.i, align 4, !noalias !5
-  %m_worldTransform.i27 = getelementptr inbounds %struct.btCollisionObjectWrapper, ptr %cond8, i64 0, i32 3
+  %m_worldTransform.i27 = getelementptr inbounds i8, ptr %cond8, i64 24
   %12 = load ptr, ptr %m_worldTransform.i27, align 8
   %13 = load float, ptr %12, align 4, !noalias !5
-  %arrayidx4.i.i.i = getelementptr inbounds [3 x %class.btVector3], ptr %12, i64 0, i64 1
+  %arrayidx4.i.i.i = getelementptr inbounds i8, ptr %12, i64 16
   %14 = load float, ptr %arrayidx4.i.i.i, align 4, !noalias !5
-  %arrayidx9.i.i.i = getelementptr inbounds [3 x %class.btVector3], ptr %12, i64 0, i64 2
+  %arrayidx9.i.i.i = getelementptr inbounds i8, ptr %12, i64 32
   %15 = load float, ptr %arrayidx9.i.i.i, align 4, !noalias !5
-  %arrayidx.i.i17.i.i = getelementptr inbounds [4 x float], ptr %12, i64 0, i64 1
+  %arrayidx.i.i17.i.i = getelementptr inbounds i8, ptr %12, i64 4
   %16 = load float, ptr %arrayidx.i.i17.i.i, align 4, !noalias !5
-  %arrayidx.i3.i18.i.i = getelementptr inbounds [3 x %class.btVector3], ptr %12, i64 0, i64 1, i32 0, i64 1
+  %arrayidx.i3.i18.i.i = getelementptr inbounds i8, ptr %12, i64 20
   %17 = load float, ptr %arrayidx.i3.i18.i.i, align 4, !noalias !5
-  %arrayidx.i5.i.i.i = getelementptr inbounds [3 x %class.btVector3], ptr %12, i64 0, i64 2, i32 0, i64 1
+  %arrayidx.i5.i.i.i = getelementptr inbounds i8, ptr %12, i64 36
   %18 = load float, ptr %arrayidx.i5.i.i.i, align 4, !noalias !5
-  %arrayidx.i.i20.i.i = getelementptr inbounds [4 x float], ptr %12, i64 0, i64 2
+  %arrayidx.i.i20.i.i = getelementptr inbounds i8, ptr %12, i64 8
   %19 = load float, ptr %arrayidx.i.i20.i.i, align 4, !noalias !5
-  %arrayidx.i3.i21.i.i = getelementptr inbounds [3 x %class.btVector3], ptr %12, i64 0, i64 1, i32 0, i64 2
+  %arrayidx.i3.i21.i.i = getelementptr inbounds i8, ptr %12, i64 24
   %20 = load float, ptr %arrayidx.i3.i21.i.i, align 4, !noalias !5
-  %arrayidx.i5.i24.i.i = getelementptr inbounds [3 x %class.btVector3], ptr %12, i64 0, i64 2, i32 0, i64 2
+  %arrayidx.i5.i24.i.i = getelementptr inbounds i8, ptr %12, i64 40
   %21 = load float, ptr %arrayidx.i5.i24.i.i, align 4, !noalias !5
   %mul7.i48.i.i = fmul float %7, %14
   %22 = tail call float @llvm.fmuladd.f32(float %13, float %6, float %mul7.i48.i.i)
@@ -672,11 +652,11 @@ if.end:                                           ; preds = %entry
   %mul7.i62.i.i = fmul float %7, %20
   %26 = tail call float @llvm.fmuladd.f32(float %19, float %6, float %mul7.i62.i.i)
   %27 = tail call noundef float @llvm.fmuladd.f32(float %21, float %8, float %26)
-  %m_origin.i29 = getelementptr inbounds %class.btTransform, ptr %12, i64 0, i32 1
+  %m_origin.i29 = getelementptr inbounds i8, ptr %12, i64 48
   %28 = load float, ptr %m_origin.i29, align 4, !noalias !5
-  %arrayidx5.i.i.i3.i = getelementptr inbounds %class.btTransform, ptr %12, i64 0, i32 1, i32 0, i64 1
+  %arrayidx5.i.i.i3.i = getelementptr inbounds i8, ptr %12, i64 52
   %29 = load float, ptr %arrayidx5.i.i.i3.i, align 4, !noalias !5
-  %arrayidx10.i.i.i.i = getelementptr inbounds %class.btTransform, ptr %12, i64 0, i32 1, i32 0, i64 2
+  %arrayidx10.i.i.i.i = getelementptr inbounds i8, ptr %12, i64 56
   %30 = load float, ptr %arrayidx10.i.i.i.i, align 4, !noalias !5
   %fneg.i.i44 = fneg float %28
   %fneg4.i.i46 = fneg float %29
@@ -704,10 +684,10 @@ if.end:                                           ; preds = %entry
   %add14.i.i.i105 = fadd float %42, %36
   %43 = load float, ptr %m_planeNormal.i, align 4
   %fneg.i = fneg float %43
-  %arrayidx3.i = getelementptr inbounds %class.btStaticPlaneShape, ptr %4, i64 0, i32 3, i32 0, i64 1
+  %arrayidx3.i = getelementptr inbounds i8, ptr %4, i64 72
   %44 = load float, ptr %arrayidx3.i, align 4
   %fneg4.i = fneg float %44
-  %arrayidx7.i = getelementptr inbounds %class.btStaticPlaneShape, ptr %4, i64 0, i32 3, i32 0, i64 2
+  %arrayidx7.i = getelementptr inbounds i8, ptr %4, i64 76
   %45 = load float, ptr %arrayidx7.i, align 4
   %fneg8.i = fneg float %45
   %46 = load <2 x float>, ptr %5, align 4, !noalias !5
@@ -754,10 +734,10 @@ if.end:                                           ; preds = %entry
   %86 = tail call noundef float @llvm.fmuladd.f32(float %27, float %fneg8.i, float %85)
   %retval.sroa.3.12.vec.insert.i132 = insertelement <2 x float> <float poison, float 0.000000e+00>, float %86, i64 0
   store <2 x float> %84, ptr %ref.tmp21, align 8
-  %87 = getelementptr inbounds { <2 x float>, <2 x float> }, ptr %ref.tmp21, i64 0, i32 1
+  %87 = getelementptr inbounds i8, ptr %ref.tmp21, i64 8
   store <2 x float> %retval.sroa.3.12.vec.insert.i132, ptr %87, align 8
   %vtable = load ptr, ptr %3, align 8
-  %vfn = getelementptr inbounds ptr, ptr %vtable, i64 16
+  %vfn = getelementptr inbounds i8, ptr %vtable, i64 128
   %88 = load ptr, ptr %vfn, align 8
   %call27 = call { <2 x float>, <2 x float> } %88(ptr noundef nonnull align 8 dereferenceable(32) %3, ptr noundef nonnull align 4 dereferenceable(16) %ref.tmp21)
   %89 = extractvalue { <2 x float>, <2 x float> } %call27, 0
@@ -791,35 +771,35 @@ if.end:                                           ; preds = %entry
   %108 = load float, ptr %m_planeConstant.i, align 4
   %sub = fsub float %107, %108
   %109 = load ptr, ptr %m_worldTransform.i27, align 8
-  %arrayidx.i.i.i153 = getelementptr inbounds [3 x %class.btVector3], ptr %109, i64 0, i64 1
-  %arrayidx.i1.i.i154 = getelementptr inbounds [3 x %class.btVector3], ptr %109, i64 0, i64 2
+  %arrayidx.i.i.i153 = getelementptr inbounds i8, ptr %109, i64 16
+  %arrayidx.i1.i.i154 = getelementptr inbounds i8, ptr %109, i64 32
   %110 = load float, ptr %109, align 4
-  %arrayidx7.i.i.i.i = getelementptr inbounds [4 x float], ptr %109, i64 0, i64 1
+  %arrayidx7.i.i.i.i = getelementptr inbounds i8, ptr %109, i64 4
   %111 = load float, ptr %arrayidx7.i.i.i.i, align 4
-  %arrayidx12.i.i.i.i = getelementptr inbounds [4 x float], ptr %109, i64 0, i64 2
+  %arrayidx12.i.i.i.i = getelementptr inbounds i8, ptr %109, i64 8
   %112 = load float, ptr %arrayidx12.i.i.i.i, align 4
   %113 = load float, ptr %arrayidx.i.i.i153, align 4
-  %arrayidx7.i2.i.i.i = getelementptr inbounds [3 x %class.btVector3], ptr %109, i64 0, i64 1, i32 0, i64 1
+  %arrayidx7.i2.i.i.i = getelementptr inbounds i8, ptr %109, i64 20
   %114 = load float, ptr %arrayidx7.i2.i.i.i, align 4
-  %arrayidx12.i5.i.i.i = getelementptr inbounds [3 x %class.btVector3], ptr %109, i64 0, i64 1, i32 0, i64 2
+  %arrayidx12.i5.i.i.i = getelementptr inbounds i8, ptr %109, i64 24
   %115 = load float, ptr %arrayidx12.i5.i.i.i, align 4
   %116 = load float, ptr %arrayidx.i1.i.i154, align 4
-  %arrayidx7.i7.i.i.i = getelementptr inbounds [3 x %class.btVector3], ptr %109, i64 0, i64 2, i32 0, i64 1
+  %arrayidx7.i7.i.i.i = getelementptr inbounds i8, ptr %109, i64 36
   %117 = load float, ptr %arrayidx7.i7.i.i.i, align 4
-  %arrayidx12.i10.i.i.i = getelementptr inbounds [3 x %class.btVector3], ptr %109, i64 0, i64 2, i32 0, i64 2
+  %arrayidx12.i10.i.i.i = getelementptr inbounds i8, ptr %109, i64 40
   %118 = load float, ptr %arrayidx12.i10.i.i.i, align 4
-  %m_origin.i.i159 = getelementptr inbounds %class.btTransform, ptr %109, i64 0, i32 1
+  %m_origin.i.i159 = getelementptr inbounds i8, ptr %109, i64 48
   %119 = load <2 x float>, ptr %m_origin.i.i159, align 4
-  %arrayidx13.i.i.i163 = getelementptr inbounds %class.btTransform, ptr %109, i64 0, i32 1, i32 0, i64 2
+  %arrayidx13.i.i.i163 = getelementptr inbounds i8, ptr %109, i64 56
   %120 = load float, ptr %arrayidx13.i.i.i163, align 4
   %121 = load ptr, ptr %m_manifoldPtr, align 8
   %call41 = call noundef float @_ZNK20btPersistentManifold27getContactBreakingThresholdEv(ptr noundef nonnull align 8 dereferenceable(880) %121)
-  %m_closestPointDistanceThreshold = getelementptr inbounds %class.btManifoldResult, ptr %resultOut, i64 0, i32 8
+  %m_closestPointDistanceThreshold = getelementptr inbounds i8, ptr %resultOut, i64 48
   %122 = load float, ptr %m_closestPointDistanceThreshold, align 8
   %add = fadd float %call41, %122
   %cmp = fcmp olt float %sub, %add
   %123 = load ptr, ptr %m_manifoldPtr, align 8
-  %m_manifoldPtr.i = getelementptr inbounds %class.btManifoldResult, ptr %resultOut, i64 0, i32 1
+  %m_manifoldPtr.i = getelementptr inbounds i8, ptr %resultOut, i64 8
   store ptr %123, ptr %m_manifoldPtr.i, align 8
   br i1 %cmp, label %if.then44, label %if.end51
 
@@ -854,17 +834,17 @@ if.then44:                                        ; preds = %if.end
   %142 = load ptr, ptr %m_worldTransform.i27, align 8
   %143 = load float, ptr %142, align 4
   %144 = load float, ptr %m_planeNormal.i, align 4
-  %arrayidx5.i.i169 = getelementptr inbounds [4 x float], ptr %142, i64 0, i64 1
+  %arrayidx5.i.i169 = getelementptr inbounds i8, ptr %142, i64 4
   %145 = load float, ptr %arrayidx5.i.i169, align 4
   %146 = load float, ptr %arrayidx3.i, align 4
-  %arrayidx10.i.i172 = getelementptr inbounds [4 x float], ptr %142, i64 0, i64 2
+  %arrayidx10.i.i172 = getelementptr inbounds i8, ptr %142, i64 8
   %147 = load float, ptr %arrayidx10.i.i172, align 4
   %148 = load float, ptr %arrayidx7.i, align 4
-  %arrayidx.i.i174 = getelementptr inbounds [3 x %class.btVector3], ptr %142, i64 0, i64 1
+  %arrayidx.i.i174 = getelementptr inbounds i8, ptr %142, i64 16
   %149 = load float, ptr %arrayidx.i.i174, align 4
-  %arrayidx5.i5.i175 = getelementptr inbounds [3 x %class.btVector3], ptr %142, i64 0, i64 1, i32 0, i64 1
+  %arrayidx5.i5.i175 = getelementptr inbounds i8, ptr %142, i64 20
   %150 = load float, ptr %arrayidx5.i5.i175, align 4
-  %arrayidx10.i8.i177 = getelementptr inbounds [3 x %class.btVector3], ptr %142, i64 0, i64 1, i32 0, i64 2
+  %arrayidx10.i8.i177 = getelementptr inbounds i8, ptr %142, i64 24
   %151 = load float, ptr %arrayidx10.i8.i177, align 4
   %152 = insertelement <2 x float> poison, float %146, i64 0
   %153 = shufflevector <2 x float> %152, <2 x float> poison, <2 x i32> zeroinitializer
@@ -881,39 +861,39 @@ if.then44:                                        ; preds = %if.end
   %164 = insertelement <2 x float> poison, float %148, i64 0
   %165 = shufflevector <2 x float> %164, <2 x float> poison, <2 x i32> zeroinitializer
   %166 = call <2 x float> @llvm.fmuladd.v2f32(<2 x float> %163, <2 x float> %165, <2 x float> %161)
-  %arrayidx.i10.i178 = getelementptr inbounds [3 x %class.btVector3], ptr %142, i64 0, i64 2
+  %arrayidx.i10.i178 = getelementptr inbounds i8, ptr %142, i64 32
   %167 = load float, ptr %arrayidx.i10.i178, align 4
-  %arrayidx5.i11.i179 = getelementptr inbounds [3 x %class.btVector3], ptr %142, i64 0, i64 2, i32 0, i64 1
+  %arrayidx5.i11.i179 = getelementptr inbounds i8, ptr %142, i64 36
   %168 = load float, ptr %arrayidx5.i11.i179, align 4
   %mul8.i13.i180 = fmul float %146, %168
   %169 = call float @llvm.fmuladd.f32(float %167, float %144, float %mul8.i13.i180)
-  %arrayidx10.i14.i181 = getelementptr inbounds [3 x %class.btVector3], ptr %142, i64 0, i64 2, i32 0, i64 2
+  %arrayidx10.i14.i181 = getelementptr inbounds i8, ptr %142, i64 40
   %170 = load float, ptr %arrayidx10.i14.i181, align 4
   %171 = call noundef float @llvm.fmuladd.f32(float %170, float %148, float %169)
   %retval.sroa.3.12.vec.insert.i184 = insertelement <2 x float> <float poison, float 0.000000e+00>, float %171, i64 0
   store <2 x float> %166, ptr %normalOnSurfaceB, align 8
-  %172 = getelementptr inbounds { <2 x float>, <2 x float> }, ptr %normalOnSurfaceB, i64 0, i32 1
+  %172 = getelementptr inbounds i8, ptr %normalOnSurfaceB, i64 8
   store <2 x float> %retval.sroa.3.12.vec.insert.i184, ptr %172, align 8
   store <2 x float> %141, ptr %pOnB, align 8
   %vtxInPlaneWorld.sroa.2.0.pOnB.sroa_idx = getelementptr inbounds i8, ptr %pOnB, i64 8
   store <2 x float> %retval.sroa.3.12.vec.insert.i4.i.i167, ptr %vtxInPlaneWorld.sroa.2.0.pOnB.sroa_idx, align 8
   %vtable49 = load ptr, ptr %resultOut, align 8
-  %vfn50 = getelementptr inbounds ptr, ptr %vtable49, i64 4
+  %vfn50 = getelementptr inbounds i8, ptr %vtable49, i64 32
   %173 = load ptr, ptr %vfn50, align 8
   call void %173(ptr noundef nonnull align 8 dereferenceable(52) %resultOut, ptr noundef nonnull align 4 dereferenceable(16) %normalOnSurfaceB, ptr noundef nonnull align 4 dereferenceable(16) %pOnB, float noundef %sub)
   br label %if.end51
 
 if.end51:                                         ; preds = %if.then44, %if.end
-  %m_shapeType.i.i = getelementptr inbounds %class.btCollisionShape, ptr %3, i64 0, i32 1
+  %m_shapeType.i.i = getelementptr inbounds i8, ptr %3, i64 8
   %174 = load i32, ptr %m_shapeType.i.i, align 8
   %cmp.i.i = icmp slt i32 %174, 7
   br i1 %cmp.i.i, label %land.lhs.true, label %if.end79
 
 land.lhs.true:                                    ; preds = %if.end51
   %175 = load ptr, ptr %m_manifoldPtr.i, align 8
-  %m_cachedPoints.i = getelementptr inbounds %class.btPersistentManifold, ptr %175, i64 0, i32 5
+  %m_cachedPoints.i = getelementptr inbounds i8, ptr %175, i64 856
   %176 = load i32, ptr %m_cachedPoints.i, align 8
-  %m_minimumPointsPerturbationThreshold = getelementptr inbounds %class.btConvexPlaneCollisionAlgorithm, ptr %this, i64 0, i32 7
+  %m_minimumPointsPerturbationThreshold = getelementptr inbounds i8, ptr %this, i64 40
   %177 = load i32, ptr %m_minimumPointsPerturbationThreshold, align 8
   %cmp55 = icmp slt i32 %176, %177
   br i1 %cmp55, label %if.then56, label %if.end79
@@ -955,7 +935,7 @@ _Z13btPlaneSpace1I9btVector3EvRKT_RS1_S4_.exit:   ; preds = %if.then.i, %if.else
   %v0.sroa.10.0 = phi float [ %mul20.i, %if.then.i ], [ 0.000000e+00, %if.else.i ]
   %191 = phi <2 x float> [ %182, %if.then.i ], [ %190, %if.else.i ]
   %vtable57 = load ptr, ptr %3, align 8
-  %vfn58 = getelementptr inbounds ptr, ptr %vtable57, i64 4
+  %vfn58 = getelementptr inbounds i8, ptr %vtable57, i64 32
   %192 = load ptr, ptr %vfn58, align 8
   %call59 = call noundef float %192(ptr noundef nonnull align 8 dereferenceable(32) %3)
   %193 = load float, ptr @gContactBreakingThreshold, align 4
@@ -976,13 +956,13 @@ _Z13btPlaneSpace1I9btVector3EvRKT_RS1_S4_.exit:   ; preds = %if.then.i, %if.else
   %200 = fmul <2 x float> %191, %199
   %mul10.i.i = fmul float %v0.sroa.10.0, %div.i.i
   %call.i8.i.i = call noundef float @cosf(float noundef %mul.i.i190) #11
-  %m_numPerturbationIterations = getelementptr inbounds %class.btConvexPlaneCollisionAlgorithm, ptr %this, i64 0, i32 6
+  %m_numPerturbationIterations = getelementptr inbounds i8, ptr %this, i64 36
   %201 = load i32, ptr %m_numPerturbationIterations, align 4
   %cmp63265 = icmp sgt i32 %201, 0
   br i1 %cmp63265, label %for.body.lr.ph, label %if.end79
 
 for.body.lr.ph:                                   ; preds = %_Z13btPlaneSpace1I9btVector3EvRKT_RS1_S4_.exit
-  %202 = getelementptr inbounds { <2 x float>, <2 x float> }, ptr %ref.tmp67, i64 0, i32 1
+  %202 = getelementptr inbounds i8, ptr %ref.tmp67, i64 8
   %203 = shufflevector <2 x float> %200, <2 x float> poison, <2 x i32> <i32 poison, i32 0>
   %204 = insertelement <2 x float> %203, float %mul10.i.i, i64 0
   %205 = insertelement <2 x float> poison, float %call.i8.i.i, i64 0
@@ -1074,7 +1054,7 @@ for.body:                                         ; preds = %for.body.lr.ph, %fo
   br i1 %cmp63, label %for.body, label %if.end79, !llvm.loop !6
 
 if.end79:                                         ; preds = %for.body, %_Z13btPlaneSpace1I9btVector3EvRKT_RS1_S4_.exit, %land.lhs.true, %if.end51
-  %m_ownManifold = getelementptr inbounds %class.btConvexPlaneCollisionAlgorithm, ptr %this, i64 0, i32 1
+  %m_ownManifold = getelementptr inbounds i8, ptr %this, i64 16
   %263 = load i8, ptr %m_ownManifold, align 8
   %264 = and i8 %263, 1
   %tobool80.not = icmp eq i8 %264, 0
@@ -1082,34 +1062,34 @@ if.end79:                                         ; preds = %for.body, %_Z13btPl
 
 if.then81:                                        ; preds = %if.end79
   %265 = load ptr, ptr %m_manifoldPtr, align 8
-  %m_cachedPoints.i242 = getelementptr inbounds %class.btPersistentManifold, ptr %265, i64 0, i32 5
+  %m_cachedPoints.i242 = getelementptr inbounds i8, ptr %265, i64 856
   %266 = load i32, ptr %m_cachedPoints.i242, align 8
   %tobool84.not = icmp eq i32 %266, 0
   br i1 %tobool84.not, label %if.end87, label %if.then85
 
 if.then85:                                        ; preds = %if.then81
   %267 = load ptr, ptr %m_manifoldPtr.i, align 8
-  %m_cachedPoints.i.i = getelementptr inbounds %class.btPersistentManifold, ptr %267, i64 0, i32 5
+  %m_cachedPoints.i.i = getelementptr inbounds i8, ptr %267, i64 856
   %268 = load i32, ptr %m_cachedPoints.i.i, align 8
   %tobool.not.i = icmp eq i32 %268, 0
   br i1 %tobool.not.i, label %if.end87, label %if.end.i
 
 if.end.i:                                         ; preds = %if.then85
-  %m_body0.i.i = getelementptr inbounds %class.btPersistentManifold, ptr %267, i64 0, i32 3
+  %m_body0.i.i = getelementptr inbounds i8, ptr %267, i64 840
   %269 = load ptr, ptr %m_body0.i.i, align 8
-  %m_body0Wrap.i = getelementptr inbounds %class.btManifoldResult, ptr %resultOut, i64 0, i32 2
+  %m_body0Wrap.i = getelementptr inbounds i8, ptr %resultOut, i64 16
   %270 = load ptr, ptr %m_body0Wrap.i, align 8
-  %m_collisionObject.i.i = getelementptr inbounds %struct.btCollisionObjectWrapper, ptr %270, i64 0, i32 2
+  %m_collisionObject.i.i = getelementptr inbounds i8, ptr %270, i64 16
   %271 = load ptr, ptr %m_collisionObject.i.i, align 8
   %cmp.not.i = icmp eq ptr %269, %271
-  %m_body1Wrap17.i = getelementptr inbounds %class.btManifoldResult, ptr %resultOut, i64 0, i32 3
+  %m_body1Wrap17.i = getelementptr inbounds i8, ptr %resultOut, i64 24
   %272 = load ptr, ptr %m_body1Wrap17.i, align 8
-  %m_collisionObject.i6.i = getelementptr inbounds %struct.btCollisionObjectWrapper, ptr %272, i64 0, i32 2
+  %m_collisionObject.i6.i = getelementptr inbounds i8, ptr %272, i64 16
   %273 = load ptr, ptr %m_collisionObject.i6.i, align 8
   %. = select i1 %cmp.not.i, ptr %273, ptr %271
   %.267 = select i1 %cmp.not.i, ptr %269, ptr %273
-  %m_worldTransform.i5.sink.i = getelementptr inbounds %class.btCollisionObject, ptr %.267, i64 0, i32 1
-  %m_worldTransform.i7.i = getelementptr inbounds %class.btCollisionObject, ptr %., i64 0, i32 1
+  %m_worldTransform.i5.sink.i = getelementptr inbounds i8, ptr %.267, i64 8
+  %m_worldTransform.i7.i = getelementptr inbounds i8, ptr %., i64 8
   call void @_ZN20btPersistentManifold20refreshContactPointsERK11btTransformS2_(ptr noundef nonnull align 8 dereferenceable(880) %267, ptr noundef nonnull align 4 dereferenceable(64) %m_worldTransform.i5.sink.i, ptr noundef nonnull align 4 dereferenceable(64) %m_worldTransform.i7.i)
   br label %if.end87
 
@@ -1126,22 +1106,22 @@ entry:
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr dso_local void @_ZN31btConvexPlaneCollisionAlgorithm22getAllContactManifoldsER20btAlignedObjectArrayIP20btPersistentManifoldE(ptr noundef nonnull align 8 dereferenceable(44) %this, ptr noundef nonnull align 8 dereferenceable(25) %manifoldArray) unnamed_addr #0 comdat align 2 {
 entry:
-  %m_manifoldPtr = getelementptr inbounds %class.btConvexPlaneCollisionAlgorithm, ptr %this, i64 0, i32 3
+  %m_manifoldPtr = getelementptr inbounds i8, ptr %this, i64 24
   %0 = load ptr, ptr %m_manifoldPtr, align 8
   %tobool.not = icmp eq ptr %0, null
   br i1 %tobool.not, label %if.end, label %land.lhs.true
 
 land.lhs.true:                                    ; preds = %entry
-  %m_ownManifold = getelementptr inbounds %class.btConvexPlaneCollisionAlgorithm, ptr %this, i64 0, i32 1
+  %m_ownManifold = getelementptr inbounds i8, ptr %this, i64 16
   %1 = load i8, ptr %m_ownManifold, align 8
   %2 = and i8 %1, 1
   %tobool2.not = icmp eq i8 %2, 0
   br i1 %tobool2.not, label %if.end, label %if.then
 
 if.then:                                          ; preds = %land.lhs.true
-  %m_size.i.i = getelementptr inbounds %class.btAlignedObjectArray.2, ptr %manifoldArray, i64 0, i32 2
+  %m_size.i.i = getelementptr inbounds i8, ptr %manifoldArray, i64 4
   %3 = load i32, ptr %m_size.i.i, align 4
-  %m_capacity.i.i = getelementptr inbounds %class.btAlignedObjectArray.2, ptr %manifoldArray, i64 0, i32 3
+  %m_capacity.i.i = getelementptr inbounds i8, ptr %manifoldArray, i64 8
   %4 = load i32, ptr %m_capacity.i.i, align 8
   %cmp.i = icmp eq i32 %3, %4
   br i1 %cmp.i, label %if.then.i, label %_ZN20btAlignedObjectArrayIP20btPersistentManifoldE9push_backERKS1_.exit
@@ -1171,7 +1151,7 @@ _ZN20btAlignedObjectArrayIP20btPersistentManifoldE8allocateEi.exit.i.i: ; preds 
   br i1 %cmp4.i.i.i, label %for.body.lr.ph.i.i.i, label %_ZNK20btAlignedObjectArrayIP20btPersistentManifoldE4copyEiiPS1_.exit.i.i
 
 for.body.lr.ph.i.i.i:                             ; preds = %_ZN20btAlignedObjectArrayIP20btPersistentManifoldE8allocateEi.exit.i.i
-  %m_data.i.i.i = getelementptr inbounds %class.btAlignedObjectArray.2, ptr %manifoldArray, i64 0, i32 5
+  %m_data.i.i.i = getelementptr inbounds i8, ptr %manifoldArray, i64 16
   %wide.trip.count.i.i.i = zext nneg i32 %5 to i64
   br label %for.body.i.i.i
 
@@ -1187,13 +1167,13 @@ for.body.i.i.i:                                   ; preds = %for.body.i.i.i, %fo
   br i1 %exitcond.not.i.i.i, label %_ZNK20btAlignedObjectArrayIP20btPersistentManifoldE4copyEiiPS1_.exit.i.i, label %for.body.i.i.i, !llvm.loop !8
 
 _ZNK20btAlignedObjectArrayIP20btPersistentManifoldE4copyEiiPS1_.exit.i.i: ; preds = %for.body.i.i.i, %_ZN20btAlignedObjectArrayIP20btPersistentManifoldE8allocateEi.exit.i.i
-  %m_data.i5.i.i = getelementptr inbounds %class.btAlignedObjectArray.2, ptr %manifoldArray, i64 0, i32 5
+  %m_data.i5.i.i = getelementptr inbounds i8, ptr %manifoldArray, i64 16
   %8 = load ptr, ptr %m_data.i5.i.i, align 8
   %tobool.not.i6.i.i = icmp eq ptr %8, null
   br i1 %tobool.not.i6.i.i, label %_ZN20btAlignedObjectArrayIP20btPersistentManifoldE10deallocateEv.exit.i.i, label %if.then.i7.i.i
 
 if.then.i7.i.i:                                   ; preds = %_ZNK20btAlignedObjectArrayIP20btPersistentManifoldE4copyEiiPS1_.exit.i.i
-  %m_ownsMemory.i.i.i = getelementptr inbounds %class.btAlignedObjectArray.2, ptr %manifoldArray, i64 0, i32 6
+  %m_ownsMemory.i.i.i = getelementptr inbounds i8, ptr %manifoldArray, i64 24
   %9 = load i8, ptr %m_ownsMemory.i.i.i, align 8
   %10 = and i8 %9, 1
   %tobool2.not.i.i.i = icmp eq i8 %10, 0
@@ -1204,7 +1184,7 @@ if.then3.i.i.i:                                   ; preds = %if.then.i7.i.i
   br label %_ZN20btAlignedObjectArrayIP20btPersistentManifoldE10deallocateEv.exit.i.i
 
 _ZN20btAlignedObjectArrayIP20btPersistentManifoldE10deallocateEv.exit.i.i: ; preds = %if.then3.i.i.i, %if.then.i7.i.i, %_ZNK20btAlignedObjectArrayIP20btPersistentManifoldE4copyEiiPS1_.exit.i.i
-  %m_ownsMemory.i.i = getelementptr inbounds %class.btAlignedObjectArray.2, ptr %manifoldArray, i64 0, i32 6
+  %m_ownsMemory.i.i = getelementptr inbounds i8, ptr %manifoldArray, i64 24
   store i8 1, ptr %m_ownsMemory.i.i, align 8
   store ptr %retval.0.i.i.i, ptr %m_data.i5.i.i, align 8
   store i32 %cond.i.i, ptr %m_capacity.i.i, align 8
@@ -1215,7 +1195,7 @@ _ZN20btAlignedObjectArrayIP20btPersistentManifoldE10deallocateEv.exit.i.i: ; pre
 _ZN20btAlignedObjectArrayIP20btPersistentManifoldE9push_backERKS1_.exit: ; preds = %if.then, %if.then.i, %_ZN20btAlignedObjectArrayIP20btPersistentManifoldE10deallocateEv.exit.i.i
   %11 = phi ptr [ %.pre, %_ZN20btAlignedObjectArrayIP20btPersistentManifoldE10deallocateEv.exit.i.i ], [ %0, %if.then.i ], [ %0, %if.then ]
   %12 = phi i32 [ %.pre2.i, %_ZN20btAlignedObjectArrayIP20btPersistentManifoldE10deallocateEv.exit.i.i ], [ %3, %if.then.i ], [ %3, %if.then ]
-  %m_data.i = getelementptr inbounds %class.btAlignedObjectArray.2, ptr %manifoldArray, i64 0, i32 5
+  %m_data.i = getelementptr inbounds i8, ptr %manifoldArray, i64 16
   %13 = load ptr, ptr %m_data.i, align 8
   %idxprom.i = sext i32 %12 to i64
   %arrayidx.i = getelementptr inbounds ptr, ptr %13, i64 %idxprom.i

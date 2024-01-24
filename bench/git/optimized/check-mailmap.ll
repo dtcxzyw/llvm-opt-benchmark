@@ -78,7 +78,7 @@ if.then5:                                         ; preds = %for.end
   br i1 %cmp7.not9, label %while.end, label %while.body.lr.ph
 
 while.body.lr.ph:                                 ; preds = %if.then5
-  %buf8 = getelementptr inbounds %struct.strbuf, ptr %buf, i64 0, i32 2
+  %buf8 = getelementptr inbounds i8, ptr %buf, i64 16
   br label %while.body
 
 while.body:                                       ; preds = %while.body.lr.ph, %while.body
@@ -157,16 +157,16 @@ if.then:                                          ; preds = %entry
 if.end:                                           ; preds = %entry
   %0 = load ptr, ptr %ident, align 8
   store ptr %0, ptr %name, align 8
-  %name_end = getelementptr inbounds %struct.ident_split, ptr %ident, i64 0, i32 1
+  %name_end = getelementptr inbounds i8, ptr %ident, i64 8
   %1 = load ptr, ptr %name_end, align 8
   %sub.ptr.lhs.cast = ptrtoint ptr %1 to i64
   %sub.ptr.rhs.cast = ptrtoint ptr %0 to i64
   %sub.ptr.sub = sub i64 %sub.ptr.lhs.cast, %sub.ptr.rhs.cast
   store i64 %sub.ptr.sub, ptr %namelen, align 8
-  %mail_begin = getelementptr inbounds %struct.ident_split, ptr %ident, i64 0, i32 2
+  %mail_begin = getelementptr inbounds i8, ptr %ident, i64 16
   %2 = load ptr, ptr %mail_begin, align 8
   store ptr %2, ptr %mail, align 8
-  %mail_end = getelementptr inbounds %struct.ident_split, ptr %ident, i64 0, i32 3
+  %mail_end = getelementptr inbounds i8, ptr %ident, i64 24
   %3 = load ptr, ptr %mail_end, align 8
   %sub.ptr.lhs.cast5 = ptrtoint ptr %3 to i64
   %sub.ptr.rhs.cast6 = ptrtoint ptr %2 to i64

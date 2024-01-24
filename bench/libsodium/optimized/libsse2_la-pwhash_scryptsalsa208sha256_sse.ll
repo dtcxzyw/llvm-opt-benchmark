@@ -3,8 +3,6 @@ source_filename = "bench/libsodium/original/libsse2_la-pwhash_scryptsalsa208sha2
 target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:128-n8:16:32:64-S128"
 target triple = "x86_64-unknown-linux-gnu"
 
-%struct.escrypt_region_t = type { ptr, ptr, i64 }
-
 ; Function Attrs: nounwind ssp uwtable
 define hidden noundef i32 @_sodium_escrypt_kdf_sse(ptr noundef %local, ptr noundef %passwd, i64 noundef %passwdlen, ptr noundef %salt, i64 noundef %saltlen, i64 noundef %N, i32 noundef %_r, i32 noundef %_p, ptr noundef %buf, i64 noundef %buflen) local_unnamed_addr #0 {
 entry:
@@ -102,7 +100,7 @@ if.then51:                                        ; preds = %if.end45
   br label %return
 
 if.end53:                                         ; preds = %if.end45
-  %size = getelementptr inbounds %struct.escrypt_region_t, ptr %local, i64 0, i32 2
+  %size = getelementptr inbounds i8, ptr %local, i64 16
   %0 = load i64, ptr %size, align 8
   %cmp54 = icmp ult i64 %0, %add48
   br i1 %cmp54, label %if.then56, label %for.cond2.preheader.preheader.i.lr.ph
@@ -118,7 +116,7 @@ if.end59:                                         ; preds = %if.then56
   br i1 %tobool61.not, label %return, label %for.cond2.preheader.preheader.i.lr.ph
 
 for.cond2.preheader.preheader.i.lr.ph:            ; preds = %if.end53, %if.end59
-  %aligned = getelementptr inbounds %struct.escrypt_region_t, ptr %local, i64 0, i32 1
+  %aligned = getelementptr inbounds i8, ptr %local, i64 8
   %1 = load ptr, ptr %aligned, align 8
   %add.ptr = getelementptr i8, ptr %1, i64 %mul38
   %add.ptr65 = getelementptr i8, ptr %add.ptr, i64 %mul40
@@ -133,8 +131,8 @@ for.cond2.preheader.preheader.i.lr.ph:            ; preds = %if.end53, %if.end59
   %4 = inttoptr i64 %add27.i to ptr
   %mul.i.i = shl nuw nsw i64 %conv, 3
   %5 = getelementptr <2 x i64>, ptr %add.ptr65, i64 %mul.i.i
-  %arrayidx2.i.i = getelementptr <2 x i64>, ptr %5, i64 -1
-  %add.ptr.i.i = getelementptr <2 x i64>, ptr %5, i64 -4
+  %arrayidx2.i.i = getelementptr i8, ptr %5, i64 -16
+  %add.ptr.i.i = getelementptr i8, ptr %5, i64 -64
   br label %for.cond2.preheader.preheader.i
 
 for.cond2.preheader.preheader.i:                  ; preds = %for.cond2.preheader.preheader.i.lr.ph, %smix.exit
@@ -276,23 +274,23 @@ define internal fastcc void @blockmix_salsa8(ptr nocapture noundef readonly %Bin
 entry:
   %mul = shl nuw nsw i64 %r, 3
   %0 = getelementptr <2 x i64>, ptr %Bin, i64 %mul
-  %arrayidx = getelementptr <2 x i64>, ptr %0, i64 -4
+  %arrayidx = getelementptr i8, ptr %0, i64 -64
   %1 = load <2 x i64>, ptr %arrayidx, align 16
-  %arrayidx3 = getelementptr <2 x i64>, ptr %0, i64 -3
+  %arrayidx3 = getelementptr i8, ptr %0, i64 -48
   %2 = load <2 x i64>, ptr %arrayidx3, align 16
-  %arrayidx6 = getelementptr <2 x i64>, ptr %0, i64 -2
+  %arrayidx6 = getelementptr i8, ptr %0, i64 -32
   %3 = load <2 x i64>, ptr %arrayidx6, align 16
-  %arrayidx9 = getelementptr <2 x i64>, ptr %0, i64 -1
+  %arrayidx9 = getelementptr i8, ptr %0, i64 -16
   %4 = load <2 x i64>, ptr %arrayidx9, align 16
   %5 = load <2 x i64>, ptr %Bin, align 16
   %xor.i1830 = xor <2 x i64> %5, %1
-  %arrayidx11 = getelementptr <2 x i64>, ptr %Bin, i64 1
+  %arrayidx11 = getelementptr i8, ptr %Bin, i64 16
   %6 = load <2 x i64>, ptr %arrayidx11, align 16
   %xor.i1827 = xor <2 x i64> %6, %2
-  %arrayidx13 = getelementptr <2 x i64>, ptr %Bin, i64 2
+  %arrayidx13 = getelementptr i8, ptr %Bin, i64 32
   %7 = load <2 x i64>, ptr %arrayidx13, align 16
   %xor.i1824 = xor <2 x i64> %7, %3
-  %arrayidx15 = getelementptr <2 x i64>, ptr %Bin, i64 3
+  %arrayidx15 = getelementptr i8, ptr %Bin, i64 48
   %8 = load <2 x i64>, ptr %arrayidx15, align 16
   %xor.i1821 = xor <2 x i64> %8, %4
   %9 = bitcast <2 x i64> %xor.i1830 to <4 x i32>
@@ -461,13 +459,13 @@ entry:
   %add.i2165 = add <4 x i32> %75, %9
   store <4 x i32> %add.i2165, ptr %Bout, align 16
   %add.i2162 = add <4 x i32> %permil228, %12
-  %arrayidx234 = getelementptr <2 x i64>, ptr %Bout, i64 1
+  %arrayidx234 = getelementptr i8, ptr %Bout, i64 16
   store <4 x i32> %add.i2162, ptr %arrayidx234, align 16
   %add.i2159 = add <4 x i32> %permil229, %15
-  %arrayidx236 = getelementptr <2 x i64>, ptr %Bout, i64 2
+  %arrayidx236 = getelementptr i8, ptr %Bout, i64 32
   store <4 x i32> %add.i2159, ptr %arrayidx236, align 16
   %add.i2156 = add <4 x i32> %permil230, %10
-  %arrayidx238 = getelementptr <2 x i64>, ptr %Bout, i64 3
+  %arrayidx238 = getelementptr i8, ptr %Bout, i64 48
   store <4 x i32> %add.i2156, ptr %arrayidx238, align 16
   %dec = add nsw i64 %r, -1
   %X3.01005 = bitcast <4 x i32> %add.i2156 to <2 x i64>
@@ -488,13 +486,13 @@ for.body:                                         ; preds = %entry, %for.body
   %arrayidx241 = getelementptr <2 x i64>, ptr %Bin, i64 %add
   %76 = load <2 x i64>, ptr %arrayidx241, align 16
   %xor.i1626 = xor <2 x i64> %76, %X0.01014
-  %arrayidx248 = getelementptr <2 x i64>, ptr %arrayidx241, i64 1
+  %arrayidx248 = getelementptr i8, ptr %arrayidx241, i64 16
   %77 = load <2 x i64>, ptr %arrayidx248, align 16
   %xor.i1623 = xor <2 x i64> %77, %X1.01013
-  %arrayidx254 = getelementptr <2 x i64>, ptr %arrayidx241, i64 2
+  %arrayidx254 = getelementptr i8, ptr %arrayidx241, i64 32
   %78 = load <2 x i64>, ptr %arrayidx254, align 16
   %xor.i1620 = xor <2 x i64> %78, %X2.01012
-  %arrayidx260 = getelementptr <2 x i64>, ptr %arrayidx241, i64 3
+  %arrayidx260 = getelementptr i8, ptr %arrayidx241, i64 48
   %79 = load <2 x i64>, ptr %arrayidx260, align 16
   %xor.i1617 = xor <2 x i64> %79, %X3.01011
   %80 = bitcast <2 x i64> %xor.i1626 to <4 x i32>
@@ -665,27 +663,27 @@ for.body:                                         ; preds = %entry, %for.body
   %add479 = add nuw nsw i64 %i.01010, %dec
   %mul480 = shl nuw nsw i64 %add479, 2
   %148 = getelementptr <2 x i64>, ptr %Bout, i64 %mul480
-  %arrayidx482 = getelementptr <2 x i64>, ptr %148, i64 4
+  %arrayidx482 = getelementptr i8, ptr %148, i64 64
   store <4 x i32> %add.i2057, ptr %arrayidx482, align 16
   %add.i2054 = add <4 x i32> %permil475, %83
-  %arrayidx489 = getelementptr <2 x i64>, ptr %148, i64 5
+  %arrayidx489 = getelementptr i8, ptr %148, i64 80
   store <4 x i32> %add.i2054, ptr %arrayidx489, align 16
   %add.i2051 = add <4 x i32> %permil476, %86
-  %arrayidx495 = getelementptr <2 x i64>, ptr %148, i64 6
+  %arrayidx495 = getelementptr i8, ptr %148, i64 96
   store <4 x i32> %add.i2051, ptr %arrayidx495, align 16
   %add.i2048 = add <4 x i32> %permil477, %81
-  %arrayidx501 = getelementptr <2 x i64>, ptr %148, i64 7
+  %arrayidx501 = getelementptr i8, ptr %148, i64 112
   store <4 x i32> %add.i2048, ptr %arrayidx501, align 16
   %inc = add nuw nsw i64 %i.01010, 1
   %mul503 = shl nuw nsw i64 %inc, 3
   %arrayidx504 = getelementptr <2 x i64>, ptr %Bin, i64 %mul503
   %149 = load <2 x i64>, ptr %arrayidx504, align 16
   %xor.i1422 = xor <2 x i64> %149, %147
-  %arrayidx510 = getelementptr <2 x i64>, ptr %arrayidx504, i64 1
+  %arrayidx510 = getelementptr i8, ptr %arrayidx504, i64 16
   %150 = load <4 x i32>, ptr %arrayidx510, align 16
-  %arrayidx515 = getelementptr <2 x i64>, ptr %arrayidx504, i64 2
+  %arrayidx515 = getelementptr i8, ptr %arrayidx504, i64 32
   %151 = load <4 x i32>, ptr %arrayidx515, align 16
-  %arrayidx520 = getelementptr <2 x i64>, ptr %arrayidx504, i64 3
+  %arrayidx520 = getelementptr i8, ptr %arrayidx504, i64 48
   %152 = load <4 x i32>, ptr %arrayidx520, align 16
   %153 = bitcast <2 x i64> %xor.i1422 to <4 x i32>
   %154 = xor <4 x i32> %add.i2048, %152
@@ -855,13 +853,13 @@ for.body:                                         ; preds = %entry, %for.body
   %arrayidx740 = getelementptr <2 x i64>, ptr %Bout, i64 %mul739
   store <4 x i32> %add.i1949, ptr %arrayidx740, align 16
   %add.i1946 = add <4 x i32> %permil735, %156
-  %arrayidx745 = getelementptr <2 x i64>, ptr %arrayidx740, i64 1
+  %arrayidx745 = getelementptr i8, ptr %arrayidx740, i64 16
   store <4 x i32> %add.i1946, ptr %arrayidx745, align 16
   %add.i1943 = add <4 x i32> %permil736, %159
-  %arrayidx749 = getelementptr <2 x i64>, ptr %arrayidx740, i64 2
+  %arrayidx749 = getelementptr i8, ptr %arrayidx740, i64 32
   store <4 x i32> %add.i1943, ptr %arrayidx749, align 16
   %add.i1940 = add <4 x i32> %permil737, %154
-  %arrayidx753 = getelementptr <2 x i64>, ptr %arrayidx740, i64 3
+  %arrayidx753 = getelementptr i8, ptr %arrayidx740, i64 48
   store <4 x i32> %add.i1940, ptr %arrayidx753, align 16
   %X3.0 = bitcast <4 x i32> %add.i1940 to <2 x i64>
   %X2.0 = bitcast <4 x i32> %add.i1943 to <2 x i64>
@@ -880,13 +878,13 @@ for.end:                                          ; preds = %for.body, %entry
   %arrayidx757 = getelementptr <2 x i64>, ptr %Bin, i64 %add756
   %220 = load <2 x i64>, ptr %arrayidx757, align 16
   %xor.i1218 = xor <2 x i64> %220, %X0.0.lcssa
-  %arrayidx764 = getelementptr <2 x i64>, ptr %arrayidx757, i64 1
+  %arrayidx764 = getelementptr i8, ptr %arrayidx757, i64 16
   %221 = load <2 x i64>, ptr %arrayidx764, align 16
   %xor.i1215 = xor <2 x i64> %221, %X1.0.lcssa
-  %arrayidx770 = getelementptr <2 x i64>, ptr %arrayidx757, i64 2
+  %arrayidx770 = getelementptr i8, ptr %arrayidx757, i64 32
   %222 = load <2 x i64>, ptr %arrayidx770, align 16
   %xor.i1212 = xor <2 x i64> %222, %X2.0.lcssa
-  %arrayidx776 = getelementptr <2 x i64>, ptr %arrayidx757, i64 3
+  %arrayidx776 = getelementptr i8, ptr %arrayidx757, i64 48
   %223 = load <2 x i64>, ptr %arrayidx776, align 16
   %xor.i1209 = xor <2 x i64> %223, %X3.0.lcssa
   %224 = bitcast <2 x i64> %xor.i1218 to <4 x i32>
@@ -1055,16 +1053,16 @@ for.end:                                          ; preds = %for.body, %entry
   %add.i1841 = add <4 x i32> %290, %224
   %add995 = shl i64 %dec, 3
   %291 = getelementptr <2 x i64>, ptr %Bout, i64 %add995
-  %arrayidx998 = getelementptr <2 x i64>, ptr %291, i64 4
+  %arrayidx998 = getelementptr i8, ptr %291, i64 64
   store <4 x i32> %add.i1841, ptr %arrayidx998, align 16
   %add.i1838 = add <4 x i32> %permil991, %227
-  %arrayidx1005 = getelementptr <2 x i64>, ptr %291, i64 5
+  %arrayidx1005 = getelementptr i8, ptr %291, i64 80
   store <4 x i32> %add.i1838, ptr %arrayidx1005, align 16
   %add.i1835 = add <4 x i32> %permil992, %230
-  %arrayidx1011 = getelementptr <2 x i64>, ptr %291, i64 6
+  %arrayidx1011 = getelementptr i8, ptr %291, i64 96
   store <4 x i32> %add.i1835, ptr %arrayidx1011, align 16
   %add.i = add <4 x i32> %permil993, %225
-  %arrayidx1017 = getelementptr <2 x i64>, ptr %291, i64 7
+  %arrayidx1017 = getelementptr i8, ptr %291, i64 112
   store <4 x i32> %add.i, ptr %arrayidx1017, align 16
   ret void
 }
@@ -1079,41 +1077,41 @@ entry:
   %arrayidx4 = getelementptr <2 x i64>, ptr %Bin2, i64 %sub
   %1 = load <2 x i64>, ptr %arrayidx4, align 16
   %xor.i1979 = xor <2 x i64> %1, %0
-  %arrayidx9 = getelementptr <2 x i64>, ptr %arrayidx, i64 1
+  %arrayidx9 = getelementptr i8, ptr %arrayidx, i64 16
   %2 = load <2 x i64>, ptr %arrayidx9, align 16
-  %arrayidx13 = getelementptr <2 x i64>, ptr %arrayidx4, i64 1
+  %arrayidx13 = getelementptr i8, ptr %arrayidx4, i64 16
   %3 = load <2 x i64>, ptr %arrayidx13, align 16
   %xor.i1976 = xor <2 x i64> %3, %2
-  %arrayidx18 = getelementptr <2 x i64>, ptr %arrayidx, i64 2
+  %arrayidx18 = getelementptr i8, ptr %arrayidx, i64 32
   %4 = load <2 x i64>, ptr %arrayidx18, align 16
-  %arrayidx22 = getelementptr <2 x i64>, ptr %arrayidx4, i64 2
+  %arrayidx22 = getelementptr i8, ptr %arrayidx4, i64 32
   %5 = load <2 x i64>, ptr %arrayidx22, align 16
   %xor.i1973 = xor <2 x i64> %5, %4
-  %arrayidx27 = getelementptr <2 x i64>, ptr %arrayidx, i64 3
+  %arrayidx27 = getelementptr i8, ptr %arrayidx, i64 48
   %6 = load <2 x i64>, ptr %arrayidx27, align 16
-  %arrayidx31 = getelementptr <2 x i64>, ptr %arrayidx4, i64 3
+  %arrayidx31 = getelementptr i8, ptr %arrayidx4, i64 48
   %7 = load <2 x i64>, ptr %arrayidx31, align 16
   %xor.i1970 = xor <2 x i64> %7, %6
   %8 = load <2 x i64>, ptr %Bin1, align 16
   %xor.i1967 = xor <2 x i64> %xor.i1979, %8
-  %arrayidx35 = getelementptr <2 x i64>, ptr %Bin1, i64 1
+  %arrayidx35 = getelementptr i8, ptr %Bin1, i64 16
   %9 = load <2 x i64>, ptr %arrayidx35, align 16
   %xor.i1964 = xor <2 x i64> %xor.i1976, %9
-  %arrayidx37 = getelementptr <2 x i64>, ptr %Bin1, i64 2
+  %arrayidx37 = getelementptr i8, ptr %Bin1, i64 32
   %10 = load <2 x i64>, ptr %arrayidx37, align 16
   %xor.i1961 = xor <2 x i64> %xor.i1973, %10
-  %arrayidx39 = getelementptr <2 x i64>, ptr %Bin1, i64 3
+  %arrayidx39 = getelementptr i8, ptr %Bin1, i64 48
   %11 = load <2 x i64>, ptr %arrayidx39, align 16
   %xor.i1958 = xor <2 x i64> %xor.i1970, %11
   %12 = load <2 x i64>, ptr %Bin2, align 16
   %xor.i1955 = xor <2 x i64> %xor.i1967, %12
-  %arrayidx43 = getelementptr <2 x i64>, ptr %Bin2, i64 1
+  %arrayidx43 = getelementptr i8, ptr %Bin2, i64 16
   %13 = load <2 x i64>, ptr %arrayidx43, align 16
   %xor.i1952 = xor <2 x i64> %xor.i1964, %13
-  %arrayidx45 = getelementptr <2 x i64>, ptr %Bin2, i64 2
+  %arrayidx45 = getelementptr i8, ptr %Bin2, i64 32
   %14 = load <2 x i64>, ptr %arrayidx45, align 16
   %xor.i1949 = xor <2 x i64> %xor.i1961, %14
-  %arrayidx47 = getelementptr <2 x i64>, ptr %Bin2, i64 3
+  %arrayidx47 = getelementptr i8, ptr %Bin2, i64 48
   %15 = load <2 x i64>, ptr %arrayidx47, align 16
   %xor.i1946 = xor <2 x i64> %xor.i1958, %15
   %16 = bitcast <2 x i64> %xor.i1955 to <4 x i32>
@@ -1282,13 +1280,13 @@ entry:
   %add.i2314 = add <4 x i32> %82, %16
   store <4 x i32> %add.i2314, ptr %Bout, align 16
   %add.i2311 = add <4 x i32> %permil260, %19
-  %arrayidx266 = getelementptr <2 x i64>, ptr %Bout, i64 1
+  %arrayidx266 = getelementptr i8, ptr %Bout, i64 16
   store <4 x i32> %add.i2311, ptr %arrayidx266, align 16
   %add.i2308 = add <4 x i32> %permil261, %22
-  %arrayidx268 = getelementptr <2 x i64>, ptr %Bout, i64 2
+  %arrayidx268 = getelementptr i8, ptr %Bout, i64 32
   store <4 x i32> %add.i2308, ptr %arrayidx268, align 16
   %add.i2305 = add <4 x i32> %permil262, %17
-  %arrayidx270 = getelementptr <2 x i64>, ptr %Bout, i64 3
+  %arrayidx270 = getelementptr i8, ptr %Bout, i64 48
   store <4 x i32> %add.i2305, ptr %arrayidx270, align 16
   %dec = add nsw i64 %r, -1
   %X3.01057 = bitcast <4 x i32> %add.i2305 to <2 x i64>
@@ -1308,25 +1306,25 @@ for.body:                                         ; preds = %entry, %for.body
   %add = or disjoint i64 %mul271, 4
   %arrayidx272 = getelementptr <2 x i64>, ptr %Bin1, i64 %add
   %83 = load <2 x i64>, ptr %arrayidx272, align 16
-  %arrayidx278 = getelementptr <2 x i64>, ptr %arrayidx272, i64 1
+  %arrayidx278 = getelementptr i8, ptr %arrayidx272, i64 16
   %84 = load <2 x i64>, ptr %arrayidx278, align 16
-  %arrayidx283 = getelementptr <2 x i64>, ptr %arrayidx272, i64 2
+  %arrayidx283 = getelementptr i8, ptr %arrayidx272, i64 32
   %85 = load <2 x i64>, ptr %arrayidx283, align 16
-  %arrayidx288 = getelementptr <2 x i64>, ptr %arrayidx272, i64 3
+  %arrayidx288 = getelementptr i8, ptr %arrayidx272, i64 48
   %86 = load <2 x i64>, ptr %arrayidx288, align 16
   %arrayidx293 = getelementptr <2 x i64>, ptr %Bin2, i64 %add
   %87 = load <2 x i64>, ptr %arrayidx293, align 16
   %88 = xor <2 x i64> %83, %X0.01066
   %xor.i1739 = xor <2 x i64> %88, %87
-  %arrayidx300 = getelementptr <2 x i64>, ptr %arrayidx293, i64 1
+  %arrayidx300 = getelementptr i8, ptr %arrayidx293, i64 16
   %89 = load <2 x i64>, ptr %arrayidx300, align 16
   %90 = xor <2 x i64> %84, %X1.01065
   %xor.i1736 = xor <2 x i64> %90, %89
-  %arrayidx306 = getelementptr <2 x i64>, ptr %arrayidx293, i64 2
+  %arrayidx306 = getelementptr i8, ptr %arrayidx293, i64 32
   %91 = load <2 x i64>, ptr %arrayidx306, align 16
   %92 = xor <2 x i64> %85, %X2.01064
   %xor.i1733 = xor <2 x i64> %92, %91
-  %arrayidx312 = getelementptr <2 x i64>, ptr %arrayidx293, i64 3
+  %arrayidx312 = getelementptr i8, ptr %arrayidx293, i64 48
   %93 = load <2 x i64>, ptr %arrayidx312, align 16
   %94 = xor <2 x i64> %86, %X3.01063
   %xor.i1730 = xor <2 x i64> %94, %93
@@ -1498,38 +1496,38 @@ for.body:                                         ; preds = %entry, %for.body
   %add531 = add nuw nsw i64 %i.01062, %dec
   %mul532 = shl nuw nsw i64 %add531, 2
   %163 = getelementptr <2 x i64>, ptr %Bout, i64 %mul532
-  %arrayidx534 = getelementptr <2 x i64>, ptr %163, i64 4
+  %arrayidx534 = getelementptr i8, ptr %163, i64 64
   store <4 x i32> %add.i2206, ptr %arrayidx534, align 16
   %add.i2203 = add <4 x i32> %permil527, %98
-  %arrayidx541 = getelementptr <2 x i64>, ptr %163, i64 5
+  %arrayidx541 = getelementptr i8, ptr %163, i64 80
   store <4 x i32> %add.i2203, ptr %arrayidx541, align 16
   %add.i2200 = add <4 x i32> %permil528, %101
-  %arrayidx547 = getelementptr <2 x i64>, ptr %163, i64 6
+  %arrayidx547 = getelementptr i8, ptr %163, i64 96
   store <4 x i32> %add.i2200, ptr %arrayidx547, align 16
   %add.i2197 = add <4 x i32> %permil529, %96
-  %arrayidx553 = getelementptr <2 x i64>, ptr %163, i64 7
+  %arrayidx553 = getelementptr i8, ptr %163, i64 112
   store <4 x i32> %add.i2197, ptr %arrayidx553, align 16
   %inc = add nuw nsw i64 %i.01062, 1
   %mul554 = shl nuw nsw i64 %inc, 3
   %arrayidx555 = getelementptr <2 x i64>, ptr %Bin1, i64 %mul554
   %164 = load <2 x i64>, ptr %arrayidx555, align 16
-  %arrayidx560 = getelementptr <2 x i64>, ptr %arrayidx555, i64 1
+  %arrayidx560 = getelementptr i8, ptr %arrayidx555, i64 16
   %165 = load <2 x i64>, ptr %arrayidx560, align 16
-  %arrayidx564 = getelementptr <2 x i64>, ptr %arrayidx555, i64 2
+  %arrayidx564 = getelementptr i8, ptr %arrayidx555, i64 32
   %166 = load <2 x i64>, ptr %arrayidx564, align 16
-  %arrayidx568 = getelementptr <2 x i64>, ptr %arrayidx555, i64 3
+  %arrayidx568 = getelementptr i8, ptr %arrayidx555, i64 48
   %167 = load <2 x i64>, ptr %arrayidx568, align 16
   %arrayidx572 = getelementptr <2 x i64>, ptr %Bin2, i64 %mul554
   %168 = load <2 x i64>, ptr %arrayidx572, align 16
   %xor.i1535 = xor <2 x i64> %168, %164
   %xor.i1523 = xor <2 x i64> %xor.i1535, %162
-  %arrayidx578 = getelementptr <2 x i64>, ptr %arrayidx572, i64 1
+  %arrayidx578 = getelementptr i8, ptr %arrayidx572, i64 16
   %169 = load <2 x i64>, ptr %arrayidx578, align 16
   %xor.i1532 = xor <2 x i64> %169, %165
-  %arrayidx583 = getelementptr <2 x i64>, ptr %arrayidx572, i64 2
+  %arrayidx583 = getelementptr i8, ptr %arrayidx572, i64 32
   %170 = load <2 x i64>, ptr %arrayidx583, align 16
   %xor.i1529 = xor <2 x i64> %170, %166
-  %arrayidx588 = getelementptr <2 x i64>, ptr %arrayidx572, i64 3
+  %arrayidx588 = getelementptr i8, ptr %arrayidx572, i64 48
   %171 = load <2 x i64>, ptr %arrayidx588, align 16
   %xor.i1526 = xor <2 x i64> %171, %167
   %172 = bitcast <2 x i64> %xor.i1523 to <4 x i32>
@@ -1703,13 +1701,13 @@ for.body:                                         ; preds = %entry, %for.body
   %arrayidx808 = getelementptr <2 x i64>, ptr %Bout, i64 %mul807
   store <4 x i32> %add.i2098, ptr %arrayidx808, align 16
   %add.i2095 = add <4 x i32> %permil803, %177
-  %arrayidx813 = getelementptr <2 x i64>, ptr %arrayidx808, i64 1
+  %arrayidx813 = getelementptr i8, ptr %arrayidx808, i64 16
   store <4 x i32> %add.i2095, ptr %arrayidx813, align 16
   %add.i2092 = add <4 x i32> %permil804, %181
-  %arrayidx817 = getelementptr <2 x i64>, ptr %arrayidx808, i64 2
+  %arrayidx817 = getelementptr i8, ptr %arrayidx808, i64 32
   store <4 x i32> %add.i2092, ptr %arrayidx817, align 16
   %add.i2089 = add <4 x i32> %permil805, %174
-  %arrayidx821 = getelementptr <2 x i64>, ptr %arrayidx808, i64 3
+  %arrayidx821 = getelementptr i8, ptr %arrayidx808, i64 48
   store <4 x i32> %add.i2089, ptr %arrayidx821, align 16
   %X3.0 = bitcast <4 x i32> %add.i2089 to <2 x i64>
   %X2.0 = bitcast <4 x i32> %add.i2092 to <2 x i64>
@@ -1727,25 +1725,25 @@ for.end:                                          ; preds = %for.body, %entry
   %add823 = or disjoint i64 %mul822, 4
   %arrayidx824 = getelementptr <2 x i64>, ptr %Bin1, i64 %add823
   %242 = load <2 x i64>, ptr %arrayidx824, align 16
-  %arrayidx830 = getelementptr <2 x i64>, ptr %arrayidx824, i64 1
+  %arrayidx830 = getelementptr i8, ptr %arrayidx824, i64 16
   %243 = load <2 x i64>, ptr %arrayidx830, align 16
-  %arrayidx835 = getelementptr <2 x i64>, ptr %arrayidx824, i64 2
+  %arrayidx835 = getelementptr i8, ptr %arrayidx824, i64 32
   %244 = load <2 x i64>, ptr %arrayidx835, align 16
-  %arrayidx840 = getelementptr <2 x i64>, ptr %arrayidx824, i64 3
+  %arrayidx840 = getelementptr i8, ptr %arrayidx824, i64 48
   %245 = load <2 x i64>, ptr %arrayidx840, align 16
   %arrayidx845 = getelementptr <2 x i64>, ptr %Bin2, i64 %add823
   %246 = load <2 x i64>, ptr %arrayidx845, align 16
   %247 = xor <2 x i64> %242, %X0.0.lcssa
   %xor.i1307 = xor <2 x i64> %247, %246
-  %arrayidx852 = getelementptr <2 x i64>, ptr %arrayidx845, i64 1
+  %arrayidx852 = getelementptr i8, ptr %arrayidx845, i64 16
   %248 = load <2 x i64>, ptr %arrayidx852, align 16
   %249 = xor <2 x i64> %243, %X1.0.lcssa
   %xor.i1304 = xor <2 x i64> %249, %248
-  %arrayidx858 = getelementptr <2 x i64>, ptr %arrayidx845, i64 2
+  %arrayidx858 = getelementptr i8, ptr %arrayidx845, i64 32
   %250 = load <2 x i64>, ptr %arrayidx858, align 16
   %251 = xor <2 x i64> %244, %X2.0.lcssa
   %xor.i1301 = xor <2 x i64> %251, %250
-  %arrayidx864 = getelementptr <2 x i64>, ptr %arrayidx845, i64 3
+  %arrayidx864 = getelementptr i8, ptr %arrayidx845, i64 48
   %252 = load <2 x i64>, ptr %arrayidx864, align 16
   %253 = xor <2 x i64> %245, %X3.0.lcssa
   %xor.i1298 = xor <2 x i64> %253, %252
@@ -1915,16 +1913,16 @@ for.end:                                          ; preds = %for.body, %entry
   %add.i1990 = add <4 x i32> %320, %254
   %add1083 = shl i64 %dec, 3
   %321 = getelementptr <2 x i64>, ptr %Bout, i64 %add1083
-  %arrayidx1086 = getelementptr <2 x i64>, ptr %321, i64 4
+  %arrayidx1086 = getelementptr i8, ptr %321, i64 64
   store <4 x i32> %add.i1990, ptr %arrayidx1086, align 16
   %add.i1987 = add <4 x i32> %permil1079, %257
-  %arrayidx1093 = getelementptr <2 x i64>, ptr %321, i64 5
+  %arrayidx1093 = getelementptr i8, ptr %321, i64 80
   store <4 x i32> %add.i1987, ptr %arrayidx1093, align 16
   %add.i1984 = add <4 x i32> %permil1080, %260
-  %arrayidx1099 = getelementptr <2 x i64>, ptr %321, i64 6
+  %arrayidx1099 = getelementptr i8, ptr %321, i64 96
   store <4 x i32> %add.i1984, ptr %arrayidx1099, align 16
   %add.i = add <4 x i32> %permil1081, %255
-  %arrayidx1105 = getelementptr <2 x i64>, ptr %321, i64 7
+  %arrayidx1105 = getelementptr i8, ptr %321, i64 112
   store <4 x i32> %add.i, ptr %arrayidx1105, align 16
   %vecext.i = extractelement <4 x i32> %add.i1990, i64 0
   ret i32 %vecext.i

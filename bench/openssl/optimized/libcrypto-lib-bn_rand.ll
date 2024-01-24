@@ -3,8 +3,6 @@ source_filename = "bench/openssl/original/libcrypto-lib-bn_rand.ll"
 target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:128-n8:16:32:64-S128"
 target triple = "x86_64-unknown-linux-gnu"
 
-%struct.bignum_st = type { ptr, i32, i32, i32, i32 }
-
 @.str = private unnamed_addr constant [31 x i8] c"../openssl/crypto/bn/bn_rand.c\00", align 1
 @__func__.BN_generate_dsa_nonce = private unnamed_addr constant [22 x i8] c"BN_generate_dsa_nonce\00", align 1
 @.str.1 = private unnamed_addr constant [7 x i8] c"SHA512\00", align 1
@@ -227,14 +225,14 @@ entry:
 }
 
 ; Function Attrs: nounwind uwtable
-define i32 @BN_rand_range_ex(ptr noundef %r, ptr noundef %range, i32 noundef %strength, ptr noundef %ctx) local_unnamed_addr #0 {
+define noundef i32 @BN_rand_range_ex(ptr noundef %r, ptr noundef %range, i32 noundef %strength, ptr noundef %ctx) local_unnamed_addr #0 {
 entry:
   %call = tail call fastcc i32 @bnrand_range(i32 noundef 0, ptr noundef %r, ptr noundef %range, i32 noundef %strength, ptr noundef %ctx), !range !4
   ret i32 %call
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @bnrand_range(i32 noundef %flag, ptr noundef %r, ptr noundef %range, i32 noundef %strength, ptr noundef %ctx) unnamed_addr #0 {
+define internal fastcc noundef i32 @bnrand_range(i32 noundef %flag, ptr noundef %r, ptr noundef %range, i32 noundef %strength, ptr noundef %ctx) unnamed_addr #0 {
 entry:
   %cmp = icmp eq ptr %r, null
   br i1 %cmp, label %if.then, label %if.end
@@ -246,7 +244,7 @@ if.then:                                          ; preds = %entry
   br label %return
 
 if.end:                                           ; preds = %entry
-  %neg = getelementptr inbounds %struct.bignum_st, ptr %range, i64 0, i32 3
+  %neg = getelementptr inbounds i8, ptr %range, i64 16
   %0 = load i32, ptr %neg, align 8
   %tobool.not = icmp eq i32 %0, 0
   br i1 %tobool.not, label %lor.lhs.false, label %if.then2
@@ -360,21 +358,21 @@ return:                                           ; preds = %do.cond48, %do.body
 }
 
 ; Function Attrs: nounwind uwtable
-define i32 @BN_rand_range(ptr noundef %r, ptr noundef %range) local_unnamed_addr #0 {
+define noundef i32 @BN_rand_range(ptr noundef %r, ptr noundef %range) local_unnamed_addr #0 {
 entry:
   %call = tail call fastcc i32 @bnrand_range(i32 noundef 0, ptr noundef %r, ptr noundef %range, i32 noundef 0, ptr noundef null), !range !4
   ret i32 %call
 }
 
 ; Function Attrs: nounwind uwtable
-define i32 @BN_priv_rand_range_ex(ptr noundef %r, ptr noundef %range, i32 noundef %strength, ptr noundef %ctx) local_unnamed_addr #0 {
+define noundef i32 @BN_priv_rand_range_ex(ptr noundef %r, ptr noundef %range, i32 noundef %strength, ptr noundef %ctx) local_unnamed_addr #0 {
 entry:
   %call = tail call fastcc i32 @bnrand_range(i32 noundef 2, ptr noundef %r, ptr noundef %range, i32 noundef %strength, ptr noundef %ctx), !range !4
   ret i32 %call
 }
 
 ; Function Attrs: nounwind uwtable
-define i32 @BN_priv_rand_range(ptr noundef %r, ptr noundef %range) local_unnamed_addr #0 {
+define noundef i32 @BN_priv_rand_range(ptr noundef %r, ptr noundef %range) local_unnamed_addr #0 {
 entry:
   %call = tail call fastcc i32 @bnrand_range(i32 noundef 2, ptr noundef %r, ptr noundef %range, i32 noundef 0, ptr noundef null), !range !4
   ret i32 %call
@@ -388,9 +386,9 @@ entry:
 }
 
 ; Function Attrs: nounwind uwtable
-define i32 @BN_pseudo_rand_range(ptr noundef %r, ptr noundef %range) local_unnamed_addr #0 {
+define noundef i32 @BN_pseudo_rand_range(ptr noundef %r, ptr noundef %range) local_unnamed_addr #0 {
 entry:
-  %call.i = tail call fastcc i32 @bnrand_range(i32 noundef 0, ptr noundef %r, ptr noundef %range, i32 noundef 0, ptr noundef null), !range !4
+  %call.i = tail call fastcc noundef i32 @bnrand_range(i32 noundef 0, ptr noundef %r, ptr noundef %range, i32 noundef 0, ptr noundef null), !range !4
   ret i32 %call.i
 }
 

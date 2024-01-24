@@ -5,9 +5,6 @@ target triple = "x86_64-unknown-linux-gnu"
 
 %struct.standard_parameters = type { %struct.bignum_st, %struct.bignum_st, %struct.bignum_st }
 %struct.bignum_st = type { ptr, i32, i32, i32, i32 }
-%struct.dh_st = type { ptr, ptr, ptr, ptr, i32, %union.crypto_mutex_st, ptr, ptr, ptr, ptr, i32, ptr, i32, i32, %struct.crypto_ex_data_st }
-%union.crypto_mutex_st = type { double, [48 x i8] }
-%struct.crypto_ex_data_st = type { ptr }
 
 @dh1024_160 = internal constant %struct.standard_parameters { %struct.bignum_st { ptr @dh1024_160_p, i32 16, i32 16, i32 0, i32 2 }, %struct.bignum_st { ptr @dh1024_160_q, i32 3, i32 3, i32 0, i32 2 }, %struct.bignum_st { ptr @dh1024_160_g, i32 16, i32 16, i32 0, i32 2 } }, align 8
 @dh2048_224 = internal constant %struct.standard_parameters { %struct.bignum_st { ptr @dh2048_224_p, i32 32, i32 32, i32 0, i32 2 }, %struct.bignum_st { ptr @dh2048_224_q, i32 4, i32 4, i32 0, i32 2 }, %struct.bignum_st { ptr @dh2048_224_g, i32 32, i32 32, i32 0, i32 2 } }, align 8
@@ -39,11 +36,11 @@ entry:
 if.end.i:                                         ; preds = %entry
   %call1.i = tail call ptr @BN_dup(ptr noundef nonnull @dh1024_160) #2
   store ptr %call1.i, ptr %call.i, align 8
-  %call3.i = tail call ptr @BN_dup(ptr noundef nonnull getelementptr inbounds (%struct.standard_parameters, ptr @dh1024_160, i64 0, i32 1)) #2
-  %q4.i = getelementptr inbounds %struct.dh_st, ptr %call.i, i64 0, i32 7
+  %call3.i = tail call ptr @BN_dup(ptr noundef nonnull getelementptr inbounds (%struct.standard_parameters, ptr @dh1024_160, i64 0, i32 1, i32 0)) #2
+  %q4.i = getelementptr inbounds i8, ptr %call.i, i64 104
   store ptr %call3.i, ptr %q4.i, align 8
-  %call5.i = tail call ptr @BN_dup(ptr noundef nonnull getelementptr inbounds (%struct.standard_parameters, ptr @dh1024_160, i64 0, i32 2)) #2
-  %g6.i = getelementptr inbounds %struct.dh_st, ptr %call.i, i64 0, i32 1
+  %call5.i = tail call ptr @BN_dup(ptr noundef nonnull getelementptr inbounds (%struct.standard_parameters, ptr @dh1024_160, i64 0, i32 2, i32 0)) #2
+  %g6.i = getelementptr inbounds i8, ptr %call.i, i64 8
   store ptr %call5.i, ptr %g6.i, align 8
   %0 = load ptr, ptr %call.i, align 8
   %tobool8.not.i = icmp eq ptr %0, null
@@ -75,11 +72,11 @@ entry:
 if.end.i:                                         ; preds = %entry
   %call1.i = tail call ptr @BN_dup(ptr noundef nonnull @dh2048_224) #2
   store ptr %call1.i, ptr %call.i, align 8
-  %call3.i = tail call ptr @BN_dup(ptr noundef nonnull getelementptr inbounds (%struct.standard_parameters, ptr @dh2048_224, i64 0, i32 1)) #2
-  %q4.i = getelementptr inbounds %struct.dh_st, ptr %call.i, i64 0, i32 7
+  %call3.i = tail call ptr @BN_dup(ptr noundef nonnull getelementptr inbounds (%struct.standard_parameters, ptr @dh2048_224, i64 0, i32 1, i32 0)) #2
+  %q4.i = getelementptr inbounds i8, ptr %call.i, i64 104
   store ptr %call3.i, ptr %q4.i, align 8
-  %call5.i = tail call ptr @BN_dup(ptr noundef nonnull getelementptr inbounds (%struct.standard_parameters, ptr @dh2048_224, i64 0, i32 2)) #2
-  %g6.i = getelementptr inbounds %struct.dh_st, ptr %call.i, i64 0, i32 1
+  %call5.i = tail call ptr @BN_dup(ptr noundef nonnull getelementptr inbounds (%struct.standard_parameters, ptr @dh2048_224, i64 0, i32 2, i32 0)) #2
+  %g6.i = getelementptr inbounds i8, ptr %call.i, i64 8
   store ptr %call5.i, ptr %g6.i, align 8
   %0 = load ptr, ptr %call.i, align 8
   %tobool8.not.i = icmp eq ptr %0, null
@@ -111,11 +108,11 @@ entry:
 if.end.i:                                         ; preds = %entry
   %call1.i = tail call ptr @BN_dup(ptr noundef nonnull @dh2048_256) #2
   store ptr %call1.i, ptr %call.i, align 8
-  %call3.i = tail call ptr @BN_dup(ptr noundef nonnull getelementptr inbounds (%struct.standard_parameters, ptr @dh2048_256, i64 0, i32 1)) #2
-  %q4.i = getelementptr inbounds %struct.dh_st, ptr %call.i, i64 0, i32 7
+  %call3.i = tail call ptr @BN_dup(ptr noundef nonnull getelementptr inbounds (%struct.standard_parameters, ptr @dh2048_256, i64 0, i32 1, i32 0)) #2
+  %q4.i = getelementptr inbounds i8, ptr %call.i, i64 104
   store ptr %call3.i, ptr %q4.i, align 8
-  %call5.i = tail call ptr @BN_dup(ptr noundef nonnull getelementptr inbounds (%struct.standard_parameters, ptr @dh2048_256, i64 0, i32 2)) #2
-  %g6.i = getelementptr inbounds %struct.dh_st, ptr %call.i, i64 0, i32 1
+  %call5.i = tail call ptr @BN_dup(ptr noundef nonnull getelementptr inbounds (%struct.standard_parameters, ptr @dh2048_256, i64 0, i32 2, i32 0)) #2
+  %g6.i = getelementptr inbounds i8, ptr %call.i, i64 8
   store ptr %call5.i, ptr %g6.i, align 8
   %0 = load ptr, ptr %call.i, align 8
   %tobool8.not.i = icmp eq ptr %0, null
@@ -145,7 +142,7 @@ entry:
   br i1 %cmp, label %for.end, label %lor.lhs.false
 
 lor.lhs.false:                                    ; preds = %entry
-  %g = getelementptr inbounds %struct.dh_st, ptr %dh, i64 0, i32 1
+  %g = getelementptr inbounds i8, ptr %dh, i64 8
   %1 = load ptr, ptr %g, align 8
   %cmp1 = icmp eq ptr %1, null
   br i1 %cmp1, label %for.end, label %lor.lhs.false2
@@ -175,7 +172,7 @@ for.body:                                         ; preds = %lor.lhs.false5, %fo
   br i1 %cmp13, label %if.then15, label %for.cond
 
 if.then15:                                        ; preds = %for.body
-  %priv_length = getelementptr inbounds %struct.dh_st, ptr %dh, i64 0, i32 4
+  %priv_length = getelementptr inbounds i8, ptr %dh, i64 32
   store i32 161, ptr %priv_length, align 8
   br label %for.end
 

@@ -8,7 +8,6 @@ target triple = "x86_64-unknown-linux-gnu"
 %union.anon = type { i64 }
 %struct._typeobject = type { %struct.PyVarObject, ptr, i64, i64, ptr, i64, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, i64, ptr, ptr, ptr, ptr, i64, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, i64, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, i32, ptr, ptr, i8 }
 %struct.PyVarObject = type { %struct._object, i64 }
-%struct.PyFloatObject = type { %struct._object, double }
 
 @test_methods = internal global [11 x %struct.PyMethodDef] [%struct.PyMethodDef { ptr @.str, ptr @float_check, i32 8, ptr null }, %struct.PyMethodDef { ptr @.str.1, ptr @float_checkexact, i32 8, ptr null }, %struct.PyMethodDef { ptr @.str.2, ptr @float_fromstring, i32 8, ptr null }, %struct.PyMethodDef { ptr @.str.3, ptr @float_fromdouble, i32 8, ptr null }, %struct.PyMethodDef { ptr @.str.4, ptr @float_asdouble, i32 8, ptr null }, %struct.PyMethodDef { ptr @.str.5, ptr @float_getinfo, i32 4, ptr null }, %struct.PyMethodDef { ptr @.str.6, ptr @float_getmax, i32 4, ptr null }, %struct.PyMethodDef { ptr @.str.7, ptr @float_getmin, i32 4, ptr null }, %struct.PyMethodDef { ptr @.str.8, ptr @_testcapi_float_pack, i32 128, ptr @_testcapi_float_pack__doc__ }, %struct.PyMethodDef { ptr @.str.9, ptr @_testcapi_float_unpack, i32 128, ptr @_testcapi_float_unpack__doc__ }, %struct.PyMethodDef zeroinitializer], align 16
 @.str = private unnamed_addr constant [12 x i8] c"float_check\00", align 1
@@ -175,7 +174,7 @@ land.lhs.true4:                                   ; preds = %if.end
   br i1 %tobool6.not, label %if.end8, label %exit
 
 if.end8:                                          ; preds = %land.lhs.true4, %if.end
-  %arrayidx9 = getelementptr ptr, ptr %args, i64 1
+  %arrayidx9 = getelementptr i8, ptr %args, i64 8
   %1 = load ptr, ptr %arrayidx9, align 8
   %2 = getelementptr i8, ptr %1, i64 8
   %.val = load ptr, ptr %2, align 8
@@ -183,7 +182,7 @@ if.end8:                                          ; preds = %land.lhs.true4, %if
   br i1 %cmp.i.not, label %PyFloat_AS_DOUBLE.exit, label %if.else
 
 PyFloat_AS_DOUBLE.exit:                           ; preds = %if.end8
-  %ob_fval.i = getelementptr inbounds %struct.PyFloatObject, ptr %1, i64 0, i32 1
+  %ob_fval.i = getelementptr inbounds i8, ptr %1, i64 16
   %3 = load double, ptr %ob_fval.i, align 8
   br label %if.end23
 
@@ -199,7 +198,7 @@ land.lhs.true18:                                  ; preds = %if.else
 
 if.end23:                                         ; preds = %if.else, %land.lhs.true18, %PyFloat_AS_DOUBLE.exit
   %d.0 = phi double [ %3, %PyFloat_AS_DOUBLE.exit ], [ -1.000000e+00, %land.lhs.true18 ], [ %call16, %if.else ]
-  %arrayidx24 = getelementptr ptr, ptr %args, i64 2
+  %arrayidx24 = getelementptr i8, ptr %args, i64 16
   %4 = load ptr, ptr %arrayidx24, align 8
   %call25 = tail call i32 @PyLong_AsInt(ptr noundef %4) #3
   %cmp26 = icmp eq i32 %call25, -1

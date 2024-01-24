@@ -3,23 +3,6 @@ source_filename = "bench/libquic/original/quic_unacked_packet_map.cc.ll"
 target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:128-n8:16:32:64-S128"
 target triple = "x86_64-unknown-linux-gnu"
 
-%"class.net::QuicUnackedPacketMap" = type { i64, i64, %"class.std::deque", i64, i64, i64 }
-%"class.std::deque" = type { %"class.std::_Deque_base" }
-%"class.std::_Deque_base" = type { %"struct.std::_Deque_base<net::TransmissionInfo, std::allocator<net::TransmissionInfo>>::_Deque_impl" }
-%"struct.std::_Deque_base<net::TransmissionInfo, std::allocator<net::TransmissionInfo>>::_Deque_impl" = type { %"struct.std::_Deque_base<net::TransmissionInfo, std::allocator<net::TransmissionInfo>>::_Deque_impl_data" }
-%"struct.std::_Deque_base<net::TransmissionInfo, std::allocator<net::TransmissionInfo>>::_Deque_impl_data" = type { ptr, i64, %"struct.std::_Deque_iterator", %"struct.std::_Deque_iterator" }
-%"struct.std::_Deque_iterator" = type { ptr, ptr, ptr, ptr }
-%"struct.net::TransmissionInfo" = type { %"class.std::vector", i8, i8, i16, %"class.net::QuicTime", i8, i8, i8, i8, i16, i64, %"class.std::__cxx11::list" }
-%"class.std::vector" = type { %"struct.std::_Vector_base" }
-%"struct.std::_Vector_base" = type { %"struct.std::_Vector_base<net::QuicFrame, std::allocator<net::QuicFrame>>::_Vector_impl" }
-%"struct.std::_Vector_base<net::QuicFrame, std::allocator<net::QuicFrame>>::_Vector_impl" = type { %"struct.std::_Vector_base<net::QuicFrame, std::allocator<net::QuicFrame>>::_Vector_impl_data" }
-%"struct.std::_Vector_base<net::QuicFrame, std::allocator<net::QuicFrame>>::_Vector_impl_data" = type { ptr, ptr, ptr }
-%"class.net::QuicTime" = type { i64 }
-%"class.std::__cxx11::list" = type { %"class.std::__cxx11::_List_base" }
-%"class.std::__cxx11::_List_base" = type { %"struct.std::__cxx11::_List_base<net::AckListenerWrapper, std::allocator<net::AckListenerWrapper>>::_List_impl" }
-%"struct.std::__cxx11::_List_base<net::AckListenerWrapper, std::allocator<net::AckListenerWrapper>>::_List_impl" = type { %"struct.std::__detail::_List_node_header" }
-%"struct.std::__detail::_List_node_header" = type { %"struct.std::__detail::_List_node_base", i64 }
-%"struct.std::__detail::_List_node_base" = type { ptr, ptr }
 %"class.logging::LogMessage" = type <{ i32, [4 x i8], %"class.std::__cxx11::basic_ostringstream", i64, ptr, i32, [4 x i8] }>
 %"class.std::__cxx11::basic_ostringstream" = type { %"class.std::basic_ostream.base", %"class.std::__cxx11::basic_stringbuf", %"class.std::basic_ios" }
 %"class.std::basic_ostream.base" = type { ptr }
@@ -32,9 +15,17 @@ target triple = "x86_64-unknown-linux-gnu"
 %"class.std::basic_ios" = type { %"class.std::ios_base", ptr, i8, i8, ptr, ptr, ptr, ptr }
 %"class.std::ios_base" = type { ptr, i64, i64, i32, i32, i32, ptr, %"struct.std::ios_base::_Words", [8 x %"struct.std::ios_base::_Words"], i32, ptr, %"class.std::locale" }
 %"struct.std::ios_base::_Words" = type { ptr, i64 }
-%"struct.net::SerializedPacket" = type { ptr, i16, %"class.std::vector", i8, i16, i8, i64, i8, i8, i8, i8, i8, i8, i8, i64, %"class.std::__cxx11::list" }
-%"struct.std::_List_node" = type { %"struct.std::__detail::_List_node_base", %"struct.__gnu_cxx::__aligned_membuf" }
-%"struct.__gnu_cxx::__aligned_membuf" = type { [16 x i8] }
+%"struct.net::TransmissionInfo" = type { %"class.std::vector", i8, i8, i16, %"class.net::QuicTime", i8, i8, i8, i8, i16, i64, %"class.std::__cxx11::list" }
+%"class.std::vector" = type { %"struct.std::_Vector_base" }
+%"struct.std::_Vector_base" = type { %"struct.std::_Vector_base<net::QuicFrame, std::allocator<net::QuicFrame>>::_Vector_impl" }
+%"struct.std::_Vector_base<net::QuicFrame, std::allocator<net::QuicFrame>>::_Vector_impl" = type { %"struct.std::_Vector_base<net::QuicFrame, std::allocator<net::QuicFrame>>::_Vector_impl_data" }
+%"struct.std::_Vector_base<net::QuicFrame, std::allocator<net::QuicFrame>>::_Vector_impl_data" = type { ptr, ptr, ptr }
+%"class.net::QuicTime" = type { i64 }
+%"class.std::__cxx11::list" = type { %"class.std::__cxx11::_List_base" }
+%"class.std::__cxx11::_List_base" = type { %"struct.std::__cxx11::_List_base<net::AckListenerWrapper, std::allocator<net::AckListenerWrapper>>::_List_impl" }
+%"struct.std::__cxx11::_List_base<net::AckListenerWrapper, std::allocator<net::AckListenerWrapper>>::_List_impl" = type { %"struct.std::__detail::_List_node_header" }
+%"struct.std::__detail::_List_node_header" = type { %"struct.std::__detail::_List_node_base", i64 }
+%"struct.std::__detail::_List_node_base" = type { ptr, ptr }
 
 $__clang_call_terminate = comdat any
 
@@ -64,12 +55,12 @@ $_ZNSt5dequeIN3net16TransmissionInfoESaIS1_EE16_M_push_back_auxIJRKS1_EEEvDpOT_ 
 ; Function Attrs: mustprogress uwtable
 define dso_local void @_ZN3net20QuicUnackedPacketMapC2Ev(ptr noundef nonnull align 8 dereferenceable(120) %this) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  %unacked_packets_ = getelementptr inbounds %"class.net::QuicUnackedPacketMap", ptr %this, i64 0, i32 2
+  %unacked_packets_ = getelementptr inbounds i8, ptr %this, i64 16
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(96) %this, i8 0, i64 96, i1 false)
   tail call void @_ZNSt11_Deque_baseIN3net16TransmissionInfoESaIS1_EE17_M_initialize_mapEm(ptr noundef nonnull align 8 dereferenceable(80) %unacked_packets_, i64 noundef 0)
-  %least_unacked_ = getelementptr inbounds %"class.net::QuicUnackedPacketMap", ptr %this, i64 0, i32 3
+  %least_unacked_ = getelementptr inbounds i8, ptr %this, i64 96
   store i64 1, ptr %least_unacked_, align 8
-  %bytes_in_flight_ = getelementptr inbounds %"class.net::QuicUnackedPacketMap", ptr %this, i64 0, i32 4
+  %bytes_in_flight_ = getelementptr inbounds i8, ptr %this, i64 104
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %bytes_in_flight_, i8 0, i64 16, i1 false)
   ret void
 }
@@ -77,17 +68,17 @@ entry:
 ; Function Attrs: mustprogress nounwind uwtable
 define dso_local void @_ZN3net20QuicUnackedPacketMapD2Ev(ptr noundef nonnull align 8 dereferenceable(120) %this) unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  %_M_start.i = getelementptr inbounds %"class.net::QuicUnackedPacketMap", ptr %this, i64 0, i32 2, i32 0, i32 0, i32 0, i32 2
+  %_M_start.i = getelementptr inbounds i8, ptr %this, i64 32
   %0 = load ptr, ptr %_M_start.i, align 8, !noalias !5
-  %_M_finish.i = getelementptr inbounds %"class.net::QuicUnackedPacketMap", ptr %this, i64 0, i32 2, i32 0, i32 0, i32 0, i32 3
+  %_M_finish.i = getelementptr inbounds i8, ptr %this, i64 64
   %1 = load ptr, ptr %_M_finish.i, align 8, !noalias !8
   %cmp.i.i.not10 = icmp eq ptr %0, %1
   br i1 %cmp.i.i.not10, label %for.end, label %for.body.preheader
 
 for.body.preheader:                               ; preds = %entry
-  %_M_node5.i.i = getelementptr inbounds %"class.net::QuicUnackedPacketMap", ptr %this, i64 0, i32 2, i32 0, i32 0, i32 0, i32 2, i32 3
+  %_M_node5.i.i = getelementptr inbounds i8, ptr %this, i64 56
   %2 = load ptr, ptr %_M_node5.i.i, align 8, !noalias !5
-  %_M_last4.i.i = getelementptr inbounds %"class.net::QuicUnackedPacketMap", ptr %this, i64 0, i32 2, i32 0, i32 0, i32 0, i32 2, i32 2
+  %_M_last4.i.i = getelementptr inbounds i8, ptr %this, i64 48
   %3 = load ptr, ptr %_M_last4.i.i, align 8, !noalias !5
   br label %for.body
 
@@ -99,14 +90,14 @@ for.body:                                         ; preds = %for.body.preheader,
           to label %for.inc unwind label %terminate.lpad
 
 for.inc:                                          ; preds = %for.body
-  %incdec.ptr.i = getelementptr inbounds %"struct.net::TransmissionInfo", ptr %it.sroa.0.011, i64 1
+  %incdec.ptr.i = getelementptr inbounds i8, ptr %it.sroa.0.011, i64 80
   %cmp.i = icmp eq ptr %incdec.ptr.i, %it.sroa.8.012
   br i1 %cmp.i, label %if.then.i, label %_ZNSt15_Deque_iteratorIN3net16TransmissionInfoERS1_PS1_EppEv.exit
 
 if.then.i:                                        ; preds = %for.inc
-  %add.ptr.i = getelementptr inbounds ptr, ptr %it.sroa.11.013, i64 1
+  %add.ptr.i = getelementptr inbounds i8, ptr %it.sroa.11.013, i64 8
   %4 = load ptr, ptr %add.ptr.i, align 8
-  %add.ptr.i.i = getelementptr inbounds %"struct.net::TransmissionInfo", ptr %4, i64 6
+  %add.ptr.i.i = getelementptr inbounds i8, ptr %4, i64 480
   br label %_ZNSt15_Deque_iteratorIN3net16TransmissionInfoERS1_PS1_EppEv.exit
 
 _ZNSt15_Deque_iteratorIN3net16TransmissionInfoERS1_PS1_EppEv.exit: ; preds = %for.inc, %if.then.i
@@ -118,7 +109,7 @@ _ZNSt15_Deque_iteratorIN3net16TransmissionInfoERS1_PS1_EppEv.exit: ; preds = %fo
   br i1 %cmp.i.i.not, label %for.end, label %for.body, !llvm.loop !11
 
 for.end:                                          ; preds = %_ZNSt15_Deque_iteratorIN3net16TransmissionInfoERS1_PS1_EppEv.exit, %entry
-  %unacked_packets_ = getelementptr inbounds %"class.net::QuicUnackedPacketMap", ptr %this, i64 0, i32 2
+  %unacked_packets_ = getelementptr inbounds i8, ptr %this, i64 16
   tail call void @_ZNSt5dequeIN3net16TransmissionInfoESaIS1_EED2Ev(ptr noundef nonnull align 8 dereferenceable(80) %unacked_packets_) #16
   ret void
 
@@ -148,19 +139,19 @@ declare void @_ZSt9terminatev() local_unnamed_addr
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr dso_local void @_ZNSt5dequeIN3net16TransmissionInfoESaIS1_EED2Ev(ptr noundef nonnull align 8 dereferenceable(80) %this) unnamed_addr #1 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  %_M_start.i = getelementptr inbounds %"struct.std::_Deque_base<net::TransmissionInfo, std::allocator<net::TransmissionInfo>>::_Deque_impl_data", ptr %this, i64 0, i32 2
+  %_M_start.i = getelementptr inbounds i8, ptr %this, i64 16
   %0 = load ptr, ptr %_M_start.i, align 8, !noalias !13
-  %_M_last4.i.i = getelementptr inbounds %"struct.std::_Deque_base<net::TransmissionInfo, std::allocator<net::TransmissionInfo>>::_Deque_impl_data", ptr %this, i64 0, i32 2, i32 2
+  %_M_last4.i.i = getelementptr inbounds i8, ptr %this, i64 32
   %1 = load ptr, ptr %_M_last4.i.i, align 8, !noalias !13
-  %_M_node5.i.i = getelementptr inbounds %"struct.std::_Deque_base<net::TransmissionInfo, std::allocator<net::TransmissionInfo>>::_Deque_impl_data", ptr %this, i64 0, i32 2, i32 3
+  %_M_node5.i.i = getelementptr inbounds i8, ptr %this, i64 40
   %2 = load ptr, ptr %_M_node5.i.i, align 8, !noalias !13
-  %_M_finish.i = getelementptr inbounds %"struct.std::_Deque_base<net::TransmissionInfo, std::allocator<net::TransmissionInfo>>::_Deque_impl_data", ptr %this, i64 0, i32 3
+  %_M_finish.i = getelementptr inbounds i8, ptr %this, i64 48
   %3 = load ptr, ptr %_M_finish.i, align 8, !noalias !16
-  %_M_first3.i.i2 = getelementptr inbounds %"struct.std::_Deque_base<net::TransmissionInfo, std::allocator<net::TransmissionInfo>>::_Deque_impl_data", ptr %this, i64 0, i32 3, i32 1
+  %_M_first3.i.i2 = getelementptr inbounds i8, ptr %this, i64 56
   %4 = load ptr, ptr %_M_first3.i.i2, align 8, !noalias !16
-  %_M_node5.i.i6 = getelementptr inbounds %"struct.std::_Deque_base<net::TransmissionInfo, std::allocator<net::TransmissionInfo>>::_Deque_impl_data", ptr %this, i64 0, i32 3, i32 3
+  %_M_node5.i.i6 = getelementptr inbounds i8, ptr %this, i64 72
   %5 = load ptr, ptr %_M_node5.i.i6, align 8, !noalias !16
-  %__node.022.i.i = getelementptr inbounds ptr, ptr %2, i64 1
+  %__node.022.i.i = getelementptr inbounds i8, ptr %2, i64 8
   %cmp23.i.i = icmp ult ptr %__node.022.i.i, %5
   br i1 %cmp23.i.i, label %for.body.i.i, label %for.end.i.i
 
@@ -178,7 +169,7 @@ for.body.i.i.i.i.i:                               ; preds = %for.body.i.i.i.i.i,
   br i1 %cmp.not.i.i.i.i.i, label %_ZSt8_DestroyIPN3net16TransmissionInfoES1_EvT_S3_RSaIT0_E.exit.i.i, label %for.body.i.i.i.i.i, !llvm.loop !19
 
 _ZSt8_DestroyIPN3net16TransmissionInfoES1_EvT_S3_RSaIT0_E.exit.i.i: ; preds = %for.body.i.i.i.i.i
-  %__node.0.i.i = getelementptr inbounds ptr, ptr %__node.024.i.i, i64 1
+  %__node.0.i.i = getelementptr inbounds i8, ptr %__node.024.i.i, i64 8
   %cmp.i.i = icmp ult ptr %__node.0.i.i, %5
   br i1 %cmp.i.i, label %for.body.i.i, label %for.end.i.i, !llvm.loop !20
 
@@ -193,7 +184,7 @@ if.then.i.i:                                      ; preds = %for.end.i.i
 for.body.i.i.i4.i.i:                              ; preds = %if.then.i.i, %for.body.i.i.i4.i.i
   %__first.addr.04.i.i.i5.i.i = phi ptr [ %incdec.ptr.i.i.i6.i.i, %for.body.i.i.i4.i.i ], [ %0, %if.then.i.i ]
   tail call void @_ZN3net16TransmissionInfoD1Ev(ptr noundef nonnull align 8 dereferenceable(80) %__first.addr.04.i.i.i5.i.i) #16
-  %incdec.ptr.i.i.i6.i.i = getelementptr inbounds %"struct.net::TransmissionInfo", ptr %__first.addr.04.i.i.i5.i.i, i64 1
+  %incdec.ptr.i.i.i6.i.i = getelementptr inbounds i8, ptr %__first.addr.04.i.i.i5.i.i, i64 80
   %cmp.not.i.i.i7.i.i = icmp eq ptr %incdec.ptr.i.i.i6.i.i, %1
   br i1 %cmp.not.i.i.i7.i.i, label %_ZSt8_DestroyIPN3net16TransmissionInfoES1_EvT_S3_RSaIT0_E.exit8.i.i, label %for.body.i.i.i4.i.i, !llvm.loop !19
 
@@ -204,7 +195,7 @@ _ZSt8_DestroyIPN3net16TransmissionInfoES1_EvT_S3_RSaIT0_E.exit8.i.i: ; preds = %
 for.body.i.i.i10.i.i:                             ; preds = %_ZSt8_DestroyIPN3net16TransmissionInfoES1_EvT_S3_RSaIT0_E.exit8.i.i, %for.body.i.i.i10.i.i
   %__first.addr.04.i.i.i11.i.i = phi ptr [ %incdec.ptr.i.i.i12.i.i, %for.body.i.i.i10.i.i ], [ %4, %_ZSt8_DestroyIPN3net16TransmissionInfoES1_EvT_S3_RSaIT0_E.exit8.i.i ]
   tail call void @_ZN3net16TransmissionInfoD1Ev(ptr noundef nonnull align 8 dereferenceable(80) %__first.addr.04.i.i.i11.i.i) #16
-  %incdec.ptr.i.i.i12.i.i = getelementptr inbounds %"struct.net::TransmissionInfo", ptr %__first.addr.04.i.i.i11.i.i, i64 1
+  %incdec.ptr.i.i.i12.i.i = getelementptr inbounds i8, ptr %__first.addr.04.i.i.i11.i.i, i64 80
   %cmp.not.i.i.i13.i.i = icmp eq ptr %incdec.ptr.i.i.i12.i.i, %3
   br i1 %cmp.not.i.i.i13.i.i, label %invoke.cont, label %for.body.i.i.i10.i.i, !llvm.loop !19
 
@@ -215,7 +206,7 @@ if.else.i.i:                                      ; preds = %for.end.i.i
 for.body.i.i.i16.i.i:                             ; preds = %if.else.i.i, %for.body.i.i.i16.i.i
   %__first.addr.04.i.i.i17.i.i = phi ptr [ %incdec.ptr.i.i.i18.i.i, %for.body.i.i.i16.i.i ], [ %0, %if.else.i.i ]
   tail call void @_ZN3net16TransmissionInfoD1Ev(ptr noundef nonnull align 8 dereferenceable(80) %__first.addr.04.i.i.i17.i.i) #16
-  %incdec.ptr.i.i.i18.i.i = getelementptr inbounds %"struct.net::TransmissionInfo", ptr %__first.addr.04.i.i.i17.i.i, i64 1
+  %incdec.ptr.i.i.i18.i.i = getelementptr inbounds i8, ptr %__first.addr.04.i.i.i17.i.i, i64 80
   %cmp.not.i.i.i19.i.i = icmp eq ptr %incdec.ptr.i.i.i18.i.i, %3
   br i1 %cmp.not.i.i.i19.i.i, label %invoke.cont, label %for.body.i.i.i16.i.i, !llvm.loop !19
 
@@ -227,7 +218,7 @@ invoke.cont:                                      ; preds = %for.body.i.i.i10.i.
 if.then.i:                                        ; preds = %invoke.cont
   %8 = load ptr, ptr %_M_node5.i.i, align 8
   %9 = load ptr, ptr %_M_node5.i.i6, align 8
-  %add.ptr.i = getelementptr inbounds ptr, ptr %9, i64 1
+  %add.ptr.i = getelementptr inbounds i8, ptr %9, i64 8
   %cmp3.i.i = icmp ult ptr %8, %add.ptr.i
   br i1 %cmp3.i.i, label %for.body.i.i9, label %_ZNSt11_Deque_baseIN3net16TransmissionInfoESaIS1_EE16_M_destroy_nodesEPPS1_S5_.exit.i
 
@@ -235,7 +226,7 @@ for.body.i.i9:                                    ; preds = %if.then.i, %for.bod
   %__n.04.i.i = phi ptr [ %incdec.ptr.i.i, %for.body.i.i9 ], [ %8, %if.then.i ]
   %10 = load ptr, ptr %__n.04.i.i, align 8
   tail call void @_ZdlPv(ptr noundef %10) #18
-  %incdec.ptr.i.i = getelementptr inbounds ptr, ptr %__n.04.i.i, i64 1
+  %incdec.ptr.i.i = getelementptr inbounds i8, ptr %__n.04.i.i, i64 8
   %cmp.i.i10 = icmp ult ptr %__n.04.i.i, %9
   br i1 %cmp.i.i10, label %for.body.i.i9, label %_ZNSt11_Deque_baseIN3net16TransmissionInfoESaIS1_EE16_M_destroy_nodesEPPS1_S5_.exit.loopexit.i, !llvm.loop !21
 
@@ -258,9 +249,9 @@ entry:
   %ref.tmp3 = alloca %"class.logging::LogMessage", align 8
   %ref.tmp20 = alloca %"struct.net::TransmissionInfo", align 8
   %info = alloca %"struct.net::TransmissionInfo", align 8
-  %packet_number2 = getelementptr inbounds %"struct.net::SerializedPacket", ptr %packet, i64 0, i32 6
+  %packet_number2 = getelementptr inbounds i8, ptr %packet, i64 48
   %0 = load i64, ptr %packet_number2, align 8
-  %encrypted_length = getelementptr inbounds %"struct.net::SerializedPacket", ptr %packet, i64 0, i32 1
+  %encrypted_length = getelementptr inbounds i8, ptr %packet, i64 8
   %1 = load i16, ptr %encrypted_length, align 8
   %call = tail call noundef zeroext i1 @_ZN7logging22ShouldCreateLogMessageEi(i32 noundef 2)
   %2 = load i64, ptr %this, align 8
@@ -270,7 +261,7 @@ entry:
 
 cond.false:                                       ; preds = %entry
   call void @_ZN7logging10LogMessageC1EPKcii(ptr noundef nonnull align 8 dereferenceable(404) %ref.tmp3, ptr noundef nonnull @.str, i32 noundef 41, i32 noundef 2)
-  %stream_.i = getelementptr inbounds %"class.logging::LogMessage", ptr %ref.tmp3, i64 0, i32 2
+  %stream_.i = getelementptr inbounds i8, ptr %ref.tmp3, i64 8
   %call6 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZNSolsEm(ptr noundef nonnull align 8 dereferenceable(8) %stream_.i, i64 noundef %0)
           to label %invoke.cont5 unwind label %lpad
 
@@ -285,15 +276,15 @@ lpad:                                             ; preds = %cond.false
   br label %eh.resume
 
 if.end:                                           ; preds = %invoke.cont5, %entry
-  %least_unacked_ = getelementptr inbounds %"class.net::QuicUnackedPacketMap", ptr %this, i64 0, i32 3
-  %unacked_packets_ = getelementptr inbounds %"class.net::QuicUnackedPacketMap", ptr %this, i64 0, i32 2
-  %_M_finish.i = getelementptr inbounds %"class.net::QuicUnackedPacketMap", ptr %this, i64 0, i32 2, i32 0, i32 0, i32 0, i32 3
-  %_M_start.i = getelementptr inbounds %"class.net::QuicUnackedPacketMap", ptr %this, i64 0, i32 2, i32 0, i32 0, i32 0, i32 2
-  %_M_node.i.i = getelementptr inbounds %"class.net::QuicUnackedPacketMap", ptr %this, i64 0, i32 2, i32 0, i32 0, i32 0, i32 3, i32 3
-  %_M_node1.i.i = getelementptr inbounds %"class.net::QuicUnackedPacketMap", ptr %this, i64 0, i32 2, i32 0, i32 0, i32 0, i32 2, i32 3
-  %_M_first.i.i = getelementptr inbounds %"class.net::QuicUnackedPacketMap", ptr %this, i64 0, i32 2, i32 0, i32 0, i32 0, i32 3, i32 1
-  %_M_last.i.i = getelementptr inbounds %"class.net::QuicUnackedPacketMap", ptr %this, i64 0, i32 2, i32 0, i32 0, i32 0, i32 2, i32 2
-  %_M_last.i.i19 = getelementptr inbounds %"class.net::QuicUnackedPacketMap", ptr %this, i64 0, i32 2, i32 0, i32 0, i32 0, i32 3, i32 2
+  %least_unacked_ = getelementptr inbounds i8, ptr %this, i64 96
+  %unacked_packets_ = getelementptr inbounds i8, ptr %this, i64 16
+  %_M_finish.i = getelementptr inbounds i8, ptr %this, i64 64
+  %_M_start.i = getelementptr inbounds i8, ptr %this, i64 32
+  %_M_node.i.i = getelementptr inbounds i8, ptr %this, i64 88
+  %_M_node1.i.i = getelementptr inbounds i8, ptr %this, i64 56
+  %_M_first.i.i = getelementptr inbounds i8, ptr %this, i64 72
+  %_M_last.i.i = getelementptr inbounds i8, ptr %this, i64 48
+  %_M_last.i.i19 = getelementptr inbounds i8, ptr %this, i64 80
   br label %while.cond
 
 while.cond:                                       ; preds = %_ZNSt5dequeIN3net16TransmissionInfoESaIS1_EE4backEv.exit, %if.end
@@ -330,7 +321,7 @@ while.body:                                       ; preds = %while.cond
   call void @_ZN3net16TransmissionInfoC1Ev(ptr noundef nonnull align 8 dereferenceable(80) %ref.tmp20)
   %11 = load ptr, ptr %_M_finish.i, align 8
   %12 = load ptr, ptr %_M_last.i.i19, align 8
-  %add.ptr.i.i = getelementptr inbounds %"struct.net::TransmissionInfo", ptr %12, i64 -1
+  %add.ptr.i.i = getelementptr inbounds i8, ptr %12, i64 -80
   %cmp.not.i.i = icmp eq ptr %11, %add.ptr.i.i
   br i1 %cmp.not.i.i, label %if.else.i.i, label %if.then.i.i
 
@@ -340,7 +331,7 @@ if.then.i.i:                                      ; preds = %while.body
 
 .noexc:                                           ; preds = %if.then.i.i
   %13 = load ptr, ptr %_M_finish.i, align 8
-  %incdec.ptr.i.i = getelementptr inbounds %"struct.net::TransmissionInfo", ptr %13, i64 1
+  %incdec.ptr.i.i = getelementptr inbounds i8, ptr %13, i64 80
   store ptr %incdec.ptr.i.i, ptr %_M_finish.i, align 8
   br label %invoke.cont22
 
@@ -357,14 +348,14 @@ invoke.cont22:                                    ; preds = %.noexc, %if.else.i.
 
 if.then.i.i23:                                    ; preds = %invoke.cont22
   %16 = load ptr, ptr %_M_node.i.i, align 8, !noalias !22
-  %add.ptr.i.i24 = getelementptr inbounds ptr, ptr %16, i64 -1
+  %add.ptr.i.i24 = getelementptr inbounds i8, ptr %16, i64 -8
   %17 = load ptr, ptr %add.ptr.i.i24, align 8
-  %add.ptr.i.i.i = getelementptr inbounds %"struct.net::TransmissionInfo", ptr %17, i64 6
+  %add.ptr.i.i.i = getelementptr inbounds i8, ptr %17, i64 480
   br label %_ZNSt5dequeIN3net16TransmissionInfoESaIS1_EE4backEv.exit
 
 _ZNSt5dequeIN3net16TransmissionInfoESaIS1_EE4backEv.exit: ; preds = %invoke.cont22, %if.then.i.i23
   %18 = phi ptr [ %add.ptr.i.i.i, %if.then.i.i23 ], [ %14, %invoke.cont22 ]
-  %is_unackable = getelementptr %"struct.net::TransmissionInfo", ptr %18, i64 -1, i32 7
+  %is_unackable = getelementptr inbounds i8, ptr %18, i64 -38
   store i8 1, ptr %is_unackable, align 2
   br label %while.cond, !llvm.loop !25
 
@@ -375,14 +366,14 @@ lpad21:                                           ; preds = %if.else.i.i, %if.th
   br label %eh.resume
 
 while.end:                                        ; preds = %while.cond
-  %has_crypto_handshake25 = getelementptr inbounds %"struct.net::SerializedPacket", ptr %packet, i64 0, i32 3
+  %has_crypto_handshake25 = getelementptr inbounds i8, ptr %packet, i64 40
   %20 = load i8, ptr %has_crypto_handshake25, align 8
   %cmp26 = icmp eq i8 %20, 1
-  %encryption_level = getelementptr inbounds %"struct.net::SerializedPacket", ptr %packet, i64 0, i32 8
+  %encryption_level = getelementptr inbounds i8, ptr %packet, i64 57
   %21 = load i8, ptr %encryption_level, align 1
-  %packet_number_length = getelementptr inbounds %"struct.net::SerializedPacket", ptr %packet, i64 0, i32 7
+  %packet_number_length = getelementptr inbounds i8, ptr %packet, i64 56
   %22 = load i8, ptr %packet_number_length, align 8
-  %num_padding_bytes = getelementptr inbounds %"struct.net::SerializedPacket", ptr %packet, i64 0, i32 4
+  %num_padding_bytes = getelementptr inbounds i8, ptr %packet, i64 42
   %23 = load i16, ptr %num_padding_bytes, align 2
   %conv28 = sext i16 %23 to i32
   call void @_ZN3net16TransmissionInfoC1ENS_15EncryptionLevelENS_22QuicPacketNumberLengthENS_16TransmissionTypeENS_8QuicTimeEtbi(ptr noundef nonnull align 8 dereferenceable(80) %info, i8 noundef signext %21, i8 noundef signext %22, i8 noundef signext %transmission_type, i64 %sent_time.coerce, i16 noundef zeroext %1, i1 noundef zeroext %cmp26, i32 noundef %conv28)
@@ -405,18 +396,18 @@ if.end34:                                         ; preds = %if.then31, %while.e
 
 if.then37:                                        ; preds = %if.end34
   %conv38 = zext i16 %1 to i64
-  %bytes_in_flight_ = getelementptr inbounds %"class.net::QuicUnackedPacketMap", ptr %this, i64 0, i32 4
+  %bytes_in_flight_ = getelementptr inbounds i8, ptr %this, i64 104
   %25 = load i64, ptr %bytes_in_flight_, align 8
   %add39 = add i64 %25, %conv38
   store i64 %add39, ptr %bytes_in_flight_, align 8
-  %in_flight = getelementptr inbounds %"struct.net::TransmissionInfo", ptr %info, i64 0, i32 6
+  %in_flight = getelementptr inbounds i8, ptr %info, i64 41
   store i8 1, ptr %in_flight, align 1
   br label %if.end40
 
 if.end40:                                         ; preds = %if.then37, %if.end34
   %26 = load ptr, ptr %_M_finish.i, align 8
   %27 = load ptr, ptr %_M_last.i.i19, align 8
-  %add.ptr.i = getelementptr inbounds %"struct.net::TransmissionInfo", ptr %27, i64 -1
+  %add.ptr.i = getelementptr inbounds i8, ptr %27, i64 -80
   %cmp.not.i = icmp eq ptr %26, %add.ptr.i
   br i1 %cmp.not.i, label %if.else.i, label %if.then.i
 
@@ -426,7 +417,7 @@ if.then.i:                                        ; preds = %if.end40
 
 .noexc26:                                         ; preds = %if.then.i
   %28 = load ptr, ptr %_M_finish.i, align 8
-  %incdec.ptr.i = getelementptr inbounds %"struct.net::TransmissionInfo", ptr %28, i64 1
+  %incdec.ptr.i = getelementptr inbounds i8, ptr %28, i64 80
   store ptr %incdec.ptr.i, ptr %_M_finish.i, align 8
   br label %invoke.cont42
 
@@ -441,14 +432,14 @@ if.then44:                                        ; preds = %invoke.cont42
   br i1 %cmp26, label %if.then46, label %if.end47
 
 if.then46:                                        ; preds = %if.then44
-  %pending_crypto_packet_count_ = getelementptr inbounds %"class.net::QuicUnackedPacketMap", ptr %this, i64 0, i32 5
+  %pending_crypto_packet_count_ = getelementptr inbounds i8, ptr %this, i64 112
   %29 = load i64, ptr %pending_crypto_packet_count_, align 8
   %inc = add i64 %29, 1
   store i64 %inc, ptr %pending_crypto_packet_count_, align 8
   br label %if.end47
 
 if.end47:                                         ; preds = %if.then46, %if.then44
-  %retransmittable_frames = getelementptr inbounds %"struct.net::SerializedPacket", ptr %packet, i64 0, i32 2
+  %retransmittable_frames = getelementptr inbounds i8, ptr %packet, i64 16
   %30 = load ptr, ptr %_M_finish.i, align 8, !noalias !26
   %31 = load ptr, ptr %_M_first.i.i, align 8, !noalias !26
   %cmp.i.i30 = icmp eq ptr %30, %31
@@ -456,20 +447,20 @@ if.end47:                                         ; preds = %if.then46, %if.then
 
 if.then.i.i32:                                    ; preds = %if.end47
   %32 = load ptr, ptr %_M_node.i.i, align 8, !noalias !26
-  %add.ptr.i.i34 = getelementptr inbounds ptr, ptr %32, i64 -1
+  %add.ptr.i.i34 = getelementptr inbounds i8, ptr %32, i64 -8
   %33 = load ptr, ptr %add.ptr.i.i34, align 8
-  %add.ptr.i.i.i35 = getelementptr inbounds %"struct.net::TransmissionInfo", ptr %33, i64 6
+  %add.ptr.i.i.i35 = getelementptr inbounds i8, ptr %33, i64 480
   br label %_ZNSt5dequeIN3net16TransmissionInfoESaIS1_EE4backEv.exit36
 
 _ZNSt5dequeIN3net16TransmissionInfoESaIS1_EE4backEv.exit36: ; preds = %if.end47, %if.then.i.i32
   %34 = phi ptr [ %add.ptr.i.i.i35, %if.then.i.i32 ], [ %30, %if.end47 ]
-  %incdec.ptr.i.i31 = getelementptr inbounds %"struct.net::TransmissionInfo", ptr %34, i64 -1
-  %_M_finish.i.i.i = getelementptr inbounds %"struct.net::SerializedPacket", ptr %packet, i64 0, i32 2, i32 0, i32 0, i32 0, i32 1
-  %_M_end_of_storage.i.i.i = getelementptr inbounds %"struct.net::SerializedPacket", ptr %packet, i64 0, i32 2, i32 0, i32 0, i32 0, i32 2
+  %incdec.ptr.i.i31 = getelementptr inbounds i8, ptr %34, i64 -80
+  %_M_finish.i.i.i = getelementptr inbounds i8, ptr %packet, i64 24
+  %_M_end_of_storage.i.i.i = getelementptr inbounds i8, ptr %packet, i64 32
   %35 = load ptr, ptr %_M_end_of_storage.i.i.i, align 8
   %36 = load ptr, ptr %incdec.ptr.i.i31, align 8
-  %_M_finish.i2.i.i = getelementptr %"struct.net::TransmissionInfo", ptr %34, i64 -1, i32 0, i32 0, i32 0, i32 0, i32 1
-  %_M_end_of_storage.i4.i.i = getelementptr %"struct.net::TransmissionInfo", ptr %34, i64 -1, i32 0, i32 0, i32 0, i32 0, i32 2
+  %_M_finish.i2.i.i = getelementptr inbounds i8, ptr %34, i64 -72
+  %_M_end_of_storage.i4.i.i = getelementptr inbounds i8, ptr %34, i64 -64
   %37 = load <2 x ptr>, ptr %retransmittable_frames, align 8
   store ptr %36, ptr %retransmittable_frames, align 8
   %38 = load ptr, ptr %_M_finish.i2.i.i, align 8
@@ -485,19 +476,19 @@ _ZNSt5dequeIN3net16TransmissionInfoESaIS1_EE4backEv.exit36: ; preds = %if.end47,
 
 if.then.i.i41:                                    ; preds = %_ZNSt5dequeIN3net16TransmissionInfoESaIS1_EE4backEv.exit36
   %42 = load ptr, ptr %_M_node.i.i, align 8, !noalias !29
-  %add.ptr.i.i43 = getelementptr inbounds ptr, ptr %42, i64 -1
+  %add.ptr.i.i43 = getelementptr inbounds i8, ptr %42, i64 -8
   %43 = load ptr, ptr %add.ptr.i.i43, align 8
-  %add.ptr.i.i.i44 = getelementptr inbounds %"struct.net::TransmissionInfo", ptr %43, i64 6
+  %add.ptr.i.i.i44 = getelementptr inbounds i8, ptr %43, i64 480
   br label %_ZNSt5dequeIN3net16TransmissionInfoESaIS1_EE4backEv.exit45
 
 _ZNSt5dequeIN3net16TransmissionInfoESaIS1_EE4backEv.exit45: ; preds = %_ZNSt5dequeIN3net16TransmissionInfoESaIS1_EE4backEv.exit36, %if.then.i.i41
   %44 = phi ptr [ %add.ptr.i.i.i44, %if.then.i.i41 ], [ %40, %_ZNSt5dequeIN3net16TransmissionInfoESaIS1_EE4backEv.exit36 ]
-  %ack_listeners = getelementptr %"struct.net::TransmissionInfo", ptr %44, i64 -1, i32 11
-  %listeners = getelementptr inbounds %"struct.net::SerializedPacket", ptr %packet, i64 0, i32 15
+  %ack_listeners = getelementptr inbounds i8, ptr %44, i64 -24
+  %listeners = getelementptr inbounds i8, ptr %packet, i64 72
   call void @_ZNSt8__detail15_List_node_base4swapERS0_S1_(ptr noundef nonnull align 8 dereferenceable(16) %ack_listeners, ptr noundef nonnull align 8 dereferenceable(16) %listeners) #16
-  %_M_size.i.i = getelementptr inbounds %"struct.net::SerializedPacket", ptr %packet, i64 0, i32 15, i32 0, i32 0, i32 0, i32 1
+  %_M_size.i.i = getelementptr inbounds i8, ptr %packet, i64 88
   %45 = load i64, ptr %_M_size.i.i, align 8
-  %_M_size.i4.i = getelementptr %"struct.net::TransmissionInfo", ptr %44, i64 -1, i32 11, i32 0, i32 0, i32 0, i32 1
+  %_M_size.i4.i = getelementptr inbounds i8, ptr %44, i64 -8
   %46 = load i64, ptr %_M_size.i4.i, align 8
   store i64 %46, ptr %_M_size.i.i, align 8
   store i64 %45, ptr %_M_size.i4.i, align 8
@@ -524,11 +515,11 @@ declare void @_ZN7logging10LogMessageD1Ev(ptr noundef nonnull align 8 dereferenc
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr dso_local noundef i64 @_ZNKSt5dequeIN3net16TransmissionInfoESaIS1_EE4sizeEv(ptr noundef nonnull align 8 dereferenceable(80) %this) local_unnamed_addr #1 comdat align 2 {
 entry:
-  %_M_finish = getelementptr inbounds %"struct.std::_Deque_base<net::TransmissionInfo, std::allocator<net::TransmissionInfo>>::_Deque_impl_data", ptr %this, i64 0, i32 3
-  %_M_start = getelementptr inbounds %"struct.std::_Deque_base<net::TransmissionInfo, std::allocator<net::TransmissionInfo>>::_Deque_impl_data", ptr %this, i64 0, i32 2
-  %_M_node.i = getelementptr inbounds %"struct.std::_Deque_base<net::TransmissionInfo, std::allocator<net::TransmissionInfo>>::_Deque_impl_data", ptr %this, i64 0, i32 3, i32 3
+  %_M_finish = getelementptr inbounds i8, ptr %this, i64 48
+  %_M_start = getelementptr inbounds i8, ptr %this, i64 16
+  %_M_node.i = getelementptr inbounds i8, ptr %this, i64 72
   %0 = load ptr, ptr %_M_node.i, align 8
-  %_M_node1.i = getelementptr inbounds %"struct.std::_Deque_base<net::TransmissionInfo, std::allocator<net::TransmissionInfo>>::_Deque_impl_data", ptr %this, i64 0, i32 2, i32 3
+  %_M_node1.i = getelementptr inbounds i8, ptr %this, i64 40
   %1 = load ptr, ptr %_M_node1.i, align 8
   %sub.ptr.lhs.cast.i = ptrtoint ptr %0 to i64
   %sub.ptr.rhs.cast.i = ptrtoint ptr %1 to i64
@@ -539,14 +530,14 @@ entry:
   %sub.i = add nsw i64 %sub.ptr.div.i, %conv.neg.i
   %mul.i = mul nsw i64 %sub.i, 6
   %2 = load ptr, ptr %_M_finish, align 8
-  %_M_first.i = getelementptr inbounds %"struct.std::_Deque_base<net::TransmissionInfo, std::allocator<net::TransmissionInfo>>::_Deque_impl_data", ptr %this, i64 0, i32 3, i32 1
+  %_M_first.i = getelementptr inbounds i8, ptr %this, i64 56
   %3 = load ptr, ptr %_M_first.i, align 8
   %sub.ptr.lhs.cast3.i = ptrtoint ptr %2 to i64
   %sub.ptr.rhs.cast4.i = ptrtoint ptr %3 to i64
   %sub.ptr.sub5.i = sub i64 %sub.ptr.lhs.cast3.i, %sub.ptr.rhs.cast4.i
   %sub.ptr.div6.i = sdiv exact i64 %sub.ptr.sub5.i, 80
   %add.i = add nsw i64 %mul.i, %sub.ptr.div6.i
-  %_M_last.i = getelementptr inbounds %"struct.std::_Deque_base<net::TransmissionInfo, std::allocator<net::TransmissionInfo>>::_Deque_impl_data", ptr %this, i64 0, i32 2, i32 2
+  %_M_last.i = getelementptr inbounds i8, ptr %this, i64 32
   %4 = load ptr, ptr %_M_last.i, align 8
   %5 = load ptr, ptr %_M_start, align 8
   %sub.ptr.lhs.cast8.i = ptrtoint ptr %4 to i64
@@ -568,7 +559,7 @@ declare void @_ZN3net16TransmissionInfoC1ENS_15EncryptionLevelENS_22QuicPacketNu
 define dso_local void @_ZN3net20QuicUnackedPacketMap26TransferRetransmissionInfoEmmNS_16TransmissionTypeEPNS_16TransmissionInfoE(ptr noundef nonnull align 8 dereferenceable(120) %this, i64 noundef %old_packet_number, i64 noundef %new_packet_number, i8 noundef signext %transmission_type, ptr noundef %info) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp4 = alloca %"class.logging::LogMessage", align 8
-  %least_unacked_ = getelementptr inbounds %"class.net::QuicUnackedPacketMap", ptr %this, i64 0, i32 3
+  %least_unacked_ = getelementptr inbounds i8, ptr %this, i64 96
   %0 = load i64, ptr %least_unacked_, align 8
   %cmp = icmp ugt i64 %0, %old_packet_number
   br i1 %cmp, label %return, label %if.end
@@ -584,7 +575,7 @@ if.then3:                                         ; preds = %if.end
 
 cond.false:                                       ; preds = %if.then3
   call void @_ZN7logging10LogMessageC1EPKcii(ptr noundef nonnull align 8 dereferenceable(404) %ref.tmp4, ptr noundef nonnull @.str, i32 noundef 100, i32 noundef 2)
-  %stream_.i = getelementptr inbounds %"class.logging::LogMessage", ptr %ref.tmp4, i64 0, i32 2
+  %stream_.i = getelementptr inbounds i8, ptr %ref.tmp4, i64 8
   %call7 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc(ptr noundef nonnull align 8 dereferenceable(8) %stream_.i, ptr noundef nonnull @.str.1)
           to label %invoke.cont6 unwind label %lpad
 
@@ -613,11 +604,11 @@ lpad:                                             ; preds = %invoke.cont10, %inv
 
 if.end37:                                         ; preds = %if.end
   %sub = sub i64 %old_packet_number, %0
-  %_M_finish.i.i.i = getelementptr inbounds %"class.net::QuicUnackedPacketMap", ptr %this, i64 0, i32 2, i32 0, i32 0, i32 0, i32 3
-  %_M_start.i.i.i = getelementptr inbounds %"class.net::QuicUnackedPacketMap", ptr %this, i64 0, i32 2, i32 0, i32 0, i32 0, i32 2
-  %_M_node.i.i.i.i = getelementptr inbounds %"class.net::QuicUnackedPacketMap", ptr %this, i64 0, i32 2, i32 0, i32 0, i32 0, i32 3, i32 3
+  %_M_finish.i.i.i = getelementptr inbounds i8, ptr %this, i64 64
+  %_M_start.i.i.i = getelementptr inbounds i8, ptr %this, i64 32
+  %_M_node.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 88
   %4 = load ptr, ptr %_M_node.i.i.i.i, align 8
-  %_M_node1.i.i.i.i = getelementptr inbounds %"class.net::QuicUnackedPacketMap", ptr %this, i64 0, i32 2, i32 0, i32 0, i32 0, i32 2, i32 3
+  %_M_node1.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 56
   %5 = load ptr, ptr %_M_node1.i.i.i.i, align 8
   %sub.ptr.lhs.cast.i.i.i.i = ptrtoint ptr %4 to i64
   %sub.ptr.rhs.cast.i.i.i.i = ptrtoint ptr %5 to i64
@@ -628,14 +619,14 @@ if.end37:                                         ; preds = %if.end
   %sub.i.i.i.i = add nsw i64 %sub.ptr.div.i.i.i.i, %conv.neg.i.i.i.i
   %mul.i.i.i.i = mul nsw i64 %sub.i.i.i.i, 6
   %6 = load ptr, ptr %_M_finish.i.i.i, align 8
-  %_M_first.i.i.i.i = getelementptr inbounds %"class.net::QuicUnackedPacketMap", ptr %this, i64 0, i32 2, i32 0, i32 0, i32 0, i32 3, i32 1
+  %_M_first.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 72
   %7 = load ptr, ptr %_M_first.i.i.i.i, align 8
   %sub.ptr.lhs.cast3.i.i.i.i = ptrtoint ptr %6 to i64
   %sub.ptr.rhs.cast4.i.i.i.i = ptrtoint ptr %7 to i64
   %sub.ptr.sub5.i.i.i.i = sub i64 %sub.ptr.lhs.cast3.i.i.i.i, %sub.ptr.rhs.cast4.i.i.i.i
   %sub.ptr.div6.i.i.i.i = sdiv exact i64 %sub.ptr.sub5.i.i.i.i, 80
   %add.i.i.i.i = add nsw i64 %mul.i.i.i.i, %sub.ptr.div6.i.i.i.i
-  %_M_last.i.i.i.i = getelementptr inbounds %"class.net::QuicUnackedPacketMap", ptr %this, i64 0, i32 2, i32 0, i32 0, i32 0, i32 2, i32 2
+  %_M_last.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 48
   %8 = load ptr, ptr %_M_last.i.i.i.i, align 8
   %9 = load ptr, ptr %_M_start.i.i.i, align 8
   %sub.ptr.lhs.cast8.i.i.i.i = ptrtoint ptr %8 to i64
@@ -647,13 +638,13 @@ if.end37:                                         ; preds = %if.end
   br i1 %cmp.not.i.i, label %_ZNKSt5dequeIN3net16TransmissionInfoESaIS1_EE14_M_range_checkEm.exit.i, label %if.then.i.i
 
 if.then.i.i:                                      ; preds = %if.end37
-  %unacked_packets_ = getelementptr inbounds %"class.net::QuicUnackedPacketMap", ptr %this, i64 0, i32 2
+  %unacked_packets_ = getelementptr inbounds i8, ptr %this, i64 16
   %call2.i.i = tail call noundef i64 @_ZNKSt5dequeIN3net16TransmissionInfoESaIS1_EE4sizeEv(ptr noundef nonnull align 8 dereferenceable(80) %unacked_packets_) #16
   tail call void (ptr, ...) @_ZSt24__throw_out_of_range_fmtPKcz(ptr noundef nonnull @.str.8, i64 noundef %sub, i64 noundef %call2.i.i) #19
   unreachable
 
 _ZNKSt5dequeIN3net16TransmissionInfoESaIS1_EE14_M_range_checkEm.exit.i: ; preds = %if.end37
-  %_M_first3.i.i.i.i.i = getelementptr inbounds %"class.net::QuicUnackedPacketMap", ptr %this, i64 0, i32 2, i32 0, i32 0, i32 0, i32 2, i32 1
+  %_M_first3.i.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 40
   %10 = load ptr, ptr %_M_first3.i.i.i.i.i, align 8, !noalias !32
   %sub.ptr.rhs.cast.i.i.i.i.i = ptrtoint ptr %10 to i64
   %sub.ptr.sub.i.i.i.i.i = sub i64 %sub.ptr.rhs.cast9.i.i.i.i, %sub.ptr.rhs.cast.i.i.i.i.i
@@ -691,20 +682,20 @@ cond.end.i.i.i.i.i:                               ; preds = %cond.false.i.i.i.i.
 
 _ZNSt5dequeIN3net16TransmissionInfoESaIS1_EE2atEm.exit: ; preds = %if.then.i.i.i.i.i, %cond.end.i.i.i.i.i
   %storemerge.i.i.i.i.i = phi ptr [ %add.ptr15.i.i.i.i.i, %cond.end.i.i.i.i.i ], [ %add.ptr.i.i.i.i.i, %if.then.i.i.i.i.i ]
-  %ack_listeners = getelementptr inbounds %"struct.net::TransmissionInfo", ptr %storemerge.i.i.i.i.i, i64 0, i32 11
+  %ack_listeners = getelementptr inbounds i8, ptr %storemerge.i.i.i.i.i, i64 56
   %__begin1.sroa.0.031 = load ptr, ptr %ack_listeners, align 8
   %cmp.i.not32 = icmp eq ptr %__begin1.sroa.0.031, %ack_listeners
   br i1 %cmp.i.not32, label %for.end, label %for.body
 
 for.body:                                         ; preds = %_ZNSt5dequeIN3net16TransmissionInfoESaIS1_EE2atEm.exit, %for.body
   %__begin1.sroa.0.033 = phi ptr [ %__begin1.sroa.0.0, %for.body ], [ %__begin1.sroa.0.031, %_ZNSt5dequeIN3net16TransmissionInfoESaIS1_EE2atEm.exit ]
-  %_M_storage.i.i = getelementptr inbounds %"struct.std::_List_node", ptr %__begin1.sroa.0.033, i64 0, i32 1
+  %_M_storage.i.i = getelementptr inbounds i8, ptr %__begin1.sroa.0.033, i64 16
   %13 = load ptr, ptr %_M_storage.i.i, align 8
-  %length = getelementptr inbounds %"struct.std::_List_node", ptr %__begin1.sroa.0.033, i64 0, i32 1, i32 0, i64 8
+  %length = getelementptr inbounds i8, ptr %__begin1.sroa.0.033, i64 24
   %14 = load i16, ptr %length, align 8
   %conv = zext i16 %14 to i32
   %vtable = load ptr, ptr %13, align 8
-  %vfn = getelementptr inbounds ptr, ptr %vtable, i64 1
+  %vfn = getelementptr inbounds i8, ptr %vtable, i64 8
   %15 = load ptr, ptr %vfn, align 8
   tail call void %15(ptr noundef nonnull align 8 dereferenceable(12) %13, i32 noundef %conv)
   %__begin1.sroa.0.0 = load ptr, ptr %__begin1.sroa.0.033, align 8
@@ -712,12 +703,12 @@ for.body:                                         ; preds = %_ZNSt5dequeIN3net16
   br i1 %cmp.i.not, label %for.end, label %for.body
 
 for.end:                                          ; preds = %for.body, %_ZNSt5dequeIN3net16TransmissionInfoESaIS1_EE2atEm.exit
-  %_M_finish.i.i.i23 = getelementptr inbounds %"struct.std::_Vector_base<net::QuicFrame, std::allocator<net::QuicFrame>>::_Vector_impl_data", ptr %storemerge.i.i.i.i.i, i64 0, i32 1
-  %_M_end_of_storage.i.i.i = getelementptr inbounds %"struct.std::_Vector_base<net::QuicFrame, std::allocator<net::QuicFrame>>::_Vector_impl_data", ptr %storemerge.i.i.i.i.i, i64 0, i32 2
+  %_M_finish.i.i.i23 = getelementptr inbounds i8, ptr %storemerge.i.i.i.i.i, i64 8
+  %_M_end_of_storage.i.i.i = getelementptr inbounds i8, ptr %storemerge.i.i.i.i.i, i64 16
   %16 = load ptr, ptr %_M_end_of_storage.i.i.i, align 8
   %17 = load ptr, ptr %info, align 8
-  %_M_finish.i2.i.i = getelementptr inbounds %"struct.std::_Vector_base<net::QuicFrame, std::allocator<net::QuicFrame>>::_Vector_impl_data", ptr %info, i64 0, i32 1
-  %_M_end_of_storage.i4.i.i = getelementptr inbounds %"struct.std::_Vector_base<net::QuicFrame, std::allocator<net::QuicFrame>>::_Vector_impl_data", ptr %info, i64 0, i32 2
+  %_M_finish.i2.i.i = getelementptr inbounds i8, ptr %info, i64 8
+  %_M_end_of_storage.i4.i.i = getelementptr inbounds i8, ptr %info, i64 16
   %18 = load <2 x ptr>, ptr %storemerge.i.i.i.i.i, align 8
   store ptr %17, ptr %storemerge.i.i.i.i.i, align 8
   %19 = load ptr, ptr %_M_finish.i2.i.i, align 8
@@ -726,21 +717,21 @@ for.end:                                          ; preds = %for.body, %_ZNSt5de
   store ptr %20, ptr %_M_end_of_storage.i.i.i, align 8
   store <2 x ptr> %18, ptr %info, align 8
   store ptr %16, ptr %_M_end_of_storage.i4.i.i, align 8
-  %has_crypto_handshake = getelementptr inbounds %"struct.net::TransmissionInfo", ptr %storemerge.i.i.i.i.i, i64 0, i32 8
+  %has_crypto_handshake = getelementptr inbounds i8, ptr %storemerge.i.i.i.i.i, i64 43
   %21 = load i8, ptr %has_crypto_handshake, align 1
   %22 = and i8 %21, 1
-  %has_crypto_handshake48 = getelementptr inbounds %"struct.net::TransmissionInfo", ptr %info, i64 0, i32 8
+  %has_crypto_handshake48 = getelementptr inbounds i8, ptr %info, i64 43
   store i8 %22, ptr %has_crypto_handshake48, align 1
   store i8 0, ptr %has_crypto_handshake, align 1
-  %num_padding_bytes = getelementptr inbounds %"struct.net::TransmissionInfo", ptr %storemerge.i.i.i.i.i, i64 0, i32 9
+  %num_padding_bytes = getelementptr inbounds i8, ptr %storemerge.i.i.i.i.i, i64 44
   %23 = load i16, ptr %num_padding_bytes, align 4
-  %num_padding_bytes50 = getelementptr inbounds %"struct.net::TransmissionInfo", ptr %info, i64 0, i32 9
+  %num_padding_bytes50 = getelementptr inbounds i8, ptr %info, i64 44
   store i16 %23, ptr %num_padding_bytes50, align 4
-  %ack_listeners51 = getelementptr inbounds %"struct.net::TransmissionInfo", ptr %info, i64 0, i32 11
+  %ack_listeners51 = getelementptr inbounds i8, ptr %info, i64 56
   tail call void @_ZNSt8__detail15_List_node_base4swapERS0_S1_(ptr noundef nonnull align 8 dereferenceable(16) %ack_listeners51, ptr noundef nonnull align 8 dereferenceable(16) %ack_listeners) #16
-  %_M_size.i.i = getelementptr inbounds %"struct.net::TransmissionInfo", ptr %storemerge.i.i.i.i.i, i64 0, i32 11, i32 0, i32 0, i32 0, i32 1
+  %_M_size.i.i = getelementptr inbounds i8, ptr %storemerge.i.i.i.i.i, i64 72
   %24 = load i64, ptr %_M_size.i.i, align 8
-  %_M_size.i4.i = getelementptr inbounds %"struct.net::TransmissionInfo", ptr %info, i64 0, i32 11, i32 0, i32 0, i32 0, i32 1
+  %_M_size.i4.i = getelementptr inbounds i8, ptr %info, i64 72
   %25 = load i64, ptr %_M_size.i4.i, align 8
   store i64 %25, ptr %_M_size.i.i, align 8
   store i64 %24, ptr %_M_size.i4.i, align 8
@@ -750,12 +741,12 @@ for.end:                                          ; preds = %for.body, %_ZNSt5de
   br i1 %or.cond1, label %if.then81, label %if.else82
 
 if.then81:                                        ; preds = %for.end
-  %is_unackable = getelementptr inbounds %"struct.net::TransmissionInfo", ptr %storemerge.i.i.i.i.i, i64 0, i32 7
+  %is_unackable = getelementptr inbounds i8, ptr %storemerge.i.i.i.i.i, i64 42
   store i8 1, ptr %is_unackable, align 2
   br label %if.end83
 
 if.else82:                                        ; preds = %for.end
-  %retransmission = getelementptr inbounds %"struct.net::TransmissionInfo", ptr %storemerge.i.i.i.i.i, i64 0, i32 10
+  %retransmission = getelementptr inbounds i8, ptr %storemerge.i.i.i.i.i, i64 48
   store i64 %new_packet_number, ptr %retransmission, align 8
   br label %if.end83
 
@@ -766,14 +757,14 @@ if.end83:                                         ; preds = %if.else82, %if.then
   br i1 %cmp.i.i3.i, label %return, label %while.body.lr.ph.i
 
 while.body.lr.ph.i:                               ; preds = %if.end83
-  %largest_observed_.i.i.i = getelementptr inbounds %"class.net::QuicUnackedPacketMap", ptr %this, i64 0, i32 1
+  %largest_observed_.i.i.i = getelementptr inbounds i8, ptr %this, i64 8
   %.pre.i = load i64, ptr %least_unacked_, align 8
   br label %while.body.i
 
 while.body.i:                                     ; preds = %_ZNSt5dequeIN3net16TransmissionInfoESaIS1_EE9pop_frontEv.exit.i, %while.body.lr.ph.i
   %29 = phi i64 [ %.pre.i, %while.body.lr.ph.i ], [ %inc.i, %_ZNSt5dequeIN3net16TransmissionInfoESaIS1_EE9pop_frontEv.exit.i ]
   %30 = phi ptr [ %28, %while.body.lr.ph.i ], [ %storemerge.i.i, %_ZNSt5dequeIN3net16TransmissionInfoESaIS1_EE9pop_frontEv.exit.i ]
-  %is_unackable.i.i.i = getelementptr inbounds %"struct.net::TransmissionInfo", ptr %30, i64 0, i32 7
+  %is_unackable.i.i.i = getelementptr inbounds i8, ptr %30, i64 42
   %31 = load i8, ptr %is_unackable.i.i.i, align 2
   %32 = and i8 %31, 1
   %tobool.not.i.i.i = icmp eq i8 %32, 0
@@ -783,7 +774,7 @@ while.body.i:                                     ; preds = %_ZNSt5dequeIN3net16
   br i1 %34, label %return, label %land.lhs.true.i.i
 
 land.lhs.true.i.i:                                ; preds = %while.body.i
-  %in_flight.i.i.i = getelementptr inbounds %"struct.net::TransmissionInfo", ptr %30, i64 0, i32 6
+  %in_flight.i.i.i = getelementptr inbounds i8, ptr %30, i64 41
   %35 = load i8, ptr %in_flight.i.i.i, align 1
   %36 = and i8 %35, 1
   %tobool.i.not.i.i = icmp eq i8 %36, 0
@@ -791,10 +782,10 @@ land.lhs.true.i.i:                                ; preds = %while.body.i
 
 _ZNK3net20QuicUnackedPacketMap15IsPacketUselessEmRKNS_16TransmissionInfoE.exit.i: ; preds = %land.lhs.true.i.i
   %37 = load ptr, ptr %30, align 8
-  %_M_finish.i.i.i.i.i = getelementptr inbounds %"struct.std::_Vector_base<net::QuicFrame, std::allocator<net::QuicFrame>>::_Vector_impl_data", ptr %30, i64 0, i32 1
+  %_M_finish.i.i.i.i.i = getelementptr inbounds i8, ptr %30, i64 8
   %38 = load ptr, ptr %_M_finish.i.i.i.i.i, align 8
   %cmp.i.i.i.i.i24 = icmp eq ptr %37, %38
-  %retransmission.i.i.i = getelementptr inbounds %"struct.net::TransmissionInfo", ptr %30, i64 0, i32 10
+  %retransmission.i.i.i = getelementptr inbounds i8, ptr %30, i64 48
   %39 = load i64, ptr %retransmission.i.i.i, align 8
   %cmp.i4.i.i = icmp ule i64 %39, %33
   %.not.i.i = select i1 %cmp.i.i.i.i.i24, i1 %cmp.i4.i.i, i1 false
@@ -802,25 +793,25 @@ _ZNK3net20QuicUnackedPacketMap15IsPacketUselessEmRKNS_16TransmissionInfoE.exit.i
 
 if.end.i:                                         ; preds = %_ZNK3net20QuicUnackedPacketMap15IsPacketUselessEmRKNS_16TransmissionInfoE.exit.i
   %40 = load ptr, ptr %_M_last.i.i.i.i, align 8
-  %add.ptr.i.i = getelementptr inbounds %"struct.net::TransmissionInfo", ptr %40, i64 -1
+  %add.ptr.i.i = getelementptr inbounds i8, ptr %40, i64 -80
   %cmp.not.i.i25 = icmp eq ptr %30, %add.ptr.i.i
   tail call void @_ZN3net16TransmissionInfoD1Ev(ptr noundef nonnull align 8 dereferenceable(80) %30) #16
   br i1 %cmp.not.i.i25, label %if.else.i.i, label %if.then.i.i26
 
 if.then.i.i26:                                    ; preds = %if.end.i
   %41 = load ptr, ptr %_M_start.i.i.i, align 8
-  %incdec.ptr.i.i = getelementptr inbounds %"struct.net::TransmissionInfo", ptr %41, i64 1
+  %incdec.ptr.i.i = getelementptr inbounds i8, ptr %41, i64 80
   br label %_ZNSt5dequeIN3net16TransmissionInfoESaIS1_EE9pop_frontEv.exit.i
 
 if.else.i.i:                                      ; preds = %if.end.i
   %42 = load ptr, ptr %_M_first3.i.i.i.i.i, align 8
   tail call void @_ZdlPv(ptr noundef %42) #18
   %43 = load ptr, ptr %_M_node1.i.i.i.i, align 8
-  %add.ptr.i.i.i = getelementptr inbounds ptr, ptr %43, i64 1
+  %add.ptr.i.i.i = getelementptr inbounds i8, ptr %43, i64 8
   store ptr %add.ptr.i.i.i, ptr %_M_node1.i.i.i.i, align 8
   %44 = load ptr, ptr %add.ptr.i.i.i, align 8
   store ptr %44, ptr %_M_first3.i.i.i.i.i, align 8
-  %add.ptr.i.i.i.i = getelementptr inbounds %"struct.net::TransmissionInfo", ptr %44, i64 6
+  %add.ptr.i.i.i.i = getelementptr inbounds i8, ptr %44, i64 480
   store ptr %add.ptr.i.i.i.i, ptr %_M_last.i.i.i.i, align 8
   br label %_ZNSt5dequeIN3net16TransmissionInfoESaIS1_EE9pop_frontEv.exit.i
 
@@ -841,26 +832,26 @@ return:                                           ; preds = %_ZNSt5dequeIN3net16
 ; Function Attrs: mustprogress nounwind uwtable
 define dso_local void @_ZN3net20QuicUnackedPacketMap21RemoveObsoletePacketsEv(ptr nocapture noundef nonnull align 8 dereferenceable(120) %this) local_unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  %_M_finish.i = getelementptr inbounds %"class.net::QuicUnackedPacketMap", ptr %this, i64 0, i32 2, i32 0, i32 0, i32 0, i32 3
-  %_M_start.i = getelementptr inbounds %"class.net::QuicUnackedPacketMap", ptr %this, i64 0, i32 2, i32 0, i32 0, i32 0, i32 2
+  %_M_finish.i = getelementptr inbounds i8, ptr %this, i64 64
+  %_M_start.i = getelementptr inbounds i8, ptr %this, i64 32
   %0 = load ptr, ptr %_M_finish.i, align 8
   %1 = load ptr, ptr %_M_start.i, align 8
   %cmp.i.i3 = icmp eq ptr %0, %1
   br i1 %cmp.i.i3, label %while.end, label %while.body.lr.ph
 
 while.body.lr.ph:                                 ; preds = %entry
-  %least_unacked_ = getelementptr inbounds %"class.net::QuicUnackedPacketMap", ptr %this, i64 0, i32 3
-  %largest_observed_.i.i = getelementptr inbounds %"class.net::QuicUnackedPacketMap", ptr %this, i64 0, i32 1
-  %_M_last.i = getelementptr inbounds %"class.net::QuicUnackedPacketMap", ptr %this, i64 0, i32 2, i32 0, i32 0, i32 0, i32 2, i32 2
-  %_M_first.i.i = getelementptr inbounds %"class.net::QuicUnackedPacketMap", ptr %this, i64 0, i32 2, i32 0, i32 0, i32 0, i32 2, i32 1
-  %_M_node.i.i = getelementptr inbounds %"class.net::QuicUnackedPacketMap", ptr %this, i64 0, i32 2, i32 0, i32 0, i32 0, i32 2, i32 3
+  %least_unacked_ = getelementptr inbounds i8, ptr %this, i64 96
+  %largest_observed_.i.i = getelementptr inbounds i8, ptr %this, i64 8
+  %_M_last.i = getelementptr inbounds i8, ptr %this, i64 48
+  %_M_first.i.i = getelementptr inbounds i8, ptr %this, i64 40
+  %_M_node.i.i = getelementptr inbounds i8, ptr %this, i64 56
   %.pre = load i64, ptr %least_unacked_, align 8
   br label %while.body
 
 while.body:                                       ; preds = %while.body.lr.ph, %_ZNSt5dequeIN3net16TransmissionInfoESaIS1_EE9pop_frontEv.exit
   %2 = phi i64 [ %.pre, %while.body.lr.ph ], [ %inc, %_ZNSt5dequeIN3net16TransmissionInfoESaIS1_EE9pop_frontEv.exit ]
   %3 = phi ptr [ %1, %while.body.lr.ph ], [ %storemerge.i, %_ZNSt5dequeIN3net16TransmissionInfoESaIS1_EE9pop_frontEv.exit ]
-  %is_unackable.i.i = getelementptr inbounds %"struct.net::TransmissionInfo", ptr %3, i64 0, i32 7
+  %is_unackable.i.i = getelementptr inbounds i8, ptr %3, i64 42
   %4 = load i8, ptr %is_unackable.i.i, align 2
   %5 = and i8 %4, 1
   %tobool.not.i.i = icmp eq i8 %5, 0
@@ -870,7 +861,7 @@ while.body:                                       ; preds = %while.body.lr.ph, %
   br i1 %7, label %while.end, label %land.lhs.true.i
 
 land.lhs.true.i:                                  ; preds = %while.body
-  %in_flight.i.i = getelementptr inbounds %"struct.net::TransmissionInfo", ptr %3, i64 0, i32 6
+  %in_flight.i.i = getelementptr inbounds i8, ptr %3, i64 41
   %8 = load i8, ptr %in_flight.i.i, align 1
   %9 = and i8 %8, 1
   %tobool.i.not.i = icmp eq i8 %9, 0
@@ -878,10 +869,10 @@ land.lhs.true.i:                                  ; preds = %while.body
 
 _ZNK3net20QuicUnackedPacketMap15IsPacketUselessEmRKNS_16TransmissionInfoE.exit: ; preds = %land.lhs.true.i
   %10 = load ptr, ptr %3, align 8
-  %_M_finish.i.i.i.i = getelementptr inbounds %"struct.std::_Vector_base<net::QuicFrame, std::allocator<net::QuicFrame>>::_Vector_impl_data", ptr %3, i64 0, i32 1
+  %_M_finish.i.i.i.i = getelementptr inbounds i8, ptr %3, i64 8
   %11 = load ptr, ptr %_M_finish.i.i.i.i, align 8
   %cmp.i.i.i.i = icmp eq ptr %10, %11
-  %retransmission.i.i = getelementptr inbounds %"struct.net::TransmissionInfo", ptr %3, i64 0, i32 10
+  %retransmission.i.i = getelementptr inbounds i8, ptr %3, i64 48
   %12 = load i64, ptr %retransmission.i.i, align 8
   %cmp.i4.i = icmp ule i64 %12, %6
   %.not.i = select i1 %cmp.i.i.i.i, i1 %cmp.i4.i, i1 false
@@ -889,25 +880,25 @@ _ZNK3net20QuicUnackedPacketMap15IsPacketUselessEmRKNS_16TransmissionInfoE.exit: 
 
 if.end:                                           ; preds = %_ZNK3net20QuicUnackedPacketMap15IsPacketUselessEmRKNS_16TransmissionInfoE.exit
   %13 = load ptr, ptr %_M_last.i, align 8
-  %add.ptr.i = getelementptr inbounds %"struct.net::TransmissionInfo", ptr %13, i64 -1
+  %add.ptr.i = getelementptr inbounds i8, ptr %13, i64 -80
   %cmp.not.i = icmp eq ptr %3, %add.ptr.i
   tail call void @_ZN3net16TransmissionInfoD1Ev(ptr noundef nonnull align 8 dereferenceable(80) %3) #16
   br i1 %cmp.not.i, label %if.else.i, label %if.then.i
 
 if.then.i:                                        ; preds = %if.end
   %14 = load ptr, ptr %_M_start.i, align 8
-  %incdec.ptr.i = getelementptr inbounds %"struct.net::TransmissionInfo", ptr %14, i64 1
+  %incdec.ptr.i = getelementptr inbounds i8, ptr %14, i64 80
   br label %_ZNSt5dequeIN3net16TransmissionInfoESaIS1_EE9pop_frontEv.exit
 
 if.else.i:                                        ; preds = %if.end
   %15 = load ptr, ptr %_M_first.i.i, align 8
   tail call void @_ZdlPv(ptr noundef %15) #18
   %16 = load ptr, ptr %_M_node.i.i, align 8
-  %add.ptr.i.i = getelementptr inbounds ptr, ptr %16, i64 1
+  %add.ptr.i.i = getelementptr inbounds i8, ptr %16, i64 8
   store ptr %add.ptr.i.i, ptr %_M_node.i.i, align 8
   %17 = load ptr, ptr %add.ptr.i.i, align 8
   store ptr %17, ptr %_M_first.i.i, align 8
-  %add.ptr.i.i.i = getelementptr inbounds %"struct.net::TransmissionInfo", ptr %17, i64 6
+  %add.ptr.i.i.i = getelementptr inbounds i8, ptr %17, i64 480
   store ptr %add.ptr.i.i.i, ptr %_M_last.i, align 8
   br label %_ZNSt5dequeIN3net16TransmissionInfoESaIS1_EE9pop_frontEv.exit
 
@@ -928,18 +919,18 @@ while.end:                                        ; preds = %_ZNSt5dequeIN3net16
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
 define dso_local noundef zeroext i1 @_ZNK3net20QuicUnackedPacketMap15IsPacketUselessEmRKNS_16TransmissionInfoE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(120) %this, i64 noundef %packet_number, ptr nocapture noundef nonnull readonly align 8 dereferenceable(80) %info) local_unnamed_addr #5 align 2 {
 entry:
-  %is_unackable.i = getelementptr inbounds %"struct.net::TransmissionInfo", ptr %info, i64 0, i32 7
+  %is_unackable.i = getelementptr inbounds i8, ptr %info, i64 42
   %0 = load i8, ptr %is_unackable.i, align 2
   %1 = and i8 %0, 1
   %tobool.not.i = icmp eq i8 %1, 0
-  %largest_observed_.i = getelementptr inbounds %"class.net::QuicUnackedPacketMap", ptr %this, i64 0, i32 1
+  %largest_observed_.i = getelementptr inbounds i8, ptr %this, i64 8
   %2 = load i64, ptr %largest_observed_.i, align 8
   %cmp.i = icmp ult i64 %2, %packet_number
   %3 = select i1 %tobool.not.i, i1 %cmp.i, i1 false
   br i1 %3, label %land.end, label %land.lhs.true
 
 land.lhs.true:                                    ; preds = %entry
-  %in_flight.i = getelementptr inbounds %"struct.net::TransmissionInfo", ptr %info, i64 0, i32 6
+  %in_flight.i = getelementptr inbounds i8, ptr %info, i64 41
   %4 = load i8, ptr %in_flight.i, align 1
   %5 = and i8 %4, 1
   %tobool.i.not = icmp eq i8 %5, 0
@@ -947,10 +938,10 @@ land.lhs.true:                                    ; preds = %entry
 
 land.rhs:                                         ; preds = %land.lhs.true
   %6 = load ptr, ptr %info, align 8
-  %_M_finish.i.i.i = getelementptr inbounds %"struct.std::_Vector_base<net::QuicFrame, std::allocator<net::QuicFrame>>::_Vector_impl_data", ptr %info, i64 0, i32 1
+  %_M_finish.i.i.i = getelementptr inbounds i8, ptr %info, i64 8
   %7 = load ptr, ptr %_M_finish.i.i.i, align 8
   %cmp.i.i.i = icmp eq ptr %6, %7
-  %retransmission.i = getelementptr inbounds %"struct.net::TransmissionInfo", ptr %info, i64 0, i32 10
+  %retransmission.i = getelementptr inbounds i8, ptr %info, i64 48
   %8 = load i64, ptr %retransmission.i, align 8
   %cmp.i4 = icmp ule i64 %8, %2
   %.not = select i1 %cmp.i.i.i, i1 %cmp.i4, i1 false
@@ -966,14 +957,14 @@ declare noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIc
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
 define dso_local noundef zeroext i1 @_ZNK3net20QuicUnackedPacketMap24HasRetransmittableFramesEm(ptr nocapture noundef nonnull readonly align 8 dereferenceable(120) %this, i64 noundef %packet_number) local_unnamed_addr #6 align 2 personality ptr @__gxx_personality_v0 {
 if.end13:
-  %least_unacked_ = getelementptr inbounds %"class.net::QuicUnackedPacketMap", ptr %this, i64 0, i32 3
+  %least_unacked_ = getelementptr inbounds i8, ptr %this, i64 96
   %0 = load i64, ptr %least_unacked_, align 8
   %sub = sub i64 %packet_number, %0
-  %_M_start.i = getelementptr inbounds %"class.net::QuicUnackedPacketMap", ptr %this, i64 0, i32 2, i32 0, i32 0, i32 0, i32 2
+  %_M_start.i = getelementptr inbounds i8, ptr %this, i64 32
   %1 = load ptr, ptr %_M_start.i, align 8, !noalias !36
-  %_M_first3.i.i.i.i = getelementptr inbounds %"class.net::QuicUnackedPacketMap", ptr %this, i64 0, i32 2, i32 0, i32 0, i32 0, i32 2, i32 1
+  %_M_first3.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 40
   %2 = load ptr, ptr %_M_first3.i.i.i.i, align 8, !noalias !36
-  %_M_node5.i.i.i.i = getelementptr inbounds %"class.net::QuicUnackedPacketMap", ptr %this, i64 0, i32 2, i32 0, i32 0, i32 0, i32 2, i32 3
+  %_M_node5.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 56
   %3 = load ptr, ptr %_M_node5.i.i.i.i, align 8, !noalias !36
   %sub.ptr.lhs.cast.i.i.i.i = ptrtoint ptr %1 to i64
   %sub.ptr.rhs.cast.i.i.i.i = ptrtoint ptr %2 to i64
@@ -1013,7 +1004,7 @@ cond.end.i.i.i.i:                                 ; preds = %cond.false.i.i.i.i,
 _ZNKSt5dequeIN3net16TransmissionInfoESaIS1_EEixEm.exit: ; preds = %if.then.i.i.i.i, %cond.end.i.i.i.i
   %storemerge.i.i.i.i = phi ptr [ %add.ptr15.i.i.i.i, %cond.end.i.i.i.i ], [ %add.ptr.i.i.i.i, %if.then.i.i.i.i ]
   %6 = load ptr, ptr %storemerge.i.i.i.i, align 8
-  %_M_finish.i.i = getelementptr inbounds %"struct.std::_Vector_base<net::QuicFrame, std::allocator<net::QuicFrame>>::_Vector_impl_data", ptr %storemerge.i.i.i.i, i64 0, i32 1
+  %_M_finish.i.i = getelementptr inbounds i8, ptr %storemerge.i.i.i.i, i64 8
   %7 = load ptr, ptr %_M_finish.i.i, align 8
   %cmp.i.i = icmp ne ptr %6, %7
   ret i1 %cmp.i.i
@@ -1022,16 +1013,16 @@ _ZNKSt5dequeIN3net16TransmissionInfoESaIS1_EEixEm.exit: ; preds = %if.then.i.i.i
 ; Function Attrs: mustprogress uwtable
 define dso_local void @_ZN3net20QuicUnackedPacketMap24RemoveRetransmittabilityEPNS_16TransmissionInfoE(ptr nocapture noundef nonnull align 8 dereferenceable(120) %this, ptr noundef %info) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  %retransmission4 = getelementptr inbounds %"struct.net::TransmissionInfo", ptr %info, i64 0, i32 10
+  %retransmission4 = getelementptr inbounds i8, ptr %info, i64 48
   %0 = load i64, ptr %retransmission4, align 8
   %cmp.not5 = icmp eq i64 %0, 0
   br i1 %cmp.not5, label %while.end, label %while.body.lr.ph
 
 while.body.lr.ph:                                 ; preds = %entry
-  %least_unacked_ = getelementptr inbounds %"class.net::QuicUnackedPacketMap", ptr %this, i64 0, i32 3
-  %_M_start.i = getelementptr inbounds %"class.net::QuicUnackedPacketMap", ptr %this, i64 0, i32 2, i32 0, i32 0, i32 0, i32 2
-  %_M_first3.i.i.i.i = getelementptr inbounds %"class.net::QuicUnackedPacketMap", ptr %this, i64 0, i32 2, i32 0, i32 0, i32 0, i32 2, i32 1
-  %_M_node5.i.i.i.i = getelementptr inbounds %"class.net::QuicUnackedPacketMap", ptr %this, i64 0, i32 2, i32 0, i32 0, i32 0, i32 2, i32 3
+  %least_unacked_ = getelementptr inbounds i8, ptr %this, i64 96
+  %_M_start.i = getelementptr inbounds i8, ptr %this, i64 32
+  %_M_first3.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 40
+  %_M_node5.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 56
   br label %while.body
 
 while.body:                                       ; preds = %while.body.lr.ph, %_ZNSt5dequeIN3net16TransmissionInfoESaIS1_EEixEm.exit
@@ -1080,21 +1071,21 @@ cond.end.i.i.i.i:                                 ; preds = %cond.false.i.i.i.i,
 
 _ZNSt5dequeIN3net16TransmissionInfoESaIS1_EEixEm.exit: ; preds = %if.then.i.i.i.i, %cond.end.i.i.i.i
   %storemerge.i.i.i.i = phi ptr [ %add.ptr15.i.i.i.i, %cond.end.i.i.i.i ], [ %add.ptr.i.i.i.i, %if.then.i.i.i.i ]
-  %retransmission = getelementptr inbounds %"struct.net::TransmissionInfo", ptr %storemerge.i.i.i.i, i64 0, i32 10
+  %retransmission = getelementptr inbounds i8, ptr %storemerge.i.i.i.i, i64 48
   %8 = load i64, ptr %retransmission, align 8
   %cmp.not = icmp eq i64 %8, 0
   br i1 %cmp.not, label %while.end, label %while.body, !llvm.loop !42
 
 while.end:                                        ; preds = %_ZNSt5dequeIN3net16TransmissionInfoESaIS1_EEixEm.exit, %entry
   %info.addr.0.lcssa = phi ptr [ %info, %entry ], [ %storemerge.i.i.i.i, %_ZNSt5dequeIN3net16TransmissionInfoESaIS1_EEixEm.exit ]
-  %has_crypto_handshake.i = getelementptr inbounds %"struct.net::TransmissionInfo", ptr %info.addr.0.lcssa, i64 0, i32 8
+  %has_crypto_handshake.i = getelementptr inbounds i8, ptr %info.addr.0.lcssa, i64 43
   %9 = load i8, ptr %has_crypto_handshake.i, align 1
   %10 = and i8 %9, 1
   %tobool.not.i = icmp eq i8 %10, 0
   br i1 %tobool.not.i, label %_ZN3net20QuicUnackedPacketMap32MaybeRemoveRetransmittableFramesEPNS_16TransmissionInfoE.exit, label %if.end.i
 
 if.end.i:                                         ; preds = %while.end
-  %pending_crypto_packet_count_.i = getelementptr inbounds %"class.net::QuicUnackedPacketMap", ptr %this, i64 0, i32 5
+  %pending_crypto_packet_count_.i = getelementptr inbounds i8, ptr %this, i64 112
   %11 = load i64, ptr %pending_crypto_packet_count_.i, align 8
   %dec.i = add i64 %11, -1
   store i64 %dec.i, ptr %pending_crypto_packet_count_.i, align 8
@@ -1109,14 +1100,14 @@ _ZN3net20QuicUnackedPacketMap32MaybeRemoveRetransmittableFramesEPNS_16Transmissi
 ; Function Attrs: mustprogress uwtable
 define dso_local void @_ZN3net20QuicUnackedPacketMap32MaybeRemoveRetransmittableFramesEPNS_16TransmissionInfoE(ptr nocapture noundef nonnull align 8 dereferenceable(120) %this, ptr noundef %transmission_info) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  %has_crypto_handshake = getelementptr inbounds %"struct.net::TransmissionInfo", ptr %transmission_info, i64 0, i32 8
+  %has_crypto_handshake = getelementptr inbounds i8, ptr %transmission_info, i64 43
   %0 = load i8, ptr %has_crypto_handshake, align 1
   %1 = and i8 %0, 1
   %tobool.not = icmp eq i8 %1, 0
   br i1 %tobool.not, label %if.end6, label %if.end
 
 if.end:                                           ; preds = %entry
-  %pending_crypto_packet_count_ = getelementptr inbounds %"class.net::QuicUnackedPacketMap", ptr %this, i64 0, i32 5
+  %pending_crypto_packet_count_ = getelementptr inbounds i8, ptr %this, i64 112
   %2 = load i64, ptr %pending_crypto_packet_count_, align 8
   %dec = add i64 %2, -1
   store i64 %dec, ptr %pending_crypto_packet_count_, align 8
@@ -1131,14 +1122,14 @@ if.end6:                                          ; preds = %if.end, %entry
 ; Function Attrs: mustprogress uwtable
 define dso_local void @_ZN3net20QuicUnackedPacketMap24RemoveRetransmittabilityEm(ptr nocapture noundef nonnull align 8 dereferenceable(120) %this, i64 noundef %packet_number) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 if.end13:
-  %least_unacked_ = getelementptr inbounds %"class.net::QuicUnackedPacketMap", ptr %this, i64 0, i32 3
+  %least_unacked_ = getelementptr inbounds i8, ptr %this, i64 96
   %0 = load i64, ptr %least_unacked_, align 8
   %sub = sub i64 %packet_number, %0
-  %_M_start.i = getelementptr inbounds %"class.net::QuicUnackedPacketMap", ptr %this, i64 0, i32 2, i32 0, i32 0, i32 0, i32 2
+  %_M_start.i = getelementptr inbounds i8, ptr %this, i64 32
   %1 = load ptr, ptr %_M_start.i, align 8, !noalias !43
-  %_M_first3.i.i.i.i = getelementptr inbounds %"class.net::QuicUnackedPacketMap", ptr %this, i64 0, i32 2, i32 0, i32 0, i32 0, i32 2, i32 1
+  %_M_first3.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 40
   %2 = load ptr, ptr %_M_first3.i.i.i.i, align 8, !noalias !43
-  %_M_node5.i.i.i.i = getelementptr inbounds %"class.net::QuicUnackedPacketMap", ptr %this, i64 0, i32 2, i32 0, i32 0, i32 0, i32 2, i32 3
+  %_M_node5.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 56
   %3 = load ptr, ptr %_M_node5.i.i.i.i, align 8, !noalias !43
   %sub.ptr.lhs.cast.i.i.i.i = ptrtoint ptr %1 to i64
   %sub.ptr.rhs.cast.i.i.i.i = ptrtoint ptr %2 to i64
@@ -1177,7 +1168,7 @@ cond.end.i.i.i.i:                                 ; preds = %cond.false.i.i.i.i,
 
 _ZNSt5dequeIN3net16TransmissionInfoESaIS1_EEixEm.exit: ; preds = %if.then.i.i.i.i, %cond.end.i.i.i.i
   %storemerge.i.i.i.i = phi ptr [ %add.ptr15.i.i.i.i, %cond.end.i.i.i.i ], [ %add.ptr.i.i.i.i, %if.then.i.i.i.i ]
-  %retransmission4.i = getelementptr inbounds %"struct.net::TransmissionInfo", ptr %storemerge.i.i.i.i, i64 0, i32 10
+  %retransmission4.i = getelementptr inbounds i8, ptr %storemerge.i.i.i.i, i64 48
   %6 = load i64, ptr %retransmission4.i, align 8
   %cmp.not5.i = icmp eq i64 %6, 0
   br i1 %cmp.not5.i, label %while.end.i, label %while.body.i
@@ -1228,21 +1219,21 @@ cond.end.i.i.i.i.i:                               ; preds = %cond.false.i.i.i.i.
 
 _ZNSt5dequeIN3net16TransmissionInfoESaIS1_EEixEm.exit.i: ; preds = %cond.end.i.i.i.i.i, %if.then.i.i.i.i.i
   %storemerge.i.i.i.i.i = phi ptr [ %add.ptr15.i.i.i.i.i, %cond.end.i.i.i.i.i ], [ %add.ptr.i.i.i.i.i, %if.then.i.i.i.i.i ]
-  %retransmission.i = getelementptr inbounds %"struct.net::TransmissionInfo", ptr %storemerge.i.i.i.i.i, i64 0, i32 10
+  %retransmission.i = getelementptr inbounds i8, ptr %storemerge.i.i.i.i.i, i64 48
   %14 = load i64, ptr %retransmission.i, align 8
   %cmp.not.i = icmp eq i64 %14, 0
   br i1 %cmp.not.i, label %while.end.i, label %while.body.i, !llvm.loop !42
 
 while.end.i:                                      ; preds = %_ZNSt5dequeIN3net16TransmissionInfoESaIS1_EEixEm.exit.i, %_ZNSt5dequeIN3net16TransmissionInfoESaIS1_EEixEm.exit
   %info.addr.0.lcssa.i = phi ptr [ %storemerge.i.i.i.i, %_ZNSt5dequeIN3net16TransmissionInfoESaIS1_EEixEm.exit ], [ %storemerge.i.i.i.i.i, %_ZNSt5dequeIN3net16TransmissionInfoESaIS1_EEixEm.exit.i ]
-  %has_crypto_handshake.i.i = getelementptr inbounds %"struct.net::TransmissionInfo", ptr %info.addr.0.lcssa.i, i64 0, i32 8
+  %has_crypto_handshake.i.i = getelementptr inbounds i8, ptr %info.addr.0.lcssa.i, i64 43
   %15 = load i8, ptr %has_crypto_handshake.i.i, align 1
   %16 = and i8 %15, 1
   %tobool.not.i.i = icmp eq i8 %16, 0
   br i1 %tobool.not.i.i, label %_ZN3net20QuicUnackedPacketMap24RemoveRetransmittabilityEPNS_16TransmissionInfoE.exit, label %if.end.i.i
 
 if.end.i.i:                                       ; preds = %while.end.i
-  %pending_crypto_packet_count_.i.i = getelementptr inbounds %"class.net::QuicUnackedPacketMap", ptr %this, i64 0, i32 5
+  %pending_crypto_packet_count_.i.i = getelementptr inbounds i8, ptr %this, i64 112
   %17 = load i64, ptr %pending_crypto_packet_count_.i.i, align 8
   %dec.i.i = add i64 %17, -1
   store i64 %dec.i.i, ptr %pending_crypto_packet_count_.i.i, align 8
@@ -1257,7 +1248,7 @@ _ZN3net20QuicUnackedPacketMap24RemoveRetransmittabilityEPNS_16TransmissionInfoE.
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
 define dso_local void @_ZN3net20QuicUnackedPacketMap23IncreaseLargestObservedEm(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(120) %this, i64 noundef %largest_observed) local_unnamed_addr #7 align 2 personality ptr @__gxx_personality_v0 {
 if.end:
-  %largest_observed_ = getelementptr inbounds %"class.net::QuicUnackedPacketMap", ptr %this, i64 0, i32 1
+  %largest_observed_ = getelementptr inbounds i8, ptr %this, i64 8
   store i64 %largest_observed, ptr %largest_observed_, align 8
   ret void
 }
@@ -1265,11 +1256,11 @@ if.end:
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
 define dso_local noundef zeroext i1 @_ZNK3net20QuicUnackedPacketMap29IsPacketUsefulForMeasuringRttEmRKNS_16TransmissionInfoE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(120) %this, i64 noundef %packet_number, ptr nocapture noundef nonnull readonly align 8 dereferenceable(80) %info) local_unnamed_addr #5 align 2 {
 entry:
-  %is_unackable = getelementptr inbounds %"struct.net::TransmissionInfo", ptr %info, i64 0, i32 7
+  %is_unackable = getelementptr inbounds i8, ptr %info, i64 42
   %0 = load i8, ptr %is_unackable, align 2
   %1 = and i8 %0, 1
   %tobool.not = icmp eq i8 %1, 0
-  %largest_observed_ = getelementptr inbounds %"class.net::QuicUnackedPacketMap", ptr %this, i64 0, i32 1
+  %largest_observed_ = getelementptr inbounds i8, ptr %this, i64 8
   %2 = load i64, ptr %largest_observed_, align 8
   %cmp = icmp ult i64 %2, %packet_number
   %3 = select i1 %tobool.not, i1 %cmp, i1 false
@@ -1279,7 +1270,7 @@ entry:
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
 define dso_local noundef zeroext i1 @_ZNK3net20QuicUnackedPacketMap34IsPacketUsefulForCongestionControlERKNS_16TransmissionInfoE(ptr nocapture noundef nonnull readnone align 8 dereferenceable(120) %this, ptr nocapture noundef nonnull readonly align 8 dereferenceable(80) %info) local_unnamed_addr #5 align 2 {
 entry:
-  %in_flight = getelementptr inbounds %"struct.net::TransmissionInfo", ptr %info, i64 0, i32 6
+  %in_flight = getelementptr inbounds i8, ptr %info, i64 41
   %0 = load i8, ptr %in_flight, align 1
   %1 = and i8 %0, 1
   %tobool = icmp ne i8 %1, 0
@@ -1290,12 +1281,12 @@ entry:
 define dso_local noundef zeroext i1 @_ZNK3net20QuicUnackedPacketMap36IsPacketUsefulForRetransmittableDataERKNS_16TransmissionInfoE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(120) %this, ptr nocapture noundef nonnull readonly align 8 dereferenceable(80) %info) local_unnamed_addr #5 align 2 {
 entry:
   %0 = load ptr, ptr %info, align 8
-  %_M_finish.i.i = getelementptr inbounds %"struct.std::_Vector_base<net::QuicFrame, std::allocator<net::QuicFrame>>::_Vector_impl_data", ptr %info, i64 0, i32 1
+  %_M_finish.i.i = getelementptr inbounds i8, ptr %info, i64 8
   %1 = load ptr, ptr %_M_finish.i.i, align 8
   %cmp.i.i = icmp ne ptr %0, %1
-  %retransmission = getelementptr inbounds %"struct.net::TransmissionInfo", ptr %info, i64 0, i32 10
+  %retransmission = getelementptr inbounds i8, ptr %info, i64 48
   %2 = load i64, ptr %retransmission, align 8
-  %largest_observed_ = getelementptr inbounds %"class.net::QuicUnackedPacketMap", ptr %this, i64 0, i32 1
+  %largest_observed_ = getelementptr inbounds i8, ptr %this, i64 8
   %3 = load i64, ptr %largest_observed_, align 8
   %cmp = icmp ugt i64 %2, %3
   %4 = select i1 %cmp.i.i, i1 true, i1 %cmp
@@ -1305,17 +1296,17 @@ entry:
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
 define dso_local noundef zeroext i1 @_ZNK3net20QuicUnackedPacketMap9IsUnackedEm(ptr nocapture noundef nonnull readonly align 8 dereferenceable(120) %this, i64 noundef %packet_number) local_unnamed_addr #6 align 2 {
 entry:
-  %least_unacked_ = getelementptr inbounds %"class.net::QuicUnackedPacketMap", ptr %this, i64 0, i32 3
+  %least_unacked_ = getelementptr inbounds i8, ptr %this, i64 96
   %0 = load i64, ptr %least_unacked_, align 8
   %cmp = icmp ugt i64 %0, %packet_number
   br i1 %cmp, label %return, label %lor.lhs.false
 
 lor.lhs.false:                                    ; preds = %entry
-  %_M_finish.i = getelementptr inbounds %"class.net::QuicUnackedPacketMap", ptr %this, i64 0, i32 2, i32 0, i32 0, i32 0, i32 3
-  %_M_start.i = getelementptr inbounds %"class.net::QuicUnackedPacketMap", ptr %this, i64 0, i32 2, i32 0, i32 0, i32 0, i32 2
-  %_M_node.i.i = getelementptr inbounds %"class.net::QuicUnackedPacketMap", ptr %this, i64 0, i32 2, i32 0, i32 0, i32 0, i32 3, i32 3
+  %_M_finish.i = getelementptr inbounds i8, ptr %this, i64 64
+  %_M_start.i = getelementptr inbounds i8, ptr %this, i64 32
+  %_M_node.i.i = getelementptr inbounds i8, ptr %this, i64 88
   %1 = load ptr, ptr %_M_node.i.i, align 8
-  %_M_node1.i.i = getelementptr inbounds %"class.net::QuicUnackedPacketMap", ptr %this, i64 0, i32 2, i32 0, i32 0, i32 0, i32 2, i32 3
+  %_M_node1.i.i = getelementptr inbounds i8, ptr %this, i64 56
   %2 = load ptr, ptr %_M_node1.i.i, align 8
   %sub.ptr.lhs.cast.i.i = ptrtoint ptr %1 to i64
   %sub.ptr.rhs.cast.i.i = ptrtoint ptr %2 to i64
@@ -1326,13 +1317,13 @@ lor.lhs.false:                                    ; preds = %entry
   %sub.i.i = add nsw i64 %sub.ptr.div.i.i, %conv.neg.i.i
   %mul.i.i = mul nsw i64 %sub.i.i, 6
   %3 = load ptr, ptr %_M_finish.i, align 8
-  %_M_first.i.i = getelementptr inbounds %"class.net::QuicUnackedPacketMap", ptr %this, i64 0, i32 2, i32 0, i32 0, i32 0, i32 3, i32 1
+  %_M_first.i.i = getelementptr inbounds i8, ptr %this, i64 72
   %4 = load ptr, ptr %_M_first.i.i, align 8
   %sub.ptr.lhs.cast3.i.i = ptrtoint ptr %3 to i64
   %sub.ptr.rhs.cast4.i.i = ptrtoint ptr %4 to i64
   %sub.ptr.sub5.i.i = sub i64 %sub.ptr.lhs.cast3.i.i, %sub.ptr.rhs.cast4.i.i
   %sub.ptr.div6.i.i = sdiv exact i64 %sub.ptr.sub5.i.i, 80
-  %_M_last.i.i = getelementptr inbounds %"class.net::QuicUnackedPacketMap", ptr %this, i64 0, i32 2, i32 0, i32 0, i32 0, i32 2, i32 2
+  %_M_last.i.i = getelementptr inbounds i8, ptr %this, i64 48
   %5 = load ptr, ptr %_M_last.i.i, align 8
   %6 = load ptr, ptr %_M_start.i, align 8
   %sub.ptr.lhs.cast8.i.i = ptrtoint ptr %5 to i64
@@ -1347,7 +1338,7 @@ lor.lhs.false:                                    ; preds = %entry
 
 if.end:                                           ; preds = %lor.lhs.false
   %sub = sub i64 %packet_number, %0
-  %_M_first3.i.i.i.i = getelementptr inbounds %"class.net::QuicUnackedPacketMap", ptr %this, i64 0, i32 2, i32 0, i32 0, i32 0, i32 2, i32 1
+  %_M_first3.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 40
   %7 = load ptr, ptr %_M_first3.i.i.i.i, align 8, !noalias !49
   %sub.ptr.rhs.cast.i.i.i.i = ptrtoint ptr %7 to i64
   %sub.ptr.sub.i.i.i.i = sub i64 %sub.ptr.rhs.cast9.i.i, %sub.ptr.rhs.cast.i.i.i.i
@@ -1385,18 +1376,18 @@ cond.end.i.i.i.i:                                 ; preds = %cond.false.i.i.i.i,
 
 _ZNKSt5dequeIN3net16TransmissionInfoESaIS1_EEixEm.exit: ; preds = %if.then.i.i.i.i, %cond.end.i.i.i.i
   %storemerge.i.i.i.i = phi ptr [ %add.ptr15.i.i.i.i, %cond.end.i.i.i.i ], [ %add.ptr.i.i.i.i, %if.then.i.i.i.i ]
-  %is_unackable.i.i = getelementptr inbounds %"struct.net::TransmissionInfo", ptr %storemerge.i.i.i.i, i64 0, i32 7
+  %is_unackable.i.i = getelementptr inbounds i8, ptr %storemerge.i.i.i.i, i64 42
   %10 = load i8, ptr %is_unackable.i.i, align 2
   %11 = and i8 %10, 1
   %tobool.not.i.i = icmp eq i8 %11, 0
-  %largest_observed_.i.i = getelementptr inbounds %"class.net::QuicUnackedPacketMap", ptr %this, i64 0, i32 1
+  %largest_observed_.i.i = getelementptr inbounds i8, ptr %this, i64 8
   %12 = load i64, ptr %largest_observed_.i.i, align 8
   %cmp.i.i = icmp ult i64 %12, %packet_number
   %13 = select i1 %tobool.not.i.i, i1 %cmp.i.i, i1 false
   br i1 %13, label %return, label %land.lhs.true.i
 
 land.lhs.true.i:                                  ; preds = %_ZNKSt5dequeIN3net16TransmissionInfoESaIS1_EEixEm.exit
-  %in_flight.i.i = getelementptr inbounds %"struct.net::TransmissionInfo", ptr %storemerge.i.i.i.i, i64 0, i32 6
+  %in_flight.i.i = getelementptr inbounds i8, ptr %storemerge.i.i.i.i, i64 41
   %14 = load i8, ptr %in_flight.i.i, align 1
   %15 = and i8 %14, 1
   %tobool.i.not.i = icmp eq i8 %15, 0
@@ -1404,10 +1395,10 @@ land.lhs.true.i:                                  ; preds = %_ZNKSt5dequeIN3net1
 
 land.rhs.i:                                       ; preds = %land.lhs.true.i
   %16 = load ptr, ptr %storemerge.i.i.i.i, align 8
-  %_M_finish.i.i.i.i = getelementptr inbounds %"struct.std::_Vector_base<net::QuicFrame, std::allocator<net::QuicFrame>>::_Vector_impl_data", ptr %storemerge.i.i.i.i, i64 0, i32 1
+  %_M_finish.i.i.i.i = getelementptr inbounds i8, ptr %storemerge.i.i.i.i, i64 8
   %17 = load ptr, ptr %_M_finish.i.i.i.i, align 8
   %cmp.i.i.i.i5 = icmp ne ptr %16, %17
-  %retransmission.i.i = getelementptr inbounds %"struct.net::TransmissionInfo", ptr %storemerge.i.i.i.i, i64 0, i32 10
+  %retransmission.i.i = getelementptr inbounds i8, ptr %storemerge.i.i.i.i, i64 48
   %18 = load i64, ptr %retransmission.i.i, align 8
   %cmp.i4.i = icmp ugt i64 %18, %12
   %.not.i.not = select i1 %cmp.i.i.i.i5, i1 true, i1 %cmp.i4.i
@@ -1427,9 +1418,9 @@ entry:
 
 for.body:                                         ; preds = %entry, %for.body
   %__begin1.sroa.0.08 = phi ptr [ %__begin1.sroa.0.0, %for.body ], [ %__begin1.sroa.0.06, %entry ]
-  %_M_storage.i.i = getelementptr inbounds %"struct.std::_List_node", ptr %__begin1.sroa.0.08, i64 0, i32 1
+  %_M_storage.i.i = getelementptr inbounds i8, ptr %__begin1.sroa.0.08, i64 16
   %0 = load ptr, ptr %_M_storage.i.i, align 8
-  %length = getelementptr inbounds %"struct.std::_List_node", ptr %__begin1.sroa.0.08, i64 0, i32 1, i32 0, i64 8
+  %length = getelementptr inbounds i8, ptr %__begin1.sroa.0.08, i64 24
   %1 = load i16, ptr %length, align 8
   %conv = zext i16 %1 to i32
   %vtable = load ptr, ptr %0, align 8
@@ -1447,17 +1438,17 @@ for.end:                                          ; preds = %for.body
 while.body.i.i:                                   ; preds = %for.end, %while.body.i.i
   %__cur.05.i.i = phi ptr [ %3, %while.body.i.i ], [ %.pre, %for.end ]
   %3 = load ptr, ptr %__cur.05.i.i, align 8
-  %_M_storage.i.i.i = getelementptr inbounds %"struct.std::_List_node", ptr %__cur.05.i.i, i64 0, i32 1
+  %_M_storage.i.i.i = getelementptr inbounds i8, ptr %__cur.05.i.i, i64 16
   tail call void @_ZN3net18AckListenerWrapperD1Ev(ptr noundef nonnull align 8 dereferenceable(10) %_M_storage.i.i.i) #16
   tail call void @_ZdlPv(ptr noundef %__cur.05.i.i) #18
   %cmp.not.i.i = icmp eq ptr %3, %ack_listeners
   br i1 %cmp.not.i.i, label %_ZNSt7__cxx114listIN3net18AckListenerWrapperESaIS2_EE5clearEv.exit, label %while.body.i.i, !llvm.loop !52
 
 _ZNSt7__cxx114listIN3net18AckListenerWrapperESaIS2_EE5clearEv.exit: ; preds = %while.body.i.i, %entry, %for.end
-  %_M_prev.i.i.i = getelementptr inbounds %"struct.std::__detail::_List_node_base", ptr %ack_listeners, i64 0, i32 1
+  %_M_prev.i.i.i = getelementptr inbounds i8, ptr %ack_listeners, i64 8
   store ptr %ack_listeners, ptr %_M_prev.i.i.i, align 8
   store ptr %ack_listeners, ptr %ack_listeners, align 8
-  %_M_size.i.i.i = getelementptr inbounds %"struct.std::__detail::_List_node_header", ptr %ack_listeners, i64 0, i32 1
+  %_M_size.i.i.i = getelementptr inbounds i8, ptr %ack_listeners, i64 16
   store i64 0, ptr %_M_size.i.i.i, align 8
   ret void
 }
@@ -1465,14 +1456,14 @@ _ZNSt7__cxx114listIN3net18AckListenerWrapperESaIS2_EE5clearEv.exit: ; preds = %w
 ; Function Attrs: mustprogress uwtable
 define dso_local void @_ZN3net20QuicUnackedPacketMap23NotifyAndClearListenersEmNS_8QuicTime5DeltaE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(120) %this, i64 noundef %packet_number, i64 %ack_delay_time.coerce0, i64 %ack_delay_time.coerce1) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 if.end13:
-  %least_unacked_ = getelementptr inbounds %"class.net::QuicUnackedPacketMap", ptr %this, i64 0, i32 3
+  %least_unacked_ = getelementptr inbounds i8, ptr %this, i64 96
   %0 = load i64, ptr %least_unacked_, align 8
   %sub = sub i64 %packet_number, %0
-  %_M_start.i = getelementptr inbounds %"class.net::QuicUnackedPacketMap", ptr %this, i64 0, i32 2, i32 0, i32 0, i32 0, i32 2
+  %_M_start.i = getelementptr inbounds i8, ptr %this, i64 32
   %1 = load ptr, ptr %_M_start.i, align 8, !noalias !53
-  %_M_first3.i.i.i.i = getelementptr inbounds %"class.net::QuicUnackedPacketMap", ptr %this, i64 0, i32 2, i32 0, i32 0, i32 0, i32 2, i32 1
+  %_M_first3.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 40
   %2 = load ptr, ptr %_M_first3.i.i.i.i, align 8, !noalias !53
-  %_M_node5.i.i.i.i = getelementptr inbounds %"class.net::QuicUnackedPacketMap", ptr %this, i64 0, i32 2, i32 0, i32 0, i32 0, i32 2, i32 3
+  %_M_node5.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 56
   %3 = load ptr, ptr %_M_node5.i.i.i.i, align 8, !noalias !53
   %sub.ptr.lhs.cast.i.i.i.i = ptrtoint ptr %1 to i64
   %sub.ptr.rhs.cast.i.i.i.i = ptrtoint ptr %2 to i64
@@ -1511,16 +1502,16 @@ cond.end.i.i.i.i:                                 ; preds = %cond.false.i.i.i.i,
 
 _ZNSt5dequeIN3net16TransmissionInfoESaIS1_EEixEm.exit: ; preds = %if.then.i.i.i.i, %cond.end.i.i.i.i
   %storemerge.i.i.i.i = phi ptr [ %add.ptr15.i.i.i.i, %cond.end.i.i.i.i ], [ %add.ptr.i.i.i.i, %if.then.i.i.i.i ]
-  %ack_listeners = getelementptr inbounds %"struct.net::TransmissionInfo", ptr %storemerge.i.i.i.i, i64 0, i32 11
+  %ack_listeners = getelementptr inbounds i8, ptr %storemerge.i.i.i.i, i64 56
   %__begin1.sroa.0.06.i = load ptr, ptr %ack_listeners, align 8
   %cmp.i.not7.i = icmp eq ptr %__begin1.sroa.0.06.i, %ack_listeners
   br i1 %cmp.i.not7.i, label %_ZN3net20QuicUnackedPacketMap23NotifyAndClearListenersEPNSt7__cxx114listINS_18AckListenerWrapperESaIS3_EEENS_8QuicTime5DeltaE.exit, label %for.body.i
 
 for.body.i:                                       ; preds = %_ZNSt5dequeIN3net16TransmissionInfoESaIS1_EEixEm.exit, %for.body.i
   %__begin1.sroa.0.08.i = phi ptr [ %__begin1.sroa.0.0.i, %for.body.i ], [ %__begin1.sroa.0.06.i, %_ZNSt5dequeIN3net16TransmissionInfoESaIS1_EEixEm.exit ]
-  %_M_storage.i.i.i = getelementptr inbounds %"struct.std::_List_node", ptr %__begin1.sroa.0.08.i, i64 0, i32 1
+  %_M_storage.i.i.i = getelementptr inbounds i8, ptr %__begin1.sroa.0.08.i, i64 16
   %6 = load ptr, ptr %_M_storage.i.i.i, align 8
-  %length.i = getelementptr inbounds %"struct.std::_List_node", ptr %__begin1.sroa.0.08.i, i64 0, i32 1, i32 0, i64 8
+  %length.i = getelementptr inbounds i8, ptr %__begin1.sroa.0.08.i, i64 24
   %7 = load i16, ptr %length.i, align 8
   %conv.i = zext i16 %7 to i32
   %vtable.i = load ptr, ptr %6, align 8
@@ -1538,17 +1529,17 @@ for.end.i:                                        ; preds = %for.body.i
 while.body.i.i.i:                                 ; preds = %for.end.i, %while.body.i.i.i
   %__cur.05.i.i.i = phi ptr [ %9, %while.body.i.i.i ], [ %.pre.i, %for.end.i ]
   %9 = load ptr, ptr %__cur.05.i.i.i, align 8
-  %_M_storage.i.i.i.i = getelementptr inbounds %"struct.std::_List_node", ptr %__cur.05.i.i.i, i64 0, i32 1
+  %_M_storage.i.i.i.i = getelementptr inbounds i8, ptr %__cur.05.i.i.i, i64 16
   tail call void @_ZN3net18AckListenerWrapperD1Ev(ptr noundef nonnull align 8 dereferenceable(10) %_M_storage.i.i.i.i) #16
   tail call void @_ZdlPv(ptr noundef %__cur.05.i.i.i) #18
   %cmp.not.i.i.i = icmp eq ptr %9, %ack_listeners
   br i1 %cmp.not.i.i.i, label %_ZN3net20QuicUnackedPacketMap23NotifyAndClearListenersEPNSt7__cxx114listINS_18AckListenerWrapperESaIS3_EEENS_8QuicTime5DeltaE.exit, label %while.body.i.i.i, !llvm.loop !52
 
 _ZN3net20QuicUnackedPacketMap23NotifyAndClearListenersEPNSt7__cxx114listINS_18AckListenerWrapperESaIS3_EEENS_8QuicTime5DeltaE.exit: ; preds = %while.body.i.i.i, %_ZNSt5dequeIN3net16TransmissionInfoESaIS1_EEixEm.exit, %for.end.i
-  %_M_prev.i.i.i.i = getelementptr inbounds %"struct.net::TransmissionInfo", ptr %storemerge.i.i.i.i, i64 0, i32 11, i32 0, i32 0, i32 0, i32 0, i32 1
+  %_M_prev.i.i.i.i = getelementptr inbounds i8, ptr %storemerge.i.i.i.i, i64 64
   store ptr %ack_listeners, ptr %_M_prev.i.i.i.i, align 8
   store ptr %ack_listeners, ptr %ack_listeners, align 8
-  %_M_size.i.i.i.i = getelementptr inbounds %"struct.net::TransmissionInfo", ptr %storemerge.i.i.i.i, i64 0, i32 11, i32 0, i32 0, i32 0, i32 1
+  %_M_size.i.i.i.i = getelementptr inbounds i8, ptr %storemerge.i.i.i.i, i64 72
   store i64 0, ptr %_M_size.i.i.i.i, align 8
   ret void
 }
@@ -1557,7 +1548,7 @@ _ZN3net20QuicUnackedPacketMap23NotifyAndClearListenersEPNSt7__cxx114listINS_18Ac
 define dso_local void @_ZN3net20QuicUnackedPacketMap18RemoveFromInFlightEPNS_16TransmissionInfoE(ptr nocapture noundef nonnull align 8 dereferenceable(120) %this, ptr nocapture noundef %info) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp2 = alloca %"class.logging::LogMessage", align 8
-  %in_flight = getelementptr inbounds %"struct.net::TransmissionInfo", ptr %info, i64 0, i32 6
+  %in_flight = getelementptr inbounds i8, ptr %info, i64 41
   %0 = load i8, ptr %in_flight, align 1
   %1 = and i8 %0, 1
   %tobool.not = icmp eq i8 %1, 0
@@ -1568,9 +1559,9 @@ if.then:                                          ; preds = %entry
   br i1 %call, label %land.lhs.true, label %cleanup.done
 
 land.lhs.true:                                    ; preds = %if.then
-  %bytes_in_flight_ = getelementptr inbounds %"class.net::QuicUnackedPacketMap", ptr %this, i64 0, i32 4
+  %bytes_in_flight_ = getelementptr inbounds i8, ptr %this, i64 104
   %2 = load i64, ptr %bytes_in_flight_, align 8
-  %bytes_sent = getelementptr inbounds %"struct.net::TransmissionInfo", ptr %info, i64 0, i32 3
+  %bytes_sent = getelementptr inbounds i8, ptr %info, i64 26
   %3 = load i16, ptr %bytes_sent, align 2
   %conv = zext i16 %3 to i64
   %cmp = icmp ult i64 %2, %conv
@@ -1582,10 +1573,10 @@ cond.false:                                       ; preds = %land.lhs.true
   br label %cleanup.done
 
 cleanup.done:                                     ; preds = %land.lhs.true, %if.then, %cond.false
-  %bytes_sent8 = getelementptr inbounds %"struct.net::TransmissionInfo", ptr %info, i64 0, i32 3
+  %bytes_sent8 = getelementptr inbounds i8, ptr %info, i64 26
   %4 = load i16, ptr %bytes_sent8, align 2
   %conv9 = zext i16 %4 to i64
-  %bytes_in_flight_10 = getelementptr inbounds %"class.net::QuicUnackedPacketMap", ptr %this, i64 0, i32 4
+  %bytes_in_flight_10 = getelementptr inbounds i8, ptr %this, i64 104
   %5 = load i64, ptr %bytes_in_flight_10, align 8
   %sub = sub i64 %5, %conv9
   store i64 %sub, ptr %bytes_in_flight_10, align 8
@@ -1600,14 +1591,14 @@ if.end:                                           ; preds = %cleanup.done, %entr
 define dso_local void @_ZN3net20QuicUnackedPacketMap18RemoveFromInFlightEm(ptr nocapture noundef nonnull align 8 dereferenceable(120) %this, i64 noundef %packet_number) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 if.end13:
   %ref.tmp2.i = alloca %"class.logging::LogMessage", align 8
-  %least_unacked_ = getelementptr inbounds %"class.net::QuicUnackedPacketMap", ptr %this, i64 0, i32 3
+  %least_unacked_ = getelementptr inbounds i8, ptr %this, i64 96
   %0 = load i64, ptr %least_unacked_, align 8
   %sub = sub i64 %packet_number, %0
-  %_M_start.i = getelementptr inbounds %"class.net::QuicUnackedPacketMap", ptr %this, i64 0, i32 2, i32 0, i32 0, i32 0, i32 2
+  %_M_start.i = getelementptr inbounds i8, ptr %this, i64 32
   %1 = load ptr, ptr %_M_start.i, align 8, !noalias !56
-  %_M_first3.i.i.i.i = getelementptr inbounds %"class.net::QuicUnackedPacketMap", ptr %this, i64 0, i32 2, i32 0, i32 0, i32 0, i32 2, i32 1
+  %_M_first3.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 40
   %2 = load ptr, ptr %_M_first3.i.i.i.i, align 8, !noalias !56
-  %_M_node5.i.i.i.i = getelementptr inbounds %"class.net::QuicUnackedPacketMap", ptr %this, i64 0, i32 2, i32 0, i32 0, i32 0, i32 2, i32 3
+  %_M_node5.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 56
   %3 = load ptr, ptr %_M_node5.i.i.i.i, align 8, !noalias !56
   %sub.ptr.lhs.cast.i.i.i.i = ptrtoint ptr %1 to i64
   %sub.ptr.rhs.cast.i.i.i.i = ptrtoint ptr %2 to i64
@@ -1647,7 +1638,7 @@ cond.end.i.i.i.i:                                 ; preds = %cond.false.i.i.i.i,
 _ZNSt5dequeIN3net16TransmissionInfoESaIS1_EEixEm.exit: ; preds = %if.then.i.i.i.i, %cond.end.i.i.i.i
   %storemerge.i.i.i.i = phi ptr [ %add.ptr15.i.i.i.i, %cond.end.i.i.i.i ], [ %add.ptr.i.i.i.i, %if.then.i.i.i.i ]
   call void @llvm.lifetime.start.p0(i64 408, ptr nonnull %ref.tmp2.i)
-  %in_flight.i = getelementptr inbounds %"struct.net::TransmissionInfo", ptr %storemerge.i.i.i.i, i64 0, i32 6
+  %in_flight.i = getelementptr inbounds i8, ptr %storemerge.i.i.i.i, i64 41
   %6 = load i8, ptr %in_flight.i, align 1
   %7 = and i8 %6, 1
   %tobool.not.i3 = icmp eq i8 %7, 0
@@ -1658,9 +1649,9 @@ if.then.i:                                        ; preds = %_ZNSt5dequeIN3net16
   br i1 %call.i, label %land.lhs.true.i, label %cleanup.done.i
 
 land.lhs.true.i:                                  ; preds = %if.then.i
-  %bytes_in_flight_.i = getelementptr inbounds %"class.net::QuicUnackedPacketMap", ptr %this, i64 0, i32 4
+  %bytes_in_flight_.i = getelementptr inbounds i8, ptr %this, i64 104
   %8 = load i64, ptr %bytes_in_flight_.i, align 8
-  %bytes_sent.i = getelementptr inbounds %"struct.net::TransmissionInfo", ptr %storemerge.i.i.i.i, i64 0, i32 3
+  %bytes_sent.i = getelementptr inbounds i8, ptr %storemerge.i.i.i.i, i64 26
   %9 = load i16, ptr %bytes_sent.i, align 2
   %conv.i = zext i16 %9 to i64
   %cmp.i = icmp ult i64 %8, %conv.i
@@ -1672,10 +1663,10 @@ cond.false.i:                                     ; preds = %land.lhs.true.i
   br label %cleanup.done.i
 
 cleanup.done.i:                                   ; preds = %cond.false.i, %land.lhs.true.i, %if.then.i
-  %bytes_sent8.i = getelementptr inbounds %"struct.net::TransmissionInfo", ptr %storemerge.i.i.i.i, i64 0, i32 3
+  %bytes_sent8.i = getelementptr inbounds i8, ptr %storemerge.i.i.i.i, i64 26
   %10 = load i16, ptr %bytes_sent8.i, align 2
   %conv9.i = zext i16 %10 to i64
-  %bytes_in_flight_10.i = getelementptr inbounds %"class.net::QuicUnackedPacketMap", ptr %this, i64 0, i32 4
+  %bytes_in_flight_10.i = getelementptr inbounds i8, ptr %this, i64 104
   %11 = load i64, ptr %bytes_in_flight_10.i, align 8
   %sub.i = sub i64 %11, %conv9.i
   store i64 %sub.i, ptr %bytes_in_flight_10.i, align 8
@@ -1690,14 +1681,14 @@ _ZN3net20QuicUnackedPacketMap18RemoveFromInFlightEPNS_16TransmissionInfoE.exit: 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
 define dso_local void @_ZN3net20QuicUnackedPacketMap17RestoreToInFlightEm(ptr nocapture noundef nonnull align 8 dereferenceable(120) %this, i64 noundef %packet_number) local_unnamed_addr #8 align 2 personality ptr @__gxx_personality_v0 {
 if.end13:
-  %least_unacked_ = getelementptr inbounds %"class.net::QuicUnackedPacketMap", ptr %this, i64 0, i32 3
+  %least_unacked_ = getelementptr inbounds i8, ptr %this, i64 96
   %0 = load i64, ptr %least_unacked_, align 8
   %sub = sub i64 %packet_number, %0
-  %_M_start.i = getelementptr inbounds %"class.net::QuicUnackedPacketMap", ptr %this, i64 0, i32 2, i32 0, i32 0, i32 0, i32 2
+  %_M_start.i = getelementptr inbounds i8, ptr %this, i64 32
   %1 = load ptr, ptr %_M_start.i, align 8, !noalias !59
-  %_M_first3.i.i.i.i = getelementptr inbounds %"class.net::QuicUnackedPacketMap", ptr %this, i64 0, i32 2, i32 0, i32 0, i32 0, i32 2, i32 1
+  %_M_first3.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 40
   %2 = load ptr, ptr %_M_first3.i.i.i.i, align 8, !noalias !59
-  %_M_node5.i.i.i.i = getelementptr inbounds %"class.net::QuicUnackedPacketMap", ptr %this, i64 0, i32 2, i32 0, i32 0, i32 0, i32 2, i32 3
+  %_M_node5.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 56
   %3 = load ptr, ptr %_M_node5.i.i.i.i, align 8, !noalias !59
   %sub.ptr.lhs.cast.i.i.i.i = ptrtoint ptr %1 to i64
   %sub.ptr.rhs.cast.i.i.i.i = ptrtoint ptr %2 to i64
@@ -1736,14 +1727,14 @@ cond.end.i.i.i.i:                                 ; preds = %cond.false.i.i.i.i,
 
 _ZNSt5dequeIN3net16TransmissionInfoESaIS1_EEixEm.exit: ; preds = %if.then.i.i.i.i, %cond.end.i.i.i.i
   %storemerge.i.i.i.i = phi ptr [ %add.ptr15.i.i.i.i, %cond.end.i.i.i.i ], [ %add.ptr.i.i.i.i, %if.then.i.i.i.i ]
-  %bytes_sent = getelementptr inbounds %"struct.net::TransmissionInfo", ptr %storemerge.i.i.i.i, i64 0, i32 3
+  %bytes_sent = getelementptr inbounds i8, ptr %storemerge.i.i.i.i, i64 26
   %6 = load i16, ptr %bytes_sent, align 2
   %conv = zext i16 %6 to i64
-  %bytes_in_flight_ = getelementptr inbounds %"class.net::QuicUnackedPacketMap", ptr %this, i64 0, i32 4
+  %bytes_in_flight_ = getelementptr inbounds i8, ptr %this, i64 104
   %7 = load i64, ptr %bytes_in_flight_, align 8
   %add = add i64 %7, %conv
   store i64 %add, ptr %bytes_in_flight_, align 8
-  %in_flight = getelementptr inbounds %"struct.net::TransmissionInfo", ptr %storemerge.i.i.i.i, i64 0, i32 6
+  %in_flight = getelementptr inbounds i8, ptr %storemerge.i.i.i.i, i64 41
   store i8 1, ptr %in_flight, align 1
   ret void
 }
@@ -1751,19 +1742,19 @@ _ZNSt5dequeIN3net16TransmissionInfoESaIS1_EEixEm.exit: ; preds = %if.then.i.i.i.
 ; Function Attrs: mustprogress uwtable
 define dso_local void @_ZN3net20QuicUnackedPacketMap30CancelRetransmissionsForStreamEj(ptr nocapture noundef nonnull align 8 dereferenceable(120) %this, i32 noundef %stream_id) local_unnamed_addr #0 align 2 {
 entry:
-  %_M_start.i = getelementptr inbounds %"class.net::QuicUnackedPacketMap", ptr %this, i64 0, i32 2, i32 0, i32 0, i32 0, i32 2
+  %_M_start.i = getelementptr inbounds i8, ptr %this, i64 32
   %0 = load ptr, ptr %_M_start.i, align 8, !noalias !62
-  %_M_finish.i = getelementptr inbounds %"class.net::QuicUnackedPacketMap", ptr %this, i64 0, i32 2, i32 0, i32 0, i32 0, i32 3
+  %_M_finish.i = getelementptr inbounds i8, ptr %this, i64 64
   %1 = load ptr, ptr %_M_finish.i, align 8, !noalias !65
   %cmp.i.i.not16 = icmp eq ptr %0, %1
   br i1 %cmp.i.i.not16, label %for.end, label %for.body.preheader
 
 for.body.preheader:                               ; preds = %entry
-  %_M_node5.i.i = getelementptr inbounds %"class.net::QuicUnackedPacketMap", ptr %this, i64 0, i32 2, i32 0, i32 0, i32 0, i32 2, i32 3
+  %_M_node5.i.i = getelementptr inbounds i8, ptr %this, i64 56
   %2 = load ptr, ptr %_M_node5.i.i, align 8, !noalias !62
-  %_M_last4.i.i = getelementptr inbounds %"class.net::QuicUnackedPacketMap", ptr %this, i64 0, i32 2, i32 0, i32 0, i32 0, i32 2, i32 2
+  %_M_last4.i.i = getelementptr inbounds i8, ptr %this, i64 48
   %3 = load ptr, ptr %_M_last4.i.i, align 8, !noalias !62
-  %least_unacked_ = getelementptr inbounds %"class.net::QuicUnackedPacketMap", ptr %this, i64 0, i32 3
+  %least_unacked_ = getelementptr inbounds i8, ptr %this, i64 96
   %4 = load i64, ptr %least_unacked_, align 8
   br label %for.body
 
@@ -1773,7 +1764,7 @@ for.body:                                         ; preds = %for.body.preheader,
   %it.sroa.8.018 = phi ptr [ %it.sroa.8.1, %_ZNSt15_Deque_iteratorIN3net16TransmissionInfoERS1_PS1_EppEv.exit ], [ %3, %for.body.preheader ]
   %it.sroa.0.017 = phi ptr [ %it.sroa.0.1, %_ZNSt15_Deque_iteratorIN3net16TransmissionInfoERS1_PS1_EppEv.exit ], [ %0, %for.body.preheader ]
   %5 = load ptr, ptr %it.sroa.0.017, align 8
-  %_M_finish.i.i = getelementptr inbounds %"struct.std::_Vector_base<net::QuicFrame, std::allocator<net::QuicFrame>>::_Vector_impl_data", ptr %it.sroa.0.017, i64 0, i32 1
+  %_M_finish.i.i = getelementptr inbounds i8, ptr %it.sroa.0.017, i64 8
   %6 = load ptr, ptr %_M_finish.i.i, align 8
   %cmp.i.i10 = icmp eq ptr %5, %6
   br i1 %cmp.i.i10, label %for.inc, label %if.end
@@ -1790,14 +1781,14 @@ if.then6:                                         ; preds = %if.end
   br label %for.inc
 
 for.inc:                                          ; preds = %if.end, %if.then6, %for.body
-  %incdec.ptr.i = getelementptr inbounds %"struct.net::TransmissionInfo", ptr %it.sroa.0.017, i64 1
+  %incdec.ptr.i = getelementptr inbounds i8, ptr %it.sroa.0.017, i64 80
   %cmp.i = icmp eq ptr %incdec.ptr.i, %it.sroa.8.018
   br i1 %cmp.i, label %if.then.i, label %_ZNSt15_Deque_iteratorIN3net16TransmissionInfoERS1_PS1_EppEv.exit
 
 if.then.i:                                        ; preds = %for.inc
-  %add.ptr.i = getelementptr inbounds ptr, ptr %it.sroa.11.019, i64 1
+  %add.ptr.i = getelementptr inbounds i8, ptr %it.sroa.11.019, i64 8
   %9 = load ptr, ptr %add.ptr.i, align 8
-  %add.ptr.i.i = getelementptr inbounds %"struct.net::TransmissionInfo", ptr %9, i64 6
+  %add.ptr.i.i = getelementptr inbounds i8, ptr %9, i64 480
   br label %_ZNSt15_Deque_iteratorIN3net16TransmissionInfoERS1_PS1_EppEv.exit
 
 _ZNSt15_Deque_iteratorIN3net16TransmissionInfoERS1_PS1_EppEv.exit: ; preds = %for.inc, %if.then.i
@@ -1818,8 +1809,8 @@ declare void @_ZN3net9QuicUtils21RemoveFramesForStreamEPSt6vectorINS_9QuicFrameE
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
 define dso_local noundef zeroext i1 @_ZNK3net20QuicUnackedPacketMap17HasUnackedPacketsEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(120) %this) local_unnamed_addr #5 align 2 {
 entry:
-  %_M_finish.i = getelementptr inbounds %"class.net::QuicUnackedPacketMap", ptr %this, i64 0, i32 2, i32 0, i32 0, i32 0, i32 3
-  %_M_start.i = getelementptr inbounds %"class.net::QuicUnackedPacketMap", ptr %this, i64 0, i32 2, i32 0, i32 0, i32 0, i32 2
+  %_M_finish.i = getelementptr inbounds i8, ptr %this, i64 64
+  %_M_start.i = getelementptr inbounds i8, ptr %this, i64 32
   %0 = load ptr, ptr %_M_finish.i, align 8
   %1 = load ptr, ptr %_M_start.i, align 8
   %cmp.i.i = icmp ne ptr %0, %1
@@ -1829,7 +1820,7 @@ entry:
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
 define dso_local noundef zeroext i1 @_ZNK3net20QuicUnackedPacketMap18HasInFlightPacketsEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(120) %this) local_unnamed_addr #5 align 2 {
 entry:
-  %bytes_in_flight_ = getelementptr inbounds %"class.net::QuicUnackedPacketMap", ptr %this, i64 0, i32 4
+  %bytes_in_flight_ = getelementptr inbounds i8, ptr %this, i64 104
   %0 = load i64, ptr %bytes_in_flight_, align 8
   %cmp = icmp ne i64 %0, 0
   ret i1 %cmp
@@ -1838,14 +1829,14 @@ entry:
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
 define dso_local noundef nonnull align 8 dereferenceable(80) ptr @_ZNK3net20QuicUnackedPacketMap19GetTransmissionInfoEm(ptr nocapture noundef nonnull readonly align 8 dereferenceable(120) %this, i64 noundef %packet_number) local_unnamed_addr #6 align 2 {
 entry:
-  %least_unacked_ = getelementptr inbounds %"class.net::QuicUnackedPacketMap", ptr %this, i64 0, i32 3
+  %least_unacked_ = getelementptr inbounds i8, ptr %this, i64 96
   %0 = load i64, ptr %least_unacked_, align 8
   %sub = sub i64 %packet_number, %0
-  %_M_start.i = getelementptr inbounds %"class.net::QuicUnackedPacketMap", ptr %this, i64 0, i32 2, i32 0, i32 0, i32 0, i32 2
+  %_M_start.i = getelementptr inbounds i8, ptr %this, i64 32
   %1 = load ptr, ptr %_M_start.i, align 8, !noalias !69
-  %_M_first3.i.i.i.i = getelementptr inbounds %"class.net::QuicUnackedPacketMap", ptr %this, i64 0, i32 2, i32 0, i32 0, i32 0, i32 2, i32 1
+  %_M_first3.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 40
   %2 = load ptr, ptr %_M_first3.i.i.i.i, align 8, !noalias !69
-  %_M_node5.i.i.i.i = getelementptr inbounds %"class.net::QuicUnackedPacketMap", ptr %this, i64 0, i32 2, i32 0, i32 0, i32 0, i32 2, i32 3
+  %_M_node5.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 56
   %3 = load ptr, ptr %_M_node5.i.i.i.i, align 8, !noalias !69
   %sub.ptr.lhs.cast.i.i.i.i = ptrtoint ptr %1 to i64
   %sub.ptr.rhs.cast.i.i.i.i = ptrtoint ptr %2 to i64
@@ -1890,14 +1881,14 @@ _ZNKSt5dequeIN3net16TransmissionInfoESaIS1_EEixEm.exit: ; preds = %if.then.i.i.i
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
 define dso_local noundef ptr @_ZN3net20QuicUnackedPacketMap26GetMutableTransmissionInfoEm(ptr nocapture noundef nonnull readonly align 8 dereferenceable(120) %this, i64 noundef %packet_number) local_unnamed_addr #6 align 2 {
 entry:
-  %least_unacked_ = getelementptr inbounds %"class.net::QuicUnackedPacketMap", ptr %this, i64 0, i32 3
+  %least_unacked_ = getelementptr inbounds i8, ptr %this, i64 96
   %0 = load i64, ptr %least_unacked_, align 8
   %sub = sub i64 %packet_number, %0
-  %_M_start.i = getelementptr inbounds %"class.net::QuicUnackedPacketMap", ptr %this, i64 0, i32 2, i32 0, i32 0, i32 0, i32 2
+  %_M_start.i = getelementptr inbounds i8, ptr %this, i64 32
   %1 = load ptr, ptr %_M_start.i, align 8, !noalias !72
-  %_M_first3.i.i.i.i = getelementptr inbounds %"class.net::QuicUnackedPacketMap", ptr %this, i64 0, i32 2, i32 0, i32 0, i32 0, i32 2, i32 1
+  %_M_first3.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 40
   %2 = load ptr, ptr %_M_first3.i.i.i.i, align 8, !noalias !72
-  %_M_node5.i.i.i.i = getelementptr inbounds %"class.net::QuicUnackedPacketMap", ptr %this, i64 0, i32 2, i32 0, i32 0, i32 0, i32 2, i32 3
+  %_M_node5.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 56
   %3 = load ptr, ptr %_M_node5.i.i.i.i, align 8, !noalias !72
   %sub.ptr.lhs.cast.i.i.i.i = ptrtoint ptr %1 to i64
   %sub.ptr.rhs.cast.i.i.i.i = ptrtoint ptr %2 to i64
@@ -1944,17 +1935,17 @@ define dso_local i64 @_ZNK3net20QuicUnackedPacketMap21GetLastPacketSentTimeEv(pt
 entry:
   %ref.tmp12 = alloca %"class.logging::LogMessage", align 8
   %ref.tmp27 = alloca %"class.logging::LogMessage", align 8
-  %_M_finish.i = getelementptr inbounds %"class.net::QuicUnackedPacketMap", ptr %this, i64 0, i32 2, i32 0, i32 0, i32 0, i32 3
+  %_M_finish.i = getelementptr inbounds i8, ptr %this, i64 64
   %0 = load ptr, ptr %_M_finish.i, align 8, !noalias !75
-  %_M_start.i = getelementptr inbounds %"class.net::QuicUnackedPacketMap", ptr %this, i64 0, i32 2, i32 0, i32 0, i32 0, i32 2
+  %_M_start.i = getelementptr inbounds i8, ptr %this, i64 32
   %1 = load ptr, ptr %_M_start.i, align 8, !noalias !78
   %cmp.i.i.i.not58 = icmp eq ptr %0, %1
   br i1 %cmp.i.i.i.not58, label %while.end, label %while.body.preheader
 
 while.body.preheader:                             ; preds = %entry
-  %_M_node5.i.i = getelementptr inbounds %"class.net::QuicUnackedPacketMap", ptr %this, i64 0, i32 2, i32 0, i32 0, i32 0, i32 3, i32 3
+  %_M_node5.i.i = getelementptr inbounds i8, ptr %this, i64 88
   %2 = load ptr, ptr %_M_node5.i.i, align 8, !noalias !75
-  %_M_first3.i.i = getelementptr inbounds %"class.net::QuicUnackedPacketMap", ptr %this, i64 0, i32 2, i32 0, i32 0, i32 0, i32 3, i32 1
+  %_M_first3.i.i = getelementptr inbounds i8, ptr %this, i64 72
   %3 = load ptr, ptr %_M_first3.i.i, align 8, !noalias !75
   br label %while.body
 
@@ -1966,16 +1957,16 @@ while.body:                                       ; preds = %while.body.preheade
   br i1 %cmp.i.i, label %_ZNKSt16reverse_iteratorISt15_Deque_iteratorIN3net16TransmissionInfoERKS2_PS3_EEptEv.exit, label %_ZNKSt16reverse_iteratorISt15_Deque_iteratorIN3net16TransmissionInfoERKS2_PS3_EEptEv.exit.thread
 
 _ZNKSt16reverse_iteratorISt15_Deque_iteratorIN3net16TransmissionInfoERKS2_PS3_EEptEv.exit: ; preds = %while.body
-  %add.ptr.i.i = getelementptr inbounds ptr, ptr %it.sroa.15.061, i64 -1
+  %add.ptr.i.i = getelementptr inbounds i8, ptr %it.sroa.15.061, i64 -8
   %4 = load ptr, ptr %add.ptr.i.i, align 8
-  %in_flight = getelementptr inbounds %"struct.net::TransmissionInfo", ptr %4, i64 5, i32 6
+  %in_flight = getelementptr inbounds i8, ptr %4, i64 441
   %5 = load i8, ptr %in_flight, align 1
   %6 = and i8 %5, 1
   %tobool.not = icmp eq i8 %6, 0
   br i1 %tobool.not, label %if.then.i.i28, label %if.then
 
 _ZNKSt16reverse_iteratorISt15_Deque_iteratorIN3net16TransmissionInfoERKS2_PS3_EEptEv.exit.thread: ; preds = %while.body
-  %in_flight44 = getelementptr %"struct.net::TransmissionInfo", ptr %it.sroa.0.059, i64 -1, i32 6
+  %in_flight44 = getelementptr inbounds i8, ptr %it.sroa.0.059, i64 -39
   %7 = load i8, ptr %in_flight44, align 1
   %8 = and i8 %7, 1
   %tobool.not45 = icmp eq i8 %8, 0
@@ -1991,20 +1982,20 @@ if.then.thread:                                   ; preds = %_ZNKSt16reverse_ite
 
 if.then.i.i13:                                    ; preds = %if.then
   %9 = load ptr, ptr %add.ptr.i.i, align 8
-  %add.ptr.i.i.i16 = getelementptr inbounds %"struct.net::TransmissionInfo", ptr %9, i64 6
+  %add.ptr.i.i.i16 = getelementptr inbounds i8, ptr %9, i64 480
   br label %_ZNKSt16reverse_iteratorISt15_Deque_iteratorIN3net16TransmissionInfoERKS2_PS3_EEptEv.exit17
 
 _ZNKSt16reverse_iteratorISt15_Deque_iteratorIN3net16TransmissionInfoERKS2_PS3_EEptEv.exit17: ; preds = %if.then.thread, %if.then.i.i13
   %it.sroa.0.05969 = phi ptr [ %it.sroa.7.060, %if.then.i.i13 ], [ %it.sroa.0.059, %if.then.thread ]
   %10 = phi ptr [ %add.ptr.i.i.i16, %if.then.i.i13 ], [ %it.sroa.0.059, %if.then.thread ]
-  %sent_time = getelementptr %"struct.net::TransmissionInfo", ptr %10, i64 -1, i32 4
+  %sent_time = getelementptr inbounds i8, ptr %10, i64 -48
   %agg.tmp.sroa.0.0.copyload = load i64, ptr %sent_time, align 8
   %cmp.i = icmp eq i64 %agg.tmp.sroa.0.0.copyload, 0
   br i1 %cmp.i, label %cond.false, label %cleanup.done
 
 cond.false:                                       ; preds = %_ZNKSt16reverse_iteratorISt15_Deque_iteratorIN3net16TransmissionInfoERKS2_PS3_EEptEv.exit17
   call void @_ZN7logging10LogMessageC1EPKcii(ptr noundef nonnull align 8 dereferenceable(404) %ref.tmp12, ptr noundef nonnull @.str, i32 noundef 299, i32 noundef 2)
-  %stream_.i = getelementptr inbounds %"class.logging::LogMessage", ptr %ref.tmp12, i64 0, i32 2
+  %stream_.i = getelementptr inbounds i8, ptr %ref.tmp12, i64 8
   %call15 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc(ptr noundef nonnull align 8 dereferenceable(8) %stream_.i, ptr noundef nonnull @.str.5)
           to label %invoke.cont14 unwind label %lpad
 
@@ -2016,14 +2007,14 @@ cleanup.done:                                     ; preds = %_ZNKSt16reverse_ite
   br i1 %cmp.i.i, label %if.then.i.i21, label %_ZNKSt16reverse_iteratorISt15_Deque_iteratorIN3net16TransmissionInfoERKS2_PS3_EEptEv.exit25
 
 if.then.i.i21:                                    ; preds = %if.then, %invoke.cont14, %cleanup.done
-  %add.ptr.i.i23 = getelementptr inbounds ptr, ptr %it.sroa.15.061, i64 -1
+  %add.ptr.i.i23 = getelementptr inbounds i8, ptr %it.sroa.15.061, i64 -8
   %11 = load ptr, ptr %add.ptr.i.i23, align 8
-  %add.ptr.i.i.i24 = getelementptr inbounds %"struct.net::TransmissionInfo", ptr %11, i64 6
+  %add.ptr.i.i.i24 = getelementptr inbounds i8, ptr %11, i64 480
   br label %_ZNKSt16reverse_iteratorISt15_Deque_iteratorIN3net16TransmissionInfoERKS2_PS3_EEptEv.exit25
 
 _ZNKSt16reverse_iteratorISt15_Deque_iteratorIN3net16TransmissionInfoERKS2_PS3_EEptEv.exit25: ; preds = %invoke.cont14, %if.then.thread, %cleanup.done, %if.then.i.i21
   %12 = phi ptr [ %add.ptr.i.i.i24, %if.then.i.i21 ], [ %it.sroa.0.05969, %cleanup.done ], [ %it.sroa.0.059, %if.then.thread ], [ %it.sroa.0.05969, %invoke.cont14 ]
-  %sent_time21 = getelementptr %"struct.net::TransmissionInfo", ptr %12, i64 -1, i32 4
+  %sent_time21 = getelementptr inbounds i8, ptr %12, i64 -48
   %retval.sroa.0.0.copyload = load i64, ptr %sent_time21, align 8
   br label %return
 
@@ -2033,14 +2024,14 @@ lpad:                                             ; preds = %cond.false
   br label %eh.resume
 
 if.then.i.i28:                                    ; preds = %_ZNKSt16reverse_iteratorISt15_Deque_iteratorIN3net16TransmissionInfoERKS2_PS3_EEptEv.exit
-  %add.ptr.i.i.i30 = getelementptr inbounds %"struct.net::TransmissionInfo", ptr %4, i64 6
+  %add.ptr.i.i.i30 = getelementptr inbounds i8, ptr %4, i64 480
   br label %_ZNSt16reverse_iteratorISt15_Deque_iteratorIN3net16TransmissionInfoERKS2_PS3_EEppEv.exit
 
 _ZNSt16reverse_iteratorISt15_Deque_iteratorIN3net16TransmissionInfoERKS2_PS3_EEppEv.exit: ; preds = %_ZNKSt16reverse_iteratorISt15_Deque_iteratorIN3net16TransmissionInfoERKS2_PS3_EEptEv.exit.thread, %if.then.i.i28
   %it.sroa.7.1 = phi ptr [ %4, %if.then.i.i28 ], [ %it.sroa.7.060, %_ZNKSt16reverse_iteratorISt15_Deque_iteratorIN3net16TransmissionInfoERKS2_PS3_EEptEv.exit.thread ]
   %it.sroa.15.1 = phi ptr [ %add.ptr.i.i, %if.then.i.i28 ], [ %it.sroa.15.061, %_ZNKSt16reverse_iteratorISt15_Deque_iteratorIN3net16TransmissionInfoERKS2_PS3_EEptEv.exit.thread ]
   %14 = phi ptr [ %add.ptr.i.i.i30, %if.then.i.i28 ], [ %it.sroa.0.059, %_ZNKSt16reverse_iteratorISt15_Deque_iteratorIN3net16TransmissionInfoERKS2_PS3_EEptEv.exit.thread ]
-  %incdec.ptr.i.i27 = getelementptr inbounds %"struct.net::TransmissionInfo", ptr %14, i64 -1
+  %incdec.ptr.i.i27 = getelementptr inbounds i8, ptr %14, i64 -80
   %cmp.i.i.i.not = icmp eq ptr %incdec.ptr.i.i27, %1
   br i1 %cmp.i.i.i.not, label %while.end, label %while.body, !llvm.loop !81
 
@@ -2050,7 +2041,7 @@ while.end:                                        ; preds = %_ZNSt16reverse_iter
 
 cond.false25:                                     ; preds = %while.end
   call void @_ZN7logging10LogMessageC1EPKcii(ptr noundef nonnull align 8 dereferenceable(404) %ref.tmp27, ptr noundef nonnull @.str, i32 noundef 305, i32 noundef 2)
-  %stream_.i32 = getelementptr inbounds %"class.logging::LogMessage", ptr %ref.tmp27, i64 0, i32 2
+  %stream_.i32 = getelementptr inbounds i8, ptr %ref.tmp27, i64 8
   %call33 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc(ptr noundef nonnull align 8 dereferenceable(8) %stream_.i32, ptr noundef nonnull @.str.6)
           to label %cleanup.action37 unwind label %lpad29
 
@@ -2077,21 +2068,21 @@ eh.resume:                                        ; preds = %lpad29, %lpad
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
 define dso_local noundef i64 @_ZNK3net20QuicUnackedPacketMap29GetNumUnackedPacketsDebugOnlyEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(120) %this) local_unnamed_addr #6 align 2 {
 entry:
-  %_M_start.i = getelementptr inbounds %"class.net::QuicUnackedPacketMap", ptr %this, i64 0, i32 2, i32 0, i32 0, i32 0, i32 2
+  %_M_start.i = getelementptr inbounds i8, ptr %this, i64 32
   %0 = load ptr, ptr %_M_start.i, align 8, !noalias !82
-  %_M_finish.i = getelementptr inbounds %"class.net::QuicUnackedPacketMap", ptr %this, i64 0, i32 2, i32 0, i32 0, i32 0, i32 3
+  %_M_finish.i = getelementptr inbounds i8, ptr %this, i64 64
   %1 = load ptr, ptr %_M_finish.i, align 8, !noalias !85
   %cmp.i.i.not15 = icmp eq ptr %0, %1
   br i1 %cmp.i.i.not15, label %for.end, label %for.body.lr.ph
 
 for.body.lr.ph:                                   ; preds = %entry
-  %_M_node5.i.i = getelementptr inbounds %"class.net::QuicUnackedPacketMap", ptr %this, i64 0, i32 2, i32 0, i32 0, i32 0, i32 2, i32 3
+  %_M_node5.i.i = getelementptr inbounds i8, ptr %this, i64 56
   %2 = load ptr, ptr %_M_node5.i.i, align 8, !noalias !82
-  %_M_last4.i.i = getelementptr inbounds %"class.net::QuicUnackedPacketMap", ptr %this, i64 0, i32 2, i32 0, i32 0, i32 0, i32 2, i32 2
+  %_M_last4.i.i = getelementptr inbounds i8, ptr %this, i64 48
   %3 = load ptr, ptr %_M_last4.i.i, align 8, !noalias !82
-  %least_unacked_ = getelementptr inbounds %"class.net::QuicUnackedPacketMap", ptr %this, i64 0, i32 3
+  %least_unacked_ = getelementptr inbounds i8, ptr %this, i64 96
   %4 = load i64, ptr %least_unacked_, align 8
-  %largest_observed_.i.i = getelementptr inbounds %"class.net::QuicUnackedPacketMap", ptr %this, i64 0, i32 1
+  %largest_observed_.i.i = getelementptr inbounds i8, ptr %this, i64 8
   %5 = load i64, ptr %largest_observed_.i.i, align 8
   br label %for.body
 
@@ -2101,7 +2092,7 @@ for.body:                                         ; preds = %for.body.lr.ph, %_Z
   %it.sroa.11.018 = phi ptr [ %2, %for.body.lr.ph ], [ %it.sroa.11.1, %_ZNSt15_Deque_iteratorIN3net16TransmissionInfoERKS1_PS2_EppEv.exit ]
   %it.sroa.8.017 = phi ptr [ %3, %for.body.lr.ph ], [ %it.sroa.8.1, %_ZNSt15_Deque_iteratorIN3net16TransmissionInfoERKS1_PS2_EppEv.exit ]
   %it.sroa.0.016 = phi ptr [ %0, %for.body.lr.ph ], [ %it.sroa.0.1, %_ZNSt15_Deque_iteratorIN3net16TransmissionInfoERKS1_PS2_EppEv.exit ]
-  %is_unackable.i.i = getelementptr inbounds %"struct.net::TransmissionInfo", ptr %it.sroa.0.016, i64 0, i32 7
+  %is_unackable.i.i = getelementptr inbounds i8, ptr %it.sroa.0.016, i64 42
   %6 = load i8, ptr %is_unackable.i.i, align 2
   %7 = and i8 %6, 1
   %tobool.not.i.i = icmp eq i8 %7, 0
@@ -2110,7 +2101,7 @@ for.body:                                         ; preds = %for.body.lr.ph, %_Z
   br i1 %8, label %_ZNK3net20QuicUnackedPacketMap15IsPacketUselessEmRKNS_16TransmissionInfoE.exit.thread, label %land.lhs.true.i
 
 land.lhs.true.i:                                  ; preds = %for.body
-  %in_flight.i.i = getelementptr inbounds %"struct.net::TransmissionInfo", ptr %it.sroa.0.016, i64 0, i32 6
+  %in_flight.i.i = getelementptr inbounds i8, ptr %it.sroa.0.016, i64 41
   %9 = load i8, ptr %in_flight.i.i, align 1
   %10 = and i8 %9, 1
   %tobool.i.not.i = icmp eq i8 %10, 0
@@ -2118,10 +2109,10 @@ land.lhs.true.i:                                  ; preds = %for.body
 
 _ZNK3net20QuicUnackedPacketMap15IsPacketUselessEmRKNS_16TransmissionInfoE.exit: ; preds = %land.lhs.true.i
   %11 = load ptr, ptr %it.sroa.0.016, align 8
-  %_M_finish.i.i.i.i = getelementptr inbounds %"struct.std::_Vector_base<net::QuicFrame, std::allocator<net::QuicFrame>>::_Vector_impl_data", ptr %it.sroa.0.016, i64 0, i32 1
+  %_M_finish.i.i.i.i = getelementptr inbounds i8, ptr %it.sroa.0.016, i64 8
   %12 = load ptr, ptr %_M_finish.i.i.i.i, align 8
   %cmp.i.i.i.i = icmp eq ptr %11, %12
-  %retransmission.i.i = getelementptr inbounds %"struct.net::TransmissionInfo", ptr %it.sroa.0.016, i64 0, i32 10
+  %retransmission.i.i = getelementptr inbounds i8, ptr %it.sroa.0.016, i64 48
   %13 = load i64, ptr %retransmission.i.i, align 8
   %cmp.i4.i = icmp ule i64 %13, %5
   %.not.i = select i1 %cmp.i.i.i.i, i1 %cmp.i4.i, i1 false
@@ -2133,14 +2124,14 @@ _ZNK3net20QuicUnackedPacketMap15IsPacketUselessEmRKNS_16TransmissionInfoE.exit: 
 _ZNK3net20QuicUnackedPacketMap15IsPacketUselessEmRKNS_16TransmissionInfoE.exit.thread: ; preds = %for.body, %land.lhs.true.i, %_ZNK3net20QuicUnackedPacketMap15IsPacketUselessEmRKNS_16TransmissionInfoE.exit
   %inc.sink = phi i64 [ %inc, %_ZNK3net20QuicUnackedPacketMap15IsPacketUselessEmRKNS_16TransmissionInfoE.exit ], [ 1, %land.lhs.true.i ], [ 1, %for.body ]
   %spec.select = add i64 %unacked_packet_count.019, %inc.sink
-  %incdec.ptr.i = getelementptr inbounds %"struct.net::TransmissionInfo", ptr %it.sroa.0.016, i64 1
+  %incdec.ptr.i = getelementptr inbounds i8, ptr %it.sroa.0.016, i64 80
   %cmp.i = icmp eq ptr %incdec.ptr.i, %it.sroa.8.017
   br i1 %cmp.i, label %if.then.i, label %_ZNSt15_Deque_iteratorIN3net16TransmissionInfoERKS1_PS2_EppEv.exit
 
 if.then.i:                                        ; preds = %_ZNK3net20QuicUnackedPacketMap15IsPacketUselessEmRKNS_16TransmissionInfoE.exit.thread
-  %add.ptr.i = getelementptr inbounds ptr, ptr %it.sroa.11.018, i64 1
+  %add.ptr.i = getelementptr inbounds i8, ptr %it.sroa.11.018, i64 8
   %14 = load ptr, ptr %add.ptr.i, align 8
-  %add.ptr.i.i = getelementptr inbounds %"struct.net::TransmissionInfo", ptr %14, i64 6
+  %add.ptr.i.i = getelementptr inbounds i8, ptr %14, i64 480
   br label %_ZNSt15_Deque_iteratorIN3net16TransmissionInfoERKS1_PS2_EppEv.exit
 
 _ZNSt15_Deque_iteratorIN3net16TransmissionInfoERKS1_PS2_EppEv.exit: ; preds = %_ZNK3net20QuicUnackedPacketMap15IsPacketUselessEmRKNS_16TransmissionInfoE.exit.thread, %if.then.i
@@ -2159,23 +2150,23 @@ for.end:                                          ; preds = %_ZNSt15_Deque_itera
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
 define dso_local noundef zeroext i1 @_ZNK3net20QuicUnackedPacketMap26HasMultipleInFlightPacketsEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(120) %this) local_unnamed_addr #6 align 2 {
 entry:
-  %bytes_in_flight_ = getelementptr inbounds %"class.net::QuicUnackedPacketMap", ptr %this, i64 0, i32 4
+  %bytes_in_flight_ = getelementptr inbounds i8, ptr %this, i64 104
   %0 = load i64, ptr %bytes_in_flight_, align 8
   %cmp = icmp ugt i64 %0, 1460
   br i1 %cmp, label %return, label %if.end
 
 if.end:                                           ; preds = %entry
-  %_M_finish.i = getelementptr inbounds %"class.net::QuicUnackedPacketMap", ptr %this, i64 0, i32 2, i32 0, i32 0, i32 0, i32 3
+  %_M_finish.i = getelementptr inbounds i8, ptr %this, i64 64
   %1 = load ptr, ptr %_M_finish.i, align 8, !noalias !89
-  %_M_start.i = getelementptr inbounds %"class.net::QuicUnackedPacketMap", ptr %this, i64 0, i32 2, i32 0, i32 0, i32 0, i32 2
+  %_M_start.i = getelementptr inbounds i8, ptr %this, i64 32
   %2 = load ptr, ptr %_M_start.i, align 8, !noalias !92
   %cmp.i.i.i.not29 = icmp eq ptr %1, %2
   br i1 %cmp.i.i.i.not29, label %return, label %for.body.preheader
 
 for.body.preheader:                               ; preds = %if.end
-  %_M_node5.i.i = getelementptr inbounds %"class.net::QuicUnackedPacketMap", ptr %this, i64 0, i32 2, i32 0, i32 0, i32 0, i32 3, i32 3
+  %_M_node5.i.i = getelementptr inbounds i8, ptr %this, i64 88
   %3 = load ptr, ptr %_M_node5.i.i, align 8, !noalias !89
-  %_M_first3.i.i = getelementptr inbounds %"class.net::QuicUnackedPacketMap", ptr %this, i64 0, i32 2, i32 0, i32 0, i32 0, i32 3, i32 1
+  %_M_first3.i.i = getelementptr inbounds i8, ptr %this, i64 72
   %4 = load ptr, ptr %_M_first3.i.i, align 8, !noalias !89
   br label %for.body
 
@@ -2188,9 +2179,9 @@ for.body:                                         ; preds = %for.body.preheader,
   br i1 %cmp.i.i, label %_ZNKSt16reverse_iteratorISt15_Deque_iteratorIN3net16TransmissionInfoERKS2_PS3_EEptEv.exit, label %_ZNKSt16reverse_iteratorISt15_Deque_iteratorIN3net16TransmissionInfoERKS2_PS3_EEptEv.exit.thread
 
 _ZNKSt16reverse_iteratorISt15_Deque_iteratorIN3net16TransmissionInfoERKS2_PS3_EEptEv.exit: ; preds = %for.body
-  %add.ptr.i.i = getelementptr inbounds ptr, ptr %it.sroa.11.032, i64 -1
+  %add.ptr.i.i = getelementptr inbounds i8, ptr %it.sroa.11.032, i64 -8
   %5 = load ptr, ptr %add.ptr.i.i, align 8
-  %in_flight = getelementptr inbounds %"struct.net::TransmissionInfo", ptr %5, i64 5, i32 6
+  %in_flight = getelementptr inbounds i8, ptr %5, i64 441
   %6 = load i8, ptr %in_flight, align 1
   %7 = and i8 %6, 1
   %8 = zext nneg i8 %7 to i64
@@ -2199,7 +2190,7 @@ _ZNKSt16reverse_iteratorISt15_Deque_iteratorIN3net16TransmissionInfoERKS2_PS3_EE
   br i1 %cmp6, label %return, label %if.then.i.i12
 
 _ZNKSt16reverse_iteratorISt15_Deque_iteratorIN3net16TransmissionInfoERKS2_PS3_EEptEv.exit.thread: ; preds = %for.body
-  %in_flight21 = getelementptr %"struct.net::TransmissionInfo", ptr %it.sroa.0.030, i64 -1, i32 6
+  %in_flight21 = getelementptr inbounds i8, ptr %it.sroa.0.030, i64 -39
   %9 = load i8, ptr %in_flight21, align 1
   %10 = and i8 %9, 1
   %11 = zext nneg i8 %10 to i64
@@ -2208,7 +2199,7 @@ _ZNKSt16reverse_iteratorISt15_Deque_iteratorIN3net16TransmissionInfoERKS2_PS3_EE
   br i1 %cmp625, label %return, label %_ZNSt16reverse_iteratorISt15_Deque_iteratorIN3net16TransmissionInfoERKS2_PS3_EEppEv.exit
 
 if.then.i.i12:                                    ; preds = %_ZNKSt16reverse_iteratorISt15_Deque_iteratorIN3net16TransmissionInfoERKS2_PS3_EEptEv.exit
-  %add.ptr.i.i.i14 = getelementptr inbounds %"struct.net::TransmissionInfo", ptr %5, i64 6
+  %add.ptr.i.i.i14 = getelementptr inbounds i8, ptr %5, i64 480
   br label %_ZNSt16reverse_iteratorISt15_Deque_iteratorIN3net16TransmissionInfoERKS2_PS3_EEppEv.exit
 
 _ZNSt16reverse_iteratorISt15_Deque_iteratorIN3net16TransmissionInfoERKS2_PS3_EEppEv.exit: ; preds = %_ZNKSt16reverse_iteratorISt15_Deque_iteratorIN3net16TransmissionInfoERKS2_PS3_EEptEv.exit.thread, %if.then.i.i12
@@ -2216,7 +2207,7 @@ _ZNSt16reverse_iteratorISt15_Deque_iteratorIN3net16TransmissionInfoERKS2_PS3_EEp
   %it.sroa.5.1 = phi ptr [ %5, %if.then.i.i12 ], [ %it.sroa.5.031, %_ZNKSt16reverse_iteratorISt15_Deque_iteratorIN3net16TransmissionInfoERKS2_PS3_EEptEv.exit.thread ]
   %it.sroa.11.1 = phi ptr [ %add.ptr.i.i, %if.then.i.i12 ], [ %it.sroa.11.032, %_ZNKSt16reverse_iteratorISt15_Deque_iteratorIN3net16TransmissionInfoERKS2_PS3_EEptEv.exit.thread ]
   %12 = phi ptr [ %add.ptr.i.i.i14, %if.then.i.i12 ], [ %it.sroa.0.030, %_ZNKSt16reverse_iteratorISt15_Deque_iteratorIN3net16TransmissionInfoERKS2_PS3_EEptEv.exit.thread ]
-  %incdec.ptr.i.i11 = getelementptr inbounds %"struct.net::TransmissionInfo", ptr %12, i64 -1
+  %incdec.ptr.i.i11 = getelementptr inbounds i8, ptr %12, i64 -80
   %cmp.i.i.i.not = icmp eq ptr %incdec.ptr.i.i11, %2
   br i1 %cmp.i.i.i.not, label %return, label %for.body, !llvm.loop !95
 
@@ -2228,7 +2219,7 @@ return:                                           ; preds = %_ZNKSt16reverse_ite
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
 define dso_local noundef zeroext i1 @_ZNK3net20QuicUnackedPacketMap23HasPendingCryptoPacketsEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(120) %this) local_unnamed_addr #5 align 2 {
 entry:
-  %pending_crypto_packet_count_ = getelementptr inbounds %"class.net::QuicUnackedPacketMap", ptr %this, i64 0, i32 5
+  %pending_crypto_packet_count_ = getelementptr inbounds i8, ptr %this, i64 112
   %0 = load i64, ptr %pending_crypto_packet_count_, align 8
   %cmp = icmp ne i64 %0, 0
   ret i1 %cmp
@@ -2237,17 +2228,17 @@ entry:
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
 define dso_local noundef zeroext i1 @_ZNK3net20QuicUnackedPacketMap31HasUnackedRetransmittableFramesEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(120) %this) local_unnamed_addr #6 align 2 {
 entry:
-  %_M_finish.i = getelementptr inbounds %"class.net::QuicUnackedPacketMap", ptr %this, i64 0, i32 2, i32 0, i32 0, i32 0, i32 3
+  %_M_finish.i = getelementptr inbounds i8, ptr %this, i64 64
   %0 = load ptr, ptr %_M_finish.i, align 8, !noalias !96
-  %_M_start.i = getelementptr inbounds %"class.net::QuicUnackedPacketMap", ptr %this, i64 0, i32 2, i32 0, i32 0, i32 0, i32 2
+  %_M_start.i = getelementptr inbounds i8, ptr %this, i64 32
   %1 = load ptr, ptr %_M_start.i, align 8, !noalias !99
   %cmp.i.i.i34.not = icmp eq ptr %0, %1
   br i1 %cmp.i.i.i34.not, label %return, label %for.body.preheader
 
 for.body.preheader:                               ; preds = %entry
-  %_M_node5.i.i = getelementptr inbounds %"class.net::QuicUnackedPacketMap", ptr %this, i64 0, i32 2, i32 0, i32 0, i32 0, i32 3, i32 3
+  %_M_node5.i.i = getelementptr inbounds i8, ptr %this, i64 88
   %2 = load ptr, ptr %_M_node5.i.i, align 8, !noalias !96
-  %_M_first3.i.i = getelementptr inbounds %"class.net::QuicUnackedPacketMap", ptr %this, i64 0, i32 2, i32 0, i32 0, i32 0, i32 3, i32 1
+  %_M_first3.i.i = getelementptr inbounds i8, ptr %this, i64 72
   %3 = load ptr, ptr %_M_first3.i.i, align 8, !noalias !96
   br label %for.body
 
@@ -2259,48 +2250,48 @@ for.body:                                         ; preds = %for.body.preheader,
   br i1 %cmp.i.i, label %_ZNKSt16reverse_iteratorISt15_Deque_iteratorIN3net16TransmissionInfoERKS2_PS3_EEptEv.exit, label %_ZNKSt16reverse_iteratorISt15_Deque_iteratorIN3net16TransmissionInfoERKS2_PS3_EEptEv.exit.thread
 
 _ZNKSt16reverse_iteratorISt15_Deque_iteratorIN3net16TransmissionInfoERKS2_PS3_EEptEv.exit: ; preds = %for.body
-  %add.ptr.i.i = getelementptr inbounds ptr, ptr %it.sroa.13.039, i64 -1
+  %add.ptr.i.i = getelementptr inbounds i8, ptr %it.sroa.13.039, i64 -8
   %4 = load ptr, ptr %add.ptr.i.i, align 8
-  %in_flight = getelementptr inbounds %"struct.net::TransmissionInfo", ptr %4, i64 5, i32 6
+  %in_flight = getelementptr inbounds i8, ptr %4, i64 441
   %5 = load i8, ptr %in_flight, align 1
   %6 = and i8 %5, 1
   %tobool.not = icmp eq i8 %6, 0
   br i1 %tobool.not, label %if.then.i.i20, label %_ZNKSt16reverse_iteratorISt15_Deque_iteratorIN3net16TransmissionInfoERKS2_PS3_EEptEv.exit16
 
 _ZNKSt16reverse_iteratorISt15_Deque_iteratorIN3net16TransmissionInfoERKS2_PS3_EEptEv.exit.thread: ; preds = %for.body
-  %in_flight32 = getelementptr %"struct.net::TransmissionInfo", ptr %it.sroa.0.035, i64 -1, i32 6
+  %in_flight32 = getelementptr inbounds i8, ptr %it.sroa.0.035, i64 -39
   %7 = load i8, ptr %in_flight32, align 1
   %8 = and i8 %7, 1
   %tobool.not33 = icmp eq i8 %8, 0
   br i1 %tobool.not33, label %_ZNSt16reverse_iteratorISt15_Deque_iteratorIN3net16TransmissionInfoERKS2_PS3_EEppEv.exit, label %_ZNKSt16reverse_iteratorISt15_Deque_iteratorIN3net16TransmissionInfoERKS2_PS3_EEptEv.exit16.thread
 
 _ZNKSt16reverse_iteratorISt15_Deque_iteratorIN3net16TransmissionInfoERKS2_PS3_EEptEv.exit16: ; preds = %_ZNKSt16reverse_iteratorISt15_Deque_iteratorIN3net16TransmissionInfoERKS2_PS3_EEptEv.exit
-  %incdec.ptr.i.i11 = getelementptr inbounds %"struct.net::TransmissionInfo", ptr %4, i64 5
+  %incdec.ptr.i.i11 = getelementptr inbounds i8, ptr %4, i64 400
   %9 = load ptr, ptr %incdec.ptr.i.i11, align 8
-  %_M_finish.i.i = getelementptr %"struct.net::TransmissionInfo", ptr %4, i64 5, i32 0, i32 0, i32 0, i32 0, i32 1
+  %_M_finish.i.i = getelementptr inbounds i8, ptr %4, i64 408
   %10 = load ptr, ptr %_M_finish.i.i, align 8
   %cmp.i.i17 = icmp eq ptr %9, %10
   br i1 %cmp.i.i17, label %if.then.i.i20, label %return
 
 _ZNKSt16reverse_iteratorISt15_Deque_iteratorIN3net16TransmissionInfoERKS2_PS3_EEptEv.exit16.thread: ; preds = %_ZNKSt16reverse_iteratorISt15_Deque_iteratorIN3net16TransmissionInfoERKS2_PS3_EEptEv.exit.thread
-  %incdec.ptr.i.i1143 = getelementptr inbounds %"struct.net::TransmissionInfo", ptr %it.sroa.0.035, i64 -1
+  %incdec.ptr.i.i1143 = getelementptr inbounds i8, ptr %it.sroa.0.035, i64 -80
   %11 = load ptr, ptr %incdec.ptr.i.i1143, align 8
-  %_M_finish.i.i44 = getelementptr %"struct.net::TransmissionInfo", ptr %it.sroa.0.035, i64 -1, i32 0, i32 0, i32 0, i32 0, i32 1
+  %_M_finish.i.i44 = getelementptr inbounds i8, ptr %it.sroa.0.035, i64 -72
   %12 = load ptr, ptr %_M_finish.i.i44, align 8
   %cmp.i.i1745 = icmp eq ptr %11, %12
   br i1 %cmp.i.i1745, label %_ZNSt16reverse_iteratorISt15_Deque_iteratorIN3net16TransmissionInfoERKS2_PS3_EEppEv.exit, label %return
 
 if.then.i.i20:                                    ; preds = %_ZNKSt16reverse_iteratorISt15_Deque_iteratorIN3net16TransmissionInfoERKS2_PS3_EEptEv.exit16, %_ZNKSt16reverse_iteratorISt15_Deque_iteratorIN3net16TransmissionInfoERKS2_PS3_EEptEv.exit
-  %add.ptr.i.i21 = getelementptr inbounds ptr, ptr %it.sroa.13.039, i64 -1
+  %add.ptr.i.i21 = getelementptr inbounds i8, ptr %it.sroa.13.039, i64 -8
   %13 = load ptr, ptr %add.ptr.i.i21, align 8
-  %add.ptr.i.i.i22 = getelementptr inbounds %"struct.net::TransmissionInfo", ptr %13, i64 6
+  %add.ptr.i.i.i22 = getelementptr inbounds i8, ptr %13, i64 480
   br label %_ZNSt16reverse_iteratorISt15_Deque_iteratorIN3net16TransmissionInfoERKS2_PS3_EEppEv.exit
 
 _ZNSt16reverse_iteratorISt15_Deque_iteratorIN3net16TransmissionInfoERKS2_PS3_EEppEv.exit: ; preds = %_ZNKSt16reverse_iteratorISt15_Deque_iteratorIN3net16TransmissionInfoERKS2_PS3_EEptEv.exit16.thread, %_ZNKSt16reverse_iteratorISt15_Deque_iteratorIN3net16TransmissionInfoERKS2_PS3_EEptEv.exit.thread, %if.then.i.i20
   %it.sroa.6.1 = phi ptr [ %13, %if.then.i.i20 ], [ %it.sroa.6.037, %_ZNKSt16reverse_iteratorISt15_Deque_iteratorIN3net16TransmissionInfoERKS2_PS3_EEptEv.exit.thread ], [ %it.sroa.6.037, %_ZNKSt16reverse_iteratorISt15_Deque_iteratorIN3net16TransmissionInfoERKS2_PS3_EEptEv.exit16.thread ]
   %it.sroa.13.1 = phi ptr [ %add.ptr.i.i21, %if.then.i.i20 ], [ %it.sroa.13.039, %_ZNKSt16reverse_iteratorISt15_Deque_iteratorIN3net16TransmissionInfoERKS2_PS3_EEptEv.exit.thread ], [ %it.sroa.13.039, %_ZNKSt16reverse_iteratorISt15_Deque_iteratorIN3net16TransmissionInfoERKS2_PS3_EEptEv.exit16.thread ]
   %14 = phi ptr [ %add.ptr.i.i.i22, %if.then.i.i20 ], [ %it.sroa.0.035, %_ZNKSt16reverse_iteratorISt15_Deque_iteratorIN3net16TransmissionInfoERKS2_PS3_EEptEv.exit.thread ], [ %it.sroa.0.035, %_ZNKSt16reverse_iteratorISt15_Deque_iteratorIN3net16TransmissionInfoERKS2_PS3_EEptEv.exit16.thread ]
-  %incdec.ptr.i.i19 = getelementptr inbounds %"struct.net::TransmissionInfo", ptr %14, i64 -1
+  %incdec.ptr.i.i19 = getelementptr inbounds i8, ptr %14, i64 -80
   %cmp.i.i.i.not = icmp eq ptr %incdec.ptr.i.i19, %1
   br i1 %cmp.i.i.i.not, label %return, label %for.body, !llvm.loop !102
 
@@ -2312,7 +2303,7 @@ return:                                           ; preds = %_ZNKSt16reverse_ite
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
 define dso_local noundef i64 @_ZNK3net20QuicUnackedPacketMap15GetLeastUnackedEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(120) %this) local_unnamed_addr #5 align 2 {
 entry:
-  %least_unacked_ = getelementptr inbounds %"class.net::QuicUnackedPacketMap", ptr %this, i64 0, i32 3
+  %least_unacked_ = getelementptr inbounds i8, ptr %this, i64 96
   %0 = load i64, ptr %least_unacked_, align 8
   ret i64 %0
 }
@@ -2324,7 +2315,7 @@ entry:
   %rem = urem i64 %__num_elements, 6
   %0 = tail call i64 @llvm.umax.i64(i64 %div, i64 5)
   %.sroa.speculated = add nuw nsw i64 %0, 3
-  %_M_map_size = getelementptr inbounds %"struct.std::_Deque_base<net::TransmissionInfo, std::allocator<net::TransmissionInfo>>::_Deque_impl_data", ptr %this, i64 0, i32 1
+  %_M_map_size = getelementptr inbounds i8, ptr %this, i64 8
   store i64 %.sroa.speculated, ptr %_M_map_size, align 8
   %cmp.i.i.i = icmp ugt i64 %__num_elements, 6917529027641081837
   br i1 %cmp.i.i.i, label %if.then.i.i.i, label %_ZNSt11_Deque_baseIN3net16TransmissionInfoESaIS1_EE15_M_allocate_mapEm.exit
@@ -2359,7 +2350,7 @@ for.body.i:                                       ; preds = %_ZNSt11_Deque_baseI
 
 invoke.cont.i:                                    ; preds = %for.body.i
   store ptr %call5.i.i.i5.i, ptr %__cur.08.i, align 8
-  %incdec.ptr.i = getelementptr inbounds ptr, ptr %__cur.08.i, i64 1
+  %incdec.ptr.i = getelementptr inbounds i8, ptr %__cur.08.i, i64 8
   %cmp.i8 = icmp ult ptr %incdec.ptr.i, %add.ptr14
   br i1 %cmp.i8, label %for.body.i, label %try.cont, !llvm.loop !103
 
@@ -2375,7 +2366,7 @@ for.body.i.i:                                     ; preds = %lpad.i, %for.body.i
   %__n.04.i.i = phi ptr [ %incdec.ptr.i.i, %for.body.i.i ], [ %add.ptr, %lpad.i ]
   %4 = load ptr, ptr %__n.04.i.i, align 8
   tail call void @_ZdlPv(ptr noundef %4) #18
-  %incdec.ptr.i.i = getelementptr inbounds ptr, ptr %__n.04.i.i, i64 1
+  %incdec.ptr.i.i = getelementptr inbounds i8, ptr %__n.04.i.i, i64 8
   %cmp.i.i = icmp ult ptr %incdec.ptr.i.i, %__cur.08.i
   br i1 %cmp.i.i, label %for.body.i.i, label %_ZNSt11_Deque_baseIN3net16TransmissionInfoESaIS1_EE16_M_destroy_nodesEPPS1_S5_.exit.i, !llvm.loop !21
 
@@ -2415,24 +2406,24 @@ lpad23:                                           ; preds = %lpad.body
           to label %eh.resume unwind label %terminate.lpad
 
 try.cont:                                         ; preds = %invoke.cont.i
-  %_M_start = getelementptr inbounds %"struct.std::_Deque_base<net::TransmissionInfo, std::allocator<net::TransmissionInfo>>::_Deque_impl_data", ptr %this, i64 0, i32 2
-  %_M_node.i = getelementptr inbounds %"struct.std::_Deque_base<net::TransmissionInfo, std::allocator<net::TransmissionInfo>>::_Deque_impl_data", ptr %this, i64 0, i32 2, i32 3
+  %_M_start = getelementptr inbounds i8, ptr %this, i64 16
+  %_M_node.i = getelementptr inbounds i8, ptr %this, i64 40
   store ptr %add.ptr, ptr %_M_node.i, align 8
   %12 = load ptr, ptr %add.ptr, align 8
-  %_M_first.i = getelementptr inbounds %"struct.std::_Deque_base<net::TransmissionInfo, std::allocator<net::TransmissionInfo>>::_Deque_impl_data", ptr %this, i64 0, i32 2, i32 1
+  %_M_first.i = getelementptr inbounds i8, ptr %this, i64 24
   store ptr %12, ptr %_M_first.i, align 8
-  %add.ptr.i = getelementptr inbounds %"struct.net::TransmissionInfo", ptr %12, i64 6
-  %_M_last.i = getelementptr inbounds %"struct.std::_Deque_base<net::TransmissionInfo, std::allocator<net::TransmissionInfo>>::_Deque_impl_data", ptr %this, i64 0, i32 2, i32 2
+  %add.ptr.i = getelementptr inbounds i8, ptr %12, i64 480
+  %_M_last.i = getelementptr inbounds i8, ptr %this, i64 32
   store ptr %add.ptr.i, ptr %_M_last.i, align 8
-  %_M_finish = getelementptr inbounds %"struct.std::_Deque_base<net::TransmissionInfo, std::allocator<net::TransmissionInfo>>::_Deque_impl_data", ptr %this, i64 0, i32 3
-  %add.ptr27 = getelementptr inbounds ptr, ptr %add.ptr, i64 %div
-  %_M_node.i10 = getelementptr inbounds %"struct.std::_Deque_base<net::TransmissionInfo, std::allocator<net::TransmissionInfo>>::_Deque_impl_data", ptr %this, i64 0, i32 3, i32 3
+  %_M_finish = getelementptr inbounds i8, ptr %this, i64 48
+  %add.ptr27 = getelementptr inbounds i8, ptr %add.ptr14, i64 -8
+  %_M_node.i10 = getelementptr inbounds i8, ptr %this, i64 72
   store ptr %add.ptr27, ptr %_M_node.i10, align 8
   %13 = load ptr, ptr %add.ptr27, align 8
-  %_M_first.i11 = getelementptr inbounds %"struct.std::_Deque_base<net::TransmissionInfo, std::allocator<net::TransmissionInfo>>::_Deque_impl_data", ptr %this, i64 0, i32 3, i32 1
+  %_M_first.i11 = getelementptr inbounds i8, ptr %this, i64 56
   store ptr %13, ptr %_M_first.i11, align 8
-  %add.ptr.i12 = getelementptr inbounds %"struct.net::TransmissionInfo", ptr %13, i64 6
-  %_M_last.i13 = getelementptr inbounds %"struct.std::_Deque_base<net::TransmissionInfo, std::allocator<net::TransmissionInfo>>::_Deque_impl_data", ptr %this, i64 0, i32 3, i32 2
+  %add.ptr.i12 = getelementptr inbounds i8, ptr %13, i64 480
+  %_M_last.i13 = getelementptr inbounds i8, ptr %this, i64 64
   store ptr %add.ptr.i12, ptr %_M_last.i13, align 8
   store ptr %12, ptr %_M_start, align 8
   %add.ptr36 = getelementptr inbounds %"struct.net::TransmissionInfo", ptr %13, i64 %rem
@@ -2472,11 +2463,11 @@ declare void @_ZdlPv(ptr noundef) local_unnamed_addr #11
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr dso_local void @_ZNSt5dequeIN3net16TransmissionInfoESaIS1_EE16_M_push_back_auxIJS1_EEEvDpOT_(ptr noundef nonnull align 8 dereferenceable(80) %this, ptr noundef nonnull align 8 dereferenceable(80) %__args) local_unnamed_addr #0 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  %_M_finish.i = getelementptr inbounds %"struct.std::_Deque_base<net::TransmissionInfo, std::allocator<net::TransmissionInfo>>::_Deque_impl_data", ptr %this, i64 0, i32 3
-  %_M_start.i = getelementptr inbounds %"struct.std::_Deque_base<net::TransmissionInfo, std::allocator<net::TransmissionInfo>>::_Deque_impl_data", ptr %this, i64 0, i32 2
-  %_M_node.i.i = getelementptr inbounds %"struct.std::_Deque_base<net::TransmissionInfo, std::allocator<net::TransmissionInfo>>::_Deque_impl_data", ptr %this, i64 0, i32 3, i32 3
+  %_M_finish.i = getelementptr inbounds i8, ptr %this, i64 48
+  %_M_start.i = getelementptr inbounds i8, ptr %this, i64 16
+  %_M_node.i.i = getelementptr inbounds i8, ptr %this, i64 72
   %0 = load ptr, ptr %_M_node.i.i, align 8
-  %_M_node1.i.i = getelementptr inbounds %"struct.std::_Deque_base<net::TransmissionInfo, std::allocator<net::TransmissionInfo>>::_Deque_impl_data", ptr %this, i64 0, i32 2, i32 3
+  %_M_node1.i.i = getelementptr inbounds i8, ptr %this, i64 40
   %1 = load ptr, ptr %_M_node1.i.i, align 8
   %sub.ptr.lhs.cast.i.i = ptrtoint ptr %0 to i64
   %sub.ptr.rhs.cast.i.i = ptrtoint ptr %1 to i64
@@ -2487,14 +2478,14 @@ entry:
   %sub.i.i = add nsw i64 %sub.ptr.div.i.i, %conv.neg.i.i
   %mul.i.i = mul nsw i64 %sub.i.i, 6
   %2 = load ptr, ptr %_M_finish.i, align 8
-  %_M_first.i.i = getelementptr inbounds %"struct.std::_Deque_base<net::TransmissionInfo, std::allocator<net::TransmissionInfo>>::_Deque_impl_data", ptr %this, i64 0, i32 3, i32 1
+  %_M_first.i.i = getelementptr inbounds i8, ptr %this, i64 56
   %3 = load ptr, ptr %_M_first.i.i, align 8
   %sub.ptr.lhs.cast3.i.i = ptrtoint ptr %2 to i64
   %sub.ptr.rhs.cast4.i.i = ptrtoint ptr %3 to i64
   %sub.ptr.sub5.i.i = sub i64 %sub.ptr.lhs.cast3.i.i, %sub.ptr.rhs.cast4.i.i
   %sub.ptr.div6.i.i = sdiv exact i64 %sub.ptr.sub5.i.i, 80
   %add.i.i = add nsw i64 %mul.i.i, %sub.ptr.div6.i.i
-  %_M_last.i.i = getelementptr inbounds %"struct.std::_Deque_base<net::TransmissionInfo, std::allocator<net::TransmissionInfo>>::_Deque_impl_data", ptr %this, i64 0, i32 2, i32 2
+  %_M_last.i.i = getelementptr inbounds i8, ptr %this, i64 32
   %4 = load ptr, ptr %_M_last.i.i, align 8
   %5 = load ptr, ptr %_M_start.i, align 8
   %sub.ptr.lhs.cast8.i.i = ptrtoint ptr %4 to i64
@@ -2510,7 +2501,7 @@ if.then:                                          ; preds = %entry
   unreachable
 
 if.end:                                           ; preds = %entry
-  %_M_map_size.i = getelementptr inbounds %"struct.std::_Deque_base<net::TransmissionInfo, std::allocator<net::TransmissionInfo>>::_Deque_impl_data", ptr %this, i64 0, i32 1
+  %_M_map_size.i = getelementptr inbounds i8, ptr %this, i64 8
   %6 = load i64, ptr %_M_map_size.i, align 8
   %7 = load ptr, ptr %this, align 8
   %sub.ptr.rhs.cast.i = ptrtoint ptr %7 to i64
@@ -2528,7 +2519,7 @@ if.then.i:                                        ; preds = %if.end
 _ZNSt5dequeIN3net16TransmissionInfoESaIS1_EE22_M_reserve_map_at_backEm.exit: ; preds = %if.end, %if.then.i
   %8 = phi ptr [ %0, %if.end ], [ %.pre, %if.then.i ]
   %call5.i.i.i = tail call noalias noundef nonnull dereferenceable(480) ptr @_Znwm(i64 noundef 480) #20
-  %add.ptr = getelementptr inbounds ptr, ptr %8, i64 1
+  %add.ptr = getelementptr inbounds i8, ptr %8, i64 8
   store ptr %call5.i.i.i, ptr %add.ptr, align 8
   %9 = load ptr, ptr %_M_finish.i, align 8
   invoke void @_ZN3net16TransmissionInfoC1ERKS0_(ptr noundef nonnull align 8 dereferenceable(80) %9, ptr noundef nonnull align 8 dereferenceable(80) %__args)
@@ -2536,12 +2527,12 @@ _ZNSt5dequeIN3net16TransmissionInfoESaIS1_EE22_M_reserve_map_at_backEm.exit: ; p
 
 invoke.cont:                                      ; preds = %_ZNSt5dequeIN3net16TransmissionInfoESaIS1_EE22_M_reserve_map_at_backEm.exit
   %10 = load ptr, ptr %_M_node.i.i, align 8
-  %add.ptr12 = getelementptr inbounds ptr, ptr %10, i64 1
+  %add.ptr12 = getelementptr inbounds i8, ptr %10, i64 8
   store ptr %add.ptr12, ptr %_M_node.i.i, align 8
   %11 = load ptr, ptr %add.ptr12, align 8
   store ptr %11, ptr %_M_first.i.i, align 8
-  %add.ptr.i = getelementptr inbounds %"struct.net::TransmissionInfo", ptr %11, i64 6
-  %_M_last.i = getelementptr inbounds %"struct.std::_Deque_base<net::TransmissionInfo, std::allocator<net::TransmissionInfo>>::_Deque_impl_data", ptr %this, i64 0, i32 3, i32 2
+  %add.ptr.i = getelementptr inbounds i8, ptr %11, i64 480
+  %_M_last.i = getelementptr inbounds i8, ptr %this, i64 64
   store ptr %add.ptr.i, ptr %_M_last.i, align 8
   store ptr %11, ptr %_M_finish.i, align 8
   ret void
@@ -2552,7 +2543,7 @@ lpad:                                             ; preds = %_ZNSt5dequeIN3net16
   %13 = extractvalue { ptr, i32 } %12, 0
   %14 = tail call ptr @__cxa_begin_catch(ptr %13) #16
   %15 = load ptr, ptr %_M_node.i.i, align 8
-  %add.ptr21 = getelementptr inbounds ptr, ptr %15, i64 1
+  %add.ptr21 = getelementptr inbounds i8, ptr %15, i64 8
   %16 = load ptr, ptr %add.ptr21, align 8
   tail call void @_ZdlPv(ptr noundef %16) #18
   invoke void @__cxa_rethrow() #19
@@ -2586,9 +2577,9 @@ declare void @_ZSt20__throw_length_errorPKc(ptr noundef) local_unnamed_addr #9
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr dso_local void @_ZNSt5dequeIN3net16TransmissionInfoESaIS1_EE17_M_reallocate_mapEmb(ptr noundef nonnull align 8 dereferenceable(80) %this, i64 noundef %__nodes_to_add, i1 noundef zeroext %__add_at_front) local_unnamed_addr #0 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  %_M_node = getelementptr inbounds %"struct.std::_Deque_base<net::TransmissionInfo, std::allocator<net::TransmissionInfo>>::_Deque_impl_data", ptr %this, i64 0, i32 3, i32 3
+  %_M_node = getelementptr inbounds i8, ptr %this, i64 72
   %0 = load ptr, ptr %_M_node, align 8
-  %_M_node3 = getelementptr inbounds %"struct.std::_Deque_base<net::TransmissionInfo, std::allocator<net::TransmissionInfo>>::_Deque_impl_data", ptr %this, i64 0, i32 2, i32 3
+  %_M_node3 = getelementptr inbounds i8, ptr %this, i64 40
   %1 = load ptr, ptr %_M_node3, align 8
   %sub.ptr.lhs.cast = ptrtoint ptr %0 to i64
   %sub.ptr.rhs.cast = ptrtoint ptr %1 to i64
@@ -2596,7 +2587,7 @@ entry:
   %sub.ptr.div = ashr exact i64 %sub.ptr.sub, 3
   %add = add nsw i64 %sub.ptr.div, 1
   %add4 = add i64 %add, %__nodes_to_add
-  %_M_map_size = getelementptr inbounds %"struct.std::_Deque_base<net::TransmissionInfo, std::allocator<net::TransmissionInfo>>::_Deque_impl_data", ptr %this, i64 0, i32 1
+  %_M_map_size = getelementptr inbounds i8, ptr %this, i64 8
   %2 = load i64, ptr %_M_map_size, align 8
   %mul = shl i64 %add4, 1
   %cmp = icmp ugt i64 %2, %mul
@@ -2610,7 +2601,7 @@ if.then:                                          ; preds = %entry
   %cond = select i1 %__add_at_front, i64 %__nodes_to_add, i64 0
   %add.ptr9 = getelementptr inbounds ptr, ptr %add.ptr, i64 %cond
   %cmp13 = icmp ult ptr %add.ptr9, %1
-  %add.ptr21 = getelementptr inbounds ptr, ptr %0, i64 1
+  %add.ptr21 = getelementptr inbounds i8, ptr %0, i64 8
   %tobool.not.i.i.i.i.i = icmp eq ptr %add.ptr21, %1
   br i1 %cmp13, label %if.then14, label %if.else
 
@@ -2663,7 +2654,7 @@ _ZNSt11_Deque_baseIN3net16TransmissionInfoESaIS1_EE15_M_allocate_mapEm.exit: ; p
   %add.ptr42 = getelementptr inbounds ptr, ptr %call5.i.i2.i, i64 %div4116
   %cond47 = select i1 %__add_at_front, i64 %__nodes_to_add, i64 0
   %add.ptr48 = getelementptr inbounds ptr, ptr %add.ptr42, i64 %cond47
-  %add.ptr55 = getelementptr inbounds ptr, ptr %0, i64 1
+  %add.ptr55 = getelementptr inbounds i8, ptr %0, i64 8
   %tobool.not.i.i.i.i.i27 = icmp eq ptr %add.ptr55, %1
   br i1 %tobool.not.i.i.i.i.i27, label %_ZSt4copyIPPN3net16TransmissionInfoES3_ET0_T_S5_S4_.exit30, label %if.then.i.i.i.i.i28
 
@@ -2684,19 +2675,19 @@ if.end65:                                         ; preds = %if.then.i.i.i.i.i22
   %__new_nstart.0 = phi ptr [ %add.ptr48, %_ZSt4copyIPPN3net16TransmissionInfoES3_ET0_T_S5_S4_.exit30 ], [ %add.ptr9, %if.then14 ], [ %add.ptr9, %if.then.i.i.i.i.i ], [ %add.ptr9, %if.else ], [ %add.ptr9, %if.then.i.i.i.i.i22 ]
   store ptr %__new_nstart.0, ptr %_M_node3, align 8
   %5 = load ptr, ptr %__new_nstart.0, align 8
-  %_M_first.i = getelementptr inbounds %"struct.std::_Deque_base<net::TransmissionInfo, std::allocator<net::TransmissionInfo>>::_Deque_impl_data", ptr %this, i64 0, i32 2, i32 1
+  %_M_first.i = getelementptr inbounds i8, ptr %this, i64 24
   store ptr %5, ptr %_M_first.i, align 8
-  %add.ptr.i = getelementptr inbounds %"struct.net::TransmissionInfo", ptr %5, i64 6
-  %_M_last.i = getelementptr inbounds %"struct.std::_Deque_base<net::TransmissionInfo, std::allocator<net::TransmissionInfo>>::_Deque_impl_data", ptr %this, i64 0, i32 2, i32 2
+  %add.ptr.i = getelementptr inbounds i8, ptr %5, i64 480
+  %_M_last.i = getelementptr inbounds i8, ptr %this, i64 32
   store ptr %add.ptr.i, ptr %_M_last.i, align 8
   %add.ptr70 = getelementptr inbounds ptr, ptr %__new_nstart.0, i64 %add
-  %add.ptr71 = getelementptr inbounds ptr, ptr %add.ptr70, i64 -1
+  %add.ptr71 = getelementptr inbounds i8, ptr %add.ptr70, i64 -8
   store ptr %add.ptr71, ptr %_M_node, align 8
   %6 = load ptr, ptr %add.ptr71, align 8
-  %_M_first.i32 = getelementptr inbounds %"struct.std::_Deque_base<net::TransmissionInfo, std::allocator<net::TransmissionInfo>>::_Deque_impl_data", ptr %this, i64 0, i32 3, i32 1
+  %_M_first.i32 = getelementptr inbounds i8, ptr %this, i64 56
   store ptr %6, ptr %_M_first.i32, align 8
-  %add.ptr.i33 = getelementptr inbounds %"struct.net::TransmissionInfo", ptr %6, i64 6
-  %_M_last.i34 = getelementptr inbounds %"struct.std::_Deque_base<net::TransmissionInfo, std::allocator<net::TransmissionInfo>>::_Deque_impl_data", ptr %this, i64 0, i32 3, i32 2
+  %add.ptr.i33 = getelementptr inbounds i8, ptr %6, i64 480
+  %_M_last.i34 = getelementptr inbounds i8, ptr %this, i64 64
   store ptr %add.ptr.i33, ptr %_M_last.i34, align 8
   ret void
 }
@@ -2707,11 +2698,11 @@ declare void @llvm.memmove.p0.p0.i64(ptr nocapture writeonly, ptr nocapture read
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr dso_local void @_ZNSt5dequeIN3net16TransmissionInfoESaIS1_EE16_M_push_back_auxIJRKS1_EEEvDpOT_(ptr noundef nonnull align 8 dereferenceable(80) %this, ptr noundef nonnull align 8 dereferenceable(80) %__args) local_unnamed_addr #0 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  %_M_finish.i = getelementptr inbounds %"struct.std::_Deque_base<net::TransmissionInfo, std::allocator<net::TransmissionInfo>>::_Deque_impl_data", ptr %this, i64 0, i32 3
-  %_M_start.i = getelementptr inbounds %"struct.std::_Deque_base<net::TransmissionInfo, std::allocator<net::TransmissionInfo>>::_Deque_impl_data", ptr %this, i64 0, i32 2
-  %_M_node.i.i = getelementptr inbounds %"struct.std::_Deque_base<net::TransmissionInfo, std::allocator<net::TransmissionInfo>>::_Deque_impl_data", ptr %this, i64 0, i32 3, i32 3
+  %_M_finish.i = getelementptr inbounds i8, ptr %this, i64 48
+  %_M_start.i = getelementptr inbounds i8, ptr %this, i64 16
+  %_M_node.i.i = getelementptr inbounds i8, ptr %this, i64 72
   %0 = load ptr, ptr %_M_node.i.i, align 8
-  %_M_node1.i.i = getelementptr inbounds %"struct.std::_Deque_base<net::TransmissionInfo, std::allocator<net::TransmissionInfo>>::_Deque_impl_data", ptr %this, i64 0, i32 2, i32 3
+  %_M_node1.i.i = getelementptr inbounds i8, ptr %this, i64 40
   %1 = load ptr, ptr %_M_node1.i.i, align 8
   %sub.ptr.lhs.cast.i.i = ptrtoint ptr %0 to i64
   %sub.ptr.rhs.cast.i.i = ptrtoint ptr %1 to i64
@@ -2722,14 +2713,14 @@ entry:
   %sub.i.i = add nsw i64 %sub.ptr.div.i.i, %conv.neg.i.i
   %mul.i.i = mul nsw i64 %sub.i.i, 6
   %2 = load ptr, ptr %_M_finish.i, align 8
-  %_M_first.i.i = getelementptr inbounds %"struct.std::_Deque_base<net::TransmissionInfo, std::allocator<net::TransmissionInfo>>::_Deque_impl_data", ptr %this, i64 0, i32 3, i32 1
+  %_M_first.i.i = getelementptr inbounds i8, ptr %this, i64 56
   %3 = load ptr, ptr %_M_first.i.i, align 8
   %sub.ptr.lhs.cast3.i.i = ptrtoint ptr %2 to i64
   %sub.ptr.rhs.cast4.i.i = ptrtoint ptr %3 to i64
   %sub.ptr.sub5.i.i = sub i64 %sub.ptr.lhs.cast3.i.i, %sub.ptr.rhs.cast4.i.i
   %sub.ptr.div6.i.i = sdiv exact i64 %sub.ptr.sub5.i.i, 80
   %add.i.i = add nsw i64 %mul.i.i, %sub.ptr.div6.i.i
-  %_M_last.i.i = getelementptr inbounds %"struct.std::_Deque_base<net::TransmissionInfo, std::allocator<net::TransmissionInfo>>::_Deque_impl_data", ptr %this, i64 0, i32 2, i32 2
+  %_M_last.i.i = getelementptr inbounds i8, ptr %this, i64 32
   %4 = load ptr, ptr %_M_last.i.i, align 8
   %5 = load ptr, ptr %_M_start.i, align 8
   %sub.ptr.lhs.cast8.i.i = ptrtoint ptr %4 to i64
@@ -2745,7 +2736,7 @@ if.then:                                          ; preds = %entry
   unreachable
 
 if.end:                                           ; preds = %entry
-  %_M_map_size.i = getelementptr inbounds %"struct.std::_Deque_base<net::TransmissionInfo, std::allocator<net::TransmissionInfo>>::_Deque_impl_data", ptr %this, i64 0, i32 1
+  %_M_map_size.i = getelementptr inbounds i8, ptr %this, i64 8
   %6 = load i64, ptr %_M_map_size.i, align 8
   %7 = load ptr, ptr %this, align 8
   %sub.ptr.rhs.cast.i = ptrtoint ptr %7 to i64
@@ -2763,7 +2754,7 @@ if.then.i:                                        ; preds = %if.end
 _ZNSt5dequeIN3net16TransmissionInfoESaIS1_EE22_M_reserve_map_at_backEm.exit: ; preds = %if.end, %if.then.i
   %8 = phi ptr [ %0, %if.end ], [ %.pre, %if.then.i ]
   %call5.i.i.i = tail call noalias noundef nonnull dereferenceable(480) ptr @_Znwm(i64 noundef 480) #20
-  %add.ptr = getelementptr inbounds ptr, ptr %8, i64 1
+  %add.ptr = getelementptr inbounds i8, ptr %8, i64 8
   store ptr %call5.i.i.i, ptr %add.ptr, align 8
   %9 = load ptr, ptr %_M_finish.i, align 8
   invoke void @_ZN3net16TransmissionInfoC1ERKS0_(ptr noundef nonnull align 8 dereferenceable(80) %9, ptr noundef nonnull align 8 dereferenceable(80) %__args)
@@ -2771,12 +2762,12 @@ _ZNSt5dequeIN3net16TransmissionInfoESaIS1_EE22_M_reserve_map_at_backEm.exit: ; p
 
 invoke.cont:                                      ; preds = %_ZNSt5dequeIN3net16TransmissionInfoESaIS1_EE22_M_reserve_map_at_backEm.exit
   %10 = load ptr, ptr %_M_node.i.i, align 8
-  %add.ptr12 = getelementptr inbounds ptr, ptr %10, i64 1
+  %add.ptr12 = getelementptr inbounds i8, ptr %10, i64 8
   store ptr %add.ptr12, ptr %_M_node.i.i, align 8
   %11 = load ptr, ptr %add.ptr12, align 8
   store ptr %11, ptr %_M_first.i.i, align 8
-  %add.ptr.i = getelementptr inbounds %"struct.net::TransmissionInfo", ptr %11, i64 6
-  %_M_last.i = getelementptr inbounds %"struct.std::_Deque_base<net::TransmissionInfo, std::allocator<net::TransmissionInfo>>::_Deque_impl_data", ptr %this, i64 0, i32 3, i32 2
+  %add.ptr.i = getelementptr inbounds i8, ptr %11, i64 480
+  %_M_last.i = getelementptr inbounds i8, ptr %this, i64 64
   store ptr %add.ptr.i, ptr %_M_last.i, align 8
   store ptr %11, ptr %_M_finish.i, align 8
   ret void
@@ -2787,7 +2778,7 @@ lpad:                                             ; preds = %_ZNSt5dequeIN3net16
   %13 = extractvalue { ptr, i32 } %12, 0
   %14 = tail call ptr @__cxa_begin_catch(ptr %13) #16
   %15 = load ptr, ptr %_M_node.i.i, align 8
-  %add.ptr21 = getelementptr inbounds ptr, ptr %15, i64 1
+  %add.ptr21 = getelementptr inbounds i8, ptr %15, i64 8
   %16 = load ptr, ptr %add.ptr21, align 8
   tail call void @_ZdlPv(ptr noundef %16) #18
   invoke void @__cxa_rethrow() #19

@@ -84,10 +84,10 @@ define void @_ZN14regex_automata4meta5regex7Builder10build_many17hc604d6a2026e02
 
 40:                                               ; preds = %39
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %25, ptr noundef nonnull align 8 dereferenceable(32) %27, i64 32, i1 false)
-  %41 = getelementptr inbounds { { { i64, i64 }, { i64, i64 }, { i64, i64 }, { i64, i64 }, { i64, i64 }, { [16 x i8], i8, [7 x i8] }, { i8, i8 }, i8, i8, i8, i8, i8, i8, i8, i8, i8, [5 x i8] }, { i8, { i8, i8, i8, i8, i8, i8 }, i8 }, { i32, i8, i8, [2 x i8] } }, ptr %1, i64 0, i32 2
-  %42 = getelementptr inbounds { [1 x i64], { i64, ptr } }, ptr %22, i64 0, i32 1
-  %43 = getelementptr inbounds { [1 x i64], { i64, ptr } }, ptr %22, i64 0, i32 1, i32 1
-  %44 = getelementptr inbounds { i64, ptr }, ptr %23, i64 0, i32 1
+  %41 = getelementptr inbounds i8, ptr %1, i64 128
+  %42 = getelementptr inbounds i8, ptr %22, i64 8
+  %43 = getelementptr inbounds i8, ptr %22, i64 16
+  %44 = getelementptr inbounds i8, ptr %23, i64 8
   br label %45
 
 45:                                               ; preds = %124, %40
@@ -137,10 +137,10 @@ define void @_ZN14regex_automata4meta5regex7Builder10build_many17hc604d6a2026e02
 
 65:                                               ; preds = %64
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(72) %14, ptr noundef nonnull align 8 dereferenceable(72) %17, i64 72, i1 false)
-  %66 = getelementptr inbounds { [1 x i64], ptr, [1 x i64] }, ptr %13, i64 0, i32 1
-  %67 = getelementptr inbounds { { i32, ptr }, ptr }, ptr %13, i64 0, i32 1
-  %68 = getelementptr inbounds { { { i64, i64 }, { i64, i64 }, { i64, i64 }, { i64, i64 }, { i64, i64 }, { [16 x i8], i8, [7 x i8] }, { i8, i8 }, i8, i8, i8, i8, i8, i8, i8, i8, i8, [5 x i8] }, { i8, { i8, i8, i8, i8, i8, i8 }, i8 }, { i32, i8, i8, [2 x i8] } }, ptr %1, i64 0, i32 1
-  %69 = getelementptr inbounds { [1 x i64], { { i64, [4 x i64] }, ptr } }, ptr %10, i64 0, i32 1
+  %66 = getelementptr inbounds i8, ptr %13, i64 8
+  %67 = getelementptr inbounds i8, ptr %13, i64 16
+  %68 = getelementptr inbounds i8, ptr %1, i64 120
+  %69 = getelementptr inbounds i8, ptr %10, i64 8
   br label %70
 
 70:                                               ; preds = %101, %65

@@ -9,16 +9,6 @@ target triple = "x86_64-unknown-linux-gnu"
 %struct.oidset = type { %struct.kh_oid_set }
 %struct.kh_oid_set = type { i32, i32, i32, i32, ptr, ptr, ptr }
 %struct.object_id = type { [32 x i8], i32 }
-%struct.repository = type { ptr, ptr, ptr, ptr, ptr, %struct.repo_path_cache, ptr, ptr, ptr, ptr, %struct.repo_settings, ptr, ptr, ptr, ptr, ptr, i32, i32, i32, ptr, ptr, i32, i8 }
-%struct.repo_path_cache = type { ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr }
-%struct.repo_settings = type { i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, ptr, i32, i32, i32, i32, i32, i32 }
-%struct.raw_object_store = type { ptr, ptr, ptr, i32, ptr, ptr, i8, %union.pthread_mutex_t, ptr, i8, ptr, ptr, %struct.list_head, %struct.anon, %struct.hashmap, i64, i8 }
-%union.pthread_mutex_t = type { %struct.__pthread_mutex_s }
-%struct.__pthread_mutex_s = type { i32, i32, i32, i32, i32, i16, i16, %struct.__pthread_internal_list }
-%struct.__pthread_internal_list = type { ptr, ptr }
-%struct.list_head = type { ptr, ptr }
-%struct.anon = type { ptr, i32 }
-%struct.hashmap = type { ptr, ptr, ptr, i32, i32, i32, i32, i8 }
 
 @cmd_mktag.builtin_mktag_options = internal global [2 x %struct.option] [%struct.option { i32 9, i32 0, ptr @.str, ptr @option_strict, ptr null, ptr @.str.1, i32 2, ptr null, i64 1, ptr null, i64 0, ptr null }, %struct.option zeroinitializer], align 16
 @.str = private unnamed_addr constant [7 x i8] c"strict\00", align 1
@@ -68,9 +58,9 @@ if.end:                                           ; preds = %entry
   store ptr @mktag_fsck_error_func, ptr getelementptr inbounds (%struct.fsck_options, ptr @fsck_options, i64 0, i32 1), align 8
   call void @fsck_set_msg_type_from_ids(ptr noundef nonnull @fsck_options, i32 noundef 57, i32 noundef 4) #8
   call void @git_config(ptr noundef nonnull @git_fsck_config, ptr noundef nonnull @fsck_options) #8
-  %buf3 = getelementptr inbounds %struct.strbuf, ptr %buf, i64 0, i32 2
+  %buf3 = getelementptr inbounds i8, ptr %buf, i64 16
   %0 = load ptr, ptr %buf3, align 8
-  %len = getelementptr inbounds %struct.strbuf, ptr %buf, i64 0, i32 1
+  %len = getelementptr inbounds i8, ptr %buf, i64 8
   %1 = load i64, ptr %len, align 8
   %call4 = call i32 @fsck_tag_standalone(ptr noundef null, ptr noundef %0, i64 noundef %1, ptr noundef nonnull @fsck_options, ptr noundef nonnull %tagged_oid, ptr noundef nonnull %tagged_type) #8
   %tobool.not = icmp eq i32 %call4, 0
@@ -118,18 +108,18 @@ if.end8.i:                                        ; preds = %if.end.i
   br i1 %tobool.not.i.i, label %verify_object_in_tag.exit, label %lor.lhs.false.i.i
 
 lor.lhs.false.i.i:                                ; preds = %if.end8.i
-  %objects.i.i = getelementptr inbounds %struct.repository, ptr %7, i64 0, i32 2
+  %objects.i.i = getelementptr inbounds i8, ptr %7, i64 16
   %8 = load ptr, ptr %objects.i.i, align 8
-  %replace_map_initialized.i.i = getelementptr inbounds %struct.raw_object_store, ptr %8, i64 0, i32 6
+  %replace_map_initialized.i.i = getelementptr inbounds i8, ptr %8, i64 48
   %bf.load.i.i = load i8, ptr %replace_map_initialized.i.i, align 8
   %bf.clear.i.i = and i8 %bf.load.i.i, 1
   %tobool1.not.i.i = icmp eq i8 %bf.clear.i.i, 0
   br i1 %tobool1.not.i.i, label %if.end.i.i, label %land.lhs.true.i.i
 
 land.lhs.true.i.i:                                ; preds = %lor.lhs.false.i.i
-  %replace_map.i.i = getelementptr inbounds %struct.raw_object_store, ptr %8, i64 0, i32 5
+  %replace_map.i.i = getelementptr inbounds i8, ptr %8, i64 40
   %9 = load ptr, ptr %replace_map.i.i, align 8
-  %tablesize.i.i = getelementptr inbounds %struct.hashmap, ptr %9, i64 0, i32 4
+  %tablesize.i.i = getelementptr inbounds i8, ptr %9, i64 28
   %10 = load i32, ptr %tablesize.i.i, align 4
   %cmp.i.i = icmp eq i32 %10, 0
   br i1 %cmp.i.i, label %verify_object_in_tag.exit, label %if.end.i.i

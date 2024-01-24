@@ -3,8 +3,6 @@ source_filename = "bench/nghttp2/original/nghttp2_callbacks.c.ll"
 target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:128-n8:16:32:64-S128"
 target triple = "x86_64-unknown-linux-gnu"
 
-%struct.nghttp2_session_callbacks = type { ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr }
-
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: write, inaccessiblemem: readwrite) uwtable
 define noundef i32 @nghttp2_session_callbacks_new(ptr nocapture noundef writeonly %callbacks_ptr) local_unnamed_addr #0 {
 entry:
@@ -38,7 +36,7 @@ entry:
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
 define void @nghttp2_session_callbacks_set_recv_callback(ptr nocapture noundef writeonly %cbs, ptr noundef %recv_callback) local_unnamed_addr #4 {
 entry:
-  %recv_callback1 = getelementptr inbounds %struct.nghttp2_session_callbacks, ptr %cbs, i64 0, i32 1
+  %recv_callback1 = getelementptr inbounds i8, ptr %cbs, i64 8
   store ptr %recv_callback, ptr %recv_callback1, align 8
   ret void
 }
@@ -46,7 +44,7 @@ entry:
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
 define void @nghttp2_session_callbacks_set_on_frame_recv_callback(ptr nocapture noundef writeonly %cbs, ptr noundef %on_frame_recv_callback) local_unnamed_addr #4 {
 entry:
-  %on_frame_recv_callback1 = getelementptr inbounds %struct.nghttp2_session_callbacks, ptr %cbs, i64 0, i32 2
+  %on_frame_recv_callback1 = getelementptr inbounds i8, ptr %cbs, i64 16
   store ptr %on_frame_recv_callback, ptr %on_frame_recv_callback1, align 8
   ret void
 }
@@ -54,7 +52,7 @@ entry:
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
 define void @nghttp2_session_callbacks_set_on_invalid_frame_recv_callback(ptr nocapture noundef writeonly %cbs, ptr noundef %on_invalid_frame_recv_callback) local_unnamed_addr #4 {
 entry:
-  %on_invalid_frame_recv_callback1 = getelementptr inbounds %struct.nghttp2_session_callbacks, ptr %cbs, i64 0, i32 3
+  %on_invalid_frame_recv_callback1 = getelementptr inbounds i8, ptr %cbs, i64 24
   store ptr %on_invalid_frame_recv_callback, ptr %on_invalid_frame_recv_callback1, align 8
   ret void
 }
@@ -62,7 +60,7 @@ entry:
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
 define void @nghttp2_session_callbacks_set_on_data_chunk_recv_callback(ptr nocapture noundef writeonly %cbs, ptr noundef %on_data_chunk_recv_callback) local_unnamed_addr #4 {
 entry:
-  %on_data_chunk_recv_callback1 = getelementptr inbounds %struct.nghttp2_session_callbacks, ptr %cbs, i64 0, i32 4
+  %on_data_chunk_recv_callback1 = getelementptr inbounds i8, ptr %cbs, i64 32
   store ptr %on_data_chunk_recv_callback, ptr %on_data_chunk_recv_callback1, align 8
   ret void
 }
@@ -70,7 +68,7 @@ entry:
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
 define void @nghttp2_session_callbacks_set_before_frame_send_callback(ptr nocapture noundef writeonly %cbs, ptr noundef %before_frame_send_callback) local_unnamed_addr #4 {
 entry:
-  %before_frame_send_callback1 = getelementptr inbounds %struct.nghttp2_session_callbacks, ptr %cbs, i64 0, i32 5
+  %before_frame_send_callback1 = getelementptr inbounds i8, ptr %cbs, i64 40
   store ptr %before_frame_send_callback, ptr %before_frame_send_callback1, align 8
   ret void
 }
@@ -78,7 +76,7 @@ entry:
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
 define void @nghttp2_session_callbacks_set_on_frame_send_callback(ptr nocapture noundef writeonly %cbs, ptr noundef %on_frame_send_callback) local_unnamed_addr #4 {
 entry:
-  %on_frame_send_callback1 = getelementptr inbounds %struct.nghttp2_session_callbacks, ptr %cbs, i64 0, i32 6
+  %on_frame_send_callback1 = getelementptr inbounds i8, ptr %cbs, i64 48
   store ptr %on_frame_send_callback, ptr %on_frame_send_callback1, align 8
   ret void
 }
@@ -86,7 +84,7 @@ entry:
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
 define void @nghttp2_session_callbacks_set_on_frame_not_send_callback(ptr nocapture noundef writeonly %cbs, ptr noundef %on_frame_not_send_callback) local_unnamed_addr #4 {
 entry:
-  %on_frame_not_send_callback1 = getelementptr inbounds %struct.nghttp2_session_callbacks, ptr %cbs, i64 0, i32 7
+  %on_frame_not_send_callback1 = getelementptr inbounds i8, ptr %cbs, i64 56
   store ptr %on_frame_not_send_callback, ptr %on_frame_not_send_callback1, align 8
   ret void
 }
@@ -94,7 +92,7 @@ entry:
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
 define void @nghttp2_session_callbacks_set_on_stream_close_callback(ptr nocapture noundef writeonly %cbs, ptr noundef %on_stream_close_callback) local_unnamed_addr #4 {
 entry:
-  %on_stream_close_callback1 = getelementptr inbounds %struct.nghttp2_session_callbacks, ptr %cbs, i64 0, i32 8
+  %on_stream_close_callback1 = getelementptr inbounds i8, ptr %cbs, i64 64
   store ptr %on_stream_close_callback, ptr %on_stream_close_callback1, align 8
   ret void
 }
@@ -102,7 +100,7 @@ entry:
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
 define void @nghttp2_session_callbacks_set_on_begin_headers_callback(ptr nocapture noundef writeonly %cbs, ptr noundef %on_begin_headers_callback) local_unnamed_addr #4 {
 entry:
-  %on_begin_headers_callback1 = getelementptr inbounds %struct.nghttp2_session_callbacks, ptr %cbs, i64 0, i32 9
+  %on_begin_headers_callback1 = getelementptr inbounds i8, ptr %cbs, i64 72
   store ptr %on_begin_headers_callback, ptr %on_begin_headers_callback1, align 8
   ret void
 }
@@ -110,7 +108,7 @@ entry:
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
 define void @nghttp2_session_callbacks_set_on_header_callback(ptr nocapture noundef writeonly %cbs, ptr noundef %on_header_callback) local_unnamed_addr #4 {
 entry:
-  %on_header_callback1 = getelementptr inbounds %struct.nghttp2_session_callbacks, ptr %cbs, i64 0, i32 10
+  %on_header_callback1 = getelementptr inbounds i8, ptr %cbs, i64 80
   store ptr %on_header_callback, ptr %on_header_callback1, align 8
   ret void
 }
@@ -118,7 +116,7 @@ entry:
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
 define void @nghttp2_session_callbacks_set_on_header_callback2(ptr nocapture noundef writeonly %cbs, ptr noundef %on_header_callback2) local_unnamed_addr #4 {
 entry:
-  %on_header_callback21 = getelementptr inbounds %struct.nghttp2_session_callbacks, ptr %cbs, i64 0, i32 11
+  %on_header_callback21 = getelementptr inbounds i8, ptr %cbs, i64 88
   store ptr %on_header_callback2, ptr %on_header_callback21, align 8
   ret void
 }
@@ -126,7 +124,7 @@ entry:
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
 define void @nghttp2_session_callbacks_set_on_invalid_header_callback(ptr nocapture noundef writeonly %cbs, ptr noundef %on_invalid_header_callback) local_unnamed_addr #4 {
 entry:
-  %on_invalid_header_callback1 = getelementptr inbounds %struct.nghttp2_session_callbacks, ptr %cbs, i64 0, i32 12
+  %on_invalid_header_callback1 = getelementptr inbounds i8, ptr %cbs, i64 96
   store ptr %on_invalid_header_callback, ptr %on_invalid_header_callback1, align 8
   ret void
 }
@@ -134,7 +132,7 @@ entry:
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
 define void @nghttp2_session_callbacks_set_on_invalid_header_callback2(ptr nocapture noundef writeonly %cbs, ptr noundef %on_invalid_header_callback2) local_unnamed_addr #4 {
 entry:
-  %on_invalid_header_callback21 = getelementptr inbounds %struct.nghttp2_session_callbacks, ptr %cbs, i64 0, i32 13
+  %on_invalid_header_callback21 = getelementptr inbounds i8, ptr %cbs, i64 104
   store ptr %on_invalid_header_callback2, ptr %on_invalid_header_callback21, align 8
   ret void
 }
@@ -142,7 +140,7 @@ entry:
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
 define void @nghttp2_session_callbacks_set_select_padding_callback(ptr nocapture noundef writeonly %cbs, ptr noundef %select_padding_callback) local_unnamed_addr #4 {
 entry:
-  %select_padding_callback1 = getelementptr inbounds %struct.nghttp2_session_callbacks, ptr %cbs, i64 0, i32 14
+  %select_padding_callback1 = getelementptr inbounds i8, ptr %cbs, i64 112
   store ptr %select_padding_callback, ptr %select_padding_callback1, align 8
   ret void
 }
@@ -150,7 +148,7 @@ entry:
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
 define void @nghttp2_session_callbacks_set_data_source_read_length_callback(ptr nocapture noundef writeonly %cbs, ptr noundef %data_source_read_length_callback) local_unnamed_addr #4 {
 entry:
-  %read_length_callback = getelementptr inbounds %struct.nghttp2_session_callbacks, ptr %cbs, i64 0, i32 15
+  %read_length_callback = getelementptr inbounds i8, ptr %cbs, i64 120
   store ptr %data_source_read_length_callback, ptr %read_length_callback, align 8
   ret void
 }
@@ -158,7 +156,7 @@ entry:
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
 define void @nghttp2_session_callbacks_set_on_begin_frame_callback(ptr nocapture noundef writeonly %cbs, ptr noundef %on_begin_frame_callback) local_unnamed_addr #4 {
 entry:
-  %on_begin_frame_callback1 = getelementptr inbounds %struct.nghttp2_session_callbacks, ptr %cbs, i64 0, i32 16
+  %on_begin_frame_callback1 = getelementptr inbounds i8, ptr %cbs, i64 128
   store ptr %on_begin_frame_callback, ptr %on_begin_frame_callback1, align 8
   ret void
 }
@@ -166,7 +164,7 @@ entry:
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
 define void @nghttp2_session_callbacks_set_send_data_callback(ptr nocapture noundef writeonly %cbs, ptr noundef %send_data_callback) local_unnamed_addr #4 {
 entry:
-  %send_data_callback1 = getelementptr inbounds %struct.nghttp2_session_callbacks, ptr %cbs, i64 0, i32 17
+  %send_data_callback1 = getelementptr inbounds i8, ptr %cbs, i64 136
   store ptr %send_data_callback, ptr %send_data_callback1, align 8
   ret void
 }
@@ -174,7 +172,7 @@ entry:
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
 define void @nghttp2_session_callbacks_set_pack_extension_callback(ptr nocapture noundef writeonly %cbs, ptr noundef %pack_extension_callback) local_unnamed_addr #4 {
 entry:
-  %pack_extension_callback1 = getelementptr inbounds %struct.nghttp2_session_callbacks, ptr %cbs, i64 0, i32 18
+  %pack_extension_callback1 = getelementptr inbounds i8, ptr %cbs, i64 144
   store ptr %pack_extension_callback, ptr %pack_extension_callback1, align 8
   ret void
 }
@@ -182,7 +180,7 @@ entry:
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
 define void @nghttp2_session_callbacks_set_unpack_extension_callback(ptr nocapture noundef writeonly %cbs, ptr noundef %unpack_extension_callback) local_unnamed_addr #4 {
 entry:
-  %unpack_extension_callback1 = getelementptr inbounds %struct.nghttp2_session_callbacks, ptr %cbs, i64 0, i32 19
+  %unpack_extension_callback1 = getelementptr inbounds i8, ptr %cbs, i64 152
   store ptr %unpack_extension_callback, ptr %unpack_extension_callback1, align 8
   ret void
 }
@@ -190,7 +188,7 @@ entry:
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
 define void @nghttp2_session_callbacks_set_on_extension_chunk_recv_callback(ptr nocapture noundef writeonly %cbs, ptr noundef %on_extension_chunk_recv_callback) local_unnamed_addr #4 {
 entry:
-  %on_extension_chunk_recv_callback1 = getelementptr inbounds %struct.nghttp2_session_callbacks, ptr %cbs, i64 0, i32 20
+  %on_extension_chunk_recv_callback1 = getelementptr inbounds i8, ptr %cbs, i64 160
   store ptr %on_extension_chunk_recv_callback, ptr %on_extension_chunk_recv_callback1, align 8
   ret void
 }
@@ -198,7 +196,7 @@ entry:
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
 define void @nghttp2_session_callbacks_set_error_callback(ptr nocapture noundef writeonly %cbs, ptr noundef %error_callback) local_unnamed_addr #4 {
 entry:
-  %error_callback1 = getelementptr inbounds %struct.nghttp2_session_callbacks, ptr %cbs, i64 0, i32 21
+  %error_callback1 = getelementptr inbounds i8, ptr %cbs, i64 168
   store ptr %error_callback, ptr %error_callback1, align 8
   ret void
 }
@@ -206,7 +204,7 @@ entry:
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
 define void @nghttp2_session_callbacks_set_error_callback2(ptr nocapture noundef writeonly %cbs, ptr noundef %error_callback2) local_unnamed_addr #4 {
 entry:
-  %error_callback21 = getelementptr inbounds %struct.nghttp2_session_callbacks, ptr %cbs, i64 0, i32 22
+  %error_callback21 = getelementptr inbounds i8, ptr %cbs, i64 176
   store ptr %error_callback2, ptr %error_callback21, align 8
   ret void
 }

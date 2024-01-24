@@ -6,9 +6,9 @@ target triple = "x86_64-unknown-linux-gnu"
 %"struct.url::URLComponentSource" = type { ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr }
 %"struct.url::Parsed" = type { %"struct.url::Component", %"struct.url::Component", %"struct.url::Component", %"struct.url::Component", %"struct.url::Component", %"struct.url::Component", %"struct.url::Component", %"struct.url::Component", ptr }
 %"struct.url::Component" = type { i32, i32 }
-%"class.url::CanonOutputT" = type { ptr, ptr, i32, i32 }
 %"class.url::RawCanonOutput" = type { %"class.url::RawCanonOutputT" }
 %"class.url::RawCanonOutputT" = type { %"class.url::CanonOutputT", [1024 x i8] }
+%"class.url::CanonOutputT" = type { ptr, ptr, i32, i32 }
 
 $_ZN3url14RawCanonOutputILi1024EED2Ev = comdat any
 
@@ -55,19 +55,19 @@ define dso_local noundef zeroext i1 @_ZN3url25CanonicalizeFileSystemURLEPKciRKNS
 entry:
   %ref.tmp = alloca %"struct.url::URLComponentSource", align 8
   store ptr %spec, ptr %ref.tmp, align 8
-  %username.i = getelementptr inbounds %"struct.url::URLComponentSource", ptr %ref.tmp, i64 0, i32 1
+  %username.i = getelementptr inbounds i8, ptr %ref.tmp, i64 8
   store ptr %spec, ptr %username.i, align 8
-  %password.i = getelementptr inbounds %"struct.url::URLComponentSource", ptr %ref.tmp, i64 0, i32 2
+  %password.i = getelementptr inbounds i8, ptr %ref.tmp, i64 16
   store ptr %spec, ptr %password.i, align 8
-  %host.i = getelementptr inbounds %"struct.url::URLComponentSource", ptr %ref.tmp, i64 0, i32 3
+  %host.i = getelementptr inbounds i8, ptr %ref.tmp, i64 24
   store ptr %spec, ptr %host.i, align 8
-  %port.i = getelementptr inbounds %"struct.url::URLComponentSource", ptr %ref.tmp, i64 0, i32 4
+  %port.i = getelementptr inbounds i8, ptr %ref.tmp, i64 32
   store ptr %spec, ptr %port.i, align 8
-  %path.i = getelementptr inbounds %"struct.url::URLComponentSource", ptr %ref.tmp, i64 0, i32 5
+  %path.i = getelementptr inbounds i8, ptr %ref.tmp, i64 40
   store ptr %spec, ptr %path.i, align 8
-  %query.i = getelementptr inbounds %"struct.url::URLComponentSource", ptr %ref.tmp, i64 0, i32 6
+  %query.i = getelementptr inbounds i8, ptr %ref.tmp, i64 48
   store ptr %spec, ptr %query.i, align 8
-  %ref.i = getelementptr inbounds %"struct.url::URLComponentSource", ptr %ref.tmp, i64 0, i32 7
+  %ref.i = getelementptr inbounds i8, ptr %ref.tmp, i64 56
   store ptr %spec, ptr %ref.i, align 8
   %call = call fastcc noundef zeroext i1 @_ZN3url12_GLOBAL__N_127DoCanonicalizeFileSystemURLIchEEbPKT_RKNS_18URLComponentSourceIS2_EERKNS_6ParsedEPNS_16CharsetConverterEPNS_12CanonOutputTIcEEPS9_(ptr noundef %spec, ptr noundef nonnull align 8 dereferenceable(64) %ref.tmp, ptr noundef nonnull align 8 dereferenceable(72) %parsed, ptr noundef %charset_converter, ptr noundef %output, ptr noundef %new_parsed)
   ret i1 %call
@@ -77,18 +77,18 @@ entry:
 define internal fastcc noundef zeroext i1 @_ZN3url12_GLOBAL__N_127DoCanonicalizeFileSystemURLIchEEbPKT_RKNS_18URLComponentSourceIS2_EERKNS_6ParsedEPNS_16CharsetConverterEPNS_12CanonOutputTIcEEPS9_(ptr noundef %spec, ptr nocapture noundef nonnull readonly align 8 dereferenceable(64) %source, ptr noundef nonnull align 8 dereferenceable(72) %parsed, ptr noundef %charset_converter, ptr noundef %output, ptr noundef %new_parsed) unnamed_addr #0 personality ptr @__gxx_personality_v0 {
 entry:
   %new_inner_parsed = alloca %"struct.url::Parsed", align 8
-  %username = getelementptr inbounds %"struct.url::Parsed", ptr %new_parsed, i64 0, i32 1
+  %username = getelementptr inbounds i8, ptr %new_parsed, i64 8
   store <4 x i32> <i32 0, i32 -1, i32 0, i32 -1>, ptr %username, align 4
-  %host = getelementptr inbounds %"struct.url::Parsed", ptr %new_parsed, i64 0, i32 3
+  %host = getelementptr inbounds i8, ptr %new_parsed, i64 24
   store <4 x i32> <i32 0, i32 -1, i32 0, i32 -1>, ptr %host, align 4
-  %inner_parsed_.i = getelementptr inbounds %"struct.url::Parsed", ptr %parsed, i64 0, i32 8
+  %inner_parsed_.i = getelementptr inbounds i8, ptr %parsed, i64 64
   %0 = load ptr, ptr %inner_parsed_.i, align 8
   call void @_ZN3url6ParsedC1Ev(ptr noundef nonnull align 8 dereferenceable(72) %new_inner_parsed)
-  %cur_len_.i = getelementptr inbounds %"class.url::CanonOutputT", ptr %output, i64 0, i32 3
+  %cur_len_.i = getelementptr inbounds i8, ptr %output, i64 20
   %1 = load i32, ptr %cur_len_.i, align 4
   store i32 %1, ptr %new_parsed, align 8
   %add.i = add nsw i32 %1, 11
-  %buffer_len_.i = getelementptr inbounds %"class.url::CanonOutputT", ptr %output, i64 0, i32 2
+  %buffer_len_.i = getelementptr inbounds i8, ptr %output, i64 16
   %2 = load i32, ptr %buffer_len_.i, align 8
   %cmp.i = icmp sgt i32 %add.i, %2
   br i1 %cmp.i, label %if.then.i, label %if.end6.i
@@ -110,13 +110,13 @@ if.end.i.i:                                       ; preds = %do.body.i.i
 
 _ZN3url12CanonOutputTIcE4GrowEi.exit.thread.i:    ; preds = %if.end.i.i
   %vtable.i.i = load ptr, ptr %output, align 8
-  %vfn.i.i = getelementptr inbounds ptr, ptr %vtable.i.i, i64 2
+  %vfn.i.i = getelementptr inbounds i8, ptr %vtable.i.i, i64 16
   %3 = load ptr, ptr %vfn.i.i, align 8
   invoke void %3(ptr noundef nonnull align 8 dereferenceable(24) %output, i32 noundef %mul.i.i)
           to label %if.end6.i unwind label %lpad
 
 if.end6.i:                                        ; preds = %_ZN3url12CanonOutputTIcE4GrowEi.exit.thread.i, %entry
-  %buffer_.i = getelementptr inbounds %"class.url::CanonOutputT", ptr %output, i64 0, i32 1
+  %buffer_.i = getelementptr inbounds i8, ptr %output, i64 8
   br label %for.body.i
 
 for.body.i:                                       ; preds = %for.body.i, %if.end6.i
@@ -141,14 +141,14 @@ for.end.i:                                        ; preds = %for.body.i
   br label %invoke.cont2
 
 invoke.cont2:                                     ; preds = %do.body.i.i, %for.end.i
-  %len = getelementptr inbounds %"struct.url::Component", ptr %new_parsed, i64 0, i32 1
+  %len = getelementptr inbounds i8, ptr %new_parsed, i64 4
   store i32 10, ptr %len, align 4
   %9 = load ptr, ptr %inner_parsed_.i, align 8
   %tobool.not = icmp eq ptr %9, null
   br i1 %tobool.not, label %cleanup, label %lor.lhs.false
 
 lor.lhs.false:                                    ; preds = %invoke.cont2
-  %len.i46 = getelementptr inbounds %"struct.url::Component", ptr %9, i64 0, i32 1
+  %len.i46 = getelementptr inbounds i8, ptr %9, i64 4
   %10 = load i32, ptr %len.i46, align 4
   %cmp.i47.not = icmp eq i32 %10, -1
   br i1 %cmp.i47.not, label %cleanup, label %if.end
@@ -195,13 +195,13 @@ if.end.i.i71:                                     ; preds = %do.body.i.i68
 
 _ZN3url12CanonOutputTIcE4GrowEi.exit.thread.i74:  ; preds = %if.end.i.i71
   %vtable.i.i75 = load ptr, ptr %output, align 8
-  %vfn.i.i76 = getelementptr inbounds ptr, ptr %vtable.i.i75, i64 2
+  %vfn.i.i76 = getelementptr inbounds i8, ptr %vtable.i.i75, i64 16
   %14 = load ptr, ptr %vfn.i.i76, align 8
   invoke void %14(ptr noundef nonnull align 8 dereferenceable(24) %output, i32 noundef %mul.i.i72)
           to label %if.end6.i53 unwind label %lpad
 
 if.end6.i53:                                      ; preds = %_ZN3url12CanonOutputTIcE4GrowEi.exit.thread.i74, %if.then14
-  %buffer_.i54 = getelementptr inbounds %"class.url::CanonOutputT", ptr %output, i64 0, i32 1
+  %buffer_.i54 = getelementptr inbounds i8, ptr %output, i64 8
   br label %for.body.i55
 
 for.body.i55:                                     ; preds = %for.body.i55, %if.end6.i53
@@ -226,10 +226,10 @@ for.end.i63:                                      ; preds = %for.body.i55
   br label %invoke.cont19
 
 invoke.cont19:                                    ; preds = %do.body.i.i68, %for.end.i63
-  %len21 = getelementptr inbounds %"struct.url::Component", ptr %new_inner_parsed, i64 0, i32 1
+  %len21 = getelementptr inbounds i8, ptr %new_inner_parsed, i64 4
   store i32 4, ptr %len21, align 4
-  %path = getelementptr inbounds %"struct.url::Parsed", ptr %0, i64 0, i32 5
-  %path22 = getelementptr inbounds %"struct.url::Parsed", ptr %new_inner_parsed, i64 0, i32 5
+  %path = getelementptr inbounds i8, ptr %0, i64 40
+  %path22 = getelementptr inbounds i8, ptr %new_inner_parsed, i64 40
   %call24 = invoke noundef zeroext i1 @_ZN3url16CanonicalizePathEPKcRKNS_9ComponentEPNS_12CanonOutputTIcEEPS2_(ptr noundef %spec, ptr noundef nonnull align 4 dereferenceable(8) %path, ptr noundef nonnull %output, ptr noundef nonnull %path22)
           to label %if.end43 unwind label %lpad
 
@@ -253,12 +253,12 @@ invoke.cont34:                                    ; preds = %if.then31
 if.end43:                                         ; preds = %invoke.cont34, %invoke.cont19
   %success.0.in = phi i1 [ %call24, %invoke.cont19 ], [ %call39, %invoke.cont34 ]
   %22 = load ptr, ptr %inner_parsed_.i, align 8
-  %len47 = getelementptr inbounds %"struct.url::Parsed", ptr %22, i64 0, i32 5, i32 1
+  %len47 = getelementptr inbounds i8, ptr %22, i64 44
   %23 = load i32, ptr %len47, align 4
-  %path54 = getelementptr inbounds %"struct.url::URLComponentSource", ptr %source, i64 0, i32 5
+  %path54 = getelementptr inbounds i8, ptr %source, i64 40
   %24 = load ptr, ptr %path54, align 8
-  %path55 = getelementptr inbounds %"struct.url::Parsed", ptr %parsed, i64 0, i32 5
-  %path56 = getelementptr inbounds %"struct.url::Parsed", ptr %new_parsed, i64 0, i32 5
+  %path55 = getelementptr inbounds i8, ptr %parsed, i64 40
+  %path56 = getelementptr inbounds i8, ptr %new_parsed, i64 40
   %call58 = invoke noundef zeroext i1 @_ZN3url16CanonicalizePathEPKcRKNS_9ComponentEPNS_12CanonOutputTIcEEPS2_(ptr noundef %24, ptr noundef nonnull align 4 dereferenceable(8) %path55, ptr noundef nonnull %output, ptr noundef nonnull %path56)
           to label %invoke.cont57 unwind label %lpad
 
@@ -266,18 +266,18 @@ invoke.cont57:                                    ; preds = %if.end43
   %cmp = icmp sgt i32 %23, 1
   %and5138 = and i1 %success.0.in, %cmp
   %and6239 = and i1 %and5138, %call58
-  %query = getelementptr inbounds %"struct.url::URLComponentSource", ptr %source, i64 0, i32 6
+  %query = getelementptr inbounds i8, ptr %source, i64 48
   %25 = load ptr, ptr %query, align 8
-  %query65 = getelementptr inbounds %"struct.url::Parsed", ptr %parsed, i64 0, i32 6
-  %query66 = getelementptr inbounds %"struct.url::Parsed", ptr %new_parsed, i64 0, i32 6
+  %query65 = getelementptr inbounds i8, ptr %parsed, i64 48
+  %query66 = getelementptr inbounds i8, ptr %new_parsed, i64 48
   invoke void @_ZN3url17CanonicalizeQueryEPKcRKNS_9ComponentEPNS_16CharsetConverterEPNS_12CanonOutputTIcEEPS2_(ptr noundef %25, ptr noundef nonnull align 4 dereferenceable(8) %query65, ptr noundef %charset_converter, ptr noundef nonnull %output, ptr noundef nonnull %query66)
           to label %invoke.cont67 unwind label %lpad
 
 invoke.cont67:                                    ; preds = %invoke.cont57
-  %ref = getelementptr inbounds %"struct.url::URLComponentSource", ptr %source, i64 0, i32 7
+  %ref = getelementptr inbounds i8, ptr %source, i64 56
   %26 = load ptr, ptr %ref, align 8
-  %ref68 = getelementptr inbounds %"struct.url::Parsed", ptr %parsed, i64 0, i32 7
-  %ref69 = getelementptr inbounds %"struct.url::Parsed", ptr %new_parsed, i64 0, i32 7
+  %ref68 = getelementptr inbounds i8, ptr %parsed, i64 56
+  %ref69 = getelementptr inbounds i8, ptr %new_parsed, i64 56
   invoke void @_ZN3url15CanonicalizeRefEPKcRKNS_9ComponentEPNS_12CanonOutputTIcEEPS2_(ptr noundef %26, ptr noundef nonnull align 4 dereferenceable(8) %ref68, ptr noundef nonnull %output, ptr noundef nonnull %ref69)
           to label %invoke.cont70 unwind label %lpad
 
@@ -285,7 +285,7 @@ invoke.cont70:                                    ; preds = %invoke.cont67
   br i1 %and6239, label %if.then72, label %cleanup
 
 if.then72:                                        ; preds = %invoke.cont70
-  %inner_parsed_.i82 = getelementptr inbounds %"struct.url::Parsed", ptr %new_parsed, i64 0, i32 8
+  %inner_parsed_.i82 = getelementptr inbounds i8, ptr %new_parsed, i64 64
   %27 = load ptr, ptr %inner_parsed_.i82, align 8
   %tobool.not.i = icmp eq ptr %27, null
   br i1 %tobool.not.i, label %if.then.i83, label %if.else.i
@@ -323,18 +323,18 @@ define dso_local noundef zeroext i1 @_ZN3url25CanonicalizeFileSystemURLEPKtiRKNS
 entry:
   %new_inner_parsed.i = alloca %"struct.url::Parsed", align 8
   call void @llvm.lifetime.start.p0(i64 72, ptr nonnull %new_inner_parsed.i)
-  %username.i2 = getelementptr inbounds %"struct.url::Parsed", ptr %new_parsed, i64 0, i32 1
+  %username.i2 = getelementptr inbounds i8, ptr %new_parsed, i64 8
   store <4 x i32> <i32 0, i32 -1, i32 0, i32 -1>, ptr %username.i2, align 4
-  %host.i4 = getelementptr inbounds %"struct.url::Parsed", ptr %new_parsed, i64 0, i32 3
+  %host.i4 = getelementptr inbounds i8, ptr %new_parsed, i64 24
   store <4 x i32> <i32 0, i32 -1, i32 0, i32 -1>, ptr %host.i4, align 4
-  %inner_parsed_.i.i = getelementptr inbounds %"struct.url::Parsed", ptr %parsed, i64 0, i32 8
+  %inner_parsed_.i.i = getelementptr inbounds i8, ptr %parsed, i64 64
   %0 = load ptr, ptr %inner_parsed_.i.i, align 8
   call void @_ZN3url6ParsedC1Ev(ptr noundef nonnull align 8 dereferenceable(72) %new_inner_parsed.i)
-  %cur_len_.i.i = getelementptr inbounds %"class.url::CanonOutputT", ptr %output, i64 0, i32 3
+  %cur_len_.i.i = getelementptr inbounds i8, ptr %output, i64 20
   %1 = load i32, ptr %cur_len_.i.i, align 4
   store i32 %1, ptr %new_parsed, align 8
   %add.i.i = add nsw i32 %1, 11
-  %buffer_len_.i.i = getelementptr inbounds %"class.url::CanonOutputT", ptr %output, i64 0, i32 2
+  %buffer_len_.i.i = getelementptr inbounds i8, ptr %output, i64 16
   %2 = load i32, ptr %buffer_len_.i.i, align 8
   %cmp.i.i = icmp sgt i32 %add.i.i, %2
   br i1 %cmp.i.i, label %if.then.i.i, label %if.end6.i.i
@@ -356,13 +356,13 @@ if.end.i.i.i:                                     ; preds = %do.body.i.i.i
 
 _ZN3url12CanonOutputTIcE4GrowEi.exit.thread.i.i:  ; preds = %if.end.i.i.i
   %vtable.i.i.i = load ptr, ptr %output, align 8
-  %vfn.i.i.i = getelementptr inbounds ptr, ptr %vtable.i.i.i, i64 2
+  %vfn.i.i.i = getelementptr inbounds i8, ptr %vtable.i.i.i, i64 16
   %3 = load ptr, ptr %vfn.i.i.i, align 8
   invoke void %3(ptr noundef nonnull align 8 dereferenceable(24) %output, i32 noundef %mul.i.i.i)
           to label %if.end6.i.i unwind label %lpad.i
 
 if.end6.i.i:                                      ; preds = %_ZN3url12CanonOutputTIcE4GrowEi.exit.thread.i.i, %entry
-  %buffer_.i.i = getelementptr inbounds %"class.url::CanonOutputT", ptr %output, i64 0, i32 1
+  %buffer_.i.i = getelementptr inbounds i8, ptr %output, i64 8
   br label %for.body.i.i
 
 for.body.i.i:                                     ; preds = %for.body.i.i, %if.end6.i.i
@@ -387,14 +387,14 @@ for.end.i.i:                                      ; preds = %for.body.i.i
   br label %invoke.cont.i
 
 invoke.cont.i:                                    ; preds = %do.body.i.i.i, %for.end.i.i
-  %len.i = getelementptr inbounds %"struct.url::Component", ptr %new_parsed, i64 0, i32 1
+  %len.i = getelementptr inbounds i8, ptr %new_parsed, i64 4
   store i32 10, ptr %len.i, align 4
   %9 = load ptr, ptr %inner_parsed_.i.i, align 8
   %tobool.not.i = icmp eq ptr %9, null
   br i1 %tobool.not.i, label %_ZN3url12_GLOBAL__N_127DoCanonicalizeFileSystemURLIttEEbPKT_RKNS_18URLComponentSourceIS2_EERKNS_6ParsedEPNS_16CharsetConverterEPNS_12CanonOutputTIcEEPS9_.exit, label %lor.lhs.false.i
 
 lor.lhs.false.i:                                  ; preds = %invoke.cont.i
-  %len.i46.i = getelementptr inbounds %"struct.url::Component", ptr %9, i64 0, i32 1
+  %len.i46.i = getelementptr inbounds i8, ptr %9, i64 4
   %10 = load i32, ptr %len.i46.i, align 4
   %cmp.i47.not.i = icmp eq i32 %10, -1
   br i1 %cmp.i47.not.i, label %_ZN3url12_GLOBAL__N_127DoCanonicalizeFileSystemURLIttEEbPKT_RKNS_18URLComponentSourceIS2_EERKNS_6ParsedEPNS_16CharsetConverterEPNS_12CanonOutputTIcEEPS9_.exit, label %if.end.i
@@ -441,13 +441,13 @@ if.end.i.i71.i:                                   ; preds = %do.body.i.i68.i
 
 _ZN3url12CanonOutputTIcE4GrowEi.exit.thread.i74.i: ; preds = %if.end.i.i71.i
   %vtable.i.i75.i = load ptr, ptr %output, align 8
-  %vfn.i.i76.i = getelementptr inbounds ptr, ptr %vtable.i.i75.i, i64 2
+  %vfn.i.i76.i = getelementptr inbounds i8, ptr %vtable.i.i75.i, i64 16
   %14 = load ptr, ptr %vfn.i.i76.i, align 8
   invoke void %14(ptr noundef nonnull align 8 dereferenceable(24) %output, i32 noundef %mul.i.i72.i)
           to label %if.end6.i53.i unwind label %lpad.i
 
 if.end6.i53.i:                                    ; preds = %_ZN3url12CanonOutputTIcE4GrowEi.exit.thread.i74.i, %if.then10.i
-  %buffer_.i54.i = getelementptr inbounds %"class.url::CanonOutputT", ptr %output, i64 0, i32 1
+  %buffer_.i54.i = getelementptr inbounds i8, ptr %output, i64 8
   br label %for.body.i55.i
 
 for.body.i55.i:                                   ; preds = %for.body.i55.i, %if.end6.i53.i
@@ -472,10 +472,10 @@ for.end.i63.i:                                    ; preds = %for.body.i55.i
   br label %invoke.cont14.i
 
 invoke.cont14.i:                                  ; preds = %do.body.i.i68.i, %for.end.i63.i
-  %len16.i = getelementptr inbounds %"struct.url::Component", ptr %new_inner_parsed.i, i64 0, i32 1
+  %len16.i = getelementptr inbounds i8, ptr %new_inner_parsed.i, i64 4
   store i32 4, ptr %len16.i, align 4
-  %path.i8 = getelementptr inbounds %"struct.url::Parsed", ptr %0, i64 0, i32 5
-  %path17.i = getelementptr inbounds %"struct.url::Parsed", ptr %new_inner_parsed.i, i64 0, i32 5
+  %path.i8 = getelementptr inbounds i8, ptr %0, i64 40
+  %path17.i = getelementptr inbounds i8, ptr %new_inner_parsed.i, i64 40
   %call19.i = invoke noundef zeroext i1 @_ZN3url16CanonicalizePathEPKtRKNS_9ComponentEPNS_12CanonOutputTIcEEPS2_(ptr noundef %spec, ptr noundef nonnull align 4 dereferenceable(8) %path.i8, ptr noundef nonnull %output, ptr noundef nonnull %path17.i)
           to label %if.end36.i unwind label %lpad.i
 
@@ -499,10 +499,10 @@ invoke.cont28.i:                                  ; preds = %if.then26.i
 if.end36.i:                                       ; preds = %invoke.cont28.i, %invoke.cont14.i
   %success.0.in.i = phi i1 [ %call19.i, %invoke.cont14.i ], [ %call32.i, %invoke.cont28.i ]
   %22 = load ptr, ptr %inner_parsed_.i.i, align 8
-  %len39.i = getelementptr inbounds %"struct.url::Parsed", ptr %22, i64 0, i32 5, i32 1
+  %len39.i = getelementptr inbounds i8, ptr %22, i64 44
   %23 = load i32, ptr %len39.i, align 4
-  %path47.i = getelementptr inbounds %"struct.url::Parsed", ptr %parsed, i64 0, i32 5
-  %path48.i = getelementptr inbounds %"struct.url::Parsed", ptr %new_parsed, i64 0, i32 5
+  %path47.i = getelementptr inbounds i8, ptr %parsed, i64 40
+  %path48.i = getelementptr inbounds i8, ptr %new_parsed, i64 40
   %call50.i = invoke noundef zeroext i1 @_ZN3url16CanonicalizePathEPKtRKNS_9ComponentEPNS_12CanonOutputTIcEEPS2_(ptr noundef %spec, ptr noundef nonnull align 4 dereferenceable(8) %path47.i, ptr noundef nonnull %output, ptr noundef nonnull %path48.i)
           to label %invoke.cont49.i unwind label %lpad.i
 
@@ -510,14 +510,14 @@ invoke.cont49.i:                                  ; preds = %if.end36.i
   %cmp.i = icmp sgt i32 %23, 1
   %and4338.i = and i1 %success.0.in.i, %cmp.i
   %and5439.i = and i1 %call50.i, %and4338.i
-  %query57.i = getelementptr inbounds %"struct.url::Parsed", ptr %parsed, i64 0, i32 6
-  %query58.i = getelementptr inbounds %"struct.url::Parsed", ptr %new_parsed, i64 0, i32 6
+  %query57.i = getelementptr inbounds i8, ptr %parsed, i64 48
+  %query58.i = getelementptr inbounds i8, ptr %new_parsed, i64 48
   invoke void @_ZN3url17CanonicalizeQueryEPKtRKNS_9ComponentEPNS_16CharsetConverterEPNS_12CanonOutputTIcEEPS2_(ptr noundef %spec, ptr noundef nonnull align 4 dereferenceable(8) %query57.i, ptr noundef %charset_converter, ptr noundef nonnull %output, ptr noundef nonnull %query58.i)
           to label %invoke.cont59.i unwind label %lpad.i
 
 invoke.cont59.i:                                  ; preds = %invoke.cont49.i
-  %ref60.i = getelementptr inbounds %"struct.url::Parsed", ptr %parsed, i64 0, i32 7
-  %ref61.i = getelementptr inbounds %"struct.url::Parsed", ptr %new_parsed, i64 0, i32 7
+  %ref60.i = getelementptr inbounds i8, ptr %parsed, i64 56
+  %ref61.i = getelementptr inbounds i8, ptr %new_parsed, i64 56
   invoke void @_ZN3url15CanonicalizeRefEPKtRKNS_9ComponentEPNS_12CanonOutputTIcEEPS2_(ptr noundef %spec, ptr noundef nonnull align 4 dereferenceable(8) %ref60.i, ptr noundef nonnull %output, ptr noundef nonnull %ref61.i)
           to label %invoke.cont62.i unwind label %lpad.i
 
@@ -525,7 +525,7 @@ invoke.cont62.i:                                  ; preds = %invoke.cont59.i
   br i1 %and5439.i, label %if.then64.i, label %_ZN3url12_GLOBAL__N_127DoCanonicalizeFileSystemURLIttEEbPKT_RKNS_18URLComponentSourceIS2_EERKNS_6ParsedEPNS_16CharsetConverterEPNS_12CanonOutputTIcEEPS9_.exit
 
 if.then64.i:                                      ; preds = %invoke.cont62.i
-  %inner_parsed_.i82.i = getelementptr inbounds %"struct.url::Parsed", ptr %new_parsed, i64 0, i32 8
+  %inner_parsed_.i82.i = getelementptr inbounds i8, ptr %new_parsed, i64 64
   %24 = load ptr, ptr %inner_parsed_.i82.i, align 8
   %tobool.not.i.i = icmp eq ptr %24, null
   br i1 %tobool.not.i.i, label %if.then.i83.i, label %if.else.i.i
@@ -565,19 +565,19 @@ entry:
   %source = alloca %"struct.url::URLComponentSource", align 8
   %parsed = alloca %"struct.url::Parsed", align 8
   store ptr %base, ptr %source, align 8
-  %username.i = getelementptr inbounds %"struct.url::URLComponentSource", ptr %source, i64 0, i32 1
+  %username.i = getelementptr inbounds i8, ptr %source, i64 8
   store ptr %base, ptr %username.i, align 8
-  %password.i = getelementptr inbounds %"struct.url::URLComponentSource", ptr %source, i64 0, i32 2
+  %password.i = getelementptr inbounds i8, ptr %source, i64 16
   store ptr %base, ptr %password.i, align 8
-  %host.i = getelementptr inbounds %"struct.url::URLComponentSource", ptr %source, i64 0, i32 3
+  %host.i = getelementptr inbounds i8, ptr %source, i64 24
   store ptr %base, ptr %host.i, align 8
-  %port.i = getelementptr inbounds %"struct.url::URLComponentSource", ptr %source, i64 0, i32 4
+  %port.i = getelementptr inbounds i8, ptr %source, i64 32
   store ptr %base, ptr %port.i, align 8
-  %path.i = getelementptr inbounds %"struct.url::URLComponentSource", ptr %source, i64 0, i32 5
+  %path.i = getelementptr inbounds i8, ptr %source, i64 40
   store ptr %base, ptr %path.i, align 8
-  %query.i = getelementptr inbounds %"struct.url::URLComponentSource", ptr %source, i64 0, i32 6
+  %query.i = getelementptr inbounds i8, ptr %source, i64 48
   store ptr %base, ptr %query.i, align 8
-  %ref.i = getelementptr inbounds %"struct.url::URLComponentSource", ptr %source, i64 0, i32 7
+  %ref.i = getelementptr inbounds i8, ptr %source, i64 56
   store ptr %base, ptr %ref.i, align 8
   call void @_ZN3url6ParsedC1ERKS0_(ptr noundef nonnull align 8 dereferenceable(72) %parsed, ptr noundef nonnull align 8 dereferenceable(72) %base_parsed)
   invoke void @_ZN3url23SetupOverrideComponentsEPKcRKNS_12ReplacementsIcEEPNS_18URLComponentSourceIcEEPNS_6ParsedE(ptr noundef %base, ptr noundef nonnull align 8 dereferenceable(136) %replacements, ptr noundef nonnull %source, ptr noundef nonnull %parsed)
@@ -613,26 +613,26 @@ entry:
   %utf8 = alloca %"class.url::RawCanonOutput", align 8
   %source = alloca %"struct.url::URLComponentSource", align 8
   %parsed = alloca %"struct.url::Parsed", align 8
-  %buffer_.i.i.i = getelementptr inbounds %"class.url::CanonOutputT", ptr %utf8, i64 0, i32 1
-  %0 = getelementptr inbounds %"class.url::CanonOutputT", ptr %utf8, i64 0, i32 2
+  %buffer_.i.i.i = getelementptr inbounds i8, ptr %utf8, i64 8
+  %0 = getelementptr inbounds i8, ptr %utf8, i64 16
   store i64 1024, ptr %0, align 8
-  %fixed_buffer_.i.i = getelementptr inbounds %"class.url::RawCanonOutputT", ptr %utf8, i64 0, i32 1
+  %fixed_buffer_.i.i = getelementptr inbounds i8, ptr %utf8, i64 24
   store ptr %fixed_buffer_.i.i, ptr %buffer_.i.i.i, align 8
   store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN3url14RawCanonOutputILi1024EEE, i64 0, inrange i32 0, i64 2), ptr %utf8, align 8
   store ptr %base, ptr %source, align 8
-  %username.i = getelementptr inbounds %"struct.url::URLComponentSource", ptr %source, i64 0, i32 1
+  %username.i = getelementptr inbounds i8, ptr %source, i64 8
   store ptr %base, ptr %username.i, align 8
-  %password.i = getelementptr inbounds %"struct.url::URLComponentSource", ptr %source, i64 0, i32 2
+  %password.i = getelementptr inbounds i8, ptr %source, i64 16
   store ptr %base, ptr %password.i, align 8
-  %host.i = getelementptr inbounds %"struct.url::URLComponentSource", ptr %source, i64 0, i32 3
+  %host.i = getelementptr inbounds i8, ptr %source, i64 24
   store ptr %base, ptr %host.i, align 8
-  %port.i = getelementptr inbounds %"struct.url::URLComponentSource", ptr %source, i64 0, i32 4
+  %port.i = getelementptr inbounds i8, ptr %source, i64 32
   store ptr %base, ptr %port.i, align 8
-  %path.i = getelementptr inbounds %"struct.url::URLComponentSource", ptr %source, i64 0, i32 5
+  %path.i = getelementptr inbounds i8, ptr %source, i64 40
   store ptr %base, ptr %path.i, align 8
-  %query.i = getelementptr inbounds %"struct.url::URLComponentSource", ptr %source, i64 0, i32 6
+  %query.i = getelementptr inbounds i8, ptr %source, i64 48
   store ptr %base, ptr %query.i, align 8
-  %ref.i = getelementptr inbounds %"struct.url::URLComponentSource", ptr %source, i64 0, i32 7
+  %ref.i = getelementptr inbounds i8, ptr %source, i64 56
   store ptr %base, ptr %ref.i, align 8
   invoke void @_ZN3url6ParsedC1ERKS0_(ptr noundef nonnull align 8 dereferenceable(72) %parsed, ptr noundef nonnull align 8 dereferenceable(72) %base_parsed)
           to label %invoke.cont1 unwind label %lpad
@@ -695,9 +695,9 @@ declare noundef zeroext i1 @_ZN3url28SetupUTF16OverrideComponentsEPKcRKNS_12Repl
 define linkonce_odr dso_local void @_ZN3url14RawCanonOutputILi1024EED2Ev(ptr noundef nonnull align 8 dereferenceable(1048) %this) unnamed_addr #3 comdat align 2 {
 entry:
   store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN3url15RawCanonOutputTIcLi1024EEE, i64 0, inrange i32 0, i64 2), ptr %this, align 8
-  %buffer_.i = getelementptr inbounds %"class.url::CanonOutputT", ptr %this, i64 0, i32 1
+  %buffer_.i = getelementptr inbounds i8, ptr %this, i64 8
   %0 = load ptr, ptr %buffer_.i, align 8
-  %fixed_buffer_.i = getelementptr inbounds %"class.url::RawCanonOutputT", ptr %this, i64 0, i32 1
+  %fixed_buffer_.i = getelementptr inbounds i8, ptr %this, i64 24
   %cmp.not.i = icmp eq ptr %0, %fixed_buffer_.i
   %isnull.i = icmp eq ptr %0, null
   %or.cond.i = or i1 %cmp.not.i, %isnull.i
@@ -715,9 +715,9 @@ _ZN3url15RawCanonOutputTIcLi1024EED2Ev.exit:      ; preds = %entry, %delete.notn
 define linkonce_odr dso_local void @_ZN3url14RawCanonOutputILi1024EED0Ev(ptr noundef nonnull align 8 dereferenceable(1048) %this) unnamed_addr #3 comdat align 2 {
 entry:
   store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN3url15RawCanonOutputTIcLi1024EEE, i64 0, inrange i32 0, i64 2), ptr %this, align 8
-  %buffer_.i.i = getelementptr inbounds %"class.url::CanonOutputT", ptr %this, i64 0, i32 1
+  %buffer_.i.i = getelementptr inbounds i8, ptr %this, i64 8
   %0 = load ptr, ptr %buffer_.i.i, align 8
-  %fixed_buffer_.i.i = getelementptr inbounds %"class.url::RawCanonOutputT", ptr %this, i64 0, i32 1
+  %fixed_buffer_.i.i = getelementptr inbounds i8, ptr %this, i64 24
   %cmp.not.i.i = icmp eq ptr %0, %fixed_buffer_.i.i
   %isnull.i.i = icmp eq ptr %0, null
   %or.cond.i.i = or i1 %cmp.not.i.i, %isnull.i.i
@@ -737,14 +737,14 @@ define linkonce_odr dso_local void @_ZN3url15RawCanonOutputTIcLi1024EE6ResizeEi(
 entry:
   %conv = sext i32 %sz to i64
   %call = tail call noalias noundef nonnull ptr @_Znam(i64 noundef %conv) #10
-  %buffer_ = getelementptr inbounds %"class.url::CanonOutputT", ptr %this, i64 0, i32 1
+  %buffer_ = getelementptr inbounds i8, ptr %this, i64 8
   %0 = load ptr, ptr %buffer_, align 8
-  %cur_len_ = getelementptr inbounds %"class.url::CanonOutputT", ptr %this, i64 0, i32 3
+  %cur_len_ = getelementptr inbounds i8, ptr %this, i64 20
   %1 = load i32, ptr %cur_len_, align 4
   %.sz = tail call i32 @llvm.smin.i32(i32 %1, i32 %sz)
   %conv3 = sext i32 %.sz to i64
   tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %call, ptr align 1 %0, i64 %conv3, i1 false)
-  %fixed_buffer_ = getelementptr inbounds %"class.url::RawCanonOutputT", ptr %this, i64 0, i32 1
+  %fixed_buffer_ = getelementptr inbounds i8, ptr %this, i64 24
   %cmp5.not = icmp eq ptr %0, %fixed_buffer_
   %isnull = icmp eq ptr %0, null
   %or.cond = or i1 %cmp5.not, %isnull
@@ -756,7 +756,7 @@ delete.notnull:                                   ; preds = %entry
 
 if.end:                                           ; preds = %delete.notnull, %entry
   store ptr %call, ptr %buffer_, align 8
-  %buffer_len_ = getelementptr inbounds %"class.url::CanonOutputT", ptr %this, i64 0, i32 2
+  %buffer_len_ = getelementptr inbounds i8, ptr %this, i64 16
   store i32 %sz, ptr %buffer_len_, align 8
   ret void
 }
@@ -765,9 +765,9 @@ if.end:                                           ; preds = %delete.notnull, %en
 define linkonce_odr dso_local void @_ZN3url15RawCanonOutputTIcLi1024EED2Ev(ptr noundef nonnull align 8 dereferenceable(1048) %this) unnamed_addr #3 comdat align 2 {
 entry:
   store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN3url15RawCanonOutputTIcLi1024EEE, i64 0, inrange i32 0, i64 2), ptr %this, align 8
-  %buffer_ = getelementptr inbounds %"class.url::CanonOutputT", ptr %this, i64 0, i32 1
+  %buffer_ = getelementptr inbounds i8, ptr %this, i64 8
   %0 = load ptr, ptr %buffer_, align 8
-  %fixed_buffer_ = getelementptr inbounds %"class.url::RawCanonOutputT", ptr %this, i64 0, i32 1
+  %fixed_buffer_ = getelementptr inbounds i8, ptr %this, i64 24
   %cmp.not = icmp eq ptr %0, %fixed_buffer_
   %isnull = icmp eq ptr %0, null
   %or.cond = or i1 %cmp.not, %isnull
@@ -785,9 +785,9 @@ if.end:                                           ; preds = %delete.notnull, %en
 define linkonce_odr dso_local void @_ZN3url15RawCanonOutputTIcLi1024EED0Ev(ptr noundef nonnull align 8 dereferenceable(1048) %this) unnamed_addr #3 comdat align 2 {
 entry:
   store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN3url15RawCanonOutputTIcLi1024EEE, i64 0, inrange i32 0, i64 2), ptr %this, align 8
-  %buffer_.i = getelementptr inbounds %"class.url::CanonOutputT", ptr %this, i64 0, i32 1
+  %buffer_.i = getelementptr inbounds i8, ptr %this, i64 8
   %0 = load ptr, ptr %buffer_.i, align 8
-  %fixed_buffer_.i = getelementptr inbounds %"class.url::RawCanonOutputT", ptr %this, i64 0, i32 1
+  %fixed_buffer_.i = getelementptr inbounds i8, ptr %this, i64 24
   %cmp.not.i = icmp eq ptr %0, %fixed_buffer_.i
   %isnull.i = icmp eq ptr %0, null
   %or.cond.i = or i1 %cmp.not.i, %isnull.i

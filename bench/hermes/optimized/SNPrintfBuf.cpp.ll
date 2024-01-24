@@ -3,13 +3,6 @@ source_filename = "bench/hermes/original/SNPrintfBuf.cpp.ll"
 target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:128-n8:16:32:64-S128"
 target triple = "x86_64-unknown-linux-gnu"
 
-%"class.hermes::SNPrintfBuf" = type <{ i32, [4 x i8], %"class.std::unique_ptr", ptr, i32, [4 x i8] }>
-%"class.std::unique_ptr" = type { %"struct.std::__uniq_ptr_data" }
-%"struct.std::__uniq_ptr_data" = type { %"class.std::__uniq_ptr_impl" }
-%"class.std::__uniq_ptr_impl" = type { %"class.std::tuple" }
-%"class.std::tuple" = type { %"struct.std::_Tuple_impl" }
-%"struct.std::_Tuple_impl" = type { %"struct.std::_Head_base.1" }
-%"struct.std::_Head_base.1" = type { ptr }
 %struct.__va_list_tag = type { i32, i32, ptr, ptr }
 
 @_ZN6hermes11SNPrintfBufC1Ei = hidden unnamed_addr alias void (ptr, i32), ptr @_ZN6hermes11SNPrintfBufC2Ei
@@ -18,13 +11,13 @@ target triple = "x86_64-unknown-linux-gnu"
 define hidden void @_ZN6hermes11SNPrintfBufC2Ei(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(28) %this, i32 noundef %initSize) unnamed_addr #0 align 2 {
 entry:
   store i32 %initSize, ptr %this, align 8
-  %buf_ = getelementptr inbounds %"class.hermes::SNPrintfBuf", ptr %this, i64 0, i32 2
+  %buf_ = getelementptr inbounds i8, ptr %this, i64 8
   %conv = sext i32 %initSize to i64
   %call = tail call noalias noundef nonnull ptr @_Znam(i64 noundef %conv) #7
   store ptr %call, ptr %buf_, align 8
-  %bufPtr_ = getelementptr inbounds %"class.hermes::SNPrintfBuf", ptr %this, i64 0, i32 3
+  %bufPtr_ = getelementptr inbounds i8, ptr %this, i64 16
   store ptr %call, ptr %bufPtr_, align 8
-  %remaining_ = getelementptr inbounds %"class.hermes::SNPrintfBuf", ptr %this, i64 0, i32 4
+  %remaining_ = getelementptr inbounds i8, ptr %this, i64 24
   store i32 %initSize, ptr %remaining_, align 8
   ret void
 }
@@ -39,9 +32,9 @@ entry:
   %dup_vl = alloca [1 x %struct.__va_list_tag], align 16
   call void @llvm.va_start(ptr nonnull %vl)
   call void @llvm.va_copy(ptr nonnull %dup_vl, ptr nonnull %vl)
-  %bufPtr_ = getelementptr inbounds %"class.hermes::SNPrintfBuf", ptr %this, i64 0, i32 3
+  %bufPtr_ = getelementptr inbounds i8, ptr %this, i64 16
   %0 = load ptr, ptr %bufPtr_, align 8
-  %remaining_ = getelementptr inbounds %"class.hermes::SNPrintfBuf", ptr %this, i64 0, i32 4
+  %remaining_ = getelementptr inbounds i8, ptr %this, i64 24
   %1 = load i32, ptr %remaining_, align 8
   %conv = sext i32 %1 to i64
   %call = call i32 @vsnprintf(ptr noundef %0, i64 noundef %conv, ptr noundef %fmt, ptr noundef nonnull %vl) #8
@@ -57,7 +50,7 @@ if.then:                                          ; preds = %entry
   %conv.i = sext i32 %.sroa.speculated.i to i64
   %call3.i = call noalias noundef nonnull ptr @_Znam(i64 noundef %conv.i) #7
   %sub.i = sub nsw i32 %3, %2
-  %buf_.i = getelementptr inbounds %"class.hermes::SNPrintfBuf", ptr %this, i64 0, i32 2
+  %buf_.i = getelementptr inbounds i8, ptr %this, i64 8
   %4 = load ptr, ptr %buf_.i, align 8
   %add7.i = add nsw i32 %sub.i, 1
   %conv8.i = sext i32 %add7.i to i64
@@ -118,10 +111,10 @@ entry:
   %.sroa.speculated = tail call i32 @llvm.smax.i32(i32 %add, i32 %mul)
   %conv = sext i32 %.sroa.speculated to i64
   %call3 = tail call noalias noundef nonnull ptr @_Znam(i64 noundef %conv) #7
-  %remaining_ = getelementptr inbounds %"class.hermes::SNPrintfBuf", ptr %this, i64 0, i32 4
+  %remaining_ = getelementptr inbounds i8, ptr %this, i64 24
   %1 = load i32, ptr %remaining_, align 8
   %sub = sub nsw i32 %0, %1
-  %buf_ = getelementptr inbounds %"class.hermes::SNPrintfBuf", ptr %this, i64 0, i32 2
+  %buf_ = getelementptr inbounds i8, ptr %this, i64 8
   %2 = load ptr, ptr %buf_, align 8
   %add7 = add nsw i32 %sub, 1
   %conv8 = sext i32 %add7 to i64
@@ -142,7 +135,7 @@ _ZNSt10unique_ptrIA_cSt14default_deleteIS0_EED2Ev.exit: ; preds = %_ZNKSt14defau
   %3 = phi ptr [ %.pre, %_ZNKSt14default_deleteIA_cEclIcEENSt9enable_ifIXsr14is_convertibleIPA_T_PS0_EE5valueEvE4typeEPS4_.exit.i.i.i.i ], [ %call3, %entry ]
   %idx.ext = sext i32 %sub to i64
   %add.ptr = getelementptr inbounds i8, ptr %3, i64 %idx.ext
-  %bufPtr_ = getelementptr inbounds %"class.hermes::SNPrintfBuf", ptr %this, i64 0, i32 3
+  %bufPtr_ = getelementptr inbounds i8, ptr %this, i64 16
   store ptr %add.ptr, ptr %bufPtr_, align 8
   ret void
 }

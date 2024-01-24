@@ -5,14 +5,6 @@ target triple = "x86_64-unknown-linux-gnu"
 
 %"class.std::reverse_iterator" = type { %"class.__gnu_cxx::__normal_iterator" }
 %"class.__gnu_cxx::__normal_iterator" = type { ptr }
-%"struct.std::_Vector_base<unsigned char, std::allocator<unsigned char>>::_Vector_impl_data" = type { ptr, ptr, ptr }
-%"struct.ue2::hwlmLiteral" = type { %"class.std::__cxx11::basic_string", i32, i8, i8, i32, i8, i64, %"class.std::vector", %"class.std::vector" }
-%"class.std::__cxx11::basic_string" = type { %"struct.std::__cxx11::basic_string<char>::_Alloc_hider", i64, %union.anon }
-%"struct.std::__cxx11::basic_string<char>::_Alloc_hider" = type { ptr }
-%union.anon = type { i64, [8 x i8] }
-%"class.std::vector" = type { %"struct.std::_Vector_base" }
-%"struct.std::_Vector_base" = type { %"struct.std::_Vector_base<unsigned char, std::allocator<unsigned char>>::_Vector_impl" }
-%"struct.std::_Vector_base<unsigned char, std::allocator<unsigned char>>::_Vector_impl" = type { %"struct.std::_Vector_base<unsigned char, std::allocator<unsigned char>>::_Vector_impl_data" }
 
 @_ZN3ue211hwlmLiteralC1ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEbbjyRKSt6vectorIhSaIhEESD_ = hidden unnamed_addr alias void (ptr, ptr, i1, i1, i32, i64, ptr, ptr), ptr @_ZN3ue211hwlmLiteralC2ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEbbjyRKSt6vectorIhSaIhEESD_
 
@@ -22,9 +14,9 @@ entry:
   %si = alloca %"class.std::reverse_iterator", align 8
   %ref.tmp = alloca %"class.std::reverse_iterator", align 8
   call void @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6rbeginEv(ptr nonnull sret(%"class.std::reverse_iterator") align 8 %si, ptr noundef nonnull align 8 dereferenceable(32) %s) #9
-  %_M_finish.i.i = getelementptr inbounds %"struct.std::_Vector_base<unsigned char, std::allocator<unsigned char>>::_Vector_impl_data", ptr %msk, i64 0, i32 1
+  %_M_finish.i.i = getelementptr inbounds i8, ptr %msk, i64 8
   %0 = load ptr, ptr %_M_finish.i.i, align 8, !noalias !5
-  %_M_finish.i.i14 = getelementptr inbounds %"struct.std::_Vector_base<unsigned char, std::allocator<unsigned char>>::_Vector_impl_data", ptr %cmp, i64 0, i32 1
+  %_M_finish.i.i14 = getelementptr inbounds i8, ptr %cmp, i64 8
   %1 = load ptr, ptr %_M_finish.i.i14, align 8, !noalias !8
   call void @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4rendEv(ptr nonnull sret(%"class.std::reverse_iterator") align 8 %ref.tmp, ptr noundef nonnull align 8 dereferenceable(32) %s) #9
   %retval.sroa.0.0.copyload.i.i.i23 = load ptr, ptr %si, align 8
@@ -120,20 +112,20 @@ entry:
   %frombool = zext i1 %nocase_in to i8
   %frombool1 = zext i1 %noruns_in to i8
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1ERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %this, ptr noundef nonnull align 8 dereferenceable(32) %s_in)
-  %id = getelementptr inbounds %"struct.ue2::hwlmLiteral", ptr %this, i64 0, i32 1
+  %id = getelementptr inbounds i8, ptr %this, i64 32
   store i32 %id_in, ptr %id, align 8
-  %nocase = getelementptr inbounds %"struct.ue2::hwlmLiteral", ptr %this, i64 0, i32 2
+  %nocase = getelementptr inbounds i8, ptr %this, i64 36
   store i8 %frombool, ptr %nocase, align 4
-  %noruns = getelementptr inbounds %"struct.ue2::hwlmLiteral", ptr %this, i64 0, i32 3
+  %noruns = getelementptr inbounds i8, ptr %this, i64 37
   store i8 %frombool1, ptr %noruns, align 1
-  %included_id = getelementptr inbounds %"struct.ue2::hwlmLiteral", ptr %this, i64 0, i32 4
+  %included_id = getelementptr inbounds i8, ptr %this, i64 40
   store i32 -1, ptr %included_id, align 8
-  %squash = getelementptr inbounds %"struct.ue2::hwlmLiteral", ptr %this, i64 0, i32 5
+  %squash = getelementptr inbounds i8, ptr %this, i64 44
   store i8 0, ptr %squash, align 4
-  %groups = getelementptr inbounds %"struct.ue2::hwlmLiteral", ptr %this, i64 0, i32 6
+  %groups = getelementptr inbounds i8, ptr %this, i64 48
   store i64 %groups_in, ptr %groups, align 8
-  %msk = getelementptr inbounds %"struct.ue2::hwlmLiteral", ptr %this, i64 0, i32 7
-  %_M_finish.i.i = getelementptr inbounds %"struct.std::_Vector_base<unsigned char, std::allocator<unsigned char>>::_Vector_impl_data", ptr %msk_in, i64 0, i32 1
+  %msk = getelementptr inbounds i8, ptr %this, i64 56
+  %_M_finish.i.i = getelementptr inbounds i8, ptr %msk_in, i64 8
   %0 = load ptr, ptr %_M_finish.i.i, align 8
   %1 = load ptr, ptr %msk_in, align 8
   %sub.ptr.lhs.cast.i.i = ptrtoint ptr %0 to i64
@@ -161,10 +153,10 @@ _ZNSt16allocator_traitsISaIhEE8allocateERS0_m.exit.i.i.i.i: ; preds = %cond.true
 invoke.cont.i:                                    ; preds = %_ZNSt16allocator_traitsISaIhEE8allocateERS0_m.exit.i.i.i.i, %entry
   %cond.i.i.i.i = phi ptr [ null, %entry ], [ %call5.i.i.i.i1.i5.i3, %_ZNSt16allocator_traitsISaIhEE8allocateERS0_m.exit.i.i.i.i ]
   store ptr %cond.i.i.i.i, ptr %msk, align 8
-  %_M_finish.i.i.i = getelementptr inbounds %"struct.ue2::hwlmLiteral", ptr %this, i64 0, i32 7, i32 0, i32 0, i32 0, i32 1
+  %_M_finish.i.i.i = getelementptr inbounds i8, ptr %this, i64 64
   store ptr %cond.i.i.i.i, ptr %_M_finish.i.i.i, align 8
   %add.ptr.i.i.i = getelementptr inbounds i8, ptr %cond.i.i.i.i, i64 %sub.ptr.sub.i.i
-  %_M_end_of_storage.i.i.i = getelementptr inbounds %"struct.ue2::hwlmLiteral", ptr %this, i64 0, i32 7, i32 0, i32 0, i32 0, i32 2
+  %_M_end_of_storage.i.i.i = getelementptr inbounds i8, ptr %this, i64 72
   store ptr %add.ptr.i.i.i, ptr %_M_end_of_storage.i.i.i, align 8
   %2 = load ptr, ptr %msk_in, align 8
   %3 = load ptr, ptr %_M_finish.i.i, align 8
@@ -181,8 +173,8 @@ if.then.i.i.i.i.i.i.i.i.i:                        ; preds = %invoke.cont.i
 invoke.cont:                                      ; preds = %if.then.i.i.i.i.i.i.i.i.i, %invoke.cont.i
   %add.ptr.i.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %cond.i.i.i.i, i64 %sub.ptr.sub.i.i.i.i.i.i.i.i.i
   store ptr %add.ptr.i.i.i.i.i.i.i.i.i, ptr %_M_finish.i.i.i, align 8
-  %cmp = getelementptr inbounds %"struct.ue2::hwlmLiteral", ptr %this, i64 0, i32 8
-  %_M_finish.i.i4 = getelementptr inbounds %"struct.std::_Vector_base<unsigned char, std::allocator<unsigned char>>::_Vector_impl_data", ptr %cmp_in, i64 0, i32 1
+  %cmp = getelementptr inbounds i8, ptr %this, i64 80
+  %_M_finish.i.i4 = getelementptr inbounds i8, ptr %cmp_in, i64 8
   %4 = load ptr, ptr %_M_finish.i.i4, align 8
   %5 = load ptr, ptr %cmp_in, align 8
   %sub.ptr.lhs.cast.i.i5 = ptrtoint ptr %4 to i64
@@ -210,10 +202,10 @@ _ZNSt16allocator_traitsISaIhEE8allocateERS0_m.exit.i.i.i.i11: ; preds = %cond.tr
 invoke.cont.i12:                                  ; preds = %_ZNSt16allocator_traitsISaIhEE8allocateERS0_m.exit.i.i.i.i11, %invoke.cont
   %cond.i.i.i.i13 = phi ptr [ null, %invoke.cont ], [ %call5.i.i.i.i1.i5.i26, %_ZNSt16allocator_traitsISaIhEE8allocateERS0_m.exit.i.i.i.i11 ]
   store ptr %cond.i.i.i.i13, ptr %cmp, align 8
-  %_M_finish.i.i.i14 = getelementptr inbounds %"struct.ue2::hwlmLiteral", ptr %this, i64 0, i32 8, i32 0, i32 0, i32 0, i32 1
+  %_M_finish.i.i.i14 = getelementptr inbounds i8, ptr %this, i64 88
   store ptr %cond.i.i.i.i13, ptr %_M_finish.i.i.i14, align 8
   %add.ptr.i.i.i15 = getelementptr inbounds i8, ptr %cond.i.i.i.i13, i64 %sub.ptr.sub.i.i7
-  %_M_end_of_storage.i.i.i16 = getelementptr inbounds %"struct.ue2::hwlmLiteral", ptr %this, i64 0, i32 8, i32 0, i32 0, i32 0, i32 2
+  %_M_end_of_storage.i.i.i16 = getelementptr inbounds i8, ptr %this, i64 96
   store ptr %add.ptr.i.i.i15, ptr %_M_end_of_storage.i.i.i16, align 8
   %6 = load ptr, ptr %cmp_in, align 8
   %7 = load ptr, ptr %_M_finish.i.i4, align 8

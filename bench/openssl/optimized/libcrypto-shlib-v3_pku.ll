@@ -6,7 +6,6 @@ target triple = "x86_64-unknown-linux-gnu"
 %struct.v3_ext_method = type { i32, i32, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr }
 %struct.ASN1_ITEM_st = type { i8, i64, ptr, i64, ptr, i64, ptr }
 %struct.ASN1_TEMPLATE_st = type { i64, i64, i64, ptr, ptr }
-%struct.PKEY_USAGE_PERIOD_st = type { ptr, ptr }
 
 @ossl_v3_pkey_usage_period = local_unnamed_addr constant %struct.v3_ext_method { i32 84, i32 0, ptr @PKEY_USAGE_PERIOD_it, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr @i2r_PKEY_USAGE_PERIOD, ptr null, ptr null }, align 8
 @PKEY_USAGE_PERIOD_it.local_it = internal constant %struct.ASN1_ITEM_st { i8 1, i64 16, ptr @PKEY_USAGE_PERIOD_seq_tt, i64 2, ptr null, i64 16, ptr @.str }, align 8
@@ -21,13 +20,13 @@ target triple = "x86_64-unknown-linux-gnu"
 @.str.7 = private unnamed_addr constant [12 x i8] c"Not After: \00", align 1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define nonnull ptr @PKEY_USAGE_PERIOD_it() #0 {
+define noundef nonnull ptr @PKEY_USAGE_PERIOD_it() #0 {
 entry:
   ret ptr @PKEY_USAGE_PERIOD_it.local_it
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @i2r_PKEY_USAGE_PERIOD(ptr nocapture readnone %method, ptr nocapture noundef readonly %usage, ptr noundef %out, i32 noundef %indent) #1 {
+define internal noundef i32 @i2r_PKEY_USAGE_PERIOD(ptr nocapture readnone %method, ptr nocapture noundef readonly %usage, ptr noundef %out, i32 noundef %indent) #1 {
 entry:
   %call = tail call i32 (ptr, ptr, ...) @BIO_printf(ptr noundef %out, ptr noundef nonnull @.str.3, i32 noundef %indent, ptr noundef nonnull @.str.4) #3
   %0 = load ptr, ptr %usage, align 8
@@ -38,7 +37,7 @@ if.then:                                          ; preds = %entry
   %call1 = tail call i32 @BIO_write(ptr noundef %out, ptr noundef nonnull @.str.5, i32 noundef 12) #3
   %1 = load ptr, ptr %usage, align 8
   %call3 = tail call i32 @ASN1_GENERALIZEDTIME_print(ptr noundef %out, ptr noundef %1) #3
-  %notAfter = getelementptr inbounds %struct.PKEY_USAGE_PERIOD_st, ptr %usage, i64 0, i32 1
+  %notAfter = getelementptr inbounds i8, ptr %usage, i64 8
   %2 = load ptr, ptr %notAfter, align 8
   %tobool4.not = icmp eq ptr %2, null
   br i1 %tobool4.not, label %if.end7, label %if.then5
@@ -48,7 +47,7 @@ if.then5:                                         ; preds = %if.then
   br label %if.end7
 
 if.end7:                                          ; preds = %if.then, %if.then5, %entry
-  %notAfter8 = getelementptr inbounds %struct.PKEY_USAGE_PERIOD_st, ptr %usage, i64 0, i32 1
+  %notAfter8 = getelementptr inbounds i8, ptr %usage, i64 8
   %3 = load ptr, ptr %notAfter8, align 8
   %tobool9.not = icmp eq ptr %3, null
   br i1 %tobool9.not, label %if.end14, label %if.then10

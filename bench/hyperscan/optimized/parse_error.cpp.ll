@@ -14,9 +14,6 @@ target triple = "x86_64-unknown-linux-gnu"
 %"class.std::basic_ios" = type { %"class.std::ios_base", ptr, i8, i8, ptr, ptr, ptr, ptr }
 %"class.std::ios_base" = type { ptr, i64, i64, i32, i32, i32, ptr, %"struct.std::ios_base::_Words", [8 x %"struct.std::ios_base::_Words"], i32, ptr, %"class.std::locale" }
 %"struct.std::ios_base::_Words" = type { ptr, i64 }
-%"class.ue2::LocatedParseError" = type <{ %"class.ue2::ParseError", i8, [7 x i8] }>
-%"class.ue2::ParseError" = type { %"class.ue2::CompileError" }
-%"class.ue2::CompileError" = type { ptr, %"class.std::__cxx11::basic_string", i8, i32 }
 
 @.str = private unnamed_addr constant [11 x i8] c" at index \00", align 1
 @.str.1 = private unnamed_addr constant [2 x i8] c".\00", align 1
@@ -73,7 +70,7 @@ define hidden void @_ZN3ue217LocatedParseError6locateEm(ptr noundef nonnull alig
 entry:
   %str = alloca %"class.std::__cxx11::basic_ostringstream", align 8
   %ref.tmp = alloca %"class.std::__cxx11::basic_string", align 8
-  %finalized = getelementptr inbounds %"class.ue2::LocatedParseError", ptr %this, i64 0, i32 1
+  %finalized = getelementptr inbounds i8, ptr %this, i64 48
   %0 = load i8, ptr %finalized, align 8
   %1 = and i8 %0, 1
   %tobool.not = icmp eq i8 %1, 0
@@ -81,7 +78,7 @@ entry:
 
 if.end:                                           ; preds = %entry
   call void @_ZNSt7__cxx1119basic_ostringstreamIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(112) %str)
-  %reason = getelementptr inbounds %"class.ue2::CompileError", ptr %this, i64 0, i32 1
+  %reason = getelementptr inbounds i8, ptr %this, i64 8
   %call = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsIcSt11char_traitsIcESaIcEERSt13basic_ostreamIT_T0_ES7_RKNSt7__cxx1112basic_stringIS4_S5_T1_EE(ptr noundef nonnull align 8 dereferenceable(8) %str, ptr noundef nonnull align 8 dereferenceable(32) %reason)
           to label %invoke.cont unwind label %lpad
 

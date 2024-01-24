@@ -7,39 +7,6 @@ target triple = "x86_64-unknown-linux-gnu"
 %struct.VHDXLogEntryHeader = type { i32, i32, i32, i32, i64, i32, i32, %struct.MSGUID, i64, i64 }
 %struct.VHDXLogEntries = type { i64, i64, i32, i32, ptr, ptr, i64, i32 }
 %struct.VHDXLogSequence = type { i8, i32, %struct.VHDXLogEntries, %struct.VHDXLogEntryHeader }
-%struct.BDRVVHDXState = type <{ %struct.CoMutex, i32, [4 x i8], [2 x ptr], %struct.VHDXRegionTableHeader, %struct.VHDXRegionTableEntry, %struct.VHDXRegionTableEntry, %struct.VHDXMetadataTableHeader, %struct.VHDXMetadataEntries, %struct.VHDXFileParameters, [2 x i8], i32, i32, i32, i32, [4 x i8], i64, i32, i32, i64, i32, i32, i32, [4 x i8], ptr, i64, i8, %struct.MSGUID, [7 x i8], %struct.VHDXLogEntries, %struct.VHDXParentLocatorHeader, [4 x i8], ptr, ptr, i8, [7 x i8], %struct.anon.0 }>
-%struct.CoMutex = type { i32, ptr, %struct.anon, %struct.anon, i32, i32, ptr }
-%struct.anon = type { ptr }
-%struct.VHDXRegionTableHeader = type { i32, i32, i32, i32 }
-%struct.VHDXRegionTableEntry = type { %struct.MSGUID, i64, i32, i32 }
-%struct.VHDXMetadataTableHeader = type { i64, i16, i16, [5 x i32] }
-%struct.VHDXMetadataEntries = type <{ %struct.VHDXMetadataTableEntry, %struct.VHDXMetadataTableEntry, %struct.VHDXMetadataTableEntry, %struct.VHDXMetadataTableEntry, %struct.VHDXMetadataTableEntry, %struct.VHDXMetadataTableEntry, i16 }>
-%struct.VHDXMetadataTableEntry = type { %struct.MSGUID, i32, i32, i32, i32 }
-%struct.VHDXFileParameters = type { i32, i32 }
-%struct.VHDXParentLocatorHeader = type { %struct.MSGUID, i16, i16 }
-%struct.anon.0 = type { ptr }
-%struct.VHDXHeader = type { i32, i32, i64, %struct.MSGUID, %struct.MSGUID, %struct.MSGUID, i16, i16, i32, i64 }
-%struct.BlockDriverState = type { i32, i8, i8, i8, i8, i8, ptr, ptr, ptr, %struct.anon.1, i8, [4096 x i8], [4096 x i8], [4096 x i8], [16 x i8], ptr, [4096 x i8], %struct.BlockLimits, i32, i32, i32, i32, [32 x i8], %union.anon, %union.anon.2, %union.anon.3, i32, [16 x %struct.anon.4], ptr, %struct.anon.5, ptr, ptr, %struct.anon.6, ptr, ptr, i32, ptr, i64, i64, %struct.QemuMutex, %struct.anon.7, %struct.Stat64, i32, i32, i32, i32, i32, i32, %struct.QemuMutex, %struct.anon.8, %struct.CoQueue, i8, i32, i8, %struct.CoMutex, ptr, ptr }
-%struct.anon.1 = type { ptr }
-%struct.BlockLimits = type { i32, i64, i32, i64, i32, i32, i32, i64, i32, i64, i64, i32, i8, i32, i32, i32, i32, i32, i32, i32 }
-%union.anon = type { %struct.QTailQLink }
-%struct.QTailQLink = type { ptr, ptr }
-%union.anon.2 = type { %struct.QTailQLink }
-%union.anon.3 = type { %struct.QTailQLink }
-%struct.anon.4 = type { ptr }
-%struct.anon.5 = type { ptr }
-%struct.anon.6 = type { ptr }
-%struct.anon.7 = type { ptr }
-%struct.Stat64 = type { i64 }
-%struct.QemuMutex = type { %union.pthread_mutex_t, i8 }
-%union.pthread_mutex_t = type { %struct.__pthread_mutex_s }
-%struct.__pthread_mutex_s = type { i32, i32, i32, i32, i32, i16, i16, %struct.__pthread_internal_list }
-%struct.__pthread_internal_list = type { ptr, ptr }
-%struct.anon.8 = type { ptr }
-%struct.CoQueue = type { %struct.anon.9 }
-%struct.anon.9 = type { ptr, ptr }
-%struct.VHDXLogDataSector = type { i32, i32, [4084 x i8], i32 }
-%struct.VHDXLogDescEntries = type { %struct.VHDXLogEntryHeader, [0 x %struct.VHDXLogDescriptor] }
 %struct.VHDXLogDescriptor = type { i32, %union.anon.10, %union.anon.11, i64, i64 }
 %union.anon.10 = type { i32 }
 %union.anon.11 = type { i64 }
@@ -79,14 +46,15 @@ entry:
   %current.sroa.13.i = alloca { i32, i32, %struct.MSGUID, i64, i64 }, align 8
   %logs = alloca %struct.VHDXLogSequence, align 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(128) %logs, i8 0, i64 128, i1 false)
-  %curr_header = getelementptr inbounds %struct.BDRVVHDXState, ptr %s, i64 0, i32 1
+  %headers = getelementptr inbounds i8, ptr %s, i64 56
+  %curr_header = getelementptr inbounds i8, ptr %s, i64 48
   %0 = load i32, ptr %curr_header, align 8
   %idxprom = sext i32 %0 to i64
-  %arrayidx = getelementptr %struct.BDRVVHDXState, ptr %s, i64 0, i32 3, i64 %idxprom
+  %arrayidx = getelementptr [2 x ptr], ptr %headers, i64 0, i64 %idxprom
   %1 = load ptr, ptr %arrayidx, align 8
   store i8 0, ptr %flushed, align 1
-  %log = getelementptr inbounds %struct.BDRVVHDXState, ptr %s, i64 0, i32 29
-  %hdr1 = getelementptr inbounds %struct.BDRVVHDXState, ptr %s, i64 0, i32 29, i32 4
+  %log = getelementptr inbounds i8, ptr %s, i64 488
+  %hdr1 = getelementptr inbounds i8, ptr %s, i64 512
   %2 = load ptr, ptr %hdr1, align 8
   %cmp = icmp eq ptr %2, null
   br i1 %cmp, label %if.then, label %if.end
@@ -97,13 +65,13 @@ if.then:                                          ; preds = %entry
   br label %if.end
 
 if.end:                                           ; preds = %if.then, %entry
-  %log_offset = getelementptr inbounds %struct.VHDXHeader, ptr %1, i64 0, i32 9
+  %log_offset = getelementptr inbounds i8, ptr %1, i64 72
   %3 = load i64, ptr %log_offset, align 1
   store i64 %3, ptr %log, align 8
-  %log_length = getelementptr inbounds %struct.VHDXHeader, ptr %1, i64 0, i32 8
+  %log_length = getelementptr inbounds i8, ptr %1, i64 68
   %4 = load i32, ptr %log_length, align 1
   %conv = zext i32 %4 to i64
-  %length = getelementptr inbounds %struct.BDRVVHDXState, ptr %s, i64 0, i32 29, i32 1
+  %length = getelementptr inbounds i8, ptr %s, i64 496
   store i64 %conv, ptr %length, align 8
   %cmp8 = icmp ugt i64 %3, 1048575
   %rem = and i64 %3, 1048575
@@ -112,13 +80,13 @@ if.end:                                           ; preds = %if.then, %entry
   br i1 %or.cond, label %if.end13, label %exit
 
 if.end13:                                         ; preds = %if.end
-  %log_version = getelementptr inbounds %struct.VHDXHeader, ptr %1, i64 0, i32 6
+  %log_version = getelementptr inbounds i8, ptr %1, i64 64
   %5 = load i16, ptr %log_version, align 1
   %cmp15.not = icmp eq i16 %5, 0
   br i1 %cmp15.not, label %if.end18, label %exit
 
 if.end18:                                         ; preds = %if.end13
-  %log_guid = getelementptr inbounds %struct.VHDXHeader, ptr %1, i64 0, i32 5
+  %log_guid = getelementptr inbounds i8, ptr %1, i64 48
   %bcmp = tail call i32 @bcmp(ptr noundef nonnull dereferenceable(16) %log_guid, ptr noundef nonnull dereferenceable(16) @zero_guid, i64 16)
   %cmp20 = icmp eq i32 %bcmp, 0
   br i1 %cmp20, label %exit, label %if.end23
@@ -151,12 +119,12 @@ if.end34:                                         ; preds = %if.end28
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %candidate.sroa.14.i, i8 0, i64 40, i1 false)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(64) %hdr.i, i8 0, i64 64, i1 false)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %curr_log.i, ptr noundef nonnull align 8 dereferenceable(56) %log, i64 56, i1 false)
-  %length.i = getelementptr inbounds %struct.VHDXLogEntries, ptr %curr_log.i, i64 0, i32 1
+  %length.i = getelementptr inbounds i8, ptr %curr_log.i, i64 8
   %8 = load i64, ptr %length.i, align 8
   %conv.i = trunc i64 %8 to i32
-  %write.i = getelementptr inbounds %struct.VHDXLogEntries, ptr %curr_log.i, i64 0, i32 2
+  %write.i = getelementptr inbounds i8, ptr %curr_log.i, i64 16
   store i32 %conv.i, ptr %write.i, align 8
-  %read.i = getelementptr inbounds %struct.VHDXLogEntries, ptr %curr_log.i, i64 0, i32 3
+  %read.i = getelementptr inbounds i8, ptr %curr_log.i, i64 20
   store i32 0, ptr %read.i, align 4
   %current.sroa.11.8.curr_log.sroa_idx.i = getelementptr inbounds i8, ptr %curr_log.i, i64 24
   %current.sroa.11.64.hdr10.sroa_idx.i = getelementptr inbounds i8, ptr %current.sroa.11.i, i64 32
@@ -292,7 +260,7 @@ vhdx_log_search.exit.thread:                      ; preds = %if.then3.i, %for.co
 
 if.then41:                                        ; preds = %for.end50.i
   %add.i = add i64 %candidate.sroa.11.1.i, 1
-  %sequence.i = getelementptr inbounds %struct.BDRVVHDXState, ptr %s, i64 0, i32 29, i32 6
+  %sequence.i = getelementptr inbounds i8, ptr %s, i64 528
   store i64 %add.i, ptr %sequence.i, align 8
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %seq_valid.i)
   call void @llvm.lifetime.end.p0(i64 3, ptr nonnull %candidate.sroa.5.i)
@@ -309,7 +277,7 @@ if.then41:                                        ; preds = %for.end50.i
 
 if.then43:                                        ; preds = %if.then41
   tail call void @bdrv_refresh_filename(ptr noundef %bs) #8
-  %filename = getelementptr inbounds %struct.BlockDriverState, ptr %bs, i64 0, i32 11
+  %filename = getelementptr inbounds i8, ptr %bs, i64 49
   tail call void (ptr, ptr, i32, ptr, ptr, ...) @error_setg_internal(ptr noundef %errp, ptr noundef nonnull @.str, i32 noundef 816, ptr noundef nonnull @__func__.vhdx_parse_log, ptr noundef nonnull @.str.1, ptr noundef nonnull %filename) #8
   tail call void (ptr, ptr, ...) @error_append_hint(ptr noundef %errp, ptr noundef nonnull @.str.2, ptr noundef nonnull %filename) #8
   br label %exit
@@ -349,7 +317,7 @@ entry:
   %hdr_tmp = alloca %struct.VHDXLogEntryHeader, align 1
   store ptr null, ptr %desc_entries, align 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(64) %hdr_tmp, i8 0, i64 64, i1 false)
-  %count = getelementptr inbounds %struct.VHDXLogSequence, ptr %logs, i64 0, i32 1
+  %count = getelementptr inbounds i8, ptr %logs, i64 4
   %0 = load i32, ptr %count, align 4
   %call = tail call ptr @qemu_blockalign(ptr noundef %bs, i64 noundef 4096) #8
   %call1 = tail call i32 @vhdx_user_visible_write(ptr noundef %bs, ptr noundef %s) #8
@@ -361,16 +329,16 @@ while.cond.preheader:                             ; preds = %entry
   br i1 %tobool.not88, label %while.end, label %while.body.lr.ph
 
 while.body.lr.ph:                                 ; preds = %while.cond.preheader
-  %log = getelementptr inbounds %struct.VHDXLogSequence, ptr %logs, i64 0, i32 2
-  %read1.i = getelementptr inbounds %struct.VHDXLogSequence, ptr %logs, i64 0, i32 2, i32 3
-  %length.i = getelementptr inbounds %struct.VHDXLogSequence, ptr %logs, i64 0, i32 2, i32 1
-  %write.i = getelementptr inbounds %struct.VHDXLogSequence, ptr %logs, i64 0, i32 2, i32 2
-  %file.i = getelementptr inbounds %struct.BlockDriverState, ptr %bs, i64 0, i32 31
-  %flushed_file_offset = getelementptr inbounds %struct.VHDXLogEntryHeader, ptr %hdr_tmp, i64 0, i32 8
+  %log = getelementptr inbounds i8, ptr %logs, i64 8
+  %read1.i = getelementptr inbounds i8, ptr %logs, i64 28
+  %length.i = getelementptr inbounds i8, ptr %logs, i64 16
+  %write.i = getelementptr inbounds i8, ptr %logs, i64 24
+  %file.i = getelementptr inbounds i8, ptr %bs, i64 16840
+  %flushed_file_offset = getelementptr inbounds i8, ptr %hdr_tmp, i64 48
   %cmp1.i = icmp eq ptr %call, null
-  %sequence_high.i = getelementptr inbounds %struct.VHDXLogDataSector, ptr %call, i64 0, i32 1
-  %sequence_low.i = getelementptr inbounds %struct.VHDXLogDataSector, ptr %call, i64 0, i32 3
-  %data8.i = getelementptr inbounds %struct.VHDXLogDataSector, ptr %call, i64 0, i32 2
+  %sequence_high.i = getelementptr inbounds i8, ptr %call, i64 4
+  %sequence_low.i = getelementptr inbounds i8, ptr %call, i64 4092
+  %data8.i = getelementptr inbounds i8, ptr %call, i64 8
   br label %while.body
 
 while.body:                                       ; preds = %while.body.lr.ph, %if.end64
@@ -424,15 +392,19 @@ if.end14:                                         ; preds = %if.end10
   br i1 %cmp17, label %exit, label %for.cond.preheader
 
 for.cond.preheader:                               ; preds = %if.end14
-  %descriptor_count = getelementptr inbounds %struct.VHDXLogEntryHeader, ptr %.pre.pre, i64 0, i32 5
+  %descriptor_count = getelementptr inbounds i8, ptr %.pre.pre, i64 24
   %9 = load i32, ptr %descriptor_count, align 1
   %cmp2185.not = icmp eq i32 %9, 0
-  br i1 %cmp2185.not, label %for.end, label %for.body
+  br i1 %cmp2185.not, label %for.end, label %for.body.lr.ph
 
-for.body:                                         ; preds = %for.cond.preheader, %for.inc
-  %i.086 = phi i32 [ %inc, %for.inc ], [ 0, %for.cond.preheader ]
+for.body.lr.ph:                                   ; preds = %for.cond.preheader
+  %desc = getelementptr inbounds i8, ptr %.pre.pre, i64 64
+  br label %for.body
+
+for.body:                                         ; preds = %for.body.lr.ph, %for.inc
+  %i.086 = phi i32 [ 0, %for.body.lr.ph ], [ %inc, %for.inc ]
   %idxprom = sext i32 %i.086 to i64
-  %arrayidx = getelementptr %struct.VHDXLogDescEntries, ptr %.pre.pre, i64 0, i32 1, i64 %idxprom
+  %arrayidx = getelementptr [0 x %struct.VHDXLogDescriptor], ptr %desc, i64 0, i64 %idxprom
   %10 = load i32, ptr %arrayidx, align 1
   %cmp23 = icmp eq i32 %10, 1668506980
   br i1 %cmp23, label %if.then25, label %if.end36
@@ -484,19 +456,19 @@ if.end.i45:                                       ; preds = %if.then.i
   %18 = load i32, ptr %sequence_low.i, align 1
   %conv3.i = zext i32 %18 to i64
   %or.i = or disjoint i64 %shl.i, %conv3.i
-  %sequence_number.i = getelementptr %struct.VHDXLogDescEntries, ptr %.pre.pre, i64 0, i32 1, i64 %idxprom, i32 4
+  %sequence_number.i = getelementptr inbounds i8, ptr %arrayidx, i64 24
   %19 = load i64, ptr %sequence_number.i, align 1
   %cmp4.not.i = icmp eq i64 %or.i, %19
   br i1 %cmp4.not.i, label %if.end19.thread.i, label %vhdx_log_flush_desc.exit.thread
 
 if.end19.thread.i:                                ; preds = %if.end.i45
-  %20 = getelementptr %struct.VHDXLogDescEntries, ptr %.pre.pre, i64 0, i32 1, i64 %idxprom, i32 2
+  %20 = getelementptr inbounds i8, ptr %arrayidx, i64 8
   %21 = load i64, ptr %20, align 1
   store i64 %21, ptr %call.i43, align 1
   %add.ptr.i = getelementptr i8, ptr %call.i43, i64 8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(4084) %add.ptr.i, ptr noundef nonnull align 1 dereferenceable(4084) %data8.i, i64 4084, i1 false)
   %add.ptr11.i = getelementptr i8, ptr %call.i43, i64 4092
-  %22 = getelementptr %struct.VHDXLogDescEntries, ptr %.pre.pre, i64 0, i32 1, i64 %idxprom, i32 1
+  %22 = getelementptr inbounds i8, ptr %arrayidx, i64 4
   %23 = load i32, ptr %22, align 1
   store i32 %23, ptr %add.ptr11.i, align 1
   br label %for.body.preheader.i
@@ -507,7 +479,7 @@ if.else16.i:                                      ; preds = %if.end36
 
 if.end19.i:                                       ; preds = %if.end36
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(4096) %call.i43, i8 0, i64 4096, i1 false)
-  %24 = getelementptr %struct.VHDXLogDescEntries, ptr %.pre.pre, i64 0, i32 1, i64 %idxprom, i32 2
+  %24 = getelementptr inbounds i8, ptr %arrayidx, i64 8
   %25 = load i64, ptr %24, align 1
   %div25.i = lshr i64 %25, 12
   %cmp2226.not.i = icmp ult i64 %25, 4096
@@ -515,7 +487,7 @@ if.end19.i:                                       ; preds = %if.end36
 
 for.body.preheader.i:                             ; preds = %if.end19.i, %if.end19.thread.i
   %count.033.i = phi i64 [ 1, %if.end19.thread.i ], [ %div25.i, %if.end19.i ]
-  %file_offset20.i = getelementptr %struct.VHDXLogDescEntries, ptr %.pre.pre, i64 0, i32 1, i64 %idxprom, i32 3
+  %file_offset20.i = getelementptr inbounds i8, ptr %arrayidx, i64 16
   %26 = load i64, ptr %file_offset20.i, align 1
   br label %for.body.i
 
@@ -547,7 +519,7 @@ for.inc:                                          ; preds = %if.end28.i, %if.end
   br i1 %cmp21, label %for.body, label %for.end, !llvm.loop !7
 
 for.end:                                          ; preds = %for.inc, %for.cond.preheader
-  %last_file_offset = getelementptr inbounds %struct.VHDXLogEntryHeader, ptr %.pre.pre, i64 0, i32 9
+  %last_file_offset = getelementptr inbounds i8, ptr %.pre.pre, i64 56
   %29 = load i64, ptr %last_file_offset, align 1
   %cmp46 = icmp uge i64 %call7, %29
   %rem = and i64 %29, 1048575
@@ -581,9 +553,9 @@ while.end:                                        ; preds = %if.end64, %while.co
 if.end69:                                         ; preds = %while.end
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %guid.i)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(16) %guid.i, i8 0, i64 16, i1 false)
-  %write.i47 = getelementptr inbounds %struct.BDRVVHDXState, ptr %s, i64 0, i32 29, i32 2
+  %write.i47 = getelementptr inbounds i8, ptr %s, i64 504
   store i32 0, ptr %write.i47, align 8
-  %read.i = getelementptr inbounds %struct.BDRVVHDXState, ptr %s, i64 0, i32 29, i32 3
+  %read.i = getelementptr inbounds i8, ptr %s, i64 508
   store i32 0, ptr %read.i, align 4
   %call.i48 = call i32 @vhdx_update_headers(ptr noundef %bs, ptr noundef %s, i1 noundef zeroext false, ptr noundef nonnull %guid.i) #8
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %guid.i)
@@ -603,7 +575,7 @@ entry:
   %logs = alloca %struct.VHDXLogSequence, align 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(128) %logs, i8 0, i64 128, i1 false)
   store i8 1, ptr %logs, align 8
-  %0 = getelementptr inbounds %struct.VHDXLogSequence, ptr %logs, i64 0, i32 1
+  %0 = getelementptr inbounds i8, ptr %logs, i64 4
   store i32 1, ptr %0, align 4
   %call = tail call i32 @bdrv_co_flush(ptr noundef %bs) #8
   %cmp = icmp slt i32 %call, 0
@@ -615,8 +587,8 @@ if.end:                                           ; preds = %entry
   br i1 %cmp2, label %exit, label %if.end4
 
 if.end4:                                          ; preds = %if.end
-  %log = getelementptr inbounds %struct.VHDXLogSequence, ptr %logs, i64 0, i32 2
-  %log5 = getelementptr inbounds %struct.BDRVVHDXState, ptr %s, i64 0, i32 29
+  %log = getelementptr inbounds i8, ptr %logs, i64 8
+  %log5 = getelementptr inbounds i8, ptr %s, i64 488
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %log, ptr noundef nonnull align 8 dereferenceable(56) %log5, i64 56, i1 false)
   %call6 = tail call i32 @bdrv_co_flush(ptr noundef %bs) #8
   %cmp7 = icmp slt i32 %call6, 0
@@ -647,18 +619,19 @@ entry:
   %new_hdr = alloca %struct.VHDXLogEntryHeader, align 4
   %new_guid = alloca %struct.MSGUID, align 1
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(16) %new_guid, i8 0, i64 16, i1 false)
-  %curr_header = getelementptr inbounds %struct.BDRVVHDXState, ptr %s, i64 0, i32 1
+  %headers = getelementptr inbounds i8, ptr %s, i64 56
+  %curr_header = getelementptr inbounds i8, ptr %s, i64 48
   %0 = load i32, ptr %curr_header, align 8
   %idxprom = sext i32 %0 to i64
-  %arrayidx = getelementptr %struct.BDRVVHDXState, ptr %s, i64 0, i32 3, i64 %idxprom
+  %arrayidx = getelementptr [2 x ptr], ptr %headers, i64 0, i64 %idxprom
   %1 = load ptr, ptr %arrayidx, align 8
-  %log_length = getelementptr inbounds %struct.VHDXHeader, ptr %1, i64 0, i32 8
+  %log_length = getelementptr inbounds i8, ptr %1, i64 68
   %2 = load i32, ptr %log_length, align 1
   %cmp = icmp ult i32 %2, %length
   br i1 %cmp, label %exit, label %if.end
 
 if.end:                                           ; preds = %entry
-  %log_guid = getelementptr inbounds %struct.VHDXHeader, ptr %1, i64 0, i32 5
+  %log_guid = getelementptr inbounds i8, ptr %1, i64 48
   %bcmp = tail call i32 @bcmp(ptr noundef nonnull dereferenceable(16) %log_guid, ptr noundef nonnull dereferenceable(16) @zero_guid, i64 16)
   %cmp1 = icmp eq i32 %bcmp, 0
   br i1 %cmp1, label %if.then2, label %exit
@@ -666,8 +639,8 @@ if.end:                                           ; preds = %entry
 if.then2:                                         ; preds = %if.end
   call void @vhdx_guid_generate(ptr noundef nonnull %new_guid) #8
   %call3 = call i32 @vhdx_update_headers(ptr noundef %bs, ptr noundef nonnull %s, i1 noundef zeroext false, ptr noundef nonnull %new_guid) #8
-  %log = getelementptr inbounds %struct.BDRVVHDXState, ptr %s, i64 0, i32 29
-  %sequence = getelementptr inbounds %struct.BDRVVHDXState, ptr %s, i64 0, i32 29, i32 6
+  %log = getelementptr inbounds i8, ptr %s, i64 488
+  %sequence = getelementptr inbounds i8, ptr %s, i64 528
   %3 = load i64, ptr %sequence, align 8
   %cmp5 = icmp eq i64 %3, 0
   br i1 %cmp5, label %if.then6, label %if.end9
@@ -700,7 +673,7 @@ if.end16:                                         ; preds = %if.then10, %if.end9
   %inc27 = zext i1 %tobool25 to i32
   %spec.select = add nuw nsw i32 %div1887, %partial_sectors.0
   %add = add nuw nsw i32 %spec.select, %inc27
-  %file = getelementptr inbounds %struct.BlockDriverState, ptr %bs, i64 0, i32 31
+  %file = getelementptr inbounds i8, ptr %bs, i64 16840
   %6 = load ptr, ptr %file, align 8
   %7 = load ptr, ptr %6, align 8
   %call30 = call i64 @bdrv_co_getlength(ptr noundef %7) #8
@@ -712,7 +685,7 @@ if.then33:                                        ; preds = %if.end16
   br label %exit
 
 if.end35:                                         ; preds = %if.end16
-  %tail37 = getelementptr inbounds %struct.BDRVVHDXState, ptr %s, i64 0, i32 29, i32 7
+  %tail37 = getelementptr inbounds i8, ptr %s, i64 536
   %8 = load i32, ptr %tail37, align 8
   %9 = load i64, ptr %sequence, align 8
   store i32 1701277548, ptr %new_hdr, align 4
@@ -760,14 +733,14 @@ for.body.lr.ph:                                   ; preds = %if.end35
   %conv82 = zext nneg i32 %sub23 to i64
   %sub85 = sub nuw nsw i64 4096, %conv82
   %add.ptr87 = getelementptr i8, ptr %call54, i64 %conv82
-  %10 = getelementptr inbounds %struct.QEMUIOVector, ptr %qiov.i89, i64 0, i32 2
-  %local_iov.i90 = getelementptr inbounds %struct.QEMUIOVector, ptr %qiov.i89, i64 0, i32 2, i32 0, i32 1
-  %niov.i91 = getelementptr inbounds %struct.QEMUIOVector, ptr %qiov.i89, i64 0, i32 1
-  %iov_len.i92 = getelementptr inbounds %struct.QEMUIOVector, ptr %qiov.i89, i64 0, i32 2, i32 0, i32 1, i32 1
-  %11 = getelementptr inbounds %struct.QEMUIOVector, ptr %qiov.i, i64 0, i32 2
-  %local_iov.i = getelementptr inbounds %struct.QEMUIOVector, ptr %qiov.i, i64 0, i32 2, i32 0, i32 1
-  %niov.i = getelementptr inbounds %struct.QEMUIOVector, ptr %qiov.i, i64 0, i32 1
-  %iov_len.i = getelementptr inbounds %struct.QEMUIOVector, ptr %qiov.i, i64 0, i32 2, i32 0, i32 1, i32 1
+  %10 = getelementptr inbounds i8, ptr %qiov.i89, i64 16
+  %local_iov.i90 = getelementptr inbounds i8, ptr %qiov.i89, i64 24
+  %niov.i91 = getelementptr inbounds i8, ptr %qiov.i89, i64 8
+  %iov_len.i92 = getelementptr inbounds i8, ptr %qiov.i89, i64 32
+  %11 = getelementptr inbounds i8, ptr %qiov.i, i64 16
+  %local_iov.i = getelementptr inbounds i8, ptr %qiov.i, i64 24
+  %niov.i = getelementptr inbounds i8, ptr %qiov.i, i64 8
+  %iov_len.i = getelementptr inbounds i8, ptr %qiov.i, i64 32
   %add.ptr72 = getelementptr i8, ptr %call54, i64 %conv88
   %conv73 = zext nneg i32 %leading_length.0 to i64
   br label %for.body
@@ -780,9 +753,9 @@ for.body:                                         ; preds = %for.body.lr.ph, %if
   %file_offset.0107 = phi i64 [ %div86, %for.body.lr.ph ], [ %add102, %if.end96 ]
   store i32 1668506980, ptr %new_desc.0108, align 1
   %12 = load i64, ptr %sequence, align 8
-  %sequence_number60 = getelementptr inbounds %struct.VHDXLogDescriptor, ptr %new_desc.0108, i64 0, i32 4
+  %sequence_number60 = getelementptr inbounds i8, ptr %new_desc.0108, i64 24
   store i64 %12, ptr %sequence_number60, align 1
-  %file_offset61 = getelementptr inbounds %struct.VHDXLogDescriptor, ptr %new_desc.0108, i64 0, i32 3
+  %file_offset61 = getelementptr inbounds i8, ptr %new_desc.0108, i64 16
   store i64 %file_offset.0107, ptr %file_offset61, align 1
   %cmp62 = icmp eq i32 %i.0110, 0
   %or.cond = select i1 %cmp62, i1 %tobool64, i1 false
@@ -834,30 +807,30 @@ if.end96:                                         ; preds = %if.else74, %if.end9
   %bytes_written.0 = phi i32 [ %leading_length.0, %if.end71 ], [ %sub23, %if.end92 ], [ 4096, %if.else74 ]
   %sector_write.0 = phi ptr [ %call54, %if.end71 ], [ %call54, %if.end92 ], [ %data_tmp.0111, %if.else74 ]
   %15 = load i64, ptr %sequence, align 8
-  %16 = getelementptr inbounds %struct.VHDXLogDescriptor, ptr %new_desc.0108, i64 0, i32 2
+  %16 = getelementptr inbounds i8, ptr %new_desc.0108, i64 8
   %17 = load i64, ptr %sector_write.0, align 1
   %add.ptr.i = getelementptr i8, ptr %sector_write.0, i64 8
   store i64 %17, ptr %16, align 1
-  %data1.i = getelementptr inbounds %struct.VHDXLogDataSector, ptr %data_sector.0109, i64 0, i32 2
+  %data1.i = getelementptr inbounds i8, ptr %data_sector.0109, i64 8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(4084) %data1.i, ptr noundef nonnull align 1 dereferenceable(4084) %add.ptr.i, i64 4084, i1 false)
   %add.ptr2.i = getelementptr i8, ptr %sector_write.0, i64 4092
-  %18 = getelementptr inbounds %struct.VHDXLogDescriptor, ptr %new_desc.0108, i64 0, i32 1
+  %18 = getelementptr inbounds i8, ptr %new_desc.0108, i64 4
   %19 = load i32, ptr %add.ptr2.i, align 1
   store i32 %19, ptr %18, align 1
   %shr.i = lshr i64 %15, 32
   %conv.i = trunc i64 %shr.i to i32
-  %sequence_high.i = getelementptr inbounds %struct.VHDXLogDataSector, ptr %data_sector.0109, i64 0, i32 1
+  %sequence_high.i = getelementptr inbounds i8, ptr %data_sector.0109, i64 4
   store i32 %conv.i, ptr %sequence_high.i, align 1
   %conv5.i = trunc i64 %15 to i32
-  %sequence_low.i = getelementptr inbounds %struct.VHDXLogDataSector, ptr %data_sector.0109, i64 0, i32 3
+  %sequence_low.i = getelementptr inbounds i8, ptr %data_sector.0109, i64 4092
   store i32 %conv5.i, ptr %sequence_low.i, align 1
   store i32 1635017060, ptr %data_sector.0109, align 1
   call void @vhdx_log_desc_le_export(ptr noundef nonnull %new_desc.0108) #8
   call void @vhdx_log_data_le_export(ptr noundef nonnull %data_sector.0109) #8
   %idx.ext99 = zext nneg i32 %bytes_written.0 to i64
   %add.ptr100 = getelementptr i8, ptr %data_tmp.0111, i64 %idx.ext99
-  %incdec.ptr = getelementptr %struct.VHDXLogDataSector, ptr %data_sector.0109, i64 1
-  %incdec.ptr101 = getelementptr %struct.VHDXLogDescriptor, ptr %new_desc.0108, i64 1
+  %incdec.ptr = getelementptr i8, ptr %data_sector.0109, i64 4096
+  %incdec.ptr101 = getelementptr i8, ptr %new_desc.0108, i64 32
   %add102 = add i64 %file_offset.0107, 4096
   %inc103 = add nuw nsw i32 %i.0110, 1
   %exitcond.not = icmp eq i32 %inc103, %add
@@ -865,25 +838,25 @@ if.end96:                                         ; preds = %if.else74, %if.end9
 
 for.end:                                          ; preds = %if.end96, %if.end35
   %call105 = call i32 @vhdx_update_checksum(ptr noundef %call50, i64 noundef %conv49, i32 noundef 4) #8
-  %opaque.i = getelementptr inbounds %struct.BlockDriverState, ptr %bs, i64 0, i32 7
+  %opaque.i = getelementptr inbounds i8, ptr %bs, i64 24
   %20 = load ptr, ptr %opaque.i, align 8
   %call.i94 = call i32 @vhdx_user_visible_write(ptr noundef %bs, ptr noundef %20) #8
   %cmp.i = icmp slt i32 %call.i94, 0
   br i1 %cmp.i, label %exit, label %if.end.i
 
 if.end.i:                                         ; preds = %for.end
-  %write1.i = getelementptr inbounds %struct.BDRVVHDXState, ptr %s, i64 0, i32 29, i32 2
-  %length.i = getelementptr inbounds %struct.BDRVVHDXState, ptr %s, i64 0, i32 29, i32 1
+  %write1.i = getelementptr inbounds i8, ptr %s, i64 504
+  %length.i = getelementptr inbounds i8, ptr %s, i64 496
   %tobool.not15.i = icmp eq i32 %add44, 0
   br i1 %tobool.not15.i, label %if.end112, label %while.body.lr.ph.i
 
 while.body.lr.ph.i:                               ; preds = %if.end.i
   %21 = load i32, ptr %write1.i, align 8
-  %read.i = getelementptr inbounds %struct.BDRVVHDXState, ptr %s, i64 0, i32 29, i32 3
-  %22 = getelementptr inbounds %struct.QEMUIOVector, ptr %qiov.i.i, i64 0, i32 2
-  %local_iov.i.i = getelementptr inbounds %struct.QEMUIOVector, ptr %qiov.i.i, i64 0, i32 2, i32 0, i32 1
-  %niov.i.i = getelementptr inbounds %struct.QEMUIOVector, ptr %qiov.i.i, i64 0, i32 1
-  %iov_len.i.i = getelementptr inbounds %struct.QEMUIOVector, ptr %qiov.i.i, i64 0, i32 2, i32 0, i32 1, i32 1
+  %read.i = getelementptr inbounds i8, ptr %s, i64 508
+  %22 = getelementptr inbounds i8, ptr %qiov.i.i, i64 16
+  %local_iov.i.i = getelementptr inbounds i8, ptr %qiov.i.i, i64 24
+  %niov.i.i = getelementptr inbounds i8, ptr %qiov.i.i, i64 8
+  %iov_len.i.i = getelementptr inbounds i8, ptr %qiov.i.i, i64 32
   %23 = load i64, ptr %length.i, align 8
   %add.i.i112 = add i32 %21, 4096
   %conv2.i.i113 = zext i32 %add.i.i112 to i64
@@ -967,7 +940,7 @@ entry:
   %desc_buffer = alloca ptr, align 8
   store ptr null, ptr %desc_buffer, align 8
   store i8 0, ptr %valid, align 1
-  %read1.i = getelementptr inbounds %struct.VHDXLogEntries, ptr %log, i64 0, i32 3
+  %read1.i = getelementptr inbounds i8, ptr %log, i64 20
   %0 = load i32, ptr %read1.i, align 4
   %conv.i = zext i32 %0 to i64
   %rem.i = and i64 %conv.i, 4095
@@ -976,11 +949,11 @@ entry:
 
 if.end3.i:                                        ; preds = %entry
   %add.i = or disjoint i64 %conv.i, 64
-  %length.i = getelementptr inbounds %struct.VHDXLogEntries, ptr %log, i64 0, i32 1
+  %length.i = getelementptr inbounds i8, ptr %log, i64 8
   %1 = load i64, ptr %length.i, align 8
   %cmp6.i = icmp ugt i64 %add.i, %1
   %spec.store.select.i = select i1 %cmp6.i, i32 0, i32 %0
-  %write.i = getelementptr inbounds %struct.VHDXLogEntries, ptr %log, i64 0, i32 2
+  %write.i = getelementptr inbounds i8, ptr %log, i64 16
   %2 = load i32, ptr %write.i, align 8
   %cmp10.i = icmp eq i32 %spec.store.select.i, %2
   br i1 %cmp10.i, label %inc_and_exit, label %if.end13.i
@@ -989,7 +962,7 @@ if.end13.i:                                       ; preds = %if.end3.i
   %3 = load i64, ptr %log, align 8
   %conv15.i = zext i32 %spec.store.select.i to i64
   %add16.i = add i64 %3, %conv15.i
-  %file.i = getelementptr inbounds %struct.BlockDriverState, ptr %bs, i64 0, i32 31
+  %file.i = getelementptr inbounds i8, ptr %bs, i64 16840
   %4 = load ptr, ptr %file.i, align 8
   %call.i = call i32 @bdrv_pread(ptr noundef %4, i64 noundef %add16.i, i64 noundef 64, ptr noundef nonnull %hdr, i32 noundef 0) #8
   %cmp17.i = icmp slt i32 %call.i, 0
@@ -1003,33 +976,34 @@ if.end:                                           ; preds = %if.end13.i
 
 if.end.i:                                         ; preds = %if.end
   %6 = load i64, ptr %length.i, align 8
-  %entry_length.i = getelementptr inbounds %struct.VHDXLogEntryHeader, ptr %hdr, i64 0, i32 2
+  %entry_length.i = getelementptr inbounds i8, ptr %hdr, i64 8
   %7 = load i32, ptr %entry_length.i, align 4
   %conv.i27 = zext i32 %7 to i64
   %cmp1.i = icmp ult i64 %6, %conv.i27
   %rem.i28 = and i64 %conv.i27, 4095
   %tobool.not.i29 = icmp ne i64 %rem.i28, 0
   %or.cond.i.not56 = or i1 %cmp1.i, %tobool.not.i29
-  %sequence_number.i = getelementptr inbounds %struct.VHDXLogEntryHeader, ptr %hdr, i64 0, i32 4
+  %sequence_number.i = getelementptr inbounds i8, ptr %hdr, i64 16
   %8 = load i64, ptr %sequence_number.i, align 4
   %cmp9.i = icmp eq i64 %8, 0
   %or.cond55 = select i1 %or.cond.i.not56, i1 true, i1 %cmp9.i
   br i1 %or.cond55, label %inc_and_exit, label %if.end12.i
 
 if.end12.i:                                       ; preds = %if.end.i
-  %log_guid.i = getelementptr inbounds %struct.VHDXLogEntryHeader, ptr %hdr, i64 0, i32 7
-  %curr_header.i = getelementptr inbounds %struct.BDRVVHDXState, ptr %s, i64 0, i32 1
+  %log_guid.i = getelementptr inbounds i8, ptr %hdr, i64 32
+  %headers.i = getelementptr inbounds i8, ptr %s, i64 56
+  %curr_header.i = getelementptr inbounds i8, ptr %s, i64 48
   %9 = load i32, ptr %curr_header.i, align 8
   %idxprom.i = sext i32 %9 to i64
-  %arrayidx.i = getelementptr %struct.BDRVVHDXState, ptr %s, i64 0, i32 3, i64 %idxprom.i
+  %arrayidx.i = getelementptr [2 x ptr], ptr %headers.i, i64 0, i64 %idxprom.i
   %10 = load ptr, ptr %arrayidx.i, align 8
-  %log_guid13.i = getelementptr inbounds %struct.VHDXHeader, ptr %10, i64 0, i32 5
+  %log_guid13.i = getelementptr inbounds i8, ptr %10, i64 48
   %bcmp.i = call i32 @bcmp(ptr noundef nonnull dereferenceable(16) %log_guid.i, ptr noundef nonnull dereferenceable(16) %log_guid13.i, i64 16)
   %cmp14.i = icmp eq i32 %bcmp.i, 0
   br i1 %cmp14.i, label %vhdx_log_hdr_is_valid.exit, label %inc_and_exit
 
 vhdx_log_hdr_is_valid.exit:                       ; preds = %if.end12.i
-  %descriptor_count.i = getelementptr inbounds %struct.VHDXLogEntryHeader, ptr %hdr, i64 0, i32 5
+  %descriptor_count.i = getelementptr inbounds i8, ptr %hdr, i64 24
   %11 = load i32, ptr %descriptor_count.i, align 4
   %conv18.i = zext i32 %11 to i64
   %mul.i = shl nuw nsw i64 %conv18.i, 5
@@ -1106,7 +1080,7 @@ if.end37:                                         ; preds = %if.end.i37.preheade
 if.end40:                                         ; preds = %if.end37, %if.end22
   %ret.1 = phi i32 [ %call18, %if.end22 ], [ %call.i40, %if.end37 ]
   %crc.1 = phi i32 [ %xor, %if.end22 ], [ %xor39, %if.end37 ]
-  %checksum = getelementptr inbounds %struct.VHDXLogEntryHeader, ptr %hdr, i64 0, i32 1
+  %checksum = getelementptr inbounds i8, ptr %hdr, i64 4
   %18 = load i32, ptr %checksum, align 4
   %19 = xor i32 %18, %crc.1
   %cmp42.not = icmp eq i32 %19, -1
@@ -1120,7 +1094,7 @@ if.end45:                                         ; preds = %if.end40
 inc_and_exit:                                     ; preds = %if.end6, %if.end12.i, %if.end.i, %if.end, %if.end3.i, %entry, %if.end13.i, %vhdx_log_hdr_is_valid.exit
   %ret.0.i47 = phi i32 [ %call.i, %vhdx_log_hdr_is_valid.exit ], [ -22, %if.end3.i ], [ -14, %entry ], [ %call.i, %if.end13.i ], [ %call.i, %if.end ], [ %call.i, %if.end.i ], [ %call.i, %if.end12.i ], [ %call.i, %if.end6 ]
   %20 = load i32, ptr %read1.i, align 4
-  %length = getelementptr inbounds %struct.VHDXLogEntries, ptr %log, i64 0, i32 1
+  %length = getelementptr inbounds i8, ptr %log, i64 8
   %21 = load i64, ptr %length, align 8
   %add.i42 = add i32 %20, 4096
   %conv2.i = zext i32 %add.i42 to i64
@@ -1152,7 +1126,7 @@ if.else:                                          ; preds = %entry
   unreachable
 
 if.end:                                           ; preds = %entry
-  %read1.i = getelementptr inbounds %struct.VHDXLogEntries, ptr %log, i64 0, i32 3
+  %read1.i = getelementptr inbounds i8, ptr %log, i64 20
   %1 = load i32, ptr %read1.i, align 4
   %conv.i = zext i32 %1 to i64
   %rem.i = and i64 %conv.i, 4095
@@ -1161,11 +1135,11 @@ if.end:                                           ; preds = %entry
 
 if.end3.i:                                        ; preds = %if.end
   %add.i = or disjoint i64 %conv.i, 64
-  %length.i = getelementptr inbounds %struct.VHDXLogEntries, ptr %log, i64 0, i32 1
+  %length.i = getelementptr inbounds i8, ptr %log, i64 8
   %2 = load i64, ptr %length.i, align 8
   %cmp6.i = icmp ugt i64 %add.i, %2
   %spec.store.select.i = select i1 %cmp6.i, i32 0, i32 %1
-  %write.i = getelementptr inbounds %struct.VHDXLogEntries, ptr %log, i64 0, i32 2
+  %write.i = getelementptr inbounds i8, ptr %log, i64 16
   %3 = load i32, ptr %write.i, align 8
   %cmp10.i = icmp eq i32 %spec.store.select.i, %3
   br i1 %cmp10.i, label %exit, label %if.end13.i
@@ -1174,7 +1148,7 @@ if.end13.i:                                       ; preds = %if.end3.i
   %4 = load i64, ptr %log, align 8
   %conv15.i = zext i32 %spec.store.select.i to i64
   %add16.i = add i64 %4, %conv15.i
-  %file.i = getelementptr inbounds %struct.BlockDriverState, ptr %bs, i64 0, i32 31
+  %file.i = getelementptr inbounds i8, ptr %bs, i64 16840
   %5 = load ptr, ptr %file.i, align 8
   %call.i = call i32 @bdrv_pread(ptr noundef %5, i64 noundef %add16.i, i64 noundef 64, ptr noundef nonnull %hdr, i32 noundef 0) #8
   %cmp17.i = icmp slt i32 %call.i, 0
@@ -1188,33 +1162,34 @@ if.end3:                                          ; preds = %if.end13.i
 
 if.end.i:                                         ; preds = %if.end3
   %7 = load i64, ptr %length.i, align 8
-  %entry_length.i = getelementptr inbounds %struct.VHDXLogEntryHeader, ptr %hdr, i64 0, i32 2
+  %entry_length.i = getelementptr inbounds i8, ptr %hdr, i64 8
   %8 = load i32, ptr %entry_length.i, align 4
   %conv.i21 = zext i32 %8 to i64
   %cmp1.i = icmp ult i64 %7, %conv.i21
   %rem.i22 = and i64 %conv.i21, 4095
   %tobool.not.i23 = icmp ne i64 %rem.i22, 0
   %or.cond.i.not56 = or i1 %cmp1.i, %tobool.not.i23
-  %sequence_number.i = getelementptr inbounds %struct.VHDXLogEntryHeader, ptr %hdr, i64 0, i32 4
+  %sequence_number.i = getelementptr inbounds i8, ptr %hdr, i64 16
   %9 = load i64, ptr %sequence_number.i, align 4
   %cmp9.i = icmp eq i64 %9, 0
   %or.cond = select i1 %or.cond.i.not56, i1 true, i1 %cmp9.i
   br i1 %or.cond, label %exit, label %if.end12.i
 
 if.end12.i:                                       ; preds = %if.end.i
-  %log_guid.i = getelementptr inbounds %struct.VHDXLogEntryHeader, ptr %hdr, i64 0, i32 7
-  %curr_header.i = getelementptr inbounds %struct.BDRVVHDXState, ptr %s, i64 0, i32 1
+  %log_guid.i = getelementptr inbounds i8, ptr %hdr, i64 32
+  %headers.i = getelementptr inbounds i8, ptr %s, i64 56
+  %curr_header.i = getelementptr inbounds i8, ptr %s, i64 48
   %10 = load i32, ptr %curr_header.i, align 8
   %idxprom.i = sext i32 %10 to i64
-  %arrayidx.i = getelementptr %struct.BDRVVHDXState, ptr %s, i64 0, i32 3, i64 %idxprom.i
+  %arrayidx.i = getelementptr [2 x ptr], ptr %headers.i, i64 0, i64 %idxprom.i
   %11 = load ptr, ptr %arrayidx.i, align 8
-  %log_guid13.i = getelementptr inbounds %struct.VHDXHeader, ptr %11, i64 0, i32 5
+  %log_guid13.i = getelementptr inbounds i8, ptr %11, i64 48
   %bcmp.i = call i32 @bcmp(ptr noundef nonnull dereferenceable(16) %log_guid.i, ptr noundef nonnull dereferenceable(16) %log_guid13.i, i64 16)
   %cmp14.i = icmp eq i32 %bcmp.i, 0
   br i1 %cmp14.i, label %vhdx_log_hdr_is_valid.exit, label %exit
 
 vhdx_log_hdr_is_valid.exit:                       ; preds = %if.end12.i
-  %descriptor_count.i = getelementptr inbounds %struct.VHDXLogEntryHeader, ptr %hdr, i64 0, i32 5
+  %descriptor_count.i = getelementptr inbounds i8, ptr %hdr, i64 24
   %12 = load i32, ptr %descriptor_count.i, align 4
   %conv18.i = zext i32 %12 to i64
   %mul.i = shl nuw nsw i64 %conv18.i, 5
@@ -1297,15 +1272,16 @@ for.cond.preheader:                               ; preds = %if.end21.thread, %i
   br i1 %cmp2767.not, label %for.end, label %for.body.lr.ph
 
 for.body.lr.ph:                                   ; preds = %for.cond.preheader
-  %sequence_number.i36 = getelementptr inbounds %struct.VHDXLogDescriptor, ptr %desc, i64 0, i32 4
-  %file_offset.i = getelementptr inbounds %struct.VHDXLogDescriptor, ptr %desc, i64 0, i32 3
-  %22 = getelementptr inbounds %struct.VHDXLogDescriptor, ptr %desc, i64 0, i32 2
+  %desc29 = getelementptr inbounds i8, ptr %call12, i64 64
+  %sequence_number.i36 = getelementptr inbounds i8, ptr %desc, i64 24
+  %file_offset.i = getelementptr inbounds i8, ptr %desc, i64 16
+  %22 = getelementptr inbounds i8, ptr %desc, i64 8
   br i1 %convert_endian, label %for.body.us, label %for.body
 
 for.body.us:                                      ; preds = %for.body.lr.ph, %for.inc.us
   %i.068.us = phi i32 [ %inc.us, %for.inc.us ], [ 0, %for.body.lr.ph ]
   %idxprom.us = sext i32 %i.068.us to i64
-  %arrayidx.us = getelementptr %struct.VHDXLogDescEntries, ptr %call12, i64 0, i32 1, i64 %idxprom.us
+  %arrayidx.us = getelementptr [0 x %struct.VHDXLogDescriptor], ptr %desc29, i64 0, i64 %idxprom.us
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(32) %desc, ptr noundef nonnull align 1 dereferenceable(32) %arrayidx.us, i64 32, i1 false)
   call void @vhdx_log_desc_le_import(ptr noundef nonnull %desc) #8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(32) %arrayidx.us, ptr noundef nonnull align 4 dereferenceable(32) %desc, i64 32, i1 false)
@@ -1342,7 +1318,7 @@ for.inc.us:                                       ; preds = %vhdx_log_desc_is_va
 for.body:                                         ; preds = %for.body.lr.ph, %for.inc
   %i.068 = phi i32 [ %inc, %for.inc ], [ 0, %for.body.lr.ph ]
   %idxprom = sext i32 %i.068 to i64
-  %arrayidx = getelementptr %struct.VHDXLogDescEntries, ptr %call12, i64 0, i32 1, i64 %idxprom
+  %arrayidx = getelementptr [0 x %struct.VHDXLogDescriptor], ptr %desc29, i64 0, i64 %idxprom
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(32) %desc, ptr noundef nonnull align 1 dereferenceable(32) %arrayidx, i64 32, i1 false)
   call void @vhdx_log_desc_le_import(ptr noundef nonnull %desc) #8
   %hdr.val = load i64, ptr %sequence_number.i, align 4
@@ -1437,14 +1413,14 @@ declare void @vhdx_log_entry_hdr_le_export(ptr noundef) local_unnamed_addr #2
 define internal i32 @bdrv_co_pread(ptr noundef %child, i64 noundef %offset, i64 noundef %bytes, ptr noundef %buf, i32 noundef %flags) #0 {
 entry:
   %qiov = alloca %struct.QEMUIOVector, align 8
-  %0 = getelementptr inbounds %struct.QEMUIOVector, ptr %qiov, i64 0, i32 2
-  %local_iov = getelementptr inbounds %struct.QEMUIOVector, ptr %qiov, i64 0, i32 2, i32 0, i32 1
+  %0 = getelementptr inbounds i8, ptr %qiov, i64 16
+  %local_iov = getelementptr inbounds i8, ptr %qiov, i64 24
   store ptr %local_iov, ptr %qiov, align 8
-  %niov = getelementptr inbounds %struct.QEMUIOVector, ptr %qiov, i64 0, i32 1
+  %niov = getelementptr inbounds i8, ptr %qiov, i64 8
   store i32 1, ptr %niov, align 8
   store i32 -1, ptr %0, align 8
   store ptr %buf, ptr %local_iov, align 8
-  %iov_len = getelementptr inbounds %struct.QEMUIOVector, ptr %qiov, i64 0, i32 2, i32 0, i32 1, i32 1
+  %iov_len = getelementptr inbounds i8, ptr %qiov, i64 32
   store i64 %bytes, ptr %iov_len, align 8
   call void @assert_bdrv_graph_readable() #8
   %call = call i32 @bdrv_co_preadv(ptr noundef %child, i64 noundef %offset, i64 noundef %bytes, ptr noundef nonnull %qiov, i32 noundef %flags) #8
@@ -1457,26 +1433,26 @@ declare i32 @vhdx_update_checksum(ptr noundef, i64 noundef, i32 noundef) local_u
 define internal i32 @vhdx_log_write_sectors(ptr noundef %bs, ptr nocapture noundef %log, ptr nocapture noundef %sectors_written, ptr noundef %buffer, i32 noundef %num_sectors) #0 {
 entry:
   %qiov.i = alloca %struct.QEMUIOVector, align 8
-  %opaque = getelementptr inbounds %struct.BlockDriverState, ptr %bs, i64 0, i32 7
+  %opaque = getelementptr inbounds i8, ptr %bs, i64 24
   %0 = load ptr, ptr %opaque, align 8
   %call = tail call i32 @vhdx_user_visible_write(ptr noundef %bs, ptr noundef %0) #8
   %cmp = icmp slt i32 %call, 0
   br i1 %cmp, label %exit, label %if.end
 
 if.end:                                           ; preds = %entry
-  %write1 = getelementptr inbounds %struct.VHDXLogEntries, ptr %log, i64 0, i32 2
-  %length = getelementptr inbounds %struct.VHDXLogEntries, ptr %log, i64 0, i32 1
+  %write1 = getelementptr inbounds i8, ptr %log, i64 16
+  %length = getelementptr inbounds i8, ptr %log, i64 8
   %tobool.not15 = icmp eq i32 %num_sectors, 0
   br i1 %tobool.not15, label %exit, label %while.body.lr.ph
 
 while.body.lr.ph:                                 ; preds = %if.end
   %1 = load i32, ptr %write1, align 8
-  %read = getelementptr inbounds %struct.VHDXLogEntries, ptr %log, i64 0, i32 3
-  %file = getelementptr inbounds %struct.BlockDriverState, ptr %bs, i64 0, i32 31
-  %2 = getelementptr inbounds %struct.QEMUIOVector, ptr %qiov.i, i64 0, i32 2
-  %local_iov.i = getelementptr inbounds %struct.QEMUIOVector, ptr %qiov.i, i64 0, i32 2, i32 0, i32 1
-  %niov.i = getelementptr inbounds %struct.QEMUIOVector, ptr %qiov.i, i64 0, i32 1
-  %iov_len.i = getelementptr inbounds %struct.QEMUIOVector, ptr %qiov.i, i64 0, i32 2, i32 0, i32 1, i32 1
+  %read = getelementptr inbounds i8, ptr %log, i64 20
+  %file = getelementptr inbounds i8, ptr %bs, i64 16840
+  %2 = getelementptr inbounds i8, ptr %qiov.i, i64 16
+  %local_iov.i = getelementptr inbounds i8, ptr %qiov.i, i64 24
+  %niov.i = getelementptr inbounds i8, ptr %qiov.i, i64 8
+  %iov_len.i = getelementptr inbounds i8, ptr %qiov.i, i64 32
   %3 = load i64, ptr %length, align 8
   %add.i22 = add i32 %1, 4096
   %conv2.i23 = zext i32 %add.i22 to i64
@@ -1544,14 +1520,14 @@ declare void @vhdx_log_data_le_export(ptr noundef) local_unnamed_addr #2
 define internal i32 @bdrv_co_pwrite(ptr noundef %child, i64 noundef %offset, i64 noundef %bytes, ptr noundef %buf, i32 noundef %flags) #0 {
 entry:
   %qiov = alloca %struct.QEMUIOVector, align 8
-  %0 = getelementptr inbounds %struct.QEMUIOVector, ptr %qiov, i64 0, i32 2
-  %local_iov = getelementptr inbounds %struct.QEMUIOVector, ptr %qiov, i64 0, i32 2, i32 0, i32 1
+  %0 = getelementptr inbounds i8, ptr %qiov, i64 16
+  %local_iov = getelementptr inbounds i8, ptr %qiov, i64 24
   store ptr %local_iov, ptr %qiov, align 8
-  %niov = getelementptr inbounds %struct.QEMUIOVector, ptr %qiov, i64 0, i32 1
+  %niov = getelementptr inbounds i8, ptr %qiov, i64 8
   store i32 1, ptr %niov, align 8
   store i32 -1, ptr %0, align 8
   store ptr %buf, ptr %local_iov, align 8
-  %iov_len = getelementptr inbounds %struct.QEMUIOVector, ptr %qiov, i64 0, i32 2, i32 0, i32 1, i32 1
+  %iov_len = getelementptr inbounds i8, ptr %qiov, i64 32
   store i64 %bytes, ptr %iov_len, align 8
   call void @assert_bdrv_graph_readable() #8
   %call = call i32 @bdrv_co_pwritev(ptr noundef %child, i64 noundef %offset, i64 noundef %bytes, ptr noundef nonnull %qiov, i32 noundef %flags) #8

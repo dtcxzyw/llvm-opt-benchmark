@@ -3,10 +3,6 @@ source_filename = "bench/folly/original/Exception.cpp.ll"
 target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:128-n8:16:32:64-S128"
 target triple = "x86_64-unknown-linux-gnu"
 
-%"struct.folly::exception_shared_string::state" = type { %"struct.std::atomic.0", i64 }
-%"struct.std::atomic.0" = type { %"struct.std::__atomic_base.1" }
-%"struct.std::__atomic_base.1" = type { i64 }
-
 $__clang_call_terminate = comdat any
 
 @_ZN5folly6detail30exception_ptr_access_rt_cache_E = local_unnamed_addr global { i32 } zeroinitializer, align 4
@@ -52,7 +48,7 @@ declare void @_ZSt9terminatev() local_unnamed_addr
 define noundef ptr @_ZN5folly6detail30exception_ptr_exception_typeidERKSt9exception(ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %ex) local_unnamed_addr #4 personality ptr @__gxx_personality_v0 {
 entry:
   %vtable.i = load ptr, ptr %ex, align 8, !tbaa !7
-  %0 = getelementptr inbounds ptr, ptr %vtable.i, i64 -1
+  %0 = getelementptr inbounds i8, ptr %vtable.i, i64 -8
   %1 = load ptr, ptr %0, align 8
   ret ptr %1
 }
@@ -93,7 +89,7 @@ if.end:                                           ; preds = %entry
 lor.lhs.false:                                    ; preds = %if.end
   %call1 = tail call noundef ptr @_ZNKSt15__exception_ptr13exception_ptr20__cxa_exception_typeEv(ptr noundef nonnull align 8 dereferenceable(8) %ptr) #18
   %vtable = load ptr, ptr %target, align 8, !tbaa !7
-  %vfn = getelementptr inbounds ptr, ptr %vtable, i64 4
+  %vfn = getelementptr inbounds i8, ptr %vtable, i64 32
   %1 = load ptr, ptr %vfn, align 8
   %call2 = invoke noundef zeroext i1 %1(ptr noundef nonnull align 8 dereferenceable(16) %target, ptr noundef %call1, ptr noundef nonnull %object, i32 noundef 1)
           to label %invoke.cont unwind label %terminate.lpad
@@ -128,9 +124,9 @@ entry:
   %call.i.i.i = tail call noalias noundef nonnull align 8 ptr @_ZnwmSt11align_val_t(i64 noundef %add1.i.i.i, i64 noundef 8) #19
   call void @llvm.assume(i1 true) [ "align"(ptr %call.i.i.i, i64 8) ]
   store i64 0, ptr %call.i.i.i, align 8, !tbaa !15
-  %size.i.i.i = getelementptr inbounds %"struct.folly::exception_shared_string::state", ptr %call.i.i.i, i64 0, i32 1
+  %size.i.i.i = getelementptr inbounds i8, ptr %call.i.i.i, i64 8
   store i64 %call, ptr %size.i.i.i, align 8, !tbaa !18
-  %add.ptr.i.i.i = getelementptr inbounds %"struct.folly::exception_shared_string::state", ptr %call.i.i.i, i64 1
+  %add.ptr.i.i.i = getelementptr inbounds i8, ptr %call.i.i.i, i64 16
   %add.i.i.i = add i64 %call, 1
   tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %add.ptr.i.i.i, ptr align 1 %str, i64 %add.i.i.i, i1 false)
   store ptr %call.i.i.i, ptr %this, align 8, !tbaa !21
@@ -147,9 +143,9 @@ entry:
   %call.i.i = tail call noalias noundef nonnull align 8 ptr @_ZnwmSt11align_val_t(i64 noundef %add1.i.i, i64 noundef 8) #19
   call void @llvm.assume(i1 true) [ "align"(ptr %call.i.i, i64 8) ]
   store i64 0, ptr %call.i.i, align 8, !tbaa !15
-  %size.i.i = getelementptr inbounds %"struct.folly::exception_shared_string::state", ptr %call.i.i, i64 0, i32 1
+  %size.i.i = getelementptr inbounds i8, ptr %call.i.i, i64 8
   store i64 %len, ptr %size.i.i, align 8, !tbaa !18
-  %add.ptr.i.i = getelementptr inbounds %"struct.folly::exception_shared_string::state", ptr %call.i.i, i64 1
+  %add.ptr.i.i = getelementptr inbounds i8, ptr %call.i.i, i64 16
   %add.i.i = add i64 %len, 1
   tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %add.ptr.i.i, ptr align 1 %str, i64 %add.i.i, i1 false)
   store ptr %call.i.i, ptr %this, align 8, !tbaa !21
@@ -203,7 +199,7 @@ declare void @_ZdlPvSt11align_val_t(ptr noundef, i64 noundef) local_unnamed_addr
 define noundef nonnull ptr @_ZNK5folly23exception_shared_string4whatEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %this) local_unnamed_addr #15 align 2 {
 entry:
   %0 = load ptr, ptr %this, align 8, !tbaa !21
-  %add.ptr.i = getelementptr inbounds %"struct.folly::exception_shared_string::state", ptr %0, i64 1
+  %add.ptr.i = getelementptr inbounds i8, ptr %0, i64 16
   ret ptr %add.ptr.i
 }
 

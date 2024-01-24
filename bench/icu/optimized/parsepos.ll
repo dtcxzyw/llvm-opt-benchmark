@@ -3,9 +3,6 @@ source_filename = "bench/icu/original/parsepos.ll"
 target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:128-n8:16:32:64-S128"
 target triple = "x86_64-unknown-linux-gnu"
 
-%"class.icu_75::ParsePosition" = type { %"class.icu_75::UObject", i32, i32 }
-%"class.icu_75::UObject" = type { ptr }
-
 @_ZZN6icu_7513ParsePosition16getStaticClassIDEvE7classID = internal global i8 0, align 1
 @_ZTVN6icu_7513ParsePositionE = unnamed_addr constant { [5 x ptr] } { [5 x ptr] [ptr null, ptr @_ZTIN6icu_7513ParsePositionE, ptr @_ZN6icu_7513ParsePositionD1Ev, ptr @_ZN6icu_7513ParsePositionD0Ev, ptr @_ZNK6icu_7513ParsePosition17getDynamicClassIDEv] }, align 8
 @_ZTVN10__cxxabiv120__si_class_type_infoE = external global [0 x ptr]
@@ -57,12 +54,12 @@ entry:
 
 new.notnull:                                      ; preds = %entry
   store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN6icu_7513ParsePositionE, i64 0, inrange i32 0, i64 2), ptr %call, align 8
-  %index.i = getelementptr inbounds %"class.icu_75::ParsePosition", ptr %call, i64 0, i32 1
-  %index2.i = getelementptr inbounds %"class.icu_75::ParsePosition", ptr %this, i64 0, i32 1
+  %index.i = getelementptr inbounds i8, ptr %call, i64 8
+  %index2.i = getelementptr inbounds i8, ptr %this, i64 8
   %0 = load i32, ptr %index2.i, align 8
   store i32 %0, ptr %index.i, align 8
-  %errorIndex.i = getelementptr inbounds %"class.icu_75::ParsePosition", ptr %call, i64 0, i32 2
-  %errorIndex3.i = getelementptr inbounds %"class.icu_75::ParsePosition", ptr %this, i64 0, i32 2
+  %errorIndex.i = getelementptr inbounds i8, ptr %call, i64 12
+  %errorIndex3.i = getelementptr inbounds i8, ptr %this, i64 12
   %1 = load i32, ptr %errorIndex3.i, align 4
   store i32 %1, ptr %errorIndex.i, align 4
   br label %new.cont

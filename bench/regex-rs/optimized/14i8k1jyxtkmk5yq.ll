@@ -157,9 +157,9 @@ default.unreachable68:                            ; preds = %32
   br i1 %20, label %43, label %45
 
 21:                                               ; preds = %2
-  %22 = getelementptr inbounds { [1 x i64], { ptr, i64 } }, ptr %12, i64 0, i32 1
+  %22 = getelementptr inbounds i8, ptr %12, i64 8
   %23 = load ptr, ptr %22, align 8, !nonnull !6, !align !7, !noundef !6
-  %24 = getelementptr inbounds { [1 x i64], { ptr, i64 } }, ptr %12, i64 0, i32 1, i32 1
+  %24 = getelementptr inbounds i8, ptr %12, i64 16
   %25 = load i64, ptr %24, align 8, !noundef !6
   call void @_ZN4core3str8converts9from_utf817h8e5f68034f41d55aE(ptr nonnull sret({ i64, [2 x i64] }) align 8 %11, ptr nonnull align 1 %23, i64 %25)
   %26 = load i64, ptr %24, align 8, !noundef !6
@@ -170,11 +170,11 @@ default.unreachable68:                            ; preds = %32
 
 29:                                               ; preds = %2
   %30 = icmp eq i64 %13, 0
-  %31 = getelementptr inbounds { [1 x i64], { { { { ptr, i64 }, i64 }, i8, [7 x i8] } } }, ptr %12, i64 0, i32 1
+  %31 = getelementptr inbounds i8, ptr %12, i64 8
   br i1 %30, label %105, label %110
 
 32:                                               ; preds = %2
-  %33 = getelementptr inbounds { [2 x i32], i32 }, ptr %12, i64 0, i32 1
+  %33 = getelementptr inbounds i8, ptr %12, i64 8
   %34 = load i32, ptr %33, align 8, !range !8, !noundef !6
   %35 = tail call i32 @llvm.cttz.i32(i32 %34, i1 true), !range !9
   switch i32 %35, label %default.unreachable68 [
@@ -199,7 +199,7 @@ default.unreachable68:                            ; preds = %32
   ]
 
 36:                                               ; preds = %2
-  %37 = getelementptr inbounds { [1 x i64], { ptr, { ptr, i64 }, i32, [1 x i32] } }, ptr %12, i64 0, i32 1, i32 1
+  %37 = getelementptr inbounds i8, ptr %12, i64 16
   %38 = tail call zeroext i1 @"_ZN50_$LT$$RF$mut$u20$W$u20$as$u20$core..fmt..Write$GT$9write_str17h49d81c022971c0c7E"(ptr align 8 %0, ptr nonnull align 1 @anon.865daf86a61f82be6cdd0926aff9a63c.67, i64 1)
   %39 = tail call zeroext i1 @"_ZN79_$LT$core..result..Result$LT$T$C$E$GT$$u20$as$u20$core..ops..try_trait..Try$GT$6branch17h770c2846dc518dd5E"(i1 zeroext %38)
   br i1 %39, label %371, label %369
@@ -232,9 +232,9 @@ default.unreachable68:                            ; preds = %32
   br label %45
 
 54:                                               ; preds = %46
-  %55 = getelementptr inbounds { [1 x i64], { ptr, i64 } }, ptr %11, i64 0, i32 1
+  %55 = getelementptr inbounds i8, ptr %11, i64 8
   %56 = load ptr, ptr %55, align 8, !nonnull !6, !align !7, !noundef !6
-  %57 = getelementptr inbounds { [1 x i64], { ptr, i64 } }, ptr %11, i64 0, i32 1, i32 1
+  %57 = getelementptr inbounds i8, ptr %11, i64 16
   %58 = load i64, ptr %57, align 8, !noundef !6
   %59 = call { ptr, ptr } @"_ZN4core3str21_$LT$impl$u20$str$GT$5chars17h30954a54724e29f5E"(ptr nonnull align 1 %56, i64 %58)
   %60 = extractvalue { ptr, ptr } %59, 0
@@ -243,7 +243,7 @@ default.unreachable68:                            ; preds = %32
   %63 = extractvalue { ptr, ptr } %62, 0
   %64 = extractvalue { ptr, ptr } %62, 1
   store ptr %63, ptr %10, align 8
-  %65 = getelementptr inbounds { ptr, ptr }, ptr %10, i64 0, i32 1
+  %65 = getelementptr inbounds i8, ptr %10, i64 8
   store ptr %64, ptr %65, align 8
   br label %76
 
@@ -257,7 +257,7 @@ default.unreachable68:                            ; preds = %32
   %73 = extractvalue { ptr, ptr } %72, 0
   %74 = extractvalue { ptr, ptr } %72, 1
   store ptr %73, ptr %9, align 8
-  %75 = getelementptr inbounds { ptr, ptr }, ptr %9, i64 0, i32 1
+  %75 = getelementptr inbounds i8, ptr %9, i64 8
   store ptr %74, ptr %75, align 8
   br label %91
 
@@ -350,7 +350,7 @@ default.unreachable68:                            ; preds = %32
   %125 = extractvalue { ptr, ptr } %124, 0
   %126 = extractvalue { ptr, ptr } %124, 1
   store ptr %125, ptr %8, align 8
-  %127 = getelementptr inbounds { ptr, ptr }, ptr %8, i64 0, i32 1
+  %127 = getelementptr inbounds i8, ptr %8, i64 8
   store ptr %126, ptr %127, align 8
   %128 = call align 4 ptr @"_ZN94_$LT$regex_syntax..hir..ClassUnicodeIter$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h601bd467fd5c907cE"(ptr nonnull align 8 %8)
   %129 = icmp eq ptr %128, null
@@ -548,7 +548,7 @@ default.unreachable68:                            ; preds = %32
   %226 = extractvalue { ptr, ptr } %225, 0
   %227 = extractvalue { ptr, ptr } %225, 1
   store ptr %226, ptr %7, align 8
-  %228 = getelementptr inbounds { ptr, ptr }, ptr %7, i64 0, i32 1
+  %228 = getelementptr inbounds i8, ptr %7, i64 8
   store ptr %227, ptr %228, align 8
   %229 = call align 1 ptr @"_ZN92_$LT$regex_syntax..hir..ClassBytesIter$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h8c83c7cf02216e2bE"(ptr nonnull align 8 %7)
   %230 = icmp eq ptr %229, null
@@ -815,7 +815,7 @@ default.unreachable68:                            ; preds = %32
 373:                                              ; preds = %369
   store ptr %37, ptr %6, align 8
   store ptr %6, ptr %4, align 8
-  %374 = getelementptr inbounds { ptr, ptr }, ptr %4, i64 0, i32 1
+  %374 = getelementptr inbounds i8, ptr %4, i64 8
   store ptr @"_ZN44_$LT$$RF$T$u20$as$u20$core..fmt..Display$GT$3fmt17h8530ef8e6f3e5e6fE", ptr %374, align 8
   call void @_ZN4core3fmt9Arguments6new_v117hace331f03f852dd2E(ptr nonnull sret({ { ptr, i64 }, { ptr, i64 }, { ptr, i64 } }) align 8 %5, ptr nonnull align 8 @anon.865daf86a61f82be6cdd0926aff9a63c.70, i64 2, ptr nonnull align 8 %4, i64 1)
   %375 = call zeroext i1 @"_ZN50_$LT$$RF$mut$u20$W$u20$as$u20$core..fmt..Write$GT$9write_fmt17hf3c1d02c6e2cc874E"(ptr align 8 %0, ptr nonnull align 8 %5)
@@ -872,11 +872,11 @@ define zeroext i1 @"_ZN97_$LT$regex_syntax..hir..print..Writer$LT$W$GT$$u20$as$u
   unreachable
 
 19:                                               ; preds = %2
-  %20 = getelementptr inbounds { [1 x i64], { { i32, i32 }, ptr, i32, i8, [3 x i8] } }, ptr %13, i64 0, i32 1
-  %21 = getelementptr inbounds { [1 x i64], { { i32, i32 }, ptr, i32, i8, [3 x i8] } }, ptr %13, i64 0, i32 1, i32 2
+  %20 = getelementptr inbounds i8, ptr %13, i64 8
+  %21 = getelementptr inbounds i8, ptr %13, i64 24
   %22 = load i32, ptr %21, align 8, !noundef !6
   %23 = load i32, ptr %20, align 8, !range !13, !noundef !6
-  %24 = getelementptr inbounds { [1 x i64], { { i32, i32 }, ptr, i32, i8, [3 x i8] } }, ptr %13, i64 0, i32 1, i32 0, i32 1
+  %24 = getelementptr inbounds i8, ptr %13, i64 12
   %25 = load i32, ptr %24, align 4
   %26 = icmp eq i32 %23, 0
   switch i32 %22, label %30 [
@@ -908,7 +908,7 @@ define zeroext i1 @"_ZN97_$LT$regex_syntax..hir..print..Writer$LT$W$GT$$u20$as$u
   br i1 %37, label %44, label %.thread
 
 38:                                               ; preds = %63, %56, %49, %44, %33
-  %39 = getelementptr inbounds { [1 x i64], { { i32, i32 }, ptr, i32, i8, [3 x i8] } }, ptr %13, i64 0, i32 1, i32 3
+  %39 = getelementptr inbounds i8, ptr %13, i64 28
   %40 = load i8, ptr %39, align 4, !range !14, !noundef !6
   %.not = icmp eq i8 %40, 0
   br i1 %.not, label %75, label %43
@@ -946,7 +946,7 @@ define zeroext i1 @"_ZN97_$LT$regex_syntax..hir..print..Writer$LT$W$GT$$u20$as$u
 56:                                               ; preds = %30
   store i32 %22, ptr %12, align 4
   store ptr %12, ptr %10, align 8
-  %57 = getelementptr inbounds { ptr, ptr }, ptr %10, i64 0, i32 1
+  %57 = getelementptr inbounds i8, ptr %10, i64 8
   store ptr @"_ZN4core3fmt3num3imp52_$LT$impl$u20$core..fmt..Display$u20$for$u20$u32$GT$3fmt17hd2fe031fb1b1da63E", ptr %57, align 8
   call void @_ZN4core3fmt9Arguments6new_v117hace331f03f852dd2E(ptr nonnull sret({ { ptr, i64 }, { ptr, i64 }, { ptr, i64 } }) align 8 %11, ptr nonnull align 8 @anon.865daf86a61f82be6cdd0926aff9a63c.82, i64 2, ptr nonnull align 8 %10, i64 1)
   %58 = call zeroext i1 @"_ZN50_$LT$$RF$mut$u20$W$u20$as$u20$core..fmt..Write$GT$9write_fmt17hf3c1d02c6e2cc874E"(ptr align 8 %0, ptr nonnull align 8 %11)
@@ -965,11 +965,11 @@ define zeroext i1 @"_ZN97_$LT$regex_syntax..hir..print..Writer$LT$W$GT$$u20$as$u
   store i32 %22, ptr %6, align 4
   store i32 %25, ptr %5, align 4
   store ptr %6, ptr %3, align 8
-  %64 = getelementptr inbounds { ptr, ptr }, ptr %3, i64 0, i32 1
+  %64 = getelementptr inbounds i8, ptr %3, i64 8
   store ptr @"_ZN4core3fmt3num3imp52_$LT$impl$u20$core..fmt..Display$u20$for$u20$u32$GT$3fmt17hd2fe031fb1b1da63E", ptr %64, align 8
-  %65 = getelementptr inbounds [2 x { ptr, ptr }], ptr %3, i64 0, i64 1
+  %65 = getelementptr inbounds i8, ptr %3, i64 16
   store ptr %5, ptr %65, align 8
-  %66 = getelementptr inbounds [2 x { ptr, ptr }], ptr %3, i64 0, i64 1, i32 1
+  %66 = getelementptr inbounds i8, ptr %3, i64 24
   store ptr @"_ZN4core3fmt3num3imp52_$LT$impl$u20$core..fmt..Display$u20$for$u20$u32$GT$3fmt17hd2fe031fb1b1da63E", ptr %66, align 8
   call void @_ZN4core3fmt9Arguments6new_v117hace331f03f852dd2E(ptr nonnull sret({ { ptr, i64 }, { ptr, i64 }, { ptr, i64 } }) align 8 %4, ptr nonnull align 8 @anon.865daf86a61f82be6cdd0926aff9a63c.86, i64 3, ptr nonnull align 8 %3, i64 2)
   %67 = call zeroext i1 @"_ZN50_$LT$$RF$mut$u20$W$u20$as$u20$core..fmt..Write$GT$9write_fmt17hf3c1d02c6e2cc874E"(ptr align 8 %0, ptr nonnull align 8 %4)
@@ -979,7 +979,7 @@ define zeroext i1 @"_ZN97_$LT$regex_syntax..hir..print..Writer$LT$W$GT$$u20$as$u
 69:                                               ; preds = %.thread
   store i32 %22, ptr %9, align 4
   store ptr %9, ptr %7, align 8
-  %70 = getelementptr inbounds { ptr, ptr }, ptr %7, i64 0, i32 1
+  %70 = getelementptr inbounds i8, ptr %7, i64 8
   store ptr @"_ZN4core3fmt3num3imp52_$LT$impl$u20$core..fmt..Display$u20$for$u20$u32$GT$3fmt17hd2fe031fb1b1da63E", ptr %70, align 8
   call void @_ZN4core3fmt9Arguments6new_v117hace331f03f852dd2E(ptr nonnull sret({ { ptr, i64 }, { ptr, i64 }, { ptr, i64 } }) align 8 %8, ptr nonnull align 8 @anon.865daf86a61f82be6cdd0926aff9a63c.89, i64 2, ptr nonnull align 8 %7, i64 1)
   %71 = call zeroext i1 @"_ZN50_$LT$$RF$mut$u20$W$u20$as$u20$core..fmt..Write$GT$9write_fmt17hf3c1d02c6e2cc874E"(ptr align 8 %0, ptr nonnull align 8 %8)
@@ -1049,7 +1049,7 @@ define zeroext i1 @"_ZN12regex_syntax3hir5print15Writer$LT$W$GT$18write_literal_
 
 8:                                                ; preds = %13, %11, %2
   store ptr %6, ptr %4, align 8
-  %9 = getelementptr inbounds { ptr, ptr }, ptr %4, i64 0, i32 1
+  %9 = getelementptr inbounds i8, ptr %4, i64 8
   store ptr @"_ZN4core3fmt3num52_$LT$impl$u20$core..fmt..UpperHex$u20$for$u20$u8$GT$3fmt17h65c2ad6880055936E", ptr %9, align 8
   store i64 2, ptr %3, align 8
   %.sroa.3.0..sroa_idx = getelementptr inbounds i8, ptr %3, i64 16
@@ -1113,7 +1113,7 @@ define zeroext i1 @"_ZN12regex_syntax3hir5print15Writer$LT$W$GT$24write_literal_
 
 8:                                                ; preds = %13, %11, %2
   store ptr %6, ptr %4, align 8
-  %9 = getelementptr inbounds { ptr, ptr }, ptr %4, i64 0, i32 1
+  %9 = getelementptr inbounds i8, ptr %4, i64 8
   store ptr @"_ZN4core3fmt3num52_$LT$impl$u20$core..fmt..UpperHex$u20$for$u20$u8$GT$3fmt17h65c2ad6880055936E", ptr %9, align 8
   store i64 2, ptr %3, align 8
   %.sroa.3.0..sroa_idx = getelementptr inbounds i8, ptr %3, i64 16

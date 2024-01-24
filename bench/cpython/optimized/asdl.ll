@@ -3,10 +3,6 @@ source_filename = "bench/cpython/original/asdl.ll"
 target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:128-n8:16:32:64-S128"
 target triple = "x86_64-unknown-linux-gnu"
 
-%struct.asdl_generic_seq = type { i64, ptr, [1 x ptr] }
-%struct.asdl_identifier_seq = type { i64, ptr, [1 x ptr] }
-%struct.asdl_int_seq = type { i64, ptr, [1 x i32] }
-
 ; Function Attrs: nounwind uwtable
 define hidden ptr @_Py_asdl_generic_seq_new(i64 noundef %size, ptr noundef %arena) local_unnamed_addr #0 {
 entry:
@@ -42,8 +38,8 @@ if.then10:                                        ; preds = %if.end7
 if.end12:                                         ; preds = %if.end7
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(1) %call8, i8 0, i64 %add, i1 false)
   store i64 %size, ptr %call8, align 8
-  %typed_elements = getelementptr inbounds %struct.asdl_generic_seq, ptr %call8, i64 0, i32 2
-  %elements = getelementptr inbounds %struct.asdl_generic_seq, ptr %call8, i64 0, i32 1
+  %typed_elements = getelementptr inbounds i8, ptr %call8, i64 16
+  %elements = getelementptr inbounds i8, ptr %call8, i64 8
   store ptr %typed_elements, ptr %elements, align 8
   br label %return
 
@@ -94,8 +90,8 @@ if.then10:                                        ; preds = %if.end7
 if.end12:                                         ; preds = %if.end7
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(1) %call8, i8 0, i64 %add, i1 false)
   store i64 %size, ptr %call8, align 8
-  %typed_elements = getelementptr inbounds %struct.asdl_identifier_seq, ptr %call8, i64 0, i32 2
-  %elements = getelementptr inbounds %struct.asdl_identifier_seq, ptr %call8, i64 0, i32 1
+  %typed_elements = getelementptr inbounds i8, ptr %call8, i64 16
+  %elements = getelementptr inbounds i8, ptr %call8, i64 8
   store ptr %typed_elements, ptr %elements, align 8
   br label %return
 
@@ -139,8 +135,8 @@ if.then10:                                        ; preds = %if.end7
 if.end12:                                         ; preds = %if.end7
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(1) %call8, i8 0, i64 %add, i1 false)
   store i64 %size, ptr %call8, align 8
-  %typed_elements = getelementptr inbounds %struct.asdl_int_seq, ptr %call8, i64 0, i32 2
-  %elements = getelementptr inbounds %struct.asdl_int_seq, ptr %call8, i64 0, i32 1
+  %typed_elements = getelementptr inbounds i8, ptr %call8, i64 16
+  %elements = getelementptr inbounds i8, ptr %call8, i64 8
   store ptr %typed_elements, ptr %elements, align 8
   br label %return
 

@@ -27,24 +27,24 @@ define hidden void @_ZN3syn4path8printing10print_path17hc1aeecd5aaf0dbb9E(ptr al
   br label %.loopexit
 
 20:                                               ; preds = %3
-  %21 = getelementptr inbounds { { i32, i32 }, ptr, i64, { [1 x i32] }, { [1 x i32] } }, ptr %1, i64 0, i32 3
+  %21 = getelementptr inbounds i8, ptr %1, i64 24
   tail call void @"_ZN61_$LT$syn..token..Lt$u20$as$u20$quote..to_tokens..ToTokens$GT$9to_tokens17h0056ca0852a7b15aE"(ptr nonnull align 4 %21, ptr align 8 %0)
-  %22 = getelementptr inbounds { { i32, i32 }, ptr, i64, { [1 x i32] }, { [1 x i32] } }, ptr %1, i64 0, i32 1
+  %22 = getelementptr inbounds i8, ptr %1, i64 8
   tail call void @"_ZN73_$LT$alloc..boxed..Box$LT$T$GT$$u20$as$u20$quote..to_tokens..ToTokens$GT$9to_tokens17hd6316d339755b57bE"(ptr nonnull align 8 %22, ptr align 8 %0)
-  %23 = getelementptr inbounds { { i32, i32 }, ptr, i64, { [1 x i32] }, { [1 x i32] } }, ptr %1, i64 0, i32 2
+  %23 = getelementptr inbounds i8, ptr %1, i64 16
   %24 = load i64, ptr %23, align 8, !noundef !6
   %25 = tail call i64 @"_ZN3syn10punctuated23Punctuated$LT$T$C$P$GT$3len17h686ecd6a444a3789E"(ptr align 8 %2)
   %26 = tail call i64 @_ZN4core3cmp3min17hb18305bdc907096dE(i64 %24, i64 %25)
   call void @"_ZN3syn10punctuated23Punctuated$LT$T$C$P$GT$5pairs17h6aec0855ce38c2bbE"(ptr nonnull sret({ { ptr, ptr }, ptr }) align 8 %16, ptr align 8 %2)
   %.not = icmp eq i64 %26, 0
-  %27 = getelementptr inbounds { { { { ptr, i64 }, i64 }, ptr }, { i32, [2 x i32] }, [1 x i32] }, ptr %2, i64 0, i32 1
+  %27 = getelementptr inbounds i8, ptr %2, i64 32
   br i1 %.not, label %28, label %30
 
 .loopexit:                                        ; preds = %47, %.loopexit1, %19
   ret void
 
 28:                                               ; preds = %20
-  %29 = getelementptr inbounds { { i32, i32 }, ptr, i64, { [1 x i32] }, { [1 x i32] } }, ptr %1, i64 0, i32 4
+  %29 = getelementptr inbounds i8, ptr %1, i64 28
   call void @"_ZN61_$LT$syn..token..Gt$u20$as$u20$quote..to_tokens..ToTokens$GT$9to_tokens17h18db3d17e9971aa0E"(ptr nonnull align 4 %29, ptr align 8 %0)
   call void @"_ZN76_$LT$core..option..Option$LT$T$GT$$u20$as$u20$quote..to_tokens..ToTokens$GT$9to_tokens17hc061814d1cd1e26dE"(ptr nonnull align 4 %27, ptr align 8 %0)
   br label %.loopexit1
@@ -66,9 +66,9 @@ define hidden void @_ZN3syn4path8printing10print_path17hc1aeecd5aaf0dbb9E(ptr al
   br i1 %36, label %.loopexit1, label %.lr.ph
 
 .lr.ph:                                           ; preds = %30
-  %37 = getelementptr inbounds { [1 x i64], { i64, { [1 x i64], ptr } } }, ptr %11, i64 0, i32 1
-  %38 = getelementptr inbounds { [1 x i64], { i64, { [1 x i64], ptr } } }, ptr %11, i64 0, i32 1, i32 1
-  %39 = getelementptr inbounds { { i32, i32 }, ptr, i64, { [1 x i32] }, { [1 x i32] } }, ptr %1, i64 0, i32 4
+  %37 = getelementptr inbounds i8, ptr %11, i64 8
+  %38 = getelementptr inbounds i8, ptr %11, i64 16
+  %39 = getelementptr inbounds i8, ptr %1, i64 28
   br label %43
 
 .loopexit1:                                       ; preds = %.backedge, %30, %28
@@ -81,7 +81,7 @@ define hidden void @_ZN3syn4path8printing10print_path17hc1aeecd5aaf0dbb9E(ptr al
   br i1 %41, label %.loopexit, label %.lr.ph2
 
 .lr.ph2:                                          ; preds = %.loopexit1
-  %42 = getelementptr inbounds { [1 x i64], { [1 x i64], ptr } }, ptr %5, i64 0, i32 1
+  %42 = getelementptr inbounds i8, ptr %5, i64 8
   br label %47
 
 43:                                               ; preds = %.lr.ph, %.backedge
@@ -122,10 +122,10 @@ define hidden void @_ZN3syn4path8printing10print_path17hc1aeecd5aaf0dbb9E(ptr al
 ; Function Attrs: nonlazybind uwtable
 define void @"_ZN158_$LT$syn..path..printing..$LT$impl$u20$syn..spanned..Spanned$u20$for$u20$syn..path..QSelf$GT$..span..QSelfDelimiters$u20$as$u20$quote..to_tokens..ToTokens$GT$9to_tokens17h43c362c5ed2b3aceE"(ptr nocapture readonly align 8 %0, ptr align 8 %1) unnamed_addr #0 {
   %3 = load ptr, ptr %0, align 8, !nonnull !6, !align !8, !noundef !6
-  %4 = getelementptr inbounds { { i32, i32 }, ptr, i64, { [1 x i32] }, { [1 x i32] } }, ptr %3, i64 0, i32 3
+  %4 = getelementptr inbounds i8, ptr %3, i64 24
   tail call void @"_ZN61_$LT$syn..token..Lt$u20$as$u20$quote..to_tokens..ToTokens$GT$9to_tokens17h0056ca0852a7b15aE"(ptr nonnull align 4 %4, ptr align 8 %1)
   %5 = load ptr, ptr %0, align 8, !nonnull !6, !align !8, !noundef !6
-  %6 = getelementptr inbounds { { i32, i32 }, ptr, i64, { [1 x i32] }, { [1 x i32] } }, ptr %5, i64 0, i32 4
+  %6 = getelementptr inbounds i8, ptr %5, i64 28
   tail call void @"_ZN61_$LT$syn..token..Gt$u20$as$u20$quote..to_tokens..ToTokens$GT$9to_tokens17h18db3d17e9971aa0E"(ptr nonnull align 4 %6, ptr align 8 %1)
   ret void
 }

@@ -4,10 +4,6 @@ target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:
 target triple = "x86_64-unknown-linux-gnu"
 
 %struct.evp_pkey_method_st = type { i32, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr }
-%struct.RSA_PKEY_CTX = type { i32, ptr, i32, ptr, ptr, i32, ptr, ptr, i64 }
-%struct.evp_pkey_ctx_st = type { ptr, ptr, ptr, ptr, i32, ptr }
-%struct.evp_pkey_st = type { i32, i32, %union.anon, ptr }
-%union.anon = type { ptr }
 %struct.cbs_st = type { ptr, i64 }
 
 @rsa_pkey_meth = hidden local_unnamed_addr constant %struct.evp_pkey_method_st { i32 6, ptr @pkey_rsa_init, ptr @pkey_rsa_copy, ptr @pkey_rsa_cleanup, ptr @pkey_rsa_keygen, ptr @pkey_rsa_sign, ptr @pkey_rsa_verify, ptr @pkey_rsa_verify_recover, ptr @pkey_rsa_encrypt, ptr @pkey_rsa_decrypt, ptr null, ptr @pkey_rsa_ctrl }, align 8
@@ -22,11 +18,11 @@ entry:
 
 if.end:                                           ; preds = %entry
   store i32 2048, ptr %calloc, align 8
-  %pad_mode = getelementptr inbounds %struct.RSA_PKEY_CTX, ptr %calloc, i64 0, i32 2
+  %pad_mode = getelementptr inbounds i8, ptr %calloc, i64 16
   store i32 1, ptr %pad_mode, align 8
-  %saltlen = getelementptr inbounds %struct.RSA_PKEY_CTX, ptr %calloc, i64 0, i32 5
+  %saltlen = getelementptr inbounds i8, ptr %calloc, i64 40
   store i32 -2, ptr %saltlen, align 8
-  %data = getelementptr inbounds %struct.evp_pkey_ctx_st, ptr %ctx, i64 0, i32 5
+  %data = getelementptr inbounds i8, ptr %ctx, i64 40
   store ptr %calloc, ptr %data, align 8
   br label %return
 
@@ -44,51 +40,51 @@ entry:
 
 if.end:                                           ; preds = %entry
   store i32 2048, ptr %calloc.i, align 8
-  %pad_mode.i = getelementptr inbounds %struct.RSA_PKEY_CTX, ptr %calloc.i, i64 0, i32 2
+  %pad_mode.i = getelementptr inbounds i8, ptr %calloc.i, i64 16
   store i32 1, ptr %pad_mode.i, align 8
-  %saltlen.i = getelementptr inbounds %struct.RSA_PKEY_CTX, ptr %calloc.i, i64 0, i32 5
+  %saltlen.i = getelementptr inbounds i8, ptr %calloc.i, i64 40
   store i32 -2, ptr %saltlen.i, align 8
-  %data.i = getelementptr inbounds %struct.evp_pkey_ctx_st, ptr %dst, i64 0, i32 5
+  %data.i = getelementptr inbounds i8, ptr %dst, i64 40
   store ptr %calloc.i, ptr %data.i, align 8
-  %data = getelementptr inbounds %struct.evp_pkey_ctx_st, ptr %src, i64 0, i32 5
+  %data = getelementptr inbounds i8, ptr %src, i64 40
   %0 = load ptr, ptr %data, align 8
   %1 = load i32, ptr %0, align 8
   store i32 %1, ptr %calloc.i, align 8
-  %pub_exp = getelementptr inbounds %struct.RSA_PKEY_CTX, ptr %0, i64 0, i32 1
+  %pub_exp = getelementptr inbounds i8, ptr %0, i64 8
   %2 = load ptr, ptr %pub_exp, align 8
   %tobool3.not = icmp eq ptr %2, null
   br i1 %tobool3.not, label %if.end12, label %if.then4
 
 if.then4:                                         ; preds = %if.end
   %call6 = tail call ptr @BN_dup(ptr noundef nonnull %2) #8
-  %pub_exp7 = getelementptr inbounds %struct.RSA_PKEY_CTX, ptr %calloc.i, i64 0, i32 1
+  %pub_exp7 = getelementptr inbounds i8, ptr %calloc.i, i64 8
   store ptr %call6, ptr %pub_exp7, align 8
   %tobool9.not = icmp eq ptr %call6, null
   br i1 %tobool9.not, label %return, label %if.end12
 
 if.end12:                                         ; preds = %if.then4, %if.end
-  %pad_mode = getelementptr inbounds %struct.RSA_PKEY_CTX, ptr %0, i64 0, i32 2
+  %pad_mode = getelementptr inbounds i8, ptr %0, i64 16
   %3 = load i32, ptr %pad_mode, align 8
   store i32 %3, ptr %pad_mode.i, align 8
-  %md = getelementptr inbounds %struct.RSA_PKEY_CTX, ptr %0, i64 0, i32 3
+  %md = getelementptr inbounds i8, ptr %0, i64 24
   %4 = load ptr, ptr %md, align 8
-  %md14 = getelementptr inbounds %struct.RSA_PKEY_CTX, ptr %calloc.i, i64 0, i32 3
+  %md14 = getelementptr inbounds i8, ptr %calloc.i, i64 24
   store ptr %4, ptr %md14, align 8
-  %mgf1md = getelementptr inbounds %struct.RSA_PKEY_CTX, ptr %0, i64 0, i32 4
+  %mgf1md = getelementptr inbounds i8, ptr %0, i64 32
   %5 = load ptr, ptr %mgf1md, align 8
-  %mgf1md15 = getelementptr inbounds %struct.RSA_PKEY_CTX, ptr %calloc.i, i64 0, i32 4
+  %mgf1md15 = getelementptr inbounds i8, ptr %calloc.i, i64 32
   store ptr %5, ptr %mgf1md15, align 8
-  %oaep_label = getelementptr inbounds %struct.RSA_PKEY_CTX, ptr %0, i64 0, i32 7
+  %oaep_label = getelementptr inbounds i8, ptr %0, i64 56
   %6 = load ptr, ptr %oaep_label, align 8
   %tobool16.not = icmp eq ptr %6, null
   br i1 %tobool16.not, label %return, label %if.then17
 
 if.then17:                                        ; preds = %if.end12
-  %oaep_label18 = getelementptr inbounds %struct.RSA_PKEY_CTX, ptr %calloc.i, i64 0, i32 7
+  %oaep_label18 = getelementptr inbounds i8, ptr %calloc.i, i64 56
   %7 = load ptr, ptr %oaep_label18, align 8
   tail call void @free(ptr noundef %7) #8
   %8 = load ptr, ptr %oaep_label, align 8
-  %oaep_labellen = getelementptr inbounds %struct.RSA_PKEY_CTX, ptr %0, i64 0, i32 8
+  %oaep_labellen = getelementptr inbounds i8, ptr %0, i64 64
   %9 = load i64, ptr %oaep_labellen, align 8
   %call20 = tail call ptr @BUF_memdup(ptr noundef %8, i64 noundef %9) #8
   store ptr %call20, ptr %oaep_label18, align 8
@@ -97,7 +93,7 @@ if.then17:                                        ; preds = %if.end12
 
 if.end25:                                         ; preds = %if.then17
   %10 = load i64, ptr %oaep_labellen, align 8
-  %oaep_labellen27 = getelementptr inbounds %struct.RSA_PKEY_CTX, ptr %calloc.i, i64 0, i32 8
+  %oaep_labellen27 = getelementptr inbounds i8, ptr %calloc.i, i64 64
   store i64 %10, ptr %oaep_labellen27, align 8
   br label %return
 
@@ -109,19 +105,19 @@ return:                                           ; preds = %entry, %if.end12, %
 ; Function Attrs: nounwind uwtable
 define internal void @pkey_rsa_cleanup(ptr nocapture noundef readonly %ctx) #1 {
 entry:
-  %data = getelementptr inbounds %struct.evp_pkey_ctx_st, ptr %ctx, i64 0, i32 5
+  %data = getelementptr inbounds i8, ptr %ctx, i64 40
   %0 = load ptr, ptr %data, align 8
   %cmp = icmp eq ptr %0, null
   br i1 %cmp, label %return, label %if.end
 
 if.end:                                           ; preds = %entry
-  %pub_exp = getelementptr inbounds %struct.RSA_PKEY_CTX, ptr %0, i64 0, i32 1
+  %pub_exp = getelementptr inbounds i8, ptr %0, i64 8
   %1 = load ptr, ptr %pub_exp, align 8
   tail call void @BN_free(ptr noundef %1) #8
-  %tbuf = getelementptr inbounds %struct.RSA_PKEY_CTX, ptr %0, i64 0, i32 6
+  %tbuf = getelementptr inbounds i8, ptr %0, i64 48
   %2 = load ptr, ptr %tbuf, align 8
   tail call void @free(ptr noundef %2) #8
-  %oaep_label = getelementptr inbounds %struct.RSA_PKEY_CTX, ptr %0, i64 0, i32 7
+  %oaep_label = getelementptr inbounds i8, ptr %0, i64 56
   %3 = load ptr, ptr %oaep_label, align 8
   tail call void @free(ptr noundef %3) #8
   tail call void @free(ptr noundef nonnull %0) #8
@@ -134,9 +130,9 @@ return:                                           ; preds = %entry, %if.end
 ; Function Attrs: nounwind uwtable
 define internal noundef i32 @pkey_rsa_keygen(ptr nocapture noundef readonly %ctx, ptr noundef %pkey) #1 {
 entry:
-  %data = getelementptr inbounds %struct.evp_pkey_ctx_st, ptr %ctx, i64 0, i32 5
+  %data = getelementptr inbounds i8, ptr %ctx, i64 40
   %0 = load ptr, ptr %data, align 8
-  %pub_exp = getelementptr inbounds %struct.RSA_PKEY_CTX, ptr %0, i64 0, i32 1
+  %pub_exp = getelementptr inbounds i8, ptr %0, i64 8
   %1 = load ptr, ptr %pub_exp, align 8
   %tobool.not = icmp eq ptr %1, null
   br i1 %tobool.not, label %if.then, label %if.end8
@@ -181,11 +177,11 @@ return:                                           ; preds = %if.end8, %if.then, 
 define internal i32 @pkey_rsa_sign(ptr nocapture noundef readonly %ctx, ptr noundef %sig, ptr noundef %siglen, ptr noundef %tbs, i64 noundef %tbslen) #1 {
 entry:
   %out_len = alloca i32, align 4
-  %data = getelementptr inbounds %struct.evp_pkey_ctx_st, ptr %ctx, i64 0, i32 5
+  %data = getelementptr inbounds i8, ptr %ctx, i64 40
   %0 = load ptr, ptr %data, align 8
-  %pkey = getelementptr inbounds %struct.evp_pkey_ctx_st, ptr %ctx, i64 0, i32 2
+  %pkey = getelementptr inbounds i8, ptr %ctx, i64 16
   %1 = load ptr, ptr %pkey, align 8
-  %pkey1 = getelementptr inbounds %struct.evp_pkey_st, ptr %1, i64 0, i32 2
+  %pkey1 = getelementptr inbounds i8, ptr %1, i64 8
   %2 = load ptr, ptr %pkey1, align 8
   %call = tail call i32 @EVP_PKEY_size(ptr noundef %1) #8
   %conv = sext i32 %call to i64
@@ -206,7 +202,7 @@ if.then4:                                         ; preds = %if.end
   br label %return
 
 if.end5:                                          ; preds = %if.end
-  %md = getelementptr inbounds %struct.RSA_PKEY_CTX, ptr %0, i64 0, i32 3
+  %md = getelementptr inbounds i8, ptr %0, i64 24
   %4 = load ptr, ptr %md, align 8
   %tobool6.not = icmp eq ptr %4, null
   br i1 %tobool6.not, label %if.end40, label %if.then7
@@ -231,7 +227,7 @@ if.then18:                                        ; preds = %if.end13
   br label %return
 
 if.end19:                                         ; preds = %if.end13
-  %pad_mode = getelementptr inbounds %struct.RSA_PKEY_CTX, ptr %0, i64 0, i32 2
+  %pad_mode = getelementptr inbounds i8, ptr %0, i64 16
   %6 = load i32, ptr %pad_mode, align 8
   switch i32 %6, label %return [
     i32 1, label %sw.bb
@@ -258,12 +254,12 @@ sw.bb28:                                          ; preds = %if.end19
   br i1 %tobool30.not, label %return, label %lor.lhs.false
 
 lor.lhs.false:                                    ; preds = %sw.bb28
-  %tbuf = getelementptr inbounds %struct.RSA_PKEY_CTX, ptr %0, i64 0, i32 6
+  %tbuf = getelementptr inbounds i8, ptr %0, i64 48
   %9 = load ptr, ptr %tbuf, align 8
   %10 = load ptr, ptr %md, align 8
-  %mgf1md = getelementptr inbounds %struct.RSA_PKEY_CTX, ptr %0, i64 0, i32 4
+  %mgf1md = getelementptr inbounds i8, ptr %0, i64 32
   %11 = load ptr, ptr %mgf1md, align 8
-  %saltlen = getelementptr inbounds %struct.RSA_PKEY_CTX, ptr %0, i64 0, i32 5
+  %saltlen = getelementptr inbounds i8, ptr %0, i64 40
   %12 = load i32, ptr %saltlen, align 8
   %call32 = tail call i32 @RSA_padding_add_PKCS1_PSS_mgf1(ptr noundef %2, ptr noundef %9, ptr noundef %tbs, ptr noundef %10, ptr noundef %11, i32 noundef %12) #8
   %tobool33.not = icmp eq i32 %call32, 0
@@ -278,7 +274,7 @@ lor.lhs.false34:                                  ; preds = %lor.lhs.false
   br label %return
 
 if.end40:                                         ; preds = %if.end5
-  %pad_mode41 = getelementptr inbounds %struct.RSA_PKEY_CTX, ptr %0, i64 0, i32 2
+  %pad_mode41 = getelementptr inbounds i8, ptr %0, i64 16
   %15 = load i32, ptr %pad_mode41, align 8
   %call42 = tail call i32 @RSA_sign_raw(ptr noundef %2, ptr noundef nonnull %siglen, ptr noundef nonnull %sig, i64 noundef %3, ptr noundef %tbs, i64 noundef %tbslen, i32 noundef %15) #8
   br label %return
@@ -292,21 +288,21 @@ return:                                           ; preds = %lor.lhs.false34, %i
 define internal i32 @pkey_rsa_verify(ptr nocapture noundef readonly %ctx, ptr noundef %sig, i64 noundef %siglen, ptr noundef %tbs, i64 noundef %tbslen) #1 {
 entry:
   %rslen = alloca i64, align 8
-  %data = getelementptr inbounds %struct.evp_pkey_ctx_st, ptr %ctx, i64 0, i32 5
+  %data = getelementptr inbounds i8, ptr %ctx, i64 40
   %0 = load ptr, ptr %data, align 8
-  %pkey = getelementptr inbounds %struct.evp_pkey_ctx_st, ptr %ctx, i64 0, i32 2
+  %pkey = getelementptr inbounds i8, ptr %ctx, i64 16
   %1 = load ptr, ptr %pkey, align 8
-  %pkey1 = getelementptr inbounds %struct.evp_pkey_st, ptr %1, i64 0, i32 2
+  %pkey1 = getelementptr inbounds i8, ptr %1, i64 8
   %2 = load ptr, ptr %pkey1, align 8
   %call = tail call i32 @EVP_PKEY_size(ptr noundef %1) #8
   %conv = sext i32 %call to i64
-  %md = getelementptr inbounds %struct.RSA_PKEY_CTX, ptr %0, i64 0, i32 3
+  %md = getelementptr inbounds i8, ptr %0, i64 24
   %3 = load ptr, ptr %md, align 8
   %tobool.not = icmp eq ptr %3, null
   br i1 %tobool.not, label %if.end17, label %if.then
 
 if.then:                                          ; preds = %entry
-  %pad_mode = getelementptr inbounds %struct.RSA_PKEY_CTX, ptr %0, i64 0, i32 2
+  %pad_mode = getelementptr inbounds i8, ptr %0, i64 16
   %4 = load i32, ptr %pad_mode, align 8
   switch i32 %4, label %return [
     i32 1, label %sw.bb
@@ -319,7 +315,7 @@ sw.bb:                                            ; preds = %if.then
   br label %return
 
 sw.bb6:                                           ; preds = %if.then
-  %tbuf.i = getelementptr inbounds %struct.RSA_PKEY_CTX, ptr %0, i64 0, i32 6
+  %tbuf.i = getelementptr inbounds i8, ptr %0, i64 48
   %5 = load ptr, ptr %tbuf.i, align 8
   %tobool.not.i = icmp eq ptr %5, null
   br i1 %tobool.not.i, label %setup_tbuf.exit, label %lor.lhs.false
@@ -341,10 +337,10 @@ lor.lhs.false:                                    ; preds = %sw.bb6, %setup_tbuf
 
 lor.lhs.false11:                                  ; preds = %lor.lhs.false
   %8 = load ptr, ptr %md, align 8
-  %mgf1md = getelementptr inbounds %struct.RSA_PKEY_CTX, ptr %0, i64 0, i32 4
+  %mgf1md = getelementptr inbounds i8, ptr %0, i64 32
   %9 = load ptr, ptr %mgf1md, align 8
   %10 = load ptr, ptr %tbuf.i, align 8
-  %saltlen = getelementptr inbounds %struct.RSA_PKEY_CTX, ptr %0, i64 0, i32 5
+  %saltlen = getelementptr inbounds i8, ptr %0, i64 40
   %11 = load i32, ptr %saltlen, align 8
   %call14 = call i32 @RSA_verify_PKCS1_PSS_mgf1(ptr noundef %2, ptr noundef %tbs, ptr noundef %8, ptr noundef %9, ptr noundef %10, i32 noundef %11) #8
   %tobool15.not = icmp ne i32 %call14, 0
@@ -352,7 +348,7 @@ lor.lhs.false11:                                  ; preds = %lor.lhs.false
   br label %return
 
 if.end17:                                         ; preds = %entry
-  %tbuf.i30 = getelementptr inbounds %struct.RSA_PKEY_CTX, ptr %0, i64 0, i32 6
+  %tbuf.i30 = getelementptr inbounds i8, ptr %0, i64 48
   %12 = load ptr, ptr %tbuf.i30, align 8
   %tobool.not.i31 = icmp eq ptr %12, null
   br i1 %tobool.not.i31, label %setup_tbuf.exit40, label %lor.lhs.false20
@@ -368,7 +364,7 @@ setup_tbuf.exit40:                                ; preds = %if.end17
 
 lor.lhs.false20:                                  ; preds = %if.end17, %setup_tbuf.exit40
   %14 = phi ptr [ %12, %if.end17 ], [ %call1.i37, %setup_tbuf.exit40 ]
-  %pad_mode22 = getelementptr inbounds %struct.RSA_PKEY_CTX, ptr %0, i64 0, i32 2
+  %pad_mode22 = getelementptr inbounds i8, ptr %0, i64 16
   %15 = load i32, ptr %pad_mode22, align 8
   %call23 = call i32 @RSA_verify_raw(ptr noundef %2, ptr noundef nonnull %rslen, ptr noundef nonnull %14, i64 noundef %conv, ptr noundef %sig, i64 noundef %siglen, i32 noundef %15) #8
   %tobool24.not = icmp ne i32 %call23, 0
@@ -396,11 +392,11 @@ entry:
   %asn1_prefix_len = alloca i64, align 8
   %asn1_prefix_allocated = alloca i32, align 4
   %rslen = alloca i64, align 8
-  %data = getelementptr inbounds %struct.evp_pkey_ctx_st, ptr %ctx, i64 0, i32 5
+  %data = getelementptr inbounds i8, ptr %ctx, i64 40
   %0 = load ptr, ptr %data, align 8
-  %pkey = getelementptr inbounds %struct.evp_pkey_ctx_st, ptr %ctx, i64 0, i32 2
+  %pkey = getelementptr inbounds i8, ptr %ctx, i64 16
   %1 = load ptr, ptr %pkey, align 8
-  %pkey1 = getelementptr inbounds %struct.evp_pkey_st, ptr %1, i64 0, i32 2
+  %pkey1 = getelementptr inbounds i8, ptr %1, i64 8
   %2 = load ptr, ptr %pkey1, align 8
   %call = tail call i32 @EVP_PKEY_size(ptr noundef %1) #8
   %conv = sext i32 %call to i64
@@ -421,7 +417,7 @@ if.then6:                                         ; preds = %if.end
   br label %return
 
 if.end7:                                          ; preds = %if.end
-  %tbuf.i = getelementptr inbounds %struct.RSA_PKEY_CTX, ptr %0, i64 0, i32 6
+  %tbuf.i = getelementptr inbounds i8, ptr %0, i64 48
   %4 = load ptr, ptr %tbuf.i, align 8
   %tobool.not.i = icmp eq ptr %4, null
   br i1 %tobool.not.i, label %setup_tbuf.exit, label %if.end10
@@ -437,16 +433,16 @@ setup_tbuf.exit:                                  ; preds = %if.end7
 
 if.end10:                                         ; preds = %if.end7, %setup_tbuf.exit
   %6 = phi ptr [ %4, %if.end7 ], [ %call1.i, %setup_tbuf.exit ]
-  %md = getelementptr inbounds %struct.RSA_PKEY_CTX, ptr %0, i64 0, i32 3
+  %md = getelementptr inbounds i8, ptr %0, i64 24
   %7 = load ptr, ptr %md, align 8
   %cmp11 = icmp eq ptr %7, null
   br i1 %cmp11, label %if.then13, label %if.end23
 
 if.then13:                                        ; preds = %if.end10
   %8 = load ptr, ptr %pkey, align 8
-  %pkey15 = getelementptr inbounds %struct.evp_pkey_st, ptr %8, i64 0, i32 2
+  %pkey15 = getelementptr inbounds i8, ptr %8, i64 8
   %9 = load ptr, ptr %pkey15, align 8
-  %pad_mode = getelementptr inbounds %struct.RSA_PKEY_CTX, ptr %0, i64 0, i32 2
+  %pad_mode = getelementptr inbounds i8, ptr %0, i64 16
   %10 = load i32, ptr %pad_mode, align 8
   %call16 = tail call i32 @RSA_public_decrypt(i64 noundef %sig_len, ptr noundef %sig, ptr noundef nonnull %6, ptr noundef %9, i32 noundef %10) #8
   %cmp17 = icmp slt i32 %call16, 0
@@ -460,7 +456,7 @@ if.end20:                                         ; preds = %if.then13
   br label %return
 
 if.end23:                                         ; preds = %if.end10
-  %pad_mode24 = getelementptr inbounds %struct.RSA_PKEY_CTX, ptr %0, i64 0, i32 2
+  %pad_mode24 = getelementptr inbounds i8, ptr %0, i64 16
   %12 = load i32, ptr %pad_mode24, align 8
   %cmp25.not = icmp eq i32 %12, 1
   br i1 %cmp25.not, label %if.end28, label %return
@@ -532,11 +528,11 @@ return:                                           ; preds = %if.end52, %if.end49
 ; Function Attrs: nounwind uwtable
 define internal i32 @pkey_rsa_encrypt(ptr nocapture noundef readonly %ctx, ptr noundef %out, ptr noundef %outlen, ptr noundef %in, i64 noundef %inlen) #1 {
 entry:
-  %data = getelementptr inbounds %struct.evp_pkey_ctx_st, ptr %ctx, i64 0, i32 5
+  %data = getelementptr inbounds i8, ptr %ctx, i64 40
   %0 = load ptr, ptr %data, align 8
-  %pkey = getelementptr inbounds %struct.evp_pkey_ctx_st, ptr %ctx, i64 0, i32 2
+  %pkey = getelementptr inbounds i8, ptr %ctx, i64 16
   %1 = load ptr, ptr %pkey, align 8
-  %pkey1 = getelementptr inbounds %struct.evp_pkey_st, ptr %1, i64 0, i32 2
+  %pkey1 = getelementptr inbounds i8, ptr %1, i64 8
   %2 = load ptr, ptr %pkey1, align 8
   %call = tail call i32 @EVP_PKEY_size(ptr noundef %1) #8
   %conv = sext i32 %call to i64
@@ -557,13 +553,13 @@ if.then4:                                         ; preds = %if.end
   br label %return
 
 if.end5:                                          ; preds = %if.end
-  %pad_mode = getelementptr inbounds %struct.RSA_PKEY_CTX, ptr %0, i64 0, i32 2
+  %pad_mode = getelementptr inbounds i8, ptr %0, i64 16
   %4 = load i32, ptr %pad_mode, align 8
   %cmp6 = icmp eq i32 %4, 4
   br i1 %cmp6, label %if.then8, label %if.end22
 
 if.then8:                                         ; preds = %if.end5
-  %tbuf.i = getelementptr inbounds %struct.RSA_PKEY_CTX, ptr %0, i64 0, i32 6
+  %tbuf.i = getelementptr inbounds i8, ptr %0, i64 48
   %5 = load ptr, ptr %tbuf.i, align 8
   %tobool.not.i = icmp eq ptr %5, null
   br i1 %tobool.not.i, label %setup_tbuf.exit, label %lor.lhs.false
@@ -580,14 +576,14 @@ setup_tbuf.exit:                                  ; preds = %if.then8
 lor.lhs.false:                                    ; preds = %if.then8, %setup_tbuf.exit
   %7 = phi ptr [ %5, %if.then8 ], [ %call1.i, %setup_tbuf.exit ]
   %conv12 = trunc i64 %inlen to i32
-  %oaep_label = getelementptr inbounds %struct.RSA_PKEY_CTX, ptr %0, i64 0, i32 7
+  %oaep_label = getelementptr inbounds i8, ptr %0, i64 56
   %8 = load ptr, ptr %oaep_label, align 8
-  %oaep_labellen = getelementptr inbounds %struct.RSA_PKEY_CTX, ptr %0, i64 0, i32 8
+  %oaep_labellen = getelementptr inbounds i8, ptr %0, i64 64
   %9 = load i64, ptr %oaep_labellen, align 8
   %conv13 = trunc i64 %9 to i32
-  %md = getelementptr inbounds %struct.RSA_PKEY_CTX, ptr %0, i64 0, i32 3
+  %md = getelementptr inbounds i8, ptr %0, i64 24
   %10 = load ptr, ptr %md, align 8
-  %mgf1md = getelementptr inbounds %struct.RSA_PKEY_CTX, ptr %0, i64 0, i32 4
+  %mgf1md = getelementptr inbounds i8, ptr %0, i64 32
   %11 = load ptr, ptr %mgf1md, align 8
   %call14 = tail call i32 @RSA_padding_add_PKCS1_OAEP_mgf1(ptr noundef nonnull %7, i32 noundef %call, ptr noundef %in, i32 noundef %conv12, ptr noundef %8, i32 noundef %conv13, ptr noundef %10, ptr noundef %11) #8
   %tobool15.not = icmp eq i32 %call14, 0
@@ -614,11 +610,11 @@ return:                                           ; preds = %lor.lhs.false16, %s
 define internal i32 @pkey_rsa_decrypt(ptr nocapture noundef readonly %ctx, ptr noundef %out, ptr noundef %outlen, ptr noundef %in, i64 noundef %inlen) #1 {
 entry:
   %plaintext_len = alloca i64, align 8
-  %data = getelementptr inbounds %struct.evp_pkey_ctx_st, ptr %ctx, i64 0, i32 5
+  %data = getelementptr inbounds i8, ptr %ctx, i64 40
   %0 = load ptr, ptr %data, align 8
-  %pkey = getelementptr inbounds %struct.evp_pkey_ctx_st, ptr %ctx, i64 0, i32 2
+  %pkey = getelementptr inbounds i8, ptr %ctx, i64 16
   %1 = load ptr, ptr %pkey, align 8
-  %pkey1 = getelementptr inbounds %struct.evp_pkey_st, ptr %1, i64 0, i32 2
+  %pkey1 = getelementptr inbounds i8, ptr %1, i64 8
   %2 = load ptr, ptr %pkey1, align 8
   %call = tail call i32 @EVP_PKEY_size(ptr noundef %1) #8
   %conv = sext i32 %call to i64
@@ -639,13 +635,13 @@ if.then4:                                         ; preds = %if.end
   br label %return
 
 if.end5:                                          ; preds = %if.end
-  %pad_mode = getelementptr inbounds %struct.RSA_PKEY_CTX, ptr %0, i64 0, i32 2
+  %pad_mode = getelementptr inbounds i8, ptr %0, i64 16
   %4 = load i32, ptr %pad_mode, align 8
   %cmp6 = icmp eq i32 %4, 4
   br i1 %cmp6, label %if.then8, label %if.end25
 
 if.then8:                                         ; preds = %if.end5
-  %tbuf.i = getelementptr inbounds %struct.RSA_PKEY_CTX, ptr %0, i64 0, i32 6
+  %tbuf.i = getelementptr inbounds i8, ptr %0, i64 48
   %5 = load ptr, ptr %tbuf.i, align 8
   %tobool.not.i = icmp eq ptr %5, null
   br i1 %tobool.not.i, label %setup_tbuf.exit, label %lor.lhs.false
@@ -669,14 +665,14 @@ if.end14:                                         ; preds = %lor.lhs.false
   %8 = load ptr, ptr %tbuf.i, align 8
   %9 = load i64, ptr %plaintext_len, align 8
   %conv17 = trunc i64 %9 to i32
-  %oaep_label = getelementptr inbounds %struct.RSA_PKEY_CTX, ptr %0, i64 0, i32 7
+  %oaep_label = getelementptr inbounds i8, ptr %0, i64 56
   %10 = load ptr, ptr %oaep_label, align 8
-  %oaep_labellen = getelementptr inbounds %struct.RSA_PKEY_CTX, ptr %0, i64 0, i32 8
+  %oaep_labellen = getelementptr inbounds i8, ptr %0, i64 64
   %11 = load i64, ptr %oaep_labellen, align 8
   %conv18 = trunc i64 %11 to i32
-  %md = getelementptr inbounds %struct.RSA_PKEY_CTX, ptr %0, i64 0, i32 3
+  %md = getelementptr inbounds i8, ptr %0, i64 24
   %12 = load ptr, ptr %md, align 8
-  %mgf1md = getelementptr inbounds %struct.RSA_PKEY_CTX, ptr %0, i64 0, i32 4
+  %mgf1md = getelementptr inbounds i8, ptr %0, i64 32
   %13 = load ptr, ptr %mgf1md, align 8
   %call19 = call i32 @RSA_padding_check_PKCS1_OAEP_mgf1(ptr noundef nonnull %out, i32 noundef %call, ptr noundef %8, i32 noundef %conv17, ptr noundef %10, i32 noundef %conv18, ptr noundef %12, ptr noundef %13) #8
   %cmp20 = icmp slt i32 %call19, 0
@@ -699,7 +695,7 @@ return:                                           ; preds = %if.end14, %setup_tb
 ; Function Attrs: nounwind uwtable
 define internal noundef i32 @pkey_rsa_ctrl(ptr nocapture noundef readonly %ctx, i32 noundef %type, i32 noundef %p1, ptr noundef %p2) #1 {
 entry:
-  %data = getelementptr inbounds %struct.evp_pkey_ctx_st, ptr %ctx, i64 0, i32 5
+  %data = getelementptr inbounds i8, ptr %ctx, i64 40
   %0 = load ptr, ptr %data, align 8
   switch i32 %type, label %sw.default [
     i32 4097, label %sw.bb
@@ -727,7 +723,7 @@ sw.bb:                                            ; preds = %entry
   ]
 
 lor.lhs.false:                                    ; preds = %sw.bb, %sw.bb, %sw.bb, %sw.bb
-  %md = getelementptr inbounds %struct.RSA_PKEY_CTX, ptr %0, i64 0, i32 3
+  %md = getelementptr inbounds i8, ptr %0, i64 24
   %1 = load ptr, ptr %md, align 8
   %tobool.not.i = icmp ne ptr %1, null
   %cmp.i = icmp eq i32 %p1, 3
@@ -745,14 +741,14 @@ lor.lhs.false3:                                   ; preds = %lor.lhs.false
   ]
 
 land.lhs.true:                                    ; preds = %lor.lhs.false3
-  %operation = getelementptr inbounds %struct.evp_pkey_ctx_st, ptr %ctx, i64 0, i32 4
+  %operation = getelementptr inbounds i8, ptr %ctx, i64 32
   %2 = load i32, ptr %operation, align 8
   %and = and i32 %2, 24
   %cmp4 = icmp eq i32 %and, 0
   br i1 %cmp4, label %if.then, label %land.lhs.true14
 
 land.lhs.true7:                                   ; preds = %lor.lhs.false3
-  %operation8 = getelementptr inbounds %struct.evp_pkey_ctx_st, ptr %ctx, i64 0, i32 4
+  %operation8 = getelementptr inbounds i8, ptr %ctx, i64 32
   %3 = load i32, ptr %operation8, align 8
   %and9 = and i32 %3, 192
   %cmp10 = icmp eq i32 %and9, 0
@@ -772,18 +768,18 @@ if.then17:                                        ; preds = %land.lhs.true14
   br label %if.end20
 
 if.end20:                                         ; preds = %lor.lhs.false3, %if.then17, %land.lhs.true14
-  %pad_mode = getelementptr inbounds %struct.RSA_PKEY_CTX, ptr %0, i64 0, i32 2
+  %pad_mode = getelementptr inbounds i8, ptr %0, i64 16
   store i32 %p1, ptr %pad_mode, align 8
   br label %return
 
 sw.bb21:                                          ; preds = %entry
-  %pad_mode22 = getelementptr inbounds %struct.RSA_PKEY_CTX, ptr %0, i64 0, i32 2
+  %pad_mode22 = getelementptr inbounds i8, ptr %0, i64 16
   %4 = load i32, ptr %pad_mode22, align 8
   store i32 %4, ptr %p2, align 4
   br label %return
 
 sw.bb23:                                          ; preds = %entry, %entry
-  %pad_mode24 = getelementptr inbounds %struct.RSA_PKEY_CTX, ptr %0, i64 0, i32 2
+  %pad_mode24 = getelementptr inbounds i8, ptr %0, i64 16
   %5 = load i32, ptr %pad_mode24, align 8
   %cmp25.not = icmp eq i32 %5, 6
   br i1 %cmp25.not, label %if.end27, label %if.then26
@@ -797,7 +793,7 @@ if.end27:                                         ; preds = %sw.bb23
   br i1 %cmp28, label %if.then29, label %if.else
 
 if.then29:                                        ; preds = %if.end27
-  %saltlen = getelementptr inbounds %struct.RSA_PKEY_CTX, ptr %0, i64 0, i32 5
+  %saltlen = getelementptr inbounds i8, ptr %0, i64 40
   %6 = load i32, ptr %saltlen, align 8
   store i32 %6, ptr %p2, align 4
   br label %return
@@ -807,7 +803,7 @@ if.else:                                          ; preds = %if.end27
   br i1 %cmp30, label %return, label %if.end32
 
 if.end32:                                         ; preds = %if.else
-  %saltlen33 = getelementptr inbounds %struct.RSA_PKEY_CTX, ptr %0, i64 0, i32 5
+  %saltlen33 = getelementptr inbounds i8, ptr %0, i64 40
   store i32 %p1, ptr %saltlen33, align 8
   br label %return
 
@@ -828,14 +824,14 @@ sw.bb39:                                          ; preds = %entry
   br i1 %tobool40.not, label %return, label %if.end42
 
 if.end42:                                         ; preds = %sw.bb39
-  %pub_exp = getelementptr inbounds %struct.RSA_PKEY_CTX, ptr %0, i64 0, i32 1
+  %pub_exp = getelementptr inbounds i8, ptr %0, i64 8
   %7 = load ptr, ptr %pub_exp, align 8
   tail call void @BN_free(ptr noundef %7) #8
   store ptr %p2, ptr %pub_exp, align 8
   br label %return
 
 sw.bb44:                                          ; preds = %entry, %entry
-  %pad_mode45 = getelementptr inbounds %struct.RSA_PKEY_CTX, ptr %0, i64 0, i32 2
+  %pad_mode45 = getelementptr inbounds i8, ptr %0, i64 16
   %8 = load i32, ptr %pad_mode45, align 8
   %cmp46.not = icmp eq i32 %8, 4
   br i1 %cmp46.not, label %if.end48, label %if.then47
@@ -846,7 +842,7 @@ if.then47:                                        ; preds = %sw.bb44
 
 if.end48:                                         ; preds = %sw.bb44
   %cmp49 = icmp eq i32 %type, 4104
-  %md51 = getelementptr inbounds %struct.RSA_PKEY_CTX, ptr %0, i64 0, i32 3
+  %md51 = getelementptr inbounds i8, ptr %0, i64 24
   br i1 %cmp49, label %if.then50, label %if.else52
 
 if.then50:                                        ; preds = %if.end48
@@ -859,7 +855,7 @@ if.else52:                                        ; preds = %if.end48
   br label %return
 
 sw.bb55:                                          ; preds = %entry
-  %pad_mode56 = getelementptr inbounds %struct.RSA_PKEY_CTX, ptr %0, i64 0, i32 2
+  %pad_mode56 = getelementptr inbounds i8, ptr %0, i64 16
   %10 = load i32, ptr %pad_mode56, align 8
   %tobool.not.i66 = icmp ne ptr %p2, null
   %cmp.i67 = icmp eq i32 %10, 3
@@ -871,18 +867,18 @@ check_padding_md.exit71.thread:                   ; preds = %sw.bb55
   br label %return
 
 if.end60:                                         ; preds = %sw.bb55
-  %md61 = getelementptr inbounds %struct.RSA_PKEY_CTX, ptr %0, i64 0, i32 3
+  %md61 = getelementptr inbounds i8, ptr %0, i64 24
   store ptr %p2, ptr %md61, align 8
   br label %return
 
 sw.bb62:                                          ; preds = %entry
-  %md63 = getelementptr inbounds %struct.RSA_PKEY_CTX, ptr %0, i64 0, i32 3
+  %md63 = getelementptr inbounds i8, ptr %0, i64 24
   %11 = load ptr, ptr %md63, align 8
   store ptr %11, ptr %p2, align 8
   br label %return
 
 sw.bb64:                                          ; preds = %entry, %entry
-  %pad_mode65 = getelementptr inbounds %struct.RSA_PKEY_CTX, ptr %0, i64 0, i32 2
+  %pad_mode65 = getelementptr inbounds i8, ptr %0, i64 16
   %12 = load i32, ptr %pad_mode65, align 8
   switch i32 %12, label %if.then70 [
     i32 6, label %if.end71
@@ -895,7 +891,7 @@ if.then70:                                        ; preds = %sw.bb64
 
 if.end71:                                         ; preds = %sw.bb64, %sw.bb64
   %cmp72 = icmp eq i32 %type, 4106
-  %mgf1md = getelementptr inbounds %struct.RSA_PKEY_CTX, ptr %0, i64 0, i32 4
+  %mgf1md = getelementptr inbounds i8, ptr %0, i64 32
   br i1 %cmp72, label %if.then73, label %if.else80
 
 if.then73:                                        ; preds = %if.end71
@@ -908,7 +904,7 @@ if.then75:                                        ; preds = %if.then73
   br label %return
 
 if.else77:                                        ; preds = %if.then73
-  %md78 = getelementptr inbounds %struct.RSA_PKEY_CTX, ptr %0, i64 0, i32 3
+  %md78 = getelementptr inbounds i8, ptr %0, i64 24
   %14 = load ptr, ptr %md78, align 8
   store ptr %14, ptr %p2, align 8
   br label %return
@@ -918,7 +914,7 @@ if.else80:                                        ; preds = %if.end71
   br label %return
 
 sw.bb83:                                          ; preds = %entry
-  %pad_mode84 = getelementptr inbounds %struct.RSA_PKEY_CTX, ptr %0, i64 0, i32 2
+  %pad_mode84 = getelementptr inbounds i8, ptr %0, i64 16
   %15 = load i32, ptr %pad_mode84, align 8
   %cmp85.not = icmp eq i32 %15, 4
   br i1 %cmp85.not, label %if.end87, label %if.then86
@@ -928,7 +924,7 @@ if.then86:                                        ; preds = %sw.bb83
   br label %return
 
 if.end87:                                         ; preds = %sw.bb83
-  %oaep_label = getelementptr inbounds %struct.RSA_PKEY_CTX, ptr %0, i64 0, i32 7
+  %oaep_label = getelementptr inbounds i8, ptr %0, i64 56
   %16 = load ptr, ptr %oaep_label, align 8
   tail call void @free(ptr noundef %16) #8
   %tobool88 = icmp ne ptr %p2, null
@@ -939,7 +935,7 @@ if.end87:                                         ; preds = %sw.bb83
 if.then91:                                        ; preds = %if.end87
   store ptr %p2, ptr %oaep_label, align 8
   %conv = zext nneg i32 %p1 to i64
-  %oaep_labellen = getelementptr inbounds %struct.RSA_PKEY_CTX, ptr %0, i64 0, i32 8
+  %oaep_labellen = getelementptr inbounds i8, ptr %0, i64 64
   store i64 %conv, ptr %oaep_labellen, align 8
   br label %return
 
@@ -948,7 +944,7 @@ if.else93:                                        ; preds = %if.end87
   br label %return
 
 sw.bb97:                                          ; preds = %entry
-  %pad_mode98 = getelementptr inbounds %struct.RSA_PKEY_CTX, ptr %0, i64 0, i32 2
+  %pad_mode98 = getelementptr inbounds i8, ptr %0, i64 16
   %17 = load i32, ptr %pad_mode98, align 8
   %cmp99.not = icmp eq i32 %17, 4
   br i1 %cmp99.not, label %if.end102, label %if.then101
@@ -958,9 +954,9 @@ if.then101:                                       ; preds = %sw.bb97
   br label %return
 
 if.end102:                                        ; preds = %sw.bb97
-  %oaep_label103 = getelementptr inbounds %struct.RSA_PKEY_CTX, ptr %0, i64 0, i32 7
+  %oaep_label103 = getelementptr inbounds i8, ptr %0, i64 56
   %18 = load ptr, ptr %oaep_label103, align 8
-  %oaep_labellen104 = getelementptr inbounds %struct.RSA_PKEY_CTX, ptr %0, i64 0, i32 8
+  %oaep_labellen104 = getelementptr inbounds i8, ptr %0, i64 64
   %19 = load i64, ptr %oaep_labellen104, align 8
   tail call void @CBS_init(ptr noundef %p2, ptr noundef %18, i64 noundef %19) #8
   br label %return
@@ -1135,13 +1131,13 @@ declare i32 @RSA_sign(i32 noundef, ptr noundef, i32 noundef, ptr noundef, ptr no
 ; Function Attrs: nounwind uwtable
 define internal fastcc noundef i32 @setup_tbuf(ptr nocapture noundef %ctx, ptr nocapture noundef readonly %pk) unnamed_addr #1 {
 entry:
-  %tbuf = getelementptr inbounds %struct.RSA_PKEY_CTX, ptr %ctx, i64 0, i32 6
+  %tbuf = getelementptr inbounds i8, ptr %ctx, i64 48
   %0 = load ptr, ptr %tbuf, align 8
   %tobool.not = icmp eq ptr %0, null
   br i1 %tobool.not, label %if.end, label %return
 
 if.end:                                           ; preds = %entry
-  %pkey = getelementptr inbounds %struct.evp_pkey_ctx_st, ptr %pk, i64 0, i32 2
+  %pkey = getelementptr inbounds i8, ptr %pk, i64 16
   %1 = load ptr, ptr %pkey, align 8
   %call = tail call i32 @EVP_PKEY_size(ptr noundef %1) #8
   %conv = sext i32 %call to i64

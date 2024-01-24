@@ -26,7 +26,7 @@ define zeroext i1 @"_ZN42_$LT$$RF$T$u20$as$u20$core..fmt..Debug$GT$3fmt17h07d631
   br label %"_ZN66_$LT$core..option..Option$LT$T$GT$$u20$as$u20$core..fmt..Debug$GT$3fmt17he197f5a874b5f694E.exit"
 
 9:                                                ; preds = %2
-  %10 = getelementptr inbounds { i64, i64 }, ptr %4, i64 0, i32 1
+  %10 = getelementptr inbounds i8, ptr %4, i64 8
   store ptr %10, ptr %3, align 8
   %11 = call zeroext i1 @_ZN4core3fmt9Formatter25debug_tuple_field1_finish17h4a66e96f470c4e9dE(ptr align 8 %1, ptr nonnull align 1 @anon.ff64b5f64c8130dd796593ad73eeb2c0.2, i64 4, ptr nonnull align 1 %3, ptr nonnull align 8 @anon.ff64b5f64c8130dd796593ad73eeb2c0.6)
   br label %"_ZN66_$LT$core..option..Option$LT$T$GT$$u20$as$u20$core..fmt..Debug$GT$3fmt17he197f5a874b5f694E.exit"
@@ -51,7 +51,7 @@ define zeroext i1 @"_ZN42_$LT$$RF$T$u20$as$u20$core..fmt..Debug$GT$3fmt17h213993
   br label %"_ZN66_$LT$core..option..Option$LT$T$GT$$u20$as$u20$core..fmt..Debug$GT$3fmt17hc4dba1b24f09865cE.exit"
 
 9:                                                ; preds = %2
-  %10 = getelementptr inbounds { i8, i8 }, ptr %4, i64 0, i32 1
+  %10 = getelementptr inbounds i8, ptr %4, i64 1
   store ptr %10, ptr %3, align 8
   %11 = call zeroext i1 @_ZN4core3fmt9Formatter25debug_tuple_field1_finish17h4a66e96f470c4e9dE(ptr align 8 %1, ptr nonnull align 1 @anon.ff64b5f64c8130dd796593ad73eeb2c0.2, i64 4, ptr nonnull align 1 %3, ptr nonnull align 8 @anon.ff64b5f64c8130dd796593ad73eeb2c0.5)
   br label %"_ZN66_$LT$core..option..Option$LT$T$GT$$u20$as$u20$core..fmt..Debug$GT$3fmt17hc4dba1b24f09865cE.exit"
@@ -98,8 +98,8 @@ define zeroext i1 @_ZN4core3cmp9PartialEq2ne17h405b441fbf3e99cfE(ptr align 8 %0,
   br i1 %brmerge.i.i, label %"_ZN70_$LT$core..option..Option$LT$T$GT$$u20$as$u20$core..cmp..PartialEq$GT$2eq17h82bb5157b86ad1d4E.exit", label %6
 
 6:                                                ; preds = %2
-  %7 = getelementptr inbounds { i64, i64 }, ptr %0, i64 0, i32 1
-  %8 = getelementptr inbounds { i64, i64 }, ptr %1, i64 0, i32 1
+  %7 = getelementptr inbounds i8, ptr %0, i64 8
+  %8 = getelementptr inbounds i8, ptr %1, i64 8
   %9 = tail call zeroext i1 @"_ZN4core3cmp5impls56_$LT$impl$u20$core..cmp..PartialEq$u20$for$u20$usize$GT$2eq17h4a253dc72b180915E"(ptr nonnull align 8 %7, ptr nonnull align 8 %8)
   br label %"_ZN70_$LT$core..option..Option$LT$T$GT$$u20$as$u20$core..cmp..PartialEq$GT$2eq17h82bb5157b86ad1d4E.exit"
 
@@ -121,8 +121,8 @@ define zeroext i1 @_ZN4core3cmp9PartialEq2ne17hc1eb244d07cbf4afE(ptr align 4 %0,
   br i1 %brmerge.i.i, label %"_ZN70_$LT$core..option..Option$LT$T$GT$$u20$as$u20$core..cmp..PartialEq$GT$2eq17hd938b7396fb4ebdaE.exit", label %6
 
 6:                                                ; preds = %2
-  %7 = getelementptr inbounds { i32, i32 }, ptr %0, i64 0, i32 1
-  %8 = getelementptr inbounds { i32, i32 }, ptr %1, i64 0, i32 1
+  %7 = getelementptr inbounds i8, ptr %0, i64 4
+  %8 = getelementptr inbounds i8, ptr %1, i64 4
   %9 = tail call zeroext i1 @"_ZN4core3cmp5impls54_$LT$impl$u20$core..cmp..PartialEq$u20$for$u20$u32$GT$2eq17he93b82b3e19e7d91E"(ptr nonnull align 4 %7, ptr nonnull align 4 %8)
   br label %"_ZN70_$LT$core..option..Option$LT$T$GT$$u20$as$u20$core..cmp..PartialEq$GT$2eq17hd938b7396fb4ebdaE.exit"
 
@@ -144,7 +144,7 @@ define void @"_ZN4core6option15Option$LT$T$GT$10ok_or_else17hd43c0421ab68f48aE"(
   br label %11
 
 9:                                                ; preds = %5
-  %10 = getelementptr inbounds { [1 x i32], i32 }, ptr %0, i64 0, i32 1
+  %10 = getelementptr inbounds i8, ptr %0, i64 4
   store i32 %2, ptr %10, align 4
   store i32 34, ptr %0, align 8
   br label %11
@@ -165,7 +165,7 @@ define void @"_ZN4core6option15Option$LT$T$GT$10ok_or_else17hf4dad8a3b2d37e4dE"(
   br label %11
 
 9:                                                ; preds = %5
-  %10 = getelementptr inbounds { [1 x i32], i32 }, ptr %0, i64 0, i32 1
+  %10 = getelementptr inbounds i8, ptr %0, i64 4
   store i32 %2, ptr %10, align 4
   store i32 34, ptr %0, align 8
   br label %11
@@ -229,12 +229,12 @@ define nonnull align 8 ptr @"_ZN4core6option15Option$LT$T$GT$18get_or_insert_wit
 5:                                                ; preds = %2
   %6 = tail call align 8 ptr @"_ZN4core4iter8adapters8peekable17Peekable$LT$I$GT$4peek28_$u7b$$u7b$closure$u7d$$u7d$17h4c935f24afc08178E"(ptr align 8 %1)
   store i64 1, ptr %0, align 8
-  %7 = getelementptr inbounds { i64, ptr }, ptr %0, i64 0, i32 1
+  %7 = getelementptr inbounds i8, ptr %0, i64 8
   store ptr %6, ptr %7, align 8
   br label %8
 
 8:                                                ; preds = %5, %2
-  %9 = getelementptr inbounds { i64, ptr }, ptr %0, i64 0, i32 1
+  %9 = getelementptr inbounds i8, ptr %0, i64 8
   ret ptr %9
 }
 
@@ -368,7 +368,7 @@ define void @"_ZN4core6option15Option$LT$T$GT$3map17hba0a53396f313b0bE"(ptr noca
   br i1 %5, label %6, label %8
 
 6:                                                ; preds = %3
-  %7 = getelementptr inbounds { [24 x i8], i8, [7 x i8] }, ptr %0, i64 0, i32 1
+  %7 = getelementptr inbounds i8, ptr %0, i64 24
   store i8 2, ptr %7, align 8
   br label %9
 
@@ -443,14 +443,14 @@ define void @"_ZN4core6option15Option$LT$T$GT$4take17haee612a86a291e02E"(ptr noc
 
 ; Function Attrs: inlinehint mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: readwrite) uwtable
 define void @"_ZN4core6option15Option$LT$T$GT$5ok_or17h806a5facd919982bE"(ptr nocapture writeonly sret({ [24 x i8], i8, [7 x i8] }) align 8 %0, ptr nocapture readonly align 8 %1, i8 %2) unnamed_addr #3 {
-  %4 = getelementptr inbounds { [24 x i8], i8, [7 x i8] }, ptr %1, i64 0, i32 1
+  %4 = getelementptr inbounds i8, ptr %1, i64 24
   %5 = load i8, ptr %4, align 8, !range !10, !noundef !5
   %6 = icmp eq i8 %5, 2
   br i1 %6, label %7, label %9
 
 7:                                                ; preds = %3
   store i8 %2, ptr %0, align 8
-  %8 = getelementptr inbounds { [24 x i8], i8, [7 x i8] }, ptr %0, i64 0, i32 1
+  %8 = getelementptr inbounds i8, ptr %0, i64 24
   store i8 2, ptr %8, align 8
   br label %10
 
@@ -836,7 +836,7 @@ define { i64, ptr } @"_ZN4core6option15Option$LT$T$GT$6unwrap17hb16e0c3c95f897f2
 
 ; Function Attrs: inlinehint nonlazybind uwtable
 define void @"_ZN4core6option15Option$LT$T$GT$6unwrap17hb3733a32932a6d63E"(ptr nocapture writeonly sret({ [38 x i32], i32, [1 x i32] }) align 8 %0, ptr nocapture readonly align 8 %1, ptr align 8 %2) unnamed_addr #1 {
-  %4 = getelementptr inbounds { [38 x i32], i32, [1 x i32] }, ptr %1, i64 0, i32 1
+  %4 = getelementptr inbounds i8, ptr %1, i64 152
   %5 = load i32, ptr %4, align 8, !range !15, !noundef !5
   %6 = icmp eq i32 %5, 1114120
   br i1 %6, label %7, label %8
@@ -955,9 +955,9 @@ define { i64, i64 } @"_ZN4core6option15Option$LT$T$GT$8and_then17h418fc960434499
   br i1 %3, label %10, label %4
 
 4:                                                ; preds = %1
-  %5 = getelementptr inbounds { [1 x i64], { i64, i64 } }, ptr %0, i64 0, i32 1
+  %5 = getelementptr inbounds i8, ptr %0, i64 8
   %6 = load i64, ptr %5, align 8, !noundef !5
-  %7 = getelementptr inbounds { [1 x i64], { i64, i64 } }, ptr %0, i64 0, i32 1, i32 1
+  %7 = getelementptr inbounds i8, ptr %0, i64 16
   %8 = load i64, ptr %7, align 8, !noundef !5
   %9 = tail call { i64, i64 } @"_ZN12regex_syntax3hir10Properties6concat28_$u7b$$u7b$closure$u7d$$u7d$17h8bac71355bdf52d3E"(i64 %6, i64 %8)
   %.fca.0.extract = extractvalue { i64, i64 } %9, 0
@@ -1100,8 +1100,8 @@ define zeroext i1 @"_ZN55_$LT$T$u20$as$u20$core..option..SpecOptionPartialEq$GT$
   ret i1 %.0
 
 7:                                                ; preds = %2
-  %8 = getelementptr inbounds { i64, i64 }, ptr %0, i64 0, i32 1
-  %9 = getelementptr inbounds { i64, i64 }, ptr %1, i64 0, i32 1
+  %8 = getelementptr inbounds i8, ptr %0, i64 8
+  %9 = getelementptr inbounds i8, ptr %1, i64 8
   %10 = tail call zeroext i1 @"_ZN4core3cmp5impls56_$LT$impl$u20$core..cmp..PartialEq$u20$for$u20$usize$GT$2eq17h4a253dc72b180915E"(ptr nonnull align 8 %8, ptr nonnull align 8 %9)
   br label %6
 }
@@ -1141,8 +1141,8 @@ define zeroext i1 @"_ZN55_$LT$T$u20$as$u20$core..option..SpecOptionPartialEq$GT$
   ret i1 %.0
 
 7:                                                ; preds = %2
-  %8 = getelementptr inbounds { i32, i32 }, ptr %0, i64 0, i32 1
-  %9 = getelementptr inbounds { i32, i32 }, ptr %1, i64 0, i32 1
+  %8 = getelementptr inbounds i8, ptr %0, i64 4
+  %9 = getelementptr inbounds i8, ptr %1, i64 4
   %10 = tail call zeroext i1 @"_ZN4core3cmp5impls54_$LT$impl$u20$core..cmp..PartialEq$u20$for$u20$u32$GT$2eq17he93b82b3e19e7d91E"(ptr nonnull align 4 %8, ptr nonnull align 4 %9)
   br label %6
 }
@@ -1180,7 +1180,7 @@ define zeroext i1 @"_ZN66_$LT$core..option..Option$LT$T$GT$$u20$as$u20$core..fmt
   br label %11
 
 8:                                                ; preds = %2
-  %9 = getelementptr inbounds { i32, i32 }, ptr %0, i64 0, i32 1
+  %9 = getelementptr inbounds i8, ptr %0, i64 4
   store ptr %9, ptr %3, align 8
   %10 = call zeroext i1 @_ZN4core3fmt9Formatter25debug_tuple_field1_finish17h4a66e96f470c4e9dE(ptr align 8 %1, ptr nonnull align 1 @anon.ff64b5f64c8130dd796593ad73eeb2c0.2, i64 4, ptr nonnull align 1 %3, ptr nonnull align 8 @anon.ff64b5f64c8130dd796593ad73eeb2c0.4)
   br label %11
@@ -1202,7 +1202,7 @@ define zeroext i1 @"_ZN66_$LT$core..option..Option$LT$T$GT$$u20$as$u20$core..fmt
   br label %11
 
 8:                                                ; preds = %2
-  %9 = getelementptr inbounds { i8, i8 }, ptr %0, i64 0, i32 1
+  %9 = getelementptr inbounds i8, ptr %0, i64 1
   store ptr %9, ptr %3, align 8
   %10 = call zeroext i1 @_ZN4core3fmt9Formatter25debug_tuple_field1_finish17h4a66e96f470c4e9dE(ptr align 8 %1, ptr nonnull align 1 @anon.ff64b5f64c8130dd796593ad73eeb2c0.2, i64 4, ptr nonnull align 1 %3, ptr nonnull align 8 @anon.ff64b5f64c8130dd796593ad73eeb2c0.5)
   br label %11
@@ -1224,7 +1224,7 @@ define zeroext i1 @"_ZN66_$LT$core..option..Option$LT$T$GT$$u20$as$u20$core..fmt
   br label %11
 
 8:                                                ; preds = %2
-  %9 = getelementptr inbounds { i64, i64 }, ptr %0, i64 0, i32 1
+  %9 = getelementptr inbounds i8, ptr %0, i64 8
   store ptr %9, ptr %3, align 8
   %10 = call zeroext i1 @_ZN4core3fmt9Formatter25debug_tuple_field1_finish17h4a66e96f470c4e9dE(ptr align 8 %1, ptr nonnull align 1 @anon.ff64b5f64c8130dd796593ad73eeb2c0.2, i64 4, ptr nonnull align 1 %3, ptr nonnull align 8 @anon.ff64b5f64c8130dd796593ad73eeb2c0.6)
   br label %11
@@ -1282,7 +1282,7 @@ define { i64, i64 } @"_ZN68_$LT$core..option..Option$LT$T$GT$$u20$as$u20$core..c
   br i1 %3, label %7, label %4
 
 4:                                                ; preds = %1
-  %5 = getelementptr inbounds { i64, i64 }, ptr %0, i64 0, i32 1
+  %5 = getelementptr inbounds i8, ptr %0, i64 8
   %6 = load i64, ptr %5, align 8, !noundef !5
   br label %7
 
@@ -1325,8 +1325,8 @@ define zeroext i1 @"_ZN70_$LT$core..option..Option$LT$T$GT$$u20$as$u20$core..cmp
   br i1 %brmerge.i, label %"_ZN55_$LT$T$u20$as$u20$core..option..SpecOptionPartialEq$GT$2eq17h1106ce962e90d602E.exit", label %6
 
 6:                                                ; preds = %2
-  %7 = getelementptr inbounds { i64, i64 }, ptr %0, i64 0, i32 1
-  %8 = getelementptr inbounds { i64, i64 }, ptr %1, i64 0, i32 1
+  %7 = getelementptr inbounds i8, ptr %0, i64 8
+  %8 = getelementptr inbounds i8, ptr %1, i64 8
   %9 = tail call zeroext i1 @"_ZN4core3cmp5impls56_$LT$impl$u20$core..cmp..PartialEq$u20$for$u20$usize$GT$2eq17h4a253dc72b180915E"(ptr nonnull align 8 %7, ptr nonnull align 8 %8)
   br label %"_ZN55_$LT$T$u20$as$u20$core..option..SpecOptionPartialEq$GT$2eq17h1106ce962e90d602E.exit"
 
@@ -1353,8 +1353,8 @@ define zeroext i1 @"_ZN70_$LT$core..option..Option$LT$T$GT$$u20$as$u20$core..cmp
   br i1 %brmerge.i, label %"_ZN55_$LT$T$u20$as$u20$core..option..SpecOptionPartialEq$GT$2eq17ha93cd12801e05f7bE.exit", label %6
 
 6:                                                ; preds = %2
-  %7 = getelementptr inbounds { i32, i32 }, ptr %0, i64 0, i32 1
-  %8 = getelementptr inbounds { i32, i32 }, ptr %1, i64 0, i32 1
+  %7 = getelementptr inbounds i8, ptr %0, i64 4
+  %8 = getelementptr inbounds i8, ptr %1, i64 4
   %9 = tail call zeroext i1 @"_ZN4core3cmp5impls54_$LT$impl$u20$core..cmp..PartialEq$u20$for$u20$u32$GT$2eq17he93b82b3e19e7d91E"(ptr nonnull align 4 %7, ptr nonnull align 4 %8)
   br label %"_ZN55_$LT$T$u20$as$u20$core..option..SpecOptionPartialEq$GT$2eq17ha93cd12801e05f7bE.exit"
 
@@ -1408,13 +1408,13 @@ define { i64, i64 } @"_ZN75_$LT$core..option..Option$LT$T$GT$$u20$as$u20$core..o
 
 ; Function Attrs: inlinehint mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: readwrite) uwtable
 define void @"_ZN75_$LT$core..option..Option$LT$T$GT$$u20$as$u20$core..ops..try_trait..Try$GT$6branch17h984bc1c5f8f093e7E"(ptr nocapture writeonly sret({ [24 x i8], i8, [7 x i8] }) align 8 %0, ptr nocapture readonly align 8 %1) unnamed_addr #3 {
-  %3 = getelementptr inbounds { [24 x i8], i8, [7 x i8] }, ptr %1, i64 0, i32 1
+  %3 = getelementptr inbounds i8, ptr %1, i64 24
   %4 = load i8, ptr %3, align 8, !range !10, !noundef !5
   %5 = icmp eq i8 %4, 2
   br i1 %5, label %6, label %8
 
 6:                                                ; preds = %2
-  %7 = getelementptr inbounds { [24 x i8], i8, [7 x i8] }, ptr %0, i64 0, i32 1
+  %7 = getelementptr inbounds i8, ptr %0, i64 24
   store i8 2, ptr %7, align 8
   br label %9
 
@@ -1433,13 +1433,13 @@ define i32 @"_ZN75_$LT$core..option..Option$LT$T$GT$$u20$as$u20$core..ops..try_t
 
 ; Function Attrs: inlinehint mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: readwrite) uwtable
 define void @"_ZN75_$LT$core..option..Option$LT$T$GT$$u20$as$u20$core..ops..try_trait..Try$GT$6branch17hbc5317332ce0677aE"(ptr nocapture writeonly sret({ [24 x i8], i8, [7 x i8] }) align 8 %0, ptr nocapture readonly align 8 %1) unnamed_addr #3 {
-  %3 = getelementptr inbounds { [24 x i8], i8, [7 x i8] }, ptr %1, i64 0, i32 1
+  %3 = getelementptr inbounds i8, ptr %1, i64 24
   %4 = load i8, ptr %3, align 8, !range !10, !noundef !5
   %5 = icmp eq i8 %4, 2
   br i1 %5, label %6, label %8
 
 6:                                                ; preds = %2
-  %7 = getelementptr inbounds { [24 x i8], i8, [7 x i8] }, ptr %0, i64 0, i32 1
+  %7 = getelementptr inbounds i8, ptr %0, i64 24
   store i8 2, ptr %7, align 8
   br label %9
 

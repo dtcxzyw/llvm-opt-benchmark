@@ -74,21 +74,21 @@ for.cond.preheader:                               ; preds = %if.then20, %for.con
   %8 = load i64, ptr %ivp.0120, align 1
   %xor = xor i64 %8, %7
   store i64 %xor, ptr %out.addr.0123, align 1
-  %arrayidx.c = getelementptr inbounds [2 x i64], ptr %in.addr.0124, i64 0, i64 1
+  %arrayidx.c = getelementptr inbounds i8, ptr %in.addr.0124, i64 8
   %9 = load i64, ptr %arrayidx.c, align 1
-  %arrayidx24.c = getelementptr inbounds [2 x i64], ptr %ivp.0120, i64 0, i64 1
+  %arrayidx24.c = getelementptr inbounds i8, ptr %ivp.0120, i64 8
   %10 = load i64, ptr %arrayidx24.c, align 1
   %xor.c = xor i64 %10, %9
-  %arrayidx26.c = getelementptr inbounds [2 x i64], ptr %out.addr.0123, i64 0, i64 1
+  %arrayidx26.c = getelementptr inbounds i8, ptr %out.addr.0123, i64 8
   store i64 %xor.c, ptr %arrayidx26.c, align 1
   tail call void @AES_encrypt(ptr noundef nonnull %out.addr.0123, ptr noundef nonnull %out.addr.0123, ptr noundef nonnull %key) #5
   %11 = load i64, ptr %iv2p.0121, align 1
   %12 = load i64, ptr %out.addr.0123, align 1
   %xor37 = xor i64 %12, %11
   store i64 %xor37, ptr %out.addr.0123, align 1
-  %arrayidx34.c = getelementptr inbounds [2 x i64], ptr %iv2p.0121, i64 0, i64 1
+  %arrayidx34.c = getelementptr inbounds i8, ptr %iv2p.0121, i64 8
   %13 = load i64, ptr %arrayidx34.c, align 1
-  %arrayidx36.c = getelementptr inbounds [2 x i64], ptr %out.addr.0123, i64 0, i64 1
+  %arrayidx36.c = getelementptr inbounds i8, ptr %out.addr.0123, i64 8
   %14 = load i64, ptr %arrayidx36.c, align 1
   %xor37.c = xor i64 %14, %13
   store i64 %xor37.c, ptr %arrayidx36.c, align 1
@@ -162,9 +162,9 @@ for.cond102.preheader:                            ; preds = %if.then92, %for.con
   %22 = load i64, ptr %out.addr.2108, align 1
   %xor126 = xor i64 %22, %21
   store i64 %xor126, ptr %out.addr.2108, align 1
-  %arrayidx123.c = getelementptr inbounds [2 x i64], ptr %ivp93.0106, i64 0, i64 1
+  %arrayidx123.c = getelementptr inbounds i8, ptr %ivp93.0106, i64 8
   %23 = load i64, ptr %arrayidx123.c, align 1
-  %arrayidx125.c = getelementptr inbounds [2 x i64], ptr %out.addr.2108, i64 0, i64 1
+  %arrayidx125.c = getelementptr inbounds i8, ptr %out.addr.2108, i64 8
   %24 = load i64, ptr %arrayidx125.c, align 1
   %xor126.c = xor i64 %24, %23
   store i64 %xor126.c, ptr %arrayidx125.c, align 1

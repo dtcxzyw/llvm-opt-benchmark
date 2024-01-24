@@ -3,11 +3,6 @@ source_filename = "bench/msdfgen/original/save-bmp.cpp.ll"
 target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:128-n8:16:32:64-S128"
 target triple = "x86_64-unknown-linux-gnu"
 
-%"struct.msdfgen::BitmapConstRef" = type { ptr, i32, i32 }
-%"struct.msdfgen::BitmapConstRef.0" = type { ptr, i32, i32 }
-%"struct.msdfgen::BitmapConstRef.1" = type { ptr, i32, i32 }
-%"struct.msdfgen::BitmapConstRef.2" = type { ptr, i32, i32 }
-
 @.str = private unnamed_addr constant [3 x i8] c"wb\00", align 1
 
 ; Function Attrs: mustprogress nofree nounwind uwtable
@@ -20,9 +15,9 @@ entry:
   br i1 %tobool.not, label %return, label %if.end
 
 if.end:                                           ; preds = %entry
-  %width = getelementptr inbounds %"struct.msdfgen::BitmapConstRef", ptr %bitmap, i64 0, i32 1
+  %width = getelementptr inbounds i8, ptr %bitmap, i64 8
   %0 = load i32, ptr %width, align 8
-  %height = getelementptr inbounds %"struct.msdfgen::BitmapConstRef", ptr %bitmap, i64 0, i32 2
+  %height = getelementptr inbounds i8, ptr %bitmap, i64 12
   %1 = load i32, ptr %height, align 4
   call fastcc void @_ZN7msdfgenL14writeBmpHeaderEP8_IO_FILEiiRi(ptr noundef nonnull %call, i32 noundef %0, i32 noundef %1, ptr noundef nonnull align 4 dereferenceable(4) %paddedWidth)
   store i32 0, ptr %padding, align 4
@@ -195,9 +190,9 @@ entry:
   br i1 %tobool.not, label %return, label %if.end
 
 if.end:                                           ; preds = %entry
-  %width = getelementptr inbounds %"struct.msdfgen::BitmapConstRef.0", ptr %bitmap, i64 0, i32 1
+  %width = getelementptr inbounds i8, ptr %bitmap, i64 8
   %0 = load i32, ptr %width, align 8
-  %height = getelementptr inbounds %"struct.msdfgen::BitmapConstRef.0", ptr %bitmap, i64 0, i32 2
+  %height = getelementptr inbounds i8, ptr %bitmap, i64 12
   %1 = load i32, ptr %height, align 4
   call fastcc void @_ZN7msdfgenL14writeBmpHeaderEP8_IO_FILEiiRi(ptr noundef nonnull %call, i32 noundef %0, i32 noundef %1, ptr noundef nonnull align 4 dereferenceable(4) %paddedWidth)
   store i32 0, ptr %padding, align 4
@@ -277,9 +272,9 @@ entry:
   br i1 %tobool.not, label %return, label %if.end
 
 if.end:                                           ; preds = %entry
-  %width = getelementptr inbounds %"struct.msdfgen::BitmapConstRef.1", ptr %bitmap, i64 0, i32 1
+  %width = getelementptr inbounds i8, ptr %bitmap, i64 8
   %0 = load i32, ptr %width, align 8
-  %height = getelementptr inbounds %"struct.msdfgen::BitmapConstRef.1", ptr %bitmap, i64 0, i32 2
+  %height = getelementptr inbounds i8, ptr %bitmap, i64 12
   %1 = load i32, ptr %height, align 4
   call fastcc void @_ZN7msdfgenL14writeBmpHeaderEP8_IO_FILEiiRi(ptr noundef nonnull %call, i32 noundef %0, i32 noundef %1, ptr noundef nonnull align 4 dereferenceable(4) %paddedWidth)
   store i32 0, ptr %padding, align 4
@@ -360,9 +355,9 @@ entry:
   br i1 %tobool.not, label %return, label %if.end
 
 if.end:                                           ; preds = %entry
-  %width = getelementptr inbounds %"struct.msdfgen::BitmapConstRef.2", ptr %bitmap, i64 0, i32 1
+  %width = getelementptr inbounds i8, ptr %bitmap, i64 8
   %0 = load i32, ptr %width, align 8
-  %height = getelementptr inbounds %"struct.msdfgen::BitmapConstRef.2", ptr %bitmap, i64 0, i32 2
+  %height = getelementptr inbounds i8, ptr %bitmap, i64 12
   %1 = load i32, ptr %height, align 4
   call fastcc void @_ZN7msdfgenL14writeBmpHeaderEP8_IO_FILEiiRi(ptr noundef nonnull %call, i32 noundef %0, i32 noundef %1, ptr noundef nonnull align 4 dereferenceable(4) %paddedWidth)
   store i32 0, ptr %padding, align 4
@@ -395,7 +390,7 @@ for.body7:                                        ; preds = %for.cond4.preheader
   %mul2.i = mul nsw i32 %add.i, 3
   %idx.ext.i = sext i32 %mul2.i to i64
   %add.ptr.i = getelementptr inbounds float, ptr %7, i64 %idx.ext.i
-  %arrayidx = getelementptr inbounds float, ptr %add.ptr.i, i64 2
+  %arrayidx = getelementptr inbounds i8, ptr %add.ptr.i, i64 8
   %8 = load float, ptr %arrayidx, align 4
   %mul.i20 = fmul float %8, 2.560000e+02
   %cmp.i.i = fcmp ult float %mul.i20, 0.000000e+00
@@ -407,7 +402,7 @@ for.body7:                                        ; preds = %for.cond4.preheader
   %cond.i.i = select i1 %or.cond.i.i, float %mul.i.i, float %mul.i20
   %conv.i = fptoui float %cond.i.i to i8
   store i8 %conv.i, ptr %bgr, align 1
-  %arrayidx11 = getelementptr inbounds float, ptr %add.ptr.i, i64 1
+  %arrayidx11 = getelementptr inbounds i8, ptr %add.ptr.i, i64 4
   %9 = load float, ptr %arrayidx11, align 4
   %mul.i27 = fmul float %9, 2.560000e+02
   %cmp.i.i28 = fcmp ult float %mul.i27, 0.000000e+00

@@ -16,130 +16,13 @@ target triple = "x86_64-unknown-linux-gnu"
 %"struct.std::_Rb_tree_node_base" = type { i32, ptr, ptr, ptr }
 %"struct.ue2::suffix_id" = type { ptr, ptr, ptr, ptr, ptr, %"class.ue2::depth", %"class.ue2::depth" }
 %"class.ue2::depth" = type { i32 }
-%"class.ue2::RoseBuildImpl" = type <{ %"class.ue2::RoseBuild", ptr, %"struct.ue2::RoseGraph", %"class.ue2::graph_detail::vertex_descriptor", %"class.ue2::graph_detail::vertex_descriptor", %"class.ue2::RoseLiteralMap", %"class.std::map", %"class.std::deque.9", i8, [7 x i8], %"class.std::map.15", %"class.std::map.23", %"class.std::map.31", i32, i32, %"class.std::map.39", %"class.std::unordered_set", %"class.std::unordered_map.60", %"class.std::vector", %"class.std::unique_ptr", i32, i32, i64, %"class.ue2::QueueIndexFactory", [4 x i8], ptr, ptr, ptr, ptr, i32, [4 x i8] }>
-%"class.ue2::RoseBuild" = type { ptr }
-%"struct.ue2::RoseGraph" = type { %"class.ue2::ue2_graph" }
-%"class.ue2::ue2_graph" = type { %"class.boost::intrusive::list", i64, i64, i64, i64 }
-%"class.boost::intrusive::list" = type { %"class.boost::intrusive::list_impl" }
-%"class.boost::intrusive::list_impl" = type { %"struct.boost::intrusive::list_impl<boost::intrusive::bhtraits<ue2::ue2_graph<ue2::RoseGraph, ue2::RoseVertexProps, ue2::RoseEdgeProps>::vertex_node, boost::intrusive::list_node_traits<void *>, boost::intrusive::safe_link, boost::intrusive::dft_tag, 1>, unsigned long, true, void>::data_t" }
-%"struct.boost::intrusive::list_impl<boost::intrusive::bhtraits<ue2::ue2_graph<ue2::RoseGraph, ue2::RoseVertexProps, ue2::RoseEdgeProps>::vertex_node, boost::intrusive::list_node_traits<void *>, boost::intrusive::safe_link, boost::intrusive::dft_tag, 1>, unsigned long, true, void>::data_t" = type { %"struct.boost::intrusive::list_impl<boost::intrusive::bhtraits<ue2::ue2_graph<ue2::RoseGraph, ue2::RoseVertexProps, ue2::RoseEdgeProps>::vertex_node, boost::intrusive::list_node_traits<void *>, boost::intrusive::safe_link, boost::intrusive::dft_tag, 1>, unsigned long, true, void>::root_plus_size" }
-%"struct.boost::intrusive::list_impl<boost::intrusive::bhtraits<ue2::ue2_graph<ue2::RoseGraph, ue2::RoseVertexProps, ue2::RoseEdgeProps>::vertex_node, boost::intrusive::list_node_traits<void *>, boost::intrusive::safe_link, boost::intrusive::dft_tag, 1>, unsigned long, true, void>::root_plus_size" = type { %"struct.boost::intrusive::detail::size_holder", %"struct.boost::intrusive::detail::default_header_holder" }
-%"struct.boost::intrusive::detail::size_holder" = type { i64 }
-%"struct.boost::intrusive::detail::default_header_holder" = type { %"struct.boost::intrusive::list_node" }
-%"struct.boost::intrusive::list_node" = type { ptr, ptr }
 %"class.ue2::graph_detail::vertex_descriptor" = type { ptr, i64 }
-%"class.ue2::RoseLiteralMap" = type { %"class.std::deque", %"class.std::unordered_map" }
-%"class.std::deque" = type { %"class.std::_Deque_base" }
-%"class.std::_Deque_base" = type { %"struct.std::_Deque_base<ue2::rose_literal_id, std::allocator<ue2::rose_literal_id>>::_Deque_impl" }
-%"struct.std::_Deque_base<ue2::rose_literal_id, std::allocator<ue2::rose_literal_id>>::_Deque_impl" = type { %"struct.std::_Deque_base<ue2::rose_literal_id, std::allocator<ue2::rose_literal_id>>::_Deque_impl_data" }
-%"struct.std::_Deque_base<ue2::rose_literal_id, std::allocator<ue2::rose_literal_id>>::_Deque_impl_data" = type { ptr, i64, %"struct.std::_Deque_iterator", %"struct.std::_Deque_iterator" }
-%"struct.std::_Deque_iterator" = type { ptr, ptr, ptr, ptr }
-%"class.std::unordered_map" = type { %"class.std::_Hashtable" }
-%"class.std::_Hashtable" = type { ptr, i64, %"struct.std::__detail::_Hash_node_base", i64, %"struct.std::__detail::_Prime_rehash_policy", ptr }
-%"struct.std::__detail::_Hash_node_base" = type { ptr }
-%"struct.std::__detail::_Prime_rehash_policy" = type { float, i64 }
-%"class.std::map" = type { %"class.std::_Rb_tree" }
-%"class.std::_Rb_tree" = type { %"struct.std::_Rb_tree<ue2::graph_detail::vertex_descriptor<ue2::ue2_graph<ue2::RoseGraph, ue2::RoseVertexProps, ue2::RoseEdgeProps>>, std::pair<const ue2::graph_detail::vertex_descriptor<ue2::ue2_graph<ue2::RoseGraph, ue2::RoseVertexProps, ue2::RoseEdgeProps>>, ue2::graph_detail::vertex_descriptor<ue2::ue2_graph<ue2::RoseGraph, ue2::RoseVertexProps, ue2::RoseEdgeProps>>>, std::_Select1st<std::pair<const ue2::graph_detail::vertex_descriptor<ue2::ue2_graph<ue2::RoseGraph, ue2::RoseVertexProps, ue2::RoseEdgeProps>>, ue2::graph_detail::vertex_descriptor<ue2::ue2_graph<ue2::RoseGraph, ue2::RoseVertexProps, ue2::RoseEdgeProps>>>>, std::less<ue2::graph_detail::vertex_descriptor<ue2::ue2_graph<ue2::RoseGraph, ue2::RoseVertexProps, ue2::RoseEdgeProps>>>>::_Rb_tree_impl" }
-%"struct.std::_Rb_tree<ue2::graph_detail::vertex_descriptor<ue2::ue2_graph<ue2::RoseGraph, ue2::RoseVertexProps, ue2::RoseEdgeProps>>, std::pair<const ue2::graph_detail::vertex_descriptor<ue2::ue2_graph<ue2::RoseGraph, ue2::RoseVertexProps, ue2::RoseEdgeProps>>, ue2::graph_detail::vertex_descriptor<ue2::ue2_graph<ue2::RoseGraph, ue2::RoseVertexProps, ue2::RoseEdgeProps>>>, std::_Select1st<std::pair<const ue2::graph_detail::vertex_descriptor<ue2::ue2_graph<ue2::RoseGraph, ue2::RoseVertexProps, ue2::RoseEdgeProps>>, ue2::graph_detail::vertex_descriptor<ue2::ue2_graph<ue2::RoseGraph, ue2::RoseVertexProps, ue2::RoseEdgeProps>>>>, std::less<ue2::graph_detail::vertex_descriptor<ue2::ue2_graph<ue2::RoseGraph, ue2::RoseVertexProps, ue2::RoseEdgeProps>>>>::_Rb_tree_impl" = type { %"struct.std::_Rb_tree_key_compare", %"struct.std::_Rb_tree_header" }
-%"class.std::deque.9" = type { %"class.std::_Deque_base.10" }
-%"class.std::_Deque_base.10" = type { %"struct.std::_Deque_base<ue2::rose_literal_info, std::allocator<ue2::rose_literal_info>>::_Deque_impl" }
-%"struct.std::_Deque_base<ue2::rose_literal_info, std::allocator<ue2::rose_literal_info>>::_Deque_impl" = type { %"struct.std::_Deque_base<ue2::rose_literal_info, std::allocator<ue2::rose_literal_info>>::_Deque_impl_data" }
-%"struct.std::_Deque_base<ue2::rose_literal_info, std::allocator<ue2::rose_literal_info>>::_Deque_impl_data" = type { ptr, i64, %"struct.std::_Deque_iterator.14", %"struct.std::_Deque_iterator.14" }
-%"struct.std::_Deque_iterator.14" = type { ptr, ptr, ptr, ptr }
-%"class.std::map.15" = type { %"class.std::_Rb_tree.16" }
-%"class.std::_Rb_tree.16" = type { %"struct.std::_Rb_tree<unsigned long, std::pair<const unsigned long, std::vector<std::unique_ptr<ue2::raw_dfa>>>, std::_Select1st<std::pair<const unsigned long, std::vector<std::unique_ptr<ue2::raw_dfa>>>>, std::less<unsigned long>>::_Rb_tree_impl" }
-%"struct.std::_Rb_tree<unsigned long, std::pair<const unsigned long, std::vector<std::unique_ptr<ue2::raw_dfa>>>, std::_Select1st<std::pair<const unsigned long, std::vector<std::unique_ptr<ue2::raw_dfa>>>>, std::less<unsigned long>>::_Rb_tree_impl" = type { %"struct.std::_Rb_tree_key_compare.20", %"struct.std::_Rb_tree_header" }
-%"struct.std::_Rb_tree_key_compare.20" = type { %"struct.std::less.21" }
-%"struct.std::less.21" = type { i8 }
-%"class.std::map.23" = type { %"class.std::_Rb_tree.24" }
-%"class.std::_Rb_tree.24" = type { %"struct.std::_Rb_tree<ue2::simple_anchored_info, std::pair<const ue2::simple_anchored_info, std::set<unsigned int>>, std::_Select1st<std::pair<const ue2::simple_anchored_info, std::set<unsigned int>>>, std::less<ue2::simple_anchored_info>>::_Rb_tree_impl" }
-%"struct.std::_Rb_tree<ue2::simple_anchored_info, std::pair<const ue2::simple_anchored_info, std::set<unsigned int>>, std::_Select1st<std::pair<const ue2::simple_anchored_info, std::set<unsigned int>>>, std::less<ue2::simple_anchored_info>>::_Rb_tree_impl" = type { %"struct.std::_Rb_tree_key_compare.28", %"struct.std::_Rb_tree_header" }
-%"struct.std::_Rb_tree_key_compare.28" = type { %"struct.std::less.29" }
-%"struct.std::less.29" = type { i8 }
-%"class.std::map.31" = type { %"class.std::_Rb_tree.32" }
-%"class.std::_Rb_tree.32" = type { %"struct.std::_Rb_tree<unsigned int, std::pair<const unsigned int, std::set<unsigned int>>, std::_Select1st<std::pair<const unsigned int, std::set<unsigned int>>>, std::less<unsigned int>>::_Rb_tree_impl" }
-%"struct.std::_Rb_tree<unsigned int, std::pair<const unsigned int, std::set<unsigned int>>, std::_Select1st<std::pair<const unsigned int, std::set<unsigned int>>>, std::less<unsigned int>>::_Rb_tree_impl" = type { %"struct.std::_Rb_tree_key_compare.36", %"struct.std::_Rb_tree_header" }
-%"struct.std::_Rb_tree_key_compare.36" = type { %"struct.std::less.37" }
-%"struct.std::less.37" = type { i8 }
-%"class.std::map.39" = type { %"class.std::_Rb_tree.40" }
-%"class.std::_Rb_tree.40" = type { %"struct.std::_Rb_tree<unsigned int, std::pair<const unsigned int, ue2::rose_literal_id>, std::_Select1st<std::pair<const unsigned int, ue2::rose_literal_id>>, std::less<unsigned int>>::_Rb_tree_impl" }
-%"struct.std::_Rb_tree<unsigned int, std::pair<const unsigned int, ue2::rose_literal_id>, std::_Select1st<std::pair<const unsigned int, ue2::rose_literal_id>>, std::less<unsigned int>>::_Rb_tree_impl" = type { %"struct.std::_Rb_tree_key_compare.36", %"struct.std::_Rb_tree_header" }
-%"class.std::unordered_set" = type { %"class.std::_Hashtable.44" }
-%"class.std::_Hashtable.44" = type { ptr, i64, %"struct.std::__detail::_Hash_node_base", i64, %"struct.std::__detail::_Prime_rehash_policy", ptr }
-%"class.std::unordered_map.60" = type { %"class.std::_Hashtable.61" }
-%"class.std::_Hashtable.61" = type { ptr, i64, %"struct.std::__detail::_Hash_node_base", i64, %"struct.std::__detail::_Prime_rehash_policy", ptr }
-%"class.std::vector" = type { %"struct.std::_Vector_base" }
-%"struct.std::_Vector_base" = type { %"struct.std::_Vector_base<ue2::OutfixInfo, std::allocator<ue2::OutfixInfo>>::_Vector_impl" }
-%"struct.std::_Vector_base<ue2::OutfixInfo, std::allocator<ue2::OutfixInfo>>::_Vector_impl" = type { %"struct.std::_Vector_base<ue2::OutfixInfo, std::allocator<ue2::OutfixInfo>>::_Vector_impl_data" }
-%"struct.std::_Vector_base<ue2::OutfixInfo, std::allocator<ue2::OutfixInfo>>::_Vector_impl_data" = type { ptr, ptr, ptr }
-%"class.std::unique_ptr" = type { %"struct.std::__uniq_ptr_data" }
-%"struct.std::__uniq_ptr_data" = type { %"class.std::__uniq_ptr_impl" }
-%"class.std::__uniq_ptr_impl" = type { %"class.std::tuple" }
-%"class.std::tuple" = type { %"struct.std::_Tuple_impl" }
-%"struct.std::_Tuple_impl" = type { %"struct.std::_Head_base.78" }
-%"struct.std::_Head_base.78" = type { ptr }
-%"class.ue2::QueueIndexFactory" = type { i32 }
-%"struct.ue2::ue2_graph<ue2::RoseGraph, ue2::RoseVertexProps, ue2::RoseEdgeProps>::vertex_node" = type { %"class.boost::intrusive::list_base_hook", %"struct.ue2::RoseVertexProps", i64, %"class.boost::intrusive::list.133", %"class.boost::intrusive::list.137" }
-%"class.boost::intrusive::list_base_hook" = type { %"class.boost::intrusive::generic_hook" }
-%"class.boost::intrusive::generic_hook" = type { %"struct.boost::intrusive::node_holder" }
-%"struct.boost::intrusive::node_holder" = type { %"struct.boost::intrusive::list_node" }
-%"struct.ue2::RoseVertexProps" = type { i64, %"class.ue2::flat_set", i8, [7 x i8], %"class.ue2::flat_set", i64, i32, i32, i32, %"struct.ue2::LeftEngInfo", %"struct.ue2::RoseSuffixInfo" }
-%"class.ue2::flat_set" = type { %"class.ue2::flat_detail::flat_base" }
-%"class.ue2::flat_detail::flat_base" = type { %"class.std::tuple.90" }
-%"class.std::tuple.90" = type { %"struct.std::_Tuple_impl.91" }
-%"struct.std::_Tuple_impl.91" = type { %"struct.std::_Head_base.94" }
-%"struct.std::_Head_base.94" = type { %"class.boost::container::small_vector" }
-%"class.boost::container::small_vector" = type { %"class.boost::container::small_vector_base.base", [4 x i8] }
-%"class.boost::container::small_vector_base.base" = type <{ %"class.boost::container::vector", %"union.boost::move_detail::aligned_struct_wrapper" }>
-%"class.boost::container::vector" = type { %"struct.boost::container::vector_alloc_holder" }
-%"struct.boost::container::vector_alloc_holder" = type { ptr, i64, i64 }
-%"union.boost::move_detail::aligned_struct_wrapper" = type { %"struct.boost::move_detail::aligned_struct" }
-%"struct.boost::move_detail::aligned_struct" = type { [4 x i8] }
-%"struct.ue2::LeftEngInfo" = type { %"class.std::shared_ptr", %"class.std::shared_ptr.99", %"class.std::shared_ptr.102", %"class.std::shared_ptr.105", %"class.std::shared_ptr.108", i32, i32, %"class.ue2::depth", %"class.ue2::depth" }
-%"class.std::shared_ptr" = type { %"class.std::__shared_ptr" }
-%"class.std::__shared_ptr" = type { ptr, %"class.std::__shared_count" }
-%"class.std::__shared_count" = type { ptr }
-%"class.std::shared_ptr.99" = type { %"class.std::__shared_ptr.100" }
-%"class.std::__shared_ptr.100" = type { ptr, %"class.std::__shared_count" }
-%"class.std::shared_ptr.102" = type { %"class.std::__shared_ptr.103" }
-%"class.std::__shared_ptr.103" = type { ptr, %"class.std::__shared_count" }
-%"class.std::shared_ptr.105" = type { %"class.std::__shared_ptr.106" }
-%"class.std::__shared_ptr.106" = type { ptr, %"class.std::__shared_count" }
-%"class.std::shared_ptr.108" = type { %"class.std::__shared_ptr.109" }
-%"class.std::__shared_ptr.109" = type { ptr, %"class.std::__shared_count" }
-%"struct.ue2::RoseSuffixInfo" = type { i32, %"class.std::shared_ptr", %"class.std::shared_ptr.99", %"class.std::shared_ptr.105", %"class.std::shared_ptr.102", %"class.std::shared_ptr.108", %"class.ue2::depth", %"class.ue2::depth" }
-%"class.boost::intrusive::list.133" = type { %"class.boost::intrusive::list_impl.134" }
-%"class.boost::intrusive::list_impl.134" = type { %"struct.boost::intrusive::list_impl<boost::intrusive::bhtraits<ue2::ue2_graph<ue2::RoseGraph, ue2::RoseVertexProps, ue2::RoseEdgeProps>::edge_node, boost::intrusive::list_node_traits<void *>, boost::intrusive::normal_link, ue2::ue2_graph<ue2::RoseGraph, ue2::RoseVertexProps, ue2::RoseEdgeProps>::in_edge_tag, 1>, unsigned long, true, void>::data_t" }
-%"struct.boost::intrusive::list_impl<boost::intrusive::bhtraits<ue2::ue2_graph<ue2::RoseGraph, ue2::RoseVertexProps, ue2::RoseEdgeProps>::edge_node, boost::intrusive::list_node_traits<void *>, boost::intrusive::normal_link, ue2::ue2_graph<ue2::RoseGraph, ue2::RoseVertexProps, ue2::RoseEdgeProps>::in_edge_tag, 1>, unsigned long, true, void>::data_t" = type { %"struct.boost::intrusive::list_impl<boost::intrusive::bhtraits<ue2::ue2_graph<ue2::RoseGraph, ue2::RoseVertexProps, ue2::RoseEdgeProps>::edge_node, boost::intrusive::list_node_traits<void *>, boost::intrusive::normal_link, ue2::ue2_graph<ue2::RoseGraph, ue2::RoseVertexProps, ue2::RoseEdgeProps>::in_edge_tag, 1>, unsigned long, true, void>::root_plus_size" }
-%"struct.boost::intrusive::list_impl<boost::intrusive::bhtraits<ue2::ue2_graph<ue2::RoseGraph, ue2::RoseVertexProps, ue2::RoseEdgeProps>::edge_node, boost::intrusive::list_node_traits<void *>, boost::intrusive::normal_link, ue2::ue2_graph<ue2::RoseGraph, ue2::RoseVertexProps, ue2::RoseEdgeProps>::in_edge_tag, 1>, unsigned long, true, void>::root_plus_size" = type { %"struct.boost::intrusive::detail::size_holder", %"struct.boost::intrusive::detail::default_header_holder" }
-%"class.boost::intrusive::list.137" = type { %"class.boost::intrusive::list_impl.138" }
-%"class.boost::intrusive::list_impl.138" = type { %"struct.boost::intrusive::list_impl<boost::intrusive::bhtraits<ue2::ue2_graph<ue2::RoseGraph, ue2::RoseVertexProps, ue2::RoseEdgeProps>::edge_node, boost::intrusive::list_node_traits<void *>, boost::intrusive::safe_link, ue2::ue2_graph<ue2::RoseGraph, ue2::RoseVertexProps, ue2::RoseEdgeProps>::out_edge_tag, 1>, unsigned long, true, void>::data_t" }
-%"struct.boost::intrusive::list_impl<boost::intrusive::bhtraits<ue2::ue2_graph<ue2::RoseGraph, ue2::RoseVertexProps, ue2::RoseEdgeProps>::edge_node, boost::intrusive::list_node_traits<void *>, boost::intrusive::safe_link, ue2::ue2_graph<ue2::RoseGraph, ue2::RoseVertexProps, ue2::RoseEdgeProps>::out_edge_tag, 1>, unsigned long, true, void>::data_t" = type { %"struct.boost::intrusive::list_impl<boost::intrusive::bhtraits<ue2::ue2_graph<ue2::RoseGraph, ue2::RoseVertexProps, ue2::RoseEdgeProps>::edge_node, boost::intrusive::list_node_traits<void *>, boost::intrusive::safe_link, ue2::ue2_graph<ue2::RoseGraph, ue2::RoseVertexProps, ue2::RoseEdgeProps>::out_edge_tag, 1>, unsigned long, true, void>::root_plus_size" }
-%"struct.boost::intrusive::list_impl<boost::intrusive::bhtraits<ue2::ue2_graph<ue2::RoseGraph, ue2::RoseVertexProps, ue2::RoseEdgeProps>::edge_node, boost::intrusive::list_node_traits<void *>, boost::intrusive::safe_link, ue2::ue2_graph<ue2::RoseGraph, ue2::RoseVertexProps, ue2::RoseEdgeProps>::out_edge_tag, 1>, unsigned long, true, void>::root_plus_size" = type { %"struct.boost::intrusive::detail::size_holder", %"struct.boost::intrusive::detail::default_header_holder" }
-%"struct.std::_Rb_tree_node" = type { %"struct.std::_Rb_tree_node_base", %"struct.__gnu_cxx::__aligned_membuf" }
-%"struct.__gnu_cxx::__aligned_membuf" = type { [16 x i8] }
-%"struct.ue2::ue2_graph<ue2::RoseGraph, ue2::RoseVertexProps, ue2::RoseEdgeProps>::edge_node" = type { %"class.boost::intrusive::list_base_hook.143", %"class.boost::intrusive::list_base_hook.147", ptr, ptr, i64, %"struct.ue2::RoseEdgeProps" }
-%"class.boost::intrusive::list_base_hook.143" = type { %"class.boost::intrusive::generic_hook.144" }
-%"class.boost::intrusive::generic_hook.144" = type { %"struct.boost::intrusive::node_holder.145" }
-%"struct.boost::intrusive::node_holder.145" = type { %"struct.boost::intrusive::list_node" }
-%"class.boost::intrusive::list_base_hook.147" = type { %"class.boost::intrusive::generic_hook.148" }
-%"class.boost::intrusive::generic_hook.148" = type { %"struct.boost::intrusive::node_holder.149" }
-%"struct.boost::intrusive::node_holder.149" = type { %"struct.boost::intrusive::list_node" }
-%"struct.ue2::RoseEdgeProps" = type <{ i64, i32, i32, i32, i8, [3 x i8], i32, [4 x i8] }>
 %"class.boost::dfs_visitor" = type { %"struct.boost::null_visitor" }
 %"struct.boost::null_visitor" = type { i8 }
 %"class.std::unordered_map.160" = type { %"class.std::_Hashtable.161" }
 %"class.std::_Hashtable.161" = type { ptr, i64, %"struct.std::__detail::_Hash_node_base", i64, %"struct.std::__detail::_Prime_rehash_policy", ptr }
-%"struct.ue2::OutfixInfo" = type { %"class.boost::variant", %"struct.ue2::RevAccInfo", i32, %"class.ue2::depth", %"class.ue2::depth", i64, i8, i32 }
-%"class.boost::variant" = type { i32, [4 x i8], %"class.boost::aligned_storage" }
-%"class.boost::aligned_storage" = type { %"struct.boost::detail::aligned_storage::aligned_storage_imp" }
-%"struct.boost::detail::aligned_storage::aligned_storage_imp" = type { %"union.boost::detail::aligned_storage::aligned_storage_imp<48, 8>::data_t" }
-%"union.boost::detail::aligned_storage::aligned_storage_imp<48, 8>::data_t" = type { [48 x i8] }
-%"struct.ue2::RevAccInfo" = type { i8, %"class.std::vector.112", %"class.std::vector.112" }
-%"class.std::vector.112" = type { %"struct.std::_Vector_base.113" }
-%"struct.std::_Vector_base.113" = type { %"struct.std::_Vector_base<ue2::CharReach, std::allocator<ue2::CharReach>>::_Vector_impl" }
-%"struct.std::_Vector_base<ue2::CharReach, std::allocator<ue2::CharReach>>::_Vector_impl" = type { %"struct.std::_Vector_base<ue2::CharReach, std::allocator<ue2::CharReach>>::_Vector_impl_data" }
-%"struct.std::_Vector_base<ue2::CharReach, std::allocator<ue2::CharReach>>::_Vector_impl_data" = type { ptr, ptr, ptr }
+%"struct.std::__detail::_Hash_node_base" = type { ptr }
+%"struct.std::__detail::_Prime_rehash_policy" = type { float, i64 }
 %"class.std::vector.185" = type { %"struct.std::_Vector_base.186" }
 %"struct.std::_Vector_base.186" = type { %"struct.std::_Vector_base<std::pair<ue2::graph_detail::vertex_descriptor<ue2::ue2_graph<ue2::RoseGraph, ue2::RoseVertexProps, ue2::RoseEdgeProps>>, std::pair<boost::optional<ue2::graph_detail::edge_descriptor<ue2::ue2_graph<ue2::RoseGraph, ue2::RoseVertexProps, ue2::RoseEdgeProps>>>, std::pair<ue2::ue2_graph<ue2::RoseGraph, ue2::RoseVertexProps, ue2::RoseEdgeProps>::out_edge_iterator, ue2::ue2_graph<ue2::RoseGraph, ue2::RoseVertexProps, ue2::RoseEdgeProps>::out_edge_iterator>>>, std::allocator<std::pair<ue2::graph_detail::vertex_descriptor<ue2::ue2_graph<ue2::RoseGraph, ue2::RoseVertexProps, ue2::RoseEdgeProps>>, std::pair<boost::optional<ue2::graph_detail::edge_descriptor<ue2::ue2_graph<ue2::RoseGraph, ue2::RoseVertexProps, ue2::RoseEdgeProps>>>, std::pair<ue2::ue2_graph<ue2::RoseGraph, ue2::RoseVertexProps, ue2::RoseEdgeProps>::out_edge_iterator, ue2::ue2_graph<ue2::RoseGraph, ue2::RoseVertexProps, ue2::RoseEdgeProps>::out_edge_iterator>>>>>::_Vector_impl" }
 %"struct.std::_Vector_base<std::pair<ue2::graph_detail::vertex_descriptor<ue2::ue2_graph<ue2::RoseGraph, ue2::RoseVertexProps, ue2::RoseEdgeProps>>, std::pair<boost::optional<ue2::graph_detail::edge_descriptor<ue2::ue2_graph<ue2::RoseGraph, ue2::RoseVertexProps, ue2::RoseEdgeProps>>>, std::pair<ue2::ue2_graph<ue2::RoseGraph, ue2::RoseVertexProps, ue2::RoseEdgeProps>::out_edge_iterator, ue2::ue2_graph<ue2::RoseGraph, ue2::RoseVertexProps, ue2::RoseEdgeProps>::out_edge_iterator>>>, std::allocator<std::pair<ue2::graph_detail::vertex_descriptor<ue2::ue2_graph<ue2::RoseGraph, ue2::RoseVertexProps, ue2::RoseEdgeProps>>, std::pair<boost::optional<ue2::graph_detail::edge_descriptor<ue2::ue2_graph<ue2::RoseGraph, ue2::RoseVertexProps, ue2::RoseEdgeProps>>>, std::pair<ue2::ue2_graph<ue2::RoseGraph, ue2::RoseVertexProps, ue2::RoseEdgeProps>::out_edge_iterator, ue2::ue2_graph<ue2::RoseGraph, ue2::RoseVertexProps, ue2::RoseEdgeProps>::out_edge_iterator>>>>>::_Vector_impl" = type { %"struct.std::_Vector_base<std::pair<ue2::graph_detail::vertex_descriptor<ue2::ue2_graph<ue2::RoseGraph, ue2::RoseVertexProps, ue2::RoseEdgeProps>>, std::pair<boost::optional<ue2::graph_detail::edge_descriptor<ue2::ue2_graph<ue2::RoseGraph, ue2::RoseVertexProps, ue2::RoseEdgeProps>>>, std::pair<ue2::ue2_graph<ue2::RoseGraph, ue2::RoseVertexProps, ue2::RoseEdgeProps>::out_edge_iterator, ue2::ue2_graph<ue2::RoseGraph, ue2::RoseVertexProps, ue2::RoseEdgeProps>::out_edge_iterator>>>, std::allocator<std::pair<ue2::graph_detail::vertex_descriptor<ue2::ue2_graph<ue2::RoseGraph, ue2::RoseVertexProps, ue2::RoseEdgeProps>>, std::pair<boost::optional<ue2::graph_detail::edge_descriptor<ue2::ue2_graph<ue2::RoseGraph, ue2::RoseVertexProps, ue2::RoseEdgeProps>>>, std::pair<ue2::ue2_graph<ue2::RoseGraph, ue2::RoseVertexProps, ue2::RoseEdgeProps>::out_edge_iterator, ue2::ue2_graph<ue2::RoseGraph, ue2::RoseVertexProps, ue2::RoseEdgeProps>::out_edge_iterator>>>>>::_Vector_impl_data" }
@@ -198,17 +81,17 @@ entry:
   br i1 %or.cond129, label %return, label %invoke.cont6
 
 invoke.cont6:                                     ; preds = %entry
-  %g4 = getelementptr inbounds %"class.ue2::RoseBuildImpl", ptr %tbi, i64 0, i32 2
+  %g4 = getelementptr inbounds i8, ptr %tbi, i64 16
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %table_verts) #15
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %table_verts, i8 0, i64 24, i1 false)
-  %m_header.i.i.i.i.i.i = getelementptr inbounds %"class.ue2::RoseBuildImpl", ptr %tbi, i64 0, i32 2, i32 0, i32 0, i32 0, i32 0, i32 0, i32 1
+  %m_header.i.i.i.i.i.i = getelementptr inbounds i8, ptr %tbi, i64 24
   %__begin1.sroa.0.0211 = load ptr, ptr %m_header.i.i.i.i.i.i, align 8
   %cmp.i.i.i.i.not212 = icmp eq ptr %__begin1.sroa.0.0211, %m_header.i.i.i.i.i.i
   br i1 %cmp.i.i.i.i.not212, label %for.cond.cleanup, label %invoke.cont11.lr.ph
 
 invoke.cont11.lr.ph:                              ; preds = %invoke.cont6
-  %_M_finish.i = getelementptr inbounds %"struct.std::_Vector_base<ue2::graph_detail::vertex_descriptor<ue2::ue2_graph<ue2::RoseGraph, ue2::RoseVertexProps, ue2::RoseEdgeProps>>, std::allocator<ue2::graph_detail::vertex_descriptor<ue2::ue2_graph<ue2::RoseGraph, ue2::RoseVertexProps, ue2::RoseEdgeProps>>>>::_Vector_impl_data", ptr %table_verts, i64 0, i32 1
-  %_M_end_of_storage.i = getelementptr inbounds %"struct.std::_Vector_base<ue2::graph_detail::vertex_descriptor<ue2::ue2_graph<ue2::RoseGraph, ue2::RoseVertexProps, ue2::RoseEdgeProps>>, std::allocator<ue2::graph_detail::vertex_descriptor<ue2::ue2_graph<ue2::RoseGraph, ue2::RoseVertexProps, ue2::RoseEdgeProps>>>>::_Vector_impl_data", ptr %table_verts, i64 0, i32 2
+  %_M_finish.i = getelementptr inbounds i8, ptr %table_verts, i64 8
+  %_M_end_of_storage.i = getelementptr inbounds i8, ptr %table_verts, i64 16
   br label %invoke.cont11
 
 for.cond.cleanup:                                 ; preds = %if.end17, %invoke.cont6
@@ -229,7 +112,7 @@ for.cond.cleanup:                                 ; preds = %if.end17, %invoke.c
 invoke.cont11:                                    ; preds = %if.end17, %invoke.cont11.lr.ph
   %1 = phi ptr [ null, %invoke.cont11.lr.ph ], [ %7, %if.end17 ]
   %__begin1.sroa.0.0213 = phi ptr [ %__begin1.sroa.0.0211, %invoke.cont11.lr.ph ], [ %__begin1.sroa.0.0, %if.end17 ]
-  %serial2.i.i.i.i = getelementptr inbounds %"struct.ue2::ue2_graph<ue2::RoseGraph, ue2::RoseVertexProps, ue2::RoseEdgeProps>::vertex_node", ptr %__begin1.sroa.0.0213, i64 0, i32 2
+  %serial2.i.i.i.i = getelementptr inbounds i8, ptr %__begin1.sroa.0.0213, i64 312
   %2 = load i64, ptr %serial2.i.i.i.i, align 8
   %call14 = invoke noundef zeroext i1 @_ZNK3ue213RoseBuildImpl17hasLiteralInTableENS_12graph_detail17vertex_descriptorINS_9ue2_graphINS_9RoseGraphENS_15RoseVertexPropsENS_13RoseEdgePropsEEEEENS_18rose_literal_tableE(ptr noundef nonnull align 8 dereferenceable(780) %tbi, ptr nonnull %__begin1.sroa.0.0213, i64 %2, i32 noundef %table)
           to label %invoke.cont13 unwind label %lpad10.loopexit
@@ -247,7 +130,7 @@ if.then.i:                                        ; preds = %if.then15
   %v.sroa.6.0..sroa_idx = getelementptr inbounds i8, ptr %1, i64 8
   store i64 %2, ptr %v.sroa.6.0..sroa_idx, align 8
   %4 = load ptr, ptr %_M_finish.i, align 8
-  %incdec.ptr.i = getelementptr inbounds %"class.ue2::graph_detail::vertex_descriptor", ptr %4, i64 1
+  %incdec.ptr.i = getelementptr inbounds i8, ptr %4, i64 16
   store ptr %incdec.ptr.i, ptr %_M_finish.i, align 8
   br label %if.end17
 
@@ -294,14 +177,14 @@ for.body.i.i.i.i.i:                               ; preds = %_ZNSt12_Vector_base
   %__cur.08.i.i.i.i.i = phi ptr [ %incdec.ptr1.i.i.i.i.i, %for.body.i.i.i.i.i ], [ %cond.i31.i, %_ZNSt12_Vector_baseIN3ue212graph_detail17vertex_descriptorINS0_9ue2_graphINS0_9RoseGraphENS0_15RoseVertexPropsENS0_13RoseEdgePropsEEEEESaIS8_EE11_M_allocateEm.exit.i ]
   %__first.addr.07.i.i.i.i.i = phi ptr [ %incdec.ptr.i.i.i.i.i, %for.body.i.i.i.i.i ], [ %5, %_ZNSt12_Vector_baseIN3ue212graph_detail17vertex_descriptorINS0_9ue2_graphINS0_9RoseGraphENS0_15RoseVertexPropsENS0_13RoseEdgePropsEEEEESaIS8_EE11_M_allocateEm.exit.i ]
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %__cur.08.i.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(16) %__first.addr.07.i.i.i.i.i, i64 16, i1 false), !alias.scope !5
-  %incdec.ptr.i.i.i.i.i = getelementptr inbounds %"class.ue2::graph_detail::vertex_descriptor", ptr %__first.addr.07.i.i.i.i.i, i64 1
-  %incdec.ptr1.i.i.i.i.i = getelementptr inbounds %"class.ue2::graph_detail::vertex_descriptor", ptr %__cur.08.i.i.i.i.i, i64 1
+  %incdec.ptr.i.i.i.i.i = getelementptr inbounds i8, ptr %__first.addr.07.i.i.i.i.i, i64 16
+  %incdec.ptr1.i.i.i.i.i = getelementptr inbounds i8, ptr %__cur.08.i.i.i.i.i, i64 16
   %cmp.not.i.i.i.i.i = icmp eq ptr %incdec.ptr.i.i.i.i.i, %1
   br i1 %cmp.not.i.i.i.i.i, label %_ZNSt6vectorIN3ue212graph_detail17vertex_descriptorINS0_9ue2_graphINS0_9RoseGraphENS0_15RoseVertexPropsENS0_13RoseEdgePropsEEEEESaIS8_EE11_S_relocateEPS8_SB_SB_RS9_.exit40.i, label %for.body.i.i.i.i.i, !llvm.loop !9
 
 _ZNSt6vectorIN3ue212graph_detail17vertex_descriptorINS0_9ue2_graphINS0_9RoseGraphENS0_15RoseVertexPropsENS0_13RoseEdgePropsEEEEESaIS8_EE11_S_relocateEPS8_SB_SB_RS9_.exit40.i: ; preds = %for.body.i.i.i.i.i, %_ZNSt12_Vector_baseIN3ue212graph_detail17vertex_descriptorINS0_9ue2_graphINS0_9RoseGraphENS0_15RoseVertexPropsENS0_13RoseEdgePropsEEEEESaIS8_EE11_M_allocateEm.exit.i
   %__cur.0.lcssa.i.i.i.i.i = phi ptr [ %cond.i31.i, %_ZNSt12_Vector_baseIN3ue212graph_detail17vertex_descriptorINS0_9ue2_graphINS0_9RoseGraphENS0_15RoseVertexPropsENS0_13RoseEdgePropsEEEEESaIS8_EE11_M_allocateEm.exit.i ], [ %incdec.ptr1.i.i.i.i.i, %for.body.i.i.i.i.i ]
-  %incdec.ptr.i180 = getelementptr %"class.ue2::graph_detail::vertex_descriptor", ptr %__cur.0.lcssa.i.i.i.i.i, i64 1
+  %incdec.ptr.i180 = getelementptr i8, ptr %__cur.0.lcssa.i.i.i.i.i, i64 16
   %tobool.not.i.i181 = icmp eq ptr %5, null
   br i1 %tobool.not.i.i181, label %.noexc, label %if.then.i41.i
 
@@ -338,11 +221,11 @@ invoke.cont24:                                    ; preds = %for.cond.cleanup
   br i1 %cmp.i.not214, label %for.cond.cleanup33, label %for.body34.lr.ph
 
 for.body34.lr.ph:                                 ; preds = %invoke.cont24
-  %c.i = getelementptr inbounds %"struct.ue2::suffix_id", ptr %ref.tmp75, i64 0, i32 1
-  %d.i = getelementptr inbounds %"struct.ue2::suffix_id", ptr %ref.tmp75, i64 0, i32 2
-  %h.i = getelementptr inbounds %"struct.ue2::suffix_id", ptr %ref.tmp75, i64 0, i32 3
-  %t.i = getelementptr inbounds %"struct.ue2::suffix_id", ptr %ref.tmp75, i64 0, i32 4
-  %dfa_min_width.i = getelementptr inbounds %"struct.ue2::suffix_id", ptr %ref.tmp75, i64 0, i32 5
+  %c.i = getelementptr inbounds i8, ptr %ref.tmp75, i64 8
+  %d.i = getelementptr inbounds i8, ptr %ref.tmp75, i64 16
+  %h.i = getelementptr inbounds i8, ptr %ref.tmp75, i64 24
+  %t.i = getelementptr inbounds i8, ptr %ref.tmp75, i64 32
+  %dfa_min_width.i = getelementptr inbounds i8, ptr %ref.tmp75, i64 40
   br label %for.body34
 
 for.cond.cleanup33:                               ; preds = %cleanup, %invoke.cont24
@@ -380,22 +263,22 @@ lpad23:                                           ; preds = %for.cond.cleanup
 for.body34:                                       ; preds = %cleanup, %for.body34.lr.ph
   %minWidth.0216 = phi i32 [ -1, %for.body34.lr.ph ], [ %minWidth.4, %cleanup ]
   %__begin126.sroa.0.0215 = phi ptr [ %8, %for.body34.lr.ph ], [ %call.i, %cleanup ]
-  %_M_storage.i.i = getelementptr inbounds %"struct.std::_Rb_tree_node", ptr %__begin126.sroa.0.0215, i64 0, i32 1
+  %_M_storage.i.i = getelementptr inbounds i8, ptr %__begin126.sroa.0.0215, i64 32
   %v35.sroa.0.0.copyload = load ptr, ptr %_M_storage.i.i, align 8
-  %eod_accept = getelementptr inbounds %"struct.ue2::ue2_graph<ue2::RoseGraph, ue2::RoseVertexProps, ue2::RoseEdgeProps>::vertex_node", ptr %v35.sroa.0.0.copyload, i64 0, i32 1, i32 2
+  %eod_accept = getelementptr inbounds i8, ptr %v35.sroa.0.0.copyload, i64 56
   %14 = load i8, ptr %eod_accept, align 8, !range !11, !noundef !12
   %tobool.not = icmp eq i8 %14, 0
   br i1 %tobool.not, label %invoke.cont50, label %cleanup
 
 invoke.cont50:                                    ; preds = %for.body34
-  %min_offset = getelementptr inbounds %"struct.ue2::ue2_graph<ue2::RoseGraph, ue2::RoseVertexProps, ue2::RoseEdgeProps>::vertex_node", ptr %v35.sroa.0.0.copyload, i64 0, i32 1, i32 6
+  %min_offset = getelementptr inbounds i8, ptr %v35.sroa.0.0.copyload, i64 104
   %15 = load i32, ptr %min_offset, align 8
-  %m_size.i.i = getelementptr inbounds %"struct.ue2::ue2_graph<ue2::RoseGraph, ue2::RoseVertexProps, ue2::RoseEdgeProps>::vertex_node", ptr %v35.sroa.0.0.copyload, i64 0, i32 1, i32 4, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 1
+  %m_size.i.i = getelementptr inbounds i8, ptr %v35.sroa.0.0.copyload, i64 72
   %16 = load i64, ptr %m_size.i.i, align 8
   %tobool.not.i.i = icmp eq i64 %16, 0
   %.sroa.speculated192 = call i32 @llvm.umin.i32(i32 %15, i32 %minWidth.0216)
   %minWidth.1 = select i1 %tobool.not.i.i, i32 %minWidth.0216, i32 %.sroa.speculated192
-  %m_header.i.i.i.i.i.i.i = getelementptr inbounds %"struct.ue2::ue2_graph<ue2::RoseGraph, ue2::RoseVertexProps, ue2::RoseEdgeProps>::vertex_node", ptr %v35.sroa.0.0.copyload, i64 0, i32 4, i32 0, i32 0, i32 0, i32 1
+  %m_header.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %v35.sroa.0.0.copyload, i64 352
   br label %for.cond.i
 
 for.cond.i:                                       ; preds = %for.body.i, %invoke.cont50
@@ -405,9 +288,9 @@ for.cond.i:                                       ; preds = %for.body.i, %invoke
   br i1 %cmp.i.i.i.i.i.i.i.not.not.i.not, label %if.end68, label %for.body.i
 
 for.body.i:                                       ; preds = %for.cond.i
-  %target.i.i.i.i = getelementptr inbounds %"struct.ue2::ue2_graph<ue2::RoseGraph, ue2::RoseVertexProps, ue2::RoseEdgeProps>::edge_node", ptr %__begin1.sroa.0.0.i, i64 0, i32 3
+  %target.i.i.i.i = getelementptr inbounds i8, ptr %__begin1.sroa.0.0.i, i64 40
   %17 = load ptr, ptr %target.i.i.i.i, align 8
-  %eod_accept.i = getelementptr inbounds %"struct.ue2::ue2_graph<ue2::RoseGraph, ue2::RoseVertexProps, ue2::RoseEdgeProps>::vertex_node", ptr %17, i64 0, i32 1, i32 2
+  %eod_accept.i = getelementptr inbounds i8, ptr %17, i64 56
   %18 = load i8, ptr %eod_accept.i, align 8, !range !11, !noundef !12
   %tobool.not.i = icmp eq i8 %18, 0
   br i1 %tobool.not.i, label %for.cond.i, label %do.end65
@@ -418,20 +301,20 @@ do.end65:                                         ; preds = %for.body.i
 
 if.end68:                                         ; preds = %for.cond.i, %do.end65
   %minWidth.2 = phi i32 [ %.sroa.speculated189, %do.end65 ], [ %minWidth.1, %for.cond.i ]
-  %graph.i = getelementptr inbounds %"struct.ue2::ue2_graph<ue2::RoseGraph, ue2::RoseVertexProps, ue2::RoseEdgeProps>::vertex_node", ptr %v35.sroa.0.0.copyload, i64 0, i32 1, i32 10, i32 1
+  %graph.i = getelementptr inbounds i8, ptr %v35.sroa.0.0.copyload, i64 224
   %19 = load ptr, ptr %graph.i, align 8
-  %castle.i = getelementptr inbounds %"struct.ue2::ue2_graph<ue2::RoseGraph, ue2::RoseVertexProps, ue2::RoseEdgeProps>::vertex_node", ptr %v35.sroa.0.0.copyload, i64 0, i32 1, i32 10, i32 2
+  %castle.i = getelementptr inbounds i8, ptr %v35.sroa.0.0.copyload, i64 240
   %20 = load ptr, ptr %castle.i, align 8
-  %haig.i = getelementptr inbounds %"struct.ue2::ue2_graph<ue2::RoseGraph, ue2::RoseVertexProps, ue2::RoseEdgeProps>::vertex_node", ptr %v35.sroa.0.0.copyload, i64 0, i32 1, i32 10, i32 3
+  %haig.i = getelementptr inbounds i8, ptr %v35.sroa.0.0.copyload, i64 256
   %21 = load ptr, ptr %haig.i, align 8
-  %rdfa.i = getelementptr inbounds %"struct.ue2::ue2_graph<ue2::RoseGraph, ue2::RoseVertexProps, ue2::RoseEdgeProps>::vertex_node", ptr %v35.sroa.0.0.copyload, i64 0, i32 1, i32 10, i32 4
+  %rdfa.i = getelementptr inbounds i8, ptr %v35.sroa.0.0.copyload, i64 272
   %22 = load ptr, ptr %rdfa.i, align 8
   %23 = insertelement <4 x ptr> poison, ptr %19, i64 0
   %24 = insertelement <4 x ptr> %23, ptr %20, i64 1
   %25 = insertelement <4 x ptr> %24, ptr %22, i64 2
   %26 = insertelement <4 x ptr> %25, ptr %21, i64 3
   %.fr = freeze <4 x ptr> %26
-  %tamarama.i169.phi.trans.insert = getelementptr inbounds %"struct.ue2::ue2_graph<ue2::RoseGraph, ue2::RoseVertexProps, ue2::RoseEdgeProps>::vertex_node", ptr %v35.sroa.0.0.copyload, i64 0, i32 1, i32 10, i32 5
+  %tamarama.i169.phi.trans.insert = getelementptr inbounds i8, ptr %v35.sroa.0.0.copyload, i64 288
   %.pre = load ptr, ptr %tamarama.i169.phi.trans.insert, align 8
   %cmp.i11.i.not = icmp eq ptr %.pre, null
   %27 = icmp ne <4 x ptr> %.fr, zeroinitializer
@@ -441,14 +324,14 @@ if.end68:                                         ; preds = %for.cond.i, %do.end
   br i1 %op.rdx, label %cleanup, label %if.then74
 
 if.then74:                                        ; preds = %if.end68
-  %suffix = getelementptr inbounds %"struct.ue2::ue2_graph<ue2::RoseGraph, ue2::RoseVertexProps, ue2::RoseEdgeProps>::vertex_node", ptr %v35.sroa.0.0.copyload, i64 0, i32 1, i32 10
+  %suffix = getelementptr inbounds i8, ptr %v35.sroa.0.0.copyload, i64 216
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %ref.tmp75) #15
   store ptr %19, ptr %ref.tmp75, align 8
   store ptr %20, ptr %c.i, align 8
   store ptr %22, ptr %d.i, align 8
   store ptr %21, ptr %h.i, align 8
   store ptr %.pre, ptr %t.i, align 8
-  %dfa_min_width6.i = getelementptr inbounds %"struct.ue2::ue2_graph<ue2::RoseGraph, ue2::RoseVertexProps, ue2::RoseEdgeProps>::vertex_node", ptr %v35.sroa.0.0.copyload, i64 0, i32 1, i32 10, i32 6
+  %dfa_min_width6.i = getelementptr inbounds i8, ptr %v35.sroa.0.0.copyload, i64 304
   %30 = load <2 x i32>, ptr %dfa_min_width6.i, align 8
   store <2 x i32> %30, ptr %dfa_min_width.i, align 8
   %31 = load i32, ptr %suffix, align 8
@@ -534,18 +417,18 @@ entry:
   %vis.i = alloca %"class.boost::dfs_visitor", align 1
   %colours = alloca %"class.std::unordered_map.160", align 8
   call void @llvm.lifetime.start.p0(i64 56, ptr nonnull %colours) #15
-  %_M_single_bucket.i.i = getelementptr inbounds %"class.std::_Hashtable.161", ptr %colours, i64 0, i32 5
+  %_M_single_bucket.i.i = getelementptr inbounds i8, ptr %colours, i64 48
   store ptr %_M_single_bucket.i.i, ptr %colours, align 8
-  %_M_bucket_count.i.i = getelementptr inbounds %"class.std::_Hashtable.161", ptr %colours, i64 0, i32 1
+  %_M_bucket_count.i.i = getelementptr inbounds i8, ptr %colours, i64 8
   store i64 1, ptr %_M_bucket_count.i.i, align 8
-  %_M_before_begin.i.i = getelementptr inbounds %"class.std::_Hashtable.161", ptr %colours, i64 0, i32 2
-  %_M_rehash_policy.i.i = getelementptr inbounds %"class.std::_Hashtable.161", ptr %colours, i64 0, i32 4
+  %_M_before_begin.i.i = getelementptr inbounds i8, ptr %colours, i64 16
+  %_M_rehash_policy.i.i = getelementptr inbounds i8, ptr %colours, i64 32
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %_M_before_begin.i.i, i8 0, i64 16, i1 false)
   store float 1.000000e+00, ptr %_M_rehash_policy.i.i, align 8
-  %_M_next_resize.i.i.i = getelementptr inbounds %"class.std::_Hashtable.161", ptr %colours, i64 0, i32 4, i32 1
+  %_M_next_resize.i.i.i = getelementptr inbounds i8, ptr %colours, i64 40
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %_M_next_resize.i.i.i, i8 0, i64 16, i1 false)
   %0 = load ptr, ptr %sources, align 8
-  %_M_finish.i = getelementptr inbounds %"struct.std::_Vector_base<ue2::graph_detail::vertex_descriptor<ue2::ue2_graph<ue2::RoseGraph, ue2::RoseVertexProps, ue2::RoseEdgeProps>>, std::allocator<ue2::graph_detail::vertex_descriptor<ue2::ue2_graph<ue2::RoseGraph, ue2::RoseVertexProps, ue2::RoseEdgeProps>>>>::_Vector_impl_data", ptr %sources, i64 0, i32 1
+  %_M_finish.i = getelementptr inbounds i8, ptr %sources, i64 8
   %1 = load ptr, ptr %_M_finish.i, align 8
   %cmp.i.not45 = icmp eq ptr %0, %1
   br i1 %cmp.i.not45, label %_ZNSt10_HashtableIN3ue212graph_detail17vertex_descriptorINS0_9ue2_graphINS0_9RoseGraphENS0_15RoseVertexPropsENS0_13RoseEdgePropsEEEEESt4pairIKS8_N5boost18default_color_typeEESaISD_ENSt8__detail10_Select1stESt8equal_toIS8_ESt4hashIS8_ENSF_18_Mod_range_hashingENSF_20_Default_ranged_hashENSF_20_Prime_rehash_policyENSF_17_Hashtable_traitsILb1ELb0ELb1EEEE5clearEv.exit.i.i, label %invoke.cont8
@@ -566,7 +449,7 @@ invoke.cont8:                                     ; preds = %entry, %invoke.cont
 
 invoke.cont12:                                    ; preds = %invoke.cont8
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %vis.i)
-  %incdec.ptr.i = getelementptr inbounds %"class.ue2::graph_detail::vertex_descriptor", ptr %__begin0.sroa.0.046, i64 1
+  %incdec.ptr.i = getelementptr inbounds i8, ptr %__begin0.sroa.0.046, i64 16
   %cmp.i.not = icmp eq ptr %incdec.ptr.i, %1
   br i1 %cmp.i.not, label %for.cond.cleanup, label %invoke.cont8
 
@@ -654,17 +537,17 @@ define hidden noundef i32 @_ZN3ue214findMaxBAWidthERKNS_13RoseBuildImplE(ptr nou
 entry:
   %ref.tmp54 = alloca %"struct.ue2::suffix_id", align 8
   %ref.tmp61 = alloca %"struct.ue2::suffix_id", align 8
-  %root = getelementptr inbounds %"class.ue2::RoseBuildImpl", ptr %tbi, i64 0, i32 3
+  %root = getelementptr inbounds i8, ptr %tbi, i64 72
   %agg.tmp.sroa.0.0.copyload.i = load ptr, ptr %root, align 8
-  %out_edge_list.i.i.i = getelementptr inbounds %"struct.ue2::ue2_graph<ue2::RoseGraph, ue2::RoseVertexProps, ue2::RoseEdgeProps>::vertex_node", ptr %agg.tmp.sroa.0.0.copyload.i, i64 0, i32 4
+  %out_edge_list.i.i.i = getelementptr inbounds i8, ptr %agg.tmp.sroa.0.0.copyload.i, i64 344
   %0 = load i64, ptr %out_edge_list.i.i.i, align 8
   %cmp.i = icmp eq i64 %0, 0
   br i1 %cmp.i, label %if.end, label %cleanup111
 
 if.end:                                           ; preds = %entry
-  %outfixes = getelementptr inbounds %"class.ue2::RoseBuildImpl", ptr %tbi, i64 0, i32 18
+  %outfixes = getelementptr inbounds i8, ptr %tbi, i64 688
   %1 = load ptr, ptr %outfixes, align 8
-  %_M_finish.i = getelementptr inbounds %"class.ue2::RoseBuildImpl", ptr %tbi, i64 0, i32 18, i32 0, i32 0, i32 0, i32 1
+  %_M_finish.i = getelementptr inbounds i8, ptr %tbi, i64 696
   %2 = load ptr, ptr %_M_finish.i, align 8
   %cmp.i143.not213 = icmp eq ptr %1, %2
   br i1 %cmp.i143.not213, label %for.end, label %for.body
@@ -672,7 +555,7 @@ if.end:                                           ; preds = %entry
 for.body:                                         ; preds = %if.end, %for.inc
   %maxWidth.0215 = phi i64 [ %.sroa.speculated199, %for.inc ], [ 0, %if.end ]
   %__begin1.sroa.0.0214 = phi ptr [ %incdec.ptr.i, %for.inc ], [ %1, %if.end ]
-  %maxBAWidth = getelementptr inbounds %"struct.ue2::OutfixInfo", ptr %__begin1.sroa.0.0214, i64 0, i32 2
+  %maxBAWidth = getelementptr inbounds i8, ptr %__begin1.sroa.0.0214, i64 112
   %3 = load i32, ptr %maxBAWidth, align 8
   %cmp.not = icmp eq i32 %3, -1
   br i1 %cmp.not, label %cleanup111, label %for.inc
@@ -680,63 +563,63 @@ for.body:                                         ; preds = %if.end, %for.inc
 for.inc:                                          ; preds = %for.body
   %conv = zext i32 %3 to i64
   %.sroa.speculated199 = tail call i64 @llvm.umax.i64(i64 %maxWidth.0215, i64 %conv)
-  %incdec.ptr.i = getelementptr inbounds %"struct.ue2::OutfixInfo", ptr %__begin1.sroa.0.0214, i64 1
+  %incdec.ptr.i = getelementptr inbounds i8, ptr %__begin1.sroa.0.0214, i64 144
   %cmp.i143.not = icmp eq ptr %incdec.ptr.i, %2
   br i1 %cmp.i143.not, label %for.end, label %for.body
 
 for.end:                                          ; preds = %for.inc, %if.end
   %maxWidth.0.lcssa = phi i64 [ 0, %if.end ], [ %.sroa.speculated199, %for.inc ]
-  %m_header.i.i.i.i.i.i = getelementptr inbounds %"class.ue2::RoseBuildImpl", ptr %tbi, i64 0, i32 2, i32 0, i32 0, i32 0, i32 0, i32 0, i32 1
+  %m_header.i.i.i.i.i.i = getelementptr inbounds i8, ptr %tbi, i64 24
   %__begin120.sroa.0.0216 = load ptr, ptr %m_header.i.i.i.i.i.i, align 8
   %cmp.i.i.i.i.not217 = icmp eq ptr %__begin120.sroa.0.0216, %m_header.i.i.i.i.i.i
   br i1 %cmp.i.i.i.i.not217, label %do.end108, label %for.body25.lr.ph
 
 for.body25.lr.ph:                                 ; preds = %for.end
-  %c.i = getelementptr inbounds %"struct.ue2::suffix_id", ptr %ref.tmp54, i64 0, i32 1
-  %d.i = getelementptr inbounds %"struct.ue2::suffix_id", ptr %ref.tmp54, i64 0, i32 2
-  %h.i = getelementptr inbounds %"struct.ue2::suffix_id", ptr %ref.tmp54, i64 0, i32 3
-  %t.i = getelementptr inbounds %"struct.ue2::suffix_id", ptr %ref.tmp54, i64 0, i32 4
-  %dfa_min_width.i = getelementptr inbounds %"struct.ue2::suffix_id", ptr %ref.tmp54, i64 0, i32 5
-  %c.i175 = getelementptr inbounds %"struct.ue2::suffix_id", ptr %ref.tmp61, i64 0, i32 1
-  %d.i177 = getelementptr inbounds %"struct.ue2::suffix_id", ptr %ref.tmp61, i64 0, i32 2
-  %h.i179 = getelementptr inbounds %"struct.ue2::suffix_id", ptr %ref.tmp61, i64 0, i32 3
-  %t.i181 = getelementptr inbounds %"struct.ue2::suffix_id", ptr %ref.tmp61, i64 0, i32 4
-  %dfa_min_width.i183 = getelementptr inbounds %"struct.ue2::suffix_id", ptr %ref.tmp61, i64 0, i32 5
+  %c.i = getelementptr inbounds i8, ptr %ref.tmp54, i64 8
+  %d.i = getelementptr inbounds i8, ptr %ref.tmp54, i64 16
+  %h.i = getelementptr inbounds i8, ptr %ref.tmp54, i64 24
+  %t.i = getelementptr inbounds i8, ptr %ref.tmp54, i64 32
+  %dfa_min_width.i = getelementptr inbounds i8, ptr %ref.tmp54, i64 40
+  %c.i175 = getelementptr inbounds i8, ptr %ref.tmp61, i64 8
+  %d.i177 = getelementptr inbounds i8, ptr %ref.tmp61, i64 16
+  %h.i179 = getelementptr inbounds i8, ptr %ref.tmp61, i64 24
+  %t.i181 = getelementptr inbounds i8, ptr %ref.tmp61, i64 32
+  %dfa_min_width.i183 = getelementptr inbounds i8, ptr %ref.tmp61, i64 40
   br label %for.body25
 
 for.body25:                                       ; preds = %for.inc98, %for.body25.lr.ph
   %__begin120.sroa.0.0219 = phi ptr [ %__begin120.sroa.0.0216, %for.body25.lr.ph ], [ %__begin120.sroa.0.0, %for.inc98 ]
   %maxWidth.2218 = phi i64 [ %maxWidth.0.lcssa, %for.body25.lr.ph ], [ %maxWidth.4, %for.inc98 ]
-  %m_size.i.i = getelementptr inbounds %"struct.ue2::ue2_graph<ue2::RoseGraph, ue2::RoseVertexProps, ue2::RoseEdgeProps>::vertex_node", ptr %__begin120.sroa.0.0219, i64 0, i32 1, i32 4, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 1
+  %m_size.i.i = getelementptr inbounds i8, ptr %__begin120.sroa.0.0219, i64 72
   %4 = load i64, ptr %m_size.i.i, align 8
   %tobool.not.i.i = icmp eq i64 %4, 0
   br i1 %tobool.not.i.i, label %land.lhs.true40, label %land.lhs.true
 
 land.lhs.true:                                    ; preds = %for.body25
-  %eod_accept = getelementptr inbounds %"struct.ue2::ue2_graph<ue2::RoseGraph, ue2::RoseVertexProps, ue2::RoseEdgeProps>::vertex_node", ptr %__begin120.sroa.0.0219, i64 0, i32 1, i32 2
+  %eod_accept = getelementptr inbounds i8, ptr %__begin120.sroa.0.0219, i64 56
   %5 = load i8, ptr %eod_accept, align 8, !range !11, !noundef !12
   %tobool.not = icmp eq i8 %5, 0
   br i1 %tobool.not, label %cleanup111, label %land.lhs.true.if.end45_crit_edge
 
 land.lhs.true.if.end45_crit_edge:                 ; preds = %land.lhs.true
-  %graph.i152.phi.trans.insert = getelementptr inbounds %"struct.ue2::ue2_graph<ue2::RoseGraph, ue2::RoseVertexProps, ue2::RoseEdgeProps>::vertex_node", ptr %__begin120.sroa.0.0219, i64 0, i32 1, i32 10, i32 1
+  %graph.i152.phi.trans.insert = getelementptr inbounds i8, ptr %__begin120.sroa.0.0219, i64 224
   %.pre = load ptr, ptr %graph.i152.phi.trans.insert, align 8
-  %castle.i154.phi.trans.insert = getelementptr inbounds %"struct.ue2::ue2_graph<ue2::RoseGraph, ue2::RoseVertexProps, ue2::RoseEdgeProps>::vertex_node", ptr %__begin120.sroa.0.0219, i64 0, i32 1, i32 10, i32 2
+  %castle.i154.phi.trans.insert = getelementptr inbounds i8, ptr %__begin120.sroa.0.0219, i64 240
   %.pre222 = load ptr, ptr %castle.i154.phi.trans.insert, align 8
-  %haig.i157.phi.trans.insert = getelementptr inbounds %"struct.ue2::ue2_graph<ue2::RoseGraph, ue2::RoseVertexProps, ue2::RoseEdgeProps>::vertex_node", ptr %__begin120.sroa.0.0219, i64 0, i32 1, i32 10, i32 3
+  %haig.i157.phi.trans.insert = getelementptr inbounds i8, ptr %__begin120.sroa.0.0219, i64 256
   %.pre223 = load ptr, ptr %haig.i157.phi.trans.insert, align 8
-  %rdfa.i160.phi.trans.insert = getelementptr inbounds %"struct.ue2::ue2_graph<ue2::RoseGraph, ue2::RoseVertexProps, ue2::RoseEdgeProps>::vertex_node", ptr %__begin120.sroa.0.0219, i64 0, i32 1, i32 10, i32 4
+  %rdfa.i160.phi.trans.insert = getelementptr inbounds i8, ptr %__begin120.sroa.0.0219, i64 272
   %.pre224 = load ptr, ptr %rdfa.i160.phi.trans.insert, align 8
   br label %if.end45
 
 land.lhs.true40:                                  ; preds = %for.body25
-  %graph.i = getelementptr inbounds %"struct.ue2::ue2_graph<ue2::RoseGraph, ue2::RoseVertexProps, ue2::RoseEdgeProps>::vertex_node", ptr %__begin120.sroa.0.0219, i64 0, i32 1, i32 10, i32 1
+  %graph.i = getelementptr inbounds i8, ptr %__begin120.sroa.0.0219, i64 224
   %6 = load ptr, ptr %graph.i, align 8
-  %castle.i = getelementptr inbounds %"struct.ue2::ue2_graph<ue2::RoseGraph, ue2::RoseVertexProps, ue2::RoseEdgeProps>::vertex_node", ptr %__begin120.sroa.0.0219, i64 0, i32 1, i32 10, i32 2
+  %castle.i = getelementptr inbounds i8, ptr %__begin120.sroa.0.0219, i64 240
   %7 = load ptr, ptr %castle.i, align 8
-  %haig.i = getelementptr inbounds %"struct.ue2::ue2_graph<ue2::RoseGraph, ue2::RoseVertexProps, ue2::RoseEdgeProps>::vertex_node", ptr %__begin120.sroa.0.0219, i64 0, i32 1, i32 10, i32 3
+  %haig.i = getelementptr inbounds i8, ptr %__begin120.sroa.0.0219, i64 256
   %8 = load ptr, ptr %haig.i, align 8
-  %rdfa.i = getelementptr inbounds %"struct.ue2::ue2_graph<ue2::RoseGraph, ue2::RoseVertexProps, ue2::RoseEdgeProps>::vertex_node", ptr %__begin120.sroa.0.0219, i64 0, i32 1, i32 10, i32 4
+  %rdfa.i = getelementptr inbounds i8, ptr %__begin120.sroa.0.0219, i64 272
   %9 = load ptr, ptr %rdfa.i, align 8
   %10 = insertelement <4 x ptr> poison, ptr %7, i64 0
   %11 = insertelement <4 x ptr> %10, ptr %6, i64 1
@@ -749,7 +632,7 @@ land.lhs.true40:                                  ; preds = %for.body25
   br i1 %.not, label %_ZNK3ue214RoseSuffixInfocvbEv.exit, label %if.end45
 
 _ZNK3ue214RoseSuffixInfocvbEv.exit:               ; preds = %land.lhs.true40
-  %tamarama.i = getelementptr inbounds %"struct.ue2::ue2_graph<ue2::RoseGraph, ue2::RoseVertexProps, ue2::RoseEdgeProps>::vertex_node", ptr %__begin120.sroa.0.0219, i64 0, i32 1, i32 10, i32 5
+  %tamarama.i = getelementptr inbounds i8, ptr %__begin120.sroa.0.0219, i64 288
   %16 = load ptr, ptr %tamarama.i, align 8
   %cmp.i11.i.not = icmp eq ptr %16, null
   br i1 %cmp.i11.i.not, label %for.inc98, label %if.end45
@@ -759,16 +642,16 @@ if.end45:                                         ; preds = %_ZNK3ue214RoseSuffi
   %18 = phi ptr [ %.pre223, %land.lhs.true.if.end45_crit_edge ], [ %8, %land.lhs.true40 ], [ null, %_ZNK3ue214RoseSuffixInfocvbEv.exit ]
   %19 = phi ptr [ %.pre222, %land.lhs.true.if.end45_crit_edge ], [ %7, %land.lhs.true40 ], [ null, %_ZNK3ue214RoseSuffixInfocvbEv.exit ]
   %20 = phi ptr [ %.pre, %land.lhs.true.if.end45_crit_edge ], [ %6, %land.lhs.true40 ], [ null, %_ZNK3ue214RoseSuffixInfocvbEv.exit ]
-  %max_offset = getelementptr inbounds %"struct.ue2::ue2_graph<ue2::RoseGraph, ue2::RoseVertexProps, ue2::RoseEdgeProps>::vertex_node", ptr %__begin120.sroa.0.0219, i64 0, i32 1, i32 7
+  %max_offset = getelementptr inbounds i8, ptr %__begin120.sroa.0.0219, i64 108
   %21 = load i32, ptr %max_offset, align 4
   %conv48 = zext i32 %21 to i64
-  %suffix51 = getelementptr inbounds %"struct.ue2::ue2_graph<ue2::RoseGraph, ue2::RoseVertexProps, ue2::RoseEdgeProps>::vertex_node", ptr %__begin120.sroa.0.0219, i64 0, i32 1, i32 10
-  %graph.i152 = getelementptr inbounds %"struct.ue2::ue2_graph<ue2::RoseGraph, ue2::RoseVertexProps, ue2::RoseEdgeProps>::vertex_node", ptr %__begin120.sroa.0.0219, i64 0, i32 1, i32 10, i32 1
-  %castle.i154 = getelementptr inbounds %"struct.ue2::ue2_graph<ue2::RoseGraph, ue2::RoseVertexProps, ue2::RoseEdgeProps>::vertex_node", ptr %__begin120.sroa.0.0219, i64 0, i32 1, i32 10, i32 2
+  %suffix51 = getelementptr inbounds i8, ptr %__begin120.sroa.0.0219, i64 216
+  %graph.i152 = getelementptr inbounds i8, ptr %__begin120.sroa.0.0219, i64 224
+  %castle.i154 = getelementptr inbounds i8, ptr %__begin120.sroa.0.0219, i64 240
   %cmp.i8.i155 = icmp eq ptr %19, null
-  %haig.i157 = getelementptr inbounds %"struct.ue2::ue2_graph<ue2::RoseGraph, ue2::RoseVertexProps, ue2::RoseEdgeProps>::vertex_node", ptr %__begin120.sroa.0.0219, i64 0, i32 1, i32 10, i32 3
-  %rdfa.i160 = getelementptr inbounds %"struct.ue2::ue2_graph<ue2::RoseGraph, ue2::RoseVertexProps, ue2::RoseEdgeProps>::vertex_node", ptr %__begin120.sroa.0.0219, i64 0, i32 1, i32 10, i32 4
-  %tamarama.i172.phi.trans.insert = getelementptr inbounds %"struct.ue2::ue2_graph<ue2::RoseGraph, ue2::RoseVertexProps, ue2::RoseEdgeProps>::vertex_node", ptr %__begin120.sroa.0.0219, i64 0, i32 1, i32 10, i32 5
+  %haig.i157 = getelementptr inbounds i8, ptr %__begin120.sroa.0.0219, i64 256
+  %rdfa.i160 = getelementptr inbounds i8, ptr %__begin120.sroa.0.0219, i64 272
+  %tamarama.i172.phi.trans.insert = getelementptr inbounds i8, ptr %__begin120.sroa.0.0219, i64 288
   %.pre225 = load ptr, ptr %tamarama.i172.phi.trans.insert, align 8
   %22 = insertelement <4 x ptr> poison, ptr %20, i64 0
   %23 = insertelement <4 x ptr> %22, ptr %18, i64 1
@@ -788,7 +671,7 @@ if.then53:                                        ; preds = %if.end45
   store ptr %17, ptr %d.i, align 8
   store ptr %18, ptr %h.i, align 8
   store ptr %.pre225, ptr %t.i, align 8
-  %dfa_min_width6.i = getelementptr inbounds %"struct.ue2::ue2_graph<ue2::RoseGraph, ue2::RoseVertexProps, ue2::RoseEdgeProps>::vertex_node", ptr %__begin120.sroa.0.0219, i64 0, i32 1, i32 10, i32 6
+  %dfa_min_width6.i = getelementptr inbounds i8, ptr %__begin120.sroa.0.0219, i64 304
   %29 = load <2 x i32>, ptr %dfa_min_width6.i, align 8
   store <2 x i32> %29, ptr %dfa_min_width.i, align 8
   %call58 = call noundef zeroext i1 @_ZN3ue219has_non_eod_acceptsERKNS_9suffix_idE(ptr noundef nonnull align 8 dereferenceable(48) %ref.tmp54)
@@ -853,10 +736,10 @@ entry:
   %reachable = alloca %"class.std::set", align 8
   %ref.tmp87 = alloca %"struct.ue2::suffix_id", align 8
   %ref.tmp102 = alloca %"struct.ue2::suffix_id", align 8
-  %g1 = getelementptr inbounds %"class.ue2::RoseBuildImpl", ptr %tbi, i64 0, i32 2
-  %root = getelementptr inbounds %"class.ue2::RoseBuildImpl", ptr %tbi, i64 0, i32 3
+  %g1 = getelementptr inbounds i8, ptr %tbi, i64 16
+  %root = getelementptr inbounds i8, ptr %tbi, i64 72
   %agg.tmp.sroa.0.0.copyload.i = load ptr, ptr %root, align 8
-  %out_edge_list.i.i.i = getelementptr inbounds %"struct.ue2::ue2_graph<ue2::RoseGraph, ue2::RoseVertexProps, ue2::RoseEdgeProps>::vertex_node", ptr %agg.tmp.sroa.0.0.copyload.i, i64 0, i32 4
+  %out_edge_list.i.i.i = getelementptr inbounds i8, ptr %agg.tmp.sroa.0.0.copyload.i, i64 344
   %0 = load i64, ptr %out_edge_list.i.i.i, align 8
   %cmp.i = icmp ne i64 %0, 0
   %cmp = icmp eq i32 %table, 1
@@ -868,15 +751,15 @@ entry:
 invoke.cont11:                                    ; preds = %entry
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %table_verts) #15
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %table_verts, i8 0, i64 24, i1 false)
-  %m_header.i.i.i.i.i.i = getelementptr inbounds %"class.ue2::RoseBuildImpl", ptr %tbi, i64 0, i32 2, i32 0, i32 0, i32 0, i32 0, i32 0, i32 1
+  %m_header.i.i.i.i.i.i = getelementptr inbounds i8, ptr %tbi, i64 24
   %__begin1.sroa.0.0286 = load ptr, ptr %m_header.i.i.i.i.i.i, align 8
   %cmp.i.i.i.i.not287 = icmp eq ptr %__begin1.sroa.0.0286, %m_header.i.i.i.i.i.i
   br i1 %cmp.i.i.i.i.not287, label %for.cond.cleanup, label %invoke.cont17.lr.ph
 
 invoke.cont17.lr.ph:                              ; preds = %invoke.cont11
   %cmp23 = icmp eq i32 %table, 0
-  %_M_finish.i = getelementptr inbounds %"struct.std::_Vector_base<ue2::graph_detail::vertex_descriptor<ue2::ue2_graph<ue2::RoseGraph, ue2::RoseVertexProps, ue2::RoseEdgeProps>>, std::allocator<ue2::graph_detail::vertex_descriptor<ue2::ue2_graph<ue2::RoseGraph, ue2::RoseVertexProps, ue2::RoseEdgeProps>>>>::_Vector_impl_data", ptr %table_verts, i64 0, i32 1
-  %_M_end_of_storage.i = getelementptr inbounds %"struct.std::_Vector_base<ue2::graph_detail::vertex_descriptor<ue2::ue2_graph<ue2::RoseGraph, ue2::RoseVertexProps, ue2::RoseEdgeProps>>, std::allocator<ue2::graph_detail::vertex_descriptor<ue2::ue2_graph<ue2::RoseGraph, ue2::RoseVertexProps, ue2::RoseEdgeProps>>>>::_Vector_impl_data", ptr %table_verts, i64 0, i32 2
+  %_M_finish.i = getelementptr inbounds i8, ptr %table_verts, i64 8
+  %_M_end_of_storage.i = getelementptr inbounds i8, ptr %table_verts, i64 16
   br label %invoke.cont17
 
 for.cond.cleanup:                                 ; preds = %if.end30, %invoke.cont11
@@ -897,7 +780,7 @@ for.cond.cleanup:                                 ; preds = %if.end30, %invoke.c
 invoke.cont17:                                    ; preds = %if.end30, %invoke.cont17.lr.ph
   %2 = phi ptr [ null, %invoke.cont17.lr.ph ], [ %8, %if.end30 ]
   %__begin1.sroa.0.0288 = phi ptr [ %__begin1.sroa.0.0286, %invoke.cont17.lr.ph ], [ %__begin1.sroa.0.0, %if.end30 ]
-  %serial2.i.i.i.i = getelementptr inbounds %"struct.ue2::ue2_graph<ue2::RoseGraph, ue2::RoseVertexProps, ue2::RoseEdgeProps>::vertex_node", ptr %__begin1.sroa.0.0288, i64 0, i32 2
+  %serial2.i.i.i.i = getelementptr inbounds i8, ptr %__begin1.sroa.0.0288, i64 312
   %3 = load i64, ptr %serial2.i.i.i.i, align 8
   br i1 %cmp, label %land.lhs.true20, label %lor.lhs.false
 
@@ -928,7 +811,7 @@ if.then.i:                                        ; preds = %if.then28
   %v.sroa.8.0..sroa_idx = getelementptr inbounds i8, ptr %2, i64 8
   store i64 %3, ptr %v.sroa.8.0..sroa_idx, align 8
   %5 = load ptr, ptr %_M_finish.i, align 8
-  %incdec.ptr.i = getelementptr inbounds %"class.ue2::graph_detail::vertex_descriptor", ptr %5, i64 1
+  %incdec.ptr.i = getelementptr inbounds i8, ptr %5, i64 16
   store ptr %incdec.ptr.i, ptr %_M_finish.i, align 8
   br label %if.end30
 
@@ -975,14 +858,14 @@ for.body.i.i.i.i.i:                               ; preds = %_ZNSt12_Vector_base
   %__cur.08.i.i.i.i.i = phi ptr [ %incdec.ptr1.i.i.i.i.i, %for.body.i.i.i.i.i ], [ %cond.i31.i, %_ZNSt12_Vector_baseIN3ue212graph_detail17vertex_descriptorINS0_9ue2_graphINS0_9RoseGraphENS0_15RoseVertexPropsENS0_13RoseEdgePropsEEEEESaIS8_EE11_M_allocateEm.exit.i ]
   %__first.addr.07.i.i.i.i.i = phi ptr [ %incdec.ptr.i.i.i.i.i, %for.body.i.i.i.i.i ], [ %6, %_ZNSt12_Vector_baseIN3ue212graph_detail17vertex_descriptorINS0_9ue2_graphINS0_9RoseGraphENS0_15RoseVertexPropsENS0_13RoseEdgePropsEEEEESaIS8_EE11_M_allocateEm.exit.i ]
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %__cur.08.i.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(16) %__first.addr.07.i.i.i.i.i, i64 16, i1 false), !alias.scope !14
-  %incdec.ptr.i.i.i.i.i = getelementptr inbounds %"class.ue2::graph_detail::vertex_descriptor", ptr %__first.addr.07.i.i.i.i.i, i64 1
-  %incdec.ptr1.i.i.i.i.i = getelementptr inbounds %"class.ue2::graph_detail::vertex_descriptor", ptr %__cur.08.i.i.i.i.i, i64 1
+  %incdec.ptr.i.i.i.i.i = getelementptr inbounds i8, ptr %__first.addr.07.i.i.i.i.i, i64 16
+  %incdec.ptr1.i.i.i.i.i = getelementptr inbounds i8, ptr %__cur.08.i.i.i.i.i, i64 16
   %cmp.not.i.i.i.i.i = icmp eq ptr %incdec.ptr.i.i.i.i.i, %2
   br i1 %cmp.not.i.i.i.i.i, label %_ZNSt6vectorIN3ue212graph_detail17vertex_descriptorINS0_9ue2_graphINS0_9RoseGraphENS0_15RoseVertexPropsENS0_13RoseEdgePropsEEEEESaIS8_EE11_S_relocateEPS8_SB_SB_RS9_.exit40.i, label %for.body.i.i.i.i.i, !llvm.loop !9
 
 _ZNSt6vectorIN3ue212graph_detail17vertex_descriptorINS0_9ue2_graphINS0_9RoseGraphENS0_15RoseVertexPropsENS0_13RoseEdgePropsEEEEESaIS8_EE11_S_relocateEPS8_SB_SB_RS9_.exit40.i: ; preds = %for.body.i.i.i.i.i, %_ZNSt12_Vector_baseIN3ue212graph_detail17vertex_descriptorINS0_9ue2_graphINS0_9RoseGraphENS0_15RoseVertexPropsENS0_13RoseEdgePropsEEEEESaIS8_EE11_M_allocateEm.exit.i
   %__cur.0.lcssa.i.i.i.i.i = phi ptr [ %cond.i31.i, %_ZNSt12_Vector_baseIN3ue212graph_detail17vertex_descriptorINS0_9ue2_graphINS0_9RoseGraphENS0_15RoseVertexPropsENS0_13RoseEdgePropsEEEEESaIS8_EE11_M_allocateEm.exit.i ], [ %incdec.ptr1.i.i.i.i.i, %for.body.i.i.i.i.i ]
-  %incdec.ptr.i256 = getelementptr %"class.ue2::graph_detail::vertex_descriptor", ptr %__cur.0.lcssa.i.i.i.i.i, i64 1
+  %incdec.ptr.i256 = getelementptr i8, ptr %__cur.0.lcssa.i.i.i.i.i, i64 16
   %tobool.not.i.i257 = icmp eq ptr %6, null
   br i1 %tobool.not.i.i257, label %.noexc, label %if.then.i41.i
 
@@ -1019,16 +902,16 @@ invoke.cont37:                                    ; preds = %for.cond.cleanup
   br i1 %cmp.i221.not289, label %cleanup169, label %for.body47.lr.ph
 
 for.body47.lr.ph:                                 ; preds = %invoke.cont37
-  %c.i = getelementptr inbounds %"struct.ue2::suffix_id", ptr %ref.tmp87, i64 0, i32 1
-  %d.i = getelementptr inbounds %"struct.ue2::suffix_id", ptr %ref.tmp87, i64 0, i32 2
-  %h.i = getelementptr inbounds %"struct.ue2::suffix_id", ptr %ref.tmp87, i64 0, i32 3
-  %t.i = getelementptr inbounds %"struct.ue2::suffix_id", ptr %ref.tmp87, i64 0, i32 4
-  %dfa_min_width.i = getelementptr inbounds %"struct.ue2::suffix_id", ptr %ref.tmp87, i64 0, i32 5
-  %c.i233 = getelementptr inbounds %"struct.ue2::suffix_id", ptr %ref.tmp102, i64 0, i32 1
-  %d.i235 = getelementptr inbounds %"struct.ue2::suffix_id", ptr %ref.tmp102, i64 0, i32 2
-  %h.i237 = getelementptr inbounds %"struct.ue2::suffix_id", ptr %ref.tmp102, i64 0, i32 3
-  %t.i239 = getelementptr inbounds %"struct.ue2::suffix_id", ptr %ref.tmp102, i64 0, i32 4
-  %dfa_min_width.i241 = getelementptr inbounds %"struct.ue2::suffix_id", ptr %ref.tmp102, i64 0, i32 5
+  %c.i = getelementptr inbounds i8, ptr %ref.tmp87, i64 8
+  %d.i = getelementptr inbounds i8, ptr %ref.tmp87, i64 16
+  %h.i = getelementptr inbounds i8, ptr %ref.tmp87, i64 24
+  %t.i = getelementptr inbounds i8, ptr %ref.tmp87, i64 32
+  %dfa_min_width.i = getelementptr inbounds i8, ptr %ref.tmp87, i64 40
+  %c.i233 = getelementptr inbounds i8, ptr %ref.tmp102, i64 8
+  %d.i235 = getelementptr inbounds i8, ptr %ref.tmp102, i64 16
+  %h.i237 = getelementptr inbounds i8, ptr %ref.tmp102, i64 24
+  %t.i239 = getelementptr inbounds i8, ptr %ref.tmp102, i64 32
+  %dfa_min_width.i241 = getelementptr inbounds i8, ptr %ref.tmp102, i64 40
   br label %for.body47
 
 lpad36:                                           ; preds = %for.cond.cleanup
@@ -1039,43 +922,43 @@ lpad36:                                           ; preds = %for.cond.cleanup
 for.body47:                                       ; preds = %for.inc155, %for.body47.lr.ph
   %maxWidth.0291 = phi i64 [ 0, %for.body47.lr.ph ], [ %maxWidth.2, %for.inc155 ]
   %__begin139.sroa.0.0290 = phi ptr [ %9, %for.body47.lr.ph ], [ %call.i, %for.inc155 ]
-  %_M_storage.i.i = getelementptr inbounds %"struct.std::_Rb_tree_node", ptr %__begin139.sroa.0.0290, i64 0, i32 1
+  %_M_storage.i.i = getelementptr inbounds i8, ptr %__begin139.sroa.0.0290, i64 32
   %v48.sroa.0.0.copyload = load ptr, ptr %_M_storage.i.i, align 8
-  %v48.sroa.11.0.call49.sroa_idx = getelementptr inbounds %"struct.std::_Rb_tree_node", ptr %__begin139.sroa.0.0290, i64 0, i32 1, i32 0, i64 8
+  %v48.sroa.11.0.call49.sroa_idx = getelementptr inbounds i8, ptr %__begin139.sroa.0.0290, i64 40
   %v48.sroa.11.0.copyload = load i64, ptr %v48.sroa.11.0.call49.sroa_idx, align 8
-  %eod_accept = getelementptr inbounds %"struct.ue2::ue2_graph<ue2::RoseGraph, ue2::RoseVertexProps, ue2::RoseEdgeProps>::vertex_node", ptr %v48.sroa.0.0.copyload, i64 0, i32 1, i32 2
+  %eod_accept = getelementptr inbounds i8, ptr %v48.sroa.0.0.copyload, i64 56
   %11 = load i8, ptr %eod_accept, align 8, !range !11, !noundef !12
   %tobool.not = icmp eq i8 %11, 0
   br i1 %tobool.not, label %invoke.cont65, label %for.inc155
 
 invoke.cont65:                                    ; preds = %for.body47
-  %m_size.i.i = getelementptr inbounds %"struct.ue2::ue2_graph<ue2::RoseGraph, ue2::RoseVertexProps, ue2::RoseEdgeProps>::vertex_node", ptr %v48.sroa.0.0.copyload, i64 0, i32 1, i32 4, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 1
+  %m_size.i.i = getelementptr inbounds i8, ptr %v48.sroa.0.0.copyload, i64 72
   %12 = load i64, ptr %m_size.i.i, align 8
   %tobool.not.i.i = icmp eq i64 %12, 0
   br i1 %tobool.not.i.i, label %if.end71, label %cleanup169
 
 if.end71:                                         ; preds = %invoke.cont65
-  %max_offset = getelementptr inbounds %"struct.ue2::ue2_graph<ue2::RoseGraph, ue2::RoseVertexProps, ue2::RoseEdgeProps>::vertex_node", ptr %v48.sroa.0.0.copyload, i64 0, i32 1, i32 7
+  %max_offset = getelementptr inbounds i8, ptr %v48.sroa.0.0.copyload, i64 108
   %13 = load i32, ptr %max_offset, align 4
   %conv = zext i32 %13 to i64
   %call79 = invoke noundef i32 @_ZNK3ue213RoseBuildImpl16calcSuccMaxBoundENS_12graph_detail17vertex_descriptorINS_9ue2_graphINS_9RoseGraphENS_15RoseVertexPropsENS_13RoseEdgePropsEEEEE(ptr noundef nonnull align 8 dereferenceable(780) %tbi, ptr nonnull %v48.sroa.0.0.copyload, i64 %v48.sroa.11.0.copyload)
           to label %invoke.cont78 unwind label %lpad77
 
 invoke.cont78:                                    ; preds = %if.end71
-  %graph.i = getelementptr inbounds %"struct.ue2::ue2_graph<ue2::RoseGraph, ue2::RoseVertexProps, ue2::RoseEdgeProps>::vertex_node", ptr %v48.sroa.0.0.copyload, i64 0, i32 1, i32 10, i32 1
+  %graph.i = getelementptr inbounds i8, ptr %v48.sroa.0.0.copyload, i64 224
   %14 = load ptr, ptr %graph.i, align 8
-  %castle.i = getelementptr inbounds %"struct.ue2::ue2_graph<ue2::RoseGraph, ue2::RoseVertexProps, ue2::RoseEdgeProps>::vertex_node", ptr %v48.sroa.0.0.copyload, i64 0, i32 1, i32 10, i32 2
+  %castle.i = getelementptr inbounds i8, ptr %v48.sroa.0.0.copyload, i64 240
   %15 = load ptr, ptr %castle.i, align 8
-  %haig.i = getelementptr inbounds %"struct.ue2::ue2_graph<ue2::RoseGraph, ue2::RoseVertexProps, ue2::RoseEdgeProps>::vertex_node", ptr %v48.sroa.0.0.copyload, i64 0, i32 1, i32 10, i32 3
+  %haig.i = getelementptr inbounds i8, ptr %v48.sroa.0.0.copyload, i64 256
   %16 = load ptr, ptr %haig.i, align 8
-  %rdfa.i = getelementptr inbounds %"struct.ue2::ue2_graph<ue2::RoseGraph, ue2::RoseVertexProps, ue2::RoseEdgeProps>::vertex_node", ptr %v48.sroa.0.0.copyload, i64 0, i32 1, i32 10, i32 4
+  %rdfa.i = getelementptr inbounds i8, ptr %v48.sroa.0.0.copyload, i64 272
   %17 = load ptr, ptr %rdfa.i, align 8
   %18 = insertelement <4 x ptr> poison, ptr %14, i64 0
   %19 = insertelement <4 x ptr> %18, ptr %15, i64 1
   %20 = insertelement <4 x ptr> %19, ptr %17, i64 2
   %21 = insertelement <4 x ptr> %20, ptr %16, i64 3
   %.fr = freeze <4 x ptr> %21
-  %tamarama.i230.phi.trans.insert = getelementptr inbounds %"struct.ue2::ue2_graph<ue2::RoseGraph, ue2::RoseVertexProps, ue2::RoseEdgeProps>::vertex_node", ptr %v48.sroa.0.0.copyload, i64 0, i32 1, i32 10, i32 5
+  %tamarama.i230.phi.trans.insert = getelementptr inbounds i8, ptr %v48.sroa.0.0.copyload, i64 288
   %.pre = load ptr, ptr %tamarama.i230.phi.trans.insert, align 8
   %cmp.i11.i.not = icmp eq ptr %.pre, null
   %22 = icmp ne <4 x ptr> %.fr, zeroinitializer
@@ -1091,7 +974,7 @@ if.then86:                                        ; preds = %invoke.cont78
   store ptr %17, ptr %d.i, align 8
   store ptr %16, ptr %h.i, align 8
   store ptr %.pre, ptr %t.i, align 8
-  %dfa_min_width6.i = getelementptr inbounds %"struct.ue2::ue2_graph<ue2::RoseGraph, ue2::RoseVertexProps, ue2::RoseEdgeProps>::vertex_node", ptr %v48.sroa.0.0.copyload, i64 0, i32 1, i32 10, i32 6
+  %dfa_min_width6.i = getelementptr inbounds i8, ptr %v48.sroa.0.0.copyload, i64 304
   %25 = load <2 x i32>, ptr %dfa_min_width6.i, align 8
   store <2 x i32> %25, ptr %dfa_min_width.i, align 8
   %call95 = invoke noundef zeroext i1 @_ZN3ue219has_non_eod_acceptsERKNS_9suffix_idE(ptr noundef nonnull align 8 dereferenceable(48) %ref.tmp87)
@@ -1245,10 +1128,10 @@ entry:
 
 while.body:                                       ; preds = %entry, %while.body
   %__x.addr.07 = phi ptr [ %1, %while.body ], [ %__x, %entry ]
-  %_M_right.i = getelementptr inbounds %"struct.std::_Rb_tree_node_base", ptr %__x.addr.07, i64 0, i32 3
+  %_M_right.i = getelementptr inbounds i8, ptr %__x.addr.07, i64 24
   %0 = load ptr, ptr %_M_right.i, align 8
   tail call void @_ZNSt8_Rb_treeIN3ue212graph_detail17vertex_descriptorINS0_9ue2_graphINS0_9RoseGraphENS0_15RoseVertexPropsENS0_13RoseEdgePropsEEEEES8_St9_IdentityIS8_ESt4lessIS8_ESaIS8_EE8_M_eraseEPSt13_Rb_tree_nodeIS8_E(ptr noundef nonnull align 8 dereferenceable(48) %this, ptr noundef %0)
-  %_M_left.i = getelementptr inbounds %"struct.std::_Rb_tree_node_base", ptr %__x.addr.07, i64 0, i32 2
+  %_M_left.i = getelementptr inbounds i8, ptr %__x.addr.07, i64 16
   %1 = load ptr, ptr %_M_left.i, align 8
   tail call void @_ZdlPv(ptr noundef nonnull %__x.addr.07) #18
   %cmp.not = icmp eq ptr %1, null
@@ -1276,7 +1159,7 @@ declare noundef nonnull ptr @_Znwm(i64 noundef) local_unnamed_addr #8
 ; Function Attrs: inlinehint mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZNSt13unordered_mapIN3ue212graph_detail17vertex_descriptorINS0_9ue2_graphINS0_9RoseGraphENS0_15RoseVertexPropsENS0_13RoseEdgePropsEEEEEN5boost18default_color_typeESt4hashIS8_ESt8equal_toIS8_ESaISt4pairIKS8_SA_EEED2Ev(ptr noundef nonnull align 8 dereferenceable(56) %this) unnamed_addr #9 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  %_M_before_begin.i.i.i = getelementptr inbounds %"class.std::_Hashtable.161", ptr %this, i64 0, i32 2
+  %_M_before_begin.i.i.i = getelementptr inbounds i8, ptr %this, i64 16
   %0 = load ptr, ptr %_M_before_begin.i.i.i, align 8
   %tobool.not4.i.i.i = icmp eq ptr %0, null
   br i1 %tobool.not4.i.i.i, label %_ZNSt10_HashtableIN3ue212graph_detail17vertex_descriptorINS0_9ue2_graphINS0_9RoseGraphENS0_15RoseVertexPropsENS0_13RoseEdgePropsEEEEESt4pairIKS8_N5boost18default_color_typeEESaISD_ENSt8__detail10_Select1stESt8equal_toIS8_ESt4hashIS8_ENSF_18_Mod_range_hashingENSF_20_Default_ranged_hashENSF_20_Prime_rehash_policyENSF_17_Hashtable_traitsILb1ELb0ELb1EEEE5clearEv.exit.i, label %while.body.i.i.i
@@ -1290,13 +1173,13 @@ while.body.i.i.i:                                 ; preds = %entry, %while.body.
 
 _ZNSt10_HashtableIN3ue212graph_detail17vertex_descriptorINS0_9ue2_graphINS0_9RoseGraphENS0_15RoseVertexPropsENS0_13RoseEdgePropsEEEEESt4pairIKS8_N5boost18default_color_typeEESaISD_ENSt8__detail10_Select1stESt8equal_toIS8_ESt4hashIS8_ENSF_18_Mod_range_hashingENSF_20_Default_ranged_hashENSF_20_Prime_rehash_policyENSF_17_Hashtable_traitsILb1ELb0ELb1EEEE5clearEv.exit.i: ; preds = %while.body.i.i.i, %entry
   %2 = load ptr, ptr %this, align 8
-  %_M_bucket_count.i.i = getelementptr inbounds %"class.std::_Hashtable.161", ptr %this, i64 0, i32 1
+  %_M_bucket_count.i.i = getelementptr inbounds i8, ptr %this, i64 8
   %3 = load i64, ptr %_M_bucket_count.i.i, align 8
   %mul.i.i = shl i64 %3, 3
   tail call void @llvm.memset.p0.i64(ptr align 8 %2, i8 0, i64 %mul.i.i, i1 false)
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %_M_before_begin.i.i.i, i8 0, i64 16, i1 false)
   %4 = load ptr, ptr %this, align 8
-  %_M_single_bucket.i.i.i.i = getelementptr inbounds %"class.std::_Hashtable.161", ptr %this, i64 0, i32 5
+  %_M_single_bucket.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 48
   %cmp.i.i.i.i = icmp eq ptr %_M_single_bucket.i.i.i.i, %4
   br i1 %cmp.i.i.i.i, label %_ZNSt10_HashtableIN3ue212graph_detail17vertex_descriptorINS0_9ue2_graphINS0_9RoseGraphENS0_15RoseVertexPropsENS0_13RoseEdgePropsEEEEESt4pairIKS8_N5boost18default_color_typeEESaISD_ENSt8__detail10_Select1stESt8equal_toIS8_ESt4hashIS8_ENSF_18_Mod_range_hashingENSF_20_Default_ranged_hashENSF_20_Prime_rehash_policyENSF_17_Hashtable_traitsILb1ELb0ELb1EEEED2Ev.exit, label %if.end.i.i.i
 
@@ -1316,7 +1199,7 @@ invoke.cont2:
   %ref.tmp108 = alloca %"struct.std::pair.191", align 8
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %stack) #15
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %stack, i8 0, i64 24, i1 false)
-  %_M_bucket_count.i.i = getelementptr inbounds %"class.std::_Hashtable.161", ptr %color.coerce, i64 0, i32 1
+  %_M_bucket_count.i.i = getelementptr inbounds i8, ptr %color.coerce, i64 8
   %0 = load i64, ptr %_M_bucket_count.i.i, align 8
   %rem.i.i.i.i = urem i64 %u.coerce1, %0
   %1 = load ptr, ptr %color.coerce, align 8
@@ -1373,9 +1256,9 @@ call5.i.i.i.i.i.noexc:                            ; preds = %cleanup.cont.i
           to label %call5.i.i.i.i.i.noexc.invoke.cont46_crit_edge unwind label %_ZNSt10_HashtableIN3ue212graph_detail17vertex_descriptorINS0_9ue2_graphINS0_9RoseGraphENS0_15RoseVertexPropsENS0_13RoseEdgePropsEEEEESt4pairIKS8_N5boost18default_color_typeEESaISD_ENSt8__detail10_Select1stESt8equal_toIS8_ESt4hashIS8_ENSF_18_Mod_range_hashingENSF_20_Default_ranged_hashENSF_20_Prime_rehash_policyENSF_17_Hashtable_traitsILb1ELb0ELb1EEEE12_Scoped_nodeD2Ev.exit34.i
 
 call5.i.i.i.i.i.noexc.invoke.cont46_crit_edge:    ; preds = %call5.i.i.i.i.i.noexc
-  %_M_finish.i.i273.phi.trans.insert = getelementptr inbounds %"struct.std::_Vector_base<std::pair<ue2::graph_detail::vertex_descriptor<ue2::ue2_graph<ue2::RoseGraph, ue2::RoseVertexProps, ue2::RoseEdgeProps>>, std::pair<boost::optional<ue2::graph_detail::edge_descriptor<ue2::ue2_graph<ue2::RoseGraph, ue2::RoseVertexProps, ue2::RoseEdgeProps>>>, std::pair<ue2::ue2_graph<ue2::RoseGraph, ue2::RoseVertexProps, ue2::RoseEdgeProps>::out_edge_iterator, ue2::ue2_graph<ue2::RoseGraph, ue2::RoseVertexProps, ue2::RoseEdgeProps>::out_edge_iterator>>>, std::allocator<std::pair<ue2::graph_detail::vertex_descriptor<ue2::ue2_graph<ue2::RoseGraph, ue2::RoseVertexProps, ue2::RoseEdgeProps>>, std::pair<boost::optional<ue2::graph_detail::edge_descriptor<ue2::ue2_graph<ue2::RoseGraph, ue2::RoseVertexProps, ue2::RoseEdgeProps>>>, std::pair<ue2::ue2_graph<ue2::RoseGraph, ue2::RoseVertexProps, ue2::RoseEdgeProps>::out_edge_iterator, ue2::ue2_graph<ue2::RoseGraph, ue2::RoseVertexProps, ue2::RoseEdgeProps>::out_edge_iterator>>>>>::_Vector_impl_data", ptr %stack, i64 0, i32 1
+  %_M_finish.i.i273.phi.trans.insert = getelementptr inbounds i8, ptr %stack, i64 8
   %.pre = load ptr, ptr %_M_finish.i.i273.phi.trans.insert, align 8
-  %_M_end_of_storage.i.i274.phi.trans.insert = getelementptr inbounds %"struct.std::_Vector_base<std::pair<ue2::graph_detail::vertex_descriptor<ue2::ue2_graph<ue2::RoseGraph, ue2::RoseVertexProps, ue2::RoseEdgeProps>>, std::pair<boost::optional<ue2::graph_detail::edge_descriptor<ue2::ue2_graph<ue2::RoseGraph, ue2::RoseVertexProps, ue2::RoseEdgeProps>>>, std::pair<ue2::ue2_graph<ue2::RoseGraph, ue2::RoseVertexProps, ue2::RoseEdgeProps>::out_edge_iterator, ue2::ue2_graph<ue2::RoseGraph, ue2::RoseVertexProps, ue2::RoseEdgeProps>::out_edge_iterator>>>, std::allocator<std::pair<ue2::graph_detail::vertex_descriptor<ue2::ue2_graph<ue2::RoseGraph, ue2::RoseVertexProps, ue2::RoseEdgeProps>>, std::pair<boost::optional<ue2::graph_detail::edge_descriptor<ue2::ue2_graph<ue2::RoseGraph, ue2::RoseVertexProps, ue2::RoseEdgeProps>>>, std::pair<ue2::ue2_graph<ue2::RoseGraph, ue2::RoseVertexProps, ue2::RoseEdgeProps>::out_edge_iterator, ue2::ue2_graph<ue2::RoseGraph, ue2::RoseVertexProps, ue2::RoseEdgeProps>::out_edge_iterator>>>>>::_Vector_impl_data", ptr %stack, i64 0, i32 2
+  %_M_end_of_storage.i.i274.phi.trans.insert = getelementptr inbounds i8, ptr %stack, i64 16
   %.pre131 = load ptr, ptr %_M_end_of_storage.i.i274.phi.trans.insert, align 8
   br label %invoke.cont46
 
@@ -1396,47 +1279,47 @@ invoke.cont46:                                    ; preds = %for.cond.i.i.i, %ca
   %call7.pn.i = phi ptr [ %3, %if.end.i.i.i ], [ %call7.i, %call5.i.i.i.i.i.noexc.invoke.cont46_crit_edge ], [ %7, %for.cond.i.i.i ]
   %retval.1.i = getelementptr inbounds i8, ptr %call7.pn.i, i64 24
   store i32 1, ptr %retval.1.i, align 4
-  %m_header.i.i.i.i = getelementptr inbounds %"struct.ue2::ue2_graph<ue2::RoseGraph, ue2::RoseVertexProps, ue2::RoseEdgeProps>::vertex_node", ptr %u.coerce0, i64 0, i32 4, i32 0, i32 0, i32 0, i32 1
+  %m_header.i.i.i.i = getelementptr inbounds i8, ptr %u.coerce0, i64 352
   %13 = load ptr, ptr %m_header.i.i.i.i, align 8, !noalias !20
   call void @llvm.lifetime.start.p0(i64 56, ptr nonnull %ref.tmp38) #15
   store ptr %u.coerce0, ptr %ref.tmp38, align 8
   %u.sroa.14.0.ref.tmp38.sroa_idx = getelementptr inbounds i8, ptr %ref.tmp38, i64 8
   store i64 %u.coerce1, ptr %u.sroa.14.0.ref.tmp38.sroa_idx, align 8
-  %second.i.i263 = getelementptr inbounds %"struct.std::pair.191", ptr %ref.tmp38, i64 0, i32 1
+  %second.i.i263 = getelementptr inbounds i8, ptr %ref.tmp38, i64 16
   store i8 0, ptr %second.i.i263, align 8, !alias.scope !27
-  %second.i.i.i268 = getelementptr inbounds %"struct.std::pair.191", ptr %ref.tmp38, i64 0, i32 1, i32 1
+  %second.i.i.i268 = getelementptr inbounds i8, ptr %ref.tmp38, i64 40
   store ptr %13, ptr %second.i.i.i268, align 8, !alias.scope !27
-  %second.i.i.i.i270 = getelementptr inbounds %"struct.std::pair.191", ptr %ref.tmp38, i64 0, i32 1, i32 1, i32 1
+  %second.i.i.i.i270 = getelementptr inbounds i8, ptr %ref.tmp38, i64 48
   store ptr %m_header.i.i.i.i, ptr %second.i.i.i.i270, align 8, !alias.scope !27
-  %_M_finish.i.i273 = getelementptr inbounds %"struct.std::_Vector_base<std::pair<ue2::graph_detail::vertex_descriptor<ue2::ue2_graph<ue2::RoseGraph, ue2::RoseVertexProps, ue2::RoseEdgeProps>>, std::pair<boost::optional<ue2::graph_detail::edge_descriptor<ue2::ue2_graph<ue2::RoseGraph, ue2::RoseVertexProps, ue2::RoseEdgeProps>>>, std::pair<ue2::ue2_graph<ue2::RoseGraph, ue2::RoseVertexProps, ue2::RoseEdgeProps>::out_edge_iterator, ue2::ue2_graph<ue2::RoseGraph, ue2::RoseVertexProps, ue2::RoseEdgeProps>::out_edge_iterator>>>, std::allocator<std::pair<ue2::graph_detail::vertex_descriptor<ue2::ue2_graph<ue2::RoseGraph, ue2::RoseVertexProps, ue2::RoseEdgeProps>>, std::pair<boost::optional<ue2::graph_detail::edge_descriptor<ue2::ue2_graph<ue2::RoseGraph, ue2::RoseVertexProps, ue2::RoseEdgeProps>>>, std::pair<ue2::ue2_graph<ue2::RoseGraph, ue2::RoseVertexProps, ue2::RoseEdgeProps>::out_edge_iterator, ue2::ue2_graph<ue2::RoseGraph, ue2::RoseVertexProps, ue2::RoseEdgeProps>::out_edge_iterator>>>>>::_Vector_impl_data", ptr %stack, i64 0, i32 1
-  %_M_end_of_storage.i.i274 = getelementptr inbounds %"struct.std::_Vector_base<std::pair<ue2::graph_detail::vertex_descriptor<ue2::ue2_graph<ue2::RoseGraph, ue2::RoseVertexProps, ue2::RoseEdgeProps>>, std::pair<boost::optional<ue2::graph_detail::edge_descriptor<ue2::ue2_graph<ue2::RoseGraph, ue2::RoseVertexProps, ue2::RoseEdgeProps>>>, std::pair<ue2::ue2_graph<ue2::RoseGraph, ue2::RoseVertexProps, ue2::RoseEdgeProps>::out_edge_iterator, ue2::ue2_graph<ue2::RoseGraph, ue2::RoseVertexProps, ue2::RoseEdgeProps>::out_edge_iterator>>>, std::allocator<std::pair<ue2::graph_detail::vertex_descriptor<ue2::ue2_graph<ue2::RoseGraph, ue2::RoseVertexProps, ue2::RoseEdgeProps>>, std::pair<boost::optional<ue2::graph_detail::edge_descriptor<ue2::ue2_graph<ue2::RoseGraph, ue2::RoseVertexProps, ue2::RoseEdgeProps>>>, std::pair<ue2::ue2_graph<ue2::RoseGraph, ue2::RoseVertexProps, ue2::RoseEdgeProps>::out_edge_iterator, ue2::ue2_graph<ue2::RoseGraph, ue2::RoseVertexProps, ue2::RoseEdgeProps>::out_edge_iterator>>>>>::_Vector_impl_data", ptr %stack, i64 0, i32 2
+  %_M_finish.i.i273 = getelementptr inbounds i8, ptr %stack, i64 8
+  %_M_end_of_storage.i.i274 = getelementptr inbounds i8, ptr %stack, i64 16
   %cmp.not.i.i275 = icmp eq ptr %12, %11
   br i1 %cmp.not.i.i275, label %if.else.i.i289, label %if.then.i.i276
 
 if.then.i.i276:                                   ; preds = %invoke.cont46
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %12, ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp38, i64 16, i1 false)
-  %second.i.i.i.i.i277 = getelementptr inbounds %"struct.std::pair.191", ptr %12, i64 0, i32 1
+  %second.i.i.i.i.i277 = getelementptr inbounds i8, ptr %12, i64 16
   store i8 0, ptr %second.i.i.i.i.i277, align 8
   %14 = load i8, ptr %second.i.i263, align 8, !range !11, !noundef !12
   %tobool.i.not.i.i.i.i.i.i.i.i279 = icmp eq i8 %14, 0
   br i1 %tobool.i.not.i.i.i.i.i.i.i.i279, label %_ZNSt16allocator_traitsISaISt4pairIN3ue212graph_detail17vertex_descriptorINS1_9ue2_graphINS1_9RoseGraphENS1_15RoseVertexPropsENS1_13RoseEdgePropsEEEEES0_IN5boost8optionalINS2_15edge_descriptorIS8_EEEES0_INS8_17out_edge_iteratorESF_EEEEE9constructISI_JSI_EEEvRSJ_PT_DpOT0_.exit.i.i283, label %invoke.cont.i.i.i.i.i.i.i.i280
 
 invoke.cont.i.i.i.i.i.i.i.i280:                   ; preds = %if.then.i.i276
-  %m_storage.i.i.i.i.i.i.i.i.i281 = getelementptr inbounds %"struct.std::pair.191", ptr %ref.tmp38, i64 0, i32 1, i32 0, i32 0, i32 2
-  %m_storage.i6.i.i.i.i.i.i.i.i282 = getelementptr inbounds %"struct.std::pair.191", ptr %12, i64 0, i32 1, i32 0, i32 0, i32 2
+  %m_storage.i.i.i.i.i.i.i.i.i281 = getelementptr inbounds i8, ptr %ref.tmp38, i64 24
+  %m_storage.i6.i.i.i.i.i.i.i.i282 = getelementptr inbounds i8, ptr %12, i64 24
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %m_storage.i6.i.i.i.i.i.i.i.i282, ptr noundef nonnull align 8 dereferenceable(16) %m_storage.i.i.i.i.i.i.i.i.i281, i64 16, i1 false)
   store i8 1, ptr %second.i.i.i.i.i277, align 8
   br label %_ZNSt16allocator_traitsISaISt4pairIN3ue212graph_detail17vertex_descriptorINS1_9ue2_graphINS1_9RoseGraphENS1_15RoseVertexPropsENS1_13RoseEdgePropsEEEEES0_IN5boost8optionalINS2_15edge_descriptorIS8_EEEES0_INS8_17out_edge_iteratorESF_EEEEE9constructISI_JSI_EEEvRSJ_PT_DpOT0_.exit.i.i283
 
 _ZNSt16allocator_traitsISaISt4pairIN3ue212graph_detail17vertex_descriptorINS1_9ue2_graphINS1_9RoseGraphENS1_15RoseVertexPropsENS1_13RoseEdgePropsEEEEES0_IN5boost8optionalINS2_15edge_descriptorIS8_EEEES0_INS8_17out_edge_iteratorESF_EEEEE9constructISI_JSI_EEEvRSJ_PT_DpOT0_.exit.i.i283: ; preds = %invoke.cont.i.i.i.i.i.i.i.i280, %if.then.i.i276
-  %second.i.i.i.i.i.i284 = getelementptr inbounds %"struct.std::pair.191", ptr %12, i64 0, i32 1, i32 1
+  %second.i.i.i.i.i.i284 = getelementptr inbounds i8, ptr %12, i64 40
   %15 = load ptr, ptr %second.i.i.i268, align 8
   store ptr %15, ptr %second.i.i.i.i.i.i284, align 8
-  %second.i.i.i.i.i.i.i286 = getelementptr inbounds %"struct.std::pair.191", ptr %12, i64 0, i32 1, i32 1, i32 1
+  %second.i.i.i.i.i.i.i286 = getelementptr inbounds i8, ptr %12, i64 48
   %16 = load ptr, ptr %second.i.i.i.i270, align 8
   store ptr %16, ptr %second.i.i.i.i.i.i.i286, align 8
   %17 = load ptr, ptr %_M_finish.i.i273, align 8
-  %incdec.ptr.i.i288 = getelementptr inbounds %"struct.std::pair.191", ptr %17, i64 1
+  %incdec.ptr.i.i288 = getelementptr inbounds i8, ptr %17, i64 56
   store ptr %incdec.ptr.i.i288, ptr %_M_finish.i.i273, align 8
   br label %invoke.cont48
 
@@ -1463,23 +1346,23 @@ lpad47:                                           ; preds = %if.else.i.i289
 
 while.body.lr.ph:                                 ; preds = %invoke.cont48
   %u.sroa.14.0.ref.tmp108.sroa_idx = getelementptr inbounds i8, ptr %ref.tmp108, i64 8
-  %second.i.i338 = getelementptr inbounds %"struct.std::pair.191", ptr %ref.tmp108, i64 0, i32 1
-  %m_storage.i6.i.i.i.i.i342 = getelementptr inbounds %"struct.std::pair.191", ptr %ref.tmp108, i64 0, i32 1, i32 0, i32 0, i32 2
-  %ref.tmp109.sroa.10.sroa.5.7.m_storage.i6.i.i.i.i.i342.sroa_idx = getelementptr inbounds %"struct.std::pair.191", ptr %ref.tmp108, i64 0, i32 1, i32 0, i32 0, i32 2, i32 0, i32 0, i64 8
-  %second.i.i.i343 = getelementptr inbounds %"struct.std::pair.191", ptr %ref.tmp108, i64 0, i32 1, i32 1
-  %second.i.i.i.i345 = getelementptr inbounds %"struct.std::pair.191", ptr %ref.tmp108, i64 0, i32 1, i32 1, i32 1
+  %second.i.i338 = getelementptr inbounds i8, ptr %ref.tmp108, i64 16
+  %m_storage.i6.i.i.i.i.i342 = getelementptr inbounds i8, ptr %ref.tmp108, i64 24
+  %ref.tmp109.sroa.10.sroa.5.7.m_storage.i6.i.i.i.i.i342.sroa_idx = getelementptr inbounds i8, ptr %ref.tmp108, i64 32
+  %second.i.i.i343 = getelementptr inbounds i8, ptr %ref.tmp108, i64 40
+  %second.i.i.i.i345 = getelementptr inbounds i8, ptr %ref.tmp108, i64 48
   br label %while.body
 
 while.body:                                       ; preds = %invoke.cont180, %while.body.lr.ph
   %21 = phi ptr [ %18, %while.body.lr.ph ], [ %70, %invoke.cont180 ]
-  %add.ptr.i.i = getelementptr inbounds %"struct.std::pair.191", ptr %21, i64 -1
+  %add.ptr.i.i = getelementptr inbounds i8, ptr %21, i64 -56
   %u.sroa.0.0.copyload = load ptr, ptr %add.ptr.i.i, align 8
-  %u.sroa.14.0.add.ptr.i.i.sroa_idx = getelementptr %"struct.std::pair.191", ptr %21, i64 -1, i32 0, i32 1
+  %u.sroa.14.0.add.ptr.i.i.sroa_idx = getelementptr i8, ptr %21, i64 -48
   %u.sroa.14.0.copyload = load i64, ptr %u.sroa.14.0.add.ptr.i.i.sroa_idx, align 8
-  %second = getelementptr %"struct.std::pair.191", ptr %21, i64 -1, i32 1
-  %second63 = getelementptr %"struct.std::pair.191", ptr %21, i64 -1, i32 1, i32 1
+  %second = getelementptr i8, ptr %21, i64 -40
+  %second63 = getelementptr i8, ptr %21, i64 -16
   %22 = load ptr, ptr %second63, align 8
-  %second.i317 = getelementptr %"struct.std::pair.191", ptr %21, i64 -1, i32 1, i32 1, i32 1
+  %second.i317 = getelementptr i8, ptr %21, i64 -8
   %23 = load ptr, ptr %second.i317, align 8
   store ptr %add.ptr.i.i, ptr %_M_finish.i.i273, align 8
   %24 = load i8, ptr %second, align 8, !range !11, !noundef !12
@@ -1499,10 +1382,10 @@ invoke.cont90:                                    ; preds = %if.end76, %if.end17
   %u.sroa.0.0501 = phi ptr [ %u.sroa.0.1, %if.end172 ], [ %u.sroa.0.0.copyload, %if.end76 ]
   %ei_end.sroa.0.0495 = phi ptr [ %ei_end.sroa.0.1, %if.end172 ], [ %23, %if.end76 ]
   %ei.sroa.0.0494 = phi ptr [ %ei.sroa.0.1, %if.end172 ], [ %22, %if.end76 ]
-  %serial2.i.i.i.i = getelementptr inbounds %"struct.ue2::ue2_graph<ue2::RoseGraph, ue2::RoseVertexProps, ue2::RoseEdgeProps>::edge_node", ptr %ei.sroa.0.0494, i64 0, i32 4
-  %target.i.i = getelementptr inbounds %"struct.ue2::ue2_graph<ue2::RoseGraph, ue2::RoseVertexProps, ue2::RoseEdgeProps>::edge_node", ptr %ei.sroa.0.0494, i64 0, i32 3
+  %serial2.i.i.i.i = getelementptr inbounds i8, ptr %ei.sroa.0.0494, i64 48
+  %target.i.i = getelementptr inbounds i8, ptr %ei.sroa.0.0494, i64 40
   %25 = load ptr, ptr %target.i.i, align 8
-  %serial2.i.i.i = getelementptr inbounds %"struct.ue2::ue2_graph<ue2::RoseGraph, ue2::RoseVertexProps, ue2::RoseEdgeProps>::vertex_node", ptr %25, i64 0, i32 2
+  %serial2.i.i.i = getelementptr inbounds i8, ptr %25, i64 312
   %26 = load i64, ptr %serial2.i.i.i, align 8
   %27 = load i64, ptr %_M_bucket_count.i.i, align 8
   %rem.i.i.i.i12 = urem i64 %26, %27
@@ -1590,27 +1473,27 @@ invoke.cont103:                                   ; preds = %invoke.cont92
 
 if.then.i.i351:                                   ; preds = %invoke.cont103
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %40, ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp108, i64 16, i1 false)
-  %second.i.i.i.i.i352 = getelementptr inbounds %"struct.std::pair.191", ptr %40, i64 0, i32 1
+  %second.i.i.i.i.i352 = getelementptr inbounds i8, ptr %40, i64 16
   store i8 0, ptr %second.i.i.i.i.i352, align 8
   %42 = load i8, ptr %second.i.i338, align 8, !range !11, !noundef !12
   %tobool.i.not.i.i.i.i.i.i.i.i354 = icmp eq i8 %42, 0
   br i1 %tobool.i.not.i.i.i.i.i.i.i.i354, label %_ZNSt16allocator_traitsISaISt4pairIN3ue212graph_detail17vertex_descriptorINS1_9ue2_graphINS1_9RoseGraphENS1_15RoseVertexPropsENS1_13RoseEdgePropsEEEEES0_IN5boost8optionalINS2_15edge_descriptorIS8_EEEES0_INS8_17out_edge_iteratorESF_EEEEE9constructISI_JSI_EEEvRSJ_PT_DpOT0_.exit.i.i358, label %invoke.cont.i.i.i.i.i.i.i.i355
 
 invoke.cont.i.i.i.i.i.i.i.i355:                   ; preds = %if.then.i.i351
-  %m_storage.i6.i.i.i.i.i.i.i.i357 = getelementptr inbounds %"struct.std::pair.191", ptr %40, i64 0, i32 1, i32 0, i32 0, i32 2
+  %m_storage.i6.i.i.i.i.i.i.i.i357 = getelementptr inbounds i8, ptr %40, i64 24
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %m_storage.i6.i.i.i.i.i.i.i.i357, ptr noundef nonnull align 8 dereferenceable(16) %m_storage.i6.i.i.i.i.i342, i64 16, i1 false)
   store i8 1, ptr %second.i.i.i.i.i352, align 8
   br label %_ZNSt16allocator_traitsISaISt4pairIN3ue212graph_detail17vertex_descriptorINS1_9ue2_graphINS1_9RoseGraphENS1_15RoseVertexPropsENS1_13RoseEdgePropsEEEEES0_IN5boost8optionalINS2_15edge_descriptorIS8_EEEES0_INS8_17out_edge_iteratorESF_EEEEE9constructISI_JSI_EEEvRSJ_PT_DpOT0_.exit.i.i358
 
 _ZNSt16allocator_traitsISaISt4pairIN3ue212graph_detail17vertex_descriptorINS1_9ue2_graphINS1_9RoseGraphENS1_15RoseVertexPropsENS1_13RoseEdgePropsEEEEES0_IN5boost8optionalINS2_15edge_descriptorIS8_EEEES0_INS8_17out_edge_iteratorESF_EEEEE9constructISI_JSI_EEEvRSJ_PT_DpOT0_.exit.i.i358: ; preds = %invoke.cont.i.i.i.i.i.i.i.i355, %if.then.i.i351
-  %second.i.i.i.i.i.i359 = getelementptr inbounds %"struct.std::pair.191", ptr %40, i64 0, i32 1, i32 1
+  %second.i.i.i.i.i.i359 = getelementptr inbounds i8, ptr %40, i64 40
   %43 = load ptr, ptr %second.i.i.i343, align 8
   store ptr %43, ptr %second.i.i.i.i.i.i359, align 8
-  %second.i.i.i.i.i.i.i361 = getelementptr inbounds %"struct.std::pair.191", ptr %40, i64 0, i32 1, i32 1, i32 1
+  %second.i.i.i.i.i.i.i361 = getelementptr inbounds i8, ptr %40, i64 48
   %44 = load ptr, ptr %second.i.i.i.i345, align 8
   store ptr %44, ptr %second.i.i.i.i.i.i.i361, align 8
   %45 = load ptr, ptr %_M_finish.i.i273, align 8
-  %incdec.ptr.i.i363 = getelementptr inbounds %"struct.std::pair.191", ptr %45, i64 1
+  %incdec.ptr.i.i363 = getelementptr inbounds i8, ptr %45, i64 56
   store ptr %incdec.ptr.i.i363, ptr %_M_finish.i.i273, align 8
   br label %invoke.cont119
 
@@ -1685,7 +1568,7 @@ invoke.cont141:                                   ; preds = %for.cond.i.i.i69, %
   %call7.pn.i67 = phi ptr [ %49, %if.end.i.i.i49 ], [ %call7.i65, %call5.i.i.i.i.i.noexc74 ], [ %53, %for.cond.i.i.i69 ]
   %retval.1.i68 = getelementptr inbounds i8, ptr %call7.pn.i67, i64 24
   store i32 1, ptr %retval.1.i68, align 4
-  %m_header.i.i.i.i377 = getelementptr inbounds %"struct.ue2::ue2_graph<ue2::RoseGraph, ue2::RoseVertexProps, ue2::RoseEdgeProps>::vertex_node", ptr %25, i64 0, i32 4, i32 0, i32 0, i32 0, i32 1
+  %m_header.i.i.i.i377 = getelementptr inbounds i8, ptr %25, i64 352
   br label %if.end172
 
 lpad91:                                           ; preds = %cleanup.cont.i28
@@ -1815,14 +1698,14 @@ ehcleanup186:                                     ; preds = %lpad177, %_ZNSt10_H
 define linkonce_odr hidden void @_ZNSt6vectorISt4pairIN3ue212graph_detail17vertex_descriptorINS1_9ue2_graphINS1_9RoseGraphENS1_15RoseVertexPropsENS1_13RoseEdgePropsEEEEES0_IN5boost8optionalINS2_15edge_descriptorIS8_EEEES0_INS8_17out_edge_iteratorESF_EEESaISI_EED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %this) unnamed_addr #4 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %0 = load ptr, ptr %this, align 8
-  %_M_finish = getelementptr inbounds %"struct.std::_Vector_base<std::pair<ue2::graph_detail::vertex_descriptor<ue2::ue2_graph<ue2::RoseGraph, ue2::RoseVertexProps, ue2::RoseEdgeProps>>, std::pair<boost::optional<ue2::graph_detail::edge_descriptor<ue2::ue2_graph<ue2::RoseGraph, ue2::RoseVertexProps, ue2::RoseEdgeProps>>>, std::pair<ue2::ue2_graph<ue2::RoseGraph, ue2::RoseVertexProps, ue2::RoseEdgeProps>::out_edge_iterator, ue2::ue2_graph<ue2::RoseGraph, ue2::RoseVertexProps, ue2::RoseEdgeProps>::out_edge_iterator>>>, std::allocator<std::pair<ue2::graph_detail::vertex_descriptor<ue2::ue2_graph<ue2::RoseGraph, ue2::RoseVertexProps, ue2::RoseEdgeProps>>, std::pair<boost::optional<ue2::graph_detail::edge_descriptor<ue2::ue2_graph<ue2::RoseGraph, ue2::RoseVertexProps, ue2::RoseEdgeProps>>>, std::pair<ue2::ue2_graph<ue2::RoseGraph, ue2::RoseVertexProps, ue2::RoseEdgeProps>::out_edge_iterator, ue2::ue2_graph<ue2::RoseGraph, ue2::RoseVertexProps, ue2::RoseEdgeProps>::out_edge_iterator>>>>>::_Vector_impl_data", ptr %this, i64 0, i32 1
+  %_M_finish = getelementptr inbounds i8, ptr %this, i64 8
   %1 = load ptr, ptr %_M_finish, align 8
   %cmp.not3.i.i.i = icmp eq ptr %0, %1
   br i1 %cmp.not3.i.i.i, label %invoke.cont, label %for.body.i.i.i
 
 for.body.i.i.i:                                   ; preds = %entry, %_ZSt8_DestroyISt4pairIN3ue212graph_detail17vertex_descriptorINS1_9ue2_graphINS1_9RoseGraphENS1_15RoseVertexPropsENS1_13RoseEdgePropsEEEEES0_IN5boost8optionalINS2_15edge_descriptorIS8_EEEES0_INS8_17out_edge_iteratorESF_EEEEvPT_.exit.i.i.i
   %__first.addr.04.i.i.i = phi ptr [ %incdec.ptr.i.i.i, %_ZSt8_DestroyISt4pairIN3ue212graph_detail17vertex_descriptorINS1_9ue2_graphINS1_9RoseGraphENS1_15RoseVertexPropsENS1_13RoseEdgePropsEEEEES0_IN5boost8optionalINS2_15edge_descriptorIS8_EEEES0_INS8_17out_edge_iteratorESF_EEEEvPT_.exit.i.i.i ], [ %0, %entry ]
-  %second.i.i.i.i.i = getelementptr inbounds %"struct.std::pair.191", ptr %__first.addr.04.i.i.i, i64 0, i32 1
+  %second.i.i.i.i.i = getelementptr inbounds i8, ptr %__first.addr.04.i.i.i, i64 16
   %2 = load i8, ptr %second.i.i.i.i.i, align 8, !range !11, !noundef !12
   %tobool.not.i.i.i.i.i.i.i.i = icmp eq i8 %2, 0
   br i1 %tobool.not.i.i.i.i.i.i.i.i, label %_ZSt8_DestroyISt4pairIN3ue212graph_detail17vertex_descriptorINS1_9ue2_graphINS1_9RoseGraphENS1_15RoseVertexPropsENS1_13RoseEdgePropsEEEEES0_IN5boost8optionalINS2_15edge_descriptorIS8_EEEES0_INS8_17out_edge_iteratorESF_EEEEvPT_.exit.i.i.i, label %if.then.i.i.i.i.i.i.i.i
@@ -1832,7 +1715,7 @@ if.then.i.i.i.i.i.i.i.i:                          ; preds = %for.body.i.i.i
   br label %_ZSt8_DestroyISt4pairIN3ue212graph_detail17vertex_descriptorINS1_9ue2_graphINS1_9RoseGraphENS1_15RoseVertexPropsENS1_13RoseEdgePropsEEEEES0_IN5boost8optionalINS2_15edge_descriptorIS8_EEEES0_INS8_17out_edge_iteratorESF_EEEEvPT_.exit.i.i.i
 
 _ZSt8_DestroyISt4pairIN3ue212graph_detail17vertex_descriptorINS1_9ue2_graphINS1_9RoseGraphENS1_15RoseVertexPropsENS1_13RoseEdgePropsEEEEES0_IN5boost8optionalINS2_15edge_descriptorIS8_EEEES0_INS8_17out_edge_iteratorESF_EEEEvPT_.exit.i.i.i: ; preds = %if.then.i.i.i.i.i.i.i.i, %for.body.i.i.i
-  %incdec.ptr.i.i.i = getelementptr inbounds %"struct.std::pair.191", ptr %__first.addr.04.i.i.i, i64 1
+  %incdec.ptr.i.i.i = getelementptr inbounds i8, ptr %__first.addr.04.i.i.i, i64 56
   %cmp.not.i.i.i = icmp eq ptr %incdec.ptr.i.i.i, %1
   br i1 %cmp.not.i.i.i, label %invoke.contthread-pre-split, label %for.body.i.i.i, !llvm.loop !34
 
@@ -1856,12 +1739,12 @@ _ZNSt12_Vector_baseISt4pairIN3ue212graph_detail17vertex_descriptorINS1_9ue2_grap
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr hidden ptr @_ZNSt10_HashtableIN3ue212graph_detail17vertex_descriptorINS0_9ue2_graphINS0_9RoseGraphENS0_15RoseVertexPropsENS0_13RoseEdgePropsEEEEESt4pairIKS8_N5boost18default_color_typeEESaISD_ENSt8__detail10_Select1stESt8equal_toIS8_ESt4hashIS8_ENSF_18_Mod_range_hashingENSF_20_Default_ranged_hashENSF_20_Prime_rehash_policyENSF_17_Hashtable_traitsILb1ELb0ELb1EEEE21_M_insert_unique_nodeEmmPNSF_10_Hash_nodeISD_Lb1EEEm(ptr noundef nonnull align 8 dereferenceable(56) %this, i64 noundef %__bkt, i64 noundef %__code, ptr noundef %__node, i64 noundef %__n_elt) local_unnamed_addr #0 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  %_M_rehash_policy = getelementptr inbounds %"class.std::_Hashtable.161", ptr %this, i64 0, i32 4
-  %_M_next_resize.i = getelementptr inbounds %"class.std::_Hashtable.161", ptr %this, i64 0, i32 4, i32 1
+  %_M_rehash_policy = getelementptr inbounds i8, ptr %this, i64 32
+  %_M_next_resize.i = getelementptr inbounds i8, ptr %this, i64 40
   %0 = load i64, ptr %_M_next_resize.i, align 8
-  %_M_bucket_count = getelementptr inbounds %"class.std::_Hashtable.161", ptr %this, i64 0, i32 1
+  %_M_bucket_count = getelementptr inbounds i8, ptr %this, i64 8
   %1 = load i64, ptr %_M_bucket_count, align 8
-  %_M_element_count = getelementptr inbounds %"class.std::_Hashtable.161", ptr %this, i64 0, i32 3
+  %_M_element_count = getelementptr inbounds i8, ptr %this, i64 24
   %2 = load i64, ptr %_M_element_count, align 8
   %call3 = tail call { i8, i64 } @_ZNKSt8__detail20_Prime_rehash_policy14_M_need_rehashEmmm(ptr noundef nonnull align 8 dereferenceable(16) %_M_rehash_policy, i64 noundef %1, i64 noundef %2, i64 noundef %__n_elt)
   %3 = extractvalue { i8, i64 } %call3, 0
@@ -1927,7 +1810,7 @@ if.then.i:                                        ; preds = %if.end
   br label %_ZNSt10_HashtableIN3ue212graph_detail17vertex_descriptorINS0_9ue2_graphINS0_9RoseGraphENS0_15RoseVertexPropsENS0_13RoseEdgePropsEEEEESt4pairIKS8_N5boost18default_color_typeEESaISD_ENSt8__detail10_Select1stESt8equal_toIS8_ESt4hashIS8_ENSF_18_Mod_range_hashingENSF_20_Default_ranged_hashENSF_20_Prime_rehash_policyENSF_17_Hashtable_traitsILb1ELb0ELb1EEEE22_M_insert_bucket_beginEmPNSF_10_Hash_nodeISD_Lb1EEE.exit
 
 if.else.i:                                        ; preds = %if.end
-  %_M_before_begin.i = getelementptr inbounds %"class.std::_Hashtable.161", ptr %this, i64 0, i32 2
+  %_M_before_begin.i = getelementptr inbounds i8, ptr %this, i64 16
   %18 = load ptr, ptr %_M_before_begin.i, align 8
   store ptr %18, ptr %__node, align 8
   store ptr %__node, ptr %_M_before_begin.i, align 8
@@ -1971,7 +1854,7 @@ entry:
   br i1 %cmp.i, label %if.then.i, label %if.end.i, !prof !35
 
 if.then.i:                                        ; preds = %entry
-  %_M_single_bucket.i = getelementptr inbounds %"class.std::_Hashtable.161", ptr %this, i64 0, i32 5
+  %_M_single_bucket.i = getelementptr inbounds i8, ptr %this, i64 48
   store ptr null, ptr %_M_single_bucket.i, align 8
   br label %_ZNSt10_HashtableIN3ue212graph_detail17vertex_descriptorINS0_9ue2_graphINS0_9RoseGraphENS0_15RoseVertexPropsENS0_13RoseEdgePropsEEEEESt4pairIKS8_N5boost18default_color_typeEESaISD_ENSt8__detail10_Select1stESt8equal_toIS8_ESt4hashIS8_ENSF_18_Mod_range_hashingENSF_20_Default_ranged_hashENSF_20_Prime_rehash_policyENSF_17_Hashtable_traitsILb1ELb0ELb1EEEE19_M_allocate_bucketsEm.exit
 
@@ -1999,7 +1882,7 @@ _ZNSt8__detail16_Hashtable_allocISaINS_10_Hash_nodeISt4pairIKN3ue212graph_detail
 
 _ZNSt10_HashtableIN3ue212graph_detail17vertex_descriptorINS0_9ue2_graphINS0_9RoseGraphENS0_15RoseVertexPropsENS0_13RoseEdgePropsEEEEESt4pairIKS8_N5boost18default_color_typeEESaISD_ENSt8__detail10_Select1stESt8equal_toIS8_ESt4hashIS8_ENSF_18_Mod_range_hashingENSF_20_Default_ranged_hashENSF_20_Prime_rehash_policyENSF_17_Hashtable_traitsILb1ELb0ELb1EEEE19_M_allocate_bucketsEm.exit: ; preds = %_ZNSt8__detail16_Hashtable_allocISaINS_10_Hash_nodeISt4pairIKN3ue212graph_detail17vertex_descriptorINS3_9ue2_graphINS3_9RoseGraphENS3_15RoseVertexPropsENS3_13RoseEdgePropsEEEEEN5boost18default_color_typeEELb1EEEEE19_M_allocate_bucketsEm.exit.i, %if.then.i
   %retval.0.i = phi ptr [ %_M_single_bucket.i, %if.then.i ], [ %call5.i.i8.i.i, %_ZNSt8__detail16_Hashtable_allocISaINS_10_Hash_nodeISt4pairIKN3ue212graph_detail17vertex_descriptorINS3_9ue2_graphINS3_9RoseGraphENS3_15RoseVertexPropsENS3_13RoseEdgePropsEEEEEN5boost18default_color_typeEELb1EEEEE19_M_allocate_bucketsEm.exit.i ]
-  %_M_before_begin.i = getelementptr inbounds %"class.std::_Hashtable.161", ptr %this, i64 0, i32 2
+  %_M_before_begin.i = getelementptr inbounds i8, ptr %this, i64 16
   %0 = load ptr, ptr %_M_before_begin.i, align 8
   store ptr null, ptr %_M_before_begin.i, align 8
   %tobool.not42 = icmp eq ptr %0, null
@@ -2049,7 +1932,7 @@ if.end22:                                         ; preds = %if.end22.sink.split
 
 while.end:                                        ; preds = %if.end22, %_ZNSt10_HashtableIN3ue212graph_detail17vertex_descriptorINS0_9ue2_graphINS0_9RoseGraphENS0_15RoseVertexPropsENS0_13RoseEdgePropsEEEEESt4pairIKS8_N5boost18default_color_typeEESaISD_ENSt8__detail10_Select1stESt8equal_toIS8_ESt4hashIS8_ENSF_18_Mod_range_hashingENSF_20_Default_ranged_hashENSF_20_Prime_rehash_policyENSF_17_Hashtable_traitsILb1ELb0ELb1EEEE19_M_allocate_bucketsEm.exit
   %8 = load ptr, ptr %this, align 8
-  %_M_single_bucket.i.i.i = getelementptr inbounds %"class.std::_Hashtable.161", ptr %this, i64 0, i32 5
+  %_M_single_bucket.i.i.i = getelementptr inbounds i8, ptr %this, i64 48
   %cmp.i.i.i = icmp eq ptr %_M_single_bucket.i.i.i, %8
   br i1 %cmp.i.i.i, label %_ZNSt10_HashtableIN3ue212graph_detail17vertex_descriptorINS0_9ue2_graphINS0_9RoseGraphENS0_15RoseVertexPropsENS0_13RoseEdgePropsEEEEESt4pairIKS8_N5boost18default_color_typeEESaISD_ENSt8__detail10_Select1stESt8equal_toIS8_ESt4hashIS8_ENSF_18_Mod_range_hashingENSF_20_Default_ranged_hashENSF_20_Prime_rehash_policyENSF_17_Hashtable_traitsILb1ELb0ELb1EEEE21_M_deallocate_bucketsEv.exit, label %if.end.i.i
 
@@ -2058,7 +1941,7 @@ if.end.i.i:                                       ; preds = %while.end
   br label %_ZNSt10_HashtableIN3ue212graph_detail17vertex_descriptorINS0_9ue2_graphINS0_9RoseGraphENS0_15RoseVertexPropsENS0_13RoseEdgePropsEEEEESt4pairIKS8_N5boost18default_color_typeEESaISD_ENSt8__detail10_Select1stESt8equal_toIS8_ESt4hashIS8_ENSF_18_Mod_range_hashingENSF_20_Default_ranged_hashENSF_20_Prime_rehash_policyENSF_17_Hashtable_traitsILb1ELb0ELb1EEEE21_M_deallocate_bucketsEv.exit
 
 _ZNSt10_HashtableIN3ue212graph_detail17vertex_descriptorINS0_9ue2_graphINS0_9RoseGraphENS0_15RoseVertexPropsENS0_13RoseEdgePropsEEEEESt4pairIKS8_N5boost18default_color_typeEESaISD_ENSt8__detail10_Select1stESt8equal_toIS8_ESt4hashIS8_ENSF_18_Mod_range_hashingENSF_20_Default_ranged_hashENSF_20_Prime_rehash_policyENSF_17_Hashtable_traitsILb1ELb0ELb1EEEE21_M_deallocate_bucketsEv.exit: ; preds = %if.end.i.i, %while.end
-  %_M_bucket_count = getelementptr inbounds %"class.std::_Hashtable.161", ptr %this, i64 0, i32 1
+  %_M_bucket_count = getelementptr inbounds i8, ptr %this, i64 8
   store i64 %__bkt_count, ptr %_M_bucket_count, align 8
   store ptr %retval.0.i, ptr %this, align 8
   ret void
@@ -2070,7 +1953,7 @@ declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #1
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr hidden void @_ZNSt6vectorISt4pairIN3ue212graph_detail17vertex_descriptorINS1_9ue2_graphINS1_9RoseGraphENS1_15RoseVertexPropsENS1_13RoseEdgePropsEEEEES0_IN5boost8optionalINS2_15edge_descriptorIS8_EEEES0_INS8_17out_edge_iteratorESF_EEESaISI_EE17_M_realloc_insertIJSI_EEEvN9__gnu_cxx17__normal_iteratorIPSI_SK_EEDpOT_(ptr noundef nonnull align 8 dereferenceable(24) %this, ptr %__position.coerce, ptr noundef nonnull align 8 dereferenceable(56) %__args) local_unnamed_addr #0 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  %_M_finish.i.i = getelementptr inbounds %"struct.std::_Vector_base<std::pair<ue2::graph_detail::vertex_descriptor<ue2::ue2_graph<ue2::RoseGraph, ue2::RoseVertexProps, ue2::RoseEdgeProps>>, std::pair<boost::optional<ue2::graph_detail::edge_descriptor<ue2::ue2_graph<ue2::RoseGraph, ue2::RoseVertexProps, ue2::RoseEdgeProps>>>, std::pair<ue2::ue2_graph<ue2::RoseGraph, ue2::RoseVertexProps, ue2::RoseEdgeProps>::out_edge_iterator, ue2::ue2_graph<ue2::RoseGraph, ue2::RoseVertexProps, ue2::RoseEdgeProps>::out_edge_iterator>>>, std::allocator<std::pair<ue2::graph_detail::vertex_descriptor<ue2::ue2_graph<ue2::RoseGraph, ue2::RoseVertexProps, ue2::RoseEdgeProps>>, std::pair<boost::optional<ue2::graph_detail::edge_descriptor<ue2::ue2_graph<ue2::RoseGraph, ue2::RoseVertexProps, ue2::RoseEdgeProps>>>, std::pair<ue2::ue2_graph<ue2::RoseGraph, ue2::RoseVertexProps, ue2::RoseEdgeProps>::out_edge_iterator, ue2::ue2_graph<ue2::RoseGraph, ue2::RoseVertexProps, ue2::RoseEdgeProps>::out_edge_iterator>>>>>::_Vector_impl_data", ptr %this, i64 0, i32 1
+  %_M_finish.i.i = getelementptr inbounds i8, ptr %this, i64 8
   %0 = load ptr, ptr %_M_finish.i.i, align 8
   %1 = load ptr, ptr %this, align 8
   %sub.ptr.lhs.cast.i.i = ptrtoint ptr %0 to i64
@@ -2106,14 +1989,14 @@ _ZNSt12_Vector_baseISt4pairIN3ue212graph_detail17vertex_descriptorINS1_9ue2_grap
   %add.ptr = getelementptr inbounds %"struct.std::pair.191", ptr %cond.i52, i64 %sub.ptr.div.i
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %add.ptr, ptr noundef nonnull align 8 dereferenceable(16) %__args, i64 16, i1 false)
   %second.i.i.i = getelementptr inbounds %"struct.std::pair.191", ptr %cond.i52, i64 %sub.ptr.div.i, i32 1
-  %second3.i.i.i = getelementptr inbounds %"struct.std::pair.191", ptr %__args, i64 0, i32 1
+  %second3.i.i.i = getelementptr inbounds i8, ptr %__args, i64 16
   store i8 0, ptr %second.i.i.i, align 8
   %3 = load i8, ptr %second3.i.i.i, align 8, !range !11, !noundef !12
   %tobool.i.not.i.i.i.i.i.i = icmp eq i8 %3, 0
   br i1 %tobool.i.not.i.i.i.i.i.i, label %invoke.cont, label %invoke.cont.i.i.i.i.i.i
 
 invoke.cont.i.i.i.i.i.i:                          ; preds = %_ZNSt12_Vector_baseISt4pairIN3ue212graph_detail17vertex_descriptorINS1_9ue2_graphINS1_9RoseGraphENS1_15RoseVertexPropsENS1_13RoseEdgePropsEEEEES0_IN5boost8optionalINS2_15edge_descriptorIS8_EEEES0_INS8_17out_edge_iteratorESF_EEESaISI_EE11_M_allocateEm.exit
-  %m_storage.i.i.i.i.i.i.i = getelementptr inbounds %"struct.std::pair.191", ptr %__args, i64 0, i32 1, i32 0, i32 0, i32 2
+  %m_storage.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %__args, i64 24
   %m_storage.i6.i.i.i.i.i.i = getelementptr inbounds %"struct.std::pair.191", ptr %cond.i52, i64 %sub.ptr.div.i, i32 1, i32 0, i32 0, i32 2
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %m_storage.i6.i.i.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(16) %m_storage.i.i.i.i.i.i.i, i64 16, i1 false)
   store i8 1, ptr %second.i.i.i, align 8
@@ -2121,7 +2004,7 @@ invoke.cont.i.i.i.i.i.i:                          ; preds = %_ZNSt12_Vector_base
 
 invoke.cont:                                      ; preds = %invoke.cont.i.i.i.i.i.i, %_ZNSt12_Vector_baseISt4pairIN3ue212graph_detail17vertex_descriptorINS1_9ue2_graphINS1_9RoseGraphENS1_15RoseVertexPropsENS1_13RoseEdgePropsEEEEES0_IN5boost8optionalINS2_15edge_descriptorIS8_EEEES0_INS8_17out_edge_iteratorESF_EEESaISI_EE11_M_allocateEm.exit
   %second.i.i.i.i = getelementptr inbounds %"struct.std::pair.191", ptr %cond.i52, i64 %sub.ptr.div.i, i32 1, i32 1
-  %second3.i.i.i.i = getelementptr inbounds %"struct.std::pair.191", ptr %__args, i64 0, i32 1, i32 1
+  %second3.i.i.i.i = getelementptr inbounds i8, ptr %__args, i64 40
   %4 = load <2 x ptr>, ptr %second3.i.i.i.i, align 8
   store <2 x ptr> %4, ptr %second.i.i.i.i, align 8
   %cmp.not14.i.i.i.i.i = icmp eq ptr %1, %__position.coerce
@@ -2131,37 +2014,37 @@ for.body.i.i.i.i.i:                               ; preds = %invoke.cont, %for.i
   %__cur.016.i.i.i.i.i = phi ptr [ %incdec.ptr1.i.i.i.i.i, %for.inc.i.i.i.i.i ], [ %cond.i52, %invoke.cont ]
   %__first.addr.015.i.i.i.i.i = phi ptr [ %incdec.ptr.i.i.i.i.i, %for.inc.i.i.i.i.i ], [ %1, %invoke.cont ]
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %__cur.016.i.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(16) %__first.addr.015.i.i.i.i.i, i64 16, i1 false)
-  %second.i.i.i.i.i.i.i = getelementptr inbounds %"struct.std::pair.191", ptr %__cur.016.i.i.i.i.i, i64 0, i32 1
-  %second3.i.i.i.i.i.i.i = getelementptr inbounds %"struct.std::pair.191", ptr %__first.addr.015.i.i.i.i.i, i64 0, i32 1
+  %second.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %__cur.016.i.i.i.i.i, i64 16
+  %second3.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %__first.addr.015.i.i.i.i.i, i64 16
   store i8 0, ptr %second.i.i.i.i.i.i.i, align 8
   %5 = load i8, ptr %second3.i.i.i.i.i.i.i, align 8, !range !11, !noundef !12
   %tobool.i.not.i.i.i.i.i.i.i.i.i.i = icmp eq i8 %5, 0
   br i1 %tobool.i.not.i.i.i.i.i.i.i.i.i.i, label %for.inc.i.i.i.i.i, label %if.then.i.i.i.i.i.i.i.i.i.i
 
 if.then.i.i.i.i.i.i.i.i.i.i:                      ; preds = %for.body.i.i.i.i.i
-  %m_storage.i.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds %"struct.std::pair.191", ptr %__first.addr.015.i.i.i.i.i, i64 0, i32 1, i32 0, i32 0, i32 2
-  %m_storage.i4.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds %"struct.std::pair.191", ptr %__cur.016.i.i.i.i.i, i64 0, i32 1, i32 0, i32 0, i32 2
+  %m_storage.i.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %__first.addr.015.i.i.i.i.i, i64 24
+  %m_storage.i4.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %__cur.016.i.i.i.i.i, i64 24
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %m_storage.i4.i.i.i.i.i.i.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(16) %m_storage.i.i.i.i.i.i.i.i.i.i.i, i64 16, i1 false)
   store i8 1, ptr %second.i.i.i.i.i.i.i, align 8
   br label %for.inc.i.i.i.i.i
 
 for.inc.i.i.i.i.i:                                ; preds = %if.then.i.i.i.i.i.i.i.i.i.i, %for.body.i.i.i.i.i
-  %second.i.i.i.i.i.i.i.i = getelementptr inbounds %"struct.std::pair.191", ptr %__cur.016.i.i.i.i.i, i64 0, i32 1, i32 1
-  %second3.i.i.i.i.i.i.i.i = getelementptr inbounds %"struct.std::pair.191", ptr %__first.addr.015.i.i.i.i.i, i64 0, i32 1, i32 1
+  %second.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %__cur.016.i.i.i.i.i, i64 40
+  %second3.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %__first.addr.015.i.i.i.i.i, i64 40
   %6 = load ptr, ptr %second3.i.i.i.i.i.i.i.i, align 8
   store ptr %6, ptr %second.i.i.i.i.i.i.i.i, align 8
-  %second.i.i.i.i.i.i.i.i.i = getelementptr inbounds %"struct.std::pair.191", ptr %__cur.016.i.i.i.i.i, i64 0, i32 1, i32 1, i32 1
-  %second3.i.i.i.i.i.i.i.i.i = getelementptr inbounds %"struct.std::pair.191", ptr %__first.addr.015.i.i.i.i.i, i64 0, i32 1, i32 1, i32 1
+  %second.i.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %__cur.016.i.i.i.i.i, i64 48
+  %second3.i.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %__first.addr.015.i.i.i.i.i, i64 48
   %7 = load ptr, ptr %second3.i.i.i.i.i.i.i.i.i, align 8
   store ptr %7, ptr %second.i.i.i.i.i.i.i.i.i, align 8
-  %incdec.ptr.i.i.i.i.i = getelementptr inbounds %"struct.std::pair.191", ptr %__first.addr.015.i.i.i.i.i, i64 1
-  %incdec.ptr1.i.i.i.i.i = getelementptr inbounds %"struct.std::pair.191", ptr %__cur.016.i.i.i.i.i, i64 1
+  %incdec.ptr.i.i.i.i.i = getelementptr inbounds i8, ptr %__first.addr.015.i.i.i.i.i, i64 56
+  %incdec.ptr1.i.i.i.i.i = getelementptr inbounds i8, ptr %__cur.016.i.i.i.i.i, i64 56
   %cmp.not.i.i.i.i.i = icmp eq ptr %incdec.ptr.i.i.i.i.i, %__position.coerce
   br i1 %cmp.not.i.i.i.i.i, label %invoke.cont10, label %for.body.i.i.i.i.i, !llvm.loop !37
 
 invoke.cont10:                                    ; preds = %for.inc.i.i.i.i.i, %invoke.cont
   %__cur.0.lcssa.i.i.i.i.i = phi ptr [ %cond.i52, %invoke.cont ], [ %incdec.ptr1.i.i.i.i.i, %for.inc.i.i.i.i.i ]
-  %incdec.ptr = getelementptr inbounds %"struct.std::pair.191", ptr %__cur.0.lcssa.i.i.i.i.i, i64 1
+  %incdec.ptr = getelementptr inbounds i8, ptr %__cur.0.lcssa.i.i.i.i.i, i64 56
   %cmp.not14.i.i.i.i.i53 = icmp eq ptr %0, %__position.coerce
   br i1 %cmp.not14.i.i.i.i.i53, label %invoke.cont14, label %for.body.i.i.i.i.i54
 
@@ -2169,31 +2052,31 @@ for.body.i.i.i.i.i54:                             ; preds = %invoke.cont10, %for
   %__cur.016.i.i.i.i.i55 = phi ptr [ %incdec.ptr1.i.i.i.i.i69, %for.inc.i.i.i.i.i63 ], [ %incdec.ptr, %invoke.cont10 ]
   %__first.addr.015.i.i.i.i.i56 = phi ptr [ %incdec.ptr.i.i.i.i.i68, %for.inc.i.i.i.i.i63 ], [ %__position.coerce, %invoke.cont10 ]
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %__cur.016.i.i.i.i.i55, ptr noundef nonnull align 8 dereferenceable(16) %__first.addr.015.i.i.i.i.i56, i64 16, i1 false)
-  %second.i.i.i.i.i.i.i57 = getelementptr inbounds %"struct.std::pair.191", ptr %__cur.016.i.i.i.i.i55, i64 0, i32 1
-  %second3.i.i.i.i.i.i.i58 = getelementptr inbounds %"struct.std::pair.191", ptr %__first.addr.015.i.i.i.i.i56, i64 0, i32 1
+  %second.i.i.i.i.i.i.i57 = getelementptr inbounds i8, ptr %__cur.016.i.i.i.i.i55, i64 16
+  %second3.i.i.i.i.i.i.i58 = getelementptr inbounds i8, ptr %__first.addr.015.i.i.i.i.i56, i64 16
   store i8 0, ptr %second.i.i.i.i.i.i.i57, align 8
   %8 = load i8, ptr %second3.i.i.i.i.i.i.i58, align 8, !range !11, !noundef !12
   %tobool.i.not.i.i.i.i.i.i.i.i.i.i59 = icmp eq i8 %8, 0
   br i1 %tobool.i.not.i.i.i.i.i.i.i.i.i.i59, label %for.inc.i.i.i.i.i63, label %if.then.i.i.i.i.i.i.i.i.i.i60
 
 if.then.i.i.i.i.i.i.i.i.i.i60:                    ; preds = %for.body.i.i.i.i.i54
-  %m_storage.i.i.i.i.i.i.i.i.i.i.i61 = getelementptr inbounds %"struct.std::pair.191", ptr %__first.addr.015.i.i.i.i.i56, i64 0, i32 1, i32 0, i32 0, i32 2
-  %m_storage.i4.i.i.i.i.i.i.i.i.i.i62 = getelementptr inbounds %"struct.std::pair.191", ptr %__cur.016.i.i.i.i.i55, i64 0, i32 1, i32 0, i32 0, i32 2
+  %m_storage.i.i.i.i.i.i.i.i.i.i.i61 = getelementptr inbounds i8, ptr %__first.addr.015.i.i.i.i.i56, i64 24
+  %m_storage.i4.i.i.i.i.i.i.i.i.i.i62 = getelementptr inbounds i8, ptr %__cur.016.i.i.i.i.i55, i64 24
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %m_storage.i4.i.i.i.i.i.i.i.i.i.i62, ptr noundef nonnull align 8 dereferenceable(16) %m_storage.i.i.i.i.i.i.i.i.i.i.i61, i64 16, i1 false)
   store i8 1, ptr %second.i.i.i.i.i.i.i57, align 8
   br label %for.inc.i.i.i.i.i63
 
 for.inc.i.i.i.i.i63:                              ; preds = %if.then.i.i.i.i.i.i.i.i.i.i60, %for.body.i.i.i.i.i54
-  %second.i.i.i.i.i.i.i.i64 = getelementptr inbounds %"struct.std::pair.191", ptr %__cur.016.i.i.i.i.i55, i64 0, i32 1, i32 1
-  %second3.i.i.i.i.i.i.i.i65 = getelementptr inbounds %"struct.std::pair.191", ptr %__first.addr.015.i.i.i.i.i56, i64 0, i32 1, i32 1
+  %second.i.i.i.i.i.i.i.i64 = getelementptr inbounds i8, ptr %__cur.016.i.i.i.i.i55, i64 40
+  %second3.i.i.i.i.i.i.i.i65 = getelementptr inbounds i8, ptr %__first.addr.015.i.i.i.i.i56, i64 40
   %9 = load ptr, ptr %second3.i.i.i.i.i.i.i.i65, align 8
   store ptr %9, ptr %second.i.i.i.i.i.i.i.i64, align 8
-  %second.i.i.i.i.i.i.i.i.i66 = getelementptr inbounds %"struct.std::pair.191", ptr %__cur.016.i.i.i.i.i55, i64 0, i32 1, i32 1, i32 1
-  %second3.i.i.i.i.i.i.i.i.i67 = getelementptr inbounds %"struct.std::pair.191", ptr %__first.addr.015.i.i.i.i.i56, i64 0, i32 1, i32 1, i32 1
+  %second.i.i.i.i.i.i.i.i.i66 = getelementptr inbounds i8, ptr %__cur.016.i.i.i.i.i55, i64 48
+  %second3.i.i.i.i.i.i.i.i.i67 = getelementptr inbounds i8, ptr %__first.addr.015.i.i.i.i.i56, i64 48
   %10 = load ptr, ptr %second3.i.i.i.i.i.i.i.i.i67, align 8
   store ptr %10, ptr %second.i.i.i.i.i.i.i.i.i66, align 8
-  %incdec.ptr.i.i.i.i.i68 = getelementptr inbounds %"struct.std::pair.191", ptr %__first.addr.015.i.i.i.i.i56, i64 1
-  %incdec.ptr1.i.i.i.i.i69 = getelementptr inbounds %"struct.std::pair.191", ptr %__cur.016.i.i.i.i.i55, i64 1
+  %incdec.ptr.i.i.i.i.i68 = getelementptr inbounds i8, ptr %__first.addr.015.i.i.i.i.i56, i64 56
+  %incdec.ptr1.i.i.i.i.i69 = getelementptr inbounds i8, ptr %__cur.016.i.i.i.i.i55, i64 56
   %cmp.not.i.i.i.i.i70 = icmp eq ptr %incdec.ptr.i.i.i.i.i68, %0
   br i1 %cmp.not.i.i.i.i.i70, label %invoke.cont14, label %for.body.i.i.i.i.i54, !llvm.loop !37
 
@@ -2204,7 +2087,7 @@ invoke.cont14:                                    ; preds = %for.inc.i.i.i.i.i63
 
 for.body.i.i.i:                                   ; preds = %invoke.cont14, %_ZSt8_DestroyISt4pairIN3ue212graph_detail17vertex_descriptorINS1_9ue2_graphINS1_9RoseGraphENS1_15RoseVertexPropsENS1_13RoseEdgePropsEEEEES0_IN5boost8optionalINS2_15edge_descriptorIS8_EEEES0_INS8_17out_edge_iteratorESF_EEEEvPT_.exit.i.i.i
   %__first.addr.04.i.i.i = phi ptr [ %incdec.ptr.i.i.i, %_ZSt8_DestroyISt4pairIN3ue212graph_detail17vertex_descriptorINS1_9ue2_graphINS1_9RoseGraphENS1_15RoseVertexPropsENS1_13RoseEdgePropsEEEEES0_IN5boost8optionalINS2_15edge_descriptorIS8_EEEES0_INS8_17out_edge_iteratorESF_EEEEvPT_.exit.i.i.i ], [ %1, %invoke.cont14 ]
-  %second.i.i.i.i.i73 = getelementptr inbounds %"struct.std::pair.191", ptr %__first.addr.04.i.i.i, i64 0, i32 1
+  %second.i.i.i.i.i73 = getelementptr inbounds i8, ptr %__first.addr.04.i.i.i, i64 16
   %11 = load i8, ptr %second.i.i.i.i.i73, align 8, !range !11, !noundef !12
   %tobool.not.i.i.i.i.i.i.i.i = icmp eq i8 %11, 0
   br i1 %tobool.not.i.i.i.i.i.i.i.i, label %_ZSt8_DestroyISt4pairIN3ue212graph_detail17vertex_descriptorINS1_9ue2_graphINS1_9RoseGraphENS1_15RoseVertexPropsENS1_13RoseEdgePropsEEEEES0_IN5boost8optionalINS2_15edge_descriptorIS8_EEEES0_INS8_17out_edge_iteratorESF_EEEEvPT_.exit.i.i.i, label %if.then.i.i.i.i.i.i.i.i
@@ -2214,7 +2097,7 @@ if.then.i.i.i.i.i.i.i.i:                          ; preds = %for.body.i.i.i
   br label %_ZSt8_DestroyISt4pairIN3ue212graph_detail17vertex_descriptorINS1_9ue2_graphINS1_9RoseGraphENS1_15RoseVertexPropsENS1_13RoseEdgePropsEEEEES0_IN5boost8optionalINS2_15edge_descriptorIS8_EEEES0_INS8_17out_edge_iteratorESF_EEEEvPT_.exit.i.i.i
 
 _ZSt8_DestroyISt4pairIN3ue212graph_detail17vertex_descriptorINS1_9ue2_graphINS1_9RoseGraphENS1_15RoseVertexPropsENS1_13RoseEdgePropsEEEEES0_IN5boost8optionalINS2_15edge_descriptorIS8_EEEES0_INS8_17out_edge_iteratorESF_EEEEvPT_.exit.i.i.i: ; preds = %if.then.i.i.i.i.i.i.i.i, %for.body.i.i.i
-  %incdec.ptr.i.i.i = getelementptr inbounds %"struct.std::pair.191", ptr %__first.addr.04.i.i.i, i64 1
+  %incdec.ptr.i.i.i = getelementptr inbounds i8, ptr %__first.addr.04.i.i.i, i64 56
   %cmp.not.i.i.i = icmp eq ptr %incdec.ptr.i.i.i, %0
   br i1 %cmp.not.i.i.i, label %_ZSt8_DestroyIPSt4pairIN3ue212graph_detail17vertex_descriptorINS1_9ue2_graphINS1_9RoseGraphENS1_15RoseVertexPropsENS1_13RoseEdgePropsEEEEES0_IN5boost8optionalINS2_15edge_descriptorIS8_EEEES0_INS8_17out_edge_iteratorESF_EEESI_EvT_SK_RSaIT0_E.exit, label %for.body.i.i.i, !llvm.loop !34
 
@@ -2227,7 +2110,7 @@ if.then.i74:                                      ; preds = %_ZSt8_DestroyIPSt4p
   br label %_ZNSt12_Vector_baseISt4pairIN3ue212graph_detail17vertex_descriptorINS1_9ue2_graphINS1_9RoseGraphENS1_15RoseVertexPropsENS1_13RoseEdgePropsEEEEES0_IN5boost8optionalINS2_15edge_descriptorIS8_EEEES0_INS8_17out_edge_iteratorESF_EEESaISI_EE13_M_deallocateEPSI_m.exit
 
 _ZNSt12_Vector_baseISt4pairIN3ue212graph_detail17vertex_descriptorINS1_9ue2_graphINS1_9RoseGraphENS1_15RoseVertexPropsENS1_13RoseEdgePropsEEEEES0_IN5boost8optionalINS2_15edge_descriptorIS8_EEEES0_INS8_17out_edge_iteratorESF_EEESaISI_EE13_M_deallocateEPSI_m.exit: ; preds = %if.then.i74, %_ZSt8_DestroyIPSt4pairIN3ue212graph_detail17vertex_descriptorINS1_9ue2_graphINS1_9RoseGraphENS1_15RoseVertexPropsENS1_13RoseEdgePropsEEEEES0_IN5boost8optionalINS2_15edge_descriptorIS8_EEEES0_INS8_17out_edge_iteratorESF_EEESI_EvT_SK_RSaIT0_E.exit
-  %_M_end_of_storage = getelementptr inbounds %"struct.std::_Vector_base<std::pair<ue2::graph_detail::vertex_descriptor<ue2::ue2_graph<ue2::RoseGraph, ue2::RoseVertexProps, ue2::RoseEdgeProps>>, std::pair<boost::optional<ue2::graph_detail::edge_descriptor<ue2::ue2_graph<ue2::RoseGraph, ue2::RoseVertexProps, ue2::RoseEdgeProps>>>, std::pair<ue2::ue2_graph<ue2::RoseGraph, ue2::RoseVertexProps, ue2::RoseEdgeProps>::out_edge_iterator, ue2::ue2_graph<ue2::RoseGraph, ue2::RoseVertexProps, ue2::RoseEdgeProps>::out_edge_iterator>>>, std::allocator<std::pair<ue2::graph_detail::vertex_descriptor<ue2::ue2_graph<ue2::RoseGraph, ue2::RoseVertexProps, ue2::RoseEdgeProps>>, std::pair<boost::optional<ue2::graph_detail::edge_descriptor<ue2::ue2_graph<ue2::RoseGraph, ue2::RoseVertexProps, ue2::RoseEdgeProps>>>, std::pair<ue2::ue2_graph<ue2::RoseGraph, ue2::RoseVertexProps, ue2::RoseEdgeProps>::out_edge_iterator, ue2::ue2_graph<ue2::RoseGraph, ue2::RoseVertexProps, ue2::RoseEdgeProps>::out_edge_iterator>>>>>::_Vector_impl_data", ptr %this, i64 0, i32 2
+  %_M_end_of_storage = getelementptr inbounds i8, ptr %this, i64 16
   store ptr %cond.i52, ptr %this, align 8
   store ptr %__cur.0.lcssa.i.i.i.i.i71, ptr %_M_finish.i.i, align 8
   %add.ptr29 = getelementptr inbounds %"struct.std::pair.191", ptr %cond.i52, i64 %cond.i
@@ -2248,25 +2131,25 @@ while.body.lr.ph.i:                               ; preds = %entry
   %0 = load ptr, ptr %__v, align 8
   %.fr = freeze ptr %0
   %tobool.i.i.i.not = icmp eq ptr %.fr, null
-  %serial.i.i.i = getelementptr inbounds %"class.ue2::graph_detail::vertex_descriptor", ptr %__v, i64 0, i32 1
+  %serial.i.i.i = getelementptr inbounds i8, ptr %__v, i64 8
   %1 = load i64, ptr %serial.i.i.i, align 8
   br i1 %tobool.i.i.i.not, label %while.body.i.us, label %while.body.i
 
 while.body.i.us:                                  ; preds = %while.body.lr.ph.i, %while.body.i.us.backedge
   %__x.057.i.us = phi ptr [ %__x.057.i.us.be, %while.body.i.us.backedge ], [ %__x.055.i, %while.body.lr.ph.i ]
-  %_M_storage.i.i.i.us = getelementptr inbounds %"struct.std::_Rb_tree_node", ptr %__x.057.i.us, i64 0, i32 1
+  %_M_storage.i.i.i.us = getelementptr inbounds i8, ptr %__x.057.i.us, i64 32
   %agg.tmp.sroa.0.0.copyload.i.i.us = load ptr, ptr %_M_storage.i.i.i.us, align 8
   %cmp7.i.i.i.us.not = icmp eq ptr %agg.tmp.sroa.0.0.copyload.i.i.us, null
   br i1 %cmp7.i.i.i.us.not, label %cond.end.i.thread.us, label %cond.end.i.us
 
 cond.end.i.thread.us:                             ; preds = %while.body.i.us
-  %_M_right.i.i.us = getelementptr inbounds %"struct.std::_Rb_tree_node_base", ptr %__x.057.i.us, i64 0, i32 3
+  %_M_right.i.i.us = getelementptr inbounds i8, ptr %__x.057.i.us, i64 24
   %__x.0.i29.us = load ptr, ptr %_M_right.i.i.us, align 8
   %cmp.not.i30.us = icmp eq ptr %__x.0.i29.us, null
   br i1 %cmp.not.i30.us, label %cleanup, label %while.body.i.us.backedge
 
 cond.end.i.us:                                    ; preds = %while.body.i.us
-  %_M_left.i.i.us = getelementptr inbounds %"struct.std::_Rb_tree_node_base", ptr %__x.057.i.us, i64 0, i32 2
+  %_M_left.i.i.us = getelementptr inbounds i8, ptr %__x.057.i.us, i64 16
   %__x.0.i.us = load ptr, ptr %_M_left.i.i.us, align 8
   %cmp.not.i.us = icmp eq ptr %__x.0.i.us, null
   br i1 %cmp.not.i.us, label %if.then.i, label %while.body.i.us.backedge
@@ -2277,25 +2160,25 @@ while.body.i.us.backedge:                         ; preds = %cond.end.i.us, %con
 
 while.body.i:                                     ; preds = %while.body.lr.ph.i, %while.body.i.backedge
   %__x.057.i = phi ptr [ %__x.057.i.be, %while.body.i.backedge ], [ %__x.055.i, %while.body.lr.ph.i ]
-  %_M_storage.i.i.i = getelementptr inbounds %"struct.std::_Rb_tree_node", ptr %__x.057.i, i64 0, i32 1
+  %_M_storage.i.i.i = getelementptr inbounds i8, ptr %__x.057.i, i64 32
   %agg.tmp.sroa.0.0.copyload.i.i = load ptr, ptr %_M_storage.i.i.i, align 8
   %tobool3.i.i.i.not = icmp eq ptr %agg.tmp.sroa.0.0.copyload.i.i, null
   br i1 %tobool3.i.i.i.not, label %cond.end.i.thread, label %if.then.i.i.i
 
 if.then.i.i.i:                                    ; preds = %while.body.i
-  %agg.tmp.sroa.2.0..sroa_idx.i.i = getelementptr inbounds %"struct.std::_Rb_tree_node", ptr %__x.057.i, i64 0, i32 1, i32 0, i64 8
+  %agg.tmp.sroa.2.0..sroa_idx.i.i = getelementptr inbounds i8, ptr %__x.057.i, i64 40
   %agg.tmp.sroa.2.0.copyload.i.i = load i64, ptr %agg.tmp.sroa.2.0..sroa_idx.i.i, align 8
   %cmp.i.i.i = icmp ult i64 %1, %agg.tmp.sroa.2.0.copyload.i.i
   br i1 %cmp.i.i.i, label %cond.end.i, label %cond.end.i.thread
 
 cond.end.i:                                       ; preds = %if.then.i.i.i
-  %_M_left.i.i = getelementptr inbounds %"struct.std::_Rb_tree_node_base", ptr %__x.057.i, i64 0, i32 2
+  %_M_left.i.i = getelementptr inbounds i8, ptr %__x.057.i, i64 16
   %__x.0.i = load ptr, ptr %_M_left.i.i, align 8
   %cmp.not.i = icmp eq ptr %__x.0.i, null
   br i1 %cmp.not.i, label %if.then.i, label %while.body.i.backedge
 
 cond.end.i.thread:                                ; preds = %while.body.i, %if.then.i.i.i
-  %_M_right.i.i = getelementptr inbounds %"struct.std::_Rb_tree_node_base", ptr %__x.057.i, i64 0, i32 3
+  %_M_right.i.i = getelementptr inbounds i8, ptr %__x.057.i, i64 24
   %__x.0.i29 = load ptr, ptr %_M_right.i.i, align 8
   %cmp.not.i30 = icmp eq ptr %__x.0.i29, null
   br i1 %cmp.not.i30, label %if.end12.i, label %while.body.i.backedge
@@ -2314,7 +2197,7 @@ if.then.i:                                        ; preds = %cond.end.i, %cond.e
 if.else.i:                                        ; preds = %if.then.i
   %call.i.i = tail call noundef ptr @_ZSt18_Rb_tree_decrementPSt18_Rb_tree_node_base(ptr noundef nonnull %__y.0.lcssa62.i) #20
   %agg.tmp.sroa.0.0.copyload.i27.i.pre = load ptr, ptr %__v, align 8
-  %_M_storage.i.i.i.i.phi.trans.insert = getelementptr inbounds %"struct.std::_Rb_tree_node", ptr %call.i.i, i64 0, i32 1
+  %_M_storage.i.i.i.i.phi.trans.insert = getelementptr inbounds i8, ptr %call.i.i, i64 32
   %.pre = load ptr, ptr %_M_storage.i.i.i.i.phi.trans.insert, align 8
   br label %if.end12.i
 
@@ -2331,7 +2214,7 @@ if.end12.i:                                       ; preds = %cond.end.i.thread, 
 if.then.i.i34.i:                                  ; preds = %if.end12.i
   %agg.tmp.sroa.2.0..sroa_idx.i35.i = getelementptr inbounds i8, ptr %__v, i64 8
   %agg.tmp.sroa.2.0.copyload.i36.i = load i64, ptr %agg.tmp.sroa.2.0..sroa_idx.i35.i, align 8
-  %serial.i.i37.i = getelementptr inbounds %"struct.std::_Rb_tree_node", ptr %__j.sroa.0.0.i, i64 0, i32 1, i32 0, i64 8
+  %serial.i.i37.i = getelementptr inbounds i8, ptr %__j.sroa.0.0.i, i64 40
   %4 = load i64, ptr %serial.i.i37.i, align 8
   %cmp.i.i38.i = icmp ult i64 %4, %agg.tmp.sroa.2.0.copyload.i36.i
   br i1 %cmp.i.i38.i, label %if.then, label %cleanup
@@ -2346,7 +2229,7 @@ if.then:                                          ; preds = %_ZNKSt4lessIN3ue212
   br i1 %cmp2.i, label %_ZNSt8_Rb_treeIN3ue212graph_detail17vertex_descriptorINS0_9ue2_graphINS0_9RoseGraphENS0_15RoseVertexPropsENS0_13RoseEdgePropsEEEEES8_St9_IdentityIS8_ESt4lessIS8_ESaIS8_EE10_M_insert_IRKS8_NSE_11_Alloc_nodeEEESt17_Rb_tree_iteratorIS8_EPSt18_Rb_tree_node_baseSM_OT_RT0_.exit, label %lor.rhs.i
 
 lor.rhs.i:                                        ; preds = %if.then
-  %_M_storage.i.i.i.i15 = getelementptr inbounds %"struct.std::_Rb_tree_node", ptr %retval.sroa.4.0.i.ph, i64 0, i32 1
+  %_M_storage.i.i.i.i15 = getelementptr inbounds i8, ptr %retval.sroa.4.0.i.ph, i64 32
   %agg.tmp.sroa.0.0.copyload.i.i16 = load ptr, ptr %_M_storage.i.i.i.i15, align 8
   %5 = load ptr, ptr %__v, align 8
   %tobool.i.i.i17 = icmp ne ptr %5, null
@@ -2355,9 +2238,9 @@ lor.rhs.i:                                        ; preds = %if.then
   br i1 %or.cond.i.i.i19, label %if.then.i.i.i21, label %if.else.i.i.i
 
 if.then.i.i.i21:                                  ; preds = %lor.rhs.i
-  %agg.tmp.sroa.2.0..sroa_idx.i.i22 = getelementptr inbounds %"struct.std::_Rb_tree_node", ptr %retval.sroa.4.0.i.ph, i64 0, i32 1, i32 0, i64 8
+  %agg.tmp.sroa.2.0..sroa_idx.i.i22 = getelementptr inbounds i8, ptr %retval.sroa.4.0.i.ph, i64 40
   %agg.tmp.sroa.2.0.copyload.i.i23 = load i64, ptr %agg.tmp.sroa.2.0..sroa_idx.i.i22, align 8
-  %serial.i.i.i24 = getelementptr inbounds %"class.ue2::graph_detail::vertex_descriptor", ptr %__v, i64 0, i32 1
+  %serial.i.i.i24 = getelementptr inbounds i8, ptr %__v, i64 8
   %6 = load i64, ptr %serial.i.i.i24, align 8
   %cmp.i.i.i25 = icmp ult i64 %6, %agg.tmp.sroa.2.0.copyload.i.i23
   br label %_ZNSt8_Rb_treeIN3ue212graph_detail17vertex_descriptorINS0_9ue2_graphINS0_9RoseGraphENS0_15RoseVertexPropsENS0_13RoseEdgePropsEEEEES8_St9_IdentityIS8_ESt4lessIS8_ESaIS8_EE10_M_insert_IRKS8_NSE_11_Alloc_nodeEEESt17_Rb_tree_iteratorIS8_EPSt18_Rb_tree_node_baseSM_OT_RT0_.exit
@@ -2369,7 +2252,7 @@ if.else.i.i.i:                                    ; preds = %lor.rhs.i
 _ZNSt8_Rb_treeIN3ue212graph_detail17vertex_descriptorINS0_9ue2_graphINS0_9RoseGraphENS0_15RoseVertexPropsENS0_13RoseEdgePropsEEEEES8_St9_IdentityIS8_ESt4lessIS8_ESaIS8_EE10_M_insert_IRKS8_NSE_11_Alloc_nodeEEESt17_Rb_tree_iteratorIS8_EPSt18_Rb_tree_node_baseSM_OT_RT0_.exit: ; preds = %if.else.i.i.i, %if.then.i.i.i21, %if.then
   %7 = phi i1 [ true, %if.then ], [ %cmp.i.i.i25, %if.then.i.i.i21 ], [ %cmp7.i.i.i20, %if.else.i.i.i ]
   %call5.i.i.i.i.i.i = tail call noalias noundef nonnull dereferenceable(48) ptr @_Znwm(i64 noundef 48) #17
-  %_M_storage.i.i.i.i.i = getelementptr inbounds %"struct.std::_Rb_tree_node", ptr %call5.i.i.i.i.i.i, i64 0, i32 1
+  %_M_storage.i.i.i.i.i = getelementptr inbounds i8, ptr %call5.i.i.i.i.i.i, i64 32
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %_M_storage.i.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(16) %__v, i64 16, i1 false)
   tail call void @_ZSt29_Rb_tree_insert_and_rebalancebPSt18_Rb_tree_node_baseS0_RS_(i1 noundef zeroext %7, ptr noundef nonnull %call5.i.i.i.i.i.i, ptr noundef nonnull %retval.sroa.4.0.i.ph, ptr noundef nonnull align 8 dereferenceable(32) %add.ptr.i.i) #15
   %_M_node_count.i = getelementptr inbounds i8, ptr %this, i64 40

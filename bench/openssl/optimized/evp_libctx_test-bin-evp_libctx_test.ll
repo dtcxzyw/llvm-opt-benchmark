@@ -186,13 +186,13 @@ target triple = "x86_64-unknown-linux-gnu"
 @.str.156 = private unnamed_addr constant [34 x i8] c"EVP_CIPHER_CTX_rand_key(ctx, key)\00", align 1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define dso_local nonnull ptr @test_get_options() local_unnamed_addr #0 {
+define dso_local noundef nonnull ptr @test_get_options() local_unnamed_addr #0 {
 entry:
   ret ptr @test_get_options.test_options
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local i32 @setup_tests() local_unnamed_addr #1 {
+define dso_local noundef i32 @setup_tests() local_unnamed_addr #1 {
 entry:
   br label %while.cond
 
@@ -666,7 +666,7 @@ if.end:                                           ; preds = %if.then, %land.lhs.
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @test_cipher_reinit(i32 noundef %test_id) #1 {
+define internal noundef i32 @test_cipher_reinit(i32 noundef %test_id) #1 {
 entry:
   %out1_len = alloca i32, align 4
   %out2_len = alloca i32, align 4
@@ -837,7 +837,7 @@ err:                                              ; preds = %if.else, %land.lhs.
 declare i32 @OPENSSL_sk_num(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @test_cipher_reinit_partialupdate(i32 noundef %test_id) #1 {
+define internal noundef i32 @test_cipher_reinit_partialupdate(i32 noundef %test_id) #1 {
 entry:
   %out1_len = alloca i32, align 4
   %out2_len = alloca i32, align 4
@@ -1394,7 +1394,7 @@ entry:
   store ptr null, ptr %pkey.i, align 8
   call void @OSSL_PARAM_construct_utf8_string(ptr nonnull sret(%struct.ossl_param_st) align 8 %tmp.i, ptr noundef nonnull @.str.142, ptr noundef nonnull @.str.143, i64 noundef 0) #6
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(40) %params.i, ptr noundef nonnull align 8 dereferenceable(40) %tmp.i, i64 40, i1 false)
-  %arrayidx1.i = getelementptr inbounds [2 x %struct.ossl_param_st], ptr %params.i, i64 0, i64 1
+  %arrayidx1.i = getelementptr inbounds i8, ptr %params.i, i64 40
   call void @OSSL_PARAM_construct_end(ptr nonnull sret(%struct.ossl_param_st) align 8 %tmp2.i) #6
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %arrayidx1.i, ptr noundef nonnull align 8 dereferenceable(40) %tmp2.i, i64 40, i1 false)
   %0 = load ptr, ptr @libctx, align 8

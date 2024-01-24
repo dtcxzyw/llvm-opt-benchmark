@@ -146,7 +146,7 @@ lor.lhs.false3:                                   ; preds = %for.cond.i11
   call void @llvm.lifetime.start.p0(i64 1824, ptr nonnull %servermsg.i19)
   call void @llvm.lifetime.start.p0(i64 2048, ptr nonnull %clientmsg.i20)
   %call.i21 = call ptr @NEWHOPE_POLY_new() #5
-  %arrayidx.i = getelementptr inbounds [2048 x i8], ptr %clientmsg.i20, i64 0, i64 42
+  %arrayidx.i = getelementptr inbounds i8, ptr %clientmsg.i20, i64 42
   br label %for.body.i22
 
 for.cond.i31:                                     ; preds = %if.end13.i29

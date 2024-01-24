@@ -61,8 +61,8 @@ define zeroext i1 @"_ZN62_$LT$regex_syntax..debug..Byte$u20$as$u20$core..fmt..De
   br i1 %19, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %16
-  %20 = getelementptr inbounds { [1 x i64], { i64, i8 } }, ptr %7, i64 0, i32 1
-  %21 = getelementptr inbounds { [1 x i64], { i64, i8 } }, ptr %7, i64 0, i32 1, i32 1
+  %20 = getelementptr inbounds i8, ptr %7, i64 8
+  %21 = getelementptr inbounds i8, ptr %7, i64 16
   br label %29
 
 22:                                               ; preds = %._crit_edge, %15
@@ -80,10 +80,10 @@ define zeroext i1 @"_ZN62_$LT$regex_syntax..debug..Byte$u20$as$u20$core..fmt..De
   %.fca.0.extract = extractvalue { ptr, i64 } %27, 0
   store ptr %.fca.0.extract, ptr %4, align 8
   %.fca.1.extract = extractvalue { ptr, i64 } %27, 1
-  %.fca.1.gep = getelementptr inbounds { ptr, i64 }, ptr %4, i64 0, i32 1
+  %.fca.1.gep = getelementptr inbounds i8, ptr %4, i64 8
   store i64 %.fca.1.extract, ptr %.fca.1.gep, align 8
   store ptr %4, ptr %5, align 8
-  %28 = getelementptr inbounds { ptr, ptr }, ptr %5, i64 0, i32 1
+  %28 = getelementptr inbounds i8, ptr %5, i64 8
   store ptr @"_ZN44_$LT$$RF$T$u20$as$u20$core..fmt..Display$GT$3fmt17h075c4430a323fb6cE", ptr %28, align 8
   call void @_ZN4core3fmt9Arguments6new_v117hace331f03f852dd2E(ptr nonnull sret({ { ptr, i64 }, { ptr, i64 }, { ptr, i64 } }) align 8 %6, ptr nonnull align 8 @anon.21e582a26e726ea443c26c613fdbd24c.3, i64 1, ptr nonnull align 8 %5, i64 1)
   br label %22
@@ -138,7 +138,7 @@ define zeroext i1 @"_ZN63_$LT$regex_syntax..debug..Bytes$u20$as$u20$core..fmt..D
 
 19:                                               ; preds = %2
   %20 = load ptr, ptr %0, align 8, !nonnull !5, !align !8, !noundef !5
-  %21 = getelementptr inbounds { ptr, i64 }, ptr %0, i64 0, i32 1
+  %21 = getelementptr inbounds i8, ptr %0, i64 8
   %22 = load i64, ptr %21, align 8, !noundef !5
   %23 = call i64 @_ZN12regex_syntax5debug11utf8_decode17h52407a67f3aca41fE(ptr nonnull align 1 %20, i64 %22), !range !9
   %24 = and i64 %23, 255
@@ -146,15 +146,15 @@ define zeroext i1 @"_ZN63_$LT$regex_syntax..debug..Bytes$u20$as$u20$core..fmt..D
   br i1 %.not65, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %19
-  %25 = getelementptr inbounds { ptr, ptr }, ptr %13, i64 0, i32 1
+  %25 = getelementptr inbounds i8, ptr %13, i64 8
   %.sroa.3.0..sroa_idx15 = getelementptr inbounds i8, ptr %12, i64 16
   %.sroa.416.0..sroa_idx = getelementptr inbounds i8, ptr %12, i64 24
   %.sroa.5.0..sroa_idx = getelementptr inbounds i8, ptr %12, i64 32
   %.sroa.617.0..sroa_idx = getelementptr inbounds i8, ptr %12, i64 40
   %.sroa.7.0..sroa_idx = getelementptr inbounds i8, ptr %12, i64 44
   %.sroa.8.0..sroa_idx = getelementptr inbounds i8, ptr %12, i64 48
-  %26 = getelementptr inbounds { ptr, ptr }, ptr %5, i64 0, i32 1
-  %27 = getelementptr inbounds { ptr, ptr }, ptr %9, i64 0, i32 1
+  %26 = getelementptr inbounds i8, ptr %5, i64 8
+  %27 = getelementptr inbounds i8, ptr %9, i64 8
   %.sroa.329.0..sroa_idx = getelementptr inbounds i8, ptr %7, i64 16
   %.sroa.430.0..sroa_idx = getelementptr inbounds i8, ptr %7, i64 24
   %.sroa.531.0..sroa_idx = getelementptr inbounds i8, ptr %7, i64 32
@@ -352,15 +352,15 @@ _ZN12regex_syntax5debug11utf8_decode3len17h3430c1c510ea5c79E.exit.thread46: ; pr
   br label %21
 
 29:                                               ; preds = %.thread51
-  %30 = getelementptr inbounds { [1 x i64], { ptr, i64 } }, ptr %4, i64 0, i32 1
+  %30 = getelementptr inbounds i8, ptr %4, i64 8
   %31 = load ptr, ptr %30, align 8, !nonnull !5, !align !8, !noundef !5
-  %32 = getelementptr inbounds { [1 x i64], { ptr, i64 } }, ptr %4, i64 0, i32 1, i32 1
+  %32 = getelementptr inbounds i8, ptr %4, i64 16
   %33 = load i64, ptr %32, align 8, !noundef !5
   %34 = call { ptr, ptr } @"_ZN4core3str21_$LT$impl$u20$str$GT$5chars17h30954a54724e29f5E"(ptr nonnull align 1 %31, i64 %33)
   %.fca.0.extract26 = extractvalue { ptr, ptr } %34, 0
   store ptr %.fca.0.extract26, ptr %3, align 8
   %.fca.1.extract28 = extractvalue { ptr, ptr } %34, 1
-  %.fca.1.gep29 = getelementptr inbounds { ptr, ptr }, ptr %3, i64 0, i32 1
+  %.fca.1.gep29 = getelementptr inbounds i8, ptr %3, i64 8
   store ptr %.fca.1.extract28, ptr %.fca.1.gep29, align 8
   %35 = call i32 @"_ZN81_$LT$core..str..iter..Chars$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h89993158a85d87e7E"(ptr nonnull align 8 %3), !range !11
   %36 = call i32 @"_ZN4core6option15Option$LT$T$GT$6unwrap17hb8903cbf6aa3318fE"(i32 %35, ptr nonnull align 8 @anon.21e582a26e726ea443c26c613fdbd24c.26), !range !10

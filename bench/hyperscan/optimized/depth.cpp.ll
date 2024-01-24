@@ -3,9 +3,6 @@ source_filename = "bench/hyperscan/original/depth.cpp.ll"
 target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:128-n8:16:32:64-S128"
 target triple = "x86_64-unknown-linux-gnu"
 
-%"struct.ue2::DepthMinMax" = type { %"class.ue2::depth", %"class.ue2::depth" }
-%"class.ue2::depth" = type { i32 }
-
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
 define hidden i64 @_ZN3ue216unionDepthMinMaxERKNS_11DepthMinMaxES2_(ptr nocapture noundef nonnull readonly align 4 dereferenceable(8) %a, ptr nocapture noundef nonnull readonly align 4 dereferenceable(8) %b) local_unnamed_addr #0 {
 entry:
@@ -24,13 +21,13 @@ if.else8:                                         ; preds = %if.else
 
 if.end13:                                         ; preds = %if.else8, %if.else, %entry
   %retval.sroa.0.0 = phi i32 [ %2, %if.else8 ], [ %0, %if.else ], [ %1, %entry ]
-  %max = getelementptr inbounds %"struct.ue2::DepthMinMax", ptr %a, i64 0, i32 1
+  %max = getelementptr inbounds i8, ptr %a, i64 4
   %3 = load i32, ptr %max, align 4
   %cmp.i53 = icmp eq i32 %3, 2147483647
   br i1 %cmp.i53, label %if.end39, label %lor.lhs.false
 
 lor.lhs.false:                                    ; preds = %if.end13
-  %max15 = getelementptr inbounds %"struct.ue2::DepthMinMax", ptr %b, i64 0, i32 1
+  %max15 = getelementptr inbounds i8, ptr %b, i64 4
   %4 = load i32, ptr %max15, align 4
   %cmp.i54 = icmp eq i32 %4, 2147483647
   br i1 %cmp.i54, label %if.end39, label %if.else20

@@ -3,128 +3,15 @@ source_filename = "bench/libquic/original/quic_flow_controller.cc.ll"
 target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:128-n8:16:32:64-S128"
 target triple = "x86_64-unknown-linux-gnu"
 
-%"class.net::QuicFlowController" = type { ptr, i32, i32, i64, i64, i64, i64, i64, i64, i64, i8, i64, %"class.net::QuicTime" }
-%"class.net::QuicTime" = type { i64 }
-%"class.net::QuicConnection" = type <{ %"class.net::QuicFramerVisitorInterface", %"class.net::QuicBlockedWriterInterface", %"class.net::QuicPacketGenerator::DelegateInterface", %"class.net::QuicSentPacketManagerInterface::NetworkChangeVisitor", %"class.net::QuicFramer", ptr, ptr, ptr, ptr, i8, i8, [6 x i8], ptr, ptr, i64, %"class.net::IPEndPoint", %"class.net::IPEndPoint", i32, [4 x i8], i64, i8, [7 x i8], i64, ptr, i8, [7 x i8], %"struct.net::QuicPacketHeader", %"struct.net::QuicStopWaitingFrame", i8, [7 x i8], i64, i64, %"class.std::deque", i64, i8, [7 x i8], %"class.std::__cxx11::list", i8, [7 x i8], %"class.std::unique_ptr.42", i32, i8, [3 x i8], %"class.net::QuicReceivedPacketManager", %"class.net::QuicSentEntropyManager", i8, [7 x i8], i64, i8, [7 x i8], i64, i32, i32, float, i8, i8, i8, i8, %"class.net::QuicTime::Delta", %"class.net::QuicOneBlockArena", %"class.net::QuicArenaScopedPtr", %"class.net::QuicArenaScopedPtr", %"class.net::QuicArenaScopedPtr", %"class.net::QuicArenaScopedPtr", %"class.net::QuicArenaScopedPtr", %"class.net::QuicArenaScopedPtr", %"class.net::QuicArenaScopedPtr", ptr, ptr, %"class.net::QuicPacketGenerator", %"class.net::QuicTime::Delta", %"class.net::QuicTime::Delta", %"struct.net::QuicConnectionStats", %"class.net::QuicTime", %"class.net::QuicTime", %"class.net::QuicTime", i64, %"class.std::unique_ptr.77", i32, i32, i8, [7 x i8], %"class.net::IPEndPoint", %"class.net::IPEndPoint", i8, [7 x i8], %"class.std::vector", i64, i64, i64, i64, i64, i64, i64, i8, i8, i8, i8, [4 x i8] }>
-%"class.net::QuicFramerVisitorInterface" = type { ptr }
-%"class.net::QuicBlockedWriterInterface" = type { ptr }
-%"class.net::QuicPacketGenerator::DelegateInterface" = type { %"class.net::QuicPacketCreator::DelegateInterface" }
-%"class.net::QuicPacketCreator::DelegateInterface" = type { %"class.net::QuicConnectionCloseDelegateInterface" }
-%"class.net::QuicConnectionCloseDelegateInterface" = type { ptr }
-%"class.net::QuicSentPacketManagerInterface::NetworkChangeVisitor" = type { ptr }
-%"class.net::QuicFramer" = type { ptr, %"class.std::__cxx11::basic_string", ptr, ptr, i32, %"class.std::unordered_set", %"class.std::unordered_map", i64, %"class.std::unordered_map", i64, i8, i64, i32, i32, %"class.std::vector", %"class.std::unique_ptr", %"class.std::unique_ptr", i8, i8, i8, [3 x %"class.std::unique_ptr.23"], i32, i8, %"class.net::QuicTime", %"class.net::QuicTime::Delta", %"struct.std::array" }
-%"class.std::__cxx11::basic_string" = type { %"struct.std::__cxx11::basic_string<char>::_Alloc_hider", i64, %union.anon }
-%"struct.std::__cxx11::basic_string<char>::_Alloc_hider" = type { ptr }
-%union.anon = type { i64, [8 x i8] }
-%"class.std::unordered_set" = type { %"class.std::_Hashtable" }
-%"class.std::_Hashtable" = type { ptr, i64, %"struct.std::__detail::_Hash_node_base", i64, %"struct.std::__detail::_Prime_rehash_policy", ptr }
-%"struct.std::__detail::_Hash_node_base" = type { ptr }
-%"struct.std::__detail::_Prime_rehash_policy" = type { float, i64 }
-%"class.std::unordered_map" = type { %"class.std::_Hashtable.5" }
-%"class.std::_Hashtable.5" = type { ptr, i64, %"struct.std::__detail::_Hash_node_base", i64, %"struct.std::__detail::_Prime_rehash_policy", ptr }
-%"class.std::unique_ptr" = type { %"struct.std::__uniq_ptr_data" }
-%"struct.std::__uniq_ptr_data" = type { %"class.std::__uniq_ptr_impl" }
-%"class.std::__uniq_ptr_impl" = type { %"class.std::tuple" }
-%"class.std::tuple" = type { %"struct.std::_Tuple_impl" }
-%"struct.std::_Tuple_impl" = type { %"struct.std::_Head_base.22" }
-%"struct.std::_Head_base.22" = type { ptr }
-%"class.std::unique_ptr.23" = type { %"struct.std::__uniq_ptr_data.24" }
-%"struct.std::__uniq_ptr_data.24" = type { %"class.std::__uniq_ptr_impl.25" }
-%"class.std::__uniq_ptr_impl.25" = type { %"class.std::tuple.26" }
-%"class.std::tuple.26" = type { %"struct.std::_Tuple_impl.27" }
-%"struct.std::_Tuple_impl.27" = type { %"struct.std::_Head_base.30" }
-%"struct.std::_Head_base.30" = type { ptr }
-%"struct.std::array" = type { [32 x i8] }
-%"struct.net::QuicPacketHeader" = type <{ %"struct.net::QuicPacketPublicHeader", i64, i8, i8, i8, i8, [4 x i8] }>
-%"struct.net::QuicPacketPublicHeader" = type { i64, i32, i8, i8, i8, i8, %"class.std::vector", ptr }
-%"struct.net::QuicStopWaitingFrame" = type { i8, i8, i64 }
-%"class.std::deque" = type { %"class.std::_Deque_base" }
-%"class.std::_Deque_base" = type { %"struct.std::_Deque_base<net::QuicEncryptedPacket *, std::allocator<net::QuicEncryptedPacket *>>::_Deque_impl" }
-%"struct.std::_Deque_base<net::QuicEncryptedPacket *, std::allocator<net::QuicEncryptedPacket *>>::_Deque_impl" = type { %"struct.std::_Deque_base<net::QuicEncryptedPacket *, std::allocator<net::QuicEncryptedPacket *>>::_Deque_impl_data" }
-%"struct.std::_Deque_base<net::QuicEncryptedPacket *, std::allocator<net::QuicEncryptedPacket *>>::_Deque_impl_data" = type { ptr, i64, %"struct.std::_Deque_iterator", %"struct.std::_Deque_iterator" }
-%"struct.std::_Deque_iterator" = type { ptr, ptr, ptr, ptr }
-%"class.std::__cxx11::list" = type { %"class.std::__cxx11::_List_base" }
-%"class.std::__cxx11::_List_base" = type { %"struct.std::__cxx11::_List_base<net::SerializedPacket, std::allocator<net::SerializedPacket>>::_List_impl" }
-%"struct.std::__cxx11::_List_base<net::SerializedPacket, std::allocator<net::SerializedPacket>>::_List_impl" = type { %"struct.std::__detail::_List_node_header" }
-%"struct.std::__detail::_List_node_header" = type { %"struct.std::__detail::_List_node_base", i64 }
-%"struct.std::__detail::_List_node_base" = type { ptr, ptr }
-%"class.std::unique_ptr.42" = type { %"struct.std::__uniq_ptr_data.43" }
-%"struct.std::__uniq_ptr_data.43" = type { %"class.std::__uniq_ptr_impl.44" }
-%"class.std::__uniq_ptr_impl.44" = type { %"class.std::tuple.45" }
-%"class.std::tuple.45" = type { %"struct.std::_Tuple_impl.46" }
-%"struct.std::_Tuple_impl.46" = type { %"struct.std::_Head_base.49" }
-%"struct.std::_Head_base.49" = type { ptr }
-%"class.net::QuicReceivedPacketManager" = type { %"class.net::QuicReceivedEntropyHashCalculatorInterface", %"class.net::QuicReceivedPacketManager::EntropyTracker", i64, %"struct.net::QuicAckFrame", i8, %"class.net::QuicTime", ptr }
-%"class.net::QuicReceivedEntropyHashCalculatorInterface" = type { ptr }
-%"class.net::QuicReceivedPacketManager::EntropyTracker" = type { %"class.std::deque.50", i8, i64, i64 }
-%"class.std::deque.50" = type { %"class.std::_Deque_base.51" }
-%"class.std::_Deque_base.51" = type { %"struct.std::_Deque_base<std::pair<unsigned char, bool>, std::allocator<std::pair<unsigned char, bool>>>::_Deque_impl" }
-%"struct.std::_Deque_base<std::pair<unsigned char, bool>, std::allocator<std::pair<unsigned char, bool>>>::_Deque_impl" = type { %"struct.std::_Deque_base<std::pair<unsigned char, bool>, std::allocator<std::pair<unsigned char, bool>>>::_Deque_impl_data" }
-%"struct.std::_Deque_base<std::pair<unsigned char, bool>, std::allocator<std::pair<unsigned char, bool>>>::_Deque_impl_data" = type { ptr, i64, %"struct.std::_Deque_iterator.55", %"struct.std::_Deque_iterator.55" }
-%"struct.std::_Deque_iterator.55" = type { ptr, ptr, ptr, ptr }
-%"struct.net::QuicAckFrame" = type <{ i64, %"class.net::QuicTime::Delta", %"class.std::vector.56", %"class.net::PacketNumberQueue", i8, i8, i8, i8, [4 x i8] }>
-%"class.std::vector.56" = type { %"struct.std::_Vector_base.57" }
-%"struct.std::_Vector_base.57" = type { %"struct.std::_Vector_base<std::pair<unsigned long, net::QuicTime>, std::allocator<std::pair<unsigned long, net::QuicTime>>>::_Vector_impl" }
-%"struct.std::_Vector_base<std::pair<unsigned long, net::QuicTime>, std::allocator<std::pair<unsigned long, net::QuicTime>>>::_Vector_impl" = type { %"struct.std::_Vector_base<std::pair<unsigned long, net::QuicTime>, std::allocator<std::pair<unsigned long, net::QuicTime>>>::_Vector_impl_data" }
-%"struct.std::_Vector_base<std::pair<unsigned long, net::QuicTime>, std::allocator<std::pair<unsigned long, net::QuicTime>>>::_Vector_impl_data" = type { ptr, ptr, ptr }
-%"class.net::PacketNumberQueue" = type { %"class.net::IntervalSet" }
-%"class.net::IntervalSet" = type { %"class.std::set" }
-%"class.std::set" = type { %"class.std::_Rb_tree" }
-%"class.std::_Rb_tree" = type { %"struct.std::_Rb_tree<net::Interval<unsigned long>, net::Interval<unsigned long>, std::_Identity<net::Interval<unsigned long>>, net::IntervalSet<unsigned long>::IntervalComparator>::_Rb_tree_impl" }
-%"struct.std::_Rb_tree<net::Interval<unsigned long>, net::Interval<unsigned long>, std::_Identity<net::Interval<unsigned long>>, net::IntervalSet<unsigned long>::IntervalComparator>::_Rb_tree_impl" = type { %"struct.std::_Rb_tree_key_compare", %"struct.std::_Rb_tree_header" }
-%"struct.std::_Rb_tree_key_compare" = type { %"struct.net::IntervalSet<unsigned long>::IntervalComparator" }
-%"struct.net::IntervalSet<unsigned long>::IntervalComparator" = type { i8 }
-%"struct.std::_Rb_tree_header" = type { %"struct.std::_Rb_tree_node_base", i64 }
-%"struct.std::_Rb_tree_node_base" = type { i32, ptr, ptr, ptr }
-%"class.net::QuicSentEntropyManager" = type { ptr, %"class.std::deque.64", i64, %"struct.net::QuicSentEntropyManager::CumulativeEntropy", %"struct.net::QuicSentEntropyManager::CumulativeEntropy" }
-%"class.std::deque.64" = type { %"class.std::_Deque_base.65" }
-%"class.std::_Deque_base.65" = type { %"struct.std::_Deque_base<unsigned char, std::allocator<unsigned char>>::_Deque_impl" }
-%"struct.std::_Deque_base<unsigned char, std::allocator<unsigned char>>::_Deque_impl" = type { %"struct.std::_Deque_base<unsigned char, std::allocator<unsigned char>>::_Deque_impl_data" }
-%"struct.std::_Deque_base<unsigned char, std::allocator<unsigned char>>::_Deque_impl_data" = type { ptr, i64, %"struct.std::_Deque_iterator.66", %"struct.std::_Deque_iterator.66" }
-%"struct.std::_Deque_iterator.66" = type { ptr, ptr, ptr, ptr }
-%"struct.net::QuicSentEntropyManager::CumulativeEntropy" = type <{ i64, i8, [7 x i8] }>
-%"class.net::QuicOneBlockArena" = type { [1024 x i8], i32, [4 x i8] }
-%"class.net::QuicArenaScopedPtr" = type { ptr }
-%"class.net::QuicPacketGenerator" = type { ptr, %"class.net::QuicPacketCreator", %"class.std::vector.67", i8, i8, i8, [5 x i8], %"struct.net::QuicAckFrame", %"struct.net::QuicStopWaitingFrame" }
-%"class.net::QuicPacketCreator" = type { ptr, ptr, ptr, %"class.net::QuicPacketCreator::QuicRandomBoolSource", ptr, i8, i8, i8, i8, %"struct.std::array", i64, i64, i32, %"class.std::vector.67", i64, i64, %"struct.net::SerializedPacket", %"class.std::unordered_map" }
-%"class.net::QuicPacketCreator::QuicRandomBoolSource" = type { ptr, i64, i64 }
-%"struct.net::SerializedPacket" = type { ptr, i16, %"class.std::vector.67", i8, i16, i8, i64, i8, i8, i8, i8, i8, i8, i8, i64, %"class.std::__cxx11::list.72" }
-%"class.std::__cxx11::list.72" = type { %"class.std::__cxx11::_List_base.73" }
-%"class.std::__cxx11::_List_base.73" = type { %"struct.std::__cxx11::_List_base<net::AckListenerWrapper, std::allocator<net::AckListenerWrapper>>::_List_impl" }
-%"struct.std::__cxx11::_List_base<net::AckListenerWrapper, std::allocator<net::AckListenerWrapper>>::_List_impl" = type { %"struct.std::__detail::_List_node_header" }
-%"class.std::vector.67" = type { %"struct.std::_Vector_base.68" }
-%"struct.std::_Vector_base.68" = type { %"struct.std::_Vector_base<net::QuicFrame, std::allocator<net::QuicFrame>>::_Vector_impl" }
-%"struct.std::_Vector_base<net::QuicFrame, std::allocator<net::QuicFrame>>::_Vector_impl" = type { %"struct.std::_Vector_base<net::QuicFrame, std::allocator<net::QuicFrame>>::_Vector_impl_data" }
-%"struct.std::_Vector_base<net::QuicFrame, std::allocator<net::QuicFrame>>::_Vector_impl_data" = type { ptr, ptr, ptr }
-%"class.net::QuicTime::Delta" = type { %"class.base::TimeDelta", i64 }
-%"class.base::TimeDelta" = type { i64 }
-%"struct.net::QuicConnectionStats" = type { i64, i64, i64, i64, i64, i64, i64, i64, i64, i64, i64, i64, i64, i64, i64, i64, i64, i64, i64, i64, i64, i64, i64, i64, i64, %"class.net::QuicBandwidth", i64, i64, i64, i32, %"class.net::QuicTime" }
-%"class.net::QuicBandwidth" = type { i64 }
-%"class.std::unique_ptr.77" = type { %"struct.std::__uniq_ptr_data.78" }
-%"struct.std::__uniq_ptr_data.78" = type { %"class.std::__uniq_ptr_impl.79" }
-%"class.std::__uniq_ptr_impl.79" = type { %"class.std::tuple.80" }
-%"class.std::tuple.80" = type { %"struct.std::_Tuple_impl.81" }
-%"struct.std::_Tuple_impl.81" = type { %"struct.std::_Head_base.84" }
-%"struct.std::_Head_base.84" = type { ptr }
-%"class.net::IPEndPoint" = type <{ %"class.net::IPAddress", i16, [6 x i8] }>
-%"class.net::IPAddress" = type { %"class.std::vector.31" }
-%"class.std::vector.31" = type { %"struct.std::_Vector_base.32" }
-%"struct.std::_Vector_base.32" = type { %"struct.std::_Vector_base<unsigned char, std::allocator<unsigned char>>::_Vector_impl" }
-%"struct.std::_Vector_base<unsigned char, std::allocator<unsigned char>>::_Vector_impl" = type { %"struct.std::_Vector_base<unsigned char, std::allocator<unsigned char>>::_Vector_impl_data" }
-%"struct.std::_Vector_base<unsigned char, std::allocator<unsigned char>>::_Vector_impl_data" = type { ptr, ptr, ptr }
-%"class.std::vector" = type { %"struct.std::_Vector_base" }
-%"struct.std::_Vector_base" = type { %"struct.std::_Vector_base<net::QuicVersion, std::allocator<net::QuicVersion>>::_Vector_impl" }
-%"struct.std::_Vector_base<net::QuicVersion, std::allocator<net::QuicVersion>>::_Vector_impl" = type { %"struct.std::_Vector_base<net::QuicVersion, std::allocator<net::QuicVersion>>::_Vector_impl_data" }
-%"struct.std::_Vector_base<net::QuicVersion, std::allocator<net::QuicVersion>>::_Vector_impl_data" = type { ptr, ptr, ptr }
-%"class.net::RttStats" = type { %"class.net::QuicTime::Delta", %"class.net::QuicTime::Delta", %"class.net::QuicTime::Delta", %"class.net::QuicTime::Delta", %"class.net::QuicTime::Delta", i64, %"class.net::QuicTime::Delta", %"class.net::QuicTime", i32, %"class.net::WindowedFilter" }
-%"class.net::WindowedFilter" = type { %"class.net::QuicTime::Delta", %"class.net::QuicTime::Delta", [3 x %"struct.net::WindowedFilter<net::QuicTime::Delta, net::MinFilter<net::QuicTime::Delta>, net::QuicTime, net::QuicTime::Delta>::Sample"] }
-%"struct.net::WindowedFilter<net::QuicTime::Delta, net::MinFilter<net::QuicTime::Delta>, net::QuicTime, net::QuicTime::Delta>::Sample" = type { %"class.net::QuicTime::Delta", %"class.net::QuicTime" }
 %"class.logging::LogMessage" = type <{ i32, [4 x i8], %"class.std::__cxx11::basic_ostringstream", i64, ptr, i32, [4 x i8] }>
 %"class.std::__cxx11::basic_ostringstream" = type { %"class.std::basic_ostream.base", %"class.std::__cxx11::basic_stringbuf", %"class.std::basic_ios" }
 %"class.std::basic_ostream.base" = type { ptr }
 %"class.std::__cxx11::basic_stringbuf" = type { %"class.std::basic_streambuf", i32, %"class.std::__cxx11::basic_string" }
 %"class.std::basic_streambuf" = type { ptr, ptr, ptr, ptr, ptr, ptr, ptr, %"class.std::locale" }
 %"class.std::locale" = type { ptr }
+%"class.std::__cxx11::basic_string" = type { %"struct.std::__cxx11::basic_string<char>::_Alloc_hider", i64, %union.anon }
+%"struct.std::__cxx11::basic_string<char>::_Alloc_hider" = type { ptr }
+%union.anon = type { i64, [8 x i8] }
 %"class.std::basic_ios" = type { %"class.std::ios_base", ptr, i8, i8, ptr, ptr, ptr, ptr }
 %"class.std::ios_base" = type { ptr, i64, i64, i32, i32, i32, ptr, %"struct.std::ios_base::_Words", [8 x %"struct.std::ios_base::_Words"], i32, ptr, %"class.std::locale" }
 %"struct.std::ios_base::_Words" = type { ptr, i64 }
@@ -156,26 +43,26 @@ define dso_local void @_ZN3net18QuicFlowControllerC2EPNS_14QuicConnectionEjNS_11
 entry:
   %frombool = zext i1 %should_auto_tune_receive_window to i8
   store ptr %connection, ptr %this, align 8
-  %id_ = getelementptr inbounds %"class.net::QuicFlowController", ptr %this, i64 0, i32 1
+  %id_ = getelementptr inbounds i8, ptr %this, i64 8
   store i32 %id, ptr %id_, align 8
-  %perspective_ = getelementptr inbounds %"class.net::QuicFlowController", ptr %this, i64 0, i32 2
+  %perspective_ = getelementptr inbounds i8, ptr %this, i64 12
   store i32 %perspective, ptr %perspective_, align 4
-  %bytes_sent_ = getelementptr inbounds %"class.net::QuicFlowController", ptr %this, i64 0, i32 3
+  %bytes_sent_ = getelementptr inbounds i8, ptr %this, i64 16
   store i64 0, ptr %bytes_sent_, align 8
-  %send_window_offset_ = getelementptr inbounds %"class.net::QuicFlowController", ptr %this, i64 0, i32 4
+  %send_window_offset_ = getelementptr inbounds i8, ptr %this, i64 24
   store i64 %send_window_offset, ptr %send_window_offset_, align 8
-  %bytes_consumed_ = getelementptr inbounds %"class.net::QuicFlowController", ptr %this, i64 0, i32 5
-  %receive_window_offset_ = getelementptr inbounds %"class.net::QuicFlowController", ptr %this, i64 0, i32 7
+  %bytes_consumed_ = getelementptr inbounds i8, ptr %this, i64 32
+  %receive_window_offset_ = getelementptr inbounds i8, ptr %this, i64 48
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %bytes_consumed_, i8 0, i64 16, i1 false)
   store i64 %receive_window_offset, ptr %receive_window_offset_, align 8
-  %receive_window_size_ = getelementptr inbounds %"class.net::QuicFlowController", ptr %this, i64 0, i32 8
+  %receive_window_size_ = getelementptr inbounds i8, ptr %this, i64 56
   store i64 %receive_window_offset, ptr %receive_window_size_, align 8
-  %auto_tune_receive_window_ = getelementptr inbounds %"class.net::QuicFlowController", ptr %this, i64 0, i32 10
+  %auto_tune_receive_window_ = getelementptr inbounds i8, ptr %this, i64 72
   store i8 %frombool, ptr %auto_tune_receive_window_, align 8
-  %last_blocked_send_window_offset_ = getelementptr inbounds %"class.net::QuicFlowController", ptr %this, i64 0, i32 11
+  %last_blocked_send_window_offset_ = getelementptr inbounds i8, ptr %this, i64 80
   %cmp = icmp eq i32 %id, 0
   %cond = select i1 %cmp, i64 25165824, i64 16777216
-  %receive_window_size_limit_ = getelementptr inbounds %"class.net::QuicFlowController", ptr %this, i64 0, i32 9
+  %receive_window_size_limit_ = getelementptr inbounds i8, ptr %this, i64 64
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %last_blocked_send_window_offset_, i8 0, i64 16, i1 false)
   store i64 %cond, ptr %receive_window_size_limit_, align 8
   ret void
@@ -184,14 +71,14 @@ entry:
 ; Function Attrs: mustprogress uwtable
 define dso_local void @_ZN3net18QuicFlowController16AddBytesConsumedEm(ptr nocapture noundef nonnull align 8 dereferenceable(96) %this, i64 noundef %bytes_consumed) local_unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  %bytes_consumed_ = getelementptr inbounds %"class.net::QuicFlowController", ptr %this, i64 0, i32 5
+  %bytes_consumed_ = getelementptr inbounds i8, ptr %this, i64 32
   %0 = load i64, ptr %bytes_consumed_, align 8
   %add = add i64 %0, %bytes_consumed
   store i64 %add, ptr %bytes_consumed_, align 8
-  %receive_window_offset_.i = getelementptr inbounds %"class.net::QuicFlowController", ptr %this, i64 0, i32 7
+  %receive_window_offset_.i = getelementptr inbounds i8, ptr %this, i64 48
   %1 = load i64, ptr %receive_window_offset_.i, align 8
   %sub.i = sub i64 %1, %add
-  %receive_window_size_.i.i = getelementptr inbounds %"class.net::QuicFlowController", ptr %this, i64 0, i32 8
+  %receive_window_size_.i.i = getelementptr inbounds i8, ptr %this, i64 56
   %2 = load i64, ptr %receive_window_size_.i.i, align 8
   %div1.i.i = lshr i64 %2, 1
   %cmp.not.i = icmp ult i64 %sub.i, %div1.i.i
@@ -199,20 +86,20 @@ entry:
 
 if.end6.i:                                        ; preds = %entry
   %3 = load ptr, ptr %this, align 8
-  %clock_.i.i.i = getelementptr inbounds %"class.net::QuicConnection", ptr %3, i64 0, i32 12
+  %clock_.i.i.i = getelementptr inbounds i8, ptr %3, i64 480
   %4 = load ptr, ptr %clock_.i.i.i, align 8
   %vtable.i.i = load ptr, ptr %4, align 8
-  %vfn.i.i = getelementptr inbounds ptr, ptr %vtable.i.i, i64 2
+  %vfn.i.i = getelementptr inbounds i8, ptr %vtable.i.i, i64 16
   %5 = load ptr, ptr %vfn.i.i, align 8
   %call2.i.i = tail call i64 %5(ptr noundef nonnull align 8 dereferenceable(8) %4)
-  %prev_window_update_time_.i.i = getelementptr inbounds %"class.net::QuicFlowController", ptr %this, i64 0, i32 12
+  %prev_window_update_time_.i.i = getelementptr inbounds i8, ptr %this, i64 88
   %6 = load i64, ptr %prev_window_update_time_.i.i, align 8
   store i64 %call2.i.i, ptr %prev_window_update_time_.i.i, align 8
   %cmp.i.not.i.i = icmp eq i64 %6, 0
   br i1 %cmp.i.not.i.i, label %_ZN3net18QuicFlowController26MaybeIncreaseMaxWindowSizeEv.exit.i, label %if.end.i.i
 
 if.end.i.i:                                       ; preds = %if.end6.i
-  %auto_tune_receive_window_.i.i = getelementptr inbounds %"class.net::QuicFlowController", ptr %this, i64 0, i32 10
+  %auto_tune_receive_window_.i.i = getelementptr inbounds i8, ptr %this, i64 72
   %7 = load i8, ptr %auto_tune_receive_window_.i.i, align 8
   %8 = and i8 %7, 1
   %tobool.not.i2.i = icmp eq i8 %8, 0
@@ -220,13 +107,13 @@ if.end.i.i:                                       ; preds = %if.end6.i
 
 if.end6.i.i:                                      ; preds = %if.end.i.i
   %9 = load ptr, ptr %this, align 8
-  %sent_packet_manager_.i.i.i = getelementptr inbounds %"class.net::QuicConnection", ptr %9, i64 0, i32 77
+  %sent_packet_manager_.i.i.i = getelementptr inbounds i8, ptr %9, i64 3192
   %10 = load ptr, ptr %sent_packet_manager_.i.i.i, align 8
   %vtable9.i.i = load ptr, ptr %10, align 8
-  %vfn10.i.i = getelementptr inbounds ptr, ptr %vtable9.i.i, i64 19
+  %vfn10.i.i = getelementptr inbounds i8, ptr %vtable9.i.i, i64 152
   %11 = load ptr, ptr %vfn10.i.i, align 8
   %call11.i.i = tail call noundef ptr %11(ptr noundef nonnull align 8 dereferenceable(8) %10)
-  %retval.sroa.2.0.smoothed_rtt_.sroa_idx.i.i.i = getelementptr inbounds %"class.net::RttStats", ptr %call11.i.i, i64 0, i32 2, i32 1
+  %retval.sroa.2.0.smoothed_rtt_.sroa_idx.i.i.i = getelementptr inbounds i8, ptr %call11.i.i, i64 40
   %retval.sroa.2.0.copyload.i.i.i = load i64, ptr %retval.sroa.2.0.smoothed_rtt_.sroa_idx.i.i.i, align 8
   %cmp.i1.i.i = icmp eq i64 %retval.sroa.2.0.copyload.i.i.i, 0
   br i1 %cmp.i1.i.i, label %_ZN3net18QuicFlowController26MaybeIncreaseMaxWindowSizeEv.exit.i, label %if.end15.i.i
@@ -240,7 +127,7 @@ if.end15.i.i:                                     ; preds = %if.end6.i.i
 if.end26.i.i:                                     ; preds = %if.end15.i.i
   %12 = load i64, ptr %receive_window_size_.i.i, align 8
   %mul.i.i = shl i64 %12, 1
-  %receive_window_size_limit_.i.i = getelementptr inbounds %"class.net::QuicFlowController", ptr %this, i64 0, i32 9
+  %receive_window_size_limit_.i.i = getelementptr inbounds i8, ptr %this, i64 64
   %13 = load i64, ptr %receive_window_size_limit_.i.i, align 8
   %14 = tail call i64 @llvm.umin.i64(i64 %13, i64 %mul.i.i)
   store i64 %14, ptr %receive_window_size_.i.i, align 8
@@ -253,10 +140,10 @@ _ZN3net18QuicFlowController26MaybeIncreaseMaxWindowSizeEv.exit.i: ; preds = %if.
   %add.i = add i64 %16, %sub7.i
   store i64 %add.i, ptr %receive_window_offset_.i, align 8
   %17 = load ptr, ptr %this, align 8
-  %id_.i = getelementptr inbounds %"class.net::QuicFlowController", ptr %this, i64 0, i32 1
+  %id_.i = getelementptr inbounds i8, ptr %this, i64 8
   %18 = load i32, ptr %id_.i, align 8
   %vtable.i = load ptr, ptr %17, align 8
-  %vfn.i = getelementptr inbounds ptr, ptr %vtable.i, i64 30
+  %vfn.i = getelementptr inbounds i8, ptr %vtable.i, i64 240
   %19 = load ptr, ptr %vfn.i, align 8
   tail call void %19(ptr noundef nonnull align 8 dereferenceable(3372) %17, i32 noundef %18, i64 noundef %add.i)
   br label %_ZN3net18QuicFlowController21MaybeSendWindowUpdateEv.exit
@@ -268,12 +155,12 @@ _ZN3net18QuicFlowController21MaybeSendWindowUpdateEv.exit: ; preds = %entry, %_Z
 ; Function Attrs: mustprogress uwtable
 define dso_local void @_ZN3net18QuicFlowController21MaybeSendWindowUpdateEv(ptr nocapture noundef nonnull align 8 dereferenceable(96) %this) local_unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
 if.end:
-  %receive_window_offset_ = getelementptr inbounds %"class.net::QuicFlowController", ptr %this, i64 0, i32 7
+  %receive_window_offset_ = getelementptr inbounds i8, ptr %this, i64 48
   %0 = load i64, ptr %receive_window_offset_, align 8
-  %bytes_consumed_ = getelementptr inbounds %"class.net::QuicFlowController", ptr %this, i64 0, i32 5
+  %bytes_consumed_ = getelementptr inbounds i8, ptr %this, i64 32
   %1 = load i64, ptr %bytes_consumed_, align 8
   %sub = sub i64 %0, %1
-  %receive_window_size_.i = getelementptr inbounds %"class.net::QuicFlowController", ptr %this, i64 0, i32 8
+  %receive_window_size_.i = getelementptr inbounds i8, ptr %this, i64 56
   %2 = load i64, ptr %receive_window_size_.i, align 8
   %div1.i = lshr i64 %2, 1
   %cmp.not = icmp ult i64 %sub, %div1.i
@@ -281,20 +168,20 @@ if.end:
 
 if.end6:                                          ; preds = %if.end
   %3 = load ptr, ptr %this, align 8
-  %clock_.i.i = getelementptr inbounds %"class.net::QuicConnection", ptr %3, i64 0, i32 12
+  %clock_.i.i = getelementptr inbounds i8, ptr %3, i64 480
   %4 = load ptr, ptr %clock_.i.i, align 8
   %vtable.i = load ptr, ptr %4, align 8
-  %vfn.i = getelementptr inbounds ptr, ptr %vtable.i, i64 2
+  %vfn.i = getelementptr inbounds i8, ptr %vtable.i, i64 16
   %5 = load ptr, ptr %vfn.i, align 8
   %call2.i = tail call i64 %5(ptr noundef nonnull align 8 dereferenceable(8) %4)
-  %prev_window_update_time_.i = getelementptr inbounds %"class.net::QuicFlowController", ptr %this, i64 0, i32 12
+  %prev_window_update_time_.i = getelementptr inbounds i8, ptr %this, i64 88
   %6 = load i64, ptr %prev_window_update_time_.i, align 8
   store i64 %call2.i, ptr %prev_window_update_time_.i, align 8
   %cmp.i.not.i = icmp eq i64 %6, 0
   br i1 %cmp.i.not.i, label %_ZN3net18QuicFlowController26MaybeIncreaseMaxWindowSizeEv.exit, label %if.end.i
 
 if.end.i:                                         ; preds = %if.end6
-  %auto_tune_receive_window_.i = getelementptr inbounds %"class.net::QuicFlowController", ptr %this, i64 0, i32 10
+  %auto_tune_receive_window_.i = getelementptr inbounds i8, ptr %this, i64 72
   %7 = load i8, ptr %auto_tune_receive_window_.i, align 8
   %8 = and i8 %7, 1
   %tobool.not.i2 = icmp eq i8 %8, 0
@@ -302,13 +189,13 @@ if.end.i:                                         ; preds = %if.end6
 
 if.end6.i:                                        ; preds = %if.end.i
   %9 = load ptr, ptr %this, align 8
-  %sent_packet_manager_.i.i = getelementptr inbounds %"class.net::QuicConnection", ptr %9, i64 0, i32 77
+  %sent_packet_manager_.i.i = getelementptr inbounds i8, ptr %9, i64 3192
   %10 = load ptr, ptr %sent_packet_manager_.i.i, align 8
   %vtable9.i = load ptr, ptr %10, align 8
-  %vfn10.i = getelementptr inbounds ptr, ptr %vtable9.i, i64 19
+  %vfn10.i = getelementptr inbounds i8, ptr %vtable9.i, i64 152
   %11 = load ptr, ptr %vfn10.i, align 8
   %call11.i = tail call noundef ptr %11(ptr noundef nonnull align 8 dereferenceable(8) %10)
-  %retval.sroa.2.0.smoothed_rtt_.sroa_idx.i.i = getelementptr inbounds %"class.net::RttStats", ptr %call11.i, i64 0, i32 2, i32 1
+  %retval.sroa.2.0.smoothed_rtt_.sroa_idx.i.i = getelementptr inbounds i8, ptr %call11.i, i64 40
   %retval.sroa.2.0.copyload.i.i = load i64, ptr %retval.sroa.2.0.smoothed_rtt_.sroa_idx.i.i, align 8
   %cmp.i1.i = icmp eq i64 %retval.sroa.2.0.copyload.i.i, 0
   br i1 %cmp.i1.i, label %_ZN3net18QuicFlowController26MaybeIncreaseMaxWindowSizeEv.exit, label %if.end15.i
@@ -322,7 +209,7 @@ if.end15.i:                                       ; preds = %if.end6.i
 if.end26.i:                                       ; preds = %if.end15.i
   %12 = load i64, ptr %receive_window_size_.i, align 8
   %mul.i = shl i64 %12, 1
-  %receive_window_size_limit_.i = getelementptr inbounds %"class.net::QuicFlowController", ptr %this, i64 0, i32 9
+  %receive_window_size_limit_.i = getelementptr inbounds i8, ptr %this, i64 64
   %13 = load i64, ptr %receive_window_size_limit_.i, align 8
   %14 = tail call i64 @llvm.umin.i64(i64 %13, i64 %mul.i)
   store i64 %14, ptr %receive_window_size_.i, align 8
@@ -335,10 +222,10 @@ _ZN3net18QuicFlowController26MaybeIncreaseMaxWindowSizeEv.exit: ; preds = %if.en
   %add = add i64 %16, %sub7
   store i64 %add, ptr %receive_window_offset_, align 8
   %17 = load ptr, ptr %this, align 8
-  %id_ = getelementptr inbounds %"class.net::QuicFlowController", ptr %this, i64 0, i32 1
+  %id_ = getelementptr inbounds i8, ptr %this, i64 8
   %18 = load i32, ptr %id_, align 8
   %vtable = load ptr, ptr %17, align 8
-  %vfn = getelementptr inbounds ptr, ptr %vtable, i64 30
+  %vfn = getelementptr inbounds i8, ptr %vtable, i64 240
   %19 = load ptr, ptr %vfn, align 8
   tail call void %19(ptr noundef nonnull align 8 dereferenceable(3372) %17, i32 noundef %18, i64 noundef %add)
   br label %return
@@ -350,7 +237,7 @@ return:                                           ; preds = %if.end, %_ZN3net18Q
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
 define dso_local noundef zeroext i1 @_ZN3net18QuicFlowController27UpdateHighestReceivedOffsetEm(ptr nocapture noundef nonnull align 8 dereferenceable(96) %this, i64 noundef %new_offset) local_unnamed_addr #2 align 2 {
 entry:
-  %highest_received_byte_offset_ = getelementptr inbounds %"class.net::QuicFlowController", ptr %this, i64 0, i32 6
+  %highest_received_byte_offset_ = getelementptr inbounds i8, ptr %this, i64 40
   %0 = load i64, ptr %highest_received_byte_offset_, align 8
   %cmp.not = icmp ult i64 %0, %new_offset
   br i1 %cmp.not, label %if.end, label %return
@@ -370,10 +257,10 @@ entry:
   %ref.tmp34 = alloca %"class.std::__cxx11::basic_string", align 8
   %ref.tmp35 = alloca %"class.std::__cxx11::basic_string", align 8
   %ref.tmp40 = alloca %"class.std::allocator", align 1
-  %bytes_sent_ = getelementptr inbounds %"class.net::QuicFlowController", ptr %this, i64 0, i32 3
+  %bytes_sent_ = getelementptr inbounds i8, ptr %this, i64 16
   %0 = load i64, ptr %bytes_sent_, align 8
   %add = add i64 %0, %bytes_sent
-  %send_window_offset_ = getelementptr inbounds %"class.net::QuicFlowController", ptr %this, i64 0, i32 4
+  %send_window_offset_ = getelementptr inbounds i8, ptr %this, i64 24
   %1 = load i64, ptr %send_window_offset_, align 8
   %cmp = icmp ugt i64 %add, %1
   br i1 %cmp, label %if.then, label %if.end
@@ -384,8 +271,8 @@ if.then:                                          ; preds = %entry
 
 cond.false:                                       ; preds = %if.then
   call void @_ZN7logging10LogMessageC1EPKcii(ptr noundef nonnull align 8 dereferenceable(404) %ref.tmp2, ptr noundef nonnull @.str, i32 noundef 71, i32 noundef 2)
-  %stream_.i = getelementptr inbounds %"class.logging::LogMessage", ptr %ref.tmp2, i64 0, i32 2
-  %perspective_ = getelementptr inbounds %"class.net::QuicFlowController", ptr %this, i64 0, i32 2
+  %stream_.i = getelementptr inbounds i8, ptr %ref.tmp2, i64 8
+  %perspective_ = getelementptr inbounds i8, ptr %this, i64 12
   %2 = load i32, ptr %perspective_, align 4
   %cmp4 = icmp eq i32 %2, 0
   %cond-lvalue = select i1 %cmp4, ptr @.str.1, ptr @.str.2
@@ -397,7 +284,7 @@ invoke.cont7:                                     ; preds = %cond.false
           to label %invoke.cont9 unwind label %lpad
 
 invoke.cont9:                                     ; preds = %invoke.cont7
-  %id_ = getelementptr inbounds %"class.net::QuicFlowController", ptr %this, i64 0, i32 1
+  %id_ = getelementptr inbounds i8, ptr %this, i64 8
   %3 = load i32, ptr %id_, align 8
   %call12 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZNSolsEj(ptr noundef nonnull align 8 dereferenceable(8) %call10, i32 noundef %3)
           to label %invoke.cont11 unwind label %lpad
@@ -472,7 +359,7 @@ if.end.i:                                         ; preds = %.noexc
 
 invoke.cont42:                                    ; preds = %if.end.i
   %vtable = load ptr, ptr %7, align 8
-  %vfn = getelementptr inbounds ptr, ptr %vtable, i64 32
+  %vfn = getelementptr inbounds i8, ptr %vtable, i64 256
   %9 = load ptr, ptr %vfn, align 8
   invoke void %9(ptr noundef nonnull align 8 dereferenceable(3372) %7, i32 noundef 63, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp34, i32 noundef 1)
           to label %invoke.cont44 unwind label %lpad43
@@ -550,9 +437,9 @@ declare void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1)) unnam
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
 define dso_local noundef zeroext i1 @_ZN3net18QuicFlowController20FlowControlViolationEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(96) %this) local_unnamed_addr #5 align 2 {
 entry:
-  %highest_received_byte_offset_ = getelementptr inbounds %"class.net::QuicFlowController", ptr %this, i64 0, i32 6
+  %highest_received_byte_offset_ = getelementptr inbounds i8, ptr %this, i64 40
   %0 = load i64, ptr %highest_received_byte_offset_, align 8
-  %receive_window_offset_ = getelementptr inbounds %"class.net::QuicFlowController", ptr %this, i64 0, i32 7
+  %receive_window_offset_ = getelementptr inbounds i8, ptr %this, i64 48
   %1 = load i64, ptr %receive_window_offset_, align 8
   %cmp = icmp ugt i64 %0, %1
   ret i1 %cmp
@@ -562,20 +449,20 @@ entry:
 define dso_local void @_ZN3net18QuicFlowController26MaybeIncreaseMaxWindowSizeEv(ptr nocapture noundef nonnull align 8 dereferenceable(96) %this) local_unnamed_addr #1 align 2 {
 entry:
   %0 = load ptr, ptr %this, align 8
-  %clock_.i = getelementptr inbounds %"class.net::QuicConnection", ptr %0, i64 0, i32 12
+  %clock_.i = getelementptr inbounds i8, ptr %0, i64 480
   %1 = load ptr, ptr %clock_.i, align 8
   %vtable = load ptr, ptr %1, align 8
-  %vfn = getelementptr inbounds ptr, ptr %vtable, i64 2
+  %vfn = getelementptr inbounds i8, ptr %vtable, i64 16
   %2 = load ptr, ptr %vfn, align 8
   %call2 = tail call i64 %2(ptr noundef nonnull align 8 dereferenceable(8) %1)
-  %prev_window_update_time_ = getelementptr inbounds %"class.net::QuicFlowController", ptr %this, i64 0, i32 12
+  %prev_window_update_time_ = getelementptr inbounds i8, ptr %this, i64 88
   %3 = load i64, ptr %prev_window_update_time_, align 8
   store i64 %call2, ptr %prev_window_update_time_, align 8
   %cmp.i.not = icmp eq i64 %3, 0
   br i1 %cmp.i.not, label %if.end33, label %if.end
 
 if.end:                                           ; preds = %entry
-  %auto_tune_receive_window_ = getelementptr inbounds %"class.net::QuicFlowController", ptr %this, i64 0, i32 10
+  %auto_tune_receive_window_ = getelementptr inbounds i8, ptr %this, i64 72
   %4 = load i8, ptr %auto_tune_receive_window_, align 8
   %5 = and i8 %4, 1
   %tobool.not = icmp eq i8 %5, 0
@@ -583,13 +470,13 @@ if.end:                                           ; preds = %entry
 
 if.end6:                                          ; preds = %if.end
   %6 = load ptr, ptr %this, align 8
-  %sent_packet_manager_.i = getelementptr inbounds %"class.net::QuicConnection", ptr %6, i64 0, i32 77
+  %sent_packet_manager_.i = getelementptr inbounds i8, ptr %6, i64 3192
   %7 = load ptr, ptr %sent_packet_manager_.i, align 8
   %vtable9 = load ptr, ptr %7, align 8
-  %vfn10 = getelementptr inbounds ptr, ptr %vtable9, i64 19
+  %vfn10 = getelementptr inbounds i8, ptr %vtable9, i64 152
   %8 = load ptr, ptr %vfn10, align 8
   %call11 = tail call noundef ptr %8(ptr noundef nonnull align 8 dereferenceable(8) %7)
-  %retval.sroa.2.0.smoothed_rtt_.sroa_idx.i = getelementptr inbounds %"class.net::RttStats", ptr %call11, i64 0, i32 2, i32 1
+  %retval.sroa.2.0.smoothed_rtt_.sroa_idx.i = getelementptr inbounds i8, ptr %call11, i64 40
   %retval.sroa.2.0.copyload.i = load i64, ptr %retval.sroa.2.0.smoothed_rtt_.sroa_idx.i, align 8
   %cmp.i1 = icmp eq i64 %retval.sroa.2.0.copyload.i, 0
   br i1 %cmp.i1, label %if.end33, label %if.end15
@@ -601,10 +488,10 @@ if.end15:                                         ; preds = %if.end6
   br i1 %cmp.i.i.not, label %if.end26, label %if.end33
 
 if.end26:                                         ; preds = %if.end15
-  %receive_window_size_ = getelementptr inbounds %"class.net::QuicFlowController", ptr %this, i64 0, i32 8
+  %receive_window_size_ = getelementptr inbounds i8, ptr %this, i64 56
   %9 = load i64, ptr %receive_window_size_, align 8
   %mul = shl i64 %9, 1
-  %receive_window_size_limit_ = getelementptr inbounds %"class.net::QuicFlowController", ptr %this, i64 0, i32 9
+  %receive_window_size_limit_ = getelementptr inbounds i8, ptr %this, i64 64
   %10 = load i64, ptr %receive_window_size_limit_, align 8
   %11 = tail call i64 @llvm.umin.i64(i64 %10, i64 %mul)
   store i64 %11, ptr %receive_window_size_, align 8
@@ -617,7 +504,7 @@ if.end33:                                         ; preds = %if.end26, %if.end15
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
 define dso_local noundef i64 @_ZN3net18QuicFlowController21WindowUpdateThresholdEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(96) %this) local_unnamed_addr #5 align 2 {
 entry:
-  %receive_window_size_ = getelementptr inbounds %"class.net::QuicFlowController", ptr %this, i64 0, i32 8
+  %receive_window_size_ = getelementptr inbounds i8, ptr %this, i64 56
   %0 = load i64, ptr %receive_window_size_, align 8
   %div1 = lshr i64 %0, 1
   ret i64 %div1
@@ -626,25 +513,25 @@ entry:
 ; Function Attrs: mustprogress uwtable
 define dso_local void @_ZN3net18QuicFlowController16MaybeSendBlockedEv(ptr nocapture noundef nonnull align 8 dereferenceable(96) %this) local_unnamed_addr #1 align 2 {
 entry:
-  %bytes_sent_.i = getelementptr inbounds %"class.net::QuicFlowController", ptr %this, i64 0, i32 3
+  %bytes_sent_.i = getelementptr inbounds i8, ptr %this, i64 16
   %0 = load i64, ptr %bytes_sent_.i, align 8
-  %send_window_offset_.i = getelementptr inbounds %"class.net::QuicFlowController", ptr %this, i64 0, i32 4
+  %send_window_offset_.i = getelementptr inbounds i8, ptr %this, i64 24
   %1 = load i64, ptr %send_window_offset_.i, align 8
   %cmp.not = icmp ugt i64 %1, %0
   br i1 %cmp.not, label %if.end, label %land.lhs.true
 
 land.lhs.true:                                    ; preds = %entry
-  %last_blocked_send_window_offset_ = getelementptr inbounds %"class.net::QuicFlowController", ptr %this, i64 0, i32 11
+  %last_blocked_send_window_offset_ = getelementptr inbounds i8, ptr %this, i64 80
   %2 = load i64, ptr %last_blocked_send_window_offset_, align 8
   %cmp2 = icmp ult i64 %2, %1
   br i1 %cmp2, label %if.then, label %if.end
 
 if.then:                                          ; preds = %land.lhs.true
   %3 = load ptr, ptr %this, align 8
-  %id_ = getelementptr inbounds %"class.net::QuicFlowController", ptr %this, i64 0, i32 1
+  %id_ = getelementptr inbounds i8, ptr %this, i64 8
   %4 = load i32, ptr %id_, align 8
   %vtable = load ptr, ptr %3, align 8
-  %vfn = getelementptr inbounds ptr, ptr %vtable, i64 29
+  %vfn = getelementptr inbounds i8, ptr %vtable, i64 232
   %5 = load ptr, ptr %vfn, align 8
   tail call void %5(ptr noundef nonnull align 8 dereferenceable(3372) %3, i32 noundef %4)
   %6 = load i64, ptr %send_window_offset_.i, align 8
@@ -658,9 +545,9 @@ if.end:                                           ; preds = %if.then, %land.lhs.
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
 define dso_local noundef i64 @_ZNK3net18QuicFlowController14SendWindowSizeEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(96) %this) local_unnamed_addr #5 align 2 {
 entry:
-  %bytes_sent_ = getelementptr inbounds %"class.net::QuicFlowController", ptr %this, i64 0, i32 3
+  %bytes_sent_ = getelementptr inbounds i8, ptr %this, i64 16
   %0 = load i64, ptr %bytes_sent_, align 8
-  %send_window_offset_ = getelementptr inbounds %"class.net::QuicFlowController", ptr %this, i64 0, i32 4
+  %send_window_offset_ = getelementptr inbounds i8, ptr %this, i64 24
   %1 = load i64, ptr %send_window_offset_, align 8
   %retval.0 = tail call i64 @llvm.usub.sat.i64(i64 %1, i64 %0)
   ret i64 %retval.0
@@ -669,13 +556,13 @@ entry:
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
 define dso_local noundef zeroext i1 @_ZN3net18QuicFlowController22UpdateSendWindowOffsetEm(ptr nocapture noundef nonnull align 8 dereferenceable(96) %this, i64 noundef %new_send_window_offset) local_unnamed_addr #2 align 2 {
 entry:
-  %send_window_offset_ = getelementptr inbounds %"class.net::QuicFlowController", ptr %this, i64 0, i32 4
+  %send_window_offset_ = getelementptr inbounds i8, ptr %this, i64 24
   %0 = load i64, ptr %send_window_offset_, align 8
   %cmp.not = icmp ult i64 %0, %new_send_window_offset
   br i1 %cmp.not, label %if.end, label %return
 
 if.end:                                           ; preds = %entry
-  %bytes_sent_.i.i = getelementptr inbounds %"class.net::QuicFlowController", ptr %this, i64 0, i32 3
+  %bytes_sent_.i.i = getelementptr inbounds i8, ptr %this, i64 16
   %1 = load i64, ptr %bytes_sent_.i.i, align 8
   %cmp.i = icmp ule i64 %0, %1
   store i64 %new_send_window_offset, ptr %send_window_offset_, align 8
@@ -689,9 +576,9 @@ return:                                           ; preds = %entry, %if.end
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
 define dso_local noundef zeroext i1 @_ZNK3net18QuicFlowController9IsBlockedEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(96) %this) local_unnamed_addr #5 align 2 {
 entry:
-  %bytes_sent_.i = getelementptr inbounds %"class.net::QuicFlowController", ptr %this, i64 0, i32 3
+  %bytes_sent_.i = getelementptr inbounds i8, ptr %this, i64 16
   %0 = load i64, ptr %bytes_sent_.i, align 8
-  %send_window_offset_.i = getelementptr inbounds %"class.net::QuicFlowController", ptr %this, i64 0, i32 4
+  %send_window_offset_.i = getelementptr inbounds i8, ptr %this, i64 24
   %1 = load i64, ptr %send_window_offset_.i, align 8
   %cmp = icmp ule i64 %1, %0
   ret i1 %cmp
@@ -701,9 +588,9 @@ entry:
 define dso_local void @_ZN3net18QuicFlowController23UpdateReceiveWindowSizeEm(ptr nocapture noundef nonnull align 8 dereferenceable(96) %this, i64 noundef %size) local_unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp2 = alloca %"class.logging::LogMessage", align 8
-  %receive_window_size_ = getelementptr inbounds %"class.net::QuicFlowController", ptr %this, i64 0, i32 8
+  %receive_window_size_ = getelementptr inbounds i8, ptr %this, i64 56
   %0 = load i64, ptr %receive_window_size_, align 8
-  %receive_window_offset_ = getelementptr inbounds %"class.net::QuicFlowController", ptr %this, i64 0, i32 7
+  %receive_window_offset_ = getelementptr inbounds i8, ptr %this, i64 48
   %1 = load i64, ptr %receive_window_offset_, align 8
   %cmp.not = icmp eq i64 %0, %1
   br i1 %cmp.not, label %if.end, label %if.then
@@ -714,7 +601,7 @@ if.then:                                          ; preds = %entry
 
 cond.false:                                       ; preds = %if.then
   call void @_ZN7logging10LogMessageC1EPKcii(ptr noundef nonnull align 8 dereferenceable(404) %ref.tmp2, ptr noundef nonnull @.str, i32 noundef 246, i32 noundef 2)
-  %stream_.i = getelementptr inbounds %"class.logging::LogMessage", ptr %ref.tmp2, i64 0, i32 2
+  %stream_.i = getelementptr inbounds i8, ptr %ref.tmp2, i64 8
   %call5 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc(ptr noundef nonnull align 8 dereferenceable(8) %stream_.i, ptr noundef nonnull @.str.8)
           to label %invoke.cont4 unwind label %lpad
 

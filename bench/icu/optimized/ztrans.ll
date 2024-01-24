@@ -4,7 +4,7 @@ target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:
 target triple = "x86_64-unknown-linux-gnu"
 
 ; Function Attrs: mustprogress uwtable
-define ptr @ztrans_open_75(double noundef %time, ptr noundef %from, ptr noundef %to) local_unnamed_addr #0 personality ptr @__gxx_personality_v0 {
+define noundef ptr @ztrans_open_75(double noundef %time, ptr noundef %from, ptr noundef %to) local_unnamed_addr #0 personality ptr @__gxx_personality_v0 {
 entry:
   %call = tail call noundef ptr @_ZN6icu_757UMemorynwEm(i64 noundef 32) #4
   %new.isnull = icmp eq ptr %call, null
@@ -35,7 +35,7 @@ declare i32 @__gxx_personality_v0(...)
 declare void @_ZN6icu_757UMemorydlEPv(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress uwtable
-define ptr @ztrans_openEmpty_75() local_unnamed_addr #0 personality ptr @__gxx_personality_v0 {
+define noundef ptr @ztrans_openEmpty_75() local_unnamed_addr #0 personality ptr @__gxx_personality_v0 {
 entry:
   %call = tail call noundef ptr @_ZN6icu_757UMemorynwEm(i64 noundef 32) #4
   %new.isnull = icmp eq ptr %call, null
@@ -65,7 +65,7 @@ entry:
 
 delete.notnull:                                   ; preds = %entry
   %vtable = load ptr, ptr %trans, align 8
-  %vfn = getelementptr inbounds ptr, ptr %vtable, i64 1
+  %vfn = getelementptr inbounds i8, ptr %vtable, i64 8
   %0 = load ptr, ptr %vfn, align 8
   tail call void %0(ptr noundef nonnull align 8 dereferenceable(32) %trans) #4
   br label %delete.end
@@ -75,7 +75,7 @@ delete.end:                                       ; preds = %delete.notnull, %en
 }
 
 ; Function Attrs: mustprogress uwtable
-define ptr @ztrans_clone_75(ptr noundef nonnull %trans) local_unnamed_addr #0 {
+define noundef ptr @ztrans_clone_75(ptr noundef nonnull %trans) local_unnamed_addr #0 {
 entry:
   %call = tail call noundef ptr @_ZNK6icu_7518TimeZoneTransition5cloneEv(ptr noundef nonnull align 8 dereferenceable(32) %trans)
   ret ptr %call
@@ -84,7 +84,7 @@ entry:
 declare noundef ptr @_ZNK6icu_7518TimeZoneTransition5cloneEv(ptr noundef nonnull align 8 dereferenceable(32)) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress uwtable
-define signext i8 @ztrans_equals_75(ptr noundef nonnull %trans1, ptr noundef nonnull %trans2) local_unnamed_addr #0 {
+define noundef signext i8 @ztrans_equals_75(ptr noundef nonnull %trans1, ptr noundef nonnull %trans2) local_unnamed_addr #0 {
 entry:
   %call = tail call noundef zeroext i1 @_ZNK6icu_7518TimeZoneTransitioneqERKS0_(ptr noundef nonnull align 8 dereferenceable(32) %trans1, ptr noundef nonnull align 8 dereferenceable(32) %trans2)
   %conv = zext i1 %call to i8
@@ -94,7 +94,7 @@ entry:
 declare noundef zeroext i1 @_ZNK6icu_7518TimeZoneTransitioneqERKS0_(ptr noundef nonnull align 8 dereferenceable(32), ptr noundef nonnull align 8 dereferenceable(32)) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress uwtable
-define double @ztrans_getTime_75(ptr noundef nonnull %trans) local_unnamed_addr #0 {
+define noundef double @ztrans_getTime_75(ptr noundef nonnull %trans) local_unnamed_addr #0 {
 entry:
   %call = tail call noundef double @_ZNK6icu_7518TimeZoneTransition7getTimeEv(ptr noundef nonnull align 8 dereferenceable(32) %trans)
   ret double %call
@@ -112,7 +112,7 @@ entry:
 declare void @_ZN6icu_7518TimeZoneTransition7setTimeEd(ptr noundef nonnull align 8 dereferenceable(32), double noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress uwtable
-define ptr @ztrans_getFrom_75(ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %trans) local_unnamed_addr #0 {
+define noundef ptr @ztrans_getFrom_75(ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %trans) local_unnamed_addr #0 {
 entry:
   %0 = load ptr, ptr %trans, align 8
   %call = tail call noundef ptr @_ZNK6icu_7518TimeZoneTransition7getFromEv(ptr noundef nonnull align 8 dereferenceable(32) %0)
@@ -140,7 +140,7 @@ entry:
 declare void @_ZN6icu_7518TimeZoneTransition9adoptFromEPNS_12TimeZoneRuleE(ptr noundef nonnull align 8 dereferenceable(32), ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress uwtable
-define ptr @ztrans_getTo_75(ptr noundef nonnull %trans) local_unnamed_addr #0 {
+define noundef ptr @ztrans_getTo_75(ptr noundef nonnull %trans) local_unnamed_addr #0 {
 entry:
   %call = tail call noundef ptr @_ZNK6icu_7518TimeZoneTransition5getToEv(ptr noundef nonnull align 8 dereferenceable(32) %trans)
   ret ptr %call
@@ -167,7 +167,7 @@ entry:
 declare void @_ZN6icu_7518TimeZoneTransition7adoptToEPNS_12TimeZoneRuleE(ptr noundef nonnull align 8 dereferenceable(32), ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress uwtable
-define ptr @ztrans_getStaticClassID_75(ptr nocapture noundef readnone %trans) local_unnamed_addr #0 {
+define noundef ptr @ztrans_getStaticClassID_75(ptr nocapture noundef readnone %trans) local_unnamed_addr #0 {
 entry:
   %call = tail call noundef ptr @_ZN6icu_7518TimeZoneTransition16getStaticClassIDEv()
   ret ptr %call
@@ -176,7 +176,7 @@ entry:
 declare noundef ptr @_ZN6icu_7518TimeZoneTransition16getStaticClassIDEv() local_unnamed_addr #2
 
 ; Function Attrs: mustprogress uwtable
-define ptr @ztrans_getDynamicClassID_75(ptr noundef nonnull %trans) local_unnamed_addr #0 {
+define noundef ptr @ztrans_getDynamicClassID_75(ptr noundef nonnull %trans) local_unnamed_addr #0 {
 entry:
   %call = tail call noundef ptr @_ZNK6icu_7518TimeZoneTransition17getDynamicClassIDEv(ptr noundef nonnull align 8 dereferenceable(32) %trans)
   ret ptr %call

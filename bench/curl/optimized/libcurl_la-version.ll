@@ -75,26 +75,26 @@ entry:
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(40) %br_version, ptr noundef nonnull align 16 dereferenceable(40) @__const.curl_version.br_version, i64 40, i1 false)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(40) %zst_version, i8 0, i64 40, i1 false)
   store <4 x i8> <i8 122, i8 115, i8 116, i8 100>, ptr %zst_version, align 16
-  %0 = getelementptr inbounds [40 x i8], ptr %zst_version, i64 0, i64 4
+  %0 = getelementptr inbounds i8, ptr %zst_version, i64 4
   store i8 47, ptr %0, align 4
   store ptr @.str, ptr %src, align 16
   call void @Curl_ssl_version(ptr noundef nonnull %ssl_version, i64 noundef 200) #7
-  %arrayidx4 = getelementptr inbounds [16 x ptr], ptr %src, i64 0, i64 1
+  %arrayidx4 = getelementptr inbounds i8, ptr %src, i64 8
   store ptr %ssl_version, ptr %arrayidx4, align 8
   %call = call ptr @zlibVersion() #7
   %call6 = call i32 (ptr, i64, ptr, ...) @curl_msnprintf(ptr noundef nonnull %z_version, i64 noundef 40, ptr noundef nonnull @.str.1, ptr noundef %call) #7
-  %arrayidx10 = getelementptr inbounds [16 x ptr], ptr %src, i64 0, i64 2
+  %arrayidx10 = getelementptr inbounds i8, ptr %src, i64 16
   store ptr %z_version, ptr %arrayidx10, align 16
-  %arrayidx11 = getelementptr inbounds [40 x i8], ptr %br_version, i64 0, i64 7
+  %arrayidx11 = getelementptr inbounds i8, ptr %br_version, i64 7
   %call.i = call i32 @BrotliDecoderVersion() #7
   %shr.i = lshr i32 %call.i, 24
   %and.i = lshr i32 %call.i, 12
   %shr1.i = and i32 %and.i, 4095
   %and2.i = and i32 %call.i, 4095
   %call3.i = call i32 (ptr, i64, ptr, ...) @curl_msnprintf(ptr noundef nonnull %arrayidx11, i64 noundef 33, ptr noundef nonnull @.str.5, i32 noundef %shr.i, i32 noundef %shr1.i, i32 noundef %and2.i) #7
-  %arrayidx15 = getelementptr inbounds [16 x ptr], ptr %src, i64 0, i64 3
+  %arrayidx15 = getelementptr inbounds i8, ptr %src, i64 24
   store ptr %br_version, ptr %arrayidx15, align 8
-  %arrayidx16 = getelementptr inbounds [40 x i8], ptr %zst_version, i64 0, i64 5
+  %arrayidx16 = getelementptr inbounds i8, ptr %zst_version, i64 5
   %call.i22 = call i32 @ZSTD_versionNumber() #7
   %conv.i = zext i32 %call.i22 to i64
   %div.i = udiv i32 %call.i22, 10000
@@ -107,11 +107,11 @@ entry:
   %sub12.i = add i64 %mul10.neg.i, %sub.i
   %conv13.i = trunc i64 %sub12.i to i32
   %call14.i = call i32 (ptr, i64, ptr, ...) @curl_msnprintf(ptr noundef nonnull %arrayidx16, i64 noundef 35, ptr noundef nonnull @.str.5, i32 noundef %div.i, i32 noundef %conv5.i, i32 noundef %conv13.i) #7
-  %arrayidx20 = getelementptr inbounds [16 x ptr], ptr %src, i64 0, i64 4
+  %arrayidx20 = getelementptr inbounds i8, ptr %src, i64 32
   store ptr %zst_version, ptr %arrayidx20, align 16
   %call22 = call ptr @idn2_check_version(ptr noundef null) #8
   %call23 = call i32 (ptr, i64, ptr, ...) @curl_msnprintf(ptr noundef nonnull %idn_version, i64 noundef 40, ptr noundef nonnull @.str.2, ptr noundef %call22) #7
-  %arrayidx27 = getelementptr inbounds [16 x ptr], ptr %src, i64 0, i64 5
+  %arrayidx27 = getelementptr inbounds i8, ptr %src, i64 40
   store ptr %idn_version, ptr %arrayidx27, align 8
   %call28 = call i32 @psl_check_version_number(i32 noundef 0) #7
   %shr = ashr i32 %call28, 16
@@ -119,7 +119,7 @@ entry:
   %and = and i32 %shr30, 255
   %and31 = and i32 %call28, 255
   %call32 = call i32 (ptr, i64, ptr, ...) @curl_msnprintf(ptr noundef nonnull %psl_version, i64 noundef 40, ptr noundef nonnull @.str.3, i32 noundef %shr, i32 noundef %and, i32 noundef %and31) #7
-  %arrayidx36 = getelementptr inbounds [16 x ptr], ptr %src, i64 0, i64 6
+  %arrayidx36 = getelementptr inbounds i8, ptr %src, i64 48
   store ptr %psl_version, ptr %arrayidx36, align 16
   br label %for.body
 
@@ -222,7 +222,7 @@ for.body:                                         ; preds = %entry, %for.inc
   %features.011 = phi i32 [ 0, %entry ], [ %features.1, %for.inc ]
   %p.010 = phi ptr [ @features_table, %entry ], [ %incdec.ptr, %for.inc ]
   %n.09 = phi i64 [ 0, %entry ], [ %n.1, %for.inc ]
-  %present = getelementptr inbounds %struct.feat, ptr %p.010, i64 0, i32 1
+  %present = getelementptr inbounds i8, ptr %p.010, i64 8
   %1 = load ptr, ptr %present, align 8
   %tobool4.not = icmp eq ptr %1, null
   br i1 %tobool4.not, label %if.then, label %lor.lhs.false
@@ -233,7 +233,7 @@ lor.lhs.false:                                    ; preds = %for.body
   br i1 %tobool7.not, label %for.inc, label %if.then
 
 if.then:                                          ; preds = %lor.lhs.false, %for.body
-  %bitmask = getelementptr inbounds %struct.feat, ptr %p.010, i64 0, i32 2
+  %bitmask = getelementptr inbounds i8, ptr %p.010, i64 16
   %2 = load i32, ptr %bitmask, align 8
   %or = or i32 %2, %features.011
   %inc = add i64 %n.09, 1
@@ -244,7 +244,7 @@ if.then:                                          ; preds = %lor.lhs.false, %for
 for.inc:                                          ; preds = %lor.lhs.false, %if.then
   %n.1 = phi i64 [ %inc, %if.then ], [ %n.09, %lor.lhs.false ]
   %features.1 = phi i32 [ %or, %if.then ], [ %features.011, %lor.lhs.false ]
-  %incdec.ptr = getelementptr inbounds %struct.feat, ptr %p.010, i64 1
+  %incdec.ptr = getelementptr inbounds i8, ptr %p.010, i64 24
   %3 = load ptr, ptr %incdec.ptr, align 8
   %tobool.not = icmp eq ptr %3, null
   br i1 %tobool.not, label %for.end, label %for.body, !llvm.loop !6
@@ -271,7 +271,7 @@ entry:
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
 define internal i32 @idn_present(ptr nocapture noundef readonly %info) #6 {
 entry:
-  %libidn = getelementptr inbounds %struct.curl_version_info_data, ptr %info, i64 0, i32 11
+  %libidn = getelementptr inbounds i8, ptr %info, i64 88
   %0 = load ptr, ptr %libidn, align 8
   %cmp = icmp ne ptr %0, null
   %conv = zext i1 %cmp to i32

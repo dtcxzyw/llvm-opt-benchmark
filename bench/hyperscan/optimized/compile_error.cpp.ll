@@ -3,7 +3,6 @@ source_filename = "bench/hyperscan/original/compile_error.cpp.ll"
 target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:128-n8:16:32:64-S128"
 target triple = "x86_64-unknown-linux-gnu"
 
-%"class.ue2::CompileError" = type { ptr, %"class.std::__cxx11::basic_string", i8, i32 }
 %"class.std::__cxx11::basic_string" = type { %"struct.std::__cxx11::basic_string<char>::_Alloc_hider", i64, %union.anon }
 %"struct.std::__cxx11::basic_string<char>::_Alloc_hider" = type { ptr }
 %union.anon = type { i64, [8 x i8] }
@@ -30,11 +29,11 @@ define hidden void @_ZN3ue212CompileErrorC2ERKNSt7__cxx1112basic_stringIcSt11cha
 entry:
   %__dnew.i.i = alloca i64, align 8
   store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN3ue212CompileErrorE, i64 0, inrange i32 0, i64 2), ptr %this, align 8
-  %reason = getelementptr inbounds %"class.ue2::CompileError", ptr %this, i64 0, i32 1
-  %0 = getelementptr inbounds %"class.ue2::CompileError", ptr %this, i64 0, i32 1, i32 2
+  %reason = getelementptr inbounds i8, ptr %this, i64 8
+  %0 = getelementptr inbounds i8, ptr %this, i64 24
   store ptr %0, ptr %reason, align 8
   %1 = load ptr, ptr %why, align 8
-  %_M_string_length.i.i = getelementptr inbounds %"class.std::__cxx11::basic_string", ptr %why, i64 0, i32 1
+  %_M_string_length.i.i = getelementptr inbounds i8, ptr %why, i64 8
   %2 = load i64, ptr %_M_string_length.i.i, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %__dnew.i.i) #8
   store i64 %2, ptr %__dnew.i.i, align 8
@@ -66,15 +65,15 @@ if.end.i.i.i.i.i:                                 ; preds = %if.end.i.i
 
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2ERKS4_.exit: ; preds = %if.end.i.i.i.i.i, %if.then.i.i.i.i, %if.end.i.i
   %6 = load i64, ptr %__dnew.i.i, align 8
-  %_M_string_length.i.i.i.i = getelementptr inbounds %"class.ue2::CompileError", ptr %this, i64 0, i32 1, i32 1
+  %_M_string_length.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 16
   store i64 %6, ptr %_M_string_length.i.i.i.i, align 8
   %7 = load ptr, ptr %reason, align 8
   %arrayidx.i.i.i = getelementptr inbounds i8, ptr %7, i64 %6
   store i8 0, ptr %arrayidx.i.i.i, align 1
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %__dnew.i.i) #8
-  %hasIndex = getelementptr inbounds %"class.ue2::CompileError", ptr %this, i64 0, i32 2
+  %hasIndex = getelementptr inbounds i8, ptr %this, i64 40
   store i8 0, ptr %hasIndex, align 8
-  %index = getelementptr inbounds %"class.ue2::CompileError", ptr %this, i64 0, i32 3
+  %index = getelementptr inbounds i8, ptr %this, i64 44
   store i32 0, ptr %index, align 4
   ret void
 }
@@ -84,11 +83,11 @@ define hidden void @_ZN3ue212CompileErrorC2EjRKNSt7__cxx1112basic_stringIcSt11ch
 entry:
   %__dnew.i.i = alloca i64, align 8
   store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN3ue212CompileErrorE, i64 0, inrange i32 0, i64 2), ptr %this, align 8
-  %reason = getelementptr inbounds %"class.ue2::CompileError", ptr %this, i64 0, i32 1
-  %0 = getelementptr inbounds %"class.ue2::CompileError", ptr %this, i64 0, i32 1, i32 2
+  %reason = getelementptr inbounds i8, ptr %this, i64 8
+  %0 = getelementptr inbounds i8, ptr %this, i64 24
   store ptr %0, ptr %reason, align 8
   %1 = load ptr, ptr %why, align 8
-  %_M_string_length.i.i = getelementptr inbounds %"class.std::__cxx11::basic_string", ptr %why, i64 0, i32 1
+  %_M_string_length.i.i = getelementptr inbounds i8, ptr %why, i64 8
   %2 = load i64, ptr %_M_string_length.i.i, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %__dnew.i.i) #8
   store i64 %2, ptr %__dnew.i.i, align 8
@@ -120,15 +119,15 @@ if.end.i.i.i.i.i:                                 ; preds = %if.end.i.i
 
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2ERKS4_.exit: ; preds = %if.end.i.i.i.i.i, %if.then.i.i.i.i, %if.end.i.i
   %6 = load i64, ptr %__dnew.i.i, align 8
-  %_M_string_length.i.i.i.i = getelementptr inbounds %"class.ue2::CompileError", ptr %this, i64 0, i32 1, i32 1
+  %_M_string_length.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 16
   store i64 %6, ptr %_M_string_length.i.i.i.i, align 8
   %7 = load ptr, ptr %reason, align 8
   %arrayidx.i.i.i = getelementptr inbounds i8, ptr %7, i64 %6
   store i8 0, ptr %arrayidx.i.i.i, align 1
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %__dnew.i.i) #8
-  %hasIndex = getelementptr inbounds %"class.ue2::CompileError", ptr %this, i64 0, i32 2
+  %hasIndex = getelementptr inbounds i8, ptr %this, i64 40
   store i8 1, ptr %hasIndex, align 8
-  %index = getelementptr inbounds %"class.ue2::CompileError", ptr %this, i64 0, i32 3
+  %index = getelementptr inbounds i8, ptr %this, i64 44
   store i32 %idx, ptr %index, align 4
   ret void
 }
@@ -136,9 +135,9 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2ERKS4_.exit: ; preds = %i
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
 define hidden void @_ZN3ue212CompileError18setExpressionIndexEj(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(48) %this, i32 noundef %expr_index) local_unnamed_addr #1 align 2 {
 entry:
-  %hasIndex = getelementptr inbounds %"class.ue2::CompileError", ptr %this, i64 0, i32 2
+  %hasIndex = getelementptr inbounds i8, ptr %this, i64 40
   store i8 1, ptr %hasIndex, align 8
-  %index = getelementptr inbounds %"class.ue2::CompileError", ptr %this, i64 0, i32 3
+  %index = getelementptr inbounds i8, ptr %this, i64 44
   store i32 %expr_index, ptr %index, align 4
   ret void
 }
@@ -147,14 +146,14 @@ entry:
 define hidden void @_ZN3ue212CompileErrorD2Ev(ptr noundef nonnull align 8 dereferenceable(48) %this) unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN3ue212CompileErrorE, i64 0, inrange i32 0, i64 2), ptr %this, align 8
-  %reason = getelementptr inbounds %"class.ue2::CompileError", ptr %this, i64 0, i32 1
+  %reason = getelementptr inbounds i8, ptr %this, i64 8
   %0 = load ptr, ptr %reason, align 8
-  %1 = getelementptr inbounds %"class.ue2::CompileError", ptr %this, i64 0, i32 1, i32 2
+  %1 = getelementptr inbounds i8, ptr %this, i64 24
   %cmp.i.i.i = icmp eq ptr %0, %1
   br i1 %cmp.i.i.i, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i, label %if.then.i.i
 
 _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i: ; preds = %entry
-  %_M_string_length.i.i.i = getelementptr inbounds %"class.ue2::CompileError", ptr %this, i64 0, i32 1, i32 1
+  %_M_string_length.i.i.i = getelementptr inbounds i8, ptr %this, i64 16
   %2 = load i64, ptr %_M_string_length.i.i.i, align 8
   %cmp3.i.i.i = icmp ult i64 %2, 16
   tail call void @llvm.assume(i1 %cmp3.i.i.i)
@@ -172,14 +171,14 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit: ; preds = %if.th
 define hidden void @_ZN3ue212CompileErrorD0Ev(ptr noundef nonnull align 8 dereferenceable(48) %this) unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN3ue212CompileErrorE, i64 0, inrange i32 0, i64 2), ptr %this, align 8
-  %reason.i = getelementptr inbounds %"class.ue2::CompileError", ptr %this, i64 0, i32 1
+  %reason.i = getelementptr inbounds i8, ptr %this, i64 8
   %0 = load ptr, ptr %reason.i, align 8
-  %1 = getelementptr inbounds %"class.ue2::CompileError", ptr %this, i64 0, i32 1, i32 2
+  %1 = getelementptr inbounds i8, ptr %this, i64 24
   %cmp.i.i.i.i = icmp eq ptr %0, %1
   br i1 %cmp.i.i.i.i, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i.i, label %if.then.i.i.i
 
 _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i.i: ; preds = %entry
-  %_M_string_length.i.i.i.i = getelementptr inbounds %"class.ue2::CompileError", ptr %this, i64 0, i32 1, i32 1
+  %_M_string_length.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 16
   %2 = load i64, ptr %_M_string_length.i.i.i.i, align 8
   %cmp3.i.i.i.i = icmp ult i64 %2, 16
   tail call void @llvm.assume(i1 %cmp3.i.i.i.i)
@@ -204,7 +203,7 @@ entry:
   %__dnew.i.i = alloca i64, align 8
   %ref.tmp = alloca %"class.std::__cxx11::basic_string", align 8
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %ref.tmp) #8
-  %0 = getelementptr inbounds %"class.std::__cxx11::basic_string", ptr %ref.tmp, i64 0, i32 2
+  %0 = getelementptr inbounds i8, ptr %ref.tmp, i64 16
   store ptr %0, ptr %ref.tmp, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %__dnew.i.i) #8
   store i64 24, ptr %__dnew.i.i, align 8
@@ -213,15 +212,15 @@ entry:
   %1 = load i64, ptr %__dnew.i.i, align 8
   store i64 %1, ptr %0, align 8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(24) %call2.i11.i9, ptr noundef nonnull align 1 dereferenceable(24) @.str, i64 24, i1 false)
-  %_M_string_length.i.i.i.i = getelementptr inbounds %"class.std::__cxx11::basic_string", ptr %ref.tmp, i64 0, i32 1
+  %_M_string_length.i.i.i.i = getelementptr inbounds i8, ptr %ref.tmp, i64 8
   store i64 %1, ptr %_M_string_length.i.i.i.i, align 8
   %2 = load ptr, ptr %ref.tmp, align 8
   %arrayidx.i.i.i = getelementptr inbounds i8, ptr %2, i64 %1
   store i8 0, ptr %arrayidx.i.i.i, align 1
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %__dnew.i.i) #8
   store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN3ue212CompileErrorE, i64 0, inrange i32 0, i64 2), ptr %this, align 8
-  %reason.i = getelementptr inbounds %"class.ue2::CompileError", ptr %this, i64 0, i32 1
-  %3 = getelementptr inbounds %"class.ue2::CompileError", ptr %this, i64 0, i32 1, i32 2
+  %reason.i = getelementptr inbounds i8, ptr %this, i64 8
+  %3 = getelementptr inbounds i8, ptr %this, i64 24
   store ptr %3, ptr %reason.i, align 8
   %4 = load ptr, ptr %ref.tmp, align 8
   %5 = load i64, ptr %_M_string_length.i.i.i.i, align 8
@@ -258,15 +257,15 @@ if.end.i.i.i.i.i.i:                               ; preds = %if.end.i.i.i
 
 invoke.cont4:                                     ; preds = %if.end.i.i.i.i.i.i, %if.then.i.i.i.i.i, %if.end.i.i.i
   %9 = load i64, ptr %__dnew.i.i.i, align 8
-  %_M_string_length.i.i.i.i.i = getelementptr inbounds %"class.ue2::CompileError", ptr %this, i64 0, i32 1, i32 1
+  %_M_string_length.i.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 16
   store i64 %9, ptr %_M_string_length.i.i.i.i.i, align 8
   %10 = load ptr, ptr %reason.i, align 8
   %arrayidx.i.i.i.i = getelementptr inbounds i8, ptr %10, i64 %9
   store i8 0, ptr %arrayidx.i.i.i.i, align 1
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %__dnew.i.i.i) #8
-  %hasIndex.i = getelementptr inbounds %"class.ue2::CompileError", ptr %this, i64 0, i32 2
+  %hasIndex.i = getelementptr inbounds i8, ptr %this, i64 40
   store i8 0, ptr %hasIndex.i, align 8
-  %index.i = getelementptr inbounds %"class.ue2::CompileError", ptr %this, i64 0, i32 3
+  %index.i = getelementptr inbounds i8, ptr %this, i64 44
   store i32 0, ptr %index.i, align 4
   %11 = load ptr, ptr %ref.tmp, align 8
   %cmp.i.i.i11 = icmp eq ptr %11, %0
@@ -321,14 +320,14 @@ declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #4
 define hidden void @_ZN3ue218ResourceLimitErrorD0Ev(ptr noundef nonnull align 8 dereferenceable(48) %this) unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN3ue212CompileErrorE, i64 0, inrange i32 0, i64 2), ptr %this, align 8
-  %reason.i = getelementptr inbounds %"class.ue2::CompileError", ptr %this, i64 0, i32 1
+  %reason.i = getelementptr inbounds i8, ptr %this, i64 8
   %0 = load ptr, ptr %reason.i, align 8
-  %1 = getelementptr inbounds %"class.ue2::CompileError", ptr %this, i64 0, i32 1, i32 2
+  %1 = getelementptr inbounds i8, ptr %this, i64 24
   %cmp.i.i.i.i = icmp eq ptr %0, %1
   br i1 %cmp.i.i.i.i, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i.i, label %if.then.i.i.i
 
 _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i.i: ; preds = %entry
-  %_M_string_length.i.i.i.i = getelementptr inbounds %"class.ue2::CompileError", ptr %this, i64 0, i32 1, i32 1
+  %_M_string_length.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 16
   %2 = load i64, ptr %_M_string_length.i.i.i.i, align 8
   %cmp3.i.i.i.i = icmp ult i64 %2, 16
   tail call void @llvm.assume(i1 %cmp3.i.i.i.i)

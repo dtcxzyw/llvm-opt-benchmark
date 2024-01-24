@@ -7,42 +7,20 @@ target triple = "x86_64-unknown-linux-gnu"
 %struct.git_hash_algo = type { ptr, i32, i64, i64, i64, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr }
 %struct.json_writer = type { %struct.strbuf, %struct.strbuf, i8 }
 %struct.strbuf = type { i64, i64, ptr }
-%struct.repository = type { ptr, ptr, ptr, ptr, ptr, %struct.repo_path_cache, ptr, ptr, ptr, ptr, %struct.repo_settings, ptr, ptr, ptr, ptr, ptr, i32, i32, i32, ptr, ptr, i32, i8 }
-%struct.repo_path_cache = type { ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr }
-%struct.repo_settings = type { i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, ptr, i32, i32, i32, i32, i32, i32 }
 %struct.oidset = type { %struct.kh_oid_set }
 %struct.kh_oid_set = type { i32, i32, i32, i32, ptr, ptr, ptr }
 %struct.refs_cb_data = type { ptr, ptr }
 %struct.commit_graph_data = type { i32, i64 }
-%struct.object_directory = type { ptr, [8 x i32], ptr, i32, i32, ptr }
 %struct.stat = type { i64, i64, i64, i32, i32, i32, i32, i64, i64, i64, i64, %struct.timespec, %struct.timespec, %struct.timespec, [3 x i64] }
 %struct.timespec = type { i64, i64 }
-%struct.commit_graph = type { ptr, i64, i8, i8, i32, %struct.object_id, ptr, ptr, i32, i32, ptr, ptr, ptr, ptr, ptr, ptr, i64, ptr, i64, ptr, i64, ptr, ptr, i64, ptr, ptr }
 %struct.object_id = type { [32 x i8], i32 }
-%struct.raw_object_store = type { ptr, ptr, ptr, i32, ptr, ptr, i8, %union.pthread_mutex_t, ptr, i8, ptr, ptr, %struct.list_head, %struct.anon, %struct.hashmap, i64, i8 }
-%union.pthread_mutex_t = type { %struct.__pthread_mutex_s }
-%struct.__pthread_mutex_s = type { i32, i32, i32, i32, i32, i16, i16, %struct.__pthread_internal_list }
-%struct.__pthread_internal_list = type { ptr, ptr }
-%struct.list_head = type { ptr, ptr }
-%struct.anon = type { ptr, i32 }
-%struct.hashmap = type { ptr, ptr, ptr, i32, i32, i32, i32, i8 }
-%struct.object = type { i32, %struct.object_id }
-%struct.commit = type { %struct.object, i64, ptr, ptr, i32 }
-%struct.topo_level_slab = type { i32, i32, i32, ptr }
 %struct.packed_commit_list = type { ptr, i64, i64 }
 %struct.compute_generation_info = type { ptr, ptr, ptr, i32, ptr, ptr, ptr }
-%struct.commit_list = type { ptr, ptr }
 %struct.timeval = type { i64, i64 }
 %struct.utimbuf = type { i64, i64 }
 %struct.lock_file = type { ptr }
-%struct.write_commit_graph_context = type { ptr, ptr, ptr, %struct.oid_array, %struct.packed_commit_list, i32, i32, i64, ptr, i32, i64, ptr, i32, i32, ptr, ptr, ptr, i32, ptr, i8, ptr, ptr, i64, ptr, i32, i32, i32, i32 }
-%struct.oid_array = type { ptr, i64, i64, i32 }
-%struct.commit_graph_opts = type { i32, i32, i64, i32, i32 }
-%struct.string_list = type { ptr, i64, i64, i8, ptr }
+%struct.topo_level_slab = type { i32, i32, i32, ptr }
 %struct.string_list_item = type { ptr, ptr }
-%struct.bloom_filter = type { ptr, i64 }
-%struct.dirent = type { i64, i64, i16, i8, [256 x i8] }
-%struct.parsed_object_pool = type { ptr, i32, i32, ptr, ptr, ptr, ptr, ptr, ptr, i32, i32, i32, ptr, ptr, i32, i32, ptr }
 %struct.__va_list_tag = type { i32, i32, ptr, ptr }
 %struct.object_info = type { ptr, ptr, ptr, ptr, ptr, ptr, i32, %union.anon }
 %union.anon = type { %struct.anon.0 }
@@ -194,7 +172,7 @@ if.end:                                           ; preds = %entry
   %tobool2.not = icmp eq i32 %call1, 0
   %spec.select = select i1 %tobool2.not, i32 0, i32 8
   %0 = load ptr, ptr @the_repository, align 8
-  %objects = getelementptr inbounds %struct.repository, ptr %0, i64 0, i32 2
+  %objects = getelementptr inbounds i8, ptr %0, i64 16
   %1 = load ptr, ptr %objects, align 8
   %2 = load ptr, ptr %1, align 8
   %call5 = tail call i32 @write_commit_graph_reachable(ptr noundef %2, i32 noundef %spec.select, ptr noundef null)
@@ -236,7 +214,7 @@ if.end3.i:                                        ; preds = %if.then
 _.exit:                                           ; preds = %if.then, %if.end3.i
   %retval.0.i = phi ptr [ %call.i, %if.end3.i ], [ @.str.20, %if.then ]
   %call2 = call ptr @start_delayed_progress(ptr noundef %retval.0.i, i64 noundef 0) #22
-  %progress = getelementptr inbounds %struct.refs_cb_data, ptr %data, i64 0, i32 1
+  %progress = getelementptr inbounds i8, ptr %data, i64 8
   store ptr %call2, ptr %progress, align 8
   br label %if.end
 
@@ -252,7 +230,7 @@ if.end3.i.i:                                      ; preds = %if.end
 
 stop_progress.exit:                               ; preds = %if.end, %if.end3.i.i
   %retval.0.i.i = phi ptr [ %call.i.i, %if.end3.i.i ], [ @.str.53, %if.end ]
-  %progress4 = getelementptr inbounds %struct.refs_cb_data, ptr %data, i64 0, i32 1
+  %progress4 = getelementptr inbounds i8, ptr %data, i64 8
   call void @stop_progress_msg(ptr noundef nonnull %progress4, ptr noundef %retval.0.i.i) #22
   %call5 = call i32 @write_commit_graph(ptr noundef %odb, ptr noundef null, ptr noundef nonnull %commits, i32 noundef %flags, ptr noundef %opts)
   call void @oidset_clear(ptr noundef nonnull %commits) #22
@@ -329,7 +307,7 @@ return:                                           ; preds = %land.lhs.true, %if.
 ; Function Attrs: nounwind uwtable
 define dso_local ptr @get_commit_graph_filename(ptr nocapture noundef readonly %obj_dir) local_unnamed_addr #0 {
 entry:
-  %path = getelementptr inbounds %struct.object_directory, ptr %obj_dir, i64 0, i32 5
+  %path = getelementptr inbounds i8, ptr %obj_dir, i64 56
   %0 = load ptr, ptr %path, align 8
   %call = tail call ptr (ptr, ...) @xstrfmt(ptr noundef nonnull @.str.3, ptr noundef %0) #22
   ret ptr %call
@@ -340,7 +318,7 @@ declare ptr @xstrfmt(ptr noundef, ...) local_unnamed_addr #1
 ; Function Attrs: nounwind uwtable
 define dso_local ptr @get_commit_graph_chain_filename(ptr nocapture noundef readonly %odb) local_unnamed_addr #0 {
 entry:
-  %path = getelementptr inbounds %struct.object_directory, ptr %odb, i64 0, i32 5
+  %path = getelementptr inbounds i8, ptr %odb, i64 56
   %0 = load ptr, ptr %path, align 8
   %call = tail call ptr (ptr, ...) @xstrfmt(ptr noundef nonnull @.str.4, ptr noundef %0) #22
   ret ptr %call
@@ -379,7 +357,7 @@ declare i32 @close(i32 noundef) local_unnamed_addr #1
 ; Function Attrs: nounwind uwtable
 define dso_local noundef ptr @load_commit_graph_one_fd_st(ptr noundef %r, i32 noundef %fd, ptr nocapture noundef readonly %st, ptr noundef %odb) local_unnamed_addr #0 {
 entry:
-  %st_size = getelementptr inbounds %struct.stat, ptr %st, i64 0, i32 8
+  %st_size = getelementptr inbounds i8, ptr %st, i64 48
   %0 = load i64, ptr %st_size, align 8
   %cmp.i = icmp slt i64 %0, 0
   br i1 %cmp.i, label %if.then.i, label %xsize_t.exit
@@ -390,9 +368,9 @@ if.then.i:                                        ; preds = %entry
 
 xsize_t.exit:                                     ; preds = %entry
   %1 = load ptr, ptr @the_repository, align 8
-  %hash_algo = getelementptr inbounds %struct.repository, ptr %1, i64 0, i32 15
+  %hash_algo = getelementptr inbounds i8, ptr %1, i64 256
   %2 = load ptr, ptr %hash_algo, align 8
-  %rawsz = getelementptr inbounds %struct.git_hash_algo, ptr %2, i64 0, i32 2
+  %rawsz = getelementptr inbounds i8, ptr %2, i64 16
   %3 = load i64, ptr %rawsz, align 8
   %add = add i64 %3, 1080
   %cmp = icmp ult i64 %0, %add
@@ -417,13 +395,13 @@ if.end:                                           ; preds = %xsize_t.exit
   %call5 = tail call ptr @xmmap(ptr noundef null, i64 noundef %0, i32 noundef 1, i32 noundef 2, i32 noundef %fd, i64 noundef 0) #22
   %call6 = tail call i32 @close(i32 noundef %fd) #22
   tail call void @prepare_repo_settings(ptr noundef %r) #22
-  %settings = getelementptr inbounds %struct.repository, ptr %r, i64 0, i32 10
+  %settings = getelementptr inbounds i8, ptr %r, i64 144
   %call7 = tail call ptr @parse_commit_graph(ptr noundef nonnull %settings, ptr noundef %call5, i64 noundef %0)
   %tobool.not = icmp eq ptr %call7, null
   br i1 %tobool.not, label %if.else, label %if.then8
 
 if.then8:                                         ; preds = %if.end
-  %odb9 = getelementptr inbounds %struct.commit_graph, ptr %call7, i64 0, i32 7
+  %odb9 = getelementptr inbounds i8, ptr %call7, i64 72
   store ptr %odb, ptr %odb9, align 8
   br label %return
 
@@ -471,9 +449,9 @@ entry:
 
 if.end:                                           ; preds = %entry
   %0 = load ptr, ptr @the_repository, align 8
-  %hash_algo = getelementptr inbounds %struct.repository, ptr %0, i64 0, i32 15
+  %hash_algo = getelementptr inbounds i8, ptr %0, i64 256
   %1 = load ptr, ptr %hash_algo, align 8
-  %rawsz = getelementptr inbounds %struct.git_hash_algo, ptr %1, i64 0, i32 2
+  %rawsz = getelementptr inbounds i8, ptr %1, i64 16
   %2 = load i64, ptr %rawsz, align 8
   %add = add i64 %2, 1080
   %cmp = icmp ugt i64 %add, %graph_size
@@ -555,7 +533,7 @@ if.end3.i65:                                      ; preds = %if.then24
 _.exit68:                                         ; preds = %if.then24, %if.end3.i65
   %retval.0.i67 = phi ptr [ %call.i66, %if.end3.i65 ], [ @.str.8, %if.then24 ]
   %12 = load ptr, ptr @the_repository, align 8
-  %hash_algo27 = getelementptr inbounds %struct.repository, ptr %12, i64 0, i32 15
+  %hash_algo27 = getelementptr inbounds i8, ptr %12, i64 256
   %13 = load ptr, ptr %hash_algo27, align 8
   %call28 = tail call zeroext i8 @oid_version(ptr noundef %13) #22
   %conv29 = zext i8 %call28 to i32
@@ -565,27 +543,27 @@ _.exit68:                                         ; preds = %if.then24, %if.end3
 if.end32:                                         ; preds = %if.end16
   %call.i69 = tail call ptr @xcalloc(i64 noundef 1, i64 noundef 216) #22
   %14 = load ptr, ptr @the_repository, align 8
-  %hash_algo34 = getelementptr inbounds %struct.repository, ptr %14, i64 0, i32 15
+  %hash_algo34 = getelementptr inbounds i8, ptr %14, i64 256
   %15 = load ptr, ptr %hash_algo34, align 8
-  %rawsz35 = getelementptr inbounds %struct.git_hash_algo, ptr %15, i64 0, i32 2
+  %rawsz35 = getelementptr inbounds i8, ptr %15, i64 16
   %16 = load i64, ptr %rawsz35, align 8
   %conv36 = trunc i64 %16 to i8
-  %hash_len = getelementptr inbounds %struct.commit_graph, ptr %call.i69, i64 0, i32 2
+  %hash_len = getelementptr inbounds i8, ptr %call.i69, i64 16
   store i8 %conv36, ptr %hash_len, align 8
   %add.ptr37 = getelementptr inbounds i8, ptr %graph_map, i64 6
   %17 = load i8, ptr %add.ptr37, align 1
-  %num_chunks = getelementptr inbounds %struct.commit_graph, ptr %call.i69, i64 0, i32 3
+  %num_chunks = getelementptr inbounds i8, ptr %call.i69, i64 17
   store i8 %17, ptr %num_chunks, align 1
   store ptr %graph_map, ptr %call.i69, align 8
-  %data_len = getelementptr inbounds %struct.commit_graph, ptr %call.i69, i64 0, i32 1
+  %data_len = getelementptr inbounds i8, ptr %call.i69, i64 8
   store i64 %graph_size, ptr %data_len, align 8
   %conv40 = zext i8 %17 to i64
   %18 = mul nuw nsw i64 %conv40, 12
   %add44 = add nuw nsw i64 %18, 1044
   %19 = load ptr, ptr @the_repository, align 8
-  %hash_algo45 = getelementptr inbounds %struct.repository, ptr %19, i64 0, i32 15
+  %hash_algo45 = getelementptr inbounds i8, ptr %19, i64 256
   %20 = load ptr, ptr %hash_algo45, align 8
-  %rawsz46 = getelementptr inbounds %struct.git_hash_algo, ptr %20, i64 0, i32 2
+  %rawsz46 = getelementptr inbounds i8, ptr %20, i64 16
   %21 = load i64, ptr %rawsz46, align 8
   %add47 = add i64 %add44, %21
   %cmp48 = icmp ugt i64 %add47, %graph_size
@@ -649,34 +627,34 @@ if.then81:                                        ; preds = %if.end78
   br i1 %tobool1.not.i85, label %free_and_return.sink.split, label %free_and_return.sink.split.sink.split
 
 if.end85:                                         ; preds = %if.end78
-  %chunk_extra_edges = getelementptr inbounds %struct.commit_graph, ptr %call.i69, i64 0, i32 17
-  %chunk_extra_edges_size = getelementptr inbounds %struct.commit_graph, ptr %call.i69, i64 0, i32 18
+  %chunk_extra_edges = getelementptr inbounds i8, ptr %call.i69, i64 144
+  %chunk_extra_edges_size = getelementptr inbounds i8, ptr %call.i69, i64 152
   %call86 = tail call i32 @pair_chunk(ptr noundef %call57, i32 noundef 1162102597, ptr noundef nonnull %chunk_extra_edges, ptr noundef nonnull %chunk_extra_edges_size) #22
-  %chunk_base_graphs = getelementptr inbounds %struct.commit_graph, ptr %call.i69, i64 0, i32 19
-  %chunk_base_graphs_size = getelementptr inbounds %struct.commit_graph, ptr %call.i69, i64 0, i32 20
+  %chunk_base_graphs = getelementptr inbounds i8, ptr %call.i69, i64 160
+  %chunk_base_graphs_size = getelementptr inbounds i8, ptr %call.i69, i64 168
   %call87 = tail call i32 @pair_chunk(ptr noundef %call57, i32 noundef 1111577413, ptr noundef nonnull %chunk_base_graphs, ptr noundef nonnull %chunk_base_graphs_size) #22
-  %commit_graph_generation_version = getelementptr inbounds %struct.repo_settings, ptr %s, i64 0, i32 2
+  %commit_graph_generation_version = getelementptr inbounds i8, ptr %s, i64 8
   %29 = load i32, ptr %commit_graph_generation_version, align 8
   %cmp88 = icmp sgt i32 %29, 1
   br i1 %cmp88, label %if.then90, label %if.end96
 
 if.then90:                                        ; preds = %if.end85
   %call91 = tail call i32 @read_chunk(ptr noundef %call57, i32 noundef 1195655474, ptr noundef nonnull @graph_read_generation_data, ptr noundef nonnull %call.i69) #22
-  %chunk_generation_data_overflow = getelementptr inbounds %struct.commit_graph, ptr %call.i69, i64 0, i32 15
-  %chunk_generation_data_overflow_size = getelementptr inbounds %struct.commit_graph, ptr %call.i69, i64 0, i32 16
+  %chunk_generation_data_overflow = getelementptr inbounds i8, ptr %call.i69, i64 128
+  %chunk_generation_data_overflow_size = getelementptr inbounds i8, ptr %call.i69, i64 136
   %call92 = tail call i32 @pair_chunk(ptr noundef %call57, i32 noundef 1195659058, ptr noundef nonnull %chunk_generation_data_overflow, ptr noundef nonnull %chunk_generation_data_overflow_size) #22
-  %chunk_generation_data = getelementptr inbounds %struct.commit_graph, ptr %call.i69, i64 0, i32 14
+  %chunk_generation_data = getelementptr inbounds i8, ptr %call.i69, i64 120
   %30 = load ptr, ptr %chunk_generation_data, align 8
   %tobool93.not = icmp eq ptr %30, null
   br i1 %tobool93.not, label %if.end96, label %if.then94
 
 if.then94:                                        ; preds = %if.then90
-  %read_generation_data = getelementptr inbounds %struct.commit_graph, ptr %call.i69, i64 0, i32 9
+  %read_generation_data = getelementptr inbounds i8, ptr %call.i69, i64 84
   store i32 1, ptr %read_generation_data, align 4
   br label %if.end96
 
 if.end96:                                         ; preds = %if.then90, %if.then94, %if.end85
-  %commit_graph_read_changed_paths = getelementptr inbounds %struct.repo_settings, ptr %s, i64 0, i32 3
+  %commit_graph_read_changed_paths = getelementptr inbounds i8, ptr %s, i64 12
   %31 = load i32, ptr %commit_graph_read_changed_paths, align 4
   %tobool97.not = icmp eq i32 %31, 0
   br i1 %tobool97.not, label %if.end101, label %if.then98
@@ -687,13 +665,13 @@ if.then98:                                        ; preds = %if.end96
   br label %if.end101
 
 if.end101:                                        ; preds = %if.then98, %if.end96
-  %chunk_bloom_indexes = getelementptr inbounds %struct.commit_graph, ptr %call.i69, i64 0, i32 21
+  %chunk_bloom_indexes = getelementptr inbounds i8, ptr %call.i69, i64 176
   %32 = load ptr, ptr %chunk_bloom_indexes, align 8
   %tobool102.not = icmp eq ptr %32, null
   br i1 %tobool102.not, label %if.else, label %land.lhs.true
 
 land.lhs.true:                                    ; preds = %if.end101
-  %chunk_bloom_data = getelementptr inbounds %struct.commit_graph, ptr %call.i69, i64 0, i32 22
+  %chunk_bloom_data = getelementptr inbounds i8, ptr %call.i69, i64 184
   %33 = load ptr, ptr %chunk_bloom_data, align 8
   %tobool103.not = icmp eq ptr %33, null
   br i1 %tobool103.not, label %if.else, label %if.then104
@@ -703,7 +681,7 @@ if.then104:                                       ; preds = %land.lhs.true
   br label %if.end108
 
 if.else:                                          ; preds = %land.lhs.true, %if.end101
-  %bloom_filter_settings = getelementptr inbounds %struct.commit_graph, ptr %call.i69, i64 0, i32 25
+  %bloom_filter_settings = getelementptr inbounds i8, ptr %call.i69, i64 208
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %chunk_bloom_indexes, i8 0, i64 16, i1 false)
   %34 = load ptr, ptr %bloom_filter_settings, align 8
   tail call void @free(ptr noundef %34) #22
@@ -711,7 +689,7 @@ if.else:                                          ; preds = %land.lhs.true, %if.
   br label %if.end108
 
 if.end108:                                        ; preds = %if.else, %if.then104
-  %oid = getelementptr inbounds %struct.commit_graph, ptr %call.i69, i64 0, i32 5
+  %oid = getelementptr inbounds i8, ptr %call.i69, i64 24
   %35 = load ptr, ptr %call.i69, align 8
   %36 = load i64, ptr %data_len, align 8
   %add.ptr111 = getelementptr inbounds i8, ptr %35, i64 %36
@@ -720,9 +698,9 @@ if.end108:                                        ; preds = %if.else, %if.then10
   %idx.neg = sub nsw i64 0, %idx.ext
   %add.ptr114 = getelementptr inbounds i8, ptr %add.ptr111, i64 %idx.neg
   %38 = load ptr, ptr @the_repository, align 8
-  %hash_algo.i = getelementptr inbounds %struct.repository, ptr %38, i64 0, i32 15
+  %hash_algo.i = getelementptr inbounds i8, ptr %38, i64 256
   %39 = load ptr, ptr %hash_algo.i, align 8
-  %rawsz.i = getelementptr inbounds %struct.git_hash_algo, ptr %39, i64 0, i32 2
+  %rawsz.i = getelementptr inbounds i8, ptr %39, i64 16
   %40 = load i64, ptr %rawsz.i, align 8
   tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 4 %oid, ptr align 1 %add.ptr114, i64 %40, i1 false)
   %41 = load ptr, ptr %hash_algo.i, align 8
@@ -730,7 +708,7 @@ if.end108:                                        ; preds = %if.else, %if.then10
   %sub.ptr.sub.i.i = sub i64 %sub.ptr.lhs.cast.i.i, ptrtoint (ptr @hash_algos to i64)
   %sub.ptr.div.i.i = sdiv exact i64 %sub.ptr.sub.i.i, 104
   %conv.i.i = trunc i64 %sub.ptr.div.i.i to i32
-  %algo.i = getelementptr inbounds %struct.commit_graph, ptr %call.i69, i64 0, i32 5, i32 1
+  %algo.i = getelementptr inbounds i8, ptr %call.i69, i64 56
   store i32 %conv.i.i, ptr %algo.i, align 4
   tail call void @free_chunkfile(ptr noundef %call57) #22
   br label %return
@@ -747,7 +725,7 @@ free_and_return.sink.split:                       ; preds = %free_and_return.sin
 
 free_and_return:                                  ; preds = %free_and_return.sink.split, %if.end56
   tail call void @free_chunkfile(ptr noundef %call57) #22
-  %bloom_filter_settings115 = getelementptr inbounds %struct.commit_graph, ptr %call.i69, i64 0, i32 25
+  %bloom_filter_settings115 = getelementptr inbounds i8, ptr %call.i69, i64 208
   %42 = load ptr, ptr %bloom_filter_settings115, align 8
   tail call void @free(ptr noundef %42) #22
   tail call void @free(ptr noundef nonnull %call.i69) #22
@@ -784,12 +762,12 @@ if.then:                                          ; preds = %entry
   br i1 %tobool1.not.i, label %return.sink.split, label %return.sink.split.sink.split
 
 if.end:                                           ; preds = %entry
-  %chunk_oid_fanout = getelementptr inbounds %struct.commit_graph, ptr %data, i64 0, i32 11
+  %chunk_oid_fanout = getelementptr inbounds i8, ptr %data, i64 96
   store ptr %chunk_start, ptr %chunk_oid_fanout, align 8
-  %arrayidx = getelementptr inbounds i32, ptr %chunk_start, i64 255
+  %arrayidx = getelementptr inbounds i8, ptr %chunk_start, i64 1020
   %1 = load i32, ptr %arrayidx, align 4
   %2 = tail call i32 asm "bswap $0", "=r,0,~{dirflag},~{fpsr},~{flags}"(i32 %1) #24, !srcloc !5
-  %num_commits = getelementptr inbounds %struct.commit_graph, ptr %data, i64 0, i32 4
+  %num_commits = getelementptr inbounds i8, ptr %data, i64 20
   store i32 %2, ptr %num_commits, align 4
   br label %for.cond
 
@@ -834,13 +812,13 @@ return:                                           ; preds = %for.cond, %return.s
 ; Function Attrs: nounwind uwtable
 define internal noundef i32 @graph_read_oid_lookup(ptr noundef %chunk_start, i64 noundef %chunk_size, ptr nocapture noundef %data) #0 {
 entry:
-  %chunk_oid_lookup = getelementptr inbounds %struct.commit_graph, ptr %data, i64 0, i32 12
+  %chunk_oid_lookup = getelementptr inbounds i8, ptr %data, i64 104
   store ptr %chunk_start, ptr %chunk_oid_lookup, align 8
-  %hash_len = getelementptr inbounds %struct.commit_graph, ptr %data, i64 0, i32 2
+  %hash_len = getelementptr inbounds i8, ptr %data, i64 16
   %0 = load i8, ptr %hash_len, align 8
   %conv = zext i8 %0 to i64
   %div = udiv i64 %chunk_size, %conv
-  %num_commits = getelementptr inbounds %struct.commit_graph, ptr %data, i64 0, i32 4
+  %num_commits = getelementptr inbounds i8, ptr %data, i64 20
   %1 = load i32, ptr %num_commits, align 4
   %conv1 = zext i32 %1 to i64
   %cmp.not = icmp eq i64 %div, %conv1
@@ -869,13 +847,13 @@ return:                                           ; preds = %entry, %_.exit
 define internal noundef i32 @graph_read_commit_data(ptr noundef %chunk_start, i64 noundef %chunk_size, ptr nocapture noundef %data) #0 {
 entry:
   %0 = load ptr, ptr @the_repository, align 8
-  %hash_algo = getelementptr inbounds %struct.repository, ptr %0, i64 0, i32 15
+  %hash_algo = getelementptr inbounds i8, ptr %0, i64 256
   %1 = load ptr, ptr %hash_algo, align 8
-  %rawsz = getelementptr inbounds %struct.git_hash_algo, ptr %1, i64 0, i32 2
+  %rawsz = getelementptr inbounds i8, ptr %1, i64 16
   %2 = load i64, ptr %rawsz, align 8
   %add = add i64 %2, 16
   %div = udiv i64 %chunk_size, %add
-  %num_commits = getelementptr inbounds %struct.commit_graph, ptr %data, i64 0, i32 4
+  %num_commits = getelementptr inbounds i8, ptr %data, i64 20
   %3 = load i32, ptr %num_commits, align 4
   %conv = zext i32 %3 to i64
   %cmp.not = icmp eq i64 %div, %conv
@@ -896,7 +874,7 @@ _.exit:                                           ; preds = %if.then, %if.end3.i
   br label %return
 
 if.end:                                           ; preds = %entry
-  %chunk_commit_data = getelementptr inbounds %struct.commit_graph, ptr %data, i64 0, i32 13
+  %chunk_commit_data = getelementptr inbounds i8, ptr %data, i64 112
   store ptr %chunk_start, ptr %chunk_commit_data, align 8
   br label %return
 
@@ -911,7 +889,7 @@ declare i32 @pair_chunk(ptr noundef, i32 noundef, ptr noundef, ptr noundef) loca
 define internal noundef i32 @graph_read_generation_data(ptr noundef %chunk_start, i64 noundef %chunk_size, ptr nocapture noundef %data) #0 {
 entry:
   %div2 = lshr i64 %chunk_size, 2
-  %num_commits = getelementptr inbounds %struct.commit_graph, ptr %data, i64 0, i32 4
+  %num_commits = getelementptr inbounds i8, ptr %data, i64 20
   %0 = load i32, ptr %num_commits, align 4
   %conv = zext i32 %0 to i64
   %cmp.not = icmp eq i64 %div2, %conv
@@ -932,7 +910,7 @@ _.exit:                                           ; preds = %if.then, %if.end3.i
   br label %return
 
 if.end:                                           ; preds = %entry
-  %chunk_generation_data = getelementptr inbounds %struct.commit_graph, ptr %data, i64 0, i32 14
+  %chunk_generation_data = getelementptr inbounds i8, ptr %data, i64 120
   store ptr %chunk_start, ptr %chunk_generation_data, align 8
   br label %return
 
@@ -945,7 +923,7 @@ return:                                           ; preds = %if.end, %_.exit
 define internal noundef i32 @graph_read_bloom_index(ptr noundef %chunk_start, i64 noundef %chunk_size, ptr nocapture noundef %data) #0 {
 entry:
   %div2 = lshr i64 %chunk_size, 2
-  %num_commits = getelementptr inbounds %struct.commit_graph, ptr %data, i64 0, i32 4
+  %num_commits = getelementptr inbounds i8, ptr %data, i64 20
   %0 = load i32, ptr %num_commits, align 4
   %conv = zext i32 %0 to i64
   %cmp.not = icmp eq i64 %div2, %conv
@@ -966,7 +944,7 @@ _.exit:                                           ; preds = %if.then, %if.end3.i
   br label %return
 
 if.end:                                           ; preds = %entry
-  %chunk_bloom_indexes = getelementptr inbounds %struct.commit_graph, ptr %data, i64 0, i32 21
+  %chunk_bloom_indexes = getelementptr inbounds i8, ptr %data, i64 176
   store ptr %chunk_start, ptr %chunk_bloom_indexes, align 8
   br label %return
 
@@ -996,9 +974,9 @@ _.exit:                                           ; preds = %if.then, %if.end3.i
   br label %return
 
 if.end:                                           ; preds = %entry
-  %chunk_bloom_data = getelementptr inbounds %struct.commit_graph, ptr %data, i64 0, i32 22
+  %chunk_bloom_data = getelementptr inbounds i8, ptr %data, i64 184
   store ptr %chunk_start, ptr %chunk_bloom_data, align 8
-  %chunk_bloom_data_size = getelementptr inbounds %struct.commit_graph, ptr %data, i64 0, i32 23
+  %chunk_bloom_data_size = getelementptr inbounds i8, ptr %data, i64 192
   store i64 %chunk_size, ptr %chunk_bloom_data_size, align 8
   %1 = load i8, ptr %chunk_start, align 1
   %conv.i = zext i8 %1 to i32
@@ -1022,7 +1000,7 @@ if.end:                                           ; preds = %entry
 
 if.end4:                                          ; preds = %if.end
   %call5 = tail call ptr @xmalloc(i64 noundef 16) #22
-  %bloom_filter_settings = getelementptr inbounds %struct.commit_graph, ptr %data, i64 0, i32 25
+  %bloom_filter_settings = getelementptr inbounds i8, ptr %data, i64 208
   store ptr %call5, ptr %bloom_filter_settings, align 8
   store i32 1, ptr %call5, align 4
   %add.ptr = getelementptr inbounds i8, ptr %chunk_start, i64 4
@@ -1044,7 +1022,7 @@ if.end4:                                          ; preds = %if.end
   %conv9.i24 = zext i8 %8 to i32
   %or11.i25 = or disjoint i32 %or7.i22, %conv9.i24
   %9 = load ptr, ptr %bloom_filter_settings, align 8
-  %num_hashes = getelementptr inbounds %struct.bloom_filter_settings, ptr %9, i64 0, i32 1
+  %num_hashes = getelementptr inbounds i8, ptr %9, i64 4
   store i32 %or11.i25, ptr %num_hashes, align 4
   %add.ptr10 = getelementptr inbounds i8, ptr %chunk_start, i64 8
   %10 = load i8, ptr %add.ptr10, align 1
@@ -1065,10 +1043,10 @@ if.end4:                                          ; preds = %if.end
   %conv9.i37 = zext i8 %13 to i32
   %or11.i38 = or disjoint i32 %or7.i35, %conv9.i37
   %14 = load ptr, ptr %bloom_filter_settings, align 8
-  %bits_per_entry = getelementptr inbounds %struct.bloom_filter_settings, ptr %14, i64 0, i32 2
+  %bits_per_entry = getelementptr inbounds i8, ptr %14, i64 8
   store i32 %or11.i38, ptr %bits_per_entry, align 4
   %15 = load ptr, ptr %bloom_filter_settings, align 8
-  %max_changed_paths = getelementptr inbounds %struct.bloom_filter_settings, ptr %15, i64 0, i32 3
+  %max_changed_paths = getelementptr inbounds i8, ptr %15, i64 12
   store i32 512, ptr %max_changed_paths, align 4
   br label %return
 
@@ -1100,12 +1078,12 @@ if.then2:                                         ; preds = %if.end
   br label %return
 
 if.end4:                                          ; preds = %if.end
-  %st_size = getelementptr inbounds %struct.stat, ptr %st, i64 0, i32 8
+  %st_size = getelementptr inbounds i8, ptr %st, i64 48
   %1 = load i64, ptr %st_size, align 8
   %2 = load ptr, ptr @the_repository, align 8
-  %hash_algo = getelementptr inbounds %struct.repository, ptr %2, i64 0, i32 15
+  %hash_algo = getelementptr inbounds i8, ptr %2, i64 256
   %3 = load ptr, ptr %hash_algo, align 8
-  %hexsz = getelementptr inbounds %struct.git_hash_algo, ptr %3, i64 0, i32 3
+  %hexsz = getelementptr inbounds i8, ptr %3, i64 24
   %4 = load i64, ptr %hexsz, align 8
   %cmp5 = icmp ult i64 %1, %4
   br i1 %cmp5, label %if.then6, label %return
@@ -1155,12 +1133,12 @@ entry:
   %line = alloca %struct.strbuf, align 8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %line, ptr noundef nonnull align 8 dereferenceable(24) @__const.expire_commit_graphs.path, i64 24, i1 false)
   %call = tail call ptr @xfdopen(i32 noundef %fd, ptr noundef nonnull @.str.14) #22
-  %st_size = getelementptr inbounds %struct.stat, ptr %st, i64 0, i32 8
+  %st_size = getelementptr inbounds i8, ptr %st, i64 48
   %0 = load i64, ptr %st_size, align 8
   %1 = load ptr, ptr @the_repository, align 8
-  %hash_algo = getelementptr inbounds %struct.repository, ptr %1, i64 0, i32 15
+  %hash_algo = getelementptr inbounds i8, ptr %1, i64 256
   %2 = load ptr, ptr %hash_algo, align 8
-  %hexsz = getelementptr inbounds %struct.git_hash_algo, ptr %2, i64 0, i32 3
+  %hexsz = getelementptr inbounds i8, ptr %2, i64 24
   %3 = load i64, ptr %hexsz, align 8
   %add = add i64 %3, 1
   %div = udiv i64 %0, %add
@@ -1173,8 +1151,8 @@ entry:
   br i1 %cmp85, label %for.body.lr.ph, label %validate_mixed_generation_chain.exit
 
 for.body.lr.ph:                                   ; preds = %entry
-  %buf = getelementptr inbounds %struct.strbuf, ptr %line, i64 0, i32 2
-  %objects = getelementptr inbounds %struct.repository, ptr %r, i64 0, i32 2
+  %buf = getelementptr inbounds i8, ptr %line, i64 16
+  %objects = getelementptr inbounds i8, ptr %r, i64 16
   %4 = and i64 %div, 4294967295
   br label %for.body
 
@@ -1247,7 +1225,7 @@ load_commit_graph_one.exit:                       ; preds = %for.body15, %if.the
 
 if.then20:                                        ; preds = %if.end.i
   %call4.i = call ptr @xstrdup(ptr noundef %call.i20) #22
-  %filename.i = getelementptr inbounds %struct.commit_graph, ptr %call1.i, i64 0, i32 6
+  %filename.i = getelementptr inbounds i8, ptr %call1.i, i64 64
   store ptr %call4.i, ptr %filename.i, align 8
   call void @llvm.lifetime.end.p0(i64 144, ptr nonnull %st.i)
   call void @free(ptr noundef %call.i20) #22
@@ -1255,7 +1233,7 @@ if.then20:                                        ; preds = %if.end.i
   br i1 %tobool.not.i, label %while.end.i, label %land.lhs.true.i
 
 land.lhs.true.i:                                  ; preds = %if.then20
-  %chunk_base_graphs.i = getelementptr inbounds %struct.commit_graph, ptr %call1.i, i64 0, i32 19
+  %chunk_base_graphs.i = getelementptr inbounds i8, ptr %call1.i, i64 160
   %11 = load ptr, ptr %chunk_base_graphs.i, align 8
   %tobool1.not.i22 = icmp eq ptr %11, null
   br i1 %tobool1.not.i22, label %if.then.i, label %if.end.thread.i
@@ -1278,9 +1256,9 @@ while.body.i28.preheader:                         ; preds = %_.exit27.i, %_.exit
   br label %while.body.i28
 
 if.end.thread.i:                                  ; preds = %land.lhs.true.i
-  %chunk_base_graphs_size57.i = getelementptr inbounds %struct.commit_graph, ptr %call1.i, i64 0, i32 20
+  %chunk_base_graphs_size57.i = getelementptr inbounds i8, ptr %call1.i, i64 168
   %13 = load i64, ptr %chunk_base_graphs_size57.i, align 8
-  %hash_len58.i = getelementptr inbounds %struct.commit_graph, ptr %call1.i, i64 0, i32 2
+  %hash_len58.i = getelementptr inbounds i8, ptr %call1.i, i64 16
   %14 = load i8, ptr %hash_len58.i, align 8
   %conv59.i = zext i8 %14 to i64
   %div60.i = udiv i64 %13, %conv59.i
@@ -1289,7 +1267,7 @@ if.end.thread.i:                                  ; preds = %land.lhs.true.i
 
 while.body.lr.ph.i:                               ; preds = %if.end.thread.i
   %15 = load ptr, ptr @the_repository, align 8
-  %hash_algo.i.i = getelementptr inbounds %struct.repository, ptr %15, i64 0, i32 15
+  %hash_algo.i.i = getelementptr inbounds i8, ptr %15, i64 256
   br label %while.body.i
 
 if.then4.i:                                       ; preds = %if.end.thread.i
@@ -1315,8 +1293,8 @@ while.body.i:                                     ; preds = %if.end23.i, %while.
 
 lor.lhs.false.i:                                  ; preds = %while.body.i
   %arrayidx.i = getelementptr inbounds %struct.object_id, ptr %call2, i64 %indvars.iv.next.i
-  %oid.i = getelementptr inbounds %struct.commit_graph, ptr %cur_g.054.i, i64 0, i32 5
-  %algo.i.i = getelementptr inbounds %struct.object_id, ptr %call2, i64 %indvars.iv.next.i, i32 1
+  %oid.i = getelementptr inbounds i8, ptr %cur_g.054.i, i64 24
+  %algo.i.i = getelementptr inbounds i8, ptr %arrayidx.i, i64 32
   %17 = load i32, ptr %algo.i.i, align 4
   %tobool.not.i.i23 = icmp eq i32 %17, 0
   br i1 %tobool.not.i.i23, label %if.then.i.i, label %if.else.i.i
@@ -1396,7 +1374,7 @@ _.exit45.i:                                       ; preds = %if.end3.i42.i, %if.
   br label %while.body.i28.preheader
 
 if.end23.i:                                       ; preds = %hasheq.exit.i
-  %base_graph.i = getelementptr inbounds %struct.commit_graph, ptr %cur_g.054.i, i64 0, i32 10
+  %base_graph.i = getelementptr inbounds i8, ptr %cur_g.054.i, i64 88
   %23 = load ptr, ptr %base_graph.i, align 8
   %24 = and i64 %indvars.iv.next.i, 4294967295
   %tobool7.not.i = icmp eq i64 %24, 0
@@ -1407,9 +1385,9 @@ while.end.i:                                      ; preds = %if.end23.i, %if.the
   br i1 %tobool24.not.i, label %for.inc30, label %if.then25.i
 
 if.then25.i:                                      ; preds = %while.end.i
-  %num_commits_in_base.i = getelementptr inbounds %struct.commit_graph, ptr %graph_chain.087, i64 0, i32 8
+  %num_commits_in_base.i = getelementptr inbounds i8, ptr %graph_chain.087, i64 80
   %25 = load i32, ptr %num_commits_in_base.i, align 8
-  %num_commits.i = getelementptr inbounds %struct.commit_graph, ptr %graph_chain.087, i64 0, i32 4
+  %num_commits.i = getelementptr inbounds i8, ptr %graph_chain.087, i64 20
   %26 = load i32, ptr %num_commits.i, align 4
   %27 = xor i32 %26, -1
   %cmp28.i = icmp ugt i32 %25, %27
@@ -1421,7 +1399,7 @@ if.then30.i:                                      ; preds = %if.then25.i
   br i1 %tobool1.not.i47.i, label %_.exit51.i, label %if.end3.i48.i
 
 if.end3.i48.i:                                    ; preds = %if.then30.i
-  %num_commits_in_base.i.le = getelementptr inbounds %struct.commit_graph, ptr %graph_chain.087, i64 0, i32 8
+  %num_commits_in_base.i.le = getelementptr inbounds i8, ptr %graph_chain.087, i64 80
   %call.i49.i = call ptr @gettext(ptr noundef nonnull @.str.41) #22
   %.pre.i = load i32, ptr %num_commits_in_base.i.le, align 8
   br label %_.exit51.i
@@ -1435,29 +1413,29 @@ _.exit51.i:                                       ; preds = %if.end3.i48.i, %if.
 
 if.end34.i:                                       ; preds = %if.then25.i
   %add.i = add i32 %26, %25
-  %num_commits_in_base37.i = getelementptr inbounds %struct.commit_graph, ptr %call1.i, i64 0, i32 8
+  %num_commits_in_base37.i = getelementptr inbounds i8, ptr %call1.i, i64 80
   store i32 %add.i, ptr %num_commits_in_base37.i, align 8
   br label %for.inc30
 
 while.body.i28:                                   ; preds = %while.body.i28.preheader, %if.end.i33
   %g.addr.09.i = phi ptr [ %30, %if.end.i33 ], [ %call1.i, %while.body.i28.preheader ]
-  %base_graph.i29 = getelementptr inbounds %struct.commit_graph, ptr %g.addr.09.i, i64 0, i32 10
+  %base_graph.i29 = getelementptr inbounds i8, ptr %g.addr.09.i, i64 88
   %30 = load ptr, ptr %base_graph.i29, align 8
   %31 = load ptr, ptr %g.addr.09.i, align 8
   %tobool1.not.i30 = icmp eq ptr %31, null
   br i1 %tobool1.not.i30, label %if.end.i33, label %if.then.i31
 
 if.then.i31:                                      ; preds = %while.body.i28
-  %data_len.i = getelementptr inbounds %struct.commit_graph, ptr %g.addr.09.i, i64 0, i32 1
+  %data_len.i = getelementptr inbounds i8, ptr %g.addr.09.i, i64 8
   %32 = load i64, ptr %data_len.i, align 8
   %call.i32 = call i32 @munmap(ptr noundef nonnull %31, i64 noundef %32) #22
   br label %if.end.i33
 
 if.end.i33:                                       ; preds = %if.then.i31, %while.body.i28
-  %filename.i34 = getelementptr inbounds %struct.commit_graph, ptr %g.addr.09.i, i64 0, i32 6
+  %filename.i34 = getelementptr inbounds i8, ptr %g.addr.09.i, i64 64
   %33 = load ptr, ptr %filename.i34, align 8
   call void @free(ptr noundef %33) #22
-  %bloom_filter_settings.i = getelementptr inbounds %struct.commit_graph, ptr %g.addr.09.i, i64 0, i32 25
+  %bloom_filter_settings.i = getelementptr inbounds i8, ptr %g.addr.09.i, i64 208
   %34 = load ptr, ptr %bloom_filter_settings.i, align 8
   call void @free(ptr noundef %34) #22
   call void @free(ptr noundef nonnull %g.addr.09.i) #22
@@ -1479,7 +1457,7 @@ _.exit42:                                         ; preds = %if.then27, %if.end3
   br label %for.end31
 
 for.inc30:                                        ; preds = %while.end.i, %if.end34.i
-  %base_graph39.i = getelementptr inbounds %struct.commit_graph, ptr %call1.i, i64 0, i32 10
+  %base_graph39.i = getelementptr inbounds i8, ptr %call1.i, i64 88
   store ptr %graph_chain.087, ptr %base_graph39.i, align 8
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %cmp = icmp ult i64 %indvars.iv.next, %4
@@ -1497,9 +1475,9 @@ while.body.i43.preheader:                         ; preds = %for.inc30, %for.end
 
 while.body.i43:                                   ; preds = %while.body.i43.preheader, %while.body.i43
   %p.08.i = phi ptr [ %37, %while.body.i43 ], [ %graph_chain.071121, %while.body.i43.preheader ]
-  %read_generation_data2.i = getelementptr inbounds %struct.commit_graph, ptr %p.08.i, i64 0, i32 9
+  %read_generation_data2.i = getelementptr inbounds i8, ptr %p.08.i, i64 84
   %36 = load i32, ptr %read_generation_data2.i, align 4
-  %base_graph.i44 = getelementptr inbounds %struct.commit_graph, ptr %p.08.i, i64 0, i32 10
+  %base_graph.i44 = getelementptr inbounds i8, ptr %p.08.i, i64 88
   %37 = load ptr, ptr %base_graph.i44, align 8
   %tobool.i = icmp ne i32 %36, 0
   %tobool1.i = icmp ne ptr %37, null
@@ -1511,9 +1489,9 @@ while.end.i45:                                    ; preds = %while.body.i43
 
 while.body6.i:                                    ; preds = %while.end.i45, %while.body6.i
   %g.addr.010.i = phi ptr [ %39, %while.body6.i ], [ %graph_chain.071121, %while.end.i45 ]
-  %read_generation_data7.i = getelementptr inbounds %struct.commit_graph, ptr %g.addr.010.i, i64 0, i32 9
+  %read_generation_data7.i = getelementptr inbounds i8, ptr %g.addr.010.i, i64 84
   store i32 0, ptr %read_generation_data7.i, align 4
-  %base_graph8.i = getelementptr inbounds %struct.commit_graph, ptr %g.addr.010.i, i64 0, i32 10
+  %base_graph8.i = getelementptr inbounds i8, ptr %g.addr.010.i, i64 88
   %39 = load ptr, ptr %base_graph8.i, align 8
   %tobool5.not.i = icmp eq ptr %39, null
   br i1 %tobool5.not.i, label %validate_mixed_generation_chain.exit, label %while.body6.i, !llvm.loop !13
@@ -1549,23 +1527,23 @@ entry:
 
 while.body:                                       ; preds = %entry, %if.end
   %g.addr.09 = phi ptr [ %0, %if.end ], [ %g, %entry ]
-  %base_graph = getelementptr inbounds %struct.commit_graph, ptr %g.addr.09, i64 0, i32 10
+  %base_graph = getelementptr inbounds i8, ptr %g.addr.09, i64 88
   %0 = load ptr, ptr %base_graph, align 8
   %1 = load ptr, ptr %g.addr.09, align 8
   %tobool1.not = icmp eq ptr %1, null
   br i1 %tobool1.not, label %if.end, label %if.then
 
 if.then:                                          ; preds = %while.body
-  %data_len = getelementptr inbounds %struct.commit_graph, ptr %g.addr.09, i64 0, i32 1
+  %data_len = getelementptr inbounds i8, ptr %g.addr.09, i64 8
   %2 = load i64, ptr %data_len, align 8
   %call = tail call i32 @munmap(ptr noundef nonnull %1, i64 noundef %2) #22
   br label %if.end
 
 if.end:                                           ; preds = %if.then, %while.body
-  %filename = getelementptr inbounds %struct.commit_graph, ptr %g.addr.09, i64 0, i32 6
+  %filename = getelementptr inbounds i8, ptr %g.addr.09, i64 64
   %3 = load ptr, ptr %filename, align 8
   tail call void @free(ptr noundef %3) #22
-  %bloom_filter_settings = getelementptr inbounds %struct.commit_graph, ptr %g.addr.09, i64 0, i32 25
+  %bloom_filter_settings = getelementptr inbounds i8, ptr %g.addr.09, i64 208
   %4 = load ptr, ptr %bloom_filter_settings, align 8
   tail call void @free(ptr noundef %4) #22
   tail call void @free(ptr noundef nonnull %g.addr.09) #22
@@ -1588,7 +1566,7 @@ entry:
   %fd.i = alloca i32, align 4
   %incomplete.i = alloca i32, align 4
   %st.i.i = alloca %struct.stat, align 8
-  %path.i.i = getelementptr inbounds %struct.object_directory, ptr %odb, i64 0, i32 5
+  %path.i.i = getelementptr inbounds i8, ptr %odb, i64 56
   %0 = load ptr, ptr %path.i.i, align 8
   %call.i.i = tail call ptr (ptr, ...) @xstrfmt(ptr noundef nonnull @.str.3, ptr noundef %0) #22
   call void @llvm.lifetime.start.p0(i64 144, ptr nonnull %st.i.i)
@@ -1612,7 +1590,7 @@ if.end.i.i:                                       ; preds = %if.end.i.i.i
 
 load_commit_graph_v1.exit:                        ; preds = %if.end.i.i
   %call4.i.i = tail call ptr @xstrdup(ptr noundef %call.i.i) #22
-  %filename.i.i = getelementptr inbounds %struct.commit_graph, ptr %call1.i.i, i64 0, i32 6
+  %filename.i.i = getelementptr inbounds i8, ptr %call1.i.i, i64 64
   store ptr %call4.i.i, ptr %filename.i.i, align 8
   call void @llvm.lifetime.end.p0(i64 144, ptr nonnull %st.i.i)
   tail call void @free(ptr noundef %call.i.i) #22
@@ -1656,19 +1634,19 @@ entry:
   br i1 %tobool.not, label %return, label %if.end
 
 if.end:                                           ; preds = %entry
-  %objects = getelementptr inbounds %struct.repository, ptr %r, i64 0, i32 2
+  %objects = getelementptr inbounds i8, ptr %r, i64 16
   %0 = load ptr, ptr %objects, align 8
-  %commit_graph = getelementptr inbounds %struct.raw_object_store, ptr %0, i64 0, i32 8
+  %commit_graph = getelementptr inbounds i8, ptr %0, i64 96
   %1 = load ptr, ptr %commit_graph, align 8
-  %num_commits = getelementptr inbounds %struct.commit_graph, ptr %1, i64 0, i32 4
+  %num_commits = getelementptr inbounds i8, ptr %1, i64 20
   %2 = load i32, ptr %num_commits, align 4
   %tobool1.not = icmp eq i32 %2, 0
   br i1 %tobool1.not, label %return, label %if.end3
 
 if.end3:                                          ; preds = %if.end
-  %chunk_commit_data = getelementptr inbounds %struct.commit_graph, ptr %1, i64 0, i32 13
+  %chunk_commit_data = getelementptr inbounds i8, ptr %1, i64 112
   %3 = load ptr, ptr %chunk_commit_data, align 8
-  %hash_len = getelementptr inbounds %struct.commit_graph, ptr %1, i64 0, i32 2
+  %hash_len = getelementptr inbounds i8, ptr %1, i64 16
   %4 = load i8, ptr %hash_len, align 8
   %idx.ext = zext i8 %4 to i64
   %add.ptr = getelementptr inbounds i8, ptr %3, i64 %idx.ext
@@ -1707,22 +1685,22 @@ entry:
   br i1 %tobool.not, label %return, label %lor.lhs.false
 
 lor.lhs.false:                                    ; preds = %entry
-  %commit_graph_disabled = getelementptr inbounds %struct.repository, ptr %r, i64 0, i32 18
+  %commit_graph_disabled = getelementptr inbounds i8, ptr %r, i64 272
   %1 = load i32, ptr %commit_graph_disabled, align 8
   %tobool1.not = icmp eq i32 %1, 0
   br i1 %tobool1.not, label %if.end, label %return
 
 if.end:                                           ; preds = %lor.lhs.false
-  %objects = getelementptr inbounds %struct.repository, ptr %r, i64 0, i32 2
+  %objects = getelementptr inbounds i8, ptr %r, i64 16
   %2 = load ptr, ptr %objects, align 8
-  %commit_graph_attempted = getelementptr inbounds %struct.raw_object_store, ptr %2, i64 0, i32 9
+  %commit_graph_attempted = getelementptr inbounds i8, ptr %2, i64 104
   %bf.load = load i8, ptr %commit_graph_attempted, align 8
   %bf.clear = and i8 %bf.load, 1
   %tobool2.not = icmp eq i8 %bf.clear, 0
   br i1 %tobool2.not, label %if.end7, label %if.then3
 
 if.then3:                                         ; preds = %if.end
-  %commit_graph = getelementptr inbounds %struct.raw_object_store, ptr %2, i64 0, i32 8
+  %commit_graph = getelementptr inbounds i8, ptr %2, i64 96
   %3 = load ptr, ptr %commit_graph, align 8
   %tobool5 = icmp ne ptr %3, null
   br label %return
@@ -1736,7 +1714,7 @@ if.end7:                                          ; preds = %if.end
   br i1 %tobool12.not, label %land.lhs.true, label %if.end14
 
 land.lhs.true:                                    ; preds = %if.end7
-  %core_commit_graph = getelementptr inbounds %struct.repository, ptr %r, i64 0, i32 10, i32 1
+  %core_commit_graph = getelementptr inbounds i8, ptr %r, i64 148
   %4 = load i32, ptr %core_commit_graph, align 4
   %cmp.not = icmp eq i32 %4, 1
   br i1 %cmp.not, label %if.end14, label %return
@@ -1750,7 +1728,7 @@ if.end18:                                         ; preds = %if.end14
   tail call void @prepare_alt_odb(ptr noundef nonnull %r) #22
   %5 = load ptr, ptr %objects, align 8
   %odb.015 = load ptr, ptr %5, align 8
-  %commit_graph2216 = getelementptr inbounds %struct.raw_object_store, ptr %5, i64 0, i32 8
+  %commit_graph2216 = getelementptr inbounds i8, ptr %5, i64 96
   %6 = load ptr, ptr %commit_graph2216, align 8
   %tobool2317 = icmp ne ptr %6, null
   %tobool2418 = icmp eq ptr %odb.015, null
@@ -1761,11 +1739,11 @@ prepare_commit_graph_one.exit:                    ; preds = %if.end18, %prepare_
   %odb.020 = phi ptr [ %odb.0, %prepare_commit_graph_one.exit ], [ %odb.015, %if.end18 ]
   %call.i = tail call ptr @read_commit_graph_one(ptr noundef nonnull %r, ptr noundef nonnull %odb.020)
   %7 = load ptr, ptr %objects, align 8
-  %commit_graph2.i = getelementptr inbounds %struct.raw_object_store, ptr %7, i64 0, i32 8
+  %commit_graph2.i = getelementptr inbounds i8, ptr %7, i64 96
   store ptr %call.i, ptr %commit_graph2.i, align 8
   %odb.0 = load ptr, ptr %odb.020, align 8
   %8 = load ptr, ptr %objects, align 8
-  %commit_graph22 = getelementptr inbounds %struct.raw_object_store, ptr %8, i64 0, i32 8
+  %commit_graph22 = getelementptr inbounds i8, ptr %8, i64 96
   %9 = load ptr, ptr %commit_graph22, align 8
   %tobool23 = icmp ne ptr %9, null
   %tobool24 = icmp eq ptr %odb.0, null
@@ -1786,17 +1764,17 @@ entry:
   br i1 %tobool.not, label %return, label %if.end
 
 if.end:                                           ; preds = %entry
-  %objects = getelementptr inbounds %struct.repository, ptr %r, i64 0, i32 2
+  %objects = getelementptr inbounds i8, ptr %r, i64 16
   %0 = load ptr, ptr %objects, align 8
-  %commit_graph = getelementptr inbounds %struct.raw_object_store, ptr %0, i64 0, i32 8
+  %commit_graph = getelementptr inbounds i8, ptr %0, i64 96
   %1 = load ptr, ptr %commit_graph, align 8
-  %num_commits = getelementptr inbounds %struct.commit_graph, ptr %1, i64 0, i32 4
+  %num_commits = getelementptr inbounds i8, ptr %1, i64 20
   %2 = load i32, ptr %num_commits, align 4
   %tobool1.not = icmp eq i32 %2, 0
   br i1 %tobool1.not, label %return, label %if.end3
 
 if.end3:                                          ; preds = %if.end
-  %read_generation_data = getelementptr inbounds %struct.commit_graph, ptr %1, i64 0, i32 9
+  %read_generation_data = getelementptr inbounds i8, ptr %1, i64 84
   %3 = load i32, ptr %read_generation_data, align 4
   br label %return
 
@@ -1808,22 +1786,22 @@ return:                                           ; preds = %if.end, %entry, %if
 ; Function Attrs: nofree norecurse nosync nounwind memory(read, inaccessiblemem: none) uwtable
 define dso_local ptr @get_bloom_filter_settings(ptr nocapture noundef readonly %r) local_unnamed_addr #9 {
 entry:
-  %objects = getelementptr inbounds %struct.repository, ptr %r, i64 0, i32 2
+  %objects = getelementptr inbounds i8, ptr %r, i64 16
   %0 = load ptr, ptr %objects, align 8
-  %commit_graph = getelementptr inbounds %struct.raw_object_store, ptr %0, i64 0, i32 8
+  %commit_graph = getelementptr inbounds i8, ptr %0, i64 96
   %g.04 = load ptr, ptr %commit_graph, align 8
   %tobool.not5 = icmp eq ptr %g.04, null
   br i1 %tobool.not5, label %return, label %while.body
 
 while.cond:                                       ; preds = %while.body
-  %base_graph = getelementptr inbounds %struct.commit_graph, ptr %g.06, i64 0, i32 10
+  %base_graph = getelementptr inbounds i8, ptr %g.06, i64 88
   %g.0 = load ptr, ptr %base_graph, align 8
   %tobool.not = icmp eq ptr %g.0, null
   br i1 %tobool.not, label %return, label %while.body, !llvm.loop !16
 
 while.body:                                       ; preds = %entry, %while.cond
   %g.06 = phi ptr [ %g.0, %while.cond ], [ %g.04, %entry ]
-  %bloom_filter_settings = getelementptr inbounds %struct.commit_graph, ptr %g.06, i64 0, i32 25
+  %bloom_filter_settings = getelementptr inbounds i8, ptr %g.06, i64 208
   %1 = load ptr, ptr %bloom_filter_settings, align 8
   %tobool1.not = icmp eq ptr %1, null
   br i1 %tobool1.not, label %while.cond, label %return
@@ -1836,7 +1814,7 @@ return:                                           ; preds = %while.body, %while.
 ; Function Attrs: nounwind uwtable
 define dso_local void @close_commit_graph(ptr nocapture noundef %o) local_unnamed_addr #0 {
 entry:
-  %commit_graph = getelementptr inbounds %struct.raw_object_store, ptr %o, i64 0, i32 8
+  %commit_graph = getelementptr inbounds i8, ptr %o, i64 96
   %0 = load ptr, ptr %commit_graph, align 8
   %tobool.not = icmp eq ptr %0, null
   br i1 %tobool.not, label %return, label %if.end
@@ -1872,23 +1850,23 @@ clear_commit_graph_data_slab.exit:                ; preds = %for.body.i, %if.end
 
 while.body.i:                                     ; preds = %clear_commit_graph_data_slab.exit, %if.end.i
   %g.addr.09.i = phi ptr [ %8, %if.end.i ], [ %7, %clear_commit_graph_data_slab.exit ]
-  %base_graph.i = getelementptr inbounds %struct.commit_graph, ptr %g.addr.09.i, i64 0, i32 10
+  %base_graph.i = getelementptr inbounds i8, ptr %g.addr.09.i, i64 88
   %8 = load ptr, ptr %base_graph.i, align 8
   %9 = load ptr, ptr %g.addr.09.i, align 8
   %tobool1.not.i = icmp eq ptr %9, null
   br i1 %tobool1.not.i, label %if.end.i, label %if.then.i
 
 if.then.i:                                        ; preds = %while.body.i
-  %data_len.i = getelementptr inbounds %struct.commit_graph, ptr %g.addr.09.i, i64 0, i32 1
+  %data_len.i = getelementptr inbounds i8, ptr %g.addr.09.i, i64 8
   %10 = load i64, ptr %data_len.i, align 8
   %call.i = tail call i32 @munmap(ptr noundef nonnull %9, i64 noundef %10) #22
   br label %if.end.i
 
 if.end.i:                                         ; preds = %if.then.i, %while.body.i
-  %filename.i = getelementptr inbounds %struct.commit_graph, ptr %g.addr.09.i, i64 0, i32 6
+  %filename.i = getelementptr inbounds i8, ptr %g.addr.09.i, i64 64
   %11 = load ptr, ptr %filename.i, align 8
   tail call void @free(ptr noundef %11) #22
-  %bloom_filter_settings.i = getelementptr inbounds %struct.commit_graph, ptr %g.addr.09.i, i64 0, i32 25
+  %bloom_filter_settings.i = getelementptr inbounds i8, ptr %g.addr.09.i, i64 208
   %12 = load ptr, ptr %bloom_filter_settings.i, align 8
   tail call void @free(ptr noundef %12) #22
   tail call void @free(ptr noundef nonnull %g.addr.09.i) #22
@@ -1912,9 +1890,9 @@ entry:
   br i1 %tobool.not, label %return, label %if.end
 
 if.end:                                           ; preds = %entry
-  %objects = getelementptr inbounds %struct.repository, ptr %r, i64 0, i32 2
+  %objects = getelementptr inbounds i8, ptr %r, i64 16
   %0 = load ptr, ptr %objects, align 8
-  %commit_graph = getelementptr inbounds %struct.raw_object_store, ptr %0, i64 0, i32 8
+  %commit_graph = getelementptr inbounds i8, ptr %0, i64 96
   %1 = load ptr, ptr %commit_graph, align 8
   %2 = getelementptr i8, ptr %c, i64 64
   %c.val.i.i = load i32, ptr %2, align 8
@@ -1944,18 +1922,18 @@ if.then.i:                                        ; preds = %commit_graph_positi
   br label %return
 
 if.else.i:                                        ; preds = %commit_graph_position.exit.i, %if.end12.i.i.i.i, %if.end
-  %oid.i = getelementptr inbounds %struct.object, ptr %c, i64 0, i32 1
+  %oid.i = getelementptr inbounds i8, ptr %c, i64 4
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %lex_index.i.i)
   %tobool.not6.i.i = icmp eq ptr %1, null
   br i1 %tobool.not6.i.i, label %search_commit_pos_in_graph.exit.i, label %land.rhs.i.i
 
 land.rhs.i.i:                                     ; preds = %if.else.i, %while.body.i.i
   %cur_g.07.i.i = phi ptr [ %10, %while.body.i.i ], [ %1, %if.else.i ]
-  %chunk_oid_fanout.i.i.i = getelementptr inbounds %struct.commit_graph, ptr %cur_g.07.i.i, i64 0, i32 11
+  %chunk_oid_fanout.i.i.i = getelementptr inbounds i8, ptr %cur_g.07.i.i, i64 96
   %7 = load ptr, ptr %chunk_oid_fanout.i.i.i, align 8
-  %chunk_oid_lookup.i.i.i = getelementptr inbounds %struct.commit_graph, ptr %cur_g.07.i.i, i64 0, i32 12
+  %chunk_oid_lookup.i.i.i = getelementptr inbounds i8, ptr %cur_g.07.i.i, i64 104
   %8 = load ptr, ptr %chunk_oid_lookup.i.i.i, align 8
-  %hash_len.i.i.i = getelementptr inbounds %struct.commit_graph, ptr %cur_g.07.i.i, i64 0, i32 2
+  %hash_len.i.i.i = getelementptr inbounds i8, ptr %cur_g.07.i.i, i64 16
   %9 = load i8, ptr %hash_len.i.i.i, align 8
   %conv.i.i.i = zext i8 %9 to i64
   %call.i.i.i = call i32 @bsearch_hash(ptr noundef nonnull %oid.i, ptr noundef %7, ptr noundef %8, i64 noundef %conv.i.i.i, ptr noundef nonnull %lex_index.i.i) #22
@@ -1963,14 +1941,14 @@ land.rhs.i.i:                                     ; preds = %if.else.i, %while.b
   br i1 %tobool1.not.i.i, label %while.body.i.i, label %if.then.i.i
 
 while.body.i.i:                                   ; preds = %land.rhs.i.i
-  %base_graph.i.i = getelementptr inbounds %struct.commit_graph, ptr %cur_g.07.i.i, i64 0, i32 10
+  %base_graph.i.i = getelementptr inbounds i8, ptr %cur_g.07.i.i, i64 88
   %10 = load ptr, ptr %base_graph.i.i, align 8
   %tobool.not.i.i = icmp eq ptr %10, null
   br i1 %tobool.not.i.i, label %search_commit_pos_in_graph.exit.i, label %land.rhs.i.i, !llvm.loop !18
 
 if.then.i.i:                                      ; preds = %land.rhs.i.i
   %11 = load i32, ptr %lex_index.i.i, align 4
-  %num_commits_in_base.i.i = getelementptr inbounds %struct.commit_graph, ptr %cur_g.07.i.i, i64 0, i32 8
+  %num_commits_in_base.i.i = getelementptr inbounds i8, ptr %cur_g.07.i.i, i64 80
   %12 = load i32, ptr %num_commits_in_base.i.i, align 8
   %add.i.i = add i32 %12, %11
   store i32 %add.i.i, ptr %pos, align 4
@@ -2005,9 +1983,9 @@ if.end:                                           ; preds = %if.then, %entry
   br i1 %tobool.not, label %return, label %if.end3
 
 if.end3:                                          ; preds = %if.end
-  %objects = getelementptr inbounds %struct.repository, ptr %repo, i64 0, i32 2
+  %objects = getelementptr inbounds i8, ptr %repo, i64 16
   %1 = load ptr, ptr %objects, align 8
-  %commit_graph = getelementptr inbounds %struct.raw_object_store, ptr %1, i64 0, i32 8
+  %commit_graph = getelementptr inbounds i8, ptr %1, i64 96
   %2 = load ptr, ptr %commit_graph, align 8
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %lex_index.i)
   %tobool.not6.i = icmp eq ptr %2, null
@@ -2015,11 +1993,11 @@ if.end3:                                          ; preds = %if.end
 
 land.rhs.i:                                       ; preds = %if.end3, %while.body.i
   %cur_g.07.i = phi ptr [ %6, %while.body.i ], [ %2, %if.end3 ]
-  %chunk_oid_fanout.i.i = getelementptr inbounds %struct.commit_graph, ptr %cur_g.07.i, i64 0, i32 11
+  %chunk_oid_fanout.i.i = getelementptr inbounds i8, ptr %cur_g.07.i, i64 96
   %3 = load ptr, ptr %chunk_oid_fanout.i.i, align 8
-  %chunk_oid_lookup.i.i = getelementptr inbounds %struct.commit_graph, ptr %cur_g.07.i, i64 0, i32 12
+  %chunk_oid_lookup.i.i = getelementptr inbounds i8, ptr %cur_g.07.i, i64 104
   %4 = load ptr, ptr %chunk_oid_lookup.i.i, align 8
-  %hash_len.i.i = getelementptr inbounds %struct.commit_graph, ptr %cur_g.07.i, i64 0, i32 2
+  %hash_len.i.i = getelementptr inbounds i8, ptr %cur_g.07.i, i64 16
   %5 = load i8, ptr %hash_len.i.i, align 8
   %conv.i.i = zext i8 %5 to i64
   %call.i.i = call i32 @bsearch_hash(ptr noundef %id, ptr noundef %3, ptr noundef %4, i64 noundef %conv.i.i, ptr noundef nonnull %lex_index.i) #22
@@ -2027,7 +2005,7 @@ land.rhs.i:                                       ; preds = %if.end3, %while.bod
   br i1 %tobool1.not.i, label %while.body.i, label %if.end7
 
 while.body.i:                                     ; preds = %land.rhs.i
-  %base_graph.i = getelementptr inbounds %struct.commit_graph, ptr %cur_g.07.i, i64 0, i32 10
+  %base_graph.i = getelementptr inbounds i8, ptr %cur_g.07.i, i64 88
   %6 = load ptr, ptr %base_graph.i, align 8
   %tobool.not.i = icmp eq ptr %6, null
   br i1 %tobool.not.i, label %search_commit_pos_in_graph.exit.thread, label %land.rhs.i, !llvm.loop !18
@@ -2038,7 +2016,7 @@ search_commit_pos_in_graph.exit.thread:           ; preds = %while.body.i, %if.e
 
 if.end7:                                          ; preds = %land.rhs.i
   %7 = load i32, ptr %lex_index.i, align 4
-  %num_commits_in_base.i = getelementptr inbounds %struct.commit_graph, ptr %cur_g.07.i, i64 0, i32 8
+  %num_commits_in_base.i = getelementptr inbounds i8, ptr %cur_g.07.i, i64 80
   %8 = load i32, ptr %num_commits_in_base.i, align 8
   %add.i = add i32 %8, %7
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %lex_index.i)
@@ -2064,7 +2042,7 @@ if.end16:                                         ; preds = %if.end12
 
 if.end19:                                         ; preds = %if.end16
   %10 = load ptr, ptr %objects, align 8
-  %commit_graph21 = getelementptr inbounds %struct.raw_object_store, ptr %10, i64 0, i32 8
+  %commit_graph21 = getelementptr inbounds i8, ptr %10, i64 96
   %11 = load ptr, ptr %commit_graph21, align 8
   %call22 = call fastcc i32 @fill_commit_in_graph(ptr noundef %repo, ptr noundef nonnull %call13, ptr noundef %11, i32 noundef %add.i), !range !14
   %tobool23.not = icmp eq i32 %call22, 0
@@ -2083,41 +2061,41 @@ declare ptr @lookup_commit(ptr noundef, ptr noundef) local_unnamed_addr #1
 ; Function Attrs: nounwind uwtable
 define internal fastcc noundef i32 @fill_commit_in_graph(ptr noundef %r, ptr noundef %item, ptr nocapture noundef readonly %g, i32 noundef %pos) unnamed_addr #0 {
 entry:
-  %num_commits_in_base64 = getelementptr inbounds %struct.commit_graph, ptr %g, i64 0, i32 8
+  %num_commits_in_base64 = getelementptr inbounds i8, ptr %g, i64 80
   %0 = load i32, ptr %num_commits_in_base64, align 8
   %cmp65 = icmp ugt i32 %0, %pos
   br i1 %cmp65, label %while.body, label %while.end
 
 while.body:                                       ; preds = %entry, %while.body
   %g.addr.066 = phi ptr [ %1, %while.body ], [ %g, %entry ]
-  %base_graph = getelementptr inbounds %struct.commit_graph, ptr %g.addr.066, i64 0, i32 10
+  %base_graph = getelementptr inbounds i8, ptr %g.addr.066, i64 88
   %1 = load ptr, ptr %base_graph, align 8
-  %num_commits_in_base = getelementptr inbounds %struct.commit_graph, ptr %1, i64 0, i32 8
+  %num_commits_in_base = getelementptr inbounds i8, ptr %1, i64 80
   %2 = load i32, ptr %num_commits_in_base, align 8
   %cmp = icmp ugt i32 %2, %pos
   br i1 %cmp, label %while.body, label %while.end, !llvm.loop !19
 
 while.end:                                        ; preds = %while.body, %entry
   %g.addr.0.lcssa63 = phi ptr [ %g, %entry ], [ %1, %while.body ]
-  %num_commits_in_base.le = getelementptr inbounds %struct.commit_graph, ptr %g.addr.0.lcssa63, i64 0, i32 8
+  %num_commits_in_base.le = getelementptr inbounds i8, ptr %g.addr.0.lcssa63, i64 80
   tail call fastcc void @fill_commit_graph_info(ptr noundef %item, ptr noundef nonnull %g.addr.0.lcssa63, i32 noundef %pos)
-  %hash_len = getelementptr inbounds %struct.commit_graph, ptr %g.addr.0.lcssa63, i64 0, i32 2
+  %hash_len = getelementptr inbounds i8, ptr %g.addr.0.lcssa63, i64 16
   %3 = load i32, ptr %num_commits_in_base.le, align 8
   %sub = sub i32 %pos, %3
   %conv3 = zext i32 %sub to i64
   %4 = load i8, ptr %hash_len, align 8
   %conv = zext i8 %4 to i64
   %add = add nuw nsw i64 %conv, 16
-  %chunk_commit_data = getelementptr inbounds %struct.commit_graph, ptr %g.addr.0.lcssa63, i64 0, i32 13
+  %chunk_commit_data = getelementptr inbounds i8, ptr %g.addr.0.lcssa63, i64 112
   %5 = load ptr, ptr %chunk_commit_data, align 8
   %mul.i = mul nuw nsw i64 %add, %conv3
   %add.ptr = getelementptr inbounds i8, ptr %5, i64 %mul.i
   %bf.load = load i32, ptr %item, align 8
   %bf.set = or i32 %bf.load, 1
   store i32 %bf.set, ptr %item, align 8
-  %maybe_tree.i = getelementptr inbounds %struct.commit, ptr %item, i64 0, i32 3
+  %maybe_tree.i = getelementptr inbounds i8, ptr %item, i64 56
   store ptr null, ptr %maybe_tree.i, align 8
-  %parents = getelementptr inbounds %struct.commit, ptr %item, i64 0, i32 2
+  %parents = getelementptr inbounds i8, ptr %item, i64 48
   %6 = load i8, ptr %hash_len, align 8
   %idx.ext = zext i8 %6 to i64
   %add.ptr6 = getelementptr inbounds i8, ptr %add.ptr, i64 %idx.ext
@@ -2177,8 +2155,8 @@ if.then21:                                        ; preds = %if.end20
 
 if.end23:                                         ; preds = %if.end20
   %and24 = and i32 %or11.i48, 2147483647
-  %chunk_extra_edges_size = getelementptr inbounds %struct.commit_graph, ptr %g.addr.0.lcssa63, i64 0, i32 18
-  %chunk_extra_edges = getelementptr inbounds %struct.commit_graph, ptr %g.addr.0.lcssa63, i64 0, i32 17
+  %chunk_extra_edges_size = getelementptr inbounds i8, ptr %g.addr.0.lcssa63, i64 152
+  %chunk_extra_edges = getelementptr inbounds i8, ptr %g.addr.0.lcssa63, i64 144
   br label %do.body
 
 do.body:                                          ; preds = %if.end38, %if.end23
@@ -2265,9 +2243,9 @@ if.end:                                           ; preds = %land.lhs.true, %ent
   br i1 %tobool3.not, label %return, label %if.end5
 
 if.end5:                                          ; preds = %if.end
-  %objects = getelementptr inbounds %struct.repository, ptr %r, i64 0, i32 2
+  %objects = getelementptr inbounds i8, ptr %r, i64 16
   %0 = load ptr, ptr %objects, align 8
-  %commit_graph = getelementptr inbounds %struct.raw_object_store, ptr %0, i64 0, i32 8
+  %commit_graph = getelementptr inbounds i8, ptr %0, i64 96
   %1 = load ptr, ptr %commit_graph, align 8
   %bf.load.i = load i32, ptr %item, align 8
   %bf.clear.i = and i32 %bf.load.i, 1
@@ -2299,18 +2277,18 @@ commit_graph_position.exit.i.i:                   ; preds = %if.end12.i.i.i.i.i
   br i1 %cmp.not.i.i, label %if.else.i.i, label %if.then2.i
 
 if.else.i.i:                                      ; preds = %commit_graph_position.exit.i.i, %if.end12.i.i.i.i.i, %if.end.i
-  %oid.i.i = getelementptr inbounds %struct.object, ptr %item, i64 0, i32 1
+  %oid.i.i = getelementptr inbounds i8, ptr %item, i64 4
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %lex_index.i.i.i)
   %tobool.not6.i.i.i = icmp eq ptr %1, null
   br i1 %tobool.not6.i.i.i, label %find_commit_pos_in_graph.exit.thread8.i, label %land.rhs.i.i.i
 
 land.rhs.i.i.i:                                   ; preds = %if.else.i.i, %while.body.i.i.i
   %cur_g.07.i.i.i = phi ptr [ %10, %while.body.i.i.i ], [ %1, %if.else.i.i ]
-  %chunk_oid_fanout.i.i.i.i = getelementptr inbounds %struct.commit_graph, ptr %cur_g.07.i.i.i, i64 0, i32 11
+  %chunk_oid_fanout.i.i.i.i = getelementptr inbounds i8, ptr %cur_g.07.i.i.i, i64 96
   %7 = load ptr, ptr %chunk_oid_fanout.i.i.i.i, align 8
-  %chunk_oid_lookup.i.i.i.i = getelementptr inbounds %struct.commit_graph, ptr %cur_g.07.i.i.i, i64 0, i32 12
+  %chunk_oid_lookup.i.i.i.i = getelementptr inbounds i8, ptr %cur_g.07.i.i.i, i64 104
   %8 = load ptr, ptr %chunk_oid_lookup.i.i.i.i, align 8
-  %hash_len.i.i.i.i = getelementptr inbounds %struct.commit_graph, ptr %cur_g.07.i.i.i, i64 0, i32 2
+  %hash_len.i.i.i.i = getelementptr inbounds i8, ptr %cur_g.07.i.i.i, i64 16
   %9 = load i8, ptr %hash_len.i.i.i.i, align 8
   %conv.i.i.i.i = zext i8 %9 to i64
   %call.i.i.i.i = call i32 @bsearch_hash(ptr noundef nonnull %oid.i.i, ptr noundef %7, ptr noundef %8, i64 noundef %conv.i.i.i.i, ptr noundef nonnull %lex_index.i.i.i) #22
@@ -2318,7 +2296,7 @@ land.rhs.i.i.i:                                   ; preds = %if.else.i.i, %while
   br i1 %tobool1.not.i.i.i, label %while.body.i.i.i, label %find_commit_pos_in_graph.exit.i
 
 while.body.i.i.i:                                 ; preds = %land.rhs.i.i.i
-  %base_graph.i.i.i = getelementptr inbounds %struct.commit_graph, ptr %cur_g.07.i.i.i, i64 0, i32 10
+  %base_graph.i.i.i = getelementptr inbounds i8, ptr %cur_g.07.i.i.i, i64 88
   %10 = load ptr, ptr %base_graph.i.i.i, align 8
   %tobool.not.i.i.i = icmp eq ptr %10, null
   br i1 %tobool.not.i.i.i, label %find_commit_pos_in_graph.exit.thread8.i, label %land.rhs.i.i.i, !llvm.loop !18
@@ -2329,7 +2307,7 @@ find_commit_pos_in_graph.exit.thread8.i:          ; preds = %while.body.i.i.i, %
 
 find_commit_pos_in_graph.exit.i:                  ; preds = %land.rhs.i.i.i
   %11 = load i32, ptr %lex_index.i.i.i, align 4
-  %num_commits_in_base.i.i.i = getelementptr inbounds %struct.commit_graph, ptr %cur_g.07.i.i.i, i64 0, i32 8
+  %num_commits_in_base.i.i.i = getelementptr inbounds i8, ptr %cur_g.07.i.i.i, i64 80
   %12 = load i32, ptr %num_commits_in_base.i.i.i, align 8
   %add.i.i.i = add i32 %12, %11
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %lex_index.i.i.i)
@@ -2354,9 +2332,9 @@ entry:
   br i1 %tobool.not.i, label %if.end, label %if.end.i
 
 if.end.i:                                         ; preds = %entry
-  %objects.i = getelementptr inbounds %struct.repository, ptr %r, i64 0, i32 2
+  %objects.i = getelementptr inbounds i8, ptr %r, i64 16
   %0 = load ptr, ptr %objects.i, align 8
-  %commit_graph.i = getelementptr inbounds %struct.raw_object_store, ptr %0, i64 0, i32 8
+  %commit_graph.i = getelementptr inbounds i8, ptr %0, i64 96
   %1 = load ptr, ptr %commit_graph.i, align 8
   %2 = getelementptr i8, ptr %item, i64 64
   %c.val.i.i.i = load i32, ptr %2, align 8
@@ -2382,18 +2360,18 @@ commit_graph_position.exit.i.i:                   ; preds = %if.end12.i.i.i.i.i
   br i1 %cmp.not.i.i, label %if.else.i.i, label %if.then
 
 if.else.i.i:                                      ; preds = %commit_graph_position.exit.i.i, %if.end12.i.i.i.i.i, %if.end.i
-  %oid.i.i = getelementptr inbounds %struct.object, ptr %item, i64 0, i32 1
+  %oid.i.i = getelementptr inbounds i8, ptr %item, i64 4
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %lex_index.i.i.i)
   %tobool.not6.i.i.i = icmp eq ptr %1, null
   br i1 %tobool.not6.i.i.i, label %repo_find_commit_pos_in_graph.exit.thread11, label %land.rhs.i.i.i
 
 land.rhs.i.i.i:                                   ; preds = %if.else.i.i, %while.body.i.i.i
   %cur_g.07.i.i.i = phi ptr [ %10, %while.body.i.i.i ], [ %1, %if.else.i.i ]
-  %chunk_oid_fanout.i.i.i.i = getelementptr inbounds %struct.commit_graph, ptr %cur_g.07.i.i.i, i64 0, i32 11
+  %chunk_oid_fanout.i.i.i.i = getelementptr inbounds i8, ptr %cur_g.07.i.i.i, i64 96
   %7 = load ptr, ptr %chunk_oid_fanout.i.i.i.i, align 8
-  %chunk_oid_lookup.i.i.i.i = getelementptr inbounds %struct.commit_graph, ptr %cur_g.07.i.i.i, i64 0, i32 12
+  %chunk_oid_lookup.i.i.i.i = getelementptr inbounds i8, ptr %cur_g.07.i.i.i, i64 104
   %8 = load ptr, ptr %chunk_oid_lookup.i.i.i.i, align 8
-  %hash_len.i.i.i.i = getelementptr inbounds %struct.commit_graph, ptr %cur_g.07.i.i.i, i64 0, i32 2
+  %hash_len.i.i.i.i = getelementptr inbounds i8, ptr %cur_g.07.i.i.i, i64 16
   %9 = load i8, ptr %hash_len.i.i.i.i, align 8
   %conv.i.i.i.i = zext i8 %9 to i64
   %call.i.i.i.i = call i32 @bsearch_hash(ptr noundef nonnull %oid.i.i, ptr noundef %7, ptr noundef %8, i64 noundef %conv.i.i.i.i, ptr noundef nonnull %lex_index.i.i.i) #22
@@ -2401,7 +2379,7 @@ land.rhs.i.i.i:                                   ; preds = %if.else.i.i, %while
   br i1 %tobool1.not.i.i.i, label %while.body.i.i.i, label %repo_find_commit_pos_in_graph.exit
 
 while.body.i.i.i:                                 ; preds = %land.rhs.i.i.i
-  %base_graph.i.i.i = getelementptr inbounds %struct.commit_graph, ptr %cur_g.07.i.i.i, i64 0, i32 10
+  %base_graph.i.i.i = getelementptr inbounds i8, ptr %cur_g.07.i.i.i, i64 88
   %10 = load ptr, ptr %base_graph.i.i.i, align 8
   %tobool.not.i.i.i = icmp eq ptr %10, null
   br i1 %tobool.not.i.i.i, label %repo_find_commit_pos_in_graph.exit.thread11, label %land.rhs.i.i.i, !llvm.loop !18
@@ -2412,12 +2390,12 @@ repo_find_commit_pos_in_graph.exit.thread11:      ; preds = %while.body.i.i.i, %
 
 repo_find_commit_pos_in_graph.exit:               ; preds = %land.rhs.i.i.i
   %11 = load i32, ptr %lex_index.i.i.i, align 4
-  %num_commits_in_base.i.i.i = getelementptr inbounds %struct.commit_graph, ptr %cur_g.07.i.i.i, i64 0, i32 8
+  %num_commits_in_base.i.i.i = getelementptr inbounds i8, ptr %cur_g.07.i.i.i, i64 80
   %12 = load i32, ptr %num_commits_in_base.i.i.i, align 8
   %add.i.i.i = add i32 %12, %11
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %lex_index.i.i.i)
   %.pre = load ptr, ptr %objects.i, align 8
-  %commit_graph.phi.trans.insert = getelementptr inbounds %struct.raw_object_store, ptr %.pre, i64 0, i32 8
+  %commit_graph.phi.trans.insert = getelementptr inbounds i8, ptr %.pre, i64 96
   %.pre17 = load ptr, ptr %commit_graph.phi.trans.insert, align 8
   br label %if.then
 
@@ -2434,16 +2412,16 @@ if.end:                                           ; preds = %entry, %repo_find_c
 ; Function Attrs: nounwind uwtable
 define internal fastcc void @fill_commit_graph_info(ptr nocapture noundef %item, ptr nocapture noundef readonly %g, i32 noundef %pos) unnamed_addr #0 {
 entry:
-  %num_commits_in_base100 = getelementptr inbounds %struct.commit_graph, ptr %g, i64 0, i32 8
+  %num_commits_in_base100 = getelementptr inbounds i8, ptr %g, i64 80
   %0 = load i32, ptr %num_commits_in_base100, align 8
   %cmp101 = icmp ugt i32 %0, %pos
   br i1 %cmp101, label %while.body, label %while.end
 
 while.body:                                       ; preds = %entry, %while.body
   %g.addr.0102 = phi ptr [ %1, %while.body ], [ %g, %entry ]
-  %base_graph = getelementptr inbounds %struct.commit_graph, ptr %g.addr.0102, i64 0, i32 10
+  %base_graph = getelementptr inbounds i8, ptr %g.addr.0102, i64 88
   %1 = load ptr, ptr %base_graph, align 8
-  %num_commits_in_base = getelementptr inbounds %struct.commit_graph, ptr %1, i64 0, i32 8
+  %num_commits_in_base = getelementptr inbounds i8, ptr %1, i64 80
   %2 = load i32, ptr %num_commits_in_base, align 8
   %cmp = icmp ugt i32 %2, %pos
   br i1 %cmp, label %while.body, label %while.end, !llvm.loop !21
@@ -2451,7 +2429,7 @@ while.body:                                       ; preds = %entry, %while.body
 while.end:                                        ; preds = %while.body, %entry
   %g.addr.0.lcssa = phi ptr [ %g, %entry ], [ %1, %while.body ]
   %.lcssa = phi i32 [ %0, %entry ], [ %2, %while.body ]
-  %num_commits = getelementptr inbounds %struct.commit_graph, ptr %g.addr.0.lcssa, i64 0, i32 4
+  %num_commits = getelementptr inbounds i8, ptr %g.addr.0.lcssa, i64 20
   %3 = load i32, ptr %num_commits, align 4
   %add = add i32 %3, %.lcssa
   %cmp2.not = icmp ugt i32 %add, %pos
@@ -2464,12 +2442,12 @@ if.then:                                          ; preds = %while.end
 
 if.end:                                           ; preds = %while.end
   %sub = sub i32 %pos, %.lcssa
-  %chunk_commit_data = getelementptr inbounds %struct.commit_graph, ptr %g.addr.0.lcssa, i64 0, i32 13
+  %chunk_commit_data = getelementptr inbounds i8, ptr %g.addr.0.lcssa, i64 112
   %4 = load ptr, ptr %chunk_commit_data, align 8
   %5 = load ptr, ptr @the_repository, align 8
-  %hash_algo = getelementptr inbounds %struct.repository, ptr %5, i64 0, i32 15
+  %hash_algo = getelementptr inbounds i8, ptr %5, i64 256
   %6 = load ptr, ptr %hash_algo, align 8
-  %rawsz = getelementptr inbounds %struct.git_hash_algo, ptr %6, i64 0, i32 2
+  %rawsz = getelementptr inbounds i8, ptr %6, i64 16
   %7 = load i64, ptr %rawsz, align 8
   %add4 = add i64 %7, 16
   %conv = zext i32 %sub to i64
@@ -2492,7 +2470,7 @@ st_mult.exit:                                     ; preds = %if.end, %land.lhs.t
   %item.val36 = load i32, ptr %8, align 8
   %call6 = tail call fastcc ptr @commit_graph_data_at(i32 %item.val36)
   store i32 %pos, ptr %call6, align 8
-  %hash_len = getelementptr inbounds %struct.commit_graph, ptr %g.addr.0.lcssa, i64 0, i32 2
+  %hash_len = getelementptr inbounds i8, ptr %g.addr.0.lcssa, i64 16
   %9 = load i8, ptr %hash_len, align 8
   %idx.ext = zext i8 %9 to i64
   %add.ptr8 = getelementptr inbounds i8, ptr %add.ptr, i64 %idx.ext
@@ -2520,15 +2498,15 @@ st_mult.exit:                                     ; preds = %if.end, %land.lhs.t
   %or11.i49 = or disjoint i64 %or7.i46, %conv9.i48
   %shl = shl nuw nsw i64 %conv11, 32
   %or = or disjoint i64 %or11.i49, %shl
-  %date = getelementptr inbounds %struct.commit, ptr %item, i64 0, i32 1
+  %date = getelementptr inbounds i8, ptr %item, i64 40
   store i64 %or, ptr %date, align 8
-  %read_generation_data = getelementptr inbounds %struct.commit_graph, ptr %g.addr.0.lcssa, i64 0, i32 9
+  %read_generation_data = getelementptr inbounds i8, ptr %g.addr.0.lcssa, i64 84
   %16 = load i32, ptr %read_generation_data, align 4
   %tobool.not = icmp eq i32 %16, 0
   br i1 %tobool.not, label %if.else49, label %st_mult.exit55
 
 st_mult.exit55:                                   ; preds = %st_mult.exit
-  %chunk_generation_data = getelementptr inbounds %struct.commit_graph, ptr %g.addr.0.lcssa, i64 0, i32 14
+  %chunk_generation_data = getelementptr inbounds i8, ptr %g.addr.0.lcssa, i64 120
   %17 = load ptr, ptr %chunk_generation_data, align 8
   %mul.i53 = shl nuw nsw i64 %conv, 2
   %add.ptr22 = getelementptr inbounds i8, ptr %17, i64 %mul.i53
@@ -2553,7 +2531,7 @@ st_mult.exit55:                                   ; preds = %st_mult.exit
   br i1 %tobool26.not, label %if.else, label %if.then27
 
 if.then27:                                        ; preds = %st_mult.exit55
-  %chunk_generation_data_overflow = getelementptr inbounds %struct.commit_graph, ptr %g.addr.0.lcssa, i64 0, i32 15
+  %chunk_generation_data_overflow = getelementptr inbounds i8, ptr %g.addr.0.lcssa, i64 128
   %22 = load ptr, ptr %chunk_generation_data_overflow, align 8
   %tobool28.not = icmp eq ptr %22, null
   br i1 %tobool28.not, label %if.then29, label %if.end31
@@ -2565,7 +2543,7 @@ if.then29:                                        ; preds = %if.then27
 
 if.end31:                                         ; preds = %if.then27
   %xor = and i32 %or11.i68, 2147483647
-  %chunk_generation_data_overflow_size = getelementptr inbounds %struct.commit_graph, ptr %g.addr.0.lcssa, i64 0, i32 16
+  %chunk_generation_data_overflow_size = getelementptr inbounds i8, ptr %g.addr.0.lcssa, i64 136
   %23 = load i64, ptr %chunk_generation_data_overflow_size, align 8
   %div35 = lshr i64 %23, 3
   %conv33 = zext nneg i32 %xor to i64
@@ -2652,9 +2630,9 @@ if.else49:                                        ; preds = %st_mult.exit
 
 if.end58:                                         ; preds = %if.end38, %if.else, %if.else49
   %add44.sink = phi i64 [ %add44, %if.end38 ], [ %add46, %if.else ], [ %shr, %if.else49 ]
-  %generation = getelementptr inbounds %struct.commit_graph_data, ptr %call6, i64 0, i32 1
+  %generation = getelementptr inbounds i8, ptr %call6, i64 8
   store i64 %add44.sink, ptr %generation, align 8
-  %topo_levels = getelementptr inbounds %struct.commit_graph, ptr %g.addr.0.lcssa, i64 0, i32 24
+  %topo_levels = getelementptr inbounds i8, ptr %g.addr.0.lcssa, i64 200
   %37 = load ptr, ptr %topo_levels, align 8
   %tobool59.not = icmp eq ptr %37, null
   br i1 %tobool59.not, label %if.end70, label %if.then60
@@ -2686,13 +2664,13 @@ if.then60:                                        ; preds = %if.end58
   %43 = load i32, ptr %37, align 8
   %div.i.i = udiv i32 %item.val, %43
   %rem.i.i = urem i32 %item.val, %43
-  %slab_count.i.i = getelementptr inbounds %struct.topo_level_slab, ptr %37, i64 0, i32 2
+  %slab_count.i.i = getelementptr inbounds i8, ptr %37, i64 8
   %44 = load i32, ptr %slab_count.i.i, align 8
   %cmp.not.i.i = icmp ugt i32 %44, %div.i.i
   br i1 %cmp.not.i.i, label %if.end12.i.i, label %if.end.i.i
 
 if.end.i.i:                                       ; preds = %if.then60
-  %slab.i.i = getelementptr inbounds %struct.topo_level_slab, ptr %37, i64 0, i32 3
+  %slab.i.i = getelementptr inbounds i8, ptr %37, i64 16
   %add.i.i = add i32 %div.i.i, 1
   %conv.i.i98 = zext i32 %add.i.i to i64
   %45 = load ptr, ptr %slab.i.i, align 8
@@ -2718,7 +2696,7 @@ for.end.i.i:                                      ; preds = %for.body.i.i, %if.e
   br label %if.end12.i.i
 
 if.end12.i.i:                                     ; preds = %for.end.i.i, %if.then60
-  %slab13.i.i = getelementptr inbounds %struct.topo_level_slab, ptr %37, i64 0, i32 3
+  %slab13.i.i = getelementptr inbounds i8, ptr %37, i64 16
   %48 = load ptr, ptr %slab13.i.i, align 8
   %idxprom14.i.i = zext i32 %div.i.i to i64
   %arrayidx15.i.i = getelementptr inbounds ptr, ptr %48, i64 %idxprom14.i.i
@@ -2729,7 +2707,7 @@ if.end12.i.i:                                     ; preds = %for.end.i.i, %if.th
 if.end20.i.i:                                     ; preds = %if.end12.i.i
   %50 = load i32, ptr %37, align 8
   %conv22.i.i = zext i32 %50 to i64
-  %stride.i.i = getelementptr inbounds %struct.topo_level_slab, ptr %37, i64 0, i32 1
+  %stride.i.i = getelementptr inbounds i8, ptr %37, i64 4
   %51 = load i32, ptr %stride.i.i, align 4
   %conv23.i.i = zext i32 %51 to i64
   %mul.i.i = shl nuw nsw i64 %conv23.i.i, 2
@@ -2744,7 +2722,7 @@ if.end20.i.i:                                     ; preds = %if.end12.i.i
 
 topo_level_slab_at.exit:                          ; preds = %if.end12.i.i, %if.end20.i.i
   %53 = phi ptr [ %49, %if.end12.i.i ], [ %.pre4.i.i, %if.end20.i.i ]
-  %stride32.i.i = getelementptr inbounds %struct.topo_level_slab, ptr %37, i64 0, i32 1
+  %stride32.i.i = getelementptr inbounds i8, ptr %37, i64 4
   %54 = load i32, ptr %stride32.i.i, align 4
   %mul33.i.i = mul i32 %54, %rem.i.i
   %idxprom34.i.i = zext i32 %mul33.i.i to i64
@@ -2759,9 +2737,9 @@ if.end70:                                         ; preds = %topo_level_slab_at.
 ; Function Attrs: nounwind uwtable
 define dso_local ptr @get_commit_tree_in_graph(ptr noundef %r, ptr nocapture noundef %c) local_unnamed_addr #0 {
 entry:
-  %objects = getelementptr inbounds %struct.repository, ptr %r, i64 0, i32 2
+  %objects = getelementptr inbounds i8, ptr %r, i64 16
   %0 = load ptr, ptr %objects, align 8
-  %commit_graph = getelementptr inbounds %struct.raw_object_store, ptr %0, i64 0, i32 8
+  %commit_graph = getelementptr inbounds i8, ptr %0, i64 96
   %1 = load ptr, ptr %commit_graph, align 8
   %call = tail call fastcc ptr @get_commit_tree_in_graph_one(ptr noundef %r, ptr noundef %1, ptr noundef %c)
   ret ptr %call
@@ -2771,7 +2749,7 @@ entry:
 define internal fastcc ptr @get_commit_tree_in_graph_one(ptr noundef %r, ptr nocapture noundef readonly %g, ptr nocapture noundef %c) unnamed_addr #0 {
 entry:
   %oid.i = alloca %struct.object_id, align 4
-  %maybe_tree = getelementptr inbounds %struct.commit, ptr %c, i64 0, i32 3
+  %maybe_tree = getelementptr inbounds i8, ptr %c, i64 56
   %0 = load ptr, ptr %maybe_tree, align 8
   %tobool.not = icmp eq ptr %0, null
   br i1 %tobool.not, label %if.end, label %return
@@ -2806,16 +2784,16 @@ if.then2:                                         ; preds = %if.end12.i.i.i, %if
 
 commit_graph_position.exit.i:                     ; preds = %commit_graph_position.exit
   call void @llvm.lifetime.start.p0(i64 36, ptr nonnull %oid.i)
-  %num_commits_in_base7.i = getelementptr inbounds %struct.commit_graph, ptr %g, i64 0, i32 8
+  %num_commits_in_base7.i = getelementptr inbounds i8, ptr %g, i64 80
   %6 = load i32, ptr %num_commits_in_base7.i, align 8
   %cmp8.i = icmp ult i32 %5, %6
   br i1 %cmp8.i, label %while.body.i, label %while.end.i
 
 while.body.i:                                     ; preds = %commit_graph_position.exit.i, %while.body.i
   %g.addr.09.i = phi ptr [ %7, %while.body.i ], [ %g, %commit_graph_position.exit.i ]
-  %base_graph.i = getelementptr inbounds %struct.commit_graph, ptr %g.addr.09.i, i64 0, i32 10
+  %base_graph.i = getelementptr inbounds i8, ptr %g.addr.09.i, i64 88
   %7 = load ptr, ptr %base_graph.i, align 8
-  %num_commits_in_base.i = getelementptr inbounds %struct.commit_graph, ptr %7, i64 0, i32 8
+  %num_commits_in_base.i = getelementptr inbounds i8, ptr %7, i64 80
   %8 = load i32, ptr %num_commits_in_base.i, align 8
   %cmp.i = icmp ult i32 %5, %8
   br i1 %cmp.i, label %while.body.i, label %while.end.i, !llvm.loop !23
@@ -2823,12 +2801,12 @@ while.body.i:                                     ; preds = %commit_graph_positi
 while.end.i:                                      ; preds = %while.body.i, %commit_graph_position.exit.i
   %g.addr.0.lcssa.i = phi ptr [ %g, %commit_graph_position.exit.i ], [ %7, %while.body.i ]
   %.lcssa.i = phi i32 [ %6, %commit_graph_position.exit.i ], [ %8, %while.body.i ]
-  %chunk_commit_data.i = getelementptr inbounds %struct.commit_graph, ptr %g.addr.0.lcssa.i, i64 0, i32 13
+  %chunk_commit_data.i = getelementptr inbounds i8, ptr %g.addr.0.lcssa.i, i64 112
   %9 = load ptr, ptr %chunk_commit_data.i, align 8
   %10 = load ptr, ptr @the_repository, align 8
-  %hash_algo.i = getelementptr inbounds %struct.repository, ptr %10, i64 0, i32 15
+  %hash_algo.i = getelementptr inbounds i8, ptr %10, i64 256
   %11 = load ptr, ptr %hash_algo.i, align 8
-  %rawsz.i = getelementptr inbounds %struct.git_hash_algo, ptr %11, i64 0, i32 2
+  %rawsz.i = getelementptr inbounds i8, ptr %11, i64 16
   %12 = load i64, ptr %rawsz.i, align 8
   %add.i = add i64 %12, 16
   %sub.i = sub i32 %5, %.lcssa.i
@@ -2853,7 +2831,7 @@ load_tree_for_commit.exit:                        ; preds = %while.end.i, %land.
   %sub.ptr.sub.i.i.i = sub i64 %sub.ptr.lhs.cast.i.i.i, ptrtoint (ptr @hash_algos to i64)
   %sub.ptr.div.i.i.i = sdiv exact i64 %sub.ptr.sub.i.i.i, 104
   %conv.i.i.i = trunc i64 %sub.ptr.div.i.i.i to i32
-  %algo.i.i = getelementptr inbounds %struct.object_id, ptr %oid.i, i64 0, i32 1
+  %algo.i.i = getelementptr inbounds i8, ptr %oid.i, i64 32
   store i32 %conv.i.i.i, ptr %algo.i.i, align 4
   %call3.i = call ptr @lookup_tree(ptr noundef %r, ptr noundef nonnull %oid.i) #22
   store ptr %call3.i, ptr %maybe_tree, align 8
@@ -2877,22 +2855,22 @@ entry:
   %0 = load i32, ptr %version.i, align 4
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %version.i)
   store ptr %commits, ptr %list, align 8
-  %nr2 = getelementptr inbounds %struct.packed_commit_list, ptr %list, i64 0, i32 1
+  %nr2 = getelementptr inbounds i8, ptr %list, i64 8
   store i64 %nr, ptr %nr2, align 8
-  %alloc = getelementptr inbounds %struct.packed_commit_list, ptr %list, i64 0, i32 2
+  %alloc = getelementptr inbounds i8, ptr %list, i64 16
   store i64 %nr, ptr %alloc, align 8
   store ptr %r, ptr %info, align 8
-  %commits4 = getelementptr inbounds %struct.compute_generation_info, ptr %info, i64 0, i32 1
+  %commits4 = getelementptr inbounds i8, ptr %info, i64 8
   store ptr %list, ptr %commits4, align 8
-  %progress = getelementptr inbounds %struct.compute_generation_info, ptr %info, i64 0, i32 2
+  %progress = getelementptr inbounds i8, ptr %info, i64 16
   store ptr null, ptr %progress, align 8
-  %progress_cnt = getelementptr inbounds %struct.compute_generation_info, ptr %info, i64 0, i32 3
+  %progress_cnt = getelementptr inbounds i8, ptr %info, i64 24
   store i32 0, ptr %progress_cnt, align 8
-  %get_generation = getelementptr inbounds %struct.compute_generation_info, ptr %info, i64 0, i32 4
+  %get_generation = getelementptr inbounds i8, ptr %info, i64 32
   store ptr @get_generation_from_graph_data, ptr %get_generation, align 8
-  %set_generation = getelementptr inbounds %struct.compute_generation_info, ptr %info, i64 0, i32 5
+  %set_generation = getelementptr inbounds i8, ptr %info, i64 40
   store ptr @set_generation_in_graph_data, ptr %set_generation, align 8
-  %data = getelementptr inbounds %struct.compute_generation_info, ptr %info, i64 0, i32 6
+  %data = getelementptr inbounds i8, ptr %info, i64 48
   store ptr null, ptr %data, align 8
   call fastcc void @compute_reachable_generation_numbers(ptr noundef nonnull %info, i32 noundef %0)
   ret void
@@ -2904,7 +2882,7 @@ entry:
   %0 = getelementptr i8, ptr %c, i64 64
   %c.val = load i32, ptr %0, align 8
   %call = tail call fastcc ptr @commit_graph_data_at(i32 %c.val)
-  %generation = getelementptr inbounds %struct.commit_graph_data, ptr %call, i64 0, i32 1
+  %generation = getelementptr inbounds i8, ptr %call, i64 8
   %1 = load i64, ptr %generation, align 8
   ret i64 %1
 }
@@ -2915,7 +2893,7 @@ entry:
   %0 = getelementptr i8, ptr %c, i64 64
   %c.val = load i32, ptr %0, align 8
   %call = tail call fastcc ptr @commit_graph_data_at(i32 %c.val)
-  %generation = getelementptr inbounds %struct.commit_graph_data, ptr %call, i64 0, i32 1
+  %generation = getelementptr inbounds i8, ptr %call, i64 8
   store i64 %t, ptr %generation, align 8
   ret void
 }
@@ -2925,19 +2903,19 @@ define internal fastcc void @compute_reachable_generation_numbers(ptr nocapture 
 entry:
   %list = alloca ptr, align 8
   store ptr null, ptr %list, align 8
-  %commits = getelementptr inbounds %struct.compute_generation_info, ptr %info, i64 0, i32 1
+  %commits = getelementptr inbounds i8, ptr %info, i64 8
   %0 = load ptr, ptr %commits, align 8
-  %nr36 = getelementptr inbounds %struct.packed_commit_list, ptr %0, i64 0, i32 1
+  %nr36 = getelementptr inbounds i8, ptr %0, i64 8
   %1 = load i64, ptr %nr36, align 8
   %cmp37.not = icmp eq i64 %1, 0
   br i1 %cmp37.not, label %for.end41, label %for.body.lr.ph
 
 for.body.lr.ph:                                   ; preds = %entry
-  %get_generation = getelementptr inbounds %struct.compute_generation_info, ptr %info, i64 0, i32 4
-  %data = getelementptr inbounds %struct.compute_generation_info, ptr %info, i64 0, i32 6
-  %progress = getelementptr inbounds %struct.compute_generation_info, ptr %info, i64 0, i32 2
-  %progress_cnt = getelementptr inbounds %struct.compute_generation_info, ptr %info, i64 0, i32 3
-  %set_generation = getelementptr inbounds %struct.compute_generation_info, ptr %info, i64 0, i32 5
+  %get_generation = getelementptr inbounds i8, ptr %info, i64 32
+  %data = getelementptr inbounds i8, ptr %info, i64 48
+  %progress = getelementptr inbounds i8, ptr %info, i64 16
+  %progress_cnt = getelementptr inbounds i8, ptr %info, i64 24
+  %set_generation = getelementptr inbounds i8, ptr %info, i64 40
   br label %for.body
 
 for.body:                                         ; preds = %for.body.lr.ph, %for.inc40
@@ -2970,7 +2948,7 @@ if.end:                                           ; preds = %for.body, %for.body
 while.body:                                       ; preds = %if.end, %if.end39
   %11 = phi ptr [ %22, %if.end39 ], [ %10, %if.end ]
   %12 = load ptr, ptr %11, align 8
-  %parents = getelementptr inbounds %struct.commit, ptr %12, i64 0, i32 2
+  %parents = getelementptr inbounds i8, ptr %12, i64 48
   %parent.031 = load ptr, ptr %parents, align 8
   %tobool12.not.not32 = icmp eq ptr %parent.031, null
   br i1 %tobool12.not.not32, label %if.then34, label %for.body13
@@ -2998,7 +2976,7 @@ if.end26:                                         ; preds = %for.body13
   %cmp28 = icmp ugt i64 %call20, %conv27
   %conv31 = trunc i64 %call20 to i32
   %spec.select = select i1 %cmp28, i32 %conv31, i32 %max_gen.033
-  %next = getelementptr inbounds %struct.commit_list, ptr %parent.034, i64 0, i32 1
+  %next = getelementptr inbounds i8, ptr %parent.034, i64 8
   %parent.0 = load ptr, ptr %next, align 8
   %tobool12.not.not = icmp eq ptr %parent.0, null
   br i1 %tobool12.not.not, label %if.then34, label %for.body13, !llvm.loop !24
@@ -3017,7 +2995,7 @@ sw.bb.i:                                          ; preds = %if.then34
   br label %compute_generation_from_max.exit
 
 sw.bb1.i:                                         ; preds = %if.then34
-  %date.i = getelementptr inbounds %struct.commit, ptr %12, i64 0, i32 1
+  %date.i = getelementptr inbounds i8, ptr %12, i64 40
   %19 = load i64, ptr %date.i, align 8
   %cmp3.i = icmp ugt i64 %19, %conv36
   %sub.i = add i64 %19, -1
@@ -3044,7 +3022,7 @@ if.end39:                                         ; preds = %if.then23, %compute
 for.inc40:                                        ; preds = %if.end39, %if.end, %for.body
   %indvars.iv.next = add nuw i64 %indvars.iv, 1
   %23 = load ptr, ptr %commits, align 8
-  %nr = getelementptr inbounds %struct.packed_commit_list, ptr %23, i64 0, i32 1
+  %nr = getelementptr inbounds i8, ptr %23, i64 8
   %24 = load i64, ptr %nr, align 8
   %cmp = icmp ugt i64 %24, %indvars.iv.next
   br i1 %cmp, label %for.body, label %for.end41, !llvm.loop !26
@@ -3078,7 +3056,7 @@ if.then2:                                         ; preds = %entry
   br label %if.end4
 
 if.end4:                                          ; preds = %if.then2, %entry
-  %progress = getelementptr inbounds %struct.refs_cb_data, ptr %cb_data, i64 0, i32 1
+  %progress = getelementptr inbounds i8, ptr %cb_data, i64 8
   %2 = load ptr, ptr %progress, align 8
   %3 = load ptr, ptr %cb_data, align 8
   %4 = getelementptr i8, ptr %3, i64 4
@@ -3119,7 +3097,7 @@ entry:
   %0 = load ptr, ptr @the_repository, align 8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %bloom_settings, ptr noundef nonnull align 4 dereferenceable(16) @__const.write_commit_graph.bloom_settings, i64 16, i1 false)
   tail call void @prepare_repo_settings(ptr noundef %0) #22
-  %core_commit_graph = getelementptr inbounds %struct.repository, ptr %0, i64 0, i32 10, i32 1
+  %core_commit_graph = getelementptr inbounds i8, ptr %0, i64 148
   %1 = load i32, ptr %core_commit_graph, align 4
   %tobool.not = icmp eq i32 %1, 0
   br i1 %tobool.not, label %if.then, label %if.end
@@ -3146,18 +3124,18 @@ if.end:                                           ; preds = %entry
 if.end4:                                          ; preds = %if.end
   %call5 = tail call ptr @xcalloc(i64 noundef 1, i64 noundef 232) #22
   store ptr %0, ptr %call5, align 8
-  %odb7 = getelementptr inbounds %struct.write_commit_graph_context, ptr %call5, i64 0, i32 1
+  %odb7 = getelementptr inbounds i8, ptr %call5, i64 8
   store ptr %odb, ptr %odb7, align 8
-  %append = getelementptr inbounds %struct.write_commit_graph_context, ptr %call5, i64 0, i32 19
+  %append = getelementptr inbounds i8, ptr %call5, i64 176
   %3 = trunc i32 %flags to i8
   %bf.load = load i8, ptr %append, align 8
   %bf.clear = and i8 %bf.load, -8
   %4 = and i8 %3, 7
   %bf.set24 = or disjoint i8 %bf.clear, %4
   store i8 %bf.set24, ptr %append, align 8
-  %opts26 = getelementptr inbounds %struct.write_commit_graph_context, ptr %call5, i64 0, i32 21
+  %opts26 = getelementptr inbounds i8, ptr %call5, i64 192
   store ptr %opts, ptr %opts26, align 8
-  %total_bloom_filter_data_size = getelementptr inbounds %struct.write_commit_graph_context, ptr %call5, i64 0, i32 22
+  %total_bloom_filter_data_size = getelementptr inbounds i8, ptr %call5, i64 200
   store i64 0, ptr %total_bloom_filter_data_size, align 8
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %version.i)
   store i32 2, ptr %version.i, align 4
@@ -3170,52 +3148,52 @@ if.end4:                                          ; preds = %if.end
   %bf.clear31 = and i8 %bf.load28, -33
   %bf.set32 = or disjoint i8 %bf.clear31, %bf.shl30
   store i8 %bf.set32, ptr %append, align 8
-  %num_generation_data_overflows = getelementptr inbounds %struct.write_commit_graph_context, ptr %call5, i64 0, i32 6
+  %num_generation_data_overflows = getelementptr inbounds i8, ptr %call5, i64 84
   store i32 0, ptr %num_generation_data_overflows, align 4
-  %bits_per_entry = getelementptr inbounds %struct.bloom_filter_settings, ptr %bloom_settings, i64 0, i32 2
+  %bits_per_entry = getelementptr inbounds i8, ptr %bloom_settings, i64 8
   %6 = load i32, ptr %bits_per_entry, align 4
   %conv34 = zext i32 %6 to i64
   %call35 = call i64 @git_env_ulong(ptr noundef nonnull @.str.22, i64 noundef %conv34) #22
   %conv36 = trunc i64 %call35 to i32
   store i32 %conv36, ptr %bits_per_entry, align 4
-  %num_hashes = getelementptr inbounds %struct.bloom_filter_settings, ptr %bloom_settings, i64 0, i32 1
+  %num_hashes = getelementptr inbounds i8, ptr %bloom_settings, i64 4
   %7 = load i32, ptr %num_hashes, align 4
   %conv38 = zext i32 %7 to i64
   %call39 = call i64 @git_env_ulong(ptr noundef nonnull @.str.23, i64 noundef %conv38) #22
   %conv40 = trunc i64 %call39 to i32
   store i32 %conv40, ptr %num_hashes, align 4
-  %max_changed_paths = getelementptr inbounds %struct.bloom_filter_settings, ptr %bloom_settings, i64 0, i32 3
+  %max_changed_paths = getelementptr inbounds i8, ptr %bloom_settings, i64 12
   %8 = load i32, ptr %max_changed_paths, align 4
   %conv42 = zext i32 %8 to i64
   %call43 = call i64 @git_env_ulong(ptr noundef nonnull @.str.24, i64 noundef %conv42) #22
   %conv44 = trunc i64 %call43 to i32
   store i32 %conv44, ptr %max_changed_paths, align 4
-  %bloom_settings46 = getelementptr inbounds %struct.write_commit_graph_context, ptr %call5, i64 0, i32 23
+  %bloom_settings46 = getelementptr inbounds i8, ptr %call5, i64 208
   store ptr %bloom_settings, ptr %bloom_settings46, align 8
-  %stride1.i.i = getelementptr inbounds %struct.topo_level_slab, ptr %topo_levels, i64 0, i32 1
+  %stride1.i.i = getelementptr inbounds i8, ptr %topo_levels, i64 4
   store i32 1, ptr %stride1.i.i, align 4
   store i32 131064, ptr %topo_levels, align 8
-  %slab_count.i.i = getelementptr inbounds %struct.topo_level_slab, ptr %topo_levels, i64 0, i32 2
+  %slab_count.i.i = getelementptr inbounds i8, ptr %topo_levels, i64 8
   store i32 0, ptr %slab_count.i.i, align 8
-  %slab.i.i = getelementptr inbounds %struct.topo_level_slab, ptr %topo_levels, i64 0, i32 3
+  %slab.i.i = getelementptr inbounds i8, ptr %topo_levels, i64 16
   store ptr null, ptr %slab.i.i, align 8
-  %topo_levels47 = getelementptr inbounds %struct.write_commit_graph_context, ptr %call5, i64 0, i32 20
+  %topo_levels47 = getelementptr inbounds i8, ptr %call5, i64 184
   store ptr %topo_levels, ptr %topo_levels47, align 8
   %9 = load ptr, ptr %call5, align 8
   %call49 = call fastcc i32 @prepare_commit_graph(ptr noundef %9), !range !14
   %10 = load ptr, ptr %call5, align 8
-  %objects = getelementptr inbounds %struct.repository, ptr %10, i64 0, i32 2
+  %objects = getelementptr inbounds i8, ptr %10, i64 16
   %11 = load ptr, ptr %objects, align 8
-  %commit_graph = getelementptr inbounds %struct.raw_object_store, ptr %11, i64 0, i32 8
+  %commit_graph = getelementptr inbounds i8, ptr %11, i64 96
   %12 = load ptr, ptr %commit_graph, align 8
   %tobool51.not = icmp eq ptr %12, null
   br i1 %tobool51.not, label %if.end58, label %while.body
 
 while.body:                                       ; preds = %if.end4, %while.body
   %g.0493 = phi ptr [ %13, %while.body ], [ %12, %if.end4 ]
-  %topo_levels57 = getelementptr inbounds %struct.commit_graph, ptr %g.0493, i64 0, i32 24
+  %topo_levels57 = getelementptr inbounds i8, ptr %g.0493, i64 200
   store ptr %topo_levels, ptr %topo_levels57, align 8
-  %base_graph = getelementptr inbounds %struct.commit_graph, ptr %g.0493, i64 0, i32 10
+  %base_graph = getelementptr inbounds i8, ptr %g.0493, i64 88
   %13 = load ptr, ptr %base_graph, align 8
   %tobool56.not = icmp eq ptr %13, null
   br i1 %tobool56.not, label %if.end58, label %while.body, !llvm.loop !27
@@ -3238,15 +3216,15 @@ if.end65:                                         ; preds = %if.then61, %if.end5
 
 if.then68:                                        ; preds = %if.end65
   %14 = load ptr, ptr %call5, align 8
-  %objects71 = getelementptr inbounds %struct.repository, ptr %14, i64 0, i32 2
+  %objects71 = getelementptr inbounds i8, ptr %14, i64 16
   %15 = load ptr, ptr %objects71, align 8
-  %commit_graph72 = getelementptr inbounds %struct.raw_object_store, ptr %15, i64 0, i32 8
+  %commit_graph72 = getelementptr inbounds i8, ptr %15, i64 96
   %16 = load ptr, ptr %commit_graph72, align 8
   %tobool73.not = icmp eq ptr %16, null
   br i1 %tobool73.not, label %if.end82, label %land.lhs.true
 
 land.lhs.true:                                    ; preds = %if.then68
-  %chunk_bloom_data = getelementptr inbounds %struct.commit_graph, ptr %16, i64 0, i32 22
+  %chunk_bloom_data = getelementptr inbounds i8, ptr %16, i64 184
   %17 = load ptr, ptr %chunk_bloom_data, align 8
   %tobool74.not = icmp eq ptr %17, null
   br i1 %tobool74.not, label %if.end82, label %if.then75
@@ -3255,7 +3233,7 @@ if.then75:                                        ; preds = %land.lhs.true
   %bf.load77 = load i8, ptr %append, align 8
   %bf.set79 = or i8 %bf.load77, 8
   store i8 %bf.set79, ptr %append, align 8
-  %bloom_filter_settings = getelementptr inbounds %struct.commit_graph, ptr %16, i64 0, i32 25
+  %bloom_filter_settings = getelementptr inbounds i8, ptr %16, i64 208
   %18 = load ptr, ptr %bloom_filter_settings, align 8
   store ptr %18, ptr %bloom_settings46, align 8
   br label %if.end82
@@ -3268,34 +3246,34 @@ if.end82:                                         ; preds = %if.then68, %land.lh
 
 if.then87:                                        ; preds = %if.end82
   %20 = load ptr, ptr %call5, align 8
-  %objects90 = getelementptr inbounds %struct.repository, ptr %20, i64 0, i32 2
+  %objects90 = getelementptr inbounds i8, ptr %20, i64 16
   %21 = load ptr, ptr %objects90, align 8
-  %commit_graph91 = getelementptr inbounds %struct.raw_object_store, ptr %21, i64 0, i32 8
+  %commit_graph91 = getelementptr inbounds i8, ptr %21, i64 96
   %g88.0494 = load ptr, ptr %commit_graph91, align 8
   %tobool93.not495 = icmp eq ptr %g88.0494, null
-  %num_commit_graphs_before97.phi.trans.insert = getelementptr inbounds %struct.write_commit_graph_context, ptr %call5, i64 0, i32 12
+  %num_commit_graphs_before97.phi.trans.insert = getelementptr inbounds i8, ptr %call5, i64 128
   %.pre = load i32, ptr %num_commit_graphs_before97.phi.trans.insert, align 8
   br i1 %tobool93.not495, label %while.end96, label %while.body94
 
 while.body94:                                     ; preds = %if.then87, %while.body94
-  %inc497 = phi i32 [ %inc, %while.body94 ], [ %.pre, %if.then87 ]
+  %22 = phi i32 [ %inc, %while.body94 ], [ %.pre, %if.then87 ]
   %g88.0496 = phi ptr [ %g88.0, %while.body94 ], [ %g88.0494, %if.then87 ]
-  %inc = add nsw i32 %inc497, 1
+  %inc = add nsw i32 %22, 1
   store i32 %inc, ptr %num_commit_graphs_before97.phi.trans.insert, align 8
-  %base_graph95 = getelementptr inbounds %struct.commit_graph, ptr %g88.0496, i64 0, i32 10
+  %base_graph95 = getelementptr inbounds i8, ptr %g88.0496, i64 88
   %g88.0 = load ptr, ptr %base_graph95, align 8
   %tobool93.not = icmp eq ptr %g88.0, null
   br i1 %tobool93.not, label %while.end96, label %while.body94, !llvm.loop !28
 
 while.end96:                                      ; preds = %while.body94, %if.then87
-  %22 = phi i32 [ %.pre, %if.then87 ], [ %inc, %while.body94 ]
-  %num_commit_graphs_before97 = getelementptr inbounds %struct.write_commit_graph_context, ptr %call5, i64 0, i32 12
-  %tobool98.not = icmp eq i32 %22, 0
+  %23 = phi i32 [ %.pre, %if.then87 ], [ %inc, %while.body94 ]
+  %num_commit_graphs_before97 = getelementptr inbounds i8, ptr %call5, i64 128
+  %tobool98.not = icmp eq i32 %23, 0
   br i1 %tobool98.not, label %if.end115, label %if.then99
 
 if.then99:                                        ; preds = %while.end96
-  %conv101 = sext i32 %22 to i64
-  %mul.ov.i = icmp slt i32 %22, 0
+  %conv101 = sext i32 %23 to i64
+  %mul.ov.i = icmp slt i32 %23, 0
   br i1 %mul.ov.i, label %if.then.i, label %st_mult.exit
 
 if.then.i:                                        ; preds = %if.then99
@@ -3305,52 +3283,52 @@ if.then.i:                                        ; preds = %if.then99
 st_mult.exit:                                     ; preds = %if.then99
   %mul.i = shl nuw nsw i64 %conv101, 3
   %call103 = call ptr @xmalloc(i64 noundef %mul.i) #22
-  %commit_graph_filenames_before = getelementptr inbounds %struct.write_commit_graph_context, ptr %call5, i64 0, i32 14
+  %commit_graph_filenames_before = getelementptr inbounds i8, ptr %call5, i64 136
   store ptr %call103, ptr %commit_graph_filenames_before, align 8
-  %23 = load ptr, ptr %call5, align 8
-  %objects106 = getelementptr inbounds %struct.repository, ptr %23, i64 0, i32 2
-  %24 = load ptr, ptr %objects106, align 8
-  %commit_graph107 = getelementptr inbounds %struct.raw_object_store, ptr %24, i64 0, i32 8
-  %g88.1498 = load ptr, ptr %commit_graph107, align 8
-  %tobool109.not499 = icmp eq ptr %g88.1498, null
-  br i1 %tobool109.not499, label %if.end115, label %while.body110.preheader
+  %24 = load ptr, ptr %call5, align 8
+  %objects106 = getelementptr inbounds i8, ptr %24, i64 16
+  %25 = load ptr, ptr %objects106, align 8
+  %commit_graph107 = getelementptr inbounds i8, ptr %25, i64 96
+  %g88.1497 = load ptr, ptr %commit_graph107, align 8
+  %tobool109.not498 = icmp eq ptr %g88.1497, null
+  br i1 %tobool109.not498, label %if.end115, label %while.body110.preheader
 
 while.body110.preheader:                          ; preds = %st_mult.exit
-  %25 = load i32, ptr %num_commit_graphs_before97, align 8
+  %26 = load i32, ptr %num_commit_graphs_before97, align 8
   br label %while.body110
 
 while.body110:                                    ; preds = %while.body110.preheader, %while.body110
-  %g88.1501 = phi ptr [ %g88.1, %while.body110 ], [ %g88.1498, %while.body110.preheader ]
-  %i.0500 = phi i32 [ %dec, %while.body110 ], [ %25, %while.body110.preheader ]
-  %filename = getelementptr inbounds %struct.commit_graph, ptr %g88.1501, i64 0, i32 6
-  %26 = load ptr, ptr %filename, align 8
-  %call111 = call ptr @xstrdup(ptr noundef %26) #22
-  %27 = load ptr, ptr %commit_graph_filenames_before, align 8
-  %dec = add i32 %i.0500, -1
+  %g88.1500 = phi ptr [ %g88.1, %while.body110 ], [ %g88.1497, %while.body110.preheader ]
+  %i.0499 = phi i32 [ %dec, %while.body110 ], [ %26, %while.body110.preheader ]
+  %filename = getelementptr inbounds i8, ptr %g88.1500, i64 64
+  %27 = load ptr, ptr %filename, align 8
+  %call111 = call ptr @xstrdup(ptr noundef %27) #22
+  %28 = load ptr, ptr %commit_graph_filenames_before, align 8
+  %dec = add i32 %i.0499, -1
   %idxprom = zext i32 %dec to i64
-  %arrayidx = getelementptr inbounds ptr, ptr %27, i64 %idxprom
+  %arrayidx = getelementptr inbounds ptr, ptr %28, i64 %idxprom
   store ptr %call111, ptr %arrayidx, align 8
-  %base_graph113 = getelementptr inbounds %struct.commit_graph, ptr %g88.1501, i64 0, i32 10
+  %base_graph113 = getelementptr inbounds i8, ptr %g88.1500, i64 88
   %g88.1 = load ptr, ptr %base_graph113, align 8
   %tobool109.not = icmp eq ptr %g88.1, null
   br i1 %tobool109.not, label %if.end115, label %while.body110, !llvm.loop !29
 
 if.end115:                                        ; preds = %while.body110, %st_mult.exit, %while.end96
-  %28 = load ptr, ptr %opts26, align 8
-  %tobool117.not = icmp eq ptr %28, null
+  %29 = load ptr, ptr %opts26, align 8
+  %tobool117.not = icmp eq ptr %29, null
   br i1 %tobool117.not, label %if.end122, label %if.then118
 
 if.then118:                                       ; preds = %if.end115
-  %split_flags = getelementptr inbounds %struct.commit_graph_opts, ptr %28, i64 0, i32 3
-  %29 = load i32, ptr %split_flags, align 8
-  %and120 = and i32 %29, 2
+  %split_flags = getelementptr inbounds i8, ptr %29, i64 16
+  %30 = load i32, ptr %split_flags, align 8
+  %and120 = and i32 %30, 2
   br label %if.end122
 
 if.end122:                                        ; preds = %if.end115, %if.then118, %if.end82
   %replace.0 = phi i32 [ %and120, %if.then118 ], [ 0, %if.end115 ], [ 0, %if.end82 ]
-  %30 = load ptr, ptr @the_repository, align 8
-  %call123 = call i64 @repo_approximate_object_count(ptr noundef %30) #22
-  %approx_nr_objects = getelementptr inbounds %struct.write_commit_graph_context, ptr %call5, i64 0, i32 7
+  %31 = load ptr, ptr @the_repository, align 8
+  %call123 = call i64 @repo_approximate_object_count(ptr noundef %31) #22
+  %approx_nr_objects = getelementptr inbounds i8, ptr %call5, i64 88
   store i64 %call123, ptr %approx_nr_objects, align 8
   %bf.load125 = load i8, ptr %append, align 8
   %bf.clear126 = and i8 %bf.load125, 1
@@ -3358,51 +3336,51 @@ if.end122:                                        ; preds = %if.end115, %if.then
   br i1 %tobool128.not, label %if.end145, label %land.lhs.true129
 
 land.lhs.true129:                                 ; preds = %if.end122
-  %31 = load ptr, ptr %call5, align 8
-  %objects131 = getelementptr inbounds %struct.repository, ptr %31, i64 0, i32 2
-  %32 = load ptr, ptr %objects131, align 8
-  %commit_graph132 = getelementptr inbounds %struct.raw_object_store, ptr %32, i64 0, i32 8
-  %33 = load ptr, ptr %commit_graph132, align 8
-  %tobool133.not = icmp eq ptr %33, null
+  %32 = load ptr, ptr %call5, align 8
+  %objects131 = getelementptr inbounds i8, ptr %32, i64 16
+  %33 = load ptr, ptr %objects131, align 8
+  %commit_graph132 = getelementptr inbounds i8, ptr %33, i64 96
+  %34 = load ptr, ptr %commit_graph132, align 8
+  %tobool133.not = icmp eq ptr %34, null
   br i1 %tobool133.not, label %if.end145, label %for.cond.preheader
 
 for.cond.preheader:                               ; preds = %land.lhs.true129
-  %num_commits = getelementptr inbounds %struct.commit_graph, ptr %33, i64 0, i32 4
-  %34 = load i32, ptr %num_commits, align 4
-  %cmp139502.not = icmp eq i32 %34, 0
-  br i1 %cmp139502.not, label %if.end145, label %for.body.lr.ph
+  %num_commits = getelementptr inbounds i8, ptr %34, i64 20
+  %35 = load i32, ptr %num_commits, align 4
+  %cmp139501.not = icmp eq i32 %35, 0
+  br i1 %cmp139501.not, label %if.end145, label %for.body.lr.ph
 
 for.body.lr.ph:                                   ; preds = %for.cond.preheader
-  %chunk_oid_lookup = getelementptr inbounds %struct.commit_graph, ptr %33, i64 0, i32 12
-  %hash_len = getelementptr inbounds %struct.commit_graph, ptr %33, i64 0, i32 2
-  %algo.i = getelementptr inbounds %struct.object_id, ptr %oid, i64 0, i32 1
-  %oids = getelementptr inbounds %struct.write_commit_graph_context, ptr %call5, i64 0, i32 3
+  %chunk_oid_lookup = getelementptr inbounds i8, ptr %34, i64 104
+  %hash_len = getelementptr inbounds i8, ptr %34, i64 16
+  %algo.i = getelementptr inbounds i8, ptr %oid, i64 32
+  %oids = getelementptr inbounds i8, ptr %call5, i64 24
   br label %for.body
 
 for.body:                                         ; preds = %for.body.lr.ph, %for.body
   %indvars.iv = phi i64 [ 0, %for.body.lr.ph ], [ %indvars.iv.next, %for.body ]
-  %35 = load ptr, ptr %chunk_oid_lookup, align 8
-  %36 = load i8, ptr %hash_len, align 8
-  %conv141 = zext i8 %36 to i64
+  %36 = load ptr, ptr %chunk_oid_lookup, align 8
+  %37 = load i8, ptr %hash_len, align 8
+  %conv141 = zext i8 %37 to i64
   %mul.i114 = mul nuw nsw i64 %indvars.iv, %conv141
-  %add.ptr = getelementptr inbounds i8, ptr %35, i64 %mul.i114
-  %37 = load ptr, ptr @the_repository, align 8
-  %hash_algo.i = getelementptr inbounds %struct.repository, ptr %37, i64 0, i32 15
-  %38 = load ptr, ptr %hash_algo.i, align 8
-  %rawsz.i = getelementptr inbounds %struct.git_hash_algo, ptr %38, i64 0, i32 2
-  %39 = load i64, ptr %rawsz.i, align 8
-  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 4 %oid, ptr align 1 %add.ptr, i64 %39, i1 false)
-  %40 = load ptr, ptr %hash_algo.i, align 8
-  %sub.ptr.lhs.cast.i.i = ptrtoint ptr %40 to i64
+  %add.ptr = getelementptr inbounds i8, ptr %36, i64 %mul.i114
+  %38 = load ptr, ptr @the_repository, align 8
+  %hash_algo.i = getelementptr inbounds i8, ptr %38, i64 256
+  %39 = load ptr, ptr %hash_algo.i, align 8
+  %rawsz.i = getelementptr inbounds i8, ptr %39, i64 16
+  %40 = load i64, ptr %rawsz.i, align 8
+  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 4 %oid, ptr align 1 %add.ptr, i64 %40, i1 false)
+  %41 = load ptr, ptr %hash_algo.i, align 8
+  %sub.ptr.lhs.cast.i.i = ptrtoint ptr %41 to i64
   %sub.ptr.sub.i.i = sub i64 %sub.ptr.lhs.cast.i.i, ptrtoint (ptr @hash_algos to i64)
   %sub.ptr.div.i.i = sdiv exact i64 %sub.ptr.sub.i.i, 104
   %conv.i.i = trunc i64 %sub.ptr.div.i.i to i32
   store i32 %conv.i.i, ptr %algo.i, align 4
   call void @oid_array_append(ptr noundef nonnull %oids, ptr noundef nonnull %oid) #22
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %41 = load i32, ptr %num_commits, align 4
-  %42 = zext i32 %41 to i64
-  %cmp139 = icmp ult i64 %indvars.iv.next, %42
+  %42 = load i32, ptr %num_commits, align 4
+  %43 = zext i32 %42 to i64
+  %cmp139 = icmp ult i64 %indvars.iv.next, %43
   br i1 %cmp139, label %for.body, label %if.end145, !llvm.loop !30
 
 if.end145:                                        ; preds = %for.body, %for.cond.preheader, %land.lhs.true129, %if.end122
@@ -3417,64 +3395,64 @@ if.then147:                                       ; preds = %if.end145
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %packname.i)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %progress_title.i, ptr noundef nonnull align 8 dereferenceable(24) @__const.expire_commit_graphs.path, i64 24, i1 false)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %packname.i, ptr noundef nonnull align 8 dereferenceable(24) @__const.expire_commit_graphs.path, i64 24, i1 false)
-  %43 = load ptr, ptr %odb7, align 8
-  %path.i = getelementptr inbounds %struct.object_directory, ptr %43, i64 0, i32 5
-  %44 = load ptr, ptr %path.i, align 8
-  call void (ptr, ptr, ...) @strbuf_addf(ptr noundef nonnull %packname.i, ptr noundef nonnull @.str.57, ptr noundef %44) #22
-  %len.i = getelementptr inbounds %struct.strbuf, ptr %packname.i, i64 0, i32 1
-  %45 = load i64, ptr %len.i, align 8
+  %44 = load ptr, ptr %odb7, align 8
+  %path.i = getelementptr inbounds i8, ptr %44, i64 56
+  %45 = load ptr, ptr %path.i, align 8
+  call void (ptr, ptr, ...) @strbuf_addf(ptr noundef nonnull %packname.i, ptr noundef nonnull @.str.57, ptr noundef %45) #22
+  %len.i = getelementptr inbounds i8, ptr %packname.i, i64 8
+  %46 = load i64, ptr %len.i, align 8
   %bf.load.i = load i8, ptr %append, align 8
-  %46 = and i8 %bf.load.i, 2
-  %tobool.not.i117 = icmp eq i8 %46, 0
+  %47 = and i8 %bf.load.i, 2
+  %tobool.not.i117 = icmp eq i8 %47, 0
   br i1 %tobool.not.i117, label %if.end.i, label %if.then.i118
 
 if.then.i118:                                     ; preds = %if.then147
-  %nr.i = getelementptr inbounds %struct.string_list, ptr %pack_indexes, i64 0, i32 1
-  %47 = load i64, ptr %nr.i, align 8
-  %48 = load i32, ptr @git_gettext_enabled, align 4
-  %tobool.not.i.i = icmp eq i32 %48, 0
+  %nr.i = getelementptr inbounds i8, ptr %pack_indexes, i64 8
+  %48 = load i64, ptr %nr.i, align 8
+  %49 = load i32, ptr @git_gettext_enabled, align 4
+  %tobool.not.i.i = icmp eq i32 %49, 0
   br i1 %tobool.not.i.i, label %if.then.i.i, label %if.end.i.i
 
 if.then.i.i:                                      ; preds = %if.then.i118
-  %cmp.i.i = icmp eq i64 %47, 1
+  %cmp.i.i = icmp eq i64 %48, 1
   %cond.i.i = select i1 %cmp.i.i, ptr @.str.58, ptr @.str.59
   br label %Q_.exit.i
 
 if.end.i.i:                                       ; preds = %if.then.i118
-  %call.i.i = call ptr @ngettext(ptr noundef nonnull @.str.58, ptr noundef nonnull @.str.59, i64 noundef %47) #22
+  %call.i.i = call ptr @ngettext(ptr noundef nonnull @.str.58, ptr noundef nonnull @.str.59, i64 noundef %48) #22
   %.pre.i = load i64, ptr %nr.i, align 8
   br label %Q_.exit.i
 
 Q_.exit.i:                                        ; preds = %if.end.i.i, %if.then.i.i
-  %49 = phi i64 [ %.pre.i, %if.end.i.i ], [ %47, %if.then.i.i ]
+  %50 = phi i64 [ %.pre.i, %if.end.i.i ], [ %48, %if.then.i.i ]
   %retval.0.i.i = phi ptr [ %call.i.i, %if.end.i.i ], [ %cond.i.i, %if.then.i.i ]
-  call void (ptr, ptr, ...) @strbuf_addf(ptr noundef nonnull %progress_title.i, ptr noundef %retval.0.i.i, i64 noundef %49) #22
-  %buf.i = getelementptr inbounds %struct.strbuf, ptr %progress_title.i, i64 0, i32 2
-  %50 = load ptr, ptr %buf.i, align 8
-  %call2.i = call ptr @start_delayed_progress(ptr noundef %50, i64 noundef 0) #22
-  %progress.i = getelementptr inbounds %struct.write_commit_graph_context, ptr %call5, i64 0, i32 8
+  call void (ptr, ptr, ...) @strbuf_addf(ptr noundef nonnull %progress_title.i, ptr noundef %retval.0.i.i, i64 noundef %50) #22
+  %buf.i = getelementptr inbounds i8, ptr %progress_title.i, i64 16
+  %51 = load ptr, ptr %buf.i, align 8
+  %call2.i = call ptr @start_delayed_progress(ptr noundef %51, i64 noundef 0) #22
+  %progress.i = getelementptr inbounds i8, ptr %call5, i64 96
   store ptr %call2.i, ptr %progress.i, align 8
-  %progress_done.i = getelementptr inbounds %struct.write_commit_graph_context, ptr %call5, i64 0, i32 9
+  %progress_done.i = getelementptr inbounds i8, ptr %call5, i64 104
   store i32 0, ptr %progress_done.i, align 8
   br label %if.end.i
 
 if.end.i:                                         ; preds = %Q_.exit.i, %if.then147
-  %nr4.i = getelementptr inbounds %struct.string_list, ptr %pack_indexes, i64 0, i32 1
-  %51 = load i64, ptr %nr4.i, align 8
-  %cmp29.not.i = icmp eq i64 %51, 0
+  %nr4.i = getelementptr inbounds i8, ptr %pack_indexes, i64 8
+  %52 = load i64, ptr %nr4.i, align 8
+  %cmp29.not.i = icmp eq i64 %52, 0
   br i1 %cmp29.not.i, label %cleanup.i, label %for.body.lr.ph.i
 
 for.body.lr.ph.i:                                 ; preds = %if.end.i
-  %sext.i = shl i64 %45, 32
+  %sext.i = shl i64 %46, 32
   %conv6.i = ashr exact i64 %sext.i, 32
-  %buf.i.i = getelementptr inbounds %struct.strbuf, ptr %packname.i, i64 0, i32 2
+  %buf.i.i = getelementptr inbounds i8, ptr %packname.i, i64 16
   br label %for.body.i
 
 for.body.i:                                       ; preds = %if.end24.i, %for.body.lr.ph.i
   %conv331.i = phi i64 [ 0, %for.body.lr.ph.i ], [ %conv3.i, %if.end24.i ]
   %i.030.i = phi i32 [ 0, %for.body.lr.ph.i ], [ %inc.i, %if.end24.i ]
-  %52 = load i64, ptr %packname.i, align 8
-  %spec.select.i.i = call i64 @llvm.usub.sat.i64(i64 %52, i64 1)
+  %53 = load i64, ptr %packname.i, align 8
+  %spec.select.i.i = call i64 @llvm.usub.sat.i64(i64 %53, i64 1)
   %cmp.i15.i = icmp ult i64 %spec.select.i.i, %conv6.i
   br i1 %cmp.i15.i, label %if.then.i17.i, label %if.end.i16.i
 
@@ -3484,30 +3462,30 @@ if.then.i17.i:                                    ; preds = %for.body.i
 
 if.end.i16.i:                                     ; preds = %for.body.i
   store i64 %conv6.i, ptr %len.i, align 8
-  %53 = load ptr, ptr %buf.i.i, align 8
-  %cmp3.not.i.i = icmp eq ptr %53, @strbuf_slopbuf
+  %54 = load ptr, ptr %buf.i.i, align 8
+  %cmp3.not.i.i = icmp eq ptr %54, @strbuf_slopbuf
   br i1 %cmp3.not.i.i, label %strbuf_setlen.exit.i, label %if.then4.i.i
 
 if.then4.i.i:                                     ; preds = %if.end.i16.i
-  %arrayidx.i.i = getelementptr inbounds i8, ptr %53, i64 %conv6.i
+  %arrayidx.i.i = getelementptr inbounds i8, ptr %54, i64 %conv6.i
   store i8 0, ptr %arrayidx.i.i, align 1
   br label %strbuf_setlen.exit.i
 
 strbuf_setlen.exit.i:                             ; preds = %if.then4.i.i, %if.end.i16.i
-  %54 = load ptr, ptr %pack_indexes, align 8
-  %arrayidx.i = getelementptr inbounds %struct.string_list_item, ptr %54, i64 %conv331.i
-  %55 = load ptr, ptr %arrayidx.i, align 8
-  %call.i18.i = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %55) #26
-  call void @strbuf_add(ptr noundef nonnull %packname.i, ptr noundef %55, i64 noundef %call.i18.i) #22
-  %56 = load ptr, ptr %buf.i.i, align 8
-  %57 = load i64, ptr %len.i, align 8
-  %call9.i = call ptr @add_packed_git(ptr noundef %56, i64 noundef %57, i32 noundef 1) #22
+  %55 = load ptr, ptr %pack_indexes, align 8
+  %arrayidx.i = getelementptr inbounds %struct.string_list_item, ptr %55, i64 %conv331.i
+  %56 = load ptr, ptr %arrayidx.i, align 8
+  %call.i18.i = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %56) #26
+  call void @strbuf_add(ptr noundef nonnull %packname.i, ptr noundef %56, i64 noundef %call.i18.i) #22
+  %57 = load ptr, ptr %buf.i.i, align 8
+  %58 = load i64, ptr %len.i, align 8
+  %call9.i = call ptr @add_packed_git(ptr noundef %57, i64 noundef %58, i32 noundef 1) #22
   %tobool10.not.i = icmp eq ptr %call9.i, null
   br i1 %tobool10.not.i, label %if.then11.i, label %if.end16.i
 
 if.then11.i:                                      ; preds = %strbuf_setlen.exit.i
-  %58 = load i32, ptr @git_gettext_enabled, align 4
-  %tobool1.not.i.i = icmp eq i32 %58, 0
+  %59 = load i32, ptr @git_gettext_enabled, align 4
+  %tobool1.not.i.i = icmp eq i32 %59, 0
   br i1 %tobool1.not.i.i, label %cleanup.sink.split.i, label %cleanup.sink.split.sink.split.i
 
 if.end16.i:                                       ; preds = %strbuf_setlen.exit.i
@@ -3516,8 +3494,8 @@ if.end16.i:                                       ; preds = %strbuf_setlen.exit.
   br i1 %tobool18.not.i, label %if.end24.i, label %if.then19.i
 
 if.then19.i:                                      ; preds = %if.end16.i
-  %59 = load i32, ptr @git_gettext_enabled, align 4
-  %tobool1.not.i23.i = icmp eq i32 %59, 0
+  %60 = load i32, ptr @git_gettext_enabled, align 4
+  %tobool1.not.i23.i = icmp eq i32 %60, 0
   br i1 %tobool1.not.i23.i, label %cleanup.sink.split.i, label %cleanup.sink.split.sink.split.i
 
 if.end24.i:                                       ; preds = %if.end16.i
@@ -3526,8 +3504,8 @@ if.end24.i:                                       ; preds = %if.end16.i
   call void @free(ptr noundef nonnull %call9.i) #22
   %inc.i = add i32 %i.030.i, 1
   %conv3.i = zext i32 %inc.i to i64
-  %60 = load i64, ptr %nr4.i, align 8
-  %cmp.i = icmp ugt i64 %60, %conv3.i
+  %61 = load i64, ptr %nr4.i, align 8
+  %cmp.i = icmp ugt i64 %61, %conv3.i
   br i1 %cmp.i, label %for.body.i, label %cleanup.i, !llvm.loop !31
 
 cleanup.sink.split.sink.split.i:                  ; preds = %if.then19.i, %if.then11.i
@@ -3537,14 +3515,14 @@ cleanup.sink.split.sink.split.i:                  ; preds = %if.then19.i, %if.th
 
 cleanup.sink.split.i:                             ; preds = %cleanup.sink.split.sink.split.i, %if.then19.i, %if.then11.i
   %retval.0.i26.sink.i = phi ptr [ @.str.60, %if.then11.i ], [ @.str.61, %if.then19.i ], [ %call.i25.i, %cleanup.sink.split.sink.split.i ]
-  %61 = load ptr, ptr %buf.i.i, align 8
-  %call22.i = call i32 (ptr, ...) @error(ptr noundef %retval.0.i26.sink.i, ptr noundef %61) #22
+  %62 = load ptr, ptr %buf.i.i, align 8
+  %call22.i = call i32 (ptr, ...) @error(ptr noundef %retval.0.i26.sink.i, ptr noundef %62) #22
   br label %cleanup.i
 
 cleanup.i:                                        ; preds = %if.end24.i, %cleanup.sink.split.i, %if.end.i
   %tobool152.not = phi i1 [ true, %if.end.i ], [ false, %cleanup.sink.split.i ], [ true, %if.end24.i ]
-  %62 = load i32, ptr @git_gettext_enabled, align 4
-  %tobool1.not.i.i.i = icmp eq i32 %62, 0
+  %63 = load i32, ptr @git_gettext_enabled, align 4
+  %tobool1.not.i.i.i = icmp eq i32 %63, 0
   br i1 %tobool1.not.i.i.i, label %fill_oids_from_packs.exit, label %if.end3.i.i.i
 
 if.end3.i.i.i:                                    ; preds = %cleanup.i
@@ -3553,7 +3531,7 @@ if.end3.i.i.i:                                    ; preds = %cleanup.i
 
 fill_oids_from_packs.exit:                        ; preds = %cleanup.i, %if.end3.i.i.i
   %retval.0.i.i.i = phi ptr [ %call.i.i.i, %if.end3.i.i.i ], [ @.str.53, %cleanup.i ]
-  %progress26.i = getelementptr inbounds %struct.write_commit_graph_context, ptr %call5, i64 0, i32 8
+  %progress26.i = getelementptr inbounds i8, ptr %call5, i64 96
   call void @stop_progress_msg(ptr noundef nonnull %progress26.i, ptr noundef %retval.0.i.i.i) #22
   call void @strbuf_release(ptr noundef nonnull %progress_title.i) #22
   call void @strbuf_release(ptr noundef nonnull %packname.i) #22
@@ -3566,58 +3544,58 @@ if.end155:                                        ; preds = %fill_oids_from_pack
   br i1 %tobool156, label %if.then157, label %if.end162
 
 if.then157:                                       ; preds = %if.end155
-  %63 = getelementptr i8, ptr %commits, i64 4
-  %commits.val.i = load i32, ptr %63, align 4
+  %64 = getelementptr i8, ptr %commits, i64 4
+  %commits.val.i = load i32, ptr %64, align 4
   %tobool.not.i119 = icmp eq i32 %commits.val.i, 0
   br i1 %tobool.not.i119, label %if.end171, label %while.cond.preheader.i
 
 while.cond.preheader.i:                           ; preds = %if.then157
-  %64 = load i32, ptr %commits, align 8
-  %cmp.not12.i7.i = icmp eq i32 %64, 0
+  %65 = load i32, ptr %commits, align 8
+  %cmp.not12.i7.i = icmp eq i32 %65, 0
   br i1 %cmp.not12.i7.i, label %if.end171, label %for.body.lr.ph.i.lr.ph.i
 
 for.body.lr.ph.i.lr.ph.i:                         ; preds = %while.cond.preheader.i
-  %flags.i.i = getelementptr inbounds %struct.kh_oid_set, ptr %commits, i64 0, i32 4
-  %keys.i.i = getelementptr inbounds %struct.kh_oid_set, ptr %commits, i64 0, i32 5
-  %oids.i = getelementptr inbounds %struct.write_commit_graph_context, ptr %call5, i64 0, i32 3
+  %flags.i.i = getelementptr inbounds i8, ptr %commits, i64 16
+  %keys.i.i = getelementptr inbounds i8, ptr %commits, i64 24
+  %oids.i = getelementptr inbounds i8, ptr %call5, i64 24
   br label %for.body.lr.ph.i.i
 
 for.body.lr.ph.i.i:                               ; preds = %while.body.i, %for.body.lr.ph.i.lr.ph.i
-  %65 = phi i32 [ %64, %for.body.lr.ph.i.lr.ph.i ], [ %72, %while.body.i ]
+  %66 = phi i32 [ %65, %for.body.lr.ph.i.lr.ph.i ], [ %73, %while.body.i ]
   %iter.sroa.2.08.i = phi i32 [ 0, %for.body.lr.ph.i.lr.ph.i ], [ %inc.i.i, %while.body.i ]
-  %66 = load ptr, ptr %flags.i.i, align 8
+  %67 = load ptr, ptr %flags.i.i, align 8
   br label %for.body.i.i
 
 for.body.i.i:                                     ; preds = %for.inc.i.i, %for.body.lr.ph.i.i
-  %67 = phi i32 [ %iter.sroa.2.08.i, %for.body.lr.ph.i.i ], [ %inc12.i.i, %for.inc.i.i ]
-  %shr.i.i = lshr i32 %67, 4
+  %68 = phi i32 [ %iter.sroa.2.08.i, %for.body.lr.ph.i.i ], [ %inc12.i.i, %for.inc.i.i ]
+  %shr.i.i = lshr i32 %68, 4
   %idxprom.i.i = zext nneg i32 %shr.i.i to i64
-  %arrayidx.i.i120 = getelementptr inbounds i32, ptr %66, i64 %idxprom.i.i
-  %68 = load i32, ptr %arrayidx.i.i120, align 4
-  %and.i.i = shl i32 %67, 1
+  %arrayidx.i.i120 = getelementptr inbounds i32, ptr %67, i64 %idxprom.i.i
+  %69 = load i32, ptr %arrayidx.i.i120, align 4
+  %and.i.i = shl i32 %68, 1
   %shl.i.i = and i32 %and.i.i, 30
-  %69 = shl nuw i32 3, %shl.i.i
-  %70 = and i32 %69, %68
-  %tobool.not.i.i121 = icmp eq i32 %70, 0
+  %70 = shl nuw i32 3, %shl.i.i
+  %71 = and i32 %70, %69
+  %tobool.not.i.i121 = icmp eq i32 %71, 0
   br i1 %tobool.not.i.i121, label %oidset_iter_next.exit.i, label %for.inc.i.i
 
 for.inc.i.i:                                      ; preds = %for.body.i.i
-  %inc12.i.i = add i32 %67, 1
-  %cmp.not.i.i = icmp eq i32 %inc12.i.i, %65
+  %inc12.i.i = add i32 %68, 1
+  %cmp.not.i.i = icmp eq i32 %inc12.i.i, %66
   br i1 %cmp.not.i.i, label %if.end162, label %for.body.i.i, !llvm.loop !32
 
 oidset_iter_next.exit.i:                          ; preds = %for.body.i.i
-  %71 = load ptr, ptr %keys.i.i, align 8
-  %tobool2.not.i = icmp eq ptr %71, null
+  %72 = load ptr, ptr %keys.i.i, align 8
+  %tobool2.not.i = icmp eq ptr %72, null
   br i1 %tobool2.not.i, label %if.end171, label %while.body.i
 
 while.body.i:                                     ; preds = %oidset_iter_next.exit.i
-  %idxprom9.i.i = zext i32 %67 to i64
-  %arrayidx10.i.i = getelementptr inbounds %struct.object_id, ptr %71, i64 %idxprom9.i.i
-  %inc.i.i = add i32 %67, 1
+  %idxprom9.i.i = zext i32 %68 to i64
+  %arrayidx10.i.i = getelementptr inbounds %struct.object_id, ptr %72, i64 %idxprom9.i.i
+  %inc.i.i = add i32 %68, 1
   call void @oid_array_append(ptr noundef nonnull %oids.i, ptr noundef nonnull %arrayidx10.i.i) #22
-  %72 = load i32, ptr %commits, align 8
-  %cmp.not12.i.i = icmp eq i32 %inc.i.i, %72
+  %73 = load i32, ptr %commits, align 8
+  %cmp.not12.i.i = icmp eq i32 %inc.i.i, %73
   br i1 %cmp.not12.i.i, label %if.end171, label %for.body.lr.ph.i.i, !llvm.loop !33
 
 if.end162:                                        ; preds = %for.inc.i.i, %if.end155
@@ -3628,13 +3606,13 @@ if.then166:                                       ; preds = %if.end162
   %bf.load168 = load i8, ptr %append, align 8
   %bf.set170 = or i8 %bf.load168, 16
   store i8 %bf.set170, ptr %append, align 8
-  %73 = and i8 %bf.load168, 2
-  %tobool.not.i124 = icmp eq i8 %73, 0
+  %74 = and i8 %bf.load168, 2
+  %tobool.not.i124 = icmp eq i8 %74, 0
   br i1 %tobool.not.i124, label %if.end.i130, label %if.then.i125
 
 if.then.i125:                                     ; preds = %if.then166
-  %74 = load i32, ptr @git_gettext_enabled, align 4
-  %tobool1.not.i.i126 = icmp eq i32 %74, 0
+  %75 = load i32, ptr @git_gettext_enabled, align 4
+  %tobool1.not.i.i126 = icmp eq i32 %75, 0
   br i1 %tobool1.not.i.i126, label %_.exit.i, label %if.end3.i.i
 
 if.end3.i.i:                                      ; preds = %if.then.i125
@@ -3643,30 +3621,30 @@ if.end3.i.i:                                      ; preds = %if.then.i125
 
 _.exit.i:                                         ; preds = %if.end3.i.i, %if.then.i125
   %retval.0.i.i128 = phi ptr [ %call.i.i127, %if.end3.i.i ], [ @.str.65, %if.then.i125 ]
-  %75 = load i64, ptr %approx_nr_objects, align 8
-  %call1.i = call ptr @start_delayed_progress(ptr noundef %retval.0.i.i128, i64 noundef %75) #22
-  %progress.i129 = getelementptr inbounds %struct.write_commit_graph_context, ptr %call5, i64 0, i32 8
+  %76 = load i64, ptr %approx_nr_objects, align 8
+  %call1.i = call ptr @start_delayed_progress(ptr noundef %retval.0.i.i128, i64 noundef %76) #22
+  %progress.i129 = getelementptr inbounds i8, ptr %call5, i64 96
   store ptr %call1.i, ptr %progress.i129, align 8
   br label %if.end.i130
 
 if.end.i130:                                      ; preds = %_.exit.i, %if.then166
   %call2.i131 = call i32 @for_each_packed_object(ptr noundef nonnull @add_packed_commits, ptr noundef nonnull %call5, i32 noundef 4) #22
-  %progress_done.i132 = getelementptr inbounds %struct.write_commit_graph_context, ptr %call5, i64 0, i32 9
-  %76 = load i32, ptr %progress_done.i132, align 8
-  %conv.i = sext i32 %76 to i64
-  %77 = load i64, ptr %approx_nr_objects, align 8
-  %cmp.i133 = icmp ugt i64 %77, %conv.i
+  %progress_done.i132 = getelementptr inbounds i8, ptr %call5, i64 104
+  %77 = load i32, ptr %progress_done.i132, align 8
+  %conv.i = sext i32 %77 to i64
+  %78 = load i64, ptr %approx_nr_objects, align 8
+  %cmp.i133 = icmp ugt i64 %78, %conv.i
   br i1 %cmp.i133, label %if.then5.i, label %if.end8.i
 
 if.then5.i:                                       ; preds = %if.end.i130
-  %progress6.i = getelementptr inbounds %struct.write_commit_graph_context, ptr %call5, i64 0, i32 8
-  %78 = load ptr, ptr %progress6.i, align 8
-  call void @display_progress(ptr noundef %78, i64 noundef %77) #22
+  %progress6.i = getelementptr inbounds i8, ptr %call5, i64 96
+  %79 = load ptr, ptr %progress6.i, align 8
+  call void @display_progress(ptr noundef %79, i64 noundef %78) #22
   br label %if.end8.i
 
 if.end8.i:                                        ; preds = %if.then5.i, %if.end.i130
-  %79 = load i32, ptr @git_gettext_enabled, align 4
-  %tobool1.not.i.i.i134 = icmp eq i32 %79, 0
+  %80 = load i32, ptr @git_gettext_enabled, align 4
+  %tobool1.not.i.i.i134 = icmp eq i32 %80, 0
   br i1 %tobool1.not.i.i.i134, label %fill_oids_from_all_packs.exit, label %if.end3.i.i.i135
 
 if.end3.i.i.i135:                                 ; preds = %if.end8.i
@@ -3675,31 +3653,31 @@ if.end3.i.i.i135:                                 ; preds = %if.end8.i
 
 fill_oids_from_all_packs.exit:                    ; preds = %if.end8.i, %if.end3.i.i.i135
   %retval.0.i.i.i137 = phi ptr [ %call.i.i.i136, %if.end3.i.i.i135 ], [ @.str.53, %if.end8.i ]
-  %progress9.i = getelementptr inbounds %struct.write_commit_graph_context, ptr %call5, i64 0, i32 8
+  %progress9.i = getelementptr inbounds i8, ptr %call5, i64 96
   call void @stop_progress_msg(ptr noundef nonnull %progress9.i, ptr noundef %retval.0.i.i.i137) #22
   br label %if.end171
 
 if.end171:                                        ; preds = %oidset_iter_next.exit.i, %while.body.i, %if.then157, %while.cond.preheader.i, %fill_oids_from_all_packs.exit, %if.end162
-  %80 = load ptr, ptr %opts26, align 8
-  %tobool.not.i138 = icmp eq ptr %80, null
+  %81 = load ptr, ptr %opts26, align 8
+  %tobool.not.i138 = icmp eq ptr %81, null
   br i1 %tobool.not.i138, label %cond.end.i, label %cond.true.i
 
 cond.true.i:                                      ; preds = %if.end171
-  %split_flags.i = getelementptr inbounds %struct.commit_graph_opts, ptr %80, i64 0, i32 3
-  %81 = load i32, ptr %split_flags.i, align 8
-  %82 = icmp eq i32 %81, 2
+  %split_flags.i = getelementptr inbounds i8, ptr %81, i64 16
+  %82 = load i32, ptr %split_flags.i, align 8
+  %83 = icmp eq i32 %82, 2
   br label %cond.end.i
 
 cond.end.i:                                       ; preds = %cond.true.i, %if.end171
-  %cond.i = phi i1 [ %82, %cond.true.i ], [ false, %if.end171 ]
+  %cond.i = phi i1 [ %83, %cond.true.i ], [ false, %if.end171 ]
   %bf.load.i140 = load i8, ptr %append, align 8
-  %83 = and i8 %bf.load.i140, 2
-  %tobool2.not.i141 = icmp eq i8 %83, 0
+  %84 = and i8 %bf.load.i140, 2
+  %tobool2.not.i141 = icmp eq i8 %84, 0
   br i1 %tobool2.not.i141, label %if.end.i150, label %if.then.i142
 
 if.then.i142:                                     ; preds = %cond.end.i
-  %84 = load i32, ptr @git_gettext_enabled, align 4
-  %tobool1.not.i.i143 = icmp eq i32 %84, 0
+  %85 = load i32, ptr @git_gettext_enabled, align 4
+  %tobool1.not.i.i143 = icmp eq i32 %85, 0
   br i1 %tobool1.not.i.i143, label %_.exit.i146, label %if.end3.i.i144
 
 if.end3.i.i144:                                   ; preds = %if.then.i142
@@ -3708,33 +3686,33 @@ if.end3.i.i144:                                   ; preds = %if.then.i142
 
 _.exit.i146:                                      ; preds = %if.end3.i.i144, %if.then.i142
   %retval.0.i.i147 = phi ptr [ %call.i.i145, %if.end3.i.i144 ], [ @.str.66, %if.then.i142 ]
-  %nr.i148 = getelementptr inbounds %struct.write_commit_graph_context, ptr %call5, i64 0, i32 3, i32 1
-  %85 = load i64, ptr %nr.i148, align 8
-  %call3.i = call ptr @start_delayed_progress(ptr noundef %retval.0.i.i147, i64 noundef %85) #22
-  %progress.i149 = getelementptr inbounds %struct.write_commit_graph_context, ptr %call5, i64 0, i32 8
+  %nr.i148 = getelementptr inbounds i8, ptr %call5, i64 32
+  %86 = load i64, ptr %nr.i148, align 8
+  %call3.i = call ptr @start_delayed_progress(ptr noundef %retval.0.i.i147, i64 noundef %86) #22
+  %progress.i149 = getelementptr inbounds i8, ptr %call5, i64 96
   store ptr %call3.i, ptr %progress.i149, align 8
   br label %if.end.i150
 
 if.end.i150:                                      ; preds = %_.exit.i146, %cond.end.i
-  %oids4.i = getelementptr inbounds %struct.write_commit_graph_context, ptr %call5, i64 0, i32 3
-  %nr5.i = getelementptr inbounds %struct.write_commit_graph_context, ptr %call5, i64 0, i32 3, i32 1
-  %86 = load i64, ptr %nr5.i, align 8
-  %cmp96.not.i = icmp eq i64 %86, 0
+  %oids4.i = getelementptr inbounds i8, ptr %call5, i64 24
+  %nr5.i = getelementptr inbounds i8, ptr %call5, i64 32
+  %87 = load i64, ptr %nr5.i, align 8
+  %cmp96.not.i = icmp eq i64 %87, 0
   br i1 %cmp96.not.i, label %for.end.i, label %for.body.lr.ph.i151
 
 for.body.lr.ph.i151:                              ; preds = %if.end.i150
-  %progress7.i = getelementptr inbounds %struct.write_commit_graph_context, ptr %call5, i64 0, i32 8
+  %progress7.i = getelementptr inbounds i8, ptr %call5, i64 96
   br label %for.body.i152
 
 for.body.i152:                                    ; preds = %for.inc.i, %for.body.lr.ph.i151
   %indvars.iv.i = phi i64 [ 0, %for.body.lr.ph.i151 ], [ %indvars.iv.next.i, %for.inc.i ]
-  %87 = load ptr, ptr %progress7.i, align 8
+  %88 = load ptr, ptr %progress7.i, align 8
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
-  call void @display_progress(ptr noundef %87, i64 noundef %indvars.iv.next.i) #22
-  %88 = load ptr, ptr %call5, align 8
-  %89 = load ptr, ptr %oids4.i, align 8
-  %arrayidx.i153 = getelementptr inbounds %struct.object_id, ptr %89, i64 %indvars.iv.i
-  %call10.i = call ptr @lookup_commit(ptr noundef %88, ptr noundef %arrayidx.i153) #22
+  call void @display_progress(ptr noundef %88, i64 noundef %indvars.iv.next.i) #22
+  %89 = load ptr, ptr %call5, align 8
+  %90 = load ptr, ptr %oids4.i, align 8
+  %arrayidx.i153 = getelementptr inbounds %struct.object_id, ptr %90, i64 %indvars.iv.i
+  %call10.i = call ptr @lookup_commit(ptr noundef %89, ptr noundef %arrayidx.i153) #22
   %tobool11.not.i = icmp eq ptr %call10.i, null
   br i1 %tobool11.not.i, label %for.inc.i, label %if.then12.i
 
@@ -3745,14 +3723,14 @@ if.then12.i:                                      ; preds = %for.body.i152
   br label %for.inc.i
 
 for.inc.i:                                        ; preds = %if.then12.i, %for.body.i152
-  %90 = load i64, ptr %nr5.i, align 8
-  %cmp.i154 = icmp ugt i64 %90, %indvars.iv.next.i
+  %91 = load i64, ptr %nr5.i, align 8
+  %cmp.i154 = icmp ugt i64 %91, %indvars.iv.next.i
   br i1 %cmp.i154, label %for.body.i152, label %for.end.i, !llvm.loop !34
 
 for.end.i:                                        ; preds = %for.inc.i, %if.end.i150
-  %progress18.i = getelementptr inbounds %struct.write_commit_graph_context, ptr %call5, i64 0, i32 8
-  %91 = load i32, ptr @git_gettext_enabled, align 4
-  %tobool1.not.i.i.i155 = icmp eq i32 %91, 0
+  %progress18.i = getelementptr inbounds i8, ptr %call5, i64 96
+  %92 = load i32, ptr @git_gettext_enabled, align 4
+  %tobool1.not.i.i.i155 = icmp eq i32 %92, 0
   br i1 %tobool1.not.i.i.i155, label %stop_progress.exit.i, label %if.end3.i.i.i156
 
 if.end3.i.i.i156:                                 ; preds = %for.end.i
@@ -3763,13 +3741,13 @@ stop_progress.exit.i:                             ; preds = %if.end3.i.i.i156, %
   %retval.0.i.i.i158 = phi ptr [ %call.i.i.i157, %if.end3.i.i.i156 ], [ @.str.53, %for.end.i ]
   call void @stop_progress_msg(ptr noundef nonnull %progress18.i, ptr noundef %retval.0.i.i.i158) #22
   %bf.load20.i = load i8, ptr %append, align 8
-  %92 = and i8 %bf.load20.i, 2
-  %tobool24.not.i = icmp eq i8 %92, 0
+  %93 = and i8 %bf.load20.i, 2
+  %tobool24.not.i = icmp eq i8 %93, 0
   br i1 %tobool24.not.i, label %if.end29.i, label %if.then25.i
 
 if.then25.i:                                      ; preds = %stop_progress.exit.i
-  %93 = load i32, ptr @git_gettext_enabled, align 4
-  %tobool1.not.i51.i = icmp eq i32 %93, 0
+  %94 = load i32, ptr @git_gettext_enabled, align 4
+  %tobool1.not.i51.i = icmp eq i32 %94, 0
   br i1 %tobool1.not.i51.i, label %_.exit55.i, label %if.end3.i52.i
 
 if.end3.i52.i:                                    ; preds = %if.then25.i
@@ -3783,56 +3761,56 @@ _.exit55.i:                                       ; preds = %if.end3.i52.i, %if.
   br label %if.end29.i
 
 if.end29.i:                                       ; preds = %_.exit55.i, %stop_progress.exit.i
-  %94 = load i64, ptr %nr5.i, align 8
-  %cmp3499.not.i = icmp eq i64 %94, 0
+  %95 = load i64, ptr %nr5.i, align 8
+  %cmp3499.not.i = icmp eq i64 %95, 0
   br i1 %cmp3499.not.i, label %for.end73.i, label %for.body36.i
 
 for.body36.i:                                     ; preds = %if.end29.i, %for.inc71.i
   %indvars.iv107.i = phi i64 [ %indvars.iv.next108.i, %for.inc71.i ], [ 0, %if.end29.i ]
-  %95 = load ptr, ptr %progress18.i, align 8
+  %96 = load ptr, ptr %progress18.i, align 8
   %indvars.iv.next108.i = add nuw nsw i64 %indvars.iv107.i, 1
-  call void @display_progress(ptr noundef %95, i64 noundef %indvars.iv.next108.i) #22
-  %96 = load ptr, ptr %call5, align 8
-  %97 = load ptr, ptr %oids4.i, align 8
-  %arrayidx44.i = getelementptr inbounds %struct.object_id, ptr %97, i64 %indvars.iv107.i
-  %call45.i = call ptr @lookup_commit(ptr noundef %96, ptr noundef %arrayidx44.i) #22
+  call void @display_progress(ptr noundef %96, i64 noundef %indvars.iv.next108.i) #22
+  %97 = load ptr, ptr %call5, align 8
+  %98 = load ptr, ptr %oids4.i, align 8
+  %arrayidx44.i = getelementptr inbounds %struct.object_id, ptr %98, i64 %indvars.iv107.i
+  %call45.i = call ptr @lookup_commit(ptr noundef %97, ptr noundef %arrayidx44.i) #22
   %tobool46.not.i = icmp eq ptr %call45.i, null
   br i1 %tobool46.not.i, label %for.inc71.i, label %if.end48.i
 
 if.end48.i:                                       ; preds = %for.body36.i
   %bf.load49.i = load i8, ptr %append, align 8
-  %98 = and i8 %bf.load49.i, 4
-  %tobool53.not.i = icmp eq i8 %98, 0
-  %99 = load ptr, ptr %call5, align 8
+  %99 = and i8 %bf.load49.i, 4
+  %tobool53.not.i = icmp eq i8 %99, 0
+  %100 = load ptr, ptr %call5, align 8
   br i1 %tobool53.not.i, label %if.else.i, label %if.then54.i
 
 if.then54.i:                                      ; preds = %if.end48.i
-  %call.i56.i = call i32 @repo_parse_commit_gently(ptr noundef %99, ptr noundef nonnull %call45.i, i32 noundef 0) #22
+  %call.i56.i = call i32 @repo_parse_commit_gently(ptr noundef %100, ptr noundef nonnull %call45.i, i32 noundef 0) #22
   %tobool57.not.i = icmp eq i32 %call.i56.i, 0
   br i1 %tobool57.not.i, label %land.lhs.true.i163, label %lor.lhs.false.i
 
 land.lhs.true.i163:                               ; preds = %if.then54.i
-  %100 = getelementptr i8, ptr %call45.i, i64 64
-  %c.val.i.i = load i32, ptr %100, align 8
+  %101 = getelementptr i8, ptr %call45.i, i64 64
+  %c.val.i.i = load i32, ptr %101, align 8
   %div.i.i.i.i = udiv i32 %c.val.i.i, 32766
   %rem.i.i.i.i = urem i32 %c.val.i.i, 32766
-  %101 = load i32, ptr @commit_graph_data_slab.2, align 8
-  %cmp.not.i.i.i.i = icmp ugt i32 %101, %div.i.i.i.i
+  %102 = load i32, ptr @commit_graph_data_slab.2, align 8
+  %cmp.not.i.i.i.i = icmp ugt i32 %102, %div.i.i.i.i
   br i1 %cmp.not.i.i.i.i, label %if.end12.i.i.i.i, label %if.then63.i
 
 if.end12.i.i.i.i:                                 ; preds = %land.lhs.true.i163
-  %102 = load ptr, ptr @commit_graph_data_slab.3, align 8
+  %103 = load ptr, ptr @commit_graph_data_slab.3, align 8
   %idxprom14.i.i.i.i = zext nneg i32 %div.i.i.i.i to i64
-  %arrayidx15.i.i.i.i = getelementptr inbounds ptr, ptr %102, i64 %idxprom14.i.i.i.i
-  %103 = load ptr, ptr %arrayidx15.i.i.i.i, align 8
-  %tobool16.not.i.i.i.i = icmp eq ptr %103, null
+  %arrayidx15.i.i.i.i = getelementptr inbounds ptr, ptr %103, i64 %idxprom14.i.i.i.i
+  %104 = load ptr, ptr %arrayidx15.i.i.i.i, align 8
+  %tobool16.not.i.i.i.i = icmp eq ptr %104, null
   br i1 %tobool16.not.i.i.i.i, label %if.then63.i, label %commit_graph_position.exit.i
 
 commit_graph_position.exit.i:                     ; preds = %if.end12.i.i.i.i
   %idxprom34.i.i.i.i = zext nneg i32 %rem.i.i.i.i to i64
-  %arrayidx35.i.i.i.i = getelementptr inbounds %struct.commit_graph_data, ptr %103, i64 %idxprom34.i.i.i.i
-  %104 = load i32, ptr %arrayidx35.i.i.i.i, align 8
-  %cmp59.i = icmp eq i32 %104, -1
+  %arrayidx35.i.i.i.i = getelementptr inbounds %struct.commit_graph_data, ptr %104, i64 %idxprom34.i.i.i.i
+  %105 = load i32, ptr %arrayidx35.i.i.i.i, align 8
+  %cmp59.i = icmp eq i32 %105, -1
   %or.cond.i = select i1 %cmp59.i, i1 true, i1 %cond.i
   br i1 %or.cond.i, label %if.then63.i, label %for.inc71.i
 
@@ -3840,76 +3818,76 @@ lor.lhs.false.i:                                  ; preds = %if.then54.i
   br i1 %cond.i, label %if.then63.i, label %for.inc71.i
 
 if.then63.i:                                      ; preds = %lor.lhs.false.i, %commit_graph_position.exit.i, %if.end12.i.i.i.i, %land.lhs.true.i163
-  %parents.i.i = getelementptr inbounds %struct.commit, ptr %call45.i, i64 0, i32 2
+  %parents.i.i = getelementptr inbounds i8, ptr %call45.i, i64 48
   %parent.05.i.i = load ptr, ptr %parents.i.i, align 8
   %tobool.not6.i.i = icmp eq ptr %parent.05.i.i, null
   br i1 %tobool.not6.i.i, label %for.inc71.i, label %for.body.i.i159
 
 for.body.i.i159:                                  ; preds = %if.then63.i, %for.inc.i.i160
   %parent.07.i.i = phi ptr [ %parent.0.i.i, %for.inc.i.i160 ], [ %parent.05.i.i, %if.then63.i ]
-  %105 = load ptr, ptr %parent.07.i.i, align 8
-  %bf.load.i.i = load i32, ptr %105, align 8
-  %106 = and i32 %bf.load.i.i, 524288
-  %tobool1.not.i57.i = icmp eq i32 %106, 0
+  %106 = load ptr, ptr %parent.07.i.i, align 8
+  %bf.load.i.i = load i32, ptr %106, align 8
+  %107 = and i32 %bf.load.i.i, 524288
+  %tobool1.not.i57.i = icmp eq i32 %107, 0
   br i1 %tobool1.not.i57.i, label %if.then.i.i162, label %for.inc.i.i160
 
 if.then.i.i162:                                   ; preds = %for.body.i.i159
-  %oid.i.i = getelementptr inbounds %struct.object, ptr %105, i64 0, i32 1
+  %oid.i.i = getelementptr inbounds i8, ptr %106, i64 4
   call void @oid_array_append(ptr noundef nonnull %oids4.i, ptr noundef nonnull %oid.i.i) #22
-  %107 = load ptr, ptr %parent.07.i.i, align 8
-  %bf.load6.i.i = load i32, ptr %107, align 8
+  %108 = load ptr, ptr %parent.07.i.i, align 8
+  %bf.load6.i.i = load i32, ptr %108, align 8
   %bf.set.i.i = or i32 %bf.load6.i.i, 524288
-  store i32 %bf.set.i.i, ptr %107, align 8
+  store i32 %bf.set.i.i, ptr %108, align 8
   br label %for.inc.i.i160
 
 for.inc.i.i160:                                   ; preds = %if.then.i.i162, %for.body.i.i159
-  %next.i.i = getelementptr inbounds %struct.commit_list, ptr %parent.07.i.i, i64 0, i32 1
+  %next.i.i = getelementptr inbounds i8, ptr %parent.07.i.i, i64 8
   %parent.0.i.i = load ptr, ptr %next.i.i, align 8
   %tobool.not.i.i161 = icmp eq ptr %parent.0.i.i, null
   br i1 %tobool.not.i.i161, label %for.inc71.i, label %for.body.i.i159, !llvm.loop !35
 
 if.else.i:                                        ; preds = %if.end48.i
-  %call.i58.i = call i32 @repo_parse_commit_internal(ptr noundef %99, ptr noundef nonnull %call45.i, i32 noundef 0, i32 noundef 0) #22
+  %call.i58.i = call i32 @repo_parse_commit_internal(ptr noundef %100, ptr noundef nonnull %call45.i, i32 noundef 0, i32 noundef 0) #22
   %tobool67.not.i = icmp eq i32 %call.i58.i, 0
   br i1 %tobool67.not.i, label %if.then68.i, label %for.inc71.i
 
 if.then68.i:                                      ; preds = %if.else.i
-  %parents.i59.i = getelementptr inbounds %struct.commit, ptr %call45.i, i64 0, i32 2
+  %parents.i59.i = getelementptr inbounds i8, ptr %call45.i, i64 48
   %parent.05.i60.i = load ptr, ptr %parents.i59.i, align 8
   %tobool.not6.i61.i = icmp eq ptr %parent.05.i60.i, null
   br i1 %tobool.not6.i61.i, label %for.inc71.i, label %for.body.i64.i
 
 for.body.i64.i:                                   ; preds = %if.then68.i, %for.inc.i68.i
   %parent.07.i65.i = phi ptr [ %parent.0.i70.i, %for.inc.i68.i ], [ %parent.05.i60.i, %if.then68.i ]
-  %108 = load ptr, ptr %parent.07.i65.i, align 8
-  %bf.load.i66.i = load i32, ptr %108, align 8
-  %109 = and i32 %bf.load.i66.i, 524288
-  %tobool1.not.i67.i = icmp eq i32 %109, 0
+  %109 = load ptr, ptr %parent.07.i65.i, align 8
+  %bf.load.i66.i = load i32, ptr %109, align 8
+  %110 = and i32 %bf.load.i66.i, 524288
+  %tobool1.not.i67.i = icmp eq i32 %110, 0
   br i1 %tobool1.not.i67.i, label %if.then.i72.i, label %for.inc.i68.i
 
 if.then.i72.i:                                    ; preds = %for.body.i64.i
-  %oid.i73.i = getelementptr inbounds %struct.object, ptr %108, i64 0, i32 1
+  %oid.i73.i = getelementptr inbounds i8, ptr %109, i64 4
   call void @oid_array_append(ptr noundef nonnull %oids4.i, ptr noundef nonnull %oid.i73.i) #22
-  %110 = load ptr, ptr %parent.07.i65.i, align 8
-  %bf.load6.i74.i = load i32, ptr %110, align 8
+  %111 = load ptr, ptr %parent.07.i65.i, align 8
+  %bf.load6.i74.i = load i32, ptr %111, align 8
   %bf.set.i75.i = or i32 %bf.load6.i74.i, 524288
-  store i32 %bf.set.i75.i, ptr %110, align 8
+  store i32 %bf.set.i75.i, ptr %111, align 8
   br label %for.inc.i68.i
 
 for.inc.i68.i:                                    ; preds = %if.then.i72.i, %for.body.i64.i
-  %next.i69.i = getelementptr inbounds %struct.commit_list, ptr %parent.07.i65.i, i64 0, i32 1
+  %next.i69.i = getelementptr inbounds i8, ptr %parent.07.i65.i, i64 8
   %parent.0.i70.i = load ptr, ptr %next.i69.i, align 8
   %tobool.not.i71.i = icmp eq ptr %parent.0.i70.i, null
   br i1 %tobool.not.i71.i, label %for.inc71.i, label %for.body.i64.i, !llvm.loop !35
 
 for.inc71.i:                                      ; preds = %for.inc.i.i160, %for.inc.i68.i, %if.then68.i, %if.else.i, %if.then63.i, %lor.lhs.false.i, %commit_graph_position.exit.i, %for.body36.i
-  %111 = load i64, ptr %nr5.i, align 8
-  %cmp34.i = icmp ugt i64 %111, %indvars.iv.next108.i
+  %112 = load i64, ptr %nr5.i, align 8
+  %cmp34.i = icmp ugt i64 %112, %indvars.iv.next108.i
   br i1 %cmp34.i, label %for.body36.i, label %for.end73.i, !llvm.loop !36
 
 for.end73.i:                                      ; preds = %for.inc71.i, %if.end29.i
-  %112 = load i32, ptr @git_gettext_enabled, align 4
-  %tobool1.not.i.i77.i = icmp eq i32 %112, 0
+  %113 = load i32, ptr @git_gettext_enabled, align 4
+  %tobool1.not.i.i77.i = icmp eq i32 %113, 0
   br i1 %tobool1.not.i.i77.i, label %stop_progress.exit81.i, label %if.end3.i.i78.i
 
 if.end3.i.i78.i:                                  ; preds = %for.end73.i
@@ -3920,13 +3898,13 @@ stop_progress.exit81.i:                           ; preds = %if.end3.i.i78.i, %f
   %retval.0.i.i80.i = phi ptr [ %call.i.i79.i, %if.end3.i.i78.i ], [ @.str.53, %for.end73.i ]
   call void @stop_progress_msg(ptr noundef nonnull %progress18.i, ptr noundef %retval.0.i.i80.i) #22
   %bf.load76.i = load i8, ptr %append, align 8
-  %113 = and i8 %bf.load76.i, 2
-  %tobool80.not.i = icmp eq i8 %113, 0
+  %114 = and i8 %bf.load76.i, 2
+  %tobool80.not.i = icmp eq i8 %114, 0
   br i1 %tobool80.not.i, label %if.end87.i, label %if.then81.i
 
 if.then81.i:                                      ; preds = %stop_progress.exit81.i
-  %114 = load i32, ptr @git_gettext_enabled, align 4
-  %tobool1.not.i82.i = icmp eq i32 %114, 0
+  %115 = load i32, ptr @git_gettext_enabled, align 4
+  %tobool1.not.i82.i = icmp eq i32 %115, 0
   br i1 %tobool1.not.i82.i, label %_.exit86.i, label %if.end3.i83.i
 
 if.end3.i83.i:                                    ; preds = %if.then81.i
@@ -3935,25 +3913,25 @@ if.end3.i83.i:                                    ; preds = %if.then81.i
 
 _.exit86.i:                                       ; preds = %if.end3.i83.i, %if.then81.i
   %retval.0.i85.i = phi ptr [ %call.i84.i, %if.end3.i83.i ], [ @.str.68, %if.then81.i ]
-  %115 = load i64, ptr %nr5.i, align 8
-  %call85.i = call ptr @start_delayed_progress(ptr noundef %retval.0.i85.i, i64 noundef %115) #22
+  %116 = load i64, ptr %nr5.i, align 8
+  %call85.i = call ptr @start_delayed_progress(ptr noundef %retval.0.i85.i, i64 noundef %116) #22
   store ptr %call85.i, ptr %progress18.i, align 8
   br label %if.end87.i
 
 if.end87.i:                                       ; preds = %_.exit86.i, %stop_progress.exit81.i
-  %116 = load i64, ptr %nr5.i, align 8
-  %cmp92102.not.i = icmp eq i64 %116, 0
+  %117 = load i64, ptr %nr5.i, align 8
+  %cmp92102.not.i = icmp eq i64 %117, 0
   br i1 %cmp92102.not.i, label %for.end117.i, label %for.body94.i
 
 for.body94.i:                                     ; preds = %if.end87.i, %for.inc115.i
   %indvars.iv110.i = phi i64 [ %indvars.iv.next111.i, %for.inc115.i ], [ 0, %if.end87.i ]
-  %117 = load ptr, ptr %progress18.i, align 8
+  %118 = load ptr, ptr %progress18.i, align 8
   %indvars.iv.next111.i = add nuw nsw i64 %indvars.iv110.i, 1
-  call void @display_progress(ptr noundef %117, i64 noundef %indvars.iv.next111.i) #22
-  %118 = load ptr, ptr %call5, align 8
-  %119 = load ptr, ptr %oids4.i, align 8
-  %arrayidx102.i = getelementptr inbounds %struct.object_id, ptr %119, i64 %indvars.iv110.i
-  %call103.i = call ptr @lookup_commit(ptr noundef %118, ptr noundef %arrayidx102.i) #22
+  call void @display_progress(ptr noundef %118, i64 noundef %indvars.iv.next111.i) #22
+  %119 = load ptr, ptr %call5, align 8
+  %120 = load ptr, ptr %oids4.i, align 8
+  %arrayidx102.i = getelementptr inbounds %struct.object_id, ptr %120, i64 %indvars.iv110.i
+  %call103.i = call ptr @lookup_commit(ptr noundef %119, ptr noundef %arrayidx102.i) #22
   %tobool104.not.i = icmp eq ptr %call103.i, null
   br i1 %tobool104.not.i, label %for.inc115.i, label %if.then105.i
 
@@ -3964,13 +3942,13 @@ if.then105.i:                                     ; preds = %for.body94.i
   br label %for.inc115.i
 
 for.inc115.i:                                     ; preds = %if.then105.i, %for.body94.i
-  %120 = load i64, ptr %nr5.i, align 8
-  %cmp92.i = icmp ugt i64 %120, %indvars.iv.next111.i
+  %121 = load i64, ptr %nr5.i, align 8
+  %cmp92.i = icmp ugt i64 %121, %indvars.iv.next111.i
   br i1 %cmp92.i, label %for.body94.i, label %for.end117.i, !llvm.loop !37
 
 for.end117.i:                                     ; preds = %for.inc115.i, %if.end87.i
-  %121 = load i32, ptr @git_gettext_enabled, align 4
-  %tobool1.not.i.i87.i = icmp eq i32 %121, 0
+  %122 = load i32, ptr @git_gettext_enabled, align 4
+  %tobool1.not.i.i87.i = icmp eq i32 %122, 0
   br i1 %tobool1.not.i.i87.i, label %close_reachable.exit, label %if.end3.i.i88.i
 
 if.end3.i.i88.i:                                  ; preds = %for.end117.i
@@ -3980,27 +3958,27 @@ if.end3.i.i88.i:                                  ; preds = %for.end117.i
 close_reachable.exit:                             ; preds = %for.end117.i, %if.end3.i.i88.i
   %retval.0.i.i90.i = phi ptr [ %call.i.i89.i, %if.end3.i.i88.i ], [ @.str.53, %for.end117.i ]
   call void @stop_progress_msg(ptr noundef nonnull %progress18.i, ptr noundef %retval.0.i.i90.i) #22
-  %122 = load ptr, ptr %opts26, align 8
-  %tobool.not.i165 = icmp eq ptr %122, null
+  %123 = load ptr, ptr %opts26, align 8
+  %tobool.not.i165 = icmp eq ptr %123, null
   br i1 %tobool.not.i165, label %cond.end.i168, label %cond.true.i166
 
 cond.true.i166:                                   ; preds = %close_reachable.exit
-  %split_flags.i167 = getelementptr inbounds %struct.commit_graph_opts, ptr %122, i64 0, i32 3
-  %123 = load i32, ptr %split_flags.i167, align 8
+  %split_flags.i167 = getelementptr inbounds i8, ptr %123, i64 16
+  %124 = load i32, ptr %split_flags.i167, align 8
   br label %cond.end.i168
 
 cond.end.i168:                                    ; preds = %cond.true.i166, %close_reachable.exit
-  %cond.i169 = phi i32 [ %123, %cond.true.i166 ], [ 0, %close_reachable.exit ]
-  %num_extra_edges.i = getelementptr inbounds %struct.write_commit_graph_context, ptr %call5, i64 0, i32 5
+  %cond.i169 = phi i32 [ %124, %cond.true.i166 ], [ 0, %close_reachable.exit ]
+  %num_extra_edges.i = getelementptr inbounds i8, ptr %call5, i64 80
   store i32 0, ptr %num_extra_edges.i, align 8
   %bf.load.i171 = load i8, ptr %append, align 8
-  %124 = and i8 %bf.load.i171, 2
-  %tobool2.not.i172 = icmp eq i8 %124, 0
+  %125 = and i8 %bf.load.i171, 2
+  %tobool2.not.i172 = icmp eq i8 %125, 0
   br i1 %tobool2.not.i172, label %if.end.i182, label %if.then.i173
 
 if.then.i173:                                     ; preds = %cond.end.i168
-  %125 = load i32, ptr @git_gettext_enabled, align 4
-  %tobool1.not.i.i174 = icmp eq i32 %125, 0
+  %126 = load i32, ptr @git_gettext_enabled, align 4
+  %tobool1.not.i.i174 = icmp eq i32 %126, 0
   br i1 %tobool1.not.i.i174, label %_.exit.i177, label %if.end3.i.i175
 
 if.end3.i.i175:                                   ; preds = %if.then.i173
@@ -4009,21 +3987,21 @@ if.end3.i.i175:                                   ; preds = %if.then.i173
 
 _.exit.i177:                                      ; preds = %if.end3.i.i175, %if.then.i173
   %retval.0.i.i178 = phi ptr [ %call.i.i176, %if.end3.i.i175 ], [ @.str.69, %if.then.i173 ]
-  %126 = load i64, ptr %nr5.i, align 8
-  %call3.i180 = call ptr @start_delayed_progress(ptr noundef %retval.0.i.i178, i64 noundef %126) #22
+  %127 = load i64, ptr %nr5.i, align 8
+  %call3.i180 = call ptr @start_delayed_progress(ptr noundef %retval.0.i.i178, i64 noundef %127) #22
   store ptr %call3.i180, ptr %progress18.i, align 8
   br label %if.end.i182
 
 if.end.i182:                                      ; preds = %_.exit.i177, %cond.end.i168
   call void @oid_array_sort(ptr noundef nonnull %oids4.i) #22
-  %127 = load i64, ptr %nr5.i, align 8
-  %cmp54.not.i = icmp eq i64 %127, 0
+  %128 = load i64, ptr %nr5.i, align 8
+  %cmp54.not.i = icmp eq i64 %128, 0
   br i1 %cmp54.not.i, label %for.end.i194, label %for.body.lr.ph.i184
 
 for.body.lr.ph.i184:                              ; preds = %if.end.i182
-  %commits.i = getelementptr inbounds %struct.write_commit_graph_context, ptr %call5, i64 0, i32 4
-  %nr10.i = getelementptr inbounds %struct.write_commit_graph_context, ptr %call5, i64 0, i32 4, i32 1
-  %alloc.i = getelementptr inbounds %struct.write_commit_graph_context, ptr %call5, i64 0, i32 4, i32 2
+  %commits.i = getelementptr inbounds i8, ptr %call5, i64 56
+  %nr10.i = getelementptr inbounds i8, ptr %call5, i64 64
+  %alloc.i = getelementptr inbounds i8, ptr %call5, i64 72
   %cmp58.i = icmp ne i32 %cond.i169, 2
   %cmp78.i = icmp eq i32 %cond.i169, 2
   br label %for.body.i185
@@ -4031,19 +4009,19 @@ for.body.lr.ph.i184:                              ; preds = %if.end.i182
 for.body.i185:                                    ; preds = %oid_array_next_unique.exit.i, %for.body.lr.ph.i184
   %conv56.i = phi i64 [ 0, %for.body.lr.ph.i184 ], [ %conv.i192, %oid_array_next_unique.exit.i ]
   %i.055.i = phi i64 [ 0, %for.body.lr.ph.i184 ], [ %inc.lcssa.i.i, %oid_array_next_unique.exit.i ]
-  %128 = load ptr, ptr %progress18.i, align 8
+  %129 = load ptr, ptr %progress18.i, align 8
   %add.i = add i64 %i.055.i, 1
   %conv9.i = and i64 %add.i, 4294967295
-  call void @display_progress(ptr noundef %128, i64 noundef %conv9.i) #22
-  %129 = load i64, ptr %nr10.i, align 8
-  %add11.i = add i64 %129, 1
-  %130 = load i64, ptr %alloc.i, align 8
-  %cmp13.i = icmp ugt i64 %add11.i, %130
+  call void @display_progress(ptr noundef %129, i64 noundef %conv9.i) #22
+  %130 = load i64, ptr %nr10.i, align 8
+  %add11.i = add i64 %130, 1
+  %131 = load i64, ptr %alloc.i, align 8
+  %cmp13.i = icmp ugt i64 %add11.i, %131
   br i1 %cmp13.i, label %if.then15.i, label %do.end.i
 
 if.then15.i:                                      ; preds = %for.body.i185
-  %131 = mul i64 %130, 3
-  %mul.i213 = add i64 %131, 48
+  %132 = mul i64 %131, 3
+  %mul.i213 = add i64 %132, 48
   %div47.i = lshr i64 %mul.i213, 1
   %add11.div47.i = call i64 @llvm.umax.i64(i64 %div47.i, i64 %add11.i)
   store i64 %add11.div47.i, ptr %alloc.i, align 8
@@ -4055,53 +4033,53 @@ if.then.i.i214:                                   ; preds = %if.then15.i
   unreachable
 
 st_mult.exit.i:                                   ; preds = %if.then15.i
-  %132 = load ptr, ptr %commits.i, align 8
+  %133 = load ptr, ptr %commits.i, align 8
   %mul.i.i = shl nuw i64 %add11.div47.i, 3
-  %call42.i = call ptr @xrealloc(ptr noundef %132, i64 noundef %mul.i.i) #22
+  %call42.i = call ptr @xrealloc(ptr noundef %133, i64 noundef %mul.i.i) #22
   store ptr %call42.i, ptr %commits.i, align 8
   br label %do.end.i
 
 do.end.i:                                         ; preds = %st_mult.exit.i, %for.body.i185
-  %133 = load ptr, ptr %call5, align 8
-  %134 = load ptr, ptr %oids4.i, align 8
-  %arrayidx.i186 = getelementptr inbounds %struct.object_id, ptr %134, i64 %conv56.i
-  %call47.i = call ptr @lookup_commit(ptr noundef %133, ptr noundef %arrayidx.i186) #22
-  %135 = load ptr, ptr %commits.i, align 8
-  %136 = load i64, ptr %nr10.i, align 8
-  %arrayidx52.i = getelementptr inbounds ptr, ptr %135, i64 %136
+  %134 = load ptr, ptr %call5, align 8
+  %135 = load ptr, ptr %oids4.i, align 8
+  %arrayidx.i186 = getelementptr inbounds %struct.object_id, ptr %135, i64 %conv56.i
+  %call47.i = call ptr @lookup_commit(ptr noundef %134, ptr noundef %arrayidx.i186) #22
+  %136 = load ptr, ptr %commits.i, align 8
+  %137 = load i64, ptr %nr10.i, align 8
+  %arrayidx52.i = getelementptr inbounds ptr, ptr %136, i64 %137
   store ptr %call47.i, ptr %arrayidx52.i, align 8
   %bf.load53.i = load i8, ptr %append, align 8
-  %137 = and i8 %bf.load53.i, 4
-  %tobool57.i = icmp ne i8 %137, 0
+  %138 = and i8 %bf.load53.i, 4
+  %tobool57.i = icmp ne i8 %138, 0
   %or.cond.i187 = select i1 %tobool57.i, i1 %cmp58.i, i1 false
   br i1 %or.cond.i187, label %land.lhs.true60.i, label %if.end70.i
 
 land.lhs.true60.i:                                ; preds = %do.end.i
-  %138 = load ptr, ptr %commits.i, align 8
-  %139 = load i64, ptr %nr10.i, align 8
-  %arrayidx65.i = getelementptr inbounds ptr, ptr %138, i64 %139
-  %140 = load ptr, ptr %arrayidx65.i, align 8
-  %141 = getelementptr i8, ptr %140, i64 64
-  %c.val.i.i201 = load i32, ptr %141, align 8
+  %139 = load ptr, ptr %commits.i, align 8
+  %140 = load i64, ptr %nr10.i, align 8
+  %arrayidx65.i = getelementptr inbounds ptr, ptr %139, i64 %140
+  %141 = load ptr, ptr %arrayidx65.i, align 8
+  %142 = getelementptr i8, ptr %141, i64 64
+  %c.val.i.i201 = load i32, ptr %142, align 8
   %div.i.i.i.i202 = udiv i32 %c.val.i.i201, 32766
   %rem.i.i.i.i203 = urem i32 %c.val.i.i201, 32766
-  %142 = load i32, ptr @commit_graph_data_slab.2, align 8
-  %cmp.not.i.i.i.i204 = icmp ugt i32 %142, %div.i.i.i.i202
+  %143 = load i32, ptr @commit_graph_data_slab.2, align 8
+  %cmp.not.i.i.i.i204 = icmp ugt i32 %143, %div.i.i.i.i202
   br i1 %cmp.not.i.i.i.i204, label %if.end12.i.i.i.i205, label %if.else88.i
 
 if.end12.i.i.i.i205:                              ; preds = %land.lhs.true60.i
-  %143 = load ptr, ptr @commit_graph_data_slab.3, align 8
+  %144 = load ptr, ptr @commit_graph_data_slab.3, align 8
   %idxprom14.i.i.i.i206 = zext nneg i32 %div.i.i.i.i202 to i64
-  %arrayidx15.i.i.i.i207 = getelementptr inbounds ptr, ptr %143, i64 %idxprom14.i.i.i.i206
-  %144 = load ptr, ptr %arrayidx15.i.i.i.i207, align 8
-  %tobool16.not.i.i.i.i208 = icmp eq ptr %144, null
+  %arrayidx15.i.i.i.i207 = getelementptr inbounds ptr, ptr %144, i64 %idxprom14.i.i.i.i206
+  %145 = load ptr, ptr %arrayidx15.i.i.i.i207, align 8
+  %tobool16.not.i.i.i.i208 = icmp eq ptr %145, null
   br i1 %tobool16.not.i.i.i.i208, label %if.else88.i, label %commit_graph_position.exit.i209
 
 commit_graph_position.exit.i209:                  ; preds = %if.end12.i.i.i.i205
   %idxprom34.i.i.i.i211 = zext nneg i32 %rem.i.i.i.i203 to i64
-  %arrayidx35.i.i.i.i212 = getelementptr inbounds %struct.commit_graph_data, ptr %144, i64 %idxprom34.i.i.i.i211
-  %145 = load i32, ptr %arrayidx35.i.i.i.i212, align 8
-  %cmp67.not.i = icmp eq i32 %145, -1
+  %arrayidx35.i.i.i.i212 = getelementptr inbounds %struct.commit_graph_data, ptr %145, i64 %idxprom34.i.i.i.i211
+  %146 = load i32, ptr %arrayidx35.i.i.i.i212, align 8
+  %cmp67.not.i = icmp eq i32 %146, -1
   br i1 %cmp67.not.i, label %if.else88.i, label %for.inc.i190
 
 if.end70.i:                                       ; preds = %do.end.i
@@ -4116,79 +4094,79 @@ if.end70.if.else88_crit_edge.i:                   ; preds = %if.end70.i
   br label %if.else88.i
 
 if.then80.i:                                      ; preds = %if.end70.i
-  %146 = load ptr, ptr %call5, align 8
+  %147 = load ptr, ptr %call5, align 8
   %arrayidx86.i = getelementptr inbounds ptr, ptr %.pre.i188, i64 %.pre57.i
-  %147 = load ptr, ptr %arrayidx86.i, align 8
-  %call.i48.i = call i32 @repo_parse_commit_gently(ptr noundef %146, ptr noundef %147, i32 noundef 0) #22
+  %148 = load ptr, ptr %arrayidx86.i, align 8
+  %call.i48.i = call i32 @repo_parse_commit_gently(ptr noundef %147, ptr noundef %148, i32 noundef 0) #22
   br label %if.end96.i
 
 if.else88.i:                                      ; preds = %if.end70.if.else88_crit_edge.i, %commit_graph_position.exit.i209, %if.end12.i.i.i.i205, %land.lhs.true60.i
-  %148 = phi ptr [ %140, %if.end12.i.i.i.i205 ], [ %140, %land.lhs.true60.i ], [ %140, %commit_graph_position.exit.i209 ], [ %.pre58.i, %if.end70.if.else88_crit_edge.i ]
-  %149 = load ptr, ptr %call5, align 8
-  %call.i49.i = call i32 @repo_parse_commit_internal(ptr noundef %149, ptr noundef %148, i32 noundef 0, i32 noundef 0) #22
+  %149 = phi ptr [ %141, %if.end12.i.i.i.i205 ], [ %141, %land.lhs.true60.i ], [ %141, %commit_graph_position.exit.i209 ], [ %.pre58.i, %if.end70.if.else88_crit_edge.i ]
+  %150 = load ptr, ptr %call5, align 8
+  %call.i49.i = call i32 @repo_parse_commit_internal(ptr noundef %150, ptr noundef %149, i32 noundef 0, i32 noundef 0) #22
   br label %if.end96.i
 
 if.end96.i:                                       ; preds = %if.else88.i, %if.then80.i
-  %150 = load ptr, ptr %commits.i, align 8
-  %151 = load i64, ptr %nr10.i, align 8
-  %arrayidx101.i = getelementptr inbounds ptr, ptr %150, i64 %151
-  %152 = load ptr, ptr %arrayidx101.i, align 8
-  %parents.i = getelementptr inbounds %struct.commit, ptr %152, i64 0, i32 2
-  %153 = load ptr, ptr %parents.i, align 8
-  %call102.i = call i32 @commit_list_count(ptr noundef %153) #22
+  %151 = load ptr, ptr %commits.i, align 8
+  %152 = load i64, ptr %nr10.i, align 8
+  %arrayidx101.i = getelementptr inbounds ptr, ptr %151, i64 %152
+  %153 = load ptr, ptr %arrayidx101.i, align 8
+  %parents.i = getelementptr inbounds i8, ptr %153, i64 48
+  %154 = load ptr, ptr %parents.i, align 8
+  %call102.i = call i32 @commit_list_count(ptr noundef %154) #22
   %cmp103.i = icmp ugt i32 %call102.i, 2
   br i1 %cmp103.i, label %if.then105.i200, label %if.end108.i
 
 if.then105.i200:                                  ; preds = %if.end96.i
   %sub.i = add i32 %call102.i, -1
-  %154 = load i32, ptr %num_extra_edges.i, align 8
-  %add107.i = add i32 %sub.i, %154
+  %155 = load i32, ptr %num_extra_edges.i, align 8
+  %add107.i = add i32 %sub.i, %155
   store i32 %add107.i, ptr %num_extra_edges.i, align 8
   br label %if.end108.i
 
 if.end108.i:                                      ; preds = %if.then105.i200, %if.end96.i
-  %155 = load i64, ptr %nr10.i, align 8
-  %inc.i189 = add i64 %155, 1
+  %156 = load i64, ptr %nr10.i, align 8
+  %inc.i189 = add i64 %156, 1
   store i64 %inc.i189, ptr %nr10.i, align 8
   br label %for.inc.i190
 
 for.inc.i190:                                     ; preds = %if.end108.i, %commit_graph_position.exit.i209
-  %156 = load i64, ptr %nr5.i, align 8
-  %157 = load ptr, ptr @the_repository, align 8
-  %hash_algo.i.i.i = getelementptr inbounds %struct.repository, ptr %157, i64 0, i32 15
-  %158 = add nuw nsw i64 %conv56.i, 1
-  %umax.i.i = call i64 @llvm.umax.i64(i64 %156, i64 %158)
-  %159 = add i64 %umax.i.i, -1
+  %157 = load i64, ptr %nr5.i, align 8
+  %158 = load ptr, ptr @the_repository, align 8
+  %hash_algo.i.i.i = getelementptr inbounds i8, ptr %158, i64 256
+  %159 = add nuw nsw i64 %conv56.i, 1
+  %umax.i.i = call i64 @llvm.umax.i64(i64 %157, i64 %159)
+  %160 = add i64 %umax.i.i, -1
   br label %do.body.i.i
 
 do.body.i.i:                                      ; preds = %oideq.exit.i.i, %for.inc.i190
   %cur.addr.0.i.i = phi i64 [ %conv56.i, %for.inc.i190 ], [ %inc.i.i191, %oideq.exit.i.i ]
   %inc.i.i191 = add nuw i64 %cur.addr.0.i.i, 1
-  %exitcond.not.i = icmp eq i64 %cur.addr.0.i.i, %159
+  %exitcond.not.i = icmp eq i64 %cur.addr.0.i.i, %160
   br i1 %exitcond.not.i, label %oid_array_next_unique.exit.i, label %land.rhs.i.i
 
 land.rhs.i.i:                                     ; preds = %do.body.i.i
-  %160 = load ptr, ptr %oids4.i, align 8
-  %add.ptr.i.i = getelementptr inbounds %struct.object_id, ptr %160, i64 %inc.i.i191
-  %add.ptr3.i.i = getelementptr inbounds %struct.object_id, ptr %160, i64 %cur.addr.0.i.i
-  %algo.i.i.i = getelementptr inbounds %struct.object_id, ptr %160, i64 %inc.i.i191, i32 1
-  %161 = load i32, ptr %algo.i.i.i, align 4
-  %tobool.not.i.i.i = icmp eq i32 %161, 0
+  %161 = load ptr, ptr %oids4.i, align 8
+  %add.ptr.i.i = getelementptr inbounds %struct.object_id, ptr %161, i64 %inc.i.i191
+  %add.ptr3.i.i = getelementptr inbounds i8, ptr %add.ptr.i.i, i64 -36
+  %algo.i.i.i = getelementptr inbounds i8, ptr %add.ptr.i.i, i64 32
+  %162 = load i32, ptr %algo.i.i.i, align 4
+  %tobool.not.i.i.i = icmp eq i32 %162, 0
   br i1 %tobool.not.i.i.i, label %if.then.i.i.i, label %if.else.i.i.i
 
 if.then.i.i.i:                                    ; preds = %land.rhs.i.i
-  %162 = load ptr, ptr %hash_algo.i.i.i, align 8
+  %163 = load ptr, ptr %hash_algo.i.i.i, align 8
   br label %if.end.i.i.i
 
 if.else.i.i.i:                                    ; preds = %land.rhs.i.i
-  %idxprom.i.i.i = sext i32 %161 to i64
+  %idxprom.i.i.i = sext i32 %162 to i64
   %arrayidx.i.i.i = getelementptr inbounds [3 x %struct.git_hash_algo], ptr @hash_algos, i64 0, i64 %idxprom.i.i.i
   br label %if.end.i.i.i
 
 if.end.i.i.i:                                     ; preds = %if.else.i.i.i, %if.then.i.i.i
-  %algop.0.i.i.i = phi ptr [ %arrayidx.i.i.i, %if.else.i.i.i ], [ %162, %if.then.i.i.i ]
-  %163 = getelementptr i8, ptr %algop.0.i.i.i, i64 16
-  %algop.0.val.i.i.i = load i64, ptr %163, align 8
+  %algop.0.i.i.i = phi ptr [ %arrayidx.i.i.i, %if.else.i.i.i ], [ %163, %if.then.i.i.i ]
+  %164 = getelementptr i8, ptr %algop.0.i.i.i, i64 16
+  %algop.0.val.i.i.i = load i64, ptr %164, align 8
   %cmp.i.i.i.i = icmp eq i64 %algop.0.val.i.i.i, 32
   br i1 %cmp.i.i.i.i, label %if.then.i.i.i.i, label %if.end.i.i.i.i
 
@@ -4208,12 +4186,12 @@ oideq.exit.i.i:                                   ; preds = %if.end.i.i.i.i, %if
 oid_array_next_unique.exit.i:                     ; preds = %oideq.exit.i.i, %do.body.i.i
   %inc.lcssa.i.i = phi i64 [ %umax.i.i, %do.body.i.i ], [ %inc.i.i191, %oideq.exit.i.i ]
   %conv.i192 = and i64 %inc.lcssa.i.i, 4294967295
-  %cmp.i193 = icmp ugt i64 %156, %conv.i192
+  %cmp.i193 = icmp ugt i64 %157, %conv.i192
   br i1 %cmp.i193, label %for.body.i185, label %for.end.i194, !llvm.loop !39
 
 for.end.i194:                                     ; preds = %oid_array_next_unique.exit.i, %if.end.i182
-  %164 = load i32, ptr @git_gettext_enabled, align 4
-  %tobool1.not.i.i.i195 = icmp eq i32 %164, 0
+  %165 = load i32, ptr @git_gettext_enabled, align 4
+  %tobool1.not.i.i.i195 = icmp eq i32 %165, 0
   br i1 %tobool1.not.i.i.i195, label %copy_oids_to_commits.exit, label %if.end3.i.i.i196
 
 if.end3.i.i.i196:                                 ; preds = %for.end.i194
@@ -4223,14 +4201,14 @@ if.end3.i.i.i196:                                 ; preds = %for.end.i194
 copy_oids_to_commits.exit:                        ; preds = %for.end.i194, %if.end3.i.i.i196
   %retval.0.i.i.i199 = phi ptr [ %call.i.i.i197, %if.end3.i.i.i196 ], [ @.str.53, %for.end.i194 ]
   call void @stop_progress_msg(ptr noundef nonnull %progress18.i, ptr noundef %retval.0.i.i.i199) #22
-  %nr = getelementptr inbounds %struct.write_commit_graph_context, ptr %call5, i64 0, i32 4, i32 1
-  %165 = load i64, ptr %nr, align 8
-  %cmp173 = icmp ugt i64 %165, 2147483646
+  %nr = getelementptr inbounds i8, ptr %call5, i64 64
+  %166 = load i64, ptr %nr, align 8
+  %cmp173 = icmp ugt i64 %166, 2147483646
   br i1 %cmp173, label %if.then175, label %if.end179
 
 if.then175:                                       ; preds = %copy_oids_to_commits.exit
-  %166 = load i32, ptr @git_gettext_enabled, align 4
-  %tobool1.not.i216 = icmp eq i32 %166, 0
+  %167 = load i32, ptr @git_gettext_enabled, align 4
+  %tobool1.not.i216 = icmp eq i32 %167, 0
   br i1 %tobool1.not.i216, label %_.exit220, label %if.end3.i217
 
 if.end3.i217:                                     ; preds = %if.then175
@@ -4243,72 +4221,72 @@ _.exit220:                                        ; preds = %if.then175, %if.end
   br label %cleanup
 
 if.end179:                                        ; preds = %copy_oids_to_commits.exit
-  %tobool182 = icmp ne i64 %165, 0
+  %tobool182 = icmp ne i64 %166, 0
   %tobool184 = icmp ne i32 %replace.0, 0
   %or.cond1 = select i1 %tobool182, i1 true, i1 %tobool184
   br i1 %or.cond1, label %if.end186, label %cleanup
 
 if.end186:                                        ; preds = %if.end179
   %bf.load188 = load i8, ptr %append, align 8
-  %167 = and i8 %bf.load188, 4
-  %tobool192.not = icmp eq i8 %167, 0
+  %168 = and i8 %bf.load188, 4
+  %tobool192.not = icmp eq i8 %168, 0
   br i1 %tobool192.not, label %if.else, label %if.then193
 
 if.then193:                                       ; preds = %if.end186
-  %168 = load ptr, ptr %opts26, align 8
-  %tobool.not.i222 = icmp eq ptr %168, null
+  %169 = load ptr, ptr %opts26, align 8
+  %tobool.not.i222 = icmp eq ptr %169, null
   br i1 %tobool.not.i222, label %if.end13.i, label %if.end9.i
 
 if.end9.i:                                        ; preds = %if.then193
-  %max_commits2.i = getelementptr inbounds %struct.commit_graph_opts, ptr %168, i64 0, i32 1
-  %169 = load i32, ptr %max_commits2.i, align 4
-  %170 = load i32, ptr %168, align 8
-  %tobool4.not.i = icmp eq i32 %170, 0
-  %narrow.i = select i1 %tobool4.not.i, i32 2, i32 %170
+  %max_commits2.i = getelementptr inbounds i8, ptr %169, i64 4
+  %170 = load i32, ptr %max_commits2.i, align 4
+  %171 = load i32, ptr %169, align 8
+  %tobool4.not.i = icmp eq i32 %171, 0
+  %narrow.i = select i1 %tobool4.not.i, i32 2, i32 %171
   %spec.select.i = sext i32 %narrow.i to i64
-  %split_flags.i223 = getelementptr inbounds %struct.commit_graph_opts, ptr %168, i64 0, i32 3
-  %171 = load i32, ptr %split_flags.i223, align 8
-  %cmp.i224 = icmp eq i32 %171, 2
+  %split_flags.i223 = getelementptr inbounds i8, ptr %169, i64 16
+  %172 = load i32, ptr %split_flags.i223, align 8
+  %cmp.i224 = icmp eq i32 %172, 2
   br i1 %cmp.i224, label %if.end60.thread.i, label %if.end13.i
 
 if.end60.thread.i:                                ; preds = %if.end9.i
-  %num_commit_graphs_after.i = getelementptr inbounds %struct.write_commit_graph_context, ptr %call5, i64 0, i32 13
+  %num_commit_graphs_after.i = getelementptr inbounds i8, ptr %call5, i64 132
   store i32 1, ptr %num_commit_graphs_after.i, align 4
   br label %if.end78.i
 
 if.end13.i:                                       ; preds = %if.then193, %if.end9.i
   %size_mult.180.i = phi i64 [ %spec.select.i, %if.end9.i ], [ 2, %if.then193 ]
-  %max_commits.078.i = phi i32 [ %169, %if.end9.i ], [ 0, %if.then193 ]
-  %flags.076.i = phi i32 [ %171, %if.end9.i ], [ 0, %if.then193 ]
+  %max_commits.078.i = phi i32 [ %170, %if.end9.i ], [ 0, %if.then193 ]
+  %flags.076.i = phi i32 [ %172, %if.end9.i ], [ 0, %if.then193 ]
   %.pn155.i = load ptr, ptr %call5, align 8
-  %.pn.in.i = getelementptr inbounds %struct.repository, ptr %.pn155.i, i64 0, i32 2
+  %.pn.in.i = getelementptr inbounds i8, ptr %.pn155.i, i64 16
   %.pn.i = load ptr, ptr %.pn.in.i, align 8
-  %.in.i = getelementptr inbounds %struct.raw_object_store, ptr %.pn.i, i64 0, i32 8
-  %172 = load ptr, ptr %.in.i, align 8
+  %.in.i = getelementptr inbounds i8, ptr %.pn.i, i64 96
+  %173 = load ptr, ptr %.in.i, align 8
   %max_commits.078.fr.i = freeze i32 %max_commits.078.i
-  %num_commit_graphs_before.i = getelementptr inbounds %struct.write_commit_graph_context, ptr %call5, i64 0, i32 12
-  %173 = load i32, ptr %num_commit_graphs_before.i, align 8
-  %add.i225 = add nsw i32 %173, 1
-  %num_commit_graphs_after12.i = getelementptr inbounds %struct.write_commit_graph_context, ptr %call5, i64 0, i32 13
+  %num_commit_graphs_before.i = getelementptr inbounds i8, ptr %call5, i64 128
+  %174 = load i32, ptr %num_commit_graphs_before.i, align 8
+  %add.i225 = add nsw i32 %174, 1
+  %num_commit_graphs_after12.i = getelementptr inbounds i8, ptr %call5, i64 132
   store i32 %add.i225, ptr %num_commit_graphs_after12.i, align 4
-  %174 = add i32 %flags.076.i, -3
-  %or.cond.i226 = icmp ult i32 %174, -2
-  %tobool19.i = icmp ne ptr %172, null
+  %175 = add i32 %flags.076.i, -3
+  %or.cond.i226 = icmp ult i32 %175, -2
+  %tobool19.i = icmp ne ptr %173, null
   %or.cond1.i227 = select i1 %or.cond.i226, i1 %tobool19.i, i1 false
   br i1 %or.cond1.i227, label %land.rhs.preheader.i, label %if.end60.i
 
 land.rhs.preheader.i:                             ; preds = %if.end13.i
-  %conv82.i = trunc i64 %165 to i32
+  %conv82.i = trunc i64 %166 to i32
   %tobool26.not.i = icmp eq i32 %max_commits.078.fr.i, 0
   br i1 %tobool26.not.i, label %land.rhs.us.i, label %land.rhs.i
 
 land.rhs.us.i:                                    ; preds = %land.rhs.preheader.i, %if.end46.us.i
-  %175 = phi i32 [ %dec.us.i, %if.end46.us.i ], [ %add.i225, %land.rhs.preheader.i ]
+  %176 = phi i32 [ %dec.us.i, %if.end46.us.i ], [ %add.i225, %land.rhs.preheader.i ]
   %num_commits.0.us.i = phi i32 [ %add48.us.i, %if.end46.us.i ], [ %conv82.i, %land.rhs.preheader.i ]
-  %g.0.us.i = phi ptr [ %179, %if.end46.us.i ], [ %172, %land.rhs.preheader.i ]
-  %num_commits20.us.i = getelementptr inbounds %struct.commit_graph, ptr %g.0.us.i, i64 0, i32 4
-  %176 = load i32, ptr %num_commits20.us.i, align 4
-  %conv21.us.i = zext i32 %176 to i64
+  %g.0.us.i = phi ptr [ %180, %if.end46.us.i ], [ %173, %land.rhs.preheader.i ]
+  %num_commits20.us.i = getelementptr inbounds i8, ptr %g.0.us.i, i64 20
+  %177 = load i32, ptr %num_commits20.us.i, align 4
+  %conv21.us.i = zext i32 %177 to i64
   %conv23.us.i = zext i32 %num_commits.0.us.i to i64
   %mul6.i.us.i = call { i64, i1 } @llvm.umul.with.overflow.i64(i64 %size_mult.180.i, i64 %conv23.us.i)
   %mul.ov.i.us.i = extractvalue { i64, i1 } %mul6.i.us.i, 1
@@ -4320,10 +4298,10 @@ st_mult.exit.us.i:                                ; preds = %land.rhs.us.i
   br i1 %cmp24.not.us.i, label %if.end60.i, label %while.body.us.i
 
 while.body.us.i:                                  ; preds = %st_mult.exit.us.i
-  %odb.us.i = getelementptr inbounds %struct.commit_graph, ptr %g.0.us.i, i64 0, i32 7
-  %177 = load ptr, ptr %odb.us.i, align 8
-  %178 = load ptr, ptr %odb7, align 8
-  %cmp32.not.us.i = icmp eq ptr %177, %178
+  %odb.us.i = getelementptr inbounds i8, ptr %g.0.us.i, i64 72
+  %178 = load ptr, ptr %odb.us.i, align 8
+  %179 = load ptr, ptr %odb7, align 8
+  %cmp32.not.us.i = icmp eq ptr %178, %179
   br i1 %cmp32.not.us.i, label %if.end35.us.i, label %if.end60.i
 
 if.end35.us.i:                                    ; preds = %while.body.us.i
@@ -4332,21 +4310,21 @@ if.end35.us.i:                                    ; preds = %while.body.us.i
   br i1 %cmp39.us.i, label %if.then41.i, label %if.end46.us.i
 
 if.end46.us.i:                                    ; preds = %if.end35.us.i
-  %add48.us.i = add i32 %176, %num_commits.0.us.i
-  %base_graph.us.i = getelementptr inbounds %struct.commit_graph, ptr %g.0.us.i, i64 0, i32 10
-  %179 = load ptr, ptr %base_graph.us.i, align 8
-  %dec.us.i = add nsw i32 %175, -1
+  %add48.us.i = add i32 %177, %num_commits.0.us.i
+  %base_graph.us.i = getelementptr inbounds i8, ptr %g.0.us.i, i64 88
+  %180 = load ptr, ptr %base_graph.us.i, align 8
+  %dec.us.i = add nsw i32 %176, -1
   store i32 %dec.us.i, ptr %num_commit_graphs_after12.i, align 4
-  %tobool19.old.not.us.i = icmp eq ptr %179, null
+  %tobool19.old.not.us.i = icmp eq ptr %180, null
   br i1 %tobool19.old.not.us.i, label %if.end60.i, label %land.rhs.us.i
 
 land.rhs.i:                                       ; preds = %land.rhs.preheader.i, %if.end46.i
-  %180 = phi i32 [ %dec.i, %if.end46.i ], [ %add.i225, %land.rhs.preheader.i ]
+  %181 = phi i32 [ %dec.i, %if.end46.i ], [ %add.i225, %land.rhs.preheader.i ]
   %num_commits.0.i = phi i32 [ %add48.i, %if.end46.i ], [ %conv82.i, %land.rhs.preheader.i ]
-  %g.0.i = phi ptr [ %185, %if.end46.i ], [ %172, %land.rhs.preheader.i ]
-  %num_commits20.i = getelementptr inbounds %struct.commit_graph, ptr %g.0.i, i64 0, i32 4
-  %181 = load i32, ptr %num_commits20.i, align 4
-  %conv21.i = zext i32 %181 to i64
+  %g.0.i = phi ptr [ %186, %if.end46.i ], [ %173, %land.rhs.preheader.i ]
+  %num_commits20.i = getelementptr inbounds i8, ptr %g.0.i, i64 20
+  %182 = load i32, ptr %num_commits20.i, align 4
+  %conv21.i = zext i32 %182 to i64
   %conv23.i = zext i32 %num_commits.0.i to i64
   %mul6.i.i = call { i64, i1 } @llvm.umul.with.overflow.i64(i64 %size_mult.180.i, i64 %conv23.i)
   %mul.ov.i.i237 = extractvalue { i64, i1 } %mul6.i.i, 1
@@ -4365,10 +4343,10 @@ st_mult.exit.i238:                                ; preds = %land.rhs.i
   br i1 %or.cond120.i, label %while.body.i240, label %if.end60.i
 
 while.body.i240:                                  ; preds = %st_mult.exit.i238
-  %odb.i241 = getelementptr inbounds %struct.commit_graph, ptr %g.0.i, i64 0, i32 7
-  %182 = load ptr, ptr %odb.i241, align 8
-  %183 = load ptr, ptr %odb7, align 8
-  %cmp32.not.i = icmp eq ptr %182, %183
+  %odb.i241 = getelementptr inbounds i8, ptr %g.0.i, i64 72
+  %183 = load ptr, ptr %odb.i241, align 8
+  %184 = load ptr, ptr %odb7, align 8
+  %cmp32.not.i = icmp eq ptr %183, %184
   br i1 %cmp32.not.i, label %if.end35.i, label %if.end60.i
 
 if.end35.i:                                       ; preds = %while.body.i240
@@ -4379,46 +4357,46 @@ if.end35.i:                                       ; preds = %while.body.i240
 if.then41.i:                                      ; preds = %if.end35.i, %if.end35.us.i
   %.us-phi107.i = phi ptr [ %g.0.us.i, %if.end35.us.i ], [ %g.0.i, %if.end35.i ]
   %.us-phi108.i = phi i64 [ %conv23.us.i, %if.end35.us.i ], [ %conv23.i, %if.end35.i ]
-  %num_commits20.le.i = getelementptr inbounds %struct.commit_graph, ptr %.us-phi107.i, i64 0, i32 4
+  %num_commits20.le.i = getelementptr inbounds i8, ptr %.us-phi107.i, i64 20
   %call42.i243 = call fastcc ptr @_(ptr noundef nonnull @.str.70)
-  %184 = load i32, ptr %num_commits20.le.i, align 4
-  %conv45.i = zext i32 %184 to i64
+  %185 = load i32, ptr %num_commits20.le.i, align 4
+  %conv45.i = zext i32 %185 to i64
   call void (ptr, ...) @die(ptr noundef %call42.i243, i64 noundef %.us-phi108.i, i64 noundef %conv45.i) #23
   unreachable
 
 if.end46.i:                                       ; preds = %if.end35.i
-  %add48.i = add i32 %181, %num_commits.0.i
-  %base_graph.i = getelementptr inbounds %struct.commit_graph, ptr %g.0.i, i64 0, i32 10
-  %185 = load ptr, ptr %base_graph.i, align 8
-  %dec.i = add nsw i32 %180, -1
+  %add48.i = add i32 %182, %num_commits.0.i
+  %base_graph.i = getelementptr inbounds i8, ptr %g.0.i, i64 88
+  %186 = load ptr, ptr %base_graph.i, align 8
+  %dec.i = add nsw i32 %181, -1
   store i32 %dec.i, ptr %num_commit_graphs_after12.i, align 4
-  %tobool19.old.not.i = icmp eq ptr %185, null
+  %tobool19.old.not.i = icmp eq ptr %186, null
   br i1 %tobool19.old.not.i, label %if.end60.i, label %land.rhs.i
 
 if.end60.i:                                       ; preds = %if.end46.i, %while.body.i240, %st_mult.exit.i238, %if.end46.us.i, %while.body.us.i, %st_mult.exit.us.i, %if.end13.i
-  %186 = phi i32 [ %add.i225, %if.end13.i ], [ %dec.us.i, %if.end46.us.i ], [ %175, %while.body.us.i ], [ %175, %st_mult.exit.us.i ], [ %180, %st_mult.exit.i238 ], [ %180, %while.body.i240 ], [ %dec.i, %if.end46.i ]
-  %g.1101.i = phi ptr [ %172, %if.end13.i ], [ null, %if.end46.us.i ], [ %g.0.us.i, %while.body.us.i ], [ %g.0.us.i, %st_mult.exit.us.i ], [ %g.0.i, %st_mult.exit.i238 ], [ %g.0.i, %while.body.i240 ], [ null, %if.end46.i ]
-  %new_base_graph.i = getelementptr inbounds %struct.write_commit_graph_context, ptr %call5, i64 0, i32 18
+  %187 = phi i32 [ %add.i225, %if.end13.i ], [ %dec.us.i, %if.end46.us.i ], [ %176, %while.body.us.i ], [ %176, %st_mult.exit.us.i ], [ %181, %st_mult.exit.i238 ], [ %181, %while.body.i240 ], [ %dec.i, %if.end46.i ]
+  %g.1101.i = phi ptr [ %173, %if.end13.i ], [ null, %if.end46.us.i ], [ %g.0.us.i, %while.body.us.i ], [ %g.0.us.i, %st_mult.exit.us.i ], [ %g.0.i, %st_mult.exit.i238 ], [ %g.0.i, %while.body.i240 ], [ null, %if.end46.i ]
+  %new_base_graph.i = getelementptr inbounds i8, ptr %call5, i64 168
   store ptr %g.1101.i, ptr %new_base_graph.i, align 8
-  %cmp62.i = icmp eq i32 %186, 2
+  %cmp62.i = icmp eq i32 %187, 2
   br i1 %cmp62.i, label %if.then64.i, label %if.end78.i
 
 if.then64.i:                                      ; preds = %if.end60.i
-  %odb65.i = getelementptr inbounds %struct.commit_graph, ptr %g.1101.i, i64 0, i32 7
-  %187 = load ptr, ptr %odb65.i, align 8
-  %path.i.i = getelementptr inbounds %struct.object_directory, ptr %187, i64 0, i32 5
-  %188 = load ptr, ptr %path.i.i, align 8
-  %call.i.i235 = call ptr (ptr, ...) @xstrfmt(ptr noundef nonnull @.str.3, ptr noundef %188) #22
-  %filename.i = getelementptr inbounds %struct.commit_graph, ptr %g.1101.i, i64 0, i32 6
-  %189 = load ptr, ptr %filename.i, align 8
-  %call67.i = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %189, ptr noundef nonnull dereferenceable(1) %call.i.i235) #26
+  %odb65.i = getelementptr inbounds i8, ptr %g.1101.i, i64 72
+  %188 = load ptr, ptr %odb65.i, align 8
+  %path.i.i = getelementptr inbounds i8, ptr %188, i64 56
+  %189 = load ptr, ptr %path.i.i, align 8
+  %call.i.i235 = call ptr (ptr, ...) @xstrfmt(ptr noundef nonnull @.str.3, ptr noundef %189) #22
+  %filename.i = getelementptr inbounds i8, ptr %g.1101.i, i64 64
+  %190 = load ptr, ptr %filename.i, align 8
+  %call67.i = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %190, ptr noundef nonnull dereferenceable(1) %call.i.i235) #26
   %tobool68.not.i = icmp eq i32 %call67.i, 0
   br i1 %tobool68.not.i, label %land.lhs.true69.i, label %if.end77.i
 
 land.lhs.true69.i:                                ; preds = %if.then64.i
-  %190 = load ptr, ptr %odb65.i, align 8
-  %191 = load ptr, ptr %odb7, align 8
-  %cmp72.not.i = icmp eq ptr %190, %191
+  %191 = load ptr, ptr %odb65.i, align 8
+  %192 = load ptr, ptr %odb7, align 8
+  %cmp72.not.i = icmp eq ptr %191, %192
   br i1 %cmp72.not.i, label %if.end77.i, label %if.then74.i
 
 if.then74.i:                                      ; preds = %land.lhs.true69.i
@@ -4433,91 +4411,91 @@ if.end77.i:                                       ; preds = %if.then74.i, %land.
 
 if.end78.i:                                       ; preds = %if.end77.i, %if.end60.i, %if.end60.thread.i
   %num_commit_graphs_after61139.i = phi ptr [ %num_commit_graphs_after12.i, %if.end77.i ], [ %num_commit_graphs_after12.i, %if.end60.i ], [ %num_commit_graphs_after.i, %if.end60.thread.i ]
-  %192 = phi i32 [ %.pre.i236, %if.end77.i ], [ %186, %if.end60.i ], [ 1, %if.end60.thread.i ]
-  %conv80.i = sext i32 %192 to i64
+  %193 = phi i32 [ %.pre.i236, %if.end77.i ], [ %187, %if.end60.i ], [ 1, %if.end60.thread.i ]
+  %conv80.i = sext i32 %193 to i64
   %call81.i = call ptr @xcalloc(i64 noundef %conv80.i, i64 noundef 8) #22
-  %commit_graph_filenames_after.i = getelementptr inbounds %struct.write_commit_graph_context, ptr %call5, i64 0, i32 15
+  %commit_graph_filenames_after.i = getelementptr inbounds i8, ptr %call5, i64 144
   store ptr %call81.i, ptr %commit_graph_filenames_after.i, align 8
-  %193 = load i32, ptr %num_commit_graphs_after61139.i, align 4
-  %conv83.i = sext i32 %193 to i64
-  %call84.i = call ptr @xcalloc(i64 noundef %conv83.i, i64 noundef 8) #22
-  %commit_graph_hash_after.i = getelementptr inbounds %struct.write_commit_graph_context, ptr %call5, i64 0, i32 16
-  store ptr %call84.i, ptr %commit_graph_hash_after.i, align 8
-  %num_commit_graphs_before89.i = getelementptr inbounds %struct.write_commit_graph_context, ptr %call5, i64 0, i32 12
   %194 = load i32, ptr %num_commit_graphs_after61139.i, align 4
-  %cmp86112.not.i = icmp eq i32 %194, 0
+  %conv83.i = sext i32 %194 to i64
+  %call84.i = call ptr @xcalloc(i64 noundef %conv83.i, i64 noundef 8) #22
+  %commit_graph_hash_after.i = getelementptr inbounds i8, ptr %call5, i64 152
+  store ptr %call84.i, ptr %commit_graph_hash_after.i, align 8
+  %num_commit_graphs_before89.i = getelementptr inbounds i8, ptr %call5, i64 128
+  %195 = load i32, ptr %num_commit_graphs_after61139.i, align 4
+  %cmp86112.not.i = icmp eq i32 %195, 0
   br i1 %cmp86112.not.i, label %for.end.i229, label %land.rhs88.lr.ph.i
 
 land.rhs88.lr.ph.i:                               ; preds = %if.end78.i
-  %commit_graph_filenames_before.i = getelementptr inbounds %struct.write_commit_graph_context, ptr %call5, i64 0, i32 14
-  %195 = load i32, ptr %num_commit_graphs_before89.i, align 8
-  %cmp90.i504.not = icmp eq i32 %195, 0
-  br i1 %cmp90.i504.not, label %for.end.i229, label %for.body.i232
+  %commit_graph_filenames_before.i = getelementptr inbounds i8, ptr %call5, i64 136
+  %196 = load i32, ptr %num_commit_graphs_before89.i, align 8
+  %cmp90.i503.not = icmp eq i32 %196, 0
+  br i1 %cmp90.i503.not, label %for.end.i229, label %for.body.i232
 
 land.rhs88.i:                                     ; preds = %for.body.i232
-  %196 = load i32, ptr %num_commit_graphs_before89.i, align 8
-  %197 = zext i32 %196 to i64
-  %cmp90.i = icmp ult i64 %indvars.iv.next.i234, %197
+  %197 = load i32, ptr %num_commit_graphs_before89.i, align 8
+  %198 = zext i32 %197 to i64
+  %cmp90.i = icmp ult i64 %indvars.iv.next.i234, %198
   br i1 %cmp90.i, label %for.body.i232, label %for.end.i229, !llvm.loop !40
 
 for.body.i232:                                    ; preds = %land.rhs88.lr.ph.i, %land.rhs88.i
-  %indvars.iv.i228505 = phi i64 [ %indvars.iv.next.i234, %land.rhs88.i ], [ 0, %land.rhs88.lr.ph.i ]
-  %198 = load ptr, ptr %commit_graph_filenames_before.i, align 8
-  %arrayidx.i233 = getelementptr inbounds ptr, ptr %198, i64 %indvars.iv.i228505
-  %199 = load ptr, ptr %arrayidx.i233, align 8
-  %call93.i = call ptr @xstrdup(ptr noundef %199) #22
-  %200 = load ptr, ptr %commit_graph_filenames_after.i, align 8
-  %arrayidx96.i = getelementptr inbounds ptr, ptr %200, i64 %indvars.iv.i228505
+  %indvars.iv.i228504 = phi i64 [ %indvars.iv.next.i234, %land.rhs88.i ], [ 0, %land.rhs88.lr.ph.i ]
+  %199 = load ptr, ptr %commit_graph_filenames_before.i, align 8
+  %arrayidx.i233 = getelementptr inbounds ptr, ptr %199, i64 %indvars.iv.i228504
+  %200 = load ptr, ptr %arrayidx.i233, align 8
+  %call93.i = call ptr @xstrdup(ptr noundef %200) #22
+  %201 = load ptr, ptr %commit_graph_filenames_after.i, align 8
+  %arrayidx96.i = getelementptr inbounds ptr, ptr %201, i64 %indvars.iv.i228504
   store ptr %call93.i, ptr %arrayidx96.i, align 8
-  %indvars.iv.next.i234 = add nuw nsw i64 %indvars.iv.i228505, 1
-  %201 = load i32, ptr %num_commit_graphs_after61139.i, align 4
-  %202 = zext i32 %201 to i64
-  %cmp86.i = icmp ult i64 %indvars.iv.next.i234, %202
+  %indvars.iv.next.i234 = add nuw nsw i64 %indvars.iv.i228504, 1
+  %202 = load i32, ptr %num_commit_graphs_after61139.i, align 4
+  %203 = zext i32 %202 to i64
+  %cmp86.i = icmp ult i64 %indvars.iv.next.i234, %203
   br i1 %cmp86.i, label %land.rhs88.i, label %for.end.i229, !llvm.loop !40
 
 for.end.i229:                                     ; preds = %land.rhs88.i, %for.body.i232, %land.rhs88.lr.ph.i, %if.end78.i
-  %203 = phi i32 [ 0, %if.end78.i ], [ %194, %land.rhs88.lr.ph.i ], [ %201, %for.body.i232 ], [ %201, %land.rhs88.i ]
-  %204 = load ptr, ptr %call5, align 8
-  %objects100.i = getelementptr inbounds %struct.repository, ptr %204, i64 0, i32 2
-  %205 = load ptr, ptr %objects100.i, align 8
-  %commit_graph101.i = getelementptr inbounds %struct.raw_object_store, ptr %205, i64 0, i32 8
+  %204 = phi i32 [ 0, %if.end78.i ], [ %195, %land.rhs88.lr.ph.i ], [ %202, %for.body.i232 ], [ %202, %land.rhs88.i ]
+  %205 = load ptr, ptr %call5, align 8
+  %objects100.i = getelementptr inbounds i8, ptr %205, i64 16
+  %206 = load ptr, ptr %objects100.i, align 8
+  %commit_graph101.i = getelementptr inbounds i8, ptr %206, i64 96
   %g.2114.i = load ptr, ptr %commit_graph101.i, align 8
   %tobool103.not116.i = icmp eq ptr %g.2114.i, null
   br i1 %tobool103.not116.i, label %split_graph_merge_strategy.exit, label %while.body104.lr.ph.i
 
 while.body104.lr.ph.i:                            ; preds = %for.end.i229
-  %206 = load i32, ptr %num_commit_graphs_before89.i, align 8
+  %207 = load i32, ptr %num_commit_graphs_before89.i, align 8
   br label %while.body104.i
 
 while.body104.i:                                  ; preds = %if.end122.i, %while.body104.lr.ph.i
-  %207 = phi i32 [ %203, %while.body104.lr.ph.i ], [ %209, %if.end122.i ]
+  %208 = phi i32 [ %204, %while.body104.lr.ph.i ], [ %210, %if.end122.i ]
   %g.2118.i = phi ptr [ %g.2114.i, %while.body104.lr.ph.i ], [ %g.2.i, %if.end122.i ]
-  %i.1.in117.i = phi i32 [ %206, %while.body104.lr.ph.i ], [ %i.1119.i, %if.end122.i ]
+  %i.1.in117.i = phi i32 [ %207, %while.body104.lr.ph.i ], [ %i.1119.i, %if.end122.i ]
   %i.1119.i = add i32 %i.1.in117.i, -1
-  %cmp106.i = icmp ult i32 %i.1119.i, %207
+  %cmp106.i = icmp ult i32 %i.1119.i, %208
   br i1 %cmp106.i, label %if.then108.i, label %if.end114.i
 
 if.then108.i:                                     ; preds = %while.body104.i
-  %oid.i = getelementptr inbounds %struct.commit_graph, ptr %g.2118.i, i64 0, i32 5
+  %oid.i = getelementptr inbounds i8, ptr %g.2118.i, i64 24
   %call109.i = call ptr @oid_to_hex(ptr noundef nonnull %oid.i) #22
   %call110.i = call ptr @xstrdup(ptr noundef %call109.i) #22
-  %208 = load ptr, ptr %commit_graph_hash_after.i, align 8
+  %209 = load ptr, ptr %commit_graph_hash_after.i, align 8
   %idxprom112.i = zext i32 %i.1119.i to i64
-  %arrayidx113.i = getelementptr inbounds ptr, ptr %208, i64 %idxprom112.i
+  %arrayidx113.i = getelementptr inbounds ptr, ptr %209, i64 %idxprom112.i
   store ptr %call110.i, ptr %arrayidx113.i, align 8
   %.pre135.i = load i32, ptr %num_commit_graphs_after61139.i, align 4
   br label %if.end114.i
 
 if.end114.i:                                      ; preds = %if.then108.i, %while.body104.i
-  %209 = phi i32 [ %.pre135.i, %if.then108.i ], [ %207, %while.body104.i ]
-  %210 = add nsw i32 %209, -1
-  %cmp117.i = icmp eq i32 %i.1.in117.i, %210
+  %210 = phi i32 [ %.pre135.i, %if.then108.i ], [ %208, %while.body104.i ]
+  %211 = add nsw i32 %210, -1
+  %cmp117.i = icmp eq i32 %i.1.in117.i, %211
   br i1 %cmp117.i, label %if.then119.i, label %if.end122.i
 
 if.then119.i:                                     ; preds = %if.end114.i
-  %chunk_generation_data.i = getelementptr inbounds %struct.commit_graph, ptr %g.2118.i, i64 0, i32 14
-  %211 = load ptr, ptr %chunk_generation_data.i, align 8
-  %tobool120.not.i = icmp eq ptr %211, null
+  %chunk_generation_data.i = getelementptr inbounds i8, ptr %g.2118.i, i64 120
+  %212 = load ptr, ptr %chunk_generation_data.i, align 8
+  %tobool120.not.i = icmp eq ptr %212, null
   %bf.load.i230 = load i8, ptr %append, align 8
   %bf.shl.i = select i1 %tobool120.not.i, i8 0, i8 32
   %bf.clear.i = and i8 %bf.load.i230, -33
@@ -4526,7 +4504,7 @@ if.then119.i:                                     ; preds = %if.end114.i
   br label %if.end122.i
 
 if.end122.i:                                      ; preds = %if.then119.i, %if.end114.i
-  %base_graph124.i = getelementptr inbounds %struct.commit_graph, ptr %g.2118.i, i64 0, i32 10
+  %base_graph124.i = getelementptr inbounds i8, ptr %g.2118.i, i64 88
   %g.2.i = load ptr, ptr %base_graph124.i, align 8
   %tobool103.not.i = icmp eq ptr %g.2.i, null
   br i1 %tobool103.not.i, label %split_graph_merge_strategy.exit, label %while.body104.i, !llvm.loop !41
@@ -4539,75 +4517,75 @@ if.then195:                                       ; preds = %split_graph_merge_s
   br label %if.end197
 
 if.else:                                          ; preds = %if.end186
-  %num_commit_graphs_after = getelementptr inbounds %struct.write_commit_graph_context, ptr %call5, i64 0, i32 13
+  %num_commit_graphs_after = getelementptr inbounds i8, ptr %call5, i64 132
   store i32 1, ptr %num_commit_graphs_after, align 4
   br label %if.end197
 
 if.end197:                                        ; preds = %split_graph_merge_strategy.exit, %if.then195, %if.else
-  %212 = load ptr, ptr %call5, align 8
-  %objects199 = getelementptr inbounds %struct.repository, ptr %212, i64 0, i32 2
-  %213 = load ptr, ptr %objects199, align 8
-  %commit_graph200 = getelementptr inbounds %struct.raw_object_store, ptr %213, i64 0, i32 8
-  %214 = load ptr, ptr %commit_graph200, align 8
-  %tobool17.not.i = icmp eq ptr %214, null
+  %213 = load ptr, ptr %call5, align 8
+  %objects199 = getelementptr inbounds i8, ptr %213, i64 16
+  %214 = load ptr, ptr %objects199, align 8
+  %commit_graph200 = getelementptr inbounds i8, ptr %214, i64 96
+  %215 = load ptr, ptr %commit_graph200, align 8
+  %tobool17.not.i = icmp eq ptr %215, null
   br i1 %tobool17.not.i, label %validate_mixed_generation_chain.exit, label %while.body.i245
 
 while.body.i245:                                  ; preds = %if.end197, %while.body.i245
-  %p.08.i = phi ptr [ %216, %while.body.i245 ], [ %214, %if.end197 ]
-  %read_generation_data2.i = getelementptr inbounds %struct.commit_graph, ptr %p.08.i, i64 0, i32 9
-  %215 = load i32, ptr %read_generation_data2.i, align 4
-  %base_graph.i246 = getelementptr inbounds %struct.commit_graph, ptr %p.08.i, i64 0, i32 10
-  %216 = load ptr, ptr %base_graph.i246, align 8
-  %tobool.i = icmp ne i32 %215, 0
-  %tobool1.i = icmp ne ptr %216, null
-  %217 = select i1 %tobool.i, i1 %tobool1.i, i1 false
-  br i1 %217, label %while.body.i245, label %while.end.i, !llvm.loop !12
+  %p.08.i = phi ptr [ %217, %while.body.i245 ], [ %215, %if.end197 ]
+  %read_generation_data2.i = getelementptr inbounds i8, ptr %p.08.i, i64 84
+  %216 = load i32, ptr %read_generation_data2.i, align 4
+  %base_graph.i246 = getelementptr inbounds i8, ptr %p.08.i, i64 88
+  %217 = load ptr, ptr %base_graph.i246, align 8
+  %tobool.i = icmp ne i32 %216, 0
+  %tobool1.i = icmp ne ptr %217, null
+  %218 = select i1 %tobool.i, i1 %tobool1.i, i1 false
+  br i1 %218, label %while.body.i245, label %while.end.i, !llvm.loop !12
 
 while.end.i:                                      ; preds = %while.body.i245
   br i1 %tobool.i, label %validate_mixed_generation_chain.exit, label %while.body6.i
 
 while.body6.i:                                    ; preds = %while.end.i, %while.body6.i
-  %g.addr.010.i = phi ptr [ %218, %while.body6.i ], [ %214, %while.end.i ]
-  %read_generation_data7.i = getelementptr inbounds %struct.commit_graph, ptr %g.addr.010.i, i64 0, i32 9
+  %g.addr.010.i = phi ptr [ %219, %while.body6.i ], [ %215, %while.end.i ]
+  %read_generation_data7.i = getelementptr inbounds i8, ptr %g.addr.010.i, i64 84
   store i32 0, ptr %read_generation_data7.i, align 4
-  %base_graph8.i = getelementptr inbounds %struct.commit_graph, ptr %g.addr.010.i, i64 0, i32 10
-  %218 = load ptr, ptr %base_graph8.i, align 8
-  %tobool5.not.i = icmp eq ptr %218, null
+  %base_graph8.i = getelementptr inbounds i8, ptr %g.addr.010.i, i64 88
+  %219 = load ptr, ptr %base_graph8.i, align 8
+  %tobool5.not.i = icmp eq ptr %219, null
   br i1 %tobool5.not.i, label %validate_mixed_generation_chain.exit.loopexit, label %while.body6.i, !llvm.loop !13
 
 validate_mixed_generation_chain.exit.loopexit:    ; preds = %while.body6.i
-  %.pre534 = load ptr, ptr %call5, align 8
+  %.pre533 = load ptr, ptr %call5, align 8
   br label %validate_mixed_generation_chain.exit
 
 validate_mixed_generation_chain.exit:             ; preds = %validate_mixed_generation_chain.exit.loopexit, %if.end197, %while.end.i
-  %219 = phi ptr [ %212, %while.end.i ], [ %212, %if.end197 ], [ %.pre534, %validate_mixed_generation_chain.exit.loopexit ]
+  %220 = phi ptr [ %213, %while.end.i ], [ %213, %if.end197 ], [ %.pre533, %validate_mixed_generation_chain.exit.loopexit ]
   %retval.0.i247 = phi i8 [ 64, %while.end.i ], [ 64, %if.end197 ], [ 0, %validate_mixed_generation_chain.exit.loopexit ]
   %bf.load202 = load i8, ptr %append, align 8
   %bf.clear205 = and i8 %bf.load202, -65
   %bf.set206 = or disjoint i8 %bf.clear205, %retval.0.i247
   store i8 %bf.set206, ptr %append, align 8
   call void @llvm.lifetime.start.p0(i64 56, ptr nonnull %info.i)
-  store ptr %219, ptr %info.i, align 8
-  %commits.i248 = getelementptr inbounds %struct.compute_generation_info, ptr %info.i, i64 0, i32 1
-  %commits2.i = getelementptr inbounds %struct.write_commit_graph_context, ptr %call5, i64 0, i32 4
+  store ptr %220, ptr %info.i, align 8
+  %commits.i248 = getelementptr inbounds i8, ptr %info.i, i64 8
+  %commits2.i = getelementptr inbounds i8, ptr %call5, i64 56
   store ptr %commits2.i, ptr %commits.i248, align 8
-  %progress.i249 = getelementptr inbounds %struct.compute_generation_info, ptr %info.i, i64 0, i32 2
+  %progress.i249 = getelementptr inbounds i8, ptr %info.i, i64 16
   store ptr null, ptr %progress.i249, align 8
-  %progress_cnt.i = getelementptr inbounds %struct.compute_generation_info, ptr %info.i, i64 0, i32 3
+  %progress_cnt.i = getelementptr inbounds i8, ptr %info.i, i64 24
   store i32 0, ptr %progress_cnt.i, align 8
-  %get_generation.i = getelementptr inbounds %struct.compute_generation_info, ptr %info.i, i64 0, i32 4
+  %get_generation.i = getelementptr inbounds i8, ptr %info.i, i64 32
   store ptr @get_topo_level, ptr %get_generation.i, align 8
-  %set_generation.i = getelementptr inbounds %struct.compute_generation_info, ptr %info.i, i64 0, i32 5
+  %set_generation.i = getelementptr inbounds i8, ptr %info.i, i64 40
   store ptr @set_topo_level, ptr %set_generation.i, align 8
-  %data.i = getelementptr inbounds %struct.compute_generation_info, ptr %info.i, i64 0, i32 6
+  %data.i = getelementptr inbounds i8, ptr %info.i, i64 48
   store ptr %call5, ptr %data.i, align 8
-  %220 = and i8 %bf.load202, 2
-  %tobool.not.i252 = icmp eq i8 %220, 0
+  %221 = and i8 %bf.load202, 2
+  %tobool.not.i252 = icmp eq i8 %221, 0
   br i1 %tobool.not.i252, label %if.end.i260, label %if.then.i253
 
 if.then.i253:                                     ; preds = %validate_mixed_generation_chain.exit
-  %221 = load i32, ptr @git_gettext_enabled, align 4
-  %tobool1.not.i.i254 = icmp eq i32 %221, 0
+  %222 = load i32, ptr @git_gettext_enabled, align 4
+  %tobool1.not.i.i254 = icmp eq i32 %222, 0
   br i1 %tobool1.not.i.i254, label %_.exit.i257, label %if.end3.i.i255
 
 if.end3.i.i255:                                   ; preds = %if.then.i253
@@ -4616,16 +4594,16 @@ if.end3.i.i255:                                   ; preds = %if.then.i253
 
 _.exit.i257:                                      ; preds = %if.end3.i.i255, %if.then.i253
   %retval.0.i.i258 = phi ptr [ %call.i.i256, %if.end3.i.i255 ], [ @.str.76, %if.then.i253 ]
-  %222 = load i64, ptr %nr, align 8
-  %call4.i = call ptr @start_delayed_progress(ptr noundef %retval.0.i.i258, i64 noundef %222) #22
+  %223 = load i64, ptr %nr, align 8
+  %call4.i = call ptr @start_delayed_progress(ptr noundef %retval.0.i.i258, i64 noundef %223) #22
   store ptr %call4.i, ptr %progress18.i, align 8
   store ptr %call4.i, ptr %progress.i249, align 8
   br label %if.end.i260
 
 if.end.i260:                                      ; preds = %_.exit.i257, %validate_mixed_generation_chain.exit
   call fastcc void @compute_reachable_generation_numbers(ptr noundef nonnull %info.i, i32 noundef 1)
-  %223 = load i32, ptr @git_gettext_enabled, align 4
-  %tobool1.not.i.i.i261 = icmp eq i32 %223, 0
+  %224 = load i32, ptr @git_gettext_enabled, align 4
+  %tobool1.not.i.i.i261 = icmp eq i32 %224, 0
   br i1 %tobool1.not.i.i.i261, label %compute_topological_levels.exit, label %if.end3.i.i.i262
 
 if.end3.i.i.i262:                                 ; preds = %if.end.i260
@@ -4637,33 +4615,33 @@ compute_topological_levels.exit:                  ; preds = %if.end.i260, %if.en
   call void @stop_progress_msg(ptr noundef nonnull %progress18.i, ptr noundef %retval.0.i.i.i265) #22
   call void @llvm.lifetime.end.p0(i64 56, ptr nonnull %info.i)
   %bf.load209 = load i8, ptr %append, align 8
-  %224 = and i8 %bf.load209, 32
-  %tobool213.not = icmp eq i8 %224, 0
+  %225 = and i8 %bf.load209, 32
+  %tobool213.not = icmp eq i8 %225, 0
   br i1 %tobool213.not, label %if.end215, label %if.then214
 
 if.then214:                                       ; preds = %compute_topological_levels.exit
   call void @llvm.lifetime.start.p0(i64 56, ptr nonnull %info.i267)
-  %225 = load ptr, ptr %call5, align 8
-  store ptr %225, ptr %info.i267, align 8
-  %commits.i268 = getelementptr inbounds %struct.compute_generation_info, ptr %info.i267, i64 0, i32 1
+  %226 = load ptr, ptr %call5, align 8
+  store ptr %226, ptr %info.i267, align 8
+  %commits.i268 = getelementptr inbounds i8, ptr %info.i267, i64 8
   store ptr %commits2.i, ptr %commits.i268, align 8
-  %progress.i270 = getelementptr inbounds %struct.compute_generation_info, ptr %info.i267, i64 0, i32 2
+  %progress.i270 = getelementptr inbounds i8, ptr %info.i267, i64 16
   store ptr null, ptr %progress.i270, align 8
-  %progress_cnt.i271 = getelementptr inbounds %struct.compute_generation_info, ptr %info.i267, i64 0, i32 3
+  %progress_cnt.i271 = getelementptr inbounds i8, ptr %info.i267, i64 24
   store i32 0, ptr %progress_cnt.i271, align 8
-  %get_generation.i272 = getelementptr inbounds %struct.compute_generation_info, ptr %info.i267, i64 0, i32 4
+  %get_generation.i272 = getelementptr inbounds i8, ptr %info.i267, i64 32
   store ptr @get_generation_from_graph_data, ptr %get_generation.i272, align 8
-  %set_generation.i273 = getelementptr inbounds %struct.compute_generation_info, ptr %info.i267, i64 0, i32 5
+  %set_generation.i273 = getelementptr inbounds i8, ptr %info.i267, i64 40
   store ptr @set_generation_v2, ptr %set_generation.i273, align 8
-  %data.i274 = getelementptr inbounds %struct.compute_generation_info, ptr %info.i267, i64 0, i32 6
+  %data.i274 = getelementptr inbounds i8, ptr %info.i267, i64 48
   store ptr null, ptr %data.i274, align 8
-  %226 = and i8 %bf.load209, 2
-  %tobool.not.i277 = icmp eq i8 %226, 0
+  %227 = and i8 %bf.load209, 2
+  %tobool.not.i277 = icmp eq i8 %227, 0
   br i1 %tobool.not.i277, label %if.end.i287, label %if.then.i278
 
 if.then.i278:                                     ; preds = %if.then214
-  %227 = load i32, ptr @git_gettext_enabled, align 4
-  %tobool1.not.i.i279 = icmp eq i32 %227, 0
+  %228 = load i32, ptr @git_gettext_enabled, align 4
+  %tobool1.not.i.i279 = icmp eq i32 %228, 0
   br i1 %tobool1.not.i.i279, label %_.exit.i282, label %if.end3.i.i280
 
 if.end3.i.i280:                                   ; preds = %if.then.i278
@@ -4672,8 +4650,8 @@ if.end3.i.i280:                                   ; preds = %if.then.i278
 
 _.exit.i282:                                      ; preds = %if.end3.i.i280, %if.then.i278
   %retval.0.i.i283 = phi ptr [ %call.i.i281, %if.end3.i.i280 ], [ @.str.77, %if.then.i278 ]
-  %228 = load i64, ptr %nr, align 8
-  %call4.i285 = call ptr @start_delayed_progress(ptr noundef %retval.0.i.i283, i64 noundef %228) #22
+  %229 = load i64, ptr %nr, align 8
+  %call4.i285 = call ptr @start_delayed_progress(ptr noundef %retval.0.i.i283, i64 noundef %229) #22
   store ptr %call4.i285, ptr %progress18.i, align 8
   store ptr %call4.i285, ptr %progress.i270, align 8
   %bf.load7.pre.i = load i8, ptr %append, align 8
@@ -4681,69 +4659,69 @@ _.exit.i282:                                      ; preds = %if.end3.i.i280, %if
 
 if.end.i287:                                      ; preds = %_.exit.i282, %if.then214
   %bf.load7.i = phi i8 [ %bf.load7.pre.i, %_.exit.i282 ], [ %bf.load209, %if.then214 ]
-  %229 = and i8 %bf.load7.i, 64
-  %tobool11.not.i288 = icmp eq i8 %229, 0
+  %230 = and i8 %bf.load7.i, 64
+  %tobool11.not.i288 = icmp eq i8 %230, 0
   br i1 %tobool11.not.i288, label %for.cond.preheader.i, label %if.end20.i
 
 for.cond.preheader.i:                             ; preds = %if.end.i287
-  %230 = load i64, ptr %nr, align 8
-  %cmp22.not.i = icmp eq i64 %230, 0
+  %231 = load i64, ptr %nr, align 8
+  %cmp22.not.i = icmp eq i64 %231, 0
   br i1 %cmp22.not.i, label %if.end20.i, label %for.body.i295
 
 for.body.i295:                                    ; preds = %for.cond.preheader.i, %for.body.i295
   %indvars.iv.i296 = phi i64 [ %indvars.iv.next.i298, %for.body.i295 ], [ 0, %for.cond.preheader.i ]
-  %231 = load ptr, ptr %commits2.i, align 8
-  %arrayidx.i297 = getelementptr inbounds ptr, ptr %231, i64 %indvars.iv.i296
-  %232 = load ptr, ptr %arrayidx.i297, align 8
-  %233 = load ptr, ptr %call5, align 8
-  %call.i21.i = call i32 @repo_parse_commit_gently(ptr noundef %233, ptr noundef %232, i32 noundef 0) #22
-  %234 = getelementptr i8, ptr %232, i64 64
-  %.val.i = load i32, ptr %234, align 8
+  %232 = load ptr, ptr %commits2.i, align 8
+  %arrayidx.i297 = getelementptr inbounds ptr, ptr %232, i64 %indvars.iv.i296
+  %233 = load ptr, ptr %arrayidx.i297, align 8
+  %234 = load ptr, ptr %call5, align 8
+  %call.i21.i = call i32 @repo_parse_commit_gently(ptr noundef %234, ptr noundef %233, i32 noundef 0) #22
+  %235 = getelementptr i8, ptr %233, i64 64
+  %.val.i = load i32, ptr %235, align 8
   %call19.i = call fastcc ptr @commit_graph_data_at(i32 %.val.i)
-  %generation.i = getelementptr inbounds %struct.commit_graph_data, ptr %call19.i, i64 0, i32 1
+  %generation.i = getelementptr inbounds i8, ptr %call19.i, i64 8
   store i64 0, ptr %generation.i, align 8
   %indvars.iv.next.i298 = add nuw i64 %indvars.iv.i296, 1
-  %235 = load i64, ptr %nr, align 8
-  %cmp.i299 = icmp ugt i64 %235, %indvars.iv.next.i298
+  %236 = load i64, ptr %nr, align 8
+  %cmp.i299 = icmp ugt i64 %236, %indvars.iv.next.i298
   br i1 %cmp.i299, label %for.body.i295, label %if.end20.i, !llvm.loop !42
 
 if.end20.i:                                       ; preds = %for.body.i295, %for.cond.preheader.i, %if.end.i287
   call fastcc void @compute_reachable_generation_numbers(ptr noundef nonnull %info.i267, i32 noundef 2)
-  %236 = load i64, ptr %nr, align 8
-  %cmp2525.not.i = icmp eq i64 %236, 0
+  %237 = load i64, ptr %nr, align 8
+  %cmp2525.not.i = icmp eq i64 %237, 0
   br i1 %cmp2525.not.i, label %for.end42.i, label %for.body27.i
 
 for.body27.i:                                     ; preds = %if.end20.i, %for.inc40.i
   %indvars.iv29.i = phi i64 [ %indvars.iv.next30.i, %for.inc40.i ], [ 0, %if.end20.i ]
-  %237 = load ptr, ptr %commits2.i, align 8
-  %arrayidx32.i = getelementptr inbounds ptr, ptr %237, i64 %indvars.iv29.i
-  %238 = load ptr, ptr %arrayidx32.i, align 8
-  %239 = getelementptr i8, ptr %238, i64 64
-  %.val20.i = load i32, ptr %239, align 8
+  %238 = load ptr, ptr %commits2.i, align 8
+  %arrayidx32.i = getelementptr inbounds ptr, ptr %238, i64 %indvars.iv29.i
+  %239 = load ptr, ptr %arrayidx32.i, align 8
+  %240 = getelementptr i8, ptr %239, i64 64
+  %.val20.i = load i32, ptr %240, align 8
   %call33.i = call fastcc ptr @commit_graph_data_at(i32 %.val20.i)
-  %generation34.i = getelementptr inbounds %struct.commit_graph_data, ptr %call33.i, i64 0, i32 1
-  %240 = load i64, ptr %generation34.i, align 8
-  %date.i = getelementptr inbounds %struct.commit, ptr %238, i64 0, i32 1
-  %241 = load i64, ptr %date.i, align 8
-  %sub.i289 = sub i64 %240, %241
+  %generation34.i = getelementptr inbounds i8, ptr %call33.i, i64 8
+  %241 = load i64, ptr %generation34.i, align 8
+  %date.i = getelementptr inbounds i8, ptr %239, i64 40
+  %242 = load i64, ptr %date.i, align 8
+  %sub.i289 = sub i64 %241, %242
   %cmp35.i = icmp ugt i64 %sub.i289, 2147483647
   br i1 %cmp35.i, label %if.then37.i, label %for.inc40.i
 
 if.then37.i:                                      ; preds = %for.body27.i
-  %242 = load i32, ptr %num_generation_data_overflows, align 4
-  %inc38.i = add nsw i32 %242, 1
+  %243 = load i32, ptr %num_generation_data_overflows, align 4
+  %inc38.i = add nsw i32 %243, 1
   store i32 %inc38.i, ptr %num_generation_data_overflows, align 4
   br label %for.inc40.i
 
 for.inc40.i:                                      ; preds = %if.then37.i, %for.body27.i
   %indvars.iv.next30.i = add nuw i64 %indvars.iv29.i, 1
-  %243 = load i64, ptr %nr, align 8
-  %cmp25.i = icmp ugt i64 %243, %indvars.iv.next30.i
+  %244 = load i64, ptr %nr, align 8
+  %cmp25.i = icmp ugt i64 %244, %indvars.iv.next30.i
   br i1 %cmp25.i, label %for.body27.i, label %for.end42.i, !llvm.loop !43
 
 for.end42.i:                                      ; preds = %for.inc40.i, %if.end20.i
-  %244 = load i32, ptr @git_gettext_enabled, align 4
-  %tobool1.not.i.i.i290 = icmp eq i32 %244, 0
+  %245 = load i32, ptr @git_gettext_enabled, align 4
+  %tobool1.not.i.i.i290 = icmp eq i32 %245, 0
   br i1 %tobool1.not.i.i.i290, label %compute_generation_numbers.exit, label %if.end3.i.i.i291
 
 if.end3.i.i.i291:                                 ; preds = %for.end42.i
@@ -4759,8 +4737,8 @@ compute_generation_numbers.exit:                  ; preds = %for.end42.i, %if.en
 
 if.end215:                                        ; preds = %compute_generation_numbers.exit, %compute_topological_levels.exit
   %bf.load217 = phi i8 [ %bf.load217.pre, %compute_generation_numbers.exit ], [ %bf.load209, %compute_topological_levels.exit ]
-  %245 = and i8 %bf.load217, 8
-  %tobool221.not = icmp eq i8 %245, 0
+  %246 = and i8 %bf.load217, 8
+  %tobool221.not = icmp eq i8 %246, 0
   br i1 %tobool221.not, label %if.end223, label %if.then222
 
 if.then222:                                       ; preds = %if.end215
@@ -4769,13 +4747,13 @@ if.then222:                                       ; preds = %if.end215
   store ptr null, ptr %progress.i300, align 8
   call void @init_bloom_filters() #22
   %bf.load.i302 = load i8, ptr %append, align 8
-  %246 = and i8 %bf.load.i302, 2
-  %tobool.not.i303 = icmp eq i8 %246, 0
+  %247 = and i8 %bf.load.i302, 2
+  %tobool.not.i303 = icmp eq i8 %247, 0
   br i1 %tobool.not.i303, label %do.body.i, label %if.then.i304
 
 if.then.i304:                                     ; preds = %if.then222
-  %247 = load i32, ptr @git_gettext_enabled, align 4
-  %tobool1.not.i.i305 = icmp eq i32 %247, 0
+  %248 = load i32, ptr @git_gettext_enabled, align 4
+  %tobool1.not.i.i305 = icmp eq i32 %248, 0
   br i1 %tobool1.not.i.i305, label %_.exit.i308, label %if.end3.i.i306
 
 if.end3.i.i306:                                   ; preds = %if.then.i304
@@ -4784,48 +4762,48 @@ if.end3.i.i306:                                   ; preds = %if.then.i304
 
 _.exit.i308:                                      ; preds = %if.end3.i.i306, %if.then.i304
   %retval.0.i.i309 = phi ptr [ %call.i.i307, %if.end3.i.i306 ], [ @.str.78, %if.then.i304 ]
-  %248 = load i64, ptr %nr, align 8
-  %call1.i311 = call ptr @start_delayed_progress(ptr noundef %retval.0.i.i309, i64 noundef %248) #22
+  %249 = load i64, ptr %nr, align 8
+  %call1.i311 = call ptr @start_delayed_progress(ptr noundef %retval.0.i.i309, i64 noundef %249) #22
   store ptr %call1.i311, ptr %progress.i300, align 8
   br label %do.body.i
 
 do.body.i:                                        ; preds = %_.exit.i308, %if.then222
-  %249 = phi ptr [ null, %if.then222 ], [ %call1.i311, %_.exit.i308 ]
-  %250 = load i64, ptr %nr, align 8
-  %mul.ov.i.i312 = icmp ugt i64 %250, 2305843009213693951
+  %250 = phi ptr [ null, %if.then222 ], [ %call1.i311, %_.exit.i308 ]
+  %251 = load i64, ptr %nr, align 8
+  %mul.ov.i.i312 = icmp ugt i64 %251, 2305843009213693951
   br i1 %mul.ov.i.i312, label %if.then.i.i342, label %st_mult.exit.i313
 
 if.then.i.i342:                                   ; preds = %do.body.i
-  call void (ptr, ...) @die(ptr noundef nonnull @.str.56, i64 noundef 8, i64 noundef %250) #23
+  call void (ptr, ...) @die(ptr noundef nonnull @.str.56, i64 noundef 8, i64 noundef %251) #23
   unreachable
 
 st_mult.exit.i313:                                ; preds = %do.body.i
-  %mul.i.i314 = shl nuw i64 %250, 3
+  %mul.i.i314 = shl nuw i64 %251, 3
   %call5.i = call ptr @xmalloc(i64 noundef %mul.i.i314) #22
-  %tobool.not.i.i315 = icmp eq i64 %250, 0
+  %tobool.not.i.i315 = icmp eq i64 %251, 0
   br i1 %tobool.not.i.i315, label %copy_array.exit.i, label %st_mult.exit.i.i
 
 st_mult.exit.i.i:                                 ; preds = %st_mult.exit.i313
-  %251 = load ptr, ptr %commits2.i, align 8
-  call void @llvm.memcpy.p0.p0.i64(ptr align 1 %call5.i, ptr align 1 %251, i64 %mul.i.i314, i1 false)
+  %252 = load ptr, ptr %commits2.i, align 8
+  call void @llvm.memcpy.p0.p0.i64(ptr align 1 %call5.i, ptr align 1 %252, i64 %mul.i.i314, i1 false)
   br label %copy_array.exit.i
 
 copy_array.exit.i:                                ; preds = %st_mult.exit.i.i, %st_mult.exit.i313
-  %252 = load i64, ptr %nr, align 8
-  %cmp.i32.i = icmp ugt i64 %252, 1
+  %253 = load i64, ptr %nr, align 8
+  %cmp.i32.i = icmp ugt i64 %253, 1
   br i1 %cmp.i32.i, label %if.end17.sink.split.i, label %if.end17.i
 
 if.end17.sink.split.i:                            ; preds = %copy_array.exit.i
   %bf.load7.i340 = load i8, ptr %append, align 8
-  %253 = and i8 %bf.load7.i340, 16
-  %tobool11.not.i341 = icmp eq i8 %253, 0
+  %254 = and i8 %bf.load7.i340, 16
+  %tobool11.not.i341 = icmp eq i8 %254, 0
   %commit_gen_cmp.commit_pos_cmp.i = select i1 %tobool11.not.i341, ptr @commit_gen_cmp, ptr @commit_pos_cmp
-  call void @qsort(ptr noundef %call5.i, i64 noundef %252, i64 noundef 8, ptr noundef nonnull %commit_gen_cmp.commit_pos_cmp.i) #22
+  call void @qsort(ptr noundef %call5.i, i64 noundef %253, i64 noundef 8, ptr noundef nonnull %commit_gen_cmp.commit_pos_cmp.i) #22
   br label %if.end17.i
 
 if.end17.i:                                       ; preds = %if.end17.sink.split.i, %copy_array.exit.i
-  %254 = load ptr, ptr %opts26, align 8
-  %tobool18.not.i318 = icmp eq ptr %254, null
+  %255 = load ptr, ptr %opts26, align 8
+  %tobool18.not.i318 = icmp eq ptr %255, null
   br i1 %tobool18.not.i318, label %if.end17.cond.false_crit_edge.i, label %land.lhs.true.i319
 
 if.end17.cond.false_crit_edge.i:                  ; preds = %if.end17.i
@@ -4833,74 +4811,74 @@ if.end17.cond.false_crit_edge.i:                  ; preds = %if.end17.i
   br label %cond.false.i
 
 land.lhs.true.i319:                               ; preds = %if.end17.i
-  %max_new_filters20.i = getelementptr inbounds %struct.commit_graph_opts, ptr %254, i64 0, i32 4
-  %255 = load i32, ptr %max_new_filters20.i, align 4
-  %cmp.i320 = icmp sgt i32 %255, -1
+  %max_new_filters20.i = getelementptr inbounds i8, ptr %255, i64 20
+  %256 = load i32, ptr %max_new_filters20.i, align 4
+  %cmp.i320 = icmp sgt i32 %256, -1
   %.pre40.i = load i64, ptr %nr, align 8
   br i1 %cmp.i320, label %cond.end.i321, label %cond.false.i
 
 cond.false.i:                                     ; preds = %land.lhs.true.i319, %if.end17.cond.false_crit_edge.i
-  %256 = phi i64 [ %.pre39.i, %if.end17.cond.false_crit_edge.i ], [ %.pre40.i, %land.lhs.true.i319 ]
-  %257 = trunc i64 %256 to i32
+  %257 = phi i64 [ %.pre39.i, %if.end17.cond.false_crit_edge.i ], [ %.pre40.i, %land.lhs.true.i319 ]
+  %258 = trunc i64 %257 to i32
   br label %cond.end.i321
 
 cond.end.i321:                                    ; preds = %cond.false.i, %land.lhs.true.i319
-  %258 = phi i64 [ %256, %cond.false.i ], [ %.pre40.i, %land.lhs.true.i319 ]
-  %cond.i322 = phi i32 [ %257, %cond.false.i ], [ %255, %land.lhs.true.i319 ]
-  %cmp2935.not.i = icmp eq i64 %258, 0
+  %259 = phi i64 [ %257, %cond.false.i ], [ %.pre40.i, %land.lhs.true.i319 ]
+  %cond.i322 = phi i32 [ %258, %cond.false.i ], [ %256, %land.lhs.true.i319 ]
+  %cmp2935.not.i = icmp eq i64 %259, 0
   br i1 %cmp2935.not.i, label %for.end.i332, label %for.body.lr.ph.i323
 
 for.body.lr.ph.i323:                              ; preds = %cond.end.i321
-  %count_bloom_filter_computed.i = getelementptr inbounds %struct.write_commit_graph_context, ptr %call5, i64 0, i32 24
-  %count_bloom_filter_trunc_empty.i = getelementptr inbounds %struct.write_commit_graph_context, ptr %call5, i64 0, i32 26
-  %count_bloom_filter_trunc_large.i = getelementptr inbounds %struct.write_commit_graph_context, ptr %call5, i64 0, i32 27
-  %count_bloom_filter_not_computed.i = getelementptr inbounds %struct.write_commit_graph_context, ptr %call5, i64 0, i32 25
+  %count_bloom_filter_computed.i = getelementptr inbounds i8, ptr %call5, i64 216
+  %count_bloom_filter_trunc_empty.i = getelementptr inbounds i8, ptr %call5, i64 224
+  %count_bloom_filter_trunc_large.i = getelementptr inbounds i8, ptr %call5, i64 228
+  %count_bloom_filter_not_computed.i = getelementptr inbounds i8, ptr %call5, i64 220
   br label %for.body.i324
 
 for.body.i324:                                    ; preds = %cond.end57.i, %for.body.lr.ph.i323
   %indvars.iv.i325 = phi i64 [ 0, %for.body.lr.ph.i323 ], [ %indvars.iv.next.i331, %cond.end57.i ]
   store i32 0, ptr %computed.i, align 4
   %arrayidx.i326 = getelementptr inbounds ptr, ptr %call5.i, i64 %indvars.iv.i325
-  %259 = load ptr, ptr %arrayidx.i326, align 8
-  %260 = load ptr, ptr %call5, align 8
-  %261 = load i32, ptr %count_bloom_filter_computed.i, align 8
-  %cmp31.i = icmp slt i32 %261, %cond.i322
+  %260 = load ptr, ptr %arrayidx.i326, align 8
+  %261 = load ptr, ptr %call5, align 8
+  %262 = load i32, ptr %count_bloom_filter_computed.i, align 8
+  %cmp31.i = icmp slt i32 %262, %cond.i322
   %conv32.i = zext i1 %cmp31.i to i32
-  %262 = load ptr, ptr %bloom_settings46, align 8
-  %call33.i327 = call ptr @get_or_compute_bloom_filter(ptr noundef %260, ptr noundef %259, i32 noundef %conv32.i, ptr noundef %262, ptr noundef nonnull %computed.i) #22
-  %263 = load i32, ptr %computed.i, align 4
-  %and.i = and i32 %263, 2
+  %263 = load ptr, ptr %bloom_settings46, align 8
+  %call33.i327 = call ptr @get_or_compute_bloom_filter(ptr noundef %261, ptr noundef %260, i32 noundef %conv32.i, ptr noundef %263, ptr noundef nonnull %computed.i) #22
+  %264 = load i32, ptr %computed.i, align 4
+  %and.i = and i32 %264, 2
   %tobool34.not.i = icmp eq i32 %and.i, 0
   br i1 %tobool34.not.i, label %if.else47.i, label %if.then35.i
 
 if.then35.i:                                      ; preds = %for.body.i324
-  %264 = load i32, ptr %count_bloom_filter_computed.i, align 8
-  %inc.i328 = add nsw i32 %264, 1
+  %265 = load i32, ptr %count_bloom_filter_computed.i, align 8
+  %inc.i328 = add nsw i32 %265, 1
   store i32 %inc.i328, ptr %count_bloom_filter_computed.i, align 8
-  %and37.i = and i32 %263, 8
+  %and37.i = and i32 %264, 8
   %tobool38.not.i = icmp eq i32 %and37.i, 0
   br i1 %tobool38.not.i, label %if.end41.i, label %if.then39.i
 
 if.then39.i:                                      ; preds = %if.then35.i
-  %265 = load i32, ptr %count_bloom_filter_trunc_empty.i, align 8
-  %inc40.i = add nsw i32 %265, 1
+  %266 = load i32, ptr %count_bloom_filter_trunc_empty.i, align 8
+  %inc40.i = add nsw i32 %266, 1
   store i32 %inc40.i, ptr %count_bloom_filter_trunc_empty.i, align 8
   br label %if.end41.i
 
 if.end41.i:                                       ; preds = %if.then39.i, %if.then35.i
-  %and42.i = and i32 %263, 4
+  %and42.i = and i32 %264, 4
   %tobool43.not.i = icmp eq i32 %and42.i, 0
   br i1 %tobool43.not.i, label %if.end53.i, label %if.end53.sink.split.i
 
 if.else47.i:                                      ; preds = %for.body.i324
-  %and48.i = and i32 %263, 1
+  %and48.i = and i32 %264, 1
   %tobool49.not.i = icmp eq i32 %and48.i, 0
   br i1 %tobool49.not.i, label %if.end53.i, label %if.end53.sink.split.i
 
 if.end53.sink.split.i:                            ; preds = %if.else47.i, %if.end41.i
   %count_bloom_filter_not_computed.sink41.i = phi ptr [ %count_bloom_filter_trunc_large.i, %if.end41.i ], [ %count_bloom_filter_not_computed.i, %if.else47.i ]
-  %266 = load i32, ptr %count_bloom_filter_not_computed.sink41.i, align 4
-  %inc51.i = add nsw i32 %266, 1
+  %267 = load i32, ptr %count_bloom_filter_not_computed.sink41.i, align 4
+  %inc51.i = add nsw i32 %267, 1
   store i32 %inc51.i, ptr %count_bloom_filter_not_computed.sink41.i, align 4
   br label %if.end53.i
 
@@ -4909,19 +4887,19 @@ if.end53.i:                                       ; preds = %if.end53.sink.split
   br i1 %tobool54.not.i, label %cond.end57.i, label %cond.true55.i
 
 cond.true55.i:                                    ; preds = %if.end53.i
-  %len.i329 = getelementptr inbounds %struct.bloom_filter, ptr %call33.i327, i64 0, i32 1
-  %267 = load i64, ptr %len.i329, align 8
+  %len.i329 = getelementptr inbounds i8, ptr %call33.i327, i64 8
+  %268 = load i64, ptr %len.i329, align 8
   br label %cond.end57.i
 
 cond.end57.i:                                     ; preds = %cond.true55.i, %if.end53.i
-  %cond58.i = phi i64 [ %267, %cond.true55.i ], [ 0, %if.end53.i ]
-  %268 = load i64, ptr %total_bloom_filter_data_size, align 8
-  %add.i330 = add i64 %268, %cond58.i
+  %cond58.i = phi i64 [ %268, %cond.true55.i ], [ 0, %if.end53.i ]
+  %269 = load i64, ptr %total_bloom_filter_data_size, align 8
+  %add.i330 = add i64 %269, %cond58.i
   store i64 %add.i330, ptr %total_bloom_filter_data_size, align 8
   %indvars.iv.next.i331 = add nuw i64 %indvars.iv.i325, 1
-  call void @display_progress(ptr noundef %249, i64 noundef %indvars.iv.next.i331) #22
-  %269 = load i64, ptr %nr, align 8
-  %cmp29.i = icmp ugt i64 %269, %indvars.iv.next.i331
+  call void @display_progress(ptr noundef %250, i64 noundef %indvars.iv.next.i331) #22
+  %270 = load i64, ptr %nr, align 8
+  %cmp29.i = icmp ugt i64 %270, %indvars.iv.next.i331
   br i1 %cmp29.i, label %for.body.i324, label %for.end.i332, !llvm.loop !44
 
 for.end.i332:                                     ; preds = %cond.end57.i, %cond.end.i321
@@ -4930,32 +4908,32 @@ for.end.i332:                                     ; preds = %cond.end57.i, %cond
   br i1 %tobool63.not.i, label %if.end65.i, label %if.then64.i333
 
 if.then64.i333:                                   ; preds = %for.end.i332
-  %270 = load ptr, ptr %call5, align 8
-  %count_bloom_filter_computed.i.i = getelementptr inbounds %struct.write_commit_graph_context, ptr %call5, i64 0, i32 24
-  %271 = load i32, ptr %count_bloom_filter_computed.i.i, align 8
-  %conv.i.i334 = sext i32 %271 to i64
-  call void @trace2_data_intmax_fl(ptr noundef nonnull @.str.45, i32 noundef 1750, ptr noundef nonnull @.str.79, ptr noundef %270, ptr noundef nonnull @.str.80, i64 noundef %conv.i.i334) #22
-  %272 = load ptr, ptr %call5, align 8
-  %count_bloom_filter_not_computed.i.i = getelementptr inbounds %struct.write_commit_graph_context, ptr %call5, i64 0, i32 25
-  %273 = load i32, ptr %count_bloom_filter_not_computed.i.i, align 4
-  %conv2.i.i = sext i32 %273 to i64
-  call void @trace2_data_intmax_fl(ptr noundef nonnull @.str.45, i32 noundef 1752, ptr noundef nonnull @.str.79, ptr noundef %272, ptr noundef nonnull @.str.81, i64 noundef %conv2.i.i) #22
-  %274 = load ptr, ptr %call5, align 8
-  %count_bloom_filter_trunc_empty.i.i = getelementptr inbounds %struct.write_commit_graph_context, ptr %call5, i64 0, i32 26
-  %275 = load i32, ptr %count_bloom_filter_trunc_empty.i.i, align 8
-  %conv4.i.i = sext i32 %275 to i64
-  call void @trace2_data_intmax_fl(ptr noundef nonnull @.str.45, i32 noundef 1754, ptr noundef nonnull @.str.79, ptr noundef %274, ptr noundef nonnull @.str.82, i64 noundef %conv4.i.i) #22
-  %276 = load ptr, ptr %call5, align 8
-  %count_bloom_filter_trunc_large.i.i = getelementptr inbounds %struct.write_commit_graph_context, ptr %call5, i64 0, i32 27
-  %277 = load i32, ptr %count_bloom_filter_trunc_large.i.i, align 4
-  %conv6.i.i = sext i32 %277 to i64
-  call void @trace2_data_intmax_fl(ptr noundef nonnull @.str.45, i32 noundef 1756, ptr noundef nonnull @.str.79, ptr noundef %276, ptr noundef nonnull @.str.83, i64 noundef %conv6.i.i) #22
+  %271 = load ptr, ptr %call5, align 8
+  %count_bloom_filter_computed.i.i = getelementptr inbounds i8, ptr %call5, i64 216
+  %272 = load i32, ptr %count_bloom_filter_computed.i.i, align 8
+  %conv.i.i334 = sext i32 %272 to i64
+  call void @trace2_data_intmax_fl(ptr noundef nonnull @.str.45, i32 noundef 1750, ptr noundef nonnull @.str.79, ptr noundef %271, ptr noundef nonnull @.str.80, i64 noundef %conv.i.i334) #22
+  %273 = load ptr, ptr %call5, align 8
+  %count_bloom_filter_not_computed.i.i = getelementptr inbounds i8, ptr %call5, i64 220
+  %274 = load i32, ptr %count_bloom_filter_not_computed.i.i, align 4
+  %conv2.i.i = sext i32 %274 to i64
+  call void @trace2_data_intmax_fl(ptr noundef nonnull @.str.45, i32 noundef 1752, ptr noundef nonnull @.str.79, ptr noundef %273, ptr noundef nonnull @.str.81, i64 noundef %conv2.i.i) #22
+  %275 = load ptr, ptr %call5, align 8
+  %count_bloom_filter_trunc_empty.i.i = getelementptr inbounds i8, ptr %call5, i64 224
+  %276 = load i32, ptr %count_bloom_filter_trunc_empty.i.i, align 8
+  %conv4.i.i = sext i32 %276 to i64
+  call void @trace2_data_intmax_fl(ptr noundef nonnull @.str.45, i32 noundef 1754, ptr noundef nonnull @.str.79, ptr noundef %275, ptr noundef nonnull @.str.82, i64 noundef %conv4.i.i) #22
+  %277 = load ptr, ptr %call5, align 8
+  %count_bloom_filter_trunc_large.i.i = getelementptr inbounds i8, ptr %call5, i64 228
+  %278 = load i32, ptr %count_bloom_filter_trunc_large.i.i, align 4
+  %conv6.i.i = sext i32 %278 to i64
+  call void @trace2_data_intmax_fl(ptr noundef nonnull @.str.45, i32 noundef 1756, ptr noundef nonnull @.str.79, ptr noundef %277, ptr noundef nonnull @.str.83, i64 noundef %conv6.i.i) #22
   br label %if.end65.i
 
 if.end65.i:                                       ; preds = %if.then64.i333, %for.end.i332
   call void @free(ptr noundef %call5.i) #22
-  %278 = load i32, ptr @git_gettext_enabled, align 4
-  %tobool1.not.i.i.i335 = icmp eq i32 %278, 0
+  %279 = load i32, ptr @git_gettext_enabled, align 4
+  %tobool1.not.i.i.i335 = icmp eq i32 %279, 0
   br i1 %tobool1.not.i.i.i335, label %compute_bloom_filters.exit, label %if.end3.i.i.i336
 
 if.end3.i.i.i336:                                 ; preds = %if.end65.i
@@ -4977,43 +4955,43 @@ if.end223:                                        ; preds = %compute_bloom_filte
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %file_hash.i)
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %tmp_file.i)
   store i64 0, ptr %lk.i, align 8
-  %279 = load ptr, ptr @the_repository, align 8
-  %hash_algo.i344 = getelementptr inbounds %struct.repository, ptr %279, i64 0, i32 15
-  %280 = load ptr, ptr %hash_algo.i344, align 8
-  %rawsz.i345 = getelementptr inbounds %struct.git_hash_algo, ptr %280, i64 0, i32 2
-  %281 = load i64, ptr %rawsz.i345, align 8
+  %280 = load ptr, ptr @the_repository, align 8
+  %hash_algo.i344 = getelementptr inbounds i8, ptr %280, i64 256
+  %281 = load ptr, ptr %hash_algo.i344, align 8
+  %rawsz.i345 = getelementptr inbounds i8, ptr %281, i64 16
+  %282 = load i64, ptr %rawsz.i345, align 8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %progress_title.i343, ptr noundef nonnull align 8 dereferenceable(24) @__const.expire_commit_graphs.path, i64 24, i1 false)
-  %282 = and i8 %bf.load.i346, 4
-  %tobool.not.i347 = icmp eq i8 %282, 0
+  %283 = and i8 %bf.load.i346, 4
+  %tobool.not.i347 = icmp eq i8 %283, 0
   br i1 %tobool.not.i347, label %if.else.i406, label %if.then.i348
 
 if.then.i348:                                     ; preds = %if.end223
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %tmp_file.i, ptr noundef nonnull align 8 dereferenceable(24) @__const.expire_commit_graphs.path, i64 24, i1 false)
-  %283 = load ptr, ptr %odb7, align 8
-  %path.i350 = getelementptr inbounds %struct.object_directory, ptr %283, i64 0, i32 5
-  %284 = load ptr, ptr %path.i350, align 8
-  call void (ptr, ptr, ...) @strbuf_addf(ptr noundef nonnull %tmp_file.i, ptr noundef nonnull @.str.84, ptr noundef %284) #22
+  %284 = load ptr, ptr %odb7, align 8
+  %path.i350 = getelementptr inbounds i8, ptr %284, i64 56
+  %285 = load ptr, ptr %path.i350, align 8
+  call void (ptr, ptr, ...) @strbuf_addf(ptr noundef nonnull %tmp_file.i, ptr noundef nonnull @.str.84, ptr noundef %285) #22
   %call.i351 = call ptr @strbuf_detach(ptr noundef nonnull %tmp_file.i, ptr noundef null) #22
   br label %if.end.i352
 
 if.else.i406:                                     ; preds = %if.end223
-  %285 = load ptr, ptr %odb7, align 8
-  %path.i.i407 = getelementptr inbounds %struct.object_directory, ptr %285, i64 0, i32 5
-  %286 = load ptr, ptr %path.i.i407, align 8
-  %call.i.i408 = call ptr (ptr, ...) @xstrfmt(ptr noundef nonnull @.str.3, ptr noundef %286) #22
+  %286 = load ptr, ptr %odb7, align 8
+  %path.i.i407 = getelementptr inbounds i8, ptr %286, i64 56
+  %287 = load ptr, ptr %path.i.i407, align 8
+  %call.i.i408 = call ptr (ptr, ...) @xstrfmt(ptr noundef nonnull @.str.3, ptr noundef %287) #22
   br label %if.end.i352
 
 if.end.i352:                                      ; preds = %if.else.i406, %if.then.i348
   %call.sink.i = phi ptr [ %call.i.i408, %if.else.i406 ], [ %call.i351, %if.then.i348 ]
-  %287 = getelementptr inbounds %struct.write_commit_graph_context, ptr %call5, i64 0, i32 2
-  store ptr %call.sink.i, ptr %287, align 8
+  %288 = getelementptr inbounds i8, ptr %call5, i64 16
+  store ptr %call.sink.i, ptr %288, align 8
   %call5.i353 = call i32 @safe_create_leading_directories(ptr noundef %call.sink.i) #22
   %tobool6.not.i = icmp eq i32 %call5.i353, 0
   br i1 %tobool6.not.i, label %if.end12.i, label %do.end.i354
 
 do.end.i354:                                      ; preds = %if.end.i352
-  %288 = load i32, ptr @git_gettext_enabled, align 4
-  %tobool1.not.i.i355 = icmp eq i32 %288, 0
+  %289 = load i32, ptr @git_gettext_enabled, align 4
+  %tobool1.not.i.i355 = icmp eq i32 %289, 0
   br i1 %tobool1.not.i.i355, label %_.exit.i357, label %if.end3.i.i356
 
 if.end3.i.i356:                                   ; preds = %do.end.i354
@@ -5022,31 +5000,31 @@ if.end3.i.i356:                                   ; preds = %do.end.i354
 
 _.exit.i357:                                      ; preds = %if.end3.i.i356, %do.end.i354
   %retval.0.i.i358 = phi ptr [ %call.i109.i, %if.end3.i.i356 ], [ @.str.85, %do.end.i354 ]
-  %289 = load ptr, ptr %287, align 8
-  %call10.i359 = call i32 (ptr, ...) @error(ptr noundef %retval.0.i.i358, ptr noundef %289) #22
+  %290 = load ptr, ptr %288, align 8
+  %call10.i359 = call i32 (ptr, ...) @error(ptr noundef %retval.0.i.i358, ptr noundef %290) #22
   br label %write_commit_graph_file.exit
 
 if.end12.i:                                       ; preds = %if.end.i352
   %bf.load14.i = load i8, ptr %append, align 8
-  %290 = and i8 %bf.load14.i, 4
-  %tobool18.not.i361 = icmp eq i8 %290, 0
+  %291 = and i8 %bf.load14.i, 4
+  %tobool18.not.i361 = icmp eq i8 %291, 0
   br i1 %tobool18.not.i361, label %if.else42.i, label %if.then19.i362
 
 if.then19.i362:                                   ; preds = %if.end12.i
-  %291 = load ptr, ptr %odb7, align 8
-  %path.i110.i = getelementptr inbounds %struct.object_directory, ptr %291, i64 0, i32 5
-  %292 = load ptr, ptr %path.i110.i, align 8
-  %call.i111.i = call ptr (ptr, ...) @xstrfmt(ptr noundef nonnull @.str.4, ptr noundef %292) #22
+  %292 = load ptr, ptr %odb7, align 8
+  %path.i110.i = getelementptr inbounds i8, ptr %292, i64 56
+  %293 = load ptr, ptr %path.i110.i, align 8
+  %call.i111.i = call ptr (ptr, ...) @xstrfmt(ptr noundef nonnull @.str.4, ptr noundef %293) #22
   %call.i112.i = call i32 @hold_lock_file_for_update_timeout_mode(ptr noundef nonnull %lk.i, ptr noundef %call.i111.i, i32 noundef 1, i64 noundef 0, i32 noundef 292) #22
   call void @free(ptr noundef %call.i111.i) #22
-  %293 = load ptr, ptr %287, align 8
-  %call24.i = call i32 @git_mkstemp_mode(ptr noundef %293, i32 noundef 292) #22
+  %294 = load ptr, ptr %288, align 8
+  %call24.i = call i32 @git_mkstemp_mode(ptr noundef %294, i32 noundef 292) #22
   %cmp.i363 = icmp slt i32 %call24.i, 0
   br i1 %cmp.i363, label %if.then26.i, label %if.end30.i
 
 if.then26.i:                                      ; preds = %if.then19.i362
-  %294 = load i32, ptr @git_gettext_enabled, align 4
-  %tobool1.not.i113.i = icmp eq i32 %294, 0
+  %295 = load i32, ptr @git_gettext_enabled, align 4
+  %tobool1.not.i113.i = icmp eq i32 %295, 0
   br i1 %tobool1.not.i113.i, label %_.exit117.i, label %if.end3.i114.i
 
 if.end3.i114.i:                                   ; preds = %if.then26.i
@@ -5059,14 +5037,14 @@ _.exit117.i:                                      ; preds = %if.end3.i114.i, %if
   br label %write_commit_graph_file.exit
 
 if.end30.i:                                       ; preds = %if.then19.i362
-  %295 = load ptr, ptr %287, align 8
-  %call32.i = call i32 @adjust_shared_perm(ptr noundef %295) #22
+  %296 = load ptr, ptr %288, align 8
+  %call32.i = call i32 @adjust_shared_perm(ptr noundef %296) #22
   %tobool33.not.i = icmp eq i32 %call32.i, 0
   br i1 %tobool33.not.i, label %if.end39.i, label %if.then34.i
 
 if.then34.i:                                      ; preds = %if.end30.i
-  %296 = load i32, ptr @git_gettext_enabled, align 4
-  %tobool1.not.i118.i = icmp eq i32 %296, 0
+  %297 = load i32, ptr @git_gettext_enabled, align 4
+  %tobool1.not.i118.i = icmp eq i32 %297, 0
   br i1 %tobool1.not.i118.i, label %_.exit122.i, label %if.end3.i119.i
 
 if.end3.i119.i:                                   ; preds = %if.then34.i
@@ -5075,18 +5053,18 @@ if.end3.i119.i:                                   ; preds = %if.then34.i
 
 _.exit122.i:                                      ; preds = %if.end3.i119.i, %if.then34.i
   %retval.0.i121.i = phi ptr [ %call.i120.i, %if.end3.i119.i ], [ @.str.87, %if.then34.i ]
-  %297 = load ptr, ptr %287, align 8
-  %call37.i = call i32 (ptr, ...) @error(ptr noundef %retval.0.i121.i, ptr noundef %297) #22
+  %298 = load ptr, ptr %288, align 8
+  %call37.i = call i32 (ptr, ...) @error(ptr noundef %retval.0.i121.i, ptr noundef %298) #22
   br label %write_commit_graph_file.exit
 
 if.end39.i:                                       ; preds = %if.end30.i
-  %298 = load ptr, ptr %287, align 8
-  %call41.i = call ptr @hashfd(i32 noundef %call24.i, ptr noundef %298) #22
+  %299 = load ptr, ptr %288, align 8
+  %call41.i = call ptr @hashfd(i32 noundef %call24.i, ptr noundef %299) #22
   br label %if.end48.i364
 
 if.else42.i:                                      ; preds = %if.end12.i
-  %299 = load ptr, ptr %287, align 8
-  %call.i123.i = call i32 @hold_lock_file_for_update_timeout_mode(ptr noundef nonnull %lk.i, ptr noundef %299, i32 noundef 1, i64 noundef 0, i32 noundef 292) #22
+  %300 = load ptr, ptr %288, align 8
+  %call.i123.i = call i32 @hold_lock_file_for_update_timeout_mode(ptr noundef nonnull %lk.i, ptr noundef %300, i32 noundef 1, i64 noundef 0, i32 noundef 292) #22
   %lk.val.i = load ptr, ptr %lk.i, align 8
   %call.i124.i = call i32 @get_tempfile_fd(ptr noundef %lk.val.i) #22
   %lk.val106.i = load ptr, ptr %lk.i, align 8
@@ -5099,68 +5077,68 @@ if.end48.i364:                                    ; preds = %if.else42.i, %if.en
   %fd.0.i = phi i32 [ %call24.i, %if.end39.i ], [ %call.i124.i, %if.else42.i ]
   %call49.i = call ptr @init_chunkfile(ptr noundef %f.0.i) #22
   call void @add_chunk(ptr noundef %call49.i, i32 noundef 1330201670, i64 noundef 1024, ptr noundef nonnull @write_graph_chunk_fanout) #22
-  %conv50.i = and i64 %281, 4294967295
-  %300 = load i64, ptr %nr, align 8
+  %conv50.i = and i64 %282, 4294967295
+  %301 = load i64, ptr %nr, align 8
   %tobool.not.i.i366 = icmp eq i64 %conv50.i, 0
   br i1 %tobool.not.i.i366, label %st_mult.exit.i369, label %land.lhs.true.i.i
 
 land.lhs.true.i.i:                                ; preds = %if.end48.i364
-  %mul6.i.i367 = call { i64, i1 } @llvm.umul.with.overflow.i64(i64 %conv50.i, i64 %300)
+  %mul6.i.i367 = call { i64, i1 } @llvm.umul.with.overflow.i64(i64 %conv50.i, i64 %301)
   %mul.ov.i.i368 = extractvalue { i64, i1 } %mul6.i.i367, 1
   br i1 %mul.ov.i.i368, label %if.then.i.i404, label %st_mult.exit.i369
 
 if.then.i.i404:                                   ; preds = %land.lhs.true.i.i
-  call void (ptr, ...) @die(ptr noundef nonnull @.str.56, i64 noundef %conv50.i, i64 noundef %300) #23
+  call void (ptr, ...) @die(ptr noundef nonnull @.str.56, i64 noundef %conv50.i, i64 noundef %301) #23
   unreachable
 
 st_mult.exit.i369:                                ; preds = %land.lhs.true.i.i, %if.end48.i364
-  %mul.i.i370 = mul i64 %300, %conv50.i
+  %mul.i.i370 = mul i64 %301, %conv50.i
   call void @add_chunk(ptr noundef %call49.i, i32 noundef 1330201676, i64 noundef %mul.i.i370, ptr noundef nonnull @write_graph_chunk_oids) #22
-  %add.i371 = add i64 %281, 16
+  %add.i371 = add i64 %282, 16
   %conv52.i = and i64 %add.i371, 4294967295
-  %301 = load i64, ptr %nr, align 8
+  %302 = load i64, ptr %nr, align 8
   %tobool.not.i126.i = icmp eq i64 %conv52.i, 0
   br i1 %tobool.not.i126.i, label %st_mult.exit132.i, label %land.lhs.true.i127.i
 
 land.lhs.true.i127.i:                             ; preds = %st_mult.exit.i369
-  %mul6.i128.i = call { i64, i1 } @llvm.umul.with.overflow.i64(i64 %conv52.i, i64 %301)
+  %mul6.i128.i = call { i64, i1 } @llvm.umul.with.overflow.i64(i64 %conv52.i, i64 %302)
   %mul.ov.i129.i = extractvalue { i64, i1 } %mul6.i128.i, 1
   br i1 %mul.ov.i129.i, label %if.then.i131.i, label %st_mult.exit132.i
 
 if.then.i131.i:                                   ; preds = %land.lhs.true.i127.i
-  call void (ptr, ...) @die(ptr noundef nonnull @.str.56, i64 noundef %conv52.i, i64 noundef %301) #23
+  call void (ptr, ...) @die(ptr noundef nonnull @.str.56, i64 noundef %conv52.i, i64 noundef %302) #23
   unreachable
 
 st_mult.exit132.i:                                ; preds = %land.lhs.true.i127.i, %st_mult.exit.i369
-  %mul.i130.i = mul i64 %301, %conv52.i
+  %mul.i130.i = mul i64 %302, %conv52.i
   call void @add_chunk(ptr noundef %call49.i, i32 noundef 1128546644, i64 noundef %mul.i130.i, ptr noundef nonnull @write_graph_chunk_data) #22
   %bf.load56.i = load i8, ptr %append, align 8
-  %302 = and i8 %bf.load56.i, 32
-  %tobool60.not.i = icmp eq i8 %302, 0
+  %303 = and i8 %bf.load56.i, 32
+  %tobool60.not.i = icmp eq i8 %303, 0
   br i1 %tobool60.not.i, label %if.end65.i372, label %if.then61.i
 
 if.then61.i:                                      ; preds = %st_mult.exit132.i
-  %303 = load i64, ptr %nr, align 8
-  %mul.ov.i135.i = icmp ugt i64 %303, 4611686018427387903
+  %304 = load i64, ptr %nr, align 8
+  %mul.ov.i135.i = icmp ugt i64 %304, 4611686018427387903
   br i1 %mul.ov.i135.i, label %if.then.i137.i, label %st_mult.exit138.i
 
 if.then.i137.i:                                   ; preds = %if.then61.i
-  call void (ptr, ...) @die(ptr noundef nonnull @.str.56, i64 noundef 4, i64 noundef %303) #23
+  call void (ptr, ...) @die(ptr noundef nonnull @.str.56, i64 noundef 4, i64 noundef %304) #23
   unreachable
 
 st_mult.exit138.i:                                ; preds = %if.then61.i
-  %mul.i136.i = shl nuw i64 %303, 2
+  %mul.i136.i = shl nuw i64 %304, 2
   call void @add_chunk(ptr noundef %call49.i, i32 noundef 1195655474, i64 noundef %mul.i136.i, ptr noundef nonnull @write_graph_chunk_generation_data) #22
   br label %if.end65.i372
 
 if.end65.i372:                                    ; preds = %st_mult.exit138.i, %st_mult.exit132.i
-  %304 = load i32, ptr %num_generation_data_overflows, align 4
-  %tobool66.not.i = icmp eq i32 %304, 0
+  %305 = load i32, ptr %num_generation_data_overflows, align 4
+  %tobool66.not.i = icmp eq i32 %305, 0
   br i1 %tobool66.not.i, label %if.end71.i, label %if.then67.i
 
 if.then67.i:                                      ; preds = %if.end65.i372
-  %conv69.i = sext i32 %304 to i64
-  %mul.ov.i141.i = icmp slt i32 %304, 0
+  %conv69.i = sext i32 %305 to i64
+  %mul.ov.i141.i = icmp slt i32 %305, 0
   br i1 %mul.ov.i141.i, label %if.then.i143.i, label %st_mult.exit144.i
 
 if.then.i143.i:                                   ; preds = %if.then67.i
@@ -5173,13 +5151,13 @@ st_mult.exit144.i:                                ; preds = %if.then67.i
   br label %if.end71.i
 
 if.end71.i:                                       ; preds = %st_mult.exit144.i, %if.end65.i372
-  %305 = load i32, ptr %num_extra_edges.i, align 8
-  %tobool72.not.i = icmp eq i32 %305, 0
+  %306 = load i32, ptr %num_extra_edges.i, align 8
+  %tobool72.not.i = icmp eq i32 %306, 0
   br i1 %tobool72.not.i, label %if.end77.i375, label %if.then73.i
 
 if.then73.i:                                      ; preds = %if.end71.i
-  %conv75.i = sext i32 %305 to i64
-  %mul.ov.i147.i = icmp slt i32 %305, 0
+  %conv75.i = sext i32 %306 to i64
+  %mul.ov.i147.i = icmp slt i32 %306, 0
   br i1 %mul.ov.i147.i, label %if.then.i149.i, label %st_mult.exit150.i
 
 if.then.i149.i:                                   ; preds = %if.then73.i
@@ -5193,43 +5171,43 @@ st_mult.exit150.i:                                ; preds = %if.then73.i
 
 if.end77.i375:                                    ; preds = %st_mult.exit150.i, %if.end71.i
   %bf.load78.i = load i8, ptr %append, align 8
-  %306 = and i8 %bf.load78.i, 8
-  %tobool82.not.i = icmp eq i8 %306, 0
+  %307 = and i8 %bf.load78.i, 8
+  %tobool82.not.i = icmp eq i8 %307, 0
   br i1 %tobool82.not.i, label %if.end88.i, label %if.then83.i
 
 if.then83.i:                                      ; preds = %if.end77.i375
-  %307 = load i64, ptr %nr, align 8
-  %mul.ov.i153.i = icmp ugt i64 %307, 4611686018427387903
+  %308 = load i64, ptr %nr, align 8
+  %mul.ov.i153.i = icmp ugt i64 %308, 4611686018427387903
   br i1 %mul.ov.i153.i, label %if.then.i155.i, label %st_mult.exit156.i
 
 if.then.i155.i:                                   ; preds = %if.then83.i
-  call void (ptr, ...) @die(ptr noundef nonnull @.str.56, i64 noundef 4, i64 noundef %307) #23
+  call void (ptr, ...) @die(ptr noundef nonnull @.str.56, i64 noundef 4, i64 noundef %308) #23
   unreachable
 
 st_mult.exit156.i:                                ; preds = %if.then83.i
-  %mul.i154.i = shl nuw i64 %307, 2
+  %mul.i154.i = shl nuw i64 %308, 2
   call void @add_chunk(ptr noundef %call49.i, i32 noundef 1112097880, i64 noundef %mul.i154.i, ptr noundef nonnull @write_graph_chunk_bloom_indexes) #22
-  %308 = load i64, ptr %total_bloom_filter_data_size, align 8
-  %cmp.i.i377 = icmp ugt i64 %308, -13
+  %309 = load i64, ptr %total_bloom_filter_data_size, align 8
+  %cmp.i.i377 = icmp ugt i64 %309, -13
   br i1 %cmp.i.i377, label %if.then.i157.i, label %st_add.exit.i
 
 if.then.i157.i:                                   ; preds = %st_mult.exit156.i
-  call void (ptr, ...) @die(ptr noundef nonnull @.str.74, i64 noundef 12, i64 noundef %308) #23
+  call void (ptr, ...) @die(ptr noundef nonnull @.str.74, i64 noundef 12, i64 noundef %309) #23
   unreachable
 
 st_add.exit.i:                                    ; preds = %st_mult.exit156.i
-  %add.i.i = add nuw i64 %308, 12
+  %add.i.i = add nuw i64 %309, 12
   call void @add_chunk(ptr noundef %call49.i, i32 noundef 1111769428, i64 noundef %add.i.i, ptr noundef nonnull @write_graph_chunk_bloom_data) #22
   br label %if.end88.i
 
 if.end88.i:                                       ; preds = %st_add.exit.i, %if.end77.i375
-  %num_commit_graphs_after.i378 = getelementptr inbounds %struct.write_commit_graph_context, ptr %call5, i64 0, i32 13
-  %309 = load i32, ptr %num_commit_graphs_after.i378, align 4
-  %cmp89.i = icmp sgt i32 %309, 1
+  %num_commit_graphs_after.i378 = getelementptr inbounds i8, ptr %call5, i64 132
+  %310 = load i32, ptr %num_commit_graphs_after.i378, align 4
+  %cmp89.i = icmp sgt i32 %310, 1
   br i1 %cmp89.i, label %if.then91.i, label %if.end96.i379
 
 if.then91.i:                                      ; preds = %if.end88.i
-  %sub.i403 = add nsw i32 %309, -1
+  %sub.i403 = add nsw i32 %310, -1
   %conv94.i = zext nneg i32 %sub.i403 to i64
   %mul.i162.i = mul nuw nsw i64 %conv50.i, %conv94.i
   call void @add_chunk(ptr noundef %call49.i, i32 noundef 1111577413, i64 noundef %mul.i162.i, ptr noundef nonnull @write_graph_chunk_base) #22
@@ -5244,10 +5222,10 @@ if.end96.i379:                                    ; preds = %if.then91.i, %if.en
   store i8 1, ptr %data.addr.i165.i, align 1
   call void @hashwrite(ptr noundef %f.0.i, ptr noundef nonnull %data.addr.i165.i, i32 noundef 1) #22
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %data.addr.i165.i)
-  %310 = load ptr, ptr @the_repository, align 8
-  %hash_algo97.i = getelementptr inbounds %struct.repository, ptr %310, i64 0, i32 15
-  %311 = load ptr, ptr %hash_algo97.i, align 8
-  %call98.i = call zeroext i8 @oid_version(ptr noundef %311) #22
+  %311 = load ptr, ptr @the_repository, align 8
+  %hash_algo97.i = getelementptr inbounds i8, ptr %311, i64 256
+  %312 = load ptr, ptr %hash_algo97.i, align 8
+  %call98.i = call zeroext i8 @oid_version(ptr noundef %312) #22
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %data.addr.i166.i)
   store i8 %call98.i, ptr %data.addr.i166.i, align 1
   call void @hashwrite(ptr noundef %f.0.i, ptr noundef nonnull %data.addr.i166.i, i32 noundef 1) #22
@@ -5258,22 +5236,22 @@ if.end96.i379:                                    ; preds = %if.then91.i, %if.en
   store i8 %conv100.i, ptr %data.addr.i167.i, align 1
   call void @hashwrite(ptr noundef %f.0.i, ptr noundef nonnull %data.addr.i167.i, i32 noundef 1) #22
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %data.addr.i167.i)
-  %312 = load i32, ptr %num_commit_graphs_after.i378, align 4
-  %313 = trunc i32 %312 to i8
-  %conv103.i = add i8 %313, -1
+  %313 = load i32, ptr %num_commit_graphs_after.i378, align 4
+  %314 = trunc i32 %313 to i8
+  %conv103.i = add i8 %314, -1
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %data.addr.i168.i)
   store i8 %conv103.i, ptr %data.addr.i168.i, align 1
   call void @hashwrite(ptr noundef %f.0.i, ptr noundef nonnull %data.addr.i168.i, i32 noundef 1) #22
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %data.addr.i168.i)
   %bf.load104.i = load i8, ptr %append, align 8
-  %314 = and i8 %bf.load104.i, 2
-  %tobool108.not.i = icmp eq i8 %314, 0
+  %315 = and i8 %bf.load104.i, 2
+  %tobool108.not.i = icmp eq i8 %315, 0
   br i1 %tobool108.not.i, label %if.end120.i, label %if.then109.i
 
 if.then109.i:                                     ; preds = %if.end96.i379
   %call110.i380 = call i32 @get_num_chunks(ptr noundef %call49.i) #22
-  %315 = load i32, ptr @git_gettext_enabled, align 4
-  %tobool.not.i169.i = icmp eq i32 %315, 0
+  %316 = load i32, ptr @git_gettext_enabled, align 4
+  %tobool.not.i169.i = icmp eq i32 %316, 0
   br i1 %tobool.not.i169.i, label %if.then.i172.i, label %if.end.i.i381
 
 if.then.i172.i:                                   ; preds = %if.then109.i
@@ -5290,33 +5268,33 @@ Q_.exit.i382:                                     ; preds = %if.end.i.i381, %if.
   %retval.0.i171.i = phi ptr [ %call.i170.i, %if.end.i.i381 ], [ %cond.i.i402, %if.then.i172.i ]
   %call113.i = call i32 @get_num_chunks(ptr noundef %call49.i) #22
   call void (ptr, ptr, ...) @strbuf_addf(ptr noundef nonnull %progress_title.i343, ptr noundef %retval.0.i171.i, i32 noundef %call113.i) #22
-  %buf.i383 = getelementptr inbounds %struct.strbuf, ptr %progress_title.i343, i64 0, i32 2
-  %316 = load ptr, ptr %buf.i383, align 8
+  %buf.i383 = getelementptr inbounds i8, ptr %progress_title.i343, i64 16
+  %317 = load ptr, ptr %buf.i383, align 8
   %call114.i = call i32 @get_num_chunks(ptr noundef %call49.i) #22
   %conv115.i = sext i32 %call114.i to i64
-  %317 = load i64, ptr %nr, align 8
+  %318 = load i64, ptr %nr, align 8
   %tobool.not.i174.i = icmp eq i32 %call114.i, 0
   br i1 %tobool.not.i174.i, label %st_mult.exit181.i, label %land.lhs.true.i175.i
 
 land.lhs.true.i175.i:                             ; preds = %Q_.exit.i382
-  %mul6.i176.i = call { i64, i1 } @llvm.umul.with.overflow.i64(i64 %conv115.i, i64 %317)
+  %mul6.i176.i = call { i64, i1 } @llvm.umul.with.overflow.i64(i64 %conv115.i, i64 %318)
   %mul.ov.i177.i = extractvalue { i64, i1 } %mul6.i176.i, 1
   br i1 %mul.ov.i177.i, label %if.then.i180.i, label %st_mult.exit181.i
 
 if.then.i180.i:                                   ; preds = %land.lhs.true.i175.i
-  call void (ptr, ...) @die(ptr noundef nonnull @.str.56, i64 noundef %conv115.i, i64 noundef %317) #23
+  call void (ptr, ...) @die(ptr noundef nonnull @.str.56, i64 noundef %conv115.i, i64 noundef %318) #23
   unreachable
 
 st_mult.exit181.i:                                ; preds = %land.lhs.true.i175.i, %Q_.exit.i382
-  %mul.i179.i = mul i64 %317, %conv115.i
-  %call119.i = call ptr @start_delayed_progress(ptr noundef %316, i64 noundef %mul.i179.i) #22
+  %mul.i179.i = mul i64 %318, %conv115.i
+  %call119.i = call ptr @start_delayed_progress(ptr noundef %317, i64 noundef %mul.i179.i) #22
   store ptr %call119.i, ptr %progress18.i, align 8
   br label %if.end120.i
 
 if.end120.i:                                      ; preds = %st_mult.exit181.i, %if.end96.i379
   %call121.i = call i32 @write_chunkfile(ptr noundef %call49.i, ptr noundef nonnull %call5) #22
-  %318 = load i32, ptr @git_gettext_enabled, align 4
-  %tobool1.not.i.i.i385 = icmp eq i32 %318, 0
+  %319 = load i32, ptr @git_gettext_enabled, align 4
+  %tobool1.not.i.i.i385 = icmp eq i32 %319, 0
   br i1 %tobool1.not.i.i.i385, label %stop_progress.exit.i388, label %if.end3.i.i.i386
 
 if.end3.i.i.i386:                                 ; preds = %if.end120.i
@@ -5328,73 +5306,73 @@ stop_progress.exit.i388:                          ; preds = %if.end3.i.i.i386, %
   call void @stop_progress_msg(ptr noundef nonnull %progress18.i, ptr noundef %retval.0.i.i.i389) #22
   call void @strbuf_release(ptr noundef nonnull %progress_title.i343) #22
   %bf.load124.i = load i8, ptr %append, align 8
-  %319 = and i8 %bf.load124.i, 4
-  %tobool128.not.i = icmp eq i8 %319, 0
+  %320 = and i8 %bf.load124.i, 4
+  %tobool128.not.i = icmp eq i8 %320, 0
   br i1 %tobool128.not.i, label %if.end156.i, label %land.lhs.true.i390
 
 land.lhs.true.i390:                               ; preds = %stop_progress.exit.i388
-  %base_graph_name.i = getelementptr inbounds %struct.write_commit_graph_context, ptr %call5, i64 0, i32 11
-  %320 = load ptr, ptr %base_graph_name.i, align 8
-  %tobool129.not.i = icmp eq ptr %320, null
+  %base_graph_name.i = getelementptr inbounds i8, ptr %call5, i64 120
+  %321 = load ptr, ptr %base_graph_name.i, align 8
+  %tobool129.not.i = icmp eq ptr %321, null
   br i1 %tobool129.not.i, label %if.end156.i, label %land.lhs.true130.i
 
 land.lhs.true130.i:                               ; preds = %land.lhs.true.i390
-  %321 = load i32, ptr %num_commit_graphs_after.i378, align 4
-  %cmp132.i = icmp sgt i32 %321, 1
+  %322 = load i32, ptr %num_commit_graphs_after.i378, align 4
+  %cmp132.i = icmp sgt i32 %322, 1
   br i1 %cmp132.i, label %if.then134.i, label %if.end156.i
 
 if.then134.i:                                     ; preds = %land.lhs.true130.i
-  %new_base_graph.i397 = getelementptr inbounds %struct.write_commit_graph_context, ptr %call5, i64 0, i32 18
-  %322 = load ptr, ptr %new_base_graph.i397, align 8
-  %oid.i398 = getelementptr inbounds %struct.commit_graph, ptr %322, i64 0, i32 5
+  %new_base_graph.i397 = getelementptr inbounds i8, ptr %call5, i64 168
+  %323 = load ptr, ptr %new_base_graph.i397, align 8
+  %oid.i398 = getelementptr inbounds i8, ptr %323, i64 24
   %call135.i = call ptr @oid_to_hex(ptr noundef nonnull %oid.i398) #22
   %call136.i = call ptr @xstrdup(ptr noundef %call135.i) #22
-  %323 = load ptr, ptr %new_base_graph.i397, align 8
-  %odb138.i = getelementptr inbounds %struct.commit_graph, ptr %323, i64 0, i32 7
-  %324 = load ptr, ptr %odb138.i, align 8
-  %325 = getelementptr i8, ptr %324, i64 56
-  %.val105.i = load ptr, ptr %325, align 8
+  %324 = load ptr, ptr %new_base_graph.i397, align 8
+  %odb138.i = getelementptr inbounds i8, ptr %324, i64 72
+  %325 = load ptr, ptr %odb138.i, align 8
+  %326 = getelementptr i8, ptr %325, i64 56
+  %.val105.i = load ptr, ptr %326, align 8
   %call.i182.i = call ptr (ptr, ...) @xstrfmt(ptr noundef nonnull @.str.37, ptr noundef %.val105.i, ptr noundef %call136.i) #22
-  %commit_graph_filenames_after.i399 = getelementptr inbounds %struct.write_commit_graph_context, ptr %call5, i64 0, i32 15
-  %326 = load ptr, ptr %commit_graph_filenames_after.i399, align 8
-  %327 = load i32, ptr %num_commit_graphs_after.i378, align 4
-  %328 = sext i32 %327 to i64
-  %329 = getelementptr ptr, ptr %326, i64 %328
-  %arrayidx.i400 = getelementptr ptr, ptr %329, i64 -2
-  %330 = load ptr, ptr %arrayidx.i400, align 8
-  call void @free(ptr noundef %330) #22
-  %commit_graph_hash_after.i401 = getelementptr inbounds %struct.write_commit_graph_context, ptr %call5, i64 0, i32 16
-  %331 = load ptr, ptr %commit_graph_hash_after.i401, align 8
-  %332 = load i32, ptr %num_commit_graphs_after.i378, align 4
-  %333 = sext i32 %332 to i64
-  %334 = getelementptr ptr, ptr %331, i64 %333
-  %arrayidx145.i = getelementptr ptr, ptr %334, i64 -2
-  %335 = load ptr, ptr %arrayidx145.i, align 8
-  call void @free(ptr noundef %335) #22
-  %336 = load ptr, ptr %commit_graph_filenames_after.i399, align 8
-  %337 = load i32, ptr %num_commit_graphs_after.i378, align 4
-  %338 = sext i32 %337 to i64
-  %339 = getelementptr ptr, ptr %336, i64 %338
-  %arrayidx150.i = getelementptr ptr, ptr %339, i64 -2
+  %commit_graph_filenames_after.i399 = getelementptr inbounds i8, ptr %call5, i64 144
+  %327 = load ptr, ptr %commit_graph_filenames_after.i399, align 8
+  %328 = load i32, ptr %num_commit_graphs_after.i378, align 4
+  %329 = sext i32 %328 to i64
+  %330 = getelementptr ptr, ptr %327, i64 %329
+  %arrayidx.i400 = getelementptr i8, ptr %330, i64 -16
+  %331 = load ptr, ptr %arrayidx.i400, align 8
+  call void @free(ptr noundef %331) #22
+  %commit_graph_hash_after.i401 = getelementptr inbounds i8, ptr %call5, i64 152
+  %332 = load ptr, ptr %commit_graph_hash_after.i401, align 8
+  %333 = load i32, ptr %num_commit_graphs_after.i378, align 4
+  %334 = sext i32 %333 to i64
+  %335 = getelementptr ptr, ptr %332, i64 %334
+  %arrayidx145.i = getelementptr i8, ptr %335, i64 -16
+  %336 = load ptr, ptr %arrayidx145.i, align 8
+  call void @free(ptr noundef %336) #22
+  %337 = load ptr, ptr %commit_graph_filenames_after.i399, align 8
+  %338 = load i32, ptr %num_commit_graphs_after.i378, align 4
+  %339 = sext i32 %338 to i64
+  %340 = getelementptr ptr, ptr %337, i64 %339
+  %arrayidx150.i = getelementptr i8, ptr %340, i64 -16
   store ptr %call.i182.i, ptr %arrayidx150.i, align 8
-  %340 = load ptr, ptr %commit_graph_hash_after.i401, align 8
-  %341 = load i32, ptr %num_commit_graphs_after.i378, align 4
-  %342 = sext i32 %341 to i64
-  %343 = getelementptr ptr, ptr %340, i64 %342
-  %arrayidx155.i = getelementptr ptr, ptr %343, i64 -2
+  %341 = load ptr, ptr %commit_graph_hash_after.i401, align 8
+  %342 = load i32, ptr %num_commit_graphs_after.i378, align 4
+  %343 = sext i32 %342 to i64
+  %344 = getelementptr ptr, ptr %341, i64 %343
+  %arrayidx155.i = getelementptr i8, ptr %344, i64 -16
   store ptr %call136.i, ptr %arrayidx155.i, align 8
   br label %if.end156.i
 
 if.end156.i:                                      ; preds = %if.then134.i, %land.lhs.true130.i, %land.lhs.true.i390, %stop_progress.exit.i388
-  %344 = load ptr, ptr %call5, align 8
-  %objects.i = getelementptr inbounds %struct.repository, ptr %344, i64 0, i32 2
-  %345 = load ptr, ptr %objects.i, align 8
-  call void @close_commit_graph(ptr noundef %345)
+  %345 = load ptr, ptr %call5, align 8
+  %objects.i = getelementptr inbounds i8, ptr %345, i64 16
+  %346 = load ptr, ptr %objects.i, align 8
+  call void @close_commit_graph(ptr noundef %346)
   %call157.i = call i32 @finalize_hashfile(ptr noundef %f.0.i, ptr noundef nonnull %file_hash.i, i32 noundef 8, i32 noundef 6) #22
   call void @free_chunkfile(ptr noundef %call49.i) #22
   %bf.load159.i = load i8, ptr %append, align 8
-  %346 = and i8 %bf.load159.i, 4
-  %tobool163.not.i = icmp eq i8 %346, 0
+  %347 = and i8 %bf.load159.i, 4
+  %tobool163.not.i = icmp eq i8 %347, 0
   br i1 %tobool163.not.i, label %if.end251.i, label %if.then164.i
 
 if.then164.i:                                     ; preds = %if.end156.i
@@ -5405,8 +5383,8 @@ if.then164.i:                                     ; preds = %if.end156.i
   br i1 %tobool167.not.i, label %if.then168.i, label %if.end172.i
 
 if.then168.i:                                     ; preds = %if.then164.i
-  %347 = load i32, ptr @git_gettext_enabled, align 4
-  %tobool1.not.i185.i = icmp eq i32 %347, 0
+  %348 = load i32, ptr @git_gettext_enabled, align 4
+  %tobool1.not.i185.i = icmp eq i32 %348, 0
   br i1 %tobool1.not.i185.i, label %_.exit189.i, label %if.end3.i186.i
 
 if.end3.i186.i:                                   ; preds = %if.then168.i
@@ -5419,33 +5397,33 @@ _.exit189.i:                                      ; preds = %if.end3.i186.i, %if
   br label %write_commit_graph_file.exit
 
 if.end172.i:                                      ; preds = %if.then164.i
-  %base_graph_name173.i = getelementptr inbounds %struct.write_commit_graph_context, ptr %call5, i64 0, i32 11
-  %348 = load ptr, ptr %base_graph_name173.i, align 8
-  %tobool174.not.i = icmp eq ptr %348, null
+  %base_graph_name173.i = getelementptr inbounds i8, ptr %call5, i64 120
+  %349 = load ptr, ptr %base_graph_name173.i, align 8
+  %tobool174.not.i = icmp eq ptr %349, null
   br i1 %tobool174.not.i, label %if.else199.i, label %if.then175.i
 
 if.then175.i:                                     ; preds = %if.end172.i
-  %349 = load i32, ptr %num_commit_graphs_after.i378, align 4
-  %cmp179.i = icmp sgt i32 %349, 1
+  %350 = load i32, ptr %num_commit_graphs_after.i378, align 4
+  %cmp179.i = icmp sgt i32 %350, 1
   %spec.select.v.i = select i1 %cmp179.i, i32 -2, i32 -1
-  %spec.select.i391 = add nsw i32 %spec.select.v.i, %349
-  %commit_graph_filenames_after183.i = getelementptr inbounds %struct.write_commit_graph_context, ptr %call5, i64 0, i32 15
-  %350 = load ptr, ptr %commit_graph_filenames_after183.i, align 8
+  %spec.select.i391 = add nsw i32 %spec.select.v.i, %350
+  %commit_graph_filenames_after183.i = getelementptr inbounds i8, ptr %call5, i64 144
+  %351 = load ptr, ptr %commit_graph_filenames_after183.i, align 8
   %idxprom184.i = sext i32 %spec.select.i391 to i64
-  %arrayidx185.i = getelementptr inbounds ptr, ptr %350, i64 %idxprom184.i
-  %351 = load ptr, ptr %arrayidx185.i, align 8
-  %call187.i = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %348, ptr noundef nonnull dereferenceable(1) %351) #26
+  %arrayidx185.i = getelementptr inbounds ptr, ptr %351, i64 %idxprom184.i
+  %352 = load ptr, ptr %arrayidx185.i, align 8
+  %call187.i = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %349, ptr noundef nonnull dereferenceable(1) %352) #26
   %tobool188.not.i = icmp eq i32 %call187.i, 0
   br i1 %tobool188.not.i, label %if.end204.i, label %if.then189.i
 
 if.then189.i:                                     ; preds = %if.then175.i
-  %call191.i = call i32 @rename(ptr noundef nonnull %348, ptr noundef %351) #22
+  %call191.i = call i32 @rename(ptr noundef nonnull %349, ptr noundef %352) #22
   %tobool192.not.i = icmp eq i32 %call191.i, 0
   br i1 %tobool192.not.i, label %if.end204.i, label %if.then193.i
 
 if.then193.i:                                     ; preds = %if.then189.i
-  %352 = load i32, ptr @git_gettext_enabled, align 4
-  %tobool1.not.i191.i = icmp eq i32 %352, 0
+  %353 = load i32, ptr @git_gettext_enabled, align 4
+  %tobool1.not.i191.i = icmp eq i32 %353, 0
   br i1 %tobool1.not.i191.i, label %_.exit195.i, label %if.end3.i192.i
 
 if.end3.i192.i:                                   ; preds = %if.then193.i
@@ -5458,73 +5436,73 @@ _.exit195.i:                                      ; preds = %if.end3.i192.i, %if
   br label %write_commit_graph_file.exit
 
 if.else199.i:                                     ; preds = %if.end172.i
-  %353 = load ptr, ptr %odb7, align 8
-  %path.i196.i = getelementptr inbounds %struct.object_directory, ptr %353, i64 0, i32 5
-  %354 = load ptr, ptr %path.i196.i, align 8
-  %call.i197.i = call ptr (ptr, ...) @xstrfmt(ptr noundef nonnull @.str.3, ptr noundef %354) #22
+  %354 = load ptr, ptr %odb7, align 8
+  %path.i196.i = getelementptr inbounds i8, ptr %354, i64 56
+  %355 = load ptr, ptr %path.i196.i, align 8
+  %call.i197.i = call ptr (ptr, ...) @xstrfmt(ptr noundef nonnull @.str.3, ptr noundef %355) #22
   %call203.i = call i32 @unlink(ptr noundef %call.i197.i) #22
   call void @free(ptr noundef %call.i197.i) #22
   br label %if.end204.i
 
 if.end204.i:                                      ; preds = %if.else199.i, %if.then189.i, %if.then175.i
-  %commit_graph_hash_after205.i = getelementptr inbounds %struct.write_commit_graph_context, ptr %call5, i64 0, i32 16
-  %355 = load ptr, ptr %commit_graph_hash_after205.i, align 8
-  %356 = load i32, ptr %num_commit_graphs_after.i378, align 4
-  %357 = sext i32 %356 to i64
-  %358 = getelementptr ptr, ptr %355, i64 %357
-  %arrayidx209.i = getelementptr ptr, ptr %358, i64 -1
-  %359 = load ptr, ptr %arrayidx209.i, align 8
-  call void @free(ptr noundef %359) #22
+  %commit_graph_hash_after205.i = getelementptr inbounds i8, ptr %call5, i64 152
+  %356 = load ptr, ptr %commit_graph_hash_after205.i, align 8
+  %357 = load i32, ptr %num_commit_graphs_after.i378, align 4
+  %358 = sext i32 %357 to i64
+  %359 = getelementptr ptr, ptr %356, i64 %358
+  %arrayidx209.i = getelementptr i8, ptr %359, i64 -8
+  %360 = load ptr, ptr %arrayidx209.i, align 8
+  call void @free(ptr noundef %360) #22
   %call211.i = call ptr @hash_to_hex(ptr noundef nonnull %file_hash.i) #22
   %call212.i = call ptr @xstrdup(ptr noundef %call211.i) #22
-  %360 = load ptr, ptr %commit_graph_hash_after205.i, align 8
-  %361 = load i32, ptr %num_commit_graphs_after.i378, align 4
-  %362 = sext i32 %361 to i64
-  %363 = getelementptr ptr, ptr %360, i64 %362
-  %arrayidx217.i = getelementptr ptr, ptr %363, i64 -1
+  %361 = load ptr, ptr %commit_graph_hash_after205.i, align 8
+  %362 = load i32, ptr %num_commit_graphs_after.i378, align 4
+  %363 = sext i32 %362 to i64
+  %364 = getelementptr ptr, ptr %361, i64 %363
+  %arrayidx217.i = getelementptr i8, ptr %364, i64 -8
   store ptr %call212.i, ptr %arrayidx217.i, align 8
-  %364 = load ptr, ptr %odb7, align 8
-  %365 = load ptr, ptr %commit_graph_hash_after205.i, align 8
-  %366 = load i32, ptr %num_commit_graphs_after.i378, align 4
-  %367 = sext i32 %366 to i64
-  %368 = getelementptr ptr, ptr %365, i64 %367
-  %arrayidx223.i = getelementptr ptr, ptr %368, i64 -1
-  %369 = load ptr, ptr %arrayidx223.i, align 8
-  %370 = getelementptr i8, ptr %364, i64 56
-  %.val.i392 = load ptr, ptr %370, align 8
-  %call.i198.i = call ptr (ptr, ...) @xstrfmt(ptr noundef nonnull @.str.37, ptr noundef %.val.i392, ptr noundef %369) #22
-  %commit_graph_filenames_after225.i = getelementptr inbounds %struct.write_commit_graph_context, ptr %call5, i64 0, i32 15
-  %371 = load ptr, ptr %commit_graph_filenames_after225.i, align 8
-  %372 = load i32, ptr %num_commit_graphs_after.i378, align 4
-  %373 = sext i32 %372 to i64
-  %374 = getelementptr ptr, ptr %371, i64 %373
-  %arrayidx229.i = getelementptr ptr, ptr %374, i64 -1
-  %375 = load ptr, ptr %arrayidx229.i, align 8
-  call void @free(ptr noundef %375) #22
-  %376 = load ptr, ptr %commit_graph_filenames_after225.i, align 8
-  %377 = load i32, ptr %num_commit_graphs_after.i378, align 4
-  %378 = sext i32 %377 to i64
-  %379 = getelementptr ptr, ptr %376, i64 %378
-  %arrayidx234.i = getelementptr ptr, ptr %379, i64 -1
+  %365 = load ptr, ptr %odb7, align 8
+  %366 = load ptr, ptr %commit_graph_hash_after205.i, align 8
+  %367 = load i32, ptr %num_commit_graphs_after.i378, align 4
+  %368 = sext i32 %367 to i64
+  %369 = getelementptr ptr, ptr %366, i64 %368
+  %arrayidx223.i = getelementptr i8, ptr %369, i64 -8
+  %370 = load ptr, ptr %arrayidx223.i, align 8
+  %371 = getelementptr i8, ptr %365, i64 56
+  %.val.i392 = load ptr, ptr %371, align 8
+  %call.i198.i = call ptr (ptr, ...) @xstrfmt(ptr noundef nonnull @.str.37, ptr noundef %.val.i392, ptr noundef %370) #22
+  %commit_graph_filenames_after225.i = getelementptr inbounds i8, ptr %call5, i64 144
+  %372 = load ptr, ptr %commit_graph_filenames_after225.i, align 8
+  %373 = load i32, ptr %num_commit_graphs_after.i378, align 4
+  %374 = sext i32 %373 to i64
+  %375 = getelementptr ptr, ptr %372, i64 %374
+  %arrayidx229.i = getelementptr i8, ptr %375, i64 -8
+  %376 = load ptr, ptr %arrayidx229.i, align 8
+  call void @free(ptr noundef %376) #22
+  %377 = load ptr, ptr %commit_graph_filenames_after225.i, align 8
+  %378 = load i32, ptr %num_commit_graphs_after.i378, align 4
+  %379 = sext i32 %378 to i64
+  %380 = getelementptr ptr, ptr %377, i64 %379
+  %arrayidx234.i = getelementptr i8, ptr %380, i64 -8
   store ptr %call.i198.i, ptr %arrayidx234.i, align 8
-  %380 = load ptr, ptr %287, align 8
-  %call236.i = call i32 @rename(ptr noundef %380, ptr noundef %call.i198.i) #22
-  %381 = load i32, ptr %num_commit_graphs_after.i378, align 4
-  %cmp238207.not.i = icmp eq i32 %381, 0
+  %381 = load ptr, ptr %288, align 8
+  %call236.i = call i32 @rename(ptr noundef %381, ptr noundef %call.i198.i) #22
+  %382 = load i32, ptr %num_commit_graphs_after.i378, align 4
+  %cmp238207.not.i = icmp eq i32 %382, 0
   br i1 %cmp238207.not.i, label %for.end.i396, label %for.body.i393
 
 for.body.i393:                                    ; preds = %if.end204.i, %for.body.i393
   %indvars.iv.i394 = phi i64 [ %indvars.iv.next.i395, %for.body.i393 ], [ 0, %if.end204.i ]
   %lk.val108.i = load ptr, ptr %lk.i, align 8
   %call.i199.i = call ptr @get_tempfile_fp(ptr noundef %lk.val108.i) #22
-  %382 = load ptr, ptr %commit_graph_hash_after205.i, align 8
-  %arrayidx243.i = getelementptr inbounds ptr, ptr %382, i64 %indvars.iv.i394
-  %383 = load ptr, ptr %arrayidx243.i, align 8
-  %call244.i = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %call.i199.i, ptr noundef nonnull @.str.93, ptr noundef %383)
+  %383 = load ptr, ptr %commit_graph_hash_after205.i, align 8
+  %arrayidx243.i = getelementptr inbounds ptr, ptr %383, i64 %indvars.iv.i394
+  %384 = load ptr, ptr %arrayidx243.i, align 8
+  %call244.i = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %call.i199.i, ptr noundef nonnull @.str.93, ptr noundef %384)
   %indvars.iv.next.i395 = add nuw nsw i64 %indvars.iv.i394, 1
-  %384 = load i32, ptr %num_commit_graphs_after.i378, align 4
-  %385 = zext i32 %384 to i64
-  %cmp238.i = icmp ult i64 %indvars.iv.next.i395, %385
+  %385 = load i32, ptr %num_commit_graphs_after.i378, align 4
+  %386 = zext i32 %385 to i64
+  %cmp238.i = icmp ult i64 %indvars.iv.next.i395, %386
   br i1 %cmp238.i, label %for.body.i393, label %for.end.i396, !llvm.loop !45
 
 for.end.i396:                                     ; preds = %for.body.i393, %if.end204.i
@@ -5532,8 +5510,8 @@ for.end.i396:                                     ; preds = %for.body.i393, %if.
   br i1 %tobool245.not.i, label %if.end251.i, label %if.then246.i
 
 if.then246.i:                                     ; preds = %for.end.i396
-  %386 = load i32, ptr @git_gettext_enabled, align 4
-  %tobool1.not.i201.i = icmp eq i32 %386, 0
+  %387 = load i32, ptr @git_gettext_enabled, align 4
+  %tobool1.not.i201.i = icmp eq i32 %387, 0
   br i1 %tobool1.not.i201.i, label %_.exit205.i, label %if.end3.i202.i
 
 if.end3.i202.i:                                   ; preds = %if.then246.i
@@ -5556,8 +5534,8 @@ write_commit_graph_file.exit:                     ; preds = %_.exit.i357, %_.exi
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %file_hash.i)
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %tmp_file.i)
   %bf.load226 = load i8, ptr %append, align 8
-  %387 = and i8 %bf.load226, 4
-  %tobool230.not = icmp eq i8 %387, 0
+  %388 = and i8 %bf.load226, 4
+  %tobool230.not = icmp eq i8 %388, 0
   br i1 %tobool230.not, label %if.end232, label %if.then231
 
 if.then231:                                       ; preds = %write_commit_graph_file.exit
@@ -5565,47 +5543,47 @@ if.then231:                                       ; preds = %write_commit_graph_
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %updated_time.i)
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %tv.i.i)
   %call.i.i409 = call i32 @gettimeofday(ptr noundef nonnull %tv.i.i, ptr noundef null) #22
-  %388 = load i64, ptr %tv.i.i, align 8
+  %389 = load i64, ptr %tv.i.i, align 8
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %tv.i.i)
-  %num_commit_graphs_after.i410 = getelementptr inbounds %struct.write_commit_graph_context, ptr %call5, i64 0, i32 13
-  %389 = load i32, ptr %num_commit_graphs_after.i410, align 4
-  %sub.i411 = add nsw i32 %389, -1
-  %num_commit_graphs_before.i412 = getelementptr inbounds %struct.write_commit_graph_context, ptr %call5, i64 0, i32 12
-  %390 = load i32, ptr %num_commit_graphs_before.i412, align 8
-  %cmp7.i = icmp ult i32 %sub.i411, %390
+  %num_commit_graphs_after.i410 = getelementptr inbounds i8, ptr %call5, i64 132
+  %390 = load i32, ptr %num_commit_graphs_after.i410, align 4
+  %sub.i411 = add nsw i32 %390, -1
+  %num_commit_graphs_before.i412 = getelementptr inbounds i8, ptr %call5, i64 128
+  %391 = load i32, ptr %num_commit_graphs_before.i412, align 8
+  %cmp7.i = icmp ult i32 %sub.i411, %391
   br i1 %cmp7.i, label %for.body.lr.ph.i414, label %mark_commit_graphs.exit
 
 for.body.lr.ph.i414:                              ; preds = %if.then231
-  %commit_graph_filenames_before.i415 = getelementptr inbounds %struct.write_commit_graph_context, ptr %call5, i64 0, i32 14
-  %st_atim.i = getelementptr inbounds %struct.stat, ptr %st.i, i64 0, i32 11
-  %modtime.i = getelementptr inbounds %struct.utimbuf, ptr %updated_time.i, i64 0, i32 1
-  %391 = zext i32 %sub.i411 to i64
+  %commit_graph_filenames_before.i415 = getelementptr inbounds i8, ptr %call5, i64 136
+  %st_atim.i = getelementptr inbounds i8, ptr %st.i, i64 72
+  %modtime.i = getelementptr inbounds i8, ptr %updated_time.i, i64 8
+  %392 = zext i32 %sub.i411 to i64
   br label %for.body.i416
 
 for.body.i416:                                    ; preds = %for.inc.i421, %for.body.lr.ph.i414
-  %indvars.iv.i417 = phi i64 [ %391, %for.body.lr.ph.i414 ], [ %indvars.iv.next.i422, %for.inc.i421 ]
-  %392 = load ptr, ptr %commit_graph_filenames_before.i415, align 8
-  %arrayidx.i418 = getelementptr inbounds ptr, ptr %392, i64 %indvars.iv.i417
-  %393 = load ptr, ptr %arrayidx.i418, align 8
-  %call1.i419 = call i32 @stat64(ptr noundef %393, ptr noundef nonnull %st.i) #22
+  %indvars.iv.i417 = phi i64 [ %392, %for.body.lr.ph.i414 ], [ %indvars.iv.next.i422, %for.inc.i421 ]
+  %393 = load ptr, ptr %commit_graph_filenames_before.i415, align 8
+  %arrayidx.i418 = getelementptr inbounds ptr, ptr %393, i64 %indvars.iv.i417
+  %394 = load ptr, ptr %arrayidx.i418, align 8
+  %call1.i419 = call i32 @stat64(ptr noundef %394, ptr noundef nonnull %st.i) #22
   %cmp2.i = icmp slt i32 %call1.i419, 0
   br i1 %cmp2.i, label %for.inc.i421, label %if.end.i420
 
 if.end.i420:                                      ; preds = %for.body.i416
-  %394 = load i64, ptr %st_atim.i, align 8
-  store i64 %394, ptr %updated_time.i, align 8
-  store i64 %388, ptr %modtime.i, align 8
-  %395 = load ptr, ptr %commit_graph_filenames_before.i415, align 8
-  %arrayidx5.i = getelementptr inbounds ptr, ptr %395, i64 %indvars.iv.i417
-  %396 = load ptr, ptr %arrayidx5.i, align 8
-  %call6.i = call i32 @utime(ptr noundef %396, ptr noundef nonnull %updated_time.i) #22
+  %395 = load i64, ptr %st_atim.i, align 8
+  store i64 %395, ptr %updated_time.i, align 8
+  store i64 %389, ptr %modtime.i, align 8
+  %396 = load ptr, ptr %commit_graph_filenames_before.i415, align 8
+  %arrayidx5.i = getelementptr inbounds ptr, ptr %396, i64 %indvars.iv.i417
+  %397 = load ptr, ptr %arrayidx5.i, align 8
+  %call6.i = call i32 @utime(ptr noundef %397, ptr noundef nonnull %updated_time.i) #22
   br label %for.inc.i421
 
 for.inc.i421:                                     ; preds = %if.end.i420, %for.body.i416
   %indvars.iv.next.i422 = add nuw nsw i64 %indvars.iv.i417, 1
-  %397 = load i32, ptr %num_commit_graphs_before.i412, align 8
-  %398 = zext i32 %397 to i64
-  %cmp.i423 = icmp ult i64 %indvars.iv.next.i422, %398
+  %398 = load i32, ptr %num_commit_graphs_before.i412, align 8
+  %399 = zext i32 %398 to i64
+  %cmp.i423 = icmp ult i64 %indvars.iv.next.i422, %399
   br i1 %cmp.i423, label %for.body.i416, label %mark_commit_graphs.exit, !llvm.loop !46
 
 mark_commit_graphs.exit:                          ; preds = %for.inc.i421, %if.then231
@@ -5619,97 +5597,97 @@ if.end232:                                        ; preds = %mark_commit_graphs.
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %path.i425, ptr noundef nonnull align 8 dereferenceable(24) @__const.expire_commit_graphs.path, i64 24, i1 false)
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %tv.i.i424)
   %call.i.i427 = call i32 @gettimeofday(ptr noundef nonnull %tv.i.i424, ptr noundef null) #22
-  %399 = load i64, ptr %tv.i.i424, align 8
+  %400 = load i64, ptr %tv.i.i424, align 8
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %tv.i.i424)
-  %400 = load ptr, ptr %opts26, align 8
-  %tobool.not.i429 = icmp eq ptr %400, null
+  %401 = load ptr, ptr %opts26, align 8
+  %tobool.not.i429 = icmp eq ptr %401, null
   br i1 %tobool.not.i429, label %if.end.i432, label %land.lhs.true.i430
 
 land.lhs.true.i430:                               ; preds = %if.end232
-  %expire_time2.i = getelementptr inbounds %struct.commit_graph_opts, ptr %400, i64 0, i32 2
-  %401 = load i64, ptr %expire_time2.i, align 8
-  %tobool3.not.i = icmp eq i64 %401, 0
-  %spec.select.i431 = select i1 %tobool3.not.i, i64 %399, i64 %401
+  %expire_time2.i = getelementptr inbounds i8, ptr %401, i64 8
+  %402 = load i64, ptr %expire_time2.i, align 8
+  %tobool3.not.i = icmp eq i64 %402, 0
+  %spec.select.i431 = select i1 %tobool3.not.i, i64 %400, i64 %402
   br label %if.end.i432
 
 if.end.i432:                                      ; preds = %land.lhs.true.i430, %if.end232
-  %expire_time.0.i = phi i64 [ %399, %if.end232 ], [ %spec.select.i431, %land.lhs.true.i430 ]
+  %expire_time.0.i = phi i64 [ %400, %if.end232 ], [ %spec.select.i431, %land.lhs.true.i430 ]
   %bf.load.i434 = load i8, ptr %append, align 8
-  %402 = and i8 %bf.load.i434, 4
-  %tobool6.not.i435 = icmp eq i8 %402, 0
+  %403 = and i8 %bf.load.i434, 4
+  %tobool6.not.i435 = icmp eq i8 %403, 0
   br i1 %tobool6.not.i435, label %if.then7.i, label %if.end10.i
 
 if.then7.i:                                       ; preds = %if.end.i432
-  %403 = load ptr, ptr %odb7, align 8
-  %path.i.i465 = getelementptr inbounds %struct.object_directory, ptr %403, i64 0, i32 5
-  %404 = load ptr, ptr %path.i.i465, align 8
-  %call.i17.i = call ptr (ptr, ...) @xstrfmt(ptr noundef nonnull @.str.4, ptr noundef %404) #22
+  %404 = load ptr, ptr %odb7, align 8
+  %path.i.i465 = getelementptr inbounds i8, ptr %404, i64 56
+  %405 = load ptr, ptr %path.i.i465, align 8
+  %call.i17.i = call ptr (ptr, ...) @xstrfmt(ptr noundef nonnull @.str.4, ptr noundef %405) #22
   %call9.i466 = call i32 @unlink(ptr noundef %call.i17.i) #22
   call void @free(ptr noundef %call.i17.i) #22
-  %num_commit_graphs_after.i467 = getelementptr inbounds %struct.write_commit_graph_context, ptr %call5, i64 0, i32 13
+  %num_commit_graphs_after.i467 = getelementptr inbounds i8, ptr %call5, i64 132
   store i32 0, ptr %num_commit_graphs_after.i467, align 4
   br label %if.end10.i
 
 if.end10.i:                                       ; preds = %if.then7.i, %if.end.i432
-  %405 = load ptr, ptr %odb7, align 8
-  %path12.i = getelementptr inbounds %struct.object_directory, ptr %405, i64 0, i32 5
-  %406 = load ptr, ptr %path12.i, align 8
-  %call.i18.i436 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %406) #26
-  call void @strbuf_add(ptr noundef nonnull %path.i425, ptr noundef %406, i64 noundef %call.i18.i436) #22
+  %406 = load ptr, ptr %odb7, align 8
+  %path12.i = getelementptr inbounds i8, ptr %406, i64 56
+  %407 = load ptr, ptr %path12.i, align 8
+  %call.i18.i436 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %407) #26
+  call void @strbuf_add(ptr noundef nonnull %path.i425, ptr noundef %407, i64 noundef %call.i18.i436) #22
   call void @strbuf_add(ptr noundef nonnull %path.i425, ptr noundef nonnull @.str.104, i64 noundef 19) #22
-  %buf.i437 = getelementptr inbounds %struct.strbuf, ptr %path.i425, i64 0, i32 2
-  %407 = load ptr, ptr %buf.i437, align 8
-  %call13.i = call ptr @opendir(ptr noundef %407)
+  %buf.i437 = getelementptr inbounds i8, ptr %path.i425, i64 16
+  %408 = load ptr, ptr %buf.i437, align 8
+  %call13.i = call ptr @opendir(ptr noundef %408)
   %tobool14.not.i = icmp eq ptr %call13.i, null
   br i1 %tobool14.not.i, label %expire_commit_graphs.exit, label %if.end16.i438
 
 if.end16.i438:                                    ; preds = %if.end10.i
-  %408 = load i64, ptr %path.i425, align 8
-  %tobool.not.i.i.i439 = icmp eq i64 %408, 0
+  %409 = load i64, ptr %path.i425, align 8
+  %tobool.not.i.i.i439 = icmp eq i64 %409, 0
   br i1 %tobool.not.i.i.i439, label %if.then.i.i463, label %strbuf_avail.exit.i.i
 
 strbuf_avail.exit.i.i:                            ; preds = %if.end16.i438
-  %len.i.i.i = getelementptr inbounds %struct.strbuf, ptr %path.i425, i64 0, i32 1
-  %409 = load i64, ptr %len.i.i.i, align 8
-  %.neg.i.i = add i64 %409, 1
-  %tobool.not.i.i440 = icmp eq i64 %408, %.neg.i.i
+  %len.i.i.i = getelementptr inbounds i8, ptr %path.i425, i64 8
+  %410 = load i64, ptr %len.i.i.i, align 8
+  %.neg.i.i = add i64 %410, 1
+  %tobool.not.i.i440 = icmp eq i64 %409, %.neg.i.i
   br i1 %tobool.not.i.i440, label %if.then.i.i463, label %strbuf_addch.exit.i
 
 if.then.i.i463:                                   ; preds = %strbuf_avail.exit.i.i, %if.end16.i438
   call void @strbuf_grow(ptr noundef nonnull %path.i425, i64 noundef 1) #22
-  %len.phi.trans.insert.i.i = getelementptr inbounds %struct.strbuf, ptr %path.i425, i64 0, i32 1
+  %len.phi.trans.insert.i.i = getelementptr inbounds i8, ptr %path.i425, i64 8
   %.pre.i.i = load i64, ptr %len.phi.trans.insert.i.i, align 8
   %.pre8.i.i = add i64 %.pre.i.i, 1
   br label %strbuf_addch.exit.i
 
 strbuf_addch.exit.i:                              ; preds = %if.then.i.i463, %strbuf_avail.exit.i.i
   %inc.pre-phi.i.i = phi i64 [ %.pre8.i.i, %if.then.i.i463 ], [ %.neg.i.i, %strbuf_avail.exit.i.i ]
-  %410 = phi i64 [ %.pre.i.i, %if.then.i.i463 ], [ %409, %strbuf_avail.exit.i.i ]
-  %411 = load ptr, ptr %buf.i437, align 8
-  %len.i.i = getelementptr inbounds %struct.strbuf, ptr %path.i425, i64 0, i32 1
-  store i64 %inc.pre-phi.i.i, ptr %len.i.i, align 8
-  %arrayidx.i.i441 = getelementptr inbounds i8, ptr %411, i64 %410
-  store i8 47, ptr %arrayidx.i.i441, align 1
+  %411 = phi i64 [ %.pre.i.i, %if.then.i.i463 ], [ %410, %strbuf_avail.exit.i.i ]
   %412 = load ptr, ptr %buf.i437, align 8
-  %413 = load i64, ptr %len.i.i, align 8
-  %arrayidx3.i.i = getelementptr inbounds i8, ptr %412, i64 %413
-  store i8 0, ptr %arrayidx3.i.i, align 1
+  %len.i.i = getelementptr inbounds i8, ptr %path.i425, i64 8
+  store i64 %inc.pre-phi.i.i, ptr %len.i.i, align 8
+  %arrayidx.i.i441 = getelementptr inbounds i8, ptr %412, i64 %411
+  store i8 47, ptr %arrayidx.i.i441, align 1
+  %413 = load ptr, ptr %buf.i437, align 8
   %414 = load i64, ptr %len.i.i, align 8
+  %arrayidx3.i.i = getelementptr inbounds i8, ptr %413, i64 %414
+  store i8 0, ptr %arrayidx3.i.i, align 1
+  %415 = load i64, ptr %len.i.i, align 8
   %call1726.i = call ptr @readdir64(ptr noundef nonnull %call13.i) #22
   %cmp.not27.i = icmp eq ptr %call1726.i, null
   br i1 %cmp.not27.i, label %if.then48.i, label %while.body.lr.ph.i
 
 while.body.lr.ph.i:                               ; preds = %strbuf_addch.exit.i
-  %st_mtim.i = getelementptr inbounds %struct.stat, ptr %st.i426, i64 0, i32 12
-  %num_commit_graphs_after35.i = getelementptr inbounds %struct.write_commit_graph_context, ptr %call5, i64 0, i32 13
-  %commit_graph_filenames_after.i442 = getelementptr inbounds %struct.write_commit_graph_context, ptr %call5, i64 0, i32 15
+  %st_mtim.i = getelementptr inbounds i8, ptr %st.i426, i64 88
+  %num_commit_graphs_after35.i = getelementptr inbounds i8, ptr %call5, i64 132
+  %commit_graph_filenames_after.i442 = getelementptr inbounds i8, ptr %call5, i64 144
   br label %while.body.i443
 
 while.body.i443:                                  ; preds = %while.cond.backedge.i, %while.body.lr.ph.i
   %call1728.i = phi ptr [ %call1726.i, %while.body.lr.ph.i ], [ %call17.i453, %while.cond.backedge.i ]
-  %415 = load i64, ptr %path.i425, align 8
-  %spec.select.i.i444 = call i64 @llvm.usub.sat.i64(i64 %415, i64 1)
-  %cmp.i.i445 = icmp ult i64 %spec.select.i.i444, %414
+  %416 = load i64, ptr %path.i425, align 8
+  %spec.select.i.i444 = call i64 @llvm.usub.sat.i64(i64 %416, i64 1)
+  %cmp.i.i445 = icmp ult i64 %spec.select.i.i444, %415
   br i1 %cmp.i.i445, label %if.then.i22.i, label %if.end.i.i446
 
 if.then.i22.i:                                    ; preds = %while.body.i443
@@ -5717,49 +5695,49 @@ if.then.i22.i:                                    ; preds = %while.body.i443
   unreachable
 
 if.end.i.i446:                                    ; preds = %while.body.i443
-  store i64 %414, ptr %len.i.i, align 8
-  %416 = load ptr, ptr %buf.i437, align 8
-  %cmp3.not.i.i447 = icmp eq ptr %416, @strbuf_slopbuf
+  store i64 %415, ptr %len.i.i, align 8
+  %417 = load ptr, ptr %buf.i437, align 8
+  %cmp3.not.i.i447 = icmp eq ptr %417, @strbuf_slopbuf
   br i1 %cmp3.not.i.i447, label %strbuf_setlen.exit.i449, label %if.then4.i.i448
 
 if.then4.i.i448:                                  ; preds = %if.end.i.i446
-  %arrayidx.i21.i = getelementptr inbounds i8, ptr %416, i64 %414
+  %arrayidx.i21.i = getelementptr inbounds i8, ptr %417, i64 %415
   store i8 0, ptr %arrayidx.i21.i, align 1
   br label %strbuf_setlen.exit.i449
 
 strbuf_setlen.exit.i449:                          ; preds = %if.then4.i.i448, %if.end.i.i446
-  %d_name.i = getelementptr inbounds %struct.dirent, ptr %call1728.i, i64 0, i32 4
+  %d_name.i = getelementptr inbounds i8, ptr %call1728.i, i64 19
   %call.i23.i = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %d_name.i) #26
   call void @strbuf_add(ptr noundef nonnull %path.i425, ptr noundef nonnull %d_name.i, i64 noundef %call.i23.i) #22
-  %417 = load ptr, ptr %buf.i437, align 8
-  %call19.i450 = call i32 @stat64(ptr noundef %417, ptr noundef nonnull %st.i426) #22
+  %418 = load ptr, ptr %buf.i437, align 8
+  %call19.i450 = call i32 @stat64(ptr noundef %418, ptr noundef nonnull %st.i426) #22
   %cmp20.i = icmp slt i32 %call19.i450, 0
-  %418 = load i64, ptr %st_mtim.i, align 8
-  %cmp23.i = icmp ugt i64 %418, %expire_time.0.i
+  %419 = load i64, ptr %st_mtim.i, align 8
+  %cmp23.i = icmp ugt i64 %419, %expire_time.0.i
   %or.cond.i451 = select i1 %cmp20.i, i1 true, i1 %cmp23.i
   br i1 %or.cond.i451, label %while.cond.backedge.i, label %if.end25.i
 
 if.end25.i:                                       ; preds = %strbuf_setlen.exit.i449
-  %419 = load i64, ptr %len.i.i, align 8
-  %cmp27.i = icmp ult i64 %419, 6
+  %420 = load i64, ptr %len.i.i, align 8
+  %cmp27.i = icmp ult i64 %420, 6
   br i1 %cmp27.i, label %while.cond.backedge.i, label %lor.lhs.false.i452
 
 lor.lhs.false.i452:                               ; preds = %if.end25.i
-  %420 = load ptr, ptr %buf.i437, align 8
-  %add.ptr.i = getelementptr inbounds i8, ptr %420, i64 %419
+  %421 = load ptr, ptr %buf.i437, align 8
+  %add.ptr.i = getelementptr inbounds i8, ptr %421, i64 %420
   %add.ptr30.i = getelementptr inbounds i8, ptr %add.ptr.i, i64 -6
   %call31.i = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %add.ptr30.i, ptr noundef nonnull dereferenceable(7) @.str.105) #26
   %tobool32.not.i = icmp eq i32 %call31.i, 0
   br i1 %tobool32.not.i, label %for.cond.preheader.i455, label %while.cond.backedge.i
 
 for.cond.preheader.i455:                          ; preds = %lor.lhs.false.i452
-  %421 = load i32, ptr %num_commit_graphs_after35.i, align 4
-  %cmp36.not24.not.i = icmp eq i32 %421, 0
+  %422 = load i32, ptr %num_commit_graphs_after35.i, align 4
+  %cmp36.not24.not.i = icmp eq i32 %422, 0
   br i1 %cmp36.not24.not.i, label %if.then43.i, label %for.body.lr.ph.i456
 
 for.body.lr.ph.i456:                              ; preds = %for.cond.preheader.i455
-  %422 = load ptr, ptr %commit_graph_filenames_after.i442, align 8
-  %wide.trip.count.i = zext i32 %421 to i64
+  %423 = load ptr, ptr %commit_graph_filenames_after.i442, align 8
+  %wide.trip.count.i = zext i32 %422 to i64
   br label %for.body.i457
 
 while.cond.backedge.i:                            ; preds = %for.body.i457, %if.then43.i, %lor.lhs.false.i452, %if.end25.i, %strbuf_setlen.exit.i449
@@ -5774,14 +5752,14 @@ for.cond.i:                                       ; preds = %for.body.i457
 
 for.body.i457:                                    ; preds = %for.cond.i, %for.body.lr.ph.i456
   %indvars.iv.i458 = phi i64 [ 0, %for.body.lr.ph.i456 ], [ %indvars.iv.next.i460, %for.cond.i ]
-  %arrayidx.i459 = getelementptr inbounds ptr, ptr %422, i64 %indvars.iv.i458
-  %423 = load ptr, ptr %arrayidx.i459, align 8
-  %call38.i = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %423, ptr noundef nonnull dereferenceable(1) %420) #26
+  %arrayidx.i459 = getelementptr inbounds ptr, ptr %423, i64 %indvars.iv.i458
+  %424 = load ptr, ptr %arrayidx.i459, align 8
+  %call38.i = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %424, ptr noundef nonnull dereferenceable(1) %421) #26
   %tobool39.not.i = icmp eq i32 %call38.i, 0
   br i1 %tobool39.not.i, label %while.cond.backedge.i, label %for.cond.i
 
 if.then43.i:                                      ; preds = %for.cond.i, %for.cond.preheader.i455
-  %call45.i462 = call i32 @unlink(ptr noundef %420) #22
+  %call45.i462 = call i32 @unlink(ptr noundef %421) #22
   br label %while.cond.backedge.i
 
 if.then48.i:                                      ; preds = %while.cond.backedge.i, %strbuf_addch.exit.i
@@ -5796,100 +5774,100 @@ expire_commit_graphs.exit:                        ; preds = %if.end10.i, %if.the
 
 cleanup:                                          ; preds = %if.end179, %fill_oids_from_packs.exit, %expire_commit_graphs.exit, %_.exit220
   %res.2 = phi i32 [ -1, %fill_oids_from_packs.exit ], [ -1, %_.exit220 ], [ %retval.0.i360, %expire_commit_graphs.exit ], [ 0, %if.end179 ]
-  %graph_name = getelementptr inbounds %struct.write_commit_graph_context, ptr %call5, i64 0, i32 2
-  %424 = load ptr, ptr %graph_name, align 8
-  call void @free(ptr noundef %424) #22
-  %base_graph_name = getelementptr inbounds %struct.write_commit_graph_context, ptr %call5, i64 0, i32 11
-  %425 = load ptr, ptr %base_graph_name, align 8
+  %graph_name = getelementptr inbounds i8, ptr %call5, i64 16
+  %425 = load ptr, ptr %graph_name, align 8
   call void @free(ptr noundef %425) #22
-  %commits233 = getelementptr inbounds %struct.write_commit_graph_context, ptr %call5, i64 0, i32 4
-  %426 = load ptr, ptr %commits233, align 8
+  %base_graph_name = getelementptr inbounds i8, ptr %call5, i64 120
+  %426 = load ptr, ptr %base_graph_name, align 8
   call void @free(ptr noundef %426) #22
-  %oids234 = getelementptr inbounds %struct.write_commit_graph_context, ptr %call5, i64 0, i32 3
+  %commits233 = getelementptr inbounds i8, ptr %call5, i64 56
+  %427 = load ptr, ptr %commits233, align 8
+  call void @free(ptr noundef %427) #22
+  %oids234 = getelementptr inbounds i8, ptr %call5, i64 24
   call void @oid_array_clear(ptr noundef nonnull %oids234) #22
-  %427 = load i32, ptr %slab_count.i.i, align 8
-  %cmp7.not.i = icmp eq i32 %427, 0
+  %428 = load i32, ptr %slab_count.i.i, align 8
+  %cmp7.not.i = icmp eq i32 %428, 0
   br i1 %cmp7.not.i, label %clear_topo_level_slab.exit, label %for.body.i469
 
 for.body.i469:                                    ; preds = %cleanup, %for.body.i469
   %indvars.iv.i470 = phi i64 [ %indvars.iv.next.i472, %for.body.i469 ], [ 0, %cleanup ]
-  %428 = load ptr, ptr %slab.i.i, align 8
-  %arrayidx.i471 = getelementptr inbounds ptr, ptr %428, i64 %indvars.iv.i470
-  %429 = load ptr, ptr %arrayidx.i471, align 8
-  call void @free(ptr noundef %429) #22
+  %429 = load ptr, ptr %slab.i.i, align 8
+  %arrayidx.i471 = getelementptr inbounds ptr, ptr %429, i64 %indvars.iv.i470
+  %430 = load ptr, ptr %arrayidx.i471, align 8
+  call void @free(ptr noundef %430) #22
   %indvars.iv.next.i472 = add nuw nsw i64 %indvars.iv.i470, 1
-  %430 = load i32, ptr %slab_count.i.i, align 8
-  %431 = zext i32 %430 to i64
-  %cmp.i473 = icmp ult i64 %indvars.iv.next.i472, %431
+  %431 = load i32, ptr %slab_count.i.i, align 8
+  %432 = zext i32 %431 to i64
+  %cmp.i473 = icmp ult i64 %indvars.iv.next.i472, %432
   br i1 %cmp.i473, label %for.body.i469, label %clear_topo_level_slab.exit, !llvm.loop !49
 
 clear_topo_level_slab.exit:                       ; preds = %for.body.i469, %cleanup
   store i32 0, ptr %slab_count.i.i, align 8
-  %432 = load ptr, ptr %slab.i.i, align 8
-  call void @free(ptr noundef %432) #22
+  %433 = load ptr, ptr %slab.i.i, align 8
+  call void @free(ptr noundef %433) #22
   store ptr null, ptr %slab.i.i, align 8
-  %commit_graph_filenames_after = getelementptr inbounds %struct.write_commit_graph_context, ptr %call5, i64 0, i32 15
-  %433 = load ptr, ptr %commit_graph_filenames_after, align 8
-  %tobool235.not = icmp eq ptr %433, null
+  %commit_graph_filenames_after = getelementptr inbounds i8, ptr %call5, i64 144
+  %434 = load ptr, ptr %commit_graph_filenames_after, align 8
+  %tobool235.not = icmp eq ptr %434, null
   br i1 %tobool235.not, label %if.end264, label %for.cond237.preheader
 
 for.cond237.preheader:                            ; preds = %clear_topo_level_slab.exit
-  %num_commit_graphs_after238 = getelementptr inbounds %struct.write_commit_graph_context, ptr %call5, i64 0, i32 13
-  %434 = load i32, ptr %num_commit_graphs_after238, align 4
-  %cmp239507.not = icmp eq i32 %434, 0
-  br i1 %cmp239507.not, label %for.cond250.preheader, label %for.body241.lr.ph
+  %num_commit_graphs_after238 = getelementptr inbounds i8, ptr %call5, i64 132
+  %435 = load i32, ptr %num_commit_graphs_after238, align 4
+  %cmp239506.not = icmp eq i32 %435, 0
+  br i1 %cmp239506.not, label %for.cond250.preheader, label %for.body241.lr.ph
 
 for.body241.lr.ph:                                ; preds = %for.cond237.preheader
-  %commit_graph_hash_after = getelementptr inbounds %struct.write_commit_graph_context, ptr %call5, i64 0, i32 16
+  %commit_graph_hash_after = getelementptr inbounds i8, ptr %call5, i64 152
   br label %for.body241
 
 for.cond250.preheader:                            ; preds = %for.body241, %for.cond237.preheader
-  %num_commit_graphs_before251 = getelementptr inbounds %struct.write_commit_graph_context, ptr %call5, i64 0, i32 12
-  %435 = load i32, ptr %num_commit_graphs_before251, align 8
-  %cmp252509.not = icmp eq i32 %435, 0
-  br i1 %cmp252509.not, label %for.end260, label %for.body254.lr.ph
+  %num_commit_graphs_before251 = getelementptr inbounds i8, ptr %call5, i64 128
+  %436 = load i32, ptr %num_commit_graphs_before251, align 8
+  %cmp252508.not = icmp eq i32 %436, 0
+  br i1 %cmp252508.not, label %for.end260, label %for.body254.lr.ph
 
 for.body254.lr.ph:                                ; preds = %for.cond250.preheader
-  %commit_graph_filenames_before255 = getelementptr inbounds %struct.write_commit_graph_context, ptr %call5, i64 0, i32 14
+  %commit_graph_filenames_before255 = getelementptr inbounds i8, ptr %call5, i64 136
   br label %for.body254
 
 for.body241:                                      ; preds = %for.body241.lr.ph, %for.body241
-  %indvars.iv528 = phi i64 [ 0, %for.body241.lr.ph ], [ %indvars.iv.next529, %for.body241 ]
-  %436 = load ptr, ptr %commit_graph_filenames_after, align 8
-  %arrayidx244 = getelementptr inbounds ptr, ptr %436, i64 %indvars.iv528
-  %437 = load ptr, ptr %arrayidx244, align 8
-  call void @free(ptr noundef %437) #22
-  %438 = load ptr, ptr %commit_graph_hash_after, align 8
-  %arrayidx246 = getelementptr inbounds ptr, ptr %438, i64 %indvars.iv528
-  %439 = load ptr, ptr %arrayidx246, align 8
-  call void @free(ptr noundef %439) #22
-  %indvars.iv.next529 = add nuw nsw i64 %indvars.iv528, 1
-  %440 = load i32, ptr %num_commit_graphs_after238, align 4
-  %441 = zext i32 %440 to i64
-  %cmp239 = icmp ult i64 %indvars.iv.next529, %441
+  %indvars.iv527 = phi i64 [ 0, %for.body241.lr.ph ], [ %indvars.iv.next528, %for.body241 ]
+  %437 = load ptr, ptr %commit_graph_filenames_after, align 8
+  %arrayidx244 = getelementptr inbounds ptr, ptr %437, i64 %indvars.iv527
+  %438 = load ptr, ptr %arrayidx244, align 8
+  call void @free(ptr noundef %438) #22
+  %439 = load ptr, ptr %commit_graph_hash_after, align 8
+  %arrayidx246 = getelementptr inbounds ptr, ptr %439, i64 %indvars.iv527
+  %440 = load ptr, ptr %arrayidx246, align 8
+  call void @free(ptr noundef %440) #22
+  %indvars.iv.next528 = add nuw nsw i64 %indvars.iv527, 1
+  %441 = load i32, ptr %num_commit_graphs_after238, align 4
+  %442 = zext i32 %441 to i64
+  %cmp239 = icmp ult i64 %indvars.iv.next528, %442
   br i1 %cmp239, label %for.body241, label %for.cond250.preheader, !llvm.loop !50
 
 for.body254:                                      ; preds = %for.body254.lr.ph, %for.body254
-  %indvars.iv531 = phi i64 [ 0, %for.body254.lr.ph ], [ %indvars.iv.next532, %for.body254 ]
-  %442 = load ptr, ptr %commit_graph_filenames_before255, align 8
-  %arrayidx257 = getelementptr inbounds ptr, ptr %442, i64 %indvars.iv531
-  %443 = load ptr, ptr %arrayidx257, align 8
-  call void @free(ptr noundef %443) #22
-  %indvars.iv.next532 = add nuw nsw i64 %indvars.iv531, 1
-  %444 = load i32, ptr %num_commit_graphs_before251, align 8
-  %445 = zext i32 %444 to i64
-  %cmp252 = icmp ult i64 %indvars.iv.next532, %445
+  %indvars.iv530 = phi i64 [ 0, %for.body254.lr.ph ], [ %indvars.iv.next531, %for.body254 ]
+  %443 = load ptr, ptr %commit_graph_filenames_before255, align 8
+  %arrayidx257 = getelementptr inbounds ptr, ptr %443, i64 %indvars.iv530
+  %444 = load ptr, ptr %arrayidx257, align 8
+  call void @free(ptr noundef %444) #22
+  %indvars.iv.next531 = add nuw nsw i64 %indvars.iv530, 1
+  %445 = load i32, ptr %num_commit_graphs_before251, align 8
+  %446 = zext i32 %445 to i64
+  %cmp252 = icmp ult i64 %indvars.iv.next531, %446
   br i1 %cmp252, label %for.body254, label %for.end260, !llvm.loop !51
 
 for.end260:                                       ; preds = %for.body254, %for.cond250.preheader
-  %446 = load ptr, ptr %commit_graph_filenames_after, align 8
-  call void @free(ptr noundef %446) #22
-  %commit_graph_filenames_before262 = getelementptr inbounds %struct.write_commit_graph_context, ptr %call5, i64 0, i32 14
-  %447 = load ptr, ptr %commit_graph_filenames_before262, align 8
+  %447 = load ptr, ptr %commit_graph_filenames_after, align 8
   call void @free(ptr noundef %447) #22
-  %commit_graph_hash_after263 = getelementptr inbounds %struct.write_commit_graph_context, ptr %call5, i64 0, i32 16
-  %448 = load ptr, ptr %commit_graph_hash_after263, align 8
+  %commit_graph_filenames_before262 = getelementptr inbounds i8, ptr %call5, i64 136
+  %448 = load ptr, ptr %commit_graph_filenames_before262, align 8
   call void @free(ptr noundef %448) #22
+  %commit_graph_hash_after263 = getelementptr inbounds i8, ptr %call5, i64 152
+  %449 = load ptr, ptr %commit_graph_hash_after263, align 8
+  call void @free(ptr noundef %449) #22
   br label %if.end264
 
 if.end264:                                        ; preds = %for.end260, %clear_topo_level_slab.exit
@@ -5917,11 +5895,11 @@ if.end:                                           ; preds = %entry
 
 if.then2:                                         ; preds = %if.end
   tail call void @prepare_replace_object(ptr noundef nonnull %r) #22
-  %objects = getelementptr inbounds %struct.repository, ptr %r, i64 0, i32 2
+  %objects = getelementptr inbounds i8, ptr %r, i64 16
   %1 = load ptr, ptr %objects, align 8
-  %replace_map = getelementptr inbounds %struct.raw_object_store, ptr %1, i64 0, i32 5
+  %replace_map = getelementptr inbounds i8, ptr %1, i64 40
   %2 = load ptr, ptr %replace_map, align 8
-  %do_count_items.i = getelementptr inbounds %struct.hashmap, ptr %2, i64 0, i32 7
+  %do_count_items.i = getelementptr inbounds i8, ptr %2, i64 40
   %bf.load.i = load i8, ptr %do_count_items.i, align 8
   %bf.clear.i = and i8 %bf.load.i, 1
   %tobool.not.i = icmp eq i8 %bf.clear.i, 0
@@ -5932,26 +5910,26 @@ if.end.i:                                         ; preds = %if.then2
   unreachable
 
 hashmap_get_size.exit:                            ; preds = %if.then2
-  %private_size.i = getelementptr inbounds %struct.hashmap, ptr %2, i64 0, i32 3
+  %private_size.i = getelementptr inbounds i8, ptr %2, i64 24
   %3 = load i32, ptr %private_size.i, align 8
   %tobool4.not = icmp eq i32 %3, 0
   br i1 %tobool4.not, label %if.end7, label %return
 
 if.end7:                                          ; preds = %hashmap_get_size.exit, %if.end
   tail call void @prepare_commit_graft(ptr noundef nonnull %r) #22
-  %parsed_objects = getelementptr inbounds %struct.repository, ptr %r, i64 0, i32 3
+  %parsed_objects = getelementptr inbounds i8, ptr %r, i64 24
   %4 = load ptr, ptr %parsed_objects, align 8
   %tobool8.not = icmp eq ptr %4, null
   br i1 %tobool8.not, label %if.end14, label %land.lhs.true
 
 land.lhs.true:                                    ; preds = %if.end7
-  %grafts_nr = getelementptr inbounds %struct.parsed_object_pool, ptr %4, i64 0, i32 10
+  %grafts_nr = getelementptr inbounds i8, ptr %4, i64 68
   %5 = load i32, ptr %grafts_nr, align 4
   %tobool10.not = icmp eq i32 %5, 0
   br i1 %tobool10.not, label %lor.lhs.false, label %return
 
 lor.lhs.false:                                    ; preds = %land.lhs.true
-  %substituted_parent = getelementptr inbounds %struct.parsed_object_pool, ptr %4, i64 0, i32 15
+  %substituted_parent = getelementptr inbounds i8, ptr %4, i64 100
   %6 = load i32, ptr %substituted_parent, align 4
   %tobool12.not = icmp eq i32 %6, 0
   br i1 %tobool12.not, label %if.end14, label %return
@@ -5982,23 +5960,23 @@ define internal fastcc void @merge_commit_graphs(ptr noundef %ctx) unnamed_addr 
 entry:
   %oid53.i = alloca %struct.object_id, align 4
   %0 = load ptr, ptr %ctx, align 8
-  %objects = getelementptr inbounds %struct.repository, ptr %0, i64 0, i32 2
+  %objects = getelementptr inbounds i8, ptr %0, i64 16
   %1 = load ptr, ptr %objects, align 8
-  %commit_graph = getelementptr inbounds %struct.raw_object_store, ptr %1, i64 0, i32 8
+  %commit_graph = getelementptr inbounds i8, ptr %1, i64 96
   %g.057 = load ptr, ptr %commit_graph, align 8
   %tobool.not58 = icmp eq ptr %g.057, null
   br i1 %tobool.not58, label %if.end6, label %land.rhs.lr.ph
 
 land.rhs.lr.ph:                                   ; preds = %entry
-  %num_commit_graphs_before = getelementptr inbounds %struct.write_commit_graph_context, ptr %ctx, i64 0, i32 12
+  %num_commit_graphs_before = getelementptr inbounds i8, ptr %ctx, i64 128
   %2 = load i32, ptr %num_commit_graphs_before, align 8
-  %num_commit_graphs_after = getelementptr inbounds %struct.write_commit_graph_context, ptr %ctx, i64 0, i32 13
-  %report_progress = getelementptr inbounds %struct.write_commit_graph_context, ptr %ctx, i64 0, i32 19
-  %progress = getelementptr inbounds %struct.write_commit_graph_context, ptr %ctx, i64 0, i32 8
-  %commits.i = getelementptr inbounds %struct.write_commit_graph_context, ptr %ctx, i64 0, i32 4
-  %nr.i = getelementptr inbounds %struct.write_commit_graph_context, ptr %ctx, i64 0, i32 4, i32 1
-  %alloc.i = getelementptr inbounds %struct.write_commit_graph_context, ptr %ctx, i64 0, i32 4, i32 2
-  %algo.i.i.i = getelementptr inbounds %struct.object_id, ptr %oid53.i, i64 0, i32 1
+  %num_commit_graphs_after = getelementptr inbounds i8, ptr %ctx, i64 132
+  %report_progress = getelementptr inbounds i8, ptr %ctx, i64 176
+  %progress = getelementptr inbounds i8, ptr %ctx, i64 96
+  %commits.i = getelementptr inbounds i8, ptr %ctx, i64 56
+  %nr.i = getelementptr inbounds i8, ptr %ctx, i64 64
+  %alloc.i = getelementptr inbounds i8, ptr %ctx, i64 72
+  %algo.i.i.i = getelementptr inbounds i8, ptr %oid53.i, i64 32
   br label %land.rhs
 
 land.rhs:                                         ; preds = %land.rhs.lr.ph, %stop_progress.exit
@@ -6032,9 +6010,9 @@ _.exit:                                           ; preds = %if.then, %if.end3.i
 
 if.end:                                           ; preds = %_.exit, %while.body
   call void @llvm.lifetime.start.p0(i64 36, ptr nonnull %oid53.i)
-  %num_commits_in_base.i = getelementptr inbounds %struct.commit_graph, ptr %g.060, i64 0, i32 8
+  %num_commits_in_base.i = getelementptr inbounds i8, ptr %g.060, i64 80
   %6 = load i32, ptr %num_commits_in_base.i, align 8
-  %num_commits.i = getelementptr inbounds %struct.commit_graph, ptr %g.060, i64 0, i32 4
+  %num_commits.i = getelementptr inbounds i8, ptr %g.060, i64 20
   %7 = load i32, ptr %num_commits.i, align 4
   %conv.i = zext i32 %7 to i64
   %8 = load i64, ptr %nr.i, align 8
@@ -6044,7 +6022,7 @@ if.end:                                           ; preds = %_.exit, %while.body
 
 if.then.i:                                        ; preds = %if.end
   %call.i20 = call fastcc ptr @_(ptr noundef nonnull @.str.73)
-  %oid.i = getelementptr inbounds %struct.commit_graph, ptr %g.060, i64 0, i32 5
+  %oid.i = getelementptr inbounds i8, ptr %g.060, i64 24
   %call2.i = call ptr @oid_to_hex(ptr noundef nonnull %oid.i) #22
   %9 = load i64, ptr %nr.i, align 8
   %10 = load i32, ptr %num_commits.i, align 4
@@ -6099,14 +6077,14 @@ for.body.i:                                       ; preds = %for.inc.i, %for.bod
 
 land.rhs.i.i:                                     ; preds = %while.body.i.i, %for.body.i
   %g.addr.014.i.i = phi ptr [ %20, %while.body.i.i ], [ %g.060, %for.body.i ]
-  %num_commits_in_base.i.i = getelementptr inbounds %struct.commit_graph, ptr %g.addr.014.i.i, i64 0, i32 8
+  %num_commits_in_base.i.i = getelementptr inbounds i8, ptr %g.addr.014.i.i, i64 80
   %18 = load i32, ptr %num_commits_in_base.i.i, align 8
   %19 = zext i32 %18 to i64
   %cmp.i.i = icmp ult i64 %17, %19
   br i1 %cmp.i.i, label %while.body.i.i, label %if.end.i.i
 
 while.body.i.i:                                   ; preds = %land.rhs.i.i
-  %base_graph.i.i = getelementptr inbounds %struct.commit_graph, ptr %g.addr.014.i.i, i64 0, i32 10
+  %base_graph.i.i = getelementptr inbounds i8, ptr %g.addr.014.i.i, i64 88
   %20 = load ptr, ptr %base_graph.i.i, align 8
   %tobool.not.i.i = icmp eq ptr %20, null
   br i1 %tobool.not.i.i, label %if.then.i31.i, label %land.rhs.i.i, !llvm.loop !52
@@ -6116,7 +6094,7 @@ if.then.i31.i:                                    ; preds = %while.body.i.i
   unreachable
 
 if.end.i.i:                                       ; preds = %land.rhs.i.i
-  %num_commits.i.i = getelementptr inbounds %struct.commit_graph, ptr %g.addr.014.i.i, i64 0, i32 4
+  %num_commits.i.i = getelementptr inbounds i8, ptr %g.addr.014.i.i, i64 20
   %21 = load i32, ptr %num_commits.i.i, align 4
   %add.i.i = add i32 %21, %18
   %22 = zext i32 %add.i.i to i64
@@ -6129,9 +6107,9 @@ if.then4.i.i:                                     ; preds = %if.end.i.i
   unreachable
 
 load_oid_from_graph.exit.i:                       ; preds = %if.end.i.i
-  %chunk_oid_lookup.i.i = getelementptr inbounds %struct.commit_graph, ptr %g.addr.014.i.i, i64 0, i32 12
+  %chunk_oid_lookup.i.i = getelementptr inbounds i8, ptr %g.addr.014.i.i, i64 104
   %23 = load ptr, ptr %chunk_oid_lookup.i.i, align 8
-  %hash_len.i.i = getelementptr inbounds %struct.commit_graph, ptr %g.addr.014.i.i, i64 0, i32 2
+  %hash_len.i.i = getelementptr inbounds i8, ptr %g.addr.014.i.i, i64 16
   %24 = load i8, ptr %hash_len.i.i, align 8
   %25 = trunc i64 %17 to i32
   %sub.i.i = sub i32 %25, %18
@@ -6140,9 +6118,9 @@ load_oid_from_graph.exit.i:                       ; preds = %if.end.i.i
   %mul.i.i.i = mul nuw nsw i64 %conv.i.i, %conv7.i.i
   %add.ptr.i.i = getelementptr inbounds i8, ptr %23, i64 %mul.i.i.i
   %26 = load ptr, ptr @the_repository, align 8
-  %hash_algo.i.i.i = getelementptr inbounds %struct.repository, ptr %26, i64 0, i32 15
+  %hash_algo.i.i.i = getelementptr inbounds i8, ptr %26, i64 256
   %27 = load ptr, ptr %hash_algo.i.i.i, align 8
-  %rawsz.i.i.i = getelementptr inbounds %struct.git_hash_algo, ptr %27, i64 0, i32 2
+  %rawsz.i.i.i = getelementptr inbounds i8, ptr %27, i64 16
   %28 = load i64, ptr %rawsz.i.i.i, align 8
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 4 %oid53.i, ptr align 1 %add.ptr.i.i, i64 %28, i1 false)
   %29 = load ptr, ptr %hash_algo.i.i.i, align 8
@@ -6185,39 +6163,39 @@ if.end3.i.i:                                      ; preds = %merge_commit_graph.
 stop_progress.exit:                               ; preds = %merge_commit_graph.exit, %if.end3.i.i
   %retval.0.i.i = phi ptr [ %call.i.i21, %if.end3.i.i ], [ @.str.53, %merge_commit_graph.exit ]
   call void @stop_progress_msg(ptr noundef nonnull %progress, ptr noundef %retval.0.i.i) #22
-  %base_graph = getelementptr inbounds %struct.commit_graph, ptr %g.060, i64 0, i32 10
+  %base_graph = getelementptr inbounds i8, ptr %g.060, i64 88
   %g.0 = load ptr, ptr %base_graph, align 8
   %tobool.not = icmp eq ptr %g.0, null
   br i1 %tobool.not, label %if.end6, label %land.rhs, !llvm.loop !54
 
 if.then5:                                         ; preds = %land.rhs
-  %new_base_graph = getelementptr inbounds %struct.write_commit_graph_context, ptr %ctx, i64 0, i32 18
+  %new_base_graph = getelementptr inbounds i8, ptr %ctx, i64 168
   store ptr %g.060, ptr %new_base_graph, align 8
-  %num_commits = getelementptr inbounds %struct.commit_graph, ptr %g.060, i64 0, i32 4
+  %num_commits = getelementptr inbounds i8, ptr %g.060, i64 20
   %37 = load i32, ptr %num_commits, align 4
-  %num_commits_in_base = getelementptr inbounds %struct.commit_graph, ptr %g.060, i64 0, i32 8
+  %num_commits_in_base = getelementptr inbounds i8, ptr %g.060, i64 80
   %38 = load i32, ptr %num_commits_in_base, align 8
   %add = add i32 %38, %37
-  %new_num_commits_in_base = getelementptr inbounds %struct.write_commit_graph_context, ptr %ctx, i64 0, i32 17
+  %new_num_commits_in_base = getelementptr inbounds i8, ptr %ctx, i64 160
   store i32 %add, ptr %new_num_commits_in_base, align 8
   br label %if.end6
 
 if.end6:                                          ; preds = %stop_progress.exit, %entry, %if.then5
-  %new_base_graph7 = getelementptr inbounds %struct.write_commit_graph_context, ptr %ctx, i64 0, i32 18
+  %new_base_graph7 = getelementptr inbounds i8, ptr %ctx, i64 168
   %39 = load ptr, ptr %new_base_graph7, align 8
   %tobool8.not = icmp eq ptr %39, null
   br i1 %tobool8.not, label %if.end12, label %if.then9
 
 if.then9:                                         ; preds = %if.end6
-  %filename = getelementptr inbounds %struct.commit_graph, ptr %39, i64 0, i32 6
+  %filename = getelementptr inbounds i8, ptr %39, i64 64
   %40 = load ptr, ptr %filename, align 8
   %call11 = call ptr @xstrdup(ptr noundef %40) #22
-  %base_graph_name = getelementptr inbounds %struct.write_commit_graph_context, ptr %ctx, i64 0, i32 11
+  %base_graph_name = getelementptr inbounds i8, ptr %ctx, i64 120
   store ptr %call11, ptr %base_graph_name, align 8
   br label %if.end12
 
 if.end12:                                         ; preds = %if.then9, %if.end6
-  %report_progress.i = getelementptr inbounds %struct.write_commit_graph_context, ptr %ctx, i64 0, i32 19
+  %report_progress.i = getelementptr inbounds i8, ptr %ctx, i64 176
   %bf.load.i = load i8, ptr %report_progress.i, align 8
   %41 = and i8 %bf.load.i, 2
   %tobool.not.i22 = icmp eq i8 %41, 0
@@ -6234,16 +6212,16 @@ if.end3.i.i25:                                    ; preds = %if.then.i23
 
 _.exit.i:                                         ; preds = %if.end3.i.i25, %if.then.i23
   %retval.0.i.i27 = phi ptr [ %call.i.i26, %if.end3.i.i25 ], [ @.str.75, %if.then.i23 ]
-  %nr.i28 = getelementptr inbounds %struct.write_commit_graph_context, ptr %ctx, i64 0, i32 4, i32 1
+  %nr.i28 = getelementptr inbounds i8, ptr %ctx, i64 64
   %43 = load i64, ptr %nr.i28, align 8
   %call1.i = call ptr @start_delayed_progress(ptr noundef %retval.0.i.i27, i64 noundef %43) #22
-  %progress.i29 = getelementptr inbounds %struct.write_commit_graph_context, ptr %ctx, i64 0, i32 8
+  %progress.i29 = getelementptr inbounds i8, ptr %ctx, i64 96
   store ptr %call1.i, ptr %progress.i29, align 8
   br label %if.end.i
 
 if.end.i:                                         ; preds = %_.exit.i, %if.end12
-  %commits2.i = getelementptr inbounds %struct.write_commit_graph_context, ptr %ctx, i64 0, i32 4
-  %nr4.i = getelementptr inbounds %struct.write_commit_graph_context, ptr %ctx, i64 0, i32 4, i32 1
+  %commits2.i = getelementptr inbounds i8, ptr %ctx, i64 56
+  %nr4.i = getelementptr inbounds i8, ptr %ctx, i64 64
   %44 = load i64, ptr %nr4.i, align 8
   %cmp.i.i30 = icmp ugt i64 %44, 1
   br i1 %cmp.i.i30, label %if.then.i.i42, label %sane_qsort.exit.i
@@ -6256,13 +6234,13 @@ if.then.i.i42:                                    ; preds = %if.end.i
 
 sane_qsort.exit.i:                                ; preds = %if.then.i.i42, %if.end.i
   %46 = phi i64 [ %44, %if.end.i ], [ %.pre.i43, %if.then.i.i42 ]
-  %num_extra_edges.i = getelementptr inbounds %struct.write_commit_graph_context, ptr %ctx, i64 0, i32 5
+  %num_extra_edges.i = getelementptr inbounds i8, ptr %ctx, i64 80
   store i32 0, ptr %num_extra_edges.i, align 8
   %cmp28.not.i = icmp eq i64 %46, 0
   br i1 %cmp28.not.i, label %for.end.i, label %for.body.lr.ph.i31
 
 for.body.lr.ph.i31:                               ; preds = %sane_qsort.exit.i
-  %progress8.i = getelementptr inbounds %struct.write_commit_graph_context, ptr %ctx, i64 0, i32 8
+  %progress8.i = getelementptr inbounds i8, ptr %ctx, i64 96
   br label %for.body.i32
 
 for.body.i32:                                     ; preds = %for.inc.i40, %for.body.lr.ph.i31
@@ -6287,18 +6265,18 @@ land.lhs.true.i:                                  ; preds = %for.body.i32
   %idxprom.i = zext i32 %sub.i34 to i64
   %arrayidx.i35 = getelementptr inbounds ptr, ptr %.pre32.i, i64 %idxprom.i
   %48 = load ptr, ptr %arrayidx.i35, align 8
-  %oid.i36 = getelementptr inbounds %struct.object, ptr %48, i64 0, i32 1
+  %oid.i36 = getelementptr inbounds i8, ptr %48, i64 4
   %arrayidx16.i = getelementptr inbounds ptr, ptr %.pre32.i, i64 %conv31.i
   %49 = load ptr, ptr %arrayidx16.i, align 8
-  %oid18.i = getelementptr inbounds %struct.object, ptr %49, i64 0, i32 1
-  %algo.i.i = getelementptr inbounds %struct.object, ptr %48, i64 0, i32 1, i32 1
+  %oid18.i = getelementptr inbounds i8, ptr %49, i64 4
+  %algo.i.i = getelementptr inbounds i8, ptr %48, i64 36
   %50 = load i32, ptr %algo.i.i, align 4
   %tobool.not.i.i37 = icmp eq i32 %50, 0
   br i1 %tobool.not.i.i37, label %if.then.i26.i, label %if.else.i.i
 
 if.then.i26.i:                                    ; preds = %land.lhs.true.i
   %51 = load ptr, ptr @the_repository, align 8
-  %hash_algo.i.i = getelementptr inbounds %struct.repository, ptr %51, i64 0, i32 15
+  %hash_algo.i.i = getelementptr inbounds i8, ptr %51, i64 256
   %52 = load ptr, ptr %hash_algo.i.i, align 8
   br label %if.end.i.i38
 
@@ -6336,7 +6314,7 @@ if.else.i:                                        ; preds = %oideq.exit.i, %for.
   %55 = load ptr, ptr %commits2.i, align 8
   %arrayidx33.i = getelementptr inbounds ptr, ptr %55, i64 %conv31.i
   %56 = load ptr, ptr %arrayidx33.i, align 8
-  %parents.i = getelementptr inbounds %struct.commit, ptr %56, i64 0, i32 2
+  %parents.i = getelementptr inbounds i8, ptr %56, i64 48
   %57 = load ptr, ptr %parents.i, align 8
   %call34.i = call i32 @commit_list_count(ptr noundef %57) #22
   %cmp35.i = icmp ugt i32 %call34.i, 2
@@ -6372,7 +6350,7 @@ if.end3.i.i.i:                                    ; preds = %for.end.i
 
 sort_and_scan_merged_commits.exit:                ; preds = %for.end.i, %if.end3.i.i.i
   %retval.0.i.i27.i = phi ptr [ %call.i.i.i, %if.end3.i.i.i ], [ @.str.53, %for.end.i ]
-  %progress47.i = getelementptr inbounds %struct.write_commit_graph_context, ptr %ctx, i64 0, i32 8
+  %progress47.i = getelementptr inbounds i8, ptr %ctx, i64 96
   call void @stop_progress_msg(ptr noundef nonnull %progress47.i, ptr noundef %retval.0.i.i27.i) #22
   ret void
 }
@@ -6405,7 +6383,7 @@ if.end.if.end9_crit_edge:                         ; preds = %if.end
   br label %if.end9
 
 if.then2:                                         ; preds = %if.end
-  %num_commits = getelementptr inbounds %struct.commit_graph, ptr %g, i64 0, i32 4
+  %num_commits = getelementptr inbounds i8, ptr %g, i64 20
   %0 = load i32, ptr %num_commits, align 4
   %conv = zext i32 %0 to i64
   %and3 = and i32 %flags, 1
@@ -6413,7 +6391,7 @@ if.then2:                                         ; preds = %if.end
   br i1 %tobool4.not, label %if.then5, label %if.end7
 
 if.then5:                                         ; preds = %if.then2
-  %num_commits_in_base = getelementptr inbounds %struct.commit_graph, ptr %g, i64 0, i32 8
+  %num_commits_in_base = getelementptr inbounds i8, ptr %g, i64 80
   %1 = load i32, ptr %num_commits_in_base, align 8
   %conv6 = zext i32 %1 to i64
   %add = add nuw nsw i64 %conv6, %conv
@@ -6437,8 +6415,8 @@ _.exit:                                           ; preds = %if.end7, %if.end3.i
 
 if.end9:                                          ; preds = %if.end.if.end9_crit_edge, %_.exit
   %and12.pre-phi = phi i32 [ %.pre, %if.end.if.end9_crit_edge ], [ %and3, %_.exit ]
-  %algo.i.i = getelementptr inbounds %struct.object_id, ptr %cur_oid.i, i64 0, i32 1
-  %algo.i75.i = getelementptr inbounds %struct.object_id, ptr %prev_oid.i, i64 0, i32 1
+  %algo.i.i = getelementptr inbounds i8, ptr %cur_oid.i, i64 32
+  %algo.i75.i = getelementptr inbounds i8, ptr %prev_oid.i, i64 32
   %tobool13.not = icmp eq i32 %and12.pre-phi, 0
   br label %for.body
 
@@ -6472,15 +6450,15 @@ _.exit.i:                                         ; preds = %if.end3.i.i, %if.th
   br label %if.end.i
 
 if.end.i:                                         ; preds = %_.exit.i, %for.body
-  %num_commits.i = getelementptr inbounds %struct.commit_graph, ptr %g.addr.020, i64 0, i32 4
+  %num_commits.i = getelementptr inbounds i8, ptr %g.addr.020, i64 20
   %6 = load i32, ptr %num_commits.i, align 4
   %cmp306.not.i = icmp eq i32 %6, 0
   br i1 %cmp306.not.i, label %while.body34.lr.ph.i, label %for.body.lr.ph.i
 
 for.body.lr.ph.i:                                 ; preds = %if.end.i
-  %chunk_oid_lookup.i = getelementptr inbounds %struct.commit_graph, ptr %g.addr.020, i64 0, i32 12
-  %hash_len.i = getelementptr inbounds %struct.commit_graph, ptr %g.addr.020, i64 0, i32 2
-  %chunk_oid_fanout.i = getelementptr inbounds %struct.commit_graph, ptr %g.addr.020, i64 0, i32 11
+  %chunk_oid_lookup.i = getelementptr inbounds i8, ptr %g.addr.020, i64 104
+  %hash_len.i = getelementptr inbounds i8, ptr %g.addr.020, i64 16
+  %chunk_oid_fanout.i = getelementptr inbounds i8, ptr %g.addr.020, i64 96
   br label %for.body.i
 
 while.cond31.preheader.i:                         ; preds = %for.inc.i
@@ -6491,7 +6469,7 @@ while.cond31.preheader.i:                         ; preds = %for.inc.i
 while.body34.lr.ph.i:                             ; preds = %while.cond31.preheader.i, %if.end.i
   %i.0.lcssa347.i = phi i32 [ %7, %while.cond31.preheader.i ], [ 0, %if.end.i ]
   %cur_fanout_pos.0.lcssa346.i = phi i32 [ %cur_fanout_pos.1.lcssa.i, %while.cond31.preheader.i ], [ 0, %if.end.i ]
-  %chunk_oid_fanout36.i = getelementptr inbounds %struct.commit_graph, ptr %g.addr.020, i64 0, i32 11
+  %chunk_oid_fanout36.i = getelementptr inbounds i8, ptr %g.addr.020, i64 96
   %8 = zext nneg i32 %cur_fanout_pos.0.lcssa346.i to i64
   br label %while.body34.i
 
@@ -6504,9 +6482,9 @@ for.body.i:                                       ; preds = %for.inc.i, %for.bod
   %mul.i.i = mul nuw nsw i64 %indvars.iv332.i, %conv.i
   %add.ptr.i = getelementptr inbounds i8, ptr %9, i64 %mul.i.i
   %11 = load ptr, ptr @the_repository, align 8
-  %hash_algo.i.i = getelementptr inbounds %struct.repository, ptr %11, i64 0, i32 15
+  %hash_algo.i.i = getelementptr inbounds i8, ptr %11, i64 256
   %12 = load ptr, ptr %hash_algo.i.i, align 8
-  %rawsz.i.i = getelementptr inbounds %struct.git_hash_algo, ptr %12, i64 0, i32 2
+  %rawsz.i.i = getelementptr inbounds i8, ptr %12, i64 16
   %13 = load i64, ptr %rawsz.i.i, align 8
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 4 %cur_oid.i, ptr align 1 %add.ptr.i, i64 %13, i1 false)
   %14 = load ptr, ptr %hash_algo.i.i, align 8
@@ -6659,17 +6637,17 @@ commit_graph_position.exit.i.i.i:                 ; preds = %if.end12.i.i.i.i.i.
   br i1 %cmp.not.i.i.i, label %if.else.i.i.i, label %parse_commit_in_graph_one.exit.i
 
 if.else.i.i.i:                                    ; preds = %commit_graph_position.exit.i.i.i, %if.end12.i.i.i.i.i.i, %if.end.i94.i
-  %oid.i.i.i = getelementptr inbounds %struct.object, ptr %call23.i, i64 0, i32 1
+  %oid.i.i.i = getelementptr inbounds i8, ptr %call23.i, i64 4
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %lex_index.i.i.i.i)
   br label %land.rhs.i.i.i.i
 
 land.rhs.i.i.i.i:                                 ; preds = %while.body.i.i.i.i, %if.else.i.i.i
   %cur_g.07.i.i.i.i = phi ptr [ %42, %while.body.i.i.i.i ], [ %g.addr.020, %if.else.i.i.i ]
-  %chunk_oid_fanout.i.i.i.i.i = getelementptr inbounds %struct.commit_graph, ptr %cur_g.07.i.i.i.i, i64 0, i32 11
+  %chunk_oid_fanout.i.i.i.i.i = getelementptr inbounds i8, ptr %cur_g.07.i.i.i.i, i64 96
   %39 = load ptr, ptr %chunk_oid_fanout.i.i.i.i.i, align 8
-  %chunk_oid_lookup.i.i.i.i.i = getelementptr inbounds %struct.commit_graph, ptr %cur_g.07.i.i.i.i, i64 0, i32 12
+  %chunk_oid_lookup.i.i.i.i.i = getelementptr inbounds i8, ptr %cur_g.07.i.i.i.i, i64 104
   %40 = load ptr, ptr %chunk_oid_lookup.i.i.i.i.i, align 8
-  %hash_len.i.i.i.i.i = getelementptr inbounds %struct.commit_graph, ptr %cur_g.07.i.i.i.i, i64 0, i32 2
+  %hash_len.i.i.i.i.i = getelementptr inbounds i8, ptr %cur_g.07.i.i.i.i, i64 16
   %41 = load i8, ptr %hash_len.i.i.i.i.i, align 8
   %conv.i.i.i.i.i = zext i8 %41 to i64
   %call.i.i.i.i.i = call i32 @bsearch_hash(ptr noundef nonnull %oid.i.i.i, ptr noundef %39, ptr noundef %40, i64 noundef %conv.i.i.i.i.i, ptr noundef nonnull %lex_index.i.i.i.i) #22
@@ -6677,7 +6655,7 @@ land.rhs.i.i.i.i:                                 ; preds = %while.body.i.i.i.i,
   br i1 %tobool1.not.i.i.i.i, label %while.body.i.i.i.i, label %find_commit_pos_in_graph.exit.i.i
 
 while.body.i.i.i.i:                               ; preds = %land.rhs.i.i.i.i
-  %base_graph.i.i.i.i = getelementptr inbounds %struct.commit_graph, ptr %cur_g.07.i.i.i.i, i64 0, i32 10
+  %base_graph.i.i.i.i = getelementptr inbounds i8, ptr %cur_g.07.i.i.i.i, i64 88
   %42 = load ptr, ptr %base_graph.i.i.i.i, align 8
   %tobool.not.i.i.i.i = icmp eq ptr %42, null
   br i1 %tobool.not.i.i.i.i, label %parse_commit_in_graph_one.exit.thread.i, label %land.rhs.i.i.i.i, !llvm.loop !18
@@ -6688,7 +6666,7 @@ parse_commit_in_graph_one.exit.thread.i:          ; preds = %while.body.i.i.i.i
 
 find_commit_pos_in_graph.exit.i.i:                ; preds = %land.rhs.i.i.i.i
   %43 = load i32, ptr %lex_index.i.i.i.i, align 4
-  %num_commits_in_base.i.i.i.i = getelementptr inbounds %struct.commit_graph, ptr %cur_g.07.i.i.i.i, i64 0, i32 8
+  %num_commits_in_base.i.i.i.i = getelementptr inbounds i8, ptr %cur_g.07.i.i.i.i, i64 80
   %44 = load i32, ptr %num_commits_in_base.i.i.i.i, align 8
   %add.i.i.i.i = add i32 %44, %43
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %lex_index.i.i.i.i)
@@ -6780,9 +6758,9 @@ for.cond51.preheader.i:                           ; preds = %while.end47.i
   br i1 %cmp53321.not.i, label %if.end172.i, label %for.body55.lr.ph.i
 
 for.body55.lr.ph.i:                               ; preds = %for.cond51.preheader.i
-  %chunk_oid_lookup58.i = getelementptr inbounds %struct.commit_graph, ptr %g.addr.020, i64 0, i32 12
-  %hash_len59.i = getelementptr inbounds %struct.commit_graph, ptr %g.addr.020, i64 0, i32 2
-  %read_generation_data.i = getelementptr inbounds %struct.commit_graph, ptr %g.addr.020, i64 0, i32 9
+  %chunk_oid_lookup58.i = getelementptr inbounds i8, ptr %g.addr.020, i64 104
+  %hash_len59.i = getelementptr inbounds i8, ptr %g.addr.020, i64 16
+  %read_generation_data.i = getelementptr inbounds i8, ptr %g.addr.020, i64 84
   br label %for.body55.i
 
 for.body55.i:                                     ; preds = %for.inc158.i, %for.body55.lr.ph.i
@@ -6798,9 +6776,9 @@ for.body55.i:                                     ; preds = %for.inc158.i, %for.
   %mul.i125.i = mul nuw nsw i64 %indvars.iv338.i, %conv60.i
   %add.ptr63.i = getelementptr inbounds i8, ptr %59, i64 %mul.i125.i
   %61 = load ptr, ptr @the_repository, align 8
-  %hash_algo.i128.i = getelementptr inbounds %struct.repository, ptr %61, i64 0, i32 15
+  %hash_algo.i128.i = getelementptr inbounds i8, ptr %61, i64 256
   %62 = load ptr, ptr %hash_algo.i128.i, align 8
-  %rawsz.i129.i = getelementptr inbounds %struct.git_hash_algo, ptr %62, i64 0, i32 2
+  %rawsz.i129.i = getelementptr inbounds i8, ptr %62, i64 16
   %63 = load i64, ptr %rawsz.i129.i, align 8
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 4 %cur_oid.i, ptr align 1 %add.ptr63.i, i64 %63, i1 false)
   %64 = load ptr, ptr %hash_algo.i128.i, align 8
@@ -6833,16 +6811,16 @@ _.exit141.i:                                      ; preds = %if.end3.i138.i, %if
 
 if.end72.i:                                       ; preds = %for.body55.i
   %call73.i = call fastcc ptr @get_commit_tree_in_graph_one(ptr noundef %r, ptr noundef nonnull %g.addr.020, ptr noundef %call64.i)
-  %oid.i = getelementptr inbounds %struct.object, ptr %call73.i, i64 0, i32 1
+  %oid.i = getelementptr inbounds i8, ptr %call73.i, i64 4
   %call74.i = call ptr @get_commit_tree_oid(ptr noundef %call66.i) #22
-  %algo.i142.i = getelementptr inbounds %struct.object, ptr %call73.i, i64 0, i32 1, i32 1
+  %algo.i142.i = getelementptr inbounds i8, ptr %call73.i, i64 36
   %66 = load i32, ptr %algo.i142.i, align 4
   %tobool.not.i143.i = icmp eq i32 %66, 0
   br i1 %tobool.not.i143.i, label %if.then.i154.i, label %if.else.i144.i
 
 if.then.i154.i:                                   ; preds = %if.end72.i
   %67 = load ptr, ptr @the_repository, align 8
-  %hash_algo.i155.i = getelementptr inbounds %struct.repository, ptr %67, i64 0, i32 15
+  %hash_algo.i155.i = getelementptr inbounds i8, ptr %67, i64 256
   %68 = load ptr, ptr %hash_algo.i155.i, align 8
   br label %if.end.i147.i
 
@@ -6891,8 +6869,8 @@ _.exit161.i:                                      ; preds = %if.end3.i158.i, %if
   br label %if.end84.i
 
 if.end84.i:                                       ; preds = %_.exit161.i, %oideq.exit.i
-  %parents.i = getelementptr inbounds %struct.commit, ptr %call64.i, i64 0, i32 2
-  %parents85.i = getelementptr inbounds %struct.commit, ptr %call66.i, i64 0, i32 2
+  %parents.i = getelementptr inbounds i8, ptr %call64.i, i64 48
+  %parents85.i = getelementptr inbounds i8, ptr %call66.i, i64 48
   %odb_parents.0313.i = load ptr, ptr %parents85.i, align 8
   %graph_parents.0314.i = load ptr, ptr %parents.i, align 8
   %tobool87.not315.i = icmp eq ptr %graph_parents.0314.i, null
@@ -6942,17 +6920,17 @@ commit_graph_position.exit.i.i203.i:              ; preds = %if.end12.i.i.i.i.i1
   br i1 %cmp.not.i.i207.i, label %if.else.i.i178.i, label %if.then2.i192.i
 
 if.else.i.i178.i:                                 ; preds = %commit_graph_position.exit.i.i203.i, %if.end12.i.i.i.i.i199.i, %if.end.i173.i
-  %oid.i.i179.i = getelementptr inbounds %struct.object, ptr %72, i64 0, i32 1
+  %oid.i.i179.i = getelementptr inbounds i8, ptr %72, i64 4
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %lex_index.i.i.i168.i)
   br label %land.rhs.i.i.i181.i
 
 land.rhs.i.i.i181.i:                              ; preds = %while.body.i.i.i195.i, %if.else.i.i178.i
   %cur_g.07.i.i.i182.i = phi ptr [ %81, %while.body.i.i.i195.i ], [ %g.addr.020, %if.else.i.i178.i ]
-  %chunk_oid_fanout.i.i.i.i183.i = getelementptr inbounds %struct.commit_graph, ptr %cur_g.07.i.i.i182.i, i64 0, i32 11
+  %chunk_oid_fanout.i.i.i.i183.i = getelementptr inbounds i8, ptr %cur_g.07.i.i.i182.i, i64 96
   %78 = load ptr, ptr %chunk_oid_fanout.i.i.i.i183.i, align 8
-  %chunk_oid_lookup.i.i.i.i184.i = getelementptr inbounds %struct.commit_graph, ptr %cur_g.07.i.i.i182.i, i64 0, i32 12
+  %chunk_oid_lookup.i.i.i.i184.i = getelementptr inbounds i8, ptr %cur_g.07.i.i.i182.i, i64 104
   %79 = load ptr, ptr %chunk_oid_lookup.i.i.i.i184.i, align 8
-  %hash_len.i.i.i.i185.i = getelementptr inbounds %struct.commit_graph, ptr %cur_g.07.i.i.i182.i, i64 0, i32 2
+  %hash_len.i.i.i.i185.i = getelementptr inbounds i8, ptr %cur_g.07.i.i.i182.i, i64 16
   %80 = load i8, ptr %hash_len.i.i.i.i185.i, align 8
   %conv.i.i.i.i186.i = zext i8 %80 to i64
   %call.i.i.i.i187.i = call i32 @bsearch_hash(ptr noundef nonnull %oid.i.i179.i, ptr noundef %78, ptr noundef %79, i64 noundef %conv.i.i.i.i186.i, ptr noundef nonnull %lex_index.i.i.i168.i) #22
@@ -6960,7 +6938,7 @@ land.rhs.i.i.i181.i:                              ; preds = %while.body.i.i.i195
   br i1 %tobool1.not.i.i.i188.i, label %while.body.i.i.i195.i, label %find_commit_pos_in_graph.exit.i189.i
 
 while.body.i.i.i195.i:                            ; preds = %land.rhs.i.i.i181.i
-  %base_graph.i.i.i196.i = getelementptr inbounds %struct.commit_graph, ptr %cur_g.07.i.i.i182.i, i64 0, i32 10
+  %base_graph.i.i.i196.i = getelementptr inbounds i8, ptr %cur_g.07.i.i.i182.i, i64 88
   %81 = load ptr, ptr %base_graph.i.i.i196.i, align 8
   %tobool.not.i.i.i197.i = icmp eq ptr %81, null
   br i1 %tobool.not.i.i.i197.i, label %find_commit_pos_in_graph.exit.thread8.i198.i, label %land.rhs.i.i.i181.i, !llvm.loop !18
@@ -6971,7 +6949,7 @@ find_commit_pos_in_graph.exit.thread8.i198.i:     ; preds = %while.body.i.i.i195
 
 find_commit_pos_in_graph.exit.i189.i:             ; preds = %land.rhs.i.i.i181.i
   %82 = load i32, ptr %lex_index.i.i.i168.i, align 4
-  %num_commits_in_base.i.i.i190.i = getelementptr inbounds %struct.commit_graph, ptr %cur_g.07.i.i.i182.i, i64 0, i32 8
+  %num_commits_in_base.i.i.i190.i = getelementptr inbounds i8, ptr %cur_g.07.i.i.i182.i, i64 80
   %83 = load i32, ptr %num_commits_in_base.i.i.i190.i, align 8
   %add.i.i.i191.i = add i32 %83, %82
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %lex_index.i.i.i168.i)
@@ -6984,17 +6962,17 @@ if.then2.i192.i:                                  ; preds = %find_commit_pos_in_
 
 parse_commit_in_graph_one.exit208.i:              ; preds = %if.then2.i192.i, %find_commit_pos_in_graph.exit.thread8.i198.i, %if.end93.i
   %84 = load ptr, ptr %graph_parents.0318.i, align 8
-  %oid97.i = getelementptr inbounds %struct.object, ptr %84, i64 0, i32 1
+  %oid97.i = getelementptr inbounds i8, ptr %84, i64 4
   %85 = load ptr, ptr %odb_parents.0317.i, align 8
-  %oid100.i = getelementptr inbounds %struct.object, ptr %85, i64 0, i32 1
-  %algo.i209.i = getelementptr inbounds %struct.object, ptr %84, i64 0, i32 1, i32 1
+  %oid100.i = getelementptr inbounds i8, ptr %85, i64 4
+  %algo.i209.i = getelementptr inbounds i8, ptr %84, i64 36
   %86 = load i32, ptr %algo.i209.i, align 4
   %tobool.not.i210.i = icmp eq i32 %86, 0
   br i1 %tobool.not.i210.i, label %if.then.i225.i, label %if.else.i211.i
 
 if.then.i225.i:                                   ; preds = %parse_commit_in_graph_one.exit208.i
   %87 = load ptr, ptr @the_repository, align 8
-  %hash_algo.i226.i = getelementptr inbounds %struct.repository, ptr %87, i64 0, i32 15
+  %hash_algo.i226.i = getelementptr inbounds i8, ptr %87, i64 256
   %88 = load ptr, ptr %hash_algo.i226.i, align 8
   br label %if.end.i214.i
 
@@ -7036,10 +7014,10 @@ _.exit233.i:                                      ; preds = %if.end3.i230.i, %if
   %retval.0.i232.i = phi ptr [ %call.i231.i, %if.end3.i230.i ], [ @.str.114, %if.then103.i ]
   %call105.i = call ptr @oid_to_hex(ptr noundef nonnull %cur_oid.i) #22
   %91 = load ptr, ptr %graph_parents.0318.i, align 8
-  %oid108.i = getelementptr inbounds %struct.object, ptr %91, i64 0, i32 1
+  %oid108.i = getelementptr inbounds i8, ptr %91, i64 4
   %call109.i = call ptr @oid_to_hex(ptr noundef nonnull %oid108.i) #22
   %92 = load ptr, ptr %odb_parents.0317.i, align 8
-  %oid112.i = getelementptr inbounds %struct.object, ptr %92, i64 0, i32 1
+  %oid112.i = getelementptr inbounds i8, ptr %92, i64 4
   %call113.i = call ptr @oid_to_hex(ptr noundef nonnull %oid112.i) #22
   call void (ptr, ...) @graph_report(ptr noundef %retval.0.i232.i, ptr noundef %call105.i, ptr noundef %call109.i, ptr noundef %call113.i)
   %.pre342.i = load ptr, ptr %graph_parents.0318.i, align 8
@@ -7071,15 +7049,15 @@ commit_graph_data_slab_peek.exit.i.i:             ; preds = %if.end12.i.i.i.i
   br i1 %cmp.i.i, label %commit_graph_generation_from_graph.exit.i, label %if.end.i235.i
 
 if.end.i235.i:                                    ; preds = %commit_graph_data_slab_peek.exit.i.i
-  %generation.i.i = getelementptr inbounds %struct.commit_graph_data, ptr %97, i64 %idxprom34.i.i.i.i, i32 1
+  %generation.i.i = getelementptr inbounds i8, ptr %arrayidx35.i.i.i.i, i64 8
   %99 = load i64, ptr %generation.i.i, align 8
   br label %commit_graph_generation_from_graph.exit.i
 
 commit_graph_generation_from_graph.exit.i:        ; preds = %if.end.i235.i, %commit_graph_data_slab_peek.exit.i.i, %if.end12.i.i.i.i, %if.end114.i
   %retval.0.i234.i = phi i64 [ %99, %if.end.i235.i ], [ 9223372036854775807, %commit_graph_data_slab_peek.exit.i.i ], [ 9223372036854775807, %if.end114.i ], [ 9223372036854775807, %if.end12.i.i.i.i ]
   %spec.select.i = call i64 @llvm.umax.i64(i64 %retval.0.i234.i, i64 %max_generation.0316.i)
-  %next.i = getelementptr inbounds %struct.commit_list, ptr %graph_parents.0318.i, i64 0, i32 1
-  %next121.i = getelementptr inbounds %struct.commit_list, ptr %odb_parents.0317.i, i64 0, i32 1
+  %next.i = getelementptr inbounds i8, ptr %graph_parents.0318.i, i64 8
+  %next121.i = getelementptr inbounds i8, ptr %odb_parents.0317.i, i64 8
   %odb_parents.0.i = load ptr, ptr %next121.i, align 8
   %graph_parents.0.i = load ptr, ptr %next.i, align 8
   %tobool87.not.i = icmp eq ptr %graph_parents.0.i, null
@@ -7135,7 +7113,7 @@ commit_graph_data_slab_peek.exit.i250.i:          ; preds = %if.end12.i.i.i246.i
   br i1 %cmp.i254.i, label %commit_graph_generation_from_graph.exit257.i, label %if.end.i255.i
 
 if.end.i255.i:                                    ; preds = %commit_graph_data_slab_peek.exit.i250.i
-  %generation.i256.i = getelementptr inbounds %struct.commit_graph_data, ptr %104, i64 %idxprom34.i.i.i252.i, i32 1
+  %generation.i256.i = getelementptr inbounds i8, ptr %arrayidx35.i.i.i253.i, i64 8
   %106 = load i64, ptr %generation.i256.i, align 8
   br label %commit_graph_generation_from_graph.exit257.i
 
@@ -7195,9 +7173,9 @@ _.exit277.i:                                      ; preds = %if.end3.i274.i, %if
   br label %if.end148.i
 
 if.end148.i:                                      ; preds = %_.exit277.i, %commit_graph_generation.exit.i
-  %date.i = getelementptr inbounds %struct.commit, ptr %call64.i, i64 0, i32 1
+  %date.i = getelementptr inbounds i8, ptr %call64.i, i64 40
   %113 = load i64, ptr %date.i, align 8
-  %date149.i = getelementptr inbounds %struct.commit, ptr %call66.i, i64 0, i32 1
+  %date149.i = getelementptr inbounds i8, ptr %call66.i, i64 40
   %114 = load i64, ptr %date149.i, align 8
   %cmp150.not.i = icmp eq i64 %113, %114
   br i1 %cmp150.not.i, label %for.inc158.i, label %if.then152.i
@@ -7245,9 +7223,9 @@ if.end3.i286.i:                                   ; preds = %if.then164.i
 
 _.exit289.i:                                      ; preds = %if.end3.i286.i, %if.then164.i
   %retval.0.i288.i = phi ptr [ %call.i287.i, %if.end3.i286.i ], [ @.str.118, %if.then164.i ]
-  %oid167.i = getelementptr inbounds %struct.object, ptr %seen_gen_zero.2.i, i64 0, i32 1
+  %oid167.i = getelementptr inbounds i8, ptr %seen_gen_zero.2.i, i64 4
   %call168.i = call ptr @oid_to_hex(ptr noundef nonnull %oid167.i) #22
-  %oid170.i = getelementptr inbounds %struct.object, ptr %seen_gen_non_zero.2.i, i64 0, i32 1
+  %oid170.i = getelementptr inbounds i8, ptr %seen_gen_non_zero.2.i, i64 4
   %call171.i = call ptr @oid_to_hex(ptr noundef nonnull %oid170.i) #22
   call void (ptr, ...) @graph_report(ptr noundef %retval.0.i288.i, ptr noundef %call168.i, ptr noundef %call171.i)
   br label %if.end172.i
@@ -7266,7 +7244,7 @@ verify_one_commit_graph.exit:                     ; preds = %while.end47.i, %if.
   br i1 %tobool13.not, label %for.inc, label %for.end
 
 for.inc:                                          ; preds = %verify_one_commit_graph.exit
-  %base_graph = getelementptr inbounds %struct.commit_graph, ptr %g.addr.020, i64 0, i32 10
+  %base_graph = getelementptr inbounds i8, ptr %g.addr.020, i64 88
   %122 = load ptr, ptr %base_graph, align 8
   %tobool10.not = icmp eq ptr %122, null
   br i1 %tobool10.not, label %for.end, label %for.body, !llvm.loop !61
@@ -7309,7 +7287,7 @@ declare ptr @start_progress(ptr noundef, i64 noundef) local_unnamed_addr #1
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
 define dso_local void @disable_commit_graph(ptr nocapture noundef writeonly %r) local_unnamed_addr #12 {
 entry:
-  %commit_graph_disabled = getelementptr inbounds %struct.repository, ptr %r, i64 0, i32 18
+  %commit_graph_disabled = getelementptr inbounds i8, ptr %r, i64 272
   store i32 1, ptr %commit_graph_disabled, align 8
   ret void
 }
@@ -7328,9 +7306,9 @@ declare i32 @bsearch_hash(ptr noundef, ptr noundef, ptr noundef, i64 noundef, pt
 define internal fastcc nonnull ptr @insert_parent_or_die(ptr noundef %r, ptr nocapture noundef readonly %g, i32 noundef %pos, ptr noundef %pptr) unnamed_addr #0 {
 entry:
   %oid = alloca %struct.object_id, align 4
-  %num_commits = getelementptr inbounds %struct.commit_graph, ptr %g, i64 0, i32 4
+  %num_commits = getelementptr inbounds i8, ptr %g, i64 20
   %0 = load i32, ptr %num_commits, align 4
-  %num_commits_in_base = getelementptr inbounds %struct.commit_graph, ptr %g, i64 0, i32 8
+  %num_commits_in_base = getelementptr inbounds i8, ptr %g, i64 80
   %1 = load i32, ptr %num_commits_in_base, align 8
   %add = add i32 %1, %0
   %cmp.not = icmp ugt i32 %add, %pos
@@ -7342,13 +7320,13 @@ if.then:                                          ; preds = %entry
 
 land.rhs.i:                                       ; preds = %entry, %while.body.i
   %g.addr.014.i = phi ptr [ %3, %while.body.i ], [ %g, %entry ]
-  %num_commits_in_base.i = getelementptr inbounds %struct.commit_graph, ptr %g.addr.014.i, i64 0, i32 8
+  %num_commits_in_base.i = getelementptr inbounds i8, ptr %g.addr.014.i, i64 80
   %2 = load i32, ptr %num_commits_in_base.i, align 8
   %cmp.i = icmp ugt i32 %2, %pos
   br i1 %cmp.i, label %while.body.i, label %if.end.i
 
 while.body.i:                                     ; preds = %land.rhs.i
-  %base_graph.i = getelementptr inbounds %struct.commit_graph, ptr %g.addr.014.i, i64 0, i32 10
+  %base_graph.i = getelementptr inbounds i8, ptr %g.addr.014.i, i64 88
   %3 = load ptr, ptr %base_graph.i, align 8
   %tobool.not.i = icmp eq ptr %3, null
   br i1 %tobool.not.i, label %if.then.i, label %land.rhs.i, !llvm.loop !52
@@ -7358,7 +7336,7 @@ if.then.i:                                        ; preds = %while.body.i
   unreachable
 
 if.end.i:                                         ; preds = %land.rhs.i
-  %num_commits.i = getelementptr inbounds %struct.commit_graph, ptr %g.addr.014.i, i64 0, i32 4
+  %num_commits.i = getelementptr inbounds i8, ptr %g.addr.014.i, i64 20
   %4 = load i32, ptr %num_commits.i, align 4
   %add.i = add i32 %4, %2
   %cmp3.not.i = icmp ugt i32 %add.i, %pos
@@ -7370,9 +7348,9 @@ if.then4.i:                                       ; preds = %if.end.i
   unreachable
 
 load_oid_from_graph.exit:                         ; preds = %if.end.i
-  %chunk_oid_lookup.i = getelementptr inbounds %struct.commit_graph, ptr %g.addr.014.i, i64 0, i32 12
+  %chunk_oid_lookup.i = getelementptr inbounds i8, ptr %g.addr.014.i, i64 104
   %5 = load ptr, ptr %chunk_oid_lookup.i, align 8
-  %hash_len.i = getelementptr inbounds %struct.commit_graph, ptr %g.addr.014.i, i64 0, i32 2
+  %hash_len.i = getelementptr inbounds i8, ptr %g.addr.014.i, i64 16
   %6 = load i8, ptr %hash_len.i, align 8
   %sub.i = sub i32 %pos, %2
   %conv7.i = zext i32 %sub.i to i64
@@ -7380,16 +7358,16 @@ load_oid_from_graph.exit:                         ; preds = %if.end.i
   %mul.i.i = mul nuw nsw i64 %conv.i, %conv7.i
   %add.ptr.i = getelementptr inbounds i8, ptr %5, i64 %mul.i.i
   %7 = load ptr, ptr @the_repository, align 8
-  %hash_algo.i.i = getelementptr inbounds %struct.repository, ptr %7, i64 0, i32 15
+  %hash_algo.i.i = getelementptr inbounds i8, ptr %7, i64 256
   %8 = load ptr, ptr %hash_algo.i.i, align 8
-  %rawsz.i.i = getelementptr inbounds %struct.git_hash_algo, ptr %8, i64 0, i32 2
+  %rawsz.i.i = getelementptr inbounds i8, ptr %8, i64 16
   %9 = load i64, ptr %rawsz.i.i, align 8
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 4 %oid, ptr align 1 %add.ptr.i, i64 %9, i1 false)
   %sub.ptr.lhs.cast.i.i.i = ptrtoint ptr %8 to i64
   %sub.ptr.sub.i.i.i = sub i64 %sub.ptr.lhs.cast.i.i.i, ptrtoint (ptr @hash_algos to i64)
   %sub.ptr.div.i.i.i = sdiv exact i64 %sub.ptr.sub.i.i.i, 104
   %conv.i.i.i = trunc i64 %sub.ptr.div.i.i.i to i32
-  %algo.i.i = getelementptr inbounds %struct.object_id, ptr %oid, i64 0, i32 1
+  %algo.i.i = getelementptr inbounds i8, ptr %oid, i64 32
   store i32 %conv.i.i.i, ptr %algo.i.i, align 4
   %call = call ptr @lookup_commit(ptr noundef %r, ptr noundef nonnull %oid) #22
   %tobool.not = icmp eq ptr %call, null
@@ -7407,7 +7385,7 @@ if.end4:                                          ; preds = %load_oid_from_graph
   %call5 = call fastcc ptr @commit_graph_data_at(i32 %call.val)
   store i32 %pos, ptr %call5, align 8
   %call6 = call ptr @commit_list_insert(ptr noundef nonnull %call, ptr noundef %pptr) #22
-  %next = getelementptr inbounds %struct.commit_list, ptr %call6, i64 0, i32 1
+  %next = getelementptr inbounds i8, ptr %call6, i64 8
   ret ptr %next
 }
 
@@ -7551,13 +7529,13 @@ entry:
   %call = tail call i64 @nth_packed_object_offset(ptr noundef %pack, i32 noundef %pos) #22
   %0 = getelementptr inbounds i8, ptr %oi, i64 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(80) %0, i8 0, i64 72, i1 false)
-  %progress = getelementptr inbounds %struct.write_commit_graph_context, ptr %data, i64 0, i32 8
+  %progress = getelementptr inbounds i8, ptr %data, i64 96
   %1 = load ptr, ptr %progress, align 8
   %tobool.not = icmp eq ptr %1, null
   br i1 %tobool.not, label %if.end, label %if.then
 
 if.then:                                          ; preds = %entry
-  %progress_done = getelementptr inbounds %struct.write_commit_graph_context, ptr %data, i64 0, i32 9
+  %progress_done = getelementptr inbounds i8, ptr %data, i64 104
   %2 = load i32, ptr %progress_done, align 8
   %inc = add nsw i32 %2, 1
   store i32 %inc, ptr %progress_done, align 8
@@ -7584,7 +7562,7 @@ if.end7:                                          ; preds = %if.end
   br i1 %cmp8.not, label %if.end11, label %return
 
 if.end11:                                         ; preds = %if.end7
-  %oids = getelementptr inbounds %struct.write_commit_graph_context, ptr %data, i64 0, i32 3
+  %oids = getelementptr inbounds i8, ptr %data, i64 24
   call void @oid_array_append(ptr noundef nonnull %oids, ptr noundef %oid) #22
   %5 = load ptr, ptr %data, align 8
   %call.i = call ptr @lookup_commit(ptr noundef %5, ptr noundef %oid) #22
@@ -7710,16 +7688,16 @@ define internal i32 @commit_compare(ptr nocapture noundef readonly %_a, ptr noca
 entry:
   %0 = load ptr, ptr %_a, align 8
   %1 = load ptr, ptr %_b, align 8
-  %oid = getelementptr inbounds %struct.object, ptr %0, i64 0, i32 1
-  %oid2 = getelementptr inbounds %struct.object, ptr %1, i64 0, i32 1
-  %algo.i = getelementptr inbounds %struct.object, ptr %0, i64 0, i32 1, i32 1
+  %oid = getelementptr inbounds i8, ptr %0, i64 4
+  %oid2 = getelementptr inbounds i8, ptr %1, i64 4
+  %algo.i = getelementptr inbounds i8, ptr %0, i64 36
   %2 = load i32, ptr %algo.i, align 4
   %tobool.not.i = icmp eq i32 %2, 0
   br i1 %tobool.not.i, label %if.then.i, label %if.else.i
 
 if.then.i:                                        ; preds = %entry
   %3 = load ptr, ptr @the_repository, align 8
-  %hash_algo.i = getelementptr inbounds %struct.repository, ptr %3, i64 0, i32 15
+  %hash_algo.i = getelementptr inbounds i8, ptr %3, i64 256
   %4 = load ptr, ptr %hash_algo.i, align 8
   br label %if.end.i
 
@@ -7754,20 +7732,20 @@ declare void @qsort(ptr noundef, i64 noundef, i64 noundef, ptr nocapture noundef
 ; Function Attrs: nounwind uwtable
 define internal i64 @get_topo_level(ptr nocapture noundef readonly %c, ptr nocapture noundef readonly %data) #0 {
 entry:
-  %topo_levels = getelementptr inbounds %struct.write_commit_graph_context, ptr %data, i64 0, i32 20
+  %topo_levels = getelementptr inbounds i8, ptr %data, i64 184
   %0 = load ptr, ptr %topo_levels, align 8
   %1 = getelementptr i8, ptr %c, i64 64
   %c.val = load i32, ptr %1, align 8
   %2 = load i32, ptr %0, align 8
   %div.i.i = udiv i32 %c.val, %2
   %rem.i.i = urem i32 %c.val, %2
-  %slab_count.i.i = getelementptr inbounds %struct.topo_level_slab, ptr %0, i64 0, i32 2
+  %slab_count.i.i = getelementptr inbounds i8, ptr %0, i64 8
   %3 = load i32, ptr %slab_count.i.i, align 8
   %cmp.not.i.i = icmp ugt i32 %3, %div.i.i
   br i1 %cmp.not.i.i, label %if.end12.i.i, label %if.end.i.i
 
 if.end.i.i:                                       ; preds = %entry
-  %slab.i.i = getelementptr inbounds %struct.topo_level_slab, ptr %0, i64 0, i32 3
+  %slab.i.i = getelementptr inbounds i8, ptr %0, i64 16
   %add.i.i = add i32 %div.i.i, 1
   %conv.i.i = zext i32 %add.i.i to i64
   %4 = load ptr, ptr %slab.i.i, align 8
@@ -7793,7 +7771,7 @@ for.end.i.i:                                      ; preds = %for.body.i.i, %if.e
   br label %if.end12.i.i
 
 if.end12.i.i:                                     ; preds = %for.end.i.i, %entry
-  %slab13.i.i = getelementptr inbounds %struct.topo_level_slab, ptr %0, i64 0, i32 3
+  %slab13.i.i = getelementptr inbounds i8, ptr %0, i64 16
   %7 = load ptr, ptr %slab13.i.i, align 8
   %idxprom14.i.i = zext i32 %div.i.i to i64
   %arrayidx15.i.i = getelementptr inbounds ptr, ptr %7, i64 %idxprom14.i.i
@@ -7804,7 +7782,7 @@ if.end12.i.i:                                     ; preds = %for.end.i.i, %entry
 if.end20.i.i:                                     ; preds = %if.end12.i.i
   %9 = load i32, ptr %0, align 8
   %conv22.i.i = zext i32 %9 to i64
-  %stride.i.i = getelementptr inbounds %struct.topo_level_slab, ptr %0, i64 0, i32 1
+  %stride.i.i = getelementptr inbounds i8, ptr %0, i64 4
   %10 = load i32, ptr %stride.i.i, align 4
   %conv23.i.i = zext i32 %10 to i64
   %mul.i.i = shl nuw nsw i64 %conv23.i.i, 2
@@ -7819,7 +7797,7 @@ if.end20.i.i:                                     ; preds = %if.end12.i.i
 
 topo_level_slab_at.exit:                          ; preds = %if.end12.i.i, %if.end20.i.i
   %12 = phi ptr [ %8, %if.end12.i.i ], [ %.pre4.i.i, %if.end20.i.i ]
-  %stride32.i.i = getelementptr inbounds %struct.topo_level_slab, ptr %0, i64 0, i32 1
+  %stride32.i.i = getelementptr inbounds i8, ptr %0, i64 4
   %13 = load i32, ptr %stride32.i.i, align 4
   %mul33.i.i = mul i32 %13, %rem.i.i
   %idxprom34.i.i = zext i32 %mul33.i.i to i64
@@ -7832,20 +7810,20 @@ topo_level_slab_at.exit:                          ; preds = %if.end12.i.i, %if.e
 ; Function Attrs: nounwind uwtable
 define internal void @set_topo_level(ptr nocapture noundef readonly %c, i64 noundef %t, ptr nocapture noundef readonly %data) #0 {
 entry:
-  %topo_levels = getelementptr inbounds %struct.write_commit_graph_context, ptr %data, i64 0, i32 20
+  %topo_levels = getelementptr inbounds i8, ptr %data, i64 184
   %0 = load ptr, ptr %topo_levels, align 8
   %1 = getelementptr i8, ptr %c, i64 64
   %c.val = load i32, ptr %1, align 8
   %2 = load i32, ptr %0, align 8
   %div.i.i = udiv i32 %c.val, %2
   %rem.i.i = urem i32 %c.val, %2
-  %slab_count.i.i = getelementptr inbounds %struct.topo_level_slab, ptr %0, i64 0, i32 2
+  %slab_count.i.i = getelementptr inbounds i8, ptr %0, i64 8
   %3 = load i32, ptr %slab_count.i.i, align 8
   %cmp.not.i.i = icmp ugt i32 %3, %div.i.i
   br i1 %cmp.not.i.i, label %if.end12.i.i, label %if.end.i.i
 
 if.end.i.i:                                       ; preds = %entry
-  %slab.i.i = getelementptr inbounds %struct.topo_level_slab, ptr %0, i64 0, i32 3
+  %slab.i.i = getelementptr inbounds i8, ptr %0, i64 16
   %add.i.i = add i32 %div.i.i, 1
   %conv.i.i = zext i32 %add.i.i to i64
   %4 = load ptr, ptr %slab.i.i, align 8
@@ -7871,7 +7849,7 @@ for.end.i.i:                                      ; preds = %for.body.i.i, %if.e
   br label %if.end12.i.i
 
 if.end12.i.i:                                     ; preds = %for.end.i.i, %entry
-  %slab13.i.i = getelementptr inbounds %struct.topo_level_slab, ptr %0, i64 0, i32 3
+  %slab13.i.i = getelementptr inbounds i8, ptr %0, i64 16
   %7 = load ptr, ptr %slab13.i.i, align 8
   %idxprom14.i.i = zext i32 %div.i.i to i64
   %arrayidx15.i.i = getelementptr inbounds ptr, ptr %7, i64 %idxprom14.i.i
@@ -7882,7 +7860,7 @@ if.end12.i.i:                                     ; preds = %for.end.i.i, %entry
 if.end20.i.i:                                     ; preds = %if.end12.i.i
   %9 = load i32, ptr %0, align 8
   %conv22.i.i = zext i32 %9 to i64
-  %stride.i.i = getelementptr inbounds %struct.topo_level_slab, ptr %0, i64 0, i32 1
+  %stride.i.i = getelementptr inbounds i8, ptr %0, i64 4
   %10 = load i32, ptr %stride.i.i, align 4
   %conv23.i.i = zext i32 %10 to i64
   %mul.i.i = shl nuw nsw i64 %conv23.i.i, 2
@@ -7898,7 +7876,7 @@ if.end20.i.i:                                     ; preds = %if.end12.i.i
 topo_level_slab_at.exit:                          ; preds = %if.end12.i.i, %if.end20.i.i
   %12 = phi ptr [ %8, %if.end12.i.i ], [ %.pre4.i.i, %if.end20.i.i ]
   %conv = trunc i64 %t to i32
-  %stride32.i.i = getelementptr inbounds %struct.topo_level_slab, ptr %0, i64 0, i32 1
+  %stride32.i.i = getelementptr inbounds i8, ptr %0, i64 4
   %13 = load i32, ptr %stride32.i.i, align 4
   %mul33.i.i = mul i32 %13, %rem.i.i
   %idxprom34.i.i = zext i32 %mul33.i.i to i64
@@ -7913,7 +7891,7 @@ entry:
   %0 = getelementptr i8, ptr %c, i64 64
   %c.val = load i32, ptr %0, align 8
   %call = tail call fastcc ptr @commit_graph_data_at(i32 %c.val)
-  %generation = getelementptr inbounds %struct.commit_graph_data, ptr %call, i64 0, i32 1
+  %generation = getelementptr inbounds i8, ptr %call, i64 8
   store i64 %t, ptr %generation, align 8
   ret void
 }
@@ -8061,12 +8039,12 @@ entry:
   %2 = getelementptr i8, ptr %0, i64 64
   %.val10 = load i32, ptr %2, align 8
   %call = tail call fastcc ptr @commit_graph_data_at(i32 %.val10)
-  %generation = getelementptr inbounds %struct.commit_graph_data, ptr %call, i64 0, i32 1
+  %generation = getelementptr inbounds i8, ptr %call, i64 8
   %3 = load i64, ptr %generation, align 8
   %4 = getelementptr i8, ptr %1, i64 64
   %.val = load i32, ptr %4, align 8
   %call1 = tail call fastcc ptr @commit_graph_data_at(i32 %.val)
-  %generation2 = getelementptr inbounds %struct.commit_graph_data, ptr %call1, i64 0, i32 1
+  %generation2 = getelementptr inbounds i8, ptr %call1, i64 8
   %5 = load i64, ptr %generation2, align 8
   %cmp = icmp ult i64 %3, %5
   br i1 %cmp, label %return, label %if.else
@@ -8076,9 +8054,9 @@ if.else:                                          ; preds = %entry
   br i1 %cmp3, label %return, label %if.end5
 
 if.end5:                                          ; preds = %if.else
-  %date = getelementptr inbounds %struct.commit, ptr %0, i64 0, i32 1
+  %date = getelementptr inbounds i8, ptr %0, i64 40
   %6 = load i64, ptr %date, align 8
-  %date6 = getelementptr inbounds %struct.commit, ptr %1, i64 0, i32 1
+  %date6 = getelementptr inbounds i8, ptr %1, i64 40
   %7 = load i64, ptr %date6, align 8
   %cmp7 = icmp ult i64 %6, %7
   br i1 %cmp7, label %return, label %if.else9
@@ -8115,11 +8093,11 @@ declare void @add_chunk(ptr noundef, i32 noundef, i64 noundef, ptr noundef) loca
 define internal noundef i32 @write_graph_chunk_fanout(ptr noundef %f, ptr nocapture noundef %data) #0 {
 entry:
   %data.addr.i = alloca i32, align 4
-  %commits = getelementptr inbounds %struct.write_commit_graph_context, ptr %data, i64 0, i32 4
+  %commits = getelementptr inbounds i8, ptr %data, i64 56
   %0 = load ptr, ptr %commits, align 8
-  %nr = getelementptr inbounds %struct.write_commit_graph_context, ptr %data, i64 0, i32 4, i32 1
-  %progress = getelementptr inbounds %struct.write_commit_graph_context, ptr %data, i64 0, i32 8
-  %progress_cnt = getelementptr inbounds %struct.write_commit_graph_context, ptr %data, i64 0, i32 10
+  %nr = getelementptr inbounds i8, ptr %data, i64 64
+  %progress = getelementptr inbounds i8, ptr %data, i64 96
+  %progress_cnt = getelementptr inbounds i8, ptr %data, i64 112
   br label %while.cond.preheader
 
 while.cond.preheader:                             ; preds = %entry, %while.end
@@ -8135,7 +8113,7 @@ while.body:                                       ; preds = %while.cond.preheade
   %indvars.iv = phi i64 [ %indvars.iv.next, %if.end ], [ %conv9, %while.cond.preheader ]
   %list.112 = phi ptr [ %incdec.ptr, %if.end ], [ %list.018, %while.cond.preheader ]
   %2 = load ptr, ptr %list.112, align 8
-  %oid = getelementptr inbounds %struct.object, ptr %2, i64 0, i32 1
+  %oid = getelementptr inbounds i8, ptr %2, i64 4
   %3 = load i8, ptr %oid, align 4
   %conv5 = zext i8 %3 to i32
   %cmp6.not = icmp eq i32 %i.016, %conv5
@@ -8148,7 +8126,7 @@ if.end:                                           ; preds = %while.body
   store i64 %inc, ptr %progress_cnt, align 8
   call void @display_progress(ptr noundef %4, i64 noundef %inc) #22
   %indvars.iv.next = add nuw i64 %indvars.iv, 1
-  %incdec.ptr = getelementptr inbounds ptr, ptr %list.112, i64 1
+  %incdec.ptr = getelementptr inbounds i8, ptr %list.112, i64 8
   %6 = load i64, ptr %nr, align 8
   %cmp3 = icmp ugt i64 %6, %indvars.iv.next
   br i1 %cmp3, label %while.body, label %while.end.loopexit, !llvm.loop !65
@@ -8178,16 +8156,16 @@ for.end:                                          ; preds = %while.end
 ; Function Attrs: nounwind uwtable
 define internal noundef i32 @write_graph_chunk_oids(ptr noundef %f, ptr nocapture noundef %data) #0 {
 entry:
-  %nr = getelementptr inbounds %struct.write_commit_graph_context, ptr %data, i64 0, i32 4, i32 1
+  %nr = getelementptr inbounds i8, ptr %data, i64 64
   %0 = load i64, ptr %nr, align 8
   %cmp6.not = icmp eq i64 %0, 0
   br i1 %cmp6.not, label %for.end, label %for.body.lr.ph
 
 for.body.lr.ph:                                   ; preds = %entry
-  %commits = getelementptr inbounds %struct.write_commit_graph_context, ptr %data, i64 0, i32 4
+  %commits = getelementptr inbounds i8, ptr %data, i64 56
   %1 = load ptr, ptr %commits, align 8
-  %progress = getelementptr inbounds %struct.write_commit_graph_context, ptr %data, i64 0, i32 8
-  %progress_cnt = getelementptr inbounds %struct.write_commit_graph_context, ptr %data, i64 0, i32 10
+  %progress = getelementptr inbounds i8, ptr %data, i64 96
+  %progress_cnt = getelementptr inbounds i8, ptr %data, i64 112
   br label %for.body
 
 for.body:                                         ; preds = %for.body.lr.ph, %for.body
@@ -8199,16 +8177,16 @@ for.body:                                         ; preds = %for.body.lr.ph, %fo
   store i64 %inc, ptr %progress_cnt, align 8
   tail call void @display_progress(ptr noundef %2, i64 noundef %inc) #22
   %4 = load ptr, ptr %list.07, align 8
-  %oid = getelementptr inbounds %struct.object, ptr %4, i64 0, i32 1
+  %oid = getelementptr inbounds i8, ptr %4, i64 4
   %5 = load ptr, ptr @the_repository, align 8
-  %hash_algo = getelementptr inbounds %struct.repository, ptr %5, i64 0, i32 15
+  %hash_algo = getelementptr inbounds i8, ptr %5, i64 256
   %6 = load ptr, ptr %hash_algo, align 8
-  %rawsz = getelementptr inbounds %struct.git_hash_algo, ptr %6, i64 0, i32 2
+  %rawsz = getelementptr inbounds i8, ptr %6, i64 16
   %7 = load i64, ptr %rawsz, align 8
   %conv4 = trunc i64 %7 to i32
   tail call void @hashwrite(ptr noundef %f, ptr noundef nonnull %oid, i32 noundef %conv4) #22
   %indvars.iv.next = add nuw i64 %indvars.iv, 1
-  %incdec.ptr = getelementptr inbounds ptr, ptr %list.07, i64 1
+  %incdec.ptr = getelementptr inbounds i8, ptr %list.07, i64 8
   %8 = load i64, ptr %nr, align 8
   %cmp = icmp ugt i64 %8, %indvars.iv.next
   br i1 %cmp, label %for.body, label %for.end, !llvm.loop !67
@@ -8226,21 +8204,21 @@ entry:
   %data.addr.i = alloca i32, align 4
   %lex_index.i.i = alloca i32, align 4
   %packedDate = alloca [2 x i32], align 4
-  %commits = getelementptr inbounds %struct.write_commit_graph_context, ptr %data, i64 0, i32 4
+  %commits = getelementptr inbounds i8, ptr %data, i64 56
   %0 = load ptr, ptr %commits, align 8
-  %nr = getelementptr inbounds %struct.write_commit_graph_context, ptr %data, i64 0, i32 4, i32 1
+  %nr = getelementptr inbounds i8, ptr %data, i64 64
   %1 = load i64, ptr %nr, align 8
   %add.ptr = getelementptr inbounds ptr, ptr %0, i64 %1
   %cmp149 = icmp sgt i64 %1, 0
   br i1 %cmp149, label %while.body.lr.ph, label %while.end
 
 while.body.lr.ph:                                 ; preds = %entry
-  %progress = getelementptr inbounds %struct.write_commit_graph_context, ptr %data, i64 0, i32 8
-  %progress_cnt = getelementptr inbounds %struct.write_commit_graph_context, ptr %data, i64 0, i32 10
-  %new_base_graph = getelementptr inbounds %struct.write_commit_graph_context, ptr %data, i64 0, i32 18
-  %new_num_commits_in_base = getelementptr inbounds %struct.write_commit_graph_context, ptr %data, i64 0, i32 17
-  %topo_levels = getelementptr inbounds %struct.write_commit_graph_context, ptr %data, i64 0, i32 20
-  %arrayidx108 = getelementptr inbounds [2 x i32], ptr %packedDate, i64 0, i64 1
+  %progress = getelementptr inbounds i8, ptr %data, i64 96
+  %progress_cnt = getelementptr inbounds i8, ptr %data, i64 112
+  %new_base_graph = getelementptr inbounds i8, ptr %data, i64 168
+  %new_num_commits_in_base = getelementptr inbounds i8, ptr %data, i64 160
+  %topo_levels = getelementptr inbounds i8, ptr %data, i64 184
+  %arrayidx108 = getelementptr inbounds i8, ptr %packedDate, i64 4
   br label %while.body
 
 while.body:                                       ; preds = %while.body.lr.ph, %if.else.i103
@@ -8260,7 +8238,7 @@ while.body:                                       ; preds = %while.body.lr.ph, %
 if.then:                                          ; preds = %while.body
   %call5 = call fastcc ptr @_(ptr noundef nonnull @.str.95)
   %6 = load ptr, ptr %list.0153, align 8
-  %oid = getelementptr inbounds %struct.object, ptr %6, i64 0, i32 1
+  %oid = getelementptr inbounds i8, ptr %6, i64 4
   %call6 = call ptr @oid_to_hex(ptr noundef nonnull %oid) #22
   call void (ptr, ...) @die(ptr noundef %call5, ptr noundef %call6) #23
   unreachable
@@ -8269,21 +8247,21 @@ if.end:                                           ; preds = %while.body
   %7 = load ptr, ptr %list.0153, align 8
   %call7 = call ptr @get_commit_tree_oid(ptr noundef %7) #22
   %8 = load ptr, ptr @the_repository, align 8
-  %hash_algo = getelementptr inbounds %struct.repository, ptr %8, i64 0, i32 15
+  %hash_algo = getelementptr inbounds i8, ptr %8, i64 256
   %9 = load ptr, ptr %hash_algo, align 8
-  %rawsz = getelementptr inbounds %struct.git_hash_algo, ptr %9, i64 0, i32 2
+  %rawsz = getelementptr inbounds i8, ptr %9, i64 16
   %10 = load i64, ptr %rawsz, align 8
   %conv = trunc i64 %10 to i32
   call void @hashwrite(ptr noundef %f, ptr noundef %call7, i32 noundef %conv) #22
   %11 = load ptr, ptr %list.0153, align 8
-  %parents = getelementptr inbounds %struct.commit, ptr %11, i64 0, i32 2
+  %parents = getelementptr inbounds i8, ptr %11, i64 48
   %12 = load ptr, ptr %parents, align 8
   %tobool8.not = icmp eq ptr %12, null
   br i1 %tobool8.not, label %if.end45.thread, label %if.else
 
 if.else:                                          ; preds = %if.end
   %13 = load ptr, ptr %12, align 8
-  %oid11 = getelementptr inbounds %struct.object, ptr %13, i64 0, i32 1
+  %oid11 = getelementptr inbounds i8, ptr %13, i64 4
   %14 = load ptr, ptr %commits, align 8
   %15 = load i64, ptr %nr, align 8
   %call16 = call i32 @oid_pos(ptr noundef nonnull %oid11, ptr noundef %14, i64 noundef %15, ptr noundef nonnull @commit_to_oid) #22
@@ -8326,17 +8304,17 @@ commit_graph_position.exit.i:                     ; preds = %if.end12.i.i.i.i
   br i1 %cmp.not.i, label %if.else.i, label %if.end30
 
 if.else.i:                                        ; preds = %commit_graph_position.exit.i, %if.end12.i.i.i.i, %if.then22
-  %oid.i = getelementptr inbounds %struct.object, ptr %.pre164, i64 0, i32 1
+  %oid.i = getelementptr inbounds i8, ptr %.pre164, i64 4
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %lex_index.i.i)
   br label %land.rhs.i.i
 
 land.rhs.i.i:                                     ; preds = %if.else.i, %while.body.i.i
   %cur_g.07.i.i = phi ptr [ %26, %while.body.i.i ], [ %17, %if.else.i ]
-  %chunk_oid_fanout.i.i.i = getelementptr inbounds %struct.commit_graph, ptr %cur_g.07.i.i, i64 0, i32 11
+  %chunk_oid_fanout.i.i.i = getelementptr inbounds i8, ptr %cur_g.07.i.i, i64 96
   %23 = load ptr, ptr %chunk_oid_fanout.i.i.i, align 8
-  %chunk_oid_lookup.i.i.i = getelementptr inbounds %struct.commit_graph, ptr %cur_g.07.i.i, i64 0, i32 12
+  %chunk_oid_lookup.i.i.i = getelementptr inbounds i8, ptr %cur_g.07.i.i, i64 104
   %24 = load ptr, ptr %chunk_oid_lookup.i.i.i, align 8
-  %hash_len.i.i.i = getelementptr inbounds %struct.commit_graph, ptr %cur_g.07.i.i, i64 0, i32 2
+  %hash_len.i.i.i = getelementptr inbounds i8, ptr %cur_g.07.i.i, i64 16
   %25 = load i8, ptr %hash_len.i.i.i, align 8
   %conv.i.i.i = zext i8 %25 to i64
   %call.i.i.i = call i32 @bsearch_hash(ptr noundef nonnull %oid.i, ptr noundef %23, ptr noundef %24, i64 noundef %conv.i.i.i, ptr noundef nonnull %lex_index.i.i) #22
@@ -8344,14 +8322,14 @@ land.rhs.i.i:                                     ; preds = %if.else.i, %while.b
   br i1 %tobool1.not.i.i, label %while.body.i.i, label %find_commit_pos_in_graph.exit
 
 while.body.i.i:                                   ; preds = %land.rhs.i.i
-  %base_graph.i.i = getelementptr inbounds %struct.commit_graph, ptr %cur_g.07.i.i, i64 0, i32 10
+  %base_graph.i.i = getelementptr inbounds i8, ptr %cur_g.07.i.i, i64 88
   %26 = load ptr, ptr %base_graph.i.i, align 8
   %tobool.not.i.i = icmp eq ptr %26, null
   br i1 %tobool.not.i.i, label %29, label %land.rhs.i.i, !llvm.loop !18
 
 find_commit_pos_in_graph.exit:                    ; preds = %land.rhs.i.i
   %27 = load i32, ptr %lex_index.i.i, align 4
-  %num_commits_in_base.i.i = getelementptr inbounds %struct.commit_graph, ptr %cur_g.07.i.i, i64 0, i32 8
+  %num_commits_in_base.i.i = getelementptr inbounds i8, ptr %cur_g.07.i.i, i64 80
   %28 = load i32, ptr %num_commits_in_base.i.i, align 8
   %add.i.i = add i32 %28, %27
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %lex_index.i.i)
@@ -8372,10 +8350,10 @@ if.end30.if.then33_crit_edge:                     ; preds = %if.end30
 
 if.then33:                                        ; preds = %if.else20, %if.end30.if.then33_crit_edge
   %30 = phi ptr [ %.pre163, %if.end30.if.then33_crit_edge ], [ %.pre164, %if.else20 ]
-  %oid36 = getelementptr inbounds %struct.object, ptr %30, i64 0, i32 1
+  %oid36 = getelementptr inbounds i8, ptr %30, i64 4
   %call37 = call ptr @oid_to_hex(ptr noundef nonnull %oid36) #22
   %31 = load ptr, ptr %list.0153, align 8
-  %oid39 = getelementptr inbounds %struct.object, ptr %31, i64 0, i32 1
+  %oid39 = getelementptr inbounds i8, ptr %31, i64 4
   %call40 = call ptr @oid_to_hex(ptr noundef nonnull %oid39) #22
   call void (ptr, i32, ptr, ...) @BUG_fl(ptr noundef nonnull @.str.45, i32 noundef 1243, ptr noundef nonnull @.str.96, ptr noundef %call37, ptr noundef %call40) #23
   unreachable
@@ -8386,7 +8364,7 @@ if.end42:                                         ; preds = %if.end30
   store i32 %32, ptr %data.addr.i, align 4
   call void @hashwrite(ptr noundef %f, ptr noundef nonnull %data.addr.i, i32 noundef 4) #22
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %data.addr.i)
-  %next = getelementptr inbounds %struct.commit_list, ptr %12, i64 0, i32 1
+  %next = getelementptr inbounds i8, ptr %12, i64 8
   %33 = load ptr, ptr %next, align 8
   %tobool46.not = icmp eq ptr %33, null
   br i1 %tobool46.not, label %if.end91, label %if.else48
@@ -8399,7 +8377,7 @@ if.end45.thread:                                  ; preds = %if.end
   br label %if.end91
 
 if.else48:                                        ; preds = %if.end42
-  %next49 = getelementptr inbounds %struct.commit_list, ptr %33, i64 0, i32 1
+  %next49 = getelementptr inbounds i8, ptr %33, i64 8
   %34 = load ptr, ptr %next49, align 8
   %tobool50.not = icmp eq ptr %34, null
   br i1 %tobool50.not, label %if.else52, label %if.then51
@@ -8410,7 +8388,7 @@ if.then51:                                        ; preds = %if.else48
 
 if.else52:                                        ; preds = %if.else48
   %35 = load ptr, ptr %33, align 8
-  %oid55 = getelementptr inbounds %struct.object, ptr %35, i64 0, i32 1
+  %oid55 = getelementptr inbounds i8, ptr %35, i64 4
   %36 = load ptr, ptr %commits, align 8
   %37 = load i64, ptr %nr, align 8
   %call60 = call i32 @oid_pos(ptr noundef nonnull %oid55, ptr noundef %36, i64 noundef %37, ptr noundef nonnull @commit_to_oid) #22
@@ -8453,17 +8431,17 @@ commit_graph_position.exit.i87:                   ; preds = %if.end12.i.i.i.i83
   br i1 %cmp.not.i91, label %if.else.i63, label %if.end78
 
 if.else.i63:                                      ; preds = %commit_graph_position.exit.i87, %if.end12.i.i.i.i83, %if.then69
-  %oid.i64 = getelementptr inbounds %struct.object, ptr %.pre162, i64 0, i32 1
+  %oid.i64 = getelementptr inbounds i8, ptr %.pre162, i64 4
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %lex_index.i.i58)
   br label %land.rhs.i.i66
 
 land.rhs.i.i66:                                   ; preds = %if.else.i63, %while.body.i.i80
   %cur_g.07.i.i67 = phi ptr [ %48, %while.body.i.i80 ], [ %39, %if.else.i63 ]
-  %chunk_oid_fanout.i.i.i68 = getelementptr inbounds %struct.commit_graph, ptr %cur_g.07.i.i67, i64 0, i32 11
+  %chunk_oid_fanout.i.i.i68 = getelementptr inbounds i8, ptr %cur_g.07.i.i67, i64 96
   %45 = load ptr, ptr %chunk_oid_fanout.i.i.i68, align 8
-  %chunk_oid_lookup.i.i.i69 = getelementptr inbounds %struct.commit_graph, ptr %cur_g.07.i.i67, i64 0, i32 12
+  %chunk_oid_lookup.i.i.i69 = getelementptr inbounds i8, ptr %cur_g.07.i.i67, i64 104
   %46 = load ptr, ptr %chunk_oid_lookup.i.i.i69, align 8
-  %hash_len.i.i.i70 = getelementptr inbounds %struct.commit_graph, ptr %cur_g.07.i.i67, i64 0, i32 2
+  %hash_len.i.i.i70 = getelementptr inbounds i8, ptr %cur_g.07.i.i67, i64 16
   %47 = load i8, ptr %hash_len.i.i.i70, align 8
   %conv.i.i.i71 = zext i8 %47 to i64
   %call.i.i.i72 = call i32 @bsearch_hash(ptr noundef nonnull %oid.i64, ptr noundef %45, ptr noundef %46, i64 noundef %conv.i.i.i71, ptr noundef nonnull %lex_index.i.i58) #22
@@ -8471,14 +8449,14 @@ land.rhs.i.i66:                                   ; preds = %if.else.i63, %while
   br i1 %tobool1.not.i.i73, label %while.body.i.i80, label %find_commit_pos_in_graph.exit93
 
 while.body.i.i80:                                 ; preds = %land.rhs.i.i66
-  %base_graph.i.i81 = getelementptr inbounds %struct.commit_graph, ptr %cur_g.07.i.i67, i64 0, i32 10
+  %base_graph.i.i81 = getelementptr inbounds i8, ptr %cur_g.07.i.i67, i64 88
   %48 = load ptr, ptr %base_graph.i.i81, align 8
   %tobool.not.i.i82 = icmp eq ptr %48, null
   br i1 %tobool.not.i.i82, label %51, label %land.rhs.i.i66, !llvm.loop !18
 
 find_commit_pos_in_graph.exit93:                  ; preds = %land.rhs.i.i66
   %49 = load i32, ptr %lex_index.i.i58, align 4
-  %num_commits_in_base.i.i75 = getelementptr inbounds %struct.commit_graph, ptr %cur_g.07.i.i67, i64 0, i32 8
+  %num_commits_in_base.i.i75 = getelementptr inbounds i8, ptr %cur_g.07.i.i67, i64 80
   %50 = load i32, ptr %num_commits_in_base.i.i75, align 8
   %add.i.i76 = add i32 %50, %49
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %lex_index.i.i58)
@@ -8499,10 +8477,10 @@ if.end78.if.then81_crit_edge:                     ; preds = %if.end78
 
 if.then81:                                        ; preds = %if.else66, %if.end78.if.then81_crit_edge
   %52 = phi ptr [ %.pre, %if.end78.if.then81_crit_edge ], [ %.pre162, %if.else66 ]
-  %oid84 = getelementptr inbounds %struct.object, ptr %52, i64 0, i32 1
+  %oid84 = getelementptr inbounds i8, ptr %52, i64 4
   %call85 = call ptr @oid_to_hex(ptr noundef nonnull %oid84) #22
   %53 = load ptr, ptr %list.0153, align 8
-  %oid87 = getelementptr inbounds %struct.object, ptr %53, i64 0, i32 1
+  %oid87 = getelementptr inbounds i8, ptr %53, i64 4
   %call88 = call ptr @oid_to_hex(ptr noundef nonnull %oid87) #22
   call void (ptr, i32, ptr, ...) @BUG_fl(ptr noundef nonnull @.str.45, i32 noundef 1274, ptr noundef nonnull @.str.96, ptr noundef %call85, ptr noundef %call88) #23
   unreachable
@@ -8522,7 +8500,7 @@ do.body:                                          ; preds = %if.end91, %do.body
   %num_extra_edges.1 = phi i32 [ %inc94, %do.body ], [ %num_extra_edges.0152, %if.end91 ]
   %parent.1 = phi ptr [ %55, %do.body ], [ %parent.0129, %if.end91 ]
   %inc94 = add i32 %num_extra_edges.1, 1
-  %next95 = getelementptr inbounds %struct.commit_list, ptr %parent.1, i64 0, i32 1
+  %next95 = getelementptr inbounds i8, ptr %parent.1, i64 8
   %55 = load ptr, ptr %next95, align 8
   %tobool96.not = icmp eq ptr %55, null
   br i1 %tobool96.not, label %if.end97, label %do.body, !llvm.loop !68
@@ -8530,7 +8508,7 @@ do.body:                                          ; preds = %if.end91, %do.body
 if.end97:                                         ; preds = %do.body, %if.end91
   %num_extra_edges.2 = phi i32 [ %num_extra_edges.0152, %if.end91 ], [ %inc94, %do.body ]
   %56 = load ptr, ptr %list.0153, align 8
-  %date = getelementptr inbounds %struct.commit, ptr %56, i64 0, i32 1
+  %date = getelementptr inbounds i8, ptr %56, i64 40
   %57 = load i64, ptr %date, align 8
   %shr = lshr i64 %57, 32
   %58 = trunc i64 %shr to i32
@@ -8543,13 +8521,13 @@ if.end97:                                         ; preds = %do.body, %if.end91
   %62 = load i32, ptr %60, align 8
   %div.i.i = udiv i32 %.val, %62
   %rem.i.i = urem i32 %.val, %62
-  %slab_count.i.i = getelementptr inbounds %struct.topo_level_slab, ptr %60, i64 0, i32 2
+  %slab_count.i.i = getelementptr inbounds i8, ptr %60, i64 8
   %63 = load i32, ptr %slab_count.i.i, align 8
   %cmp.not.i.i = icmp ugt i32 %63, %div.i.i
   br i1 %cmp.not.i.i, label %if.end12.i.i, label %if.end.i.i
 
 if.end.i.i:                                       ; preds = %if.end97
-  %slab.i.i = getelementptr inbounds %struct.topo_level_slab, ptr %60, i64 0, i32 3
+  %slab.i.i = getelementptr inbounds i8, ptr %60, i64 16
   %add.i.i102 = add i32 %div.i.i, 1
   %conv.i.i = zext i32 %add.i.i102 to i64
   %64 = load ptr, ptr %slab.i.i, align 8
@@ -8575,7 +8553,7 @@ for.end.i.i:                                      ; preds = %for.body.i.i, %if.e
   br label %if.end12.i.i
 
 if.end12.i.i:                                     ; preds = %for.end.i.i, %if.end97
-  %slab13.i.i = getelementptr inbounds %struct.topo_level_slab, ptr %60, i64 0, i32 3
+  %slab13.i.i = getelementptr inbounds i8, ptr %60, i64 16
   %67 = load ptr, ptr %slab13.i.i, align 8
   %idxprom14.i.i = zext i32 %div.i.i to i64
   %arrayidx15.i.i = getelementptr inbounds ptr, ptr %67, i64 %idxprom14.i.i
@@ -8586,7 +8564,7 @@ if.end12.i.i:                                     ; preds = %for.end.i.i, %if.en
 if.end20.i.i:                                     ; preds = %if.end12.i.i
   %69 = load i32, ptr %60, align 8
   %conv22.i.i = zext i32 %69 to i64
-  %stride.i.i = getelementptr inbounds %struct.topo_level_slab, ptr %60, i64 0, i32 1
+  %stride.i.i = getelementptr inbounds i8, ptr %60, i64 4
   %70 = load i32, ptr %stride.i.i, align 4
   %conv23.i.i = zext i32 %70 to i64
   %mul.i.i = shl nuw nsw i64 %conv23.i.i, 2
@@ -8601,7 +8579,7 @@ if.end20.i.i:                                     ; preds = %if.end12.i.i
 
 if.else.i103:                                     ; preds = %if.end20.i.i, %if.end12.i.i
   %72 = phi ptr [ %68, %if.end12.i.i ], [ %.pre4.i.i, %if.end20.i.i ]
-  %stride32.i.i = getelementptr inbounds %struct.topo_level_slab, ptr %60, i64 0, i32 1
+  %stride32.i.i = getelementptr inbounds i8, ptr %60, i64 4
   %73 = load i32, ptr %stride32.i.i, align 4
   %mul33.i.i = mul i32 %73, %rem.i.i
   %idxprom34.i.i = zext i32 %mul33.i.i to i64
@@ -8613,13 +8591,13 @@ if.else.i103:                                     ; preds = %if.end20.i.i, %if.e
   %or104 = or i32 %76, %75
   store i32 %or104, ptr %packedDate, align 4
   %77 = load ptr, ptr %list.0153, align 8
-  %date105 = getelementptr inbounds %struct.commit, ptr %77, i64 0, i32 1
+  %date105 = getelementptr inbounds i8, ptr %77, i64 40
   %78 = load i64, ptr %date105, align 8
   %conv106 = trunc i64 %78 to i32
   %79 = call i32 asm "bswap $0", "=r,0,~{dirflag},~{fpsr},~{flags}"(i32 %conv106) #24, !srcloc !5
   store i32 %79, ptr %arrayidx108, align 4
   call void @hashwrite(ptr noundef %f, ptr noundef nonnull %packedDate, i32 noundef 8) #22
-  %incdec.ptr = getelementptr inbounds ptr, ptr %list.0153, i64 1
+  %incdec.ptr = getelementptr inbounds i8, ptr %list.0153, i64 8
   %cmp = icmp ult ptr %incdec.ptr, %add.ptr
   br i1 %cmp, label %while.body, label %while.end, !llvm.loop !69
 
@@ -8631,15 +8609,15 @@ while.end:                                        ; preds = %if.else.i103, %entr
 define internal noundef i32 @write_graph_chunk_generation_data(ptr noundef %f, ptr nocapture noundef %data) #0 {
 entry:
   %data.addr.i = alloca i32, align 4
-  %nr = getelementptr inbounds %struct.write_commit_graph_context, ptr %data, i64 0, i32 4, i32 1
+  %nr = getelementptr inbounds i8, ptr %data, i64 64
   %0 = load i64, ptr %nr, align 8
   %cmp11.not = icmp eq i64 %0, 0
   br i1 %cmp11.not, label %for.end, label %for.body.lr.ph
 
 for.body.lr.ph:                                   ; preds = %entry
-  %commits = getelementptr inbounds %struct.write_commit_graph_context, ptr %data, i64 0, i32 4
-  %progress = getelementptr inbounds %struct.write_commit_graph_context, ptr %data, i64 0, i32 8
-  %progress_cnt = getelementptr inbounds %struct.write_commit_graph_context, ptr %data, i64 0, i32 10
+  %commits = getelementptr inbounds i8, ptr %data, i64 56
+  %progress = getelementptr inbounds i8, ptr %data, i64 96
+  %progress_cnt = getelementptr inbounds i8, ptr %data, i64 112
   br label %for.body
 
 for.body:                                         ; preds = %for.body.lr.ph, %for.body
@@ -8653,9 +8631,9 @@ for.body:                                         ; preds = %for.body.lr.ph, %fo
   %4 = getelementptr i8, ptr %2, i64 64
   %.val = load i32, ptr %4, align 8
   %call3 = call fastcc ptr @commit_graph_data_at(i32 %.val)
-  %generation = getelementptr inbounds %struct.commit_graph_data, ptr %call3, i64 0, i32 1
+  %generation = getelementptr inbounds i8, ptr %call3, i64 8
   %5 = load i64, ptr %generation, align 8
-  %date = getelementptr inbounds %struct.commit, ptr %2, i64 0, i32 1
+  %date = getelementptr inbounds i8, ptr %2, i64 40
   %6 = load i64, ptr %date, align 8
   %sub = sub i64 %5, %6
   %7 = load ptr, ptr %progress, align 8
@@ -8689,15 +8667,15 @@ define internal noundef i32 @write_graph_chunk_generation_data_overflow(ptr noun
 entry:
   %data.addr.i10 = alloca i32, align 4
   %data.addr.i = alloca i32, align 4
-  %nr = getelementptr inbounds %struct.write_commit_graph_context, ptr %data, i64 0, i32 4, i32 1
+  %nr = getelementptr inbounds i8, ptr %data, i64 64
   %0 = load i64, ptr %nr, align 8
   %cmp16.not = icmp eq i64 %0, 0
   br i1 %cmp16.not, label %for.end, label %for.body.lr.ph
 
 for.body.lr.ph:                                   ; preds = %entry
-  %commits = getelementptr inbounds %struct.write_commit_graph_context, ptr %data, i64 0, i32 4
-  %progress = getelementptr inbounds %struct.write_commit_graph_context, ptr %data, i64 0, i32 8
-  %progress_cnt = getelementptr inbounds %struct.write_commit_graph_context, ptr %data, i64 0, i32 10
+  %commits = getelementptr inbounds i8, ptr %data, i64 56
+  %progress = getelementptr inbounds i8, ptr %data, i64 96
+  %progress_cnt = getelementptr inbounds i8, ptr %data, i64 112
   br label %for.body
 
 for.body:                                         ; preds = %for.body.lr.ph, %for.inc
@@ -8708,9 +8686,9 @@ for.body:                                         ; preds = %for.body.lr.ph, %fo
   %3 = getelementptr i8, ptr %2, i64 64
   %.val = load i32, ptr %3, align 8
   %call = call fastcc ptr @commit_graph_data_at(i32 %.val)
-  %generation = getelementptr inbounds %struct.commit_graph_data, ptr %call, i64 0, i32 1
+  %generation = getelementptr inbounds i8, ptr %call, i64 8
   %4 = load i64, ptr %generation, align 8
-  %date = getelementptr inbounds %struct.commit, ptr %2, i64 0, i32 1
+  %date = getelementptr inbounds i8, ptr %2, i64 40
   %5 = load i64, ptr %date, align 8
   %sub = sub i64 %4, %5
   %6 = load ptr, ptr %progress, align 8
@@ -8752,19 +8730,19 @@ define internal noundef i32 @write_graph_chunk_extra_edges(ptr noundef %f, ptr n
 entry:
   %data.addr.i = alloca i32, align 4
   %lex_index.i.i = alloca i32, align 4
-  %commits = getelementptr inbounds %struct.write_commit_graph_context, ptr %data, i64 0, i32 4
+  %commits = getelementptr inbounds i8, ptr %data, i64 56
   %0 = load ptr, ptr %commits, align 8
-  %nr = getelementptr inbounds %struct.write_commit_graph_context, ptr %data, i64 0, i32 4, i32 1
+  %nr = getelementptr inbounds i8, ptr %data, i64 64
   %1 = load i64, ptr %nr, align 8
   %add.ptr = getelementptr inbounds ptr, ptr %0, i64 %1
   %cmp55 = icmp sgt i64 %1, 0
   br i1 %cmp55, label %while.body.lr.ph, label %while.end
 
 while.body.lr.ph:                                 ; preds = %entry
-  %progress = getelementptr inbounds %struct.write_commit_graph_context, ptr %data, i64 0, i32 8
-  %progress_cnt = getelementptr inbounds %struct.write_commit_graph_context, ptr %data, i64 0, i32 10
-  %new_base_graph = getelementptr inbounds %struct.write_commit_graph_context, ptr %data, i64 0, i32 18
-  %new_num_commits_in_base = getelementptr inbounds %struct.write_commit_graph_context, ptr %data, i64 0, i32 17
+  %progress = getelementptr inbounds i8, ptr %data, i64 96
+  %progress_cnt = getelementptr inbounds i8, ptr %data, i64 112
+  %new_base_graph = getelementptr inbounds i8, ptr %data, i64 168
+  %new_num_commits_in_base = getelementptr inbounds i8, ptr %data, i64 160
   br label %while.body
 
 while.body:                                       ; preds = %while.body.lr.ph, %while.cond.backedge
@@ -8775,7 +8753,7 @@ while.body:                                       ; preds = %while.body.lr.ph, %
   store i64 %inc, ptr %progress_cnt, align 8
   call void @display_progress(ptr noundef %2, i64 noundef %inc) #22
   %4 = load ptr, ptr %list.057, align 8
-  %parents = getelementptr inbounds %struct.commit, ptr %4, i64 0, i32 2
+  %parents = getelementptr inbounds i8, ptr %4, i64 48
   %parent.046 = load ptr, ptr %parents, align 8
   %tobool47.not = icmp eq ptr %parent.046, null
   br i1 %tobool47.not, label %while.cond.backedge, label %for.body
@@ -8784,7 +8762,7 @@ for.body:                                         ; preds = %while.body, %for.bo
   %parent.049 = phi ptr [ %parent.0, %for.body ], [ %parent.046, %while.body ]
   %num_parents.048 = phi i32 [ %inc6, %for.body ], [ 0, %while.body ]
   %inc6 = add nuw nsw i32 %num_parents.048, 1
-  %next = getelementptr inbounds %struct.commit_list, ptr %parent.049, i64 0, i32 1
+  %next = getelementptr inbounds i8, ptr %parent.049, i64 8
   %parent.0 = load ptr, ptr %next, align 8
   %cmp5 = icmp ult i32 %num_parents.048, 2
   %tobool = icmp ne ptr %parent.0, null
@@ -8795,12 +8773,12 @@ for.end:                                          ; preds = %for.body
   br i1 %cmp5, label %while.cond.backedge, label %if.end
 
 while.cond.backedge:                              ; preds = %if.else38, %if.end, %for.end, %while.body
-  %list.0.be = getelementptr inbounds ptr, ptr %list.057, i64 1
+  %list.0.be = getelementptr inbounds i8, ptr %list.057, i64 8
   %cmp = icmp ult ptr %list.0.be, %add.ptr
   br i1 %cmp, label %while.body, label %while.end, !llvm.loop !73
 
 if.end:                                           ; preds = %for.end
-  %next9 = getelementptr inbounds %struct.commit_list, ptr %parent.046, i64 0, i32 1
+  %next9 = getelementptr inbounds i8, ptr %parent.046, i64 8
   %parent.150 = load ptr, ptr %next9, align 8
   %tobool11.not51 = icmp eq ptr %parent.150, null
   br i1 %tobool11.not51, label %while.cond.backedge, label %for.body12
@@ -8808,7 +8786,7 @@ if.end:                                           ; preds = %for.end
 for.body12:                                       ; preds = %if.end, %if.else38
   %parent.153 = phi ptr [ %parent.1, %if.else38 ], [ %parent.150, %if.end ]
   %6 = load ptr, ptr %parent.153, align 8
-  %oid = getelementptr inbounds %struct.object, ptr %6, i64 0, i32 1
+  %oid = getelementptr inbounds i8, ptr %6, i64 4
   %7 = load ptr, ptr %commits, align 8
   %8 = load i64, ptr %nr, align 8
   %call = call i32 @oid_pos(ptr noundef nonnull %oid, ptr noundef %7, i64 noundef %8, ptr noundef nonnull @commit_to_oid) #22
@@ -8851,17 +8829,17 @@ commit_graph_position.exit.i:                     ; preds = %if.end12.i.i.i.i
   br i1 %cmp.not.i, label %if.else.i, label %if.end28
 
 if.else.i:                                        ; preds = %commit_graph_position.exit.i, %if.end12.i.i.i.i, %if.then20
-  %oid.i = getelementptr inbounds %struct.object, ptr %.pre61, i64 0, i32 1
+  %oid.i = getelementptr inbounds i8, ptr %.pre61, i64 4
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %lex_index.i.i)
   br label %land.rhs.i.i
 
 land.rhs.i.i:                                     ; preds = %if.else.i, %while.body.i.i
   %cur_g.07.i.i = phi ptr [ %19, %while.body.i.i ], [ %10, %if.else.i ]
-  %chunk_oid_fanout.i.i.i = getelementptr inbounds %struct.commit_graph, ptr %cur_g.07.i.i, i64 0, i32 11
+  %chunk_oid_fanout.i.i.i = getelementptr inbounds i8, ptr %cur_g.07.i.i, i64 96
   %16 = load ptr, ptr %chunk_oid_fanout.i.i.i, align 8
-  %chunk_oid_lookup.i.i.i = getelementptr inbounds %struct.commit_graph, ptr %cur_g.07.i.i, i64 0, i32 12
+  %chunk_oid_lookup.i.i.i = getelementptr inbounds i8, ptr %cur_g.07.i.i, i64 104
   %17 = load ptr, ptr %chunk_oid_lookup.i.i.i, align 8
-  %hash_len.i.i.i = getelementptr inbounds %struct.commit_graph, ptr %cur_g.07.i.i, i64 0, i32 2
+  %hash_len.i.i.i = getelementptr inbounds i8, ptr %cur_g.07.i.i, i64 16
   %18 = load i8, ptr %hash_len.i.i.i, align 8
   %conv.i.i.i = zext i8 %18 to i64
   %call.i.i.i = call i32 @bsearch_hash(ptr noundef nonnull %oid.i, ptr noundef %16, ptr noundef %17, i64 noundef %conv.i.i.i, ptr noundef nonnull %lex_index.i.i) #22
@@ -8869,14 +8847,14 @@ land.rhs.i.i:                                     ; preds = %if.else.i, %while.b
   br i1 %tobool1.not.i.i, label %while.body.i.i, label %find_commit_pos_in_graph.exit
 
 while.body.i.i:                                   ; preds = %land.rhs.i.i
-  %base_graph.i.i = getelementptr inbounds %struct.commit_graph, ptr %cur_g.07.i.i, i64 0, i32 10
+  %base_graph.i.i = getelementptr inbounds i8, ptr %cur_g.07.i.i, i64 88
   %19 = load ptr, ptr %base_graph.i.i, align 8
   %tobool.not.i.i = icmp eq ptr %19, null
   br i1 %tobool.not.i.i, label %22, label %land.rhs.i.i, !llvm.loop !18
 
 find_commit_pos_in_graph.exit:                    ; preds = %land.rhs.i.i
   %20 = load i32, ptr %lex_index.i.i, align 4
-  %num_commits_in_base.i.i = getelementptr inbounds %struct.commit_graph, ptr %cur_g.07.i.i, i64 0, i32 8
+  %num_commits_in_base.i.i = getelementptr inbounds i8, ptr %cur_g.07.i.i, i64 80
   %21 = load i32, ptr %num_commits_in_base.i.i, align 8
   %add.i.i = add i32 %21, %20
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %lex_index.i.i)
@@ -8897,16 +8875,16 @@ if.end28.if.then30_crit_edge:                     ; preds = %if.end28
 
 if.then30:                                        ; preds = %if.else, %if.end28.if.then30_crit_edge
   %23 = phi ptr [ %.pre, %if.end28.if.then30_crit_edge ], [ %.pre61, %if.else ]
-  %oid33 = getelementptr inbounds %struct.object, ptr %23, i64 0, i32 1
+  %oid33 = getelementptr inbounds i8, ptr %23, i64 4
   %call34 = call ptr @oid_to_hex(ptr noundef nonnull %oid33) #22
   %24 = load ptr, ptr %list.057, align 8
-  %oid36 = getelementptr inbounds %struct.object, ptr %24, i64 0, i32 1
+  %oid36 = getelementptr inbounds i8, ptr %24, i64 4
   %call37 = call ptr @oid_to_hex(ptr noundef nonnull %oid36) #22
   call void (ptr, i32, ptr, ...) @BUG_fl(ptr noundef nonnull @.str.45, i32 noundef 1387, ptr noundef nonnull @.str.96, ptr noundef %call34, ptr noundef %call37) #23
   unreachable
 
 if.else38:                                        ; preds = %if.end28
-  %next39 = getelementptr inbounds %struct.commit_list, ptr %parent.153, i64 0, i32 1
+  %next39 = getelementptr inbounds i8, ptr %parent.153, i64 8
   %25 = load ptr, ptr %next39, align 8
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %data.addr.i)
   %tobool40.not = icmp eq ptr %25, null
@@ -8928,17 +8906,17 @@ while.end:                                        ; preds = %while.cond.backedge
 define internal noundef i32 @write_graph_chunk_bloom_indexes(ptr noundef %f, ptr nocapture noundef %data) #0 {
 entry:
   %data.addr.i = alloca i32, align 4
-  %commits = getelementptr inbounds %struct.write_commit_graph_context, ptr %data, i64 0, i32 4
+  %commits = getelementptr inbounds i8, ptr %data, i64 56
   %0 = load ptr, ptr %commits, align 8
-  %nr = getelementptr inbounds %struct.write_commit_graph_context, ptr %data, i64 0, i32 4, i32 1
+  %nr = getelementptr inbounds i8, ptr %data, i64 64
   %1 = load i64, ptr %nr, align 8
   %add.ptr = getelementptr inbounds ptr, ptr %0, i64 %1
   %cmp10 = icmp sgt i64 %1, 0
   br i1 %cmp10, label %while.body.lr.ph, label %while.end
 
 while.body.lr.ph:                                 ; preds = %entry
-  %progress = getelementptr inbounds %struct.write_commit_graph_context, ptr %data, i64 0, i32 8
-  %progress_cnt = getelementptr inbounds %struct.write_commit_graph_context, ptr %data, i64 0, i32 10
+  %progress = getelementptr inbounds i8, ptr %data, i64 96
+  %progress_cnt = getelementptr inbounds i8, ptr %data, i64 112
   br label %while.body
 
 while.body:                                       ; preds = %while.body.lr.ph, %cond.end
@@ -8951,7 +8929,7 @@ while.body:                                       ; preds = %while.body.lr.ph, %
   br i1 %tobool.not, label %cond.end, label %cond.true
 
 cond.true:                                        ; preds = %while.body
-  %len5 = getelementptr inbounds %struct.bloom_filter, ptr %call, i64 0, i32 1
+  %len5 = getelementptr inbounds i8, ptr %call, i64 8
   %4 = load i64, ptr %len5, align 8
   br label %cond.end
 
@@ -8970,7 +8948,7 @@ cond.end:                                         ; preds = %while.body, %cond.t
   store i32 %7, ptr %data.addr.i, align 4
   call void @hashwrite(ptr noundef %f, ptr noundef nonnull %data.addr.i, i32 noundef 4) #22
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %data.addr.i)
-  %incdec.ptr = getelementptr inbounds ptr, ptr %list.012, i64 1
+  %incdec.ptr = getelementptr inbounds i8, ptr %list.012, i64 8
   %cmp = icmp ult ptr %incdec.ptr, %add.ptr
   br i1 %cmp, label %while.body, label %while.end, !llvm.loop !75
 
@@ -8985,31 +8963,31 @@ entry:
   %data.addr.i18 = alloca i32, align 4
   %data.addr.i = alloca i32, align 4
   %jw.i = alloca %struct.json_writer, align 8
-  %commits = getelementptr inbounds %struct.write_commit_graph_context, ptr %data, i64 0, i32 4
+  %commits = getelementptr inbounds i8, ptr %data, i64 56
   %0 = load ptr, ptr %commits, align 8
-  %nr = getelementptr inbounds %struct.write_commit_graph_context, ptr %data, i64 0, i32 4, i32 1
+  %nr = getelementptr inbounds i8, ptr %data, i64 64
   %1 = load i64, ptr %nr, align 8
   %add.ptr = getelementptr inbounds ptr, ptr %0, i64 %1
   call void @llvm.lifetime.start.p0(i64 56, ptr nonnull %jw.i)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %jw.i, ptr noundef nonnull align 8 dereferenceable(56) @__const.trace2_bloom_filter_settings.jw, i64 56, i1 false)
   call void @jw_object_begin(ptr noundef nonnull %jw.i, i32 noundef 0) #22
-  %bloom_settings.i = getelementptr inbounds %struct.write_commit_graph_context, ptr %data, i64 0, i32 23
+  %bloom_settings.i = getelementptr inbounds i8, ptr %data, i64 208
   %2 = load ptr, ptr %bloom_settings.i, align 8
   %3 = load i32, ptr %2, align 4
   %conv.i = zext i32 %3 to i64
   call void @jw_object_intmax(ptr noundef nonnull %jw.i, ptr noundef nonnull @.str.97, i64 noundef %conv.i) #22
   %4 = load ptr, ptr %bloom_settings.i, align 8
-  %num_hashes.i = getelementptr inbounds %struct.bloom_filter_settings, ptr %4, i64 0, i32 1
+  %num_hashes.i = getelementptr inbounds i8, ptr %4, i64 4
   %5 = load i32, ptr %num_hashes.i, align 4
   %conv2.i = zext i32 %5 to i64
   call void @jw_object_intmax(ptr noundef nonnull %jw.i, ptr noundef nonnull @.str.98, i64 noundef %conv2.i) #22
   %6 = load ptr, ptr %bloom_settings.i, align 8
-  %bits_per_entry.i = getelementptr inbounds %struct.bloom_filter_settings, ptr %6, i64 0, i32 2
+  %bits_per_entry.i = getelementptr inbounds i8, ptr %6, i64 8
   %7 = load i32, ptr %bits_per_entry.i, align 4
   %conv4.i = zext i32 %7 to i64
   call void @jw_object_intmax(ptr noundef nonnull %jw.i, ptr noundef nonnull @.str.99, i64 noundef %conv4.i) #22
   %8 = load ptr, ptr %bloom_settings.i, align 8
-  %max_changed_paths.i = getelementptr inbounds %struct.bloom_filter_settings, ptr %8, i64 0, i32 3
+  %max_changed_paths.i = getelementptr inbounds i8, ptr %8, i64 12
   %9 = load i32, ptr %max_changed_paths.i, align 4
   %conv6.i = zext i32 %9 to i64
   call void @jw_object_intmax(ptr noundef nonnull %jw.i, ptr noundef nonnull @.str.100, i64 noundef %conv6.i) #22
@@ -9026,7 +9004,7 @@ entry:
   call void @hashwrite(ptr noundef %f, ptr noundef nonnull %data.addr.i, i32 noundef 4) #22
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %data.addr.i)
   %14 = load ptr, ptr %bloom_settings.i, align 8
-  %num_hashes = getelementptr inbounds %struct.bloom_filter_settings, ptr %14, i64 0, i32 1
+  %num_hashes = getelementptr inbounds i8, ptr %14, i64 4
   %15 = load i32, ptr %num_hashes, align 4
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %data.addr.i18)
   %16 = call i32 asm "bswap $0", "=r,0,~{dirflag},~{fpsr},~{flags}"(i32 %15) #24, !srcloc !5
@@ -9034,7 +9012,7 @@ entry:
   call void @hashwrite(ptr noundef %f, ptr noundef nonnull %data.addr.i18, i32 noundef 4) #22
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %data.addr.i18)
   %17 = load ptr, ptr %bloom_settings.i, align 8
-  %bits_per_entry = getelementptr inbounds %struct.bloom_filter_settings, ptr %17, i64 0, i32 2
+  %bits_per_entry = getelementptr inbounds i8, ptr %17, i64 8
   %18 = load i32, ptr %bits_per_entry, align 4
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %data.addr.i24)
   %19 = call i32 asm "bswap $0", "=r,0,~{dirflag},~{fpsr},~{flags}"(i32 %18) #24, !srcloc !5
@@ -9045,8 +9023,8 @@ entry:
   br i1 %cmp30, label %while.body.lr.ph, label %while.end
 
 while.body.lr.ph:                                 ; preds = %entry
-  %progress = getelementptr inbounds %struct.write_commit_graph_context, ptr %data, i64 0, i32 8
-  %progress_cnt = getelementptr inbounds %struct.write_commit_graph_context, ptr %data, i64 0, i32 10
+  %progress = getelementptr inbounds i8, ptr %data, i64 96
+  %progress_cnt = getelementptr inbounds i8, ptr %data, i64 112
   br label %while.body
 
 while.body:                                       ; preds = %while.body.lr.ph, %if.end
@@ -9058,7 +9036,7 @@ while.body:                                       ; preds = %while.body.lr.ph, %
   br i1 %tobool.not, label %cond.end, label %cond.true
 
 cond.true:                                        ; preds = %while.body
-  %len7 = getelementptr inbounds %struct.bloom_filter, ptr %call, i64 0, i32 1
+  %len7 = getelementptr inbounds i8, ptr %call, i64 8
   %22 = load i64, ptr %len7, align 8
   br label %cond.end
 
@@ -9079,7 +9057,7 @@ if.then:                                          ; preds = %cond.end
   br label %if.end
 
 if.end:                                           ; preds = %if.then, %cond.end
-  %incdec.ptr = getelementptr inbounds ptr, ptr %list.031, i64 1
+  %incdec.ptr = getelementptr inbounds i8, ptr %list.031, i64 8
   %cmp = icmp ult ptr %incdec.ptr, %add.ptr
   br i1 %cmp, label %while.body, label %while.end, !llvm.loop !76
 
@@ -9090,10 +9068,10 @@ while.end:                                        ; preds = %if.end, %entry
 ; Function Attrs: nounwind uwtable
 define internal noundef i32 @write_graph_chunk_base(ptr noundef %f, ptr nocapture noundef readonly %data) #0 {
 entry:
-  %new_base_graph = getelementptr inbounds %struct.write_commit_graph_context, ptr %data, i64 0, i32 18
+  %new_base_graph = getelementptr inbounds i8, ptr %data, i64 168
   %0 = load ptr, ptr %new_base_graph, align 8
   %call = tail call fastcc i32 @write_graph_chunk_base_1(ptr noundef %f, ptr noundef %0)
-  %num_commit_graphs_after = getelementptr inbounds %struct.write_commit_graph_context, ptr %data, i64 0, i32 13
+  %num_commit_graphs_after = getelementptr inbounds i8, ptr %data, i64 132
   %1 = load i32, ptr %num_commit_graphs_after, align 4
   %sub = add nsw i32 %1, -1
   %cmp.not = icmp eq i32 %call, %sub
@@ -9154,7 +9132,7 @@ define internal nonnull ptr @commit_to_oid(i64 noundef %index, ptr nocapture nou
 entry:
   %arrayidx = getelementptr inbounds ptr, ptr %table, i64 %index
   %0 = load ptr, ptr %arrayidx, align 8
-  %oid = getelementptr inbounds %struct.object, ptr %0, i64 0, i32 1
+  %oid = getelementptr inbounds i8, ptr %0, i64 4
   ret ptr %oid
 }
 
@@ -9179,14 +9157,14 @@ common.ret4:                                      ; preds = %entry, %if.end
   ret i32 %common.ret4.op
 
 if.end:                                           ; preds = %entry
-  %base_graph = getelementptr inbounds %struct.commit_graph, ptr %g, i64 0, i32 10
+  %base_graph = getelementptr inbounds i8, ptr %g, i64 88
   %0 = load ptr, ptr %base_graph, align 8
   %call = tail call fastcc i32 @write_graph_chunk_base_1(ptr noundef %f, ptr noundef %0)
-  %oid = getelementptr inbounds %struct.commit_graph, ptr %g, i64 0, i32 5
+  %oid = getelementptr inbounds i8, ptr %g, i64 24
   %1 = load ptr, ptr @the_repository, align 8
-  %hash_algo = getelementptr inbounds %struct.repository, ptr %1, i64 0, i32 15
+  %hash_algo = getelementptr inbounds i8, ptr %1, i64 256
   %2 = load ptr, ptr %hash_algo, align 8
-  %rawsz = getelementptr inbounds %struct.git_hash_algo, ptr %2, i64 0, i32 2
+  %rawsz = getelementptr inbounds i8, ptr %2, i64 16
   %3 = load i64, ptr %rawsz, align 8
   %conv = trunc i64 %3 to i32
   tail call void @hashwrite(ptr noundef %f, ptr noundef nonnull %oid, i32 noundef %conv) #22

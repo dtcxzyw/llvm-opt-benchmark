@@ -4,33 +4,13 @@ target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:
 target triple = "x86_64-unknown-linux-gnu"
 
 %struct.XML_Feature = type { i32, ptr, i64 }
-%struct.XML_ParserStruct = type { ptr, ptr, ptr, %struct.XML_Memory_Handling_Suite, ptr, ptr, ptr, i64, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, %struct.INIT_ENCODING, ptr, ptr, i8, i8, ptr, ptr, ptr, ptr, %struct.prolog_state, ptr, i32, ptr, ptr, ptr, ptr, ptr, i8, i32, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, i8, i8, ptr, ptr, ptr, ptr, ptr, ptr, i32, i32, i32, ptr, ptr, i64, i8, %struct.position, %struct.STRING_POOL, %struct.STRING_POOL, ptr, i32, i8, ptr, %struct.XML_ParsingStatus, i8, i8, i32, i64, %struct.accounting, %struct.entity_stats }
-%struct.XML_Memory_Handling_Suite = type { ptr, ptr, ptr }
-%struct.INIT_ENCODING = type { %struct.encoding, ptr }
-%struct.encoding = type { [4 x ptr], [2 x ptr], ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, i32, i8, i8 }
-%struct.prolog_state = type { ptr, i32, i32, i32, i32, i32 }
-%struct.position = type { i64, i64 }
-%struct.STRING_POOL = type { ptr, ptr, ptr, ptr, ptr, ptr }
-%struct.XML_ParsingStatus = type { i32, i8 }
-%struct.accounting = type { i64, i64, i32, float, i64 }
-%struct.entity_stats = type { i32, i32, i32, i32 }
-%struct.DTD = type { %struct.HASH_TABLE, %struct.HASH_TABLE, %struct.HASH_TABLE, %struct.HASH_TABLE, %struct.STRING_POOL, %struct.STRING_POOL, i8, i8, i8, i8, %struct.HASH_TABLE, %struct.prefix, i8, ptr, i32, i32, i32, i32, ptr }
-%struct.HASH_TABLE = type { ptr, i8, i64, i64, ptr }
-%struct.prefix = type { ptr, ptr }
-%struct.tag = type { ptr, ptr, i32, %struct.TAG_NAME, ptr, ptr, ptr }
-%struct.TAG_NAME = type { ptr, ptr, ptr, i32, i32, i32 }
-%struct.binding = type { ptr, ptr, ptr, ptr, ptr, i32, i32 }
-%struct.open_internal_entity = type { ptr, ptr, ptr, ptr, i32, i8 }
-%struct.ELEMENT_TYPE = type { ptr, ptr, ptr, i32, i32, ptr }
-%struct.block = type { ptr, i32, [1 x i8] }
-%struct.attribute_id = type { ptr, ptr, i8, i8 }
 %struct.DEFAULT_ATTRIBUTE = type { ptr, i8, ptr }
-%struct.ENTITY = type { ptr, ptr, i32, i32, ptr, ptr, ptr, ptr, i8, i8, i8 }
 %struct.timeval = type { i64, i64 }
 %struct.XML_Encoding = type { [256 x i32], ptr, ptr, ptr }
 %struct.CONTENT_SCAFFOLD = type { i32, i32, ptr, i32, i32, i32, i32 }
 %struct.XML_cp = type { i32, i32, ptr, i32, ptr }
 %struct.siphash = type { i64, i64, i64, i64, [8 x i8], ptr, i64 }
+%struct.TAG_NAME = type { ptr, ptr, ptr, i32, i32, i32 }
 %struct.ATTRIBUTE = type { ptr, ptr, ptr, i8 }
 %struct.NS_ATT = type { i64, i64, ptr }
 
@@ -413,14 +393,14 @@ if.then:                                          ; preds = %entry
   br i1 %cmp.not, label %return, label %if.then1
 
 if.then1:                                         ; preds = %if.then
-  %m_mem = getelementptr inbounds %struct.XML_ParserStruct, ptr %call, i64 0, i32 3
+  %m_mem = getelementptr inbounds i8, ptr %call, i64 24
   %1 = load ptr, ptr %memsuite, align 8
   store ptr %1, ptr %m_mem, align 8
-  %realloc_fcn = getelementptr inbounds %struct.XML_Memory_Handling_Suite, ptr %memsuite, i64 0, i32 1
+  %realloc_fcn = getelementptr inbounds i8, ptr %memsuite, i64 8
   %2 = load ptr, ptr %realloc_fcn, align 8
-  %realloc_fcn4 = getelementptr inbounds %struct.XML_ParserStruct, ptr %call, i64 0, i32 3, i32 1
+  %realloc_fcn4 = getelementptr inbounds i8, ptr %call, i64 32
   store ptr %2, ptr %realloc_fcn4, align 8
-  %free_fcn = getelementptr inbounds %struct.XML_Memory_Handling_Suite, ptr %memsuite, i64 0, i32 2
+  %free_fcn = getelementptr inbounds i8, ptr %memsuite, i64 16
   %3 = load ptr, ptr %free_fcn, align 8
   br label %if.end18
 
@@ -430,9 +410,9 @@ if.else:                                          ; preds = %entry
   br i1 %cmp8.not, label %return, label %if.then9
 
 if.then9:                                         ; preds = %if.else
-  %m_mem10 = getelementptr inbounds %struct.XML_ParserStruct, ptr %call7, i64 0, i32 3
+  %m_mem10 = getelementptr inbounds i8, ptr %call7, i64 24
   store ptr @malloc, ptr %m_mem10, align 8
-  %realloc_fcn12 = getelementptr inbounds %struct.XML_ParserStruct, ptr %call7, i64 0, i32 3, i32 1
+  %realloc_fcn12 = getelementptr inbounds i8, ptr %call7, i64 32
   store ptr @realloc, ptr %realloc_fcn12, align 8
   br label %if.end18
 
@@ -440,23 +420,23 @@ if.end18:                                         ; preds = %if.then1, %if.then9
   %call.sink = phi ptr [ %call, %if.then1 ], [ %call7, %if.then9 ]
   %.sink = phi ptr [ %3, %if.then1 ], [ @free, %if.then9 ]
   %4 = phi ptr [ %1, %if.then1 ], [ @malloc, %if.then9 ]
-  %free_fcn5 = getelementptr inbounds %struct.XML_ParserStruct, ptr %call.sink, i64 0, i32 3, i32 2
+  %free_fcn5 = getelementptr inbounds i8, ptr %call.sink, i64 40
   store ptr %.sink, ptr %free_fcn5, align 8
-  %m_buffer = getelementptr inbounds %struct.XML_ParserStruct, ptr %call.sink, i64 0, i32 2
+  %m_buffer = getelementptr inbounds i8, ptr %call.sink, i64 16
   store ptr null, ptr %m_buffer, align 8
-  %m_bufferLim = getelementptr inbounds %struct.XML_ParserStruct, ptr %call.sink, i64 0, i32 6
+  %m_bufferLim = getelementptr inbounds i8, ptr %call.sink, i64 64
   store ptr null, ptr %m_bufferLim, align 8
-  %m_attsSize = getelementptr inbounds %struct.XML_ParserStruct, ptr %call.sink, i64 0, i32 71
+  %m_attsSize = getelementptr inbounds i8, ptr %call.sink, i64 720
   store i32 16, ptr %m_attsSize, align 8
-  %m_mem19 = getelementptr inbounds %struct.XML_ParserStruct, ptr %call.sink, i64 0, i32 3
+  %m_mem19 = getelementptr inbounds i8, ptr %call.sink, i64 24
   %call22 = tail call ptr %4(i64 noundef 512) #23
-  %m_atts = getelementptr inbounds %struct.XML_ParserStruct, ptr %call.sink, i64 0, i32 74
+  %m_atts = getelementptr inbounds i8, ptr %call.sink, i64 736
   store ptr %call22, ptr %m_atts, align 8
   %cmp24 = icmp eq ptr %call22, null
   br i1 %cmp24, label %if.then26, label %if.end29
 
 if.then26:                                        ; preds = %if.end18
-  %free_fcn28 = getelementptr inbounds %struct.XML_ParserStruct, ptr %call.sink, i64 0, i32 3, i32 2
+  %free_fcn28 = getelementptr inbounds i8, ptr %call.sink, i64 40
   %5 = load ptr, ptr %free_fcn28, align 8
   tail call void %5(ptr noundef nonnull %call.sink) #23
   br label %return
@@ -464,13 +444,13 @@ if.then26:                                        ; preds = %if.end18
 if.end29:                                         ; preds = %if.end18
   %6 = load ptr, ptr %m_mem19, align 8
   %call32 = tail call ptr %6(i64 noundef 1024) #23
-  %m_dataBuf = getelementptr inbounds %struct.XML_ParserStruct, ptr %call.sink, i64 0, i32 9
+  %m_dataBuf = getelementptr inbounds i8, ptr %call.sink, i64 88
   store ptr %call32, ptr %m_dataBuf, align 8
   %cmp34 = icmp eq ptr %call32, null
   br i1 %cmp34, label %if.then36, label %if.end42
 
 if.then36:                                        ; preds = %if.end29
-  %free_fcn38 = getelementptr inbounds %struct.XML_ParserStruct, ptr %call.sink, i64 0, i32 3, i32 2
+  %free_fcn38 = getelementptr inbounds i8, ptr %call.sink, i64 40
   %7 = load ptr, ptr %free_fcn38, align 8
   %8 = load ptr, ptr %m_atts, align 8
   tail call void %7(ptr noundef %8) #23
@@ -480,7 +460,7 @@ if.then36:                                        ; preds = %if.end29
 
 if.end42:                                         ; preds = %if.end29
   %add.ptr = getelementptr i8, ptr %call32, i64 1024
-  %m_dataBufEnd = getelementptr inbounds %struct.XML_ParserStruct, ptr %call.sink, i64 0, i32 10
+  %m_dataBufEnd = getelementptr inbounds i8, ptr %call.sink, i64 96
   store ptr %add.ptr, ptr %m_dataBufEnd, align 8
   %tobool44.not = icmp eq ptr %dtd, null
   br i1 %tobool44.not, label %if.else46, label %if.end63
@@ -492,65 +472,65 @@ if.else46:                                        ; preds = %if.end42
   br i1 %cmp.i, label %if.then53, label %dtdCreate.exit
 
 dtdCreate.exit:                                   ; preds = %if.else46
-  %pool.i = getelementptr inbounds %struct.DTD, ptr %call.i, i64 0, i32 4
-  %mem.i.i = getelementptr inbounds %struct.DTD, ptr %call.i, i64 0, i32 4, i32 5
+  %pool.i = getelementptr inbounds i8, ptr %call.i, i64 160
+  %mem.i.i = getelementptr inbounds i8, ptr %call.i, i64 200
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %pool.i, i8 0, i64 40, i1 false)
   store ptr %m_mem19, ptr %mem.i.i, align 8
-  %entityValuePool.i = getelementptr inbounds %struct.DTD, ptr %call.i, i64 0, i32 5
-  %mem.i30.i = getelementptr inbounds %struct.DTD, ptr %call.i, i64 0, i32 5, i32 5
+  %entityValuePool.i = getelementptr inbounds i8, ptr %call.i, i64 208
+  %mem.i30.i = getelementptr inbounds i8, ptr %call.i, i64 248
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %entityValuePool.i, i8 0, i64 40, i1 false)
   store ptr %m_mem19, ptr %mem.i30.i, align 8
-  %power.i.i = getelementptr inbounds %struct.HASH_TABLE, ptr %call.i, i64 0, i32 1
+  %power.i.i = getelementptr inbounds i8, ptr %call.i, i64 8
   store i8 0, ptr %power.i.i, align 8
-  %size.i.i = getelementptr inbounds %struct.HASH_TABLE, ptr %call.i, i64 0, i32 2
+  %size.i.i = getelementptr inbounds i8, ptr %call.i, i64 16
   store ptr null, ptr %call.i, align 8
-  %mem.i31.i = getelementptr inbounds %struct.HASH_TABLE, ptr %call.i, i64 0, i32 4
+  %mem.i31.i = getelementptr inbounds i8, ptr %call.i, i64 32
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %size.i.i, i8 0, i64 16, i1 false)
   store ptr %m_mem19, ptr %mem.i31.i, align 8
-  %elementTypes.i = getelementptr inbounds %struct.DTD, ptr %call.i, i64 0, i32 1
-  %power.i32.i = getelementptr inbounds %struct.DTD, ptr %call.i, i64 0, i32 1, i32 1
+  %elementTypes.i = getelementptr inbounds i8, ptr %call.i, i64 40
+  %power.i32.i = getelementptr inbounds i8, ptr %call.i, i64 48
   store i8 0, ptr %power.i32.i, align 8
-  %size.i33.i = getelementptr inbounds %struct.DTD, ptr %call.i, i64 0, i32 1, i32 2
+  %size.i33.i = getelementptr inbounds i8, ptr %call.i, i64 56
   store ptr null, ptr %elementTypes.i, align 8
-  %mem.i34.i = getelementptr inbounds %struct.DTD, ptr %call.i, i64 0, i32 1, i32 4
+  %mem.i34.i = getelementptr inbounds i8, ptr %call.i, i64 72
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %size.i33.i, i8 0, i64 16, i1 false)
   store ptr %m_mem19, ptr %mem.i34.i, align 8
-  %attributeIds.i = getelementptr inbounds %struct.DTD, ptr %call.i, i64 0, i32 2
-  %power.i35.i = getelementptr inbounds %struct.DTD, ptr %call.i, i64 0, i32 2, i32 1
+  %attributeIds.i = getelementptr inbounds i8, ptr %call.i, i64 80
+  %power.i35.i = getelementptr inbounds i8, ptr %call.i, i64 88
   store i8 0, ptr %power.i35.i, align 8
-  %size.i36.i = getelementptr inbounds %struct.DTD, ptr %call.i, i64 0, i32 2, i32 2
+  %size.i36.i = getelementptr inbounds i8, ptr %call.i, i64 96
   store ptr null, ptr %attributeIds.i, align 8
-  %mem.i37.i = getelementptr inbounds %struct.DTD, ptr %call.i, i64 0, i32 2, i32 4
+  %mem.i37.i = getelementptr inbounds i8, ptr %call.i, i64 112
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %size.i36.i, i8 0, i64 16, i1 false)
   store ptr %m_mem19, ptr %mem.i37.i, align 8
-  %prefixes.i = getelementptr inbounds %struct.DTD, ptr %call.i, i64 0, i32 3
-  %power.i38.i = getelementptr inbounds %struct.DTD, ptr %call.i, i64 0, i32 3, i32 1
+  %prefixes.i = getelementptr inbounds i8, ptr %call.i, i64 120
+  %power.i38.i = getelementptr inbounds i8, ptr %call.i, i64 128
   store i8 0, ptr %power.i38.i, align 8
-  %size.i39.i = getelementptr inbounds %struct.DTD, ptr %call.i, i64 0, i32 3, i32 2
+  %size.i39.i = getelementptr inbounds i8, ptr %call.i, i64 136
   store ptr null, ptr %prefixes.i, align 8
-  %mem.i40.i = getelementptr inbounds %struct.DTD, ptr %call.i, i64 0, i32 3, i32 4
+  %mem.i40.i = getelementptr inbounds i8, ptr %call.i, i64 152
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %size.i39.i, i8 0, i64 16, i1 false)
   store ptr %m_mem19, ptr %mem.i40.i, align 8
-  %paramEntities.i = getelementptr inbounds %struct.DTD, ptr %call.i, i64 0, i32 10
-  %power.i41.i = getelementptr inbounds %struct.DTD, ptr %call.i, i64 0, i32 10, i32 1
+  %paramEntities.i = getelementptr inbounds i8, ptr %call.i, i64 264
+  %power.i41.i = getelementptr inbounds i8, ptr %call.i, i64 272
   store i8 0, ptr %power.i41.i, align 8
-  %size.i42.i = getelementptr inbounds %struct.DTD, ptr %call.i, i64 0, i32 10, i32 2
+  %size.i42.i = getelementptr inbounds i8, ptr %call.i, i64 280
   store ptr null, ptr %paramEntities.i, align 8
-  %mem.i43.i = getelementptr inbounds %struct.DTD, ptr %call.i, i64 0, i32 10, i32 4
+  %mem.i43.i = getelementptr inbounds i8, ptr %call.i, i64 296
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %size.i42.i, i8 0, i64 16, i1 false)
   store ptr %m_mem19, ptr %mem.i43.i, align 8
-  %defaultPrefix.i = getelementptr inbounds %struct.DTD, ptr %call.i, i64 0, i32 11
-  %scaffold.i = getelementptr inbounds %struct.DTD, ptr %call.i, i64 0, i32 13
-  %keepProcessing.i = getelementptr inbounds %struct.DTD, ptr %call.i, i64 0, i32 6
+  %defaultPrefix.i = getelementptr inbounds i8, ptr %call.i, i64 304
+  %scaffold.i = getelementptr inbounds i8, ptr %call.i, i64 328
+  %keepProcessing.i = getelementptr inbounds i8, ptr %call.i, i64 256
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(17) %defaultPrefix.i, i8 0, i64 17, i1 false)
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %scaffold.i, i8 0, i64 32, i1 false)
   store <4 x i8> <i8 1, i8 0, i8 0, i8 0>, ptr %keepProcessing.i, align 8
   br label %if.end63
 
 if.then53:                                        ; preds = %if.else46
-  %m_dtd4976 = getelementptr inbounds %struct.XML_ParserStruct, ptr %call.sink, i64 0, i32 65
+  %m_dtd4976 = getelementptr inbounds i8, ptr %call.sink, i64 672
   store ptr null, ptr %m_dtd4976, align 8
-  %free_fcn55 = getelementptr inbounds %struct.XML_ParserStruct, ptr %call.sink, i64 0, i32 3, i32 2
+  %free_fcn55 = getelementptr inbounds i8, ptr %call.sink, i64 40
   %11 = load ptr, ptr %free_fcn55, align 8
   %12 = load ptr, ptr %m_dataBuf, align 8
   tail call void %11(ptr noundef %12) #23
@@ -563,38 +543,38 @@ if.then53:                                        ; preds = %if.else46
 
 if.end63:                                         ; preds = %if.end42, %dtdCreate.exit
   %call.i.sink = phi ptr [ %call.i, %dtdCreate.exit ], [ %dtd, %if.end42 ]
-  %m_dtd49 = getelementptr inbounds %struct.XML_ParserStruct, ptr %call.sink, i64 0, i32 65
+  %m_dtd49 = getelementptr inbounds i8, ptr %call.sink, i64 672
   store ptr %call.i.sink, ptr %m_dtd49, align 8
-  %m_freeBindingList = getelementptr inbounds %struct.XML_ParserStruct, ptr %call.sink, i64 0, i32 70
+  %m_freeBindingList = getelementptr inbounds i8, ptr %call.sink, i64 712
   store ptr null, ptr %m_freeBindingList, align 8
-  %m_freeTagList = getelementptr inbounds %struct.XML_ParserStruct, ptr %call.sink, i64 0, i32 68
+  %m_freeTagList = getelementptr inbounds i8, ptr %call.sink, i64 696
   store ptr null, ptr %m_freeTagList, align 8
-  %m_freeInternalEntities = getelementptr inbounds %struct.XML_ParserStruct, ptr %call.sink, i64 0, i32 51
+  %m_freeInternalEntities = getelementptr inbounds i8, ptr %call.sink, i64 576
   store ptr null, ptr %m_freeInternalEntities, align 8
-  %m_groupSize = getelementptr inbounds %struct.XML_ParserStruct, ptr %call.sink, i64 0, i32 82
+  %m_groupSize = getelementptr inbounds i8, ptr %call.sink, i64 888
   store i32 0, ptr %m_groupSize, align 8
-  %m_groupConnector = getelementptr inbounds %struct.XML_ParserStruct, ptr %call.sink, i64 0, i32 81
+  %m_groupConnector = getelementptr inbounds i8, ptr %call.sink, i64 880
   store ptr null, ptr %m_groupConnector, align 8
-  %m_unknownEncodingHandler = getelementptr inbounds %struct.XML_ParserStruct, ptr %call.sink, i64 0, i32 29
+  %m_unknownEncodingHandler = getelementptr inbounds i8, ptr %call.sink, i64 248
   store ptr null, ptr %m_unknownEncodingHandler, align 8
-  %m_unknownEncodingHandlerData = getelementptr inbounds %struct.XML_ParserStruct, ptr %call.sink, i64 0, i32 42
+  %m_unknownEncodingHandlerData = getelementptr inbounds i8, ptr %call.sink, i64 480
   store ptr null, ptr %m_unknownEncodingHandlerData, align 8
-  %m_namespaceSeparator = getelementptr inbounds %struct.XML_ParserStruct, ptr %call.sink, i64 0, i32 83
+  %m_namespaceSeparator = getelementptr inbounds i8, ptr %call.sink, i64 892
   store i8 33, ptr %m_namespaceSeparator, align 4
-  %m_ns = getelementptr inbounds %struct.XML_ParserStruct, ptr %call.sink, i64 0, i32 38
+  %m_ns = getelementptr inbounds i8, ptr %call.sink, i64 456
   store i8 0, ptr %m_ns, align 8
-  %m_ns_triplets = getelementptr inbounds %struct.XML_ParserStruct, ptr %call.sink, i64 0, i32 39
+  %m_ns_triplets = getelementptr inbounds i8, ptr %call.sink, i64 457
   store i8 0, ptr %m_ns_triplets, align 1
-  %m_nsAtts = getelementptr inbounds %struct.XML_ParserStruct, ptr %call.sink, i64 0, i32 75
-  %m_protocolEncodingName = getelementptr inbounds %struct.XML_ParserStruct, ptr %call.sink, i64 0, i32 37
+  %m_nsAtts = getelementptr inbounds i8, ptr %call.sink, i64 744
+  %m_protocolEncodingName = getelementptr inbounds i8, ptr %call.sink, i64 448
   store ptr null, ptr %m_protocolEncodingName, align 8
-  %m_tempPool = getelementptr inbounds %struct.XML_ParserStruct, ptr %call.sink, i64 0, i32 79
-  %mem.i = getelementptr inbounds %struct.XML_ParserStruct, ptr %call.sink, i64 0, i32 79, i32 5
+  %m_tempPool = getelementptr inbounds i8, ptr %call.sink, i64 784
+  %mem.i = getelementptr inbounds i8, ptr %call.sink, i64 824
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %m_tempPool, i8 0, i64 40, i1 false)
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(17) %m_nsAtts, i8 0, i64 17, i1 false)
   store ptr %m_mem19, ptr %mem.i, align 8
-  %m_temp2Pool = getelementptr inbounds %struct.XML_ParserStruct, ptr %call.sink, i64 0, i32 80
-  %mem.i73 = getelementptr inbounds %struct.XML_ParserStruct, ptr %call.sink, i64 0, i32 80, i32 5
+  %m_temp2Pool = getelementptr inbounds i8, ptr %call.sink, i64 832
+  %mem.i73 = getelementptr inbounds i8, ptr %call.sink, i64 872
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %m_temp2Pool, i8 0, i64 40, i1 false)
   store ptr %m_mem19, ptr %mem.i73, align 8
   tail call fastcc void @parserInit(ptr noundef nonnull %call.sink, ptr noundef %encodingName)
@@ -610,7 +590,7 @@ if.then69:                                        ; preds = %land.lhs.true
   br i1 %tobool44.not, label %if.end73, label %if.then71
 
 if.then71:                                        ; preds = %if.then69
-  %m_dtd72 = getelementptr inbounds %struct.XML_ParserStruct, ptr %call.sink, i64 0, i32 65
+  %m_dtd72 = getelementptr inbounds i8, ptr %call.sink, i64 672
   store ptr null, ptr %m_dtd72, align 8
   br label %if.end73
 
@@ -625,7 +605,7 @@ if.end74:                                         ; preds = %land.lhs.true, %if.
 if.then76:                                        ; preds = %if.end74
   store i8 1, ptr %m_ns, align 8
   %call78 = tail call ptr @PyExpat_XmlGetUtf8InternalEncodingNS() #23
-  %m_internalEncoding = getelementptr inbounds %struct.XML_ParserStruct, ptr %call.sink, i64 0, i32 36
+  %m_internalEncoding = getelementptr inbounds i8, ptr %call.sink, i64 440
   store ptr %call78, ptr %m_internalEncoding, align 8
   %17 = load i8, ptr %nameSep, align 1
   store i8 %17, ptr %m_namespaceSeparator, align 4
@@ -633,7 +613,7 @@ if.then76:                                        ; preds = %if.end74
 
 if.else80:                                        ; preds = %if.end74
   %call81 = tail call ptr @PyExpat_XmlGetUtf8InternalEncoding() #23
-  %m_internalEncoding82 = getelementptr inbounds %struct.XML_ParserStruct, ptr %call.sink, i64 0, i32 36
+  %m_internalEncoding82 = getelementptr inbounds i8, ptr %call.sink, i64 440
   store ptr %call81, ptr %m_internalEncoding82, align 8
   br label %return
 
@@ -649,20 +629,20 @@ entry:
   br i1 %cmp, label %return, label %if.end
 
 if.end:                                           ; preds = %entry
-  %m_parentParser = getelementptr inbounds %struct.XML_ParserStruct, ptr %parser, i64 0, i32 84
+  %m_parentParser = getelementptr inbounds i8, ptr %parser, i64 896
   %0 = load ptr, ptr %m_parentParser, align 8
   %tobool.not = icmp eq ptr %0, null
   br i1 %tobool.not, label %if.end2, label %return
 
 if.end2:                                          ; preds = %if.end
-  %m_tagStack = getelementptr inbounds %struct.XML_ParserStruct, ptr %parser, i64 0, i32 67
+  %m_tagStack = getelementptr inbounds i8, ptr %parser, i64 688
   %1 = load ptr, ptr %m_tagStack, align 8
   %tobool3.not53 = icmp eq ptr %1, null
   br i1 %tobool3.not53, label %while.end, label %while.body.lr.ph
 
 while.body.lr.ph:                                 ; preds = %if.end2
-  %m_freeTagList = getelementptr inbounds %struct.XML_ParserStruct, ptr %parser, i64 0, i32 68
-  %m_freeBindingList.i = getelementptr inbounds %struct.XML_ParserStruct, ptr %parser, i64 0, i32 70
+  %m_freeTagList = getelementptr inbounds i8, ptr %parser, i64 696
+  %m_freeBindingList.i = getelementptr inbounds i8, ptr %parser, i64 712
   %.pre = load ptr, ptr %m_freeTagList, align 8
   br label %while.body
 
@@ -671,7 +651,7 @@ while.body:                                       ; preds = %while.body.lr.ph, %
   %tStk.054 = phi ptr [ %1, %while.body.lr.ph ], [ %3, %moveToFreeBindingList.exit ]
   %3 = load ptr, ptr %tStk.054, align 8
   store ptr %2, ptr %tStk.054, align 8
-  %bindings = getelementptr inbounds %struct.tag, ptr %tStk.054, i64 0, i32 6
+  %bindings = getelementptr inbounds i8, ptr %tStk.054, i64 80
   %4 = load ptr, ptr %bindings, align 8
   %tobool.not5.i = icmp eq ptr %4, null
   br i1 %tobool.not5.i, label %moveToFreeBindingList.exit, label %while.body.lr.ph.i
@@ -683,7 +663,7 @@ while.body.lr.ph.i:                               ; preds = %while.body
 while.body.i:                                     ; preds = %while.body.i, %while.body.lr.ph.i
   %5 = phi ptr [ %.pre.i, %while.body.lr.ph.i ], [ %bindings.addr.06.i, %while.body.i ]
   %bindings.addr.06.i = phi ptr [ %4, %while.body.lr.ph.i ], [ %6, %while.body.i ]
-  %nextTagBinding.i = getelementptr inbounds %struct.binding, ptr %bindings.addr.06.i, i64 0, i32 1
+  %nextTagBinding.i = getelementptr inbounds i8, ptr %bindings.addr.06.i, i64 8
   %6 = load ptr, ptr %nextTagBinding.i, align 8
   store ptr %5, ptr %nextTagBinding.i, align 8
   store ptr %bindings.addr.06.i, ptr %m_freeBindingList.i, align 8
@@ -697,20 +677,20 @@ moveToFreeBindingList.exit:                       ; preds = %while.body.i, %whil
   br i1 %tobool3.not, label %while.end, label %while.body, !llvm.loop !6
 
 while.end:                                        ; preds = %moveToFreeBindingList.exit, %if.end2
-  %m_openInternalEntities = getelementptr inbounds %struct.XML_ParserStruct, ptr %parser, i64 0, i32 50
+  %m_openInternalEntities = getelementptr inbounds i8, ptr %parser, i64 568
   %7 = load ptr, ptr %m_openInternalEntities, align 8
   %tobool8.not55 = icmp eq ptr %7, null
   br i1 %tobool8.not55, label %while.end12, label %while.body9.lr.ph
 
 while.body9.lr.ph:                                ; preds = %while.end
-  %m_freeInternalEntities = getelementptr inbounds %struct.XML_ParserStruct, ptr %parser, i64 0, i32 51
+  %m_freeInternalEntities = getelementptr inbounds i8, ptr %parser, i64 576
   %.pre57 = load ptr, ptr %m_freeInternalEntities, align 8
   br label %while.body9
 
 while.body9:                                      ; preds = %while.body9.lr.ph, %while.body9
   %8 = phi ptr [ %.pre57, %while.body9.lr.ph ], [ %openEntityList.056, %while.body9 ]
   %openEntityList.056 = phi ptr [ %7, %while.body9.lr.ph ], [ %9, %while.body9 ]
-  %next = getelementptr inbounds %struct.open_internal_entity, ptr %openEntityList.056, i64 0, i32 2
+  %next = getelementptr inbounds i8, ptr %openEntityList.056, i64 16
   %9 = load ptr, ptr %next, align 8
   store ptr %8, ptr %next, align 8
   store ptr %openEntityList.056, ptr %m_freeInternalEntities, align 8
@@ -718,20 +698,20 @@ while.body9:                                      ; preds = %while.body9.lr.ph, 
   br i1 %tobool8.not, label %while.end12, label %while.body9, !llvm.loop !7
 
 while.end12:                                      ; preds = %while.body9, %while.end
-  %m_inheritedBindings = getelementptr inbounds %struct.XML_ParserStruct, ptr %parser, i64 0, i32 69
+  %m_inheritedBindings = getelementptr inbounds i8, ptr %parser, i64 704
   %10 = load ptr, ptr %m_inheritedBindings, align 8
   %tobool.not5.i32 = icmp eq ptr %10, null
   br i1 %tobool.not5.i32, label %moveToFreeBindingList.exit40, label %while.body.lr.ph.i33
 
 while.body.lr.ph.i33:                             ; preds = %while.end12
-  %m_freeBindingList.i34 = getelementptr inbounds %struct.XML_ParserStruct, ptr %parser, i64 0, i32 70
+  %m_freeBindingList.i34 = getelementptr inbounds i8, ptr %parser, i64 712
   %.pre.i35 = load ptr, ptr %m_freeBindingList.i34, align 8
   br label %while.body.i36
 
 while.body.i36:                                   ; preds = %while.body.i36, %while.body.lr.ph.i33
   %11 = phi ptr [ %.pre.i35, %while.body.lr.ph.i33 ], [ %bindings.addr.06.i37, %while.body.i36 ]
   %bindings.addr.06.i37 = phi ptr [ %10, %while.body.lr.ph.i33 ], [ %12, %while.body.i36 ]
-  %nextTagBinding.i38 = getelementptr inbounds %struct.binding, ptr %bindings.addr.06.i37, i64 0, i32 1
+  %nextTagBinding.i38 = getelementptr inbounds i8, ptr %bindings.addr.06.i37, i64 8
   %12 = load ptr, ptr %nextTagBinding.i38, align 8
   store ptr %11, ptr %nextTagBinding.i38, align 8
   store ptr %bindings.addr.06.i37, ptr %m_freeBindingList.i34, align 8
@@ -739,25 +719,25 @@ while.body.i36:                                   ; preds = %while.body.i36, %wh
   br i1 %tobool.not.i39, label %moveToFreeBindingList.exit40, label %while.body.i36, !llvm.loop !4
 
 moveToFreeBindingList.exit40:                     ; preds = %while.body.i36, %while.end12
-  %free_fcn = getelementptr inbounds %struct.XML_ParserStruct, ptr %parser, i64 0, i32 3, i32 2
+  %free_fcn = getelementptr inbounds i8, ptr %parser, i64 40
   %13 = load ptr, ptr %free_fcn, align 8
-  %m_unknownEncodingMem = getelementptr inbounds %struct.XML_ParserStruct, ptr %parser, i64 0, i32 40
+  %m_unknownEncodingMem = getelementptr inbounds i8, ptr %parser, i64 464
   %14 = load ptr, ptr %m_unknownEncodingMem, align 8
   tail call void %13(ptr noundef %14) #23
-  %m_unknownEncodingRelease = getelementptr inbounds %struct.XML_ParserStruct, ptr %parser, i64 0, i32 43
+  %m_unknownEncodingRelease = getelementptr inbounds i8, ptr %parser, i64 488
   %15 = load ptr, ptr %m_unknownEncodingRelease, align 8
   %tobool13.not = icmp eq ptr %15, null
   br i1 %tobool13.not, label %if.end16, label %if.then14
 
 if.then14:                                        ; preds = %moveToFreeBindingList.exit40
-  %m_unknownEncodingData = getelementptr inbounds %struct.XML_ParserStruct, ptr %parser, i64 0, i32 41
+  %m_unknownEncodingData = getelementptr inbounds i8, ptr %parser, i64 472
   %16 = load ptr, ptr %m_unknownEncodingData, align 8
   tail call void %15(ptr noundef %16) #23
   br label %if.end16
 
 if.end16:                                         ; preds = %if.then14, %moveToFreeBindingList.exit40
-  %m_tempPool = getelementptr inbounds %struct.XML_ParserStruct, ptr %parser, i64 0, i32 79
-  %freeBlocks.i = getelementptr inbounds %struct.XML_ParserStruct, ptr %parser, i64 0, i32 79, i32 1
+  %m_tempPool = getelementptr inbounds i8, ptr %parser, i64 784
+  %freeBlocks.i = getelementptr inbounds i8, ptr %parser, i64 792
   %17 = load ptr, ptr %freeBlocks.i, align 8
   %tobool.not.i41 = icmp eq ptr %17, null
   %18 = load ptr, ptr %m_tempPool, align 8
@@ -782,10 +762,10 @@ while.body.i42:                                   ; preds = %if.else.i, %while.b
 
 poolClear.exit:                                   ; preds = %while.body.i42, %if.then.i, %if.else.i
   store ptr null, ptr %m_tempPool, align 8
-  %end.i = getelementptr inbounds %struct.XML_ParserStruct, ptr %parser, i64 0, i32 79, i32 2
+  %end.i = getelementptr inbounds i8, ptr %parser, i64 800
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %end.i, i8 0, i64 24, i1 false)
-  %m_temp2Pool = getelementptr inbounds %struct.XML_ParserStruct, ptr %parser, i64 0, i32 80
-  %freeBlocks.i43 = getelementptr inbounds %struct.XML_ParserStruct, ptr %parser, i64 0, i32 80, i32 1
+  %m_temp2Pool = getelementptr inbounds i8, ptr %parser, i64 832
+  %freeBlocks.i43 = getelementptr inbounds i8, ptr %parser, i64 840
   %21 = load ptr, ptr %freeBlocks.i43, align 8
   %tobool.not.i44 = icmp eq ptr %21, null
   %22 = load ptr, ptr %m_temp2Pool, align 8
@@ -810,23 +790,23 @@ while.body.i47:                                   ; preds = %if.else.i45, %while
 
 poolClear.exit52:                                 ; preds = %while.body.i47, %if.then.i51, %if.else.i45
   store ptr null, ptr %m_temp2Pool, align 8
-  %end.i50 = getelementptr inbounds %struct.XML_ParserStruct, ptr %parser, i64 0, i32 80, i32 2
+  %end.i50 = getelementptr inbounds i8, ptr %parser, i64 848
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %end.i50, i8 0, i64 24, i1 false)
   %25 = load ptr, ptr %free_fcn, align 8
-  %m_protocolEncodingName = getelementptr inbounds %struct.XML_ParserStruct, ptr %parser, i64 0, i32 37
+  %m_protocolEncodingName = getelementptr inbounds i8, ptr %parser, i64 448
   %26 = load ptr, ptr %m_protocolEncodingName, align 8
   tail call void %25(ptr noundef %26) #23
   store ptr null, ptr %m_protocolEncodingName, align 8
   tail call fastcc void @parserInit(ptr noundef nonnull %parser, ptr noundef %encodingName)
-  %m_dtd = getelementptr inbounds %struct.XML_ParserStruct, ptr %parser, i64 0, i32 65
+  %m_dtd = getelementptr inbounds i8, ptr %parser, i64 672
   %27 = load ptr, ptr %m_dtd, align 8
-  %elementTypes.i = getelementptr inbounds %struct.DTD, ptr %27, i64 0, i32 1
+  %elementTypes.i = getelementptr inbounds i8, ptr %27, i64 40
   %28 = load ptr, ptr %elementTypes.i, align 8
   %tobool.not.i.i = icmp eq ptr %28, null
   br i1 %tobool.not.i.i, label %hashTableIterInit.exit.i, label %cond.true.i.i
 
 cond.true.i.i:                                    ; preds = %poolClear.exit52
-  %size.i.i = getelementptr inbounds %struct.DTD, ptr %27, i64 0, i32 1, i32 2
+  %size.i.i = getelementptr inbounds i8, ptr %27, i64 56
   %29 = load i64, ptr %size.i.i, align 8
   %add.ptr.i.i = getelementptr ptr, ptr %28, i64 %29
   br label %hashTableIterInit.exit.i
@@ -841,7 +821,7 @@ while.cond.i.i:                                   ; preds = %while.cond.i.i.back
   br i1 %cmp.not.i.i, label %for.end.i, label %while.body.i.i
 
 while.body.i.i:                                   ; preds = %while.cond.i.i
-  %incdec.ptr.i.i = getelementptr ptr, ptr %incdec.ptr5.i.i, i64 1
+  %incdec.ptr.i.i = getelementptr i8, ptr %incdec.ptr5.i.i, i64 8
   %30 = load ptr, ptr %incdec.ptr5.i.i, align 8
   %tobool.not.i28.i = icmp eq ptr %30, null
   br i1 %tobool.not.i28.i, label %while.cond.i.i.backedge, label %if.end.i
@@ -850,32 +830,32 @@ while.cond.i.i.backedge:                          ; preds = %while.body.i.i, %if
   br label %while.cond.i.i, !llvm.loop !9
 
 if.end.i:                                         ; preds = %while.body.i.i
-  %allocDefaultAtts.i = getelementptr inbounds %struct.ELEMENT_TYPE, ptr %30, i64 0, i32 4
+  %allocDefaultAtts.i = getelementptr inbounds i8, ptr %30, i64 28
   %31 = load i32, ptr %allocDefaultAtts.i, align 4
   %cmp.not.i = icmp eq i32 %31, 0
   br i1 %cmp.not.i, label %while.cond.i.i.backedge, label %if.then1.i
 
 if.then1.i:                                       ; preds = %if.end.i
   %32 = load ptr, ptr %free_fcn, align 8
-  %defaultAtts.i = getelementptr inbounds %struct.ELEMENT_TYPE, ptr %30, i64 0, i32 5
+  %defaultAtts.i = getelementptr inbounds i8, ptr %30, i64 32
   %33 = load ptr, ptr %defaultAtts.i, align 8
   tail call void %32(ptr noundef %33) #23
   br label %while.cond.i.i.backedge
 
 for.end.i:                                        ; preds = %while.cond.i.i
-  %size.i29.i = getelementptr inbounds %struct.HASH_TABLE, ptr %27, i64 0, i32 2
+  %size.i29.i = getelementptr inbounds i8, ptr %27, i64 16
   %34 = load i64, ptr %size.i29.i, align 8
   %cmp8.not.i.i = icmp eq i64 %34, 0
   br i1 %cmp8.not.i.i, label %hashTableClear.exit.i, label %for.body.lr.ph.i.i
 
 for.body.lr.ph.i.i:                               ; preds = %for.end.i
-  %mem.i.i = getelementptr inbounds %struct.HASH_TABLE, ptr %27, i64 0, i32 4
+  %mem.i.i = getelementptr inbounds i8, ptr %27, i64 32
   br label %for.body.i.i
 
 for.body.i.i:                                     ; preds = %for.body.i.i, %for.body.lr.ph.i.i
   %i.09.i.i = phi i64 [ 0, %for.body.lr.ph.i.i ], [ %inc.i.i, %for.body.i.i ]
   %35 = load ptr, ptr %mem.i.i, align 8
-  %free_fcn.i.i = getelementptr inbounds %struct.XML_Memory_Handling_Suite, ptr %35, i64 0, i32 2
+  %free_fcn.i.i = getelementptr inbounds i8, ptr %35, i64 16
   %36 = load ptr, ptr %free_fcn.i.i, align 8
   %37 = load ptr, ptr %27, align 8
   %arrayidx.i.i = getelementptr ptr, ptr %37, i64 %i.09.i.i
@@ -890,24 +870,24 @@ for.body.i.i:                                     ; preds = %for.body.i.i, %for.
   br i1 %cmp.i.i, label %for.body.i.i, label %hashTableClear.exit.i, !llvm.loop !10
 
 hashTableClear.exit.i:                            ; preds = %for.body.i.i, %for.end.i
-  %used.i.i = getelementptr inbounds %struct.HASH_TABLE, ptr %27, i64 0, i32 3
+  %used.i.i = getelementptr inbounds i8, ptr %27, i64 24
   store i64 0, ptr %used.i.i, align 8
-  %paramEntityRead.i = getelementptr inbounds %struct.DTD, ptr %27, i64 0, i32 9
+  %paramEntityRead.i = getelementptr inbounds i8, ptr %27, i64 259
   store i8 0, ptr %paramEntityRead.i, align 1
-  %paramEntities.i = getelementptr inbounds %struct.DTD, ptr %27, i64 0, i32 10
-  %size.i30.i = getelementptr inbounds %struct.DTD, ptr %27, i64 0, i32 10, i32 2
+  %paramEntities.i = getelementptr inbounds i8, ptr %27, i64 264
+  %size.i30.i = getelementptr inbounds i8, ptr %27, i64 280
   %41 = load i64, ptr %size.i30.i, align 8
   %cmp8.not.i31.i = icmp eq i64 %41, 0
   br i1 %cmp8.not.i31.i, label %hashTableClear.exit42.i, label %for.body.lr.ph.i32.i
 
 for.body.lr.ph.i32.i:                             ; preds = %hashTableClear.exit.i
-  %mem.i33.i = getelementptr inbounds %struct.DTD, ptr %27, i64 0, i32 10, i32 4
+  %mem.i33.i = getelementptr inbounds i8, ptr %27, i64 296
   br label %for.body.i34.i
 
 for.body.i34.i:                                   ; preds = %for.body.i34.i, %for.body.lr.ph.i32.i
   %i.09.i35.i = phi i64 [ 0, %for.body.lr.ph.i32.i ], [ %inc.i39.i, %for.body.i34.i ]
   %42 = load ptr, ptr %mem.i33.i, align 8
-  %free_fcn.i36.i = getelementptr inbounds %struct.XML_Memory_Handling_Suite, ptr %42, i64 0, i32 2
+  %free_fcn.i36.i = getelementptr inbounds i8, ptr %42, i64 16
   %43 = load ptr, ptr %free_fcn.i36.i, align 8
   %44 = load ptr, ptr %paramEntities.i, align 8
   %arrayidx.i37.i = getelementptr ptr, ptr %44, i64 %i.09.i35.i
@@ -922,21 +902,21 @@ for.body.i34.i:                                   ; preds = %for.body.i34.i, %fo
   br i1 %cmp.i40.i, label %for.body.i34.i, label %hashTableClear.exit42.i, !llvm.loop !10
 
 hashTableClear.exit42.i:                          ; preds = %for.body.i34.i, %hashTableClear.exit.i
-  %used.i41.i = getelementptr inbounds %struct.DTD, ptr %27, i64 0, i32 10, i32 3
+  %used.i41.i = getelementptr inbounds i8, ptr %27, i64 288
   store i64 0, ptr %used.i41.i, align 8
-  %size.i43.i = getelementptr inbounds %struct.DTD, ptr %27, i64 0, i32 1, i32 2
+  %size.i43.i = getelementptr inbounds i8, ptr %27, i64 56
   %48 = load i64, ptr %size.i43.i, align 8
   %cmp8.not.i44.i = icmp eq i64 %48, 0
   br i1 %cmp8.not.i44.i, label %hashTableClear.exit55.i, label %for.body.lr.ph.i45.i
 
 for.body.lr.ph.i45.i:                             ; preds = %hashTableClear.exit42.i
-  %mem.i46.i = getelementptr inbounds %struct.DTD, ptr %27, i64 0, i32 1, i32 4
+  %mem.i46.i = getelementptr inbounds i8, ptr %27, i64 72
   br label %for.body.i47.i
 
 for.body.i47.i:                                   ; preds = %for.body.i47.i, %for.body.lr.ph.i45.i
   %i.09.i48.i = phi i64 [ 0, %for.body.lr.ph.i45.i ], [ %inc.i52.i, %for.body.i47.i ]
   %49 = load ptr, ptr %mem.i46.i, align 8
-  %free_fcn.i49.i = getelementptr inbounds %struct.XML_Memory_Handling_Suite, ptr %49, i64 0, i32 2
+  %free_fcn.i49.i = getelementptr inbounds i8, ptr %49, i64 16
   %50 = load ptr, ptr %free_fcn.i49.i, align 8
   %51 = load ptr, ptr %elementTypes.i, align 8
   %arrayidx.i50.i = getelementptr ptr, ptr %51, i64 %i.09.i48.i
@@ -951,22 +931,22 @@ for.body.i47.i:                                   ; preds = %for.body.i47.i, %fo
   br i1 %cmp.i53.i, label %for.body.i47.i, label %hashTableClear.exit55.i, !llvm.loop !10
 
 hashTableClear.exit55.i:                          ; preds = %for.body.i47.i, %hashTableClear.exit42.i
-  %used.i54.i = getelementptr inbounds %struct.DTD, ptr %27, i64 0, i32 1, i32 3
+  %used.i54.i = getelementptr inbounds i8, ptr %27, i64 64
   store i64 0, ptr %used.i54.i, align 8
-  %attributeIds.i = getelementptr inbounds %struct.DTD, ptr %27, i64 0, i32 2
-  %size.i56.i = getelementptr inbounds %struct.DTD, ptr %27, i64 0, i32 2, i32 2
+  %attributeIds.i = getelementptr inbounds i8, ptr %27, i64 80
+  %size.i56.i = getelementptr inbounds i8, ptr %27, i64 96
   %55 = load i64, ptr %size.i56.i, align 8
   %cmp8.not.i57.i = icmp eq i64 %55, 0
   br i1 %cmp8.not.i57.i, label %hashTableClear.exit68.i, label %for.body.lr.ph.i58.i
 
 for.body.lr.ph.i58.i:                             ; preds = %hashTableClear.exit55.i
-  %mem.i59.i = getelementptr inbounds %struct.DTD, ptr %27, i64 0, i32 2, i32 4
+  %mem.i59.i = getelementptr inbounds i8, ptr %27, i64 112
   br label %for.body.i60.i
 
 for.body.i60.i:                                   ; preds = %for.body.i60.i, %for.body.lr.ph.i58.i
   %i.09.i61.i = phi i64 [ 0, %for.body.lr.ph.i58.i ], [ %inc.i65.i, %for.body.i60.i ]
   %56 = load ptr, ptr %mem.i59.i, align 8
-  %free_fcn.i62.i = getelementptr inbounds %struct.XML_Memory_Handling_Suite, ptr %56, i64 0, i32 2
+  %free_fcn.i62.i = getelementptr inbounds i8, ptr %56, i64 16
   %57 = load ptr, ptr %free_fcn.i62.i, align 8
   %58 = load ptr, ptr %attributeIds.i, align 8
   %arrayidx.i63.i = getelementptr ptr, ptr %58, i64 %i.09.i61.i
@@ -981,22 +961,22 @@ for.body.i60.i:                                   ; preds = %for.body.i60.i, %fo
   br i1 %cmp.i66.i, label %for.body.i60.i, label %hashTableClear.exit68.i, !llvm.loop !10
 
 hashTableClear.exit68.i:                          ; preds = %for.body.i60.i, %hashTableClear.exit55.i
-  %used.i67.i = getelementptr inbounds %struct.DTD, ptr %27, i64 0, i32 2, i32 3
+  %used.i67.i = getelementptr inbounds i8, ptr %27, i64 104
   store i64 0, ptr %used.i67.i, align 8
-  %prefixes.i = getelementptr inbounds %struct.DTD, ptr %27, i64 0, i32 3
-  %size.i69.i = getelementptr inbounds %struct.DTD, ptr %27, i64 0, i32 3, i32 2
+  %prefixes.i = getelementptr inbounds i8, ptr %27, i64 120
+  %size.i69.i = getelementptr inbounds i8, ptr %27, i64 136
   %62 = load i64, ptr %size.i69.i, align 8
   %cmp8.not.i70.i = icmp eq i64 %62, 0
   br i1 %cmp8.not.i70.i, label %hashTableClear.exit81.i, label %for.body.lr.ph.i71.i
 
 for.body.lr.ph.i71.i:                             ; preds = %hashTableClear.exit68.i
-  %mem.i72.i = getelementptr inbounds %struct.DTD, ptr %27, i64 0, i32 3, i32 4
+  %mem.i72.i = getelementptr inbounds i8, ptr %27, i64 152
   br label %for.body.i73.i
 
 for.body.i73.i:                                   ; preds = %for.body.i73.i, %for.body.lr.ph.i71.i
   %i.09.i74.i = phi i64 [ 0, %for.body.lr.ph.i71.i ], [ %inc.i78.i, %for.body.i73.i ]
   %63 = load ptr, ptr %mem.i72.i, align 8
-  %free_fcn.i75.i = getelementptr inbounds %struct.XML_Memory_Handling_Suite, ptr %63, i64 0, i32 2
+  %free_fcn.i75.i = getelementptr inbounds i8, ptr %63, i64 16
   %64 = load ptr, ptr %free_fcn.i75.i, align 8
   %65 = load ptr, ptr %prefixes.i, align 8
   %arrayidx.i76.i = getelementptr ptr, ptr %65, i64 %i.09.i74.i
@@ -1011,10 +991,10 @@ for.body.i73.i:                                   ; preds = %for.body.i73.i, %fo
   br i1 %cmp.i79.i, label %for.body.i73.i, label %hashTableClear.exit81.i, !llvm.loop !10
 
 hashTableClear.exit81.i:                          ; preds = %for.body.i73.i, %hashTableClear.exit68.i
-  %used.i80.i = getelementptr inbounds %struct.DTD, ptr %27, i64 0, i32 3, i32 3
+  %used.i80.i = getelementptr inbounds i8, ptr %27, i64 144
   store i64 0, ptr %used.i80.i, align 8
-  %pool.i = getelementptr inbounds %struct.DTD, ptr %27, i64 0, i32 4
-  %freeBlocks.i.i = getelementptr inbounds %struct.DTD, ptr %27, i64 0, i32 4, i32 1
+  %pool.i = getelementptr inbounds i8, ptr %27, i64 160
+  %freeBlocks.i.i = getelementptr inbounds i8, ptr %27, i64 168
   %69 = load ptr, ptr %freeBlocks.i.i, align 8
   %tobool.not.i82.i = icmp eq ptr %69, null
   %70 = load ptr, ptr %pool.i, align 8
@@ -1039,10 +1019,10 @@ while.body.i83.i:                                 ; preds = %if.else.i.i, %while
 
 poolClear.exit.i:                                 ; preds = %while.body.i83.i, %if.else.i.i, %if.then.i.i
   store ptr null, ptr %pool.i, align 8
-  %end.i84.i = getelementptr inbounds %struct.DTD, ptr %27, i64 0, i32 4, i32 2
+  %end.i84.i = getelementptr inbounds i8, ptr %27, i64 176
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %end.i84.i, i8 0, i64 24, i1 false)
-  %entityValuePool.i = getelementptr inbounds %struct.DTD, ptr %27, i64 0, i32 5
-  %freeBlocks.i85.i = getelementptr inbounds %struct.DTD, ptr %27, i64 0, i32 5, i32 1
+  %entityValuePool.i = getelementptr inbounds i8, ptr %27, i64 208
+  %freeBlocks.i85.i = getelementptr inbounds i8, ptr %27, i64 216
   %73 = load ptr, ptr %freeBlocks.i85.i, align 8
   %tobool.not.i86.i = icmp eq ptr %73, null
   %74 = load ptr, ptr %entityValuePool.i, align 8
@@ -1067,25 +1047,25 @@ while.body.i89.i:                                 ; preds = %if.else.i87.i, %whi
 
 dtdReset.exit:                                    ; preds = %while.body.i89.i, %if.then.i93.i, %if.else.i87.i
   store ptr null, ptr %entityValuePool.i, align 8
-  %end.i92.i = getelementptr inbounds %struct.DTD, ptr %27, i64 0, i32 5, i32 2
+  %end.i92.i = getelementptr inbounds i8, ptr %27, i64 224
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %end.i92.i, i8 0, i64 24, i1 false)
-  %defaultPrefix.i = getelementptr inbounds %struct.DTD, ptr %27, i64 0, i32 11
+  %defaultPrefix.i = getelementptr inbounds i8, ptr %27, i64 304
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(17) %defaultPrefix.i, i8 0, i64 17, i1 false)
   %77 = load ptr, ptr %free_fcn, align 8
-  %scaffIndex.i = getelementptr inbounds %struct.DTD, ptr %27, i64 0, i32 18
+  %scaffIndex.i = getelementptr inbounds i8, ptr %27, i64 352
   %78 = load ptr, ptr %scaffIndex.i, align 8
   tail call void %77(ptr noundef %78) #23
   store ptr null, ptr %scaffIndex.i, align 8
   %79 = load ptr, ptr %free_fcn, align 8
-  %scaffold.i = getelementptr inbounds %struct.DTD, ptr %27, i64 0, i32 13
+  %scaffold.i = getelementptr inbounds i8, ptr %27, i64 328
   %80 = load ptr, ptr %scaffold.i, align 8
   tail call void %79(ptr noundef %80) #23
-  %keepProcessing.i = getelementptr inbounds %struct.DTD, ptr %27, i64 0, i32 6
+  %keepProcessing.i = getelementptr inbounds i8, ptr %27, i64 256
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %scaffold.i, i8 0, i64 24, i1 false)
   store i8 1, ptr %keepProcessing.i, align 8
-  %hasParamEntityRefs.i = getelementptr inbounds %struct.DTD, ptr %27, i64 0, i32 7
+  %hasParamEntityRefs.i = getelementptr inbounds i8, ptr %27, i64 257
   store i8 0, ptr %hasParamEntityRefs.i, align 1
-  %standalone.i = getelementptr inbounds %struct.DTD, ptr %27, i64 0, i32 8
+  %standalone.i = getelementptr inbounds i8, ptr %27, i64 258
   store i8 0, ptr %standalone.i, align 2
   br label %return
 
@@ -1099,9 +1079,9 @@ define internal fastcc void @parserInit(ptr noundef %parser, ptr noundef readonl
 entry:
   %afterValue.i78 = alloca ptr, align 8
   %afterValue.i = alloca ptr, align 8
-  %m_processor = getelementptr inbounds %struct.XML_ParserStruct, ptr %parser, i64 0, i32 45
+  %m_processor = getelementptr inbounds i8, ptr %parser, i64 528
   store ptr @prologInitProcessor, ptr %m_processor, align 8
-  %m_prologState = getelementptr inbounds %struct.XML_ParserStruct, ptr %parser, i64 0, i32 44
+  %m_prologState = getelementptr inbounds i8, ptr %parser, i64 496
   tail call void @PyExpat_XmlPrologStateInit(ptr noundef nonnull %m_prologState) #23
   %cmp.not = icmp eq ptr %encodingName, null
   br i1 %cmp.not, label %if.end, label %while.cond.i
@@ -1115,7 +1095,7 @@ while.cond.i:                                     ; preds = %entry, %while.cond.
   br i1 %cmp.not.i, label %while.end.i, label %while.cond.i, !llvm.loop !11
 
 while.end.i:                                      ; preds = %while.cond.i
-  %m_mem = getelementptr inbounds %struct.XML_ParserStruct, ptr %parser, i64 0, i32 3
+  %m_mem = getelementptr inbounds i8, ptr %parser, i64 24
   %1 = load ptr, ptr %m_mem, align 8
   %call.i = tail call ptr %1(i64 noundef %inc.i) #23
   %cmp3.i = icmp eq ptr %call.i, null
@@ -1126,63 +1106,63 @@ if.end.i:                                         ; preds = %while.end.i
   br label %copyString.exit
 
 copyString.exit:                                  ; preds = %while.end.i, %if.end.i
-  %m_protocolEncodingName = getelementptr inbounds %struct.XML_ParserStruct, ptr %parser, i64 0, i32 37
+  %m_protocolEncodingName = getelementptr inbounds i8, ptr %parser, i64 448
   store ptr %call.i, ptr %m_protocolEncodingName, align 8
   br label %if.end
 
 if.end:                                           ; preds = %copyString.exit, %entry
-  %m_curBase = getelementptr inbounds %struct.XML_ParserStruct, ptr %parser, i64 0, i32 66
+  %m_curBase = getelementptr inbounds i8, ptr %parser, i64 680
   store ptr null, ptr %m_curBase, align 8
-  %m_initEncoding = getelementptr inbounds %struct.XML_ParserStruct, ptr %parser, i64 0, i32 35
-  %m_encoding = getelementptr inbounds %struct.XML_ParserStruct, ptr %parser, i64 0, i32 34
+  %m_initEncoding = getelementptr inbounds i8, ptr %parser, i64 296
+  %m_encoding = getelementptr inbounds i8, ptr %parser, i64 288
   %call1 = tail call i32 @PyExpat_XmlInitEncoding(ptr noundef nonnull %m_initEncoding, ptr noundef nonnull %m_encoding, ptr noundef null) #23
-  %m_startElementHandler = getelementptr inbounds %struct.XML_ParserStruct, ptr %parser, i64 0, i32 11
-  %m_externalEntityRefHandlerArg = getelementptr inbounds %struct.XML_ParserStruct, ptr %parser, i64 0, i32 27
+  %m_startElementHandler = getelementptr inbounds i8, ptr %parser, i64 104
+  %m_externalEntityRefHandlerArg = getelementptr inbounds i8, ptr %parser, i64 232
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %parser, i8 0, i64 16, i1 false)
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(128) %m_startElementHandler, i8 0, i64 128, i1 false)
   store ptr %parser, ptr %m_externalEntityRefHandlerArg, align 8
-  %m_skippedEntityHandler = getelementptr inbounds %struct.XML_ParserStruct, ptr %parser, i64 0, i32 28
+  %m_skippedEntityHandler = getelementptr inbounds i8, ptr %parser, i64 240
   store ptr null, ptr %m_skippedEntityHandler, align 8
-  %m_elementDeclHandler = getelementptr inbounds %struct.XML_ParserStruct, ptr %parser, i64 0, i32 30
-  %m_buffer = getelementptr inbounds %struct.XML_ParserStruct, ptr %parser, i64 0, i32 2
+  %m_elementDeclHandler = getelementptr inbounds i8, ptr %parser, i64 256
+  %m_buffer = getelementptr inbounds i8, ptr %parser, i64 16
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %m_elementDeclHandler, i8 0, i64 32, i1 false)
   %2 = load ptr, ptr %m_buffer, align 8
-  %m_bufferPtr = getelementptr inbounds %struct.XML_ParserStruct, ptr %parser, i64 0, i32 4
+  %m_bufferPtr = getelementptr inbounds i8, ptr %parser, i64 48
   store ptr %2, ptr %m_bufferPtr, align 8
-  %m_bufferEnd = getelementptr inbounds %struct.XML_ParserStruct, ptr %parser, i64 0, i32 5
+  %m_bufferEnd = getelementptr inbounds i8, ptr %parser, i64 56
   store ptr %2, ptr %m_bufferEnd, align 8
-  %m_parseEndByteIndex = getelementptr inbounds %struct.XML_ParserStruct, ptr %parser, i64 0, i32 7
-  %m_declEntity = getelementptr inbounds %struct.XML_ParserStruct, ptr %parser, i64 0, i32 54
-  %m_position = getelementptr inbounds %struct.XML_ParserStruct, ptr %parser, i64 0, i32 78
+  %m_parseEndByteIndex = getelementptr inbounds i8, ptr %parser, i64 72
+  %m_declEntity = getelementptr inbounds i8, ptr %parser, i64 592
+  %m_position = getelementptr inbounds i8, ptr %parser, i64 768
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %m_position, i8 0, i64 16, i1 false)
-  %m_errorCode = getelementptr inbounds %struct.XML_ParserStruct, ptr %parser, i64 0, i32 46
+  %m_errorCode = getelementptr inbounds i8, ptr %parser, i64 536
   store i32 0, ptr %m_errorCode, align 8
-  %m_eventPtr = getelementptr inbounds %struct.XML_ParserStruct, ptr %parser, i64 0, i32 47
-  %m_defaultExpandInternalEntities = getelementptr inbounds %struct.XML_ParserStruct, ptr %parser, i64 0, i32 52
+  %m_eventPtr = getelementptr inbounds i8, ptr %parser, i64 544
+  %m_defaultExpandInternalEntities = getelementptr inbounds i8, ptr %parser, i64 584
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %m_parseEndByteIndex, i8 0, i64 16, i1 false)
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %m_eventPtr, i8 0, i64 32, i1 false)
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(74) %m_declEntity, i8 0, i64 74, i1 false)
   store i8 1, ptr %m_defaultExpandInternalEntities, align 8
-  %m_tagLevel = getelementptr inbounds %struct.XML_ParserStruct, ptr %parser, i64 0, i32 53
+  %m_tagLevel = getelementptr inbounds i8, ptr %parser, i64 588
   store i32 0, ptr %m_tagLevel, align 4
-  %m_tagStack = getelementptr inbounds %struct.XML_ParserStruct, ptr %parser, i64 0, i32 67
+  %m_tagStack = getelementptr inbounds i8, ptr %parser, i64 688
   store ptr null, ptr %m_tagStack, align 8
-  %m_inheritedBindings = getelementptr inbounds %struct.XML_ParserStruct, ptr %parser, i64 0, i32 69
+  %m_inheritedBindings = getelementptr inbounds i8, ptr %parser, i64 704
   store ptr null, ptr %m_inheritedBindings, align 8
-  %m_nSpecifiedAtts = getelementptr inbounds %struct.XML_ParserStruct, ptr %parser, i64 0, i32 72
+  %m_nSpecifiedAtts = getelementptr inbounds i8, ptr %parser, i64 724
   store i32 0, ptr %m_nSpecifiedAtts, align 4
-  %m_unknownEncodingMem = getelementptr inbounds %struct.XML_ParserStruct, ptr %parser, i64 0, i32 40
-  %m_unknownEncodingRelease = getelementptr inbounds %struct.XML_ParserStruct, ptr %parser, i64 0, i32 43
+  %m_unknownEncodingMem = getelementptr inbounds i8, ptr %parser, i64 464
+  %m_unknownEncodingRelease = getelementptr inbounds i8, ptr %parser, i64 488
   store ptr null, ptr %m_unknownEncodingRelease, align 8
-  %m_parentParser = getelementptr inbounds %struct.XML_ParserStruct, ptr %parser, i64 0, i32 84
+  %m_parentParser = getelementptr inbounds i8, ptr %parser, i64 896
   store ptr null, ptr %m_parentParser, align 8
-  %m_parsingStatus = getelementptr inbounds %struct.XML_ParserStruct, ptr %parser, i64 0, i32 85
+  %m_parsingStatus = getelementptr inbounds i8, ptr %parser, i64 904
   store i32 0, ptr %m_parsingStatus, align 8
-  %m_isParamEntity = getelementptr inbounds %struct.XML_ParserStruct, ptr %parser, i64 0, i32 86
+  %m_isParamEntity = getelementptr inbounds i8, ptr %parser, i64 912
   store i8 0, ptr %m_isParamEntity, align 8
-  %m_useForeignDTD = getelementptr inbounds %struct.XML_ParserStruct, ptr %parser, i64 0, i32 87
+  %m_useForeignDTD = getelementptr inbounds i8, ptr %parser, i64 913
   store i8 0, ptr %m_useForeignDTD, align 1
-  %m_paramEntityParsing = getelementptr inbounds %struct.XML_ParserStruct, ptr %parser, i64 0, i32 88
+  %m_paramEntityParsing = getelementptr inbounds i8, ptr %parser, i64 916
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %m_unknownEncodingMem, i8 0, i64 16, i1 false)
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(44) %m_paramEntityParsing, i8 0, i64 44, i1 false)
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %afterValue.i)
@@ -1213,13 +1193,13 @@ getDebugLevel.exit:                               ; preds = %if.end, %lor.lhs.fa
   %retval.0.i = phi i64 [ 0, %if.then7.i ], [ 0, %if.end ], [ %call2.i, %lor.lhs.false.i ]
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %afterValue.i)
   %conv = trunc i64 %retval.0.i to i32
-  %debugLevel = getelementptr inbounds %struct.XML_ParserStruct, ptr %parser, i64 0, i32 90, i32 2
+  %debugLevel = getelementptr inbounds i8, ptr %parser, i64 944
   store i32 %conv, ptr %debugLevel, align 8
-  %maximumAmplificationFactor = getelementptr inbounds %struct.XML_ParserStruct, ptr %parser, i64 0, i32 90, i32 3
+  %maximumAmplificationFactor = getelementptr inbounds i8, ptr %parser, i64 948
   store float 1.000000e+02, ptr %maximumAmplificationFactor, align 4
-  %activationThresholdBytes = getelementptr inbounds %struct.XML_ParserStruct, ptr %parser, i64 0, i32 90, i32 4
+  %activationThresholdBytes = getelementptr inbounds i8, ptr %parser, i64 952
   store i64 8388608, ptr %activationThresholdBytes, align 8
-  %m_entity_stats = getelementptr inbounds %struct.XML_ParserStruct, ptr %parser, i64 0, i32 91
+  %m_entity_stats = getelementptr inbounds i8, ptr %parser, i64 960
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %m_entity_stats, i8 0, i64 16, i1 false)
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %afterValue.i78)
   %call.i79 = tail call ptr @getenv(ptr noundef nonnull @.str.309) #23
@@ -1249,7 +1229,7 @@ getDebugLevel.exit89:                             ; preds = %getDebugLevel.exit,
   %retval.0.i86 = phi i64 [ 0, %if.then7.i85 ], [ 0, %getDebugLevel.exit ], [ %call2.i83, %lor.lhs.false.i87 ]
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %afterValue.i78)
   %conv8 = trunc i64 %retval.0.i86 to i32
-  %debugLevel10 = getelementptr inbounds %struct.XML_ParserStruct, ptr %parser, i64 0, i32 91, i32 3
+  %debugLevel10 = getelementptr inbounds i8, ptr %parser, i64 972
   store i32 %conv8, ptr %debugLevel10, align 4
   ret void
 }
@@ -1261,7 +1241,7 @@ entry:
   br i1 %cmp, label %return, label %if.end
 
 if.end:                                           ; preds = %entry
-  %m_parsingStatus = getelementptr inbounds %struct.XML_ParserStruct, ptr %parser, i64 0, i32 85
+  %m_parsingStatus = getelementptr inbounds i8, ptr %parser, i64 904
   %0 = load i32, ptr %m_parsingStatus, align 8
   switch i32 %0, label %if.end6 [
     i32 1, label %return
@@ -1269,9 +1249,9 @@ if.end:                                           ; preds = %entry
   ]
 
 if.end6:                                          ; preds = %if.end
-  %free_fcn = getelementptr inbounds %struct.XML_ParserStruct, ptr %parser, i64 0, i32 3, i32 2
+  %free_fcn = getelementptr inbounds i8, ptr %parser, i64 40
   %1 = load ptr, ptr %free_fcn, align 8
-  %m_protocolEncodingName = getelementptr inbounds %struct.XML_ParserStruct, ptr %parser, i64 0, i32 37
+  %m_protocolEncodingName = getelementptr inbounds i8, ptr %parser, i64 448
   %2 = load ptr, ptr %m_protocolEncodingName, align 8
   tail call void %1(ptr noundef %2) #23
   %cmp7 = icmp eq ptr %encodingName, null
@@ -1286,7 +1266,7 @@ while.cond.i:                                     ; preds = %if.end6, %while.con
   br i1 %cmp.not.i, label %while.end.i, label %while.cond.i, !llvm.loop !11
 
 while.end.i:                                      ; preds = %while.cond.i
-  %m_mem = getelementptr inbounds %struct.XML_ParserStruct, ptr %parser, i64 0, i32 3
+  %m_mem = getelementptr inbounds i8, ptr %parser, i64 24
   %4 = load ptr, ptr %m_mem, align 8
   %call.i = tail call ptr %4(i64 noundef %inc.i) #23
   %cmp3.i = icmp eq ptr %call.i, null
@@ -1315,64 +1295,64 @@ entry:
   br i1 %cmp, label %return, label %if.end
 
 if.end:                                           ; preds = %entry
-  %m_dtd = getelementptr inbounds %struct.XML_ParserStruct, ptr %oldParser, i64 0, i32 65
+  %m_dtd = getelementptr inbounds i8, ptr %oldParser, i64 672
   %0 = load ptr, ptr %m_dtd, align 8
-  %m_startElementHandler = getelementptr inbounds %struct.XML_ParserStruct, ptr %oldParser, i64 0, i32 11
+  %m_startElementHandler = getelementptr inbounds i8, ptr %oldParser, i64 104
   %1 = load <2 x ptr>, ptr %m_startElementHandler, align 8
-  %m_characterDataHandler = getelementptr inbounds %struct.XML_ParserStruct, ptr %oldParser, i64 0, i32 13
+  %m_characterDataHandler = getelementptr inbounds i8, ptr %oldParser, i64 120
   %2 = load <2 x ptr>, ptr %m_characterDataHandler, align 8
-  %m_commentHandler = getelementptr inbounds %struct.XML_ParserStruct, ptr %oldParser, i64 0, i32 15
+  %m_commentHandler = getelementptr inbounds i8, ptr %oldParser, i64 136
   %3 = load <2 x ptr>, ptr %m_commentHandler, align 8
-  %m_endCdataSectionHandler = getelementptr inbounds %struct.XML_ParserStruct, ptr %oldParser, i64 0, i32 17
+  %m_endCdataSectionHandler = getelementptr inbounds i8, ptr %oldParser, i64 152
   %4 = load <2 x ptr>, ptr %m_endCdataSectionHandler, align 8
-  %m_unparsedEntityDeclHandler = getelementptr inbounds %struct.XML_ParserStruct, ptr %oldParser, i64 0, i32 21
+  %m_unparsedEntityDeclHandler = getelementptr inbounds i8, ptr %oldParser, i64 184
   %5 = load <2 x ptr>, ptr %m_unparsedEntityDeclHandler, align 8
-  %m_startNamespaceDeclHandler = getelementptr inbounds %struct.XML_ParserStruct, ptr %oldParser, i64 0, i32 23
+  %m_startNamespaceDeclHandler = getelementptr inbounds i8, ptr %oldParser, i64 200
   %6 = load <2 x ptr>, ptr %m_startNamespaceDeclHandler, align 8
-  %m_notStandaloneHandler = getelementptr inbounds %struct.XML_ParserStruct, ptr %oldParser, i64 0, i32 25
+  %m_notStandaloneHandler = getelementptr inbounds i8, ptr %oldParser, i64 216
   %7 = load <2 x ptr>, ptr %m_notStandaloneHandler, align 8
-  %m_skippedEntityHandler = getelementptr inbounds %struct.XML_ParserStruct, ptr %oldParser, i64 0, i32 28
+  %m_skippedEntityHandler = getelementptr inbounds i8, ptr %oldParser, i64 240
   %8 = load <2 x ptr>, ptr %m_skippedEntityHandler, align 8
-  %m_elementDeclHandler = getelementptr inbounds %struct.XML_ParserStruct, ptr %oldParser, i64 0, i32 30
+  %m_elementDeclHandler = getelementptr inbounds i8, ptr %oldParser, i64 256
   %9 = load <2 x ptr>, ptr %m_elementDeclHandler, align 8
-  %m_entityDeclHandler = getelementptr inbounds %struct.XML_ParserStruct, ptr %oldParser, i64 0, i32 32
+  %m_entityDeclHandler = getelementptr inbounds i8, ptr %oldParser, i64 272
   %10 = load <2 x ptr>, ptr %m_entityDeclHandler, align 8
-  %m_declElementType = getelementptr inbounds %struct.XML_ParserStruct, ptr %oldParser, i64 0, i32 61
+  %m_declElementType = getelementptr inbounds i8, ptr %oldParser, i64 648
   %11 = load ptr, ptr %m_declElementType, align 8
   %12 = load ptr, ptr %oldParser, align 8
-  %m_handlerArg = getelementptr inbounds %struct.XML_ParserStruct, ptr %oldParser, i64 0, i32 1
+  %m_handlerArg = getelementptr inbounds i8, ptr %oldParser, i64 8
   %13 = load ptr, ptr %m_handlerArg, align 8
-  %m_defaultExpandInternalEntities = getelementptr inbounds %struct.XML_ParserStruct, ptr %oldParser, i64 0, i32 52
+  %m_defaultExpandInternalEntities = getelementptr inbounds i8, ptr %oldParser, i64 584
   %14 = load i8, ptr %m_defaultExpandInternalEntities, align 8
-  %m_externalEntityRefHandlerArg = getelementptr inbounds %struct.XML_ParserStruct, ptr %oldParser, i64 0, i32 27
+  %m_externalEntityRefHandlerArg = getelementptr inbounds i8, ptr %oldParser, i64 232
   %15 = load ptr, ptr %m_externalEntityRefHandlerArg, align 8
-  %m_paramEntityParsing = getelementptr inbounds %struct.XML_ParserStruct, ptr %oldParser, i64 0, i32 88
+  %m_paramEntityParsing = getelementptr inbounds i8, ptr %oldParser, i64 916
   %16 = load i32, ptr %m_paramEntityParsing, align 4
-  %inEntityValue = getelementptr inbounds %struct.XML_ParserStruct, ptr %oldParser, i64 0, i32 44, i32 5
+  %inEntityValue = getelementptr inbounds i8, ptr %oldParser, i64 520
   %17 = load i32, ptr %inEntityValue, align 8
-  %m_ns_triplets = getelementptr inbounds %struct.XML_ParserStruct, ptr %oldParser, i64 0, i32 39
+  %m_ns_triplets = getelementptr inbounds i8, ptr %oldParser, i64 457
   %18 = load i8, ptr %m_ns_triplets, align 1
-  %m_hash_secret_salt = getelementptr inbounds %struct.XML_ParserStruct, ptr %oldParser, i64 0, i32 89
+  %m_hash_secret_salt = getelementptr inbounds i8, ptr %oldParser, i64 920
   %19 = load i64, ptr %m_hash_secret_salt, align 8
   %tobool.not = icmp eq ptr %context, null
   %spec.select = select i1 %tobool.not, ptr %0, ptr null
-  %m_ns = getelementptr inbounds %struct.XML_ParserStruct, ptr %oldParser, i64 0, i32 38
+  %m_ns = getelementptr inbounds i8, ptr %oldParser, i64 456
   %20 = load i8, ptr %m_ns, align 8
   %tobool3.not = icmp eq i8 %20, 0
   br i1 %tobool3.not, label %if.else, label %if.then4
 
 if.then4:                                         ; preds = %if.end
-  %m_namespaceSeparator = getelementptr inbounds %struct.XML_ParserStruct, ptr %oldParser, i64 0, i32 83
+  %m_namespaceSeparator = getelementptr inbounds i8, ptr %oldParser, i64 892
   %21 = load i8, ptr %m_namespaceSeparator, align 4
   store i8 %21, ptr %tmp, align 1
   %arrayinit.element = getelementptr inbounds i8, ptr %tmp, i64 1
   store i8 0, ptr %arrayinit.element, align 1
-  %m_mem = getelementptr inbounds %struct.XML_ParserStruct, ptr %oldParser, i64 0, i32 3
+  %m_mem = getelementptr inbounds i8, ptr %oldParser, i64 24
   %call = call fastcc ptr @parserCreate(ptr noundef %encodingName, ptr noundef nonnull %m_mem, ptr noundef nonnull %tmp, ptr noundef %spec.select)
   br label %if.end7
 
 if.else:                                          ; preds = %if.end
-  %m_mem5 = getelementptr inbounds %struct.XML_ParserStruct, ptr %oldParser, i64 0, i32 3
+  %m_mem5 = getelementptr inbounds i8, ptr %oldParser, i64 24
   %call6 = tail call fastcc ptr @parserCreate(ptr noundef %encodingName, ptr noundef nonnull %m_mem5, ptr noundef null, ptr noundef %spec.select)
   br label %if.end7
 
@@ -1382,80 +1362,80 @@ if.end7:                                          ; preds = %if.else, %if.then4
   br i1 %tobool8.not, label %return, label %if.end10
 
 if.end10:                                         ; preds = %if.end7
-  %m_startElementHandler11 = getelementptr inbounds %struct.XML_ParserStruct, ptr %parser.0, i64 0, i32 11
+  %m_startElementHandler11 = getelementptr inbounds i8, ptr %parser.0, i64 104
   store <2 x ptr> %1, ptr %m_startElementHandler11, align 8
-  %m_characterDataHandler13 = getelementptr inbounds %struct.XML_ParserStruct, ptr %parser.0, i64 0, i32 13
+  %m_characterDataHandler13 = getelementptr inbounds i8, ptr %parser.0, i64 120
   store <2 x ptr> %2, ptr %m_characterDataHandler13, align 8
-  %m_commentHandler15 = getelementptr inbounds %struct.XML_ParserStruct, ptr %parser.0, i64 0, i32 15
+  %m_commentHandler15 = getelementptr inbounds i8, ptr %parser.0, i64 136
   store <2 x ptr> %3, ptr %m_commentHandler15, align 8
-  %m_endCdataSectionHandler17 = getelementptr inbounds %struct.XML_ParserStruct, ptr %parser.0, i64 0, i32 17
+  %m_endCdataSectionHandler17 = getelementptr inbounds i8, ptr %parser.0, i64 152
   store <2 x ptr> %4, ptr %m_endCdataSectionHandler17, align 8
-  %m_unparsedEntityDeclHandler19 = getelementptr inbounds %struct.XML_ParserStruct, ptr %parser.0, i64 0, i32 21
+  %m_unparsedEntityDeclHandler19 = getelementptr inbounds i8, ptr %parser.0, i64 184
   store <2 x ptr> %5, ptr %m_unparsedEntityDeclHandler19, align 8
-  %m_startNamespaceDeclHandler21 = getelementptr inbounds %struct.XML_ParserStruct, ptr %parser.0, i64 0, i32 23
+  %m_startNamespaceDeclHandler21 = getelementptr inbounds i8, ptr %parser.0, i64 200
   store <2 x ptr> %6, ptr %m_startNamespaceDeclHandler21, align 8
-  %m_notStandaloneHandler23 = getelementptr inbounds %struct.XML_ParserStruct, ptr %parser.0, i64 0, i32 25
+  %m_notStandaloneHandler23 = getelementptr inbounds i8, ptr %parser.0, i64 216
   store <2 x ptr> %7, ptr %m_notStandaloneHandler23, align 8
-  %m_skippedEntityHandler25 = getelementptr inbounds %struct.XML_ParserStruct, ptr %parser.0, i64 0, i32 28
+  %m_skippedEntityHandler25 = getelementptr inbounds i8, ptr %parser.0, i64 240
   store <2 x ptr> %8, ptr %m_skippedEntityHandler25, align 8
-  %m_elementDeclHandler27 = getelementptr inbounds %struct.XML_ParserStruct, ptr %parser.0, i64 0, i32 30
+  %m_elementDeclHandler27 = getelementptr inbounds i8, ptr %parser.0, i64 256
   store <2 x ptr> %9, ptr %m_elementDeclHandler27, align 8
-  %m_entityDeclHandler29 = getelementptr inbounds %struct.XML_ParserStruct, ptr %parser.0, i64 0, i32 32
+  %m_entityDeclHandler29 = getelementptr inbounds i8, ptr %parser.0, i64 272
   store <2 x ptr> %10, ptr %m_entityDeclHandler29, align 8
-  %m_declElementType31 = getelementptr inbounds %struct.XML_ParserStruct, ptr %parser.0, i64 0, i32 61
+  %m_declElementType31 = getelementptr inbounds i8, ptr %parser.0, i64 648
   store ptr %11, ptr %m_declElementType31, align 8
   store ptr %12, ptr %parser.0, align 8
   %cmp33 = icmp eq ptr %12, %13
   %spec.select153 = select i1 %cmp33, ptr %12, ptr %parser.0
-  %22 = getelementptr inbounds %struct.XML_ParserStruct, ptr %parser.0, i64 0, i32 1
+  %22 = getelementptr inbounds i8, ptr %parser.0, i64 8
   store ptr %spec.select153, ptr %22, align 8
   %cmp40.not = icmp eq ptr %15, %oldParser
   br i1 %cmp40.not, label %if.end43, label %if.then41
 
 if.then41:                                        ; preds = %if.end10
-  %m_externalEntityRefHandlerArg42 = getelementptr inbounds %struct.XML_ParserStruct, ptr %parser.0, i64 0, i32 27
+  %m_externalEntityRefHandlerArg42 = getelementptr inbounds i8, ptr %parser.0, i64 232
   store ptr %15, ptr %m_externalEntityRefHandlerArg42, align 8
   br label %if.end43
 
 if.end43:                                         ; preds = %if.then41, %if.end10
-  %m_defaultExpandInternalEntities44 = getelementptr inbounds %struct.XML_ParserStruct, ptr %parser.0, i64 0, i32 52
+  %m_defaultExpandInternalEntities44 = getelementptr inbounds i8, ptr %parser.0, i64 584
   store i8 %14, ptr %m_defaultExpandInternalEntities44, align 8
-  %m_ns_triplets45 = getelementptr inbounds %struct.XML_ParserStruct, ptr %parser.0, i64 0, i32 39
+  %m_ns_triplets45 = getelementptr inbounds i8, ptr %parser.0, i64 457
   store i8 %18, ptr %m_ns_triplets45, align 1
-  %m_hash_secret_salt46 = getelementptr inbounds %struct.XML_ParserStruct, ptr %parser.0, i64 0, i32 89
+  %m_hash_secret_salt46 = getelementptr inbounds i8, ptr %parser.0, i64 920
   store i64 %19, ptr %m_hash_secret_salt46, align 8
-  %m_parentParser = getelementptr inbounds %struct.XML_ParserStruct, ptr %parser.0, i64 0, i32 84
+  %m_parentParser = getelementptr inbounds i8, ptr %parser.0, i64 896
   store ptr %oldParser, ptr %m_parentParser, align 8
-  %m_paramEntityParsing47 = getelementptr inbounds %struct.XML_ParserStruct, ptr %parser.0, i64 0, i32 88
+  %m_paramEntityParsing47 = getelementptr inbounds i8, ptr %parser.0, i64 916
   store i32 %16, ptr %m_paramEntityParsing47, align 4
-  %inEntityValue49 = getelementptr inbounds %struct.XML_ParserStruct, ptr %parser.0, i64 0, i32 44, i32 5
+  %inEntityValue49 = getelementptr inbounds i8, ptr %parser.0, i64 520
   store i32 %17, ptr %inEntityValue49, align 8
   br i1 %tobool.not, label %if.else60, label %if.then51
 
 if.then51:                                        ; preds = %if.end43
-  %m_dtd52 = getelementptr inbounds %struct.XML_ParserStruct, ptr %parser.0, i64 0, i32 65
+  %m_dtd52 = getelementptr inbounds i8, ptr %parser.0, i64 672
   %23 = load ptr, ptr %m_dtd52, align 8
-  %m_mem53 = getelementptr inbounds %struct.XML_ParserStruct, ptr %parser.0, i64 0, i32 3
-  %prefixes.i = getelementptr inbounds %struct.DTD, ptr %0, i64 0, i32 3
+  %m_mem53 = getelementptr inbounds i8, ptr %parser.0, i64 24
+  %prefixes.i = getelementptr inbounds i8, ptr %0, i64 120
   %24 = load ptr, ptr %prefixes.i, align 8
   %tobool.not.i.i = icmp eq ptr %24, null
   br i1 %tobool.not.i.i, label %hashTableIterInit.exit.i, label %cond.true.i.i
 
 cond.true.i.i:                                    ; preds = %if.then51
-  %size.i.i = getelementptr inbounds %struct.DTD, ptr %0, i64 0, i32 3, i32 2
+  %size.i.i = getelementptr inbounds i8, ptr %0, i64 136
   %25 = load i64, ptr %size.i.i, align 8
   %add.ptr.i.i = getelementptr ptr, ptr %24, i64 %25
   br label %hashTableIterInit.exit.i
 
 hashTableIterInit.exit.i:                         ; preds = %cond.true.i.i, %if.then51
   %cond.i.i = phi ptr [ %add.ptr.i.i, %cond.true.i.i ], [ null, %if.then51 ]
-  %pool.i = getelementptr inbounds %struct.DTD, ptr %23, i64 0, i32 4
-  %ptr.i.i = getelementptr inbounds %struct.DTD, ptr %23, i64 0, i32 4, i32 3
-  %end.i108.i = getelementptr inbounds %struct.DTD, ptr %23, i64 0, i32 4, i32 2
-  %freeBlocks.i.i = getelementptr inbounds %struct.DTD, ptr %23, i64 0, i32 4, i32 1
-  %start.i350.i = getelementptr inbounds %struct.DTD, ptr %23, i64 0, i32 4, i32 4
-  %mem140.i.i = getelementptr inbounds %struct.DTD, ptr %23, i64 0, i32 4, i32 5
-  %prefixes6.i = getelementptr inbounds %struct.DTD, ptr %23, i64 0, i32 3
+  %pool.i = getelementptr inbounds i8, ptr %23, i64 160
+  %ptr.i.i = getelementptr inbounds i8, ptr %23, i64 184
+  %end.i108.i = getelementptr inbounds i8, ptr %23, i64 176
+  %freeBlocks.i.i = getelementptr inbounds i8, ptr %23, i64 168
+  %start.i350.i = getelementptr inbounds i8, ptr %23, i64 192
+  %mem140.i.i = getelementptr inbounds i8, ptr %23, i64 200
+  %prefixes6.i = getelementptr inbounds i8, ptr %23, i64 120
   br label %while.cond.i.i
 
 while.cond.i.i:                                   ; preds = %while.cond.i.i.backedge, %hashTableIterInit.exit.i
@@ -1464,7 +1444,7 @@ while.cond.i.i:                                   ; preds = %while.cond.i.i.back
   br i1 %cmp.not.i.i, label %for.end.i, label %while.body.i.i
 
 while.body.i.i:                                   ; preds = %while.cond.i.i
-  %incdec.ptr.i.i = getelementptr ptr, ptr %incdec.ptr5.i.i, i64 1
+  %incdec.ptr.i.i = getelementptr i8, ptr %incdec.ptr5.i.i, i64 8
   %26 = load ptr, ptr %incdec.ptr5.i.i, align 8
   %tobool.not.i107.i = icmp eq ptr %26, null
   br i1 %tobool.not.i107.i, label %while.cond.i.i.backedge, label %if.end.i
@@ -1505,9 +1485,9 @@ if.then1.i.i:                                     ; preds = %if.then.i349.i
   store ptr %31, ptr %freeBlocks.i.i, align 8
   store ptr null, ptr %30, align 8
   %32 = load ptr, ptr %pool.i, align 8
-  %s.i.i = getelementptr inbounds %struct.block, ptr %32, i64 0, i32 2
+  %s.i.i = getelementptr inbounds i8, ptr %32, i64 12
   store ptr %s.i.i, ptr %start.i350.i, align 8
-  %size.i356.i = getelementptr inbounds %struct.block, ptr %32, i64 0, i32 1
+  %size.i356.i = getelementptr inbounds i8, ptr %32, i64 8
   %33 = load i32, ptr %size.i356.i, align 8
   %idx.ext.i.i = sext i32 %33 to i64
   %add.ptr.i357.i = getelementptr i8, ptr %s.i.i, i64 %idx.ext.i.i
@@ -1519,7 +1499,7 @@ if.end.i.i:                                       ; preds = %if.then.i349.i
   %sub.ptr.lhs.cast.i.i = ptrtoint ptr %28 to i64
   %sub.ptr.rhs.cast.i.i = ptrtoint ptr %.pre.i353.pre.i to i64
   %sub.ptr.sub.i.i = sub i64 %sub.ptr.lhs.cast.i.i, %sub.ptr.rhs.cast.i.i
-  %size15.i.i = getelementptr inbounds %struct.block, ptr %30, i64 0, i32 1
+  %size15.i.i = getelementptr inbounds i8, ptr %30, i64 8
   %34 = load i32, ptr %size15.i.i, align 8
   %conv.i352.i = sext i32 %34 to i64
   %cmp16.i.i = icmp slt i64 %sub.ptr.sub.i.i, %conv.i352.i
@@ -1532,7 +1512,7 @@ if.then18.i.i:                                    ; preds = %if.end.i.i
   %37 = load ptr, ptr %freeBlocks.i.i, align 8
   store ptr %37, ptr %pool.i, align 8
   store ptr %35, ptr %freeBlocks.i.i, align 8
-  %s28.i.i = getelementptr inbounds %struct.block, ptr %37, i64 0, i32 2
+  %s28.i.i = getelementptr inbounds i8, ptr %37, i64 12
   %38 = load ptr, ptr %start.i350.i, align 8
   %39 = load ptr, ptr %end.i108.i, align 8
   %sub.ptr.lhs.cast33.i.i = ptrtoint ptr %39 to i64
@@ -1540,7 +1520,7 @@ if.then18.i.i:                                    ; preds = %if.end.i.i
   %sub.ptr.sub35.i.i = sub i64 %sub.ptr.lhs.cast33.i.i, %sub.ptr.rhs.cast34.i.i
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 4 %s28.i.i, ptr align 1 %38, i64 %sub.ptr.sub35.i.i, i1 false)
   %40 = load ptr, ptr %pool.i, align 8
-  %s37.i.i = getelementptr inbounds %struct.block, ptr %40, i64 0, i32 2
+  %s37.i.i = getelementptr inbounds i8, ptr %40, i64 12
   %41 = load ptr, ptr %ptr.i.i, align 8
   %42 = load ptr, ptr %start.i350.i, align 8
   %sub.ptr.lhs.cast41.i.i = ptrtoint ptr %41 to i64
@@ -1549,7 +1529,7 @@ if.then18.i.i:                                    ; preds = %if.end.i.i
   %add.ptr44.i.i = getelementptr i8, ptr %s37.i.i, i64 %sub.ptr.sub43.i.i
   store ptr %add.ptr44.i.i, ptr %ptr.i.i, align 8
   store ptr %s37.i.i, ptr %start.i350.i, align 8
-  %size52.i.i = getelementptr inbounds %struct.block, ptr %40, i64 0, i32 1
+  %size52.i.i = getelementptr inbounds i8, ptr %40, i64 8
   %43 = load i32, ptr %size52.i.i, align 8
   %idx.ext53.i.i = sext i32 %43 to i64
   %add.ptr54.i.i = getelementptr i8, ptr %s37.i.i, i64 %idx.ext53.i.i
@@ -1560,7 +1540,7 @@ if.end57.i.i:                                     ; preds = %land.lhs.true.i.i.i
   %sub.ptr.sub71.i.i.pre-phi = phi i64 [ %.pre132, %land.lhs.true.i.i.if.end57.i.i_crit_edge ], [ %sub.ptr.sub.i.i, %if.end.i.i ]
   %44 = load ptr, ptr %pool.i, align 8
   %tobool59.not.i.i = icmp ne ptr %44, null
-  %s62.i.i = getelementptr inbounds %struct.block, ptr %44, i64 0, i32 2
+  %s62.i.i = getelementptr inbounds i8, ptr %44, i64 12
   %cmp64.i.i = icmp eq ptr %.pre.i353.pre.i, %s62.i.i
   %or.cond.i.i = select i1 %tobool59.not.i.i, i1 %cmp64.i.i, i1 false
   %conv72.i.i = trunc i64 %sub.ptr.sub71.i.i.pre-phi to i32
@@ -1582,7 +1562,7 @@ if.end82.i.i:                                     ; preds = %if.then66.i.i
 if.end86.i.i:                                     ; preds = %if.end82.i.i
   %retval.0.i.i.i = zext nneg i32 %narrow4.i.i.i to i64
   %45 = load ptr, ptr %mem140.i.i, align 8
-  %realloc_fcn.i.i = getelementptr inbounds %struct.XML_Memory_Handling_Suite, ptr %45, i64 0, i32 1
+  %realloc_fcn.i.i = getelementptr inbounds i8, ptr %45, i64 8
   %46 = load ptr, ptr %realloc_fcn.i.i, align 8
   %call90.i.i = call ptr %46(ptr noundef nonnull %44, i64 noundef %retval.0.i.i.i) #23
   %cmp91.i.i = icmp eq ptr %call90.i.i, null
@@ -1590,10 +1570,10 @@ if.end86.i.i:                                     ; preds = %if.end82.i.i
 
 if.end94.i.i:                                     ; preds = %if.end86.i.i
   store ptr %call90.i.i, ptr %pool.i, align 8
-  %size97.i.i = getelementptr inbounds %struct.block, ptr %call90.i.i, i64 0, i32 1
+  %size97.i.i = getelementptr inbounds i8, ptr %call90.i.i, i64 8
   store i32 %mul73.i.i, ptr %size97.i.i, align 8
   %47 = load ptr, ptr %pool.i, align 8
-  %s99.i.i = getelementptr inbounds %struct.block, ptr %47, i64 0, i32 2
+  %s99.i.i = getelementptr inbounds i8, ptr %47, i64 12
   %add.ptr101.i.i = getelementptr i8, ptr %s99.i.i, i64 %sub.ptr.sub71.i.i.pre-phi
   store ptr %add.ptr101.i.i, ptr %ptr.i.i, align 8
   store ptr %s99.i.i, ptr %start.i350.i, align 8
@@ -1631,7 +1611,7 @@ if.end139.i.i:                                    ; preds = %48
   br i1 %tobool142.not.i.i, label %if.then58, label %if.end144.i.i
 
 if.end144.i.i:                                    ; preds = %if.end139.i.i
-  %size145.i.i = getelementptr inbounds %struct.block, ptr %call141.i.i, i64 0, i32 1
+  %size145.i.i = getelementptr inbounds i8, ptr %call141.i.i, i64 8
   store i32 %blockSize112.0.i.i, ptr %size145.i.i, align 8
   %51 = load ptr, ptr %pool.i, align 8
   store ptr %51, ptr %call141.i.i, align 8
@@ -1642,7 +1622,7 @@ if.end144.i.i:                                    ; preds = %if.end139.i.i
   br i1 %cmp151.not.i.i, label %if.end163.i.i, label %if.then153.i.i
 
 if.then153.i.i:                                   ; preds = %if.end144.i.i
-  %s154.i.i = getelementptr inbounds %struct.block, ptr %call141.i.i, i64 0, i32 2
+  %s154.i.i = getelementptr inbounds i8, ptr %call141.i.i, i64 12
   %sub.ptr.lhs.cast159.i.i = ptrtoint ptr %52 to i64
   %sub.ptr.rhs.cast160.i.i = ptrtoint ptr %53 to i64
   %sub.ptr.sub161.i.i = sub i64 %sub.ptr.lhs.cast159.i.i, %sub.ptr.rhs.cast160.i.i
@@ -1654,7 +1634,7 @@ if.then153.i.i:                                   ; preds = %if.end144.i.i
 if.end163.i.i:                                    ; preds = %if.then153.i.i, %if.end144.i.i
   %54 = phi ptr [ %.pre99.i.i, %if.then153.i.i ], [ %52, %if.end144.i.i ]
   %55 = phi ptr [ %.pre98.i.i, %if.then153.i.i ], [ %52, %if.end144.i.i ]
-  %s164.i.i = getelementptr inbounds %struct.block, ptr %call141.i.i, i64 0, i32 2
+  %s164.i.i = getelementptr inbounds i8, ptr %call141.i.i, i64 12
   %sub.ptr.lhs.cast168.i.i = ptrtoint ptr %55 to i64
   %sub.ptr.rhs.cast169.i.i = ptrtoint ptr %54 to i64
   %sub.ptr.sub170.i.i = sub i64 %sub.ptr.lhs.cast168.i.i, %sub.ptr.rhs.cast169.i.i
@@ -1690,24 +1670,24 @@ if.end5.i:                                        ; preds = %poolCopyString.exit
   br i1 %tobool8.not.i, label %if.then58, label %while.cond.i.i.backedge
 
 for.end.i:                                        ; preds = %while.cond.i.i
-  %attributeIds.i = getelementptr inbounds %struct.DTD, ptr %0, i64 0, i32 2
+  %attributeIds.i = getelementptr inbounds i8, ptr %0, i64 80
   %61 = load ptr, ptr %attributeIds.i, align 8
   %tobool.not.i112.i = icmp eq ptr %61, null
   br i1 %tobool.not.i112.i, label %hashTableIterInit.exit118.i, label %cond.true.i113.i
 
 cond.true.i113.i:                                 ; preds = %for.end.i
-  %size.i114.i = getelementptr inbounds %struct.DTD, ptr %0, i64 0, i32 2, i32 2
+  %size.i114.i = getelementptr inbounds i8, ptr %0, i64 96
   %62 = load i64, ptr %size.i114.i, align 8
   %add.ptr.i115.i = getelementptr ptr, ptr %61, i64 %62
   br label %hashTableIterInit.exit118.i
 
 hashTableIterInit.exit118.i:                      ; preds = %cond.true.i113.i, %for.end.i
   %cond.i116.i = phi ptr [ %add.ptr.i115.i, %cond.true.i113.i ], [ null, %for.end.i ]
-  %attributeIds33.i = getelementptr inbounds %struct.DTD, ptr %23, i64 0, i32 2
-  %defaultPrefix.i = getelementptr inbounds %struct.DTD, ptr %0, i64 0, i32 11
-  %size.i147.i = getelementptr inbounds %struct.DTD, ptr %23, i64 0, i32 3, i32 2
-  %power30.i.i = getelementptr inbounds %struct.DTD, ptr %23, i64 0, i32 3, i32 1
-  %defaultPrefix45.i = getelementptr inbounds %struct.DTD, ptr %23, i64 0, i32 11
+  %attributeIds33.i = getelementptr inbounds i8, ptr %23, i64 80
+  %defaultPrefix.i = getelementptr inbounds i8, ptr %0, i64 304
+  %size.i147.i = getelementptr inbounds i8, ptr %23, i64 136
+  %power30.i.i = getelementptr inbounds i8, ptr %23, i64 128
+  %defaultPrefix45.i = getelementptr inbounds i8, ptr %23, i64 304
   br label %while.cond.i121.i
 
 while.cond.i121.i:                                ; preds = %while.cond.i121.i.backedge, %hashTableIterInit.exit118.i
@@ -1716,7 +1696,7 @@ while.cond.i121.i:                                ; preds = %while.cond.i121.i.b
   br i1 %cmp.not.i123.i, label %for.end54.i, label %while.body.i124.i
 
 while.body.i124.i:                                ; preds = %while.cond.i121.i
-  %incdec.ptr.i125.i = getelementptr ptr, ptr %incdec.ptr5.i122.i, i64 1
+  %incdec.ptr.i125.i = getelementptr i8, ptr %incdec.ptr5.i122.i, i64 8
   %63 = load ptr, ptr %incdec.ptr5.i122.i, align 8
   %tobool.not.i126.i = icmp eq ptr %63, null
   br i1 %tobool.not.i126.i, label %while.cond.i121.i.backedge, label %if.end16.i
@@ -1788,19 +1768,19 @@ if.end31.i:                                       ; preds = %poolCopyString.exit
   br i1 %tobool35.not.i, label %if.then58, label %if.end37.i
 
 if.end37.i:                                       ; preds = %if.end31.i
-  %maybeTokenized.i = getelementptr inbounds %struct.attribute_id, ptr %63, i64 0, i32 2
+  %maybeTokenized.i = getelementptr inbounds i8, ptr %63, i64 16
   %75 = load i8, ptr %maybeTokenized.i, align 8
-  %maybeTokenized38.i = getelementptr inbounds %struct.attribute_id, ptr %call34.i, i64 0, i32 2
+  %maybeTokenized38.i = getelementptr inbounds i8, ptr %call34.i, i64 16
   store i8 %75, ptr %maybeTokenized38.i, align 8
-  %prefix.i = getelementptr inbounds %struct.attribute_id, ptr %63, i64 0, i32 1
+  %prefix.i = getelementptr inbounds i8, ptr %63, i64 8
   %76 = load ptr, ptr %prefix.i, align 8
   %tobool39.not.i = icmp eq ptr %76, null
   br i1 %tobool39.not.i, label %while.cond.i121.i.backedge, label %if.then40.i
 
 if.then40.i:                                      ; preds = %if.end37.i
-  %xmlns.i = getelementptr inbounds %struct.attribute_id, ptr %63, i64 0, i32 3
+  %xmlns.i = getelementptr inbounds i8, ptr %63, i64 17
   %77 = load i8, ptr %xmlns.i, align 1
-  %xmlns41.i = getelementptr inbounds %struct.attribute_id, ptr %call34.i, i64 0, i32 3
+  %xmlns41.i = getelementptr inbounds i8, ptr %call34.i, i64 17
   store i8 %77, ptr %xmlns41.i, align 1
   %78 = load ptr, ptr %prefix.i, align 8
   %cmp43.i = icmp eq ptr %78, %defaultPrefix.i
@@ -1883,27 +1863,27 @@ if.end35.i.i:                                     ; preds = %if.then28.i.i, %if.
 
 if.end53.sink.split.i:                            ; preds = %if.end35.i.i, %for.body.i.i.i, %if.else.i.i, %if.else.i, %if.then40.i
   %defaultPrefix45.sink.i = phi ptr [ %defaultPrefix45.i, %if.then40.i ], [ null, %if.else.i ], [ null, %if.else.i.i ], [ %85, %for.body.i.i.i ], [ null, %if.end35.i.i ]
-  %prefix46.i = getelementptr inbounds %struct.attribute_id, ptr %call34.i, i64 0, i32 1
+  %prefix46.i = getelementptr inbounds i8, ptr %call34.i, i64 8
   store ptr %defaultPrefix45.sink.i, ptr %prefix46.i, align 8
   br label %while.cond.i121.i.backedge
 
 for.end54.i:                                      ; preds = %while.cond.i121.i
-  %elementTypes.i = getelementptr inbounds %struct.DTD, ptr %0, i64 0, i32 1
+  %elementTypes.i = getelementptr inbounds i8, ptr %0, i64 40
   %94 = load ptr, ptr %elementTypes.i, align 8
   %tobool.not.i151.i = icmp eq ptr %94, null
   br i1 %tobool.not.i151.i, label %hashTableIterInit.exit157.i, label %cond.true.i152.i
 
 cond.true.i152.i:                                 ; preds = %for.end54.i
-  %size.i153.i = getelementptr inbounds %struct.DTD, ptr %0, i64 0, i32 1, i32 2
+  %size.i153.i = getelementptr inbounds i8, ptr %0, i64 56
   %95 = load i64, ptr %size.i153.i, align 8
   %add.ptr.i154.i = getelementptr ptr, ptr %94, i64 %95
   br label %hashTableIterInit.exit157.i
 
 hashTableIterInit.exit157.i:                      ; preds = %cond.true.i152.i, %for.end54.i
   %cond.i155.i = phi ptr [ %add.ptr.i154.i, %cond.true.i152.i ], [ null, %for.end54.i ]
-  %elementTypes67.i = getelementptr inbounds %struct.DTD, ptr %23, i64 0, i32 1
-  %size.i186.i = getelementptr inbounds %struct.DTD, ptr %23, i64 0, i32 2, i32 2
-  %power30.i197.i = getelementptr inbounds %struct.DTD, ptr %23, i64 0, i32 2, i32 1
+  %elementTypes67.i = getelementptr inbounds i8, ptr %23, i64 40
+  %size.i186.i = getelementptr inbounds i8, ptr %23, i64 96
+  %power30.i197.i = getelementptr inbounds i8, ptr %23, i64 88
   br label %while.cond.i160.i
 
 while.cond.i160.i:                                ; preds = %while.cond.i160.i.backedge, %hashTableIterInit.exit157.i
@@ -1912,7 +1892,7 @@ while.cond.i160.i:                                ; preds = %while.cond.i160.i.b
   br i1 %cmp.not.i162.i, label %for.end148.i, label %while.body.i163.i
 
 while.body.i163.i:                                ; preds = %while.cond.i160.i
-  %incdec.ptr.i164.i = getelementptr ptr, ptr %incdec.ptr5.i161.i, i64 1
+  %incdec.ptr.i164.i = getelementptr i8, ptr %incdec.ptr5.i161.i, i64 8
   %96 = load ptr, ptr %incdec.ptr5.i161.i, align 8
   %tobool.not.i165.i = icmp eq ptr %96, null
   br i1 %tobool.not.i165.i, label %while.cond.i160.i.backedge, label %if.end60.i
@@ -1964,7 +1944,7 @@ if.end66.i:                                       ; preds = %poolCopyString.exit
   br i1 %tobool69.not.i, label %if.then58, label %if.end71.i
 
 if.end71.i:                                       ; preds = %if.end66.i
-  %nDefaultAtts.i = getelementptr inbounds %struct.ELEMENT_TYPE, ptr %96, i64 0, i32 3
+  %nDefaultAtts.i = getelementptr inbounds i8, ptr %96, i64 24
   %105 = load i32, ptr %nDefaultAtts.i, align 8
   %tobool72.not.i = icmp eq i32 %105, 0
   br i1 %tobool72.not.i, label %if.end80.i, label %if.then73.i
@@ -1974,13 +1954,13 @@ if.then73.i:                                      ; preds = %if.end71.i
   %conv.i = sext i32 %105 to i64
   %mul.i = mul nsw i64 %conv.i, 24
   %call75.i = call ptr %106(i64 noundef %mul.i) #23
-  %defaultAtts.i = getelementptr inbounds %struct.ELEMENT_TYPE, ptr %call68.i, i64 0, i32 5
+  %defaultAtts.i = getelementptr inbounds i8, ptr %call68.i, i64 32
   store ptr %call75.i, ptr %defaultAtts.i, align 8
   %tobool77.not.i = icmp eq ptr %call75.i, null
   br i1 %tobool77.not.i, label %if.then58, label %if.end80.i
 
 if.end80.i:                                       ; preds = %if.then73.i, %if.end71.i
-  %idAtt.i = getelementptr inbounds %struct.ELEMENT_TYPE, ptr %96, i64 0, i32 2
+  %idAtt.i = getelementptr inbounds i8, ptr %96, i64 16
   %107 = load ptr, ptr %idAtt.i, align 8
   %tobool81.not.i = icmp eq ptr %107, null
   br i1 %tobool81.not.i, label %if.end88.i, label %if.then82.i
@@ -2062,17 +2042,17 @@ if.end35.i205.i:                                  ; preds = %if.then28.i217.i, %
 
 lookup.exit233.i:                                 ; preds = %if.end35.i205.i, %for.body.i.i224.i, %if.else.i188.i, %if.then82.i
   %retval.0.i216.i = phi ptr [ null, %if.then82.i ], [ null, %if.else.i188.i ], [ %114, %for.body.i.i224.i ], [ null, %if.end35.i205.i ]
-  %idAtt87.i = getelementptr inbounds %struct.ELEMENT_TYPE, ptr %call68.i, i64 0, i32 2
+  %idAtt87.i = getelementptr inbounds i8, ptr %call68.i, i64 16
   store ptr %retval.0.i216.i, ptr %idAtt87.i, align 8
   br label %if.end88.i
 
 if.end88.i:                                       ; preds = %lookup.exit233.i, %if.end80.i
   %123 = load i32, ptr %nDefaultAtts.i, align 8
-  %nDefaultAtts90.i = getelementptr inbounds %struct.ELEMENT_TYPE, ptr %call68.i, i64 0, i32 3
+  %nDefaultAtts90.i = getelementptr inbounds i8, ptr %call68.i, i64 24
   store i32 %123, ptr %nDefaultAtts90.i, align 8
-  %allocDefaultAtts.i = getelementptr inbounds %struct.ELEMENT_TYPE, ptr %call68.i, i64 0, i32 4
+  %allocDefaultAtts.i = getelementptr inbounds i8, ptr %call68.i, i64 28
   store i32 %123, ptr %allocDefaultAtts.i, align 4
-  %prefix91.i = getelementptr inbounds %struct.ELEMENT_TYPE, ptr %96, i64 0, i32 1
+  %prefix91.i = getelementptr inbounds i8, ptr %96, i64 8
   %124 = load ptr, ptr %prefix91.i, align 8
   %tobool92.not.i = icmp eq ptr %124, null
   br i1 %tobool92.not.i, label %if.end99.i, label %if.then93.i
@@ -2154,7 +2134,7 @@ if.end35.i253.i:                                  ; preds = %if.then28.i265.i, %
 
 lookup.exit281.i:                                 ; preds = %if.end35.i253.i, %for.body.i.i272.i, %if.else.i236.i, %if.then93.i
   %retval.0.i264.i = phi ptr [ null, %if.then93.i ], [ null, %if.else.i236.i ], [ %131, %for.body.i.i272.i ], [ null, %if.end35.i253.i ]
-  %prefix98.i = getelementptr inbounds %struct.ELEMENT_TYPE, ptr %call68.i, i64 0, i32 1
+  %prefix98.i = getelementptr inbounds i8, ptr %call68.i, i64 8
   store ptr %retval.0.i264.i, ptr %prefix98.i, align 8
   %.pre423.i = load i32, ptr %nDefaultAtts90.i, align 8
   br label %if.end99.i
@@ -2165,8 +2145,8 @@ if.end99.i:                                       ; preds = %lookup.exit281.i, %
   br i1 %cmp102399.i, label %for.body.lr.ph.i, label %while.cond.i160.i.backedge
 
 for.body.lr.ph.i:                                 ; preds = %if.end99.i
-  %defaultAtts105.i = getelementptr inbounds %struct.ELEMENT_TYPE, ptr %96, i64 0, i32 5
-  %defaultAtts108.i = getelementptr inbounds %struct.ELEMENT_TYPE, ptr %call68.i, i64 0, i32 5
+  %defaultAtts105.i = getelementptr inbounds i8, ptr %96, i64 32
+  %defaultAtts108.i = getelementptr inbounds i8, ptr %call68.i, i64 32
   br label %for.body.i
 
 for.body.i:                                       ; preds = %for.inc.i, %for.body.lr.ph.i
@@ -2328,72 +2308,72 @@ for.end148.i:                                     ; preds = %while.cond.i160.i
   br i1 %tobool152.not.i, label %if.then58, label %if.end154.i
 
 if.end154.i:                                      ; preds = %for.end148.i
-  %paramEntities.i = getelementptr inbounds %struct.DTD, ptr %23, i64 0, i32 10
-  %paramEntities156.i = getelementptr inbounds %struct.DTD, ptr %0, i64 0, i32 10
+  %paramEntities.i = getelementptr inbounds i8, ptr %23, i64 264
+  %paramEntities156.i = getelementptr inbounds i8, ptr %0, i64 264
   %call157.i = call fastcc i32 @copyEntityTable(ptr noundef %oldParser, ptr noundef nonnull %paramEntities.i, ptr noundef nonnull %pool.i, ptr noundef nonnull %paramEntities156.i), !range !17
   %tobool158.not.i = icmp eq i32 %call157.i, 0
   br i1 %tobool158.not.i, label %if.then58, label %lor.lhs.false
 
 lor.lhs.false:                                    ; preds = %if.end154.i
-  %paramEntityRead.i = getelementptr inbounds %struct.DTD, ptr %0, i64 0, i32 9
+  %paramEntityRead.i = getelementptr inbounds i8, ptr %0, i64 259
   %177 = load i8, ptr %paramEntityRead.i, align 1
-  %paramEntityRead161.i = getelementptr inbounds %struct.DTD, ptr %23, i64 0, i32 9
+  %paramEntityRead161.i = getelementptr inbounds i8, ptr %23, i64 259
   store i8 %177, ptr %paramEntityRead161.i, align 1
-  %keepProcessing.i = getelementptr inbounds %struct.DTD, ptr %0, i64 0, i32 6
+  %keepProcessing.i = getelementptr inbounds i8, ptr %0, i64 256
   %178 = load i8, ptr %keepProcessing.i, align 8
-  %keepProcessing162.i = getelementptr inbounds %struct.DTD, ptr %23, i64 0, i32 6
+  %keepProcessing162.i = getelementptr inbounds i8, ptr %23, i64 256
   store i8 %178, ptr %keepProcessing162.i, align 8
-  %hasParamEntityRefs.i = getelementptr inbounds %struct.DTD, ptr %0, i64 0, i32 7
+  %hasParamEntityRefs.i = getelementptr inbounds i8, ptr %0, i64 257
   %179 = load i8, ptr %hasParamEntityRefs.i, align 1
-  %hasParamEntityRefs163.i = getelementptr inbounds %struct.DTD, ptr %23, i64 0, i32 7
+  %hasParamEntityRefs163.i = getelementptr inbounds i8, ptr %23, i64 257
   store i8 %179, ptr %hasParamEntityRefs163.i, align 1
-  %standalone.i = getelementptr inbounds %struct.DTD, ptr %0, i64 0, i32 8
+  %standalone.i = getelementptr inbounds i8, ptr %0, i64 258
   %180 = load i8, ptr %standalone.i, align 2
-  %standalone164.i = getelementptr inbounds %struct.DTD, ptr %23, i64 0, i32 8
+  %standalone164.i = getelementptr inbounds i8, ptr %23, i64 258
   store i8 %180, ptr %standalone164.i, align 2
-  %in_eldecl.i = getelementptr inbounds %struct.DTD, ptr %0, i64 0, i32 12
+  %in_eldecl.i = getelementptr inbounds i8, ptr %0, i64 320
   %181 = load i8, ptr %in_eldecl.i, align 8
-  %in_eldecl165.i = getelementptr inbounds %struct.DTD, ptr %23, i64 0, i32 12
+  %in_eldecl165.i = getelementptr inbounds i8, ptr %23, i64 320
   store i8 %181, ptr %in_eldecl165.i, align 8
-  %scaffold.i = getelementptr inbounds %struct.DTD, ptr %0, i64 0, i32 13
+  %scaffold.i = getelementptr inbounds i8, ptr %0, i64 328
   %182 = load ptr, ptr %scaffold.i, align 8
-  %scaffold166.i = getelementptr inbounds %struct.DTD, ptr %23, i64 0, i32 13
+  %scaffold166.i = getelementptr inbounds i8, ptr %23, i64 328
   store ptr %182, ptr %scaffold166.i, align 8
-  %contentStringLen.i = getelementptr inbounds %struct.DTD, ptr %0, i64 0, i32 14
+  %contentStringLen.i = getelementptr inbounds i8, ptr %0, i64 336
   %183 = load i32, ptr %contentStringLen.i, align 8
-  %contentStringLen167.i = getelementptr inbounds %struct.DTD, ptr %23, i64 0, i32 14
+  %contentStringLen167.i = getelementptr inbounds i8, ptr %23, i64 336
   store i32 %183, ptr %contentStringLen167.i, align 8
-  %scaffSize.i = getelementptr inbounds %struct.DTD, ptr %0, i64 0, i32 15
+  %scaffSize.i = getelementptr inbounds i8, ptr %0, i64 340
   %184 = load i32, ptr %scaffSize.i, align 4
-  %scaffSize168.i = getelementptr inbounds %struct.DTD, ptr %23, i64 0, i32 15
+  %scaffSize168.i = getelementptr inbounds i8, ptr %23, i64 340
   store i32 %184, ptr %scaffSize168.i, align 4
-  %scaffLevel.i = getelementptr inbounds %struct.DTD, ptr %0, i64 0, i32 17
+  %scaffLevel.i = getelementptr inbounds i8, ptr %0, i64 348
   %185 = load i32, ptr %scaffLevel.i, align 4
-  %scaffLevel169.i = getelementptr inbounds %struct.DTD, ptr %23, i64 0, i32 17
+  %scaffLevel169.i = getelementptr inbounds i8, ptr %23, i64 348
   store i32 %185, ptr %scaffLevel169.i, align 4
-  %scaffIndex.i = getelementptr inbounds %struct.DTD, ptr %0, i64 0, i32 18
+  %scaffIndex.i = getelementptr inbounds i8, ptr %0, i64 352
   %186 = load ptr, ptr %scaffIndex.i, align 8
-  %scaffIndex170.i = getelementptr inbounds %struct.DTD, ptr %23, i64 0, i32 18
+  %scaffIndex170.i = getelementptr inbounds i8, ptr %23, i64 352
   store ptr %186, ptr %scaffIndex170.i, align 8
-  %call56 = call fastcc zeroext i8 @setContext(ptr noundef nonnull %parser.0, ptr noundef nonnull %context), !range !13
+  %call56 = call fastcc zeroext i8 @setContext(ptr noundef %parser.0, ptr noundef nonnull %context), !range !13
   %tobool57.not = icmp eq i8 %call56, 0
   br i1 %tobool57.not, label %if.then58, label %if.end59
 
 if.then58:                                        ; preds = %if.end5.i, %poolCopyString.exit.i, %if.then66.i.i, %if.end82.i.i, %if.end86.i.i, %if.else.i354.i, %if.else127.i.i, %48, %if.end139.i.i, %if.end31.i, %poolCopyString.exit146.i, %land.lhs.true.i, %land.lhs.true.i141.i, %if.then73.i, %if.end66.i, %poolCopyString.exit185.i, %land.lhs.true.i180.i, %poolCopyString.exit347.i, %if.end154.i, %for.end148.i, %lor.lhs.false
-  call void @PyExpat_XML_ParserFree(ptr noundef nonnull %parser.0)
+  call void @PyExpat_XML_ParserFree(ptr noundef %parser.0)
   br label %return
 
 if.end59:                                         ; preds = %lor.lhs.false
-  %m_processor = getelementptr inbounds %struct.XML_ParserStruct, ptr %parser.0, i64 0, i32 45
+  %m_processor = getelementptr inbounds i8, ptr %parser.0, i64 528
   store ptr @externalEntityInitProcessor, ptr %m_processor, align 8
   br label %return
 
 if.else60:                                        ; preds = %if.end43
-  %m_prologState48 = getelementptr inbounds %struct.XML_ParserStruct, ptr %parser.0, i64 0, i32 44
-  %m_isParamEntity = getelementptr inbounds %struct.XML_ParserStruct, ptr %parser.0, i64 0, i32 86
+  %m_prologState48 = getelementptr inbounds i8, ptr %parser.0, i64 496
+  %m_isParamEntity = getelementptr inbounds i8, ptr %parser.0, i64 912
   store i8 1, ptr %m_isParamEntity, align 8
   call void @PyExpat_XmlPrologStateInitExternalEntity(ptr noundef nonnull %m_prologState48) #23
-  %m_processor62 = getelementptr inbounds %struct.XML_ParserStruct, ptr %parser.0, i64 0, i32 45
+  %m_processor62 = getelementptr inbounds i8, ptr %parser.0, i64 528
   store ptr @externalParEntInitProcessor, ptr %m_processor62, align 8
   br label %return
 
@@ -2405,26 +2385,26 @@ return:                                           ; preds = %if.end59, %if.else6
 ; Function Attrs: nounwind uwtable
 define internal fastcc noundef zeroext i8 @setContext(ptr nocapture noundef %parser, ptr nocapture noundef readonly %context) unnamed_addr #0 {
 entry:
-  %m_dtd = getelementptr inbounds %struct.XML_ParserStruct, ptr %parser, i64 0, i32 65
+  %m_dtd = getelementptr inbounds i8, ptr %parser, i64 672
   %0 = load ptr, ptr %m_dtd, align 8
   %1 = load i8, ptr %context, align 1
   %cmp.not73 = icmp eq i8 %1, 0
   br i1 %cmp.not73, label %return, label %while.body.lr.ph
 
 while.body.lr.ph:                                 ; preds = %entry
-  %m_tempPool34 = getelementptr inbounds %struct.XML_ParserStruct, ptr %parser, i64 0, i32 79
-  %ptr35 = getelementptr inbounds %struct.XML_ParserStruct, ptr %parser, i64 0, i32 79, i32 3
-  %start37 = getelementptr inbounds %struct.XML_ParserStruct, ptr %parser, i64 0, i32 79, i32 4
-  %end45 = getelementptr inbounds %struct.XML_ParserStruct, ptr %parser, i64 0, i32 79, i32 2
-  %prefixes = getelementptr inbounds %struct.DTD, ptr %0, i64 0, i32 3
-  %pool = getelementptr inbounds %struct.DTD, ptr %0, i64 0, i32 4
-  %ptr.i = getelementptr inbounds %struct.DTD, ptr %0, i64 0, i32 4, i32 3
-  %end.i = getelementptr inbounds %struct.DTD, ptr %0, i64 0, i32 4, i32 2
-  %start.i = getelementptr inbounds %struct.DTD, ptr %0, i64 0, i32 4, i32 4
-  %defaultPrefix = getelementptr inbounds %struct.DTD, ptr %0, i64 0, i32 11
-  %m_inheritedBindings = getelementptr inbounds %struct.XML_ParserStruct, ptr %parser, i64 0, i32 69
-  %size.i = getelementptr inbounds %struct.HASH_TABLE, ptr %0, i64 0, i32 2
-  %power30.i = getelementptr inbounds %struct.HASH_TABLE, ptr %0, i64 0, i32 1
+  %m_tempPool34 = getelementptr inbounds i8, ptr %parser, i64 784
+  %ptr35 = getelementptr inbounds i8, ptr %parser, i64 808
+  %start37 = getelementptr inbounds i8, ptr %parser, i64 816
+  %end45 = getelementptr inbounds i8, ptr %parser, i64 800
+  %prefixes = getelementptr inbounds i8, ptr %0, i64 120
+  %pool = getelementptr inbounds i8, ptr %0, i64 160
+  %ptr.i = getelementptr inbounds i8, ptr %0, i64 184
+  %end.i = getelementptr inbounds i8, ptr %0, i64 176
+  %start.i = getelementptr inbounds i8, ptr %0, i64 192
+  %defaultPrefix = getelementptr inbounds i8, ptr %0, i64 304
+  %m_inheritedBindings = getelementptr inbounds i8, ptr %parser, i64 704
+  %size.i = getelementptr inbounds i8, ptr %0, i64 16
+  %power30.i = getelementptr inbounds i8, ptr %0, i64 8
   br label %while.body
 
 while.body:                                       ; preds = %while.body.lr.ph, %if.end161
@@ -2532,7 +2512,7 @@ if.end35.i:                                       ; preds = %if.then28.i, %if.en
   br i1 %tobool17.not.i, label %if.end19, label %while.body.i, !llvm.loop !15
 
 if.then18:                                        ; preds = %for.body.i.i
-  %open = getelementptr inbounds %struct.ENTITY, ptr %12, i64 0, i32 8
+  %open = getelementptr inbounds i8, ptr %12, i64 56
   store i8 1, ptr %open, align 8
   br label %if.end19
 
@@ -2744,10 +2724,10 @@ entry:
   br i1 %cmp, label %return, label %if.end
 
 if.end:                                           ; preds = %entry
-  %m_tagStack = getelementptr inbounds %struct.XML_ParserStruct, ptr %parser, i64 0, i32 67
+  %m_tagStack = getelementptr inbounds i8, ptr %parser, i64 688
   %0 = load ptr, ptr %m_tagStack, align 8
-  %m_freeTagList = getelementptr inbounds %struct.XML_ParserStruct, ptr %parser, i64 0, i32 68
-  %free_fcn = getelementptr inbounds %struct.XML_ParserStruct, ptr %parser, i64 0, i32 3, i32 2
+  %m_freeTagList = getelementptr inbounds i8, ptr %parser, i64 696
+  %free_fcn = getelementptr inbounds i8, ptr %parser, i64 40
   br label %for.cond
 
 for.cond:                                         ; preds = %destroyBindings.exit, %if.end
@@ -2768,20 +2748,20 @@ if.end8:                                          ; preds = %if.end5, %for.cond
   %tagList.1 = phi ptr [ %1, %if.end5 ], [ %tagList.0, %for.cond ]
   %2 = load ptr, ptr %tagList.1, align 8
   %3 = load ptr, ptr %free_fcn, align 8
-  %buf = getelementptr inbounds %struct.tag, ptr %tagList.1, i64 0, i32 4
+  %buf = getelementptr inbounds i8, ptr %tagList.1, i64 64
   %4 = load ptr, ptr %buf, align 8
   tail call void %3(ptr noundef %4) #23
-  %bindings = getelementptr inbounds %struct.tag, ptr %tagList.1, i64 0, i32 6
+  %bindings = getelementptr inbounds i8, ptr %tagList.1, i64 80
   %5 = load ptr, ptr %bindings, align 8
   %tobool.not5.i = icmp eq ptr %5, null
   br i1 %tobool.not5.i, label %destroyBindings.exit, label %if.end.i
 
 if.end.i:                                         ; preds = %if.end8, %if.end.i
   %bindings.addr.06.i = phi ptr [ %6, %if.end.i ], [ %5, %if.end8 ]
-  %nextTagBinding.i = getelementptr inbounds %struct.binding, ptr %bindings.addr.06.i, i64 0, i32 1
+  %nextTagBinding.i = getelementptr inbounds i8, ptr %bindings.addr.06.i, i64 8
   %6 = load ptr, ptr %nextTagBinding.i, align 8
   %7 = load ptr, ptr %free_fcn, align 8
-  %uri.i = getelementptr inbounds %struct.binding, ptr %bindings.addr.06.i, i64 0, i32 4
+  %uri.i = getelementptr inbounds i8, ptr %bindings.addr.06.i, i64 32
   %8 = load ptr, ptr %uri.i, align 8
   tail call void %7(ptr noundef %8) #23
   %9 = load ptr, ptr %free_fcn, align 8
@@ -2795,9 +2775,9 @@ destroyBindings.exit:                             ; preds = %if.end.i, %if.end8
   br label %for.cond
 
 for.end:                                          ; preds = %if.then2
-  %m_openInternalEntities = getelementptr inbounds %struct.XML_ParserStruct, ptr %parser, i64 0, i32 50
+  %m_openInternalEntities = getelementptr inbounds i8, ptr %parser, i64 568
   %11 = load ptr, ptr %m_openInternalEntities, align 8
-  %m_freeInternalEntities = getelementptr inbounds %struct.XML_ParserStruct, ptr %parser, i64 0, i32 51
+  %m_freeInternalEntities = getelementptr inbounds i8, ptr %parser, i64 576
   br label %for.cond11
 
 for.cond11:                                       ; preds = %if.end19, %for.end
@@ -2816,24 +2796,24 @@ if.end16:                                         ; preds = %if.then13
 
 if.end19:                                         ; preds = %if.end16, %for.cond11
   %entityList.1 = phi ptr [ %12, %if.end16 ], [ %entityList.0, %for.cond11 ]
-  %next = getelementptr inbounds %struct.open_internal_entity, ptr %entityList.1, i64 0, i32 2
+  %next = getelementptr inbounds i8, ptr %entityList.1, i64 16
   %13 = load ptr, ptr %next, align 8
   %14 = load ptr, ptr %free_fcn, align 8
   tail call void %14(ptr noundef nonnull %entityList.1) #23
   br label %for.cond11
 
 for.end22:                                        ; preds = %if.then13
-  %m_freeBindingList = getelementptr inbounds %struct.XML_ParserStruct, ptr %parser, i64 0, i32 70
+  %m_freeBindingList = getelementptr inbounds i8, ptr %parser, i64 712
   %15 = load ptr, ptr %m_freeBindingList, align 8
   %tobool.not5.i52 = icmp eq ptr %15, null
   br i1 %tobool.not5.i52, label %destroyBindings.exit60, label %if.end.i55
 
 if.end.i55:                                       ; preds = %for.end22, %if.end.i55
   %bindings.addr.06.i56 = phi ptr [ %16, %if.end.i55 ], [ %15, %for.end22 ]
-  %nextTagBinding.i57 = getelementptr inbounds %struct.binding, ptr %bindings.addr.06.i56, i64 0, i32 1
+  %nextTagBinding.i57 = getelementptr inbounds i8, ptr %bindings.addr.06.i56, i64 8
   %16 = load ptr, ptr %nextTagBinding.i57, align 8
   %17 = load ptr, ptr %free_fcn, align 8
-  %uri.i58 = getelementptr inbounds %struct.binding, ptr %bindings.addr.06.i56, i64 0, i32 4
+  %uri.i58 = getelementptr inbounds i8, ptr %bindings.addr.06.i56, i64 32
   %18 = load ptr, ptr %uri.i58, align 8
   tail call void %17(ptr noundef %18) #23
   %19 = load ptr, ptr %free_fcn, align 8
@@ -2842,17 +2822,17 @@ if.end.i55:                                       ; preds = %for.end22, %if.end.
   br i1 %tobool.not.i59, label %destroyBindings.exit60, label %if.end.i55
 
 destroyBindings.exit60:                           ; preds = %if.end.i55, %for.end22
-  %m_inheritedBindings = getelementptr inbounds %struct.XML_ParserStruct, ptr %parser, i64 0, i32 69
+  %m_inheritedBindings = getelementptr inbounds i8, ptr %parser, i64 704
   %20 = load ptr, ptr %m_inheritedBindings, align 8
   %tobool.not5.i61 = icmp eq ptr %20, null
   br i1 %tobool.not5.i61, label %destroyBindings.exit69, label %if.end.i64
 
 if.end.i64:                                       ; preds = %destroyBindings.exit60, %if.end.i64
   %bindings.addr.06.i65 = phi ptr [ %21, %if.end.i64 ], [ %20, %destroyBindings.exit60 ]
-  %nextTagBinding.i66 = getelementptr inbounds %struct.binding, ptr %bindings.addr.06.i65, i64 0, i32 1
+  %nextTagBinding.i66 = getelementptr inbounds i8, ptr %bindings.addr.06.i65, i64 8
   %21 = load ptr, ptr %nextTagBinding.i66, align 8
   %22 = load ptr, ptr %free_fcn, align 8
-  %uri.i67 = getelementptr inbounds %struct.binding, ptr %bindings.addr.06.i65, i64 0, i32 4
+  %uri.i67 = getelementptr inbounds i8, ptr %bindings.addr.06.i65, i64 32
   %23 = load ptr, ptr %uri.i67, align 8
   tail call void %22(ptr noundef %23) #23
   %24 = load ptr, ptr %free_fcn, align 8
@@ -2861,80 +2841,80 @@ if.end.i64:                                       ; preds = %destroyBindings.exi
   br i1 %tobool.not.i68, label %destroyBindings.exit69, label %if.end.i64
 
 destroyBindings.exit69:                           ; preds = %if.end.i64, %destroyBindings.exit60
-  %m_tempPool = getelementptr inbounds %struct.XML_ParserStruct, ptr %parser, i64 0, i32 79
+  %m_tempPool = getelementptr inbounds i8, ptr %parser, i64 784
   %25 = load ptr, ptr %m_tempPool, align 8
   %tobool.not9.i = icmp eq ptr %25, null
   br i1 %tobool.not9.i, label %while.end.i, label %while.body.lr.ph.i
 
 while.body.lr.ph.i:                               ; preds = %destroyBindings.exit69
-  %mem.i = getelementptr inbounds %struct.XML_ParserStruct, ptr %parser, i64 0, i32 79, i32 5
+  %mem.i = getelementptr inbounds i8, ptr %parser, i64 824
   br label %while.body.i
 
 while.body.i:                                     ; preds = %while.body.i, %while.body.lr.ph.i
   %p.010.i = phi ptr [ %25, %while.body.lr.ph.i ], [ %26, %while.body.i ]
   %26 = load ptr, ptr %p.010.i, align 8
   %27 = load ptr, ptr %mem.i, align 8
-  %free_fcn.i70 = getelementptr inbounds %struct.XML_Memory_Handling_Suite, ptr %27, i64 0, i32 2
+  %free_fcn.i70 = getelementptr inbounds i8, ptr %27, i64 16
   %28 = load ptr, ptr %free_fcn.i70, align 8
   tail call void %28(ptr noundef nonnull %p.010.i) #23
   %tobool.not.i71 = icmp eq ptr %26, null
   br i1 %tobool.not.i71, label %while.end.i, label %while.body.i, !llvm.loop !21
 
 while.end.i:                                      ; preds = %while.body.i, %destroyBindings.exit69
-  %freeBlocks.i = getelementptr inbounds %struct.XML_ParserStruct, ptr %parser, i64 0, i32 79, i32 1
+  %freeBlocks.i = getelementptr inbounds i8, ptr %parser, i64 792
   %29 = load ptr, ptr %freeBlocks.i, align 8
   %tobool2.not11.i = icmp eq ptr %29, null
   br i1 %tobool2.not11.i, label %poolDestroy.exit, label %while.body3.lr.ph.i
 
 while.body3.lr.ph.i:                              ; preds = %while.end.i
-  %mem6.i = getelementptr inbounds %struct.XML_ParserStruct, ptr %parser, i64 0, i32 79, i32 5
+  %mem6.i = getelementptr inbounds i8, ptr %parser, i64 824
   br label %while.body3.i
 
 while.body3.i:                                    ; preds = %while.body3.i, %while.body3.lr.ph.i
   %p.112.i = phi ptr [ %29, %while.body3.lr.ph.i ], [ %30, %while.body3.i ]
   %30 = load ptr, ptr %p.112.i, align 8
   %31 = load ptr, ptr %mem6.i, align 8
-  %free_fcn7.i = getelementptr inbounds %struct.XML_Memory_Handling_Suite, ptr %31, i64 0, i32 2
+  %free_fcn7.i = getelementptr inbounds i8, ptr %31, i64 16
   %32 = load ptr, ptr %free_fcn7.i, align 8
   tail call void %32(ptr noundef nonnull %p.112.i) #23
   %tobool2.not.i = icmp eq ptr %30, null
   br i1 %tobool2.not.i, label %poolDestroy.exit, label %while.body3.i, !llvm.loop !22
 
 poolDestroy.exit:                                 ; preds = %while.body3.i, %while.end.i
-  %m_temp2Pool = getelementptr inbounds %struct.XML_ParserStruct, ptr %parser, i64 0, i32 80
+  %m_temp2Pool = getelementptr inbounds i8, ptr %parser, i64 832
   %33 = load ptr, ptr %m_temp2Pool, align 8
   %tobool.not9.i72 = icmp eq ptr %33, null
   br i1 %tobool.not9.i72, label %while.end.i79, label %while.body.lr.ph.i73
 
 while.body.lr.ph.i73:                             ; preds = %poolDestroy.exit
-  %mem.i74 = getelementptr inbounds %struct.XML_ParserStruct, ptr %parser, i64 0, i32 80, i32 5
+  %mem.i74 = getelementptr inbounds i8, ptr %parser, i64 872
   br label %while.body.i75
 
 while.body.i75:                                   ; preds = %while.body.i75, %while.body.lr.ph.i73
   %p.010.i76 = phi ptr [ %33, %while.body.lr.ph.i73 ], [ %34, %while.body.i75 ]
   %34 = load ptr, ptr %p.010.i76, align 8
   %35 = load ptr, ptr %mem.i74, align 8
-  %free_fcn.i77 = getelementptr inbounds %struct.XML_Memory_Handling_Suite, ptr %35, i64 0, i32 2
+  %free_fcn.i77 = getelementptr inbounds i8, ptr %35, i64 16
   %36 = load ptr, ptr %free_fcn.i77, align 8
   tail call void %36(ptr noundef nonnull %p.010.i76) #23
   %tobool.not.i78 = icmp eq ptr %34, null
   br i1 %tobool.not.i78, label %while.end.i79, label %while.body.i75, !llvm.loop !21
 
 while.end.i79:                                    ; preds = %while.body.i75, %poolDestroy.exit
-  %freeBlocks.i80 = getelementptr inbounds %struct.XML_ParserStruct, ptr %parser, i64 0, i32 80, i32 1
+  %freeBlocks.i80 = getelementptr inbounds i8, ptr %parser, i64 840
   %37 = load ptr, ptr %freeBlocks.i80, align 8
   %tobool2.not11.i81 = icmp eq ptr %37, null
   br i1 %tobool2.not11.i81, label %poolDestroy.exit88, label %while.body3.lr.ph.i82
 
 while.body3.lr.ph.i82:                            ; preds = %while.end.i79
-  %mem6.i83 = getelementptr inbounds %struct.XML_ParserStruct, ptr %parser, i64 0, i32 80, i32 5
+  %mem6.i83 = getelementptr inbounds i8, ptr %parser, i64 872
   br label %while.body3.i84
 
 while.body3.i84:                                  ; preds = %while.body3.i84, %while.body3.lr.ph.i82
   %p.112.i85 = phi ptr [ %37, %while.body3.lr.ph.i82 ], [ %38, %while.body3.i84 ]
   %38 = load ptr, ptr %p.112.i85, align 8
   %39 = load ptr, ptr %mem6.i83, align 8
-  %free_fcn7.i86 = getelementptr inbounds %struct.XML_Memory_Handling_Suite, ptr %39, i64 0, i32 2
+  %free_fcn7.i86 = getelementptr inbounds i8, ptr %39, i64 16
   %40 = load ptr, ptr %free_fcn7.i86, align 8
   tail call void %40(ptr noundef nonnull %p.112.i85) #23
   %tobool2.not.i87 = icmp eq ptr %38, null
@@ -2942,31 +2922,31 @@ while.body3.i84:                                  ; preds = %while.body3.i84, %w
 
 poolDestroy.exit88:                               ; preds = %while.body3.i84, %while.end.i79
   %41 = load ptr, ptr %free_fcn, align 8
-  %m_protocolEncodingName = getelementptr inbounds %struct.XML_ParserStruct, ptr %parser, i64 0, i32 37
+  %m_protocolEncodingName = getelementptr inbounds i8, ptr %parser, i64 448
   %42 = load ptr, ptr %m_protocolEncodingName, align 8
   tail call void %41(ptr noundef %42) #23
-  %m_isParamEntity = getelementptr inbounds %struct.XML_ParserStruct, ptr %parser, i64 0, i32 86
+  %m_isParamEntity = getelementptr inbounds i8, ptr %parser, i64 912
   %43 = load i8, ptr %m_isParamEntity, align 8
   %tobool.not = icmp eq i8 %43, 0
   br i1 %tobool.not, label %land.lhs.true, label %if.end30
 
 land.lhs.true:                                    ; preds = %poolDestroy.exit88
-  %m_dtd = getelementptr inbounds %struct.XML_ParserStruct, ptr %parser, i64 0, i32 65
+  %m_dtd = getelementptr inbounds i8, ptr %parser, i64 672
   %44 = load ptr, ptr %m_dtd, align 8
   %tobool25.not = icmp eq ptr %44, null
   br i1 %tobool25.not, label %if.end30, label %if.then26
 
 if.then26:                                        ; preds = %land.lhs.true
-  %m_parentParser = getelementptr inbounds %struct.XML_ParserStruct, ptr %parser, i64 0, i32 84
+  %m_parentParser = getelementptr inbounds i8, ptr %parser, i64 896
   %45 = load ptr, ptr %m_parentParser, align 8
   %tobool28.not.not = icmp eq ptr %45, null
-  %elementTypes.i = getelementptr inbounds %struct.DTD, ptr %44, i64 0, i32 1
+  %elementTypes.i = getelementptr inbounds i8, ptr %44, i64 40
   %46 = load ptr, ptr %elementTypes.i, align 8
   %tobool.not.i.i = icmp eq ptr %46, null
   br i1 %tobool.not.i.i, label %hashTableIterInit.exit.i, label %cond.true.i.i
 
 cond.true.i.i:                                    ; preds = %if.then26
-  %size.i.i = getelementptr inbounds %struct.DTD, ptr %44, i64 0, i32 1, i32 2
+  %size.i.i = getelementptr inbounds i8, ptr %44, i64 56
   %47 = load i64, ptr %size.i.i, align 8
   %add.ptr.i.i = getelementptr ptr, ptr %46, i64 %47
   br label %hashTableIterInit.exit.i
@@ -2981,7 +2961,7 @@ while.cond.i.i:                                   ; preds = %while.cond.i.i.back
   br i1 %cmp.not.i.i, label %for.end.i, label %while.body.i.i
 
 while.body.i.i:                                   ; preds = %while.cond.i.i
-  %incdec.ptr.i.i = getelementptr ptr, ptr %incdec.ptr5.i.i, i64 1
+  %incdec.ptr.i.i = getelementptr i8, ptr %incdec.ptr5.i.i, i64 8
   %48 = load ptr, ptr %incdec.ptr5.i.i, align 8
   %tobool.not.i17.i = icmp eq ptr %48, null
   br i1 %tobool.not.i17.i, label %while.cond.i.i.backedge, label %if.end.i90
@@ -2990,32 +2970,32 @@ while.cond.i.i.backedge:                          ; preds = %while.body.i.i, %if
   br label %while.cond.i.i, !llvm.loop !9
 
 if.end.i90:                                       ; preds = %while.body.i.i
-  %allocDefaultAtts.i = getelementptr inbounds %struct.ELEMENT_TYPE, ptr %48, i64 0, i32 4
+  %allocDefaultAtts.i = getelementptr inbounds i8, ptr %48, i64 28
   %49 = load i32, ptr %allocDefaultAtts.i, align 4
   %cmp.not.i = icmp eq i32 %49, 0
   br i1 %cmp.not.i, label %while.cond.i.i.backedge, label %if.then1.i
 
 if.then1.i:                                       ; preds = %if.end.i90
   %50 = load ptr, ptr %free_fcn, align 8
-  %defaultAtts.i = getelementptr inbounds %struct.ELEMENT_TYPE, ptr %48, i64 0, i32 5
+  %defaultAtts.i = getelementptr inbounds i8, ptr %48, i64 32
   %51 = load ptr, ptr %defaultAtts.i, align 8
   tail call void %50(ptr noundef %51) #23
   br label %while.cond.i.i.backedge
 
 for.end.i:                                        ; preds = %while.cond.i.i
-  %size.i18.i = getelementptr inbounds %struct.HASH_TABLE, ptr %44, i64 0, i32 2
+  %size.i18.i = getelementptr inbounds i8, ptr %44, i64 16
   %52 = load i64, ptr %size.i18.i, align 8
   %cmp7.not.i.i = icmp eq i64 %52, 0
   br i1 %cmp7.not.i.i, label %hashTableDestroy.exit.i, label %for.body.lr.ph.i.i
 
 for.body.lr.ph.i.i:                               ; preds = %for.end.i
-  %mem.i.i = getelementptr inbounds %struct.HASH_TABLE, ptr %44, i64 0, i32 4
+  %mem.i.i = getelementptr inbounds i8, ptr %44, i64 32
   br label %for.body.i.i
 
 for.body.i.i:                                     ; preds = %for.body.i.i, %for.body.lr.ph.i.i
   %i.08.i.i = phi i64 [ 0, %for.body.lr.ph.i.i ], [ %inc.i.i, %for.body.i.i ]
   %53 = load ptr, ptr %mem.i.i, align 8
-  %free_fcn.i.i = getelementptr inbounds %struct.XML_Memory_Handling_Suite, ptr %53, i64 0, i32 2
+  %free_fcn.i.i = getelementptr inbounds i8, ptr %53, i64 16
   %54 = load ptr, ptr %free_fcn.i.i, align 8
   %55 = load ptr, ptr %44, align 8
   %arrayidx.i.i = getelementptr ptr, ptr %55, i64 %i.08.i.i
@@ -3027,26 +3007,26 @@ for.body.i.i:                                     ; preds = %for.body.i.i, %for.
   br i1 %cmp.i.i, label %for.body.i.i, label %hashTableDestroy.exit.i, !llvm.loop !23
 
 hashTableDestroy.exit.i:                          ; preds = %for.body.i.i, %for.end.i
-  %mem1.i.i = getelementptr inbounds %struct.HASH_TABLE, ptr %44, i64 0, i32 4
+  %mem1.i.i = getelementptr inbounds i8, ptr %44, i64 32
   %58 = load ptr, ptr %mem1.i.i, align 8
-  %free_fcn2.i.i = getelementptr inbounds %struct.XML_Memory_Handling_Suite, ptr %58, i64 0, i32 2
+  %free_fcn2.i.i = getelementptr inbounds i8, ptr %58, i64 16
   %59 = load ptr, ptr %free_fcn2.i.i, align 8
   %60 = load ptr, ptr %44, align 8
   tail call void %59(ptr noundef %60) #23
-  %paramEntities.i = getelementptr inbounds %struct.DTD, ptr %44, i64 0, i32 10
-  %size.i19.i = getelementptr inbounds %struct.DTD, ptr %44, i64 0, i32 10, i32 2
+  %paramEntities.i = getelementptr inbounds i8, ptr %44, i64 264
+  %size.i19.i = getelementptr inbounds i8, ptr %44, i64 280
   %61 = load i64, ptr %size.i19.i, align 8
   %cmp7.not.i20.i = icmp eq i64 %61, 0
   br i1 %cmp7.not.i20.i, label %hashTableDestroy.exit31.i, label %for.body.lr.ph.i21.i
 
 for.body.lr.ph.i21.i:                             ; preds = %hashTableDestroy.exit.i
-  %mem.i22.i = getelementptr inbounds %struct.DTD, ptr %44, i64 0, i32 10, i32 4
+  %mem.i22.i = getelementptr inbounds i8, ptr %44, i64 296
   br label %for.body.i23.i
 
 for.body.i23.i:                                   ; preds = %for.body.i23.i, %for.body.lr.ph.i21.i
   %i.08.i24.i = phi i64 [ 0, %for.body.lr.ph.i21.i ], [ %inc.i27.i, %for.body.i23.i ]
   %62 = load ptr, ptr %mem.i22.i, align 8
-  %free_fcn.i25.i = getelementptr inbounds %struct.XML_Memory_Handling_Suite, ptr %62, i64 0, i32 2
+  %free_fcn.i25.i = getelementptr inbounds i8, ptr %62, i64 16
   %63 = load ptr, ptr %free_fcn.i25.i, align 8
   %64 = load ptr, ptr %paramEntities.i, align 8
   %arrayidx.i26.i = getelementptr ptr, ptr %64, i64 %i.08.i24.i
@@ -3058,25 +3038,25 @@ for.body.i23.i:                                   ; preds = %for.body.i23.i, %fo
   br i1 %cmp.i28.i, label %for.body.i23.i, label %hashTableDestroy.exit31.i, !llvm.loop !23
 
 hashTableDestroy.exit31.i:                        ; preds = %for.body.i23.i, %hashTableDestroy.exit.i
-  %mem1.i29.i = getelementptr inbounds %struct.DTD, ptr %44, i64 0, i32 10, i32 4
+  %mem1.i29.i = getelementptr inbounds i8, ptr %44, i64 296
   %67 = load ptr, ptr %mem1.i29.i, align 8
-  %free_fcn2.i30.i = getelementptr inbounds %struct.XML_Memory_Handling_Suite, ptr %67, i64 0, i32 2
+  %free_fcn2.i30.i = getelementptr inbounds i8, ptr %67, i64 16
   %68 = load ptr, ptr %free_fcn2.i30.i, align 8
   %69 = load ptr, ptr %paramEntities.i, align 8
   tail call void %68(ptr noundef %69) #23
-  %size.i32.i = getelementptr inbounds %struct.DTD, ptr %44, i64 0, i32 1, i32 2
+  %size.i32.i = getelementptr inbounds i8, ptr %44, i64 56
   %70 = load i64, ptr %size.i32.i, align 8
   %cmp7.not.i33.i = icmp eq i64 %70, 0
   br i1 %cmp7.not.i33.i, label %hashTableDestroy.exit44.i, label %for.body.lr.ph.i34.i
 
 for.body.lr.ph.i34.i:                             ; preds = %hashTableDestroy.exit31.i
-  %mem.i35.i = getelementptr inbounds %struct.DTD, ptr %44, i64 0, i32 1, i32 4
+  %mem.i35.i = getelementptr inbounds i8, ptr %44, i64 72
   br label %for.body.i36.i
 
 for.body.i36.i:                                   ; preds = %for.body.i36.i, %for.body.lr.ph.i34.i
   %i.08.i37.i = phi i64 [ 0, %for.body.lr.ph.i34.i ], [ %inc.i40.i, %for.body.i36.i ]
   %71 = load ptr, ptr %mem.i35.i, align 8
-  %free_fcn.i38.i = getelementptr inbounds %struct.XML_Memory_Handling_Suite, ptr %71, i64 0, i32 2
+  %free_fcn.i38.i = getelementptr inbounds i8, ptr %71, i64 16
   %72 = load ptr, ptr %free_fcn.i38.i, align 8
   %73 = load ptr, ptr %elementTypes.i, align 8
   %arrayidx.i39.i = getelementptr ptr, ptr %73, i64 %i.08.i37.i
@@ -3088,26 +3068,26 @@ for.body.i36.i:                                   ; preds = %for.body.i36.i, %fo
   br i1 %cmp.i41.i, label %for.body.i36.i, label %hashTableDestroy.exit44.i, !llvm.loop !23
 
 hashTableDestroy.exit44.i:                        ; preds = %for.body.i36.i, %hashTableDestroy.exit31.i
-  %mem1.i42.i = getelementptr inbounds %struct.DTD, ptr %44, i64 0, i32 1, i32 4
+  %mem1.i42.i = getelementptr inbounds i8, ptr %44, i64 72
   %76 = load ptr, ptr %mem1.i42.i, align 8
-  %free_fcn2.i43.i = getelementptr inbounds %struct.XML_Memory_Handling_Suite, ptr %76, i64 0, i32 2
+  %free_fcn2.i43.i = getelementptr inbounds i8, ptr %76, i64 16
   %77 = load ptr, ptr %free_fcn2.i43.i, align 8
   %78 = load ptr, ptr %elementTypes.i, align 8
   tail call void %77(ptr noundef %78) #23
-  %attributeIds.i = getelementptr inbounds %struct.DTD, ptr %44, i64 0, i32 2
-  %size.i45.i = getelementptr inbounds %struct.DTD, ptr %44, i64 0, i32 2, i32 2
+  %attributeIds.i = getelementptr inbounds i8, ptr %44, i64 80
+  %size.i45.i = getelementptr inbounds i8, ptr %44, i64 96
   %79 = load i64, ptr %size.i45.i, align 8
   %cmp7.not.i46.i = icmp eq i64 %79, 0
   br i1 %cmp7.not.i46.i, label %hashTableDestroy.exit57.i, label %for.body.lr.ph.i47.i
 
 for.body.lr.ph.i47.i:                             ; preds = %hashTableDestroy.exit44.i
-  %mem.i48.i = getelementptr inbounds %struct.DTD, ptr %44, i64 0, i32 2, i32 4
+  %mem.i48.i = getelementptr inbounds i8, ptr %44, i64 112
   br label %for.body.i49.i
 
 for.body.i49.i:                                   ; preds = %for.body.i49.i, %for.body.lr.ph.i47.i
   %i.08.i50.i = phi i64 [ 0, %for.body.lr.ph.i47.i ], [ %inc.i53.i, %for.body.i49.i ]
   %80 = load ptr, ptr %mem.i48.i, align 8
-  %free_fcn.i51.i = getelementptr inbounds %struct.XML_Memory_Handling_Suite, ptr %80, i64 0, i32 2
+  %free_fcn.i51.i = getelementptr inbounds i8, ptr %80, i64 16
   %81 = load ptr, ptr %free_fcn.i51.i, align 8
   %82 = load ptr, ptr %attributeIds.i, align 8
   %arrayidx.i52.i = getelementptr ptr, ptr %82, i64 %i.08.i50.i
@@ -3119,26 +3099,26 @@ for.body.i49.i:                                   ; preds = %for.body.i49.i, %fo
   br i1 %cmp.i54.i, label %for.body.i49.i, label %hashTableDestroy.exit57.i, !llvm.loop !23
 
 hashTableDestroy.exit57.i:                        ; preds = %for.body.i49.i, %hashTableDestroy.exit44.i
-  %mem1.i55.i = getelementptr inbounds %struct.DTD, ptr %44, i64 0, i32 2, i32 4
+  %mem1.i55.i = getelementptr inbounds i8, ptr %44, i64 112
   %85 = load ptr, ptr %mem1.i55.i, align 8
-  %free_fcn2.i56.i = getelementptr inbounds %struct.XML_Memory_Handling_Suite, ptr %85, i64 0, i32 2
+  %free_fcn2.i56.i = getelementptr inbounds i8, ptr %85, i64 16
   %86 = load ptr, ptr %free_fcn2.i56.i, align 8
   %87 = load ptr, ptr %attributeIds.i, align 8
   tail call void %86(ptr noundef %87) #23
-  %prefixes.i = getelementptr inbounds %struct.DTD, ptr %44, i64 0, i32 3
-  %size.i58.i = getelementptr inbounds %struct.DTD, ptr %44, i64 0, i32 3, i32 2
+  %prefixes.i = getelementptr inbounds i8, ptr %44, i64 120
+  %size.i58.i = getelementptr inbounds i8, ptr %44, i64 136
   %88 = load i64, ptr %size.i58.i, align 8
   %cmp7.not.i59.i = icmp eq i64 %88, 0
   br i1 %cmp7.not.i59.i, label %hashTableDestroy.exit70.i, label %for.body.lr.ph.i60.i
 
 for.body.lr.ph.i60.i:                             ; preds = %hashTableDestroy.exit57.i
-  %mem.i61.i = getelementptr inbounds %struct.DTD, ptr %44, i64 0, i32 3, i32 4
+  %mem.i61.i = getelementptr inbounds i8, ptr %44, i64 152
   br label %for.body.i62.i
 
 for.body.i62.i:                                   ; preds = %for.body.i62.i, %for.body.lr.ph.i60.i
   %i.08.i63.i = phi i64 [ 0, %for.body.lr.ph.i60.i ], [ %inc.i66.i, %for.body.i62.i ]
   %89 = load ptr, ptr %mem.i61.i, align 8
-  %free_fcn.i64.i = getelementptr inbounds %struct.XML_Memory_Handling_Suite, ptr %89, i64 0, i32 2
+  %free_fcn.i64.i = getelementptr inbounds i8, ptr %89, i64 16
   %90 = load ptr, ptr %free_fcn.i64.i, align 8
   %91 = load ptr, ptr %prefixes.i, align 8
   %arrayidx.i65.i = getelementptr ptr, ptr %91, i64 %i.08.i63.i
@@ -3150,86 +3130,86 @@ for.body.i62.i:                                   ; preds = %for.body.i62.i, %fo
   br i1 %cmp.i67.i, label %for.body.i62.i, label %hashTableDestroy.exit70.i, !llvm.loop !23
 
 hashTableDestroy.exit70.i:                        ; preds = %for.body.i62.i, %hashTableDestroy.exit57.i
-  %mem1.i68.i = getelementptr inbounds %struct.DTD, ptr %44, i64 0, i32 3, i32 4
+  %mem1.i68.i = getelementptr inbounds i8, ptr %44, i64 152
   %94 = load ptr, ptr %mem1.i68.i, align 8
-  %free_fcn2.i69.i = getelementptr inbounds %struct.XML_Memory_Handling_Suite, ptr %94, i64 0, i32 2
+  %free_fcn2.i69.i = getelementptr inbounds i8, ptr %94, i64 16
   %95 = load ptr, ptr %free_fcn2.i69.i, align 8
   %96 = load ptr, ptr %prefixes.i, align 8
   tail call void %95(ptr noundef %96) #23
-  %pool.i = getelementptr inbounds %struct.DTD, ptr %44, i64 0, i32 4
+  %pool.i = getelementptr inbounds i8, ptr %44, i64 160
   %97 = load ptr, ptr %pool.i, align 8
   %tobool.not9.i.i = icmp eq ptr %97, null
   br i1 %tobool.not9.i.i, label %while.end.i.i, label %while.body.lr.ph.i.i
 
 while.body.lr.ph.i.i:                             ; preds = %hashTableDestroy.exit70.i
-  %mem.i71.i = getelementptr inbounds %struct.DTD, ptr %44, i64 0, i32 4, i32 5
+  %mem.i71.i = getelementptr inbounds i8, ptr %44, i64 200
   br label %while.body.i72.i
 
 while.body.i72.i:                                 ; preds = %while.body.i72.i, %while.body.lr.ph.i.i
   %p.010.i.i = phi ptr [ %97, %while.body.lr.ph.i.i ], [ %98, %while.body.i72.i ]
   %98 = load ptr, ptr %p.010.i.i, align 8
   %99 = load ptr, ptr %mem.i71.i, align 8
-  %free_fcn.i73.i = getelementptr inbounds %struct.XML_Memory_Handling_Suite, ptr %99, i64 0, i32 2
+  %free_fcn.i73.i = getelementptr inbounds i8, ptr %99, i64 16
   %100 = load ptr, ptr %free_fcn.i73.i, align 8
   tail call void %100(ptr noundef nonnull %p.010.i.i) #23
   %tobool.not.i74.i = icmp eq ptr %98, null
   br i1 %tobool.not.i74.i, label %while.end.i.i, label %while.body.i72.i, !llvm.loop !21
 
 while.end.i.i:                                    ; preds = %while.body.i72.i, %hashTableDestroy.exit70.i
-  %freeBlocks.i.i = getelementptr inbounds %struct.DTD, ptr %44, i64 0, i32 4, i32 1
+  %freeBlocks.i.i = getelementptr inbounds i8, ptr %44, i64 168
   %101 = load ptr, ptr %freeBlocks.i.i, align 8
   %tobool2.not11.i.i = icmp eq ptr %101, null
   br i1 %tobool2.not11.i.i, label %poolDestroy.exit.i, label %while.body3.lr.ph.i.i
 
 while.body3.lr.ph.i.i:                            ; preds = %while.end.i.i
-  %mem6.i.i = getelementptr inbounds %struct.DTD, ptr %44, i64 0, i32 4, i32 5
+  %mem6.i.i = getelementptr inbounds i8, ptr %44, i64 200
   br label %while.body3.i.i
 
 while.body3.i.i:                                  ; preds = %while.body3.i.i, %while.body3.lr.ph.i.i
   %p.112.i.i = phi ptr [ %101, %while.body3.lr.ph.i.i ], [ %102, %while.body3.i.i ]
   %102 = load ptr, ptr %p.112.i.i, align 8
   %103 = load ptr, ptr %mem6.i.i, align 8
-  %free_fcn7.i.i = getelementptr inbounds %struct.XML_Memory_Handling_Suite, ptr %103, i64 0, i32 2
+  %free_fcn7.i.i = getelementptr inbounds i8, ptr %103, i64 16
   %104 = load ptr, ptr %free_fcn7.i.i, align 8
   tail call void %104(ptr noundef nonnull %p.112.i.i) #23
   %tobool2.not.i.i = icmp eq ptr %102, null
   br i1 %tobool2.not.i.i, label %poolDestroy.exit.i, label %while.body3.i.i, !llvm.loop !22
 
 poolDestroy.exit.i:                               ; preds = %while.body3.i.i, %while.end.i.i
-  %entityValuePool.i = getelementptr inbounds %struct.DTD, ptr %44, i64 0, i32 5
+  %entityValuePool.i = getelementptr inbounds i8, ptr %44, i64 208
   %105 = load ptr, ptr %entityValuePool.i, align 8
   %tobool.not9.i75.i = icmp eq ptr %105, null
   br i1 %tobool.not9.i75.i, label %while.end.i82.i, label %while.body.lr.ph.i76.i
 
 while.body.lr.ph.i76.i:                           ; preds = %poolDestroy.exit.i
-  %mem.i77.i = getelementptr inbounds %struct.DTD, ptr %44, i64 0, i32 5, i32 5
+  %mem.i77.i = getelementptr inbounds i8, ptr %44, i64 248
   br label %while.body.i78.i
 
 while.body.i78.i:                                 ; preds = %while.body.i78.i, %while.body.lr.ph.i76.i
   %p.010.i79.i = phi ptr [ %105, %while.body.lr.ph.i76.i ], [ %106, %while.body.i78.i ]
   %106 = load ptr, ptr %p.010.i79.i, align 8
   %107 = load ptr, ptr %mem.i77.i, align 8
-  %free_fcn.i80.i = getelementptr inbounds %struct.XML_Memory_Handling_Suite, ptr %107, i64 0, i32 2
+  %free_fcn.i80.i = getelementptr inbounds i8, ptr %107, i64 16
   %108 = load ptr, ptr %free_fcn.i80.i, align 8
   tail call void %108(ptr noundef nonnull %p.010.i79.i) #23
   %tobool.not.i81.i = icmp eq ptr %106, null
   br i1 %tobool.not.i81.i, label %while.end.i82.i, label %while.body.i78.i, !llvm.loop !21
 
 while.end.i82.i:                                  ; preds = %while.body.i78.i, %poolDestroy.exit.i
-  %freeBlocks.i83.i = getelementptr inbounds %struct.DTD, ptr %44, i64 0, i32 5, i32 1
+  %freeBlocks.i83.i = getelementptr inbounds i8, ptr %44, i64 216
   %109 = load ptr, ptr %freeBlocks.i83.i, align 8
   %tobool2.not11.i84.i = icmp eq ptr %109, null
   br i1 %tobool2.not11.i84.i, label %poolDestroy.exit91.i, label %while.body3.lr.ph.i85.i
 
 while.body3.lr.ph.i85.i:                          ; preds = %while.end.i82.i
-  %mem6.i86.i = getelementptr inbounds %struct.DTD, ptr %44, i64 0, i32 5, i32 5
+  %mem6.i86.i = getelementptr inbounds i8, ptr %44, i64 248
   br label %while.body3.i87.i
 
 while.body3.i87.i:                                ; preds = %while.body3.i87.i, %while.body3.lr.ph.i85.i
   %p.112.i88.i = phi ptr [ %109, %while.body3.lr.ph.i85.i ], [ %110, %while.body3.i87.i ]
   %110 = load ptr, ptr %p.112.i88.i, align 8
   %111 = load ptr, ptr %mem6.i86.i, align 8
-  %free_fcn7.i89.i = getelementptr inbounds %struct.XML_Memory_Handling_Suite, ptr %111, i64 0, i32 2
+  %free_fcn7.i89.i = getelementptr inbounds i8, ptr %111, i64 16
   %112 = load ptr, ptr %free_fcn7.i89.i, align 8
   tail call void %112(ptr noundef nonnull %p.112.i88.i) #23
   %tobool2.not.i90.i = icmp eq ptr %110, null
@@ -3240,11 +3220,11 @@ poolDestroy.exit91.i:                             ; preds = %while.body3.i87.i, 
 
 if.then5.i:                                       ; preds = %poolDestroy.exit91.i
   %113 = load ptr, ptr %free_fcn, align 8
-  %scaffIndex.i = getelementptr inbounds %struct.DTD, ptr %44, i64 0, i32 18
+  %scaffIndex.i = getelementptr inbounds i8, ptr %44, i64 352
   %114 = load ptr, ptr %scaffIndex.i, align 8
   tail call void %113(ptr noundef %114) #23
   %115 = load ptr, ptr %free_fcn, align 8
-  %scaffold.i = getelementptr inbounds %struct.DTD, ptr %44, i64 0, i32 13
+  %scaffold.i = getelementptr inbounds i8, ptr %44, i64 328
   %116 = load ptr, ptr %scaffold.i, align 8
   tail call void %115(ptr noundef %116) #23
   br label %dtdDestroy.exit
@@ -3256,36 +3236,36 @@ dtdDestroy.exit:                                  ; preds = %poolDestroy.exit91.
 
 if.end30:                                         ; preds = %dtdDestroy.exit, %land.lhs.true, %poolDestroy.exit88
   %118 = load ptr, ptr %free_fcn, align 8
-  %m_atts = getelementptr inbounds %struct.XML_ParserStruct, ptr %parser, i64 0, i32 74
+  %m_atts = getelementptr inbounds i8, ptr %parser, i64 736
   %119 = load ptr, ptr %m_atts, align 8
   tail call void %118(ptr noundef %119) #23
   %120 = load ptr, ptr %free_fcn, align 8
-  %m_groupConnector = getelementptr inbounds %struct.XML_ParserStruct, ptr %parser, i64 0, i32 81
+  %m_groupConnector = getelementptr inbounds i8, ptr %parser, i64 880
   %121 = load ptr, ptr %m_groupConnector, align 8
   tail call void %120(ptr noundef %121) #23
   %122 = load ptr, ptr %free_fcn, align 8
-  %m_buffer = getelementptr inbounds %struct.XML_ParserStruct, ptr %parser, i64 0, i32 2
+  %m_buffer = getelementptr inbounds i8, ptr %parser, i64 16
   %123 = load ptr, ptr %m_buffer, align 8
   tail call void %122(ptr noundef %123) #23
   %124 = load ptr, ptr %free_fcn, align 8
-  %m_dataBuf = getelementptr inbounds %struct.XML_ParserStruct, ptr %parser, i64 0, i32 9
+  %m_dataBuf = getelementptr inbounds i8, ptr %parser, i64 88
   %125 = load ptr, ptr %m_dataBuf, align 8
   tail call void %124(ptr noundef %125) #23
   %126 = load ptr, ptr %free_fcn, align 8
-  %m_nsAtts = getelementptr inbounds %struct.XML_ParserStruct, ptr %parser, i64 0, i32 75
+  %m_nsAtts = getelementptr inbounds i8, ptr %parser, i64 744
   %127 = load ptr, ptr %m_nsAtts, align 8
   tail call void %126(ptr noundef %127) #23
   %128 = load ptr, ptr %free_fcn, align 8
-  %m_unknownEncodingMem = getelementptr inbounds %struct.XML_ParserStruct, ptr %parser, i64 0, i32 40
+  %m_unknownEncodingMem = getelementptr inbounds i8, ptr %parser, i64 464
   %129 = load ptr, ptr %m_unknownEncodingMem, align 8
   tail call void %128(ptr noundef %129) #23
-  %m_unknownEncodingRelease = getelementptr inbounds %struct.XML_ParserStruct, ptr %parser, i64 0, i32 43
+  %m_unknownEncodingRelease = getelementptr inbounds i8, ptr %parser, i64 488
   %130 = load ptr, ptr %m_unknownEncodingRelease, align 8
   %tobool43.not = icmp eq ptr %130, null
   br i1 %tobool43.not, label %if.end46, label %if.then44
 
 if.then44:                                        ; preds = %if.end30
-  %m_unknownEncodingData = getelementptr inbounds %struct.XML_ParserStruct, ptr %parser, i64 0, i32 41
+  %m_unknownEncodingData = getelementptr inbounds i8, ptr %parser, i64 472
   %131 = load ptr, ptr %m_unknownEncodingData, align 8
   tail call void %130(ptr noundef %131) #23
   br label %if.end46
@@ -3307,7 +3287,7 @@ entry:
   br i1 %cmp.not, label %if.end, label %return
 
 if.end:                                           ; preds = %entry
-  %m_processor = getelementptr inbounds %struct.XML_ParserStruct, ptr %parser, i64 0, i32 45
+  %m_processor = getelementptr inbounds i8, ptr %parser, i64 528
   store ptr @externalEntityInitProcessor2, ptr %m_processor, align 8
   %call1 = tail call i32 @externalEntityInitProcessor2(ptr noundef %parser, ptr noundef %start, ptr noundef %end, ptr noundef %endPtr)
   br label %return
@@ -3327,14 +3307,14 @@ entry:
   br i1 %cmp.not, label %if.end, label %return
 
 if.end:                                           ; preds = %entry
-  %m_dtd = getelementptr inbounds %struct.XML_ParserStruct, ptr %parser, i64 0, i32 65
+  %m_dtd = getelementptr inbounds i8, ptr %parser, i64 672
   %0 = load ptr, ptr %m_dtd, align 8
-  %paramEntityRead = getelementptr inbounds %struct.DTD, ptr %0, i64 0, i32 9
+  %paramEntityRead = getelementptr inbounds i8, ptr %0, i64 259
   store i8 1, ptr %paramEntityRead, align 1
-  %inEntityValue = getelementptr inbounds %struct.XML_ParserStruct, ptr %parser, i64 0, i32 44, i32 5
+  %inEntityValue = getelementptr inbounds i8, ptr %parser, i64 520
   %1 = load i32, ptr %inEntityValue, align 8
   %tobool.not = icmp eq i32 %1, 0
-  %m_processor3 = getelementptr inbounds %struct.XML_ParserStruct, ptr %parser, i64 0, i32 45
+  %m_processor3 = getelementptr inbounds i8, ptr %parser, i64 528
   br i1 %tobool.not, label %if.else, label %if.then1
 
 if.then1:                                         ; preds = %if.end
@@ -3359,7 +3339,7 @@ entry:
   br i1 %cmp.not, label %if.end, label %if.then
 
 if.then:                                          ; preds = %entry
-  %m_handlerArg = getelementptr inbounds %struct.XML_ParserStruct, ptr %parser, i64 0, i32 1
+  %m_handlerArg = getelementptr inbounds i8, ptr %parser, i64 8
   store ptr %parser, ptr %m_handlerArg, align 8
   br label %if.end
 
@@ -3374,7 +3354,7 @@ entry:
   br i1 %cmp, label %return, label %if.end
 
 if.end:                                           ; preds = %entry
-  %m_parsingStatus = getelementptr inbounds %struct.XML_ParserStruct, ptr %parser, i64 0, i32 85
+  %m_parsingStatus = getelementptr inbounds i8, ptr %parser, i64 904
   %0 = load i32, ptr %m_parsingStatus, align 8
   switch i32 %0, label %if.end6 [
     i32 1, label %return
@@ -3382,7 +3362,7 @@ if.end:                                           ; preds = %entry
   ]
 
 if.end6:                                          ; preds = %if.end
-  %m_useForeignDTD = getelementptr inbounds %struct.XML_ParserStruct, ptr %parser, i64 0, i32 87
+  %m_useForeignDTD = getelementptr inbounds i8, ptr %parser, i64 913
   store i8 %useDTD, ptr %m_useForeignDTD, align 1
   br label %return
 
@@ -3398,7 +3378,7 @@ entry:
   br i1 %cmp, label %return, label %if.end
 
 if.end:                                           ; preds = %entry
-  %m_parsingStatus = getelementptr inbounds %struct.XML_ParserStruct, ptr %parser, i64 0, i32 85
+  %m_parsingStatus = getelementptr inbounds i8, ptr %parser, i64 904
   %0 = load i32, ptr %m_parsingStatus, align 8
   switch i32 %0, label %if.end6 [
     i32 1, label %return
@@ -3408,7 +3388,7 @@ if.end:                                           ; preds = %entry
 if.end6:                                          ; preds = %if.end
   %tobool.not = icmp ne i32 %do_nst, 0
   %conv = zext i1 %tobool.not to i8
-  %m_ns_triplets = getelementptr inbounds %struct.XML_ParserStruct, ptr %parser, i64 0, i32 39
+  %m_ns_triplets = getelementptr inbounds i8, ptr %parser, i64 457
   store i8 %conv, ptr %m_ns_triplets, align 1
   br label %return
 
@@ -3423,7 +3403,7 @@ entry:
   br i1 %cmp, label %if.end6, label %if.end
 
 if.end:                                           ; preds = %entry
-  %m_handlerArg = getelementptr inbounds %struct.XML_ParserStruct, ptr %parser, i64 0, i32 1
+  %m_handlerArg = getelementptr inbounds i8, ptr %parser, i64 8
   %0 = load ptr, ptr %m_handlerArg, align 8
   %1 = load ptr, ptr %parser, align 8
   %cmp1 = icmp eq ptr %0, %1
@@ -3449,11 +3429,11 @@ if.end:                                           ; preds = %entry
   br i1 %tobool.not, label %return.sink.split, label %if.then1
 
 if.then1:                                         ; preds = %if.end
-  %m_dtd = getelementptr inbounds %struct.XML_ParserStruct, ptr %parser, i64 0, i32 65
+  %m_dtd = getelementptr inbounds i8, ptr %parser, i64 672
   %0 = load ptr, ptr %m_dtd, align 8
-  %pool = getelementptr inbounds %struct.DTD, ptr %0, i64 0, i32 4
-  %ptr.i = getelementptr inbounds %struct.DTD, ptr %0, i64 0, i32 4, i32 3
-  %end.i = getelementptr inbounds %struct.DTD, ptr %0, i64 0, i32 4, i32 2
+  %pool = getelementptr inbounds i8, ptr %0, i64 160
+  %ptr.i = getelementptr inbounds i8, ptr %0, i64 184
+  %end.i = getelementptr inbounds i8, ptr %0, i64 176
   br label %do.body.i
 
 do.body.i:                                        ; preds = %cond.false.i, %if.then1
@@ -3484,7 +3464,7 @@ cond.false.i:                                     ; preds = %land.lhs.true.cond.
   br i1 %tobool3.not.i, label %poolCopyString.exit, label %do.body.i, !llvm.loop !12
 
 poolCopyString.exit:                              ; preds = %cond.false.i
-  %start.i = getelementptr inbounds %struct.DTD, ptr %0, i64 0, i32 4, i32 4
+  %start.i = getelementptr inbounds i8, ptr %0, i64 192
   %6 = load ptr, ptr %start.i, align 8
   %7 = load ptr, ptr %ptr.i, align 8
   store ptr %7, ptr %start.i, align 8
@@ -3493,7 +3473,7 @@ poolCopyString.exit:                              ; preds = %cond.false.i
 
 return.sink.split:                                ; preds = %if.end, %poolCopyString.exit
   %.sink = phi ptr [ %6, %poolCopyString.exit ], [ null, %if.end ]
-  %m_curBase = getelementptr inbounds %struct.XML_ParserStruct, ptr %parser, i64 0, i32 66
+  %m_curBase = getelementptr inbounds i8, ptr %parser, i64 680
   store ptr %.sink, ptr %m_curBase, align 8
   br label %return
 
@@ -3509,7 +3489,7 @@ entry:
   br i1 %cmp, label %return, label %if.end
 
 if.end:                                           ; preds = %entry
-  %m_curBase = getelementptr inbounds %struct.XML_ParserStruct, ptr %parser, i64 0, i32 66
+  %m_curBase = getelementptr inbounds i8, ptr %parser, i64 680
   %0 = load ptr, ptr %m_curBase, align 8
   br label %return
 
@@ -3525,7 +3505,7 @@ entry:
   br i1 %cmp, label %return, label %if.end
 
 if.end:                                           ; preds = %entry
-  %m_nSpecifiedAtts = getelementptr inbounds %struct.XML_ParserStruct, ptr %parser, i64 0, i32 72
+  %m_nSpecifiedAtts = getelementptr inbounds i8, ptr %parser, i64 724
   %0 = load i32, ptr %m_nSpecifiedAtts, align 4
   br label %return
 
@@ -3541,7 +3521,7 @@ entry:
   br i1 %cmp, label %return, label %if.end
 
 if.end:                                           ; preds = %entry
-  %m_idAttIndex = getelementptr inbounds %struct.XML_ParserStruct, ptr %parser, i64 0, i32 73
+  %m_idAttIndex = getelementptr inbounds i8, ptr %parser, i64 728
   %0 = load i32, ptr %m_idAttIndex, align 8
   br label %return
 
@@ -3557,9 +3537,9 @@ entry:
   br i1 %cmp, label %return, label %if.end
 
 if.end:                                           ; preds = %entry
-  %m_startElementHandler = getelementptr inbounds %struct.XML_ParserStruct, ptr %parser, i64 0, i32 11
+  %m_startElementHandler = getelementptr inbounds i8, ptr %parser, i64 104
   store ptr %start, ptr %m_startElementHandler, align 8
-  %m_endElementHandler = getelementptr inbounds %struct.XML_ParserStruct, ptr %parser, i64 0, i32 12
+  %m_endElementHandler = getelementptr inbounds i8, ptr %parser, i64 112
   store ptr %end, ptr %m_endElementHandler, align 8
   br label %return
 
@@ -3574,7 +3554,7 @@ entry:
   br i1 %cmp.not, label %if.end, label %if.then
 
 if.then:                                          ; preds = %entry
-  %m_startElementHandler = getelementptr inbounds %struct.XML_ParserStruct, ptr %parser, i64 0, i32 11
+  %m_startElementHandler = getelementptr inbounds i8, ptr %parser, i64 104
   store ptr %start, ptr %m_startElementHandler, align 8
   br label %if.end
 
@@ -3589,7 +3569,7 @@ entry:
   br i1 %cmp.not, label %if.end, label %if.then
 
 if.then:                                          ; preds = %entry
-  %m_endElementHandler = getelementptr inbounds %struct.XML_ParserStruct, ptr %parser, i64 0, i32 12
+  %m_endElementHandler = getelementptr inbounds i8, ptr %parser, i64 112
   store ptr %end, ptr %m_endElementHandler, align 8
   br label %if.end
 
@@ -3604,7 +3584,7 @@ entry:
   br i1 %cmp.not, label %if.end, label %if.then
 
 if.then:                                          ; preds = %entry
-  %m_characterDataHandler = getelementptr inbounds %struct.XML_ParserStruct, ptr %parser, i64 0, i32 13
+  %m_characterDataHandler = getelementptr inbounds i8, ptr %parser, i64 120
   store ptr %handler, ptr %m_characterDataHandler, align 8
   br label %if.end
 
@@ -3619,7 +3599,7 @@ entry:
   br i1 %cmp.not, label %if.end, label %if.then
 
 if.then:                                          ; preds = %entry
-  %m_processingInstructionHandler = getelementptr inbounds %struct.XML_ParserStruct, ptr %parser, i64 0, i32 14
+  %m_processingInstructionHandler = getelementptr inbounds i8, ptr %parser, i64 128
   store ptr %handler, ptr %m_processingInstructionHandler, align 8
   br label %if.end
 
@@ -3634,7 +3614,7 @@ entry:
   br i1 %cmp.not, label %if.end, label %if.then
 
 if.then:                                          ; preds = %entry
-  %m_commentHandler = getelementptr inbounds %struct.XML_ParserStruct, ptr %parser, i64 0, i32 15
+  %m_commentHandler = getelementptr inbounds i8, ptr %parser, i64 136
   store ptr %handler, ptr %m_commentHandler, align 8
   br label %if.end
 
@@ -3649,9 +3629,9 @@ entry:
   br i1 %cmp, label %return, label %if.end
 
 if.end:                                           ; preds = %entry
-  %m_startCdataSectionHandler = getelementptr inbounds %struct.XML_ParserStruct, ptr %parser, i64 0, i32 16
+  %m_startCdataSectionHandler = getelementptr inbounds i8, ptr %parser, i64 144
   store ptr %start, ptr %m_startCdataSectionHandler, align 8
-  %m_endCdataSectionHandler = getelementptr inbounds %struct.XML_ParserStruct, ptr %parser, i64 0, i32 17
+  %m_endCdataSectionHandler = getelementptr inbounds i8, ptr %parser, i64 152
   store ptr %end, ptr %m_endCdataSectionHandler, align 8
   br label %return
 
@@ -3666,7 +3646,7 @@ entry:
   br i1 %cmp.not, label %if.end, label %if.then
 
 if.then:                                          ; preds = %entry
-  %m_startCdataSectionHandler = getelementptr inbounds %struct.XML_ParserStruct, ptr %parser, i64 0, i32 16
+  %m_startCdataSectionHandler = getelementptr inbounds i8, ptr %parser, i64 144
   store ptr %start, ptr %m_startCdataSectionHandler, align 8
   br label %if.end
 
@@ -3681,7 +3661,7 @@ entry:
   br i1 %cmp.not, label %if.end, label %if.then
 
 if.then:                                          ; preds = %entry
-  %m_endCdataSectionHandler = getelementptr inbounds %struct.XML_ParserStruct, ptr %parser, i64 0, i32 17
+  %m_endCdataSectionHandler = getelementptr inbounds i8, ptr %parser, i64 152
   store ptr %end, ptr %m_endCdataSectionHandler, align 8
   br label %if.end
 
@@ -3696,9 +3676,9 @@ entry:
   br i1 %cmp, label %return, label %if.end
 
 if.end:                                           ; preds = %entry
-  %m_defaultHandler = getelementptr inbounds %struct.XML_ParserStruct, ptr %parser, i64 0, i32 18
+  %m_defaultHandler = getelementptr inbounds i8, ptr %parser, i64 160
   store ptr %handler, ptr %m_defaultHandler, align 8
-  %m_defaultExpandInternalEntities = getelementptr inbounds %struct.XML_ParserStruct, ptr %parser, i64 0, i32 52
+  %m_defaultExpandInternalEntities = getelementptr inbounds i8, ptr %parser, i64 584
   store i8 0, ptr %m_defaultExpandInternalEntities, align 8
   br label %return
 
@@ -3713,9 +3693,9 @@ entry:
   br i1 %cmp, label %return, label %if.end
 
 if.end:                                           ; preds = %entry
-  %m_defaultHandler = getelementptr inbounds %struct.XML_ParserStruct, ptr %parser, i64 0, i32 18
+  %m_defaultHandler = getelementptr inbounds i8, ptr %parser, i64 160
   store ptr %handler, ptr %m_defaultHandler, align 8
-  %m_defaultExpandInternalEntities = getelementptr inbounds %struct.XML_ParserStruct, ptr %parser, i64 0, i32 52
+  %m_defaultExpandInternalEntities = getelementptr inbounds i8, ptr %parser, i64 584
   store i8 1, ptr %m_defaultExpandInternalEntities, align 8
   br label %return
 
@@ -3730,9 +3710,9 @@ entry:
   br i1 %cmp, label %return, label %if.end
 
 if.end:                                           ; preds = %entry
-  %m_startDoctypeDeclHandler = getelementptr inbounds %struct.XML_ParserStruct, ptr %parser, i64 0, i32 19
+  %m_startDoctypeDeclHandler = getelementptr inbounds i8, ptr %parser, i64 168
   store ptr %start, ptr %m_startDoctypeDeclHandler, align 8
-  %m_endDoctypeDeclHandler = getelementptr inbounds %struct.XML_ParserStruct, ptr %parser, i64 0, i32 20
+  %m_endDoctypeDeclHandler = getelementptr inbounds i8, ptr %parser, i64 176
   store ptr %end, ptr %m_endDoctypeDeclHandler, align 8
   br label %return
 
@@ -3747,7 +3727,7 @@ entry:
   br i1 %cmp.not, label %if.end, label %if.then
 
 if.then:                                          ; preds = %entry
-  %m_startDoctypeDeclHandler = getelementptr inbounds %struct.XML_ParserStruct, ptr %parser, i64 0, i32 19
+  %m_startDoctypeDeclHandler = getelementptr inbounds i8, ptr %parser, i64 168
   store ptr %start, ptr %m_startDoctypeDeclHandler, align 8
   br label %if.end
 
@@ -3762,7 +3742,7 @@ entry:
   br i1 %cmp.not, label %if.end, label %if.then
 
 if.then:                                          ; preds = %entry
-  %m_endDoctypeDeclHandler = getelementptr inbounds %struct.XML_ParserStruct, ptr %parser, i64 0, i32 20
+  %m_endDoctypeDeclHandler = getelementptr inbounds i8, ptr %parser, i64 176
   store ptr %end, ptr %m_endDoctypeDeclHandler, align 8
   br label %if.end
 
@@ -3777,7 +3757,7 @@ entry:
   br i1 %cmp.not, label %if.end, label %if.then
 
 if.then:                                          ; preds = %entry
-  %m_unparsedEntityDeclHandler = getelementptr inbounds %struct.XML_ParserStruct, ptr %parser, i64 0, i32 21
+  %m_unparsedEntityDeclHandler = getelementptr inbounds i8, ptr %parser, i64 184
   store ptr %handler, ptr %m_unparsedEntityDeclHandler, align 8
   br label %if.end
 
@@ -3792,7 +3772,7 @@ entry:
   br i1 %cmp.not, label %if.end, label %if.then
 
 if.then:                                          ; preds = %entry
-  %m_notationDeclHandler = getelementptr inbounds %struct.XML_ParserStruct, ptr %parser, i64 0, i32 22
+  %m_notationDeclHandler = getelementptr inbounds i8, ptr %parser, i64 192
   store ptr %handler, ptr %m_notationDeclHandler, align 8
   br label %if.end
 
@@ -3807,9 +3787,9 @@ entry:
   br i1 %cmp, label %return, label %if.end
 
 if.end:                                           ; preds = %entry
-  %m_startNamespaceDeclHandler = getelementptr inbounds %struct.XML_ParserStruct, ptr %parser, i64 0, i32 23
+  %m_startNamespaceDeclHandler = getelementptr inbounds i8, ptr %parser, i64 200
   store ptr %start, ptr %m_startNamespaceDeclHandler, align 8
-  %m_endNamespaceDeclHandler = getelementptr inbounds %struct.XML_ParserStruct, ptr %parser, i64 0, i32 24
+  %m_endNamespaceDeclHandler = getelementptr inbounds i8, ptr %parser, i64 208
   store ptr %end, ptr %m_endNamespaceDeclHandler, align 8
   br label %return
 
@@ -3824,7 +3804,7 @@ entry:
   br i1 %cmp.not, label %if.end, label %if.then
 
 if.then:                                          ; preds = %entry
-  %m_startNamespaceDeclHandler = getelementptr inbounds %struct.XML_ParserStruct, ptr %parser, i64 0, i32 23
+  %m_startNamespaceDeclHandler = getelementptr inbounds i8, ptr %parser, i64 200
   store ptr %start, ptr %m_startNamespaceDeclHandler, align 8
   br label %if.end
 
@@ -3839,7 +3819,7 @@ entry:
   br i1 %cmp.not, label %if.end, label %if.then
 
 if.then:                                          ; preds = %entry
-  %m_endNamespaceDeclHandler = getelementptr inbounds %struct.XML_ParserStruct, ptr %parser, i64 0, i32 24
+  %m_endNamespaceDeclHandler = getelementptr inbounds i8, ptr %parser, i64 208
   store ptr %end, ptr %m_endNamespaceDeclHandler, align 8
   br label %if.end
 
@@ -3854,7 +3834,7 @@ entry:
   br i1 %cmp.not, label %if.end, label %if.then
 
 if.then:                                          ; preds = %entry
-  %m_notStandaloneHandler = getelementptr inbounds %struct.XML_ParserStruct, ptr %parser, i64 0, i32 25
+  %m_notStandaloneHandler = getelementptr inbounds i8, ptr %parser, i64 216
   store ptr %handler, ptr %m_notStandaloneHandler, align 8
   br label %if.end
 
@@ -3869,7 +3849,7 @@ entry:
   br i1 %cmp.not, label %if.end, label %if.then
 
 if.then:                                          ; preds = %entry
-  %m_externalEntityRefHandler = getelementptr inbounds %struct.XML_ParserStruct, ptr %parser, i64 0, i32 26
+  %m_externalEntityRefHandler = getelementptr inbounds i8, ptr %parser, i64 224
   store ptr %handler, ptr %m_externalEntityRefHandler, align 8
   br label %if.end
 
@@ -3885,7 +3865,7 @@ entry:
 
 if.end:                                           ; preds = %entry
   %tobool.not = icmp eq ptr %arg, null
-  %m_externalEntityRefHandlerArg2 = getelementptr inbounds %struct.XML_ParserStruct, ptr %parser, i64 0, i32 27
+  %m_externalEntityRefHandlerArg2 = getelementptr inbounds i8, ptr %parser, i64 232
   %parser.arg = select i1 %tobool.not, ptr %parser, ptr %arg
   store ptr %parser.arg, ptr %m_externalEntityRefHandlerArg2, align 8
   br label %if.end3
@@ -3901,7 +3881,7 @@ entry:
   br i1 %cmp.not, label %if.end, label %if.then
 
 if.then:                                          ; preds = %entry
-  %m_skippedEntityHandler = getelementptr inbounds %struct.XML_ParserStruct, ptr %parser, i64 0, i32 28
+  %m_skippedEntityHandler = getelementptr inbounds i8, ptr %parser, i64 240
   store ptr %handler, ptr %m_skippedEntityHandler, align 8
   br label %if.end
 
@@ -3916,9 +3896,9 @@ entry:
   br i1 %cmp, label %return, label %if.end
 
 if.end:                                           ; preds = %entry
-  %m_unknownEncodingHandler = getelementptr inbounds %struct.XML_ParserStruct, ptr %parser, i64 0, i32 29
+  %m_unknownEncodingHandler = getelementptr inbounds i8, ptr %parser, i64 248
   store ptr %handler, ptr %m_unknownEncodingHandler, align 8
-  %m_unknownEncodingHandlerData = getelementptr inbounds %struct.XML_ParserStruct, ptr %parser, i64 0, i32 42
+  %m_unknownEncodingHandlerData = getelementptr inbounds i8, ptr %parser, i64 480
   store ptr %data, ptr %m_unknownEncodingHandlerData, align 8
   br label %return
 
@@ -3933,7 +3913,7 @@ entry:
   br i1 %cmp.not, label %if.end, label %if.then
 
 if.then:                                          ; preds = %entry
-  %m_elementDeclHandler = getelementptr inbounds %struct.XML_ParserStruct, ptr %parser, i64 0, i32 30
+  %m_elementDeclHandler = getelementptr inbounds i8, ptr %parser, i64 256
   store ptr %eldecl, ptr %m_elementDeclHandler, align 8
   br label %if.end
 
@@ -3948,7 +3928,7 @@ entry:
   br i1 %cmp.not, label %if.end, label %if.then
 
 if.then:                                          ; preds = %entry
-  %m_attlistDeclHandler = getelementptr inbounds %struct.XML_ParserStruct, ptr %parser, i64 0, i32 31
+  %m_attlistDeclHandler = getelementptr inbounds i8, ptr %parser, i64 264
   store ptr %attdecl, ptr %m_attlistDeclHandler, align 8
   br label %if.end
 
@@ -3963,7 +3943,7 @@ entry:
   br i1 %cmp.not, label %if.end, label %if.then
 
 if.then:                                          ; preds = %entry
-  %m_entityDeclHandler = getelementptr inbounds %struct.XML_ParserStruct, ptr %parser, i64 0, i32 32
+  %m_entityDeclHandler = getelementptr inbounds i8, ptr %parser, i64 272
   store ptr %handler, ptr %m_entityDeclHandler, align 8
   br label %if.end
 
@@ -3978,7 +3958,7 @@ entry:
   br i1 %cmp.not, label %if.end, label %if.then
 
 if.then:                                          ; preds = %entry
-  %m_xmlDeclHandler = getelementptr inbounds %struct.XML_ParserStruct, ptr %parser, i64 0, i32 33
+  %m_xmlDeclHandler = getelementptr inbounds i8, ptr %parser, i64 280
   store ptr %handler, ptr %m_xmlDeclHandler, align 8
   br label %if.end
 
@@ -3993,7 +3973,7 @@ entry:
   br i1 %cmp, label %return, label %if.end
 
 if.end:                                           ; preds = %entry
-  %m_parsingStatus = getelementptr inbounds %struct.XML_ParserStruct, ptr %parser, i64 0, i32 85
+  %m_parsingStatus = getelementptr inbounds i8, ptr %parser, i64 904
   %0 = load i32, ptr %m_parsingStatus, align 8
   switch i32 %0, label %if.end6 [
     i32 1, label %return
@@ -4001,7 +3981,7 @@ if.end:                                           ; preds = %entry
   ]
 
 if.end6:                                          ; preds = %if.end
-  %m_paramEntityParsing = getelementptr inbounds %struct.XML_ParserStruct, ptr %parser, i64 0, i32 88
+  %m_paramEntityParsing = getelementptr inbounds i8, ptr %parser, i64 916
   store i32 %peParsing, ptr %m_paramEntityParsing, align 4
   br label %return
 
@@ -4021,13 +4001,13 @@ tailrecurse:                                      ; preds = %if.end, %entry
   br i1 %cmp, label %return, label %if.end
 
 if.end:                                           ; preds = %tailrecurse
-  %m_parentParser = getelementptr inbounds %struct.XML_ParserStruct, ptr %parser.tr, i64 0, i32 84
+  %m_parentParser = getelementptr inbounds i8, ptr %parser.tr, i64 896
   %0 = load ptr, ptr %m_parentParser, align 8
   %tobool.not = icmp eq ptr %0, null
   br i1 %tobool.not, label %if.end3, label %tailrecurse
 
 if.end3:                                          ; preds = %if.end
-  %m_parsingStatus = getelementptr inbounds %struct.XML_ParserStruct, ptr %parser.tr, i64 0, i32 85
+  %m_parsingStatus = getelementptr inbounds i8, ptr %parser.tr, i64 904
   %1 = load i32, ptr %m_parsingStatus, align 8
   switch i32 %1, label %if.end9 [
     i32 1, label %return
@@ -4035,7 +4015,7 @@ if.end3:                                          ; preds = %if.end
   ]
 
 if.end9:                                          ; preds = %if.end3
-  %m_hash_secret_salt = getelementptr inbounds %struct.XML_ParserStruct, ptr %parser.tr, i64 0, i32 89
+  %m_hash_secret_salt = getelementptr inbounds i8, ptr %parser.tr, i64 920
   store i64 %hash_salt, ptr %m_hash_secret_salt, align 8
   br label %return
 
@@ -4062,12 +4042,12 @@ if.then:                                          ; preds = %entry
   br i1 %cmp, label %return, label %if.then6
 
 if.then6:                                         ; preds = %lor.lhs.false2, %if.then
-  %m_errorCode = getelementptr inbounds %struct.XML_ParserStruct, ptr %parser, i64 0, i32 46
+  %m_errorCode = getelementptr inbounds i8, ptr %parser, i64 536
   store i32 41, ptr %m_errorCode, align 8
   br label %return
 
 if.end7:                                          ; preds = %lor.lhs.false2
-  %m_parsingStatus = getelementptr inbounds %struct.XML_ParserStruct, ptr %parser, i64 0, i32 85
+  %m_parsingStatus = getelementptr inbounds i8, ptr %parser, i64 904
   %0 = load i32, ptr %m_parsingStatus, align 8
   switch i32 %0, label %sw.default [
     i32 3, label %sw.bb
@@ -4076,17 +4056,17 @@ if.end7:                                          ; preds = %lor.lhs.false2
   ]
 
 sw.bb:                                            ; preds = %if.end7
-  %m_errorCode8 = getelementptr inbounds %struct.XML_ParserStruct, ptr %parser, i64 0, i32 46
+  %m_errorCode8 = getelementptr inbounds i8, ptr %parser, i64 536
   store i32 33, ptr %m_errorCode8, align 8
   br label %return
 
 sw.bb9:                                           ; preds = %if.end7
-  %m_errorCode10 = getelementptr inbounds %struct.XML_ParserStruct, ptr %parser, i64 0, i32 46
+  %m_errorCode10 = getelementptr inbounds i8, ptr %parser, i64 536
   store i32 36, ptr %m_errorCode10, align 8
   br label %return
 
 sw.bb11:                                          ; preds = %if.end7
-  %m_parentParser = getelementptr inbounds %struct.XML_ParserStruct, ptr %parser, i64 0, i32 84
+  %m_parentParser = getelementptr inbounds i8, ptr %parser, i64 896
   %1 = load ptr, ptr %m_parentParser, align 8
   %cmp12 = icmp eq ptr %1, null
   br i1 %cmp12, label %land.lhs.true13, label %sw.default
@@ -4097,7 +4077,7 @@ land.lhs.true13:                                  ; preds = %sw.bb11
   br i1 %tobool.not, label %if.then14, label %sw.default
 
 if.then14:                                        ; preds = %land.lhs.true13
-  %m_errorCode15 = getelementptr inbounds %struct.XML_ParserStruct, ptr %parser, i64 0, i32 46
+  %m_errorCode15 = getelementptr inbounds i8, ptr %parser, i64 536
   store i32 1, ptr %m_errorCode15, align 8
   br label %return
 
@@ -4108,24 +4088,24 @@ sw.default:                                       ; preds = %sw.bb11, %land.lhs.
 
 if.then20:                                        ; preds = %sw.default
   %conv = trunc i32 %isFinal to i8
-  %finalBuffer = getelementptr inbounds %struct.XML_ParserStruct, ptr %parser, i64 0, i32 85, i32 1
+  %finalBuffer = getelementptr inbounds i8, ptr %parser, i64 908
   store i8 %conv, ptr %finalBuffer, align 4
   %tobool22.not = icmp eq i32 %isFinal, 0
   br i1 %tobool22.not, label %return, label %if.end24
 
 if.end24:                                         ; preds = %if.then20
-  %m_bufferPtr = getelementptr inbounds %struct.XML_ParserStruct, ptr %parser, i64 0, i32 4
+  %m_bufferPtr = getelementptr inbounds i8, ptr %parser, i64 48
   %2 = load ptr, ptr %m_bufferPtr, align 8
-  %m_positionPtr = getelementptr inbounds %struct.XML_ParserStruct, ptr %parser, i64 0, i32 49
+  %m_positionPtr = getelementptr inbounds i8, ptr %parser, i64 560
   store ptr %2, ptr %m_positionPtr, align 8
-  %m_bufferEnd = getelementptr inbounds %struct.XML_ParserStruct, ptr %parser, i64 0, i32 5
+  %m_bufferEnd = getelementptr inbounds i8, ptr %parser, i64 56
   %3 = load ptr, ptr %m_bufferEnd, align 8
-  %m_parseEndPtr = getelementptr inbounds %struct.XML_ParserStruct, ptr %parser, i64 0, i32 8
+  %m_parseEndPtr = getelementptr inbounds i8, ptr %parser, i64 80
   store ptr %3, ptr %m_parseEndPtr, align 8
-  %m_processor = getelementptr inbounds %struct.XML_ParserStruct, ptr %parser, i64 0, i32 45
+  %m_processor = getelementptr inbounds i8, ptr %parser, i64 528
   %4 = load ptr, ptr %m_processor, align 8
   %call28 = tail call i32 %4(ptr noundef nonnull %parser, ptr noundef %2, ptr noundef %3, ptr noundef nonnull %m_bufferPtr) #23
-  %m_errorCode29 = getelementptr inbounds %struct.XML_ParserStruct, ptr %parser, i64 0, i32 46
+  %m_errorCode29 = getelementptr inbounds i8, ptr %parser, i64 536
   store i32 %call28, ptr %m_errorCode29, align 8
   %cmp31 = icmp eq i32 %call28, 0
   br i1 %cmp31, label %if.then33, label %if.end46
@@ -4139,13 +4119,13 @@ if.then33:                                        ; preds = %if.end24
   ]
 
 sw.bb36:                                          ; preds = %if.then33
-  %m_encoding = getelementptr inbounds %struct.XML_ParserStruct, ptr %parser, i64 0, i32 34
+  %m_encoding = getelementptr inbounds i8, ptr %parser, i64 288
   %6 = load ptr, ptr %m_encoding, align 8
-  %updatePosition = getelementptr inbounds %struct.encoding, ptr %6, i64 0, i32 8
+  %updatePosition = getelementptr inbounds i8, ptr %6, i64 96
   %7 = load ptr, ptr %updatePosition, align 8
   %8 = load ptr, ptr %m_positionPtr, align 8
   %9 = load ptr, ptr %m_bufferPtr, align 8
-  %m_position = getelementptr inbounds %struct.XML_ParserStruct, ptr %parser, i64 0, i32 78
+  %m_position = getelementptr inbounds i8, ptr %parser, i64 768
   tail call void %7(ptr noundef %6, ptr noundef %8, ptr noundef %9, ptr noundef nonnull %m_position) #23
   %10 = load ptr, ptr %m_bufferPtr, align 8
   store ptr %10, ptr %m_positionPtr, align 8
@@ -4156,9 +4136,9 @@ sw.bb42:                                          ; preds = %if.then33, %if.then
   br label %return
 
 if.end46:                                         ; preds = %if.end24
-  %m_eventPtr = getelementptr inbounds %struct.XML_ParserStruct, ptr %parser, i64 0, i32 47
+  %m_eventPtr = getelementptr inbounds i8, ptr %parser, i64 544
   %11 = load ptr, ptr %m_eventPtr, align 8
-  %m_eventEndPtr = getelementptr inbounds %struct.XML_ParserStruct, ptr %parser, i64 0, i32 48
+  %m_eventEndPtr = getelementptr inbounds i8, ptr %parser, i64 552
   store ptr %11, ptr %m_eventEndPtr, align 8
   store ptr @errorProcessor, ptr %m_processor, align 8
   br label %return
@@ -4186,7 +4166,7 @@ entry:
   %tv.i.i = alloca %struct.timeval, align 8
   %afterValue.i.i.i = alloca ptr, align 8
   %entropy.i = alloca i64, align 8
-  %m_hash_secret_salt = getelementptr inbounds %struct.XML_ParserStruct, ptr %parser, i64 0, i32 89
+  %m_hash_secret_salt = getelementptr inbounds i8, ptr %parser, i64 920
   %0 = load i64, ptr %m_hash_secret_salt, align 8
   %cmp = icmp eq i64 %0, 0
   br i1 %cmp, label %if.then, label %if.end
@@ -4260,7 +4240,7 @@ if.then.i.i:                                      ; preds = %getDebugLevel.exit.
 if.end.i:                                         ; preds = %land.rhs.i.i
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %tv.i.i)
   %call.i1.i = call i32 @gettimeofday(ptr noundef nonnull %tv.i.i, ptr noundef null) #23
-  %tv_usec.i.i = getelementptr inbounds %struct.timeval, ptr %tv.i.i, i64 0, i32 1
+  %tv_usec.i.i = getelementptr inbounds i8, ptr %tv.i.i, i64 8
   %7 = load i64, ptr %tv_usec.i.i, align 8
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %tv.i.i)
   %call3.i = call i32 @getpid() #23
@@ -4312,7 +4292,7 @@ generate_hash_secret_salt.exit:                   ; preds = %getDebugLevel.exit.
   br label %if.end
 
 if.end:                                           ; preds = %generate_hash_secret_salt.exit, %entry
-  %m_ns = getelementptr inbounds %struct.XML_ParserStruct, ptr %parser, i64 0, i32 38
+  %m_ns = getelementptr inbounds i8, ptr %parser, i64 456
   %12 = load i8, ptr %m_ns, align 8
   %tobool.not = icmp eq i8 %12, 0
   br i1 %tobool.not, label %return, label %if.then2
@@ -4329,7 +4309,7 @@ return:                                           ; preds = %if.end, %if.then2
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
 define internal i32 @errorProcessor(ptr nocapture noundef readonly %parser, ptr nocapture readnone %s, ptr nocapture readnone %end, ptr nocapture readnone %nextPtr) #4 {
 entry:
-  %m_errorCode = getelementptr inbounds %struct.XML_ParserStruct, ptr %parser, i64 0, i32 46
+  %m_errorCode = getelementptr inbounds i8, ptr %parser, i64 536
   %0 = load i32, ptr %m_errorCode, align 8
   ret i32 %0
 }
@@ -4345,12 +4325,12 @@ if.end:                                           ; preds = %entry
   br i1 %cmp1, label %if.then2, label %if.end3
 
 if.then2:                                         ; preds = %if.end
-  %m_errorCode = getelementptr inbounds %struct.XML_ParserStruct, ptr %parser, i64 0, i32 46
+  %m_errorCode = getelementptr inbounds i8, ptr %parser, i64 536
   store i32 1, ptr %m_errorCode, align 8
   br label %return
 
 if.end3:                                          ; preds = %if.end
-  %m_parsingStatus = getelementptr inbounds %struct.XML_ParserStruct, ptr %parser, i64 0, i32 85
+  %m_parsingStatus = getelementptr inbounds i8, ptr %parser, i64 904
   %0 = load i32, ptr %m_parsingStatus, align 8
   switch i32 %0, label %sw.epilog [
     i32 3, label %sw.bb
@@ -4358,24 +4338,24 @@ if.end3:                                          ; preds = %if.end
   ]
 
 sw.bb:                                            ; preds = %if.end3
-  %m_errorCode4 = getelementptr inbounds %struct.XML_ParserStruct, ptr %parser, i64 0, i32 46
+  %m_errorCode4 = getelementptr inbounds i8, ptr %parser, i64 536
   store i32 33, ptr %m_errorCode4, align 8
   br label %return
 
 sw.bb5:                                           ; preds = %if.end3
-  %m_errorCode6 = getelementptr inbounds %struct.XML_ParserStruct, ptr %parser, i64 0, i32 46
+  %m_errorCode6 = getelementptr inbounds i8, ptr %parser, i64 536
   store i32 36, ptr %m_errorCode6, align 8
   br label %return
 
 sw.epilog:                                        ; preds = %if.end3
   %conv = zext nneg i32 %len to i64
-  %m_bufferLim = getelementptr inbounds %struct.XML_ParserStruct, ptr %parser, i64 0, i32 6
+  %m_bufferLim = getelementptr inbounds i8, ptr %parser, i64 64
   %1 = load ptr, ptr %m_bufferLim, align 8
   %tobool.not = icmp eq ptr %1, null
   br i1 %tobool.not, label %cond.end, label %land.lhs.true
 
 land.lhs.true:                                    ; preds = %sw.epilog
-  %m_bufferEnd = getelementptr inbounds %struct.XML_ParserStruct, ptr %parser, i64 0, i32 5
+  %m_bufferEnd = getelementptr inbounds i8, ptr %parser, i64 56
   %2 = load ptr, ptr %m_bufferEnd, align 8
   %tobool7.not = icmp eq ptr %2, null
   br i1 %tobool7.not, label %cond.end, label %cond.true
@@ -4389,7 +4369,7 @@ cond.true:                                        ; preds = %land.lhs.true
 cond.end:                                         ; preds = %sw.epilog, %land.lhs.true, %cond.true
   %cond = phi i64 [ %sub.ptr.sub, %cond.true ], [ 0, %land.lhs.true ], [ 0, %sw.epilog ]
   %cmp10 = icmp slt i64 %cond, %conv
-  %m_bufferEnd13 = getelementptr inbounds %struct.XML_ParserStruct, ptr %parser, i64 0, i32 5
+  %m_bufferEnd13 = getelementptr inbounds i8, ptr %parser, i64 56
   %3 = load ptr, ptr %m_bufferEnd13, align 8
   br i1 %cmp10, label %if.then12, label %return
 
@@ -4398,7 +4378,7 @@ if.then12:                                        ; preds = %cond.end
   br i1 %tobool14.not, label %cond.end24, label %land.lhs.true15
 
 land.lhs.true15:                                  ; preds = %if.then12
-  %m_bufferPtr = getelementptr inbounds %struct.XML_ParserStruct, ptr %parser, i64 0, i32 4
+  %m_bufferPtr = getelementptr inbounds i8, ptr %parser, i64 48
   %4 = load ptr, ptr %m_bufferPtr, align 8
   %tobool16.not = icmp eq ptr %4, null
   br i1 %tobool16.not, label %cond.end24, label %cond.true17
@@ -4417,18 +4397,18 @@ cond.end24:                                       ; preds = %if.then12, %land.lh
   br i1 %cmp27, label %if.then29, label %if.end31
 
 if.then29:                                        ; preds = %cond.end24
-  %m_errorCode30 = getelementptr inbounds %struct.XML_ParserStruct, ptr %parser, i64 0, i32 46
+  %m_errorCode30 = getelementptr inbounds i8, ptr %parser, i64 536
   store i32 1, ptr %m_errorCode30, align 8
   br label %return
 
 if.end31:                                         ; preds = %cond.end24
-  %m_bufferPtr32 = getelementptr inbounds %struct.XML_ParserStruct, ptr %parser, i64 0, i32 4
+  %m_bufferPtr32 = getelementptr inbounds i8, ptr %parser, i64 48
   %5 = load ptr, ptr %m_bufferPtr32, align 8
   %tobool33.not = icmp eq ptr %5, null
   br i1 %tobool33.not, label %cond.end43, label %land.lhs.true34
 
 land.lhs.true34:                                  ; preds = %if.end31
-  %m_buffer = getelementptr inbounds %struct.XML_ParserStruct, ptr %parser, i64 0, i32 2
+  %m_buffer = getelementptr inbounds i8, ptr %parser, i64 16
   %6 = load ptr, ptr %m_buffer, align 8
   %tobool35.not = icmp eq ptr %6, null
   br i1 %tobool35.not, label %cond.end43, label %cond.true36
@@ -4448,7 +4428,7 @@ cond.end43:                                       ; preds = %if.end31, %land.lhs
   br i1 %cmp50, label %if.then52, label %if.end54
 
 if.then52:                                        ; preds = %cond.end43
-  %m_errorCode53 = getelementptr inbounds %struct.XML_ParserStruct, ptr %parser, i64 0, i32 46
+  %m_errorCode53 = getelementptr inbounds i8, ptr %parser, i64 536
   store i32 1, ptr %m_errorCode53, align 8
   br label %return
 
@@ -4458,7 +4438,7 @@ if.end54:                                         ; preds = %cond.end43
 
 land.lhs.true59:                                  ; preds = %if.end54
   %conv56 = sext i32 %add55 to i64
-  %m_buffer60 = getelementptr inbounds %struct.XML_ParserStruct, ptr %parser, i64 0, i32 2
+  %m_buffer60 = getelementptr inbounds i8, ptr %parser, i64 16
   %8 = load ptr, ptr %m_buffer60, align 8
   %tobool61.not = icmp eq ptr %8, null
   %sub.ptr.lhs.cast65 = ptrtoint ptr %1 to i64
@@ -4477,7 +4457,7 @@ if.then73:                                        ; preds = %cond.end69.thread, 
   br i1 %tobool33.not, label %cond.end87.thread, label %land.lhs.true77
 
 land.lhs.true77:                                  ; preds = %if.then73
-  %m_buffer78 = getelementptr inbounds %struct.XML_ParserStruct, ptr %parser, i64 0, i32 2
+  %m_buffer78 = getelementptr inbounds i8, ptr %parser, i64 16
   %9 = load ptr, ptr %m_buffer78, align 8
   %tobool79.not = icmp eq ptr %9, null
   %sub.ptr.lhs.cast83 = ptrtoint ptr %5 to i64
@@ -4492,7 +4472,7 @@ cond.end87.thread:                                ; preds = %if.then73
   br i1 %cmp89116, label %cond.end87.thread.cond.end104_crit_edge, label %if.end214
 
 cond.end87.thread.cond.end104_crit_edge:          ; preds = %cond.end87.thread
-  %m_buffer108.phi.trans.insert = getelementptr inbounds %struct.XML_ParserStruct, ptr %parser, i64 0, i32 2
+  %m_buffer108.phi.trans.insert = getelementptr inbounds i8, ptr %parser, i64 16
   %.pre = load ptr, ptr %m_buffer108.phi.trans.insert, align 8
   br label %cond.end104
 
@@ -4549,12 +4529,12 @@ do.end:                                           ; preds = %do.body
   br i1 %cmp146, label %if.then148, label %if.end150
 
 if.then148:                                       ; preds = %do.end
-  %m_errorCode149 = getelementptr inbounds %struct.XML_ParserStruct, ptr %parser, i64 0, i32 46
+  %m_errorCode149 = getelementptr inbounds i8, ptr %parser, i64 536
   store i32 1, ptr %m_errorCode149, align 8
   br label %return
 
 if.end150:                                        ; preds = %do.end
-  %m_mem = getelementptr inbounds %struct.XML_ParserStruct, ptr %parser, i64 0, i32 3
+  %m_mem = getelementptr inbounds i8, ptr %parser, i64 24
   %16 = load ptr, ptr %m_mem, align 8
   %conv151 = zext nneg i32 %mul to i64
   %call = tail call ptr %16(i64 noundef %conv151) #23
@@ -4562,7 +4542,7 @@ if.end150:                                        ; preds = %do.end
   br i1 %cmp152, label %if.then154, label %if.end156
 
 if.then154:                                       ; preds = %if.end150
-  %m_errorCode155 = getelementptr inbounds %struct.XML_ParserStruct, ptr %parser, i64 0, i32 46
+  %m_errorCode155 = getelementptr inbounds i8, ptr %parser, i64 536
   store i32 1, ptr %m_errorCode155, align 8
   br label %return
 
@@ -4586,9 +4566,9 @@ if.then162:                                       ; preds = %if.end156
   %conv181 = sext i32 %spec.store.select to i64
   %add182 = add i64 %cond180, %conv181
   tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %call, ptr align 1 %arrayidx166, i64 %add182, i1 false)
-  %free_fcn = getelementptr inbounds %struct.XML_ParserStruct, ptr %parser, i64 0, i32 3, i32 2
+  %free_fcn = getelementptr inbounds i8, ptr %parser, i64 40
   %19 = load ptr, ptr %free_fcn, align 8
-  %m_buffer184 = getelementptr inbounds %struct.XML_ParserStruct, ptr %parser, i64 0, i32 2
+  %m_buffer184 = getelementptr inbounds i8, ptr %parser, i64 16
   %20 = load ptr, ptr %m_buffer184, align 8
   tail call void %19(ptr noundef %20) #23
   store ptr %call, ptr %m_buffer184, align 8
@@ -4617,7 +4597,7 @@ cond.end199:                                      ; preds = %if.then162, %land.l
 
 if.else209:                                       ; preds = %if.end156
   store ptr %call, ptr %m_bufferEnd13, align 8
-  %m_buffer211 = getelementptr inbounds %struct.XML_ParserStruct, ptr %parser, i64 0, i32 2
+  %m_buffer211 = getelementptr inbounds i8, ptr %parser, i64 16
   store ptr %call, ptr %m_buffer211, align 8
   br label %if.end214.sink.split
 
@@ -4629,7 +4609,7 @@ if.end214.sink.split:                             ; preds = %cond.end104, %if.el
 
 if.end214:                                        ; preds = %if.end214.sink.split, %cond.end87.thread, %land.lhs.true77
   %23 = phi ptr [ %3, %cond.end87.thread ], [ %3, %land.lhs.true77 ], [ %.ph, %if.end214.sink.split ]
-  %m_eventPtr = getelementptr inbounds %struct.XML_ParserStruct, ptr %parser, i64 0, i32 47
+  %m_eventPtr = getelementptr inbounds i8, ptr %parser, i64 544
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %m_eventPtr, i8 0, i64 24, i1 false)
   br label %return
 
@@ -4648,7 +4628,7 @@ entry:
   br i1 %cmp, label %return, label %if.end
 
 if.end:                                           ; preds = %entry
-  %m_parsingStatus = getelementptr inbounds %struct.XML_ParserStruct, ptr %parser, i64 0, i32 85
+  %m_parsingStatus = getelementptr inbounds i8, ptr %parser, i64 904
   %0 = load i32, ptr %m_parsingStatus, align 8
   switch i32 %0, label %sw.default [
     i32 3, label %sw.bb
@@ -4657,28 +4637,28 @@ if.end:                                           ; preds = %entry
   ]
 
 sw.bb:                                            ; preds = %if.end
-  %m_errorCode = getelementptr inbounds %struct.XML_ParserStruct, ptr %parser, i64 0, i32 46
+  %m_errorCode = getelementptr inbounds i8, ptr %parser, i64 536
   store i32 33, ptr %m_errorCode, align 8
   br label %return
 
 sw.bb1:                                           ; preds = %if.end
-  %m_errorCode2 = getelementptr inbounds %struct.XML_ParserStruct, ptr %parser, i64 0, i32 46
+  %m_errorCode2 = getelementptr inbounds i8, ptr %parser, i64 536
   store i32 36, ptr %m_errorCode2, align 8
   br label %return
 
 sw.bb3:                                           ; preds = %if.end
-  %m_bufferPtr = getelementptr inbounds %struct.XML_ParserStruct, ptr %parser, i64 0, i32 4
+  %m_bufferPtr = getelementptr inbounds i8, ptr %parser, i64 48
   %1 = load ptr, ptr %m_bufferPtr, align 8
   %tobool.not = icmp eq ptr %1, null
   br i1 %tobool.not, label %if.then4, label %if.end6
 
 if.then4:                                         ; preds = %sw.bb3
-  %m_errorCode5 = getelementptr inbounds %struct.XML_ParserStruct, ptr %parser, i64 0, i32 46
+  %m_errorCode5 = getelementptr inbounds i8, ptr %parser, i64 536
   store i32 42, ptr %m_errorCode5, align 8
   br label %return
 
 if.end6:                                          ; preds = %sw.bb3
-  %m_parentParser = getelementptr inbounds %struct.XML_ParserStruct, ptr %parser, i64 0, i32 84
+  %m_parentParser = getelementptr inbounds i8, ptr %parser, i64 896
   %2 = load ptr, ptr %m_parentParser, align 8
   %cmp7 = icmp eq ptr %2, null
   br i1 %cmp7, label %land.lhs.true, label %sw.default
@@ -4689,42 +4669,42 @@ land.lhs.true:                                    ; preds = %if.end6
   br i1 %tobool8.not, label %if.then9, label %sw.default
 
 if.then9:                                         ; preds = %land.lhs.true
-  %m_errorCode10 = getelementptr inbounds %struct.XML_ParserStruct, ptr %parser, i64 0, i32 46
+  %m_errorCode10 = getelementptr inbounds i8, ptr %parser, i64 536
   store i32 1, ptr %m_errorCode10, align 8
   br label %return
 
 sw.default:                                       ; preds = %if.end6, %land.lhs.true, %if.end
   store i32 1, ptr %m_parsingStatus, align 8
-  %m_bufferPtr14 = getelementptr inbounds %struct.XML_ParserStruct, ptr %parser, i64 0, i32 4
+  %m_bufferPtr14 = getelementptr inbounds i8, ptr %parser, i64 48
   %3 = load ptr, ptr %m_bufferPtr14, align 8
-  %m_positionPtr = getelementptr inbounds %struct.XML_ParserStruct, ptr %parser, i64 0, i32 49
+  %m_positionPtr = getelementptr inbounds i8, ptr %parser, i64 560
   store ptr %3, ptr %m_positionPtr, align 8
-  %m_bufferEnd = getelementptr inbounds %struct.XML_ParserStruct, ptr %parser, i64 0, i32 5
+  %m_bufferEnd = getelementptr inbounds i8, ptr %parser, i64 56
   %4 = load ptr, ptr %m_bufferEnd, align 8
   %idx.ext = sext i32 %len to i64
   %add.ptr = getelementptr i8, ptr %4, i64 %idx.ext
   store ptr %add.ptr, ptr %m_bufferEnd, align 8
-  %m_parseEndPtr = getelementptr inbounds %struct.XML_ParserStruct, ptr %parser, i64 0, i32 8
+  %m_parseEndPtr = getelementptr inbounds i8, ptr %parser, i64 80
   store ptr %add.ptr, ptr %m_parseEndPtr, align 8
-  %m_parseEndByteIndex = getelementptr inbounds %struct.XML_ParserStruct, ptr %parser, i64 0, i32 7
+  %m_parseEndByteIndex = getelementptr inbounds i8, ptr %parser, i64 72
   %5 = load i64, ptr %m_parseEndByteIndex, align 8
   %add = add i64 %5, %idx.ext
   store i64 %add, ptr %m_parseEndByteIndex, align 8
   %conv16 = trunc i32 %isFinal to i8
-  %finalBuffer = getelementptr inbounds %struct.XML_ParserStruct, ptr %parser, i64 0, i32 85, i32 1
+  %finalBuffer = getelementptr inbounds i8, ptr %parser, i64 908
   store i8 %conv16, ptr %finalBuffer, align 4
-  %m_processor = getelementptr inbounds %struct.XML_ParserStruct, ptr %parser, i64 0, i32 45
+  %m_processor = getelementptr inbounds i8, ptr %parser, i64 528
   %6 = load ptr, ptr %m_processor, align 8
   %call20 = tail call i32 %6(ptr noundef nonnull %parser, ptr noundef %3, ptr noundef %add.ptr, ptr noundef nonnull %m_bufferPtr14) #23
-  %m_errorCode21 = getelementptr inbounds %struct.XML_ParserStruct, ptr %parser, i64 0, i32 46
+  %m_errorCode21 = getelementptr inbounds i8, ptr %parser, i64 536
   store i32 %call20, ptr %m_errorCode21, align 8
   %cmp23.not = icmp eq i32 %call20, 0
   br i1 %cmp23.not, label %if.else, label %if.then25
 
 if.then25:                                        ; preds = %sw.default
-  %m_eventPtr = getelementptr inbounds %struct.XML_ParserStruct, ptr %parser, i64 0, i32 47
+  %m_eventPtr = getelementptr inbounds i8, ptr %parser, i64 544
   %7 = load ptr, ptr %m_eventPtr, align 8
-  %m_eventEndPtr = getelementptr inbounds %struct.XML_ParserStruct, ptr %parser, i64 0, i32 48
+  %m_eventEndPtr = getelementptr inbounds i8, ptr %parser, i64 552
   store ptr %7, ptr %m_eventEndPtr, align 8
   store ptr @errorProcessor, ptr %m_processor, align 8
   br label %return
@@ -4750,13 +4730,13 @@ if.then32:                                        ; preds = %sw.bb30
 
 if.end38:                                         ; preds = %sw.bb29, %sw.bb30, %if.else
   %result.0 = phi i32 [ 1, %if.else ], [ 1, %sw.bb30 ], [ 2, %sw.bb29 ]
-  %m_encoding = getelementptr inbounds %struct.XML_ParserStruct, ptr %parser, i64 0, i32 34
+  %m_encoding = getelementptr inbounds i8, ptr %parser, i64 288
   %9 = load ptr, ptr %m_encoding, align 8
-  %updatePosition = getelementptr inbounds %struct.encoding, ptr %9, i64 0, i32 8
+  %updatePosition = getelementptr inbounds i8, ptr %9, i64 96
   %10 = load ptr, ptr %updatePosition, align 8
   %11 = load ptr, ptr %m_positionPtr, align 8
   %12 = load ptr, ptr %m_bufferPtr14, align 8
-  %m_position = getelementptr inbounds %struct.XML_ParserStruct, ptr %parser, i64 0, i32 78
+  %m_position = getelementptr inbounds i8, ptr %parser, i64 768
   tail call void %10(ptr noundef %9, ptr noundef %11, ptr noundef %12, ptr noundef nonnull %m_position) #23
   %13 = load ptr, ptr %m_bufferPtr14, align 8
   store ptr %13, ptr %m_positionPtr, align 8
@@ -4777,7 +4757,7 @@ entry:
   br i1 %cmp, label %return, label %if.end
 
 if.end:                                           ; preds = %entry
-  %m_parsingStatus = getelementptr inbounds %struct.XML_ParserStruct, ptr %parser, i64 0, i32 85
+  %m_parsingStatus = getelementptr inbounds i8, ptr %parser, i64 904
   %0 = load i32, ptr %m_parsingStatus, align 8
   switch i32 %0, label %sw.default [
     i32 3, label %sw.bb
@@ -4789,7 +4769,7 @@ sw.bb:                                            ; preds = %if.end
   br i1 %tobool.not, label %if.end2, label %if.then1
 
 if.then1:                                         ; preds = %sw.bb
-  %m_errorCode = getelementptr inbounds %struct.XML_ParserStruct, ptr %parser, i64 0, i32 46
+  %m_errorCode = getelementptr inbounds i8, ptr %parser, i64 536
   store i32 33, ptr %m_errorCode, align 8
   br label %return
 
@@ -4798,7 +4778,7 @@ if.end2:                                          ; preds = %sw.bb
   br label %return
 
 sw.bb5:                                           ; preds = %if.end
-  %m_errorCode6 = getelementptr inbounds %struct.XML_ParserStruct, ptr %parser, i64 0, i32 46
+  %m_errorCode6 = getelementptr inbounds i8, ptr %parser, i64 536
   store i32 36, ptr %m_errorCode6, align 8
   br label %return
 
@@ -4807,13 +4787,13 @@ sw.default:                                       ; preds = %if.end
   br i1 %tobool7.not, label %if.else, label %if.then8
 
 if.then8:                                         ; preds = %sw.default
-  %m_isParamEntity = getelementptr inbounds %struct.XML_ParserStruct, ptr %parser, i64 0, i32 86
+  %m_isParamEntity = getelementptr inbounds i8, ptr %parser, i64 912
   %1 = load i8, ptr %m_isParamEntity, align 8
   %tobool9.not = icmp eq i8 %1, 0
   br i1 %tobool9.not, label %if.end12, label %if.then10
 
 if.then10:                                        ; preds = %if.then8
-  %m_errorCode11 = getelementptr inbounds %struct.XML_ParserStruct, ptr %parser, i64 0, i32 46
+  %m_errorCode11 = getelementptr inbounds i8, ptr %parser, i64 536
   store i32 37, ptr %m_errorCode11, align 8
   br label %return
 
@@ -4837,34 +4817,34 @@ entry:
   br i1 %cmp, label %return, label %if.end
 
 if.end:                                           ; preds = %entry
-  %m_parsingStatus = getelementptr inbounds %struct.XML_ParserStruct, ptr %parser, i64 0, i32 85
+  %m_parsingStatus = getelementptr inbounds i8, ptr %parser, i64 904
   %0 = load i32, ptr %m_parsingStatus, align 8
   %cmp1.not = icmp eq i32 %0, 3
   br i1 %cmp1.not, label %if.end3, label %if.then2
 
 if.then2:                                         ; preds = %if.end
-  %m_errorCode = getelementptr inbounds %struct.XML_ParserStruct, ptr %parser, i64 0, i32 46
+  %m_errorCode = getelementptr inbounds i8, ptr %parser, i64 536
   store i32 34, ptr %m_errorCode, align 8
   br label %return
 
 if.end3:                                          ; preds = %if.end
   store i32 1, ptr %m_parsingStatus, align 8
-  %m_processor = getelementptr inbounds %struct.XML_ParserStruct, ptr %parser, i64 0, i32 45
+  %m_processor = getelementptr inbounds i8, ptr %parser, i64 528
   %1 = load ptr, ptr %m_processor, align 8
-  %m_bufferPtr = getelementptr inbounds %struct.XML_ParserStruct, ptr %parser, i64 0, i32 4
+  %m_bufferPtr = getelementptr inbounds i8, ptr %parser, i64 48
   %2 = load ptr, ptr %m_bufferPtr, align 8
-  %m_parseEndPtr = getelementptr inbounds %struct.XML_ParserStruct, ptr %parser, i64 0, i32 8
+  %m_parseEndPtr = getelementptr inbounds i8, ptr %parser, i64 80
   %3 = load ptr, ptr %m_parseEndPtr, align 8
   %call = tail call i32 %1(ptr noundef nonnull %parser, ptr noundef %2, ptr noundef %3, ptr noundef nonnull %m_bufferPtr) #23
-  %m_errorCode7 = getelementptr inbounds %struct.XML_ParserStruct, ptr %parser, i64 0, i32 46
+  %m_errorCode7 = getelementptr inbounds i8, ptr %parser, i64 536
   store i32 %call, ptr %m_errorCode7, align 8
   %cmp9.not = icmp eq i32 %call, 0
   br i1 %cmp9.not, label %if.else, label %if.then10
 
 if.then10:                                        ; preds = %if.end3
-  %m_eventPtr = getelementptr inbounds %struct.XML_ParserStruct, ptr %parser, i64 0, i32 47
+  %m_eventPtr = getelementptr inbounds i8, ptr %parser, i64 544
   %4 = load ptr, ptr %m_eventPtr, align 8
-  %m_eventEndPtr = getelementptr inbounds %struct.XML_ParserStruct, ptr %parser, i64 0, i32 48
+  %m_eventEndPtr = getelementptr inbounds i8, ptr %parser, i64 552
   store ptr %4, ptr %m_eventEndPtr, align 8
   store ptr @errorProcessor, ptr %m_processor, align 8
   br label %return
@@ -4881,7 +4861,7 @@ sw.bb:                                            ; preds = %if.else
   br label %if.end20
 
 sw.bb14:                                          ; preds = %if.else, %if.else
-  %finalBuffer = getelementptr inbounds %struct.XML_ParserStruct, ptr %parser, i64 0, i32 85, i32 1
+  %finalBuffer = getelementptr inbounds i8, ptr %parser, i64 908
   %6 = load i8, ptr %finalBuffer, align 4
   %tobool.not = icmp eq i8 %6, 0
   br i1 %tobool.not, label %if.end20, label %if.then16
@@ -4892,14 +4872,14 @@ if.then16:                                        ; preds = %sw.bb14
 
 if.end20:                                         ; preds = %sw.bb, %sw.bb14, %if.else
   %result.0 = phi i32 [ 1, %if.else ], [ 1, %sw.bb14 ], [ 2, %sw.bb ]
-  %m_encoding = getelementptr inbounds %struct.XML_ParserStruct, ptr %parser, i64 0, i32 34
+  %m_encoding = getelementptr inbounds i8, ptr %parser, i64 288
   %7 = load ptr, ptr %m_encoding, align 8
-  %updatePosition = getelementptr inbounds %struct.encoding, ptr %7, i64 0, i32 8
+  %updatePosition = getelementptr inbounds i8, ptr %7, i64 96
   %8 = load ptr, ptr %updatePosition, align 8
-  %m_positionPtr = getelementptr inbounds %struct.XML_ParserStruct, ptr %parser, i64 0, i32 49
+  %m_positionPtr = getelementptr inbounds i8, ptr %parser, i64 560
   %9 = load ptr, ptr %m_positionPtr, align 8
   %10 = load ptr, ptr %m_bufferPtr, align 8
-  %m_position = getelementptr inbounds %struct.XML_ParserStruct, ptr %parser, i64 0, i32 78
+  %m_position = getelementptr inbounds i8, ptr %parser, i64 768
   tail call void %8(ptr noundef %7, ptr noundef %9, ptr noundef %10, ptr noundef nonnull %m_position) #23
   %11 = load ptr, ptr %m_bufferPtr, align 8
   store ptr %11, ptr %m_positionPtr, align 8
@@ -4917,7 +4897,7 @@ entry:
   br i1 %cmp, label %return, label %if.end
 
 if.end:                                           ; preds = %entry
-  %m_parsingStatus = getelementptr inbounds %struct.XML_ParserStruct, ptr %parser, i64 0, i32 85
+  %m_parsingStatus = getelementptr inbounds i8, ptr %parser, i64 904
   %0 = load i64, ptr %m_parsingStatus, align 8
   store i64 %0, ptr %status, align 4
   br label %return
@@ -4933,7 +4913,7 @@ entry:
   br i1 %cmp, label %return, label %if.end
 
 if.end:                                           ; preds = %entry
-  %m_errorCode = getelementptr inbounds %struct.XML_ParserStruct, ptr %parser, i64 0, i32 46
+  %m_errorCode = getelementptr inbounds i8, ptr %parser, i64 536
   %0 = load i32, ptr %m_errorCode, align 8
   br label %return
 
@@ -4949,15 +4929,15 @@ entry:
   br i1 %cmp, label %return, label %if.end
 
 if.end:                                           ; preds = %entry
-  %m_eventPtr = getelementptr inbounds %struct.XML_ParserStruct, ptr %parser, i64 0, i32 47
+  %m_eventPtr = getelementptr inbounds i8, ptr %parser, i64 544
   %0 = load ptr, ptr %m_eventPtr, align 8
   %tobool.not = icmp eq ptr %0, null
   br i1 %tobool.not, label %return, label %if.then1
 
 if.then1:                                         ; preds = %if.end
-  %m_parseEndByteIndex = getelementptr inbounds %struct.XML_ParserStruct, ptr %parser, i64 0, i32 7
+  %m_parseEndByteIndex = getelementptr inbounds i8, ptr %parser, i64 72
   %1 = load i64, ptr %m_parseEndByteIndex, align 8
-  %m_parseEndPtr = getelementptr inbounds %struct.XML_ParserStruct, ptr %parser, i64 0, i32 8
+  %m_parseEndPtr = getelementptr inbounds i8, ptr %parser, i64 80
   %2 = load ptr, ptr %m_parseEndPtr, align 8
   %sub.ptr.lhs.cast = ptrtoint ptr %2 to i64
   %sub.ptr.rhs.cast = ptrtoint ptr %0 to i64
@@ -4977,13 +4957,13 @@ entry:
   br i1 %cmp, label %return, label %if.end
 
 if.end:                                           ; preds = %entry
-  %m_eventEndPtr = getelementptr inbounds %struct.XML_ParserStruct, ptr %parser, i64 0, i32 48
+  %m_eventEndPtr = getelementptr inbounds i8, ptr %parser, i64 552
   %0 = load ptr, ptr %m_eventEndPtr, align 8
   %tobool.not = icmp eq ptr %0, null
   br i1 %tobool.not, label %return, label %land.lhs.true
 
 land.lhs.true:                                    ; preds = %if.end
-  %m_eventPtr = getelementptr inbounds %struct.XML_ParserStruct, ptr %parser, i64 0, i32 47
+  %m_eventPtr = getelementptr inbounds i8, ptr %parser, i64 544
   %1 = load ptr, ptr %m_eventPtr, align 8
   %tobool1.not = icmp eq ptr %1, null
   br i1 %tobool1.not, label %return, label %if.then2
@@ -5007,13 +4987,13 @@ entry:
   br i1 %cmp, label %return, label %if.end
 
 if.end:                                           ; preds = %entry
-  %m_eventPtr = getelementptr inbounds %struct.XML_ParserStruct, ptr %parser, i64 0, i32 47
+  %m_eventPtr = getelementptr inbounds i8, ptr %parser, i64 544
   %0 = load ptr, ptr %m_eventPtr, align 8
   %tobool.not = icmp eq ptr %0, null
   br i1 %tobool.not, label %return, label %land.lhs.true
 
 land.lhs.true:                                    ; preds = %if.end
-  %m_buffer = getelementptr inbounds %struct.XML_ParserStruct, ptr %parser, i64 0, i32 2
+  %m_buffer = getelementptr inbounds i8, ptr %parser, i64 16
   %1 = load ptr, ptr %m_buffer, align 8
   %tobool1.not = icmp eq ptr %1, null
   br i1 %tobool1.not, label %return, label %if.then2
@@ -5037,7 +5017,7 @@ if.end7:                                          ; preds = %if.then4, %if.then2
   br i1 %cmp8.not, label %return, label %if.then10
 
 if.then10:                                        ; preds = %if.end7
-  %m_bufferEnd = getelementptr inbounds %struct.XML_ParserStruct, ptr %parser, i64 0, i32 5
+  %m_bufferEnd = getelementptr inbounds i8, ptr %parser, i64 56
   %2 = load ptr, ptr %m_bufferEnd, align 8
   %sub.ptr.lhs.cast12 = ptrtoint ptr %2 to i64
   %sub.ptr.rhs.cast13 = ptrtoint ptr %.pre11 to i64
@@ -5059,30 +5039,30 @@ entry:
   br i1 %cmp, label %return, label %if.end
 
 if.end:                                           ; preds = %entry
-  %m_eventPtr = getelementptr inbounds %struct.XML_ParserStruct, ptr %parser, i64 0, i32 47
+  %m_eventPtr = getelementptr inbounds i8, ptr %parser, i64 544
   %0 = load ptr, ptr %m_eventPtr, align 8
   %tobool.not = icmp eq ptr %0, null
   br i1 %tobool.not, label %if.end9, label %land.lhs.true
 
 land.lhs.true:                                    ; preds = %if.end
-  %m_positionPtr = getelementptr inbounds %struct.XML_ParserStruct, ptr %parser, i64 0, i32 49
+  %m_positionPtr = getelementptr inbounds i8, ptr %parser, i64 560
   %1 = load ptr, ptr %m_positionPtr, align 8
   %cmp2.not = icmp ult ptr %0, %1
   br i1 %cmp2.not, label %if.end9, label %if.then3
 
 if.then3:                                         ; preds = %land.lhs.true
-  %m_encoding = getelementptr inbounds %struct.XML_ParserStruct, ptr %parser, i64 0, i32 34
+  %m_encoding = getelementptr inbounds i8, ptr %parser, i64 288
   %2 = load ptr, ptr %m_encoding, align 8
-  %updatePosition = getelementptr inbounds %struct.encoding, ptr %2, i64 0, i32 8
+  %updatePosition = getelementptr inbounds i8, ptr %2, i64 96
   %3 = load ptr, ptr %updatePosition, align 8
-  %m_position = getelementptr inbounds %struct.XML_ParserStruct, ptr %parser, i64 0, i32 78
+  %m_position = getelementptr inbounds i8, ptr %parser, i64 768
   tail call void %3(ptr noundef %2, ptr noundef %1, ptr noundef nonnull %0, ptr noundef nonnull %m_position) #23
   %4 = load ptr, ptr %m_eventPtr, align 8
   store ptr %4, ptr %m_positionPtr, align 8
   br label %if.end9
 
 if.end9:                                          ; preds = %if.then3, %land.lhs.true, %if.end
-  %m_position10 = getelementptr inbounds %struct.XML_ParserStruct, ptr %parser, i64 0, i32 78
+  %m_position10 = getelementptr inbounds i8, ptr %parser, i64 768
   %5 = load i64, ptr %m_position10, align 8
   %add = add i64 %5, 1
   br label %return
@@ -5099,30 +5079,30 @@ entry:
   br i1 %cmp, label %return, label %if.end
 
 if.end:                                           ; preds = %entry
-  %m_eventPtr = getelementptr inbounds %struct.XML_ParserStruct, ptr %parser, i64 0, i32 47
+  %m_eventPtr = getelementptr inbounds i8, ptr %parser, i64 544
   %0 = load ptr, ptr %m_eventPtr, align 8
   %tobool.not = icmp eq ptr %0, null
   br i1 %tobool.not, label %if.end9, label %land.lhs.true
 
 land.lhs.true:                                    ; preds = %if.end
-  %m_positionPtr = getelementptr inbounds %struct.XML_ParserStruct, ptr %parser, i64 0, i32 49
+  %m_positionPtr = getelementptr inbounds i8, ptr %parser, i64 560
   %1 = load ptr, ptr %m_positionPtr, align 8
   %cmp2.not = icmp ult ptr %0, %1
   br i1 %cmp2.not, label %if.end9, label %if.then3
 
 if.then3:                                         ; preds = %land.lhs.true
-  %m_encoding = getelementptr inbounds %struct.XML_ParserStruct, ptr %parser, i64 0, i32 34
+  %m_encoding = getelementptr inbounds i8, ptr %parser, i64 288
   %2 = load ptr, ptr %m_encoding, align 8
-  %updatePosition = getelementptr inbounds %struct.encoding, ptr %2, i64 0, i32 8
+  %updatePosition = getelementptr inbounds i8, ptr %2, i64 96
   %3 = load ptr, ptr %updatePosition, align 8
-  %m_position = getelementptr inbounds %struct.XML_ParserStruct, ptr %parser, i64 0, i32 78
+  %m_position = getelementptr inbounds i8, ptr %parser, i64 768
   tail call void %3(ptr noundef %2, ptr noundef %1, ptr noundef nonnull %0, ptr noundef nonnull %m_position) #23
   %4 = load ptr, ptr %m_eventPtr, align 8
   store ptr %4, ptr %m_positionPtr, align 8
   br label %if.end9
 
 if.end9:                                          ; preds = %if.then3, %land.lhs.true, %if.end
-  %columnNumber = getelementptr inbounds %struct.XML_ParserStruct, ptr %parser, i64 0, i32 78, i32 1
+  %columnNumber = getelementptr inbounds i8, ptr %parser, i64 776
   %5 = load i64, ptr %columnNumber, align 8
   br label %return
 
@@ -5138,7 +5118,7 @@ entry:
   br i1 %cmp.not, label %if.end, label %if.then
 
 if.then:                                          ; preds = %entry
-  %free_fcn = getelementptr inbounds %struct.XML_ParserStruct, ptr %parser, i64 0, i32 3, i32 2
+  %free_fcn = getelementptr inbounds i8, ptr %parser, i64 40
   %0 = load ptr, ptr %free_fcn, align 8
   tail call void %0(ptr noundef %model) #23
   br label %if.end
@@ -5154,7 +5134,7 @@ entry:
   br i1 %cmp, label %return, label %if.end
 
 if.end:                                           ; preds = %entry
-  %m_mem = getelementptr inbounds %struct.XML_ParserStruct, ptr %parser, i64 0, i32 3
+  %m_mem = getelementptr inbounds i8, ptr %parser, i64 24
   %0 = load ptr, ptr %m_mem, align 8
   %call = tail call ptr %0(i64 noundef %size) #23
   br label %return
@@ -5171,7 +5151,7 @@ entry:
   br i1 %cmp, label %return, label %if.end
 
 if.end:                                           ; preds = %entry
-  %realloc_fcn = getelementptr inbounds %struct.XML_ParserStruct, ptr %parser, i64 0, i32 3, i32 1
+  %realloc_fcn = getelementptr inbounds i8, ptr %parser, i64 32
   %0 = load ptr, ptr %realloc_fcn, align 8
   %call = tail call ptr %0(ptr noundef %ptr, i64 noundef %size) #23
   br label %return
@@ -5188,7 +5168,7 @@ entry:
   br i1 %cmp.not, label %if.end, label %if.then
 
 if.then:                                          ; preds = %entry
-  %free_fcn = getelementptr inbounds %struct.XML_ParserStruct, ptr %parser, i64 0, i32 3, i32 2
+  %free_fcn = getelementptr inbounds i8, ptr %parser, i64 40
   %0 = load ptr, ptr %free_fcn, align 8
   tail call void %0(ptr noundef %ptr) #23
   br label %if.end
@@ -5208,43 +5188,43 @@ entry:
   br i1 %cmp, label %if.end7, label %if.end
 
 if.end:                                           ; preds = %entry
-  %m_defaultHandler = getelementptr inbounds %struct.XML_ParserStruct, ptr %parser, i64 0, i32 18
+  %m_defaultHandler = getelementptr inbounds i8, ptr %parser, i64 160
   %0 = load ptr, ptr %m_defaultHandler, align 8
   %tobool.not = icmp eq ptr %0, null
   br i1 %tobool.not, label %if.end7, label %if.then1
 
 if.then1:                                         ; preds = %if.end
-  %m_openInternalEntities = getelementptr inbounds %struct.XML_ParserStruct, ptr %parser, i64 0, i32 50
+  %m_openInternalEntities = getelementptr inbounds i8, ptr %parser, i64 568
   %1 = load ptr, ptr %m_openInternalEntities, align 8
   %tobool2.not = icmp eq ptr %1, null
   br i1 %tobool2.not, label %if.else, label %if.then3
 
 if.then3:                                         ; preds = %if.then1
-  %m_internalEncoding = getelementptr inbounds %struct.XML_ParserStruct, ptr %parser, i64 0, i32 36
+  %m_internalEncoding = getelementptr inbounds i8, ptr %parser, i64 440
   %2 = load ptr, ptr %m_internalEncoding, align 8
   %3 = load ptr, ptr %1, align 8
-  %internalEventEndPtr = getelementptr inbounds %struct.open_internal_entity, ptr %1, i64 0, i32 1
+  %internalEventEndPtr = getelementptr inbounds i8, ptr %1, i64 8
   %4 = load ptr, ptr %internalEventEndPtr, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %s.addr.i)
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %dataPtr.i)
   store ptr %3, ptr %s.addr.i, align 8
-  %isUtf8.i = getelementptr inbounds %struct.encoding, ptr %2, i64 0, i32 13
+  %isUtf8.i = getelementptr inbounds i8, ptr %2, i64 132
   %5 = load i8, ptr %isUtf8.i, align 4
   %tobool.not.i = icmp eq i8 %5, 0
   br i1 %tobool.not.i, label %if.then.i, label %if.else9.i
 
 if.then.i:                                        ; preds = %if.then3
-  %m_encoding.i = getelementptr inbounds %struct.XML_ParserStruct, ptr %parser, i64 0, i32 34
+  %m_encoding.i = getelementptr inbounds i8, ptr %parser, i64 288
   %6 = load ptr, ptr %m_encoding.i, align 8
   %cmp.i = icmp eq ptr %6, %2
-  %m_eventPtr.i = getelementptr inbounds %struct.XML_ParserStruct, ptr %parser, i64 0, i32 47
-  %m_eventEndPtr.i = getelementptr inbounds %struct.XML_ParserStruct, ptr %parser, i64 0, i32 48
+  %m_eventPtr.i = getelementptr inbounds i8, ptr %parser, i64 544
+  %m_eventEndPtr.i = getelementptr inbounds i8, ptr %parser, i64 552
   %eventPP.0.i = select i1 %cmp.i, ptr %m_eventPtr.i, ptr %1
   %eventEndPP.0.i = select i1 %cmp.i, ptr %m_eventEndPtr.i, ptr %internalEventEndPtr
-  %m_dataBuf.i = getelementptr inbounds %struct.XML_ParserStruct, ptr %parser, i64 0, i32 9
-  %utf8Convert.i = getelementptr inbounds %struct.encoding, ptr %2, i64 0, i32 10
-  %m_dataBufEnd.i = getelementptr inbounds %struct.XML_ParserStruct, ptr %parser, i64 0, i32 10
-  %m_handlerArg.i = getelementptr inbounds %struct.XML_ParserStruct, ptr %parser, i64 0, i32 1
+  %m_dataBuf.i = getelementptr inbounds i8, ptr %parser, i64 88
+  %utf8Convert.i = getelementptr inbounds i8, ptr %2, i64 112
+  %m_dataBufEnd.i = getelementptr inbounds i8, ptr %parser, i64 96
+  %m_handlerArg.i = getelementptr inbounds i8, ptr %parser, i64 8
   br label %do.body.i
 
 do.body.i:                                        ; preds = %do.body.i, %if.then.i
@@ -5270,7 +5250,7 @@ do.body.i:                                        ; preds = %do.body.i, %if.then
   br i1 %16, label %do.body.i, label %reportDefault.exit, !llvm.loop !28
 
 if.else9.i:                                       ; preds = %if.then3
-  %m_handlerArg11.i = getelementptr inbounds %struct.XML_ParserStruct, ptr %parser, i64 0, i32 1
+  %m_handlerArg11.i = getelementptr inbounds i8, ptr %parser, i64 8
   %17 = load ptr, ptr %m_handlerArg11.i, align 8
   %sub.ptr.lhs.cast12.i = ptrtoint ptr %4 to i64
   %sub.ptr.rhs.cast13.i = ptrtoint ptr %3 to i64
@@ -5285,25 +5265,25 @@ reportDefault.exit:                               ; preds = %do.body.i, %if.else
   br label %if.end7
 
 if.else:                                          ; preds = %if.then1
-  %m_encoding = getelementptr inbounds %struct.XML_ParserStruct, ptr %parser, i64 0, i32 34
+  %m_encoding = getelementptr inbounds i8, ptr %parser, i64 288
   %18 = load ptr, ptr %m_encoding, align 8
-  %m_eventPtr = getelementptr inbounds %struct.XML_ParserStruct, ptr %parser, i64 0, i32 47
+  %m_eventPtr = getelementptr inbounds i8, ptr %parser, i64 544
   %19 = load ptr, ptr %m_eventPtr, align 8
-  %m_eventEndPtr = getelementptr inbounds %struct.XML_ParserStruct, ptr %parser, i64 0, i32 48
+  %m_eventEndPtr = getelementptr inbounds i8, ptr %parser, i64 552
   %20 = load ptr, ptr %m_eventEndPtr, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %s.addr.i11)
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %dataPtr.i12)
   store ptr %19, ptr %s.addr.i11, align 8
-  %isUtf8.i13 = getelementptr inbounds %struct.encoding, ptr %18, i64 0, i32 13
+  %isUtf8.i13 = getelementptr inbounds i8, ptr %18, i64 132
   %21 = load i8, ptr %isUtf8.i13, align 4
   %tobool.not.i14 = icmp eq i8 %21, 0
   br i1 %tobool.not.i14, label %if.end.i28, label %if.else9.i15
 
 if.end.i28:                                       ; preds = %if.else
-  %m_dataBuf.i31 = getelementptr inbounds %struct.XML_ParserStruct, ptr %parser, i64 0, i32 9
-  %utf8Convert.i32 = getelementptr inbounds %struct.encoding, ptr %18, i64 0, i32 10
-  %m_dataBufEnd.i33 = getelementptr inbounds %struct.XML_ParserStruct, ptr %parser, i64 0, i32 10
-  %m_handlerArg.i35 = getelementptr inbounds %struct.XML_ParserStruct, ptr %parser, i64 0, i32 1
+  %m_dataBuf.i31 = getelementptr inbounds i8, ptr %parser, i64 88
+  %utf8Convert.i32 = getelementptr inbounds i8, ptr %18, i64 112
+  %m_dataBufEnd.i33 = getelementptr inbounds i8, ptr %parser, i64 96
+  %m_handlerArg.i35 = getelementptr inbounds i8, ptr %parser, i64 8
   br label %do.body.i36
 
 do.body.i36:                                      ; preds = %do.body.i36, %if.end.i28
@@ -5329,7 +5309,7 @@ do.body.i36:                                      ; preds = %do.body.i36, %if.en
   br i1 %31, label %do.body.i36, label %reportDefault.exit45, !llvm.loop !28
 
 if.else9.i15:                                     ; preds = %if.else
-  %m_handlerArg11.i17 = getelementptr inbounds %struct.XML_ParserStruct, ptr %parser, i64 0, i32 1
+  %m_handlerArg11.i17 = getelementptr inbounds i8, ptr %parser, i64 8
   %32 = load ptr, ptr %m_handlerArg11.i17, align 8
   %sub.ptr.lhs.cast12.i18 = ptrtoint ptr %20 to i64
   %sub.ptr.rhs.cast13.i19 = ptrtoint ptr %19 to i64
@@ -5353,36 +5333,36 @@ entry:
   %s.addr = alloca ptr, align 8
   %dataPtr = alloca ptr, align 8
   store ptr %s, ptr %s.addr, align 8
-  %isUtf8 = getelementptr inbounds %struct.encoding, ptr %enc, i64 0, i32 13
+  %isUtf8 = getelementptr inbounds i8, ptr %enc, i64 132
   %0 = load i8, ptr %isUtf8, align 4
   %tobool.not = icmp eq i8 %0, 0
   br i1 %tobool.not, label %if.then, label %if.else9
 
 if.then:                                          ; preds = %entry
-  %m_encoding = getelementptr inbounds %struct.XML_ParserStruct, ptr %parser, i64 0, i32 34
+  %m_encoding = getelementptr inbounds i8, ptr %parser, i64 288
   %1 = load ptr, ptr %m_encoding, align 8
   %cmp = icmp eq ptr %1, %enc
   br i1 %cmp, label %if.then1, label %if.else
 
 if.then1:                                         ; preds = %if.then
-  %m_eventPtr = getelementptr inbounds %struct.XML_ParserStruct, ptr %parser, i64 0, i32 47
-  %m_eventEndPtr = getelementptr inbounds %struct.XML_ParserStruct, ptr %parser, i64 0, i32 48
+  %m_eventPtr = getelementptr inbounds i8, ptr %parser, i64 544
+  %m_eventEndPtr = getelementptr inbounds i8, ptr %parser, i64 552
   br label %if.end
 
 if.else:                                          ; preds = %if.then
-  %m_openInternalEntities = getelementptr inbounds %struct.XML_ParserStruct, ptr %parser, i64 0, i32 50
+  %m_openInternalEntities = getelementptr inbounds i8, ptr %parser, i64 568
   %2 = load ptr, ptr %m_openInternalEntities, align 8
-  %internalEventEndPtr = getelementptr inbounds %struct.open_internal_entity, ptr %2, i64 0, i32 1
+  %internalEventEndPtr = getelementptr inbounds i8, ptr %2, i64 8
   br label %if.end
 
 if.end:                                           ; preds = %if.else, %if.then1
   %eventPP.0 = phi ptr [ %m_eventPtr, %if.then1 ], [ %2, %if.else ]
   %eventEndPP.0 = phi ptr [ %m_eventEndPtr, %if.then1 ], [ %internalEventEndPtr, %if.else ]
-  %m_dataBuf = getelementptr inbounds %struct.XML_ParserStruct, ptr %parser, i64 0, i32 9
-  %utf8Convert = getelementptr inbounds %struct.encoding, ptr %enc, i64 0, i32 10
-  %m_dataBufEnd = getelementptr inbounds %struct.XML_ParserStruct, ptr %parser, i64 0, i32 10
-  %m_defaultHandler = getelementptr inbounds %struct.XML_ParserStruct, ptr %parser, i64 0, i32 18
-  %m_handlerArg = getelementptr inbounds %struct.XML_ParserStruct, ptr %parser, i64 0, i32 1
+  %m_dataBuf = getelementptr inbounds i8, ptr %parser, i64 88
+  %utf8Convert = getelementptr inbounds i8, ptr %enc, i64 112
+  %m_dataBufEnd = getelementptr inbounds i8, ptr %parser, i64 96
+  %m_defaultHandler = getelementptr inbounds i8, ptr %parser, i64 160
+  %m_handlerArg = getelementptr inbounds i8, ptr %parser, i64 8
   br label %do.body
 
 do.body:                                          ; preds = %do.body, %if.end
@@ -5408,9 +5388,9 @@ do.body:                                          ; preds = %do.body, %if.end
   br i1 %12, label %do.body, label %if.end16, !llvm.loop !28
 
 if.else9:                                         ; preds = %entry
-  %m_defaultHandler10 = getelementptr inbounds %struct.XML_ParserStruct, ptr %parser, i64 0, i32 18
+  %m_defaultHandler10 = getelementptr inbounds i8, ptr %parser, i64 160
   %13 = load ptr, ptr %m_defaultHandler10, align 8
-  %m_handlerArg11 = getelementptr inbounds %struct.XML_ParserStruct, ptr %parser, i64 0, i32 1
+  %m_handlerArg11 = getelementptr inbounds i8, ptr %parser, i64 8
   %14 = load ptr, ptr %m_handlerArg11, align 8
   %sub.ptr.lhs.cast12 = ptrtoint ptr %end to i64
   %sub.ptr.rhs.cast13 = ptrtoint ptr %s to i64
@@ -5466,7 +5446,7 @@ entry:
   br i1 %cmp, label %return, label %lor.lhs.false
 
 lor.lhs.false:                                    ; preds = %entry
-  %m_parentParser = getelementptr inbounds %struct.XML_ParserStruct, ptr %parser, i64 0, i32 84
+  %m_parentParser = getelementptr inbounds i8, ptr %parser, i64 896
   %0 = load ptr, ptr %m_parentParser, align 8
   %cmp1.not = icmp eq ptr %0, null
   br i1 %cmp1.not, label %lor.lhs.false2, label %return
@@ -5478,7 +5458,7 @@ lor.lhs.false2:                                   ; preds = %lor.lhs.false
   br i1 %or.cond, label %return, label %if.end
 
 if.end:                                           ; preds = %lor.lhs.false2
-  %maximumAmplificationFactor5 = getelementptr inbounds %struct.XML_ParserStruct, ptr %parser, i64 0, i32 90, i32 3
+  %maximumAmplificationFactor5 = getelementptr inbounds i8, ptr %parser, i64 948
   store float %maximumAmplificationFactor, ptr %maximumAmplificationFactor5, align 4
   br label %return
 
@@ -5494,13 +5474,13 @@ entry:
   br i1 %cmp, label %return, label %lor.lhs.false
 
 lor.lhs.false:                                    ; preds = %entry
-  %m_parentParser = getelementptr inbounds %struct.XML_ParserStruct, ptr %parser, i64 0, i32 84
+  %m_parentParser = getelementptr inbounds i8, ptr %parser, i64 896
   %0 = load ptr, ptr %m_parentParser, align 8
   %cmp1.not = icmp eq ptr %0, null
   br i1 %cmp1.not, label %if.end, label %return
 
 if.end:                                           ; preds = %lor.lhs.false
-  %activationThresholdBytes2 = getelementptr inbounds %struct.XML_ParserStruct, ptr %parser, i64 0, i32 90, i32 4
+  %activationThresholdBytes2 = getelementptr inbounds i8, ptr %parser, i64 952
   store i64 %activationThresholdBytes, ptr %activationThresholdBytes2, align 8
   br label %return
 
@@ -5516,7 +5496,7 @@ entry:
   br i1 %tobool.not, label %return, label %if.end
 
 if.end:                                           ; preds = %entry
-  %m_accounting = getelementptr inbounds %struct.XML_ParserStruct, ptr %parser, i64 0, i32 90
+  %m_accounting = getelementptr inbounds i8, ptr %parser, i64 928
   %0 = load i64, ptr %m_accounting, align 8
   br label %return
 
@@ -5532,7 +5512,7 @@ entry:
   br i1 %tobool.not, label %return, label %if.end
 
 if.end:                                           ; preds = %entry
-  %countBytesIndirect = getelementptr inbounds %struct.XML_ParserStruct, ptr %parser, i64 0, i32 90, i32 1
+  %countBytesIndirect = getelementptr inbounds i8, ptr %parser, i64 936
   %0 = load i64, ptr %countBytesIndirect, align 8
   br label %return
 
@@ -5573,17 +5553,17 @@ entry:
   br i1 %cmp.not, label %if.end, label %return
 
 if.end:                                           ; preds = %entry
-  %m_processor = getelementptr inbounds %struct.XML_ParserStruct, ptr %parser, i64 0, i32 45
+  %m_processor = getelementptr inbounds i8, ptr %parser, i64 528
   store ptr @prologProcessor, ptr %m_processor, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %next.i)
   store ptr %s, ptr %next.i, align 8
-  %m_encoding.i = getelementptr inbounds %struct.XML_ParserStruct, ptr %parser, i64 0, i32 34
+  %m_encoding.i = getelementptr inbounds i8, ptr %parser, i64 288
   %0 = load ptr, ptr %m_encoding.i, align 8
   %1 = load ptr, ptr %0, align 8
   %call.i = call i32 %1(ptr noundef nonnull %0, ptr noundef %s, ptr noundef %end, ptr noundef nonnull %next.i) #23
   %2 = load ptr, ptr %m_encoding.i, align 8
   %3 = load ptr, ptr %next.i, align 8
-  %finalBuffer.i = getelementptr inbounds %struct.XML_ParserStruct, ptr %parser, i64 0, i32 85, i32 1
+  %finalBuffer.i = getelementptr inbounds i8, ptr %parser, i64 908
   %4 = load i8, ptr %finalBuffer.i, align 4
   %tobool.not.i = icmp eq i8 %4, 0
   %conv.i = zext i1 %tobool.not.i to i8
@@ -5607,14 +5587,14 @@ declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #1
 define internal fastcc noundef i32 @initializeEncoding(ptr noundef %parser) unnamed_addr #0 {
 entry:
   %info.i = alloca %struct.XML_Encoding, align 8
-  %m_protocolEncodingName = getelementptr inbounds %struct.XML_ParserStruct, ptr %parser, i64 0, i32 37
+  %m_protocolEncodingName = getelementptr inbounds i8, ptr %parser, i64 448
   %0 = load ptr, ptr %m_protocolEncodingName, align 8
-  %m_ns = getelementptr inbounds %struct.XML_ParserStruct, ptr %parser, i64 0, i32 38
+  %m_ns = getelementptr inbounds i8, ptr %parser, i64 456
   %1 = load i8, ptr %m_ns, align 8
   %tobool.not = icmp eq i8 %1, 0
   %cond = select i1 %tobool.not, ptr @PyExpat_XmlInitEncoding, ptr @PyExpat_XmlInitEncodingNS
-  %m_initEncoding = getelementptr inbounds %struct.XML_ParserStruct, ptr %parser, i64 0, i32 35
-  %m_encoding = getelementptr inbounds %struct.XML_ParserStruct, ptr %parser, i64 0, i32 34
+  %m_initEncoding = getelementptr inbounds i8, ptr %parser, i64 296
+  %m_encoding = getelementptr inbounds i8, ptr %parser, i64 288
   %call = tail call i32 %cond(ptr noundef nonnull %m_initEncoding, ptr noundef nonnull %m_encoding, ptr noundef %0) #23, !callees !29
   %tobool1.not = icmp eq i32 %call, 0
   br i1 %tobool1.not, label %if.end, label %return
@@ -5622,17 +5602,17 @@ entry:
 if.end:                                           ; preds = %entry
   %2 = load ptr, ptr %m_protocolEncodingName, align 8
   call void @llvm.lifetime.start.p0(i64 1048, ptr nonnull %info.i)
-  %m_unknownEncodingHandler.i = getelementptr inbounds %struct.XML_ParserStruct, ptr %parser, i64 0, i32 29
+  %m_unknownEncodingHandler.i = getelementptr inbounds i8, ptr %parser, i64 248
   %3 = load ptr, ptr %m_unknownEncodingHandler.i, align 8
   %tobool.not.i = icmp eq ptr %3, null
   br i1 %tobool.not.i, label %handleUnknownEncoding.exit, label %for.body.preheader.i
 
 for.body.preheader.i:                             ; preds = %if.end
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(1024) %info.i, i8 -1, i64 1024, i1 false)
-  %convert.i = getelementptr inbounds %struct.XML_Encoding, ptr %info.i, i64 0, i32 2
-  %data.i = getelementptr inbounds %struct.XML_Encoding, ptr %info.i, i64 0, i32 1
-  %release.i = getelementptr inbounds %struct.XML_Encoding, ptr %info.i, i64 0, i32 3
-  %m_unknownEncodingHandlerData.i = getelementptr inbounds %struct.XML_ParserStruct, ptr %parser, i64 0, i32 42
+  %convert.i = getelementptr inbounds i8, ptr %info.i, i64 1032
+  %data.i = getelementptr inbounds i8, ptr %info.i, i64 1024
+  %release.i = getelementptr inbounds i8, ptr %info.i, i64 1040
+  %m_unknownEncodingHandlerData.i = getelementptr inbounds i8, ptr %parser, i64 480
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %data.i, i8 0, i64 24, i1 false)
   %4 = load ptr, ptr %m_unknownEncodingHandlerData.i, align 8
   %call.i = call i32 %3(ptr noundef %4, ptr noundef %2, ptr noundef nonnull %info.i) #23
@@ -5640,12 +5620,12 @@ for.body.preheader.i:                             ; preds = %if.end
   br i1 %tobool2.not.i, label %if.end27.i, label %if.then3.i
 
 if.then3.i:                                       ; preds = %for.body.preheader.i
-  %m_mem.i = getelementptr inbounds %struct.XML_ParserStruct, ptr %parser, i64 0, i32 3
+  %m_mem.i = getelementptr inbounds i8, ptr %parser, i64 24
   %5 = load ptr, ptr %m_mem.i, align 8
   %call4.i = call i32 @PyExpat_XmlSizeOfUnknownEncoding() #23
   %conv.i = sext i32 %call4.i to i64
   %call5.i = call ptr %5(i64 noundef %conv.i) #23
-  %m_unknownEncodingMem.i = getelementptr inbounds %struct.XML_ParserStruct, ptr %parser, i64 0, i32 40
+  %m_unknownEncodingMem.i = getelementptr inbounds i8, ptr %parser, i64 464
   store ptr %call5.i, ptr %m_unknownEncodingMem.i, align 8
   %tobool7.not.i = icmp eq ptr %call5.i, null
   br i1 %tobool7.not.i, label %if.then8.i, label %if.end14.i
@@ -5672,10 +5652,10 @@ if.end14.i:                                       ; preds = %if.then3.i
 
 if.then23.i:                                      ; preds = %if.end14.i
   %11 = load ptr, ptr %data.i, align 8
-  %m_unknownEncodingData.i = getelementptr inbounds %struct.XML_ParserStruct, ptr %parser, i64 0, i32 41
+  %m_unknownEncodingData.i = getelementptr inbounds i8, ptr %parser, i64 472
   store ptr %11, ptr %m_unknownEncodingData.i, align 8
   %12 = load ptr, ptr %release.i, align 8
-  %m_unknownEncodingRelease.i = getelementptr inbounds %struct.XML_ParserStruct, ptr %parser, i64 0, i32 43
+  %m_unknownEncodingRelease.i = getelementptr inbounds i8, ptr %parser, i64 488
   store ptr %12, ptr %m_unknownEncodingRelease.i, align 8
   store ptr %call21.i, ptr %m_encoding, align 8
   br label %handleUnknownEncoding.exit
@@ -5705,13 +5685,13 @@ define internal i32 @prologProcessor(ptr noundef %parser, ptr noundef %s, ptr no
 entry:
   %next = alloca ptr, align 8
   store ptr %s, ptr %next, align 8
-  %m_encoding = getelementptr inbounds %struct.XML_ParserStruct, ptr %parser, i64 0, i32 34
+  %m_encoding = getelementptr inbounds i8, ptr %parser, i64 288
   %0 = load ptr, ptr %m_encoding, align 8
   %1 = load ptr, ptr %0, align 8
   %call = call i32 %1(ptr noundef nonnull %0, ptr noundef %s, ptr noundef %end, ptr noundef nonnull %next) #23
   %2 = load ptr, ptr %m_encoding, align 8
   %3 = load ptr, ptr %next, align 8
-  %finalBuffer = getelementptr inbounds %struct.XML_ParserStruct, ptr %parser, i64 0, i32 85, i32 1
+  %finalBuffer = getelementptr inbounds i8, ptr %parser, i64 908
   %4 = load i8, ptr %finalBuffer, align 4
   %tobool.not = icmp eq i8 %4, 0
   %conv = zext i1 %tobool.not to i8
@@ -5730,119 +5710,119 @@ declare ptr @PyExpat_XmlInitUnknownEncoding(ptr noundef, ptr noundef, ptr nounde
 ; Function Attrs: nounwind uwtable
 define internal fastcc i32 @doProlog(ptr noundef %parser, ptr noundef %enc, ptr noundef %s, ptr noundef %end, i32 noundef %tok, ptr noundef %next, ptr noundef %nextPtr, i8 noundef zeroext %haveMore, i8 noundef zeroext %allowClosingDoctype, i32 noundef %account) unnamed_addr #0 {
 entry:
-  %s.addr.i1255 = alloca ptr, align 8
-  %dataPtr.i1256 = alloca ptr, align 8
-  %ptr.addr.i.i1179 = alloca ptr, align 8
+  %s.addr.i1310 = alloca ptr, align 8
+  %dataPtr.i1311 = alloca ptr, align 8
+  %ptr.addr.i.i1234 = alloca ptr, align 8
   %s.addr.i = alloca ptr, align 8
   %dataPtr.i = alloca ptr, align 8
-  %ptr.addr.i.i1120 = alloca ptr, align 8
-  %ptr.addr.i.i1068 = alloca ptr, align 8
-  %ptr.addr.i.i1038 = alloca ptr, align 8
-  %ptr.addr.i.i1008 = alloca ptr, align 8
-  %ptr.addr.i.i978 = alloca ptr, align 8
-  %ptr.addr.i.i948 = alloca ptr, align 8
-  %ptr.addr.i.i918 = alloca ptr, align 8
-  %ptr.addr.i.i888 = alloca ptr, align 8
+  %ptr.addr.i.i1175 = alloca ptr, align 8
+  %ptr.addr.i.i1123 = alloca ptr, align 8
+  %ptr.addr.i.i1093 = alloca ptr, align 8
+  %ptr.addr.i.i1063 = alloca ptr, align 8
+  %ptr.addr.i.i1033 = alloca ptr, align 8
+  %ptr.addr.i.i1003 = alloca ptr, align 8
+  %ptr.addr.i.i973 = alloca ptr, align 8
+  %ptr.addr.i.i943 = alloca ptr, align 8
   %ptr.addr.i = alloca ptr, align 8
   %ptr.addr.i.i769 = alloca ptr, align 8
   %ptr.addr.i.i738 = alloca ptr, align 8
   %ptr.addr.i.i = alloca ptr, align 8
   %next.addr = alloca ptr, align 8
   store ptr %next, ptr %next.addr, align 8
-  %m_dtd = getelementptr inbounds %struct.XML_ParserStruct, ptr %parser, i64 0, i32 65
+  %m_dtd = getelementptr inbounds i8, ptr %parser, i64 672
   %0 = load ptr, ptr %m_dtd, align 8
-  %m_encoding = getelementptr inbounds %struct.XML_ParserStruct, ptr %parser, i64 0, i32 34
+  %m_encoding = getelementptr inbounds i8, ptr %parser, i64 288
   %1 = load ptr, ptr %m_encoding, align 8
   %cmp = icmp eq ptr %1, %enc
   br i1 %cmp, label %if.then, label %if.else
 
 if.then:                                          ; preds = %entry
-  %m_eventPtr = getelementptr inbounds %struct.XML_ParserStruct, ptr %parser, i64 0, i32 47
-  %m_eventEndPtr = getelementptr inbounds %struct.XML_ParserStruct, ptr %parser, i64 0, i32 48
+  %m_eventPtr = getelementptr inbounds i8, ptr %parser, i64 544
+  %m_eventEndPtr = getelementptr inbounds i8, ptr %parser, i64 552
   br label %if.end
 
 if.else:                                          ; preds = %entry
-  %m_openInternalEntities = getelementptr inbounds %struct.XML_ParserStruct, ptr %parser, i64 0, i32 50
+  %m_openInternalEntities = getelementptr inbounds i8, ptr %parser, i64 568
   %2 = load ptr, ptr %m_openInternalEntities, align 8
-  %internalEventEndPtr = getelementptr inbounds %struct.open_internal_entity, ptr %2, i64 0, i32 1
+  %internalEventEndPtr = getelementptr inbounds i8, ptr %2, i64 8
   br label %if.end
 
 if.end:                                           ; preds = %if.else, %if.then
   %eventEndPP.0 = phi ptr [ %m_eventEndPtr, %if.then ], [ %internalEventEndPtr, %if.else ]
   %eventPP.0 = phi ptr [ %m_eventPtr, %if.then ], [ %2, %if.else ]
   %tobool = icmp ne i8 %haveMore, 0
-  %m_prologState34 = getelementptr inbounds %struct.XML_ParserStruct, ptr %parser, i64 0, i32 44
-  %m_elementDeclHandler1432 = getelementptr inbounds %struct.XML_ParserStruct, ptr %parser, i64 0, i32 30
-  %keepProcessing1423 = getelementptr inbounds %struct.DTD, ptr %0, i64 0, i32 6
-  %m_attlistDeclHandler1427 = getelementptr inbounds %struct.XML_ParserStruct, ptr %parser, i64 0, i32 31
-  %m_notationDeclHandler1418 = getelementptr inbounds %struct.XML_ParserStruct, ptr %parser, i64 0, i32 22
-  %m_entityDeclHandler1413 = getelementptr inbounds %struct.XML_ParserStruct, ptr %parser, i64 0, i32 32
-  %m_startDoctypeDeclHandler1404 = getelementptr inbounds %struct.XML_ParserStruct, ptr %parser, i64 0, i32 19
-  %in_eldecl1355 = getelementptr inbounds %struct.DTD, ptr %0, i64 0, i32 12
-  %scaffLevel1362 = getelementptr inbounds %struct.DTD, ptr %0, i64 0, i32 17
-  %scaffold1363 = getelementptr inbounds %struct.DTD, ptr %0, i64 0, i32 13
-  %scaffIndex1364 = getelementptr inbounds %struct.DTD, ptr %0, i64 0, i32 18
+  %m_prologState34 = getelementptr inbounds i8, ptr %parser, i64 496
+  %m_elementDeclHandler1432 = getelementptr inbounds i8, ptr %parser, i64 256
+  %keepProcessing1423 = getelementptr inbounds i8, ptr %0, i64 256
+  %m_attlistDeclHandler1427 = getelementptr inbounds i8, ptr %parser, i64 264
+  %m_notationDeclHandler1418 = getelementptr inbounds i8, ptr %parser, i64 192
+  %m_entityDeclHandler1413 = getelementptr inbounds i8, ptr %parser, i64 272
+  %m_startDoctypeDeclHandler1404 = getelementptr inbounds i8, ptr %parser, i64 168
+  %in_eldecl1355 = getelementptr inbounds i8, ptr %0, i64 320
+  %scaffLevel1362 = getelementptr inbounds i8, ptr %0, i64 348
+  %scaffold1363 = getelementptr inbounds i8, ptr %0, i64 328
+  %scaffIndex1364 = getelementptr inbounds i8, ptr %0, i64 352
   %3 = getelementptr i8, ptr %parser, i64 24
-  %m_handlerArg1382 = getelementptr inbounds %struct.XML_ParserStruct, ptr %parser, i64 0, i32 1
-  %m_declElementType1383 = getelementptr inbounds %struct.XML_ParserStruct, ptr %parser, i64 0, i32 61
-  %contentStringLen1387 = getelementptr inbounds %struct.DTD, ptr %0, i64 0, i32 14
-  %scaffCount = getelementptr inbounds %struct.DTD, ptr %0, i64 0, i32 16
-  %hasParamEntityRefs1117 = getelementptr inbounds %struct.DTD, ptr %0, i64 0, i32 7
-  %m_paramEntityParsing1118 = getelementptr inbounds %struct.XML_ParserStruct, ptr %parser, i64 0, i32 88
-  %pool1126 = getelementptr inbounds %struct.DTD, ptr %0, i64 0, i32 4
-  %ptr1.i.i1180 = getelementptr inbounds %struct.DTD, ptr %0, i64 0, i32 4, i32 3
-  %end4.i.i1184 = getelementptr inbounds %struct.DTD, ptr %0, i64 0, i32 4, i32 2
-  %start.i.i1194 = getelementptr inbounds %struct.DTD, ptr %0, i64 0, i32 4, i32 4
-  %size.i = getelementptr inbounds %struct.DTD, ptr %0, i64 0, i32 10, i32 2
-  %paramEntities1138 = getelementptr inbounds %struct.DTD, ptr %0, i64 0, i32 10
-  %power30.i = getelementptr inbounds %struct.DTD, ptr %0, i64 0, i32 10, i32 1
-  %documentEntity = getelementptr inbounds %struct.XML_ParserStruct, ptr %parser, i64 0, i32 44, i32 4
-  %standalone1147 = getelementptr inbounds %struct.DTD, ptr %0, i64 0, i32 8
-  %m_openInternalEntities1151 = getelementptr inbounds %struct.XML_ParserStruct, ptr %parser, i64 0, i32 50
-  %m_externalEntityRefHandler1198 = getelementptr inbounds %struct.XML_ParserStruct, ptr %parser, i64 0, i32 26
-  %paramEntityRead1201 = getelementptr inbounds %struct.DTD, ptr %0, i64 0, i32 9
-  %m_externalEntityRefHandlerArg1204 = getelementptr inbounds %struct.XML_ParserStruct, ptr %parser, i64 0, i32 27
-  %m_skippedEntityHandler = getelementptr inbounds %struct.XML_ParserStruct, ptr %parser, i64 0, i32 28
-  %m_notStandaloneHandler1228 = getelementptr inbounds %struct.XML_ParserStruct, ptr %parser, i64 0, i32 25
-  %m_groupConnector1064 = getelementptr inbounds %struct.XML_ParserStruct, ptr %parser, i64 0, i32 81
-  %level1066 = getelementptr inbounds %struct.XML_ParserStruct, ptr %parser, i64 0, i32 44, i32 1
-  %m_groupSize = getelementptr inbounds %struct.XML_ParserStruct, ptr %parser, i64 0, i32 82
-  %realloc_fcn = getelementptr inbounds %struct.XML_ParserStruct, ptr %parser, i64 0, i32 3, i32 1
-  %m_defaultHandler = getelementptr inbounds %struct.XML_ParserStruct, ptr %parser, i64 0, i32 18
-  %m_eventPtr.i = getelementptr inbounds %struct.XML_ParserStruct, ptr %parser, i64 0, i32 47
-  %m_eventEndPtr.i = getelementptr inbounds %struct.XML_ParserStruct, ptr %parser, i64 0, i32 48
-  %m_dataBuf.i = getelementptr inbounds %struct.XML_ParserStruct, ptr %parser, i64 0, i32 9
-  %m_dataBufEnd.i = getelementptr inbounds %struct.XML_ParserStruct, ptr %parser, i64 0, i32 10
-  %m_declNotationPublicId937 = getelementptr inbounds %struct.XML_ParserStruct, ptr %parser, i64 0, i32 60
-  %m_declNotationName945 = getelementptr inbounds %struct.XML_ParserStruct, ptr %parser, i64 0, i32 59
-  %m_curBase946 = getelementptr inbounds %struct.XML_ParserStruct, ptr %parser, i64 0, i32 66
-  %m_tempPool949 = getelementptr inbounds %struct.XML_ParserStruct, ptr %parser, i64 0, i32 79
-  %freeBlocks.i1161 = getelementptr inbounds %struct.XML_ParserStruct, ptr %parser, i64 0, i32 79, i32 1
-  %end.i1169 = getelementptr inbounds %struct.XML_ParserStruct, ptr %parser, i64 0, i32 79, i32 2
-  %ptr1.i.i1121 = getelementptr inbounds %struct.XML_ParserStruct, ptr %parser, i64 0, i32 79, i32 3
-  %start.i.i1135 = getelementptr inbounds %struct.XML_ParserStruct, ptr %parser, i64 0, i32 79, i32 4
-  %m_declEntity819 = getelementptr inbounds %struct.XML_ParserStruct, ptr %parser, i64 0, i32 54
-  %m_parentParser843 = getelementptr inbounds %struct.XML_ParserStruct, ptr %parser, i64 0, i32 84
-  %m_unparsedEntityDeclHandler = getelementptr inbounds %struct.XML_ParserStruct, ptr %parser, i64 0, i32 21
-  %m_useForeignDTD578 = getelementptr inbounds %struct.XML_ParserStruct, ptr %parser, i64 0, i32 87
-  %m_doctypeSysid592 = getelementptr inbounds %struct.XML_ParserStruct, ptr %parser, i64 0, i32 56
-  %start539 = getelementptr inbounds %struct.DTD, ptr %0, i64 0, i32 5, i32 4
-  %ptr542 = getelementptr inbounds %struct.DTD, ptr %0, i64 0, i32 5, i32 3
-  %m_declAttributeIsCdata422 = getelementptr inbounds %struct.XML_ParserStruct, ptr %parser, i64 0, i32 63
-  %m_declAttributeId442 = getelementptr inbounds %struct.XML_ParserStruct, ptr %parser, i64 0, i32 62
-  %m_declAttributeType451 = getelementptr inbounds %struct.XML_ParserStruct, ptr %parser, i64 0, i32 58
-  %m_declAttributeIsId342 = getelementptr inbounds %struct.XML_ParserStruct, ptr %parser, i64 0, i32 64
+  %m_handlerArg1382 = getelementptr inbounds i8, ptr %parser, i64 8
+  %m_declElementType1383 = getelementptr inbounds i8, ptr %parser, i64 648
+  %contentStringLen1387 = getelementptr inbounds i8, ptr %0, i64 336
+  %scaffCount = getelementptr inbounds i8, ptr %0, i64 344
+  %hasParamEntityRefs1117 = getelementptr inbounds i8, ptr %0, i64 257
+  %m_paramEntityParsing1118 = getelementptr inbounds i8, ptr %parser, i64 916
+  %pool1126 = getelementptr inbounds i8, ptr %0, i64 160
+  %ptr1.i.i1235 = getelementptr inbounds i8, ptr %0, i64 184
+  %end4.i.i1239 = getelementptr inbounds i8, ptr %0, i64 176
+  %start.i.i1249 = getelementptr inbounds i8, ptr %0, i64 192
+  %size.i = getelementptr inbounds i8, ptr %0, i64 280
+  %paramEntities1138 = getelementptr inbounds i8, ptr %0, i64 264
+  %power30.i = getelementptr inbounds i8, ptr %0, i64 272
+  %documentEntity = getelementptr inbounds i8, ptr %parser, i64 516
+  %standalone1147 = getelementptr inbounds i8, ptr %0, i64 258
+  %m_openInternalEntities1151 = getelementptr inbounds i8, ptr %parser, i64 568
+  %m_externalEntityRefHandler1198 = getelementptr inbounds i8, ptr %parser, i64 224
+  %paramEntityRead1201 = getelementptr inbounds i8, ptr %0, i64 259
+  %m_externalEntityRefHandlerArg1204 = getelementptr inbounds i8, ptr %parser, i64 232
+  %m_skippedEntityHandler = getelementptr inbounds i8, ptr %parser, i64 240
+  %m_notStandaloneHandler1228 = getelementptr inbounds i8, ptr %parser, i64 216
+  %m_groupConnector1064 = getelementptr inbounds i8, ptr %parser, i64 880
+  %level1066 = getelementptr inbounds i8, ptr %parser, i64 504
+  %m_groupSize = getelementptr inbounds i8, ptr %parser, i64 888
+  %realloc_fcn = getelementptr inbounds i8, ptr %parser, i64 32
+  %m_defaultHandler = getelementptr inbounds i8, ptr %parser, i64 160
+  %m_eventPtr.i = getelementptr inbounds i8, ptr %parser, i64 544
+  %m_eventEndPtr.i = getelementptr inbounds i8, ptr %parser, i64 552
+  %m_dataBuf.i = getelementptr inbounds i8, ptr %parser, i64 88
+  %m_dataBufEnd.i = getelementptr inbounds i8, ptr %parser, i64 96
+  %m_declNotationPublicId937 = getelementptr inbounds i8, ptr %parser, i64 640
+  %m_declNotationName945 = getelementptr inbounds i8, ptr %parser, i64 632
+  %m_curBase946 = getelementptr inbounds i8, ptr %parser, i64 680
+  %m_tempPool949 = getelementptr inbounds i8, ptr %parser, i64 784
+  %freeBlocks.i1216 = getelementptr inbounds i8, ptr %parser, i64 792
+  %end.i1224 = getelementptr inbounds i8, ptr %parser, i64 800
+  %ptr1.i.i1176 = getelementptr inbounds i8, ptr %parser, i64 808
+  %start.i.i1190 = getelementptr inbounds i8, ptr %parser, i64 816
+  %m_declEntity819 = getelementptr inbounds i8, ptr %parser, i64 592
+  %m_parentParser843 = getelementptr inbounds i8, ptr %parser, i64 896
+  %m_unparsedEntityDeclHandler = getelementptr inbounds i8, ptr %parser, i64 184
+  %m_useForeignDTD578 = getelementptr inbounds i8, ptr %parser, i64 913
+  %m_doctypeSysid592 = getelementptr inbounds i8, ptr %parser, i64 608
+  %start539 = getelementptr inbounds i8, ptr %0, i64 240
+  %ptr542 = getelementptr inbounds i8, ptr %0, i64 232
+  %m_declAttributeIsCdata422 = getelementptr inbounds i8, ptr %parser, i64 664
+  %m_declAttributeId442 = getelementptr inbounds i8, ptr %parser, i64 656
+  %m_declAttributeType451 = getelementptr inbounds i8, ptr %parser, i64 624
+  %m_declAttributeIsId342 = getelementptr inbounds i8, ptr %parser, i64 665
   %cmp146.not = icmp eq i8 %allowClosingDoctype, 1
-  %m_doctypeName150 = getelementptr inbounds %struct.XML_ParserStruct, ptr %parser, i64 0, i32 55
-  %m_doctypePubid157 = getelementptr inbounds %struct.XML_ParserStruct, ptr %parser, i64 0, i32 57
-  %m_endDoctypeDeclHandler = getelementptr inbounds %struct.XML_ParserStruct, ptr %parser, i64 0, i32 20
-  %m_parsingStatus = getelementptr inbounds %struct.XML_ParserStruct, ptr %parser, i64 0, i32 85
+  %m_doctypeName150 = getelementptr inbounds i8, ptr %parser, i64 600
+  %m_doctypePubid157 = getelementptr inbounds i8, ptr %parser, i64 616
+  %m_endDoctypeDeclHandler = getelementptr inbounds i8, ptr %parser, i64 176
+  %m_parsingStatus = getelementptr inbounds i8, ptr %parser, i64 904
   br label %for.cond
 
 for.cond:                                         ; preds = %sw.default1446, %if.end
   %tok.addr.0 = phi i32 [ %tok, %if.end ], [ %call1448, %sw.default1446 ]
-  %s.addr.0 = phi ptr [ %s, %if.end ], [ %614, %sw.default1446 ]
-  %enc.addr.0 = phi ptr [ %enc, %if.end ], [ %enc.addr.11351, %sw.default1446 ]
+  %s.addr.0 = phi ptr [ %s, %if.end ], [ %626, %sw.default1446 ]
+  %enc.addr.0 = phi ptr [ %enc, %if.end ], [ %enc.addr.11408, %sw.default1446 ]
   store ptr %s.addr.0, ptr %eventPP.0, align 8
   %4 = load ptr, ptr %next.addr, align 8
   store ptr %4, ptr %eventEndPP.0, align 8
@@ -5861,7 +5841,7 @@ if.then6:                                         ; preds = %if.then3
 if.end7:                                          ; preds = %if.then3
   switch i32 %tok.addr.0, label %sw.default [
     i32 0, label %sw.bb
-    i32 -1, label %return.loopexit2035
+    i32 -1, label %return.loopexit2108
     i32 -2, label %return
     i32 -15, label %if.end33
     i32 -4, label %sw.bb11
@@ -5878,7 +5858,7 @@ sw.bb11:                                          ; preds = %if.end7
 
 land.lhs.true15:                                  ; preds = %sw.bb11
   %6 = load ptr, ptr %m_openInternalEntities1151, align 8
-  %betweenDecl = getelementptr inbounds %struct.open_internal_entity, ptr %6, i64 0, i32 5
+  %betweenDecl = getelementptr inbounds i8, ptr %6, i64 36
   %7 = load i8, ptr %betweenDecl, align 4
   %tobool17.not = icmp eq i8 %7, 0
   br i1 %tobool17.not, label %if.then18, label %if.then25
@@ -5888,7 +5868,7 @@ if.then18:                                        ; preds = %land.lhs.true15
   br label %return
 
 if.end19:                                         ; preds = %sw.bb11
-  %m_isParamEntity = getelementptr inbounds %struct.XML_ParserStruct, ptr %parser, i64 0, i32 86
+  %m_isParamEntity = getelementptr inbounds i8, ptr %parser, i64 912
   %8 = load i8, ptr %m_isParamEntity, align 8
   %tobool21.not = icmp eq i8 %8, 0
   br i1 %tobool21.not, label %return, label %if.then25
@@ -5927,22 +5907,22 @@ sw.default39:                                     ; preds = %if.end33
 
 while.cond.i.i.i:                                 ; preds = %sw.default39, %while.cond.i.i.i
   %rootParser.0.i.i.i = phi ptr [ %13, %while.cond.i.i.i ], [ %parser, %sw.default39 ]
-  %m_parentParser.i.i.i = getelementptr inbounds %struct.XML_ParserStruct, ptr %rootParser.0.i.i.i, i64 0, i32 84
+  %m_parentParser.i.i.i = getelementptr inbounds i8, ptr %rootParser.0.i.i.i, i64 896
   %13 = load ptr, ptr %m_parentParser.i.i.i, align 8
   %tobool.not.i.i.i = icmp eq ptr %13, null
   br i1 %tobool.not.i.i.i, label %getRootParserOf.exit.i.i, label %while.cond.i.i.i, !llvm.loop !31
 
 getRootParserOf.exit.i.i:                         ; preds = %while.cond.i.i.i
-  %debugLevel.i.i = getelementptr inbounds %struct.XML_ParserStruct, ptr %rootParser.0.i.i.i, i64 0, i32 90, i32 2
+  %debugLevel.i.i = getelementptr inbounds i8, ptr %rootParser.0.i.i.i, i64 944
   %14 = load i32, ptr %debugLevel.i.i, align 8
   %cmp.i.i = icmp slt i32 %14, 1
   br i1 %cmp.i.i, label %return, label %if.end.i.i
 
 if.end.i.i:                                       ; preds = %getRootParserOf.exit.i.i
-  %m_accounting.i.i = getelementptr inbounds %struct.XML_ParserStruct, ptr %rootParser.0.i.i.i, i64 0, i32 90
+  %m_accounting.i.i = getelementptr inbounds i8, ptr %rootParser.0.i.i.i, i64 928
   %15 = load i64, ptr %m_accounting.i.i, align 8
   %tobool.not.i5.i.i = icmp eq i64 %15, 0
-  %countBytesIndirect.phi.trans.insert.i.i = getelementptr inbounds %struct.XML_ParserStruct, ptr %rootParser.0.i.i.i, i64 0, i32 90, i32 1
+  %countBytesIndirect.phi.trans.insert.i.i = getelementptr inbounds i8, ptr %rootParser.0.i.i.i, i64 936
   %.pre.i.i = load i64, ptr %countBytesIndirect.phi.trans.insert.i.i, align 8
   br i1 %tobool.not.i5.i.i, label %accountingGetCurrentAmplification.exit.i.i, label %cond.true.i.i.i
 
@@ -6045,7 +6025,7 @@ if.then54:                                        ; preds = %sw.bb52
   %21 = load ptr, ptr %next.addr, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %ptr.addr.i.i)
   store ptr %s.addr.0, ptr %ptr.addr.i.i, align 8
-  %22 = load ptr, ptr %ptr1.i.i1121, align 8
+  %22 = load ptr, ptr %ptr1.i.i1176, align 8
   %tobool.not.i.i = icmp eq ptr %22, null
   br i1 %tobool.not.i.i, label %land.lhs.true.i.i, label %if.end.i.i735
 
@@ -6055,13 +6035,13 @@ land.lhs.true.i.i:                                ; preds = %if.then54
   br i1 %tobool2.not.i.i, label %poolAppend.exit.thread.i, label %if.end.i.i735
 
 if.end.i.i735:                                    ; preds = %land.lhs.true.i.i, %if.then54
-  %utf8Convert.i.i = getelementptr inbounds %struct.encoding, ptr %enc.addr.0, i64 0, i32 10
+  %utf8Convert.i.i = getelementptr inbounds i8, ptr %enc.addr.0, i64 112
   br label %for.cond.i.i
 
 for.cond.i.i:                                     ; preds = %if.end8.i.i, %if.end.i.i735
   %23 = load ptr, ptr %utf8Convert.i.i, align 8
-  %24 = load ptr, ptr %end.i1169, align 8
-  %call5.i.i = call i32 %23(ptr noundef %enc.addr.0, ptr noundef nonnull %ptr.addr.i.i, ptr noundef %21, ptr noundef nonnull %ptr1.i.i1121, ptr noundef %24) #23
+  %24 = load ptr, ptr %end.i1224, align 8
+  %call5.i.i = call i32 %23(ptr noundef %enc.addr.0, ptr noundef nonnull %ptr.addr.i.i, ptr noundef %21, ptr noundef nonnull %ptr1.i.i1176, ptr noundef %24) #23
   %or.cond.i.i = icmp ult i32 %call5.i.i, 2
   br i1 %or.cond.i.i, label %poolAppend.exit.i, label %if.end8.i.i
 
@@ -6075,14 +6055,14 @@ poolAppend.exit.thread.i:                         ; preds = %land.lhs.true.i.i, 
   br label %poolStoreString.exit.thread
 
 poolAppend.exit.i:                                ; preds = %for.cond.i.i
-  %25 = load ptr, ptr %start.i.i1135, align 8
+  %25 = load ptr, ptr %start.i.i1190, align 8
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %ptr.addr.i.i)
   %tobool.not.i = icmp eq ptr %25, null
   br i1 %tobool.not.i, label %poolStoreString.exit.thread, label %if.end.i
 
 if.end.i:                                         ; preds = %poolAppend.exit.i
-  %26 = load ptr, ptr %ptr1.i.i1121, align 8
-  %27 = load ptr, ptr %end.i1169, align 8
+  %26 = load ptr, ptr %ptr1.i.i1176, align 8
+  %27 = load ptr, ptr %end.i1224, align 8
   %cmp.i = icmp eq ptr %26, %27
   br i1 %cmp.i, label %land.lhs.true.i, label %poolStoreString.exit
 
@@ -6092,7 +6072,7 @@ land.lhs.true.i:                                  ; preds = %if.end.i
   br i1 %tobool4.not.i, label %poolStoreString.exit.thread, label %land.lhs.true.if.end6_crit_edge.i
 
 land.lhs.true.if.end6_crit_edge.i:                ; preds = %land.lhs.true.i
-  %.pre.i = load ptr, ptr %ptr1.i.i1121, align 8
+  %.pre.i = load ptr, ptr %ptr1.i.i1176, align 8
   br label %poolStoreString.exit
 
 poolStoreString.exit.thread:                      ; preds = %poolAppend.exit.i, %land.lhs.true.i, %poolAppend.exit.thread.i
@@ -6102,16 +6082,16 @@ poolStoreString.exit.thread:                      ; preds = %poolAppend.exit.i, 
 poolStoreString.exit:                             ; preds = %if.end.i, %land.lhs.true.if.end6_crit_edge.i
   %28 = phi ptr [ %.pre.i, %land.lhs.true.if.end6_crit_edge.i ], [ %26, %if.end.i ]
   %incdec.ptr.i = getelementptr i8, ptr %28, i64 1
-  store ptr %incdec.ptr.i, ptr %ptr1.i.i1121, align 8
+  store ptr %incdec.ptr.i, ptr %ptr1.i.i1176, align 8
   store i8 0, ptr %28, align 1
-  %29 = load ptr, ptr %start.i.i1135, align 8
+  %29 = load ptr, ptr %start.i.i1190, align 8
   store ptr %29, ptr %m_doctypeName150, align 8
   %tobool57.not = icmp eq ptr %29, null
   br i1 %tobool57.not, label %return, label %if.end59
 
 if.end59:                                         ; preds = %poolStoreString.exit
-  %30 = load ptr, ptr %ptr1.i.i1121, align 8
-  store ptr %30, ptr %start.i.i1135, align 8
+  %30 = load ptr, ptr %ptr1.i.i1176, align 8
+  store ptr %30, ptr %start.i.i1190, align 8
   store ptr null, ptr %m_doctypePubid157, align 8
   br label %if.end62
 
@@ -6132,13 +6112,13 @@ if.then66:                                        ; preds = %sw.bb63
   %35 = load ptr, ptr %m_doctypePubid157, align 8
   call void %31(ptr noundef %32, ptr noundef %33, ptr noundef %34, ptr noundef %35, i32 noundef 1) #23
   store ptr null, ptr %m_doctypeName150, align 8
-  %36 = load ptr, ptr %freeBlocks.i1161, align 8
+  %36 = load ptr, ptr %freeBlocks.i1216, align 8
   %tobool.not.i736 = icmp eq ptr %36, null
   %37 = load ptr, ptr %m_tempPool949, align 8
   br i1 %tobool.not.i736, label %if.then.i, label %if.else.i
 
 if.then.i:                                        ; preds = %if.then66
-  store ptr %37, ptr %freeBlocks.i1161, align 8
+  store ptr %37, ptr %freeBlocks.i1216, align 8
   br label %poolClear.exit
 
 if.else.i:                                        ; preds = %if.then66
@@ -6150,13 +6130,13 @@ while.body.i:                                     ; preds = %if.else.i, %while.b
   %p.014.i = phi ptr [ %39, %while.body.i ], [ %37, %if.else.i ]
   %39 = load ptr, ptr %p.014.i, align 8
   store ptr %38, ptr %p.014.i, align 8
-  store ptr %p.014.i, ptr %freeBlocks.i1161, align 8
+  store ptr %p.014.i, ptr %freeBlocks.i1216, align 8
   %tobool3.not.i = icmp eq ptr %39, null
   br i1 %tobool3.not.i, label %poolClear.exit, label %while.body.i, !llvm.loop !8
 
 poolClear.exit:                                   ; preds = %while.body.i, %if.then.i, %if.else.i
   store ptr null, ptr %m_tempPool949, align 8
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %end.i1169, i8 0, i64 24, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %end.i1224, i8 0, i64 24, i1 false)
   br label %if.end1443
 
 sw.bb74:                                          ; preds = %sw.epilog44
@@ -6183,7 +6163,7 @@ if.end87:                                         ; preds = %sw.bb82
   br i1 %tobool89.not, label %sw.bb109, label %if.then90
 
 if.then90:                                        ; preds = %if.end87
-  %isPublicId = getelementptr inbounds %struct.encoding, ptr %enc.addr.0, i64 0, i32 9
+  %isPublicId = getelementptr inbounds i8, ptr %enc.addr.0, i64 104
   %43 = load ptr, ptr %isPublicId, align 8
   %44 = load ptr, ptr %next.addr, align 8
   %call91 = call i32 %43(ptr noundef %enc.addr.0, ptr noundef %s.addr.0, ptr noundef %44, ptr noundef nonnull %eventPP.0) #23
@@ -6191,7 +6171,7 @@ if.then90:                                        ; preds = %if.end87
   br i1 %tobool92.not, label %return, label %if.end94
 
 if.end94:                                         ; preds = %if.then90
-  %minBytesPerChar = getelementptr inbounds %struct.encoding, ptr %enc.addr.0, i64 0, i32 12
+  %minBytesPerChar = getelementptr inbounds i8, ptr %enc.addr.0, i64 128
   %45 = load i32, ptr %minBytesPerChar, align 8
   %idx.ext = sext i32 %45 to i64
   %add.ptr = getelementptr i8, ptr %s.addr.0, i64 %idx.ext
@@ -6200,7 +6180,7 @@ if.end94:                                         ; preds = %if.then90
   %add.ptr98 = getelementptr i8, ptr %46, i64 %idx.neg
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %ptr.addr.i.i738)
   store ptr %add.ptr, ptr %ptr.addr.i.i738, align 8
-  %47 = load ptr, ptr %ptr1.i.i1121, align 8
+  %47 = load ptr, ptr %ptr1.i.i1176, align 8
   %tobool.not.i.i740 = icmp eq ptr %47, null
   br i1 %tobool.not.i.i740, label %land.lhs.true.i.i764, label %if.end.i.i741
 
@@ -6210,13 +6190,13 @@ land.lhs.true.i.i764:                             ; preds = %if.end94
   br i1 %tobool2.not.i.i766, label %poolAppend.exit.thread.i750, label %if.end.i.i741
 
 if.end.i.i741:                                    ; preds = %land.lhs.true.i.i764, %if.end94
-  %utf8Convert.i.i742 = getelementptr inbounds %struct.encoding, ptr %enc.addr.0, i64 0, i32 10
+  %utf8Convert.i.i742 = getelementptr inbounds i8, ptr %enc.addr.0, i64 112
   br label %for.cond.i.i744
 
 for.cond.i.i744:                                  ; preds = %if.end8.i.i747, %if.end.i.i741
   %48 = load ptr, ptr %utf8Convert.i.i742, align 8
-  %49 = load ptr, ptr %end.i1169, align 8
-  %call5.i.i745 = call i32 %48(ptr noundef nonnull %enc.addr.0, ptr noundef nonnull %ptr.addr.i.i738, ptr noundef %add.ptr98, ptr noundef nonnull %ptr1.i.i1121, ptr noundef %49) #23
+  %49 = load ptr, ptr %end.i1224, align 8
+  %call5.i.i745 = call i32 %48(ptr noundef nonnull %enc.addr.0, ptr noundef nonnull %ptr.addr.i.i738, ptr noundef %add.ptr98, ptr noundef nonnull %ptr1.i.i1176, ptr noundef %49) #23
   %or.cond.i.i746 = icmp ult i32 %call5.i.i745, 2
   br i1 %or.cond.i.i746, label %poolAppend.exit.i752, label %if.end8.i.i747
 
@@ -6230,14 +6210,14 @@ poolAppend.exit.thread.i750:                      ; preds = %land.lhs.true.i.i76
   br label %return
 
 poolAppend.exit.i752:                             ; preds = %for.cond.i.i744
-  %50 = load ptr, ptr %start.i.i1135, align 8
+  %50 = load ptr, ptr %start.i.i1190, align 8
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %ptr.addr.i.i738)
   %tobool.not.i754 = icmp eq ptr %50, null
   br i1 %tobool.not.i754, label %return, label %if.end.i755
 
 if.end.i755:                                      ; preds = %poolAppend.exit.i752
-  %51 = load ptr, ptr %ptr1.i.i1121, align 8
-  %52 = load ptr, ptr %end.i1169, align 8
+  %51 = load ptr, ptr %ptr1.i.i1176, align 8
+  %52 = load ptr, ptr %end.i1224, align 8
   %cmp.i756 = icmp eq ptr %51, %52
   br i1 %cmp.i756, label %land.lhs.true.i759, label %poolStoreString.exit767
 
@@ -6247,15 +6227,15 @@ land.lhs.true.i759:                               ; preds = %if.end.i755
   br i1 %tobool4.not.i761, label %return, label %land.lhs.true.if.end6_crit_edge.i762
 
 land.lhs.true.if.end6_crit_edge.i762:             ; preds = %land.lhs.true.i759
-  %.pre.i763 = load ptr, ptr %ptr1.i.i1121, align 8
+  %.pre.i763 = load ptr, ptr %ptr1.i.i1176, align 8
   br label %poolStoreString.exit767
 
 poolStoreString.exit767:                          ; preds = %if.end.i755, %land.lhs.true.if.end6_crit_edge.i762
   %53 = phi ptr [ %.pre.i763, %land.lhs.true.if.end6_crit_edge.i762 ], [ %51, %if.end.i755 ]
   %incdec.ptr.i758 = getelementptr i8, ptr %53, i64 1
-  store ptr %incdec.ptr.i758, ptr %ptr1.i.i1121, align 8
+  store ptr %incdec.ptr.i758, ptr %ptr1.i.i1176, align 8
   store i8 0, ptr %53, align 1
-  %54 = load ptr, ptr %start.i.i1135, align 8
+  %54 = load ptr, ptr %start.i.i1190, align 8
   %tobool100.not = icmp eq ptr %54, null
   br i1 %tobool100.not, label %return, label %for.cond.i
 
@@ -6305,13 +6285,13 @@ land.lhs.true9.i:                                 ; preds = %for.end.i
 normalizePublicId.exit:                           ; preds = %for.end.i, %land.lhs.true9.i
   %p.2.i = phi ptr [ %54, %for.end.i ], [ %spec.select.i, %land.lhs.true9.i ]
   store i8 0, ptr %p.2.i, align 1
-  %58 = load ptr, ptr %ptr1.i.i1121, align 8
-  store ptr %58, ptr %start.i.i1135, align 8
+  %58 = load ptr, ptr %ptr1.i.i1176, align 8
+  store ptr %58, ptr %start.i.i1190, align 8
   store ptr %54, ptr %m_doctypePubid157, align 8
   br label %alreadyChecked
 
 sw.bb109:                                         ; preds = %if.end87, %sw.epilog44
-  %isPublicId110 = getelementptr inbounds %struct.encoding, ptr %enc.addr.0, i64 0, i32 9
+  %isPublicId110 = getelementptr inbounds i8, ptr %enc.addr.0, i64 104
   %59 = load ptr, ptr %isPublicId110, align 8
   %60 = load ptr, ptr %next.addr, align 8
   %call111 = call i32 %59(ptr noundef %enc.addr.0, ptr noundef %s.addr.0, ptr noundef %60, ptr noundef nonnull %eventPP.0) #23
@@ -6330,7 +6310,7 @@ land.lhs.true117:                                 ; preds = %alreadyChecked
   br i1 %tobool119.not, label %sw.epilog1436, label %if.then120
 
 if.then120:                                       ; preds = %land.lhs.true117
-  %minBytesPerChar121 = getelementptr inbounds %struct.encoding, ptr %enc.addr.0, i64 0, i32 12
+  %minBytesPerChar121 = getelementptr inbounds i8, ptr %enc.addr.0, i64 128
   %63 = load i32, ptr %minBytesPerChar121, align 8
   %idx.ext122 = sext i32 %63 to i64
   %add.ptr123 = getelementptr i8, ptr %s.addr.0, i64 %idx.ext122
@@ -6339,7 +6319,7 @@ if.then120:                                       ; preds = %land.lhs.true117
   %add.ptr127 = getelementptr i8, ptr %64, i64 %idx.neg126
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %ptr.addr.i.i769)
   store ptr %add.ptr123, ptr %ptr.addr.i.i769, align 8
-  %65 = load ptr, ptr %ptr1.i.i1180, align 8
+  %65 = load ptr, ptr %ptr1.i.i1235, align 8
   %tobool.not.i.i771 = icmp eq ptr %65, null
   br i1 %tobool.not.i.i771, label %land.lhs.true.i.i795, label %if.end.i.i772
 
@@ -6349,13 +6329,13 @@ land.lhs.true.i.i795:                             ; preds = %if.then120
   br i1 %tobool2.not.i.i797, label %poolAppend.exit.thread.i781, label %if.end.i.i772
 
 if.end.i.i772:                                    ; preds = %land.lhs.true.i.i795, %if.then120
-  %utf8Convert.i.i773 = getelementptr inbounds %struct.encoding, ptr %enc.addr.0, i64 0, i32 10
+  %utf8Convert.i.i773 = getelementptr inbounds i8, ptr %enc.addr.0, i64 112
   br label %for.cond.i.i775
 
 for.cond.i.i775:                                  ; preds = %if.end8.i.i778, %if.end.i.i772
   %66 = load ptr, ptr %utf8Convert.i.i773, align 8
-  %67 = load ptr, ptr %end4.i.i1184, align 8
-  %call5.i.i776 = call i32 %66(ptr noundef nonnull %enc.addr.0, ptr noundef nonnull %ptr.addr.i.i769, ptr noundef %add.ptr127, ptr noundef nonnull %ptr1.i.i1180, ptr noundef %67) #23
+  %67 = load ptr, ptr %end4.i.i1239, align 8
+  %call5.i.i776 = call i32 %66(ptr noundef nonnull %enc.addr.0, ptr noundef nonnull %ptr.addr.i.i769, ptr noundef %add.ptr127, ptr noundef nonnull %ptr1.i.i1235, ptr noundef %67) #23
   %or.cond.i.i777 = icmp ult i32 %call5.i.i776, 2
   br i1 %or.cond.i.i777, label %poolAppend.exit.i783, label %if.end8.i.i778
 
@@ -6369,14 +6349,14 @@ poolAppend.exit.thread.i781:                      ; preds = %land.lhs.true.i.i79
   br label %return
 
 poolAppend.exit.i783:                             ; preds = %for.cond.i.i775
-  %68 = load ptr, ptr %start.i.i1194, align 8
+  %68 = load ptr, ptr %start.i.i1249, align 8
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %ptr.addr.i.i769)
   %tobool.not.i785 = icmp eq ptr %68, null
   br i1 %tobool.not.i785, label %return, label %if.end.i786
 
 if.end.i786:                                      ; preds = %poolAppend.exit.i783
-  %69 = load ptr, ptr %ptr1.i.i1180, align 8
-  %70 = load ptr, ptr %end4.i.i1184, align 8
+  %69 = load ptr, ptr %ptr1.i.i1235, align 8
+  %70 = load ptr, ptr %end4.i.i1239, align 8
   %cmp.i787 = icmp eq ptr %69, %70
   br i1 %cmp.i787, label %land.lhs.true.i790, label %poolStoreString.exit798
 
@@ -6386,15 +6366,15 @@ land.lhs.true.i790:                               ; preds = %if.end.i786
   br i1 %tobool4.not.i792, label %return, label %land.lhs.true.if.end6_crit_edge.i793
 
 land.lhs.true.if.end6_crit_edge.i793:             ; preds = %land.lhs.true.i790
-  %.pre.i794 = load ptr, ptr %ptr1.i.i1180, align 8
+  %.pre.i794 = load ptr, ptr %ptr1.i.i1235, align 8
   br label %poolStoreString.exit798
 
 poolStoreString.exit798:                          ; preds = %if.end.i786, %land.lhs.true.if.end6_crit_edge.i793
   %71 = phi ptr [ %.pre.i794, %land.lhs.true.if.end6_crit_edge.i793 ], [ %69, %if.end.i786 ]
   %incdec.ptr.i789 = getelementptr i8, ptr %71, i64 1
-  store ptr %incdec.ptr.i789, ptr %ptr1.i.i1180, align 8
+  store ptr %incdec.ptr.i789, ptr %ptr1.i.i1235, align 8
   store i8 0, ptr %71, align 1
-  %72 = load ptr, ptr %start.i.i1194, align 8
+  %72 = load ptr, ptr %start.i.i1249, align 8
   %tobool129.not = icmp eq ptr %72, null
   br i1 %tobool129.not, label %return, label %for.cond.i799
 
@@ -6445,10 +6425,10 @@ normalizePublicId.exit820:                        ; preds = %for.end.i813, %land
   %p.2.i819 = phi ptr [ %72, %for.end.i813 ], [ %spec.select.i818, %land.lhs.true9.i815 ]
   store i8 0, ptr %p.2.i819, align 1
   %76 = load ptr, ptr %m_declEntity819, align 8
-  %publicId = getelementptr inbounds %struct.ENTITY, ptr %76, i64 0, i32 6
+  %publicId = getelementptr inbounds i8, ptr %76, i64 40
   store ptr %72, ptr %publicId, align 8
-  %77 = load ptr, ptr %ptr1.i.i1180, align 8
-  store ptr %77, ptr %start.i.i1194, align 8
+  %77 = load ptr, ptr %ptr1.i.i1235, align 8
+  store ptr %77, ptr %start.i.i1249, align 8
   %78 = load ptr, ptr %m_entityDeclHandler1413, align 8
   %tobool137 = icmp ne ptr %78, null
   %cmp139 = icmp eq i32 %call37, 14
@@ -6469,13 +6449,13 @@ if.then152:                                       ; preds = %if.end149
   %82 = load ptr, ptr %m_doctypeSysid592, align 8
   %83 = load ptr, ptr %m_doctypePubid157, align 8
   call void %80(ptr noundef %81, ptr noundef nonnull %79, ptr noundef %82, ptr noundef %83, i32 noundef 0) #23
-  %84 = load ptr, ptr %freeBlocks.i1161, align 8
+  %84 = load ptr, ptr %freeBlocks.i1216, align 8
   %tobool.not.i822 = icmp eq ptr %84, null
   %85 = load ptr, ptr %m_tempPool949, align 8
   br i1 %tobool.not.i822, label %if.then.i830, label %if.else.i823
 
 if.then.i830:                                     ; preds = %if.then152
-  store ptr %85, ptr %freeBlocks.i1161, align 8
+  store ptr %85, ptr %freeBlocks.i1216, align 8
   br label %poolClear.exit831
 
 if.else.i823:                                     ; preds = %if.then152
@@ -6487,13 +6467,13 @@ while.body.i825:                                  ; preds = %if.else.i823, %whil
   %p.014.i826 = phi ptr [ %87, %while.body.i825 ], [ %85, %if.else.i823 ]
   %87 = load ptr, ptr %p.014.i826, align 8
   store ptr %86, ptr %p.014.i826, align 8
-  store ptr %p.014.i826, ptr %freeBlocks.i1161, align 8
+  store ptr %p.014.i826, ptr %freeBlocks.i1216, align 8
   %tobool3.not.i827 = icmp eq ptr %87, null
   br i1 %tobool3.not.i827, label %poolClear.exit831, label %while.body.i825, !llvm.loop !8
 
 poolClear.exit831:                                ; preds = %while.body.i825, %if.then.i830, %if.else.i823
   store ptr null, ptr %m_tempPool949, align 8
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %end.i1169, i8 0, i64 24, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %end.i1224, i8 0, i64 24, i1 false)
   br label %if.end159
 
 if.end159:                                        ; preds = %poolClear.exit831, %if.end149
@@ -6531,7 +6511,7 @@ if.end177:                                        ; preds = %if.then172
 
 if.then180:                                       ; preds = %if.end177
   %94 = load ptr, ptr %m_curBase946, align 8
-  %base = getelementptr inbounds %struct.ENTITY, ptr %call174, i64 0, i32 5
+  %base = getelementptr inbounds i8, ptr %call174, i64 32
   store ptr %94, ptr %base, align 8
   br label %if.end181
 
@@ -6539,11 +6519,11 @@ if.end181:                                        ; preds = %if.then180, %if.end
   store i8 0, ptr %paramEntityRead1201, align 1
   %95 = load ptr, ptr %m_externalEntityRefHandler1198, align 8
   %96 = load ptr, ptr %m_externalEntityRefHandlerArg1204, align 8
-  %base183 = getelementptr inbounds %struct.ENTITY, ptr %call174, i64 0, i32 5
+  %base183 = getelementptr inbounds i8, ptr %call174, i64 32
   %97 = load ptr, ptr %base183, align 8
-  %systemId = getelementptr inbounds %struct.ENTITY, ptr %call174, i64 0, i32 4
+  %systemId = getelementptr inbounds i8, ptr %call174, i64 24
   %98 = load ptr, ptr %systemId, align 8
-  %publicId184 = getelementptr inbounds %struct.ENTITY, ptr %call174, i64 0, i32 6
+  %publicId184 = getelementptr inbounds i8, ptr %call174, i64 40
   %99 = load ptr, ptr %publicId184, align 8
   %call185 = call i32 %95(ptr noundef %96, ptr noundef null, ptr noundef %97, ptr noundef %98, ptr noundef %99) #23
   %tobool186.not = icmp eq i32 %call185, 0
@@ -6617,15 +6597,15 @@ if.then229:                                       ; preds = %land.lhs.true226
 
 if.end235:                                        ; preds = %if.then229
   %111 = load ptr, ptr %m_curBase946, align 8
-  %base237 = getelementptr inbounds %struct.ENTITY, ptr %call232, i64 0, i32 5
+  %base237 = getelementptr inbounds i8, ptr %call232, i64 32
   store ptr %111, ptr %base237, align 8
   store i8 0, ptr %paramEntityRead1201, align 1
   %112 = load ptr, ptr %m_externalEntityRefHandler1198, align 8
   %113 = load ptr, ptr %m_externalEntityRefHandlerArg1204, align 8
   %114 = load ptr, ptr %base237, align 8
-  %systemId242 = getelementptr inbounds %struct.ENTITY, ptr %call232, i64 0, i32 4
+  %systemId242 = getelementptr inbounds i8, ptr %call232, i64 24
   %115 = load ptr, ptr %systemId242, align 8
-  %publicId243 = getelementptr inbounds %struct.ENTITY, ptr %call232, i64 0, i32 6
+  %publicId243 = getelementptr inbounds i8, ptr %call232, i64 40
   %116 = load ptr, ptr %publicId243, align 8
   %call244 = call i32 %112(ptr noundef %113, ptr noundef null, ptr noundef %114, ptr noundef %115, ptr noundef %116) #23
   %tobool245.not = icmp eq i32 %call244, 0
@@ -6657,7 +6637,7 @@ if.else263:                                       ; preds = %if.end247
   br label %if.end267
 
 if.end267:                                        ; preds = %if.then220, %land.lhs.true226, %if.then250, %land.lhs.true253, %land.lhs.true256, %if.else263, %sw.bb217
-  %m_processor = getelementptr inbounds %struct.XML_ParserStruct, ptr %parser, i64 0, i32 45
+  %m_processor = getelementptr inbounds i8, ptr %parser, i64 528
   store ptr @contentProcessor, ptr %m_processor, align 8
   %call268 = call i32 @contentProcessor(ptr noundef nonnull %parser, ptr noundef %s.addr.0, ptr noundef %end, ptr noundef %nextPtr)
   br label %return
@@ -6749,8 +6729,8 @@ if.then313:                                       ; preds = %land.lhs.true310
 while.body.i833:                                  ; preds = %if.then313, %cond.false.i
   %.pre.i839 = phi i8 [ %132, %cond.false.i ], [ %128, %if.then313 ]
   %s.addr.08.i = phi ptr [ %incdec.ptr3.i, %cond.false.i ], [ %prefix.0, %if.then313 ]
-  %129 = load ptr, ptr %ptr1.i.i1121, align 8
-  %130 = load ptr, ptr %end.i1169, align 8
+  %129 = load ptr, ptr %ptr1.i.i1176, align 8
+  %130 = load ptr, ptr %end.i1224, align 8
   %cmp.i834 = icmp eq ptr %129, %130
   br i1 %cmp.i834, label %land.lhs.true.i838, label %cond.false.i
 
@@ -6760,13 +6740,13 @@ land.lhs.true.i838:                               ; preds = %while.body.i833
   br i1 %tobool1.not.i, label %return, label %land.lhs.true.cond.false_crit_edge.i
 
 land.lhs.true.cond.false_crit_edge.i:             ; preds = %land.lhs.true.i838
-  %.pre9.i = load ptr, ptr %ptr1.i.i1121, align 8
+  %.pre9.i = load ptr, ptr %ptr1.i.i1176, align 8
   br label %cond.false.i
 
 cond.false.i:                                     ; preds = %land.lhs.true.cond.false_crit_edge.i, %while.body.i833
   %131 = phi ptr [ %.pre9.i, %land.lhs.true.cond.false_crit_edge.i ], [ %129, %while.body.i833 ]
   %incdec.ptr.i835 = getelementptr i8, ptr %131, i64 1
-  store ptr %incdec.ptr.i835, ptr %ptr1.i.i1121, align 8
+  store ptr %incdec.ptr.i835, ptr %ptr1.i.i1176, align 8
   store i8 %.pre.i839, ptr %131, align 1
   %incdec.ptr3.i = getelementptr i8, ptr %s.addr.08.i, i64 1
   %132 = load i8, ptr %incdec.ptr3.i, align 1
@@ -6774,7 +6754,7 @@ cond.false.i:                                     ; preds = %land.lhs.true.cond.
   br i1 %tobool.not.i836, label %poolAppendString.exit, label %while.body.i833, !llvm.loop !34
 
 poolAppendString.exit:                            ; preds = %cond.false.i, %if.then313
-  %133 = load ptr, ptr %start.i.i1135, align 8
+  %133 = load ptr, ptr %start.i.i1190, align 8
   %tobool323.not = icmp eq ptr %133, null
   br i1 %tobool323.not, label %return, label %if.end325
 
@@ -6782,7 +6762,7 @@ if.end325:                                        ; preds = %poolAppendString.ex
   %134 = load ptr, ptr %next.addr, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %ptr.addr.i)
   store ptr %s.addr.0, ptr %ptr.addr.i, align 8
-  %135 = load ptr, ptr %ptr1.i.i1121, align 8
+  %135 = load ptr, ptr %ptr1.i.i1176, align 8
   %tobool.not.i840 = icmp eq ptr %135, null
   br i1 %tobool.not.i840, label %land.lhs.true.i846, label %if.end.i841
 
@@ -6792,13 +6772,13 @@ land.lhs.true.i846:                               ; preds = %if.end325
   br i1 %tobool2.not.i, label %poolAppend.exit.thread, label %if.end.i841
 
 if.end.i841:                                      ; preds = %land.lhs.true.i846, %if.end325
-  %utf8Convert.i = getelementptr inbounds %struct.encoding, ptr %enc.addr.0, i64 0, i32 10
+  %utf8Convert.i = getelementptr inbounds i8, ptr %enc.addr.0, i64 112
   br label %for.cond.i842
 
 for.cond.i842:                                    ; preds = %if.end8.i, %if.end.i841
   %136 = load ptr, ptr %utf8Convert.i, align 8
-  %137 = load ptr, ptr %end.i1169, align 8
-  %call5.i = call i32 %136(ptr noundef %enc.addr.0, ptr noundef nonnull %ptr.addr.i, ptr noundef %134, ptr noundef nonnull %ptr1.i.i1121, ptr noundef %137) #23
+  %137 = load ptr, ptr %end.i1224, align 8
+  %call5.i = call i32 %136(ptr noundef %enc.addr.0, ptr noundef nonnull %ptr.addr.i, ptr noundef %134, ptr noundef nonnull %ptr1.i.i1176, ptr noundef %137) #23
   %or.cond.i = icmp ult i32 %call5.i, 2
   br i1 %or.cond.i, label %poolAppend.exit, label %if.end8.i
 
@@ -6812,7 +6792,7 @@ poolAppend.exit.thread:                           ; preds = %land.lhs.true.i846,
   br label %return
 
 poolAppend.exit:                                  ; preds = %for.cond.i842
-  %138 = load ptr, ptr %start.i.i1135, align 8
+  %138 = load ptr, ptr %start.i.i1190, align 8
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %ptr.addr.i)
   %tobool328.not = icmp eq ptr %138, null
   br i1 %tobool328.not, label %return, label %if.end330
@@ -6831,250 +6811,89 @@ if.then338:                                       ; preds = %sw.bb335
   %141 = load ptr, ptr %m_declAttributeId442, align 8
   %142 = load i8, ptr %m_declAttributeIsCdata422, align 8
   %143 = load i8, ptr %m_declAttributeIsId342, align 1
-  %call343 = call fastcc i32 @defineAttribute(ptr noundef %140, ptr noundef %141, i8 noundef zeroext %142, i8 noundef zeroext %143, ptr noundef null, ptr noundef %parser), !range !17
-  %tobool344.not = icmp eq i32 %call343, 0
-  br i1 %tobool344.not, label %return, label %if.end346
+  %tobool1.i.not = icmp eq i8 %143, 0
+  %nDefaultAtts.i = getelementptr inbounds i8, ptr %140, i64 24
+  %144 = load i32, ptr %nDefaultAtts.i, align 8
+  br i1 %tobool1.i.not, label %if.end14.i, label %for.cond.preheader.i
 
-if.end346:                                        ; preds = %if.then338
-  %144 = load ptr, ptr %m_attlistDeclHandler1427, align 8
-  %tobool348.not = icmp eq ptr %144, null
-  br i1 %tobool348.not, label %if.end415, label %land.lhs.true349
+for.cond.preheader.i:                             ; preds = %if.then338
+  %cmp34.i = icmp sgt i32 %144, 0
+  br i1 %cmp34.i, label %for.body.lr.ph.i, label %land.lhs.true.i852
 
-land.lhs.true349:                                 ; preds = %if.end346
-  %145 = load ptr, ptr %m_declAttributeType451, align 8
-  %tobool351.not = icmp eq ptr %145, null
-  br i1 %tobool351.not, label %if.end415, label %if.then352
-
-if.then352:                                       ; preds = %land.lhs.true349
-  %146 = load i8, ptr %145, align 1
-  switch i8 %146, label %if.end405 [
-    i8 40, label %if.then367
-    i8 78, label %land.lhs.true362
-  ]
-
-land.lhs.true362:                                 ; preds = %if.then352
-  %arrayidx = getelementptr i8, ptr %145, i64 1
-  %147 = load i8, ptr %arrayidx, align 1
-  %cmp365 = icmp eq i8 %147, 79
-  br i1 %cmp365, label %if.then367, label %if.end405
-
-if.then367:                                       ; preds = %if.then352, %land.lhs.true362
-  %148 = load ptr, ptr %ptr1.i.i1121, align 8
-  %149 = load ptr, ptr %end.i1169, align 8
-  %cmp372 = icmp eq ptr %148, %149
-  br i1 %cmp372, label %land.lhs.true374, label %cond.false
-
-land.lhs.true374:                                 ; preds = %if.then367
-  %call376 = call fastcc zeroext i8 @poolGrow(ptr noundef nonnull %m_tempPool949), !range !13
-  %tobool377.not = icmp eq i8 %call376, 0
-  br i1 %tobool377.not, label %return, label %land.lhs.true374.cond.false_crit_edge
-
-land.lhs.true374.cond.false_crit_edge:            ; preds = %land.lhs.true374
-  %.pre1699 = load ptr, ptr %ptr1.i.i1121, align 8
-  br label %cond.false
-
-cond.false:                                       ; preds = %land.lhs.true374.cond.false_crit_edge, %if.then367
-  %150 = phi ptr [ %.pre1699, %land.lhs.true374.cond.false_crit_edge ], [ %148, %if.then367 ]
-  %incdec.ptr = getelementptr i8, ptr %150, i64 1
-  store ptr %incdec.ptr, ptr %ptr1.i.i1121, align 8
-  store i8 41, ptr %150, align 1
-  %151 = load ptr, ptr %ptr1.i.i1121, align 8
-  %152 = load ptr, ptr %end.i1169, align 8
-  %cmp385 = icmp eq ptr %151, %152
-  br i1 %cmp385, label %land.lhs.true387, label %cond.false392
-
-land.lhs.true387:                                 ; preds = %cond.false
-  %call389 = call fastcc zeroext i8 @poolGrow(ptr noundef nonnull %m_tempPool949), !range !13
-  %tobool390.not = icmp eq i8 %call389, 0
-  br i1 %tobool390.not, label %return, label %land.lhs.true387.cond.false392_crit_edge
-
-land.lhs.true387.cond.false392_crit_edge:         ; preds = %land.lhs.true387
-  %.pre1700 = load ptr, ptr %ptr1.i.i1121, align 8
-  br label %cond.false392
-
-cond.false392:                                    ; preds = %land.lhs.true387.cond.false392_crit_edge, %cond.false
-  %153 = phi ptr [ %.pre1700, %land.lhs.true387.cond.false392_crit_edge ], [ %151, %cond.false ]
-  %incdec.ptr395 = getelementptr i8, ptr %153, i64 1
-  store ptr %incdec.ptr395, ptr %ptr1.i.i1121, align 8
-  store i8 0, ptr %153, align 1
-  %154 = load ptr, ptr %start.i.i1135, align 8
-  store ptr %154, ptr %m_declAttributeType451, align 8
-  %155 = load ptr, ptr %ptr1.i.i1121, align 8
-  store ptr %155, ptr %start.i.i1135, align 8
-  br label %if.end405
-
-if.end405:                                        ; preds = %if.then352, %cond.false392, %land.lhs.true362
-  store ptr %s.addr.0, ptr %eventEndPP.0, align 8
-  %156 = load ptr, ptr %m_attlistDeclHandler1427, align 8
-  %157 = load ptr, ptr %m_handlerArg1382, align 8
-  %158 = load ptr, ptr %m_declElementType1383, align 8
-  %159 = load ptr, ptr %158, align 8
-  %160 = load ptr, ptr %m_declAttributeId442, align 8
-  %161 = load ptr, ptr %160, align 8
-  %162 = load ptr, ptr %m_declAttributeType451, align 8
-  %cmp412 = icmp eq i32 %call37, 36
-  %conv413 = zext i1 %cmp412 to i32
-  call void %156(ptr noundef %157, ptr noundef %159, ptr noundef %161, ptr noundef %162, ptr noundef null, i32 noundef %conv413) #23
-  br label %if.end415
-
-if.end415:                                        ; preds = %if.end346, %land.lhs.true349, %if.end405, %sw.bb335
-  %handleDefault.3 = phi i8 [ 0, %if.end405 ], [ 1, %land.lhs.true349 ], [ 1, %if.end346 ], [ 1, %sw.bb335 ]
-  %163 = load ptr, ptr %freeBlocks.i1161, align 8
-  %tobool.not.i849 = icmp eq ptr %163, null
-  %164 = load ptr, ptr %m_tempPool949, align 8
-  br i1 %tobool.not.i849, label %if.then.i857, label %if.else.i850
-
-if.then.i857:                                     ; preds = %if.end415
-  store ptr %164, ptr %freeBlocks.i1161, align 8
-  br label %poolClear.exit858
-
-if.else.i850:                                     ; preds = %if.end415
-  %tobool3.not13.i851 = icmp eq ptr %164, null
-  br i1 %tobool3.not13.i851, label %poolClear.exit858, label %while.body.i852
-
-while.body.i852:                                  ; preds = %if.else.i850, %while.body.i852
-  %165 = phi ptr [ %p.014.i853, %while.body.i852 ], [ %163, %if.else.i850 ]
-  %p.014.i853 = phi ptr [ %166, %while.body.i852 ], [ %164, %if.else.i850 ]
-  %166 = load ptr, ptr %p.014.i853, align 8
-  store ptr %165, ptr %p.014.i853, align 8
-  store ptr %p.014.i853, ptr %freeBlocks.i1161, align 8
-  %tobool3.not.i854 = icmp eq ptr %166, null
-  br i1 %tobool3.not.i854, label %poolClear.exit858, label %while.body.i852, !llvm.loop !8
-
-poolClear.exit858:                                ; preds = %while.body.i852, %if.then.i857, %if.else.i850
-  store ptr null, ptr %m_tempPool949, align 8
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %end.i1169, i8 0, i64 24, i1 false)
-  br label %sw.epilog1436
-
-sw.bb417:                                         ; preds = %sw.epilog44, %sw.epilog44
-  %167 = load i8, ptr %keepProcessing1423, align 8
-  %tobool419.not = icmp eq i8 %167, 0
-  br i1 %tobool419.not, label %land.lhs.true1439, label %if.then420
-
-if.then420:                                       ; preds = %sw.bb417
-  %168 = load i8, ptr %m_declAttributeIsCdata422, align 8
-  %minBytesPerChar423 = getelementptr inbounds %struct.encoding, ptr %enc.addr.0, i64 0, i32 12
-  %169 = load i32, ptr %minBytesPerChar423, align 8
-  %idx.ext424 = sext i32 %169 to i64
-  %add.ptr425 = getelementptr i8, ptr %s.addr.0, i64 %idx.ext424
-  %170 = load ptr, ptr %next.addr, align 8
-  %idx.neg428 = sub nsw i64 0, %idx.ext424
-  %add.ptr429 = getelementptr i8, ptr %170, i64 %idx.neg428
-  %call.i859 = call fastcc i32 @appendAttributeValue(ptr noundef %parser, ptr noundef %enc.addr.0, i8 noundef zeroext %168, ptr noundef %add.ptr425, ptr noundef %add.ptr429, ptr noundef nonnull %pool1126, i32 noundef 2), !range !32
-  %tobool.not.i860 = icmp eq i32 %call.i859, 0
-  br i1 %tobool.not.i860, label %if.end.i862, label %return
-
-if.end.i862:                                      ; preds = %if.then420
-  %tobool1.not.i863 = icmp eq i8 %168, 0
-  %171 = load ptr, ptr %ptr1.i.i1180, align 8
-  br i1 %tobool1.not.i863, label %land.lhs.true.i866, label %if.end9.i
-
-land.lhs.true.i866:                               ; preds = %if.end.i862
-  %172 = load ptr, ptr %start.i.i1194, align 8
-  %tobool3.not.i868 = icmp eq ptr %171, %172
-  br i1 %tobool3.not.i868, label %if.end9.i, label %land.lhs.true4.i
-
-land.lhs.true4.i:                                 ; preds = %land.lhs.true.i866
-  %arrayidx.i869 = getelementptr i8, ptr %171, i64 -1
-  %173 = load i8, ptr %arrayidx.i869, align 1
-  %cmp.i870 = icmp eq i8 %173, 32
-  br i1 %cmp.i870, label %if.then7.i, label %if.end9.i
-
-if.then7.i:                                       ; preds = %land.lhs.true4.i
-  store ptr %arrayidx.i869, ptr %ptr1.i.i1180, align 8
-  br label %if.end9.i
-
-if.end9.i:                                        ; preds = %if.then7.i, %land.lhs.true4.i, %land.lhs.true.i866, %if.end.i862
-  %174 = phi ptr [ %arrayidx.i869, %if.then7.i ], [ %171, %land.lhs.true4.i ], [ %171, %land.lhs.true.i866 ], [ %171, %if.end.i862 ]
-  %175 = load ptr, ptr %end4.i.i1184, align 8
-  %cmp12.i864 = icmp eq ptr %174, %175
-  br i1 %cmp12.i864, label %land.lhs.true14.i, label %if.end434
-
-land.lhs.true14.i:                                ; preds = %if.end9.i
-  %call15.i = call fastcc zeroext i8 @poolGrow(ptr noundef nonnull %pool1126), !range !13
-  %tobool16.not.i = icmp eq i8 %call15.i, 0
-  br i1 %tobool16.not.i, label %return, label %land.lhs.true14.cond.false_crit_edge.i
-
-land.lhs.true14.cond.false_crit_edge.i:           ; preds = %land.lhs.true14.i
-  %.pre11.i = load ptr, ptr %ptr1.i.i1180, align 8
-  br label %if.end434
-
-if.end434:                                        ; preds = %land.lhs.true14.cond.false_crit_edge.i, %if.end9.i
-  %176 = phi ptr [ %.pre11.i, %land.lhs.true14.cond.false_crit_edge.i ], [ %174, %if.end9.i ]
-  %incdec.ptr18.i = getelementptr i8, ptr %176, i64 1
-  store ptr %incdec.ptr18.i, ptr %ptr1.i.i1180, align 8
-  store i8 0, ptr %176, align 1
-  %177 = load ptr, ptr %start.i.i1194, align 8
-  %178 = load ptr, ptr %ptr1.i.i1180, align 8
-  store ptr %178, ptr %start.i.i1194, align 8
-  %179 = load ptr, ptr %m_declElementType1383, align 8
-  %180 = load ptr, ptr %m_declAttributeId442, align 8
-  %181 = load i8, ptr %m_declAttributeIsCdata422, align 8
-  %tobool.i = icmp ne ptr %177, null
-  %nDefaultAtts.i = getelementptr inbounds %struct.ELEMENT_TYPE, ptr %179, i64 0, i32 3
-  %182 = load i32, ptr %nDefaultAtts.i, align 8
-  %cmp34.i = icmp sgt i32 %182, 0
-  %or.cond1357 = select i1 %tobool.i, i1 %cmp34.i, i1 false
-  br i1 %or.cond1357, label %for.body.lr.ph.i, label %if.end14.i
-
-for.body.lr.ph.i:                                 ; preds = %if.end434
-  %defaultAtts.i = getelementptr inbounds %struct.ELEMENT_TYPE, ptr %179, i64 0, i32 5
-  %183 = load ptr, ptr %defaultAtts.i, align 8
-  %wide.trip.count.i = zext nneg i32 %182 to i64
+for.body.lr.ph.i:                                 ; preds = %for.cond.preheader.i
+  %defaultAtts.i = getelementptr inbounds i8, ptr %140, i64 32
+  %145 = load ptr, ptr %defaultAtts.i, align 8
+  %wide.trip.count.i = zext nneg i32 %144 to i64
   br label %for.body.i
 
-for.cond.i876:                                    ; preds = %for.body.i
+for.cond.i856:                                    ; preds = %for.body.i
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %wide.trip.count.i
-  br i1 %exitcond.not.i, label %if.end14.i, label %for.body.i, !llvm.loop !35
+  br i1 %exitcond.not.i, label %land.lhs.true.i852, label %for.body.i, !llvm.loop !35
 
-for.body.i:                                       ; preds = %for.cond.i876, %for.body.lr.ph.i
-  %indvars.iv.i = phi i64 [ 0, %for.body.lr.ph.i ], [ %indvars.iv.next.i, %for.cond.i876 ]
-  %arrayidx.i875 = getelementptr %struct.DEFAULT_ATTRIBUTE, ptr %183, i64 %indvars.iv.i
-  %184 = load ptr, ptr %arrayidx.i875, align 8
-  %cmp3.i = icmp eq ptr %184, %180
-  br i1 %cmp3.i, label %if.end447, label %for.cond.i876
+for.body.i:                                       ; preds = %for.cond.i856, %for.body.lr.ph.i
+  %indvars.iv.i = phi i64 [ 0, %for.body.lr.ph.i ], [ %indvars.iv.next.i, %for.cond.i856 ]
+  %arrayidx.i855 = getelementptr %struct.DEFAULT_ATTRIBUTE, ptr %145, i64 %indvars.iv.i
+  %146 = load ptr, ptr %arrayidx.i855, align 8
+  %cmp3.i = icmp eq ptr %146, %141
+  br i1 %cmp3.i, label %if.end346, label %for.cond.i856
 
-if.end14.i:                                       ; preds = %for.cond.i876, %if.end434
-  %allocDefaultAtts.i = getelementptr inbounds %struct.ELEMENT_TYPE, ptr %179, i64 0, i32 4
-  %185 = load i32, ptr %allocDefaultAtts.i, align 4
-  %cmp16.i = icmp eq i32 %182, %185
+land.lhs.true.i852:                               ; preds = %for.cond.i856, %for.cond.preheader.i
+  %idAtt.i = getelementptr inbounds i8, ptr %140, i64 16
+  %147 = load ptr, ptr %idAtt.i, align 8
+  %tobool8.not.i = icmp eq ptr %147, null
+  br i1 %tobool8.not.i, label %land.lhs.true9.i853, label %if.end14.i
+
+land.lhs.true9.i853:                              ; preds = %land.lhs.true.i852
+  %xmlns.i = getelementptr inbounds i8, ptr %141, i64 17
+  %148 = load i8, ptr %xmlns.i, align 1
+  %tobool10.not.i854 = icmp eq i8 %148, 0
+  br i1 %tobool10.not.i854, label %if.then11.i, label %if.end14.i
+
+if.then11.i:                                      ; preds = %land.lhs.true9.i853
+  store ptr %141, ptr %idAtt.i, align 8
+  br label %if.end14.i
+
+if.end14.i:                                       ; preds = %if.then11.i, %land.lhs.true9.i853, %land.lhs.true.i852, %if.then338
+  %allocDefaultAtts.i = getelementptr inbounds i8, ptr %140, i64 28
+  %149 = load i32, ptr %allocDefaultAtts.i, align 4
+  %cmp16.i = icmp eq i32 %144, %149
   br i1 %cmp16.i, label %if.then18.i, label %if.end14.if.end51_crit_edge.i
 
 if.end14.if.end51_crit_edge.i:                    ; preds = %if.end14.i
-  %defaultAtts52.phi.trans.insert.i = getelementptr inbounds %struct.ELEMENT_TYPE, ptr %179, i64 0, i32 5
+  %defaultAtts52.phi.trans.insert.i = getelementptr inbounds i8, ptr %140, i64 32
   %.pre37.i = load ptr, ptr %defaultAtts52.phi.trans.insert.i, align 8
   br label %if.end51.i
 
 if.then18.i:                                      ; preds = %if.end14.i
-  %cmp20.i = icmp eq i32 %182, 0
-  br i1 %cmp20.i, label %if.then22.i, label %if.else.i872
+  %cmp20.i = icmp eq i32 %144, 0
+  br i1 %cmp20.i, label %if.then22.i, label %if.else.i849
 
 if.then22.i:                                      ; preds = %if.then18.i
   store i32 8, ptr %allocDefaultAtts.i, align 4
-  %186 = load ptr, ptr %3, align 8
-  %call.i873 = call ptr %186(i64 noundef 192) #23
-  %defaultAtts26.i = getelementptr inbounds %struct.ELEMENT_TYPE, ptr %179, i64 0, i32 5
-  store ptr %call.i873, ptr %defaultAtts26.i, align 8
-  %tobool28.not.i = icmp eq ptr %call.i873, null
+  %150 = load ptr, ptr %3, align 8
+  %call.i850 = call ptr %150(i64 noundef 192) #23
+  %defaultAtts26.i = getelementptr inbounds i8, ptr %140, i64 32
+  store ptr %call.i850, ptr %defaultAtts26.i, align 8
+  %tobool28.not.i = icmp eq ptr %call.i850, null
   br i1 %tobool28.not.i, label %if.then29.i, label %if.end51.i
 
 if.then29.i:                                      ; preds = %if.then22.i
   store i32 0, ptr %allocDefaultAtts.i, align 4
   br label %return
 
-if.else.i872:                                     ; preds = %if.then18.i
-  %cmp33.i = icmp sgt i32 %182, 1073741823
+if.else.i849:                                     ; preds = %if.then18.i
+  %cmp33.i = icmp sgt i32 %144, 1073741823
   br i1 %cmp33.i, label %return, label %if.end36.i
 
-if.end36.i:                                       ; preds = %if.else.i872
-  %mul38.i = shl i32 %182, 1
-  %187 = load ptr, ptr %realloc_fcn, align 8
-  %defaultAtts40.i = getelementptr inbounds %struct.ELEMENT_TYPE, ptr %179, i64 0, i32 5
-  %188 = load ptr, ptr %defaultAtts40.i, align 8
+if.end36.i:                                       ; preds = %if.else.i849
+  %mul38.i = shl i32 %144, 1
+  %151 = load ptr, ptr %realloc_fcn, align 8
+  %defaultAtts40.i = getelementptr inbounds i8, ptr %140, i64 32
+  %152 = load ptr, ptr %defaultAtts40.i, align 8
   %conv41.i = sext i32 %mul38.i to i64
   %mul42.i = mul nsw i64 %conv41.i, 24
-  %call43.i = call ptr %187(ptr noundef %188, i64 noundef %mul42.i) #23
+  %call43.i = call ptr %151(ptr noundef %152, i64 noundef %mul42.i) #23
   %cmp44.i = icmp eq ptr %call43.i, null
   br i1 %cmp44.i, label %return, label %if.end47.i
 
@@ -7084,56 +6903,328 @@ if.end47.i:                                       ; preds = %if.end36.i
   br label %if.end51.i
 
 if.end51.i:                                       ; preds = %if.end47.i, %if.then22.i, %if.end14.if.end51_crit_edge.i
-  %189 = phi ptr [ %.pre37.i, %if.end14.if.end51_crit_edge.i ], [ %call43.i, %if.end47.i ], [ %call.i873, %if.then22.i ]
-  %190 = load i32, ptr %nDefaultAtts.i, align 8
-  %idx.ext.i = sext i32 %190 to i64
-  %add.ptr.i = getelementptr %struct.DEFAULT_ATTRIBUTE, ptr %189, i64 %idx.ext.i
-  store ptr %180, ptr %add.ptr.i, align 8
-  %value55.i = getelementptr %struct.DEFAULT_ATTRIBUTE, ptr %189, i64 %idx.ext.i, i32 2
-  store ptr %177, ptr %value55.i, align 8
-  %isCdata56.i = getelementptr %struct.DEFAULT_ATTRIBUTE, ptr %189, i64 %idx.ext.i, i32 1
-  store i8 %181, ptr %isCdata56.i, align 8
-  %tobool57.not.i = icmp eq i8 %181, 0
+  %153 = phi ptr [ %.pre37.i, %if.end14.if.end51_crit_edge.i ], [ %call43.i, %if.end47.i ], [ %call.i850, %if.then22.i ]
+  %154 = load i32, ptr %nDefaultAtts.i, align 8
+  %idx.ext.i = sext i32 %154 to i64
+  %add.ptr.i = getelementptr %struct.DEFAULT_ATTRIBUTE, ptr %153, i64 %idx.ext.i
+  store ptr %141, ptr %add.ptr.i, align 8
+  %value55.i = getelementptr inbounds i8, ptr %add.ptr.i, i64 16
+  store ptr null, ptr %value55.i, align 8
+  %isCdata56.i = getelementptr inbounds i8, ptr %add.ptr.i, i64 8
+  store i8 %142, ptr %isCdata56.i, align 8
+  %tobool57.not.i = icmp eq i8 %142, 0
   br i1 %tobool57.not.i, label %if.then58.i, label %if.end59.i
 
 if.then58.i:                                      ; preds = %if.end51.i
-  %maybeTokenized.i = getelementptr inbounds %struct.attribute_id, ptr %180, i64 0, i32 2
+  %maybeTokenized.i = getelementptr inbounds i8, ptr %141, i64 16
   store i8 1, ptr %maybeTokenized.i, align 8
   br label %if.end59.i
 
 if.end59.i:                                       ; preds = %if.then58.i, %if.end51.i
-  %191 = load i32, ptr %nDefaultAtts.i, align 8
-  %add.i = add i32 %191, 1
+  %155 = load i32, ptr %nDefaultAtts.i, align 8
+  %add.i = add i32 %155, 1
   store i32 %add.i, ptr %nDefaultAtts.i, align 8
+  br label %if.end346
+
+if.end346:                                        ; preds = %for.body.i, %if.end59.i
+  %156 = load ptr, ptr %m_attlistDeclHandler1427, align 8
+  %tobool348.not = icmp eq ptr %156, null
+  br i1 %tobool348.not, label %if.end415, label %land.lhs.true349
+
+land.lhs.true349:                                 ; preds = %if.end346
+  %157 = load ptr, ptr %m_declAttributeType451, align 8
+  %tobool351.not = icmp eq ptr %157, null
+  br i1 %tobool351.not, label %if.end415, label %if.then352
+
+if.then352:                                       ; preds = %land.lhs.true349
+  %158 = load i8, ptr %157, align 1
+  switch i8 %158, label %if.end405 [
+    i8 40, label %if.then367
+    i8 78, label %land.lhs.true362
+  ]
+
+land.lhs.true362:                                 ; preds = %if.then352
+  %arrayidx = getelementptr i8, ptr %157, i64 1
+  %159 = load i8, ptr %arrayidx, align 1
+  %cmp365 = icmp eq i8 %159, 79
+  br i1 %cmp365, label %if.then367, label %if.end405
+
+if.then367:                                       ; preds = %if.then352, %land.lhs.true362
+  %160 = load ptr, ptr %ptr1.i.i1176, align 8
+  %161 = load ptr, ptr %end.i1224, align 8
+  %cmp372 = icmp eq ptr %160, %161
+  br i1 %cmp372, label %land.lhs.true374, label %cond.false
+
+land.lhs.true374:                                 ; preds = %if.then367
+  %call376 = call fastcc zeroext i8 @poolGrow(ptr noundef nonnull %m_tempPool949), !range !13
+  %tobool377.not = icmp eq i8 %call376, 0
+  br i1 %tobool377.not, label %return, label %land.lhs.true374.cond.false_crit_edge
+
+land.lhs.true374.cond.false_crit_edge:            ; preds = %land.lhs.true374
+  %.pre1764 = load ptr, ptr %ptr1.i.i1176, align 8
+  br label %cond.false
+
+cond.false:                                       ; preds = %land.lhs.true374.cond.false_crit_edge, %if.then367
+  %162 = phi ptr [ %.pre1764, %land.lhs.true374.cond.false_crit_edge ], [ %160, %if.then367 ]
+  %incdec.ptr = getelementptr i8, ptr %162, i64 1
+  store ptr %incdec.ptr, ptr %ptr1.i.i1176, align 8
+  store i8 41, ptr %162, align 1
+  %163 = load ptr, ptr %ptr1.i.i1176, align 8
+  %164 = load ptr, ptr %end.i1224, align 8
+  %cmp385 = icmp eq ptr %163, %164
+  br i1 %cmp385, label %land.lhs.true387, label %cond.false392
+
+land.lhs.true387:                                 ; preds = %cond.false
+  %call389 = call fastcc zeroext i8 @poolGrow(ptr noundef nonnull %m_tempPool949), !range !13
+  %tobool390.not = icmp eq i8 %call389, 0
+  br i1 %tobool390.not, label %return, label %land.lhs.true387.cond.false392_crit_edge
+
+land.lhs.true387.cond.false392_crit_edge:         ; preds = %land.lhs.true387
+  %.pre1765 = load ptr, ptr %ptr1.i.i1176, align 8
+  br label %cond.false392
+
+cond.false392:                                    ; preds = %land.lhs.true387.cond.false392_crit_edge, %cond.false
+  %165 = phi ptr [ %.pre1765, %land.lhs.true387.cond.false392_crit_edge ], [ %163, %cond.false ]
+  %incdec.ptr395 = getelementptr i8, ptr %165, i64 1
+  store ptr %incdec.ptr395, ptr %ptr1.i.i1176, align 8
+  store i8 0, ptr %165, align 1
+  %166 = load ptr, ptr %start.i.i1190, align 8
+  store ptr %166, ptr %m_declAttributeType451, align 8
+  %167 = load ptr, ptr %ptr1.i.i1176, align 8
+  store ptr %167, ptr %start.i.i1190, align 8
+  br label %if.end405
+
+if.end405:                                        ; preds = %if.then352, %cond.false392, %land.lhs.true362
+  store ptr %s.addr.0, ptr %eventEndPP.0, align 8
+  %168 = load ptr, ptr %m_attlistDeclHandler1427, align 8
+  %169 = load ptr, ptr %m_handlerArg1382, align 8
+  %170 = load ptr, ptr %m_declElementType1383, align 8
+  %171 = load ptr, ptr %170, align 8
+  %172 = load ptr, ptr %m_declAttributeId442, align 8
+  %173 = load ptr, ptr %172, align 8
+  %174 = load ptr, ptr %m_declAttributeType451, align 8
+  %cmp412 = icmp eq i32 %call37, 36
+  %conv413 = zext i1 %cmp412 to i32
+  call void %168(ptr noundef %169, ptr noundef %171, ptr noundef %173, ptr noundef %174, ptr noundef null, i32 noundef %conv413) #23
+  br label %if.end415
+
+if.end415:                                        ; preds = %if.end346, %land.lhs.true349, %if.end405, %sw.bb335
+  %handleDefault.3 = phi i8 [ 0, %if.end405 ], [ 1, %land.lhs.true349 ], [ 1, %if.end346 ], [ 1, %sw.bb335 ]
+  %175 = load ptr, ptr %freeBlocks.i1216, align 8
+  %tobool.not.i858 = icmp eq ptr %175, null
+  %176 = load ptr, ptr %m_tempPool949, align 8
+  br i1 %tobool.not.i858, label %if.then.i866, label %if.else.i859
+
+if.then.i866:                                     ; preds = %if.end415
+  store ptr %176, ptr %freeBlocks.i1216, align 8
+  br label %poolClear.exit867
+
+if.else.i859:                                     ; preds = %if.end415
+  %tobool3.not13.i860 = icmp eq ptr %176, null
+  br i1 %tobool3.not13.i860, label %poolClear.exit867, label %while.body.i861
+
+while.body.i861:                                  ; preds = %if.else.i859, %while.body.i861
+  %177 = phi ptr [ %p.014.i862, %while.body.i861 ], [ %175, %if.else.i859 ]
+  %p.014.i862 = phi ptr [ %178, %while.body.i861 ], [ %176, %if.else.i859 ]
+  %178 = load ptr, ptr %p.014.i862, align 8
+  store ptr %177, ptr %p.014.i862, align 8
+  store ptr %p.014.i862, ptr %freeBlocks.i1216, align 8
+  %tobool3.not.i863 = icmp eq ptr %178, null
+  br i1 %tobool3.not.i863, label %poolClear.exit867, label %while.body.i861, !llvm.loop !8
+
+poolClear.exit867:                                ; preds = %while.body.i861, %if.then.i866, %if.else.i859
+  store ptr null, ptr %m_tempPool949, align 8
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %end.i1224, i8 0, i64 24, i1 false)
+  br label %sw.epilog1436
+
+sw.bb417:                                         ; preds = %sw.epilog44, %sw.epilog44
+  %179 = load i8, ptr %keepProcessing1423, align 8
+  %tobool419.not = icmp eq i8 %179, 0
+  br i1 %tobool419.not, label %land.lhs.true1439, label %if.then420
+
+if.then420:                                       ; preds = %sw.bb417
+  %180 = load i8, ptr %m_declAttributeIsCdata422, align 8
+  %minBytesPerChar423 = getelementptr inbounds i8, ptr %enc.addr.0, i64 128
+  %181 = load i32, ptr %minBytesPerChar423, align 8
+  %idx.ext424 = sext i32 %181 to i64
+  %add.ptr425 = getelementptr i8, ptr %s.addr.0, i64 %idx.ext424
+  %182 = load ptr, ptr %next.addr, align 8
+  %idx.neg428 = sub nsw i64 0, %idx.ext424
+  %add.ptr429 = getelementptr i8, ptr %182, i64 %idx.neg428
+  %call.i868 = call fastcc i32 @appendAttributeValue(ptr noundef %parser, ptr noundef %enc.addr.0, i8 noundef zeroext %180, ptr noundef %add.ptr425, ptr noundef %add.ptr429, ptr noundef nonnull %pool1126, i32 noundef 2), !range !32
+  %tobool.not.i869 = icmp eq i32 %call.i868, 0
+  br i1 %tobool.not.i869, label %if.end.i871, label %return
+
+if.end.i871:                                      ; preds = %if.then420
+  %tobool1.not.i872 = icmp eq i8 %180, 0
+  %183 = load ptr, ptr %ptr1.i.i1235, align 8
+  br i1 %tobool1.not.i872, label %land.lhs.true.i875, label %if.end9.i
+
+land.lhs.true.i875:                               ; preds = %if.end.i871
+  %184 = load ptr, ptr %start.i.i1249, align 8
+  %tobool3.not.i877 = icmp eq ptr %183, %184
+  br i1 %tobool3.not.i877, label %if.end9.i, label %land.lhs.true4.i
+
+land.lhs.true4.i:                                 ; preds = %land.lhs.true.i875
+  %arrayidx.i878 = getelementptr i8, ptr %183, i64 -1
+  %185 = load i8, ptr %arrayidx.i878, align 1
+  %cmp.i879 = icmp eq i8 %185, 32
+  br i1 %cmp.i879, label %if.then7.i, label %if.end9.i
+
+if.then7.i:                                       ; preds = %land.lhs.true4.i
+  store ptr %arrayidx.i878, ptr %ptr1.i.i1235, align 8
+  br label %if.end9.i
+
+if.end9.i:                                        ; preds = %if.then7.i, %land.lhs.true4.i, %land.lhs.true.i875, %if.end.i871
+  %186 = phi ptr [ %arrayidx.i878, %if.then7.i ], [ %183, %land.lhs.true4.i ], [ %183, %land.lhs.true.i875 ], [ %183, %if.end.i871 ]
+  %187 = load ptr, ptr %end4.i.i1239, align 8
+  %cmp12.i873 = icmp eq ptr %186, %187
+  br i1 %cmp12.i873, label %land.lhs.true14.i, label %if.end434
+
+land.lhs.true14.i:                                ; preds = %if.end9.i
+  %call15.i = call fastcc zeroext i8 @poolGrow(ptr noundef nonnull %pool1126), !range !13
+  %tobool16.not.i = icmp eq i8 %call15.i, 0
+  br i1 %tobool16.not.i, label %return, label %land.lhs.true14.cond.false_crit_edge.i
+
+land.lhs.true14.cond.false_crit_edge.i:           ; preds = %land.lhs.true14.i
+  %.pre11.i = load ptr, ptr %ptr1.i.i1235, align 8
+  br label %if.end434
+
+if.end434:                                        ; preds = %land.lhs.true14.cond.false_crit_edge.i, %if.end9.i
+  %188 = phi ptr [ %.pre11.i, %land.lhs.true14.cond.false_crit_edge.i ], [ %186, %if.end9.i ]
+  %incdec.ptr18.i = getelementptr i8, ptr %188, i64 1
+  store ptr %incdec.ptr18.i, ptr %ptr1.i.i1235, align 8
+  store i8 0, ptr %188, align 1
+  %189 = load ptr, ptr %start.i.i1249, align 8
+  %190 = load ptr, ptr %ptr1.i.i1235, align 8
+  store ptr %190, ptr %start.i.i1249, align 8
+  %191 = load ptr, ptr %m_declElementType1383, align 8
+  %192 = load ptr, ptr %m_declAttributeId442, align 8
+  %193 = load i8, ptr %m_declAttributeIsCdata422, align 8
+  %tobool.i = icmp ne ptr %189, null
+  %nDefaultAtts.i880 = getelementptr inbounds i8, ptr %191, i64 24
+  %194 = load i32, ptr %nDefaultAtts.i880, align 8
+  %cmp34.i919 = icmp sgt i32 %194, 0
+  %or.cond1414 = select i1 %tobool.i, i1 %cmp34.i919, i1 false
+  br i1 %or.cond1414, label %for.body.lr.ph.i921, label %if.end14.i881
+
+for.body.lr.ph.i921:                              ; preds = %if.end434
+  %defaultAtts.i922 = getelementptr inbounds i8, ptr %191, i64 32
+  %195 = load ptr, ptr %defaultAtts.i922, align 8
+  %wide.trip.count.i923 = zext nneg i32 %194 to i64
+  br label %for.body.i924
+
+for.cond.i928:                                    ; preds = %for.body.i924
+  %indvars.iv.next.i929 = add nuw nsw i64 %indvars.iv.i925, 1
+  %exitcond.not.i930 = icmp eq i64 %indvars.iv.next.i929, %wide.trip.count.i923
+  br i1 %exitcond.not.i930, label %if.end14.i881, label %for.body.i924, !llvm.loop !35
+
+for.body.i924:                                    ; preds = %for.cond.i928, %for.body.lr.ph.i921
+  %indvars.iv.i925 = phi i64 [ 0, %for.body.lr.ph.i921 ], [ %indvars.iv.next.i929, %for.cond.i928 ]
+  %arrayidx.i926 = getelementptr %struct.DEFAULT_ATTRIBUTE, ptr %195, i64 %indvars.iv.i925
+  %196 = load ptr, ptr %arrayidx.i926, align 8
+  %cmp3.i927 = icmp eq ptr %196, %192
+  br i1 %cmp3.i927, label %if.end447, label %for.cond.i928
+
+if.end14.i881:                                    ; preds = %for.cond.i928, %if.end434
+  %allocDefaultAtts.i883 = getelementptr inbounds i8, ptr %191, i64 28
+  %197 = load i32, ptr %allocDefaultAtts.i883, align 4
+  %cmp16.i884 = icmp eq i32 %194, %197
+  br i1 %cmp16.i884, label %if.then18.i899, label %if.end14.if.end51_crit_edge.i885
+
+if.end14.if.end51_crit_edge.i885:                 ; preds = %if.end14.i881
+  %defaultAtts52.phi.trans.insert.i886 = getelementptr inbounds i8, ptr %191, i64 32
+  %.pre37.i887 = load ptr, ptr %defaultAtts52.phi.trans.insert.i886, align 8
+  br label %if.end51.i888
+
+if.then18.i899:                                   ; preds = %if.end14.i881
+  %cmp20.i900 = icmp eq i32 %194, 0
+  br i1 %cmp20.i900, label %if.then22.i912, label %if.else.i901
+
+if.then22.i912:                                   ; preds = %if.then18.i899
+  store i32 8, ptr %allocDefaultAtts.i883, align 4
+  %198 = load ptr, ptr %3, align 8
+  %call.i914 = call ptr %198(i64 noundef 192) #23
+  %defaultAtts26.i915 = getelementptr inbounds i8, ptr %191, i64 32
+  store ptr %call.i914, ptr %defaultAtts26.i915, align 8
+  %tobool28.not.i916 = icmp eq ptr %call.i914, null
+  br i1 %tobool28.not.i916, label %if.then29.i917, label %if.end51.i888
+
+if.then29.i917:                                   ; preds = %if.then22.i912
+  store i32 0, ptr %allocDefaultAtts.i883, align 4
+  br label %return
+
+if.else.i901:                                     ; preds = %if.then18.i899
+  %cmp33.i902 = icmp sgt i32 %194, 1073741823
+  br i1 %cmp33.i902, label %return, label %if.end36.i903
+
+if.end36.i903:                                    ; preds = %if.else.i901
+  %mul38.i904 = shl i32 %194, 1
+  %199 = load ptr, ptr %realloc_fcn, align 8
+  %defaultAtts40.i906 = getelementptr inbounds i8, ptr %191, i64 32
+  %200 = load ptr, ptr %defaultAtts40.i906, align 8
+  %conv41.i907 = sext i32 %mul38.i904 to i64
+  %mul42.i908 = mul nsw i64 %conv41.i907, 24
+  %call43.i909 = call ptr %199(ptr noundef %200, i64 noundef %mul42.i908) #23
+  %cmp44.i910 = icmp eq ptr %call43.i909, null
+  br i1 %cmp44.i910, label %return, label %if.end47.i911
+
+if.end47.i911:                                    ; preds = %if.end36.i903
+  store i32 %mul38.i904, ptr %allocDefaultAtts.i883, align 4
+  store ptr %call43.i909, ptr %defaultAtts40.i906, align 8
+  br label %if.end51.i888
+
+if.end51.i888:                                    ; preds = %if.end47.i911, %if.then22.i912, %if.end14.if.end51_crit_edge.i885
+  %201 = phi ptr [ %.pre37.i887, %if.end14.if.end51_crit_edge.i885 ], [ %call43.i909, %if.end47.i911 ], [ %call.i914, %if.then22.i912 ]
+  %202 = load i32, ptr %nDefaultAtts.i880, align 8
+  %idx.ext.i889 = sext i32 %202 to i64
+  %add.ptr.i890 = getelementptr %struct.DEFAULT_ATTRIBUTE, ptr %201, i64 %idx.ext.i889
+  store ptr %192, ptr %add.ptr.i890, align 8
+  %value55.i891 = getelementptr inbounds i8, ptr %add.ptr.i890, i64 16
+  store ptr %189, ptr %value55.i891, align 8
+  %isCdata56.i892 = getelementptr inbounds i8, ptr %add.ptr.i890, i64 8
+  store i8 %193, ptr %isCdata56.i892, align 8
+  %tobool57.not.i893 = icmp eq i8 %193, 0
+  br i1 %tobool57.not.i893, label %if.then58.i897, label %if.end59.i894
+
+if.then58.i897:                                   ; preds = %if.end51.i888
+  %maybeTokenized.i898 = getelementptr inbounds i8, ptr %192, i64 16
+  store i8 1, ptr %maybeTokenized.i898, align 8
+  br label %if.end59.i894
+
+if.end59.i894:                                    ; preds = %if.then58.i897, %if.end51.i888
+  %203 = load i32, ptr %nDefaultAtts.i880, align 8
+  %add.i895 = add i32 %203, 1
+  store i32 %add.i895, ptr %nDefaultAtts.i880, align 8
   br label %if.end447
 
-if.end447:                                        ; preds = %for.body.i, %if.end59.i
-  %192 = load ptr, ptr %m_attlistDeclHandler1427, align 8
-  %tobool449.not = icmp eq ptr %192, null
+if.end447:                                        ; preds = %for.body.i924, %if.end59.i894
+  %204 = load ptr, ptr %m_attlistDeclHandler1427, align 8
+  %tobool449.not = icmp eq ptr %204, null
   br i1 %tobool449.not, label %land.lhs.true1439, label %land.lhs.true450
 
 land.lhs.true450:                                 ; preds = %if.end447
-  %193 = load ptr, ptr %m_declAttributeType451, align 8
-  %tobool452.not = icmp eq ptr %193, null
+  %205 = load ptr, ptr %m_declAttributeType451, align 8
+  %tobool452.not = icmp eq ptr %205, null
   br i1 %tobool452.not, label %land.lhs.true1439, label %if.then453
 
 if.then453:                                       ; preds = %land.lhs.true450
-  %194 = load i8, ptr %193, align 1
-  switch i8 %194, label %if.end510 [
+  %206 = load i8, ptr %205, align 1
+  switch i8 %206, label %if.end510 [
     i8 40, label %if.then469
     i8 78, label %land.lhs.true463
   ]
 
 land.lhs.true463:                                 ; preds = %if.then453
-  %arrayidx465 = getelementptr i8, ptr %193, i64 1
-  %195 = load i8, ptr %arrayidx465, align 1
-  %cmp467 = icmp eq i8 %195, 79
+  %arrayidx465 = getelementptr i8, ptr %205, i64 1
+  %207 = load i8, ptr %arrayidx465, align 1
+  %cmp467 = icmp eq i8 %207, 79
   br i1 %cmp467, label %if.then469, label %if.end510
 
 if.then469:                                       ; preds = %if.then453, %land.lhs.true463
-  %196 = load ptr, ptr %ptr1.i.i1121, align 8
-  %197 = load ptr, ptr %end.i1169, align 8
-  %cmp474 = icmp eq ptr %196, %197
+  %208 = load ptr, ptr %ptr1.i.i1176, align 8
+  %209 = load ptr, ptr %end.i1224, align 8
+  %cmp474 = icmp eq ptr %208, %209
   br i1 %cmp474, label %land.lhs.true476, label %cond.false481
 
 land.lhs.true476:                                 ; preds = %if.then469
@@ -7142,17 +7233,17 @@ land.lhs.true476:                                 ; preds = %if.then469
   br i1 %tobool479.not, label %return, label %land.lhs.true476.cond.false481_crit_edge
 
 land.lhs.true476.cond.false481_crit_edge:         ; preds = %land.lhs.true476
-  %.pre1697 = load ptr, ptr %ptr1.i.i1121, align 8
+  %.pre1762 = load ptr, ptr %ptr1.i.i1176, align 8
   br label %cond.false481
 
 cond.false481:                                    ; preds = %land.lhs.true476.cond.false481_crit_edge, %if.then469
-  %198 = phi ptr [ %.pre1697, %land.lhs.true476.cond.false481_crit_edge ], [ %196, %if.then469 ]
-  %incdec.ptr484 = getelementptr i8, ptr %198, i64 1
-  store ptr %incdec.ptr484, ptr %ptr1.i.i1121, align 8
-  store i8 41, ptr %198, align 1
-  %199 = load ptr, ptr %ptr1.i.i1121, align 8
-  %200 = load ptr, ptr %end.i1169, align 8
-  %cmp490 = icmp eq ptr %199, %200
+  %210 = phi ptr [ %.pre1762, %land.lhs.true476.cond.false481_crit_edge ], [ %208, %if.then469 ]
+  %incdec.ptr484 = getelementptr i8, ptr %210, i64 1
+  store ptr %incdec.ptr484, ptr %ptr1.i.i1176, align 8
+  store i8 41, ptr %210, align 1
+  %211 = load ptr, ptr %ptr1.i.i1176, align 8
+  %212 = load ptr, ptr %end.i1224, align 8
+  %cmp490 = icmp eq ptr %211, %212
   br i1 %cmp490, label %land.lhs.true492, label %cond.false497
 
 land.lhs.true492:                                 ; preds = %cond.false481
@@ -7161,114 +7252,114 @@ land.lhs.true492:                                 ; preds = %cond.false481
   br i1 %tobool495.not, label %return, label %land.lhs.true492.cond.false497_crit_edge
 
 land.lhs.true492.cond.false497_crit_edge:         ; preds = %land.lhs.true492
-  %.pre1698 = load ptr, ptr %ptr1.i.i1121, align 8
+  %.pre1763 = load ptr, ptr %ptr1.i.i1176, align 8
   br label %cond.false497
 
 cond.false497:                                    ; preds = %land.lhs.true492.cond.false497_crit_edge, %cond.false481
-  %201 = phi ptr [ %.pre1698, %land.lhs.true492.cond.false497_crit_edge ], [ %199, %cond.false481 ]
-  %incdec.ptr500 = getelementptr i8, ptr %201, i64 1
-  store ptr %incdec.ptr500, ptr %ptr1.i.i1121, align 8
-  store i8 0, ptr %201, align 1
-  %202 = load ptr, ptr %start.i.i1135, align 8
-  store ptr %202, ptr %m_declAttributeType451, align 8
-  %203 = load ptr, ptr %ptr1.i.i1121, align 8
-  store ptr %203, ptr %start.i.i1135, align 8
+  %213 = phi ptr [ %.pre1763, %land.lhs.true492.cond.false497_crit_edge ], [ %211, %cond.false481 ]
+  %incdec.ptr500 = getelementptr i8, ptr %213, i64 1
+  store ptr %incdec.ptr500, ptr %ptr1.i.i1176, align 8
+  store i8 0, ptr %213, align 1
+  %214 = load ptr, ptr %start.i.i1190, align 8
+  store ptr %214, ptr %m_declAttributeType451, align 8
+  %215 = load ptr, ptr %ptr1.i.i1176, align 8
+  store ptr %215, ptr %start.i.i1190, align 8
   br label %if.end510
 
 if.end510:                                        ; preds = %if.then453, %cond.false497, %land.lhs.true463
   store ptr %s.addr.0, ptr %eventEndPP.0, align 8
-  %204 = load ptr, ptr %m_attlistDeclHandler1427, align 8
-  %205 = load ptr, ptr %m_handlerArg1382, align 8
-  %206 = load ptr, ptr %m_declElementType1383, align 8
-  %207 = load ptr, ptr %206, align 8
-  %208 = load ptr, ptr %m_declAttributeId442, align 8
-  %209 = load ptr, ptr %208, align 8
-  %210 = load ptr, ptr %m_declAttributeType451, align 8
+  %216 = load ptr, ptr %m_attlistDeclHandler1427, align 8
+  %217 = load ptr, ptr %m_handlerArg1382, align 8
+  %218 = load ptr, ptr %m_declElementType1383, align 8
+  %219 = load ptr, ptr %218, align 8
+  %220 = load ptr, ptr %m_declAttributeId442, align 8
+  %221 = load ptr, ptr %220, align 8
+  %222 = load ptr, ptr %m_declAttributeType451, align 8
   %cmp518 = icmp eq i32 %call37, 38
   %conv519 = zext i1 %cmp518 to i32
-  call void %204(ptr noundef %205, ptr noundef %207, ptr noundef %209, ptr noundef %210, ptr noundef %177, i32 noundef %conv519) #23
-  %211 = load ptr, ptr %freeBlocks.i1161, align 8
-  %tobool.not.i878 = icmp eq ptr %211, null
-  %212 = load ptr, ptr %m_tempPool949, align 8
-  br i1 %tobool.not.i878, label %if.then.i886, label %if.else.i879
+  call void %216(ptr noundef %217, ptr noundef %219, ptr noundef %221, ptr noundef %222, ptr noundef %189, i32 noundef %conv519) #23
+  %223 = load ptr, ptr %freeBlocks.i1216, align 8
+  %tobool.not.i933 = icmp eq ptr %223, null
+  %224 = load ptr, ptr %m_tempPool949, align 8
+  br i1 %tobool.not.i933, label %if.then.i941, label %if.else.i934
 
-if.then.i886:                                     ; preds = %if.end510
-  store ptr %212, ptr %freeBlocks.i1161, align 8
-  br label %poolClear.exit887
+if.then.i941:                                     ; preds = %if.end510
+  store ptr %224, ptr %freeBlocks.i1216, align 8
+  br label %poolClear.exit942
 
-if.else.i879:                                     ; preds = %if.end510
-  %tobool3.not13.i880 = icmp eq ptr %212, null
-  br i1 %tobool3.not13.i880, label %poolClear.exit887, label %while.body.i881
+if.else.i934:                                     ; preds = %if.end510
+  %tobool3.not13.i935 = icmp eq ptr %224, null
+  br i1 %tobool3.not13.i935, label %poolClear.exit942, label %while.body.i936
 
-while.body.i881:                                  ; preds = %if.else.i879, %while.body.i881
-  %213 = phi ptr [ %p.014.i882, %while.body.i881 ], [ %211, %if.else.i879 ]
-  %p.014.i882 = phi ptr [ %214, %while.body.i881 ], [ %212, %if.else.i879 ]
-  %214 = load ptr, ptr %p.014.i882, align 8
-  store ptr %213, ptr %p.014.i882, align 8
-  store ptr %p.014.i882, ptr %freeBlocks.i1161, align 8
-  %tobool3.not.i883 = icmp eq ptr %214, null
-  br i1 %tobool3.not.i883, label %poolClear.exit887, label %while.body.i881, !llvm.loop !8
+while.body.i936:                                  ; preds = %if.else.i934, %while.body.i936
+  %225 = phi ptr [ %p.014.i937, %while.body.i936 ], [ %223, %if.else.i934 ]
+  %p.014.i937 = phi ptr [ %226, %while.body.i936 ], [ %224, %if.else.i934 ]
+  %226 = load ptr, ptr %p.014.i937, align 8
+  store ptr %225, ptr %p.014.i937, align 8
+  store ptr %p.014.i937, ptr %freeBlocks.i1216, align 8
+  %tobool3.not.i938 = icmp eq ptr %226, null
+  br i1 %tobool3.not.i938, label %poolClear.exit942, label %while.body.i936, !llvm.loop !8
 
-poolClear.exit887:                                ; preds = %while.body.i881, %if.then.i886, %if.else.i879
+poolClear.exit942:                                ; preds = %while.body.i936, %if.then.i941, %if.else.i934
   store ptr null, ptr %m_tempPool949, align 8
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %end.i1169, i8 0, i64 24, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %end.i1224, i8 0, i64 24, i1 false)
   br label %if.end1443
 
 sw.bb523:                                         ; preds = %sw.epilog44
-  %215 = load i8, ptr %keepProcessing1423, align 8
-  %tobool525.not = icmp eq i8 %215, 0
+  %227 = load i8, ptr %keepProcessing1423, align 8
+  %tobool525.not = icmp eq i8 %227, 0
   br i1 %tobool525.not, label %land.lhs.true1439, label %if.then526
 
 if.then526:                                       ; preds = %sw.bb523
-  %minBytesPerChar528 = getelementptr inbounds %struct.encoding, ptr %enc.addr.0, i64 0, i32 12
-  %216 = load i32, ptr %minBytesPerChar528, align 8
-  %idx.ext529 = sext i32 %216 to i64
+  %minBytesPerChar528 = getelementptr inbounds i8, ptr %enc.addr.0, i64 128
+  %228 = load i32, ptr %minBytesPerChar528, align 8
+  %idx.ext529 = sext i32 %228 to i64
   %add.ptr530 = getelementptr i8, ptr %s.addr.0, i64 %idx.ext529
-  %217 = load ptr, ptr %next.addr, align 8
+  %229 = load ptr, ptr %next.addr, align 8
   %idx.neg533 = sub nsw i64 0, %idx.ext529
-  %add.ptr534 = getelementptr i8, ptr %217, i64 %idx.neg533
+  %add.ptr534 = getelementptr i8, ptr %229, i64 %idx.neg533
   %call535 = call fastcc i32 @storeEntityValue(ptr noundef %parser, ptr noundef %enc.addr.0, ptr noundef %add.ptr530, ptr noundef %add.ptr534, i32 noundef 2)
-  %218 = load ptr, ptr %m_declEntity819, align 8
-  %tobool537.not = icmp eq ptr %218, null
-  %219 = load ptr, ptr %start539, align 8
+  %230 = load ptr, ptr %m_declEntity819, align 8
+  %tobool537.not = icmp eq ptr %230, null
+  %231 = load ptr, ptr %start539, align 8
   br i1 %tobool537.not, label %if.else566, label %if.then538
 
 if.then538:                                       ; preds = %if.then526
-  %textPtr = getelementptr inbounds %struct.ENTITY, ptr %218, i64 0, i32 1
-  store ptr %219, ptr %textPtr, align 8
-  %220 = load ptr, ptr %ptr542, align 8
-  %sub.ptr.lhs.cast = ptrtoint ptr %220 to i64
-  %sub.ptr.rhs.cast = ptrtoint ptr %219 to i64
+  %textPtr = getelementptr inbounds i8, ptr %230, i64 8
+  store ptr %231, ptr %textPtr, align 8
+  %232 = load ptr, ptr %ptr542, align 8
+  %sub.ptr.lhs.cast = ptrtoint ptr %232 to i64
+  %sub.ptr.rhs.cast = ptrtoint ptr %231 to i64
   %sub.ptr.sub = sub i64 %sub.ptr.lhs.cast, %sub.ptr.rhs.cast
   %conv545 = trunc i64 %sub.ptr.sub to i32
-  %221 = load ptr, ptr %m_declEntity819, align 8
-  %textLen = getelementptr inbounds %struct.ENTITY, ptr %221, i64 0, i32 2
+  %233 = load ptr, ptr %m_declEntity819, align 8
+  %textLen = getelementptr inbounds i8, ptr %233, i64 16
   store i32 %conv545, ptr %textLen, align 8
-  %222 = load ptr, ptr %ptr542, align 8
-  store ptr %222, ptr %start539, align 8
-  %223 = load ptr, ptr %m_entityDeclHandler1413, align 8
-  %tobool552.not = icmp eq ptr %223, null
+  %234 = load ptr, ptr %ptr542, align 8
+  store ptr %234, ptr %start539, align 8
+  %235 = load ptr, ptr %m_entityDeclHandler1413, align 8
+  %tobool552.not = icmp eq ptr %235, null
   br i1 %tobool552.not, label %if.end571, label %if.then553
 
 if.then553:                                       ; preds = %if.then538
   store ptr %s.addr.0, ptr %eventEndPP.0, align 8
-  %224 = load ptr, ptr %m_entityDeclHandler1413, align 8
-  %225 = load ptr, ptr %m_handlerArg1382, align 8
-  %226 = load ptr, ptr %m_declEntity819, align 8
-  %227 = load ptr, ptr %226, align 8
-  %is_param = getelementptr inbounds %struct.ENTITY, ptr %226, i64 0, i32 9
-  %228 = load i8, ptr %is_param, align 1
-  %conv559 = zext i8 %228 to i32
-  %textPtr561 = getelementptr inbounds %struct.ENTITY, ptr %226, i64 0, i32 1
-  %229 = load ptr, ptr %textPtr561, align 8
-  %textLen563 = getelementptr inbounds %struct.ENTITY, ptr %226, i64 0, i32 2
-  %230 = load i32, ptr %textLen563, align 8
-  %231 = load ptr, ptr %m_curBase946, align 8
-  call void %224(ptr noundef %225, ptr noundef %227, i32 noundef %conv559, ptr noundef %229, i32 noundef %230, ptr noundef %231, ptr noundef null, ptr noundef null, ptr noundef null) #23
+  %236 = load ptr, ptr %m_entityDeclHandler1413, align 8
+  %237 = load ptr, ptr %m_handlerArg1382, align 8
+  %238 = load ptr, ptr %m_declEntity819, align 8
+  %239 = load ptr, ptr %238, align 8
+  %is_param = getelementptr inbounds i8, ptr %238, i64 57
+  %240 = load i8, ptr %is_param, align 1
+  %conv559 = zext i8 %240 to i32
+  %textPtr561 = getelementptr inbounds i8, ptr %238, i64 8
+  %241 = load ptr, ptr %textPtr561, align 8
+  %textLen563 = getelementptr inbounds i8, ptr %238, i64 16
+  %242 = load i32, ptr %textLen563, align 8
+  %243 = load ptr, ptr %m_curBase946, align 8
+  call void %236(ptr noundef %237, ptr noundef %239, i32 noundef %conv559, ptr noundef %241, i32 noundef %242, ptr noundef %243, ptr noundef null, ptr noundef null, ptr noundef null) #23
   br label %if.end571
 
 if.else566:                                       ; preds = %if.then526
-  store ptr %219, ptr %ptr542, align 8
+  store ptr %231, ptr %ptr542, align 8
   br label %if.end571
 
 if.end571:                                        ; preds = %if.then538, %if.then553, %if.else566
@@ -7279,87 +7370,87 @@ if.end571:                                        ; preds = %if.then538, %if.the
 sw.bb577:                                         ; preds = %sw.epilog44
   store i8 0, ptr %m_useForeignDTD578, align 1
   store i8 1, ptr %hasParamEntityRefs1117, align 1
-  %232 = load ptr, ptr %m_startDoctypeDeclHandler1404, align 8
-  %tobool581.not = icmp eq ptr %232, null
+  %244 = load ptr, ptr %m_startDoctypeDeclHandler1404, align 8
+  %tobool581.not = icmp eq ptr %244, null
   br i1 %tobool581.not, label %if.else602, label %if.then582
 
 if.then582:                                       ; preds = %sw.bb577
-  %minBytesPerChar584 = getelementptr inbounds %struct.encoding, ptr %enc.addr.0, i64 0, i32 12
-  %233 = load i32, ptr %minBytesPerChar584, align 8
-  %idx.ext585 = sext i32 %233 to i64
+  %minBytesPerChar584 = getelementptr inbounds i8, ptr %enc.addr.0, i64 128
+  %245 = load i32, ptr %minBytesPerChar584, align 8
+  %idx.ext585 = sext i32 %245 to i64
   %add.ptr586 = getelementptr i8, ptr %s.addr.0, i64 %idx.ext585
-  %234 = load ptr, ptr %next.addr, align 8
+  %246 = load ptr, ptr %next.addr, align 8
   %idx.neg589 = sub nsw i64 0, %idx.ext585
-  %add.ptr590 = getelementptr i8, ptr %234, i64 %idx.neg589
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %ptr.addr.i.i888)
-  store ptr %add.ptr586, ptr %ptr.addr.i.i888, align 8
-  %235 = load ptr, ptr %ptr1.i.i1121, align 8
-  %tobool.not.i.i890 = icmp eq ptr %235, null
-  br i1 %tobool.not.i.i890, label %land.lhs.true.i.i914, label %if.end.i.i891
+  %add.ptr590 = getelementptr i8, ptr %246, i64 %idx.neg589
+  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %ptr.addr.i.i943)
+  store ptr %add.ptr586, ptr %ptr.addr.i.i943, align 8
+  %247 = load ptr, ptr %ptr1.i.i1176, align 8
+  %tobool.not.i.i945 = icmp eq ptr %247, null
+  br i1 %tobool.not.i.i945, label %land.lhs.true.i.i969, label %if.end.i.i946
 
-land.lhs.true.i.i914:                             ; preds = %if.then582
-  %call.i.i915 = call fastcc zeroext i8 @poolGrow(ptr noundef nonnull %m_tempPool949), !range !13
-  %tobool2.not.i.i916 = icmp eq i8 %call.i.i915, 0
-  br i1 %tobool2.not.i.i916, label %poolAppend.exit.thread.i900, label %if.end.i.i891
+land.lhs.true.i.i969:                             ; preds = %if.then582
+  %call.i.i970 = call fastcc zeroext i8 @poolGrow(ptr noundef nonnull %m_tempPool949), !range !13
+  %tobool2.not.i.i971 = icmp eq i8 %call.i.i970, 0
+  br i1 %tobool2.not.i.i971, label %poolAppend.exit.thread.i955, label %if.end.i.i946
 
-if.end.i.i891:                                    ; preds = %land.lhs.true.i.i914, %if.then582
-  %utf8Convert.i.i892 = getelementptr inbounds %struct.encoding, ptr %enc.addr.0, i64 0, i32 10
-  br label %for.cond.i.i894
+if.end.i.i946:                                    ; preds = %land.lhs.true.i.i969, %if.then582
+  %utf8Convert.i.i947 = getelementptr inbounds i8, ptr %enc.addr.0, i64 112
+  br label %for.cond.i.i949
 
-for.cond.i.i894:                                  ; preds = %if.end8.i.i897, %if.end.i.i891
-  %236 = load ptr, ptr %utf8Convert.i.i892, align 8
-  %237 = load ptr, ptr %end.i1169, align 8
-  %call5.i.i895 = call i32 %236(ptr noundef nonnull %enc.addr.0, ptr noundef nonnull %ptr.addr.i.i888, ptr noundef %add.ptr590, ptr noundef nonnull %ptr1.i.i1121, ptr noundef %237) #23
-  %or.cond.i.i896 = icmp ult i32 %call5.i.i895, 2
-  br i1 %or.cond.i.i896, label %poolAppend.exit.i902, label %if.end8.i.i897
+for.cond.i.i949:                                  ; preds = %if.end8.i.i952, %if.end.i.i946
+  %248 = load ptr, ptr %utf8Convert.i.i947, align 8
+  %249 = load ptr, ptr %end.i1224, align 8
+  %call5.i.i950 = call i32 %248(ptr noundef nonnull %enc.addr.0, ptr noundef nonnull %ptr.addr.i.i943, ptr noundef %add.ptr590, ptr noundef nonnull %ptr1.i.i1176, ptr noundef %249) #23
+  %or.cond.i.i951 = icmp ult i32 %call5.i.i950, 2
+  br i1 %or.cond.i.i951, label %poolAppend.exit.i957, label %if.end8.i.i952
 
-if.end8.i.i897:                                   ; preds = %for.cond.i.i894
-  %call9.i.i898 = call fastcc zeroext i8 @poolGrow(ptr noundef nonnull %m_tempPool949), !range !13
-  %tobool10.not.i.i899 = icmp eq i8 %call9.i.i898, 0
-  br i1 %tobool10.not.i.i899, label %poolAppend.exit.thread.i900, label %for.cond.i.i894
+if.end8.i.i952:                                   ; preds = %for.cond.i.i949
+  %call9.i.i953 = call fastcc zeroext i8 @poolGrow(ptr noundef nonnull %m_tempPool949), !range !13
+  %tobool10.not.i.i954 = icmp eq i8 %call9.i.i953, 0
+  br i1 %tobool10.not.i.i954, label %poolAppend.exit.thread.i955, label %for.cond.i.i949
 
-poolAppend.exit.thread.i900:                      ; preds = %land.lhs.true.i.i914, %if.end8.i.i897
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %ptr.addr.i.i888)
-  br label %poolStoreString.exit917.thread
+poolAppend.exit.thread.i955:                      ; preds = %land.lhs.true.i.i969, %if.end8.i.i952
+  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %ptr.addr.i.i943)
+  br label %poolStoreString.exit972.thread
 
-poolAppend.exit.i902:                             ; preds = %for.cond.i.i894
-  %238 = load ptr, ptr %start.i.i1135, align 8
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %ptr.addr.i.i888)
-  %tobool.not.i904 = icmp eq ptr %238, null
-  br i1 %tobool.not.i904, label %poolStoreString.exit917.thread, label %if.end.i905
+poolAppend.exit.i957:                             ; preds = %for.cond.i.i949
+  %250 = load ptr, ptr %start.i.i1190, align 8
+  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %ptr.addr.i.i943)
+  %tobool.not.i959 = icmp eq ptr %250, null
+  br i1 %tobool.not.i959, label %poolStoreString.exit972.thread, label %if.end.i960
 
-if.end.i905:                                      ; preds = %poolAppend.exit.i902
-  %239 = load ptr, ptr %ptr1.i.i1121, align 8
-  %240 = load ptr, ptr %end.i1169, align 8
-  %cmp.i906 = icmp eq ptr %239, %240
-  br i1 %cmp.i906, label %land.lhs.true.i909, label %poolStoreString.exit917
+if.end.i960:                                      ; preds = %poolAppend.exit.i957
+  %251 = load ptr, ptr %ptr1.i.i1176, align 8
+  %252 = load ptr, ptr %end.i1224, align 8
+  %cmp.i961 = icmp eq ptr %251, %252
+  br i1 %cmp.i961, label %land.lhs.true.i964, label %poolStoreString.exit972
 
-land.lhs.true.i909:                               ; preds = %if.end.i905
-  %call3.i910 = call fastcc zeroext i8 @poolGrow(ptr noundef nonnull %m_tempPool949), !range !13
-  %tobool4.not.i911 = icmp eq i8 %call3.i910, 0
-  br i1 %tobool4.not.i911, label %poolStoreString.exit917.thread, label %land.lhs.true.if.end6_crit_edge.i912
+land.lhs.true.i964:                               ; preds = %if.end.i960
+  %call3.i965 = call fastcc zeroext i8 @poolGrow(ptr noundef nonnull %m_tempPool949), !range !13
+  %tobool4.not.i966 = icmp eq i8 %call3.i965, 0
+  br i1 %tobool4.not.i966, label %poolStoreString.exit972.thread, label %land.lhs.true.if.end6_crit_edge.i967
 
-land.lhs.true.if.end6_crit_edge.i912:             ; preds = %land.lhs.true.i909
-  %.pre.i913 = load ptr, ptr %ptr1.i.i1121, align 8
-  br label %poolStoreString.exit917
+land.lhs.true.if.end6_crit_edge.i967:             ; preds = %land.lhs.true.i964
+  %.pre.i968 = load ptr, ptr %ptr1.i.i1176, align 8
+  br label %poolStoreString.exit972
 
-poolStoreString.exit917.thread:                   ; preds = %poolAppend.exit.i902, %land.lhs.true.i909, %poolAppend.exit.thread.i900
+poolStoreString.exit972.thread:                   ; preds = %poolAppend.exit.i957, %land.lhs.true.i964, %poolAppend.exit.thread.i955
   store ptr null, ptr %m_doctypeSysid592, align 8
   br label %return
 
-poolStoreString.exit917:                          ; preds = %if.end.i905, %land.lhs.true.if.end6_crit_edge.i912
-  %241 = phi ptr [ %.pre.i913, %land.lhs.true.if.end6_crit_edge.i912 ], [ %239, %if.end.i905 ]
-  %incdec.ptr.i908 = getelementptr i8, ptr %241, i64 1
-  store ptr %incdec.ptr.i908, ptr %ptr1.i.i1121, align 8
-  store i8 0, ptr %241, align 1
-  %242 = load ptr, ptr %start.i.i1135, align 8
-  store ptr %242, ptr %m_doctypeSysid592, align 8
-  %cmp594 = icmp eq ptr %242, null
+poolStoreString.exit972:                          ; preds = %if.end.i960, %land.lhs.true.if.end6_crit_edge.i967
+  %253 = phi ptr [ %.pre.i968, %land.lhs.true.if.end6_crit_edge.i967 ], [ %251, %if.end.i960 ]
+  %incdec.ptr.i963 = getelementptr i8, ptr %253, i64 1
+  store ptr %incdec.ptr.i963, ptr %ptr1.i.i1176, align 8
+  store i8 0, ptr %253, align 1
+  %254 = load ptr, ptr %start.i.i1190, align 8
+  store ptr %254, ptr %m_doctypeSysid592, align 8
+  %cmp594 = icmp eq ptr %254, null
   br i1 %cmp594, label %return, label %if.end597
 
-if.end597:                                        ; preds = %poolStoreString.exit917
-  %243 = load ptr, ptr %ptr1.i.i1121, align 8
-  store ptr %243, ptr %start.i.i1135, align 8
+if.end597:                                        ; preds = %poolStoreString.exit972
+  %255 = load ptr, ptr %ptr1.i.i1176, align 8
+  store ptr %255, ptr %start.i.i1190, align 8
   br label %if.end604
 
 if.else602:                                       ; preds = %sw.bb577
@@ -7368,29 +7459,29 @@ if.else602:                                       ; preds = %sw.bb577
 
 if.end604:                                        ; preds = %if.else602, %if.end597
   %handleDefault.5 = phi i8 [ 0, %if.end597 ], [ 1, %if.else602 ]
-  %244 = load i8, ptr %standalone1147, align 2
-  %tobool606.not = icmp eq i8 %244, 0
+  %256 = load i8, ptr %standalone1147, align 2
+  %tobool606.not = icmp eq i8 %256, 0
   br i1 %tobool606.not, label %land.lhs.true607, label %if.end619
 
 land.lhs.true607:                                 ; preds = %if.end604
-  %245 = load i32, ptr %m_paramEntityParsing1118, align 4
-  %tobool609.not = icmp eq i32 %245, 0
+  %257 = load i32, ptr %m_paramEntityParsing1118, align 4
+  %tobool609.not = icmp eq i32 %257, 0
   br i1 %tobool609.not, label %land.lhs.true610, label %if.end619
 
 land.lhs.true610:                                 ; preds = %land.lhs.true607
-  %246 = load ptr, ptr %m_notStandaloneHandler1228, align 8
-  %tobool612.not = icmp eq ptr %246, null
+  %258 = load ptr, ptr %m_notStandaloneHandler1228, align 8
+  %tobool612.not = icmp eq ptr %258, null
   br i1 %tobool612.not, label %if.end619, label %land.lhs.true613
 
 land.lhs.true613:                                 ; preds = %land.lhs.true610
-  %247 = load ptr, ptr %m_handlerArg1382, align 8
-  %call616 = call i32 %246(ptr noundef %247) #23
+  %259 = load ptr, ptr %m_handlerArg1382, align 8
+  %call616 = call i32 %258(ptr noundef %259) #23
   %tobool617.not = icmp eq i32 %call616, 0
   br i1 %tobool617.not, label %return, label %if.end619
 
 if.end619:                                        ; preds = %land.lhs.true613, %land.lhs.true610, %land.lhs.true607, %if.end604
-  %248 = load ptr, ptr %m_declEntity819, align 8
-  %tobool621.not = icmp eq ptr %248, null
+  %260 = load ptr, ptr %m_declEntity819, align 8
+  %tobool621.not = icmp eq ptr %260, null
   br i1 %tobool621.not, label %if.then622, label %sw.bb633
 
 if.then622:                                       ; preds = %if.end619
@@ -7400,279 +7491,279 @@ if.then622:                                       ; preds = %if.end619
   br i1 %tobool627.not, label %return, label %if.end629
 
 if.end629:                                        ; preds = %if.then622
-  %publicId631 = getelementptr inbounds %struct.ENTITY, ptr %call624, i64 0, i32 6
+  %publicId631 = getelementptr inbounds i8, ptr %call624, i64 40
   store ptr null, ptr %publicId631, align 8
   br label %sw.bb633
 
 sw.bb633:                                         ; preds = %if.end619, %if.end629, %sw.epilog44
   %handleDefault.6 = phi i8 [ 1, %sw.epilog44 ], [ %handleDefault.5, %if.end619 ], [ %handleDefault.5, %if.end629 ]
-  %249 = load i8, ptr %keepProcessing1423, align 8
-  %tobool636.not = icmp eq i8 %249, 0
+  %261 = load i8, ptr %keepProcessing1423, align 8
+  %tobool636.not = icmp eq i8 %261, 0
   br i1 %tobool636.not, label %sw.epilog1436, label %land.lhs.true637
 
 land.lhs.true637:                                 ; preds = %sw.bb633
-  %250 = load ptr, ptr %m_declEntity819, align 8
-  %tobool639.not = icmp eq ptr %250, null
+  %262 = load ptr, ptr %m_declEntity819, align 8
+  %tobool639.not = icmp eq ptr %262, null
   br i1 %tobool639.not, label %sw.epilog1436, label %if.then640
 
 if.then640:                                       ; preds = %land.lhs.true637
-  %minBytesPerChar642 = getelementptr inbounds %struct.encoding, ptr %enc.addr.0, i64 0, i32 12
-  %251 = load i32, ptr %minBytesPerChar642, align 8
-  %idx.ext643 = sext i32 %251 to i64
+  %minBytesPerChar642 = getelementptr inbounds i8, ptr %enc.addr.0, i64 128
+  %263 = load i32, ptr %minBytesPerChar642, align 8
+  %idx.ext643 = sext i32 %263 to i64
   %add.ptr644 = getelementptr i8, ptr %s.addr.0, i64 %idx.ext643
-  %252 = load ptr, ptr %next.addr, align 8
+  %264 = load ptr, ptr %next.addr, align 8
   %idx.neg647 = sub nsw i64 0, %idx.ext643
-  %add.ptr648 = getelementptr i8, ptr %252, i64 %idx.neg647
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %ptr.addr.i.i918)
-  store ptr %add.ptr644, ptr %ptr.addr.i.i918, align 8
-  %253 = load ptr, ptr %ptr1.i.i1180, align 8
-  %tobool.not.i.i920 = icmp eq ptr %253, null
-  br i1 %tobool.not.i.i920, label %land.lhs.true.i.i944, label %if.end.i.i921
+  %add.ptr648 = getelementptr i8, ptr %264, i64 %idx.neg647
+  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %ptr.addr.i.i973)
+  store ptr %add.ptr644, ptr %ptr.addr.i.i973, align 8
+  %265 = load ptr, ptr %ptr1.i.i1235, align 8
+  %tobool.not.i.i975 = icmp eq ptr %265, null
+  br i1 %tobool.not.i.i975, label %land.lhs.true.i.i999, label %if.end.i.i976
 
-land.lhs.true.i.i944:                             ; preds = %if.then640
-  %call.i.i945 = call fastcc zeroext i8 @poolGrow(ptr noundef nonnull %pool1126), !range !13
-  %tobool2.not.i.i946 = icmp eq i8 %call.i.i945, 0
-  br i1 %tobool2.not.i.i946, label %poolAppend.exit.thread.i930, label %if.end.i.i921
+land.lhs.true.i.i999:                             ; preds = %if.then640
+  %call.i.i1000 = call fastcc zeroext i8 @poolGrow(ptr noundef nonnull %pool1126), !range !13
+  %tobool2.not.i.i1001 = icmp eq i8 %call.i.i1000, 0
+  br i1 %tobool2.not.i.i1001, label %poolAppend.exit.thread.i985, label %if.end.i.i976
 
-if.end.i.i921:                                    ; preds = %land.lhs.true.i.i944, %if.then640
-  %utf8Convert.i.i922 = getelementptr inbounds %struct.encoding, ptr %enc.addr.0, i64 0, i32 10
-  br label %for.cond.i.i924
+if.end.i.i976:                                    ; preds = %land.lhs.true.i.i999, %if.then640
+  %utf8Convert.i.i977 = getelementptr inbounds i8, ptr %enc.addr.0, i64 112
+  br label %for.cond.i.i979
 
-for.cond.i.i924:                                  ; preds = %if.end8.i.i927, %if.end.i.i921
-  %254 = load ptr, ptr %utf8Convert.i.i922, align 8
-  %255 = load ptr, ptr %end4.i.i1184, align 8
-  %call5.i.i925 = call i32 %254(ptr noundef nonnull %enc.addr.0, ptr noundef nonnull %ptr.addr.i.i918, ptr noundef %add.ptr648, ptr noundef nonnull %ptr1.i.i1180, ptr noundef %255) #23
-  %or.cond.i.i926 = icmp ult i32 %call5.i.i925, 2
-  br i1 %or.cond.i.i926, label %poolAppend.exit.i932, label %if.end8.i.i927
+for.cond.i.i979:                                  ; preds = %if.end8.i.i982, %if.end.i.i976
+  %266 = load ptr, ptr %utf8Convert.i.i977, align 8
+  %267 = load ptr, ptr %end4.i.i1239, align 8
+  %call5.i.i980 = call i32 %266(ptr noundef nonnull %enc.addr.0, ptr noundef nonnull %ptr.addr.i.i973, ptr noundef %add.ptr648, ptr noundef nonnull %ptr1.i.i1235, ptr noundef %267) #23
+  %or.cond.i.i981 = icmp ult i32 %call5.i.i980, 2
+  br i1 %or.cond.i.i981, label %poolAppend.exit.i987, label %if.end8.i.i982
 
-if.end8.i.i927:                                   ; preds = %for.cond.i.i924
-  %call9.i.i928 = call fastcc zeroext i8 @poolGrow(ptr noundef nonnull %pool1126), !range !13
-  %tobool10.not.i.i929 = icmp eq i8 %call9.i.i928, 0
-  br i1 %tobool10.not.i.i929, label %poolAppend.exit.thread.i930, label %for.cond.i.i924
+if.end8.i.i982:                                   ; preds = %for.cond.i.i979
+  %call9.i.i983 = call fastcc zeroext i8 @poolGrow(ptr noundef nonnull %pool1126), !range !13
+  %tobool10.not.i.i984 = icmp eq i8 %call9.i.i983, 0
+  br i1 %tobool10.not.i.i984, label %poolAppend.exit.thread.i985, label %for.cond.i.i979
 
-poolAppend.exit.thread.i930:                      ; preds = %if.end8.i.i927, %land.lhs.true.i.i944
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %ptr.addr.i.i918)
-  br label %poolStoreString.exit947
+poolAppend.exit.thread.i985:                      ; preds = %if.end8.i.i982, %land.lhs.true.i.i999
+  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %ptr.addr.i.i973)
+  br label %poolStoreString.exit1002
 
-poolAppend.exit.i932:                             ; preds = %for.cond.i.i924
-  %256 = load ptr, ptr %start.i.i1194, align 8
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %ptr.addr.i.i918)
-  %tobool.not.i934 = icmp eq ptr %256, null
-  br i1 %tobool.not.i934, label %poolStoreString.exit947, label %if.end.i935
+poolAppend.exit.i987:                             ; preds = %for.cond.i.i979
+  %268 = load ptr, ptr %start.i.i1249, align 8
+  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %ptr.addr.i.i973)
+  %tobool.not.i989 = icmp eq ptr %268, null
+  br i1 %tobool.not.i989, label %poolStoreString.exit1002, label %if.end.i990
 
-if.end.i935:                                      ; preds = %poolAppend.exit.i932
-  %257 = load ptr, ptr %ptr1.i.i1180, align 8
-  %258 = load ptr, ptr %end4.i.i1184, align 8
-  %cmp.i936 = icmp eq ptr %257, %258
-  br i1 %cmp.i936, label %land.lhs.true.i939, label %if.end6.i937
+if.end.i990:                                      ; preds = %poolAppend.exit.i987
+  %269 = load ptr, ptr %ptr1.i.i1235, align 8
+  %270 = load ptr, ptr %end4.i.i1239, align 8
+  %cmp.i991 = icmp eq ptr %269, %270
+  br i1 %cmp.i991, label %land.lhs.true.i994, label %if.end6.i992
 
-land.lhs.true.i939:                               ; preds = %if.end.i935
-  %call3.i940 = call fastcc zeroext i8 @poolGrow(ptr noundef nonnull %pool1126), !range !13
-  %tobool4.not.i941 = icmp eq i8 %call3.i940, 0
-  br i1 %tobool4.not.i941, label %poolStoreString.exit947, label %land.lhs.true.if.end6_crit_edge.i942
+land.lhs.true.i994:                               ; preds = %if.end.i990
+  %call3.i995 = call fastcc zeroext i8 @poolGrow(ptr noundef nonnull %pool1126), !range !13
+  %tobool4.not.i996 = icmp eq i8 %call3.i995, 0
+  br i1 %tobool4.not.i996, label %poolStoreString.exit1002, label %land.lhs.true.if.end6_crit_edge.i997
 
-land.lhs.true.if.end6_crit_edge.i942:             ; preds = %land.lhs.true.i939
-  %.pre.i943 = load ptr, ptr %ptr1.i.i1180, align 8
-  br label %if.end6.i937
+land.lhs.true.if.end6_crit_edge.i997:             ; preds = %land.lhs.true.i994
+  %.pre.i998 = load ptr, ptr %ptr1.i.i1235, align 8
+  br label %if.end6.i992
 
-if.end6.i937:                                     ; preds = %land.lhs.true.if.end6_crit_edge.i942, %if.end.i935
-  %259 = phi ptr [ %.pre.i943, %land.lhs.true.if.end6_crit_edge.i942 ], [ %257, %if.end.i935 ]
-  %incdec.ptr.i938 = getelementptr i8, ptr %259, i64 1
-  store ptr %incdec.ptr.i938, ptr %ptr1.i.i1180, align 8
-  store i8 0, ptr %259, align 1
-  %260 = load ptr, ptr %start.i.i1194, align 8
-  br label %poolStoreString.exit947
+if.end6.i992:                                     ; preds = %land.lhs.true.if.end6_crit_edge.i997, %if.end.i990
+  %271 = phi ptr [ %.pre.i998, %land.lhs.true.if.end6_crit_edge.i997 ], [ %269, %if.end.i990 ]
+  %incdec.ptr.i993 = getelementptr i8, ptr %271, i64 1
+  store ptr %incdec.ptr.i993, ptr %ptr1.i.i1235, align 8
+  store i8 0, ptr %271, align 1
+  %272 = load ptr, ptr %start.i.i1249, align 8
+  br label %poolStoreString.exit1002
 
-poolStoreString.exit947:                          ; preds = %poolAppend.exit.thread.i930, %poolAppend.exit.i932, %land.lhs.true.i939, %if.end6.i937
-  %retval.0.i931 = phi ptr [ %260, %if.end6.i937 ], [ null, %poolAppend.exit.i932 ], [ null, %land.lhs.true.i939 ], [ null, %poolAppend.exit.thread.i930 ]
-  %261 = load ptr, ptr %m_declEntity819, align 8
-  %systemId651 = getelementptr inbounds %struct.ENTITY, ptr %261, i64 0, i32 4
-  store ptr %retval.0.i931, ptr %systemId651, align 8
-  %262 = load ptr, ptr %m_declEntity819, align 8
-  %systemId653 = getelementptr inbounds %struct.ENTITY, ptr %262, i64 0, i32 4
-  %263 = load ptr, ptr %systemId653, align 8
-  %tobool654.not = icmp eq ptr %263, null
+poolStoreString.exit1002:                         ; preds = %poolAppend.exit.thread.i985, %poolAppend.exit.i987, %land.lhs.true.i994, %if.end6.i992
+  %retval.0.i986 = phi ptr [ %272, %if.end6.i992 ], [ null, %poolAppend.exit.i987 ], [ null, %land.lhs.true.i994 ], [ null, %poolAppend.exit.thread.i985 ]
+  %273 = load ptr, ptr %m_declEntity819, align 8
+  %systemId651 = getelementptr inbounds i8, ptr %273, i64 24
+  store ptr %retval.0.i986, ptr %systemId651, align 8
+  %274 = load ptr, ptr %m_declEntity819, align 8
+  %systemId653 = getelementptr inbounds i8, ptr %274, i64 24
+  %275 = load ptr, ptr %systemId653, align 8
+  %tobool654.not = icmp eq ptr %275, null
   br i1 %tobool654.not, label %return, label %if.end656
 
-if.end656:                                        ; preds = %poolStoreString.exit947
-  %264 = load ptr, ptr %m_curBase946, align 8
-  %base659 = getelementptr inbounds %struct.ENTITY, ptr %262, i64 0, i32 5
-  store ptr %264, ptr %base659, align 8
-  %265 = load ptr, ptr %ptr1.i.i1180, align 8
-  store ptr %265, ptr %start.i.i1194, align 8
-  %266 = load ptr, ptr %m_entityDeclHandler1413, align 8
-  %tobool665 = icmp ne ptr %266, null
+if.end656:                                        ; preds = %poolStoreString.exit1002
+  %276 = load ptr, ptr %m_curBase946, align 8
+  %base659 = getelementptr inbounds i8, ptr %274, i64 32
+  store ptr %276, ptr %base659, align 8
+  %277 = load ptr, ptr %ptr1.i.i1235, align 8
+  store ptr %277, ptr %start.i.i1249, align 8
+  %278 = load ptr, ptr %m_entityDeclHandler1413, align 8
+  %tobool665 = icmp ne ptr %278, null
   %cmp667 = icmp eq i32 %call37, 13
   %or.cond3 = and i1 %cmp667, %tobool665
   br i1 %or.cond3, label %if.end1443, label %sw.epilog1436
 
 sw.bb672:                                         ; preds = %sw.epilog44
-  %267 = load i8, ptr %keepProcessing1423, align 8
-  %tobool675.not = icmp eq i8 %267, 0
+  %279 = load i8, ptr %keepProcessing1423, align 8
+  %tobool675.not = icmp eq i8 %279, 0
   br i1 %tobool675.not, label %land.lhs.true1439, label %land.lhs.true676
 
 land.lhs.true676:                                 ; preds = %sw.bb672
-  %268 = load ptr, ptr %m_declEntity819, align 8
-  %tobool678.not = icmp eq ptr %268, null
+  %280 = load ptr, ptr %m_declEntity819, align 8
+  %tobool678.not = icmp eq ptr %280, null
   br i1 %tobool678.not, label %land.lhs.true1439, label %land.lhs.true679
 
 land.lhs.true679:                                 ; preds = %land.lhs.true676
-  %269 = load ptr, ptr %m_entityDeclHandler1413, align 8
-  %tobool681.not = icmp eq ptr %269, null
+  %281 = load ptr, ptr %m_entityDeclHandler1413, align 8
+  %tobool681.not = icmp eq ptr %281, null
   br i1 %tobool681.not, label %land.lhs.true1439, label %if.then682
 
 if.then682:                                       ; preds = %land.lhs.true679
   store ptr %s.addr.0, ptr %eventEndPP.0, align 8
-  %270 = load ptr, ptr %m_entityDeclHandler1413, align 8
-  %271 = load ptr, ptr %m_handlerArg1382, align 8
-  %272 = load ptr, ptr %m_declEntity819, align 8
-  %273 = load ptr, ptr %272, align 8
-  %is_param688 = getelementptr inbounds %struct.ENTITY, ptr %272, i64 0, i32 9
-  %274 = load i8, ptr %is_param688, align 1
-  %conv689 = zext i8 %274 to i32
-  %base691 = getelementptr inbounds %struct.ENTITY, ptr %272, i64 0, i32 5
-  %275 = load ptr, ptr %base691, align 8
-  %systemId693 = getelementptr inbounds %struct.ENTITY, ptr %272, i64 0, i32 4
-  %276 = load ptr, ptr %systemId693, align 8
-  %publicId695 = getelementptr inbounds %struct.ENTITY, ptr %272, i64 0, i32 6
-  %277 = load ptr, ptr %publicId695, align 8
-  call void %270(ptr noundef %271, ptr noundef %273, i32 noundef %conv689, ptr noundef null, i32 noundef 0, ptr noundef %275, ptr noundef %276, ptr noundef %277, ptr noundef null) #23
+  %282 = load ptr, ptr %m_entityDeclHandler1413, align 8
+  %283 = load ptr, ptr %m_handlerArg1382, align 8
+  %284 = load ptr, ptr %m_declEntity819, align 8
+  %285 = load ptr, ptr %284, align 8
+  %is_param688 = getelementptr inbounds i8, ptr %284, i64 57
+  %286 = load i8, ptr %is_param688, align 1
+  %conv689 = zext i8 %286 to i32
+  %base691 = getelementptr inbounds i8, ptr %284, i64 32
+  %287 = load ptr, ptr %base691, align 8
+  %systemId693 = getelementptr inbounds i8, ptr %284, i64 24
+  %288 = load ptr, ptr %systemId693, align 8
+  %publicId695 = getelementptr inbounds i8, ptr %284, i64 40
+  %289 = load ptr, ptr %publicId695, align 8
+  call void %282(ptr noundef %283, ptr noundef %285, i32 noundef %conv689, ptr noundef null, i32 noundef 0, ptr noundef %287, ptr noundef %288, ptr noundef %289, ptr noundef null) #23
   br label %if.end1443
 
 sw.bb697:                                         ; preds = %sw.epilog44
-  %278 = load i8, ptr %keepProcessing1423, align 8
-  %tobool700.not = icmp eq i8 %278, 0
+  %290 = load i8, ptr %keepProcessing1423, align 8
+  %tobool700.not = icmp eq i8 %290, 0
   br i1 %tobool700.not, label %land.lhs.true1439, label %land.lhs.true701
 
 land.lhs.true701:                                 ; preds = %sw.bb697
-  %279 = load ptr, ptr %m_declEntity819, align 8
-  %tobool703.not = icmp eq ptr %279, null
+  %291 = load ptr, ptr %m_declEntity819, align 8
+  %tobool703.not = icmp eq ptr %291, null
   br i1 %tobool703.not, label %land.lhs.true1439, label %if.then704
 
 if.then704:                                       ; preds = %land.lhs.true701
-  %280 = load ptr, ptr %next.addr, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %ptr.addr.i.i948)
-  store ptr %s.addr.0, ptr %ptr.addr.i.i948, align 8
-  %281 = load ptr, ptr %ptr1.i.i1180, align 8
-  %tobool.not.i.i950 = icmp eq ptr %281, null
-  br i1 %tobool.not.i.i950, label %land.lhs.true.i.i974, label %if.end.i.i951
+  %292 = load ptr, ptr %next.addr, align 8
+  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %ptr.addr.i.i1003)
+  store ptr %s.addr.0, ptr %ptr.addr.i.i1003, align 8
+  %293 = load ptr, ptr %ptr1.i.i1235, align 8
+  %tobool.not.i.i1005 = icmp eq ptr %293, null
+  br i1 %tobool.not.i.i1005, label %land.lhs.true.i.i1029, label %if.end.i.i1006
 
-land.lhs.true.i.i974:                             ; preds = %if.then704
-  %call.i.i975 = call fastcc zeroext i8 @poolGrow(ptr noundef nonnull %pool1126), !range !13
-  %tobool2.not.i.i976 = icmp eq i8 %call.i.i975, 0
-  br i1 %tobool2.not.i.i976, label %poolAppend.exit.thread.i960, label %if.end.i.i951
+land.lhs.true.i.i1029:                            ; preds = %if.then704
+  %call.i.i1030 = call fastcc zeroext i8 @poolGrow(ptr noundef nonnull %pool1126), !range !13
+  %tobool2.not.i.i1031 = icmp eq i8 %call.i.i1030, 0
+  br i1 %tobool2.not.i.i1031, label %poolAppend.exit.thread.i1015, label %if.end.i.i1006
 
-if.end.i.i951:                                    ; preds = %land.lhs.true.i.i974, %if.then704
-  %utf8Convert.i.i952 = getelementptr inbounds %struct.encoding, ptr %enc.addr.0, i64 0, i32 10
-  br label %for.cond.i.i954
+if.end.i.i1006:                                   ; preds = %land.lhs.true.i.i1029, %if.then704
+  %utf8Convert.i.i1007 = getelementptr inbounds i8, ptr %enc.addr.0, i64 112
+  br label %for.cond.i.i1009
 
-for.cond.i.i954:                                  ; preds = %if.end8.i.i957, %if.end.i.i951
-  %282 = load ptr, ptr %utf8Convert.i.i952, align 8
-  %283 = load ptr, ptr %end4.i.i1184, align 8
-  %call5.i.i955 = call i32 %282(ptr noundef %enc.addr.0, ptr noundef nonnull %ptr.addr.i.i948, ptr noundef %280, ptr noundef nonnull %ptr1.i.i1180, ptr noundef %283) #23
-  %or.cond.i.i956 = icmp ult i32 %call5.i.i955, 2
-  br i1 %or.cond.i.i956, label %poolAppend.exit.i962, label %if.end8.i.i957
+for.cond.i.i1009:                                 ; preds = %if.end8.i.i1012, %if.end.i.i1006
+  %294 = load ptr, ptr %utf8Convert.i.i1007, align 8
+  %295 = load ptr, ptr %end4.i.i1239, align 8
+  %call5.i.i1010 = call i32 %294(ptr noundef %enc.addr.0, ptr noundef nonnull %ptr.addr.i.i1003, ptr noundef %292, ptr noundef nonnull %ptr1.i.i1235, ptr noundef %295) #23
+  %or.cond.i.i1011 = icmp ult i32 %call5.i.i1010, 2
+  br i1 %or.cond.i.i1011, label %poolAppend.exit.i1017, label %if.end8.i.i1012
 
-if.end8.i.i957:                                   ; preds = %for.cond.i.i954
-  %call9.i.i958 = call fastcc zeroext i8 @poolGrow(ptr noundef nonnull %pool1126), !range !13
-  %tobool10.not.i.i959 = icmp eq i8 %call9.i.i958, 0
-  br i1 %tobool10.not.i.i959, label %poolAppend.exit.thread.i960, label %for.cond.i.i954
+if.end8.i.i1012:                                  ; preds = %for.cond.i.i1009
+  %call9.i.i1013 = call fastcc zeroext i8 @poolGrow(ptr noundef nonnull %pool1126), !range !13
+  %tobool10.not.i.i1014 = icmp eq i8 %call9.i.i1013, 0
+  br i1 %tobool10.not.i.i1014, label %poolAppend.exit.thread.i1015, label %for.cond.i.i1009
 
-poolAppend.exit.thread.i960:                      ; preds = %if.end8.i.i957, %land.lhs.true.i.i974
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %ptr.addr.i.i948)
-  br label %poolStoreString.exit977
+poolAppend.exit.thread.i1015:                     ; preds = %if.end8.i.i1012, %land.lhs.true.i.i1029
+  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %ptr.addr.i.i1003)
+  br label %poolStoreString.exit1032
 
-poolAppend.exit.i962:                             ; preds = %for.cond.i.i954
-  %284 = load ptr, ptr %start.i.i1194, align 8
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %ptr.addr.i.i948)
-  %tobool.not.i964 = icmp eq ptr %284, null
-  br i1 %tobool.not.i964, label %poolStoreString.exit977, label %if.end.i965
+poolAppend.exit.i1017:                            ; preds = %for.cond.i.i1009
+  %296 = load ptr, ptr %start.i.i1249, align 8
+  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %ptr.addr.i.i1003)
+  %tobool.not.i1019 = icmp eq ptr %296, null
+  br i1 %tobool.not.i1019, label %poolStoreString.exit1032, label %if.end.i1020
 
-if.end.i965:                                      ; preds = %poolAppend.exit.i962
-  %285 = load ptr, ptr %ptr1.i.i1180, align 8
-  %286 = load ptr, ptr %end4.i.i1184, align 8
-  %cmp.i966 = icmp eq ptr %285, %286
-  br i1 %cmp.i966, label %land.lhs.true.i969, label %if.end6.i967
+if.end.i1020:                                     ; preds = %poolAppend.exit.i1017
+  %297 = load ptr, ptr %ptr1.i.i1235, align 8
+  %298 = load ptr, ptr %end4.i.i1239, align 8
+  %cmp.i1021 = icmp eq ptr %297, %298
+  br i1 %cmp.i1021, label %land.lhs.true.i1024, label %if.end6.i1022
 
-land.lhs.true.i969:                               ; preds = %if.end.i965
-  %call3.i970 = call fastcc zeroext i8 @poolGrow(ptr noundef nonnull %pool1126), !range !13
-  %tobool4.not.i971 = icmp eq i8 %call3.i970, 0
-  br i1 %tobool4.not.i971, label %poolStoreString.exit977, label %land.lhs.true.if.end6_crit_edge.i972
+land.lhs.true.i1024:                              ; preds = %if.end.i1020
+  %call3.i1025 = call fastcc zeroext i8 @poolGrow(ptr noundef nonnull %pool1126), !range !13
+  %tobool4.not.i1026 = icmp eq i8 %call3.i1025, 0
+  br i1 %tobool4.not.i1026, label %poolStoreString.exit1032, label %land.lhs.true.if.end6_crit_edge.i1027
 
-land.lhs.true.if.end6_crit_edge.i972:             ; preds = %land.lhs.true.i969
-  %.pre.i973 = load ptr, ptr %ptr1.i.i1180, align 8
-  br label %if.end6.i967
+land.lhs.true.if.end6_crit_edge.i1027:            ; preds = %land.lhs.true.i1024
+  %.pre.i1028 = load ptr, ptr %ptr1.i.i1235, align 8
+  br label %if.end6.i1022
 
-if.end6.i967:                                     ; preds = %land.lhs.true.if.end6_crit_edge.i972, %if.end.i965
-  %287 = phi ptr [ %.pre.i973, %land.lhs.true.if.end6_crit_edge.i972 ], [ %285, %if.end.i965 ]
-  %incdec.ptr.i968 = getelementptr i8, ptr %287, i64 1
-  store ptr %incdec.ptr.i968, ptr %ptr1.i.i1180, align 8
-  store i8 0, ptr %287, align 1
-  %288 = load ptr, ptr %start.i.i1194, align 8
-  br label %poolStoreString.exit977
+if.end6.i1022:                                    ; preds = %land.lhs.true.if.end6_crit_edge.i1027, %if.end.i1020
+  %299 = phi ptr [ %.pre.i1028, %land.lhs.true.if.end6_crit_edge.i1027 ], [ %297, %if.end.i1020 ]
+  %incdec.ptr.i1023 = getelementptr i8, ptr %299, i64 1
+  store ptr %incdec.ptr.i1023, ptr %ptr1.i.i1235, align 8
+  store i8 0, ptr %299, align 1
+  %300 = load ptr, ptr %start.i.i1249, align 8
+  br label %poolStoreString.exit1032
 
-poolStoreString.exit977:                          ; preds = %poolAppend.exit.thread.i960, %poolAppend.exit.i962, %land.lhs.true.i969, %if.end6.i967
-  %retval.0.i961 = phi ptr [ %288, %if.end6.i967 ], [ null, %poolAppend.exit.i962 ], [ null, %land.lhs.true.i969 ], [ null, %poolAppend.exit.thread.i960 ]
-  %289 = load ptr, ptr %m_declEntity819, align 8
-  %notation = getelementptr inbounds %struct.ENTITY, ptr %289, i64 0, i32 7
-  store ptr %retval.0.i961, ptr %notation, align 8
-  %290 = load ptr, ptr %m_declEntity819, align 8
-  %notation709 = getelementptr inbounds %struct.ENTITY, ptr %290, i64 0, i32 7
-  %291 = load ptr, ptr %notation709, align 8
-  %tobool710.not = icmp eq ptr %291, null
+poolStoreString.exit1032:                         ; preds = %poolAppend.exit.thread.i1015, %poolAppend.exit.i1017, %land.lhs.true.i1024, %if.end6.i1022
+  %retval.0.i1016 = phi ptr [ %300, %if.end6.i1022 ], [ null, %poolAppend.exit.i1017 ], [ null, %land.lhs.true.i1024 ], [ null, %poolAppend.exit.thread.i1015 ]
+  %301 = load ptr, ptr %m_declEntity819, align 8
+  %notation = getelementptr inbounds i8, ptr %301, i64 48
+  store ptr %retval.0.i1016, ptr %notation, align 8
+  %302 = load ptr, ptr %m_declEntity819, align 8
+  %notation709 = getelementptr inbounds i8, ptr %302, i64 48
+  %303 = load ptr, ptr %notation709, align 8
+  %tobool710.not = icmp eq ptr %303, null
   br i1 %tobool710.not, label %return, label %if.end712
 
-if.end712:                                        ; preds = %poolStoreString.exit977
-  %292 = load ptr, ptr %ptr1.i.i1180, align 8
-  store ptr %292, ptr %start.i.i1194, align 8
-  %293 = load ptr, ptr %m_unparsedEntityDeclHandler, align 8
-  %tobool717.not = icmp eq ptr %293, null
+if.end712:                                        ; preds = %poolStoreString.exit1032
+  %304 = load ptr, ptr %ptr1.i.i1235, align 8
+  store ptr %304, ptr %start.i.i1249, align 8
+  %305 = load ptr, ptr %m_unparsedEntityDeclHandler, align 8
+  %tobool717.not = icmp eq ptr %305, null
   br i1 %tobool717.not, label %if.else731, label %if.then718
 
 if.then718:                                       ; preds = %if.end712
   store ptr %s.addr.0, ptr %eventEndPP.0, align 8
-  %294 = load ptr, ptr %m_unparsedEntityDeclHandler, align 8
-  %295 = load ptr, ptr %m_handlerArg1382, align 8
-  %296 = load ptr, ptr %m_declEntity819, align 8
-  %297 = load ptr, ptr %296, align 8
-  %base724 = getelementptr inbounds %struct.ENTITY, ptr %296, i64 0, i32 5
-  %298 = load ptr, ptr %base724, align 8
-  %systemId726 = getelementptr inbounds %struct.ENTITY, ptr %296, i64 0, i32 4
-  %299 = load ptr, ptr %systemId726, align 8
-  %publicId728 = getelementptr inbounds %struct.ENTITY, ptr %296, i64 0, i32 6
-  %300 = load ptr, ptr %publicId728, align 8
-  %notation730 = getelementptr inbounds %struct.ENTITY, ptr %296, i64 0, i32 7
-  %301 = load ptr, ptr %notation730, align 8
-  call void %294(ptr noundef %295, ptr noundef %297, ptr noundef %298, ptr noundef %299, ptr noundef %300, ptr noundef %301) #23
+  %306 = load ptr, ptr %m_unparsedEntityDeclHandler, align 8
+  %307 = load ptr, ptr %m_handlerArg1382, align 8
+  %308 = load ptr, ptr %m_declEntity819, align 8
+  %309 = load ptr, ptr %308, align 8
+  %base724 = getelementptr inbounds i8, ptr %308, i64 32
+  %310 = load ptr, ptr %base724, align 8
+  %systemId726 = getelementptr inbounds i8, ptr %308, i64 24
+  %311 = load ptr, ptr %systemId726, align 8
+  %publicId728 = getelementptr inbounds i8, ptr %308, i64 40
+  %312 = load ptr, ptr %publicId728, align 8
+  %notation730 = getelementptr inbounds i8, ptr %308, i64 48
+  %313 = load ptr, ptr %notation730, align 8
+  call void %306(ptr noundef %307, ptr noundef %309, ptr noundef %310, ptr noundef %311, ptr noundef %312, ptr noundef %313) #23
   br label %if.end1443
 
 if.else731:                                       ; preds = %if.end712
-  %302 = load ptr, ptr %m_entityDeclHandler1413, align 8
-  %tobool733.not = icmp eq ptr %302, null
+  %314 = load ptr, ptr %m_entityDeclHandler1413, align 8
+  %tobool733.not = icmp eq ptr %314, null
   br i1 %tobool733.not, label %land.lhs.true1439, label %if.then734
 
 if.then734:                                       ; preds = %if.else731
   store ptr %s.addr.0, ptr %eventEndPP.0, align 8
-  %303 = load ptr, ptr %m_entityDeclHandler1413, align 8
-  %304 = load ptr, ptr %m_handlerArg1382, align 8
-  %305 = load ptr, ptr %m_declEntity819, align 8
-  %306 = load ptr, ptr %305, align 8
-  %base740 = getelementptr inbounds %struct.ENTITY, ptr %305, i64 0, i32 5
-  %307 = load ptr, ptr %base740, align 8
-  %systemId742 = getelementptr inbounds %struct.ENTITY, ptr %305, i64 0, i32 4
-  %308 = load ptr, ptr %systemId742, align 8
-  %publicId744 = getelementptr inbounds %struct.ENTITY, ptr %305, i64 0, i32 6
-  %309 = load ptr, ptr %publicId744, align 8
-  %notation746 = getelementptr inbounds %struct.ENTITY, ptr %305, i64 0, i32 7
-  %310 = load ptr, ptr %notation746, align 8
-  call void %303(ptr noundef %304, ptr noundef %306, i32 noundef 0, ptr noundef null, i32 noundef 0, ptr noundef %307, ptr noundef %308, ptr noundef %309, ptr noundef %310) #23
+  %315 = load ptr, ptr %m_entityDeclHandler1413, align 8
+  %316 = load ptr, ptr %m_handlerArg1382, align 8
+  %317 = load ptr, ptr %m_declEntity819, align 8
+  %318 = load ptr, ptr %317, align 8
+  %base740 = getelementptr inbounds i8, ptr %317, i64 32
+  %319 = load ptr, ptr %base740, align 8
+  %systemId742 = getelementptr inbounds i8, ptr %317, i64 24
+  %320 = load ptr, ptr %systemId742, align 8
+  %publicId744 = getelementptr inbounds i8, ptr %317, i64 40
+  %321 = load ptr, ptr %publicId744, align 8
+  %notation746 = getelementptr inbounds i8, ptr %317, i64 48
+  %322 = load ptr, ptr %notation746, align 8
+  call void %315(ptr noundef %316, ptr noundef %318, i32 noundef 0, ptr noundef null, i32 noundef 0, ptr noundef %319, ptr noundef %320, ptr noundef %321, ptr noundef %322) #23
   br label %if.end1443
 
 sw.bb750:                                         ; preds = %sw.epilog44
-  %predefinedEntityName = getelementptr inbounds %struct.encoding, ptr %enc.addr.0, i64 0, i32 7
-  %311 = load ptr, ptr %predefinedEntityName, align 8
-  %312 = load ptr, ptr %next.addr, align 8
-  %call751 = call i32 %311(ptr noundef %enc.addr.0, ptr noundef %s.addr.0, ptr noundef %312) #23
+  %predefinedEntityName = getelementptr inbounds i8, ptr %enc.addr.0, i64 88
+  %323 = load ptr, ptr %predefinedEntityName, align 8
+  %324 = load ptr, ptr %next.addr, align 8
+  %call751 = call i32 %323(ptr noundef %enc.addr.0, ptr noundef %s.addr.0, ptr noundef %324) #23
   %tobool752.not = icmp eq i32 %call751, 0
   br i1 %tobool752.not, label %if.end755, label %if.then753
 
@@ -7681,622 +7772,622 @@ if.then753:                                       ; preds = %sw.bb750
   br label %land.lhs.true1439
 
 if.end755:                                        ; preds = %sw.bb750
-  %313 = load i8, ptr %keepProcessing1423, align 8
-  %tobool757.not = icmp eq i8 %313, 0
+  %325 = load i8, ptr %keepProcessing1423, align 8
+  %tobool757.not = icmp eq i8 %325, 0
   br i1 %tobool757.not, label %if.else800, label %if.then758
 
 if.then758:                                       ; preds = %if.end755
-  %314 = load ptr, ptr %next.addr, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %ptr.addr.i.i978)
-  store ptr %s.addr.0, ptr %ptr.addr.i.i978, align 8
-  %315 = load ptr, ptr %ptr1.i.i1180, align 8
-  %tobool.not.i.i980 = icmp eq ptr %315, null
-  br i1 %tobool.not.i.i980, label %land.lhs.true.i.i1004, label %if.end.i.i981
+  %326 = load ptr, ptr %next.addr, align 8
+  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %ptr.addr.i.i1033)
+  store ptr %s.addr.0, ptr %ptr.addr.i.i1033, align 8
+  %327 = load ptr, ptr %ptr1.i.i1235, align 8
+  %tobool.not.i.i1035 = icmp eq ptr %327, null
+  br i1 %tobool.not.i.i1035, label %land.lhs.true.i.i1059, label %if.end.i.i1036
 
-land.lhs.true.i.i1004:                            ; preds = %if.then758
-  %call.i.i1005 = call fastcc zeroext i8 @poolGrow(ptr noundef nonnull %pool1126), !range !13
-  %tobool2.not.i.i1006 = icmp eq i8 %call.i.i1005, 0
-  br i1 %tobool2.not.i.i1006, label %poolAppend.exit.thread.i990, label %if.end.i.i981
+land.lhs.true.i.i1059:                            ; preds = %if.then758
+  %call.i.i1060 = call fastcc zeroext i8 @poolGrow(ptr noundef nonnull %pool1126), !range !13
+  %tobool2.not.i.i1061 = icmp eq i8 %call.i.i1060, 0
+  br i1 %tobool2.not.i.i1061, label %poolAppend.exit.thread.i1045, label %if.end.i.i1036
 
-if.end.i.i981:                                    ; preds = %land.lhs.true.i.i1004, %if.then758
-  %utf8Convert.i.i982 = getelementptr inbounds %struct.encoding, ptr %enc.addr.0, i64 0, i32 10
-  br label %for.cond.i.i984
+if.end.i.i1036:                                   ; preds = %land.lhs.true.i.i1059, %if.then758
+  %utf8Convert.i.i1037 = getelementptr inbounds i8, ptr %enc.addr.0, i64 112
+  br label %for.cond.i.i1039
 
-for.cond.i.i984:                                  ; preds = %if.end8.i.i987, %if.end.i.i981
-  %316 = load ptr, ptr %utf8Convert.i.i982, align 8
-  %317 = load ptr, ptr %end4.i.i1184, align 8
-  %call5.i.i985 = call i32 %316(ptr noundef %enc.addr.0, ptr noundef nonnull %ptr.addr.i.i978, ptr noundef %314, ptr noundef nonnull %ptr1.i.i1180, ptr noundef %317) #23
-  %or.cond.i.i986 = icmp ult i32 %call5.i.i985, 2
-  br i1 %or.cond.i.i986, label %poolAppend.exit.i992, label %if.end8.i.i987
+for.cond.i.i1039:                                 ; preds = %if.end8.i.i1042, %if.end.i.i1036
+  %328 = load ptr, ptr %utf8Convert.i.i1037, align 8
+  %329 = load ptr, ptr %end4.i.i1239, align 8
+  %call5.i.i1040 = call i32 %328(ptr noundef %enc.addr.0, ptr noundef nonnull %ptr.addr.i.i1033, ptr noundef %326, ptr noundef nonnull %ptr1.i.i1235, ptr noundef %329) #23
+  %or.cond.i.i1041 = icmp ult i32 %call5.i.i1040, 2
+  br i1 %or.cond.i.i1041, label %poolAppend.exit.i1047, label %if.end8.i.i1042
 
-if.end8.i.i987:                                   ; preds = %for.cond.i.i984
-  %call9.i.i988 = call fastcc zeroext i8 @poolGrow(ptr noundef nonnull %pool1126), !range !13
-  %tobool10.not.i.i989 = icmp eq i8 %call9.i.i988, 0
-  br i1 %tobool10.not.i.i989, label %poolAppend.exit.thread.i990, label %for.cond.i.i984
+if.end8.i.i1042:                                  ; preds = %for.cond.i.i1039
+  %call9.i.i1043 = call fastcc zeroext i8 @poolGrow(ptr noundef nonnull %pool1126), !range !13
+  %tobool10.not.i.i1044 = icmp eq i8 %call9.i.i1043, 0
+  br i1 %tobool10.not.i.i1044, label %poolAppend.exit.thread.i1045, label %for.cond.i.i1039
 
-poolAppend.exit.thread.i990:                      ; preds = %land.lhs.true.i.i1004, %if.end8.i.i987
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %ptr.addr.i.i978)
+poolAppend.exit.thread.i1045:                     ; preds = %land.lhs.true.i.i1059, %if.end8.i.i1042
+  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %ptr.addr.i.i1033)
   br label %return
 
-poolAppend.exit.i992:                             ; preds = %for.cond.i.i984
-  %318 = load ptr, ptr %start.i.i1194, align 8
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %ptr.addr.i.i978)
-  %tobool.not.i994 = icmp eq ptr %318, null
-  br i1 %tobool.not.i994, label %return, label %if.end.i995
+poolAppend.exit.i1047:                            ; preds = %for.cond.i.i1039
+  %330 = load ptr, ptr %start.i.i1249, align 8
+  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %ptr.addr.i.i1033)
+  %tobool.not.i1049 = icmp eq ptr %330, null
+  br i1 %tobool.not.i1049, label %return, label %if.end.i1050
 
-if.end.i995:                                      ; preds = %poolAppend.exit.i992
-  %319 = load ptr, ptr %ptr1.i.i1180, align 8
-  %320 = load ptr, ptr %end4.i.i1184, align 8
-  %cmp.i996 = icmp eq ptr %319, %320
-  br i1 %cmp.i996, label %land.lhs.true.i999, label %poolStoreString.exit1007
+if.end.i1050:                                     ; preds = %poolAppend.exit.i1047
+  %331 = load ptr, ptr %ptr1.i.i1235, align 8
+  %332 = load ptr, ptr %end4.i.i1239, align 8
+  %cmp.i1051 = icmp eq ptr %331, %332
+  br i1 %cmp.i1051, label %land.lhs.true.i1054, label %poolStoreString.exit1062
 
-land.lhs.true.i999:                               ; preds = %if.end.i995
-  %call3.i1000 = call fastcc zeroext i8 @poolGrow(ptr noundef nonnull %pool1126), !range !13
-  %tobool4.not.i1001 = icmp eq i8 %call3.i1000, 0
-  br i1 %tobool4.not.i1001, label %return, label %land.lhs.true.if.end6_crit_edge.i1002
+land.lhs.true.i1054:                              ; preds = %if.end.i1050
+  %call3.i1055 = call fastcc zeroext i8 @poolGrow(ptr noundef nonnull %pool1126), !range !13
+  %tobool4.not.i1056 = icmp eq i8 %call3.i1055, 0
+  br i1 %tobool4.not.i1056, label %return, label %land.lhs.true.if.end6_crit_edge.i1057
 
-land.lhs.true.if.end6_crit_edge.i1002:            ; preds = %land.lhs.true.i999
-  %.pre.i1003 = load ptr, ptr %ptr1.i.i1180, align 8
-  br label %poolStoreString.exit1007
+land.lhs.true.if.end6_crit_edge.i1057:            ; preds = %land.lhs.true.i1054
+  %.pre.i1058 = load ptr, ptr %ptr1.i.i1235, align 8
+  br label %poolStoreString.exit1062
 
-poolStoreString.exit1007:                         ; preds = %if.end.i995, %land.lhs.true.if.end6_crit_edge.i1002
-  %321 = phi ptr [ %.pre.i1003, %land.lhs.true.if.end6_crit_edge.i1002 ], [ %319, %if.end.i995 ]
-  %incdec.ptr.i998 = getelementptr i8, ptr %321, i64 1
-  store ptr %incdec.ptr.i998, ptr %ptr1.i.i1180, align 8
-  store i8 0, ptr %321, align 1
-  %322 = load ptr, ptr %start.i.i1194, align 8
-  %tobool762.not = icmp eq ptr %322, null
+poolStoreString.exit1062:                         ; preds = %if.end.i1050, %land.lhs.true.if.end6_crit_edge.i1057
+  %333 = phi ptr [ %.pre.i1058, %land.lhs.true.if.end6_crit_edge.i1057 ], [ %331, %if.end.i1050 ]
+  %incdec.ptr.i1053 = getelementptr i8, ptr %333, i64 1
+  store ptr %incdec.ptr.i1053, ptr %ptr1.i.i1235, align 8
+  store i8 0, ptr %333, align 1
+  %334 = load ptr, ptr %start.i.i1249, align 8
+  %tobool762.not = icmp eq ptr %334, null
   br i1 %tobool762.not, label %return, label %if.end764
 
-if.end764:                                        ; preds = %poolStoreString.exit1007
-  %call765 = call fastcc ptr @lookup(ptr noundef %parser, ptr noundef nonnull %0, ptr noundef nonnull %322, i64 noundef 64)
+if.end764:                                        ; preds = %poolStoreString.exit1062
+  %call765 = call fastcc ptr @lookup(ptr noundef %parser, ptr noundef nonnull %0, ptr noundef nonnull %334, i64 noundef 64)
   store ptr %call765, ptr %m_declEntity819, align 8
   %tobool768.not = icmp eq ptr %call765, null
   br i1 %tobool768.not, label %return, label %if.end770
 
 if.end770:                                        ; preds = %if.end764
-  %323 = load ptr, ptr %call765, align 8
-  %cmp773.not = icmp eq ptr %323, %322
+  %335 = load ptr, ptr %call765, align 8
+  %cmp773.not = icmp eq ptr %335, %334
   br i1 %cmp773.not, label %if.else781, label %if.then775
 
 if.then775:                                       ; preds = %if.end770
-  %324 = load ptr, ptr %start.i.i1194, align 8
-  store ptr %324, ptr %ptr1.i.i1180, align 8
+  %336 = load ptr, ptr %start.i.i1249, align 8
+  store ptr %336, ptr %ptr1.i.i1235, align 8
   store ptr null, ptr %m_declEntity819, align 8
   br label %land.lhs.true1439
 
 if.else781:                                       ; preds = %if.end770
-  %325 = load ptr, ptr %ptr1.i.i1180, align 8
-  store ptr %325, ptr %start.i.i1194, align 8
-  %326 = load ptr, ptr %m_declEntity819, align 8
-  %publicId787 = getelementptr inbounds %struct.ENTITY, ptr %326, i64 0, i32 6
+  %337 = load ptr, ptr %ptr1.i.i1235, align 8
+  store ptr %337, ptr %start.i.i1249, align 8
+  %338 = load ptr, ptr %m_declEntity819, align 8
+  %publicId787 = getelementptr inbounds i8, ptr %338, i64 40
   store ptr null, ptr %publicId787, align 8
-  %327 = load ptr, ptr %m_declEntity819, align 8
-  %is_param789 = getelementptr inbounds %struct.ENTITY, ptr %327, i64 0, i32 9
+  %339 = load ptr, ptr %m_declEntity819, align 8
+  %is_param789 = getelementptr inbounds i8, ptr %339, i64 57
   store i8 0, ptr %is_param789, align 1
-  %328 = load ptr, ptr %m_parentParser843, align 8
-  %tobool790.not = icmp eq ptr %328, null
+  %340 = load ptr, ptr %m_parentParser843, align 8
+  %tobool790.not = icmp eq ptr %340, null
   br i1 %tobool790.not, label %lor.rhs, label %lor.end
 
 lor.rhs:                                          ; preds = %if.else781
-  %329 = load ptr, ptr %m_openInternalEntities1151, align 8
-  %tobool792 = icmp ne ptr %329, null
+  %341 = load ptr, ptr %m_openInternalEntities1151, align 8
+  %tobool792 = icmp ne ptr %341, null
   br label %lor.end
 
 lor.end:                                          ; preds = %lor.rhs, %if.else781
-  %330 = phi i1 [ true, %if.else781 ], [ %tobool792, %lor.rhs ]
-  %lnot = xor i1 %330, true
+  %342 = phi i1 [ true, %if.else781 ], [ %tobool792, %lor.rhs ]
+  %lnot = xor i1 %342, true
   %conv793 = zext i1 %lnot to i8
-  %331 = load ptr, ptr %m_declEntity819, align 8
-  %is_internal = getelementptr inbounds %struct.ENTITY, ptr %331, i64 0, i32 10
+  %343 = load ptr, ptr %m_declEntity819, align 8
+  %is_internal = getelementptr inbounds i8, ptr %343, i64 58
   store i8 %conv793, ptr %is_internal, align 2
-  %332 = load ptr, ptr %m_entityDeclHandler1413, align 8
-  %tobool796.not = icmp eq ptr %332, null
+  %344 = load ptr, ptr %m_entityDeclHandler1413, align 8
+  %tobool796.not = icmp eq ptr %344, null
   br i1 %tobool796.not, label %land.lhs.true1439, label %if.end1443
 
 if.else800:                                       ; preds = %if.end755
-  %333 = load ptr, ptr %start.i.i1194, align 8
-  store ptr %333, ptr %ptr1.i.i1180, align 8
+  %345 = load ptr, ptr %start.i.i1249, align 8
+  store ptr %345, ptr %ptr1.i.i1235, align 8
   store ptr null, ptr %m_declEntity819, align 8
   br label %land.lhs.true1439
 
 sw.bb807:                                         ; preds = %sw.epilog44
-  %334 = load i8, ptr %keepProcessing1423, align 8
-  %tobool809.not = icmp eq i8 %334, 0
+  %346 = load i8, ptr %keepProcessing1423, align 8
+  %tobool809.not = icmp eq i8 %346, 0
   br i1 %tobool809.not, label %if.else859, label %if.then810
 
 if.then810:                                       ; preds = %sw.bb807
-  %335 = load ptr, ptr %next.addr, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %ptr.addr.i.i1008)
-  store ptr %s.addr.0, ptr %ptr.addr.i.i1008, align 8
-  %336 = load ptr, ptr %ptr1.i.i1180, align 8
-  %tobool.not.i.i1010 = icmp eq ptr %336, null
-  br i1 %tobool.not.i.i1010, label %land.lhs.true.i.i1034, label %if.end.i.i1011
+  %347 = load ptr, ptr %next.addr, align 8
+  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %ptr.addr.i.i1063)
+  store ptr %s.addr.0, ptr %ptr.addr.i.i1063, align 8
+  %348 = load ptr, ptr %ptr1.i.i1235, align 8
+  %tobool.not.i.i1065 = icmp eq ptr %348, null
+  br i1 %tobool.not.i.i1065, label %land.lhs.true.i.i1089, label %if.end.i.i1066
 
-land.lhs.true.i.i1034:                            ; preds = %if.then810
-  %call.i.i1035 = call fastcc zeroext i8 @poolGrow(ptr noundef nonnull %pool1126), !range !13
-  %tobool2.not.i.i1036 = icmp eq i8 %call.i.i1035, 0
-  br i1 %tobool2.not.i.i1036, label %poolAppend.exit.thread.i1020, label %if.end.i.i1011
+land.lhs.true.i.i1089:                            ; preds = %if.then810
+  %call.i.i1090 = call fastcc zeroext i8 @poolGrow(ptr noundef nonnull %pool1126), !range !13
+  %tobool2.not.i.i1091 = icmp eq i8 %call.i.i1090, 0
+  br i1 %tobool2.not.i.i1091, label %poolAppend.exit.thread.i1075, label %if.end.i.i1066
 
-if.end.i.i1011:                                   ; preds = %land.lhs.true.i.i1034, %if.then810
-  %utf8Convert.i.i1012 = getelementptr inbounds %struct.encoding, ptr %enc.addr.0, i64 0, i32 10
-  br label %for.cond.i.i1014
+if.end.i.i1066:                                   ; preds = %land.lhs.true.i.i1089, %if.then810
+  %utf8Convert.i.i1067 = getelementptr inbounds i8, ptr %enc.addr.0, i64 112
+  br label %for.cond.i.i1069
 
-for.cond.i.i1014:                                 ; preds = %if.end8.i.i1017, %if.end.i.i1011
-  %337 = load ptr, ptr %utf8Convert.i.i1012, align 8
-  %338 = load ptr, ptr %end4.i.i1184, align 8
-  %call5.i.i1015 = call i32 %337(ptr noundef %enc.addr.0, ptr noundef nonnull %ptr.addr.i.i1008, ptr noundef %335, ptr noundef nonnull %ptr1.i.i1180, ptr noundef %338) #23
-  %or.cond.i.i1016 = icmp ult i32 %call5.i.i1015, 2
-  br i1 %or.cond.i.i1016, label %poolAppend.exit.i1022, label %if.end8.i.i1017
+for.cond.i.i1069:                                 ; preds = %if.end8.i.i1072, %if.end.i.i1066
+  %349 = load ptr, ptr %utf8Convert.i.i1067, align 8
+  %350 = load ptr, ptr %end4.i.i1239, align 8
+  %call5.i.i1070 = call i32 %349(ptr noundef %enc.addr.0, ptr noundef nonnull %ptr.addr.i.i1063, ptr noundef %347, ptr noundef nonnull %ptr1.i.i1235, ptr noundef %350) #23
+  %or.cond.i.i1071 = icmp ult i32 %call5.i.i1070, 2
+  br i1 %or.cond.i.i1071, label %poolAppend.exit.i1077, label %if.end8.i.i1072
 
-if.end8.i.i1017:                                  ; preds = %for.cond.i.i1014
-  %call9.i.i1018 = call fastcc zeroext i8 @poolGrow(ptr noundef nonnull %pool1126), !range !13
-  %tobool10.not.i.i1019 = icmp eq i8 %call9.i.i1018, 0
-  br i1 %tobool10.not.i.i1019, label %poolAppend.exit.thread.i1020, label %for.cond.i.i1014
+if.end8.i.i1072:                                  ; preds = %for.cond.i.i1069
+  %call9.i.i1073 = call fastcc zeroext i8 @poolGrow(ptr noundef nonnull %pool1126), !range !13
+  %tobool10.not.i.i1074 = icmp eq i8 %call9.i.i1073, 0
+  br i1 %tobool10.not.i.i1074, label %poolAppend.exit.thread.i1075, label %for.cond.i.i1069
 
-poolAppend.exit.thread.i1020:                     ; preds = %land.lhs.true.i.i1034, %if.end8.i.i1017
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %ptr.addr.i.i1008)
+poolAppend.exit.thread.i1075:                     ; preds = %land.lhs.true.i.i1089, %if.end8.i.i1072
+  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %ptr.addr.i.i1063)
   br label %return
 
-poolAppend.exit.i1022:                            ; preds = %for.cond.i.i1014
-  %339 = load ptr, ptr %start.i.i1194, align 8
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %ptr.addr.i.i1008)
-  %tobool.not.i1024 = icmp eq ptr %339, null
-  br i1 %tobool.not.i1024, label %return, label %if.end.i1025
+poolAppend.exit.i1077:                            ; preds = %for.cond.i.i1069
+  %351 = load ptr, ptr %start.i.i1249, align 8
+  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %ptr.addr.i.i1063)
+  %tobool.not.i1079 = icmp eq ptr %351, null
+  br i1 %tobool.not.i1079, label %return, label %if.end.i1080
 
-if.end.i1025:                                     ; preds = %poolAppend.exit.i1022
-  %340 = load ptr, ptr %ptr1.i.i1180, align 8
-  %341 = load ptr, ptr %end4.i.i1184, align 8
-  %cmp.i1026 = icmp eq ptr %340, %341
-  br i1 %cmp.i1026, label %land.lhs.true.i1029, label %poolStoreString.exit1037
+if.end.i1080:                                     ; preds = %poolAppend.exit.i1077
+  %352 = load ptr, ptr %ptr1.i.i1235, align 8
+  %353 = load ptr, ptr %end4.i.i1239, align 8
+  %cmp.i1081 = icmp eq ptr %352, %353
+  br i1 %cmp.i1081, label %land.lhs.true.i1084, label %poolStoreString.exit1092
 
-land.lhs.true.i1029:                              ; preds = %if.end.i1025
-  %call3.i1030 = call fastcc zeroext i8 @poolGrow(ptr noundef nonnull %pool1126), !range !13
-  %tobool4.not.i1031 = icmp eq i8 %call3.i1030, 0
-  br i1 %tobool4.not.i1031, label %return, label %land.lhs.true.if.end6_crit_edge.i1032
+land.lhs.true.i1084:                              ; preds = %if.end.i1080
+  %call3.i1085 = call fastcc zeroext i8 @poolGrow(ptr noundef nonnull %pool1126), !range !13
+  %tobool4.not.i1086 = icmp eq i8 %call3.i1085, 0
+  br i1 %tobool4.not.i1086, label %return, label %land.lhs.true.if.end6_crit_edge.i1087
 
-land.lhs.true.if.end6_crit_edge.i1032:            ; preds = %land.lhs.true.i1029
-  %.pre.i1033 = load ptr, ptr %ptr1.i.i1180, align 8
-  br label %poolStoreString.exit1037
+land.lhs.true.if.end6_crit_edge.i1087:            ; preds = %land.lhs.true.i1084
+  %.pre.i1088 = load ptr, ptr %ptr1.i.i1235, align 8
+  br label %poolStoreString.exit1092
 
-poolStoreString.exit1037:                         ; preds = %if.end.i1025, %land.lhs.true.if.end6_crit_edge.i1032
-  %342 = phi ptr [ %.pre.i1033, %land.lhs.true.if.end6_crit_edge.i1032 ], [ %340, %if.end.i1025 ]
-  %incdec.ptr.i1028 = getelementptr i8, ptr %342, i64 1
-  store ptr %incdec.ptr.i1028, ptr %ptr1.i.i1180, align 8
-  store i8 0, ptr %342, align 1
-  %343 = load ptr, ptr %start.i.i1194, align 8
-  %tobool814.not = icmp eq ptr %343, null
+poolStoreString.exit1092:                         ; preds = %if.end.i1080, %land.lhs.true.if.end6_crit_edge.i1087
+  %354 = phi ptr [ %.pre.i1088, %land.lhs.true.if.end6_crit_edge.i1087 ], [ %352, %if.end.i1080 ]
+  %incdec.ptr.i1083 = getelementptr i8, ptr %354, i64 1
+  store ptr %incdec.ptr.i1083, ptr %ptr1.i.i1235, align 8
+  store i8 0, ptr %354, align 1
+  %355 = load ptr, ptr %start.i.i1249, align 8
+  %tobool814.not = icmp eq ptr %355, null
   br i1 %tobool814.not, label %return, label %if.end816
 
-if.end816:                                        ; preds = %poolStoreString.exit1037
-  %call818 = call fastcc ptr @lookup(ptr noundef %parser, ptr noundef nonnull %paramEntities1138, ptr noundef nonnull %343, i64 noundef 64)
+if.end816:                                        ; preds = %poolStoreString.exit1092
+  %call818 = call fastcc ptr @lookup(ptr noundef %parser, ptr noundef nonnull %paramEntities1138, ptr noundef nonnull %355, i64 noundef 64)
   store ptr %call818, ptr %m_declEntity819, align 8
   %tobool821.not = icmp eq ptr %call818, null
   br i1 %tobool821.not, label %return, label %if.end823
 
 if.end823:                                        ; preds = %if.end816
-  %344 = load ptr, ptr %call818, align 8
-  %cmp826.not = icmp eq ptr %344, %343
+  %356 = load ptr, ptr %call818, align 8
+  %cmp826.not = icmp eq ptr %356, %355
   br i1 %cmp826.not, label %if.else834, label %if.then828
 
 if.then828:                                       ; preds = %if.end823
-  %345 = load ptr, ptr %start.i.i1194, align 8
-  store ptr %345, ptr %ptr1.i.i1180, align 8
+  %357 = load ptr, ptr %start.i.i1249, align 8
+  store ptr %357, ptr %ptr1.i.i1235, align 8
   store ptr null, ptr %m_declEntity819, align 8
   br label %land.lhs.true1439
 
 if.else834:                                       ; preds = %if.end823
-  %346 = load ptr, ptr %ptr1.i.i1180, align 8
-  store ptr %346, ptr %start.i.i1194, align 8
-  %347 = load ptr, ptr %m_declEntity819, align 8
-  %publicId840 = getelementptr inbounds %struct.ENTITY, ptr %347, i64 0, i32 6
+  %358 = load ptr, ptr %ptr1.i.i1235, align 8
+  store ptr %358, ptr %start.i.i1249, align 8
+  %359 = load ptr, ptr %m_declEntity819, align 8
+  %publicId840 = getelementptr inbounds i8, ptr %359, i64 40
   store ptr null, ptr %publicId840, align 8
-  %348 = load ptr, ptr %m_declEntity819, align 8
-  %is_param842 = getelementptr inbounds %struct.ENTITY, ptr %348, i64 0, i32 9
+  %360 = load ptr, ptr %m_declEntity819, align 8
+  %is_param842 = getelementptr inbounds i8, ptr %360, i64 57
   store i8 1, ptr %is_param842, align 1
-  %349 = load ptr, ptr %m_parentParser843, align 8
-  %tobool844.not = icmp eq ptr %349, null
+  %361 = load ptr, ptr %m_parentParser843, align 8
+  %tobool844.not = icmp eq ptr %361, null
   br i1 %tobool844.not, label %lor.rhs845, label %lor.end848
 
 lor.rhs845:                                       ; preds = %if.else834
-  %350 = load ptr, ptr %m_openInternalEntities1151, align 8
-  %tobool847 = icmp ne ptr %350, null
+  %362 = load ptr, ptr %m_openInternalEntities1151, align 8
+  %tobool847 = icmp ne ptr %362, null
   br label %lor.end848
 
 lor.end848:                                       ; preds = %lor.rhs845, %if.else834
-  %351 = phi i1 [ true, %if.else834 ], [ %tobool847, %lor.rhs845 ]
-  %lnot849 = xor i1 %351, true
+  %363 = phi i1 [ true, %if.else834 ], [ %tobool847, %lor.rhs845 ]
+  %lnot849 = xor i1 %363, true
   %conv851 = zext i1 %lnot849 to i8
-  %352 = load ptr, ptr %m_declEntity819, align 8
-  %is_internal853 = getelementptr inbounds %struct.ENTITY, ptr %352, i64 0, i32 10
+  %364 = load ptr, ptr %m_declEntity819, align 8
+  %is_internal853 = getelementptr inbounds i8, ptr %364, i64 58
   store i8 %conv851, ptr %is_internal853, align 2
-  %353 = load ptr, ptr %m_entityDeclHandler1413, align 8
-  %tobool855.not = icmp eq ptr %353, null
+  %365 = load ptr, ptr %m_entityDeclHandler1413, align 8
+  %tobool855.not = icmp eq ptr %365, null
   br i1 %tobool855.not, label %land.lhs.true1439, label %if.end1443
 
 if.else859:                                       ; preds = %sw.bb807
-  %354 = load ptr, ptr %start.i.i1194, align 8
-  store ptr %354, ptr %ptr1.i.i1180, align 8
+  %366 = load ptr, ptr %start.i.i1249, align 8
+  store ptr %366, ptr %ptr1.i.i1235, align 8
   store ptr null, ptr %m_declEntity819, align 8
   br label %land.lhs.true1439
 
 sw.bb866:                                         ; preds = %sw.epilog44
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %m_declNotationName945, i8 0, i64 16, i1 false)
-  %355 = load ptr, ptr %m_notationDeclHandler1418, align 8
-  %tobool867.not = icmp eq ptr %355, null
+  %367 = load ptr, ptr %m_notationDeclHandler1418, align 8
+  %tobool867.not = icmp eq ptr %367, null
   br i1 %tobool867.not, label %land.lhs.true1439, label %if.then868
 
 if.then868:                                       ; preds = %sw.bb866
-  %356 = load ptr, ptr %next.addr, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %ptr.addr.i.i1038)
-  store ptr %s.addr.0, ptr %ptr.addr.i.i1038, align 8
-  %357 = load ptr, ptr %ptr1.i.i1121, align 8
-  %tobool.not.i.i1040 = icmp eq ptr %357, null
-  br i1 %tobool.not.i.i1040, label %land.lhs.true.i.i1064, label %if.end.i.i1041
+  %368 = load ptr, ptr %next.addr, align 8
+  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %ptr.addr.i.i1093)
+  store ptr %s.addr.0, ptr %ptr.addr.i.i1093, align 8
+  %369 = load ptr, ptr %ptr1.i.i1176, align 8
+  %tobool.not.i.i1095 = icmp eq ptr %369, null
+  br i1 %tobool.not.i.i1095, label %land.lhs.true.i.i1119, label %if.end.i.i1096
 
-land.lhs.true.i.i1064:                            ; preds = %if.then868
-  %call.i.i1065 = call fastcc zeroext i8 @poolGrow(ptr noundef nonnull %m_tempPool949), !range !13
-  %tobool2.not.i.i1066 = icmp eq i8 %call.i.i1065, 0
-  br i1 %tobool2.not.i.i1066, label %poolAppend.exit.thread.i1050, label %if.end.i.i1041
+land.lhs.true.i.i1119:                            ; preds = %if.then868
+  %call.i.i1120 = call fastcc zeroext i8 @poolGrow(ptr noundef nonnull %m_tempPool949), !range !13
+  %tobool2.not.i.i1121 = icmp eq i8 %call.i.i1120, 0
+  br i1 %tobool2.not.i.i1121, label %poolAppend.exit.thread.i1105, label %if.end.i.i1096
 
-if.end.i.i1041:                                   ; preds = %land.lhs.true.i.i1064, %if.then868
-  %utf8Convert.i.i1042 = getelementptr inbounds %struct.encoding, ptr %enc.addr.0, i64 0, i32 10
-  br label %for.cond.i.i1044
+if.end.i.i1096:                                   ; preds = %land.lhs.true.i.i1119, %if.then868
+  %utf8Convert.i.i1097 = getelementptr inbounds i8, ptr %enc.addr.0, i64 112
+  br label %for.cond.i.i1099
 
-for.cond.i.i1044:                                 ; preds = %if.end8.i.i1047, %if.end.i.i1041
-  %358 = load ptr, ptr %utf8Convert.i.i1042, align 8
-  %359 = load ptr, ptr %end.i1169, align 8
-  %call5.i.i1045 = call i32 %358(ptr noundef %enc.addr.0, ptr noundef nonnull %ptr.addr.i.i1038, ptr noundef %356, ptr noundef nonnull %ptr1.i.i1121, ptr noundef %359) #23
-  %or.cond.i.i1046 = icmp ult i32 %call5.i.i1045, 2
-  br i1 %or.cond.i.i1046, label %poolAppend.exit.i1052, label %if.end8.i.i1047
+for.cond.i.i1099:                                 ; preds = %if.end8.i.i1102, %if.end.i.i1096
+  %370 = load ptr, ptr %utf8Convert.i.i1097, align 8
+  %371 = load ptr, ptr %end.i1224, align 8
+  %call5.i.i1100 = call i32 %370(ptr noundef %enc.addr.0, ptr noundef nonnull %ptr.addr.i.i1093, ptr noundef %368, ptr noundef nonnull %ptr1.i.i1176, ptr noundef %371) #23
+  %or.cond.i.i1101 = icmp ult i32 %call5.i.i1100, 2
+  br i1 %or.cond.i.i1101, label %poolAppend.exit.i1107, label %if.end8.i.i1102
 
-if.end8.i.i1047:                                  ; preds = %for.cond.i.i1044
-  %call9.i.i1048 = call fastcc zeroext i8 @poolGrow(ptr noundef nonnull %m_tempPool949), !range !13
-  %tobool10.not.i.i1049 = icmp eq i8 %call9.i.i1048, 0
-  br i1 %tobool10.not.i.i1049, label %poolAppend.exit.thread.i1050, label %for.cond.i.i1044
+if.end8.i.i1102:                                  ; preds = %for.cond.i.i1099
+  %call9.i.i1103 = call fastcc zeroext i8 @poolGrow(ptr noundef nonnull %m_tempPool949), !range !13
+  %tobool10.not.i.i1104 = icmp eq i8 %call9.i.i1103, 0
+  br i1 %tobool10.not.i.i1104, label %poolAppend.exit.thread.i1105, label %for.cond.i.i1099
 
-poolAppend.exit.thread.i1050:                     ; preds = %land.lhs.true.i.i1064, %if.end8.i.i1047
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %ptr.addr.i.i1038)
-  br label %poolStoreString.exit1067.thread
+poolAppend.exit.thread.i1105:                     ; preds = %land.lhs.true.i.i1119, %if.end8.i.i1102
+  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %ptr.addr.i.i1093)
+  br label %poolStoreString.exit1122.thread
 
-poolAppend.exit.i1052:                            ; preds = %for.cond.i.i1044
-  %360 = load ptr, ptr %start.i.i1135, align 8
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %ptr.addr.i.i1038)
-  %tobool.not.i1054 = icmp eq ptr %360, null
-  br i1 %tobool.not.i1054, label %poolStoreString.exit1067.thread, label %if.end.i1055
+poolAppend.exit.i1107:                            ; preds = %for.cond.i.i1099
+  %372 = load ptr, ptr %start.i.i1190, align 8
+  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %ptr.addr.i.i1093)
+  %tobool.not.i1109 = icmp eq ptr %372, null
+  br i1 %tobool.not.i1109, label %poolStoreString.exit1122.thread, label %if.end.i1110
 
-if.end.i1055:                                     ; preds = %poolAppend.exit.i1052
-  %361 = load ptr, ptr %ptr1.i.i1121, align 8
-  %362 = load ptr, ptr %end.i1169, align 8
-  %cmp.i1056 = icmp eq ptr %361, %362
-  br i1 %cmp.i1056, label %land.lhs.true.i1059, label %poolStoreString.exit1067
+if.end.i1110:                                     ; preds = %poolAppend.exit.i1107
+  %373 = load ptr, ptr %ptr1.i.i1176, align 8
+  %374 = load ptr, ptr %end.i1224, align 8
+  %cmp.i1111 = icmp eq ptr %373, %374
+  br i1 %cmp.i1111, label %land.lhs.true.i1114, label %poolStoreString.exit1122
 
-land.lhs.true.i1059:                              ; preds = %if.end.i1055
-  %call3.i1060 = call fastcc zeroext i8 @poolGrow(ptr noundef nonnull %m_tempPool949), !range !13
-  %tobool4.not.i1061 = icmp eq i8 %call3.i1060, 0
-  br i1 %tobool4.not.i1061, label %poolStoreString.exit1067.thread, label %land.lhs.true.if.end6_crit_edge.i1062
+land.lhs.true.i1114:                              ; preds = %if.end.i1110
+  %call3.i1115 = call fastcc zeroext i8 @poolGrow(ptr noundef nonnull %m_tempPool949), !range !13
+  %tobool4.not.i1116 = icmp eq i8 %call3.i1115, 0
+  br i1 %tobool4.not.i1116, label %poolStoreString.exit1122.thread, label %land.lhs.true.if.end6_crit_edge.i1117
 
-land.lhs.true.if.end6_crit_edge.i1062:            ; preds = %land.lhs.true.i1059
-  %.pre.i1063 = load ptr, ptr %ptr1.i.i1121, align 8
-  br label %poolStoreString.exit1067
+land.lhs.true.if.end6_crit_edge.i1117:            ; preds = %land.lhs.true.i1114
+  %.pre.i1118 = load ptr, ptr %ptr1.i.i1176, align 8
+  br label %poolStoreString.exit1122
 
-poolStoreString.exit1067.thread:                  ; preds = %poolAppend.exit.i1052, %land.lhs.true.i1059, %poolAppend.exit.thread.i1050
+poolStoreString.exit1122.thread:                  ; preds = %poolAppend.exit.i1107, %land.lhs.true.i1114, %poolAppend.exit.thread.i1105
   store ptr null, ptr %m_declNotationName945, align 8
   br label %return
 
-poolStoreString.exit1067:                         ; preds = %if.end.i1055, %land.lhs.true.if.end6_crit_edge.i1062
-  %363 = phi ptr [ %.pre.i1063, %land.lhs.true.if.end6_crit_edge.i1062 ], [ %361, %if.end.i1055 ]
-  %incdec.ptr.i1058 = getelementptr i8, ptr %363, i64 1
-  store ptr %incdec.ptr.i1058, ptr %ptr1.i.i1121, align 8
-  store i8 0, ptr %363, align 1
-  %364 = load ptr, ptr %start.i.i1135, align 8
-  store ptr %364, ptr %m_declNotationName945, align 8
-  %tobool873.not = icmp eq ptr %364, null
+poolStoreString.exit1122:                         ; preds = %if.end.i1110, %land.lhs.true.if.end6_crit_edge.i1117
+  %375 = phi ptr [ %.pre.i1118, %land.lhs.true.if.end6_crit_edge.i1117 ], [ %373, %if.end.i1110 ]
+  %incdec.ptr.i1113 = getelementptr i8, ptr %375, i64 1
+  store ptr %incdec.ptr.i1113, ptr %ptr1.i.i1176, align 8
+  store i8 0, ptr %375, align 1
+  %376 = load ptr, ptr %start.i.i1190, align 8
+  store ptr %376, ptr %m_declNotationName945, align 8
+  %tobool873.not = icmp eq ptr %376, null
   br i1 %tobool873.not, label %return, label %if.end875
 
-if.end875:                                        ; preds = %poolStoreString.exit1067
-  %365 = load ptr, ptr %ptr1.i.i1121, align 8
-  store ptr %365, ptr %start.i.i1135, align 8
+if.end875:                                        ; preds = %poolStoreString.exit1122
+  %377 = load ptr, ptr %ptr1.i.i1176, align 8
+  store ptr %377, ptr %start.i.i1190, align 8
   br label %if.end1443
 
 sw.bb881:                                         ; preds = %sw.epilog44
-  %isPublicId882 = getelementptr inbounds %struct.encoding, ptr %enc.addr.0, i64 0, i32 9
-  %366 = load ptr, ptr %isPublicId882, align 8
-  %367 = load ptr, ptr %next.addr, align 8
-  %call883 = call i32 %366(ptr noundef %enc.addr.0, ptr noundef %s.addr.0, ptr noundef %367, ptr noundef nonnull %eventPP.0) #23
+  %isPublicId882 = getelementptr inbounds i8, ptr %enc.addr.0, i64 104
+  %378 = load ptr, ptr %isPublicId882, align 8
+  %379 = load ptr, ptr %next.addr, align 8
+  %call883 = call i32 %378(ptr noundef %enc.addr.0, ptr noundef %s.addr.0, ptr noundef %379, ptr noundef nonnull %eventPP.0) #23
   %tobool884.not = icmp eq i32 %call883, 0
   br i1 %tobool884.not, label %return, label %if.end886
 
 if.end886:                                        ; preds = %sw.bb881
-  %368 = load ptr, ptr %m_declNotationName945, align 8
-  %tobool888.not = icmp eq ptr %368, null
+  %380 = load ptr, ptr %m_declNotationName945, align 8
+  %tobool888.not = icmp eq ptr %380, null
   br i1 %tobool888.not, label %land.lhs.true1439, label %if.then889
 
 if.then889:                                       ; preds = %if.end886
-  %minBytesPerChar892 = getelementptr inbounds %struct.encoding, ptr %enc.addr.0, i64 0, i32 12
-  %369 = load i32, ptr %minBytesPerChar892, align 8
-  %idx.ext893 = sext i32 %369 to i64
+  %minBytesPerChar892 = getelementptr inbounds i8, ptr %enc.addr.0, i64 128
+  %381 = load i32, ptr %minBytesPerChar892, align 8
+  %idx.ext893 = sext i32 %381 to i64
   %add.ptr894 = getelementptr i8, ptr %s.addr.0, i64 %idx.ext893
-  %370 = load ptr, ptr %next.addr, align 8
+  %382 = load ptr, ptr %next.addr, align 8
   %idx.neg897 = sub nsw i64 0, %idx.ext893
-  %add.ptr898 = getelementptr i8, ptr %370, i64 %idx.neg897
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %ptr.addr.i.i1068)
-  store ptr %add.ptr894, ptr %ptr.addr.i.i1068, align 8
-  %371 = load ptr, ptr %ptr1.i.i1121, align 8
-  %tobool.not.i.i1070 = icmp eq ptr %371, null
-  br i1 %tobool.not.i.i1070, label %land.lhs.true.i.i1094, label %if.end.i.i1071
+  %add.ptr898 = getelementptr i8, ptr %382, i64 %idx.neg897
+  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %ptr.addr.i.i1123)
+  store ptr %add.ptr894, ptr %ptr.addr.i.i1123, align 8
+  %383 = load ptr, ptr %ptr1.i.i1176, align 8
+  %tobool.not.i.i1125 = icmp eq ptr %383, null
+  br i1 %tobool.not.i.i1125, label %land.lhs.true.i.i1149, label %if.end.i.i1126
 
-land.lhs.true.i.i1094:                            ; preds = %if.then889
-  %call.i.i1095 = call fastcc zeroext i8 @poolGrow(ptr noundef nonnull %m_tempPool949), !range !13
-  %tobool2.not.i.i1096 = icmp eq i8 %call.i.i1095, 0
-  br i1 %tobool2.not.i.i1096, label %poolAppend.exit.thread.i1080, label %if.end.i.i1071
+land.lhs.true.i.i1149:                            ; preds = %if.then889
+  %call.i.i1150 = call fastcc zeroext i8 @poolGrow(ptr noundef nonnull %m_tempPool949), !range !13
+  %tobool2.not.i.i1151 = icmp eq i8 %call.i.i1150, 0
+  br i1 %tobool2.not.i.i1151, label %poolAppend.exit.thread.i1135, label %if.end.i.i1126
 
-if.end.i.i1071:                                   ; preds = %land.lhs.true.i.i1094, %if.then889
-  %utf8Convert.i.i1072 = getelementptr inbounds %struct.encoding, ptr %enc.addr.0, i64 0, i32 10
-  br label %for.cond.i.i1074
+if.end.i.i1126:                                   ; preds = %land.lhs.true.i.i1149, %if.then889
+  %utf8Convert.i.i1127 = getelementptr inbounds i8, ptr %enc.addr.0, i64 112
+  br label %for.cond.i.i1129
 
-for.cond.i.i1074:                                 ; preds = %if.end8.i.i1077, %if.end.i.i1071
-  %372 = load ptr, ptr %utf8Convert.i.i1072, align 8
-  %373 = load ptr, ptr %end.i1169, align 8
-  %call5.i.i1075 = call i32 %372(ptr noundef nonnull %enc.addr.0, ptr noundef nonnull %ptr.addr.i.i1068, ptr noundef %add.ptr898, ptr noundef nonnull %ptr1.i.i1121, ptr noundef %373) #23
-  %or.cond.i.i1076 = icmp ult i32 %call5.i.i1075, 2
-  br i1 %or.cond.i.i1076, label %poolAppend.exit.i1082, label %if.end8.i.i1077
+for.cond.i.i1129:                                 ; preds = %if.end8.i.i1132, %if.end.i.i1126
+  %384 = load ptr, ptr %utf8Convert.i.i1127, align 8
+  %385 = load ptr, ptr %end.i1224, align 8
+  %call5.i.i1130 = call i32 %384(ptr noundef nonnull %enc.addr.0, ptr noundef nonnull %ptr.addr.i.i1123, ptr noundef %add.ptr898, ptr noundef nonnull %ptr1.i.i1176, ptr noundef %385) #23
+  %or.cond.i.i1131 = icmp ult i32 %call5.i.i1130, 2
+  br i1 %or.cond.i.i1131, label %poolAppend.exit.i1137, label %if.end8.i.i1132
 
-if.end8.i.i1077:                                  ; preds = %for.cond.i.i1074
-  %call9.i.i1078 = call fastcc zeroext i8 @poolGrow(ptr noundef nonnull %m_tempPool949), !range !13
-  %tobool10.not.i.i1079 = icmp eq i8 %call9.i.i1078, 0
-  br i1 %tobool10.not.i.i1079, label %poolAppend.exit.thread.i1080, label %for.cond.i.i1074
+if.end8.i.i1132:                                  ; preds = %for.cond.i.i1129
+  %call9.i.i1133 = call fastcc zeroext i8 @poolGrow(ptr noundef nonnull %m_tempPool949), !range !13
+  %tobool10.not.i.i1134 = icmp eq i8 %call9.i.i1133, 0
+  br i1 %tobool10.not.i.i1134, label %poolAppend.exit.thread.i1135, label %for.cond.i.i1129
 
-poolAppend.exit.thread.i1080:                     ; preds = %land.lhs.true.i.i1094, %if.end8.i.i1077
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %ptr.addr.i.i1068)
+poolAppend.exit.thread.i1135:                     ; preds = %land.lhs.true.i.i1149, %if.end8.i.i1132
+  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %ptr.addr.i.i1123)
   br label %return
 
-poolAppend.exit.i1082:                            ; preds = %for.cond.i.i1074
-  %374 = load ptr, ptr %start.i.i1135, align 8
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %ptr.addr.i.i1068)
-  %tobool.not.i1084 = icmp eq ptr %374, null
-  br i1 %tobool.not.i1084, label %return, label %if.end.i1085
+poolAppend.exit.i1137:                            ; preds = %for.cond.i.i1129
+  %386 = load ptr, ptr %start.i.i1190, align 8
+  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %ptr.addr.i.i1123)
+  %tobool.not.i1139 = icmp eq ptr %386, null
+  br i1 %tobool.not.i1139, label %return, label %if.end.i1140
 
-if.end.i1085:                                     ; preds = %poolAppend.exit.i1082
-  %375 = load ptr, ptr %ptr1.i.i1121, align 8
-  %376 = load ptr, ptr %end.i1169, align 8
-  %cmp.i1086 = icmp eq ptr %375, %376
-  br i1 %cmp.i1086, label %land.lhs.true.i1089, label %poolStoreString.exit1097
+if.end.i1140:                                     ; preds = %poolAppend.exit.i1137
+  %387 = load ptr, ptr %ptr1.i.i1176, align 8
+  %388 = load ptr, ptr %end.i1224, align 8
+  %cmp.i1141 = icmp eq ptr %387, %388
+  br i1 %cmp.i1141, label %land.lhs.true.i1144, label %poolStoreString.exit1152
 
-land.lhs.true.i1089:                              ; preds = %if.end.i1085
-  %call3.i1090 = call fastcc zeroext i8 @poolGrow(ptr noundef nonnull %m_tempPool949), !range !13
-  %tobool4.not.i1091 = icmp eq i8 %call3.i1090, 0
-  br i1 %tobool4.not.i1091, label %return, label %land.lhs.true.if.end6_crit_edge.i1092
+land.lhs.true.i1144:                              ; preds = %if.end.i1140
+  %call3.i1145 = call fastcc zeroext i8 @poolGrow(ptr noundef nonnull %m_tempPool949), !range !13
+  %tobool4.not.i1146 = icmp eq i8 %call3.i1145, 0
+  br i1 %tobool4.not.i1146, label %return, label %land.lhs.true.if.end6_crit_edge.i1147
 
-land.lhs.true.if.end6_crit_edge.i1092:            ; preds = %land.lhs.true.i1089
-  %.pre.i1093 = load ptr, ptr %ptr1.i.i1121, align 8
-  br label %poolStoreString.exit1097
+land.lhs.true.if.end6_crit_edge.i1147:            ; preds = %land.lhs.true.i1144
+  %.pre.i1148 = load ptr, ptr %ptr1.i.i1176, align 8
+  br label %poolStoreString.exit1152
 
-poolStoreString.exit1097:                         ; preds = %if.end.i1085, %land.lhs.true.if.end6_crit_edge.i1092
-  %377 = phi ptr [ %.pre.i1093, %land.lhs.true.if.end6_crit_edge.i1092 ], [ %375, %if.end.i1085 ]
-  %incdec.ptr.i1088 = getelementptr i8, ptr %377, i64 1
-  store ptr %incdec.ptr.i1088, ptr %ptr1.i.i1121, align 8
-  store i8 0, ptr %377, align 1
-  %378 = load ptr, ptr %start.i.i1135, align 8
-  %tobool900.not = icmp eq ptr %378, null
-  br i1 %tobool900.not, label %return, label %for.cond.i1098
+poolStoreString.exit1152:                         ; preds = %if.end.i1140, %land.lhs.true.if.end6_crit_edge.i1147
+  %389 = phi ptr [ %.pre.i1148, %land.lhs.true.if.end6_crit_edge.i1147 ], [ %387, %if.end.i1140 ]
+  %incdec.ptr.i1143 = getelementptr i8, ptr %389, i64 1
+  store ptr %incdec.ptr.i1143, ptr %ptr1.i.i1176, align 8
+  store i8 0, ptr %389, align 1
+  %390 = load ptr, ptr %start.i.i1190, align 8
+  %tobool900.not = icmp eq ptr %390, null
+  br i1 %tobool900.not, label %return, label %for.cond.i1153
 
-for.cond.i1098:                                   ; preds = %poolStoreString.exit1097, %for.inc.i1109
-  %p.0.i1099 = phi ptr [ %p.1.i1110, %for.inc.i1109 ], [ %378, %poolStoreString.exit1097 ]
-  %s.0.i1100 = phi ptr [ %incdec.ptr6.i1111, %for.inc.i1109 ], [ %378, %poolStoreString.exit1097 ]
-  %379 = load i8, ptr %s.0.i1100, align 1
-  switch i8 %379, label %for.inc.sink.split.i1106 [
-    i8 0, label %for.end.i1112
-    i8 32, label %sw.bb.i1101
-    i8 13, label %sw.bb.i1101
-    i8 10, label %sw.bb.i1101
+for.cond.i1153:                                   ; preds = %poolStoreString.exit1152, %for.inc.i1164
+  %p.0.i1154 = phi ptr [ %p.1.i1165, %for.inc.i1164 ], [ %390, %poolStoreString.exit1152 ]
+  %s.0.i1155 = phi ptr [ %incdec.ptr6.i1166, %for.inc.i1164 ], [ %390, %poolStoreString.exit1152 ]
+  %391 = load i8, ptr %s.0.i1155, align 1
+  switch i8 %391, label %for.inc.sink.split.i1161 [
+    i8 0, label %for.end.i1167
+    i8 32, label %sw.bb.i1156
+    i8 13, label %sw.bb.i1156
+    i8 10, label %sw.bb.i1156
   ]
 
-sw.bb.i1101:                                      ; preds = %for.cond.i1098, %for.cond.i1098, %for.cond.i1098
-  %cmp.not.i1102 = icmp eq ptr %p.0.i1099, %378
-  br i1 %cmp.not.i1102, label %for.inc.i1109, label %land.lhs.true.i1103
+sw.bb.i1156:                                      ; preds = %for.cond.i1153, %for.cond.i1153, %for.cond.i1153
+  %cmp.not.i1157 = icmp eq ptr %p.0.i1154, %390
+  br i1 %cmp.not.i1157, label %for.inc.i1164, label %land.lhs.true.i1158
 
-land.lhs.true.i1103:                              ; preds = %sw.bb.i1101
-  %arrayidx.i1104 = getelementptr i8, ptr %p.0.i1099, i64 -1
-  %380 = load i8, ptr %arrayidx.i1104, align 1
-  %cmp3.not.i1105 = icmp eq i8 %380, 32
-  br i1 %cmp3.not.i1105, label %for.inc.i1109, label %for.inc.sink.split.i1106
+land.lhs.true.i1158:                              ; preds = %sw.bb.i1156
+  %arrayidx.i1159 = getelementptr i8, ptr %p.0.i1154, i64 -1
+  %392 = load i8, ptr %arrayidx.i1159, align 1
+  %cmp3.not.i1160 = icmp eq i8 %392, 32
+  br i1 %cmp3.not.i1160, label %for.inc.i1164, label %for.inc.sink.split.i1161
 
-for.inc.sink.split.i1106:                         ; preds = %land.lhs.true.i1103, %for.cond.i1098
-  %.sink.i1107 = phi i8 [ 32, %land.lhs.true.i1103 ], [ %379, %for.cond.i1098 ]
-  %incdec.ptr5.i1108 = getelementptr i8, ptr %p.0.i1099, i64 1
-  store i8 %.sink.i1107, ptr %p.0.i1099, align 1
-  br label %for.inc.i1109
+for.inc.sink.split.i1161:                         ; preds = %land.lhs.true.i1158, %for.cond.i1153
+  %.sink.i1162 = phi i8 [ 32, %land.lhs.true.i1158 ], [ %391, %for.cond.i1153 ]
+  %incdec.ptr5.i1163 = getelementptr i8, ptr %p.0.i1154, i64 1
+  store i8 %.sink.i1162, ptr %p.0.i1154, align 1
+  br label %for.inc.i1164
 
-for.inc.i1109:                                    ; preds = %for.inc.sink.split.i1106, %land.lhs.true.i1103, %sw.bb.i1101
-  %p.1.i1110 = phi ptr [ %p.0.i1099, %land.lhs.true.i1103 ], [ %378, %sw.bb.i1101 ], [ %incdec.ptr5.i1108, %for.inc.sink.split.i1106 ]
-  %incdec.ptr6.i1111 = getelementptr i8, ptr %s.0.i1100, i64 1
-  br label %for.cond.i1098, !llvm.loop !33
+for.inc.i1164:                                    ; preds = %for.inc.sink.split.i1161, %land.lhs.true.i1158, %sw.bb.i1156
+  %p.1.i1165 = phi ptr [ %p.0.i1154, %land.lhs.true.i1158 ], [ %390, %sw.bb.i1156 ], [ %incdec.ptr5.i1163, %for.inc.sink.split.i1161 ]
+  %incdec.ptr6.i1166 = getelementptr i8, ptr %s.0.i1155, i64 1
+  br label %for.cond.i1153, !llvm.loop !33
 
-for.end.i1112:                                    ; preds = %for.cond.i1098
-  %cmp7.not.i1113 = icmp eq ptr %p.0.i1099, %378
-  br i1 %cmp7.not.i1113, label %normalizePublicId.exit1119, label %land.lhs.true9.i1114
+for.end.i1167:                                    ; preds = %for.cond.i1153
+  %cmp7.not.i1168 = icmp eq ptr %p.0.i1154, %390
+  br i1 %cmp7.not.i1168, label %normalizePublicId.exit1174, label %land.lhs.true9.i1169
 
-land.lhs.true9.i1114:                             ; preds = %for.end.i1112
-  %arrayidx10.i1115 = getelementptr i8, ptr %p.0.i1099, i64 -1
-  %381 = load i8, ptr %arrayidx10.i1115, align 1
-  %cmp12.i1116 = icmp eq i8 %381, 32
-  %spec.select.i1117 = select i1 %cmp12.i1116, ptr %arrayidx10.i1115, ptr %p.0.i1099
-  br label %normalizePublicId.exit1119
+land.lhs.true9.i1169:                             ; preds = %for.end.i1167
+  %arrayidx10.i1170 = getelementptr i8, ptr %p.0.i1154, i64 -1
+  %393 = load i8, ptr %arrayidx10.i1170, align 1
+  %cmp12.i1171 = icmp eq i8 %393, 32
+  %spec.select.i1172 = select i1 %cmp12.i1171, ptr %arrayidx10.i1170, ptr %p.0.i1154
+  br label %normalizePublicId.exit1174
 
-normalizePublicId.exit1119:                       ; preds = %for.end.i1112, %land.lhs.true9.i1114
-  %p.2.i1118 = phi ptr [ %378, %for.end.i1112 ], [ %spec.select.i1117, %land.lhs.true9.i1114 ]
-  store i8 0, ptr %p.2.i1118, align 1
-  store ptr %378, ptr %m_declNotationPublicId937, align 8
-  %382 = load ptr, ptr %ptr1.i.i1121, align 8
-  store ptr %382, ptr %start.i.i1135, align 8
+normalizePublicId.exit1174:                       ; preds = %for.end.i1167, %land.lhs.true9.i1169
+  %p.2.i1173 = phi ptr [ %390, %for.end.i1167 ], [ %spec.select.i1172, %land.lhs.true9.i1169 ]
+  store i8 0, ptr %p.2.i1173, align 1
+  store ptr %390, ptr %m_declNotationPublicId937, align 8
+  %394 = load ptr, ptr %ptr1.i.i1176, align 8
+  store ptr %394, ptr %start.i.i1190, align 8
   br label %if.end1443
 
 sw.bb909:                                         ; preds = %sw.epilog44
-  %383 = load ptr, ptr %m_declNotationName945, align 8
-  %tobool911.not = icmp eq ptr %383, null
+  %395 = load ptr, ptr %m_declNotationName945, align 8
+  %tobool911.not = icmp eq ptr %395, null
   br i1 %tobool911.not, label %if.end934, label %land.lhs.true912
 
 land.lhs.true912:                                 ; preds = %sw.bb909
-  %384 = load ptr, ptr %m_notationDeclHandler1418, align 8
-  %tobool914.not = icmp eq ptr %384, null
+  %396 = load ptr, ptr %m_notationDeclHandler1418, align 8
+  %tobool914.not = icmp eq ptr %396, null
   br i1 %tobool914.not, label %if.end934, label %if.then915
 
 if.then915:                                       ; preds = %land.lhs.true912
-  %minBytesPerChar918 = getelementptr inbounds %struct.encoding, ptr %enc.addr.0, i64 0, i32 12
-  %385 = load i32, ptr %minBytesPerChar918, align 8
-  %idx.ext919 = sext i32 %385 to i64
+  %minBytesPerChar918 = getelementptr inbounds i8, ptr %enc.addr.0, i64 128
+  %397 = load i32, ptr %minBytesPerChar918, align 8
+  %idx.ext919 = sext i32 %397 to i64
   %add.ptr920 = getelementptr i8, ptr %s.addr.0, i64 %idx.ext919
-  %386 = load ptr, ptr %next.addr, align 8
+  %398 = load ptr, ptr %next.addr, align 8
   %idx.neg923 = sub nsw i64 0, %idx.ext919
-  %add.ptr924 = getelementptr i8, ptr %386, i64 %idx.neg923
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %ptr.addr.i.i1120)
-  store ptr %add.ptr920, ptr %ptr.addr.i.i1120, align 8
-  %387 = load ptr, ptr %ptr1.i.i1121, align 8
-  %tobool.not.i.i1122 = icmp eq ptr %387, null
-  br i1 %tobool.not.i.i1122, label %land.lhs.true.i.i1146, label %if.end.i.i1123
+  %add.ptr924 = getelementptr i8, ptr %398, i64 %idx.neg923
+  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %ptr.addr.i.i1175)
+  store ptr %add.ptr920, ptr %ptr.addr.i.i1175, align 8
+  %399 = load ptr, ptr %ptr1.i.i1176, align 8
+  %tobool.not.i.i1177 = icmp eq ptr %399, null
+  br i1 %tobool.not.i.i1177, label %land.lhs.true.i.i1201, label %if.end.i.i1178
 
-land.lhs.true.i.i1146:                            ; preds = %if.then915
-  %call.i.i1147 = call fastcc zeroext i8 @poolGrow(ptr noundef nonnull %m_tempPool949), !range !13
-  %tobool2.not.i.i1148 = icmp eq i8 %call.i.i1147, 0
-  br i1 %tobool2.not.i.i1148, label %poolAppend.exit.thread.i1132, label %if.end.i.i1123
+land.lhs.true.i.i1201:                            ; preds = %if.then915
+  %call.i.i1202 = call fastcc zeroext i8 @poolGrow(ptr noundef nonnull %m_tempPool949), !range !13
+  %tobool2.not.i.i1203 = icmp eq i8 %call.i.i1202, 0
+  br i1 %tobool2.not.i.i1203, label %poolAppend.exit.thread.i1187, label %if.end.i.i1178
 
-if.end.i.i1123:                                   ; preds = %land.lhs.true.i.i1146, %if.then915
-  %utf8Convert.i.i1124 = getelementptr inbounds %struct.encoding, ptr %enc.addr.0, i64 0, i32 10
-  br label %for.cond.i.i1126
+if.end.i.i1178:                                   ; preds = %land.lhs.true.i.i1201, %if.then915
+  %utf8Convert.i.i1179 = getelementptr inbounds i8, ptr %enc.addr.0, i64 112
+  br label %for.cond.i.i1181
 
-for.cond.i.i1126:                                 ; preds = %if.end8.i.i1129, %if.end.i.i1123
-  %388 = load ptr, ptr %utf8Convert.i.i1124, align 8
-  %389 = load ptr, ptr %end.i1169, align 8
-  %call5.i.i1127 = call i32 %388(ptr noundef nonnull %enc.addr.0, ptr noundef nonnull %ptr.addr.i.i1120, ptr noundef %add.ptr924, ptr noundef nonnull %ptr1.i.i1121, ptr noundef %389) #23
-  %or.cond.i.i1128 = icmp ult i32 %call5.i.i1127, 2
-  br i1 %or.cond.i.i1128, label %poolAppend.exit.i1134, label %if.end8.i.i1129
+for.cond.i.i1181:                                 ; preds = %if.end8.i.i1184, %if.end.i.i1178
+  %400 = load ptr, ptr %utf8Convert.i.i1179, align 8
+  %401 = load ptr, ptr %end.i1224, align 8
+  %call5.i.i1182 = call i32 %400(ptr noundef nonnull %enc.addr.0, ptr noundef nonnull %ptr.addr.i.i1175, ptr noundef %add.ptr924, ptr noundef nonnull %ptr1.i.i1176, ptr noundef %401) #23
+  %or.cond.i.i1183 = icmp ult i32 %call5.i.i1182, 2
+  br i1 %or.cond.i.i1183, label %poolAppend.exit.i1189, label %if.end8.i.i1184
 
-if.end8.i.i1129:                                  ; preds = %for.cond.i.i1126
-  %call9.i.i1130 = call fastcc zeroext i8 @poolGrow(ptr noundef nonnull %m_tempPool949), !range !13
-  %tobool10.not.i.i1131 = icmp eq i8 %call9.i.i1130, 0
-  br i1 %tobool10.not.i.i1131, label %poolAppend.exit.thread.i1132, label %for.cond.i.i1126
+if.end8.i.i1184:                                  ; preds = %for.cond.i.i1181
+  %call9.i.i1185 = call fastcc zeroext i8 @poolGrow(ptr noundef nonnull %m_tempPool949), !range !13
+  %tobool10.not.i.i1186 = icmp eq i8 %call9.i.i1185, 0
+  br i1 %tobool10.not.i.i1186, label %poolAppend.exit.thread.i1187, label %for.cond.i.i1181
 
-poolAppend.exit.thread.i1132:                     ; preds = %land.lhs.true.i.i1146, %if.end8.i.i1129
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %ptr.addr.i.i1120)
+poolAppend.exit.thread.i1187:                     ; preds = %land.lhs.true.i.i1201, %if.end8.i.i1184
+  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %ptr.addr.i.i1175)
   br label %return
 
-poolAppend.exit.i1134:                            ; preds = %for.cond.i.i1126
-  %390 = load ptr, ptr %start.i.i1135, align 8
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %ptr.addr.i.i1120)
-  %tobool.not.i1136 = icmp eq ptr %390, null
-  br i1 %tobool.not.i1136, label %return, label %if.end.i1137
+poolAppend.exit.i1189:                            ; preds = %for.cond.i.i1181
+  %402 = load ptr, ptr %start.i.i1190, align 8
+  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %ptr.addr.i.i1175)
+  %tobool.not.i1191 = icmp eq ptr %402, null
+  br i1 %tobool.not.i1191, label %return, label %if.end.i1192
 
-if.end.i1137:                                     ; preds = %poolAppend.exit.i1134
-  %391 = load ptr, ptr %ptr1.i.i1121, align 8
-  %392 = load ptr, ptr %end.i1169, align 8
-  %cmp.i1138 = icmp eq ptr %391, %392
-  br i1 %cmp.i1138, label %land.lhs.true.i1141, label %poolStoreString.exit1149
+if.end.i1192:                                     ; preds = %poolAppend.exit.i1189
+  %403 = load ptr, ptr %ptr1.i.i1176, align 8
+  %404 = load ptr, ptr %end.i1224, align 8
+  %cmp.i1193 = icmp eq ptr %403, %404
+  br i1 %cmp.i1193, label %land.lhs.true.i1196, label %poolStoreString.exit1204
 
-land.lhs.true.i1141:                              ; preds = %if.end.i1137
-  %call3.i1142 = call fastcc zeroext i8 @poolGrow(ptr noundef nonnull %m_tempPool949), !range !13
-  %tobool4.not.i1143 = icmp eq i8 %call3.i1142, 0
-  br i1 %tobool4.not.i1143, label %return, label %land.lhs.true.if.end6_crit_edge.i1144
+land.lhs.true.i1196:                              ; preds = %if.end.i1192
+  %call3.i1197 = call fastcc zeroext i8 @poolGrow(ptr noundef nonnull %m_tempPool949), !range !13
+  %tobool4.not.i1198 = icmp eq i8 %call3.i1197, 0
+  br i1 %tobool4.not.i1198, label %return, label %land.lhs.true.if.end6_crit_edge.i1199
 
-land.lhs.true.if.end6_crit_edge.i1144:            ; preds = %land.lhs.true.i1141
-  %.pre.i1145 = load ptr, ptr %ptr1.i.i1121, align 8
-  br label %poolStoreString.exit1149
+land.lhs.true.if.end6_crit_edge.i1199:            ; preds = %land.lhs.true.i1196
+  %.pre.i1200 = load ptr, ptr %ptr1.i.i1176, align 8
+  br label %poolStoreString.exit1204
 
-poolStoreString.exit1149:                         ; preds = %if.end.i1137, %land.lhs.true.if.end6_crit_edge.i1144
-  %393 = phi ptr [ %.pre.i1145, %land.lhs.true.if.end6_crit_edge.i1144 ], [ %391, %if.end.i1137 ]
-  %incdec.ptr.i1140 = getelementptr i8, ptr %393, i64 1
-  store ptr %incdec.ptr.i1140, ptr %ptr1.i.i1121, align 8
-  store i8 0, ptr %393, align 1
-  %394 = load ptr, ptr %start.i.i1135, align 8
-  %tobool926.not = icmp eq ptr %394, null
+poolStoreString.exit1204:                         ; preds = %if.end.i1192, %land.lhs.true.if.end6_crit_edge.i1199
+  %405 = phi ptr [ %.pre.i1200, %land.lhs.true.if.end6_crit_edge.i1199 ], [ %403, %if.end.i1192 ]
+  %incdec.ptr.i1195 = getelementptr i8, ptr %405, i64 1
+  store ptr %incdec.ptr.i1195, ptr %ptr1.i.i1176, align 8
+  store i8 0, ptr %405, align 1
+  %406 = load ptr, ptr %start.i.i1190, align 8
+  %tobool926.not = icmp eq ptr %406, null
   br i1 %tobool926.not, label %return, label %if.end928
 
-if.end928:                                        ; preds = %poolStoreString.exit1149
+if.end928:                                        ; preds = %poolStoreString.exit1204
   store ptr %s.addr.0, ptr %eventEndPP.0, align 8
-  %395 = load ptr, ptr %m_notationDeclHandler1418, align 8
-  %396 = load ptr, ptr %m_handlerArg1382, align 8
-  %397 = load ptr, ptr %m_declNotationName945, align 8
-  %398 = load ptr, ptr %m_curBase946, align 8
-  %399 = load ptr, ptr %m_declNotationPublicId937, align 8
-  call void %395(ptr noundef %396, ptr noundef %397, ptr noundef %398, ptr noundef nonnull %394, ptr noundef %399) #23
+  %407 = load ptr, ptr %m_notationDeclHandler1418, align 8
+  %408 = load ptr, ptr %m_handlerArg1382, align 8
+  %409 = load ptr, ptr %m_declNotationName945, align 8
+  %410 = load ptr, ptr %m_curBase946, align 8
+  %411 = load ptr, ptr %m_declNotationPublicId937, align 8
+  call void %407(ptr noundef %408, ptr noundef %409, ptr noundef %410, ptr noundef nonnull %406, ptr noundef %411) #23
   br label %if.end934
 
 if.end934:                                        ; preds = %if.end928, %land.lhs.true912, %sw.bb909
   %handleDefault.7 = phi i8 [ 0, %if.end928 ], [ 1, %land.lhs.true912 ], [ 1, %sw.bb909 ]
-  %400 = load ptr, ptr %freeBlocks.i1161, align 8
-  %tobool.not.i1151 = icmp eq ptr %400, null
-  %401 = load ptr, ptr %m_tempPool949, align 8
-  br i1 %tobool.not.i1151, label %if.then.i1159, label %if.else.i1152
+  %412 = load ptr, ptr %freeBlocks.i1216, align 8
+  %tobool.not.i1206 = icmp eq ptr %412, null
+  %413 = load ptr, ptr %m_tempPool949, align 8
+  br i1 %tobool.not.i1206, label %if.then.i1214, label %if.else.i1207
 
-if.then.i1159:                                    ; preds = %if.end934
-  store ptr %401, ptr %freeBlocks.i1161, align 8
-  br label %poolClear.exit1160
+if.then.i1214:                                    ; preds = %if.end934
+  store ptr %413, ptr %freeBlocks.i1216, align 8
+  br label %poolClear.exit1215
 
-if.else.i1152:                                    ; preds = %if.end934
-  %tobool3.not13.i1153 = icmp eq ptr %401, null
-  br i1 %tobool3.not13.i1153, label %poolClear.exit1160, label %while.body.i1154
+if.else.i1207:                                    ; preds = %if.end934
+  %tobool3.not13.i1208 = icmp eq ptr %413, null
+  br i1 %tobool3.not13.i1208, label %poolClear.exit1215, label %while.body.i1209
 
-while.body.i1154:                                 ; preds = %if.else.i1152, %while.body.i1154
-  %402 = phi ptr [ %p.014.i1155, %while.body.i1154 ], [ %400, %if.else.i1152 ]
-  %p.014.i1155 = phi ptr [ %403, %while.body.i1154 ], [ %401, %if.else.i1152 ]
-  %403 = load ptr, ptr %p.014.i1155, align 8
-  store ptr %402, ptr %p.014.i1155, align 8
-  store ptr %p.014.i1155, ptr %freeBlocks.i1161, align 8
-  %tobool3.not.i1156 = icmp eq ptr %403, null
-  br i1 %tobool3.not.i1156, label %poolClear.exit1160, label %while.body.i1154, !llvm.loop !8
+while.body.i1209:                                 ; preds = %if.else.i1207, %while.body.i1209
+  %414 = phi ptr [ %p.014.i1210, %while.body.i1209 ], [ %412, %if.else.i1207 ]
+  %p.014.i1210 = phi ptr [ %415, %while.body.i1209 ], [ %413, %if.else.i1207 ]
+  %415 = load ptr, ptr %p.014.i1210, align 8
+  store ptr %414, ptr %p.014.i1210, align 8
+  store ptr %p.014.i1210, ptr %freeBlocks.i1216, align 8
+  %tobool3.not.i1211 = icmp eq ptr %415, null
+  br i1 %tobool3.not.i1211, label %poolClear.exit1215, label %while.body.i1209, !llvm.loop !8
 
-poolClear.exit1160:                               ; preds = %while.body.i1154, %if.then.i1159, %if.else.i1152
+poolClear.exit1215:                               ; preds = %while.body.i1209, %if.then.i1214, %if.else.i1207
   store ptr null, ptr %m_tempPool949, align 8
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %end.i1169, i8 0, i64 24, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %end.i1224, i8 0, i64 24, i1 false)
   br label %sw.epilog1436
 
 sw.bb936:                                         ; preds = %sw.epilog44
-  %404 = load ptr, ptr %m_declNotationPublicId937, align 8
-  %tobool938.not = icmp eq ptr %404, null
+  %416 = load ptr, ptr %m_declNotationPublicId937, align 8
+  %tobool938.not = icmp eq ptr %416, null
   br i1 %tobool938.not, label %if.end948, label %land.lhs.true939
 
 land.lhs.true939:                                 ; preds = %sw.bb936
-  %405 = load ptr, ptr %m_notationDeclHandler1418, align 8
-  %tobool941.not = icmp eq ptr %405, null
+  %417 = load ptr, ptr %m_notationDeclHandler1418, align 8
+  %tobool941.not = icmp eq ptr %417, null
   br i1 %tobool941.not, label %if.end948, label %if.then942
 
 if.then942:                                       ; preds = %land.lhs.true939
   store ptr %s.addr.0, ptr %eventEndPP.0, align 8
-  %406 = load ptr, ptr %m_notationDeclHandler1418, align 8
-  %407 = load ptr, ptr %m_handlerArg1382, align 8
-  %408 = load ptr, ptr %m_declNotationName945, align 8
-  %409 = load ptr, ptr %m_curBase946, align 8
-  %410 = load ptr, ptr %m_declNotationPublicId937, align 8
-  call void %406(ptr noundef %407, ptr noundef %408, ptr noundef %409, ptr noundef null, ptr noundef %410) #23
+  %418 = load ptr, ptr %m_notationDeclHandler1418, align 8
+  %419 = load ptr, ptr %m_handlerArg1382, align 8
+  %420 = load ptr, ptr %m_declNotationName945, align 8
+  %421 = load ptr, ptr %m_curBase946, align 8
+  %422 = load ptr, ptr %m_declNotationPublicId937, align 8
+  call void %418(ptr noundef %419, ptr noundef %420, ptr noundef %421, ptr noundef null, ptr noundef %422) #23
   br label %if.end948
 
 if.end948:                                        ; preds = %if.then942, %land.lhs.true939, %sw.bb936
   %handleDefault.8 = phi i8 [ 0, %if.then942 ], [ 1, %land.lhs.true939 ], [ 1, %sw.bb936 ]
-  %411 = load ptr, ptr %freeBlocks.i1161, align 8
-  %tobool.not.i1162 = icmp eq ptr %411, null
-  %412 = load ptr, ptr %m_tempPool949, align 8
-  br i1 %tobool.not.i1162, label %if.then.i1170, label %if.else.i1163
+  %423 = load ptr, ptr %freeBlocks.i1216, align 8
+  %tobool.not.i1217 = icmp eq ptr %423, null
+  %424 = load ptr, ptr %m_tempPool949, align 8
+  br i1 %tobool.not.i1217, label %if.then.i1225, label %if.else.i1218
 
-if.then.i1170:                                    ; preds = %if.end948
-  store ptr %412, ptr %freeBlocks.i1161, align 8
-  br label %poolClear.exit1171
+if.then.i1225:                                    ; preds = %if.end948
+  store ptr %424, ptr %freeBlocks.i1216, align 8
+  br label %poolClear.exit1226
 
-if.else.i1163:                                    ; preds = %if.end948
-  %tobool3.not13.i1164 = icmp eq ptr %412, null
-  br i1 %tobool3.not13.i1164, label %poolClear.exit1171, label %while.body.i1165
+if.else.i1218:                                    ; preds = %if.end948
+  %tobool3.not13.i1219 = icmp eq ptr %424, null
+  br i1 %tobool3.not13.i1219, label %poolClear.exit1226, label %while.body.i1220
 
-while.body.i1165:                                 ; preds = %if.else.i1163, %while.body.i1165
-  %413 = phi ptr [ %p.014.i1166, %while.body.i1165 ], [ %411, %if.else.i1163 ]
-  %p.014.i1166 = phi ptr [ %414, %while.body.i1165 ], [ %412, %if.else.i1163 ]
-  %414 = load ptr, ptr %p.014.i1166, align 8
-  store ptr %413, ptr %p.014.i1166, align 8
-  store ptr %p.014.i1166, ptr %freeBlocks.i1161, align 8
-  %tobool3.not.i1167 = icmp eq ptr %414, null
-  br i1 %tobool3.not.i1167, label %poolClear.exit1171, label %while.body.i1165, !llvm.loop !8
+while.body.i1220:                                 ; preds = %if.else.i1218, %while.body.i1220
+  %425 = phi ptr [ %p.014.i1221, %while.body.i1220 ], [ %423, %if.else.i1218 ]
+  %p.014.i1221 = phi ptr [ %426, %while.body.i1220 ], [ %424, %if.else.i1218 ]
+  %426 = load ptr, ptr %p.014.i1221, align 8
+  store ptr %425, ptr %p.014.i1221, align 8
+  store ptr %p.014.i1221, ptr %freeBlocks.i1216, align 8
+  %tobool3.not.i1222 = icmp eq ptr %426, null
+  br i1 %tobool3.not.i1222, label %poolClear.exit1226, label %while.body.i1220, !llvm.loop !8
 
-poolClear.exit1171:                               ; preds = %while.body.i1165, %if.then.i1170, %if.else.i1163
+poolClear.exit1226:                               ; preds = %while.body.i1220, %if.then.i1225, %if.else.i1218
   store ptr null, ptr %m_tempPool949, align 8
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %end.i1169, i8 0, i64 24, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %end.i1224, i8 0, i64 24, i1 false)
   br label %sw.epilog1436
 
 sw.bb950:                                         ; preds = %sw.epilog44
@@ -8307,65 +8398,65 @@ sw.bb950:                                         ; preds = %sw.epilog44
   br label %return
 
 sw.bb954:                                         ; preds = %sw.epilog44
-  %415 = load ptr, ptr %m_defaultHandler, align 8
-  %tobool956.not = icmp eq ptr %415, null
+  %427 = load ptr, ptr %m_defaultHandler, align 8
+  %tobool956.not = icmp eq ptr %427, null
   br i1 %tobool956.not, label %if.end958, label %if.then957
 
 if.then957:                                       ; preds = %sw.bb954
-  %416 = load ptr, ptr %next.addr, align 8
+  %428 = load ptr, ptr %next.addr, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %s.addr.i)
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %dataPtr.i)
   store ptr %s.addr.0, ptr %s.addr.i, align 8
-  %isUtf8.i = getelementptr inbounds %struct.encoding, ptr %enc.addr.0, i64 0, i32 13
-  %417 = load i8, ptr %isUtf8.i, align 4
-  %tobool.not.i1172 = icmp eq i8 %417, 0
-  br i1 %tobool.not.i1172, label %if.then.i1173, label %if.else9.i
+  %isUtf8.i = getelementptr inbounds i8, ptr %enc.addr.0, i64 132
+  %429 = load i8, ptr %isUtf8.i, align 4
+  %tobool.not.i1227 = icmp eq i8 %429, 0
+  br i1 %tobool.not.i1227, label %if.then.i1228, label %if.else9.i
 
-if.then.i1173:                                    ; preds = %if.then957
-  %418 = load ptr, ptr %m_encoding, align 8
-  %cmp.i1174 = icmp eq ptr %418, %enc.addr.0
-  br i1 %cmp.i1174, label %if.end.i1176, label %if.else.i1175
+if.then.i1228:                                    ; preds = %if.then957
+  %430 = load ptr, ptr %m_encoding, align 8
+  %cmp.i1229 = icmp eq ptr %430, %enc.addr.0
+  br i1 %cmp.i1229, label %if.end.i1231, label %if.else.i1230
 
-if.else.i1175:                                    ; preds = %if.then.i1173
-  %419 = load ptr, ptr %m_openInternalEntities1151, align 8
-  %internalEventEndPtr.i = getelementptr inbounds %struct.open_internal_entity, ptr %419, i64 0, i32 1
-  br label %if.end.i1176
+if.else.i1230:                                    ; preds = %if.then.i1228
+  %431 = load ptr, ptr %m_openInternalEntities1151, align 8
+  %internalEventEndPtr.i = getelementptr inbounds i8, ptr %431, i64 8
+  br label %if.end.i1231
 
-if.end.i1176:                                     ; preds = %if.then.i1173, %if.else.i1175
-  %eventPP.0.i = phi ptr [ %419, %if.else.i1175 ], [ %m_eventPtr.i, %if.then.i1173 ]
-  %eventEndPP.0.i = phi ptr [ %internalEventEndPtr.i, %if.else.i1175 ], [ %m_eventEndPtr.i, %if.then.i1173 ]
-  %utf8Convert.i1177 = getelementptr inbounds %struct.encoding, ptr %enc.addr.0, i64 0, i32 10
+if.end.i1231:                                     ; preds = %if.then.i1228, %if.else.i1230
+  %eventPP.0.i = phi ptr [ %431, %if.else.i1230 ], [ %m_eventPtr.i, %if.then.i1228 ]
+  %eventEndPP.0.i = phi ptr [ %internalEventEndPtr.i, %if.else.i1230 ], [ %m_eventEndPtr.i, %if.then.i1228 ]
+  %utf8Convert.i1232 = getelementptr inbounds i8, ptr %enc.addr.0, i64 112
   br label %do.body.i
 
-do.body.i:                                        ; preds = %do.body.i, %if.end.i1176
-  %420 = load ptr, ptr %m_dataBuf.i, align 8
-  store ptr %420, ptr %dataPtr.i, align 8
-  %421 = load ptr, ptr %utf8Convert.i1177, align 8
-  %422 = load ptr, ptr %m_dataBufEnd.i, align 8
-  %call.i1178 = call i32 %421(ptr noundef nonnull %enc.addr.0, ptr noundef nonnull %s.addr.i, ptr noundef %416, ptr noundef nonnull %dataPtr.i, ptr noundef %422) #23
-  %423 = load ptr, ptr %s.addr.i, align 8
-  store ptr %423, ptr %eventEndPP.0.i, align 8
-  %424 = load ptr, ptr %m_defaultHandler, align 8
-  %425 = load ptr, ptr %m_handlerArg1382, align 8
-  %426 = load ptr, ptr %m_dataBuf.i, align 8
-  %427 = load ptr, ptr %dataPtr.i, align 8
-  %sub.ptr.lhs.cast.i = ptrtoint ptr %427 to i64
-  %sub.ptr.rhs.cast.i = ptrtoint ptr %426 to i64
+do.body.i:                                        ; preds = %do.body.i, %if.end.i1231
+  %432 = load ptr, ptr %m_dataBuf.i, align 8
+  store ptr %432, ptr %dataPtr.i, align 8
+  %433 = load ptr, ptr %utf8Convert.i1232, align 8
+  %434 = load ptr, ptr %m_dataBufEnd.i, align 8
+  %call.i1233 = call i32 %433(ptr noundef nonnull %enc.addr.0, ptr noundef nonnull %s.addr.i, ptr noundef %428, ptr noundef nonnull %dataPtr.i, ptr noundef %434) #23
+  %435 = load ptr, ptr %s.addr.i, align 8
+  store ptr %435, ptr %eventEndPP.0.i, align 8
+  %436 = load ptr, ptr %m_defaultHandler, align 8
+  %437 = load ptr, ptr %m_handlerArg1382, align 8
+  %438 = load ptr, ptr %m_dataBuf.i, align 8
+  %439 = load ptr, ptr %dataPtr.i, align 8
+  %sub.ptr.lhs.cast.i = ptrtoint ptr %439 to i64
+  %sub.ptr.rhs.cast.i = ptrtoint ptr %438 to i64
   %sub.ptr.sub.i = sub i64 %sub.ptr.lhs.cast.i, %sub.ptr.rhs.cast.i
   %conv.i = trunc i64 %sub.ptr.sub.i to i32
-  call void %424(ptr noundef %425, ptr noundef %426, i32 noundef %conv.i) #23
-  %428 = load ptr, ptr %s.addr.i, align 8
-  store ptr %428, ptr %eventPP.0.i, align 8
-  %429 = icmp ugt i32 %call.i1178, 1
-  br i1 %429, label %do.body.i, label %reportDefault.exit, !llvm.loop !28
+  call void %436(ptr noundef %437, ptr noundef %438, i32 noundef %conv.i) #23
+  %440 = load ptr, ptr %s.addr.i, align 8
+  store ptr %440, ptr %eventPP.0.i, align 8
+  %441 = icmp ugt i32 %call.i1233, 1
+  br i1 %441, label %do.body.i, label %reportDefault.exit, !llvm.loop !28
 
 if.else9.i:                                       ; preds = %if.then957
-  %430 = load ptr, ptr %m_handlerArg1382, align 8
-  %sub.ptr.lhs.cast12.i = ptrtoint ptr %416 to i64
+  %442 = load ptr, ptr %m_handlerArg1382, align 8
+  %sub.ptr.lhs.cast12.i = ptrtoint ptr %428 to i64
   %sub.ptr.rhs.cast13.i = ptrtoint ptr %s.addr.0 to i64
   %sub.ptr.sub14.i = sub i64 %sub.ptr.lhs.cast12.i, %sub.ptr.rhs.cast13.i
   %conv15.i = trunc i64 %sub.ptr.sub14.i to i32
-  call void %415(ptr noundef %430, ptr noundef %s.addr.0, i32 noundef %conv15.i) #23
+  call void %427(ptr noundef %442, ptr noundef %s.addr.0, i32 noundef %conv15.i) #23
   br label %reportDefault.exit
 
 reportDefault.exit:                               ; preds = %do.body.i, %if.else9.i
@@ -8379,57 +8470,57 @@ if.end958:                                        ; preds = %reportDefault.exit,
   br i1 %cmp960.not, label %if.else963, label %return
 
 if.else963:                                       ; preds = %if.end958
-  %431 = load ptr, ptr %next.addr, align 8
-  %tobool964.not = icmp eq ptr %431, null
+  %443 = load ptr, ptr %next.addr, align 8
+  %tobool964.not = icmp eq ptr %443, null
   br i1 %tobool964.not, label %if.then965, label %if.end1443
 
 if.then965:                                       ; preds = %if.else963
-  %m_processor966 = getelementptr inbounds %struct.XML_ParserStruct, ptr %parser, i64 0, i32 45
+  %m_processor966 = getelementptr inbounds i8, ptr %parser, i64 528
   store ptr @ignoreSectionProcessor, ptr %m_processor966, align 8
   br label %return
 
 sw.bb969:                                         ; preds = %sw.epilog44
-  %432 = load i32, ptr %level1066, align 8
-  %433 = load i32, ptr %m_groupSize, align 8
-  %cmp971.not = icmp ult i32 %432, %433
+  %444 = load i32, ptr %level1066, align 8
+  %445 = load i32, ptr %m_groupSize, align 8
+  %cmp971.not = icmp ult i32 %444, %445
   br i1 %cmp971.not, label %if.end1017, label %if.then973
 
 if.then973:                                       ; preds = %sw.bb969
-  %tobool975.not = icmp eq i32 %433, 0
+  %tobool975.not = icmp eq i32 %445, 0
   br i1 %tobool975.not, label %if.else1006, label %if.then976
 
 if.then976:                                       ; preds = %if.then973
-  %cmp978 = icmp slt i32 %433, 0
+  %cmp978 = icmp slt i32 %445, 0
   br i1 %cmp978, label %return, label %if.end981
 
 if.end981:                                        ; preds = %if.then976
-  %434 = load ptr, ptr %realloc_fcn, align 8
-  %435 = load ptr, ptr %m_groupConnector1064, align 8
-  %mul = shl nuw i32 %433, 1
+  %446 = load ptr, ptr %realloc_fcn, align 8
+  %447 = load ptr, ptr %m_groupConnector1064, align 8
+  %mul = shl nuw i32 %445, 1
   store i32 %mul, ptr %m_groupSize, align 8
   %conv983 = zext i32 %mul to i64
-  %call984 = call ptr %434(ptr noundef %435, i64 noundef %conv983) #23
+  %call984 = call ptr %446(ptr noundef %447, i64 noundef %conv983) #23
   %cmp985 = icmp eq ptr %call984, null
   br i1 %cmp985, label %if.then987, label %if.end989
 
 if.then987:                                       ; preds = %if.end981
-  %436 = load i32, ptr %m_groupSize, align 8
-  %div714 = lshr i32 %436, 1
+  %448 = load i32, ptr %m_groupSize, align 8
+  %div714 = lshr i32 %448, 1
   store i32 %div714, ptr %m_groupSize, align 8
   br label %return
 
 if.end989:                                        ; preds = %if.end981
   store ptr %call984, ptr %m_groupConnector1064, align 8
-  %437 = load ptr, ptr %scaffIndex1364, align 8
-  %tobool991.not = icmp eq ptr %437, null
+  %449 = load ptr, ptr %scaffIndex1364, align 8
+  %tobool991.not = icmp eq ptr %449, null
   br i1 %tobool991.not, label %if.end1017, label %if.then992
 
 if.then992:                                       ; preds = %if.end989
-  %438 = load ptr, ptr %realloc_fcn, align 8
-  %439 = load i32, ptr %m_groupSize, align 8
-  %conv997 = zext i32 %439 to i64
+  %450 = load ptr, ptr %realloc_fcn, align 8
+  %451 = load i32, ptr %m_groupSize, align 8
+  %conv997 = zext i32 %451 to i64
   %mul998 = shl nuw nsw i64 %conv997, 2
-  %call999 = call ptr %438(ptr noundef nonnull %437, i64 noundef %mul998) #23
+  %call999 = call ptr %450(ptr noundef nonnull %449, i64 noundef %mul998) #23
   %cmp1000 = icmp eq ptr %call999, null
   br i1 %cmp1000, label %return, label %if.end1003
 
@@ -8438,9 +8529,9 @@ if.end1003:                                       ; preds = %if.then992
   br label %if.end1017
 
 if.else1006:                                      ; preds = %if.then973
-  %440 = load ptr, ptr %3, align 8
+  %452 = load ptr, ptr %3, align 8
   store i32 32, ptr %m_groupSize, align 8
-  %call1009 = call ptr %440(i64 noundef 32) #23
+  %call1009 = call ptr %452(i64 noundef 32) #23
   store ptr %call1009, ptr %m_groupConnector1064, align 8
   %tobool1012.not = icmp eq ptr %call1009, null
   br i1 %tobool1012.not, label %if.then1013, label %if.end1017
@@ -8450,13 +8541,13 @@ if.then1013:                                      ; preds = %if.else1006
   br label %return
 
 if.end1017:                                       ; preds = %if.end1003, %if.end989, %if.else1006, %sw.bb969
-  %441 = load ptr, ptr %m_groupConnector1064, align 8
-  %442 = load i32, ptr %level1066, align 8
-  %idxprom = zext i32 %442 to i64
-  %arrayidx1021 = getelementptr i8, ptr %441, i64 %idxprom
+  %453 = load ptr, ptr %m_groupConnector1064, align 8
+  %454 = load i32, ptr %level1066, align 8
+  %idxprom = zext i32 %454 to i64
+  %arrayidx1021 = getelementptr i8, ptr %453, i64 %idxprom
   store i8 0, ptr %arrayidx1021, align 1
-  %443 = load i8, ptr %in_eldecl1355, align 8
-  %tobool1022.not = icmp eq i8 %443, 0
+  %455 = load i8, ptr %in_eldecl1355, align 8
+  %tobool1022.not = icmp eq i8 %455, 0
   br i1 %tobool1022.not, label %land.lhs.true1439, label %if.then1023
 
 if.then1023:                                      ; preds = %if.end1017
@@ -8465,319 +8556,319 @@ if.then1023:                                      ; preds = %if.end1017
   br i1 %cmp1025, label %return, label %if.end1028
 
 if.end1028:                                       ; preds = %if.then1023
-  %444 = load ptr, ptr %scaffIndex1364, align 8
-  %445 = load i32, ptr %scaffLevel1362, align 4
-  %idxprom1030 = sext i32 %445 to i64
-  %arrayidx1031 = getelementptr i32, ptr %444, i64 %idxprom1030
+  %456 = load ptr, ptr %scaffIndex1364, align 8
+  %457 = load i32, ptr %scaffLevel1362, align 4
+  %idxprom1030 = sext i32 %457 to i64
+  %arrayidx1031 = getelementptr i32, ptr %456, i64 %idxprom1030
   store i32 %call1024, ptr %arrayidx1031, align 4
-  %446 = load i32, ptr %scaffLevel1362, align 4
-  %inc = add i32 %446, 1
+  %458 = load i32, ptr %scaffLevel1362, align 4
+  %inc = add i32 %458, 1
   store i32 %inc, ptr %scaffLevel1362, align 4
-  %447 = load ptr, ptr %scaffold1363, align 8
+  %459 = load ptr, ptr %scaffold1363, align 8
   %idxprom1033 = zext nneg i32 %call1024 to i64
-  %arrayidx1034 = getelementptr %struct.CONTENT_SCAFFOLD, ptr %447, i64 %idxprom1033
+  %arrayidx1034 = getelementptr %struct.CONTENT_SCAFFOLD, ptr %459, i64 %idxprom1033
   store i32 6, ptr %arrayidx1034, align 8
-  %448 = load ptr, ptr %m_elementDeclHandler1432, align 8
-  %tobool1035.not = icmp eq ptr %448, null
+  %460 = load ptr, ptr %m_elementDeclHandler1432, align 8
+  %tobool1035.not = icmp eq ptr %460, null
   br i1 %tobool1035.not, label %land.lhs.true1439, label %if.end1443
 
 sw.bb1039:                                        ; preds = %sw.epilog44
-  %449 = load ptr, ptr %m_groupConnector1064, align 8
-  %450 = load i32, ptr %level1066, align 8
-  %idxprom1043 = zext i32 %450 to i64
-  %arrayidx1044 = getelementptr i8, ptr %449, i64 %idxprom1043
-  %451 = load i8, ptr %arrayidx1044, align 1
-  %cmp1046 = icmp eq i8 %451, 124
+  %461 = load ptr, ptr %m_groupConnector1064, align 8
+  %462 = load i32, ptr %level1066, align 8
+  %idxprom1043 = zext i32 %462 to i64
+  %arrayidx1044 = getelementptr i8, ptr %461, i64 %idxprom1043
+  %463 = load i8, ptr %arrayidx1044, align 1
+  %cmp1046 = icmp eq i8 %463, 124
   br i1 %cmp1046, label %return, label %if.end1049
 
 if.end1049:                                       ; preds = %sw.bb1039
   store i8 44, ptr %arrayidx1044, align 1
-  %452 = load i8, ptr %in_eldecl1355, align 8
-  %tobool1057.not = icmp eq i8 %452, 0
+  %464 = load i8, ptr %in_eldecl1355, align 8
+  %tobool1057.not = icmp eq i8 %464, 0
   br i1 %tobool1057.not, label %land.lhs.true1439, label %land.lhs.true1058
 
 land.lhs.true1058:                                ; preds = %if.end1049
-  %453 = load ptr, ptr %m_elementDeclHandler1432, align 8
-  %tobool1060.not = icmp eq ptr %453, null
+  %465 = load ptr, ptr %m_elementDeclHandler1432, align 8
+  %tobool1060.not = icmp eq ptr %465, null
   br i1 %tobool1060.not, label %land.lhs.true1439, label %if.end1443
 
 sw.bb1063:                                        ; preds = %sw.epilog44
-  %454 = load ptr, ptr %m_groupConnector1064, align 8
-  %455 = load i32, ptr %level1066, align 8
-  %idxprom1067 = zext i32 %455 to i64
-  %arrayidx1068 = getelementptr i8, ptr %454, i64 %idxprom1067
-  %456 = load i8, ptr %arrayidx1068, align 1
-  %cmp1070 = icmp eq i8 %456, 44
+  %466 = load ptr, ptr %m_groupConnector1064, align 8
+  %467 = load i32, ptr %level1066, align 8
+  %idxprom1067 = zext i32 %467 to i64
+  %arrayidx1068 = getelementptr i8, ptr %466, i64 %idxprom1067
+  %468 = load i8, ptr %arrayidx1068, align 1
+  %cmp1070 = icmp eq i8 %468, 44
   br i1 %cmp1070, label %return, label %if.end1073
 
 if.end1073:                                       ; preds = %sw.bb1063
-  %457 = load i8, ptr %in_eldecl1355, align 8
-  %tobool1076.not = icmp ne i8 %457, 0
-  %tobool1083.not = icmp eq i8 %456, 0
+  %469 = load i8, ptr %in_eldecl1355, align 8
+  %tobool1076.not = icmp ne i8 %469, 0
+  %tobool1083.not = icmp eq i8 %468, 0
   %or.cond723 = and i1 %tobool1083.not, %tobool1076.not
   br i1 %or.cond723, label %land.lhs.true1084, label %if.end1110
 
 land.lhs.true1084:                                ; preds = %if.end1073
-  %458 = load ptr, ptr %scaffold1363, align 8
-  %459 = load ptr, ptr %scaffIndex1364, align 8
-  %460 = load i32, ptr %scaffLevel1362, align 4
-  %sub1088 = add i32 %460, -1
+  %470 = load ptr, ptr %scaffold1363, align 8
+  %471 = load ptr, ptr %scaffIndex1364, align 8
+  %472 = load i32, ptr %scaffLevel1362, align 4
+  %sub1088 = add i32 %472, -1
   %idxprom1089 = sext i32 %sub1088 to i64
-  %arrayidx1090 = getelementptr i32, ptr %459, i64 %idxprom1089
-  %461 = load i32, ptr %arrayidx1090, align 4
-  %idxprom1091 = sext i32 %461 to i64
-  %arrayidx1092 = getelementptr %struct.CONTENT_SCAFFOLD, ptr %458, i64 %idxprom1091
-  %462 = load i32, ptr %arrayidx1092, align 8
-  %cmp1094.not = icmp eq i32 %462, 3
+  %arrayidx1090 = getelementptr i32, ptr %471, i64 %idxprom1089
+  %473 = load i32, ptr %arrayidx1090, align 4
+  %idxprom1091 = sext i32 %473 to i64
+  %arrayidx1092 = getelementptr %struct.CONTENT_SCAFFOLD, ptr %470, i64 %idxprom1091
+  %474 = load i32, ptr %arrayidx1092, align 8
+  %cmp1094.not = icmp eq i32 %474, 3
   br i1 %cmp1094.not, label %if.end1110, label %if.then1096
 
 if.then1096:                                      ; preds = %land.lhs.true1084
   store i32 5, ptr %arrayidx1092, align 8
-  %463 = load ptr, ptr %m_elementDeclHandler1432, align 8
-  %tobool1107.not = icmp eq ptr %463, null
+  %475 = load ptr, ptr %m_elementDeclHandler1432, align 8
+  %tobool1107.not = icmp eq ptr %475, null
   %spec.select724 = zext i1 %tobool1107.not to i8
-  %.pre1695 = load ptr, ptr %m_groupConnector1064, align 8
-  %.pre1696 = load i32, ptr %level1066, align 8
-  %.pre1701 = zext i32 %.pre1696 to i64
+  %.pre1760 = load ptr, ptr %m_groupConnector1064, align 8
+  %.pre1761 = load i32, ptr %level1066, align 8
+  %.pre1766 = zext i32 %.pre1761 to i64
   br label %if.end1110
 
 if.end1110:                                       ; preds = %if.then1096, %land.lhs.true1084, %if.end1073
-  %idxprom1114.pre-phi = phi i64 [ %.pre1701, %if.then1096 ], [ %idxprom1067, %land.lhs.true1084 ], [ %idxprom1067, %if.end1073 ]
-  %464 = phi ptr [ %.pre1695, %if.then1096 ], [ %454, %land.lhs.true1084 ], [ %454, %if.end1073 ]
+  %idxprom1114.pre-phi = phi i64 [ %.pre1766, %if.then1096 ], [ %idxprom1067, %land.lhs.true1084 ], [ %idxprom1067, %if.end1073 ]
+  %476 = phi ptr [ %.pre1760, %if.then1096 ], [ %466, %land.lhs.true1084 ], [ %466, %if.end1073 ]
   %handleDefault.9 = phi i8 [ %spec.select724, %if.then1096 ], [ 1, %land.lhs.true1084 ], [ 1, %if.end1073 ]
-  %arrayidx1115 = getelementptr i8, ptr %464, i64 %idxprom1114.pre-phi
+  %arrayidx1115 = getelementptr i8, ptr %476, i64 %idxprom1114.pre-phi
   store i8 124, ptr %arrayidx1115, align 1
   br label %sw.epilog1436
 
 sw.bb1116:                                        ; preds = %sw.epilog44, %sw.epilog44
   store i8 1, ptr %hasParamEntityRefs1117, align 1
-  %465 = load i32, ptr %m_paramEntityParsing1118, align 4
-  %tobool1119.not = icmp eq i32 %465, 0
+  %477 = load i32, ptr %m_paramEntityParsing1118, align 4
+  %tobool1119.not = icmp eq i32 %477, 0
   br i1 %tobool1119.not, label %if.then1120, label %if.else1123
 
 if.then1120:                                      ; preds = %sw.bb1116
-  %466 = load i8, ptr %standalone1147, align 2
-  store i8 %466, ptr %keepProcessing1423, align 8
+  %478 = load i8, ptr %standalone1147, align 2
+  store i8 %478, ptr %keepProcessing1423, align 8
   br label %if.end1224
 
 if.else1123:                                      ; preds = %sw.bb1116
-  %minBytesPerChar1127 = getelementptr inbounds %struct.encoding, ptr %enc.addr.0, i64 0, i32 12
-  %467 = load i32, ptr %minBytesPerChar1127, align 8
-  %idx.ext1128 = sext i32 %467 to i64
+  %minBytesPerChar1127 = getelementptr inbounds i8, ptr %enc.addr.0, i64 128
+  %479 = load i32, ptr %minBytesPerChar1127, align 8
+  %idx.ext1128 = sext i32 %479 to i64
   %add.ptr1129 = getelementptr i8, ptr %s.addr.0, i64 %idx.ext1128
-  %468 = load ptr, ptr %next.addr, align 8
+  %480 = load ptr, ptr %next.addr, align 8
   %idx.neg1132 = sub nsw i64 0, %idx.ext1128
-  %add.ptr1133 = getelementptr i8, ptr %468, i64 %idx.neg1132
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %ptr.addr.i.i1179)
-  store ptr %add.ptr1129, ptr %ptr.addr.i.i1179, align 8
-  %469 = load ptr, ptr %ptr1.i.i1180, align 8
-  %tobool.not.i.i1181 = icmp eq ptr %469, null
-  br i1 %tobool.not.i.i1181, label %land.lhs.true.i.i1205, label %if.end.i.i1182
+  %add.ptr1133 = getelementptr i8, ptr %480, i64 %idx.neg1132
+  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %ptr.addr.i.i1234)
+  store ptr %add.ptr1129, ptr %ptr.addr.i.i1234, align 8
+  %481 = load ptr, ptr %ptr1.i.i1235, align 8
+  %tobool.not.i.i1236 = icmp eq ptr %481, null
+  br i1 %tobool.not.i.i1236, label %land.lhs.true.i.i1260, label %if.end.i.i1237
 
-land.lhs.true.i.i1205:                            ; preds = %if.else1123
-  %call.i.i1206 = call fastcc zeroext i8 @poolGrow(ptr noundef nonnull %pool1126), !range !13
-  %tobool2.not.i.i1207 = icmp eq i8 %call.i.i1206, 0
-  br i1 %tobool2.not.i.i1207, label %poolAppend.exit.thread.i1191, label %if.end.i.i1182
+land.lhs.true.i.i1260:                            ; preds = %if.else1123
+  %call.i.i1261 = call fastcc zeroext i8 @poolGrow(ptr noundef nonnull %pool1126), !range !13
+  %tobool2.not.i.i1262 = icmp eq i8 %call.i.i1261, 0
+  br i1 %tobool2.not.i.i1262, label %poolAppend.exit.thread.i1246, label %if.end.i.i1237
 
-if.end.i.i1182:                                   ; preds = %land.lhs.true.i.i1205, %if.else1123
-  %utf8Convert.i.i1183 = getelementptr inbounds %struct.encoding, ptr %enc.addr.0, i64 0, i32 10
-  br label %for.cond.i.i1185
+if.end.i.i1237:                                   ; preds = %land.lhs.true.i.i1260, %if.else1123
+  %utf8Convert.i.i1238 = getelementptr inbounds i8, ptr %enc.addr.0, i64 112
+  br label %for.cond.i.i1240
 
-for.cond.i.i1185:                                 ; preds = %if.end8.i.i1188, %if.end.i.i1182
-  %470 = load ptr, ptr %utf8Convert.i.i1183, align 8
-  %471 = load ptr, ptr %end4.i.i1184, align 8
-  %call5.i.i1186 = call i32 %470(ptr noundef nonnull %enc.addr.0, ptr noundef nonnull %ptr.addr.i.i1179, ptr noundef %add.ptr1133, ptr noundef nonnull %ptr1.i.i1180, ptr noundef %471) #23
-  %or.cond.i.i1187 = icmp ult i32 %call5.i.i1186, 2
-  br i1 %or.cond.i.i1187, label %poolAppend.exit.i1193, label %if.end8.i.i1188
+for.cond.i.i1240:                                 ; preds = %if.end8.i.i1243, %if.end.i.i1237
+  %482 = load ptr, ptr %utf8Convert.i.i1238, align 8
+  %483 = load ptr, ptr %end4.i.i1239, align 8
+  %call5.i.i1241 = call i32 %482(ptr noundef nonnull %enc.addr.0, ptr noundef nonnull %ptr.addr.i.i1234, ptr noundef %add.ptr1133, ptr noundef nonnull %ptr1.i.i1235, ptr noundef %483) #23
+  %or.cond.i.i1242 = icmp ult i32 %call5.i.i1241, 2
+  br i1 %or.cond.i.i1242, label %poolAppend.exit.i1248, label %if.end8.i.i1243
 
-if.end8.i.i1188:                                  ; preds = %for.cond.i.i1185
-  %call9.i.i1189 = call fastcc zeroext i8 @poolGrow(ptr noundef nonnull %pool1126), !range !13
-  %tobool10.not.i.i1190 = icmp eq i8 %call9.i.i1189, 0
-  br i1 %tobool10.not.i.i1190, label %poolAppend.exit.thread.i1191, label %for.cond.i.i1185
+if.end8.i.i1243:                                  ; preds = %for.cond.i.i1240
+  %call9.i.i1244 = call fastcc zeroext i8 @poolGrow(ptr noundef nonnull %pool1126), !range !13
+  %tobool10.not.i.i1245 = icmp eq i8 %call9.i.i1244, 0
+  br i1 %tobool10.not.i.i1245, label %poolAppend.exit.thread.i1246, label %for.cond.i.i1240
 
-poolAppend.exit.thread.i1191:                     ; preds = %land.lhs.true.i.i1205, %if.end8.i.i1188
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %ptr.addr.i.i1179)
+poolAppend.exit.thread.i1246:                     ; preds = %land.lhs.true.i.i1260, %if.end8.i.i1243
+  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %ptr.addr.i.i1234)
   br label %return
 
-poolAppend.exit.i1193:                            ; preds = %for.cond.i.i1185
-  %472 = load ptr, ptr %start.i.i1194, align 8
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %ptr.addr.i.i1179)
-  %tobool.not.i1195 = icmp eq ptr %472, null
-  br i1 %tobool.not.i1195, label %return, label %if.end.i1196
+poolAppend.exit.i1248:                            ; preds = %for.cond.i.i1240
+  %484 = load ptr, ptr %start.i.i1249, align 8
+  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %ptr.addr.i.i1234)
+  %tobool.not.i1250 = icmp eq ptr %484, null
+  br i1 %tobool.not.i1250, label %return, label %if.end.i1251
 
-if.end.i1196:                                     ; preds = %poolAppend.exit.i1193
-  %473 = load ptr, ptr %ptr1.i.i1180, align 8
-  %474 = load ptr, ptr %end4.i.i1184, align 8
-  %cmp.i1197 = icmp eq ptr %473, %474
-  br i1 %cmp.i1197, label %land.lhs.true.i1200, label %poolStoreString.exit1208
+if.end.i1251:                                     ; preds = %poolAppend.exit.i1248
+  %485 = load ptr, ptr %ptr1.i.i1235, align 8
+  %486 = load ptr, ptr %end4.i.i1239, align 8
+  %cmp.i1252 = icmp eq ptr %485, %486
+  br i1 %cmp.i1252, label %land.lhs.true.i1255, label %poolStoreString.exit1263
 
-land.lhs.true.i1200:                              ; preds = %if.end.i1196
-  %call3.i1201 = call fastcc zeroext i8 @poolGrow(ptr noundef nonnull %pool1126), !range !13
-  %tobool4.not.i1202 = icmp eq i8 %call3.i1201, 0
-  br i1 %tobool4.not.i1202, label %return, label %land.lhs.true.if.end6_crit_edge.i1203
+land.lhs.true.i1255:                              ; preds = %if.end.i1251
+  %call3.i1256 = call fastcc zeroext i8 @poolGrow(ptr noundef nonnull %pool1126), !range !13
+  %tobool4.not.i1257 = icmp eq i8 %call3.i1256, 0
+  br i1 %tobool4.not.i1257, label %return, label %land.lhs.true.if.end6_crit_edge.i1258
 
-land.lhs.true.if.end6_crit_edge.i1203:            ; preds = %land.lhs.true.i1200
-  %.pre.i1204 = load ptr, ptr %ptr1.i.i1180, align 8
-  br label %poolStoreString.exit1208
+land.lhs.true.if.end6_crit_edge.i1258:            ; preds = %land.lhs.true.i1255
+  %.pre.i1259 = load ptr, ptr %ptr1.i.i1235, align 8
+  br label %poolStoreString.exit1263
 
-poolStoreString.exit1208:                         ; preds = %if.end.i1196, %land.lhs.true.if.end6_crit_edge.i1203
-  %475 = phi ptr [ %.pre.i1204, %land.lhs.true.if.end6_crit_edge.i1203 ], [ %473, %if.end.i1196 ]
-  %incdec.ptr.i1199 = getelementptr i8, ptr %475, i64 1
-  store ptr %incdec.ptr.i1199, ptr %ptr1.i.i1180, align 8
-  store i8 0, ptr %475, align 1
-  %476 = load ptr, ptr %start.i.i1194, align 8
-  %tobool1135.not = icmp eq ptr %476, null
+poolStoreString.exit1263:                         ; preds = %if.end.i1251, %land.lhs.true.if.end6_crit_edge.i1258
+  %487 = phi ptr [ %.pre.i1259, %land.lhs.true.if.end6_crit_edge.i1258 ], [ %485, %if.end.i1251 ]
+  %incdec.ptr.i1254 = getelementptr i8, ptr %487, i64 1
+  store ptr %incdec.ptr.i1254, ptr %ptr1.i.i1235, align 8
+  store i8 0, ptr %487, align 1
+  %488 = load ptr, ptr %start.i.i1249, align 8
+  %tobool1135.not = icmp eq ptr %488, null
   br i1 %tobool1135.not, label %return, label %if.end1137
 
-if.end1137:                                       ; preds = %poolStoreString.exit1208
-  %477 = load i64, ptr %size.i, align 8
-  %cmp.i1209 = icmp eq i64 %477, 0
-  br i1 %cmp.i1209, label %lookup.exit, label %if.else.i1210
+if.end1137:                                       ; preds = %poolStoreString.exit1263
+  %489 = load i64, ptr %size.i, align 8
+  %cmp.i1264 = icmp eq i64 %489, 0
+  br i1 %cmp.i1264, label %lookup.exit, label %if.else.i1265
 
-if.else.i1210:                                    ; preds = %if.end1137
-  %call12.i = call fastcc i64 @hash(ptr noundef %parser, ptr noundef nonnull %476)
-  %478 = load i64, ptr %size.i, align 8
-  %sub14.i = add i64 %478, -1
+if.else.i1265:                                    ; preds = %if.end1137
+  %call12.i = call fastcc i64 @hash(ptr noundef %parser, ptr noundef nonnull %488)
+  %490 = load i64, ptr %size.i, align 8
+  %sub14.i = add i64 %490, -1
   %and15.i = and i64 %sub14.i, %call12.i
-  %479 = load ptr, ptr %paramEntities1138, align 8
-  %arrayidx111.i = getelementptr ptr, ptr %479, i64 %and15.i
-  %480 = load ptr, ptr %arrayidx111.i, align 8
-  %tobool17.not112.i = icmp eq ptr %480, null
-  br i1 %tobool17.not112.i, label %lookup.exit, label %while.body.lr.ph.i1211
+  %491 = load ptr, ptr %paramEntities1138, align 8
+  %arrayidx111.i = getelementptr ptr, ptr %491, i64 %and15.i
+  %492 = load ptr, ptr %arrayidx111.i, align 8
+  %tobool17.not112.i = icmp eq ptr %492, null
+  br i1 %tobool17.not112.i, label %lookup.exit, label %while.body.lr.ph.i1266
 
-while.body.lr.ph.i1211:                           ; preds = %if.else.i1210
-  %481 = load i8, ptr %476, align 1
-  %not.i = sub i64 0, %478
+while.body.lr.ph.i1266:                           ; preds = %if.else.i1265
+  %493 = load i8, ptr %488, align 1
+  %not.i = sub i64 0, %490
   %and29.i = and i64 %call12.i, %not.i
   %shr32.i = lshr i64 %sub14.i, 2
-  br label %while.body.i1212
+  br label %while.body.i1267
 
-while.body.i1212:                                 ; preds = %if.end35.i, %while.body.lr.ph.i1211
-  %482 = phi ptr [ %480, %while.body.lr.ph.i1211 ], [ %490, %if.end35.i ]
-  %i.0114.i = phi i64 [ %and15.i, %while.body.lr.ph.i1211 ], [ %i.1.i, %if.end35.i ]
-  %step.0113.i = phi i8 [ 0, %while.body.lr.ph.i1211 ], [ %step.1.i, %if.end35.i ]
-  %483 = load ptr, ptr %482, align 8
-  %484 = load i8, ptr %483, align 1
-  %cmp5.i.i = icmp eq i8 %481, %484
+while.body.i1267:                                 ; preds = %if.end35.i, %while.body.lr.ph.i1266
+  %494 = phi ptr [ %492, %while.body.lr.ph.i1266 ], [ %502, %if.end35.i ]
+  %i.0114.i = phi i64 [ %and15.i, %while.body.lr.ph.i1266 ], [ %i.1.i, %if.end35.i ]
+  %step.0113.i = phi i8 [ 0, %while.body.lr.ph.i1266 ], [ %step.1.i, %if.end35.i ]
+  %495 = load ptr, ptr %494, align 8
+  %496 = load i8, ptr %495, align 1
+  %cmp5.i.i = icmp eq i8 %493, %496
   br i1 %cmp5.i.i, label %for.body.i.i, label %if.end26.i
 
-for.body.i.i:                                     ; preds = %while.body.i1212, %for.inc.i.i
-  %485 = phi i8 [ %486, %for.inc.i.i ], [ %481, %while.body.i1212 ]
-  %s2.addr.07.i.i = phi ptr [ %incdec.ptr6.i.i, %for.inc.i.i ], [ %483, %while.body.i1212 ]
-  %s1.addr.06.i.i = phi ptr [ %incdec.ptr.i.i, %for.inc.i.i ], [ %476, %while.body.i1212 ]
-  %cmp4.i.i = icmp eq i8 %485, 0
+for.body.i.i:                                     ; preds = %while.body.i1267, %for.inc.i.i
+  %497 = phi i8 [ %498, %for.inc.i.i ], [ %493, %while.body.i1267 ]
+  %s2.addr.07.i.i = phi ptr [ %incdec.ptr6.i.i, %for.inc.i.i ], [ %495, %while.body.i1267 ]
+  %s1.addr.06.i.i = phi ptr [ %incdec.ptr.i.i, %for.inc.i.i ], [ %488, %while.body.i1267 ]
+  %cmp4.i.i = icmp eq i8 %497, 0
   br i1 %cmp4.i.i, label %lookup.exit, label %for.inc.i.i
 
 for.inc.i.i:                                      ; preds = %for.body.i.i
   %incdec.ptr.i.i = getelementptr i8, ptr %s1.addr.06.i.i, i64 1
   %incdec.ptr6.i.i = getelementptr i8, ptr %s2.addr.07.i.i, i64 1
-  %486 = load i8, ptr %incdec.ptr.i.i, align 1
-  %487 = load i8, ptr %incdec.ptr6.i.i, align 1
-  %cmp.i.i1217 = icmp eq i8 %486, %487
-  br i1 %cmp.i.i1217, label %for.body.i.i, label %if.end26.i, !llvm.loop !14
+  %498 = load i8, ptr %incdec.ptr.i.i, align 1
+  %499 = load i8, ptr %incdec.ptr6.i.i, align 1
+  %cmp.i.i1272 = icmp eq i8 %498, %499
+  br i1 %cmp.i.i1272, label %for.body.i.i, label %if.end26.i, !llvm.loop !14
 
-if.end26.i:                                       ; preds = %for.inc.i.i, %while.body.i1212
+if.end26.i:                                       ; preds = %for.inc.i.i, %while.body.i1267
   %tobool27.not.i = icmp eq i8 %step.0113.i, 0
   br i1 %tobool27.not.i, label %if.then28.i, label %if.end35.i
 
 if.then28.i:                                      ; preds = %if.end26.i
-  %488 = load i8, ptr %power30.i, align 8
-  %conv.i1216 = zext i8 %488 to i64
-  %sub31.i = add nuw nsw i64 %conv.i1216, 4294967295
+  %500 = load i8, ptr %power30.i, align 8
+  %conv.i1271 = zext i8 %500 to i64
+  %sub31.i = add nuw nsw i64 %conv.i1271, 4294967295
   %sh_prom.i = and i64 %sub31.i, 4294967295
   %shr.i = lshr i64 %and29.i, %sh_prom.i
   %and33.i = and i64 %shr.i, %shr32.i
-  %489 = trunc i64 %and33.i to i8
-  %conv34.i = or i8 %489, 1
+  %501 = trunc i64 %and33.i to i8
+  %conv34.i = or i8 %501, 1
   br label %if.end35.i
 
 if.end35.i:                                       ; preds = %if.then28.i, %if.end26.i
   %step.1.i = phi i8 [ %step.0113.i, %if.end26.i ], [ %conv34.i, %if.then28.i ]
   %conv36.i = zext i8 %step.1.i to i64
   %cmp37.i = icmp ult i64 %i.0114.i, %conv36.i
-  %i.1.p.v.i = select i1 %cmp37.i, i64 %478, i64 0
+  %i.1.p.v.i = select i1 %cmp37.i, i64 %490, i64 0
   %i.1.p.i = sub i64 %i.0114.i, %conv36.i
   %i.1.i = add i64 %i.1.p.v.i, %i.1.p.i
-  %arrayidx.i1213 = getelementptr ptr, ptr %479, i64 %i.1.i
-  %490 = load ptr, ptr %arrayidx.i1213, align 8
-  %tobool17.not.i = icmp eq ptr %490, null
-  br i1 %tobool17.not.i, label %lookup.exit, label %while.body.i1212, !llvm.loop !15
+  %arrayidx.i1268 = getelementptr ptr, ptr %491, i64 %i.1.i
+  %502 = load ptr, ptr %arrayidx.i1268, align 8
+  %tobool17.not.i = icmp eq ptr %502, null
+  br i1 %tobool17.not.i, label %lookup.exit, label %while.body.i1267, !llvm.loop !15
 
-lookup.exit:                                      ; preds = %if.end35.i, %for.body.i.i, %if.else.i1210, %if.end1137
-  %retval.0.i1215 = phi ptr [ null, %if.end1137 ], [ null, %if.else.i1210 ], [ %482, %for.body.i.i ], [ null, %if.end35.i ]
-  %491 = load ptr, ptr %start.i.i1194, align 8
-  store ptr %491, ptr %ptr1.i.i1180, align 8
-  %492 = load i32, ptr %documentEntity, align 4
-  %tobool1145.not = icmp eq i32 %492, 0
+lookup.exit:                                      ; preds = %if.end35.i, %for.body.i.i, %if.else.i1265, %if.end1137
+  %retval.0.i1270 = phi ptr [ null, %if.end1137 ], [ null, %if.else.i1265 ], [ %494, %for.body.i.i ], [ null, %if.end35.i ]
+  %503 = load ptr, ptr %start.i.i1249, align 8
+  store ptr %503, ptr %ptr1.i.i1235, align 8
+  %504 = load i32, ptr %documentEntity, align 4
+  %tobool1145.not = icmp eq i32 %504, 0
   br i1 %tobool1145.not, label %if.else1165, label %land.lhs.true1146
 
 land.lhs.true1146:                                ; preds = %lookup.exit
-  %493 = load i8, ptr %standalone1147, align 2
-  %tobool1149.not = icmp eq i8 %493, 0
+  %505 = load i8, ptr %standalone1147, align 2
+  %tobool1149.not = icmp eq i8 %505, 0
   br i1 %tobool1149.not, label %cond.false1153, label %cond.true1150
 
 cond.true1150:                                    ; preds = %land.lhs.true1146
-  %494 = load ptr, ptr %m_openInternalEntities1151, align 8
-  %tobool1152.not = icmp eq ptr %494, null
+  %506 = load ptr, ptr %m_openInternalEntities1151, align 8
+  %tobool1152.not = icmp eq ptr %506, null
   br i1 %tobool1152.not, label %if.then1156, label %if.else1165
 
 cond.false1153:                                   ; preds = %land.lhs.true1146
-  %495 = load i8, ptr %hasParamEntityRefs1117, align 1
-  %tobool1155.not = icmp eq i8 %495, 0
+  %507 = load i8, ptr %hasParamEntityRefs1117, align 1
+  %tobool1155.not = icmp eq i8 %507, 0
   br i1 %tobool1155.not, label %if.then1156, label %if.else1165
 
 if.then1156:                                      ; preds = %cond.false1153, %cond.true1150
-  %tobool1157.not = icmp eq ptr %retval.0.i1215, null
+  %tobool1157.not = icmp eq ptr %retval.0.i1270, null
   br i1 %tobool1157.not, label %return, label %if.else1159
 
 if.else1159:                                      ; preds = %if.then1156
-  %is_internal1160 = getelementptr inbounds %struct.ENTITY, ptr %retval.0.i1215, i64 0, i32 10
-  %496 = load i8, ptr %is_internal1160, align 2
-  %tobool1161.not = icmp eq i8 %496, 0
+  %is_internal1160 = getelementptr inbounds i8, ptr %retval.0.i1270, i64 58
+  %508 = load i8, ptr %is_internal1160, align 2
+  %tobool1161.not = icmp eq i8 %508, 0
   br i1 %tobool1161.not, label %return, label %if.end1179
 
 if.else1165:                                      ; preds = %cond.false1153, %cond.true1150, %lookup.exit
-  %tobool1166.not = icmp eq ptr %retval.0.i1215, null
+  %tobool1166.not = icmp eq ptr %retval.0.i1270, null
   br i1 %tobool1166.not, label %if.then1167, label %if.end1179
 
 if.then1167:                                      ; preds = %if.else1165
-  %497 = load i8, ptr %standalone1147, align 2
-  store i8 %497, ptr %keepProcessing1423, align 8
+  %509 = load i8, ptr %standalone1147, align 2
+  store i8 %509, ptr %keepProcessing1423, align 8
   %cmp1170 = icmp eq i32 %call37, 60
   br i1 %cmp1170, label %land.lhs.true1172, label %land.lhs.true1439
 
 land.lhs.true1172:                                ; preds = %if.then1167
-  %498 = load ptr, ptr %m_skippedEntityHandler, align 8
-  %tobool1173.not = icmp eq ptr %498, null
+  %510 = load ptr, ptr %m_skippedEntityHandler, align 8
+  %tobool1173.not = icmp eq ptr %510, null
   br i1 %tobool1173.not, label %land.lhs.true1439, label %if.then1174
 
 if.then1174:                                      ; preds = %land.lhs.true1172
-  %499 = load ptr, ptr %m_handlerArg1382, align 8
-  call void %498(ptr noundef %499, ptr noundef nonnull %476, i32 noundef 1) #23
+  %511 = load ptr, ptr %m_handlerArg1382, align 8
+  call void %510(ptr noundef %511, ptr noundef nonnull %488, i32 noundef 1) #23
   br label %if.end1443
 
 if.end1179:                                       ; preds = %if.else1165, %if.else1159
-  %open = getelementptr inbounds %struct.ENTITY, ptr %retval.0.i1215, i64 0, i32 8
-  %500 = load i8, ptr %open, align 8
-  %tobool1180.not = icmp eq i8 %500, 0
+  %open = getelementptr inbounds i8, ptr %retval.0.i1270, i64 56
+  %512 = load i8, ptr %open, align 8
+  %tobool1180.not = icmp eq i8 %512, 0
   br i1 %tobool1180.not, label %if.end1182, label %return
 
 if.end1182:                                       ; preds = %if.end1179
-  %textPtr1183 = getelementptr inbounds %struct.ENTITY, ptr %retval.0.i1215, i64 0, i32 1
-  %501 = load ptr, ptr %textPtr1183, align 8
-  %tobool1184.not = icmp eq ptr %501, null
+  %textPtr1183 = getelementptr inbounds i8, ptr %retval.0.i1270, i64 8
+  %513 = load ptr, ptr %textPtr1183, align 8
+  %tobool1184.not = icmp eq ptr %513, null
   br i1 %tobool1184.not, label %if.end1197, label %if.then1185
 
 if.then1185:                                      ; preds = %if.end1182
   %cmp1188 = icmp eq i32 %call37, 60
   %conv1191 = zext i1 %cmp1188 to i8
-  %call1192 = call fastcc i32 @processInternalEntity(ptr noundef nonnull %parser, ptr noundef nonnull %retval.0.i1215, i8 noundef zeroext %conv1191)
+  %call1192 = call fastcc i32 @processInternalEntity(ptr noundef nonnull %parser, ptr noundef nonnull %retval.0.i1270, i8 noundef zeroext %conv1191)
   %cmp1193.not = icmp eq i32 %call1192, 0
   br i1 %cmp1193.not, label %if.end1443, label %return
 
 if.end1197:                                       ; preds = %if.end1182
-  %502 = load ptr, ptr %m_externalEntityRefHandler1198, align 8
-  %tobool1199.not = icmp eq ptr %502, null
+  %514 = load ptr, ptr %m_externalEntityRefHandler1198, align 8
+  %tobool1199.not = icmp eq ptr %514, null
   br i1 %tobool1199.not, label %if.else1220, label %if.then1200
 
 if.then1200:                                      ; preds = %if.end1197
@@ -8786,111 +8877,111 @@ if.then1200:                                      ; preds = %if.end1197
   br label %while.cond.i.i
 
 while.cond.i.i:                                   ; preds = %while.cond.i.i, %if.then1200
-  %rootParser.0.i.i = phi ptr [ %parser, %if.then1200 ], [ %503, %while.cond.i.i ]
-  %m_parentParser.i.i = getelementptr inbounds %struct.XML_ParserStruct, ptr %rootParser.0.i.i, i64 0, i32 84
-  %503 = load ptr, ptr %m_parentParser.i.i, align 8
-  %tobool.not.i.i1219 = icmp eq ptr %503, null
-  br i1 %tobool.not.i.i1219, label %getRootParserOf.exit.i, label %while.cond.i.i, !llvm.loop !31
+  %rootParser.0.i.i = phi ptr [ %parser, %if.then1200 ], [ %515, %while.cond.i.i ]
+  %m_parentParser.i.i = getelementptr inbounds i8, ptr %rootParser.0.i.i, i64 896
+  %515 = load ptr, ptr %m_parentParser.i.i, align 8
+  %tobool.not.i.i1274 = icmp eq ptr %515, null
+  br i1 %tobool.not.i.i1274, label %getRootParserOf.exit.i, label %while.cond.i.i, !llvm.loop !31
 
 getRootParserOf.exit.i:                           ; preds = %while.cond.i.i
-  %m_entity_stats.i = getelementptr inbounds %struct.XML_ParserStruct, ptr %rootParser.0.i.i, i64 0, i32 91
-  %504 = load i32, ptr %m_entity_stats.i, align 8
-  %inc.i = add i32 %504, 1
+  %m_entity_stats.i = getelementptr inbounds i8, ptr %rootParser.0.i.i, i64 960
+  %516 = load i32, ptr %m_entity_stats.i, align 8
+  %inc.i = add i32 %516, 1
   store i32 %inc.i, ptr %m_entity_stats.i, align 8
-  %currentDepth.i = getelementptr inbounds %struct.XML_ParserStruct, ptr %rootParser.0.i.i, i64 0, i32 91, i32 1
-  %505 = load i32, ptr %currentDepth.i, align 4
-  %inc2.i = add i32 %505, 1
+  %currentDepth.i = getelementptr inbounds i8, ptr %rootParser.0.i.i, i64 964
+  %517 = load i32, ptr %currentDepth.i, align 4
+  %inc2.i = add i32 %517, 1
   store i32 %inc2.i, ptr %currentDepth.i, align 4
-  %maximumDepthSeen.i = getelementptr inbounds %struct.XML_ParserStruct, ptr %rootParser.0.i.i, i64 0, i32 91, i32 2
-  %506 = load i32, ptr %maximumDepthSeen.i, align 8
-  %cmp.i1220 = icmp ugt i32 %inc2.i, %506
-  br i1 %cmp.i1220, label %if.then.i1226, label %if.end.i1221
+  %maximumDepthSeen.i = getelementptr inbounds i8, ptr %rootParser.0.i.i, i64 968
+  %518 = load i32, ptr %maximumDepthSeen.i, align 8
+  %cmp.i1275 = icmp ugt i32 %inc2.i, %518
+  br i1 %cmp.i1275, label %if.then.i1281, label %if.end.i1276
 
-if.then.i1226:                                    ; preds = %getRootParserOf.exit.i
-  %inc8.i = add nuw i32 %506, 1
+if.then.i1281:                                    ; preds = %getRootParserOf.exit.i
+  %inc8.i = add nuw i32 %518, 1
   store i32 %inc8.i, ptr %maximumDepthSeen.i, align 8
-  br label %if.end.i1221
+  br label %if.end.i1276
 
-if.end.i1221:                                     ; preds = %if.then.i1226, %getRootParserOf.exit.i
-  %507 = phi i32 [ %inc8.i, %if.then.i1226 ], [ %506, %getRootParserOf.exit.i ]
-  %debugLevel.i.i1222 = getelementptr inbounds %struct.XML_ParserStruct, ptr %rootParser.0.i.i, i64 0, i32 91, i32 3
-  %508 = load i32, ptr %debugLevel.i.i1222, align 4
-  %cmp.i.i1223 = icmp slt i32 %508, 1
-  br i1 %cmp.i.i1223, label %entityTrackingOnOpen.exit, label %if.end.i.i1224
+if.end.i1276:                                     ; preds = %if.then.i1281, %getRootParserOf.exit.i
+  %519 = phi i32 [ %inc8.i, %if.then.i1281 ], [ %518, %getRootParserOf.exit.i ]
+  %debugLevel.i.i1277 = getelementptr inbounds i8, ptr %rootParser.0.i.i, i64 972
+  %520 = load i32, ptr %debugLevel.i.i1277, align 4
+  %cmp.i.i1278 = icmp slt i32 %520, 1
+  br i1 %cmp.i.i1278, label %entityTrackingOnOpen.exit, label %if.end.i.i1279
 
-if.end.i.i1224:                                   ; preds = %if.end.i1221
-  %509 = load ptr, ptr %retval.0.i1215, align 8
-  %510 = load ptr, ptr @stderr, align 8
+if.end.i.i1279:                                   ; preds = %if.end.i1276
+  %521 = load ptr, ptr %retval.0.i1270, align 8
+  %522 = load ptr, ptr @stderr, align 8
   %sub.i.i = shl i32 %inc2.i, 1
   %mul.i.i = add i32 %sub.i.i, -2
-  %is_param.i.i = getelementptr inbounds %struct.ENTITY, ptr %retval.0.i1215, i64 0, i32 9
-  %511 = load i8, ptr %is_param.i.i, align 1
-  %tobool.not.i6.i = icmp eq i8 %511, 0
+  %is_param.i.i = getelementptr inbounds i8, ptr %retval.0.i1270, i64 57
+  %523 = load i8, ptr %is_param.i.i, align 1
+  %tobool.not.i6.i = icmp eq i8 %523, 0
   %cond.i.i = select i1 %tobool.not.i6.i, ptr @.str.89, ptr @.str.88
-  %textLen.i.i = getelementptr inbounds %struct.ENTITY, ptr %retval.0.i1215, i64 0, i32 2
-  %512 = load i32, ptr %textLen.i.i, align 8
-  %call.i.i1225 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %510, ptr noundef nonnull @.str.320, ptr noundef nonnull %rootParser.0.i.i, i32 noundef %inc.i, i32 noundef %inc2.i, i32 noundef %507, i32 noundef %mul.i.i, ptr noundef nonnull @.str.310, ptr noundef nonnull %cond.i.i, ptr noundef %509, ptr noundef nonnull @.str.319, i32 noundef %512, i32 noundef 5439) #26
+  %textLen.i.i = getelementptr inbounds i8, ptr %retval.0.i1270, i64 16
+  %524 = load i32, ptr %textLen.i.i, align 8
+  %call.i.i1280 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %522, ptr noundef nonnull @.str.320, ptr noundef nonnull %rootParser.0.i.i, i32 noundef %inc.i, i32 noundef %inc2.i, i32 noundef %519, i32 noundef %mul.i.i, ptr noundef nonnull @.str.310, ptr noundef nonnull %cond.i.i, ptr noundef %521, ptr noundef nonnull @.str.319, i32 noundef %524, i32 noundef 5439) #26
   br label %entityTrackingOnOpen.exit
 
-entityTrackingOnOpen.exit:                        ; preds = %if.end.i1221, %if.end.i.i1224
-  %513 = load ptr, ptr %m_externalEntityRefHandler1198, align 8
-  %514 = load ptr, ptr %m_externalEntityRefHandlerArg1204, align 8
-  %base1205 = getelementptr inbounds %struct.ENTITY, ptr %retval.0.i1215, i64 0, i32 5
-  %515 = load ptr, ptr %base1205, align 8
-  %systemId1206 = getelementptr inbounds %struct.ENTITY, ptr %retval.0.i1215, i64 0, i32 4
-  %516 = load ptr, ptr %systemId1206, align 8
-  %publicId1207 = getelementptr inbounds %struct.ENTITY, ptr %retval.0.i1215, i64 0, i32 6
-  %517 = load ptr, ptr %publicId1207, align 8
-  %call1208 = call i32 %513(ptr noundef %514, ptr noundef null, ptr noundef %515, ptr noundef %516, ptr noundef %517) #23
+entityTrackingOnOpen.exit:                        ; preds = %if.end.i1276, %if.end.i.i1279
+  %525 = load ptr, ptr %m_externalEntityRefHandler1198, align 8
+  %526 = load ptr, ptr %m_externalEntityRefHandlerArg1204, align 8
+  %base1205 = getelementptr inbounds i8, ptr %retval.0.i1270, i64 32
+  %527 = load ptr, ptr %base1205, align 8
+  %systemId1206 = getelementptr inbounds i8, ptr %retval.0.i1270, i64 24
+  %528 = load ptr, ptr %systemId1206, align 8
+  %publicId1207 = getelementptr inbounds i8, ptr %retval.0.i1270, i64 40
+  %529 = load ptr, ptr %publicId1207, align 8
+  %call1208 = call i32 %525(ptr noundef %526, ptr noundef null, ptr noundef %527, ptr noundef %528, ptr noundef %529) #23
   %tobool1209.not = icmp eq i32 %call1208, 0
-  br i1 %tobool1209.not, label %if.then1210, label %while.cond.i.i1227
+  br i1 %tobool1209.not, label %if.then1210, label %while.cond.i.i1282
 
 if.then1210:                                      ; preds = %entityTrackingOnOpen.exit
-  call fastcc void @entityTrackingOnClose(ptr noundef nonnull %parser, ptr noundef nonnull %retval.0.i1215, i32 noundef 5443)
+  call fastcc void @entityTrackingOnClose(ptr noundef nonnull %parser, ptr noundef nonnull %retval.0.i1270, i32 noundef 5443)
   store i8 0, ptr %open, align 8
   br label %return
 
-while.cond.i.i1227:                               ; preds = %entityTrackingOnOpen.exit, %while.cond.i.i1227
-  %rootParser.0.i.i1228 = phi ptr [ %518, %while.cond.i.i1227 ], [ %parser, %entityTrackingOnOpen.exit ]
-  %m_parentParser.i.i1229 = getelementptr inbounds %struct.XML_ParserStruct, ptr %rootParser.0.i.i1228, i64 0, i32 84
-  %518 = load ptr, ptr %m_parentParser.i.i1229, align 8
-  %tobool.not.i.i1230 = icmp eq ptr %518, null
-  br i1 %tobool.not.i.i1230, label %getRootParserOf.exit.i1231, label %while.cond.i.i1227, !llvm.loop !31
+while.cond.i.i1282:                               ; preds = %entityTrackingOnOpen.exit, %while.cond.i.i1282
+  %rootParser.0.i.i1283 = phi ptr [ %530, %while.cond.i.i1282 ], [ %parser, %entityTrackingOnOpen.exit ]
+  %m_parentParser.i.i1284 = getelementptr inbounds i8, ptr %rootParser.0.i.i1283, i64 896
+  %530 = load ptr, ptr %m_parentParser.i.i1284, align 8
+  %tobool.not.i.i1285 = icmp eq ptr %530, null
+  br i1 %tobool.not.i.i1285, label %getRootParserOf.exit.i1286, label %while.cond.i.i1282, !llvm.loop !31
 
-getRootParserOf.exit.i1231:                       ; preds = %while.cond.i.i1227
-  %debugLevel.i.i1232 = getelementptr inbounds %struct.XML_ParserStruct, ptr %rootParser.0.i.i1228, i64 0, i32 91, i32 3
-  %519 = load i32, ptr %debugLevel.i.i1232, align 4
-  %cmp.i.i1233 = icmp slt i32 %519, 1
-  br i1 %cmp.i.i1233, label %entityTrackingOnClose.exit, label %if.end.i.i1234
+getRootParserOf.exit.i1286:                       ; preds = %while.cond.i.i1282
+  %debugLevel.i.i1287 = getelementptr inbounds i8, ptr %rootParser.0.i.i1283, i64 972
+  %531 = load i32, ptr %debugLevel.i.i1287, align 4
+  %cmp.i.i1288 = icmp slt i32 %531, 1
+  br i1 %cmp.i.i1288, label %entityTrackingOnClose.exit, label %if.end.i.i1289
 
-if.end.i.i1234:                                   ; preds = %getRootParserOf.exit.i1231
-  %m_entity_stats.i.i = getelementptr inbounds %struct.XML_ParserStruct, ptr %rootParser.0.i.i1228, i64 0, i32 91
-  %520 = load ptr, ptr %retval.0.i1215, align 8
-  %521 = load ptr, ptr @stderr, align 8
-  %522 = load i32, ptr %m_entity_stats.i.i, align 8
-  %currentDepth.i.i = getelementptr inbounds %struct.XML_ParserStruct, ptr %rootParser.0.i.i1228, i64 0, i32 91, i32 1
-  %523 = load i32, ptr %currentDepth.i.i, align 4
-  %maximumDepthSeen.i.i = getelementptr inbounds %struct.XML_ParserStruct, ptr %rootParser.0.i.i1228, i64 0, i32 91, i32 2
-  %524 = load i32, ptr %maximumDepthSeen.i.i, align 8
-  %sub.i.i1235 = shl i32 %523, 1
-  %mul.i.i1236 = add i32 %sub.i.i1235, -2
-  %is_param.i.i1237 = getelementptr inbounds %struct.ENTITY, ptr %retval.0.i1215, i64 0, i32 9
-  %525 = load i8, ptr %is_param.i.i1237, align 1
-  %tobool.not.i2.i = icmp eq i8 %525, 0
-  %cond.i.i1238 = select i1 %tobool.not.i2.i, ptr @.str.89, ptr @.str.88
-  %textLen.i.i1239 = getelementptr inbounds %struct.ENTITY, ptr %retval.0.i1215, i64 0, i32 2
-  %526 = load i32, ptr %textLen.i.i1239, align 8
-  %call.i.i1240 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %521, ptr noundef nonnull @.str.320, ptr noundef nonnull %rootParser.0.i.i1228, i32 noundef %522, i32 noundef %523, i32 noundef %524, i32 noundef %mul.i.i1236, ptr noundef nonnull @.str.310, ptr noundef nonnull %cond.i.i1238, ptr noundef %520, ptr noundef nonnull @.str.321, i32 noundef %526, i32 noundef 5447) #26
+if.end.i.i1289:                                   ; preds = %getRootParserOf.exit.i1286
+  %m_entity_stats.i.i = getelementptr inbounds i8, ptr %rootParser.0.i.i1283, i64 960
+  %532 = load ptr, ptr %retval.0.i1270, align 8
+  %533 = load ptr, ptr @stderr, align 8
+  %534 = load i32, ptr %m_entity_stats.i.i, align 8
+  %currentDepth.i.i = getelementptr inbounds i8, ptr %rootParser.0.i.i1283, i64 964
+  %535 = load i32, ptr %currentDepth.i.i, align 4
+  %maximumDepthSeen.i.i = getelementptr inbounds i8, ptr %rootParser.0.i.i1283, i64 968
+  %536 = load i32, ptr %maximumDepthSeen.i.i, align 8
+  %sub.i.i1290 = shl i32 %535, 1
+  %mul.i.i1291 = add i32 %sub.i.i1290, -2
+  %is_param.i.i1292 = getelementptr inbounds i8, ptr %retval.0.i1270, i64 57
+  %537 = load i8, ptr %is_param.i.i1292, align 1
+  %tobool.not.i2.i = icmp eq i8 %537, 0
+  %cond.i.i1293 = select i1 %tobool.not.i2.i, ptr @.str.89, ptr @.str.88
+  %textLen.i.i1294 = getelementptr inbounds i8, ptr %retval.0.i1270, i64 16
+  %538 = load i32, ptr %textLen.i.i1294, align 8
+  %call.i.i1295 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %533, ptr noundef nonnull @.str.320, ptr noundef nonnull %rootParser.0.i.i1283, i32 noundef %534, i32 noundef %535, i32 noundef %536, i32 noundef %mul.i.i1291, ptr noundef nonnull @.str.310, ptr noundef nonnull %cond.i.i1293, ptr noundef %532, ptr noundef nonnull @.str.321, i32 noundef %538, i32 noundef 5447) #26
   br label %entityTrackingOnClose.exit
 
-entityTrackingOnClose.exit:                       ; preds = %getRootParserOf.exit.i1231, %if.end.i.i1234
-  %currentDepth.i1241 = getelementptr inbounds %struct.XML_ParserStruct, ptr %rootParser.0.i.i1228, i64 0, i32 91, i32 1
-  %527 = load i32, ptr %currentDepth.i1241, align 4
-  %dec.i = add i32 %527, -1
-  store i32 %dec.i, ptr %currentDepth.i1241, align 4
+entityTrackingOnClose.exit:                       ; preds = %getRootParserOf.exit.i1286, %if.end.i.i1289
+  %currentDepth.i1296 = getelementptr inbounds i8, ptr %rootParser.0.i.i1283, i64 964
+  %539 = load i32, ptr %currentDepth.i1296, align 4
+  %dec.i = add i32 %539, -1
+  store i32 %dec.i, ptr %currentDepth.i1296, align 4
   store i8 0, ptr %open, align 8
-  %528 = load i8, ptr %paramEntityRead1201, align 1
-  %tobool1215.not = icmp eq i8 %528, 0
+  %540 = load i8, ptr %paramEntityRead1201, align 1
+  %tobool1215.not = icmp eq i8 %540, 0
   %.pre = load i8, ptr %standalone1147, align 2
   br i1 %tobool1215.not, label %if.then1216, label %if.end1224
 
@@ -8899,35 +8990,35 @@ if.then1216:                                      ; preds = %entityTrackingOnClo
   br label %if.end1443
 
 if.else1220:                                      ; preds = %if.end1197
-  %529 = load i8, ptr %standalone1147, align 2
-  store i8 %529, ptr %keepProcessing1423, align 8
+  %541 = load i8, ptr %standalone1147, align 2
+  store i8 %541, ptr %keepProcessing1423, align 8
   br label %land.lhs.true1439
 
 if.end1224:                                       ; preds = %entityTrackingOnClose.exit, %if.then1120
-  %530 = phi i8 [ %.pre, %entityTrackingOnClose.exit ], [ %466, %if.then1120 ]
+  %542 = phi i8 [ %.pre, %entityTrackingOnClose.exit ], [ %478, %if.then1120 ]
   %handleDefault.10 = phi i8 [ 0, %entityTrackingOnClose.exit ], [ 1, %if.then1120 ]
-  %tobool1226.not = icmp eq i8 %530, 0
+  %tobool1226.not = icmp eq i8 %542, 0
   br i1 %tobool1226.not, label %land.lhs.true1227, label %sw.epilog1436
 
 land.lhs.true1227:                                ; preds = %if.end1224
-  %531 = load ptr, ptr %m_notStandaloneHandler1228, align 8
-  %tobool1229.not = icmp eq ptr %531, null
+  %543 = load ptr, ptr %m_notStandaloneHandler1228, align 8
+  %tobool1229.not = icmp eq ptr %543, null
   br i1 %tobool1229.not, label %sw.epilog1436, label %land.lhs.true1230
 
 land.lhs.true1230:                                ; preds = %land.lhs.true1227
-  %532 = load ptr, ptr %m_handlerArg1382, align 8
-  %call1233 = call i32 %531(ptr noundef %532) #23
+  %544 = load ptr, ptr %m_handlerArg1382, align 8
+  %call1233 = call i32 %543(ptr noundef %544) #23
   %tobool1234.not = icmp eq i32 %call1233, 0
   br i1 %tobool1234.not, label %return, label %sw.epilog1436
 
 sw.bb1237:                                        ; preds = %sw.epilog44
-  %533 = load ptr, ptr %m_elementDeclHandler1432, align 8
-  %tobool1239.not = icmp eq ptr %533, null
+  %545 = load ptr, ptr %m_elementDeclHandler1432, align 8
+  %tobool1239.not = icmp eq ptr %545, null
   br i1 %tobool1239.not, label %land.lhs.true1439, label %if.then1240
 
 if.then1240:                                      ; preds = %sw.bb1237
-  %534 = load ptr, ptr %next.addr, align 8
-  %call1241 = call fastcc ptr @getElementType(ptr noundef nonnull %parser, ptr noundef %enc.addr.0, ptr noundef %s.addr.0, ptr noundef %534)
+  %546 = load ptr, ptr %next.addr, align 8
+  %call1241 = call fastcc ptr @getElementType(ptr noundef nonnull %parser, ptr noundef %enc.addr.0, ptr noundef %s.addr.0, ptr noundef %546)
   store ptr %call1241, ptr %m_declElementType1383, align 8
   %tobool1244.not = icmp eq ptr %call1241, null
   br i1 %tobool1244.not, label %return, label %if.end1246
@@ -8939,35 +9030,35 @@ if.end1246:                                       ; preds = %if.then1240
   br label %if.end1443
 
 sw.bb1250:                                        ; preds = %sw.epilog44, %sw.epilog44
-  %535 = load i8, ptr %in_eldecl1355, align 8
-  %tobool1252.not = icmp eq i8 %535, 0
+  %547 = load i8, ptr %in_eldecl1355, align 8
+  %tobool1252.not = icmp eq i8 %547, 0
   br i1 %tobool1252.not, label %land.lhs.true1439, label %if.then1253
 
 if.then1253:                                      ; preds = %sw.bb1250
-  %536 = load ptr, ptr %m_elementDeclHandler1432, align 8
-  %tobool1255.not = icmp eq ptr %536, null
+  %548 = load ptr, ptr %m_elementDeclHandler1432, align 8
+  %tobool1255.not = icmp eq ptr %548, null
   br i1 %tobool1255.not, label %if.end1273, label %if.then1256
 
 if.then1256:                                      ; preds = %if.then1253
-  %537 = load ptr, ptr %3, align 8
-  %call1259 = call ptr %537(i64 noundef 32) #23
+  %549 = load ptr, ptr %3, align 8
+  %call1259 = call ptr %549(i64 noundef 32) #23
   %tobool1260.not = icmp eq ptr %call1259, null
   br i1 %tobool1260.not, label %return, label %if.end1262
 
 if.end1262:                                       ; preds = %if.then1256
-  %quant1263 = getelementptr inbounds %struct.XML_cp, ptr %call1259, i64 0, i32 1
-  %children = getelementptr inbounds %struct.XML_cp, ptr %call1259, i64 0, i32 4
+  %quant1263 = getelementptr inbounds i8, ptr %call1259, i64 4
+  %children = getelementptr inbounds i8, ptr %call1259, i64 24
   store ptr null, ptr %children, align 8
   %cmp1265 = icmp eq i32 %call37, 41
   %cond1267 = select i1 %cmp1265, i32 2, i32 1
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %quant1263, i8 0, i64 16, i1 false)
   store i32 %cond1267, ptr %call1259, align 8
   store ptr %s.addr.0, ptr %eventEndPP.0, align 8
-  %538 = load ptr, ptr %m_elementDeclHandler1432, align 8
-  %539 = load ptr, ptr %m_handlerArg1382, align 8
-  %540 = load ptr, ptr %m_declElementType1383, align 8
-  %541 = load ptr, ptr %540, align 8
-  call void %538(ptr noundef %539, ptr noundef %541, ptr noundef nonnull %call1259) #23
+  %550 = load ptr, ptr %m_elementDeclHandler1432, align 8
+  %551 = load ptr, ptr %m_handlerArg1382, align 8
+  %552 = load ptr, ptr %m_declElementType1383, align 8
+  %553 = load ptr, ptr %552, align 8
+  call void %550(ptr noundef %551, ptr noundef %553, ptr noundef nonnull %call1259) #23
   br label %if.end1273
 
 if.end1273:                                       ; preds = %if.end1262, %if.then1253
@@ -8976,23 +9067,23 @@ if.end1273:                                       ; preds = %if.end1262, %if.the
   br label %sw.epilog1436
 
 sw.bb1276:                                        ; preds = %sw.epilog44
-  %542 = load i8, ptr %in_eldecl1355, align 8
-  %tobool1278.not = icmp eq i8 %542, 0
+  %554 = load i8, ptr %in_eldecl1355, align 8
+  %tobool1278.not = icmp eq i8 %554, 0
   br i1 %tobool1278.not, label %land.lhs.true1439, label %if.then1279
 
 if.then1279:                                      ; preds = %sw.bb1276
-  %543 = load ptr, ptr %scaffold1363, align 8
-  %544 = load ptr, ptr %scaffIndex1364, align 8
-  %545 = load i32, ptr %scaffLevel1362, align 4
-  %sub1283 = add i32 %545, -1
+  %555 = load ptr, ptr %scaffold1363, align 8
+  %556 = load ptr, ptr %scaffIndex1364, align 8
+  %557 = load i32, ptr %scaffLevel1362, align 4
+  %sub1283 = add i32 %557, -1
   %idxprom1284 = sext i32 %sub1283 to i64
-  %arrayidx1285 = getelementptr i32, ptr %544, i64 %idxprom1284
-  %546 = load i32, ptr %arrayidx1285, align 4
-  %idxprom1286 = sext i32 %546 to i64
-  %arrayidx1287 = getelementptr %struct.CONTENT_SCAFFOLD, ptr %543, i64 %idxprom1286
+  %arrayidx1285 = getelementptr i32, ptr %556, i64 %idxprom1284
+  %558 = load i32, ptr %arrayidx1285, align 4
+  %idxprom1286 = sext i32 %558 to i64
+  %arrayidx1287 = getelementptr %struct.CONTENT_SCAFFOLD, ptr %555, i64 %idxprom1286
   store i32 3, ptr %arrayidx1287, align 8
-  %547 = load ptr, ptr %m_elementDeclHandler1432, align 8
-  %tobool1290.not = icmp eq ptr %547, null
+  %559 = load ptr, ptr %m_elementDeclHandler1432, align 8
+  %tobool1290.not = icmp eq ptr %559, null
   br i1 %tobool1290.not, label %land.lhs.true1439, label %if.end1443
 
 sw.bb1296:                                        ; preds = %sw.epilog44
@@ -9003,75 +9094,75 @@ sw.bb1297:                                        ; preds = %sw.epilog44
 
 elementContent:                                   ; preds = %sw.epilog44, %sw.bb1297, %sw.bb1296
   %quant.0 = phi i32 [ 3, %sw.bb1297 ], [ 2, %sw.bb1296 ], [ 1, %sw.epilog44 ]
-  %548 = load i8, ptr %in_eldecl1355, align 8
-  %tobool1299.not = icmp eq i8 %548, 0
+  %560 = load i8, ptr %in_eldecl1355, align 8
+  %tobool1299.not = icmp eq i8 %560, 0
   br i1 %tobool1299.not, label %land.lhs.true1439, label %cond.false1305
 
 elementContent.thread:                            ; preds = %sw.epilog44
-  %549 = load i8, ptr %in_eldecl1355, align 8
-  %tobool1299.not1325 = icmp eq i8 %549, 0
-  br i1 %tobool1299.not1325, label %land.lhs.true1439, label %cond.true1304
+  %561 = load i8, ptr %in_eldecl1355, align 8
+  %tobool1299.not1382 = icmp eq i8 %561, 0
+  br i1 %tobool1299.not1382, label %land.lhs.true1439, label %cond.true1304
 
 cond.true1304:                                    ; preds = %elementContent.thread
-  %550 = load ptr, ptr %next.addr, align 8
+  %562 = load ptr, ptr %next.addr, align 8
   br label %cond.end
 
 cond.false1305:                                   ; preds = %elementContent
-  %551 = load ptr, ptr %next.addr, align 8
-  %minBytesPerChar1306 = getelementptr inbounds %struct.encoding, ptr %enc.addr.0, i64 0, i32 12
-  %552 = load i32, ptr %minBytesPerChar1306, align 8
-  %idx.ext1307 = sext i32 %552 to i64
+  %563 = load ptr, ptr %next.addr, align 8
+  %minBytesPerChar1306 = getelementptr inbounds i8, ptr %enc.addr.0, i64 128
+  %564 = load i32, ptr %minBytesPerChar1306, align 8
+  %idx.ext1307 = sext i32 %564 to i64
   %idx.neg1308 = sub nsw i64 0, %idx.ext1307
-  %add.ptr1309 = getelementptr i8, ptr %551, i64 %idx.neg1308
+  %add.ptr1309 = getelementptr i8, ptr %563, i64 %idx.neg1308
   br label %cond.end
 
 cond.end:                                         ; preds = %cond.false1305, %cond.true1304
-  %quant.013271330 = phi i32 [ 0, %cond.true1304 ], [ %quant.0, %cond.false1305 ]
-  %cond1310 = phi ptr [ %550, %cond.true1304 ], [ %add.ptr1309, %cond.false1305 ]
+  %quant.013841387 = phi i32 [ 0, %cond.true1304 ], [ %quant.0, %cond.false1305 ]
+  %cond1310 = phi ptr [ %562, %cond.true1304 ], [ %add.ptr1309, %cond.false1305 ]
   %call1312 = call fastcc i32 @nextScaffoldPart(ptr noundef %parser)
   %cmp1313 = icmp slt i32 %call1312, 0
   br i1 %cmp1313, label %return, label %if.end1316
 
 if.end1316:                                       ; preds = %cond.end
-  %553 = load ptr, ptr %scaffold1363, align 8
+  %565 = load ptr, ptr %scaffold1363, align 8
   %idxprom1318 = zext nneg i32 %call1312 to i64
-  %arrayidx1319 = getelementptr %struct.CONTENT_SCAFFOLD, ptr %553, i64 %idxprom1318
+  %arrayidx1319 = getelementptr %struct.CONTENT_SCAFFOLD, ptr %565, i64 %idxprom1318
   store i32 4, ptr %arrayidx1319, align 8
-  %554 = load ptr, ptr %scaffold1363, align 8
-  %quant1324 = getelementptr %struct.CONTENT_SCAFFOLD, ptr %554, i64 %idxprom1318, i32 1
-  store i32 %quant.013271330, ptr %quant1324, align 4
+  %566 = load ptr, ptr %scaffold1363, align 8
+  %quant1324 = getelementptr %struct.CONTENT_SCAFFOLD, ptr %566, i64 %idxprom1318, i32 1
+  store i32 %quant.013841387, ptr %quant1324, align 4
   %call1325 = call fastcc ptr @getElementType(ptr noundef %parser, ptr noundef %enc.addr.0, ptr noundef %s.addr.0, ptr noundef %cond1310)
   %tobool1326.not = icmp eq ptr %call1325, null
   br i1 %tobool1326.not, label %return, label %if.end1328
 
 if.end1328:                                       ; preds = %if.end1316
-  %555 = load ptr, ptr %call1325, align 8
-  %556 = load ptr, ptr %scaffold1363, align 8
-  %name1333 = getelementptr %struct.CONTENT_SCAFFOLD, ptr %556, i64 %idxprom1318, i32 2
-  store ptr %555, ptr %name1333, align 8
+  %567 = load ptr, ptr %call1325, align 8
+  %568 = load ptr, ptr %scaffold1363, align 8
+  %name1333 = getelementptr %struct.CONTENT_SCAFFOLD, ptr %568, i64 %idxprom1318, i32 2
+  store ptr %567, ptr %name1333, align 8
   br label %for.cond1334
 
 for.cond1334:                                     ; preds = %for.cond1334, %if.end1328
   %nameLen.0 = phi i64 [ 0, %if.end1328 ], [ %inc1335, %for.cond1334 ]
   %inc1335 = add i64 %nameLen.0, 1
-  %arrayidx1336 = getelementptr i8, ptr %555, i64 %nameLen.0
-  %557 = load i8, ptr %arrayidx1336, align 1
-  %tobool1337.not = icmp eq i8 %557, 0
+  %arrayidx1336 = getelementptr i8, ptr %567, i64 %nameLen.0
+  %569 = load i8, ptr %arrayidx1336, align 1
+  %tobool1337.not = icmp eq i8 %569, 0
   br i1 %tobool1337.not, label %for.end, label %for.cond1334, !llvm.loop !36
 
 for.end:                                          ; preds = %for.cond1334
-  %558 = load i32, ptr %contentStringLen1387, align 8
-  %sub1338 = xor i32 %558, -1
+  %570 = load i32, ptr %contentStringLen1387, align 8
+  %sub1338 = xor i32 %570, -1
   %conv1339 = zext i32 %sub1338 to i64
   %cmp1340 = icmp ugt i64 %inc1335, %conv1339
   br i1 %cmp1340, label %return, label %if.end1343
 
 if.end1343:                                       ; preds = %for.end
   %conv1344 = trunc i64 %inc1335 to i32
-  %add = add i32 %558, %conv1344
+  %add = add i32 %570, %conv1344
   store i32 %add, ptr %contentStringLen1387, align 8
-  %559 = load ptr, ptr %m_elementDeclHandler1432, align 8
-  %tobool1347.not = icmp eq ptr %559, null
+  %571 = load ptr, ptr %m_elementDeclHandler1432, align 8
+  %tobool1347.not = icmp eq ptr %571, null
   br i1 %tobool1347.not, label %land.lhs.true1439, label %if.end1443
 
 sw.bb1352:                                        ; preds = %sw.epilog44
@@ -9085,27 +9176,27 @@ sw.bb1354:                                        ; preds = %sw.epilog44
 
 closeGroup:                                       ; preds = %sw.epilog44, %sw.bb1354, %sw.bb1353, %sw.bb1352
   %quant.1 = phi i32 [ 3, %sw.bb1354 ], [ 2, %sw.bb1353 ], [ 1, %sw.bb1352 ], [ 0, %sw.epilog44 ]
-  %560 = load i8, ptr %in_eldecl1355, align 8
-  %tobool1356.not = icmp eq i8 %560, 0
+  %572 = load i8, ptr %in_eldecl1355, align 8
+  %tobool1356.not = icmp eq i8 %572, 0
   br i1 %tobool1356.not, label %land.lhs.true1439, label %if.then1357
 
 if.then1357:                                      ; preds = %closeGroup
-  %561 = load ptr, ptr %m_elementDeclHandler1432, align 8
-  %tobool1359.not.not = icmp eq ptr %561, null
+  %573 = load ptr, ptr %m_elementDeclHandler1432, align 8
+  %tobool1359.not.not = icmp eq ptr %573, null
   %spec.select727 = zext i1 %tobool1359.not.not to i8
-  %562 = load i32, ptr %scaffLevel1362, align 4
-  %dec = add i32 %562, -1
+  %574 = load i32, ptr %scaffLevel1362, align 4
+  %dec = add i32 %574, -1
   store i32 %dec, ptr %scaffLevel1362, align 4
-  %563 = load ptr, ptr %scaffold1363, align 8
-  %564 = load ptr, ptr %scaffIndex1364, align 8
+  %575 = load ptr, ptr %scaffold1363, align 8
+  %576 = load ptr, ptr %scaffIndex1364, align 8
   %idxprom1366 = sext i32 %dec to i64
-  %arrayidx1367 = getelementptr i32, ptr %564, i64 %idxprom1366
-  %565 = load i32, ptr %arrayidx1367, align 4
-  %idxprom1368 = sext i32 %565 to i64
-  %quant1370 = getelementptr %struct.CONTENT_SCAFFOLD, ptr %563, i64 %idxprom1368, i32 1
+  %arrayidx1367 = getelementptr i32, ptr %576, i64 %idxprom1366
+  %577 = load i32, ptr %arrayidx1367, align 4
+  %idxprom1368 = sext i32 %577 to i64
+  %quant1370 = getelementptr %struct.CONTENT_SCAFFOLD, ptr %575, i64 %idxprom1368, i32 1
   store i32 %quant.1, ptr %quant1370, align 4
-  %566 = load i32, ptr %scaffLevel1362, align 4
-  %cmp1372 = icmp eq i32 %566, 0
+  %578 = load i32, ptr %scaffLevel1362, align 4
+  %cmp1372 = icmp eq i32 %578, 0
   br i1 %cmp1372, label %if.then1374, label %sw.epilog1436
 
 if.then1374:                                      ; preds = %if.then1357
@@ -9114,121 +9205,121 @@ if.then1374:                                      ; preds = %if.then1357
 if.then1376:                                      ; preds = %if.then1374
   %parser.val = load ptr, ptr %3, align 8
   %parser.val734 = load ptr, ptr %m_dtd, align 8
-  %scaffCount.i = getelementptr inbounds %struct.DTD, ptr %parser.val734, i64 0, i32 16
-  %contentStringLen.i = getelementptr inbounds %struct.DTD, ptr %parser.val734, i64 0, i32 14
-  %567 = load i32, ptr %contentStringLen.i, align 8
-  %conv1.i = zext i32 %567 to i64
-  %568 = load i32, ptr %scaffCount.i, align 8
-  %conv.i1242 = zext i32 %568 to i64
-  %mul.i = shl nuw nsw i64 %conv.i1242, 5
-  %add.i1243 = add nuw nsw i64 %mul.i, %conv1.i
-  %call.i1244 = call ptr %parser.val(i64 noundef %add.i1243) #23
-  %tobool.not.i1245 = icmp eq ptr %call.i1244, null
-  br i1 %tobool.not.i1245, label %return, label %if.end11.i
+  %scaffCount.i = getelementptr inbounds i8, ptr %parser.val734, i64 344
+  %contentStringLen.i = getelementptr inbounds i8, ptr %parser.val734, i64 336
+  %579 = load i32, ptr %contentStringLen.i, align 8
+  %conv1.i = zext i32 %579 to i64
+  %580 = load i32, ptr %scaffCount.i, align 8
+  %conv.i1297 = zext i32 %580 to i64
+  %mul.i = shl nuw nsw i64 %conv.i1297, 5
+  %add.i1298 = add nuw nsw i64 %mul.i, %conv1.i
+  %call.i1299 = call ptr %parser.val(i64 noundef %add.i1298) #23
+  %tobool.not.i1300 = icmp eq ptr %call.i1299, null
+  br i1 %tobool.not.i1300, label %return, label %if.end11.i
 
 if.end11.i:                                       ; preds = %if.then1376
-  %569 = load i32, ptr %scaffCount.i, align 8
-  %idxprom.i = zext i32 %569 to i64
-  %arrayidx.i1246 = getelementptr %struct.XML_cp, ptr %call.i1244, i64 %idxprom.i
-  %numchildren.i = getelementptr inbounds %struct.XML_cp, ptr %call.i1244, i64 0, i32 3
+  %581 = load i32, ptr %scaffCount.i, align 8
+  %idxprom.i = zext i32 %581 to i64
+  %arrayidx.i1301 = getelementptr %struct.XML_cp, ptr %call.i1299, i64 %idxprom.i
+  %numchildren.i = getelementptr inbounds i8, ptr %call.i1299, i64 16
   store i32 0, ptr %numchildren.i, align 8
-  %cmp165.i = icmp ult ptr %call.i1244, %arrayidx.i1246
-  br i1 %cmp165.i, label %for.body.lr.ph.i1247, label %if.end1380
+  %cmp165.i = icmp ult ptr %call.i1299, %arrayidx.i1301
+  br i1 %cmp165.i, label %for.body.lr.ph.i1302, label %if.end1380
 
-for.body.lr.ph.i1247:                             ; preds = %if.end11.i
-  %incdec.ptr.i1248 = getelementptr %struct.XML_cp, ptr %call.i1244, i64 1
-  %scaffold.i = getelementptr inbounds %struct.DTD, ptr %parser.val734, i64 0, i32 13
-  br label %for.body.i1249
+for.body.lr.ph.i1302:                             ; preds = %if.end11.i
+  %incdec.ptr.i1303 = getelementptr i8, ptr %call.i1299, i64 32
+  %scaffold.i = getelementptr inbounds i8, ptr %parser.val734, i64 328
+  br label %for.body.i1304
 
-for.body.i1249:                                   ; preds = %for.inc62.i, %for.body.lr.ph.i1247
-  %jobDest.08.i = phi ptr [ %incdec.ptr.i1248, %for.body.lr.ph.i1247 ], [ %jobDest.2.i, %for.inc62.i ]
-  %str.07.i = phi ptr [ %arrayidx.i1246, %for.body.lr.ph.i1247 ], [ %str.2.i, %for.inc62.i ]
-  %dest.06.i = phi ptr [ %call.i1244, %for.body.lr.ph.i1247 ], [ %incdec.ptr63.i, %for.inc62.i ]
-  %numchildren18.i = getelementptr inbounds %struct.XML_cp, ptr %dest.06.i, i64 0, i32 3
-  %570 = load i32, ptr %numchildren18.i, align 8
-  %571 = load ptr, ptr %scaffold.i, align 8
-  %idxprom19.i = sext i32 %570 to i64
-  %arrayidx20.i = getelementptr %struct.CONTENT_SCAFFOLD, ptr %571, i64 %idxprom19.i
-  %572 = load i32, ptr %arrayidx20.i, align 8
-  store i32 %572, ptr %dest.06.i, align 8
-  %573 = load ptr, ptr %scaffold.i, align 8
-  %quant.i = getelementptr %struct.CONTENT_SCAFFOLD, ptr %573, i64 %idxprom19.i, i32 1
-  %574 = load i32, ptr %quant.i, align 4
-  %quant25.i = getelementptr inbounds %struct.XML_cp, ptr %dest.06.i, i64 0, i32 1
-  store i32 %574, ptr %quant25.i, align 4
-  %cmp27.i = icmp eq i32 %572, 4
-  %name.i = getelementptr inbounds %struct.XML_cp, ptr %dest.06.i, i64 0, i32 2
-  br i1 %cmp27.i, label %if.then29.i1253, label %if.else.i1250
+for.body.i1304:                                   ; preds = %for.inc62.i, %for.body.lr.ph.i1302
+  %jobDest.08.i = phi ptr [ %incdec.ptr.i1303, %for.body.lr.ph.i1302 ], [ %jobDest.2.i, %for.inc62.i ]
+  %str.07.i = phi ptr [ %arrayidx.i1301, %for.body.lr.ph.i1302 ], [ %str.2.i, %for.inc62.i ]
+  %dest.06.i = phi ptr [ %call.i1299, %for.body.lr.ph.i1302 ], [ %incdec.ptr63.i, %for.inc62.i ]
+  %numchildren18.i = getelementptr inbounds i8, ptr %dest.06.i, i64 16
+  %582 = load i32, ptr %numchildren18.i, align 8
+  %583 = load ptr, ptr %scaffold.i, align 8
+  %idxprom19.i = sext i32 %582 to i64
+  %arrayidx20.i = getelementptr %struct.CONTENT_SCAFFOLD, ptr %583, i64 %idxprom19.i
+  %584 = load i32, ptr %arrayidx20.i, align 8
+  store i32 %584, ptr %dest.06.i, align 8
+  %585 = load ptr, ptr %scaffold.i, align 8
+  %quant.i = getelementptr %struct.CONTENT_SCAFFOLD, ptr %585, i64 %idxprom19.i, i32 1
+  %586 = load i32, ptr %quant.i, align 4
+  %quant25.i = getelementptr inbounds i8, ptr %dest.06.i, i64 4
+  store i32 %586, ptr %quant25.i, align 4
+  %cmp27.i = icmp eq i32 %584, 4
+  %name.i = getelementptr inbounds i8, ptr %dest.06.i, i64 8
+  br i1 %cmp27.i, label %if.then29.i1308, label %if.else.i1305
 
-if.then29.i1253:                                  ; preds = %for.body.i1249
+if.then29.i1308:                                  ; preds = %for.body.i1304
   store ptr %str.07.i, ptr %name.i, align 8
-  %575 = load ptr, ptr %scaffold.i, align 8
-  %name33.i = getelementptr %struct.CONTENT_SCAFFOLD, ptr %575, i64 %idxprom19.i, i32 2
-  %576 = load ptr, ptr %name33.i, align 8
+  %587 = load ptr, ptr %scaffold.i, align 8
+  %name33.i = getelementptr %struct.CONTENT_SCAFFOLD, ptr %587, i64 %idxprom19.i, i32 2
+  %588 = load ptr, ptr %name33.i, align 8
   br label %for.cond34.i
 
-for.cond34.i:                                     ; preds = %for.cond34.i, %if.then29.i1253
-  %str.1.i = phi ptr [ %str.07.i, %if.then29.i1253 ], [ %incdec.ptr35.i, %for.cond34.i ]
-  %src.0.i = phi ptr [ %576, %if.then29.i1253 ], [ %incdec.ptr39.i, %for.cond34.i ]
-  %577 = load i8, ptr %src.0.i, align 1
+for.cond34.i:                                     ; preds = %for.cond34.i, %if.then29.i1308
+  %str.1.i = phi ptr [ %str.07.i, %if.then29.i1308 ], [ %incdec.ptr35.i, %for.cond34.i ]
+  %src.0.i = phi ptr [ %588, %if.then29.i1308 ], [ %incdec.ptr39.i, %for.cond34.i ]
+  %589 = load i8, ptr %src.0.i, align 1
   %incdec.ptr35.i = getelementptr i8, ptr %str.1.i, i64 1
-  store i8 %577, ptr %str.1.i, align 1
-  %tobool36.not.i = icmp eq i8 %577, 0
+  store i8 %589, ptr %str.1.i, align 1
+  %tobool36.not.i = icmp eq i8 %589, 0
   %incdec.ptr39.i = getelementptr i8, ptr %src.0.i, i64 1
-  br i1 %tobool36.not.i, label %for.end.i1254, label %for.cond34.i
+  br i1 %tobool36.not.i, label %for.end.i1309, label %for.cond34.i
 
-for.end.i1254:                                    ; preds = %for.cond34.i
+for.end.i1309:                                    ; preds = %for.cond34.i
   store i32 0, ptr %numchildren18.i, align 8
-  %children.i = getelementptr inbounds %struct.XML_cp, ptr %dest.06.i, i64 0, i32 4
+  %children.i = getelementptr inbounds i8, ptr %dest.06.i, i64 24
   store ptr null, ptr %children.i, align 8
   br label %for.inc62.i
 
-if.else.i1250:                                    ; preds = %for.body.i1249
+if.else.i1305:                                    ; preds = %for.body.i1304
   store ptr null, ptr %name.i, align 8
-  %578 = load ptr, ptr %scaffold.i, align 8
-  %childcnt.i = getelementptr %struct.CONTENT_SCAFFOLD, ptr %578, i64 %idxprom19.i, i32 5
-  %579 = load i32, ptr %childcnt.i, align 8
-  store i32 %579, ptr %numchildren18.i, align 8
-  %children46.i = getelementptr inbounds %struct.XML_cp, ptr %dest.06.i, i64 0, i32 4
+  %590 = load ptr, ptr %scaffold.i, align 8
+  %childcnt.i = getelementptr %struct.CONTENT_SCAFFOLD, ptr %590, i64 %idxprom19.i, i32 5
+  %591 = load i32, ptr %childcnt.i, align 8
+  store i32 %591, ptr %numchildren18.i, align 8
+  %children46.i = getelementptr inbounds i8, ptr %dest.06.i, i64 24
   store ptr %jobDest.08.i, ptr %children46.i, align 8
-  %cmp521.not.i = icmp eq i32 %579, 0
+  %cmp521.not.i = icmp eq i32 %591, 0
   br i1 %cmp521.not.i, label %for.inc62.i, label %for.body54.preheader.i
 
-for.body54.preheader.i:                           ; preds = %if.else.i1250
-  %580 = load ptr, ptr %scaffold.i, align 8
-  %firstchild.i = getelementptr %struct.CONTENT_SCAFFOLD, ptr %580, i64 %idxprom19.i, i32 3
+for.body54.preheader.i:                           ; preds = %if.else.i1305
+  %592 = load ptr, ptr %scaffold.i, align 8
+  %firstchild.i = getelementptr %struct.CONTENT_SCAFFOLD, ptr %592, i64 %idxprom19.i, i32 3
   br label %for.body54.i
 
 for.body54.i:                                     ; preds = %for.body54.i, %for.body54.preheader.i
   %cn.0.in4.i = phi ptr [ %nextsib.i, %for.body54.i ], [ %firstchild.i, %for.body54.preheader.i ]
-  %i.03.i = phi i32 [ %inc.i1251, %for.body54.i ], [ 0, %for.body54.preheader.i ]
+  %i.03.i = phi i32 [ %inc.i1306, %for.body54.i ], [ 0, %for.body54.preheader.i ]
   %jobDest.12.i = phi ptr [ %incdec.ptr55.i, %for.body54.i ], [ %jobDest.08.i, %for.body54.preheader.i ]
   %cn.0.i = load i32, ptr %cn.0.in4.i, align 4
-  %incdec.ptr55.i = getelementptr %struct.XML_cp, ptr %jobDest.12.i, i64 1
-  %numchildren56.i = getelementptr inbounds %struct.XML_cp, ptr %jobDest.12.i, i64 0, i32 3
+  %incdec.ptr55.i = getelementptr i8, ptr %jobDest.12.i, i64 32
+  %numchildren56.i = getelementptr inbounds i8, ptr %jobDest.12.i, i64 16
   store i32 %cn.0.i, ptr %numchildren56.i, align 8
-  %inc.i1251 = add nuw i32 %i.03.i, 1
-  %581 = load ptr, ptr %scaffold.i, align 8
+  %inc.i1306 = add nuw i32 %i.03.i, 1
+  %593 = load ptr, ptr %scaffold.i, align 8
   %idxprom58.i = sext i32 %cn.0.i to i64
-  %nextsib.i = getelementptr %struct.CONTENT_SCAFFOLD, ptr %581, i64 %idxprom58.i, i32 6
-  %582 = load i32, ptr %numchildren18.i, align 8
-  %cmp52.i = icmp ult i32 %inc.i1251, %582
+  %nextsib.i = getelementptr %struct.CONTENT_SCAFFOLD, ptr %593, i64 %idxprom58.i, i32 6
+  %594 = load i32, ptr %numchildren18.i, align 8
+  %cmp52.i = icmp ult i32 %inc.i1306, %594
   br i1 %cmp52.i, label %for.body54.i, label %for.inc62.i, !llvm.loop !37
 
-for.inc62.i:                                      ; preds = %for.body54.i, %if.else.i1250, %for.end.i1254
-  %str.2.i = phi ptr [ %incdec.ptr35.i, %for.end.i1254 ], [ %str.07.i, %if.else.i1250 ], [ %str.07.i, %for.body54.i ]
-  %jobDest.2.i = phi ptr [ %jobDest.08.i, %for.end.i1254 ], [ %jobDest.08.i, %if.else.i1250 ], [ %incdec.ptr55.i, %for.body54.i ]
-  %incdec.ptr63.i = getelementptr %struct.XML_cp, ptr %dest.06.i, i64 1
-  %cmp16.i1252 = icmp ult ptr %incdec.ptr63.i, %arrayidx.i1246
-  br i1 %cmp16.i1252, label %for.body.i1249, label %if.end1380, !llvm.loop !38
+for.inc62.i:                                      ; preds = %for.body54.i, %if.else.i1305, %for.end.i1309
+  %str.2.i = phi ptr [ %incdec.ptr35.i, %for.end.i1309 ], [ %str.07.i, %if.else.i1305 ], [ %str.07.i, %for.body54.i ]
+  %jobDest.2.i = phi ptr [ %jobDest.08.i, %for.end.i1309 ], [ %jobDest.08.i, %if.else.i1305 ], [ %incdec.ptr55.i, %for.body54.i ]
+  %incdec.ptr63.i = getelementptr i8, ptr %dest.06.i, i64 32
+  %cmp16.i1307 = icmp ult ptr %incdec.ptr63.i, %arrayidx.i1301
+  br i1 %cmp16.i1307, label %for.body.i1304, label %if.end1380, !llvm.loop !38
 
 if.end1380:                                       ; preds = %for.inc62.i, %if.end11.i
   store ptr %s.addr.0, ptr %eventEndPP.0, align 8
-  %583 = load ptr, ptr %m_elementDeclHandler1432, align 8
-  %584 = load ptr, ptr %m_handlerArg1382, align 8
-  %585 = load ptr, ptr %m_declElementType1383, align 8
-  %586 = load ptr, ptr %585, align 8
-  call void %583(ptr noundef %584, ptr noundef %586, ptr noundef nonnull %call.i1244) #23
+  %595 = load ptr, ptr %m_elementDeclHandler1432, align 8
+  %596 = load ptr, ptr %m_handlerArg1382, align 8
+  %597 = load ptr, ptr %m_declElementType1383, align 8
+  %598 = load ptr, ptr %597, align 8
+  call void %595(ptr noundef %596, ptr noundef %598, ptr noundef nonnull %call.i1299) #23
   br label %if.end1385
 
 if.end1385:                                       ; preds = %if.end1380, %if.then1374
@@ -9237,14 +9328,14 @@ if.end1385:                                       ; preds = %if.end1380, %if.the
   br label %sw.epilog1436
 
 sw.bb1390:                                        ; preds = %sw.epilog44
-  %587 = load ptr, ptr %next.addr, align 8
-  %call1391 = call fastcc i32 @reportProcessingInstruction(ptr noundef %parser, ptr noundef %enc.addr.0, ptr noundef %s.addr.0, ptr noundef %587), !range !17
+  %599 = load ptr, ptr %next.addr, align 8
+  %call1391 = call fastcc i32 @reportProcessingInstruction(ptr noundef %parser, ptr noundef %enc.addr.0, ptr noundef %s.addr.0, ptr noundef %599), !range !17
   %tobool1392.not = icmp eq i32 %call1391, 0
   br i1 %tobool1392.not, label %return, label %if.end1443
 
 sw.bb1395:                                        ; preds = %sw.epilog44
-  %588 = load ptr, ptr %next.addr, align 8
-  %call1396 = call fastcc i32 @reportComment(ptr noundef %parser, ptr noundef %enc.addr.0, ptr noundef %s.addr.0, ptr noundef %588), !range !17
+  %600 = load ptr, ptr %next.addr, align 8
+  %call1396 = call fastcc i32 @reportComment(ptr noundef %parser, ptr noundef %enc.addr.0, ptr noundef %s.addr.0, ptr noundef %600), !range !17
   %tobool1397.not = icmp eq i32 %call1396, 0
   br i1 %tobool1397.not, label %return, label %if.end1443
 
@@ -9253,136 +9344,136 @@ sw.bb1400:                                        ; preds = %sw.epilog44
   br i1 %cond1, label %if.end1443, label %land.lhs.true1439
 
 sw.bb1403:                                        ; preds = %sw.epilog44
-  %589 = load ptr, ptr %m_startDoctypeDeclHandler1404, align 8
-  %tobool1405.not = icmp eq ptr %589, null
+  %601 = load ptr, ptr %m_startDoctypeDeclHandler1404, align 8
+  %tobool1405.not = icmp eq ptr %601, null
   br i1 %tobool1405.not, label %land.lhs.true1439, label %if.end1443
 
 sw.bb1408:                                        ; preds = %sw.epilog44
-  %590 = load i8, ptr %keepProcessing1423, align 8
-  %tobool1411.not = icmp eq i8 %590, 0
+  %602 = load i8, ptr %keepProcessing1423, align 8
+  %tobool1411.not = icmp eq i8 %602, 0
   br i1 %tobool1411.not, label %land.lhs.true1439, label %land.lhs.true1412
 
 land.lhs.true1412:                                ; preds = %sw.bb1408
-  %591 = load ptr, ptr %m_entityDeclHandler1413, align 8
-  %tobool1414.not = icmp eq ptr %591, null
+  %603 = load ptr, ptr %m_entityDeclHandler1413, align 8
+  %tobool1414.not = icmp eq ptr %603, null
   br i1 %tobool1414.not, label %land.lhs.true1439, label %if.end1443
 
 sw.bb1417:                                        ; preds = %sw.epilog44
-  %592 = load ptr, ptr %m_notationDeclHandler1418, align 8
-  %tobool1419.not = icmp eq ptr %592, null
+  %604 = load ptr, ptr %m_notationDeclHandler1418, align 8
+  %tobool1419.not = icmp eq ptr %604, null
   br i1 %tobool1419.not, label %land.lhs.true1439, label %if.end1443
 
 sw.bb1422:                                        ; preds = %sw.epilog44
-  %593 = load i8, ptr %keepProcessing1423, align 8
-  %tobool1425.not = icmp eq i8 %593, 0
+  %605 = load i8, ptr %keepProcessing1423, align 8
+  %tobool1425.not = icmp eq i8 %605, 0
   br i1 %tobool1425.not, label %land.lhs.true1439, label %land.lhs.true1426
 
 land.lhs.true1426:                                ; preds = %sw.bb1422
-  %594 = load ptr, ptr %m_attlistDeclHandler1427, align 8
-  %tobool1428.not = icmp eq ptr %594, null
+  %606 = load ptr, ptr %m_attlistDeclHandler1427, align 8
+  %tobool1428.not = icmp eq ptr %606, null
   br i1 %tobool1428.not, label %land.lhs.true1439, label %if.end1443
 
 sw.bb1431:                                        ; preds = %sw.epilog44
-  %595 = load ptr, ptr %m_elementDeclHandler1432, align 8
-  %tobool1433.not = icmp eq ptr %595, null
+  %607 = load ptr, ptr %m_elementDeclHandler1432, align 8
+  %tobool1433.not = icmp eq ptr %607, null
   br i1 %tobool1433.not, label %land.lhs.true1439, label %if.end1443
 
-sw.epilog1436:                                    ; preds = %if.end656, %normalizePublicId.exit820, %if.end1385, %if.then1357, %if.end1273, %if.end1224, %land.lhs.true1227, %land.lhs.true1230, %sw.bb633, %land.lhs.true637, %if.end571, %if.end211, %alreadyChecked, %land.lhs.true117, %if.end1110, %poolClear.exit1171, %poolClear.exit1160, %poolClear.exit858, %if.end62
-  %handleDefault.13 = phi i8 [ %spec.select727, %if.end1385 ], [ %spec.select727, %if.then1357 ], [ %handleDefault.11, %if.end1273 ], [ %handleDefault.10, %if.end1224 ], [ %handleDefault.10, %land.lhs.true1230 ], [ %handleDefault.10, %land.lhs.true1227 ], [ %handleDefault.9, %if.end1110 ], [ %handleDefault.8, %poolClear.exit1171 ], [ %handleDefault.7, %poolClear.exit1160 ], [ %handleDefault.6, %land.lhs.true637 ], [ %handleDefault.6, %sw.bb633 ], [ %handleDefault.4, %if.end571 ], [ %handleDefault.3, %poolClear.exit858 ], [ %handleDefault.2, %if.end211 ], [ %handleDefault.1, %land.lhs.true117 ], [ %handleDefault.1, %alreadyChecked ], [ %handleDefault.0, %if.end62 ], [ %handleDefault.1, %normalizePublicId.exit820 ], [ %handleDefault.6, %if.end656 ]
+sw.epilog1436:                                    ; preds = %if.end656, %normalizePublicId.exit820, %if.end1385, %if.then1357, %if.end1273, %if.end1224, %land.lhs.true1227, %land.lhs.true1230, %sw.bb633, %land.lhs.true637, %if.end571, %if.end211, %alreadyChecked, %land.lhs.true117, %if.end1110, %poolClear.exit1226, %poolClear.exit1215, %poolClear.exit867, %if.end62
+  %handleDefault.13 = phi i8 [ %spec.select727, %if.end1385 ], [ %spec.select727, %if.then1357 ], [ %handleDefault.11, %if.end1273 ], [ %handleDefault.10, %if.end1224 ], [ %handleDefault.10, %land.lhs.true1230 ], [ %handleDefault.10, %land.lhs.true1227 ], [ %handleDefault.9, %if.end1110 ], [ %handleDefault.8, %poolClear.exit1226 ], [ %handleDefault.7, %poolClear.exit1215 ], [ %handleDefault.6, %land.lhs.true637 ], [ %handleDefault.6, %sw.bb633 ], [ %handleDefault.4, %if.end571 ], [ %handleDefault.3, %poolClear.exit867 ], [ %handleDefault.2, %if.end211 ], [ %handleDefault.1, %land.lhs.true117 ], [ %handleDefault.1, %alreadyChecked ], [ %handleDefault.0, %if.end62 ], [ %handleDefault.1, %normalizePublicId.exit820 ], [ %handleDefault.6, %if.end656 ]
   %tobool1438.not = icmp eq i8 %handleDefault.13, 0
   br i1 %tobool1438.not, label %if.end1443, label %land.lhs.true1439
 
 land.lhs.true1439:                                ; preds = %sw.bb1431, %land.lhs.true1426, %sw.bb1417, %land.lhs.true1412, %sw.bb1403, %if.end1343, %if.then1279, %land.lhs.true1058, %if.end1028, %lor.end848, %lor.end, %land.lhs.true302, %elementContent.thread, %sw.bb1400, %sw.bb63, %checkAttListDeclHandler, %sw.bb306, %land.lhs.true310, %sw.bb417, %if.end447, %land.lhs.true450, %sw.bb523, %sw.bb672, %land.lhs.true676, %land.lhs.true679, %sw.bb697, %land.lhs.true701, %if.else731, %if.else800, %if.then775, %if.then753, %if.else859, %if.then828, %sw.bb866, %if.end886, %if.end1017, %if.end1049, %if.then1167, %land.lhs.true1172, %if.else1220, %sw.bb1237, %sw.bb1250, %sw.bb1276, %elementContent, %closeGroup, %sw.bb1408, %sw.bb1422, %sw.epilog44, %sw.epilog1436
-  %596 = load ptr, ptr %m_defaultHandler, align 8
-  %tobool1441.not = icmp eq ptr %596, null
+  %608 = load ptr, ptr %m_defaultHandler, align 8
+  %tobool1441.not = icmp eq ptr %608, null
   br i1 %tobool1441.not, label %if.end1443, label %if.then1442
 
 if.then1442:                                      ; preds = %land.lhs.true1439
-  %597 = load ptr, ptr %next.addr, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %s.addr.i1255)
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %dataPtr.i1256)
-  store ptr %s.addr.0, ptr %s.addr.i1255, align 8
-  %isUtf8.i1257 = getelementptr inbounds %struct.encoding, ptr %enc.addr.0, i64 0, i32 13
-  %598 = load i8, ptr %isUtf8.i1257, align 4
-  %tobool.not.i1258 = icmp eq i8 %598, 0
-  br i1 %tobool.not.i1258, label %if.then.i1266, label %if.else9.i1259
+  %609 = load ptr, ptr %next.addr, align 8
+  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %s.addr.i1310)
+  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %dataPtr.i1311)
+  store ptr %s.addr.0, ptr %s.addr.i1310, align 8
+  %isUtf8.i1312 = getelementptr inbounds i8, ptr %enc.addr.0, i64 132
+  %610 = load i8, ptr %isUtf8.i1312, align 4
+  %tobool.not.i1313 = icmp eq i8 %610, 0
+  br i1 %tobool.not.i1313, label %if.then.i1321, label %if.else9.i1314
 
-if.then.i1266:                                    ; preds = %if.then1442
-  %599 = load ptr, ptr %m_encoding, align 8
-  %cmp.i1268 = icmp eq ptr %599, %enc.addr.0
-  br i1 %cmp.i1268, label %if.end.i1272, label %if.else.i1269
+if.then.i1321:                                    ; preds = %if.then1442
+  %611 = load ptr, ptr %m_encoding, align 8
+  %cmp.i1323 = icmp eq ptr %611, %enc.addr.0
+  br i1 %cmp.i1323, label %if.end.i1327, label %if.else.i1324
 
-if.else.i1269:                                    ; preds = %if.then.i1266
-  %600 = load ptr, ptr %m_openInternalEntities1151, align 8
-  %internalEventEndPtr.i1271 = getelementptr inbounds %struct.open_internal_entity, ptr %600, i64 0, i32 1
-  br label %if.end.i1272
+if.else.i1324:                                    ; preds = %if.then.i1321
+  %612 = load ptr, ptr %m_openInternalEntities1151, align 8
+  %internalEventEndPtr.i1326 = getelementptr inbounds i8, ptr %612, i64 8
+  br label %if.end.i1327
 
-if.end.i1272:                                     ; preds = %if.then.i1266, %if.else.i1269
-  %eventPP.0.i1273 = phi ptr [ %600, %if.else.i1269 ], [ %m_eventPtr.i, %if.then.i1266 ]
-  %eventEndPP.0.i1274 = phi ptr [ %internalEventEndPtr.i1271, %if.else.i1269 ], [ %m_eventEndPtr.i, %if.then.i1266 ]
-  %utf8Convert.i1276 = getelementptr inbounds %struct.encoding, ptr %enc.addr.0, i64 0, i32 10
-  br label %do.body.i1280
+if.end.i1327:                                     ; preds = %if.then.i1321, %if.else.i1324
+  %eventPP.0.i1328 = phi ptr [ %612, %if.else.i1324 ], [ %m_eventPtr.i, %if.then.i1321 ]
+  %eventEndPP.0.i1329 = phi ptr [ %internalEventEndPtr.i1326, %if.else.i1324 ], [ %m_eventEndPtr.i, %if.then.i1321 ]
+  %utf8Convert.i1331 = getelementptr inbounds i8, ptr %enc.addr.0, i64 112
+  br label %do.body.i1335
 
-do.body.i1280:                                    ; preds = %do.body.i1280, %if.end.i1272
-  %601 = load ptr, ptr %m_dataBuf.i, align 8
-  store ptr %601, ptr %dataPtr.i1256, align 8
-  %602 = load ptr, ptr %utf8Convert.i1276, align 8
-  %603 = load ptr, ptr %m_dataBufEnd.i, align 8
-  %call.i1281 = call i32 %602(ptr noundef nonnull %enc.addr.0, ptr noundef nonnull %s.addr.i1255, ptr noundef %597, ptr noundef nonnull %dataPtr.i1256, ptr noundef %603) #23
-  %604 = load ptr, ptr %s.addr.i1255, align 8
-  store ptr %604, ptr %eventEndPP.0.i1274, align 8
-  %605 = load ptr, ptr %m_defaultHandler, align 8
-  %606 = load ptr, ptr %m_handlerArg1382, align 8
-  %607 = load ptr, ptr %m_dataBuf.i, align 8
-  %608 = load ptr, ptr %dataPtr.i1256, align 8
-  %sub.ptr.lhs.cast.i1282 = ptrtoint ptr %608 to i64
-  %sub.ptr.rhs.cast.i1283 = ptrtoint ptr %607 to i64
-  %sub.ptr.sub.i1284 = sub i64 %sub.ptr.lhs.cast.i1282, %sub.ptr.rhs.cast.i1283
-  %conv.i1285 = trunc i64 %sub.ptr.sub.i1284 to i32
-  call void %605(ptr noundef %606, ptr noundef %607, i32 noundef %conv.i1285) #23
-  %609 = load ptr, ptr %s.addr.i1255, align 8
-  store ptr %609, ptr %eventPP.0.i1273, align 8
-  %610 = icmp ugt i32 %call.i1281, 1
-  br i1 %610, label %do.body.i1280, label %reportDefault.exit1289, !llvm.loop !28
+do.body.i1335:                                    ; preds = %do.body.i1335, %if.end.i1327
+  %613 = load ptr, ptr %m_dataBuf.i, align 8
+  store ptr %613, ptr %dataPtr.i1311, align 8
+  %614 = load ptr, ptr %utf8Convert.i1331, align 8
+  %615 = load ptr, ptr %m_dataBufEnd.i, align 8
+  %call.i1336 = call i32 %614(ptr noundef nonnull %enc.addr.0, ptr noundef nonnull %s.addr.i1310, ptr noundef %609, ptr noundef nonnull %dataPtr.i1311, ptr noundef %615) #23
+  %616 = load ptr, ptr %s.addr.i1310, align 8
+  store ptr %616, ptr %eventEndPP.0.i1329, align 8
+  %617 = load ptr, ptr %m_defaultHandler, align 8
+  %618 = load ptr, ptr %m_handlerArg1382, align 8
+  %619 = load ptr, ptr %m_dataBuf.i, align 8
+  %620 = load ptr, ptr %dataPtr.i1311, align 8
+  %sub.ptr.lhs.cast.i1337 = ptrtoint ptr %620 to i64
+  %sub.ptr.rhs.cast.i1338 = ptrtoint ptr %619 to i64
+  %sub.ptr.sub.i1339 = sub i64 %sub.ptr.lhs.cast.i1337, %sub.ptr.rhs.cast.i1338
+  %conv.i1340 = trunc i64 %sub.ptr.sub.i1339 to i32
+  call void %617(ptr noundef %618, ptr noundef %619, i32 noundef %conv.i1340) #23
+  %621 = load ptr, ptr %s.addr.i1310, align 8
+  store ptr %621, ptr %eventPP.0.i1328, align 8
+  %622 = icmp ugt i32 %call.i1336, 1
+  br i1 %622, label %do.body.i1335, label %reportDefault.exit1344, !llvm.loop !28
 
-if.else9.i1259:                                   ; preds = %if.then1442
-  %611 = load ptr, ptr %m_handlerArg1382, align 8
-  %sub.ptr.lhs.cast12.i1262 = ptrtoint ptr %597 to i64
-  %sub.ptr.rhs.cast13.i1263 = ptrtoint ptr %s.addr.0 to i64
-  %sub.ptr.sub14.i1264 = sub i64 %sub.ptr.lhs.cast12.i1262, %sub.ptr.rhs.cast13.i1263
-  %conv15.i1265 = trunc i64 %sub.ptr.sub14.i1264 to i32
-  call void %596(ptr noundef %611, ptr noundef %s.addr.0, i32 noundef %conv15.i1265) #23
-  br label %reportDefault.exit1289
+if.else9.i1314:                                   ; preds = %if.then1442
+  %623 = load ptr, ptr %m_handlerArg1382, align 8
+  %sub.ptr.lhs.cast12.i1317 = ptrtoint ptr %609 to i64
+  %sub.ptr.rhs.cast13.i1318 = ptrtoint ptr %s.addr.0 to i64
+  %sub.ptr.sub14.i1319 = sub i64 %sub.ptr.lhs.cast12.i1317, %sub.ptr.rhs.cast13.i1318
+  %conv15.i1320 = trunc i64 %sub.ptr.sub14.i1319 to i32
+  call void %608(ptr noundef %623, ptr noundef %s.addr.0, i32 noundef %conv15.i1320) #23
+  br label %reportDefault.exit1344
 
-reportDefault.exit1289:                           ; preds = %do.body.i1280, %if.else9.i1259
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %s.addr.i1255)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %dataPtr.i1256)
+reportDefault.exit1344:                           ; preds = %do.body.i1335, %if.else9.i1314
+  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %s.addr.i1310)
+  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %dataPtr.i1311)
   br label %if.end1443
 
-if.end1443:                                       ; preds = %sw.bb1400, %if.end656, %normalizePublicId.exit820, %sw.bb1431, %land.lhs.true1426, %sw.bb1417, %land.lhs.true1412, %sw.bb1403, %sw.bb1395, %sw.bb1390, %if.end1343, %if.then1279, %if.then1185, %land.lhs.true1058, %if.end1028, %lor.end848, %lor.end, %land.lhs.true302, %if.end50, %poolClear.exit, %if.end80, %if.then213, %if.end330, %poolClear.exit887, %if.then682, %if.then734, %if.then718, %if.end875, %normalizePublicId.exit1119, %if.else963, %if.then1174, %if.then1216, %if.end1246, %reportDefault.exit1289, %land.lhs.true1439, %sw.epilog1436
-  %enc.addr.11351 = phi ptr [ %enc.addr.0, %reportDefault.exit1289 ], [ %enc.addr.0, %land.lhs.true1439 ], [ %enc.addr.0, %sw.epilog1436 ], [ %enc.addr.0, %sw.bb1431 ], [ %enc.addr.0, %land.lhs.true1426 ], [ %enc.addr.0, %sw.bb1417 ], [ %enc.addr.0, %land.lhs.true1412 ], [ %enc.addr.0, %sw.bb1403 ], [ %enc.addr.0, %sw.bb1395 ], [ %enc.addr.0, %sw.bb1390 ], [ %enc.addr.0, %if.end1343 ], [ %enc.addr.0, %if.then1279 ], [ %enc.addr.0, %if.then1185 ], [ %enc.addr.0, %land.lhs.true1058 ], [ %enc.addr.0, %if.end1028 ], [ %enc.addr.0, %lor.end848 ], [ %enc.addr.0, %lor.end ], [ %enc.addr.0, %land.lhs.true302 ], [ %19, %if.end50 ], [ %enc.addr.0, %poolClear.exit ], [ %41, %if.end80 ], [ %enc.addr.0, %if.then213 ], [ %enc.addr.0, %if.end330 ], [ %enc.addr.0, %poolClear.exit887 ], [ %enc.addr.0, %if.then682 ], [ %enc.addr.0, %if.then734 ], [ %enc.addr.0, %if.then718 ], [ %enc.addr.0, %if.end875 ], [ %enc.addr.0, %normalizePublicId.exit1119 ], [ %enc.addr.0, %if.else963 ], [ %enc.addr.0, %if.then1174 ], [ %enc.addr.0, %if.then1216 ], [ %enc.addr.0, %if.end1246 ], [ %enc.addr.0, %normalizePublicId.exit820 ], [ %enc.addr.0, %if.end656 ], [ %enc.addr.0, %sw.bb1400 ]
-  %612 = load i32, ptr %m_parsingStatus, align 8
-  switch i32 %612, label %sw.default1446 [
+if.end1443:                                       ; preds = %sw.bb1400, %if.end656, %normalizePublicId.exit820, %sw.bb1431, %land.lhs.true1426, %sw.bb1417, %land.lhs.true1412, %sw.bb1403, %sw.bb1395, %sw.bb1390, %if.end1343, %if.then1279, %if.then1185, %land.lhs.true1058, %if.end1028, %lor.end848, %lor.end, %land.lhs.true302, %if.end50, %poolClear.exit, %if.end80, %if.then213, %if.end330, %poolClear.exit942, %if.then682, %if.then734, %if.then718, %if.end875, %normalizePublicId.exit1174, %if.else963, %if.then1174, %if.then1216, %if.end1246, %reportDefault.exit1344, %land.lhs.true1439, %sw.epilog1436
+  %enc.addr.11408 = phi ptr [ %enc.addr.0, %reportDefault.exit1344 ], [ %enc.addr.0, %land.lhs.true1439 ], [ %enc.addr.0, %sw.epilog1436 ], [ %enc.addr.0, %sw.bb1431 ], [ %enc.addr.0, %land.lhs.true1426 ], [ %enc.addr.0, %sw.bb1417 ], [ %enc.addr.0, %land.lhs.true1412 ], [ %enc.addr.0, %sw.bb1403 ], [ %enc.addr.0, %sw.bb1395 ], [ %enc.addr.0, %sw.bb1390 ], [ %enc.addr.0, %if.end1343 ], [ %enc.addr.0, %if.then1279 ], [ %enc.addr.0, %if.then1185 ], [ %enc.addr.0, %land.lhs.true1058 ], [ %enc.addr.0, %if.end1028 ], [ %enc.addr.0, %lor.end848 ], [ %enc.addr.0, %lor.end ], [ %enc.addr.0, %land.lhs.true302 ], [ %19, %if.end50 ], [ %enc.addr.0, %poolClear.exit ], [ %41, %if.end80 ], [ %enc.addr.0, %if.then213 ], [ %enc.addr.0, %if.end330 ], [ %enc.addr.0, %poolClear.exit942 ], [ %enc.addr.0, %if.then682 ], [ %enc.addr.0, %if.then734 ], [ %enc.addr.0, %if.then718 ], [ %enc.addr.0, %if.end875 ], [ %enc.addr.0, %normalizePublicId.exit1174 ], [ %enc.addr.0, %if.else963 ], [ %enc.addr.0, %if.then1174 ], [ %enc.addr.0, %if.then1216 ], [ %enc.addr.0, %if.end1246 ], [ %enc.addr.0, %normalizePublicId.exit820 ], [ %enc.addr.0, %if.end656 ], [ %enc.addr.0, %sw.bb1400 ]
+  %624 = load i32, ptr %m_parsingStatus, align 8
+  switch i32 %624, label %sw.default1446 [
     i32 3, label %sw.bb1444
     i32 2, label %return
   ]
 
 sw.bb1444:                                        ; preds = %if.end1443
-  %613 = load ptr, ptr %next.addr, align 8
-  store ptr %613, ptr %nextPtr, align 8
+  %625 = load ptr, ptr %next.addr, align 8
+  store ptr %625, ptr %nextPtr, align 8
   br label %return
 
 sw.default1446:                                   ; preds = %if.end1443
-  %614 = load ptr, ptr %next.addr, align 8
-  %615 = load ptr, ptr %enc.addr.11351, align 8
-  %call1448 = call i32 %615(ptr noundef nonnull %enc.addr.11351, ptr noundef %614, ptr noundef %end, ptr noundef nonnull %next.addr) #23
+  %626 = load ptr, ptr %next.addr, align 8
+  %627 = load ptr, ptr %enc.addr.11408, align 8
+  %call1448 = call i32 %627(ptr noundef nonnull %enc.addr.11408, ptr noundef %626, ptr noundef %end, ptr noundef nonnull %next.addr) #23
   br label %for.cond
 
-return.loopexit2035:                              ; preds = %if.end7
+return.loopexit2108:                              ; preds = %if.end7
   br label %return
 
-return:                                           ; preds = %if.then1376, %land.lhs.true.i1200, %poolAppend.exit.i1193, %land.lhs.true.i1141, %poolAppend.exit.i1134, %land.lhs.true.i1089, %poolAppend.exit.i1082, %land.lhs.true.i1029, %poolAppend.exit.i1022, %land.lhs.true.i999, %poolAppend.exit.i992, %if.end36.i, %if.else.i872, %land.lhs.true14.i, %if.then420, %land.lhs.true.i790, %poolAppend.exit.i783, %land.lhs.true.i759, %poolAppend.exit.i752, %if.end1443, %sw.bb1395, %sw.bb1390, %for.end, %if.end1316, %cond.end, %if.then1256, %if.then1240, %land.lhs.true1230, %if.then1185, %if.end1179, %if.else1159, %if.then1156, %poolStoreString.exit1208, %sw.bb1063, %sw.bb1039, %if.then1023, %if.then992, %if.then976, %if.end958, %poolStoreString.exit1149, %poolStoreString.exit1097, %sw.bb881, %poolStoreString.exit1067, %if.end816, %poolStoreString.exit1037, %if.end764, %poolStoreString.exit1007, %poolStoreString.exit977, %poolStoreString.exit947, %if.then622, %land.lhs.true613, %poolStoreString.exit917, %if.end571, %land.lhs.true476, %land.lhs.true492, %land.lhs.true374, %land.lhs.true387, %if.then338, %poolAppend.exit, %poolAppendString.exit, %sw.bb275, %sw.bb269, %land.lhs.true195, %if.end181, %if.then172, %sw.bb144, %poolStoreString.exit798, %sw.bb109, %poolStoreString.exit767, %if.then90, %sw.bb82, %sw.bb74, %poolStoreString.exit, %sw.bb45, %land.lhs.true.i838, %if.end7, %return.loopexit2035, %poolAppend.exit.thread.i1191, %poolAppend.exit.thread.i1132, %poolAppend.exit.thread.i1080, %poolAppend.exit.thread.i1020, %poolAppend.exit.thread.i990, %if.then29.i, %poolAppend.exit.thread.i781, %poolAppend.exit.thread.i750, %poolStoreString.exit1067.thread, %poolStoreString.exit917.thread, %poolAppend.exit.thread, %poolStoreString.exit.thread, %accountingGetCurrentAmplification.exit.i.i, %getRootParserOf.exit.i.i, %if.end19, %sw.bb950, %land.lhs.true256, %if.end235, %if.then229, %if.then25, %sw.bb1444, %if.then1210, %if.then1013, %if.then987, %if.then965, %if.end267, %if.end30, %if.then18, %sw.bb, %if.then6
-  %retval.0 = phi i32 [ 0, %if.then6 ], [ 0, %sw.bb1444 ], [ 21, %if.then1210 ], [ 1, %if.then987 ], [ 1, %if.then1013 ], [ 0, %if.then965 ], [ %call268, %if.end267 ], [ 0, %if.end30 ], [ 0, %if.then18 ], [ 4, %sw.bb ], [ 29, %if.then25 ], [ 1, %if.then229 ], [ 21, %if.end235 ], [ 22, %land.lhs.true256 ], [ %switch.select720, %sw.bb950 ], [ 3, %if.end19 ], [ 43, %getRootParserOf.exit.i.i ], [ 43, %accountingGetCurrentAmplification.exit.i.i ], [ 1, %poolStoreString.exit.thread ], [ 1, %poolAppend.exit.thread ], [ 1, %poolStoreString.exit917.thread ], [ 1, %poolStoreString.exit1067.thread ], [ 1, %poolAppend.exit.thread.i750 ], [ 1, %poolAppend.exit.thread.i781 ], [ 1, %if.then29.i ], [ 1, %poolAppend.exit.thread.i990 ], [ 1, %poolAppend.exit.thread.i1020 ], [ 1, %poolAppend.exit.thread.i1080 ], [ 1, %poolAppend.exit.thread.i1132 ], [ 1, %poolAppend.exit.thread.i1191 ], [ 6, %if.end7 ], [ 1, %land.lhs.true.i838 ], [ 1, %if.then1376 ], [ 1, %land.lhs.true.i1200 ], [ 1, %poolAppend.exit.i1193 ], [ 1, %land.lhs.true.i1141 ], [ 1, %poolAppend.exit.i1134 ], [ 1, %land.lhs.true.i1089 ], [ 1, %poolAppend.exit.i1082 ], [ 1, %land.lhs.true.i1029 ], [ 1, %poolAppend.exit.i1022 ], [ 1, %land.lhs.true.i999 ], [ 1, %poolAppend.exit.i992 ], [ 1, %if.end36.i ], [ 1, %if.else.i872 ], [ %call.i859, %if.then420 ], [ 1, %land.lhs.true14.i ], [ 1, %land.lhs.true.i790 ], [ 1, %poolAppend.exit.i783 ], [ 1, %land.lhs.true.i759 ], [ 1, %poolAppend.exit.i752 ], [ 35, %if.end1443 ], [ 1, %sw.bb1395 ], [ 1, %sw.bb1390 ], [ 1, %for.end ], [ 1, %if.end1316 ], [ 1, %cond.end ], [ 1, %if.then1256 ], [ 1, %if.then1240 ], [ 22, %land.lhs.true1230 ], [ %call1192, %if.then1185 ], [ 12, %if.end1179 ], [ 24, %if.else1159 ], [ 11, %if.then1156 ], [ 1, %poolStoreString.exit1208 ], [ 2, %sw.bb1063 ], [ 2, %sw.bb1039 ], [ 1, %if.then1023 ], [ 1, %if.then992 ], [ 1, %if.then976 ], [ %call959, %if.end958 ], [ 1, %poolStoreString.exit1149 ], [ 1, %poolStoreString.exit1097 ], [ 32, %sw.bb881 ], [ 1, %poolStoreString.exit1067 ], [ 1, %if.end816 ], [ 1, %poolStoreString.exit1037 ], [ 1, %if.end764 ], [ 1, %poolStoreString.exit1007 ], [ 1, %poolStoreString.exit977 ], [ 1, %poolStoreString.exit947 ], [ 1, %if.then622 ], [ 22, %land.lhs.true613 ], [ 1, %poolStoreString.exit917 ], [ %call535, %if.end571 ], [ 1, %land.lhs.true476 ], [ 1, %land.lhs.true492 ], [ 1, %land.lhs.true374 ], [ 1, %land.lhs.true387 ], [ 1, %if.then338 ], [ 1, %poolAppend.exit ], [ 1, %poolAppendString.exit ], [ 1, %sw.bb275 ], [ 1, %sw.bb269 ], [ 22, %land.lhs.true195 ], [ 21, %if.end181 ], [ 1, %if.then172 ], [ 4, %sw.bb144 ], [ 1, %poolStoreString.exit798 ], [ 32, %sw.bb109 ], [ 1, %poolStoreString.exit767 ], [ 32, %if.then90 ], [ 1, %sw.bb82 ], [ %call76, %sw.bb74 ], [ 1, %poolStoreString.exit ], [ %call46, %sw.bb45 ], [ 5, %return.loopexit2035 ]
+return:                                           ; preds = %if.then1376, %land.lhs.true.i1255, %poolAppend.exit.i1248, %land.lhs.true.i1196, %poolAppend.exit.i1189, %land.lhs.true.i1144, %poolAppend.exit.i1137, %land.lhs.true.i1084, %poolAppend.exit.i1077, %land.lhs.true.i1054, %poolAppend.exit.i1047, %if.end36.i903, %if.else.i901, %land.lhs.true14.i, %if.then420, %if.end36.i, %if.else.i849, %land.lhs.true.i790, %poolAppend.exit.i783, %land.lhs.true.i759, %poolAppend.exit.i752, %if.end1443, %sw.bb1395, %sw.bb1390, %for.end, %if.end1316, %cond.end, %if.then1256, %if.then1240, %land.lhs.true1230, %if.then1185, %if.end1179, %if.else1159, %if.then1156, %poolStoreString.exit1263, %sw.bb1063, %sw.bb1039, %if.then1023, %if.then992, %if.then976, %if.end958, %poolStoreString.exit1204, %poolStoreString.exit1152, %sw.bb881, %poolStoreString.exit1122, %if.end816, %poolStoreString.exit1092, %if.end764, %poolStoreString.exit1062, %poolStoreString.exit1032, %poolStoreString.exit1002, %if.then622, %land.lhs.true613, %poolStoreString.exit972, %if.end571, %land.lhs.true476, %land.lhs.true492, %land.lhs.true374, %land.lhs.true387, %poolAppend.exit, %poolAppendString.exit, %sw.bb275, %sw.bb269, %land.lhs.true195, %if.end181, %if.then172, %sw.bb144, %poolStoreString.exit798, %sw.bb109, %poolStoreString.exit767, %if.then90, %sw.bb82, %sw.bb74, %poolStoreString.exit, %sw.bb45, %land.lhs.true.i838, %if.end7, %return.loopexit2108, %poolAppend.exit.thread.i1246, %poolAppend.exit.thread.i1187, %poolAppend.exit.thread.i1135, %poolAppend.exit.thread.i1075, %poolAppend.exit.thread.i1045, %if.then29.i917, %if.then29.i, %poolAppend.exit.thread.i781, %poolAppend.exit.thread.i750, %poolStoreString.exit1122.thread, %poolStoreString.exit972.thread, %poolAppend.exit.thread, %poolStoreString.exit.thread, %accountingGetCurrentAmplification.exit.i.i, %getRootParserOf.exit.i.i, %if.end19, %sw.bb950, %land.lhs.true256, %if.end235, %if.then229, %if.then25, %sw.bb1444, %if.then1210, %if.then1013, %if.then987, %if.then965, %if.end267, %if.end30, %if.then18, %sw.bb, %if.then6
+  %retval.0 = phi i32 [ 0, %if.then6 ], [ 0, %sw.bb1444 ], [ 21, %if.then1210 ], [ 1, %if.then987 ], [ 1, %if.then1013 ], [ 0, %if.then965 ], [ %call268, %if.end267 ], [ 0, %if.end30 ], [ 0, %if.then18 ], [ 4, %sw.bb ], [ 29, %if.then25 ], [ 1, %if.then229 ], [ 21, %if.end235 ], [ 22, %land.lhs.true256 ], [ %switch.select720, %sw.bb950 ], [ 3, %if.end19 ], [ 43, %getRootParserOf.exit.i.i ], [ 43, %accountingGetCurrentAmplification.exit.i.i ], [ 1, %poolStoreString.exit.thread ], [ 1, %poolAppend.exit.thread ], [ 1, %poolStoreString.exit972.thread ], [ 1, %poolStoreString.exit1122.thread ], [ 1, %poolAppend.exit.thread.i750 ], [ 1, %poolAppend.exit.thread.i781 ], [ 1, %if.then29.i ], [ 1, %if.then29.i917 ], [ 1, %poolAppend.exit.thread.i1045 ], [ 1, %poolAppend.exit.thread.i1075 ], [ 1, %poolAppend.exit.thread.i1135 ], [ 1, %poolAppend.exit.thread.i1187 ], [ 1, %poolAppend.exit.thread.i1246 ], [ 6, %if.end7 ], [ 1, %land.lhs.true.i838 ], [ 1, %if.then1376 ], [ 1, %land.lhs.true.i1255 ], [ 1, %poolAppend.exit.i1248 ], [ 1, %land.lhs.true.i1196 ], [ 1, %poolAppend.exit.i1189 ], [ 1, %land.lhs.true.i1144 ], [ 1, %poolAppend.exit.i1137 ], [ 1, %land.lhs.true.i1084 ], [ 1, %poolAppend.exit.i1077 ], [ 1, %land.lhs.true.i1054 ], [ 1, %poolAppend.exit.i1047 ], [ 1, %if.end36.i903 ], [ 1, %if.else.i901 ], [ %call.i868, %if.then420 ], [ 1, %land.lhs.true14.i ], [ 1, %if.end36.i ], [ 1, %if.else.i849 ], [ 1, %land.lhs.true.i790 ], [ 1, %poolAppend.exit.i783 ], [ 1, %land.lhs.true.i759 ], [ 1, %poolAppend.exit.i752 ], [ 35, %if.end1443 ], [ 1, %sw.bb1395 ], [ 1, %sw.bb1390 ], [ 1, %for.end ], [ 1, %if.end1316 ], [ 1, %cond.end ], [ 1, %if.then1256 ], [ 1, %if.then1240 ], [ 22, %land.lhs.true1230 ], [ %call1192, %if.then1185 ], [ 12, %if.end1179 ], [ 24, %if.else1159 ], [ 11, %if.then1156 ], [ 1, %poolStoreString.exit1263 ], [ 2, %sw.bb1063 ], [ 2, %sw.bb1039 ], [ 1, %if.then1023 ], [ 1, %if.then992 ], [ 1, %if.then976 ], [ %call959, %if.end958 ], [ 1, %poolStoreString.exit1204 ], [ 1, %poolStoreString.exit1152 ], [ 32, %sw.bb881 ], [ 1, %poolStoreString.exit1122 ], [ 1, %if.end816 ], [ 1, %poolStoreString.exit1092 ], [ 1, %if.end764 ], [ 1, %poolStoreString.exit1062 ], [ 1, %poolStoreString.exit1032 ], [ 1, %poolStoreString.exit1002 ], [ 1, %if.then622 ], [ 22, %land.lhs.true613 ], [ 1, %poolStoreString.exit972 ], [ %call535, %if.end571 ], [ 1, %land.lhs.true476 ], [ 1, %land.lhs.true492 ], [ 1, %land.lhs.true374 ], [ 1, %land.lhs.true387 ], [ 1, %poolAppend.exit ], [ 1, %poolAppendString.exit ], [ 1, %sw.bb275 ], [ 1, %sw.bb269 ], [ 22, %land.lhs.true195 ], [ 21, %if.end181 ], [ 1, %if.then172 ], [ 4, %sw.bb144 ], [ 1, %poolStoreString.exit798 ], [ 32, %sw.bb109 ], [ 1, %poolStoreString.exit767 ], [ 32, %if.then90 ], [ 1, %sw.bb82 ], [ %call76, %sw.bb74 ], [ 1, %poolStoreString.exit ], [ %call46, %sw.bb45 ], [ 5, %return.loopexit2108 ]
   ret i32 %retval.0
 }
 
@@ -9403,7 +9494,7 @@ while.cond.i.preheader:                           ; preds = %sw.epilog, %switch.
 while.cond.i:                                     ; preds = %while.cond.i.preheader, %while.cond.i
   %rootParser.0.i = phi ptr [ %1, %while.cond.i ], [ %originParser, %while.cond.i.preheader ]
   %stepsTakenUpwards.0.i = phi i32 [ %inc.i, %while.cond.i ], [ 0, %while.cond.i.preheader ]
-  %m_parentParser.i = getelementptr inbounds %struct.XML_ParserStruct, ptr %rootParser.0.i, i64 0, i32 84
+  %m_parentParser.i = getelementptr inbounds i8, ptr %rootParser.0.i, i64 896
   %1 = load ptr, ptr %m_parentParser.i, align 8
   %tobool.not.i = icmp eq ptr %1, null
   %inc.i = add i32 %stepsTakenUpwards.0.i, 1
@@ -9416,8 +9507,8 @@ getRootParserOf.exit:                             ; preds = %while.cond.i
   %sub.ptr.lhs.cast = ptrtoint ptr %after to i64
   %sub.ptr.rhs.cast = ptrtoint ptr %before to i64
   %sub.ptr.sub = sub i64 %sub.ptr.lhs.cast, %sub.ptr.rhs.cast
-  %m_accounting = getelementptr inbounds %struct.XML_ParserStruct, ptr %rootParser.0.i, i64 0, i32 90
-  %countBytesIndirect = getelementptr inbounds %struct.XML_ParserStruct, ptr %rootParser.0.i, i64 0, i32 90, i32 1
+  %m_accounting = getelementptr inbounds i8, ptr %rootParser.0.i, i64 928
+  %countBytesIndirect = getelementptr inbounds i8, ptr %rootParser.0.i, i64 936
   %cond = select i1 %2, ptr %m_accounting, ptr %countBytesIndirect
   %3 = load i64, ptr %cond, align 8
   %sub = xor i64 %sub.ptr.sub, -1
@@ -9430,7 +9521,7 @@ if.end6:                                          ; preds = %getRootParserOf.exi
   %4 = load i64, ptr %m_accounting, align 8
   %5 = load i64, ptr %countBytesIndirect, align 8
   %add11 = add i64 %5, %4
-  %activationThresholdBytes = getelementptr inbounds %struct.XML_ParserStruct, ptr %rootParser.0.i, i64 0, i32 90, i32 4
+  %activationThresholdBytes = getelementptr inbounds i8, ptr %rootParser.0.i, i64 952
   %6 = load i64, ptr %activationThresholdBytes, align 8
   %cmp14 = icmp ult i64 %add11, %6
   br i1 %cmp14, label %lor.end, label %lor.rhs
@@ -9441,7 +9532,7 @@ lor.rhs:                                          ; preds = %if.end6
   %conv6.i = uitofp i64 %4 to float
   %div.i = fdiv float %conv.i, %conv6.i
   %cond.i = select i1 %tobool.not.i19, float 1.000000e+00, float %div.i
-  %maximumAmplificationFactor = getelementptr inbounds %struct.XML_ParserStruct, ptr %rootParser.0.i, i64 0, i32 90, i32 3
+  %maximumAmplificationFactor = getelementptr inbounds i8, ptr %rootParser.0.i, i64 948
   %7 = load float, ptr %maximumAmplificationFactor, align 4
   %cmp16 = fcmp ole float %cond.i, %7
   %8 = zext i1 %cmp16 to i8
@@ -9449,29 +9540,29 @@ lor.rhs:                                          ; preds = %if.end6
 
 lor.end:                                          ; preds = %lor.rhs, %if.end6
   %conv = phi i8 [ 1, %if.end6 ], [ %8, %lor.rhs ]
-  %debugLevel = getelementptr inbounds %struct.XML_ParserStruct, ptr %rootParser.0.i, i64 0, i32 90, i32 2
+  %debugLevel = getelementptr inbounds i8, ptr %rootParser.0.i, i64 944
   %9 = load i32, ptr %debugLevel, align 8
   %cmp18 = icmp sgt i32 %9, 1
   br i1 %cmp18, label %while.cond.i.i, label %return
 
 while.cond.i.i:                                   ; preds = %lor.end, %while.cond.i.i
   %rootParser.0.i.i = phi ptr [ %10, %while.cond.i.i ], [ %rootParser.0.i, %lor.end ]
-  %m_parentParser.i.i = getelementptr inbounds %struct.XML_ParserStruct, ptr %rootParser.0.i.i, i64 0, i32 84
+  %m_parentParser.i.i = getelementptr inbounds i8, ptr %rootParser.0.i.i, i64 896
   %10 = load ptr, ptr %m_parentParser.i.i, align 8
   %tobool.not.i.i = icmp eq ptr %10, null
   br i1 %tobool.not.i.i, label %getRootParserOf.exit.i, label %while.cond.i.i, !llvm.loop !31
 
 getRootParserOf.exit.i:                           ; preds = %while.cond.i.i
-  %debugLevel.i = getelementptr inbounds %struct.XML_ParserStruct, ptr %rootParser.0.i.i, i64 0, i32 90, i32 2
+  %debugLevel.i = getelementptr inbounds i8, ptr %rootParser.0.i.i, i64 944
   %11 = load i32, ptr %debugLevel.i, align 8
   %cmp.i = icmp slt i32 %11, 1
   br i1 %cmp.i, label %accountingReportStats.exit, label %if.end.i
 
 if.end.i:                                         ; preds = %getRootParserOf.exit.i
-  %m_accounting.i20 = getelementptr inbounds %struct.XML_ParserStruct, ptr %rootParser.0.i.i, i64 0, i32 90
+  %m_accounting.i20 = getelementptr inbounds i8, ptr %rootParser.0.i.i, i64 928
   %12 = load i64, ptr %m_accounting.i20, align 8
   %tobool.not.i5.i = icmp eq i64 %12, 0
-  %countBytesIndirect.phi.trans.insert.i = getelementptr inbounds %struct.XML_ParserStruct, ptr %rootParser.0.i.i, i64 0, i32 90, i32 1
+  %countBytesIndirect.phi.trans.insert.i = getelementptr inbounds i8, ptr %rootParser.0.i.i, i64 936
   %.pre.i = load i64, ptr %countBytesIndirect.phi.trans.insert.i, align 8
   br i1 %tobool.not.i5.i, label %accountingGetCurrentAmplification.exit.i, label %cond.true.i.i
 
@@ -9588,22 +9679,22 @@ entry:
 
 while.cond.i.i.i:                                 ; preds = %entry, %while.cond.i.i.i
   %rootParser.0.i.i.i = phi ptr [ %0, %while.cond.i.i.i ], [ %parser, %entry ]
-  %m_parentParser.i.i.i = getelementptr inbounds %struct.XML_ParserStruct, ptr %rootParser.0.i.i.i, i64 0, i32 84
+  %m_parentParser.i.i.i = getelementptr inbounds i8, ptr %rootParser.0.i.i.i, i64 896
   %0 = load ptr, ptr %m_parentParser.i.i.i, align 8
   %tobool.not.i.i.i = icmp eq ptr %0, null
   br i1 %tobool.not.i.i.i, label %getRootParserOf.exit.i.i, label %while.cond.i.i.i, !llvm.loop !31
 
 getRootParserOf.exit.i.i:                         ; preds = %while.cond.i.i.i
-  %debugLevel.i.i = getelementptr inbounds %struct.XML_ParserStruct, ptr %rootParser.0.i.i.i, i64 0, i32 90, i32 2
+  %debugLevel.i.i = getelementptr inbounds i8, ptr %rootParser.0.i.i.i, i64 944
   %1 = load i32, ptr %debugLevel.i.i, align 8
   %cmp.i.i = icmp slt i32 %1, 1
   br i1 %cmp.i.i, label %return, label %if.end.i.i
 
 if.end.i.i:                                       ; preds = %getRootParserOf.exit.i.i
-  %m_accounting.i.i = getelementptr inbounds %struct.XML_ParserStruct, ptr %rootParser.0.i.i.i, i64 0, i32 90
+  %m_accounting.i.i = getelementptr inbounds i8, ptr %rootParser.0.i.i.i, i64 928
   %2 = load i64, ptr %m_accounting.i.i, align 8
   %tobool.not.i5.i.i = icmp eq i64 %2, 0
-  %countBytesIndirect.phi.trans.insert.i.i = getelementptr inbounds %struct.XML_ParserStruct, ptr %rootParser.0.i.i.i, i64 0, i32 90, i32 1
+  %countBytesIndirect.phi.trans.insert.i.i = getelementptr inbounds i8, ptr %rootParser.0.i.i.i, i64 936
   %.pre.i.i = load i64, ptr %countBytesIndirect.phi.trans.insert.i.i, align 8
   br i1 %tobool.not.i5.i.i, label %accountingGetCurrentAmplification.exit.i.i, label %cond.true.i.i.i
 
@@ -9622,13 +9713,13 @@ accountingGetCurrentAmplification.exit.i.i:       ; preds = %cond.true.i.i.i, %i
   br label %return
 
 if.end:                                           ; preds = %entry
-  %m_ns = getelementptr inbounds %struct.XML_ParserStruct, ptr %parser, i64 0, i32 38
+  %m_ns = getelementptr inbounds i8, ptr %parser, i64 456
   %5 = load i8, ptr %m_ns, align 8
   %tobool1.not = icmp eq i8 %5, 0
   %cond = select i1 %tobool1.not, ptr @PyExpat_XmlParseXmlDecl, ptr @PyExpat_XmlParseXmlDeclNS
-  %m_encoding = getelementptr inbounds %struct.XML_ParserStruct, ptr %parser, i64 0, i32 34
+  %m_encoding = getelementptr inbounds i8, ptr %parser, i64 288
   %6 = load ptr, ptr %m_encoding, align 8
-  %m_eventPtr = getelementptr inbounds %struct.XML_ParserStruct, ptr %parser, i64 0, i32 47
+  %m_eventPtr = getelementptr inbounds i8, ptr %parser, i64 544
   %call2 = call i32 %cond(i32 noundef %isGeneralTextEntity, ptr noundef %6, ptr noundef %s, ptr noundef %next, ptr noundef nonnull %m_eventPtr, ptr noundef nonnull %version, ptr noundef nonnull %versionend, ptr noundef nonnull %encodingName, ptr noundef nonnull %newEncoding, ptr noundef nonnull %standalone) #23, !callees !42
   %tobool3.not = icmp eq i32 %call2, 0
   %tobool5.not = icmp eq i32 %isGeneralTextEntity, 0
@@ -9645,11 +9736,11 @@ if.end7:                                          ; preds = %if.end
   br i1 %or.cond, label %if.then10, label %if.end17
 
 if.then10:                                        ; preds = %if.end7
-  %m_dtd = getelementptr inbounds %struct.XML_ParserStruct, ptr %parser, i64 0, i32 65
+  %m_dtd = getelementptr inbounds i8, ptr %parser, i64 672
   %8 = load ptr, ptr %m_dtd, align 8
-  %standalone11 = getelementptr inbounds %struct.DTD, ptr %8, i64 0, i32 8
+  %standalone11 = getelementptr inbounds i8, ptr %8, i64 258
   store i8 1, ptr %standalone11, align 2
-  %m_paramEntityParsing = getelementptr inbounds %struct.XML_ParserStruct, ptr %parser, i64 0, i32 88
+  %m_paramEntityParsing = getelementptr inbounds i8, ptr %parser, i64 916
   %9 = load i32, ptr %m_paramEntityParsing, align 4
   %cmp12 = icmp eq i32 %9, 1
   br i1 %cmp12, label %if.then14, label %if.end17
@@ -9659,7 +9750,7 @@ if.then14:                                        ; preds = %if.then10
   br label %if.end17
 
 if.end17:                                         ; preds = %if.then10, %if.then14, %if.end7
-  %m_xmlDeclHandler = getelementptr inbounds %struct.XML_ParserStruct, ptr %parser, i64 0, i32 33
+  %m_xmlDeclHandler = getelementptr inbounds i8, ptr %parser, i64 280
   %10 = load ptr, ptr %m_xmlDeclHandler, align 8
   %tobool18.not = icmp eq ptr %10, null
   br i1 %tobool18.not, label %if.else47, label %if.then19
@@ -9670,16 +9761,16 @@ if.then19:                                        ; preds = %if.end17
   br i1 %cmp20.not, label %if.end33, label %if.then22
 
 if.then22:                                        ; preds = %if.then19
-  %m_temp2Pool = getelementptr inbounds %struct.XML_ParserStruct, ptr %parser, i64 0, i32 80
+  %m_temp2Pool = getelementptr inbounds i8, ptr %parser, i64 832
   %12 = load ptr, ptr %m_encoding, align 8
-  %nameLength = getelementptr inbounds %struct.encoding, ptr %12, i64 0, i32 3
+  %nameLength = getelementptr inbounds i8, ptr %12, i64 56
   %13 = load ptr, ptr %nameLength, align 8
   %call26 = call i32 %13(ptr noundef %12, ptr noundef nonnull %11) #23
   %idx.ext = sext i32 %call26 to i64
   %add.ptr = getelementptr i8, ptr %11, i64 %idx.ext
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %ptr.addr.i.i)
   store ptr %11, ptr %ptr.addr.i.i, align 8
-  %ptr1.i.i = getelementptr inbounds %struct.XML_ParserStruct, ptr %parser, i64 0, i32 80, i32 3
+  %ptr1.i.i = getelementptr inbounds i8, ptr %parser, i64 856
   %14 = load ptr, ptr %ptr1.i.i, align 8
   %tobool.not.i.i = icmp eq ptr %14, null
   br i1 %tobool.not.i.i, label %land.lhs.true.i.i, label %if.end.i.i56
@@ -9690,8 +9781,8 @@ land.lhs.true.i.i:                                ; preds = %if.then22
   br i1 %tobool2.not.i.i, label %poolAppend.exit.thread.i, label %if.end.i.i56
 
 if.end.i.i56:                                     ; preds = %land.lhs.true.i.i, %if.then22
-  %utf8Convert.i.i = getelementptr inbounds %struct.encoding, ptr %12, i64 0, i32 10
-  %end4.i.i = getelementptr inbounds %struct.XML_ParserStruct, ptr %parser, i64 0, i32 80, i32 2
+  %utf8Convert.i.i = getelementptr inbounds i8, ptr %12, i64 112
+  %end4.i.i = getelementptr inbounds i8, ptr %parser, i64 848
   br label %for.cond.i.i
 
 for.cond.i.i:                                     ; preds = %if.end8.i.i, %if.end.i.i56
@@ -9711,7 +9802,7 @@ poolAppend.exit.thread.i:                         ; preds = %if.end8.i.i, %land.
   br label %return
 
 poolAppend.exit.i:                                ; preds = %for.cond.i.i
-  %start.i.i = getelementptr inbounds %struct.XML_ParserStruct, ptr %parser, i64 0, i32 80, i32 4
+  %start.i.i = getelementptr inbounds i8, ptr %parser, i64 864
   %17 = load ptr, ptr %start.i.i, align 8
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %ptr.addr.i.i)
   %tobool.not.i = icmp eq ptr %17, null
@@ -9753,17 +9844,17 @@ if.end33:                                         ; preds = %if.end30, %if.then1
   br i1 %tobool34.not, label %if.end45, label %if.then35
 
 if.then35:                                        ; preds = %if.end33
-  %m_temp2Pool36 = getelementptr inbounds %struct.XML_ParserStruct, ptr %parser, i64 0, i32 80
+  %m_temp2Pool36 = getelementptr inbounds i8, ptr %parser, i64 832
   %24 = load ptr, ptr %m_encoding, align 8
   %25 = load ptr, ptr %versionend, align 8
-  %minBytesPerChar = getelementptr inbounds %struct.encoding, ptr %24, i64 0, i32 12
+  %minBytesPerChar = getelementptr inbounds i8, ptr %24, i64 128
   %26 = load i32, ptr %minBytesPerChar, align 8
   %idx.ext39 = sext i32 %26 to i64
   %idx.neg = sub nsw i64 0, %idx.ext39
   %add.ptr40 = getelementptr i8, ptr %25, i64 %idx.neg
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %ptr.addr.i.i57)
   store ptr %23, ptr %ptr.addr.i.i57, align 8
-  %ptr1.i.i58 = getelementptr inbounds %struct.XML_ParserStruct, ptr %parser, i64 0, i32 80, i32 3
+  %ptr1.i.i58 = getelementptr inbounds i8, ptr %parser, i64 856
   %27 = load ptr, ptr %ptr1.i.i58, align 8
   %tobool.not.i.i59 = icmp eq ptr %27, null
   br i1 %tobool.not.i.i59, label %land.lhs.true.i.i83, label %if.end.i.i60
@@ -9774,8 +9865,8 @@ land.lhs.true.i.i83:                              ; preds = %if.then35
   br i1 %tobool2.not.i.i85, label %poolAppend.exit.thread.i69, label %if.end.i.i60
 
 if.end.i.i60:                                     ; preds = %land.lhs.true.i.i83, %if.then35
-  %utf8Convert.i.i61 = getelementptr inbounds %struct.encoding, ptr %24, i64 0, i32 10
-  %end4.i.i62 = getelementptr inbounds %struct.XML_ParserStruct, ptr %parser, i64 0, i32 80, i32 2
+  %utf8Convert.i.i61 = getelementptr inbounds i8, ptr %24, i64 112
+  %end4.i.i62 = getelementptr inbounds i8, ptr %parser, i64 848
   br label %for.cond.i.i63
 
 for.cond.i.i63:                                   ; preds = %if.end8.i.i66, %if.end.i.i60
@@ -9795,7 +9886,7 @@ poolAppend.exit.thread.i69:                       ; preds = %if.end8.i.i66, %lan
   br label %return
 
 poolAppend.exit.i71:                              ; preds = %for.cond.i.i63
-  %start.i.i72 = getelementptr inbounds %struct.XML_ParserStruct, ptr %parser, i64 0, i32 80, i32 4
+  %start.i.i72 = getelementptr inbounds i8, ptr %parser, i64 864
   %30 = load ptr, ptr %start.i.i72, align 8
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %ptr.addr.i.i57)
   %tobool.not.i73 = icmp eq ptr %30, null
@@ -9828,7 +9919,7 @@ poolStoreString.exit86:                           ; preds = %if.end.i74, %land.l
 if.end45:                                         ; preds = %poolStoreString.exit86, %if.end33
   %storedversion.0 = phi ptr [ %34, %poolStoreString.exit86 ], [ null, %if.end33 ]
   %35 = load ptr, ptr %m_xmlDeclHandler, align 8
-  %m_handlerArg = getelementptr inbounds %struct.XML_ParserStruct, ptr %parser, i64 0, i32 1
+  %m_handlerArg = getelementptr inbounds i8, ptr %parser, i64 8
   %36 = load ptr, ptr %m_handlerArg, align 8
   %37 = load i32, ptr %standalone, align 4
   call void %35(ptr noundef %36, ptr noundef %storedversion.0, ptr noundef %storedEncName.0, i32 noundef %37) #23
@@ -9836,7 +9927,7 @@ if.end45:                                         ; preds = %poolStoreString.exi
   br label %if.end52
 
 if.else47:                                        ; preds = %if.end17
-  %m_defaultHandler = getelementptr inbounds %struct.XML_ParserStruct, ptr %parser, i64 0, i32 18
+  %m_defaultHandler = getelementptr inbounds i8, ptr %parser, i64 160
   %39 = load ptr, ptr %m_defaultHandler, align 8
   %tobool48.not = icmp eq ptr %39, null
   br i1 %tobool48.not, label %if.end52, label %if.then49
@@ -9846,17 +9937,17 @@ if.then49:                                        ; preds = %if.else47
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %s.addr.i)
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %dataPtr.i)
   store ptr %s, ptr %s.addr.i, align 8
-  %isUtf8.i = getelementptr inbounds %struct.encoding, ptr %40, i64 0, i32 13
+  %isUtf8.i = getelementptr inbounds i8, ptr %40, i64 132
   %41 = load i8, ptr %isUtf8.i, align 4
   %tobool.not.i87 = icmp eq i8 %41, 0
   br i1 %tobool.not.i87, label %if.end.i89, label %if.else9.i
 
 if.end.i89:                                       ; preds = %if.then49
-  %m_eventEndPtr.i = getelementptr inbounds %struct.XML_ParserStruct, ptr %parser, i64 0, i32 48
-  %m_dataBuf.i = getelementptr inbounds %struct.XML_ParserStruct, ptr %parser, i64 0, i32 9
-  %utf8Convert.i = getelementptr inbounds %struct.encoding, ptr %40, i64 0, i32 10
-  %m_dataBufEnd.i = getelementptr inbounds %struct.XML_ParserStruct, ptr %parser, i64 0, i32 10
-  %m_handlerArg.i = getelementptr inbounds %struct.XML_ParserStruct, ptr %parser, i64 0, i32 1
+  %m_eventEndPtr.i = getelementptr inbounds i8, ptr %parser, i64 552
+  %m_dataBuf.i = getelementptr inbounds i8, ptr %parser, i64 88
+  %utf8Convert.i = getelementptr inbounds i8, ptr %40, i64 112
+  %m_dataBufEnd.i = getelementptr inbounds i8, ptr %parser, i64 96
+  %m_handlerArg.i = getelementptr inbounds i8, ptr %parser, i64 8
   br label %do.body.i
 
 do.body.i:                                        ; preds = %do.body.i, %if.end.i89
@@ -9882,7 +9973,7 @@ do.body.i:                                        ; preds = %do.body.i, %if.end.
   br i1 %51, label %do.body.i, label %reportDefault.exit, !llvm.loop !28
 
 if.else9.i:                                       ; preds = %if.then49
-  %m_handlerArg11.i = getelementptr inbounds %struct.XML_ParserStruct, ptr %parser, i64 0, i32 1
+  %m_handlerArg11.i = getelementptr inbounds i8, ptr %parser, i64 8
   %52 = load ptr, ptr %m_handlerArg11.i, align 8
   %sub.ptr.lhs.cast12.i = ptrtoint ptr %next to i64
   %sub.ptr.rhs.cast13.i = ptrtoint ptr %s to i64
@@ -9899,7 +9990,7 @@ reportDefault.exit:                               ; preds = %do.body.i, %if.else
 if.end52:                                         ; preds = %if.else47, %reportDefault.exit, %if.end45
   %storedEncName.1 = phi ptr [ %storedEncName.0, %if.end45 ], [ null, %reportDefault.exit ], [ null, %if.else47 ]
   %storedversion.1 = phi i1 [ %38, %if.end45 ], [ false, %reportDefault.exit ], [ false, %if.else47 ]
-  %m_protocolEncodingName = getelementptr inbounds %struct.XML_ParserStruct, ptr %parser, i64 0, i32 37
+  %m_protocolEncodingName = getelementptr inbounds i8, ptr %parser, i64 448
   %53 = load ptr, ptr %m_protocolEncodingName, align 8
   %cmp53 = icmp eq ptr %53, null
   br i1 %cmp53, label %if.then55, label %if.end101
@@ -9910,10 +10001,10 @@ if.then55:                                        ; preds = %if.end52
   br i1 %tobool56.not, label %if.else74, label %if.then57
 
 if.then57:                                        ; preds = %if.then55
-  %minBytesPerChar58 = getelementptr inbounds %struct.encoding, ptr %54, i64 0, i32 12
+  %minBytesPerChar58 = getelementptr inbounds i8, ptr %54, i64 128
   %55 = load i32, ptr %minBytesPerChar58, align 8
   %56 = load ptr, ptr %m_encoding, align 8
-  %minBytesPerChar60 = getelementptr inbounds %struct.encoding, ptr %56, i64 0, i32 12
+  %minBytesPerChar60 = getelementptr inbounds i8, ptr %56, i64 128
   %57 = load i32, ptr %minBytesPerChar60, align 8
   %cmp61.not = icmp eq i32 %55, %57
   br i1 %cmp61.not, label %lor.lhs.false, label %if.then70
@@ -9943,9 +10034,9 @@ if.then76:                                        ; preds = %if.else74
   br i1 %tobool77.not, label %if.then78, label %if.end91
 
 if.then78:                                        ; preds = %if.then76
-  %m_temp2Pool79 = getelementptr inbounds %struct.XML_ParserStruct, ptr %parser, i64 0, i32 80
+  %m_temp2Pool79 = getelementptr inbounds i8, ptr %parser, i64 832
   %60 = load ptr, ptr %m_encoding, align 8
-  %nameLength82 = getelementptr inbounds %struct.encoding, ptr %60, i64 0, i32 3
+  %nameLength82 = getelementptr inbounds i8, ptr %60, i64 56
   %61 = load ptr, ptr %nameLength82, align 8
   %call84 = call i32 %61(ptr noundef %60, ptr noundef nonnull %59) #23
   %idx.ext85 = sext i32 %call84 to i64
@@ -9957,17 +10048,17 @@ if.then78:                                        ; preds = %if.then76
 if.end91:                                         ; preds = %if.then78, %if.then76
   %storedEncName.2 = phi ptr [ %storedEncName.1, %if.then76 ], [ %call87, %if.then78 ]
   call void @llvm.lifetime.start.p0(i64 1048, ptr nonnull %info.i)
-  %m_unknownEncodingHandler.i = getelementptr inbounds %struct.XML_ParserStruct, ptr %parser, i64 0, i32 29
+  %m_unknownEncodingHandler.i = getelementptr inbounds i8, ptr %parser, i64 248
   %62 = load ptr, ptr %m_unknownEncodingHandler.i, align 8
   %tobool.not.i90 = icmp eq ptr %62, null
   br i1 %tobool.not.i90, label %handleUnknownEncoding.exit, label %for.body.preheader.i
 
 for.body.preheader.i:                             ; preds = %if.end91
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(1024) %info.i, i8 -1, i64 1024, i1 false)
-  %convert.i = getelementptr inbounds %struct.XML_Encoding, ptr %info.i, i64 0, i32 2
-  %data.i = getelementptr inbounds %struct.XML_Encoding, ptr %info.i, i64 0, i32 1
-  %release.i = getelementptr inbounds %struct.XML_Encoding, ptr %info.i, i64 0, i32 3
-  %m_unknownEncodingHandlerData.i = getelementptr inbounds %struct.XML_ParserStruct, ptr %parser, i64 0, i32 42
+  %convert.i = getelementptr inbounds i8, ptr %info.i, i64 1032
+  %data.i = getelementptr inbounds i8, ptr %info.i, i64 1024
+  %release.i = getelementptr inbounds i8, ptr %info.i, i64 1040
+  %m_unknownEncodingHandlerData.i = getelementptr inbounds i8, ptr %parser, i64 480
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %data.i, i8 0, i64 24, i1 false)
   %63 = load ptr, ptr %m_unknownEncodingHandlerData.i, align 8
   %call.i91 = call i32 %62(ptr noundef %63, ptr noundef nonnull %storedEncName.2, ptr noundef nonnull %info.i) #23
@@ -9975,12 +10066,12 @@ for.body.preheader.i:                             ; preds = %if.end91
   br i1 %tobool2.not.i, label %if.end27.i, label %if.then3.i
 
 if.then3.i:                                       ; preds = %for.body.preheader.i
-  %m_mem.i = getelementptr inbounds %struct.XML_ParserStruct, ptr %parser, i64 0, i32 3
+  %m_mem.i = getelementptr inbounds i8, ptr %parser, i64 24
   %64 = load ptr, ptr %m_mem.i, align 8
   %call4.i = call i32 @PyExpat_XmlSizeOfUnknownEncoding() #23
   %conv.i92 = sext i32 %call4.i to i64
   %call5.i = call ptr %64(i64 noundef %conv.i92) #23
-  %m_unknownEncodingMem.i = getelementptr inbounds %struct.XML_ParserStruct, ptr %parser, i64 0, i32 40
+  %m_unknownEncodingMem.i = getelementptr inbounds i8, ptr %parser, i64 464
   store ptr %call5.i, ptr %m_unknownEncodingMem.i, align 8
   %tobool7.not.i = icmp eq ptr %call5.i, null
   br i1 %tobool7.not.i, label %if.then8.i, label %if.end14.i
@@ -10007,10 +10098,10 @@ if.end14.i:                                       ; preds = %if.then3.i
 
 if.then23.i:                                      ; preds = %if.end14.i
   %70 = load ptr, ptr %data.i, align 8
-  %m_unknownEncodingData.i = getelementptr inbounds %struct.XML_ParserStruct, ptr %parser, i64 0, i32 41
+  %m_unknownEncodingData.i = getelementptr inbounds i8, ptr %parser, i64 472
   store ptr %70, ptr %m_unknownEncodingData.i, align 8
   %71 = load ptr, ptr %release.i, align 8
-  %m_unknownEncodingRelease.i = getelementptr inbounds %struct.XML_ParserStruct, ptr %parser, i64 0, i32 43
+  %m_unknownEncodingRelease.i = getelementptr inbounds i8, ptr %parser, i64 488
   store ptr %71, ptr %m_unknownEncodingRelease.i, align 8
   store ptr %call21.i, ptr %m_encoding, align 8
   br label %handleUnknownEncoding.exit
@@ -10029,8 +10120,8 @@ handleUnknownEncoding.exit:                       ; preds = %if.end91, %if.then8
   %cmp94 = phi i1 [ false, %if.then23.i ], [ false, %if.then11.i ], [ false, %if.then8.i ], [ true, %if.end27.i ], [ true, %if.then31.i ], [ true, %if.end91 ]
   %retval.0.i94 = phi i32 [ 0, %if.then23.i ], [ 1, %if.then11.i ], [ 1, %if.then8.i ], [ 18, %if.end27.i ], [ 18, %if.then31.i ], [ 18, %if.end91 ]
   call void @llvm.lifetime.end.p0(i64 1048, ptr nonnull %info.i)
-  %m_temp2Pool93 = getelementptr inbounds %struct.XML_ParserStruct, ptr %parser, i64 0, i32 80
-  %freeBlocks.i = getelementptr inbounds %struct.XML_ParserStruct, ptr %parser, i64 0, i32 80, i32 1
+  %m_temp2Pool93 = getelementptr inbounds i8, ptr %parser, i64 832
+  %freeBlocks.i = getelementptr inbounds i8, ptr %parser, i64 840
   %74 = load ptr, ptr %freeBlocks.i, align 8
   %tobool.not.i95 = icmp eq ptr %74, null
   %75 = load ptr, ptr %m_temp2Pool93, align 8
@@ -10055,7 +10146,7 @@ while.body.i:                                     ; preds = %if.else.i96, %while
 
 poolClear.exit:                                   ; preds = %while.body.i, %if.then.i98, %if.else.i96
   store ptr null, ptr %m_temp2Pool93, align 8
-  %end.i = getelementptr inbounds %struct.XML_ParserStruct, ptr %parser, i64 0, i32 80, i32 2
+  %end.i = getelementptr inbounds i8, ptr %parser, i64 848
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %end.i, i8 0, i64 24, i1 false)
   br i1 %cmp94, label %if.then96, label %return
 
@@ -10070,8 +10161,8 @@ if.end101:                                        ; preds = %if.end72, %if.else7
   br i1 %or.cond1, label %if.then105, label %return
 
 if.then105:                                       ; preds = %if.end101
-  %m_temp2Pool106 = getelementptr inbounds %struct.XML_ParserStruct, ptr %parser, i64 0, i32 80
-  %freeBlocks.i99 = getelementptr inbounds %struct.XML_ParserStruct, ptr %parser, i64 0, i32 80, i32 1
+  %m_temp2Pool106 = getelementptr inbounds i8, ptr %parser, i64 832
+  %freeBlocks.i99 = getelementptr inbounds i8, ptr %parser, i64 840
   %79 = load ptr, ptr %freeBlocks.i99, align 8
   %tobool.not.i100 = icmp eq ptr %79, null
   %80 = load ptr, ptr %m_temp2Pool106, align 8
@@ -10096,7 +10187,7 @@ while.body.i103:                                  ; preds = %if.else.i101, %whil
 
 poolClear.exit109:                                ; preds = %while.body.i103, %if.then.i108, %if.else.i101
   store ptr null, ptr %m_temp2Pool106, align 8
-  %end.i107 = getelementptr inbounds %struct.XML_ParserStruct, ptr %parser, i64 0, i32 80, i32 2
+  %end.i107 = getelementptr inbounds i8, ptr %parser, i64 848
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %end.i107, i8 0, i64 24, i1 false)
   br label %return
 
@@ -10111,7 +10202,7 @@ entry:
   %ptr.addr.i = alloca ptr, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %ptr.addr.i)
   store ptr %ptr, ptr %ptr.addr.i, align 8
-  %ptr1.i = getelementptr inbounds %struct.STRING_POOL, ptr %pool, i64 0, i32 3
+  %ptr1.i = getelementptr inbounds i8, ptr %pool, i64 24
   %0 = load ptr, ptr %ptr1.i, align 8
   %tobool.not.i = icmp eq ptr %0, null
   br i1 %tobool.not.i, label %land.lhs.true.i, label %if.end.i
@@ -10122,8 +10213,8 @@ land.lhs.true.i:                                  ; preds = %entry
   br i1 %tobool2.not.i, label %poolAppend.exit.thread, label %if.end.i
 
 if.end.i:                                         ; preds = %land.lhs.true.i, %entry
-  %utf8Convert.i = getelementptr inbounds %struct.encoding, ptr %enc, i64 0, i32 10
-  %end4.i = getelementptr inbounds %struct.STRING_POOL, ptr %pool, i64 0, i32 2
+  %utf8Convert.i = getelementptr inbounds i8, ptr %enc, i64 112
+  %end4.i = getelementptr inbounds i8, ptr %pool, i64 16
   br label %for.cond.i
 
 for.cond.i:                                       ; preds = %if.end8.i, %if.end.i
@@ -10143,7 +10234,7 @@ poolAppend.exit.thread:                           ; preds = %if.end8.i, %land.lh
   br label %return
 
 poolAppend.exit:                                  ; preds = %for.cond.i
-  %start.i = getelementptr inbounds %struct.STRING_POOL, ptr %pool, i64 0, i32 4
+  %start.i = getelementptr inbounds i8, ptr %pool, i64 32
   %3 = load ptr, ptr %start.i, align 8
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %ptr.addr.i)
   %tobool.not = icmp eq ptr %3, null
@@ -10180,7 +10271,7 @@ return:                                           ; preds = %poolAppend.exit.thr
 ; Function Attrs: nounwind uwtable
 define internal fastcc ptr @lookup(ptr nocapture noundef readonly %parser, ptr nocapture noundef %table, ptr noundef %name, i64 noundef %createSize) unnamed_addr #0 {
 entry:
-  %size = getelementptr inbounds %struct.HASH_TABLE, ptr %table, i64 0, i32 2
+  %size = getelementptr inbounds i8, ptr %table, i64 16
   %0 = load i64, ptr %size, align 8
   %cmp = icmp eq i64 %0, 0
   br i1 %cmp, label %if.then, label %if.else
@@ -10190,10 +10281,10 @@ if.then:                                          ; preds = %entry
   br i1 %tobool.not, label %return, label %if.end
 
 if.end:                                           ; preds = %if.then
-  %power = getelementptr inbounds %struct.HASH_TABLE, ptr %table, i64 0, i32 1
+  %power = getelementptr inbounds i8, ptr %table, i64 8
   store i8 6, ptr %power, align 8
   store i64 64, ptr %size, align 8
-  %mem = getelementptr inbounds %struct.HASH_TABLE, ptr %table, i64 0, i32 4
+  %mem = getelementptr inbounds i8, ptr %table, i64 32
   %1 = load ptr, ptr %mem, align 8
   %2 = load ptr, ptr %1, align 8
   %call = tail call ptr %2(i64 noundef 512) #23
@@ -10228,7 +10319,7 @@ while.body.lr.ph:                                 ; preds = %if.else
   %7 = load i8, ptr %name, align 1
   %not = sub i64 0, %4
   %and29 = and i64 %call12, %not
-  %power30 = getelementptr inbounds %struct.HASH_TABLE, ptr %table, i64 0, i32 1
+  %power30 = getelementptr inbounds i8, ptr %table, i64 8
   %shr32 = lshr i64 %sub14, 2
   br label %while.body
 
@@ -10289,9 +10380,9 @@ while.end:                                        ; preds = %if.end35, %if.else
   br i1 %tobool44.not, label %return, label %if.end46
 
 if.end46:                                         ; preds = %while.end
-  %used = getelementptr inbounds %struct.HASH_TABLE, ptr %table, i64 0, i32 3
+  %used = getelementptr inbounds i8, ptr %table, i64 24
   %17 = load i64, ptr %used, align 8
-  %power47 = getelementptr inbounds %struct.HASH_TABLE, ptr %table, i64 0, i32 1
+  %power47 = getelementptr inbounds i8, ptr %table, i64 8
   %18 = load i8, ptr %power47, align 8
   %conv48 = zext i8 %18 to i64
   %sub49 = add nuw nsw i64 %conv48, 4294967295
@@ -10315,7 +10406,7 @@ if.end62:                                         ; preds = %if.then53
 
 if.end69:                                         ; preds = %if.end62
   %mul71 = shl i64 8, %sh_prom64
-  %mem72 = getelementptr inbounds %struct.HASH_TABLE, ptr %table, i64 0, i32 4
+  %mem72 = getelementptr inbounds i8, ptr %table, i64 32
   %19 = load ptr, ptr %mem72, align 8
   %20 = load ptr, ptr %19, align 8
   %call74 = tail call ptr %20(i64 noundef %mul71) #23
@@ -10394,7 +10485,7 @@ for.inc:                                          ; preds = %for.body, %while.en
 
 for.end:                                          ; preds = %for.inc, %if.end77
   %32 = load ptr, ptr %mem72, align 8
-  %free_fcn = getelementptr inbounds %struct.XML_Memory_Handling_Suite, ptr %32, i64 0, i32 2
+  %free_fcn = getelementptr inbounds i8, ptr %32, i64 16
   %33 = load ptr, ptr %free_fcn, align 8
   %34 = load ptr, ptr %table, align 8
   tail call void %33(ptr noundef %34) #23
@@ -10436,7 +10527,7 @@ while.body134:                                    ; preds = %while.body134.lr.ph
 
 if.end162:                                        ; preds = %while.body134, %for.end, %if.end46, %if.end8
   %i.5 = phi i64 [ %and, %if.end8 ], [ %i.0.lcssa, %if.end46 ], [ %and129, %for.end ], [ %i.4, %while.body134 ]
-  %mem163 = getelementptr inbounds %struct.HASH_TABLE, ptr %table, i64 0, i32 4
+  %mem163 = getelementptr inbounds i8, ptr %table, i64 32
   %38 = load ptr, ptr %mem163, align 8
   %39 = load ptr, ptr %38, align 8
   %call165 = tail call ptr %39(i64 noundef %createSize) #23
@@ -10455,7 +10546,7 @@ if.end172:                                        ; preds = %if.end162
   %arrayidx176 = getelementptr ptr, ptr %43, i64 %i.5
   %44 = load ptr, ptr %arrayidx176, align 8
   store ptr %name, ptr %44, align 8
-  %used178 = getelementptr inbounds %struct.HASH_TABLE, ptr %table, i64 0, i32 3
+  %used178 = getelementptr inbounds i8, ptr %table, i64 24
   %45 = load i64, ptr %used178, align 8
   %inc179 = add i64 %45, 1
   store i64 %inc179, ptr %used178, align 8
@@ -10472,9 +10563,9 @@ return:                                           ; preds = %for.body.i, %if.end
 ; Function Attrs: nounwind uwtable
 define internal i32 @contentProcessor(ptr noundef %parser, ptr noundef %start, ptr noundef %end, ptr nocapture noundef writeonly %endPtr) #0 {
 entry:
-  %m_encoding = getelementptr inbounds %struct.XML_ParserStruct, ptr %parser, i64 0, i32 34
+  %m_encoding = getelementptr inbounds i8, ptr %parser, i64 288
   %0 = load ptr, ptr %m_encoding, align 8
-  %finalBuffer = getelementptr inbounds %struct.XML_ParserStruct, ptr %parser, i64 0, i32 85, i32 1
+  %finalBuffer = getelementptr inbounds i8, ptr %parser, i64 908
   %1 = load i8, ptr %finalBuffer, align 4
   %tobool.not = icmp eq i8 %1, 0
   %conv = zext i1 %tobool.not to i8
@@ -10483,29 +10574,29 @@ entry:
   br i1 %cmp, label %if.then, label %return
 
 if.then:                                          ; preds = %entry
-  %m_tagStack.i = getelementptr inbounds %struct.XML_ParserStruct, ptr %parser, i64 0, i32 67
-  %realloc_fcn.i = getelementptr inbounds %struct.XML_ParserStruct, ptr %parser, i64 0, i32 3, i32 1
+  %m_tagStack.i = getelementptr inbounds i8, ptr %parser, i64 688
+  %realloc_fcn.i = getelementptr inbounds i8, ptr %parser, i64 32
   %tag.035.i = load ptr, ptr %m_tagStack.i, align 8
   %tobool.not36.i = icmp eq ptr %tag.035.i, null
   br i1 %tobool.not36.i, label %return, label %while.body.i
 
 while.body.i:                                     ; preds = %if.then, %if.end50.i
   %tag.037.i = phi ptr [ %tag.0.i, %if.end50.i ], [ %tag.035.i, %if.then ]
-  %name.i = getelementptr inbounds %struct.tag, ptr %tag.037.i, i64 0, i32 3
-  %strLen.i = getelementptr inbounds %struct.tag, ptr %tag.037.i, i64 0, i32 3, i32 3
+  %name.i = getelementptr inbounds i8, ptr %tag.037.i, i64 24
+  %strLen.i = getelementptr inbounds i8, ptr %tag.037.i, i64 48
   %2 = load i32, ptr %strLen.i, align 8
   %add.i = add i32 %2, 1
   %conv.i = sext i32 %add.i to i64
-  %buf.i = getelementptr inbounds %struct.tag, ptr %tag.037.i, i64 0, i32 4
+  %buf.i = getelementptr inbounds i8, ptr %tag.037.i, i64 64
   %3 = load ptr, ptr %buf.i, align 8
   %add.ptr.i = getelementptr i8, ptr %3, i64 %conv.i
-  %rawName.i = getelementptr inbounds %struct.tag, ptr %tag.037.i, i64 0, i32 1
+  %rawName.i = getelementptr inbounds i8, ptr %tag.037.i, i64 8
   %4 = load ptr, ptr %rawName.i, align 8
   %cmp.i = icmp eq ptr %4, %add.ptr.i
   br i1 %cmp.i, label %return, label %if.end.i
 
 if.end.i:                                         ; preds = %while.body.i
-  %rawNameLength.i = getelementptr inbounds %struct.tag, ptr %tag.037.i, i64 0, i32 2
+  %rawNameLength.i = getelementptr inbounds i8, ptr %tag.037.i, i64 16
   %5 = load i32, ptr %rawNameLength.i, align 8
   %conv3.i = sext i32 %5 to i64
   %sub.i = sub nsw i64 2147483647, %conv.i
@@ -10515,7 +10606,7 @@ if.end.i:                                         ; preds = %while.body.i
 if.end9.i:                                        ; preds = %if.end.i
   %add11.i = add i32 %5, %add.i
   %conv12.i = sext i32 %add11.i to i64
-  %bufEnd.i = getelementptr inbounds %struct.tag, ptr %tag.037.i, i64 0, i32 5
+  %bufEnd.i = getelementptr inbounds i8, ptr %tag.037.i, i64 72
   %6 = load ptr, ptr %bufEnd.i, align 8
   %sub.ptr.lhs.cast.i = ptrtoint ptr %6 to i64
   %sub.ptr.rhs.cast.i = ptrtoint ptr %3 to i64
@@ -10540,7 +10631,7 @@ if.then27.i:                                      ; preds = %if.end22.i
   br label %if.end30.i
 
 if.end30.i:                                       ; preds = %if.then27.i, %if.end22.i
-  %localPart.i = getelementptr inbounds %struct.tag, ptr %tag.037.i, i64 0, i32 3, i32 1
+  %localPart.i = getelementptr inbounds i8, ptr %tag.037.i, i64 32
   %10 = load ptr, ptr %localPart.i, align 8
   %tobool32.not.i = icmp eq ptr %10, null
   br i1 %tobool32.not.i, label %if.end43.i, label %if.then33.i
@@ -10582,12 +10673,12 @@ return:                                           ; preds = %while.body.i, %if.e
 define internal fastcc ptr @getElementType(ptr nocapture noundef readonly %parser, ptr noundef %enc, ptr noundef %ptr, ptr noundef %end) unnamed_addr #0 {
 entry:
   %ptr.addr.i.i = alloca ptr, align 8
-  %m_dtd = getelementptr inbounds %struct.XML_ParserStruct, ptr %parser, i64 0, i32 65
+  %m_dtd = getelementptr inbounds i8, ptr %parser, i64 672
   %0 = load ptr, ptr %m_dtd, align 8
-  %pool = getelementptr inbounds %struct.DTD, ptr %0, i64 0, i32 4
+  %pool = getelementptr inbounds i8, ptr %0, i64 160
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %ptr.addr.i.i)
   store ptr %ptr, ptr %ptr.addr.i.i, align 8
-  %ptr1.i.i = getelementptr inbounds %struct.DTD, ptr %0, i64 0, i32 4, i32 3
+  %ptr1.i.i = getelementptr inbounds i8, ptr %0, i64 184
   %1 = load ptr, ptr %ptr1.i.i, align 8
   %tobool.not.i.i = icmp eq ptr %1, null
   br i1 %tobool.not.i.i, label %land.lhs.true.i.i, label %if.end.i.i
@@ -10598,8 +10689,8 @@ land.lhs.true.i.i:                                ; preds = %entry
   br i1 %tobool2.not.i.i, label %poolAppend.exit.thread.i, label %if.end.i.i
 
 if.end.i.i:                                       ; preds = %land.lhs.true.i.i, %entry
-  %utf8Convert.i.i = getelementptr inbounds %struct.encoding, ptr %enc, i64 0, i32 10
-  %end4.i.i = getelementptr inbounds %struct.DTD, ptr %0, i64 0, i32 4, i32 2
+  %utf8Convert.i.i = getelementptr inbounds i8, ptr %enc, i64 112
+  %end4.i.i = getelementptr inbounds i8, ptr %0, i64 176
   br label %for.cond.i.i
 
 for.cond.i.i:                                     ; preds = %if.end8.i.i, %if.end.i.i
@@ -10619,7 +10710,7 @@ poolAppend.exit.thread.i:                         ; preds = %if.end8.i.i, %land.
   br label %return
 
 poolAppend.exit.i:                                ; preds = %for.cond.i.i
-  %start.i.i = getelementptr inbounds %struct.DTD, ptr %0, i64 0, i32 4, i32 4
+  %start.i.i = getelementptr inbounds i8, ptr %0, i64 192
   %4 = load ptr, ptr %start.i.i, align 8
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %ptr.addr.i.i)
   %tobool.not.i = icmp eq ptr %4, null
@@ -10650,7 +10741,7 @@ poolStoreString.exit:                             ; preds = %if.end.i, %land.lhs
   br i1 %tobool.not, label %return, label %if.end
 
 if.end:                                           ; preds = %poolStoreString.exit
-  %elementTypes = getelementptr inbounds %struct.DTD, ptr %0, i64 0, i32 1
+  %elementTypes = getelementptr inbounds i8, ptr %0, i64 40
   %call1 = call fastcc ptr @lookup(ptr noundef %parser, ptr noundef nonnull %elementTypes, ptr noundef nonnull %8, i64 noundef 40)
   %tobool2.not = icmp eq ptr %call1, null
   br i1 %tobool2.not, label %return, label %if.end4
@@ -10684,12 +10775,12 @@ return:                                           ; preds = %poolAppend.exit.thr
 define internal fastcc ptr @getAttributeId(ptr nocapture noundef readonly %parser, ptr noundef %enc, ptr noundef %start, ptr noundef %end) unnamed_addr #0 {
 entry:
   %ptr.addr.i.i = alloca ptr, align 8
-  %m_dtd = getelementptr inbounds %struct.XML_ParserStruct, ptr %parser, i64 0, i32 65
+  %m_dtd = getelementptr inbounds i8, ptr %parser, i64 672
   %0 = load ptr, ptr %m_dtd, align 8
-  %pool = getelementptr inbounds %struct.DTD, ptr %0, i64 0, i32 4
-  %ptr = getelementptr inbounds %struct.DTD, ptr %0, i64 0, i32 4, i32 3
+  %pool = getelementptr inbounds i8, ptr %0, i64 160
+  %ptr = getelementptr inbounds i8, ptr %0, i64 184
   %1 = load ptr, ptr %ptr, align 8
-  %end2 = getelementptr inbounds %struct.DTD, ptr %0, i64 0, i32 4, i32 2
+  %end2 = getelementptr inbounds i8, ptr %0, i64 176
   %2 = load ptr, ptr %end2, align 8
   %cmp = icmp eq ptr %1, %2
   br i1 %cmp, label %land.lhs.true, label %cond.false
@@ -10720,7 +10811,7 @@ land.lhs.true.i.i:                                ; preds = %cond.false
   br i1 %tobool2.not.i.i, label %poolAppend.exit.thread.i, label %if.end.i.i
 
 if.end.i.i:                                       ; preds = %land.lhs.true.i.i, %cond.false
-  %utf8Convert.i.i = getelementptr inbounds %struct.encoding, ptr %enc, i64 0, i32 10
+  %utf8Convert.i.i = getelementptr inbounds i8, ptr %enc, i64 112
   br label %for.cond.i.i
 
 for.cond.i.i:                                     ; preds = %if.end8.i.i, %if.end.i.i
@@ -10740,7 +10831,7 @@ poolAppend.exit.thread.i:                         ; preds = %if.end8.i.i, %land.
   br label %return
 
 poolAppend.exit.i:                                ; preds = %for.cond.i.i
-  %start.i.i = getelementptr inbounds %struct.DTD, ptr %0, i64 0, i32 4, i32 4
+  %start.i.i = getelementptr inbounds i8, ptr %0, i64 192
   %7 = load ptr, ptr %start.i.i, align 8
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %ptr.addr.i.i)
   %tobool.not.i = icmp eq ptr %7, null
@@ -10772,7 +10863,7 @@ poolStoreString.exit:                             ; preds = %if.end.i, %land.lhs
 
 if.end10:                                         ; preds = %poolStoreString.exit
   %incdec.ptr11 = getelementptr i8, ptr %11, i64 1
-  %attributeIds = getelementptr inbounds %struct.DTD, ptr %0, i64 0, i32 2
+  %attributeIds = getelementptr inbounds i8, ptr %0, i64 80
   %call12 = call fastcc ptr @lookup(ptr noundef %parser, ptr noundef nonnull %attributeIds, ptr noundef %incdec.ptr11, i64 noundef 24)
   %tobool13.not = icmp eq ptr %call12, null
   br i1 %tobool13.not, label %return, label %if.end15
@@ -10790,7 +10881,7 @@ if.then18:                                        ; preds = %if.end15
 if.else:                                          ; preds = %if.end15
   %14 = load ptr, ptr %ptr, align 8
   store ptr %14, ptr %start.i.i, align 8
-  %m_ns = getelementptr inbounds %struct.XML_ParserStruct, ptr %parser, i64 0, i32 38
+  %m_ns = getelementptr inbounds i8, ptr %parser, i64 456
   %15 = load i8, ptr %m_ns, align 8
   %tobool27.not = icmp eq i8 %15, 0
   br i1 %tobool27.not, label %return, label %if.else29
@@ -10836,20 +10927,20 @@ land.lhs.true52:                                  ; preds = %land.lhs.true47
   ]
 
 if.then66:                                        ; preds = %land.lhs.true52
-  %defaultPrefix = getelementptr inbounds %struct.DTD, ptr %0, i64 0, i32 11
+  %defaultPrefix = getelementptr inbounds i8, ptr %0, i64 304
   br label %if.end70
 
 if.else67:                                        ; preds = %land.lhs.true52
-  %prefixes = getelementptr inbounds %struct.DTD, ptr %0, i64 0, i32 3
+  %prefixes = getelementptr inbounds i8, ptr %0, i64 120
   %add.ptr = getelementptr i8, ptr %11, i64 7
   %call68 = call fastcc ptr @lookup(ptr noundef nonnull %parser, ptr noundef nonnull %prefixes, ptr noundef %add.ptr, i64 noundef 16)
   br label %if.end70
 
 if.end70:                                         ; preds = %if.else67, %if.then66
   %call68.sink = phi ptr [ %call68, %if.else67 ], [ %defaultPrefix, %if.then66 ]
-  %prefix69 = getelementptr inbounds %struct.attribute_id, ptr %call12, i64 0, i32 1
+  %prefix69 = getelementptr inbounds i8, ptr %call12, i64 8
   store ptr %call68.sink, ptr %prefix69, align 8
-  %xmlns = getelementptr inbounds %struct.attribute_id, ptr %call12, i64 0, i32 3
+  %xmlns = getelementptr inbounds i8, ptr %call12, i64 17
   store i8 1, ptr %xmlns, align 1
   br label %return
 
@@ -10920,10 +11011,10 @@ cond.false114:                                    ; preds = %land.lhs.true109.co
   %incdec.ptr117 = getelementptr i8, ptr %29, i64 1
   store ptr %incdec.ptr117, ptr %ptr, align 8
   store i8 0, ptr %29, align 1
-  %prefixes120 = getelementptr inbounds %struct.DTD, ptr %0, i64 0, i32 3
+  %prefixes120 = getelementptr inbounds i8, ptr %0, i64 120
   %30 = load ptr, ptr %start.i.i, align 8
   %call123 = call fastcc ptr @lookup(ptr noundef %parser, ptr noundef nonnull %prefixes120, ptr noundef %30, i64 noundef 16)
-  %prefix124 = getelementptr inbounds %struct.attribute_id, ptr %call12, i64 0, i32 1
+  %prefix124 = getelementptr inbounds i8, ptr %call12, i64 8
   store ptr %call123, ptr %prefix124, align 8
   %tobool126.not = icmp eq ptr %call123, null
   br i1 %tobool126.not, label %return, label %if.end128
@@ -10956,146 +11047,15 @@ return:                                           ; preds = %for.cond, %land.lhs
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noundef i32 @defineAttribute(ptr nocapture noundef %type, ptr noundef %attId, i8 noundef zeroext %isCdata, i8 noundef zeroext %isId, ptr noundef %value, ptr nocapture noundef readonly %parser) unnamed_addr #0 {
-entry:
-  %tobool = icmp ne ptr %value, null
-  %tobool1 = icmp ne i8 %isId, 0
-  %or.cond = or i1 %tobool1, %tobool
-  %nDefaultAtts = getelementptr inbounds %struct.ELEMENT_TYPE, ptr %type, i64 0, i32 3
-  %0 = load i32, ptr %nDefaultAtts, align 8
-  br i1 %or.cond, label %for.cond.preheader, label %if.end14
-
-for.cond.preheader:                               ; preds = %entry
-  %cmp34 = icmp sgt i32 %0, 0
-  br i1 %cmp34, label %for.body.lr.ph, label %for.end
-
-for.body.lr.ph:                                   ; preds = %for.cond.preheader
-  %defaultAtts = getelementptr inbounds %struct.ELEMENT_TYPE, ptr %type, i64 0, i32 5
-  %1 = load ptr, ptr %defaultAtts, align 8
-  %wide.trip.count = zext nneg i32 %0 to i64
-  br label %for.body
-
-for.cond:                                         ; preds = %for.body
-  %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %for.end, label %for.body, !llvm.loop !35
-
-for.body:                                         ; preds = %for.body.lr.ph, %for.cond
-  %indvars.iv = phi i64 [ 0, %for.body.lr.ph ], [ %indvars.iv.next, %for.cond ]
-  %arrayidx = getelementptr %struct.DEFAULT_ATTRIBUTE, ptr %1, i64 %indvars.iv
-  %2 = load ptr, ptr %arrayidx, align 8
-  %cmp3 = icmp eq ptr %2, %attId
-  br i1 %cmp3, label %return, label %for.cond
-
-for.end:                                          ; preds = %for.cond, %for.cond.preheader
-  br i1 %tobool1, label %land.lhs.true, label %if.end14
-
-land.lhs.true:                                    ; preds = %for.end
-  %idAtt = getelementptr inbounds %struct.ELEMENT_TYPE, ptr %type, i64 0, i32 2
-  %3 = load ptr, ptr %idAtt, align 8
-  %tobool8.not = icmp eq ptr %3, null
-  br i1 %tobool8.not, label %land.lhs.true9, label %if.end14
-
-land.lhs.true9:                                   ; preds = %land.lhs.true
-  %xmlns = getelementptr inbounds %struct.attribute_id, ptr %attId, i64 0, i32 3
-  %4 = load i8, ptr %xmlns, align 1
-  %tobool10.not = icmp eq i8 %4, 0
-  br i1 %tobool10.not, label %if.then11, label %if.end14
-
-if.then11:                                        ; preds = %land.lhs.true9
-  store ptr %attId, ptr %idAtt, align 8
-  br label %if.end14
-
-if.end14:                                         ; preds = %entry, %for.end, %land.lhs.true, %land.lhs.true9, %if.then11
-  %nDefaultAtts15 = getelementptr inbounds %struct.ELEMENT_TYPE, ptr %type, i64 0, i32 3
-  %allocDefaultAtts = getelementptr inbounds %struct.ELEMENT_TYPE, ptr %type, i64 0, i32 4
-  %5 = load i32, ptr %allocDefaultAtts, align 4
-  %cmp16 = icmp eq i32 %0, %5
-  br i1 %cmp16, label %if.then18, label %if.end14.if.end51_crit_edge
-
-if.end14.if.end51_crit_edge:                      ; preds = %if.end14
-  %defaultAtts52.phi.trans.insert = getelementptr inbounds %struct.ELEMENT_TYPE, ptr %type, i64 0, i32 5
-  %.pre37 = load ptr, ptr %defaultAtts52.phi.trans.insert, align 8
-  br label %if.end51
-
-if.then18:                                        ; preds = %if.end14
-  %cmp20 = icmp eq i32 %0, 0
-  br i1 %cmp20, label %if.then22, label %if.else
-
-if.then22:                                        ; preds = %if.then18
-  store i32 8, ptr %allocDefaultAtts, align 4
-  %m_mem = getelementptr inbounds %struct.XML_ParserStruct, ptr %parser, i64 0, i32 3
-  %6 = load ptr, ptr %m_mem, align 8
-  %call = tail call ptr %6(i64 noundef 192) #23
-  %defaultAtts26 = getelementptr inbounds %struct.ELEMENT_TYPE, ptr %type, i64 0, i32 5
-  store ptr %call, ptr %defaultAtts26, align 8
-  %tobool28.not = icmp eq ptr %call, null
-  br i1 %tobool28.not, label %if.then29, label %if.end51
-
-if.then29:                                        ; preds = %if.then22
-  store i32 0, ptr %allocDefaultAtts, align 4
-  br label %return
-
-if.else:                                          ; preds = %if.then18
-  %cmp33 = icmp sgt i32 %0, 1073741823
-  br i1 %cmp33, label %return, label %if.end36
-
-if.end36:                                         ; preds = %if.else
-  %mul38 = shl i32 %0, 1
-  %realloc_fcn = getelementptr inbounds %struct.XML_ParserStruct, ptr %parser, i64 0, i32 3, i32 1
-  %7 = load ptr, ptr %realloc_fcn, align 8
-  %defaultAtts40 = getelementptr inbounds %struct.ELEMENT_TYPE, ptr %type, i64 0, i32 5
-  %8 = load ptr, ptr %defaultAtts40, align 8
-  %conv41 = sext i32 %mul38 to i64
-  %mul42 = mul nsw i64 %conv41, 24
-  %call43 = tail call ptr %7(ptr noundef %8, i64 noundef %mul42) #23
-  %cmp44 = icmp eq ptr %call43, null
-  br i1 %cmp44, label %return, label %if.end47
-
-if.end47:                                         ; preds = %if.end36
-  store i32 %mul38, ptr %allocDefaultAtts, align 4
-  store ptr %call43, ptr %defaultAtts40, align 8
-  br label %if.end51
-
-if.end51:                                         ; preds = %if.end14.if.end51_crit_edge, %if.end47, %if.then22
-  %9 = phi ptr [ %.pre37, %if.end14.if.end51_crit_edge ], [ %call43, %if.end47 ], [ %call, %if.then22 ]
-  %10 = load i32, ptr %nDefaultAtts15, align 8
-  %idx.ext = sext i32 %10 to i64
-  %add.ptr = getelementptr %struct.DEFAULT_ATTRIBUTE, ptr %9, i64 %idx.ext
-  store ptr %attId, ptr %add.ptr, align 8
-  %value55 = getelementptr %struct.DEFAULT_ATTRIBUTE, ptr %9, i64 %idx.ext, i32 2
-  store ptr %value, ptr %value55, align 8
-  %isCdata56 = getelementptr %struct.DEFAULT_ATTRIBUTE, ptr %9, i64 %idx.ext, i32 1
-  store i8 %isCdata, ptr %isCdata56, align 8
-  %tobool57.not = icmp eq i8 %isCdata, 0
-  br i1 %tobool57.not, label %if.then58, label %if.end59
-
-if.then58:                                        ; preds = %if.end51
-  %maybeTokenized = getelementptr inbounds %struct.attribute_id, ptr %attId, i64 0, i32 2
-  store i8 1, ptr %maybeTokenized, align 8
-  br label %if.end59
-
-if.end59:                                         ; preds = %if.then58, %if.end51
-  %11 = load i32, ptr %nDefaultAtts15, align 8
-  %add = add i32 %11, 1
-  store i32 %add, ptr %nDefaultAtts15, align 8
-  br label %return
-
-return:                                           ; preds = %for.body, %if.end36, %if.else, %if.end59, %if.then29
-  %retval.0 = phi i32 [ 1, %if.end59 ], [ 0, %if.then29 ], [ 0, %if.else ], [ 0, %if.end36 ], [ 1, %for.body ]
-  ret i32 %retval.0
-}
-
-; Function Attrs: nounwind uwtable
 define internal fastcc noundef zeroext i8 @poolGrow(ptr nocapture noundef %pool) unnamed_addr #0 {
 entry:
-  %freeBlocks = getelementptr inbounds %struct.STRING_POOL, ptr %pool, i64 0, i32 1
+  %freeBlocks = getelementptr inbounds i8, ptr %pool, i64 8
   %0 = load ptr, ptr %freeBlocks, align 8
   %tobool.not = icmp eq ptr %0, null
   br i1 %tobool.not, label %if.end57, label %if.then
 
 if.then:                                          ; preds = %entry
-  %start = getelementptr inbounds %struct.STRING_POOL, ptr %pool, i64 0, i32 4
+  %start = getelementptr inbounds i8, ptr %pool, i64 32
   %1 = load ptr, ptr %start, align 8
   %cmp = icmp eq ptr %1, null
   br i1 %cmp, label %if.then1, label %if.end
@@ -11106,25 +11066,25 @@ if.then1:                                         ; preds = %if.then
   store ptr %2, ptr %freeBlocks, align 8
   store ptr null, ptr %0, align 8
   %3 = load ptr, ptr %pool, align 8
-  %s = getelementptr inbounds %struct.block, ptr %3, i64 0, i32 2
+  %s = getelementptr inbounds i8, ptr %3, i64 12
   store ptr %s, ptr %start, align 8
-  %size = getelementptr inbounds %struct.block, ptr %3, i64 0, i32 1
+  %size = getelementptr inbounds i8, ptr %3, i64 8
   %4 = load i32, ptr %size, align 8
   %idx.ext = sext i32 %4 to i64
   %add.ptr = getelementptr i8, ptr %s, i64 %idx.ext
-  %end = getelementptr inbounds %struct.STRING_POOL, ptr %pool, i64 0, i32 2
+  %end = getelementptr inbounds i8, ptr %pool, i64 16
   store ptr %add.ptr, ptr %end, align 8
-  %ptr = getelementptr inbounds %struct.STRING_POOL, ptr %pool, i64 0, i32 3
+  %ptr = getelementptr inbounds i8, ptr %pool, i64 24
   store ptr %s, ptr %ptr, align 8
   br label %return
 
 if.end:                                           ; preds = %if.then
-  %end12 = getelementptr inbounds %struct.STRING_POOL, ptr %pool, i64 0, i32 2
+  %end12 = getelementptr inbounds i8, ptr %pool, i64 16
   %5 = load ptr, ptr %end12, align 8
   %sub.ptr.lhs.cast = ptrtoint ptr %5 to i64
   %sub.ptr.rhs.cast = ptrtoint ptr %1 to i64
   %sub.ptr.sub = sub i64 %sub.ptr.lhs.cast, %sub.ptr.rhs.cast
-  %size15 = getelementptr inbounds %struct.block, ptr %0, i64 0, i32 1
+  %size15 = getelementptr inbounds i8, ptr %0, i64 8
   %6 = load i32, ptr %size15, align 8
   %conv = sext i32 %6 to i64
   %cmp16 = icmp slt i64 %sub.ptr.sub, %conv
@@ -11137,7 +11097,7 @@ if.then18:                                        ; preds = %if.end
   %9 = load ptr, ptr %freeBlocks, align 8
   store ptr %9, ptr %pool, align 8
   store ptr %7, ptr %freeBlocks, align 8
-  %s28 = getelementptr inbounds %struct.block, ptr %9, i64 0, i32 2
+  %s28 = getelementptr inbounds i8, ptr %9, i64 12
   %10 = load ptr, ptr %start, align 8
   %11 = load ptr, ptr %end12, align 8
   %sub.ptr.lhs.cast33 = ptrtoint ptr %11 to i64
@@ -11145,8 +11105,8 @@ if.then18:                                        ; preds = %if.end
   %sub.ptr.sub35 = sub i64 %sub.ptr.lhs.cast33, %sub.ptr.rhs.cast34
   tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 4 %s28, ptr align 1 %10, i64 %sub.ptr.sub35, i1 false)
   %12 = load ptr, ptr %pool, align 8
-  %s37 = getelementptr inbounds %struct.block, ptr %12, i64 0, i32 2
-  %ptr39 = getelementptr inbounds %struct.STRING_POOL, ptr %pool, i64 0, i32 3
+  %s37 = getelementptr inbounds i8, ptr %12, i64 12
+  %ptr39 = getelementptr inbounds i8, ptr %pool, i64 24
   %13 = load ptr, ptr %ptr39, align 8
   %14 = load ptr, ptr %start, align 8
   %sub.ptr.lhs.cast41 = ptrtoint ptr %13 to i64
@@ -11155,7 +11115,7 @@ if.then18:                                        ; preds = %if.end
   %add.ptr44 = getelementptr i8, ptr %s37, i64 %sub.ptr.sub43
   store ptr %add.ptr44, ptr %ptr39, align 8
   store ptr %s37, ptr %start, align 8
-  %size52 = getelementptr inbounds %struct.block, ptr %12, i64 0, i32 1
+  %size52 = getelementptr inbounds i8, ptr %12, i64 8
   %15 = load i32, ptr %size52, align 8
   %idx.ext53 = sext i32 %15 to i64
   %add.ptr54 = getelementptr i8, ptr %s37, i64 %idx.ext53
@@ -11165,12 +11125,12 @@ if.then18:                                        ; preds = %if.end
 if.end57:                                         ; preds = %if.end, %entry
   %16 = load ptr, ptr %pool, align 8
   %tobool59.not = icmp ne ptr %16, null
-  %start114.phi.trans.insert = getelementptr inbounds %struct.STRING_POOL, ptr %pool, i64 0, i32 4
+  %start114.phi.trans.insert = getelementptr inbounds i8, ptr %pool, i64 32
   %.pre = load ptr, ptr %start114.phi.trans.insert, align 8
-  %s62 = getelementptr inbounds %struct.block, ptr %16, i64 0, i32 2
+  %s62 = getelementptr inbounds i8, ptr %16, i64 12
   %cmp64 = icmp eq ptr %.pre, %s62
   %or.cond = select i1 %tobool59.not, i1 %cmp64, i1 false
-  %end67 = getelementptr inbounds %struct.STRING_POOL, ptr %pool, i64 0, i32 2
+  %end67 = getelementptr inbounds i8, ptr %pool, i64 16
   %17 = load ptr, ptr %end67, align 8
   br i1 %or.cond, label %if.then66, label %if.else
 
@@ -11180,7 +11140,7 @@ if.then66:                                        ; preds = %if.end57
   %sub.ptr.sub71 = sub i64 %sub.ptr.lhs.cast69, %sub.ptr.rhs.cast70
   %conv72 = trunc i64 %sub.ptr.sub71 to i32
   %mul73 = shl i32 %conv72, 1
-  %ptr74 = getelementptr inbounds %struct.STRING_POOL, ptr %pool, i64 0, i32 3
+  %ptr74 = getelementptr inbounds i8, ptr %pool, i64 24
   %18 = load ptr, ptr %ptr74, align 8
   %sub.ptr.lhs.cast76 = ptrtoint ptr %18 to i64
   %sub.ptr.sub78 = sub i64 %sub.ptr.lhs.cast76, %sub.ptr.rhs.cast70
@@ -11197,9 +11157,9 @@ if.end82:                                         ; preds = %if.then66
 
 if.end86:                                         ; preds = %if.end82
   %retval.0.i = zext nneg i32 %narrow4.i to i64
-  %mem = getelementptr inbounds %struct.STRING_POOL, ptr %pool, i64 0, i32 5
+  %mem = getelementptr inbounds i8, ptr %pool, i64 40
   %19 = load ptr, ptr %mem, align 8
-  %realloc_fcn = getelementptr inbounds %struct.XML_Memory_Handling_Suite, ptr %19, i64 0, i32 1
+  %realloc_fcn = getelementptr inbounds i8, ptr %19, i64 8
   %20 = load ptr, ptr %realloc_fcn, align 8
   %call90 = tail call ptr %20(ptr noundef nonnull %16, i64 noundef %retval.0.i) #23
   %cmp91 = icmp eq ptr %call90, null
@@ -11207,10 +11167,10 @@ if.end86:                                         ; preds = %if.end82
 
 if.end94:                                         ; preds = %if.end86
   store ptr %call90, ptr %pool, align 8
-  %size97 = getelementptr inbounds %struct.block, ptr %call90, i64 0, i32 1
+  %size97 = getelementptr inbounds i8, ptr %call90, i64 8
   store i32 %mul73, ptr %size97, align 8
   %21 = load ptr, ptr %pool, align 8
-  %s99 = getelementptr inbounds %struct.block, ptr %21, i64 0, i32 2
+  %s99 = getelementptr inbounds i8, ptr %21, i64 12
   %add.ptr101 = getelementptr i8, ptr %s99, i64 %sub.ptr.sub78
   store ptr %add.ptr101, ptr %ptr74, align 8
   store ptr %s99, ptr %start114.phi.trans.insert, align 8
@@ -11220,7 +11180,7 @@ if.end94:                                         ; preds = %if.end86
   br label %return
 
 if.else:                                          ; preds = %if.end57
-  %start114 = getelementptr inbounds %struct.STRING_POOL, ptr %pool, i64 0, i32 4
+  %start114 = getelementptr inbounds i8, ptr %pool, i64 32
   %sub.ptr.lhs.cast115 = ptrtoint ptr %17 to i64
   %sub.ptr.rhs.cast116 = ptrtoint ptr %.pre to i64
   %sub.ptr.sub117 = sub i64 %sub.ptr.lhs.cast115, %sub.ptr.rhs.cast116
@@ -11246,7 +11206,7 @@ if.else127:                                       ; preds = %if.end123
 
 if.end139:                                        ; preds = %22
   %retval.0.i96 = zext nneg i32 %narrow4.i93 to i64
-  %mem140 = getelementptr inbounds %struct.STRING_POOL, ptr %pool, i64 0, i32 5
+  %mem140 = getelementptr inbounds i8, ptr %pool, i64 40
   %23 = load ptr, ptr %mem140, align 8
   %24 = load ptr, ptr %23, align 8
   %call141 = tail call ptr %24(i64 noundef %retval.0.i96) #23
@@ -11254,19 +11214,19 @@ if.end139:                                        ; preds = %22
   br i1 %tobool142.not, label %return, label %if.end144
 
 if.end144:                                        ; preds = %if.end139
-  %size145 = getelementptr inbounds %struct.block, ptr %call141, i64 0, i32 1
+  %size145 = getelementptr inbounds i8, ptr %call141, i64 8
   store i32 %blockSize112.0, ptr %size145, align 8
   %25 = load ptr, ptr %pool, align 8
   store ptr %25, ptr %call141, align 8
   store ptr %call141, ptr %pool, align 8
-  %ptr149 = getelementptr inbounds %struct.STRING_POOL, ptr %pool, i64 0, i32 3
+  %ptr149 = getelementptr inbounds i8, ptr %pool, i64 24
   %26 = load ptr, ptr %ptr149, align 8
   %27 = load ptr, ptr %start114, align 8
   %cmp151.not = icmp eq ptr %26, %27
   br i1 %cmp151.not, label %if.end163, label %if.then153
 
 if.then153:                                       ; preds = %if.end144
-  %s154 = getelementptr inbounds %struct.block, ptr %call141, i64 0, i32 2
+  %s154 = getelementptr inbounds i8, ptr %call141, i64 12
   %sub.ptr.lhs.cast159 = ptrtoint ptr %26 to i64
   %sub.ptr.rhs.cast160 = ptrtoint ptr %27 to i64
   %sub.ptr.sub161 = sub i64 %sub.ptr.lhs.cast159, %sub.ptr.rhs.cast160
@@ -11278,7 +11238,7 @@ if.then153:                                       ; preds = %if.end144
 if.end163:                                        ; preds = %if.then153, %if.end144
   %28 = phi ptr [ %.pre99, %if.then153 ], [ %26, %if.end144 ]
   %29 = phi ptr [ %.pre98, %if.then153 ], [ %26, %if.end144 ]
-  %s164 = getelementptr inbounds %struct.block, ptr %call141, i64 0, i32 2
+  %s164 = getelementptr inbounds i8, ptr %call141, i64 12
   %sub.ptr.lhs.cast168 = ptrtoint ptr %29 to i64
   %sub.ptr.rhs.cast169 = ptrtoint ptr %28 to i64
   %sub.ptr.sub170 = sub i64 %sub.ptr.lhs.cast168, %sub.ptr.rhs.cast169
@@ -11302,10 +11262,10 @@ entry:
   %ptr.addr.i.i = alloca ptr, align 8
   %next = alloca ptr, align 8
   %buf = alloca [4 x i8], align 1
-  %m_dtd = getelementptr inbounds %struct.XML_ParserStruct, ptr %parser, i64 0, i32 65
+  %m_dtd = getelementptr inbounds i8, ptr %parser, i64 672
   %0 = load ptr, ptr %m_dtd, align 8
-  %entityValuePool = getelementptr inbounds %struct.DTD, ptr %0, i64 0, i32 5
-  %inEntityValue = getelementptr inbounds %struct.XML_ParserStruct, ptr %parser, i64 0, i32 44, i32 5
+  %entityValuePool = getelementptr inbounds i8, ptr %0, i64 208
+  %inEntityValue = getelementptr inbounds i8, ptr %parser, i64 520
   %1 = load i32, ptr %inEntityValue, align 8
   store i32 1, ptr %inEntityValue, align 8
   %2 = load ptr, ptr %entityValuePool, align 8
@@ -11318,28 +11278,28 @@ if.then:                                          ; preds = %entry
   br i1 %tobool3.not, label %return, label %if.end5
 
 if.end5:                                          ; preds = %if.then, %entry
-  %arrayidx = getelementptr %struct.encoding, ptr %enc, i64 0, i32 1, i64 1
-  %charRefNumber = getelementptr inbounds %struct.encoding, ptr %enc, i64 0, i32 6
-  %end105 = getelementptr inbounds %struct.DTD, ptr %0, i64 0, i32 5, i32 2
-  %ptr106 = getelementptr inbounds %struct.DTD, ptr %0, i64 0, i32 5, i32 3
-  %minBytesPerChar77 = getelementptr inbounds %struct.encoding, ptr %enc, i64 0, i32 12
-  %utf8Convert.i = getelementptr inbounds %struct.encoding, ptr %enc, i64 0, i32 10
-  %start.i = getelementptr inbounds %struct.DTD, ptr %0, i64 0, i32 5, i32 4
-  %m_isParamEntity = getelementptr inbounds %struct.XML_ParserStruct, ptr %parser, i64 0, i32 86
-  %m_encoding = getelementptr inbounds %struct.XML_ParserStruct, ptr %parser, i64 0, i32 34
-  %m_tempPool = getelementptr inbounds %struct.XML_ParserStruct, ptr %parser, i64 0, i32 79
-  %ptr1.i.i = getelementptr inbounds %struct.XML_ParserStruct, ptr %parser, i64 0, i32 79, i32 3
-  %end4.i.i = getelementptr inbounds %struct.XML_ParserStruct, ptr %parser, i64 0, i32 79, i32 2
-  %start.i.i = getelementptr inbounds %struct.XML_ParserStruct, ptr %parser, i64 0, i32 79, i32 4
-  %size.i = getelementptr inbounds %struct.DTD, ptr %0, i64 0, i32 10, i32 2
-  %paramEntities = getelementptr inbounds %struct.DTD, ptr %0, i64 0, i32 10
-  %power30.i = getelementptr inbounds %struct.DTD, ptr %0, i64 0, i32 10, i32 1
-  %m_externalEntityRefHandler = getelementptr inbounds %struct.XML_ParserStruct, ptr %parser, i64 0, i32 26
-  %paramEntityRead = getelementptr inbounds %struct.DTD, ptr %0, i64 0, i32 9
-  %m_externalEntityRefHandlerArg = getelementptr inbounds %struct.XML_ParserStruct, ptr %parser, i64 0, i32 27
-  %standalone51 = getelementptr inbounds %struct.DTD, ptr %0, i64 0, i32 8
-  %keepProcessing52 = getelementptr inbounds %struct.DTD, ptr %0, i64 0, i32 6
-  %m_internalEncoding = getelementptr inbounds %struct.XML_ParserStruct, ptr %parser, i64 0, i32 36
+  %arrayidx = getelementptr i8, ptr %enc, i64 40
+  %charRefNumber = getelementptr inbounds i8, ptr %enc, i64 80
+  %end105 = getelementptr inbounds i8, ptr %0, i64 224
+  %ptr106 = getelementptr inbounds i8, ptr %0, i64 232
+  %minBytesPerChar77 = getelementptr inbounds i8, ptr %enc, i64 128
+  %utf8Convert.i = getelementptr inbounds i8, ptr %enc, i64 112
+  %start.i = getelementptr inbounds i8, ptr %0, i64 240
+  %m_isParamEntity = getelementptr inbounds i8, ptr %parser, i64 912
+  %m_encoding = getelementptr inbounds i8, ptr %parser, i64 288
+  %m_tempPool = getelementptr inbounds i8, ptr %parser, i64 784
+  %ptr1.i.i = getelementptr inbounds i8, ptr %parser, i64 808
+  %end4.i.i = getelementptr inbounds i8, ptr %parser, i64 800
+  %start.i.i = getelementptr inbounds i8, ptr %parser, i64 816
+  %size.i = getelementptr inbounds i8, ptr %0, i64 280
+  %paramEntities = getelementptr inbounds i8, ptr %0, i64 264
+  %power30.i = getelementptr inbounds i8, ptr %0, i64 272
+  %m_externalEntityRefHandler = getelementptr inbounds i8, ptr %parser, i64 224
+  %paramEntityRead = getelementptr inbounds i8, ptr %0, i64 259
+  %m_externalEntityRefHandlerArg = getelementptr inbounds i8, ptr %parser, i64 232
+  %standalone51 = getelementptr inbounds i8, ptr %0, i64 258
+  %keepProcessing52 = getelementptr inbounds i8, ptr %0, i64 256
+  %m_internalEncoding = getelementptr inbounds i8, ptr %parser, i64 440
   br label %for.cond
 
 for.cond:                                         ; preds = %sw.epilog, %if.end5
@@ -11354,22 +11314,22 @@ for.cond:                                         ; preds = %sw.epilog, %if.end5
 
 while.cond.i.i.i:                                 ; preds = %for.cond, %while.cond.i.i.i
   %rootParser.0.i.i.i = phi ptr [ %5, %while.cond.i.i.i ], [ %parser, %for.cond ]
-  %m_parentParser.i.i.i = getelementptr inbounds %struct.XML_ParserStruct, ptr %rootParser.0.i.i.i, i64 0, i32 84
+  %m_parentParser.i.i.i = getelementptr inbounds i8, ptr %rootParser.0.i.i.i, i64 896
   %5 = load ptr, ptr %m_parentParser.i.i.i, align 8
   %tobool.not.i.i.i = icmp eq ptr %5, null
   br i1 %tobool.not.i.i.i, label %getRootParserOf.exit.i.i, label %while.cond.i.i.i, !llvm.loop !31
 
 getRootParserOf.exit.i.i:                         ; preds = %while.cond.i.i.i
-  %debugLevel.i.i = getelementptr inbounds %struct.XML_ParserStruct, ptr %rootParser.0.i.i.i, i64 0, i32 90, i32 2
+  %debugLevel.i.i = getelementptr inbounds i8, ptr %rootParser.0.i.i.i, i64 944
   %6 = load i32, ptr %debugLevel.i.i, align 8
   %cmp.i.i = icmp slt i32 %6, 1
   br i1 %cmp.i.i, label %endEntityValue, label %if.end.i.i
 
 if.end.i.i:                                       ; preds = %getRootParserOf.exit.i.i
-  %m_accounting.i.i = getelementptr inbounds %struct.XML_ParserStruct, ptr %rootParser.0.i.i.i, i64 0, i32 90
+  %m_accounting.i.i = getelementptr inbounds i8, ptr %rootParser.0.i.i.i, i64 928
   %7 = load i64, ptr %m_accounting.i.i, align 8
   %tobool.not.i5.i.i = icmp eq i64 %7, 0
-  %countBytesIndirect.phi.trans.insert.i.i = getelementptr inbounds %struct.XML_ParserStruct, ptr %rootParser.0.i.i.i, i64 0, i32 90, i32 1
+  %countBytesIndirect.phi.trans.insert.i.i = getelementptr inbounds i8, ptr %rootParser.0.i.i.i, i64 936
   %.pre.i.i = load i64, ptr %countBytesIndirect.phi.trans.insert.i.i, align 8
   br i1 %tobool.not.i5.i.i, label %accountingGetCurrentAmplification.exit.i.i, label %cond.true.i.i.i
 
@@ -11561,7 +11521,7 @@ lookup.exit.thread:                               ; preds = %if.end20, %if.else.
 lookup.exit:                                      ; preds = %for.body.i.i
   %38 = load ptr, ptr %start.i.i, align 8
   store ptr %38, ptr %ptr1.i.i, align 8
-  %open = getelementptr inbounds %struct.ENTITY, ptr %27, i64 0, i32 8
+  %open = getelementptr inbounds i8, ptr %27, i64 56
   %39 = load i8, ptr %open, align 8
   %tobool27.not = icmp eq i8 %39, 0
   br i1 %tobool27.not, label %if.end34, label %if.then28
@@ -11572,12 +11532,12 @@ if.then28:                                        ; preds = %lookup.exit
   br i1 %cmp30, label %if.then32, label %endEntityValue
 
 if.then32:                                        ; preds = %if.then28
-  %m_eventPtr = getelementptr inbounds %struct.XML_ParserStruct, ptr %parser, i64 0, i32 47
+  %m_eventPtr = getelementptr inbounds i8, ptr %parser, i64 544
   store ptr %entityTextPtr.addr.0, ptr %m_eventPtr, align 8
   br label %endEntityValue
 
 if.end34:                                         ; preds = %lookup.exit
-  %systemId = getelementptr inbounds %struct.ENTITY, ptr %27, i64 0, i32 4
+  %systemId = getelementptr inbounds i8, ptr %27, i64 24
   %41 = load ptr, ptr %systemId, align 8
   %tobool35.not = icmp eq ptr %41, null
   br i1 %tobool35.not, label %if.else57, label %if.then36
@@ -11594,21 +11554,21 @@ if.then38:                                        ; preds = %if.then36
 
 while.cond.i.i:                                   ; preds = %while.cond.i.i, %if.then38
   %rootParser.0.i.i = phi ptr [ %parser, %if.then38 ], [ %43, %while.cond.i.i ]
-  %m_parentParser.i.i = getelementptr inbounds %struct.XML_ParserStruct, ptr %rootParser.0.i.i, i64 0, i32 84
+  %m_parentParser.i.i = getelementptr inbounds i8, ptr %rootParser.0.i.i, i64 896
   %43 = load ptr, ptr %m_parentParser.i.i, align 8
   %tobool.not.i.i106 = icmp eq ptr %43, null
   br i1 %tobool.not.i.i106, label %getRootParserOf.exit.i, label %while.cond.i.i, !llvm.loop !31
 
 getRootParserOf.exit.i:                           ; preds = %while.cond.i.i
-  %m_entity_stats.i = getelementptr inbounds %struct.XML_ParserStruct, ptr %rootParser.0.i.i, i64 0, i32 91
+  %m_entity_stats.i = getelementptr inbounds i8, ptr %rootParser.0.i.i, i64 960
   %44 = load i32, ptr %m_entity_stats.i, align 8
   %inc.i = add i32 %44, 1
   store i32 %inc.i, ptr %m_entity_stats.i, align 8
-  %currentDepth.i = getelementptr inbounds %struct.XML_ParserStruct, ptr %rootParser.0.i.i, i64 0, i32 91, i32 1
+  %currentDepth.i = getelementptr inbounds i8, ptr %rootParser.0.i.i, i64 964
   %45 = load i32, ptr %currentDepth.i, align 4
   %inc2.i = add i32 %45, 1
   store i32 %inc2.i, ptr %currentDepth.i, align 4
-  %maximumDepthSeen.i = getelementptr inbounds %struct.XML_ParserStruct, ptr %rootParser.0.i.i, i64 0, i32 91, i32 2
+  %maximumDepthSeen.i = getelementptr inbounds i8, ptr %rootParser.0.i.i, i64 968
   %46 = load i32, ptr %maximumDepthSeen.i, align 8
   %cmp.i107 = icmp ugt i32 %inc2.i, %46
   br i1 %cmp.i107, label %if.then.i113, label %if.end.i108
@@ -11620,7 +11580,7 @@ if.then.i113:                                     ; preds = %getRootParserOf.exi
 
 if.end.i108:                                      ; preds = %if.then.i113, %getRootParserOf.exit.i
   %47 = phi i32 [ %inc8.i, %if.then.i113 ], [ %46, %getRootParserOf.exit.i ]
-  %debugLevel.i.i109 = getelementptr inbounds %struct.XML_ParserStruct, ptr %rootParser.0.i.i, i64 0, i32 91, i32 3
+  %debugLevel.i.i109 = getelementptr inbounds i8, ptr %rootParser.0.i.i, i64 972
   %48 = load i32, ptr %debugLevel.i.i109, align 4
   %cmp.i.i110 = icmp slt i32 %48, 1
   br i1 %cmp.i.i110, label %entityTrackingOnOpen.exit, label %if.end.i.i111
@@ -11630,11 +11590,11 @@ if.end.i.i111:                                    ; preds = %if.end.i108
   %50 = load ptr, ptr @stderr, align 8
   %sub.i.i = shl i32 %inc2.i, 1
   %mul.i.i = add i32 %sub.i.i, -2
-  %is_param.i.i = getelementptr inbounds %struct.ENTITY, ptr %27, i64 0, i32 9
+  %is_param.i.i = getelementptr inbounds i8, ptr %27, i64 57
   %51 = load i8, ptr %is_param.i.i, align 1
   %tobool.not.i6.i = icmp eq i8 %51, 0
   %cond.i.i = select i1 %tobool.not.i6.i, ptr @.str.89, ptr @.str.88
-  %textLen.i.i = getelementptr inbounds %struct.ENTITY, ptr %27, i64 0, i32 2
+  %textLen.i.i = getelementptr inbounds i8, ptr %27, i64 16
   %52 = load i32, ptr %textLen.i.i, align 8
   %call.i.i112 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %50, ptr noundef nonnull @.str.320, ptr noundef nonnull %rootParser.0.i.i, i32 noundef %inc.i, i32 noundef %inc2.i, i32 noundef %47, i32 noundef %mul.i.i, ptr noundef nonnull @.str.310, ptr noundef nonnull %cond.i.i, ptr noundef %49, ptr noundef nonnull @.str.319, i32 noundef %52, i32 noundef 6152) #26
   br label %entityTrackingOnOpen.exit
@@ -11642,10 +11602,10 @@ if.end.i.i111:                                    ; preds = %if.end.i108
 entityTrackingOnOpen.exit:                        ; preds = %if.end.i108, %if.end.i.i111
   %53 = load ptr, ptr %m_externalEntityRefHandler, align 8
   %54 = load ptr, ptr %m_externalEntityRefHandlerArg, align 8
-  %base = getelementptr inbounds %struct.ENTITY, ptr %27, i64 0, i32 5
+  %base = getelementptr inbounds i8, ptr %27, i64 32
   %55 = load ptr, ptr %base, align 8
   %56 = load ptr, ptr %systemId, align 8
-  %publicId = getelementptr inbounds %struct.ENTITY, ptr %27, i64 0, i32 6
+  %publicId = getelementptr inbounds i8, ptr %27, i64 40
   %57 = load ptr, ptr %publicId, align 8
   %call42 = call i32 %53(ptr noundef %54, ptr noundef null, ptr noundef %55, ptr noundef %56, ptr noundef %57) #23
   %tobool43.not = icmp eq i32 %call42, 0
@@ -11658,39 +11618,39 @@ if.then44:                                        ; preds = %entityTrackingOnOpe
 
 while.cond.i.i114:                                ; preds = %entityTrackingOnOpen.exit, %while.cond.i.i114
   %rootParser.0.i.i115 = phi ptr [ %58, %while.cond.i.i114 ], [ %parser, %entityTrackingOnOpen.exit ]
-  %m_parentParser.i.i116 = getelementptr inbounds %struct.XML_ParserStruct, ptr %rootParser.0.i.i115, i64 0, i32 84
+  %m_parentParser.i.i116 = getelementptr inbounds i8, ptr %rootParser.0.i.i115, i64 896
   %58 = load ptr, ptr %m_parentParser.i.i116, align 8
   %tobool.not.i.i117 = icmp eq ptr %58, null
   br i1 %tobool.not.i.i117, label %getRootParserOf.exit.i118, label %while.cond.i.i114, !llvm.loop !31
 
 getRootParserOf.exit.i118:                        ; preds = %while.cond.i.i114
-  %debugLevel.i.i119 = getelementptr inbounds %struct.XML_ParserStruct, ptr %rootParser.0.i.i115, i64 0, i32 91, i32 3
+  %debugLevel.i.i119 = getelementptr inbounds i8, ptr %rootParser.0.i.i115, i64 972
   %59 = load i32, ptr %debugLevel.i.i119, align 4
   %cmp.i.i120 = icmp slt i32 %59, 1
   br i1 %cmp.i.i120, label %entityTrackingOnClose.exit, label %if.end.i.i121
 
 if.end.i.i121:                                    ; preds = %getRootParserOf.exit.i118
-  %m_entity_stats.i.i = getelementptr inbounds %struct.XML_ParserStruct, ptr %rootParser.0.i.i115, i64 0, i32 91
+  %m_entity_stats.i.i = getelementptr inbounds i8, ptr %rootParser.0.i.i115, i64 960
   %60 = load ptr, ptr %27, align 8
   %61 = load ptr, ptr @stderr, align 8
   %62 = load i32, ptr %m_entity_stats.i.i, align 8
-  %currentDepth.i.i = getelementptr inbounds %struct.XML_ParserStruct, ptr %rootParser.0.i.i115, i64 0, i32 91, i32 1
+  %currentDepth.i.i = getelementptr inbounds i8, ptr %rootParser.0.i.i115, i64 964
   %63 = load i32, ptr %currentDepth.i.i, align 4
-  %maximumDepthSeen.i.i = getelementptr inbounds %struct.XML_ParserStruct, ptr %rootParser.0.i.i115, i64 0, i32 91, i32 2
+  %maximumDepthSeen.i.i = getelementptr inbounds i8, ptr %rootParser.0.i.i115, i64 968
   %64 = load i32, ptr %maximumDepthSeen.i.i, align 8
   %sub.i.i122 = shl i32 %63, 1
   %mul.i.i123 = add i32 %sub.i.i122, -2
-  %is_param.i.i124 = getelementptr inbounds %struct.ENTITY, ptr %27, i64 0, i32 9
+  %is_param.i.i124 = getelementptr inbounds i8, ptr %27, i64 57
   %65 = load i8, ptr %is_param.i.i124, align 1
   %tobool.not.i2.i = icmp eq i8 %65, 0
   %cond.i.i125 = select i1 %tobool.not.i2.i, ptr @.str.89, ptr @.str.88
-  %textLen.i.i126 = getelementptr inbounds %struct.ENTITY, ptr %27, i64 0, i32 2
+  %textLen.i.i126 = getelementptr inbounds i8, ptr %27, i64 16
   %66 = load i32, ptr %textLen.i.i126, align 8
   %call.i.i127 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %61, ptr noundef nonnull @.str.320, ptr noundef nonnull %rootParser.0.i.i115, i32 noundef %62, i32 noundef %63, i32 noundef %64, i32 noundef %mul.i.i123, ptr noundef nonnull @.str.310, ptr noundef nonnull %cond.i.i125, ptr noundef %60, ptr noundef nonnull @.str.321, i32 noundef %66, i32 noundef 6161) #26
   br label %entityTrackingOnClose.exit
 
 entityTrackingOnClose.exit:                       ; preds = %getRootParserOf.exit.i118, %if.end.i.i121
-  %currentDepth.i128 = getelementptr inbounds %struct.XML_ParserStruct, ptr %rootParser.0.i.i115, i64 0, i32 91, i32 1
+  %currentDepth.i128 = getelementptr inbounds i8, ptr %rootParser.0.i.i115, i64 964
   %67 = load i32, ptr %currentDepth.i128, align 4
   %dec.i = add i32 %67, -1
   store i32 %dec.i, ptr %currentDepth.i128, align 4
@@ -11715,21 +11675,21 @@ if.else57:                                        ; preds = %if.end34
 
 while.cond.i.i129:                                ; preds = %while.cond.i.i129, %if.else57
   %rootParser.0.i.i130 = phi ptr [ %parser, %if.else57 ], [ %71, %while.cond.i.i129 ]
-  %m_parentParser.i.i131 = getelementptr inbounds %struct.XML_ParserStruct, ptr %rootParser.0.i.i130, i64 0, i32 84
+  %m_parentParser.i.i131 = getelementptr inbounds i8, ptr %rootParser.0.i.i130, i64 896
   %71 = load ptr, ptr %m_parentParser.i.i131, align 8
   %tobool.not.i.i132 = icmp eq ptr %71, null
   br i1 %tobool.not.i.i132, label %getRootParserOf.exit.i133, label %while.cond.i.i129, !llvm.loop !31
 
 getRootParserOf.exit.i133:                        ; preds = %while.cond.i.i129
-  %m_entity_stats.i134 = getelementptr inbounds %struct.XML_ParserStruct, ptr %rootParser.0.i.i130, i64 0, i32 91
+  %m_entity_stats.i134 = getelementptr inbounds i8, ptr %rootParser.0.i.i130, i64 960
   %72 = load i32, ptr %m_entity_stats.i134, align 8
   %inc.i135 = add i32 %72, 1
   store i32 %inc.i135, ptr %m_entity_stats.i134, align 8
-  %currentDepth.i136 = getelementptr inbounds %struct.XML_ParserStruct, ptr %rootParser.0.i.i130, i64 0, i32 91, i32 1
+  %currentDepth.i136 = getelementptr inbounds i8, ptr %rootParser.0.i.i130, i64 964
   %73 = load i32, ptr %currentDepth.i136, align 4
   %inc2.i137 = add i32 %73, 1
   store i32 %inc2.i137, ptr %currentDepth.i136, align 4
-  %maximumDepthSeen.i138 = getelementptr inbounds %struct.XML_ParserStruct, ptr %rootParser.0.i.i130, i64 0, i32 91, i32 2
+  %maximumDepthSeen.i138 = getelementptr inbounds i8, ptr %rootParser.0.i.i130, i64 968
   %74 = load i32, ptr %maximumDepthSeen.i138, align 8
   %cmp.i139 = icmp ugt i32 %inc2.i137, %74
   br i1 %cmp.i139, label %if.then.i151, label %if.end.i140
@@ -11741,7 +11701,7 @@ if.then.i151:                                     ; preds = %getRootParserOf.exi
 
 if.end.i140:                                      ; preds = %if.then.i151, %getRootParserOf.exit.i133
   %75 = phi i32 [ %inc8.i152, %if.then.i151 ], [ %74, %getRootParserOf.exit.i133 ]
-  %debugLevel.i.i141 = getelementptr inbounds %struct.XML_ParserStruct, ptr %rootParser.0.i.i130, i64 0, i32 91, i32 3
+  %debugLevel.i.i141 = getelementptr inbounds i8, ptr %rootParser.0.i.i130, i64 972
   %76 = load i32, ptr %debugLevel.i.i141, align 4
   %cmp.i.i142 = icmp slt i32 %76, 1
   br i1 %cmp.i.i142, label %entityTrackingOnOpen.exit153, label %if.end.i.i143
@@ -11751,20 +11711,20 @@ if.end.i.i143:                                    ; preds = %if.end.i140
   %78 = load ptr, ptr @stderr, align 8
   %sub.i.i144 = shl i32 %inc2.i137, 1
   %mul.i.i145 = add i32 %sub.i.i144, -2
-  %is_param.i.i146 = getelementptr inbounds %struct.ENTITY, ptr %27, i64 0, i32 9
+  %is_param.i.i146 = getelementptr inbounds i8, ptr %27, i64 57
   %79 = load i8, ptr %is_param.i.i146, align 1
   %tobool.not.i6.i147 = icmp eq i8 %79, 0
   %cond.i.i148 = select i1 %tobool.not.i6.i147, ptr @.str.89, ptr @.str.88
-  %textLen.i.i149 = getelementptr inbounds %struct.ENTITY, ptr %27, i64 0, i32 2
+  %textLen.i.i149 = getelementptr inbounds i8, ptr %27, i64 16
   %80 = load i32, ptr %textLen.i.i149, align 8
   %call.i.i150 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %78, ptr noundef nonnull @.str.320, ptr noundef nonnull %rootParser.0.i.i130, i32 noundef %inc.i135, i32 noundef %inc2.i137, i32 noundef %75, i32 noundef %mul.i.i145, ptr noundef nonnull @.str.310, ptr noundef nonnull %cond.i.i148, ptr noundef %77, ptr noundef nonnull @.str.319, i32 noundef %80, i32 noundef 6169) #26
   br label %entityTrackingOnOpen.exit153
 
 entityTrackingOnOpen.exit153:                     ; preds = %if.end.i140, %if.end.i.i143
   %81 = load ptr, ptr %m_internalEncoding, align 8
-  %textPtr = getelementptr inbounds %struct.ENTITY, ptr %27, i64 0, i32 1
+  %textPtr = getelementptr inbounds i8, ptr %27, i64 8
   %82 = load ptr, ptr %textPtr, align 8
-  %textLen = getelementptr inbounds %struct.ENTITY, ptr %27, i64 0, i32 2
+  %textLen = getelementptr inbounds i8, ptr %27, i64 16
   %83 = load i32, ptr %textLen, align 8
   %idx.ext60 = sext i32 %83 to i64
   %add.ptr61 = getelementptr i8, ptr %82, i64 %idx.ext60
@@ -11773,29 +11733,29 @@ entityTrackingOnOpen.exit153:                     ; preds = %if.end.i140, %if.en
 
 while.cond.i.i154:                                ; preds = %while.cond.i.i154, %entityTrackingOnOpen.exit153
   %rootParser.0.i.i155 = phi ptr [ %parser, %entityTrackingOnOpen.exit153 ], [ %84, %while.cond.i.i154 ]
-  %m_parentParser.i.i156 = getelementptr inbounds %struct.XML_ParserStruct, ptr %rootParser.0.i.i155, i64 0, i32 84
+  %m_parentParser.i.i156 = getelementptr inbounds i8, ptr %rootParser.0.i.i155, i64 896
   %84 = load ptr, ptr %m_parentParser.i.i156, align 8
   %tobool.not.i.i157 = icmp eq ptr %84, null
   br i1 %tobool.not.i.i157, label %getRootParserOf.exit.i158, label %while.cond.i.i154, !llvm.loop !31
 
 getRootParserOf.exit.i158:                        ; preds = %while.cond.i.i154
-  %debugLevel.i.i159 = getelementptr inbounds %struct.XML_ParserStruct, ptr %rootParser.0.i.i155, i64 0, i32 91, i32 3
+  %debugLevel.i.i159 = getelementptr inbounds i8, ptr %rootParser.0.i.i155, i64 972
   %85 = load i32, ptr %debugLevel.i.i159, align 4
   %cmp.i.i160 = icmp slt i32 %85, 1
   br i1 %cmp.i.i160, label %entityTrackingOnClose.exit174, label %if.end.i.i161
 
 if.end.i.i161:                                    ; preds = %getRootParserOf.exit.i158
-  %m_entity_stats.i.i162 = getelementptr inbounds %struct.XML_ParserStruct, ptr %rootParser.0.i.i155, i64 0, i32 91
+  %m_entity_stats.i.i162 = getelementptr inbounds i8, ptr %rootParser.0.i.i155, i64 960
   %86 = load ptr, ptr %27, align 8
   %87 = load ptr, ptr @stderr, align 8
   %88 = load i32, ptr %m_entity_stats.i.i162, align 8
-  %currentDepth.i.i163 = getelementptr inbounds %struct.XML_ParserStruct, ptr %rootParser.0.i.i155, i64 0, i32 91, i32 1
+  %currentDepth.i.i163 = getelementptr inbounds i8, ptr %rootParser.0.i.i155, i64 964
   %89 = load i32, ptr %currentDepth.i.i163, align 4
-  %maximumDepthSeen.i.i164 = getelementptr inbounds %struct.XML_ParserStruct, ptr %rootParser.0.i.i155, i64 0, i32 91, i32 2
+  %maximumDepthSeen.i.i164 = getelementptr inbounds i8, ptr %rootParser.0.i.i155, i64 968
   %90 = load i32, ptr %maximumDepthSeen.i.i164, align 8
   %sub.i.i165 = shl i32 %89, 1
   %mul.i.i166 = add i32 %sub.i.i165, -2
-  %is_param.i.i167 = getelementptr inbounds %struct.ENTITY, ptr %27, i64 0, i32 9
+  %is_param.i.i167 = getelementptr inbounds i8, ptr %27, i64 57
   %91 = load i8, ptr %is_param.i.i167, align 1
   %tobool.not.i2.i168 = icmp eq i8 %91, 0
   %cond.i.i169 = select i1 %tobool.not.i2.i168, ptr @.str.89, ptr @.str.88
@@ -11804,7 +11764,7 @@ if.end.i.i161:                                    ; preds = %getRootParserOf.exi
   br label %entityTrackingOnClose.exit174
 
 entityTrackingOnClose.exit174:                    ; preds = %getRootParserOf.exit.i158, %if.end.i.i161
-  %currentDepth.i172 = getelementptr inbounds %struct.XML_ParserStruct, ptr %rootParser.0.i.i155, i64 0, i32 91, i32 1
+  %currentDepth.i172 = getelementptr inbounds i8, ptr %rootParser.0.i.i155, i64 964
   %93 = load i32, ptr %currentDepth.i172, align 4
   %dec.i173 = add i32 %93, -1
   store i32 %dec.i173, ptr %currentDepth.i172, align 4
@@ -11813,7 +11773,7 @@ entityTrackingOnClose.exit174:                    ; preds = %getRootParserOf.exi
   br i1 %tobool64.not, label %sw.epilog, label %endEntityValue
 
 if.end68:                                         ; preds = %lor.lhs.false
-  %m_eventPtr69 = getelementptr inbounds %struct.XML_ParserStruct, ptr %parser, i64 0, i32 47
+  %m_eventPtr69 = getelementptr inbounds i8, ptr %parser, i64 544
   store ptr %entityTextPtr.addr.0, ptr %m_eventPtr69, align 8
   br label %endEntityValue
 
@@ -11896,7 +11856,7 @@ if.then93:                                        ; preds = %sw.bb89
   br i1 %cmp95, label %if.then97, label %endEntityValue
 
 if.then97:                                        ; preds = %if.then93
-  %m_eventPtr98 = getelementptr inbounds %struct.XML_ParserStruct, ptr %parser, i64 0, i32 47
+  %m_eventPtr98 = getelementptr inbounds i8, ptr %parser, i64 544
   store ptr %entityTextPtr.addr.0, ptr %m_eventPtr98, align 8
   br label %endEntityValue
 
@@ -11942,7 +11902,7 @@ sw.bb117:                                         ; preds = %if.end10
   br i1 %cmp119, label %if.then121, label %endEntityValue
 
 if.then121:                                       ; preds = %sw.bb117
-  %m_eventPtr122 = getelementptr inbounds %struct.XML_ParserStruct, ptr %parser, i64 0, i32 47
+  %m_eventPtr122 = getelementptr inbounds i8, ptr %parser, i64 544
   store ptr %entityTextPtr.addr.0, ptr %m_eventPtr122, align 8
   br label %endEntityValue
 
@@ -11953,7 +11913,7 @@ sw.bb124:                                         ; preds = %if.end10
 
 if.then128:                                       ; preds = %sw.bb124
   %111 = load ptr, ptr %next, align 8
-  %m_eventPtr129 = getelementptr inbounds %struct.XML_ParserStruct, ptr %parser, i64 0, i32 47
+  %m_eventPtr129 = getelementptr inbounds i8, ptr %parser, i64 544
   store ptr %111, ptr %m_eventPtr129, align 8
   br label %endEntityValue
 
@@ -11963,7 +11923,7 @@ sw.default:                                       ; preds = %if.end10
   br i1 %cmp132, label %if.then134, label %endEntityValue
 
 if.then134:                                       ; preds = %sw.default
-  %m_eventPtr135 = getelementptr inbounds %struct.XML_ParserStruct, ptr %parser, i64 0, i32 47
+  %m_eventPtr135 = getelementptr inbounds i8, ptr %parser, i64 544
   store ptr %entityTextPtr.addr.0, ptr %m_eventPtr135, align 8
   br label %endEntityValue
 
@@ -11989,21 +11949,21 @@ entry:
   %next = alloca ptr, align 8
   %0 = load ptr, ptr %startPtr, align 8
   store ptr %0, ptr %next, align 8
-  %m_encoding = getelementptr inbounds %struct.XML_ParserStruct, ptr %parser, i64 0, i32 34
+  %m_encoding = getelementptr inbounds i8, ptr %parser, i64 288
   %1 = load ptr, ptr %m_encoding, align 8
   %cmp = icmp eq ptr %1, %enc
   br i1 %cmp, label %if.then, label %if.else
 
 if.then:                                          ; preds = %entry
-  %m_eventPtr = getelementptr inbounds %struct.XML_ParserStruct, ptr %parser, i64 0, i32 47
+  %m_eventPtr = getelementptr inbounds i8, ptr %parser, i64 544
   store ptr %0, ptr %m_eventPtr, align 8
-  %m_eventEndPtr = getelementptr inbounds %struct.XML_ParserStruct, ptr %parser, i64 0, i32 48
+  %m_eventEndPtr = getelementptr inbounds i8, ptr %parser, i64 552
   br label %if.end
 
 if.else:                                          ; preds = %entry
-  %m_openInternalEntities = getelementptr inbounds %struct.XML_ParserStruct, ptr %parser, i64 0, i32 50
+  %m_openInternalEntities = getelementptr inbounds i8, ptr %parser, i64 568
   %2 = load ptr, ptr %m_openInternalEntities, align 8
-  %internalEventEndPtr = getelementptr inbounds %struct.open_internal_entity, ptr %2, i64 0, i32 1
+  %internalEventEndPtr = getelementptr inbounds i8, ptr %2, i64 8
   br label %if.end
 
 if.end:                                           ; preds = %if.else, %if.then
@@ -12011,7 +11971,7 @@ if.end:                                           ; preds = %if.else, %if.then
   %eventEndPP.0 = phi ptr [ %m_eventEndPtr, %if.then ], [ %internalEventEndPtr, %if.else ]
   store ptr %0, ptr %eventPP.0, align 8
   store ptr null, ptr %startPtr, align 8
-  %arrayidx = getelementptr [4 x ptr], ptr %enc, i64 0, i64 3
+  %arrayidx = getelementptr i8, ptr %enc, i64 24
   %3 = load ptr, ptr %arrayidx, align 8
   %call = call i32 %3(ptr noundef %enc, ptr noundef %0, ptr noundef %end, ptr noundef nonnull %next) #23
   %4 = load ptr, ptr %next, align 8
@@ -12021,22 +11981,22 @@ if.end:                                           ; preds = %if.else, %if.then
 
 while.cond.i.i.i:                                 ; preds = %if.end, %while.cond.i.i.i
   %rootParser.0.i.i.i = phi ptr [ %5, %while.cond.i.i.i ], [ %parser, %if.end ]
-  %m_parentParser.i.i.i = getelementptr inbounds %struct.XML_ParserStruct, ptr %rootParser.0.i.i.i, i64 0, i32 84
+  %m_parentParser.i.i.i = getelementptr inbounds i8, ptr %rootParser.0.i.i.i, i64 896
   %5 = load ptr, ptr %m_parentParser.i.i.i, align 8
   %tobool.not.i.i.i = icmp eq ptr %5, null
   br i1 %tobool.not.i.i.i, label %getRootParserOf.exit.i.i, label %while.cond.i.i.i, !llvm.loop !31
 
 getRootParserOf.exit.i.i:                         ; preds = %while.cond.i.i.i
-  %debugLevel.i.i = getelementptr inbounds %struct.XML_ParserStruct, ptr %rootParser.0.i.i.i, i64 0, i32 90, i32 2
+  %debugLevel.i.i = getelementptr inbounds i8, ptr %rootParser.0.i.i.i, i64 944
   %6 = load i32, ptr %debugLevel.i.i, align 8
   %cmp.i.i = icmp slt i32 %6, 1
   br i1 %cmp.i.i, label %return, label %if.end.i.i
 
 if.end.i.i:                                       ; preds = %getRootParserOf.exit.i.i
-  %m_accounting.i.i = getelementptr inbounds %struct.XML_ParserStruct, ptr %rootParser.0.i.i.i, i64 0, i32 90
+  %m_accounting.i.i = getelementptr inbounds i8, ptr %rootParser.0.i.i.i, i64 928
   %7 = load i64, ptr %m_accounting.i.i, align 8
   %tobool.not.i5.i.i = icmp eq i64 %7, 0
-  %countBytesIndirect.phi.trans.insert.i.i = getelementptr inbounds %struct.XML_ParserStruct, ptr %rootParser.0.i.i.i, i64 0, i32 90, i32 1
+  %countBytesIndirect.phi.trans.insert.i.i = getelementptr inbounds i8, ptr %rootParser.0.i.i.i, i64 936
   %.pre.i.i = load i64, ptr %countBytesIndirect.phi.trans.insert.i.i, align 8
   br i1 %tobool.not.i5.i.i, label %accountingGetCurrentAmplification.exit.i.i, label %cond.true.i.i.i
 
@@ -12066,7 +12026,7 @@ if.end4:                                          ; preds = %if.end
   ]
 
 sw.bb:                                            ; preds = %if.end4
-  %m_defaultHandler = getelementptr inbounds %struct.XML_ParserStruct, ptr %parser, i64 0, i32 18
+  %m_defaultHandler = getelementptr inbounds i8, ptr %parser, i64 160
   %11 = load ptr, ptr %m_defaultHandler, align 8
   %tobool5.not = icmp eq ptr %11, null
   br i1 %tobool5.not, label %if.end7, label %if.then6
@@ -12075,7 +12035,7 @@ if.then6:                                         ; preds = %sw.bb
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %s.addr.i)
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %dataPtr.i)
   store ptr %0, ptr %s.addr.i, align 8
-  %isUtf8.i = getelementptr inbounds %struct.encoding, ptr %enc, i64 0, i32 13
+  %isUtf8.i = getelementptr inbounds i8, ptr %enc, i64 132
   %12 = load i8, ptr %isUtf8.i, align 4
   %tobool.not.i = icmp eq i8 %12, 0
   br i1 %tobool.not.i, label %if.then.i, label %if.else9.i
@@ -12086,23 +12046,23 @@ if.then.i:                                        ; preds = %if.then6
   br i1 %cmp.i, label %if.then1.i, label %if.else.i
 
 if.then1.i:                                       ; preds = %if.then.i
-  %m_eventPtr.i = getelementptr inbounds %struct.XML_ParserStruct, ptr %parser, i64 0, i32 47
-  %m_eventEndPtr.i = getelementptr inbounds %struct.XML_ParserStruct, ptr %parser, i64 0, i32 48
+  %m_eventPtr.i = getelementptr inbounds i8, ptr %parser, i64 544
+  %m_eventEndPtr.i = getelementptr inbounds i8, ptr %parser, i64 552
   br label %if.end.i
 
 if.else.i:                                        ; preds = %if.then.i
-  %m_openInternalEntities.i = getelementptr inbounds %struct.XML_ParserStruct, ptr %parser, i64 0, i32 50
+  %m_openInternalEntities.i = getelementptr inbounds i8, ptr %parser, i64 568
   %14 = load ptr, ptr %m_openInternalEntities.i, align 8
-  %internalEventEndPtr.i = getelementptr inbounds %struct.open_internal_entity, ptr %14, i64 0, i32 1
+  %internalEventEndPtr.i = getelementptr inbounds i8, ptr %14, i64 8
   br label %if.end.i
 
 if.end.i:                                         ; preds = %if.else.i, %if.then1.i
   %eventPP.0.i = phi ptr [ %m_eventPtr.i, %if.then1.i ], [ %14, %if.else.i ]
   %eventEndPP.0.i = phi ptr [ %m_eventEndPtr.i, %if.then1.i ], [ %internalEventEndPtr.i, %if.else.i ]
-  %m_dataBuf.i = getelementptr inbounds %struct.XML_ParserStruct, ptr %parser, i64 0, i32 9
-  %utf8Convert.i = getelementptr inbounds %struct.encoding, ptr %enc, i64 0, i32 10
-  %m_dataBufEnd.i = getelementptr inbounds %struct.XML_ParserStruct, ptr %parser, i64 0, i32 10
-  %m_handlerArg.i = getelementptr inbounds %struct.XML_ParserStruct, ptr %parser, i64 0, i32 1
+  %m_dataBuf.i = getelementptr inbounds i8, ptr %parser, i64 88
+  %utf8Convert.i = getelementptr inbounds i8, ptr %enc, i64 112
+  %m_dataBufEnd.i = getelementptr inbounds i8, ptr %parser, i64 96
+  %m_handlerArg.i = getelementptr inbounds i8, ptr %parser, i64 8
   br label %do.body.i
 
 do.body.i:                                        ; preds = %do.body.i, %if.end.i
@@ -12128,7 +12088,7 @@ do.body.i:                                        ; preds = %do.body.i, %if.end.
   br i1 %24, label %do.body.i, label %reportDefault.exit, !llvm.loop !28
 
 if.else9.i:                                       ; preds = %if.then6
-  %m_handlerArg11.i = getelementptr inbounds %struct.XML_ParserStruct, ptr %parser, i64 0, i32 1
+  %m_handlerArg11.i = getelementptr inbounds i8, ptr %parser, i64 8
   %25 = load ptr, ptr %m_handlerArg11.i, align 8
   %sub.ptr.lhs.cast12.i = ptrtoint ptr %10 to i64
   %sub.ptr.rhs.cast13.i = ptrtoint ptr %0 to i64
@@ -12147,7 +12107,7 @@ if.end7:                                          ; preds = %reportDefault.exit,
   %26 = phi ptr [ %.pre, %reportDefault.exit ], [ %10, %sw.bb ]
   store ptr %26, ptr %startPtr, align 8
   store ptr %26, ptr %nextPtr, align 8
-  %m_parsingStatus = getelementptr inbounds %struct.XML_ParserStruct, ptr %parser, i64 0, i32 85
+  %m_parsingStatus = getelementptr inbounds i8, ptr %parser, i64 904
   %27 = load i32, ptr %m_parsingStatus, align 8
   %cmp8 = icmp eq i32 %27, 2
   %. = select i1 %cmp8, i32 35, i32 0
@@ -12188,9 +12148,9 @@ entry:
   %next.i = alloca ptr, align 8
   %start.addr = alloca ptr, align 8
   store ptr %start, ptr %start.addr, align 8
-  %m_encoding = getelementptr inbounds %struct.XML_ParserStruct, ptr %parser, i64 0, i32 34
+  %m_encoding = getelementptr inbounds i8, ptr %parser, i64 288
   %0 = load ptr, ptr %m_encoding, align 8
-  %finalBuffer = getelementptr inbounds %struct.XML_ParserStruct, ptr %parser, i64 0, i32 85, i32 1
+  %finalBuffer = getelementptr inbounds i8, ptr %parser, i64 908
   %1 = load i8, ptr %finalBuffer, align 4
   %tobool.not = icmp eq i8 %1, 0
   %conv = zext i1 %tobool.not to i8
@@ -12204,7 +12164,7 @@ if.end:                                           ; preds = %entry
   br i1 %tobool2.not, label %return, label %if.then3
 
 if.then3:                                         ; preds = %if.end
-  %m_processor = getelementptr inbounds %struct.XML_ParserStruct, ptr %parser, i64 0, i32 45
+  %m_processor = getelementptr inbounds i8, ptr %parser, i64 528
   store ptr @prologProcessor, ptr %m_processor, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %next.i)
   store ptr %2, ptr %next.i, align 8
@@ -12228,17 +12188,17 @@ return:                                           ; preds = %if.end, %entry, %if
 ; Function Attrs: nounwind uwtable
 define internal fastcc i32 @nextScaffoldPart(ptr nocapture noundef readonly %parser) unnamed_addr #0 {
 entry:
-  %m_dtd = getelementptr inbounds %struct.XML_ParserStruct, ptr %parser, i64 0, i32 65
+  %m_dtd = getelementptr inbounds i8, ptr %parser, i64 672
   %0 = load ptr, ptr %m_dtd, align 8
-  %scaffIndex = getelementptr inbounds %struct.DTD, ptr %0, i64 0, i32 18
+  %scaffIndex = getelementptr inbounds i8, ptr %0, i64 352
   %1 = load ptr, ptr %scaffIndex, align 8
   %tobool.not = icmp eq ptr %1, null
   br i1 %tobool.not, label %if.then, label %if.end6
 
 if.then:                                          ; preds = %entry
-  %m_mem = getelementptr inbounds %struct.XML_ParserStruct, ptr %parser, i64 0, i32 3
+  %m_mem = getelementptr inbounds i8, ptr %parser, i64 24
   %2 = load ptr, ptr %m_mem, align 8
-  %m_groupSize = getelementptr inbounds %struct.XML_ParserStruct, ptr %parser, i64 0, i32 82
+  %m_groupSize = getelementptr inbounds i8, ptr %parser, i64 888
   %3 = load i32, ptr %m_groupSize, align 8
   %conv = zext i32 %3 to i64
   %mul = shl nuw nsw i64 %conv, 2
@@ -12252,12 +12212,12 @@ if.end:                                           ; preds = %if.then
   br label %if.end6
 
 if.end6:                                          ; preds = %if.end, %entry
-  %scaffCount = getelementptr inbounds %struct.DTD, ptr %0, i64 0, i32 16
+  %scaffCount = getelementptr inbounds i8, ptr %0, i64 344
   %4 = load i32, ptr %scaffCount, align 8
-  %scaffSize = getelementptr inbounds %struct.DTD, ptr %0, i64 0, i32 15
+  %scaffSize = getelementptr inbounds i8, ptr %0, i64 340
   %5 = load i32, ptr %scaffSize, align 4
   %cmp.not = icmp ult i32 %4, %5
-  %scaffold41.phi.trans.insert = getelementptr inbounds %struct.DTD, ptr %0, i64 0, i32 13
+  %scaffold41.phi.trans.insert = getelementptr inbounds i8, ptr %0, i64 328
   %.pre41 = load ptr, ptr %scaffold41.phi.trans.insert, align 8
   br i1 %cmp.not, label %if.end39, label %if.then8
 
@@ -12270,7 +12230,7 @@ if.then10:                                        ; preds = %if.then8
   br i1 %cmp12, label %return, label %if.end15
 
 if.end15:                                         ; preds = %if.then10
-  %realloc_fcn = getelementptr inbounds %struct.XML_ParserStruct, ptr %parser, i64 0, i32 3, i32 1
+  %realloc_fcn = getelementptr inbounds i8, ptr %parser, i64 32
   %6 = load ptr, ptr %realloc_fcn, align 8
   %mul19 = shl nuw i32 %5, 1
   %conv20 = zext i32 %mul19 to i64
@@ -12285,7 +12245,7 @@ if.end26:                                         ; preds = %if.end15
   br label %if.end37
 
 if.else:                                          ; preds = %if.then8
-  %m_mem29 = getelementptr inbounds %struct.XML_ParserStruct, ptr %parser, i64 0, i32 3
+  %m_mem29 = getelementptr inbounds i8, ptr %parser, i64 24
   %8 = load ptr, ptr %m_mem29, align 8
   %call31 = tail call ptr %8(i64 noundef 1024) #23
   %cmp32 = icmp eq ptr %call31, null
@@ -12305,7 +12265,7 @@ if.end39:                                         ; preds = %if.end6, %if.end37
   %inc = add i32 %10, 1
   store i32 %inc, ptr %scaffCount, align 8
   %idxprom = sext i32 %10 to i64
-  %scaffLevel = getelementptr inbounds %struct.DTD, ptr %0, i64 0, i32 17
+  %scaffLevel = getelementptr inbounds i8, ptr %0, i64 348
   %11 = load i32, ptr %scaffLevel, align 4
   %tobool43.not = icmp eq i32 %11, 0
   br i1 %tobool43.not, label %if.end65, label %if.then44
@@ -12317,7 +12277,8 @@ if.then44:                                        ; preds = %if.end39
   %arrayidx49 = getelementptr i32, ptr %12, i64 %idxprom48
   %13 = load i32, ptr %arrayidx49, align 4
   %idxprom50 = sext i32 %13 to i64
-  %lastchild = getelementptr %struct.CONTENT_SCAFFOLD, ptr %9, i64 %idxprom50, i32 4
+  %arrayidx51 = getelementptr %struct.CONTENT_SCAFFOLD, ptr %9, i64 %idxprom50
+  %lastchild = getelementptr inbounds i8, ptr %arrayidx51, i64 20
   %14 = load i32, ptr %lastchild, align 4
   %tobool52.not = icmp eq i32 %14, 0
   br i1 %tobool52.not, label %if.end58, label %if.then53
@@ -12329,13 +12290,13 @@ if.then53:                                        ; preds = %if.then44
   br label %if.end58
 
 if.end58:                                         ; preds = %if.then53, %if.then44
-  %childcnt = getelementptr %struct.CONTENT_SCAFFOLD, ptr %9, i64 %idxprom50, i32 5
+  %childcnt = getelementptr inbounds i8, ptr %arrayidx51, i64 24
   %15 = load i32, ptr %childcnt, align 8
   %tobool59.not = icmp eq i32 %15, 0
   br i1 %tobool59.not, label %if.then60, label %if.end61
 
 if.then60:                                        ; preds = %if.end58
-  %firstchild = getelementptr %struct.CONTENT_SCAFFOLD, ptr %9, i64 %idxprom50, i32 3
+  %firstchild = getelementptr inbounds i8, ptr %arrayidx51, i64 16
   store i32 %10, ptr %firstchild, align 8
   br label %if.end61
 
@@ -12359,19 +12320,19 @@ return:                                           ; preds = %if.else, %if.end15,
 define internal fastcc i32 @processInternalEntity(ptr noundef %parser, ptr noundef %entity, i8 noundef zeroext %betweenDecl) unnamed_addr #0 {
 entry:
   %next = alloca ptr, align 8
-  %m_freeInternalEntities = getelementptr inbounds %struct.XML_ParserStruct, ptr %parser, i64 0, i32 51
+  %m_freeInternalEntities = getelementptr inbounds i8, ptr %parser, i64 576
   %0 = load ptr, ptr %m_freeInternalEntities, align 8
   %tobool.not = icmp eq ptr %0, null
   br i1 %tobool.not, label %if.else, label %if.then
 
 if.then:                                          ; preds = %entry
-  %next2 = getelementptr inbounds %struct.open_internal_entity, ptr %0, i64 0, i32 2
+  %next2 = getelementptr inbounds i8, ptr %0, i64 16
   %1 = load ptr, ptr %next2, align 8
   store ptr %1, ptr %m_freeInternalEntities, align 8
   br label %if.end6
 
 if.else:                                          ; preds = %entry
-  %m_mem = getelementptr inbounds %struct.XML_ParserStruct, ptr %parser, i64 0, i32 3
+  %m_mem = getelementptr inbounds i8, ptr %parser, i64 24
   %2 = load ptr, ptr %m_mem, align 8
   %call = tail call ptr %2(i64 noundef 40) #23
   %tobool4.not = icmp eq ptr %call, null
@@ -12379,27 +12340,27 @@ if.else:                                          ; preds = %entry
 
 if.end6:                                          ; preds = %if.else, %if.then
   %openEntity.0 = phi ptr [ %0, %if.then ], [ %call, %if.else ]
-  %open = getelementptr inbounds %struct.ENTITY, ptr %entity, i64 0, i32 8
+  %open = getelementptr inbounds i8, ptr %entity, i64 56
   store i8 1, ptr %open, align 8
   br label %while.cond.i.i
 
 while.cond.i.i:                                   ; preds = %while.cond.i.i, %if.end6
   %rootParser.0.i.i = phi ptr [ %parser, %if.end6 ], [ %3, %while.cond.i.i ]
-  %m_parentParser.i.i = getelementptr inbounds %struct.XML_ParserStruct, ptr %rootParser.0.i.i, i64 0, i32 84
+  %m_parentParser.i.i = getelementptr inbounds i8, ptr %rootParser.0.i.i, i64 896
   %3 = load ptr, ptr %m_parentParser.i.i, align 8
   %tobool.not.i.i = icmp eq ptr %3, null
   br i1 %tobool.not.i.i, label %getRootParserOf.exit.i, label %while.cond.i.i, !llvm.loop !31
 
 getRootParserOf.exit.i:                           ; preds = %while.cond.i.i
-  %m_entity_stats.i = getelementptr inbounds %struct.XML_ParserStruct, ptr %rootParser.0.i.i, i64 0, i32 91
+  %m_entity_stats.i = getelementptr inbounds i8, ptr %rootParser.0.i.i, i64 960
   %4 = load i32, ptr %m_entity_stats.i, align 8
   %inc.i = add i32 %4, 1
   store i32 %inc.i, ptr %m_entity_stats.i, align 8
-  %currentDepth.i = getelementptr inbounds %struct.XML_ParserStruct, ptr %rootParser.0.i.i, i64 0, i32 91, i32 1
+  %currentDepth.i = getelementptr inbounds i8, ptr %rootParser.0.i.i, i64 964
   %5 = load i32, ptr %currentDepth.i, align 4
   %inc2.i = add i32 %5, 1
   store i32 %inc2.i, ptr %currentDepth.i, align 4
-  %maximumDepthSeen.i = getelementptr inbounds %struct.XML_ParserStruct, ptr %rootParser.0.i.i, i64 0, i32 91, i32 2
+  %maximumDepthSeen.i = getelementptr inbounds i8, ptr %rootParser.0.i.i, i64 968
   %6 = load i32, ptr %maximumDepthSeen.i, align 8
   %cmp.i = icmp ugt i32 %inc2.i, %6
   br i1 %cmp.i, label %if.then.i, label %if.end.i
@@ -12411,7 +12372,7 @@ if.then.i:                                        ; preds = %getRootParserOf.exi
 
 if.end.i:                                         ; preds = %if.then.i, %getRootParserOf.exit.i
   %7 = phi i32 [ %inc8.i, %if.then.i ], [ %6, %getRootParserOf.exit.i ]
-  %debugLevel.i.i = getelementptr inbounds %struct.XML_ParserStruct, ptr %rootParser.0.i.i, i64 0, i32 91, i32 3
+  %debugLevel.i.i = getelementptr inbounds i8, ptr %rootParser.0.i.i, i64 972
   %8 = load i32, ptr %debugLevel.i.i, align 4
   %cmp.i.i = icmp slt i32 %8, 1
   br i1 %cmp.i.i, label %entityTrackingOnOpen.exit, label %if.end.i.i
@@ -12421,46 +12382,46 @@ if.end.i.i:                                       ; preds = %if.end.i
   %10 = load ptr, ptr @stderr, align 8
   %sub.i.i = shl i32 %inc2.i, 1
   %mul.i.i = add i32 %sub.i.i, -2
-  %is_param.i.i = getelementptr inbounds %struct.ENTITY, ptr %entity, i64 0, i32 9
+  %is_param.i.i = getelementptr inbounds i8, ptr %entity, i64 57
   %11 = load i8, ptr %is_param.i.i, align 1
   %tobool.not.i6.i = icmp eq i8 %11, 0
   %cond.i.i = select i1 %tobool.not.i6.i, ptr @.str.89, ptr @.str.88
-  %textLen.i.i = getelementptr inbounds %struct.ENTITY, ptr %entity, i64 0, i32 2
+  %textLen.i.i = getelementptr inbounds i8, ptr %entity, i64 16
   %12 = load i32, ptr %textLen.i.i, align 8
   %call.i.i = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %10, ptr noundef nonnull @.str.320, ptr noundef nonnull %rootParser.0.i.i, i32 noundef %inc.i, i32 noundef %inc2.i, i32 noundef %7, i32 noundef %mul.i.i, ptr noundef nonnull @.str.310, ptr noundef nonnull %cond.i.i, ptr noundef %9, ptr noundef nonnull @.str.319, i32 noundef %12, i32 noundef 5732) #26
   br label %entityTrackingOnOpen.exit
 
 entityTrackingOnOpen.exit:                        ; preds = %if.end.i, %if.end.i.i
-  %processed = getelementptr inbounds %struct.ENTITY, ptr %entity, i64 0, i32 3
+  %processed = getelementptr inbounds i8, ptr %entity, i64 20
   store i32 0, ptr %processed, align 4
-  %m_openInternalEntities = getelementptr inbounds %struct.XML_ParserStruct, ptr %parser, i64 0, i32 50
+  %m_openInternalEntities = getelementptr inbounds i8, ptr %parser, i64 568
   %13 = load ptr, ptr %m_openInternalEntities, align 8
-  %next7 = getelementptr inbounds %struct.open_internal_entity, ptr %openEntity.0, i64 0, i32 2
+  %next7 = getelementptr inbounds i8, ptr %openEntity.0, i64 16
   store ptr %13, ptr %next7, align 8
   store ptr %openEntity.0, ptr %m_openInternalEntities, align 8
-  %entity9 = getelementptr inbounds %struct.open_internal_entity, ptr %openEntity.0, i64 0, i32 3
+  %entity9 = getelementptr inbounds i8, ptr %openEntity.0, i64 24
   store ptr %entity, ptr %entity9, align 8
-  %m_tagLevel = getelementptr inbounds %struct.XML_ParserStruct, ptr %parser, i64 0, i32 53
+  %m_tagLevel = getelementptr inbounds i8, ptr %parser, i64 588
   %14 = load i32, ptr %m_tagLevel, align 4
-  %startTagLevel = getelementptr inbounds %struct.open_internal_entity, ptr %openEntity.0, i64 0, i32 4
+  %startTagLevel = getelementptr inbounds i8, ptr %openEntity.0, i64 32
   store i32 %14, ptr %startTagLevel, align 8
-  %betweenDecl10 = getelementptr inbounds %struct.open_internal_entity, ptr %openEntity.0, i64 0, i32 5
+  %betweenDecl10 = getelementptr inbounds i8, ptr %openEntity.0, i64 36
   store i8 %betweenDecl, ptr %betweenDecl10, align 4
-  %textPtr = getelementptr inbounds %struct.ENTITY, ptr %entity, i64 0, i32 1
+  %textPtr = getelementptr inbounds i8, ptr %entity, i64 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %openEntity.0, i8 0, i64 16, i1 false)
   %15 = load ptr, ptr %textPtr, align 8
-  %textLen = getelementptr inbounds %struct.ENTITY, ptr %entity, i64 0, i32 2
+  %textLen = getelementptr inbounds i8, ptr %entity, i64 16
   %16 = load i32, ptr %textLen, align 8
   %idx.ext = sext i32 %16 to i64
   %add.ptr = getelementptr i8, ptr %15, i64 %idx.ext
   store ptr %15, ptr %next, align 8
-  %is_param = getelementptr inbounds %struct.ENTITY, ptr %entity, i64 0, i32 9
+  %is_param = getelementptr inbounds i8, ptr %entity, i64 57
   %17 = load i8, ptr %is_param, align 1
   %tobool12.not = icmp eq i8 %17, 0
   br i1 %tobool12.not, label %if.else18, label %if.then13
 
 if.then13:                                        ; preds = %entityTrackingOnOpen.exit
-  %m_internalEncoding = getelementptr inbounds %struct.XML_ParserStruct, ptr %parser, i64 0, i32 36
+  %m_internalEncoding = getelementptr inbounds i8, ptr %parser, i64 440
   %18 = load ptr, ptr %m_internalEncoding, align 8
   %19 = load ptr, ptr %18, align 8
   %call15 = call i32 %19(ptr noundef nonnull %18, ptr noundef %15, ptr noundef %add.ptr, ptr noundef nonnull %next) #23
@@ -12471,7 +12432,7 @@ if.then13:                                        ; preds = %entityTrackingOnOpe
 
 if.else18:                                        ; preds = %entityTrackingOnOpen.exit
   %22 = load i32, ptr %m_tagLevel, align 4
-  %m_internalEncoding20 = getelementptr inbounds %struct.XML_ParserStruct, ptr %parser, i64 0, i32 36
+  %m_internalEncoding20 = getelementptr inbounds i8, ptr %parser, i64 440
   %23 = load ptr, ptr %m_internalEncoding20, align 8
   %call21 = call fastcc i32 @doContent(ptr noundef nonnull %parser, i32 noundef %22, ptr noundef %23, ptr noundef %15, ptr noundef %add.ptr, ptr noundef nonnull %next, i8 noundef zeroext 0, i32 noundef 1)
   br label %if.end22
@@ -12490,7 +12451,7 @@ while.cond.i.i51.preheader:                       ; preds = %land.lhs.true, %if.
   br label %while.cond.i.i51
 
 land.lhs.true:                                    ; preds = %if.then23
-  %m_parsingStatus = getelementptr inbounds %struct.XML_ParserStruct, ptr %parser, i64 0, i32 85
+  %m_parsingStatus = getelementptr inbounds i8, ptr %parser, i64 904
   %25 = load i32, ptr %m_parsingStatus, align 8
   %cmp25 = icmp eq i32 %25, 3
   br i1 %cmp25, label %if.then26, label %while.cond.i.i51.preheader
@@ -12501,31 +12462,31 @@ if.then26:                                        ; preds = %land.lhs.true
   %sub.ptr.sub = sub i64 %sub.ptr.lhs.cast, %sub.ptr.rhs.cast
   %conv = trunc i64 %sub.ptr.sub to i32
   store i32 %conv, ptr %processed, align 4
-  %m_processor = getelementptr inbounds %struct.XML_ParserStruct, ptr %parser, i64 0, i32 45
+  %m_processor = getelementptr inbounds i8, ptr %parser, i64 528
   store ptr @internalEntityProcessor, ptr %m_processor, align 8
   br label %return
 
 while.cond.i.i51:                                 ; preds = %while.cond.i.i51.preheader, %while.cond.i.i51
   %rootParser.0.i.i52 = phi ptr [ %26, %while.cond.i.i51 ], [ %parser, %while.cond.i.i51.preheader ]
-  %m_parentParser.i.i53 = getelementptr inbounds %struct.XML_ParserStruct, ptr %rootParser.0.i.i52, i64 0, i32 84
+  %m_parentParser.i.i53 = getelementptr inbounds i8, ptr %rootParser.0.i.i52, i64 896
   %26 = load ptr, ptr %m_parentParser.i.i53, align 8
   %tobool.not.i.i54 = icmp eq ptr %26, null
   br i1 %tobool.not.i.i54, label %getRootParserOf.exit.i55, label %while.cond.i.i51, !llvm.loop !31
 
 getRootParserOf.exit.i55:                         ; preds = %while.cond.i.i51
-  %debugLevel.i.i56 = getelementptr inbounds %struct.XML_ParserStruct, ptr %rootParser.0.i.i52, i64 0, i32 91, i32 3
+  %debugLevel.i.i56 = getelementptr inbounds i8, ptr %rootParser.0.i.i52, i64 972
   %27 = load i32, ptr %debugLevel.i.i56, align 4
   %cmp.i.i57 = icmp slt i32 %27, 1
   br i1 %cmp.i.i57, label %entityTrackingOnClose.exit, label %if.end.i.i58
 
 if.end.i.i58:                                     ; preds = %getRootParserOf.exit.i55
-  %m_entity_stats.i.i = getelementptr inbounds %struct.XML_ParserStruct, ptr %rootParser.0.i.i52, i64 0, i32 91
+  %m_entity_stats.i.i = getelementptr inbounds i8, ptr %rootParser.0.i.i52, i64 960
   %28 = load ptr, ptr %entity, align 8
   %29 = load ptr, ptr @stderr, align 8
   %30 = load i32, ptr %m_entity_stats.i.i, align 8
-  %currentDepth.i.i = getelementptr inbounds %struct.XML_ParserStruct, ptr %rootParser.0.i.i52, i64 0, i32 91, i32 1
+  %currentDepth.i.i = getelementptr inbounds i8, ptr %rootParser.0.i.i52, i64 964
   %31 = load i32, ptr %currentDepth.i.i, align 4
-  %maximumDepthSeen.i.i = getelementptr inbounds %struct.XML_ParserStruct, ptr %rootParser.0.i.i52, i64 0, i32 91, i32 2
+  %maximumDepthSeen.i.i = getelementptr inbounds i8, ptr %rootParser.0.i.i52, i64 968
   %32 = load i32, ptr %maximumDepthSeen.i.i, align 8
   %sub.i.i59 = shl i32 %31, 1
   %mul.i.i60 = add i32 %sub.i.i59, -2
@@ -12537,7 +12498,7 @@ if.end.i.i58:                                     ; preds = %getRootParserOf.exi
   br label %entityTrackingOnClose.exit
 
 entityTrackingOnClose.exit:                       ; preds = %getRootParserOf.exit.i55, %if.end.i.i58
-  %currentDepth.i65 = getelementptr inbounds %struct.XML_ParserStruct, ptr %rootParser.0.i.i52, i64 0, i32 91, i32 1
+  %currentDepth.i65 = getelementptr inbounds i8, ptr %rootParser.0.i.i52, i64 964
   %35 = load i32, ptr %currentDepth.i65, align 4
   %dec.i = add i32 %35, -1
   store i32 %dec.i, ptr %currentDepth.i65, align 4
@@ -12561,39 +12522,39 @@ entry:
 
 while.cond.i:                                     ; preds = %while.cond.i, %entry
   %rootParser.0.i = phi ptr [ %originParser, %entry ], [ %0, %while.cond.i ]
-  %m_parentParser.i = getelementptr inbounds %struct.XML_ParserStruct, ptr %rootParser.0.i, i64 0, i32 84
+  %m_parentParser.i = getelementptr inbounds i8, ptr %rootParser.0.i, i64 896
   %0 = load ptr, ptr %m_parentParser.i, align 8
   %tobool.not.i = icmp eq ptr %0, null
   br i1 %tobool.not.i, label %getRootParserOf.exit, label %while.cond.i, !llvm.loop !31
 
 getRootParserOf.exit:                             ; preds = %while.cond.i
-  %debugLevel.i = getelementptr inbounds %struct.XML_ParserStruct, ptr %rootParser.0.i, i64 0, i32 91, i32 3
+  %debugLevel.i = getelementptr inbounds i8, ptr %rootParser.0.i, i64 972
   %1 = load i32, ptr %debugLevel.i, align 4
   %cmp.i = icmp slt i32 %1, 1
   br i1 %cmp.i, label %entityTrackingReportStats.exit, label %if.end.i
 
 if.end.i:                                         ; preds = %getRootParserOf.exit
-  %m_entity_stats.i = getelementptr inbounds %struct.XML_ParserStruct, ptr %rootParser.0.i, i64 0, i32 91
+  %m_entity_stats.i = getelementptr inbounds i8, ptr %rootParser.0.i, i64 960
   %2 = load ptr, ptr %entity, align 8
   %3 = load ptr, ptr @stderr, align 8
   %4 = load i32, ptr %m_entity_stats.i, align 8
-  %currentDepth.i = getelementptr inbounds %struct.XML_ParserStruct, ptr %rootParser.0.i, i64 0, i32 91, i32 1
+  %currentDepth.i = getelementptr inbounds i8, ptr %rootParser.0.i, i64 964
   %5 = load i32, ptr %currentDepth.i, align 4
-  %maximumDepthSeen.i = getelementptr inbounds %struct.XML_ParserStruct, ptr %rootParser.0.i, i64 0, i32 91, i32 2
+  %maximumDepthSeen.i = getelementptr inbounds i8, ptr %rootParser.0.i, i64 968
   %6 = load i32, ptr %maximumDepthSeen.i, align 8
   %sub.i = shl i32 %5, 1
   %mul.i = add i32 %sub.i, -2
-  %is_param.i = getelementptr inbounds %struct.ENTITY, ptr %entity, i64 0, i32 9
+  %is_param.i = getelementptr inbounds i8, ptr %entity, i64 57
   %7 = load i8, ptr %is_param.i, align 1
   %tobool.not.i2 = icmp eq i8 %7, 0
   %cond.i = select i1 %tobool.not.i2, ptr @.str.89, ptr @.str.88
-  %textLen.i = getelementptr inbounds %struct.ENTITY, ptr %entity, i64 0, i32 2
+  %textLen.i = getelementptr inbounds i8, ptr %entity, i64 16
   %8 = load i32, ptr %textLen.i, align 8
   %call.i = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %3, ptr noundef nonnull @.str.320, ptr noundef nonnull %rootParser.0.i, i32 noundef %4, i32 noundef %5, i32 noundef %6, i32 noundef %mul.i, ptr noundef nonnull @.str.310, ptr noundef nonnull %cond.i, ptr noundef %2, ptr noundef nonnull @.str.321, i32 noundef %8, i32 noundef %sourceLine) #26
   br label %entityTrackingReportStats.exit
 
 entityTrackingReportStats.exit:                   ; preds = %getRootParserOf.exit, %if.end.i
-  %currentDepth = getelementptr inbounds %struct.XML_ParserStruct, ptr %rootParser.0.i, i64 0, i32 91, i32 1
+  %currentDepth = getelementptr inbounds i8, ptr %rootParser.0.i, i64 964
   %9 = load i32, ptr %currentDepth, align 4
   %dec = add i32 %9, -1
   store i32 %dec, ptr %currentDepth, align 4
@@ -12607,13 +12568,13 @@ entry:
   %ptr.addr.i.i = alloca ptr, align 8
   %s.addr.i = alloca ptr, align 8
   %dataPtr.i = alloca ptr, align 8
-  %m_processingInstructionHandler = getelementptr inbounds %struct.XML_ParserStruct, ptr %parser, i64 0, i32 14
+  %m_processingInstructionHandler = getelementptr inbounds i8, ptr %parser, i64 128
   %0 = load ptr, ptr %m_processingInstructionHandler, align 8
   %tobool.not = icmp eq ptr %0, null
   br i1 %tobool.not, label %if.then, label %if.end3
 
 if.then:                                          ; preds = %entry
-  %m_defaultHandler = getelementptr inbounds %struct.XML_ParserStruct, ptr %parser, i64 0, i32 18
+  %m_defaultHandler = getelementptr inbounds i8, ptr %parser, i64 160
   %1 = load ptr, ptr %m_defaultHandler, align 8
   %tobool1.not = icmp eq ptr %1, null
   br i1 %tobool1.not, label %return, label %if.then2
@@ -12622,35 +12583,35 @@ if.then2:                                         ; preds = %if.then
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %s.addr.i)
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %dataPtr.i)
   store ptr %start, ptr %s.addr.i, align 8
-  %isUtf8.i = getelementptr inbounds %struct.encoding, ptr %enc, i64 0, i32 13
+  %isUtf8.i = getelementptr inbounds i8, ptr %enc, i64 132
   %2 = load i8, ptr %isUtf8.i, align 4
   %tobool.not.i = icmp eq i8 %2, 0
   br i1 %tobool.not.i, label %if.then.i, label %if.else9.i
 
 if.then.i:                                        ; preds = %if.then2
-  %m_encoding.i = getelementptr inbounds %struct.XML_ParserStruct, ptr %parser, i64 0, i32 34
+  %m_encoding.i = getelementptr inbounds i8, ptr %parser, i64 288
   %3 = load ptr, ptr %m_encoding.i, align 8
   %cmp.i = icmp eq ptr %3, %enc
   br i1 %cmp.i, label %if.then1.i, label %if.else.i
 
 if.then1.i:                                       ; preds = %if.then.i
-  %m_eventPtr.i = getelementptr inbounds %struct.XML_ParserStruct, ptr %parser, i64 0, i32 47
-  %m_eventEndPtr.i = getelementptr inbounds %struct.XML_ParserStruct, ptr %parser, i64 0, i32 48
+  %m_eventPtr.i = getelementptr inbounds i8, ptr %parser, i64 544
+  %m_eventEndPtr.i = getelementptr inbounds i8, ptr %parser, i64 552
   br label %if.end.i
 
 if.else.i:                                        ; preds = %if.then.i
-  %m_openInternalEntities.i = getelementptr inbounds %struct.XML_ParserStruct, ptr %parser, i64 0, i32 50
+  %m_openInternalEntities.i = getelementptr inbounds i8, ptr %parser, i64 568
   %4 = load ptr, ptr %m_openInternalEntities.i, align 8
-  %internalEventEndPtr.i = getelementptr inbounds %struct.open_internal_entity, ptr %4, i64 0, i32 1
+  %internalEventEndPtr.i = getelementptr inbounds i8, ptr %4, i64 8
   br label %if.end.i
 
 if.end.i:                                         ; preds = %if.else.i, %if.then1.i
   %eventPP.0.i = phi ptr [ %m_eventPtr.i, %if.then1.i ], [ %4, %if.else.i ]
   %eventEndPP.0.i = phi ptr [ %m_eventEndPtr.i, %if.then1.i ], [ %internalEventEndPtr.i, %if.else.i ]
-  %m_dataBuf.i = getelementptr inbounds %struct.XML_ParserStruct, ptr %parser, i64 0, i32 9
-  %utf8Convert.i = getelementptr inbounds %struct.encoding, ptr %enc, i64 0, i32 10
-  %m_dataBufEnd.i = getelementptr inbounds %struct.XML_ParserStruct, ptr %parser, i64 0, i32 10
-  %m_handlerArg.i = getelementptr inbounds %struct.XML_ParserStruct, ptr %parser, i64 0, i32 1
+  %m_dataBuf.i = getelementptr inbounds i8, ptr %parser, i64 88
+  %utf8Convert.i = getelementptr inbounds i8, ptr %enc, i64 112
+  %m_dataBufEnd.i = getelementptr inbounds i8, ptr %parser, i64 96
+  %m_handlerArg.i = getelementptr inbounds i8, ptr %parser, i64 8
   br label %do.body.i
 
 do.body.i:                                        ; preds = %do.body.i, %if.end.i
@@ -12676,7 +12637,7 @@ do.body.i:                                        ; preds = %do.body.i, %if.end.
   br i1 %14, label %do.body.i, label %reportDefault.exit, !llvm.loop !28
 
 if.else9.i:                                       ; preds = %if.then2
-  %m_handlerArg11.i = getelementptr inbounds %struct.XML_ParserStruct, ptr %parser, i64 0, i32 1
+  %m_handlerArg11.i = getelementptr inbounds i8, ptr %parser, i64 8
   %15 = load ptr, ptr %m_handlerArg11.i, align 8
   %sub.ptr.lhs.cast12.i = ptrtoint ptr %end to i64
   %sub.ptr.rhs.cast13.i = ptrtoint ptr %start to i64
@@ -12691,20 +12652,20 @@ reportDefault.exit:                               ; preds = %do.body.i, %if.else
   br label %return
 
 if.end3:                                          ; preds = %entry
-  %minBytesPerChar = getelementptr inbounds %struct.encoding, ptr %enc, i64 0, i32 12
+  %minBytesPerChar = getelementptr inbounds i8, ptr %enc, i64 128
   %16 = load i32, ptr %minBytesPerChar, align 8
   %mul = shl i32 %16, 1
   %idx.ext = sext i32 %mul to i64
   %add.ptr = getelementptr i8, ptr %start, i64 %idx.ext
-  %nameLength = getelementptr inbounds %struct.encoding, ptr %enc, i64 0, i32 3
+  %nameLength = getelementptr inbounds i8, ptr %enc, i64 56
   %17 = load ptr, ptr %nameLength, align 8
   %call = tail call i32 %17(ptr noundef %enc, ptr noundef %add.ptr) #23
   %idx.ext4 = sext i32 %call to i64
   %add.ptr5 = getelementptr i8, ptr %add.ptr, i64 %idx.ext4
-  %m_tempPool = getelementptr inbounds %struct.XML_ParserStruct, ptr %parser, i64 0, i32 79
+  %m_tempPool = getelementptr inbounds i8, ptr %parser, i64 784
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %ptr.addr.i.i)
   store ptr %add.ptr, ptr %ptr.addr.i.i, align 8
-  %ptr1.i.i = getelementptr inbounds %struct.XML_ParserStruct, ptr %parser, i64 0, i32 79, i32 3
+  %ptr1.i.i = getelementptr inbounds i8, ptr %parser, i64 808
   %18 = load ptr, ptr %ptr1.i.i, align 8
   %tobool.not.i.i = icmp eq ptr %18, null
   br i1 %tobool.not.i.i, label %land.lhs.true.i.i, label %if.end.i.i
@@ -12715,8 +12676,8 @@ land.lhs.true.i.i:                                ; preds = %if.end3
   br i1 %tobool2.not.i.i, label %poolAppend.exit.thread.i, label %if.end.i.i
 
 if.end.i.i:                                       ; preds = %land.lhs.true.i.i, %if.end3
-  %utf8Convert.i.i = getelementptr inbounds %struct.encoding, ptr %enc, i64 0, i32 10
-  %end4.i.i = getelementptr inbounds %struct.XML_ParserStruct, ptr %parser, i64 0, i32 79, i32 2
+  %utf8Convert.i.i = getelementptr inbounds i8, ptr %enc, i64 112
+  %end4.i.i = getelementptr inbounds i8, ptr %parser, i64 800
   br label %for.cond.i.i
 
 for.cond.i.i:                                     ; preds = %if.end8.i.i, %if.end.i.i
@@ -12736,7 +12697,7 @@ poolAppend.exit.thread.i:                         ; preds = %if.end8.i.i, %land.
   br label %return
 
 poolAppend.exit.i:                                ; preds = %for.cond.i.i
-  %start.i.i = getelementptr inbounds %struct.XML_ParserStruct, ptr %parser, i64 0, i32 79, i32 4
+  %start.i.i = getelementptr inbounds i8, ptr %parser, i64 816
   %21 = load ptr, ptr %start.i.i, align 8
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %ptr.addr.i.i)
   %tobool.not.i27 = icmp eq ptr %21, null
@@ -12769,7 +12730,7 @@ poolStoreString.exit:                             ; preds = %if.end.i28, %land.l
 if.end9:                                          ; preds = %poolStoreString.exit
   %26 = load ptr, ptr %ptr1.i.i, align 8
   store ptr %26, ptr %start.i.i, align 8
-  %skipS = getelementptr inbounds %struct.encoding, ptr %enc, i64 0, i32 4
+  %skipS = getelementptr inbounds i8, ptr %enc, i64 64
   %27 = load ptr, ptr %skipS, align 8
   %call14 = call ptr %27(ptr noundef nonnull %enc, ptr noundef %add.ptr5) #23
   %28 = load i32, ptr %minBytesPerChar, align 8
@@ -12883,10 +12844,10 @@ do.end.i:                                         ; preds = %do.cond.i
 
 normalizeLines.exit:                              ; preds = %for.cond.i, %do.end.i
   %41 = load ptr, ptr %m_processingInstructionHandler, align 8
-  %m_handlerArg = getelementptr inbounds %struct.XML_ParserStruct, ptr %parser, i64 0, i32 1
+  %m_handlerArg = getelementptr inbounds i8, ptr %parser, i64 8
   %42 = load ptr, ptr %m_handlerArg, align 8
   call void %41(ptr noundef %42, ptr noundef nonnull %25, ptr noundef nonnull %36) #23
-  %freeBlocks.i = getelementptr inbounds %struct.XML_ParserStruct, ptr %parser, i64 0, i32 79, i32 1
+  %freeBlocks.i = getelementptr inbounds i8, ptr %parser, i64 792
   %43 = load ptr, ptr %freeBlocks.i, align 8
   %tobool.not.i64 = icmp eq ptr %43, null
   %44 = load ptr, ptr %m_tempPool, align 8
@@ -12925,13 +12886,13 @@ entry:
   %ptr.addr.i.i = alloca ptr, align 8
   %s.addr.i = alloca ptr, align 8
   %dataPtr.i = alloca ptr, align 8
-  %m_commentHandler = getelementptr inbounds %struct.XML_ParserStruct, ptr %parser, i64 0, i32 15
+  %m_commentHandler = getelementptr inbounds i8, ptr %parser, i64 136
   %0 = load ptr, ptr %m_commentHandler, align 8
   %tobool.not = icmp eq ptr %0, null
   br i1 %tobool.not, label %if.then, label %if.end3
 
 if.then:                                          ; preds = %entry
-  %m_defaultHandler = getelementptr inbounds %struct.XML_ParserStruct, ptr %parser, i64 0, i32 18
+  %m_defaultHandler = getelementptr inbounds i8, ptr %parser, i64 160
   %1 = load ptr, ptr %m_defaultHandler, align 8
   %tobool1.not = icmp eq ptr %1, null
   br i1 %tobool1.not, label %return, label %if.then2
@@ -12940,35 +12901,35 @@ if.then2:                                         ; preds = %if.then
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %s.addr.i)
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %dataPtr.i)
   store ptr %start, ptr %s.addr.i, align 8
-  %isUtf8.i = getelementptr inbounds %struct.encoding, ptr %enc, i64 0, i32 13
+  %isUtf8.i = getelementptr inbounds i8, ptr %enc, i64 132
   %2 = load i8, ptr %isUtf8.i, align 4
   %tobool.not.i = icmp eq i8 %2, 0
   br i1 %tobool.not.i, label %if.then.i, label %if.else9.i
 
 if.then.i:                                        ; preds = %if.then2
-  %m_encoding.i = getelementptr inbounds %struct.XML_ParserStruct, ptr %parser, i64 0, i32 34
+  %m_encoding.i = getelementptr inbounds i8, ptr %parser, i64 288
   %3 = load ptr, ptr %m_encoding.i, align 8
   %cmp.i = icmp eq ptr %3, %enc
   br i1 %cmp.i, label %if.then1.i, label %if.else.i
 
 if.then1.i:                                       ; preds = %if.then.i
-  %m_eventPtr.i = getelementptr inbounds %struct.XML_ParserStruct, ptr %parser, i64 0, i32 47
-  %m_eventEndPtr.i = getelementptr inbounds %struct.XML_ParserStruct, ptr %parser, i64 0, i32 48
+  %m_eventPtr.i = getelementptr inbounds i8, ptr %parser, i64 544
+  %m_eventEndPtr.i = getelementptr inbounds i8, ptr %parser, i64 552
   br label %if.end.i
 
 if.else.i:                                        ; preds = %if.then.i
-  %m_openInternalEntities.i = getelementptr inbounds %struct.XML_ParserStruct, ptr %parser, i64 0, i32 50
+  %m_openInternalEntities.i = getelementptr inbounds i8, ptr %parser, i64 568
   %4 = load ptr, ptr %m_openInternalEntities.i, align 8
-  %internalEventEndPtr.i = getelementptr inbounds %struct.open_internal_entity, ptr %4, i64 0, i32 1
+  %internalEventEndPtr.i = getelementptr inbounds i8, ptr %4, i64 8
   br label %if.end.i
 
 if.end.i:                                         ; preds = %if.else.i, %if.then1.i
   %eventPP.0.i = phi ptr [ %m_eventPtr.i, %if.then1.i ], [ %4, %if.else.i ]
   %eventEndPP.0.i = phi ptr [ %m_eventEndPtr.i, %if.then1.i ], [ %internalEventEndPtr.i, %if.else.i ]
-  %m_dataBuf.i = getelementptr inbounds %struct.XML_ParserStruct, ptr %parser, i64 0, i32 9
-  %utf8Convert.i = getelementptr inbounds %struct.encoding, ptr %enc, i64 0, i32 10
-  %m_dataBufEnd.i = getelementptr inbounds %struct.XML_ParserStruct, ptr %parser, i64 0, i32 10
-  %m_handlerArg.i = getelementptr inbounds %struct.XML_ParserStruct, ptr %parser, i64 0, i32 1
+  %m_dataBuf.i = getelementptr inbounds i8, ptr %parser, i64 88
+  %utf8Convert.i = getelementptr inbounds i8, ptr %enc, i64 112
+  %m_dataBufEnd.i = getelementptr inbounds i8, ptr %parser, i64 96
+  %m_handlerArg.i = getelementptr inbounds i8, ptr %parser, i64 8
   br label %do.body.i
 
 do.body.i:                                        ; preds = %do.body.i, %if.end.i
@@ -12994,7 +12955,7 @@ do.body.i:                                        ; preds = %do.body.i, %if.end.
   br i1 %14, label %do.body.i, label %reportDefault.exit, !llvm.loop !28
 
 if.else9.i:                                       ; preds = %if.then2
-  %m_handlerArg11.i = getelementptr inbounds %struct.XML_ParserStruct, ptr %parser, i64 0, i32 1
+  %m_handlerArg11.i = getelementptr inbounds i8, ptr %parser, i64 8
   %15 = load ptr, ptr %m_handlerArg11.i, align 8
   %sub.ptr.lhs.cast12.i = ptrtoint ptr %end to i64
   %sub.ptr.rhs.cast13.i = ptrtoint ptr %start to i64
@@ -13009,8 +12970,8 @@ reportDefault.exit:                               ; preds = %do.body.i, %if.else
   br label %return
 
 if.end3:                                          ; preds = %entry
-  %m_tempPool = getelementptr inbounds %struct.XML_ParserStruct, ptr %parser, i64 0, i32 79
-  %minBytesPerChar = getelementptr inbounds %struct.encoding, ptr %enc, i64 0, i32 12
+  %m_tempPool = getelementptr inbounds i8, ptr %parser, i64 784
+  %minBytesPerChar = getelementptr inbounds i8, ptr %enc, i64 128
   %16 = load i32, ptr %minBytesPerChar, align 8
   %mul = shl i32 %16, 2
   %idx.ext = sext i32 %mul to i64
@@ -13021,7 +12982,7 @@ if.end3:                                          ; preds = %entry
   %add.ptr7 = getelementptr i8, ptr %end, i64 %idx.neg
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %ptr.addr.i.i)
   store ptr %add.ptr, ptr %ptr.addr.i.i, align 8
-  %ptr1.i.i = getelementptr inbounds %struct.XML_ParserStruct, ptr %parser, i64 0, i32 79, i32 3
+  %ptr1.i.i = getelementptr inbounds i8, ptr %parser, i64 808
   %17 = load ptr, ptr %ptr1.i.i, align 8
   %tobool.not.i.i = icmp eq ptr %17, null
   br i1 %tobool.not.i.i, label %land.lhs.true.i.i, label %if.end.i.i
@@ -13032,8 +12993,8 @@ land.lhs.true.i.i:                                ; preds = %if.end3
   br i1 %tobool2.not.i.i, label %poolAppend.exit.thread.i, label %if.end.i.i
 
 if.end.i.i:                                       ; preds = %land.lhs.true.i.i, %if.end3
-  %utf8Convert.i.i = getelementptr inbounds %struct.encoding, ptr %enc, i64 0, i32 10
-  %end4.i.i = getelementptr inbounds %struct.XML_ParserStruct, ptr %parser, i64 0, i32 79, i32 2
+  %utf8Convert.i.i = getelementptr inbounds i8, ptr %enc, i64 112
+  %end4.i.i = getelementptr inbounds i8, ptr %parser, i64 800
   br label %for.cond.i.i
 
 for.cond.i.i:                                     ; preds = %if.end8.i.i, %if.end.i.i
@@ -13053,7 +13014,7 @@ poolAppend.exit.thread.i:                         ; preds = %if.end8.i.i, %land.
   br label %return
 
 poolAppend.exit.i:                                ; preds = %for.cond.i.i
-  %start.i.i = getelementptr inbounds %struct.XML_ParserStruct, ptr %parser, i64 0, i32 79, i32 4
+  %start.i.i = getelementptr inbounds i8, ptr %parser, i64 816
   %20 = load ptr, ptr %start.i.i, align 8
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %ptr.addr.i.i)
   %tobool.not.i14 = icmp eq ptr %20, null
@@ -13129,10 +13090,10 @@ do.end.i:                                         ; preds = %do.cond.i
 
 normalizeLines.exit:                              ; preds = %for.cond.i, %do.end.i
   %29 = load ptr, ptr %m_commentHandler, align 8
-  %m_handlerArg = getelementptr inbounds %struct.XML_ParserStruct, ptr %parser, i64 0, i32 1
+  %m_handlerArg = getelementptr inbounds i8, ptr %parser, i64 8
   %30 = load ptr, ptr %m_handlerArg, align 8
   call void %29(ptr noundef %30, ptr noundef nonnull %24) #23
-  %freeBlocks.i = getelementptr inbounds %struct.XML_ParserStruct, ptr %parser, i64 0, i32 79, i32 1
+  %freeBlocks.i = getelementptr inbounds i8, ptr %parser, i64 792
   %31 = load ptr, ptr %freeBlocks.i, align 8
   %tobool.not.i21 = icmp eq ptr %31, null
   %32 = load ptr, ptr %m_tempPool, align 8
@@ -13180,27 +13141,27 @@ entry:
 
 tailrecurse.i.i:                                  ; preds = %tailrecurse.i.i, %entry
   %parser.tr.i.i = phi ptr [ %parser, %entry ], [ %0, %tailrecurse.i.i ]
-  %m_parentParser.i.i = getelementptr inbounds %struct.XML_ParserStruct, ptr %parser.tr.i.i, i64 0, i32 84
+  %m_parentParser.i.i = getelementptr inbounds i8, ptr %parser.tr.i.i, i64 896
   %0 = load ptr, ptr %m_parentParser.i.i, align 8
   %cmp.not.i.i = icmp eq ptr %0, null
   br i1 %cmp.not.i.i, label %copy_salt_to_sipkey.exit, label %tailrecurse.i.i
 
 copy_salt_to_sipkey.exit:                         ; preds = %tailrecurse.i.i
-  %m_hash_secret_salt.i.i = getelementptr inbounds %struct.XML_ParserStruct, ptr %parser.tr.i.i, i64 0, i32 89
+  %m_hash_secret_salt.i.i = getelementptr inbounds i8, ptr %parser.tr.i.i, i64 920
   %1 = load i64, ptr %m_hash_secret_salt.i.i, align 8
   store i64 8317987319222330741, ptr %state, align 8
   %xor3.i = xor i64 %1, 7237128888997146477
-  %v1.i = getelementptr inbounds %struct.siphash, ptr %state, i64 0, i32 1
+  %v1.i = getelementptr inbounds i8, ptr %state, i64 8
   store i64 %xor3.i, ptr %v1.i, align 8
-  %v2.i = getelementptr inbounds %struct.siphash, ptr %state, i64 0, i32 2
+  %v2.i = getelementptr inbounds i8, ptr %state, i64 16
   store i64 7816392313619706465, ptr %v2.i, align 8
   %xor9.i = xor i64 %1, 8387220255154660723
-  %v3.i = getelementptr inbounds %struct.siphash, ptr %state, i64 0, i32 3
+  %v3.i = getelementptr inbounds i8, ptr %state, i64 24
   store i64 %xor9.i, ptr %v3.i, align 8
-  %buf.i = getelementptr inbounds %struct.siphash, ptr %state, i64 0, i32 4
-  %p.i = getelementptr inbounds %struct.siphash, ptr %state, i64 0, i32 5
+  %buf.i = getelementptr inbounds i8, ptr %state, i64 32
+  %p.i = getelementptr inbounds i8, ptr %state, i64 40
   store ptr %buf.i, ptr %p.i, align 8
-  %c.i = getelementptr inbounds %struct.siphash, ptr %state, i64 0, i32 6
+  %c.i = getelementptr inbounds i8, ptr %state, i64 48
   store i64 0, ptr %c.i, align 8
   %2 = load i8, ptr %s, align 1
   %tobool.not3.i = icmp eq i8 %2, 0
@@ -13218,10 +13179,10 @@ for.inc.i:                                        ; preds = %copy_salt_to_sipkey
 keylen.exit:                                      ; preds = %for.inc.i, %copy_salt_to_sipkey.exit
   %len.0.lcssa.i = phi i64 [ 0, %copy_salt_to_sipkey.exit ], [ %inc.i, %for.inc.i ]
   %add.ptr.i = getelementptr i8, ptr %s, i64 %len.0.lcssa.i
-  %arrayidx26.i = getelementptr inbounds %struct.siphash, ptr %state, i64 0, i32 4, i64 4
-  %arrayidx31.i = getelementptr inbounds %struct.siphash, ptr %state, i64 0, i32 4, i64 5
-  %arrayidx36.i = getelementptr inbounds %struct.siphash, ptr %state, i64 0, i32 4, i64 6
-  %arrayidx41.i = getelementptr inbounds %struct.siphash, ptr %state, i64 0, i32 4, i64 7
+  %arrayidx26.i = getelementptr inbounds i8, ptr %state, i64 36
+  %arrayidx31.i = getelementptr inbounds i8, ptr %state, i64 37
+  %arrayidx36.i = getelementptr inbounds i8, ptr %state, i64 38
+  %arrayidx41.i = getelementptr inbounds i8, ptr %state, i64 39
   br label %do.body.i
 
 do.body.i:                                        ; preds = %sip_round.exit.i, %keylen.exit
@@ -13281,17 +13242,17 @@ if.end.i:                                         ; preds = %while.end.i
   br label %for.body.i.i
 
 for.body.i.i:                                     ; preds = %for.body.i.i, %if.end.i
-  %or5040.i.i = phi i64 [ %v2.promoted.i.i, %if.end.i ], [ %or50.i.i, %for.body.i.i ]
-  %xor3339.i.i = phi i64 [ %xor.i5, %if.end.i ], [ %xor33.i.i, %for.body.i.i ]
-  %add2438.i.i = phi i64 [ %H.promoted.i.i, %if.end.i ], [ %add24.i.i, %for.body.i.i ]
-  %xor4537.i.i = phi i64 [ %v1.promoted.i.i, %if.end.i ], [ %xor45.i.i, %for.body.i.i ]
+  %14 = phi i64 [ %v2.promoted.i.i, %if.end.i ], [ %or50.i.i, %for.body.i.i ]
+  %15 = phi i64 [ %xor.i5, %if.end.i ], [ %xor33.i.i, %for.body.i.i ]
+  %add2437.i.i = phi i64 [ %H.promoted.i.i, %if.end.i ], [ %add24.i.i, %for.body.i.i ]
+  %16 = phi i64 [ %v1.promoted.i.i, %if.end.i ], [ %xor45.i.i, %for.body.i.i ]
   %i.036.i.i = phi i32 [ 0, %if.end.i ], [ %inc.i.i, %for.body.i.i ]
-  %add.i.i = add i64 %xor4537.i.i, %add2438.i.i
-  %or.i.i = call i64 @llvm.fshl.i64(i64 %xor4537.i.i, i64 %xor4537.i.i, i64 13)
+  %add.i.i = add i64 %16, %add2437.i.i
+  %or.i.i = call i64 @llvm.fshl.i64(i64 %16, i64 %16, i64 13)
   %xor.i.i = xor i64 %add.i.i, %or.i.i
   %or10.i.i = call i64 @llvm.fshl.i64(i64 %add.i.i, i64 %add.i.i, i64 32)
-  %add12.i.i = add i64 %xor3339.i.i, %or5040.i.i
-  %or17.i.i = call i64 @llvm.fshl.i64(i64 %xor3339.i.i, i64 %xor3339.i.i, i64 16)
+  %add12.i.i = add i64 %15, %14
+  %or17.i.i = call i64 @llvm.fshl.i64(i64 %15, i64 %15, i64 16)
   %xor21.i.i = xor i64 %add12.i.i, %or17.i.i
   %add24.i.i = add i64 %or10.i.i, %xor21.i.i
   %or29.i.i = call i64 @llvm.fshl.i64(i64 %xor21.i.i, i64 %xor21.i.i, i64 21)
@@ -13311,8 +13272,8 @@ sip_round.exit.i:                                 ; preds = %for.body.i.i
   %xor45.i = xor i64 %add24.i.i, %or44.i
   store i64 %xor45.i, ptr %state, align 8
   store ptr %buf.i, ptr %p.i, align 8
-  %14 = load i64, ptr %c.i, align 8
-  %add.i = add i64 %14, 8
+  %17 = load i64, ptr %c.i, align 8
+  %add.i = add i64 %17, 8
   store i64 %add.i, ptr %c.i, align 8
   br i1 %cmp2.not.i.not.not, label %sip24_update.exit, label %do.body.i, !llvm.loop !54
 
@@ -13325,16 +13286,16 @@ sip24_update.exit:                                ; preds = %do.body.i, %while.e
 define internal fastcc noundef ptr @sip24_update(ptr noundef returned %H, ptr noundef readonly %src, i64 noundef %len) unnamed_addr #5 {
 entry:
   %add.ptr = getelementptr i8, ptr %src, i64 %len
-  %p1 = getelementptr inbounds %struct.siphash, ptr %H, i64 0, i32 5
-  %buf6 = getelementptr inbounds %struct.siphash, ptr %H, i64 0, i32 4
-  %arrayidx26 = getelementptr %struct.siphash, ptr %H, i64 0, i32 4, i64 4
-  %arrayidx31 = getelementptr %struct.siphash, ptr %H, i64 0, i32 4, i64 5
-  %arrayidx36 = getelementptr %struct.siphash, ptr %H, i64 0, i32 4, i64 6
-  %arrayidx41 = getelementptr %struct.siphash, ptr %H, i64 0, i32 4, i64 7
-  %v3 = getelementptr inbounds %struct.siphash, ptr %H, i64 0, i32 3
-  %v1.i = getelementptr inbounds %struct.siphash, ptr %H, i64 0, i32 1
-  %v2.i = getelementptr inbounds %struct.siphash, ptr %H, i64 0, i32 2
-  %c = getelementptr inbounds %struct.siphash, ptr %H, i64 0, i32 6
+  %p1 = getelementptr inbounds i8, ptr %H, i64 40
+  %buf6 = getelementptr inbounds i8, ptr %H, i64 32
+  %arrayidx26 = getelementptr i8, ptr %H, i64 36
+  %arrayidx31 = getelementptr i8, ptr %H, i64 37
+  %arrayidx36 = getelementptr i8, ptr %H, i64 38
+  %arrayidx41 = getelementptr i8, ptr %H, i64 39
+  %v3 = getelementptr inbounds i8, ptr %H, i64 24
+  %v1.i = getelementptr inbounds i8, ptr %H, i64 8
+  %v2.i = getelementptr inbounds i8, ptr %H, i64 16
+  %c = getelementptr inbounds i8, ptr %H, i64 48
   br label %do.body
 
 do.body:                                          ; preds = %sip_round.exit, %entry
@@ -13391,17 +13352,17 @@ if.end:                                           ; preds = %while.end
   br label %for.body.i
 
 for.body.i:                                       ; preds = %for.body.i, %if.end
-  %or5040.i = phi i64 [ %v2.promoted.i, %if.end ], [ %or50.i, %for.body.i ]
-  %xor3339.i = phi i64 [ %xor, %if.end ], [ %xor33.i, %for.body.i ]
-  %add2438.i = phi i64 [ %H.promoted.i, %if.end ], [ %add24.i, %for.body.i ]
-  %xor4537.i = phi i64 [ %v1.promoted.i, %if.end ], [ %xor45.i, %for.body.i ]
+  %10 = phi i64 [ %v2.promoted.i, %if.end ], [ %or50.i, %for.body.i ]
+  %11 = phi i64 [ %xor, %if.end ], [ %xor33.i, %for.body.i ]
+  %add2437.i = phi i64 [ %H.promoted.i, %if.end ], [ %add24.i, %for.body.i ]
+  %12 = phi i64 [ %v1.promoted.i, %if.end ], [ %xor45.i, %for.body.i ]
   %i.036.i = phi i32 [ 0, %if.end ], [ %inc.i, %for.body.i ]
-  %add.i = add i64 %xor4537.i, %add2438.i
-  %or.i = tail call i64 @llvm.fshl.i64(i64 %xor4537.i, i64 %xor4537.i, i64 13)
+  %add.i = add i64 %12, %add2437.i
+  %or.i = tail call i64 @llvm.fshl.i64(i64 %12, i64 %12, i64 13)
   %xor.i = xor i64 %add.i, %or.i
   %or10.i = tail call i64 @llvm.fshl.i64(i64 %add.i, i64 %add.i, i64 32)
-  %add12.i = add i64 %xor3339.i, %or5040.i
-  %or17.i = tail call i64 @llvm.fshl.i64(i64 %xor3339.i, i64 %xor3339.i, i64 16)
+  %add12.i = add i64 %11, %10
+  %or17.i = tail call i64 @llvm.fshl.i64(i64 %11, i64 %11, i64 16)
   %xor21.i = xor i64 %add12.i, %or17.i
   %add24.i = add i64 %or10.i, %xor21.i
   %or29.i = tail call i64 @llvm.fshl.i64(i64 %xor21.i, i64 %xor21.i, i64 21)
@@ -13421,8 +13382,8 @@ sip_round.exit:                                   ; preds = %for.body.i
   %xor45 = xor i64 %add24.i, %or44
   store i64 %xor45, ptr %H, align 8
   store ptr %buf6, ptr %p1, align 8
-  %10 = load i64, ptr %c, align 8
-  %add = add i64 %10, 8
+  %13 = load i64, ptr %c, align 8
+  %add = add i64 %13, 8
   store i64 %add, ptr %c, align 8
   br i1 %cmp.lcssa, label %do.body, label %do.end, !llvm.loop !54
 
@@ -13433,14 +13394,14 @@ do.end:                                           ; preds = %while.end, %sip_rou
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
 define internal fastcc i64 @sip24_final(ptr noundef %H) unnamed_addr #14 {
 entry:
-  %p = getelementptr inbounds %struct.siphash, ptr %H, i64 0, i32 5
+  %p = getelementptr inbounds i8, ptr %H, i64 40
   %0 = load ptr, ptr %p, align 8
-  %buf = getelementptr inbounds %struct.siphash, ptr %H, i64 0, i32 4
+  %buf = getelementptr inbounds i8, ptr %H, i64 32
   %sub.ptr.lhs.cast = ptrtoint ptr %0 to i64
   %sub.ptr.rhs.cast = ptrtoint ptr %buf to i64
   %sub.ptr.sub = sub i64 %sub.ptr.lhs.cast, %sub.ptr.rhs.cast
   %conv = trunc i64 %sub.ptr.sub to i32
-  %c = getelementptr inbounds %struct.siphash, ptr %H, i64 0, i32 6
+  %c = getelementptr inbounds i8, ptr %H, i64 48
   %1 = load i64, ptr %c, align 8
   %add = add i64 %sub.ptr.sub, %1
   %shl = shl i64 %add, 56
@@ -13457,7 +13418,7 @@ entry:
   ]
 
 sw.bb:                                            ; preds = %entry
-  %arrayidx = getelementptr %struct.siphash, ptr %H, i64 0, i32 4, i64 6
+  %arrayidx = getelementptr i8, ptr %H, i64 38
   %2 = load i8, ptr %arrayidx, align 2
   %conv4 = zext i8 %2 to i64
   %shl5 = shl nuw nsw i64 %conv4, 48
@@ -13466,7 +13427,7 @@ sw.bb:                                            ; preds = %entry
 
 sw.bb6:                                           ; preds = %sw.bb, %entry
   %b.0 = phi i64 [ %shl, %entry ], [ %or, %sw.bb ]
-  %arrayidx8 = getelementptr %struct.siphash, ptr %H, i64 0, i32 4, i64 5
+  %arrayidx8 = getelementptr i8, ptr %H, i64 37
   %3 = load i8, ptr %arrayidx8, align 1
   %conv9 = zext i8 %3 to i64
   %shl10 = shl nuw nsw i64 %conv9, 40
@@ -13475,7 +13436,7 @@ sw.bb6:                                           ; preds = %sw.bb, %entry
 
 sw.bb12:                                          ; preds = %sw.bb6, %entry
   %b.1 = phi i64 [ %shl, %entry ], [ %or11, %sw.bb6 ]
-  %arrayidx14 = getelementptr %struct.siphash, ptr %H, i64 0, i32 4, i64 4
+  %arrayidx14 = getelementptr i8, ptr %H, i64 36
   %4 = load i8, ptr %arrayidx14, align 4
   %conv15 = zext i8 %4 to i64
   %shl16 = shl nuw nsw i64 %conv15, 32
@@ -13484,7 +13445,7 @@ sw.bb12:                                          ; preds = %sw.bb6, %entry
 
 sw.bb18:                                          ; preds = %sw.bb12, %entry
   %b.2 = phi i64 [ %shl, %entry ], [ %or17, %sw.bb12 ]
-  %arrayidx20 = getelementptr %struct.siphash, ptr %H, i64 0, i32 4, i64 3
+  %arrayidx20 = getelementptr i8, ptr %H, i64 35
   %5 = load i8, ptr %arrayidx20, align 1
   %conv21 = zext i8 %5 to i64
   %shl22 = shl nuw nsw i64 %conv21, 24
@@ -13493,7 +13454,7 @@ sw.bb18:                                          ; preds = %sw.bb12, %entry
 
 sw.bb24:                                          ; preds = %sw.bb18, %entry
   %b.3 = phi i64 [ %shl, %entry ], [ %or23, %sw.bb18 ]
-  %arrayidx26 = getelementptr %struct.siphash, ptr %H, i64 0, i32 4, i64 2
+  %arrayidx26 = getelementptr i8, ptr %H, i64 34
   %6 = load i8, ptr %arrayidx26, align 2
   %conv27 = zext i8 %6 to i64
   %shl28 = shl nuw nsw i64 %conv27, 16
@@ -13502,7 +13463,7 @@ sw.bb24:                                          ; preds = %sw.bb18, %entry
 
 sw.bb30:                                          ; preds = %sw.bb24, %entry
   %b.4 = phi i64 [ %shl, %entry ], [ %or29, %sw.bb24 ]
-  %arrayidx32 = getelementptr %struct.siphash, ptr %H, i64 0, i32 4, i64 1
+  %arrayidx32 = getelementptr i8, ptr %H, i64 33
   %7 = load i8, ptr %arrayidx32, align 1
   %conv33 = zext i8 %7 to i64
   %shl34 = shl nuw nsw i64 %conv33, 8
@@ -13518,28 +13479,28 @@ sw.bb36:                                          ; preds = %sw.bb30, %entry
 
 sw.epilog:                                        ; preds = %sw.bb36, %entry
   %b.6 = phi i64 [ %shl, %entry ], [ %or41, %sw.bb36 ]
-  %v3 = getelementptr inbounds %struct.siphash, ptr %H, i64 0, i32 3
+  %v3 = getelementptr inbounds i8, ptr %H, i64 24
   %9 = load i64, ptr %v3, align 8
   %xor = xor i64 %9, %b.6
-  %v1.i = getelementptr inbounds %struct.siphash, ptr %H, i64 0, i32 1
-  %v2.i = getelementptr inbounds %struct.siphash, ptr %H, i64 0, i32 2
+  %v1.i = getelementptr inbounds i8, ptr %H, i64 8
+  %v2.i = getelementptr inbounds i8, ptr %H, i64 16
   %v1.promoted.i = load i64, ptr %v1.i, align 8
   %H.promoted.i = load i64, ptr %H, align 8
   %v2.promoted.i = load i64, ptr %v2.i, align 8
   br label %for.body.i
 
 for.body.i:                                       ; preds = %for.body.i, %sw.epilog
-  %or5040.i = phi i64 [ %v2.promoted.i, %sw.epilog ], [ %or50.i, %for.body.i ]
-  %xor3339.i = phi i64 [ %xor, %sw.epilog ], [ %xor33.i, %for.body.i ]
-  %add2438.i = phi i64 [ %H.promoted.i, %sw.epilog ], [ %add24.i, %for.body.i ]
-  %xor4537.i = phi i64 [ %v1.promoted.i, %sw.epilog ], [ %xor45.i, %for.body.i ]
+  %10 = phi i64 [ %v2.promoted.i, %sw.epilog ], [ %or50.i, %for.body.i ]
+  %11 = phi i64 [ %xor, %sw.epilog ], [ %xor33.i, %for.body.i ]
+  %add2437.i = phi i64 [ %H.promoted.i, %sw.epilog ], [ %add24.i, %for.body.i ]
+  %12 = phi i64 [ %v1.promoted.i, %sw.epilog ], [ %xor45.i, %for.body.i ]
   %i.036.i = phi i32 [ 0, %sw.epilog ], [ %inc.i, %for.body.i ]
-  %add.i = add i64 %xor4537.i, %add2438.i
-  %or.i = tail call i64 @llvm.fshl.i64(i64 %xor4537.i, i64 %xor4537.i, i64 13)
+  %add.i = add i64 %12, %add2437.i
+  %or.i = tail call i64 @llvm.fshl.i64(i64 %12, i64 %12, i64 13)
   %xor.i = xor i64 %add.i, %or.i
   %or10.i = tail call i64 @llvm.fshl.i64(i64 %add.i, i64 %add.i, i64 32)
-  %add12.i = add i64 %xor3339.i, %or5040.i
-  %or17.i = tail call i64 @llvm.fshl.i64(i64 %xor3339.i, i64 %xor3339.i, i64 16)
+  %add12.i = add i64 %11, %10
+  %or17.i = tail call i64 @llvm.fshl.i64(i64 %11, i64 %11, i64 16)
   %xor21.i = xor i64 %add12.i, %or17.i
   %add24.i = add i64 %or10.i, %xor21.i
   %or29.i = tail call i64 @llvm.fshl.i64(i64 %xor21.i, i64 %xor21.i, i64 21)
@@ -13558,37 +13519,37 @@ sip_round.exit:                                   ; preds = %for.body.i
   br label %for.body.i35
 
 for.body.i35:                                     ; preds = %for.body.i35, %sip_round.exit
-  %or5040.i36 = phi i64 [ %xor44, %sip_round.exit ], [ %or50.i54, %for.body.i35 ]
-  %xor3339.i37 = phi i64 [ %xor33.i, %sip_round.exit ], [ %xor33.i50, %for.body.i35 ]
-  %add2438.i38 = phi i64 [ %xor43, %sip_round.exit ], [ %add24.i48, %for.body.i35 ]
-  %xor4537.i39 = phi i64 [ %xor45.i, %sip_round.exit ], [ %xor45.i53, %for.body.i35 ]
-  %i.036.i40 = phi i32 [ 0, %sip_round.exit ], [ %inc.i55, %for.body.i35 ]
-  %add.i41 = add i64 %xor4537.i39, %add2438.i38
-  %or.i42 = tail call i64 @llvm.fshl.i64(i64 %xor4537.i39, i64 %xor4537.i39, i64 13)
-  %xor.i43 = xor i64 %add.i41, %or.i42
-  %or10.i44 = tail call i64 @llvm.fshl.i64(i64 %add.i41, i64 %add.i41, i64 32)
-  %add12.i45 = add i64 %xor3339.i37, %or5040.i36
-  %or17.i46 = tail call i64 @llvm.fshl.i64(i64 %xor3339.i37, i64 %xor3339.i37, i64 16)
-  %xor21.i47 = xor i64 %add12.i45, %or17.i46
-  %add24.i48 = add i64 %or10.i44, %xor21.i47
-  %or29.i49 = tail call i64 @llvm.fshl.i64(i64 %xor21.i47, i64 %xor21.i47, i64 21)
-  %xor33.i50 = xor i64 %add24.i48, %or29.i49
-  %add36.i51 = add i64 %xor.i43, %add12.i45
-  %or41.i52 = tail call i64 @llvm.fshl.i64(i64 %xor.i43, i64 %xor.i43, i64 17)
-  %xor45.i53 = xor i64 %add36.i51, %or41.i52
-  %or50.i54 = tail call i64 @llvm.fshl.i64(i64 %add36.i51, i64 %add36.i51, i64 32)
-  %inc.i55 = add nuw nsw i32 %i.036.i40, 1
-  %exitcond.not.i56 = icmp eq i32 %inc.i55, 4
-  br i1 %exitcond.not.i56, label %sip_round.exit57, label %for.body.i35, !llvm.loop !53
+  %13 = phi i64 [ %xor44, %sip_round.exit ], [ %or50.i51, %for.body.i35 ]
+  %14 = phi i64 [ %xor33.i, %sip_round.exit ], [ %xor33.i47, %for.body.i35 ]
+  %add2437.i36 = phi i64 [ %xor43, %sip_round.exit ], [ %add24.i45, %for.body.i35 ]
+  %15 = phi i64 [ %xor45.i, %sip_round.exit ], [ %xor45.i50, %for.body.i35 ]
+  %i.036.i37 = phi i32 [ 0, %sip_round.exit ], [ %inc.i52, %for.body.i35 ]
+  %add.i38 = add i64 %15, %add2437.i36
+  %or.i39 = tail call i64 @llvm.fshl.i64(i64 %15, i64 %15, i64 13)
+  %xor.i40 = xor i64 %add.i38, %or.i39
+  %or10.i41 = tail call i64 @llvm.fshl.i64(i64 %add.i38, i64 %add.i38, i64 32)
+  %add12.i42 = add i64 %14, %13
+  %or17.i43 = tail call i64 @llvm.fshl.i64(i64 %14, i64 %14, i64 16)
+  %xor21.i44 = xor i64 %add12.i42, %or17.i43
+  %add24.i45 = add i64 %or10.i41, %xor21.i44
+  %or29.i46 = tail call i64 @llvm.fshl.i64(i64 %xor21.i44, i64 %xor21.i44, i64 21)
+  %xor33.i47 = xor i64 %add24.i45, %or29.i46
+  %add36.i48 = add i64 %xor.i40, %add12.i42
+  %or41.i49 = tail call i64 @llvm.fshl.i64(i64 %xor.i40, i64 %xor.i40, i64 17)
+  %xor45.i50 = xor i64 %add36.i48, %or41.i49
+  %or50.i51 = tail call i64 @llvm.fshl.i64(i64 %add36.i48, i64 %add36.i48, i64 32)
+  %inc.i52 = add nuw nsw i32 %i.036.i37, 1
+  %exitcond.not.i53 = icmp eq i32 %inc.i52, 4
+  br i1 %exitcond.not.i53, label %sip_round.exit54, label %for.body.i35, !llvm.loop !53
 
-sip_round.exit57:                                 ; preds = %for.body.i35
-  store i64 %xor45.i53, ptr %v1.i, align 8
-  store i64 %add24.i48, ptr %H, align 8
-  store i64 %xor33.i50, ptr %v3, align 8
-  store i64 %or50.i54, ptr %v2.i, align 8
-  %xor46 = xor i64 %xor45.i53, %add24.i48
-  %xor48 = xor i64 %xor46, %or50.i54
-  %xor50 = xor i64 %xor48, %xor33.i50
+sip_round.exit54:                                 ; preds = %for.body.i35
+  store i64 %xor45.i50, ptr %v1.i, align 8
+  store i64 %add24.i45, ptr %H, align 8
+  store i64 %xor33.i47, ptr %v3, align 8
+  store i64 %or50.i51, ptr %v2.i, align 8
+  %xor46 = xor i64 %xor45.i50, %add24.i45
+  %xor48 = xor i64 %xor46, %or50.i51
+  %xor50 = xor i64 %xor48, %xor33.i47
   ret i64 %xor50
 }
 
@@ -13628,78 +13589,78 @@ entry:
   %dataPtr = alloca ptr, align 8
   %dataPtr555 = alloca ptr, align 8
   store ptr %s, ptr %s.addr, align 8
-  %m_dtd = getelementptr inbounds %struct.XML_ParserStruct, ptr %parser, i64 0, i32 65
+  %m_dtd = getelementptr inbounds i8, ptr %parser, i64 672
   %0 = load ptr, ptr %m_dtd, align 8
-  %m_encoding = getelementptr inbounds %struct.XML_ParserStruct, ptr %parser, i64 0, i32 34
+  %m_encoding = getelementptr inbounds i8, ptr %parser, i64 288
   %1 = load ptr, ptr %m_encoding, align 8
   %cmp = icmp eq ptr %1, %enc
   br i1 %cmp, label %if.then, label %if.else
 
 if.then:                                          ; preds = %entry
-  %m_eventPtr = getelementptr inbounds %struct.XML_ParserStruct, ptr %parser, i64 0, i32 47
-  %m_eventEndPtr = getelementptr inbounds %struct.XML_ParserStruct, ptr %parser, i64 0, i32 48
+  %m_eventPtr = getelementptr inbounds i8, ptr %parser, i64 544
+  %m_eventEndPtr = getelementptr inbounds i8, ptr %parser, i64 552
   br label %if.end
 
 if.else:                                          ; preds = %entry
-  %m_openInternalEntities = getelementptr inbounds %struct.XML_ParserStruct, ptr %parser, i64 0, i32 50
+  %m_openInternalEntities = getelementptr inbounds i8, ptr %parser, i64 568
   %2 = load ptr, ptr %m_openInternalEntities, align 8
-  %internalEventEndPtr = getelementptr inbounds %struct.open_internal_entity, ptr %2, i64 0, i32 1
+  %internalEventEndPtr = getelementptr inbounds i8, ptr %2, i64 8
   br label %if.end
 
 if.end:                                           ; preds = %if.else, %if.then
   %eventEndPP.0 = phi ptr [ %m_eventEndPtr, %if.then ], [ %internalEventEndPtr, %if.else ]
   %eventPP.0 = phi ptr [ %m_eventPtr, %if.then ], [ %2, %if.else ]
   store ptr %s, ptr %eventPP.0, align 8
-  %arrayidx = getelementptr [4 x ptr], ptr %enc, i64 0, i64 1
+  %arrayidx = getelementptr i8, ptr %enc, i64 8
   %tobool.not = icmp eq i8 %haveMore, 0
-  %m_characterDataHandler548 = getelementptr inbounds %struct.XML_ParserStruct, ptr %parser, i64 0, i32 13
-  %isUtf8551 = getelementptr inbounds %struct.encoding, ptr %enc, i64 0, i32 13
-  %m_handlerArg577 = getelementptr inbounds %struct.XML_ParserStruct, ptr %parser, i64 0, i32 1
-  %m_dataBuf556 = getelementptr inbounds %struct.XML_ParserStruct, ptr %parser, i64 0, i32 9
-  %utf8Convert558 = getelementptr inbounds %struct.encoding, ptr %enc, i64 0, i32 10
-  %m_dataBufEnd559 = getelementptr inbounds %struct.XML_ParserStruct, ptr %parser, i64 0, i32 10
-  %m_defaultHandler584 = getelementptr inbounds %struct.XML_ParserStruct, ptr %parser, i64 0, i32 18
-  %m_openInternalEntities.i685 = getelementptr inbounds %struct.XML_ParserStruct, ptr %parser, i64 0, i32 50
-  %m_eventPtr.i702 = getelementptr inbounds %struct.XML_ParserStruct, ptr %parser, i64 0, i32 47
-  %m_eventEndPtr.i703 = getelementptr inbounds %struct.XML_ParserStruct, ptr %parser, i64 0, i32 48
-  %m_startCdataSectionHandler = getelementptr inbounds %struct.XML_ParserStruct, ptr %parser, i64 0, i32 16
-  %charRefNumber = getelementptr inbounds %struct.encoding, ptr %enc, i64 0, i32 6
-  %m_tagLevel336 = getelementptr inbounds %struct.XML_ParserStruct, ptr %parser, i64 0, i32 53
-  %m_tagStack343 = getelementptr inbounds %struct.XML_ParserStruct, ptr %parser, i64 0, i32 67
-  %minBytesPerChar344 = getelementptr inbounds %struct.encoding, ptr %enc, i64 0, i32 12
-  %nameLength347 = getelementptr inbounds %struct.encoding, ptr %enc, i64 0, i32 3
-  %m_freeTagList362 = getelementptr inbounds %struct.XML_ParserStruct, ptr %parser, i64 0, i32 68
-  %m_endElementHandler366 = getelementptr inbounds %struct.XML_ParserStruct, ptr %parser, i64 0, i32 12
-  %m_ns = getelementptr inbounds %struct.XML_ParserStruct, ptr %parser, i64 0, i32 38
-  %m_ns_triplets = getelementptr inbounds %struct.XML_ParserStruct, ptr %parser, i64 0, i32 39
-  %m_namespaceSeparator = getelementptr inbounds %struct.XML_ParserStruct, ptr %parser, i64 0, i32 83
-  %m_endNamespaceDeclHandler = getelementptr inbounds %struct.XML_ParserStruct, ptr %parser, i64 0, i32 24
-  %m_freeBindingList = getelementptr inbounds %struct.XML_ParserStruct, ptr %parser, i64 0, i32 70
-  %m_parsingStatus433 = getelementptr inbounds %struct.XML_ParserStruct, ptr %parser, i64 0, i32 85
-  %m_processor443 = getelementptr inbounds %struct.XML_ParserStruct, ptr %parser, i64 0, i32 45
-  %m_tempPool270 = getelementptr inbounds %struct.XML_ParserStruct, ptr %parser, i64 0, i32 79
-  %ptr1.i.i431 = getelementptr inbounds %struct.XML_ParserStruct, ptr %parser, i64 0, i32 79, i32 3
-  %end4.i.i435 = getelementptr inbounds %struct.XML_ParserStruct, ptr %parser, i64 0, i32 79, i32 2
-  %start.i.i445 = getelementptr inbounds %struct.XML_ParserStruct, ptr %parser, i64 0, i32 79, i32 4
-  %m_startElementHandler294 = getelementptr inbounds %struct.XML_ParserStruct, ptr %parser, i64 0, i32 11
-  %m_atts300 = getelementptr inbounds %struct.XML_ParserStruct, ptr %parser, i64 0, i32 74
-  %freeBlocks.i503 = getelementptr inbounds %struct.XML_ParserStruct, ptr %parser, i64 0, i32 79, i32 1
-  %m_mem = getelementptr inbounds %struct.XML_ParserStruct, ptr %parser, i64 0, i32 3
-  %realloc_fcn = getelementptr inbounds %struct.XML_ParserStruct, ptr %parser, i64 0, i32 3, i32 1
-  %predefinedEntityName = getelementptr inbounds %struct.encoding, ptr %enc, i64 0, i32 7
+  %m_characterDataHandler548 = getelementptr inbounds i8, ptr %parser, i64 120
+  %isUtf8551 = getelementptr inbounds i8, ptr %enc, i64 132
+  %m_handlerArg577 = getelementptr inbounds i8, ptr %parser, i64 8
+  %m_dataBuf556 = getelementptr inbounds i8, ptr %parser, i64 88
+  %utf8Convert558 = getelementptr inbounds i8, ptr %enc, i64 112
+  %m_dataBufEnd559 = getelementptr inbounds i8, ptr %parser, i64 96
+  %m_defaultHandler584 = getelementptr inbounds i8, ptr %parser, i64 160
+  %m_openInternalEntities.i685 = getelementptr inbounds i8, ptr %parser, i64 568
+  %m_eventPtr.i702 = getelementptr inbounds i8, ptr %parser, i64 544
+  %m_eventEndPtr.i703 = getelementptr inbounds i8, ptr %parser, i64 552
+  %m_startCdataSectionHandler = getelementptr inbounds i8, ptr %parser, i64 144
+  %charRefNumber = getelementptr inbounds i8, ptr %enc, i64 80
+  %m_tagLevel336 = getelementptr inbounds i8, ptr %parser, i64 588
+  %m_tagStack343 = getelementptr inbounds i8, ptr %parser, i64 688
+  %minBytesPerChar344 = getelementptr inbounds i8, ptr %enc, i64 128
+  %nameLength347 = getelementptr inbounds i8, ptr %enc, i64 56
+  %m_freeTagList362 = getelementptr inbounds i8, ptr %parser, i64 696
+  %m_endElementHandler366 = getelementptr inbounds i8, ptr %parser, i64 112
+  %m_ns = getelementptr inbounds i8, ptr %parser, i64 456
+  %m_ns_triplets = getelementptr inbounds i8, ptr %parser, i64 457
+  %m_namespaceSeparator = getelementptr inbounds i8, ptr %parser, i64 892
+  %m_endNamespaceDeclHandler = getelementptr inbounds i8, ptr %parser, i64 208
+  %m_freeBindingList = getelementptr inbounds i8, ptr %parser, i64 712
+  %m_parsingStatus433 = getelementptr inbounds i8, ptr %parser, i64 904
+  %m_processor443 = getelementptr inbounds i8, ptr %parser, i64 528
+  %m_tempPool270 = getelementptr inbounds i8, ptr %parser, i64 784
+  %ptr1.i.i431 = getelementptr inbounds i8, ptr %parser, i64 808
+  %end4.i.i435 = getelementptr inbounds i8, ptr %parser, i64 800
+  %start.i.i445 = getelementptr inbounds i8, ptr %parser, i64 816
+  %m_startElementHandler294 = getelementptr inbounds i8, ptr %parser, i64 104
+  %m_atts300 = getelementptr inbounds i8, ptr %parser, i64 736
+  %freeBlocks.i503 = getelementptr inbounds i8, ptr %parser, i64 792
+  %m_mem = getelementptr inbounds i8, ptr %parser, i64 24
+  %realloc_fcn = getelementptr inbounds i8, ptr %parser, i64 32
+  %predefinedEntityName = getelementptr inbounds i8, ptr %enc, i64 88
   %add.ptr61 = getelementptr inbounds i8, ptr %ch, i64 1
-  %pool = getelementptr inbounds %struct.DTD, ptr %0, i64 0, i32 4
-  %ptr1.i.i = getelementptr inbounds %struct.DTD, ptr %0, i64 0, i32 4, i32 3
-  %end4.i.i = getelementptr inbounds %struct.DTD, ptr %0, i64 0, i32 4, i32 2
-  %start.i.i = getelementptr inbounds %struct.DTD, ptr %0, i64 0, i32 4, i32 4
-  %size.i = getelementptr inbounds %struct.HASH_TABLE, ptr %0, i64 0, i32 2
-  %power30.i = getelementptr inbounds %struct.HASH_TABLE, ptr %0, i64 0, i32 1
-  %hasParamEntityRefs = getelementptr inbounds %struct.DTD, ptr %0, i64 0, i32 7
-  %standalone = getelementptr inbounds %struct.DTD, ptr %0, i64 0, i32 8
-  %m_skippedEntityHandler = getelementptr inbounds %struct.XML_ParserStruct, ptr %parser, i64 0, i32 28
-  %m_defaultExpandInternalEntities = getelementptr inbounds %struct.XML_ParserStruct, ptr %parser, i64 0, i32 52
-  %m_externalEntityRefHandler = getelementptr inbounds %struct.XML_ParserStruct, ptr %parser, i64 0, i32 26
-  %m_externalEntityRefHandlerArg = getelementptr inbounds %struct.XML_ParserStruct, ptr %parser, i64 0, i32 27
+  %pool = getelementptr inbounds i8, ptr %0, i64 160
+  %ptr1.i.i = getelementptr inbounds i8, ptr %0, i64 184
+  %end4.i.i = getelementptr inbounds i8, ptr %0, i64 176
+  %start.i.i = getelementptr inbounds i8, ptr %0, i64 192
+  %size.i = getelementptr inbounds i8, ptr %0, i64 16
+  %power30.i = getelementptr inbounds i8, ptr %0, i64 8
+  %hasParamEntityRefs = getelementptr inbounds i8, ptr %0, i64 257
+  %standalone = getelementptr inbounds i8, ptr %0, i64 258
+  %m_skippedEntityHandler = getelementptr inbounds i8, ptr %parser, i64 240
+  %m_defaultExpandInternalEntities = getelementptr inbounds i8, ptr %parser, i64 584
+  %m_externalEntityRefHandler = getelementptr inbounds i8, ptr %parser, i64 224
+  %m_externalEntityRefHandlerArg = getelementptr inbounds i8, ptr %parser, i64 232
   br label %for.cond
 
 for.cond:                                         ; preds = %sw.epilog, %if.end
@@ -13731,22 +13692,22 @@ cond.end6:                                        ; preds = %cond.false5, %cond.
 
 while.cond.i.i.i:                                 ; preds = %cond.end6, %while.cond.i.i.i
   %rootParser.0.i.i.i = phi ptr [ %8, %while.cond.i.i.i ], [ %parser, %cond.end6 ]
-  %m_parentParser.i.i.i = getelementptr inbounds %struct.XML_ParserStruct, ptr %rootParser.0.i.i.i, i64 0, i32 84
+  %m_parentParser.i.i.i = getelementptr inbounds i8, ptr %rootParser.0.i.i.i, i64 896
   %8 = load ptr, ptr %m_parentParser.i.i.i, align 8
   %tobool.not.i.i.i = icmp eq ptr %8, null
   br i1 %tobool.not.i.i.i, label %getRootParserOf.exit.i.i, label %while.cond.i.i.i, !llvm.loop !31
 
 getRootParserOf.exit.i.i:                         ; preds = %while.cond.i.i.i
-  %debugLevel.i.i = getelementptr inbounds %struct.XML_ParserStruct, ptr %rootParser.0.i.i.i, i64 0, i32 90, i32 2
+  %debugLevel.i.i = getelementptr inbounds i8, ptr %rootParser.0.i.i.i, i64 944
   %9 = load i32, ptr %debugLevel.i.i, align 8
   %cmp.i.i = icmp slt i32 %9, 1
   br i1 %cmp.i.i, label %return, label %if.end.i.i
 
 if.end.i.i:                                       ; preds = %getRootParserOf.exit.i.i
-  %m_accounting.i.i = getelementptr inbounds %struct.XML_ParserStruct, ptr %rootParser.0.i.i.i, i64 0, i32 90
+  %m_accounting.i.i = getelementptr inbounds i8, ptr %rootParser.0.i.i.i, i64 928
   %10 = load i64, ptr %m_accounting.i.i, align 8
   %tobool.not.i5.i.i = icmp eq i64 %10, 0
-  %countBytesIndirect.phi.trans.insert.i.i = getelementptr inbounds %struct.XML_ParserStruct, ptr %rootParser.0.i.i.i, i64 0, i32 90, i32 1
+  %countBytesIndirect.phi.trans.insert.i.i = getelementptr inbounds i8, ptr %rootParser.0.i.i.i, i64 936
   %.pre.i.i = load i64, ptr %countBytesIndirect.phi.trans.insert.i.i, align 8
   br i1 %tobool.not.i5.i.i, label %accountingGetCurrentAmplification.exit.i.i, label %cond.true.i.i.i
 
@@ -13921,7 +13882,7 @@ if.then.i:                                        ; preds = %if.then71
 
 if.else.i:                                        ; preds = %if.then.i
   %35 = load ptr, ptr %m_openInternalEntities.i685, align 8
-  %internalEventEndPtr.i = getelementptr inbounds %struct.open_internal_entity, ptr %35, i64 0, i32 1
+  %internalEventEndPtr.i = getelementptr inbounds i8, ptr %35, i64 8
   br label %if.end.i
 
 if.end.i:                                         ; preds = %if.then.i, %if.else.i
@@ -14125,7 +14086,7 @@ if.then93:                                        ; preds = %lor.lhs.false90, %l
   br i1 %tobool94.not, label %return, label %if.else96
 
 if.else96:                                        ; preds = %if.then93
-  %is_internal = getelementptr inbounds %struct.ENTITY, ptr %retval.0.i373, i64 0, i32 10
+  %is_internal = getelementptr inbounds i8, ptr %retval.0.i373, i64 58
   %75 = load i8, ptr %is_internal, align 2
   %tobool97.not = icmp eq i8 %75, 0
   br i1 %tobool97.not, label %return, label %if.end115
@@ -14156,19 +14117,19 @@ if.then111:                                       ; preds = %if.else108
   br label %sw.epilog
 
 if.end115:                                        ; preds = %if.else101, %if.else96
-  %open = getelementptr inbounds %struct.ENTITY, ptr %retval.0.i373, i64 0, i32 8
+  %open = getelementptr inbounds i8, ptr %retval.0.i373, i64 56
   %81 = load i8, ptr %open, align 8
   %tobool116.not = icmp eq i8 %81, 0
   br i1 %tobool116.not, label %if.end118, label %return
 
 if.end118:                                        ; preds = %if.end115
-  %notation = getelementptr inbounds %struct.ENTITY, ptr %retval.0.i373, i64 0, i32 7
+  %notation = getelementptr inbounds i8, ptr %retval.0.i373, i64 48
   %82 = load ptr, ptr %notation, align 8
   %tobool119.not = icmp eq ptr %82, null
   br i1 %tobool119.not, label %if.end121, label %return
 
 if.end121:                                        ; preds = %if.end118
-  %textPtr = getelementptr inbounds %struct.ENTITY, ptr %retval.0.i373, i64 0, i32 1
+  %textPtr = getelementptr inbounds i8, ptr %retval.0.i373, i64 8
   %83 = load ptr, ptr %textPtr, align 8
   %tobool122.not = icmp eq ptr %83, null
   br i1 %tobool122.not, label %if.else144, label %if.then123
@@ -14213,7 +14174,7 @@ if.else144:                                       ; preds = %if.end121
 if.then146:                                       ; preds = %if.else144
   store i8 1, ptr %open, align 8
   %92 = load ptr, ptr %m_dtd, align 8
-  %binding.i = getelementptr inbounds %struct.DTD, ptr %92, i64 0, i32 11, i32 1
+  %binding.i = getelementptr inbounds i8, ptr %92, i64 312
   %93 = load ptr, ptr %binding.i, align 8
   %tobool.not.i377 = icmp eq ptr %93, null
   br i1 %tobool.not.i377, label %if.end31.i, label %if.then.i378
@@ -14239,7 +14200,7 @@ cond.false.i:                                     ; preds = %land.lhs.true.cond.
   store ptr %incdec.ptr.i380, ptr %ptr1.i.i431, align 8
   store i8 61, ptr %96, align 1
   %97 = load ptr, ptr %binding.i, align 8
-  %uriLen.i = getelementptr inbounds %struct.binding, ptr %97, i64 0, i32 5
+  %uriLen.i = getelementptr inbounds i8, ptr %97, i64 40
   %98 = load i32, ptr %uriLen.i, align 8
   %99 = load i8, ptr %m_namespaceSeparator, align 4
   %tobool9.not.i = icmp ne i8 %99, 0
@@ -14271,7 +14232,7 @@ land.lhs.true18.cond.false23_crit_edge.i:         ; preds = %land.lhs.true18.i
 cond.false23.i:                                   ; preds = %land.lhs.true18.cond.false23_crit_edge.i, %for.body.i
   %102 = phi ptr [ %.pre121.i, %land.lhs.true18.cond.false23_crit_edge.i ], [ %100, %for.body.i ]
   %103 = load ptr, ptr %binding.i, align 8
-  %uri.i = getelementptr inbounds %struct.binding, ptr %103, i64 0, i32 4
+  %uri.i = getelementptr inbounds i8, ptr %103, i64 32
   %104 = load ptr, ptr %uri.i, align 8
   %arrayidx.i384 = getelementptr i8, ptr %104, i64 %indvars.iv.i
   %105 = load i8, ptr %arrayidx.i384, align 1
@@ -14283,13 +14244,13 @@ cond.false23.i:                                   ; preds = %land.lhs.true18.con
   br i1 %exitcond.not.i, label %if.end31.i, label %for.body.i, !llvm.loop !55
 
 if.end31.i:                                       ; preds = %cond.false23.i, %cond.false.i, %if.then146
-  %prefixes.i = getelementptr inbounds %struct.DTD, ptr %92, i64 0, i32 3
+  %prefixes.i = getelementptr inbounds i8, ptr %92, i64 120
   %106 = load ptr, ptr %prefixes.i, align 8
   %tobool.not.i.i381 = icmp eq ptr %106, null
   br i1 %tobool.not.i.i381, label %hashTableIterInit.exit.i, label %cond.true.i.i
 
 cond.true.i.i:                                    ; preds = %if.end31.i
-  %size.i.i = getelementptr inbounds %struct.DTD, ptr %92, i64 0, i32 3, i32 2
+  %size.i.i = getelementptr inbounds i8, ptr %92, i64 136
   %107 = load i64, ptr %size.i.i, align 8
   %add.ptr.i.i = getelementptr ptr, ptr %106, i64 %107
   br label %hashTableIterInit.exit.i
@@ -14309,7 +14270,7 @@ while.cond.i.i:                                   ; preds = %while.cond.i.i.back
   br i1 %cmp.not.i.i, label %for.end137.i, label %while.body.i.i
 
 while.body.i.i:                                   ; preds = %while.cond.i.i
-  %incdec.ptr.i.i382 = getelementptr ptr, ptr %incdec.ptr5.i.i, i64 1
+  %incdec.ptr.i.i382 = getelementptr i8, ptr %incdec.ptr5.i.i, i64 8
   %108 = load ptr, ptr %incdec.ptr5.i.i, align 8
   %tobool.not.i63.i = icmp eq ptr %108, null
   br i1 %tobool.not.i63.i, label %while.cond.i.i.backedge, label %if.end38.i
@@ -14318,13 +14279,13 @@ while.cond.i.i.backedge:                          ; preds = %while.body.i.i, %if
   br label %while.cond.i.i, !llvm.loop !9
 
 if.end38.i:                                       ; preds = %while.body.i.i
-  %binding39.i = getelementptr inbounds %struct.prefix, ptr %108, i64 0, i32 1
+  %binding39.i = getelementptr inbounds i8, ptr %108, i64 8
   %109 = load ptr, ptr %binding39.i, align 8
   %tobool40.not.i = icmp eq ptr %109, null
   br i1 %tobool40.not.i, label %while.cond.i.i.backedge, label %if.end42.i
 
 if.end42.i:                                       ; preds = %if.end38.i
-  %binding39.i.le = getelementptr inbounds %struct.prefix, ptr %108, i64 0, i32 1
+  %binding39.i.le = getelementptr inbounds i8, ptr %108, i64 8
   br i1 %needSep.1.ph.i, label %if.end61.i, label %land.lhs.true44.i
 
 land.lhs.true44.i:                                ; preds = %if.end42.i
@@ -14405,7 +14366,7 @@ cond.false96.i:                                   ; preds = %land.lhs.true91.con
   store ptr %incdec.ptr99.i, ptr %ptr1.i.i431, align 8
   store i8 61, ptr %123, align 1
   %124 = load ptr, ptr %binding39.i.le, align 8
-  %uriLen103.i = getelementptr inbounds %struct.binding, ptr %124, i64 0, i32 5
+  %uriLen103.i = getelementptr inbounds i8, ptr %124, i64 40
   %125 = load i32, ptr %uriLen103.i, align 8
   %126 = load i8, ptr %m_namespaceSeparator, align 4
   %tobool105.not.i = icmp ne i8 %126, 0
@@ -14440,7 +14401,7 @@ land.lhs.true119.cond.false124_crit_edge.i:       ; preds = %land.lhs.true119.i
 cond.false124.i:                                  ; preds = %land.lhs.true119.cond.false124_crit_edge.i, %for.body112.i
   %129 = phi ptr [ %.pre126.i, %land.lhs.true119.cond.false124_crit_edge.i ], [ %127, %for.body112.i ]
   %130 = load ptr, ptr %binding39.i.le, align 8
-  %uri126.i = getelementptr inbounds %struct.binding, ptr %130, i64 0, i32 4
+  %uri126.i = getelementptr inbounds i8, ptr %130, i64 32
   %131 = load ptr, ptr %uri126.i, align 8
   %arrayidx128.i = getelementptr i8, ptr %131, i64 %indvars.iv116.i
   %132 = load i8, ptr %arrayidx128.i, align 1
@@ -14457,7 +14418,7 @@ for.end137.i:                                     ; preds = %while.cond.i.i
   br i1 %tobool.not.i64.i, label %hashTableIterInit.exit70.i, label %cond.true.i65.i
 
 cond.true.i65.i:                                  ; preds = %for.end137.i
-  %size.i66.i = getelementptr inbounds %struct.HASH_TABLE, ptr %92, i64 0, i32 2
+  %size.i66.i = getelementptr inbounds i8, ptr %92, i64 16
   %134 = load i64, ptr %size.i66.i, align 8
   %add.ptr.i67.i = getelementptr ptr, ptr %133, i64 %134
   br label %hashTableIterInit.exit70.i
@@ -14477,7 +14438,7 @@ while.cond.i73.i:                                 ; preds = %while.cond.i73.i.ba
   br i1 %cmp.not.i75.i, label %for.end191.i, label %while.body.i76.i
 
 while.body.i76.i:                                 ; preds = %while.cond.i73.i
-  %incdec.ptr.i77.i = getelementptr ptr, ptr %incdec.ptr5.i74.i, i64 1
+  %incdec.ptr.i77.i = getelementptr i8, ptr %incdec.ptr5.i74.i, i64 8
   %135 = load ptr, ptr %incdec.ptr5.i74.i, align 8
   %tobool.not.i78.i = icmp eq ptr %135, null
   br i1 %tobool.not.i78.i, label %while.cond.i73.i.backedge, label %if.end143.i
@@ -14486,7 +14447,7 @@ while.cond.i73.i.backedge:                        ; preds = %while.body.i76.i, %
   br label %while.cond.i73.i, !llvm.loop !9
 
 if.end143.i:                                      ; preds = %while.body.i76.i
-  %open.i = getelementptr inbounds %struct.ENTITY, ptr %135, i64 0, i32 8
+  %open.i = getelementptr inbounds i8, ptr %135, i64 56
   %136 = load i8, ptr %open.i, align 8
   %tobool144.not.i = icmp eq i8 %136, 0
   br i1 %tobool144.not.i, label %while.cond.i73.i.backedge, label %if.end146.i
@@ -14586,11 +14547,11 @@ getContext.exit:                                  ; preds = %for.end191.i, %land
 if.end152:                                        ; preds = %getContext.exit
   %152 = load ptr, ptr %m_externalEntityRefHandler, align 8
   %153 = load ptr, ptr %m_externalEntityRefHandlerArg, align 8
-  %base = getelementptr inbounds %struct.ENTITY, ptr %retval.0.i373, i64 0, i32 5
+  %base = getelementptr inbounds i8, ptr %retval.0.i373, i64 32
   %154 = load ptr, ptr %base, align 8
-  %systemId = getelementptr inbounds %struct.ENTITY, ptr %retval.0.i373, i64 0, i32 4
+  %systemId = getelementptr inbounds i8, ptr %retval.0.i373, i64 24
   %155 = load ptr, ptr %systemId, align 8
-  %publicId = getelementptr inbounds %struct.ENTITY, ptr %retval.0.i373, i64 0, i32 6
+  %publicId = getelementptr inbounds i8, ptr %retval.0.i373, i64 40
   %156 = load ptr, ptr %publicId, align 8
   %call154 = call i32 %152(ptr noundef %153, ptr noundef nonnull %151, ptr noundef %154, ptr noundef %155, ptr noundef %156) #23
   %tobool155.not = icmp eq i32 %call154, 0
@@ -14631,42 +14592,42 @@ if.else175:                                       ; preds = %sw.bb168
 if.end179:                                        ; preds = %if.else175
   %164 = load ptr, ptr %m_mem, align 8
   %call182 = call ptr %164(i64 noundef 32) #23
-  %buf = getelementptr inbounds %struct.tag, ptr %call176, i64 0, i32 4
+  %buf = getelementptr inbounds i8, ptr %call176, i64 64
   store ptr %call182, ptr %buf, align 8
   %tobool184.not = icmp eq ptr %call182, null
   br i1 %tobool184.not, label %if.then185, label %if.end187
 
 if.then185:                                       ; preds = %if.end179
-  %free_fcn = getelementptr inbounds %struct.XML_ParserStruct, ptr %parser, i64 0, i32 3, i32 2
+  %free_fcn = getelementptr inbounds i8, ptr %parser, i64 40
   %165 = load ptr, ptr %free_fcn, align 8
   call void %165(ptr noundef nonnull %call176) #23
   br label %return
 
 if.end187:                                        ; preds = %if.end179
   %add.ptr189 = getelementptr i8, ptr %call182, i64 32
-  %bufEnd = getelementptr inbounds %struct.tag, ptr %call176, i64 0, i32 5
+  %bufEnd = getelementptr inbounds i8, ptr %call176, i64 72
   store ptr %add.ptr189, ptr %bufEnd, align 8
   br label %if.end190
 
 if.end190:                                        ; preds = %if.end187, %if.then171
   %tag.0 = phi ptr [ %161, %if.then171 ], [ %call176, %if.end187 ]
-  %bindings = getelementptr inbounds %struct.tag, ptr %tag.0, i64 0, i32 6
+  %bindings = getelementptr inbounds i8, ptr %tag.0, i64 80
   store ptr null, ptr %bindings, align 8
   %166 = load ptr, ptr %m_tagStack343, align 8
   store ptr %166, ptr %tag.0, align 8
   store ptr %tag.0, ptr %m_tagStack343, align 8
-  %name193 = getelementptr inbounds %struct.tag, ptr %tag.0, i64 0, i32 3
-  %localPart = getelementptr inbounds %struct.tag, ptr %tag.0, i64 0, i32 3, i32 1
+  %name193 = getelementptr inbounds i8, ptr %tag.0, i64 24
+  %localPart = getelementptr inbounds i8, ptr %tag.0, i64 32
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %localPart, i8 0, i64 16, i1 false)
   %167 = load ptr, ptr %s.addr, align 8
   %168 = load i32, ptr %minBytesPerChar344, align 8
   %idx.ext196 = sext i32 %168 to i64
   %add.ptr197 = getelementptr i8, ptr %167, i64 %idx.ext196
-  %rawName = getelementptr inbounds %struct.tag, ptr %tag.0, i64 0, i32 1
+  %rawName = getelementptr inbounds i8, ptr %tag.0, i64 8
   store ptr %add.ptr197, ptr %rawName, align 8
   %169 = load ptr, ptr %nameLength347, align 8
   %call199 = call i32 %169(ptr noundef nonnull %enc, ptr noundef %add.ptr197) #23
-  %rawNameLength = getelementptr inbounds %struct.tag, ptr %tag.0, i64 0, i32 2
+  %rawNameLength = getelementptr inbounds i8, ptr %tag.0, i64 16
   store i32 %call199, ptr %rawNameLength, align 8
   %170 = load i32, ptr %m_tagLevel336, align 4
   %inc = add i32 %170, 1
@@ -14676,9 +14637,9 @@ if.end190:                                        ; preds = %if.end187, %if.then
   %idx.ext203 = sext i32 %172 to i64
   %add.ptr204 = getelementptr i8, ptr %171, i64 %idx.ext203
   store ptr %171, ptr %fromPtr, align 8
-  %buf206 = getelementptr inbounds %struct.tag, ptr %tag.0, i64 0, i32 4
+  %buf206 = getelementptr inbounds i8, ptr %tag.0, i64 64
   %173 = load ptr, ptr %buf206, align 8
-  %bufEnd208 = getelementptr inbounds %struct.tag, ptr %tag.0, i64 0, i32 5
+  %bufEnd208 = getelementptr inbounds i8, ptr %tag.0, i64 72
   %.pre880 = load ptr, ptr %bufEnd208, align 8
   store ptr %173, ptr %toPtr, align 8
   %174 = load ptr, ptr %utf8Convert558, align 8
@@ -14700,7 +14661,7 @@ if.then218:                                       ; preds = %if.end234, %if.end1
   %.lcssa = phi ptr [ %176, %if.end190 ], [ %184, %if.end234 ]
   %sub.ptr.sub.lcssa = phi i64 [ %sub.ptr.sub1006, %if.end190 ], [ %sub.ptr.sub, %if.end234 ]
   %conv212 = trunc i64 %sub.ptr.sub.lcssa to i32
-  %strLen = getelementptr inbounds %struct.tag, ptr %tag.0, i64 0, i32 3, i32 3
+  %strLen = getelementptr inbounds i8, ptr %tag.0, i64 48
   store i32 %conv212, ptr %strLen, align 8
   store ptr %.lcssa, ptr %name193, align 8
   store i8 0, ptr %.lcssa957, align 1
@@ -14780,7 +14741,7 @@ if.then.i399:                                     ; preds = %if.then258
 
 if.else.i402:                                     ; preds = %if.then.i399
   %195 = load ptr, ptr %m_openInternalEntities.i685, align 8
-  %internalEventEndPtr.i404 = getelementptr inbounds %struct.open_internal_entity, ptr %195, i64 0, i32 1
+  %internalEventEndPtr.i404 = getelementptr inbounds i8, ptr %195, i64 8
   br label %if.end.i405
 
 if.end.i405:                                      ; preds = %if.then.i399, %if.else.i402
@@ -14950,15 +14911,15 @@ if.then.i463:                                     ; preds = %while.body.i462
   br label %if.end.i464
 
 if.end.i464:                                      ; preds = %if.then.i463, %while.body.i462
-  %nextTagBinding.i = getelementptr inbounds %struct.binding, ptr %bindings.addr.012.i, i64 0, i32 1
+  %nextTagBinding.i = getelementptr inbounds i8, ptr %bindings.addr.012.i, i64 8
   %229 = load ptr, ptr %nextTagBinding.i, align 8
   %230 = load ptr, ptr %m_freeBindingList, align 8
   store ptr %230, ptr %nextTagBinding.i, align 8
   store ptr %bindings.addr.012.i, ptr %m_freeBindingList, align 8
-  %prevPrefixBinding.i = getelementptr inbounds %struct.binding, ptr %bindings.addr.012.i, i64 0, i32 2
+  %prevPrefixBinding.i = getelementptr inbounds i8, ptr %bindings.addr.012.i, i64 16
   %231 = load ptr, ptr %prevPrefixBinding.i, align 8
   %232 = load ptr, ptr %bindings.addr.012.i, align 8
-  %binding.i465 = getelementptr inbounds %struct.prefix, ptr %232, i64 0, i32 1
+  %binding.i465 = getelementptr inbounds i8, ptr %232, i64 8
   store ptr %231, ptr %binding.i465, align 8
   %tobool.not.i466 = icmp eq ptr %229, null
   br i1 %tobool.not.i466, label %return, label %while.body.i462, !llvm.loop !59
@@ -15024,7 +14985,7 @@ if.then.i479:                                     ; preds = %if.then316
 
 if.else.i482:                                     ; preds = %if.then.i479
   %249 = load ptr, ptr %m_openInternalEntities.i685, align 8
-  %internalEventEndPtr.i484 = getelementptr inbounds %struct.open_internal_entity, ptr %249, i64 0, i32 1
+  %internalEventEndPtr.i484 = getelementptr inbounds i8, ptr %249, i64 8
   br label %if.end.i485
 
 if.end.i485:                                      ; preds = %if.then.i479, %if.else.i482
@@ -15112,15 +15073,15 @@ if.then.i522:                                     ; preds = %while.body.i519
   br label %if.end.i523
 
 if.end.i523:                                      ; preds = %if.then.i522, %while.body.i519
-  %nextTagBinding.i524 = getelementptr inbounds %struct.binding, ptr %bindings.addr.012.i520, i64 0, i32 1
+  %nextTagBinding.i524 = getelementptr inbounds i8, ptr %bindings.addr.012.i520, i64 8
   %270 = load ptr, ptr %nextTagBinding.i524, align 8
   %271 = load ptr, ptr %m_freeBindingList, align 8
   store ptr %271, ptr %nextTagBinding.i524, align 8
   store ptr %bindings.addr.012.i520, ptr %m_freeBindingList, align 8
-  %prevPrefixBinding.i525 = getelementptr inbounds %struct.binding, ptr %bindings.addr.012.i520, i64 0, i32 2
+  %prevPrefixBinding.i525 = getelementptr inbounds i8, ptr %bindings.addr.012.i520, i64 16
   %272 = load ptr, ptr %prevPrefixBinding.i525, align 8
   %273 = load ptr, ptr %bindings.addr.012.i520, align 8
-  %binding.i526 = getelementptr inbounds %struct.prefix, ptr %273, i64 0, i32 1
+  %binding.i526 = getelementptr inbounds i8, ptr %273, i64 8
   store ptr %272, ptr %binding.i526, align 8
   %tobool.not.i527 = icmp eq ptr %270, null
   br i1 %tobool.not.i527, label %freeBindings.exit529, label %while.body.i519, !llvm.loop !59
@@ -15160,13 +15121,13 @@ if.else340:                                       ; preds = %sw.bb335
   %add.ptr346 = getelementptr i8, ptr %279, i64 %idx.ext345
   %281 = load ptr, ptr %nameLength347, align 8
   %call348 = call i32 %281(ptr noundef nonnull %enc, ptr noundef %add.ptr346) #23
-  %rawNameLength349 = getelementptr inbounds %struct.tag, ptr %278, i64 0, i32 2
+  %rawNameLength349 = getelementptr inbounds i8, ptr %278, i64 16
   %282 = load i32, ptr %rawNameLength349, align 8
   %cmp350.not = icmp eq i32 %call348, %282
   br i1 %cmp350.not, label %lor.lhs.false352, label %if.then358
 
 lor.lhs.false352:                                 ; preds = %if.else340
-  %rawName353 = getelementptr inbounds %struct.tag, ptr %278, i64 0, i32 1
+  %rawName353 = getelementptr inbounds i8, ptr %278, i64 8
   %283 = load ptr, ptr %rawName353, align 8
   %conv354 = sext i32 %call348 to i64
   %bcmp = call i32 @bcmp(ptr %283, ptr %add.ptr346, i64 %conv354)
@@ -15191,8 +15152,8 @@ if.end359:                                        ; preds = %lor.lhs.false352
   br i1 %tobool367.not, label %if.else405, label %if.then368
 
 if.then368:                                       ; preds = %if.end359
-  %name371 = getelementptr inbounds %struct.tag, ptr %278, i64 0, i32 3
-  %localPart372 = getelementptr inbounds %struct.tag, ptr %278, i64 0, i32 3, i32 1
+  %name371 = getelementptr inbounds i8, ptr %278, i64 24
+  %localPart372 = getelementptr inbounds i8, ptr %278, i64 32
   %288 = load ptr, ptr %localPart372, align 8
   %289 = load i8, ptr %m_ns, align 8
   %tobool374 = icmp ne i8 %289, 0
@@ -15202,7 +15163,7 @@ if.then368:                                       ; preds = %if.end359
 
 if.then377:                                       ; preds = %if.then368
   %290 = load ptr, ptr %name371, align 8
-  %uriLen = getelementptr inbounds %struct.tag, ptr %278, i64 0, i32 3, i32 4
+  %uriLen = getelementptr inbounds i8, ptr %278, i64 52
   %291 = load i32, ptr %uriLen, align 4
   %idx.ext381 = sext i32 %291 to i64
   %add.ptr382 = getelementptr i8, ptr %290, i64 %idx.ext381
@@ -15223,7 +15184,7 @@ while.body:                                       ; preds = %if.then377, %while.
 
 while.end:                                        ; preds = %while.body, %if.then377
   %uri.0.lcssa = phi ptr [ %add.ptr382, %if.then377 ], [ %incdec.ptr384, %while.body ]
-  %prefix386 = getelementptr inbounds %struct.tag, ptr %278, i64 0, i32 3, i32 2
+  %prefix386 = getelementptr inbounds i8, ptr %278, i64 40
   %295 = load ptr, ptr %prefix386, align 8
   %296 = load i8, ptr %m_ns_triplets, align 1
   %tobool388 = icmp ne i8 %296, 0
@@ -15285,7 +15246,7 @@ if.then.i541:                                     ; preds = %if.then408
 
 if.else.i544:                                     ; preds = %if.then.i541
   %309 = load ptr, ptr %m_openInternalEntities.i685, align 8
-  %internalEventEndPtr.i546 = getelementptr inbounds %struct.open_internal_entity, ptr %309, i64 0, i32 1
+  %internalEventEndPtr.i546 = getelementptr inbounds i8, ptr %309, i64 8
   br label %if.end.i547
 
 if.end.i547:                                      ; preds = %if.then.i541, %if.else.i544
@@ -15330,7 +15291,7 @@ reportDefault.exit564:                            ; preds = %do.body.i555, %if.e
   br label %if.end410
 
 if.end410:                                        ; preds = %if.else405, %reportDefault.exit564, %if.end400
-  %bindings412 = getelementptr inbounds %struct.tag, ptr %278, i64 0, i32 6
+  %bindings412 = getelementptr inbounds i8, ptr %278, i64 80
   %321 = load ptr, ptr %bindings412, align 8
   %tobool413.not816 = icmp eq ptr %321, null
   br i1 %tobool413.not816, label %while.end428, label %while.body414
@@ -15351,17 +15312,17 @@ if.then417:                                       ; preds = %while.body414
 
 if.end422:                                        ; preds = %if.then417, %while.body414
   %327 = phi ptr [ %.pre878, %if.then417 ], [ %322, %while.body414 ]
-  %nextTagBinding = getelementptr inbounds %struct.binding, ptr %327, i64 0, i32 1
+  %nextTagBinding = getelementptr inbounds i8, ptr %327, i64 8
   %328 = load ptr, ptr %nextTagBinding, align 8
   store ptr %328, ptr %bindings412, align 8
   %329 = load ptr, ptr %m_freeBindingList, align 8
-  %nextTagBinding425 = getelementptr inbounds %struct.binding, ptr %322, i64 0, i32 1
+  %nextTagBinding425 = getelementptr inbounds i8, ptr %322, i64 8
   store ptr %329, ptr %nextTagBinding425, align 8
   store ptr %322, ptr %m_freeBindingList, align 8
-  %prevPrefixBinding = getelementptr inbounds %struct.binding, ptr %322, i64 0, i32 2
+  %prevPrefixBinding = getelementptr inbounds i8, ptr %322, i64 16
   %330 = load ptr, ptr %prevPrefixBinding, align 8
   %331 = load ptr, ptr %322, align 8
-  %binding = getelementptr inbounds %struct.prefix, ptr %331, i64 0, i32 1
+  %binding = getelementptr inbounds i8, ptr %331, i64 8
   store ptr %330, ptr %binding, align 8
   %332 = load ptr, ptr %bindings412, align 8
   %tobool413.not = icmp eq ptr %332, null
@@ -15428,7 +15389,7 @@ if.then.i576:                                     ; preds = %if.then466
 
 if.else.i579:                                     ; preds = %if.then.i576
   %345 = load ptr, ptr %m_openInternalEntities.i685, align 8
-  %internalEventEndPtr.i581 = getelementptr inbounds %struct.open_internal_entity, ptr %345, i64 0, i32 1
+  %internalEventEndPtr.i581 = getelementptr inbounds i8, ptr %345, i64 8
   br label %if.end.i582
 
 if.end.i582:                                      ; preds = %if.then.i576, %if.else.i579
@@ -15504,7 +15465,7 @@ if.then.i611:                                     ; preds = %if.then480
 
 if.else.i614:                                     ; preds = %if.then.i611
   %363 = load ptr, ptr %m_openInternalEntities.i685, align 8
-  %internalEventEndPtr.i616 = getelementptr inbounds %struct.open_internal_entity, ptr %363, i64 0, i32 1
+  %internalEventEndPtr.i616 = getelementptr inbounds i8, ptr %363, i64 8
   br label %if.end.i617
 
 if.end.i617:                                      ; preds = %if.then.i611, %if.else.i614
@@ -15579,7 +15540,7 @@ if.then.i646:                                     ; preds = %if.then492
 
 if.else.i649:                                     ; preds = %if.then.i646
   %381 = load ptr, ptr %m_openInternalEntities.i685, align 8
-  %internalEventEndPtr.i651 = getelementptr inbounds %struct.open_internal_entity, ptr %381, i64 0, i32 1
+  %internalEventEndPtr.i651 = getelementptr inbounds i8, ptr %381, i64 8
   br label %if.end.i652
 
 if.end.i652:                                      ; preds = %if.then.i646, %if.else.i649
@@ -15780,7 +15741,7 @@ if.then.i681:                                     ; preds = %if.then586
 
 if.else.i684:                                     ; preds = %if.then.i681
   %426 = load ptr, ptr %m_openInternalEntities.i685, align 8
-  %internalEventEndPtr.i686 = getelementptr inbounds %struct.open_internal_entity, ptr %426, i64 0, i32 1
+  %internalEventEndPtr.i686 = getelementptr inbounds i8, ptr %426, i64 8
   br label %if.end.i687
 
 if.end.i687:                                      ; preds = %if.then.i681, %if.else.i684
@@ -15857,7 +15818,7 @@ if.then.i716:                                     ; preds = %if.then601
 
 if.else.i719:                                     ; preds = %if.then.i716
   %444 = load ptr, ptr %m_openInternalEntities.i685, align 8
-  %internalEventEndPtr.i721 = getelementptr inbounds %struct.open_internal_entity, ptr %444, i64 0, i32 1
+  %internalEventEndPtr.i721 = getelementptr inbounds i8, ptr %444, i64 8
   br label %if.end.i722
 
 if.end.i722:                                      ; preds = %if.then.i716, %if.else.i719
@@ -15923,29 +15884,29 @@ return:                                           ; preds = %land.lhs.true.i, %p
 ; Function Attrs: nounwind uwtable
 define internal fastcc noundef zeroext i8 @storeRawNames(ptr nocapture noundef readonly %parser) unnamed_addr #0 {
 entry:
-  %m_tagStack = getelementptr inbounds %struct.XML_ParserStruct, ptr %parser, i64 0, i32 67
-  %realloc_fcn = getelementptr inbounds %struct.XML_ParserStruct, ptr %parser, i64 0, i32 3, i32 1
+  %m_tagStack = getelementptr inbounds i8, ptr %parser, i64 688
+  %realloc_fcn = getelementptr inbounds i8, ptr %parser, i64 32
   %tag.035 = load ptr, ptr %m_tagStack, align 8
   %tobool.not36 = icmp eq ptr %tag.035, null
   br i1 %tobool.not36, label %return, label %while.body
 
 while.body:                                       ; preds = %entry, %if.end50
   %tag.037 = phi ptr [ %tag.0, %if.end50 ], [ %tag.035, %entry ]
-  %name = getelementptr inbounds %struct.tag, ptr %tag.037, i64 0, i32 3
-  %strLen = getelementptr inbounds %struct.tag, ptr %tag.037, i64 0, i32 3, i32 3
+  %name = getelementptr inbounds i8, ptr %tag.037, i64 24
+  %strLen = getelementptr inbounds i8, ptr %tag.037, i64 48
   %0 = load i32, ptr %strLen, align 8
   %add = add i32 %0, 1
   %conv = sext i32 %add to i64
-  %buf = getelementptr inbounds %struct.tag, ptr %tag.037, i64 0, i32 4
+  %buf = getelementptr inbounds i8, ptr %tag.037, i64 64
   %1 = load ptr, ptr %buf, align 8
   %add.ptr = getelementptr i8, ptr %1, i64 %conv
-  %rawName = getelementptr inbounds %struct.tag, ptr %tag.037, i64 0, i32 1
+  %rawName = getelementptr inbounds i8, ptr %tag.037, i64 8
   %2 = load ptr, ptr %rawName, align 8
   %cmp = icmp eq ptr %2, %add.ptr
   br i1 %cmp, label %return, label %if.end
 
 if.end:                                           ; preds = %while.body
-  %rawNameLength = getelementptr inbounds %struct.tag, ptr %tag.037, i64 0, i32 2
+  %rawNameLength = getelementptr inbounds i8, ptr %tag.037, i64 16
   %3 = load i32, ptr %rawNameLength, align 8
   %conv3 = sext i32 %3 to i64
   %sub = sub nsw i64 2147483647, %conv
@@ -15955,7 +15916,7 @@ if.end:                                           ; preds = %while.body
 if.end9:                                          ; preds = %if.end
   %add11 = add i32 %3, %add
   %conv12 = sext i32 %add11 to i64
-  %bufEnd = getelementptr inbounds %struct.tag, ptr %tag.037, i64 0, i32 5
+  %bufEnd = getelementptr inbounds i8, ptr %tag.037, i64 72
   %4 = load ptr, ptr %bufEnd, align 8
   %sub.ptr.lhs.cast = ptrtoint ptr %4 to i64
   %sub.ptr.rhs.cast = ptrtoint ptr %1 to i64
@@ -15980,7 +15941,7 @@ if.then27:                                        ; preds = %if.end22
   br label %if.end30
 
 if.end30:                                         ; preds = %if.then27, %if.end22
-  %localPart = getelementptr inbounds %struct.tag, ptr %tag.037, i64 0, i32 3, i32 1
+  %localPart = getelementptr inbounds i8, ptr %tag.037, i64 32
   %8 = load ptr, ptr %localPart, align 8
   %tobool32.not = icmp eq ptr %8, null
   br i1 %tobool32.not, label %if.end43, label %if.then33
@@ -16023,11 +15984,11 @@ define internal fastcc i32 @storeAtts(ptr noundef %parser, ptr noundef %enc, ptr
 entry:
   %ptr.addr.i.i = alloca ptr, align 8
   %sip_state = alloca %struct.siphash, align 8
-  %m_dtd = getelementptr inbounds %struct.XML_ParserStruct, ptr %parser, i64 0, i32 65
+  %m_dtd = getelementptr inbounds i8, ptr %parser, i64 672
   %0 = load ptr, ptr %m_dtd, align 8
-  %elementTypes = getelementptr inbounds %struct.DTD, ptr %0, i64 0, i32 1
+  %elementTypes = getelementptr inbounds i8, ptr %0, i64 40
   %1 = load ptr, ptr %tagNamePtr, align 8
-  %size.i = getelementptr inbounds %struct.DTD, ptr %0, i64 0, i32 1, i32 2
+  %size.i = getelementptr inbounds i8, ptr %0, i64 56
   %2 = load i64, ptr %size.i, align 8
   %cmp.i = icmp eq i64 %2, 0
   br i1 %cmp.i, label %if.then, label %if.else.i
@@ -16047,7 +16008,7 @@ while.body.lr.ph.i:                               ; preds = %if.else.i
   %6 = load i8, ptr %1, align 1
   %not.i = sub i64 0, %3
   %and29.i = and i64 %call12.i, %not.i
-  %power30.i = getelementptr inbounds %struct.DTD, ptr %0, i64 0, i32 1, i32 1
+  %power30.i = getelementptr inbounds i8, ptr %0, i64 48
   %shr32.i = lshr i64 %sub14.i, 2
   br label %while.body.i
 
@@ -16103,10 +16064,10 @@ if.end35.i:                                       ; preds = %if.then28.i, %if.en
   br i1 %tobool17.not.i, label %if.then, label %while.body.i, !llvm.loop !15
 
 if.then:                                          ; preds = %if.end35.i, %if.else.i, %entry
-  %pool = getelementptr inbounds %struct.DTD, ptr %0, i64 0, i32 4
+  %pool = getelementptr inbounds i8, ptr %0, i64 160
   %16 = load ptr, ptr %tagNamePtr, align 8
-  %ptr.i = getelementptr inbounds %struct.DTD, ptr %0, i64 0, i32 4, i32 3
-  %end.i = getelementptr inbounds %struct.DTD, ptr %0, i64 0, i32 4, i32 2
+  %ptr.i = getelementptr inbounds i8, ptr %0, i64 184
+  %end.i = getelementptr inbounds i8, ptr %0, i64 176
   br label %do.body.i
 
 do.body.i:                                        ; preds = %cond.false.i, %if.then
@@ -16137,7 +16098,7 @@ cond.false.i:                                     ; preds = %land.lhs.true.cond.
   br i1 %tobool3.not.i, label %poolCopyString.exit, label %do.body.i, !llvm.loop !12
 
 poolCopyString.exit:                              ; preds = %cond.false.i
-  %start.i = getelementptr inbounds %struct.DTD, ptr %0, i64 0, i32 4, i32 4
+  %start.i = getelementptr inbounds i8, ptr %0, i64 192
   %22 = load ptr, ptr %start.i, align 8
   %23 = load ptr, ptr %ptr.i, align 8
   store ptr %23, ptr %start.i, align 8
@@ -16150,7 +16111,7 @@ if.end:                                           ; preds = %poolCopyString.exit
   br i1 %tobool7.not, label %return, label %if.end9
 
 if.end9:                                          ; preds = %if.end
-  %m_ns = getelementptr inbounds %struct.XML_ParserStruct, ptr %parser, i64 0, i32 38
+  %m_ns = getelementptr inbounds i8, ptr %parser, i64 456
   %24 = load i8, ptr %m_ns, align 8
   %tobool10.not = icmp eq i8 %24, 0
   br i1 %tobool10.not, label %if.end15, label %land.lhs.true
@@ -16162,13 +16123,13 @@ land.lhs.true:                                    ; preds = %if.end9
 
 if.end15:                                         ; preds = %for.body.i.i, %if.end9, %land.lhs.true
   %elementType.0 = phi ptr [ %call6, %land.lhs.true ], [ %call6, %if.end9 ], [ %7, %for.body.i.i ]
-  %nDefaultAtts16 = getelementptr inbounds %struct.ELEMENT_TYPE, ptr %elementType.0, i64 0, i32 3
+  %nDefaultAtts16 = getelementptr inbounds i8, ptr %elementType.0, i64 24
   %25 = load i32, ptr %nDefaultAtts16, align 8
-  %getAtts = getelementptr inbounds %struct.encoding, ptr %enc, i64 0, i32 5
+  %getAtts = getelementptr inbounds i8, ptr %enc, i64 72
   %26 = load ptr, ptr %getAtts, align 8
-  %m_attsSize = getelementptr inbounds %struct.XML_ParserStruct, ptr %parser, i64 0, i32 71
+  %m_attsSize = getelementptr inbounds i8, ptr %parser, i64 720
   %27 = load i32, ptr %m_attsSize, align 8
-  %m_atts = getelementptr inbounds %struct.XML_ParserStruct, ptr %parser, i64 0, i32 74
+  %m_atts = getelementptr inbounds i8, ptr %parser, i64 736
   %28 = load ptr, ptr %m_atts, align 8
   %call17 = tail call i32 %26(ptr noundef %enc, ptr noundef %attStr, i32 noundef %27, ptr noundef %28) #23
   %sub = sub i32 2147483647, %25
@@ -16191,7 +16152,7 @@ if.then24:                                        ; preds = %if.end20
 if.end33:                                         ; preds = %if.then24
   %add35 = add i32 %add, 16
   store i32 %add35, ptr %m_attsSize, align 8
-  %realloc_fcn = getelementptr inbounds %struct.XML_ParserStruct, ptr %parser, i64 0, i32 3, i32 1
+  %realloc_fcn = getelementptr inbounds i8, ptr %parser, i64 32
   %30 = load ptr, ptr %realloc_fcn, align 8
   %31 = load ptr, ptr %m_atts, align 8
   %conv39 = sext i32 %add35 to i64
@@ -16216,26 +16177,26 @@ if.then49:                                        ; preds = %if.end45
 
 if.end54:                                         ; preds = %if.end45, %if.then49, %if.end20
   %33 = load ptr, ptr %m_atts, align 8
-  %cmp56425 = icmp sgt i32 %call17, 0
-  br i1 %cmp56425, label %for.body.lr.ph, label %for.end170
+  %cmp56424 = icmp sgt i32 %call17, 0
+  br i1 %cmp56424, label %for.body.lr.ph, label %for.end170
 
 for.body.lr.ph:                                   ; preds = %if.end54
-  %nameLength = getelementptr inbounds %struct.encoding, ptr %enc, i64 0, i32 3
-  %m_tempPool124 = getelementptr inbounds %struct.XML_ParserStruct, ptr %parser, i64 0, i32 79
-  %ptr1.i.i = getelementptr inbounds %struct.XML_ParserStruct, ptr %parser, i64 0, i32 79, i32 3
-  %utf8Convert.i.i = getelementptr inbounds %struct.encoding, ptr %enc, i64 0, i32 10
-  %end4.i.i = getelementptr inbounds %struct.XML_ParserStruct, ptr %parser, i64 0, i32 79, i32 2
-  %start.i.i = getelementptr inbounds %struct.XML_ParserStruct, ptr %parser, i64 0, i32 79, i32 4
-  %cmp93423 = icmp slt i32 %25, 1
-  %defaultAtts = getelementptr inbounds %struct.ELEMENT_TYPE, ptr %elementType.0, i64 0, i32 5
+  %nameLength = getelementptr inbounds i8, ptr %enc, i64 56
+  %m_tempPool124 = getelementptr inbounds i8, ptr %parser, i64 784
+  %ptr1.i.i = getelementptr inbounds i8, ptr %parser, i64 808
+  %utf8Convert.i.i = getelementptr inbounds i8, ptr %enc, i64 112
+  %end4.i.i = getelementptr inbounds i8, ptr %parser, i64 800
+  %start.i.i = getelementptr inbounds i8, ptr %parser, i64 816
+  %cmp93422 = icmp slt i32 %25, 1
+  %defaultAtts = getelementptr inbounds i8, ptr %elementType.0, i64 32
   %wide.trip.count504 = zext nneg i32 %call17 to i64
   %wide.trip.count = zext nneg i32 %25 to i64
   br label %for.body
 
 for.body:                                         ; preds = %for.body.lr.ph, %for.inc168
   %indvars.iv501 = phi i64 [ 0, %for.body.lr.ph ], [ %indvars.iv.next502, %for.inc168 ]
-  %attIndex.0428 = phi i32 [ 0, %for.body.lr.ph ], [ %attIndex.1, %for.inc168 ]
-  %nPrefixes.0426 = phi i32 [ 0, %for.body.lr.ph ], [ %nPrefixes.1, %for.inc168 ]
+  %attIndex.0427 = phi i32 [ 0, %for.body.lr.ph ], [ %attIndex.1, %for.inc168 ]
+  %nPrefixes.0425 = phi i32 [ 0, %for.body.lr.ph ], [ %nPrefixes.1, %for.inc168 ]
   %34 = load ptr, ptr %m_atts, align 8
   %arrayidx = getelementptr %struct.ATTRIBUTE, ptr %34, i64 %indvars.iv501
   %35 = load ptr, ptr %arrayidx, align 8
@@ -16255,7 +16216,7 @@ if.end66:                                         ; preds = %for.body
   br i1 %tobool69.not, label %if.end79, label %if.then70
 
 if.then70:                                        ; preds = %if.end66
-  %m_encoding = getelementptr inbounds %struct.XML_ParserStruct, ptr %parser, i64 0, i32 34
+  %m_encoding = getelementptr inbounds i8, ptr %parser, i64 288
   %39 = load ptr, ptr %m_encoding, align 8
   %cmp71 = icmp eq ptr %39, %enc
   br i1 %cmp71, label %if.then73, label %return
@@ -16264,28 +16225,29 @@ if.then73:                                        ; preds = %if.then70
   %40 = load ptr, ptr %m_atts, align 8
   %arrayidx76 = getelementptr %struct.ATTRIBUTE, ptr %40, i64 %indvars.iv501
   %41 = load ptr, ptr %arrayidx76, align 8
-  %m_eventPtr = getelementptr inbounds %struct.XML_ParserStruct, ptr %parser, i64 0, i32 47
+  %m_eventPtr = getelementptr inbounds i8, ptr %parser, i64 544
   store ptr %41, ptr %m_eventPtr, align 8
   br label %return
 
 if.end79:                                         ; preds = %if.end66
   store i8 1, ptr %arrayidx68, align 1
   %42 = load ptr, ptr %call63, align 8
-  %inc = add i32 %attIndex.0428, 1
-  %idxprom83 = sext i32 %attIndex.0428 to i64
+  %inc = add i32 %attIndex.0427, 1
+  %idxprom83 = sext i32 %attIndex.0427 to i64
   %arrayidx84 = getelementptr ptr, ptr %33, i64 %idxprom83
   store ptr %42, ptr %arrayidx84, align 8
   %43 = load ptr, ptr %m_atts, align 8
-  %normalized = getelementptr %struct.ATTRIBUTE, ptr %43, i64 %indvars.iv501, i32 3
+  %arrayidx87 = getelementptr %struct.ATTRIBUTE, ptr %43, i64 %indvars.iv501
+  %normalized = getelementptr inbounds i8, ptr %arrayidx87, i64 24
   %44 = load i8, ptr %normalized, align 8
   %tobool88.not = icmp eq i8 %44, 0
   br i1 %tobool88.not, label %if.then89, label %if.else
 
 if.then89:                                        ; preds = %if.end79
-  %maybeTokenized = getelementptr inbounds %struct.attribute_id, ptr %call63, i64 0, i32 2
+  %maybeTokenized = getelementptr inbounds i8, ptr %call63, i64 16
   %45 = load i8, ptr %maybeTokenized, align 8
   %tobool90.not = icmp eq i8 %45, 0
-  %brmerge = select i1 %tobool90.not, i1 true, i1 %cmp93423
+  %brmerge = select i1 %tobool90.not, i1 true, i1 %cmp93422
   br i1 %brmerge, label %if.end107, label %for.body95.lr.ph
 
 for.body95.lr.ph:                                 ; preds = %if.then89
@@ -16305,15 +16267,15 @@ for.body95:                                       ; preds = %for.body95.lr.ph, %
   br i1 %cmp98, label %if.then100, label %for.cond92
 
 if.then100:                                       ; preds = %for.body95
-  %isCdata104 = getelementptr %struct.DEFAULT_ATTRIBUTE, ptr %46, i64 %indvars.iv, i32 1
+  %isCdata104 = getelementptr inbounds i8, ptr %arrayidx97, i64 8
   %48 = load i8, ptr %isCdata104, align 8
   br label %if.end107
 
 if.end107:                                        ; preds = %for.cond92, %if.then89, %if.then100
   %isCdata.0 = phi i8 [ %48, %if.then100 ], [ 1, %if.then89 ], [ 1, %for.cond92 ]
-  %valuePtr = getelementptr %struct.ATTRIBUTE, ptr %43, i64 %indvars.iv501, i32 1
+  %valuePtr = getelementptr inbounds i8, ptr %arrayidx87, i64 8
   %49 = load ptr, ptr %valuePtr, align 8
-  %valueEnd = getelementptr %struct.ATTRIBUTE, ptr %43, i64 %indvars.iv501, i32 2
+  %valueEnd = getelementptr inbounds i8, ptr %arrayidx87, i64 16
   %50 = load ptr, ptr %valueEnd, align 8
   %call.i346 = call fastcc i32 @appendAttributeValue(ptr noundef %parser, ptr noundef %enc, i8 noundef zeroext %isCdata.0, ptr noundef %49, ptr noundef %50, ptr noundef nonnull %m_tempPool124, i32 noundef %account), !range !32
   %tobool.not.i347 = icmp eq i32 %call.i346, 0
@@ -16366,9 +16328,9 @@ if.end117:                                        ; preds = %land.lhs.true14.con
   br label %if.end146
 
 if.else:                                          ; preds = %if.end79
-  %valuePtr128 = getelementptr %struct.ATTRIBUTE, ptr %43, i64 %indvars.iv501, i32 1
+  %valuePtr128 = getelementptr inbounds i8, ptr %arrayidx87, i64 8
   %58 = load ptr, ptr %valuePtr128, align 8
-  %valueEnd132 = getelementptr %struct.ATTRIBUTE, ptr %43, i64 %indvars.iv501, i32 2
+  %valueEnd132 = getelementptr inbounds i8, ptr %arrayidx87, i64 16
   %59 = load ptr, ptr %valueEnd132, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %ptr.addr.i.i)
   store ptr %58, ptr %ptr.addr.i.i, align 8
@@ -16442,13 +16404,13 @@ poolStoreString.exit:                             ; preds = %if.end.i357, %land.
 if.end146:                                        ; preds = %poolStoreString.exit, %if.end117
   %storemerge = load ptr, ptr %ptr1.i.i, align 8
   store ptr %storemerge, ptr %start.i.i, align 8
-  %prefix = getelementptr inbounds %struct.attribute_id, ptr %call63, i64 0, i32 1
+  %prefix = getelementptr inbounds i8, ptr %call63, i64 8
   %68 = load ptr, ptr %prefix, align 8
   %tobool147.not = icmp eq ptr %68, null
   br i1 %tobool147.not, label %if.else165, label %if.then148
 
 if.then148:                                       ; preds = %if.end146
-  %xmlns = getelementptr inbounds %struct.attribute_id, ptr %call63, i64 0, i32 3
+  %xmlns = getelementptr inbounds i8, ptr %call63, i64 17
   %69 = load i8, ptr %xmlns, align 1
   %tobool149.not = icmp eq i8 %69, 0
   br i1 %tobool149.not, label %if.else159, label %if.then150
@@ -16462,20 +16424,20 @@ if.then150:                                       ; preds = %if.then148
   br i1 %tobool156.not, label %for.inc168, label %return
 
 if.else159:                                       ; preds = %if.then148
-  %inc160 = add i32 %attIndex.0428, 2
-  %inc161 = add i32 %nPrefixes.0426, 1
+  %inc160 = add i32 %attIndex.0427, 2
+  %inc161 = add i32 %nPrefixes.0425, 1
   %71 = load ptr, ptr %call63, align 8
   %arrayidx163 = getelementptr i8, ptr %71, i64 -1
   store i8 2, ptr %arrayidx163, align 1
   br label %for.inc168
 
 if.else165:                                       ; preds = %if.end146
-  %inc166 = add i32 %attIndex.0428, 2
+  %inc166 = add i32 %attIndex.0427, 2
   br label %for.inc168
 
 for.inc168:                                       ; preds = %if.then150, %if.else165, %if.else159
-  %nPrefixes.1 = phi i32 [ %inc161, %if.else159 ], [ %nPrefixes.0426, %if.else165 ], [ %nPrefixes.0426, %if.then150 ]
-  %attIndex.1 = phi i32 [ %inc160, %if.else159 ], [ %inc166, %if.else165 ], [ %attIndex.0428, %if.then150 ]
+  %nPrefixes.1 = phi i32 [ %inc161, %if.else159 ], [ %nPrefixes.0425, %if.else165 ], [ %nPrefixes.0425, %if.then150 ]
+  %attIndex.1 = phi i32 [ %inc160, %if.else159 ], [ %inc166, %if.else165 ], [ %attIndex.0427, %if.then150 ]
   %indvars.iv.next502 = add nuw nsw i64 %indvars.iv501, 1
   %exitcond505.not = icmp eq i64 %indvars.iv.next502, %wide.trip.count504
   br i1 %exitcond505.not, label %for.end170, label %for.body, !llvm.loop !64
@@ -16483,9 +16445,9 @@ for.inc168:                                       ; preds = %if.then150, %if.els
 for.end170:                                       ; preds = %for.inc168, %if.end54
   %nPrefixes.0.lcssa = phi i32 [ 0, %if.end54 ], [ %nPrefixes.1, %for.inc168 ]
   %attIndex.0.lcssa = phi i32 [ 0, %if.end54 ], [ %attIndex.1, %for.inc168 ]
-  %m_nSpecifiedAtts = getelementptr inbounds %struct.XML_ParserStruct, ptr %parser, i64 0, i32 72
+  %m_nSpecifiedAtts = getelementptr inbounds i8, ptr %parser, i64 724
   store i32 %attIndex.0.lcssa, ptr %m_nSpecifiedAtts, align 4
-  %idAtt = getelementptr inbounds %struct.ELEMENT_TYPE, ptr %elementType.0, i64 0, i32 2
+  %idAtt = getelementptr inbounds i8, ptr %elementType.0, i64 16
   %72 = load ptr, ptr %idAtt, align 8
   %tobool171.not = icmp eq ptr %72, null
   br i1 %tobool171.not, label %if.end196.sink.split, label %land.lhs.true172
@@ -16498,41 +16460,41 @@ land.lhs.true172:                                 ; preds = %for.end170
   br i1 %tobool177.not, label %if.end196.sink.split, label %for.cond179.preheader
 
 for.cond179.preheader:                            ; preds = %land.lhs.true172
-  %cmp180430 = icmp sgt i32 %attIndex.0.lcssa, 0
-  br i1 %cmp180430, label %for.body182, label %if.end196
+  %cmp180429 = icmp sgt i32 %attIndex.0.lcssa, 0
+  br i1 %cmp180429, label %for.body182, label %if.end196
 
 for.body182:                                      ; preds = %for.cond179.preheader, %for.inc191
-  %i.1431 = phi i32 [ %add192, %for.inc191 ], [ 0, %for.cond179.preheader ]
-  %idxprom183 = sext i32 %i.1431 to i64
+  %i.1430 = phi i32 [ %add192, %for.inc191 ], [ 0, %for.cond179.preheader ]
+  %idxprom183 = sext i32 %i.1430 to i64
   %arrayidx184 = getelementptr ptr, ptr %33, i64 %idxprom183
   %75 = load ptr, ptr %arrayidx184, align 8
   %cmp187 = icmp eq ptr %75, %73
   br i1 %cmp187, label %if.end196.sink.split, label %for.inc191
 
 for.inc191:                                       ; preds = %for.body182
-  %add192 = add i32 %i.1431, 2
+  %add192 = add i32 %i.1430, 2
   %cmp180 = icmp slt i32 %add192, %attIndex.0.lcssa
   br i1 %cmp180, label %for.body182, label %if.end196, !llvm.loop !65
 
 if.end196.sink.split:                             ; preds = %for.body182, %for.end170, %land.lhs.true172
-  %i.1431.lcssa.sink = phi i32 [ -1, %land.lhs.true172 ], [ -1, %for.end170 ], [ %i.1431, %for.body182 ]
-  %m_idAttIndex = getelementptr inbounds %struct.XML_ParserStruct, ptr %parser, i64 0, i32 73
-  store i32 %i.1431.lcssa.sink, ptr %m_idAttIndex, align 8
+  %i.1430.lcssa.sink = phi i32 [ -1, %land.lhs.true172 ], [ -1, %for.end170 ], [ %i.1430, %for.body182 ]
+  %m_idAttIndex = getelementptr inbounds i8, ptr %parser, i64 728
+  store i32 %i.1430.lcssa.sink, ptr %m_idAttIndex, align 8
   br label %if.end196
 
 if.end196:                                        ; preds = %for.inc191, %if.end196.sink.split, %for.cond179.preheader
-  %cmp198432 = icmp sgt i32 %25, 0
-  br i1 %cmp198432, label %for.body200.lr.ph, label %for.end260
+  %cmp198431 = icmp sgt i32 %25, 0
+  br i1 %cmp198431, label %for.body200.lr.ph, label %for.end260
 
 for.body200.lr.ph:                                ; preds = %if.end196
-  %defaultAtts201 = getelementptr inbounds %struct.ELEMENT_TYPE, ptr %elementType.0, i64 0, i32 5
+  %defaultAtts201 = getelementptr inbounds i8, ptr %elementType.0, i64 32
   %wide.trip.count509 = zext nneg i32 %25 to i64
   br label %for.body200
 
 for.body200:                                      ; preds = %for.body200.lr.ph, %for.inc258
   %indvars.iv506 = phi i64 [ 0, %for.body200.lr.ph ], [ %indvars.iv.next507, %for.inc258 ]
-  %attIndex.2435 = phi i32 [ %attIndex.0.lcssa, %for.body200.lr.ph ], [ %attIndex.3, %for.inc258 ]
-  %nPrefixes.2433 = phi i32 [ %nPrefixes.0.lcssa, %for.body200.lr.ph ], [ %nPrefixes.3, %for.inc258 ]
+  %attIndex.2434 = phi i32 [ %attIndex.0.lcssa, %for.body200.lr.ph ], [ %attIndex.3, %for.inc258 ]
+  %nPrefixes.2432 = phi i32 [ %nPrefixes.0.lcssa, %for.body200.lr.ph ], [ %nPrefixes.3, %for.inc258 ]
   %76 = load ptr, ptr %defaultAtts201, align 8
   %add.ptr203 = getelementptr %struct.DEFAULT_ATTRIBUTE, ptr %76, i64 %indvars.iv506
   %77 = load ptr, ptr %add.ptr203, align 8
@@ -16543,19 +16505,19 @@ for.body200:                                      ; preds = %for.body200.lr.ph, 
   br i1 %tobool207.not, label %land.lhs.true208, label %for.inc258
 
 land.lhs.true208:                                 ; preds = %for.body200
-  %value = getelementptr %struct.DEFAULT_ATTRIBUTE, ptr %76, i64 %indvars.iv506, i32 2
+  %value = getelementptr inbounds i8, ptr %add.ptr203, i64 16
   %80 = load ptr, ptr %value, align 8
   %tobool209.not = icmp eq ptr %80, null
   br i1 %tobool209.not, label %for.inc258, label %if.then210
 
 if.then210:                                       ; preds = %land.lhs.true208
-  %prefix212 = getelementptr inbounds %struct.attribute_id, ptr %77, i64 0, i32 1
+  %prefix212 = getelementptr inbounds i8, ptr %77, i64 8
   %81 = load ptr, ptr %prefix212, align 8
   %tobool213.not = icmp eq ptr %81, null
   br i1 %tobool213.not, label %if.else243, label %if.then214
 
 if.then214:                                       ; preds = %if.then210
-  %xmlns216 = getelementptr inbounds %struct.attribute_id, ptr %77, i64 0, i32 3
+  %xmlns216 = getelementptr inbounds i8, ptr %77, i64 17
   %82 = load i8, ptr %xmlns216, align 1
   %tobool217.not = icmp eq i8 %82, 0
   br i1 %tobool217.not, label %if.else228, label %if.then218
@@ -16567,7 +16529,7 @@ if.then218:                                       ; preds = %if.then214
 
 if.else228:                                       ; preds = %if.then214
   store i8 2, ptr %arrayidx206, align 1
-  %inc232 = add i32 %nPrefixes.2433, 1
+  %inc232 = add i32 %nPrefixes.2432, 1
   br label %for.inc258.sink.split
 
 if.else243:                                       ; preds = %if.then210
@@ -16575,23 +16537,23 @@ if.else243:                                       ; preds = %if.then210
   br label %for.inc258.sink.split
 
 for.inc258.sink.split:                            ; preds = %if.else243, %if.else228
-  %nPrefixes.3.ph = phi i32 [ %nPrefixes.2433, %if.else243 ], [ %inc232, %if.else228 ]
+  %nPrefixes.3.ph = phi i32 [ %nPrefixes.2432, %if.else243 ], [ %inc232, %if.else228 ]
   %83 = load ptr, ptr %add.ptr203, align 8
   %84 = load ptr, ptr %83, align 8
-  %inc235 = add i32 %attIndex.2435, 1
-  %idxprom236 = sext i32 %attIndex.2435 to i64
+  %inc235 = add i32 %attIndex.2434, 1
+  %idxprom236 = sext i32 %attIndex.2434 to i64
   %arrayidx237 = getelementptr ptr, ptr %33, i64 %idxprom236
   store ptr %84, ptr %arrayidx237, align 8
   %85 = load ptr, ptr %value, align 8
-  %inc239 = add i32 %attIndex.2435, 2
+  %inc239 = add i32 %attIndex.2434, 2
   %idxprom240 = sext i32 %inc235 to i64
   %arrayidx241 = getelementptr ptr, ptr %33, i64 %idxprom240
   store ptr %85, ptr %arrayidx241, align 8
   br label %for.inc258
 
 for.inc258:                                       ; preds = %for.inc258.sink.split, %for.body200, %land.lhs.true208, %if.then218
-  %nPrefixes.3 = phi i32 [ %nPrefixes.2433, %for.body200 ], [ %nPrefixes.2433, %if.then218 ], [ %nPrefixes.2433, %land.lhs.true208 ], [ %nPrefixes.3.ph, %for.inc258.sink.split ]
-  %attIndex.3 = phi i32 [ %attIndex.2435, %for.body200 ], [ %attIndex.2435, %if.then218 ], [ %attIndex.2435, %land.lhs.true208 ], [ %inc239, %for.inc258.sink.split ]
+  %nPrefixes.3 = phi i32 [ %nPrefixes.2432, %for.body200 ], [ %nPrefixes.2432, %if.then218 ], [ %nPrefixes.2432, %land.lhs.true208 ], [ %nPrefixes.3.ph, %for.inc258.sink.split ]
+  %attIndex.3 = phi i32 [ %attIndex.2434, %for.body200 ], [ %attIndex.2434, %if.then218 ], [ %attIndex.2434, %land.lhs.true208 ], [ %inc239, %for.inc258.sink.split ]
   %indvars.iv.next507 = add nuw nsw i64 %indvars.iv506, 1
   %exitcond510.not = icmp eq i64 %indvars.iv.next507, %wide.trip.count509
   br i1 %exitcond510.not, label %for.end260, label %for.body200, !llvm.loop !66
@@ -16606,8 +16568,8 @@ for.end260:                                       ; preds = %for.inc258, %if.end
   br i1 %tobool263.not, label %if.end536, label %if.then264
 
 if.then264:                                       ; preds = %for.end260
-  %m_nsAttsVersion = getelementptr inbounds %struct.XML_ParserStruct, ptr %parser, i64 0, i32 76
-  %m_nsAttsPower = getelementptr inbounds %struct.XML_ParserStruct, ptr %parser, i64 0, i32 77
+  %m_nsAttsVersion = getelementptr inbounds i8, ptr %parser, i64 752
+  %m_nsAttsPower = getelementptr inbounds i8, ptr %parser, i64 760
   %86 = load i8, ptr %m_nsAttsPower, align 8
   %cmp267 = icmp ugt i8 %86, 31
   br i1 %cmp267, label %return, label %if.end270
@@ -16620,9 +16582,9 @@ if.end270:                                        ; preds = %if.then264
   br i1 %tobool277.not, label %if.end312, label %while.cond
 
 while.cond:                                       ; preds = %if.end270, %while.cond
-  %87 = phi i8 [ %inc281, %while.cond ], [ %86, %if.end270 ]
-  %inc281 = add i8 %87, 1
-  %conv282 = zext nneg i8 %87 to i32
+  %inc281437 = phi i8 [ %inc281, %while.cond ], [ %86, %if.end270 ]
+  %inc281 = add i8 %inc281437, 1
+  %conv282 = zext nneg i8 %inc281437 to i32
   %shr283 = ashr i32 %nPrefixes.2.lcssa, %conv282
   %tobool284.not = icmp eq i32 %shr283, 0
   br i1 %tobool284.not, label %while.end, label %while.cond, !llvm.loop !67
@@ -16645,14 +16607,14 @@ if.then296:                                       ; preds = %if.end291
   br label %return
 
 if.end298:                                        ; preds = %if.end291.thread, %if.end291
-  %88 = phi i8 [ 3, %if.end291.thread ], [ %inc281, %if.end291 ]
-  %realloc_fcn303 = getelementptr inbounds %struct.XML_ParserStruct, ptr %parser, i64 0, i32 3, i32 1
-  %89 = load ptr, ptr %realloc_fcn303, align 8
-  %m_nsAtts = getelementptr inbounds %struct.XML_ParserStruct, ptr %parser, i64 0, i32 75
-  %90 = load ptr, ptr %m_nsAtts, align 8
-  %91 = zext nneg i8 %88 to i64
-  %mul305 = shl nuw nsw i64 24, %91
-  %call306 = call ptr %89(ptr noundef %90, i64 noundef %mul305) #23
+  %87 = phi i8 [ 3, %if.end291.thread ], [ %inc281, %if.end291 ]
+  %realloc_fcn303 = getelementptr inbounds i8, ptr %parser, i64 32
+  %88 = load ptr, ptr %realloc_fcn303, align 8
+  %m_nsAtts = getelementptr inbounds i8, ptr %parser, i64 744
+  %89 = load ptr, ptr %m_nsAtts, align 8
+  %90 = zext nneg i8 %87 to i64
+  %mul305 = shl nuw nsw i64 24, %90
+  %call306 = call ptr %88(ptr noundef %89, i64 noundef %mul305) #23
   %tobool307.not = icmp eq ptr %call306, null
   br i1 %tobool307.not, label %if.then308, label %if.end312.thread
 
@@ -16661,59 +16623,59 @@ if.then308:                                       ; preds = %if.end298
   br label %return
 
 if.end312.thread:                                 ; preds = %if.end298
-  %conv300 = zext nneg i8 %88 to i32
+  %conv300 = zext nneg i8 %87 to i32
   store ptr %call306, ptr %m_nsAtts, align 8
   %nsAttsSize.0521 = shl nuw i32 1, %conv300
   br label %for.cond315.preheader
 
 if.end312:                                        ; preds = %if.end270
-  %92 = load i64, ptr %m_nsAttsVersion, align 8
+  %91 = load i64, ptr %m_nsAttsVersion, align 8
   %nsAttsSize.0 = shl nuw i32 1, %conv272
-  %tobool313.not = icmp eq i64 %92, 0
+  %tobool313.not = icmp eq i64 %91, 0
   br i1 %tobool313.not, label %for.cond315.preheader, label %if.end325
 
 for.cond315.preheader:                            ; preds = %if.end312.thread, %if.end312
   %nsAttsSize.0524 = phi i32 [ %nsAttsSize.0521, %if.end312.thread ], [ %nsAttsSize.0, %if.end312 ]
-  %m_nsAtts319 = getelementptr inbounds %struct.XML_ParserStruct, ptr %parser, i64 0, i32 75
+  %m_nsAtts319 = getelementptr inbounds i8, ptr %parser, i64 744
   br label %for.body318
 
 for.body318:                                      ; preds = %for.cond315.preheader, %for.body318
   %j265.0439 = phi i32 [ %nsAttsSize.0524, %for.cond315.preheader ], [ %dec320, %for.body318 ]
-  %93 = load ptr, ptr %m_nsAtts319, align 8
+  %92 = load ptr, ptr %m_nsAtts319, align 8
   %dec320 = add i32 %j265.0439, -1
   %idxprom321 = sext i32 %dec320 to i64
-  %arrayidx322 = getelementptr %struct.NS_ATT, ptr %93, i64 %idxprom321
+  %arrayidx322 = getelementptr %struct.NS_ATT, ptr %92, i64 %idxprom321
   store i64 4294967295, ptr %arrayidx322, align 8
   %cmp316.not = icmp eq i32 %dec320, 0
   br i1 %cmp316.not, label %if.end325, label %for.body318, !llvm.loop !68
 
 if.end325:                                        ; preds = %for.body318, %if.end312
   %nsAttsSize.0523 = phi i32 [ %nsAttsSize.0, %if.end312 ], [ %nsAttsSize.0524, %for.body318 ]
-  %version.1 = phi i64 [ %92, %if.end312 ], [ 4294967295, %for.body318 ]
+  %version.1 = phi i64 [ %91, %if.end312 ], [ 4294967295, %for.body318 ]
   %dec326 = add i64 %version.1, -1
   store i64 %dec326, ptr %m_nsAttsVersion, align 8
   %cmp329456 = icmp sgt i32 %attIndex.2.lcssa, 0
   br i1 %cmp329456, label %for.body331.lr.ph, label %if.end536
 
 for.body331.lr.ph:                                ; preds = %if.end325
-  %v1.i = getelementptr inbounds %struct.siphash, ptr %sip_state, i64 0, i32 1
-  %v2.i = getelementptr inbounds %struct.siphash, ptr %sip_state, i64 0, i32 2
-  %v3.i = getelementptr inbounds %struct.siphash, ptr %sip_state, i64 0, i32 3
-  %buf.i = getelementptr inbounds %struct.siphash, ptr %sip_state, i64 0, i32 4
-  %p.i = getelementptr inbounds %struct.siphash, ptr %sip_state, i64 0, i32 5
-  %c.i = getelementptr inbounds %struct.siphash, ptr %sip_state, i64 0, i32 6
-  %attributeIds = getelementptr inbounds %struct.DTD, ptr %0, i64 0, i32 2
-  %ptr362 = getelementptr inbounds %struct.XML_ParserStruct, ptr %parser, i64 0, i32 79, i32 3
-  %end = getelementptr inbounds %struct.XML_ParserStruct, ptr %parser, i64 0, i32 79, i32 2
-  %m_tempPool361 = getelementptr inbounds %struct.XML_ParserStruct, ptr %parser, i64 0, i32 79
+  %v1.i = getelementptr inbounds i8, ptr %sip_state, i64 8
+  %v2.i = getelementptr inbounds i8, ptr %sip_state, i64 16
+  %v3.i = getelementptr inbounds i8, ptr %sip_state, i64 24
+  %buf.i = getelementptr inbounds i8, ptr %sip_state, i64 32
+  %p.i = getelementptr inbounds i8, ptr %sip_state, i64 40
+  %c.i = getelementptr inbounds i8, ptr %sip_state, i64 48
+  %attributeIds = getelementptr inbounds i8, ptr %0, i64 80
+  %ptr362 = getelementptr inbounds i8, ptr %parser, i64 808
+  %end = getelementptr inbounds i8, ptr %parser, i64 800
+  %m_tempPool361 = getelementptr inbounds i8, ptr %parser, i64 784
   %sub412 = add i32 %nsAttsSize.0523, -1
   %conv413 = zext i32 %sub412 to i64
-  %m_nsAtts416 = getelementptr inbounds %struct.XML_ParserStruct, ptr %parser, i64 0, i32 75
-  %start430 = getelementptr inbounds %struct.XML_ParserStruct, ptr %parser, i64 0, i32 79, i32 4
+  %m_nsAtts416 = getelementptr inbounds i8, ptr %parser, i64 744
+  %start430 = getelementptr inbounds i8, ptr %parser, i64 816
   %not = xor i64 %conv413, -1
   %shr460 = lshr i64 %conv413, 2
-  %m_ns_triplets = getelementptr inbounds %struct.XML_ParserStruct, ptr %parser, i64 0, i32 39
-  %m_namespaceSeparator = getelementptr inbounds %struct.XML_ParserStruct, ptr %parser, i64 0, i32 83
+  %m_ns_triplets = getelementptr inbounds i8, ptr %parser, i64 457
+  %m_namespaceSeparator = getelementptr inbounds i8, ptr %parser, i64 892
   br label %for.body331
 
 for.body331:                                      ; preds = %for.body331.lr.ph, %for.inc533
@@ -16721,69 +16683,69 @@ for.body331:                                      ; preds = %for.body331.lr.ph, 
   %nPrefixes.4457 = phi i32 [ %nPrefixes.2.lcssa, %for.body331.lr.ph ], [ %nPrefixes.5, %for.inc533 ]
   %idxprom332 = sext i32 %i.3458 to i64
   %arrayidx333 = getelementptr ptr, ptr %33, i64 %idxprom332
-  %94 = load ptr, ptr %arrayidx333, align 8
-  %arrayidx334 = getelementptr i8, ptr %94, i64 -1
-  %95 = load i8, ptr %arrayidx334, align 1
-  %cmp336 = icmp eq i8 %95, 2
+  %93 = load ptr, ptr %arrayidx333, align 8
+  %arrayidx334 = getelementptr i8, ptr %93, i64 -1
+  %94 = load i8, ptr %arrayidx334, align 1
+  %cmp336 = icmp eq i8 %94, 2
   br i1 %cmp336, label %tailrecurse.i.i, label %if.else530
 
 tailrecurse.i.i:                                  ; preds = %for.body331, %tailrecurse.i.i
-  %parser.tr.i.i = phi ptr [ %96, %tailrecurse.i.i ], [ %parser, %for.body331 ]
-  %m_parentParser.i.i = getelementptr inbounds %struct.XML_ParserStruct, ptr %parser.tr.i.i, i64 0, i32 84
-  %96 = load ptr, ptr %m_parentParser.i.i, align 8
-  %cmp.not.i.i = icmp eq ptr %96, null
+  %parser.tr.i.i = phi ptr [ %95, %tailrecurse.i.i ], [ %parser, %for.body331 ]
+  %m_parentParser.i.i = getelementptr inbounds i8, ptr %parser.tr.i.i, i64 896
+  %95 = load ptr, ptr %m_parentParser.i.i, align 8
+  %cmp.not.i.i = icmp eq ptr %95, null
   br i1 %cmp.not.i.i, label %copy_salt_to_sipkey.exit, label %tailrecurse.i.i
 
 copy_salt_to_sipkey.exit:                         ; preds = %tailrecurse.i.i
-  %m_hash_secret_salt.i.i = getelementptr inbounds %struct.XML_ParserStruct, ptr %parser.tr.i.i, i64 0, i32 89
-  %97 = load i64, ptr %m_hash_secret_salt.i.i, align 8
+  %m_hash_secret_salt.i.i = getelementptr inbounds i8, ptr %parser.tr.i.i, i64 920
+  %96 = load i64, ptr %m_hash_secret_salt.i.i, align 8
   store i64 8317987319222330741, ptr %sip_state, align 8
-  %xor3.i = xor i64 %97, 7237128888997146477
+  %xor3.i = xor i64 %96, 7237128888997146477
   store i64 %xor3.i, ptr %v1.i, align 8
   store i64 7816392313619706465, ptr %v2.i, align 8
-  %xor9.i = xor i64 %97, 8387220255154660723
+  %xor9.i = xor i64 %96, 8387220255154660723
   store i64 %xor9.i, ptr %v3.i, align 8
   store ptr %buf.i, ptr %p.i, align 8
   store i64 0, ptr %c.i, align 8
   store i8 0, ptr %arrayidx334, align 1
-  %call342 = call fastcc ptr @lookup(ptr noundef %parser, ptr noundef nonnull %attributeIds, ptr noundef %94, i64 noundef 0)
+  %call342 = call fastcc ptr @lookup(ptr noundef %parser, ptr noundef nonnull %attributeIds, ptr noundef %93, i64 noundef 0)
   %tobool343.not = icmp eq ptr %call342, null
   br i1 %tobool343.not, label %return, label %lor.lhs.false344
 
 lor.lhs.false344:                                 ; preds = %copy_salt_to_sipkey.exit
-  %prefix345 = getelementptr inbounds %struct.attribute_id, ptr %call342, i64 0, i32 1
-  %98 = load ptr, ptr %prefix345, align 8
-  %tobool346.not = icmp eq ptr %98, null
+  %prefix345 = getelementptr inbounds i8, ptr %call342, i64 8
+  %97 = load ptr, ptr %prefix345, align 8
+  %tobool346.not = icmp eq ptr %97, null
   br i1 %tobool346.not, label %return, label %if.end348
 
 if.end348:                                        ; preds = %lor.lhs.false344
-  %binding350 = getelementptr inbounds %struct.prefix, ptr %98, i64 0, i32 1
-  %99 = load ptr, ptr %binding350, align 8
-  %tobool351.not = icmp eq ptr %99, null
+  %binding350 = getelementptr inbounds i8, ptr %97, i64 8
+  %98 = load ptr, ptr %binding350, align 8
+  %tobool351.not = icmp eq ptr %98, null
   br i1 %tobool351.not, label %return, label %for.cond354.preheader
 
 for.cond354.preheader:                            ; preds = %if.end348
-  %uriLen = getelementptr inbounds %struct.binding, ptr %99, i64 0, i32 5
-  %100 = load i32, ptr %uriLen, align 8
-  %cmp355440 = icmp sgt i32 %100, 0
+  %uriLen = getelementptr inbounds i8, ptr %98, i64 40
+  %99 = load i32, ptr %uriLen, align 8
+  %cmp355440 = icmp sgt i32 %99, 0
   br i1 %cmp355440, label %for.body357.lr.ph, label %for.cond354.preheader.for.end376_crit_edge
 
 for.cond354.preheader.for.end376_crit_edge:       ; preds = %for.cond354.preheader
-  %.pre518 = sext i32 %100 to i64
+  %.pre518 = sext i32 %99 to i64
   br label %for.end376
 
 for.body357.lr.ph:                                ; preds = %for.cond354.preheader
-  %uri358 = getelementptr inbounds %struct.binding, ptr %99, i64 0, i32 4
+  %uri358 = getelementptr inbounds i8, ptr %98, i64 32
   br label %for.body357
 
 for.body357:                                      ; preds = %for.body357.lr.ph, %cond.false
   %indvars.iv511 = phi i64 [ 0, %for.body357.lr.ph ], [ %indvars.iv.next512, %cond.false ]
-  %101 = load ptr, ptr %uri358, align 8
-  %arrayidx360 = getelementptr i8, ptr %101, i64 %indvars.iv511
-  %102 = load i8, ptr %arrayidx360, align 1
-  %103 = load ptr, ptr %ptr362, align 8
-  %104 = load ptr, ptr %end, align 8
-  %cmp364 = icmp eq ptr %103, %104
+  %100 = load ptr, ptr %uri358, align 8
+  %arrayidx360 = getelementptr i8, ptr %100, i64 %indvars.iv511
+  %101 = load i8, ptr %arrayidx360, align 1
+  %102 = load ptr, ptr %ptr362, align 8
+  %103 = load ptr, ptr %end, align 8
+  %cmp364 = icmp eq ptr %102, %103
   br i1 %cmp364, label %land.lhs.true366, label %cond.false
 
 land.lhs.true366:                                 ; preds = %for.body357
@@ -16796,33 +16758,33 @@ land.lhs.true366.cond.false_crit_edge:            ; preds = %land.lhs.true366
   br label %cond.false
 
 cond.false:                                       ; preds = %land.lhs.true366.cond.false_crit_edge, %for.body357
-  %105 = phi ptr [ %.pre, %land.lhs.true366.cond.false_crit_edge ], [ %103, %for.body357 ]
-  %incdec.ptr = getelementptr i8, ptr %105, i64 1
+  %104 = phi ptr [ %.pre, %land.lhs.true366.cond.false_crit_edge ], [ %102, %for.body357 ]
+  %incdec.ptr = getelementptr i8, ptr %104, i64 1
   store ptr %incdec.ptr, ptr %ptr362, align 8
-  store i8 %102, ptr %105, align 1
+  store i8 %101, ptr %104, align 1
   %indvars.iv.next512 = add nuw nsw i64 %indvars.iv511, 1
-  %106 = load i32, ptr %uriLen, align 8
-  %107 = sext i32 %106 to i64
-  %cmp355 = icmp slt i64 %indvars.iv.next512, %107
+  %105 = load i32, ptr %uriLen, align 8
+  %106 = sext i32 %105 to i64
+  %cmp355 = icmp slt i64 %indvars.iv.next512, %106
   br i1 %cmp355, label %for.body357, label %for.end376, !llvm.loop !69
 
 for.end376:                                       ; preds = %cond.false, %for.cond354.preheader.for.end376_crit_edge
-  %conv379.pre-phi = phi i64 [ %.pre518, %for.cond354.preheader.for.end376_crit_edge ], [ %107, %cond.false ]
-  %uri377 = getelementptr inbounds %struct.binding, ptr %99, i64 0, i32 4
-  %108 = load ptr, ptr %uri377, align 8
-  %call381 = call fastcc ptr @sip24_update(ptr noundef nonnull %sip_state, ptr noundef %108, i64 noundef %conv379.pre-phi)
+  %conv379.pre-phi = phi i64 [ %.pre518, %for.cond354.preheader.for.end376_crit_edge ], [ %106, %cond.false ]
+  %uri377 = getelementptr inbounds i8, ptr %98, i64 32
+  %107 = load ptr, ptr %uri377, align 8
+  %call381 = call fastcc ptr @sip24_update(ptr noundef nonnull %sip_state, ptr noundef %107, i64 noundef %conv379.pre-phi)
   br label %while.cond382
 
 while.cond382:                                    ; preds = %while.cond382, %for.end376
-  %s.0 = phi ptr [ %94, %for.end376 ], [ %incdec.ptr383, %while.cond382 ]
+  %s.0 = phi ptr [ %93, %for.end376 ], [ %incdec.ptr383, %while.cond382 ]
   %incdec.ptr383 = getelementptr i8, ptr %s.0, i64 1
-  %109 = load i8, ptr %s.0, align 1
-  %cmp385.not = icmp eq i8 %109, 58
+  %108 = load i8, ptr %s.0, align 1
+  %cmp385.not = icmp eq i8 %108, 58
   br i1 %cmp385.not, label %while.end388, label %while.cond382, !llvm.loop !70
 
 while.end388:                                     ; preds = %while.cond382
-  %110 = load i8, ptr %incdec.ptr383, align 1
-  %tobool.not3.i = icmp eq i8 %110, 0
+  %109 = load i8, ptr %incdec.ptr383, align 1
+  %tobool.not3.i = icmp eq i8 %109, 0
   br i1 %tobool.not3.i, label %keylen.exit, label %for.inc.i
 
 for.inc.i:                                        ; preds = %while.end388, %for.inc.i
@@ -16830,8 +16792,8 @@ for.inc.i:                                        ; preds = %while.end388, %for.
   %s.addr.04.i = phi ptr [ %incdec.ptr.i363, %for.inc.i ], [ %incdec.ptr383, %while.end388 ]
   %incdec.ptr.i363 = getelementptr i8, ptr %s.addr.04.i, i64 1
   %inc.i = add i64 %len.05.i, 1
-  %111 = load i8, ptr %incdec.ptr.i363, align 1
-  %tobool.not.i364 = icmp eq i8 %111, 0
+  %110 = load i8, ptr %incdec.ptr.i363, align 1
+  %tobool.not.i364 = icmp eq i8 %110, 0
   br i1 %tobool.not.i364, label %keylen.exit, label %for.inc.i, !llvm.loop !51
 
 keylen.exit:                                      ; preds = %for.inc.i, %while.end388
@@ -16841,9 +16803,9 @@ keylen.exit:                                      ; preds = %for.inc.i, %while.e
 
 do.body:                                          ; preds = %cond.false403, %keylen.exit
   %s.1 = phi ptr [ %incdec.ptr383, %keylen.exit ], [ %incdec.ptr409, %cond.false403 ]
-  %112 = load ptr, ptr %ptr362, align 8
-  %113 = load ptr, ptr %end, align 8
-  %cmp396 = icmp eq ptr %112, %113
+  %111 = load ptr, ptr %ptr362, align 8
+  %112 = load ptr, ptr %end, align 8
+  %cmp396 = icmp eq ptr %111, %112
   br i1 %cmp396, label %land.lhs.true398, label %cond.false403
 
 land.lhs.true398:                                 ; preds = %do.body
@@ -16856,25 +16818,25 @@ land.lhs.true398.cond.false403_crit_edge:         ; preds = %land.lhs.true398
   br label %cond.false403
 
 cond.false403:                                    ; preds = %land.lhs.true398.cond.false403_crit_edge, %do.body
-  %114 = phi ptr [ %.pre514, %land.lhs.true398.cond.false403_crit_edge ], [ %112, %do.body ]
-  %115 = load i8, ptr %s.1, align 1
-  %incdec.ptr406 = getelementptr i8, ptr %114, i64 1
+  %113 = phi ptr [ %.pre514, %land.lhs.true398.cond.false403_crit_edge ], [ %111, %do.body ]
+  %114 = load i8, ptr %s.1, align 1
+  %incdec.ptr406 = getelementptr i8, ptr %113, i64 1
   store ptr %incdec.ptr406, ptr %ptr362, align 8
-  store i8 %115, ptr %114, align 1
+  store i8 %114, ptr %113, align 1
   %incdec.ptr409 = getelementptr i8, ptr %s.1, i64 1
-  %116 = load i8, ptr %s.1, align 1
-  %tobool410.not = icmp eq i8 %116, 0
+  %115 = load i8, ptr %s.1, align 1
+  %tobool410.not = icmp eq i8 %115, 0
   br i1 %tobool410.not, label %do.end, label %do.body, !llvm.loop !71
 
 do.end:                                           ; preds = %cond.false403
   %call411 = call fastcc i64 @sip24_final(ptr noundef nonnull %sip_state)
-  %117 = trunc i64 %call411 to i32
-  %conv414 = and i32 %sub412, %117
-  %118 = load ptr, ptr %m_nsAtts416, align 8
+  %116 = trunc i64 %call411 to i32
+  %conv414 = and i32 %sub412, %116
+  %117 = load ptr, ptr %m_nsAtts416, align 8
   %idxprom417449 = sext i32 %conv414 to i64
-  %arrayidx418450 = getelementptr %struct.NS_ATT, ptr %118, i64 %idxprom417449
-  %119 = load i64, ptr %arrayidx418450, align 8
-  %cmp420451 = icmp eq i64 %119, %dec326
+  %arrayidx418450 = getelementptr %struct.NS_ATT, ptr %117, i64 %idxprom417449
+  %118 = load i64, ptr %arrayidx418450, align 8
+  %cmp420451 = icmp eq i64 %118, %dec326
   br i1 %cmp420451, label %while.body422.lr.ph, label %while.end474
 
 while.body422.lr.ph:                              ; preds = %do.end
@@ -16882,34 +16844,34 @@ while.body422.lr.ph:                              ; preds = %do.end
   br label %while.body422
 
 while.body422:                                    ; preds = %while.body422.lr.ph, %if.end463
-  %idxprom417454 = phi i64 [ %idxprom417449, %while.body422.lr.ph ], [ %idxprom417, %if.end463 ]
+  %arrayidx418454 = phi ptr [ %arrayidx418450, %while.body422.lr.ph ], [ %arrayidx418, %if.end463 ]
   %step.0453 = phi i8 [ 0, %while.body422.lr.ph ], [ %step.1, %if.end463 ]
   %j265.2452 = phi i32 [ %conv414, %while.body422.lr.ph ], [ %j265.3, %if.end463 ]
-  %hash = getelementptr %struct.NS_ATT, ptr %118, i64 %idxprom417454, i32 1
-  %120 = load i64, ptr %hash, align 8
-  %cmp426 = icmp eq i64 %call411, %120
+  %hash = getelementptr inbounds i8, ptr %arrayidx418454, i64 8
+  %119 = load i64, ptr %hash, align 8
+  %cmp426 = icmp eq i64 %call411, %119
   br i1 %cmp426, label %if.then428, label %if.end452
 
 if.then428:                                       ; preds = %while.body422
-  %121 = load ptr, ptr %start430, align 8
-  %uriName = getelementptr %struct.NS_ATT, ptr %118, i64 %idxprom417454, i32 2
-  %122 = load ptr, ptr %uriName, align 8
+  %120 = load ptr, ptr %start430, align 8
+  %uriName = getelementptr inbounds i8, ptr %arrayidx418454, i64 16
+  %121 = load ptr, ptr %uriName, align 8
+  %122 = load i8, ptr %120, align 1
   %123 = load i8, ptr %121, align 1
-  %124 = load i8, ptr %122, align 1
-  %cmp437443 = icmp ne i8 %123, %124
-  %cmp440.not444 = icmp eq i8 %123, 0
+  %cmp437443 = icmp ne i8 %122, %123
+  %cmp440.not444 = icmp eq i8 %122, 0
   %or.cond343445 = or i1 %cmp440.not444, %cmp437443
   br i1 %or.cond343445, label %for.end446, label %for.inc443
 
 for.inc443:                                       ; preds = %if.then428, %for.inc443
-  %s2.0447 = phi ptr [ %incdec.ptr445, %for.inc443 ], [ %122, %if.then428 ]
-  %s1.0446 = phi ptr [ %incdec.ptr444, %for.inc443 ], [ %121, %if.then428 ]
+  %s2.0447 = phi ptr [ %incdec.ptr445, %for.inc443 ], [ %121, %if.then428 ]
+  %s1.0446 = phi ptr [ %incdec.ptr444, %for.inc443 ], [ %120, %if.then428 ]
   %incdec.ptr444 = getelementptr i8, ptr %s1.0446, i64 1
   %incdec.ptr445 = getelementptr i8, ptr %s2.0447, i64 1
-  %125 = load i8, ptr %incdec.ptr444, align 1
-  %126 = load i8, ptr %incdec.ptr445, align 1
-  %cmp437 = icmp ne i8 %125, %126
-  %cmp440.not = icmp eq i8 %125, 0
+  %124 = load i8, ptr %incdec.ptr444, align 1
+  %125 = load i8, ptr %incdec.ptr445, align 1
+  %cmp437 = icmp ne i8 %124, %125
+  %cmp440.not = icmp eq i8 %124, 0
   %or.cond343 = or i1 %cmp440.not, %cmp437
   br i1 %or.cond343, label %for.end446, label %for.inc443, !llvm.loop !72
 
@@ -16922,14 +16884,14 @@ if.end452:                                        ; preds = %for.end446, %while.
   br i1 %tobool453.not, label %if.then454, label %if.end463
 
 if.then454:                                       ; preds = %if.end452
-  %127 = load i8, ptr %m_nsAttsPower, align 8
-  %conv457 = zext i8 %127 to i64
+  %126 = load i8, ptr %m_nsAttsPower, align 8
+  %conv457 = zext i8 %126 to i64
   %sub458 = add nuw nsw i64 %conv457, 4294967295
   %sh_prom = and i64 %sub458, 4294967295
   %shr459 = lshr i64 %and455, %sh_prom
   %and461 = and i64 %shr459, %shr460
-  %128 = trunc i64 %and461 to i8
-  %conv462 = or i8 %128, 1
+  %127 = trunc i64 %and461 to i8
+  %conv462 = or i8 %127, 1
   br label %if.end463
 
 if.end463:                                        ; preds = %if.then454, %if.end452
@@ -16940,31 +16902,31 @@ if.end463:                                        ; preds = %if.then454, %if.end
   %j265.3.p = sub i32 %j265.2452, %conv464
   %j265.3 = add i32 %j265.3.p, %j265.3.p.v
   %idxprom417 = sext i32 %j265.3 to i64
-  %arrayidx418 = getelementptr %struct.NS_ATT, ptr %118, i64 %idxprom417
-  %129 = load i64, ptr %arrayidx418, align 8
-  %cmp420 = icmp eq i64 %129, %dec326
+  %arrayidx418 = getelementptr %struct.NS_ATT, ptr %117, i64 %idxprom417
+  %128 = load i64, ptr %arrayidx418, align 8
+  %cmp420 = icmp eq i64 %128, %dec326
   br i1 %cmp420, label %while.body422, label %while.end474, !llvm.loop !73
 
 while.end474:                                     ; preds = %if.end463, %do.end
   %idxprom417.lcssa = phi i64 [ %idxprom417449, %do.end ], [ %idxprom417, %if.end463 ]
-  %130 = load i8, ptr %m_ns_triplets, align 1
-  %tobool475.not = icmp eq i8 %130, 0
+  %129 = load i8, ptr %m_ns_triplets, align 1
+  %tobool475.not = icmp eq i8 %129, 0
   br i1 %tobool475.not, label %if.end504, label %if.then476
 
 if.then476:                                       ; preds = %while.end474
-  %131 = load i8, ptr %m_namespaceSeparator, align 4
-  %132 = load ptr, ptr %ptr362, align 8
-  %arrayidx479 = getelementptr i8, ptr %132, i64 -1
-  store i8 %131, ptr %arrayidx479, align 1
-  %133 = load ptr, ptr %99, align 8
-  %134 = load ptr, ptr %133, align 8
+  %130 = load i8, ptr %m_namespaceSeparator, align 4
+  %131 = load ptr, ptr %ptr362, align 8
+  %arrayidx479 = getelementptr i8, ptr %131, i64 -1
+  store i8 %130, ptr %arrayidx479, align 1
+  %132 = load ptr, ptr %98, align 8
+  %133 = load ptr, ptr %132, align 8
   br label %do.body482
 
 do.body482:                                       ; preds = %cond.false494, %if.then476
-  %s.2 = phi ptr [ %134, %if.then476 ], [ %incdec.ptr501, %cond.false494 ]
-  %135 = load ptr, ptr %ptr362, align 8
-  %136 = load ptr, ptr %end, align 8
-  %cmp487 = icmp eq ptr %135, %136
+  %s.2 = phi ptr [ %133, %if.then476 ], [ %incdec.ptr501, %cond.false494 ]
+  %134 = load ptr, ptr %ptr362, align 8
+  %135 = load ptr, ptr %end, align 8
+  %cmp487 = icmp eq ptr %134, %135
   br i1 %cmp487, label %land.lhs.true489, label %cond.false494
 
 land.lhs.true489:                                 ; preds = %do.body482
@@ -16977,30 +16939,30 @@ land.lhs.true489.cond.false494_crit_edge:         ; preds = %land.lhs.true489
   br label %cond.false494
 
 cond.false494:                                    ; preds = %land.lhs.true489.cond.false494_crit_edge, %do.body482
-  %137 = phi ptr [ %.pre515, %land.lhs.true489.cond.false494_crit_edge ], [ %135, %do.body482 ]
-  %138 = load i8, ptr %s.2, align 1
-  %incdec.ptr497 = getelementptr i8, ptr %137, i64 1
+  %136 = phi ptr [ %.pre515, %land.lhs.true489.cond.false494_crit_edge ], [ %134, %do.body482 ]
+  %137 = load i8, ptr %s.2, align 1
+  %incdec.ptr497 = getelementptr i8, ptr %136, i64 1
   store ptr %incdec.ptr497, ptr %ptr362, align 8
-  store i8 %138, ptr %137, align 1
+  store i8 %137, ptr %136, align 1
   %incdec.ptr501 = getelementptr i8, ptr %s.2, i64 1
-  %139 = load i8, ptr %s.2, align 1
-  %tobool502.not = icmp eq i8 %139, 0
+  %138 = load i8, ptr %s.2, align 1
+  %tobool502.not = icmp eq i8 %138, 0
   br i1 %tobool502.not, label %if.end504, label %do.body482, !llvm.loop !74
 
 if.end504:                                        ; preds = %cond.false494, %while.end474
-  %140 = load ptr, ptr %start430, align 8
-  %141 = load ptr, ptr %ptr362, align 8
-  store ptr %141, ptr %start430, align 8
-  store ptr %140, ptr %arrayidx333, align 8
-  %142 = load ptr, ptr %m_nsAtts416, align 8
-  %arrayidx515 = getelementptr %struct.NS_ATT, ptr %142, i64 %idxprom417.lcssa
+  %139 = load ptr, ptr %start430, align 8
+  %140 = load ptr, ptr %ptr362, align 8
+  store ptr %140, ptr %start430, align 8
+  store ptr %139, ptr %arrayidx333, align 8
+  %141 = load ptr, ptr %m_nsAtts416, align 8
+  %arrayidx515 = getelementptr %struct.NS_ATT, ptr %141, i64 %idxprom417.lcssa
   store i64 %dec326, ptr %arrayidx515, align 8
-  %143 = load ptr, ptr %m_nsAtts416, align 8
-  %hash520 = getelementptr %struct.NS_ATT, ptr %143, i64 %idxprom417.lcssa, i32 1
+  %142 = load ptr, ptr %m_nsAtts416, align 8
+  %hash520 = getelementptr %struct.NS_ATT, ptr %142, i64 %idxprom417.lcssa, i32 1
   store i64 %call411, ptr %hash520, align 8
-  %144 = load ptr, ptr %m_nsAtts416, align 8
-  %uriName524 = getelementptr %struct.NS_ATT, ptr %144, i64 %idxprom417.lcssa, i32 2
-  store ptr %140, ptr %uriName524, align 8
+  %143 = load ptr, ptr %m_nsAtts416, align 8
+  %uriName524 = getelementptr %struct.NS_ATT, ptr %143, i64 %idxprom417.lcssa, i32 2
+  store ptr %139, ptr %uriName524, align 8
   %dec525 = add i32 %nPrefixes.4457, -1
   %tobool526.not = icmp eq i32 %dec525, 0
   br i1 %tobool526.not, label %if.then527, label %for.inc533
@@ -17033,8 +16995,8 @@ for.body540:                                      ; preds = %if.end536, %for.bod
   %i.5461 = phi i32 [ %add545, %for.body540 ], [ %i.4, %if.end536 ]
   %idxprom541 = sext i32 %i.5461 to i64
   %arrayidx542 = getelementptr ptr, ptr %33, i64 %idxprom541
-  %145 = load ptr, ptr %arrayidx542, align 8
-  %arrayidx543 = getelementptr i8, ptr %145, i64 -1
+  %144 = load ptr, ptr %arrayidx542, align 8
+  %arrayidx543 = getelementptr i8, ptr %144, i64 -1
   store i8 0, ptr %arrayidx543, align 1
   %add545 = add i32 %i.5461, 2
   %cmp538 = icmp slt i32 %add545, %attIndex.2.lcssa
@@ -17042,91 +17004,91 @@ for.body540:                                      ; preds = %if.end536, %for.bod
 
 for.body549:                                      ; preds = %for.cond547.preheader, %for.body549
   %binding.0464 = phi ptr [ %binding.0, %for.body549 ], [ %binding.0462, %for.cond547.preheader ]
-  %attId550 = getelementptr inbounds %struct.binding, ptr %binding.0464, i64 0, i32 3
-  %146 = load ptr, ptr %attId550, align 8
-  %147 = load ptr, ptr %146, align 8
-  %arrayidx552 = getelementptr i8, ptr %147, i64 -1
+  %attId550 = getelementptr inbounds i8, ptr %binding.0464, i64 24
+  %145 = load ptr, ptr %attId550, align 8
+  %146 = load ptr, ptr %145, align 8
+  %arrayidx552 = getelementptr i8, ptr %146, i64 -1
   store i8 0, ptr %arrayidx552, align 1
-  %nextTagBinding = getelementptr inbounds %struct.binding, ptr %binding.0464, i64 0, i32 1
+  %nextTagBinding = getelementptr inbounds i8, ptr %binding.0464, i64 8
   %binding.0 = load ptr, ptr %nextTagBinding, align 8
   %tobool548.not = icmp eq ptr %binding.0, null
   br i1 %tobool548.not, label %for.end554, label %for.body549, !llvm.loop !77
 
 for.end554:                                       ; preds = %for.body549, %for.cond547.preheader
-  %m_ns555 = getelementptr inbounds %struct.XML_ParserStruct, ptr %parser, i64 0, i32 38
-  %148 = load i8, ptr %m_ns555, align 8
-  %tobool556.not = icmp eq i8 %148, 0
+  %m_ns555 = getelementptr inbounds i8, ptr %parser, i64 456
+  %147 = load i8, ptr %m_ns555, align 8
+  %tobool556.not = icmp eq i8 %147, 0
   br i1 %tobool556.not, label %return, label %if.end558
 
 if.end558:                                        ; preds = %for.end554
-  %prefix559 = getelementptr inbounds %struct.ELEMENT_TYPE, ptr %elementType.0, i64 0, i32 1
-  %149 = load ptr, ptr %prefix559, align 8
-  %tobool560.not = icmp eq ptr %149, null
+  %prefix559 = getelementptr inbounds i8, ptr %elementType.0, i64 8
+  %148 = load ptr, ptr %prefix559, align 8
+  %tobool560.not = icmp eq ptr %148, null
   br i1 %tobool560.not, label %if.else575, label %if.then561
 
 if.then561:                                       ; preds = %if.end558
-  %binding563 = getelementptr inbounds %struct.prefix, ptr %149, i64 0, i32 1
-  %150 = load ptr, ptr %binding563, align 8
-  %tobool564.not = icmp eq ptr %150, null
+  %binding563 = getelementptr inbounds i8, ptr %148, i64 8
+  %149 = load ptr, ptr %binding563, align 8
+  %tobool564.not = icmp eq ptr %149, null
   br i1 %tobool564.not, label %return, label %if.end566
 
 if.end566:                                        ; preds = %if.then561
-  %151 = load ptr, ptr %tagNamePtr, align 8
+  %150 = load ptr, ptr %tagNamePtr, align 8
   br label %while.cond568
 
 while.cond568:                                    ; preds = %while.cond568, %if.end566
-  %localPart.0 = phi ptr [ %151, %if.end566 ], [ %incdec.ptr569, %while.cond568 ]
+  %localPart.0 = phi ptr [ %150, %if.end566 ], [ %incdec.ptr569, %while.cond568 ]
   %incdec.ptr569 = getelementptr i8, ptr %localPart.0, i64 1
-  %152 = load i8, ptr %localPart.0, align 1
-  %cmp571.not = icmp eq i8 %152, 58
+  %151 = load i8, ptr %localPart.0, align 1
+  %cmp571.not = icmp eq i8 %151, 58
   br i1 %cmp571.not, label %if.end584, label %while.cond568, !llvm.loop !78
 
 if.else575:                                       ; preds = %if.end558
-  %binding576 = getelementptr inbounds %struct.DTD, ptr %0, i64 0, i32 11, i32 1
-  %153 = load ptr, ptr %binding576, align 8
-  %tobool577.not = icmp eq ptr %153, null
+  %binding576 = getelementptr inbounds i8, ptr %0, i64 312
+  %152 = load ptr, ptr %binding576, align 8
+  %tobool577.not = icmp eq ptr %152, null
   br i1 %tobool577.not, label %return, label %if.then578
 
 if.then578:                                       ; preds = %if.else575
-  %154 = load ptr, ptr %tagNamePtr, align 8
+  %153 = load ptr, ptr %tagNamePtr, align 8
   br label %if.end584
 
 if.end584:                                        ; preds = %while.cond568, %if.then578
-  %localPart.1 = phi ptr [ %154, %if.then578 ], [ %incdec.ptr569, %while.cond568 ]
-  %binding.1 = phi ptr [ %153, %if.then578 ], [ %150, %while.cond568 ]
-  %m_ns_triplets585 = getelementptr inbounds %struct.XML_ParserStruct, ptr %parser, i64 0, i32 39
-  %155 = load i8, ptr %m_ns_triplets585, align 1
-  %tobool587.not = icmp eq i8 %155, 0
+  %localPart.1 = phi ptr [ %153, %if.then578 ], [ %incdec.ptr569, %while.cond568 ]
+  %binding.1 = phi ptr [ %152, %if.then578 ], [ %149, %while.cond568 ]
+  %m_ns_triplets585 = getelementptr inbounds i8, ptr %parser, i64 457
+  %154 = load i8, ptr %m_ns_triplets585, align 1
+  %tobool587.not = icmp eq i8 %154, 0
   br i1 %tobool587.not, label %if.end602, label %land.lhs.true588
 
 land.lhs.true588:                                 ; preds = %if.end584
-  %156 = load ptr, ptr %binding.1, align 8
-  %157 = load ptr, ptr %156, align 8
-  %tobool591.not = icmp eq ptr %157, null
+  %155 = load ptr, ptr %binding.1, align 8
+  %156 = load ptr, ptr %155, align 8
+  %tobool591.not = icmp eq ptr %156, null
   br i1 %tobool591.not, label %if.end602, label %for.cond593
 
 for.cond593:                                      ; preds = %land.lhs.true588, %for.cond593
   %prefixLen.0 = phi i32 [ %inc596, %for.cond593 ], [ 0, %land.lhs.true588 ]
   %inc596 = add i32 %prefixLen.0, 1
   %idxprom597 = sext i32 %prefixLen.0 to i64
-  %arrayidx598 = getelementptr i8, ptr %157, i64 %idxprom597
-  %158 = load i8, ptr %arrayidx598, align 1
-  %tobool599.not = icmp eq i8 %158, 0
+  %arrayidx598 = getelementptr i8, ptr %156, i64 %idxprom597
+  %157 = load i8, ptr %arrayidx598, align 1
+  %tobool599.not = icmp eq i8 %157, 0
   br i1 %tobool599.not, label %if.end602, label %for.cond593, !llvm.loop !79
 
 if.end602:                                        ; preds = %for.cond593, %land.lhs.true588, %if.end584
   %prefixLen.1 = phi i32 [ 0, %land.lhs.true588 ], [ 0, %if.end584 ], [ %inc596, %for.cond593 ]
-  %localPart603 = getelementptr inbounds %struct.TAG_NAME, ptr %tagNamePtr, i64 0, i32 1
+  %localPart603 = getelementptr inbounds i8, ptr %tagNamePtr, i64 8
   store ptr %localPart.1, ptr %localPart603, align 8
-  %uriLen604 = getelementptr inbounds %struct.binding, ptr %binding.1, i64 0, i32 5
-  %159 = load i32, ptr %uriLen604, align 8
-  %uriLen605 = getelementptr inbounds %struct.TAG_NAME, ptr %tagNamePtr, i64 0, i32 4
-  store i32 %159, ptr %uriLen605, align 4
-  %160 = load ptr, ptr %binding.1, align 8
-  %161 = load ptr, ptr %160, align 8
-  %prefix608 = getelementptr inbounds %struct.TAG_NAME, ptr %tagNamePtr, i64 0, i32 2
-  store ptr %161, ptr %prefix608, align 8
-  %prefixLen609 = getelementptr inbounds %struct.TAG_NAME, ptr %tagNamePtr, i64 0, i32 5
+  %uriLen604 = getelementptr inbounds i8, ptr %binding.1, i64 40
+  %158 = load i32, ptr %uriLen604, align 8
+  %uriLen605 = getelementptr inbounds i8, ptr %tagNamePtr, i64 28
+  store i32 %158, ptr %uriLen605, align 4
+  %159 = load ptr, ptr %binding.1, align 8
+  %160 = load ptr, ptr %159, align 8
+  %prefix608 = getelementptr inbounds i8, ptr %tagNamePtr, i64 16
+  store ptr %160, ptr %prefix608, align 8
+  %prefixLen609 = getelementptr inbounds i8, ptr %tagNamePtr, i64 32
   store i32 %prefixLen.1, ptr %prefixLen609, align 8
   br label %for.cond610
 
@@ -17135,32 +17097,32 @@ for.cond610:                                      ; preds = %for.cond610, %if.en
   %inc611 = add i32 %i.6, 1
   %idxprom612 = sext i32 %i.6 to i64
   %arrayidx613 = getelementptr i8, ptr %localPart.1, i64 %idxprom612
-  %162 = load i8, ptr %arrayidx613, align 1
-  %tobool614.not = icmp eq i8 %162, 0
+  %161 = load i8, ptr %arrayidx613, align 1
+  %tobool614.not = icmp eq i8 %161, 0
   br i1 %tobool614.not, label %for.end616, label %for.cond610, !llvm.loop !80
 
 for.end616:                                       ; preds = %for.cond610
-  %163 = load i32, ptr %uriLen604, align 8
+  %162 = load i32, ptr %uriLen604, align 8
   %sub618 = sub i32 2147483647, %prefixLen.1
-  %cmp619 = icmp sgt i32 %163, %sub618
+  %cmp619 = icmp sgt i32 %162, %sub618
   br i1 %cmp619, label %return, label %lor.lhs.false621
 
 lor.lhs.false621:                                 ; preds = %for.end616
-  %164 = add i32 %prefixLen.1, %163
-  %sub624 = sub i32 2147483647, %164
+  %163 = add i32 %prefixLen.1, %162
+  %sub624 = sub i32 2147483647, %163
   %cmp625 = icmp sgt i32 %inc611, %sub624
   br i1 %cmp625, label %return, label %if.end628
 
 if.end628:                                        ; preds = %lor.lhs.false621
   %add630 = add i32 %inc611, %prefixLen.1
-  %add631 = add i32 %add630, %163
-  %uriAlloc = getelementptr inbounds %struct.binding, ptr %binding.1, i64 0, i32 6
-  %165 = load i32, ptr %uriAlloc, align 4
-  %cmp632 = icmp sgt i32 %add631, %165
+  %add631 = add i32 %add630, %162
+  %uriAlloc = getelementptr inbounds i8, ptr %binding.1, i64 44
+  %164 = load i32, ptr %uriAlloc, align 4
+  %cmp632 = icmp sgt i32 %add631, %164
   br i1 %cmp632, label %if.then634, label %if.end628.if.end670_crit_edge
 
 if.end628.if.end670_crit_edge:                    ; preds = %if.end628
-  %uri671.phi.trans.insert = getelementptr inbounds %struct.binding, ptr %binding.1, i64 0, i32 4
+  %uri671.phi.trans.insert = getelementptr inbounds i8, ptr %binding.1, i64 32
   %.pre516 = load ptr, ptr %uri671.phi.trans.insert, align 8
   br label %if.end670
 
@@ -17169,32 +17131,32 @@ if.then634:                                       ; preds = %if.end628
   br i1 %cmp635, label %return, label %if.end638
 
 if.end638:                                        ; preds = %if.then634
-  %m_mem639 = getelementptr inbounds %struct.XML_ParserStruct, ptr %parser, i64 0, i32 3
-  %166 = load ptr, ptr %m_mem639, align 8
+  %m_mem639 = getelementptr inbounds i8, ptr %parser, i64 24
+  %165 = load ptr, ptr %m_mem639, align 8
   %add640 = add nsw i32 %add631, 24
   %conv641 = sext i32 %add640 to i64
-  %call643 = call ptr %166(i64 noundef %conv641) #23
+  %call643 = call ptr %165(i64 noundef %conv641) #23
   %tobool644.not = icmp eq ptr %call643, null
   br i1 %tobool644.not, label %return, label %if.end646
 
 if.end646:                                        ; preds = %if.end638
   store i32 %add640, ptr %uriAlloc, align 4
-  %uri649 = getelementptr inbounds %struct.binding, ptr %binding.1, i64 0, i32 4
-  %167 = load ptr, ptr %uri649, align 8
-  %168 = load i32, ptr %uriLen604, align 8
-  %conv651 = sext i32 %168 to i64
-  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %call643, ptr align 1 %167, i64 %conv651, i1 false)
-  %m_tagStack = getelementptr inbounds %struct.XML_ParserStruct, ptr %parser, i64 0, i32 67
+  %uri649 = getelementptr inbounds i8, ptr %binding.1, i64 32
+  %166 = load ptr, ptr %uri649, align 8
+  %167 = load i32, ptr %uriLen604, align 8
+  %conv651 = sext i32 %167 to i64
+  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %call643, ptr align 1 %166, i64 %conv651, i1 false)
+  %m_tagStack = getelementptr inbounds i8, ptr %parser, i64 688
   %p.0465 = load ptr, ptr %m_tagStack, align 8
   %tobool654.not466 = icmp eq ptr %p.0465, null
   br i1 %tobool654.not466, label %for.end666, label %for.body655
 
 for.body655:                                      ; preds = %if.end646, %for.inc665
   %p.0467 = phi ptr [ %p.0, %for.inc665 ], [ %p.0465, %if.end646 ]
-  %name656 = getelementptr inbounds %struct.tag, ptr %p.0467, i64 0, i32 3
-  %169 = load ptr, ptr %name656, align 8
-  %170 = load ptr, ptr %uri649, align 8
-  %cmp659 = icmp eq ptr %169, %170
+  %name656 = getelementptr inbounds i8, ptr %p.0467, i64 24
+  %168 = load ptr, ptr %name656, align 8
+  %169 = load ptr, ptr %uri649, align 8
+  %cmp659 = icmp eq ptr %168, %169
   br i1 %cmp659, label %if.then661, label %for.inc665
 
 if.then661:                                       ; preds = %for.body655
@@ -17207,20 +17169,20 @@ for.inc665:                                       ; preds = %for.body655, %if.th
   br i1 %tobool654.not, label %for.end666, label %for.body655, !llvm.loop !81
 
 for.end666:                                       ; preds = %for.inc665, %if.end646
-  %free_fcn = getelementptr inbounds %struct.XML_ParserStruct, ptr %parser, i64 0, i32 3, i32 2
-  %171 = load ptr, ptr %free_fcn, align 8
-  %172 = load ptr, ptr %uri649, align 8
-  call void %171(ptr noundef %172) #23
+  %free_fcn = getelementptr inbounds i8, ptr %parser, i64 40
+  %170 = load ptr, ptr %free_fcn, align 8
+  %171 = load ptr, ptr %uri649, align 8
+  call void %170(ptr noundef %171) #23
   store ptr %call643, ptr %uri649, align 8
   %.pre517 = load i32, ptr %uriLen604, align 8
   br label %if.end670
 
 if.end670:                                        ; preds = %if.end628.if.end670_crit_edge, %for.end666
-  %173 = phi i32 [ %163, %if.end628.if.end670_crit_edge ], [ %.pre517, %for.end666 ]
-  %174 = phi ptr [ %.pre516, %if.end628.if.end670_crit_edge ], [ %call643, %for.end666 ]
-  %uri671 = getelementptr inbounds %struct.binding, ptr %binding.1, i64 0, i32 4
-  %idx.ext673 = sext i32 %173 to i64
-  %add.ptr674 = getelementptr i8, ptr %174, i64 %idx.ext673
+  %172 = phi i32 [ %162, %if.end628.if.end670_crit_edge ], [ %.pre517, %for.end666 ]
+  %173 = phi ptr [ %.pre516, %if.end628.if.end670_crit_edge ], [ %call643, %for.end666 ]
+  %uri671 = getelementptr inbounds i8, ptr %binding.1, i64 32
+  %idx.ext673 = sext i32 %172 to i64
+  %add.ptr674 = getelementptr i8, ptr %173, i64 %idx.ext673
   %conv675 = sext i32 %inc611 to i64
   call void @llvm.memcpy.p0.p0.i64(ptr align 1 %add.ptr674, ptr align 1 %localPart.1, i64 %conv675, i1 false)
   %tobool677.not = icmp eq i32 %prefixLen.1, 0
@@ -17228,19 +17190,19 @@ if.end670:                                        ; preds = %if.end628.if.end670
 
 if.then678:                                       ; preds = %if.end670
   %add.ptr681 = getelementptr i8, ptr %add.ptr674, i64 %idxprom612
-  %m_namespaceSeparator682 = getelementptr inbounds %struct.XML_ParserStruct, ptr %parser, i64 0, i32 83
-  %175 = load i8, ptr %m_namespaceSeparator682, align 4
-  store i8 %175, ptr %add.ptr681, align 1
+  %m_namespaceSeparator682 = getelementptr inbounds i8, ptr %parser, i64 892
+  %174 = load i8, ptr %m_namespaceSeparator682, align 4
+  store i8 %174, ptr %add.ptr681, align 1
   %add.ptr683 = getelementptr i8, ptr %add.ptr681, i64 1
-  %176 = load ptr, ptr %binding.1, align 8
-  %177 = load ptr, ptr %176, align 8
+  %175 = load ptr, ptr %binding.1, align 8
+  %176 = load ptr, ptr %175, align 8
   %conv686 = sext i32 %prefixLen.1 to i64
-  call void @llvm.memcpy.p0.p0.i64(ptr align 1 %add.ptr683, ptr align 1 %177, i64 %conv686, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr align 1 %add.ptr683, ptr align 1 %176, i64 %conv686, i1 false)
   br label %if.end688
 
 if.end688:                                        ; preds = %if.then678, %if.end670
-  %178 = load ptr, ptr %uri671, align 8
-  store ptr %178, ptr %tagNamePtr, align 8
+  %177 = load ptr, ptr %uri671, align 8
+  store ptr %177, ptr %tagNamePtr, align 8
   br label %return
 
 return:                                           ; preds = %land.lhs.true.i, %land.lhs.true14.i, %if.end107, %if.then150, %poolStoreString.exit, %for.body, %if.then218, %if.end348, %copy_salt_to_sipkey.exit, %lor.lhs.false344, %land.lhs.true366, %land.lhs.true398, %for.end446, %land.lhs.true489, %poolStoreString.exit.thread, %if.end638, %if.then634, %for.end616, %lor.lhs.false621, %if.else575, %if.then561, %for.end554, %if.then264, %if.then70, %if.then73, %if.then24, %if.end15, %land.lhs.true, %if.end, %poolCopyString.exit, %if.end688, %if.then308, %if.then296, %if.then43
@@ -17256,17 +17218,17 @@ entry:
   %s.addr.i = alloca ptr, align 8
   %dataPtr.i = alloca ptr, align 8
   %next = alloca ptr, align 8
-  %m_processor = getelementptr inbounds %struct.XML_ParserStruct, ptr %parser, i64 0, i32 45
+  %m_processor = getelementptr inbounds i8, ptr %parser, i64 528
   store ptr @epilogProcessor, ptr %m_processor, align 8
-  %m_eventPtr = getelementptr inbounds %struct.XML_ParserStruct, ptr %parser, i64 0, i32 47
+  %m_eventPtr = getelementptr inbounds i8, ptr %parser, i64 544
   store ptr %s, ptr %m_eventPtr, align 8
-  %m_encoding = getelementptr inbounds %struct.XML_ParserStruct, ptr %parser, i64 0, i32 34
-  %m_eventEndPtr = getelementptr inbounds %struct.XML_ParserStruct, ptr %parser, i64 0, i32 48
-  %m_defaultHandler11 = getelementptr inbounds %struct.XML_ParserStruct, ptr %parser, i64 0, i32 18
-  %m_handlerArg11.i43 = getelementptr inbounds %struct.XML_ParserStruct, ptr %parser, i64 0, i32 1
-  %m_dataBuf.i57 = getelementptr inbounds %struct.XML_ParserStruct, ptr %parser, i64 0, i32 9
-  %m_dataBufEnd.i59 = getelementptr inbounds %struct.XML_ParserStruct, ptr %parser, i64 0, i32 10
-  %m_parsingStatus42 = getelementptr inbounds %struct.XML_ParserStruct, ptr %parser, i64 0, i32 85
+  %m_encoding = getelementptr inbounds i8, ptr %parser, i64 288
+  %m_eventEndPtr = getelementptr inbounds i8, ptr %parser, i64 552
+  %m_defaultHandler11 = getelementptr inbounds i8, ptr %parser, i64 160
+  %m_handlerArg11.i43 = getelementptr inbounds i8, ptr %parser, i64 8
+  %m_dataBuf.i57 = getelementptr inbounds i8, ptr %parser, i64 88
+  %m_dataBufEnd.i59 = getelementptr inbounds i8, ptr %parser, i64 96
+  %m_parsingStatus42 = getelementptr inbounds i8, ptr %parser, i64 904
   br label %for.cond
 
 for.cond:                                         ; preds = %sw.epilog, %entry
@@ -17282,22 +17244,22 @@ for.cond:                                         ; preds = %sw.epilog, %entry
 
 while.cond.i.i.i:                                 ; preds = %for.cond, %while.cond.i.i.i
   %rootParser.0.i.i.i = phi ptr [ %3, %while.cond.i.i.i ], [ %parser, %for.cond ]
-  %m_parentParser.i.i.i = getelementptr inbounds %struct.XML_ParserStruct, ptr %rootParser.0.i.i.i, i64 0, i32 84
+  %m_parentParser.i.i.i = getelementptr inbounds i8, ptr %rootParser.0.i.i.i, i64 896
   %3 = load ptr, ptr %m_parentParser.i.i.i, align 8
   %tobool.not.i.i.i = icmp eq ptr %3, null
   br i1 %tobool.not.i.i.i, label %getRootParserOf.exit.i.i, label %while.cond.i.i.i, !llvm.loop !31
 
 getRootParserOf.exit.i.i:                         ; preds = %while.cond.i.i.i
-  %debugLevel.i.i = getelementptr inbounds %struct.XML_ParserStruct, ptr %rootParser.0.i.i.i, i64 0, i32 90, i32 2
+  %debugLevel.i.i = getelementptr inbounds i8, ptr %rootParser.0.i.i.i, i64 944
   %4 = load i32, ptr %debugLevel.i.i, align 8
   %cmp.i.i = icmp slt i32 %4, 1
   br i1 %cmp.i.i, label %return, label %if.end.i.i
 
 if.end.i.i:                                       ; preds = %getRootParserOf.exit.i.i
-  %m_accounting.i.i = getelementptr inbounds %struct.XML_ParserStruct, ptr %rootParser.0.i.i.i, i64 0, i32 90
+  %m_accounting.i.i = getelementptr inbounds i8, ptr %rootParser.0.i.i.i, i64 928
   %5 = load i64, ptr %m_accounting.i.i, align 8
   %tobool.not.i5.i.i = icmp eq i64 %5, 0
-  %countBytesIndirect.phi.trans.insert.i.i = getelementptr inbounds %struct.XML_ParserStruct, ptr %rootParser.0.i.i.i, i64 0, i32 90, i32 1
+  %countBytesIndirect.phi.trans.insert.i.i = getelementptr inbounds i8, ptr %rootParser.0.i.i.i, i64 936
   %.pre.i.i = load i64, ptr %countBytesIndirect.phi.trans.insert.i.i, align 8
   br i1 %tobool.not.i5.i.i, label %accountingGetCurrentAmplification.exit.i.i, label %cond.true.i.i.i
 
@@ -17339,13 +17301,13 @@ if.then4:                                         ; preds = %sw.bb
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %s.addr.i)
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %dataPtr.i)
   store ptr %s.addr.0, ptr %s.addr.i, align 8
-  %isUtf8.i = getelementptr inbounds %struct.encoding, ptr %10, i64 0, i32 13
+  %isUtf8.i = getelementptr inbounds i8, ptr %10, i64 132
   %11 = load i8, ptr %isUtf8.i, align 4
   %tobool.not.i = icmp eq i8 %11, 0
   br i1 %tobool.not.i, label %if.end.i, label %if.else9.i
 
 if.end.i:                                         ; preds = %if.then4
-  %utf8Convert.i = getelementptr inbounds %struct.encoding, ptr %10, i64 0, i32 10
+  %utf8Convert.i = getelementptr inbounds i8, ptr %10, i64 112
   br label %do.body.i
 
 do.body.i:                                        ; preds = %do.body.i, %if.end.i
@@ -17409,13 +17371,13 @@ if.then13:                                        ; preds = %sw.bb10
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %s.addr.i37)
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %dataPtr.i38)
   store ptr %s.addr.0, ptr %s.addr.i37, align 8
-  %isUtf8.i39 = getelementptr inbounds %struct.encoding, ptr %26, i64 0, i32 13
+  %isUtf8.i39 = getelementptr inbounds i8, ptr %26, i64 132
   %27 = load i8, ptr %isUtf8.i39, align 4
   %tobool.not.i40 = icmp eq i8 %27, 0
   br i1 %tobool.not.i40, label %if.end.i54, label %if.else9.i41
 
 if.end.i54:                                       ; preds = %if.then13
-  %utf8Convert.i58 = getelementptr inbounds %struct.encoding, ptr %26, i64 0, i32 10
+  %utf8Convert.i58 = getelementptr inbounds i8, ptr %26, i64 112
   br label %do.body.i62
 
 do.body.i62:                                      ; preds = %do.body.i62, %if.end.i54
@@ -17471,7 +17433,7 @@ sw.bb28:                                          ; preds = %if.end
   br label %return
 
 sw.bb30:                                          ; preds = %if.end
-  %finalBuffer = getelementptr inbounds %struct.XML_ParserStruct, ptr %parser, i64 0, i32 85, i32 1
+  %finalBuffer = getelementptr inbounds i8, ptr %parser, i64 908
   %41 = load i8, ptr %finalBuffer, align 4
   %tobool32.not = icmp eq i8 %41, 0
   br i1 %tobool32.not, label %if.then33, label %return
@@ -17481,7 +17443,7 @@ if.then33:                                        ; preds = %sw.bb30
   br label %return
 
 sw.bb35:                                          ; preds = %if.end
-  %finalBuffer37 = getelementptr inbounds %struct.XML_ParserStruct, ptr %parser, i64 0, i32 85, i32 1
+  %finalBuffer37 = getelementptr inbounds i8, ptr %parser, i64 908
   %42 = load i8, ptr %finalBuffer37, align 4
   %tobool38.not = icmp eq i8 %42, 0
   br i1 %tobool38.not, label %if.then39, label %return
@@ -17523,21 +17485,21 @@ entry:
   %dataPtr = alloca ptr, align 8
   %0 = load ptr, ptr %startPtr, align 8
   store ptr %0, ptr %s, align 8
-  %m_encoding = getelementptr inbounds %struct.XML_ParserStruct, ptr %parser, i64 0, i32 34
+  %m_encoding = getelementptr inbounds i8, ptr %parser, i64 288
   %1 = load ptr, ptr %m_encoding, align 8
   %cmp = icmp eq ptr %1, %enc
   br i1 %cmp, label %if.then, label %if.else
 
 if.then:                                          ; preds = %entry
-  %m_eventPtr = getelementptr inbounds %struct.XML_ParserStruct, ptr %parser, i64 0, i32 47
+  %m_eventPtr = getelementptr inbounds i8, ptr %parser, i64 544
   store ptr %0, ptr %m_eventPtr, align 8
-  %m_eventEndPtr = getelementptr inbounds %struct.XML_ParserStruct, ptr %parser, i64 0, i32 48
+  %m_eventEndPtr = getelementptr inbounds i8, ptr %parser, i64 552
   br label %if.end
 
 if.else:                                          ; preds = %entry
-  %m_openInternalEntities = getelementptr inbounds %struct.XML_ParserStruct, ptr %parser, i64 0, i32 50
+  %m_openInternalEntities = getelementptr inbounds i8, ptr %parser, i64 568
   %2 = load ptr, ptr %m_openInternalEntities, align 8
-  %internalEventEndPtr = getelementptr inbounds %struct.open_internal_entity, ptr %2, i64 0, i32 1
+  %internalEventEndPtr = getelementptr inbounds i8, ptr %2, i64 8
   br label %if.end
 
 if.end:                                           ; preds = %if.else, %if.then
@@ -17545,18 +17507,18 @@ if.end:                                           ; preds = %if.else, %if.then
   %eventPP.0 = phi ptr [ %m_eventPtr, %if.then ], [ %2, %if.else ]
   store ptr %0, ptr %eventPP.0, align 8
   store ptr null, ptr %startPtr, align 8
-  %arrayidx = getelementptr [4 x ptr], ptr %enc, i64 0, i64 2
-  %m_characterDataHandler28 = getelementptr inbounds %struct.XML_ParserStruct, ptr %parser, i64 0, i32 13
-  %isUtf8 = getelementptr inbounds %struct.encoding, ptr %enc, i64 0, i32 13
-  %m_handlerArg45 = getelementptr inbounds %struct.XML_ParserStruct, ptr %parser, i64 0, i32 1
-  %m_dataBuf = getelementptr inbounds %struct.XML_ParserStruct, ptr %parser, i64 0, i32 9
-  %utf8Convert = getelementptr inbounds %struct.encoding, ptr %enc, i64 0, i32 10
-  %m_dataBufEnd = getelementptr inbounds %struct.XML_ParserStruct, ptr %parser, i64 0, i32 10
-  %m_defaultHandler52 = getelementptr inbounds %struct.XML_ParserStruct, ptr %parser, i64 0, i32 18
-  %m_openInternalEntities.i68 = getelementptr inbounds %struct.XML_ParserStruct, ptr %parser, i64 0, i32 50
-  %m_eventPtr.i85 = getelementptr inbounds %struct.XML_ParserStruct, ptr %parser, i64 0, i32 47
-  %m_eventEndPtr.i86 = getelementptr inbounds %struct.XML_ParserStruct, ptr %parser, i64 0, i32 48
-  %m_parsingStatus66 = getelementptr inbounds %struct.XML_ParserStruct, ptr %parser, i64 0, i32 85
+  %arrayidx = getelementptr i8, ptr %enc, i64 16
+  %m_characterDataHandler28 = getelementptr inbounds i8, ptr %parser, i64 120
+  %isUtf8 = getelementptr inbounds i8, ptr %enc, i64 132
+  %m_handlerArg45 = getelementptr inbounds i8, ptr %parser, i64 8
+  %m_dataBuf = getelementptr inbounds i8, ptr %parser, i64 88
+  %utf8Convert = getelementptr inbounds i8, ptr %enc, i64 112
+  %m_dataBufEnd = getelementptr inbounds i8, ptr %parser, i64 96
+  %m_defaultHandler52 = getelementptr inbounds i8, ptr %parser, i64 160
+  %m_openInternalEntities.i68 = getelementptr inbounds i8, ptr %parser, i64 568
+  %m_eventPtr.i85 = getelementptr inbounds i8, ptr %parser, i64 544
+  %m_eventEndPtr.i86 = getelementptr inbounds i8, ptr %parser, i64 552
+  %m_parsingStatus66 = getelementptr inbounds i8, ptr %parser, i64 904
   br label %for.cond
 
 for.cond:                                         ; preds = %sw.epilog, %if.end
@@ -17572,22 +17534,22 @@ for.cond:                                         ; preds = %sw.epilog, %if.end
 
 while.cond.i.i.i:                                 ; preds = %for.cond, %while.cond.i.i.i
   %rootParser.0.i.i.i = phi ptr [ %7, %while.cond.i.i.i ], [ %parser, %for.cond ]
-  %m_parentParser.i.i.i = getelementptr inbounds %struct.XML_ParserStruct, ptr %rootParser.0.i.i.i, i64 0, i32 84
+  %m_parentParser.i.i.i = getelementptr inbounds i8, ptr %rootParser.0.i.i.i, i64 896
   %7 = load ptr, ptr %m_parentParser.i.i.i, align 8
   %tobool.not.i.i.i = icmp eq ptr %7, null
   br i1 %tobool.not.i.i.i, label %getRootParserOf.exit.i.i, label %while.cond.i.i.i, !llvm.loop !31
 
 getRootParserOf.exit.i.i:                         ; preds = %while.cond.i.i.i
-  %debugLevel.i.i = getelementptr inbounds %struct.XML_ParserStruct, ptr %rootParser.0.i.i.i, i64 0, i32 90, i32 2
+  %debugLevel.i.i = getelementptr inbounds i8, ptr %rootParser.0.i.i.i, i64 944
   %8 = load i32, ptr %debugLevel.i.i, align 8
   %cmp.i.i = icmp slt i32 %8, 1
   br i1 %cmp.i.i, label %return, label %if.end.i.i
 
 if.end.i.i:                                       ; preds = %getRootParserOf.exit.i.i
-  %m_accounting.i.i = getelementptr inbounds %struct.XML_ParserStruct, ptr %rootParser.0.i.i.i, i64 0, i32 90
+  %m_accounting.i.i = getelementptr inbounds i8, ptr %rootParser.0.i.i.i, i64 928
   %9 = load i64, ptr %m_accounting.i.i, align 8
   %tobool.not.i5.i.i = icmp eq i64 %9, 0
-  %countBytesIndirect.phi.trans.insert.i.i = getelementptr inbounds %struct.XML_ParserStruct, ptr %rootParser.0.i.i.i, i64 0, i32 90, i32 1
+  %countBytesIndirect.phi.trans.insert.i.i = getelementptr inbounds i8, ptr %rootParser.0.i.i.i, i64 936
   %.pre.i.i = load i64, ptr %countBytesIndirect.phi.trans.insert.i.i, align 8
   br i1 %tobool.not.i5.i.i, label %accountingGetCurrentAmplification.exit.i.i, label %cond.true.i.i.i
 
@@ -17619,7 +17581,7 @@ if.end4:                                          ; preds = %for.cond
   ]
 
 sw.bb:                                            ; preds = %if.end4
-  %m_endCdataSectionHandler = getelementptr inbounds %struct.XML_ParserStruct, ptr %parser, i64 0, i32 17
+  %m_endCdataSectionHandler = getelementptr inbounds i8, ptr %parser, i64 152
   %13 = load ptr, ptr %m_endCdataSectionHandler, align 8
   %tobool5.not = icmp eq ptr %13, null
   br i1 %tobool5.not, label %if.else8, label %if.then6
@@ -17680,7 +17642,7 @@ if.then.i:                                        ; preds = %if.then24
 
 if.else.i:                                        ; preds = %if.then.i
   %25 = load ptr, ptr %m_openInternalEntities.i68, align 8
-  %internalEventEndPtr.i = getelementptr inbounds %struct.open_internal_entity, ptr %25, i64 0, i32 1
+  %internalEventEndPtr.i = getelementptr inbounds i8, ptr %25, i64 8
   br label %if.end.i
 
 if.end.i:                                         ; preds = %if.then.i, %if.else.i
@@ -17791,7 +17753,7 @@ if.then.i64:                                      ; preds = %if.then54
 
 if.else.i67:                                      ; preds = %if.then.i64
   %54 = load ptr, ptr %m_openInternalEntities.i68, align 8
-  %internalEventEndPtr.i69 = getelementptr inbounds %struct.open_internal_entity, ptr %54, i64 0, i32 1
+  %internalEventEndPtr.i69 = getelementptr inbounds i8, ptr %54, i64 8
   br label %if.end.i70
 
 if.end.i70:                                       ; preds = %if.then.i64, %if.else.i67
@@ -17885,9 +17847,9 @@ define internal i32 @cdataSectionProcessor(ptr noundef %parser, ptr noundef %sta
 entry:
   %start.addr = alloca ptr, align 8
   store ptr %start, ptr %start.addr, align 8
-  %m_encoding = getelementptr inbounds %struct.XML_ParserStruct, ptr %parser, i64 0, i32 34
+  %m_encoding = getelementptr inbounds i8, ptr %parser, i64 288
   %0 = load ptr, ptr %m_encoding, align 8
-  %finalBuffer = getelementptr inbounds %struct.XML_ParserStruct, ptr %parser, i64 0, i32 85, i32 1
+  %finalBuffer = getelementptr inbounds i8, ptr %parser, i64 908
   %1 = load i8, ptr %finalBuffer, align 4
   %tobool.not = icmp eq i8 %1, 0
   %conv = zext i1 %tobool.not to i8
@@ -17901,10 +17863,10 @@ if.end:                                           ; preds = %entry
   br i1 %tobool2.not, label %return, label %if.then3
 
 if.then3:                                         ; preds = %if.end
-  %m_parentParser = getelementptr inbounds %struct.XML_ParserStruct, ptr %parser, i64 0, i32 84
+  %m_parentParser = getelementptr inbounds i8, ptr %parser, i64 896
   %3 = load ptr, ptr %m_parentParser, align 8
   %tobool4.not = icmp eq ptr %3, null
-  %m_processor7 = getelementptr inbounds %struct.XML_ParserStruct, ptr %parser, i64 0, i32 45
+  %m_processor7 = getelementptr inbounds i8, ptr %parser, i64 528
   br i1 %tobool4.not, label %if.else, label %if.then5
 
 if.then5:                                         ; preds = %if.then3
@@ -17925,7 +17887,7 @@ return:                                           ; preds = %if.end, %entry, %if
 ; Function Attrs: nounwind uwtable
 define internal fastcc noundef i32 @setElementTypePrefix(ptr nocapture noundef readonly %parser, ptr nocapture noundef %elementType) unnamed_addr #0 {
 entry:
-  %m_dtd = getelementptr inbounds %struct.XML_ParserStruct, ptr %parser, i64 0, i32 65
+  %m_dtd = getelementptr inbounds i8, ptr %parser, i64 672
   %0 = load ptr, ptr %m_dtd, align 8
   %1 = load ptr, ptr %elementType, align 8
   br label %for.cond
@@ -17943,9 +17905,9 @@ for.cond4.preheader:                              ; preds = %for.cond
   br i1 %cmp5.not28, label %for.end, label %for.body7.lr.ph
 
 for.body7.lr.ph:                                  ; preds = %for.cond4.preheader
-  %ptr = getelementptr inbounds %struct.DTD, ptr %0, i64 0, i32 4, i32 3
-  %end = getelementptr inbounds %struct.DTD, ptr %0, i64 0, i32 4, i32 2
-  %pool = getelementptr inbounds %struct.DTD, ptr %0, i64 0, i32 4
+  %ptr = getelementptr inbounds i8, ptr %0, i64 184
+  %end = getelementptr inbounds i8, ptr %0, i64 176
+  %pool = getelementptr inbounds i8, ptr %0, i64 160
   br label %for.body7
 
 for.body7:                                        ; preds = %for.body7.lr.ph, %cond.false
@@ -17975,15 +17937,15 @@ cond.false:                                       ; preds = %land.lhs.true.cond.
   br i1 %cmp5.not, label %for.end, label %for.body7, !llvm.loop !82
 
 for.end:                                          ; preds = %cond.false, %for.cond4.preheader
-  %ptr18 = getelementptr inbounds %struct.DTD, ptr %0, i64 0, i32 4, i32 3
+  %ptr18 = getelementptr inbounds i8, ptr %0, i64 184
   %7 = load ptr, ptr %ptr18, align 8
-  %end20 = getelementptr inbounds %struct.DTD, ptr %0, i64 0, i32 4, i32 2
+  %end20 = getelementptr inbounds i8, ptr %0, i64 176
   %8 = load ptr, ptr %end20, align 8
   %cmp21 = icmp eq ptr %7, %8
   br i1 %cmp21, label %land.lhs.true23, label %cond.false28
 
 land.lhs.true23:                                  ; preds = %for.end
-  %pool17 = getelementptr inbounds %struct.DTD, ptr %0, i64 0, i32 4
+  %pool17 = getelementptr inbounds i8, ptr %0, i64 160
   %call25 = tail call fastcc zeroext i8 @poolGrow(ptr noundef nonnull %pool17), !range !13
   %tobool26.not = icmp eq i8 %call25, 0
   br i1 %tobool26.not, label %return, label %land.lhs.true23.cond.false28_crit_edge
@@ -17997,8 +17959,8 @@ cond.false28:                                     ; preds = %land.lhs.true23.con
   %incdec.ptr31 = getelementptr i8, ptr %9, i64 1
   store ptr %incdec.ptr31, ptr %ptr18, align 8
   store i8 0, ptr %9, align 1
-  %prefixes = getelementptr inbounds %struct.DTD, ptr %0, i64 0, i32 3
-  %start = getelementptr inbounds %struct.DTD, ptr %0, i64 0, i32 4, i32 4
+  %prefixes = getelementptr inbounds i8, ptr %0, i64 120
+  %start = getelementptr inbounds i8, ptr %0, i64 192
   %10 = load ptr, ptr %start, align 8
   %call35 = tail call fastcc ptr @lookup(ptr noundef %parser, ptr noundef nonnull %prefixes, ptr noundef %10, i64 noundef 16)
   %tobool36.not = icmp eq ptr %call35, null
@@ -18020,7 +17982,7 @@ if.else:                                          ; preds = %if.end38
   br label %if.end53
 
 if.end53:                                         ; preds = %if.else, %if.then44
-  %prefix54 = getelementptr inbounds %struct.ELEMENT_TYPE, ptr %elementType, i64 0, i32 1
+  %prefix54 = getelementptr inbounds i8, ptr %elementType, i64 8
   store ptr %call35, ptr %prefix54, align 8
   br label %return
 
@@ -18086,7 +18048,7 @@ land.lhs.true33:                                  ; preds = %land.lhs.true27
   br i1 %cmp37, label %return, label %for.body.lr.ph.split
 
 for.body.lr.ph.split.us:                          ; preds = %if.then21
-  %m_ns = getelementptr inbounds %struct.XML_ParserStruct, ptr %parser, i64 0, i32 38
+  %m_ns = getelementptr inbounds i8, ptr %parser, i64 456
   %8 = load i8, ptr %m_ns, align 8
   %tobool85.not = icmp eq i8 %8, 0
   br i1 %tobool85.not, label %for.body.us.us, label %for.body.lr.ph.split.us.split
@@ -18122,7 +18084,7 @@ if.end65.us.us:                                   ; preds = %if.then64.us.us, %l
   br i1 %tobool50.not.us.us, label %for.end, label %for.body.us.us, !llvm.loop !84
 
 for.body.lr.ph.split.us.split:                    ; preds = %for.body.lr.ph.split.us
-  %m_namespaceSeparator = getelementptr inbounds %struct.XML_ParserStruct, ptr %parser, i64 0, i32 83
+  %m_namespaceSeparator = getelementptr inbounds i8, ptr %parser, i64 892
   %12 = load i8, ptr %m_namespaceSeparator, align 4
   br label %for.body.us
 
@@ -18250,7 +18212,7 @@ for.inc.us:                                       ; preds = %land.lhs.true93.us,
   br i1 %tobool50.not.us, label %for.end, label %for.body.us, !llvm.loop !84
 
 for.body.lr.ph.split:                             ; preds = %if.then21, %land.lhs.true27, %land.lhs.true33, %if.end, %land.lhs.true4, %land.lhs.true9, %land.lhs.true15
-  %m_ns157 = getelementptr inbounds %struct.XML_ParserStruct, ptr %parser, i64 0, i32 38
+  %m_ns157 = getelementptr inbounds i8, ptr %parser, i64 456
   %16 = load i8, ptr %m_ns157, align 8
   %tobool85.not158 = icmp eq i8 %16, 0
   br i1 %tobool85.not158, label %for.body.us109, label %for.body.lr.ph.split.split
@@ -18305,7 +18267,7 @@ if.end83.us123:                                   ; preds = %if.then82.us, %lor.
   br i1 %tobool50.not.us129, label %for.end, label %for.body.us109, !llvm.loop !84
 
 for.body.lr.ph.split.split:                       ; preds = %for.body.lr.ph.split
-  %m_namespaceSeparator159 = getelementptr inbounds %struct.XML_ParserStruct, ptr %parser, i64 0, i32 83
+  %m_namespaceSeparator159 = getelementptr inbounds i8, ptr %parser, i64 892
   %21 = load i8, ptr %m_namespaceSeparator159, align 4
   br label %for.body
 
@@ -18471,18 +18433,18 @@ if.end119:                                        ; preds = %for.end
   br i1 %28, label %return, label %if.end122
 
 if.end122:                                        ; preds = %if.end119
-  %m_namespaceSeparator123 = getelementptr inbounds %struct.XML_ParserStruct, ptr %parser, i64 0, i32 83
+  %m_namespaceSeparator123 = getelementptr inbounds i8, ptr %parser, i64 892
   %29 = load i8, ptr %m_namespaceSeparator123, align 4
   %tobool124.not = icmp ne i8 %29, 0
   %inc126 = zext i1 %tobool124.not to i32
   %spec.select = add i32 %len.0.lcssa, %inc126
-  %m_freeBindingList = getelementptr inbounds %struct.XML_ParserStruct, ptr %parser, i64 0, i32 70
+  %m_freeBindingList = getelementptr inbounds i8, ptr %parser, i64 712
   %30 = load ptr, ptr %m_freeBindingList, align 8
   %tobool128.not = icmp eq ptr %30, null
   br i1 %tobool128.not, label %if.else, label %if.then129
 
 if.then129:                                       ; preds = %if.end122
-  %uriAlloc = getelementptr inbounds %struct.binding, ptr %30, i64 0, i32 6
+  %uriAlloc = getelementptr inbounds i8, ptr %30, i64 44
   %31 = load i32, ptr %uriAlloc, align 4
   %cmp131 = icmp sgt i32 %spec.select, %31
   br i1 %cmp131, label %if.then133, label %if.end148
@@ -18492,9 +18454,9 @@ if.then133:                                       ; preds = %if.then129
   br i1 %cmp134, label %return, label %if.end137
 
 if.end137:                                        ; preds = %if.then133
-  %realloc_fcn = getelementptr inbounds %struct.XML_ParserStruct, ptr %parser, i64 0, i32 3, i32 1
+  %realloc_fcn = getelementptr inbounds i8, ptr %parser, i64 32
   %32 = load ptr, ptr %realloc_fcn, align 8
-  %uri138 = getelementptr inbounds %struct.binding, ptr %30, i64 0, i32 4
+  %uri138 = getelementptr inbounds i8, ptr %30, i64 32
   %33 = load ptr, ptr %uri138, align 8
   %add = add nsw i32 %spec.select, 24
   %conv139 = sext i32 %add to i64
@@ -18508,15 +18470,15 @@ if.end144:                                        ; preds = %if.end137
   br label %if.end148
 
 if.end148:                                        ; preds = %if.end144, %if.then129
-  %nextTagBinding = getelementptr inbounds %struct.binding, ptr %30, i64 0, i32 1
+  %nextTagBinding = getelementptr inbounds i8, ptr %30, i64 8
   %34 = load ptr, ptr %nextTagBinding, align 8
   store ptr %34, ptr %m_freeBindingList, align 8
-  %uri174.phi.trans.insert = getelementptr inbounds %struct.binding, ptr %30, i64 0, i32 4
+  %uri174.phi.trans.insert = getelementptr inbounds i8, ptr %30, i64 32
   %.pre = load ptr, ptr %uri174.phi.trans.insert, align 8
   br label %if.end173
 
 if.else:                                          ; preds = %if.end122
-  %m_mem150 = getelementptr inbounds %struct.XML_ParserStruct, ptr %parser, i64 0, i32 3
+  %m_mem150 = getelementptr inbounds i8, ptr %parser, i64 24
   %35 = load ptr, ptr %m_mem150, align 8
   %call151 = tail call ptr %35(i64 noundef 48) #23
   %tobool152.not = icmp eq ptr %call151, null
@@ -18529,26 +18491,26 @@ if.end158:                                        ; preds = %if.else
   %add161 = add nsw i32 %spec.select, 24
   %conv162 = sext i32 %add161 to i64
   %call164 = tail call ptr %36(i64 noundef %conv162) #23
-  %uri165 = getelementptr inbounds %struct.binding, ptr %call151, i64 0, i32 4
+  %uri165 = getelementptr inbounds i8, ptr %call151, i64 32
   store ptr %call164, ptr %uri165, align 8
   %tobool167.not = icmp eq ptr %call164, null
   br i1 %tobool167.not, label %if.then168, label %if.end170
 
 if.then168:                                       ; preds = %if.end158
-  %free_fcn = getelementptr inbounds %struct.XML_ParserStruct, ptr %parser, i64 0, i32 3, i32 2
+  %free_fcn = getelementptr inbounds i8, ptr %parser, i64 40
   %37 = load ptr, ptr %free_fcn, align 8
   tail call void %37(ptr noundef nonnull %call151) #23
   br label %return
 
 if.end170:                                        ; preds = %if.end158
-  %uriAlloc172 = getelementptr inbounds %struct.binding, ptr %call151, i64 0, i32 6
+  %uriAlloc172 = getelementptr inbounds i8, ptr %call151, i64 44
   store i32 %add161, ptr %uriAlloc172, align 4
   br label %if.end173
 
 if.end173:                                        ; preds = %if.end170, %if.end148
   %38 = phi ptr [ %.pre, %if.end148 ], [ %call164, %if.end170 ]
   %b.0 = phi ptr [ %30, %if.end148 ], [ %call151, %if.end170 ]
-  %uriLen = getelementptr inbounds %struct.binding, ptr %b.0, i64 0, i32 5
+  %uriLen = getelementptr inbounds i8, ptr %b.0, i64 40
   store i32 %spec.select, ptr %uriLen, align 8
   %conv175 = sext i32 %spec.select to i64
   tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %38, ptr nonnull align 1 %uri, i64 %conv175, i1 false)
@@ -18557,7 +18519,7 @@ if.end173:                                        ; preds = %if.end170, %if.end1
   br i1 %tobool178.not, label %if.end184, label %if.then179
 
 if.then179:                                       ; preds = %if.end173
-  %uri174 = getelementptr inbounds %struct.binding, ptr %b.0, i64 0, i32 4
+  %uri174 = getelementptr inbounds i8, ptr %b.0, i64 32
   %40 = load ptr, ptr %uri174, align 8
   %sub = add i32 %spec.select, -1
   %idxprom182 = sext i32 %sub to i64
@@ -18567,20 +18529,20 @@ if.then179:                                       ; preds = %if.end173
 
 if.end184:                                        ; preds = %if.then179, %if.end173
   store ptr %prefix, ptr %b.0, align 8
-  %attId186 = getelementptr inbounds %struct.binding, ptr %b.0, i64 0, i32 3
+  %attId186 = getelementptr inbounds i8, ptr %b.0, i64 24
   store ptr %attId, ptr %attId186, align 8
-  %binding = getelementptr inbounds %struct.prefix, ptr %prefix, i64 0, i32 1
+  %binding = getelementptr inbounds i8, ptr %prefix, i64 8
   %41 = load ptr, ptr %binding, align 8
-  %prevPrefixBinding = getelementptr inbounds %struct.binding, ptr %b.0, i64 0, i32 2
+  %prevPrefixBinding = getelementptr inbounds i8, ptr %b.0, i64 16
   store ptr %41, ptr %prevPrefixBinding, align 8
   %42 = load i8, ptr %uri, align 1
   %cmp188 = icmp eq i8 %42, 0
   br i1 %cmp188, label %land.lhs.true190, label %if.else195
 
 land.lhs.true190:                                 ; preds = %if.end184
-  %m_dtd = getelementptr inbounds %struct.XML_ParserStruct, ptr %parser, i64 0, i32 65
+  %m_dtd = getelementptr inbounds i8, ptr %parser, i64 672
   %43 = load ptr, ptr %m_dtd, align 8
-  %defaultPrefix = getelementptr inbounds %struct.DTD, ptr %43, i64 0, i32 11
+  %defaultPrefix = getelementptr inbounds i8, ptr %43, i64 304
   %cmp191 = icmp eq ptr %defaultPrefix, %prefix
   br i1 %cmp191, label %if.end197, label %if.else195
 
@@ -18591,20 +18553,20 @@ if.end197:                                        ; preds = %land.lhs.true190, %
   %storemerge = phi ptr [ %b.0, %if.else195 ], [ null, %land.lhs.true190 ]
   store ptr %storemerge, ptr %binding, align 8
   %44 = load ptr, ptr %bindingsPtr, align 8
-  %nextTagBinding198 = getelementptr inbounds %struct.binding, ptr %b.0, i64 0, i32 1
+  %nextTagBinding198 = getelementptr inbounds i8, ptr %b.0, i64 8
   store ptr %44, ptr %nextTagBinding198, align 8
   store ptr %b.0, ptr %bindingsPtr, align 8
   %tobool199.not = icmp eq ptr %attId, null
   br i1 %tobool199.not, label %return, label %land.lhs.true200
 
 land.lhs.true200:                                 ; preds = %if.end197
-  %m_startNamespaceDeclHandler = getelementptr inbounds %struct.XML_ParserStruct, ptr %parser, i64 0, i32 23
+  %m_startNamespaceDeclHandler = getelementptr inbounds i8, ptr %parser, i64 200
   %45 = load ptr, ptr %m_startNamespaceDeclHandler, align 8
   %tobool201.not = icmp eq ptr %45, null
   br i1 %tobool201.not, label %return, label %if.then202
 
 if.then202:                                       ; preds = %land.lhs.true200
-  %m_handlerArg = getelementptr inbounds %struct.XML_ParserStruct, ptr %parser, i64 0, i32 1
+  %m_handlerArg = getelementptr inbounds i8, ptr %parser, i64 8
   %46 = load ptr, ptr %m_handlerArg, align 8
   %47 = load ptr, ptr %prefix, align 8
   %48 = load ptr, ptr %binding, align 8
@@ -18621,9 +18583,9 @@ return:                                           ; preds = %land.lhs.true93.us,
 ; Function Attrs: nounwind uwtable
 define internal i32 @externalEntityContentProcessor(ptr noundef %parser, ptr noundef %start, ptr noundef %end, ptr nocapture noundef writeonly %endPtr) #0 {
 entry:
-  %m_encoding = getelementptr inbounds %struct.XML_ParserStruct, ptr %parser, i64 0, i32 34
+  %m_encoding = getelementptr inbounds i8, ptr %parser, i64 288
   %0 = load ptr, ptr %m_encoding, align 8
-  %finalBuffer = getelementptr inbounds %struct.XML_ParserStruct, ptr %parser, i64 0, i32 85, i32 1
+  %finalBuffer = getelementptr inbounds i8, ptr %parser, i64 908
   %1 = load i8, ptr %finalBuffer, align 4
   %tobool.not = icmp eq i8 %1, 0
   %conv = zext i1 %tobool.not to i8
@@ -18632,29 +18594,29 @@ entry:
   br i1 %cmp, label %if.then, label %return
 
 if.then:                                          ; preds = %entry
-  %m_tagStack.i = getelementptr inbounds %struct.XML_ParserStruct, ptr %parser, i64 0, i32 67
-  %realloc_fcn.i = getelementptr inbounds %struct.XML_ParserStruct, ptr %parser, i64 0, i32 3, i32 1
+  %m_tagStack.i = getelementptr inbounds i8, ptr %parser, i64 688
+  %realloc_fcn.i = getelementptr inbounds i8, ptr %parser, i64 32
   %tag.035.i = load ptr, ptr %m_tagStack.i, align 8
   %tobool.not36.i = icmp eq ptr %tag.035.i, null
   br i1 %tobool.not36.i, label %return, label %while.body.i
 
 while.body.i:                                     ; preds = %if.then, %if.end50.i
   %tag.037.i = phi ptr [ %tag.0.i, %if.end50.i ], [ %tag.035.i, %if.then ]
-  %name.i = getelementptr inbounds %struct.tag, ptr %tag.037.i, i64 0, i32 3
-  %strLen.i = getelementptr inbounds %struct.tag, ptr %tag.037.i, i64 0, i32 3, i32 3
+  %name.i = getelementptr inbounds i8, ptr %tag.037.i, i64 24
+  %strLen.i = getelementptr inbounds i8, ptr %tag.037.i, i64 48
   %2 = load i32, ptr %strLen.i, align 8
   %add.i = add i32 %2, 1
   %conv.i = sext i32 %add.i to i64
-  %buf.i = getelementptr inbounds %struct.tag, ptr %tag.037.i, i64 0, i32 4
+  %buf.i = getelementptr inbounds i8, ptr %tag.037.i, i64 64
   %3 = load ptr, ptr %buf.i, align 8
   %add.ptr.i = getelementptr i8, ptr %3, i64 %conv.i
-  %rawName.i = getelementptr inbounds %struct.tag, ptr %tag.037.i, i64 0, i32 1
+  %rawName.i = getelementptr inbounds i8, ptr %tag.037.i, i64 8
   %4 = load ptr, ptr %rawName.i, align 8
   %cmp.i = icmp eq ptr %4, %add.ptr.i
   br i1 %cmp.i, label %return, label %if.end.i
 
 if.end.i:                                         ; preds = %while.body.i
-  %rawNameLength.i = getelementptr inbounds %struct.tag, ptr %tag.037.i, i64 0, i32 2
+  %rawNameLength.i = getelementptr inbounds i8, ptr %tag.037.i, i64 16
   %5 = load i32, ptr %rawNameLength.i, align 8
   %conv3.i = sext i32 %5 to i64
   %sub.i = sub nsw i64 2147483647, %conv.i
@@ -18664,7 +18626,7 @@ if.end.i:                                         ; preds = %while.body.i
 if.end9.i:                                        ; preds = %if.end.i
   %add11.i = add i32 %5, %add.i
   %conv12.i = sext i32 %add11.i to i64
-  %bufEnd.i = getelementptr inbounds %struct.tag, ptr %tag.037.i, i64 0, i32 5
+  %bufEnd.i = getelementptr inbounds i8, ptr %tag.037.i, i64 72
   %6 = load ptr, ptr %bufEnd.i, align 8
   %sub.ptr.lhs.cast.i = ptrtoint ptr %6 to i64
   %sub.ptr.rhs.cast.i = ptrtoint ptr %3 to i64
@@ -18689,7 +18651,7 @@ if.then27.i:                                      ; preds = %if.end22.i
   br label %if.end30.i
 
 if.end30.i:                                       ; preds = %if.then27.i, %if.end22.i
-  %localPart.i = getelementptr inbounds %struct.tag, ptr %tag.037.i, i64 0, i32 3, i32 1
+  %localPart.i = getelementptr inbounds i8, ptr %tag.037.i, i64 32
   %10 = load ptr, ptr %localPart.i, align 8
   %tobool32.not.i = icmp eq ptr %10, null
   br i1 %tobool32.not.i, label %if.end43.i, label %if.then33.i
@@ -18735,31 +18697,31 @@ entry:
   %next = alloca ptr, align 8
   %buf = alloca [4 x i8], align 1
   %ch = alloca i8, align 1
-  %m_dtd = getelementptr inbounds %struct.XML_ParserStruct, ptr %parser, i64 0, i32 65
+  %m_dtd = getelementptr inbounds i8, ptr %parser, i64 672
   %0 = load ptr, ptr %m_dtd, align 8
-  %literalScanners = getelementptr inbounds %struct.encoding, ptr %enc, i64 0, i32 1
-  %predefinedEntityName = getelementptr inbounds %struct.encoding, ptr %enc, i64 0, i32 7
-  %minBytesPerChar85 = getelementptr inbounds %struct.encoding, ptr %enc, i64 0, i32 12
+  %literalScanners = getelementptr inbounds i8, ptr %enc, i64 32
+  %predefinedEntityName = getelementptr inbounds i8, ptr %enc, i64 88
+  %minBytesPerChar85 = getelementptr inbounds i8, ptr %enc, i64 128
   %add.ptr95 = getelementptr inbounds i8, ptr %ch, i64 1
-  %ptr97 = getelementptr inbounds %struct.STRING_POOL, ptr %pool, i64 0, i32 3
-  %end98 = getelementptr inbounds %struct.STRING_POOL, ptr %pool, i64 0, i32 2
-  %m_temp2Pool = getelementptr inbounds %struct.XML_ParserStruct, ptr %parser, i64 0, i32 80
-  %ptr1.i.i = getelementptr inbounds %struct.XML_ParserStruct, ptr %parser, i64 0, i32 80, i32 3
-  %utf8Convert.i.i = getelementptr inbounds %struct.encoding, ptr %enc, i64 0, i32 10
-  %end4.i.i = getelementptr inbounds %struct.XML_ParserStruct, ptr %parser, i64 0, i32 80, i32 2
-  %start.i.i = getelementptr inbounds %struct.XML_ParserStruct, ptr %parser, i64 0, i32 80, i32 4
-  %size.i = getelementptr inbounds %struct.HASH_TABLE, ptr %0, i64 0, i32 2
-  %power30.i = getelementptr inbounds %struct.HASH_TABLE, ptr %0, i64 0, i32 1
-  %pool127 = getelementptr inbounds %struct.DTD, ptr %0, i64 0, i32 4
+  %ptr97 = getelementptr inbounds i8, ptr %pool, i64 24
+  %end98 = getelementptr inbounds i8, ptr %pool, i64 16
+  %m_temp2Pool = getelementptr inbounds i8, ptr %parser, i64 832
+  %ptr1.i.i = getelementptr inbounds i8, ptr %parser, i64 856
+  %utf8Convert.i.i = getelementptr inbounds i8, ptr %enc, i64 112
+  %end4.i.i = getelementptr inbounds i8, ptr %parser, i64 848
+  %start.i.i = getelementptr inbounds i8, ptr %parser, i64 864
+  %size.i = getelementptr inbounds i8, ptr %0, i64 16
+  %power30.i = getelementptr inbounds i8, ptr %0, i64 8
+  %pool127 = getelementptr inbounds i8, ptr %0, i64 160
   %cmp128 = icmp eq ptr %pool127, %pool
-  %hasParamEntityRefs142 = getelementptr inbounds %struct.DTD, ptr %0, i64 0, i32 7
-  %standalone144 = getelementptr inbounds %struct.DTD, ptr %0, i64 0, i32 8
-  %documentEntity = getelementptr inbounds %struct.XML_ParserStruct, ptr %parser, i64 0, i32 44, i32 4
-  %m_openInternalEntities = getelementptr inbounds %struct.XML_ParserStruct, ptr %parser, i64 0, i32 50
-  %m_internalEncoding = getelementptr inbounds %struct.XML_ParserStruct, ptr %parser, i64 0, i32 36
+  %hasParamEntityRefs142 = getelementptr inbounds i8, ptr %0, i64 257
+  %standalone144 = getelementptr inbounds i8, ptr %0, i64 258
+  %documentEntity = getelementptr inbounds i8, ptr %parser, i64 516
+  %m_openInternalEntities = getelementptr inbounds i8, ptr %parser, i64 568
+  %m_internalEncoding = getelementptr inbounds i8, ptr %parser, i64 440
   %tobool54.not = icmp eq i8 %isCdata, 0
-  %start57 = getelementptr inbounds %struct.STRING_POOL, ptr %pool, i64 0, i32 4
-  %charRefNumber = getelementptr inbounds %struct.encoding, ptr %enc, i64 0, i32 6
+  %start57 = getelementptr inbounds i8, ptr %pool, i64 32
+  %charRefNumber = getelementptr inbounds i8, ptr %enc, i64 80
   br label %for.cond
 
 for.cond:                                         ; preds = %sw.epilog, %entry
@@ -18774,22 +18736,22 @@ for.cond:                                         ; preds = %sw.epilog, %entry
 
 while.cond.i.i.i:                                 ; preds = %for.cond, %while.cond.i.i.i
   %rootParser.0.i.i.i = phi ptr [ %3, %while.cond.i.i.i ], [ %parser, %for.cond ]
-  %m_parentParser.i.i.i = getelementptr inbounds %struct.XML_ParserStruct, ptr %rootParser.0.i.i.i, i64 0, i32 84
+  %m_parentParser.i.i.i = getelementptr inbounds i8, ptr %rootParser.0.i.i.i, i64 896
   %3 = load ptr, ptr %m_parentParser.i.i.i, align 8
   %tobool.not.i.i.i = icmp eq ptr %3, null
   br i1 %tobool.not.i.i.i, label %getRootParserOf.exit.i.i, label %while.cond.i.i.i, !llvm.loop !31
 
 getRootParserOf.exit.i.i:                         ; preds = %while.cond.i.i.i
-  %debugLevel.i.i = getelementptr inbounds %struct.XML_ParserStruct, ptr %rootParser.0.i.i.i, i64 0, i32 90, i32 2
+  %debugLevel.i.i = getelementptr inbounds i8, ptr %rootParser.0.i.i.i, i64 944
   %4 = load i32, ptr %debugLevel.i.i, align 8
   %cmp.i.i = icmp slt i32 %4, 1
   br i1 %cmp.i.i, label %return, label %if.end.i.i
 
 if.end.i.i:                                       ; preds = %getRootParserOf.exit.i.i
-  %m_accounting.i.i = getelementptr inbounds %struct.XML_ParserStruct, ptr %rootParser.0.i.i.i, i64 0, i32 90
+  %m_accounting.i.i = getelementptr inbounds i8, ptr %rootParser.0.i.i.i, i64 928
   %5 = load i64, ptr %m_accounting.i.i, align 8
   %tobool.not.i5.i.i = icmp eq i64 %5, 0
-  %countBytesIndirect.phi.trans.insert.i.i = getelementptr inbounds %struct.XML_ParserStruct, ptr %rootParser.0.i.i.i, i64 0, i32 90, i32 1
+  %countBytesIndirect.phi.trans.insert.i.i = getelementptr inbounds i8, ptr %rootParser.0.i.i.i, i64 936
   %.pre.i.i = load i64, ptr %countBytesIndirect.phi.trans.insert.i.i, align 8
   br i1 %tobool.not.i5.i.i, label %accountingGetCurrentAmplification.exit.i.i, label %cond.true.i.i.i
 
@@ -18821,25 +18783,25 @@ if.end:                                           ; preds = %for.cond
   ]
 
 sw.bb2:                                           ; preds = %if.end
-  %m_encoding = getelementptr inbounds %struct.XML_ParserStruct, ptr %parser, i64 0, i32 34
+  %m_encoding = getelementptr inbounds i8, ptr %parser, i64 288
   %8 = load ptr, ptr %m_encoding, align 8
   %cmp = icmp eq ptr %8, %enc
   br i1 %cmp, label %if.then3, label %return
 
 if.then3:                                         ; preds = %sw.bb2
   %9 = load ptr, ptr %next, align 8
-  %m_eventPtr = getelementptr inbounds %struct.XML_ParserStruct, ptr %parser, i64 0, i32 47
+  %m_eventPtr = getelementptr inbounds i8, ptr %parser, i64 544
   store ptr %9, ptr %m_eventPtr, align 8
   br label %return
 
 sw.bb5:                                           ; preds = %if.end
-  %m_encoding6 = getelementptr inbounds %struct.XML_ParserStruct, ptr %parser, i64 0, i32 34
+  %m_encoding6 = getelementptr inbounds i8, ptr %parser, i64 288
   %10 = load ptr, ptr %m_encoding6, align 8
   %cmp7 = icmp eq ptr %10, %enc
   br i1 %cmp7, label %if.then8, label %return
 
 if.then8:                                         ; preds = %sw.bb5
-  %m_eventPtr9 = getelementptr inbounds %struct.XML_ParserStruct, ptr %parser, i64 0, i32 47
+  %m_eventPtr9 = getelementptr inbounds i8, ptr %parser, i64 544
   store ptr %ptr.addr.0, ptr %m_eventPtr9, align 8
   br label %return
 
@@ -18850,13 +18812,13 @@ sw.bb11:                                          ; preds = %if.end
   br i1 %cmp13, label %if.then14, label %if.end20
 
 if.then14:                                        ; preds = %sw.bb11
-  %m_encoding15 = getelementptr inbounds %struct.XML_ParserStruct, ptr %parser, i64 0, i32 34
+  %m_encoding15 = getelementptr inbounds i8, ptr %parser, i64 288
   %12 = load ptr, ptr %m_encoding15, align 8
   %cmp16 = icmp eq ptr %12, %enc
   br i1 %cmp16, label %if.then17, label %return
 
 if.then17:                                        ; preds = %if.then14
-  %m_eventPtr18 = getelementptr inbounds %struct.XML_ParserStruct, ptr %parser, i64 0, i32 47
+  %m_eventPtr18 = getelementptr inbounds i8, ptr %parser, i64 544
   store ptr %ptr.addr.0, ptr %m_eventPtr18, align 8
   br label %return
 
@@ -19214,7 +19176,7 @@ if.then150:                                       ; preds = %cond.false136, %con
   br i1 %tobool151.not, label %return, label %if.else153
 
 if.else153:                                       ; preds = %if.then150
-  %is_internal = getelementptr inbounds %struct.ENTITY, ptr %retval.0.i114, i64 0, i32 10
+  %is_internal = getelementptr inbounds i8, ptr %retval.0.i114, i64 58
   %68 = load i8, ptr %is_internal, align 2
   %tobool154.not = icmp eq i8 %68, 0
   br i1 %tobool154.not, label %return, label %if.end162
@@ -19224,58 +19186,58 @@ if.else158:                                       ; preds = %cond.false136, %con
   br i1 %tobool159.not, label %sw.epilog, label %if.end162
 
 if.end162:                                        ; preds = %if.else158, %if.else153
-  %open = getelementptr inbounds %struct.ENTITY, ptr %retval.0.i114, i64 0, i32 8
+  %open = getelementptr inbounds i8, ptr %retval.0.i114, i64 56
   %69 = load i8, ptr %open, align 8
   %tobool163.not = icmp eq i8 %69, 0
   br i1 %tobool163.not, label %if.end171, label %if.then164
 
 if.then164:                                       ; preds = %if.end162
-  %m_encoding165 = getelementptr inbounds %struct.XML_ParserStruct, ptr %parser, i64 0, i32 34
+  %m_encoding165 = getelementptr inbounds i8, ptr %parser, i64 288
   %70 = load ptr, ptr %m_encoding165, align 8
   %cmp166 = icmp eq ptr %70, %enc
   br i1 %cmp166, label %if.then168, label %return
 
 if.then168:                                       ; preds = %if.then164
-  %m_eventPtr169 = getelementptr inbounds %struct.XML_ParserStruct, ptr %parser, i64 0, i32 47
+  %m_eventPtr169 = getelementptr inbounds i8, ptr %parser, i64 544
   store ptr %ptr.addr.0, ptr %m_eventPtr169, align 8
   br label %return
 
 if.end171:                                        ; preds = %if.end162
-  %notation = getelementptr inbounds %struct.ENTITY, ptr %retval.0.i114, i64 0, i32 7
+  %notation = getelementptr inbounds i8, ptr %retval.0.i114, i64 48
   %71 = load ptr, ptr %notation, align 8
   %tobool172.not = icmp eq ptr %71, null
   br i1 %tobool172.not, label %if.end180, label %if.then173
 
 if.then173:                                       ; preds = %if.end171
-  %m_encoding174 = getelementptr inbounds %struct.XML_ParserStruct, ptr %parser, i64 0, i32 34
+  %m_encoding174 = getelementptr inbounds i8, ptr %parser, i64 288
   %72 = load ptr, ptr %m_encoding174, align 8
   %cmp175 = icmp eq ptr %72, %enc
   br i1 %cmp175, label %if.then177, label %return
 
 if.then177:                                       ; preds = %if.then173
-  %m_eventPtr178 = getelementptr inbounds %struct.XML_ParserStruct, ptr %parser, i64 0, i32 47
+  %m_eventPtr178 = getelementptr inbounds i8, ptr %parser, i64 544
   store ptr %ptr.addr.0, ptr %m_eventPtr178, align 8
   br label %return
 
 if.end180:                                        ; preds = %if.end171
-  %textPtr = getelementptr inbounds %struct.ENTITY, ptr %retval.0.i114, i64 0, i32 1
+  %textPtr = getelementptr inbounds i8, ptr %retval.0.i114, i64 8
   %73 = load ptr, ptr %textPtr, align 8
   %tobool181.not = icmp eq ptr %73, null
   br i1 %tobool181.not, label %if.then182, label %if.else189
 
 if.then182:                                       ; preds = %if.end180
-  %m_encoding183 = getelementptr inbounds %struct.XML_ParserStruct, ptr %parser, i64 0, i32 34
+  %m_encoding183 = getelementptr inbounds i8, ptr %parser, i64 288
   %74 = load ptr, ptr %m_encoding183, align 8
   %cmp184 = icmp eq ptr %74, %enc
   br i1 %cmp184, label %if.then186, label %return
 
 if.then186:                                       ; preds = %if.then182
-  %m_eventPtr187 = getelementptr inbounds %struct.XML_ParserStruct, ptr %parser, i64 0, i32 47
+  %m_eventPtr187 = getelementptr inbounds i8, ptr %parser, i64 544
   store ptr %ptr.addr.0, ptr %m_eventPtr187, align 8
   br label %return
 
 if.else189:                                       ; preds = %if.end180
-  %textLen = getelementptr inbounds %struct.ENTITY, ptr %retval.0.i114, i64 0, i32 2
+  %textLen = getelementptr inbounds i8, ptr %retval.0.i114, i64 16
   %75 = load i32, ptr %textLen, align 8
   %idx.ext191 = sext i32 %75 to i64
   store i8 1, ptr %open, align 8
@@ -19283,22 +19245,22 @@ if.else189:                                       ; preds = %if.end180
 
 while.cond.i.i:                                   ; preds = %while.cond.i.i, %if.else189
   %rootParser.0.i.i = phi ptr [ %parser, %if.else189 ], [ %76, %while.cond.i.i ]
-  %m_parentParser.i.i = getelementptr inbounds %struct.XML_ParserStruct, ptr %rootParser.0.i.i, i64 0, i32 84
+  %m_parentParser.i.i = getelementptr inbounds i8, ptr %rootParser.0.i.i, i64 896
   %76 = load ptr, ptr %m_parentParser.i.i, align 8
   %tobool.not.i.i116 = icmp eq ptr %76, null
   br i1 %tobool.not.i.i116, label %getRootParserOf.exit.i, label %while.cond.i.i, !llvm.loop !31
 
 getRootParserOf.exit.i:                           ; preds = %while.cond.i.i
   %add.ptr192 = getelementptr i8, ptr %73, i64 %idx.ext191
-  %m_entity_stats.i = getelementptr inbounds %struct.XML_ParserStruct, ptr %rootParser.0.i.i, i64 0, i32 91
+  %m_entity_stats.i = getelementptr inbounds i8, ptr %rootParser.0.i.i, i64 960
   %77 = load i32, ptr %m_entity_stats.i, align 8
   %inc.i = add i32 %77, 1
   store i32 %inc.i, ptr %m_entity_stats.i, align 8
-  %currentDepth.i = getelementptr inbounds %struct.XML_ParserStruct, ptr %rootParser.0.i.i, i64 0, i32 91, i32 1
+  %currentDepth.i = getelementptr inbounds i8, ptr %rootParser.0.i.i, i64 964
   %78 = load i32, ptr %currentDepth.i, align 4
   %inc2.i = add i32 %78, 1
   store i32 %inc2.i, ptr %currentDepth.i, align 4
-  %maximumDepthSeen.i = getelementptr inbounds %struct.XML_ParserStruct, ptr %rootParser.0.i.i, i64 0, i32 91, i32 2
+  %maximumDepthSeen.i = getelementptr inbounds i8, ptr %rootParser.0.i.i, i64 968
   %79 = load i32, ptr %maximumDepthSeen.i, align 8
   %cmp.i117 = icmp ugt i32 %inc2.i, %79
   br i1 %cmp.i117, label %if.then.i123, label %if.end.i118
@@ -19310,7 +19272,7 @@ if.then.i123:                                     ; preds = %getRootParserOf.exi
 
 if.end.i118:                                      ; preds = %if.then.i123, %getRootParserOf.exit.i
   %80 = phi i32 [ %inc8.i, %if.then.i123 ], [ %79, %getRootParserOf.exit.i ]
-  %debugLevel.i.i119 = getelementptr inbounds %struct.XML_ParserStruct, ptr %rootParser.0.i.i, i64 0, i32 91, i32 3
+  %debugLevel.i.i119 = getelementptr inbounds i8, ptr %rootParser.0.i.i, i64 972
   %81 = load i32, ptr %debugLevel.i.i119, align 4
   %cmp.i.i120 = icmp slt i32 %81, 1
   br i1 %cmp.i.i120, label %entityTrackingOnOpen.exit, label %if.end.i.i121
@@ -19320,7 +19282,7 @@ if.end.i.i121:                                    ; preds = %if.end.i118
   %83 = load ptr, ptr @stderr, align 8
   %sub.i.i = shl i32 %inc2.i, 1
   %mul.i.i = add i32 %sub.i.i, -2
-  %is_param.i.i = getelementptr inbounds %struct.ENTITY, ptr %retval.0.i114, i64 0, i32 9
+  %is_param.i.i = getelementptr inbounds i8, ptr %retval.0.i114, i64 57
   %84 = load i8, ptr %is_param.i.i, align 1
   %tobool.not.i6.i = icmp eq i8 %84, 0
   %cond.i.i = select i1 %tobool.not.i6.i, ptr @.str.89, ptr @.str.88
@@ -19336,29 +19298,29 @@ entityTrackingOnOpen.exit:                        ; preds = %if.end.i118, %if.en
 
 while.cond.i.i124:                                ; preds = %while.cond.i.i124, %entityTrackingOnOpen.exit
   %rootParser.0.i.i125 = phi ptr [ %parser, %entityTrackingOnOpen.exit ], [ %88, %while.cond.i.i124 ]
-  %m_parentParser.i.i126 = getelementptr inbounds %struct.XML_ParserStruct, ptr %rootParser.0.i.i125, i64 0, i32 84
+  %m_parentParser.i.i126 = getelementptr inbounds i8, ptr %rootParser.0.i.i125, i64 896
   %88 = load ptr, ptr %m_parentParser.i.i126, align 8
   %tobool.not.i.i127 = icmp eq ptr %88, null
   br i1 %tobool.not.i.i127, label %getRootParserOf.exit.i128, label %while.cond.i.i124, !llvm.loop !31
 
 getRootParserOf.exit.i128:                        ; preds = %while.cond.i.i124
-  %debugLevel.i.i129 = getelementptr inbounds %struct.XML_ParserStruct, ptr %rootParser.0.i.i125, i64 0, i32 91, i32 3
+  %debugLevel.i.i129 = getelementptr inbounds i8, ptr %rootParser.0.i.i125, i64 972
   %89 = load i32, ptr %debugLevel.i.i129, align 4
   %cmp.i.i130 = icmp slt i32 %89, 1
   br i1 %cmp.i.i130, label %entityTrackingOnClose.exit, label %if.end.i.i131
 
 if.end.i.i131:                                    ; preds = %getRootParserOf.exit.i128
-  %m_entity_stats.i.i = getelementptr inbounds %struct.XML_ParserStruct, ptr %rootParser.0.i.i125, i64 0, i32 91
+  %m_entity_stats.i.i = getelementptr inbounds i8, ptr %rootParser.0.i.i125, i64 960
   %90 = load ptr, ptr %retval.0.i114, align 8
   %91 = load ptr, ptr @stderr, align 8
   %92 = load i32, ptr %m_entity_stats.i.i, align 8
-  %currentDepth.i.i = getelementptr inbounds %struct.XML_ParserStruct, ptr %rootParser.0.i.i125, i64 0, i32 91, i32 1
+  %currentDepth.i.i = getelementptr inbounds i8, ptr %rootParser.0.i.i125, i64 964
   %93 = load i32, ptr %currentDepth.i.i, align 4
-  %maximumDepthSeen.i.i = getelementptr inbounds %struct.XML_ParserStruct, ptr %rootParser.0.i.i125, i64 0, i32 91, i32 2
+  %maximumDepthSeen.i.i = getelementptr inbounds i8, ptr %rootParser.0.i.i125, i64 968
   %94 = load i32, ptr %maximumDepthSeen.i.i, align 8
   %sub.i.i132 = shl i32 %93, 1
   %mul.i.i133 = add i32 %sub.i.i132, -2
-  %is_param.i.i134 = getelementptr inbounds %struct.ENTITY, ptr %retval.0.i114, i64 0, i32 9
+  %is_param.i.i134 = getelementptr inbounds i8, ptr %retval.0.i114, i64 57
   %95 = load i8, ptr %is_param.i.i134, align 1
   %tobool.not.i2.i = icmp eq i8 %95, 0
   %cond.i.i135 = select i1 %tobool.not.i2.i, ptr @.str.89, ptr @.str.88
@@ -19367,7 +19329,7 @@ if.end.i.i131:                                    ; preds = %getRootParserOf.exi
   br label %entityTrackingOnClose.exit
 
 entityTrackingOnClose.exit:                       ; preds = %getRootParserOf.exit.i128, %if.end.i.i131
-  %currentDepth.i138 = getelementptr inbounds %struct.XML_ParserStruct, ptr %rootParser.0.i.i125, i64 0, i32 91, i32 1
+  %currentDepth.i138 = getelementptr inbounds i8, ptr %rootParser.0.i.i125, i64 964
   %97 = load i32, ptr %currentDepth.i138, align 4
   %dec.i = add i32 %97, -1
   store i32 %dec.i, ptr %currentDepth.i138, align 4
@@ -19376,13 +19338,13 @@ entityTrackingOnClose.exit:                       ; preds = %getRootParserOf.exi
   br i1 %tobool197.not, label %sw.epilog, label %return
 
 sw.default:                                       ; preds = %if.end
-  %m_encoding201 = getelementptr inbounds %struct.XML_ParserStruct, ptr %parser, i64 0, i32 34
+  %m_encoding201 = getelementptr inbounds i8, ptr %parser, i64 288
   %98 = load ptr, ptr %m_encoding201, align 8
   %cmp202 = icmp eq ptr %98, %enc
   br i1 %cmp202, label %if.then204, label %return
 
 if.then204:                                       ; preds = %sw.default
-  %m_eventPtr205 = getelementptr inbounds %struct.XML_ParserStruct, ptr %parser, i64 0, i32 47
+  %m_eventPtr205 = getelementptr inbounds i8, ptr %parser, i64 544
   store ptr %ptr.addr.0, ptr %m_eventPtr205, align 8
   br label %return
 
@@ -19399,32 +19361,32 @@ return:                                           ; preds = %land.lhs.true.i112,
 define internal i32 @internalEntityProcessor(ptr noundef %parser, ptr noundef %s, ptr noundef %end, ptr noundef %nextPtr) #0 {
 entry:
   %next = alloca ptr, align 8
-  %m_openInternalEntities = getelementptr inbounds %struct.XML_ParserStruct, ptr %parser, i64 0, i32 50
+  %m_openInternalEntities = getelementptr inbounds i8, ptr %parser, i64 568
   %0 = load ptr, ptr %m_openInternalEntities, align 8
   %tobool.not = icmp eq ptr %0, null
   br i1 %tobool.not, label %return, label %if.end
 
 if.end:                                           ; preds = %entry
-  %entity1 = getelementptr inbounds %struct.open_internal_entity, ptr %0, i64 0, i32 3
+  %entity1 = getelementptr inbounds i8, ptr %0, i64 24
   %1 = load ptr, ptr %entity1, align 8
-  %textPtr = getelementptr inbounds %struct.ENTITY, ptr %1, i64 0, i32 1
+  %textPtr = getelementptr inbounds i8, ptr %1, i64 8
   %2 = load ptr, ptr %textPtr, align 8
-  %processed = getelementptr inbounds %struct.ENTITY, ptr %1, i64 0, i32 3
+  %processed = getelementptr inbounds i8, ptr %1, i64 20
   %3 = load i32, ptr %processed, align 4
   %idx.ext = sext i32 %3 to i64
   %add.ptr = getelementptr i8, ptr %2, i64 %idx.ext
-  %textLen = getelementptr inbounds %struct.ENTITY, ptr %1, i64 0, i32 2
+  %textLen = getelementptr inbounds i8, ptr %1, i64 16
   %4 = load i32, ptr %textLen, align 8
   %idx.ext3 = sext i32 %4 to i64
   %add.ptr4 = getelementptr i8, ptr %2, i64 %idx.ext3
   store ptr %add.ptr, ptr %next, align 8
-  %is_param = getelementptr inbounds %struct.ENTITY, ptr %1, i64 0, i32 9
+  %is_param = getelementptr inbounds i8, ptr %1, i64 57
   %5 = load i8, ptr %is_param, align 1
   %tobool5.not = icmp eq i8 %5, 0
   br i1 %tobool5.not, label %if.else, label %if.then6
 
 if.then6:                                         ; preds = %if.end
-  %m_internalEncoding = getelementptr inbounds %struct.XML_ParserStruct, ptr %parser, i64 0, i32 36
+  %m_internalEncoding = getelementptr inbounds i8, ptr %parser, i64 440
   %6 = load ptr, ptr %m_internalEncoding, align 8
   %7 = load ptr, ptr %6, align 8
   %call = call i32 %7(ptr noundef nonnull %6, ptr noundef %add.ptr, ptr noundef %add.ptr4, ptr noundef nonnull %next) #23
@@ -19434,9 +19396,9 @@ if.then6:                                         ; preds = %if.end
   br label %if.end12
 
 if.else:                                          ; preds = %if.end
-  %startTagLevel = getelementptr inbounds %struct.open_internal_entity, ptr %0, i64 0, i32 4
+  %startTagLevel = getelementptr inbounds i8, ptr %0, i64 32
   %10 = load i32, ptr %startTagLevel, align 8
-  %m_internalEncoding10 = getelementptr inbounds %struct.XML_ParserStruct, ptr %parser, i64 0, i32 36
+  %m_internalEncoding10 = getelementptr inbounds i8, ptr %parser, i64 440
   %11 = load ptr, ptr %m_internalEncoding10, align 8
   %call11 = call fastcc i32 @doContent(ptr noundef nonnull %parser, i32 noundef %10, ptr noundef %11, ptr noundef %add.ptr, ptr noundef %add.ptr4, ptr noundef nonnull %next, i8 noundef zeroext 0, i32 noundef 1)
   br label %if.end12
@@ -19455,7 +19417,7 @@ while.cond.i.i.preheader:                         ; preds = %land.lhs.true, %if.
   br label %while.cond.i.i
 
 land.lhs.true:                                    ; preds = %if.end14
-  %m_parsingStatus = getelementptr inbounds %struct.XML_ParserStruct, ptr %parser, i64 0, i32 85
+  %m_parsingStatus = getelementptr inbounds i8, ptr %parser, i64 904
   %13 = load i32, ptr %m_parsingStatus, align 8
   %cmp16 = icmp eq i32 %13, 3
   br i1 %cmp16, label %if.then17, label %while.cond.i.i.preheader
@@ -19471,25 +19433,25 @@ if.then17:                                        ; preds = %land.lhs.true
 
 while.cond.i.i:                                   ; preds = %while.cond.i.i.preheader, %while.cond.i.i
   %rootParser.0.i.i = phi ptr [ %15, %while.cond.i.i ], [ %parser, %while.cond.i.i.preheader ]
-  %m_parentParser.i.i = getelementptr inbounds %struct.XML_ParserStruct, ptr %rootParser.0.i.i, i64 0, i32 84
+  %m_parentParser.i.i = getelementptr inbounds i8, ptr %rootParser.0.i.i, i64 896
   %15 = load ptr, ptr %m_parentParser.i.i, align 8
   %tobool.not.i.i = icmp eq ptr %15, null
   br i1 %tobool.not.i.i, label %getRootParserOf.exit.i, label %while.cond.i.i, !llvm.loop !31
 
 getRootParserOf.exit.i:                           ; preds = %while.cond.i.i
-  %debugLevel.i.i = getelementptr inbounds %struct.XML_ParserStruct, ptr %rootParser.0.i.i, i64 0, i32 91, i32 3
+  %debugLevel.i.i = getelementptr inbounds i8, ptr %rootParser.0.i.i, i64 972
   %16 = load i32, ptr %debugLevel.i.i, align 4
   %cmp.i.i = icmp slt i32 %16, 1
   br i1 %cmp.i.i, label %entityTrackingOnClose.exit, label %if.end.i.i
 
 if.end.i.i:                                       ; preds = %getRootParserOf.exit.i
-  %m_entity_stats.i.i = getelementptr inbounds %struct.XML_ParserStruct, ptr %rootParser.0.i.i, i64 0, i32 91
+  %m_entity_stats.i.i = getelementptr inbounds i8, ptr %rootParser.0.i.i, i64 960
   %17 = load ptr, ptr %1, align 8
   %18 = load ptr, ptr @stderr, align 8
   %19 = load i32, ptr %m_entity_stats.i.i, align 8
-  %currentDepth.i.i = getelementptr inbounds %struct.XML_ParserStruct, ptr %rootParser.0.i.i, i64 0, i32 91, i32 1
+  %currentDepth.i.i = getelementptr inbounds i8, ptr %rootParser.0.i.i, i64 964
   %20 = load i32, ptr %currentDepth.i.i, align 4
-  %maximumDepthSeen.i.i = getelementptr inbounds %struct.XML_ParserStruct, ptr %rootParser.0.i.i, i64 0, i32 91, i32 2
+  %maximumDepthSeen.i.i = getelementptr inbounds i8, ptr %rootParser.0.i.i, i64 968
   %21 = load i32, ptr %maximumDepthSeen.i.i, align 8
   %sub.i.i = shl i32 %20, 1
   %mul.i.i = add i32 %sub.i.i, -2
@@ -19501,16 +19463,16 @@ if.end.i.i:                                       ; preds = %getRootParserOf.exi
   br label %entityTrackingOnClose.exit
 
 entityTrackingOnClose.exit:                       ; preds = %getRootParserOf.exit.i, %if.end.i.i
-  %currentDepth.i = getelementptr inbounds %struct.XML_ParserStruct, ptr %rootParser.0.i.i, i64 0, i32 91, i32 1
+  %currentDepth.i = getelementptr inbounds i8, ptr %rootParser.0.i.i, i64 964
   %24 = load i32, ptr %currentDepth.i, align 4
   %dec.i = add i32 %24, -1
   store i32 %dec.i, ptr %currentDepth.i, align 4
-  %open = getelementptr inbounds %struct.ENTITY, ptr %1, i64 0, i32 8
+  %open = getelementptr inbounds i8, ptr %1, i64 56
   store i8 0, ptr %open, align 8
-  %next21 = getelementptr inbounds %struct.open_internal_entity, ptr %0, i64 0, i32 2
+  %next21 = getelementptr inbounds i8, ptr %0, i64 16
   %25 = load ptr, ptr %next21, align 8
   store ptr %25, ptr %m_openInternalEntities, align 8
-  %m_freeInternalEntities = getelementptr inbounds %struct.XML_ParserStruct, ptr %parser, i64 0, i32 51
+  %m_freeInternalEntities = getelementptr inbounds i8, ptr %parser, i64 576
   %26 = load ptr, ptr %m_freeInternalEntities, align 8
   store ptr %26, ptr %next21, align 8
   store ptr %0, ptr %m_freeInternalEntities, align 8
@@ -19519,7 +19481,7 @@ entityTrackingOnClose.exit:                       ; preds = %getRootParserOf.exi
   br i1 %cmp26.not, label %if.end34, label %land.lhs.true28
 
 land.lhs.true28:                                  ; preds = %entityTrackingOnClose.exit
-  %m_parsingStatus29 = getelementptr inbounds %struct.XML_ParserStruct, ptr %parser, i64 0, i32 85
+  %m_parsingStatus29 = getelementptr inbounds i8, ptr %parser, i64 904
   %28 = load i32, ptr %m_parsingStatus29, align 8
   %cmp31 = icmp eq i32 %28, 3
   br i1 %cmp31, label %return, label %if.end34
@@ -19527,13 +19489,13 @@ land.lhs.true28:                                  ; preds = %entityTrackingOnClo
 if.end34:                                         ; preds = %land.lhs.true28, %entityTrackingOnClose.exit
   %29 = load i8, ptr %is_param, align 1
   %tobool36.not = icmp eq i8 %29, 0
-  %m_processor49 = getelementptr inbounds %struct.XML_ParserStruct, ptr %parser, i64 0, i32 45
-  %finalBuffer53 = getelementptr inbounds %struct.XML_ParserStruct, ptr %parser, i64 0, i32 85, i32 1
+  %m_processor49 = getelementptr inbounds i8, ptr %parser, i64 528
+  %finalBuffer53 = getelementptr inbounds i8, ptr %parser, i64 908
   br i1 %tobool36.not, label %if.else48, label %if.then37
 
 if.then37:                                        ; preds = %if.end34
   store ptr @prologProcessor, ptr %m_processor49, align 8
-  %m_encoding = getelementptr inbounds %struct.XML_ParserStruct, ptr %parser, i64 0, i32 34
+  %m_encoding = getelementptr inbounds i8, ptr %parser, i64 288
   %30 = load ptr, ptr %m_encoding, align 8
   %31 = load ptr, ptr %30, align 8
   %call42 = call i32 %31(ptr noundef nonnull %30, ptr noundef %s, ptr noundef %end, ptr noundef nonnull %next) #23
@@ -19547,11 +19509,11 @@ if.then37:                                        ; preds = %if.end34
 
 if.else48:                                        ; preds = %if.end34
   store ptr @contentProcessor, ptr %m_processor49, align 8
-  %m_parentParser = getelementptr inbounds %struct.XML_ParserStruct, ptr %parser, i64 0, i32 84
+  %m_parentParser = getelementptr inbounds i8, ptr %parser, i64 896
   %35 = load ptr, ptr %m_parentParser, align 8
   %tobool50.not = icmp ne ptr %35, null
   %cond = zext i1 %tobool50.not to i32
-  %m_encoding51 = getelementptr inbounds %struct.XML_ParserStruct, ptr %parser, i64 0, i32 34
+  %m_encoding51 = getelementptr inbounds i8, ptr %parser, i64 288
   %36 = load ptr, ptr %m_encoding51, align 8
   %37 = load i8, ptr %finalBuffer53, align 4
   %tobool54.not = icmp eq i8 %37, 0
@@ -19595,9 +19557,9 @@ define internal i32 @externalEntityInitProcessor2(ptr noundef %parser, ptr nound
 entry:
   %next = alloca ptr, align 8
   store ptr %start, ptr %next, align 8
-  %m_encoding = getelementptr inbounds %struct.XML_ParserStruct, ptr %parser, i64 0, i32 34
+  %m_encoding = getelementptr inbounds i8, ptr %parser, i64 288
   %0 = load ptr, ptr %m_encoding, align 8
-  %arrayidx = getelementptr [4 x ptr], ptr %0, i64 0, i64 1
+  %arrayidx = getelementptr i8, ptr %0, i64 8
   %1 = load ptr, ptr %arrayidx, align 8
   %call = call i32 %1(ptr noundef %0, ptr noundef %start, ptr noundef %end, ptr noundef nonnull %next) #23
   switch i32 %call, label %sw.epilog [
@@ -19614,22 +19576,22 @@ sw.bb:                                            ; preds = %entry
 
 while.cond.i.i.i:                                 ; preds = %sw.bb, %while.cond.i.i.i
   %rootParser.0.i.i.i = phi ptr [ %3, %while.cond.i.i.i ], [ %parser, %sw.bb ]
-  %m_parentParser.i.i.i = getelementptr inbounds %struct.XML_ParserStruct, ptr %rootParser.0.i.i.i, i64 0, i32 84
+  %m_parentParser.i.i.i = getelementptr inbounds i8, ptr %rootParser.0.i.i.i, i64 896
   %3 = load ptr, ptr %m_parentParser.i.i.i, align 8
   %tobool.not.i.i.i = icmp eq ptr %3, null
   br i1 %tobool.not.i.i.i, label %getRootParserOf.exit.i.i, label %while.cond.i.i.i, !llvm.loop !31
 
 getRootParserOf.exit.i.i:                         ; preds = %while.cond.i.i.i
-  %debugLevel.i.i = getelementptr inbounds %struct.XML_ParserStruct, ptr %rootParser.0.i.i.i, i64 0, i32 90, i32 2
+  %debugLevel.i.i = getelementptr inbounds i8, ptr %rootParser.0.i.i.i, i64 944
   %4 = load i32, ptr %debugLevel.i.i, align 8
   %cmp.i.i = icmp slt i32 %4, 1
   br i1 %cmp.i.i, label %return, label %if.end.i.i
 
 if.end.i.i:                                       ; preds = %getRootParserOf.exit.i.i
-  %m_accounting.i.i = getelementptr inbounds %struct.XML_ParserStruct, ptr %rootParser.0.i.i.i, i64 0, i32 90
+  %m_accounting.i.i = getelementptr inbounds i8, ptr %rootParser.0.i.i.i, i64 928
   %5 = load i64, ptr %m_accounting.i.i, align 8
   %tobool.not.i5.i.i = icmp eq i64 %5, 0
-  %countBytesIndirect.phi.trans.insert.i.i = getelementptr inbounds %struct.XML_ParserStruct, ptr %rootParser.0.i.i.i, i64 0, i32 90, i32 1
+  %countBytesIndirect.phi.trans.insert.i.i = getelementptr inbounds i8, ptr %rootParser.0.i.i.i, i64 936
   %.pre.i.i = load i64, ptr %countBytesIndirect.phi.trans.insert.i.i, align 8
   br i1 %tobool.not.i5.i.i, label %accountingGetCurrentAmplification.exit.i.i, label %cond.true.i.i.i
 
@@ -19653,7 +19615,7 @@ if.end:                                           ; preds = %sw.bb
   br i1 %cmp, label %land.lhs.true, label %sw.epilog
 
 land.lhs.true:                                    ; preds = %if.end
-  %finalBuffer = getelementptr inbounds %struct.XML_ParserStruct, ptr %parser, i64 0, i32 85, i32 1
+  %finalBuffer = getelementptr inbounds i8, ptr %parser, i64 908
   %9 = load i8, ptr %finalBuffer, align 4
   %tobool3.not = icmp eq i8 %9, 0
   br i1 %tobool3.not, label %if.then4, label %sw.epilog
@@ -19663,7 +19625,7 @@ if.then4:                                         ; preds = %land.lhs.true
   br label %return
 
 sw.bb6:                                           ; preds = %entry
-  %finalBuffer8 = getelementptr inbounds %struct.XML_ParserStruct, ptr %parser, i64 0, i32 85, i32 1
+  %finalBuffer8 = getelementptr inbounds i8, ptr %parser, i64 908
   %10 = load i8, ptr %finalBuffer8, align 4
   %tobool9.not = icmp eq i8 %10, 0
   br i1 %tobool9.not, label %if.then10, label %if.end11
@@ -19673,12 +19635,12 @@ if.then10:                                        ; preds = %sw.bb6
   br label %return
 
 if.end11:                                         ; preds = %sw.bb6
-  %m_eventPtr = getelementptr inbounds %struct.XML_ParserStruct, ptr %parser, i64 0, i32 47
+  %m_eventPtr = getelementptr inbounds i8, ptr %parser, i64 544
   store ptr %start, ptr %m_eventPtr, align 8
   br label %return
 
 sw.bb12:                                          ; preds = %entry
-  %finalBuffer14 = getelementptr inbounds %struct.XML_ParserStruct, ptr %parser, i64 0, i32 85, i32 1
+  %finalBuffer14 = getelementptr inbounds i8, ptr %parser, i64 908
   %11 = load i8, ptr %finalBuffer14, align 4
   %tobool15.not = icmp eq i8 %11, 0
   br i1 %tobool15.not, label %if.then16, label %if.end17
@@ -19688,13 +19650,13 @@ if.then16:                                        ; preds = %sw.bb12
   br label %return
 
 if.end17:                                         ; preds = %sw.bb12
-  %m_eventPtr18 = getelementptr inbounds %struct.XML_ParserStruct, ptr %parser, i64 0, i32 47
+  %m_eventPtr18 = getelementptr inbounds i8, ptr %parser, i64 544
   store ptr %start, ptr %m_eventPtr18, align 8
   br label %return
 
 sw.epilog:                                        ; preds = %if.end, %land.lhs.true, %entry
   %start.addr.0 = phi ptr [ %start, %entry ], [ %end, %land.lhs.true ], [ %8, %if.end ]
-  %m_processor = getelementptr inbounds %struct.XML_ParserStruct, ptr %parser, i64 0, i32 45
+  %m_processor = getelementptr inbounds i8, ptr %parser, i64 528
   store ptr @externalEntityInitProcessor3, ptr %m_processor, align 8
   %call19 = call i32 @externalEntityInitProcessor3(ptr noundef nonnull %parser, ptr noundef %start.addr.0, ptr noundef %end, ptr noundef %endPtr)
   br label %return
@@ -19709,15 +19671,15 @@ define internal i32 @externalEntityInitProcessor3(ptr noundef %parser, ptr nound
 entry:
   %next = alloca ptr, align 8
   store ptr %start, ptr %next, align 8
-  %m_eventPtr = getelementptr inbounds %struct.XML_ParserStruct, ptr %parser, i64 0, i32 47
+  %m_eventPtr = getelementptr inbounds i8, ptr %parser, i64 544
   store ptr %start, ptr %m_eventPtr, align 8
-  %m_encoding = getelementptr inbounds %struct.XML_ParserStruct, ptr %parser, i64 0, i32 34
+  %m_encoding = getelementptr inbounds i8, ptr %parser, i64 288
   %0 = load ptr, ptr %m_encoding, align 8
-  %arrayidx = getelementptr [4 x ptr], ptr %0, i64 0, i64 1
+  %arrayidx = getelementptr i8, ptr %0, i64 8
   %1 = load ptr, ptr %arrayidx, align 8
   %call = call i32 %1(ptr noundef %0, ptr noundef %start, ptr noundef %end, ptr noundef nonnull %next) #23
   %2 = load ptr, ptr %next, align 8
-  %m_eventEndPtr = getelementptr inbounds %struct.XML_ParserStruct, ptr %parser, i64 0, i32 48
+  %m_eventEndPtr = getelementptr inbounds i8, ptr %parser, i64 552
   store ptr %2, ptr %m_eventEndPtr, align 8
   switch i32 %call, label %sw.epilog15 [
     i32 12, label %sw.bb
@@ -19731,7 +19693,7 @@ sw.bb:                                            ; preds = %entry
   br i1 %cmp.not, label %if.end, label %return
 
 if.end:                                           ; preds = %sw.bb
-  %m_parsingStatus = getelementptr inbounds %struct.XML_ParserStruct, ptr %parser, i64 0, i32 85
+  %m_parsingStatus = getelementptr inbounds i8, ptr %parser, i64 904
   %3 = load i32, ptr %m_parsingStatus, align 8
   switch i32 %3, label %sw.default [
     i32 3, label %sw.bb3
@@ -19748,7 +19710,7 @@ sw.default:                                       ; preds = %if.end
   br label %sw.epilog15
 
 sw.bb5:                                           ; preds = %entry
-  %finalBuffer = getelementptr inbounds %struct.XML_ParserStruct, ptr %parser, i64 0, i32 85, i32 1
+  %finalBuffer = getelementptr inbounds i8, ptr %parser, i64 908
   %6 = load i8, ptr %finalBuffer, align 4
   %tobool.not = icmp eq i8 %6, 0
   br i1 %tobool.not, label %if.then7, label %return
@@ -19758,7 +19720,7 @@ if.then7:                                         ; preds = %sw.bb5
   br label %return
 
 sw.bb9:                                           ; preds = %entry
-  %finalBuffer11 = getelementptr inbounds %struct.XML_ParserStruct, ptr %parser, i64 0, i32 85, i32 1
+  %finalBuffer11 = getelementptr inbounds i8, ptr %parser, i64 908
   %7 = load i8, ptr %finalBuffer11, align 4
   %tobool12.not = icmp eq i8 %7, 0
   br i1 %tobool12.not, label %if.then13, label %return
@@ -19769,9 +19731,9 @@ if.then13:                                        ; preds = %sw.bb9
 
 sw.epilog15:                                      ; preds = %sw.default, %entry
   %start.addr.0 = phi ptr [ %start, %entry ], [ %5, %sw.default ]
-  %m_processor = getelementptr inbounds %struct.XML_ParserStruct, ptr %parser, i64 0, i32 45
+  %m_processor = getelementptr inbounds i8, ptr %parser, i64 528
   store ptr @externalEntityContentProcessor, ptr %m_processor, align 8
-  %m_tagLevel = getelementptr inbounds %struct.XML_ParserStruct, ptr %parser, i64 0, i32 53
+  %m_tagLevel = getelementptr inbounds i8, ptr %parser, i64 588
   store i32 1, ptr %m_tagLevel, align 4
   %call16 = call i32 @externalEntityContentProcessor(ptr noundef nonnull %parser, ptr noundef %start.addr.0, ptr noundef %end, ptr noundef %endPtr)
   br label %return
@@ -19787,25 +19749,25 @@ entry:
   %next.i = alloca ptr, align 8
   %next = alloca ptr, align 8
   store ptr %s, ptr %next, align 8
-  %m_eventPtr = getelementptr inbounds %struct.XML_ParserStruct, ptr %parser, i64 0, i32 47
-  %m_encoding = getelementptr inbounds %struct.XML_ParserStruct, ptr %parser, i64 0, i32 34
+  %m_eventPtr = getelementptr inbounds i8, ptr %parser, i64 544
+  %m_encoding = getelementptr inbounds i8, ptr %parser, i64 288
   store ptr %s, ptr %m_eventPtr, align 8
   %0 = load ptr, ptr %m_encoding, align 8
   %1 = load ptr, ptr %0, align 8
   %call49 = call i32 %1(ptr noundef nonnull %0, ptr noundef %s, ptr noundef %end, ptr noundef nonnull %next) #23
   %2 = load ptr, ptr %next, align 8
-  %m_eventEndPtr = getelementptr inbounds %struct.XML_ParserStruct, ptr %parser, i64 0, i32 48
+  %m_eventEndPtr = getelementptr inbounds i8, ptr %parser, i64 552
   store ptr %2, ptr %m_eventEndPtr, align 8
   %cmp50 = icmp slt i32 %call49, 1
   br i1 %cmp50, label %if.then, label %if.else.lr.ph
 
 if.else.lr.ph:                                    ; preds = %entry
-  %finalBuffer26 = getelementptr inbounds %struct.XML_ParserStruct, ptr %parser, i64 0, i32 85, i32 1
+  %finalBuffer26 = getelementptr inbounds i8, ptr %parser, i64 908
   br label %if.else
 
 if.then:                                          ; preds = %if.end39, %entry
   %call.lcssa = phi i32 [ %call49, %entry ], [ %call, %if.end39 ]
-  %finalBuffer = getelementptr inbounds %struct.XML_ParserStruct, ptr %parser, i64 0, i32 85, i32 1
+  %finalBuffer = getelementptr inbounds i8, ptr %parser, i64 908
   %3 = load i8, ptr %finalBuffer, align 4
   %tobool = icmp eq i8 %3, 0
   %cmp2 = icmp ne i32 %call.lcssa, 0
@@ -19842,7 +19804,7 @@ if.then10:                                        ; preds = %if.else
   br i1 %cmp12.not, label %if.end14, label %return
 
 if.end14:                                         ; preds = %if.then10
-  %m_parsingStatus15 = getelementptr inbounds %struct.XML_ParserStruct, ptr %parser, i64 0, i32 85
+  %m_parsingStatus15 = getelementptr inbounds i8, ptr %parser, i64 904
   %7 = load i32, ptr %m_parsingStatus15, align 8
   %cmp16 = icmp eq i32 %7, 2
   br i1 %cmp16, label %return, label %if.end18
@@ -19850,7 +19812,7 @@ if.end14:                                         ; preds = %if.then10
 if.end18:                                         ; preds = %if.end14
   %8 = load ptr, ptr %next, align 8
   store ptr %8, ptr %nextPtr, align 8
-  %m_processor = getelementptr inbounds %struct.XML_ParserStruct, ptr %parser, i64 0, i32 45
+  %m_processor = getelementptr inbounds i8, ptr %parser, i64 528
   store ptr @entityValueProcessor, ptr %m_processor, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %next.i)
   store ptr %8, ptr %next.i, align 8
@@ -19913,22 +19875,22 @@ if.then28:                                        ; preds = %land.lhs.true24
 
 while.cond.i.i.i:                                 ; preds = %if.then28, %while.cond.i.i.i
   %rootParser.0.i.i.i = phi ptr [ %16, %while.cond.i.i.i ], [ %parser, %if.then28 ]
-  %m_parentParser.i.i.i = getelementptr inbounds %struct.XML_ParserStruct, ptr %rootParser.0.i.i.i, i64 0, i32 84
+  %m_parentParser.i.i.i = getelementptr inbounds i8, ptr %rootParser.0.i.i.i, i64 896
   %16 = load ptr, ptr %m_parentParser.i.i.i, align 8
   %tobool.not.i.i.i = icmp eq ptr %16, null
   br i1 %tobool.not.i.i.i, label %getRootParserOf.exit.i.i, label %while.cond.i.i.i, !llvm.loop !31
 
 getRootParserOf.exit.i.i:                         ; preds = %while.cond.i.i.i
-  %debugLevel.i.i = getelementptr inbounds %struct.XML_ParserStruct, ptr %rootParser.0.i.i.i, i64 0, i32 90, i32 2
+  %debugLevel.i.i = getelementptr inbounds i8, ptr %rootParser.0.i.i.i, i64 944
   %17 = load i32, ptr %debugLevel.i.i, align 8
   %cmp.i.i = icmp slt i32 %17, 1
   br i1 %cmp.i.i, label %return, label %if.end.i.i
 
 if.end.i.i:                                       ; preds = %getRootParserOf.exit.i.i
-  %m_accounting.i.i = getelementptr inbounds %struct.XML_ParserStruct, ptr %rootParser.0.i.i.i, i64 0, i32 90
+  %m_accounting.i.i = getelementptr inbounds i8, ptr %rootParser.0.i.i.i, i64 928
   %18 = load i64, ptr %m_accounting.i.i, align 8
   %tobool.not.i5.i.i = icmp eq i64 %18, 0
-  %countBytesIndirect.phi.trans.insert.i.i = getelementptr inbounds %struct.XML_ParserStruct, ptr %rootParser.0.i.i.i, i64 0, i32 90, i32 1
+  %countBytesIndirect.phi.trans.insert.i.i = getelementptr inbounds i8, ptr %rootParser.0.i.i.i, i64 936
   %.pre.i.i = load i64, ptr %countBytesIndirect.phi.trans.insert.i.i, align 8
   br i1 %tobool.not.i5.i.i, label %accountingGetCurrentAmplification.exit.i.i, label %cond.true.i.i.i
 
@@ -19979,7 +19941,7 @@ define internal i32 @externalParEntProcessor(ptr noundef %parser, ptr noundef %s
 entry:
   %next = alloca ptr, align 8
   store ptr %s, ptr %next, align 8
-  %m_encoding = getelementptr inbounds %struct.XML_ParserStruct, ptr %parser, i64 0, i32 34
+  %m_encoding = getelementptr inbounds i8, ptr %parser, i64 288
   %0 = load ptr, ptr %m_encoding, align 8
   %1 = load ptr, ptr %0, align 8
   %call = call i32 %1(ptr noundef nonnull %0, ptr noundef %s, ptr noundef %end, ptr noundef nonnull %next) #23
@@ -19987,7 +19949,7 @@ entry:
   br i1 %cmp, label %if.then, label %if.else
 
 if.then:                                          ; preds = %entry
-  %finalBuffer = getelementptr inbounds %struct.XML_ParserStruct, ptr %parser, i64 0, i32 85, i32 1
+  %finalBuffer = getelementptr inbounds i8, ptr %parser, i64 908
   %2 = load i8, ptr %finalBuffer, align 4
   %tobool = icmp eq i8 %2, 0
   %cmp2 = icmp ne i32 %call, 0
@@ -20015,22 +19977,22 @@ if.then8:                                         ; preds = %if.else
 
 while.cond.i.i.i:                                 ; preds = %if.then8, %while.cond.i.i.i
   %rootParser.0.i.i.i = phi ptr [ %5, %while.cond.i.i.i ], [ %parser, %if.then8 ]
-  %m_parentParser.i.i.i = getelementptr inbounds %struct.XML_ParserStruct, ptr %rootParser.0.i.i.i, i64 0, i32 84
+  %m_parentParser.i.i.i = getelementptr inbounds i8, ptr %rootParser.0.i.i.i, i64 896
   %5 = load ptr, ptr %m_parentParser.i.i.i, align 8
   %tobool.not.i.i.i = icmp eq ptr %5, null
   br i1 %tobool.not.i.i.i, label %getRootParserOf.exit.i.i, label %while.cond.i.i.i, !llvm.loop !31
 
 getRootParserOf.exit.i.i:                         ; preds = %while.cond.i.i.i
-  %debugLevel.i.i = getelementptr inbounds %struct.XML_ParserStruct, ptr %rootParser.0.i.i.i, i64 0, i32 90, i32 2
+  %debugLevel.i.i = getelementptr inbounds i8, ptr %rootParser.0.i.i.i, i64 944
   %6 = load i32, ptr %debugLevel.i.i, align 8
   %cmp.i.i = icmp slt i32 %6, 1
   br i1 %cmp.i.i, label %return, label %if.end.i.i
 
 if.end.i.i:                                       ; preds = %getRootParserOf.exit.i.i
-  %m_accounting.i.i = getelementptr inbounds %struct.XML_ParserStruct, ptr %rootParser.0.i.i.i, i64 0, i32 90
+  %m_accounting.i.i = getelementptr inbounds i8, ptr %rootParser.0.i.i.i, i64 928
   %7 = load i64, ptr %m_accounting.i.i, align 8
   %tobool.not.i5.i.i = icmp eq i64 %7, 0
-  %countBytesIndirect.phi.trans.insert.i.i = getelementptr inbounds %struct.XML_ParserStruct, ptr %rootParser.0.i.i.i, i64 0, i32 90, i32 1
+  %countBytesIndirect.phi.trans.insert.i.i = getelementptr inbounds i8, ptr %rootParser.0.i.i.i, i64 936
   %.pre.i.i = load i64, ptr %countBytesIndirect.phi.trans.insert.i.i, align 8
   br i1 %tobool.not.i5.i.i, label %accountingGetCurrentAmplification.exit.i.i, label %cond.true.i.i.i
 
@@ -20058,11 +20020,11 @@ if.end12:                                         ; preds = %if.then8
 if.end19:                                         ; preds = %if.end, %if.else, %if.end12
   %s.addr.0 = phi ptr [ %s, %if.end ], [ %10, %if.end12 ], [ %s, %if.else ]
   %tok.0 = phi i32 [ %call, %if.end ], [ %call17, %if.end12 ], [ %call, %if.else ]
-  %m_processor = getelementptr inbounds %struct.XML_ParserStruct, ptr %parser, i64 0, i32 45
+  %m_processor = getelementptr inbounds i8, ptr %parser, i64 528
   store ptr @prologProcessor, ptr %m_processor, align 8
   %13 = load ptr, ptr %m_encoding, align 8
   %14 = load ptr, ptr %next, align 8
-  %finalBuffer22 = getelementptr inbounds %struct.XML_ParserStruct, ptr %parser, i64 0, i32 85, i32 1
+  %finalBuffer22 = getelementptr inbounds i8, ptr %parser, i64 908
   %15 = load i8, ptr %finalBuffer22, align 4
   %tobool23.not = icmp eq i8 %15, 0
   %conv = zext i1 %tobool23.not to i8
@@ -20083,7 +20045,7 @@ define internal i32 @entityValueProcessor(ptr noundef %parser, ptr noundef %s, p
 entry:
   %next = alloca ptr, align 8
   store ptr %s, ptr %next, align 8
-  %m_encoding = getelementptr inbounds %struct.XML_ParserStruct, ptr %parser, i64 0, i32 34
+  %m_encoding = getelementptr inbounds i8, ptr %parser, i64 288
   %0 = load ptr, ptr %m_encoding, align 8
   %1 = load ptr, ptr %0, align 8
   %call11 = call i32 %1(ptr noundef nonnull %0, ptr noundef %s, ptr noundef %end, ptr noundef nonnull %next) #23
@@ -20092,7 +20054,7 @@ entry:
 
 if.then:                                          ; preds = %if.end7, %entry
   %call.lcssa = phi i32 [ %call11, %entry ], [ %call, %if.end7 ]
-  %finalBuffer = getelementptr inbounds %struct.XML_ParserStruct, ptr %parser, i64 0, i32 85, i32 1
+  %finalBuffer = getelementptr inbounds i8, ptr %parser, i64 908
   %2 = load i8, ptr %finalBuffer, align 4
   %tobool = icmp eq i8 %2, 0
   %cmp1 = icmp ne i32 %call.lcssa, 0
@@ -20136,16 +20098,16 @@ entry:
   br i1 %tobool.not.i, label %hashTableIterInit.exit, label %cond.true.i
 
 cond.true.i:                                      ; preds = %entry
-  %size.i = getelementptr inbounds %struct.HASH_TABLE, ptr %oldTable, i64 0, i32 2
+  %size.i = getelementptr inbounds i8, ptr %oldTable, i64 16
   %1 = load i64, ptr %size.i, align 8
   %add.ptr.i = getelementptr ptr, ptr %0, i64 %1
   br label %hashTableIterInit.exit
 
 hashTableIterInit.exit:                           ; preds = %entry, %cond.true.i
   %cond.i = phi ptr [ %add.ptr.i, %cond.true.i ], [ null, %entry ]
-  %ptr.i = getelementptr inbounds %struct.STRING_POOL, ptr %newPool, i64 0, i32 3
-  %end.i44 = getelementptr inbounds %struct.STRING_POOL, ptr %newPool, i64 0, i32 2
-  %start.i = getelementptr inbounds %struct.STRING_POOL, ptr %newPool, i64 0, i32 4
+  %ptr.i = getelementptr inbounds i8, ptr %newPool, i64 24
+  %end.i44 = getelementptr inbounds i8, ptr %newPool, i64 16
+  %start.i = getelementptr inbounds i8, ptr %newPool, i64 32
   br label %for.cond
 
 for.cond:                                         ; preds = %if.end59, %hashTableIterInit.exit
@@ -20160,7 +20122,7 @@ while.cond.i:                                     ; preds = %while.body.i, %for.
   br i1 %cmp.not.i, label %return, label %while.body.i
 
 while.body.i:                                     ; preds = %while.cond.i
-  %incdec.ptr.i = getelementptr ptr, ptr %incdec.ptr5.i, i64 1
+  %incdec.ptr.i = getelementptr i8, ptr %incdec.ptr5.i, i64 8
   %2 = load ptr, ptr %incdec.ptr5.i, align 8
   %tobool.not.i43 = icmp eq ptr %2, null
   br i1 %tobool.not.i43, label %while.cond.i, label %if.end, !llvm.loop !9
@@ -20209,7 +20171,7 @@ if.end5:                                          ; preds = %poolCopyString.exit
   br i1 %tobool7.not, label %return, label %if.end9
 
 if.end9:                                          ; preds = %if.end5
-  %systemId = getelementptr inbounds %struct.ENTITY, ptr %2, i64 0, i32 4
+  %systemId = getelementptr inbounds i8, ptr %2, i64 24
   %11 = load ptr, ptr %systemId, align 8
   %tobool10.not = icmp eq ptr %11, null
   br i1 %tobool10.not, label %if.else40, label %do.body.i50
@@ -20249,9 +20211,9 @@ poolCopyString.exit65:                            ; preds = %cond.false.i53
   br i1 %tobool14.not, label %return, label %if.end16
 
 if.end16:                                         ; preds = %poolCopyString.exit65
-  %systemId17 = getelementptr inbounds %struct.ENTITY, ptr %call6, i64 0, i32 4
+  %systemId17 = getelementptr inbounds i8, ptr %call6, i64 24
   store ptr %17, ptr %systemId17, align 8
-  %base = getelementptr inbounds %struct.ENTITY, ptr %2, i64 0, i32 5
+  %base = getelementptr inbounds i8, ptr %2, i64 32
   %19 = load ptr, ptr %base, align 8
   %tobool18.not = icmp eq ptr %19, null
   br i1 %tobool18.not, label %if.end30, label %if.then19
@@ -20297,14 +20259,14 @@ poolCopyString.exit83:                            ; preds = %cond.false.i71
 if.end30.sink.split:                              ; preds = %poolCopyString.exit83, %if.then19
   %cachedNewBase.0.sink = phi ptr [ %cachedNewBase.0, %if.then19 ], [ %25, %poolCopyString.exit83 ]
   %cachedOldBase.1.ph = phi ptr [ %cachedOldBase.0, %if.then19 ], [ %19, %poolCopyString.exit83 ]
-  %base22 = getelementptr inbounds %struct.ENTITY, ptr %call6, i64 0, i32 5
+  %base22 = getelementptr inbounds i8, ptr %call6, i64 32
   store ptr %cachedNewBase.0.sink, ptr %base22, align 8
   br label %if.end30
 
 if.end30:                                         ; preds = %if.end30.sink.split, %if.end16
   %cachedNewBase.1 = phi ptr [ %cachedNewBase.0, %if.end16 ], [ %cachedNewBase.0.sink, %if.end30.sink.split ]
   %cachedOldBase.1 = phi ptr [ %cachedOldBase.0, %if.end16 ], [ %cachedOldBase.1.ph, %if.end30.sink.split ]
-  %publicId = getelementptr inbounds %struct.ENTITY, ptr %2, i64 0, i32 6
+  %publicId = getelementptr inbounds i8, ptr %2, i64 40
   %27 = load ptr, ptr %publicId, align 8
   %tobool31.not = icmp eq ptr %27, null
   br i1 %tobool31.not, label %if.end49, label %do.body.i86
@@ -20344,14 +20306,14 @@ poolCopyString.exit101:                           ; preds = %cond.false.i89
   br i1 %tobool35.not, label %return, label %if.end37
 
 if.end37:                                         ; preds = %poolCopyString.exit101
-  %publicId38 = getelementptr inbounds %struct.ENTITY, ptr %call6, i64 0, i32 6
+  %publicId38 = getelementptr inbounds i8, ptr %call6, i64 40
   store ptr %33, ptr %publicId38, align 8
   br label %if.end49
 
 if.else40:                                        ; preds = %if.end9
-  %textPtr = getelementptr inbounds %struct.ENTITY, ptr %2, i64 0, i32 1
+  %textPtr = getelementptr inbounds i8, ptr %2, i64 8
   %35 = load ptr, ptr %textPtr, align 8
-  %textLen = getelementptr inbounds %struct.ENTITY, ptr %2, i64 0, i32 2
+  %textLen = getelementptr inbounds i8, ptr %2, i64 16
   %36 = load i32, ptr %textLen, align 8
   %37 = load ptr, ptr %ptr.i, align 8
   %tobool.not.i103 = icmp eq ptr %37, null
@@ -20402,17 +20364,17 @@ poolCopyStringN.exit:                             ; preds = %cond.false.i107, %i
   br i1 %tobool43.not, label %return, label %if.end45
 
 if.end45:                                         ; preds = %poolCopyStringN.exit
-  %textPtr46 = getelementptr inbounds %struct.ENTITY, ptr %call6, i64 0, i32 1
+  %textPtr46 = getelementptr inbounds i8, ptr %call6, i64 8
   store ptr %42, ptr %textPtr46, align 8
   %44 = load i32, ptr %textLen, align 8
-  %textLen48 = getelementptr inbounds %struct.ENTITY, ptr %call6, i64 0, i32 2
+  %textLen48 = getelementptr inbounds i8, ptr %call6, i64 16
   store i32 %44, ptr %textLen48, align 8
   br label %if.end49
 
 if.end49:                                         ; preds = %if.end30, %if.end37, %if.end45
   %cachedNewBase.2 = phi ptr [ %cachedNewBase.1, %if.end37 ], [ %cachedNewBase.1, %if.end30 ], [ %cachedNewBase.0, %if.end45 ]
   %cachedOldBase.2 = phi ptr [ %cachedOldBase.1, %if.end37 ], [ %cachedOldBase.1, %if.end30 ], [ %cachedOldBase.0, %if.end45 ]
-  %notation = getelementptr inbounds %struct.ENTITY, ptr %2, i64 0, i32 7
+  %notation = getelementptr inbounds i8, ptr %2, i64 48
   %45 = load ptr, ptr %notation, align 8
   %tobool50.not = icmp eq ptr %45, null
   br i1 %tobool50.not, label %if.end59, label %do.body.i115
@@ -20452,18 +20414,18 @@ poolCopyString.exit130:                           ; preds = %cond.false.i118
   br i1 %tobool55.not, label %return, label %if.end57
 
 if.end57:                                         ; preds = %poolCopyString.exit130
-  %notation58 = getelementptr inbounds %struct.ENTITY, ptr %call6, i64 0, i32 7
+  %notation58 = getelementptr inbounds i8, ptr %call6, i64 48
   store ptr %51, ptr %notation58, align 8
   br label %if.end59
 
 if.end59:                                         ; preds = %if.end57, %if.end49
-  %is_param = getelementptr inbounds %struct.ENTITY, ptr %2, i64 0, i32 9
+  %is_param = getelementptr inbounds i8, ptr %2, i64 57
   %53 = load i8, ptr %is_param, align 1
-  %is_param60 = getelementptr inbounds %struct.ENTITY, ptr %call6, i64 0, i32 9
+  %is_param60 = getelementptr inbounds i8, ptr %call6, i64 57
   store i8 %53, ptr %is_param60, align 1
-  %is_internal = getelementptr inbounds %struct.ENTITY, ptr %2, i64 0, i32 10
+  %is_internal = getelementptr inbounds i8, ptr %2, i64 58
   %54 = load i8, ptr %is_internal, align 2
-  %is_internal61 = getelementptr inbounds %struct.ENTITY, ptr %call6, i64 0, i32 10
+  %is_internal61 = getelementptr inbounds i8, ptr %call6, i64 58
   store i8 %54, ptr %is_internal61, align 2
   br label %for.cond
 

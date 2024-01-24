@@ -4,12 +4,6 @@ target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:
 target triple = "x86_64-unknown-linux-gnu"
 
 %struct.TypeInfo = type { ptr, ptr, i64, i64, ptr, ptr, ptr, i8, i64, ptr, ptr, ptr, ptr }
-%struct.ChardevClass = type { %struct.ObjectClass, i8, i8, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr }
-%struct.ObjectClass = type { ptr, ptr, [4 x ptr], [4 x ptr], ptr, ptr }
-%struct.ChardevBackend = type { i32, %union.anon }
-%union.anon = type { %struct.ChardevFileWrapper }
-%struct.ChardevFileWrapper = type { ptr }
-%struct.ChardevFile = type { ptr, i8, i8, ptr, ptr, i8, i8 }
 
 @char_file_type_info = internal constant %struct.TypeInfo { ptr @.str, ptr @.str.1, i64 0, i64 0, ptr null, ptr null, ptr null, i8 0, i64 0, ptr @char_file_class_init, ptr null, ptr null, ptr null }, align 8
 @.str = private unnamed_addr constant [13 x i8] c"chardev-file\00", align 1
@@ -47,9 +41,9 @@ declare ptr @type_register_static(ptr noundef) local_unnamed_addr #1
 define internal void @char_file_class_init(ptr noundef %oc, ptr nocapture readnone %data) #0 {
 entry:
   %call.i = tail call ptr @object_class_dynamic_cast_assert(ptr noundef %oc, ptr noundef nonnull @.str.2, ptr noundef nonnull @.str.3, i32 noundef 231, ptr noundef nonnull @__func__.CHARDEV_CLASS) #3
-  %parse = getelementptr inbounds %struct.ChardevClass, ptr %call.i, i64 0, i32 3
+  %parse = getelementptr inbounds i8, ptr %call.i, i64 104
   store ptr @qemu_chr_parse_file_out, ptr %parse, align 8
-  %open = getelementptr inbounds %struct.ChardevClass, ptr %call.i, i64 0, i32 4
+  %open = getelementptr inbounds i8, ptr %call.i, i64 112
   store ptr @qmp_chardev_open_file, ptr %open, align 8
   ret void
 }
@@ -69,19 +63,19 @@ if.then:                                          ; preds = %entry
 
 if.end:                                           ; preds = %entry
   %call2 = tail call noalias dereferenceable_or_null(40) ptr @g_malloc0_n(i64 noundef 1, i64 noundef 40) #4
-  %u = getelementptr inbounds %struct.ChardevBackend, ptr %backend, i64 0, i32 1
+  %u = getelementptr inbounds i8, ptr %backend, i64 8
   store ptr %call2, ptr %u, align 8
   tail call void @qemu_chr_parse_common(ptr noundef %opts, ptr noundef %call2) #3
   %call4 = tail call noalias ptr @g_strdup(ptr noundef nonnull %call) #3
-  %out = getelementptr inbounds %struct.ChardevFile, ptr %call2, i64 0, i32 4
+  %out = getelementptr inbounds i8, ptr %call2, i64 24
   store ptr %call4, ptr %out, align 8
   %call5 = tail call noalias ptr @g_strdup(ptr noundef %call1) #3
-  %in = getelementptr inbounds %struct.ChardevFile, ptr %call2, i64 0, i32 3
+  %in = getelementptr inbounds i8, ptr %call2, i64 16
   store ptr %call5, ptr %in, align 8
-  %has_append = getelementptr inbounds %struct.ChardevFile, ptr %call2, i64 0, i32 5
+  %has_append = getelementptr inbounds i8, ptr %call2, i64 32
   store i8 1, ptr %has_append, align 8
   %call6 = tail call zeroext i1 @qemu_opt_get_bool(ptr noundef %opts, ptr noundef nonnull @.str.8, i1 noundef zeroext false) #3
-  %append = getelementptr inbounds %struct.ChardevFile, ptr %call2, i64 0, i32 6
+  %append = getelementptr inbounds i8, ptr %call2, i64 33
   %frombool = zext i1 %call6 to i8
   store i8 %frombool, ptr %append, align 1
   br label %return
@@ -93,16 +87,16 @@ return:                                           ; preds = %if.end, %if.then
 ; Function Attrs: nounwind sspstrong uwtable
 define internal void @qmp_chardev_open_file(ptr noundef %chr, ptr nocapture noundef readonly %backend, ptr nocapture readnone %be_opened, ptr noundef %errp) #0 {
 entry:
-  %u = getelementptr inbounds %struct.ChardevBackend, ptr %backend, i64 0, i32 1
+  %u = getelementptr inbounds i8, ptr %backend, i64 8
   %0 = load ptr, ptr %u, align 8
-  %has_append = getelementptr inbounds %struct.ChardevFile, ptr %0, i64 0, i32 5
+  %has_append = getelementptr inbounds i8, ptr %0, i64 32
   %1 = load i8, ptr %has_append, align 8
   %2 = and i8 %1, 1
   %tobool.not = icmp eq i8 %2, 0
   br i1 %tobool.not, label %if.else, label %land.lhs.true
 
 land.lhs.true:                                    ; preds = %entry
-  %append = getelementptr inbounds %struct.ChardevFile, ptr %0, i64 0, i32 6
+  %append = getelementptr inbounds i8, ptr %0, i64 33
   %3 = load i8, ptr %append, align 1
   %4 = and i8 %3, 1
   %tobool1.not = icmp eq i8 %4, 0
@@ -113,14 +107,14 @@ if.else:                                          ; preds = %land.lhs.true, %ent
 
 if.end:                                           ; preds = %land.lhs.true, %if.else
   %flags.0 = phi i32 [ 577, %if.else ], [ 1089, %land.lhs.true ]
-  %out3 = getelementptr inbounds %struct.ChardevFile, ptr %0, i64 0, i32 4
+  %out3 = getelementptr inbounds i8, ptr %0, i64 24
   %5 = load ptr, ptr %out3, align 8
   %call = tail call i32 @qmp_chardev_open_file_source(ptr noundef %5, i32 noundef %flags.0, ptr noundef %errp) #3
   %cmp = icmp slt i32 %call, 0
   br i1 %cmp, label %return, label %if.end5
 
 if.end5:                                          ; preds = %if.end
-  %in6 = getelementptr inbounds %struct.ChardevFile, ptr %0, i64 0, i32 3
+  %in6 = getelementptr inbounds i8, ptr %0, i64 16
   %6 = load ptr, ptr %in6, align 8
   %tobool7.not = icmp eq ptr %6, null
   br i1 %tobool7.not, label %if.end15, label %if.then8

@@ -5,17 +5,9 @@ target triple = "x86_64-unknown-linux-gnu"
 
 %struct.strbuf = type { i64, i64, ptr }
 %struct.trace_key = type { ptr, i32, i8 }
-%struct.repository = type { ptr, ptr, ptr, ptr, ptr, %struct.repo_path_cache, ptr, ptr, ptr, ptr, %struct.repo_settings, ptr, ptr, ptr, ptr, ptr, i32, i32, i32, ptr, ptr, i32, i8 }
-%struct.repo_path_cache = type { ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr }
-%struct.repo_settings = type { i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, ptr, i32, i32, i32, i32, i32, i32 }
-%struct.parsed_object_pool = type { ptr, i32, i32, ptr, ptr, ptr, ptr, ptr, ptr, i32, i32, i32, ptr, ptr, i32, i32, ptr }
 %struct.object_id = type { [32 x i8], i32 }
-%struct.commit_graft = type { %struct.object_id, i32, [0 x %struct.object_id] }
-%struct.commit = type { %struct.object, i64, ptr, ptr, i32 }
-%struct.object = type { i32, %struct.object_id }
 %struct.object_array = type { i32, i32, ptr }
 %struct.object_array_entry = type { ptr, ptr, ptr, i32 }
-%struct.commit_list = type { ptr, ptr }
 %struct.rev_info = type { ptr, %struct.object_array, ptr, %struct.object_array, %struct.rev_cmdline_info, %struct.list_objects_filter_options, %struct.ref_exclusions, ptr, ptr, %struct.pathspec, i32, i32, i32, i32, i64, i32, i24, %struct.date_mode, i32, i32, i32, i32, ptr, i32, i32, ptr, ptr, i32, ptr, ptr, %struct.ident_split, ptr, i32, ptr, ptr, ptr, i32, i32, i32, ptr, %struct.grep_opt, ptr, i32, i32, i64, i64, i64, i32, i32, ptr, ptr, ptr, %struct.diff_options, %struct.diff_options, ptr, %struct.decoration, %struct.decoration, %struct.decoration, %struct.display_notes_opt, ptr, ptr, ptr, ptr, ptr, i32, ptr, i32, i32, i32, %struct.decoration, ptr, ptr, ptr, ptr, ptr, ptr, ptr, i32, ptr, i32, ptr, %struct.oidset }
 %struct.rev_cmdline_info = type { i32, i32, ptr }
 %struct.list_objects_filter_options = type { %struct.strbuf, i32, i8, ptr, i64, i64, i32, i64, i64, ptr }
@@ -33,12 +25,8 @@ target triple = "x86_64-unknown-linux-gnu"
 %struct.oidset = type { %struct.kh_oid_set }
 %struct.kh_oid_set = type { i32, i32, i32, i32, ptr, ptr, ptr }
 %struct.write_shallow_data = type { ptr, i32, i32, i32 }
-%struct.oid_array = type { ptr, i64, i64, i32 }
-%struct.tempfile = type { %struct.volatile_list_head, i32, ptr, i32, %struct.strbuf, ptr }
-%struct.volatile_list_head = type { ptr, ptr }
 %struct.shallow_lock = type { %struct.lock_file }
 %struct.lock_file = type { ptr }
-%struct.shallow_info = type { ptr, ptr, i32, ptr, i32, ptr, ptr, ptr, ptr, ptr, ptr, i32 }
 %struct.commit_array = type { ptr, i32, i32 }
 
 @.str = private unnamed_addr constant [10 x i8] c"shallow.c\00", align 1
@@ -72,9 +60,9 @@ target triple = "x86_64-unknown-linux-gnu"
 ; Function Attrs: nounwind uwtable
 define dso_local void @set_alternate_shallow_file(ptr nocapture noundef readonly %r, ptr noundef %path, i32 noundef %override) local_unnamed_addr #0 {
 entry:
-  %parsed_objects = getelementptr inbounds %struct.repository, ptr %r, i64 0, i32 3
+  %parsed_objects = getelementptr inbounds i8, ptr %r, i64 24
   %0 = load ptr, ptr %parsed_objects, align 8
-  %is_shallow = getelementptr inbounds %struct.parsed_object_pool, ptr %0, i64 0, i32 11
+  %is_shallow = getelementptr inbounds i8, ptr %0, i64 72
   %1 = load i32, ptr %is_shallow, align 8
   %cmp.not = icmp eq i32 %1, -1
   br i1 %cmp.not, label %if.end, label %if.then
@@ -84,7 +72,7 @@ if.then:                                          ; preds = %entry
   unreachable
 
 if.end:                                           ; preds = %entry
-  %alternate_shallow_file = getelementptr inbounds %struct.parsed_object_pool, ptr %0, i64 0, i32 13
+  %alternate_shallow_file = getelementptr inbounds i8, ptr %0, i64 88
   %2 = load ptr, ptr %alternate_shallow_file, align 8
   %tobool = icmp eq ptr %2, null
   %tobool2 = icmp ne i32 %override, 0
@@ -103,7 +91,7 @@ cond.true.i:                                      ; preds = %if.end4
 xstrdup_or_null.exit:                             ; preds = %if.end4, %cond.true.i
   %cond.i = phi ptr [ %call.i, %cond.true.i ], [ null, %if.end4 ]
   %3 = load ptr, ptr %parsed_objects, align 8
-  %alternate_shallow_file8 = getelementptr inbounds %struct.parsed_object_pool, ptr %3, i64 0, i32 13
+  %alternate_shallow_file8 = getelementptr inbounds i8, ptr %3, i64 88
   store ptr %cond.i, ptr %alternate_shallow_file8, align 8
   br label %return
 
@@ -123,11 +111,11 @@ entry:
   %call = tail call ptr @xmalloc(i64 noundef 40) #12
   %call1 = tail call ptr @lookup_commit(ptr noundef %r, ptr noundef %oid) #12
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(32) %call, ptr noundef nonnull align 4 dereferenceable(32) %oid, i64 32, i1 false)
-  %algo.i = getelementptr inbounds %struct.object_id, ptr %oid, i64 0, i32 1
+  %algo.i = getelementptr inbounds i8, ptr %oid, i64 32
   %0 = load i32, ptr %algo.i, align 4
-  %algo3.i = getelementptr inbounds %struct.object_id, ptr %call, i64 0, i32 1
+  %algo3.i = getelementptr inbounds i8, ptr %call, i64 32
   store i32 %0, ptr %algo3.i, align 4
-  %nr_parent = getelementptr inbounds %struct.commit_graft, ptr %call, i64 0, i32 1
+  %nr_parent = getelementptr inbounds i8, ptr %call, i64 36
   store i32 -1, ptr %nr_parent, align 4
   %tobool.not = icmp eq ptr %call1, null
   br i1 %tobool.not, label %if.end, label %land.lhs.true
@@ -139,7 +127,7 @@ land.lhs.true:                                    ; preds = %entry
   br i1 %tobool3.not, label %if.end, label %if.then
 
 if.then:                                          ; preds = %land.lhs.true
-  %parents = getelementptr inbounds %struct.commit, ptr %call1, i64 0, i32 2
+  %parents = getelementptr inbounds i8, ptr %call1, i64 48
   %1 = load ptr, ptr %parents, align 8
   tail call void @free_commit_list(ptr noundef %1) #12
   store ptr null, ptr %parents, align 8
@@ -169,19 +157,19 @@ entry:
 if.end:                                           ; preds = %entry
   %add = add nuw nsw i32 %call, 1
   %1 = load ptr, ptr @the_repository, align 8
-  %parsed_objects = getelementptr inbounds %struct.repository, ptr %1, i64 0, i32 3
+  %parsed_objects = getelementptr inbounds i8, ptr %1, i64 24
   %2 = load ptr, ptr %parsed_objects, align 8
-  %grafts_nr = getelementptr inbounds %struct.parsed_object_pool, ptr %2, i64 0, i32 10
+  %grafts_nr = getelementptr inbounds i8, ptr %2, i64 68
   %3 = load i32, ptr %grafts_nr, align 4
   %cmp1 = icmp slt i32 %add, %3
   br i1 %cmp1, label %if.then2, label %if.end12
 
 if.then2:                                         ; preds = %if.end
-  %grafts = getelementptr inbounds %struct.parsed_object_pool, ptr %2, i64 0, i32 8
+  %grafts = getelementptr inbounds i8, ptr %2, i64 56
   %4 = load ptr, ptr %grafts, align 8
   %idx.ext = zext nneg i32 %call to i64
   %add.ptr = getelementptr inbounds ptr, ptr %4, i64 %idx.ext
-  %add.ptr8 = getelementptr inbounds ptr, ptr %add.ptr, i64 1
+  %add.ptr8 = getelementptr inbounds i8, ptr %add.ptr, i64 8
   %5 = xor i32 %call, -1
   %sub11 = add nsw i32 %3, %5
   %conv = sext i32 %sub11 to i64
@@ -200,16 +188,16 @@ st_mult.exit.i:                                   ; preds = %if.then.i
   %mul.i.i = shl nuw nsw i64 %conv, 3
   tail call void @llvm.memmove.p0.p0.i64(ptr align 1 %add.ptr, ptr nonnull align 1 %add.ptr8, i64 %mul.i.i, i1 false)
   %.pre = load ptr, ptr @the_repository, align 8
-  %parsed_objects13.phi.trans.insert = getelementptr inbounds %struct.repository, ptr %.pre, i64 0, i32 3
+  %parsed_objects13.phi.trans.insert = getelementptr inbounds i8, ptr %.pre, i64 24
   %.pre5 = load ptr, ptr %parsed_objects13.phi.trans.insert, align 8
-  %grafts_nr14.phi.trans.insert = getelementptr inbounds %struct.parsed_object_pool, ptr %.pre5, i64 0, i32 10
+  %grafts_nr14.phi.trans.insert = getelementptr inbounds i8, ptr %.pre5, i64 68
   %.pre6 = load i32, ptr %grafts_nr14.phi.trans.insert, align 4
   br label %if.end12
 
 if.end12:                                         ; preds = %st_mult.exit.i, %if.then2, %if.end
   %6 = phi i32 [ %.pre6, %st_mult.exit.i ], [ %3, %if.then2 ], [ %3, %if.end ]
   %7 = phi ptr [ %.pre5, %st_mult.exit.i ], [ %2, %if.then2 ], [ %2, %if.end ]
-  %grafts_nr14 = getelementptr inbounds %struct.parsed_object_pool, ptr %7, i64 0, i32 10
+  %grafts_nr14 = getelementptr inbounds i8, ptr %7, i64 68
   %dec = add nsw i32 %6, -1
   store i32 %dec, ptr %grafts_nr14, align 4
   br label %return
@@ -226,15 +214,15 @@ define dso_local i32 @is_repository_shallow(ptr noundef %r) local_unnamed_addr #
 entry:
   %buf = alloca [1024 x i8], align 16
   %oid = alloca %struct.object_id, align 4
-  %parsed_objects = getelementptr inbounds %struct.repository, ptr %r, i64 0, i32 3
+  %parsed_objects = getelementptr inbounds i8, ptr %r, i64 24
   %0 = load ptr, ptr %parsed_objects, align 8
-  %is_shallow = getelementptr inbounds %struct.parsed_object_pool, ptr %0, i64 0, i32 11
+  %is_shallow = getelementptr inbounds i8, ptr %0, i64 72
   %1 = load i32, ptr %is_shallow, align 8
   %cmp = icmp sgt i32 %1, -1
   br i1 %cmp, label %return, label %if.end
 
 if.end:                                           ; preds = %entry
-  %alternate_shallow_file = getelementptr inbounds %struct.parsed_object_pool, ptr %0, i64 0, i32 13
+  %alternate_shallow_file = getelementptr inbounds i8, ptr %0, i64 88
   %2 = load ptr, ptr %alternate_shallow_file, align 8
   %tobool.not = icmp eq ptr %2, null
   br i1 %tobool.not, label %if.then4, label %if.end5
@@ -261,28 +249,28 @@ lor.lhs.false:                                    ; preds = %if.end5
 
 if.then9:                                         ; preds = %if.end5.if.then9_crit_edge, %lor.lhs.false
   %4 = phi ptr [ %.pre, %if.end5.if.then9_crit_edge ], [ %.pre18, %lor.lhs.false ]
-  %shallow_stat = getelementptr inbounds %struct.parsed_object_pool, ptr %4, i64 0, i32 12
+  %shallow_stat = getelementptr inbounds i8, ptr %4, i64 80
   %5 = load ptr, ptr %shallow_stat, align 8
   tail call void @stat_validity_clear(ptr noundef %5) #12
   %6 = load ptr, ptr %parsed_objects, align 8
-  %is_shallow12 = getelementptr inbounds %struct.parsed_object_pool, ptr %6, i64 0, i32 11
+  %is_shallow12 = getelementptr inbounds i8, ptr %6, i64 72
   store i32 0, ptr %is_shallow12, align 8
   br label %return.sink.split
 
 if.end15:                                         ; preds = %lor.lhs.false
-  %shallow_stat17 = getelementptr inbounds %struct.parsed_object_pool, ptr %.pre18, i64 0, i32 12
+  %shallow_stat17 = getelementptr inbounds i8, ptr %.pre18, i64 80
   %7 = load ptr, ptr %shallow_stat17, align 8
   %call18 = tail call i32 @fileno(ptr noundef nonnull %call7) #12
   tail call void @stat_validity_update(ptr noundef %7, i32 noundef %call18) #12
   %8 = load ptr, ptr %parsed_objects, align 8
-  %is_shallow20 = getelementptr inbounds %struct.parsed_object_pool, ptr %8, i64 0, i32 11
+  %is_shallow20 = getelementptr inbounds i8, ptr %8, i64 72
   store i32 1, ptr %is_shallow20, align 8
   %call2116 = call ptr @fgets(ptr noundef nonnull %buf, i32 noundef 1024, ptr noundef nonnull %call7)
   %tobool22.not17 = icmp eq ptr %call2116, null
   br i1 %tobool22.not17, label %while.end, label %while.body.lr.ph
 
 while.body.lr.ph:                                 ; preds = %if.end15
-  %algo.i.i = getelementptr inbounds %struct.object_id, ptr %oid, i64 0, i32 1
+  %algo.i.i = getelementptr inbounds i8, ptr %oid, i64 32
   br label %while.body
 
 while.body:                                       ; preds = %while.body.lr.ph, %register_shallow.exit
@@ -299,9 +287,9 @@ if.end28:                                         ; preds = %while.body
   %call1.i = call ptr @lookup_commit(ptr noundef %r, ptr noundef nonnull %oid) #12
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(32) %call.i, ptr noundef nonnull align 4 dereferenceable(32) %oid, i64 32, i1 false)
   %9 = load i32, ptr %algo.i.i, align 4
-  %algo3.i.i = getelementptr inbounds %struct.object_id, ptr %call.i, i64 0, i32 1
+  %algo3.i.i = getelementptr inbounds i8, ptr %call.i, i64 32
   store i32 %9, ptr %algo3.i.i, align 4
-  %nr_parent.i = getelementptr inbounds %struct.commit_graft, ptr %call.i, i64 0, i32 1
+  %nr_parent.i = getelementptr inbounds i8, ptr %call.i, i64 36
   store i32 -1, ptr %nr_parent.i, align 4
   %tobool.not.i = icmp eq ptr %call1.i, null
   br i1 %tobool.not.i, label %register_shallow.exit, label %land.lhs.true.i
@@ -313,7 +301,7 @@ land.lhs.true.i:                                  ; preds = %if.end28
   br i1 %tobool3.not.i, label %register_shallow.exit, label %if.then.i
 
 if.then.i:                                        ; preds = %land.lhs.true.i
-  %parents.i = getelementptr inbounds %struct.commit, ptr %call1.i, i64 0, i32 2
+  %parents.i = getelementptr inbounds i8, ptr %call1.i, i64 48
   %10 = load ptr, ptr %parents.i, align 8
   call void @free_commit_list(ptr noundef %10) #12
   store ptr null, ptr %parents.i, align 8
@@ -331,7 +319,7 @@ while.end:                                        ; preds = %register_shallow.ex
 
 return.sink.split:                                ; preds = %if.then9, %while.end
   %11 = load ptr, ptr %parsed_objects, align 8
-  %is_shallow32 = getelementptr inbounds %struct.parsed_object_pool, ptr %11, i64 0, i32 11
+  %is_shallow32 = getelementptr inbounds i8, ptr %11, i64 72
   %12 = load i32, ptr %is_shallow32, align 8
   br label %return
 
@@ -366,12 +354,12 @@ declare noundef i32 @fclose(ptr nocapture noundef) local_unnamed_addr #4
 define dso_local i32 @commit_shallow_file(ptr noundef %r, ptr noundef %lk) local_unnamed_addr #0 {
 entry:
   %call = tail call i32 @commit_lock_file(ptr noundef %lk) #12
-  %parsed_objects.i = getelementptr inbounds %struct.repository, ptr %r, i64 0, i32 3
+  %parsed_objects.i = getelementptr inbounds i8, ptr %r, i64 24
   %0 = load ptr, ptr %parsed_objects.i, align 8
-  %is_shallow.i = getelementptr inbounds %struct.parsed_object_pool, ptr %0, i64 0, i32 11
+  %is_shallow.i = getelementptr inbounds i8, ptr %0, i64 72
   store i32 -1, ptr %is_shallow.i, align 8
   %1 = load ptr, ptr %parsed_objects.i, align 8
-  %shallow_stat.i = getelementptr inbounds %struct.parsed_object_pool, ptr %1, i64 0, i32 12
+  %shallow_stat.i = getelementptr inbounds i8, ptr %1, i64 80
   %2 = load ptr, ptr %shallow_stat.i, align 8
   tail call void @stat_validity_clear(ptr noundef %2) #12
   tail call void @reset_commit_grafts(ptr noundef %r) #12
@@ -385,12 +373,12 @@ declare i32 @commit_lock_file(ptr noundef) local_unnamed_addr #3
 define dso_local void @rollback_shallow_file(ptr noundef %r, ptr noundef %lk) local_unnamed_addr #0 {
 entry:
   tail call void @delete_tempfile(ptr noundef %lk) #12
-  %parsed_objects.i = getelementptr inbounds %struct.repository, ptr %r, i64 0, i32 3
+  %parsed_objects.i = getelementptr inbounds i8, ptr %r, i64 24
   %0 = load ptr, ptr %parsed_objects.i, align 8
-  %is_shallow.i = getelementptr inbounds %struct.parsed_object_pool, ptr %0, i64 0, i32 11
+  %is_shallow.i = getelementptr inbounds i8, ptr %0, i64 72
   store i32 -1, ptr %is_shallow.i, align 8
   %1 = load ptr, ptr %parsed_objects.i, align 8
-  %shallow_stat.i = getelementptr inbounds %struct.parsed_object_pool, ptr %1, i64 0, i32 12
+  %shallow_stat.i = getelementptr inbounds i8, ptr %1, i64 80
   %2 = load ptr, ptr %shallow_stat.i, align 8
   tail call void @stat_validity_clear(ptr noundef %2) #12
   tail call void @reset_commit_grafts(ptr noundef %r) #12
@@ -404,7 +392,7 @@ entry:
   %stack = alloca %struct.object_array, align 8
   store ptr null, ptr %result, align 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %stack, i8 0, i64 16, i1 false)
-  %objects = getelementptr inbounds %struct.object_array, ptr %heads, i64 0, i32 2
+  %objects = getelementptr inbounds i8, ptr %heads, i64 8
   %cmp21.not = icmp eq i32 %depth, 2147483647
   %bf.value36 = shl i32 %shallow_flag, 4
   %bf.value4734 = shl i32 %not_shallow_flag, 4
@@ -583,20 +571,20 @@ lor.lhs.false23:                                  ; preds = %if.end19
   br i1 %tobool25.not, label %if.end41, label %land.lhs.true26
 
 land.lhs.true26:                                  ; preds = %lor.lhs.false23
-  %parents = getelementptr inbounds %struct.commit, ptr %commit.1, i64 0, i32 2
+  %parents = getelementptr inbounds i8, ptr %commit.1, i64 48
   %37 = load ptr, ptr %parents, align 8
   %tobool27.not = icmp eq ptr %37, null
   br i1 %tobool27.not, label %land.lhs.true28, label %if.end41
 
 land.lhs.true28:                                  ; preds = %land.lhs.true26
   %38 = load ptr, ptr @the_repository, align 8
-  %oid = getelementptr inbounds %struct.object, ptr %commit.1, i64 0, i32 1
+  %oid = getelementptr inbounds i8, ptr %commit.1, i64 4
   %call30 = call ptr @lookup_commit_graft(ptr noundef %38, ptr noundef nonnull %oid) #12
   %cmp31.not = icmp eq ptr %call30, null
   br i1 %cmp31.not, label %if.end41, label %land.lhs.true32
 
 land.lhs.true32:                                  ; preds = %land.lhs.true28
-  %nr_parent = getelementptr inbounds %struct.commit_graft, ptr %call30, i64 0, i32 1
+  %nr_parent = getelementptr inbounds i8, ptr %call30, i64 36
   %39 = load i32, ptr %nr_parent, align 4
   %cmp33 = icmp slt i32 %39, 0
   br i1 %cmp33, label %if.then34, label %if.end41
@@ -619,7 +607,7 @@ if.end41:                                         ; preds = %land.lhs.true32, %l
   %bf.load43 = load i32, ptr %commit.1, align 8
   %bf.set50 = or i32 %bf.load43, %bf.value4734
   store i32 %bf.set50, ptr %commit.1, align 8
-  %parents51 = getelementptr inbounds %struct.commit, ptr %commit.1, i64 0, i32 2
+  %parents51 = getelementptr inbounds i8, ptr %commit.1, i64 48
   %p.0227 = load ptr, ptr %parents51, align 8
   %tobool52.not228 = icmp eq ptr %p.0227, null
   br i1 %tobool52.not228, label %while.cond.outer.backedge, label %for.body, !llvm.loop !7
@@ -688,7 +676,7 @@ if.else59:                                        ; preds = %commit_depth_at.exi
 if.end63:                                         ; preds = %if.else59, %if.then57
   %.sink = phi ptr [ %call58, %if.then57 ], [ %51, %if.else59 ]
   store i32 %cur_depth.2232, ptr %.sink, align 4
-  %next = getelementptr inbounds %struct.commit_list, ptr %p.0233, i64 0, i32 1
+  %next = getelementptr inbounds i8, ptr %p.0233, i64 8
   %53 = load ptr, ptr %next, align 8
   %tobool64.not = icmp eq ptr %53, null
   %54 = load ptr, ptr %p.0233, align 8
@@ -748,7 +736,7 @@ for.inc:                                          ; preds = %if.then65, %commit_
   %depths.sroa.38.7 = phi ptr [ %depths.sroa.38.6, %commit_depth_at.exit155 ], [ %depths.sroa.38.5, %if.then65 ], [ %depths.sroa.38.5, %if.else59 ]
   %commit.3 = phi ptr [ %54, %commit_depth_at.exit155 ], [ %commit.2231, %if.then65 ], [ %commit.2231, %if.else59 ]
   %cur_depth.3 = phi i32 [ %66, %commit_depth_at.exit155 ], [ %cur_depth.2232, %if.then65 ], [ %cur_depth.2232, %if.else59 ]
-  %next72 = getelementptr inbounds %struct.commit_list, ptr %p.0233, i64 0, i32 1
+  %next72 = getelementptr inbounds i8, ptr %p.0233, i64 8
   %p.0 = load ptr, ptr %next72, align 8
   %tobool52.not = icmp eq ptr %p.0, null
   br i1 %tobool52.not, label %while.cond.outer.backedge, label %for.body, !llvm.loop !8
@@ -867,7 +855,7 @@ for.body:                                         ; preds = %for.cond.preheader,
   %bf.load = load i32, ptr %3, align 8
   %bf.set = or i32 %bf.load, %bf.value24
   store i32 %bf.set, ptr %3, align 8
-  %next = getelementptr inbounds %struct.commit_list, ptr %p.027, i64 0, i32 1
+  %next = getelementptr inbounds i8, ptr %p.027, i64 8
   %4 = load ptr, ptr %next, align 8
   %tobool6.not = icmp eq ptr %4, null
   br i1 %tobool6.not, label %for.cond9.preheader, label %for.body, !llvm.loop !12
@@ -881,19 +869,19 @@ for.body11:                                       ; preds = %for.body11.lr.ph, %
   br i1 %tobool14.not, label %if.end18, label %if.then15
 
 if.then15:                                        ; preds = %for.body11
-  %oid = getelementptr inbounds %struct.object, ptr %5, i64 0, i32 1
+  %oid = getelementptr inbounds i8, ptr %5, i64 4
   %call17 = call ptr @oid_to_hex(ptr noundef nonnull %oid) #12
   call void (ptr, ...) @die(ptr noundef nonnull @.str.6, ptr noundef %call17) #11
   unreachable
 
 if.end18:                                         ; preds = %for.body11
-  %parents = getelementptr inbounds %struct.commit, ptr %5, i64 0, i32 2
+  %parents = getelementptr inbounds i8, ptr %5, i64 48
   %parent.028 = load ptr, ptr %parents, align 8
   %tobool20.not29 = icmp eq ptr %parent.028, null
   br i1 %tobool20.not29, label %for.inc42, label %for.body21
 
 for.cond19:                                       ; preds = %for.body21
-  %next40 = getelementptr inbounds %struct.commit_list, ptr %parent.030, i64 0, i32 1
+  %next40 = getelementptr inbounds i8, ptr %parent.030, i64 8
   %parent.0 = load ptr, ptr %next40, align 8
   %tobool20.not = icmp eq ptr %parent.0, null
   br i1 %tobool20.not, label %for.inc42, label %for.body21, !llvm.loop !13
@@ -915,7 +903,7 @@ if.then27:                                        ; preds = %for.body21
   br label %for.inc42
 
 for.inc42:                                        ; preds = %for.cond19, %if.end18, %if.then27
-  %next43 = getelementptr inbounds %struct.commit_list, ptr %p.133, i64 0, i32 1
+  %next43 = getelementptr inbounds i8, ptr %p.133, i64 8
   %p.1 = load ptr, ptr %next43, align 8
   %tobool10.not = icmp eq ptr %p.1, null
   br i1 %tobool10.not, label %for.end44.loopexit, label %for.body11, !llvm.loop !14
@@ -953,7 +941,7 @@ if.then53:                                        ; preds = %for.body47
   br label %for.inc63
 
 for.inc63:                                        ; preds = %for.body47, %if.then53
-  %next64 = getelementptr inbounds %struct.commit_list, ptr %p.236, i64 0, i32 1
+  %next64 = getelementptr inbounds i8, ptr %p.236, i64 8
   %p.2 = load ptr, ptr %next64, align 8
   %tobool46.not = icmp eq ptr %p.2, null
   br i1 %tobool46.not, label %for.end65, label %for.body47, !llvm.loop !15
@@ -995,18 +983,18 @@ define internal fastcc i32 @write_shallow_commits_1(ptr noundef %out, i32 nounde
 entry:
   %data = alloca %struct.write_shallow_data, align 8
   store ptr %out, ptr %data, align 8
-  %use_pack_protocol2 = getelementptr inbounds %struct.write_shallow_data, ptr %data, i64 0, i32 1
+  %use_pack_protocol2 = getelementptr inbounds i8, ptr %data, i64 8
   store i32 %use_pack_protocol, ptr %use_pack_protocol2, align 8
-  %count = getelementptr inbounds %struct.write_shallow_data, ptr %data, i64 0, i32 2
+  %count = getelementptr inbounds i8, ptr %data, i64 12
   store i32 0, ptr %count, align 4
-  %flags3 = getelementptr inbounds %struct.write_shallow_data, ptr %data, i64 0, i32 3
+  %flags3 = getelementptr inbounds i8, ptr %data, i64 16
   store i32 %flags, ptr %flags3, align 8
   %call = call i32 @for_each_commit_graft(ptr noundef nonnull @write_one_shallow, ptr noundef nonnull %data) #12
   %tobool.not = icmp eq ptr %extra, null
   br i1 %tobool.not, label %if.then, label %for.cond.preheader
 
 for.cond.preheader:                               ; preds = %entry
-  %nr = getelementptr inbounds %struct.oid_array, ptr %extra, i64 0, i32 1
+  %nr = getelementptr inbounds i8, ptr %extra, i64 8
   %0 = load i64, ptr %nr, align 8
   %cmp7.not = icmp eq i64 %0, 0
   br i1 %cmp7.not, label %for.cond.preheader.for.end_crit_edge, label %for.body.lr.ph
@@ -1016,8 +1004,8 @@ for.cond.preheader.for.end_crit_edge:             ; preds = %for.cond.preheader
   br label %return
 
 for.body.lr.ph:                                   ; preds = %for.cond.preheader
-  %len.i.i = getelementptr inbounds %struct.strbuf, ptr %out, i64 0, i32 1
-  %buf.i = getelementptr inbounds %struct.strbuf, ptr %out, i64 0, i32 2
+  %len.i.i = getelementptr inbounds i8, ptr %out, i64 8
+  %buf.i = getelementptr inbounds i8, ptr %out, i64 16
   br label %for.body
 
 if.then:                                          ; preds = %entry
@@ -1083,11 +1071,11 @@ entry:
 if.then:                                          ; preds = %entry
   %call1 = call ptr (ptr, ...) @git_path(ptr noundef nonnull @.str.7) #12
   %call.i4 = call ptr @xmks_tempfile_m(ptr noundef %call1, i32 noundef 384) #12
-  %fd = getelementptr inbounds %struct.tempfile, ptr %call.i4, i64 0, i32 1
+  %fd = getelementptr inbounds i8, ptr %call.i4, i64 16
   %0 = load volatile i32, ptr %fd, align 8
-  %buf = getelementptr inbounds %struct.strbuf, ptr %sb, i64 0, i32 2
+  %buf = getelementptr inbounds i8, ptr %sb, i64 16
   %1 = load ptr, ptr %buf, align 8
-  %len = getelementptr inbounds %struct.strbuf, ptr %sb, i64 0, i32 1
+  %len = getelementptr inbounds i8, ptr %sb, i64 8
   %2 = load i64, ptr %len, align 8
   %call3 = call i64 @write_in_full(i32 noundef %0, ptr noundef %1, i64 noundef %2) #12
   %cmp = icmp slt i64 %call3, 0
@@ -1138,9 +1126,9 @@ entry:
   %call = tail call ptr @git_path_shallow(ptr noundef %0) #12
   %call.i.i = tail call i32 @hold_lock_file_for_update_timeout_mode(ptr noundef %shallow_lock, ptr noundef %call, i32 noundef 1, i64 noundef 0, i32 noundef 438) #12
   %1 = load ptr, ptr @the_repository, align 8
-  %parsed_objects.i = getelementptr inbounds %struct.repository, ptr %1, i64 0, i32 3
+  %parsed_objects.i = getelementptr inbounds i8, ptr %1, i64 24
   %2 = load ptr, ptr %parsed_objects.i, align 8
-  %is_shallow.i = getelementptr inbounds %struct.parsed_object_pool, ptr %2, i64 0, i32 11
+  %is_shallow.i = getelementptr inbounds i8, ptr %2, i64 72
   %3 = load i32, ptr %is_shallow.i, align 8
   %cmp.i = icmp eq i32 %3, -1
   br i1 %cmp.i, label %if.then.i, label %if.end.i
@@ -1150,7 +1138,7 @@ if.then.i:                                        ; preds = %entry
   unreachable
 
 if.end.i:                                         ; preds = %entry
-  %shallow_stat.i = getelementptr inbounds %struct.parsed_object_pool, ptr %2, i64 0, i32 12
+  %shallow_stat.i = getelementptr inbounds i8, ptr %2, i64 80
   %4 = load ptr, ptr %shallow_stat.i, align 8
   %call.i = tail call ptr @git_path_shallow(ptr noundef nonnull %1) #12
   %call2.i = tail call i32 @stat_validity_check(ptr noundef %4, ptr noundef %call.i) #12
@@ -1167,9 +1155,9 @@ check_shallow_file_for_update.exit:               ; preds = %if.end.i
   br i1 %tobool.not, label %if.end9, label %if.then
 
 if.then:                                          ; preds = %check_shallow_file_for_update.exit
-  %buf = getelementptr inbounds %struct.strbuf, ptr %sb, i64 0, i32 2
+  %buf = getelementptr inbounds i8, ptr %sb, i64 16
   %5 = load ptr, ptr %buf, align 8
-  %len = getelementptr inbounds %struct.strbuf, ptr %sb, i64 0, i32 1
+  %len = getelementptr inbounds i8, ptr %sb, i64 8
   %6 = load i64, ptr %len, align 8
   %call3 = call i64 @write_in_full(i32 noundef %call.i.i, ptr noundef %5, i64 noundef %6) #12
   %cmp = icmp slt i64 %call3, 0
@@ -1222,7 +1210,7 @@ declare i32 @for_each_commit_graft(ptr noundef, ptr noundef) local_unnamed_addr 
 ; Function Attrs: nounwind uwtable
 define internal noundef i32 @advertise_shallow_grafts_cb(ptr noundef %graft, ptr nocapture noundef readonly %cb) #0 {
 entry:
-  %nr_parent = getelementptr inbounds %struct.commit_graft, ptr %graft, i64 0, i32 1
+  %nr_parent = getelementptr inbounds i8, ptr %graft, i64 36
   %0 = load i32, ptr %nr_parent, align 4
   %cmp = icmp eq i32 %0, -1
   br i1 %cmp, label %if.then, label %if.end
@@ -1257,11 +1245,11 @@ if.then3:                                         ; preds = %entry
   %or4 = or disjoint i32 %spec.select, 2
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %data.i)
   store ptr %sb, ptr %data.i, align 8
-  %use_pack_protocol2.i = getelementptr inbounds %struct.write_shallow_data, ptr %data.i, i64 0, i32 1
+  %use_pack_protocol2.i = getelementptr inbounds i8, ptr %data.i, i64 8
   store i32 0, ptr %use_pack_protocol2.i, align 8
-  %count.i = getelementptr inbounds %struct.write_shallow_data, ptr %data.i, i64 0, i32 2
+  %count.i = getelementptr inbounds i8, ptr %data.i, i64 12
   store i32 0, ptr %count.i, align 4
-  %flags3.i = getelementptr inbounds %struct.write_shallow_data, ptr %data.i, i64 0, i32 3
+  %flags3.i = getelementptr inbounds i8, ptr %data.i, i64 16
   store i32 %or4, ptr %flags3.i, align 8
   %call.i = call i32 @for_each_commit_graft(ptr noundef nonnull @write_one_shallow, ptr noundef nonnull %data.i) #12
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %data.i)
@@ -1272,9 +1260,9 @@ if.end5:                                          ; preds = %entry
   %call6 = tail call ptr @git_path_shallow(ptr noundef %0) #12
   %call.i.i = call i32 @hold_lock_file_for_update_timeout_mode(ptr noundef nonnull %shallow_lock, ptr noundef %call6, i32 noundef 1, i64 noundef 0, i32 noundef 438) #12
   %1 = load ptr, ptr @the_repository, align 8
-  %parsed_objects.i = getelementptr inbounds %struct.repository, ptr %1, i64 0, i32 3
+  %parsed_objects.i = getelementptr inbounds i8, ptr %1, i64 24
   %2 = load ptr, ptr %parsed_objects.i, align 8
-  %is_shallow.i = getelementptr inbounds %struct.parsed_object_pool, ptr %2, i64 0, i32 11
+  %is_shallow.i = getelementptr inbounds i8, ptr %2, i64 72
   %3 = load i32, ptr %is_shallow.i, align 8
   %cmp.i = icmp eq i32 %3, -1
   br i1 %cmp.i, label %if.then.i, label %if.end.i
@@ -1284,7 +1272,7 @@ if.then.i:                                        ; preds = %if.end5
   unreachable
 
 if.end.i:                                         ; preds = %if.end5
-  %shallow_stat.i = getelementptr inbounds %struct.parsed_object_pool, ptr %2, i64 0, i32 12
+  %shallow_stat.i = getelementptr inbounds i8, ptr %2, i64 80
   %4 = load ptr, ptr %shallow_stat.i, align 8
   %call.i5 = call ptr @git_path_shallow(ptr noundef nonnull %1) #12
   %call2.i = call i32 @stat_validity_check(ptr noundef %4, ptr noundef %call.i5) #12
@@ -1298,11 +1286,11 @@ if.then3.i:                                       ; preds = %if.end.i
 check_shallow_file_for_update.exit:               ; preds = %if.end.i
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %data.i6)
   store ptr %sb, ptr %data.i6, align 8
-  %use_pack_protocol2.i7 = getelementptr inbounds %struct.write_shallow_data, ptr %data.i6, i64 0, i32 1
+  %use_pack_protocol2.i7 = getelementptr inbounds i8, ptr %data.i6, i64 8
   store i32 0, ptr %use_pack_protocol2.i7, align 8
-  %count.i8 = getelementptr inbounds %struct.write_shallow_data, ptr %data.i6, i64 0, i32 2
+  %count.i8 = getelementptr inbounds i8, ptr %data.i6, i64 12
   store i32 0, ptr %count.i8, align 4
-  %flags3.i9 = getelementptr inbounds %struct.write_shallow_data, ptr %data.i6, i64 0, i32 3
+  %flags3.i9 = getelementptr inbounds i8, ptr %data.i6, i64 16
   store i32 %spec.select, ptr %flags3.i9, align 8
   %call.i10 = call i32 @for_each_commit_graft(ptr noundef nonnull @write_one_shallow, ptr noundef nonnull %data.i6) #12
   %5 = load i32, ptr %count.i8, align 4
@@ -1311,9 +1299,9 @@ check_shallow_file_for_update.exit:               ; preds = %if.end.i
   br i1 %tobool9.not, label %if.else, label %if.then10
 
 if.then10:                                        ; preds = %check_shallow_file_for_update.exit
-  %buf = getelementptr inbounds %struct.strbuf, ptr %sb, i64 0, i32 2
+  %buf = getelementptr inbounds i8, ptr %sb, i64 16
   %6 = load ptr, ptr %buf, align 8
-  %len = getelementptr inbounds %struct.strbuf, ptr %sb, i64 0, i32 1
+  %len = getelementptr inbounds i8, ptr %sb, i64 8
   %7 = load i64, ptr %len, align 8
   %call11 = call i64 @write_in_full(i32 noundef %call.i.i, ptr noundef %6, i64 noundef %7) #12
   %cmp = icmp slt i64 %call11, 0
@@ -1328,12 +1316,12 @@ if.then12:                                        ; preds = %if.then10
 if.end15:                                         ; preds = %if.then10
   %8 = load ptr, ptr @the_repository, align 8
   %call.i12 = call i32 @commit_lock_file(ptr noundef nonnull %shallow_lock) #12
-  %parsed_objects.i.i = getelementptr inbounds %struct.repository, ptr %8, i64 0, i32 3
+  %parsed_objects.i.i = getelementptr inbounds i8, ptr %8, i64 24
   %9 = load ptr, ptr %parsed_objects.i.i, align 8
-  %is_shallow.i.i = getelementptr inbounds %struct.parsed_object_pool, ptr %9, i64 0, i32 11
+  %is_shallow.i.i = getelementptr inbounds i8, ptr %9, i64 72
   store i32 -1, ptr %is_shallow.i.i, align 8
   %10 = load ptr, ptr %parsed_objects.i.i, align 8
-  %shallow_stat.i.i = getelementptr inbounds %struct.parsed_object_pool, ptr %10, i64 0, i32 12
+  %shallow_stat.i.i = getelementptr inbounds i8, ptr %10, i64 80
   %11 = load ptr, ptr %shallow_stat.i.i, align 8
   call void @stat_validity_clear(ptr noundef %11) #12
   call void @reset_commit_grafts(ptr noundef %8) #12
@@ -1346,12 +1334,12 @@ if.else:                                          ; preds = %check_shallow_file_
   %call18 = call i32 @unlink(ptr noundef %call17) #12
   %13 = load ptr, ptr @the_repository, align 8
   call void @delete_tempfile(ptr noundef nonnull %shallow_lock) #12
-  %parsed_objects.i.i13 = getelementptr inbounds %struct.repository, ptr %13, i64 0, i32 3
+  %parsed_objects.i.i13 = getelementptr inbounds i8, ptr %13, i64 24
   %14 = load ptr, ptr %parsed_objects.i.i13, align 8
-  %is_shallow.i.i14 = getelementptr inbounds %struct.parsed_object_pool, ptr %14, i64 0, i32 11
+  %is_shallow.i.i14 = getelementptr inbounds i8, ptr %14, i64 72
   store i32 -1, ptr %is_shallow.i.i14, align 8
   %15 = load ptr, ptr %parsed_objects.i.i13, align 8
-  %shallow_stat.i.i15 = getelementptr inbounds %struct.parsed_object_pool, ptr %15, i64 0, i32 12
+  %shallow_stat.i.i15 = getelementptr inbounds i8, ptr %15, i64 80
   %16 = load ptr, ptr %shallow_stat.i.i15, align 8
   call void @stat_validity_clear(ptr noundef %16) #12
   call void @reset_commit_grafts(ptr noundef %13) #12
@@ -1388,7 +1376,7 @@ do.end:                                           ; preds = %entry, %if.then
   br i1 %tobool1.not, label %for.end, label %if.end3
 
 if.end3:                                          ; preds = %do.end
-  %nr = getelementptr inbounds %struct.oid_array, ptr %sa, i64 0, i32 1
+  %nr = getelementptr inbounds i8, ptr %sa, i64 8
   %2 = load i64, ptr %nr, align 8
   %mul.ov.i = icmp ugt i64 %2, 4611686018427387903
   br i1 %mul.ov.i, label %if.then.i, label %st_mult.exit
@@ -1400,7 +1388,7 @@ if.then.i:                                        ; preds = %if.end3
 st_mult.exit:                                     ; preds = %if.end3
   %mul.i = shl nuw i64 %2, 2
   %call5 = tail call ptr @xmalloc(i64 noundef %mul.i) #12
-  %ours = getelementptr inbounds %struct.shallow_info, ptr %info, i64 0, i32 1
+  %ours = getelementptr inbounds i8, ptr %info, i64 8
   store ptr %call5, ptr %ours, align 8
   %3 = load i64, ptr %nr, align 8
   %mul.ov.i21 = icmp ugt i64 %3, 4611686018427387903
@@ -1413,15 +1401,15 @@ if.then.i23:                                      ; preds = %st_mult.exit
 st_mult.exit24:                                   ; preds = %st_mult.exit
   %mul.i22 = shl nuw i64 %3, 2
   %call8 = tail call ptr @xmalloc(i64 noundef %mul.i22) #12
-  %theirs = getelementptr inbounds %struct.shallow_info, ptr %info, i64 0, i32 3
+  %theirs = getelementptr inbounds i8, ptr %info, i64 24
   store ptr %call8, ptr %theirs, align 8
   %4 = load i64, ptr %nr, align 8
   %cmp26.not = icmp eq i64 %4, 0
   br i1 %cmp26.not, label %for.end, label %for.body.lr.ph
 
 for.body.lr.ph:                                   ; preds = %st_mult.exit24
-  %nr_ours = getelementptr inbounds %struct.shallow_info, ptr %info, i64 0, i32 2
-  %nr_theirs = getelementptr inbounds %struct.shallow_info, ptr %info, i64 0, i32 4
+  %nr_ours = getelementptr inbounds i8, ptr %info, i64 16
+  %nr_theirs = getelementptr inbounds i8, ptr %info, i64 32
   br label %for.body
 
 for.body:                                         ; preds = %for.body.lr.ph, %for.inc
@@ -1442,7 +1430,7 @@ if.then13:                                        ; preds = %for.body
   br i1 %tobool16.not, label %for.inc.sink.split, label %land.lhs.true
 
 land.lhs.true:                                    ; preds = %if.then13
-  %nr_parent = getelementptr inbounds %struct.commit_graft, ptr %call15, i64 0, i32 1
+  %nr_parent = getelementptr inbounds i8, ptr %call15, i64 36
   %9 = load i32, ptr %nr_parent, align 4
   %cmp17 = icmp slt i32 %9, 0
   br i1 %cmp17, label %for.inc, label %for.inc.sink.split
@@ -1477,10 +1465,10 @@ declare i32 @repo_has_object_file(ptr noundef, ptr noundef) local_unnamed_addr #
 ; Function Attrs: mustprogress nounwind willreturn uwtable
 define dso_local void @clear_shallow_info(ptr nocapture noundef readonly %info) local_unnamed_addr #7 {
 entry:
-  %ours = getelementptr inbounds %struct.shallow_info, ptr %info, i64 0, i32 1
+  %ours = getelementptr inbounds i8, ptr %info, i64 8
   %0 = load ptr, ptr %ours, align 8
   tail call void @free(ptr noundef %0) #12
-  %theirs = getelementptr inbounds %struct.shallow_info, ptr %info, i64 0, i32 3
+  %theirs = getelementptr inbounds i8, ptr %info, i64 24
   %1 = load ptr, ptr %theirs, align 8
   tail call void @free(ptr noundef %1) #12
   ret void
@@ -1504,13 +1492,13 @@ if.then:                                          ; preds = %entry
   br label %do.end
 
 do.end:                                           ; preds = %entry, %if.then
-  %nr_theirs = getelementptr inbounds %struct.shallow_info, ptr %info, i64 0, i32 4
+  %nr_theirs = getelementptr inbounds i8, ptr %info, i64 32
   %3 = load i32, ptr %nr_theirs, align 8
   %cmp14 = icmp sgt i32 %3, 0
   br i1 %cmp14, label %for.body.lr.ph, label %for.end
 
 for.body.lr.ph:                                   ; preds = %do.end
-  %theirs = getelementptr inbounds %struct.shallow_info, ptr %info, i64 0, i32 3
+  %theirs = getelementptr inbounds i8, ptr %info, i64 24
   br label %for.body
 
 for.body:                                         ; preds = %for.body.lr.ph, %if.end7
@@ -1558,7 +1546,7 @@ entry:
   %head.i = alloca ptr, align 8
   %0 = load ptr, ptr %info, align 8
   %1 = load ptr, ptr %0, align 8
-  %ref2 = getelementptr inbounds %struct.shallow_info, ptr %info, i64 0, i32 5
+  %ref2 = getelementptr inbounds i8, ptr %info, i64 40
   %2 = load ptr, ptr %ref2, align 8
   %3 = load i32, ptr getelementptr inbounds (%struct.trace_key, ptr @trace_shallow, i64 0, i32 1), align 8
   %tobool.not.i = icmp eq i32 %3, 0
@@ -1573,9 +1561,9 @@ if.then:                                          ; preds = %entry
   br label %do.end
 
 do.end:                                           ; preds = %entry, %if.then
-  %nr_ours = getelementptr inbounds %struct.shallow_info, ptr %info, i64 0, i32 2
+  %nr_ours = getelementptr inbounds i8, ptr %info, i64 16
   %4 = load i32, ptr %nr_ours, align 8
-  %nr_theirs = getelementptr inbounds %struct.shallow_info, ptr %info, i64 0, i32 4
+  %nr_theirs = getelementptr inbounds i8, ptr %info, i64 32
   %5 = load i32, ptr %nr_theirs, align 8
   %add = add nsw i32 %5, %4
   %conv = sext i32 %add to i64
@@ -1594,7 +1582,7 @@ st_mult.exit:                                     ; preds = %do.end
   br i1 %cmp227.not, label %for.cond11.preheader, label %for.body.lr.ph
 
 for.body.lr.ph:                                   ; preds = %st_mult.exit
-  %ours = getelementptr inbounds %struct.shallow_info, ptr %info, i64 0, i32 1
+  %ours = getelementptr inbounds i8, ptr %info, i64 8
   br label %for.body
 
 for.cond11.preheader.loopexit:                    ; preds = %for.body
@@ -1608,7 +1596,7 @@ for.cond11.preheader:                             ; preds = %for.cond11.preheade
   br i1 %cmp13230.not, label %for.end23, label %for.body15.lr.ph
 
 for.body15.lr.ph:                                 ; preds = %for.cond11.preheader
-  %theirs = getelementptr inbounds %struct.shallow_info, ptr %info, i64 0, i32 3
+  %theirs = getelementptr inbounds i8, ptr %info, i64 24
   %9 = zext i32 %nr_shallow.0.lcssa to i64
   br label %for.body15
 
@@ -1673,7 +1661,7 @@ for.inc39:                                        ; preds = %for.body28, %lor.lh
   br i1 %exitcond.not, label %for.end41, label %for.body28, !llvm.loop !21
 
 for.end41:                                        ; preds = %for.inc39, %for.end23
-  %nr42 = getelementptr inbounds %struct.oid_array, ptr %2, i64 0, i32 1
+  %nr42 = getelementptr inbounds i8, ptr %2, i64 8
   %20 = load i64, ptr %nr42, align 8
   %conv43 = trunc i64 %20 to i32
   %call44 = tail call i32 @head_ref(ptr noundef nonnull @mark_uninteresting, ptr noundef null) #12
@@ -1935,13 +1923,13 @@ if.end39.i:                                       ; preds = %if.end32.i
   br i1 %tobool41.not.i, label %if.end46.i, label %if.then42.i
 
 if.then42.i:                                      ; preds = %if.end39.i
-  %oid44.i = getelementptr inbounds %struct.object, ptr %call8.i, i64 0, i32 1
+  %oid44.i = getelementptr inbounds i8, ptr %call8.i, i64 4
   %call45.i = call ptr @oid_to_hex(ptr noundef nonnull %oid44.i) #12
   call void (ptr, ...) @die(ptr noundef nonnull @.str.6, ptr noundef %call45.i) #11
   unreachable
 
 if.end46.i:                                       ; preds = %if.end39.i
-  %parents.i = getelementptr inbounds %struct.commit, ptr %call8.i, i64 0, i32 2
+  %parents.i = getelementptr inbounds i8, ptr %call8.i, i64 48
   %p.081.i = load ptr, ptr %parents.i, align 8
   %tobool48.not82.i = icmp eq ptr %p.081.i, null
   br i1 %tobool48.not82.i, label %while.cond.backedge.i, label %for.body49.i, !llvm.loop !23
@@ -1959,7 +1947,7 @@ if.end56.i:                                       ; preds = %for.body49.i
   br label %for.inc59.i
 
 for.inc59.i:                                      ; preds = %if.end56.i, %for.body49.i
-  %next.i = getelementptr inbounds %struct.commit_list, ptr %p.083.i, i64 0, i32 1
+  %next.i = getelementptr inbounds i8, ptr %p.083.i, i64 8
   %p.0.i = load ptr, ptr %next.i, align 8
   %tobool48.not.i = icmp eq ptr %p.0.i, null
   br i1 %tobool48.not.i, label %while.cond.backedge.i, label %for.body49.i, !llvm.loop !25
@@ -2028,7 +2016,7 @@ if.then76:                                        ; preds = %for.end74
   %55 = lshr i64 %sub, 3
   %conv98 = and i64 %55, 536870908
   %56 = load ptr, ptr %info, align 8
-  %nr82 = getelementptr inbounds %struct.oid_array, ptr %56, i64 0, i32 1
+  %nr82 = getelementptr inbounds i8, ptr %56, i64 8
   %57 = load i64, ptr %nr82, align 8
   %mul83 = shl i64 %57, 3
   call void @llvm.memset.p0.i64(ptr nonnull align 8 %used, i8 0, i64 %mul83, i1 false)
@@ -2110,7 +2098,7 @@ if.else:                                          ; preds = %for.end74
   %72 = load ptr, ptr %info, align 8
   %73 = load ptr, ptr %72, align 8
   %74 = load ptr, ptr %ref2, align 8
-  %nr.i = getelementptr inbounds %struct.oid_array, ptr %74, i64 0, i32 1
+  %nr.i = getelementptr inbounds i8, ptr %74, i64 8
   %75 = load i64, ptr %nr.i, align 8
   %sub.i60 = add i64 %75, 31
   %div49.i = lshr i64 %sub.i60, 5
@@ -2133,7 +2121,7 @@ do.end.i:                                         ; preds = %if.then.i63, %if.el
 
 if.then3.i:                                       ; preds = %do.end.i
   %77 = load ptr, ptr %ref2, align 8
-  %nr5.i = getelementptr inbounds %struct.oid_array, ptr %77, i64 0, i32 1
+  %nr5.i = getelementptr inbounds i8, ptr %77, i64 8
   %78 = load i64, ptr %nr5.i, align 8
   %mul.i64 = shl i64 %78, 2
   call void @llvm.memset.p0.i64(ptr nonnull align 4 %ref_status, i8 0, i64 %mul.i64, i1 false)
@@ -2145,7 +2133,7 @@ if.end6.i:                                        ; preds = %if.then3.i, %do.end
   br i1 %cmp113.i, label %for.body.lr.ph.i, label %for.end41.i
 
 for.body.lr.ph.i:                                 ; preds = %if.end6.i
-  %theirs.i = getelementptr inbounds %struct.shallow_info, ptr %info, i64 0, i32 3
+  %theirs.i = getelementptr inbounds i8, ptr %info, i64 24
   %cmp26111.i = icmp slt i32 %conv.i, 1
   %tobool.not.i50.i = icmp ne ptr %ref_status, null
   %wide.trip.count.i69 = and i64 %div49.i, 4294967295
@@ -2236,7 +2224,7 @@ for.body28.i:                                     ; preds = %ref_bitmap_at.exit.
 
 if.then33.i:                                      ; preds = %for.body28.i
   %98 = load ptr, ptr %ref2, align 8
-  %nr35.i = getelementptr inbounds %struct.oid_array, ptr %98, i64 0, i32 1
+  %nr35.i = getelementptr inbounds i8, ptr %98, i64 8
   %99 = load i64, ptr %nr35.i, align 8
   %100 = and i64 %99, 4294967295
   %cmp7.i.i = icmp ne i64 %100, 0
@@ -2293,9 +2281,9 @@ for.end41.i:                                      ; preds = %for.inc39.i, %if.en
   br i1 %cmp46118.i, label %for.body48.lr.ph.i, label %post_assign_shallow.exit
 
 for.body48.lr.ph.i:                               ; preds = %for.end41.i
-  %ours.i = getelementptr inbounds %struct.shallow_info, ptr %info, i64 0, i32 1
+  %ours.i = getelementptr inbounds i8, ptr %info, i64 8
   %cmp69116.i = icmp slt i32 %conv.i, 1
-  %nr76.i = getelementptr inbounds %struct.commit_array, ptr %ca.i, i64 0, i32 1
+  %nr76.i = getelementptr inbounds i8, ptr %ca.i, i64 8
   %tobool.not.i89.i = icmp ne ptr %ref_status, null
   %wide.trip.count130.i = and i64 %div49.i, 4294967295
   br label %for.body48.i
@@ -2389,7 +2377,7 @@ land.lhs.true.i65:                                ; preds = %for.body71.i
 
 if.then79.i:                                      ; preds = %land.lhs.true.i65
   %129 = load ptr, ptr %ref2, align 8
-  %nr81.i = getelementptr inbounds %struct.oid_array, ptr %129, i64 0, i32 1
+  %nr81.i = getelementptr inbounds i8, ptr %129, i64 8
   %130 = load i64, ptr %nr81.i, align 8
   %131 = load ptr, ptr %arrayidx35.i.i77.i, align 8
   %132 = and i64 %130, 4294967295
@@ -2528,7 +2516,7 @@ declare ptr @xmemdupz(ptr noundef, i64 noundef) local_unnamed_addr #3
 define dso_local i32 @delayed_reachability_test(ptr nocapture noundef %si, i32 noundef %c) local_unnamed_addr #0 {
 entry:
   %ca = alloca %struct.commit_array, align 8
-  %need_reachability_test = getelementptr inbounds %struct.shallow_info, ptr %si, i64 0, i32 7
+  %need_reachability_test = getelementptr inbounds i8, ptr %si, i64 56
   %0 = load ptr, ptr %need_reachability_test, align 8
   %idxprom = sext i32 %c to i64
   %arrayidx = getelementptr inbounds i32, ptr %0, i64 %idxprom
@@ -2542,13 +2530,13 @@ if.then:                                          ; preds = %entry
   %4 = load ptr, ptr %3, align 8
   %arrayidx2 = getelementptr inbounds %struct.object_id, ptr %4, i64 %idxprom
   %call = tail call ptr @lookup_commit(ptr noundef %2, ptr noundef %arrayidx2) #12
-  %commits = getelementptr inbounds %struct.shallow_info, ptr %si, i64 0, i32 10
+  %commits = getelementptr inbounds i8, ptr %si, i64 80
   %5 = load ptr, ptr %commits, align 8
   %tobool3.not = icmp eq ptr %5, null
   br i1 %tobool3.not, label %if.then4, label %if.then.if.end_crit_edge
 
 if.then.if.end_crit_edge:                         ; preds = %if.then
-  %nr_commits9.phi.trans.insert = getelementptr inbounds %struct.shallow_info, ptr %si, i64 0, i32 11
+  %nr_commits9.phi.trans.insert = getelementptr inbounds i8, ptr %si, i64 88
   %.pre = load i32, ptr %nr_commits9.phi.trans.insert, align 8
   br label %if.end
 
@@ -2558,9 +2546,9 @@ if.then4:                                         ; preds = %if.then
   %call6 = call i32 @for_each_ref(ptr noundef nonnull @add_ref, ptr noundef nonnull %ca) #12
   %6 = load ptr, ptr %ca, align 8
   store ptr %6, ptr %commits, align 8
-  %nr = getelementptr inbounds %struct.commit_array, ptr %ca, i64 0, i32 1
+  %nr = getelementptr inbounds i8, ptr %ca, i64 8
   %7 = load i32, ptr %nr, align 8
-  %nr_commits = getelementptr inbounds %struct.shallow_info, ptr %si, i64 0, i32 11
+  %nr_commits = getelementptr inbounds i8, ptr %si, i64 88
   store i32 %7, ptr %nr_commits, align 8
   br label %if.end
 
@@ -2569,7 +2557,7 @@ if.end:                                           ; preds = %if.then.if.end_crit
   %9 = phi i32 [ %.pre, %if.then.if.end_crit_edge ], [ %7, %if.then4 ]
   %10 = load ptr, ptr @the_repository, align 8
   %call11 = call i32 @repo_in_merge_bases_many(ptr noundef %10, ptr noundef %call, i32 noundef %9, ptr noundef %8) #12
-  %reachable = getelementptr inbounds %struct.shallow_info, ptr %si, i64 0, i32 8
+  %reachable = getelementptr inbounds i8, ptr %si, i64 64
   %11 = load ptr, ptr %reachable, align 8
   %arrayidx13 = getelementptr inbounds i32, ptr %11, i64 %idxprom
   store i32 %call11, ptr %arrayidx13, align 4
@@ -2579,7 +2567,7 @@ if.end:                                           ; preds = %if.then.if.end_crit
   br label %if.end17
 
 if.end17:                                         ; preds = %if.end, %entry
-  %reachable18 = getelementptr inbounds %struct.shallow_info, ptr %si, i64 0, i32 8
+  %reachable18 = getelementptr inbounds i8, ptr %si, i64 64
   %13 = load ptr, ptr %reachable18, align 8
   %arrayidx20 = getelementptr inbounds i32, ptr %13, i64 %idxprom
   %14 = load i32, ptr %arrayidx20, align 4
@@ -2589,9 +2577,9 @@ if.end17:                                         ; preds = %if.end, %entry
 ; Function Attrs: nounwind uwtable
 define internal noundef i32 @add_ref(ptr nocapture readnone %refname, ptr noundef %oid, i32 %flags, ptr nocapture noundef %cb_data) #0 {
 entry:
-  %nr = getelementptr inbounds %struct.commit_array, ptr %cb_data, i64 0, i32 1
+  %nr = getelementptr inbounds i8, ptr %cb_data, i64 8
   %0 = load i32, ptr %nr, align 8
-  %alloc = getelementptr inbounds %struct.commit_array, ptr %cb_data, i64 0, i32 2
+  %alloc = getelementptr inbounds i8, ptr %cb_data, i64 12
   %1 = load i32, ptr %alloc, align 4
   %cmp.not = icmp slt i32 %0, %1
   br i1 %cmp.not, label %do.end, label %if.then
@@ -2667,13 +2655,13 @@ declare i32 @repo_parse_commit_gently(ptr noundef, ptr noundef, i32 noundef) loc
 define internal noundef i32 @write_one_shallow(ptr noundef %graft, ptr nocapture noundef %cb_data) #0 {
 entry:
   %call = tail call ptr @oid_to_hex(ptr noundef %graft) #12
-  %nr_parent = getelementptr inbounds %struct.commit_graft, ptr %graft, i64 0, i32 1
+  %nr_parent = getelementptr inbounds i8, ptr %graft, i64 36
   %0 = load i32, ptr %nr_parent, align 4
   %cmp.not = icmp eq i32 %0, -1
   br i1 %cmp.not, label %if.end, label %return
 
 if.end:                                           ; preds = %entry
-  %flags = getelementptr inbounds %struct.write_shallow_data, ptr %cb_data, i64 0, i32 3
+  %flags = getelementptr inbounds i8, ptr %cb_data, i64 16
   %1 = load i32, ptr %flags, align 8
   %and = and i32 %1, 4
   %tobool.not = icmp eq i32 %and, 0
@@ -2709,17 +2697,17 @@ if.then16:                                        ; preds = %lor.lhs.false, %if.
   br i1 %tobool19.not, label %return, label %if.then20
 
 if.then20:                                        ; preds = %if.then16
-  %oid22 = getelementptr inbounds %struct.object, ptr %call12, i64 0, i32 1
+  %oid22 = getelementptr inbounds i8, ptr %call12, i64 4
   %call23 = tail call ptr @oid_to_hex(ptr noundef nonnull %oid22) #12
   %call24 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.14, ptr noundef %call23)
   br label %return
 
 if.end28:                                         ; preds = %if.else, %lor.lhs.false, %if.then1
-  %count = getelementptr inbounds %struct.write_shallow_data, ptr %cb_data, i64 0, i32 2
+  %count = getelementptr inbounds i8, ptr %cb_data, i64 12
   %6 = load i32, ptr %count, align 4
   %inc = add nsw i32 %6, 1
   store i32 %inc, ptr %count, align 4
-  %use_pack_protocol = getelementptr inbounds %struct.write_shallow_data, ptr %cb_data, i64 0, i32 1
+  %use_pack_protocol = getelementptr inbounds i8, ptr %cb_data, i64 8
   %7 = load i32, ptr %use_pack_protocol, align 8
   %tobool29.not = icmp eq i32 %7, 0
   %8 = load ptr, ptr %cb_data, align 8
@@ -2738,7 +2726,7 @@ if.else31:                                        ; preds = %if.end28
   br i1 %tobool.not.i.i, label %if.then.i, label %strbuf_avail.exit.i
 
 strbuf_avail.exit.i:                              ; preds = %if.else31
-  %len.i.i = getelementptr inbounds %struct.strbuf, ptr %9, i64 0, i32 1
+  %len.i.i = getelementptr inbounds i8, ptr %9, i64 8
   %11 = load i64, ptr %len.i.i, align 8
   %.neg.i = add i64 %11, 1
   %tobool.not.i = icmp eq i64 %10, %.neg.i
@@ -2746,7 +2734,7 @@ strbuf_avail.exit.i:                              ; preds = %if.else31
 
 if.then.i:                                        ; preds = %strbuf_avail.exit.i, %if.else31
   tail call void @strbuf_grow(ptr noundef nonnull %9, i64 noundef 1) #12
-  %len.phi.trans.insert.i = getelementptr inbounds %struct.strbuf, ptr %9, i64 0, i32 1
+  %len.phi.trans.insert.i = getelementptr inbounds i8, ptr %9, i64 8
   %.pre.i = load i64, ptr %len.phi.trans.insert.i, align 8
   %.pre8.i = add i64 %.pre.i, 1
   br label %strbuf_addch.exit
@@ -2754,9 +2742,9 @@ if.then.i:                                        ; preds = %strbuf_avail.exit.i
 strbuf_addch.exit:                                ; preds = %strbuf_avail.exit.i, %if.then.i
   %inc.pre-phi.i = phi i64 [ %.pre8.i, %if.then.i ], [ %.neg.i, %strbuf_avail.exit.i ]
   %12 = phi i64 [ %.pre.i, %if.then.i ], [ %11, %strbuf_avail.exit.i ]
-  %buf.i = getelementptr inbounds %struct.strbuf, ptr %9, i64 0, i32 2
+  %buf.i = getelementptr inbounds i8, ptr %9, i64 16
   %13 = load ptr, ptr %buf.i, align 8
-  %len.i = getelementptr inbounds %struct.strbuf, ptr %9, i64 0, i32 1
+  %len.i = getelementptr inbounds i8, ptr %9, i64 8
   store i64 %inc.pre-phi.i, ptr %len.i, align 8
   %arrayidx.i = getelementptr inbounds i8, ptr %13, i64 %12
   store i8 10, ptr %arrayidx.i, align 1

@@ -3,13 +3,6 @@ source_filename = "bench/openssl/original/libcrypto-lib-ess_lib.ll"
 target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:128-n8:16:32:64-S128"
 target triple = "x86_64-unknown-linux-gnu"
 
-%struct.ESS_cert_id = type { ptr, ptr }
-%struct.GENERAL_NAME_st = type { i32, %union.anon }
-%union.anon = type { ptr }
-%struct.ESS_issuer_serial = type { ptr, ptr }
-%struct.ESS_cert_id_v2_st = type { ptr, ptr, ptr }
-%struct.asn1_string_st = type { i32, i32, ptr, i64 }
-
 @.str = private unnamed_addr constant [32 x i8] c"../openssl/crypto/ess/ess_lib.c\00", align 1
 @__func__.OSSL_ESS_signing_cert_new_init = private unnamed_addr constant [31 x i8] c"OSSL_ESS_signing_cert_new_init\00", align 1
 @__func__.OSSL_ESS_signing_cert_v2_new_init = private unnamed_addr constant [34 x i8] c"OSSL_ESS_signing_cert_v2_new_init\00", align 1
@@ -142,7 +135,7 @@ if.end9:                                          ; preds = %if.end4
   br i1 %tobool10.not, label %return, label %if.end12
 
 if.end12:                                         ; preds = %if.end9
-  %issuer_serial = getelementptr inbounds %struct.ESS_cert_id, ptr %call, i64 0, i32 1
+  %issuer_serial = getelementptr inbounds i8, ptr %call, i64 8
   %1 = load ptr, ptr %issuer_serial, align 8
   %cmp13 = icmp eq ptr %1, null
   br i1 %cmp13, label %land.lhs.true, label %if.end18
@@ -174,7 +167,7 @@ if.end22:                                         ; preds = %if.end18
   store i32 4, ptr %call19, align 8
   %call23 = call ptr @X509_get_issuer_name(ptr noundef %cert) #5
   %call24 = call ptr @X509_NAME_dup(ptr noundef %call23) #5
-  %d = getelementptr inbounds %struct.GENERAL_NAME_st, ptr %call19, i64 0, i32 1
+  %d = getelementptr inbounds i8, ptr %call19, i64 8
   store ptr %call24, ptr %d, align 8
   %cmp25 = icmp eq ptr %call24, null
   br i1 %cmp25, label %if.then26, label %if.end27
@@ -200,13 +193,13 @@ if.then33:                                        ; preds = %if.end27
 
 if.end34:                                         ; preds = %if.end27
   %4 = load ptr, ptr %issuer_serial, align 8
-  %serial = getelementptr inbounds %struct.ESS_issuer_serial, ptr %4, i64 0, i32 1
+  %serial = getelementptr inbounds i8, ptr %4, i64 8
   %5 = load ptr, ptr %serial, align 8
   call void @ASN1_INTEGER_free(ptr noundef %5) #5
   %call36 = call ptr @X509_get0_serialNumber(ptr noundef %cert) #5
   %call37 = call ptr @ASN1_INTEGER_dup(ptr noundef %call36) #5
   %6 = load ptr, ptr %issuer_serial, align 8
-  %serial39 = getelementptr inbounds %struct.ESS_issuer_serial, ptr %6, i64 0, i32 1
+  %serial39 = getelementptr inbounds i8, ptr %6, i64 8
   store ptr %call37, ptr %serial39, align 8
   %cmp40 = icmp eq ptr %call37, null
   br i1 %cmp40, label %if.then41, label %return
@@ -357,7 +350,7 @@ if.then16:                                        ; preds = %if.end12
   br label %err
 
 if.end17:                                         ; preds = %if.end12
-  %hash18 = getelementptr inbounds %struct.ESS_cert_id_v2_st, ptr %call, i64 0, i32 1
+  %hash18 = getelementptr inbounds i8, ptr %call, i64 8
   %1 = load ptr, ptr %hash18, align 8
   %2 = load i32, ptr %hash_len, align 4
   %call20 = call i32 @ASN1_OCTET_STRING_set(ptr noundef %1, ptr noundef nonnull %hash, i32 noundef %2) #5
@@ -376,7 +369,7 @@ if.end23:                                         ; preds = %if.end17
 
 if.end26:                                         ; preds = %if.end23
   %call27 = call ptr @ESS_ISSUER_SERIAL_new() #5
-  %issuer_serial = getelementptr inbounds %struct.ESS_cert_id_v2_st, ptr %call, i64 0, i32 2
+  %issuer_serial = getelementptr inbounds i8, ptr %call, i64 16
   store ptr %call27, ptr %issuer_serial, align 8
   %cmp28 = icmp eq ptr %call27, null
   br i1 %cmp28, label %if.then29, label %if.end30
@@ -402,7 +395,7 @@ if.end34:                                         ; preds = %if.end30
   store i32 4, ptr %call31, align 8
   %call35 = call ptr @X509_get_issuer_name(ptr noundef %cert) #5
   %call36 = call ptr @X509_NAME_dup(ptr noundef %call35) #5
-  %d = getelementptr inbounds %struct.GENERAL_NAME_st, ptr %call31, i64 0, i32 1
+  %d = getelementptr inbounds i8, ptr %call31, i64 8
   store ptr %call36, ptr %d, align 8
   %cmp37 = icmp eq ptr %call36, null
   br i1 %cmp37, label %if.then38, label %if.end39
@@ -428,16 +421,16 @@ if.then45:                                        ; preds = %if.end39
 
 if.end46:                                         ; preds = %if.end39
   %5 = load ptr, ptr %issuer_serial, align 8
-  %serial = getelementptr inbounds %struct.ESS_issuer_serial, ptr %5, i64 0, i32 1
+  %serial = getelementptr inbounds i8, ptr %5, i64 8
   %6 = load ptr, ptr %serial, align 8
   call void @ASN1_INTEGER_free(ptr noundef %6) #5
   %call48 = call ptr @X509_get0_serialNumber(ptr noundef %cert) #5
   %call49 = call ptr @ASN1_INTEGER_dup(ptr noundef %call48) #5
   %7 = load ptr, ptr %issuer_serial, align 8
-  %serial51 = getelementptr inbounds %struct.ESS_issuer_serial, ptr %7, i64 0, i32 1
+  %serial51 = getelementptr inbounds i8, ptr %7, i64 8
   store ptr %call49, ptr %serial51, align 8
   %8 = load ptr, ptr %issuer_serial, align 8
-  %serial53 = getelementptr inbounds %struct.ESS_issuer_serial, ptr %8, i64 0, i32 1
+  %serial53 = getelementptr inbounds i8, ptr %8, i64 8
   %9 = load ptr, ptr %serial53, align 8
   %cmp54 = icmp eq ptr %9, null
   br i1 %cmp54, label %if.then55, label %return
@@ -613,10 +606,10 @@ if.end25:                                         ; preds = %if.end13, %if.end21
   br i1 %cmp2933, label %for.body.lr.ph, label %for.end
 
 for.body.lr.ph:                                   ; preds = %if.end25
-  %hash33 = getelementptr inbounds %struct.ESS_cert_id_v2_st, ptr %cid_v2, i64 0, i32 1
+  %hash33 = getelementptr inbounds i8, ptr %cid_v2, i64 8
   %cond.in.in = select i1 %cmp, ptr %hash33, ptr %cid
-  %issuer_serial = getelementptr inbounds %struct.ESS_cert_id, ptr %cid, i64 0, i32 1
-  %issuer_serial57 = getelementptr inbounds %struct.ESS_cert_id_v2_st, ptr %cid_v2, i64 0, i32 2
+  %issuer_serial = getelementptr inbounds i8, ptr %cid, i64 8
+  %issuer_serial57 = getelementptr inbounds i8, ptr %cid_v2, i64 16
   %cond59.in = select i1 %cmp, ptr %issuer_serial57, ptr %issuer_serial
   br label %for.body
 
@@ -640,7 +633,7 @@ if.then38:                                        ; preds = %for.body
 
 if.end39:                                         ; preds = %for.body
   %.pn = load ptr, ptr %cond.in.in, align 8
-  %cond47.in = getelementptr inbounds %struct.asn1_string_st, ptr %.pn, i64 0, i32 2
+  %cond47.in = getelementptr inbounds i8, ptr %.pn, i64 8
   %cond47 = load ptr, ptr %cond47.in, align 8
   %conv = zext i32 %cond to i64
   %bcmp = call i32 @bcmp(ptr %cond47, ptr nonnull %cert_digest, i64 %conv)
@@ -670,7 +663,7 @@ if.end.i:                                         ; preds = %lor.lhs.false2.i
   br i1 %cmp9.not.i, label %lor.lhs.false10.i, label %for.inc
 
 lor.lhs.false10.i:                                ; preds = %if.end.i
-  %d.i = getelementptr inbounds %struct.GENERAL_NAME_st, ptr %call8.i, i64 0, i32 1
+  %d.i = getelementptr inbounds i8, ptr %call8.i, i64 8
   %6 = load ptr, ptr %d.i, align 8
   %call11.i = call ptr @X509_get_issuer_name(ptr noundef nonnull %call31) #5
   %call12.i = call i32 @X509_NAME_cmp(ptr noundef %6, ptr noundef %call11.i) #5
@@ -678,7 +671,7 @@ lor.lhs.false10.i:                                ; preds = %if.end.i
   br i1 %cmp13.not.i, label %ess_issuer_serial_cmp.exit, label %for.inc
 
 ess_issuer_serial_cmp.exit:                       ; preds = %lor.lhs.false10.i
-  %serial.i = getelementptr inbounds %struct.ESS_issuer_serial, ptr %cond59, i64 0, i32 1
+  %serial.i = getelementptr inbounds i8, ptr %cond59, i64 8
   %7 = load ptr, ptr %serial.i, align 8
   %call16.i = call ptr @X509_get0_serialNumber(ptr noundef nonnull %call31) #5
   %call17.i = call i32 @ASN1_INTEGER_cmp(ptr noundef %7, ptr noundef %call16.i) #5

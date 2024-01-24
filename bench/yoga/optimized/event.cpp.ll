@@ -5,11 +5,6 @@ target triple = "x86_64-unknown-linux-gnu"
 
 %"struct.std::atomic" = type { %"struct.std::__atomic_base" }
 %"struct.std::__atomic_base" = type { ptr }
-%"struct.facebook::yoga::(anonymous namespace)::Node" = type { %"class.std::function", ptr }
-%"class.std::function" = type { %"class.std::_Function_base", ptr }
-%"class.std::_Function_base" = type { %"union.std::_Any_data", ptr }
-%"union.std::_Any_data" = type { %"union.std::_Nocopy_types" }
-%"union.std::_Nocopy_types" = type { { i64, i64 } }
 %"class.facebook::yoga::Event::Data" = type { ptr }
 
 $__clang_call_terminate = comdat any
@@ -64,9 +59,9 @@ while.body.preheader:                             ; preds = %_ZN8facebook4yoga12
 
 while.body:                                       ; preds = %while.body.preheader, %_ZN8facebook4yoga12_GLOBAL__N_14NodeD2Ev.exit
   %head.04 = phi ptr [ %4, %_ZN8facebook4yoga12_GLOBAL__N_14NodeD2Ev.exit ], [ %3, %while.body.preheader ]
-  %next = getelementptr inbounds %"struct.facebook::yoga::(anonymous namespace)::Node", ptr %head.04, i64 0, i32 1
+  %next = getelementptr inbounds i8, ptr %head.04, i64 32
   %4 = load ptr, ptr %next, align 8
-  %_M_manager.i.i.i = getelementptr inbounds %"class.std::_Function_base", ptr %head.04, i64 0, i32 1
+  %_M_manager.i.i.i = getelementptr inbounds i8, ptr %head.04, i64 16
   %5 = load ptr, ptr %_M_manager.i.i.i, align 8
   %tobool.not.i.i.i = icmp eq ptr %5, null
   br i1 %tobool.not.i.i.i, label %_ZN8facebook4yoga12_GLOBAL__N_14NodeD2Ev.exit, label %if.then.i.i.i
@@ -98,25 +93,25 @@ declare void @_ZdlPv(ptr noundef) local_unnamed_addr #2
 define void @_ZN8facebook4yoga5Event9subscribeEOSt8functionIFvPK6YGNodeNS1_4TypeENS1_4DataEEE(ptr nocapture noundef nonnull align 8 dereferenceable(32) %subscriber) local_unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %call = tail call noalias noundef nonnull dereferenceable(40) ptr @_Znwm(i64 noundef 40) #11
-  %_M_invoker.i.i = getelementptr inbounds %"class.std::function", ptr %call, i64 0, i32 1
-  %_M_invoker2.i.i = getelementptr inbounds %"class.std::function", ptr %subscriber, i64 0, i32 1
+  %_M_invoker.i.i = getelementptr inbounds i8, ptr %call, i64 24
+  %_M_invoker2.i.i = getelementptr inbounds i8, ptr %subscriber, i64 24
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %call, i8 0, i64 24, i1 false)
   %0 = load ptr, ptr %_M_invoker2.i.i, align 8
   store ptr %0, ptr %_M_invoker.i.i, align 8
-  %_M_manager.i.i.i.i = getelementptr inbounds %"class.std::_Function_base", ptr %subscriber, i64 0, i32 1
+  %_M_manager.i.i.i.i = getelementptr inbounds i8, ptr %subscriber, i64 16
   %1 = load ptr, ptr %_M_manager.i.i.i.i, align 8
   %tobool.not.i.i.not.i.i = icmp eq ptr %1, null
   br i1 %tobool.not.i.i.not.i.i, label %_ZN8facebook4yoga12_GLOBAL__N_14NodeC2EOSt8functionIFvPK6YGNodeNS0_5Event4TypeENS7_4DataEEE.exit, label %if.then.i.i
 
 if.then.i.i:                                      ; preds = %entry
-  %_M_manager.i.i.i = getelementptr inbounds %"class.std::_Function_base", ptr %call, i64 0, i32 1
+  %_M_manager.i.i.i = getelementptr inbounds i8, ptr %call, i64 16
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %call, ptr noundef nonnull align 8 dereferenceable(16) %subscriber, i64 16, i1 false)
   store ptr %1, ptr %_M_manager.i.i.i, align 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %_M_manager.i.i.i.i, i8 0, i64 16, i1 false)
   br label %_ZN8facebook4yoga12_GLOBAL__N_14NodeC2EOSt8functionIFvPK6YGNodeNS0_5Event4TypeENS7_4DataEEE.exit
 
 _ZN8facebook4yoga12_GLOBAL__N_14NodeC2EOSt8functionIFvPK6YGNodeNS0_5Event4TypeENS7_4DataEEE.exit: ; preds = %entry, %if.then.i.i
-  %next.i = getelementptr inbounds %"struct.facebook::yoga::(anonymous namespace)::Node", ptr %call, i64 0, i32 1
+  %next.i = getelementptr inbounds i8, ptr %call, i64 32
   store ptr null, ptr %next.i, align 8
   %2 = ptrtoint ptr %call to i64
   br label %do.body.i
@@ -161,7 +156,7 @@ for.body:                                         ; preds = %for.body.preheader,
   store ptr %agg.tmp.sroa.0.0.copyload, ptr %__args.i, align 8
   store ptr %node, ptr %__args.addr.i, align 8
   store i32 %eventType, ptr %__args.addr3.i, align 4
-  %_M_manager.i.i = getelementptr inbounds %"class.std::_Function_base", ptr %subscriber.04, i64 0, i32 1
+  %_M_manager.i.i = getelementptr inbounds i8, ptr %subscriber.04, i64 16
   %2 = load ptr, ptr %_M_manager.i.i, align 8
   %tobool.not.i.i = icmp eq ptr %2, null
   br i1 %tobool.not.i.i, label %if.then.i, label %_ZNKSt8functionIFvPK6YGNodeN8facebook4yoga5Event4TypeENS5_4DataEEEclES2_S6_S7_.exit
@@ -171,13 +166,13 @@ if.then.i:                                        ; preds = %for.body
   unreachable
 
 _ZNKSt8functionIFvPK6YGNodeN8facebook4yoga5Event4TypeENS5_4DataEEEclES2_S6_S7_.exit: ; preds = %for.body
-  %_M_invoker.i = getelementptr inbounds %"class.std::function", ptr %subscriber.04, i64 0, i32 1
+  %_M_invoker.i = getelementptr inbounds i8, ptr %subscriber.04, i64 24
   %3 = load ptr, ptr %_M_invoker.i, align 8
   call void %3(ptr noundef nonnull align 8 dereferenceable(16) %subscriber.04, ptr noundef nonnull align 8 dereferenceable(8) %__args.addr.i, ptr noundef nonnull align 4 dereferenceable(4) %__args.addr3.i, ptr noundef nonnull align 8 dereferenceable(8) %__args.i)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %__args.i)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %__args.addr.i)
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %__args.addr3.i)
-  %next = getelementptr inbounds %"struct.facebook::yoga::(anonymous namespace)::Node", ptr %subscriber.04, i64 0, i32 1
+  %next = getelementptr inbounds i8, ptr %subscriber.04, i64 32
   %4 = load ptr, ptr %next, align 8
   %cmp.not = icmp eq ptr %4, null
   br i1 %cmp.not, label %for.end, label %for.body, !llvm.loop !6

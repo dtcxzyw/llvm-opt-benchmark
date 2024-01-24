@@ -6,11 +6,6 @@ target triple = "x86_64-unknown-linux-gnu"
 %struct.strbuf = type { i64, i64, ptr }
 %struct.git_hash_algo = type { ptr, i32, i64, i64, i64, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr }
 %struct.merge_result = type { i32, ptr, ptr, ptr, i32 }
-%struct.object = type { i32, %struct.object_id }
-%struct.object_id = type { [32 x i8], i32 }
-%struct.repository = type { ptr, ptr, ptr, ptr, ptr, %struct.repo_path_cache, ptr, ptr, ptr, ptr, %struct.repo_settings, ptr, ptr, ptr, ptr, ptr, i32, i32, i32, ptr, ptr, i32, i8 }
-%struct.repo_path_cache = type { ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr }
-%struct.repo_settings = type { i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, ptr, i32, i32, i32, i32, i32, i32 }
 
 @.str = private unnamed_addr constant [20 x i8] c"Already up to date.\00", align 1
 @strbuf_slopbuf = external global [0 x i8], align 1
@@ -47,7 +42,7 @@ if.end3.i.i:                                      ; preds = %if.then.i
 
 unclean.exit:                                     ; preds = %if.then.i, %if.end3.i.i
   %retval.0.i.i = phi ptr [ %call.i.i, %if.end3.i.i ], [ @.str.1, %if.then.i ]
-  %buf.i = getelementptr inbounds %struct.strbuf, ptr %sb.i, i64 0, i32 2
+  %buf.i = getelementptr inbounds i8, ptr %sb.i, i64 16
   %2 = load ptr, ptr %buf.i, align 8
   %call3.i = call i32 (ptr, ...) @error(ptr noundef %retval.0.i.i, ptr noundef %2) #7
   call void @strbuf_release(ptr noundef nonnull %sb.i) #7
@@ -56,16 +51,16 @@ unclean.exit:                                     ; preds = %if.then.i, %if.end3
 
 if.end:                                           ; preds = %land.lhs.true.i, %entry
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %sb.i)
-  %oid = getelementptr inbounds %struct.object, ptr %merge_base, i64 0, i32 1
-  %oid2 = getelementptr inbounds %struct.object, ptr %merge, i64 0, i32 1
-  %algo.i = getelementptr inbounds %struct.object, ptr %merge_base, i64 0, i32 1, i32 1
+  %oid = getelementptr inbounds i8, ptr %merge_base, i64 4
+  %oid2 = getelementptr inbounds i8, ptr %merge, i64 4
+  %algo.i = getelementptr inbounds i8, ptr %merge_base, i64 36
   %3 = load i32, ptr %algo.i, align 4
   %tobool.not.i7 = icmp eq i32 %3, 0
   br i1 %tobool.not.i7, label %if.then.i9, label %if.else.i
 
 if.then.i9:                                       ; preds = %if.end
   %4 = load ptr, ptr @the_repository, align 8
-  %hash_algo.i = getelementptr inbounds %struct.repository, ptr %4, i64 0, i32 15
+  %hash_algo.i = getelementptr inbounds i8, ptr %4, i64 256
   %5 = load ptr, ptr %hash_algo.i, align 8
   br label %if.end.i
 
@@ -158,7 +153,7 @@ if.end3.i.i:                                      ; preds = %if.then.i
 
 unclean.exit:                                     ; preds = %if.then.i, %if.end3.i.i
   %retval.0.i.i = phi ptr [ %call.i.i, %if.end3.i.i ], [ @.str.1, %if.then.i ]
-  %buf.i = getelementptr inbounds %struct.strbuf, ptr %sb.i, i64 0, i32 2
+  %buf.i = getelementptr inbounds i8, ptr %sb.i, i64 16
   %3 = load ptr, ptr %buf.i, align 8
   %call3.i = call i32 (ptr, ...) @error(ptr noundef %retval.0.i.i, ptr noundef %3) #7
   call void @strbuf_release(ptr noundef nonnull %sb.i) #7

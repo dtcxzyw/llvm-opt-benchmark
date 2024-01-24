@@ -13,7 +13,7 @@ entry:
   %hint = alloca %struct.addrinfo, align 8
   %result = alloca ptr, align 8
   store i32 -1, ptr %out_sock, align 4
-  %ai_socktype = getelementptr inbounds %struct.addrinfo, ptr %hint, i64 0, i32 2
+  %ai_socktype = getelementptr inbounds i8, ptr %hint, i64 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %hint, i8 0, i64 48, i1 false)
   store i32 1, ptr %ai_socktype, align 8
   %call = call i32 @getaddrinfo(ptr noundef %hostname, ptr noundef %port_str, ptr noundef nonnull %hint, ptr noundef nonnull %result) #6
@@ -33,26 +33,26 @@ if.then:                                          ; preds = %entry
 
 for.body:                                         ; preds = %for.cond.preheader, %for.inc
   %cur.017 = phi ptr [ %cur.0, %for.inc ], [ %cur.015, %for.cond.preheader ]
-  %ai_addrlen = getelementptr inbounds %struct.addrinfo, ptr %cur.017, i64 0, i32 4
+  %ai_addrlen = getelementptr inbounds i8, ptr %cur.017, i64 16
   %0 = load i32, ptr %ai_addrlen, align 8
   %cmp2 = icmp ugt i32 %0, 128
   br i1 %cmp2, label %for.inc, label %if.end5
 
 if.end5:                                          ; preds = %for.body
-  %ai_addrlen.le = getelementptr inbounds %struct.addrinfo, ptr %cur.017, i64 0, i32 4
+  %ai_addrlen.le = getelementptr inbounds i8, ptr %cur.017, i64 16
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(128) %out_addr, i8 0, i64 128, i1 false)
-  %ai_addr = getelementptr inbounds %struct.addrinfo, ptr %cur.017, i64 0, i32 5
+  %ai_addr = getelementptr inbounds i8, ptr %cur.017, i64 24
   %1 = load ptr, ptr %ai_addr, align 8
   %2 = load i32, ptr %ai_addrlen.le, align 8
   %conv7 = zext i32 %2 to i64
   call void @llvm.memcpy.p0.p0.i64(ptr align 8 %out_addr, ptr align 2 %1, i64 %conv7, i1 false)
   %3 = load i32, ptr %ai_addrlen.le, align 8
   store i32 %3, ptr %out_addr_length, align 4
-  %ai_family9 = getelementptr inbounds %struct.addrinfo, ptr %cur.017, i64 0, i32 1
+  %ai_family9 = getelementptr inbounds i8, ptr %cur.017, i64 4
   %4 = load i32, ptr %ai_family9, align 4
-  %ai_socktype10 = getelementptr inbounds %struct.addrinfo, ptr %cur.017, i64 0, i32 2
+  %ai_socktype10 = getelementptr inbounds i8, ptr %cur.017, i64 8
   %5 = load i32, ptr %ai_socktype10, align 8
-  %ai_protocol = getelementptr inbounds %struct.addrinfo, ptr %cur.017, i64 0, i32 3
+  %ai_protocol = getelementptr inbounds i8, ptr %cur.017, i64 12
   %6 = load i32, ptr %ai_protocol, align 4
   %call11 = call i32 @socket(i32 noundef %4, i32 noundef %5, i32 noundef %6) #6
   store i32 %call11, ptr %out_sock, align 4
@@ -64,7 +64,7 @@ if.then14:                                        ; preds = %if.end5
   br label %out
 
 for.inc:                                          ; preds = %for.body
-  %ai_next = getelementptr inbounds %struct.addrinfo, ptr %cur.017, i64 0, i32 7
+  %ai_next = getelementptr inbounds i8, ptr %cur.017, i64 40
   %cur.0 = load ptr, ptr %ai_next, align 8
   %tobool.not = icmp eq ptr %cur.0, null
   br i1 %tobool.not, label %out, label %for.body, !llvm.loop !7

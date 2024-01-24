@@ -3,24 +3,10 @@ source_filename = "bench/curl/original/libcurl_la-hostip6.ll"
 target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:128-n8:16:32:64-S128"
 target triple = "x86_64-unknown-linux-gnu"
 
-%struct.connectdata = type { %struct.Curl_llist_element, ptr, ptr, i64, ptr, ptr, %struct.hostname, ptr, ptr, %struct.hostname, %struct.proxy_info, %struct.proxy_info, [46 x i8], ptr, ptr, ptr, ptr, ptr, %struct.curltime, %struct.curltime, %struct.curltime, [2 x i32], [2 x ptr], [2 x ptr], [2 x ptr], %struct.ssl_primary_config, %struct.ssl_primary_config, %struct.ConnectBits, ptr, ptr, %struct.curltime, i32, i32, %struct.Curl_llist, ptr, ptr, i32, i32, %struct.ntlmdata, %struct.ntlmdata, %union.anon, ptr, ptr, ptr, i16, i32, i32, i32, i32, i32, i16, i16, i8, i8, i8, i8, i8, i8, i8 }
-%struct.Curl_llist_element = type { ptr, ptr, ptr }
-%struct.hostname = type { ptr, ptr, ptr, ptr }
-%struct.proxy_info = type { %struct.hostname, i32, i8, ptr, ptr }
-%struct.ssl_primary_config = type { ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, i8, i32, i8, i8 }
-%struct.ConnectBits = type { i32 }
-%struct.curltime = type { i64, i32 }
-%struct.Curl_llist = type { ptr, ptr, ptr, i64 }
-%struct.ntlmdata = type { i32, [8 x i8], i32, ptr }
-%union.anon = type { %struct.ftp_conn }
-%struct.ftp_conn = type { %struct.pingpong, ptr, ptr, ptr, ptr, ptr, ptr, ptr, i8, i64, ptr, i64, i32, i32, i32, i32, i32, i16, i8, i8, i8, i8, i8 }
-%struct.pingpong = type { ptr, i64, i64, ptr, i8, ptr, i64, i64, %struct.curltime, i64, %struct.dynbuf, ptr, ptr }
-%struct.dynbuf = type { ptr, i64, i64, i64 }
-
 ; Function Attrs: nounwind uwtable
 define hidden zeroext i1 @Curl_ipvalid(ptr noundef %data, ptr nocapture noundef readonly %conn) local_unnamed_addr #0 {
 entry:
-  %ip_version = getelementptr inbounds %struct.connectdata, ptr %conn, i64 0, i32 55
+  %ip_version = getelementptr inbounds i8, ptr %conn, i64 1167
   %0 = load i8, ptr %ip_version, align 1
   %cmp = icmp eq i8 %0, 2
   br i1 %cmp, label %if.then, label %return

@@ -14,16 +14,16 @@ define i16 @"_ZN4core3str7pattern13simd_contains28_$u7b$$u7b$closure$u7d$$u7d$17
   %3 = load ptr, ptr %0, align 8, !nonnull !5, !align !6, !noundef !5
   %4 = getelementptr inbounds i8, ptr %3, i64 %1
   %.0.copyload7 = load <16 x i8>, ptr %4, align 1
-  %5 = getelementptr inbounds { { ptr, i64 }, ptr, ptr, ptr }, ptr %0, i64 0, i32 1
+  %5 = getelementptr inbounds i8, ptr %0, i64 16
   %6 = load ptr, ptr %5, align 8, !nonnull !5, !align !7, !noundef !5
   %7 = load i64, ptr %6, align 8, !noundef !5
   %8 = getelementptr inbounds i8, ptr %4, i64 %7
   %.0.copyload = load <16 x i8>, ptr %8, align 1
-  %9 = getelementptr inbounds { { ptr, i64 }, ptr, ptr, ptr }, ptr %0, i64 0, i32 2
+  %9 = getelementptr inbounds i8, ptr %0, i64 24
   %10 = load ptr, ptr %9, align 8, !nonnull !5, !align !8, !noundef !5
   %11 = load <16 x i8>, ptr %10, align 16
   %12 = icmp eq <16 x i8> %.0.copyload7, %11
-  %13 = getelementptr inbounds { { ptr, i64 }, ptr, ptr, ptr }, ptr %0, i64 0, i32 3
+  %13 = getelementptr inbounds i8, ptr %0, i64 32
   %14 = load ptr, ptr %13, align 8, !nonnull !5, !align !8, !noundef !5
   %15 = load <16 x i8>, ptr %14, align 16
   %16 = icmp eq <16 x i8> %.0.copyload, %15
@@ -38,7 +38,7 @@ define zeroext i1 @"_ZN4core3str7pattern13simd_contains28_$u7b$$u7b$closure$u7d$
   %5 = icmp ne ptr %1, null
   tail call void @llvm.assume(i1 %5)
   %6 = load ptr, ptr %4, align 8, !nonnull !5, !align !6, !noundef !5
-  %7 = getelementptr inbounds { ptr, i64 }, ptr %4, i64 0, i32 1
+  %7 = getelementptr inbounds i8, ptr %4, i64 8
   %8 = load i64, ptr %7, align 8, !noundef !5
   %9 = tail call zeroext i1 @"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h4903e138298284bbE"(ptr nonnull align 1 %1, i64 %2, ptr nonnull align 1 %6, i64 %8)
   ret i1 %9
@@ -51,8 +51,8 @@ define noundef zeroext i1 @"_ZN4core3str7pattern13simd_contains28_$u7b$$u7b$clos
   br i1 %or.cond, label %.loopexit, label %.lr.ph
 
 .lr.ph:                                           ; preds = %4
-  %6 = getelementptr inbounds { { ptr, i64 }, { ptr, i64 } }, ptr %0, i64 0, i32 1
-  %7 = getelementptr inbounds { { ptr, i64 }, { ptr, i64 } }, ptr %0, i64 0, i32 1, i32 1
+  %6 = getelementptr inbounds i8, ptr %0, i64 16
+  %7 = getelementptr inbounds i8, ptr %0, i64 24
   br label %8
 
 8:                                                ; preds = %.lr.ph, %18
@@ -83,7 +83,7 @@ define noundef zeroext i1 @"_ZN4core3str7pattern13simd_contains28_$u7b$$u7b$clos
 ; Function Attrs: inlinehint nonlazybind uwtable
 define noundef zeroext i1 @"_ZN4core3str7pattern13simd_contains28_$u7b$$u7b$closure$u7d$$u7d$17hdc9c8a4ce242b28eE"(ptr nocapture readonly align 8 %0, ptr nocapture readonly align 8 %1) unnamed_addr #1 {
   %3 = load i64, ptr %1, align 8, !noundef !5
-  %4 = getelementptr inbounds { ptr, i64 }, ptr %0, i64 0, i32 1
+  %4 = getelementptr inbounds i8, ptr %0, i64 8
   %5 = load i64, ptr %4, align 8, !noundef !5
   %6 = icmp ult i64 %3, %5
   br i1 %6, label %7, label %15, !prof !10
@@ -92,7 +92,7 @@ define noundef zeroext i1 @"_ZN4core3str7pattern13simd_contains28_$u7b$$u7b$clos
   %8 = load ptr, ptr %0, align 8, !nonnull !5, !align !6, !noundef !5
   %9 = getelementptr inbounds [0 x i8], ptr %8, i64 0, i64 %3
   %10 = load i8, ptr %9, align 1, !noundef !5
-  %11 = getelementptr inbounds { { ptr, i64 }, ptr }, ptr %0, i64 0, i32 1
+  %11 = getelementptr inbounds i8, ptr %0, i64 16
   %12 = load ptr, ptr %11, align 8, !nonnull !5, !align !6, !noundef !5
   %13 = load i8, ptr %12, align 1, !noundef !5
   %14 = icmp ne i8 %10, %13
@@ -107,7 +107,7 @@ define noundef zeroext i1 @"_ZN4core3str7pattern13simd_contains28_$u7b$$u7b$clos
 define void @_ZN4core3str7pattern14TwoWaySearcher4next17h3e46bae5b30da0a3E(ptr sret({ i64, [2 x i64] }) align 8 %0, ptr nocapture align 8 %1, ptr readonly align 1 %2, i64 %3, ptr nocapture readonly align 1 %4, i64 %5, i1 zeroext %6) unnamed_addr #1 {
   %8 = alloca { i64, i64 }, align 8
   %.fr65 = freeze ptr %2
-  %9 = getelementptr inbounds { i64, i64, i64, i64, i64, i64, i64, i64 }, ptr %1, i64 0, i32 4
+  %9 = getelementptr inbounds i8, ptr %1, i64 32
   %10 = load i64, ptr %9, align 8, !noundef !5
   %11 = add i64 %5, -1
   %12 = icmp eq ptr %.fr65, null
@@ -117,10 +117,10 @@ define void @_ZN4core3str7pattern14TwoWaySearcher4next17h3e46bae5b30da0a3E(ptr s
   br i1 %15, label %.outer._crit_edge, label %.lr.ph.lr.ph
 
 .lr.ph.lr.ph:                                     ; preds = %7
-  %16 = getelementptr inbounds { i64, i64, i64, i64, i64, i64, i64, i64 }, ptr %1, i64 0, i32 3
-  %17 = getelementptr inbounds { i64, i64, i64, i64, i64, i64, i64, i64 }, ptr %1, i64 0, i32 6
-  %18 = getelementptr inbounds { i64, i64 }, ptr %8, i64 0, i32 1
-  %19 = getelementptr inbounds { i64, i64, i64, i64, i64, i64, i64, i64 }, ptr %1, i64 0, i32 2
+  %16 = getelementptr inbounds i8, ptr %1, i64 24
+  %17 = getelementptr inbounds i8, ptr %1, i64 48
+  %18 = getelementptr inbounds i8, ptr %8, i64 8
+  %19 = getelementptr inbounds i8, ptr %1, i64 16
   br label %.lr.ph.split
 
 .outer._crit_edge:                                ; preds = %.outer, %.backedge, %7
@@ -309,7 +309,7 @@ define void @_ZN4core3str7pattern14TwoWaySearcher4next17h3e46bae5b30da0a3E(ptr s
 define void @_ZN4core3str7pattern14TwoWaySearcher4next17h579b9457b52dfedcE(ptr sret({ i64, [2 x i64] }) align 8 %0, ptr nocapture align 8 %1, ptr readonly align 1 %2, i64 %3, ptr nocapture readonly align 1 %4, i64 %5, i1 zeroext %6) unnamed_addr #1 {
   %8 = alloca { i64, i64 }, align 8
   %.fr65 = freeze ptr %2
-  %9 = getelementptr inbounds { i64, i64, i64, i64, i64, i64, i64, i64 }, ptr %1, i64 0, i32 4
+  %9 = getelementptr inbounds i8, ptr %1, i64 32
   %10 = load i64, ptr %9, align 8, !noundef !5
   %11 = add i64 %5, -1
   %12 = icmp eq ptr %.fr65, null
@@ -319,10 +319,10 @@ define void @_ZN4core3str7pattern14TwoWaySearcher4next17h579b9457b52dfedcE(ptr s
   br i1 %15, label %.outer._crit_edge, label %.lr.ph.lr.ph
 
 .lr.ph.lr.ph:                                     ; preds = %7
-  %16 = getelementptr inbounds { i64, i64, i64, i64, i64, i64, i64, i64 }, ptr %1, i64 0, i32 3
-  %17 = getelementptr inbounds { i64, i64, i64, i64, i64, i64, i64, i64 }, ptr %1, i64 0, i32 6
-  %18 = getelementptr inbounds { i64, i64 }, ptr %8, i64 0, i32 1
-  %19 = getelementptr inbounds { i64, i64, i64, i64, i64, i64, i64, i64 }, ptr %1, i64 0, i32 2
+  %16 = getelementptr inbounds i8, ptr %1, i64 24
+  %17 = getelementptr inbounds i8, ptr %1, i64 48
+  %18 = getelementptr inbounds i8, ptr %8, i64 8
+  %19 = getelementptr inbounds i8, ptr %1, i64 16
   br label %.lr.ph.split
 
 .outer._crit_edge:                                ; preds = %.outer, %.backedge, %7

@@ -22,7 +22,7 @@ target triple = "x86_64-unknown-linux-gnu"
 @d2 = internal constant [10 x i32] [i32 -21827239, i32 -5839606, i32 -30745221, i32 13898782, i32 229458, i32 15978800, i32 -12551817, i32 -6495438, i32 29715968, i32 9444199], align 16
 
 ; Function Attrs: nounwind uwtable
-define i32 @ossl_ed25519_sign(ptr noundef %out_sig, ptr noundef %tbs, i64 noundef %tbs_len, ptr noundef %public_key, ptr noundef %private_key, i8 noundef zeroext %dom2flag, i8 noundef zeroext %phflag, i8 noundef zeroext %csflag, ptr noundef %context, i64 noundef %context_len, ptr noundef %libctx, ptr noundef %propq) local_unnamed_addr #0 {
+define noundef i32 @ossl_ed25519_sign(ptr noundef %out_sig, ptr noundef %tbs, i64 noundef %tbs_len, ptr noundef %public_key, ptr noundef %private_key, i8 noundef zeroext %dom2flag, i8 noundef zeroext %phflag, i8 noundef zeroext %csflag, ptr noundef %context, i64 noundef %context_len, ptr noundef %libctx, ptr noundef %propq) local_unnamed_addr #0 {
 entry:
   %dom_s.i = alloca [33 x i8], align 16
   %dom.i = alloca [2 x i8], align 1
@@ -31,8 +31,8 @@ entry:
   %R = alloca %struct.ge_p3, align 4
   %hram = alloca [64 x i8], align 16
   %sz = alloca i32, align 4
-  %call = tail call ptr @EVP_MD_fetch(ptr noundef %libctx, ptr noundef nonnull @.str, ptr noundef %propq) #10
-  %call1 = tail call ptr @EVP_MD_CTX_new() #10
+  %call = tail call ptr @EVP_MD_fetch(ptr noundef %libctx, ptr noundef nonnull @.str, ptr noundef %propq) #9
+  %call1 = tail call ptr @EVP_MD_CTX_new() #9
   %cmp = icmp eq ptr %context, null
   %spec.select = select i1 %cmp, i64 0, i64 %context_len
   %tobool = icmp ne i8 %csflag, 0
@@ -53,17 +53,17 @@ if.end11:                                         ; preds = %if.end5
   br i1 %or.cond2, label %err, label %if.end17
 
 if.end17:                                         ; preds = %if.end11
-  %call18 = tail call i32 @EVP_DigestInit_ex(ptr noundef nonnull %call1, ptr noundef nonnull %call, ptr noundef null) #10
+  %call18 = tail call i32 @EVP_DigestInit_ex(ptr noundef nonnull %call1, ptr noundef nonnull %call, ptr noundef null) #9
   %tobool19.not = icmp eq i32 %call18, 0
   br i1 %tobool19.not, label %err, label %lor.lhs.false20
 
 lor.lhs.false20:                                  ; preds = %if.end17
-  %call21 = tail call i32 @EVP_DigestUpdate(ptr noundef nonnull %call1, ptr noundef %private_key, i64 noundef 32) #10
+  %call21 = tail call i32 @EVP_DigestUpdate(ptr noundef nonnull %call1, ptr noundef %private_key, i64 noundef 32) #9
   %tobool22.not = icmp eq i32 %call21, 0
   br i1 %tobool22.not, label %err, label %lor.lhs.false23
 
 lor.lhs.false23:                                  ; preds = %lor.lhs.false20
-  %call24 = call i32 @EVP_DigestFinal_ex(ptr noundef nonnull %call1, ptr noundef nonnull %az, ptr noundef nonnull %sz) #10
+  %call24 = call i32 @EVP_DigestFinal_ex(ptr noundef nonnull %call1, ptr noundef nonnull %az, ptr noundef nonnull %sz) #9
   %tobool25.not = icmp eq i32 %call24, 0
   br i1 %tobool25.not, label %err, label %if.end27
 
@@ -71,7 +71,7 @@ if.end27:                                         ; preds = %lor.lhs.false23
   %0 = load i8, ptr %az, align 16
   %1 = and i8 %0, -8
   store i8 %1, ptr %az, align 16
-  %arrayidx30 = getelementptr inbounds [64 x i8], ptr %az, i64 0, i64 31
+  %arrayidx30 = getelementptr inbounds i8, ptr %az, i64 31
   %2 = load i8, ptr %arrayidx30, align 1
   %3 = and i8 %2, 63
   %4 = or disjoint i8 %3, 64
@@ -79,7 +79,7 @@ if.end27:                                         ; preds = %lor.lhs.false23
   call void @llvm.lifetime.start.p0(i64 33, ptr nonnull %dom_s.i)
   call void @llvm.lifetime.start.p0(i64 2, ptr nonnull %dom.i)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(33) %dom_s.i, ptr noundef nonnull align 16 dereferenceable(33) @__const.hash_init_with_dom.dom_s, i64 33, i1 false)
-  %call.i = call i32 @EVP_DigestInit_ex(ptr noundef nonnull %call1, ptr noundef nonnull %call, ptr noundef null) #10
+  %call.i = call i32 @EVP_DigestInit_ex(ptr noundef nonnull %call1, ptr noundef nonnull %call, ptr noundef null) #9
   %tobool.not.i = icmp eq i32 %call.i, 0
   br i1 %tobool.not.i, label %hash_init_with_dom.exit.thread, label %if.end.i
 
@@ -100,14 +100,14 @@ if.end5.i:                                        ; preds = %if.end3.i
   %conv8.i = zext i1 %cmp6.not.i to i8
   store i8 %conv8.i, ptr %dom.i, align 1
   %conv9.i = trunc i64 %spec.select to i8
-  %arrayidx10.i = getelementptr inbounds [2 x i8], ptr %dom.i, i64 0, i64 1
+  %arrayidx10.i = getelementptr inbounds i8, ptr %dom.i, i64 1
   store i8 %conv9.i, ptr %arrayidx10.i, align 1
-  %call11.i = call i32 @EVP_DigestUpdate(ptr noundef nonnull %call1, ptr noundef nonnull %dom_s.i, i64 noundef 32) #10
+  %call11.i = call i32 @EVP_DigestUpdate(ptr noundef nonnull %call1, ptr noundef nonnull %dom_s.i, i64 noundef 32) #9
   %tobool12.not.i = icmp eq i32 %call11.i, 0
   br i1 %tobool12.not.i, label %hash_init_with_dom.exit.thread, label %lor.lhs.false.i
 
 lor.lhs.false.i:                                  ; preds = %if.end5.i
-  %call14.i = call i32 @EVP_DigestUpdate(ptr noundef nonnull %call1, ptr noundef nonnull %dom.i, i64 noundef 2) #10
+  %call14.i = call i32 @EVP_DigestUpdate(ptr noundef nonnull %call1, ptr noundef nonnull %dom.i, i64 noundef 2) #9
   %tobool15.not.i = icmp eq i32 %call14.i, 0
   br i1 %tobool15.not.i, label %hash_init_with_dom.exit.thread, label %hash_init_with_dom.exit
 
@@ -117,7 +117,7 @@ hash_init_with_dom.exit.thread:                   ; preds = %if.end27, %if.end3.
   br label %err
 
 hash_init_with_dom.exit:                          ; preds = %lor.lhs.false.i
-  %call17.i = call i32 @EVP_DigestUpdate(ptr noundef nonnull %call1, ptr noundef %context, i64 noundef %spec.select) #10
+  %call17.i = call i32 @EVP_DigestUpdate(ptr noundef nonnull %call1, ptr noundef %context, i64 noundef %spec.select) #9
   %tobool18.not.i.not = icmp eq i32 %call17.i, 0
   call void @llvm.lifetime.end.p0(i64 33, ptr nonnull %dom_s.i)
   call void @llvm.lifetime.end.p0(i64 2, ptr nonnull %dom.i)
@@ -125,17 +125,17 @@ hash_init_with_dom.exit:                          ; preds = %lor.lhs.false.i
 
 lor.lhs.false39:                                  ; preds = %hash_init_with_dom.exit.thread34, %hash_init_with_dom.exit
   %add.ptr = getelementptr inbounds i8, ptr %az, i64 32
-  %call41 = call i32 @EVP_DigestUpdate(ptr noundef nonnull %call1, ptr noundef nonnull %add.ptr, i64 noundef 32) #10
+  %call41 = call i32 @EVP_DigestUpdate(ptr noundef nonnull %call1, ptr noundef nonnull %add.ptr, i64 noundef 32) #9
   %tobool42.not = icmp eq i32 %call41, 0
   br i1 %tobool42.not, label %err, label %lor.lhs.false43
 
 lor.lhs.false43:                                  ; preds = %lor.lhs.false39
-  %call44 = call i32 @EVP_DigestUpdate(ptr noundef nonnull %call1, ptr noundef %tbs, i64 noundef %tbs_len) #10
+  %call44 = call i32 @EVP_DigestUpdate(ptr noundef nonnull %call1, ptr noundef %tbs, i64 noundef %tbs_len) #9
   %tobool45.not = icmp eq i32 %call44, 0
   br i1 %tobool45.not, label %err, label %lor.lhs.false46
 
 lor.lhs.false46:                                  ; preds = %lor.lhs.false43
-  %call48 = call i32 @EVP_DigestFinal_ex(ptr noundef nonnull %call1, ptr noundef nonnull %nonce, ptr noundef nonnull %sz) #10
+  %call48 = call i32 @EVP_DigestFinal_ex(ptr noundef nonnull %call1, ptr noundef nonnull %nonce, ptr noundef nonnull %sz) #9
   %tobool49.not = icmp eq i32 %call48, 0
   br i1 %tobool49.not, label %err, label %if.end51
 
@@ -148,22 +148,22 @@ if.end51:                                         ; preds = %lor.lhs.false46
   br i1 %tobool55.not, label %err, label %lor.lhs.false56
 
 lor.lhs.false56:                                  ; preds = %if.end51
-  %call57 = call i32 @EVP_DigestUpdate(ptr noundef nonnull %call1, ptr noundef %out_sig, i64 noundef 32) #10
+  %call57 = call i32 @EVP_DigestUpdate(ptr noundef nonnull %call1, ptr noundef %out_sig, i64 noundef 32) #9
   %tobool58.not = icmp eq i32 %call57, 0
   br i1 %tobool58.not, label %err, label %lor.lhs.false59
 
 lor.lhs.false59:                                  ; preds = %lor.lhs.false56
-  %call60 = call i32 @EVP_DigestUpdate(ptr noundef nonnull %call1, ptr noundef %public_key, i64 noundef 32) #10
+  %call60 = call i32 @EVP_DigestUpdate(ptr noundef nonnull %call1, ptr noundef %public_key, i64 noundef 32) #9
   %tobool61.not = icmp eq i32 %call60, 0
   br i1 %tobool61.not, label %err, label %lor.lhs.false62
 
 lor.lhs.false62:                                  ; preds = %lor.lhs.false59
-  %call63 = call i32 @EVP_DigestUpdate(ptr noundef nonnull %call1, ptr noundef %tbs, i64 noundef %tbs_len) #10
+  %call63 = call i32 @EVP_DigestUpdate(ptr noundef nonnull %call1, ptr noundef %tbs, i64 noundef %tbs_len) #9
   %tobool64.not = icmp eq i32 %call63, 0
   br i1 %tobool64.not, label %err, label %lor.lhs.false65
 
 lor.lhs.false65:                                  ; preds = %lor.lhs.false62
-  %call67 = call i32 @EVP_DigestFinal_ex(ptr noundef nonnull %call1, ptr noundef nonnull %hram, ptr noundef nonnull %sz) #10
+  %call67 = call i32 @EVP_DigestFinal_ex(ptr noundef nonnull %call1, ptr noundef nonnull %hram, ptr noundef nonnull %sz) #9
   %tobool68.not = icmp eq i32 %call67, 0
   br i1 %tobool68.not, label %err, label %if.end70
 
@@ -175,10 +175,10 @@ if.end70:                                         ; preds = %lor.lhs.false65
 
 err:                                              ; preds = %hash_init_with_dom.exit.thread, %if.end51, %lor.lhs.false56, %lor.lhs.false59, %lor.lhs.false62, %lor.lhs.false65, %hash_init_with_dom.exit, %lor.lhs.false39, %lor.lhs.false43, %lor.lhs.false46, %if.end17, %lor.lhs.false20, %lor.lhs.false23, %if.end11, %if.end5, %entry, %if.end70
   %res.0 = phi i32 [ 0, %entry ], [ 0, %if.end5 ], [ 0, %if.end11 ], [ 1, %if.end70 ], [ 0, %lor.lhs.false65 ], [ 0, %lor.lhs.false62 ], [ 0, %lor.lhs.false59 ], [ 0, %lor.lhs.false56 ], [ 0, %if.end51 ], [ 0, %lor.lhs.false46 ], [ 0, %lor.lhs.false43 ], [ 0, %lor.lhs.false39 ], [ 0, %hash_init_with_dom.exit ], [ 0, %lor.lhs.false23 ], [ 0, %lor.lhs.false20 ], [ 0, %if.end17 ], [ 0, %hash_init_with_dom.exit.thread ]
-  call void @OPENSSL_cleanse(ptr noundef nonnull %nonce, i64 noundef 64) #10
-  call void @OPENSSL_cleanse(ptr noundef nonnull %az, i64 noundef 64) #10
-  call void @EVP_MD_free(ptr noundef %call) #10
-  call void @EVP_MD_CTX_free(ptr noundef %call1) #10
+  call void @OPENSSL_cleanse(ptr noundef nonnull %nonce, i64 noundef 64) #9
+  call void @OPENSSL_cleanse(ptr noundef nonnull %az, i64 noundef 64) #9
+  call void @EVP_MD_free(ptr noundef %call) #9
+  call void @EVP_MD_CTX_free(ptr noundef %call1) #9
   ret i32 %res.0
 }
 
@@ -198,7 +198,7 @@ entry:
   %dom_s = alloca [33 x i8], align 16
   %dom = alloca [2 x i8], align 1
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(33) %dom_s, ptr noundef nonnull align 16 dereferenceable(33) @__const.hash_init_with_dom.dom_s, i64 33, i1 false)
-  %call = tail call i32 @EVP_DigestInit_ex(ptr noundef %hash_ctx, ptr noundef %sha512, ptr noundef null) #10
+  %call = tail call i32 @EVP_DigestInit_ex(ptr noundef %hash_ctx, ptr noundef %sha512, ptr noundef null) #9
   %tobool.not = icmp eq i32 %call, 0
   br i1 %tobool.not, label %return, label %if.end
 
@@ -215,19 +215,19 @@ if.end5:                                          ; preds = %if.end3
   %conv8 = zext i1 %cmp6.not to i8
   store i8 %conv8, ptr %dom, align 1
   %conv9 = trunc i64 %context_len to i8
-  %arrayidx10 = getelementptr inbounds [2 x i8], ptr %dom, i64 0, i64 1
+  %arrayidx10 = getelementptr inbounds i8, ptr %dom, i64 1
   store i8 %conv9, ptr %arrayidx10, align 1
-  %call11 = call i32 @EVP_DigestUpdate(ptr noundef %hash_ctx, ptr noundef nonnull %dom_s, i64 noundef 32) #10
+  %call11 = call i32 @EVP_DigestUpdate(ptr noundef %hash_ctx, ptr noundef nonnull %dom_s, i64 noundef 32) #9
   %tobool12.not = icmp eq i32 %call11, 0
   br i1 %tobool12.not, label %return, label %lor.lhs.false
 
 lor.lhs.false:                                    ; preds = %if.end5
-  %call14 = call i32 @EVP_DigestUpdate(ptr noundef %hash_ctx, ptr noundef nonnull %dom, i64 noundef 2) #10
+  %call14 = call i32 @EVP_DigestUpdate(ptr noundef %hash_ctx, ptr noundef nonnull %dom, i64 noundef 2) #9
   %tobool15.not = icmp eq i32 %call14, 0
   br i1 %tobool15.not, label %return, label %lor.lhs.false16
 
 lor.lhs.false16:                                  ; preds = %lor.lhs.false
-  %call17 = call i32 @EVP_DigestUpdate(ptr noundef %hash_ctx, ptr noundef %context, i64 noundef %context_len) #10
+  %call17 = call i32 @EVP_DigestUpdate(ptr noundef %hash_ctx, ptr noundef %context, i64 noundef %context_len) #9
   %tobool18.not = icmp ne i32 %call17, 0
   %spec.select = zext i1 %tobool18.not to i32
   br label %return
@@ -925,24 +925,24 @@ for.body17:                                       ; preds = %for.body, %for.body
   br i1 %exitcond70.not, label %for.end39, label %for.body17, !llvm.loop !7
 
 for.end39:                                        ; preds = %for.body17
-  %arrayidx41 = getelementptr inbounds [64 x i8], ptr %e, i64 0, i64 63
+  %arrayidx41 = getelementptr inbounds i8, ptr %e, i64 63
   %7 = load i8, ptr %arrayidx41, align 1
   %add43 = add i8 %7, %6
   store i8 %add43, ptr %arrayidx41, align 1
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(40) %h, i8 0, i64 40, i1 false)
-  %Y.i = getelementptr inbounds %struct.ge_p3, ptr %h, i64 0, i32 1
-  %8 = getelementptr inbounds %struct.ge_p3, ptr %h, i64 0, i32 1, i64 1
+  %Y.i = getelementptr inbounds i8, ptr %h, i64 40
+  %8 = getelementptr inbounds i8, ptr %h, i64 44
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(40) %8, i8 0, i64 36, i1 false)
   store i32 1, ptr %Y.i, align 4
-  %Z.i = getelementptr inbounds %struct.ge_p3, ptr %h, i64 0, i32 2
-  %9 = getelementptr inbounds %struct.ge_p3, ptr %h, i64 0, i32 2, i64 1
+  %Z.i = getelementptr inbounds i8, ptr %h, i64 80
+  %9 = getelementptr inbounds i8, ptr %h, i64 84
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(40) %9, i8 0, i64 36, i1 false)
   store i32 1, ptr %Z.i, align 4
-  %T.i = getelementptr inbounds %struct.ge_p3, ptr %h, i64 0, i32 3
+  %T.i = getelementptr inbounds i8, ptr %h, i64 120
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(40) %T.i, i8 0, i64 40, i1 false)
-  %T.i30 = getelementptr inbounds %struct.ge_p1p1, ptr %r, i64 0, i32 3
-  %Y5.i = getelementptr inbounds %struct.ge_p1p1, ptr %r, i64 0, i32 1
-  %Z.i32 = getelementptr inbounds %struct.ge_p1p1, ptr %r, i64 0, i32 2
+  %T.i30 = getelementptr inbounds i8, ptr %r, i64 120
+  %Y5.i = getelementptr inbounds i8, ptr %r, i64 40
+  %Z.i32 = getelementptr inbounds i8, ptr %r, i64 80
   br label %for.body48
 
 for.body48:                                       ; preds = %for.end39, %for.body48
@@ -964,16 +964,16 @@ for.body48:                                       ; preds = %for.end39, %for.bod
 for.end53:                                        ; preds = %for.body48
   call void @llvm.lifetime.start.p0(i64 120, ptr nonnull %q.i)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(40) %q.i, ptr noundef nonnull align 4 dereferenceable(40) %h, i64 40, i1 false)
-  %Y.i.i = getelementptr inbounds %struct.ge_p2, ptr %q.i, i64 0, i32 1
+  %Y.i.i = getelementptr inbounds i8, ptr %q.i, i64 40
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(40) %Y.i.i, ptr noundef nonnull align 4 dereferenceable(40) %Y.i, i64 40, i1 false)
-  %Z.i.i = getelementptr inbounds %struct.ge_p2, ptr %q.i, i64 0, i32 2
+  %Z.i.i = getelementptr inbounds i8, ptr %q.i, i64 80
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(40) %Z.i.i, ptr noundef nonnull align 4 dereferenceable(40) %Z.i, i64 40, i1 false)
   call fastcc void @ge_p2_dbl(ptr noundef nonnull %r, ptr noundef nonnull %q.i)
   call void @llvm.lifetime.end.p0(i64 120, ptr nonnull %q.i)
   call fastcc void @fe_mul(ptr noundef nonnull %s, ptr noundef nonnull %r, ptr noundef nonnull %T.i30)
-  %Y.i34 = getelementptr inbounds %struct.ge_p2, ptr %s, i64 0, i32 1
+  %Y.i34 = getelementptr inbounds i8, ptr %s, i64 40
   call fastcc void @fe_mul(ptr noundef nonnull %Y.i34, ptr noundef nonnull %Y5.i, ptr noundef nonnull %Z.i32)
-  %Z8.i37 = getelementptr inbounds %struct.ge_p2, ptr %s, i64 0, i32 2
+  %Z8.i37 = getelementptr inbounds i8, ptr %s, i64 80
   call fastcc void @fe_mul(ptr noundef nonnull %Z8.i37, ptr noundef nonnull %Z.i32, ptr noundef nonnull %T.i30)
   call fastcc void @ge_p2_dbl(ptr noundef nonnull %r, ptr noundef nonnull %s)
   call fastcc void @fe_mul(ptr noundef nonnull %s, ptr noundef nonnull %r, ptr noundef nonnull %T.i30)
@@ -1007,21 +1007,21 @@ for.body57:                                       ; preds = %for.end53, %for.bod
   br i1 %cmp55, label %for.body57, label %for.end63, !llvm.loop !9
 
 for.end63:                                        ; preds = %for.body57
-  call void @OPENSSL_cleanse(ptr noundef nonnull %e, i64 noundef 64) #10
+  call void @OPENSSL_cleanse(ptr noundef nonnull %e, i64 noundef 64) #9
   ret void
 }
 
-; Function Attrs: nofree nosync nounwind memory(argmem: readwrite) uwtable
+; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
 define internal fastcc void @ge_p3_tobytes(ptr nocapture noundef %s, ptr nocapture noundef readonly %h) unnamed_addr #3 {
 entry:
   %s.i = alloca [32 x i8], align 16
   %recip = alloca [10 x i32], align 16
   %x = alloca [10 x i32], align 16
   %y = alloca [10 x i32], align 16
-  %Z = getelementptr inbounds %struct.ge_p3, ptr %h, i64 0, i32 2
+  %Z = getelementptr inbounds i8, ptr %h, i64 80
   call fastcc void @fe_invert(ptr noundef nonnull %recip, ptr noundef nonnull %Z)
   call fastcc void @fe_mul(ptr noundef nonnull %x, ptr noundef %h, ptr noundef nonnull %recip)
-  %Y = getelementptr inbounds %struct.ge_p3, ptr %h, i64 0, i32 1
+  %Y = getelementptr inbounds i8, ptr %h, i64 40
   call fastcc void @fe_mul(ptr noundef nonnull %y, ptr noundef nonnull %Y, ptr noundef nonnull %recip)
   call fastcc void @fe_tobytes(ptr noundef %s, ptr noundef nonnull %y)
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %s.i)
@@ -2245,7 +2245,7 @@ if.end51:                                         ; preds = %for.body, %if.end15
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %w.i)
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %vxx.i)
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %check.i)
-  %Y.i = getelementptr inbounds %struct.ge_p3, ptr %A, i64 0, i32 1
+  %Y.i = getelementptr inbounds i8, ptr %A, i64 40
   %3 = load i32, ptr %public_key, align 1
   %4 = zext i32 %3 to i64
   %add.ptr.i.i = getelementptr inbounds i8, ptr %public_key, i64 4
@@ -2378,34 +2378,34 @@ if.end51:                                         ; preds = %for.body, %if.end15
   %conv.i.i = trunc i64 %sub51.i.i to i32
   store i32 %conv.i.i, ptr %Y.i, align 4
   %conv72.i.i = trunc i64 %add49.i.i to i32
-  %arrayidx73.i.i = getelementptr inbounds %struct.ge_p3, ptr %A, i64 0, i32 1, i64 1
+  %arrayidx73.i.i = getelementptr inbounds i8, ptr %A, i64 44
   store i32 %conv72.i.i, ptr %arrayidx73.i.i, align 4
   %conv74.i.i = trunc i64 %sub56.i.i to i32
-  %arrayidx75.i.i = getelementptr inbounds %struct.ge_p3, ptr %A, i64 0, i32 1, i64 2
+  %arrayidx75.i.i = getelementptr inbounds i8, ptr %A, i64 48
   store i32 %conv74.i.i, ptr %arrayidx75.i.i, align 4
   %conv76.i.i = trunc i64 %add54.i.i to i32
-  %arrayidx77.i.i = getelementptr inbounds %struct.ge_p3, ptr %A, i64 0, i32 1, i64 3
+  %arrayidx77.i.i = getelementptr inbounds i8, ptr %A, i64 52
   store i32 %conv76.i.i, ptr %arrayidx77.i.i, align 4
   %conv78.i.i = trunc i64 %sub61.i.i to i32
-  %arrayidx79.i.i = getelementptr inbounds %struct.ge_p3, ptr %A, i64 0, i32 1, i64 4
+  %arrayidx79.i.i = getelementptr inbounds i8, ptr %A, i64 56
   store i32 %conv78.i.i, ptr %arrayidx79.i.i, align 4
   %conv80.i.i = trunc i64 %add59.i.i to i32
-  %arrayidx81.i.i = getelementptr inbounds %struct.ge_p3, ptr %A, i64 0, i32 1, i64 5
+  %arrayidx81.i.i = getelementptr inbounds i8, ptr %A, i64 60
   store i32 %conv80.i.i, ptr %arrayidx81.i.i, align 4
   %conv82.i.i = trunc i64 %sub66.i.i to i32
-  %arrayidx83.i.i = getelementptr inbounds %struct.ge_p3, ptr %A, i64 0, i32 1, i64 6
+  %arrayidx83.i.i = getelementptr inbounds i8, ptr %A, i64 64
   store i32 %conv82.i.i, ptr %arrayidx83.i.i, align 4
   %conv84.i.i = trunc i64 %add64.i.i to i32
-  %arrayidx85.i.i = getelementptr inbounds %struct.ge_p3, ptr %A, i64 0, i32 1, i64 7
+  %arrayidx85.i.i = getelementptr inbounds i8, ptr %A, i64 68
   store i32 %conv84.i.i, ptr %arrayidx85.i.i, align 4
   %conv86.i.i = trunc i64 %sub71.i.i to i32
-  %arrayidx87.i.i = getelementptr inbounds %struct.ge_p3, ptr %A, i64 0, i32 1, i64 8
+  %arrayidx87.i.i = getelementptr inbounds i8, ptr %A, i64 72
   store i32 %conv86.i.i, ptr %arrayidx87.i.i, align 4
   %conv88.i.i = trunc i64 %add69.i.i to i32
-  %arrayidx89.i.i = getelementptr inbounds %struct.ge_p3, ptr %A, i64 0, i32 1, i64 9
+  %arrayidx89.i.i = getelementptr inbounds i8, ptr %A, i64 76
   store i32 %conv88.i.i, ptr %arrayidx89.i.i, align 4
-  %Z.i = getelementptr inbounds %struct.ge_p3, ptr %A, i64 0, i32 2
-  %47 = getelementptr inbounds %struct.ge_p3, ptr %A, i64 0, i32 2, i64 1
+  %Z.i = getelementptr inbounds i8, ptr %A, i64 80
+  %47 = getelementptr inbounds i8, ptr %A, i64 84
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(40) %47, i8 0, i64 36, i1 false)
   store i32 1, ptr %Z.i, align 4
   call fastcc void @fe_sq(ptr noundef nonnull %u.i, ptr noundef nonnull %Y.i)
@@ -2559,7 +2559,7 @@ for.body.i28.i:                                   ; preds = %for.body.i28.i, %fe
 fe_sub.exit36.i:                                  ; preds = %for.body.i28.i
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %s.i.i)
   call fastcc void @fe_tobytes(ptr noundef nonnull %s.i.i, ptr noundef nonnull %check.i)
-  %call.i.i = call i32 @CRYPTO_memcmp(ptr noundef nonnull %s.i.i, ptr noundef nonnull @fe_isnonzero.zero, i64 noundef 32) #10
+  %call.i.i = call i32 @CRYPTO_memcmp(ptr noundef nonnull %s.i.i, ptr noundef nonnull @fe_isnonzero.zero, i64 noundef 32) #9
   %cmp.i.not.i = icmp eq i32 %call.i.i, 0
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %s.i.i)
   br i1 %cmp.i.not.i, label %if.end46.i, label %for.body.i38.i
@@ -2580,7 +2580,7 @@ for.body.i38.i:                                   ; preds = %fe_sub.exit36.i, %f
 fe_add.exit46.i:                                  ; preds = %for.body.i38.i
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %s.i47.i)
   call fastcc void @fe_tobytes(ptr noundef nonnull %s.i47.i, ptr noundef nonnull %check.i)
-  %call.i48.i = call i32 @CRYPTO_memcmp(ptr noundef nonnull %s.i47.i, ptr noundef nonnull @fe_isnonzero.zero, i64 noundef 32) #10
+  %call.i48.i = call i32 @CRYPTO_memcmp(ptr noundef nonnull %s.i47.i, ptr noundef nonnull @fe_isnonzero.zero, i64 noundef 32) #9
   %cmp.i49.not.i = icmp eq i32 %call.i48.i, 0
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %s.i47.i)
   br i1 %cmp.i49.not.i, label %if.end.i, label %ge_frombytes_vartime.exit
@@ -2619,7 +2619,7 @@ ge_frombytes_vartime.exit:                        ; preds = %fe_add.exit46.i
   br label %return
 
 if.end56:                                         ; preds = %for.body.i52.i, %if.end46.i
-  %T.i = getelementptr inbounds %struct.ge_p3, ptr %A, i64 0, i32 3
+  %T.i = getelementptr inbounds i8, ptr %A, i64 120
   call fastcc void @fe_mul(ptr noundef nonnull %T.i, ptr noundef nonnull %A, ptr noundef nonnull %Y.i)
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %u.i)
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %v.i)
@@ -2649,12 +2649,12 @@ for.body.i28:                                     ; preds = %for.body.i, %for.bo
   br i1 %exitcond.not.i34, label %fe_neg.exit35, label %for.body.i28, !llvm.loop !20
 
 fe_neg.exit35:                                    ; preds = %for.body.i28
-  %call62 = call ptr @EVP_MD_fetch(ptr noundef %libctx, ptr noundef nonnull @.str, ptr noundef %propq) #10
+  %call62 = call ptr @EVP_MD_fetch(ptr noundef %libctx, ptr noundef nonnull @.str, ptr noundef %propq) #9
   %cmp63 = icmp eq ptr %call62, null
   br i1 %cmp63, label %return, label %if.end66
 
 if.end66:                                         ; preds = %fe_neg.exit35
-  %call67 = call ptr @EVP_MD_CTX_new() #10
+  %call67 = call ptr @EVP_MD_CTX_new() #9
   %cmp68 = icmp eq ptr %call67, null
   br i1 %cmp68, label %err, label %if.end71
 
@@ -2664,22 +2664,22 @@ if.end71:                                         ; preds = %if.end66
   br i1 %tobool73.not, label %err, label %lor.lhs.false
 
 lor.lhs.false:                                    ; preds = %if.end71
-  %call74 = call i32 @EVP_DigestUpdate(ptr noundef nonnull %call67, ptr noundef %signature, i64 noundef 32) #10
+  %call74 = call i32 @EVP_DigestUpdate(ptr noundef nonnull %call67, ptr noundef %signature, i64 noundef 32) #9
   %tobool75.not = icmp eq i32 %call74, 0
   br i1 %tobool75.not, label %err, label %lor.lhs.false76
 
 lor.lhs.false76:                                  ; preds = %lor.lhs.false
-  %call77 = call i32 @EVP_DigestUpdate(ptr noundef nonnull %call67, ptr noundef nonnull %public_key, i64 noundef 32) #10
+  %call77 = call i32 @EVP_DigestUpdate(ptr noundef nonnull %call67, ptr noundef nonnull %public_key, i64 noundef 32) #9
   %tobool78.not = icmp eq i32 %call77, 0
   br i1 %tobool78.not, label %err, label %lor.lhs.false79
 
 lor.lhs.false79:                                  ; preds = %lor.lhs.false76
-  %call80 = call i32 @EVP_DigestUpdate(ptr noundef nonnull %call67, ptr noundef %tbs, i64 noundef %tbs_len) #10
+  %call80 = call i32 @EVP_DigestUpdate(ptr noundef nonnull %call67, ptr noundef %tbs, i64 noundef %tbs_len) #9
   %tobool81.not = icmp eq i32 %call80, 0
   br i1 %tobool81.not, label %err, label %lor.lhs.false82
 
 lor.lhs.false82:                                  ; preds = %lor.lhs.false79
-  %call84 = call i32 @EVP_DigestFinal_ex(ptr noundef nonnull %call67, ptr noundef nonnull %h, ptr noundef nonnull %sz) #10
+  %call84 = call i32 @EVP_DigestFinal_ex(ptr noundef nonnull %call67, ptr noundef nonnull %h, ptr noundef nonnull %sz) #9
   %tobool85.not = icmp eq i32 %call84, 0
   br i1 %tobool85.not, label %err, label %if.end87
 
@@ -2687,15 +2687,15 @@ if.end87:                                         ; preds = %lor.lhs.false82
   call fastcc void @x25519_sc_reduce(ptr noundef nonnull %h)
   call fastcc void @ge_double_scalarmult_vartime(ptr noundef nonnull %R, ptr noundef nonnull %h, ptr noundef nonnull %A, ptr noundef nonnull %add.ptr)
   call fastcc void @ge_tobytes(ptr noundef nonnull %rcheck, ptr noundef nonnull %R)
-  %call92 = call i32 @CRYPTO_memcmp(ptr noundef nonnull %rcheck, ptr noundef %signature, i64 noundef 32) #10
+  %call92 = call i32 @CRYPTO_memcmp(ptr noundef nonnull %rcheck, ptr noundef %signature, i64 noundef 32) #9
   %cmp93 = icmp eq i32 %call92, 0
   %conv94 = zext i1 %cmp93 to i32
   br label %err
 
 err:                                              ; preds = %if.end71, %lor.lhs.false, %lor.lhs.false76, %lor.lhs.false79, %lor.lhs.false82, %if.end66, %if.end87
   %res.0 = phi i32 [ 0, %if.end66 ], [ %conv94, %if.end87 ], [ 0, %lor.lhs.false82 ], [ 0, %lor.lhs.false79 ], [ 0, %lor.lhs.false76 ], [ 0, %lor.lhs.false ], [ 0, %if.end71 ]
-  call void @EVP_MD_free(ptr noundef nonnull %call62) #10
-  call void @EVP_MD_CTX_free(ptr noundef %call67) #10
+  call void @EVP_MD_free(ptr noundef nonnull %call62) #9
+  call void @EVP_MD_CTX_free(ptr noundef %call67) #9
   br label %return
 
 return:                                           ; preds = %if.end36, %ge_frombytes_vartime.exit, %fe_neg.exit35, %if.then20, %if.end10, %if.end4, %entry, %err
@@ -2706,7 +2706,7 @@ return:                                           ; preds = %if.end36, %ge_fromb
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
 declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #4
 
-; Function Attrs: nofree nosync nounwind memory(argmem: readwrite) uwtable
+; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
 define internal fastcc void @ge_double_scalarmult_vartime(ptr nocapture noundef %r, ptr nocapture noundef readonly %a, ptr nocapture noundef readonly %A, ptr nocapture noundef readonly %b) unnamed_addr #3 {
 entry:
   %t0.i325 = alloca [10 x i32], align 16
@@ -2905,7 +2905,7 @@ for.inc92.i35:                                    ; preds = %for.inc88.i62, %if.
   br i1 %exitcond78.not.i38, label %slide.exit70, label %for.body9.i28, !llvm.loop !24
 
 slide.exit70:                                     ; preds = %for.inc92.i35
-  %Y.i = getelementptr inbounds %struct.ge_p3, ptr %A, i64 0, i32 1
+  %Y.i = getelementptr inbounds i8, ptr %A, i64 40
   br label %for.body.i.i
 
 for.body.i.i:                                     ; preds = %for.body.i.i, %slide.exit70
@@ -2922,7 +2922,7 @@ for.body.i.i:                                     ; preds = %for.body.i.i, %slid
   br i1 %exitcond.not.i.i, label %fe_add.exit.i, label %for.body.i.i, !llvm.loop !12
 
 fe_add.exit.i:                                    ; preds = %for.body.i.i
-  %YminusX.i = getelementptr inbounds %struct.ge_cached, ptr %Ai, i64 0, i32 1
+  %YminusX.i = getelementptr inbounds i8, ptr %Ai, i64 40
   br label %for.body.i9.i
 
 for.body.i9.i:                                    ; preds = %for.body.i9.i, %fe_add.exit.i
@@ -2939,39 +2939,39 @@ for.body.i9.i:                                    ; preds = %for.body.i9.i, %fe_
   br i1 %exitcond.not.i15.i, label %ge_p3_to_cached.exit, label %for.body.i9.i, !llvm.loop !11
 
 ge_p3_to_cached.exit:                             ; preds = %for.body.i9.i
-  %Z.i = getelementptr inbounds %struct.ge_cached, ptr %Ai, i64 0, i32 2
-  %Z9.i = getelementptr inbounds %struct.ge_p3, ptr %A, i64 0, i32 2
+  %Z.i = getelementptr inbounds i8, ptr %Ai, i64 80
+  %Z9.i = getelementptr inbounds i8, ptr %A, i64 80
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(40) %Z.i, ptr noundef nonnull align 4 dereferenceable(40) %Z9.i, i64 40, i1 false)
-  %T2d.i = getelementptr inbounds %struct.ge_cached, ptr %Ai, i64 0, i32 3
-  %T.i = getelementptr inbounds %struct.ge_p3, ptr %A, i64 0, i32 3
+  %T2d.i = getelementptr inbounds i8, ptr %Ai, i64 120
+  %T.i = getelementptr inbounds i8, ptr %A, i64 120
   call fastcc void @fe_mul(ptr noundef nonnull %T2d.i, ptr noundef nonnull %T.i, ptr noundef nonnull @d2)
   call void @llvm.lifetime.start.p0(i64 120, ptr nonnull %q.i)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(40) %q.i, ptr noundef nonnull align 4 dereferenceable(40) %A, i64 40, i1 false)
-  %Y.i.i = getelementptr inbounds %struct.ge_p2, ptr %q.i, i64 0, i32 1
+  %Y.i.i = getelementptr inbounds i8, ptr %q.i, i64 40
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(40) %Y.i.i, ptr noundef nonnull align 4 dereferenceable(40) %Y.i, i64 40, i1 false)
-  %Z.i.i = getelementptr inbounds %struct.ge_p2, ptr %q.i, i64 0, i32 2
+  %Z.i.i = getelementptr inbounds i8, ptr %q.i, i64 80
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(40) %Z.i.i, ptr noundef nonnull align 4 dereferenceable(40) %Z9.i, i64 40, i1 false)
   call fastcc void @ge_p2_dbl(ptr noundef nonnull %t, ptr noundef nonnull %q.i)
   call void @llvm.lifetime.end.p0(i64 120, ptr nonnull %q.i)
-  %T.i71 = getelementptr inbounds %struct.ge_p1p1, ptr %t, i64 0, i32 3
+  %T.i71 = getelementptr inbounds i8, ptr %t, i64 120
   call fastcc void @fe_mul(ptr noundef nonnull %A2, ptr noundef nonnull %t, ptr noundef nonnull %T.i71)
-  %Y.i72 = getelementptr inbounds %struct.ge_p3, ptr %A2, i64 0, i32 1
-  %Y5.i = getelementptr inbounds %struct.ge_p1p1, ptr %t, i64 0, i32 1
-  %Z.i73 = getelementptr inbounds %struct.ge_p1p1, ptr %t, i64 0, i32 2
+  %Y.i72 = getelementptr inbounds i8, ptr %A2, i64 40
+  %Y5.i = getelementptr inbounds i8, ptr %t, i64 40
+  %Z.i73 = getelementptr inbounds i8, ptr %t, i64 80
   call fastcc void @fe_mul(ptr noundef nonnull %Y.i72, ptr noundef nonnull %Y5.i, ptr noundef nonnull %Z.i73)
-  %Z8.i = getelementptr inbounds %struct.ge_p3, ptr %A2, i64 0, i32 2
+  %Z8.i = getelementptr inbounds i8, ptr %A2, i64 80
   call fastcc void @fe_mul(ptr noundef nonnull %Z8.i, ptr noundef nonnull %Z.i73, ptr noundef nonnull %T.i71)
-  %T14.i = getelementptr inbounds %struct.ge_p3, ptr %A2, i64 0, i32 3
+  %T14.i = getelementptr inbounds i8, ptr %A2, i64 120
   call fastcc void @fe_mul(ptr noundef nonnull %T14.i, ptr noundef nonnull %t, ptr noundef nonnull %Y5.i)
   call fastcc void @ge_add(ptr noundef nonnull %t, ptr noundef nonnull %A2, ptr noundef nonnull %Ai)
   call fastcc void @fe_mul(ptr noundef nonnull %u, ptr noundef nonnull %t, ptr noundef nonnull %T.i71)
-  %Y.i75 = getelementptr inbounds %struct.ge_p3, ptr %u, i64 0, i32 1
+  %Y.i75 = getelementptr inbounds i8, ptr %u, i64 40
   call fastcc void @fe_mul(ptr noundef nonnull %Y.i75, ptr noundef nonnull %Y5.i, ptr noundef nonnull %Z.i73)
-  %Z8.i78 = getelementptr inbounds %struct.ge_p3, ptr %u, i64 0, i32 2
+  %Z8.i78 = getelementptr inbounds i8, ptr %u, i64 80
   call fastcc void @fe_mul(ptr noundef nonnull %Z8.i78, ptr noundef nonnull %Z.i73, ptr noundef nonnull %T.i71)
-  %T14.i79 = getelementptr inbounds %struct.ge_p3, ptr %u, i64 0, i32 3
+  %T14.i79 = getelementptr inbounds i8, ptr %u, i64 120
   call fastcc void @fe_mul(ptr noundef nonnull %T14.i79, ptr noundef nonnull %t, ptr noundef nonnull %Y5.i)
-  %arrayidx3 = getelementptr inbounds [8 x %struct.ge_cached], ptr %Ai, i64 0, i64 1
+  %arrayidx3 = getelementptr inbounds i8, ptr %Ai, i64 160
   br label %for.body.i.i81
 
 for.body.i.i81:                                   ; preds = %for.body.i.i81, %ge_p3_to_cached.exit
@@ -2988,7 +2988,7 @@ for.body.i.i81:                                   ; preds = %for.body.i.i81, %ge
   br i1 %exitcond.not.i.i88, label %fe_add.exit.i89, label %for.body.i.i81, !llvm.loop !12
 
 fe_add.exit.i89:                                  ; preds = %for.body.i.i81
-  %YminusX.i90 = getelementptr inbounds [8 x %struct.ge_cached], ptr %Ai, i64 0, i64 1, i32 1
+  %YminusX.i90 = getelementptr inbounds i8, ptr %Ai, i64 200
   br label %for.body.i9.i91
 
 for.body.i9.i91:                                  ; preds = %for.body.i9.i91, %fe_add.exit.i89
@@ -3005,16 +3005,16 @@ for.body.i9.i91:                                  ; preds = %for.body.i9.i91, %f
   br i1 %exitcond.not.i15.i98, label %ge_p3_to_cached.exit103, label %for.body.i9.i91, !llvm.loop !11
 
 ge_p3_to_cached.exit103:                          ; preds = %for.body.i9.i91
-  %Z.i99 = getelementptr inbounds [8 x %struct.ge_cached], ptr %Ai, i64 0, i64 1, i32 2
+  %Z.i99 = getelementptr inbounds i8, ptr %Ai, i64 240
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(40) %Z.i99, ptr noundef nonnull align 4 dereferenceable(40) %Z8.i78, i64 40, i1 false)
-  %T2d.i101 = getelementptr inbounds [8 x %struct.ge_cached], ptr %Ai, i64 0, i64 1, i32 3
+  %T2d.i101 = getelementptr inbounds i8, ptr %Ai, i64 280
   call fastcc void @fe_mul(ptr noundef nonnull %T2d.i101, ptr noundef nonnull %T14.i79, ptr noundef nonnull @d2)
   call fastcc void @ge_add(ptr noundef nonnull %t, ptr noundef nonnull %A2, ptr noundef nonnull %arrayidx3)
   call fastcc void @fe_mul(ptr noundef nonnull %u, ptr noundef nonnull %t, ptr noundef nonnull %T.i71)
   call fastcc void @fe_mul(ptr noundef nonnull %Y.i75, ptr noundef nonnull %Y5.i, ptr noundef nonnull %Z.i73)
   call fastcc void @fe_mul(ptr noundef nonnull %Z8.i78, ptr noundef nonnull %Z.i73, ptr noundef nonnull %T.i71)
   call fastcc void @fe_mul(ptr noundef nonnull %T14.i79, ptr noundef nonnull %t, ptr noundef nonnull %Y5.i)
-  %arrayidx5 = getelementptr inbounds [8 x %struct.ge_cached], ptr %Ai, i64 0, i64 2
+  %arrayidx5 = getelementptr inbounds i8, ptr %Ai, i64 320
   br label %for.body.i.i111
 
 for.body.i.i111:                                  ; preds = %for.body.i.i111, %ge_p3_to_cached.exit103
@@ -3031,7 +3031,7 @@ for.body.i.i111:                                  ; preds = %for.body.i.i111, %g
   br i1 %exitcond.not.i.i118, label %fe_add.exit.i119, label %for.body.i.i111, !llvm.loop !12
 
 fe_add.exit.i119:                                 ; preds = %for.body.i.i111
-  %YminusX.i120 = getelementptr inbounds [8 x %struct.ge_cached], ptr %Ai, i64 0, i64 2, i32 1
+  %YminusX.i120 = getelementptr inbounds i8, ptr %Ai, i64 360
   br label %for.body.i9.i121
 
 for.body.i9.i121:                                 ; preds = %for.body.i9.i121, %fe_add.exit.i119
@@ -3048,16 +3048,16 @@ for.body.i9.i121:                                 ; preds = %for.body.i9.i121, %
   br i1 %exitcond.not.i15.i128, label %ge_p3_to_cached.exit133, label %for.body.i9.i121, !llvm.loop !11
 
 ge_p3_to_cached.exit133:                          ; preds = %for.body.i9.i121
-  %Z.i129 = getelementptr inbounds [8 x %struct.ge_cached], ptr %Ai, i64 0, i64 2, i32 2
+  %Z.i129 = getelementptr inbounds i8, ptr %Ai, i64 400
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(40) %Z.i129, ptr noundef nonnull align 4 dereferenceable(40) %Z8.i78, i64 40, i1 false)
-  %T2d.i131 = getelementptr inbounds [8 x %struct.ge_cached], ptr %Ai, i64 0, i64 2, i32 3
+  %T2d.i131 = getelementptr inbounds i8, ptr %Ai, i64 440
   call fastcc void @fe_mul(ptr noundef nonnull %T2d.i131, ptr noundef nonnull %T14.i79, ptr noundef nonnull @d2)
   call fastcc void @ge_add(ptr noundef nonnull %t, ptr noundef nonnull %A2, ptr noundef nonnull %arrayidx5)
   call fastcc void @fe_mul(ptr noundef nonnull %u, ptr noundef nonnull %t, ptr noundef nonnull %T.i71)
   call fastcc void @fe_mul(ptr noundef nonnull %Y.i75, ptr noundef nonnull %Y5.i, ptr noundef nonnull %Z.i73)
   call fastcc void @fe_mul(ptr noundef nonnull %Z8.i78, ptr noundef nonnull %Z.i73, ptr noundef nonnull %T.i71)
   call fastcc void @fe_mul(ptr noundef nonnull %T14.i79, ptr noundef nonnull %t, ptr noundef nonnull %Y5.i)
-  %arrayidx7 = getelementptr inbounds [8 x %struct.ge_cached], ptr %Ai, i64 0, i64 3
+  %arrayidx7 = getelementptr inbounds i8, ptr %Ai, i64 480
   br label %for.body.i.i141
 
 for.body.i.i141:                                  ; preds = %for.body.i.i141, %ge_p3_to_cached.exit133
@@ -3074,7 +3074,7 @@ for.body.i.i141:                                  ; preds = %for.body.i.i141, %g
   br i1 %exitcond.not.i.i148, label %fe_add.exit.i149, label %for.body.i.i141, !llvm.loop !12
 
 fe_add.exit.i149:                                 ; preds = %for.body.i.i141
-  %YminusX.i150 = getelementptr inbounds [8 x %struct.ge_cached], ptr %Ai, i64 0, i64 3, i32 1
+  %YminusX.i150 = getelementptr inbounds i8, ptr %Ai, i64 520
   br label %for.body.i9.i151
 
 for.body.i9.i151:                                 ; preds = %for.body.i9.i151, %fe_add.exit.i149
@@ -3091,16 +3091,16 @@ for.body.i9.i151:                                 ; preds = %for.body.i9.i151, %
   br i1 %exitcond.not.i15.i158, label %ge_p3_to_cached.exit163, label %for.body.i9.i151, !llvm.loop !11
 
 ge_p3_to_cached.exit163:                          ; preds = %for.body.i9.i151
-  %Z.i159 = getelementptr inbounds [8 x %struct.ge_cached], ptr %Ai, i64 0, i64 3, i32 2
+  %Z.i159 = getelementptr inbounds i8, ptr %Ai, i64 560
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(40) %Z.i159, ptr noundef nonnull align 4 dereferenceable(40) %Z8.i78, i64 40, i1 false)
-  %T2d.i161 = getelementptr inbounds [8 x %struct.ge_cached], ptr %Ai, i64 0, i64 3, i32 3
+  %T2d.i161 = getelementptr inbounds i8, ptr %Ai, i64 600
   call fastcc void @fe_mul(ptr noundef nonnull %T2d.i161, ptr noundef nonnull %T14.i79, ptr noundef nonnull @d2)
   call fastcc void @ge_add(ptr noundef nonnull %t, ptr noundef nonnull %A2, ptr noundef nonnull %arrayidx7)
   call fastcc void @fe_mul(ptr noundef nonnull %u, ptr noundef nonnull %t, ptr noundef nonnull %T.i71)
   call fastcc void @fe_mul(ptr noundef nonnull %Y.i75, ptr noundef nonnull %Y5.i, ptr noundef nonnull %Z.i73)
   call fastcc void @fe_mul(ptr noundef nonnull %Z8.i78, ptr noundef nonnull %Z.i73, ptr noundef nonnull %T.i71)
   call fastcc void @fe_mul(ptr noundef nonnull %T14.i79, ptr noundef nonnull %t, ptr noundef nonnull %Y5.i)
-  %arrayidx9 = getelementptr inbounds [8 x %struct.ge_cached], ptr %Ai, i64 0, i64 4
+  %arrayidx9 = getelementptr inbounds i8, ptr %Ai, i64 640
   br label %for.body.i.i171
 
 for.body.i.i171:                                  ; preds = %for.body.i.i171, %ge_p3_to_cached.exit163
@@ -3117,7 +3117,7 @@ for.body.i.i171:                                  ; preds = %for.body.i.i171, %g
   br i1 %exitcond.not.i.i178, label %fe_add.exit.i179, label %for.body.i.i171, !llvm.loop !12
 
 fe_add.exit.i179:                                 ; preds = %for.body.i.i171
-  %YminusX.i180 = getelementptr inbounds [8 x %struct.ge_cached], ptr %Ai, i64 0, i64 4, i32 1
+  %YminusX.i180 = getelementptr inbounds i8, ptr %Ai, i64 680
   br label %for.body.i9.i181
 
 for.body.i9.i181:                                 ; preds = %for.body.i9.i181, %fe_add.exit.i179
@@ -3134,16 +3134,16 @@ for.body.i9.i181:                                 ; preds = %for.body.i9.i181, %
   br i1 %exitcond.not.i15.i188, label %ge_p3_to_cached.exit193, label %for.body.i9.i181, !llvm.loop !11
 
 ge_p3_to_cached.exit193:                          ; preds = %for.body.i9.i181
-  %Z.i189 = getelementptr inbounds [8 x %struct.ge_cached], ptr %Ai, i64 0, i64 4, i32 2
+  %Z.i189 = getelementptr inbounds i8, ptr %Ai, i64 720
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(40) %Z.i189, ptr noundef nonnull align 4 dereferenceable(40) %Z8.i78, i64 40, i1 false)
-  %T2d.i191 = getelementptr inbounds [8 x %struct.ge_cached], ptr %Ai, i64 0, i64 4, i32 3
+  %T2d.i191 = getelementptr inbounds i8, ptr %Ai, i64 760
   call fastcc void @fe_mul(ptr noundef nonnull %T2d.i191, ptr noundef nonnull %T14.i79, ptr noundef nonnull @d2)
   call fastcc void @ge_add(ptr noundef nonnull %t, ptr noundef nonnull %A2, ptr noundef nonnull %arrayidx9)
   call fastcc void @fe_mul(ptr noundef nonnull %u, ptr noundef nonnull %t, ptr noundef nonnull %T.i71)
   call fastcc void @fe_mul(ptr noundef nonnull %Y.i75, ptr noundef nonnull %Y5.i, ptr noundef nonnull %Z.i73)
   call fastcc void @fe_mul(ptr noundef nonnull %Z8.i78, ptr noundef nonnull %Z.i73, ptr noundef nonnull %T.i71)
   call fastcc void @fe_mul(ptr noundef nonnull %T14.i79, ptr noundef nonnull %t, ptr noundef nonnull %Y5.i)
-  %arrayidx11 = getelementptr inbounds [8 x %struct.ge_cached], ptr %Ai, i64 0, i64 5
+  %arrayidx11 = getelementptr inbounds i8, ptr %Ai, i64 800
   br label %for.body.i.i201
 
 for.body.i.i201:                                  ; preds = %for.body.i.i201, %ge_p3_to_cached.exit193
@@ -3160,7 +3160,7 @@ for.body.i.i201:                                  ; preds = %for.body.i.i201, %g
   br i1 %exitcond.not.i.i208, label %fe_add.exit.i209, label %for.body.i.i201, !llvm.loop !12
 
 fe_add.exit.i209:                                 ; preds = %for.body.i.i201
-  %YminusX.i210 = getelementptr inbounds [8 x %struct.ge_cached], ptr %Ai, i64 0, i64 5, i32 1
+  %YminusX.i210 = getelementptr inbounds i8, ptr %Ai, i64 840
   br label %for.body.i9.i211
 
 for.body.i9.i211:                                 ; preds = %for.body.i9.i211, %fe_add.exit.i209
@@ -3177,16 +3177,16 @@ for.body.i9.i211:                                 ; preds = %for.body.i9.i211, %
   br i1 %exitcond.not.i15.i218, label %ge_p3_to_cached.exit223, label %for.body.i9.i211, !llvm.loop !11
 
 ge_p3_to_cached.exit223:                          ; preds = %for.body.i9.i211
-  %Z.i219 = getelementptr inbounds [8 x %struct.ge_cached], ptr %Ai, i64 0, i64 5, i32 2
+  %Z.i219 = getelementptr inbounds i8, ptr %Ai, i64 880
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(40) %Z.i219, ptr noundef nonnull align 4 dereferenceable(40) %Z8.i78, i64 40, i1 false)
-  %T2d.i221 = getelementptr inbounds [8 x %struct.ge_cached], ptr %Ai, i64 0, i64 5, i32 3
+  %T2d.i221 = getelementptr inbounds i8, ptr %Ai, i64 920
   call fastcc void @fe_mul(ptr noundef nonnull %T2d.i221, ptr noundef nonnull %T14.i79, ptr noundef nonnull @d2)
   call fastcc void @ge_add(ptr noundef nonnull %t, ptr noundef nonnull %A2, ptr noundef nonnull %arrayidx11)
   call fastcc void @fe_mul(ptr noundef nonnull %u, ptr noundef nonnull %t, ptr noundef nonnull %T.i71)
   call fastcc void @fe_mul(ptr noundef nonnull %Y.i75, ptr noundef nonnull %Y5.i, ptr noundef nonnull %Z.i73)
   call fastcc void @fe_mul(ptr noundef nonnull %Z8.i78, ptr noundef nonnull %Z.i73, ptr noundef nonnull %T.i71)
   call fastcc void @fe_mul(ptr noundef nonnull %T14.i79, ptr noundef nonnull %t, ptr noundef nonnull %Y5.i)
-  %arrayidx13 = getelementptr inbounds [8 x %struct.ge_cached], ptr %Ai, i64 0, i64 6
+  %arrayidx13 = getelementptr inbounds i8, ptr %Ai, i64 960
   br label %for.body.i.i231
 
 for.body.i.i231:                                  ; preds = %for.body.i.i231, %ge_p3_to_cached.exit223
@@ -3203,7 +3203,7 @@ for.body.i.i231:                                  ; preds = %for.body.i.i231, %g
   br i1 %exitcond.not.i.i238, label %fe_add.exit.i239, label %for.body.i.i231, !llvm.loop !12
 
 fe_add.exit.i239:                                 ; preds = %for.body.i.i231
-  %YminusX.i240 = getelementptr inbounds [8 x %struct.ge_cached], ptr %Ai, i64 0, i64 6, i32 1
+  %YminusX.i240 = getelementptr inbounds i8, ptr %Ai, i64 1000
   br label %for.body.i9.i241
 
 for.body.i9.i241:                                 ; preds = %for.body.i9.i241, %fe_add.exit.i239
@@ -3220,16 +3220,16 @@ for.body.i9.i241:                                 ; preds = %for.body.i9.i241, %
   br i1 %exitcond.not.i15.i248, label %ge_p3_to_cached.exit253, label %for.body.i9.i241, !llvm.loop !11
 
 ge_p3_to_cached.exit253:                          ; preds = %for.body.i9.i241
-  %Z.i249 = getelementptr inbounds [8 x %struct.ge_cached], ptr %Ai, i64 0, i64 6, i32 2
+  %Z.i249 = getelementptr inbounds i8, ptr %Ai, i64 1040
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(40) %Z.i249, ptr noundef nonnull align 4 dereferenceable(40) %Z8.i78, i64 40, i1 false)
-  %T2d.i251 = getelementptr inbounds [8 x %struct.ge_cached], ptr %Ai, i64 0, i64 6, i32 3
+  %T2d.i251 = getelementptr inbounds i8, ptr %Ai, i64 1080
   call fastcc void @fe_mul(ptr noundef nonnull %T2d.i251, ptr noundef nonnull %T14.i79, ptr noundef nonnull @d2)
   call fastcc void @ge_add(ptr noundef nonnull %t, ptr noundef nonnull %A2, ptr noundef nonnull %arrayidx13)
   call fastcc void @fe_mul(ptr noundef nonnull %u, ptr noundef nonnull %t, ptr noundef nonnull %T.i71)
   call fastcc void @fe_mul(ptr noundef nonnull %Y.i75, ptr noundef nonnull %Y5.i, ptr noundef nonnull %Z.i73)
   call fastcc void @fe_mul(ptr noundef nonnull %Z8.i78, ptr noundef nonnull %Z.i73, ptr noundef nonnull %T.i71)
   call fastcc void @fe_mul(ptr noundef nonnull %T14.i79, ptr noundef nonnull %t, ptr noundef nonnull %Y5.i)
-  %arrayidx15 = getelementptr inbounds [8 x %struct.ge_cached], ptr %Ai, i64 0, i64 7
+  %arrayidx15 = getelementptr inbounds i8, ptr %Ai, i64 1120
   br label %for.body.i.i261
 
 for.body.i.i261:                                  ; preds = %for.body.i.i261, %ge_p3_to_cached.exit253
@@ -3246,7 +3246,7 @@ for.body.i.i261:                                  ; preds = %for.body.i.i261, %g
   br i1 %exitcond.not.i.i268, label %fe_add.exit.i269, label %for.body.i.i261, !llvm.loop !12
 
 fe_add.exit.i269:                                 ; preds = %for.body.i.i261
-  %YminusX.i270 = getelementptr inbounds [8 x %struct.ge_cached], ptr %Ai, i64 0, i64 7, i32 1
+  %YminusX.i270 = getelementptr inbounds i8, ptr %Ai, i64 1160
   br label %for.body.i9.i271
 
 for.body.i9.i271:                                 ; preds = %for.body.i9.i271, %fe_add.exit.i269
@@ -3263,17 +3263,17 @@ for.body.i9.i271:                                 ; preds = %for.body.i9.i271, %
   br i1 %exitcond.not.i15.i278, label %ge_p3_to_cached.exit283, label %for.body.i9.i271, !llvm.loop !11
 
 ge_p3_to_cached.exit283:                          ; preds = %for.body.i9.i271
-  %Z.i279 = getelementptr inbounds [8 x %struct.ge_cached], ptr %Ai, i64 0, i64 7, i32 2
+  %Z.i279 = getelementptr inbounds i8, ptr %Ai, i64 1200
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(40) %Z.i279, ptr noundef nonnull align 4 dereferenceable(40) %Z8.i78, i64 40, i1 false)
-  %T2d.i281 = getelementptr inbounds [8 x %struct.ge_cached], ptr %Ai, i64 0, i64 7, i32 3
+  %T2d.i281 = getelementptr inbounds i8, ptr %Ai, i64 1240
   call fastcc void @fe_mul(ptr noundef nonnull %T2d.i281, ptr noundef nonnull %T14.i79, ptr noundef nonnull @d2)
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(40) %r, i8 0, i64 40, i1 false)
-  %Y.i284 = getelementptr inbounds %struct.ge_p2, ptr %r, i64 0, i32 1
-  %50 = getelementptr inbounds %struct.ge_p2, ptr %r, i64 0, i32 1, i64 1
+  %Y.i284 = getelementptr inbounds i8, ptr %r, i64 40
+  %50 = getelementptr inbounds i8, ptr %r, i64 44
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(40) %50, i8 0, i64 36, i1 false)
   store i32 1, ptr %Y.i284, align 4
-  %Z.i285 = getelementptr inbounds %struct.ge_p2, ptr %r, i64 0, i32 2
-  %51 = getelementptr inbounds %struct.ge_p2, ptr %r, i64 0, i32 2, i64 1
+  %Z.i285 = getelementptr inbounds i8, ptr %r, i64 80
+  %51 = getelementptr inbounds i8, ptr %r, i64 84
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(40) %51, i8 0, i64 36, i1 false)
   store i32 1, ptr %Z.i285, align 4
   br label %for.body
@@ -3367,12 +3367,12 @@ for.body.i28.i:                                   ; preds = %for.body.i.i299, %f
 
 fe_sub.exit.i:                                    ; preds = %for.body.i28.i
   %arrayidx47 = getelementptr inbounds [8 x %struct.ge_cached], ptr %Ai, i64 0, i64 %idxprom46
-  %YminusX.i310 = getelementptr inbounds [8 x %struct.ge_cached], ptr %Ai, i64 0, i64 %idxprom46, i32 1
+  %YminusX.i310 = getelementptr inbounds i8, ptr %arrayidx47, i64 40
   call fastcc void @fe_mul(ptr noundef nonnull %Z.i73, ptr noundef nonnull %t, ptr noundef nonnull %YminusX.i310)
   call fastcc void @fe_mul(ptr noundef nonnull %Y5.i, ptr noundef nonnull %Y5.i, ptr noundef nonnull %arrayidx47)
-  %T2d.i312 = getelementptr inbounds [8 x %struct.ge_cached], ptr %Ai, i64 0, i64 %idxprom46, i32 3
+  %T2d.i312 = getelementptr inbounds i8, ptr %arrayidx47, i64 120
   call fastcc void @fe_mul(ptr noundef nonnull %T.i71, ptr noundef nonnull %T2d.i312, ptr noundef nonnull %T14.i79)
-  %Z27.i = getelementptr inbounds [8 x %struct.ge_cached], ptr %Ai, i64 0, i64 %idxprom46, i32 2
+  %Z27.i = getelementptr inbounds i8, ptr %arrayidx47, i64 80
   call fastcc void @fe_mul(ptr noundef nonnull %t, ptr noundef nonnull %Z8.i78, ptr noundef nonnull %Z27.i)
   br label %for.body.i35.i
 
@@ -3501,10 +3501,10 @@ for.body.i25.i:                                   ; preds = %for.body.i.i327, %f
 
 fe_sub.exit.i338:                                 ; preds = %for.body.i25.i
   %arrayidx75 = getelementptr inbounds [8 x %struct.ge_precomp], ptr @Bi, i64 0, i64 %idxprom74
-  %yminusx.i = getelementptr inbounds [8 x %struct.ge_precomp], ptr @Bi, i64 0, i64 %idxprom74, i32 1
+  %yminusx.i = getelementptr inbounds i8, ptr %arrayidx75, i64 40
   call fastcc void @fe_mul(ptr noundef nonnull %Z.i73, ptr noundef nonnull %t, ptr noundef nonnull %yminusx.i)
   call fastcc void @fe_mul(ptr noundef nonnull %Y5.i, ptr noundef nonnull %Y5.i, ptr noundef nonnull %arrayidx75)
-  %xy2d.i = getelementptr inbounds [8 x %struct.ge_precomp], ptr @Bi, i64 0, i64 %idxprom74, i32 2
+  %xy2d.i = getelementptr inbounds i8, ptr %arrayidx75, i64 80
   call fastcc void @fe_mul(ptr noundef nonnull %T.i71, ptr noundef nonnull %xy2d.i, ptr noundef nonnull %T14.i79)
   br label %for.body.i32.i
 
@@ -3585,17 +3585,17 @@ for.end80:                                        ; preds = %for.inc, %if.end77,
   ret void
 }
 
-; Function Attrs: nofree nosync nounwind memory(argmem: readwrite) uwtable
+; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
 define internal fastcc void @ge_tobytes(ptr nocapture noundef %s, ptr nocapture noundef readonly %h) unnamed_addr #3 {
 entry:
   %s.i = alloca [32 x i8], align 16
   %recip = alloca [10 x i32], align 16
   %x = alloca [10 x i32], align 16
   %y = alloca [10 x i32], align 16
-  %Z = getelementptr inbounds %struct.ge_p2, ptr %h, i64 0, i32 2
+  %Z = getelementptr inbounds i8, ptr %h, i64 80
   call fastcc void @fe_invert(ptr noundef nonnull %recip, ptr noundef nonnull %Z)
   call fastcc void @fe_mul(ptr noundef nonnull %x, ptr noundef %h, ptr noundef nonnull %recip)
-  %Y = getelementptr inbounds %struct.ge_p2, ptr %h, i64 0, i32 1
+  %Y = getelementptr inbounds i8, ptr %h, i64 40
   call fastcc void @fe_mul(ptr noundef nonnull %y, ptr noundef nonnull %Y, ptr noundef nonnull %recip)
   call fastcc void @fe_tobytes(ptr noundef %s, ptr noundef nonnull %y)
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %s.i)
@@ -3613,7 +3613,7 @@ entry:
 declare i32 @CRYPTO_memcmp(ptr noundef, ptr noundef, i64 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define i32 @ossl_ed25519_public_from_private(ptr noundef %ctx, ptr nocapture noundef %out_public_key, ptr noundef %private_key, ptr noundef %propq) local_unnamed_addr #0 {
+define noundef i32 @ossl_ed25519_public_from_private(ptr noundef %ctx, ptr nocapture noundef %out_public_key, ptr noundef %private_key, ptr noundef %propq) local_unnamed_addr #0 {
 entry:
   %s.i.i = alloca [32 x i8], align 16
   %recip.i = alloca [10 x i32], align 16
@@ -3621,13 +3621,13 @@ entry:
   %y.i = alloca [10 x i32], align 16
   %az = alloca [64 x i8], align 16
   %A = alloca %struct.ge_p3, align 4
-  %call = tail call ptr @EVP_MD_fetch(ptr noundef %ctx, ptr noundef nonnull @.str, ptr noundef %propq) #10
+  %call = tail call ptr @EVP_MD_fetch(ptr noundef %ctx, ptr noundef nonnull @.str, ptr noundef %propq) #9
   %cmp = icmp eq ptr %call, null
   br i1 %cmp, label %return, label %if.end
 
 if.end:                                           ; preds = %entry
-  %call1 = call i32 @EVP_Digest(ptr noundef %private_key, i64 noundef 32, ptr noundef nonnull %az, ptr noundef null, ptr noundef nonnull %call, ptr noundef null) #10
-  call void @EVP_MD_free(ptr noundef nonnull %call) #10
+  %call1 = call i32 @EVP_Digest(ptr noundef %private_key, i64 noundef 32, ptr noundef nonnull %az, ptr noundef null, ptr noundef nonnull %call, ptr noundef null) #9
+  call void @EVP_MD_free(ptr noundef nonnull %call) #9
   %tobool.not = icmp eq i32 %call1, 0
   br i1 %tobool.not, label %return.sink.split, label %if.end4
 
@@ -3635,7 +3635,7 @@ if.end4:                                          ; preds = %if.end
   %0 = load i8, ptr %az, align 16
   %1 = and i8 %0, -8
   store i8 %1, ptr %az, align 16
-  %arrayidx6 = getelementptr inbounds [64 x i8], ptr %az, i64 0, i64 31
+  %arrayidx6 = getelementptr inbounds i8, ptr %az, i64 31
   %2 = load i8, ptr %arrayidx6, align 1
   %3 = and i8 %2, 63
   %4 = or disjoint i8 %3, 64
@@ -3644,10 +3644,10 @@ if.end4:                                          ; preds = %if.end
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %recip.i)
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %x.i)
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %y.i)
-  %Z.i = getelementptr inbounds %struct.ge_p3, ptr %A, i64 0, i32 2
+  %Z.i = getelementptr inbounds i8, ptr %A, i64 80
   call fastcc void @fe_invert(ptr noundef nonnull %recip.i, ptr noundef nonnull %Z.i)
   call fastcc void @fe_mul(ptr noundef nonnull %x.i, ptr noundef nonnull %A, ptr noundef nonnull %recip.i)
-  %Y.i = getelementptr inbounds %struct.ge_p3, ptr %A, i64 0, i32 1
+  %Y.i = getelementptr inbounds i8, ptr %A, i64 40
   call fastcc void @fe_mul(ptr noundef nonnull %y.i, ptr noundef nonnull %Y.i, ptr noundef nonnull %recip.i)
   call fastcc void @fe_tobytes(ptr noundef %out_public_key, ptr noundef nonnull %y.i)
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %s.i.i)
@@ -3666,7 +3666,7 @@ if.end4:                                          ; preds = %if.end
 
 return.sink.split:                                ; preds = %if.end, %if.end4
   %retval.0.ph = phi i32 [ 1, %if.end4 ], [ 0, %if.end ]
-  call void @OPENSSL_cleanse(ptr noundef nonnull %az, i64 noundef 64) #10
+  call void @OPENSSL_cleanse(ptr noundef nonnull %az, i64 noundef 64) #9
   br label %return
 
 return:                                           ; preds = %return.sink.split, %entry
@@ -3711,7 +3711,7 @@ entry:
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %tmp0.i)
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %tmp1.i)
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %e.i)
-  %call.i = tail call i32 @x25519_fe64_eligible() #10
+  %call.i = tail call i32 @x25519_fe64_eligible() #9
   %tobool.not.i = icmp eq i32 %call.i, 0
   br i1 %tobool.not.i, label %if.end.i, label %if.then.i
 
@@ -3728,7 +3728,7 @@ if.then.i:                                        ; preds = %entry
   %0 = load i8, ptr %e.i.i, align 16
   %1 = and i8 %0, -8
   store i8 %1, ptr %e.i.i, align 16
-  %arrayidx2.i.i = getelementptr inbounds [32 x i8], ptr %e.i.i, i64 0, i64 31
+  %arrayidx2.i.i = getelementptr inbounds i8, ptr %e.i.i, i64 31
   %2 = load i8, ptr %arrayidx2.i.i, align 1
   %3 = and i8 %2, 63
   %4 = or disjoint i8 %3, 64
@@ -3737,30 +3737,30 @@ if.then.i:                                        ; preds = %entry
   store i64 %5, ptr %x1.i.i, align 16
   %add.ptr.i.i.i = getelementptr inbounds i8, ptr %peer_public_value, i64 8
   %6 = load i64, ptr %add.ptr.i.i.i, align 1
-  %arrayidx2.i.i.i = getelementptr inbounds i64, ptr %x1.i.i, i64 1
+  %arrayidx2.i.i.i = getelementptr inbounds i8, ptr %x1.i.i, i64 8
   store i64 %6, ptr %arrayidx2.i.i.i, align 8
   %add.ptr3.i.i.i = getelementptr inbounds i8, ptr %peer_public_value, i64 16
   %7 = load i64, ptr %add.ptr3.i.i.i, align 1
-  %arrayidx5.i.i.i = getelementptr inbounds i64, ptr %x1.i.i, i64 2
+  %arrayidx5.i.i.i = getelementptr inbounds i8, ptr %x1.i.i, i64 16
   store i64 %7, ptr %arrayidx5.i.i.i, align 16
   %add.ptr6.i.i.i = getelementptr inbounds i8, ptr %peer_public_value, i64 24
   %8 = load i64, ptr %add.ptr6.i.i.i, align 1
   %and.i.i.i = and i64 %8, 9223372036854775807
-  %arrayidx8.i.i.i = getelementptr inbounds i64, ptr %x1.i.i, i64 3
+  %arrayidx8.i.i.i = getelementptr inbounds i8, ptr %x1.i.i, i64 24
   store i64 %and.i.i.i, ptr %arrayidx8.i.i.i, align 8
   store i64 1, ptr %x2.i.i, align 16
-  %arrayidx1.i.i.i = getelementptr inbounds i64, ptr %x2.i.i, i64 1
+  %arrayidx1.i.i.i = getelementptr inbounds i8, ptr %x2.i.i, i64 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %arrayidx1.i.i.i, i8 0, i64 24, i1 false)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(32) %z2.i.i, i8 0, i64 32, i1 false)
   store i64 %5, ptr %x3.i.i, align 16
-  %arrayidx3.i.i.i = getelementptr inbounds i64, ptr %x3.i.i, i64 1
+  %arrayidx3.i.i.i = getelementptr inbounds i8, ptr %x3.i.i, i64 8
   store i64 %6, ptr %arrayidx3.i.i.i, align 8
-  %arrayidx5.i9.i.i = getelementptr inbounds i64, ptr %x3.i.i, i64 2
+  %arrayidx5.i9.i.i = getelementptr inbounds i8, ptr %x3.i.i, i64 16
   store i64 %7, ptr %arrayidx5.i9.i.i, align 16
-  %arrayidx7.i.i.i = getelementptr inbounds i64, ptr %x3.i.i, i64 3
+  %arrayidx7.i.i.i = getelementptr inbounds i8, ptr %x3.i.i, i64 24
   store i64 %and.i.i.i, ptr %arrayidx7.i.i.i, align 8
   store i64 1, ptr %z3.i.i, align 16
-  %arrayidx1.i10.i.i = getelementptr inbounds i64, ptr %z3.i.i, i64 1
+  %arrayidx1.i10.i.i = getelementptr inbounds i8, ptr %z3.i.i, i64 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %arrayidx1.i10.i.i, i8 0, i64 24, i1 false)
   br label %for.body.i.i
 
@@ -3813,24 +3813,24 @@ for.body.i15.i.i:                                 ; preds = %for.body.i.i.i, %fo
   br i1 %exitcond.not.i24.i.i, label %fe64_cswap.exit25.i.i, label %for.body.i15.i.i, !llvm.loop !27
 
 fe64_cswap.exit25.i.i:                            ; preds = %for.body.i15.i.i
-  call void @x25519_fe64_sub(ptr noundef nonnull %tmp0.i.i, ptr noundef nonnull %x3.i.i, ptr noundef nonnull %z3.i.i) #10
-  call void @x25519_fe64_sub(ptr noundef nonnull %tmp1.i.i, ptr noundef nonnull %x2.i.i, ptr noundef nonnull %z2.i.i) #10
-  call void @x25519_fe64_add(ptr noundef nonnull %x2.i.i, ptr noundef nonnull %x2.i.i, ptr noundef nonnull %z2.i.i) #10
-  call void @x25519_fe64_add(ptr noundef nonnull %z2.i.i, ptr noundef nonnull %x3.i.i, ptr noundef nonnull %z3.i.i) #10
-  call void @x25519_fe64_mul(ptr noundef nonnull %z3.i.i, ptr noundef nonnull %x2.i.i, ptr noundef nonnull %tmp0.i.i) #10
-  call void @x25519_fe64_mul(ptr noundef nonnull %z2.i.i, ptr noundef nonnull %z2.i.i, ptr noundef nonnull %tmp1.i.i) #10
-  call void @x25519_fe64_sqr(ptr noundef nonnull %tmp0.i.i, ptr noundef nonnull %tmp1.i.i) #10
-  call void @x25519_fe64_sqr(ptr noundef nonnull %tmp1.i.i, ptr noundef nonnull %x2.i.i) #10
-  call void @x25519_fe64_add(ptr noundef nonnull %x3.i.i, ptr noundef nonnull %z3.i.i, ptr noundef nonnull %z2.i.i) #10
-  call void @x25519_fe64_sub(ptr noundef nonnull %z2.i.i, ptr noundef nonnull %z3.i.i, ptr noundef nonnull %z2.i.i) #10
-  call void @x25519_fe64_mul(ptr noundef nonnull %x2.i.i, ptr noundef nonnull %tmp1.i.i, ptr noundef nonnull %tmp0.i.i) #10
-  call void @x25519_fe64_sub(ptr noundef nonnull %tmp1.i.i, ptr noundef nonnull %tmp1.i.i, ptr noundef nonnull %tmp0.i.i) #10
-  call void @x25519_fe64_sqr(ptr noundef nonnull %z2.i.i, ptr noundef nonnull %z2.i.i) #10
-  call void @x25519_fe64_mul121666(ptr noundef nonnull %z3.i.i, ptr noundef nonnull %tmp1.i.i) #10
-  call void @x25519_fe64_sqr(ptr noundef nonnull %x3.i.i, ptr noundef nonnull %x3.i.i) #10
-  call void @x25519_fe64_add(ptr noundef nonnull %tmp0.i.i, ptr noundef nonnull %tmp0.i.i, ptr noundef nonnull %z3.i.i) #10
-  call void @x25519_fe64_mul(ptr noundef nonnull %z3.i.i, ptr noundef nonnull %x1.i.i, ptr noundef nonnull %z2.i.i) #10
-  call void @x25519_fe64_mul(ptr noundef nonnull %z2.i.i, ptr noundef nonnull %tmp1.i.i, ptr noundef nonnull %tmp0.i.i) #10
+  call void @x25519_fe64_sub(ptr noundef nonnull %tmp0.i.i, ptr noundef nonnull %x3.i.i, ptr noundef nonnull %z3.i.i) #9
+  call void @x25519_fe64_sub(ptr noundef nonnull %tmp1.i.i, ptr noundef nonnull %x2.i.i, ptr noundef nonnull %z2.i.i) #9
+  call void @x25519_fe64_add(ptr noundef nonnull %x2.i.i, ptr noundef nonnull %x2.i.i, ptr noundef nonnull %z2.i.i) #9
+  call void @x25519_fe64_add(ptr noundef nonnull %z2.i.i, ptr noundef nonnull %x3.i.i, ptr noundef nonnull %z3.i.i) #9
+  call void @x25519_fe64_mul(ptr noundef nonnull %z3.i.i, ptr noundef nonnull %x2.i.i, ptr noundef nonnull %tmp0.i.i) #9
+  call void @x25519_fe64_mul(ptr noundef nonnull %z2.i.i, ptr noundef nonnull %z2.i.i, ptr noundef nonnull %tmp1.i.i) #9
+  call void @x25519_fe64_sqr(ptr noundef nonnull %tmp0.i.i, ptr noundef nonnull %tmp1.i.i) #9
+  call void @x25519_fe64_sqr(ptr noundef nonnull %tmp1.i.i, ptr noundef nonnull %x2.i.i) #9
+  call void @x25519_fe64_add(ptr noundef nonnull %x3.i.i, ptr noundef nonnull %z3.i.i, ptr noundef nonnull %z2.i.i) #9
+  call void @x25519_fe64_sub(ptr noundef nonnull %z2.i.i, ptr noundef nonnull %z3.i.i, ptr noundef nonnull %z2.i.i) #9
+  call void @x25519_fe64_mul(ptr noundef nonnull %x2.i.i, ptr noundef nonnull %tmp1.i.i, ptr noundef nonnull %tmp0.i.i) #9
+  call void @x25519_fe64_sub(ptr noundef nonnull %tmp1.i.i, ptr noundef nonnull %tmp1.i.i, ptr noundef nonnull %tmp0.i.i) #9
+  call void @x25519_fe64_sqr(ptr noundef nonnull %z2.i.i, ptr noundef nonnull %z2.i.i) #9
+  call void @x25519_fe64_mul121666(ptr noundef nonnull %z3.i.i, ptr noundef nonnull %tmp1.i.i) #9
+  call void @x25519_fe64_sqr(ptr noundef nonnull %x3.i.i, ptr noundef nonnull %x3.i.i) #9
+  call void @x25519_fe64_add(ptr noundef nonnull %tmp0.i.i, ptr noundef nonnull %tmp0.i.i, ptr noundef nonnull %z3.i.i) #9
+  call void @x25519_fe64_mul(ptr noundef nonnull %z3.i.i, ptr noundef nonnull %x1.i.i, ptr noundef nonnull %z2.i.i) #9
+  call void @x25519_fe64_mul(ptr noundef nonnull %z2.i.i, ptr noundef nonnull %tmp1.i.i, ptr noundef nonnull %tmp0.i.i) #9
   %dec.i.i = add nsw i32 %pos.028.i.i, -1
   %cmp.not.i.i = icmp eq i32 %pos.028.i.i, 0
   br i1 %cmp.not.i.i, label %for.end.i.i, label %for.body.i.i, !llvm.loop !28
@@ -3840,113 +3840,113 @@ for.end.i.i:                                      ; preds = %fe64_cswap.exit25.i
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %t1.i.i.i)
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %t2.i.i.i)
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %t3.i.i.i)
-  call void @x25519_fe64_sqr(ptr noundef nonnull %t0.i.i.i, ptr noundef nonnull %z2.i.i) #10
-  call void @x25519_fe64_sqr(ptr noundef nonnull %t1.i.i.i, ptr noundef nonnull %t0.i.i.i) #10
-  call void @x25519_fe64_sqr(ptr noundef nonnull %t1.i.i.i, ptr noundef nonnull %t1.i.i.i) #10
-  call void @x25519_fe64_mul(ptr noundef nonnull %t1.i.i.i, ptr noundef nonnull %z2.i.i, ptr noundef nonnull %t1.i.i.i) #10
-  call void @x25519_fe64_mul(ptr noundef nonnull %t0.i.i.i, ptr noundef nonnull %t0.i.i.i, ptr noundef nonnull %t1.i.i.i) #10
-  call void @x25519_fe64_sqr(ptr noundef nonnull %t2.i.i.i, ptr noundef nonnull %t0.i.i.i) #10
-  call void @x25519_fe64_mul(ptr noundef nonnull %t1.i.i.i, ptr noundef nonnull %t1.i.i.i, ptr noundef nonnull %t2.i.i.i) #10
-  call void @x25519_fe64_sqr(ptr noundef nonnull %t2.i.i.i, ptr noundef nonnull %t1.i.i.i) #10
+  call void @x25519_fe64_sqr(ptr noundef nonnull %t0.i.i.i, ptr noundef nonnull %z2.i.i) #9
+  call void @x25519_fe64_sqr(ptr noundef nonnull %t1.i.i.i, ptr noundef nonnull %t0.i.i.i) #9
+  call void @x25519_fe64_sqr(ptr noundef nonnull %t1.i.i.i, ptr noundef nonnull %t1.i.i.i) #9
+  call void @x25519_fe64_mul(ptr noundef nonnull %t1.i.i.i, ptr noundef nonnull %z2.i.i, ptr noundef nonnull %t1.i.i.i) #9
+  call void @x25519_fe64_mul(ptr noundef nonnull %t0.i.i.i, ptr noundef nonnull %t0.i.i.i, ptr noundef nonnull %t1.i.i.i) #9
+  call void @x25519_fe64_sqr(ptr noundef nonnull %t2.i.i.i, ptr noundef nonnull %t0.i.i.i) #9
+  call void @x25519_fe64_mul(ptr noundef nonnull %t1.i.i.i, ptr noundef nonnull %t1.i.i.i, ptr noundef nonnull %t2.i.i.i) #9
+  call void @x25519_fe64_sqr(ptr noundef nonnull %t2.i.i.i, ptr noundef nonnull %t1.i.i.i) #9
   br label %for.body.i26.i.i
 
 for.body.i26.i.i:                                 ; preds = %for.body.i26.i.i, %for.end.i.i
   %i.017.i.i.i = phi i32 [ 1, %for.end.i.i ], [ %inc.i.i.i, %for.body.i26.i.i ]
-  call void @x25519_fe64_sqr(ptr noundef nonnull %t2.i.i.i, ptr noundef nonnull %t2.i.i.i) #10
+  call void @x25519_fe64_sqr(ptr noundef nonnull %t2.i.i.i, ptr noundef nonnull %t2.i.i.i) #9
   %inc.i.i.i = add nuw nsw i32 %i.017.i.i.i, 1
   %exitcond.not.i27.i.i = icmp eq i32 %inc.i.i.i, 5
   br i1 %exitcond.not.i27.i.i, label %for.end.i.i.i, label %for.body.i26.i.i, !llvm.loop !29
 
 for.end.i.i.i:                                    ; preds = %for.body.i26.i.i
-  call void @x25519_fe64_mul(ptr noundef nonnull %t1.i.i.i, ptr noundef nonnull %t2.i.i.i, ptr noundef nonnull %t1.i.i.i) #10
-  call void @x25519_fe64_sqr(ptr noundef nonnull %t2.i.i.i, ptr noundef nonnull %t1.i.i.i) #10
+  call void @x25519_fe64_mul(ptr noundef nonnull %t1.i.i.i, ptr noundef nonnull %t2.i.i.i, ptr noundef nonnull %t1.i.i.i) #9
+  call void @x25519_fe64_sqr(ptr noundef nonnull %t2.i.i.i, ptr noundef nonnull %t1.i.i.i) #9
   br label %for.body26.i.i.i
 
 for.body26.i.i.i:                                 ; preds = %for.body26.i.i.i, %for.end.i.i.i
   %i.118.i.i.i = phi i32 [ 1, %for.end.i.i.i ], [ %inc30.i.i.i, %for.body26.i.i.i ]
-  call void @x25519_fe64_sqr(ptr noundef nonnull %t2.i.i.i, ptr noundef nonnull %t2.i.i.i) #10
+  call void @x25519_fe64_sqr(ptr noundef nonnull %t2.i.i.i, ptr noundef nonnull %t2.i.i.i) #9
   %inc30.i.i.i = add nuw nsw i32 %i.118.i.i.i, 1
   %exitcond25.not.i.i.i = icmp eq i32 %inc30.i.i.i, 10
   br i1 %exitcond25.not.i.i.i, label %for.end31.i.i.i, label %for.body26.i.i.i, !llvm.loop !30
 
 for.end31.i.i.i:                                  ; preds = %for.body26.i.i.i
-  call void @x25519_fe64_mul(ptr noundef nonnull %t2.i.i.i, ptr noundef nonnull %t2.i.i.i, ptr noundef nonnull %t1.i.i.i) #10
-  call void @x25519_fe64_sqr(ptr noundef nonnull %t3.i.i.i, ptr noundef nonnull %t2.i.i.i) #10
+  call void @x25519_fe64_mul(ptr noundef nonnull %t2.i.i.i, ptr noundef nonnull %t2.i.i.i, ptr noundef nonnull %t1.i.i.i) #9
+  call void @x25519_fe64_sqr(ptr noundef nonnull %t3.i.i.i, ptr noundef nonnull %t2.i.i.i) #9
   br label %for.body39.i.i.i
 
 for.body39.i.i.i:                                 ; preds = %for.body39.i.i.i, %for.end31.i.i.i
   %i.219.i.i.i = phi i32 [ 1, %for.end31.i.i.i ], [ %inc43.i.i.i, %for.body39.i.i.i ]
-  call void @x25519_fe64_sqr(ptr noundef nonnull %t3.i.i.i, ptr noundef nonnull %t3.i.i.i) #10
+  call void @x25519_fe64_sqr(ptr noundef nonnull %t3.i.i.i, ptr noundef nonnull %t3.i.i.i) #9
   %inc43.i.i.i = add nuw nsw i32 %i.219.i.i.i, 1
   %exitcond26.not.i.i.i = icmp eq i32 %inc43.i.i.i, 20
   br i1 %exitcond26.not.i.i.i, label %for.end44.i.i.i, label %for.body39.i.i.i, !llvm.loop !31
 
 for.end44.i.i.i:                                  ; preds = %for.body39.i.i.i
-  call void @x25519_fe64_mul(ptr noundef nonnull %t2.i.i.i, ptr noundef nonnull %t3.i.i.i, ptr noundef nonnull %t2.i.i.i) #10
+  call void @x25519_fe64_mul(ptr noundef nonnull %t2.i.i.i, ptr noundef nonnull %t3.i.i.i, ptr noundef nonnull %t2.i.i.i) #9
   br label %for.body50.i.i.i
 
 for.body50.i.i.i:                                 ; preds = %for.body50.i.i.i, %for.end44.i.i.i
   %i.320.i.i.i = phi i32 [ 0, %for.end44.i.i.i ], [ %inc54.i.i.i, %for.body50.i.i.i ]
-  call void @x25519_fe64_sqr(ptr noundef nonnull %t2.i.i.i, ptr noundef nonnull %t2.i.i.i) #10
+  call void @x25519_fe64_sqr(ptr noundef nonnull %t2.i.i.i, ptr noundef nonnull %t2.i.i.i) #9
   %inc54.i.i.i = add nuw nsw i32 %i.320.i.i.i, 1
   %exitcond27.not.i.i.i = icmp eq i32 %inc54.i.i.i, 10
   br i1 %exitcond27.not.i.i.i, label %for.end55.i.i.i, label %for.body50.i.i.i, !llvm.loop !32
 
 for.end55.i.i.i:                                  ; preds = %for.body50.i.i.i
-  call void @x25519_fe64_mul(ptr noundef nonnull %t1.i.i.i, ptr noundef nonnull %t2.i.i.i, ptr noundef nonnull %t1.i.i.i) #10
-  call void @x25519_fe64_sqr(ptr noundef nonnull %t2.i.i.i, ptr noundef nonnull %t1.i.i.i) #10
+  call void @x25519_fe64_mul(ptr noundef nonnull %t1.i.i.i, ptr noundef nonnull %t2.i.i.i, ptr noundef nonnull %t1.i.i.i) #9
+  call void @x25519_fe64_sqr(ptr noundef nonnull %t2.i.i.i, ptr noundef nonnull %t1.i.i.i) #9
   br label %for.body63.i.i.i
 
 for.body63.i.i.i:                                 ; preds = %for.body63.i.i.i, %for.end55.i.i.i
   %i.421.i.i.i = phi i32 [ 1, %for.end55.i.i.i ], [ %inc67.i.i.i, %for.body63.i.i.i ]
-  call void @x25519_fe64_sqr(ptr noundef nonnull %t2.i.i.i, ptr noundef nonnull %t2.i.i.i) #10
+  call void @x25519_fe64_sqr(ptr noundef nonnull %t2.i.i.i, ptr noundef nonnull %t2.i.i.i) #9
   %inc67.i.i.i = add nuw nsw i32 %i.421.i.i.i, 1
   %exitcond28.not.i.i.i = icmp eq i32 %inc67.i.i.i, 50
   br i1 %exitcond28.not.i.i.i, label %for.end68.i.i.i, label %for.body63.i.i.i, !llvm.loop !33
 
 for.end68.i.i.i:                                  ; preds = %for.body63.i.i.i
-  call void @x25519_fe64_mul(ptr noundef nonnull %t2.i.i.i, ptr noundef nonnull %t2.i.i.i, ptr noundef nonnull %t1.i.i.i) #10
-  call void @x25519_fe64_sqr(ptr noundef nonnull %t3.i.i.i, ptr noundef nonnull %t2.i.i.i) #10
+  call void @x25519_fe64_mul(ptr noundef nonnull %t2.i.i.i, ptr noundef nonnull %t2.i.i.i, ptr noundef nonnull %t1.i.i.i) #9
+  call void @x25519_fe64_sqr(ptr noundef nonnull %t3.i.i.i, ptr noundef nonnull %t2.i.i.i) #9
   br label %for.body76.i.i.i
 
 for.body76.i.i.i:                                 ; preds = %for.body76.i.i.i, %for.end68.i.i.i
   %i.522.i.i.i = phi i32 [ 1, %for.end68.i.i.i ], [ %inc80.i.i.i, %for.body76.i.i.i ]
-  call void @x25519_fe64_sqr(ptr noundef nonnull %t3.i.i.i, ptr noundef nonnull %t3.i.i.i) #10
+  call void @x25519_fe64_sqr(ptr noundef nonnull %t3.i.i.i, ptr noundef nonnull %t3.i.i.i) #9
   %inc80.i.i.i = add nuw nsw i32 %i.522.i.i.i, 1
   %exitcond29.not.i.i.i = icmp eq i32 %inc80.i.i.i, 100
   br i1 %exitcond29.not.i.i.i, label %for.end81.i.i.i, label %for.body76.i.i.i, !llvm.loop !34
 
 for.end81.i.i.i:                                  ; preds = %for.body76.i.i.i
-  call void @x25519_fe64_mul(ptr noundef nonnull %t2.i.i.i, ptr noundef nonnull %t3.i.i.i, ptr noundef nonnull %t2.i.i.i) #10
+  call void @x25519_fe64_mul(ptr noundef nonnull %t2.i.i.i, ptr noundef nonnull %t3.i.i.i, ptr noundef nonnull %t2.i.i.i) #9
   br label %for.body87.i.i.i
 
 for.body87.i.i.i:                                 ; preds = %for.body87.i.i.i, %for.end81.i.i.i
   %i.623.i.i.i = phi i32 [ 0, %for.end81.i.i.i ], [ %inc91.i.i.i, %for.body87.i.i.i ]
-  call void @x25519_fe64_sqr(ptr noundef nonnull %t2.i.i.i, ptr noundef nonnull %t2.i.i.i) #10
+  call void @x25519_fe64_sqr(ptr noundef nonnull %t2.i.i.i, ptr noundef nonnull %t2.i.i.i) #9
   %inc91.i.i.i = add nuw nsw i32 %i.623.i.i.i, 1
   %exitcond30.not.i.i.i = icmp eq i32 %inc91.i.i.i, 50
   br i1 %exitcond30.not.i.i.i, label %for.end92.i.i.i, label %for.body87.i.i.i, !llvm.loop !35
 
 for.end92.i.i.i:                                  ; preds = %for.body87.i.i.i
-  call void @x25519_fe64_mul(ptr noundef nonnull %t1.i.i.i, ptr noundef nonnull %t2.i.i.i, ptr noundef nonnull %t1.i.i.i) #10
+  call void @x25519_fe64_mul(ptr noundef nonnull %t1.i.i.i, ptr noundef nonnull %t2.i.i.i, ptr noundef nonnull %t1.i.i.i) #9
   br label %for.body98.i.i.i
 
 for.body98.i.i.i:                                 ; preds = %for.body98.i.i.i, %for.end92.i.i.i
   %i.724.i.i.i = phi i32 [ 0, %for.end92.i.i.i ], [ %inc102.i.i.i, %for.body98.i.i.i ]
-  call void @x25519_fe64_sqr(ptr noundef nonnull %t1.i.i.i, ptr noundef nonnull %t1.i.i.i) #10
+  call void @x25519_fe64_sqr(ptr noundef nonnull %t1.i.i.i, ptr noundef nonnull %t1.i.i.i) #9
   %inc102.i.i.i = add nuw nsw i32 %i.724.i.i.i, 1
   %exitcond31.not.i.i.i = icmp eq i32 %inc102.i.i.i, 5
   br i1 %exitcond31.not.i.i.i, label %x25519_scalar_mulx.exit.i, label %for.body98.i.i.i, !llvm.loop !36
 
 x25519_scalar_mulx.exit.i:                        ; preds = %for.body98.i.i.i
-  call void @x25519_fe64_mul(ptr noundef nonnull %z2.i.i, ptr noundef nonnull %t1.i.i.i, ptr noundef nonnull %t0.i.i.i) #10
+  call void @x25519_fe64_mul(ptr noundef nonnull %z2.i.i, ptr noundef nonnull %t1.i.i.i, ptr noundef nonnull %t0.i.i.i) #9
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %t0.i.i.i)
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %t1.i.i.i)
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %t2.i.i.i)
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %t3.i.i.i)
-  call void @x25519_fe64_mul(ptr noundef nonnull %x2.i.i, ptr noundef nonnull %x2.i.i, ptr noundef nonnull %z2.i.i) #10
-  call void @x25519_fe64_tobytes(ptr noundef %out_shared_key, ptr noundef nonnull %x2.i.i) #10
-  call void @OPENSSL_cleanse(ptr noundef nonnull %e.i.i, i64 noundef 32) #10
+  call void @x25519_fe64_mul(ptr noundef nonnull %x2.i.i, ptr noundef nonnull %x2.i.i, ptr noundef nonnull %z2.i.i) #9
+  call void @x25519_fe64_tobytes(ptr noundef %out_shared_key, ptr noundef nonnull %x2.i.i) #9
+  call void @OPENSSL_cleanse(ptr noundef nonnull %e.i.i, i64 noundef 32) #9
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %x1.i.i)
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %x2.i.i)
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %z2.i.i)
@@ -3962,7 +3962,7 @@ if.end.i:                                         ; preds = %entry
   %14 = load i8, ptr %e.i, align 16
   %15 = and i8 %14, -8
   store i8 %15, ptr %e.i, align 16
-  %arrayidx2.i = getelementptr inbounds [32 x i8], ptr %e.i, i64 0, i64 31
+  %arrayidx2.i = getelementptr inbounds i8, ptr %e.i, i64 31
   %16 = load i8, ptr %arrayidx2.i, align 1
   %17 = and i8 %16, 63
   %18 = or disjoint i8 %17, 64
@@ -4059,48 +4059,48 @@ if.end.i:                                         ; preds = %entry
   %shl7.masked.i.i = or disjoint i64 %58, %45
   %and20.i.i = or disjoint i64 %.masked59.i.i, %shl7.masked.i.i
   store i64 %and11.i.i, ptr %x1.i, align 16
-  %arrayidx21.i.i = getelementptr inbounds i64, ptr %x1.i, i64 1
+  %arrayidx21.i.i = getelementptr inbounds i8, ptr %x1.i, i64 8
   store i64 %and14.i.i, ptr %arrayidx21.i.i, align 8
-  %arrayidx22.i.i = getelementptr inbounds i64, ptr %x1.i, i64 2
+  %arrayidx22.i.i = getelementptr inbounds i8, ptr %x1.i, i64 16
   store i64 %and17.i.i, ptr %arrayidx22.i.i, align 16
-  %arrayidx23.i.i = getelementptr inbounds i64, ptr %x1.i, i64 3
+  %arrayidx23.i.i = getelementptr inbounds i8, ptr %x1.i, i64 24
   store i64 %and20.i.i, ptr %arrayidx23.i.i, align 8
-  %arrayidx24.i.i = getelementptr inbounds i64, ptr %x1.i, i64 4
+  %arrayidx24.i.i = getelementptr inbounds i8, ptr %x1.i, i64 32
   store i64 %or19.i.i, ptr %arrayidx24.i.i, align 16
   store i64 1, ptr %x2.i, align 16
-  %arrayidx1.i.i = getelementptr inbounds i64, ptr %x2.i, i64 1
+  %arrayidx1.i.i = getelementptr inbounds i8, ptr %x2.i, i64 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %arrayidx1.i.i, i8 0, i64 32, i1 false)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(40) %z2.i, i8 0, i64 40, i1 false)
   store i64 %and11.i.i, ptr %x3.i, align 16
-  %arrayidx3.i.i = getelementptr inbounds i64, ptr %x3.i, i64 1
+  %arrayidx3.i.i = getelementptr inbounds i8, ptr %x3.i, i64 8
   store i64 %and14.i.i, ptr %arrayidx3.i.i, align 8
-  %arrayidx5.i.i = getelementptr inbounds i64, ptr %x3.i, i64 2
+  %arrayidx5.i.i = getelementptr inbounds i8, ptr %x3.i, i64 16
   store i64 %and17.i.i, ptr %arrayidx5.i.i, align 16
-  %arrayidx7.i.i = getelementptr inbounds i64, ptr %x3.i, i64 3
+  %arrayidx7.i.i = getelementptr inbounds i8, ptr %x3.i, i64 24
   store i64 %and20.i.i, ptr %arrayidx7.i.i, align 8
-  %arrayidx9.i.i = getelementptr inbounds i64, ptr %x3.i, i64 4
+  %arrayidx9.i.i = getelementptr inbounds i8, ptr %x3.i, i64 32
   store i64 %or19.i.i, ptr %arrayidx9.i.i, align 16
   store i64 1, ptr %z3.i, align 16
-  %arrayidx1.i13.i = getelementptr inbounds i64, ptr %z3.i, i64 1
+  %arrayidx1.i13.i = getelementptr inbounds i8, ptr %z3.i, i64 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %arrayidx1.i13.i, i8 0, i64 32, i1 false)
-  %arrayidx7.i35.i = getelementptr inbounds i64, ptr %tmp0.i, i64 1
-  %arrayidx10.i.i = getelementptr inbounds i64, ptr %z3.i, i64 2
-  %arrayidx12.i.i = getelementptr inbounds i64, ptr %tmp0.i, i64 2
-  %arrayidx15.i.i = getelementptr inbounds i64, ptr %z3.i, i64 3
-  %arrayidx17.i.i = getelementptr inbounds i64, ptr %tmp0.i, i64 3
-  %arrayidx20.i.i = getelementptr inbounds i64, ptr %z3.i, i64 4
-  %arrayidx22.i37.i = getelementptr inbounds i64, ptr %tmp0.i, i64 4
-  %arrayidx5.i42.i = getelementptr inbounds i64, ptr %z2.i, i64 1
-  %arrayidx7.i44.i = getelementptr inbounds i64, ptr %tmp1.i, i64 1
-  %arrayidx8.i45.i = getelementptr inbounds i64, ptr %x2.i, i64 2
-  %arrayidx10.i47.i = getelementptr inbounds i64, ptr %z2.i, i64 2
-  %arrayidx12.i49.i = getelementptr inbounds i64, ptr %tmp1.i, i64 2
-  %arrayidx13.i50.i = getelementptr inbounds i64, ptr %x2.i, i64 3
-  %arrayidx15.i52.i = getelementptr inbounds i64, ptr %z2.i, i64 3
-  %arrayidx17.i54.i = getelementptr inbounds i64, ptr %tmp1.i, i64 3
-  %arrayidx18.i55.i = getelementptr inbounds i64, ptr %x2.i, i64 4
-  %arrayidx20.i57.i = getelementptr inbounds i64, ptr %z2.i, i64 4
-  %arrayidx22.i59.i = getelementptr inbounds i64, ptr %tmp1.i, i64 4
+  %arrayidx7.i35.i = getelementptr inbounds i8, ptr %tmp0.i, i64 8
+  %arrayidx10.i.i = getelementptr inbounds i8, ptr %z3.i, i64 16
+  %arrayidx12.i.i = getelementptr inbounds i8, ptr %tmp0.i, i64 16
+  %arrayidx15.i.i = getelementptr inbounds i8, ptr %z3.i, i64 24
+  %arrayidx17.i.i = getelementptr inbounds i8, ptr %tmp0.i, i64 24
+  %arrayidx20.i.i = getelementptr inbounds i8, ptr %z3.i, i64 32
+  %arrayidx22.i37.i = getelementptr inbounds i8, ptr %tmp0.i, i64 32
+  %arrayidx5.i42.i = getelementptr inbounds i8, ptr %z2.i, i64 8
+  %arrayidx7.i44.i = getelementptr inbounds i8, ptr %tmp1.i, i64 8
+  %arrayidx8.i45.i = getelementptr inbounds i8, ptr %x2.i, i64 16
+  %arrayidx10.i47.i = getelementptr inbounds i8, ptr %z2.i, i64 16
+  %arrayidx12.i49.i = getelementptr inbounds i8, ptr %tmp1.i, i64 16
+  %arrayidx13.i50.i = getelementptr inbounds i8, ptr %x2.i, i64 24
+  %arrayidx15.i52.i = getelementptr inbounds i8, ptr %z2.i, i64 24
+  %arrayidx17.i54.i = getelementptr inbounds i8, ptr %tmp1.i, i64 24
+  %arrayidx18.i55.i = getelementptr inbounds i8, ptr %x2.i, i64 32
+  %arrayidx20.i57.i = getelementptr inbounds i8, ptr %z2.i, i64 32
+  %arrayidx22.i59.i = getelementptr inbounds i8, ptr %tmp1.i, i64 32
   br label %for.body.i
 
 for.body.i:                                       ; preds = %fe51_cswap.exit31.i, %if.end.i
@@ -4222,10 +4222,10 @@ fe51_cswap.exit31.i:                              ; preds = %for.body.i20.i
   store i64 %add13.i83.i, ptr %arrayidx15.i52.i, align 8
   %add17.i87.i = add i64 %73, %72
   store i64 %add17.i87.i, ptr %arrayidx20.i57.i, align 16
-  call void @x25519_fe51_mul(ptr noundef nonnull %z3.i, ptr noundef nonnull %tmp0.i, ptr noundef nonnull %x2.i) #10
-  call void @x25519_fe51_mul(ptr noundef nonnull %z2.i, ptr noundef nonnull %z2.i, ptr noundef nonnull %tmp1.i) #10
-  call void @x25519_fe51_sqr(ptr noundef nonnull %tmp0.i, ptr noundef nonnull %tmp1.i) #10
-  call void @x25519_fe51_sqr(ptr noundef nonnull %tmp1.i, ptr noundef nonnull %x2.i) #10
+  call void @x25519_fe51_mul(ptr noundef nonnull %z3.i, ptr noundef nonnull %tmp0.i, ptr noundef nonnull %x2.i) #9
+  call void @x25519_fe51_mul(ptr noundef nonnull %z2.i, ptr noundef nonnull %z2.i, ptr noundef nonnull %tmp1.i) #9
+  call void @x25519_fe51_sqr(ptr noundef nonnull %tmp0.i, ptr noundef nonnull %tmp1.i) #9
+  call void @x25519_fe51_sqr(ptr noundef nonnull %tmp1.i, ptr noundef nonnull %x2.i) #9
   %84 = load i64, ptr %z3.i, align 16
   %85 = load i64, ptr %z2.i, align 16
   %add.i89.i = add i64 %85, %84
@@ -4261,7 +4261,7 @@ fe51_cswap.exit31.i:                              ; preds = %for.body.i20.i
   %add19.i124.i = add i64 %92, 4503599627370494
   %sub21.i126.i = sub i64 %add19.i124.i, %93
   store i64 %sub21.i126.i, ptr %arrayidx20.i57.i, align 16
-  call void @x25519_fe51_mul(ptr noundef nonnull %x2.i, ptr noundef nonnull %tmp1.i, ptr noundef nonnull %tmp0.i) #10
+  call void @x25519_fe51_mul(ptr noundef nonnull %x2.i, ptr noundef nonnull %tmp1.i, ptr noundef nonnull %tmp0.i) #9
   %94 = load <2 x i64>, ptr %tmp1.i, align 16
   %95 = add <2 x i64> %94, <i64 4503599627370458, i64 4503599627370494>
   %96 = load <2 x i64>, ptr %tmp0.i, align 16
@@ -4277,9 +4277,9 @@ fe51_cswap.exit31.i:                              ; preds = %for.body.i20.i
   %103 = load i64, ptr %arrayidx22.i37.i, align 16
   %sub21.i148.i = sub i64 %add19.i146.i, %103
   store i64 %sub21.i148.i, ptr %arrayidx22.i59.i, align 16
-  call void @x25519_fe51_sqr(ptr noundef nonnull %z2.i, ptr noundef nonnull %z2.i) #10
-  call void @x25519_fe51_mul121666(ptr noundef nonnull %z3.i, ptr noundef nonnull %tmp1.i) #10
-  call void @x25519_fe51_sqr(ptr noundef nonnull %x3.i, ptr noundef nonnull %x3.i) #10
+  call void @x25519_fe51_sqr(ptr noundef nonnull %z2.i, ptr noundef nonnull %z2.i) #9
+  call void @x25519_fe51_mul121666(ptr noundef nonnull %z3.i, ptr noundef nonnull %tmp1.i) #9
+  call void @x25519_fe51_sqr(ptr noundef nonnull %x3.i, ptr noundef nonnull %x3.i) #9
   %104 = load <2 x i64>, ptr %tmp0.i, align 16
   %105 = load <2 x i64>, ptr %z3.i, align 16
   %106 = add <2 x i64> %105, %104
@@ -4292,8 +4292,8 @@ fe51_cswap.exit31.i:                              ; preds = %for.body.i20.i
   %111 = load i64, ptr %arrayidx20.i.i, align 16
   %add17.i165.i = add i64 %111, %110
   store i64 %add17.i165.i, ptr %arrayidx22.i37.i, align 16
-  call void @x25519_fe51_mul(ptr noundef nonnull %z3.i, ptr noundef nonnull %x1.i, ptr noundef nonnull %z2.i) #10
-  call void @x25519_fe51_mul(ptr noundef nonnull %z2.i, ptr noundef nonnull %tmp1.i, ptr noundef nonnull %tmp0.i) #10
+  call void @x25519_fe51_mul(ptr noundef nonnull %z3.i, ptr noundef nonnull %x1.i, ptr noundef nonnull %z2.i) #9
+  call void @x25519_fe51_mul(ptr noundef nonnull %z2.i, ptr noundef nonnull %tmp1.i, ptr noundef nonnull %tmp0.i) #9
   %dec.i = add nsw i32 %pos.0203.i, -1
   %cmp.not.i = icmp eq i32 %pos.0203.i, 0
   br i1 %cmp.not.i, label %for.end.i, label %for.body.i, !llvm.loop !38
@@ -4303,111 +4303,111 @@ for.end.i:                                        ; preds = %fe51_cswap.exit31.i
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %t1.i.i)
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %t2.i.i)
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %t3.i.i)
-  call void @x25519_fe51_sqr(ptr noundef nonnull %t0.i.i, ptr noundef nonnull %z2.i) #10
-  call void @x25519_fe51_sqr(ptr noundef nonnull %t1.i.i, ptr noundef nonnull %t0.i.i) #10
-  call void @x25519_fe51_sqr(ptr noundef nonnull %t1.i.i, ptr noundef nonnull %t1.i.i) #10
-  call void @x25519_fe51_mul(ptr noundef nonnull %t1.i.i, ptr noundef nonnull %z2.i, ptr noundef nonnull %t1.i.i) #10
-  call void @x25519_fe51_mul(ptr noundef nonnull %t0.i.i, ptr noundef nonnull %t0.i.i, ptr noundef nonnull %t1.i.i) #10
-  call void @x25519_fe51_sqr(ptr noundef nonnull %t2.i.i, ptr noundef nonnull %t0.i.i) #10
-  call void @x25519_fe51_mul(ptr noundef nonnull %t1.i.i, ptr noundef nonnull %t1.i.i, ptr noundef nonnull %t2.i.i) #10
-  call void @x25519_fe51_sqr(ptr noundef nonnull %t2.i.i, ptr noundef nonnull %t1.i.i) #10
+  call void @x25519_fe51_sqr(ptr noundef nonnull %t0.i.i, ptr noundef nonnull %z2.i) #9
+  call void @x25519_fe51_sqr(ptr noundef nonnull %t1.i.i, ptr noundef nonnull %t0.i.i) #9
+  call void @x25519_fe51_sqr(ptr noundef nonnull %t1.i.i, ptr noundef nonnull %t1.i.i) #9
+  call void @x25519_fe51_mul(ptr noundef nonnull %t1.i.i, ptr noundef nonnull %z2.i, ptr noundef nonnull %t1.i.i) #9
+  call void @x25519_fe51_mul(ptr noundef nonnull %t0.i.i, ptr noundef nonnull %t0.i.i, ptr noundef nonnull %t1.i.i) #9
+  call void @x25519_fe51_sqr(ptr noundef nonnull %t2.i.i, ptr noundef nonnull %t0.i.i) #9
+  call void @x25519_fe51_mul(ptr noundef nonnull %t1.i.i, ptr noundef nonnull %t1.i.i, ptr noundef nonnull %t2.i.i) #9
+  call void @x25519_fe51_sqr(ptr noundef nonnull %t2.i.i, ptr noundef nonnull %t1.i.i) #9
   br label %for.body.i167.i
 
 for.body.i167.i:                                  ; preds = %for.body.i167.i, %for.end.i
   %i.017.i.i = phi i32 [ 1, %for.end.i ], [ %inc.i.i, %for.body.i167.i ]
-  call void @x25519_fe51_sqr(ptr noundef nonnull %t2.i.i, ptr noundef nonnull %t2.i.i) #10
+  call void @x25519_fe51_sqr(ptr noundef nonnull %t2.i.i, ptr noundef nonnull %t2.i.i) #9
   %inc.i.i = add nuw nsw i32 %i.017.i.i, 1
   %exitcond.not.i168.i = icmp eq i32 %inc.i.i, 5
   br i1 %exitcond.not.i168.i, label %for.end.i169.i, label %for.body.i167.i, !llvm.loop !39
 
 for.end.i169.i:                                   ; preds = %for.body.i167.i
-  call void @x25519_fe51_mul(ptr noundef nonnull %t1.i.i, ptr noundef nonnull %t2.i.i, ptr noundef nonnull %t1.i.i) #10
-  call void @x25519_fe51_sqr(ptr noundef nonnull %t2.i.i, ptr noundef nonnull %t1.i.i) #10
+  call void @x25519_fe51_mul(ptr noundef nonnull %t1.i.i, ptr noundef nonnull %t2.i.i, ptr noundef nonnull %t1.i.i) #9
+  call void @x25519_fe51_sqr(ptr noundef nonnull %t2.i.i, ptr noundef nonnull %t1.i.i) #9
   br label %for.body26.i.i
 
 for.body26.i.i:                                   ; preds = %for.body26.i.i, %for.end.i169.i
   %i.118.i.i = phi i32 [ 1, %for.end.i169.i ], [ %inc30.i.i, %for.body26.i.i ]
-  call void @x25519_fe51_sqr(ptr noundef nonnull %t2.i.i, ptr noundef nonnull %t2.i.i) #10
+  call void @x25519_fe51_sqr(ptr noundef nonnull %t2.i.i, ptr noundef nonnull %t2.i.i) #9
   %inc30.i.i = add nuw nsw i32 %i.118.i.i, 1
   %exitcond25.not.i.i = icmp eq i32 %inc30.i.i, 10
   br i1 %exitcond25.not.i.i, label %for.end31.i.i, label %for.body26.i.i, !llvm.loop !40
 
 for.end31.i.i:                                    ; preds = %for.body26.i.i
-  call void @x25519_fe51_mul(ptr noundef nonnull %t2.i.i, ptr noundef nonnull %t2.i.i, ptr noundef nonnull %t1.i.i) #10
-  call void @x25519_fe51_sqr(ptr noundef nonnull %t3.i.i, ptr noundef nonnull %t2.i.i) #10
+  call void @x25519_fe51_mul(ptr noundef nonnull %t2.i.i, ptr noundef nonnull %t2.i.i, ptr noundef nonnull %t1.i.i) #9
+  call void @x25519_fe51_sqr(ptr noundef nonnull %t3.i.i, ptr noundef nonnull %t2.i.i) #9
   br label %for.body39.i.i
 
 for.body39.i.i:                                   ; preds = %for.body39.i.i, %for.end31.i.i
   %i.219.i.i = phi i32 [ 1, %for.end31.i.i ], [ %inc43.i.i, %for.body39.i.i ]
-  call void @x25519_fe51_sqr(ptr noundef nonnull %t3.i.i, ptr noundef nonnull %t3.i.i) #10
+  call void @x25519_fe51_sqr(ptr noundef nonnull %t3.i.i, ptr noundef nonnull %t3.i.i) #9
   %inc43.i.i = add nuw nsw i32 %i.219.i.i, 1
   %exitcond26.not.i.i = icmp eq i32 %inc43.i.i, 20
   br i1 %exitcond26.not.i.i, label %for.end44.i.i, label %for.body39.i.i, !llvm.loop !41
 
 for.end44.i.i:                                    ; preds = %for.body39.i.i
-  call void @x25519_fe51_mul(ptr noundef nonnull %t2.i.i, ptr noundef nonnull %t3.i.i, ptr noundef nonnull %t2.i.i) #10
+  call void @x25519_fe51_mul(ptr noundef nonnull %t2.i.i, ptr noundef nonnull %t3.i.i, ptr noundef nonnull %t2.i.i) #9
   br label %for.body50.i.i
 
 for.body50.i.i:                                   ; preds = %for.body50.i.i, %for.end44.i.i
   %i.320.i.i = phi i32 [ 0, %for.end44.i.i ], [ %inc54.i.i, %for.body50.i.i ]
-  call void @x25519_fe51_sqr(ptr noundef nonnull %t2.i.i, ptr noundef nonnull %t2.i.i) #10
+  call void @x25519_fe51_sqr(ptr noundef nonnull %t2.i.i, ptr noundef nonnull %t2.i.i) #9
   %inc54.i.i = add nuw nsw i32 %i.320.i.i, 1
   %exitcond27.not.i.i = icmp eq i32 %inc54.i.i, 10
   br i1 %exitcond27.not.i.i, label %for.end55.i.i, label %for.body50.i.i, !llvm.loop !42
 
 for.end55.i.i:                                    ; preds = %for.body50.i.i
-  call void @x25519_fe51_mul(ptr noundef nonnull %t1.i.i, ptr noundef nonnull %t2.i.i, ptr noundef nonnull %t1.i.i) #10
-  call void @x25519_fe51_sqr(ptr noundef nonnull %t2.i.i, ptr noundef nonnull %t1.i.i) #10
+  call void @x25519_fe51_mul(ptr noundef nonnull %t1.i.i, ptr noundef nonnull %t2.i.i, ptr noundef nonnull %t1.i.i) #9
+  call void @x25519_fe51_sqr(ptr noundef nonnull %t2.i.i, ptr noundef nonnull %t1.i.i) #9
   br label %for.body63.i.i
 
 for.body63.i.i:                                   ; preds = %for.body63.i.i, %for.end55.i.i
   %i.421.i.i = phi i32 [ 1, %for.end55.i.i ], [ %inc67.i.i, %for.body63.i.i ]
-  call void @x25519_fe51_sqr(ptr noundef nonnull %t2.i.i, ptr noundef nonnull %t2.i.i) #10
+  call void @x25519_fe51_sqr(ptr noundef nonnull %t2.i.i, ptr noundef nonnull %t2.i.i) #9
   %inc67.i.i = add nuw nsw i32 %i.421.i.i, 1
   %exitcond28.not.i.i = icmp eq i32 %inc67.i.i, 50
   br i1 %exitcond28.not.i.i, label %for.end68.i.i, label %for.body63.i.i, !llvm.loop !43
 
 for.end68.i.i:                                    ; preds = %for.body63.i.i
-  call void @x25519_fe51_mul(ptr noundef nonnull %t2.i.i, ptr noundef nonnull %t2.i.i, ptr noundef nonnull %t1.i.i) #10
-  call void @x25519_fe51_sqr(ptr noundef nonnull %t3.i.i, ptr noundef nonnull %t2.i.i) #10
+  call void @x25519_fe51_mul(ptr noundef nonnull %t2.i.i, ptr noundef nonnull %t2.i.i, ptr noundef nonnull %t1.i.i) #9
+  call void @x25519_fe51_sqr(ptr noundef nonnull %t3.i.i, ptr noundef nonnull %t2.i.i) #9
   br label %for.body76.i.i
 
 for.body76.i.i:                                   ; preds = %for.body76.i.i, %for.end68.i.i
   %i.522.i.i = phi i32 [ 1, %for.end68.i.i ], [ %inc80.i.i, %for.body76.i.i ]
-  call void @x25519_fe51_sqr(ptr noundef nonnull %t3.i.i, ptr noundef nonnull %t3.i.i) #10
+  call void @x25519_fe51_sqr(ptr noundef nonnull %t3.i.i, ptr noundef nonnull %t3.i.i) #9
   %inc80.i.i = add nuw nsw i32 %i.522.i.i, 1
   %exitcond29.not.i.i = icmp eq i32 %inc80.i.i, 100
   br i1 %exitcond29.not.i.i, label %for.end81.i.i, label %for.body76.i.i, !llvm.loop !44
 
 for.end81.i.i:                                    ; preds = %for.body76.i.i
-  call void @x25519_fe51_mul(ptr noundef nonnull %t2.i.i, ptr noundef nonnull %t3.i.i, ptr noundef nonnull %t2.i.i) #10
+  call void @x25519_fe51_mul(ptr noundef nonnull %t2.i.i, ptr noundef nonnull %t3.i.i, ptr noundef nonnull %t2.i.i) #9
   br label %for.body87.i.i
 
 for.body87.i.i:                                   ; preds = %for.body87.i.i, %for.end81.i.i
   %i.623.i.i = phi i32 [ 0, %for.end81.i.i ], [ %inc91.i.i, %for.body87.i.i ]
-  call void @x25519_fe51_sqr(ptr noundef nonnull %t2.i.i, ptr noundef nonnull %t2.i.i) #10
+  call void @x25519_fe51_sqr(ptr noundef nonnull %t2.i.i, ptr noundef nonnull %t2.i.i) #9
   %inc91.i.i = add nuw nsw i32 %i.623.i.i, 1
   %exitcond30.not.i.i = icmp eq i32 %inc91.i.i, 50
   br i1 %exitcond30.not.i.i, label %for.end92.i.i, label %for.body87.i.i, !llvm.loop !45
 
 for.end92.i.i:                                    ; preds = %for.body87.i.i
-  call void @x25519_fe51_mul(ptr noundef nonnull %t1.i.i, ptr noundef nonnull %t2.i.i, ptr noundef nonnull %t1.i.i) #10
+  call void @x25519_fe51_mul(ptr noundef nonnull %t1.i.i, ptr noundef nonnull %t2.i.i, ptr noundef nonnull %t1.i.i) #9
   br label %for.body98.i.i
 
 for.body98.i.i:                                   ; preds = %for.body98.i.i, %for.end92.i.i
   %i.724.i.i = phi i32 [ 0, %for.end92.i.i ], [ %inc102.i.i, %for.body98.i.i ]
-  call void @x25519_fe51_sqr(ptr noundef nonnull %t1.i.i, ptr noundef nonnull %t1.i.i) #10
+  call void @x25519_fe51_sqr(ptr noundef nonnull %t1.i.i, ptr noundef nonnull %t1.i.i) #9
   %inc102.i.i = add nuw nsw i32 %i.724.i.i, 1
   %exitcond31.not.i.i = icmp eq i32 %inc102.i.i, 5
   br i1 %exitcond31.not.i.i, label %fe51_invert.exit.i, label %for.body98.i.i, !llvm.loop !46
 
 fe51_invert.exit.i:                               ; preds = %for.body98.i.i
-  call void @x25519_fe51_mul(ptr noundef nonnull %z2.i, ptr noundef nonnull %t1.i.i, ptr noundef nonnull %t0.i.i) #10
+  call void @x25519_fe51_mul(ptr noundef nonnull %z2.i, ptr noundef nonnull %t1.i.i, ptr noundef nonnull %t0.i.i) #9
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %t0.i.i)
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %t1.i.i)
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %t2.i.i)
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %t3.i.i)
-  call void @x25519_fe51_mul(ptr noundef nonnull %x2.i, ptr noundef nonnull %x2.i, ptr noundef nonnull %z2.i) #10
+  call void @x25519_fe51_mul(ptr noundef nonnull %x2.i, ptr noundef nonnull %x2.i, ptr noundef nonnull %z2.i) #9
   %112 = load i64, ptr %x2.i, align 16
   %113 = load i64, ptr %arrayidx1.i.i, align 8
   %114 = load i64, ptr %arrayidx8.i45.i, align 16
@@ -4572,7 +4572,7 @@ fe51_invert.exit.i:                               ; preds = %for.body98.i.i
   %conv133.i.i = and i8 %117, 127
   %arrayidx134.i.i = getelementptr inbounds i8, ptr %out_shared_key, i64 31
   store i8 %conv133.i.i, ptr %arrayidx134.i.i, align 1
-  call void @OPENSSL_cleanse(ptr noundef nonnull %e.i, i64 noundef 32) #10
+  call void @OPENSSL_cleanse(ptr noundef nonnull %e.i, i64 noundef 32) #9
   br label %x25519_scalar_mult.exit
 
 x25519_scalar_mult.exit:                          ; preds = %x25519_scalar_mulx.exit.i, %fe51_invert.exit.i
@@ -4584,7 +4584,7 @@ x25519_scalar_mult.exit:                          ; preds = %x25519_scalar_mulx.
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %tmp0.i)
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %tmp1.i)
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %e.i)
-  %call = call i32 @CRYPTO_memcmp(ptr noundef nonnull @ossl_x25519.kZeros, ptr noundef %out_shared_key, i64 noundef 32) #10
+  %call = call i32 @CRYPTO_memcmp(ptr noundef nonnull @ossl_x25519.kZeros, ptr noundef %out_shared_key, i64 noundef 32) #9
   %cmp = icmp ne i32 %call, 0
   %conv = zext i1 %cmp to i32
   ret i32 %conv
@@ -4602,14 +4602,14 @@ entry:
   %0 = load i8, ptr %e, align 16
   %1 = and i8 %0, -8
   store i8 %1, ptr %e, align 16
-  %arrayidx2 = getelementptr inbounds [32 x i8], ptr %e, i64 0, i64 31
+  %arrayidx2 = getelementptr inbounds i8, ptr %e, i64 31
   %2 = load i8, ptr %arrayidx2, align 1
   %3 = and i8 %2, 63
   %4 = or disjoint i8 %3, 64
   store i8 %4, ptr %arrayidx2, align 1
   call fastcc void @ge_scalarmult_base(ptr noundef nonnull %A, ptr noundef nonnull %e)
-  %Z = getelementptr inbounds %struct.ge_p3, ptr %A, i64 0, i32 2
-  %Y = getelementptr inbounds %struct.ge_p3, ptr %A, i64 0, i32 1
+  %Z = getelementptr inbounds i8, ptr %A, i64 80
+  %Y = getelementptr inbounds i8, ptr %A, i64 40
   br label %for.body.i
 
 for.body.i:                                       ; preds = %for.body.i, %entry
@@ -4642,12 +4642,12 @@ fe_sub.exit:                                      ; preds = %for.body.i1
   call fastcc void @fe_invert(ptr noundef nonnull %zminusy_inv, ptr noundef nonnull %zminusy)
   call fastcc void @fe_mul(ptr noundef nonnull %zplusy, ptr noundef nonnull %zplusy, ptr noundef nonnull %zminusy_inv)
   call fastcc void @fe_tobytes(ptr noundef %out_public_value, ptr noundef nonnull %zplusy)
-  call void @OPENSSL_cleanse(ptr noundef nonnull %e, i64 noundef 32) #10
+  call void @OPENSSL_cleanse(ptr noundef nonnull %e, i64 noundef 32) #9
   ret void
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define internal fastcc void @fe_invert(ptr nocapture noundef writeonly %out, ptr nocapture noundef readonly %z) unnamed_addr #5 {
+define internal fastcc void @fe_invert(ptr nocapture noundef writeonly %out, ptr nocapture noundef readonly %z) unnamed_addr #3 {
 entry:
   %t0 = alloca [10 x i32], align 16
   %t1 = alloca [10 x i32], align 16
@@ -4762,42 +4762,42 @@ for.end107:                                       ; preds = %for.body102
 define internal fastcc void @fe_mul(ptr nocapture noundef writeonly %h, ptr nocapture noundef readonly %f, ptr nocapture noundef readonly %g) unnamed_addr #2 {
 entry:
   %0 = load i32, ptr %f, align 4
-  %arrayidx1 = getelementptr inbounds i32, ptr %f, i64 1
+  %arrayidx1 = getelementptr inbounds i8, ptr %f, i64 4
   %1 = load i32, ptr %arrayidx1, align 4
-  %arrayidx2 = getelementptr inbounds i32, ptr %f, i64 2
+  %arrayidx2 = getelementptr inbounds i8, ptr %f, i64 8
   %2 = load i32, ptr %arrayidx2, align 4
-  %arrayidx3 = getelementptr inbounds i32, ptr %f, i64 3
+  %arrayidx3 = getelementptr inbounds i8, ptr %f, i64 12
   %3 = load i32, ptr %arrayidx3, align 4
-  %arrayidx4 = getelementptr inbounds i32, ptr %f, i64 4
+  %arrayidx4 = getelementptr inbounds i8, ptr %f, i64 16
   %4 = load i32, ptr %arrayidx4, align 4
-  %arrayidx5 = getelementptr inbounds i32, ptr %f, i64 5
+  %arrayidx5 = getelementptr inbounds i8, ptr %f, i64 20
   %5 = load i32, ptr %arrayidx5, align 4
-  %arrayidx6 = getelementptr inbounds i32, ptr %f, i64 6
+  %arrayidx6 = getelementptr inbounds i8, ptr %f, i64 24
   %6 = load i32, ptr %arrayidx6, align 4
-  %arrayidx7 = getelementptr inbounds i32, ptr %f, i64 7
+  %arrayidx7 = getelementptr inbounds i8, ptr %f, i64 28
   %7 = load i32, ptr %arrayidx7, align 4
-  %arrayidx8 = getelementptr inbounds i32, ptr %f, i64 8
+  %arrayidx8 = getelementptr inbounds i8, ptr %f, i64 32
   %8 = load i32, ptr %arrayidx8, align 4
-  %arrayidx9 = getelementptr inbounds i32, ptr %f, i64 9
+  %arrayidx9 = getelementptr inbounds i8, ptr %f, i64 36
   %9 = load i32, ptr %arrayidx9, align 4
   %10 = load i32, ptr %g, align 4
-  %arrayidx11 = getelementptr inbounds i32, ptr %g, i64 1
+  %arrayidx11 = getelementptr inbounds i8, ptr %g, i64 4
   %11 = load i32, ptr %arrayidx11, align 4
-  %arrayidx12 = getelementptr inbounds i32, ptr %g, i64 2
+  %arrayidx12 = getelementptr inbounds i8, ptr %g, i64 8
   %12 = load i32, ptr %arrayidx12, align 4
-  %arrayidx13 = getelementptr inbounds i32, ptr %g, i64 3
+  %arrayidx13 = getelementptr inbounds i8, ptr %g, i64 12
   %13 = load i32, ptr %arrayidx13, align 4
-  %arrayidx14 = getelementptr inbounds i32, ptr %g, i64 4
+  %arrayidx14 = getelementptr inbounds i8, ptr %g, i64 16
   %14 = load i32, ptr %arrayidx14, align 4
-  %arrayidx15 = getelementptr inbounds i32, ptr %g, i64 5
+  %arrayidx15 = getelementptr inbounds i8, ptr %g, i64 20
   %15 = load i32, ptr %arrayidx15, align 4
-  %arrayidx16 = getelementptr inbounds i32, ptr %g, i64 6
+  %arrayidx16 = getelementptr inbounds i8, ptr %g, i64 24
   %16 = load i32, ptr %arrayidx16, align 4
-  %arrayidx17 = getelementptr inbounds i32, ptr %g, i64 7
+  %arrayidx17 = getelementptr inbounds i8, ptr %g, i64 28
   %17 = load i32, ptr %arrayidx17, align 4
-  %arrayidx18 = getelementptr inbounds i32, ptr %g, i64 8
+  %arrayidx18 = getelementptr inbounds i8, ptr %g, i64 32
   %18 = load i32, ptr %arrayidx18, align 4
-  %arrayidx19 = getelementptr inbounds i32, ptr %g, i64 9
+  %arrayidx19 = getelementptr inbounds i8, ptr %g, i64 36
   %19 = load i32, ptr %arrayidx19, align 4
   %mul = mul nsw i32 %11, 19
   %mul20 = mul nsw i32 %12, 19
@@ -5101,31 +5101,31 @@ entry:
   %conv479 = trunc i64 %sub478 to i32
   store i32 %conv479, ptr %h, align 4
   %conv481 = trunc i64 %add476 to i32
-  %arrayidx482 = getelementptr inbounds i32, ptr %h, i64 1
+  %arrayidx482 = getelementptr inbounds i8, ptr %h, i64 4
   store i32 %conv481, ptr %arrayidx482, align 4
   %conv483 = trunc i64 %sub442 to i32
-  %arrayidx484 = getelementptr inbounds i32, ptr %h, i64 2
+  %arrayidx484 = getelementptr inbounds i8, ptr %h, i64 8
   store i32 %conv483, ptr %arrayidx484, align 4
   %conv485 = trunc i64 %sub452 to i32
-  %arrayidx486 = getelementptr inbounds i32, ptr %h, i64 3
+  %arrayidx486 = getelementptr inbounds i8, ptr %h, i64 12
   store i32 %conv485, ptr %arrayidx486, align 4
   %conv487 = trunc i64 %sub462 to i32
-  %arrayidx488 = getelementptr inbounds i32, ptr %h, i64 4
+  %arrayidx488 = getelementptr inbounds i8, ptr %h, i64 16
   store i32 %conv487, ptr %arrayidx488, align 4
   %conv489 = trunc i64 %add460 to i32
-  %arrayidx490 = getelementptr inbounds i32, ptr %h, i64 5
+  %arrayidx490 = getelementptr inbounds i8, ptr %h, i64 20
   store i32 %conv489, ptr %arrayidx490, align 4
   %conv491 = trunc i64 %sub447 to i32
-  %arrayidx492 = getelementptr inbounds i32, ptr %h, i64 6
+  %arrayidx492 = getelementptr inbounds i8, ptr %h, i64 24
   store i32 %conv491, ptr %arrayidx492, align 4
   %conv493 = trunc i64 %sub457 to i32
-  %arrayidx494 = getelementptr inbounds i32, ptr %h, i64 7
+  %arrayidx494 = getelementptr inbounds i8, ptr %h, i64 28
   store i32 %conv493, ptr %arrayidx494, align 4
   %conv495 = trunc i64 %sub467 to i32
-  %arrayidx496 = getelementptr inbounds i32, ptr %h, i64 8
+  %arrayidx496 = getelementptr inbounds i8, ptr %h, i64 32
   store i32 %conv495, ptr %arrayidx496, align 4
   %conv497 = trunc i64 %sub473 to i32
-  %arrayidx498 = getelementptr inbounds i32, ptr %h, i64 9
+  %arrayidx498 = getelementptr inbounds i8, ptr %h, i64 36
   store i32 %conv497, ptr %arrayidx498, align 4
   ret void
 }
@@ -5134,23 +5134,23 @@ entry:
 define internal fastcc void @fe_tobytes(ptr nocapture noundef writeonly %s, ptr nocapture noundef readonly %h) unnamed_addr #2 {
 entry:
   %0 = load i32, ptr %h, align 4
-  %arrayidx1 = getelementptr inbounds i32, ptr %h, i64 1
+  %arrayidx1 = getelementptr inbounds i8, ptr %h, i64 4
   %1 = load i32, ptr %arrayidx1, align 4
-  %arrayidx2 = getelementptr inbounds i32, ptr %h, i64 2
+  %arrayidx2 = getelementptr inbounds i8, ptr %h, i64 8
   %2 = load i32, ptr %arrayidx2, align 4
-  %arrayidx3 = getelementptr inbounds i32, ptr %h, i64 3
+  %arrayidx3 = getelementptr inbounds i8, ptr %h, i64 12
   %3 = load i32, ptr %arrayidx3, align 4
-  %arrayidx4 = getelementptr inbounds i32, ptr %h, i64 4
+  %arrayidx4 = getelementptr inbounds i8, ptr %h, i64 16
   %4 = load i32, ptr %arrayidx4, align 4
-  %arrayidx5 = getelementptr inbounds i32, ptr %h, i64 5
+  %arrayidx5 = getelementptr inbounds i8, ptr %h, i64 20
   %5 = load i32, ptr %arrayidx5, align 4
-  %arrayidx6 = getelementptr inbounds i32, ptr %h, i64 6
+  %arrayidx6 = getelementptr inbounds i8, ptr %h, i64 24
   %6 = load i32, ptr %arrayidx6, align 4
-  %arrayidx7 = getelementptr inbounds i32, ptr %h, i64 7
+  %arrayidx7 = getelementptr inbounds i8, ptr %h, i64 28
   %7 = load i32, ptr %arrayidx7, align 4
-  %arrayidx8 = getelementptr inbounds i32, ptr %h, i64 8
+  %arrayidx8 = getelementptr inbounds i8, ptr %h, i64 32
   %8 = load i32, ptr %arrayidx8, align 4
-  %arrayidx9 = getelementptr inbounds i32, ptr %h, i64 9
+  %arrayidx9 = getelementptr inbounds i8, ptr %h, i64 36
   %9 = load i32, ptr %arrayidx9, align 4
   %mul = mul nsw i32 %9, 19
   %add = add nsw i32 %mul, 16777216
@@ -5348,7 +5348,7 @@ entry:
   ret void
 }
 
-; Function Attrs: nofree nosync nounwind memory(argmem: readwrite) uwtable
+; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
 define internal fastcc void @table_select(ptr nocapture noundef %t, i32 noundef %pos, i8 noundef signext %b) unnamed_addr #3 {
 entry:
   %minust = alloca %struct.ge_precomp, align 4
@@ -5358,11 +5358,11 @@ entry:
   %0 = getelementptr inbounds i8, ptr %t, i64 4
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(40) %0, i8 0, i64 36, i1 false)
   store i32 1, ptr %t, align 4
-  %yminusx.i = getelementptr inbounds %struct.ge_precomp, ptr %t, i64 0, i32 1
-  %1 = getelementptr inbounds %struct.ge_precomp, ptr %t, i64 0, i32 1, i64 1
+  %yminusx.i = getelementptr inbounds i8, ptr %t, i64 40
+  %1 = getelementptr inbounds i8, ptr %t, i64 44
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(40) %1, i8 0, i64 36, i1 false)
   store i32 1, ptr %yminusx.i, align 4
-  %xy2d.i = getelementptr inbounds %struct.ge_precomp, ptr %t, i64 0, i32 2
+  %xy2d.i = getelementptr inbounds i8, ptr %t, i64 80
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(40) %xy2d.i, i8 0, i64 40, i1 false)
   %idxprom = sext i32 %pos to i64
   %arrayidx = getelementptr inbounds [32 x [8 x %struct.ge_precomp]], ptr @k25519Precomp, i64 0, i64 %idxprom
@@ -5387,7 +5387,7 @@ for.body.i.i:                                     ; preds = %for.body.i.i, %entr
   br i1 %exitcond.not.i.i, label %fe_cmov.exit.i, label %for.body.i.i, !llvm.loop !55
 
 fe_cmov.exit.i:                                   ; preds = %for.body.i.i
-  %yminusx4.i = getelementptr inbounds %struct.ge_precomp, ptr %arrayidx, i64 0, i32 1
+  %yminusx4.i = getelementptr inbounds i8, ptr %arrayidx, i64 40
   br label %for.body.i8.i
 
 for.body.i8.i:                                    ; preds = %for.body.i8.i, %fe_cmov.exit.i
@@ -5405,7 +5405,7 @@ for.body.i8.i:                                    ; preds = %for.body.i8.i, %fe_
   br i1 %exitcond.not.i16.i, label %fe_cmov.exit17.i, label %for.body.i8.i, !llvm.loop !55
 
 fe_cmov.exit17.i:                                 ; preds = %for.body.i8.i
-  %xy2d8.i = getelementptr inbounds %struct.ge_precomp, ptr %arrayidx, i64 0, i32 2
+  %xy2d8.i = getelementptr inbounds i8, ptr %arrayidx, i64 80
   br label %for.body.i19.i
 
 for.body.i19.i:                                   ; preds = %for.body.i19.i, %fe_cmov.exit17.i
@@ -5423,7 +5423,7 @@ for.body.i19.i:                                   ; preds = %for.body.i19.i, %fe
   br i1 %exitcond.not.i27.i, label %cmov.exit, label %for.body.i19.i, !llvm.loop !55
 
 cmov.exit:                                        ; preds = %for.body.i19.i
-  %arrayidx11 = getelementptr inbounds [32 x [8 x %struct.ge_precomp]], ptr @k25519Precomp, i64 0, i64 %idxprom, i64 1
+  %arrayidx11 = getelementptr inbounds i8, ptr %arrayidx, i64 120
   %xor3.i32 = xor i8 %sub5, 2
   %conv3.i33 = zext i8 %xor3.i32 to i32
   %sub.i34 = add nsw i32 %conv3.i33, -1
@@ -5445,7 +5445,7 @@ for.body.i.i39:                                   ; preds = %for.body.i.i39, %cm
   br i1 %exitcond.not.i.i47, label %fe_cmov.exit.i48, label %for.body.i.i39, !llvm.loop !55
 
 fe_cmov.exit.i48:                                 ; preds = %for.body.i.i39
-  %yminusx4.i50 = getelementptr inbounds [32 x [8 x %struct.ge_precomp]], ptr @k25519Precomp, i64 0, i64 %idxprom, i64 1, i32 1
+  %yminusx4.i50 = getelementptr inbounds i8, ptr %arrayidx, i64 160
   br label %for.body.i8.i51
 
 for.body.i8.i51:                                  ; preds = %for.body.i8.i51, %fe_cmov.exit.i48
@@ -5463,7 +5463,7 @@ for.body.i8.i51:                                  ; preds = %for.body.i8.i51, %f
   br i1 %exitcond.not.i16.i59, label %fe_cmov.exit17.i60, label %for.body.i8.i51, !llvm.loop !55
 
 fe_cmov.exit17.i60:                               ; preds = %for.body.i8.i51
-  %xy2d8.i62 = getelementptr inbounds [32 x [8 x %struct.ge_precomp]], ptr @k25519Precomp, i64 0, i64 %idxprom, i64 1, i32 2
+  %xy2d8.i62 = getelementptr inbounds i8, ptr %arrayidx, i64 200
   br label %for.body.i19.i63
 
 for.body.i19.i63:                                 ; preds = %for.body.i19.i63, %fe_cmov.exit17.i60
@@ -5481,7 +5481,7 @@ for.body.i19.i63:                                 ; preds = %for.body.i19.i63, %
   br i1 %exitcond.not.i27.i71, label %cmov.exit72, label %for.body.i19.i63, !llvm.loop !55
 
 cmov.exit72:                                      ; preds = %for.body.i19.i63
-  %arrayidx15 = getelementptr inbounds [32 x [8 x %struct.ge_precomp]], ptr @k25519Precomp, i64 0, i64 %idxprom, i64 2
+  %arrayidx15 = getelementptr inbounds i8, ptr %arrayidx, i64 240
   %xor3.i73 = xor i8 %sub5, 3
   %conv3.i74 = zext i8 %xor3.i73 to i32
   %sub.i75 = add nsw i32 %conv3.i74, -1
@@ -5503,7 +5503,7 @@ for.body.i.i80:                                   ; preds = %for.body.i.i80, %cm
   br i1 %exitcond.not.i.i88, label %fe_cmov.exit.i89, label %for.body.i.i80, !llvm.loop !55
 
 fe_cmov.exit.i89:                                 ; preds = %for.body.i.i80
-  %yminusx4.i91 = getelementptr inbounds [32 x [8 x %struct.ge_precomp]], ptr @k25519Precomp, i64 0, i64 %idxprom, i64 2, i32 1
+  %yminusx4.i91 = getelementptr inbounds i8, ptr %arrayidx, i64 280
   br label %for.body.i8.i92
 
 for.body.i8.i92:                                  ; preds = %for.body.i8.i92, %fe_cmov.exit.i89
@@ -5521,7 +5521,7 @@ for.body.i8.i92:                                  ; preds = %for.body.i8.i92, %f
   br i1 %exitcond.not.i16.i100, label %fe_cmov.exit17.i101, label %for.body.i8.i92, !llvm.loop !55
 
 fe_cmov.exit17.i101:                              ; preds = %for.body.i8.i92
-  %xy2d8.i103 = getelementptr inbounds [32 x [8 x %struct.ge_precomp]], ptr @k25519Precomp, i64 0, i64 %idxprom, i64 2, i32 2
+  %xy2d8.i103 = getelementptr inbounds i8, ptr %arrayidx, i64 320
   br label %for.body.i19.i104
 
 for.body.i19.i104:                                ; preds = %for.body.i19.i104, %fe_cmov.exit17.i101
@@ -5539,7 +5539,7 @@ for.body.i19.i104:                                ; preds = %for.body.i19.i104, 
   br i1 %exitcond.not.i27.i112, label %cmov.exit113, label %for.body.i19.i104, !llvm.loop !55
 
 cmov.exit113:                                     ; preds = %for.body.i19.i104
-  %arrayidx19 = getelementptr inbounds [32 x [8 x %struct.ge_precomp]], ptr @k25519Precomp, i64 0, i64 %idxprom, i64 3
+  %arrayidx19 = getelementptr inbounds i8, ptr %arrayidx, i64 360
   %xor3.i114 = xor i8 %sub5, 4
   %conv3.i115 = zext i8 %xor3.i114 to i32
   %sub.i116 = add nsw i32 %conv3.i115, -1
@@ -5561,7 +5561,7 @@ for.body.i.i121:                                  ; preds = %for.body.i.i121, %c
   br i1 %exitcond.not.i.i129, label %fe_cmov.exit.i130, label %for.body.i.i121, !llvm.loop !55
 
 fe_cmov.exit.i130:                                ; preds = %for.body.i.i121
-  %yminusx4.i132 = getelementptr inbounds [32 x [8 x %struct.ge_precomp]], ptr @k25519Precomp, i64 0, i64 %idxprom, i64 3, i32 1
+  %yminusx4.i132 = getelementptr inbounds i8, ptr %arrayidx, i64 400
   br label %for.body.i8.i133
 
 for.body.i8.i133:                                 ; preds = %for.body.i8.i133, %fe_cmov.exit.i130
@@ -5579,7 +5579,7 @@ for.body.i8.i133:                                 ; preds = %for.body.i8.i133, %
   br i1 %exitcond.not.i16.i141, label %fe_cmov.exit17.i142, label %for.body.i8.i133, !llvm.loop !55
 
 fe_cmov.exit17.i142:                              ; preds = %for.body.i8.i133
-  %xy2d8.i144 = getelementptr inbounds [32 x [8 x %struct.ge_precomp]], ptr @k25519Precomp, i64 0, i64 %idxprom, i64 3, i32 2
+  %xy2d8.i144 = getelementptr inbounds i8, ptr %arrayidx, i64 440
   br label %for.body.i19.i145
 
 for.body.i19.i145:                                ; preds = %for.body.i19.i145, %fe_cmov.exit17.i142
@@ -5597,7 +5597,7 @@ for.body.i19.i145:                                ; preds = %for.body.i19.i145, 
   br i1 %exitcond.not.i27.i153, label %cmov.exit154, label %for.body.i19.i145, !llvm.loop !55
 
 cmov.exit154:                                     ; preds = %for.body.i19.i145
-  %arrayidx23 = getelementptr inbounds [32 x [8 x %struct.ge_precomp]], ptr @k25519Precomp, i64 0, i64 %idxprom, i64 4
+  %arrayidx23 = getelementptr inbounds i8, ptr %arrayidx, i64 480
   %xor3.i155 = xor i8 %sub5, 5
   %conv3.i156 = zext i8 %xor3.i155 to i32
   %sub.i157 = add nsw i32 %conv3.i156, -1
@@ -5619,7 +5619,7 @@ for.body.i.i162:                                  ; preds = %for.body.i.i162, %c
   br i1 %exitcond.not.i.i170, label %fe_cmov.exit.i171, label %for.body.i.i162, !llvm.loop !55
 
 fe_cmov.exit.i171:                                ; preds = %for.body.i.i162
-  %yminusx4.i173 = getelementptr inbounds [32 x [8 x %struct.ge_precomp]], ptr @k25519Precomp, i64 0, i64 %idxprom, i64 4, i32 1
+  %yminusx4.i173 = getelementptr inbounds i8, ptr %arrayidx, i64 520
   br label %for.body.i8.i174
 
 for.body.i8.i174:                                 ; preds = %for.body.i8.i174, %fe_cmov.exit.i171
@@ -5637,7 +5637,7 @@ for.body.i8.i174:                                 ; preds = %for.body.i8.i174, %
   br i1 %exitcond.not.i16.i182, label %fe_cmov.exit17.i183, label %for.body.i8.i174, !llvm.loop !55
 
 fe_cmov.exit17.i183:                              ; preds = %for.body.i8.i174
-  %xy2d8.i185 = getelementptr inbounds [32 x [8 x %struct.ge_precomp]], ptr @k25519Precomp, i64 0, i64 %idxprom, i64 4, i32 2
+  %xy2d8.i185 = getelementptr inbounds i8, ptr %arrayidx, i64 560
   br label %for.body.i19.i186
 
 for.body.i19.i186:                                ; preds = %for.body.i19.i186, %fe_cmov.exit17.i183
@@ -5655,7 +5655,7 @@ for.body.i19.i186:                                ; preds = %for.body.i19.i186, 
   br i1 %exitcond.not.i27.i194, label %cmov.exit195, label %for.body.i19.i186, !llvm.loop !55
 
 cmov.exit195:                                     ; preds = %for.body.i19.i186
-  %arrayidx27 = getelementptr inbounds [32 x [8 x %struct.ge_precomp]], ptr @k25519Precomp, i64 0, i64 %idxprom, i64 5
+  %arrayidx27 = getelementptr inbounds i8, ptr %arrayidx, i64 600
   %xor3.i196 = xor i8 %sub5, 6
   %conv3.i197 = zext i8 %xor3.i196 to i32
   %sub.i198 = add nsw i32 %conv3.i197, -1
@@ -5677,7 +5677,7 @@ for.body.i.i203:                                  ; preds = %for.body.i.i203, %c
   br i1 %exitcond.not.i.i211, label %fe_cmov.exit.i212, label %for.body.i.i203, !llvm.loop !55
 
 fe_cmov.exit.i212:                                ; preds = %for.body.i.i203
-  %yminusx4.i214 = getelementptr inbounds [32 x [8 x %struct.ge_precomp]], ptr @k25519Precomp, i64 0, i64 %idxprom, i64 5, i32 1
+  %yminusx4.i214 = getelementptr inbounds i8, ptr %arrayidx, i64 640
   br label %for.body.i8.i215
 
 for.body.i8.i215:                                 ; preds = %for.body.i8.i215, %fe_cmov.exit.i212
@@ -5695,7 +5695,7 @@ for.body.i8.i215:                                 ; preds = %for.body.i8.i215, %
   br i1 %exitcond.not.i16.i223, label %fe_cmov.exit17.i224, label %for.body.i8.i215, !llvm.loop !55
 
 fe_cmov.exit17.i224:                              ; preds = %for.body.i8.i215
-  %xy2d8.i226 = getelementptr inbounds [32 x [8 x %struct.ge_precomp]], ptr @k25519Precomp, i64 0, i64 %idxprom, i64 5, i32 2
+  %xy2d8.i226 = getelementptr inbounds i8, ptr %arrayidx, i64 680
   br label %for.body.i19.i227
 
 for.body.i19.i227:                                ; preds = %for.body.i19.i227, %fe_cmov.exit17.i224
@@ -5713,7 +5713,7 @@ for.body.i19.i227:                                ; preds = %for.body.i19.i227, 
   br i1 %exitcond.not.i27.i235, label %cmov.exit236, label %for.body.i19.i227, !llvm.loop !55
 
 cmov.exit236:                                     ; preds = %for.body.i19.i227
-  %arrayidx31 = getelementptr inbounds [32 x [8 x %struct.ge_precomp]], ptr @k25519Precomp, i64 0, i64 %idxprom, i64 6
+  %arrayidx31 = getelementptr inbounds i8, ptr %arrayidx, i64 720
   %xor3.i237 = xor i8 %sub5, 7
   %conv3.i238 = zext i8 %xor3.i237 to i32
   %sub.i239 = add nsw i32 %conv3.i238, -1
@@ -5735,7 +5735,7 @@ for.body.i.i244:                                  ; preds = %for.body.i.i244, %c
   br i1 %exitcond.not.i.i252, label %fe_cmov.exit.i253, label %for.body.i.i244, !llvm.loop !55
 
 fe_cmov.exit.i253:                                ; preds = %for.body.i.i244
-  %yminusx4.i255 = getelementptr inbounds [32 x [8 x %struct.ge_precomp]], ptr @k25519Precomp, i64 0, i64 %idxprom, i64 6, i32 1
+  %yminusx4.i255 = getelementptr inbounds i8, ptr %arrayidx, i64 760
   br label %for.body.i8.i256
 
 for.body.i8.i256:                                 ; preds = %for.body.i8.i256, %fe_cmov.exit.i253
@@ -5753,7 +5753,7 @@ for.body.i8.i256:                                 ; preds = %for.body.i8.i256, %
   br i1 %exitcond.not.i16.i264, label %fe_cmov.exit17.i265, label %for.body.i8.i256, !llvm.loop !55
 
 fe_cmov.exit17.i265:                              ; preds = %for.body.i8.i256
-  %xy2d8.i267 = getelementptr inbounds [32 x [8 x %struct.ge_precomp]], ptr @k25519Precomp, i64 0, i64 %idxprom, i64 6, i32 2
+  %xy2d8.i267 = getelementptr inbounds i8, ptr %arrayidx, i64 800
   br label %for.body.i19.i268
 
 for.body.i19.i268:                                ; preds = %for.body.i19.i268, %fe_cmov.exit17.i265
@@ -5771,7 +5771,7 @@ for.body.i19.i268:                                ; preds = %for.body.i19.i268, 
   br i1 %exitcond.not.i27.i276, label %cmov.exit277, label %for.body.i19.i268, !llvm.loop !55
 
 cmov.exit277:                                     ; preds = %for.body.i19.i268
-  %arrayidx35 = getelementptr inbounds [32 x [8 x %struct.ge_precomp]], ptr @k25519Precomp, i64 0, i64 %idxprom, i64 7
+  %arrayidx35 = getelementptr inbounds i8, ptr %arrayidx, i64 840
   %xor3.i278 = xor i8 %sub5, 8
   %conv3.i279 = zext i8 %xor3.i278 to i32
   %sub.i280 = add nsw i32 %conv3.i279, -1
@@ -5793,7 +5793,7 @@ for.body.i.i285:                                  ; preds = %for.body.i.i285, %c
   br i1 %exitcond.not.i.i293, label %fe_cmov.exit.i294, label %for.body.i.i285, !llvm.loop !55
 
 fe_cmov.exit.i294:                                ; preds = %for.body.i.i285
-  %yminusx4.i296 = getelementptr inbounds [32 x [8 x %struct.ge_precomp]], ptr @k25519Precomp, i64 0, i64 %idxprom, i64 7, i32 1
+  %yminusx4.i296 = getelementptr inbounds i8, ptr %arrayidx, i64 880
   br label %for.body.i8.i297
 
 for.body.i8.i297:                                 ; preds = %for.body.i8.i297, %fe_cmov.exit.i294
@@ -5811,7 +5811,7 @@ for.body.i8.i297:                                 ; preds = %for.body.i8.i297, %
   br i1 %exitcond.not.i16.i305, label %fe_cmov.exit17.i306, label %for.body.i8.i297, !llvm.loop !55
 
 fe_cmov.exit17.i306:                              ; preds = %for.body.i8.i297
-  %xy2d8.i308 = getelementptr inbounds [32 x [8 x %struct.ge_precomp]], ptr @k25519Precomp, i64 0, i64 %idxprom, i64 7, i32 2
+  %xy2d8.i308 = getelementptr inbounds i8, ptr %arrayidx, i64 920
   br label %for.body.i19.i309
 
 for.body.i19.i309:                                ; preds = %for.body.i19.i309, %fe_cmov.exit17.i306
@@ -5830,9 +5830,9 @@ for.body.i19.i309:                                ; preds = %for.body.i19.i309, 
 
 cmov.exit318:                                     ; preds = %for.body.i19.i309
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(40) %minust, ptr noundef nonnull align 4 dereferenceable(40) %yminusx.i, i64 40, i1 false)
-  %yminusx38 = getelementptr inbounds %struct.ge_precomp, ptr %minust, i64 0, i32 1
+  %yminusx38 = getelementptr inbounds i8, ptr %minust, i64 40
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(40) %yminusx38, ptr noundef nonnull align 4 dereferenceable(40) %t, i64 40, i1 false)
-  %xy2d = getelementptr inbounds %struct.ge_precomp, ptr %minust, i64 0, i32 2
+  %xy2d = getelementptr inbounds i8, ptr %minust, i64 80
   br label %for.body.i
 
 for.body.i:                                       ; preds = %for.body.i, %cmov.exit318
@@ -5898,10 +5898,10 @@ cmov.exit355:                                     ; preds = %for.body.i19.i346
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define internal fastcc void @ge_madd(ptr nocapture noundef %r, ptr nocapture noundef readonly %p, ptr nocapture noundef readonly %q) unnamed_addr #5 {
+define internal fastcc void @ge_madd(ptr nocapture noundef %r, ptr nocapture noundef readonly %p, ptr nocapture noundef readonly %q) unnamed_addr #3 {
 entry:
   %t0 = alloca [10 x i32], align 16
-  %Y = getelementptr inbounds %struct.ge_p3, ptr %p, i64 0, i32 1
+  %Y = getelementptr inbounds i8, ptr %p, i64 40
   br label %for.body.i
 
 for.body.i:                                       ; preds = %for.body.i, %entry
@@ -5918,7 +5918,7 @@ for.body.i:                                       ; preds = %for.body.i, %entry
   br i1 %exitcond.not.i, label %fe_add.exit, label %for.body.i, !llvm.loop !12
 
 fe_add.exit:                                      ; preds = %for.body.i
-  %Y4 = getelementptr inbounds %struct.ge_p1p1, ptr %r, i64 0, i32 1
+  %Y4 = getelementptr inbounds i8, ptr %r, i64 40
   br label %for.body.i25
 
 for.body.i25:                                     ; preds = %for.body.i25, %fe_add.exit
@@ -5935,15 +5935,15 @@ for.body.i25:                                     ; preds = %for.body.i25, %fe_a
   br i1 %exitcond.not.i31, label %fe_sub.exit, label %for.body.i25, !llvm.loop !11
 
 fe_sub.exit:                                      ; preds = %for.body.i25
-  %Z = getelementptr inbounds %struct.ge_p1p1, ptr %r, i64 0, i32 2
+  %Z = getelementptr inbounds i8, ptr %r, i64 80
   tail call fastcc void @fe_mul(ptr noundef nonnull %Z, ptr noundef nonnull %r, ptr noundef %q)
-  %yminusx = getelementptr inbounds %struct.ge_precomp, ptr %q, i64 0, i32 1
+  %yminusx = getelementptr inbounds i8, ptr %q, i64 40
   tail call fastcc void @fe_mul(ptr noundef nonnull %Y4, ptr noundef nonnull %Y4, ptr noundef nonnull %yminusx)
-  %T = getelementptr inbounds %struct.ge_p1p1, ptr %r, i64 0, i32 3
-  %xy2d = getelementptr inbounds %struct.ge_precomp, ptr %q, i64 0, i32 2
-  %T21 = getelementptr inbounds %struct.ge_p3, ptr %p, i64 0, i32 3
+  %T = getelementptr inbounds i8, ptr %r, i64 120
+  %xy2d = getelementptr inbounds i8, ptr %q, i64 80
+  %T21 = getelementptr inbounds i8, ptr %p, i64 120
   tail call fastcc void @fe_mul(ptr noundef nonnull %T, ptr noundef nonnull %xy2d, ptr noundef nonnull %T21)
-  %Z24 = getelementptr inbounds %struct.ge_p3, ptr %p, i64 0, i32 2
+  %Z24 = getelementptr inbounds i8, ptr %p, i64 80
   br label %for.body.i32
 
 for.body.i32:                                     ; preds = %for.body.i32, %fe_sub.exit
@@ -6012,33 +6012,33 @@ fe_sub.exit76:                                    ; preds = %for.body.i68
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define internal fastcc void @ge_p2_dbl(ptr nocapture noundef %r, ptr nocapture noundef readonly %p) unnamed_addr #5 {
+define internal fastcc void @ge_p2_dbl(ptr nocapture noundef %r, ptr nocapture noundef readonly %p) unnamed_addr #3 {
 entry:
   %t0 = alloca [10 x i32], align 16
   tail call fastcc void @fe_sq(ptr noundef %r, ptr noundef %p)
-  %Z = getelementptr inbounds %struct.ge_p1p1, ptr %r, i64 0, i32 2
-  %Y = getelementptr inbounds %struct.ge_p2, ptr %p, i64 0, i32 1
+  %Z = getelementptr inbounds i8, ptr %r, i64 80
+  %Y = getelementptr inbounds i8, ptr %p, i64 40
   tail call fastcc void @fe_sq(ptr noundef nonnull %Z, ptr noundef nonnull %Y)
-  %T = getelementptr inbounds %struct.ge_p1p1, ptr %r, i64 0, i32 3
-  %Z6 = getelementptr inbounds %struct.ge_p2, ptr %p, i64 0, i32 2
+  %T = getelementptr inbounds i8, ptr %r, i64 120
+  %Z6 = getelementptr inbounds i8, ptr %p, i64 80
   %0 = load i32, ptr %Z6, align 4
-  %arrayidx1.i = getelementptr inbounds %struct.ge_p2, ptr %p, i64 0, i32 2, i64 1
+  %arrayidx1.i = getelementptr inbounds i8, ptr %p, i64 84
   %1 = load i32, ptr %arrayidx1.i, align 4
-  %arrayidx2.i = getelementptr inbounds %struct.ge_p2, ptr %p, i64 0, i32 2, i64 2
+  %arrayidx2.i = getelementptr inbounds i8, ptr %p, i64 88
   %2 = load i32, ptr %arrayidx2.i, align 4
-  %arrayidx3.i = getelementptr inbounds %struct.ge_p2, ptr %p, i64 0, i32 2, i64 3
+  %arrayidx3.i = getelementptr inbounds i8, ptr %p, i64 92
   %3 = load i32, ptr %arrayidx3.i, align 4
-  %arrayidx4.i = getelementptr inbounds %struct.ge_p2, ptr %p, i64 0, i32 2, i64 4
+  %arrayidx4.i = getelementptr inbounds i8, ptr %p, i64 96
   %4 = load i32, ptr %arrayidx4.i, align 4
-  %arrayidx5.i = getelementptr inbounds %struct.ge_p2, ptr %p, i64 0, i32 2, i64 5
+  %arrayidx5.i = getelementptr inbounds i8, ptr %p, i64 100
   %5 = load i32, ptr %arrayidx5.i, align 4
-  %arrayidx6.i = getelementptr inbounds %struct.ge_p2, ptr %p, i64 0, i32 2, i64 6
+  %arrayidx6.i = getelementptr inbounds i8, ptr %p, i64 104
   %6 = load i32, ptr %arrayidx6.i, align 4
-  %arrayidx7.i = getelementptr inbounds %struct.ge_p2, ptr %p, i64 0, i32 2, i64 7
+  %arrayidx7.i = getelementptr inbounds i8, ptr %p, i64 108
   %7 = load i32, ptr %arrayidx7.i, align 4
-  %arrayidx8.i = getelementptr inbounds %struct.ge_p2, ptr %p, i64 0, i32 2, i64 8
+  %arrayidx8.i = getelementptr inbounds i8, ptr %p, i64 112
   %8 = load i32, ptr %arrayidx8.i, align 4
-  %arrayidx9.i = getelementptr inbounds %struct.ge_p2, ptr %p, i64 0, i32 2, i64 9
+  %arrayidx9.i = getelementptr inbounds i8, ptr %p, i64 116
   %9 = load i32, ptr %arrayidx9.i, align 4
   %mul.i = shl nsw i32 %0, 1
   %mul10.i = shl nsw i32 %1, 1
@@ -6250,33 +6250,33 @@ entry:
   %conv298.i = trunc i64 %sub297.i to i32
   store i32 %conv298.i, ptr %T, align 4
   %conv300.i = trunc i64 %add295.i to i32
-  %arrayidx301.i = getelementptr inbounds %struct.ge_p1p1, ptr %r, i64 0, i32 3, i64 1
+  %arrayidx301.i = getelementptr inbounds i8, ptr %r, i64 124
   store i32 %conv300.i, ptr %arrayidx301.i, align 4
   %conv302.i = trunc i64 %sub261.i to i32
-  %arrayidx303.i = getelementptr inbounds %struct.ge_p1p1, ptr %r, i64 0, i32 3, i64 2
+  %arrayidx303.i = getelementptr inbounds i8, ptr %r, i64 128
   store i32 %conv302.i, ptr %arrayidx303.i, align 4
   %conv304.i = trunc i64 %sub271.i to i32
-  %arrayidx305.i = getelementptr inbounds %struct.ge_p1p1, ptr %r, i64 0, i32 3, i64 3
+  %arrayidx305.i = getelementptr inbounds i8, ptr %r, i64 132
   store i32 %conv304.i, ptr %arrayidx305.i, align 4
   %conv306.i = trunc i64 %sub281.i to i32
-  %arrayidx307.i = getelementptr inbounds %struct.ge_p1p1, ptr %r, i64 0, i32 3, i64 4
+  %arrayidx307.i = getelementptr inbounds i8, ptr %r, i64 136
   store i32 %conv306.i, ptr %arrayidx307.i, align 4
   %conv308.i = trunc i64 %add279.i to i32
-  %arrayidx309.i = getelementptr inbounds %struct.ge_p1p1, ptr %r, i64 0, i32 3, i64 5
+  %arrayidx309.i = getelementptr inbounds i8, ptr %r, i64 140
   store i32 %conv308.i, ptr %arrayidx309.i, align 4
   %conv310.i = trunc i64 %sub266.i to i32
-  %arrayidx311.i = getelementptr inbounds %struct.ge_p1p1, ptr %r, i64 0, i32 3, i64 6
+  %arrayidx311.i = getelementptr inbounds i8, ptr %r, i64 144
   store i32 %conv310.i, ptr %arrayidx311.i, align 4
   %conv312.i = trunc i64 %sub276.i to i32
-  %arrayidx313.i = getelementptr inbounds %struct.ge_p1p1, ptr %r, i64 0, i32 3, i64 7
+  %arrayidx313.i = getelementptr inbounds i8, ptr %r, i64 148
   store i32 %conv312.i, ptr %arrayidx313.i, align 4
   %conv314.i = trunc i64 %sub286.i to i32
-  %arrayidx315.i = getelementptr inbounds %struct.ge_p1p1, ptr %r, i64 0, i32 3, i64 8
+  %arrayidx315.i = getelementptr inbounds i8, ptr %r, i64 152
   store i32 %conv314.i, ptr %arrayidx315.i, align 4
   %conv316.i = trunc i64 %sub292.i to i32
-  %arrayidx317.i = getelementptr inbounds %struct.ge_p1p1, ptr %r, i64 0, i32 3, i64 9
+  %arrayidx317.i = getelementptr inbounds i8, ptr %r, i64 156
   store i32 %conv316.i, ptr %arrayidx317.i, align 4
-  %Y8 = getelementptr inbounds %struct.ge_p1p1, ptr %r, i64 0, i32 1
+  %Y8 = getelementptr inbounds i8, ptr %r, i64 40
   br label %for.body.i
 
 for.body.i:                                       ; preds = %for.body.i, %entry
@@ -6351,29 +6351,29 @@ fe_sub.exit57:                                    ; preds = %for.body.i49
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #6
+declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #5
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
 define internal fastcc void @fe_sq(ptr nocapture noundef writeonly %h, ptr nocapture noundef readonly %f) unnamed_addr #2 {
 entry:
   %0 = load i32, ptr %f, align 4
-  %arrayidx1 = getelementptr inbounds i32, ptr %f, i64 1
+  %arrayidx1 = getelementptr inbounds i8, ptr %f, i64 4
   %1 = load i32, ptr %arrayidx1, align 4
-  %arrayidx2 = getelementptr inbounds i32, ptr %f, i64 2
+  %arrayidx2 = getelementptr inbounds i8, ptr %f, i64 8
   %2 = load i32, ptr %arrayidx2, align 4
-  %arrayidx3 = getelementptr inbounds i32, ptr %f, i64 3
+  %arrayidx3 = getelementptr inbounds i8, ptr %f, i64 12
   %3 = load i32, ptr %arrayidx3, align 4
-  %arrayidx4 = getelementptr inbounds i32, ptr %f, i64 4
+  %arrayidx4 = getelementptr inbounds i8, ptr %f, i64 16
   %4 = load i32, ptr %arrayidx4, align 4
-  %arrayidx5 = getelementptr inbounds i32, ptr %f, i64 5
+  %arrayidx5 = getelementptr inbounds i8, ptr %f, i64 20
   %5 = load i32, ptr %arrayidx5, align 4
-  %arrayidx6 = getelementptr inbounds i32, ptr %f, i64 6
+  %arrayidx6 = getelementptr inbounds i8, ptr %f, i64 24
   %6 = load i32, ptr %arrayidx6, align 4
-  %arrayidx7 = getelementptr inbounds i32, ptr %f, i64 7
+  %arrayidx7 = getelementptr inbounds i8, ptr %f, i64 28
   %7 = load i32, ptr %arrayidx7, align 4
-  %arrayidx8 = getelementptr inbounds i32, ptr %f, i64 8
+  %arrayidx8 = getelementptr inbounds i8, ptr %f, i64 32
   %8 = load i32, ptr %arrayidx8, align 4
-  %arrayidx9 = getelementptr inbounds i32, ptr %f, i64 9
+  %arrayidx9 = getelementptr inbounds i8, ptr %f, i64 36
   %9 = load i32, ptr %arrayidx9, align 4
   %mul = shl nsw i32 %0, 1
   %mul10 = shl nsw i32 %1, 1
@@ -6575,40 +6575,40 @@ entry:
   %conv288 = trunc i64 %sub287 to i32
   store i32 %conv288, ptr %h, align 4
   %conv290 = trunc i64 %add285 to i32
-  %arrayidx291 = getelementptr inbounds i32, ptr %h, i64 1
+  %arrayidx291 = getelementptr inbounds i8, ptr %h, i64 4
   store i32 %conv290, ptr %arrayidx291, align 4
   %conv292 = trunc i64 %sub251 to i32
-  %arrayidx293 = getelementptr inbounds i32, ptr %h, i64 2
+  %arrayidx293 = getelementptr inbounds i8, ptr %h, i64 8
   store i32 %conv292, ptr %arrayidx293, align 4
   %conv294 = trunc i64 %sub261 to i32
-  %arrayidx295 = getelementptr inbounds i32, ptr %h, i64 3
+  %arrayidx295 = getelementptr inbounds i8, ptr %h, i64 12
   store i32 %conv294, ptr %arrayidx295, align 4
   %conv296 = trunc i64 %sub271 to i32
-  %arrayidx297 = getelementptr inbounds i32, ptr %h, i64 4
+  %arrayidx297 = getelementptr inbounds i8, ptr %h, i64 16
   store i32 %conv296, ptr %arrayidx297, align 4
   %conv298 = trunc i64 %add269 to i32
-  %arrayidx299 = getelementptr inbounds i32, ptr %h, i64 5
+  %arrayidx299 = getelementptr inbounds i8, ptr %h, i64 20
   store i32 %conv298, ptr %arrayidx299, align 4
   %conv300 = trunc i64 %sub256 to i32
-  %arrayidx301 = getelementptr inbounds i32, ptr %h, i64 6
+  %arrayidx301 = getelementptr inbounds i8, ptr %h, i64 24
   store i32 %conv300, ptr %arrayidx301, align 4
   %conv302 = trunc i64 %sub266 to i32
-  %arrayidx303 = getelementptr inbounds i32, ptr %h, i64 7
+  %arrayidx303 = getelementptr inbounds i8, ptr %h, i64 28
   store i32 %conv302, ptr %arrayidx303, align 4
   %conv304 = trunc i64 %sub276 to i32
-  %arrayidx305 = getelementptr inbounds i32, ptr %h, i64 8
+  %arrayidx305 = getelementptr inbounds i8, ptr %h, i64 32
   store i32 %conv304, ptr %arrayidx305, align 4
   %conv306 = trunc i64 %sub282 to i32
-  %arrayidx307 = getelementptr inbounds i32, ptr %h, i64 9
+  %arrayidx307 = getelementptr inbounds i8, ptr %h, i64 36
   store i32 %conv306, ptr %arrayidx307, align 4
   ret void
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define internal fastcc void @ge_add(ptr nocapture noundef %r, ptr nocapture noundef readonly %p, ptr nocapture noundef readonly %q) unnamed_addr #5 {
+define internal fastcc void @ge_add(ptr nocapture noundef %r, ptr nocapture noundef readonly %p, ptr nocapture noundef readonly %q) unnamed_addr #3 {
 entry:
   %t0 = alloca [10 x i32], align 16
-  %Y = getelementptr inbounds %struct.ge_p3, ptr %p, i64 0, i32 1
+  %Y = getelementptr inbounds i8, ptr %p, i64 40
   br label %for.body.i
 
 for.body.i:                                       ; preds = %for.body.i, %entry
@@ -6625,7 +6625,7 @@ for.body.i:                                       ; preds = %for.body.i, %entry
   br i1 %exitcond.not.i, label %fe_add.exit, label %for.body.i, !llvm.loop !12
 
 fe_add.exit:                                      ; preds = %for.body.i
-  %Y4 = getelementptr inbounds %struct.ge_p1p1, ptr %r, i64 0, i32 1
+  %Y4 = getelementptr inbounds i8, ptr %r, i64 40
   br label %for.body.i28
 
 for.body.i28:                                     ; preds = %for.body.i28, %fe_add.exit
@@ -6642,16 +6642,16 @@ for.body.i28:                                     ; preds = %for.body.i28, %fe_a
   br i1 %exitcond.not.i34, label %fe_sub.exit, label %for.body.i28, !llvm.loop !11
 
 fe_sub.exit:                                      ; preds = %for.body.i28
-  %Z = getelementptr inbounds %struct.ge_p1p1, ptr %r, i64 0, i32 2
+  %Z = getelementptr inbounds i8, ptr %r, i64 80
   tail call fastcc void @fe_mul(ptr noundef nonnull %Z, ptr noundef nonnull %r, ptr noundef %q)
-  %YminusX = getelementptr inbounds %struct.ge_cached, ptr %q, i64 0, i32 1
+  %YminusX = getelementptr inbounds i8, ptr %q, i64 40
   tail call fastcc void @fe_mul(ptr noundef nonnull %Y4, ptr noundef nonnull %Y4, ptr noundef nonnull %YminusX)
-  %T = getelementptr inbounds %struct.ge_p1p1, ptr %r, i64 0, i32 3
-  %T2d = getelementptr inbounds %struct.ge_cached, ptr %q, i64 0, i32 3
-  %T21 = getelementptr inbounds %struct.ge_p3, ptr %p, i64 0, i32 3
+  %T = getelementptr inbounds i8, ptr %r, i64 120
+  %T2d = getelementptr inbounds i8, ptr %q, i64 120
+  %T21 = getelementptr inbounds i8, ptr %p, i64 120
   tail call fastcc void @fe_mul(ptr noundef nonnull %T, ptr noundef nonnull %T2d, ptr noundef nonnull %T21)
-  %Z25 = getelementptr inbounds %struct.ge_p3, ptr %p, i64 0, i32 2
-  %Z27 = getelementptr inbounds %struct.ge_cached, ptr %q, i64 0, i32 2
+  %Z25 = getelementptr inbounds i8, ptr %p, i64 80
+  %Z27 = getelementptr inbounds i8, ptr %q, i64 80
   tail call fastcc void @fe_mul(ptr noundef nonnull %r, ptr noundef nonnull %Z25, ptr noundef nonnull %Z27)
   br label %for.body.i35
 
@@ -6741,28 +6741,27 @@ declare void @x25519_fe64_mul121666(ptr noundef, ptr noundef) local_unnamed_addr
 declare void @x25519_fe64_tobytes(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nofree nounwind willreturn memory(argmem: read)
-declare i32 @bcmp(ptr nocapture, ptr nocapture, i64) local_unnamed_addr #7
+declare i32 @bcmp(ptr nocapture, ptr nocapture, i64) local_unnamed_addr #6
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i8 @llvm.smin.i8(i8, i8) #8
+declare i8 @llvm.smin.i8(i8, i8) #7
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #9
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #8
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #9
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #8
 
 attributes #0 = { nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #2 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #3 = { nofree nosync nounwind memory(argmem: readwrite) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #3 = { nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #4 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
-attributes #5 = { nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #6 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: write) }
-attributes #7 = { nofree nounwind willreturn memory(argmem: read) }
-attributes #8 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
-attributes #9 = { nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
-attributes #10 = { nounwind }
+attributes #5 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: write) }
+attributes #6 = { nofree nounwind willreturn memory(argmem: read) }
+attributes #7 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
+attributes #8 = { nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
+attributes #9 = { nounwind }
 
 !llvm.module.flags = !{!0, !1, !2, !3}
 

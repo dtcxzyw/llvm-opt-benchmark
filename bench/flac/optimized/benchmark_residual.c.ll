@@ -10,17 +10,17 @@ target triple = "x86_64-unknown-linux-gnu"
 @.str.2 = private unnamed_addr constant [31 x i8] c"mult  order %u : %f %f %f %f\0A\0A\00", align 1
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local i32 @main() local_unnamed_addr #0 {
+define dso_local noundef i32 @main() local_unnamed_addr #0 {
 entry:
   %stats = alloca %struct.bench_stats, align 8
   %putchar = tail call i32 @putchar(i32 10)
-  %run_count = getelementptr inbounds %struct.bench_stats, ptr %stats, i64 0, i32 1
-  %loop_count = getelementptr inbounds %struct.bench_stats, ptr %stats, i64 0, i32 2
+  %run_count = getelementptr inbounds i8, ptr %stats, i64 8
+  %loop_count = getelementptr inbounds i8, ptr %stats, i64 12
   store i32 2, ptr @bench_order, align 4
-  %min_time = getelementptr inbounds %struct.bench_stats, ptr %stats, i64 0, i32 3
-  %median_time = getelementptr inbounds %struct.bench_stats, ptr %stats, i64 0, i32 5
-  %mean_time = getelementptr inbounds %struct.bench_stats, ptr %stats, i64 0, i32 4
-  %max_time = getelementptr inbounds %struct.bench_stats, ptr %stats, i64 0, i32 6
+  %min_time = getelementptr inbounds i8, ptr %stats, i64 16
+  %median_time = getelementptr inbounds i8, ptr %stats, i64 32
+  %mean_time = getelementptr inbounds i8, ptr %stats, i64 24
+  %max_time = getelementptr inbounds i8, ptr %stats, i64 40
   %0 = getelementptr inbounds i8, ptr %stats, i64 16
   %1 = getelementptr inbounds i8, ptr %stats, i64 16
   br label %for.body
@@ -61,7 +61,7 @@ for.end:                                          ; preds = %for.body
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
 declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #1
 
-; Function Attrs: nofree nosync nounwind sspstrong memory(readwrite, argmem: none, inaccessiblemem: none) uwtable
+; Function Attrs: nofree norecurse nosync nounwind sspstrong memory(readwrite, argmem: none, inaccessiblemem: none) uwtable
 define internal void @bench_shift() #2 {
 entry:
   ret void
@@ -72,7 +72,7 @@ declare void @benchmark_stats(ptr noundef) local_unnamed_addr #3
 ; Function Attrs: nofree nounwind
 declare noundef i32 @printf(ptr nocapture noundef readonly, ...) local_unnamed_addr #4
 
-; Function Attrs: nofree nosync nounwind sspstrong memory(readwrite, argmem: none, inaccessiblemem: none) uwtable
+; Function Attrs: nofree norecurse nosync nounwind sspstrong memory(readwrite, argmem: none, inaccessiblemem: none) uwtable
 define internal void @bench_mult() #2 {
 entry:
   ret void
@@ -83,7 +83,7 @@ declare noundef i32 @putchar(i32 noundef) local_unnamed_addr #5
 
 attributes #0 = { nounwind sspstrong uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: write) }
-attributes #2 = { nofree nosync nounwind sspstrong memory(readwrite, argmem: none, inaccessiblemem: none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #2 = { nofree norecurse nosync nounwind sspstrong memory(readwrite, argmem: none, inaccessiblemem: none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #3 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #4 = { nofree nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #5 = { nofree nounwind }

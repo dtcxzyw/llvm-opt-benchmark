@@ -7,9 +7,8 @@ target triple = "x86_64-unknown-linux-gnu"
 %"class.arrow::util::TempVectorHolder.0" = type { ptr, ptr, i32, i32 }
 %"class.arrow::compute::KeyColumnArray" = type { [3 x ptr], [3 x ptr], %"struct.arrow::compute::KeyColumnMetadata", i64, [2 x i32] }
 %"struct.arrow::compute::KeyColumnMetadata" = type { i8, i8, i32 }
-%"struct.arrow::compute::LightContext" = type { i64, ptr }
-%"struct.std::_Vector_base<arrow::compute::KeyColumnArray, std::allocator<arrow::compute::KeyColumnArray>>::_Vector_impl_data" = type { ptr, ptr, ptr }
 %"class.arrow::Status" = type { ptr }
+%"struct.arrow::compute::LightContext" = type { i64, ptr }
 %"class.arrow::util::TempVectorHolder.9" = type { ptr, ptr, i32, i32 }
 
 $_ZN5arrow7compute9Hashing3213HashVarLenImpIjLb1EEEvjPKT_PKhPj = comdat any
@@ -1101,8 +1100,8 @@ if.end:                                           ; preds = %for.body.i7, %for.b
   ret void
 }
 
-; Function Attrs: mustprogress nofree nosync nounwind memory(argmem: readwrite) uwtable
-define void @_ZN5arrow7compute9Hashing327HashIntEbjmPKhPj(i1 noundef zeroext %combine_hashes, i32 noundef %num_keys, i64 noundef %length_key, ptr nocapture noundef readonly %keys, ptr nocapture noundef %hashes) local_unnamed_addr #3 align 2 {
+; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
+define void @_ZN5arrow7compute9Hashing327HashIntEbjmPKhPj(i1 noundef zeroext %combine_hashes, i32 noundef %num_keys, i64 noundef %length_key, ptr nocapture noundef readonly %keys, ptr nocapture noundef %hashes) local_unnamed_addr #2 align 2 {
 entry:
   switch i64 %length_key, label %sw.epilog [
     i64 1, label %sw.bb
@@ -1369,7 +1368,7 @@ if.end15:                                         ; preds = %if.else, %if.then7,
 }
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i64 @llvm.ctpop.i64(i64) #4
+declare i64 @llvm.ctpop.i64(i64) #3
 
 declare noundef i32 @_ZN5arrow7compute9Hashing3217HashFixedLen_avx2EbjmPKhPjS4_(i1 noundef zeroext, i32 noundef, i64 noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
@@ -1786,24 +1785,24 @@ entry:
   %num_null_indices = alloca i32, align 4
   %null_hash_temp_buf = alloca %"class.arrow::util::TempVectorHolder", align 8
   %0 = load ptr, ptr %cols, align 8
-  %length_.i = getelementptr inbounds %"class.arrow::compute::KeyColumnArray", ptr %0, i64 0, i32 3
+  %length_.i = getelementptr inbounds i8, ptr %0, i64 56
   %1 = load i64, ptr %length_.i, align 8
   %conv = trunc i64 %1 to i32
-  %stack = getelementptr inbounds %"struct.arrow::compute::LightContext", ptr %ctx, i64 0, i32 1
+  %stack = getelementptr inbounds i8, ptr %ctx, i64 8
   %2 = load ptr, ptr %stack, align 8
   store ptr %2, ptr %hash_temp_buf, align 8
-  %num_elements_.i = getelementptr inbounds %"class.arrow::util::TempVectorHolder", ptr %hash_temp_buf, i64 0, i32 3
+  %num_elements_.i = getelementptr inbounds i8, ptr %hash_temp_buf, i64 20
   store i32 1024, ptr %num_elements_.i, align 4
-  %data_.i = getelementptr inbounds %"class.arrow::util::TempVectorHolder", ptr %hash_temp_buf, i64 0, i32 1
-  %id_.i = getelementptr inbounds %"class.arrow::util::TempVectorHolder", ptr %hash_temp_buf, i64 0, i32 2
+  %data_.i = getelementptr inbounds i8, ptr %hash_temp_buf, i64 8
+  %id_.i = getelementptr inbounds i8, ptr %hash_temp_buf, i64 16
   call void @_ZN5arrow4util15TempVectorStack5allocEjPPhPi(ptr noundef nonnull align 8 dereferenceable(32) %2, i32 noundef 4096, ptr noundef nonnull %data_.i, ptr noundef nonnull %id_.i)
   %3 = load ptr, ptr %data_.i, align 8
   %4 = load ptr, ptr %stack, align 8
   store ptr %4, ptr %null_indices_buf, align 8
-  %num_elements_.i107 = getelementptr inbounds %"class.arrow::util::TempVectorHolder.0", ptr %null_indices_buf, i64 0, i32 3
+  %num_elements_.i107 = getelementptr inbounds i8, ptr %null_indices_buf, i64 20
   store i32 1024, ptr %num_elements_.i107, align 4
-  %data_.i108 = getelementptr inbounds %"class.arrow::util::TempVectorHolder.0", ptr %null_indices_buf, i64 0, i32 1
-  %id_.i109 = getelementptr inbounds %"class.arrow::util::TempVectorHolder.0", ptr %null_indices_buf, i64 0, i32 2
+  %data_.i108 = getelementptr inbounds i8, ptr %null_indices_buf, i64 8
+  %id_.i109 = getelementptr inbounds i8, ptr %null_indices_buf, i64 16
   invoke void @_ZN5arrow4util15TempVectorStack5allocEjPPhPi(ptr noundef nonnull align 8 dereferenceable(32) %4, i32 noundef 2048, ptr noundef nonnull %data_.i108, ptr noundef nonnull %id_.i109)
           to label %invoke.cont4 unwind label %lpad
 
@@ -1811,10 +1810,10 @@ invoke.cont4:                                     ; preds = %entry
   %5 = load ptr, ptr %data_.i108, align 8
   %6 = load ptr, ptr %stack, align 8
   store ptr %6, ptr %null_hash_temp_buf, align 8
-  %num_elements_.i111 = getelementptr inbounds %"class.arrow::util::TempVectorHolder", ptr %null_hash_temp_buf, i64 0, i32 3
+  %num_elements_.i111 = getelementptr inbounds i8, ptr %null_hash_temp_buf, i64 20
   store i32 1024, ptr %num_elements_.i111, align 4
-  %data_.i112 = getelementptr inbounds %"class.arrow::util::TempVectorHolder", ptr %null_hash_temp_buf, i64 0, i32 1
-  %id_.i113 = getelementptr inbounds %"class.arrow::util::TempVectorHolder", ptr %null_hash_temp_buf, i64 0, i32 2
+  %data_.i112 = getelementptr inbounds i8, ptr %null_hash_temp_buf, i64 8
+  %id_.i113 = getelementptr inbounds i8, ptr %null_hash_temp_buf, i64 16
   invoke void @_ZN5arrow4util15TempVectorStack5allocEjPPhPi(ptr noundef nonnull align 8 dereferenceable(32) %6, i32 noundef 4096, ptr noundef nonnull %data_.i112, ptr noundef nonnull %id_.i113)
           to label %invoke.cont9 unwind label %lpad5
 
@@ -1824,7 +1823,7 @@ invoke.cont9:                                     ; preds = %invoke.cont4
   br i1 %cmp235.not, label %for.end193, label %for.body.lr.ph
 
 for.body.lr.ph:                                   ; preds = %invoke.cont9
-  %_M_finish.i = getelementptr inbounds %"struct.std::_Vector_base<arrow::compute::KeyColumnArray, std::allocator<arrow::compute::KeyColumnArray>>::_Vector_impl_data", ptr %cols, i64 0, i32 1
+  %_M_finish.i = getelementptr inbounds i8, ptr %cols, i64 8
   %.pre = load ptr, ptr %_M_finish.i, align 8
   %.pre269 = load ptr, ptr %cols, align 8
   br label %for.body
@@ -1854,7 +1853,8 @@ for.body18.lr.ph:                                 ; preds = %for.body
 for.body18:                                       ; preds = %for.body18.lr.ph, %for.inc189
   %10 = phi ptr [ %8, %for.body18.lr.ph ], [ %75, %for.inc189 ]
   %icol.0234 = phi i64 [ 0, %for.body18.lr.ph ], [ %inc190, %for.inc189 ]
-  %is_null_type = getelementptr inbounds %"class.arrow::compute::KeyColumnArray", ptr %10, i64 %icol.0234, i32 2, i32 1
+  %add.ptr.i = getelementptr inbounds %"class.arrow::compute::KeyColumnArray", ptr %10, i64 %icol.0234
+  %is_null_type = getelementptr inbounds i8, ptr %add.ptr.i, i64 49
   %11 = load i8, ptr %is_null_type, align 1
   %12 = and i8 %11, 1
   %tobool.not = icmp eq i8 %12, 0
@@ -1894,7 +1894,7 @@ lpad5:                                            ; preds = %invoke.cont4
 lpad10:                                           ; preds = %if.else.i165, %if.then3.i166, %if.then.i158, %if.else.i146, %if.then3.i147, %if.then.i141, %if.else.i130, %if.then7.i, %if.then3.i, %if.then47
   %16 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZN5arrow4util16TempVectorHolderIjED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %null_hash_temp_buf) #10
+  call void @_ZN5arrow4util16TempVectorHolderIjED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %null_hash_temp_buf) #9
   br label %ehcleanup
 
 for.body30:                                       ; preds = %for.cond28.preheader, %for.body30
@@ -1915,7 +1915,6 @@ for.body30:                                       ; preds = %for.cond28.preheade
   br i1 %exitcond.not, label %for.inc189, label %for.body30, !llvm.loop !36
 
 if.end42:                                         ; preds = %for.body18
-  %add.ptr.i = getelementptr inbounds %"class.arrow::compute::KeyColumnArray", ptr %10, i64 %icol.0234
   %19 = load ptr, ptr %add.ptr.i, align 8
   %tobool46.not = icmp eq ptr %19, null
   br i1 %tobool46.not, label %if.end74, label %if.then47
@@ -1923,8 +1922,8 @@ if.end42:                                         ; preds = %for.body18
 if.then47:                                        ; preds = %if.end42
   %20 = load i64, ptr %ctx, align 8
   %add.ptr = getelementptr inbounds i8, ptr %19, i64 %idx.ext
-  %arrayidx.i = getelementptr inbounds %"class.arrow::compute::KeyColumnArray", ptr %10, i64 %icol.0234, i32 4, i64 0
-  %21 = load i32, ptr %arrayidx.i, align 4
+  %bit_offset_.i = getelementptr inbounds i8, ptr %add.ptr.i, i64 64
+  %21 = load i32, ptr %bit_offset_.i, align 4
   %add54 = add i32 %21, %rem
   invoke void @_ZN5arrow4util8bit_util15bits_to_indexesEiliPKhPiPti(i32 noundef 0, i64 noundef %20, i32 noundef %.sroa.speculated, ptr noundef nonnull %add.ptr, ptr noundef nonnull %num_null_indices, ptr noundef %5, i32 noundef %add54)
           to label %invoke.cont55 unwind label %lpad10
@@ -1956,11 +1955,11 @@ for.body61:                                       ; preds = %invoke.cont55, %for
 if.end74:                                         ; preds = %for.body61, %invoke.cont55, %if.end42
   %27 = load ptr, ptr %cols, align 8
   %add.ptr.i118 = getelementptr inbounds %"class.arrow::compute::KeyColumnArray", ptr %27, i64 %icol.0234
-  %metadata_.i119 = getelementptr inbounds %"class.arrow::compute::KeyColumnArray", ptr %27, i64 %icol.0234, i32 2
+  %metadata_.i119 = getelementptr inbounds i8, ptr %add.ptr.i118, i64 48
   %28 = load i8, ptr %metadata_.i119, align 4
   %29 = and i8 %28, 1
   %tobool78.not = icmp eq i8 %29, 0
-  %fixed_length116 = getelementptr inbounds %"class.arrow::compute::KeyColumnArray", ptr %27, i64 %icol.0234, i32 2, i32 2
+  %fixed_length116 = getelementptr inbounds i8, ptr %add.ptr.i118, i64 52
   %30 = load i32, ptr %fixed_length116, align 4
   br i1 %tobool78.not, label %if.else112, label %if.then79
 
@@ -1970,10 +1969,10 @@ if.then79:                                        ; preds = %if.end74
 
 if.then84:                                        ; preds = %if.then79
   %cmp85.not = icmp eq i64 %icol.0234, 0
-  %arrayidx.i123 = getelementptr inbounds %"class.arrow::compute::KeyColumnArray", ptr %27, i64 %icol.0234, i32 4, i64 1
-  %31 = load i32, ptr %arrayidx.i123, align 4
+  %arrayidx.i = getelementptr inbounds i8, ptr %add.ptr.i118, i64 68
+  %31 = load i32, ptr %arrayidx.i, align 4
   %conv89 = sext i32 %31 to i64
-  %arrayidx.i125 = getelementptr inbounds [3 x ptr], ptr %add.ptr.i118, i64 0, i64 1
+  %arrayidx.i125 = getelementptr inbounds i8, ptr %add.ptr.i118, i64 8
   %32 = load ptr, ptr %arrayidx.i125, align 8
   %add.ptr95 = getelementptr inbounds i8, ptr %32, i64 %idx.ext
   br i1 %cmp85.not, label %for.body.i7.i, label %for.body.i.i
@@ -2025,7 +2024,7 @@ for.body.i7.i:                                    ; preds = %if.then84, %for.bod
 if.else99:                                        ; preds = %if.then79
   %cmp101 = icmp ne i64 %icol.0234, 0
   %conv102 = zext i32 %30 to i64
-  %arrayidx.i127 = getelementptr inbounds [3 x ptr], ptr %add.ptr.i118, i64 0, i64 1
+  %arrayidx.i127 = getelementptr inbounds i8, ptr %add.ptr.i118, i64 8
   %42 = load ptr, ptr %arrayidx.i127, align 8
   %mul = mul i32 %30, %first_row.0236
   %idx.ext106 = zext i32 %mul to i64
@@ -2225,9 +2224,9 @@ if.else112:                                       ; preds = %if.end74
   %cmp118 = icmp eq i32 %30, 4
   %65 = load i64, ptr %ctx, align 8
   %cmp121 = icmp ne i64 %icol.0234, 0
-  %arrayidx.i.i137 = getelementptr inbounds [3 x ptr], ptr %add.ptr.i118, i64 0, i64 1
+  %arrayidx.i.i137 = getelementptr inbounds i8, ptr %add.ptr.i118, i64 8
   %66 = load ptr, ptr %arrayidx.i.i137, align 8
-  %arrayidx.i139 = getelementptr inbounds [3 x ptr], ptr %add.ptr.i118, i64 0, i64 2
+  %arrayidx.i139 = getelementptr inbounds i8, ptr %add.ptr.i118, i64 16
   %67 = load ptr, ptr %arrayidx.i139, align 8
   %and.i140 = and i64 %65, 32
   %tobool.not.i = icmp eq i64 %and.i140, 0
@@ -2371,7 +2370,7 @@ terminate.lpad.i:                                 ; preds = %for.end193
   %81 = landingpad { ptr, i32 }
           catch ptr null
   %82 = extractvalue { ptr, i32 } %81, 0
-  call void @__clang_call_terminate(ptr %82) #11
+  call void @__clang_call_terminate(ptr %82) #10
   unreachable
 
 _ZN5arrow4util16TempVectorHolderIjED2Ev.exit:     ; preds = %for.end193
@@ -2386,7 +2385,7 @@ terminate.lpad.i183:                              ; preds = %_ZN5arrow4util16Tem
   %86 = landingpad { ptr, i32 }
           catch ptr null
   %87 = extractvalue { ptr, i32 } %86, 0
-  call void @__clang_call_terminate(ptr %87) #11
+  call void @__clang_call_terminate(ptr %87) #10
   unreachable
 
 _ZN5arrow4util16TempVectorHolderItED2Ev.exit:     ; preds = %_ZN5arrow4util16TempVectorHolderIjED2Ev.exit
@@ -2401,7 +2400,7 @@ terminate.lpad.i187:                              ; preds = %_ZN5arrow4util16Tem
   %91 = landingpad { ptr, i32 }
           catch ptr null
   %92 = extractvalue { ptr, i32 } %91, 0
-  call void @__clang_call_terminate(ptr %92) #11
+  call void @__clang_call_terminate(ptr %92) #10
   unreachable
 
 _ZN5arrow4util16TempVectorHolderIjED2Ev.exit188:  ; preds = %_ZN5arrow4util16TempVectorHolderItED2Ev.exit
@@ -2409,12 +2408,12 @@ _ZN5arrow4util16TempVectorHolderIjED2Ev.exit188:  ; preds = %_ZN5arrow4util16Tem
 
 ehcleanup:                                        ; preds = %lpad10, %lpad5
   %.pn = phi { ptr, i32 } [ %16, %lpad10 ], [ %15, %lpad5 ]
-  call void @_ZN5arrow4util16TempVectorHolderItED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %null_indices_buf) #10
+  call void @_ZN5arrow4util16TempVectorHolderItED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %null_indices_buf) #9
   br label %ehcleanup194
 
 ehcleanup194:                                     ; preds = %ehcleanup, %lpad
   %.pn.pn = phi { ptr, i32 } [ %.pn, %ehcleanup ], [ %14, %lpad ]
-  call void @_ZN5arrow4util16TempVectorHolderIjED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %hash_temp_buf) #10
+  call void @_ZN5arrow4util16TempVectorHolderIjED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %hash_temp_buf) #9
   resume { ptr, i32 } %.pn.pn
 }
 
@@ -2423,12 +2422,12 @@ declare i32 @__gxx_personality_v0(...)
 declare void @_ZN5arrow4util8bit_util15bits_to_indexesEiliPKhPiPti(i32 noundef, i64 noundef, i32 noundef, ptr noundef, ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr void @_ZN5arrow4util16TempVectorHolderIjED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %this) unnamed_addr #5 comdat align 2 personality ptr @__gxx_personality_v0 {
+define linkonce_odr void @_ZN5arrow4util16TempVectorHolderIjED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %this) unnamed_addr #4 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %0 = load ptr, ptr %this, align 8
-  %id_ = getelementptr inbounds %"class.arrow::util::TempVectorHolder", ptr %this, i64 0, i32 2
+  %id_ = getelementptr inbounds i8, ptr %this, i64 16
   %1 = load i32, ptr %id_, align 8
-  %num_elements_ = getelementptr inbounds %"class.arrow::util::TempVectorHolder", ptr %this, i64 0, i32 3
+  %num_elements_ = getelementptr inbounds i8, ptr %this, i64 20
   %2 = load i32, ptr %num_elements_, align 4
   %mul = shl i32 %2, 2
   invoke void @_ZN5arrow4util15TempVectorStack7releaseEij(ptr noundef nonnull align 8 dereferenceable(32) %0, i32 noundef %1, i32 noundef %mul)
@@ -2441,17 +2440,17 @@ terminate.lpad:                                   ; preds = %entry
   %3 = landingpad { ptr, i32 }
           catch ptr null
   %4 = extractvalue { ptr, i32 } %3, 0
-  tail call void @__clang_call_terminate(ptr %4) #11
+  tail call void @__clang_call_terminate(ptr %4) #10
   unreachable
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr void @_ZN5arrow4util16TempVectorHolderItED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %this) unnamed_addr #5 comdat align 2 personality ptr @__gxx_personality_v0 {
+define linkonce_odr void @_ZN5arrow4util16TempVectorHolderItED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %this) unnamed_addr #4 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %0 = load ptr, ptr %this, align 8
-  %id_ = getelementptr inbounds %"class.arrow::util::TempVectorHolder.0", ptr %this, i64 0, i32 2
+  %id_ = getelementptr inbounds i8, ptr %this, i64 16
   %1 = load i32, ptr %id_, align 8
-  %num_elements_ = getelementptr inbounds %"class.arrow::util::TempVectorHolder.0", ptr %this, i64 0, i32 3
+  %num_elements_ = getelementptr inbounds i8, ptr %this, i64 20
   %2 = load i32, ptr %num_elements_, align 4
   %mul = shl i32 %2, 1
   invoke void @_ZN5arrow4util15TempVectorStack7releaseEij(ptr noundef nonnull align 8 dereferenceable(32) %0, i32 noundef %1, i32 noundef %mul)
@@ -2464,7 +2463,7 @@ terminate.lpad:                                   ; preds = %entry
   %3 = landingpad { ptr, i32 }
           catch ptr null
   %4 = extractvalue { ptr, i32 } %3, 0
-  tail call void @__clang_call_terminate(ptr %4) #11
+  tail call void @__clang_call_terminate(ptr %4) #10
   unreachable
 }
 
@@ -2483,7 +2482,7 @@ _ZN5arrow6StatusD2Ev.exit:
 
 do.end7:                                          ; preds = %_ZN5arrow6StatusD2Ev.exit
   store i64 %hardware_flags, ptr %ctx, align 8
-  %stack = getelementptr inbounds %"struct.arrow::compute::LightContext", ptr %ctx, i64 0, i32 1
+  %stack = getelementptr inbounds i8, ptr %ctx, i64 8
   store ptr %temp_stack, ptr %stack, align 8
   call void @_ZN5arrow7compute9Hashing3215HashMultiColumnERKSt6vectorINS0_14KeyColumnArrayESaIS3_EEPNS0_12LightContextEPj(ptr noundef nonnull align 8 dereferenceable(24) %column_arrays, ptr noundef nonnull %ctx, ptr noundef %hashes)
   store ptr null, ptr %agg.result, align 8, !alias.scope !45
@@ -4177,8 +4176,8 @@ if.end:                                           ; preds = %for.body.i7, %for.b
   ret void
 }
 
-; Function Attrs: mustprogress nofree nosync nounwind memory(argmem: readwrite) uwtable
-define void @_ZN5arrow7compute9Hashing647HashIntEbjmPKhPm(i1 noundef zeroext %combine_hashes, i32 noundef %num_keys, i64 noundef %length_key, ptr nocapture noundef readonly %keys, ptr nocapture noundef %hashes) local_unnamed_addr #3 align 2 {
+; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
+define void @_ZN5arrow7compute9Hashing647HashIntEbjmPKhPm(i1 noundef zeroext %combine_hashes, i32 noundef %num_keys, i64 noundef %length_key, ptr nocapture noundef readonly %keys, ptr nocapture noundef %hashes) local_unnamed_addr #2 align 2 {
 entry:
   switch i64 %length_key, label %sw.epilog [
     i64 1, label %sw.bb
@@ -5078,24 +5077,24 @@ entry:
   %num_null_indices = alloca i32, align 4
   %null_hash_temp_buf = alloca %"class.arrow::util::TempVectorHolder.9", align 8
   %0 = load ptr, ptr %cols, align 8
-  %length_.i = getelementptr inbounds %"class.arrow::compute::KeyColumnArray", ptr %0, i64 0, i32 3
+  %length_.i = getelementptr inbounds i8, ptr %0, i64 56
   %1 = load i64, ptr %length_.i, align 8
   %conv = trunc i64 %1 to i32
-  %stack = getelementptr inbounds %"struct.arrow::compute::LightContext", ptr %ctx, i64 0, i32 1
+  %stack = getelementptr inbounds i8, ptr %ctx, i64 8
   %2 = load ptr, ptr %stack, align 8
   store ptr %2, ptr %null_indices_buf, align 8
-  %num_elements_.i = getelementptr inbounds %"class.arrow::util::TempVectorHolder.0", ptr %null_indices_buf, i64 0, i32 3
+  %num_elements_.i = getelementptr inbounds i8, ptr %null_indices_buf, i64 20
   store i32 1024, ptr %num_elements_.i, align 4
-  %data_.i = getelementptr inbounds %"class.arrow::util::TempVectorHolder.0", ptr %null_indices_buf, i64 0, i32 1
-  %id_.i = getelementptr inbounds %"class.arrow::util::TempVectorHolder.0", ptr %null_indices_buf, i64 0, i32 2
+  %data_.i = getelementptr inbounds i8, ptr %null_indices_buf, i64 8
+  %id_.i = getelementptr inbounds i8, ptr %null_indices_buf, i64 16
   call void @_ZN5arrow4util15TempVectorStack5allocEjPPhPi(ptr noundef nonnull align 8 dereferenceable(32) %2, i32 noundef 2048, ptr noundef nonnull %data_.i, ptr noundef nonnull %id_.i)
   %3 = load ptr, ptr %data_.i, align 8
   %4 = load ptr, ptr %stack, align 8
   store ptr %4, ptr %null_hash_temp_buf, align 8
-  %num_elements_.i100 = getelementptr inbounds %"class.arrow::util::TempVectorHolder.9", ptr %null_hash_temp_buf, i64 0, i32 3
+  %num_elements_.i100 = getelementptr inbounds i8, ptr %null_hash_temp_buf, i64 20
   store i32 1024, ptr %num_elements_.i100, align 4
-  %data_.i101 = getelementptr inbounds %"class.arrow::util::TempVectorHolder.9", ptr %null_hash_temp_buf, i64 0, i32 1
-  %id_.i102 = getelementptr inbounds %"class.arrow::util::TempVectorHolder.9", ptr %null_hash_temp_buf, i64 0, i32 2
+  %data_.i101 = getelementptr inbounds i8, ptr %null_hash_temp_buf, i64 8
+  %id_.i102 = getelementptr inbounds i8, ptr %null_hash_temp_buf, i64 16
   invoke void @_ZN5arrow4util15TempVectorStack5allocEjPPhPi(ptr noundef nonnull align 8 dereferenceable(32) %4, i32 noundef 8192, ptr noundef nonnull %data_.i101, ptr noundef nonnull %id_.i102)
           to label %invoke.cont4 unwind label %lpad
 
@@ -5105,7 +5104,7 @@ invoke.cont4:                                     ; preds = %entry
   br i1 %cmp199.not, label %for.end185, label %for.body.lr.ph
 
 for.body.lr.ph:                                   ; preds = %invoke.cont4
-  %_M_finish.i = getelementptr inbounds %"struct.std::_Vector_base<arrow::compute::KeyColumnArray, std::allocator<arrow::compute::KeyColumnArray>>::_Vector_impl_data", ptr %cols, i64 0, i32 1
+  %_M_finish.i = getelementptr inbounds i8, ptr %cols, i64 8
   %.pre = load ptr, ptr %_M_finish.i, align 8
   %.pre235 = load ptr, ptr %cols, align 8
   br label %for.body
@@ -5135,7 +5134,8 @@ for.body13.lr.ph:                                 ; preds = %for.body
 for.body13:                                       ; preds = %for.body13.lr.ph, %for.inc181
   %8 = phi ptr [ %6, %for.body13.lr.ph ], [ %68, %for.inc181 ]
   %icol.0198 = phi i64 [ 0, %for.body13.lr.ph ], [ %inc182, %for.inc181 ]
-  %is_null_type = getelementptr inbounds %"class.arrow::compute::KeyColumnArray", ptr %8, i64 %icol.0198, i32 2, i32 1
+  %add.ptr.i = getelementptr inbounds %"class.arrow::compute::KeyColumnArray", ptr %8, i64 %icol.0198
+  %is_null_type = getelementptr inbounds i8, ptr %add.ptr.i, i64 49
   %9 = load i8, ptr %is_null_type, align 1
   %10 = and i8 %9, 1
   %tobool.not = icmp eq i8 %10, 0
@@ -5170,7 +5170,7 @@ lpad:                                             ; preds = %entry
 lpad5:                                            ; preds = %if.else.i136, %if.then.i138, %if.else.i127, %if.then.i129, %if.else.i118, %if.then3.i, %if.then42
   %13 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZN5arrow4util16TempVectorHolderImED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %null_hash_temp_buf) #10
+  call void @_ZN5arrow4util16TempVectorHolderImED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %null_hash_temp_buf) #9
   br label %ehcleanup
 
 for.body25:                                       ; preds = %for.cond23.preheader, %for.body25
@@ -5191,7 +5191,6 @@ for.body25:                                       ; preds = %for.cond23.preheade
   br i1 %exitcond.not, label %for.inc181, label %for.body25, !llvm.loop !78
 
 if.end37:                                         ; preds = %for.body13
-  %add.ptr.i = getelementptr inbounds %"class.arrow::compute::KeyColumnArray", ptr %8, i64 %icol.0198
   %16 = load ptr, ptr %add.ptr.i, align 8
   %tobool41.not = icmp eq ptr %16, null
   br i1 %tobool41.not, label %if.end69, label %if.then42
@@ -5199,8 +5198,8 @@ if.end37:                                         ; preds = %for.body13
 if.then42:                                        ; preds = %if.end37
   %17 = load i64, ptr %ctx, align 8
   %add.ptr = getelementptr inbounds i8, ptr %16, i64 %idx.ext
-  %arrayidx.i = getelementptr inbounds %"class.arrow::compute::KeyColumnArray", ptr %8, i64 %icol.0198, i32 4, i64 0
-  %18 = load i32, ptr %arrayidx.i, align 4
+  %bit_offset_.i = getelementptr inbounds i8, ptr %add.ptr.i, i64 64
+  %18 = load i32, ptr %bit_offset_.i, align 4
   %add49 = add i32 %18, %rem
   invoke void @_ZN5arrow4util8bit_util15bits_to_indexesEiliPKhPiPti(i32 noundef 0, i64 noundef %17, i32 noundef %.sroa.speculated, ptr noundef nonnull %add.ptr, ptr noundef nonnull %num_null_indices, ptr noundef %3, i32 noundef %add49)
           to label %invoke.cont50 unwind label %lpad5
@@ -5236,11 +5235,11 @@ for.body56:                                       ; preds = %for.body56.preheade
 if.end69:                                         ; preds = %for.body56, %for.cond54.preheader, %invoke.cont50, %if.end37
   %22 = load ptr, ptr %cols, align 8
   %add.ptr.i107 = getelementptr inbounds %"class.arrow::compute::KeyColumnArray", ptr %22, i64 %icol.0198
-  %metadata_.i108 = getelementptr inbounds %"class.arrow::compute::KeyColumnArray", ptr %22, i64 %icol.0198, i32 2
+  %metadata_.i108 = getelementptr inbounds i8, ptr %add.ptr.i107, i64 48
   %23 = load i8, ptr %metadata_.i108, align 4
   %24 = and i8 %23, 1
   %tobool73.not = icmp eq i8 %24, 0
-  %fixed_length110 = getelementptr inbounds %"class.arrow::compute::KeyColumnArray", ptr %22, i64 %icol.0198, i32 2, i32 2
+  %fixed_length110 = getelementptr inbounds i8, ptr %add.ptr.i107, i64 52
   %25 = load i32, ptr %fixed_length110, align 4
   br i1 %tobool73.not, label %if.else106, label %if.then74
 
@@ -5250,10 +5249,10 @@ if.then74:                                        ; preds = %if.end69
 
 if.then80:                                        ; preds = %if.then74
   %cmp81.not = icmp eq i64 %icol.0198, 0
-  %arrayidx.i112 = getelementptr inbounds %"class.arrow::compute::KeyColumnArray", ptr %22, i64 %icol.0198, i32 4, i64 1
-  %26 = load i32, ptr %arrayidx.i112, align 4
+  %arrayidx.i = getelementptr inbounds i8, ptr %add.ptr.i107, i64 68
+  %26 = load i32, ptr %arrayidx.i, align 4
   %conv85 = sext i32 %26 to i64
-  %arrayidx.i114 = getelementptr inbounds [3 x ptr], ptr %add.ptr.i107, i64 0, i64 1
+  %arrayidx.i114 = getelementptr inbounds i8, ptr %add.ptr.i107, i64 8
   %27 = load ptr, ptr %arrayidx.i114, align 8
   %add.ptr91 = getelementptr inbounds i8, ptr %27, i64 %idx.ext
   br i1 %cmp81.not, label %for.body.i7.i, label %for.body.i.i
@@ -5305,7 +5304,7 @@ for.body.i7.i:                                    ; preds = %if.then80, %for.bod
 if.else95:                                        ; preds = %if.then74
   %conv78 = zext i32 %25 to i64
   %cmp96.not = icmp eq i64 %icol.0198, 0
-  %arrayidx.i116 = getelementptr inbounds [3 x ptr], ptr %add.ptr.i107, i64 0, i64 1
+  %arrayidx.i116 = getelementptr inbounds i8, ptr %add.ptr.i107, i64 8
   %37 = load ptr, ptr %arrayidx.i116, align 8
   %mul = mul nuw i64 %conv78, %conv100
   %add.ptr101 = getelementptr inbounds i8, ptr %37, i64 %mul
@@ -5479,9 +5478,9 @@ if.else.i118:                                     ; preds = %if.end.i
 if.else106:                                       ; preds = %if.end69
   %cmp112 = icmp eq i32 %25, 4
   %cmp114.not = icmp eq i64 %icol.0198, 0
-  %arrayidx.i.i124 = getelementptr inbounds [3 x ptr], ptr %add.ptr.i107, i64 0, i64 1
+  %arrayidx.i.i124 = getelementptr inbounds i8, ptr %add.ptr.i107, i64 8
   %59 = load ptr, ptr %arrayidx.i.i124, align 8
-  %arrayidx.i126 = getelementptr inbounds [3 x ptr], ptr %add.ptr.i107, i64 0, i64 2
+  %arrayidx.i126 = getelementptr inbounds i8, ptr %add.ptr.i107, i64 16
   %60 = load ptr, ptr %arrayidx.i126, align 8
   br i1 %cmp112, label %if.then113, label %if.else126
 
@@ -5599,7 +5598,7 @@ terminate.lpad.i:                                 ; preds = %for.end185
   %74 = landingpad { ptr, i32 }
           catch ptr null
   %75 = extractvalue { ptr, i32 } %74, 0
-  call void @__clang_call_terminate(ptr %75) #11
+  call void @__clang_call_terminate(ptr %75) #10
   unreachable
 
 _ZN5arrow4util16TempVectorHolderImED2Ev.exit:     ; preds = %for.end185
@@ -5614,7 +5613,7 @@ terminate.lpad.i152:                              ; preds = %_ZN5arrow4util16Tem
   %79 = landingpad { ptr, i32 }
           catch ptr null
   %80 = extractvalue { ptr, i32 } %79, 0
-  call void @__clang_call_terminate(ptr %80) #11
+  call void @__clang_call_terminate(ptr %80) #10
   unreachable
 
 _ZN5arrow4util16TempVectorHolderItED2Ev.exit:     ; preds = %_ZN5arrow4util16TempVectorHolderImED2Ev.exit
@@ -5622,17 +5621,17 @@ _ZN5arrow4util16TempVectorHolderItED2Ev.exit:     ; preds = %_ZN5arrow4util16Tem
 
 ehcleanup:                                        ; preds = %lpad5, %lpad
   %.pn = phi { ptr, i32 } [ %13, %lpad5 ], [ %12, %lpad ]
-  call void @_ZN5arrow4util16TempVectorHolderItED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %null_indices_buf) #10
+  call void @_ZN5arrow4util16TempVectorHolderItED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %null_indices_buf) #9
   resume { ptr, i32 } %.pn
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr void @_ZN5arrow4util16TempVectorHolderImED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %this) unnamed_addr #5 comdat align 2 personality ptr @__gxx_personality_v0 {
+define linkonce_odr void @_ZN5arrow4util16TempVectorHolderImED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %this) unnamed_addr #4 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %0 = load ptr, ptr %this, align 8
-  %id_ = getelementptr inbounds %"class.arrow::util::TempVectorHolder.9", ptr %this, i64 0, i32 2
+  %id_ = getelementptr inbounds i8, ptr %this, i64 16
   %1 = load i32, ptr %id_, align 8
-  %num_elements_ = getelementptr inbounds %"class.arrow::util::TempVectorHolder.9", ptr %this, i64 0, i32 3
+  %num_elements_ = getelementptr inbounds i8, ptr %this, i64 20
   %2 = load i32, ptr %num_elements_, align 4
   %mul = shl i32 %2, 3
   invoke void @_ZN5arrow4util15TempVectorStack7releaseEij(ptr noundef nonnull align 8 dereferenceable(32) %0, i32 noundef %1, i32 noundef %mul)
@@ -5645,7 +5644,7 @@ terminate.lpad:                                   ; preds = %entry
   %3 = landingpad { ptr, i32 }
           catch ptr null
   %4 = extractvalue { ptr, i32 } %3, 0
-  tail call void @__clang_call_terminate(ptr %4) #11
+  tail call void @__clang_call_terminate(ptr %4) #10
   unreachable
 }
 
@@ -5664,7 +5663,7 @@ _ZN5arrow6StatusD2Ev.exit:
 
 do.end7:                                          ; preds = %_ZN5arrow6StatusD2Ev.exit
   store i64 %hardware_flags, ptr %ctx, align 8
-  %stack = getelementptr inbounds %"struct.arrow::compute::LightContext", ptr %ctx, i64 0, i32 1
+  %stack = getelementptr inbounds i8, ptr %ctx, i64 8
   store ptr %temp_stack, ptr %stack, align 8
   call void @_ZN5arrow7compute9Hashing6415HashMultiColumnERKSt6vectorINS0_14KeyColumnArrayESaIS3_EEPNS0_12LightContextEPm(ptr noundef nonnull align 8 dereferenceable(24) %column_arrays, ptr noundef nonnull %ctx, ptr noundef %hashes)
   store ptr null, ptr %agg.result, align 8, !alias.scope !87
@@ -5675,9 +5674,9 @@ return:                                           ; preds = %_ZN5arrow6StatusD2E
 }
 
 ; Function Attrs: noreturn nounwind uwtable
-define linkonce_odr hidden void @__clang_call_terminate(ptr noundef %0) local_unnamed_addr #6 comdat {
-  %2 = tail call ptr @__cxa_begin_catch(ptr %0) #10
-  tail call void @_ZSt9terminatev() #11
+define linkonce_odr hidden void @__clang_call_terminate(ptr noundef %0) local_unnamed_addr #5 comdat {
+  %2 = tail call ptr @__cxa_begin_catch(ptr %0) #9
+  tail call void @_ZSt9terminatev() #10
   unreachable
 }
 
@@ -5686,48 +5685,47 @@ declare ptr @__cxa_begin_catch(ptr) local_unnamed_addr
 declare void @_ZSt9terminatev() local_unnamed_addr
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #7
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #6
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i64 @llvm.bswap.i64(i64) #4
+declare i64 @llvm.bswap.i64(i64) #3
 
 declare void @_ZN5arrow4util15TempVectorStack5allocEjPPhPi(ptr noundef nonnull align 8 dereferenceable(32), i32 noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 declare void @_ZN5arrow4util15TempVectorStack7releaseEij(ptr noundef nonnull align 8 dereferenceable(32), i32 noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i32 @llvm.fshl.i32(i32, i32, i32) #8
+declare i32 @llvm.fshl.i32(i32, i32, i32) #7
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i64 @llvm.fshl.i64(i64, i64, i64) #8
+declare i64 @llvm.fshl.i64(i64, i64, i64) #7
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i32 @llvm.umin.i32(i32, i32) #8
+declare i32 @llvm.umin.i32(i32, i32) #7
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i32 @llvm.umax.i32(i32, i32) #8
+declare i32 @llvm.umax.i32(i32, i32) #7
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: readwrite)
-declare void @llvm.experimental.noalias.scope.decl(metadata) #9
+declare void @llvm.experimental.noalias.scope.decl(metadata) #8
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare <4 x i32> @llvm.fshl.v4i32(<4 x i32>, <4 x i32>, <4 x i32>) #8
+declare <4 x i32> @llvm.fshl.v4i32(<4 x i32>, <4 x i32>, <4 x i32>) #7
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i32 @llvm.vector.reduce.add.v4i32(<4 x i32>) #8
+declare i32 @llvm.vector.reduce.add.v4i32(<4 x i32>) #7
 
 attributes #0 = { mustprogress uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+crc32,+cx8,+fxsr,+mmx,+popcnt,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+x87" "tune-cpu"="generic" }
 attributes #1 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+crc32,+cx8,+fxsr,+mmx,+popcnt,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+x87" "tune-cpu"="generic" }
 attributes #2 = { mustprogress nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+crc32,+cx8,+fxsr,+mmx,+popcnt,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+x87" "tune-cpu"="generic" }
-attributes #3 = { mustprogress nofree nosync nounwind memory(argmem: readwrite) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+crc32,+cx8,+fxsr,+mmx,+popcnt,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+x87" "tune-cpu"="generic" }
-attributes #4 = { mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none) }
-attributes #5 = { mustprogress nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+crc32,+cx8,+fxsr,+mmx,+popcnt,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+x87" "tune-cpu"="generic" }
-attributes #6 = { noreturn nounwind uwtable "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+crc32,+cx8,+fxsr,+mmx,+popcnt,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+x87" "tune-cpu"="generic" }
-attributes #7 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
-attributes #8 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
-attributes #9 = { nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: readwrite) }
-attributes #10 = { nounwind }
-attributes #11 = { noreturn nounwind }
+attributes #3 = { mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none) }
+attributes #4 = { mustprogress nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+crc32,+cx8,+fxsr,+mmx,+popcnt,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+x87" "tune-cpu"="generic" }
+attributes #5 = { noreturn nounwind uwtable "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+crc32,+cx8,+fxsr,+mmx,+popcnt,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+x87" "tune-cpu"="generic" }
+attributes #6 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
+attributes #7 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
+attributes #8 = { nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: readwrite) }
+attributes #9 = { nounwind }
+attributes #10 = { noreturn nounwind }
 
 !llvm.module.flags = !{!0, !1, !2, !3}
 

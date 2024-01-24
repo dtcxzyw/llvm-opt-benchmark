@@ -6,7 +6,6 @@ target triple = "x86_64-unknown-linux-gnu"
 %"class.double_conversion::StringToDoubleConverter" = type <{ i32, [4 x i8], double, double, ptr, ptr, i16, [6 x i8] }>
 %"struct.std::array" = type { [14 x %"struct.folly::detail::(anonymous namespace)::ErrorString"] }
 %"struct.folly::detail::(anonymous namespace)::ErrorString" = type { ptr, i8 }
-%"class.folly::Range" = type { ptr, ptr }
 %"class.std::out_of_range" = type { %"class.std::logic_error" }
 %"class.std::logic_error" = type { %"class.std::exception", %"struct.std::__cow_string" }
 %"class.std::exception" = type { ptr }
@@ -179,7 +178,7 @@ init:                                             ; preds = %init.check
 
 init.end:                                         ; preds = %init, %init.check, %entry
   %2 = load ptr, ptr %src, align 8, !tbaa !17
-  %e_.i = getelementptr inbounds %"class.folly::Range", ptr %src, i64 0, i32 1
+  %e_.i = getelementptr inbounds i8, ptr %src, i64 8
   %3 = load ptr, ptr %e_.i, align 8, !tbaa !19
   %cmp.i = icmp eq ptr %2, %3
   br i1 %cmp.i, label %return, label %if.end
@@ -661,7 +660,7 @@ init:                                             ; preds = %init.check
 
 init.end:                                         ; preds = %init, %init.check, %entry
   %2 = load ptr, ptr %src, align 8, !tbaa !17
-  %e_.i = getelementptr inbounds %"class.folly::Range", ptr %src, i64 0, i32 1
+  %e_.i = getelementptr inbounds i8, ptr %src, i64 8
   %3 = load ptr, ptr %e_.i, align 8, !tbaa !19
   %cmp.i = icmp eq ptr %2, %3
   br i1 %cmp.i, label %return, label %if.end
@@ -3370,7 +3369,7 @@ cleanup161:                                       ; preds = %for.cond, %for.body
 define weak_odr i24 @_ZN5folly6detail15str_to_integralIcEENS_8ExpectedIT_NS_14ConversionCodeEEEPNS_5RangeIPKcEE(ptr noundef %src) local_unnamed_addr #0 comdat personality ptr @__gxx_personality_v0 {
 entry:
   %0 = load ptr, ptr %src, align 8, !tbaa !17
-  %e_.i = getelementptr inbounds %"class.folly::Range", ptr %src, i64 0, i32 1
+  %e_.i = getelementptr inbounds i8, ptr %src, i64 8
   %1 = load ptr, ptr %e_.i, align 8, !tbaa !19
   %sub.ptr.lhs.cast.i = ptrtoint ptr %1 to i64
   %sub.ptr.rhs.cast.i = ptrtoint ptr %0 to i64
@@ -3591,7 +3590,7 @@ declare void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(8)
 define weak_odr i24 @_ZN5folly6detail15str_to_integralIaEENS_8ExpectedIT_NS_14ConversionCodeEEEPNS_5RangeIPKcEE(ptr noundef %src) local_unnamed_addr #0 comdat personality ptr @__gxx_personality_v0 {
 entry:
   %0 = load ptr, ptr %src, align 8, !tbaa !17
-  %e_.i = getelementptr inbounds %"class.folly::Range", ptr %src, i64 0, i32 1
+  %e_.i = getelementptr inbounds i8, ptr %src, i64 8
   %1 = load ptr, ptr %e_.i, align 8, !tbaa !19
   %sub.ptr.lhs.cast.i = ptrtoint ptr %1 to i64
   %sub.ptr.rhs.cast.i = ptrtoint ptr %0 to i64
@@ -3760,7 +3759,7 @@ terminate.lpad:                                   ; preds = %if.then.i126, %if.t
 define weak_odr i24 @_ZN5folly6detail15str_to_integralIhEENS_8ExpectedIT_NS_14ConversionCodeEEEPNS_5RangeIPKcEE(ptr noundef %src) local_unnamed_addr #0 comdat personality ptr @__gxx_personality_v0 {
 entry:
   %0 = load ptr, ptr %src, align 8, !tbaa !17
-  %e_.i = getelementptr inbounds %"class.folly::Range", ptr %src, i64 0, i32 1
+  %e_.i = getelementptr inbounds i8, ptr %src, i64 8
   %1 = load ptr, ptr %e_.i, align 8, !tbaa !19
   %sub.ptr.lhs.cast.i = ptrtoint ptr %1 to i64
   %sub.ptr.rhs.cast.i = ptrtoint ptr %0 to i64
@@ -3886,7 +3885,7 @@ terminate.lpad:                                   ; preds = %if.then.i, %if.then
 define weak_odr i32 @_ZN5folly6detail15str_to_integralIsEENS_8ExpectedIT_NS_14ConversionCodeEEEPNS_5RangeIPKcEE(ptr noundef %src) local_unnamed_addr #0 comdat personality ptr @__gxx_personality_v0 {
 entry:
   %0 = load ptr, ptr %src, align 8, !tbaa !17
-  %e_.i = getelementptr inbounds %"class.folly::Range", ptr %src, i64 0, i32 1
+  %e_.i = getelementptr inbounds i8, ptr %src, i64 8
   %1 = load ptr, ptr %e_.i, align 8, !tbaa !19
   %sub.ptr.lhs.cast.i = ptrtoint ptr %1 to i64
   %sub.ptr.rhs.cast.i = ptrtoint ptr %0 to i64
@@ -4053,7 +4052,7 @@ terminate.lpad:                                   ; preds = %if.then.i125, %if.t
 define weak_odr i32 @_ZN5folly6detail15str_to_integralItEENS_8ExpectedIT_NS_14ConversionCodeEEEPNS_5RangeIPKcEE(ptr noundef %src) local_unnamed_addr #0 comdat personality ptr @__gxx_personality_v0 {
 entry:
   %0 = load ptr, ptr %src, align 8, !tbaa !17
-  %e_.i = getelementptr inbounds %"class.folly::Range", ptr %src, i64 0, i32 1
+  %e_.i = getelementptr inbounds i8, ptr %src, i64 8
   %1 = load ptr, ptr %e_.i, align 8, !tbaa !19
   %sub.ptr.lhs.cast.i = ptrtoint ptr %1 to i64
   %sub.ptr.rhs.cast.i = ptrtoint ptr %0 to i64
@@ -4172,7 +4171,7 @@ terminate.lpad:                                   ; preds = %if.then.i, %if.then
 define weak_odr i64 @_ZN5folly6detail15str_to_integralIiEENS_8ExpectedIT_NS_14ConversionCodeEEEPNS_5RangeIPKcEE(ptr noundef %src) local_unnamed_addr #0 comdat personality ptr @__gxx_personality_v0 {
 entry:
   %0 = load ptr, ptr %src, align 8, !tbaa !17
-  %e_.i = getelementptr inbounds %"class.folly::Range", ptr %src, i64 0, i32 1
+  %e_.i = getelementptr inbounds i8, ptr %src, i64 8
   %1 = load ptr, ptr %e_.i, align 8, !tbaa !19
   %sub.ptr.lhs.cast.i = ptrtoint ptr %1 to i64
   %sub.ptr.rhs.cast.i = ptrtoint ptr %0 to i64
@@ -4339,7 +4338,7 @@ terminate.lpad:                                   ; preds = %if.then.i126, %if.t
 define weak_odr i64 @_ZN5folly6detail15str_to_integralIjEENS_8ExpectedIT_NS_14ConversionCodeEEEPNS_5RangeIPKcEE(ptr noundef %src) local_unnamed_addr #0 comdat personality ptr @__gxx_personality_v0 {
 entry:
   %0 = load ptr, ptr %src, align 8, !tbaa !17
-  %e_.i = getelementptr inbounds %"class.folly::Range", ptr %src, i64 0, i32 1
+  %e_.i = getelementptr inbounds i8, ptr %src, i64 8
   %1 = load ptr, ptr %e_.i, align 8, !tbaa !19
   %sub.ptr.lhs.cast.i = ptrtoint ptr %1 to i64
   %sub.ptr.rhs.cast.i = ptrtoint ptr %0 to i64
@@ -4458,7 +4457,7 @@ terminate.lpad:                                   ; preds = %if.then.i, %if.then
 define weak_odr { i64, i64 } @_ZN5folly6detail15str_to_integralIlEENS_8ExpectedIT_NS_14ConversionCodeEEEPNS_5RangeIPKcEE(ptr noundef %src) local_unnamed_addr #0 comdat personality ptr @__gxx_personality_v0 {
 entry:
   %0 = load ptr, ptr %src, align 8, !tbaa !17
-  %e_.i = getelementptr inbounds %"class.folly::Range", ptr %src, i64 0, i32 1
+  %e_.i = getelementptr inbounds i8, ptr %src, i64 8
   %1 = load ptr, ptr %e_.i, align 8, !tbaa !19
   %sub.ptr.lhs.cast.i = ptrtoint ptr %1 to i64
   %sub.ptr.rhs.cast.i = ptrtoint ptr %0 to i64
@@ -4623,7 +4622,7 @@ terminate.lpad:                                   ; preds = %if.then.i126, %if.t
 define weak_odr { i64, i64 } @_ZN5folly6detail15str_to_integralImEENS_8ExpectedIT_NS_14ConversionCodeEEEPNS_5RangeIPKcEE(ptr noundef %src) local_unnamed_addr #0 comdat personality ptr @__gxx_personality_v0 {
 entry:
   %0 = load ptr, ptr %src, align 8, !tbaa !17
-  %e_.i = getelementptr inbounds %"class.folly::Range", ptr %src, i64 0, i32 1
+  %e_.i = getelementptr inbounds i8, ptr %src, i64 8
   %1 = load ptr, ptr %e_.i, align 8, !tbaa !19
   %sub.ptr.lhs.cast.i = ptrtoint ptr %1 to i64
   %sub.ptr.rhs.cast.i = ptrtoint ptr %0 to i64
@@ -4744,7 +4743,7 @@ terminate.lpad:                                   ; preds = %if.then.i, %if.then
 define weak_odr { i64, i64 } @_ZN5folly6detail15str_to_integralIxEENS_8ExpectedIT_NS_14ConversionCodeEEEPNS_5RangeIPKcEE(ptr noundef %src) local_unnamed_addr #0 comdat personality ptr @__gxx_personality_v0 {
 entry:
   %0 = load ptr, ptr %src, align 8, !tbaa !17
-  %e_.i = getelementptr inbounds %"class.folly::Range", ptr %src, i64 0, i32 1
+  %e_.i = getelementptr inbounds i8, ptr %src, i64 8
   %1 = load ptr, ptr %e_.i, align 8, !tbaa !19
   %sub.ptr.lhs.cast.i = ptrtoint ptr %1 to i64
   %sub.ptr.rhs.cast.i = ptrtoint ptr %0 to i64
@@ -4909,7 +4908,7 @@ terminate.lpad:                                   ; preds = %if.then.i126, %if.t
 define weak_odr { i64, i64 } @_ZN5folly6detail15str_to_integralIyEENS_8ExpectedIT_NS_14ConversionCodeEEEPNS_5RangeIPKcEE(ptr noundef %src) local_unnamed_addr #0 comdat personality ptr @__gxx_personality_v0 {
 entry:
   %0 = load ptr, ptr %src, align 8, !tbaa !17
-  %e_.i = getelementptr inbounds %"class.folly::Range", ptr %src, i64 0, i32 1
+  %e_.i = getelementptr inbounds i8, ptr %src, i64 8
   %1 = load ptr, ptr %e_.i, align 8, !tbaa !19
   %sub.ptr.lhs.cast.i = ptrtoint ptr %1 to i64
   %sub.ptr.rhs.cast.i = ptrtoint ptr %0 to i64
@@ -5030,7 +5029,7 @@ terminate.lpad:                                   ; preds = %if.then.i, %if.then
 define i24 @_ZN5folly6detail11str_to_boolEPNS_5RangeIPKcEE(ptr nocapture noundef %src) local_unnamed_addr #13 personality ptr @__gxx_personality_v0 {
 entry:
   %0 = load ptr, ptr %src, align 8, !tbaa !17
-  %e_.i = getelementptr inbounds %"class.folly::Range", ptr %src, i64 0, i32 1
+  %e_.i = getelementptr inbounds i8, ptr %src, i64 8
   %1 = load ptr, ptr %e_.i, align 8, !tbaa !19
   %2 = ptrtoint ptr %1 to i64
   %cmp.not224 = icmp ult ptr %0, %1
@@ -5328,14 +5327,14 @@ if.then:                                          ; preds = %entry
   %0 = load ptr, ptr %arrayidx.i.i, align 8, !tbaa !80
   tail call void @_ZNSt11range_errorC2EPKc(ptr noundef nonnull align 8 dereferenceable(16) %agg.result, ptr noundef %0)
   store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN5folly15ConversionErrorE, i64 0, inrange i32 0, i64 2), ptr %agg.result, align 8, !tbaa !25
-  %code_.i = getelementptr inbounds %"class.folly::ConversionError", ptr %agg.result, i64 0, i32 1
+  %code_.i = getelementptr inbounds i8, ptr %agg.result, i64 16
   store i8 1, ptr %code_.i, align 8, !tbaa !83
   br label %cleanup
 
 if.end:                                           ; preds = %entry
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %tmp) #17
   %1 = load ptr, ptr %arrayidx.i.i, align 8, !tbaa !80
-  %2 = getelementptr inbounds %"class.std::__cxx11::basic_string", ptr %tmp, i64 0, i32 2
+  %2 = getelementptr inbounds i8, ptr %tmp, i64 16
   store ptr %2, ptr %tmp, align 8, !tbaa !91
   %cmp.i33 = icmp eq ptr %1, null
   br i1 %cmp.i33, label %if.then.i, label %if.end.i
@@ -5376,7 +5375,7 @@ if.end.i.i.i.i.i:                                 ; preds = %if.end.i.i
 
 invoke.cont:                                      ; preds = %if.end.i.i.i.i.i, %if.then.i.i.i.i, %if.end.i.i
   %6 = load i64, ptr %__dnew.i.i, align 8, !tbaa !93
-  %_M_string_length.i.i.i.i = getelementptr inbounds %"class.std::__cxx11::basic_string", ptr %tmp, i64 0, i32 1
+  %_M_string_length.i.i.i.i = getelementptr inbounds i8, ptr %tmp, i64 8
   store i64 %6, ptr %_M_string_length.i.i.i.i, align 8, !tbaa !97
   %7 = load ptr, ptr %tmp, align 8, !tbaa !95
   %arrayidx.i.i.i = getelementptr inbounds i8, ptr %7, i64 %6
@@ -5456,7 +5455,7 @@ if.end22:                                         ; preds = %if.then19, %if.end1
 
 invoke.cont23:                                    ; preds = %if.end22
   store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN5folly15ConversionErrorE, i64 0, inrange i32 0, i64 2), ptr %agg.result, align 8, !tbaa !25
-  %code_.i56 = getelementptr inbounds %"class.folly::ConversionError", ptr %agg.result, i64 0, i32 1
+  %code_.i56 = getelementptr inbounds i8, ptr %agg.result, i64 16
   store i8 %code, ptr %code_.i56, align 8, !tbaa !83
   %17 = load ptr, ptr %tmp, align 8, !tbaa !95
   %cmp.i.i.i58 = icmp eq ptr %17, %2

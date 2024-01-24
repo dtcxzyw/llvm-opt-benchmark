@@ -4,9 +4,6 @@ target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:
 target triple = "x86_64-unknown-linux-gnu"
 
 %struct.evp_aead_st = type { i8, i8, i8, i8, ptr, ptr, ptr, ptr, ptr, ptr, ptr }
-%struct.evp_aead_ctx_st = type { ptr, ptr }
-%struct.AEAD_SSL3_CTX = type { %struct.evp_cipher_ctx_st, %struct.env_md_ctx_st }
-%struct.evp_cipher_ctx_st = type { ptr, ptr, ptr, i32, i32, i32, [16 x i8], [16 x i8], [32 x i8], i32, i32, i32, i32, [32 x i8] }
 %struct.env_md_ctx_st = type { ptr, ptr, ptr, ptr }
 
 @aead_rc4_md5_ssl3 = internal constant %struct.evp_aead_st { i8 32, i8 0, i8 16, i8 16, ptr null, ptr @aead_rc4_md5_ssl3_init, ptr @aead_ssl3_cleanup, ptr @aead_ssl3_seal, ptr @aead_ssl3_open, ptr @aead_ssl3_get_rc4_state, ptr null }, align 8
@@ -65,10 +62,10 @@ entry:
 ; Function Attrs: nounwind uwtable
 define internal void @aead_ssl3_cleanup(ptr nocapture noundef %ctx) #1 {
 entry:
-  %aead_state = getelementptr inbounds %struct.evp_aead_ctx_st, ptr %ctx, i64 0, i32 1
+  %aead_state = getelementptr inbounds i8, ptr %ctx, i64 8
   %0 = load ptr, ptr %aead_state, align 8
   %call = tail call i32 @EVP_CIPHER_CTX_cleanup(ptr noundef %0) #6
-  %md_ctx = getelementptr inbounds %struct.AEAD_SSL3_CTX, ptr %0, i64 0, i32 1
+  %md_ctx = getelementptr inbounds i8, ptr %0, i64 152
   %call1 = tail call i32 @EVP_MD_CTX_cleanup(ptr noundef nonnull %md_ctx) #6
   tail call void @free(ptr noundef %0) #6
   store ptr null, ptr %aead_state, align 8
@@ -82,9 +79,9 @@ entry:
   %mac_len = alloca i32, align 4
   %len = alloca i32, align 4
   %padding = alloca [256 x i8], align 16
-  %aead_state = getelementptr inbounds %struct.evp_aead_ctx_st, ptr %ctx, i64 0, i32 1
+  %aead_state = getelementptr inbounds i8, ptr %ctx, i64 8
   %0 = load ptr, ptr %aead_state, align 8
-  %encrypt = getelementptr inbounds %struct.evp_cipher_ctx_st, ptr %0, i64 0, i32 4
+  %encrypt = getelementptr inbounds i8, ptr %0, i64 28
   %1 = load i32, ptr %encrypt, align 4
   %tobool.not = icmp eq i32 %1, 0
   br i1 %tobool.not, label %if.then, label %if.end
@@ -210,9 +207,9 @@ define internal noundef i32 @aead_ssl3_open(ptr nocapture noundef readonly %ctx,
 entry:
   %len = alloca i32, align 4
   %mac = alloca [64 x i8], align 16
-  %aead_state = getelementptr inbounds %struct.evp_aead_ctx_st, ptr %ctx, i64 0, i32 1
+  %aead_state = getelementptr inbounds i8, ptr %ctx, i64 8
   %0 = load ptr, ptr %aead_state, align 8
-  %encrypt = getelementptr inbounds %struct.evp_cipher_ctx_st, ptr %0, i64 0, i32 4
+  %encrypt = getelementptr inbounds i8, ptr %0, i64 28
   %1 = load i32, ptr %encrypt, align 4
   %tobool.not = icmp eq i32 %1, 0
   br i1 %tobool.not, label %if.end, label %if.then
@@ -222,7 +219,7 @@ if.then:                                          ; preds = %entry
   br label %return
 
 if.end:                                           ; preds = %entry
-  %md_ctx = getelementptr inbounds %struct.AEAD_SSL3_CTX, ptr %0, i64 0, i32 1
+  %md_ctx = getelementptr inbounds i8, ptr %0, i64 152
   %call = tail call i64 @EVP_MD_CTX_size(ptr noundef nonnull %md_ctx) #6
   %cmp = icmp ugt i64 %call, %in_len
   br i1 %cmp, label %if.then1, label %if.end2
@@ -345,7 +342,7 @@ return:                                           ; preds = %if.end55, %if.end19
 ; Function Attrs: nounwind uwtable
 define internal noundef i32 @aead_ssl3_get_rc4_state(ptr nocapture noundef readonly %ctx, ptr nocapture noundef writeonly %out_key) #1 {
 entry:
-  %aead_state = getelementptr inbounds %struct.evp_aead_ctx_st, ptr %ctx, i64 0, i32 1
+  %aead_state = getelementptr inbounds i8, ptr %ctx, i64 8
   %0 = load ptr, ptr %aead_state, align 8
   %call = tail call ptr @EVP_CIPHER_CTX_cipher(ptr noundef %0) #6
   %call1 = tail call ptr @EVP_rc4() #6
@@ -353,7 +350,7 @@ entry:
   br i1 %cmp.not, label %if.end, label %return
 
 if.end:                                           ; preds = %entry
-  %cipher_data = getelementptr inbounds %struct.evp_cipher_ctx_st, ptr %0, i64 0, i32 2
+  %cipher_data = getelementptr inbounds i8, ptr %0, i64 16
   %1 = load ptr, ptr %cipher_data, align 8
   store ptr %1, ptr %out_key, align 8
   br label %return
@@ -402,9 +399,9 @@ if.then11:                                        ; preds = %if.end5
 if.end12:                                         ; preds = %if.end5
   %conv = zext i32 %call7 to i64
   tail call void @EVP_CIPHER_CTX_init(ptr noundef nonnull %call8) #6
-  %md_ctx = getelementptr inbounds %struct.AEAD_SSL3_CTX, ptr %call8, i64 0, i32 1
+  %md_ctx = getelementptr inbounds i8, ptr %call8, i64 152
   tail call void @EVP_MD_CTX_init(ptr noundef nonnull %md_ctx) #6
-  %aead_state = getelementptr inbounds %struct.evp_aead_ctx_st, ptr %ctx, i64 0, i32 1
+  %aead_state = getelementptr inbounds i8, ptr %ctx, i64 8
   store ptr %call8, ptr %aead_state, align 8
   %arrayidx = getelementptr inbounds i8, ptr %key, i64 %call6
   %arrayidx14 = getelementptr i8, ptr %arrayidx, i64 %conv
@@ -427,7 +424,7 @@ lor.lhs.false21:                                  ; preds = %lor.lhs.false
 if.then25:                                        ; preds = %lor.lhs.false21, %lor.lhs.false, %if.end12
   %1 = load ptr, ptr %aead_state, align 8
   %call.i = tail call i32 @EVP_CIPHER_CTX_cleanup(ptr noundef %1) #6
-  %md_ctx.i = getelementptr inbounds %struct.AEAD_SSL3_CTX, ptr %1, i64 0, i32 1
+  %md_ctx.i = getelementptr inbounds i8, ptr %1, i64 152
   %call1.i = tail call i32 @EVP_MD_CTX_cleanup(ptr noundef nonnull %md_ctx.i) #6
   tail call void @free(ptr noundef %1) #6
   store ptr null, ptr %aead_state, align 8
@@ -485,7 +482,7 @@ entry:
   %md_ctx4 = alloca %struct.env_md_ctx_st, align 8
   %pad = alloca [48 x i8], align 16
   %tmp = alloca [64 x i8], align 16
-  %md_ctx = getelementptr inbounds %struct.AEAD_SSL3_CTX, ptr %ssl3_ctx, i64 0, i32 1
+  %md_ctx = getelementptr inbounds i8, ptr %ssl3_ctx, i64 152
   %call = tail call i64 @EVP_MD_CTX_size(ptr noundef nonnull %md_ctx) #6
   %cmp = icmp eq i64 %call, 20
   %conv = select i1 %cmp, i64 40, i64 48
@@ -493,7 +490,7 @@ entry:
   %conv1 = trunc i64 %shr to i8
   store i8 %conv1, ptr %ad_extra, align 1
   %conv2 = trunc i64 %in_len to i8
-  %arrayidx3 = getelementptr inbounds [2 x i8], ptr %ad_extra, i64 0, i64 1
+  %arrayidx3 = getelementptr inbounds i8, ptr %ad_extra, i64 1
   store i8 %conv2, ptr %arrayidx3, align 1
   call void @EVP_MD_CTX_init(ptr noundef nonnull %md_ctx4) #6
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(40) %pad, i8 54, i64 %conv, i1 false)
@@ -602,7 +599,7 @@ entry:
 ; Function Attrs: nounwind uwtable
 define internal noundef i32 @aead_ssl3_get_iv(ptr nocapture noundef readonly %ctx, ptr nocapture noundef writeonly %out_iv, ptr nocapture noundef writeonly %out_iv_len) #1 {
 entry:
-  %aead_state = getelementptr inbounds %struct.evp_aead_ctx_st, ptr %ctx, i64 0, i32 1
+  %aead_state = getelementptr inbounds i8, ptr %ctx, i64 8
   %0 = load ptr, ptr %aead_state, align 8
   %call = tail call i32 @EVP_CIPHER_CTX_iv_length(ptr noundef %0) #6
   %cmp = icmp ult i32 %call, 2
@@ -610,7 +607,7 @@ entry:
 
 if.end:                                           ; preds = %entry
   %conv = zext i32 %call to i64
-  %iv = getelementptr inbounds %struct.evp_cipher_ctx_st, ptr %0, i64 0, i32 7
+  %iv = getelementptr inbounds i8, ptr %0, i64 52
   store ptr %iv, ptr %out_iv, align 8
   store i64 %conv, ptr %out_iv_len, align 8
   br label %return

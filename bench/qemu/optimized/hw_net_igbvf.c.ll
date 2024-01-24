@@ -8,36 +8,6 @@ target triple = "x86_64-unknown-linux-gnu"
 %struct.MemoryRegionOps = type { ptr, ptr, ptr, ptr, i32, %struct.anon, %struct.anon.4 }
 %struct.anon = type { i32, i32, i8, ptr }
 %struct.anon.4 = type { i32, i32, i8 }
-%struct.PCIDeviceClass = type { %struct.DeviceClass, ptr, ptr, ptr, ptr, i16, i16, i8, i16, i16, i16, ptr }
-%struct.DeviceClass = type { %struct.ObjectClass, [1 x i64], ptr, ptr, ptr, i8, i8, ptr, ptr, ptr, ptr, ptr }
-%struct.ObjectClass = type { ptr, ptr, [4 x ptr], [4 x ptr], ptr, ptr }
-%struct.ResettableClass = type { %struct.InterfaceClass, %struct.ResettablePhases, ptr, ptr, ptr }
-%struct.InterfaceClass = type { %struct.ObjectClass, ptr, ptr }
-%struct.ResettablePhases = type { ptr, ptr, ptr }
-%struct.PCIDevice = type { %struct.DeviceState, i8, i8, ptr, ptr, ptr, ptr, ptr, i32, %struct.PCIReqIDCache, [64 x i8], [7 x %struct.PCIIORegion], %struct.AddressSpace, %struct.MemoryRegion, %struct.MemoryRegion, ptr, ptr, [3 x ptr], i8, i8, i32, i8, i32, ptr, ptr, ptr, ptr, ptr, ptr, %struct.MemoryRegion, %struct.MemoryRegion, %struct.MemoryRegion, ptr, i8, i32, i8, %struct.PCIExpressDevice, ptr, ptr, i32, i8, %struct.MemoryRegion, i32, ptr, ptr, ptr, ptr, ptr, i32 }
-%struct.DeviceState = type { %struct.Object, ptr, ptr, i8, i8, i64, ptr, i32, i8, ptr, %struct.NamedGPIOListHead, %struct.NamedClockListHead, %struct.BusStateHead, i32, i32, i32, %struct.ResettableState, ptr, %struct.MemReentrancyGuard }
-%struct.Object = type { ptr, ptr, ptr, i32, ptr }
-%struct.NamedGPIOListHead = type { ptr }
-%struct.NamedClockListHead = type { ptr }
-%struct.BusStateHead = type { ptr }
-%struct.ResettableState = type { i32, i8, i8 }
-%struct.MemReentrancyGuard = type { i8 }
-%struct.PCIReqIDCache = type { ptr, i32 }
-%struct.PCIIORegion = type { i64, i64, i8, ptr, ptr }
-%struct.AddressSpace = type { %struct.rcu_head, ptr, ptr, ptr, i32, i32, ptr, %union.anon, %union.anon.0 }
-%struct.rcu_head = type { ptr, ptr }
-%union.anon = type { %struct.QTailQLink }
-%struct.QTailQLink = type { ptr, ptr }
-%union.anon.0 = type { %struct.QTailQLink }
-%struct.PCIExpressDevice = type { i8, i8, i8, i16, %struct.PCIEAERLog, i16, i16, i16, %struct.PCIESriovPF, %struct.PCIESriovVF }
-%struct.PCIEAERLog = type { i16, i16, ptr }
-%struct.PCIESriovPF = type { i16, [7 x i8], ptr, ptr }
-%struct.PCIESriovVF = type { ptr, i16 }
-%struct.MemoryRegion = type { %struct.Object, i8, i8, i8, i8, i8, i8, i8, i8, i8, i8, ptr, ptr, ptr, ptr, ptr, ptr, i32, i128, i64, ptr, i64, i8, i8, i8, i8, i8, ptr, i64, i32, %union.anon.1, %union.anon.2, %union.anon.3, ptr, i32, ptr, ptr, i8 }
-%union.anon.1 = type { %struct.QTailQLink }
-%union.anon.2 = type { %struct.QTailQLink }
-%union.anon.3 = type { %struct.QTailQLink }
-%struct.IgbVfState = type { %struct.PCIDevice, %struct.MemoryRegion, %struct.MemoryRegion }
 %struct.timeval = type { i64, i64 }
 
 @igbvf_info = internal constant %struct.TypeInfo { ptr @.str, ptr @.str.1, i64 3152, i64 0, ptr null, ptr null, ptr null, i8 0, i64 0, ptr @igbvf_class_init, ptr null, ptr null, ptr @.compoundliteral }, align 8
@@ -99,25 +69,25 @@ entry:
   %call.i = tail call ptr @object_class_dynamic_cast_assert(ptr noundef %class, ptr noundef nonnull @.str.4, ptr noundef nonnull @.str.5, i32 noundef 77, ptr noundef nonnull @__func__.DEVICE_CLASS) #5
   %call.i10 = tail call ptr @object_class_dynamic_cast_assert(ptr noundef %class, ptr noundef nonnull @.str.1, ptr noundef nonnull @.str.6, i32 noundef 10, ptr noundef nonnull @__func__.PCI_DEVICE_CLASS) #5
   %call.i11 = tail call ptr @object_class_dynamic_cast_assert(ptr noundef %class, ptr noundef nonnull @.str.7, ptr noundef nonnull @.str.8, i32 noundef 22, ptr noundef nonnull @__func__.RESETTABLE_CLASS) #5
-  %realize = getelementptr inbounds %struct.PCIDeviceClass, ptr %call.i10, i64 0, i32 1
+  %realize = getelementptr inbounds i8, ptr %call.i10, i64 176
   store ptr @igbvf_pci_realize, ptr %realize, align 8
-  %exit = getelementptr inbounds %struct.PCIDeviceClass, ptr %call.i10, i64 0, i32 2
+  %exit = getelementptr inbounds i8, ptr %call.i10, i64 184
   store ptr @igbvf_pci_uninit, ptr %exit, align 8
-  %vendor_id = getelementptr inbounds %struct.PCIDeviceClass, ptr %call.i10, i64 0, i32 5
+  %vendor_id = getelementptr inbounds i8, ptr %call.i10, i64 208
   store i16 -32634, ptr %vendor_id, align 8
-  %device_id = getelementptr inbounds %struct.PCIDeviceClass, ptr %call.i10, i64 0, i32 6
+  %device_id = getelementptr inbounds i8, ptr %call.i10, i64 210
   store i16 4298, ptr %device_id, align 2
-  %revision = getelementptr inbounds %struct.PCIDeviceClass, ptr %call.i10, i64 0, i32 7
+  %revision = getelementptr inbounds i8, ptr %call.i10, i64 212
   store i8 1, ptr %revision, align 4
-  %class_id = getelementptr inbounds %struct.PCIDeviceClass, ptr %call.i10, i64 0, i32 8
+  %class_id = getelementptr inbounds i8, ptr %call.i10, i64 214
   store i16 512, ptr %class_id, align 2
-  %hold = getelementptr inbounds %struct.ResettableClass, ptr %call.i11, i64 0, i32 1, i32 1
+  %hold = getelementptr inbounds i8, ptr %call.i11, i64 120
   store ptr @igbvf_qdev_reset_hold, ptr %hold, align 8
-  %desc = getelementptr inbounds %struct.DeviceClass, ptr %call.i, i64 0, i32 3
+  %desc = getelementptr inbounds i8, ptr %call.i, i64 112
   store ptr @.str.3, ptr %desc, align 8
-  %user_creatable = getelementptr inbounds %struct.DeviceClass, ptr %call.i, i64 0, i32 5
+  %user_creatable = getelementptr inbounds i8, ptr %call.i, i64 128
   store i8 0, ptr %user_creatable, align 8
-  %categories = getelementptr inbounds %struct.DeviceClass, ptr %call.i, i64 0, i32 1
+  %categories = getelementptr inbounds i8, ptr %call.i, i64 96
   %0 = load i64, ptr %categories, align 8
   %or.i = or i64 %0, 8
   store i64 %or.i, ptr %categories, align 8
@@ -128,12 +98,12 @@ entry:
 define internal void @igbvf_pci_realize(ptr noundef %dev, ptr noundef %errp) #0 {
 entry:
   %call.i = tail call ptr @object_dynamic_cast_assert(ptr noundef %dev, ptr noundef nonnull @.str, ptr noundef nonnull @.str.14, i32 noundef 53, ptr noundef nonnull @__func__.IGBVF) #5
-  %config_write = getelementptr inbounds %struct.PCIDevice, ptr %dev, i64 0, i32 16
+  %config_write = getelementptr inbounds i8, ptr %dev, i64 1224
   store ptr @igbvf_write_config, ptr %config_write, align 8
-  %mmio = getelementptr inbounds %struct.IgbVfState, ptr %call.i, i64 0, i32 1
+  %mmio = getelementptr inbounds i8, ptr %call.i, i64 2608
   tail call void @memory_region_init_io(ptr noundef nonnull %mmio, ptr noundef %dev, ptr noundef nonnull @mmio_ops, ptr noundef %call.i, ptr noundef nonnull @.str.9, i64 noundef 16384) #5
   tail call void @pcie_sriov_vf_register_bar(ptr noundef %dev, i32 noundef 0, ptr noundef nonnull %mmio) #5
-  %msix = getelementptr inbounds %struct.IgbVfState, ptr %call.i, i64 0, i32 2
+  %msix = getelementptr inbounds i8, ptr %call.i, i64 2880
   tail call void @memory_region_init(ptr noundef nonnull %msix, ptr noundef %dev, ptr noundef nonnull @.str.10, i64 noundef 16384) #5
   tail call void @pcie_sriov_vf_register_bar(ptr noundef %dev, i32 noundef 3, ptr noundef nonnull %msix) #5
   %call5 = tail call i32 @msix_init(ptr noundef %dev, i16 noundef zeroext 3, ptr noundef nonnull %msix, i8 noundef zeroext 3, i32 noundef 0, ptr noundef nonnull %msix, i8 noundef zeroext 3, i32 noundef 8192, i8 noundef zeroext 112, ptr noundef %errp) #5
@@ -189,7 +159,7 @@ entry:
   tail call void @pcie_aer_exit(ptr noundef %dev) #5
   tail call void @pcie_cap_exit(ptr noundef %dev) #5
   tail call void @msix_unuse_all_vectors(ptr noundef %dev) #5
-  %msix = getelementptr inbounds %struct.IgbVfState, ptr %call.i, i64 0, i32 2
+  %msix = getelementptr inbounds i8, ptr %call.i, i64 2880
   tail call void @msix_uninit(ptr noundef %dev, ptr noundef nonnull %msix, ptr noundef nonnull %msix) #5
   ret void
 }
@@ -234,7 +204,7 @@ if.then8.i.i:                                     ; preds = %if.then.i.i
   %call9.i.i = call i32 @gettimeofday(ptr noundef nonnull %_now.i.i, ptr noundef null) #5
   %call10.i.i = tail call i32 @qemu_get_thread_id() #5
   %5 = load i64, ptr %_now.i.i, align 8
-  %tv_usec.i.i = getelementptr inbounds %struct.timeval, ptr %_now.i.i, i64 0, i32 1
+  %tv_usec.i.i = getelementptr inbounds i8, ptr %_now.i.i, i64 8
   %6 = load i64, ptr %tv_usec.i.i, align 8
   tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.15, i32 noundef %call10.i.i, i64 noundef %5, i64 noundef %6, i32 noundef %addr, i32 noundef %val, i32 noundef %len) #5
   br label %trace_igbvf_write_config.exit
@@ -864,7 +834,7 @@ if.then8.i:                                       ; preds = %if.then.i
   %call9.i = call i32 @gettimeofday(ptr noundef nonnull %_now.i, ptr noundef null) #5
   %call10.i = tail call i32 @qemu_get_thread_id() #5
   %5 = load i64, ptr %_now.i, align 8
-  %tv_usec.i = getelementptr inbounds %struct.timeval, ptr %_now.i, i64 0, i32 1
+  %tv_usec.i = getelementptr inbounds i8, ptr %_now.i, i64 8
   %6 = load i64, ptr %tv_usec.i, align 8
   tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.17, i32 noundef %call10.i, i64 noundef %5, i64 noundef %6, i64 noundef %addr) #5
   br label %_nocheck__trace_igbvf_wrn_io_addr_unknown.exit

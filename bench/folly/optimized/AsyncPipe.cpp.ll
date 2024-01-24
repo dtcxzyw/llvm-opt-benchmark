@@ -20,44 +20,7 @@ target triple = "x86_64-unknown-linux-gnu"
 %"struct.std::__cow_string" = type { %union.anon.13 }
 %union.anon.13 = type { ptr }
 %"class.std::allocator.14" = type { i8 }
-%"class.folly::AsyncPipeReader" = type { %"class.folly::EventHandler", %"class.folly::AsyncReader", %"class.folly::DelayedDestruction.base", %"struct.folly::NetworkSocket", ptr, %"class.std::function" }
-%"class.folly::EventHandler" = type { ptr, %"class.folly::EventBaseEvent", ptr }
-%"class.folly::EventBaseEvent" = type { %struct.event, ptr, ptr, ptr, %"struct.folly::EventCallback" }
-%struct.event = type { %struct.event_callback, %union.anon.0, i32, ptr, %union.anon.2, i16, i16, %struct.timeval }
-%struct.event_callback = type { %struct.anon, i16, i8, i8, %union.anon, ptr }
-%struct.anon = type { ptr, ptr }
-%union.anon = type { ptr }
-%union.anon.0 = type { %struct.anon.1 }
-%struct.anon.1 = type { ptr, ptr }
-%union.anon.2 = type { %struct.anon.3 }
-%struct.anon.3 = type { %struct.anon.4, %struct.timeval }
-%struct.anon.4 = type { ptr, ptr }
-%struct.timeval = type { i64, i64 }
-%"struct.folly::EventCallback" = type { i32, %union.anon.7 }
-%union.anon.7 = type { ptr }
-%"class.folly::AsyncReader" = type { ptr }
-%"class.folly::DelayedDestruction.base" = type { %"class.folly::DelayedDestructionBase.base", i8 }
-%"class.folly::DelayedDestructionBase.base" = type <{ ptr, i32 }>
 %"struct.folly::NetworkSocket" = type { i32 }
-%"class.std::function" = type { %"class.std::_Function_base", ptr }
-%"class.std::_Function_base" = type { %"union.std::_Any_data", ptr }
-%"union.std::_Any_data" = type { %"union.std::_Nocopy_types" }
-%"union.std::_Nocopy_types" = type { { i64, i64 } }
-%"class.folly::IOBuf" = type { i64, ptr, i64, ptr, ptr, ptr, i64 }
-%"class.folly::DelayedDestruction" = type { %"class.folly::DelayedDestructionBase.base", i8, [3 x i8] }
-%"class.folly::DelayedDestructionBase" = type <{ ptr, i32, [4 x i8] }>
-%"class.folly::AsyncPipeWriter" = type { %"class.folly::EventHandler", %"class.folly::AsyncWriter", %"class.folly::DelayedDestruction.base", %"struct.folly::NetworkSocket", %"class.std::__cxx11::list", i8, %"class.std::function" }
-%"class.folly::AsyncWriter" = type { ptr }
-%"class.std::__cxx11::list" = type { %"class.std::__cxx11::_List_base" }
-%"class.std::__cxx11::_List_base" = type { %"struct.std::__cxx11::_List_base<std::pair<folly::IOBufQueue, folly::AsyncWriter::WriteCallback *>, std::allocator<std::pair<folly::IOBufQueue, folly::AsyncWriter::WriteCallback *>>>::_List_impl" }
-%"struct.std::__cxx11::_List_base<std::pair<folly::IOBufQueue, folly::AsyncWriter::WriteCallback *>, std::allocator<std::pair<folly::IOBufQueue, folly::AsyncWriter::WriteCallback *>>>::_List_impl" = type { %"struct.std::__detail::_List_node_header" }
-%"struct.std::__detail::_List_node_header" = type { %"struct.std::__detail::_List_node_base", i64 }
-%"struct.std::__detail::_List_node_base" = type { ptr, ptr }
-%"struct.std::_List_node" = type { %"struct.std::__detail::_List_node_base", %"struct.__gnu_cxx::__aligned_membuf" }
-%"struct.__gnu_cxx::__aligned_membuf" = type { [80 x i8] }
-%"class.std::ios_base" = type { ptr, i64, i64, i32, i32, i32, ptr, %"struct.std::ios_base::_Words", [8 x %"struct.std::ios_base::_Words"], i32, ptr, %"class.std::locale" }
-%"struct.std::ios_base::_Words" = type { ptr, i64 }
-%"class.std::locale" = type { ptr }
 %"class.folly::IOBufQueue" = type { %"struct.folly::IOBufQueue::Options", i64, %"class.std::unique_ptr", ptr, ptr, %"struct.folly::IOBufQueue::WritableRangeCacheData", ptr }
 %"struct.folly::IOBufQueue::Options" = type { i8 }
 %"struct.folly::IOBufQueue::WritableRangeCacheData" = type <{ %"struct.std::pair", i8, [7 x i8] }>
@@ -296,7 +259,7 @@ invoke.cont32:                                    ; preds = %invoke.cont30
           to label %call1.i.i.noexc unwind label %terminate.lpad.loopexit.split-lp
 
 call1.i.i.noexc:                                  ; preds = %invoke.cont32
-  %fd_ = getelementptr inbounds %"class.folly::AsyncPipeReader", ptr %this, i64 0, i32 3
+  %fd_ = getelementptr inbounds i8, ptr %this, i64 208
   %4 = load i32, ptr %fd_, align 8, !tbaa !16
   %call1.i168 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZNSolsEi(ptr noundef nonnull align 8 dereferenceable(8) %call.i163, i32 noundef %4)
           to label %call1.i.noexc unwind label %terminate.lpad.loopexit.split-lp
@@ -311,15 +274,15 @@ cleanup.action38:                                 ; preds = %call1.i.noexc
   br label %cleanup.done42
 
 cleanup.done42:                                   ; preds = %cleanup.action38, %land.end, %cleanup.done13
-  %readCallback_ = getelementptr inbounds %"class.folly::AsyncPipeReader", ptr %this, i64 0, i32 4
-  %fd_96 = getelementptr inbounds %"class.folly::AsyncPipeReader", ptr %this, i64 0, i32 3
-  %5 = getelementptr inbounds %"class.std::__cxx11::basic_string", ptr %ref.tmp130, i64 0, i32 2
-  %_M_string_length.i.i.i.i200 = getelementptr inbounds %"class.std::__cxx11::basic_string", ptr %ref.tmp130, i64 0, i32 1
-  %6 = getelementptr inbounds %"class.std::__cxx11::basic_string", ptr %ref.tmp.i208, i64 0, i32 2
-  %_M_string_length.i.i.i.i222 = getelementptr inbounds %"class.std::__cxx11::basic_string", ptr %ref.tmp.i208, i64 0, i32 1
-  %type_.i219 = getelementptr inbounds %"class.folly::AsyncSocketException", ptr %ex129, i64 0, i32 1
-  %errno_.i220 = getelementptr inbounds %"class.folly::AsyncSocketException", ptr %ex129, i64 0, i32 2
-  %arrayidx.i.i.i201 = getelementptr inbounds %"class.std::__cxx11::basic_string", ptr %ref.tmp130, i64 0, i32 2, i32 1, i64 3
+  %readCallback_ = getelementptr inbounds i8, ptr %this, i64 216
+  %fd_96 = getelementptr inbounds i8, ptr %this, i64 208
+  %5 = getelementptr inbounds i8, ptr %ref.tmp130, i64 16
+  %_M_string_length.i.i.i.i200 = getelementptr inbounds i8, ptr %ref.tmp130, i64 8
+  %6 = getelementptr inbounds i8, ptr %ref.tmp.i208, i64 16
+  %_M_string_length.i.i.i.i222 = getelementptr inbounds i8, ptr %ref.tmp.i208, i64 8
+  %type_.i219 = getelementptr inbounds i8, ptr %ex129, i64 16
+  %errno_.i220 = getelementptr inbounds i8, ptr %ex129, i64 20
+  %arrayidx.i.i.i201 = getelementptr inbounds i8, ptr %ref.tmp130, i64 27
   br label %while.cond
 
 while.cond:                                       ; preds = %_ZNSt10unique_ptrIN5folly5IOBufESt14default_deleteIS1_EED2Ev.exit237, %cleanup.done42
@@ -329,7 +292,7 @@ while.cond:                                       ; preds = %_ZNSt10unique_ptrIN
 
 while.body:                                       ; preds = %while.cond
   %vtable = load ptr, ptr %7, align 8, !tbaa !35
-  %vfn = getelementptr inbounds ptr, ptr %vtable, i64 8
+  %vfn = getelementptr inbounds i8, ptr %vtable, i64 64
   %8 = load ptr, ptr %vfn, align 8
   %call45 = call noundef zeroext i1 %8(ptr noundef nonnull align 8 dereferenceable(9) %7) #19
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %buf) #19
@@ -342,7 +305,7 @@ if.then:                                          ; preds = %while.body
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %ref.tmp48) #19
   %9 = load ptr, ptr %readCallback_, align 8, !tbaa !18
   %vtable50 = load ptr, ptr %9, align 8, !tbaa !35
-  %vfn51 = getelementptr inbounds ptr, ptr %vtable50, i64 9
+  %vfn51 = getelementptr inbounds i8, ptr %vtable50, i64 72
   %10 = load ptr, ptr %vfn51, align 8
   %call53 = invoke noundef i64 %10(ptr noundef nonnull align 8 dereferenceable(9) %9)
           to label %invoke.cont52 unwind label %terminate.lpad.loopexit
@@ -354,10 +317,10 @@ invoke.cont52:                                    ; preds = %if.then
 _ZNSt10unique_ptrIN5folly5IOBufESt14default_deleteIS1_EEaSEOS4_.exit: ; preds = %invoke.cont52
   %11 = load ptr, ptr %ref.tmp48, align 8, !tbaa !13
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %ref.tmp48) #19
-  %buf_.i = getelementptr inbounds %"class.folly::IOBuf", ptr %11, i64 0, i32 3
+  %buf_.i = getelementptr inbounds i8, ptr %11, i64 24
   %12 = load ptr, ptr %buf_.i, align 8, !tbaa !38
   store ptr %12, ptr %buf, align 8, !tbaa !13
-  %capacity_.i = getelementptr inbounds %"class.folly::IOBuf", ptr %11, i64 0, i32 2
+  %capacity_.i = getelementptr inbounds i8, ptr %11, i64 16
   %13 = load i64, ptr %capacity_.i, align 8, !tbaa !40
   store i64 %13, ptr %buflen, align 8, !tbaa !37
   br label %if.end95
@@ -365,7 +328,7 @@ _ZNSt10unique_ptrIN5folly5IOBufESt14default_deleteIS1_EEaSEOS4_.exit: ; preds = 
 if.else:                                          ; preds = %while.body
   %14 = load ptr, ptr %readCallback_, align 8, !tbaa !18
   %vtable63 = load ptr, ptr %14, align 8, !tbaa !35
-  %vfn64 = getelementptr inbounds ptr, ptr %vtable63, i64 2
+  %vfn64 = getelementptr inbounds i8, ptr %vtable63, i64 16
   %15 = load ptr, ptr %vfn64, align 8
   invoke void %15(ptr noundef nonnull align 8 dereferenceable(9) %14, ptr noundef nonnull %buf, ptr noundef nonnull %buflen)
           to label %try.cont unwind label %lpad
@@ -391,7 +354,7 @@ catch72:                                          ; preds = %lpad
 
 invoke.cont78:                                    ; preds = %catch72
   %vtable79 = load ptr, ptr %20, align 8, !tbaa !35
-  %vfn80 = getelementptr inbounds ptr, ptr %vtable79, i64 2
+  %vfn80 = getelementptr inbounds i8, ptr %vtable79, i64 16
   %21 = load ptr, ptr %vfn80, align 8
   %call81 = call noundef ptr %21(ptr noundef nonnull align 8 dereferenceable(8) %20) #19
   invoke void @_ZStplIcSt11char_traitsIcESaIcEENSt7__cxx1112basic_stringIT_T0_T1_EEOS8_PKS5_(ptr nonnull sret(%"class.std::__cxx11::basic_string") align 8 %ref.tmp75, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp76, ptr noundef %call81)
@@ -403,12 +366,12 @@ invoke.cont82:                                    ; preds = %invoke.cont78
 
 invoke.cont83:                                    ; preds = %invoke.cont82
   %22 = load ptr, ptr %ref.tmp75, align 8, !tbaa !41
-  %23 = getelementptr inbounds %"class.std::__cxx11::basic_string", ptr %ref.tmp75, i64 0, i32 2
+  %23 = getelementptr inbounds i8, ptr %ref.tmp75, i64 16
   %cmp.i.i.i = icmp eq ptr %22, %23
   br i1 %cmp.i.i.i, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i, label %if.then.i.i
 
 _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i: ; preds = %invoke.cont83
-  %_M_string_length.i.i.i = getelementptr inbounds %"class.std::__cxx11::basic_string", ptr %ref.tmp75, i64 0, i32 1
+  %_M_string_length.i.i.i = getelementptr inbounds i8, ptr %ref.tmp75, i64 8
   %24 = load i64, ptr %_M_string_length.i.i.i, align 8, !tbaa !44
   %cmp3.i.i.i = icmp ult i64 %24, 16
   call void @llvm.assume(i1 %cmp3.i.i.i)
@@ -420,12 +383,12 @@ if.then.i.i:                                      ; preds = %invoke.cont83
 
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit: ; preds = %if.then.i.i, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i
   %25 = load ptr, ptr %ref.tmp76, align 8, !tbaa !41
-  %26 = getelementptr inbounds %"class.std::__cxx11::basic_string", ptr %ref.tmp76, i64 0, i32 2
+  %26 = getelementptr inbounds i8, ptr %ref.tmp76, i64 16
   %cmp.i.i.i170 = icmp eq ptr %25, %26
   br i1 %cmp.i.i.i170, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i172, label %if.then.i.i171
 
 _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i172: ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit
-  %_M_string_length.i.i.i173 = getelementptr inbounds %"class.std::__cxx11::basic_string", ptr %ref.tmp76, i64 0, i32 1
+  %_M_string_length.i.i.i173 = getelementptr inbounds i8, ptr %ref.tmp76, i64 8
   %27 = load i64, ptr %_M_string_length.i.i.i173, align 8, !tbaa !44
   %cmp3.i.i.i174 = icmp ult i64 %27, 16
   call void @llvm.assume(i1 %cmp3.i.i.i174)
@@ -460,12 +423,12 @@ invoke.cont68:                                    ; preds = %catch
 
 invoke.cont69:                                    ; preds = %invoke.cont68
   %28 = load ptr, ptr %ref.tmp66, align 8, !tbaa !41
-  %29 = getelementptr inbounds %"class.std::__cxx11::basic_string", ptr %ref.tmp66, i64 0, i32 2
+  %29 = getelementptr inbounds i8, ptr %ref.tmp66, i64 16
   %cmp.i.i.i176 = icmp eq ptr %28, %29
   br i1 %cmp.i.i.i176, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i178, label %if.then.i.i177
 
 _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i178: ; preds = %invoke.cont69
-  %_M_string_length.i.i.i179 = getelementptr inbounds %"class.std::__cxx11::basic_string", ptr %ref.tmp66, i64 0, i32 1
+  %_M_string_length.i.i.i179 = getelementptr inbounds i8, ptr %ref.tmp66, i64 8
   %30 = load i64, ptr %_M_string_length.i.i.i179, align 8, !tbaa !44
   %cmp3.i.i.i180 = icmp ult i64 %30, 16
   call void @llvm.assume(i1 %cmp3.i.i.i180)
@@ -501,7 +464,7 @@ try.cont:                                         ; preds = %if.else
 if.then88:                                        ; preds = %try.cont
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %aex89) #19
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %ref.tmp90) #19
-  %33 = getelementptr inbounds %"class.std::__cxx11::basic_string", ptr %ref.tmp90, i64 0, i32 2
+  %33 = getelementptr inbounds i8, ptr %ref.tmp90, i64 16
   store ptr %33, ptr %ref.tmp90, align 8, !tbaa !45
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %__dnew.i.i) #19
   store i64 51, ptr %__dnew.i.i, align 8, !tbaa !37
@@ -513,7 +476,7 @@ call2.i10.i.noexc:                                ; preds = %if.then88
   %34 = load i64, ptr %__dnew.i.i, align 8, !tbaa !37
   store i64 %34, ptr %33, align 8, !tbaa !46
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(51) %call2.i10.i184, ptr noundef nonnull align 1 dereferenceable(51) @.str.11, i64 51, i1 false)
-  %_M_string_length.i.i.i.i = getelementptr inbounds %"class.std::__cxx11::basic_string", ptr %ref.tmp90, i64 0, i32 1
+  %_M_string_length.i.i.i.i = getelementptr inbounds i8, ptr %ref.tmp90, i64 8
   store i64 %34, ptr %_M_string_length.i.i.i.i, align 8, !tbaa !44
   %arrayidx.i.i.i = getelementptr inbounds i8, ptr %call2.i10.i184, i64 %34
   store i8 0, ptr %arrayidx.i.i.i, align 1, !tbaa !46
@@ -528,12 +491,12 @@ call2.i10.i.noexc:                                ; preds = %if.then88
 
 invoke.cont.i:                                    ; preds = %.noexc
   %35 = load ptr, ptr %ref.tmp.i, align 8, !tbaa !41
-  %36 = getelementptr inbounds %"class.std::__cxx11::basic_string", ptr %ref.tmp.i, i64 0, i32 2
+  %36 = getelementptr inbounds i8, ptr %ref.tmp.i, i64 16
   %cmp.i.i.i.i = icmp eq ptr %35, %36
   br i1 %cmp.i.i.i.i, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i.i, label %if.then.i.i.i
 
 _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i.i: ; preds = %invoke.cont.i
-  %_M_string_length.i.i.i.i185 = getelementptr inbounds %"class.std::__cxx11::basic_string", ptr %ref.tmp.i, i64 0, i32 1
+  %_M_string_length.i.i.i.i185 = getelementptr inbounds i8, ptr %ref.tmp.i, i64 8
   %37 = load i64, ptr %_M_string_length.i.i.i.i185, align 8, !tbaa !44
   %cmp3.i.i.i.i = icmp ult i64 %37, 16
   call void @llvm.assume(i1 %cmp3.i.i.i.i)
@@ -547,12 +510,12 @@ lpad.i:                                           ; preds = %.noexc
   %38 = landingpad { ptr, i32 }
           catch ptr null
   %39 = load ptr, ptr %ref.tmp.i, align 8, !tbaa !41
-  %40 = getelementptr inbounds %"class.std::__cxx11::basic_string", ptr %ref.tmp.i, i64 0, i32 2
+  %40 = getelementptr inbounds i8, ptr %ref.tmp.i, i64 16
   %cmp.i.i.i5.i = icmp eq ptr %39, %40
   br i1 %cmp.i.i.i5.i, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i7.i, label %if.then.i.i6.i
 
 _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i7.i: ; preds = %lpad.i
-  %_M_string_length.i.i.i8.i = getelementptr inbounds %"class.std::__cxx11::basic_string", ptr %ref.tmp.i, i64 0, i32 1
+  %_M_string_length.i.i.i8.i = getelementptr inbounds i8, ptr %ref.tmp.i, i64 8
   %41 = load i64, ptr %_M_string_length.i.i.i8.i, align 8, !tbaa !44
   %cmp3.i.i.i9.i = icmp ult i64 %41, 16
   call void @llvm.assume(i1 %cmp3.i.i.i9.i)
@@ -569,9 +532,9 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit10.i: ; preds = %i
 invoke.cont93:                                    ; preds = %if.then.i.i.i, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i.i
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %ref.tmp.i) #19
   store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN5folly20AsyncSocketExceptionE, i64 0, inrange i32 0, i64 2), ptr %aex89, align 8, !tbaa !35
-  %type_.i = getelementptr inbounds %"class.folly::AsyncSocketException", ptr %aex89, i64 0, i32 1
+  %type_.i = getelementptr inbounds i8, ptr %aex89, i64 16
   store i32 10, ptr %type_.i, align 8, !tbaa !47
-  %errno_.i = getelementptr inbounds %"class.folly::AsyncSocketException", ptr %aex89, i64 0, i32 2
+  %errno_.i = getelementptr inbounds i8, ptr %aex89, i64 20
   store i32 0, ptr %errno_.i, align 4, !tbaa !53
   %42 = load ptr, ptr %ref.tmp90, align 8, !tbaa !41
   %cmp.i.i.i186 = icmp eq ptr %42, %33
@@ -620,7 +583,7 @@ invoke.cont106:                                   ; preds = %if.then102
   %49 = ptrtoint ptr %ioBuf.sroa.0.0 to i64
   store i64 %49, ptr %agg.tmp, align 8, !tbaa !13
   %vtable108 = load ptr, ptr %48, align 8, !tbaa !35
-  %vfn109 = getelementptr inbounds ptr, ptr %vtable108, i64 10
+  %vfn109 = getelementptr inbounds i8, ptr %vtable108, i64 80
   %50 = load ptr, ptr %vfn109, align 8
   call void %50(ptr noundef nonnull align 8 dereferenceable(9) %48, ptr noundef nonnull %agg.tmp) #19
   %51 = load ptr, ptr %agg.tmp, align 8, !tbaa !13
@@ -639,7 +602,7 @@ _ZNSt10unique_ptrIN5folly5IOBufESt14default_deleteIS1_EED2Ev.exit195: ; preds = 
 if.else110:                                       ; preds = %if.then102
   %52 = load ptr, ptr %readCallback_, align 8, !tbaa !18
   %vtable112 = load ptr, ptr %52, align 8, !tbaa !35
-  %vfn113 = getelementptr inbounds ptr, ptr %vtable112, i64 4
+  %vfn113 = getelementptr inbounds i8, ptr %vtable112, i64 32
   %53 = load ptr, ptr %vfn113, align 8
   call void %53(ptr noundef nonnull align 8 dereferenceable(9) %52, i64 noundef %call100) #19
   br label %if.end114
@@ -750,7 +713,7 @@ invoke.cont137:                                   ; preds = %if.else136
   %64 = load ptr, ptr %readCallback_, align 8, !tbaa !18
   store ptr null, ptr %readCallback_, align 8, !tbaa !18
   %vtable140 = load ptr, ptr %64, align 8, !tbaa !35
-  %vfn141 = getelementptr inbounds ptr, ptr %vtable140, i64 11
+  %vfn141 = getelementptr inbounds i8, ptr %vtable140, i64 88
   %65 = load ptr, ptr %vfn141, align 8
   call void %65(ptr noundef nonnull align 8 dereferenceable(9) %64) #19
   br label %cleanup143
@@ -786,7 +749,7 @@ if.then.i:                                        ; preds = %_ZNSt10unique_ptrIN
 
 if.then6.i:                                       ; preds = %if.then.i
   %vtable.i = load ptr, ptr %add.ptr, align 8, !tbaa !35
-  %vfn.i = getelementptr inbounds ptr, ptr %vtable.i, i64 2
+  %vfn.i = getelementptr inbounds i8, ptr %vtable.i, i64 16
   %67 = load ptr, ptr %vfn.i, align 8
   invoke void %67(ptr noundef nonnull align 8 dereferenceable(12) %add.ptr, i1 noundef zeroext true)
           to label %_ZN5folly22DelayedDestructionBase15DestructorGuardD2Ev.exit unwind label %terminate.lpad.i
@@ -821,7 +784,7 @@ terminate.lpad.body:                              ; preds = %terminate.lpad.loop
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr void @_ZN5folly15AsyncPipeReader9setReadCBEPNS_11AsyncReader12ReadCallbackE(ptr noundef nonnull align 8 dereferenceable(256) %this, ptr noundef %callback) unnamed_addr #1 comdat align 2 {
 entry:
-  %readCallback_ = getelementptr inbounds %"class.folly::AsyncPipeReader", ptr %this, i64 0, i32 4
+  %readCallback_ = getelementptr inbounds i8, ptr %this, i64 216
   %0 = load ptr, ptr %readCallback_, align 8, !tbaa !18
   %cmp = icmp eq ptr %0, %callback
   br i1 %cmp, label %if.end12, label %if.end
@@ -829,7 +792,7 @@ entry:
 if.end:                                           ; preds = %entry
   store ptr %callback, ptr %readCallback_, align 8, !tbaa !18
   %tobool.not = icmp eq ptr %callback, null
-  %evcb_flags.i.i.i.i14 = getelementptr inbounds %"class.folly::EventHandler", ptr %this, i64 0, i32 1, i32 0, i32 0, i32 1
+  %evcb_flags.i.i.i.i14 = getelementptr inbounds i8, ptr %this, i64 24
   %1 = load i16, ptr %evcb_flags.i.i.i.i14, align 8, !tbaa !57
   %2 = and i16 %1, 15
   %tobool.i.i.i15.not = icmp eq i16 %2, 0
@@ -856,7 +819,7 @@ if.end12:                                         ; preds = %if.then10, %land.lh
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr noundef ptr @_ZNK5folly15AsyncPipeReader15getReadCallbackEv(ptr noundef nonnull align 8 dereferenceable(256) %this) unnamed_addr #0 comdat align 2 {
 entry:
-  %readCallback_ = getelementptr inbounds %"class.folly::AsyncPipeReader", ptr %this, i64 0, i32 4
+  %readCallback_ = getelementptr inbounds i8, ptr %this, i64 216
   %0 = load ptr, ptr %readCallback_, align 8, !tbaa !18
   ret ptr %0
 }
@@ -955,7 +918,7 @@ entry:
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZN5folly18DelayedDestruction16onDelayedDestroyEb(ptr noundef nonnull align 8 dereferenceable(13) %this, i1 noundef zeroext %delayed) unnamed_addr #0 comdat align 2 {
 entry:
-  %destroyPending_ = getelementptr inbounds %"class.folly::DelayedDestruction", ptr %this, i64 0, i32 1
+  %destroyPending_ = getelementptr inbounds i8, ptr %this, i64 12
   %0 = load i8, ptr %destroyPending_, align 4, !range !60
   %tobool2.not = icmp eq i8 %0, 0
   %or.cond = select i1 %delayed, i1 %tobool2.not, i1 false
@@ -964,7 +927,7 @@ entry:
 if.end:                                           ; preds = %entry
   store i8 0, ptr %destroyPending_, align 4, !tbaa !61
   %vtable = load ptr, ptr %this, align 8, !tbaa !35
-  %vfn = getelementptr inbounds ptr, ptr %vtable, i64 1
+  %vfn = getelementptr inbounds i8, ptr %vtable, i64 8
   %1 = load ptr, ptr %vfn, align 8
   tail call void %1(ptr noundef nonnull align 8 dereferenceable(13) %this) #19
   br label %delete.end
@@ -976,19 +939,19 @@ delete.end:                                       ; preds = %if.end, %entry
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr void @_ZN5folly18DelayedDestruction7destroyEv(ptr noundef nonnull align 8 dereferenceable(13) %this) unnamed_addr #1 comdat align 2 {
 entry:
-  %guardCount_.i = getelementptr inbounds %"class.folly::DelayedDestructionBase", ptr %this, i64 0, i32 1
+  %guardCount_.i = getelementptr inbounds i8, ptr %this, i64 8
   %0 = load i32, ptr %guardCount_.i, align 8, !tbaa !7
   %cmp.not = icmp eq i32 %0, 0
   br i1 %cmp.not, label %if.else, label %if.then
 
 if.then:                                          ; preds = %entry
-  %destroyPending_ = getelementptr inbounds %"class.folly::DelayedDestruction", ptr %this, i64 0, i32 1
+  %destroyPending_ = getelementptr inbounds i8, ptr %this, i64 12
   store i8 1, ptr %destroyPending_, align 4, !tbaa !61
   br label %if.end
 
 if.else:                                          ; preds = %entry
   %vtable = load ptr, ptr %this, align 8, !tbaa !35
-  %vfn = getelementptr inbounds ptr, ptr %vtable, i64 2
+  %vfn = getelementptr inbounds i8, ptr %vtable, i64 16
   %1 = load ptr, ptr %vfn, align 8
   tail call void %1(ptr noundef nonnull align 8 dereferenceable(13) %this, i1 noundef zeroext false)
   br label %if.end
@@ -1009,13 +972,13 @@ entry:
           to label %invoke.cont unwind label %terminate.lpad
 
 invoke.cont:                                      ; preds = %entry
-  %_M_manager.i = getelementptr inbounds %"class.folly::AsyncPipeWriter", ptr %this, i64 0, i32 6, i32 0, i32 1
+  %_M_manager.i = getelementptr inbounds i8, ptr %this, i64 264
   %0 = load ptr, ptr %_M_manager.i, align 8, !tbaa !62
   %tobool.not.i = icmp eq ptr %0, null
   br i1 %tobool.not.i, label %_ZNSt14_Function_baseD2Ev.exit, label %if.then.i
 
 if.then.i:                                        ; preds = %invoke.cont
-  %closeCb_ = getelementptr inbounds %"class.folly::AsyncPipeWriter", ptr %this, i64 0, i32 6
+  %closeCb_ = getelementptr inbounds i8, ptr %this, i64 248
   %call.i = invoke noundef zeroext i1 %0(ptr noundef nonnull align 8 dereferenceable(16) %closeCb_, ptr noundef nonnull align 8 dereferenceable(16) %closeCb_, i32 noundef 3)
           to label %_ZNSt14_Function_baseD2Ev.exit unwind label %terminate.lpad.i
 
@@ -1027,7 +990,7 @@ terminate.lpad.i:                                 ; preds = %if.then.i
   unreachable
 
 _ZNSt14_Function_baseD2Ev.exit:                   ; preds = %if.then.i, %invoke.cont
-  %queue_ = getelementptr inbounds %"class.folly::AsyncPipeWriter", ptr %this, i64 0, i32 4
+  %queue_ = getelementptr inbounds i8, ptr %this, i64 216
   %3 = load ptr, ptr %queue_, align 8, !tbaa !63
   %cmp.not9.i.i = icmp eq ptr %3, %queue_
   br i1 %cmp.not9.i.i, label %_ZNSt7__cxx1110_List_baseISt4pairIN5folly10IOBufQueueEPNS2_11AsyncWriter13WriteCallbackEESaIS7_EED2Ev.exit, label %while.body.i.i
@@ -1035,7 +998,7 @@ _ZNSt14_Function_baseD2Ev.exit:                   ; preds = %if.then.i, %invoke.
 while.body.i.i:                                   ; preds = %_ZNSt14_Function_baseD2Ev.exit, %while.body.i.i
   %__cur.010.i.i = phi ptr [ %4, %while.body.i.i ], [ %3, %_ZNSt14_Function_baseD2Ev.exit ]
   %4 = load ptr, ptr %__cur.010.i.i, align 8, !tbaa !63
-  %_M_storage.i.i.i = getelementptr inbounds %"struct.std::_List_node", ptr %__cur.010.i.i, i64 0, i32 1
+  %_M_storage.i.i.i = getelementptr inbounds i8, ptr %__cur.010.i.i, i64 16
   tail call void @_ZN5folly10IOBufQueueD1Ev(ptr noundef nonnull align 8 dereferenceable(72) %_M_storage.i.i.i) #19
   tail call void @_ZdlPv(ptr noundef %__cur.010.i.i) #20
   %cmp.not.i.i = icmp eq ptr %4, %queue_
@@ -1109,7 +1072,7 @@ entry:
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %ref.tmp) #19
   call void @_ZN5folly5IOBuf10wrapBufferEPKvm(ptr nonnull sret(%"class.std::unique_ptr") align 8 %ref.tmp, ptr noundef %buf, i64 noundef %bytes)
   %vtable = load ptr, ptr %this, align 8, !tbaa !35
-  %vfn = getelementptr inbounds ptr, ptr %vtable, i64 5
+  %vfn = getelementptr inbounds i8, ptr %vtable, i64 40
   %0 = load ptr, ptr %vfn, align 8
   invoke void %0(ptr noundef nonnull align 8 dereferenceable(280) %this, ptr noundef %callback, ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp, i32 noundef %flags)
           to label %invoke.cont unwind label %lpad
@@ -1192,7 +1155,7 @@ entry:
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %ref.tmp.i) #19
   call void @_ZN5folly5IOBuf10wrapBufferEPKvm(ptr nonnull sret(%"class.std::unique_ptr") align 8 %ref.tmp.i, ptr noundef %buf, i64 noundef %bytes)
   %vtable.i = load ptr, ptr %0, align 8, !tbaa !35
-  %vfn.i = getelementptr inbounds ptr, ptr %vtable.i, i64 5
+  %vfn.i = getelementptr inbounds i8, ptr %vtable.i, i64 40
   %1 = load ptr, ptr %vfn.i, align 8
   invoke void %1(ptr noundef nonnull align 8 dereferenceable(280) %0, ptr noundef %callback, ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp.i, i32 noundef %flags)
           to label %invoke.cont.i unwind label %lpad.i
@@ -1347,7 +1310,7 @@ entry:
           to label %.noexc unwind label %terminate.lpad
 
 .noexc:                                           ; preds = %entry
-  %fd_.i = getelementptr inbounds %"class.folly::AsyncPipeReader", ptr %this, i64 0, i32 3
+  %fd_.i = getelementptr inbounds i8, ptr %this, i64 208
   %0 = load i32, ptr %fd_.i, align 8, !tbaa !16
   %cmp.i.i.not.i = icmp eq i32 %0, -1
   br i1 %cmp.i.i.not.i, label %invoke.cont, label %if.then.i
@@ -1357,17 +1320,17 @@ if.then.i:                                        ; preds = %.noexc
           to label %.noexc3 unwind label %terminate.lpad
 
 .noexc3:                                          ; preds = %if.then.i
-  %_M_manager.i.i.i = getelementptr inbounds %"class.folly::AsyncPipeReader", ptr %this, i64 0, i32 5, i32 0, i32 1
+  %_M_manager.i.i.i = getelementptr inbounds i8, ptr %this, i64 240
   %1 = load ptr, ptr %_M_manager.i.i.i, align 8, !tbaa !62
   %tobool.not.i.i.not.i = icmp eq ptr %1, null
   br i1 %tobool.not.i.i.not.i, label %if.else.i, label %_ZNKSt8functionIFvN5folly13NetworkSocketEEEclES1_.exit.i
 
 _ZNKSt8functionIFvN5folly13NetworkSocketEEEclES1_.exit.i: ; preds = %.noexc3
-  %closeCb_.i = getelementptr inbounds %"class.folly::AsyncPipeReader", ptr %this, i64 0, i32 5
+  %closeCb_.i = getelementptr inbounds i8, ptr %this, i64 224
   %agg.tmp5.sroa.0.0.copyload.i = load i32, ptr %fd_.i, align 8, !tbaa.struct !66
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %__args.i.i)
   store i32 %agg.tmp5.sroa.0.0.copyload.i, ptr %__args.i.i, align 4
-  %_M_invoker.i.i = getelementptr inbounds %"class.folly::AsyncPipeReader", ptr %this, i64 0, i32 5, i32 1
+  %_M_invoker.i.i = getelementptr inbounds i8, ptr %this, i64 248
   %2 = load ptr, ptr %_M_invoker.i.i, align 8, !tbaa !67
   invoke void %2(ptr noundef nonnull align 8 dereferenceable(16) %closeCb_.i, ptr noundef nonnull align 4 dereferenceable(4) %__args.i.i)
           to label %.noexc4 unwind label %terminate.lpad
@@ -1386,13 +1349,13 @@ if.end.i:                                         ; preds = %if.else.i, %.noexc4
   br label %invoke.cont
 
 invoke.cont:                                      ; preds = %if.end.i, %.noexc
-  %_M_manager.i = getelementptr inbounds %"class.folly::AsyncPipeReader", ptr %this, i64 0, i32 5, i32 0, i32 1
+  %_M_manager.i = getelementptr inbounds i8, ptr %this, i64 240
   %3 = load ptr, ptr %_M_manager.i, align 8, !tbaa !62
   %tobool.not.i = icmp eq ptr %3, null
   br i1 %tobool.not.i, label %_ZNSt14_Function_baseD2Ev.exit, label %if.then.i6
 
 if.then.i6:                                       ; preds = %invoke.cont
-  %closeCb_ = getelementptr inbounds %"class.folly::AsyncPipeReader", ptr %this, i64 0, i32 5
+  %closeCb_ = getelementptr inbounds i8, ptr %this, i64 224
   %call.i = invoke noundef zeroext i1 %3(ptr noundef nonnull align 8 dereferenceable(16) %closeCb_, ptr noundef nonnull align 8 dereferenceable(16) %closeCb_, i32 noundef 3)
           to label %_ZNSt14_Function_baseD2Ev.exit unwind label %terminate.lpad.i
 
@@ -1421,24 +1384,24 @@ define void @_ZN5folly15AsyncPipeReader5closeEv(ptr noundef nonnull align 8 dere
 entry:
   %__args.i = alloca %"struct.folly::NetworkSocket", align 4
   tail call void @_ZN5folly12EventHandler17unregisterHandlerEv(ptr noundef nonnull align 8 dereferenceable(184) %this)
-  %fd_ = getelementptr inbounds %"class.folly::AsyncPipeReader", ptr %this, i64 0, i32 3
+  %fd_ = getelementptr inbounds i8, ptr %this, i64 208
   %0 = load i32, ptr %fd_, align 8, !tbaa !16
   %cmp.i.i.not = icmp eq i32 %0, -1
   br i1 %cmp.i.i.not, label %if.end14, label %if.then
 
 if.then:                                          ; preds = %entry
   tail call void @_ZN5folly12EventHandler15changeHandlerFDENS_13NetworkSocketE(ptr noundef nonnull align 8 dereferenceable(184) %this, i32 -1)
-  %_M_manager.i.i = getelementptr inbounds %"class.folly::AsyncPipeReader", ptr %this, i64 0, i32 5, i32 0, i32 1
+  %_M_manager.i.i = getelementptr inbounds i8, ptr %this, i64 240
   %1 = load ptr, ptr %_M_manager.i.i, align 8, !tbaa !62
   %tobool.not.i.i.not = icmp eq ptr %1, null
   br i1 %tobool.not.i.i.not, label %if.else, label %_ZNKSt8functionIFvN5folly13NetworkSocketEEEclES1_.exit
 
 _ZNKSt8functionIFvN5folly13NetworkSocketEEEclES1_.exit: ; preds = %if.then
-  %closeCb_ = getelementptr inbounds %"class.folly::AsyncPipeReader", ptr %this, i64 0, i32 5
+  %closeCb_ = getelementptr inbounds i8, ptr %this, i64 224
   %agg.tmp5.sroa.0.0.copyload = load i32, ptr %fd_, align 8, !tbaa.struct !66
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %__args.i)
   store i32 %agg.tmp5.sroa.0.0.copyload, ptr %__args.i, align 4
-  %_M_invoker.i = getelementptr inbounds %"class.folly::AsyncPipeReader", ptr %this, i64 0, i32 5, i32 1
+  %_M_invoker.i = getelementptr inbounds i8, ptr %this, i64 248
   %2 = load ptr, ptr %_M_invoker.i, align 8, !tbaa !67
   call void %2(ptr noundef nonnull align 8 dereferenceable(16) %closeCb_, ptr noundef nonnull align 4 dereferenceable(4) %__args.i)
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %__args.i)
@@ -1520,7 +1483,7 @@ invoke.cont10:                                    ; preds = %invoke.cont8
           to label %call1.i.i.noexc unwind label %lpad
 
 call1.i.i.noexc:                                  ; preds = %invoke.cont10
-  %fd_ = getelementptr inbounds %"class.folly::AsyncPipeReader", ptr %this, i64 0, i32 3
+  %fd_ = getelementptr inbounds i8, ptr %this, i64 208
   %2 = load i32, ptr %fd_, align 8, !tbaa !16
   %call1.i69 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZNSolsEi(ptr noundef nonnull align 8 dereferenceable(8) %call.i64, i32 noundef %2)
           to label %call1.i.noexc unwind label %lpad
@@ -1535,7 +1498,7 @@ invoke.cont12:                                    ; preds = %call1.i.noexc
 
 invoke.cont14:                                    ; preds = %invoke.cont12
   %vtable = load ptr, ptr %ex, align 8, !tbaa !35
-  %vfn = getelementptr inbounds ptr, ptr %vtable, i64 2
+  %vfn = getelementptr inbounds i8, ptr %vtable, i64 16
   %3 = load ptr, ptr %vfn, align 8
   %call16 = call noundef ptr %3(ptr noundef nonnull align 8 dereferenceable(16) %ex) #19
   %tobool.not.i = icmp eq ptr %call16, null
@@ -1546,7 +1509,7 @@ if.then.i:                                        ; preds = %invoke.cont14
   %vbase.offset.ptr.i = getelementptr i8, ptr %vtable.i, i64 -24
   %vbase.offset.i = load i64, ptr %vbase.offset.ptr.i, align 8
   %add.ptr.i = getelementptr inbounds i8, ptr %call.i64, i64 %vbase.offset.i
-  %_M_streambuf_state.i.i.i = getelementptr inbounds %"class.std::ios_base", ptr %add.ptr.i, i64 0, i32 5
+  %_M_streambuf_state.i.i.i = getelementptr inbounds i8, ptr %add.ptr.i, i64 32
   %4 = load i32, ptr %_M_streambuf_state.i.i.i, align 8, !tbaa !68
   %or.i.i.i = or i32 %4, 1
   invoke void @_ZNSt9basic_iosIcSt11char_traitsIcEE5clearESt12_Ios_Iostate(ptr noundef nonnull align 8 dereferenceable(264) %add.ptr.i, i32 noundef %or.i.i.i)
@@ -1563,32 +1526,32 @@ cleanup.action:                                   ; preds = %if.else.i, %if.then
   br label %cleanup.done25
 
 cleanup.done25:                                   ; preds = %cleanup.action, %land.end, %entry
-  %readCallback_56 = getelementptr inbounds %"class.folly::AsyncPipeReader", ptr %this, i64 0, i32 4
+  %readCallback_56 = getelementptr inbounds i8, ptr %this, i64 216
   %5 = load ptr, ptr %readCallback_56, align 8, !tbaa !18
   store ptr null, ptr %readCallback_56, align 8, !tbaa !18
   %vtable58 = load ptr, ptr %5, align 8, !tbaa !35
-  %vfn59 = getelementptr inbounds ptr, ptr %vtable58, i64 12
+  %vfn59 = getelementptr inbounds i8, ptr %vtable58, i64 96
   %6 = load ptr, ptr %vfn59, align 8
   call void %6(ptr noundef nonnull align 8 dereferenceable(9) %5, ptr noundef nonnull align 8 dereferenceable(24) %ex) #19
   call void @_ZN5folly12EventHandler17unregisterHandlerEv(ptr noundef nonnull align 8 dereferenceable(184) %this)
-  %fd_.i = getelementptr inbounds %"class.folly::AsyncPipeReader", ptr %this, i64 0, i32 3
+  %fd_.i = getelementptr inbounds i8, ptr %this, i64 208
   %7 = load i32, ptr %fd_.i, align 8, !tbaa !16
   %cmp.i.i.not.i = icmp eq i32 %7, -1
   br i1 %cmp.i.i.not.i, label %_ZN5folly15AsyncPipeReader5closeEv.exit, label %if.then.i79
 
 if.then.i79:                                      ; preds = %cleanup.done25
   call void @_ZN5folly12EventHandler15changeHandlerFDENS_13NetworkSocketE(ptr noundef nonnull align 8 dereferenceable(184) %this, i32 -1)
-  %_M_manager.i.i.i = getelementptr inbounds %"class.folly::AsyncPipeReader", ptr %this, i64 0, i32 5, i32 0, i32 1
+  %_M_manager.i.i.i = getelementptr inbounds i8, ptr %this, i64 240
   %8 = load ptr, ptr %_M_manager.i.i.i, align 8, !tbaa !62
   %tobool.not.i.i.not.i = icmp eq ptr %8, null
   br i1 %tobool.not.i.i.not.i, label %if.else.i80, label %_ZNKSt8functionIFvN5folly13NetworkSocketEEEclES1_.exit.i
 
 _ZNKSt8functionIFvN5folly13NetworkSocketEEEclES1_.exit.i: ; preds = %if.then.i79
-  %closeCb_.i = getelementptr inbounds %"class.folly::AsyncPipeReader", ptr %this, i64 0, i32 5
+  %closeCb_.i = getelementptr inbounds i8, ptr %this, i64 224
   %agg.tmp5.sroa.0.0.copyload.i = load i32, ptr %fd_.i, align 8, !tbaa.struct !66
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %__args.i.i)
   store i32 %agg.tmp5.sroa.0.0.copyload.i, ptr %__args.i.i, align 4
-  %_M_invoker.i.i = getelementptr inbounds %"class.folly::AsyncPipeReader", ptr %this, i64 0, i32 5, i32 1
+  %_M_invoker.i.i = getelementptr inbounds i8, ptr %this, i64 248
   %9 = load ptr, ptr %_M_invoker.i.i, align 8, !tbaa !67
   call void %9(ptr noundef nonnull align 8 dereferenceable(16) %closeCb_.i, ptr noundef nonnull align 4 dereferenceable(4) %__args.i.i)
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %__args.i.i)
@@ -1680,7 +1643,7 @@ declare i32 @llvm.eh.typeid.for(ptr) #12
 define linkonce_odr void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %this, ptr noundef %__s, ptr noundef nonnull align 1 dereferenceable(1) %__a) unnamed_addr #1 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %__dnew.i = alloca i64, align 8
-  %0 = getelementptr inbounds %"class.std::__cxx11::basic_string", ptr %this, i64 0, i32 2
+  %0 = getelementptr inbounds i8, ptr %this, i64 16
   store ptr %0, ptr %this, align 8, !tbaa !45
   %cmp = icmp eq ptr %__s, null
   br i1 %cmp, label %if.then, label %if.end
@@ -1721,7 +1684,7 @@ if.end.i.i.i.i:                                   ; preds = %if.end.i
 
 invoke.cont4:                                     ; preds = %if.end.i.i.i.i, %if.then.i.i.i, %if.end.i
   %4 = load i64, ptr %__dnew.i, align 8, !tbaa !37
-  %_M_string_length.i.i.i = getelementptr inbounds %"class.std::__cxx11::basic_string", ptr %this, i64 0, i32 1
+  %_M_string_length.i.i.i = getelementptr inbounds i8, ptr %this, i64 8
   store i64 %4, ptr %_M_string_length.i.i.i, align 8, !tbaa !44
   %5 = load ptr, ptr %this, align 8, !tbaa !41
   %arrayidx.i.i = getelementptr inbounds i8, ptr %5, i64 %4
@@ -1741,12 +1704,12 @@ entry:
 
 invoke.cont:                                      ; preds = %entry
   %0 = load ptr, ptr %ref.tmp, align 8, !tbaa !41
-  %1 = getelementptr inbounds %"class.std::__cxx11::basic_string", ptr %ref.tmp, i64 0, i32 2
+  %1 = getelementptr inbounds i8, ptr %ref.tmp, i64 16
   %cmp.i.i.i = icmp eq ptr %0, %1
   br i1 %cmp.i.i.i, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i, label %if.then.i.i
 
 _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i: ; preds = %invoke.cont
-  %_M_string_length.i.i.i = getelementptr inbounds %"class.std::__cxx11::basic_string", ptr %ref.tmp, i64 0, i32 1
+  %_M_string_length.i.i.i = getelementptr inbounds i8, ptr %ref.tmp, i64 8
   %2 = load i64, ptr %_M_string_length.i.i.i, align 8, !tbaa !44
   %cmp3.i.i.i = icmp ult i64 %2, 16
   call void @llvm.assume(i1 %cmp3.i.i.i)
@@ -1759,9 +1722,9 @@ if.then.i.i:                                      ; preds = %invoke.cont
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit: ; preds = %if.then.i.i, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %ref.tmp) #19
   store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN5folly20AsyncSocketExceptionE, i64 0, inrange i32 0, i64 2), ptr %this, align 8, !tbaa !35
-  %type_ = getelementptr inbounds %"class.folly::AsyncSocketException", ptr %this, i64 0, i32 1
+  %type_ = getelementptr inbounds i8, ptr %this, i64 16
   store i32 %type, ptr %type_, align 8, !tbaa !47
-  %errno_ = getelementptr inbounds %"class.folly::AsyncSocketException", ptr %this, i64 0, i32 2
+  %errno_ = getelementptr inbounds i8, ptr %this, i64 20
   store i32 %errnoCopy, ptr %errno_, align 4, !tbaa !53
   ret void
 
@@ -1769,12 +1732,12 @@ lpad:                                             ; preds = %entry
   %3 = landingpad { ptr, i32 }
           cleanup
   %4 = load ptr, ptr %ref.tmp, align 8, !tbaa !41
-  %5 = getelementptr inbounds %"class.std::__cxx11::basic_string", ptr %ref.tmp, i64 0, i32 2
+  %5 = getelementptr inbounds i8, ptr %ref.tmp, i64 16
   %cmp.i.i.i5 = icmp eq ptr %4, %5
   br i1 %cmp.i.i.i5, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i7, label %if.then.i.i6
 
 _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i7: ; preds = %lpad
-  %_M_string_length.i.i.i8 = getelementptr inbounds %"class.std::__cxx11::basic_string", ptr %ref.tmp, i64 0, i32 1
+  %_M_string_length.i.i.i8 = getelementptr inbounds i8, ptr %ref.tmp, i64 8
   %6 = load i64, ptr %_M_string_length.i.i.i8, align 8, !tbaa !44
   %cmp3.i.i.i9 = icmp ult i64 %6, 16
   call void @llvm.assume(i1 %cmp3.i.i.i9)
@@ -1798,7 +1761,7 @@ declare void @__cxa_end_catch() local_unnamed_addr
 define linkonce_odr void @_ZStplIcSt11char_traitsIcESaIcEENSt7__cxx1112basic_stringIT_T0_T1_EEOS8_PKS5_(ptr noalias sret(%"class.std::__cxx11::basic_string") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(32) %__lhs, ptr noundef %__rhs) local_unnamed_addr #13 comdat personality ptr @__gxx_personality_v0 {
 entry:
   %call.i.i = tail call noundef i64 @strlen(ptr noundef nonnull dereferenceable(1) %__rhs) #19
-  %_M_string_length.i.i.i = getelementptr inbounds %"class.std::__cxx11::basic_string", ptr %__lhs, i64 0, i32 1
+  %_M_string_length.i.i.i = getelementptr inbounds i8, ptr %__lhs, i64 8
   %0 = load i64, ptr %_M_string_length.i.i.i, align 8, !tbaa !44
   %sub3.i.i = sub i64 4611686018427387903, %0
   %cmp.i.i = icmp ult i64 %sub3.i.i, %call.i.i
@@ -1810,15 +1773,15 @@ if.then.i.i:                                      ; preds = %entry
 
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6appendEPKc.exit: ; preds = %entry
   %call2.i = tail call noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE9_M_appendEPKcm(ptr noundef nonnull align 8 dereferenceable(32) %__lhs, ptr noundef %__rhs, i64 noundef %call.i.i)
-  %1 = getelementptr inbounds %"class.std::__cxx11::basic_string", ptr %agg.result, i64 0, i32 2
+  %1 = getelementptr inbounds i8, ptr %agg.result, i64 16
   store ptr %1, ptr %agg.result, align 8, !tbaa !45
   %2 = load ptr, ptr %call2.i, align 8, !tbaa !41
-  %3 = getelementptr inbounds %"class.std::__cxx11::basic_string", ptr %call2.i, i64 0, i32 2
+  %3 = getelementptr inbounds i8, ptr %call2.i, i64 16
   %cmp.i.i1 = icmp eq ptr %2, %3
   br i1 %cmp.i.i1, label %if.then.i, label %if.else.i
 
 if.then.i:                                        ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6appendEPKc.exit
-  %_M_string_length.i.i = getelementptr inbounds %"class.std::__cxx11::basic_string", ptr %call2.i, i64 0, i32 1
+  %_M_string_length.i.i = getelementptr inbounds i8, ptr %call2.i, i64 8
   %4 = load i64, ptr %_M_string_length.i.i, align 8, !tbaa !44
   %cmp3.i.i = icmp ult i64 %4, 16
   tail call void @llvm.assume(i1 %cmp3.i.i)
@@ -1830,14 +1793,14 @@ if.else.i:                                        ; preds = %_ZNSt7__cxx1112basi
   store ptr %2, ptr %agg.result, align 8, !tbaa !41
   %5 = load i64, ptr %3, align 8, !tbaa !46
   store i64 %5, ptr %1, align 8, !tbaa !46
-  %_M_string_length.i23.i.phi.trans.insert = getelementptr inbounds %"class.std::__cxx11::basic_string", ptr %call2.i, i64 0, i32 1
+  %_M_string_length.i23.i.phi.trans.insert = getelementptr inbounds i8, ptr %call2.i, i64 8
   %.pre = load i64, ptr %_M_string_length.i23.i.phi.trans.insert, align 8, !tbaa !44
   br label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2EOS4_.exit
 
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2EOS4_.exit: ; preds = %if.else.i, %if.then.i
   %6 = phi i64 [ %4, %if.then.i ], [ %.pre, %if.else.i ]
-  %_M_string_length.i23.i = getelementptr inbounds %"class.std::__cxx11::basic_string", ptr %call2.i, i64 0, i32 1
-  %_M_string_length.i24.i = getelementptr inbounds %"class.std::__cxx11::basic_string", ptr %agg.result, i64 0, i32 1
+  %_M_string_length.i23.i = getelementptr inbounds i8, ptr %call2.i, i64 8
+  %_M_string_length.i24.i = getelementptr inbounds i8, ptr %agg.result, i64 8
   store i64 %6, ptr %_M_string_length.i24.i, align 8, !tbaa !44
   store ptr %3, ptr %call2.i, align 8, !tbaa !41
   store i64 0, ptr %_M_string_length.i23.i, align 8, !tbaa !44
@@ -1858,7 +1821,7 @@ entry:
   br i1 %cmp.not, label %if.end8, label %if.then
 
 if.then:                                          ; preds = %entry
-  %guardCount_ = getelementptr inbounds %"class.folly::DelayedDestructionBase", ptr %0, i64 0, i32 1
+  %guardCount_ = getelementptr inbounds i8, ptr %0, i64 8
   %1 = load i32, ptr %guardCount_, align 8, !tbaa !7
   %dec = add i32 %1, -1
   store i32 %dec, ptr %guardCount_, align 8, !tbaa !7
@@ -1867,7 +1830,7 @@ if.then:                                          ; preds = %entry
 
 if.then6:                                         ; preds = %if.then
   %vtable = load ptr, ptr %0, align 8, !tbaa !35
-  %vfn = getelementptr inbounds ptr, ptr %vtable, i64 2
+  %vfn = getelementptr inbounds i8, ptr %vtable, i64 16
   %2 = load ptr, ptr %vfn, align 8
   invoke void %2(ptr noundef nonnull align 8 dereferenceable(12) %0, i1 noundef zeroext true)
           to label %if.end8 unwind label %terminate.lpad
@@ -1926,10 +1889,10 @@ entry:
   %p = alloca %"struct.std::pair.18", align 8
   %ref.tmp30 = alloca %"class.google::LogMessageFatal", align 8
   %ref.tmp62 = alloca %"class.google::LogMessageFatal", align 8
-  %fd_.i = getelementptr inbounds %"class.folly::AsyncPipeWriter", ptr %this, i64 0, i32 3
+  %fd_.i = getelementptr inbounds i8, ptr %this, i64 208
   %0 = load i32, ptr %fd_.i, align 8, !tbaa !16
   %cmp.i.i = icmp eq i32 %0, -1
-  %closeOnEmpty_.i = getelementptr inbounds %"class.folly::AsyncPipeWriter", ptr %this, i64 0, i32 5
+  %closeOnEmpty_.i = getelementptr inbounds i8, ptr %this, i64 240
   %1 = load i8, ptr %closeOnEmpty_.i, align 8, !range !60
   %tobool.i = icmp ne i8 %1, 0
   %2 = select i1 %cmp.i.i, i1 true, i1 %tobool.i
@@ -1942,7 +1905,7 @@ if.then:                                          ; preds = %entry
 if.then2:                                         ; preds = %if.then
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %ex) #19
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %ref.tmp) #19
-  %3 = getelementptr inbounds %"class.std::__cxx11::basic_string", ptr %ref.tmp, i64 0, i32 2
+  %3 = getelementptr inbounds i8, ptr %ref.tmp, i64 16
   store ptr %3, ptr %ref.tmp, align 8, !tbaa !45
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %__dnew.i.i) #19
   store i64 31, ptr %__dnew.i.i, align 8, !tbaa !37
@@ -1954,7 +1917,7 @@ call2.i10.i.noexc:                                ; preds = %if.then2
   %4 = load i64, ptr %__dnew.i.i, align 8, !tbaa !37
   store i64 %4, ptr %3, align 8, !tbaa !46
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(31) %call2.i10.i101, ptr noundef nonnull align 1 dereferenceable(31) @.str.17, i64 31, i1 false)
-  %_M_string_length.i.i.i.i = getelementptr inbounds %"class.std::__cxx11::basic_string", ptr %ref.tmp, i64 0, i32 1
+  %_M_string_length.i.i.i.i = getelementptr inbounds i8, ptr %ref.tmp, i64 8
   store i64 %4, ptr %_M_string_length.i.i.i.i, align 8, !tbaa !44
   %5 = load ptr, ptr %ref.tmp, align 8, !tbaa !41
   %arrayidx.i.i.i = getelementptr inbounds i8, ptr %5, i64 %4
@@ -1970,12 +1933,12 @@ call2.i10.i.noexc:                                ; preds = %if.then2
 
 invoke.cont.i:                                    ; preds = %.noexc
   %6 = load ptr, ptr %ref.tmp.i, align 8, !tbaa !41
-  %7 = getelementptr inbounds %"class.std::__cxx11::basic_string", ptr %ref.tmp.i, i64 0, i32 2
+  %7 = getelementptr inbounds i8, ptr %ref.tmp.i, i64 16
   %cmp.i.i.i.i = icmp eq ptr %6, %7
   br i1 %cmp.i.i.i.i, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i.i, label %if.then.i.i.i
 
 _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i.i: ; preds = %invoke.cont.i
-  %_M_string_length.i.i.i.i102 = getelementptr inbounds %"class.std::__cxx11::basic_string", ptr %ref.tmp.i, i64 0, i32 1
+  %_M_string_length.i.i.i.i102 = getelementptr inbounds i8, ptr %ref.tmp.i, i64 8
   %8 = load i64, ptr %_M_string_length.i.i.i.i102, align 8, !tbaa !44
   %cmp3.i.i.i.i = icmp ult i64 %8, 16
   call void @llvm.assume(i1 %cmp3.i.i.i.i)
@@ -1989,12 +1952,12 @@ lpad.i:                                           ; preds = %.noexc
   %9 = landingpad { ptr, i32 }
           cleanup
   %10 = load ptr, ptr %ref.tmp.i, align 8, !tbaa !41
-  %11 = getelementptr inbounds %"class.std::__cxx11::basic_string", ptr %ref.tmp.i, i64 0, i32 2
+  %11 = getelementptr inbounds i8, ptr %ref.tmp.i, i64 16
   %cmp.i.i.i5.i = icmp eq ptr %10, %11
   br i1 %cmp.i.i.i5.i, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i7.i, label %if.then.i.i6.i
 
 _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i7.i: ; preds = %lpad.i
-  %_M_string_length.i.i.i8.i = getelementptr inbounds %"class.std::__cxx11::basic_string", ptr %ref.tmp.i, i64 0, i32 1
+  %_M_string_length.i.i.i8.i = getelementptr inbounds i8, ptr %ref.tmp.i, i64 8
   %12 = load i64, ptr %_M_string_length.i.i.i8.i, align 8, !tbaa !44
   %cmp3.i.i.i9.i = icmp ult i64 %12, 16
   call void @llvm.assume(i1 %cmp3.i.i.i9.i)
@@ -2011,9 +1974,9 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit10.i: ; preds = %i
 invoke.cont5:                                     ; preds = %if.then.i.i.i, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i.i
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %ref.tmp.i) #19
   store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN5folly20AsyncSocketExceptionE, i64 0, inrange i32 0, i64 2), ptr %ex, align 8, !tbaa !35
-  %type_.i = getelementptr inbounds %"class.folly::AsyncSocketException", ptr %ex, i64 0, i32 1
+  %type_.i = getelementptr inbounds i8, ptr %ex, i64 16
   store i32 1, ptr %type_.i, align 8, !tbaa !47
-  %errno_.i = getelementptr inbounds %"class.folly::AsyncSocketException", ptr %ex, i64 0, i32 2
+  %errno_.i = getelementptr inbounds i8, ptr %ex, i64 20
   store i32 0, ptr %errno_.i, align 4, !tbaa !53
   %13 = load ptr, ptr %ref.tmp, align 8, !tbaa !41
   %cmp.i.i.i = icmp eq ptr %13, %3
@@ -2032,7 +1995,7 @@ if.then.i.i103:                                   ; preds = %invoke.cont5
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit: ; preds = %if.then.i.i103, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %ref.tmp) #19
   %vtable = load ptr, ptr %callback, align 8, !tbaa !35
-  %vfn = getelementptr inbounds ptr, ptr %vtable, i64 4
+  %vfn = getelementptr inbounds i8, ptr %vtable, i64 32
   %15 = load ptr, ptr %vfn, align 8
   call void %15(ptr noundef nonnull align 8 dereferenceable(8) %callback, i64 noundef 0, ptr noundef nonnull align 8 dereferenceable(24) %ex) #19
   call void @_ZNSt13runtime_errorD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %ex) #19
@@ -2072,7 +2035,7 @@ ehcleanup:                                        ; preds = %if.then.i.i106, %_Z
   br label %eh.resume
 
 if.end9:                                          ; preds = %entry
-  %queue_ = getelementptr inbounds %"class.folly::AsyncPipeWriter", ptr %this, i64 0, i32 4
+  %queue_ = getelementptr inbounds i8, ptr %this, i64 216
   %20 = load ptr, ptr %queue_, align 8, !tbaa !63
   %cmp.i = icmp eq ptr %20, %queue_
   call void @llvm.lifetime.start.p0(i64 72, ptr nonnull %iobq) #19
@@ -2086,19 +2049,19 @@ if.end9:                                          ; preds = %entry
 invoke.cont13:                                    ; preds = %if.end9
   call void @llvm.lifetime.start.p0(i64 80, ptr nonnull %p) #19
   call void @_ZN5folly10IOBufQueueC1EOS0_(ptr noundef nonnull align 8 dereferenceable(72) %p, ptr noundef nonnull align 8 dereferenceable(72) %iobq) #19
-  %second.i = getelementptr inbounds %"struct.std::pair.18", ptr %p, i64 0, i32 1
+  %second.i = getelementptr inbounds i8, ptr %p, i64 72
   store ptr %callback, ptr %second.i, align 8, !tbaa !78
   %call5.i.i.i.i.i.i112 = invoke noalias noundef nonnull dereferenceable(96) ptr @_Znwm(i64 noundef 96) #24
           to label %invoke.cont18 unwind label %lpad17
 
 invoke.cont18:                                    ; preds = %invoke.cont13
-  %_M_storage.i.i.i.i = getelementptr inbounds %"struct.std::_List_node", ptr %call5.i.i.i.i.i.i112, i64 0, i32 1
+  %_M_storage.i.i.i.i = getelementptr inbounds i8, ptr %call5.i.i.i.i.i.i112, i64 16
   call void @_ZN5folly10IOBufQueueC1EOS0_(ptr noundef nonnull align 8 dereferenceable(72) %_M_storage.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(72) %p) #19
-  %second.i.i.i.i.i.i = getelementptr inbounds %"struct.std::_List_node", ptr %call5.i.i.i.i.i.i112, i64 0, i32 1, i32 0, i64 72
+  %second.i.i.i.i.i.i = getelementptr inbounds i8, ptr %call5.i.i.i.i.i.i112, i64 88
   %21 = load ptr, ptr %second.i, align 8, !tbaa !78
   store ptr %21, ptr %second.i.i.i.i.i.i, align 8, !tbaa !78
   call void @_ZNSt8__detail15_List_node_base7_M_hookEPS0_(ptr noundef nonnull align 8 dereferenceable(16) %call5.i.i.i.i.i.i112, ptr noundef nonnull %queue_) #19
-  %_M_size.i.i.i = getelementptr inbounds %"class.folly::AsyncPipeWriter", ptr %this, i64 0, i32 4, i32 0, i32 0, i32 0, i32 1
+  %_M_size.i.i.i = getelementptr inbounds i8, ptr %this, i64 232
   %22 = load i64, ptr %_M_size.i.i.i, align 8, !tbaa !88
   %add.i.i.i = add i64 %22, 1
   store i64 %add.i.i.i, ptr %_M_size.i.i.i, align 8, !tbaa !88
@@ -2153,7 +2116,7 @@ lpad34:                                           ; preds = %invoke.cont35, %inv
   unreachable
 
 invoke.cont51:                                    ; preds = %if.else
-  %evcb_flags.i.i.i.i = getelementptr inbounds %"class.folly::EventHandler", ptr %this, i64 0, i32 1, i32 0, i32 0, i32 1
+  %evcb_flags.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 24
   %28 = load i16, ptr %evcb_flags.i.i.i.i, align 8, !tbaa !57
   %29 = and i16 %28, 15
   %tobool.i.i.i.not = icmp eq i16 %29, 0
@@ -2236,27 +2199,27 @@ entry:
   %0 = load i32, ptr %guardCount_.i, align 8, !tbaa !7
   %inc.i = add i32 %0, 1
   store i32 %inc.i, ptr %guardCount_.i, align 8, !tbaa !7
-  %queue_ = getelementptr inbounds %"class.folly::AsyncPipeWriter", ptr %this, i64 0, i32 4
-  %fd_ = getelementptr inbounds %"class.folly::AsyncPipeWriter", ptr %this, i64 0, i32 3
-  %_M_size.i.i.i = getelementptr inbounds %"class.folly::AsyncPipeWriter", ptr %this, i64 0, i32 4, i32 0, i32 0, i32 0, i32 1
+  %queue_ = getelementptr inbounds i8, ptr %this, i64 216
+  %fd_ = getelementptr inbounds i8, ptr %this, i64 208
+  %_M_size.i.i.i = getelementptr inbounds i8, ptr %this, i64 232
   %.pre = load ptr, ptr %queue_, align 8, !tbaa !63
   br label %do.body
 
 do.body:                                          ; preds = %do.cond, %entry
   %1 = phi ptr [ %47, %do.cond ], [ %.pre, %entry ]
-  %_M_storage.i.i.i = getelementptr inbounds %"struct.std::_List_node", ptr %1, i64 0, i32 1
-  %tailStart_.i.i = getelementptr inbounds %"struct.std::_List_node", ptr %1, i64 0, i32 1, i32 0, i64 24
+  %_M_storage.i.i.i = getelementptr inbounds i8, ptr %1, i64 16
+  %tailStart_.i.i = getelementptr inbounds i8, ptr %1, i64 40
   %2 = load ptr, ptr %tailStart_.i.i, align 8, !tbaa !92
-  %cachePtr_.i.i = getelementptr inbounds %"struct.std::_List_node", ptr %1, i64 0, i32 1, i32 0, i64 32
+  %cachePtr_.i.i = getelementptr inbounds i8, ptr %1, i64 48
   %3 = load ptr, ptr %cachePtr_.i.i, align 8, !tbaa !93
   %4 = load ptr, ptr %3, align 8, !tbaa !94
   %cmp.not.i.i = icmp eq ptr %2, %4
-  %head_.phi.trans.insert.i = getelementptr inbounds %"struct.std::_List_node", ptr %1, i64 0, i32 1, i32 0, i64 16
+  %head_.phi.trans.insert.i = getelementptr inbounds i8, ptr %1, i64 32
   %.pre.i = load ptr, ptr %head_.phi.trans.insert.i, align 8, !tbaa !13
   br i1 %cmp.not.i.i, label %invoke.cont26, label %if.then.i.i
 
 if.then.i.i:                                      ; preds = %do.body
-  %prev_.i.i.i = getelementptr inbounds %"class.folly::IOBuf", ptr %.pre.i, i64 0, i32 5
+  %prev_.i.i.i = getelementptr inbounds i8, ptr %.pre.i, i64 40
   %5 = load ptr, ptr %prev_.i.i.i, align 8, !tbaa !95
   %sub.ptr.lhs.cast.i.i = ptrtoint ptr %4 to i64
   %sub.ptr.rhs.cast.i.i = ptrtoint ptr %2 to i64
@@ -2264,7 +2227,7 @@ if.then.i.i:                                      ; preds = %do.body
   %6 = load i64, ptr %5, align 8, !tbaa !54
   %add.i.i.i = add i64 %6, %sub.ptr.sub.i.i
   store i64 %add.i.i.i, ptr %5, align 8, !tbaa !54
-  %chainLength_.i.i = getelementptr inbounds %"struct.std::_List_node", ptr %1, i64 0, i32 1, i32 0, i64 8
+  %chainLength_.i.i = getelementptr inbounds i8, ptr %1, i64 24
   %7 = load i64, ptr %chainLength_.i.i, align 8, !tbaa !96
   %add.i.i = add i64 %7, %sub.ptr.sub.i.i
   store i64 %add.i.i, ptr %chainLength_.i.i, align 8, !tbaa !96
@@ -2308,7 +2271,7 @@ lpad45:                                           ; preds = %invoke.cont46, %inv
 
 cleanup.done60:                                   ; preds = %invoke.cont26
   %11 = load i32, ptr %fd_, align 8, !tbaa !16
-  %data_.i = getelementptr inbounds %"class.folly::IOBuf", ptr %.pre.i, i64 0, i32 1
+  %data_.i = getelementptr inbounds i8, ptr %.pre.i, i64 8
   %12 = load ptr, ptr %data_.i, align 8, !tbaa !97
   %call73 = invoke noundef i64 @_ZN5folly10writeNoIntEiPKvm(i32 noundef %11, ptr noundef %12, i64 noundef %8)
           to label %invoke.cont72 unwind label %lpad67.loopexit
@@ -2396,12 +2359,12 @@ cleanup.action114:                                ; preds = %lpad96, %lpad93
 if.else:                                          ; preds = %if.then
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %ref.tmp119) #19
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %ref.tmp120) #19
-  %20 = getelementptr inbounds %"class.std::__cxx11::basic_string", ptr %ref.tmp120, i64 0, i32 2
+  %20 = getelementptr inbounds i8, ptr %ref.tmp120, i64 16
   store ptr %20, ptr %ref.tmp120, align 8, !tbaa !45
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(12) %20, ptr noundef nonnull align 1 dereferenceable(12) @.str.27, i64 12, i1 false)
-  %_M_string_length.i.i.i.i = getelementptr inbounds %"class.std::__cxx11::basic_string", ptr %ref.tmp120, i64 0, i32 1
+  %_M_string_length.i.i.i.i = getelementptr inbounds i8, ptr %ref.tmp120, i64 8
   store i64 12, ptr %_M_string_length.i.i.i.i, align 8, !tbaa !44
-  %arrayidx.i.i.i = getelementptr inbounds %"class.std::__cxx11::basic_string", ptr %ref.tmp120, i64 0, i32 2, i32 1, i64 4
+  %arrayidx.i.i.i = getelementptr inbounds i8, ptr %ref.tmp120, i64 28
   store i8 0, ptr %arrayidx.i.i.i, align 4, !tbaa !46
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %ref.tmp.i) #19
   invoke void @_ZN5folly20AsyncSocketException10getMessageENS0_24AsyncSocketExceptionTypeERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEi(ptr nonnull sret(%"class.std::__cxx11::basic_string") align 8 %ref.tmp.i, i32 noundef 8, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp120, i32 noundef %13)
@@ -2413,12 +2376,12 @@ if.else:                                          ; preds = %if.then
 
 invoke.cont.i:                                    ; preds = %.noexc
   %21 = load ptr, ptr %ref.tmp.i, align 8, !tbaa !41
-  %22 = getelementptr inbounds %"class.std::__cxx11::basic_string", ptr %ref.tmp.i, i64 0, i32 2
+  %22 = getelementptr inbounds i8, ptr %ref.tmp.i, i64 16
   %cmp.i.i.i.i = icmp eq ptr %21, %22
   br i1 %cmp.i.i.i.i, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i.i, label %if.then.i.i.i
 
 _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i.i: ; preds = %invoke.cont.i
-  %_M_string_length.i.i.i.i250 = getelementptr inbounds %"class.std::__cxx11::basic_string", ptr %ref.tmp.i, i64 0, i32 1
+  %_M_string_length.i.i.i.i250 = getelementptr inbounds i8, ptr %ref.tmp.i, i64 8
   %23 = load i64, ptr %_M_string_length.i.i.i.i250, align 8, !tbaa !44
   %cmp3.i.i.i.i = icmp ult i64 %23, 16
   call void @llvm.assume(i1 %cmp3.i.i.i.i)
@@ -2432,12 +2395,12 @@ lpad.i:                                           ; preds = %.noexc
   %24 = landingpad { ptr, i32 }
           cleanup
   %25 = load ptr, ptr %ref.tmp.i, align 8, !tbaa !41
-  %26 = getelementptr inbounds %"class.std::__cxx11::basic_string", ptr %ref.tmp.i, i64 0, i32 2
+  %26 = getelementptr inbounds i8, ptr %ref.tmp.i, i64 16
   %cmp.i.i.i5.i = icmp eq ptr %25, %26
   br i1 %cmp.i.i.i5.i, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i7.i, label %if.then.i.i6.i
 
 _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i7.i: ; preds = %lpad.i
-  %_M_string_length.i.i.i8.i = getelementptr inbounds %"class.std::__cxx11::basic_string", ptr %ref.tmp.i, i64 0, i32 1
+  %_M_string_length.i.i.i8.i = getelementptr inbounds i8, ptr %ref.tmp.i, i64 8
   %27 = load i64, ptr %_M_string_length.i.i.i8.i, align 8, !tbaa !44
   %cmp3.i.i.i9.i = icmp ult i64 %27, 16
   call void @llvm.assume(i1 %cmp3.i.i.i9.i)
@@ -2454,9 +2417,9 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit10.i: ; preds = %i
 invoke.cont126:                                   ; preds = %if.then.i.i.i, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i.i
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %ref.tmp.i) #19
   store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN5folly20AsyncSocketExceptionE, i64 0, inrange i32 0, i64 2), ptr %ref.tmp119, align 8, !tbaa !35
-  %type_.i = getelementptr inbounds %"class.folly::AsyncSocketException", ptr %ref.tmp119, i64 0, i32 1
+  %type_.i = getelementptr inbounds i8, ptr %ref.tmp119, i64 16
   store i32 8, ptr %type_.i, align 8, !tbaa !47
-  %errno_.i = getelementptr inbounds %"class.folly::AsyncSocketException", ptr %ref.tmp119, i64 0, i32 2
+  %errno_.i = getelementptr inbounds i8, ptr %ref.tmp119, i64 20
   store i32 %13, ptr %errno_.i, align 4, !tbaa !53
   invoke void @_ZN5folly15AsyncPipeWriter13failAllWritesERKNS_20AsyncSocketExceptionE(ptr noundef nonnull align 8 dereferenceable(280) %this, ptr noundef nonnull align 8 dereferenceable(24) %ref.tmp119)
           to label %invoke.cont128 unwind label %lpad127
@@ -2543,14 +2506,14 @@ invoke.cont143:                                   ; preds = %call4.i.noexc
   br i1 %cmp.i, label %if.then145, label %if.else150
 
 if.then145:                                       ; preds = %invoke.cont143, %invoke.cont142
-  %second = getelementptr inbounds %"struct.std::_List_node", ptr %1, i64 0, i32 1, i32 0, i64 72
+  %second = getelementptr inbounds i8, ptr %1, i64 88
   %38 = load ptr, ptr %second, align 8, !tbaa !78
   %39 = load ptr, ptr %queue_, align 8, !tbaa !63
   %40 = load i64, ptr %_M_size.i.i.i, align 8, !tbaa !88
   %sub.i.i.i = add i64 %40, -1
   store i64 %sub.i.i.i, ptr %_M_size.i.i.i, align 8, !tbaa !88
   call void @_ZNSt8__detail15_List_node_base9_M_unhookEv(ptr noundef nonnull align 8 dereferenceable(16) %39) #19
-  %_M_storage.i.i.i263 = getelementptr inbounds %"struct.std::_List_node", ptr %39, i64 0, i32 1
+  %_M_storage.i.i.i263 = getelementptr inbounds i8, ptr %39, i64 16
   call void @_ZN5folly10IOBufQueueD1Ev(ptr noundef nonnull align 8 dereferenceable(72) %_M_storage.i.i.i263) #19
   call void @_ZdlPv(ptr noundef %39) #20
   %tobool147.not = icmp eq ptr %38, null
@@ -2558,7 +2521,7 @@ if.then145:                                       ; preds = %invoke.cont143, %in
 
 if.then148:                                       ; preds = %if.then145
   %vtable = load ptr, ptr %38, align 8, !tbaa !35
-  %vfn = getelementptr inbounds ptr, ptr %vtable, i64 3
+  %vfn = getelementptr inbounds i8, ptr %vtable, i64 24
   %41 = load ptr, ptr %vfn, align 8
   call void %41(ptr noundef nonnull align 8 dereferenceable(8) %38) #19
   br label %do.cond
@@ -2625,7 +2588,7 @@ do.cond:                                          ; preds = %cleanup.action182, 
   br i1 %cmp.i267, label %do.end, label %do.body, !llvm.loop !98
 
 do.end:                                           ; preds = %do.cond
-  %closeOnEmpty_ = getelementptr inbounds %"class.folly::AsyncPipeWriter", ptr %this, i64 0, i32 5
+  %closeOnEmpty_ = getelementptr inbounds i8, ptr %this, i64 240
   %48 = load i8, ptr %closeOnEmpty_, align 8, !tbaa !99, !range !60, !noundef !103
   %tobool207.not = icmp eq i8 %48, 0
   br i1 %tobool207.not, label %if.else211, label %if.then208
@@ -2649,7 +2612,7 @@ cleanup214:                                       ; preds = %if.else211, %if.the
   br i1 %cmp.not.i, label %_ZN5folly22DelayedDestructionBase15DestructorGuardD2Ev.exit, label %if.then.i
 
 if.then.i:                                        ; preds = %cleanup214
-  %guardCount_.i268 = getelementptr inbounds %"class.folly::DelayedDestructionBase", ptr %50, i64 0, i32 1
+  %guardCount_.i268 = getelementptr inbounds i8, ptr %50, i64 8
   %51 = load i32, ptr %guardCount_.i268, align 8, !tbaa !7
   %dec.i = add i32 %51, -1
   store i32 %dec.i, ptr %guardCount_.i268, align 8, !tbaa !7
@@ -2658,7 +2621,7 @@ if.then.i:                                        ; preds = %cleanup214
 
 if.then6.i:                                       ; preds = %if.then.i
   %vtable.i = load ptr, ptr %50, align 8, !tbaa !35
-  %vfn.i = getelementptr inbounds ptr, ptr %vtable.i, i64 2
+  %vfn.i = getelementptr inbounds i8, ptr %vtable.i, i64 16
   %52 = load ptr, ptr %vfn.i, align 8
   invoke void %52(ptr noundef nonnull align 8 dereferenceable(12) %50, i1 noundef zeroext true)
           to label %_ZN5folly22DelayedDestructionBase15DestructorGuardD2Ev.exit unwind label %terminate.lpad.i
@@ -2727,7 +2690,7 @@ cleanup.action:                                   ; preds = %invoke.cont
   br label %cleanup.done13
 
 cleanup.done13:                                   ; preds = %cleanup.action, %land.end, %entry
-  %queue_ = getelementptr inbounds %"class.folly::AsyncPipeWriter", ptr %this, i64 0, i32 4
+  %queue_ = getelementptr inbounds i8, ptr %this, i64 216
   %2 = load ptr, ptr %queue_, align 8, !tbaa !63
   %cmp.i = icmp eq ptr %2, %queue_
   br i1 %cmp.i, label %if.then, label %if.else
@@ -2744,9 +2707,9 @@ lpad:                                             ; preds = %invoke.cont, %cond.
   resume { ptr, i32 } %3
 
 if.else:                                          ; preds = %cleanup.done13
-  %closeOnEmpty_ = getelementptr inbounds %"class.folly::AsyncPipeWriter", ptr %this, i64 0, i32 5
+  %closeOnEmpty_ = getelementptr inbounds i8, ptr %this, i64 240
   store i8 1, ptr %closeOnEmpty_, align 8, !tbaa !99
-  %evcb_flags.i.i.i.i = getelementptr inbounds %"class.folly::EventHandler", ptr %this, i64 0, i32 1, i32 0, i32 0, i32 1
+  %evcb_flags.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 24
   %4 = load i16, ptr %evcb_flags.i.i.i.i, align 8, !tbaa !57
   %5 = and i16 %4, 15
   %tobool.i.i.i.not = icmp eq i16 %5, 0
@@ -2814,7 +2777,7 @@ cleanup.action:                                   ; preds = %invoke.cont
   br label %cleanup.done13
 
 cleanup.done13:                                   ; preds = %cleanup.action, %land.end, %entry
-  %queue_ = getelementptr inbounds %"class.folly::AsyncPipeWriter", ptr %this, i64 0, i32 4
+  %queue_ = getelementptr inbounds i8, ptr %this, i64 216
   %2 = load ptr, ptr %queue_, align 8, !tbaa !63
   %cmp.i = icmp eq ptr %2, %queue_
   br i1 %cmp.i, label %if.end, label %if.then
@@ -2822,7 +2785,7 @@ cleanup.done13:                                   ; preds = %cleanup.action, %la
 if.then:                                          ; preds = %cleanup.done13
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %ref.tmp18) #19
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %ref.tmp19) #19
-  %3 = getelementptr inbounds %"class.std::__cxx11::basic_string", ptr %ref.tmp19, i64 0, i32 2
+  %3 = getelementptr inbounds i8, ptr %ref.tmp19, i64 16
   store ptr %3, ptr %ref.tmp19, align 8, !tbaa !45
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %__dnew.i.i) #19
   store i64 26, ptr %__dnew.i.i, align 8, !tbaa !37
@@ -2834,7 +2797,7 @@ call2.i10.i.noexc:                                ; preds = %if.then
   %4 = load i64, ptr %__dnew.i.i, align 8, !tbaa !37
   store i64 %4, ptr %3, align 8, !tbaa !46
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(26) %call2.i10.i55, ptr noundef nonnull align 1 dereferenceable(26) @.str.22, i64 26, i1 false)
-  %_M_string_length.i.i.i.i = getelementptr inbounds %"class.std::__cxx11::basic_string", ptr %ref.tmp19, i64 0, i32 1
+  %_M_string_length.i.i.i.i = getelementptr inbounds i8, ptr %ref.tmp19, i64 8
   store i64 %4, ptr %_M_string_length.i.i.i.i, align 8, !tbaa !44
   %5 = load ptr, ptr %ref.tmp19, align 8, !tbaa !41
   %arrayidx.i.i.i = getelementptr inbounds i8, ptr %5, i64 %4
@@ -2850,12 +2813,12 @@ call2.i10.i.noexc:                                ; preds = %if.then
 
 invoke.cont.i:                                    ; preds = %.noexc
   %6 = load ptr, ptr %ref.tmp.i, align 8, !tbaa !41
-  %7 = getelementptr inbounds %"class.std::__cxx11::basic_string", ptr %ref.tmp.i, i64 0, i32 2
+  %7 = getelementptr inbounds i8, ptr %ref.tmp.i, i64 16
   %cmp.i.i.i.i = icmp eq ptr %6, %7
   br i1 %cmp.i.i.i.i, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i.i, label %if.then.i.i.i
 
 _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i.i: ; preds = %invoke.cont.i
-  %_M_string_length.i.i.i.i56 = getelementptr inbounds %"class.std::__cxx11::basic_string", ptr %ref.tmp.i, i64 0, i32 1
+  %_M_string_length.i.i.i.i56 = getelementptr inbounds i8, ptr %ref.tmp.i, i64 8
   %8 = load i64, ptr %_M_string_length.i.i.i.i56, align 8, !tbaa !44
   %cmp3.i.i.i.i = icmp ult i64 %8, 16
   call void @llvm.assume(i1 %cmp3.i.i.i.i)
@@ -2869,12 +2832,12 @@ lpad.i:                                           ; preds = %.noexc
   %9 = landingpad { ptr, i32 }
           cleanup
   %10 = load ptr, ptr %ref.tmp.i, align 8, !tbaa !41
-  %11 = getelementptr inbounds %"class.std::__cxx11::basic_string", ptr %ref.tmp.i, i64 0, i32 2
+  %11 = getelementptr inbounds i8, ptr %ref.tmp.i, i64 16
   %cmp.i.i.i5.i = icmp eq ptr %10, %11
   br i1 %cmp.i.i.i5.i, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i7.i, label %if.then.i.i6.i
 
 _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i7.i: ; preds = %lpad.i
-  %_M_string_length.i.i.i8.i = getelementptr inbounds %"class.std::__cxx11::basic_string", ptr %ref.tmp.i, i64 0, i32 1
+  %_M_string_length.i.i.i8.i = getelementptr inbounds i8, ptr %ref.tmp.i, i64 8
   %12 = load i64, ptr %_M_string_length.i.i.i8.i, align 8, !tbaa !44
   %cmp3.i.i.i9.i = icmp ult i64 %12, 16
   call void @llvm.assume(i1 %cmp3.i.i.i9.i)
@@ -2891,9 +2854,9 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit10.i: ; preds = %i
 invoke.cont24:                                    ; preds = %if.then.i.i.i, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i.i
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %ref.tmp.i) #19
   store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN5folly20AsyncSocketExceptionE, i64 0, inrange i32 0, i64 2), ptr %ref.tmp18, align 8, !tbaa !35
-  %type_.i = getelementptr inbounds %"class.folly::AsyncSocketException", ptr %ref.tmp18, i64 0, i32 1
+  %type_.i = getelementptr inbounds i8, ptr %ref.tmp18, i64 16
   store i32 1, ptr %type_.i, align 8, !tbaa !47
-  %errno_.i = getelementptr inbounds %"class.folly::AsyncSocketException", ptr %ref.tmp18, i64 0, i32 2
+  %errno_.i = getelementptr inbounds i8, ptr %ref.tmp18, i64 20
   store i32 0, ptr %errno_.i, align 4, !tbaa !53
   invoke void @_ZN5folly15AsyncPipeWriter13failAllWritesERKNS_20AsyncSocketExceptionE(ptr noundef nonnull align 8 dereferenceable(280) %this, ptr noundef nonnull align 8 dereferenceable(24) %ref.tmp18)
           to label %invoke.cont26 unwind label %lpad25
@@ -2965,7 +2928,7 @@ ehcleanup27:                                      ; preds = %if.then.i.i60, %_ZN
   br label %eh.resume
 
 if.end:                                           ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit, %cleanup.done13
-  %fd_ = getelementptr inbounds %"class.folly::AsyncPipeWriter", ptr %this, i64 0, i32 3
+  %fd_ = getelementptr inbounds i8, ptr %this, i64 208
   %21 = load i32, ptr %fd_, align 8, !tbaa !16
   %cmp.i.i66.not = icmp eq i32 %21, -1
   br i1 %cmp.i.i66.not, label %if.end47, label %if.then33
@@ -2973,17 +2936,17 @@ if.end:                                           ; preds = %_ZNSt7__cxx1112basi
 if.then33:                                        ; preds = %if.end
   call void @_ZN5folly12EventHandler17unregisterHandlerEv(ptr noundef nonnull align 8 dereferenceable(184) %this)
   call void @_ZN5folly12EventHandler15changeHandlerFDENS_13NetworkSocketE(ptr noundef nonnull align 8 dereferenceable(184) %this, i32 -1)
-  %_M_manager.i.i = getelementptr inbounds %"class.folly::AsyncPipeWriter", ptr %this, i64 0, i32 6, i32 0, i32 1
+  %_M_manager.i.i = getelementptr inbounds i8, ptr %this, i64 264
   %22 = load ptr, ptr %_M_manager.i.i, align 8, !tbaa !62
   %tobool.not.i.i.not = icmp eq ptr %22, null
   br i1 %tobool.not.i.i.not, label %if.else, label %_ZNKSt8functionIFvN5folly13NetworkSocketEEEclES1_.exit
 
 _ZNKSt8functionIFvN5folly13NetworkSocketEEEclES1_.exit: ; preds = %if.then33
-  %closeCb_ = getelementptr inbounds %"class.folly::AsyncPipeWriter", ptr %this, i64 0, i32 6
+  %closeCb_ = getelementptr inbounds i8, ptr %this, i64 248
   %agg.tmp37.sroa.0.0.copyload = load i32, ptr %fd_, align 8, !tbaa.struct !66
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %__args.i)
   store i32 %agg.tmp37.sroa.0.0.copyload, ptr %__args.i, align 4
-  %_M_invoker.i = getelementptr inbounds %"class.folly::AsyncPipeWriter", ptr %this, i64 0, i32 6, i32 1
+  %_M_invoker.i = getelementptr inbounds i8, ptr %this, i64 272
   %23 = load ptr, ptr %_M_invoker.i, align 8, !tbaa !67
   call void %23(ptr noundef nonnull align 8 dereferenceable(16) %closeCb_, ptr noundef nonnull align 4 dereferenceable(4) %__args.i)
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %__args.i)
@@ -3014,25 +2977,25 @@ entry:
   %0 = load i32, ptr %guardCount_.i, align 8, !tbaa !7
   %inc.i = add i32 %0, 1
   store i32 %inc.i, ptr %guardCount_.i, align 8, !tbaa !7
-  %queue_ = getelementptr inbounds %"class.folly::AsyncPipeWriter", ptr %this, i64 0, i32 4
+  %queue_ = getelementptr inbounds i8, ptr %this, i64 216
   %1 = load ptr, ptr %queue_, align 8, !tbaa !63
   %cmp.i11 = icmp eq ptr %1, %queue_
   br i1 %cmp.i11, label %if.then.i, label %while.body.lr.ph
 
 while.body.lr.ph:                                 ; preds = %entry
-  %_M_size.i.i.i = getelementptr inbounds %"class.folly::AsyncPipeWriter", ptr %this, i64 0, i32 4, i32 0, i32 0, i32 0, i32 1
+  %_M_size.i.i.i = getelementptr inbounds i8, ptr %this, i64 232
   br label %while.body
 
 while.body:                                       ; preds = %if.end, %while.body.lr.ph
   %2 = phi ptr [ %1, %while.body.lr.ph ], [ %7, %if.end ]
-  %second = getelementptr inbounds %"struct.std::_List_node", ptr %2, i64 0, i32 1, i32 0, i64 72
+  %second = getelementptr inbounds i8, ptr %2, i64 88
   %3 = load ptr, ptr %second, align 8, !tbaa !78
   %tobool.not = icmp eq ptr %3, null
   br i1 %tobool.not, label %if.end, label %if.then
 
 if.then:                                          ; preds = %while.body
   %vtable = load ptr, ptr %3, align 8, !tbaa !35
-  %vfn = getelementptr inbounds ptr, ptr %vtable, i64 4
+  %vfn = getelementptr inbounds i8, ptr %vtable, i64 32
   %4 = load ptr, ptr %vfn, align 8
   tail call void %4(ptr noundef nonnull align 8 dereferenceable(8) %3, i64 noundef 0, ptr noundef nonnull align 8 dereferenceable(24) %ex) #19
   %.pre = load ptr, ptr %queue_, align 8, !tbaa !63
@@ -3044,7 +3007,7 @@ if.end:                                           ; preds = %if.then, %while.bod
   %sub.i.i.i = add i64 %6, -1
   store i64 %sub.i.i.i, ptr %_M_size.i.i.i, align 8, !tbaa !88
   tail call void @_ZNSt8__detail15_List_node_base9_M_unhookEv(ptr noundef nonnull align 8 dereferenceable(16) %5) #19
-  %_M_storage.i.i.i9 = getelementptr inbounds %"struct.std::_List_node", ptr %5, i64 0, i32 1
+  %_M_storage.i.i.i9 = getelementptr inbounds i8, ptr %5, i64 16
   tail call void @_ZN5folly10IOBufQueueD1Ev(ptr noundef nonnull align 8 dereferenceable(72) %_M_storage.i.i.i9) #19
   tail call void @_ZdlPv(ptr noundef %5) #20
   %7 = load ptr, ptr %queue_, align 8, !tbaa !63
@@ -3064,7 +3027,7 @@ if.then.i:                                        ; preds = %if.then.i.loopexit,
 
 if.then6.i:                                       ; preds = %if.then.i
   %vtable.i = load ptr, ptr %add.ptr, align 8, !tbaa !35
-  %vfn.i = getelementptr inbounds ptr, ptr %vtable.i, i64 2
+  %vfn.i = getelementptr inbounds i8, ptr %vtable.i, i64 16
   %9 = load ptr, ptr %vfn.i, align 8
   invoke void %9(ptr noundef nonnull align 8 dereferenceable(12) %add.ptr, i1 noundef zeroext true)
           to label %_ZN5folly22DelayedDestructionBase15DestructorGuardD2Ev.exit unwind label %terminate.lpad.i

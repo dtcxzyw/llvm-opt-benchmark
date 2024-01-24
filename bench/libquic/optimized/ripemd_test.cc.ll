@@ -39,7 +39,7 @@ for.body:                                         ; preds = %entry, %for.inc28
   %call = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %0) #10
   %call.fr = freeze i64 %call
   %cmp929.not = icmp eq i64 %call.fr, 0
-  %expected = getelementptr inbounds %struct.RIPEMDTestCase, ptr %__begin1.0.ptr37, i64 0, i32 1
+  %expected = getelementptr inbounds i8, ptr %__begin1.0.ptr37, i64 8
   br i1 %cmp929.not, label %if.end17, label %for.body3.us
 
 for.body3.us:                                     ; preds = %for.body, %for.inc.us

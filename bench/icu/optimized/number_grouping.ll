@@ -3,33 +3,6 @@ source_filename = "bench/icu/original/number_grouping.ll"
 target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:128-n8:16:32:64-S128"
 target triple = "x86_64-unknown-linux-gnu"
 
-%"struct.icu_75::number::impl::DecimalFormatProperties" = type <{ %"class.icu_75::number::impl::NullableValue", %"class.icu_75::number::impl::NullableValue.0", %"class.icu_75::number::impl::CurrencyPluralInfoWrapper", %"class.icu_75::number::impl::NullableValue.1", i8, i8, i8, i8, i8, [3 x i8], i32, i32, i8, [3 x i8], i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, %"class.icu_75::UnicodeString", %"class.icu_75::UnicodeString", %"class.icu_75::UnicodeString", %"class.icu_75::UnicodeString", %"class.icu_75::number::impl::NullableValue.3", %"class.icu_75::UnicodeString", i8, i8, [2 x i8], %"class.icu_75::number::impl::NullableValue.4", i8, i8, [2 x i8], i32, [4 x i8], %"class.icu_75::UnicodeString", %"class.icu_75::UnicodeString", %"class.icu_75::UnicodeString", %"class.icu_75::UnicodeString", double, %"class.icu_75::number::impl::NullableValue.5", i32, i8, [3 x i8] }>
-%"class.icu_75::number::impl::NullableValue" = type { i8, i32 }
-%"class.icu_75::number::impl::NullableValue.0" = type { i8, [7 x i8], %"class.icu_75::CurrencyUnit" }
-%"class.icu_75::CurrencyUnit" = type { %"class.icu_75::MeasureUnit.base", [4 x i16], [4 x i8] }
-%"class.icu_75::MeasureUnit.base" = type <{ %"class.icu_75::UObject", ptr, i16, i8 }>
-%"class.icu_75::UObject" = type { ptr }
-%"class.icu_75::number::impl::CurrencyPluralInfoWrapper" = type { %"class.icu_75::LocalPointer" }
-%"class.icu_75::LocalPointer" = type { %"class.icu_75::LocalPointerBase" }
-%"class.icu_75::LocalPointerBase" = type { ptr }
-%"class.icu_75::number::impl::NullableValue.1" = type { i8, i32 }
-%"class.icu_75::number::impl::NullableValue.3" = type { i8, i32 }
-%"class.icu_75::number::impl::NullableValue.4" = type { i8, i32 }
-%"class.icu_75::UnicodeString" = type { %"class.icu_75::Replaceable", %"union.icu_75::UnicodeString::StackBufferOrFields" }
-%"class.icu_75::Replaceable" = type { %"class.icu_75::UObject" }
-%"union.icu_75::UnicodeString::StackBufferOrFields" = type { %struct.anon.2, [32 x i8] }
-%struct.anon.2 = type { i16, i32, i32, ptr }
-%"class.icu_75::number::impl::NullableValue.5" = type { i8, i32 }
-%"class.icu_75::number::impl::Grouper" = type { i16, i16, i16, i32 }
-%"struct.icu_75::number::impl::ParsedPatternInfo" = type <{ %"class.icu_75::number::impl::AffixPatternProvider", %"class.icu_75::UnicodeString", %"struct.icu_75::number::impl::ParsedSubpatternInfo", %"struct.icu_75::number::impl::ParsedSubpatternInfo", %"struct.icu_75::number::impl::ParsedPatternInfo::ParserState", ptr, i8, [7 x i8] }>
-%"class.icu_75::number::impl::AffixPatternProvider" = type { ptr }
-%"struct.icu_75::number::impl::ParsedSubpatternInfo" = type { i64, i32, i32, i32, i32, i32, i32, i32, i32, i8, i32, i8, i32, %"class.icu_75::number::impl::DecimalQuantity", i8, i32, i8, i8, i8, i8, i8, i8, %"struct.icu_75::number::impl::Endpoints", %"struct.icu_75::number::impl::Endpoints", %"struct.icu_75::number::impl::Endpoints" }
-%"class.icu_75::number::impl::DecimalQuantity" = type <{ %"class.icu_75::IFixedDecimal", i8, [3 x i8], i32, i32, i8, i8, [2 x i8], double, i32, i32, i32, i32, %union.anon, i8, i8, [6 x i8] }>
-%"class.icu_75::IFixedDecimal" = type { ptr }
-%union.anon = type { %struct.anon.6 }
-%struct.anon.6 = type { ptr, i32 }
-%"struct.icu_75::number::impl::Endpoints" = type { i32, i32 }
-%"struct.icu_75::number::impl::ParsedPatternInfo::ParserState" = type <{ ptr, i32, [4 x i8] }>
 %"class.icu_75::LocalUResourceBundlePointer" = type { %"class.icu_75::LocalPointerBase.7" }
 %"class.icu_75::LocalPointerBase.7" = type { ptr }
 
@@ -72,20 +45,20 @@ declare void @abort() local_unnamed_addr #1
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
 define { i64, i32 } @_ZN6icu_756number4impl7Grouper13forPropertiesERKNS1_23DecimalFormatPropertiesE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(757) %properties) local_unnamed_addr #2 align 2 {
 entry:
-  %groupingUsed = getelementptr inbounds %"struct.icu_75::number::impl::DecimalFormatProperties", ptr %properties, i64 0, i32 12
+  %groupingUsed = getelementptr inbounds i8, ptr %properties, i64 80
   %0 = load i8, ptr %groupingUsed, align 8
   %1 = and i8 %0, 1
   %tobool.not = icmp eq i8 %1, 0
   br i1 %tobool.not, label %return, label %if.end
 
 if.end:                                           ; preds = %entry
-  %groupingSize = getelementptr inbounds %"struct.icu_75::number::impl::DecimalFormatProperties", ptr %properties, i64 0, i32 11
+  %groupingSize = getelementptr inbounds i8, ptr %properties, i64 76
   %2 = load i32, ptr %groupingSize, align 4
   %conv = trunc i32 %2 to i16
-  %secondaryGroupingSize = getelementptr inbounds %"struct.icu_75::number::impl::DecimalFormatProperties", ptr %properties, i64 0, i32 46
+  %secondaryGroupingSize = getelementptr inbounds i8, ptr %properties, i64 752
   %3 = load i32, ptr %secondaryGroupingSize, align 8
   %conv1 = trunc i32 %3 to i16
-  %minimumGroupingDigits = getelementptr inbounds %"struct.icu_75::number::impl::DecimalFormatProperties", ptr %properties, i64 0, i32 20
+  %minimumGroupingDigits = getelementptr inbounds i8, ptr %properties, i64 108
   %4 = load i32, ptr %minimumGroupingDigits, align 4
   %cmp = icmp sgt i16 %conv, 0
   %cmp5 = icmp sgt i16 %conv1, 0
@@ -112,7 +85,7 @@ return:                                           ; preds = %entry, %if.end
 ; Function Attrs: mustprogress uwtable
 define void @_ZN6icu_756number4impl7Grouper13setLocaleDataERKNS1_17ParsedPatternInfoERKNS_6LocaleE(ptr nocapture noundef nonnull align 4 dereferenceable(12) %this, ptr nocapture noundef nonnull readonly align 8 dereferenceable(433) %patternInfo, ptr nocapture noundef nonnull readonly align 8 dereferenceable(217) %locale) local_unnamed_addr #3 align 2 {
 entry:
-  %fMinGrouping = getelementptr inbounds %"class.icu_75::number::impl::Grouper", ptr %this, i64 0, i32 2
+  %fMinGrouping = getelementptr inbounds i8, ptr %this, i64 4
   %0 = load i16, ptr %fMinGrouping, align 4
   switch i16 %0, label %if.end13 [
     i16 -2, label %if.then
@@ -142,14 +115,14 @@ if.end13.sink.split:                              ; preds = %if.then, %if.then6
 if.end13:                                         ; preds = %if.end13.sink.split, %entry
   %3 = load i16, ptr %this, align 4
   %cmp15.not = icmp eq i16 %3, -2
-  %fGrouping2 = getelementptr inbounds %"class.icu_75::number::impl::Grouper", ptr %this, i64 0, i32 1
+  %fGrouping2 = getelementptr inbounds i8, ptr %this, i64 2
   %4 = load i16, ptr %fGrouping2, align 2
   %cmp17.not = icmp eq i16 %4, -4
   %or.cond = select i1 %cmp15.not, i1 true, i1 %cmp17.not
   br i1 %or.cond, label %if.end19, label %return
 
 if.end19:                                         ; preds = %if.end13
-  %positive = getelementptr inbounds %"struct.icu_75::number::impl::ParsedPatternInfo", ptr %patternInfo, i64 0, i32 2
+  %positive = getelementptr inbounds i8, ptr %patternInfo, i64 72
   %5 = load i64, ptr %positive, align 8
   %conv20 = trunc i64 %5 to i16
   %shr = lshr i64 %5, 16
@@ -239,7 +212,7 @@ if.end:                                           ; preds = %entry
   br i1 %cmp7, label %land.lhs.true, label %return
 
 land.lhs.true:                                    ; preds = %if.end
-  %fGrouping2 = getelementptr inbounds %"class.icu_75::number::impl::Grouper", ptr %this, i64 0, i32 1
+  %fGrouping2 = getelementptr inbounds i8, ptr %this, i64 2
   %1 = load i16, ptr %fGrouping2, align 2
   %conv8 = sext i16 %1 to i32
   %rem = srem i32 %sub, %conv8
@@ -252,7 +225,7 @@ land.rhs:                                         ; preds = %land.lhs.true
   %conv11 = sext i16 %2 to i32
   %sub12 = add i32 %call, 1
   %add = sub i32 %sub12, %conv11
-  %fMinGrouping = getelementptr inbounds %"class.icu_75::number::impl::Grouper", ptr %this, i64 0, i32 2
+  %fMinGrouping = getelementptr inbounds i8, ptr %this, i64 4
   %3 = load i16, ptr %fMinGrouping, align 4
   %conv13 = sext i16 %3 to i32
   %cmp14 = icmp sge i32 %add, %conv13
@@ -275,7 +248,7 @@ entry:
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
 define noundef signext i16 @_ZNK6icu_756number4impl7Grouper12getSecondaryEv(ptr nocapture noundef nonnull readonly align 4 dereferenceable(12) %this) local_unnamed_addr #2 align 2 {
 entry:
-  %fGrouping2 = getelementptr inbounds %"class.icu_75::number::impl::Grouper", ptr %this, i64 0, i32 1
+  %fGrouping2 = getelementptr inbounds i8, ptr %this, i64 2
   %0 = load i16, ptr %fGrouping2, align 2
   ret i16 %0
 }

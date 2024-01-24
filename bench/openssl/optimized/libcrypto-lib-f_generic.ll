@@ -8,15 +8,15 @@ target triple = "x86_64-unknown-linux-gnu"
 @MODULUS = internal unnamed_addr constant [1 x %struct.gf_s] [%struct.gf_s { [8 x i64] [i64 72057594037927935, i64 72057594037927935, i64 72057594037927935, i64 72057594037927935, i64 72057594037927934, i64 72057594037927935, i64 72057594037927935, i64 72057594037927935] }], align 16
 @ONE = internal constant [1 x %struct.gf_s] [%struct.gf_s { [8 x i64] [i64 1, i64 0, i64 0, i64 0, i64 0, i64 0, i64 0, i64 0] }], align 16
 
-; Function Attrs: nofree nosync nounwind memory(argmem: readwrite) uwtable
+; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
 define void @gf_serialize(ptr nocapture noundef writeonly %serial, ptr nocapture noundef readonly %x, i32 noundef %with_hibit) local_unnamed_addr #0 {
 entry:
   %red = alloca [1 x %struct.gf_s], align 16
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(64) %red, ptr noundef nonnull align 16 dereferenceable(64) %x, i64 64, i1 false)
-  %arrayidx.i.i = getelementptr inbounds [8 x i64], ptr %red, i64 0, i64 7
+  %arrayidx.i.i = getelementptr inbounds i8, ptr %red, i64 56
   %0 = load i64, ptr %arrayidx.i.i, align 8
   %shr.i.i = lshr i64 %0, 56
-  %arrayidx2.i.i = getelementptr inbounds [8 x i64], ptr %red, i64 0, i64 4
+  %arrayidx2.i.i = getelementptr inbounds i8, ptr %red, i64 32
   %1 = load i64, ptr %arrayidx2.i.i, align 16
   %add.i.i = add i64 %1, %shr.i.i
   store i64 %add.i.i, ptr %arrayidx2.i.i, align 16
@@ -126,12 +126,12 @@ for.end:                                          ; preds = %if.end9
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define void @gf_strong_reduce(ptr nocapture noundef %a) local_unnamed_addr #1 {
+define void @gf_strong_reduce(ptr nocapture noundef %a) local_unnamed_addr #0 {
 entry:
-  %arrayidx.i = getelementptr inbounds [8 x i64], ptr %a, i64 0, i64 7
+  %arrayidx.i = getelementptr inbounds i8, ptr %a, i64 56
   %0 = load i64, ptr %arrayidx.i, align 8
   %shr.i = lshr i64 %0, 56
-  %arrayidx2.i = getelementptr inbounds [8 x i64], ptr %a, i64 0, i64 4
+  %arrayidx2.i = getelementptr inbounds i8, ptr %a, i64 32
   %1 = load i64, ptr %arrayidx2.i, align 16
   %add.i = add i64 %1, %shr.i
   store i64 %add.i, ptr %arrayidx2.i, align 16
@@ -206,7 +206,7 @@ for.end34:                                        ; preds = %for.body15
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: read) uwtable
-define i64 @gf_hibit(ptr nocapture noundef readonly %x) local_unnamed_addr #2 {
+define i64 @gf_hibit(ptr nocapture noundef readonly %x) local_unnamed_addr #1 {
 entry:
   %y = alloca [1 x %struct.gf_s], align 16
   br label %for.body.i5.i
@@ -223,10 +223,10 @@ for.body.i5.i:                                    ; preds = %for.body.i5.i, %ent
   br i1 %exitcond.not.i, label %for.end.i.i, label %for.body.i5.i, !llvm.loop !9
 
 for.end.i.i:                                      ; preds = %for.body.i5.i
-  %arrayidx.i.i.i = getelementptr inbounds [8 x i64], ptr %y, i64 0, i64 7
+  %arrayidx.i.i.i = getelementptr inbounds i8, ptr %y, i64 56
   %1 = load i64, ptr %arrayidx.i.i.i, align 8
   %shr.i.i.i = lshr i64 %1, 56
-  %arrayidx2.i.i.i = getelementptr inbounds [8 x i64], ptr %y, i64 0, i64 4
+  %arrayidx2.i.i.i = getelementptr inbounds i8, ptr %y, i64 32
   %2 = load i64, ptr %arrayidx2.i.i.i, align 16
   %add.i.i.i = add i64 %2, %shr.i.i.i
   store i64 %add.i.i.i, ptr %arrayidx2.i.i.i, align 16
@@ -354,7 +354,7 @@ gf_strong_reduce.exit:                            ; preds = %for.body15.i
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define void @gf_add(ptr nocapture noundef %d, ptr nocapture noundef readonly %a, ptr nocapture noundef readonly %b) local_unnamed_addr #1 {
+define void @gf_add(ptr nocapture noundef %d, ptr nocapture noundef readonly %a, ptr nocapture noundef readonly %b) local_unnamed_addr #0 {
 entry:
   br label %for.body.i5
 
@@ -372,10 +372,10 @@ for.body.i5:                                      ; preds = %entry, %for.body.i5
   br i1 %exitcond.not, label %for.end.i, label %for.body.i5, !llvm.loop !9
 
 for.end.i:                                        ; preds = %for.body.i5
-  %arrayidx.i.i = getelementptr inbounds [8 x i64], ptr %d, i64 0, i64 7
+  %arrayidx.i.i = getelementptr inbounds i8, ptr %d, i64 56
   %2 = load i64, ptr %arrayidx.i.i, align 8
   %shr.i.i = lshr i64 %2, 56
-  %arrayidx2.i.i = getelementptr inbounds [8 x i64], ptr %d, i64 0, i64 4
+  %arrayidx2.i.i = getelementptr inbounds i8, ptr %d, i64 32
   %3 = load i64, ptr %arrayidx2.i.i, align 16
   %add.i.i = add i64 %3, %shr.i.i
   store i64 %add.i.i, ptr %arrayidx2.i.i, align 16
@@ -428,15 +428,15 @@ gf_weak_reduce.exit:                              ; preds = %for.body.i
   ret void
 }
 
-; Function Attrs: nofree nosync nounwind memory(argmem: readwrite) uwtable
+; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
 define i64 @gf_lobit(ptr nocapture noundef readonly %x) local_unnamed_addr #0 {
 entry:
   %y = alloca [1 x %struct.gf_s], align 16
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(64) %y, ptr noundef nonnull align 16 dereferenceable(64) %x, i64 64, i1 false)
-  %arrayidx.i.i = getelementptr inbounds [8 x i64], ptr %y, i64 0, i64 7
+  %arrayidx.i.i = getelementptr inbounds i8, ptr %y, i64 56
   %0 = load i64, ptr %arrayidx.i.i, align 8
   %shr.i.i = lshr i64 %0, 56
-  %arrayidx2.i.i = getelementptr inbounds [8 x i64], ptr %y, i64 0, i64 4
+  %arrayidx2.i.i = getelementptr inbounds i8, ptr %y, i64 32
   %1 = load i64, ptr %arrayidx2.i.i, align 16
   %add.i.i = add i64 %1, %shr.i.i
   store i64 %add.i.i, ptr %arrayidx2.i.i, align 16
@@ -514,7 +514,7 @@ gf_strong_reduce.exit:                            ; preds = %for.body15.i
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define i64 @gf_deserialize(ptr nocapture noundef %x, ptr nocapture noundef readonly %serial, i32 noundef %with_hibit, i8 noundef zeroext %hi_nmask) local_unnamed_addr #1 {
+define i64 @gf_deserialize(ptr nocapture noundef %x, ptr nocapture noundef readonly %serial, i32 noundef %with_hibit, i8 noundef zeroext %hi_nmask) local_unnamed_addr #0 {
 entry:
   %not = xor i8 %hi_nmask, -1
   br label %while.cond.preheader
@@ -602,7 +602,7 @@ cond.end36:                                       ; preds = %for.end, %cond.fals
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define void @gf_sub(ptr nocapture noundef %d, ptr nocapture noundef readonly %a, ptr nocapture noundef readonly %b) local_unnamed_addr #1 {
+define void @gf_sub(ptr nocapture noundef %d, ptr nocapture noundef readonly %a, ptr nocapture noundef readonly %b) local_unnamed_addr #0 {
 entry:
   br label %for.body.i6
 
@@ -623,10 +623,10 @@ for.body.i6:                                      ; preds = %entry, %for.body.i6
   br i1 %exitcond.not, label %for.end.i, label %for.body.i6, !llvm.loop !13
 
 for.end.i:                                        ; preds = %for.body.i6
-  %arrayidx.i.i = getelementptr inbounds [8 x i64], ptr %d, i64 0, i64 7
+  %arrayidx.i.i = getelementptr inbounds i8, ptr %d, i64 56
   %2 = load i64, ptr %arrayidx.i.i, align 8
   %shr.i.i = lshr i64 %2, 56
-  %arrayidx2.i.i = getelementptr inbounds [8 x i64], ptr %d, i64 0, i64 4
+  %arrayidx2.i.i = getelementptr inbounds i8, ptr %d, i64 32
   %3 = load i64, ptr %arrayidx2.i.i, align 16
   %add.i.i = add i64 %3, %shr.i.i
   store i64 %add.i.i, ptr %arrayidx2.i.i, align 16
@@ -680,7 +680,7 @@ gf_weak_reduce.exit:                              ; preds = %for.body.i
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: read) uwtable
-define i64 @gf_eq(ptr nocapture noundef readonly %a, ptr nocapture noundef readonly %b) local_unnamed_addr #2 {
+define i64 @gf_eq(ptr nocapture noundef readonly %a, ptr nocapture noundef readonly %b) local_unnamed_addr #1 {
 entry:
   %c = alloca [1 x %struct.gf_s], align 16
   br label %for.body.i6.i
@@ -702,10 +702,10 @@ for.body.i6.i:                                    ; preds = %for.body.i6.i, %ent
   br i1 %exitcond.not.i, label %for.end.i.i, label %for.body.i6.i, !llvm.loop !13
 
 for.end.i.i:                                      ; preds = %for.body.i6.i
-  %arrayidx.i.i.i = getelementptr inbounds [8 x i64], ptr %c, i64 0, i64 7
+  %arrayidx.i.i.i = getelementptr inbounds i8, ptr %c, i64 56
   %2 = load i64, ptr %arrayidx.i.i.i, align 8
   %shr.i.i.i = lshr i64 %2, 56
-  %arrayidx2.i.i.i = getelementptr inbounds [8 x i64], ptr %c, i64 0, i64 4
+  %arrayidx2.i.i.i = getelementptr inbounds i8, ptr %c, i64 32
   %3 = load i64, ptr %arrayidx2.i.i.i, align 16
   %add.i.i.i = add i64 %3, %shr.i.i.i
   store i64 %add.i.i.i, ptr %arrayidx2.i.i.i, align 16
@@ -844,7 +844,7 @@ for.end:                                          ; preds = %for.body
 }
 
 ; Function Attrs: nounwind uwtable
-define i64 @gf_isr(ptr nocapture noundef writeonly %a, ptr noundef %x) local_unnamed_addr #3 {
+define i64 @gf_isr(ptr nocapture noundef writeonly %a, ptr noundef %x) local_unnamed_addr #2 {
 entry:
   %tmp.i42 = alloca [1 x %struct.gf_s], align 16
   %tmp.i36 = alloca [1 x %struct.gf_s], align 16
@@ -857,145 +857,144 @@ entry:
   %L0 = alloca [1 x %struct.gf_s], align 16
   %L1 = alloca [1 x %struct.gf_s], align 16
   %L2 = alloca [1 x %struct.gf_s], align 16
-  call void @ossl_gf_sqr(ptr noundef nonnull %L1, ptr noundef %x) #7
-  call void @ossl_gf_mul(ptr noundef nonnull %L2, ptr noundef %x, ptr noundef nonnull %L1) #7
-  call void @ossl_gf_sqr(ptr noundef nonnull %L1, ptr noundef nonnull %L2) #7
-  call void @ossl_gf_mul(ptr noundef nonnull %L2, ptr noundef %x, ptr noundef nonnull %L1) #7
+  call void @ossl_gf_sqr(ptr noundef nonnull %L1, ptr noundef %x) #6
+  call void @ossl_gf_mul(ptr noundef nonnull %L2, ptr noundef %x, ptr noundef nonnull %L1) #6
+  call void @ossl_gf_sqr(ptr noundef nonnull %L1, ptr noundef nonnull %L2) #6
+  call void @ossl_gf_mul(ptr noundef nonnull %L2, ptr noundef %x, ptr noundef nonnull %L1) #6
   call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %tmp.i)
-  call void @ossl_gf_sqr(ptr noundef nonnull %L1, ptr noundef nonnull %L2) #7
-  call void @ossl_gf_sqr(ptr noundef nonnull %tmp.i, ptr noundef nonnull %L1) #7
-  call void @ossl_gf_sqr(ptr noundef nonnull %L1, ptr noundef nonnull %tmp.i) #7
+  call void @ossl_gf_sqr(ptr noundef nonnull %L1, ptr noundef nonnull %L2) #6
+  call void @ossl_gf_sqr(ptr noundef nonnull %tmp.i, ptr noundef nonnull %L1) #6
+  call void @ossl_gf_sqr(ptr noundef nonnull %L1, ptr noundef nonnull %tmp.i) #6
   call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %tmp.i)
-  call void @ossl_gf_mul(ptr noundef nonnull %L0, ptr noundef nonnull %L2, ptr noundef nonnull %L1) #7
+  call void @ossl_gf_mul(ptr noundef nonnull %L0, ptr noundef nonnull %L2, ptr noundef nonnull %L1) #6
   call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %tmp.i6)
-  call void @ossl_gf_sqr(ptr noundef nonnull %L1, ptr noundef nonnull %L0) #7
-  call void @ossl_gf_sqr(ptr noundef nonnull %tmp.i6, ptr noundef nonnull %L1) #7
-  call void @ossl_gf_sqr(ptr noundef nonnull %L1, ptr noundef nonnull %tmp.i6) #7
+  call void @ossl_gf_sqr(ptr noundef nonnull %L1, ptr noundef nonnull %L0) #6
+  call void @ossl_gf_sqr(ptr noundef nonnull %tmp.i6, ptr noundef nonnull %L1) #6
+  call void @ossl_gf_sqr(ptr noundef nonnull %L1, ptr noundef nonnull %tmp.i6) #6
   call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %tmp.i6)
-  call void @ossl_gf_mul(ptr noundef nonnull %L0, ptr noundef nonnull %L2, ptr noundef nonnull %L1) #7
+  call void @ossl_gf_mul(ptr noundef nonnull %L0, ptr noundef nonnull %L2, ptr noundef nonnull %L1) #6
   call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %tmp.i12)
-  call void @ossl_gf_sqr(ptr noundef nonnull %L2, ptr noundef nonnull %L0) #7
+  call void @ossl_gf_sqr(ptr noundef nonnull %L2, ptr noundef nonnull %L0) #6
   br label %for.body.i13
 
 for.body.i13:                                     ; preds = %entry, %for.body.i13
   %n.addr.110.i14 = phi i32 [ %sub5.i15, %for.body.i13 ], [ 8, %entry ]
-  call void @ossl_gf_sqr(ptr noundef nonnull %tmp.i12, ptr noundef nonnull %L2) #7
-  call void @ossl_gf_sqr(ptr noundef nonnull %L2, ptr noundef nonnull %tmp.i12) #7
+  call void @ossl_gf_sqr(ptr noundef nonnull %tmp.i12, ptr noundef nonnull %L2) #6
+  call void @ossl_gf_sqr(ptr noundef nonnull %L2, ptr noundef nonnull %tmp.i12) #6
   %sub5.i15 = add nsw i32 %n.addr.110.i14, -2
   %tobool2.not.i16 = icmp eq i32 %sub5.i15, 0
   br i1 %tobool2.not.i16, label %gf_sqrn.exit17, label %for.body.i13, !llvm.loop !15
 
 gf_sqrn.exit17:                                   ; preds = %for.body.i13
   call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %tmp.i12)
-  call void @ossl_gf_mul(ptr noundef nonnull %L1, ptr noundef nonnull %L0, ptr noundef nonnull %L2) #7
-  call void @ossl_gf_sqr(ptr noundef nonnull %L0, ptr noundef nonnull %L1) #7
-  call void @ossl_gf_mul(ptr noundef nonnull %L2, ptr noundef %x, ptr noundef nonnull %L0) #7
+  call void @ossl_gf_mul(ptr noundef nonnull %L1, ptr noundef nonnull %L0, ptr noundef nonnull %L2) #6
+  call void @ossl_gf_sqr(ptr noundef nonnull %L0, ptr noundef nonnull %L1) #6
+  call void @ossl_gf_mul(ptr noundef nonnull %L2, ptr noundef %x, ptr noundef nonnull %L0) #6
   call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %tmp.i18)
-  call void @ossl_gf_sqr(ptr noundef nonnull %tmp.i18, ptr noundef nonnull %L2) #7, !noalias !16
-  call void @ossl_gf_sqr(ptr noundef nonnull %L0, ptr noundef nonnull %tmp.i18) #7
+  call void @ossl_gf_sqr(ptr noundef nonnull %tmp.i18, ptr noundef nonnull %L2) #6, !noalias !16
+  call void @ossl_gf_sqr(ptr noundef nonnull %L0, ptr noundef nonnull %tmp.i18) #6
   br label %for.body.i19
 
 for.body.i19:                                     ; preds = %for.body.i19, %gf_sqrn.exit17
   %n.addr.110.i20 = phi i32 [ %sub5.i21, %for.body.i19 ], [ 16, %gf_sqrn.exit17 ]
-  call void @ossl_gf_sqr(ptr noundef nonnull %tmp.i18, ptr noundef nonnull %L0) #7
-  call void @ossl_gf_sqr(ptr noundef nonnull %L0, ptr noundef nonnull %tmp.i18) #7
+  call void @ossl_gf_sqr(ptr noundef nonnull %tmp.i18, ptr noundef nonnull %L0) #6
+  call void @ossl_gf_sqr(ptr noundef nonnull %L0, ptr noundef nonnull %tmp.i18) #6
   %sub5.i21 = add nsw i32 %n.addr.110.i20, -2
   %tobool2.not.i22 = icmp eq i32 %sub5.i21, 0
   br i1 %tobool2.not.i22, label %gf_sqrn.exit23, label %for.body.i19, !llvm.loop !15
 
 gf_sqrn.exit23:                                   ; preds = %for.body.i19
   call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %tmp.i18)
-  call void @ossl_gf_mul(ptr noundef nonnull %L2, ptr noundef nonnull %L1, ptr noundef nonnull %L0) #7
+  call void @ossl_gf_mul(ptr noundef nonnull %L2, ptr noundef nonnull %L1, ptr noundef nonnull %L0) #6
   call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %tmp.i24)
-  call void @ossl_gf_sqr(ptr noundef nonnull %L0, ptr noundef nonnull %L2) #7
+  call void @ossl_gf_sqr(ptr noundef nonnull %L0, ptr noundef nonnull %L2) #6
   br label %for.body.i25
 
 for.body.i25:                                     ; preds = %for.body.i25, %gf_sqrn.exit23
   %n.addr.110.i26 = phi i32 [ %sub5.i27, %for.body.i25 ], [ 36, %gf_sqrn.exit23 ]
-  call void @ossl_gf_sqr(ptr noundef nonnull %tmp.i24, ptr noundef nonnull %L0) #7
-  call void @ossl_gf_sqr(ptr noundef nonnull %L0, ptr noundef nonnull %tmp.i24) #7
+  call void @ossl_gf_sqr(ptr noundef nonnull %tmp.i24, ptr noundef nonnull %L0) #6
+  call void @ossl_gf_sqr(ptr noundef nonnull %L0, ptr noundef nonnull %tmp.i24) #6
   %sub5.i27 = add nsw i32 %n.addr.110.i26, -2
   %tobool2.not.i28 = icmp eq i32 %sub5.i27, 0
   br i1 %tobool2.not.i28, label %gf_sqrn.exit29, label %for.body.i25, !llvm.loop !15
 
 gf_sqrn.exit29:                                   ; preds = %for.body.i25
   call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %tmp.i24)
-  call void @ossl_gf_mul(ptr noundef nonnull %L1, ptr noundef nonnull %L2, ptr noundef nonnull %L0) #7
+  call void @ossl_gf_mul(ptr noundef nonnull %L1, ptr noundef nonnull %L2, ptr noundef nonnull %L0) #6
   call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %tmp.i30)
-  call void @ossl_gf_sqr(ptr noundef nonnull %L0, ptr noundef nonnull %L1) #7
+  call void @ossl_gf_sqr(ptr noundef nonnull %L0, ptr noundef nonnull %L1) #6
   br label %for.body.i31
 
 for.body.i31:                                     ; preds = %for.body.i31, %gf_sqrn.exit29
   %n.addr.110.i32 = phi i32 [ %sub5.i33, %for.body.i31 ], [ 36, %gf_sqrn.exit29 ]
-  call void @ossl_gf_sqr(ptr noundef nonnull %tmp.i30, ptr noundef nonnull %L0) #7
-  call void @ossl_gf_sqr(ptr noundef nonnull %L0, ptr noundef nonnull %tmp.i30) #7
+  call void @ossl_gf_sqr(ptr noundef nonnull %tmp.i30, ptr noundef nonnull %L0) #6
+  call void @ossl_gf_sqr(ptr noundef nonnull %L0, ptr noundef nonnull %tmp.i30) #6
   %sub5.i33 = add nsw i32 %n.addr.110.i32, -2
   %tobool2.not.i34 = icmp eq i32 %sub5.i33, 0
   br i1 %tobool2.not.i34, label %gf_sqrn.exit35, label %for.body.i31, !llvm.loop !15
 
 gf_sqrn.exit35:                                   ; preds = %for.body.i31
   call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %tmp.i30)
-  call void @ossl_gf_mul(ptr noundef nonnull %L1, ptr noundef nonnull %L2, ptr noundef nonnull %L0) #7
+  call void @ossl_gf_mul(ptr noundef nonnull %L1, ptr noundef nonnull %L2, ptr noundef nonnull %L0) #6
   call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %tmp.i36)
-  call void @ossl_gf_sqr(ptr noundef nonnull %L0, ptr noundef nonnull %L1) #7
+  call void @ossl_gf_sqr(ptr noundef nonnull %L0, ptr noundef nonnull %L1) #6
   br label %for.body.i37
 
 for.body.i37:                                     ; preds = %for.body.i37, %gf_sqrn.exit35
   %n.addr.110.i38 = phi i32 [ %sub5.i39, %for.body.i37 ], [ 110, %gf_sqrn.exit35 ]
-  call void @ossl_gf_sqr(ptr noundef nonnull %tmp.i36, ptr noundef nonnull %L0) #7
-  call void @ossl_gf_sqr(ptr noundef nonnull %L0, ptr noundef nonnull %tmp.i36) #7
+  call void @ossl_gf_sqr(ptr noundef nonnull %tmp.i36, ptr noundef nonnull %L0) #6
+  call void @ossl_gf_sqr(ptr noundef nonnull %L0, ptr noundef nonnull %tmp.i36) #6
   %sub5.i39 = add nsw i32 %n.addr.110.i38, -2
   %tobool2.not.i40 = icmp eq i32 %sub5.i39, 0
   br i1 %tobool2.not.i40, label %gf_sqrn.exit41, label %for.body.i37, !llvm.loop !15
 
 gf_sqrn.exit41:                                   ; preds = %for.body.i37
   call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %tmp.i36)
-  call void @ossl_gf_mul(ptr noundef nonnull %L2, ptr noundef nonnull %L1, ptr noundef nonnull %L0) #7
-  call void @ossl_gf_sqr(ptr noundef nonnull %L0, ptr noundef nonnull %L2) #7
-  call void @ossl_gf_mul(ptr noundef nonnull %L1, ptr noundef %x, ptr noundef nonnull %L0) #7
+  call void @ossl_gf_mul(ptr noundef nonnull %L2, ptr noundef nonnull %L1, ptr noundef nonnull %L0) #6
+  call void @ossl_gf_sqr(ptr noundef nonnull %L0, ptr noundef nonnull %L2) #6
+  call void @ossl_gf_mul(ptr noundef nonnull %L1, ptr noundef %x, ptr noundef nonnull %L0) #6
   call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %tmp.i42)
-  call void @ossl_gf_sqr(ptr noundef nonnull %L0, ptr noundef nonnull %L1) #7
+  call void @ossl_gf_sqr(ptr noundef nonnull %L0, ptr noundef nonnull %L1) #6
   br label %for.body.i43
 
 for.body.i43:                                     ; preds = %for.body.i43, %gf_sqrn.exit41
   %n.addr.110.i44 = phi i32 [ %sub5.i45, %for.body.i43 ], [ 222, %gf_sqrn.exit41 ]
-  call void @ossl_gf_sqr(ptr noundef nonnull %tmp.i42, ptr noundef nonnull %L0) #7
-  call void @ossl_gf_sqr(ptr noundef nonnull %L0, ptr noundef nonnull %tmp.i42) #7
+  call void @ossl_gf_sqr(ptr noundef nonnull %tmp.i42, ptr noundef nonnull %L0) #6
+  call void @ossl_gf_sqr(ptr noundef nonnull %L0, ptr noundef nonnull %tmp.i42) #6
   %sub5.i45 = add nsw i32 %n.addr.110.i44, -2
   %tobool2.not.i46 = icmp eq i32 %sub5.i45, 0
   br i1 %tobool2.not.i46, label %gf_sqrn.exit47, label %for.body.i43, !llvm.loop !15
 
 gf_sqrn.exit47:                                   ; preds = %for.body.i43
   call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %tmp.i42)
-  call void @ossl_gf_mul(ptr noundef nonnull %L1, ptr noundef nonnull %L2, ptr noundef nonnull %L0) #7
-  call void @ossl_gf_sqr(ptr noundef nonnull %L2, ptr noundef nonnull %L1) #7
-  call void @ossl_gf_mul(ptr noundef nonnull %L0, ptr noundef nonnull %L2, ptr noundef %x) #7
+  call void @ossl_gf_mul(ptr noundef nonnull %L1, ptr noundef nonnull %L2, ptr noundef nonnull %L0) #6
+  call void @ossl_gf_sqr(ptr noundef nonnull %L2, ptr noundef nonnull %L1) #6
+  call void @ossl_gf_mul(ptr noundef nonnull %L0, ptr noundef nonnull %L2, ptr noundef %x) #6
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(64) %a, ptr noundef nonnull align 16 dereferenceable(64) %L1, i64 64, i1 false)
   %call = call i64 @gf_eq(ptr noundef nonnull %L0, ptr noundef nonnull @ONE), !range !12
   ret i64 %call
 }
 
-declare void @ossl_gf_sqr(ptr noundef, ptr noundef) local_unnamed_addr #4
+declare void @ossl_gf_sqr(ptr noundef, ptr noundef) local_unnamed_addr #3
 
-declare void @ossl_gf_mul(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #4
+declare void @ossl_gf_mul(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #5
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #4
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #6
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #5
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #6
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #5
 
-attributes #0 = { nofree nosync nounwind memory(argmem: readwrite) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #1 = { nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #2 = { nofree norecurse nosync nounwind memory(argmem: read) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #3 = { nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #4 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #5 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
-attributes #6 = { nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
-attributes #7 = { nounwind }
+attributes #0 = { nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #1 = { nofree norecurse nosync nounwind memory(argmem: read) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #2 = { nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #3 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #4 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
+attributes #5 = { nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
+attributes #6 = { nounwind }
 
 !llvm.module.flags = !{!0, !1, !2, !3}
 

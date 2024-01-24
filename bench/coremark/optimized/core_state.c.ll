@@ -149,12 +149,12 @@ entry:
   br i1 %tobool51.not, label %for.end, label %for.body.lr.ph
 
 for.body.lr.ph:                                   ; preds = %entry
-  %arrayidx106 = getelementptr inbounds i32, ptr %transition_count, i64 1
-  %arrayidx96 = getelementptr inbounds i32, ptr %transition_count, i64 6
-  %arrayidx86 = getelementptr inbounds i32, ptr %transition_count, i64 3
-  %arrayidx73 = getelementptr inbounds i32, ptr %transition_count, i64 5
-  %arrayidx54 = getelementptr inbounds i32, ptr %transition_count, i64 4
-  %arrayidx29 = getelementptr inbounds i32, ptr %transition_count, i64 2
+  %arrayidx106 = getelementptr inbounds i8, ptr %transition_count, i64 4
+  %arrayidx96 = getelementptr inbounds i8, ptr %transition_count, i64 24
+  %arrayidx86 = getelementptr inbounds i8, ptr %transition_count, i64 12
+  %arrayidx73 = getelementptr inbounds i8, ptr %transition_count, i64 20
+  %arrayidx54 = getelementptr inbounds i8, ptr %transition_count, i64 16
+  %arrayidx29 = getelementptr inbounds i8, ptr %transition_count, i64 8
   br label %for.body
 
 for.body:                                         ; preds = %for.body.lr.ph, %for.inc
@@ -278,7 +278,7 @@ for.end:                                          ; preds = %for.inc, %for.inc.t
 
 declare zeroext i16 @crcu32(i32 noundef, i16 noundef zeroext) local_unnamed_addr #2
 
-; Function Attrs: nofree nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
 define dso_local void @core_init_state(i32 noundef %size, i16 noundef signext %seed, ptr nocapture noundef writeonly %p) local_unnamed_addr #3 {
 entry:
   %dec = add i32 %size, -1
@@ -301,7 +301,7 @@ while.body39.preheader:                           ; preds = %while.cond36.prehea
 
 while.body:                                       ; preds = %entry, %if.end
   %buf.030 = phi ptr [ %buf.1, %if.end ], [ null, %entry ]
-  %next.029 = phi i32 [ %switch.load42, %if.end ], [ 0, %entry ]
+  %next.029 = phi i32 [ %switch.load43, %if.end ], [ 0, %entry ]
   %total.028 = phi i32 [ %total.1, %if.end ], [ 0, %entry ]
   %seed.addr.027 = phi i16 [ %inc12, %if.end ], [ %seed, %entry ]
   %cmp2.not = icmp eq i32 %next.029, 0
@@ -333,21 +333,21 @@ for.end:                                          ; preds = %for.body
 if.end:                                           ; preds = %for.end, %while.body
   %total.1 = phi i32 [ %add11, %for.end ], [ %total.028, %while.body ]
   %inc12 = add i16 %seed.addr.027, 1
-  %conv38 = zext i16 %inc12 to i32
-  %and = and i32 %conv38, 7
+  %conv39 = zext i16 %inc12 to i32
+  %and = and i32 %conv39, 7
   %5 = zext nneg i32 %and to i64
   %switch.gep = getelementptr inbounds [8 x ptr], ptr @switch.table.core_init_state, i64 0, i64 %5
   %switch.load = load ptr, ptr %switch.gep, align 8
   %6 = zext nneg i32 %and to i64
-  %switch.gep41 = getelementptr inbounds [8 x i32], ptr @switch.table.core_init_state.1, i64 0, i64 %6
-  %switch.load42 = load i32, ptr %switch.gep41, align 4
-  %shr31 = lshr i32 %conv38, 3
+  %switch.gep42 = getelementptr inbounds [8 x i32], ptr @switch.table.core_init_state.1, i64 0, i64 %6
+  %switch.load43 = load i32, ptr %switch.gep42, align 4
+  %shr31 = lshr i32 %conv39, 3
   %and32 = and i32 %shr31, 3
   %idxprom33 = zext nneg i32 %and32 to i64
   %arrayidx34 = getelementptr inbounds [4 x ptr], ptr %switch.load, i64 0, i64 %idxprom33
   %buf.1 = load ptr, ptr %arrayidx34, align 8
   %add = add i32 %total.1, 1
-  %add1 = add i32 %add, %switch.load42
+  %add1 = add i32 %add, %switch.load43
   %cmp = icmp ult i32 %add1, %dec
   br i1 %cmp, label %while.body, label %while.cond36.preheader, !llvm.loop !13
 
@@ -361,7 +361,7 @@ declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #4
 attributes #0 = { nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #2 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #3 = { nofree nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #3 = { nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #4 = { nocallback nofree nounwind willreturn memory(argmem: write) }
 attributes #5 = { nounwind }
 

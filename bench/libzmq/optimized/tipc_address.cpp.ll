@@ -3,10 +3,6 @@ source_filename = "bench/libzmq/original/tipc_address.cpp.ll"
 target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:128-n8:16:32:64-S128"
 target triple = "x86_64-unknown-linux-gnu"
 
-%"class.zmq::tipc_address_t" = type { i8, %struct.sockaddr_tipc }
-%struct.sockaddr_tipc = type { i16, i8, i8, %union.anon }
-%union.anon = type { %struct.tipc_service_range }
-%struct.tipc_service_range = type { i32, i32, i32 }
 %"class.std::__cxx11::basic_stringstream" = type { %"class.std::basic_iostream.base", %"class.std::__cxx11::basic_stringbuf", %"class.std::basic_ios" }
 %"class.std::basic_iostream.base" = type { %"class.std::basic_istream.base", %"class.std::basic_ostream.base" }
 %"class.std::basic_istream.base" = type { ptr, i64 }
@@ -44,7 +40,7 @@ target triple = "x86_64-unknown-linux-gnu"
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
 define void @_ZN3zmq14tipc_address_tC2Ev(ptr nocapture noundef nonnull writeonly align 4 dereferenceable(20) %this) unnamed_addr #0 align 2 {
 entry:
-  %address2 = getelementptr inbounds %"class.zmq::tipc_address_t", ptr %this, i64 0, i32 1
+  %address2 = getelementptr inbounds i8, ptr %this, i64 4
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %address2, i8 0, i64 16, i1 false)
   store i8 0, ptr %this, align 4
   ret void
@@ -70,7 +66,7 @@ if.then:                                          ; preds = %entry
   br label %do.end
 
 do.end:                                           ; preds = %entry, %if.then
-  %address3 = getelementptr inbounds %"class.zmq::tipc_address_t", ptr %this, i64 0, i32 1
+  %address3 = getelementptr inbounds i8, ptr %this, i64 4
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %address3, i8 0, i64 16, i1 false)
   %2 = load i16, ptr %sa_, align 2
   %cmp4 = icmp eq i16 %2, 30
@@ -116,7 +112,7 @@ entry:
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
 define noundef zeroext i1 @_ZNK3zmq14tipc_address_t10is_serviceEv(ptr nocapture noundef nonnull readonly align 4 dereferenceable(20) %this) local_unnamed_addr #6 align 2 {
 entry:
-  %addrtype = getelementptr inbounds %"class.zmq::tipc_address_t", ptr %this, i64 0, i32 1, i32 1
+  %addrtype = getelementptr inbounds i8, ptr %this, i64 6
   %0 = load i8, ptr %addrtype, align 2
   %cmp = icmp ne i8 %0, 3
   ret i1 %cmp
@@ -146,11 +142,11 @@ entry:
 
 if.then:                                          ; preds = %entry
   store i8 1, ptr %this, align 4
-  %address = getelementptr inbounds %"class.zmq::tipc_address_t", ptr %this, i64 0, i32 1
+  %address = getelementptr inbounds i8, ptr %this, i64 4
   store i16 30, ptr %address, align 4
-  %addrtype = getelementptr inbounds %"class.zmq::tipc_address_t", ptr %this, i64 0, i32 1, i32 1
+  %addrtype = getelementptr inbounds i8, ptr %this, i64 6
   store i8 3, ptr %addrtype, align 2
-  %scope = getelementptr inbounds %"class.zmq::tipc_address_t", ptr %this, i64 0, i32 1, i32 2
+  %scope = getelementptr inbounds i8, ptr %this, i64 7
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(9) %scope, i8 0, i64 9, i1 false)
   br label %return
 
@@ -181,17 +177,17 @@ lor.lhs.false:                                    ; preds = %if.then17
   br i1 %cmp19, label %return, label %if.end21
 
 if.end21:                                         ; preds = %lor.lhs.false
-  %address22 = getelementptr inbounds %"class.zmq::tipc_address_t", ptr %this, i64 0, i32 1
+  %address22 = getelementptr inbounds i8, ptr %this, i64 4
   store i16 30, ptr %address22, align 4
-  %addrtype25 = getelementptr inbounds %"class.zmq::tipc_address_t", ptr %this, i64 0, i32 1, i32 1
+  %addrtype25 = getelementptr inbounds i8, ptr %this, i64 6
   store i8 1, ptr %addrtype25, align 2
-  %addr27 = getelementptr inbounds %"class.zmq::tipc_address_t", ptr %this, i64 0, i32 1, i32 3
+  %addr27 = getelementptr inbounds i8, ptr %this, i64 8
   store i32 %0, ptr %addr27, align 4
-  %lower31 = getelementptr inbounds %"class.zmq::tipc_address_t", ptr %this, i64 0, i32 1, i32 3, i32 0, i32 1
+  %lower31 = getelementptr inbounds i8, ptr %this, i64 12
   store i32 %2, ptr %lower31, align 4
-  %upper34 = getelementptr inbounds %"class.zmq::tipc_address_t", ptr %this, i64 0, i32 1, i32 3, i32 0, i32 2
+  %upper34 = getelementptr inbounds i8, ptr %this, i64 16
   store i32 %1, ptr %upper34, align 4
-  %scope36 = getelementptr inbounds %"class.zmq::tipc_address_t", ptr %this, i64 0, i32 1, i32 2
+  %scope36 = getelementptr inbounds i8, ptr %this, i64 7
   store i8 1, ptr %scope36, align 1
   br label %return
 
@@ -203,14 +199,14 @@ if.end37:                                         ; preds = %if.end15
   br i1 %or.cond, label %if.then40, label %if.else
 
 if.then40:                                        ; preds = %if.end37
-  %address41 = getelementptr inbounds %"class.zmq::tipc_address_t", ptr %this, i64 0, i32 1
+  %address41 = getelementptr inbounds i8, ptr %this, i64 4
   store i16 30, ptr %address41, align 4
-  %addrtype44 = getelementptr inbounds %"class.zmq::tipc_address_t", ptr %this, i64 0, i32 1, i32 1
+  %addrtype44 = getelementptr inbounds i8, ptr %this, i64 6
   store i8 2, ptr %addrtype44, align 2
-  %addr46 = getelementptr inbounds %"class.zmq::tipc_address_t", ptr %this, i64 0, i32 1, i32 3
+  %addr46 = getelementptr inbounds i8, ptr %this, i64 8
   store i32 %3, ptr %addr46, align 4
   %4 = load i32, ptr %lower, align 4
-  %instance = getelementptr inbounds %"class.zmq::tipc_address_t", ptr %this, i64 0, i32 1, i32 3, i32 0, i32 1
+  %instance = getelementptr inbounds i8, ptr %this, i64 12
   store i32 %4, ptr %instance, align 4
   %5 = load i32, ptr %z, align 4
   %6 = load i32, ptr %c, align 4
@@ -219,9 +215,9 @@ if.then40:                                        ; preds = %if.end37
   %shl1.i = shl i32 %6, 12
   %or.i = or i32 %shl1.i, %shl.i
   %or2.i = or i32 %or.i, %7
-  %domain54 = getelementptr inbounds %"class.zmq::tipc_address_t", ptr %this, i64 0, i32 1, i32 3, i32 0, i32 2
+  %domain54 = getelementptr inbounds i8, ptr %this, i64 16
   store i32 %or2.i, ptr %domain54, align 4
-  %scope56 = getelementptr inbounds %"class.zmq::tipc_address_t", ptr %this, i64 0, i32 1, i32 2
+  %scope56 = getelementptr inbounds i8, ptr %this, i64 7
   store i8 0, ptr %scope56, align 1
   br label %return
 
@@ -235,9 +231,9 @@ if.then58:                                        ; preds = %if.else
   br i1 %cmp60, label %if.then61, label %return
 
 if.then61:                                        ; preds = %if.then58
-  %address62 = getelementptr inbounds %"class.zmq::tipc_address_t", ptr %this, i64 0, i32 1
+  %address62 = getelementptr inbounds i8, ptr %this, i64 4
   store i16 30, ptr %address62, align 4
-  %addrtype65 = getelementptr inbounds %"class.zmq::tipc_address_t", ptr %this, i64 0, i32 1, i32 1
+  %addrtype65 = getelementptr inbounds i8, ptr %this, i64 6
   store i8 3, ptr %addrtype65, align 2
   %8 = load i32, ptr %z, align 4
   %9 = load i32, ptr %c, align 4
@@ -246,12 +242,12 @@ if.then61:                                        ; preds = %if.then58
   %shl1.i8 = shl i32 %9, 12
   %or.i9 = or i32 %shl1.i8, %shl.i7
   %or2.i10 = or i32 %or.i9, %10
-  %addr68 = getelementptr inbounds %"class.zmq::tipc_address_t", ptr %this, i64 0, i32 1, i32 3
-  %node69 = getelementptr inbounds %"class.zmq::tipc_address_t", ptr %this, i64 0, i32 1, i32 3, i32 0, i32 1
+  %addr68 = getelementptr inbounds i8, ptr %this, i64 8
+  %node69 = getelementptr inbounds i8, ptr %this, i64 12
   store i32 %or2.i10, ptr %node69, align 4
   %11 = load i32, ptr %ref, align 4
   store i32 %11, ptr %addr68, align 4
-  %scope74 = getelementptr inbounds %"class.zmq::tipc_address_t", ptr %this, i64 0, i32 1, i32 2
+  %scope74 = getelementptr inbounds i8, ptr %this, i64 7
   store i8 0, ptr %scope74, align 1
   br label %return
 
@@ -275,7 +271,7 @@ entry:
   %s = alloca %"class.std::__cxx11::basic_stringstream", align 8
   %ref.tmp = alloca %"class.std::__cxx11::basic_string", align 8
   %ref.tmp80 = alloca %"class.std::__cxx11::basic_string", align 8
-  %address = getelementptr inbounds %"class.zmq::tipc_address_t", ptr %this, i64 0, i32 1
+  %address = getelementptr inbounds i8, ptr %this, i64 4
   %0 = load i16, ptr %address, align 4
   %cmp.not = icmp eq i16 %0, 30
   br i1 %cmp.not, label %if.end, label %if.then
@@ -286,7 +282,7 @@ if.then:                                          ; preds = %entry
 
 if.end:                                           ; preds = %entry
   call void @_ZNSt7__cxx1118basic_stringstreamIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(128) %s)
-  %addrtype = getelementptr inbounds %"class.zmq::tipc_address_t", ptr %this, i64 0, i32 1, i32 1
+  %addrtype = getelementptr inbounds i8, ptr %this, i64 6
   %1 = load i8, ptr %addrtype, align 2
   switch i8 %1, label %lor.lhs.false37 [
     i8 1, label %if.then9
@@ -304,7 +300,7 @@ invoke.cont:                                      ; preds = %if.then9
           to label %invoke.cont10 unwind label %lpad
 
 invoke.cont10:                                    ; preds = %invoke.cont
-  %addr = getelementptr inbounds %"class.zmq::tipc_address_t", ptr %this, i64 0, i32 1, i32 3
+  %addr = getelementptr inbounds i8, ptr %this, i64 8
   %2 = load i32, ptr %addr, align 4
   %call14 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZNSolsEj(ptr noundef nonnull align 8 dereferenceable(8) %call11, i32 noundef %2)
           to label %invoke.cont13 unwind label %lpad
@@ -314,7 +310,7 @@ invoke.cont13:                                    ; preds = %invoke.cont10
           to label %invoke.cont16 unwind label %lpad
 
 invoke.cont16:                                    ; preds = %invoke.cont13
-  %lower = getelementptr inbounds %"class.zmq::tipc_address_t", ptr %this, i64 0, i32 1, i32 3, i32 0, i32 1
+  %lower = getelementptr inbounds i8, ptr %this, i64 12
   %3 = load i32, ptr %lower, align 4
   %call21 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZNSolsEj(ptr noundef nonnull align 8 dereferenceable(8) %call17, i32 noundef %3)
           to label %invoke.cont20 unwind label %lpad
@@ -324,7 +320,7 @@ invoke.cont20:                                    ; preds = %invoke.cont16
           to label %invoke.cont23 unwind label %lpad
 
 invoke.cont23:                                    ; preds = %invoke.cont20
-  %upper = getelementptr inbounds %"class.zmq::tipc_address_t", ptr %this, i64 0, i32 1, i32 3, i32 0, i32 2
+  %upper = getelementptr inbounds i8, ptr %this, i64 16
   %4 = load i32, ptr %upper, align 4
   %call28 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZNSolsEj(ptr noundef nonnull align 8 dereferenceable(8) %call24, i32 noundef %4)
           to label %invoke.cont27 unwind label %lpad
@@ -364,8 +360,8 @@ invoke.cont41:                                    ; preds = %if.then39
           to label %invoke.cont43 unwind label %lpad
 
 invoke.cont43:                                    ; preds = %invoke.cont41
-  %addr46 = getelementptr inbounds %"class.zmq::tipc_address_t", ptr %this, i64 0, i32 1, i32 3
-  %node = getelementptr inbounds %"class.zmq::tipc_address_t", ptr %this, i64 0, i32 1, i32 3, i32 0, i32 1
+  %addr46 = getelementptr inbounds i8, ptr %this, i64 8
+  %node = getelementptr inbounds i8, ptr %this, i64 12
   %8 = load i32, ptr %node, align 4
   %shr.i = lshr i32 %8, 24
   %call50 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZNSolsEj(ptr noundef nonnull align 8 dereferenceable(8) %call44, i32 noundef %shr.i)
@@ -453,7 +449,7 @@ declare void @_ZNSt7__cxx1118basic_stringstreamIcSt11char_traitsIcESaIcEED1Ev(pt
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
 define noundef nonnull ptr @_ZNK3zmq14tipc_address_t4addrEv(ptr noundef nonnull readnone align 4 dereferenceable(20) %this) local_unnamed_addr #10 align 2 {
 entry:
-  %address = getelementptr inbounds %"class.zmq::tipc_address_t", ptr %this, i64 0, i32 1
+  %address = getelementptr inbounds i8, ptr %this, i64 4
   ret ptr %address
 }
 

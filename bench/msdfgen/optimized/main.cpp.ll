@@ -24,13 +24,12 @@ target triple = "x86_64-unknown-linux-gnu"
 %"struct.msdfgen::BitmapConstRef" = type { ptr, i32, i32 }
 %"struct.msdfgen::BitmapConstRef.4" = type { ptr, i32, i32 }
 %"struct.msdfgen::BitmapConstRef.5" = type { ptr, i32, i32 }
-%"struct.std::_Vector_base<msdfgen::EdgeHolder, std::allocator<msdfgen::EdgeHolder>>::_Vector_impl_data" = type { ptr, ptr, ptr }
 %"class.msdfgen::EdgeHolder" = type { ptr }
 %"class.msdfgen::Contour" = type { %"class.std::vector.9" }
 %"class.std::vector.9" = type { %"struct.std::_Vector_base.10" }
 %"struct.std::_Vector_base.10" = type { %"struct.std::_Vector_base<msdfgen::EdgeHolder, std::allocator<msdfgen::EdgeHolder>>::_Vector_impl" }
 %"struct.std::_Vector_base<msdfgen::EdgeHolder, std::allocator<msdfgen::EdgeHolder>>::_Vector_impl" = type { %"struct.std::_Vector_base<msdfgen::EdgeHolder, std::allocator<msdfgen::EdgeHolder>>::_Vector_impl_data" }
-%"class.msdfgen::EdgeSegment" = type <{ ptr, i32, [4 x i8] }>
+%"struct.std::_Vector_base<msdfgen::EdgeHolder, std::allocator<msdfgen::EdgeHolder>>::_Vector_impl_data" = type { ptr, ptr, ptr }
 %"class.msdfgen::SimpleContourCombiner" = type { %"class.msdfgen::TrueDistanceSelector" }
 %"class.msdfgen::TrueDistanceSelector" = type { %"struct.msdfgen::Vector2", %"class.msdfgen::SignedDistance" }
 %"class.msdfgen::SignedDistance" = type { double, double }
@@ -270,10 +269,10 @@ entry:
   %ref.tmp1589 = alloca %"struct.msdfgen::BitmapRef", align 8
   %ref.tmp1594 = alloca %"struct.msdfgen::BitmapRef.2", align 8
   %ref.tmp1598 = alloca %"struct.msdfgen::BitmapRef.2", align 8
-  %ref.tmp1598.sroa.gep = getelementptr inbounds { ptr, i64 }, ptr %ref.tmp1598, i64 0, i32 1
+  %ref.tmp1598.sroa.gep = getelementptr inbounds i8, ptr %ref.tmp1598, i64 8
   %ref.tmp1603 = alloca %"struct.msdfgen::BitmapRef.3", align 8
   %ref.tmp1607 = alloca %"struct.msdfgen::BitmapRef.2", align 8
-  %ref.tmp1607.sroa.gep = getelementptr inbounds { ptr, i64 }, ptr %ref.tmp1607, i64 0, i32 1
+  %ref.tmp1607.sroa.gep = getelementptr inbounds i8, ptr %ref.tmp1607, i64 8
   %ref.tmp1674 = alloca %"struct.msdfgen::BitmapConstRef", align 8
   %ref.tmp1693 = alloca %"struct.msdfgen::BitmapRef", align 8
   %ref.tmp1700 = alloca %"struct.msdfgen::BitmapConstRef", align 8
@@ -301,23 +300,23 @@ entry:
   %ref.tmp1908 = alloca %"struct.msdfgen::BitmapRef", align 8
   %ref.tmp1912 = alloca %"struct.msdfgen::BitmapConstRef.5", align 8
   %ref.tmp1918 = alloca %"struct.msdfgen::BitmapConstRef", align 8
-  %errorCorrection.i = getelementptr inbounds %"struct.msdfgen::MSDFGeneratorConfig", ptr %generatorConfig, i64 0, i32 1
+  %errorCorrection.i = getelementptr inbounds i8, ptr %generatorConfig, i64 8
   %0 = load double, ptr @_ZN7msdfgen21ErrorCorrectionConfig24defaultMinDeviationRatioE, align 8
   %1 = load double, ptr @_ZN7msdfgen21ErrorCorrectionConfig22defaultMinImproveRatioE, align 8
   store i32 2, ptr %errorCorrection.i, align 8
-  %distanceCheckMode3.i.i = getelementptr inbounds %"struct.msdfgen::MSDFGeneratorConfig", ptr %generatorConfig, i64 0, i32 1, i32 1
+  %distanceCheckMode3.i.i = getelementptr inbounds i8, ptr %generatorConfig, i64 12
   store i32 1, ptr %distanceCheckMode3.i.i, align 4
-  %minDeviationRatio4.i.i = getelementptr inbounds %"struct.msdfgen::MSDFGeneratorConfig", ptr %generatorConfig, i64 0, i32 1, i32 2
+  %minDeviationRatio4.i.i = getelementptr inbounds i8, ptr %generatorConfig, i64 16
   store double %0, ptr %minDeviationRatio4.i.i, align 8
-  %minImproveRatio5.i.i = getelementptr inbounds %"struct.msdfgen::MSDFGeneratorConfig", ptr %generatorConfig, i64 0, i32 1, i32 3
+  %minImproveRatio5.i.i = getelementptr inbounds i8, ptr %generatorConfig, i64 24
   store double %1, ptr %minImproveRatio5.i.i, align 8
-  %buffer6.i.i = getelementptr inbounds %"struct.msdfgen::MSDFGeneratorConfig", ptr %generatorConfig, i64 0, i32 1, i32 4
+  %buffer6.i.i = getelementptr inbounds i8, ptr %generatorConfig, i64 32
   store ptr null, ptr %buffer6.i.i, align 8
   store i8 0, ptr %generatorConfig, align 8
   call void @_ZN7msdfgen10GlyphIndexC1Ej(ptr noundef nonnull align 4 dereferenceable(4) %glyphIndex, i32 noundef 0)
-  %y.i = getelementptr inbounds %"struct.msdfgen::Vector2", ptr %translate, i64 0, i32 1
+  %y.i = getelementptr inbounds i8, ptr %translate, i64 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(16) %translate, i8 0, i64 16, i1 false)
-  %y.i603 = getelementptr inbounds %"struct.msdfgen::Vector2", ptr %scale, i64 0, i32 1
+  %y.i603 = getelementptr inbounds i8, ptr %scale, i64 8
   store <2 x double> <double 1.000000e+00, double 1.000000e+00>, ptr %scale, align 16
   store i8 0, ptr %skipColoring, align 1
   %cmp33212 = icmp sgt i32 %argc, 1
@@ -501,7 +500,7 @@ lor.lhs.false:                                    ; preds = %land.lhs.true43
 
 if.then50:                                        ; preds = %lor.lhs.false, %land.lhs.true43
   %inputType.1 = phi i32 [ 2, %land.lhs.true43 ], [ 3, %lor.lhs.false ]
-  %arrayidx53 = getelementptr ptr, ptr %arrayidx, i64 1
+  %arrayidx53 = getelementptr i8, ptr %arrayidx, i64 8
   %8 = load ptr, ptr %arrayidx53, align 8
   %idxprom55 = sext i32 %add41 to i64
   %arrayidx56 = getelementptr inbounds ptr, ptr %argv, i64 %idxprom55
@@ -960,7 +959,7 @@ if.end376:                                        ; preds = %land.lhs.true230, %
   br i1 %brmerge, label %if.end402, label %if.then382
 
 if.then382:                                       ; preds = %if.end376
-  %arrayidx385 = getelementptr ptr, ptr %arrayidx, i64 1
+  %arrayidx385 = getelementptr i8, ptr %arrayidx, i64 8
   %33 = load ptr, ptr %arrayidx385, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %end.i609)
   store ptr null, ptr %end.i609, align 8
@@ -1152,7 +1151,7 @@ if.end469:                                        ; preds = %land.lhs.true452, %
   br i1 %brmerge589, label %if.end495, label %if.then475
 
 if.then475:                                       ; preds = %if.end469
-  %arrayidx478 = getelementptr ptr, ptr %arrayidx, i64 1
+  %arrayidx478 = getelementptr i8, ptr %arrayidx, i64 8
   %58 = load ptr, ptr %arrayidx478, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %end.i639)
   store ptr null, ptr %end.i639, align 8
@@ -1214,7 +1213,7 @@ if.end495:                                        ; preds = %if.end469
   br i1 %brmerge591, label %if.end517, label %if.then501
 
 if.then501:                                       ; preds = %if.end495
-  %arrayidx504 = getelementptr ptr, ptr %arrayidx, i64 1
+  %arrayidx504 = getelementptr i8, ptr %arrayidx, i64 8
   %66 = load ptr, ptr %arrayidx504, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %end.i652)
   store ptr null, ptr %end.i652, align 8
@@ -1743,7 +1742,7 @@ do.body884:                                       ; preds = %_ZL13parseUnsignedR
   br label %return
 
 if.end887:                                        ; preds = %_ZL13parseUnsignedRjPKc.exit696
-  %arrayidx890 = getelementptr ptr, ptr %arrayidx, i64 1
+  %arrayidx890 = getelementptr i8, ptr %arrayidx, i64 8
   %116 = load ptr, ptr %arrayidx890, align 8
   %add891 = add nsw i32 %argPos.03221, 4
   br label %while.cond.backedge
@@ -1812,7 +1811,7 @@ do.body915:                                       ; preds = %_ZL13parseUnsignedR
   br label %return
 
 if.end918:                                        ; preds = %_ZL13parseUnsignedRjPKc.exit710
-  %arrayidx921 = getelementptr ptr, ptr %arrayidx, i64 1
+  %arrayidx921 = getelementptr i8, ptr %arrayidx, i64 8
   %125 = load ptr, ptr %arrayidx921, align 8
   %add922 = add nsw i32 %argPos.03221, 4
   br label %while.cond.backedge
@@ -2374,7 +2373,7 @@ invoke.cont1187:                                  ; preds = %sw.epilog1186
   br i1 %tobool1188.not, label %if.end1193, label %if.then1189
 
 if.then1189:                                      ; preds = %invoke.cont1187
-  %inverseYAxis = getelementptr inbounds %"class.msdfgen::Shape", ptr %shape, i64 0, i32 1
+  %inverseYAxis = getelementptr inbounds i8, ptr %shape, i64 24
   %190 = load i8, ptr %inverseYAxis, align 8
   %191 = and i8 %190, 1
   %frombool1192 = xor i8 %191, 1
@@ -2584,7 +2583,7 @@ do.body1350:                                      ; preds = %if.end1347
   br label %cleanup1935
 
 if.end1355:                                       ; preds = %if.end1347
-  %inverseYAxis1356 = getelementptr inbounds %"class.msdfgen::Shape", ptr %shape, i64 0, i32 1
+  %inverseYAxis1356 = getelementptr inbounds i8, ptr %shape, i64 24
   %255 = load i8, ptr %inverseYAxis1356, align 8
   %256 = and i8 %255, 1
   %tobool1357.not = icmp eq i8 %256, 0
@@ -2596,15 +2595,15 @@ if.then1358:                                      ; preds = %if.end1355
 
 if.end1361:                                       ; preds = %if.then1358, %if.end1355
   %258 = load double, ptr %svgViewBox, align 8
-  %r1363 = getelementptr inbounds %"struct.msdfgen::Shape::Bounds", ptr %svgViewBox, i64 0, i32 2
+  %r1363 = getelementptr inbounds i8, ptr %svgViewBox, i64 16
   %259 = load double, ptr %r1363, align 8
   %cmp1364 = fcmp olt double %258, %259
   br i1 %cmp1364, label %land.lhs.true1365, label %if.end1376
 
 land.lhs.true1365:                                ; preds = %if.end1361
-  %b1366 = getelementptr inbounds %"struct.msdfgen::Shape::Bounds", ptr %svgViewBox, i64 0, i32 1
+  %b1366 = getelementptr inbounds i8, ptr %svgViewBox, i64 8
   %260 = load double, ptr %b1366, align 8
-  %t1367 = getelementptr inbounds %"struct.msdfgen::Shape::Bounds", ptr %svgViewBox, i64 0, i32 3
+  %t1367 = getelementptr inbounds i8, ptr %svgViewBox, i64 24
   %261 = load double, ptr %t1367, align 8
   %cmp1368 = fcmp olt double %260, %261
   br i1 %cmp1368, label %if.then1369, label %if.end1376
@@ -2710,7 +2709,7 @@ lpad1443:                                         ; preds = %invoke.cont1608.inv
 
 if.end1446:                                       ; preds = %sw.epilog1442, %if.then1429
   store i32 0, ptr %errorCorrection.i, align 8
-  %distanceCheckMode1450 = getelementptr inbounds %"struct.msdfgen::MSDFGeneratorConfig", ptr %postErrorCorrectionConfig, i64 0, i32 1, i32 1
+  %distanceCheckMode1450 = getelementptr inbounds i8, ptr %postErrorCorrectionConfig, i64 12
   store i32 0, ptr %distanceCheckMode1450, align 4
   br label %if.end1451
 
@@ -2743,14 +2742,14 @@ _ZN7msdfgen6BitmapIfLi1EED2Ev.exit:               ; preds = %sw.bb1452
 
 invoke.cont1461:                                  ; preds = %_ZN7msdfgen6BitmapIfLi1EED2Ev.exit
   store ptr %call.i751752, ptr %ref.tmp1460, align 8
-  %280 = getelementptr inbounds { ptr, i64 }, ptr %ref.tmp1460, i64 0, i32 1
+  %280 = getelementptr inbounds i8, ptr %ref.tmp1460, i64 8
   store i64 %sdf.sroa.19.12.insert.insert, ptr %280, align 8
   invoke void @_ZN7msdfgen18generateSDF_legacyERKNS_9BitmapRefIfLi1EEERKNS_5ShapeEdRKNS_7Vector2ES9_(ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp1460, ptr noundef nonnull align 8 dereferenceable(25) %shape, double noundef %range.1, ptr noundef nonnull align 8 dereferenceable(16) %scale, ptr noundef nonnull align 8 dereferenceable(16) %translate)
           to label %sw.epilog1545 unwind label %lpad1443
 
 invoke.cont1466:                                  ; preds = %_ZN7msdfgen6BitmapIfLi1EED2Ev.exit
   store ptr %call.i751752, ptr %ref.tmp1465, align 8
-  %281 = getelementptr inbounds { ptr, i64 }, ptr %ref.tmp1465, i64 0, i32 1
+  %281 = getelementptr inbounds i8, ptr %ref.tmp1465, i64 8
   store i64 %sdf.sroa.19.12.insert.insert, ptr %281, align 8
   invoke void @_ZN7msdfgen11generateSDFERKNS_9BitmapRefIfLi1EEERKNS_5ShapeERKNS_10ProjectionEdRKNS_15GeneratorConfigE(ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp1465, ptr noundef nonnull align 8 dereferenceable(25) %shape, ptr noundef nonnull align 8 dereferenceable(32) %projection, double noundef %range.1, ptr noundef nonnull align 1 dereferenceable(1) %generatorConfig)
           to label %sw.epilog1545 unwind label %lpad1443
@@ -2776,14 +2775,14 @@ _ZN7msdfgen6BitmapIfLi1EED2Ev.exit783:            ; preds = %sw.bb1470
 
 invoke.cont1479:                                  ; preds = %_ZN7msdfgen6BitmapIfLi1EED2Ev.exit783
   store ptr %call.i769770, ptr %ref.tmp1478, align 8
-  %287 = getelementptr inbounds { ptr, i64 }, ptr %ref.tmp1478, i64 0, i32 1
+  %287 = getelementptr inbounds i8, ptr %ref.tmp1478, i64 8
   store i64 %sdf.sroa.19.12.insert.insert1812, ptr %287, align 8
   invoke void @_ZN7msdfgen24generatePseudoSDF_legacyERKNS_9BitmapRefIfLi1EEERKNS_5ShapeEdRKNS_7Vector2ES9_(ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp1478, ptr noundef nonnull align 8 dereferenceable(25) %shape, double noundef %range.1, ptr noundef nonnull align 8 dereferenceable(16) %scale, ptr noundef nonnull align 8 dereferenceable(16) %translate)
           to label %sw.epilog1545 unwind label %lpad1443
 
 invoke.cont1484:                                  ; preds = %_ZN7msdfgen6BitmapIfLi1EED2Ev.exit783
   store ptr %call.i769770, ptr %ref.tmp1483, align 8
-  %288 = getelementptr inbounds { ptr, i64 }, ptr %ref.tmp1483, i64 0, i32 1
+  %288 = getelementptr inbounds i8, ptr %ref.tmp1483, i64 8
   store i64 %sdf.sroa.19.12.insert.insert1812, ptr %288, align 8
   invoke void @_ZN7msdfgen17generatePseudoSDFERKNS_9BitmapRefIfLi1EEERKNS_5ShapeERKNS_10ProjectionEdRKNS_15GeneratorConfigE(ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp1483, ptr noundef nonnull align 8 dereferenceable(25) %shape, ptr noundef nonnull align 8 dereferenceable(32) %projection, double noundef %range.1, ptr noundef nonnull align 1 dereferenceable(1) %generatorConfig)
           to label %sw.epilog1545 unwind label %lpad1443
@@ -2828,14 +2827,14 @@ _ZN7msdfgen6BitmapIfLi3EED2Ev.exit:               ; preds = %if.end1496
 
 invoke.cont1505:                                  ; preds = %_ZN7msdfgen6BitmapIfLi3EED2Ev.exit
   store ptr %call.i795796, ptr %ref.tmp1504, align 8
-  %296 = getelementptr inbounds { ptr, i64 }, ptr %ref.tmp1504, i64 0, i32 1
+  %296 = getelementptr inbounds i8, ptr %ref.tmp1504, i64 8
   store i64 %msdf.sroa.17.12.insert.insert, ptr %296, align 8
   invoke void @_ZN7msdfgen19generateMSDF_legacyERKNS_9BitmapRefIfLi3EEERKNS_5ShapeEdRKNS_7Vector2ES9_NS_21ErrorCorrectionConfigE(ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp1504, ptr noundef nonnull align 8 dereferenceable(25) %shape, double noundef %range.1, ptr noundef nonnull align 8 dereferenceable(16) %scale, ptr noundef nonnull align 8 dereferenceable(16) %translate, ptr noundef nonnull byval(%"struct.msdfgen::ErrorCorrectionConfig") align 8 %errorCorrection.i)
           to label %sw.epilog1545 unwind label %lpad1443
 
 invoke.cont1512:                                  ; preds = %_ZN7msdfgen6BitmapIfLi3EED2Ev.exit
   store ptr %call.i795796, ptr %ref.tmp1511, align 8
-  %297 = getelementptr inbounds { ptr, i64 }, ptr %ref.tmp1511, i64 0, i32 1
+  %297 = getelementptr inbounds i8, ptr %ref.tmp1511, i64 8
   store i64 %msdf.sroa.17.12.insert.insert, ptr %297, align 8
   invoke void @_ZN7msdfgen12generateMSDFERKNS_9BitmapRefIfLi3EEERKNS_5ShapeERKNS_10ProjectionEdRKNS_19MSDFGeneratorConfigE(ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp1511, ptr noundef nonnull align 8 dereferenceable(25) %shape, ptr noundef nonnull align 8 dereferenceable(32) %projection, double noundef %range.1, ptr noundef nonnull align 8 dereferenceable(40) %generatorConfig)
           to label %sw.epilog1545 unwind label %lpad1443
@@ -2880,14 +2879,14 @@ _ZN7msdfgen6BitmapIfLi4EED2Ev.exit:               ; preds = %if.end1524
 
 invoke.cont1533:                                  ; preds = %_ZN7msdfgen6BitmapIfLi4EED2Ev.exit
   store ptr %call.i818819, ptr %ref.tmp1532, align 8
-  %305 = getelementptr inbounds { ptr, i64 }, ptr %ref.tmp1532, i64 0, i32 1
+  %305 = getelementptr inbounds i8, ptr %ref.tmp1532, i64 8
   store i64 %mtsdf.sroa.15.12.insert.insert, ptr %305, align 8
   invoke void @_ZN7msdfgen20generateMTSDF_legacyERKNS_9BitmapRefIfLi4EEERKNS_5ShapeEdRKNS_7Vector2ES9_NS_21ErrorCorrectionConfigE(ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp1532, ptr noundef nonnull align 8 dereferenceable(25) %shape, double noundef %range.1, ptr noundef nonnull align 8 dereferenceable(16) %scale, ptr noundef nonnull align 8 dereferenceable(16) %translate, ptr noundef nonnull byval(%"struct.msdfgen::ErrorCorrectionConfig") align 8 %errorCorrection.i)
           to label %sw.epilog1545 unwind label %lpad1443
 
 invoke.cont1540:                                  ; preds = %_ZN7msdfgen6BitmapIfLi4EED2Ev.exit
   store ptr %call.i818819, ptr %ref.tmp1539, align 8
-  %306 = getelementptr inbounds { ptr, i64 }, ptr %ref.tmp1539, i64 0, i32 1
+  %306 = getelementptr inbounds i8, ptr %ref.tmp1539, i64 8
   store i64 %mtsdf.sroa.15.12.insert.insert, ptr %306, align 8
   invoke void @_ZN7msdfgen13generateMTSDFERKNS_9BitmapRefIfLi4EEERKNS_5ShapeERKNS_10ProjectionEdRKNS_19MSDFGeneratorConfigE(ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp1539, ptr noundef nonnull align 8 dereferenceable(25) %shape, ptr noundef nonnull align 8 dereferenceable(32) %projection, double noundef %range.1, ptr noundef nonnull align 8 dereferenceable(40) %generatorConfig)
           to label %sw.epilog1545 unwind label %lpad1443
@@ -2943,7 +2942,7 @@ for.body.i:                                       ; preds = %invoke.cont1570, %f
   %310 = load float, ptr %p.08.i, align 4
   %sub.i842 = fsub float 1.000000e+00, %310
   store float %sub.i842, ptr %p.08.i, align 4
-  %incdec.ptr.i843 = getelementptr inbounds float, ptr %p.08.i, i64 1
+  %incdec.ptr.i843 = getelementptr inbounds i8, ptr %p.08.i, i64 4
   %cmp.i844 = icmp ult ptr %incdec.ptr.i843, %add.ptr.i841
   br i1 %cmp.i844, label %for.body.i, label %if.end1585, !llvm.loop !15
 
@@ -2963,7 +2962,7 @@ for.body.i855:                                    ; preds = %invoke.cont1575, %f
   %311 = load float, ptr %p.08.i856, align 4
   %sub.i857 = fsub float 1.000000e+00, %311
   store float %sub.i857, ptr %p.08.i856, align 4
-  %incdec.ptr.i858 = getelementptr inbounds float, ptr %p.08.i856, i64 1
+  %incdec.ptr.i858 = getelementptr inbounds i8, ptr %p.08.i856, i64 4
   %cmp.i859 = icmp ult ptr %incdec.ptr.i858, %add.ptr.i853
   br i1 %cmp.i859, label %for.body.i855, label %if.end1585, !llvm.loop !16
 
@@ -2983,7 +2982,7 @@ for.body.i870:                                    ; preds = %invoke.cont1580, %f
   %312 = load float, ptr %p.08.i871, align 4
   %sub.i872 = fsub float 1.000000e+00, %312
   store float %sub.i872, ptr %p.08.i871, align 4
-  %incdec.ptr.i873 = getelementptr inbounds float, ptr %p.08.i871, i64 1
+  %incdec.ptr.i873 = getelementptr inbounds i8, ptr %p.08.i871, i64 4
   %cmp.i874 = icmp ult ptr %incdec.ptr.i873, %add.ptr.i868
   br i1 %cmp.i874, label %for.body.i870, label %if.end1585, !llvm.loop !17
 
@@ -3000,14 +2999,14 @@ if.then1587:                                      ; preds = %if.end1585
 
 invoke.cont1590:                                  ; preds = %if.then1587, %if.then1587
   store ptr %sdf.sroa.0.1, ptr %ref.tmp1589, align 8
-  %313 = getelementptr inbounds { ptr, i64 }, ptr %ref.tmp1589, i64 0, i32 1
+  %313 = getelementptr inbounds i8, ptr %ref.tmp1589, i64 8
   store i64 %sdf.sroa.19.0, ptr %313, align 8
   invoke void @_ZN7msdfgen22distanceSignCorrectionERKNS_9BitmapRefIfLi1EEERKNS_5ShapeERKNS_10ProjectionENS_8FillRuleE(ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp1589, ptr noundef nonnull align 8 dereferenceable(25) %shape, ptr noundef nonnull align 8 dereferenceable(32) %projection, i32 noundef %fillRule.0.be)
           to label %if.end1613 unwind label %lpad1443
 
 invoke.cont1595:                                  ; preds = %if.then1587
   store ptr %msdf.sroa.0.1, ptr %ref.tmp1594, align 8
-  %314 = getelementptr inbounds { ptr, i64 }, ptr %ref.tmp1594, i64 0, i32 1
+  %314 = getelementptr inbounds i8, ptr %ref.tmp1594, i64 8
   store i64 %msdf.sroa.17.0, ptr %314, align 8
   invoke void @_ZN7msdfgen22distanceSignCorrectionERKNS_9BitmapRefIfLi3EEERKNS_5ShapeERKNS_10ProjectionENS_8FillRuleE(ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp1594, ptr noundef nonnull align 8 dereferenceable(25) %shape, ptr noundef nonnull align 8 dereferenceable(32) %projection, i32 noundef %fillRule.0.be)
           to label %invoke.cont1599 unwind label %lpad1443
@@ -3018,7 +3017,7 @@ invoke.cont1599:                                  ; preds = %invoke.cont1595
 
 invoke.cont1604:                                  ; preds = %if.then1587
   store ptr %mtsdf.sroa.0.1, ptr %ref.tmp1603, align 8
-  %315 = getelementptr inbounds { ptr, i64 }, ptr %ref.tmp1603, i64 0, i32 1
+  %315 = getelementptr inbounds i8, ptr %ref.tmp1603, i64 8
   store i64 %mtsdf.sroa.15.0, ptr %315, align 8
   invoke void @_ZN7msdfgen22distanceSignCorrectionERKNS_9BitmapRefIfLi4EEERKNS_5ShapeERKNS_10ProjectionENS_8FillRuleE(ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp1603, ptr noundef nonnull align 8 dereferenceable(25) %shape, ptr noundef nonnull align 8 dereferenceable(32) %projection, i32 noundef %fillRule.0.be)
           to label %invoke.cont1608 unwind label %lpad1443
@@ -3080,7 +3079,7 @@ sw.epilog1649:                                    ; preds = %sw.bb1637, %sw.bb16
 
 while.body1652:                                   ; preds = %sw.epilog1649, %while.body1652
   %pixel.13288 = phi ptr [ %incdec.ptr1653, %while.body1652 ], [ %pixel.0, %sw.epilog1649 ]
-  %incdec.ptr1653 = getelementptr inbounds float, ptr %pixel.13288, i64 1
+  %incdec.ptr1653 = getelementptr inbounds i8, ptr %pixel.13288, i64 4
   %316 = load float, ptr %pixel.13288, align 4
   %add1654 = fadd float %outputDistanceShift.0.be, %316
   store float %add1654, ptr %pixel.13288, align 4
@@ -3119,7 +3118,7 @@ if.end1672:                                       ; preds = %invoke.cont1664, %i
 
 invoke.cont1675:                                  ; preds = %if.end1672, %if.end1672
   store ptr %sdf.sroa.0.1, ptr %ref.tmp1674, align 8
-  %319 = getelementptr inbounds { ptr, i64 }, ptr %ref.tmp1674, i64 0, i32 1
+  %319 = getelementptr inbounds i8, ptr %ref.tmp1674, i64 8
   store i64 %sdf.sroa.19.0, ptr %319, align 8
   %tobool.not.i899 = icmp eq ptr %output.0.be, null
   %320 = trunc i64 %sdf.sroa.19.0 to i32
@@ -3305,7 +3304,7 @@ if.end32.i:                                       ; preds = %sw.bb28.i
 
 if.then34.i:                                      ; preds = %if.end32.i
   %339 = load i32, ptr %319, align 8
-  %height.i903 = getelementptr inbounds %"struct.msdfgen::BitmapConstRef", ptr %ref.tmp1674, i64 0, i32 2
+  %height.i903 = getelementptr inbounds i8, ptr %ref.tmp1674, i64 12
   %340 = load i32, ptr %height.i903, align 4
   %cmp8.i.i = icmp sgt i32 %340, 0
   br i1 %cmp8.i.i, label %for.cond1.preheader.lr.ph.i.i, label %if.end1683.sink.split
@@ -3326,7 +3325,7 @@ for.cond1.preheader.us.i.i:                       ; preds = %for.cond1.for.end_c
 for.body3.us.i.i:                                 ; preds = %for.body3.us.i.i, %for.cond1.preheader.us.i.i
   %values.addr.17.us.i.i = phi ptr [ %values.addr.010.us.i.i, %for.cond1.preheader.us.i.i ], [ %incdec.ptr.us.i.i, %for.body3.us.i.i ]
   %col.06.us.i.i = phi i32 [ 0, %for.cond1.preheader.us.i.i ], [ %inc.us.i.i, %for.body3.us.i.i ]
-  %incdec.ptr.us.i.i = getelementptr inbounds float, ptr %values.addr.17.us.i.i, i64 1
+  %incdec.ptr.us.i.i = getelementptr inbounds i8, ptr %values.addr.17.us.i.i, i64 4
   %342 = load float, ptr %values.addr.17.us.i.i, align 4
   %mul.us.i.i = fmul float %342, 2.560000e+02
   %conv.us.i.i = fptosi float %mul.us.i.i to i32
@@ -3354,7 +3353,7 @@ for.cond1.preheader.i.i:                          ; preds = %for.cond1.preheader
 
 if.then38.i:                                      ; preds = %if.end32.i
   %344 = load i32, ptr %319, align 8
-  %height42.i = getelementptr inbounds %"struct.msdfgen::BitmapConstRef", ptr %ref.tmp1674, i64 0, i32 2
+  %height42.i = getelementptr inbounds i8, ptr %ref.tmp1674, i64 12
   %345 = load i32, ptr %height42.i, align 4
   %cmp8.i124.i = icmp sgt i32 %345, 0
   br i1 %cmp8.i124.i, label %for.cond1.preheader.lr.ph.i125.i, label %if.end1683.sink.split
@@ -3377,7 +3376,7 @@ for.body3.us.i131.i:                              ; preds = %for.body3.us.i131.i
   %values.addr.16.us.i.i = phi ptr [ %values.addr.09.us.i.i, %for.cond1.preheader.us.i130.i ], [ %incdec.ptr.us.i134.i, %for.body3.us.i131.i ]
   %tobool.not.us.i132.i = icmp eq i32 %col.07.us.i.i, 0
   %cond.us.i133.i = select i1 %tobool.not.us.i132.i, ptr @.str.170, ptr @.str.169
-  %incdec.ptr.us.i134.i = getelementptr inbounds float, ptr %values.addr.16.us.i.i, i64 1
+  %incdec.ptr.us.i134.i = getelementptr inbounds i8, ptr %values.addr.16.us.i.i, i64 4
   %347 = load float, ptr %values.addr.16.us.i.i, align 4
   %conv.us.i135.i = fpext float %347 to double
   %call.us.i.i = call i32 (ptr, ptr, ...) @fprintf(ptr noundef nonnull %call29.i, ptr noundef nonnull %cond.us.i133.i, double noundef %conv.us.i135.i)
@@ -3413,7 +3412,7 @@ if.end52.i:                                       ; preds = %sw.bb47.i
 
 if.then54.i:                                      ; preds = %if.end52.i
   %348 = load i32, ptr %319, align 8
-  %height58.i = getelementptr inbounds %"struct.msdfgen::BitmapConstRef", ptr %ref.tmp1674, i64 0, i32 2
+  %height58.i = getelementptr inbounds i8, ptr %ref.tmp1674, i64 12
   %349 = load i32, ptr %height58.i, align 4
   %mul59.i = mul nsw i32 %349, %348
   %cmp2.i.i = icmp sgt i32 %mul59.i, 0
@@ -3426,7 +3425,7 @@ for.body.i.preheader.i:                           ; preds = %if.then54.i
 for.body.i.i:                                     ; preds = %for.body.i.i, %for.body.i.preheader.i
   %pos.04.i.i = phi i32 [ %inc.i.i, %for.body.i.i ], [ 0, %for.body.i.preheader.i ]
   %values.addr.03.i.i = phi ptr [ %incdec.ptr.i.i, %for.body.i.i ], [ %350, %for.body.i.preheader.i ]
-  %incdec.ptr.i.i = getelementptr inbounds float, ptr %values.addr.03.i.i, i64 1
+  %incdec.ptr.i.i = getelementptr inbounds i8, ptr %values.addr.03.i.i, i64 4
   %351 = load float, ptr %values.addr.03.i.i, align 4
   %mul.i.i = fmul float %351, 2.560000e+02
   %conv.i.i = fptosi float %mul.i.i to i32
@@ -3442,7 +3441,7 @@ for.body.i.i:                                     ; preds = %for.body.i.i, %for.
 if.then63.i:                                      ; preds = %if.end52.i
   %353 = load ptr, ptr %ref.tmp1674, align 8
   %354 = load i32, ptr %319, align 8
-  %height67.i = getelementptr inbounds %"struct.msdfgen::BitmapConstRef", ptr %ref.tmp1674, i64 0, i32 2
+  %height67.i = getelementptr inbounds i8, ptr %ref.tmp1674, i64 12
   %355 = load i32, ptr %height67.i, align 4
   %mul68.i = mul nsw i32 %355, %354
   %conv.i144.i = sext i32 %mul68.i to i64
@@ -3451,7 +3450,7 @@ if.then63.i:                                      ; preds = %if.end52.i
 
 if.then72.i:                                      ; preds = %if.end52.i
   %356 = load i32, ptr %319, align 8
-  %height76.i = getelementptr inbounds %"struct.msdfgen::BitmapConstRef", ptr %ref.tmp1674, i64 0, i32 2
+  %height76.i = getelementptr inbounds i8, ptr %ref.tmp1674, i64 12
   %357 = load i32, ptr %height76.i, align 4
   %mul77.i = mul nsw i32 %357, %356
   %cmp5.i146.i = icmp sgt i32 %mul77.i, 0
@@ -3477,7 +3476,7 @@ for.body3.i.i:                                    ; preds = %for.body3.i.i, %for
   br i1 %cmp2.not.i.i, label %for.inc4.i.i, label %for.body3.i.i, !llvm.loop !24
 
 for.inc4.i.i:                                     ; preds = %for.body3.i.i
-  %incdec.ptr.i151.i = getelementptr inbounds float, ptr %values.addr.07.i.i, i64 1
+  %incdec.ptr.i151.i = getelementptr inbounds i8, ptr %values.addr.07.i.i, i64 4
   %inc.i152.i = add nuw nsw i32 %pos.06.i.i, 1
   %exitcond.not.i153.i = icmp eq i32 %inc.i152.i, %mul77.i
   br i1 %exitcond.not.i153.i, label %if.end1683.sink.split, label %for.body.i147.i, !llvm.loop !25
@@ -3506,7 +3505,7 @@ for.cond1.preheader.us.i162.i:                    ; preds = %for.cond1.preheader
 for.body3.us.i165.i:                              ; preds = %for.body3.us.i165.i, %for.cond1.preheader.us.i162.i
   %values.addr.17.us.i166.i = phi ptr [ %values.addr.010.us.i163.i, %for.cond1.preheader.us.i162.i ], [ %incdec.ptr.us.i168.i, %for.body3.us.i165.i ]
   %col.06.us.i167.i = phi i32 [ 0, %for.cond1.preheader.us.i162.i ], [ %inc.us.i175.i, %for.body3.us.i165.i ]
-  %incdec.ptr.us.i168.i = getelementptr inbounds float, ptr %values.addr.17.us.i166.i, i64 1
+  %incdec.ptr.us.i168.i = getelementptr inbounds i8, ptr %values.addr.17.us.i166.i, i64 4
   %360 = load float, ptr %values.addr.17.us.i166.i, align 4
   %mul.us.i169.i = fmul float %360, 2.560000e+02
   %conv.us.i170.i = fptosi float %mul.us.i169.i to i32
@@ -3551,7 +3550,7 @@ for.body3.us.i193.i:                              ; preds = %for.body3.us.i193.i
   %values.addr.16.us.i195.i = phi ptr [ %values.addr.09.us.i192.i, %for.cond1.preheader.us.i190.i ], [ %incdec.ptr.us.i198.i, %for.body3.us.i193.i ]
   %tobool.not.us.i196.i = icmp eq i32 %col.07.us.i194.i, 0
   %cond.us.i197.i = select i1 %tobool.not.us.i196.i, ptr @.str.170, ptr @.str.169
-  %incdec.ptr.us.i198.i = getelementptr inbounds float, ptr %values.addr.16.us.i195.i, i64 1
+  %incdec.ptr.us.i198.i = getelementptr inbounds i8, ptr %values.addr.16.us.i195.i, i64 4
   %363 = load float, ptr %values.addr.16.us.i195.i, align 4
   %conv.us.i199.i = fpext float %363 to double
   %call.us.i200.i = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %362, ptr noundef nonnull %cond.us.i197.i, double noundef %conv.us.i199.i)
@@ -3603,7 +3602,7 @@ land.lhs.true1686:                                ; preds = %call21.i905.noexc, 
 
 invoke.cont1694:                                  ; preds = %land.lhs.true1686
   store ptr %sdf.sroa.0.1, ptr %ref.tmp1693, align 8
-  %365 = getelementptr inbounds { ptr, i64 }, ptr %ref.tmp1693, i64 0, i32 1
+  %365 = getelementptr inbounds i8, ptr %ref.tmp1693, i64 8
   store i64 %sdf.sroa.19.0, ptr %365, align 8
   invoke void @_ZN7msdfgen12simulate8bitERKNS_9BitmapRefIfLi1EEE(ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp1693)
           to label %if.end1697 unwind label %lpad1443
@@ -3614,7 +3613,7 @@ if.end1697:                                       ; preds = %for.cond1.preheader
 
 invoke.cont1701:                                  ; preds = %if.end1697
   store ptr %sdf.sroa.0.1, ptr %ref.tmp1700, align 8
-  %366 = getelementptr inbounds { ptr, i64 }, ptr %ref.tmp1700, i64 0, i32 1
+  %366 = getelementptr inbounds i8, ptr %ref.tmp1700, i64 8
   store i64 %sdf.sroa.19.0, ptr %366, align 8
   %call1704 = invoke noundef double @_ZN7msdfgen16estimateSDFErrorERKNS_14BitmapConstRefIfLi1EEERKNS_5ShapeERKNS_10ProjectionEiNS_8FillRuleE(ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp1700, ptr noundef nonnull align 8 dereferenceable(25) %shape, ptr noundef nonnull align 8 dereferenceable(32) %projection, i32 noundef 19, i32 noundef %fillRule.0.be)
           to label %invoke.cont1703 unwind label %lpad1443
@@ -3643,10 +3642,10 @@ invoke.cont1716:                                  ; preds = %if.then1709
   %render.sroa.5.8.insert.ext = zext i32 %testWidthM.0.be to i64
   %render.sroa.5.8.insert.insert = or disjoint i64 %render.sroa.8.8.insert.shift, %render.sroa.5.8.insert.ext
   store ptr %call.i926927, ptr %ref.tmp1711, align 8
-  %370 = getelementptr inbounds { ptr, i64 }, ptr %ref.tmp1711, i64 0, i32 1
+  %370 = getelementptr inbounds i8, ptr %ref.tmp1711, i64 8
   store i64 %render.sroa.5.8.insert.insert, ptr %370, align 8
   store ptr %sdf.sroa.0.1, ptr %ref.tmp1715, align 8
-  %371 = getelementptr inbounds { ptr, i64 }, ptr %ref.tmp1715, i64 0, i32 1
+  %371 = getelementptr inbounds i8, ptr %ref.tmp1715, i64 8
   store i64 %sdf.sroa.19.0, ptr %371, align 8
   %mul1718 = fmul double %avgScale.11891, %range.1
   %add1719 = fadd float %outputDistanceShift.0.be, 5.000000e-01
@@ -3655,7 +3654,7 @@ invoke.cont1716:                                  ; preds = %if.then1709
 
 invoke.cont1722:                                  ; preds = %invoke.cont1716
   store ptr %call.i926927, ptr %ref.tmp1721, align 8
-  %372 = getelementptr inbounds { ptr, i64 }, ptr %ref.tmp1721, i64 0, i32 1
+  %372 = getelementptr inbounds i8, ptr %ref.tmp1721, i64 8
   store i64 %render.sroa.5.8.insert.insert, ptr %372, align 8
   %call1725 = invoke noundef zeroext i1 @_ZN7msdfgen7savePngERKNS_14BitmapConstRefIfLi3EEEPKc(ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp1721, ptr noundef nonnull %testRenderMulti.0.be)
           to label %invoke.cont1724 unwind label %_ZN7msdfgen6BitmapIfLi3EED2Ev.exit940
@@ -3697,10 +3696,10 @@ invoke.cont1741:                                  ; preds = %if.then1733
   %render1734.sroa.5.8.insert.ext = zext i32 %testWidth.0.be to i64
   %render1734.sroa.5.8.insert.insert = or disjoint i64 %render1734.sroa.8.8.insert.shift, %render1734.sroa.5.8.insert.ext
   store ptr %call.i948949, ptr %ref.tmp1736, align 8
-  %379 = getelementptr inbounds { ptr, i64 }, ptr %ref.tmp1736, i64 0, i32 1
+  %379 = getelementptr inbounds i8, ptr %ref.tmp1736, i64 8
   store i64 %render1734.sroa.5.8.insert.insert, ptr %379, align 8
   store ptr %sdf.sroa.0.1, ptr %ref.tmp1740, align 8
-  %380 = getelementptr inbounds { ptr, i64 }, ptr %ref.tmp1740, i64 0, i32 1
+  %380 = getelementptr inbounds i8, ptr %ref.tmp1740, i64 8
   store i64 %sdf.sroa.19.0, ptr %380, align 8
   %mul1743 = fmul double %avgScale.11891, %range.1
   %add1744 = fadd float %outputDistanceShift.0.be, 5.000000e-01
@@ -3709,7 +3708,7 @@ invoke.cont1741:                                  ; preds = %if.then1733
 
 invoke.cont1747:                                  ; preds = %invoke.cont1741
   store ptr %call.i948949, ptr %ref.tmp1746, align 8
-  %381 = getelementptr inbounds { ptr, i64 }, ptr %ref.tmp1746, i64 0, i32 1
+  %381 = getelementptr inbounds i8, ptr %ref.tmp1746, i64 8
   store i64 %render1734.sroa.5.8.insert.insert, ptr %381, align 8
   %call1750 = invoke noundef zeroext i1 @_ZN7msdfgen7savePngERKNS_14BitmapConstRefIfLi1EEEPKc(ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp1746, ptr noundef nonnull %testRender.0.be)
           to label %invoke.cont1749 unwind label %_ZN7msdfgen6BitmapIfLi1EED2Ev.exit962
@@ -3734,7 +3733,7 @@ _ZN7msdfgen6BitmapIfLi1EED2Ev.exit965:            ; preds = %if.then1752, %invok
 
 invoke.cont1759:                                  ; preds = %if.end1672
   store ptr %msdf.sroa.0.1, ptr %ref.tmp1758, align 8
-  %385 = getelementptr inbounds { ptr, i64 }, ptr %ref.tmp1758, i64 0, i32 1
+  %385 = getelementptr inbounds i8, ptr %ref.tmp1758, i64 8
   store i64 %msdf.sroa.17.0, ptr %385, align 8
   %tobool.not.i969 = icmp eq ptr %output.0.be, null
   %386 = trunc i64 %msdf.sroa.17.0 to i32
@@ -3921,7 +3920,7 @@ if.end32.i1026:                                   ; preds = %sw.bb28.i1023
 if.then34.i1058:                                  ; preds = %if.end32.i1026
   %405 = load i32, ptr %385, align 8
   %mul.i1060 = mul nsw i32 %405, 3
-  %height.i1061 = getelementptr inbounds %"struct.msdfgen::BitmapConstRef.4", ptr %ref.tmp1758, i64 0, i32 2
+  %height.i1061 = getelementptr inbounds i8, ptr %ref.tmp1758, i64 12
   %406 = load i32, ptr %height.i1061, align 4
   %cmp8.i.i1062 = icmp sgt i32 %406, 0
   br i1 %cmp8.i.i1062, label %for.cond1.preheader.lr.ph.i.i1063, label %if.end1767.sink.split
@@ -3942,7 +3941,7 @@ for.cond1.preheader.us.i.i1071:                   ; preds = %for.cond1.for.end_c
 for.body3.us.i.i1074:                             ; preds = %for.body3.us.i.i1074, %for.cond1.preheader.us.i.i1071
   %values.addr.17.us.i.i1075 = phi ptr [ %values.addr.010.us.i.i1072, %for.cond1.preheader.us.i.i1071 ], [ %incdec.ptr.us.i.i1077, %for.body3.us.i.i1074 ]
   %col.06.us.i.i1076 = phi i32 [ 0, %for.cond1.preheader.us.i.i1071 ], [ %inc.us.i.i1084, %for.body3.us.i.i1074 ]
-  %incdec.ptr.us.i.i1077 = getelementptr inbounds float, ptr %values.addr.17.us.i.i1075, i64 1
+  %incdec.ptr.us.i.i1077 = getelementptr inbounds i8, ptr %values.addr.17.us.i.i1075, i64 4
   %408 = load float, ptr %values.addr.17.us.i.i1075, align 4
   %mul.us.i.i1078 = fmul float %408, 2.560000e+02
   %conv.us.i.i1079 = fptosi float %mul.us.i.i1078 to i32
@@ -3971,7 +3970,7 @@ for.cond1.preheader.i.i1065:                      ; preds = %for.cond1.preheader
 if.then38.i1027:                                  ; preds = %if.end32.i1026
   %410 = load i32, ptr %385, align 8
   %mul41.i = mul nsw i32 %410, 3
-  %height42.i1029 = getelementptr inbounds %"struct.msdfgen::BitmapConstRef.4", ptr %ref.tmp1758, i64 0, i32 2
+  %height42.i1029 = getelementptr inbounds i8, ptr %ref.tmp1758, i64 12
   %411 = load i32, ptr %height42.i1029, align 4
   %cmp8.i124.i1030 = icmp sgt i32 %411, 0
   br i1 %cmp8.i124.i1030, label %for.cond1.preheader.lr.ph.i125.i1033, label %if.end1767.sink.split
@@ -3994,7 +3993,7 @@ for.body3.us.i131.i1044:                          ; preds = %for.body3.us.i131.i
   %values.addr.16.us.i.i1046 = phi ptr [ %values.addr.09.us.i.i1043, %for.cond1.preheader.us.i130.i1041 ], [ %incdec.ptr.us.i134.i1049, %for.body3.us.i131.i1044 ]
   %tobool.not.us.i132.i1047 = icmp eq i32 %col.07.us.i.i1045, 0
   %cond.us.i133.i1048 = select i1 %tobool.not.us.i132.i1047, ptr @.str.170, ptr @.str.169
-  %incdec.ptr.us.i134.i1049 = getelementptr inbounds float, ptr %values.addr.16.us.i.i1046, i64 1
+  %incdec.ptr.us.i134.i1049 = getelementptr inbounds i8, ptr %values.addr.16.us.i.i1046, i64 4
   %413 = load float, ptr %values.addr.16.us.i.i1046, align 4
   %conv.us.i135.i1050 = fpext float %413 to double
   %call.us.i.i1051 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef nonnull %call29.i1024, ptr noundef nonnull %cond.us.i133.i1048, double noundef %conv.us.i135.i1050)
@@ -4031,7 +4030,7 @@ if.end52.i974:                                    ; preds = %sw.bb47.i971
 if.then54.i1005:                                  ; preds = %if.end52.i974
   %414 = load i32, ptr %385, align 8
   %mul57.i = mul nsw i32 %414, 3
-  %height58.i1007 = getelementptr inbounds %"struct.msdfgen::BitmapConstRef.4", ptr %ref.tmp1758, i64 0, i32 2
+  %height58.i1007 = getelementptr inbounds i8, ptr %ref.tmp1758, i64 12
   %415 = load i32, ptr %height58.i1007, align 4
   %mul59.i1008 = mul nsw i32 %mul57.i, %415
   %cmp2.i.i1009 = icmp sgt i32 %mul59.i1008, 0
@@ -4044,7 +4043,7 @@ for.body.i.preheader.i1010:                       ; preds = %if.then54.i1005
 for.body.i.i1011:                                 ; preds = %for.body.i.i1011, %for.body.i.preheader.i1010
   %pos.04.i.i1012 = phi i32 [ %inc.i.i1021, %for.body.i.i1011 ], [ 0, %for.body.i.preheader.i1010 ]
   %values.addr.03.i.i1013 = phi ptr [ %incdec.ptr.i.i1014, %for.body.i.i1011 ], [ %416, %for.body.i.preheader.i1010 ]
-  %incdec.ptr.i.i1014 = getelementptr inbounds float, ptr %values.addr.03.i.i1013, i64 1
+  %incdec.ptr.i.i1014 = getelementptr inbounds i8, ptr %values.addr.03.i.i1013, i64 4
   %417 = load float, ptr %values.addr.03.i.i1013, align 4
   %mul.i.i1015 = fmul float %417, 2.560000e+02
   %conv.i.i1016 = fptosi float %mul.i.i1015 to i32
@@ -4061,7 +4060,7 @@ if.then63.i999:                                   ; preds = %if.end52.i974
   %419 = load ptr, ptr %ref.tmp1758, align 8
   %420 = load i32, ptr %385, align 8
   %mul66.i = mul nsw i32 %420, 3
-  %height67.i1001 = getelementptr inbounds %"struct.msdfgen::BitmapConstRef.4", ptr %ref.tmp1758, i64 0, i32 2
+  %height67.i1001 = getelementptr inbounds i8, ptr %ref.tmp1758, i64 12
   %421 = load i32, ptr %height67.i1001, align 4
   %mul68.i1002 = mul nsw i32 %mul66.i, %421
   %conv.i144.i1003 = sext i32 %mul68.i1002 to i64
@@ -4071,7 +4070,7 @@ if.then63.i999:                                   ; preds = %if.end52.i974
 if.then72.i975:                                   ; preds = %if.end52.i974
   %422 = load i32, ptr %385, align 8
   %mul75.i = mul nsw i32 %422, 3
-  %height76.i977 = getelementptr inbounds %"struct.msdfgen::BitmapConstRef.4", ptr %ref.tmp1758, i64 0, i32 2
+  %height76.i977 = getelementptr inbounds i8, ptr %ref.tmp1758, i64 12
   %423 = load i32, ptr %height76.i977, align 4
   %mul77.i978 = mul nsw i32 %mul75.i, %423
   %cmp5.i146.i979 = icmp sgt i32 %mul77.i978, 0
@@ -4097,7 +4096,7 @@ for.body3.i.i987:                                 ; preds = %for.body3.i.i987, %
   br i1 %cmp2.not.i.i994, label %for.inc4.i.i995, label %for.body3.i.i987, !llvm.loop !24
 
 for.inc4.i.i995:                                  ; preds = %for.body3.i.i987
-  %incdec.ptr.i151.i996 = getelementptr inbounds float, ptr %values.addr.07.i.i985, i64 1
+  %incdec.ptr.i151.i996 = getelementptr inbounds i8, ptr %values.addr.07.i.i985, i64 4
   %inc.i152.i997 = add nuw nsw i32 %pos.06.i.i986, 1
   %exitcond.not.i153.i998 = icmp eq i32 %inc.i152.i997, %mul77.i978
   br i1 %exitcond.not.i153.i998, label %if.end1767.sink.split, label %for.body.i147.i984, !llvm.loop !25
@@ -4127,7 +4126,7 @@ for.cond1.preheader.us.i162.i1223:                ; preds = %for.cond1.preheader
 for.body3.us.i165.i1226:                          ; preds = %for.body3.us.i165.i1226, %for.cond1.preheader.us.i162.i1223
   %values.addr.17.us.i166.i1227 = phi ptr [ %values.addr.010.us.i163.i1224, %for.cond1.preheader.us.i162.i1223 ], [ %incdec.ptr.us.i168.i1229, %for.body3.us.i165.i1226 ]
   %col.06.us.i167.i1228 = phi i32 [ 0, %for.cond1.preheader.us.i162.i1223 ], [ %inc.us.i175.i1236, %for.body3.us.i165.i1226 ]
-  %incdec.ptr.us.i168.i1229 = getelementptr inbounds float, ptr %values.addr.17.us.i166.i1227, i64 1
+  %incdec.ptr.us.i168.i1229 = getelementptr inbounds i8, ptr %values.addr.17.us.i166.i1227, i64 4
   %426 = load float, ptr %values.addr.17.us.i166.i1227, align 4
   %mul.us.i169.i1230 = fmul float %426, 2.560000e+02
   %conv.us.i170.i1231 = fptosi float %mul.us.i169.i1230 to i32
@@ -4173,7 +4172,7 @@ for.body3.us.i193.i1197:                          ; preds = %for.body3.us.i193.i
   %values.addr.16.us.i195.i1199 = phi ptr [ %values.addr.09.us.i192.i1196, %for.cond1.preheader.us.i190.i1194 ], [ %incdec.ptr.us.i198.i1202, %for.body3.us.i193.i1197 ]
   %tobool.not.us.i196.i1200 = icmp eq i32 %col.07.us.i194.i1198, 0
   %cond.us.i197.i1201 = select i1 %tobool.not.us.i196.i1200, ptr @.str.170, ptr @.str.169
-  %incdec.ptr.us.i198.i1202 = getelementptr inbounds float, ptr %values.addr.16.us.i195.i1199, i64 1
+  %incdec.ptr.us.i198.i1202 = getelementptr inbounds i8, ptr %values.addr.16.us.i195.i1199, i64 4
   %429 = load float, ptr %values.addr.16.us.i195.i1199, align 4
   %conv.us.i199.i1203 = fpext float %429 to double
   %call.us.i200.i1204 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %428, ptr noundef nonnull %cond.us.i197.i1201, double noundef %conv.us.i199.i1203)
@@ -4225,7 +4224,7 @@ land.lhs.true1770:                                ; preds = %call21.i1096.noexc,
 
 invoke.cont1778:                                  ; preds = %land.lhs.true1770
   store ptr %msdf.sroa.0.1, ptr %ref.tmp1777, align 8
-  %431 = getelementptr inbounds { ptr, i64 }, ptr %ref.tmp1777, i64 0, i32 1
+  %431 = getelementptr inbounds i8, ptr %ref.tmp1777, i64 8
   store i64 %msdf.sroa.17.0, ptr %431, align 8
   invoke void @_ZN7msdfgen12simulate8bitERKNS_9BitmapRefIfLi3EEE(ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp1777)
           to label %if.end1781 unwind label %lpad1443
@@ -4236,7 +4235,7 @@ if.end1781:                                       ; preds = %for.cond1.preheader
 
 invoke.cont1786:                                  ; preds = %if.end1781
   store ptr %msdf.sroa.0.1, ptr %ref.tmp1785, align 8
-  %432 = getelementptr inbounds { ptr, i64 }, ptr %ref.tmp1785, i64 0, i32 1
+  %432 = getelementptr inbounds i8, ptr %ref.tmp1785, i64 8
   store i64 %msdf.sroa.17.0, ptr %432, align 8
   %call1789 = invoke noundef double @_ZN7msdfgen16estimateSDFErrorERKNS_14BitmapConstRefIfLi3EEERKNS_5ShapeERKNS_10ProjectionEiNS_8FillRuleE(ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp1785, ptr noundef nonnull align 8 dereferenceable(25) %shape, ptr noundef nonnull align 8 dereferenceable(32) %projection, i32 noundef 19, i32 noundef %fillRule.0.be)
           to label %invoke.cont1788 unwind label %lpad1443
@@ -4265,10 +4264,10 @@ invoke.cont1802:                                  ; preds = %if.then1794
   %render1795.sroa.5.8.insert.ext = zext i32 %testWidthM.0.be to i64
   %render1795.sroa.5.8.insert.insert = or disjoint i64 %render1795.sroa.8.8.insert.shift, %render1795.sroa.5.8.insert.ext
   store ptr %call.i12591260, ptr %ref.tmp1797, align 8
-  %436 = getelementptr inbounds { ptr, i64 }, ptr %ref.tmp1797, i64 0, i32 1
+  %436 = getelementptr inbounds i8, ptr %ref.tmp1797, i64 8
   store i64 %render1795.sroa.5.8.insert.insert, ptr %436, align 8
   store ptr %msdf.sroa.0.1, ptr %ref.tmp1801, align 8
-  %437 = getelementptr inbounds { ptr, i64 }, ptr %ref.tmp1801, i64 0, i32 1
+  %437 = getelementptr inbounds i8, ptr %ref.tmp1801, i64 8
   store i64 %msdf.sroa.17.0, ptr %437, align 8
   %mul1804 = fmul double %avgScale.11891, %range.1
   %add1805 = fadd float %outputDistanceShift.0.be, 5.000000e-01
@@ -4277,7 +4276,7 @@ invoke.cont1802:                                  ; preds = %if.then1794
 
 invoke.cont1808:                                  ; preds = %invoke.cont1802
   store ptr %call.i12591260, ptr %ref.tmp1807, align 8
-  %438 = getelementptr inbounds { ptr, i64 }, ptr %ref.tmp1807, i64 0, i32 1
+  %438 = getelementptr inbounds i8, ptr %ref.tmp1807, i64 8
   store i64 %render1795.sroa.5.8.insert.insert, ptr %438, align 8
   %call1811 = invoke noundef zeroext i1 @_ZN7msdfgen7savePngERKNS_14BitmapConstRefIfLi3EEEPKc(ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp1807, ptr noundef nonnull %testRenderMulti.0.be)
           to label %invoke.cont1810 unwind label %_ZN7msdfgen6BitmapIfLi3EED2Ev.exit1273
@@ -4319,10 +4318,10 @@ invoke.cont1827:                                  ; preds = %if.then1819
   %render1820.sroa.5.8.insert.ext = zext i32 %testWidth.0.be to i64
   %render1820.sroa.5.8.insert.insert = or disjoint i64 %render1820.sroa.8.8.insert.shift, %render1820.sroa.5.8.insert.ext
   store ptr %call.i12811282, ptr %ref.tmp1822, align 8
-  %445 = getelementptr inbounds { ptr, i64 }, ptr %ref.tmp1822, i64 0, i32 1
+  %445 = getelementptr inbounds i8, ptr %ref.tmp1822, i64 8
   store i64 %render1820.sroa.5.8.insert.insert, ptr %445, align 8
   store ptr %msdf.sroa.0.1, ptr %ref.tmp1826, align 8
-  %446 = getelementptr inbounds { ptr, i64 }, ptr %ref.tmp1826, i64 0, i32 1
+  %446 = getelementptr inbounds i8, ptr %ref.tmp1826, i64 8
   store i64 %msdf.sroa.17.0, ptr %446, align 8
   %mul1829 = fmul double %avgScale.11891, %range.1
   %add1830 = fadd float %outputDistanceShift.0.be, 5.000000e-01
@@ -4331,7 +4330,7 @@ invoke.cont1827:                                  ; preds = %if.then1819
 
 invoke.cont1833:                                  ; preds = %invoke.cont1827
   store ptr %call.i12811282, ptr %ref.tmp1832, align 8
-  %447 = getelementptr inbounds { ptr, i64 }, ptr %ref.tmp1832, i64 0, i32 1
+  %447 = getelementptr inbounds i8, ptr %ref.tmp1832, i64 8
   store i64 %render1820.sroa.5.8.insert.insert, ptr %447, align 8
   %call1836 = invoke noundef zeroext i1 @_ZN7msdfgen7savePngERKNS_14BitmapConstRefIfLi1EEEPKc(ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp1832, ptr noundef nonnull %testRender.0.be)
           to label %invoke.cont1835 unwind label %_ZN7msdfgen6BitmapIfLi1EED2Ev.exit1295
@@ -4356,7 +4355,7 @@ _ZN7msdfgen6BitmapIfLi1EED2Ev.exit1298:           ; preds = %if.then1838, %invok
 
 invoke.cont1845:                                  ; preds = %if.end1672
   store ptr %mtsdf.sroa.0.1, ptr %ref.tmp1844, align 8
-  %451 = getelementptr inbounds { ptr, i64 }, ptr %ref.tmp1844, i64 0, i32 1
+  %451 = getelementptr inbounds i8, ptr %ref.tmp1844, i64 8
   store i64 %mtsdf.sroa.15.0, ptr %451, align 8
   %tobool.not.i1302 = icmp eq ptr %output.0.be, null
   %452 = trunc i64 %mtsdf.sroa.15.0 to i32
@@ -4543,7 +4542,7 @@ if.end32.i1362:                                   ; preds = %sw.bb28.i1359
 if.then34.i1395:                                  ; preds = %if.end32.i1362
   %471 = load i32, ptr %451, align 8
   %mul.i1397 = shl nsw i32 %471, 2
-  %height.i1398 = getelementptr inbounds %"struct.msdfgen::BitmapConstRef.5", ptr %ref.tmp1844, i64 0, i32 2
+  %height.i1398 = getelementptr inbounds i8, ptr %ref.tmp1844, i64 12
   %472 = load i32, ptr %height.i1398, align 4
   %cmp8.i.i1399 = icmp sgt i32 %472, 0
   br i1 %cmp8.i.i1399, label %for.cond1.preheader.lr.ph.i.i1400, label %if.end1853.sink.split
@@ -4564,7 +4563,7 @@ for.cond1.preheader.us.i.i1408:                   ; preds = %for.cond1.for.end_c
 for.body3.us.i.i1411:                             ; preds = %for.body3.us.i.i1411, %for.cond1.preheader.us.i.i1408
   %values.addr.17.us.i.i1412 = phi ptr [ %values.addr.010.us.i.i1409, %for.cond1.preheader.us.i.i1408 ], [ %incdec.ptr.us.i.i1414, %for.body3.us.i.i1411 ]
   %col.06.us.i.i1413 = phi i32 [ 0, %for.cond1.preheader.us.i.i1408 ], [ %inc.us.i.i1421, %for.body3.us.i.i1411 ]
-  %incdec.ptr.us.i.i1414 = getelementptr inbounds float, ptr %values.addr.17.us.i.i1412, i64 1
+  %incdec.ptr.us.i.i1414 = getelementptr inbounds i8, ptr %values.addr.17.us.i.i1412, i64 4
   %474 = load float, ptr %values.addr.17.us.i.i1412, align 4
   %mul.us.i.i1415 = fmul float %474, 2.560000e+02
   %conv.us.i.i1416 = fptosi float %mul.us.i.i1415 to i32
@@ -4593,7 +4592,7 @@ for.cond1.preheader.i.i1402:                      ; preds = %for.cond1.preheader
 if.then38.i1363:                                  ; preds = %if.end32.i1362
   %476 = load i32, ptr %451, align 8
   %mul41.i1365 = shl nsw i32 %476, 2
-  %height42.i1366 = getelementptr inbounds %"struct.msdfgen::BitmapConstRef.5", ptr %ref.tmp1844, i64 0, i32 2
+  %height42.i1366 = getelementptr inbounds i8, ptr %ref.tmp1844, i64 12
   %477 = load i32, ptr %height42.i1366, align 4
   %cmp8.i124.i1367 = icmp sgt i32 %477, 0
   br i1 %cmp8.i124.i1367, label %for.cond1.preheader.lr.ph.i125.i1370, label %if.end1853.sink.split
@@ -4616,7 +4615,7 @@ for.body3.us.i131.i1381:                          ; preds = %for.body3.us.i131.i
   %values.addr.16.us.i.i1383 = phi ptr [ %values.addr.09.us.i.i1380, %for.cond1.preheader.us.i130.i1378 ], [ %incdec.ptr.us.i134.i1386, %for.body3.us.i131.i1381 ]
   %tobool.not.us.i132.i1384 = icmp eq i32 %col.07.us.i.i1382, 0
   %cond.us.i133.i1385 = select i1 %tobool.not.us.i132.i1384, ptr @.str.170, ptr @.str.169
-  %incdec.ptr.us.i134.i1386 = getelementptr inbounds float, ptr %values.addr.16.us.i.i1383, i64 1
+  %incdec.ptr.us.i134.i1386 = getelementptr inbounds i8, ptr %values.addr.16.us.i.i1383, i64 4
   %479 = load float, ptr %values.addr.16.us.i.i1383, align 4
   %conv.us.i135.i1387 = fpext float %479 to double
   %call.us.i.i1388 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef nonnull %call29.i1360, ptr noundef nonnull %cond.us.i133.i1385, double noundef %conv.us.i135.i1387)
@@ -4653,7 +4652,7 @@ if.end52.i1307:                                   ; preds = %sw.bb47.i1304
 if.then54.i1340:                                  ; preds = %if.end52.i1307
   %480 = load i32, ptr %451, align 8
   %mul57.i1342 = shl nsw i32 %480, 2
-  %height58.i1343 = getelementptr inbounds %"struct.msdfgen::BitmapConstRef.5", ptr %ref.tmp1844, i64 0, i32 2
+  %height58.i1343 = getelementptr inbounds i8, ptr %ref.tmp1844, i64 12
   %481 = load i32, ptr %height58.i1343, align 4
   %mul59.i1344 = mul nsw i32 %mul57.i1342, %481
   %cmp2.i.i1345 = icmp sgt i32 %mul59.i1344, 0
@@ -4666,7 +4665,7 @@ for.body.i.preheader.i1346:                       ; preds = %if.then54.i1340
 for.body.i.i1347:                                 ; preds = %for.body.i.i1347, %for.body.i.preheader.i1346
   %pos.04.i.i1348 = phi i32 [ %inc.i.i1357, %for.body.i.i1347 ], [ 0, %for.body.i.preheader.i1346 ]
   %values.addr.03.i.i1349 = phi ptr [ %incdec.ptr.i.i1350, %for.body.i.i1347 ], [ %482, %for.body.i.preheader.i1346 ]
-  %incdec.ptr.i.i1350 = getelementptr inbounds float, ptr %values.addr.03.i.i1349, i64 1
+  %incdec.ptr.i.i1350 = getelementptr inbounds i8, ptr %values.addr.03.i.i1349, i64 4
   %483 = load float, ptr %values.addr.03.i.i1349, align 4
   %mul.i.i1351 = fmul float %483, 2.560000e+02
   %conv.i.i1352 = fptosi float %mul.i.i1351 to i32
@@ -4683,7 +4682,7 @@ if.then63.i1333:                                  ; preds = %if.end52.i1307
   %485 = load ptr, ptr %ref.tmp1844, align 8
   %486 = load i32, ptr %451, align 8
   %mul66.i1335 = shl nsw i32 %486, 2
-  %height67.i1336 = getelementptr inbounds %"struct.msdfgen::BitmapConstRef.5", ptr %ref.tmp1844, i64 0, i32 2
+  %height67.i1336 = getelementptr inbounds i8, ptr %ref.tmp1844, i64 12
   %487 = load i32, ptr %height67.i1336, align 4
   %mul68.i1337 = mul nsw i32 %mul66.i1335, %487
   %conv.i144.i1338 = sext i32 %mul68.i1337 to i64
@@ -4693,7 +4692,7 @@ if.then63.i1333:                                  ; preds = %if.end52.i1307
 if.then72.i1308:                                  ; preds = %if.end52.i1307
   %488 = load i32, ptr %451, align 8
   %mul75.i1310 = shl nsw i32 %488, 2
-  %height76.i1311 = getelementptr inbounds %"struct.msdfgen::BitmapConstRef.5", ptr %ref.tmp1844, i64 0, i32 2
+  %height76.i1311 = getelementptr inbounds i8, ptr %ref.tmp1844, i64 12
   %489 = load i32, ptr %height76.i1311, align 4
   %mul77.i1312 = mul nsw i32 %mul75.i1310, %489
   %cmp5.i146.i1313 = icmp sgt i32 %mul77.i1312, 0
@@ -4719,7 +4718,7 @@ for.body3.i.i1321:                                ; preds = %for.body3.i.i1321, 
   br i1 %cmp2.not.i.i1328, label %for.inc4.i.i1329, label %for.body3.i.i1321, !llvm.loop !24
 
 for.inc4.i.i1329:                                 ; preds = %for.body3.i.i1321
-  %incdec.ptr.i151.i1330 = getelementptr inbounds float, ptr %values.addr.07.i.i1319, i64 1
+  %incdec.ptr.i151.i1330 = getelementptr inbounds i8, ptr %values.addr.07.i.i1319, i64 4
   %inc.i152.i1331 = add nuw nsw i32 %pos.06.i.i1320, 1
   %exitcond.not.i153.i1332 = icmp eq i32 %inc.i152.i1331, %mul77.i1312
   br i1 %exitcond.not.i153.i1332, label %if.end1853.sink.split, label %for.body.i147.i1318, !llvm.loop !25
@@ -4749,7 +4748,7 @@ for.cond1.preheader.us.i162.i1562:                ; preds = %for.cond1.preheader
 for.body3.us.i165.i1565:                          ; preds = %for.body3.us.i165.i1565, %for.cond1.preheader.us.i162.i1562
   %values.addr.17.us.i166.i1566 = phi ptr [ %values.addr.010.us.i163.i1563, %for.cond1.preheader.us.i162.i1562 ], [ %incdec.ptr.us.i168.i1568, %for.body3.us.i165.i1565 ]
   %col.06.us.i167.i1567 = phi i32 [ 0, %for.cond1.preheader.us.i162.i1562 ], [ %inc.us.i175.i1575, %for.body3.us.i165.i1565 ]
-  %incdec.ptr.us.i168.i1568 = getelementptr inbounds float, ptr %values.addr.17.us.i166.i1566, i64 1
+  %incdec.ptr.us.i168.i1568 = getelementptr inbounds i8, ptr %values.addr.17.us.i166.i1566, i64 4
   %492 = load float, ptr %values.addr.17.us.i166.i1566, align 4
   %mul.us.i169.i1569 = fmul float %492, 2.560000e+02
   %conv.us.i170.i1570 = fptosi float %mul.us.i169.i1569 to i32
@@ -4795,7 +4794,7 @@ for.body3.us.i193.i1535:                          ; preds = %for.body3.us.i193.i
   %values.addr.16.us.i195.i1537 = phi ptr [ %values.addr.09.us.i192.i1534, %for.cond1.preheader.us.i190.i1532 ], [ %incdec.ptr.us.i198.i1540, %for.body3.us.i193.i1535 ]
   %tobool.not.us.i196.i1538 = icmp eq i32 %col.07.us.i194.i1536, 0
   %cond.us.i197.i1539 = select i1 %tobool.not.us.i196.i1538, ptr @.str.170, ptr @.str.169
-  %incdec.ptr.us.i198.i1540 = getelementptr inbounds float, ptr %values.addr.16.us.i195.i1537, i64 1
+  %incdec.ptr.us.i198.i1540 = getelementptr inbounds i8, ptr %values.addr.16.us.i195.i1537, i64 4
   %495 = load float, ptr %values.addr.16.us.i195.i1537, align 4
   %conv.us.i199.i1541 = fpext float %495 to double
   %call.us.i200.i1542 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %494, ptr noundef nonnull %cond.us.i197.i1539, double noundef %conv.us.i199.i1541)
@@ -4847,7 +4846,7 @@ land.lhs.true1856:                                ; preds = %call21.i1433.noexc,
 
 invoke.cont1864:                                  ; preds = %land.lhs.true1856
   store ptr %mtsdf.sroa.0.1, ptr %ref.tmp1863, align 8
-  %497 = getelementptr inbounds { ptr, i64 }, ptr %ref.tmp1863, i64 0, i32 1
+  %497 = getelementptr inbounds i8, ptr %ref.tmp1863, i64 8
   store i64 %mtsdf.sroa.15.0, ptr %497, align 8
   invoke void @_ZN7msdfgen12simulate8bitERKNS_9BitmapRefIfLi4EEE(ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp1863)
           to label %if.end1867 unwind label %lpad1443
@@ -4858,7 +4857,7 @@ if.end1867:                                       ; preds = %for.cond1.preheader
 
 invoke.cont1872:                                  ; preds = %if.end1867
   store ptr %mtsdf.sroa.0.1, ptr %ref.tmp1871, align 8
-  %498 = getelementptr inbounds { ptr, i64 }, ptr %ref.tmp1871, i64 0, i32 1
+  %498 = getelementptr inbounds i8, ptr %ref.tmp1871, i64 8
   store i64 %mtsdf.sroa.15.0, ptr %498, align 8
   %call1875 = invoke noundef double @_ZN7msdfgen16estimateSDFErrorERKNS_14BitmapConstRefIfLi4EEERKNS_5ShapeERKNS_10ProjectionEiNS_8FillRuleE(ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp1871, ptr noundef nonnull align 8 dereferenceable(25) %shape, ptr noundef nonnull align 8 dereferenceable(32) %projection, i32 noundef 19, i32 noundef %fillRule.0.be)
           to label %invoke.cont1874 unwind label %lpad1443
@@ -4887,10 +4886,10 @@ invoke.cont1888:                                  ; preds = %if.then1880
   %render1881.sroa.5.8.insert.ext = zext i32 %testWidthM.0.be to i64
   %render1881.sroa.5.8.insert.insert = or disjoint i64 %render1881.sroa.8.8.insert.shift, %render1881.sroa.5.8.insert.ext
   store ptr %call.i15981599, ptr %ref.tmp1883, align 8
-  %502 = getelementptr inbounds { ptr, i64 }, ptr %ref.tmp1883, i64 0, i32 1
+  %502 = getelementptr inbounds i8, ptr %ref.tmp1883, i64 8
   store i64 %render1881.sroa.5.8.insert.insert, ptr %502, align 8
   store ptr %mtsdf.sroa.0.1, ptr %ref.tmp1887, align 8
-  %503 = getelementptr inbounds { ptr, i64 }, ptr %ref.tmp1887, i64 0, i32 1
+  %503 = getelementptr inbounds i8, ptr %ref.tmp1887, i64 8
   store i64 %mtsdf.sroa.15.0, ptr %503, align 8
   %mul1890 = fmul double %avgScale.11891, %range.1
   %add1891 = fadd float %outputDistanceShift.0.be, 5.000000e-01
@@ -4899,7 +4898,7 @@ invoke.cont1888:                                  ; preds = %if.then1880
 
 invoke.cont1894:                                  ; preds = %invoke.cont1888
   store ptr %call.i15981599, ptr %ref.tmp1893, align 8
-  %504 = getelementptr inbounds { ptr, i64 }, ptr %ref.tmp1893, i64 0, i32 1
+  %504 = getelementptr inbounds i8, ptr %ref.tmp1893, i64 8
   store i64 %render1881.sroa.5.8.insert.insert, ptr %504, align 8
   %call1897 = invoke noundef zeroext i1 @_ZN7msdfgen7savePngERKNS_14BitmapConstRefIfLi4EEEPKc(ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp1893, ptr noundef nonnull %testRenderMulti.0.be)
           to label %invoke.cont1896 unwind label %_ZN7msdfgen6BitmapIfLi4EED2Ev.exit1612
@@ -4941,10 +4940,10 @@ invoke.cont1913:                                  ; preds = %if.then1905
   %render1906.sroa.5.8.insert.ext = zext i32 %testWidth.0.be to i64
   %render1906.sroa.5.8.insert.insert = or disjoint i64 %render1906.sroa.8.8.insert.shift, %render1906.sroa.5.8.insert.ext
   store ptr %call.i16201621, ptr %ref.tmp1908, align 8
-  %511 = getelementptr inbounds { ptr, i64 }, ptr %ref.tmp1908, i64 0, i32 1
+  %511 = getelementptr inbounds i8, ptr %ref.tmp1908, i64 8
   store i64 %render1906.sroa.5.8.insert.insert, ptr %511, align 8
   store ptr %mtsdf.sroa.0.1, ptr %ref.tmp1912, align 8
-  %512 = getelementptr inbounds { ptr, i64 }, ptr %ref.tmp1912, i64 0, i32 1
+  %512 = getelementptr inbounds i8, ptr %ref.tmp1912, i64 8
   store i64 %mtsdf.sroa.15.0, ptr %512, align 8
   %mul1915 = fmul double %avgScale.11891, %range.1
   %add1916 = fadd float %outputDistanceShift.0.be, 5.000000e-01
@@ -4953,7 +4952,7 @@ invoke.cont1913:                                  ; preds = %if.then1905
 
 invoke.cont1919:                                  ; preds = %invoke.cont1913
   store ptr %call.i16201621, ptr %ref.tmp1918, align 8
-  %513 = getelementptr inbounds { ptr, i64 }, ptr %ref.tmp1918, i64 0, i32 1
+  %513 = getelementptr inbounds i8, ptr %ref.tmp1918, i64 8
   store i64 %render1906.sroa.5.8.insert.insert, ptr %513, align 8
   %call1922 = invoke noundef zeroext i1 @_ZN7msdfgen7savePngERKNS_14BitmapConstRefIfLi1EEEPKc(ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp1918, ptr noundef nonnull %testRender.0.be)
           to label %invoke.cont1921 unwind label %_ZN7msdfgen6BitmapIfLi1EED2Ev.exit1634
@@ -5032,7 +5031,7 @@ delete.notnull.i1654:                             ; preds = %_ZN7msdfgen6BitmapI
 cleanup1935:                                      ; preds = %delete.notnull.i1645, %_ZN7msdfgen6BitmapIfLi3EED2Ev.exit1643, %invoke.cont1080, %do.body1350, %do.body1247, %do.body1164, %do.body1151, %do.body1142, %do.body1131, %do.body1121, %do.body1109, %do.body1093, %do.body1074, %do.body1039
   %retval.1 = phi i32 [ 1, %do.body1247 ], [ 1, %do.body1350 ], [ 1, %do.body1164 ], [ 1, %do.body1151 ], [ 1, %do.body1142 ], [ 1, %do.body1131 ], [ 1, %do.body1121 ], [ 1, %do.body1109 ], [ 1, %do.body1093 ], [ 1, %do.body1074 ], [ 1, %do.body1039 ], [ -1, %invoke.cont1080 ], [ %retval.0, %_ZN7msdfgen6BitmapIfLi3EED2Ev.exit1643 ], [ %retval.0, %delete.notnull.i1645 ]
   %517 = load ptr, ptr %shape, align 8
-  %_M_finish.i.i = getelementptr inbounds %"struct.std::_Vector_base<msdfgen::Contour, std::allocator<msdfgen::Contour>>::_Vector_impl_data", ptr %shape, i64 0, i32 1
+  %_M_finish.i.i = getelementptr inbounds i8, ptr %shape, i64 8
   %518 = load ptr, ptr %_M_finish.i.i, align 8
   %cmp.not3.i.i.i.i.i = icmp eq ptr %517, %518
   br i1 %cmp.not3.i.i.i.i.i, label %invoke.cont.i.i, label %for.body.i.i.i.i.i
@@ -5040,7 +5039,7 @@ cleanup1935:                                      ; preds = %delete.notnull.i164
 for.body.i.i.i.i.i:                               ; preds = %cleanup1935, %_ZSt8_DestroyIN7msdfgen7ContourEEvPT_.exit.i.i.i.i.i
   %__first.addr.04.i.i.i.i.i = phi ptr [ %incdec.ptr.i.i.i.i.i, %_ZSt8_DestroyIN7msdfgen7ContourEEvPT_.exit.i.i.i.i.i ], [ %517, %cleanup1935 ]
   %519 = load ptr, ptr %__first.addr.04.i.i.i.i.i, align 8
-  %_M_finish.i.i.i.i.i.i.i.i = getelementptr inbounds %"struct.std::_Vector_base<msdfgen::EdgeHolder, std::allocator<msdfgen::EdgeHolder>>::_Vector_impl_data", ptr %__first.addr.04.i.i.i.i.i, i64 0, i32 1
+  %_M_finish.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %__first.addr.04.i.i.i.i.i, i64 8
   %520 = load ptr, ptr %_M_finish.i.i.i.i.i.i.i.i, align 8
   %cmp.not3.i.i.i.i.i.i.i.i.i.i.i = icmp eq ptr %519, %520
   br i1 %cmp.not3.i.i.i.i.i.i.i.i.i.i.i, label %invoke.cont.i.i.i.i.i.i.i.i, label %for.body.i.i.i.i.i.i.i.i.i.i.i
@@ -5048,7 +5047,7 @@ for.body.i.i.i.i.i:                               ; preds = %cleanup1935, %_ZSt8
 for.body.i.i.i.i.i.i.i.i.i.i.i:                   ; preds = %for.body.i.i.i.i.i, %for.body.i.i.i.i.i.i.i.i.i.i.i
   %__first.addr.04.i.i.i.i.i.i.i.i.i.i.i = phi ptr [ %incdec.ptr.i.i.i.i.i.i.i.i.i.i.i, %for.body.i.i.i.i.i.i.i.i.i.i.i ], [ %519, %for.body.i.i.i.i.i ]
   call void @_ZN7msdfgen10EdgeHolderD1Ev(ptr noundef nonnull align 8 dereferenceable(8) %__first.addr.04.i.i.i.i.i.i.i.i.i.i.i) #19
-  %incdec.ptr.i.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds %"class.msdfgen::EdgeHolder", ptr %__first.addr.04.i.i.i.i.i.i.i.i.i.i.i, i64 1
+  %incdec.ptr.i.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %__first.addr.04.i.i.i.i.i.i.i.i.i.i.i, i64 8
   %cmp.not.i.i.i.i.i.i.i.i.i.i.i = icmp eq ptr %incdec.ptr.i.i.i.i.i.i.i.i.i.i.i, %520
   br i1 %cmp.not.i.i.i.i.i.i.i.i.i.i.i, label %invoke.contthread-pre-split.i.i.i.i.i.i.i.i, label %for.body.i.i.i.i.i.i.i.i.i.i.i, !llvm.loop !26
 
@@ -5066,7 +5065,7 @@ if.then.i.i.i.i.i.i.i.i.i.i:                      ; preds = %invoke.cont.i.i.i.i
   br label %_ZSt8_DestroyIN7msdfgen7ContourEEvPT_.exit.i.i.i.i.i
 
 _ZSt8_DestroyIN7msdfgen7ContourEEvPT_.exit.i.i.i.i.i: ; preds = %if.then.i.i.i.i.i.i.i.i.i.i, %invoke.cont.i.i.i.i.i.i.i.i
-  %incdec.ptr.i.i.i.i.i = getelementptr inbounds %"class.msdfgen::Contour", ptr %__first.addr.04.i.i.i.i.i, i64 1
+  %incdec.ptr.i.i.i.i.i = getelementptr inbounds i8, ptr %__first.addr.04.i.i.i.i.i, i64 24
   %cmp.not.i.i.i.i.i = icmp eq ptr %incdec.ptr.i.i.i.i.i, %518
   br i1 %cmp.not.i.i.i.i.i, label %invoke.contthread-pre-split.i.i, label %for.body.i.i.i.i.i, !llvm.loop !27
 
@@ -5243,7 +5242,7 @@ declare void @_ZN7msdfgen17generatePseudoSDFERKNS_9BitmapRefIfLi1EEERKNS_5ShapeE
 ; Function Attrs: mustprogress norecurse uwtable
 define internal fastcc void @_ZL13parseColoringRN7msdfgen5ShapeEPKc(ptr nocapture noundef nonnull readonly align 8 dereferenceable(25) %shape, ptr nocapture noundef readonly %edgeAssignment) unnamed_addr #0 {
 entry:
-  %_M_finish.i = getelementptr inbounds %"struct.std::_Vector_base<msdfgen::Contour, std::allocator<msdfgen::Contour>>::_Vector_impl_data", ptr %shape, i64 0, i32 1
+  %_M_finish.i = getelementptr inbounds i8, ptr %shape, i64 8
   %0 = load ptr, ptr %shape, align 8
   br label %for.cond
 
@@ -5278,7 +5277,7 @@ while.cond.preheader:                             ; preds = %sw.bb
   %3 = and i8 %change.0, 1
   %4 = zext nneg i8 %3 to i32
   %spec.select = add i32 %e.0, %4
-  %_M_finish.i31 = getelementptr inbounds %"struct.std::_Vector_base<msdfgen::EdgeHolder, std::allocator<msdfgen::EdgeHolder>>::_Vector_impl_data", ptr %contour.0, i64 0, i32 1
+  %_M_finish.i31 = getelementptr inbounds i8, ptr %contour.0, i64 8
   %conv1048 = zext i32 %spec.select to i64
   %5 = load ptr, ptr %_M_finish.i31, align 8
   %6 = load ptr, ptr %contour.0, align 8
@@ -5295,7 +5294,7 @@ while.body:                                       ; preds = %while.cond.preheade
   %e.254 = phi i32 [ %inc17, %while.body ], [ %spec.select, %while.cond.preheader ]
   %add.ptr.i = getelementptr inbounds %"class.msdfgen::EdgeHolder", ptr %7, i64 %conv1055
   %call16 = tail call noundef ptr @_ZN7msdfgen10EdgeHolderptEv(ptr noundef nonnull align 8 dereferenceable(8) %add.ptr.i)
-  %color = getelementptr inbounds %"class.msdfgen::EdgeSegment", ptr %call16, i64 0, i32 1
+  %color = getelementptr inbounds i8, ptr %call16, i64 8
   store i32 7, ptr %color, align 8
   %inc17 = add i32 %e.254, 1
   %conv10 = zext i32 %inc17 to i64
@@ -5334,7 +5333,7 @@ sw.bb30:                                          ; preds = %for.cond, %for.cond
   %spec.select28 = add i32 %e.0, %13
   %spec.select29 = select i1 %tobool31.not, i8 %change.0, i8 0
   %conv35 = zext i32 %spec.select28 to i64
-  %_M_finish.i42 = getelementptr inbounds %"struct.std::_Vector_base<msdfgen::EdgeHolder, std::allocator<msdfgen::EdgeHolder>>::_Vector_impl_data", ptr %contour.0, i64 0, i32 1
+  %_M_finish.i42 = getelementptr inbounds i8, ptr %contour.0, i64 8
   %14 = load ptr, ptr %_M_finish.i42, align 8
   %15 = load ptr, ptr %contour.0, align 8
   %sub.ptr.lhs.cast.i43 = ptrtoint ptr %14 to i64
@@ -5358,7 +5357,7 @@ if.then39:                                        ; preds = %sw.bb30
   %or70 = select i1 %19, i32 7, i32 %or61
   %add.ptr.i47 = getelementptr inbounds %"class.msdfgen::EdgeHolder", ptr %15, i64 %conv35
   %call74 = tail call noundef ptr @_ZN7msdfgen10EdgeHolderptEv(ptr noundef nonnull align 8 dereferenceable(8) %add.ptr.i47)
-  %color75 = getelementptr inbounds %"class.msdfgen::EdgeSegment", ptr %call74, i64 0, i32 1
+  %color75 = getelementptr inbounds i8, ptr %call74, i64 8
   store i32 %or70, ptr %color75, align 8
   br label %for.inc
 
@@ -5391,7 +5390,7 @@ entry:
   call void @_ZN7msdfgen21SimpleContourCombinerINS_20TrueDistanceSelectorEEC1ERKNS_5ShapeE(ptr noundef nonnull align 8 dereferenceable(32) %contourCombiner, ptr noundef nonnull align 8 dereferenceable(25) %shape)
   call void @_ZN7msdfgen21SimpleContourCombinerINS_20TrueDistanceSelectorEE5resetERKNS_7Vector2E(ptr noundef nonnull align 8 dereferenceable(32) %contourCombiner, ptr noundef nonnull align 8 dereferenceable(16) %origin)
   %0 = load ptr, ptr %shape, align 8
-  %_M_finish.i = getelementptr inbounds %"struct.std::_Vector_base<msdfgen::Contour, std::allocator<msdfgen::Contour>>::_Vector_impl_data", ptr %shape, i64 0, i32 1
+  %_M_finish.i = getelementptr inbounds i8, ptr %shape, i64 8
   %1 = load ptr, ptr %_M_finish.i, align 8
   %cmp.i.not31 = icmp eq ptr %0, %1
   br i1 %cmp.i.not31, label %for.end53, label %for.body
@@ -5399,7 +5398,7 @@ entry:
 for.body:                                         ; preds = %entry, %for.inc51
   %contour.sroa.0.032 = phi ptr [ %incdec.ptr.i15, %for.inc51 ], [ %0, %entry ]
   %2 = load ptr, ptr %contour.sroa.0.032, align 8
-  %_M_finish.i.i = getelementptr inbounds %"struct.std::_Vector_base<msdfgen::EdgeHolder, std::allocator<msdfgen::EdgeHolder>>::_Vector_impl_data", ptr %contour.sroa.0.032, i64 0, i32 1
+  %_M_finish.i.i = getelementptr inbounds i8, ptr %contour.sroa.0.032, i64 8
   %3 = load ptr, ptr %_M_finish.i.i, align 8
   %cmp.i.i = icmp eq ptr %2, %3
   br i1 %cmp.i.i, label %for.inc51, label %if.then
@@ -5418,11 +5417,11 @@ if.then:                                          ; preds = %for.body
   %sub.ptr.rhs.cast.i8 = ptrtoint ptr %6 to i64
   %sub.ptr.sub.i9 = sub i64 %sub.ptr.lhs.cast.i7, %sub.ptr.rhs.cast.i8
   %cmp = icmp ugt i64 %sub.ptr.sub.i9, 8
-  %add.ptr.i = getelementptr inbounds %"class.msdfgen::EdgeHolder", ptr %5, i64 -2
+  %add.ptr.i = getelementptr inbounds i8, ptr %5, i64 -16
   %spec.select = select i1 %cmp, ptr %add.ptr.i, ptr %6
   %call31 = call noundef ptr @_ZNK7msdfgen10EdgeHoldercvPKNS_11EdgeSegmentEEv(ptr noundef nonnull align 8 dereferenceable(8) %spec.select)
   %7 = load ptr, ptr %_M_finish.i.i, align 8
-  %add.ptr.i.i = getelementptr inbounds %"class.msdfgen::EdgeHolder", ptr %7, i64 -1
+  %add.ptr.i.i = getelementptr inbounds i8, ptr %7, i64 -8
   %call35 = call noundef ptr @_ZNK7msdfgen10EdgeHoldercvPKNS_11EdgeSegmentEEv(ptr noundef nonnull align 8 dereferenceable(8) %add.ptr.i.i)
   %8 = load ptr, ptr %contour.sroa.0.032, align 8
   %9 = load ptr, ptr %_M_finish.i.i, align 8
@@ -5436,13 +5435,13 @@ for.body47:                                       ; preds = %if.then, %for.body4
   %call49 = call noundef ptr @_ZNK7msdfgen10EdgeHoldercvPKNS_11EdgeSegmentEEv(ptr noundef nonnull align 8 dereferenceable(8) %edge.sroa.0.028)
   call void @_ZN7msdfgen20TrueDistanceSelector9EdgeCacheC1Ev(ptr noundef nonnull align 8 dereferenceable(24) %dummy)
   call void @_ZN7msdfgen20TrueDistanceSelector7addEdgeERNS0_9EdgeCacheEPKNS_11EdgeSegmentES5_S5_(ptr noundef nonnull align 8 dereferenceable(32) %call12, ptr noundef nonnull align 8 dereferenceable(24) %dummy, ptr noundef %prevEdge.030, ptr noundef %curEdge.029, ptr noundef %call49)
-  %incdec.ptr.i = getelementptr inbounds %"class.msdfgen::EdgeHolder", ptr %edge.sroa.0.028, i64 1
+  %incdec.ptr.i = getelementptr inbounds i8, ptr %edge.sroa.0.028, i64 8
   %10 = load ptr, ptr %_M_finish.i.i, align 8
   %cmp.i14.not = icmp eq ptr %incdec.ptr.i, %10
   br i1 %cmp.i14.not, label %for.inc51, label %for.body47, !llvm.loop !30
 
 for.inc51:                                        ; preds = %for.body47, %if.then, %for.body
-  %incdec.ptr.i15 = getelementptr inbounds %"class.msdfgen::Contour", ptr %contour.sroa.0.032, i64 1
+  %incdec.ptr.i15 = getelementptr inbounds i8, ptr %contour.sroa.0.032, i64 24
   %11 = load ptr, ptr %_M_finish.i, align 8
   %cmp.i.not = icmp eq ptr %incdec.ptr.i15, %11
   br i1 %cmp.i.not, label %for.end53, label %for.body, !llvm.loop !31
@@ -5499,7 +5498,7 @@ declare void @_ZN7msdfgen9renderSDFERKNS_9BitmapRefIfLi1EEERKNS_14BitmapConstRef
 define linkonce_odr dso_local void @_ZN7msdfgen5ShapeD2Ev(ptr noundef nonnull align 8 dereferenceable(25) %this) unnamed_addr #10 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %0 = load ptr, ptr %this, align 8
-  %_M_finish.i = getelementptr inbounds %"struct.std::_Vector_base<msdfgen::Contour, std::allocator<msdfgen::Contour>>::_Vector_impl_data", ptr %this, i64 0, i32 1
+  %_M_finish.i = getelementptr inbounds i8, ptr %this, i64 8
   %1 = load ptr, ptr %_M_finish.i, align 8
   %cmp.not3.i.i.i.i = icmp eq ptr %0, %1
   br i1 %cmp.not3.i.i.i.i, label %invoke.cont.i, label %for.body.i.i.i.i
@@ -5507,7 +5506,7 @@ entry:
 for.body.i.i.i.i:                                 ; preds = %entry, %_ZSt8_DestroyIN7msdfgen7ContourEEvPT_.exit.i.i.i.i
   %__first.addr.04.i.i.i.i = phi ptr [ %incdec.ptr.i.i.i.i, %_ZSt8_DestroyIN7msdfgen7ContourEEvPT_.exit.i.i.i.i ], [ %0, %entry ]
   %2 = load ptr, ptr %__first.addr.04.i.i.i.i, align 8
-  %_M_finish.i.i.i.i.i.i.i = getelementptr inbounds %"struct.std::_Vector_base<msdfgen::EdgeHolder, std::allocator<msdfgen::EdgeHolder>>::_Vector_impl_data", ptr %__first.addr.04.i.i.i.i, i64 0, i32 1
+  %_M_finish.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %__first.addr.04.i.i.i.i, i64 8
   %3 = load ptr, ptr %_M_finish.i.i.i.i.i.i.i, align 8
   %cmp.not3.i.i.i.i.i.i.i.i.i.i = icmp eq ptr %2, %3
   br i1 %cmp.not3.i.i.i.i.i.i.i.i.i.i, label %invoke.cont.i.i.i.i.i.i.i, label %for.body.i.i.i.i.i.i.i.i.i.i
@@ -5515,7 +5514,7 @@ for.body.i.i.i.i:                                 ; preds = %entry, %_ZSt8_Destr
 for.body.i.i.i.i.i.i.i.i.i.i:                     ; preds = %for.body.i.i.i.i, %for.body.i.i.i.i.i.i.i.i.i.i
   %__first.addr.04.i.i.i.i.i.i.i.i.i.i = phi ptr [ %incdec.ptr.i.i.i.i.i.i.i.i.i.i, %for.body.i.i.i.i.i.i.i.i.i.i ], [ %2, %for.body.i.i.i.i ]
   tail call void @_ZN7msdfgen10EdgeHolderD1Ev(ptr noundef nonnull align 8 dereferenceable(8) %__first.addr.04.i.i.i.i.i.i.i.i.i.i) #19
-  %incdec.ptr.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds %"class.msdfgen::EdgeHolder", ptr %__first.addr.04.i.i.i.i.i.i.i.i.i.i, i64 1
+  %incdec.ptr.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %__first.addr.04.i.i.i.i.i.i.i.i.i.i, i64 8
   %cmp.not.i.i.i.i.i.i.i.i.i.i = icmp eq ptr %incdec.ptr.i.i.i.i.i.i.i.i.i.i, %3
   br i1 %cmp.not.i.i.i.i.i.i.i.i.i.i, label %invoke.contthread-pre-split.i.i.i.i.i.i.i, label %for.body.i.i.i.i.i.i.i.i.i.i, !llvm.loop !26
 
@@ -5533,7 +5532,7 @@ if.then.i.i.i.i.i.i.i.i.i:                        ; preds = %invoke.cont.i.i.i.i
   br label %_ZSt8_DestroyIN7msdfgen7ContourEEvPT_.exit.i.i.i.i
 
 _ZSt8_DestroyIN7msdfgen7ContourEEvPT_.exit.i.i.i.i: ; preds = %if.then.i.i.i.i.i.i.i.i.i, %invoke.cont.i.i.i.i.i.i.i
-  %incdec.ptr.i.i.i.i = getelementptr inbounds %"class.msdfgen::Contour", ptr %__first.addr.04.i.i.i.i, i64 1
+  %incdec.ptr.i.i.i.i = getelementptr inbounds i8, ptr %__first.addr.04.i.i.i.i, i64 24
   %cmp.not.i.i.i.i = icmp eq ptr %incdec.ptr.i.i.i.i, %1
   br i1 %cmp.not.i.i.i.i, label %invoke.contthread-pre-split.i, label %for.body.i.i.i.i, !llvm.loop !27
 

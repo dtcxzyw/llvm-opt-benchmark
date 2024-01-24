@@ -74,7 +74,7 @@ entry:
   br i1 %cmp, label %return, label %lor.lhs.false
 
 lor.lhs.false:                                    ; preds = %entry
-  %call = tail call zeroext i1 @mi_option_is_enabled(i32 noundef 6) #8
+  %call = tail call zeroext i1 @mi_option_is_enabled(i32 noundef 6) #7
   br i1 %call, label %if.end, label %return
 
 if.end:                                           ; preds = %lor.lhs.false
@@ -95,8 +95,8 @@ return:                                           ; preds = %if.end, %land.rhs, 
 
 declare zeroext i1 @mi_option_is_enabled(i32 noundef) local_unnamed_addr #2
 
-; Function Attrs: mustprogress nofree nosync nounwind willreturn memory(read, argmem: none, inaccessiblemem: none) uwtable
-define hidden i64 @_mi_os_good_alloc_size(i64 noundef %size) local_unnamed_addr #3 {
+; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: none, inaccessiblemem: none) uwtable
+define hidden i64 @_mi_os_good_alloc_size(i64 noundef %size) local_unnamed_addr #0 {
 entry:
   %cmp = icmp ult i64 %size, 524288
   br i1 %cmp, label %if.then, label %if.else
@@ -149,7 +149,7 @@ return:                                           ; preds = %if.else.i, %if.then
 ; Function Attrs: nounwind uwtable
 define hidden void @_mi_os_init() local_unnamed_addr #1 {
 entry:
-  tail call void @_mi_prim_mem_init(ptr noundef nonnull @mi_os_mem_config) #8
+  tail call void @_mi_prim_mem_init(ptr noundef nonnull @mi_os_mem_config) #7
   ret void
 }
 
@@ -177,7 +177,7 @@ if.end4:                                          ; preds = %if.end
 if.then8:                                         ; preds = %if.end4
   %3 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @_mi_heap_default)
   %4 = load ptr, ptr %3, align 8
-  %call10 = tail call i64 @_mi_heap_random_next(ptr noundef %4) #8
+  %call10 = tail call i64 @_mi_heap_random_next(ptr noundef %4) #7
   %5 = shl i64 %call10, 8
   %rem = and i64 %5, 4398012956672
   %add = add nuw nsw i64 %rem, 2199023255552
@@ -204,7 +204,7 @@ declare i64 @_mi_heap_random_next(ptr noundef) local_unnamed_addr #2
 ; Function Attrs: nounwind uwtable
 define hidden void @_mi_os_free_ex(ptr noundef %addr, i64 noundef %size, i1 noundef zeroext %still_committed, ptr nocapture noundef readonly byval(%struct.mi_memid_s) align 8 %memid, ptr nocapture readnone %tld_stats) local_unnamed_addr #1 {
 entry:
-  %memkind = getelementptr inbounds %struct.mi_memid_s, ptr %memid, i64 0, i32 4
+  %memkind = getelementptr inbounds i8, ptr %memid, i64 20
   %0 = load i32, ptr %memkind, align 4
   %1 = add i32 %0, -3
   %2 = icmp ult i32 %1, 3
@@ -276,17 +276,17 @@ if.then10:                                        ; preds = %_mi_os_good_alloc_s
 if.end.i.i:                                       ; preds = %if.then10, %mi_os_prim_free.exit.i
   %base.03.i = phi ptr [ %add.ptr.i, %mi_os_prim_free.exit.i ], [ %base.0, %if.then10 ]
   %size.addr.02.i = phi i64 [ %sub.i7, %mi_os_prim_free.exit.i ], [ %csize.0, %if.then10 ]
-  %call.i.i = tail call i32 @_mi_prim_free(ptr noundef nonnull %base.03.i, i64 noundef 1073741824) #8
+  %call.i.i = tail call i32 @_mi_prim_free(ptr noundef nonnull %base.03.i, i64 noundef 1073741824) #7
   %cmp2.not.i.i = icmp eq i32 %call.i.i, 0
   br i1 %cmp2.not.i.i, label %mi_os_prim_free.exit.i, label %if.then3.i.i
 
 if.then3.i.i:                                     ; preds = %if.end.i.i
-  tail call void (ptr, ...) @_mi_warning_message(ptr noundef nonnull @.str.6, i32 noundef %call.i.i, i32 noundef %call.i.i, i64 noundef 1073741824, ptr noundef nonnull %base.03.i) #8
+  tail call void (ptr, ...) @_mi_warning_message(ptr noundef nonnull @.str.6, i32 noundef %call.i.i, i32 noundef %call.i.i, i64 noundef 1073741824, ptr noundef nonnull %base.03.i) #7
   br label %mi_os_prim_free.exit.i
 
 mi_os_prim_free.exit.i:                           ; preds = %if.then3.i.i, %if.end.i.i
-  tail call void @_mi_stat_decrease(ptr noundef nonnull getelementptr inbounds (%struct.mi_stats_s, ptr @_mi_stats_main, i64 0, i32 3), i64 noundef 1073741824) #8
-  tail call void @_mi_stat_decrease(ptr noundef nonnull getelementptr inbounds (%struct.mi_stats_s, ptr @_mi_stats_main, i64 0, i32 2), i64 noundef 1073741824) #8
+  tail call void @_mi_stat_decrease(ptr noundef nonnull getelementptr inbounds (%struct.mi_stats_s, ptr @_mi_stats_main, i64 0, i32 3), i64 noundef 1073741824) #7
+  tail call void @_mi_stat_decrease(ptr noundef nonnull getelementptr inbounds (%struct.mi_stats_s, ptr @_mi_stats_main, i64 0, i32 2), i64 noundef 1073741824) #7
   %sub.i7 = add i64 %size.addr.02.i, -1073741824
   %add.ptr.i = getelementptr inbounds i8, ptr %base.03.i, i64 1073741824
   %cmp2.i = icmp ugt i64 %sub.i7, 1073741823
@@ -299,23 +299,23 @@ if.else:                                          ; preds = %_mi_os_good_alloc_s
   br i1 %or.cond.i, label %if.end13, label %if.end.i
 
 if.end.i:                                         ; preds = %if.else
-  %call.i = tail call i32 @_mi_prim_free(ptr noundef nonnull %base.0, i64 noundef %csize.0) #8
+  %call.i = tail call i32 @_mi_prim_free(ptr noundef nonnull %base.0, i64 noundef %csize.0) #7
   %cmp2.not.i = icmp eq i32 %call.i, 0
   br i1 %cmp2.not.i, label %if.end4.i, label %if.then3.i
 
 if.then3.i:                                       ; preds = %if.end.i
-  tail call void (ptr, ...) @_mi_warning_message(ptr noundef nonnull @.str.6, i32 noundef %call.i, i32 noundef %call.i, i64 noundef %csize.0, ptr noundef nonnull %base.0) #8
+  tail call void (ptr, ...) @_mi_warning_message(ptr noundef nonnull @.str.6, i32 noundef %call.i, i32 noundef %call.i, i64 noundef %csize.0, ptr noundef nonnull %base.0) #7
   br label %if.end4.i
 
 if.end4.i:                                        ; preds = %if.then3.i, %if.end.i
   br i1 %still_committed, label %if.then5.i, label %if.end6.i
 
 if.then5.i:                                       ; preds = %if.end4.i
-  tail call void @_mi_stat_decrease(ptr noundef nonnull getelementptr inbounds (%struct.mi_stats_s, ptr @_mi_stats_main, i64 0, i32 3), i64 noundef %csize.0) #8
+  tail call void @_mi_stat_decrease(ptr noundef nonnull getelementptr inbounds (%struct.mi_stats_s, ptr @_mi_stats_main, i64 0, i32 3), i64 noundef %csize.0) #7
   br label %if.end6.i
 
 if.end6.i:                                        ; preds = %if.then5.i, %if.end4.i
-  tail call void @_mi_stat_decrease(ptr noundef nonnull getelementptr inbounds (%struct.mi_stats_s, ptr @_mi_stats_main, i64 0, i32 2), i64 noundef %csize.0) #8
+  tail call void @_mi_stat_decrease(ptr noundef nonnull getelementptr inbounds (%struct.mi_stats_s, ptr @_mi_stats_main, i64 0, i32 2), i64 noundef %csize.0) #7
   br label %if.end13
 
 if.end13:                                         ; preds = %mi_os_prim_free.exit.i, %if.end6.i, %if.else, %if.then10, %entry
@@ -331,23 +331,23 @@ entry:
   br i1 %or.cond, label %return, label %if.end
 
 if.end:                                           ; preds = %entry
-  %call = tail call i32 @_mi_prim_free(ptr noundef nonnull %addr, i64 noundef %size) #8
+  %call = tail call i32 @_mi_prim_free(ptr noundef nonnull %addr, i64 noundef %size) #7
   %cmp2.not = icmp eq i32 %call, 0
   br i1 %cmp2.not, label %if.end4, label %if.then3
 
 if.then3:                                         ; preds = %if.end
-  tail call void (ptr, ...) @_mi_warning_message(ptr noundef nonnull @.str.6, i32 noundef %call, i32 noundef %call, i64 noundef %size, ptr noundef nonnull %addr) #8
+  tail call void (ptr, ...) @_mi_warning_message(ptr noundef nonnull @.str.6, i32 noundef %call, i32 noundef %call, i64 noundef %size, ptr noundef nonnull %addr) #7
   br label %if.end4
 
 if.end4:                                          ; preds = %if.then3, %if.end
   br i1 %still_committed, label %if.then5, label %if.end6
 
 if.then5:                                         ; preds = %if.end4
-  tail call void @_mi_stat_decrease(ptr noundef nonnull getelementptr inbounds (%struct.mi_stats_s, ptr @_mi_stats_main, i64 0, i32 3), i64 noundef %size) #8
+  tail call void @_mi_stat_decrease(ptr noundef nonnull getelementptr inbounds (%struct.mi_stats_s, ptr @_mi_stats_main, i64 0, i32 3), i64 noundef %size) #7
   br label %if.end6
 
 if.end6:                                          ; preds = %if.then5, %if.end4
-  tail call void @_mi_stat_decrease(ptr noundef nonnull getelementptr inbounds (%struct.mi_stats_s, ptr @_mi_stats_main, i64 0, i32 2), i64 noundef %size) #8
+  tail call void @_mi_stat_decrease(ptr noundef nonnull getelementptr inbounds (%struct.mi_stats_s, ptr @_mi_stats_main, i64 0, i32 2), i64 noundef %size) #7
   br label %return
 
 return:                                           ; preds = %entry, %if.end6
@@ -357,7 +357,7 @@ return:                                           ; preds = %entry, %if.end6
 ; Function Attrs: nounwind uwtable
 define hidden void @_mi_os_free(ptr noundef %p, i64 noundef %size, ptr nocapture noundef readonly byval(%struct.mi_memid_s) align 8 %memid, ptr nocapture noundef readnone %tld_stats) local_unnamed_addr #1 {
 entry:
-  tail call void @_mi_os_free_ex(ptr noundef %p, i64 noundef %size, i1 noundef zeroext true, ptr noundef nonnull byval(%struct.mi_memid_s) align 8 %memid, ptr poison) #9
+  tail call void @_mi_os_free_ex(ptr noundef %p, i64 noundef %size, i1 noundef zeroext true, ptr noundef nonnull byval(%struct.mi_memid_s) align 8 %memid, ptr poison) #8
   ret void
 }
 
@@ -435,12 +435,12 @@ if.end.i:                                         ; preds = %_mi_os_good_alloc_s
   %retval.0.i10 = phi i64 [ %size, %_mi_os_good_alloc_size.exit.thread ], [ %retval.0.i, %_mi_os_good_alloc_size.exit ]
   store i8 0, ptr %os_is_zero, align 1
   store ptr null, ptr %p.i, align 8
-  %call.i = call i32 @_mi_prim_alloc(i64 noundef %retval.0.i10, i64 noundef 1, i1 noundef zeroext true, i1 noundef zeroext false, ptr noundef nonnull %os_is_large, ptr noundef nonnull %os_is_zero, ptr noundef nonnull %p.i) #8
+  %call.i = call i32 @_mi_prim_alloc(i64 noundef %retval.0.i10, i64 noundef 1, i1 noundef zeroext true, i1 noundef zeroext false, ptr noundef nonnull %os_is_large, ptr noundef nonnull %os_is_zero, ptr noundef nonnull %p.i) #7
   %cmp9.not.i = icmp eq i32 %call.i, 0
   br i1 %cmp9.not.i, label %if.end14.i, label %if.then10.i
 
 if.then10.i:                                      ; preds = %if.end.i
-  call void (ptr, ...) @_mi_warning_message(ptr noundef nonnull @.str.7, i32 noundef %call.i, i32 noundef %call.i, i64 noundef %retval.0.i10, i64 noundef 1, i32 noundef 1, i32 noundef 0) #8
+  call void (ptr, ...) @_mi_warning_message(ptr noundef nonnull @.str.7, i32 noundef %call.i, i32 noundef %call.i, i64 noundef %retval.0.i10, i64 noundef 1, i32 noundef 1, i32 noundef 0) #7
   br label %if.end14.i
 
 if.end14.i:                                       ; preds = %if.then10.i, %if.end.i
@@ -453,8 +453,8 @@ mi_os_prim_alloc.exit.thread13:                   ; preds = %if.end14.i
   br label %return
 
 mi_os_prim_alloc.exit:                            ; preds = %if.end14.i
-  call void @_mi_stat_increase(ptr noundef nonnull getelementptr inbounds (%struct.mi_stats_s, ptr @_mi_stats_main, i64 0, i32 2), i64 noundef %retval.0.i10) #8
-  call void @_mi_stat_increase(ptr noundef nonnull getelementptr inbounds (%struct.mi_stats_s, ptr @_mi_stats_main, i64 0, i32 3), i64 noundef %retval.0.i10) #8
+  call void @_mi_stat_increase(ptr noundef nonnull getelementptr inbounds (%struct.mi_stats_s, ptr @_mi_stats_main, i64 0, i32 2), i64 noundef %retval.0.i10) #7
+  call void @_mi_stat_increase(ptr noundef nonnull getelementptr inbounds (%struct.mi_stats_s, ptr @_mi_stats_main, i64 0, i32 3), i64 noundef %retval.0.i10) #7
   %.pr = load ptr, ptr %p.i, align 8
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %p.i)
   %cmp2.not = icmp eq ptr %.pr, null
@@ -597,14 +597,14 @@ if.end.i.i:                                       ; preds = %_mi_align_up.exit.i
   %spec.store.select.i.i = tail call i64 @llvm.umax.i64(i64 %retval.0.i13, i64 1)
   store i8 0, ptr %os_is_zero, align 1
   store ptr null, ptr %p.i.i, align 8
-  %call.i.i = call i32 @_mi_prim_alloc(i64 noundef %retval.0.i.i, i64 noundef %spec.store.select.i.i, i1 noundef zeroext %commit, i1 noundef zeroext %spec.select.i, ptr noundef nonnull %os_is_large, ptr noundef nonnull %os_is_zero, ptr noundef nonnull %p.i.i) #8
+  %call.i.i = call i32 @_mi_prim_alloc(i64 noundef %retval.0.i.i, i64 noundef %spec.store.select.i.i, i1 noundef zeroext %commit, i1 noundef zeroext %spec.select.i, ptr noundef nonnull %os_is_large, ptr noundef nonnull %os_is_zero, ptr noundef nonnull %p.i.i) #7
   %cmp9.not.i.i = icmp eq i32 %call.i.i, 0
   br i1 %cmp9.not.i.i, label %if.end14.i.i, label %if.then10.i.i
 
 if.then10.i.i:                                    ; preds = %if.end.i.i
   %conv.i.i = zext i1 %commit to i32
   %conv13.i.i = zext i1 %spec.select.i to i32
-  call void (ptr, ...) @_mi_warning_message(ptr noundef nonnull @.str.7, i32 noundef %call.i.i, i32 noundef %call.i.i, i64 noundef %retval.0.i.i, i64 noundef %spec.store.select.i.i, i32 noundef %conv.i.i, i32 noundef %conv13.i.i) #8
+  call void (ptr, ...) @_mi_warning_message(ptr noundef nonnull @.str.7, i32 noundef %call.i.i, i32 noundef %call.i.i, i64 noundef %retval.0.i.i, i64 noundef %spec.store.select.i.i, i32 noundef %conv.i.i, i32 noundef %conv13.i.i) #7
   br label %if.end14.i.i
 
 if.end14.i.i:                                     ; preds = %if.then10.i.i, %if.end.i.i
@@ -617,11 +617,11 @@ mi_os_prim_alloc.exit.thread3.i:                  ; preds = %if.end14.i.i
   br label %return
 
 if.then17.i.i:                                    ; preds = %if.end14.i.i
-  call void @_mi_stat_increase(ptr noundef nonnull getelementptr inbounds (%struct.mi_stats_s, ptr @_mi_stats_main, i64 0, i32 2), i64 noundef %retval.0.i.i) #8
+  call void @_mi_stat_increase(ptr noundef nonnull getelementptr inbounds (%struct.mi_stats_s, ptr @_mi_stats_main, i64 0, i32 2), i64 noundef %retval.0.i.i) #7
   br i1 %commit, label %if.then19.i.i, label %mi_os_prim_alloc.exit.i
 
 if.then19.i.i:                                    ; preds = %if.then17.i.i
-  call void @_mi_stat_increase(ptr noundef nonnull getelementptr inbounds (%struct.mi_stats_s, ptr @_mi_stats_main, i64 0, i32 3), i64 noundef %retval.0.i.i) #8
+  call void @_mi_stat_increase(ptr noundef nonnull getelementptr inbounds (%struct.mi_stats_s, ptr @_mi_stats_main, i64 0, i32 3), i64 noundef %retval.0.i.i) #7
   br label %mi_os_prim_alloc.exit.i
 
 mi_os_prim_alloc.exit.i:                          ; preds = %if.then19.i.i, %if.then17.i.i
@@ -638,24 +638,24 @@ if.end12.i21:                                     ; preds = %mi_os_prim_alloc.ex
 
 if.end.i61.i:                                     ; preds = %if.end12.i21
   %conv.i = zext i1 %commit to i32
-  call void (ptr, ...) @_mi_warning_message(ptr noundef nonnull @.str.8, i64 noundef %retval.0.i.i, ptr noundef nonnull %.pr.i, i64 noundef %retval.0.i13, i32 noundef %conv.i) #8
-  %call.i62.i = call i32 @_mi_prim_free(ptr noundef nonnull %.pr.i, i64 noundef %retval.0.i.i) #8
+  call void (ptr, ...) @_mi_warning_message(ptr noundef nonnull @.str.8, i64 noundef %retval.0.i.i, ptr noundef nonnull %.pr.i, i64 noundef %retval.0.i13, i32 noundef %conv.i) #7
+  %call.i62.i = call i32 @_mi_prim_free(ptr noundef nonnull %.pr.i, i64 noundef %retval.0.i.i) #7
   %cmp2.not.i.i = icmp eq i32 %call.i62.i, 0
   br i1 %cmp2.not.i.i, label %if.end4.i.i, label %if.then3.i.i
 
 if.then3.i.i:                                     ; preds = %if.end.i61.i
-  call void (ptr, ...) @_mi_warning_message(ptr noundef nonnull @.str.6, i32 noundef %call.i62.i, i32 noundef %call.i62.i, i64 noundef %retval.0.i.i, ptr noundef nonnull %.pr.i) #8
+  call void (ptr, ...) @_mi_warning_message(ptr noundef nonnull @.str.6, i32 noundef %call.i62.i, i32 noundef %call.i62.i, i64 noundef %retval.0.i.i, ptr noundef nonnull %.pr.i) #7
   br label %if.end4.i.i
 
 if.end4.i.i:                                      ; preds = %if.then3.i.i, %if.end.i61.i
   br i1 %commit, label %if.then5.i.i, label %mi_os_prim_free.exit.i
 
 if.then5.i.i:                                     ; preds = %if.end4.i.i
-  call void @_mi_stat_decrease(ptr noundef nonnull getelementptr inbounds (%struct.mi_stats_s, ptr @_mi_stats_main, i64 0, i32 3), i64 noundef %retval.0.i.i) #8
+  call void @_mi_stat_decrease(ptr noundef nonnull getelementptr inbounds (%struct.mi_stats_s, ptr @_mi_stats_main, i64 0, i32 3), i64 noundef %retval.0.i.i) #7
   br label %mi_os_prim_free.exit.i
 
 mi_os_prim_free.exit.i:                           ; preds = %if.then5.i.i, %if.end4.i.i
-  call void @_mi_stat_decrease(ptr noundef nonnull getelementptr inbounds (%struct.mi_stats_s, ptr @_mi_stats_main, i64 0, i32 2), i64 noundef %retval.0.i.i) #8
+  call void @_mi_stat_decrease(ptr noundef nonnull getelementptr inbounds (%struct.mi_stats_s, ptr @_mi_stats_main, i64 0, i32 2), i64 noundef %retval.0.i.i) #7
   %sub17.i = xor i64 %retval.0.i13, -1
   %cmp18.not.i = icmp ult i64 %retval.0.i.i, %sub17.i
   br i1 %cmp18.not.i, label %if.end21.i, label %return
@@ -679,12 +679,12 @@ mi_os_prim_alloc.exit74.thread.i:                 ; preds = %if.then23.i
 if.end.i65.i:                                     ; preds = %if.then23.i
   store i8 0, ptr %os_is_zero, align 1
   store ptr null, ptr %p.i63.i, align 8
-  %call.i66.i = call i32 @_mi_prim_alloc(i64 noundef %add.i22, i64 noundef 1, i1 noundef zeroext false, i1 noundef zeroext false, ptr noundef nonnull %os_is_large, ptr noundef nonnull %os_is_zero, ptr noundef nonnull %p.i63.i) #8
+  %call.i66.i = call i32 @_mi_prim_alloc(i64 noundef %add.i22, i64 noundef 1, i1 noundef zeroext false, i1 noundef zeroext false, ptr noundef nonnull %os_is_large, ptr noundef nonnull %os_is_zero, ptr noundef nonnull %p.i63.i) #7
   %cmp9.not.i67.i = icmp eq i32 %call.i66.i, 0
   br i1 %cmp9.not.i67.i, label %if.end14.i69.i, label %if.then10.i68.i
 
 if.then10.i68.i:                                  ; preds = %if.end.i65.i
-  call void (ptr, ...) @_mi_warning_message(ptr noundef nonnull @.str.7, i32 noundef %call.i66.i, i32 noundef %call.i66.i, i64 noundef %add.i22, i64 noundef 1, i32 noundef 0, i32 noundef 0) #8
+  call void (ptr, ...) @_mi_warning_message(ptr noundef nonnull @.str.7, i32 noundef %call.i66.i, i32 noundef %call.i66.i, i64 noundef %add.i22, i64 noundef 1, i32 noundef 0, i32 noundef 0) #7
   br label %if.end14.i69.i
 
 if.end14.i69.i:                                   ; preds = %if.then10.i68.i, %if.end.i65.i
@@ -697,7 +697,7 @@ mi_os_prim_alloc.exit74.thread8.i:                ; preds = %if.end14.i69.i
   br label %return
 
 mi_os_prim_alloc.exit74.i:                        ; preds = %if.end14.i69.i
-  call void @_mi_stat_increase(ptr noundef nonnull getelementptr inbounds (%struct.mi_stats_s, ptr @_mi_stats_main, i64 0, i32 2), i64 noundef %add.i22) #8
+  call void @_mi_stat_increase(ptr noundef nonnull getelementptr inbounds (%struct.mi_stats_s, ptr @_mi_stats_main, i64 0, i32 2), i64 noundef %add.i22) #7
   %.pr7.i = load ptr, ptr %p.i63.i, align 8
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %p.i63.i)
   %cmp25.i = icmp eq ptr %.pr7.i, null
@@ -713,7 +713,7 @@ mi_align_up_ptr.exit.i:                           ; preds = %mi_os_prim_alloc.ex
   br i1 %commit, label %if.then31.i, label %mi_os_prim_alloc_aligned.exit
 
 if.then31.i:                                      ; preds = %mi_align_up_ptr.exit.i
-  %call32.i = call zeroext i1 @_mi_os_commit(ptr noundef %14, i64 noundef %retval.0.i.i, ptr noundef null, ptr nonnull poison) #9
+  %call32.i = call zeroext i1 @_mi_os_commit(ptr noundef %14, i64 noundef %retval.0.i.i, ptr noundef null, ptr nonnull poison) #8
   br label %mi_os_prim_alloc_aligned.exit
 
 if.else34.i:                                      ; preds = %if.end21.i
@@ -727,12 +727,12 @@ mi_os_prim_alloc.exit88.thread.i:                 ; preds = %if.else34.i
 if.end.i77.i:                                     ; preds = %if.else34.i
   store i8 0, ptr %os_is_zero, align 1
   store ptr null, ptr %p.i75.i, align 8
-  %call.i78.i = call i32 @_mi_prim_alloc(i64 noundef %add.i22, i64 noundef 1, i1 noundef zeroext %commit, i1 noundef zeroext false, ptr noundef nonnull %os_is_large, ptr noundef nonnull %os_is_zero, ptr noundef nonnull %p.i75.i) #8
+  %call.i78.i = call i32 @_mi_prim_alloc(i64 noundef %add.i22, i64 noundef 1, i1 noundef zeroext %commit, i1 noundef zeroext false, ptr noundef nonnull %os_is_large, ptr noundef nonnull %os_is_zero, ptr noundef nonnull %p.i75.i) #7
   %cmp9.not.i79.i = icmp eq i32 %call.i78.i, 0
   br i1 %cmp9.not.i79.i, label %if.end14.i82.i, label %if.then10.i80.i
 
 if.then10.i80.i:                                  ; preds = %if.end.i77.i
-  call void (ptr, ...) @_mi_warning_message(ptr noundef nonnull @.str.7, i32 noundef %call.i78.i, i32 noundef %call.i78.i, i64 noundef %add.i22, i64 noundef 1, i32 noundef %conv.i, i32 noundef 0) #8
+  call void (ptr, ...) @_mi_warning_message(ptr noundef nonnull @.str.7, i32 noundef %call.i78.i, i32 noundef %call.i78.i, i64 noundef %add.i22, i64 noundef 1, i32 noundef %conv.i, i32 noundef 0) #7
   br label %if.end14.i82.i
 
 if.end14.i82.i:                                   ; preds = %if.then10.i80.i, %if.end.i77.i
@@ -745,11 +745,11 @@ mi_os_prim_alloc.exit88.thread13.i:               ; preds = %if.end14.i82.i
   br label %return
 
 if.then17.i84.i:                                  ; preds = %if.end14.i82.i
-  call void @_mi_stat_increase(ptr noundef nonnull getelementptr inbounds (%struct.mi_stats_s, ptr @_mi_stats_main, i64 0, i32 2), i64 noundef %add.i22) #8
+  call void @_mi_stat_increase(ptr noundef nonnull getelementptr inbounds (%struct.mi_stats_s, ptr @_mi_stats_main, i64 0, i32 2), i64 noundef %add.i22) #7
   br i1 %commit, label %if.then19.i87.i, label %mi_os_prim_alloc.exit88.i
 
 if.then19.i87.i:                                  ; preds = %if.then17.i84.i
-  call void @_mi_stat_increase(ptr noundef nonnull getelementptr inbounds (%struct.mi_stats_s, ptr @_mi_stats_main, i64 0, i32 3), i64 noundef %add.i22) #8
+  call void @_mi_stat_increase(ptr noundef nonnull getelementptr inbounds (%struct.mi_stats_s, ptr @_mi_stats_main, i64 0, i32 3), i64 noundef %add.i22) #7
   br label %mi_os_prim_alloc.exit88.i
 
 mi_os_prim_alloc.exit88.i:                        ; preds = %if.then19.i87.i, %if.then17.i84.i
@@ -791,7 +791,7 @@ _mi_align_up.exit108.i:                           ; preds = %if.else.i102.i, %if
   br i1 %cmp46.not.i, label %if.end50.i, label %if.then48.i
 
 if.then48.i:                                      ; preds = %_mi_align_up.exit108.i
-  call fastcc void @mi_os_prim_free(ptr noundef nonnull %.pr12.i, i64 noundef %sub.ptr.sub.i, i1 noundef zeroext %commit) #9
+  call fastcc void @mi_os_prim_free(ptr noundef nonnull %.pr12.i, i64 noundef %sub.ptr.sub.i, i1 noundef zeroext %commit) #8
   br label %if.end50.i
 
 if.end50.i:                                       ; preds = %if.then48.i, %_mi_align_up.exit108.i
@@ -800,7 +800,7 @@ if.end50.i:                                       ; preds = %if.then48.i, %_mi_a
 
 if.then53.i:                                      ; preds = %if.end50.i
   %add.ptr.i = getelementptr inbounds i8, ptr %17, i64 %retval.0.i104.i
-  call fastcc void @mi_os_prim_free(ptr noundef %add.ptr.i, i64 noundef %sub45.i, i1 noundef zeroext %commit) #9
+  call fastcc void @mi_os_prim_free(ptr noundef %add.ptr.i, i64 noundef %sub45.i, i1 noundef zeroext %commit) #8
   br label %mi_os_prim_alloc_aligned.exit
 
 mi_os_prim_alloc_aligned.exit:                    ; preds = %if.end50.i, %if.then53.i, %mi_align_up_ptr.exit.i, %if.then31.i
@@ -828,7 +828,7 @@ if.then7:                                         ; preds = %if.end12.i21, %mi_o
   %tmp8.sroa.526.0.memid.sroa_idx = getelementptr inbounds i8, ptr %memid, i64 20
   store i32 3, ptr %tmp8.sroa.526.0.memid.sroa_idx, align 4
   store ptr %os_base.034, ptr %memid, align 8
-  %alignment13 = getelementptr inbounds %struct.mi_memid_os_info, ptr %memid, i64 0, i32 1
+  %alignment13 = getelementptr inbounds i8, ptr %memid, i64 8
   store i64 %retval.0.i13, ptr %alignment13, align 8
   br label %return
 
@@ -850,7 +850,7 @@ if.end:                                           ; preds = %entry
   br i1 %cmp2, label %if.then3, label %if.else
 
 if.then3:                                         ; preds = %if.end
-  %call = tail call ptr @_mi_os_alloc_aligned(i64 noundef %size, i64 noundef %alignment, i1 noundef zeroext %commit, i1 noundef zeroext %allow_large, ptr noundef nonnull %memid, ptr poison) #9
+  %call = tail call ptr @_mi_os_alloc_aligned(i64 noundef %size, i64 noundef %alignment, i1 noundef zeroext %commit, i1 noundef zeroext %allow_large, ptr noundef nonnull %memid, ptr poison) #8
   br label %return
 
 if.else:                                          ; preds = %if.end
@@ -874,7 +874,7 @@ _mi_align_up.exit:                                ; preds = %if.then.i, %if.else
   %retval.0.i = phi i64 [ %and1.i, %if.then.i ], [ %mul.i, %if.else.i ]
   %sub = sub i64 %retval.0.i, %offset
   %add = add i64 %sub, %size
-  %call8 = tail call ptr @_mi_os_alloc_aligned(i64 noundef %add, i64 noundef %alignment, i1 noundef zeroext %commit, i1 noundef zeroext %allow_large, ptr noundef nonnull %memid, ptr poison) #9
+  %call8 = tail call ptr @_mi_os_alloc_aligned(i64 noundef %add, i64 noundef %alignment, i1 noundef zeroext %commit, i1 noundef zeroext %allow_large, ptr noundef nonnull %memid, ptr poison) #8
   %cmp9 = icmp eq ptr %call8, null
   br i1 %cmp9, label %return, label %if.end11
 
@@ -887,7 +887,7 @@ if.end11:                                         ; preds = %_mi_align_up.exit
 
 if.end4.i.i.i.i:                                  ; preds = %if.end11
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %needs_recommit.i)
-  tail call void @_mi_stat_decrease(ptr noundef nonnull getelementptr inbounds (%struct.mi_stats_s, ptr @_mi_stats_main, i64 0, i32 3), i64 noundef %sub) #8
+  tail call void @_mi_stat_decrease(ptr noundef nonnull getelementptr inbounds (%struct.mi_stats_s, ptr @_mi_stats_main, i64 0, i32 3), i64 noundef %sub) #7
   %3 = load i64, ptr @mi_os_mem_config, align 8
   %4 = ptrtoint ptr %call8 to i64
   %5 = tail call i64 @llvm.ctpop.i64(i64 %3), !range !4
@@ -920,12 +920,12 @@ cond.end16.i.i.i.i:                               ; preds = %if.else.i.i21.i.i.i
 
 if.end.i.i:                                       ; preds = %cond.end16.i.i.i.i
   store i8 1, ptr %needs_recommit.i, align 1
-  %call1.i.i = call i32 @_mi_prim_decommit(ptr noundef %cond39.i.i.i.i, i64 noundef %sub.ptr.sub.i.i.i.i, ptr noundef nonnull %needs_recommit.i) #8
+  %call1.i.i = call i32 @_mi_prim_decommit(ptr noundef %cond39.i.i.i.i, i64 noundef %sub.ptr.sub.i.i.i.i, ptr noundef nonnull %needs_recommit.i) #7
   %cmp2.not.i.i = icmp eq i32 %call1.i.i, 0
   br i1 %cmp2.not.i.i, label %_mi_os_decommit.exit, label %if.then3.i.i
 
 if.then3.i.i:                                     ; preds = %if.end.i.i
-  call void (ptr, ...) @_mi_warning_message(ptr noundef nonnull @.str.9, i32 noundef %call1.i.i, i32 noundef %call1.i.i, ptr noundef %cond39.i.i.i.i, i64 noundef %sub.ptr.sub.i.i.i.i) #8
+  call void (ptr, ...) @_mi_warning_message(ptr noundef nonnull @.str.9, i32 noundef %call1.i.i, i32 noundef %call1.i.i, ptr noundef %cond39.i.i.i.i, i64 noundef %sub.ptr.sub.i.i.i.i) #7
   br label %_mi_os_decommit.exit
 
 _mi_os_decommit.exit:                             ; preds = %cond.end16.i.i.i.i, %if.end.i.i, %if.then3.i.i
@@ -938,10 +938,10 @@ return:                                           ; preds = %if.end11, %_mi_os_d
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden zeroext i1 @_mi_os_decommit(ptr noundef %addr, i64 noundef %size, ptr nocapture noundef readnone %tld_stats) local_unnamed_addr #1 {
+define hidden noundef zeroext i1 @_mi_os_decommit(ptr noundef %addr, i64 noundef %size, ptr nocapture noundef readnone %tld_stats) local_unnamed_addr #1 {
 entry:
   %needs_recommit = alloca i8, align 1
-  tail call void @_mi_stat_decrease(ptr noundef nonnull getelementptr inbounds (%struct.mi_stats_s, ptr @_mi_stats_main, i64 0, i32 3), i64 noundef %size) #8
+  tail call void @_mi_stat_decrease(ptr noundef nonnull getelementptr inbounds (%struct.mi_stats_s, ptr @_mi_stats_main, i64 0, i32 3), i64 noundef %size) #7
   %cmp1.i.i.i = icmp eq i64 %size, 0
   %cmp2.i.i.i = icmp eq ptr %addr, null
   %or.cond.i.i.i = or i1 %cmp2.i.i.i, %cmp1.i.i.i
@@ -981,12 +981,12 @@ cond.end16.i.i.i:                                 ; preds = %if.else.i.i21.i.i.i
 
 if.end.i:                                         ; preds = %cond.end16.i.i.i
   store i8 1, ptr %needs_recommit, align 1
-  %call1.i = call i32 @_mi_prim_decommit(ptr noundef %cond39.i.i.i, i64 noundef %sub.ptr.sub.i.i.i, ptr noundef nonnull %needs_recommit) #8
+  %call1.i = call i32 @_mi_prim_decommit(ptr noundef %cond39.i.i.i, i64 noundef %sub.ptr.sub.i.i.i, ptr noundef nonnull %needs_recommit) #7
   %cmp2.not.i = icmp eq i32 %call1.i, 0
   br i1 %cmp2.not.i, label %mi_os_decommit_ex.exit, label %if.then3.i
 
 if.then3.i:                                       ; preds = %if.end.i
-  call void (ptr, ...) @_mi_warning_message(ptr noundef nonnull @.str.9, i32 noundef %call1.i, i32 noundef %call1.i, ptr noundef %cond39.i.i.i, i64 noundef %sub.ptr.sub.i.i.i) #8
+  call void (ptr, ...) @_mi_warning_message(ptr noundef nonnull @.str.9, i32 noundef %call1.i, i32 noundef %call1.i, ptr noundef %cond39.i.i.i, i64 noundef %sub.ptr.sub.i.i.i) #7
   br label %mi_os_decommit_ex.exit
 
 mi_os_decommit_ex.exit:                           ; preds = %entry, %cond.end16.i.i.i, %if.end.i, %if.then3.i
@@ -995,7 +995,7 @@ mi_os_decommit_ex.exit:                           ; preds = %entry, %cond.end16.
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden zeroext i1 @_mi_os_commit(ptr noundef %addr, i64 noundef %size, ptr noundef writeonly %is_zero, ptr nocapture readnone %tld_stats) local_unnamed_addr #1 {
+define hidden noundef zeroext i1 @_mi_os_commit(ptr noundef %addr, i64 noundef %size, ptr noundef writeonly %is_zero, ptr nocapture readnone %tld_stats) local_unnamed_addr #1 {
 entry:
   %os_is_zero = alloca i8, align 1
   %cmp = icmp ne ptr %is_zero, null
@@ -1006,8 +1006,8 @@ if.then:                                          ; preds = %entry
   br label %if.end
 
 if.end:                                           ; preds = %if.then, %entry
-  tail call void @_mi_stat_increase(ptr noundef nonnull getelementptr inbounds (%struct.mi_stats_s, ptr @_mi_stats_main, i64 0, i32 3), i64 noundef %size) #8
-  tail call void @_mi_stat_counter_increase(ptr noundef nonnull getelementptr inbounds (%struct.mi_stats_s, ptr @_mi_stats_main, i64 0, i32 17), i64 noundef 1) #8
+  tail call void @_mi_stat_increase(ptr noundef nonnull getelementptr inbounds (%struct.mi_stats_s, ptr @_mi_stats_main, i64 0, i32 3), i64 noundef %size) #7
+  tail call void @_mi_stat_counter_increase(ptr noundef nonnull getelementptr inbounds (%struct.mi_stats_s, ptr @_mi_stats_main, i64 0, i32 17), i64 noundef 1) #7
   %cmp1.i = icmp eq i64 %size, 0
   %cmp2.i = icmp eq ptr %addr, null
   %or.cond.i = or i1 %cmp2.i, %cmp1.i
@@ -1047,12 +1047,12 @@ cond.end16.i:                                     ; preds = %if.else.i.i31.i, %i
 
 if.end3:                                          ; preds = %cond.end16.i
   store i8 0, ptr %os_is_zero, align 1
-  %call4 = call i32 @_mi_prim_commit(ptr noundef %cond39.i, i64 noundef %sub.ptr.sub.i, ptr noundef nonnull %os_is_zero) #8
+  %call4 = call i32 @_mi_prim_commit(ptr noundef %cond39.i, i64 noundef %sub.ptr.sub.i, ptr noundef nonnull %os_is_zero) #7
   %cmp5.not = icmp eq i32 %call4, 0
   br i1 %cmp5.not, label %if.end7, label %if.then6
 
 if.then6:                                         ; preds = %if.end3
-  call void (ptr, ...) @_mi_warning_message(ptr noundef nonnull @.str, i32 noundef %call4, i32 noundef %call4, ptr noundef %cond39.i, i64 noundef %sub.ptr.sub.i) #8
+  call void (ptr, ...) @_mi_warning_message(ptr noundef nonnull @.str, i32 noundef %call4, i32 noundef %call4, ptr noundef %cond39.i, i64 noundef %sub.ptr.sub.i) #7
   br label %return
 
 if.end7:                                          ; preds = %if.end3
@@ -1080,7 +1080,7 @@ declare i32 @_mi_prim_commit(ptr noundef, i64 noundef, ptr noundef) local_unname
 declare void @_mi_warning_message(ptr noundef, ...) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define hidden zeroext i1 @_mi_os_reset(ptr noundef %addr, i64 noundef %size, ptr noundef %stats) local_unnamed_addr #1 {
+define hidden noundef zeroext i1 @_mi_os_reset(ptr noundef %addr, i64 noundef %size, ptr noundef %stats) local_unnamed_addr #1 {
 entry:
   %cmp1.i.i = icmp eq i64 %size, 0
   %cmp2.i.i = icmp eq ptr %addr, null
@@ -1120,16 +1120,16 @@ cond.end16.i.i:                                   ; preds = %if.else.i.i21.i.i, 
   br i1 %cmp18.i.i, label %return, label %if.end
 
 if.end:                                           ; preds = %cond.end16.i.i
-  %reset = getelementptr inbounds %struct.mi_stats_s, ptr %stats, i64 0, i32 4
-  tail call void @_mi_stat_increase(ptr noundef nonnull %reset, i64 noundef %sub.ptr.sub.i.i) #8
-  %reset_calls = getelementptr inbounds %struct.mi_stats_s, ptr %stats, i64 0, i32 18
-  tail call void @_mi_stat_counter_increase(ptr noundef nonnull %reset_calls, i64 noundef 1) #8
-  %call1 = tail call i32 @_mi_prim_reset(ptr noundef %cond39.i.i, i64 noundef %sub.ptr.sub.i.i) #8
+  %reset = getelementptr inbounds i8, ptr %stats, i64 128
+  tail call void @_mi_stat_increase(ptr noundef nonnull %reset, i64 noundef %sub.ptr.sub.i.i) #7
+  %reset_calls = getelementptr inbounds i8, ptr %stats, i64 528
+  tail call void @_mi_stat_counter_increase(ptr noundef nonnull %reset_calls, i64 noundef 1) #7
+  %call1 = tail call i32 @_mi_prim_reset(ptr noundef %cond39.i.i, i64 noundef %sub.ptr.sub.i.i) #7
   %cmp2.not = icmp eq i32 %call1, 0
   br i1 %cmp2.not, label %return, label %if.then3
 
 if.then3:                                         ; preds = %if.end
-  tail call void (ptr, ...) @_mi_warning_message(ptr noundef nonnull @.str.1, i32 noundef %call1, i32 noundef %call1, ptr noundef %cond39.i.i, i64 noundef %sub.ptr.sub.i.i) #8
+  tail call void (ptr, ...) @_mi_warning_message(ptr noundef nonnull @.str.1, i32 noundef %call1, i32 noundef %call1, ptr noundef %cond39.i.i, i64 noundef %sub.ptr.sub.i.i) #7
   br label %return
 
 return:                                           ; preds = %cond.end16.i.i, %entry, %if.end, %if.then3
@@ -1143,25 +1143,25 @@ declare i32 @_mi_prim_reset(ptr noundef, i64 noundef) local_unnamed_addr #2
 define hidden zeroext i1 @_mi_os_purge_ex(ptr noundef %p, i64 noundef %size, i1 noundef zeroext %allow_reset, ptr noundef %stats) local_unnamed_addr #1 {
 entry:
   %needs_recommit = alloca i8, align 1
-  %call = tail call i64 @mi_option_get(i32 noundef 15) #8
+  %call = tail call i64 @mi_option_get(i32 noundef 15) #7
   %cmp = icmp slt i64 %call, 0
   br i1 %cmp, label %return, label %if.end
 
 if.end:                                           ; preds = %entry
-  %purge_calls = getelementptr inbounds %struct.mi_stats_s, ptr %stats, i64 0, i32 19
-  tail call void @_mi_stat_counter_increase(ptr noundef nonnull %purge_calls, i64 noundef 1) #8
-  %purged = getelementptr inbounds %struct.mi_stats_s, ptr %stats, i64 0, i32 5
-  tail call void @_mi_stat_increase(ptr noundef nonnull %purged, i64 noundef %size) #8
-  %call1 = tail call zeroext i1 @mi_option_is_enabled(i32 noundef 5) #8
+  %purge_calls = getelementptr inbounds i8, ptr %stats, i64 544
+  tail call void @_mi_stat_counter_increase(ptr noundef nonnull %purge_calls, i64 noundef 1) #7
+  %purged = getelementptr inbounds i8, ptr %stats, i64 160
+  tail call void @_mi_stat_increase(ptr noundef nonnull %purged, i64 noundef %size) #7
+  %call1 = tail call zeroext i1 @mi_option_is_enabled(i32 noundef 5) #7
   br i1 %call1, label %land.lhs.true, label %if.else
 
 land.lhs.true:                                    ; preds = %if.end
-  %call2 = tail call zeroext i1 @_mi_preloading() #8
+  %call2 = tail call zeroext i1 @_mi_preloading() #7
   br i1 %call2, label %if.else, label %if.then3
 
 if.then3:                                         ; preds = %land.lhs.true
   store i8 1, ptr %needs_recommit, align 1
-  tail call void @_mi_stat_decrease(ptr noundef nonnull getelementptr inbounds (%struct.mi_stats_s, ptr @_mi_stats_main, i64 0, i32 3), i64 noundef %size) #8
+  tail call void @_mi_stat_decrease(ptr noundef nonnull getelementptr inbounds (%struct.mi_stats_s, ptr @_mi_stats_main, i64 0, i32 3), i64 noundef %size) #7
   %cmp1.i.i.i = icmp eq i64 %size, 0
   %cmp2.i.i.i = icmp eq ptr %p, null
   %or.cond.i.i.i = or i1 %cmp2.i.i.i, %cmp1.i.i.i
@@ -1201,12 +1201,12 @@ cond.end16.i.i.i:                                 ; preds = %if.else.i.i21.i.i.i
 
 if.end.i:                                         ; preds = %cond.end16.i.i.i
   store i8 1, ptr %needs_recommit, align 1
-  %call1.i = call i32 @_mi_prim_decommit(ptr noundef %cond39.i.i.i, i64 noundef %sub.ptr.sub.i.i.i, ptr noundef nonnull %needs_recommit) #8
+  %call1.i = call i32 @_mi_prim_decommit(ptr noundef %cond39.i.i.i, i64 noundef %sub.ptr.sub.i.i.i, ptr noundef nonnull %needs_recommit) #7
   %cmp2.not.i = icmp eq i32 %call1.i, 0
   br i1 %cmp2.not.i, label %mi_os_decommit_ex.exit, label %if.then3.i
 
 if.then3.i:                                       ; preds = %if.end.i
-  call void (ptr, ...) @_mi_warning_message(ptr noundef nonnull @.str.9, i32 noundef %call1.i, i32 noundef %call1.i, ptr noundef %cond39.i.i.i, i64 noundef %sub.ptr.sub.i.i.i) #8
+  call void (ptr, ...) @_mi_warning_message(ptr noundef nonnull @.str.9, i32 noundef %call1.i, i32 noundef %call1.i, ptr noundef %cond39.i.i.i, i64 noundef %sub.ptr.sub.i.i.i) #7
   br label %mi_os_decommit_ex.exit
 
 mi_os_decommit_ex.exit:                           ; preds = %if.then3, %cond.end16.i.i.i, %if.end.i, %if.then3.i
@@ -1257,16 +1257,16 @@ cond.end16.i.i.i18:                               ; preds = %if.else.i.i21.i.i.i
   br i1 %cmp18.i.i.i23, label %return, label %if.end.i24
 
 if.end.i24:                                       ; preds = %cond.end16.i.i.i18
-  %reset.i = getelementptr inbounds %struct.mi_stats_s, ptr %stats, i64 0, i32 4
-  tail call void @_mi_stat_increase(ptr noundef nonnull %reset.i, i64 noundef %sub.ptr.sub.i.i.i22) #8
-  %reset_calls.i = getelementptr inbounds %struct.mi_stats_s, ptr %stats, i64 0, i32 18
-  tail call void @_mi_stat_counter_increase(ptr noundef nonnull %reset_calls.i, i64 noundef 1) #8
-  %call1.i25 = tail call i32 @_mi_prim_reset(ptr noundef %cond39.i.i.i21, i64 noundef %sub.ptr.sub.i.i.i22) #8
+  %reset.i = getelementptr inbounds i8, ptr %stats, i64 128
+  tail call void @_mi_stat_increase(ptr noundef nonnull %reset.i, i64 noundef %sub.ptr.sub.i.i.i22) #7
+  %reset_calls.i = getelementptr inbounds i8, ptr %stats, i64 528
+  tail call void @_mi_stat_counter_increase(ptr noundef nonnull %reset_calls.i, i64 noundef 1) #7
+  %call1.i25 = tail call i32 @_mi_prim_reset(ptr noundef %cond39.i.i.i21, i64 noundef %sub.ptr.sub.i.i.i22) #7
   %cmp2.not.i26 = icmp eq i32 %call1.i25, 0
   br i1 %cmp2.not.i26, label %return, label %if.then3.i27
 
 if.then3.i27:                                     ; preds = %if.end.i24
-  tail call void (ptr, ...) @_mi_warning_message(ptr noundef nonnull @.str.1, i32 noundef %call1.i25, i32 noundef %call1.i25, ptr noundef %cond39.i.i.i21, i64 noundef %sub.ptr.sub.i.i.i22) #8
+  tail call void (ptr, ...) @_mi_warning_message(ptr noundef nonnull @.str.1, i32 noundef %call1.i25, i32 noundef %call1.i25, ptr noundef %cond39.i.i.i21, i64 noundef %sub.ptr.sub.i.i.i22) #7
   br label %return
 
 return:                                           ; preds = %if.then3.i27, %if.end.i24, %cond.end16.i.i.i18, %if.then6, %if.else, %entry, %mi_os_decommit_ex.exit
@@ -1281,12 +1281,12 @@ declare zeroext i1 @_mi_preloading() local_unnamed_addr #2
 ; Function Attrs: nounwind uwtable
 define hidden zeroext i1 @_mi_os_purge(ptr noundef %p, i64 noundef %size, ptr noundef %stats) local_unnamed_addr #1 {
 entry:
-  %call = tail call zeroext i1 @_mi_os_purge_ex(ptr noundef %p, i64 noundef %size, i1 noundef zeroext true, ptr noundef %stats) #9
+  %call = tail call zeroext i1 @_mi_os_purge_ex(ptr noundef %p, i64 noundef %size, i1 noundef zeroext true, ptr noundef %stats) #8
   ret i1 %call
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden zeroext i1 @_mi_os_protect(ptr noundef %addr, i64 noundef %size) local_unnamed_addr #1 {
+define hidden noundef zeroext i1 @_mi_os_protect(ptr noundef %addr, i64 noundef %size) local_unnamed_addr #1 {
 entry:
   %cmp1.i.i.i = icmp eq i64 %size, 0
   %cmp2.i.i.i = icmp eq ptr %addr, null
@@ -1326,12 +1326,12 @@ cond.end16.i.i.i:                                 ; preds = %if.else.i.i21.i.i.i
   br i1 %cmp18.i.i.i, label %mi_os_protectx.exit, label %if.end.i
 
 if.end.i:                                         ; preds = %cond.end16.i.i.i
-  %call1.i = tail call i32 @_mi_prim_protect(ptr noundef %cond39.i.i.i, i64 noundef %sub.ptr.sub.i.i.i, i1 noundef zeroext true) #8
+  %call1.i = tail call i32 @_mi_prim_protect(ptr noundef %cond39.i.i.i, i64 noundef %sub.ptr.sub.i.i.i, i1 noundef zeroext true) #7
   %cmp2.not.i = icmp eq i32 %call1.i, 0
   br i1 %cmp2.not.i, label %mi_os_protectx.exit, label %if.then3.i
 
 if.then3.i:                                       ; preds = %if.end.i
-  tail call void (ptr, ...) @_mi_warning_message(ptr noundef nonnull @.str.10, ptr noundef nonnull @.str.11, i32 noundef %call1.i, i32 noundef %call1.i, ptr noundef %cond39.i.i.i, i64 noundef %sub.ptr.sub.i.i.i) #8
+  tail call void (ptr, ...) @_mi_warning_message(ptr noundef nonnull @.str.10, ptr noundef nonnull @.str.11, i32 noundef %call1.i, i32 noundef %call1.i, ptr noundef %cond39.i.i.i, i64 noundef %sub.ptr.sub.i.i.i) #7
   br label %mi_os_protectx.exit
 
 mi_os_protectx.exit:                              ; preds = %entry, %cond.end16.i.i.i, %if.end.i, %if.then3.i
@@ -1340,7 +1340,7 @@ mi_os_protectx.exit:                              ; preds = %entry, %cond.end16.
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden zeroext i1 @_mi_os_unprotect(ptr noundef %addr, i64 noundef %size) local_unnamed_addr #1 {
+define hidden noundef zeroext i1 @_mi_os_unprotect(ptr noundef %addr, i64 noundef %size) local_unnamed_addr #1 {
 entry:
   %cmp1.i.i.i = icmp eq i64 %size, 0
   %cmp2.i.i.i = icmp eq ptr %addr, null
@@ -1380,12 +1380,12 @@ cond.end16.i.i.i:                                 ; preds = %if.else.i.i21.i.i.i
   br i1 %cmp18.i.i.i, label %mi_os_protectx.exit, label %if.end.i
 
 if.end.i:                                         ; preds = %cond.end16.i.i.i
-  %call1.i = tail call i32 @_mi_prim_protect(ptr noundef %cond39.i.i.i, i64 noundef %sub.ptr.sub.i.i.i, i1 noundef zeroext false) #8
+  %call1.i = tail call i32 @_mi_prim_protect(ptr noundef %cond39.i.i.i, i64 noundef %sub.ptr.sub.i.i.i, i1 noundef zeroext false) #7
   %cmp2.not.i = icmp eq i32 %call1.i, 0
   br i1 %cmp2.not.i, label %mi_os_protectx.exit, label %if.then3.i
 
 if.then3.i:                                       ; preds = %if.end.i
-  tail call void (ptr, ...) @_mi_warning_message(ptr noundef nonnull @.str.10, ptr noundef nonnull @.str.12, i32 noundef %call1.i, i32 noundef %call1.i, ptr noundef %cond39.i.i.i, i64 noundef %sub.ptr.sub.i.i.i) #8
+  tail call void (ptr, ...) @_mi_warning_message(ptr noundef nonnull @.str.10, ptr noundef nonnull @.str.12, i32 noundef %call1.i, i32 noundef %call1.i, ptr noundef %cond39.i.i.i, i64 noundef %sub.ptr.sub.i.i.i) #7
   br label %mi_os_protectx.exit
 
 mi_os_protectx.exit:                              ; preds = %entry, %cond.end16.i.i.i, %if.end.i, %if.then3.i
@@ -1427,7 +1427,7 @@ do.body.i:                                        ; preds = %if.end5.i, %if.end3
 
 if.then2.i:                                       ; preds = %do.body.i
   %2 = load ptr, ptr %1, align 8
-  %call3.i = tail call i64 @_mi_heap_random_next(ptr noundef %2) #8
+  %call3.i = tail call i64 @_mi_heap_random_next(ptr noundef %2) #7
   %3 = shl i64 %call3.i, 13
   %mul4.i = and i64 %3, 4396972769280
   %add.i = or disjoint i64 %mul4.i, 35184372088832
@@ -1443,7 +1443,7 @@ if.end5.i:                                        ; preds = %if.then2.i, %do.bod
 
 if.end6:                                          ; preds = %if.end5.i
   %7 = inttoptr i64 %start.0.i to ptr
-  %call7 = tail call i64 @_mi_clock_start() #8
+  %call7 = tail call i64 @_mi_clock_start() #7
   %cmp848.not = icmp eq i64 %pages, 0
   br i1 %cmp848.not, label %while.end, label %while.body.lr.ph
 
@@ -1459,7 +1459,7 @@ while.body.us:                                    ; preds = %while.body.lr.ph, %
   %mul.us = shl i64 %page.050.us, 30
   %add.ptr.us = getelementptr inbounds i8, ptr %7, i64 %mul.us
   store ptr null, ptr %p, align 8
-  %call9.us = call i32 @_mi_prim_alloc_huge_os_pages(ptr noundef nonnull %add.ptr.us, i64 noundef 1073741824, i32 noundef %numa_node, ptr noundef nonnull %is_zero, ptr noundef nonnull %p) #8
+  %call9.us = call i32 @_mi_prim_alloc_huge_os_pages(ptr noundef nonnull %add.ptr.us, i64 noundef 1073741824, i32 noundef %numa_node, ptr noundef nonnull %is_zero, ptr noundef nonnull %p) #7
   %8 = load i8, ptr %is_zero, align 1
   %9 = and i8 %8, 1
   %tobool.not.us = icmp eq i8 %9, 0
@@ -1474,9 +1474,9 @@ if.end14.us:                                      ; preds = %while.body.us
 
 if.end20.us:                                      ; preds = %if.end14.us
   %inc.us = add nuw i64 %page.050.us, 1
-  call void @_mi_stat_increase(ptr noundef nonnull getelementptr inbounds (%struct.mi_stats_s, ptr @_mi_stats_main, i64 0, i32 3), i64 noundef 1073741824) #8
-  call void @_mi_stat_increase(ptr noundef nonnull getelementptr inbounds (%struct.mi_stats_s, ptr @_mi_stats_main, i64 0, i32 2), i64 noundef 1073741824) #8
-  %call23.us = call i64 @_mi_clock_end(i64 noundef %call7) #8
+  call void @_mi_stat_increase(ptr noundef nonnull getelementptr inbounds (%struct.mi_stats_s, ptr @_mi_stats_main, i64 0, i32 3), i64 noundef 1073741824) #7
+  call void @_mi_stat_increase(ptr noundef nonnull getelementptr inbounds (%struct.mi_stats_s, ptr @_mi_stats_main, i64 0, i32 2), i64 noundef 1073741824) #7
+  %call23.us = call i64 @_mi_clock_end(i64 noundef %call7) #7
   %add.us = add i64 %page.050.us, 2
   %div.us = udiv i64 %call23.us, %add.us
   %mul26.us = mul i64 %div.us, %pages
@@ -1496,7 +1496,7 @@ while.body:                                       ; preds = %while.body.lr.ph, %
   %mul = shl i64 %page.050, 30
   %add.ptr = getelementptr inbounds i8, ptr %7, i64 %mul
   store ptr null, ptr %p, align 8
-  %call9 = call i32 @_mi_prim_alloc_huge_os_pages(ptr noundef nonnull %add.ptr, i64 noundef 1073741824, i32 noundef %numa_node, ptr noundef nonnull %is_zero, ptr noundef nonnull %p) #8
+  %call9 = call i32 @_mi_prim_alloc_huge_os_pages(ptr noundef nonnull %add.ptr, i64 noundef 1073741824, i32 noundef %numa_node, ptr noundef nonnull %is_zero, ptr noundef nonnull %p) #7
   %11 = load i8, ptr %is_zero, align 1
   %12 = and i8 %11, 1
   %tobool.not = icmp eq i8 %12, 0
@@ -1509,7 +1509,7 @@ if.then13:                                        ; preds = %while.body, %while.
   %.us-phi52 = phi i32 [ %call9.us, %while.body.us ], [ %call9, %while.body ]
   %.us-phi53 = phi i8 [ %spec.select.us, %while.body.us ], [ %spec.select, %while.body ]
   %.us-phi54 = phi i64 [ %page.050.us, %while.body.us ], [ %page.050, %while.body ]
-  call void (ptr, ...) @_mi_warning_message(ptr noundef nonnull @.str.2, i32 noundef %.us-phi52, i32 noundef %.us-phi52, ptr noundef nonnull %.us-phi, i64 noundef 1073741824) #8
+  call void (ptr, ...) @_mi_warning_message(ptr noundef nonnull @.str.2, i32 noundef %.us-phi52, i32 noundef %.us-phi52, ptr noundef nonnull %.us-phi, i64 noundef 1073741824) #7
   br label %while.end
 
 if.end14:                                         ; preds = %while.body
@@ -1526,34 +1526,34 @@ if.then16:                                        ; preds = %if.end14, %if.end14
   br i1 %cmp17.not, label %while.end, label %if.then18
 
 if.then18:                                        ; preds = %if.then16
-  call void (ptr, ...) @_mi_warning_message(ptr noundef nonnull @.str.3, i64 noundef %.us-phi58, ptr noundef nonnull %.us-phi56) #8
+  call void (ptr, ...) @_mi_warning_message(ptr noundef nonnull @.str.3, i64 noundef %.us-phi58, ptr noundef nonnull %.us-phi56) #7
   %14 = load ptr, ptr %p, align 8
   %cmp.i = icmp eq ptr %14, null
   br i1 %cmp.i, label %while.end, label %if.end.i
 
 if.end.i:                                         ; preds = %if.then18
-  %call.i = call i32 @_mi_prim_free(ptr noundef nonnull %14, i64 noundef 1073741824) #8
+  %call.i = call i32 @_mi_prim_free(ptr noundef nonnull %14, i64 noundef 1073741824) #7
   %cmp2.not.i = icmp eq i32 %call.i, 0
   br i1 %cmp2.not.i, label %if.end4.i, label %if.then3.i
 
 if.then3.i:                                       ; preds = %if.end.i
-  call void (ptr, ...) @_mi_warning_message(ptr noundef nonnull @.str.6, i32 noundef %call.i, i32 noundef %call.i, i64 noundef 1073741824, ptr noundef nonnull %14) #8
+  call void (ptr, ...) @_mi_warning_message(ptr noundef nonnull @.str.6, i32 noundef %call.i, i32 noundef %call.i, i64 noundef 1073741824, ptr noundef nonnull %14) #7
   br label %if.end4.i
 
 if.end4.i:                                        ; preds = %if.then3.i, %if.end.i
-  call void @_mi_stat_decrease(ptr noundef nonnull getelementptr inbounds (%struct.mi_stats_s, ptr @_mi_stats_main, i64 0, i32 3), i64 noundef 1073741824) #8
-  call void @_mi_stat_decrease(ptr noundef nonnull getelementptr inbounds (%struct.mi_stats_s, ptr @_mi_stats_main, i64 0, i32 2), i64 noundef 1073741824) #8
+  call void @_mi_stat_decrease(ptr noundef nonnull getelementptr inbounds (%struct.mi_stats_s, ptr @_mi_stats_main, i64 0, i32 3), i64 noundef 1073741824) #7
+  call void @_mi_stat_decrease(ptr noundef nonnull getelementptr inbounds (%struct.mi_stats_s, ptr @_mi_stats_main, i64 0, i32 2), i64 noundef 1073741824) #7
   br label %while.end
 
 if.end20:                                         ; preds = %if.end14
   %inc = add nuw i64 %page.050, 1
-  call void @_mi_stat_increase(ptr noundef nonnull getelementptr inbounds (%struct.mi_stats_s, ptr @_mi_stats_main, i64 0, i32 3), i64 noundef 1073741824) #8
-  call void @_mi_stat_increase(ptr noundef nonnull getelementptr inbounds (%struct.mi_stats_s, ptr @_mi_stats_main, i64 0, i32 2), i64 noundef 1073741824) #8
+  call void @_mi_stat_increase(ptr noundef nonnull getelementptr inbounds (%struct.mi_stats_s, ptr @_mi_stats_main, i64 0, i32 3), i64 noundef 1073741824) #7
+  call void @_mi_stat_increase(ptr noundef nonnull getelementptr inbounds (%struct.mi_stats_s, ptr @_mi_stats_main, i64 0, i32 2), i64 noundef 1073741824) #7
   %exitcond.not = icmp eq i64 %inc, %pages
   br i1 %exitcond.not, label %while.end, label %while.body, !llvm.loop !8
 
 if.then34:                                        ; preds = %if.end20.us
-  call void (ptr, ...) @_mi_warning_message(ptr noundef nonnull @.str.4, i64 noundef %inc.us) #8
+  call void (ptr, ...) @_mi_warning_message(ptr noundef nonnull @.str.4, i64 noundef %inc.us) #7
   br label %while.end
 
 while.end:                                        ; preds = %if.end20, %if.end36.us, %if.end6, %if.end4.i, %if.then18, %if.then16, %if.then34, %if.then13
@@ -1611,19 +1611,19 @@ entry:
   br i1 %cmp, label %if.then, label %if.end7
 
 if.then:                                          ; preds = %entry
-  %call = tail call i64 @mi_option_get(i32 noundef 16) #8
+  %call = tail call i64 @mi_option_get(i32 noundef 16) #7
   %cmp1 = icmp sgt i64 %call, 0
   br i1 %cmp1, label %if.end6, label %if.else
 
 if.else:                                          ; preds = %if.then
-  %call3 = tail call i64 @_mi_prim_numa_node_count() #8
+  %call3 = tail call i64 @_mi_prim_numa_node_count() #7
   %spec.store.select = tail call i64 @llvm.umax.i64(i64 %call3, i64 1)
   br label %if.end6
 
 if.end6:                                          ; preds = %if.then, %if.else
   %count.0 = phi i64 [ %spec.store.select, %if.else ], [ %call, %if.then ]
   store atomic i64 %count.0, ptr @_mi_numa_node_count release, align 8
-  tail call void (ptr, ...) @_mi_verbose_message(ptr noundef nonnull @.str.5, i64 noundef %count.0) #8
+  tail call void (ptr, ...) @_mi_verbose_message(ptr noundef nonnull @.str.5, i64 noundef %count.0) #7
   br label %if.end7
 
 if.end7:                                          ; preds = %if.end6, %entry
@@ -1648,19 +1648,19 @@ if.else.i:                                        ; preds = %entry
   br i1 %cmp.i.i, label %if.then.i.i, label %_mi_os_numa_node_count.exit
 
 if.then.i.i:                                      ; preds = %if.else.i
-  %call.i.i = tail call i64 @mi_option_get(i32 noundef 16) #8
+  %call.i.i = tail call i64 @mi_option_get(i32 noundef 16) #7
   %cmp1.i.i = icmp sgt i64 %call.i.i, 0
   br i1 %cmp1.i.i, label %if.end6.i.i, label %if.else.i.i
 
 if.else.i.i:                                      ; preds = %if.then.i.i
-  %call3.i.i = tail call i64 @_mi_prim_numa_node_count() #8
+  %call3.i.i = tail call i64 @_mi_prim_numa_node_count() #7
   %spec.store.select.i.i = tail call i64 @llvm.umax.i64(i64 %call3.i.i, i64 1)
   br label %if.end6.i.i
 
 if.end6.i.i:                                      ; preds = %if.else.i.i, %if.then.i.i
   %count.0.i.i = phi i64 [ %spec.store.select.i.i, %if.else.i.i ], [ %call.i.i, %if.then.i.i ]
   store atomic i64 %count.0.i.i, ptr @_mi_numa_node_count release, align 8
-  tail call void (ptr, ...) @_mi_verbose_message(ptr noundef nonnull @.str.5, i64 noundef %count.0.i.i) #8
+  tail call void (ptr, ...) @_mi_verbose_message(ptr noundef nonnull @.str.5, i64 noundef %count.0.i.i) #7
   br label %_mi_os_numa_node_count.exit
 
 _mi_os_numa_node_count.exit:                      ; preds = %entry, %if.else.i, %if.end6.i.i
@@ -1669,7 +1669,7 @@ _mi_os_numa_node_count.exit:                      ; preds = %entry, %if.else.i, 
   br i1 %cmp, label %return, label %if.end
 
 if.end:                                           ; preds = %_mi_os_numa_node_count.exit
-  %call1 = tail call i64 @_mi_prim_numa_node() #8
+  %call1 = tail call i64 @_mi_prim_numa_node() #7
   %cmp2.not = icmp ult i64 %call1, %retval.0.i
   br i1 %cmp2.not, label %if.end4, label %if.then3
 
@@ -1690,14 +1690,14 @@ return:                                           ; preds = %_mi_os_numa_node_co
 declare i64 @_mi_prim_numa_node() local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare nonnull ptr @llvm.threadlocal.address.p0(ptr nonnull) #4
+declare nonnull ptr @llvm.threadlocal.address.p0(ptr nonnull) #3
 
 declare i32 @_mi_prim_free(ptr noundef, i64 noundef) local_unnamed_addr #2
 
 declare void @_mi_stat_decrease(ptr noundef, i64 noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #5
+declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #4
 
 declare i32 @_mi_prim_alloc(i64 noundef, i64 noundef, i1 noundef zeroext, i1 noundef zeroext, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
 
@@ -1706,27 +1706,26 @@ declare i32 @_mi_prim_decommit(ptr noundef, i64 noundef, ptr noundef) local_unna
 declare i32 @_mi_prim_protect(ptr noundef, i64 noundef, i1 noundef zeroext) local_unnamed_addr #2
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i64 @llvm.ctpop.i64(i64) #6
+declare i64 @llvm.ctpop.i64(i64) #5
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i64 @llvm.umax.i64(i64, i64) #6
+declare i64 @llvm.umax.i64(i64, i64) #5
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #7
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #6
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #7
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #6
 
 attributes #0 = { mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: none, inaccessiblemem: none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-builtin-malloc" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-builtin-malloc" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #2 = { "frame-pointer"="all" "no-builtin-malloc" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #3 = { mustprogress nofree nosync nounwind willreturn memory(read, argmem: none, inaccessiblemem: none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-builtin-malloc" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #4 = { mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none) }
-attributes #5 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: write) }
-attributes #6 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
-attributes #7 = { nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
-attributes #8 = { nounwind "no-builtin-malloc" }
-attributes #9 = { "no-builtin-malloc" }
+attributes #3 = { mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none) }
+attributes #4 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: write) }
+attributes #5 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
+attributes #6 = { nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
+attributes #7 = { nounwind "no-builtin-malloc" }
+attributes #8 = { "no-builtin-malloc" }
 
 !llvm.module.flags = !{!0, !1, !2, !3}
 

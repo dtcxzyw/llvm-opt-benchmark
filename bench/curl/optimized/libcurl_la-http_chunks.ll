@@ -4,42 +4,6 @@ target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:
 target triple = "x86_64-unknown-linux-gnu"
 
 %struct.Curl_cwtype = type { ptr, ptr, ptr, ptr, ptr, i64 }
-%struct.Curl_chunker = type { i64, i32, i32, %struct.dynbuf, i8, [17 x i8], i8 }
-%struct.dynbuf = type { ptr, i64, i64, i64 }
-%struct.Curl_easy = type { i32, i64, ptr, ptr, ptr, %struct.Curl_llist_element, %struct.Curl_llist_element, i32, i32, %struct.Curl_message, %struct.easy_pollset, %struct.Names, ptr, ptr, ptr, ptr, %struct.SingleRequest, %struct.UserDefined, ptr, ptr, ptr, %struct.Progress, %struct.UrlState, ptr, %struct.PureInfo, %struct.curl_tlssessioninfo }
-%struct.Curl_llist_element = type { ptr, ptr, ptr }
-%struct.Curl_message = type { %struct.Curl_llist_element, %struct.CURLMsg }
-%struct.CURLMsg = type { i32, ptr, %union.anon }
-%union.anon = type { ptr }
-%struct.easy_pollset = type { [5 x i32], i32, [5 x i8] }
-%struct.Names = type { ptr, i32 }
-%struct.SingleRequest = type <{ i64, i64, i64, i64, i64, %struct.curltime, i32, i32, i32, i32, i64, i32, i32, %struct.curltime, i32, i32, ptr, i64, i64, ptr, ptr, i64, ptr, %union.anon.0, ptr, [2 x i8], i8, i16, [3 x i8] }>
-%struct.curltime = type { i64, i32 }
-%union.anon.0 = type { ptr }
-%struct.UserDefined = type <{ ptr, ptr, ptr, ptr, ptr, ptr, i16, [6 x i8], i64, i64, i64, ptr, ptr, i64, i16, i16, [4 x i8], ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, i32, i32, i32, i32, i64, i64, i64, i64, i64, i64, i64, i64, i64, ptr, ptr, %struct.curl_mimepart, ptr, ptr, ptr, i64, i8, i8, i8, [5 x i8], %struct.ssl_config_data, %struct.ssl_config_data, ptr, i16, i8, i8, [4 x i8], %struct.ssl_general_config, i32, i32, i32, [4 x i8], ptr, ptr, i8, [7 x i8], i64, i8, i8, i8, i8, i32, ptr, ptr, ptr, i8, i8, [2 x i8], i32, [80 x ptr], [8 x ptr], i32, i32, i32, [4 x i8], ptr, i32, [4 x i8], ptr, ptr, ptr, ptr, ptr, i8, [3 x i8], i32, i32, [4 x i8], i64, ptr, ptr, i64, ptr, ptr, ptr, ptr, ptr, i8, [7 x i8], ptr, i8, [3 x i8], i32, i8, i8, i56, [6 x i8] }>
-%struct.curl_mimepart = type { ptr, ptr, i32, i32, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, i64, %struct.mime_state, ptr, %struct.mime_encoder_state, i64 }
-%struct.mime_state = type { i32, ptr, i64 }
-%struct.mime_encoder_state = type { i64, i64, i64, [256 x i8] }
-%struct.ssl_config_data = type { %struct.ssl_primary_config, i64, ptr, ptr, ptr, ptr, ptr, ptr, ptr, i8 }
-%struct.ssl_primary_config = type { ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, i8, i32, i8, i8 }
-%struct.ssl_general_config = type { i64, i32 }
-%struct.Progress = type { i64, i64, i64, i64, i64, i64, i32, i32, i64, i64, i64, i64, i64, i64, i64, i64, i64, i64, %struct.curltime, %struct.curltime, %struct.curltime, %struct.curltime, %struct.curltime, i64, %struct.curltime, i64, [6 x i64], [6 x %struct.curltime], i32, i8 }
-%struct.UrlState = type { ptr, %struct.curltime, i64, i64, %struct.dynbuf, ptr, ptr, ptr, i64, ptr, i32, i32, i32, ptr, i64, [3 x %struct.tempbuf], i32, i32, ptr, i64, i32, ptr, %struct.digestdata, %struct.digestdata, %struct.auth, %struct.auth, %struct.Curl_async, ptr, %struct.curltime, %struct.Curl_tree, %struct.Curl_llist, [15 x %struct.time_node], ptr, i8, i64, ptr, i64, i64, i64, i64, [32 x i8], i64, ptr, ptr, ptr, %struct.urlpieces, ptr, ptr, ptr, ptr, ptr, i64, %struct.dynbuf, %struct.Curl_llist, [2 x %struct.curl_header], ptr, i32, ptr, %struct.dynamically_allocated_data, i8, i8, i8, i8, i24 }
-%struct.tempbuf = type { %struct.dynbuf, i32, i8 }
-%struct.digestdata = type { ptr, ptr, ptr, ptr, ptr, ptr, i32, i8, i8 }
-%struct.auth = type { i64, i64, i64, i8 }
-%struct.Curl_async = type { ptr, ptr, ptr, ptr, i32, i32, i8 }
-%struct.Curl_tree = type { ptr, ptr, ptr, ptr, %struct.curltime, ptr }
-%struct.time_node = type { %struct.Curl_llist_element, %struct.curltime, i32 }
-%struct.urlpieces = type { ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr }
-%struct.Curl_llist = type { ptr, ptr, ptr, i64 }
-%struct.curl_header = type { ptr, ptr, i64, i64, i32, ptr }
-%struct.dynamically_allocated_data = type { ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr }
-%struct.PureInfo = type { i32, i32, i32, i64, i64, i64, i64, i64, ptr, ptr, i64, i32, [46 x i8], i32, i32, [46 x i8], i32, ptr, i32, %struct.curl_certinfo, i32, i8 }
-%struct.curl_certinfo = type { i32, ptr }
-%struct.curl_tlssessioninfo = type { i32, ptr }
-%struct.chunked_writer = type { %struct.Curl_cwriter, %struct.Curl_chunker }
-%struct.Curl_cwriter = type { ptr, ptr, i32 }
 
 @.str = private unnamed_addr constant [8 x i8] c"chunked\00", align 1
 @Curl_httpchunk_unencoder = hidden local_unnamed_addr constant %struct.Curl_cwtype { ptr @.str, ptr null, ptr @cw_chunked_init, ptr @cw_chunked_write, ptr @cw_chunked_close, i64 96 }, align 8
@@ -61,15 +25,15 @@ target triple = "x86_64-unknown-linux-gnu"
 ; Function Attrs: nounwind uwtable
 define hidden void @Curl_httpchunk_init(ptr nocapture noundef readnone %data, ptr noundef %ch, i1 noundef zeroext %ignore_body) local_unnamed_addr #0 {
 entry:
-  %hexindex = getelementptr inbounds %struct.Curl_chunker, ptr %ch, i64 0, i32 4
+  %hexindex = getelementptr inbounds i8, ptr %ch, i64 48
   store i8 0, ptr %hexindex, align 8
-  %state = getelementptr inbounds %struct.Curl_chunker, ptr %ch, i64 0, i32 1
+  %state = getelementptr inbounds i8, ptr %ch, i64 8
   store i32 0, ptr %state, align 8
-  %last_code = getelementptr inbounds %struct.Curl_chunker, ptr %ch, i64 0, i32 2
+  %last_code = getelementptr inbounds i8, ptr %ch, i64 12
   store i32 0, ptr %last_code, align 4
-  %trailer = getelementptr inbounds %struct.Curl_chunker, ptr %ch, i64 0, i32 3
+  %trailer = getelementptr inbounds i8, ptr %ch, i64 16
   tail call void @Curl_dyn_init(ptr noundef nonnull %trailer, i64 noundef 4096) #3
-  %ignore_body1 = getelementptr inbounds %struct.Curl_chunker, ptr %ch, i64 0, i32 6
+  %ignore_body1 = getelementptr inbounds i8, ptr %ch, i64 66
   %0 = zext i1 %ignore_body to i8
   %bf.load = load i8, ptr %ignore_body1, align 2
   %bf.clear = and i8 %bf.load, -2
@@ -83,15 +47,15 @@ declare void @Curl_dyn_init(ptr noundef, i64 noundef) local_unnamed_addr #1
 ; Function Attrs: nounwind uwtable
 define hidden void @Curl_httpchunk_reset(ptr nocapture noundef readnone %data, ptr noundef %ch, i1 noundef zeroext %ignore_body) local_unnamed_addr #0 {
 entry:
-  %hexindex = getelementptr inbounds %struct.Curl_chunker, ptr %ch, i64 0, i32 4
+  %hexindex = getelementptr inbounds i8, ptr %ch, i64 48
   store i8 0, ptr %hexindex, align 8
-  %state = getelementptr inbounds %struct.Curl_chunker, ptr %ch, i64 0, i32 1
+  %state = getelementptr inbounds i8, ptr %ch, i64 8
   store i32 0, ptr %state, align 8
-  %last_code = getelementptr inbounds %struct.Curl_chunker, ptr %ch, i64 0, i32 2
+  %last_code = getelementptr inbounds i8, ptr %ch, i64 12
   store i32 0, ptr %last_code, align 4
-  %trailer = getelementptr inbounds %struct.Curl_chunker, ptr %ch, i64 0, i32 3
+  %trailer = getelementptr inbounds i8, ptr %ch, i64 16
   tail call void @Curl_dyn_reset(ptr noundef nonnull %trailer) #3
-  %ignore_body1 = getelementptr inbounds %struct.Curl_chunker, ptr %ch, i64 0, i32 6
+  %ignore_body1 = getelementptr inbounds i8, ptr %ch, i64 66
   %0 = zext i1 %ignore_body to i8
   %bf.load = load i8, ptr %ignore_body1, align 2
   %bf.clear = and i8 %bf.load, -2
@@ -105,7 +69,7 @@ declare void @Curl_dyn_reset(ptr noundef) local_unnamed_addr #1
 ; Function Attrs: nounwind uwtable
 define hidden void @Curl_httpchunk_free(ptr nocapture noundef readnone %data, ptr noundef %ch) local_unnamed_addr #0 {
 entry:
-  %trailer = getelementptr inbounds %struct.Curl_chunker, ptr %ch, i64 0, i32 3
+  %trailer = getelementptr inbounds i8, ptr %ch, i64 16
   tail call void @Curl_dyn_free(ptr noundef nonnull %trailer) #3
   ret void
 }
@@ -115,7 +79,7 @@ declare void @Curl_dyn_free(ptr noundef) local_unnamed_addr #1
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
 define hidden zeroext i1 @Curl_httpchunk_is_done(ptr nocapture noundef readnone %data, ptr nocapture noundef readonly %ch) local_unnamed_addr #2 {
 entry:
-  %state = getelementptr inbounds %struct.Curl_chunker, ptr %ch, i64 0, i32 1
+  %state = getelementptr inbounds i8, ptr %ch, i64 8
   %0 = load i32, ptr %state, align 8
   %cmp = icmp eq i32 %0, 8
   ret i1 %cmp
@@ -133,7 +97,7 @@ define internal fastcc i32 @httpchunk_readwrite(ptr noundef %data, ptr noundef %
 entry:
   %endptr = alloca ptr, align 8
   store i64 0, ptr %pconsumed, align 8
-  %state = getelementptr inbounds %struct.Curl_chunker, ptr %ch, i64 0, i32 1
+  %state = getelementptr inbounds i8, ptr %ch, i64 8
   %0 = load i32, ptr %state, align 8
   switch i32 %0, label %if.end4 [
     i32 8, label %return
@@ -144,14 +108,14 @@ if.then3:                                         ; preds = %entry
   br label %return
 
 if.end4:                                          ; preds = %entry
-  %http_te_skip = getelementptr inbounds %struct.Curl_easy, ptr %data, i64 0, i32 17, i32 129
+  %http_te_skip = getelementptr inbounds i8, ptr %data, i64 2706
   %bf.load = load i64, ptr %http_te_skip, align 2
   %1 = and i64 %bf.load, 68719476736
   %tobool.not = icmp eq i64 %1, 0
   br i1 %tobool.not, label %if.end18, label %land.lhs.true
 
 land.lhs.true:                                    ; preds = %if.end4
-  %ignore_body = getelementptr inbounds %struct.Curl_chunker, ptr %ch, i64 0, i32 6
+  %ignore_body = getelementptr inbounds i8, ptr %ch, i64 66
   %bf.load5 = load i8, ptr %ignore_body, align 2
   %bf.clear6 = and i8 %bf.load5, 1
   %tobool8.not = icmp eq i8 %bf.clear6, 0
@@ -176,7 +140,7 @@ if.end13:                                         ; preds = %if.else, %if.then11
 
 if.then15:                                        ; preds = %if.end13
   store i32 9, ptr %state, align 8
-  %last_code = getelementptr inbounds %struct.Curl_chunker, ptr %ch, i64 0, i32 2
+  %last_code = getelementptr inbounds i8, ptr %ch, i64 12
   store i32 6, ptr %last_code, align 4
   br label %return
 
@@ -185,12 +149,12 @@ if.end18:                                         ; preds = %if.end13, %land.lhs
   br i1 %tobool19.not171, label %return, label %while.body.lr.ph
 
 while.body.lr.ph:                                 ; preds = %if.end18
-  %trailer = getelementptr inbounds %struct.Curl_chunker, ptr %ch, i64 0, i32 3
+  %trailer = getelementptr inbounds i8, ptr %ch, i64 16
   %tobool186.not = icmp eq ptr %cw_next, null
-  %ignore_body139 = getelementptr inbounds %struct.Curl_chunker, ptr %ch, i64 0, i32 6
-  %hexindex.i = getelementptr inbounds %struct.Curl_chunker, ptr %ch, i64 0, i32 4
-  %last_code.i = getelementptr inbounds %struct.Curl_chunker, ptr %ch, i64 0, i32 2
-  %hexbuffer61 = getelementptr inbounds %struct.Curl_chunker, ptr %ch, i64 0, i32 5
+  %ignore_body139 = getelementptr inbounds i8, ptr %ch, i64 66
+  %hexindex.i = getelementptr inbounds i8, ptr %ch, i64 48
+  %last_code.i = getelementptr inbounds i8, ptr %ch, i64 12
+  %hexbuffer61 = getelementptr inbounds i8, ptr %ch, i64 49
   br label %while.body
 
 while.body:                                       ; preds = %while.body.lr.ph, %sw.epilog
@@ -248,7 +212,7 @@ if.end49:                                         ; preds = %if.then42
   %inc = add nuw nsw i8 %5, 1
   store i8 %inc, ptr %hexindex.i, align 8
   %idxprom = zext nneg i8 %5 to i64
-  %arrayidx = getelementptr inbounds %struct.Curl_chunker, ptr %ch, i64 0, i32 5, i64 %idxprom
+  %arrayidx = getelementptr inbounds [17 x i8], ptr %hexbuffer61, i64 0, i64 %idxprom
   store i8 %.fr175, ptr %arrayidx, align 1
   %incdec.ptr = getelementptr inbounds i8, ptr %buf.addr.0173, i64 1
   %dec = add i64 %blen.addr.0172, -1
@@ -268,7 +232,7 @@ if.then56:                                        ; preds = %if.else51
 
 if.end60:                                         ; preds = %if.else51
   %idxprom63 = zext i8 %6 to i64
-  %arrayidx64 = getelementptr inbounds %struct.Curl_chunker, ptr %ch, i64 0, i32 5, i64 %idxprom63
+  %arrayidx64 = getelementptr inbounds [17 x i8], ptr %hexbuffer61, i64 0, i64 %idxprom63
   store i8 0, ptr %arrayidx64, align 1
   %call66 = call i32 @curlx_strtoofft(ptr noundef nonnull %hexbuffer61, ptr noundef nonnull %endptr, i32 noundef 16, ptr noundef nonnull %ch) #3
   %tobool67.not = icmp eq i32 %call66, 0
@@ -536,19 +500,19 @@ return:                                           ; preds = %while.body, %return
 ; Function Attrs: nounwind uwtable
 define internal noundef i32 @cw_chunked_init(ptr nocapture noundef %data, ptr noundef %writer) #0 {
 entry:
-  %chunk = getelementptr inbounds %struct.Curl_easy, ptr %data, i64 0, i32 16, i32 27
+  %chunk = getelementptr inbounds i8, ptr %data, i64 411
   %bf.load = load i16, ptr %chunk, align 1
   %bf.set = or i16 %bf.load, 128
   store i16 %bf.set, ptr %chunk, align 1
-  %hexindex.i = getelementptr inbounds %struct.chunked_writer, ptr %writer, i64 0, i32 1, i32 4
+  %hexindex.i = getelementptr inbounds i8, ptr %writer, i64 72
   store i8 0, ptr %hexindex.i, align 8
-  %state.i = getelementptr inbounds %struct.chunked_writer, ptr %writer, i64 0, i32 1, i32 1
+  %state.i = getelementptr inbounds i8, ptr %writer, i64 32
   store i32 0, ptr %state.i, align 8
-  %last_code.i = getelementptr inbounds %struct.chunked_writer, ptr %writer, i64 0, i32 1, i32 2
+  %last_code.i = getelementptr inbounds i8, ptr %writer, i64 36
   store i32 0, ptr %last_code.i, align 4
-  %trailer.i = getelementptr inbounds %struct.chunked_writer, ptr %writer, i64 0, i32 1, i32 3
+  %trailer.i = getelementptr inbounds i8, ptr %writer, i64 40
   tail call void @Curl_dyn_init(ptr noundef nonnull %trailer.i, i64 noundef 4096) #3
-  %ignore_body1.i = getelementptr inbounds %struct.chunked_writer, ptr %writer, i64 0, i32 1, i32 6
+  %ignore_body1.i = getelementptr inbounds i8, ptr %writer, i64 90
   %bf.load.i = load i8, ptr %ignore_body1.i, align 2
   %bf.clear.i = and i8 %bf.load.i, -2
   store i8 %bf.clear.i, ptr %ignore_body1.i, align 2
@@ -564,22 +528,22 @@ entry:
   br i1 %tobool.not, label %if.then, label %if.end
 
 if.then:                                          ; preds = %entry
-  %next = getelementptr inbounds %struct.Curl_cwriter, ptr %writer, i64 0, i32 1
+  %next = getelementptr inbounds i8, ptr %writer, i64 8
   %0 = load ptr, ptr %next, align 8
   %call = tail call i32 @Curl_cwriter_write(ptr noundef %data, ptr noundef %0, i32 noundef %type, ptr noundef %buf, i64 noundef %blen) #3
   br label %return
 
 if.end:                                           ; preds = %entry
   store i64 0, ptr %consumed, align 8
-  %ch = getelementptr inbounds %struct.chunked_writer, ptr %writer, i64 0, i32 1
-  %next1 = getelementptr inbounds %struct.Curl_cwriter, ptr %writer, i64 0, i32 1
+  %ch = getelementptr inbounds i8, ptr %writer, i64 24
+  %next1 = getelementptr inbounds i8, ptr %writer, i64 8
   %1 = load ptr, ptr %next1, align 8
   %call2 = call fastcc i32 @httpchunk_readwrite(ptr noundef %data, ptr noundef nonnull %ch, ptr noundef %1, ptr noundef %buf, i64 noundef %blen, ptr noundef nonnull %consumed)
   %tobool3.not = icmp eq i32 %call2, 0
   br i1 %tobool3.not, label %if.end11, label %if.then4
 
 if.then4:                                         ; preds = %if.end
-  %last_code = getelementptr inbounds %struct.chunked_writer, ptr %writer, i64 0, i32 1, i32 2
+  %last_code = getelementptr inbounds i8, ptr %writer, i64 36
   %2 = load i32, ptr %last_code, align 4
   switch i32 %2, label %Curl_chunked_strerror.exit [
     i32 6, label %if.then6
@@ -617,13 +581,13 @@ Curl_chunked_strerror.exit:                       ; preds = %if.then4, %sw.bb.i,
 if.end11:                                         ; preds = %if.end
   %3 = load i64, ptr %consumed, align 8
   %sub = sub i64 %blen, %3
-  %state = getelementptr inbounds %struct.chunked_writer, ptr %writer, i64 0, i32 1, i32 1
+  %state = getelementptr inbounds i8, ptr %writer, i64 32
   %4 = load i32, ptr %state, align 8
   %cmp13 = icmp eq i32 %4, 8
   br i1 %cmp13, label %if.then14, label %if.else24
 
 if.then14:                                        ; preds = %if.end11
-  %download_done = getelementptr inbounds %struct.Curl_easy, ptr %data, i64 0, i32 16, i32 27
+  %download_done = getelementptr inbounds i8, ptr %data, i64 411
   %bf.load = load i16, ptr %download_done, align 1
   %bf.set = or i16 %bf.load, 4
   store i16 %bf.set, ptr %download_done, align 1
@@ -633,7 +597,7 @@ if.then14:                                        ; preds = %if.end11
   br i1 %or.cond, label %land.lhs.true, label %return
 
 land.lhs.true:                                    ; preds = %if.then14
-  %verbose = getelementptr inbounds %struct.Curl_easy, ptr %data, i64 0, i32 17, i32 129
+  %verbose = getelementptr inbounds i8, ptr %data, i64 2706
   %bf.load18 = load i64, ptr %verbose, align 2
   %5 = and i64 %bf.load18, 536870912
   %tobool20.not = icmp eq i64 %5, 0
@@ -649,7 +613,7 @@ if.else24:                                        ; preds = %if.end11
   br i1 %tobool26.not, label %return, label %land.lhs.true27
 
 land.lhs.true27:                                  ; preds = %if.else24
-  %no_body = getelementptr inbounds %struct.Curl_easy, ptr %data, i64 0, i32 16, i32 27
+  %no_body = getelementptr inbounds i8, ptr %data, i64 411
   %bf.load29 = load i16, ptr %no_body, align 1
   %6 = and i16 %bf.load29, 4096
   %tobool33.not = icmp eq i16 %6, 0
@@ -667,7 +631,7 @@ return:                                           ; preds = %if.then21, %land.lh
 ; Function Attrs: nounwind uwtable
 define internal void @cw_chunked_close(ptr nocapture readnone %data, ptr noundef %writer) #0 {
 entry:
-  %trailer.i = getelementptr inbounds %struct.chunked_writer, ptr %writer, i64 0, i32 1, i32 3
+  %trailer.i = getelementptr inbounds i8, ptr %writer, i64 40
   tail call void @Curl_dyn_free(ptr noundef nonnull %trailer.i) #3
   ret void
 }

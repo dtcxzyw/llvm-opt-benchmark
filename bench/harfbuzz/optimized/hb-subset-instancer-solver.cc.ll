@@ -17,7 +17,7 @@ entry:
   %ref.tmp = alloca %struct.Triple, align 8
   %ref.tmp7 = alloca %struct.TripleDistances, align 8
   %0 = load float, ptr %triple, align 4
-  %middle = getelementptr inbounds %struct.Triple, ptr %triple, i64 0, i32 1
+  %middle = getelementptr inbounds i8, ptr %triple, i64 4
   %1 = load <2 x float>, ptr %middle, align 4
   br i1 %extrapolate, label %if.end, label %if.then
 
@@ -79,7 +79,7 @@ if.then18:                                        ; preds = %if.end16
 if.end22:                                         ; preds = %if.end16
   %9 = load float, ptr %triple_distances, align 4
   %fneg23 = fneg float %0
-  %positive = getelementptr inbounds %struct.TripleDistances, ptr %triple_distances, i64 0, i32 1
+  %positive = getelementptr inbounds i8, ptr %triple_distances, i64 4
   %10 = load float, ptr %positive, align 4
   %mul24 = fmul float %3, %10
   %11 = tail call float @llvm.fmuladd.f32(float %9, float %fneg23, float %mul24)
@@ -126,9 +126,9 @@ entry:
   store <2 x float> %axis_triple_distances.coerce, ptr %axis_triple_distances, align 8
   call fastcc void @_ZL6_solve6TripleS_b(ptr noalias nonnull align 8 %sols, <2 x float> %tent.coerce0, float %tent.coerce1, <2 x float> %axisLimit.coerce0, float %axisLimit.coerce1, i1 noundef zeroext false)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %agg.result, i8 0, i64 16, i1 false)
-  %arrayZ.i = getelementptr inbounds %struct.hb_vector_t, ptr %sols, i64 0, i32 2
+  %arrayZ.i = getelementptr inbounds i8, ptr %sols, i64 8
   %0 = load ptr, ptr %arrayZ.i, align 8
-  %length.i = getelementptr inbounds %struct.hb_vector_t, ptr %sols, i64 0, i32 1
+  %length.i = getelementptr inbounds i8, ptr %sols, i64 4
   %1 = load i32, ptr %length.i, align 4
   %idx.ext.i = zext i32 %1 to i64
   %add.ptr.i = getelementptr inbounds %struct.hb_pair_t, ptr %0, i64 %idx.ext.i
@@ -136,8 +136,8 @@ entry:
   br i1 %cmp.not64, label %nrvo.skipdtor, label %for.body.lr.ph
 
 for.body.lr.ph:                                   ; preds = %entry
-  %length.i24 = getelementptr inbounds %struct.hb_vector_t, ptr %agg.result, i64 0, i32 1
-  %arrayZ.i.i.i46 = getelementptr inbounds %struct.hb_vector_t, ptr %agg.result, i64 0, i32 2
+  %length.i24 = getelementptr inbounds i8, ptr %agg.result, i64 4
+  %arrayZ.i.i.i46 = getelementptr inbounds i8, ptr %agg.result, i64 8
   %retval.i.i.4.retval.i.i.4.retval.i.i.4.retval.i.4.retval.i.4.retval.4.retval.4.second.i.sroa_idx = getelementptr inbounds i8, ptr %retval.i.i, i64 4
   %retval.i.i.12.retval.i.i.12.retval.i.i.12.retval.i.12.retval.i.12.retval.12.retval.12.second.sroa_idx = getelementptr inbounds i8, ptr %retval.i.i, i64 12
   %retval.i.i.8.retval.i.i.8.retval.i.i.8.retval.i.8.retval.i.8.retval.8.retval.8..fca.1.gep.sroa_idx = getelementptr inbounds i8, ptr %retval.i.i, i64 8
@@ -153,17 +153,17 @@ for.body:                                         ; preds = %for.body.lr.ph, %fo
   br i1 %tobool, label %if.end, label %for.inc
 
 if.end:                                           ; preds = %for.body
-  %second = getelementptr inbounds %struct.hb_pair_t, ptr %__begin1.068, i64 0, i32 1
+  %second = getelementptr inbounds i8, ptr %__begin1.068, i64 4
   %3 = load float, ptr %second, align 4
   %cmp.i = fcmp oeq float %3, 0.000000e+00
-  %middle.i15 = getelementptr inbounds %struct.hb_pair_t, ptr %__begin1.068, i64 0, i32 1, i32 1
+  %middle.i15 = getelementptr inbounds i8, ptr %__begin1.068, i64 8
   %4 = load float, ptr %middle.i15, align 4
   %cmp4.i = fcmp oeq float %4, 0.000000e+00
   %or.cond = select i1 %cmp.i, i1 %cmp4.i, i1 false
   br i1 %or.cond, label %_ZNK6TripleeqERKS_.exit, label %if.end7
 
 _ZNK6TripleeqERKS_.exit:                          ; preds = %if.end
-  %maximum.i16 = getelementptr inbounds %struct.hb_pair_t, ptr %__begin1.068, i64 0, i32 1, i32 2
+  %maximum.i16 = getelementptr inbounds i8, ptr %__begin1.068, i64 12
   %5 = load float, ptr %maximum.i16, align 4
   %cmp6.i = fcmp oeq float %5, 0.000000e+00
   br i1 %cmp6.i, label %if.then5, label %if.end7
@@ -225,7 +225,7 @@ if.end.i:                                         ; preds = %if.then5, %_ZN11hb_
   br label %for.inc
 
 if.end7:                                          ; preds = %if.end, %_ZNK6TripleeqERKS_.exit
-  %t.sroa.3.0.second8.sroa_idx = getelementptr inbounds %struct.hb_pair_t, ptr %__begin1.068, i64 0, i32 1, i32 2
+  %t.sroa.3.0.second8.sroa_idx = getelementptr inbounds i8, ptr %__begin1.068, i64 12
   %t.sroa.3.0.copyload = load float, ptr %t.sroa.3.0.second8.sroa_idx, align 4
   %call.i = call noundef float @_Z16renormalizeValuefRK6TripleRK15TripleDistancesb(float noundef %3, ptr noundef nonnull align 4 dereferenceable(12) %axisLimit, ptr noundef nonnull align 4 dereferenceable(8) %axis_triple_distances, i1 noundef zeroext true)
   %call.i20 = call noundef float @_Z16renormalizeValuefRK6TripleRK15TripleDistancesb(float noundef %4, ptr noundef nonnull align 4 dereferenceable(12) %axisLimit, ptr noundef nonnull align 4 dereferenceable(8) %axis_triple_distances, i1 noundef zeroext true)
@@ -294,7 +294,7 @@ if.end.i31:                                       ; preds = %if.end7, %_ZN11hb_v
   %retval.i.i.8.retval.i.i.8.retval.i.i.8.retval.i.8.retval.i.8.retval.8.retval.8..fca.1.load.i.i = load <2 x float>, ptr %retval.i.i.8.retval.i.i.8.retval.i.i.8.retval.i.8.retval.i.8.retval.8.retval.8..fca.1.gep.sroa_idx, align 8
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %retval.i.i)
   store <2 x float> %retval.i.i.0.retval.i.i.0.retval.i.i.0.retval.i.0.retval.i.0.retval.0.retval.0..fca.0.load.i.i, ptr %arrayidx.i35, align 4
-  %11 = getelementptr inbounds { <2 x float>, <2 x float> }, ptr %arrayidx.i35, i64 0, i32 1
+  %11 = getelementptr inbounds i8, ptr %arrayidx.i35, i64 8
   store <2 x float> %retval.i.i.8.retval.i.i.8.retval.i.i.8.retval.i.8.retval.i.8.retval.8.retval.8..fca.1.load.i.i, ptr %11, align 4
   br label %for.inc
 
@@ -302,7 +302,7 @@ for.inc:                                          ; preds = %if.end.i31, %if.the
   %call.i.i.i4874 = phi ptr [ %call.i.i.i4877, %for.body ], [ %call.i.i.i4877, %if.then.i ], [ %call.i.i.i4876, %if.end.i ], [ %call.i.i.i4877, %if.then.i56 ], [ %call.i.i.i4875, %if.end.i31 ]
   %inc.i3372 = phi i32 [ %inc.i3373, %for.body ], [ %inc.i3373, %if.then.i ], [ %.pre79, %if.end.i ], [ %inc.i3373, %if.then.i56 ], [ %.pre80, %if.end.i31 ]
   %new_allocated.128.sink.i.ph.i5558 = phi i32 [ %new_allocated.128.sink.i.ph.i556365, %for.body ], [ %new_allocated.128.sink.i.ph.i5561, %if.then.i ], [ %new_allocated.128.sink.i.ph.i5562, %if.end.i ], [ %new_allocated.128.sink.i.ph.i5559, %if.then.i56 ], [ %new_allocated.128.sink.i.ph.i5560, %if.end.i31 ]
-  %incdec.ptr = getelementptr inbounds %struct.hb_pair_t, ptr %__begin1.068, i64 1
+  %incdec.ptr = getelementptr inbounds i8, ptr %__begin1.068, i64 16
   %cmp.not = icmp eq ptr %incdec.ptr, %add.ptr.i
   br i1 %cmp.not, label %nrvo.skipdtor, label %for.body
 
@@ -354,9 +354,9 @@ if.then:                                          ; preds = %entry
   %retval.sroa.0.4.vec.insert.i70 = insertelement <2 x float> %1, float %fneg.i65, i64 0
   %lnot = xor i1 %negative, true
   tail call fastcc void @_ZL6_solve6TripleS_b(ptr noalias align 8 %agg.result, <2 x float> %retval.sroa.0.4.vec.insert.i, float %fneg2.i, <2 x float> %retval.sroa.0.4.vec.insert.i70, float %fneg2.i68, i1 noundef zeroext %lnot)
-  %arrayZ.i = getelementptr inbounds %struct.hb_vector_t, ptr %agg.result, i64 0, i32 2
+  %arrayZ.i = getelementptr inbounds i8, ptr %agg.result, i64 8
   %2 = load ptr, ptr %arrayZ.i, align 8
-  %length.i = getelementptr inbounds %struct.hb_vector_t, ptr %agg.result, i64 0, i32 1
+  %length.i = getelementptr inbounds i8, ptr %agg.result, i64 4
   %3 = load i32, ptr %length.i, align 4
   %idx.ext.i = zext i32 %3 to i64
   %add.ptr.i = getelementptr inbounds %struct.hb_pair_t, ptr %2, i64 %idx.ext.i
@@ -371,8 +371,8 @@ for.body.lr.ph:                                   ; preds = %if.then
 
 for.body:                                         ; preds = %for.body.lr.ph, %for.body
   %__begin2.0670 = phi ptr [ %2, %for.body.lr.ph ], [ %incdec.ptr, %for.body ]
-  %second = getelementptr inbounds %struct.hb_pair_t, ptr %__begin2.0670, i64 0, i32 1
-  %middle.i76 = getelementptr inbounds %struct.hb_pair_t, ptr %__begin2.0670, i64 0, i32 1, i32 1
+  %second = getelementptr inbounds i8, ptr %__begin2.0670, i64 4
+  %middle.i76 = getelementptr inbounds i8, ptr %__begin2.0670, i64 8
   %4 = load <2 x float>, ptr %middle.i76, align 4
   %5 = load float, ptr %second, align 4
   %fneg2.i78 = fneg float %5
@@ -388,7 +388,7 @@ for.body:                                         ; preds = %for.body.lr.ph, %fo
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %retval.i)
   store <2 x float> %retval.i.0.retval.i.0.retval.i.0.retval.0.retval.0..fca.0.load.i, ptr %__begin2.0670, align 4
   store <2 x float> %retval.i.8.retval.i.8.retval.i.8.retval.8.retval.8..fca.1.load.i, ptr %middle.i76, align 4
-  %incdec.ptr = getelementptr inbounds %struct.hb_pair_t, ptr %__begin2.0670, i64 1
+  %incdec.ptr = getelementptr inbounds i8, ptr %__begin2.0670, i64 16
   %cmp10.not = icmp eq ptr %incdec.ptr, %add.ptr.i
   br i1 %cmp10.not, label %return, label %for.body
 
@@ -441,9 +441,9 @@ _ZL13supportScalarfRK6Triple.exit:                ; preds = %if.then21, %if.end.
   %retval.0.i = phi float [ %div.i, %if.then19.i ], [ 1.000000e+00, %if.then21 ], [ 1.000000e+00, %if.end.i ], [ 1.000000e+00, %if.end7.i ], [ 0.000000e+00, %if.end12.i ]
   %tent.sroa.0.4.vec.insert = insertelement <2 x float> %tent.coerce0, float %axisLimit.coerce1, i64 1
   tail call fastcc void @_ZL6_solve6TripleS_b(ptr noalias align 8 %agg.result, <2 x float> %tent.sroa.0.4.vec.insert, float %axisLimit.coerce1, <2 x float> %axisLimit.coerce0, float %axisLimit.coerce1, i1 noundef zeroext false)
-  %arrayZ.i89 = getelementptr inbounds %struct.hb_vector_t, ptr %agg.result, i64 0, i32 2
+  %arrayZ.i89 = getelementptr inbounds i8, ptr %agg.result, i64 8
   %9 = load ptr, ptr %arrayZ.i89, align 8
-  %length.i91 = getelementptr inbounds %struct.hb_vector_t, ptr %agg.result, i64 0, i32 1
+  %length.i91 = getelementptr inbounds i8, ptr %agg.result, i64 4
   %10 = load i32, ptr %length.i91, align 4
   %idx.ext.i92 = zext i32 %10 to i64
   %add.ptr.i93 = getelementptr inbounds %struct.hb_pair_t, ptr %9, i64 %idx.ext.i92
@@ -460,10 +460,10 @@ for.body34:                                       ; preds = %for.body34.lr.ph, %
   %__begin228.0668 = phi ptr [ %9, %for.body34.lr.ph ], [ %incdec.ptr44, %for.body34 ]
   %11 = load float, ptr %__begin228.0668, align 4
   %mul = fmul float %retval.0.i, %11
-  %second40 = getelementptr inbounds %struct.hb_pair_t, ptr %__begin228.0668, i64 0, i32 1
+  %second40 = getelementptr inbounds i8, ptr %__begin228.0668, i64 4
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %retval.i96)
   %agg.tmp.sroa.0.0.copyload.i98 = load <2 x float>, ptr %second40, align 4
-  %agg.tmp.sroa.2.0..sroa_idx.i = getelementptr inbounds %struct.hb_pair_t, ptr %__begin228.0668, i64 0, i32 1, i32 2
+  %agg.tmp.sroa.2.0..sroa_idx.i = getelementptr inbounds i8, ptr %__begin228.0668, i64 12
   %agg.tmp.sroa.2.0.copyload.i99 = load float, ptr %agg.tmp.sroa.2.0..sroa_idx.i, align 4
   store float %mul, ptr %retval.i96, align 8
   store <2 x float> %agg.tmp.sroa.0.0.copyload.i98, ptr %retval.i96.4.retval.i96.4.retval.i96.4.retval.4.retval.4.second.i.sroa_idx, align 4
@@ -474,7 +474,7 @@ for.body34:                                       ; preds = %for.body34.lr.ph, %
   store <2 x float> %retval.i96.0.retval.i96.0.retval.i96.0.retval.0.retval.0..fca.0.load.i102, ptr %__begin228.0668, align 4
   %ref.tmp36.sroa.2.0..sroa_idx = getelementptr inbounds i8, ptr %__begin228.0668, i64 8
   store <2 x float> %retval.i96.8.retval.i96.8.retval.i96.8.retval.8.retval.8..fca.1.load.i105, ptr %ref.tmp36.sroa.2.0..sroa_idx, align 4
-  %incdec.ptr44 = getelementptr inbounds %struct.hb_pair_t, ptr %__begin228.0668, i64 1
+  %incdec.ptr44 = getelementptr inbounds i8, ptr %__begin228.0668, i64 16
   %cmp33.not = icmp eq ptr %incdec.ptr44, %add.ptr.i93
   br i1 %cmp33.not, label %return, label %for.body34
 
@@ -529,7 +529,7 @@ _ZL13supportScalarfRK6Triple.exit137:             ; preds = %if.end49, %if.end.i
   %retval.i142.8.retval.i142.8.retval.i142.8.retval.8.retval.8..fca.1.gep.sroa_idx = getelementptr inbounds i8, ptr %retval.i142, i64 8
   %retval.i142.8.retval.i142.8.retval.i142.8.retval.8.retval.8..fca.1.load.i152 = load <2 x float>, ptr %retval.i142.8.retval.i142.8.retval.i142.8.retval.8.retval.8..fca.1.gep.sroa_idx, align 8
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %retval.i142)
-  %length.i.i = getelementptr inbounds %struct.hb_vector_t, ptr %agg.result, i64 0, i32 1
+  %length.i.i = getelementptr inbounds i8, ptr %agg.result, i64 4
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %agg.result, i8 0, i64 16, i1 false)
   %malloc.i = tail call dereferenceable_or_null(16) ptr @malloc(i64 16)
   %tobool27.not.i.i.not = icmp eq ptr %malloc.i, null
@@ -541,7 +541,7 @@ if.then.i.i:                                      ; preds = %_ZL13supportScalarf
   br label %_ZN11hb_vector_tI9hb_pair_tIf6TripleELb0EEC2ESt16initializer_listIS2_E.exit
 
 if.end.i6.i:                                      ; preds = %_ZL13supportScalarfRK6Triple.exit137
-  %arrayZ.i.i.i = getelementptr inbounds %struct.hb_vector_t, ptr %agg.result, i64 0, i32 2
+  %arrayZ.i.i.i = getelementptr inbounds i8, ptr %agg.result, i64 8
   store ptr %malloc.i, ptr %arrayZ.i.i.i, align 8
   store i32 1, ptr %agg.result, align 8
   store i32 1, ptr %length.i.i, align 4
@@ -553,7 +553,7 @@ if.end.i6.i:                                      ; preds = %_ZL13supportScalarf
 _ZN11hb_vector_tI9hb_pair_tIf6TripleELb0EEC2ESt16initializer_listIS2_E.exit: ; preds = %if.then.i.i, %if.end.i6.i
   %12 = phi i32 [ 1, %if.end.i6.i ], [ -1, %if.then.i.i ]
   %13 = phi i32 [ 1, %if.end.i6.i ], [ 0, %if.then.i.i ]
-  %arrayZ.i.i.i.i686 = getelementptr inbounds %struct.hb_vector_t, ptr %agg.result, i64 0, i32 2
+  %arrayZ.i.i.i.i686 = getelementptr inbounds i8, ptr %agg.result, i64 8
   br i1 %or.cond26.i, label %_ZL13supportScalarfRK6Triple.exit184, label %if.end.i159
 
 if.end.i159:                                      ; preds = %_ZN11hb_vector_tI9hb_pair_tIf6TripleELb0EEC2ESt16initializer_listIS2_E.exit
@@ -645,7 +645,7 @@ if.end.i192:                                      ; preds = %if.then59, %_ZN11hb
   %retval.i.i.8.retval.i.i.8.retval.i.i.8.retval.i.8.retval.i.8.retval.8.retval.8..fca.1.load.i.i = load <2 x float>, ptr %retval.i.i.8.retval.i.i.8.retval.i.i.8.retval.i.8.retval.i.8.retval.8.retval.8..fca.1.gep.sroa_idx, align 8
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %retval.i.i)
   store <2 x float> %retval.i.i.0.retval.i.i.0.retval.i.i.0.retval.i.0.retval.i.0.retval.0.retval.0..fca.0.load.i.i, ptr %arrayidx.i, align 4
-  %17 = getelementptr inbounds { <2 x float>, <2 x float> }, ptr %arrayidx.i, i64 0, i32 1
+  %17 = getelementptr inbounds i8, ptr %arrayidx.i, i64 8
   store <2 x float> %retval.i.i.8.retval.i.i.8.retval.i.i.8.retval.i.8.retval.i.8.retval.8.retval.8..fca.1.load.i.i, ptr %17, align 4
   br label %_ZN11hb_vector_tI9hb_pair_tIf6TripleELb0EE4pushIJS0_IfRS1_EEEEPS2_DpOT_.exit
 
@@ -729,7 +729,7 @@ if.end.i211:                                      ; preds = %_ZN11hb_vector_tI9h
   %retval.i.i203.8.retval.i.i203.8.retval.i.i203.8.retval.i.8.retval.i.8.retval.8.retval.8..fca.1.load.i.i224 = load <2 x float>, ptr %retval.i.i203.8.retval.i.i203.8.retval.i.i203.8.retval.i.8.retval.i.8.retval.8.retval.8..fca.1.gep.sroa_idx, align 8
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %retval.i.i203)
   store <2 x float> %retval.i.i203.0.retval.i.i203.0.retval.i.i203.0.retval.i.0.retval.i.0.retval.0.retval.0..fca.0.load.i.i222, ptr %arrayidx.i215, align 4
-  %26 = getelementptr inbounds { <2 x float>, <2 x float> }, ptr %arrayidx.i215, i64 0, i32 1
+  %26 = getelementptr inbounds i8, ptr %arrayidx.i215, i64 8
   store <2 x float> %retval.i.i203.8.retval.i.i203.8.retval.i.i203.8.retval.i.8.retval.i.8.retval.8.retval.8..fca.1.load.i.i224, ptr %26, align 4
   br label %if.end116
 
@@ -815,7 +815,7 @@ if.end.i260:                                      ; preds = %_ZN11hb_vector_tI9h
   %retval.i.i252.8.retval.i.i252.8.retval.i.i252.8.retval.i.8.retval.i.8.retval.8.retval.8..fca.1.load.i.i273 = load <2 x float>, ptr %retval.i.i252.8.retval.i.i252.8.retval.i.i252.8.retval.i.8.retval.i.8.retval.8.retval.8..fca.1.gep.sroa_idx, align 8
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %retval.i.i252)
   store <2 x float> %retval.i.i252.0.retval.i.i252.0.retval.i.i252.0.retval.i.0.retval.i.0.retval.0.retval.0..fca.0.load.i.i271, ptr %arrayidx.i264, align 4
-  %36 = getelementptr inbounds { <2 x float>, <2 x float> }, ptr %arrayidx.i264, i64 0, i32 1
+  %36 = getelementptr inbounds i8, ptr %arrayidx.i264, i64 8
   store <2 x float> %retval.i.i252.8.retval.i.i252.8.retval.i.i252.8.retval.i.8.retval.i.8.retval.8.retval.8..fca.1.load.i.i273, ptr %36, align 4
   %.pre = load i32, ptr %agg.result, align 8
   br label %_ZN11hb_vector_tI9hb_pair_tIf6TripleELb0EE4pushIJS0_IfRS1_EEEEPS2_DpOT_.exit294
@@ -893,7 +893,7 @@ if.end.i305:                                      ; preds = %_ZN11hb_vector_tI9h
   %retval.i.i297.8.retval.i.i297.8.retval.i.i297.8.retval.i.8.retval.i.8.retval.8.retval.8..fca.1.load.i.i318 = load <2 x float>, ptr %retval.i.i297.8.retval.i.i297.8.retval.i.i297.8.retval.i.8.retval.i.8.retval.8.retval.8..fca.1.gep.sroa_idx, align 8
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %retval.i.i297)
   store <2 x float> %retval.i.i297.0.retval.i.i297.0.retval.i.i297.0.retval.i.0.retval.i.0.retval.0.retval.0..fca.0.load.i.i316, ptr %arrayidx.i309, align 4
-  %45 = getelementptr inbounds { <2 x float>, <2 x float> }, ptr %arrayidx.i309, i64 0, i32 1
+  %45 = getelementptr inbounds i8, ptr %arrayidx.i309, i64 8
   store <2 x float> %retval.i.i297.8.retval.i.i297.8.retval.i.i297.8.retval.i.8.retval.i.8.retval.8.retval.8..fca.1.load.i.i318, ptr %45, align 4
   br label %if.end116
 
@@ -954,7 +954,7 @@ if.end.i356:                                      ; preds = %if.else91, %_ZN11hb
   %retval.i.i348.8.retval.i.i348.8.retval.i.i348.8.retval.i.8.retval.i.8.retval.8.retval.8..fca.1.load.i.i369 = load <2 x float>, ptr %retval.i.i348.8.retval.i.i348.8.retval.i.i348.8.retval.i.8.retval.i.8.retval.8.retval.8..fca.1.gep.sroa_idx, align 8
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %retval.i.i348)
   store <2 x float> %retval.i.i348.0.retval.i.i348.0.retval.i.i348.0.retval.i.0.retval.i.0.retval.0.retval.0..fca.0.load.i.i367, ptr %arrayidx.i360, align 4
-  %48 = getelementptr inbounds { <2 x float>, <2 x float> }, ptr %arrayidx.i360, i64 0, i32 1
+  %48 = getelementptr inbounds i8, ptr %arrayidx.i360, i64 8
   store <2 x float> %retval.i.i348.8.retval.i.i348.8.retval.i.i348.8.retval.i.8.retval.i.8.retval.8.retval.8..fca.1.load.i.i369, ptr %48, align 4
   br label %_ZN11hb_vector_tI9hb_pair_tIf6TripleELb0EE4pushIJS0_IfRS1_EEEEPS2_DpOT_.exit390
 
@@ -1036,7 +1036,7 @@ if.end.i401:                                      ; preds = %_ZN11hb_vector_tI9h
   %retval.i.i393.8.retval.i.i393.8.retval.i.i393.8.retval.i.8.retval.i.8.retval.8.retval.8..fca.1.load.i.i414 = load <2 x float>, ptr %retval.i.i393.8.retval.i.i393.8.retval.i.i393.8.retval.i.8.retval.i.8.retval.8.retval.8..fca.1.gep.sroa_idx, align 8
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %retval.i.i393)
   store <2 x float> %retval.i.i393.0.retval.i.i393.0.retval.i.i393.0.retval.i.0.retval.i.0.retval.0.retval.0..fca.0.load.i.i412, ptr %arrayidx.i405, align 4
-  %57 = getelementptr inbounds { <2 x float>, <2 x float> }, ptr %arrayidx.i405, i64 0, i32 1
+  %57 = getelementptr inbounds i8, ptr %arrayidx.i405, i64 8
   store <2 x float> %retval.i.i393.8.retval.i.i393.8.retval.i.i393.8.retval.i.8.retval.i.8.retval.8.retval.8..fca.1.load.i.i414, ptr %57, align 4
   br label %if.end116
 
@@ -1160,7 +1160,7 @@ if.end.i479:                                      ; preds = %_ZN11hb_vector_tI9h
   %retval.i.i471.8.retval.i.i471.8.retval.i.i471.8.retval.i.8.retval.i.8.retval.8.retval.8..fca.1.load.i.i492 = load <2 x float>, ptr %retval.i.i471.8.retval.i.i471.8.retval.i.i471.8.retval.i.8.retval.i.8.retval.8.retval.8..fca.1.gep.sroa_idx, align 8
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %retval.i.i471)
   store <2 x float> %retval.i.i471.0.retval.i.i471.0.retval.i.i471.0.retval.i.0.retval.i.0.retval.0.retval.0..fca.0.load.i.i490, ptr %arrayidx.i483, align 4
-  %67 = getelementptr inbounds { <2 x float>, <2 x float> }, ptr %arrayidx.i483, i64 0, i32 1
+  %67 = getelementptr inbounds i8, ptr %arrayidx.i483, i64 8
   store <2 x float> %retval.i.i471.8.retval.i.i471.8.retval.i.i471.8.retval.i.8.retval.i.8.retval.8.retval.8..fca.1.load.i.i492, ptr %67, align 4
   br label %return
 
@@ -1244,7 +1244,7 @@ if.end.i528:                                      ; preds = %_ZN11hb_vector_tI9h
   %retval.i.i520.8.retval.i.i520.8.retval.i.i520.8.retval.i.8.retval.i.8.retval.8.retval.8..fca.1.load.i.i541 = load <2 x float>, ptr %retval.i.i520.8.retval.i.i520.8.retval.i.i520.8.retval.i.8.retval.i.8.retval.8.retval.8..fca.1.gep.sroa_idx, align 8
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %retval.i.i520)
   store <2 x float> %retval.i.i520.0.retval.i.i520.0.retval.i.i520.0.retval.i.0.retval.i.0.retval.0.retval.0..fca.0.load.i.i539, ptr %arrayidx.i532, align 4
-  %77 = getelementptr inbounds { <2 x float>, <2 x float> }, ptr %arrayidx.i532, i64 0, i32 1
+  %77 = getelementptr inbounds i8, ptr %arrayidx.i532, i64 8
   store <2 x float> %retval.i.i520.8.retval.i.i520.8.retval.i.i520.8.retval.i.8.retval.i.8.retval.8.retval.8..fca.1.load.i.i541, ptr %77, align 4
   %.pre681 = load i32, ptr %agg.result, align 8
   br label %_ZN11hb_vector_tI9hb_pair_tIf6TripleELb0EE4pushIJS0_IfRS1_EEEEPS2_DpOT_.exit562
@@ -1322,7 +1322,7 @@ if.end.i573:                                      ; preds = %_ZN11hb_vector_tI9h
   %retval.i.i565.8.retval.i.i565.8.retval.i.i565.8.retval.i.8.retval.i.8.retval.8.retval.8..fca.1.load.i.i586 = load <2 x float>, ptr %retval.i.i565.8.retval.i.i565.8.retval.i.i565.8.retval.i.8.retval.i.8.retval.8.retval.8..fca.1.gep.sroa_idx, align 8
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %retval.i.i565)
   store <2 x float> %retval.i.i565.0.retval.i.i565.0.retval.i.i565.0.retval.i.0.retval.i.0.retval.0.retval.0..fca.0.load.i.i584, ptr %arrayidx.i577, align 4
-  %86 = getelementptr inbounds { <2 x float>, <2 x float> }, ptr %arrayidx.i577, i64 0, i32 1
+  %86 = getelementptr inbounds i8, ptr %arrayidx.i577, i64 8
   store <2 x float> %retval.i.i565.8.retval.i.i565.8.retval.i.i565.8.retval.i.8.retval.i.8.retval.8.retval.8..fca.1.load.i.i586, ptr %86, align 4
   br label %return
 

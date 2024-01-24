@@ -12,7 +12,6 @@ target triple = "x86_64-unknown-linux-gnu"
 %union.anon.5 = type { i128 }
 %"class.fmt::v8::format_arg_store" = type { %"struct.fmt::v8::detail::arg_data" }
 %"struct.fmt::v8::detail::arg_data" = type { [1 x %"class.fmt::v8::detail::value"] }
-%"struct.std::_Vector_base<unsigned long, std::allocator<unsigned long>>::_Vector_impl_data" = type { ptr, ptr, ptr }
 %"class.fmt::v8::format_arg_store.9" = type { %"struct.fmt::v8::detail::arg_data.7" }
 
 @.str = private unnamed_addr constant [3 x i8] c"{}\00", align 1
@@ -30,7 +29,7 @@ entry:
   %ref.tmp.i = alloca %"class.fmt::v8::format_arg_store", align 16
   %strInputsNotFound = alloca %"class.std::__cxx11::basic_string", align 8
   %ref.tmp = alloca %"class.std::__cxx11::basic_string", align 8
-  %_M_finish.i = getelementptr inbounds %"struct.std::_Vector_base<unsigned long, std::allocator<unsigned long>>::_Vector_impl_data", ptr %vecTokensNotDispatched, i64 0, i32 1
+  %_M_finish.i = getelementptr inbounds i8, ptr %vecTokensNotDispatched, i64 8
   %0 = load ptr, ptr %_M_finish.i, align 8, !tbaa !7
   %1 = load ptr, ptr %vecTokensNotDispatched, align 8, !tbaa !12
   %sub.ptr.lhs.cast.i = ptrtoint ptr %0 to i64
@@ -48,9 +47,9 @@ entry:
 
 .noexc.lr.ph:                                     ; preds = %entry
   %cond = tail call i64 @llvm.umin.i64(i64 %sub.ptr.div.i, i64 10)
-  %_M_string_length.i.i.i = getelementptr inbounds %"class.std::__cxx11::basic_string", ptr %ref.tmp, i64 0, i32 1
-  %_M_string_length.i.i.i.i.i = getelementptr inbounds %"class.std::__cxx11::basic_string", ptr %strInputsNotFound, i64 0, i32 1
-  %3 = getelementptr inbounds %"class.std::__cxx11::basic_string", ptr %ref.tmp, i64 0, i32 2
+  %_M_string_length.i.i.i = getelementptr inbounds i8, ptr %ref.tmp, i64 8
+  %_M_string_length.i.i.i.i.i = getelementptr inbounds i8, ptr %strInputsNotFound, i64 8
+  %3 = getelementptr inbounds i8, ptr %ref.tmp, i64 16
   %umax = call i64 @llvm.umax.i64(i64 %cond, i64 2)
   br label %.noexc
 
@@ -172,11 +171,11 @@ lpad11:                                           ; preds = %.noexc40, %_ZNSt7__
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %ref.tmp.i37) #8, !noalias !27
   call void @llvm.experimental.noalias.scope.decl(metadata !30)
   %17 = load ptr, ptr %strInputsNotFound, align 8, !tbaa !24, !noalias !30
-  %_M_string_length.i.i.i.i76 = getelementptr inbounds %"class.std::__cxx11::basic_string", ptr %strInputsNotFound, i64 0, i32 1
+  %_M_string_length.i.i.i.i76 = getelementptr inbounds i8, ptr %strInputsNotFound, i64 8
   %18 = load i64, ptr %_M_string_length.i.i.i.i76, align 8, !tbaa !21, !noalias !30
   %19 = ptrtoint ptr %17 to i64
   store i64 %sub.ptr.div.i, ptr %ref.tmp.i37, align 16, !tbaa.struct !33, !alias.scope !30
-  %arrayinit.element.i.i = getelementptr inbounds %"class.fmt::v8::detail::value", ptr %ref.tmp.i37, i64 1
+  %arrayinit.element.i.i = getelementptr inbounds i8, ptr %ref.tmp.i37, i64 16
   store i64 %19, ptr %arrayinit.element.i.i, align 16, !tbaa.struct !33, !alias.scope !30
   %ref.tmp5.i.sroa.4.0.arrayinit.element.i.sroa_idx.i = getelementptr inbounds i8, ptr %ref.tmp.i37, i64 24
   store i64 %18, ptr %ref.tmp5.i.sroa.4.0.arrayinit.element.i.sroa_idx.i, align 8, !tbaa.struct !50, !alias.scope !30
@@ -186,7 +185,7 @@ lpad11:                                           ; preds = %.noexc40, %_ZNSt7__
 invoke.cont16:                                    ; preds = %.noexc40
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %ref.tmp.i37) #8, !noalias !27
   %20 = load ptr, ptr %strInputsNotFound, align 8, !tbaa !24
-  %21 = getelementptr inbounds %"class.std::__cxx11::basic_string", ptr %strInputsNotFound, i64 0, i32 2
+  %21 = getelementptr inbounds i8, ptr %strInputsNotFound, i64 16
   %cmp.i.i.i77 = icmp eq ptr %20, %21
   br i1 %cmp.i.i.i77, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i79, label %if.then.i.i78
 
@@ -207,12 +206,12 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit82: ; preds = %if.
 ehcleanup17:                                      ; preds = %lpad11, %ehcleanup
   %.pn.pn = phi { ptr, i32 } [ %.pn, %ehcleanup ], [ %16, %lpad11 ]
   %23 = load ptr, ptr %strInputsNotFound, align 8, !tbaa !24
-  %24 = getelementptr inbounds %"class.std::__cxx11::basic_string", ptr %strInputsNotFound, i64 0, i32 2
+  %24 = getelementptr inbounds i8, ptr %strInputsNotFound, i64 16
   %cmp.i.i.i83 = icmp eq ptr %23, %24
   br i1 %cmp.i.i.i83, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i85, label %if.then.i.i84
 
 _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i85: ; preds = %ehcleanup17
-  %_M_string_length.i.i.i86 = getelementptr inbounds %"class.std::__cxx11::basic_string", ptr %strInputsNotFound, i64 0, i32 1
+  %_M_string_length.i.i.i86 = getelementptr inbounds i8, ptr %strInputsNotFound, i64 8
   %25 = load i64, ptr %_M_string_length.i.i.i86, align 8, !tbaa !21
   %cmp3.i.i.i87 = icmp ult i64 %25, 16
   call void @llvm.assume(i1 %cmp3.i.i.i87)
@@ -251,7 +250,7 @@ entry:
   %ref.tmp.i = alloca %"class.fmt::v8::format_arg_store.9", align 16
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %ref.tmp.i) #8, !noalias !51
   store i64 %numActualResults, ptr %ref.tmp.i, align 16, !tbaa.struct !33, !alias.scope !54, !noalias !51
-  %arrayinit.element.i.i.i = getelementptr inbounds %"class.fmt::v8::detail::value", ptr %ref.tmp.i, i64 1
+  %arrayinit.element.i.i.i = getelementptr inbounds i8, ptr %ref.tmp.i, i64 16
   store i64 %numExpectedResults, ptr %arrayinit.element.i.i.i, align 16, !tbaa.struct !33, !alias.scope !54, !noalias !51
   call void @_ZN3fmt2v87vformatB5cxx11ENS0_17basic_string_viewIcEENS0_17basic_format_argsINS0_20basic_format_contextINS0_8appenderEcEEEE(ptr sret(%"class.std::__cxx11::basic_string") align 8 %agg.result, ptr nonnull @.str.5, i64 80, i64 68, ptr nonnull %ref.tmp.i)
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %ref.tmp.i) #8, !noalias !51

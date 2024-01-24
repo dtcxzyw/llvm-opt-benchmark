@@ -6,7 +6,6 @@ target triple = "x86_64-unknown-linux-gnu"
 %struct.ASN1_ITEM_st = type { i8, i64, ptr, i64, ptr, i64, ptr }
 %struct.ASN1_TEMPLATE_st = type { i64, i64, i64, ptr, ptr }
 %struct.SM2_Ciphertext_st = type { ptr, ptr, ptr, ptr }
-%struct.asn1_string_st = type { i32, i32, ptr, i64 }
 
 @SM2_Ciphertext_it.local_it = internal constant %struct.ASN1_ITEM_st { i8 1, i64 16, ptr @SM2_Ciphertext_seq_tt, i64 4, ptr null, i64 32, ptr @.str }, align 8
 @SM2_Ciphertext_seq_tt = internal constant [4 x %struct.ASN1_TEMPLATE_st] [%struct.ASN1_TEMPLATE_st { i64 0, i64 0, i64 0, ptr @.str.2, ptr @BIGNUM_it }, %struct.ASN1_TEMPLATE_st { i64 0, i64 0, i64 8, ptr @.str.3, ptr @BIGNUM_it }, %struct.ASN1_TEMPLATE_st { i64 0, i64 0, i64 16, ptr @.str.4, ptr @ASN1_OCTET_STRING_it }, %struct.ASN1_TEMPLATE_st { i64 0, i64 0, i64 24, ptr @.str.5, ptr @ASN1_OCTET_STRING_it }], align 16
@@ -21,7 +20,7 @@ target triple = "x86_64-unknown-linux-gnu"
 @.str.5 = private unnamed_addr constant [3 x i8] c"C2\00", align 1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define nonnull ptr @SM2_Ciphertext_it() local_unnamed_addr #0 {
+define noundef nonnull ptr @SM2_Ciphertext_it() local_unnamed_addr #0 {
 entry:
   ret ptr @SM2_Ciphertext_it.local_it
 }
@@ -63,7 +62,7 @@ entry:
 declare void @ASN1_item_free(ptr noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define i32 @ossl_sm2_plaintext_size(ptr noundef %ct, i64 noundef %ct_size, ptr nocapture noundef writeonly %pt_size) local_unnamed_addr #1 {
+define noundef i32 @ossl_sm2_plaintext_size(ptr noundef %ct, i64 noundef %ct_size, ptr nocapture noundef writeonly %pt_size) local_unnamed_addr #1 {
 entry:
   %ct.addr = alloca ptr, align 8
   store ptr %ct, ptr %ct.addr, align 8
@@ -78,7 +77,7 @@ if.then:                                          ; preds = %entry
   br label %return
 
 if.end:                                           ; preds = %entry
-  %C2 = getelementptr inbounds %struct.SM2_Ciphertext_st, ptr %call1.i, i64 0, i32 3
+  %C2 = getelementptr inbounds i8, ptr %call1.i, i64 24
   %0 = load ptr, ptr %C2, align 8
   %1 = load i32, ptr %0, align 8
   %conv = sext i32 %1 to i64
@@ -98,7 +97,7 @@ declare void @ERR_set_debug(ptr noundef, i32 noundef, ptr noundef) local_unnamed
 declare void @ERR_set_error(i32 noundef, i32 noundef, ptr noundef, ...) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define i32 @ossl_sm2_ciphertext_size(ptr noundef %key, ptr noundef %digest, i64 noundef %msg_len, ptr nocapture noundef writeonly %ct_size) local_unnamed_addr #1 {
+define noundef i32 @ossl_sm2_ciphertext_size(ptr noundef %key, ptr noundef %digest, i64 noundef %msg_len, ptr nocapture noundef writeonly %ct_size) local_unnamed_addr #1 {
 entry:
   %call = tail call ptr @EC_KEY_get0_group(ptr noundef %key) #4
   %call1 = tail call fastcc i64 @ec_field_size(ptr noundef %call), !range !4
@@ -168,7 +167,7 @@ declare i32 @EVP_MD_get_size(ptr noundef) local_unnamed_addr #2
 declare i32 @ASN1_object_size(i32 noundef, i32 noundef, i32 noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define i32 @ossl_sm2_encrypt(ptr noundef %key, ptr noundef %digest, ptr noundef %msg, i64 noundef %msg_len, ptr noundef %ciphertext_buf, ptr nocapture noundef %ciphertext_len) local_unnamed_addr #1 {
+define noundef i32 @ossl_sm2_encrypt(ptr noundef %key, ptr noundef %digest, ptr noundef %msg, i64 noundef %msg_len, ptr noundef %ciphertext_buf, ptr nocapture noundef %ciphertext_len) local_unnamed_addr #1 {
 entry:
   %ciphertext_buf.addr = alloca ptr, align 8
   %ctext_struct = alloca %struct.SM2_Ciphertext_st, align 8
@@ -180,8 +179,8 @@ entry:
   %call4 = tail call i32 @EVP_MD_get_size(ptr noundef %digest) #4
   %call5 = tail call ptr @ossl_ec_key_get_libctx(ptr noundef %key) #4
   %call6 = tail call ptr @ossl_ec_key_get0_propq(ptr noundef %key) #4
-  %C2 = getelementptr inbounds %struct.SM2_Ciphertext_st, ptr %ctext_struct, i64 0, i32 3
-  %C37 = getelementptr inbounds %struct.SM2_Ciphertext_st, ptr %ctext_struct, i64 0, i32 2
+  %C2 = getelementptr inbounds i8, ptr %ctext_struct, i64 24
+  %C37 = getelementptr inbounds i8, ptr %ctext_struct, i64 16
   %cmp = icmp eq ptr %call, null
   %cmp8 = icmp slt i32 %call4, 1
   %or.cond = select i1 %cmp, i1 true, i1 %cmp8
@@ -390,7 +389,7 @@ if.then110:                                       ; preds = %lor.lhs.false106, %
 
 if.end111:                                        ; preds = %lor.lhs.false106
   store ptr %call25, ptr %ctext_struct, align 8
-  %C1y = getelementptr inbounds %struct.SM2_Ciphertext_st, ptr %ctext_struct, i64 0, i32 1
+  %C1y = getelementptr inbounds i8, ptr %ctext_struct, i64 8
   store ptr %call27, ptr %C1y, align 8
   %call112 = tail call ptr @ASN1_OCTET_STRING_new() #4
   store ptr %call112, ptr %C37, align 8
@@ -524,7 +523,7 @@ declare void @BN_CTX_free(ptr noundef) local_unnamed_addr #2
 declare void @EC_POINT_free(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define i32 @ossl_sm2_decrypt(ptr noundef %key, ptr noundef %digest, ptr noundef %ciphertext, i64 noundef %ciphertext_len, ptr noundef %ptext_buf, ptr nocapture noundef %ptext_len) local_unnamed_addr #1 {
+define noundef i32 @ossl_sm2_decrypt(ptr noundef %key, ptr noundef %digest, ptr noundef %ciphertext, i64 noundef %ciphertext_len, ptr noundef %ptext_buf, ptr nocapture noundef %ptext_len) local_unnamed_addr #1 {
 entry:
   %ciphertext.addr = alloca ptr, align 8
   store ptr %ciphertext, ptr %ciphertext.addr, align 8
@@ -546,18 +545,18 @@ if.end:                                           ; preds = %entry
   br i1 %cmp7, label %if.then121.sink.split, label %if.end9
 
 if.end9:                                          ; preds = %if.end
-  %C310 = getelementptr inbounds %struct.SM2_Ciphertext_st, ptr %call1.i, i64 0, i32 2
+  %C310 = getelementptr inbounds i8, ptr %call1.i, i64 16
   %1 = load ptr, ptr %C310, align 8
   %2 = load i32, ptr %1, align 8
   %cmp11.not = icmp eq i32 %2, %call2
   br i1 %cmp11.not, label %if.end13, label %if.then121.sink.split
 
 if.end13:                                         ; preds = %if.end9
-  %C214 = getelementptr inbounds %struct.SM2_Ciphertext_st, ptr %call1.i, i64 0, i32 3
+  %C214 = getelementptr inbounds i8, ptr %call1.i, i64 24
   %3 = load ptr, ptr %C214, align 8
-  %data = getelementptr inbounds %struct.asn1_string_st, ptr %3, i64 0, i32 2
+  %data = getelementptr inbounds i8, ptr %3, i64 8
   %4 = load ptr, ptr %data, align 8
-  %data16 = getelementptr inbounds %struct.asn1_string_st, ptr %1, i64 0, i32 2
+  %data16 = getelementptr inbounds i8, ptr %1, i64 8
   %5 = load ptr, ptr %data16, align 8
   %6 = load i32, ptr %3, align 8
   %7 = load i64, ptr %ptext_len, align 8
@@ -597,7 +596,7 @@ if.end48:                                         ; preds = %if.end33
 
 if.end53:                                         ; preds = %if.end48
   %8 = load ptr, ptr %call1.i, align 8
-  %C1y = getelementptr inbounds %struct.SM2_Ciphertext_st, ptr %call1.i, i64 0, i32 1
+  %C1y = getelementptr inbounds i8, ptr %call1.i, i64 8
   %9 = load ptr, ptr %C1y, align 8
   %call54 = call i32 @EC_POINT_set_affine_coordinates(ptr noundef %call, ptr noundef nonnull %call49, ptr noundef %8, ptr noundef %9, ptr noundef nonnull %call23) #4
   %tobool.not = icmp eq i32 %call54, 0

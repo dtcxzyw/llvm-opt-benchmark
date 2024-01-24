@@ -46,11 +46,11 @@ entry:
   %tobool.i = icmp ne ptr %pDestination, null
   %cond.i = sext i1 %tobool.i to i64
   store ptr %pDestination, ptr %sc.i, align 8, !noalias !8
-  %mnCount.i.i = getelementptr inbounds %"struct.EA::StdC::SprintfLocal::SnprintfContext8", ptr %sc.i, i64 0, i32 1
+  %mnCount.i.i = getelementptr inbounds i8, ptr %sc.i, i64 8
   store i64 0, ptr %mnCount.i.i, align 8, !noalias !8
-  %mnMaxCount.i.i = getelementptr inbounds %"struct.EA::StdC::SprintfLocal::SnprintfContext8", ptr %sc.i, i64 0, i32 2
+  %mnMaxCount.i.i = getelementptr inbounds i8, ptr %sc.i, i64 16
   store i64 %cond.i, ptr %mnMaxCount.i.i, align 8, !noalias !8
-  %mbMaxCountReached.i.i = getelementptr inbounds %"struct.EA::StdC::SprintfLocal::SnprintfContext8", ptr %sc.i, i64 0, i32 3
+  %mbMaxCountReached.i.i = getelementptr inbounds i8, ptr %sc.i, i64 24
   store i8 0, ptr %mbMaxCountReached.i.i, align 8, !noalias !8
   %call.i = call noundef i32 @_ZN2EA4StdC12SprintfLocal11VprintfCoreEPFiPKcmPvNS0_18WriteFunctionStateEES4_S3_P13__va_list_tag(ptr noundef nonnull @_ZN2EA4StdC12SprintfLocal13StringWriter8EPKcmPvNS0_18WriteFunctionStateE, ptr noundef nonnull %sc.i, ptr noundef %pFormat, ptr noundef %arguments)
   %cmp.i = icmp sgt i32 %call.i, -1
@@ -75,11 +75,11 @@ entry:
   %tobool = icmp ne ptr %pDestination, null
   %cond = select i1 %tobool, i64 %n, i64 0
   store ptr %pDestination, ptr %sc, align 8
-  %mnCount.i = getelementptr inbounds %"struct.EA::StdC::SprintfLocal::SnprintfContext8", ptr %sc, i64 0, i32 1
+  %mnCount.i = getelementptr inbounds i8, ptr %sc, i64 8
   store i64 0, ptr %mnCount.i, align 8
-  %mnMaxCount.i = getelementptr inbounds %"struct.EA::StdC::SprintfLocal::SnprintfContext8", ptr %sc, i64 0, i32 2
+  %mnMaxCount.i = getelementptr inbounds i8, ptr %sc, i64 16
   store i64 %cond, ptr %mnMaxCount.i, align 8
-  %mbMaxCountReached.i = getelementptr inbounds %"struct.EA::StdC::SprintfLocal::SnprintfContext8", ptr %sc, i64 0, i32 3
+  %mbMaxCountReached.i = getelementptr inbounds i8, ptr %sc, i64 24
   store i8 0, ptr %mbMaxCountReached.i, align 8
   %call = call noundef i32 @_ZN2EA4StdC12SprintfLocal11VprintfCoreEPFiPKcmPvNS0_18WriteFunctionStateEES4_S3_P13__va_list_tag(ptr noundef nonnull @_ZN2EA4StdC12SprintfLocal13StringWriter8EPKcmPvNS0_18WriteFunctionStateE, ptr noundef nonnull %sc, ptr noundef %pFormat, ptr noundef %arguments)
   %cmp = icmp sgt i32 %call, -1
@@ -184,11 +184,11 @@ entry:
   %tobool.i = icmp ne ptr %pDestination, null
   %cond.i = select i1 %tobool.i, i64 2147483647, i64 0
   store ptr %pDestination, ptr %sc.i, align 8, !noalias !14
-  %mnCount.i.i = getelementptr inbounds %"struct.EA::StdC::SprintfLocal::SnprintfContext8", ptr %sc.i, i64 0, i32 1
+  %mnCount.i.i = getelementptr inbounds i8, ptr %sc.i, i64 8
   store i64 0, ptr %mnCount.i.i, align 8, !noalias !14
-  %mnMaxCount.i.i = getelementptr inbounds %"struct.EA::StdC::SprintfLocal::SnprintfContext8", ptr %sc.i, i64 0, i32 2
+  %mnMaxCount.i.i = getelementptr inbounds i8, ptr %sc.i, i64 16
   store i64 %cond.i, ptr %mnMaxCount.i.i, align 8, !noalias !14
-  %mbMaxCountReached.i.i = getelementptr inbounds %"struct.EA::StdC::SprintfLocal::SnprintfContext8", ptr %sc.i, i64 0, i32 3
+  %mbMaxCountReached.i.i = getelementptr inbounds i8, ptr %sc.i, i64 24
   store i8 0, ptr %mbMaxCountReached.i.i, align 8, !noalias !14
   %call.i = call noundef i32 @_ZN2EA4StdC12SprintfLocal11VprintfCoreEPFiPKcmPvNS0_18WriteFunctionStateEES4_S3_P13__va_list_tag(ptr noundef nonnull @_ZN2EA4StdC12SprintfLocal13StringWriter8EPKcmPvNS0_18WriteFunctionStateE, ptr noundef nonnull %sc.i, ptr noundef %pFormat, ptr noundef nonnull %arguments)
   %cmp.i = icmp sgt i32 %call.i, -1
@@ -219,11 +219,11 @@ entry:
   %tobool.i = icmp ne ptr %pDestination, null
   %cond.i = select i1 %tobool.i, i64 %n, i64 0
   store ptr %pDestination, ptr %sc.i, align 8, !noalias !20
-  %mnCount.i.i = getelementptr inbounds %"struct.EA::StdC::SprintfLocal::SnprintfContext8", ptr %sc.i, i64 0, i32 1
+  %mnCount.i.i = getelementptr inbounds i8, ptr %sc.i, i64 8
   store i64 0, ptr %mnCount.i.i, align 8, !noalias !20
-  %mnMaxCount.i.i = getelementptr inbounds %"struct.EA::StdC::SprintfLocal::SnprintfContext8", ptr %sc.i, i64 0, i32 2
+  %mnMaxCount.i.i = getelementptr inbounds i8, ptr %sc.i, i64 16
   store i64 %cond.i, ptr %mnMaxCount.i.i, align 8, !noalias !20
-  %mbMaxCountReached.i.i = getelementptr inbounds %"struct.EA::StdC::SprintfLocal::SnprintfContext8", ptr %sc.i, i64 0, i32 3
+  %mbMaxCountReached.i.i = getelementptr inbounds i8, ptr %sc.i, i64 24
   store i8 0, ptr %mbMaxCountReached.i.i, align 8, !noalias !20
   %call.i = call noundef i32 @_ZN2EA4StdC12SprintfLocal11VprintfCoreEPFiPKcmPvNS0_18WriteFunctionStateEES4_S3_P13__va_list_tag(ptr noundef nonnull @_ZN2EA4StdC12SprintfLocal13StringWriter8EPKcmPvNS0_18WriteFunctionStateE, ptr noundef nonnull %sc.i, ptr noundef %pFormat, ptr noundef nonnull %arguments)
   %cmp.i = icmp sgt i32 %call.i, -1
@@ -305,9 +305,9 @@ entry:
   %tobool.i = icmp ne ptr %pDestination, null
   %cond.i = sext i1 %tobool.i to i64
   store ptr %pDestination, ptr %sc.i, align 8, !noalias !26
-  %mnCount.i.i = getelementptr inbounds %"struct.EA::StdC::SprintfLocal::SnprintfContext16", ptr %sc.i, i64 0, i32 1
+  %mnCount.i.i = getelementptr inbounds i8, ptr %sc.i, i64 8
   store i64 0, ptr %mnCount.i.i, align 8, !noalias !26
-  %mnMaxCount.i.i = getelementptr inbounds %"struct.EA::StdC::SprintfLocal::SnprintfContext16", ptr %sc.i, i64 0, i32 2
+  %mnMaxCount.i.i = getelementptr inbounds i8, ptr %sc.i, i64 16
   store i64 %cond.i, ptr %mnMaxCount.i.i, align 8, !noalias !26
   %call.i = call noundef i32 @_ZN2EA4StdC12SprintfLocal11VprintfCoreEPFiPKDsmPvNS0_18WriteFunctionStateEES4_S3_P13__va_list_tag(ptr noundef nonnull @_ZN2EA4StdC12SprintfLocal14StringWriter16EPKDsmPvNS0_18WriteFunctionStateE, ptr noundef nonnull %sc.i, ptr noundef %pFormat, ptr noundef %arguments)
   %cmp.i = icmp sgt i32 %call.i, -1
@@ -332,9 +332,9 @@ entry:
   %tobool = icmp ne ptr %pDestination, null
   %cond = select i1 %tobool, i64 %n, i64 0
   store ptr %pDestination, ptr %sc, align 8
-  %mnCount.i = getelementptr inbounds %"struct.EA::StdC::SprintfLocal::SnprintfContext16", ptr %sc, i64 0, i32 1
+  %mnCount.i = getelementptr inbounds i8, ptr %sc, i64 8
   store i64 0, ptr %mnCount.i, align 8
-  %mnMaxCount.i = getelementptr inbounds %"struct.EA::StdC::SprintfLocal::SnprintfContext16", ptr %sc, i64 0, i32 2
+  %mnMaxCount.i = getelementptr inbounds i8, ptr %sc, i64 16
   store i64 %cond, ptr %mnMaxCount.i, align 8
   %call = call noundef i32 @_ZN2EA4StdC12SprintfLocal11VprintfCoreEPFiPKDsmPvNS0_18WriteFunctionStateEES4_S3_P13__va_list_tag(ptr noundef nonnull @_ZN2EA4StdC12SprintfLocal14StringWriter16EPKDsmPvNS0_18WriteFunctionStateE, ptr noundef nonnull %sc, ptr noundef %pFormat, ptr noundef %arguments)
   %cmp = icmp sgt i32 %call, -1
@@ -356,7 +356,7 @@ if.else:                                          ; preds = %if.then
 
 if.then5:                                         ; preds = %if.else
   %0 = getelementptr i16, ptr %pDestination, i64 %n
-  %arrayidx6 = getelementptr i16, ptr %0, i64 -1
+  %arrayidx6 = getelementptr i8, ptr %0, i64 -2
   br label %if.end8.sink.split
 
 if.end8.sink.split:                               ; preds = %if.then5, %if.then3
@@ -423,9 +423,9 @@ entry:
   %tobool.i = icmp ne ptr %pDestination, null
   %cond.i = select i1 %tobool.i, i64 2147483647, i64 0
   store ptr %pDestination, ptr %sc.i, align 8, !noalias !32
-  %mnCount.i.i = getelementptr inbounds %"struct.EA::StdC::SprintfLocal::SnprintfContext16", ptr %sc.i, i64 0, i32 1
+  %mnCount.i.i = getelementptr inbounds i8, ptr %sc.i, i64 8
   store i64 0, ptr %mnCount.i.i, align 8, !noalias !32
-  %mnMaxCount.i.i = getelementptr inbounds %"struct.EA::StdC::SprintfLocal::SnprintfContext16", ptr %sc.i, i64 0, i32 2
+  %mnMaxCount.i.i = getelementptr inbounds i8, ptr %sc.i, i64 16
   store i64 %cond.i, ptr %mnMaxCount.i.i, align 8, !noalias !32
   %call.i = call noundef i32 @_ZN2EA4StdC12SprintfLocal11VprintfCoreEPFiPKDsmPvNS0_18WriteFunctionStateEES4_S3_P13__va_list_tag(ptr noundef nonnull @_ZN2EA4StdC12SprintfLocal14StringWriter16EPKDsmPvNS0_18WriteFunctionStateE, ptr noundef nonnull %sc.i, ptr noundef %pFormat, ptr noundef nonnull %arguments)
   %cmp.i = icmp sgt i32 %call.i, -1
@@ -433,9 +433,11 @@ entry:
   br i1 %or.cond.i, label %if.then.i, label %_ZN2EA4StdC9VsnprintfEPDsmPKDsP13__va_list_tag.exit
 
 if.then.i:                                        ; preds = %entry
-  %narrow = call i32 @llvm.smin.i32(i32 %call.i, i32 2147483646)
-  %arrayidx.sink.i.v = zext nneg i32 %narrow to i64
-  %arrayidx.sink.i = getelementptr i16, ptr %pDestination, i64 %arrayidx.sink.i.v
+  %conv.i = zext nneg i32 %call.i to i64
+  %cmp2.i.not = icmp eq i32 %call.i, 2147483647
+  %arrayidx.i = getelementptr inbounds i16, ptr %pDestination, i64 %conv.i
+  %arrayidx6.i = getelementptr i8, ptr %pDestination, i64 4294967292
+  %arrayidx.sink.i = select i1 %cmp2.i.not, ptr %arrayidx6.i, ptr %arrayidx.i
   store i16 0, ptr %arrayidx.sink.i, align 2, !alias.scope !29, !noalias !34
   br label %_ZN2EA4StdC9VsnprintfEPDsmPKDsP13__va_list_tag.exit
 
@@ -456,9 +458,9 @@ entry:
   %tobool.i = icmp ne ptr %pDestination, null
   %cond.i = select i1 %tobool.i, i64 %n, i64 0
   store ptr %pDestination, ptr %sc.i, align 8, !noalias !38
-  %mnCount.i.i = getelementptr inbounds %"struct.EA::StdC::SprintfLocal::SnprintfContext16", ptr %sc.i, i64 0, i32 1
+  %mnCount.i.i = getelementptr inbounds i8, ptr %sc.i, i64 8
   store i64 0, ptr %mnCount.i.i, align 8, !noalias !38
-  %mnMaxCount.i.i = getelementptr inbounds %"struct.EA::StdC::SprintfLocal::SnprintfContext16", ptr %sc.i, i64 0, i32 2
+  %mnMaxCount.i.i = getelementptr inbounds i8, ptr %sc.i, i64 16
   store i64 %cond.i, ptr %mnMaxCount.i.i, align 8, !noalias !38
   %call.i = call noundef i32 @_ZN2EA4StdC12SprintfLocal11VprintfCoreEPFiPKDsmPvNS0_18WriteFunctionStateEES4_S3_P13__va_list_tag(ptr noundef nonnull @_ZN2EA4StdC12SprintfLocal14StringWriter16EPKDsmPvNS0_18WriteFunctionStateE, ptr noundef nonnull %sc.i, ptr noundef %pFormat, ptr noundef nonnull %arguments)
   %cmp.i = icmp sgt i32 %call.i, -1
@@ -480,7 +482,7 @@ if.else.i:                                        ; preds = %if.then.i
 
 if.then5.i:                                       ; preds = %if.else.i
   %0 = getelementptr i16, ptr %pDestination, i64 %n
-  %arrayidx6.i = getelementptr i16, ptr %0, i64 -1
+  %arrayidx6.i = getelementptr i8, ptr %0, i64 -2
   br label %if.end8.sink.split.i
 
 if.end8.sink.split.i:                             ; preds = %if.then5.i, %if.then3.i
@@ -529,9 +531,9 @@ entry:
   %tobool.i = icmp ne ptr %pDestination, null
   %cond.i = sext i1 %tobool.i to i64
   store ptr %pDestination, ptr %sc.i, align 8, !noalias !44
-  %mnCount.i.i = getelementptr inbounds %"struct.EA::StdC::SprintfLocal::SnprintfContext32", ptr %sc.i, i64 0, i32 1
+  %mnCount.i.i = getelementptr inbounds i8, ptr %sc.i, i64 8
   store i64 0, ptr %mnCount.i.i, align 8, !noalias !44
-  %mnMaxCount.i.i = getelementptr inbounds %"struct.EA::StdC::SprintfLocal::SnprintfContext32", ptr %sc.i, i64 0, i32 2
+  %mnMaxCount.i.i = getelementptr inbounds i8, ptr %sc.i, i64 16
   store i64 %cond.i, ptr %mnMaxCount.i.i, align 8, !noalias !44
   %call.i = call noundef i32 @_ZN2EA4StdC12SprintfLocal11VprintfCoreEPFiPKDimPvNS0_18WriteFunctionStateEES4_S3_P13__va_list_tag(ptr noundef nonnull @_ZN2EA4StdC12SprintfLocal14StringWriter32EPKDimPvNS0_18WriteFunctionStateE, ptr noundef nonnull %sc.i, ptr noundef %pFormat, ptr noundef %arguments)
   %cmp.i = icmp sgt i32 %call.i, -1
@@ -556,9 +558,9 @@ entry:
   %tobool = icmp ne ptr %pDestination, null
   %cond = select i1 %tobool, i64 %n, i64 0
   store ptr %pDestination, ptr %sc, align 8
-  %mnCount.i = getelementptr inbounds %"struct.EA::StdC::SprintfLocal::SnprintfContext32", ptr %sc, i64 0, i32 1
+  %mnCount.i = getelementptr inbounds i8, ptr %sc, i64 8
   store i64 0, ptr %mnCount.i, align 8
-  %mnMaxCount.i = getelementptr inbounds %"struct.EA::StdC::SprintfLocal::SnprintfContext32", ptr %sc, i64 0, i32 2
+  %mnMaxCount.i = getelementptr inbounds i8, ptr %sc, i64 16
   store i64 %cond, ptr %mnMaxCount.i, align 8
   %call = call noundef i32 @_ZN2EA4StdC12SprintfLocal11VprintfCoreEPFiPKDimPvNS0_18WriteFunctionStateEES4_S3_P13__va_list_tag(ptr noundef nonnull @_ZN2EA4StdC12SprintfLocal14StringWriter32EPKDimPvNS0_18WriteFunctionStateE, ptr noundef nonnull %sc, ptr noundef %pFormat, ptr noundef %arguments)
   %cmp = icmp sgt i32 %call, -1
@@ -580,7 +582,7 @@ if.else:                                          ; preds = %if.then
 
 if.then5:                                         ; preds = %if.else
   %0 = getelementptr i32, ptr %pDestination, i64 %n
-  %arrayidx6 = getelementptr i32, ptr %0, i64 -1
+  %arrayidx6 = getelementptr i8, ptr %0, i64 -4
   br label %if.end8.sink.split
 
 if.end8.sink.split:                               ; preds = %if.then5, %if.then3
@@ -647,9 +649,9 @@ entry:
   %tobool.i = icmp ne ptr %pDestination, null
   %cond.i = select i1 %tobool.i, i64 2147483647, i64 0
   store ptr %pDestination, ptr %sc.i, align 8, !noalias !50
-  %mnCount.i.i = getelementptr inbounds %"struct.EA::StdC::SprintfLocal::SnprintfContext32", ptr %sc.i, i64 0, i32 1
+  %mnCount.i.i = getelementptr inbounds i8, ptr %sc.i, i64 8
   store i64 0, ptr %mnCount.i.i, align 8, !noalias !50
-  %mnMaxCount.i.i = getelementptr inbounds %"struct.EA::StdC::SprintfLocal::SnprintfContext32", ptr %sc.i, i64 0, i32 2
+  %mnMaxCount.i.i = getelementptr inbounds i8, ptr %sc.i, i64 16
   store i64 %cond.i, ptr %mnMaxCount.i.i, align 8, !noalias !50
   %call.i = call noundef i32 @_ZN2EA4StdC12SprintfLocal11VprintfCoreEPFiPKDimPvNS0_18WriteFunctionStateEES4_S3_P13__va_list_tag(ptr noundef nonnull @_ZN2EA4StdC12SprintfLocal14StringWriter32EPKDimPvNS0_18WriteFunctionStateE, ptr noundef nonnull %sc.i, ptr noundef %pFormat, ptr noundef nonnull %arguments)
   %cmp.i = icmp sgt i32 %call.i, -1
@@ -657,9 +659,11 @@ entry:
   br i1 %or.cond.i, label %if.then.i, label %_ZN2EA4StdC9VsnprintfEPDimPKDiP13__va_list_tag.exit
 
 if.then.i:                                        ; preds = %entry
-  %narrow = call i32 @llvm.smin.i32(i32 %call.i, i32 2147483646)
-  %arrayidx.sink.i.v = zext nneg i32 %narrow to i64
-  %arrayidx.sink.i = getelementptr i32, ptr %pDestination, i64 %arrayidx.sink.i.v
+  %conv.i = zext nneg i32 %call.i to i64
+  %cmp2.i.not = icmp eq i32 %call.i, 2147483647
+  %arrayidx.i = getelementptr inbounds i32, ptr %pDestination, i64 %conv.i
+  %arrayidx6.i = getelementptr i8, ptr %pDestination, i64 8589934584
+  %arrayidx.sink.i = select i1 %cmp2.i.not, ptr %arrayidx6.i, ptr %arrayidx.i
   store i32 0, ptr %arrayidx.sink.i, align 4, !alias.scope !47, !noalias !52
   br label %_ZN2EA4StdC9VsnprintfEPDimPKDiP13__va_list_tag.exit
 
@@ -680,9 +684,9 @@ entry:
   %tobool.i = icmp ne ptr %pDestination, null
   %cond.i = select i1 %tobool.i, i64 %n, i64 0
   store ptr %pDestination, ptr %sc.i, align 8, !noalias !56
-  %mnCount.i.i = getelementptr inbounds %"struct.EA::StdC::SprintfLocal::SnprintfContext32", ptr %sc.i, i64 0, i32 1
+  %mnCount.i.i = getelementptr inbounds i8, ptr %sc.i, i64 8
   store i64 0, ptr %mnCount.i.i, align 8, !noalias !56
-  %mnMaxCount.i.i = getelementptr inbounds %"struct.EA::StdC::SprintfLocal::SnprintfContext32", ptr %sc.i, i64 0, i32 2
+  %mnMaxCount.i.i = getelementptr inbounds i8, ptr %sc.i, i64 16
   store i64 %cond.i, ptr %mnMaxCount.i.i, align 8, !noalias !56
   %call.i = call noundef i32 @_ZN2EA4StdC12SprintfLocal11VprintfCoreEPFiPKDimPvNS0_18WriteFunctionStateEES4_S3_P13__va_list_tag(ptr noundef nonnull @_ZN2EA4StdC12SprintfLocal14StringWriter32EPKDimPvNS0_18WriteFunctionStateE, ptr noundef nonnull %sc.i, ptr noundef %pFormat, ptr noundef nonnull %arguments)
   %cmp.i = icmp sgt i32 %call.i, -1
@@ -704,7 +708,7 @@ if.else.i:                                        ; preds = %if.then.i
 
 if.then5.i:                                       ; preds = %if.else.i
   %0 = getelementptr i32, ptr %pDestination, i64 %n
-  %arrayidx6.i = getelementptr i32, ptr %0, i64 -1
+  %arrayidx6.i = getelementptr i8, ptr %0, i64 -4
   br label %if.end8.sink.split.i
 
 if.end8.sink.split.i:                             ; preds = %if.then5.i, %if.then3.i
@@ -750,9 +754,9 @@ entry:
   %tobool.i.i = icmp ne ptr %pDestination, null
   %cond.i.i = sext i1 %tobool.i.i to i64
   store ptr %pDestination, ptr %sc.i.i, align 8, !noalias !70
-  %mnCount.i.i.i = getelementptr inbounds %"struct.EA::StdC::SprintfLocal::SnprintfContext32", ptr %sc.i.i, i64 0, i32 1
+  %mnCount.i.i.i = getelementptr inbounds i8, ptr %sc.i.i, i64 8
   store i64 0, ptr %mnCount.i.i.i, align 8, !noalias !70
-  %mnMaxCount.i.i.i = getelementptr inbounds %"struct.EA::StdC::SprintfLocal::SnprintfContext32", ptr %sc.i.i, i64 0, i32 2
+  %mnMaxCount.i.i.i = getelementptr inbounds i8, ptr %sc.i.i, i64 16
   store i64 %cond.i.i, ptr %mnMaxCount.i.i.i, align 8, !noalias !70
   %call.i.i = call noundef i32 @_ZN2EA4StdC12SprintfLocal11VprintfCoreEPFiPKDimPvNS0_18WriteFunctionStateEES4_S3_P13__va_list_tag(ptr noundef nonnull @_ZN2EA4StdC12SprintfLocal14StringWriter32EPKDimPvNS0_18WriteFunctionStateE, ptr noundef nonnull %sc.i.i, ptr noundef %pFormat, ptr noundef %arguments)
   %cmp.i.i = icmp sgt i32 %call.i.i, -1
@@ -779,9 +783,9 @@ entry:
   %tobool.i = icmp ne ptr %pDestination, null
   %cond.i = select i1 %tobool.i, i64 %n, i64 0
   store ptr %pDestination, ptr %sc.i, align 8, !noalias !77
-  %mnCount.i.i = getelementptr inbounds %"struct.EA::StdC::SprintfLocal::SnprintfContext32", ptr %sc.i, i64 0, i32 1
+  %mnCount.i.i = getelementptr inbounds i8, ptr %sc.i, i64 8
   store i64 0, ptr %mnCount.i.i, align 8, !noalias !77
-  %mnMaxCount.i.i = getelementptr inbounds %"struct.EA::StdC::SprintfLocal::SnprintfContext32", ptr %sc.i, i64 0, i32 2
+  %mnMaxCount.i.i = getelementptr inbounds i8, ptr %sc.i, i64 16
   store i64 %cond.i, ptr %mnMaxCount.i.i, align 8, !noalias !77
   %call.i = call noundef i32 @_ZN2EA4StdC12SprintfLocal11VprintfCoreEPFiPKDimPvNS0_18WriteFunctionStateEES4_S3_P13__va_list_tag(ptr noundef nonnull @_ZN2EA4StdC12SprintfLocal14StringWriter32EPKDimPvNS0_18WriteFunctionStateE, ptr noundef nonnull %sc.i, ptr noundef %pFormat, ptr noundef %arguments)
   %cmp.i = icmp sgt i32 %call.i, -1
@@ -803,7 +807,7 @@ if.else.i:                                        ; preds = %if.then.i
 
 if.then5.i:                                       ; preds = %if.else.i
   %0 = getelementptr i32, ptr %pDestination, i64 %n
-  %arrayidx6.i = getelementptr i32, ptr %0, i64 -1
+  %arrayidx6.i = getelementptr i8, ptr %0, i64 -4
   br label %if.end8.sink.split.i
 
 if.end8.sink.split.i:                             ; preds = %if.then5.i, %if.then3.i
@@ -871,9 +875,9 @@ entry:
   %tobool.i.i.i = icmp ne ptr %pDestination, null
   %cond.i.i.i = sext i1 %tobool.i.i.i to i64
   store ptr %pDestination, ptr %sc.i.i.i, align 8, !noalias !100
-  %mnCount.i.i.i.i = getelementptr inbounds %"struct.EA::StdC::SprintfLocal::SnprintfContext32", ptr %sc.i.i.i, i64 0, i32 1
+  %mnCount.i.i.i.i = getelementptr inbounds i8, ptr %sc.i.i.i, i64 8
   store i64 0, ptr %mnCount.i.i.i.i, align 8, !noalias !100
-  %mnMaxCount.i.i.i.i = getelementptr inbounds %"struct.EA::StdC::SprintfLocal::SnprintfContext32", ptr %sc.i.i.i, i64 0, i32 2
+  %mnMaxCount.i.i.i.i = getelementptr inbounds i8, ptr %sc.i.i.i, i64 16
   store i64 %cond.i.i.i, ptr %mnMaxCount.i.i.i.i, align 8, !noalias !100
   %call.i.i.i = call noundef i32 @_ZN2EA4StdC12SprintfLocal11VprintfCoreEPFiPKDimPvNS0_18WriteFunctionStateEES4_S3_P13__va_list_tag(ptr noundef nonnull @_ZN2EA4StdC12SprintfLocal14StringWriter32EPKDimPvNS0_18WriteFunctionStateE, ptr noundef nonnull %sc.i.i.i, ptr noundef %pFormat, ptr noundef nonnull %arguments)
   %cmp.i.i.i = icmp sgt i32 %call.i.i.i, -1
@@ -904,9 +908,9 @@ entry:
   %tobool.i.i = icmp ne ptr %pDestination, null
   %cond.i.i = select i1 %tobool.i.i, i64 %n, i64 0
   store ptr %pDestination, ptr %sc.i.i, align 8, !noalias !112
-  %mnCount.i.i.i = getelementptr inbounds %"struct.EA::StdC::SprintfLocal::SnprintfContext32", ptr %sc.i.i, i64 0, i32 1
+  %mnCount.i.i.i = getelementptr inbounds i8, ptr %sc.i.i, i64 8
   store i64 0, ptr %mnCount.i.i.i, align 8, !noalias !112
-  %mnMaxCount.i.i.i = getelementptr inbounds %"struct.EA::StdC::SprintfLocal::SnprintfContext32", ptr %sc.i.i, i64 0, i32 2
+  %mnMaxCount.i.i.i = getelementptr inbounds i8, ptr %sc.i.i, i64 16
   store i64 %cond.i.i, ptr %mnMaxCount.i.i.i, align 8, !noalias !112
   %call.i.i = call noundef i32 @_ZN2EA4StdC12SprintfLocal11VprintfCoreEPFiPKDimPvNS0_18WriteFunctionStateEES4_S3_P13__va_list_tag(ptr noundef nonnull @_ZN2EA4StdC12SprintfLocal14StringWriter32EPKDimPvNS0_18WriteFunctionStateE, ptr noundef nonnull %sc.i.i, ptr noundef %pFormat, ptr noundef nonnull %arguments)
   %cmp.i.i = icmp sgt i32 %call.i.i, -1
@@ -928,7 +932,7 @@ if.else.i.i:                                      ; preds = %if.then.i.i
 
 if.then5.i.i:                                     ; preds = %if.else.i.i
   %0 = getelementptr i32, ptr %pDestination, i64 %n
-  %arrayidx6.i.i = getelementptr i32, ptr %0, i64 -1
+  %arrayidx6.i.i = getelementptr i8, ptr %0, i64 -4
   br label %if.end8.sink.split.i.i
 
 if.end8.sink.split.i.i:                           ; preds = %if.then5.i.i, %if.then3.i.i

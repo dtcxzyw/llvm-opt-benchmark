@@ -5,7 +5,6 @@ target triple = "x86_64-unknown-linux-gnu"
 
 %"struct.icu_75::NGramsPlusLang" = type { [64 x i32], ptr }
 %"class.icu_75::NGramParser" = type { ptr, i32, ptr, i32, i32, i32, ptr }
-%"class.icu_75::InputText" = type <{ ptr, i32, [4 x i8], ptr, i8, [7 x i8], ptr, ptr, i32, [4 x i8] }>
 %"class.icu_75::NGramParser_IBM420" = type <{ %"class.icu_75::NGramParser", i32, [4 x i8] }>
 
 $_ZTSN6icu_757UMemoryE = comdat any
@@ -192,17 +191,17 @@ $_ZTIN6icu_757UMemoryE = comdat any
 define void @_ZN6icu_7511NGramParserC2EPKiPKh(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(48) %this, ptr noundef %theNgramList, ptr noundef %theCharMap) unnamed_addr #0 align 2 {
 entry:
   store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN6icu_7511NGramParserE, i64 0, inrange i32 0, i64 2), ptr %this, align 8
-  %ngram = getelementptr inbounds %"class.icu_75::NGramParser", ptr %this, i64 0, i32 1
+  %ngram = getelementptr inbounds i8, ptr %this, i64 8
   store i32 0, ptr %ngram, align 8
-  %byteIndex = getelementptr inbounds %"class.icu_75::NGramParser", ptr %this, i64 0, i32 5
+  %byteIndex = getelementptr inbounds i8, ptr %this, i64 32
   store i32 0, ptr %byteIndex, align 8
-  %ngramList = getelementptr inbounds %"class.icu_75::NGramParser", ptr %this, i64 0, i32 2
+  %ngramList = getelementptr inbounds i8, ptr %this, i64 16
   store ptr %theNgramList, ptr %ngramList, align 8
-  %charMap = getelementptr inbounds %"class.icu_75::NGramParser", ptr %this, i64 0, i32 6
+  %charMap = getelementptr inbounds i8, ptr %this, i64 40
   store ptr %theCharMap, ptr %charMap, align 8
-  %hitCount = getelementptr inbounds %"class.icu_75::NGramParser", ptr %this, i64 0, i32 4
+  %hitCount = getelementptr inbounds i8, ptr %this, i64 28
   store i32 0, ptr %hitCount, align 4
-  %ngramCount = getelementptr inbounds %"class.icu_75::NGramParser", ptr %this, i64 0, i32 3
+  %ngramCount = getelementptr inbounds i8, ptr %this, i64 24
   store i32 0, ptr %ngramCount, align 8
   ret void
 }
@@ -227,7 +226,7 @@ declare void @_ZN6icu_757UMemorydlEPv(ptr noundef) local_unnamed_addr #3
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
 define noundef i32 @_ZN6icu_7511NGramParser6searchEPKii(ptr nocapture noundef nonnull readnone align 8 dereferenceable(48) %this, ptr nocapture noundef readonly %table, i32 noundef %value) local_unnamed_addr #4 align 2 {
 entry:
-  %arrayidx = getelementptr inbounds i32, ptr %table, i64 32
+  %arrayidx = getelementptr inbounds i8, ptr %table, i64 128
   %0 = load i32, ptr %arrayidx, align 4
   %cmp.not = icmp sgt i32 %0, %value
   %spec.select = select i1 %cmp.not, i32 0, i32 32
@@ -286,13 +285,13 @@ return:                                           ; preds = %lor.lhs.false, %ent
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
 define void @_ZN6icu_7511NGramParser6lookupEi(ptr nocapture noundef nonnull align 8 dereferenceable(48) %this, i32 noundef %thisNgram) local_unnamed_addr #5 align 2 {
 entry:
-  %ngramCount = getelementptr inbounds %"class.icu_75::NGramParser", ptr %this, i64 0, i32 3
+  %ngramCount = getelementptr inbounds i8, ptr %this, i64 24
   %0 = load i32, ptr %ngramCount, align 8
   %add = add nsw i32 %0, 1
   store i32 %add, ptr %ngramCount, align 8
-  %ngramList = getelementptr inbounds %"class.icu_75::NGramParser", ptr %this, i64 0, i32 2
+  %ngramList = getelementptr inbounds i8, ptr %this, i64 16
   %1 = load ptr, ptr %ngramList, align 8
-  %arrayidx.i = getelementptr inbounds i32, ptr %1, i64 32
+  %arrayidx.i = getelementptr inbounds i8, ptr %1, i64 128
   %2 = load i32, ptr %arrayidx.i, align 4
   %cmp.not.i = icmp sgt i32 %2, %thisNgram
   %spec.select.i = select i1 %cmp.not.i, i32 0, i32 32
@@ -343,7 +342,7 @@ lor.lhs.false.i:                                  ; preds = %entry
   br i1 %cmp46.not.i, label %if.then, label %if.end
 
 if.then:                                          ; preds = %lor.lhs.false.i
-  %hitCount = getelementptr inbounds %"class.icu_75::NGramParser", ptr %this, i64 0, i32 4
+  %hitCount = getelementptr inbounds i8, ptr %this, i64 28
   %10 = load i32, ptr %hitCount, align 4
   %add2 = add nsw i32 %10, 1
   store i32 %add2, ptr %hitCount, align 4
@@ -356,19 +355,19 @@ if.end:                                           ; preds = %lor.lhs.false.i, %e
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
 define void @_ZN6icu_7511NGramParser7addByteEi(ptr nocapture noundef nonnull align 8 dereferenceable(48) %this, i32 noundef %b) local_unnamed_addr #5 align 2 {
 entry:
-  %ngram = getelementptr inbounds %"class.icu_75::NGramParser", ptr %this, i64 0, i32 1
+  %ngram = getelementptr inbounds i8, ptr %this, i64 8
   %0 = load i32, ptr %ngram, align 8
   %shl = shl i32 %0, 8
   %add = add nsw i32 %shl, %b
   %and = and i32 %add, 16777215
   store i32 %and, ptr %ngram, align 8
-  %ngramCount.i = getelementptr inbounds %"class.icu_75::NGramParser", ptr %this, i64 0, i32 3
+  %ngramCount.i = getelementptr inbounds i8, ptr %this, i64 24
   %1 = load i32, ptr %ngramCount.i, align 8
   %add.i = add nsw i32 %1, 1
   store i32 %add.i, ptr %ngramCount.i, align 8
-  %ngramList.i = getelementptr inbounds %"class.icu_75::NGramParser", ptr %this, i64 0, i32 2
+  %ngramList.i = getelementptr inbounds i8, ptr %this, i64 16
   %2 = load ptr, ptr %ngramList.i, align 8
-  %arrayidx.i.i = getelementptr inbounds i32, ptr %2, i64 32
+  %arrayidx.i.i = getelementptr inbounds i8, ptr %2, i64 128
   %3 = load i32, ptr %arrayidx.i.i, align 4
   %cmp.not.i.i = icmp sgt i32 %3, %and
   %spec.select.i.i = select i1 %cmp.not.i.i, i32 0, i32 32
@@ -419,7 +418,7 @@ lor.lhs.false.i.i:                                ; preds = %entry
   br i1 %cmp46.not.i.i, label %if.then.i, label %_ZN6icu_7511NGramParser6lookupEi.exit
 
 if.then.i:                                        ; preds = %lor.lhs.false.i.i
-  %hitCount.i = getelementptr inbounds %"class.icu_75::NGramParser", ptr %this, i64 0, i32 4
+  %hitCount.i = getelementptr inbounds i8, ptr %this, i64 28
   %11 = load i32, ptr %hitCount.i, align 4
   %add2.i = add nsw i32 %11, 1
   store i32 %add2.i, ptr %hitCount.i, align 4
@@ -432,9 +431,9 @@ _ZN6icu_7511NGramParser6lookupEi.exit:            ; preds = %entry, %lor.lhs.fal
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
 define noundef i32 @_ZN6icu_7511NGramParser8nextByteEPNS_9InputTextE(ptr nocapture noundef nonnull align 8 dereferenceable(48) %this, ptr nocapture noundef readonly %det) unnamed_addr #5 align 2 {
 entry:
-  %byteIndex = getelementptr inbounds %"class.icu_75::NGramParser", ptr %this, i64 0, i32 5
+  %byteIndex = getelementptr inbounds i8, ptr %this, i64 32
   %0 = load i32, ptr %byteIndex, align 8
-  %fInputLen = getelementptr inbounds %"class.icu_75::InputText", ptr %det, i64 0, i32 1
+  %fInputLen = getelementptr inbounds i8, ptr %det, i64 8
   %1 = load i32, ptr %fInputLen, align 8
   %cmp.not = icmp slt i32 %0, %1
   br i1 %cmp.not, label %if.end, label %return
@@ -458,18 +457,18 @@ return:                                           ; preds = %entry, %if.end
 define void @_ZN6icu_7511NGramParser15parseCharactersEPNS_9InputTextE(ptr noundef nonnull align 8 dereferenceable(48) %this, ptr noundef %det) unnamed_addr #6 align 2 {
 entry:
   %vtable53 = load ptr, ptr %this, align 8
-  %vfn54 = getelementptr inbounds ptr, ptr %vtable53, i64 2
+  %vfn54 = getelementptr inbounds i8, ptr %vtable53, i64 16
   %0 = load ptr, ptr %vfn54, align 8
   %call55 = tail call noundef i32 %0(ptr noundef nonnull align 8 dereferenceable(48) %this, ptr noundef %det)
   %cmp56 = icmp sgt i32 %call55, -1
   br i1 %cmp56, label %while.body.lr.ph, label %while.end
 
 while.body.lr.ph:                                 ; preds = %entry
-  %charMap = getelementptr inbounds %"class.icu_75::NGramParser", ptr %this, i64 0, i32 6
-  %ngram.i = getelementptr inbounds %"class.icu_75::NGramParser", ptr %this, i64 0, i32 1
-  %ngramCount.i.i = getelementptr inbounds %"class.icu_75::NGramParser", ptr %this, i64 0, i32 3
-  %ngramList.i.i = getelementptr inbounds %"class.icu_75::NGramParser", ptr %this, i64 0, i32 2
-  %hitCount.i.i = getelementptr inbounds %"class.icu_75::NGramParser", ptr %this, i64 0, i32 4
+  %charMap = getelementptr inbounds i8, ptr %this, i64 40
+  %ngram.i = getelementptr inbounds i8, ptr %this, i64 8
+  %ngramCount.i.i = getelementptr inbounds i8, ptr %this, i64 24
+  %ngramList.i.i = getelementptr inbounds i8, ptr %this, i64 16
+  %hitCount.i.i = getelementptr inbounds i8, ptr %this, i64 28
   br label %while.body
 
 while.body:                                       ; preds = %while.body.lr.ph, %if.end9
@@ -497,7 +496,7 @@ if.then.split:                                    ; preds = %if.then
   %add.i.i = add nsw i32 %4, 1
   store i32 %add.i.i, ptr %ngramCount.i.i, align 8
   %5 = load ptr, ptr %ngramList.i.i, align 8
-  %arrayidx.i.i.i = getelementptr inbounds i32, ptr %5, i64 32
+  %arrayidx.i.i.i = getelementptr inbounds i8, ptr %5, i64 128
   %6 = load i32, ptr %arrayidx.i.i.i, align 4
   %cmp.not.i.i.i = icmp sgt i32 %6, %and.i
   %spec.select.i.i.i = select i1 %cmp.not.i.i.i, i32 0, i32 32
@@ -562,7 +561,7 @@ land.lhs.true.split:                              ; preds = %land.lhs.true
   %add.i.i9 = add nsw i32 %16, 1
   store i32 %add.i.i9, ptr %ngramCount.i.i, align 8
   %17 = load ptr, ptr %ngramList.i.i, align 8
-  %arrayidx.i.i.i11 = getelementptr inbounds i32, ptr %17, i64 32
+  %arrayidx.i.i.i11 = getelementptr inbounds i8, ptr %17, i64 128
   %18 = load i32, ptr %arrayidx.i.i.i11, align 4
   %cmp.not.i.i.i12 = icmp sgt i32 %18, %and.i7
   %spec.select.i.i.i13 = select i1 %cmp.not.i.i.i12, i32 0, i32 32
@@ -625,7 +624,7 @@ if.end:                                           ; preds = %if.end.sink.split, 
 if.end9:                                          ; preds = %if.end, %while.body
   %ignoreSpace.1 = phi i8 [ %frombool, %if.end ], [ %ignoreSpace.057, %while.body ]
   %vtable = load ptr, ptr %this, align 8
-  %vfn = getelementptr inbounds ptr, ptr %vtable, i64 2
+  %vfn = getelementptr inbounds i8, ptr %vtable, i64 16
   %27 = load ptr, ptr %vfn, align 8
   %call = tail call noundef i32 %27(ptr noundef nonnull align 8 dereferenceable(48) %this, ptr noundef %det)
   %cmp = icmp sgt i32 %call, -1
@@ -639,22 +638,22 @@ while.end:                                        ; preds = %if.end9, %entry
 define noundef i32 @_ZN6icu_7511NGramParser5parseEPNS_9InputTextE(ptr noundef nonnull align 8 dereferenceable(48) %this, ptr noundef %det) local_unnamed_addr #6 align 2 {
 entry:
   %vtable = load ptr, ptr %this, align 8
-  %vfn = getelementptr inbounds ptr, ptr %vtable, i64 3
+  %vfn = getelementptr inbounds i8, ptr %vtable, i64 24
   %0 = load ptr, ptr %vfn, align 8
   tail call void %0(ptr noundef nonnull align 8 dereferenceable(48) %this, ptr noundef %det)
-  %ngram.i = getelementptr inbounds %"class.icu_75::NGramParser", ptr %this, i64 0, i32 1
+  %ngram.i = getelementptr inbounds i8, ptr %this, i64 8
   %1 = load i32, ptr %ngram.i, align 8
   %shl.i = shl i32 %1, 8
   %add.i = and i32 %shl.i, 16776960
   %and.i = or disjoint i32 %add.i, 32
   store i32 %and.i, ptr %ngram.i, align 8
-  %ngramCount.i.i = getelementptr inbounds %"class.icu_75::NGramParser", ptr %this, i64 0, i32 3
+  %ngramCount.i.i = getelementptr inbounds i8, ptr %this, i64 24
   %2 = load i32, ptr %ngramCount.i.i, align 8
   %add.i.i = add nsw i32 %2, 1
   store i32 %add.i.i, ptr %ngramCount.i.i, align 8
-  %ngramList.i.i = getelementptr inbounds %"class.icu_75::NGramParser", ptr %this, i64 0, i32 2
+  %ngramList.i.i = getelementptr inbounds i8, ptr %this, i64 16
   %3 = load ptr, ptr %ngramList.i.i, align 8
-  %arrayidx.i.i.i = getelementptr inbounds i32, ptr %3, i64 32
+  %arrayidx.i.i.i = getelementptr inbounds i8, ptr %3, i64 128
   %4 = load i32, ptr %arrayidx.i.i.i, align 4
   %cmp.not.i.i.i = icmp sgt i32 %4, %and.i
   %spec.select.i.i.i = select i1 %cmp.not.i.i.i, i32 0, i32 32
@@ -705,14 +704,14 @@ lor.lhs.false.i.i.i:                              ; preds = %entry
   br i1 %cmp46.not.i.i.i, label %if.then.i.i, label %_ZN6icu_7511NGramParser7addByteEi.exit
 
 if.then.i.i:                                      ; preds = %lor.lhs.false.i.i.i
-  %hitCount.i.i = getelementptr inbounds %"class.icu_75::NGramParser", ptr %this, i64 0, i32 4
+  %hitCount.i.i = getelementptr inbounds i8, ptr %this, i64 28
   %12 = load i32, ptr %hitCount.i.i, align 4
   %add2.i.i = add nsw i32 %12, 1
   store i32 %add2.i.i, ptr %hitCount.i.i, align 4
   br label %_ZN6icu_7511NGramParser7addByteEi.exit
 
 _ZN6icu_7511NGramParser7addByteEi.exit:           ; preds = %entry, %lor.lhs.false.i.i.i, %if.then.i.i
-  %hitCount = getelementptr inbounds %"class.icu_75::NGramParser", ptr %this, i64 0, i32 4
+  %hitCount = getelementptr inbounds i8, ptr %this, i64 28
   %13 = load i32, ptr %hitCount, align 4
   %conv = sitofp i32 %13 to double
   %conv2 = sitofp i32 %add.i.i to double
@@ -727,20 +726,20 @@ _ZN6icu_7511NGramParser7addByteEi.exit:           ; preds = %entry, %lor.lhs.fal
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
 define void @_ZN6icu_7518NGramParser_IBM420C2EPKiPKh(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(52) %this, ptr noundef %theNgramList, ptr noundef %theCharMap) unnamed_addr #0 align 2 {
 entry:
-  %ngram.i = getelementptr inbounds %"class.icu_75::NGramParser", ptr %this, i64 0, i32 1
+  %ngram.i = getelementptr inbounds i8, ptr %this, i64 8
   store i32 0, ptr %ngram.i, align 8
-  %byteIndex.i = getelementptr inbounds %"class.icu_75::NGramParser", ptr %this, i64 0, i32 5
+  %byteIndex.i = getelementptr inbounds i8, ptr %this, i64 32
   store i32 0, ptr %byteIndex.i, align 8
-  %ngramList.i = getelementptr inbounds %"class.icu_75::NGramParser", ptr %this, i64 0, i32 2
+  %ngramList.i = getelementptr inbounds i8, ptr %this, i64 16
   store ptr %theNgramList, ptr %ngramList.i, align 8
-  %charMap.i = getelementptr inbounds %"class.icu_75::NGramParser", ptr %this, i64 0, i32 6
+  %charMap.i = getelementptr inbounds i8, ptr %this, i64 40
   store ptr %theCharMap, ptr %charMap.i, align 8
-  %hitCount.i = getelementptr inbounds %"class.icu_75::NGramParser", ptr %this, i64 0, i32 4
+  %hitCount.i = getelementptr inbounds i8, ptr %this, i64 28
   store i32 0, ptr %hitCount.i, align 4
-  %ngramCount.i = getelementptr inbounds %"class.icu_75::NGramParser", ptr %this, i64 0, i32 3
+  %ngramCount.i = getelementptr inbounds i8, ptr %this, i64 24
   store i32 0, ptr %ngramCount.i, align 8
   store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN6icu_7518NGramParser_IBM420E, i64 0, inrange i32 0, i64 2), ptr %this, align 8
-  %alef = getelementptr inbounds %"class.icu_75::NGramParser_IBM420", ptr %this, i64 0, i32 1
+  %alef = getelementptr inbounds i8, ptr %this, i64 48
   store i32 0, ptr %alef, align 8
   ret void
 }
@@ -784,9 +783,9 @@ return:                                           ; preds = %entry, %return.fold
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
 define noundef i32 @_ZN6icu_7518NGramParser_IBM4208nextByteEPNS_9InputTextE(ptr nocapture noundef nonnull align 8 dereferenceable(52) %this, ptr nocapture noundef readonly %det) unnamed_addr #5 align 2 {
 entry:
-  %byteIndex = getelementptr inbounds %"class.icu_75::NGramParser", ptr %this, i64 0, i32 5
+  %byteIndex = getelementptr inbounds i8, ptr %this, i64 32
   %0 = load i32, ptr %byteIndex, align 8
-  %fInputLen = getelementptr inbounds %"class.icu_75::InputText", ptr %det, i64 0, i32 1
+  %fInputLen = getelementptr inbounds i8, ptr %det, i64 8
   %1 = load i32, ptr %fInputLen, align 8
   %cmp.not = icmp slt i32 %0, %1
   br i1 %cmp.not, label %lor.lhs.false, label %return
@@ -815,12 +814,12 @@ _ZN6icu_7518NGramParser_IBM4209isLamAlefEi.exit.thread.fold.split: ; preds = %if
 
 _ZN6icu_7518NGramParser_IBM4209isLamAlefEi.exit.thread: ; preds = %if.end, %_ZN6icu_7518NGramParser_IBM4209isLamAlefEi.exit.thread.fold.split, %return.fold.split.i
   %retval.0.i.ph = phi i32 [ 73, %return.fold.split.i ], [ 71, %if.end ], [ 86, %_ZN6icu_7518NGramParser_IBM4209isLamAlefEi.exit.thread.fold.split ]
-  %alef5 = getelementptr inbounds %"class.icu_75::NGramParser_IBM420", ptr %this, i64 0, i32 1
+  %alef5 = getelementptr inbounds i8, ptr %this, i64 48
   store i32 %retval.0.i.ph, ptr %alef5, align 8
   br label %if.end21
 
 if.else:                                          ; preds = %if.end
-  %alef = getelementptr inbounds %"class.icu_75::NGramParser_IBM420", ptr %this, i64 0, i32 1
+  %alef = getelementptr inbounds i8, ptr %this, i64 48
   store i32 0, ptr %alef, align 8
   %5 = load ptr, ptr %det, align 8
   %arrayidx15 = getelementptr inbounds i8, ptr %5, i64 %idxprom
@@ -846,19 +845,19 @@ return:                                           ; preds = %entry, %lor.lhs.fal
 define void @_ZN6icu_7518NGramParser_IBM42015parseCharactersEPNS_9InputTextE(ptr noundef nonnull align 8 dereferenceable(52) %this, ptr noundef %det) unnamed_addr #6 align 2 {
 entry:
   %vtable156 = load ptr, ptr %this, align 8
-  %vfn157 = getelementptr inbounds ptr, ptr %vtable156, i64 2
+  %vfn157 = getelementptr inbounds i8, ptr %vtable156, i64 16
   %0 = load ptr, ptr %vfn157, align 8
   %call158 = tail call noundef i32 %0(ptr noundef nonnull align 8 dereferenceable(52) %this, ptr noundef %det)
   %cmp159 = icmp sgt i32 %call158, -1
   br i1 %cmp159, label %while.body.lr.ph, label %while.end
 
 while.body.lr.ph:                                 ; preds = %entry
-  %charMap = getelementptr inbounds %"class.icu_75::NGramParser", ptr %this, i64 0, i32 6
-  %ngram.i = getelementptr inbounds %"class.icu_75::NGramParser", ptr %this, i64 0, i32 1
-  %ngramCount.i.i = getelementptr inbounds %"class.icu_75::NGramParser", ptr %this, i64 0, i32 3
-  %ngramList.i.i = getelementptr inbounds %"class.icu_75::NGramParser", ptr %this, i64 0, i32 2
-  %hitCount.i.i = getelementptr inbounds %"class.icu_75::NGramParser", ptr %this, i64 0, i32 4
-  %alef = getelementptr inbounds %"class.icu_75::NGramParser_IBM420", ptr %this, i64 0, i32 1
+  %charMap = getelementptr inbounds i8, ptr %this, i64 40
+  %ngram.i = getelementptr inbounds i8, ptr %this, i64 8
+  %ngramCount.i.i = getelementptr inbounds i8, ptr %this, i64 24
+  %ngramList.i.i = getelementptr inbounds i8, ptr %this, i64 16
+  %hitCount.i.i = getelementptr inbounds i8, ptr %this, i64 28
+  %alef = getelementptr inbounds i8, ptr %this, i64 48
   br label %while.body
 
 while.body:                                       ; preds = %while.body.lr.ph, %if.end30
@@ -886,7 +885,7 @@ if.then.split:                                    ; preds = %if.then
   %add.i.i = add nsw i32 %4, 1
   store i32 %add.i.i, ptr %ngramCount.i.i, align 8
   %5 = load ptr, ptr %ngramList.i.i, align 8
-  %arrayidx.i.i.i = getelementptr inbounds i32, ptr %5, i64 32
+  %arrayidx.i.i.i = getelementptr inbounds i8, ptr %5, i64 128
   %6 = load i32, ptr %arrayidx.i.i.i, align 4
   %cmp.not.i.i.i = icmp sgt i32 %6, %and.i
   %spec.select.i.i.i = select i1 %cmp.not.i.i.i, i32 0, i32 32
@@ -951,7 +950,7 @@ land.lhs.true.split:                              ; preds = %land.lhs.true
   %add.i.i14 = add nsw i32 %16, 1
   store i32 %add.i.i14, ptr %ngramCount.i.i, align 8
   %17 = load ptr, ptr %ngramList.i.i, align 8
-  %arrayidx.i.i.i16 = getelementptr inbounds i32, ptr %17, i64 32
+  %arrayidx.i.i.i16 = getelementptr inbounds i8, ptr %17, i64 128
   %18 = load i32, ptr %arrayidx.i.i.i16, align 4
   %cmp.not.i.i.i17 = icmp sgt i32 %18, %and.i12
   %spec.select.i.i.i18 = select i1 %cmp.not.i.i.i17, i32 0, i32 32
@@ -1040,7 +1039,7 @@ if.then18.split:                                  ; preds = %if.then18
   %add.i.i63 = add nsw i32 %30, 1
   store i32 %add.i.i63, ptr %ngramCount.i.i, align 8
   %31 = load ptr, ptr %ngramList.i.i, align 8
-  %arrayidx.i.i.i65 = getelementptr inbounds i32, ptr %31, i64 32
+  %arrayidx.i.i.i65 = getelementptr inbounds i8, ptr %31, i64 128
   %32 = load i32, ptr %arrayidx.i.i.i65, align 4
   %cmp.not.i.i.i66 = icmp sgt i32 %32, %and.i61
   %spec.select.i.i.i67 = select i1 %cmp.not.i.i.i66, i32 0, i32 32
@@ -1105,7 +1104,7 @@ land.lhs.true21.split:                            ; preds = %land.lhs.true21
   %add.i.i112 = add nsw i32 %42, 1
   store i32 %add.i.i112, ptr %ngramCount.i.i, align 8
   %43 = load ptr, ptr %ngramList.i.i, align 8
-  %arrayidx.i.i.i114 = getelementptr inbounds i32, ptr %43, i64 32
+  %arrayidx.i.i.i114 = getelementptr inbounds i8, ptr %43, i64 128
   %44 = load i32, ptr %arrayidx.i.i.i114, align 4
   %cmp.not.i.i.i115 = icmp sgt i32 %44, %and.i110
   %spec.select.i.i.i116 = select i1 %cmp.not.i.i.i115, i32 0, i32 32
@@ -1168,7 +1167,7 @@ if.end25:                                         ; preds = %if.end25.sink.split
 if.end30:                                         ; preds = %if.then11, %if.end25, %if.end9
   %ignoreSpace.2 = phi i8 [ %frombool28, %if.end25 ], [ %ignoreSpace.1, %if.then11 ], [ %ignoreSpace.1, %if.end9 ]
   %vtable = load ptr, ptr %this, align 8
-  %vfn = getelementptr inbounds ptr, ptr %vtable, i64 2
+  %vfn = getelementptr inbounds i8, ptr %vtable, i64 16
   %53 = load ptr, ptr %vfn, align 8
   %call = tail call noundef i32 %53(ptr noundef nonnull align 8 dereferenceable(52) %this, ptr noundef %det)
   %cmp = icmp sgt i32 %call, -1
@@ -1211,25 +1210,25 @@ entry:
   %parser = alloca %"class.icu_75::NGramParser", align 8
   call void @_ZN6icu_7511NGramParserC1EPKiPKh(ptr noundef nonnull align 8 dereferenceable(48) %parser, ptr noundef %ngrams, ptr noundef %byteMap)
   %vtable.i = load ptr, ptr %parser, align 8
-  %vfn.i = getelementptr inbounds ptr, ptr %vtable.i, i64 3
+  %vfn.i = getelementptr inbounds i8, ptr %vtable.i, i64 24
   %0 = load ptr, ptr %vfn.i, align 8
   invoke void %0(ptr noundef nonnull align 8 dereferenceable(48) %parser, ptr noundef %det)
           to label %.noexc unwind label %lpad
 
 .noexc:                                           ; preds = %entry
-  %ngram.i.i = getelementptr inbounds %"class.icu_75::NGramParser", ptr %parser, i64 0, i32 1
+  %ngram.i.i = getelementptr inbounds i8, ptr %parser, i64 8
   %1 = load i32, ptr %ngram.i.i, align 8
   %shl.i.i = shl i32 %1, 8
   %add.i.i = and i32 %shl.i.i, 16776960
   %and.i.i = or disjoint i32 %add.i.i, 32
   store i32 %and.i.i, ptr %ngram.i.i, align 8
-  %ngramCount.i.i.i = getelementptr inbounds %"class.icu_75::NGramParser", ptr %parser, i64 0, i32 3
+  %ngramCount.i.i.i = getelementptr inbounds i8, ptr %parser, i64 24
   %2 = load i32, ptr %ngramCount.i.i.i, align 8
   %add.i.i.i = add nsw i32 %2, 1
   store i32 %add.i.i.i, ptr %ngramCount.i.i.i, align 8
-  %ngramList.i.i.i = getelementptr inbounds %"class.icu_75::NGramParser", ptr %parser, i64 0, i32 2
+  %ngramList.i.i.i = getelementptr inbounds i8, ptr %parser, i64 16
   %3 = load ptr, ptr %ngramList.i.i.i, align 8
-  %arrayidx.i.i.i.i = getelementptr inbounds i32, ptr %3, i64 32
+  %arrayidx.i.i.i.i = getelementptr inbounds i8, ptr %3, i64 128
   %4 = load i32, ptr %arrayidx.i.i.i.i, align 4
   %cmp.not.i.i.i.i = icmp sgt i32 %4, %and.i.i
   %spec.select.i.i.i.i = select i1 %cmp.not.i.i.i.i, i32 0, i32 32
@@ -1280,14 +1279,14 @@ lor.lhs.false.i.i.i.i:                            ; preds = %.noexc
   br i1 %cmp46.not.i.i.i.i, label %if.then.i.i.i, label %invoke.cont
 
 if.then.i.i.i:                                    ; preds = %lor.lhs.false.i.i.i.i
-  %hitCount.i.i.i = getelementptr inbounds %"class.icu_75::NGramParser", ptr %parser, i64 0, i32 4
+  %hitCount.i.i.i = getelementptr inbounds i8, ptr %parser, i64 28
   %12 = load i32, ptr %hitCount.i.i.i, align 4
   %add2.i.i.i = add nsw i32 %12, 1
   store i32 %add2.i.i.i, ptr %hitCount.i.i.i, align 4
   br label %invoke.cont
 
 invoke.cont:                                      ; preds = %if.then.i.i.i, %lor.lhs.false.i.i.i.i, %.noexc
-  %hitCount.i = getelementptr inbounds %"class.icu_75::NGramParser", ptr %parser, i64 0, i32 4
+  %hitCount.i = getelementptr inbounds i8, ptr %parser, i64 28
   %13 = load i32, ptr %hitCount.i, align 4
   %conv.i = sitofp i32 %13 to double
   %conv2.i = sitofp i32 %add.i.i.i to double
@@ -1326,7 +1325,7 @@ entry:
 ; Function Attrs: mustprogress uwtable
 define noundef signext i8 @_ZNK6icu_7519CharsetRecog_8859_15matchEPNS_9InputTextEPNS_12CharsetMatchE(ptr noundef nonnull align 8 dereferenceable(8) %this, ptr noundef %textIn, ptr noundef %results) unnamed_addr #6 align 2 {
 entry:
-  %fC1Bytes = getelementptr inbounds %"class.icu_75::InputText", ptr %textIn, i64 0, i32 4
+  %fC1Bytes = getelementptr inbounds i8, ptr %textIn, i64 24
   %0 = load i8, ptr %fC1Bytes, align 8
   %tobool.not = icmp eq i8 %0, 0
   %cond = select i1 %tobool.not, ptr @.str.1, ptr @.str
@@ -1336,10 +1335,10 @@ for.body:                                         ; preds = %entry, %for.inc
   %indvars.iv = phi i64 [ 0, %entry ], [ %indvars.iv.next, %for.inc ]
   %bestConfidenceSoFar.09 = phi i32 [ -1, %entry ], [ %bestConfidenceSoFar.1, %for.inc ]
   %arrayidx = getelementptr inbounds [10 x %"struct.icu_75::NGramsPlusLang"], ptr @_ZN6icu_75L13ngrams_8859_1E, i64 0, i64 %indvars.iv
-  %lang5 = getelementptr inbounds [10 x %"struct.icu_75::NGramsPlusLang"], ptr @_ZN6icu_75L13ngrams_8859_1E, i64 0, i64 %indvars.iv, i32 1
+  %lang5 = getelementptr inbounds i8, ptr %arrayidx, i64 256
   %1 = load ptr, ptr %lang5, align 8
   %vtable = load ptr, ptr %this, align 8
-  %vfn = getelementptr inbounds ptr, ptr %vtable, i64 5
+  %vfn = getelementptr inbounds i8, ptr %vtable, i64 40
   %2 = load ptr, ptr %vfn, align 8
   %call = tail call noundef i32 %2(ptr noundef nonnull align 8 dereferenceable(8) %this, ptr noundef %textIn, ptr noundef nonnull %arrayidx, ptr noundef nonnull @_ZN6icu_75L14charMap_8859_1E)
   %cmp6 = icmp sgt i32 %call, %bestConfidenceSoFar.09
@@ -1387,7 +1386,7 @@ entry:
 ; Function Attrs: mustprogress uwtable
 define noundef signext i8 @_ZNK6icu_7519CharsetRecog_8859_25matchEPNS_9InputTextEPNS_12CharsetMatchE(ptr noundef nonnull align 8 dereferenceable(8) %this, ptr noundef %textIn, ptr noundef %results) unnamed_addr #6 align 2 {
 entry:
-  %fC1Bytes = getelementptr inbounds %"class.icu_75::InputText", ptr %textIn, i64 0, i32 4
+  %fC1Bytes = getelementptr inbounds i8, ptr %textIn, i64 24
   %0 = load i8, ptr %fC1Bytes, align 8
   %tobool.not = icmp eq i8 %0, 0
   %cond = select i1 %tobool.not, ptr @.str.3, ptr @.str.2
@@ -1397,10 +1396,10 @@ for.body:                                         ; preds = %entry, %for.inc
   %indvars.iv = phi i64 [ 0, %entry ], [ %indvars.iv.next, %for.inc ]
   %bestConfidenceSoFar.09 = phi i32 [ -1, %entry ], [ %bestConfidenceSoFar.1, %for.inc ]
   %arrayidx = getelementptr inbounds [4 x %"struct.icu_75::NGramsPlusLang"], ptr @_ZN6icu_75L13ngrams_8859_2E, i64 0, i64 %indvars.iv
-  %lang5 = getelementptr inbounds [4 x %"struct.icu_75::NGramsPlusLang"], ptr @_ZN6icu_75L13ngrams_8859_2E, i64 0, i64 %indvars.iv, i32 1
+  %lang5 = getelementptr inbounds i8, ptr %arrayidx, i64 256
   %1 = load ptr, ptr %lang5, align 8
   %vtable = load ptr, ptr %this, align 8
-  %vfn = getelementptr inbounds ptr, ptr %vtable, i64 5
+  %vfn = getelementptr inbounds i8, ptr %vtable, i64 40
   %2 = load ptr, ptr %vfn, align 8
   %call = tail call noundef i32 %2(ptr noundef nonnull align 8 dereferenceable(8) %this, ptr noundef %textIn, ptr noundef nonnull %arrayidx, ptr noundef nonnull @_ZN6icu_75L14charMap_8859_2E)
   %cmp6 = icmp sgt i32 %call, %bestConfidenceSoFar.09
@@ -1473,7 +1472,7 @@ entry:
 define noundef signext i8 @_ZNK6icu_7522CharsetRecog_8859_5_ru5matchEPNS_9InputTextEPNS_12CharsetMatchE(ptr noundef nonnull align 8 dereferenceable(8) %this, ptr noundef %textIn, ptr noundef %results) unnamed_addr #6 align 2 {
 entry:
   %vtable = load ptr, ptr %this, align 8
-  %vfn = getelementptr inbounds ptr, ptr %vtable, i64 5
+  %vfn = getelementptr inbounds i8, ptr %vtable, i64 40
   %0 = load ptr, ptr %vfn, align 8
   %call = tail call noundef i32 %0(ptr noundef nonnull align 8 dereferenceable(8) %this, ptr noundef %textIn, ptr noundef nonnull @_ZN6icu_75L16ngrams_8859_5_ruE, ptr noundef nonnull @_ZN6icu_75L14charMap_8859_5E)
   tail call void @_ZN6icu_7512CharsetMatch3setEPNS_9InputTextEPKNS_17CharsetRecognizerEiPKcS7_(ptr noundef nonnull align 8 dereferenceable(32) %results, ptr noundef %textIn, ptr noundef nonnull %this, i32 noundef %call, ptr noundef null, ptr noundef null)
@@ -1527,7 +1526,7 @@ entry:
 define noundef signext i8 @_ZNK6icu_7522CharsetRecog_8859_6_ar5matchEPNS_9InputTextEPNS_12CharsetMatchE(ptr noundef nonnull align 8 dereferenceable(8) %this, ptr noundef %textIn, ptr noundef %results) unnamed_addr #6 align 2 {
 entry:
   %vtable = load ptr, ptr %this, align 8
-  %vfn = getelementptr inbounds ptr, ptr %vtable, i64 5
+  %vfn = getelementptr inbounds i8, ptr %vtable, i64 40
   %0 = load ptr, ptr %vfn, align 8
   %call = tail call noundef i32 %0(ptr noundef nonnull align 8 dereferenceable(8) %this, ptr noundef %textIn, ptr noundef nonnull @_ZN6icu_75L16ngrams_8859_6_arE, ptr noundef nonnull @_ZN6icu_75L14charMap_8859_6E)
   tail call void @_ZN6icu_7512CharsetMatch3setEPNS_9InputTextEPKNS_17CharsetRecognizerEiPKcS7_(ptr noundef nonnull align 8 dereferenceable(32) %results, ptr noundef %textIn, ptr noundef nonnull %this, i32 noundef %call, ptr noundef null, ptr noundef null)
@@ -1580,12 +1579,12 @@ entry:
 ; Function Attrs: mustprogress uwtable
 define noundef signext i8 @_ZNK6icu_7522CharsetRecog_8859_7_el5matchEPNS_9InputTextEPNS_12CharsetMatchE(ptr noundef nonnull align 8 dereferenceable(8) %this, ptr noundef %textIn, ptr noundef %results) unnamed_addr #6 align 2 {
 entry:
-  %fC1Bytes = getelementptr inbounds %"class.icu_75::InputText", ptr %textIn, i64 0, i32 4
+  %fC1Bytes = getelementptr inbounds i8, ptr %textIn, i64 24
   %0 = load i8, ptr %fC1Bytes, align 8
   %tobool.not = icmp eq i8 %0, 0
   %cond = select i1 %tobool.not, ptr @.str.8, ptr @.str.10
   %vtable = load ptr, ptr %this, align 8
-  %vfn = getelementptr inbounds ptr, ptr %vtable, i64 5
+  %vfn = getelementptr inbounds i8, ptr %vtable, i64 40
   %1 = load ptr, ptr %vfn, align 8
   %call = tail call noundef i32 %1(ptr noundef nonnull align 8 dereferenceable(8) %this, ptr noundef %textIn, ptr noundef nonnull @_ZN6icu_75L16ngrams_8859_7_elE, ptr noundef nonnull @_ZN6icu_75L14charMap_8859_7E)
   tail call void @_ZN6icu_7512CharsetMatch3setEPNS_9InputTextEPKNS_17CharsetRecognizerEiPKcS7_(ptr noundef nonnull align 8 dereferenceable(32) %results, ptr noundef %textIn, ptr noundef nonnull %this, i32 noundef %call, ptr noundef nonnull %cond, ptr noundef nonnull @.str.9)
@@ -1644,12 +1643,12 @@ entry:
 ; Function Attrs: mustprogress uwtable
 define noundef signext i8 @_ZNK6icu_7524CharsetRecog_8859_8_I_he5matchEPNS_9InputTextEPNS_12CharsetMatchE(ptr noundef nonnull align 8 dereferenceable(8) %this, ptr noundef %textIn, ptr noundef %results) unnamed_addr #6 align 2 {
 entry:
-  %fC1Bytes = getelementptr inbounds %"class.icu_75::InputText", ptr %textIn, i64 0, i32 4
+  %fC1Bytes = getelementptr inbounds i8, ptr %textIn, i64 24
   %0 = load i8, ptr %fC1Bytes, align 8
   %tobool.not = icmp eq i8 %0, 0
   %.str.14..str.12 = select i1 %tobool.not, ptr @.str.12, ptr @.str.14
   %vtable = load ptr, ptr %this, align 8
-  %vfn = getelementptr inbounds ptr, ptr %vtable, i64 5
+  %vfn = getelementptr inbounds i8, ptr %vtable, i64 40
   %1 = load ptr, ptr %vfn, align 8
   %call = tail call noundef i32 %1(ptr noundef nonnull align 8 dereferenceable(8) %this, ptr noundef %textIn, ptr noundef nonnull @_ZN6icu_75L18ngrams_8859_8_I_heE, ptr noundef nonnull @_ZN6icu_75L14charMap_8859_8E)
   tail call void @_ZN6icu_7512CharsetMatch3setEPNS_9InputTextEPKNS_17CharsetRecognizerEiPKcS7_(ptr noundef nonnull align 8 dereferenceable(32) %results, ptr noundef %textIn, ptr noundef nonnull %this, i32 noundef %call, ptr noundef nonnull %.str.14..str.12, ptr noundef nonnull @.str.13)
@@ -1682,12 +1681,12 @@ entry:
 ; Function Attrs: mustprogress uwtable
 define noundef signext i8 @_ZNK6icu_7522CharsetRecog_8859_8_he5matchEPNS_9InputTextEPNS_12CharsetMatchE(ptr noundef nonnull align 8 dereferenceable(8) %this, ptr noundef %textIn, ptr noundef %results) unnamed_addr #6 align 2 {
 entry:
-  %fC1Bytes = getelementptr inbounds %"class.icu_75::InputText", ptr %textIn, i64 0, i32 4
+  %fC1Bytes = getelementptr inbounds i8, ptr %textIn, i64 24
   %0 = load i8, ptr %fC1Bytes, align 8
   %tobool.not = icmp eq i8 %0, 0
   %cond = select i1 %tobool.not, ptr @.str.11, ptr @.str.14
   %vtable = load ptr, ptr %this, align 8
-  %vfn = getelementptr inbounds ptr, ptr %vtable, i64 5
+  %vfn = getelementptr inbounds i8, ptr %vtable, i64 40
   %1 = load ptr, ptr %vfn, align 8
   %call = tail call noundef i32 %1(ptr noundef nonnull align 8 dereferenceable(8) %this, ptr noundef %textIn, ptr noundef nonnull @_ZN6icu_75L16ngrams_8859_8_heE, ptr noundef nonnull @_ZN6icu_75L14charMap_8859_8E)
   tail call void @_ZN6icu_7512CharsetMatch3setEPNS_9InputTextEPKNS_17CharsetRecognizerEiPKcS7_(ptr noundef nonnull align 8 dereferenceable(32) %results, ptr noundef %textIn, ptr noundef nonnull %this, i32 noundef %call, ptr noundef nonnull %cond, ptr noundef nonnull @.str.13)
@@ -1740,12 +1739,12 @@ entry:
 ; Function Attrs: mustprogress uwtable
 define noundef signext i8 @_ZNK6icu_7522CharsetRecog_8859_9_tr5matchEPNS_9InputTextEPNS_12CharsetMatchE(ptr noundef nonnull align 8 dereferenceable(8) %this, ptr noundef %textIn, ptr noundef %results) unnamed_addr #6 align 2 {
 entry:
-  %fC1Bytes = getelementptr inbounds %"class.icu_75::InputText", ptr %textIn, i64 0, i32 4
+  %fC1Bytes = getelementptr inbounds i8, ptr %textIn, i64 24
   %0 = load i8, ptr %fC1Bytes, align 8
   %tobool.not = icmp eq i8 %0, 0
   %cond = select i1 %tobool.not, ptr @.str.15, ptr @.str.17
   %vtable = load ptr, ptr %this, align 8
-  %vfn = getelementptr inbounds ptr, ptr %vtable, i64 5
+  %vfn = getelementptr inbounds i8, ptr %vtable, i64 40
   %1 = load ptr, ptr %vfn, align 8
   %call = tail call noundef i32 %1(ptr noundef nonnull align 8 dereferenceable(8) %this, ptr noundef %textIn, ptr noundef nonnull @_ZN6icu_75L16ngrams_8859_9_trE, ptr noundef nonnull @_ZN6icu_75L14charMap_8859_9E)
   tail call void @_ZN6icu_7512CharsetMatch3setEPNS_9InputTextEPKNS_17CharsetRecognizerEiPKcS7_(ptr noundef nonnull align 8 dereferenceable(32) %results, ptr noundef %textIn, ptr noundef nonnull %this, i32 noundef %call, ptr noundef nonnull %cond, ptr noundef nonnull @.str.16)
@@ -1785,7 +1784,7 @@ entry:
 define noundef signext i8 @_ZNK6icu_7525CharsetRecog_windows_12565matchEPNS_9InputTextEPNS_12CharsetMatchE(ptr noundef nonnull align 8 dereferenceable(8) %this, ptr noundef %textIn, ptr noundef %results) unnamed_addr #6 align 2 {
 entry:
   %vtable = load ptr, ptr %this, align 8
-  %vfn = getelementptr inbounds ptr, ptr %vtable, i64 5
+  %vfn = getelementptr inbounds i8, ptr %vtable, i64 40
   %0 = load ptr, ptr %vfn, align 8
   %call = tail call noundef i32 %0(ptr noundef nonnull align 8 dereferenceable(8) %this, ptr noundef %textIn, ptr noundef nonnull @_ZN6icu_75L19ngrams_windows_1256E, ptr noundef nonnull @_ZN6icu_75L20charMap_windows_1256E)
   tail call void @_ZN6icu_7512CharsetMatch3setEPNS_9InputTextEPKNS_17CharsetRecognizerEiPKcS7_(ptr noundef nonnull align 8 dereferenceable(32) %results, ptr noundef %textIn, ptr noundef nonnull %this, i32 noundef %call, ptr noundef null, ptr noundef null)
@@ -1825,7 +1824,7 @@ entry:
 define noundef signext i8 @_ZNK6icu_7525CharsetRecog_windows_12515matchEPNS_9InputTextEPNS_12CharsetMatchE(ptr noundef nonnull align 8 dereferenceable(8) %this, ptr noundef %textIn, ptr noundef %results) unnamed_addr #6 align 2 {
 entry:
   %vtable = load ptr, ptr %this, align 8
-  %vfn = getelementptr inbounds ptr, ptr %vtable, i64 5
+  %vfn = getelementptr inbounds i8, ptr %vtable, i64 40
   %0 = load ptr, ptr %vfn, align 8
   %call = tail call noundef i32 %0(ptr noundef nonnull align 8 dereferenceable(8) %this, ptr noundef %textIn, ptr noundef nonnull @_ZN6icu_75L19ngrams_windows_1251E, ptr noundef nonnull @_ZN6icu_75L20charMap_windows_1251E)
   tail call void @_ZN6icu_7512CharsetMatch3setEPNS_9InputTextEPKNS_17CharsetRecognizerEiPKcS7_(ptr noundef nonnull align 8 dereferenceable(32) %results, ptr noundef %textIn, ptr noundef nonnull %this, i32 noundef %call, ptr noundef null, ptr noundef null)
@@ -1865,7 +1864,7 @@ entry:
 define noundef signext i8 @_ZNK6icu_7519CharsetRecog_KOI8_R5matchEPNS_9InputTextEPNS_12CharsetMatchE(ptr noundef nonnull align 8 dereferenceable(8) %this, ptr noundef %textIn, ptr noundef %results) unnamed_addr #6 align 2 {
 entry:
   %vtable = load ptr, ptr %this, align 8
-  %vfn = getelementptr inbounds ptr, ptr %vtable, i64 5
+  %vfn = getelementptr inbounds i8, ptr %vtable, i64 40
   %0 = load ptr, ptr %vfn, align 8
   %call = tail call noundef i32 %0(ptr noundef nonnull align 8 dereferenceable(8) %this, ptr noundef %textIn, ptr noundef nonnull @_ZN6icu_75L13ngrams_KOI8_RE, ptr noundef nonnull @_ZN6icu_75L14charMap_KOI8_RE)
   tail call void @_ZN6icu_7512CharsetMatch3setEPNS_9InputTextEPKNS_17CharsetRecognizerEiPKcS7_(ptr noundef nonnull align 8 dereferenceable(32) %results, ptr noundef %textIn, ptr noundef nonnull %this, i32 noundef %call, ptr noundef null, ptr noundef null)
@@ -1919,7 +1918,7 @@ entry:
 define noundef signext i8 @_ZNK6icu_7526CharsetRecog_IBM424_he_rtl5matchEPNS_9InputTextEPNS_12CharsetMatchE(ptr noundef nonnull align 8 dereferenceable(8) %this, ptr noundef %textIn, ptr noundef %results) unnamed_addr #6 align 2 {
 entry:
   %vtable = load ptr, ptr %this, align 8
-  %vfn = getelementptr inbounds ptr, ptr %vtable, i64 5
+  %vfn = getelementptr inbounds i8, ptr %vtable, i64 40
   %0 = load ptr, ptr %vfn, align 8
   %call = tail call noundef i32 %0(ptr noundef nonnull align 8 dereferenceable(8) %this, ptr noundef %textIn, ptr noundef nonnull @_ZN6icu_75L20ngrams_IBM424_he_rtlE, ptr noundef nonnull @_ZN6icu_75L17charMap_IBM424_heE)
   tail call void @_ZN6icu_7512CharsetMatch3setEPNS_9InputTextEPKNS_17CharsetRecognizerEiPKcS7_(ptr noundef nonnull align 8 dereferenceable(32) %results, ptr noundef %textIn, ptr noundef nonnull %this, i32 noundef %call, ptr noundef null, ptr noundef null)
@@ -1953,7 +1952,7 @@ entry:
 define noundef signext i8 @_ZNK6icu_7526CharsetRecog_IBM424_he_ltr5matchEPNS_9InputTextEPNS_12CharsetMatchE(ptr noundef nonnull align 8 dereferenceable(8) %this, ptr noundef %textIn, ptr noundef %results) unnamed_addr #6 align 2 {
 entry:
   %vtable = load ptr, ptr %this, align 8
-  %vfn = getelementptr inbounds ptr, ptr %vtable, i64 5
+  %vfn = getelementptr inbounds i8, ptr %vtable, i64 40
   %0 = load ptr, ptr %vfn, align 8
   %call = tail call noundef i32 %0(ptr noundef nonnull align 8 dereferenceable(8) %this, ptr noundef %textIn, ptr noundef nonnull @_ZN6icu_75L20ngrams_IBM424_he_ltrE, ptr noundef nonnull @_ZN6icu_75L17charMap_IBM424_heE)
   tail call void @_ZN6icu_7512CharsetMatch3setEPNS_9InputTextEPKNS_17CharsetRecognizerEiPKcS7_(ptr noundef nonnull align 8 dereferenceable(32) %results, ptr noundef %textIn, ptr noundef nonnull %this, i32 noundef %call, ptr noundef null, ptr noundef null)
@@ -1988,25 +1987,25 @@ entry:
   %parser = alloca %"class.icu_75::NGramParser_IBM420", align 8
   call void @_ZN6icu_7518NGramParser_IBM420C1EPKiPKh(ptr noundef nonnull align 8 dereferenceable(52) %parser, ptr noundef %ngrams, ptr noundef %byteMap)
   %vtable.i = load ptr, ptr %parser, align 8
-  %vfn.i = getelementptr inbounds ptr, ptr %vtable.i, i64 3
+  %vfn.i = getelementptr inbounds i8, ptr %vtable.i, i64 24
   %0 = load ptr, ptr %vfn.i, align 8
   invoke void %0(ptr noundef nonnull align 8 dereferenceable(48) %parser, ptr noundef %det)
           to label %.noexc unwind label %lpad
 
 .noexc:                                           ; preds = %entry
-  %ngram.i.i = getelementptr inbounds %"class.icu_75::NGramParser", ptr %parser, i64 0, i32 1
+  %ngram.i.i = getelementptr inbounds i8, ptr %parser, i64 8
   %1 = load i32, ptr %ngram.i.i, align 8
   %shl.i.i = shl i32 %1, 8
   %add.i.i = and i32 %shl.i.i, 16776960
   %and.i.i = or disjoint i32 %add.i.i, 32
   store i32 %and.i.i, ptr %ngram.i.i, align 8
-  %ngramCount.i.i.i = getelementptr inbounds %"class.icu_75::NGramParser", ptr %parser, i64 0, i32 3
+  %ngramCount.i.i.i = getelementptr inbounds i8, ptr %parser, i64 24
   %2 = load i32, ptr %ngramCount.i.i.i, align 8
   %add.i.i.i = add nsw i32 %2, 1
   store i32 %add.i.i.i, ptr %ngramCount.i.i.i, align 8
-  %ngramList.i.i.i = getelementptr inbounds %"class.icu_75::NGramParser", ptr %parser, i64 0, i32 2
+  %ngramList.i.i.i = getelementptr inbounds i8, ptr %parser, i64 16
   %3 = load ptr, ptr %ngramList.i.i.i, align 8
-  %arrayidx.i.i.i.i = getelementptr inbounds i32, ptr %3, i64 32
+  %arrayidx.i.i.i.i = getelementptr inbounds i8, ptr %3, i64 128
   %4 = load i32, ptr %arrayidx.i.i.i.i, align 4
   %cmp.not.i.i.i.i = icmp sgt i32 %4, %and.i.i
   %spec.select.i.i.i.i = select i1 %cmp.not.i.i.i.i, i32 0, i32 32
@@ -2057,14 +2056,14 @@ lor.lhs.false.i.i.i.i:                            ; preds = %.noexc
   br i1 %cmp46.not.i.i.i.i, label %if.then.i.i.i, label %invoke.cont
 
 if.then.i.i.i:                                    ; preds = %lor.lhs.false.i.i.i.i
-  %hitCount.i.i.i = getelementptr inbounds %"class.icu_75::NGramParser", ptr %parser, i64 0, i32 4
+  %hitCount.i.i.i = getelementptr inbounds i8, ptr %parser, i64 28
   %12 = load i32, ptr %hitCount.i.i.i, align 4
   %add2.i.i.i = add nsw i32 %12, 1
   store i32 %add2.i.i.i, ptr %hitCount.i.i.i, align 4
   br label %invoke.cont
 
 invoke.cont:                                      ; preds = %if.then.i.i.i, %lor.lhs.false.i.i.i.i, %.noexc
-  %hitCount.i = getelementptr inbounds %"class.icu_75::NGramParser", ptr %parser, i64 0, i32 4
+  %hitCount.i = getelementptr inbounds i8, ptr %parser, i64 28
   %13 = load i32, ptr %hitCount.i, align 4
   %conv.i = sitofp i32 %13 to double
   %conv2.i = sitofp i32 %add.i.i.i to double
@@ -2108,7 +2107,7 @@ entry:
 define noundef signext i8 @_ZNK6icu_7526CharsetRecog_IBM420_ar_rtl5matchEPNS_9InputTextEPNS_12CharsetMatchE(ptr noundef nonnull align 8 dereferenceable(8) %this, ptr noundef %textIn, ptr noundef %results) unnamed_addr #6 align 2 {
 entry:
   %vtable = load ptr, ptr %this, align 8
-  %vfn = getelementptr inbounds ptr, ptr %vtable, i64 5
+  %vfn = getelementptr inbounds i8, ptr %vtable, i64 40
   %0 = load ptr, ptr %vfn, align 8
   %call = tail call noundef i32 %0(ptr noundef nonnull align 8 dereferenceable(8) %this, ptr noundef %textIn, ptr noundef nonnull @_ZN6icu_75L20ngrams_IBM420_ar_rtlE, ptr noundef nonnull @_ZN6icu_75L17charMap_IBM420_arE)
   tail call void @_ZN6icu_7512CharsetMatch3setEPNS_9InputTextEPKNS_17CharsetRecognizerEiPKcS7_(ptr noundef nonnull align 8 dereferenceable(32) %results, ptr noundef %textIn, ptr noundef nonnull %this, i32 noundef %call, ptr noundef null, ptr noundef null)
@@ -2142,7 +2141,7 @@ entry:
 define noundef signext i8 @_ZNK6icu_7526CharsetRecog_IBM420_ar_ltr5matchEPNS_9InputTextEPNS_12CharsetMatchE(ptr noundef nonnull align 8 dereferenceable(8) %this, ptr noundef %textIn, ptr noundef %results) unnamed_addr #6 align 2 {
 entry:
   %vtable = load ptr, ptr %this, align 8
-  %vfn = getelementptr inbounds ptr, ptr %vtable, i64 5
+  %vfn = getelementptr inbounds i8, ptr %vtable, i64 40
   %0 = load ptr, ptr %vfn, align 8
   %call = tail call noundef i32 %0(ptr noundef nonnull align 8 dereferenceable(8) %this, ptr noundef %textIn, ptr noundef nonnull @_ZN6icu_75L20ngrams_IBM420_ar_ltrE, ptr noundef nonnull @_ZN6icu_75L17charMap_IBM420_arE)
   tail call void @_ZN6icu_7512CharsetMatch3setEPNS_9InputTextEPKNS_17CharsetRecognizerEiPKcS7_(ptr noundef nonnull align 8 dereferenceable(32) %results, ptr noundef %textIn, ptr noundef nonnull %this, i32 noundef %call, ptr noundef null, ptr noundef null)

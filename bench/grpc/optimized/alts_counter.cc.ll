@@ -3,8 +3,6 @@ source_filename = "bench/grpc/original/alts_counter.cc.ll"
 target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:128-n8:16:32:64-S128"
 target triple = "x86_64-unknown-linux-gnu"
 
-%struct.alts_counter = type { i64, i64, ptr }
-
 @__const._Z19alts_counter_createbmmPP12alts_counterPPc.error_msg = private unnamed_addr constant [25 x i8] c"counter_size is invalid.\00", align 16
 @__const._Z19alts_counter_createbmmPP12alts_counterPPc.error_msg.1 = private unnamed_addr constant [26 x i8] c"overflow_size is invalid.\00", align 16
 @__const._Z22alts_counter_incrementP12alts_counterPbPPc.error_msg = private unnamed_addr constant [28 x i8] c"crypter_counter is nullptr.\00", align 16
@@ -61,17 +59,17 @@ if.end11:                                         ; preds = %if.end6
   store ptr %call, ptr %crypter_counter, align 8
   store i64 %counter_size, ptr %call, align 8
   %0 = load ptr, ptr %crypter_counter, align 8
-  %overflow_size12 = getelementptr inbounds %struct.alts_counter, ptr %0, i64 0, i32 1
+  %overflow_size12 = getelementptr inbounds i8, ptr %0, i64 8
   store i64 %overflow_size, ptr %overflow_size12, align 8
   %call13 = tail call ptr @gpr_zalloc(i64 noundef %counter_size)
   %1 = load ptr, ptr %crypter_counter, align 8
-  %counter = getelementptr inbounds %struct.alts_counter, ptr %1, i64 0, i32 2
+  %counter = getelementptr inbounds i8, ptr %1, i64 16
   store ptr %call13, ptr %counter, align 8
   br i1 %is_client, label %if.then14, label %return
 
 if.then14:                                        ; preds = %if.end11
   %2 = load ptr, ptr %crypter_counter, align 8
-  %counter15 = getelementptr inbounds %struct.alts_counter, ptr %2, i64 0, i32 2
+  %counter15 = getelementptr inbounds i8, ptr %2, i64 16
   %3 = load ptr, ptr %counter15, align 8
   %4 = getelementptr i8, ptr %3, i64 %counter_size
   %arrayidx = getelementptr i8, ptr %4, i64 -1
@@ -111,8 +109,8 @@ if.end:                                           ; preds = %entry
   br i1 %cmp1, label %if.then2, label %for.cond.preheader
 
 for.cond.preheader:                               ; preds = %if.end
-  %counter = getelementptr inbounds %struct.alts_counter, ptr %crypter_counter, i64 0, i32 2
-  %overflow_size = getelementptr inbounds %struct.alts_counter, ptr %crypter_counter, i64 0, i32 1
+  %counter = getelementptr inbounds i8, ptr %crypter_counter, i64 16
+  %overflow_size = getelementptr inbounds i8, ptr %crypter_counter, i64 8
   %0 = load i64, ptr %overflow_size, align 8
   %cmp620.not = icmp eq i64 %0, 0
   br i1 %cmp620.not, label %if.then15, label %for.body.preheader
@@ -190,7 +188,7 @@ entry:
   br i1 %cmp, label %return, label %if.end
 
 if.end:                                           ; preds = %entry
-  %counter = getelementptr inbounds %struct.alts_counter, ptr %crypter_counter, i64 0, i32 2
+  %counter = getelementptr inbounds i8, ptr %crypter_counter, i64 16
   %0 = load ptr, ptr %counter, align 8
   br label %return
 
@@ -206,7 +204,7 @@ entry:
   br i1 %cmp.not, label %if.end, label %if.then
 
 if.then:                                          ; preds = %entry
-  %counter = getelementptr inbounds %struct.alts_counter, ptr %crypter_counter, i64 0, i32 2
+  %counter = getelementptr inbounds i8, ptr %crypter_counter, i64 16
   %0 = load ptr, ptr %counter, align 8
   tail call void @gpr_free(ptr noundef %0)
   tail call void @gpr_free(ptr noundef nonnull %crypter_counter)

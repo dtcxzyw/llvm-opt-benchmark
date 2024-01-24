@@ -3,15 +3,6 @@ source_filename = "bench/git/original/kwset.ll"
 target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:128-n8:16:32:64-S128"
 target triple = "x86_64-unknown-linux-gnu"
 
-%struct.kwset = type { %struct.obstack, i32, ptr, i32, i32, [256 x i8], [256 x ptr], ptr, i32, ptr }
-%struct.obstack = type { i64, ptr, ptr, ptr, ptr, %union.anon, i32, %union.anon.0, %union.anon.1, ptr, i8 }
-%union.anon = type { i64 }
-%union.anon.0 = type { ptr }
-%union.anon.1 = type { ptr }
-%struct.trie = type { i32, ptr, ptr, ptr, ptr, i32, i32, i32 }
-%struct.tree = type { ptr, ptr, ptr, i8, i8 }
-%struct.kwsmatch = type { i32, [1 x i64], [1 x i64] }
-
 @tolower_trans_tbl = dso_local local_unnamed_addr constant [256 x i8] c"\00\01\02\03\04\05\06\07\08\09\0A\0B\0C\0D\0E\0F\10\11\12\13\14\15\16\17\18\19\1A\1B\1C\1D\1E\1F !\22#$%&'()*+,-./0123456789:;<=>?@abcdefghijklmnopqrstuvwxyz[\\]^_`abcdefghijklmnopqrstuvwxyz{|}~\7F\80\81\82\83\84\85\86\87\88\89\8A\8B\8C\8D\8E\8F\90\91\92\93\94\95\96\97\98\99\9A\9B\9C\9D\9E\9F\A0\A1\A2\A3\A4\A5\A6\A7\A8\A9\AA\AB\AC\AD\AE\AF\B0\B1\B2\B3\B4\B5\B6\B7\B8\B9\BA\BB\BC\BD\BE\BF\C0\C1\C2\C3\C4\C5\C6\C7\C8\C9\CA\CB\CC\CD\CE\CF\D0\D1\D2\D3\D4\D5\D6\D7\D8\D9\DA\DB\DC\DD\DE\DF\E0\E1\E2\E3\E4\E5\E6\E7\E8\E9\EA\EB\EC\ED\EE\EF\F0\F1\F2\F3\F4\F5\F6\F7\F8\F9\FA\FB\FC\FD\FE\FF", align 16
 @.str = private unnamed_addr constant [17 x i8] c"memory exhausted\00", align 1
 @.str.1 = private unnamed_addr constant [8 x i8] c"kwset.c\00", align 1
@@ -22,11 +13,11 @@ define dso_local noundef ptr @kwsalloc(ptr noundef %trans) local_unnamed_addr #0
 entry:
   %call = tail call ptr @xmalloc(i64 noundef 2440) #12
   %call1 = tail call i32 @_obstack_begin(ptr noundef %call, i32 noundef 0, i32 noundef 0, ptr noundef nonnull @obstack_chunk_alloc, ptr noundef nonnull @free) #12
-  %words = getelementptr inbounds %struct.kwset, ptr %call, i64 0, i32 1
+  %words = getelementptr inbounds i8, ptr %call, i64 88
   store i32 0, ptr %words, align 8
-  %chunk_limit = getelementptr inbounds %struct.obstack, ptr %call, i64 0, i32 4
+  %chunk_limit = getelementptr inbounds i8, ptr %call, i64 32
   %0 = load ptr, ptr %chunk_limit, align 8
-  %next_free = getelementptr inbounds %struct.obstack, ptr %call, i64 0, i32 3
+  %next_free = getelementptr inbounds i8, ptr %call, i64 24
   %1 = load ptr, ptr %next_free, align 8
   %sub.ptr.lhs.cast = ptrtoint ptr %0 to i64
   %sub.ptr.rhs.cast = ptrtoint ptr %1 to i64
@@ -42,13 +33,13 @@ if.then:                                          ; preds = %entry
 if.end:                                           ; preds = %if.then, %entry
   %2 = phi ptr [ %.pre, %if.then ], [ %1, %entry ]
   %add.ptr = getelementptr inbounds i8, ptr %2, i64 56
-  %object_base = getelementptr inbounds %struct.obstack, ptr %call, i64 0, i32 2
+  %object_base = getelementptr inbounds i8, ptr %call, i64 16
   %3 = load ptr, ptr %object_base, align 8
   %cmp6 = icmp eq ptr %add.ptr, %3
   br i1 %cmp6, label %if.then8, label %if.end9
 
 if.then8:                                         ; preds = %if.end
-  %maybe_empty_object = getelementptr inbounds %struct.obstack, ptr %call, i64 0, i32 10
+  %maybe_empty_object = getelementptr inbounds i8, ptr %call, i64 80
   %bf.load = load i8, ptr %maybe_empty_object, align 8
   %bf.set = or i8 %bf.load, 2
   store i8 %bf.set, ptr %maybe_empty_object, align 8
@@ -56,7 +47,7 @@ if.then8:                                         ; preds = %if.end
 
 if.end9:                                          ; preds = %if.then8, %if.end
   %4 = ptrtoint ptr %add.ptr to i64
-  %alignment_mask = getelementptr inbounds %struct.obstack, ptr %call, i64 0, i32 6
+  %alignment_mask = getelementptr inbounds i8, ptr %call, i64 48
   %5 = load i32, ptr %alignment_mask, align 8
   %conv11 = sext i32 %5 to i64
   %add = add nsw i64 %conv11, %4
@@ -65,7 +56,7 @@ if.end9:                                          ; preds = %if.then8, %if.end
   %and = and i64 %add, %conv13
   %6 = inttoptr i64 %and to ptr
   store ptr %6, ptr %next_free, align 8
-  %chunk = getelementptr inbounds %struct.obstack, ptr %call, i64 0, i32 1
+  %chunk = getelementptr inbounds i8, ptr %call, i64 8
   %7 = load ptr, ptr %chunk, align 8
   %sub.ptr.rhs.cast18 = ptrtoint ptr %7 to i64
   %sub.ptr.sub19 = sub i64 %and, %sub.ptr.rhs.cast18
@@ -82,7 +73,7 @@ if.then27:                                        ; preds = %if.end9
 if.end30:                                         ; preds = %if.then27, %if.end9
   %9 = phi ptr [ %8, %if.then27 ], [ %6, %if.end9 ]
   store ptr %9, ptr %object_base, align 8
-  %trie = getelementptr inbounds %struct.kwset, ptr %call, i64 0, i32 2
+  %trie = getelementptr inbounds i8, ptr %call, i64 96
   store ptr %3, ptr %trie, align 8
   %tobool.not = icmp eq ptr %3, null
   br i1 %tobool.not, label %if.then35, label %if.end36
@@ -95,30 +86,30 @@ if.then35:                                        ; preds = %if.end30
 if.end36:                                         ; preds = %if.end30
   store i32 0, ptr %3, align 8
   %10 = load ptr, ptr %trie, align 8
-  %links = getelementptr inbounds %struct.trie, ptr %10, i64 0, i32 1
+  %links = getelementptr inbounds i8, ptr %10, i64 8
   store ptr null, ptr %links, align 8
   %11 = load ptr, ptr %trie, align 8
-  %parent = getelementptr inbounds %struct.trie, ptr %11, i64 0, i32 2
+  %parent = getelementptr inbounds i8, ptr %11, i64 16
   store ptr null, ptr %parent, align 8
   %12 = load ptr, ptr %trie, align 8
-  %next = getelementptr inbounds %struct.trie, ptr %12, i64 0, i32 3
+  %next = getelementptr inbounds i8, ptr %12, i64 24
   store ptr null, ptr %next, align 8
   %13 = load ptr, ptr %trie, align 8
-  %fail = getelementptr inbounds %struct.trie, ptr %13, i64 0, i32 4
+  %fail = getelementptr inbounds i8, ptr %13, i64 32
   store ptr null, ptr %fail, align 8
   %14 = load ptr, ptr %trie, align 8
-  %depth = getelementptr inbounds %struct.trie, ptr %14, i64 0, i32 5
+  %depth = getelementptr inbounds i8, ptr %14, i64 40
   store i32 0, ptr %depth, align 8
   %15 = load ptr, ptr %trie, align 8
-  %shift = getelementptr inbounds %struct.trie, ptr %15, i64 0, i32 6
+  %shift = getelementptr inbounds i8, ptr %15, i64 44
   store i32 0, ptr %shift, align 4
-  %mind = getelementptr inbounds %struct.kwset, ptr %call, i64 0, i32 3
+  %mind = getelementptr inbounds i8, ptr %call, i64 104
   store i32 2147483647, ptr %mind, align 8
-  %maxd = getelementptr inbounds %struct.kwset, ptr %call, i64 0, i32 4
+  %maxd = getelementptr inbounds i8, ptr %call, i64 108
   store i32 -1, ptr %maxd, align 4
-  %target = getelementptr inbounds %struct.kwset, ptr %call, i64 0, i32 7
+  %target = getelementptr inbounds i8, ptr %call, i64 2416
   store ptr null, ptr %target, align 8
-  %trans44 = getelementptr inbounds %struct.kwset, ptr %call, i64 0, i32 9
+  %trans44 = getelementptr inbounds i8, ptr %call, i64 2432
   store ptr %trans, ptr %trans44, align 8
   br label %return
 
@@ -164,20 +155,20 @@ define dso_local noundef ptr @kwsincr(ptr noundef %kws, ptr nocapture noundef re
 entry:
   %links = alloca [12 x ptr], align 16
   %dirs = alloca [12 x i32], align 16
-  %trie1 = getelementptr inbounds %struct.kwset, ptr %kws, i64 0, i32 2
+  %trie1 = getelementptr inbounds i8, ptr %kws, i64 96
   %trie.0213 = load ptr, ptr %trie1, align 8
   %tobool.not215 = icmp eq i64 %len, 0
   br i1 %tobool.not215, label %while.end332, label %while.body.lr.ph
 
 while.body.lr.ph:                                 ; preds = %entry
   %add.ptr = getelementptr inbounds i8, ptr %text, i64 %len
-  %trans = getelementptr inbounds %struct.kwset, ptr %kws, i64 0, i32 9
-  %chunk_limit = getelementptr inbounds %struct.obstack, ptr %kws, i64 0, i32 4
-  %next_free = getelementptr inbounds %struct.obstack, ptr %kws, i64 0, i32 3
-  %object_base = getelementptr inbounds %struct.obstack, ptr %kws, i64 0, i32 2
-  %maybe_empty_object = getelementptr inbounds %struct.obstack, ptr %kws, i64 0, i32 10
-  %alignment_mask = getelementptr inbounds %struct.obstack, ptr %kws, i64 0, i32 6
-  %chunk = getelementptr inbounds %struct.obstack, ptr %kws, i64 0, i32 1
+  %trans = getelementptr inbounds i8, ptr %kws, i64 2432
+  %chunk_limit = getelementptr inbounds i8, ptr %kws, i64 32
+  %next_free = getelementptr inbounds i8, ptr %kws, i64 24
+  %object_base = getelementptr inbounds i8, ptr %kws, i64 16
+  %maybe_empty_object = getelementptr inbounds i8, ptr %kws, i64 80
+  %alignment_mask = getelementptr inbounds i8, ptr %kws, i64 48
+  %chunk = getelementptr inbounds i8, ptr %kws, i64 8
   br label %while.body
 
 while.body:                                       ; preds = %while.body.lr.ph, %if.end330
@@ -199,7 +190,7 @@ cond.true:                                        ; preds = %while.body
 cond.end:                                         ; preds = %while.body, %cond.true
   %cond.in = phi ptr [ %arrayidx, %cond.true ], [ %incdec.ptr4, %while.body ]
   %cond = load i8, ptr %cond.in, align 1
-  %links7 = getelementptr inbounds %struct.trie, ptr %trie.0217, i64 0, i32 1
+  %links7 = getelementptr inbounds i8, ptr %trie.0217, i64 8
   %2 = load ptr, ptr %links7, align 8
   store ptr %links7, ptr %links, align 16
   store i32 0, ptr %dirs, align 16
@@ -209,7 +200,7 @@ cond.end:                                         ; preds = %while.body, %cond.t
 land.rhs:                                         ; preds = %cond.end, %while.body17
   %indvars.iv = phi i64 [ %indvars.iv.next, %while.body17 ], [ 1, %cond.end ]
   %link.0210 = phi ptr [ %link.1, %while.body17 ], [ %2, %cond.end ]
-  %label14 = getelementptr inbounds %struct.tree, ptr %link.0210, i64 0, i32 3
+  %label14 = getelementptr inbounds i8, ptr %link.0210, i64 24
   %3 = load i8, ptr %label14, align 8
   %cmp.not = icmp eq i8 %cond, %3
   br i1 %cmp.not, label %if.end330, label %while.body17
@@ -218,9 +209,9 @@ while.body17:                                     ; preds = %land.rhs
   %arrayidx19 = getelementptr inbounds [12 x ptr], ptr %links, i64 0, i64 %indvars.iv
   store ptr %link.0210, ptr %arrayidx19, align 8
   %cmp23 = icmp uge i8 %cond, %3
-  %rlink = getelementptr inbounds %struct.tree, ptr %link.0210, i64 0, i32 1
   %spec.select = zext i1 %cmp23 to i32
-  %spec.select258 = select i1 %cmp23, ptr %rlink, ptr %link.0210
+  %spec.select258.idx = select i1 %cmp23, i64 8, i64 0
+  %spec.select258 = getelementptr inbounds i8, ptr %link.0210, i64 %spec.select258.idx
   %4 = getelementptr inbounds [12 x i32], ptr %dirs, i64 0, i64 %indvars.iv
   store i32 %spec.select, ptr %4, align 4
   %link.1 = load ptr, ptr %spec.select258, align 8
@@ -329,7 +320,7 @@ if.end102:                                        ; preds = %if.then97, %if.end8
   %spec.store.select = select i1 %cmp124, ptr %23, ptr %21
   store ptr %spec.store.select, ptr %next_free, align 8
   store ptr %spec.store.select, ptr %object_base, align 8
-  %trie133 = getelementptr inbounds %struct.tree, ptr %9, i64 0, i32 2
+  %trie133 = getelementptr inbounds i8, ptr %9, i64 16
   store ptr %18, ptr %trie133, align 8
   %tobool135.not = icmp eq ptr %18, null
   br i1 %tobool135.not, label %if.then136, label %if.end150
@@ -356,29 +347,29 @@ if.else148:                                       ; preds = %land.lhs.true, %if.
 if.end150:                                        ; preds = %if.end102
   store i32 0, ptr %18, align 8
   %26 = load ptr, ptr %trie133, align 8
-  %links153 = getelementptr inbounds %struct.trie, ptr %26, i64 0, i32 1
+  %links153 = getelementptr inbounds i8, ptr %26, i64 8
   store ptr null, ptr %links153, align 8
   %27 = load ptr, ptr %trie133, align 8
-  %parent = getelementptr inbounds %struct.trie, ptr %27, i64 0, i32 2
+  %parent = getelementptr inbounds i8, ptr %27, i64 16
   store ptr %trie.0217, ptr %parent, align 8
   %28 = load ptr, ptr %trie133, align 8
-  %next = getelementptr inbounds %struct.trie, ptr %28, i64 0, i32 3
+  %next = getelementptr inbounds i8, ptr %28, i64 24
   store ptr null, ptr %next, align 8
   %29 = load ptr, ptr %trie133, align 8
-  %fail = getelementptr inbounds %struct.trie, ptr %29, i64 0, i32 4
+  %fail = getelementptr inbounds i8, ptr %29, i64 32
   store ptr null, ptr %fail, align 8
-  %depth157 = getelementptr inbounds %struct.trie, ptr %trie.0217, i64 0, i32 5
+  %depth157 = getelementptr inbounds i8, ptr %trie.0217, i64 40
   %30 = load i32, ptr %depth157, align 8
   %add158 = add nsw i32 %30, 1
   %31 = load ptr, ptr %trie133, align 8
-  %depth160 = getelementptr inbounds %struct.trie, ptr %31, i64 0, i32 5
+  %depth160 = getelementptr inbounds i8, ptr %31, i64 40
   store i32 %add158, ptr %depth160, align 8
   %32 = load ptr, ptr %trie133, align 8
-  %shift = getelementptr inbounds %struct.trie, ptr %32, i64 0, i32 6
+  %shift = getelementptr inbounds i8, ptr %32, i64 44
   store i32 0, ptr %shift, align 4
-  %label162 = getelementptr inbounds %struct.tree, ptr %9, i64 0, i32 3
+  %label162 = getelementptr inbounds i8, ptr %9, i64 24
   store i8 %cond, ptr %label162, align 8
-  %balance = getelementptr inbounds %struct.tree, ptr %9, i64 0, i32 4
+  %balance = getelementptr inbounds i8, ptr %9, i64 25
   store i8 0, ptr %balance, align 1
   %idxprom164 = zext nneg i32 %depth.0.lcssa to i64
   %arrayidx165 = getelementptr inbounds [12 x i32], ptr %dirs, i64 0, i64 %idxprom164
@@ -386,8 +377,8 @@ if.end150:                                        ; preds = %if.end102
   %cmp166 = icmp eq i32 %33, 0
   %arrayidx170 = getelementptr inbounds [12 x ptr], ptr %links, i64 0, i64 %idxprom164
   %34 = load ptr, ptr %arrayidx170, align 8
-  %rlink175 = getelementptr inbounds %struct.tree, ptr %34, i64 0, i32 1
-  %rlink175.sink = select i1 %cmp166, ptr %34, ptr %rlink175
+  %rlink175.sink.idx = select i1 %cmp166, i64 0, i64 8
+  %rlink175.sink = getelementptr inbounds i8, ptr %34, i64 %rlink175.sink.idx
   store ptr %9, ptr %rlink175.sink, align 8
   %tobool178.not211 = icmp eq i32 %depth.0.lcssa, 0
   br i1 %tobool178.not211, label %if.end330, label %land.rhs179
@@ -396,7 +387,7 @@ land.rhs179:                                      ; preds = %if.end150, %while.b
   %indvars.iv237 = phi i64 [ %indvars.iv.next238, %while.body185 ], [ %idxprom164, %if.end150 ]
   %arrayidx181 = getelementptr inbounds [12 x ptr], ptr %links, i64 0, i64 %indvars.iv237
   %35 = load ptr, ptr %arrayidx181, align 8
-  %balance182 = getelementptr inbounds %struct.tree, ptr %35, i64 0, i32 4
+  %balance182 = getelementptr inbounds i8, ptr %35, i64 25
   %36 = load i8, ptr %balance182, align 1
   %tobool183.not = icmp eq i8 %36, 0
   %arrayidx187 = getelementptr inbounds [12 x i32], ptr %dirs, i64 0, i64 %indvars.iv237
@@ -449,30 +440,30 @@ sw.bb:                                            ; preds = %if.then227
 
 sw.bb235:                                         ; preds = %sw.bb
   %41 = load ptr, ptr %35, align 8
-  %rlink239 = getelementptr inbounds %struct.tree, ptr %41, i64 0, i32 1
+  %rlink239 = getelementptr inbounds i8, ptr %41, i64 8
   %42 = load ptr, ptr %rlink239, align 8
   store ptr %35, ptr %rlink239, align 8
   store ptr %42, ptr %35, align 8
   store i8 0, ptr %balance182, align 1
-  %balance243 = getelementptr inbounds %struct.tree, ptr %41, i64 0, i32 4
+  %balance243 = getelementptr inbounds i8, ptr %41, i64 25
   br label %sw.epilog312
 
 sw.bb244:                                         ; preds = %sw.bb
   %43 = load ptr, ptr %35, align 8
-  %rlink248 = getelementptr inbounds %struct.tree, ptr %43, i64 0, i32 1
+  %rlink248 = getelementptr inbounds i8, ptr %43, i64 8
   %44 = load ptr, ptr %rlink248, align 8
-  %rlink249 = getelementptr inbounds %struct.tree, ptr %44, i64 0, i32 1
+  %rlink249 = getelementptr inbounds i8, ptr %44, i64 8
   %45 = load ptr, ptr %rlink249, align 8
   %46 = load ptr, ptr %44, align 8
   store ptr %43, ptr %44, align 8
   store ptr %46, ptr %rlink248, align 8
   store ptr %35, ptr %rlink249, align 8
   store ptr %45, ptr %35, align 8
-  %balance255 = getelementptr inbounds %struct.tree, ptr %44, i64 0, i32 4
+  %balance255 = getelementptr inbounds i8, ptr %44, i64 25
   %47 = load i8, ptr %balance255, align 1
   %cmp257.not = icmp eq i8 %47, 1
   %conv260 = sext i1 %cmp257.not to i8
-  %balance261 = getelementptr inbounds %struct.tree, ptr %43, i64 0, i32 4
+  %balance261 = getelementptr inbounds i8, ptr %43, i64 25
   store i8 %conv260, ptr %balance261, align 1
   %48 = load i8, ptr %balance255, align 1
   %cmp264.not = icmp eq i8 %48, -1
@@ -496,27 +487,27 @@ sw.bb270:                                         ; preds = %if.then227
   ]
 
 sw.bb274:                                         ; preds = %sw.bb270
-  %rlink277 = getelementptr inbounds %struct.tree, ptr %35, i64 0, i32 1
+  %rlink277 = getelementptr inbounds i8, ptr %35, i64 8
   %50 = load ptr, ptr %rlink277, align 8
   %51 = load ptr, ptr %50, align 8
   store ptr %35, ptr %50, align 8
   store ptr %51, ptr %rlink277, align 8
   store i8 0, ptr %balance182, align 1
-  %balance282 = getelementptr inbounds %struct.tree, ptr %50, i64 0, i32 4
+  %balance282 = getelementptr inbounds i8, ptr %50, i64 25
   br label %sw.epilog312
 
 sw.bb283:                                         ; preds = %sw.bb270
-  %rlink286 = getelementptr inbounds %struct.tree, ptr %35, i64 0, i32 1
+  %rlink286 = getelementptr inbounds i8, ptr %35, i64 8
   %52 = load ptr, ptr %rlink286, align 8
   %53 = load ptr, ptr %52, align 8
   %54 = load ptr, ptr %53, align 8
-  %rlink289 = getelementptr inbounds %struct.tree, ptr %53, i64 0, i32 1
+  %rlink289 = getelementptr inbounds i8, ptr %53, i64 8
   %55 = load ptr, ptr %rlink289, align 8
   store ptr %35, ptr %53, align 8
   store ptr %54, ptr %rlink286, align 8
   store ptr %52, ptr %rlink289, align 8
   store ptr %55, ptr %52, align 8
-  %balance294 = getelementptr inbounds %struct.tree, ptr %53, i64 0, i32 4
+  %balance294 = getelementptr inbounds i8, ptr %53, i64 25
   %56 = load i8, ptr %balance294, align 1
   %cmp296.not = icmp eq i8 %56, 1
   %conv299 = sext i1 %cmp296.not to i8
@@ -524,7 +515,7 @@ sw.bb283:                                         ; preds = %sw.bb270
   %57 = load i8, ptr %balance294, align 1
   %cmp303.not = icmp eq i8 %57, -1
   %conv306 = zext i1 %cmp303.not to i8
-  %balance307 = getelementptr inbounds %struct.tree, ptr %52, i64 0, i32 4
+  %balance307 = getelementptr inbounds i8, ptr %52, i64 25
   store i8 %conv306, ptr %balance307, align 1
   br label %sw.epilog312
 
@@ -548,14 +539,14 @@ sw.epilog312:                                     ; preds = %sw.bb274, %sw.bb283
   %cmp316 = icmp eq i32 %58, 0
   %arrayidx321 = getelementptr inbounds [12 x ptr], ptr %links, i64 0, i64 %idxprom314
   %59 = load ptr, ptr %arrayidx321, align 8
-  %rlink327 = getelementptr inbounds %struct.tree, ptr %59, i64 0, i32 1
-  %rlink327.sink = select i1 %cmp316, ptr %59, ptr %rlink327
+  %rlink327.sink.idx = select i1 %cmp316, i64 0, i64 8
+  %rlink327.sink = getelementptr inbounds i8, ptr %59, i64 %rlink327.sink.idx
   store ptr %t.0, ptr %rlink327.sink, align 8
   br label %if.end330
 
 if.end330:                                        ; preds = %land.rhs, %while.body185, %sw.epilog312, %if.end150, %land.lhs.true204, %land.lhs.true209, %land.lhs.true220
   %link.2 = phi ptr [ %9, %land.lhs.true220 ], [ %9, %land.lhs.true209 ], [ %9, %land.lhs.true204 ], [ %9, %if.end150 ], [ %9, %sw.epilog312 ], [ %9, %while.body185 ], [ %link.0210, %land.rhs ]
-  %trie331 = getelementptr inbounds %struct.tree, ptr %link.2, i64 0, i32 2
+  %trie331 = getelementptr inbounds i8, ptr %link.2, i64 16
   %trie.0 = load ptr, ptr %trie331, align 8
   %tobool.not = icmp eq i64 %dec218, 0
   br i1 %tobool.not, label %while.end332, label %while.body, !llvm.loop !8
@@ -567,7 +558,7 @@ while.end332:                                     ; preds = %if.end330, %entry
   br i1 %tobool334.not, label %if.then335, label %if.end338
 
 if.then335:                                       ; preds = %while.end332
-  %words = getelementptr inbounds %struct.kwset, ptr %kws, i64 0, i32 1
+  %words = getelementptr inbounds i8, ptr %kws, i64 88
   %61 = load i32, ptr %words, align 8
   %mul = shl nsw i32 %61, 1
   %add336 = or disjoint i32 %mul, 1
@@ -575,13 +566,13 @@ if.then335:                                       ; preds = %while.end332
   br label %if.end338
 
 if.end338:                                        ; preds = %if.then335, %while.end332
-  %words339 = getelementptr inbounds %struct.kwset, ptr %kws, i64 0, i32 1
+  %words339 = getelementptr inbounds i8, ptr %kws, i64 88
   %62 = load i32, ptr %words339, align 8
   %inc340 = add nsw i32 %62, 1
   store i32 %inc340, ptr %words339, align 8
-  %depth341 = getelementptr inbounds %struct.trie, ptr %trie.0.lcssa, i64 0, i32 5
+  %depth341 = getelementptr inbounds i8, ptr %trie.0.lcssa, i64 40
   %63 = load i32, ptr %depth341, align 8
-  %mind = getelementptr inbounds %struct.kwset, ptr %kws, i64 0, i32 3
+  %mind = getelementptr inbounds i8, ptr %kws, i64 104
   %64 = load i32, ptr %mind, align 8
   %cmp342 = icmp slt i32 %63, %64
   br i1 %cmp342, label %if.then344, label %if.end347
@@ -593,7 +584,7 @@ if.then344:                                       ; preds = %if.end338
 
 if.end347:                                        ; preds = %if.then344, %if.end338
   %65 = phi i32 [ %.pre241, %if.then344 ], [ %63, %if.end338 ]
-  %maxd = getelementptr inbounds %struct.kwset, ptr %kws, i64 0, i32 4
+  %maxd = getelementptr inbounds i8, ptr %kws, i64 108
   %66 = load i32, ptr %maxd, align 4
   %cmp349 = icmp sgt i32 %65, %66
   br i1 %cmp349, label %if.then351, label %return
@@ -618,26 +609,26 @@ entry:
   %delta = alloca [256 x i8], align 16
   %last = alloca ptr, align 8
   %next = alloca [256 x ptr], align 16
-  %mind = getelementptr inbounds %struct.kwset, ptr %kws, i64 0, i32 3
+  %mind = getelementptr inbounds i8, ptr %kws, i64 104
   %0 = load i32, ptr %mind, align 8
   %spec.select = tail call i32 @llvm.smin.i32(i32 %0, i32 255)
   %1 = trunc i32 %spec.select to i8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(256) %delta, i8 %1, i64 256, i1 false)
-  %words = getelementptr inbounds %struct.kwset, ptr %kws, i64 0, i32 1
+  %words = getelementptr inbounds i8, ptr %kws, i64 88
   %2 = load i32, ptr %words, align 8
   %cmp2 = icmp eq i32 %2, 1
   br i1 %cmp2, label %land.lhs.true, label %if.else
 
 land.lhs.true:                                    ; preds = %entry
-  %trans3 = getelementptr inbounds %struct.kwset, ptr %kws, i64 0, i32 9
+  %trans3 = getelementptr inbounds i8, ptr %kws, i64 2432
   %3 = load ptr, ptr %trans3, align 8
   %cmp4 = icmp eq ptr %3, null
   br i1 %cmp4, label %if.then, label %if.else
 
 if.then:                                          ; preds = %land.lhs.true
-  %chunk_limit = getelementptr inbounds %struct.obstack, ptr %kws, i64 0, i32 4
+  %chunk_limit = getelementptr inbounds i8, ptr %kws, i64 32
   %4 = load ptr, ptr %chunk_limit, align 8
-  %next_free = getelementptr inbounds %struct.obstack, ptr %kws, i64 0, i32 3
+  %next_free = getelementptr inbounds i8, ptr %kws, i64 24
   %5 = load ptr, ptr %next_free, align 8
   %sub.ptr.lhs.cast = ptrtoint ptr %4 to i64
   %sub.ptr.rhs.cast = ptrtoint ptr %5 to i64
@@ -654,13 +645,13 @@ if.then8:                                         ; preds = %if.then
 if.end:                                           ; preds = %if.then8, %if.then
   %6 = phi ptr [ %.pre153, %if.then8 ], [ %5, %if.then ]
   %add.ptr = getelementptr inbounds i8, ptr %6, i64 %conv
-  %object_base = getelementptr inbounds %struct.obstack, ptr %kws, i64 0, i32 2
+  %object_base = getelementptr inbounds i8, ptr %kws, i64 16
   %7 = load ptr, ptr %object_base, align 8
   %cmp11 = icmp eq ptr %add.ptr, %7
   br i1 %cmp11, label %if.then13, label %if.end14
 
 if.then13:                                        ; preds = %if.end
-  %maybe_empty_object = getelementptr inbounds %struct.obstack, ptr %kws, i64 0, i32 10
+  %maybe_empty_object = getelementptr inbounds i8, ptr %kws, i64 80
   %bf.load = load i8, ptr %maybe_empty_object, align 8
   %bf.set = or i8 %bf.load, 2
   store i8 %bf.set, ptr %maybe_empty_object, align 8
@@ -668,7 +659,7 @@ if.then13:                                        ; preds = %if.end
 
 if.end14:                                         ; preds = %if.then13, %if.end
   %8 = ptrtoint ptr %add.ptr to i64
-  %alignment_mask = getelementptr inbounds %struct.obstack, ptr %kws, i64 0, i32 6
+  %alignment_mask = getelementptr inbounds i8, ptr %kws, i64 48
   %9 = load i32, ptr %alignment_mask, align 8
   %conv16 = sext i32 %9 to i64
   %add = add nsw i64 %conv16, %8
@@ -677,7 +668,7 @@ if.end14:                                         ; preds = %if.then13, %if.end
   %and = and i64 %add, %conv18
   %10 = inttoptr i64 %and to ptr
   store ptr %10, ptr %next_free, align 8
-  %chunk = getelementptr inbounds %struct.obstack, ptr %kws, i64 0, i32 1
+  %chunk = getelementptr inbounds i8, ptr %kws, i64 8
   %11 = load ptr, ptr %chunk, align 8
   %sub.ptr.rhs.cast23 = ptrtoint ptr %11 to i64
   %sub.ptr.sub24 = sub i64 %and, %sub.ptr.rhs.cast23
@@ -694,7 +685,7 @@ if.then32:                                        ; preds = %if.end14
 if.end35:                                         ; preds = %if.then32, %if.end14
   %13 = phi ptr [ %12, %if.then32 ], [ %10, %if.end14 ]
   store ptr %13, ptr %object_base, align 8
-  %target = getelementptr inbounds %struct.kwset, ptr %kws, i64 0, i32 7
+  %target = getelementptr inbounds i8, ptr %kws, i64 2416
   store ptr %7, ptr %target, align 8
   %tobool.not = icmp eq ptr %7, null
   br i1 %tobool.not, label %return, label %if.end41
@@ -705,7 +696,7 @@ if.end41:                                         ; preds = %if.end35
   br i1 %cmp44128, label %for.body.preheader, label %for.end64.thread
 
 for.body.preheader:                               ; preds = %if.end41
-  %trie = getelementptr inbounds %struct.kwset, ptr %kws, i64 0, i32 2
+  %trie = getelementptr inbounds i8, ptr %kws, i64 96
   %15 = zext nneg i32 %14 to i64
   br label %for.body
 
@@ -730,15 +721,15 @@ for.body:                                         ; preds = %for.body.preheader,
   %curr.0.in129 = phi ptr [ %trie, %for.body.preheader ], [ %trie48, %for.body ]
   %indvars.iv.next141 = add nsw i64 %indvars.iv140, -1
   %curr.0 = load ptr, ptr %curr.0.in129, align 8
-  %links = getelementptr inbounds %struct.trie, ptr %curr.0, i64 0, i32 1
+  %links = getelementptr inbounds i8, ptr %curr.0, i64 8
   %18 = load ptr, ptr %links, align 8
-  %label = getelementptr inbounds %struct.tree, ptr %18, i64 0, i32 3
+  %label = getelementptr inbounds i8, ptr %18, i64 24
   %19 = load i8, ptr %label, align 8
   %20 = load ptr, ptr %target, align 8
   %arrayidx = getelementptr inbounds i8, ptr %20, i64 %indvars.iv.next141
   store i8 %19, ptr %arrayidx, align 1
   %21 = load ptr, ptr %links, align 8
-  %trie48 = getelementptr inbounds %struct.tree, ptr %21, i64 0, i32 2
+  %trie48 = getelementptr inbounds i8, ptr %21, i64 16
   %cmp44 = icmp ugt i64 %indvars.iv140, 1
   br i1 %cmp44, label %for.body, label %for.cond49.preheader, !llvm.loop !9
 
@@ -782,12 +773,12 @@ for.end87:                                        ; preds = %for.inc85, %for.bod
   %i.2.lcssa = phi i32 [ %sub71, %for.end64 ], [ %sub71165, %for.end64.thread ], [ -1, %for.inc85 ], [ %i.2134, %for.body75 ]
   %add89.neg = xor i32 %i.2.lcssa, -1
   %sub90 = add i32 %28, %add89.neg
-  %mind2 = getelementptr inbounds %struct.kwset, ptr %kws, i64 0, i32 8
+  %mind2 = getelementptr inbounds i8, ptr %kws, i64 2424
   store i32 %sub90, ptr %mind2, align 8
   br label %if.end203
 
 if.else:                                          ; preds = %land.lhs.true, %entry
-  %trie91 = getelementptr inbounds %struct.kwset, ptr %kws, i64 0, i32 2
+  %trie91 = getelementptr inbounds i8, ptr %kws, i64 96
   %29 = load ptr, ptr %trie91, align 8
   store ptr %29, ptr %last, align 8
   %tobool93.not120 = icmp eq ptr %29, null
@@ -795,20 +786,20 @@ if.else:                                          ; preds = %land.lhs.true, %ent
 
 for.body94:                                       ; preds = %if.else, %for.inc141
   %curr.1121 = phi ptr [ %46, %for.inc141 ], [ %29, %if.else ]
-  %links95 = getelementptr inbounds %struct.trie, ptr %curr.1121, i64 0, i32 1
+  %links95 = getelementptr inbounds i8, ptr %curr.1121, i64 8
   %30 = load ptr, ptr %links95, align 8
   call fastcc void @enqueue(ptr noundef %30, ptr noundef nonnull %last)
   %31 = load i32, ptr %mind, align 8
-  %shift = getelementptr inbounds %struct.trie, ptr %curr.1121, i64 0, i32 6
+  %shift = getelementptr inbounds i8, ptr %curr.1121, i64 44
   store i32 %31, ptr %shift, align 4
-  %maxshift = getelementptr inbounds %struct.trie, ptr %curr.1121, i64 0, i32 7
+  %maxshift = getelementptr inbounds i8, ptr %curr.1121, i64 48
   store i32 %31, ptr %maxshift, align 8
   %32 = load ptr, ptr %links95, align 8
-  %depth = getelementptr inbounds %struct.trie, ptr %curr.1121, i64 0, i32 5
+  %depth = getelementptr inbounds i8, ptr %curr.1121, i64 40
   %33 = load i32, ptr %depth, align 8
   call fastcc void @treedelta(ptr noundef %32, i32 noundef %33, ptr noundef nonnull %delta)
   %34 = load ptr, ptr %links95, align 8
-  %fail101 = getelementptr inbounds %struct.trie, ptr %curr.1121, i64 0, i32 4
+  %fail101 = getelementptr inbounds i8, ptr %curr.1121, i64 32
   %35 = load ptr, ptr %fail101, align 8
   %36 = load ptr, ptr %trie91, align 8
   call fastcc void @treefails(ptr noundef %34, ptr noundef %35, ptr noundef %36)
@@ -818,7 +809,7 @@ for.body94:                                       ; preds = %if.else, %for.inc14
 
 for.body106:                                      ; preds = %for.body94, %for.inc138
   %fail.0119 = phi ptr [ %fail.0, %for.inc138 ], [ %fail.0117, %for.body94 ]
-  %links107 = getelementptr inbounds %struct.trie, ptr %fail.0119, i64 0, i32 1
+  %links107 = getelementptr inbounds i8, ptr %fail.0119, i64 8
   %37 = load ptr, ptr %links107, align 8
   %38 = load ptr, ptr %links95, align 8
   %call = call fastcc i32 @hasevery(ptr noundef %37, ptr noundef %38), !range !12
@@ -827,10 +818,10 @@ for.body106:                                      ; preds = %for.body94, %for.in
 
 if.then110:                                       ; preds = %for.body106
   %39 = load i32, ptr %depth, align 8
-  %depth112 = getelementptr inbounds %struct.trie, ptr %fail.0119, i64 0, i32 5
+  %depth112 = getelementptr inbounds i8, ptr %fail.0119, i64 40
   %40 = load i32, ptr %depth112, align 8
   %sub113 = sub nsw i32 %39, %40
-  %shift114 = getelementptr inbounds %struct.trie, ptr %fail.0119, i64 0, i32 6
+  %shift114 = getelementptr inbounds i8, ptr %fail.0119, i64 44
   %41 = load i32, ptr %shift114, align 4
   %cmp115 = icmp slt i32 %sub113, %41
   br i1 %cmp115, label %if.then117, label %if.end123
@@ -845,10 +836,10 @@ if.end123:                                        ; preds = %if.then110, %if.the
   br i1 %tobool124.not, label %for.inc138, label %land.lhs.true125
 
 land.lhs.true125:                                 ; preds = %if.end123
-  %maxshift126 = getelementptr inbounds %struct.trie, ptr %fail.0119, i64 0, i32 7
+  %maxshift126 = getelementptr inbounds i8, ptr %fail.0119, i64 48
   %43 = load i32, ptr %maxshift126, align 8
   %44 = load i32, ptr %depth, align 8
-  %depth128 = getelementptr inbounds %struct.trie, ptr %fail.0119, i64 0, i32 5
+  %depth128 = getelementptr inbounds i8, ptr %fail.0119, i64 40
   %45 = load i32, ptr %depth128, align 8
   %sub129 = sub nsw i32 %44, %45
   %cmp130 = icmp sgt i32 %43, %sub129
@@ -859,13 +850,13 @@ if.then132:                                       ; preds = %land.lhs.true125
   br label %for.inc138
 
 for.inc138:                                       ; preds = %if.end123, %land.lhs.true125, %if.then132
-  %fail139 = getelementptr inbounds %struct.trie, ptr %fail.0119, i64 0, i32 4
+  %fail139 = getelementptr inbounds i8, ptr %fail.0119, i64 32
   %fail.0 = load ptr, ptr %fail139, align 8
   %tobool105.not = icmp eq ptr %fail.0, null
   br i1 %tobool105.not, label %for.inc141, label %for.body106, !llvm.loop !13
 
 for.inc141:                                       ; preds = %for.inc138, %for.body94
-  %next142 = getelementptr inbounds %struct.trie, ptr %curr.1121, i64 0, i32 3
+  %next142 = getelementptr inbounds i8, ptr %curr.1121, i64 24
   %46 = load ptr, ptr %next142, align 8
   %tobool93.not = icmp eq ptr %46, null
   br i1 %tobool93.not, label %for.end143.loopexit, label %for.body94, !llvm.loop !14
@@ -876,7 +867,7 @@ for.end143.loopexit:                              ; preds = %for.inc141
 
 for.end143:                                       ; preds = %for.end143.loopexit, %if.else
   %47 = phi ptr [ %.pre, %for.end143.loopexit ], [ null, %if.else ]
-  %curr.2.in122 = getelementptr inbounds %struct.trie, ptr %47, i64 0, i32 3
+  %curr.2.in122 = getelementptr inbounds i8, ptr %47, i64 24
   %curr.2123 = load ptr, ptr %curr.2.in122, align 8
   %tobool147.not124 = icmp eq ptr %curr.2123, null
   br i1 %tobool147.not124, label %for.cond169.preheader, label %for.body148
@@ -888,21 +879,22 @@ for.cond169.preheader.loopexit:                   ; preds = %for.inc166
 for.cond169.preheader:                            ; preds = %for.cond169.preheader.loopexit, %for.end143
   %48 = phi ptr [ %.pre152, %for.cond169.preheader.loopexit ], [ %47, %for.end143 ]
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(2048) %next, i8 0, i64 2048, i1 false)
-  %links179 = getelementptr inbounds %struct.trie, ptr %48, i64 0, i32 1
+  %links179 = getelementptr inbounds i8, ptr %48, i64 8
   %49 = load ptr, ptr %links179, align 8
   call fastcc void @treenext(ptr noundef %49, ptr noundef nonnull %next)
-  %trans181 = getelementptr inbounds %struct.kwset, ptr %kws, i64 0, i32 9
+  %trans181 = getelementptr inbounds i8, ptr %kws, i64 2432
   %50 = load ptr, ptr %trans181, align 8
   %tobool182.not = icmp eq ptr %50, null
+  %next199 = getelementptr inbounds i8, ptr %kws, i64 368
   br i1 %tobool182.not, label %if.else198, label %for.body187
 
 for.body148:                                      ; preds = %for.end143, %for.inc166
   %curr.2125 = phi ptr [ %curr.2, %for.inc166 ], [ %curr.2123, %for.end143 ]
-  %maxshift149 = getelementptr inbounds %struct.trie, ptr %curr.2125, i64 0, i32 7
+  %maxshift149 = getelementptr inbounds i8, ptr %curr.2125, i64 48
   %51 = load i32, ptr %maxshift149, align 8
-  %parent = getelementptr inbounds %struct.trie, ptr %curr.2125, i64 0, i32 2
+  %parent = getelementptr inbounds i8, ptr %curr.2125, i64 16
   %52 = load ptr, ptr %parent, align 8
-  %maxshift150 = getelementptr inbounds %struct.trie, ptr %52, i64 0, i32 7
+  %maxshift150 = getelementptr inbounds i8, ptr %52, i64 48
   %53 = load i32, ptr %maxshift150, align 8
   %cmp151 = icmp sgt i32 %51, %53
   br i1 %cmp151, label %if.then153, label %if.end157
@@ -913,7 +905,7 @@ if.then153:                                       ; preds = %for.body148
 
 if.end157:                                        ; preds = %if.then153, %for.body148
   %54 = phi i32 [ %53, %if.then153 ], [ %51, %for.body148 ]
-  %shift158 = getelementptr inbounds %struct.trie, ptr %curr.2125, i64 0, i32 6
+  %shift158 = getelementptr inbounds i8, ptr %curr.2125, i64 44
   %55 = load i32, ptr %shift158, align 4
   %cmp160 = icmp sgt i32 %55, %54
   br i1 %cmp160, label %if.then162, label %for.inc166
@@ -923,7 +915,7 @@ if.then162:                                       ; preds = %if.end157
   br label %for.inc166
 
 for.inc166:                                       ; preds = %if.end157, %if.then162
-  %curr.2.in = getelementptr inbounds %struct.trie, ptr %curr.2125, i64 0, i32 3
+  %curr.2.in = getelementptr inbounds i8, ptr %curr.2125, i64 24
   %curr.2 = load ptr, ptr %curr.2.in, align 8
   %tobool147.not = icmp eq ptr %curr.2, null
   br i1 %tobool147.not, label %for.cond169.preheader.loopexit, label %for.body148, !llvm.loop !15
@@ -935,21 +927,21 @@ for.body187:                                      ; preds = %for.cond169.prehead
   %idxprom190 = zext i8 %56 to i64
   %arrayidx191 = getelementptr inbounds [256 x ptr], ptr %next, i64 0, i64 %idxprom190
   %57 = load ptr, ptr %arrayidx191, align 8
-  %arrayidx194 = getelementptr inbounds %struct.kwset, ptr %kws, i64 0, i32 6, i64 %indvars.iv
+  %arrayidx194 = getelementptr inbounds [256 x ptr], ptr %next199, i64 0, i64 %indvars.iv
   store ptr %57, ptr %arrayidx194, align 8
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 256
   br i1 %exitcond.not, label %if.end203, label %for.body187, !llvm.loop !16
 
 if.else198:                                       ; preds = %for.cond169.preheader
-  %next199 = getelementptr inbounds %struct.kwset, ptr %kws, i64 0, i32 6
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(2048) %next199, ptr noundef nonnull align 16 dereferenceable(2048) %next, i64 2048, i1 false)
   br label %if.end203
 
 if.end203:                                        ; preds = %for.body187, %if.else198, %for.end87
-  %trans204 = getelementptr inbounds %struct.kwset, ptr %kws, i64 0, i32 9
+  %trans204 = getelementptr inbounds i8, ptr %kws, i64 2432
   %58 = load ptr, ptr %trans204, align 8
   %tobool205.not = icmp eq ptr %58, null
+  %delta222 = getelementptr inbounds i8, ptr %kws, i64 112
   br i1 %tobool205.not, label %if.else221, label %for.body210
 
 for.body210:                                      ; preds = %if.end203, %for.body210
@@ -959,14 +951,13 @@ for.body210:                                      ; preds = %if.end203, %for.bod
   %idxprom213 = zext i8 %59 to i64
   %arrayidx214 = getelementptr inbounds [256 x i8], ptr %delta, i64 0, i64 %idxprom213
   %60 = load i8, ptr %arrayidx214, align 1
-  %arrayidx217 = getelementptr inbounds %struct.kwset, ptr %kws, i64 0, i32 5, i64 %indvars.iv148
+  %arrayidx217 = getelementptr inbounds [256 x i8], ptr %delta222, i64 0, i64 %indvars.iv148
   store i8 %60, ptr %arrayidx217, align 1
   %indvars.iv.next149 = add nuw nsw i64 %indvars.iv148, 1
   %exitcond151.not = icmp eq i64 %indvars.iv.next149, 256
   br i1 %exitcond151.not, label %return, label %for.body210, !llvm.loop !17
 
 if.else221:                                       ; preds = %if.end203
-  %delta222 = getelementptr inbounds %struct.kwset, ptr %kws, i64 0, i32 5
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(256) %delta222, ptr noundef nonnull align 16 dereferenceable(256) %delta, i64 256, i1 false)
   br label %return
 
@@ -990,13 +981,13 @@ common.ret7:                                      ; preds = %entry, %if.end
 if.end:                                           ; preds = %entry
   %0 = load ptr, ptr %tree, align 8
   tail call fastcc void @enqueue(ptr noundef %0, ptr noundef %last)
-  %rlink = getelementptr inbounds %struct.tree, ptr %tree, i64 0, i32 1
+  %rlink = getelementptr inbounds i8, ptr %tree, i64 8
   %1 = load ptr, ptr %rlink, align 8
   tail call fastcc void @enqueue(ptr noundef %1, ptr noundef %last)
-  %trie = getelementptr inbounds %struct.tree, ptr %tree, i64 0, i32 2
+  %trie = getelementptr inbounds i8, ptr %tree, i64 16
   %2 = load ptr, ptr %trie, align 8
   %3 = load ptr, ptr %last, align 8
-  %next = getelementptr inbounds %struct.trie, ptr %3, i64 0, i32 3
+  %next = getelementptr inbounds i8, ptr %3, i64 24
   store ptr %2, ptr %next, align 8
   store ptr %2, ptr %last, align 8
   br label %common.ret7
@@ -1011,10 +1002,10 @@ entry:
 if.end:                                           ; preds = %entry
   %0 = load ptr, ptr %tree, align 8
   tail call fastcc void @treedelta(ptr noundef %0, i32 noundef %depth, ptr noundef %delta)
-  %rlink = getelementptr inbounds %struct.tree, ptr %tree, i64 0, i32 1
+  %rlink = getelementptr inbounds i8, ptr %tree, i64 8
   %1 = load ptr, ptr %rlink, align 8
   tail call fastcc void @treedelta(ptr noundef %1, i32 noundef %depth, ptr noundef %delta)
-  %label = getelementptr inbounds %struct.tree, ptr %tree, i64 0, i32 3
+  %label = getelementptr inbounds i8, ptr %tree, i64 24
   %2 = load i8, ptr %label, align 8
   %idxprom = zext i8 %2 to i64
   %arrayidx = getelementptr inbounds i8, ptr %delta, i64 %idxprom
@@ -1041,19 +1032,19 @@ entry:
 if.end:                                           ; preds = %entry
   %0 = load ptr, ptr %tree, align 8
   tail call fastcc void @treefails(ptr noundef %0, ptr noundef %fail, ptr noundef %recourse)
-  %rlink = getelementptr inbounds %struct.tree, ptr %tree, i64 0, i32 1
+  %rlink = getelementptr inbounds i8, ptr %tree, i64 8
   %1 = load ptr, ptr %rlink, align 8
   tail call fastcc void @treefails(ptr noundef %1, ptr noundef %fail, ptr noundef %recourse)
   %tobool1.not23 = icmp eq ptr %fail, null
   br i1 %tobool1.not23, label %return.sink.split, label %while.body.lr.ph
 
 while.body.lr.ph:                                 ; preds = %if.end
-  %label = getelementptr inbounds %struct.tree, ptr %tree, i64 0, i32 3
+  %label = getelementptr inbounds i8, ptr %tree, i64 24
   br label %while.body
 
 while.body:                                       ; preds = %while.body.lr.ph, %if.end22
   %fail.addr.024 = phi ptr [ %fail, %while.body.lr.ph ], [ %5, %if.end22 ]
-  %links = getelementptr inbounds %struct.trie, ptr %fail.addr.024, i64 0, i32 1
+  %links = getelementptr inbounds i8, ptr %fail.addr.024, i64 8
   %link.020 = load ptr, ptr %links, align 8
   %tobool3.not21 = icmp eq ptr %link.020, null
   br i1 %tobool3.not21, label %if.end22, label %land.rhs.lr.ph
@@ -1064,35 +1055,35 @@ land.rhs.lr.ph:                                   ; preds = %while.body
 
 land.rhs:                                         ; preds = %land.rhs.lr.ph, %while.body7
   %link.022 = phi ptr [ %link.020, %land.rhs.lr.ph ], [ %link.0, %while.body7 ]
-  %label4 = getelementptr inbounds %struct.tree, ptr %link.022, i64 0, i32 3
+  %label4 = getelementptr inbounds i8, ptr %link.022, i64 24
   %3 = load i8, ptr %label4, align 8
   %cmp.not = icmp eq i8 %2, %3
   br i1 %cmp.not, label %if.then19, label %while.body7
 
 while.body7:                                      ; preds = %land.rhs
   %cmp12 = icmp ult i8 %2, %3
-  %rlink16 = getelementptr inbounds %struct.tree, ptr %link.022, i64 0, i32 1
-  %link.1.in = select i1 %cmp12, ptr %link.022, ptr %rlink16
+  %link.1.in.idx = select i1 %cmp12, i64 0, i64 8
+  %link.1.in = getelementptr inbounds i8, ptr %link.022, i64 %link.1.in.idx
   %link.0 = load ptr, ptr %link.1.in, align 8
   %tobool3.not = icmp eq ptr %link.0, null
   br i1 %tobool3.not, label %if.end22, label %land.rhs, !llvm.loop !18
 
 if.then19:                                        ; preds = %land.rhs
-  %trie = getelementptr inbounds %struct.tree, ptr %link.022, i64 0, i32 2
+  %trie = getelementptr inbounds i8, ptr %link.022, i64 16
   %4 = load ptr, ptr %trie, align 8
   br label %return.sink.split
 
 if.end22:                                         ; preds = %while.body7, %while.body
-  %fail23 = getelementptr inbounds %struct.trie, ptr %fail.addr.024, i64 0, i32 4
+  %fail23 = getelementptr inbounds i8, ptr %fail.addr.024, i64 32
   %5 = load ptr, ptr %fail23, align 8
   %tobool1.not = icmp eq ptr %5, null
   br i1 %tobool1.not, label %return.sink.split, label %while.body, !llvm.loop !19
 
 return.sink.split:                                ; preds = %if.end22, %if.end, %if.then19
   %recourse.sink = phi ptr [ %4, %if.then19 ], [ %recourse, %if.end ], [ %recourse, %if.end22 ]
-  %trie25 = getelementptr inbounds %struct.tree, ptr %tree, i64 0, i32 2
+  %trie25 = getelementptr inbounds i8, ptr %tree, i64 16
   %6 = load ptr, ptr %trie25, align 8
-  %fail26 = getelementptr inbounds %struct.trie, ptr %6, i64 0, i32 4
+  %fail26 = getelementptr inbounds i8, ptr %6, i64 32
   store ptr %recourse.sink, ptr %fail26, align 8
   br label %return
 
@@ -1113,7 +1104,7 @@ if.end:                                           ; preds = %entry
   br i1 %tobool1.not, label %return, label %if.end3
 
 if.end3:                                          ; preds = %if.end
-  %rlink = getelementptr inbounds %struct.tree, ptr %b, i64 0, i32 1
+  %rlink = getelementptr inbounds i8, ptr %b, i64 8
   %1 = load ptr, ptr %rlink, align 8
   %call4 = tail call fastcc i32 @hasevery(ptr noundef %a, ptr noundef %1), !range !12
   %tobool5.not = icmp eq i32 %call4, 0
@@ -1122,21 +1113,21 @@ if.end3:                                          ; preds = %if.end
   br i1 %or.cond, label %return, label %land.rhs.lr.ph
 
 land.rhs.lr.ph:                                   ; preds = %if.end3
-  %label = getelementptr inbounds %struct.tree, ptr %b, i64 0, i32 3
+  %label = getelementptr inbounds i8, ptr %b, i64 24
   %2 = load i8, ptr %label, align 8
   br label %land.rhs
 
 land.rhs:                                         ; preds = %land.rhs.lr.ph, %while.body
   %a.addr.013 = phi ptr [ %a, %land.rhs.lr.ph ], [ %a.addr.1, %while.body ]
-  %label9 = getelementptr inbounds %struct.tree, ptr %a.addr.013, i64 0, i32 3
+  %label9 = getelementptr inbounds i8, ptr %a.addr.013, i64 24
   %3 = load i8, ptr %label9, align 8
   %cmp.not = icmp eq i8 %2, %3
   br i1 %cmp.not, label %while.end.loopexit, label %while.body
 
 while.body:                                       ; preds = %land.rhs
   %cmp16 = icmp ult i8 %2, %3
-  %rlink20 = getelementptr inbounds %struct.tree, ptr %a.addr.013, i64 0, i32 1
-  %a.addr.1.in = select i1 %cmp16, ptr %a.addr.013, ptr %rlink20
+  %a.addr.1.in.idx = select i1 %cmp16, i64 0, i64 8
+  %a.addr.1.in = getelementptr inbounds i8, ptr %a.addr.013, i64 %a.addr.1.in.idx
   %a.addr.1 = load ptr, ptr %a.addr.1.in, align 8
   %tobool8.not = icmp eq ptr %a.addr.1, null
   br i1 %tobool8.not, label %while.end.loopexit, label %land.rhs, !llvm.loop !20
@@ -1162,12 +1153,12 @@ common.ret7:                                      ; preds = %entry, %if.end
 if.end:                                           ; preds = %entry
   %0 = load ptr, ptr %tree, align 8
   tail call fastcc void @treenext(ptr noundef %0, ptr noundef %next)
-  %rlink = getelementptr inbounds %struct.tree, ptr %tree, i64 0, i32 1
+  %rlink = getelementptr inbounds i8, ptr %tree, i64 8
   %1 = load ptr, ptr %rlink, align 8
   tail call fastcc void @treenext(ptr noundef %1, ptr noundef %next)
-  %trie = getelementptr inbounds %struct.tree, ptr %tree, i64 0, i32 2
+  %trie = getelementptr inbounds i8, ptr %tree, i64 16
   %2 = load ptr, ptr %trie, align 8
-  %label = getelementptr inbounds %struct.tree, ptr %tree, i64 0, i32 3
+  %label = getelementptr inbounds i8, ptr %tree, i64 24
   %3 = load i8, ptr %label, align 8
   %idxprom = zext i8 %3 to i64
   %arrayidx = getelementptr inbounds ptr, ptr %next, i64 %idxprom
@@ -1181,19 +1172,19 @@ declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias
 ; Function Attrs: nofree nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
 define dso_local i64 @kwsexec(ptr nocapture noundef readonly %kws, ptr noundef %text, i64 noundef %size, ptr noundef writeonly %kwsmatch) local_unnamed_addr #8 {
 entry:
-  %words = getelementptr inbounds %struct.kwset, ptr %kws, i64 0, i32 1
+  %words = getelementptr inbounds i8, ptr %kws, i64 88
   %0 = load i32, ptr %words, align 8
   %cmp = icmp eq i32 %0, 1
   br i1 %cmp, label %land.lhs.true, label %if.else
 
 land.lhs.true:                                    ; preds = %entry
-  %trans = getelementptr inbounds %struct.kwset, ptr %kws, i64 0, i32 9
+  %trans = getelementptr inbounds i8, ptr %kws, i64 2432
   %1 = load ptr, ptr %trans, align 8
   %cmp1 = icmp eq ptr %1, null
   br i1 %cmp1, label %if.then, label %if.else
 
 if.then:                                          ; preds = %land.lhs.true
-  %mind.i = getelementptr inbounds %struct.kwset, ptr %kws, i64 0, i32 3
+  %mind.i = getelementptr inbounds i8, ptr %kws, i64 104
   %2 = load i32, ptr %mind.i, align 8
   %.fr.i = freeze i32 %2
   %cmp.i = icmp eq i32 %.fr.i, 0
@@ -1209,7 +1200,7 @@ if.end4.i:                                        ; preds = %if.end.i
   br i1 %cmp5.i, label %if.then7.i, label %if.end9.i
 
 if.then7.i:                                       ; preds = %if.end4.i
-  %target.i = getelementptr inbounds %struct.kwset, ptr %kws, i64 0, i32 7
+  %target.i = getelementptr inbounds i8, ptr %kws, i64 2416
   %3 = load ptr, ptr %target.i, align 8
   %4 = load i8, ptr %3, align 1
   %conv8.i = sext i8 %4 to i32
@@ -1222,13 +1213,13 @@ if.then7.i:                                       ; preds = %if.end4.i
   br label %bmexec.exit
 
 if.end9.i:                                        ; preds = %if.end4.i
-  %delta.i = getelementptr inbounds %struct.kwset, ptr %kws, i64 0, i32 5
-  %target10.i = getelementptr inbounds %struct.kwset, ptr %kws, i64 0, i32 7
+  %delta.i = getelementptr inbounds i8, ptr %kws, i64 112
+  %target10.i = getelementptr inbounds i8, ptr %kws, i64 2416
   %5 = load ptr, ptr %target10.i, align 8
   %add.ptr.i = getelementptr inbounds i8, ptr %5, i64 %conv.i
   %arrayidx11.i = getelementptr inbounds i8, ptr %add.ptr.i, i64 -2
   %6 = load i8, ptr %arrayidx11.i, align 1
-  %mind2.i = getelementptr inbounds %struct.kwset, ptr %kws, i64 0, i32 8
+  %mind2.i = getelementptr inbounds i8, ptr %kws, i64 2424
   %7 = load i32, ptr %mind2.i, align 8
   %add.ptr14.i = getelementptr inbounds i8, ptr %text, i64 %conv.i
   %mul.i = mul nsw i32 %.fr.i, 12
@@ -1596,16 +1587,16 @@ bmexec.exit:                                      ; preds = %if.then, %if.then7.
 
 if.then5:                                         ; preds = %bmexec.exit
   store i32 0, ptr %kwsmatch, align 8
-  %offset = getelementptr inbounds %struct.kwsmatch, ptr %kwsmatch, i64 0, i32 1
+  %offset = getelementptr inbounds i8, ptr %kwsmatch, i64 8
   store i64 %retval.0.i, ptr %offset, align 8
   %66 = load i32, ptr %mind.i, align 8
   %conv = sext i32 %66 to i64
-  %size6 = getelementptr inbounds %struct.kwsmatch, ptr %kwsmatch, i64 0, i32 2
+  %size6 = getelementptr inbounds i8, ptr %kwsmatch, i64 16
   store i64 %conv, ptr %size6, align 8
   br label %return
 
 if.else:                                          ; preds = %land.lhs.true, %entry
-  %mind.i13 = getelementptr inbounds %struct.kwset, ptr %kws, i64 0, i32 3
+  %mind.i13 = getelementptr inbounds i8, ptr %kws, i64 104
   %67 = load i32, ptr %mind.i13, align 8
   %.fr.i14 = freeze i32 %67
   %conv.i15 = sext i32 %.fr.i14 to i64
@@ -1613,9 +1604,9 @@ if.else:                                          ; preds = %land.lhs.true, %ent
   br i1 %cmp.i16, label %return, label %if.end.i17
 
 if.end.i17:                                       ; preds = %if.else
-  %next2.i = getelementptr inbounds %struct.kwset, ptr %kws, i64 0, i32 6
-  %delta3.i = getelementptr inbounds %struct.kwset, ptr %kws, i64 0, i32 5
-  %trans5.i = getelementptr inbounds %struct.kwset, ptr %kws, i64 0, i32 9
+  %next2.i = getelementptr inbounds i8, ptr %kws, i64 368
+  %delta3.i = getelementptr inbounds i8, ptr %kws, i64 112
+  %trans5.i = getelementptr inbounds i8, ptr %kws, i64 2432
   %68 = load ptr, ptr %trans5.i, align 8
   %.fr265.i = freeze ptr %68
   %add.ptr.i18 = getelementptr inbounds i8, ptr %text, i64 %size
@@ -1646,7 +1637,7 @@ while.end105.us.us.i:                             ; preds = %if.then96.us.us.us.
   %trie.0163.us.us.us.lcssa.sink.i = phi ptr [ %71, %if.end58.split.us.us.us.i ], [ %trie.0163.us.us.us.i, %while.body85.us.us.us.i ], [ %trie.0163.us.us.us.i, %while.body68.us.us.us.i ], [ %74, %if.then96.us.us.us.i ]
   %accept.2133.us.us.i = phi ptr [ %spec.select.us.us.i, %if.end58.split.us.us.us.i ], [ %accept.2160.us.us.us.i, %while.body85.us.us.us.i ], [ %accept.2160.us.us.us.i, %while.body68.us.us.us.i ], [ %spec.select110.us.us.us.i, %if.then96.us.us.us.i ]
   %mch.2131.us.us.i = phi ptr [ %spec.select109.us.us.i, %if.end58.split.us.us.us.i ], [ %mch.2162.us.us.us.i, %while.body85.us.us.us.i ], [ %mch.2162.us.us.us.i, %while.body68.us.us.us.i ], [ %spec.select111.us.us.us.i, %if.then96.us.us.us.i ]
-  %d.2.in.le155.us.us.i = getelementptr inbounds %struct.trie, ptr %trie.0163.us.us.us.lcssa.sink.i, i64 0, i32 6
+  %d.2.in.le155.us.us.i = getelementptr inbounds i8, ptr %trie.0163.us.us.us.lcssa.sink.i, i64 44
   %d.2129.us.us.i = load i32, ptr %d.2.in.le155.us.us.i, align 4
   %tobool106.not.us.us.i = icmp eq ptr %mch.2131.us.us.i, null
   br i1 %tobool106.not.us.us.i, label %while.cond.outer.us.us.i, label %match.preheader.i, !llvm.loop !25
@@ -1689,28 +1680,28 @@ while.body68.us.us.us.i:                          ; preds = %if.end58.split.us.u
   %accept.2160.us.us.us.i = phi ptr [ %spec.select110.us.us.us.i, %if.then96.us.us.us.i ], [ %spec.select.us.us.i, %if.end58.split.us.us.us.i ]
   %incdec.ptr74.us.us.us.i = getelementptr inbounds i8, ptr %beg.0161.us.us.us.i, i64 -1
   %cond.us.us.us.i = load i8, ptr %incdec.ptr74.us.us.us.i, align 1
-  %links.us.us.us.i = getelementptr inbounds %struct.trie, ptr %trie.0163.us.us.us.i, i64 0, i32 1
+  %links.us.us.us.i = getelementptr inbounds i8, ptr %trie.0163.us.us.us.i, i64 8
   %tree.0142.us.us.us.i = load ptr, ptr %links.us.us.us.i, align 8
   %tobool78.not143.us.us.us.i = icmp eq ptr %tree.0142.us.us.us.i, null
   br i1 %tobool78.not143.us.us.us.i, label %while.end105.us.us.i, label %land.rhs79.us.us.us.i
 
 land.rhs79.us.us.us.i:                            ; preds = %while.body68.us.us.us.i, %while.body85.us.us.us.i
   %tree.0144.us.us.us.i = phi ptr [ %tree.0.us.us.us.i, %while.body85.us.us.us.i ], [ %tree.0142.us.us.us.i, %while.body68.us.us.us.i ]
-  %label.us.us.us.i = getelementptr inbounds %struct.tree, ptr %tree.0144.us.us.us.i, i64 0, i32 3
+  %label.us.us.us.i = getelementptr inbounds i8, ptr %tree.0144.us.us.us.i, i64 24
   %73 = load i8, ptr %label.us.us.us.i, align 8
   %cmp82.not.us.us.us.i = icmp eq i8 %cond.us.us.us.i, %73
   br i1 %cmp82.not.us.us.us.i, label %if.then96.us.us.us.i, label %while.body85.us.us.us.i
 
 while.body85.us.us.us.i:                          ; preds = %land.rhs79.us.us.us.i
   %cmp89.us.us.us.i = icmp ult i8 %cond.us.us.us.i, %73
-  %rlink.us.us.us.i = getelementptr inbounds %struct.tree, ptr %tree.0144.us.us.us.i, i64 0, i32 1
-  %tree.1.in.us.us.us.i = select i1 %cmp89.us.us.us.i, ptr %tree.0144.us.us.us.i, ptr %rlink.us.us.us.i
+  %tree.1.in.idx.us.us.us.i = select i1 %cmp89.us.us.us.i, i64 0, i64 8
+  %tree.1.in.us.us.us.i = getelementptr inbounds i8, ptr %tree.0144.us.us.us.i, i64 %tree.1.in.idx.us.us.us.i
   %tree.0.us.us.us.i = load ptr, ptr %tree.1.in.us.us.us.i, align 8
   %tobool78.not.us.us.us.i = icmp eq ptr %tree.0.us.us.us.i, null
   br i1 %tobool78.not.us.us.us.i, label %while.end105.us.us.i, label %land.rhs79.us.us.us.i, !llvm.loop !26
 
 if.then96.us.us.us.i:                             ; preds = %land.rhs79.us.us.us.i
-  %trie97.us.us.us.i = getelementptr inbounds %struct.tree, ptr %tree.0144.us.us.us.i, i64 0, i32 2
+  %trie97.us.us.us.i = getelementptr inbounds i8, ptr %tree.0144.us.us.us.i, i64 16
   %74 = load ptr, ptr %trie97.us.us.us.i, align 8
   %75 = load i32, ptr %74, align 8
   %tobool99.not.us.us.us.i = icmp eq i32 %75, 0
@@ -1735,28 +1726,28 @@ while.body68.us.i:                                ; preds = %if.end58.split.us.u
   %idxprom71.us.i = zext i8 %76 to i64
   %arrayidx72.us.i = getelementptr inbounds i8, ptr %.fr265.i, i64 %idxprom71.us.i
   %cond.us.i = load i8, ptr %arrayidx72.us.i, align 1
-  %links.us.i = getelementptr inbounds %struct.trie, ptr %trie.0163.us.i, i64 0, i32 1
+  %links.us.i = getelementptr inbounds i8, ptr %trie.0163.us.i, i64 8
   %tree.0142.us.i = load ptr, ptr %links.us.i, align 8
   %tobool78.not143.us.i = icmp eq ptr %tree.0142.us.i, null
   br i1 %tobool78.not143.us.i, label %while.end105.us.i, label %land.rhs79.us.i
 
 land.rhs79.us.i:                                  ; preds = %while.body68.us.i, %while.body85.us.i
   %tree.0144.us.i = phi ptr [ %tree.0.us.i, %while.body85.us.i ], [ %tree.0142.us.i, %while.body68.us.i ]
-  %label.us.i = getelementptr inbounds %struct.tree, ptr %tree.0144.us.i, i64 0, i32 3
+  %label.us.i = getelementptr inbounds i8, ptr %tree.0144.us.i, i64 24
   %77 = load i8, ptr %label.us.i, align 8
   %cmp82.not.us.i = icmp eq i8 %cond.us.i, %77
   br i1 %cmp82.not.us.i, label %if.then96.us.i, label %while.body85.us.i
 
 while.body85.us.i:                                ; preds = %land.rhs79.us.i
   %cmp89.us.i = icmp ult i8 %cond.us.i, %77
-  %rlink.us.i = getelementptr inbounds %struct.tree, ptr %tree.0144.us.i, i64 0, i32 1
-  %tree.1.in.us.i = select i1 %cmp89.us.i, ptr %tree.0144.us.i, ptr %rlink.us.i
+  %tree.1.in.idx.us.i = select i1 %cmp89.us.i, i64 0, i64 8
+  %tree.1.in.us.i = getelementptr inbounds i8, ptr %tree.0144.us.i, i64 %tree.1.in.idx.us.i
   %tree.0.us.i = load ptr, ptr %tree.1.in.us.i, align 8
   %tobool78.not.us.i = icmp eq ptr %tree.0.us.i, null
   br i1 %tobool78.not.us.i, label %while.end105.us.i, label %land.rhs79.us.i, !llvm.loop !26
 
 if.then96.us.i:                                   ; preds = %land.rhs79.us.i
-  %trie97.us.i = getelementptr inbounds %struct.tree, ptr %tree.0144.us.i, i64 0, i32 2
+  %trie97.us.i = getelementptr inbounds i8, ptr %tree.0144.us.i, i64 16
   %78 = load ptr, ptr %trie97.us.i, align 8
   %79 = load i32, ptr %78, align 8
   %tobool99.not.us.i = icmp eq i32 %79, 0
@@ -1769,7 +1760,7 @@ while.end105.us.i:                                ; preds = %if.then96.us.i, %wh
   %trie.0163.us.lcssa.sink.i = phi ptr [ %82, %if.end58.split.us.us.i ], [ %trie.0163.us.i, %while.body85.us.i ], [ %trie.0163.us.i, %while.body68.us.i ], [ %78, %if.then96.us.i ]
   %accept.2133.us.i = phi ptr [ %spec.select.us.i, %if.end58.split.us.us.i ], [ %accept.2160.us.i, %while.body85.us.i ], [ %accept.2160.us.i, %while.body68.us.i ], [ %spec.select110.us.i, %if.then96.us.i ]
   %mch.2131.us.i = phi ptr [ %spec.select109.us.i, %if.end58.split.us.us.i ], [ %mch.2162.us.i, %while.body85.us.i ], [ %mch.2162.us.i, %while.body68.us.i ], [ %spec.select111.us.i, %if.then96.us.i ]
-  %d.2.in.le155.us.i = getelementptr inbounds %struct.trie, ptr %trie.0163.us.lcssa.sink.i, i64 0, i32 6
+  %d.2.in.le155.us.i = getelementptr inbounds i8, ptr %trie.0163.us.lcssa.sink.i, i64 44
   %d.2129.us.i = load i32, ptr %d.2.in.le155.us.i, align 4
   %tobool106.not.us.i = icmp eq ptr %mch.2131.us.i, null
   br i1 %tobool106.not.us.i, label %while.cond.outer.us.i, label %match.preheader.i, !llvm.loop !25
@@ -1812,7 +1803,7 @@ while.cond.outer.i:                               ; preds = %if.then9.i, %while.
   br label %while.cond.i
 
 if.else.i:                                        ; preds = %if.end.i17
-  %trie10.i = getelementptr inbounds %struct.kwset, ptr %kws, i64 0, i32 2
+  %trie10.i = getelementptr inbounds i8, ptr %kws, i64 96
   %84 = load ptr, ptr %trie10.i, align 8
   %.pre.i = ptrtoint ptr %add.ptr.i18 to i64
   br label %match.preheader.i
@@ -1915,28 +1906,28 @@ while.body68.i.us:                                ; preds = %while.body68.i.preh
   %accept.2160.i.us = phi ptr [ %spec.select110.i.us, %if.then96.i.us ], [ %spec.select.i, %while.body68.i.preheader ]
   %incdec.ptr74.i.us = getelementptr inbounds i8, ptr %beg.0161.i.us, i64 -1
   %cond.i32.us = load i8, ptr %incdec.ptr74.i.us, align 1
-  %links.i.us = getelementptr inbounds %struct.trie, ptr %trie.0163.i.us, i64 0, i32 1
+  %links.i.us = getelementptr inbounds i8, ptr %trie.0163.i.us, i64 8
   %tree.0142.i.us = load ptr, ptr %links.i.us, align 8
   %tobool78.not143.i.us = icmp eq ptr %tree.0142.i.us, null
   br i1 %tobool78.not143.i.us, label %while.end105.i, label %land.rhs79.i.us
 
 land.rhs79.i.us:                                  ; preds = %while.body68.i.us, %while.body85.i.us
   %tree.0144.i.us = phi ptr [ %tree.0.i.us, %while.body85.i.us ], [ %tree.0142.i.us, %while.body68.i.us ]
-  %label.i.us = getelementptr inbounds %struct.tree, ptr %tree.0144.i.us, i64 0, i32 3
+  %label.i.us = getelementptr inbounds i8, ptr %tree.0144.i.us, i64 24
   %100 = load i8, ptr %label.i.us, align 8
   %cmp82.not.i.us = icmp eq i8 %cond.i32.us, %100
   br i1 %cmp82.not.i.us, label %if.then96.i.us, label %while.body85.i.us
 
 while.body85.i.us:                                ; preds = %land.rhs79.i.us
   %cmp89.i.us = icmp ult i8 %cond.i32.us, %100
-  %rlink.i.us = getelementptr inbounds %struct.tree, ptr %tree.0144.i.us, i64 0, i32 1
-  %tree.1.in.i.us = select i1 %cmp89.i.us, ptr %tree.0144.i.us, ptr %rlink.i.us
+  %tree.1.in.idx.i.us = select i1 %cmp89.i.us, i64 0, i64 8
+  %tree.1.in.i.us = getelementptr inbounds i8, ptr %tree.0144.i.us, i64 %tree.1.in.idx.i.us
   %tree.0.i.us = load ptr, ptr %tree.1.in.i.us, align 8
   %tobool78.not.i.us = icmp eq ptr %tree.0.i.us, null
   br i1 %tobool78.not.i.us, label %while.end105.i, label %land.rhs79.i.us, !llvm.loop !26
 
 if.then96.i.us:                                   ; preds = %land.rhs79.i.us
-  %trie97.i.us = getelementptr inbounds %struct.tree, ptr %tree.0144.i.us, i64 0, i32 2
+  %trie97.i.us = getelementptr inbounds i8, ptr %tree.0144.i.us, i64 16
   %101 = load ptr, ptr %trie97.i.us, align 8
   %102 = load i32, ptr %101, align 8
   %tobool99.not.i.us = icmp eq i32 %102, 0
@@ -1955,28 +1946,28 @@ while.body68.i:                                   ; preds = %while.body68.i.preh
   %idxprom71.i = zext i8 %103 to i64
   %arrayidx72.i = getelementptr inbounds i8, ptr %.fr265.i, i64 %idxprom71.i
   %cond.i32 = load i8, ptr %arrayidx72.i, align 1
-  %links.i = getelementptr inbounds %struct.trie, ptr %trie.0163.i, i64 0, i32 1
+  %links.i = getelementptr inbounds i8, ptr %trie.0163.i, i64 8
   %tree.0142.i = load ptr, ptr %links.i, align 8
   %tobool78.not143.i = icmp eq ptr %tree.0142.i, null
   br i1 %tobool78.not143.i, label %while.end105.i, label %land.rhs79.i
 
 land.rhs79.i:                                     ; preds = %while.body68.i, %while.body85.i
   %tree.0144.i = phi ptr [ %tree.0.i, %while.body85.i ], [ %tree.0142.i, %while.body68.i ]
-  %label.i = getelementptr inbounds %struct.tree, ptr %tree.0144.i, i64 0, i32 3
+  %label.i = getelementptr inbounds i8, ptr %tree.0144.i, i64 24
   %104 = load i8, ptr %label.i, align 8
   %cmp82.not.i = icmp eq i8 %cond.i32, %104
   br i1 %cmp82.not.i, label %if.then96.i, label %while.body85.i
 
 while.body85.i:                                   ; preds = %land.rhs79.i
   %cmp89.i = icmp ult i8 %cond.i32, %104
-  %rlink.i = getelementptr inbounds %struct.tree, ptr %tree.0144.i, i64 0, i32 1
-  %tree.1.in.i = select i1 %cmp89.i, ptr %tree.0144.i, ptr %rlink.i
+  %tree.1.in.idx.i = select i1 %cmp89.i, i64 0, i64 8
+  %tree.1.in.i = getelementptr inbounds i8, ptr %tree.0144.i, i64 %tree.1.in.idx.i
   %tree.0.i = load ptr, ptr %tree.1.in.i, align 8
   %tobool78.not.i = icmp eq ptr %tree.0.i, null
   br i1 %tobool78.not.i, label %while.end105.i, label %land.rhs79.i, !llvm.loop !26
 
 if.then96.i:                                      ; preds = %land.rhs79.i
-  %trie97.i = getelementptr inbounds %struct.tree, ptr %tree.0144.i, i64 0, i32 2
+  %trie97.i = getelementptr inbounds i8, ptr %tree.0144.i, i64 16
   %105 = load ptr, ptr %trie97.i, align 8
   %106 = load i32, ptr %105, align 8
   %tobool99.not.i = icmp eq i32 %106, 0
@@ -1989,7 +1980,7 @@ while.end105.i:                                   ; preds = %while.body68.i, %if
   %trie.0163.lcssa.sink.i = phi ptr [ %98, %if.end58.split.i ], [ %trie.0163.i.us, %while.body85.i.us ], [ %trie.0163.i, %while.body85.i ], [ %101, %if.then96.i.us ], [ %trie.0163.i.us, %while.body68.i.us ], [ %105, %if.then96.i ], [ %trie.0163.i, %while.body68.i ]
   %accept.2133.i = phi ptr [ %spec.select.i, %if.end58.split.i ], [ %accept.2160.i.us, %while.body85.i.us ], [ %accept.2160.i, %while.body85.i ], [ %spec.select110.i.us, %if.then96.i.us ], [ %accept.2160.i.us, %while.body68.i.us ], [ %spec.select110.i, %if.then96.i ], [ %accept.2160.i, %while.body68.i ]
   %mch.2131.i = phi ptr [ %spec.select109.i, %if.end58.split.i ], [ %mch.2162.i.us, %while.body85.i.us ], [ %mch.2162.i, %while.body85.i ], [ %spec.select111.i.us, %if.then96.i.us ], [ %mch.2162.i.us, %while.body68.i.us ], [ %spec.select111.i, %if.then96.i ], [ %mch.2162.i, %while.body68.i ]
-  %d.2.in.le155.i = getelementptr inbounds %struct.trie, ptr %trie.0163.lcssa.sink.i, i64 0, i32 6
+  %d.2.in.le155.i = getelementptr inbounds i8, ptr %trie.0163.lcssa.sink.i, i64 44
   %d.2129.i = load i32, ptr %d.2.in.le155.i, align 4
   %tobool106.not.i = icmp eq ptr %mch.2131.i, null
   br i1 %tobool106.not.i, label %while.cond.outer.i, label %match.preheader.i, !llvm.loop !25
@@ -1999,7 +1990,7 @@ match.preheader.i:                                ; preds = %while.end105.i, %wh
   %accept.4.ph.i = phi ptr [ %84, %if.else.i ], [ %accept.2133.us.us.i, %while.end105.us.us.i ], [ %accept.2133.us.i, %while.end105.us.i ], [ %accept.2133.i, %while.end105.i ]
   %mch.4.ph.i = phi ptr [ %text, %if.else.i ], [ %mch.2131.us.us.i, %while.end105.us.us.i ], [ %mch.2131.us.i, %while.end105.us.i ], [ %mch.2131.i, %while.end105.i ]
   %end.3.ph.i = phi ptr [ %text, %if.else.i ], [ %add.ptr50.us.us.us.i, %while.end105.us.us.i ], [ %add.ptr50.us.us.i, %while.end105.us.i ], [ %end.2.i, %while.end105.i ]
-  %maxd.i = getelementptr inbounds %struct.kwset, ptr %kws, i64 0, i32 4
+  %maxd.i = getelementptr inbounds i8, ptr %kws, i64 108
   %107 = load i32, ptr %maxd.i, align 4
   %conv113.i = sext i32 %107 to i64
   %sub.ptr.rhs.cast111243.i = ptrtoint ptr %mch.4.ph.i to i64
@@ -2070,7 +2061,7 @@ while.end204.us.us.i:                             ; preds = %if.then192.us.us.us
   br i1 %tobool205.not.us.us.i, label %if.end207.us.us.i, label %match.loopexit.split.us.us.i
 
 if.end207.us.us.i:                                ; preds = %while.end204.us.us.i
-  %d.4.in.le205.us.us.i = getelementptr inbounds %struct.trie, ptr %trie.1213.us.us.us.lcssa.sink.i, i64 0, i32 6
+  %d.4.in.le205.us.us.i = getelementptr inbounds i8, ptr %trie.1213.us.us.us.lcssa.sink.i, i64 44
   %d.4119.us.us.i = load i32, ptr %d.4.in.le205.us.us.i, align 4
   %spec.store.select.us.us.i = tail call i32 @llvm.umax.i32(i32 %d.4119.us.us.i, i32 1)
   %sub.ptr.rhs.cast123182.us.us.i = ptrtoint ptr %add.ptr130.us.us.i to i64
@@ -2093,28 +2084,28 @@ while.body156.us.us.us.i:                         ; preds = %if.end144.us.us.i, 
   %accept.7210.us.us.us.i = phi ptr [ %accept.8.us.us.us.i, %if.then192.us.us.us.i ], [ %accept.6.us.us.i, %if.end144.us.us.i ]
   %incdec.ptr164.us.us.us.i = getelementptr inbounds i8, ptr %beg.2211.us.us.us.i, i64 -1
   %cond167.us.us.us.i = load i8, ptr %incdec.ptr164.us.us.us.i, align 1
-  %links169.us.us.us.i = getelementptr inbounds %struct.trie, ptr %trie.1213.us.us.us.i, i64 0, i32 1
+  %links169.us.us.us.i = getelementptr inbounds i8, ptr %trie.1213.us.us.us.i, i64 8
   %tree.2192.us.us.us.i = load ptr, ptr %links169.us.us.us.i, align 8
   %tobool171.not193.us.us.us.i = icmp eq ptr %tree.2192.us.us.us.i, null
   br i1 %tobool171.not193.us.us.us.i, label %while.end204.us.us.i, label %land.rhs172.us.us.us.i
 
 land.rhs172.us.us.us.i:                           ; preds = %while.body156.us.us.us.i, %while.body179.us.us.us.i
   %tree.2194.us.us.us.i = phi ptr [ %tree.2.us.us.us.i, %while.body179.us.us.us.i ], [ %tree.2192.us.us.us.i, %while.body156.us.us.us.i ]
-  %label174.us.us.us.i = getelementptr inbounds %struct.tree, ptr %tree.2194.us.us.us.i, i64 0, i32 3
+  %label174.us.us.us.i = getelementptr inbounds i8, ptr %tree.2194.us.us.us.i, i64 24
   %112 = load i8, ptr %label174.us.us.us.i, align 8
   %cmp176.not.us.us.us.i = icmp eq i8 %cond167.us.us.us.i, %112
   br i1 %cmp176.not.us.us.us.i, label %if.then192.us.us.us.i, label %while.body179.us.us.us.i
 
 while.body179.us.us.us.i:                         ; preds = %land.rhs172.us.us.us.i
   %cmp183.us.us.us.i = icmp ult i8 %cond167.us.us.us.i, %112
-  %rlink188.us.us.us.i = getelementptr inbounds %struct.tree, ptr %tree.2194.us.us.us.i, i64 0, i32 1
-  %tree.3.in.us.us.us.i = select i1 %cmp183.us.us.us.i, ptr %tree.2194.us.us.us.i, ptr %rlink188.us.us.us.i
+  %tree.3.in.idx.us.us.us.i = select i1 %cmp183.us.us.us.i, i64 0, i64 8
+  %tree.3.in.us.us.us.i = getelementptr inbounds i8, ptr %tree.2194.us.us.us.i, i64 %tree.3.in.idx.us.us.us.i
   %tree.2.us.us.us.i = load ptr, ptr %tree.3.in.us.us.us.i, align 8
   %tobool171.not.us.us.us.i = icmp eq ptr %tree.2.us.us.us.i, null
   br i1 %tobool171.not.us.us.us.i, label %while.end204.us.us.i, label %land.rhs172.us.us.us.i, !llvm.loop !30
 
 if.then192.us.us.us.i:                            ; preds = %land.rhs172.us.us.us.i
-  %trie193.us.us.us.i = getelementptr inbounds %struct.tree, ptr %tree.2194.us.us.us.i, i64 0, i32 2
+  %trie193.us.us.us.i = getelementptr inbounds i8, ptr %tree.2194.us.us.us.i, i64 16
   %113 = load ptr, ptr %trie193.us.us.us.i, align 8
   %114 = load i32, ptr %113, align 8
   %tobool195.not.us.us.us.i = icmp eq i32 %114, 0
@@ -2213,28 +2204,28 @@ while.body156.i:                                  ; preds = %if.end144.i, %if.th
   %idxprom160.i = zext i8 %119 to i64
   %arrayidx161.i = getelementptr inbounds i8, ptr %.fr265.i, i64 %idxprom160.i
   %cond167.i = load i8, ptr %arrayidx161.i, align 1
-  %links169.i = getelementptr inbounds %struct.trie, ptr %trie.1213.i, i64 0, i32 1
+  %links169.i = getelementptr inbounds i8, ptr %trie.1213.i, i64 8
   %tree.2192.i = load ptr, ptr %links169.i, align 8
   %tobool171.not193.i = icmp eq ptr %tree.2192.i, null
   br i1 %tobool171.not193.i, label %while.end204.i, label %land.rhs172.i
 
 land.rhs172.i:                                    ; preds = %while.body156.i, %while.body179.i
   %tree.2194.i = phi ptr [ %tree.2.i, %while.body179.i ], [ %tree.2192.i, %while.body156.i ]
-  %label174.i = getelementptr inbounds %struct.tree, ptr %tree.2194.i, i64 0, i32 3
+  %label174.i = getelementptr inbounds i8, ptr %tree.2194.i, i64 24
   %120 = load i8, ptr %label174.i, align 8
   %cmp176.not.i = icmp eq i8 %cond167.i, %120
   br i1 %cmp176.not.i, label %if.then192.i, label %while.body179.i
 
 while.body179.i:                                  ; preds = %land.rhs172.i
   %cmp183.i = icmp ult i8 %cond167.i, %120
-  %rlink188.i = getelementptr inbounds %struct.tree, ptr %tree.2194.i, i64 0, i32 1
-  %tree.3.in.i = select i1 %cmp183.i, ptr %tree.2194.i, ptr %rlink188.i
+  %tree.3.in.idx.i = select i1 %cmp183.i, i64 0, i64 8
+  %tree.3.in.i = getelementptr inbounds i8, ptr %tree.2194.i, i64 %tree.3.in.idx.i
   %tree.2.i = load ptr, ptr %tree.3.in.i, align 8
   %tobool171.not.i = icmp eq ptr %tree.2.i, null
   br i1 %tobool171.not.i, label %while.end204.i, label %land.rhs172.i, !llvm.loop !30
 
 if.then192.i:                                     ; preds = %land.rhs172.i
-  %trie193.i = getelementptr inbounds %struct.tree, ptr %tree.2194.i, i64 0, i32 2
+  %trie193.i = getelementptr inbounds i8, ptr %tree.2194.i, i64 16
   %121 = load ptr, ptr %trie193.i, align 8
   %122 = load i32, ptr %121, align 8
   %tobool195.not.i = icmp eq i32 %122, 0
@@ -2253,7 +2244,7 @@ while.end204.i:                                   ; preds = %if.then192.i, %whil
   br i1 %tobool205.not.i, label %if.end207.i, label %match.loopexit.split.i
 
 if.end207.i:                                      ; preds = %while.end204.i
-  %d.4.in.le205.i = getelementptr inbounds %struct.trie, ptr %trie.1213.lcssa.sink.i, i64 0, i32 6
+  %d.4.in.le205.i = getelementptr inbounds i8, ptr %trie.1213.lcssa.sink.i, i64 44
   %d.4119.i = load i32, ptr %d.4.in.le205.i, align 4
   %spec.store.select.i = tail call i32 @llvm.umax.i32(i32 %d.4119.i, i32 1)
   %sub.ptr.rhs.cast123182.i = ptrtoint ptr %add.ptr130.i to i64
@@ -2279,12 +2270,12 @@ if.then213.i:                                     ; preds = %while.end211.i
   store i32 %div108.i, ptr %kwsmatch, align 8
   %sub.ptr.rhs.cast216.i = ptrtoint ptr %text to i64
   %sub.ptr.sub217.i = sub i64 %sub.ptr.rhs.cast111.lcssa.i, %sub.ptr.rhs.cast216.i
-  %offset.i = getelementptr inbounds %struct.kwsmatch, ptr %kwsmatch, i64 0, i32 1
+  %offset.i = getelementptr inbounds i8, ptr %kwsmatch, i64 8
   store i64 %sub.ptr.sub217.i, ptr %offset.i, align 8
-  %depth.i = getelementptr inbounds %struct.trie, ptr %accept.5.ph.lcssa124.i, i64 0, i32 5
+  %depth.i = getelementptr inbounds i8, ptr %accept.5.ph.lcssa124.i, i64 40
   %124 = load i32, ptr %depth.i, align 8
   %conv219.i = sext i32 %124 to i64
-  %size.i = getelementptr inbounds %struct.kwsmatch, ptr %kwsmatch, i64 0, i32 2
+  %size.i = getelementptr inbounds i8, ptr %kwsmatch, i64 16
   store i64 %conv219.i, ptr %size.i, align 8
   br label %return
 

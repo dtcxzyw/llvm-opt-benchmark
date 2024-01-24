@@ -84,7 +84,7 @@ if.end25:                                         ; preds = %if.then9, %if.then2
 if.end29:                                         ; preds = %if.end4
   %12 = load i8, ptr getelementptr inbounds ([11 x %struct.UOption], ptr @options, i64 0, i64 8, i32 6), align 2
   %13 = load i8, ptr getelementptr inbounds ([11 x %struct.UOption], ptr @options, i64 0, i64 2, i32 6), align 2
-  %arrayidx30 = getelementptr inbounds ptr, ptr %argv, i64 1
+  %arrayidx30 = getelementptr inbounds i8, ptr %argv, i64 8
   %14 = load ptr, ptr %arrayidx30, align 8
   %call31 = tail call i64 @strtoul(ptr nocapture noundef %14, ptr noundef null, i32 noundef 0) #5
   %conv32 = trunc i64 %call31 to i32
@@ -119,7 +119,7 @@ if.end29:                                         ; preds = %if.end4
   br i1 %cmp81, label %cond.end86, label %cond.false84
 
 cond.false84:                                     ; preds = %if.end29
-  %arrayidx85 = getelementptr inbounds ptr, ptr %argv, i64 2
+  %arrayidx85 = getelementptr inbounds i8, ptr %argv, i64 16
   %28 = load ptr, ptr %arrayidx85, align 8
   br label %cond.end86
 

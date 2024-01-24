@@ -12,13 +12,13 @@ define void @"_ZN106_$LT$core..iter..adapters..flatten..Flatten$LT$I$GT$$u20$as$
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %4)
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %5)
   call void @_ZN4core4iter8adapters7flatten17and_then_or_clear17h72385f8adbbeed97E(ptr nonnull sret({ [24 x i8], i8, [7 x i8] }) align 8 %5, ptr align 8 %1)
-  %6 = getelementptr inbounds { [24 x i8], i8, [7 x i8] }, ptr %5, i64 0, i32 1
+  %6 = getelementptr inbounds i8, ptr %5, i64 24
   %7 = load i8, ptr %6, align 8, !range !5, !noundef !6
   %.not2.i = icmp eq i8 %7, 7
   br i1 %.not2.i, label %.lr.ph.i, label %._crit_edge.i
 
 .lr.ph.i:                                         ; preds = %2
-  %8 = getelementptr inbounds { { ptr, [3 x i64] }, { ptr, [3 x i64] }, { ptr, ptr } }, ptr %1, i64 0, i32 2
+  %8 = getelementptr inbounds i8, ptr %1, i64 64
   br label %9
 
 ._crit_edge.i:                                    ; preds = %17, %2
@@ -32,7 +32,7 @@ define void @"_ZN106_$LT$core..iter..adapters..flatten..Flatten$LT$I$GT$$u20$as$
   br i1 %11, label %12, label %14
 
 12:                                               ; preds = %9
-  %13 = getelementptr inbounds { { ptr, [3 x i64] }, { ptr, [3 x i64] }, { ptr, ptr } }, ptr %1, i64 0, i32 1
+  %13 = getelementptr inbounds i8, ptr %1, i64 32
   call void @_ZN4core4iter8adapters7flatten17and_then_or_clear17h72385f8adbbeed97E(ptr sret({ [24 x i8], i8, [7 x i8] }) align 8 %0, ptr nonnull align 8 %13)
   br label %"_ZN116_$LT$core..iter..adapters..flatten..FlattenCompat$LT$I$C$U$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17ha3dbe9cd968f240fE.exit"
 
@@ -74,13 +74,13 @@ define void @"_ZN116_$LT$core..iter..adapters..flatten..FlattenCompat$LT$I$C$U$G
   %4 = alloca { ptr, [3 x i64] }, align 8
   %5 = alloca { [24 x i8], i8, [7 x i8] }, align 8
   call void @_ZN4core4iter8adapters7flatten17and_then_or_clear17h72385f8adbbeed97E(ptr nonnull sret({ [24 x i8], i8, [7 x i8] }) align 8 %5, ptr align 8 %1)
-  %6 = getelementptr inbounds { [24 x i8], i8, [7 x i8] }, ptr %5, i64 0, i32 1
+  %6 = getelementptr inbounds i8, ptr %5, i64 24
   %7 = load i8, ptr %6, align 8, !range !5, !noundef !6
   %.not2 = icmp eq i8 %7, 7
   br i1 %.not2, label %.lr.ph, label %._crit_edge
 
 .lr.ph:                                           ; preds = %2
-  %8 = getelementptr inbounds { { ptr, [3 x i64] }, { ptr, [3 x i64] }, { ptr, ptr } }, ptr %1, i64 0, i32 2
+  %8 = getelementptr inbounds i8, ptr %1, i64 64
   br label %9
 
 ._crit_edge:                                      ; preds = %18, %2
@@ -97,7 +97,7 @@ define void @"_ZN116_$LT$core..iter..adapters..flatten..FlattenCompat$LT$I$C$U$G
   ret void
 
 13:                                               ; preds = %9
-  %14 = getelementptr inbounds { { ptr, [3 x i64] }, { ptr, [3 x i64] }, { ptr, ptr } }, ptr %1, i64 0, i32 1
+  %14 = getelementptr inbounds i8, ptr %1, i64 32
   call void @_ZN4core4iter8adapters7flatten17and_then_or_clear17h72385f8adbbeed97E(ptr sret({ [24 x i8], i8, [7 x i8] }) align 8 %0, ptr nonnull align 8 %14)
   br label %12
 
@@ -133,37 +133,37 @@ define void @"_ZN116_$LT$core..iter..adapters..flatten..FlattenCompat$LT$I$C$U$G
   %10 = icmp eq ptr %9, null
   %. = select i1 %10, ptr null, ptr %1
   store i64 0, ptr %7, align 8
-  %11 = getelementptr inbounds { i64, { i64, i64 } }, ptr %7, i64 0, i32 1
+  %11 = getelementptr inbounds i8, ptr %7, i64 8
   store i64 1, ptr %11, align 8
-  %12 = getelementptr inbounds { i64, { i64, i64 } }, ptr %7, i64 0, i32 1, i32 1
+  %12 = getelementptr inbounds i8, ptr %7, i64 16
   store i64 0, ptr %12, align 8
   call void @"_ZN4core6option15Option$LT$T$GT$6map_or17h0bee672224766b1eE"(ptr nonnull sret({ i64, { i64, i64 } }) align 8 %8, ptr align 8 %., ptr nonnull align 8 %7)
   %13 = load i64, ptr %8, align 8, !noundef !6
-  %14 = getelementptr inbounds { i64, { i64, i64 } }, ptr %8, i64 0, i32 1
+  %14 = getelementptr inbounds i8, ptr %8, i64 8
   %15 = load i64, ptr %14, align 8, !range !7, !noundef !6
-  %16 = getelementptr inbounds { i64, { i64, i64 } }, ptr %8, i64 0, i32 1, i32 1
+  %16 = getelementptr inbounds i8, ptr %8, i64 16
   %17 = load i64, ptr %16, align 8
-  %18 = getelementptr inbounds { { ptr, [3 x i64] }, { ptr, [3 x i64] }, { ptr, ptr } }, ptr %1, i64 0, i32 1
+  %18 = getelementptr inbounds i8, ptr %1, i64 32
   %19 = load ptr, ptr %18, align 8, !noundef !6
   %20 = icmp eq ptr %19, null
   %.057 = select i1 %20, ptr null, ptr %18
   store i64 0, ptr %5, align 8
-  %21 = getelementptr inbounds { i64, { i64, i64 } }, ptr %5, i64 0, i32 1
+  %21 = getelementptr inbounds i8, ptr %5, i64 8
   store i64 1, ptr %21, align 8
-  %22 = getelementptr inbounds { i64, { i64, i64 } }, ptr %5, i64 0, i32 1, i32 1
+  %22 = getelementptr inbounds i8, ptr %5, i64 16
   store i64 0, ptr %22, align 8
   call void @"_ZN4core6option15Option$LT$T$GT$6map_or17h0bee672224766b1eE"(ptr nonnull sret({ i64, { i64, i64 } }) align 8 %6, ptr align 8 %.057, ptr nonnull align 8 %5)
   %23 = load i64, ptr %6, align 8, !noundef !6
-  %24 = getelementptr inbounds { i64, { i64, i64 } }, ptr %6, i64 0, i32 1
+  %24 = getelementptr inbounds i8, ptr %6, i64 8
   %25 = load i64, ptr %24, align 8, !range !7, !noundef !6
-  %26 = getelementptr inbounds { i64, { i64, i64 } }, ptr %6, i64 0, i32 1, i32 1
+  %26 = getelementptr inbounds i8, ptr %6, i64 16
   %27 = load i64, ptr %26, align 8
   %28 = call i64 @llvm.uadd.sat.i64(i64 %13, i64 %23)
   %29 = call { i64, i64 } @"_ZN74_$LT$T$u20$as$u20$core..iter..adapters..flatten..ConstSizeIntoIterator$GT$4size17h4df47d4c4eb8eb10E"()
   %.fca.0.extract = extractvalue { i64, i64 } %29, 0
   %.fca.1.extract = extractvalue { i64, i64 } %29, 1
   %30 = icmp eq i64 %.fca.0.extract, 1
-  %31 = getelementptr inbounds { { ptr, [3 x i64] }, { ptr, [3 x i64] }, { ptr, ptr } }, ptr %1, i64 0, i32 2
+  %31 = getelementptr inbounds i8, ptr %1, i64 64
   %32 = load ptr, ptr %31, align 8, !noundef !6
   %33 = icmp eq ptr %32, null
   br i1 %30, label %34, label %35
@@ -176,18 +176,18 @@ define void @"_ZN116_$LT$core..iter..adapters..flatten..FlattenCompat$LT$I$C$U$G
 
 36:                                               ; preds = %34
   store i64 0, ptr %4, align 8
-  %37 = getelementptr inbounds { i64, { i64, i64 } }, ptr %4, i64 0, i32 1
+  %37 = getelementptr inbounds i8, ptr %4, i64 8
   store i64 1, ptr %37, align 8
-  %38 = getelementptr inbounds { i64, { i64, i64 } }, ptr %4, i64 0, i32 1, i32 1
+  %38 = getelementptr inbounds i8, ptr %4, i64 16
   store i64 0, ptr %38, align 8
   br label %41
 
 39:                                               ; preds = %34
   call void @"_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$9size_hint17hdae6160e3c59b91cE"(ptr nonnull sret({ i64, { i64, i64 } }) align 8 %4, ptr nonnull align 8 %31)
   %.pre68 = load i64, ptr %4, align 8
-  %.phi.trans.insert69 = getelementptr inbounds { i64, { i64, i64 } }, ptr %4, i64 0, i32 1
+  %.phi.trans.insert69 = getelementptr inbounds i8, ptr %4, i64 8
   %.pre70 = load i64, ptr %.phi.trans.insert69, align 8, !range !7
-  %.phi.trans.insert71 = getelementptr inbounds { i64, { i64, i64 } }, ptr %4, i64 0, i32 1, i32 1
+  %.phi.trans.insert71 = getelementptr inbounds i8, ptr %4, i64 16
   %.pre72 = load i64, ptr %.phi.trans.insert71, align 8
   %40 = icmp eq i64 %.pre70, 0
   br label %41
@@ -228,21 +228,23 @@ define void @"_ZN116_$LT$core..iter..adapters..flatten..FlattenCompat$LT$I$C$U$G
   %.sroa.8.0 = phi i64 [ undef, %41 ], [ undef, %46 ], [ undef, %50 ], [ %56, %53 ]
   %.sroa.023.0 = phi i64 [ 0, %41 ], [ 0, %46 ], [ 0, %50 ], [ %spec.select63, %53 ]
   store i64 %45, ptr %0, align 8
-  %59 = getelementptr inbounds { i64, { i64, i64 } }, ptr %0, i64 0, i32 1
+  %59 = getelementptr inbounds i8, ptr %0, i64 8
   store i64 %.sroa.023.0, ptr %59, align 8
-  %60 = getelementptr inbounds { i64, { i64, i64 } }, ptr %0, i64 0, i32 1, i32 1
-  store i64 %.sroa.8.0, ptr %60, align 8
-  br label %61
+  br label %60
 
-61:                                               ; preds = %71, %73, %58
+60:                                               ; preds = %71, %72, %58
+  %.sink74 = phi i64 [ 8, %71 ], [ 16, %72 ], [ 16, %58 ]
+  %.sink = phi i64 [ 0, %71 ], [ %74, %72 ], [ %.sroa.8.0, %58 ]
+  %61 = getelementptr inbounds i8, ptr %0, i64 %.sink74
+  store i64 %.sink, ptr %61, align 8
   ret void
 
 62:                                               ; preds = %35
   call void @"_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$9size_hint17hdae6160e3c59b91cE"(ptr nonnull sret({ i64, { i64, i64 } }) align 8 %3, ptr nonnull align 8 %31)
   %.pre = load i64, ptr %3, align 8
-  %.phi.trans.insert = getelementptr inbounds { i64, { i64, i64 } }, ptr %3, i64 0, i32 1
+  %.phi.trans.insert = getelementptr inbounds i8, ptr %3, i64 8
   %.pre65 = load i64, ptr %.phi.trans.insert, align 8, !range !7
-  %.phi.trans.insert66 = getelementptr inbounds { i64, { i64, i64 } }, ptr %3, i64 0, i32 1, i32 1
+  %.phi.trans.insert66 = getelementptr inbounds i8, ptr %3, i64 16
   %.pre67 = load i64, ptr %.phi.trans.insert66, align 8
   %63 = icmp eq i64 %.pre, 0
   %64 = icmp ne i64 %.pre65, 0
@@ -258,26 +260,22 @@ define void @"_ZN116_$LT$core..iter..adapters..flatten..FlattenCompat$LT$I$C$U$G
   %70 = icmp ne i64 %25, 0
   %or.cond5 = and i1 %70, %or.cond3
   %or.cond8 = select i1 %or.cond5, i1 %68, i1 false
-  br i1 %or.cond8, label %73, label %71
+  br i1 %or.cond8, label %72, label %71
 
 71:                                               ; preds = %67
   store i64 %28, ptr %0, align 8
-  %72 = getelementptr inbounds { i64, { i64, i64 } }, ptr %0, i64 0, i32 1
-  store i64 0, ptr %72, align 8
-  br label %61
+  br label %60
 
-73:                                               ; preds = %67
-  %74 = call { i64, i1 } @llvm.uadd.with.overflow.i64(i64 %17, i64 %27)
-  %75 = extractvalue { i64, i1 } %74, 0
-  %76 = extractvalue { i64, i1 } %74, 1
-  %not. = xor i1 %76, true
+72:                                               ; preds = %67
+  %73 = call { i64, i1 } @llvm.uadd.with.overflow.i64(i64 %17, i64 %27)
+  %74 = extractvalue { i64, i1 } %73, 0
+  %75 = extractvalue { i64, i1 } %73, 1
+  %not. = xor i1 %75, true
   %.60 = zext i1 %not. to i64
   store i64 %28, ptr %0, align 8
-  %77 = getelementptr inbounds { i64, { i64, i64 } }, ptr %0, i64 0, i32 1
-  store i64 %.60, ptr %77, align 8
-  %78 = getelementptr inbounds { i64, { i64, i64 } }, ptr %0, i64 0, i32 1, i32 1
-  store i64 %75, ptr %78, align 8
-  br label %61
+  %76 = getelementptr inbounds i8, ptr %0, i64 8
+  store i64 %.60, ptr %76, align 8
+  br label %60
 }
 
 ; Function Attrs: inlinehint mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: readwrite) uwtable

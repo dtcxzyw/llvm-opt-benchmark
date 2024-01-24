@@ -38,10 +38,10 @@ if.then.i:                                        ; preds = %entry
 
 do.body.i:                                        ; preds = %if.then.i, %entry
   %1 = phi ptr [ %0, %entry ], [ null, %if.then.i ]
-  %nr.i = getelementptr inbounds %struct.strvec, ptr %array, i64 0, i32 1
+  %nr.i = getelementptr inbounds i8, ptr %array, i64 8
   %2 = load i64, ptr %nr.i, align 8
   %add.i = add i64 %2, 2
-  %alloc.i = getelementptr inbounds %struct.strvec, ptr %array, i64 0, i32 2
+  %alloc.i = getelementptr inbounds i8, ptr %array, i64 16
   %3 = load i64, ptr %alloc.i, align 8
   %cmp2.i = icmp ugt i64 %add.i, %3
   br i1 %cmp2.i, label %if.then3.i, label %strvec_push_nodup.exit
@@ -80,7 +80,7 @@ strvec_push_nodup.exit:                           ; preds = %do.body.i, %st_mult
   %9 = load ptr, ptr %array, align 8
   %10 = load i64, ptr %nr.i, align 8
   %11 = getelementptr ptr, ptr %9, i64 %10
-  %arrayidx = getelementptr ptr, ptr %11, i64 -1
+  %arrayidx = getelementptr i8, ptr %11, i64 -8
   %12 = load ptr, ptr %arrayidx, align 8
   ret ptr %12
 }
@@ -107,10 +107,10 @@ if.then.i:                                        ; preds = %entry
 
 do.body.i:                                        ; preds = %if.then.i, %entry
   %1 = phi ptr [ %0, %entry ], [ null, %if.then.i ]
-  %nr.i = getelementptr inbounds %struct.strvec, ptr %array, i64 0, i32 1
+  %nr.i = getelementptr inbounds i8, ptr %array, i64 8
   %2 = load i64, ptr %nr.i, align 8
   %add.i = add i64 %2, 2
-  %alloc.i = getelementptr inbounds %struct.strvec, ptr %array, i64 0, i32 2
+  %alloc.i = getelementptr inbounds i8, ptr %array, i64 16
   %3 = load i64, ptr %alloc.i, align 8
   %cmp2.i = icmp ugt i64 %add.i, %3
   br i1 %cmp2.i, label %if.then3.i, label %strvec_push_nodup.exit
@@ -149,7 +149,7 @@ strvec_push_nodup.exit:                           ; preds = %do.body.i, %st_mult
   %9 = load ptr, ptr %array, align 8
   %10 = load i64, ptr %nr.i, align 8
   %11 = getelementptr ptr, ptr %9, i64 %10
-  %arrayidx = getelementptr ptr, ptr %11, i64 -1
+  %arrayidx = getelementptr i8, ptr %11, i64 -8
   %12 = load ptr, ptr %arrayidx, align 8
   ret ptr %12
 }
@@ -169,10 +169,10 @@ define dso_local void @strvec_pushl(ptr nocapture noundef %array, ...) local_unn
 entry:
   %ap = alloca [1 x %struct.__va_list_tag], align 16
   call void @llvm.va_start(ptr nonnull %ap)
-  %overflow_arg_area_p = getelementptr inbounds %struct.__va_list_tag, ptr %ap, i64 0, i32 2
-  %0 = getelementptr inbounds %struct.__va_list_tag, ptr %ap, i64 0, i32 3
-  %nr.i.i = getelementptr inbounds %struct.strvec, ptr %array, i64 0, i32 1
-  %alloc.i.i = getelementptr inbounds %struct.strvec, ptr %array, i64 0, i32 2
+  %overflow_arg_area_p = getelementptr inbounds i8, ptr %ap, i64 8
+  %0 = getelementptr inbounds i8, ptr %ap, i64 16
+  %nr.i.i = getelementptr inbounds i8, ptr %array, i64 8
+  %alloc.i.i = getelementptr inbounds i8, ptr %array, i64 16
   br label %while.cond
 
 while.cond:                                       ; preds = %strvec_push.exit, %entry
@@ -264,8 +264,8 @@ entry:
   br i1 %tobool.not3, label %for.end, label %for.body.lr.ph
 
 for.body.lr.ph:                                   ; preds = %entry
-  %nr.i.i = getelementptr inbounds %struct.strvec, ptr %array, i64 0, i32 1
-  %alloc.i.i = getelementptr inbounds %struct.strvec, ptr %array, i64 0, i32 2
+  %nr.i.i = getelementptr inbounds i8, ptr %array, i64 8
+  %alloc.i.i = getelementptr inbounds i8, ptr %array, i64 16
   br label %for.body
 
 for.body:                                         ; preds = %for.body.lr.ph, %strvec_push.exit
@@ -319,7 +319,7 @@ strvec_push.exit:                                 ; preds = %do.body.i.i, %st_mu
   %10 = load i64, ptr %nr.i.i, align 8
   %arrayidx28.i.i = getelementptr inbounds ptr, ptr %9, i64 %10
   store ptr null, ptr %arrayidx28.i.i, align 8
-  %incdec.ptr = getelementptr inbounds ptr, ptr %items.addr.04, i64 1
+  %incdec.ptr = getelementptr inbounds i8, ptr %items.addr.04, i64 8
   %11 = load ptr, ptr %incdec.ptr, align 8
   %tobool.not = icmp eq ptr %11, null
   br i1 %tobool.not, label %for.end, label %for.body, !llvm.loop !7
@@ -331,7 +331,7 @@ for.end:                                          ; preds = %strvec_push.exit, %
 ; Function Attrs: mustprogress nounwind willreturn uwtable
 define dso_local void @strvec_pop(ptr nocapture noundef %array) local_unnamed_addr #5 {
 entry:
-  %nr = getelementptr inbounds %struct.strvec, ptr %array, i64 0, i32 1
+  %nr = getelementptr inbounds i8, ptr %array, i64 8
   %0 = load i64, ptr %nr, align 8
   %tobool.not = icmp eq i64 %0, 0
   br i1 %tobool.not, label %return, label %if.end
@@ -339,13 +339,13 @@ entry:
 if.end:                                           ; preds = %entry
   %1 = load ptr, ptr %array, align 8
   %2 = getelementptr ptr, ptr %1, i64 %0
-  %arrayidx = getelementptr ptr, ptr %2, i64 -1
+  %arrayidx = getelementptr i8, ptr %2, i64 -8
   %3 = load ptr, ptr %arrayidx, align 8
   tail call void @free(ptr noundef %3) #9
   %4 = load ptr, ptr %array, align 8
   %5 = load i64, ptr %nr, align 8
   %6 = getelementptr ptr, ptr %4, i64 %5
-  %arrayidx5 = getelementptr ptr, ptr %6, i64 -1
+  %arrayidx5 = getelementptr i8, ptr %6, i64 -8
   store ptr null, ptr %arrayidx5, align 8
   %7 = load i64, ptr %nr, align 8
   %dec = add i64 %7, -1
@@ -380,8 +380,8 @@ for.cond.preheader:                               ; preds = %while.cond
   br i1 %tobool.not13, label %for.end, label %while.cond2.preheader.lr.ph
 
 while.cond2.preheader.lr.ph:                      ; preds = %for.cond.preheader
-  %nr.i = getelementptr inbounds %struct.strvec, ptr %array, i64 0, i32 1
-  %alloc.i = getelementptr inbounds %struct.strvec, ptr %array, i64 0, i32 2
+  %nr.i = getelementptr inbounds i8, ptr %array, i64 8
+  %alloc.i = getelementptr inbounds i8, ptr %array, i64 16
   br label %while.cond2.preheader
 
 for.cond.loopexit:                                ; preds = %while.cond14
@@ -489,7 +489,7 @@ entry:
   br i1 %cmp.not, label %if.end, label %for.cond.preheader
 
 for.cond.preheader:                               ; preds = %entry
-  %nr = getelementptr inbounds %struct.strvec, ptr %array, i64 0, i32 1
+  %nr = getelementptr inbounds i8, ptr %array, i64 8
   %1 = load i64, ptr %nr, align 8
   %cmp17.not = icmp eq i64 %1, 0
   br i1 %cmp17.not, label %for.end, label %for.body

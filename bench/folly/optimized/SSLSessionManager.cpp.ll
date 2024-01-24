@@ -10,29 +10,16 @@ target triple = "x86_64-unknown-linux-gnu"
 %"class.boost::aligned_storage" = type { %"struct.boost::detail::aligned_storage::aligned_storage_imp" }
 %"struct.boost::detail::aligned_storage::aligned_storage_imp" = type { %"union.boost::detail::aligned_storage::aligned_storage_imp<16, 8>::data_t" }
 %"union.boost::detail::aligned_storage::aligned_storage_imp<16, 8>::data_t" = type { [16 x i8] }
-%"class.std::_Sp_counted_base" = type { ptr, i32, i32 }
-%"class.std::_Sp_counted_ptr_inplace" = type { %"class.std::_Sp_counted_base", %"class.std::_Sp_counted_ptr_inplace<folly::ssl::detail::OpenSSLSession, std::allocator<void>, __gnu_cxx::_S_atomic>::_Impl" }
-%"class.std::_Sp_counted_ptr_inplace<folly::ssl::detail::OpenSSLSession, std::allocator<void>, __gnu_cxx::_S_atomic>::_Impl" = type { %"struct.__gnu_cxx::__aligned_buffer" }
-%"struct.__gnu_cxx::__aligned_buffer" = type { %"union.std::aligned_storage<24, 8>::type" }
-%"union.std::aligned_storage<24, 8>::type" = type { [24 x i8] }
-%"class.std::type_info" = type { ptr, ptr }
-%"class.folly::ssl::detail::OpenSSLSession" = type { %"class.folly::ssl::SSLSession", %"struct.folly::Synchronized" }
-%"class.folly::ssl::SSLSession" = type { ptr }
-%"struct.folly::Synchronized" = type <{ %"class.std::unique_ptr", %"class.folly::SharedMutexImpl", [4 x i8] }>
+%"class.boost::variant<std::unique_ptr<ssl_session_st, folly::static_function_deleter<ssl_session_st, &SSL_SESSION_free>>, std::shared_ptr<folly::ssl::detail::OpenSSLSession>>::move_assigner" = type { %"class.boost::variant<std::unique_ptr<ssl_session_st, folly::static_function_deleter<ssl_session_st, &SSL_SESSION_free>>, std::shared_ptr<folly::ssl::detail::OpenSSLSession>>::assigner.base", [4 x i8] }
+%"class.boost::variant<std::unique_ptr<ssl_session_st, folly::static_function_deleter<ssl_session_st, &SSL_SESSION_free>>, std::shared_ptr<folly::ssl::detail::OpenSSLSession>>::assigner.base" = type <{ ptr, i32 }>
 %"class.std::unique_ptr" = type { %"struct.std::__uniq_ptr_data" }
 %"struct.std::__uniq_ptr_data" = type { %"class.std::__uniq_ptr_impl" }
 %"class.std::__uniq_ptr_impl" = type { %"class.std::tuple" }
 %"class.std::tuple" = type { %"struct.std::_Tuple_impl" }
 %"struct.std::_Tuple_impl" = type { %"struct.std::_Head_base.1" }
 %"struct.std::_Head_base.1" = type { ptr }
-%"class.folly::SharedMutexImpl" = type { %"struct.std::atomic" }
-%"struct.std::atomic" = type { %"struct.std::__atomic_base" }
-%"struct.std::__atomic_base" = type { i32 }
-%"class.boost::variant<std::unique_ptr<ssl_session_st, folly::static_function_deleter<ssl_session_st, &SSL_SESSION_free>>, std::shared_ptr<folly::ssl::detail::OpenSSLSession>>::move_assigner" = type { %"class.boost::variant<std::unique_ptr<ssl_session_st, folly::static_function_deleter<ssl_session_st, &SSL_SESSION_free>>, std::shared_ptr<folly::ssl::detail::OpenSSLSession>>::assigner.base", [4 x i8] }
-%"class.boost::variant<std::unique_ptr<ssl_session_st, folly::static_function_deleter<ssl_session_st, &SSL_SESSION_free>>, std::shared_ptr<folly::ssl::detail::OpenSSLSession>>::assigner.base" = type <{ ptr, i32 }>
-%"class.boost::variant<std::unique_ptr<ssl_session_st, folly::static_function_deleter<ssl_session_st, &SSL_SESSION_free>>, std::shared_ptr<folly::ssl::detail::OpenSSLSession>>::assigner" = type <{ ptr, i32, [4 x i8] }>
-%"class.std::__shared_ptr.9" = type { ptr, %"class.std::__shared_count" }
 %"class.std::shared_ptr.8" = type { %"class.std::__shared_ptr.9" }
+%"class.std::__shared_ptr.9" = type { ptr, %"class.std::__shared_count" }
 %"class.(anonymous namespace)::SessionForwarderVisitor" = type { %"class.std::unique_ptr" }
 
 $_ZNSt12__shared_ptrIN5folly3ssl6detail14OpenSSLSessionELN9__gnu_cxx12_Lock_policyE2EED2Ev = comdat any
@@ -127,26 +114,26 @@ declare void @SSL_SESSION_free(ptr noundef) local_unnamed_addr #0
 define void @_ZN5folly3ssl17SSLSessionManagerC2Ev(ptr noundef nonnull align 8 dereferenceable(24) %this) unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp = alloca %"class.std::shared_ptr", align 8
-  %storage_.i = getelementptr inbounds %"class.boost::variant", ptr %this, i64 0, i32 2
+  %storage_.i = getelementptr inbounds i8, ptr %this, i64 8
   store ptr null, ptr %storage_.i, align 8, !tbaa !7
   store i32 0, ptr %this, align 8, !tbaa !12
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %ref.tmp) #14
   tail call void @llvm.experimental.noalias.scope.decl(metadata !17)
-  %_M_refcount.i.i.i = getelementptr inbounds %"class.std::__shared_ptr", ptr %ref.tmp, i64 0, i32 1
+  %_M_refcount.i.i.i = getelementptr inbounds i8, ptr %ref.tmp, i64 8
   %call5.i.i.i16.i.i.i.i8 = invoke noalias noundef nonnull dereferenceable(40) ptr @_Znwm(i64 noundef 40) #15
           to label %invoke.cont unwind label %lpad
 
 invoke.cont:                                      ; preds = %entry
-  %_M_use_count.i.i.i.i.i.i = getelementptr inbounds %"class.std::_Sp_counted_base", ptr %call5.i.i.i16.i.i.i.i8, i64 0, i32 1
+  %_M_use_count.i.i.i.i.i.i = getelementptr inbounds i8, ptr %call5.i.i.i16.i.i.i.i8, i64 8
   store i32 1, ptr %_M_use_count.i.i.i.i.i.i, align 8, !tbaa !20, !noalias !17
-  %_M_weak_count.i.i.i.i.i.i = getelementptr inbounds %"class.std::_Sp_counted_base", ptr %call5.i.i.i16.i.i.i.i8, i64 0, i32 2
+  %_M_weak_count.i.i.i.i.i.i = getelementptr inbounds i8, ptr %call5.i.i.i16.i.i.i.i8, i64 12
   store i32 1, ptr %_M_weak_count.i.i.i.i.i.i, align 4, !tbaa !22, !noalias !17
   store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN5folly3ssl6detail14OpenSSLSessionESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 0, inrange i32 0, i64 2), ptr %call5.i.i.i16.i.i.i.i8, align 8, !tbaa !23, !noalias !17
-  %_M_impl.i.i.i.i.i.i = getelementptr inbounds %"class.std::_Sp_counted_ptr_inplace", ptr %call5.i.i.i16.i.i.i.i8, i64 0, i32 1
-  %0 = getelementptr inbounds %"class.std::_Sp_counted_ptr_inplace", ptr %call5.i.i.i16.i.i.i.i8, i64 0, i32 1, i32 0, i32 0, i32 0, i64 16
+  %_M_impl.i.i.i.i.i.i = getelementptr inbounds i8, ptr %call5.i.i.i16.i.i.i.i8, i64 16
+  %0 = getelementptr inbounds i8, ptr %call5.i.i.i16.i.i.i.i8, i64 32
   store i64 0, ptr %0, align 8, !noalias !17
   store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN5folly3ssl6detail14OpenSSLSessionE, i64 0, inrange i32 0, i64 2), ptr %_M_impl.i.i.i.i.i.i, align 8, !tbaa !23, !noalias !17
-  %activeSession_.i.i.i.i.i.i.i.i = getelementptr inbounds %"class.std::_Sp_counted_ptr_inplace", ptr %call5.i.i.i16.i.i.i.i8, i64 0, i32 1, i32 0, i32 0, i32 0, i64 8
+  %activeSession_.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %call5.i.i.i16.i.i.i.i8, i64 24
   store ptr null, ptr %activeSession_.i.i.i.i.i.i.i.i, align 8, !tbaa !7, !noalias !17
   store ptr %call5.i.i.i16.i.i.i.i8, ptr %_M_refcount.i.i.i, align 8, !tbaa !25, !alias.scope !17
   store ptr %_M_impl.i.i.i.i.i.i, ptr %ref.tmp, align 8, !tbaa !27, !alias.scope !17
@@ -159,7 +146,7 @@ invoke.cont4:                                     ; preds = %invoke.cont
   br i1 %cmp.not.i.i, label %_ZNSt12__shared_ptrIN5folly3ssl6detail14OpenSSLSessionELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit, label %if.then.i.i
 
 if.then.i.i:                                      ; preds = %invoke.cont4
-  %_M_use_count.i.i.i = getelementptr inbounds %"class.std::_Sp_counted_base", ptr %1, i64 0, i32 1
+  %_M_use_count.i.i.i = getelementptr inbounds i8, ptr %1, i64 8
   %2 = load atomic i64, ptr %_M_use_count.i.i.i acquire, align 8
   %cmp.i.i.i = icmp eq i64 %2, 4294967297
   %3 = trunc i64 %2 to i32
@@ -167,14 +154,14 @@ if.then.i.i:                                      ; preds = %invoke.cont4
 
 if.then.i.i.i:                                    ; preds = %if.then.i.i
   store i32 0, ptr %_M_use_count.i.i.i, align 8, !tbaa !20
-  %_M_weak_count.i.i.i = getelementptr inbounds %"class.std::_Sp_counted_base", ptr %1, i64 0, i32 2
+  %_M_weak_count.i.i.i = getelementptr inbounds i8, ptr %1, i64 12
   store i32 0, ptr %_M_weak_count.i.i.i, align 4, !tbaa !22
   %vtable.i.i.i = load ptr, ptr %1, align 8, !tbaa !23
-  %vfn.i.i.i = getelementptr inbounds ptr, ptr %vtable.i.i.i, i64 2
+  %vfn.i.i.i = getelementptr inbounds i8, ptr %vtable.i.i.i, i64 16
   %4 = load ptr, ptr %vfn.i.i.i, align 8
   call void %4(ptr noundef nonnull align 8 dereferenceable(16) %1) #14
   %vtable3.i.i.i = load ptr, ptr %1, align 8, !tbaa !23
-  %vfn4.i.i.i = getelementptr inbounds ptr, ptr %vtable3.i.i.i, i64 3
+  %vfn4.i.i.i = getelementptr inbounds i8, ptr %vtable3.i.i.i, i64 24
   %5 = load ptr, ptr %vfn4.i.i.i, align 8
   call void %5(ptr noundef nonnull align 8 dereferenceable(16) %1) #14
   br label %_ZNSt12__shared_ptrIN5folly3ssl6detail14OpenSSLSessionELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit
@@ -232,13 +219,13 @@ declare i32 @__gxx_personality_v0(...)
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZNSt12__shared_ptrIN5folly3ssl6detail14OpenSSLSessionELN9__gnu_cxx12_Lock_policyE2EED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %this) unnamed_addr #3 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  %_M_refcount = getelementptr inbounds %"class.std::__shared_ptr", ptr %this, i64 0, i32 1
+  %_M_refcount = getelementptr inbounds i8, ptr %this, i64 8
   %0 = load ptr, ptr %_M_refcount, align 8, !tbaa !25
   %cmp.not.i = icmp eq ptr %0, null
   br i1 %cmp.not.i, label %_ZNSt14__shared_countILN9__gnu_cxx12_Lock_policyE2EED2Ev.exit, label %if.then.i
 
 if.then.i:                                        ; preds = %entry
-  %_M_use_count.i.i = getelementptr inbounds %"class.std::_Sp_counted_base", ptr %0, i64 0, i32 1
+  %_M_use_count.i.i = getelementptr inbounds i8, ptr %0, i64 8
   %1 = load atomic i64, ptr %_M_use_count.i.i acquire, align 8
   %cmp.i.i = icmp eq i64 %1, 4294967297
   %2 = trunc i64 %1 to i32
@@ -246,14 +233,14 @@ if.then.i:                                        ; preds = %entry
 
 if.then.i.i:                                      ; preds = %if.then.i
   store i32 0, ptr %_M_use_count.i.i, align 8, !tbaa !20
-  %_M_weak_count.i.i = getelementptr inbounds %"class.std::_Sp_counted_base", ptr %0, i64 0, i32 2
+  %_M_weak_count.i.i = getelementptr inbounds i8, ptr %0, i64 12
   store i32 0, ptr %_M_weak_count.i.i, align 4, !tbaa !22
   %vtable.i.i = load ptr, ptr %0, align 8, !tbaa !23
-  %vfn.i.i = getelementptr inbounds ptr, ptr %vtable.i.i, i64 2
+  %vfn.i.i = getelementptr inbounds i8, ptr %vtable.i.i, i64 16
   %3 = load ptr, ptr %vfn.i.i, align 8
   tail call void %3(ptr noundef nonnull align 8 dereferenceable(16) %0) #14
   %vtable3.i.i = load ptr, ptr %0, align 8, !tbaa !23
-  %vfn4.i.i = getelementptr inbounds ptr, ptr %vtable3.i.i, i64 3
+  %vfn4.i.i = getelementptr inbounds i8, ptr %vtable3.i.i, i64 24
   %4 = load ptr, ptr %vfn4.i.i, align 8
   tail call void %4(ptr noundef nonnull align 8 dereferenceable(16) %0) #14
   br label %_ZNSt14__shared_countILN9__gnu_cxx12_Lock_policyE2EED2Ev.exit
@@ -293,7 +280,7 @@ define linkonce_odr void @_ZN5boost7variantISt10unique_ptrI14ssl_session_stN5fol
 entry:
   %0 = load i32, ptr %this, align 8
   %.lobit.i.i = ashr i32 %0, 31
-  %storage_.i.i = getelementptr inbounds %"class.boost::variant", ptr %this, i64 0, i32 2
+  %storage_.i.i = getelementptr inbounds i8, ptr %this, i64 8
   %switch.i = icmp eq i32 %.lobit.i.i, %0
   br i1 %switch.i, label %sw.bb.i.i, label %sw.bb3.i.i
 
@@ -318,13 +305,13 @@ terminate.lpad.i.i.i.i.i:                         ; preds = %if.then.i.i.i.i.i
   br label %_ZN5boost7variantISt10unique_ptrI14ssl_session_stN5folly23static_function_deleterIS2_XadL_Z16SSL_SESSION_freeEEEEEJSt10shared_ptrINS3_3ssl6detail14OpenSSLSessionEEEE15destroy_contentEv.exit
 
 sw.bb3.i.i:                                       ; preds = %entry
-  %_M_refcount.i.i.i.i.i = getelementptr inbounds %"class.boost::variant", ptr %this, i64 0, i32 2, i32 0, i32 0, i32 0, i64 8
+  %_M_refcount.i.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 16
   %4 = load ptr, ptr %_M_refcount.i.i.i.i.i, align 8, !tbaa !25
   %cmp.not.i.i.i.i.i.i = icmp eq ptr %4, null
   br i1 %cmp.not.i.i.i.i.i.i, label %_ZN5boost7variantISt10unique_ptrI14ssl_session_stN5folly23static_function_deleterIS2_XadL_Z16SSL_SESSION_freeEEEEEJSt10shared_ptrINS3_3ssl6detail14OpenSSLSessionEEEE15destroy_contentEv.exit, label %if.then.i.i.i.i.i.i
 
 if.then.i.i.i.i.i.i:                              ; preds = %sw.bb3.i.i
-  %_M_use_count.i.i.i.i.i.i.i = getelementptr inbounds %"class.std::_Sp_counted_base", ptr %4, i64 0, i32 1
+  %_M_use_count.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %4, i64 8
   %5 = load atomic i64, ptr %_M_use_count.i.i.i.i.i.i.i acquire, align 8
   %cmp.i.i.i.i.i.i.i = icmp eq i64 %5, 4294967297
   %6 = trunc i64 %5 to i32
@@ -332,14 +319,14 @@ if.then.i.i.i.i.i.i:                              ; preds = %sw.bb3.i.i
 
 if.then.i.i.i.i.i.i.i:                            ; preds = %if.then.i.i.i.i.i.i
   store i32 0, ptr %_M_use_count.i.i.i.i.i.i.i, align 8, !tbaa !20
-  %_M_weak_count.i.i.i.i.i.i.i = getelementptr inbounds %"class.std::_Sp_counted_base", ptr %4, i64 0, i32 2
+  %_M_weak_count.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %4, i64 12
   store i32 0, ptr %_M_weak_count.i.i.i.i.i.i.i, align 4, !tbaa !22
   %vtable.i.i.i.i.i.i.i = load ptr, ptr %4, align 8, !tbaa !23
-  %vfn.i.i.i.i.i.i.i = getelementptr inbounds ptr, ptr %vtable.i.i.i.i.i.i.i, i64 2
+  %vfn.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %vtable.i.i.i.i.i.i.i, i64 16
   %7 = load ptr, ptr %vfn.i.i.i.i.i.i.i, align 8
   tail call void %7(ptr noundef nonnull align 8 dereferenceable(16) %4) #14
   %vtable3.i.i.i.i.i.i.i = load ptr, ptr %4, align 8, !tbaa !23
-  %vfn4.i.i.i.i.i.i.i = getelementptr inbounds ptr, ptr %vtable3.i.i.i.i.i.i.i, i64 3
+  %vfn4.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %vtable3.i.i.i.i.i.i.i, i64 24
   %8 = load ptr, ptr %vfn4.i.i.i.i.i.i.i, align 8
   tail call void %8(ptr noundef nonnull align 8 dereferenceable(16) %4) #14
   br label %_ZN5boost7variantISt10unique_ptrI14ssl_session_stN5folly23static_function_deleterIS2_XadL_Z16SSL_SESSION_freeEEEEEJSt10shared_ptrINS3_3ssl6detail14OpenSSLSessionEEEE15destroy_contentEv.exit
@@ -404,7 +391,7 @@ entry:
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZNSt23_Sp_counted_ptr_inplaceIN5folly3ssl6detail14OpenSSLSessionESaIvELN9__gnu_cxx12_Lock_policyE2EE10_M_disposeEv(ptr noundef nonnull align 8 dereferenceable(40) %this) unnamed_addr #3 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  %_M_impl.i = getelementptr inbounds %"class.std::_Sp_counted_ptr_inplace", ptr %this, i64 0, i32 1
+  %_M_impl.i = getelementptr inbounds i8, ptr %this, i64 16
   %vtable.i.i = load ptr, ptr %_M_impl.i, align 8, !tbaa !23
   %0 = load ptr, ptr %vtable.i.i, align 8
   tail call void %0(ptr noundef nonnull align 8 dereferenceable(24) %_M_impl.i) #14
@@ -421,12 +408,12 @@ _ZNSt15__allocated_ptrISaISt23_Sp_counted_ptr_inplaceIN5folly3ssl6detail14OpenSS
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr noundef ptr @_ZNSt23_Sp_counted_ptr_inplaceIN5folly3ssl6detail14OpenSSLSessionESaIvELN9__gnu_cxx12_Lock_policyE2EE14_M_get_deleterERKSt9type_info(ptr noundef nonnull align 8 dereferenceable(40) %this, ptr noundef nonnull align 8 dereferenceable(16) %__ti) unnamed_addr #3 comdat align 2 {
 entry:
-  %_M_impl.i = getelementptr inbounds %"class.std::_Sp_counted_ptr_inplace", ptr %this, i64 0, i32 1
+  %_M_impl.i = getelementptr inbounds i8, ptr %this, i64 16
   %cmp = icmp eq ptr %__ti, @_ZZNSt19_Sp_make_shared_tag5_S_tiEvE5__tag
   br i1 %cmp, label %cleanup, label %lor.lhs.false
 
 lor.lhs.false:                                    ; preds = %entry
-  %__name.i = getelementptr inbounds %"class.std::type_info", ptr %__ti, i64 0, i32 1
+  %__name.i = getelementptr inbounds i8, ptr %__ti, i64 8
   %0 = load ptr, ptr %__name.i, align 8, !tbaa !31
   %cmp.i = icmp eq ptr %0, @_ZTSSt19_Sp_make_shared_tag
   br i1 %cmp.i, label %_ZNKSt9type_infoeqERKS_.exit.thread, label %if.end.i
@@ -455,8 +442,8 @@ define linkonce_odr void @_ZN5folly3ssl6detail14OpenSSLSessionD2Ev(ptr noundef n
 entry:
   %state.i.i = alloca i32, align 4
   store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN5folly3ssl6detail14OpenSSLSessionE, i64 0, inrange i32 0, i64 2), ptr %this, align 8, !tbaa !23
-  %activeSession_ = getelementptr inbounds %"class.folly::ssl::detail::OpenSSLSession", ptr %this, i64 0, i32 1
-  %mutex_.i = getelementptr inbounds %"class.folly::ssl::detail::OpenSSLSession", ptr %this, i64 0, i32 1, i32 1
+  %activeSession_ = getelementptr inbounds i8, ptr %this, i64 8
+  %mutex_.i = getelementptr inbounds i8, ptr %this, i64 16
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %state.i.i) #14
   %0 = load atomic i32, ptr %mutex_.i monotonic, align 8
   store i32 %0, ptr %state.i.i, align 4, !tbaa !29
@@ -501,8 +488,8 @@ define linkonce_odr void @_ZN5folly3ssl6detail14OpenSSLSessionD0Ev(ptr noundef n
 entry:
   %state.i.i.i = alloca i32, align 4
   store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN5folly3ssl6detail14OpenSSLSessionE, i64 0, inrange i32 0, i64 2), ptr %this, align 8, !tbaa !23
-  %activeSession_.i = getelementptr inbounds %"class.folly::ssl::detail::OpenSSLSession", ptr %this, i64 0, i32 1
-  %mutex_.i.i = getelementptr inbounds %"class.folly::ssl::detail::OpenSSLSession", ptr %this, i64 0, i32 1, i32 1
+  %activeSession_.i = getelementptr inbounds i8, ptr %this, i64 8
+  %mutex_.i.i = getelementptr inbounds i8, ptr %this, i64 16
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %state.i.i.i) #14
   %0 = load atomic i32, ptr %mutex_.i.i monotonic, align 8
   store i32 %0, ptr %state.i.i.i, align 4, !tbaa !29
@@ -584,8 +571,8 @@ entry:
   br i1 %switch.i.not, label %if.then, label %sw.bb3.i.i
 
 sw.bb3.i.i:                                       ; preds = %entry
-  %storage_.i.i = getelementptr inbounds %"class.boost::variant", ptr %this, i64 0, i32 2
-  %_M_refcount3.i.i.i.i.i.i.i.i = getelementptr inbounds %"class.boost::variant", ptr %this, i64 0, i32 2, i32 0, i32 0, i32 0, i64 8
+  %storage_.i.i = getelementptr inbounds i8, ptr %this, i64 8
+  %_M_refcount3.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 16
   %1 = load <2 x ptr>, ptr %rhs, align 8, !tbaa !27
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %rhs, i8 0, i64 16, i1 false)
   %2 = load ptr, ptr %_M_refcount3.i.i.i.i.i.i.i.i, align 8, !tbaa !25
@@ -594,7 +581,7 @@ sw.bb3.i.i:                                       ; preds = %entry
   br i1 %cmp.not.i.i.i.i.i.i.i.i.i, label %if.end, label %if.then.i.i.i.i.i.i.i.i.i
 
 if.then.i.i.i.i.i.i.i.i.i:                        ; preds = %sw.bb3.i.i
-  %_M_use_count.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds %"class.std::_Sp_counted_base", ptr %2, i64 0, i32 1
+  %_M_use_count.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %2, i64 8
   %3 = load atomic i64, ptr %_M_use_count.i.i.i.i.i.i.i.i.i.i acquire, align 8
   %cmp.i.i.i.i.i.i.i.i.i.i = icmp eq i64 %3, 4294967297
   %4 = trunc i64 %3 to i32
@@ -602,14 +589,14 @@ if.then.i.i.i.i.i.i.i.i.i:                        ; preds = %sw.bb3.i.i
 
 if.then.i.i.i.i.i.i.i.i.i.i:                      ; preds = %if.then.i.i.i.i.i.i.i.i.i
   store i32 0, ptr %_M_use_count.i.i.i.i.i.i.i.i.i.i, align 8, !tbaa !20
-  %_M_weak_count.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds %"class.std::_Sp_counted_base", ptr %2, i64 0, i32 2
+  %_M_weak_count.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %2, i64 12
   store i32 0, ptr %_M_weak_count.i.i.i.i.i.i.i.i.i.i, align 4, !tbaa !22
   %vtable.i.i.i.i.i.i.i.i.i.i = load ptr, ptr %2, align 8, !tbaa !23
-  %vfn.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds ptr, ptr %vtable.i.i.i.i.i.i.i.i.i.i, i64 2
+  %vfn.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %vtable.i.i.i.i.i.i.i.i.i.i, i64 16
   %5 = load ptr, ptr %vfn.i.i.i.i.i.i.i.i.i.i, align 8
   tail call void %5(ptr noundef nonnull align 8 dereferenceable(16) %2) #14
   %vtable3.i.i.i.i.i.i.i.i.i.i = load ptr, ptr %2, align 8, !tbaa !23
-  %vfn4.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds ptr, ptr %vtable3.i.i.i.i.i.i.i.i.i.i, i64 3
+  %vfn4.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %vtable3.i.i.i.i.i.i.i.i.i.i, i64 24
   %6 = load ptr, ptr %vfn4.i.i.i.i.i.i.i.i.i.i, align 8
   tail call void %6(ptr noundef nonnull align 8 dereferenceable(16) %2) #14
   br label %if.end
@@ -639,9 +626,9 @@ if.then7.i.i.i.i.i.i.i.i.i.i:                     ; preds = %invoke.cont.i.i.i.i
 
 if.then:                                          ; preds = %entry
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %temp) #14
-  %storage_.i.i6 = getelementptr inbounds %"class.boost::variant", ptr %temp, i64 0, i32 2
-  %_M_refcount.i.i.i.i.i = getelementptr inbounds %"class.boost::variant", ptr %temp, i64 0, i32 2, i32 0, i32 0, i32 0, i64 8
-  %_M_refcount4.i.i.i.i.i = getelementptr inbounds %"class.std::__shared_ptr", ptr %rhs, i64 0, i32 1
+  %storage_.i.i6 = getelementptr inbounds i8, ptr %temp, i64 8
+  %_M_refcount.i.i.i.i.i = getelementptr inbounds i8, ptr %temp, i64 16
+  %_M_refcount4.i.i.i.i.i = getelementptr inbounds i8, ptr %rhs, i64 8
   %9 = load <2 x ptr>, ptr %rhs, align 8, !tbaa !27
   store ptr null, ptr %_M_refcount4.i.i.i.i.i, align 8, !tbaa !25
   store <2 x ptr> %9, ptr %storage_.i.i6, align 8, !tbaa !27
@@ -678,7 +665,7 @@ sw.bb3.i.i.i:                                     ; preds = %invoke.cont
   br i1 %cmp.not.i.i.i.i.i.i.i, label %_ZN5boost7variantISt10unique_ptrI14ssl_session_stN5folly23static_function_deleterIS2_XadL_Z16SSL_SESSION_freeEEEEEJSt10shared_ptrINS3_3ssl6detail14OpenSSLSessionEEEED2Ev.exit, label %if.then.i.i.i.i.i.i.i
 
 if.then.i.i.i.i.i.i.i:                            ; preds = %sw.bb3.i.i.i
-  %_M_use_count.i.i.i.i.i.i.i.i = getelementptr inbounds %"class.std::_Sp_counted_base", ptr %14, i64 0, i32 1
+  %_M_use_count.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %14, i64 8
   %15 = load atomic i64, ptr %_M_use_count.i.i.i.i.i.i.i.i acquire, align 8
   %cmp.i.i.i.i.i.i.i.i = icmp eq i64 %15, 4294967297
   %16 = trunc i64 %15 to i32
@@ -686,14 +673,14 @@ if.then.i.i.i.i.i.i.i:                            ; preds = %sw.bb3.i.i.i
 
 if.then.i.i.i.i.i.i.i.i:                          ; preds = %if.then.i.i.i.i.i.i.i
   store i32 0, ptr %_M_use_count.i.i.i.i.i.i.i.i, align 8, !tbaa !20
-  %_M_weak_count.i.i.i.i.i.i.i.i = getelementptr inbounds %"class.std::_Sp_counted_base", ptr %14, i64 0, i32 2
+  %_M_weak_count.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %14, i64 12
   store i32 0, ptr %_M_weak_count.i.i.i.i.i.i.i.i, align 4, !tbaa !22
   %vtable.i.i.i.i.i.i.i.i = load ptr, ptr %14, align 8, !tbaa !23
-  %vfn.i.i.i.i.i.i.i.i = getelementptr inbounds ptr, ptr %vtable.i.i.i.i.i.i.i.i, i64 2
+  %vfn.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %vtable.i.i.i.i.i.i.i.i, i64 16
   %17 = load ptr, ptr %vfn.i.i.i.i.i.i.i.i, align 8
   call void %17(ptr noundef nonnull align 8 dereferenceable(16) %14) #14
   %vtable3.i.i.i.i.i.i.i.i = load ptr, ptr %14, align 8, !tbaa !23
-  %vfn4.i.i.i.i.i.i.i.i = getelementptr inbounds ptr, ptr %vtable3.i.i.i.i.i.i.i.i, i64 3
+  %vfn4.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %vtable3.i.i.i.i.i.i.i.i, i64 24
   %18 = load ptr, ptr %vfn4.i.i.i.i.i.i.i.i, align 8
   call void %18(ptr noundef nonnull align 8 dereferenceable(16) %14) #14
   br label %_ZN5boost7variantISt10unique_ptrI14ssl_session_stN5folly23static_function_deleterIS2_XadL_Z16SSL_SESSION_freeEEEEEJSt10shared_ptrINS3_3ssl6detail14OpenSSLSessionEEEED2Ev.exit
@@ -746,9 +733,9 @@ entry:
   br i1 %cmp, label %if.then, label %if.else
 
 if.then:                                          ; preds = %entry
-  %storage_ = getelementptr inbounds %"class.boost::variant", ptr %rhs, i64 0, i32 2
+  %storage_ = getelementptr inbounds i8, ptr %rhs, i64 8
   %.lobit.i = ashr i32 %0, 31
-  %storage_.i = getelementptr inbounds %"class.boost::variant", ptr %this, i64 0, i32 2
+  %storage_.i = getelementptr inbounds i8, ptr %this, i64 8
   %switch = icmp eq i32 %.lobit.i, %0
   %2 = load ptr, ptr %storage_, align 8, !tbaa !27
   br i1 %switch, label %sw.bb.i, label %sw.bb3.i
@@ -772,18 +759,18 @@ terminate.lpad.i.i.i.i.i.i.i:                     ; preds = %if.then.i.i.i.i.i.i
   unreachable
 
 sw.bb3.i:                                         ; preds = %if.then
-  %_M_refcount4.i.i.i.i.i.i = getelementptr inbounds %"class.boost::variant", ptr %rhs, i64 0, i32 2, i32 0, i32 0, i32 0, i64 8
+  %_M_refcount4.i.i.i.i.i.i = getelementptr inbounds i8, ptr %rhs, i64 16
   %6 = load ptr, ptr %_M_refcount4.i.i.i.i.i.i, align 8, !tbaa !25
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %storage_, i8 0, i64 16, i1 false)
   store ptr %2, ptr %storage_.i, align 8, !tbaa !27
-  %_M_refcount3.i.i.i.i.i.i = getelementptr inbounds %"class.boost::variant", ptr %this, i64 0, i32 2, i32 0, i32 0, i32 0, i64 8
+  %_M_refcount3.i.i.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 16
   %7 = load ptr, ptr %_M_refcount3.i.i.i.i.i.i, align 8, !tbaa !25
   store ptr %6, ptr %_M_refcount3.i.i.i.i.i.i, align 8, !tbaa !25
   %cmp.not.i.i.i.i.i.i.i = icmp eq ptr %7, null
   br i1 %cmp.not.i.i.i.i.i.i.i, label %if.end, label %if.then.i.i.i.i.i.i.i35
 
 if.then.i.i.i.i.i.i.i35:                          ; preds = %sw.bb3.i
-  %_M_use_count.i.i.i.i.i.i.i.i = getelementptr inbounds %"class.std::_Sp_counted_base", ptr %7, i64 0, i32 1
+  %_M_use_count.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %7, i64 8
   %8 = load atomic i64, ptr %_M_use_count.i.i.i.i.i.i.i.i acquire, align 8
   %cmp.i.i.i.i.i.i.i.i = icmp eq i64 %8, 4294967297
   %9 = trunc i64 %8 to i32
@@ -791,14 +778,14 @@ if.then.i.i.i.i.i.i.i35:                          ; preds = %sw.bb3.i
 
 if.then.i.i.i.i.i.i.i.i:                          ; preds = %if.then.i.i.i.i.i.i.i35
   store i32 0, ptr %_M_use_count.i.i.i.i.i.i.i.i, align 8, !tbaa !20
-  %_M_weak_count.i.i.i.i.i.i.i.i = getelementptr inbounds %"class.std::_Sp_counted_base", ptr %7, i64 0, i32 2
+  %_M_weak_count.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %7, i64 12
   store i32 0, ptr %_M_weak_count.i.i.i.i.i.i.i.i, align 4, !tbaa !22
   %vtable.i.i.i.i.i.i.i.i = load ptr, ptr %7, align 8, !tbaa !23
-  %vfn.i.i.i.i.i.i.i.i = getelementptr inbounds ptr, ptr %vtable.i.i.i.i.i.i.i.i, i64 2
+  %vfn.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %vtable.i.i.i.i.i.i.i.i, i64 16
   %10 = load ptr, ptr %vfn.i.i.i.i.i.i.i.i, align 8
   tail call void %10(ptr noundef nonnull align 8 dereferenceable(16) %7) #14
   %vtable3.i.i.i.i.i.i.i.i = load ptr, ptr %7, align 8, !tbaa !23
-  %vfn4.i.i.i.i.i.i.i.i = getelementptr inbounds ptr, ptr %vtable3.i.i.i.i.i.i.i.i, i64 3
+  %vfn4.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %vtable3.i.i.i.i.i.i.i.i, i64 24
   %11 = load ptr, ptr %vfn4.i.i.i.i.i.i.i.i, align 8
   tail call void %11(ptr noundef nonnull align 8 dereferenceable(16) %7) #14
   br label %if.end
@@ -831,9 +818,9 @@ if.else:                                          ; preds = %entry
   %.lobit.i53 = ashr i32 %1, 31
   %retval.0.i54 = xor i32 %.lobit.i53, %1
   store ptr %this, ptr %visitor3, align 8, !tbaa !27
-  %rhs_which_.i.i = getelementptr inbounds %"class.boost::variant<std::unique_ptr<ssl_session_st, folly::static_function_deleter<ssl_session_st, &SSL_SESSION_free>>, std::shared_ptr<folly::ssl::detail::OpenSSLSession>>::assigner", ptr %visitor3, i64 0, i32 1
+  %rhs_which_.i.i = getelementptr inbounds i8, ptr %visitor3, i64 8
   store i32 %retval.0.i54, ptr %rhs_which_.i.i, align 8, !tbaa !36
-  %storage_.i9 = getelementptr inbounds %"class.boost::variant", ptr %rhs, i64 0, i32 2
+  %storage_.i9 = getelementptr inbounds i8, ptr %rhs, i64 8
   %switch75 = icmp eq i32 %retval.0.i54, 0
   br i1 %switch75, label %sw.bb.i32, label %sw.bb3.i31
 
@@ -857,10 +844,10 @@ if.end:                                           ; preds = %_ZN5boost6detail7va
 define linkonce_odr void @_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv(ptr noundef nonnull align 8 dereferenceable(16) %this) local_unnamed_addr #3 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %vtable.i = load ptr, ptr %this, align 8, !tbaa !23
-  %vfn.i = getelementptr inbounds ptr, ptr %vtable.i, i64 2
+  %vfn.i = getelementptr inbounds i8, ptr %vtable.i, i64 16
   %0 = load ptr, ptr %vfn.i, align 8
   tail call void %0(ptr noundef nonnull align 8 dereferenceable(16) %this) #14
-  %_M_weak_count.i = getelementptr inbounds %"class.std::_Sp_counted_base", ptr %this, i64 0, i32 2
+  %_M_weak_count.i = getelementptr inbounds i8, ptr %this, i64 12
   %1 = load i8, ptr @__libc_single_threaded, align 1, !tbaa !28
   %tobool.i.not.i = icmp eq i8 %1, 0
   br i1 %tobool.i.not.i, label %if.else.i.i, label %if.then.i.i
@@ -882,7 +869,7 @@ invoke.cont.i:                                    ; preds = %if.else.i.i, %if.th
 
 if.then.i:                                        ; preds = %invoke.cont.i
   %vtable2.i = load ptr, ptr %this, align 8, !tbaa !23
-  %vfn3.i = getelementptr inbounds ptr, ptr %vtable2.i, i64 3
+  %vfn3.i = getelementptr inbounds i8, ptr %vtable2.i, i64 24
   %4 = load ptr, ptr %vfn3.i, align 8
   tail call void %4(ptr noundef nonnull align 8 dereferenceable(16) %this) #14
   br label %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE19_M_release_last_useEv.exit
@@ -897,7 +884,7 @@ entry:
   %0 = load ptr, ptr %this, align 8, !tbaa !38
   %1 = load i32, ptr %0, align 8
   %.lobit.i.i = ashr i32 %1, 31
-  %storage_.i.i = getelementptr inbounds %"class.boost::variant", ptr %0, i64 0, i32 2
+  %storage_.i.i = getelementptr inbounds i8, ptr %0, i64 8
   %switch.i = icmp eq i32 %.lobit.i.i, %1
   br i1 %switch.i, label %sw.bb.i.i, label %sw.bb3.i.i
 
@@ -922,13 +909,13 @@ terminate.lpad.i.i.i.i.i:                         ; preds = %if.then.i.i.i.i.i
   br label %invoke.cont
 
 sw.bb3.i.i:                                       ; preds = %entry
-  %_M_refcount.i.i.i.i.i = getelementptr inbounds %"class.boost::variant", ptr %0, i64 0, i32 2, i32 0, i32 0, i32 0, i64 8
+  %_M_refcount.i.i.i.i.i = getelementptr inbounds i8, ptr %0, i64 16
   %5 = load ptr, ptr %_M_refcount.i.i.i.i.i, align 8, !tbaa !25
   %cmp.not.i.i.i.i.i.i = icmp eq ptr %5, null
   br i1 %cmp.not.i.i.i.i.i.i, label %invoke.cont, label %if.then.i.i.i.i.i.i
 
 if.then.i.i.i.i.i.i:                              ; preds = %sw.bb3.i.i
-  %_M_use_count.i.i.i.i.i.i.i = getelementptr inbounds %"class.std::_Sp_counted_base", ptr %5, i64 0, i32 1
+  %_M_use_count.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %5, i64 8
   %6 = load atomic i64, ptr %_M_use_count.i.i.i.i.i.i.i acquire, align 8
   %cmp.i.i.i.i.i.i.i = icmp eq i64 %6, 4294967297
   %7 = trunc i64 %6 to i32
@@ -936,14 +923,14 @@ if.then.i.i.i.i.i.i:                              ; preds = %sw.bb3.i.i
 
 if.then.i.i.i.i.i.i.i:                            ; preds = %if.then.i.i.i.i.i.i
   store i32 0, ptr %_M_use_count.i.i.i.i.i.i.i, align 8, !tbaa !20
-  %_M_weak_count.i.i.i.i.i.i.i = getelementptr inbounds %"class.std::_Sp_counted_base", ptr %5, i64 0, i32 2
+  %_M_weak_count.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %5, i64 12
   store i32 0, ptr %_M_weak_count.i.i.i.i.i.i.i, align 4, !tbaa !22
   %vtable.i.i.i.i.i.i.i = load ptr, ptr %5, align 8, !tbaa !23
-  %vfn.i.i.i.i.i.i.i = getelementptr inbounds ptr, ptr %vtable.i.i.i.i.i.i.i, i64 2
+  %vfn.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %vtable.i.i.i.i.i.i.i, i64 16
   %8 = load ptr, ptr %vfn.i.i.i.i.i.i.i, align 8
   tail call void %8(ptr noundef nonnull align 8 dereferenceable(16) %5) #14
   %vtable3.i.i.i.i.i.i.i = load ptr, ptr %5, align 8, !tbaa !23
-  %vfn4.i.i.i.i.i.i.i = getelementptr inbounds ptr, ptr %vtable3.i.i.i.i.i.i.i, i64 3
+  %vfn4.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %vtable3.i.i.i.i.i.i.i, i64 24
   %9 = load ptr, ptr %vfn4.i.i.i.i.i.i.i, align 8
   tail call void %9(ptr noundef nonnull align 8 dereferenceable(16) %5) #14
   br label %invoke.cont
@@ -973,12 +960,12 @@ if.then7.i.i.i.i.i.i.i:                           ; preds = %invoke.cont.i.i.i.i
 
 invoke.cont:                                      ; preds = %if.then7.i.i.i.i.i.i.i, %invoke.cont.i.i.i.i.i.i.i, %if.then.i.i.i.i.i.i.i, %sw.bb3.i.i, %.noexc.i
   %12 = load ptr, ptr %this, align 8, !tbaa !38
-  %storage_ = getelementptr inbounds %"class.boost::variant", ptr %12, i64 0, i32 2
+  %storage_ = getelementptr inbounds i8, ptr %12, i64 8
   %13 = load i64, ptr %rhs_content, align 8, !tbaa !27
   store i64 %13, ptr %storage_, align 8, !tbaa !27
   store ptr null, ptr %rhs_content, align 8, !tbaa !27
   %14 = load ptr, ptr %this, align 8, !tbaa !38
-  %rhs_which_ = getelementptr inbounds %"class.boost::variant<std::unique_ptr<ssl_session_st, folly::static_function_deleter<ssl_session_st, &SSL_SESSION_free>>, std::shared_ptr<folly::ssl::detail::OpenSSLSession>>::assigner", ptr %this, i64 0, i32 1
+  %rhs_which_ = getelementptr inbounds i8, ptr %this, i64 8
   %15 = load i32, ptr %rhs_which_, align 8, !tbaa !36
   store i32 %15, ptr %14, align 8, !tbaa !12
   ret void
@@ -990,7 +977,7 @@ entry:
   %0 = load ptr, ptr %this, align 8, !tbaa !38
   %1 = load i32, ptr %0, align 8
   %.lobit.i.i = ashr i32 %1, 31
-  %storage_.i.i = getelementptr inbounds %"class.boost::variant", ptr %0, i64 0, i32 2
+  %storage_.i.i = getelementptr inbounds i8, ptr %0, i64 8
   %switch.i = icmp eq i32 %.lobit.i.i, %1
   br i1 %switch.i, label %sw.bb.i.i, label %sw.bb3.i.i
 
@@ -1015,13 +1002,13 @@ terminate.lpad.i.i.i.i.i:                         ; preds = %if.then.i.i.i.i.i
   br label %invoke.cont
 
 sw.bb3.i.i:                                       ; preds = %entry
-  %_M_refcount.i.i.i.i.i = getelementptr inbounds %"class.boost::variant", ptr %0, i64 0, i32 2, i32 0, i32 0, i32 0, i64 8
+  %_M_refcount.i.i.i.i.i = getelementptr inbounds i8, ptr %0, i64 16
   %5 = load ptr, ptr %_M_refcount.i.i.i.i.i, align 8, !tbaa !25
   %cmp.not.i.i.i.i.i.i = icmp eq ptr %5, null
   br i1 %cmp.not.i.i.i.i.i.i, label %invoke.cont, label %if.then.i.i.i.i.i.i
 
 if.then.i.i.i.i.i.i:                              ; preds = %sw.bb3.i.i
-  %_M_use_count.i.i.i.i.i.i.i = getelementptr inbounds %"class.std::_Sp_counted_base", ptr %5, i64 0, i32 1
+  %_M_use_count.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %5, i64 8
   %6 = load atomic i64, ptr %_M_use_count.i.i.i.i.i.i.i acquire, align 8
   %cmp.i.i.i.i.i.i.i = icmp eq i64 %6, 4294967297
   %7 = trunc i64 %6 to i32
@@ -1029,14 +1016,14 @@ if.then.i.i.i.i.i.i:                              ; preds = %sw.bb3.i.i
 
 if.then.i.i.i.i.i.i.i:                            ; preds = %if.then.i.i.i.i.i.i
   store i32 0, ptr %_M_use_count.i.i.i.i.i.i.i, align 8, !tbaa !20
-  %_M_weak_count.i.i.i.i.i.i.i = getelementptr inbounds %"class.std::_Sp_counted_base", ptr %5, i64 0, i32 2
+  %_M_weak_count.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %5, i64 12
   store i32 0, ptr %_M_weak_count.i.i.i.i.i.i.i, align 4, !tbaa !22
   %vtable.i.i.i.i.i.i.i = load ptr, ptr %5, align 8, !tbaa !23
-  %vfn.i.i.i.i.i.i.i = getelementptr inbounds ptr, ptr %vtable.i.i.i.i.i.i.i, i64 2
+  %vfn.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %vtable.i.i.i.i.i.i.i, i64 16
   %8 = load ptr, ptr %vfn.i.i.i.i.i.i.i, align 8
   tail call void %8(ptr noundef nonnull align 8 dereferenceable(16) %5) #14
   %vtable3.i.i.i.i.i.i.i = load ptr, ptr %5, align 8, !tbaa !23
-  %vfn4.i.i.i.i.i.i.i = getelementptr inbounds ptr, ptr %vtable3.i.i.i.i.i.i.i, i64 3
+  %vfn4.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %vtable3.i.i.i.i.i.i.i, i64 24
   %9 = load ptr, ptr %vfn4.i.i.i.i.i.i.i, align 8
   tail call void %9(ptr noundef nonnull align 8 dereferenceable(16) %5) #14
   br label %invoke.cont
@@ -1066,15 +1053,15 @@ if.then7.i.i.i.i.i.i.i:                           ; preds = %invoke.cont.i.i.i.i
 
 invoke.cont:                                      ; preds = %if.then7.i.i.i.i.i.i.i, %invoke.cont.i.i.i.i.i.i.i, %if.then.i.i.i.i.i.i.i, %sw.bb3.i.i, %.noexc.i
   %12 = load ptr, ptr %this, align 8, !tbaa !38
-  %storage_ = getelementptr inbounds %"class.boost::variant", ptr %12, i64 0, i32 2
-  %_M_refcount.i.i = getelementptr inbounds %"class.boost::variant", ptr %12, i64 0, i32 2, i32 0, i32 0, i32 0, i64 8
+  %storage_ = getelementptr inbounds i8, ptr %12, i64 8
+  %_M_refcount.i.i = getelementptr inbounds i8, ptr %12, i64 16
   store ptr null, ptr %_M_refcount.i.i, align 8, !tbaa !25
-  %_M_refcount4.i.i = getelementptr inbounds %"class.std::__shared_ptr", ptr %rhs_content, i64 0, i32 1
+  %_M_refcount4.i.i = getelementptr inbounds i8, ptr %rhs_content, i64 8
   %13 = load <2 x ptr>, ptr %rhs_content, align 8, !tbaa !27
   store ptr null, ptr %_M_refcount4.i.i, align 8, !tbaa !25
   store <2 x ptr> %13, ptr %storage_, align 8, !tbaa !27
   store ptr null, ptr %rhs_content, align 8, !tbaa !34
-  %rhs_which_ = getelementptr inbounds %"class.boost::variant<std::unique_ptr<ssl_session_st, folly::static_function_deleter<ssl_session_st, &SSL_SESSION_free>>, std::shared_ptr<folly::ssl::detail::OpenSSLSession>>::assigner", ptr %this, i64 0, i32 1
+  %rhs_which_ = getelementptr inbounds i8, ptr %this, i64 8
   %14 = load i32, ptr %rhs_which_, align 8, !tbaa !36
   store i32 %14, ptr %12, align 8, !tbaa !12
   ret void
@@ -1096,13 +1083,13 @@ if.then:                                          ; preds = %entry
           to label %invoke.cont unwind label %lpad
 
 invoke.cont:                                      ; preds = %if.then
-  %_M_refcount.i = getelementptr inbounds %"class.std::__shared_ptr", ptr %ref.tmp, i64 0, i32 1
+  %_M_refcount.i = getelementptr inbounds i8, ptr %ref.tmp, i64 8
   %1 = load ptr, ptr %_M_refcount.i, align 8, !tbaa !25
   %cmp.not.i.i = icmp eq ptr %1, null
   br i1 %cmp.not.i.i, label %_ZNSt12__shared_ptrIN5folly3ssl6detail14OpenSSLSessionELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit, label %if.then.i.i
 
 if.then.i.i:                                      ; preds = %invoke.cont
-  %_M_use_count.i.i.i = getelementptr inbounds %"class.std::_Sp_counted_base", ptr %1, i64 0, i32 1
+  %_M_use_count.i.i.i = getelementptr inbounds i8, ptr %1, i64 8
   %2 = load atomic i64, ptr %_M_use_count.i.i.i acquire, align 8
   %cmp.i.i.i = icmp eq i64 %2, 4294967297
   %3 = trunc i64 %2 to i32
@@ -1110,14 +1097,14 @@ if.then.i.i:                                      ; preds = %invoke.cont
 
 if.then.i.i.i:                                    ; preds = %if.then.i.i
   store i32 0, ptr %_M_use_count.i.i.i, align 8, !tbaa !20
-  %_M_weak_count.i.i.i = getelementptr inbounds %"class.std::_Sp_counted_base", ptr %1, i64 0, i32 2
+  %_M_weak_count.i.i.i = getelementptr inbounds i8, ptr %1, i64 12
   store i32 0, ptr %_M_weak_count.i.i.i, align 4, !tbaa !22
   %vtable.i.i.i = load ptr, ptr %1, align 8, !tbaa !23
-  %vfn.i.i.i = getelementptr inbounds ptr, ptr %vtable.i.i.i, i64 2
+  %vfn.i.i.i = getelementptr inbounds i8, ptr %vtable.i.i.i, i64 16
   %4 = load ptr, ptr %vfn.i.i.i, align 8
   call void %4(ptr noundef nonnull align 8 dereferenceable(16) %1) #14
   %vtable3.i.i.i = load ptr, ptr %1, align 8, !tbaa !23
-  %vfn4.i.i.i = getelementptr inbounds ptr, ptr %vtable3.i.i.i, i64 3
+  %vfn4.i.i.i = getelementptr inbounds i8, ptr %vtable3.i.i.i, i64 24
   %5 = load ptr, ptr %vfn4.i.i.i, align 8
   call void %5(ptr noundef nonnull align 8 dereferenceable(16) %1) #14
   br label %_ZNSt12__shared_ptrIN5folly3ssl6detail14OpenSSLSessionELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit
@@ -1165,15 +1152,15 @@ dynamic_cast.end.i:                               ; preds = %entry
 
 if.then.i:                                        ; preds = %dynamic_cast.end.i
   store ptr %9, ptr %openSSLSession, align 8, !tbaa !34, !alias.scope !41
-  %_M_refcount.i.i.i = getelementptr inbounds %"class.std::__shared_ptr", ptr %openSSLSession, i64 0, i32 1
-  %_M_refcount2.i.i.i = getelementptr inbounds %"class.std::__shared_ptr.9", ptr %session, i64 0, i32 1
+  %_M_refcount.i.i.i = getelementptr inbounds i8, ptr %openSSLSession, i64 8
+  %_M_refcount2.i.i.i = getelementptr inbounds i8, ptr %session, i64 8
   %10 = load ptr, ptr %_M_refcount2.i.i.i, align 8, !tbaa !25, !noalias !41
   store ptr %10, ptr %_M_refcount.i.i.i, align 8, !tbaa !25, !alias.scope !41
   %cmp.not.i.i.i.i = icmp eq ptr %10, null
   br i1 %cmp.not.i.i.i.i, label %if.then4, label %if.then.i.i.i.i12
 
 if.then.i.i.i.i12:                                ; preds = %if.then.i
-  %_M_use_count.i.i.i.i.i = getelementptr inbounds %"class.std::_Sp_counted_base", ptr %10, i64 0, i32 1
+  %_M_use_count.i.i.i.i.i = getelementptr inbounds i8, ptr %10, i64 8
   %11 = load i8, ptr @__libc_single_threaded, align 1, !tbaa !28, !noalias !41
   %tobool.i.i.not.i.i.i.i.i = icmp eq i8 %11, 0
   br i1 %tobool.i.i.not.i.i.i.i.i, label %_ZSt20dynamic_pointer_castIN5folly3ssl6detail14OpenSSLSessionENS1_10SSLSessionEESt10shared_ptrIT_ERKS5_IT0_E.exitthread-pre-split, label %if.then.i.i.i.i.i.i
@@ -1206,13 +1193,13 @@ lpad6:                                            ; preds = %if.then4
   br label %eh.resume
 
 if.end9:                                          ; preds = %if.then4, %_ZSt20dynamic_pointer_castIN5folly3ssl6detail14OpenSSLSessionENS1_10SSLSessionEESt10shared_ptrIT_ERKS5_IT0_E.exitthread-pre-split, %cleanup.cont.i
-  %_M_refcount.i13 = getelementptr inbounds %"class.std::__shared_ptr", ptr %openSSLSession, i64 0, i32 1
+  %_M_refcount.i13 = getelementptr inbounds i8, ptr %openSSLSession, i64 8
   %16 = load ptr, ptr %_M_refcount.i13, align 8, !tbaa !25
   %cmp.not.i.i14 = icmp eq ptr %16, null
   br i1 %cmp.not.i.i14, label %_ZNSt12__shared_ptrIN5folly3ssl6detail14OpenSSLSessionELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit33, label %if.then.i.i15
 
 if.then.i.i15:                                    ; preds = %if.end9
-  %_M_use_count.i.i.i16 = getelementptr inbounds %"class.std::_Sp_counted_base", ptr %16, i64 0, i32 1
+  %_M_use_count.i.i.i16 = getelementptr inbounds i8, ptr %16, i64 8
   %17 = load atomic i64, ptr %_M_use_count.i.i.i16 acquire, align 8
   %cmp.i.i.i17 = icmp eq i64 %17, 4294967297
   %18 = trunc i64 %17 to i32
@@ -1220,14 +1207,14 @@ if.then.i.i15:                                    ; preds = %if.end9
 
 if.then.i.i.i27:                                  ; preds = %if.then.i.i15
   store i32 0, ptr %_M_use_count.i.i.i16, align 8, !tbaa !20
-  %_M_weak_count.i.i.i28 = getelementptr inbounds %"class.std::_Sp_counted_base", ptr %16, i64 0, i32 2
+  %_M_weak_count.i.i.i28 = getelementptr inbounds i8, ptr %16, i64 12
   store i32 0, ptr %_M_weak_count.i.i.i28, align 4, !tbaa !22
   %vtable.i.i.i29 = load ptr, ptr %16, align 8, !tbaa !23
-  %vfn.i.i.i30 = getelementptr inbounds ptr, ptr %vtable.i.i.i29, i64 2
+  %vfn.i.i.i30 = getelementptr inbounds i8, ptr %vtable.i.i.i29, i64 16
   %19 = load ptr, ptr %vfn.i.i.i30, align 8
   call void %19(ptr noundef nonnull align 8 dereferenceable(16) %16) #14
   %vtable3.i.i.i31 = load ptr, ptr %16, align 8, !tbaa !23
-  %vfn4.i.i.i32 = getelementptr inbounds ptr, ptr %vtable3.i.i.i31, i64 3
+  %vfn4.i.i.i32 = getelementptr inbounds i8, ptr %vtable3.i.i.i31, i64 24
   %20 = load ptr, ptr %vfn4.i.i.i32, align 8
   call void %20(ptr noundef nonnull align 8 dereferenceable(16) %16) #14
   br label %_ZNSt12__shared_ptrIN5folly3ssl6detail14OpenSSLSessionELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit33
@@ -1280,11 +1267,11 @@ entry:
   br i1 %switch.i.not, label %if.then, label %sw.bb3.i.i
 
 sw.bb3.i.i:                                       ; preds = %entry
-  %storage_.i.i = getelementptr inbounds %"class.boost::variant", ptr %this, i64 0, i32 2
+  %storage_.i.i = getelementptr inbounds i8, ptr %this, i64 8
   %1 = load ptr, ptr %rhs, align 8, !tbaa !34
   store ptr %1, ptr %storage_.i.i, align 8, !tbaa !34
-  %_M_refcount.i.i.i.i.i.i.i = getelementptr inbounds %"class.boost::variant", ptr %this, i64 0, i32 2, i32 0, i32 0, i32 0, i64 8
-  %_M_refcount3.i.i.i.i.i.i.i = getelementptr inbounds %"class.std::__shared_ptr", ptr %rhs, i64 0, i32 1
+  %_M_refcount.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 16
+  %_M_refcount3.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %rhs, i64 8
   %2 = load ptr, ptr %_M_refcount3.i.i.i.i.i.i.i, align 8, !tbaa !25
   %3 = load ptr, ptr %_M_refcount.i.i.i.i.i.i.i, align 8, !tbaa !25
   %cmp.not.i.i.i.i.i.i.i.i = icmp eq ptr %2, %3
@@ -1295,7 +1282,7 @@ if.then.i.i.i.i.i.i.i.i:                          ; preds = %sw.bb3.i.i
   br i1 %cmp3.not.i.i.i.i.i.i.i.i, label %if.end.i.i.i.i.i.i.i.i, label %if.then4.i.i.i.i.i.i.i.i
 
 if.then4.i.i.i.i.i.i.i.i:                         ; preds = %if.then.i.i.i.i.i.i.i.i
-  %_M_use_count.i.i.i.i.i.i.i.i.i = getelementptr inbounds %"class.std::_Sp_counted_base", ptr %2, i64 0, i32 1
+  %_M_use_count.i.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %2, i64 8
   %4 = load i8, ptr @__libc_single_threaded, align 1, !tbaa !28
   %tobool.i.i.not.i.i.i.i.i.i.i.i.i = icmp eq i8 %4, 0
   br i1 %tobool.i.i.not.i.i.i.i.i.i.i.i.i, label %if.else.i.i.i.i.i.i.i.i.i.i, label %if.then.i.i.i.i.i.i.i.i.i.i
@@ -1317,7 +1304,7 @@ if.end.i.i.i.i.i.i.i.i:                           ; preds = %if.else.i.i.i.i.i.i
   br i1 %cmp6.not.i.i.i.i.i.i.i.i, label %if.end9.i.i.i.i.i.i.i.i, label %if.then7.i.i.i.i.i.i.i.i
 
 if.then7.i.i.i.i.i.i.i.i:                         ; preds = %if.end.i.i.i.i.i.i.i.i
-  %_M_use_count.i16.i.i.i.i.i.i.i.i = getelementptr inbounds %"class.std::_Sp_counted_base", ptr %7, i64 0, i32 1
+  %_M_use_count.i16.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %7, i64 8
   %8 = load atomic i64, ptr %_M_use_count.i16.i.i.i.i.i.i.i.i acquire, align 8
   %cmp.i.i.i.i.i.i.i.i.i = icmp eq i64 %8, 4294967297
   %9 = trunc i64 %8 to i32
@@ -1325,14 +1312,14 @@ if.then7.i.i.i.i.i.i.i.i:                         ; preds = %if.end.i.i.i.i.i.i.
 
 if.then.i.i.i.i.i.i.i.i.i:                        ; preds = %if.then7.i.i.i.i.i.i.i.i
   store i32 0, ptr %_M_use_count.i16.i.i.i.i.i.i.i.i, align 8, !tbaa !20
-  %_M_weak_count.i.i.i.i.i.i.i.i.i = getelementptr inbounds %"class.std::_Sp_counted_base", ptr %7, i64 0, i32 2
+  %_M_weak_count.i.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %7, i64 12
   store i32 0, ptr %_M_weak_count.i.i.i.i.i.i.i.i.i, align 4, !tbaa !22
   %vtable.i.i.i.i.i.i.i.i.i = load ptr, ptr %7, align 8, !tbaa !23
-  %vfn.i.i.i.i.i.i.i.i.i = getelementptr inbounds ptr, ptr %vtable.i.i.i.i.i.i.i.i.i, i64 2
+  %vfn.i.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %vtable.i.i.i.i.i.i.i.i.i, i64 16
   %10 = load ptr, ptr %vfn.i.i.i.i.i.i.i.i.i, align 8
   tail call void %10(ptr noundef nonnull align 8 dereferenceable(16) %7) #14
   %vtable3.i.i.i.i.i.i.i.i.i = load ptr, ptr %7, align 8, !tbaa !23
-  %vfn4.i.i.i.i.i.i.i.i.i = getelementptr inbounds ptr, ptr %vtable3.i.i.i.i.i.i.i.i.i, i64 3
+  %vfn4.i.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %vtable3.i.i.i.i.i.i.i.i.i, i64 24
   %11 = load ptr, ptr %vfn4.i.i.i.i.i.i.i.i.i, align 8
   tail call void %11(ptr noundef nonnull align 8 dereferenceable(16) %7) #14
   br label %if.end9.i.i.i.i.i.i.i.i
@@ -1366,18 +1353,18 @@ if.end9.i.i.i.i.i.i.i.i:                          ; preds = %if.then7.i.i.i.i.i.
 
 if.then:                                          ; preds = %entry
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %temp) #14
-  %storage_.i.i5 = getelementptr inbounds %"class.boost::variant", ptr %temp, i64 0, i32 2
+  %storage_.i.i5 = getelementptr inbounds i8, ptr %temp, i64 8
   %14 = load ptr, ptr %rhs, align 8, !tbaa !34
   store ptr %14, ptr %storage_.i.i5, align 8, !tbaa !34
-  %_M_refcount.i.i.i.i.i = getelementptr inbounds %"class.boost::variant", ptr %temp, i64 0, i32 2, i32 0, i32 0, i32 0, i64 8
-  %_M_refcount3.i.i.i.i.i = getelementptr inbounds %"class.std::__shared_ptr", ptr %rhs, i64 0, i32 1
+  %_M_refcount.i.i.i.i.i = getelementptr inbounds i8, ptr %temp, i64 16
+  %_M_refcount3.i.i.i.i.i = getelementptr inbounds i8, ptr %rhs, i64 8
   %15 = load ptr, ptr %_M_refcount3.i.i.i.i.i, align 8, !tbaa !25
   store ptr %15, ptr %_M_refcount.i.i.i.i.i, align 8, !tbaa !25
   %cmp.not.i.i.i.i.i.i = icmp eq ptr %15, null
   br i1 %cmp.not.i.i.i.i.i.i, label %_ZN5boost7variantISt10unique_ptrI14ssl_session_stN5folly23static_function_deleterIS2_XadL_Z16SSL_SESSION_freeEEEEEJSt10shared_ptrINS3_3ssl6detail14OpenSSLSessionEEEEC2ISB_EERKT_NS_9enable_ifINS_3mpl3or_INSI_4and_INSI_4not_INS_7is_sameISE_SC_EEEENS_6detail7variant29is_variant_constructible_fromISG_NSI_6l_itemIN4mpl_5long_ILl2EEES6_NSS_INSU_ILl1EEESB_NSI_5l_endEEEEEEENST_5bool_ILb1EEES12_S12_EENSM_ISE_NS_18recursive_variant_EEENS11_ILb0EEES16_S16_EEbE4typeE.exit, label %if.then.i.i.i.i.i.i
 
 if.then.i.i.i.i.i.i:                              ; preds = %if.then
-  %_M_use_count.i.i.i.i.i.i.i = getelementptr inbounds %"class.std::_Sp_counted_base", ptr %15, i64 0, i32 1
+  %_M_use_count.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %15, i64 8
   %16 = load i8, ptr @__libc_single_threaded, align 1, !tbaa !28
   %tobool.i.i.not.i.i.i.i.i.i.i = icmp eq i8 %16, 0
   br i1 %tobool.i.i.not.i.i.i.i.i.i.i, label %if.else.i.i.i.i.i.i.i.i, label %if.then.i.i.i.i.i.i.i.i6
@@ -1425,7 +1412,7 @@ sw.bb3.i.i.i:                                     ; preds = %invoke.cont
   br i1 %cmp.not.i.i.i.i.i.i.i, label %_ZN5boost7variantISt10unique_ptrI14ssl_session_stN5folly23static_function_deleterIS2_XadL_Z16SSL_SESSION_freeEEEEEJSt10shared_ptrINS3_3ssl6detail14OpenSSLSessionEEEED2Ev.exit, label %if.then.i.i.i.i.i.i.i
 
 if.then.i.i.i.i.i.i.i:                            ; preds = %sw.bb3.i.i.i
-  %_M_use_count.i.i.i.i.i.i.i.i = getelementptr inbounds %"class.std::_Sp_counted_base", ptr %23, i64 0, i32 1
+  %_M_use_count.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %23, i64 8
   %24 = load atomic i64, ptr %_M_use_count.i.i.i.i.i.i.i.i acquire, align 8
   %cmp.i.i.i.i.i.i.i.i = icmp eq i64 %24, 4294967297
   %25 = trunc i64 %24 to i32
@@ -1433,14 +1420,14 @@ if.then.i.i.i.i.i.i.i:                            ; preds = %sw.bb3.i.i.i
 
 if.then.i.i.i.i.i.i.i.i10:                        ; preds = %if.then.i.i.i.i.i.i.i
   store i32 0, ptr %_M_use_count.i.i.i.i.i.i.i.i, align 8, !tbaa !20
-  %_M_weak_count.i.i.i.i.i.i.i.i = getelementptr inbounds %"class.std::_Sp_counted_base", ptr %23, i64 0, i32 2
+  %_M_weak_count.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %23, i64 12
   store i32 0, ptr %_M_weak_count.i.i.i.i.i.i.i.i, align 4, !tbaa !22
   %vtable.i.i.i.i.i.i.i.i = load ptr, ptr %23, align 8, !tbaa !23
-  %vfn.i.i.i.i.i.i.i.i = getelementptr inbounds ptr, ptr %vtable.i.i.i.i.i.i.i.i, i64 2
+  %vfn.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %vtable.i.i.i.i.i.i.i.i, i64 16
   %26 = load ptr, ptr %vfn.i.i.i.i.i.i.i.i, align 8
   call void %26(ptr noundef nonnull align 8 dereferenceable(16) %23) #14
   %vtable3.i.i.i.i.i.i.i.i = load ptr, ptr %23, align 8, !tbaa !23
-  %vfn4.i.i.i.i.i.i.i.i = getelementptr inbounds ptr, ptr %vtable3.i.i.i.i.i.i.i.i, i64 3
+  %vfn4.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %vtable3.i.i.i.i.i.i.i.i, i64 24
   %27 = load ptr, ptr %vfn4.i.i.i.i.i.i.i.i, align 8
   call void %27(ptr noundef nonnull align 8 dereferenceable(16) %23) #14
   br label %_ZN5boost7variantISt10unique_ptrI14ssl_session_stN5folly23static_function_deleterIS2_XadL_Z16SSL_SESSION_freeEEEEEJSt10shared_ptrINS3_3ssl6detail14OpenSSLSessionEEEED2Ev.exit
@@ -1500,7 +1487,7 @@ entry:
   br i1 %switch.i, label %sw.bb.i.i, label %if.then
 
 sw.bb.i.i:                                        ; preds = %entry
-  %storage_.i.i = getelementptr inbounds %"class.boost::variant", ptr %this, i64 0, i32 2
+  %storage_.i.i = getelementptr inbounds i8, ptr %this, i64 8
   %1 = load ptr, ptr %rhs, align 8, !tbaa !27
   store ptr null, ptr %rhs, align 8, !tbaa !27
   %2 = load ptr, ptr %storage_.i.i, align 8, !tbaa !27
@@ -1521,7 +1508,7 @@ terminate.lpad.i.i.i.i.i.i.i.i.i:                 ; preds = %if.then.i.i.i.i.i.i
 
 if.then:                                          ; preds = %entry
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %temp) #14
-  %storage_.i.i6 = getelementptr inbounds %"class.boost::variant", ptr %temp, i64 0, i32 2
+  %storage_.i.i6 = getelementptr inbounds i8, ptr %temp, i64 8
   %5 = load i64, ptr %rhs, align 8, !tbaa !27
   store i64 %5, ptr %storage_.i.i6, align 8, !tbaa !27
   store ptr null, ptr %rhs, align 8, !tbaa !27
@@ -1552,13 +1539,13 @@ terminate.lpad.i.i.i.i.i.i:                       ; preds = %if.then.i.i.i.i.i.i
   unreachable
 
 sw.bb3.i.i.i:                                     ; preds = %invoke.cont
-  %_M_refcount.i.i.i.i.i.i = getelementptr inbounds %"class.boost::variant", ptr %temp, i64 0, i32 2, i32 0, i32 0, i32 0, i64 8
+  %_M_refcount.i.i.i.i.i.i = getelementptr inbounds i8, ptr %temp, i64 16
   %10 = load ptr, ptr %_M_refcount.i.i.i.i.i.i, align 8, !tbaa !25
   %cmp.not.i.i.i.i.i.i.i = icmp eq ptr %10, null
   br i1 %cmp.not.i.i.i.i.i.i.i, label %_ZN5boost7variantISt10unique_ptrI14ssl_session_stN5folly23static_function_deleterIS2_XadL_Z16SSL_SESSION_freeEEEEEJSt10shared_ptrINS3_3ssl6detail14OpenSSLSessionEEEED2Ev.exit, label %if.then.i.i.i.i.i.i.i
 
 if.then.i.i.i.i.i.i.i:                            ; preds = %sw.bb3.i.i.i
-  %_M_use_count.i.i.i.i.i.i.i.i = getelementptr inbounds %"class.std::_Sp_counted_base", ptr %10, i64 0, i32 1
+  %_M_use_count.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %10, i64 8
   %11 = load atomic i64, ptr %_M_use_count.i.i.i.i.i.i.i.i acquire, align 8
   %cmp.i.i.i.i.i.i.i.i = icmp eq i64 %11, 4294967297
   %12 = trunc i64 %11 to i32
@@ -1566,14 +1553,14 @@ if.then.i.i.i.i.i.i.i:                            ; preds = %sw.bb3.i.i.i
 
 if.then.i.i.i.i.i.i.i.i:                          ; preds = %if.then.i.i.i.i.i.i.i
   store i32 0, ptr %_M_use_count.i.i.i.i.i.i.i.i, align 8, !tbaa !20
-  %_M_weak_count.i.i.i.i.i.i.i.i = getelementptr inbounds %"class.std::_Sp_counted_base", ptr %10, i64 0, i32 2
+  %_M_weak_count.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %10, i64 12
   store i32 0, ptr %_M_weak_count.i.i.i.i.i.i.i.i, align 4, !tbaa !22
   %vtable.i.i.i.i.i.i.i.i = load ptr, ptr %10, align 8, !tbaa !23
-  %vfn.i.i.i.i.i.i.i.i = getelementptr inbounds ptr, ptr %vtable.i.i.i.i.i.i.i.i, i64 2
+  %vfn.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %vtable.i.i.i.i.i.i.i.i, i64 16
   %13 = load ptr, ptr %vfn.i.i.i.i.i.i.i.i, align 8
   call void %13(ptr noundef nonnull align 8 dereferenceable(16) %10) #14
   %vtable3.i.i.i.i.i.i.i.i = load ptr, ptr %10, align 8, !tbaa !23
-  %vfn4.i.i.i.i.i.i.i.i = getelementptr inbounds ptr, ptr %vtable3.i.i.i.i.i.i.i.i, i64 3
+  %vfn4.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %vtable3.i.i.i.i.i.i.i.i, i64 24
   %14 = load ptr, ptr %vfn4.i.i.i.i.i.i.i.i, align 8
   call void %14(ptr noundef nonnull align 8 dereferenceable(16) %10) #14
   br label %_ZN5boost7variantISt10unique_ptrI14ssl_session_stN5folly23static_function_deleterIS2_XadL_Z16SSL_SESSION_freeEEEEEJSt10shared_ptrINS3_3ssl6detail14OpenSSLSessionEEEED2Ev.exit
@@ -1674,15 +1661,15 @@ entry:
   br i1 %switch.i.i, label %_ZNSt12__shared_ptrIN5folly3ssl6detail14OpenSSLSessionELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit, label %sw.bb3.i.i.i
 
 sw.bb3.i.i.i:                                     ; preds = %entry
-  %storage_.i.i.i = getelementptr inbounds %"class.boost::variant", ptr %this, i64 0, i32 2
+  %storage_.i.i.i = getelementptr inbounds i8, ptr %this, i64 8
   %call2.i.val.i.i = load ptr, ptr %storage_.i.i.i, align 8, !tbaa !34, !noalias !87
-  %1 = getelementptr inbounds %"class.boost::variant", ptr %this, i64 0, i32 2, i32 0, i32 0, i32 0, i64 8
+  %1 = getelementptr inbounds i8, ptr %this, i64 16
   %call2.i.val3.i.i = load ptr, ptr %1, align 8, !tbaa !25, !noalias !87
   %cmp.not.i.i.i.i.i.i.i.i.i.i = icmp eq ptr %call2.i.val3.i.i, null
   br i1 %cmp.not.i.i.i.i.i.i.i.i.i.i, label %_ZNSt12__shared_ptrIN5folly3ssl6detail14OpenSSLSessionELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit, label %if.then.i.i.i.i.i.i.i.i.i.i
 
 if.then.i.i.i.i.i.i.i.i.i.i:                      ; preds = %sw.bb3.i.i.i
-  %_M_use_count.i.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds %"class.std::_Sp_counted_base", ptr %call2.i.val3.i.i, i64 0, i32 1
+  %_M_use_count.i.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %call2.i.val3.i.i, i64 8
   %2 = load i8, ptr @__libc_single_threaded, align 1, !tbaa !28, !noalias !88
   %tobool.i.i.not.i.i.i.i.i.i.i.i.i.i.i = icmp eq i8 %2, 0
   br i1 %tobool.i.i.not.i.i.i.i.i.i.i.i.i.i.i, label %if.else.i.i.i.i.i.i.i.i.i.i.i.i, label %if.then.i.i.i.i.i.i.i.i.i.i.i.i
@@ -1701,7 +1688,7 @@ _ZNSt12__shared_ptrIN5folly3ssl6detail14OpenSSLSessionELN9__gnu_cxx12_Lock_polic
   %ref.tmp.sroa.0.0 = phi ptr [ %call2.i.val.i.i, %sw.bb3.i.i.i ], [ %call2.i.val.i.i, %if.else.i.i.i.i.i.i.i.i.i.i.i.i ], [ %call2.i.val.i.i, %if.then.i.i.i.i.i.i.i.i.i.i.i.i ], [ null, %entry ]
   %ref.tmp.sroa.6.0 = phi ptr [ null, %sw.bb3.i.i.i ], [ %call2.i.val3.i.i, %if.else.i.i.i.i.i.i.i.i.i.i.i.i ], [ %call2.i.val3.i.i, %if.then.i.i.i.i.i.i.i.i.i.i.i.i ], [ null, %entry ]
   store ptr %ref.tmp.sroa.0.0, ptr %agg.result, align 8, !tbaa !39
-  %_M_refcount.i.i = getelementptr inbounds %"class.std::__shared_ptr.9", ptr %agg.result, i64 0, i32 1
+  %_M_refcount.i.i = getelementptr inbounds i8, ptr %agg.result, i64 8
   store ptr %ref.tmp.sroa.6.0, ptr %_M_refcount.i.i, align 8, !tbaa !25
   ret void
 }

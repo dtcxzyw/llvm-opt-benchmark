@@ -3,8 +3,6 @@ source_filename = "bench/curl/original/libcurl_la-bufref.ll"
 target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:128-n8:16:32:64-S128"
 target triple = "x86_64-unknown-linux-gnu"
 
-%struct.bufref = type { ptr, ptr, i64 }
-
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
 define hidden void @Curl_bufref_init(ptr nocapture noundef writeonly %br) local_unnamed_addr #0 {
 entry:
@@ -15,7 +13,7 @@ entry:
 ; Function Attrs: nounwind uwtable
 define hidden void @Curl_bufref_free(ptr nocapture noundef %br) local_unnamed_addr #1 {
 entry:
-  %ptr = getelementptr inbounds %struct.bufref, ptr %br, i64 0, i32 1
+  %ptr = getelementptr inbounds i8, ptr %br, i64 8
   %0 = load ptr, ptr %ptr, align 8
   %tobool.not = icmp eq ptr %0, null
   br i1 %tobool.not, label %if.end, label %land.lhs.true
@@ -37,7 +35,7 @@ if.end:                                           ; preds = %if.then, %land.lhs.
 ; Function Attrs: nounwind uwtable
 define hidden void @Curl_bufref_set(ptr nocapture noundef %br, ptr noundef %ptr, i64 noundef %len, ptr noundef %dtor) local_unnamed_addr #1 {
 entry:
-  %ptr.i = getelementptr inbounds %struct.bufref, ptr %br, i64 0, i32 1
+  %ptr.i = getelementptr inbounds i8, ptr %br, i64 8
   %0 = load ptr, ptr %ptr.i, align 8
   %tobool.not.i = icmp eq ptr %0, null
   br i1 %tobool.not.i, label %Curl_bufref_free.exit, label %land.lhs.true.i
@@ -53,7 +51,7 @@ if.then.i:                                        ; preds = %land.lhs.true.i
 
 Curl_bufref_free.exit:                            ; preds = %entry, %land.lhs.true.i, %if.then.i
   store ptr %ptr, ptr %ptr.i, align 8
-  %len4 = getelementptr inbounds %struct.bufref, ptr %br, i64 0, i32 2
+  %len4 = getelementptr inbounds i8, ptr %br, i64 16
   store i64 %len, ptr %len4, align 8
   store ptr %dtor, ptr %br, align 8
   ret void
@@ -62,7 +60,7 @@ Curl_bufref_free.exit:                            ; preds = %entry, %land.lhs.tr
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
 define hidden ptr @Curl_bufref_ptr(ptr nocapture noundef readonly %br) local_unnamed_addr #2 {
 entry:
-  %ptr = getelementptr inbounds %struct.bufref, ptr %br, i64 0, i32 1
+  %ptr = getelementptr inbounds i8, ptr %br, i64 8
   %0 = load ptr, ptr %ptr, align 8
   ret ptr %0
 }
@@ -70,7 +68,7 @@ entry:
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
 define hidden i64 @Curl_bufref_len(ptr nocapture noundef readonly %br) local_unnamed_addr #2 {
 entry:
-  %len = getelementptr inbounds %struct.bufref, ptr %br, i64 0, i32 2
+  %len = getelementptr inbounds i8, ptr %br, i64 16
   %0 = load i64, ptr %len, align 8
   ret i64 %0
 }
@@ -88,7 +86,7 @@ if.then:                                          ; preds = %entry
 
 if.end11:                                         ; preds = %if.then, %entry
   %cpy.0 = phi ptr [ %call, %if.then ], [ null, %entry ]
-  %ptr.i.i = getelementptr inbounds %struct.bufref, ptr %br, i64 0, i32 1
+  %ptr.i.i = getelementptr inbounds i8, ptr %br, i64 8
   %0 = load ptr, ptr %ptr.i.i, align 8
   %tobool.not.i.i = icmp eq ptr %0, null
   br i1 %tobool.not.i.i, label %Curl_bufref_set.exit, label %land.lhs.true.i.i
@@ -104,7 +102,7 @@ if.then.i.i:                                      ; preds = %land.lhs.true.i.i
 
 Curl_bufref_set.exit:                             ; preds = %if.end11, %land.lhs.true.i.i, %if.then.i.i
   store ptr %cpy.0, ptr %ptr.i.i, align 8
-  %len4.i = getelementptr inbounds %struct.bufref, ptr %br, i64 0, i32 2
+  %len4.i = getelementptr inbounds i8, ptr %br, i64 16
   store i64 %len, ptr %len4.i, align 8
   store ptr @curl_free, ptr %br, align 8
   br label %return

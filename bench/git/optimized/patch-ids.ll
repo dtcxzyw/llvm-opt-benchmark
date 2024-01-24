@@ -4,19 +4,9 @@ target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:
 target triple = "x86_64-unknown-linux-gnu"
 
 %struct.git_hash_algo = type { ptr, i32, i64, i64, i64, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr }
-%struct.commit_list = type { ptr, ptr }
-%struct.object = type { i32, %struct.object_id }
 %struct.object_id = type { [32 x i8], i32 }
-%struct.patch_ids = type { %struct.hashmap, %struct.diff_options }
-%struct.hashmap = type { ptr, ptr, ptr, i32, i32, i32, i32, i8 }
-%struct.diff_options = type { ptr, ptr, i32, i32, ptr, i32, ptr, i64, i64, ptr, ptr, ptr, ptr, i64, %struct.diff_flags, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, ptr, i32, ptr, i32, i32, ptr, i64, i64, i32, i32, i32, i32, ptr, i32, i32, ptr, i32, i32, ptr, ptr, i32, [3 x i8], %struct.pathspec, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, i32, ptr, i32, i32, ptr, ptr, i32 }
-%struct.diff_flags = type { i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32 }
-%struct.pathspec = type { i32, i8, i32, i32, ptr }
 %struct.patch_id = type { %struct.hashmap_entry, %struct.object_id, ptr }
 %struct.hashmap_entry = type { ptr, i32 }
-%struct.repository = type { ptr, ptr, ptr, ptr, ptr, %struct.repo_path_cache, ptr, ptr, ptr, ptr, %struct.repo_settings, ptr, ptr, ptr, ptr, ptr, i32, i32, i32, ptr, ptr, i32, i8 }
-%struct.repo_path_cache = type { ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr }
-%struct.repo_settings = type { i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, ptr, i32, i32, i32, i32, i32, i32 }
 
 @.str = private unnamed_addr constant [1 x i8] zeroinitializer, align 1
 @.str.1 = private unnamed_addr constant [30 x i8] c"Could not get patch ID for %s\00", align 1
@@ -32,20 +22,20 @@ entry:
   br i1 %tobool.not.i, label %if.else, label %patch_id_defined.exit
 
 patch_id_defined.exit:                            ; preds = %entry
-  %next.i = getelementptr inbounds %struct.commit_list, ptr %commit.val, i64 0, i32 1
+  %next.i = getelementptr inbounds i8, ptr %commit.val, i64 8
   %1 = load ptr, ptr %next.i, align 8
   %tobool2.not.i.not = icmp eq ptr %1, null
   br i1 %tobool2.not.i.not, label %if.then2, label %return
 
 if.then2:                                         ; preds = %patch_id_defined.exit
   %2 = load ptr, ptr %commit.val, align 8
-  %oid4 = getelementptr inbounds %struct.object, ptr %2, i64 0, i32 1
-  %oid6 = getelementptr inbounds %struct.object, ptr %commit, i64 0, i32 1
+  %oid4 = getelementptr inbounds i8, ptr %2, i64 4
+  %oid6 = getelementptr inbounds i8, ptr %commit, i64 4
   tail call void @diff_tree_oid(ptr noundef nonnull %oid4, ptr noundef nonnull %oid6, ptr noundef nonnull @.str, ptr noundef %options) #6
   br label %if.end9
 
 if.else:                                          ; preds = %entry
-  %oid8 = getelementptr inbounds %struct.object, ptr %commit, i64 0, i32 1
+  %oid8 = getelementptr inbounds i8, ptr %commit, i64 4
   tail call void @diff_root_tree_oid(ptr noundef nonnull %oid8, ptr noundef nonnull @.str, ptr noundef %options) #6
   br label %if.end9
 
@@ -71,11 +61,11 @@ declare i32 @diff_flush_patch_id(ptr noundef, ptr noundef, i32 noundef) local_un
 define dso_local noundef i32 @init_patch_ids(ptr noundef %r, ptr noundef %ids) local_unnamed_addr #0 {
 entry:
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(648) %ids, i8 0, i64 648, i1 false)
-  %diffopts = getelementptr inbounds %struct.patch_ids, ptr %ids, i64 0, i32 1
+  %diffopts = getelementptr inbounds i8, ptr %ids, i64 48
   tail call void @repo_diff_setup(ptr noundef %r, ptr noundef nonnull %diffopts) #6
-  %detect_rename = getelementptr inbounds %struct.patch_ids, ptr %ids, i64 0, i32 1, i32 21
+  %detect_rename = getelementptr inbounds i8, ptr %ids, i64 316
   store i32 0, ptr %detect_rename, align 4
-  %flags = getelementptr inbounds %struct.patch_ids, ptr %ids, i64 0, i32 1, i32 14
+  %flags = getelementptr inbounds i8, ptr %ids, i64 152
   store i32 1, ptr %flags, align 8
   tail call void @diff_setup_done(ptr noundef nonnull %diffopts) #6
   tail call void @hashmap_init(ptr noundef %ids, ptr noundef nonnull @patch_id_neq, ptr noundef nonnull %diffopts, i64 noundef 256) #6
@@ -94,16 +84,16 @@ declare void @hashmap_init(ptr noundef, ptr noundef, ptr noundef, i64 noundef) l
 ; Function Attrs: nounwind uwtable
 define internal i32 @patch_id_neq(ptr noundef %cmpfn_data, ptr noundef %eptr, ptr noundef %entry_or_key, ptr nocapture readnone %keydata) #0 {
 entry:
-  %patch_id = getelementptr inbounds %struct.patch_id, ptr %eptr, i64 0, i32 1
+  %patch_id = getelementptr inbounds i8, ptr %eptr, i64 16
   %call.i = tail call ptr @null_oid() #6
-  %algo.i.i = getelementptr inbounds %struct.patch_id, ptr %eptr, i64 0, i32 1, i32 1
+  %algo.i.i = getelementptr inbounds i8, ptr %eptr, i64 48
   %0 = load i32, ptr %algo.i.i, align 4
   %tobool.not.i.i = icmp eq i32 %0, 0
   br i1 %tobool.not.i.i, label %if.then.i.i, label %if.else.i.i
 
 if.then.i.i:                                      ; preds = %entry
   %1 = load ptr, ptr @the_repository, align 8
-  %hash_algo.i.i = getelementptr inbounds %struct.repository, ptr %1, i64 0, i32 15
+  %hash_algo.i.i = getelementptr inbounds i8, ptr %1, i64 256
   %2 = load ptr, ptr %hash_algo.i.i, align 8
   br label %if.end.i.i
 
@@ -133,7 +123,7 @@ is_null_oid.exit:                                 ; preds = %if.then.i.i.i, %if.
   br i1 %retval.0.in.i.i.i.not, label %land.lhs.true, label %if.end
 
 land.lhs.true:                                    ; preds = %is_null_oid.exit
-  %commit = getelementptr inbounds %struct.patch_id, ptr %eptr, i64 0, i32 2
+  %commit = getelementptr inbounds i8, ptr %eptr, i64 56
   %4 = load ptr, ptr %commit, align 8
   %5 = getelementptr i8, ptr %4, i64 48
   %commit.val.i = load ptr, ptr %5, align 8
@@ -141,20 +131,20 @@ land.lhs.true:                                    ; preds = %is_null_oid.exit
   br i1 %tobool.not.i.i10, label %if.else.i, label %patch_id_defined.exit.i
 
 patch_id_defined.exit.i:                          ; preds = %land.lhs.true
-  %next.i.i = getelementptr inbounds %struct.commit_list, ptr %commit.val.i, i64 0, i32 1
+  %next.i.i = getelementptr inbounds i8, ptr %commit.val.i, i64 8
   %6 = load ptr, ptr %next.i.i, align 8
   %tobool2.not.i.not.i = icmp eq ptr %6, null
   br i1 %tobool2.not.i.not.i, label %if.then2.i, label %if.then
 
 if.then2.i:                                       ; preds = %patch_id_defined.exit.i
   %7 = load ptr, ptr %commit.val.i, align 8
-  %oid4.i = getelementptr inbounds %struct.object, ptr %7, i64 0, i32 1
-  %oid6.i = getelementptr inbounds %struct.object, ptr %4, i64 0, i32 1
+  %oid4.i = getelementptr inbounds i8, ptr %7, i64 4
+  %oid6.i = getelementptr inbounds i8, ptr %4, i64 4
   tail call void @diff_tree_oid(ptr noundef nonnull %oid4.i, ptr noundef nonnull %oid6.i, ptr noundef nonnull @.str, ptr noundef %cmpfn_data) #6
   br label %commit_patch_id.exit
 
 if.else.i:                                        ; preds = %land.lhs.true
-  %oid8.i = getelementptr inbounds %struct.object, ptr %4, i64 0, i32 1
+  %oid8.i = getelementptr inbounds i8, ptr %4, i64 4
   tail call void @diff_root_tree_oid(ptr noundef nonnull %oid8.i, ptr noundef nonnull @.str, ptr noundef %cmpfn_data) #6
   br label %commit_patch_id.exit
 
@@ -170,22 +160,22 @@ commit_patch_id.exit.if.then_crit_edge:           ; preds = %commit_patch_id.exi
 
 if.then:                                          ; preds = %commit_patch_id.exit.if.then_crit_edge, %patch_id_defined.exit.i
   %8 = phi ptr [ %.pre, %commit_patch_id.exit.if.then_crit_edge ], [ %4, %patch_id_defined.exit.i ]
-  %oid = getelementptr inbounds %struct.object, ptr %8, i64 0, i32 1
+  %oid = getelementptr inbounds i8, ptr %8, i64 4
   %call6 = tail call ptr @oid_to_hex(ptr noundef nonnull %oid) #6
   %call7 = tail call i32 (ptr, ...) @error(ptr noundef nonnull @.str.1, ptr noundef %call6) #6
   br label %return
 
 if.end:                                           ; preds = %commit_patch_id.exit, %is_null_oid.exit
-  %patch_id9 = getelementptr inbounds %struct.patch_id, ptr %entry_or_key, i64 0, i32 1
+  %patch_id9 = getelementptr inbounds i8, ptr %entry_or_key, i64 16
   %call.i11 = tail call ptr @null_oid() #6
-  %algo.i.i12 = getelementptr inbounds %struct.patch_id, ptr %entry_or_key, i64 0, i32 1, i32 1
+  %algo.i.i12 = getelementptr inbounds i8, ptr %entry_or_key, i64 48
   %9 = load i32, ptr %algo.i.i12, align 4
   %tobool.not.i.i13 = icmp eq i32 %9, 0
   br i1 %tobool.not.i.i13, label %if.then.i.i28, label %if.else.i.i14
 
 if.then.i.i28:                                    ; preds = %if.end
   %10 = load ptr, ptr @the_repository, align 8
-  %hash_algo.i.i29 = getelementptr inbounds %struct.repository, ptr %10, i64 0, i32 15
+  %hash_algo.i.i29 = getelementptr inbounds i8, ptr %10, i64 256
   %11 = load ptr, ptr %hash_algo.i.i29, align 8
   br label %if.end.i.i17
 
@@ -215,7 +205,7 @@ is_null_oid.exit30:                               ; preds = %if.then.i.i.i26, %i
   br i1 %retval.0.in.i.i.i24.not, label %land.lhs.true12, label %if.end24
 
 land.lhs.true12:                                  ; preds = %is_null_oid.exit30
-  %commit13 = getelementptr inbounds %struct.patch_id, ptr %entry_or_key, i64 0, i32 2
+  %commit13 = getelementptr inbounds i8, ptr %entry_or_key, i64 56
   %13 = load ptr, ptr %commit13, align 8
   %14 = getelementptr i8, ptr %13, i64 48
   %commit.val.i31 = load ptr, ptr %14, align 8
@@ -223,20 +213,20 @@ land.lhs.true12:                                  ; preds = %is_null_oid.exit30
   br i1 %tobool.not.i.i32, label %if.else.i42, label %patch_id_defined.exit.i33
 
 patch_id_defined.exit.i33:                        ; preds = %land.lhs.true12
-  %next.i.i34 = getelementptr inbounds %struct.commit_list, ptr %commit.val.i31, i64 0, i32 1
+  %next.i.i34 = getelementptr inbounds i8, ptr %commit.val.i31, i64 8
   %15 = load ptr, ptr %next.i.i34, align 8
   %tobool2.not.i.not.i35 = icmp eq ptr %15, null
   br i1 %tobool2.not.i.not.i35, label %if.then2.i37, label %if.then17
 
 if.then2.i37:                                     ; preds = %patch_id_defined.exit.i33
   %16 = load ptr, ptr %commit.val.i31, align 8
-  %oid4.i38 = getelementptr inbounds %struct.object, ptr %16, i64 0, i32 1
-  %oid6.i39 = getelementptr inbounds %struct.object, ptr %13, i64 0, i32 1
+  %oid4.i38 = getelementptr inbounds i8, ptr %16, i64 4
+  %oid6.i39 = getelementptr inbounds i8, ptr %13, i64 4
   tail call void @diff_tree_oid(ptr noundef nonnull %oid4.i38, ptr noundef nonnull %oid6.i39, ptr noundef nonnull @.str, ptr noundef %cmpfn_data) #6
   br label %commit_patch_id.exit44
 
 if.else.i42:                                      ; preds = %land.lhs.true12
-  %oid8.i43 = getelementptr inbounds %struct.object, ptr %13, i64 0, i32 1
+  %oid8.i43 = getelementptr inbounds i8, ptr %13, i64 4
   tail call void @diff_root_tree_oid(ptr noundef nonnull %oid8.i43, ptr noundef nonnull @.str, ptr noundef %cmpfn_data) #6
   br label %commit_patch_id.exit44
 
@@ -252,7 +242,7 @@ commit_patch_id.exit44.if.then17_crit_edge:       ; preds = %commit_patch_id.exi
 
 if.then17:                                        ; preds = %commit_patch_id.exit44.if.then17_crit_edge, %patch_id_defined.exit.i33
   %17 = phi ptr [ %.pre52, %commit_patch_id.exit44.if.then17_crit_edge ], [ %13, %patch_id_defined.exit.i33 ]
-  %oid20 = getelementptr inbounds %struct.object, ptr %17, i64 0, i32 1
+  %oid20 = getelementptr inbounds i8, ptr %17, i64 4
   %call21 = tail call ptr @oid_to_hex(ptr noundef nonnull %oid20) #6
   %call22 = tail call i32 (ptr, ...) @error(ptr noundef nonnull @.str.1, ptr noundef %call21) #6
   br label %return
@@ -264,7 +254,7 @@ if.end24:                                         ; preds = %commit_patch_id.exi
 
 if.then.i:                                        ; preds = %if.end24
   %19 = load ptr, ptr @the_repository, align 8
-  %hash_algo.i = getelementptr inbounds %struct.repository, ptr %19, i64 0, i32 15
+  %hash_algo.i = getelementptr inbounds i8, ptr %19, i64 256
   %20 = load ptr, ptr %hash_algo.i, align 8
   br label %if.end.i
 
@@ -319,7 +309,7 @@ entry:
   br i1 %tobool.not.i, label %if.else.i.i, label %patch_id_defined.exit
 
 patch_id_defined.exit:                            ; preds = %entry
-  %next.i = getelementptr inbounds %struct.commit_list, ptr %commit.val, i64 0, i32 1
+  %next.i = getelementptr inbounds i8, ptr %commit.val, i64 8
   %1 = load ptr, ptr %next.i, align 8
   %tobool2.not.i.not = icmp eq ptr %1, null
   br i1 %tobool2.not.i.not, label %if.then2.i.i, label %return
@@ -328,12 +318,12 @@ if.then2.i.i:                                     ; preds = %patch_id_defined.ex
   %2 = getelementptr inbounds i8, ptr %patch, i64 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %2, i8 0, i64 48, i1 false)
   call void @llvm.lifetime.start.p0(i64 36, ptr nonnull %header_only_patch_id.i)
-  %commit1.i = getelementptr inbounds %struct.patch_id, ptr %patch, i64 0, i32 2
+  %commit1.i = getelementptr inbounds i8, ptr %patch, i64 56
   store ptr %commit, ptr %commit1.i, align 8
-  %diffopts.i = getelementptr inbounds %struct.patch_ids, ptr %ids, i64 0, i32 1
+  %diffopts.i = getelementptr inbounds i8, ptr %ids, i64 48
   %3 = load ptr, ptr %commit.val, align 8
-  %oid4.i.i = getelementptr inbounds %struct.object, ptr %3, i64 0, i32 1
-  %oid6.i.i = getelementptr inbounds %struct.object, ptr %commit, i64 0, i32 1
+  %oid4.i.i = getelementptr inbounds i8, ptr %3, i64 4
+  %oid6.i.i = getelementptr inbounds i8, ptr %commit, i64 4
   tail call void @diff_tree_oid(ptr noundef nonnull %oid4.i.i, ptr noundef nonnull %oid6.i.i, ptr noundef nonnull @.str, ptr noundef nonnull %diffopts.i) #6
   br label %commit_patch_id.exit.i
 
@@ -341,10 +331,10 @@ if.else.i.i:                                      ; preds = %entry
   %4 = getelementptr inbounds i8, ptr %patch, i64 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %4, i8 0, i64 48, i1 false)
   call void @llvm.lifetime.start.p0(i64 36, ptr nonnull %header_only_patch_id.i)
-  %commit1.i6 = getelementptr inbounds %struct.patch_id, ptr %patch, i64 0, i32 2
+  %commit1.i6 = getelementptr inbounds i8, ptr %patch, i64 56
   store ptr %commit, ptr %commit1.i6, align 8
-  %diffopts.i7 = getelementptr inbounds %struct.patch_ids, ptr %ids, i64 0, i32 1
-  %oid8.i.i = getelementptr inbounds %struct.object, ptr %commit, i64 0, i32 1
+  %diffopts.i7 = getelementptr inbounds i8, ptr %ids, i64 48
+  %oid8.i.i = getelementptr inbounds i8, ptr %commit, i64 4
   tail call void @diff_root_tree_oid(ptr noundef nonnull %oid8.i.i, ptr noundef nonnull @.str, ptr noundef nonnull %diffopts.i7) #6
   br label %commit_patch_id.exit.i
 
@@ -361,7 +351,7 @@ init_patch_id_entry.exit.thread:                  ; preds = %commit_patch_id.exi
 
 if.end4:                                          ; preds = %commit_patch_id.exit.i
   %header_only_patch_id.val.i = load i32, ptr %header_only_patch_id.i, align 4
-  %hash1.i.i = getelementptr inbounds %struct.hashmap_entry, ptr %patch, i64 0, i32 1
+  %hash1.i.i = getelementptr inbounds i8, ptr %patch, i64 8
   store i32 %header_only_patch_id.val.i, ptr %hash1.i.i, align 8
   store ptr null, ptr %patch, align 8
   call void @llvm.lifetime.end.p0(i64 36, ptr nonnull %header_only_patch_id.i)
@@ -403,7 +393,7 @@ entry:
   br i1 %tobool.not.i, label %if.end, label %patch_id_defined.exit
 
 patch_id_defined.exit:                            ; preds = %entry
-  %next.i = getelementptr inbounds %struct.commit_list, ptr %commit.val, i64 0, i32 1
+  %next.i = getelementptr inbounds i8, ptr %commit.val, i64 8
   %1 = load ptr, ptr %next.i, align 8
   %tobool2.not.i.not = icmp eq ptr %1, null
   br i1 %tobool2.not.i.not, label %if.end, label %return
@@ -411,28 +401,28 @@ patch_id_defined.exit:                            ; preds = %entry
 if.end:                                           ; preds = %entry, %patch_id_defined.exit
   %call1 = tail call ptr @xcalloc(i64 noundef 1, i64 noundef 64) #6
   call void @llvm.lifetime.start.p0(i64 36, ptr nonnull %header_only_patch_id.i)
-  %commit1.i = getelementptr inbounds %struct.patch_id, ptr %call1, i64 0, i32 2
+  %commit1.i = getelementptr inbounds i8, ptr %call1, i64 56
   store ptr %commit, ptr %commit1.i, align 8
-  %diffopts.i = getelementptr inbounds %struct.patch_ids, ptr %ids, i64 0, i32 1
+  %diffopts.i = getelementptr inbounds i8, ptr %ids, i64 48
   %commit.val.i.i = load ptr, ptr %0, align 8
   %tobool.not.i.i.i = icmp eq ptr %commit.val.i.i, null
   br i1 %tobool.not.i.i.i, label %if.else.i.i, label %patch_id_defined.exit.i.i
 
 patch_id_defined.exit.i.i:                        ; preds = %if.end
-  %next.i.i.i = getelementptr inbounds %struct.commit_list, ptr %commit.val.i.i, i64 0, i32 1
+  %next.i.i.i = getelementptr inbounds i8, ptr %commit.val.i.i, i64 8
   %2 = load ptr, ptr %next.i.i.i, align 8
   %tobool2.not.i.not.i.i = icmp eq ptr %2, null
   br i1 %tobool2.not.i.not.i.i, label %if.then2.i.i, label %if.then4
 
 if.then2.i.i:                                     ; preds = %patch_id_defined.exit.i.i
   %3 = load ptr, ptr %commit.val.i.i, align 8
-  %oid4.i.i = getelementptr inbounds %struct.object, ptr %3, i64 0, i32 1
-  %oid6.i.i = getelementptr inbounds %struct.object, ptr %commit, i64 0, i32 1
+  %oid4.i.i = getelementptr inbounds i8, ptr %3, i64 4
+  %oid6.i.i = getelementptr inbounds i8, ptr %commit, i64 4
   tail call void @diff_tree_oid(ptr noundef nonnull %oid4.i.i, ptr noundef nonnull %oid6.i.i, ptr noundef nonnull @.str, ptr noundef nonnull %diffopts.i) #6
   br label %commit_patch_id.exit.i
 
 if.else.i.i:                                      ; preds = %if.end
-  %oid8.i.i = getelementptr inbounds %struct.object, ptr %commit, i64 0, i32 1
+  %oid8.i.i = getelementptr inbounds i8, ptr %commit, i64 4
   tail call void @diff_root_tree_oid(ptr noundef nonnull %oid8.i.i, ptr noundef nonnull @.str, ptr noundef nonnull %diffopts.i) #6
   br label %commit_patch_id.exit.i
 
@@ -449,7 +439,7 @@ if.then4:                                         ; preds = %commit_patch_id.exi
 
 if.end5:                                          ; preds = %commit_patch_id.exit.i
   %header_only_patch_id.val.i = load i32, ptr %header_only_patch_id.i, align 4
-  %hash1.i.i = getelementptr inbounds %struct.hashmap_entry, ptr %call1, i64 0, i32 1
+  %hash1.i.i = getelementptr inbounds i8, ptr %call1, i64 8
   store i32 %header_only_patch_id.val.i, ptr %hash1.i.i, align 8
   store ptr null, ptr %call1, align 8
   call void @llvm.lifetime.end.p0(i64 36, ptr nonnull %header_only_patch_id.i)

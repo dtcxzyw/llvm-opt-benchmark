@@ -11,12 +11,12 @@ define align 8 ptr @"_ZN100_$LT$core..iter..adapters..skip..Skip$LT$I$GT$$u20$as
   br i1 %.not, label %5, label %8
 
 5:                                                ; preds = %8, %3
-  %6 = getelementptr inbounds { i64, { { i64, i64, { { ptr, i64 }, i64, i64, i64, [4 x i8], i32 }, i8, i8, [6 x i8] } } }, ptr %0, i64 0, i32 1
+  %6 = getelementptr inbounds i8, ptr %0, i64 8
   %7 = tail call align 8 ptr @_ZN4core4iter6traits8iterator8Iterator8try_fold17h5bb25bff14532ff7E(ptr nonnull align 8 %6, ptr align 8 %1, ptr align 1 %2)
   br label %12
 
 8:                                                ; preds = %3
-  %9 = getelementptr inbounds { i64, { { i64, i64, { { ptr, i64 }, i64, i64, i64, [4 x i8], i32 }, i8, i8, [6 x i8] } } }, ptr %0, i64 0, i32 1
+  %9 = getelementptr inbounds i8, ptr %0, i64 8
   %10 = add i64 %4, -1
   %11 = tail call { ptr, i64 } @_ZN4core4iter6traits8iterator8Iterator3nth17hc742cdbc6b510dd1E(ptr nonnull align 8 %9, i64 %10)
   %.fca.0.extract = extractvalue { ptr, i64 } %11, 0
@@ -40,12 +40,12 @@ define align 8 ptr @"_ZN100_$LT$core..iter..adapters..skip..Skip$LT$I$GT$$u20$as
   br i1 %.not, label %5, label %8
 
 5:                                                ; preds = %8, %3
-  %6 = getelementptr inbounds { i64, { { i64, i64, { { ptr, i64 }, i64, i64, i64, [4 x i8], i32 }, i8, i8, [6 x i8] } } }, ptr %0, i64 0, i32 1
+  %6 = getelementptr inbounds i8, ptr %0, i64 8
   %7 = tail call align 8 ptr @_ZN4core4iter6traits8iterator8Iterator8try_fold17hbd205da7b08a3a00E(ptr nonnull align 8 %6, ptr align 8 %1, ptr align 1 %2)
   br label %12
 
 8:                                                ; preds = %3
-  %9 = getelementptr inbounds { i64, { { i64, i64, { { ptr, i64 }, i64, i64, i64, [4 x i8], i32 }, i8, i8, [6 x i8] } } }, ptr %0, i64 0, i32 1
+  %9 = getelementptr inbounds i8, ptr %0, i64 8
   %10 = add i64 %4, -1
   %11 = tail call { ptr, i64 } @_ZN4core4iter6traits8iterator8Iterator3nth17hc742cdbc6b510dd1E(ptr nonnull align 8 %9, i64 %10)
   %.fca.0.extract = extractvalue { ptr, i64 } %11, 0

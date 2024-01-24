@@ -47,7 +47,7 @@ define void @_ZN14regex_automata6hybrid5regex7Builder10build_many17hbe3c47aeb275
           to label %30 unwind label %28
 
 26:                                               ; preds = %4
-  %27 = getelementptr inbounds { [1 x i64], { { { i32, [31 x i32] } } } }, ptr %22, i64 0, i32 1
+  %27 = getelementptr inbounds i8, ptr %22, i64 8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(128) %20, ptr noundef nonnull align 8 dereferenceable(128) %27, i64 128, i1 false)
   call void @"_ZN153_$LT$core..result..Result$LT$T$C$F$GT$$u20$as$u20$core..ops..try_trait..FromResidual$LT$core..result..Result$LT$core..convert..Infallible$C$E$GT$$GT$$GT$13from_residual17h6c616d9ddb01f838E"(ptr sret({ i64, [171 x i64] }) align 8 %0, ptr nonnull align 8 %20, ptr nonnull align 8 @anon.7232fa38ae79f5ab701601af3433db99.2)
   br label %51
@@ -68,7 +68,7 @@ define void @_ZN14regex_automata6hybrid5regex7Builder10build_many17hbe3c47aeb275
           to label %.thread unwind label %54
 
 33:                                               ; preds = %30
-  %34 = getelementptr inbounds { [16 x i8], i8, [7 x i8] }, ptr %11, i64 0, i32 1
+  %34 = getelementptr inbounds i8, ptr %11, i64 16
   store i8 2, ptr %34, align 8
   invoke void @_ZN14regex_automata6hybrid3dfa6Config9prefilter17hf79b522ffc4418a0E(ptr nonnull sret({ { i64, [4 x i64] }, { i64, i64 }, { i64, i64 }, { i64, i64 }, { [16 x i8], i8, [7 x i8] }, i8, i8, i8, i8, i8, i8, [2 x i8] }) align 8 %13, ptr nonnull align 8 %12, ptr nonnull align 8 %11)
           to label %35 unwind label %31
@@ -116,7 +116,7 @@ define void @_ZN14regex_automata6hybrid5regex7Builder10build_many17hbe3c47aeb275
           to label %50 unwind label %52
 
 48:                                               ; preds = %45
-  %49 = getelementptr inbounds { [1 x i64], { { { i32, [31 x i32] } } } }, ptr %18, i64 0, i32 1
+  %49 = getelementptr inbounds i8, ptr %18, i64 8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(128) %8, ptr noundef nonnull align 8 dereferenceable(128) %49, i64 128, i1 false)
   invoke void @"_ZN153_$LT$core..result..Result$LT$T$C$F$GT$$u20$as$u20$core..ops..try_trait..FromResidual$LT$core..result..Result$LT$core..convert..Infallible$C$E$GT$$GT$$GT$13from_residual17h6c616d9ddb01f838E"(ptr sret({ i64, [171 x i64] }) align 8 %0, ptr nonnull align 8 %8, ptr nonnull align 8 @anon.7232fa38ae79f5ab701601af3433db99.1)
           to label %56 unwind label %31

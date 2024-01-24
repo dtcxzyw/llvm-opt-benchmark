@@ -9,30 +9,26 @@ define void @"_ZN4core3str4iter29MatchIndicesInternal$LT$P$GT$4next17hf3a70a6a7a
   call void @"_ZN81_$LT$core..str..pattern..CharSearcher$u20$as$u20$core..str..pattern..Searcher$GT$10next_match17hba3199ee446aacabE"(ptr nonnull sret({ i64, [2 x i64] }) align 8 %3, ptr align 8 %1)
   %4 = load i64, ptr %3, align 8, !range !5, !noundef !6
   %5 = icmp eq i64 %4, 0
-  br i1 %5, label %6, label %8
+  br i1 %5, label %15, label %6
 
 6:                                                ; preds = %2
-  %7 = getelementptr inbounds { [1 x i64], ptr, [1 x i64] }, ptr %0, i64 0, i32 1
-  store ptr null, ptr %7, align 8
-  br label %17
-
-8:                                                ; preds = %2
-  %9 = getelementptr inbounds { [1 x i64], { i64, i64 } }, ptr %3, i64 0, i32 1
+  %7 = getelementptr inbounds i8, ptr %3, i64 8
+  %8 = load i64, ptr %7, align 8, !noundef !6
+  %9 = getelementptr inbounds i8, ptr %3, i64 16
   %10 = load i64, ptr %9, align 8, !noundef !6
-  %11 = getelementptr inbounds { [1 x i64], { i64, i64 } }, ptr %3, i64 0, i32 1, i32 1
-  %12 = load i64, ptr %11, align 8, !noundef !6
-  %13 = call { ptr, i64 } @"_ZN81_$LT$core..str..pattern..CharSearcher$u20$as$u20$core..str..pattern..Searcher$GT$8haystack17h564bf88161cf4dafE"(ptr align 8 %1)
-  %14 = extractvalue { ptr, i64 } %13, 0
-  %15 = getelementptr inbounds i8, ptr %14, i64 %10
-  %16 = sub i64 %12, %10
-  store i64 %10, ptr %0, align 8
-  %.sroa.2.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 8
-  store ptr %15, ptr %.sroa.2.0..sroa_idx, align 8
+  %11 = call { ptr, i64 } @"_ZN81_$LT$core..str..pattern..CharSearcher$u20$as$u20$core..str..pattern..Searcher$GT$8haystack17h564bf88161cf4dafE"(ptr align 8 %1)
+  %12 = extractvalue { ptr, i64 } %11, 0
+  %13 = getelementptr inbounds i8, ptr %12, i64 %8
+  %14 = sub i64 %10, %8
+  store i64 %8, ptr %0, align 8
   %.sroa.3.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 16
-  store i64 %16, ptr %.sroa.3.0..sroa_idx, align 8
-  br label %17
+  store i64 %14, ptr %.sroa.3.0..sroa_idx, align 8
+  br label %15
 
-17:                                               ; preds = %8, %6
+15:                                               ; preds = %2, %6
+  %.sink = phi ptr [ %13, %6 ], [ null, %2 ]
+  %16 = getelementptr inbounds i8, ptr %0, i64 8
+  store ptr %.sink, ptr %16, align 8
   ret void
 }
 

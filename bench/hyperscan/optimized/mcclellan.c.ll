@@ -4,9 +4,7 @@ target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:
 target triple = "x86_64-unknown-linux-gnu"
 
 %struct.mstate_aux = type { i32, i32, i16, i32 }
-%struct.mq = type { ptr, i32, i32, ptr, ptr, i64, ptr, i64, ptr, i64, ptr, i8, ptr, ptr, [10 x %struct.mq_item] }
 %struct.mq_item = type { i32, i64, i64 }
-%struct.mcclellan = type { i16, i32, i16, i16, i32, i32, i32, i16, i16, i16, i16, i8, i8, i8, i8, [256 x i8], i32, i32, i32, i32 }
 
 ; Function Attrs: nounwind uwtable
 define hidden signext i8 @nfaExecMcClellan8_B(ptr noundef %n, i64 noundef %offset, ptr noundef %buffer, i64 noundef %length, ptr nocapture noundef readonly %cb, ptr noundef %context) local_unnamed_addr #0 {
@@ -597,38 +595,39 @@ return:                                           ; preds = %if.then31.i, %if.th
 ; Function Attrs: nounwind uwtable
 define hidden signext i8 @nfaExecMcClellan8_Q(ptr noundef %n, ptr nocapture noundef %q, i64 noundef %end) local_unnamed_addr #0 {
 entry:
-  %offset1 = getelementptr inbounds %struct.mq, ptr %q, i64 0, i32 5
+  %offset1 = getelementptr inbounds i8, ptr %q, i64 32
   %0 = load i64, ptr %offset1, align 8
-  %buffer2 = getelementptr inbounds %struct.mq, ptr %q, i64 0, i32 6
+  %buffer2 = getelementptr inbounds i8, ptr %q, i64 40
   %1 = load ptr, ptr %buffer2, align 8
-  %cb3 = getelementptr inbounds %struct.mq, ptr %q, i64 0, i32 12
+  %cb3 = getelementptr inbounds i8, ptr %q, i64 88
   %2 = load ptr, ptr %cb3, align 8
-  %context4 = getelementptr inbounds %struct.mq, ptr %q, i64 0, i32 13
+  %context4 = getelementptr inbounds i8, ptr %q, i64 96
   %3 = load ptr, ptr %context4, align 8
   %add.ptr = getelementptr inbounds i8, ptr %n, i64 64
-  %history = getelementptr inbounds %struct.mq, ptr %q, i64 0, i32 8
+  %history = getelementptr inbounds i8, ptr %q, i64 56
   %4 = load ptr, ptr %history, align 8
-  %hlength = getelementptr inbounds %struct.mq, ptr %q, i64 0, i32 9
+  %hlength = getelementptr inbounds i8, ptr %q, i64 64
   %5 = load i64, ptr %hlength, align 8
   %add.ptr5 = getelementptr inbounds i8, ptr %4, i64 %5
   %flags = getelementptr inbounds i8, ptr %n, i64 97
   %6 = load i8, ptr %flags, align 1
   %7 = and i8 %6, 1
-  %state.i = getelementptr inbounds %struct.mq, ptr %q, i64 0, i32 3
+  %state.i = getelementptr inbounds i8, ptr %q, i64 16
   %8 = load ptr, ptr %state.i, align 8
   %9 = load i8, ptr %8, align 1
   %conv.i = zext i8 %9 to i32
-  %report_current.i = getelementptr inbounds %struct.mq, ptr %q, i64 0, i32 11
+  %report_current.i = getelementptr inbounds i8, ptr %q, i64 80
   %10 = load i8, ptr %report_current.i, align 8
   %tobool.i.not = icmp eq i8 %10, 0
   br i1 %tobool.i.not, label %if.end11.i, label %if.then.i
 
 if.then.i:                                        ; preds = %entry
   %tobool1.i.not = icmp eq i8 %7, 0
-  %cur.i17 = getelementptr inbounds %struct.mq, ptr %q, i64 0, i32 1
+  %items.i16 = getelementptr inbounds i8, ptr %q, i64 104
+  %cur.i17 = getelementptr inbounds i8, ptr %q, i64 8
   %11 = load i32, ptr %cur.i17, align 8
   %idxprom.i18 = zext i32 %11 to i64
-  %location.i20 = getelementptr inbounds %struct.mq, ptr %q, i64 0, i32 14, i64 %idxprom.i18, i32 1
+  %location.i20 = getelementptr inbounds [10 x %struct.mq_item], ptr %items.i16, i64 0, i64 %idxprom.i18, i32 1
   %12 = load i64, ptr %location.i20, align 8
   %add.i21 = add i64 %12, %0
   br i1 %tobool1.i.not, label %if.else.i, label %if.end.i
@@ -701,10 +700,12 @@ if.end.i:                                         ; preds = %if.then.i
   br i1 %cmp.i, label %nfaExecMcClellan8_Q2i.exit, label %if.end11.i
 
 if.end11.i:                                       ; preds = %if.end.i.thread138, %if.end.i, %entry
-  %cur.i48 = getelementptr inbounds %struct.mq, ptr %q, i64 0, i32 1
+  %items.i47 = getelementptr inbounds i8, ptr %q, i64 104
+  %cur.i48 = getelementptr inbounds i8, ptr %q, i64 8
   %19 = load i32, ptr %cur.i48, align 8
   %idxprom.i49 = zext i32 %19 to i64
-  %location.i51 = getelementptr inbounds %struct.mq, ptr %q, i64 0, i32 14, i64 %idxprom.i49, i32 1
+  %arrayidx.i50 = getelementptr inbounds [10 x %struct.mq_item], ptr %items.i47, i64 0, i64 %idxprom.i49
+  %location.i51 = getelementptr inbounds i8, ptr %arrayidx.i50, i64 8
   %20 = load i64, ptr %location.i51, align 8
   %inc.i = add i32 %19, 1
   store i32 %inc.i, ptr %cur.i48, align 8
@@ -719,6 +720,7 @@ while.body.i.preheader:                           ; preds = %if.end11.i
   %has_accel.i.i = getelementptr inbounds i8, ptr %n, i64 98
   %alphaShift.i36.i = getelementptr inbounds i8, ptr %n, i64 96
   %add.ptr.i38.i = getelementptr inbounds i8, ptr %n, i64 372
+  %remap.i43.i = getelementptr inbounds i8, ptr %n, i64 100
   %tobool30.i.not.i = icmp eq i8 %7, 0
   %arb_report.i.i = getelementptr inbounds i8, ptr %n, i64 356
   %accel_limit_8.i.i = getelementptr inbounds i8, ptr %n, i64 88
@@ -727,10 +729,10 @@ while.body.i.preheader:                           ; preds = %if.end11.i
   br label %while.body.i
 
 if.then20.i:                                      ; preds = %if.end11.i
-  %arrayidx.i50 = getelementptr inbounds %struct.mq, ptr %q, i64 0, i32 14, i64 %idxprom.i49
   store i32 %19, ptr %cur.i48, align 8
   store i32 0, ptr %arrayidx.i50, align 8
-  store i64 %end, ptr %location.i51, align 8
+  %location32.i = getelementptr inbounds [10 x %struct.mq_item], ptr %items.i47, i64 0, i64 %idxprom.i49, i32 1
+  store i64 %end, ptr %location32.i, align 8
   %21 = load ptr, ptr %state.i, align 8
   store i8 %9, ptr %21, align 1
   br label %nfaExecMcClellan8_Q2i.exit
@@ -741,7 +743,7 @@ while.body.i:                                     ; preds = %while.body.i.backed
   %cur_buf.i.0 = phi ptr [ %cond.i, %while.body.i.preheader ], [ %spec.select, %while.body.i.backedge ]
   %sp.i.0 = phi i64 [ %20, %while.body.i.preheader ], [ %local_ep.i.0, %while.body.i.backedge ]
   %idxprom40.i = zext i32 %22 to i64
-  %location42.i = getelementptr inbounds %struct.mq, ptr %q, i64 0, i32 14, i64 %idxprom40.i, i32 1
+  %location42.i = getelementptr inbounds [10 x %struct.mq_item], ptr %items.i47, i64 0, i64 %idxprom40.i, i32 1
   %23 = load i64, ptr %location42.i, align 8
   %cond51.i = tail call i64 @llvm.smin.i64(i64 %23, i64 %end)
   %cmp53.i = icmp slt i64 %sp.i.0, 0
@@ -808,7 +810,7 @@ while.cond.i39.us.i:                              ; preds = %while.body.i42.us.i
 while.body.i42.us.i:                              ; preds = %while.cond.i39.us.i
   %30 = load i8, ptr %c.i26.0.us.i, align 1
   %idxprom.i44.us.i = zext i8 %30 to i64
-  %arrayidx.i45.us.i = getelementptr inbounds %struct.mcclellan, ptr %add.ptr, i64 0, i32 15, i64 %idxprom.i44.us.i
+  %arrayidx.i45.us.i = getelementptr inbounds [256 x i8], ptr %remap.i43.i, i64 0, i64 %idxprom.i44.us.i
   %31 = load i8, ptr %arrayidx.i45.us.i, align 1
   %shl.i46.us.i = shl i32 %s.addr.i23.0.us.i, %conv2.i37.us.i
   %conv4.i47.us.i = zext i8 %31 to i32
@@ -910,7 +912,7 @@ while.cond.i39.i:                                 ; preds = %while.body.i42.i, %
 while.body.i42.i:                                 ; preds = %while.cond.i39.i
   %42 = load i8, ptr %c.i26.0.i, align 1
   %idxprom.i44.i = zext i8 %42 to i64
-  %arrayidx.i45.i = getelementptr inbounds %struct.mcclellan, ptr %add.ptr, i64 0, i32 15, i64 %idxprom.i44.i
+  %arrayidx.i45.i = getelementptr inbounds [256 x i8], ptr %remap.i43.i, i64 0, i64 %idxprom.i44.i
   %43 = load i8, ptr %arrayidx.i45.i, align 1
   %shl.i46.i = shl i32 %s.addr.i23.0.i, %conv2.i37.i
   %conv4.i47.i = zext i8 %43 to i32
@@ -997,7 +999,7 @@ while.cond.i.us.i:                                ; preds = %while.body.i.us.i, 
 while.body.i.us.i:                                ; preds = %while.cond.i.us.i
   %51 = load i8, ptr %c.i3.0.us.i, align 1
   %idxprom.i11.us.i = zext i8 %51 to i64
-  %arrayidx.i12.us.i = getelementptr inbounds %struct.mcclellan, ptr %add.ptr, i64 0, i32 15, i64 %idxprom.i11.us.i
+  %arrayidx.i12.us.i = getelementptr inbounds [256 x i8], ptr %remap.i43.i, i64 0, i64 %idxprom.i11.us.i
   %52 = load i8, ptr %arrayidx.i12.us.i, align 1
   %shl.i.us.i = shl i32 %s.addr.i.0.us.i, %conv2.i.us.i
   %conv4.i.us.i = zext i8 %52 to i32
@@ -1130,7 +1132,7 @@ while.cond.i.i:                                   ; preds = %while.body.i.i, %if
 while.body.i.i:                                   ; preds = %while.cond.i.i
   %64 = load i8, ptr %c.i3.0.i, align 1
   %idxprom.i11.i = zext i8 %64 to i64
-  %arrayidx.i12.i = getelementptr inbounds %struct.mcclellan, ptr %add.ptr, i64 0, i32 15, i64 %idxprom.i11.i
+  %arrayidx.i12.i = getelementptr inbounds [256 x i8], ptr %remap.i43.i, i64 0, i64 %idxprom.i11.i
   %65 = load i8, ptr %arrayidx.i12.i, align 1
   %shl.i.i = shl i32 %s.addr.i.0.i, %conv2.i.i
   %conv4.i.i = zext i8 %65 to i32
@@ -1172,7 +1174,7 @@ land.lhs.true102.i:                               ; preds = %do.body12.i.i, %do.
   %s.i.1.ph = phi i32 [ %.us-phi46.i, %if.then63.i.i ], [ %.us-phi39.i, %do.end49.i.i ], [ %s.i.0, %while.body.i ], [ 0, %do.body54.i.us.i ], [ %s.addr.i.1.us.i, %if.end111.i.us.i ], [ 0, %do.body54.i.i ], [ %s.addr.i.1.i, %if.end111.i.i ], [ 0, %do.body12.i.us.i ], [ 0, %do.body12.i.i ]
   %70 = load i32, ptr %cur.i48, align 8
   %idxprom105.i = zext i32 %70 to i64
-  %location107.i = getelementptr inbounds %struct.mq, ptr %q, i64 0, i32 14, i64 %idxprom105.i, i32 1
+  %location107.i = getelementptr inbounds [10 x %struct.mq_item], ptr %items.i47, i64 0, i64 %idxprom105.i, i32 1
   %71 = load i64, ptr %location107.i, align 8
   %cmp108.i = icmp sgt i64 %71, %end
   br i1 %cmp108.i, label %if.then110.i, label %if.end127.i
@@ -1181,9 +1183,9 @@ if.then110.i:                                     ; preds = %land.lhs.true102.i
   %dec114.i = add i32 %70, -1
   store i32 %dec114.i, ptr %cur.i48, align 8
   %idxprom117.i = zext i32 %dec114.i to i64
-  %arrayidx118.i = getelementptr inbounds %struct.mq, ptr %q, i64 0, i32 14, i64 %idxprom117.i
+  %arrayidx118.i = getelementptr inbounds [10 x %struct.mq_item], ptr %items.i47, i64 0, i64 %idxprom117.i
   store i32 0, ptr %arrayidx118.i, align 8
-  %location124.i = getelementptr inbounds %struct.mq, ptr %q, i64 0, i32 14, i64 %idxprom117.i, i32 1
+  %location124.i = getelementptr inbounds [10 x %struct.mq_item], ptr %items.i47, i64 0, i64 %idxprom117.i, i32 1
   store i64 %end, ptr %location124.i, align 8
   %conv125.i = trunc i32 %s.i.1.ph to i8
   %72 = load ptr, ptr %state.i, align 8
@@ -1197,7 +1199,7 @@ if.end127.i:                                      ; preds = %land.lhs.true102.i
   br i1 %cmp132.i.not, label %if.end135.i, label %while.body.i.backedge
 
 if.end135.i:                                      ; preds = %if.end127.i
-  %arrayidx139.i = getelementptr inbounds %struct.mq, ptr %q, i64 0, i32 14, i64 %idxprom105.i
+  %arrayidx139.i = getelementptr inbounds [10 x %struct.mq_item], ptr %items.i47, i64 0, i64 %idxprom105.i
   %73 = load i32, ptr %arrayidx139.i, align 8
   switch i32 %73, label %sw.epilog.i [
     i32 2, label %sw.bb.i
@@ -3366,38 +3368,39 @@ entry:
   %a.i.i = alloca <2 x i64>, align 16
   %tmp.i311.i = alloca [16 x i8], align 16
   %tmp.i.i = alloca [16 x i8], align 16
-  %offset1 = getelementptr inbounds %struct.mq, ptr %q, i64 0, i32 5
+  %offset1 = getelementptr inbounds i8, ptr %q, i64 32
   %0 = load i64, ptr %offset1, align 8
-  %buffer2 = getelementptr inbounds %struct.mq, ptr %q, i64 0, i32 6
+  %buffer2 = getelementptr inbounds i8, ptr %q, i64 40
   %1 = load ptr, ptr %buffer2, align 8
-  %cb3 = getelementptr inbounds %struct.mq, ptr %q, i64 0, i32 12
+  %cb3 = getelementptr inbounds i8, ptr %q, i64 88
   %2 = load ptr, ptr %cb3, align 8
-  %context4 = getelementptr inbounds %struct.mq, ptr %q, i64 0, i32 13
+  %context4 = getelementptr inbounds i8, ptr %q, i64 96
   %3 = load ptr, ptr %context4, align 8
   %add.ptr = getelementptr inbounds i8, ptr %n, i64 64
-  %history = getelementptr inbounds %struct.mq, ptr %q, i64 0, i32 8
+  %history = getelementptr inbounds i8, ptr %q, i64 56
   %4 = load ptr, ptr %history, align 8
-  %hlength = getelementptr inbounds %struct.mq, ptr %q, i64 0, i32 9
+  %hlength = getelementptr inbounds i8, ptr %q, i64 64
   %5 = load i64, ptr %hlength, align 8
   %add.ptr5 = getelementptr inbounds i8, ptr %4, i64 %5
   %flags = getelementptr inbounds i8, ptr %n, i64 97
   %6 = load i8, ptr %flags, align 1
   %7 = and i8 %6, 1
-  %state.i = getelementptr inbounds %struct.mq, ptr %q, i64 0, i32 3
+  %state.i = getelementptr inbounds i8, ptr %q, i64 16
   %8 = load ptr, ptr %state.i, align 8
   %9 = load i16, ptr %8, align 2
   %conv.i = zext i16 %9 to i32
-  %report_current.i = getelementptr inbounds %struct.mq, ptr %q, i64 0, i32 11
+  %report_current.i = getelementptr inbounds i8, ptr %q, i64 80
   %10 = load i8, ptr %report_current.i, align 8
   %tobool.i.not = icmp eq i8 %10, 0
   br i1 %tobool.i.not, label %if.end11.i, label %if.then.i
 
 if.then.i:                                        ; preds = %entry
   %tobool1.i.not = icmp eq i8 %7, 0
-  %cur.i17 = getelementptr inbounds %struct.mq, ptr %q, i64 0, i32 1
+  %items.i16 = getelementptr inbounds i8, ptr %q, i64 104
+  %cur.i17 = getelementptr inbounds i8, ptr %q, i64 8
   %11 = load i32, ptr %cur.i17, align 8
   %idxprom.i18 = zext i32 %11 to i64
-  %location.i20 = getelementptr inbounds %struct.mq, ptr %q, i64 0, i32 14, i64 %idxprom.i18, i32 1
+  %location.i20 = getelementptr inbounds [10 x %struct.mq_item], ptr %items.i16, i64 0, i64 %idxprom.i18, i32 1
   %12 = load i64, ptr %location.i20, align 8
   %add.i21 = add i64 %12, %0
   br i1 %tobool1.i.not, label %if.else.i, label %if.end.i
@@ -3470,10 +3473,12 @@ if.end.i:                                         ; preds = %if.then.i
   br i1 %cmp.i, label %nfaExecMcClellan16_Q2i.exit, label %if.end11.i
 
 if.end11.i:                                       ; preds = %if.end.i.thread141, %if.end.i, %entry
-  %cur.i48 = getelementptr inbounds %struct.mq, ptr %q, i64 0, i32 1
+  %items.i47 = getelementptr inbounds i8, ptr %q, i64 104
+  %cur.i48 = getelementptr inbounds i8, ptr %q, i64 8
   %19 = load i32, ptr %cur.i48, align 8
   %idxprom.i49 = zext i32 %19 to i64
-  %location.i51 = getelementptr inbounds %struct.mq, ptr %q, i64 0, i32 14, i64 %idxprom.i49, i32 1
+  %arrayidx.i50 = getelementptr inbounds [10 x %struct.mq_item], ptr %items.i47, i64 0, i64 %idxprom.i49
+  %location.i51 = getelementptr inbounds i8, ptr %arrayidx.i50, i64 8
   %20 = load i64, ptr %location.i51, align 8
   %inc.i = add i32 %19, 1
   store i32 %inc.i, ptr %cur.i48, align 8
@@ -3500,10 +3505,10 @@ while.body.i.preheader:                           ; preds = %if.end11.i
   br label %while.body.i
 
 if.then20.i:                                      ; preds = %if.end11.i
-  %arrayidx.i50 = getelementptr inbounds %struct.mq, ptr %q, i64 0, i32 14, i64 %idxprom.i49
   store i32 %19, ptr %cur.i48, align 8
   store i32 0, ptr %arrayidx.i50, align 8
-  store i64 %end, ptr %location.i51, align 8
+  %location32.i = getelementptr inbounds [10 x %struct.mq_item], ptr %items.i47, i64 0, i64 %idxprom.i49, i32 1
+  store i64 %end, ptr %location32.i, align 8
   %21 = load ptr, ptr %state.i, align 8
   store i16 %9, ptr %21, align 2
   br label %nfaExecMcClellan16_Q2i.exit
@@ -3514,7 +3519,7 @@ while.body.i:                                     ; preds = %while.body.i.backed
   %cur_buf.i.0 = phi ptr [ %cond.i, %while.body.i.preheader ], [ %spec.select, %while.body.i.backedge ]
   %sp.i.0 = phi i64 [ %20, %while.body.i.preheader ], [ %local_ep.i.0, %while.body.i.backedge ]
   %idxprom38.i = zext i32 %22 to i64
-  %location40.i = getelementptr inbounds %struct.mq, ptr %q, i64 0, i32 14, i64 %idxprom38.i, i32 1
+  %location40.i = getelementptr inbounds [10 x %struct.mq_item], ptr %items.i47, i64 0, i64 %idxprom38.i, i32 1
   %23 = load i64, ptr %location40.i, align 8
   %cond49.i = tail call i64 @llvm.smin.i64(i64 %23, i64 %end)
   %cmp51.i = icmp slt i64 %sp.i.0, 0
@@ -3605,7 +3610,7 @@ while.cond.i.i:                                   ; preds = %if.end34.i.i, %if.t
 while.body.i.i:                                   ; preds = %while.cond.i.i
   %35 = load i8, ptr %c.i19.0.i, align 1
   %idxprom.i28.i = zext i8 %35 to i64
-  %arrayidx.i29.i = getelementptr inbounds %struct.mcclellan, ptr %add.ptr, i64 0, i32 15, i64 %idxprom.i28.i
+  %arrayidx.i29.i = getelementptr inbounds [256 x i8], ptr %remap.i.i, i64 0, i64 %idxprom.i28.i
   %36 = load i8, ptr %arrayidx.i29.i, align 1
   %cmp10.i.not.i = icmp ult i16 %s.addr.i16.sroa.0.0.i, %28
   br i1 %cmp10.i.not.i, label %if.else.i32.i, label %if.then.i37.i
@@ -3902,7 +3907,7 @@ while.cond.i185.i:                                ; preds = %if.end.i196.i, %if.
 while.body.i188.i:                                ; preds = %while.cond.i185.i
   %74 = load i8, ptr %c.i168.0.i, align 1
   %idxprom.i190.i = zext i8 %74 to i64
-  %arrayidx.i191.i = getelementptr inbounds %struct.mcclellan, ptr %add.ptr, i64 0, i32 15, i64 %idxprom.i190.i
+  %arrayidx.i191.i = getelementptr inbounds [256 x i8], ptr %remap.i.i, i64 0, i64 %idxprom.i190.i
   %75 = load i8, ptr %arrayidx.i191.i, align 1
   %cmp5.i192.i = icmp ult i32 %s.addr.i165.0.i, %conv.i177.i
   br i1 %cmp5.i192.i, label %if.then.i212.i, label %if.else.i193.i
@@ -4146,7 +4151,7 @@ while.cond.i74.i:                                 ; preds = %if.end34.i95.i, %if
 while.body.i77.i:                                 ; preds = %while.cond.i74.i
   %100 = load i8, ptr %c.i48.0.i, align 1
   %idxprom.i79.i = zext i8 %100 to i64
-  %arrayidx.i80.i = getelementptr inbounds %struct.mcclellan, ptr %add.ptr, i64 0, i32 15, i64 %idxprom.i79.i
+  %arrayidx.i80.i = getelementptr inbounds [256 x i8], ptr %remap.i.i, i64 0, i64 %idxprom.i79.i
   %101 = load i8, ptr %arrayidx.i80.i, align 1
   %cmp10.i81.not.i = icmp ult i16 %s.addr.i43.sroa.0.0.i, %93
   br i1 %cmp10.i81.not.i, label %if.else.i85.i, label %if.then.i114.i
@@ -4443,7 +4448,7 @@ while.cond.i142.i:                                ; preds = %if.end.i151.i, %if.
 while.body.i145.i:                                ; preds = %while.cond.i142.i
   %139 = load i8, ptr %c.i127.0.i, align 1
   %idxprom.i147.i = zext i8 %139 to i64
-  %arrayidx.i148.i = getelementptr inbounds %struct.mcclellan, ptr %add.ptr, i64 0, i32 15, i64 %idxprom.i147.i
+  %arrayidx.i148.i = getelementptr inbounds [256 x i8], ptr %remap.i.i, i64 0, i64 %idxprom.i147.i
   %140 = load i8, ptr %arrayidx.i148.i, align 1
   %cmp5.i.i = icmp ult i32 %s.addr.i124.0.i, %conv.i136.i
   br i1 %cmp5.i.i, label %if.then.i157.i, label %if.else.i149.i
@@ -4627,7 +4632,7 @@ land.lhs.true101.i:                               ; preds = %do.body9.i.i, %whil
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %tmp.i.i)
   %158 = load i32, ptr %cur.i48, align 8
   %idxprom104.i = zext i32 %158 to i64
-  %location106.i = getelementptr inbounds %struct.mq, ptr %q, i64 0, i32 14, i64 %idxprom104.i, i32 1
+  %location106.i = getelementptr inbounds [10 x %struct.mq_item], ptr %items.i47, i64 0, i64 %idxprom104.i, i32 1
   %159 = load i64, ptr %location106.i, align 8
   %cmp107.i = icmp sgt i64 %159, %end
   br i1 %cmp107.i, label %if.then109.i, label %if.end126.i
@@ -4636,9 +4641,9 @@ if.then109.i:                                     ; preds = %land.lhs.true101.i
   %dec113.i = add i32 %158, -1
   store i32 %dec113.i, ptr %cur.i48, align 8
   %idxprom116.i = zext i32 %dec113.i to i64
-  %arrayidx117.i = getelementptr inbounds %struct.mq, ptr %q, i64 0, i32 14, i64 %idxprom116.i
+  %arrayidx117.i = getelementptr inbounds [10 x %struct.mq_item], ptr %items.i47, i64 0, i64 %idxprom116.i
   store i32 0, ptr %arrayidx117.i, align 8
-  %location123.i = getelementptr inbounds %struct.mq, ptr %q, i64 0, i32 14, i64 %idxprom116.i, i32 1
+  %location123.i = getelementptr inbounds [10 x %struct.mq_item], ptr %items.i47, i64 0, i64 %idxprom116.i, i32 1
   store i64 %end, ptr %location123.i, align 8
   %conv124.i = trunc i32 %s.i.1 to i16
   %160 = load ptr, ptr %state.i, align 8
@@ -4652,7 +4657,7 @@ if.end126.i:                                      ; preds = %land.lhs.true101.i
   br i1 %cmp131.i.not, label %if.end134.i, label %while.body.i.backedge
 
 if.end134.i:                                      ; preds = %if.end126.i
-  %arrayidx138.i = getelementptr inbounds %struct.mq, ptr %q, i64 0, i32 14, i64 %idxprom104.i
+  %arrayidx138.i = getelementptr inbounds [10 x %struct.mq_item], ptr %items.i47, i64 0, i64 %idxprom104.i
   %161 = load i32, ptr %arrayidx138.i, align 8
   switch i32 %161, label %sw.epilog.i [
     i32 2, label %sw.bb.i
@@ -4708,19 +4713,20 @@ nfaExecMcClellan16_Q2i.exit:                      ; preds = %if.end.i.thread, %i
 define hidden noundef signext i8 @nfaExecMcClellan8_reportCurrent(ptr nocapture noundef readonly %n, ptr nocapture noundef readonly %q) local_unnamed_addr #0 {
 entry:
   %add.ptr = getelementptr inbounds i8, ptr %n, i64 64
-  %cb1 = getelementptr inbounds %struct.mq, ptr %q, i64 0, i32 12
+  %cb1 = getelementptr inbounds i8, ptr %q, i64 88
   %0 = load ptr, ptr %cb1, align 8
-  %context = getelementptr inbounds %struct.mq, ptr %q, i64 0, i32 13
+  %context = getelementptr inbounds i8, ptr %q, i64 96
   %1 = load ptr, ptr %context, align 8
-  %state = getelementptr inbounds %struct.mq, ptr %q, i64 0, i32 3
+  %state = getelementptr inbounds i8, ptr %q, i64 16
   %2 = load ptr, ptr %state, align 8
   %3 = load i8, ptr %2, align 1
-  %offset.i = getelementptr inbounds %struct.mq, ptr %q, i64 0, i32 5
+  %offset.i = getelementptr inbounds i8, ptr %q, i64 32
   %4 = load i64, ptr %offset.i, align 8
-  %cur.i = getelementptr inbounds %struct.mq, ptr %q, i64 0, i32 1
+  %items.i = getelementptr inbounds i8, ptr %q, i64 104
+  %cur.i = getelementptr inbounds i8, ptr %q, i64 8
   %5 = load i32, ptr %cur.i, align 8
   %idxprom.i = zext i32 %5 to i64
-  %location.i = getelementptr inbounds %struct.mq, ptr %q, i64 0, i32 14, i64 %idxprom.i, i32 1
+  %location.i = getelementptr inbounds [10 x %struct.mq_item], ptr %items.i, i64 0, i64 %idxprom.i, i32 1
   %6 = load i64, ptr %location.i, align 8
   %add.i = add i64 %6, %4
   %accept_limit_8 = getelementptr inbounds i8, ptr %n, i64 90
@@ -4795,11 +4801,11 @@ if.end9:                                          ; preds = %for.body.i, %if.end
 define hidden noundef signext i8 @nfaExecMcClellan16_reportCurrent(ptr nocapture noundef readonly %n, ptr nocapture noundef readonly %q) local_unnamed_addr #0 {
 entry:
   %add.ptr = getelementptr inbounds i8, ptr %n, i64 64
-  %cb1 = getelementptr inbounds %struct.mq, ptr %q, i64 0, i32 12
+  %cb1 = getelementptr inbounds i8, ptr %q, i64 88
   %0 = load ptr, ptr %cb1, align 8
-  %context = getelementptr inbounds %struct.mq, ptr %q, i64 0, i32 13
+  %context = getelementptr inbounds i8, ptr %q, i64 96
   %1 = load ptr, ptr %context, align 8
-  %state = getelementptr inbounds %struct.mq, ptr %q, i64 0, i32 3
+  %state = getelementptr inbounds i8, ptr %q, i64 16
   %2 = load ptr, ptr %state, align 8
   %3 = load i16, ptr %2, align 2
   %aux_offset.i23 = getelementptr inbounds i8, ptr %n, i64 76
@@ -4808,12 +4814,13 @@ entry:
   %add.ptr1.i25 = getelementptr inbounds i8, ptr %n, i64 %idx.ext.i24
   %idx.ext2.i26 = zext i16 %3 to i64
   %add.ptr3.i27 = getelementptr inbounds %struct.mstate_aux, ptr %add.ptr1.i25, i64 %idx.ext2.i26
-  %offset.i = getelementptr inbounds %struct.mq, ptr %q, i64 0, i32 5
+  %offset.i = getelementptr inbounds i8, ptr %q, i64 32
   %5 = load i64, ptr %offset.i, align 8
-  %cur.i = getelementptr inbounds %struct.mq, ptr %q, i64 0, i32 1
+  %items.i = getelementptr inbounds i8, ptr %q, i64 104
+  %cur.i = getelementptr inbounds i8, ptr %q, i64 8
   %6 = load i32, ptr %cur.i, align 8
   %idxprom.i = zext i32 %6 to i64
-  %location.i = getelementptr inbounds %struct.mq, ptr %q, i64 0, i32 14, i64 %idxprom.i, i32 1
+  %location.i = getelementptr inbounds [10 x %struct.mq_item], ptr %items.i, i64 0, i64 %idxprom.i, i32 1
   %7 = load i64, ptr %location.i, align 8
   %add.i = add i64 %7, %5
   %8 = load i32, ptr %add.ptr3.i27, align 4
@@ -4878,7 +4885,7 @@ if.end11:                                         ; preds = %for.body.i, %if.end
 ; Function Attrs: nofree norecurse nosync nounwind memory(read, inaccessiblemem: none) uwtable
 define hidden noundef signext i8 @nfaExecMcClellan8_inAccept(ptr nocapture noundef readonly %n, i32 noundef %report, ptr nocapture noundef readonly %q) local_unnamed_addr #2 {
 entry:
-  %state = getelementptr inbounds %struct.mq, ptr %q, i64 0, i32 3
+  %state = getelementptr inbounds i8, ptr %q, i64 16
   %0 = load ptr, ptr %state, align 8
   %1 = load i8, ptr %0, align 1
   %accept_limit_8 = getelementptr inbounds i8, ptr %n, i64 90
@@ -4932,7 +4939,7 @@ return:                                           ; preds = %for.body.i, %for.co
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
 define hidden signext i8 @nfaExecMcClellan8_inAnyAccept(ptr nocapture noundef readonly %n, ptr nocapture noundef readonly %q) local_unnamed_addr #3 {
 entry:
-  %state = getelementptr inbounds %struct.mq, ptr %q, i64 0, i32 3
+  %state = getelementptr inbounds i8, ptr %q, i64 16
   %0 = load ptr, ptr %state, align 8
   %1 = load i8, ptr %0, align 1
   %accept_limit_8 = getelementptr inbounds i8, ptr %n, i64 90
@@ -4947,7 +4954,7 @@ entry:
 define hidden noundef signext i8 @nfaExecMcClellan16_inAccept(ptr nocapture noundef readonly %n, i32 noundef %report, ptr nocapture noundef readonly %q) local_unnamed_addr #2 {
 entry:
   %add.ptr = getelementptr inbounds i8, ptr %n, i64 64
-  %state = getelementptr inbounds %struct.mq, ptr %q, i64 0, i32 3
+  %state = getelementptr inbounds i8, ptr %q, i64 16
   %0 = load ptr, ptr %state, align 8
   %1 = load i16, ptr %0, align 2
   %has_wide = getelementptr inbounds i8, ptr %n, i64 99
@@ -5005,7 +5012,7 @@ cond.end:                                         ; preds = %for.body.i, %for.co
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
 define hidden signext i8 @nfaExecMcClellan16_inAnyAccept(ptr nocapture noundef readonly %n, ptr nocapture noundef readonly %q) local_unnamed_addr #3 {
 entry:
-  %state = getelementptr inbounds %struct.mq, ptr %q, i64 0, i32 3
+  %state = getelementptr inbounds i8, ptr %q, i64 16
   %0 = load ptr, ptr %state, align 8
   %1 = load i16, ptr %0, align 2
   %has_wide = getelementptr inbounds i8, ptr %n, i64 99
@@ -5039,25 +5046,25 @@ cond.end:                                         ; preds = %land.lhs.true, %con
 ; Function Attrs: nounwind uwtable
 define hidden signext i8 @nfaExecMcClellan8_Q2(ptr noundef %n, ptr nocapture noundef %q, i64 noundef %end) local_unnamed_addr #0 {
 entry:
-  %offset1 = getelementptr inbounds %struct.mq, ptr %q, i64 0, i32 5
+  %offset1 = getelementptr inbounds i8, ptr %q, i64 32
   %0 = load i64, ptr %offset1, align 8
-  %buffer2 = getelementptr inbounds %struct.mq, ptr %q, i64 0, i32 6
+  %buffer2 = getelementptr inbounds i8, ptr %q, i64 40
   %1 = load ptr, ptr %buffer2, align 8
-  %cb3 = getelementptr inbounds %struct.mq, ptr %q, i64 0, i32 12
+  %cb3 = getelementptr inbounds i8, ptr %q, i64 88
   %2 = load ptr, ptr %cb3, align 8
-  %context4 = getelementptr inbounds %struct.mq, ptr %q, i64 0, i32 13
+  %context4 = getelementptr inbounds i8, ptr %q, i64 96
   %3 = load ptr, ptr %context4, align 8
   %add.ptr = getelementptr inbounds i8, ptr %n, i64 64
-  %history = getelementptr inbounds %struct.mq, ptr %q, i64 0, i32 8
+  %history = getelementptr inbounds i8, ptr %q, i64 56
   %4 = load ptr, ptr %history, align 8
-  %hlength = getelementptr inbounds %struct.mq, ptr %q, i64 0, i32 9
+  %hlength = getelementptr inbounds i8, ptr %q, i64 64
   %5 = load i64, ptr %hlength, align 8
   %add.ptr5 = getelementptr inbounds i8, ptr %4, i64 %5
-  %state.i = getelementptr inbounds %struct.mq, ptr %q, i64 0, i32 3
+  %state.i = getelementptr inbounds i8, ptr %q, i64 16
   %6 = load ptr, ptr %state.i, align 8
   %7 = load i8, ptr %6, align 1
   %conv.i = zext i8 %7 to i32
-  %report_current.i = getelementptr inbounds %struct.mq, ptr %q, i64 0, i32 11
+  %report_current.i = getelementptr inbounds i8, ptr %q, i64 80
   %8 = load i8, ptr %report_current.i, align 8
   %tobool.i.not = icmp eq i8 %8, 0
   br i1 %tobool.i.not, label %if.end11.i, label %if.then.i
@@ -5067,10 +5074,11 @@ if.then.i:                                        ; preds = %entry
   %9 = load i8, ptr %flags, align 1
   %10 = and i8 %9, 1
   %tobool1.i.not = icmp eq i8 %10, 0
-  %cur.i17 = getelementptr inbounds %struct.mq, ptr %q, i64 0, i32 1
+  %items.i16 = getelementptr inbounds i8, ptr %q, i64 104
+  %cur.i17 = getelementptr inbounds i8, ptr %q, i64 8
   %11 = load i32, ptr %cur.i17, align 8
   %idxprom.i18 = zext i32 %11 to i64
-  %location.i20 = getelementptr inbounds %struct.mq, ptr %q, i64 0, i32 14, i64 %idxprom.i18, i32 1
+  %location.i20 = getelementptr inbounds [10 x %struct.mq_item], ptr %items.i16, i64 0, i64 %idxprom.i18, i32 1
   %12 = load i64, ptr %location.i20, align 8
   %add.i21 = add i64 %12, %0
   br i1 %tobool1.i.not, label %if.else.i, label %if.end.i
@@ -5143,10 +5151,12 @@ if.end.i:                                         ; preds = %if.then.i
   br i1 %cmp.i, label %nfaExecMcClellan8_Q2i.exit, label %if.end11.i
 
 if.end11.i:                                       ; preds = %if.end.i.thread139, %if.end.i, %entry
-  %cur.i48 = getelementptr inbounds %struct.mq, ptr %q, i64 0, i32 1
+  %items.i47 = getelementptr inbounds i8, ptr %q, i64 104
+  %cur.i48 = getelementptr inbounds i8, ptr %q, i64 8
   %19 = load i32, ptr %cur.i48, align 8
   %idxprom.i49 = zext i32 %19 to i64
-  %location.i51 = getelementptr inbounds %struct.mq, ptr %q, i64 0, i32 14, i64 %idxprom.i49, i32 1
+  %arrayidx.i50 = getelementptr inbounds [10 x %struct.mq_item], ptr %items.i47, i64 0, i64 %idxprom.i49
+  %location.i51 = getelementptr inbounds i8, ptr %arrayidx.i50, i64 8
   %20 = load i64, ptr %location.i51, align 8
   %inc.i = add i32 %19, 1
   store i32 %inc.i, ptr %cur.i48, align 8
@@ -5161,16 +5171,17 @@ while.body.i.preheader:                           ; preds = %if.end11.i
   %has_accel.i.i = getelementptr inbounds i8, ptr %n, i64 98
   %alphaShift.i36.i = getelementptr inbounds i8, ptr %n, i64 96
   %add.ptr.i38.i = getelementptr inbounds i8, ptr %n, i64 372
+  %remap.i43.i = getelementptr inbounds i8, ptr %n, i64 100
   %accel_limit_8.i.i = getelementptr inbounds i8, ptr %n, i64 88
   %add141.i = sub i64 0, %0
   %start_anchored.i = getelementptr inbounds i8, ptr %n, i64 72
   br label %while.body.i
 
 if.then20.i:                                      ; preds = %if.end11.i
-  %arrayidx.i50 = getelementptr inbounds %struct.mq, ptr %q, i64 0, i32 14, i64 %idxprom.i49
   store i32 %19, ptr %cur.i48, align 8
   store i32 0, ptr %arrayidx.i50, align 8
-  store i64 %end, ptr %location.i51, align 8
+  %location32.i = getelementptr inbounds [10 x %struct.mq_item], ptr %items.i47, i64 0, i64 %idxprom.i49, i32 1
+  store i64 %end, ptr %location32.i, align 8
   %21 = load ptr, ptr %state.i, align 8
   store i8 %7, ptr %21, align 1
   br label %nfaExecMcClellan8_Q2i.exit
@@ -5181,7 +5192,7 @@ while.body.i:                                     ; preds = %while.body.i.backed
   %cur_buf.i.0 = phi ptr [ %cond.i, %while.body.i.preheader ], [ %spec.select, %while.body.i.backedge ]
   %sp.i.0 = phi i64 [ %20, %while.body.i.preheader ], [ %local_ep.i.0, %while.body.i.backedge ]
   %idxprom40.i = zext i32 %22 to i64
-  %location42.i = getelementptr inbounds %struct.mq, ptr %q, i64 0, i32 14, i64 %idxprom40.i, i32 1
+  %location42.i = getelementptr inbounds [10 x %struct.mq_item], ptr %items.i47, i64 0, i64 %idxprom40.i, i32 1
   %23 = load i64, ptr %location42.i, align 8
   %cond51.i = tail call i64 @llvm.smin.i64(i64 %23, i64 %end)
   %cmp53.i = icmp slt i64 %sp.i.0, 0
@@ -5234,7 +5245,7 @@ while.cond.i39.i:                                 ; preds = %while.body.i42.i, %
 while.body.i42.i:                                 ; preds = %while.cond.i39.i
   %30 = load i8, ptr %c.i26.0.i, align 1
   %idxprom.i44.i = zext i8 %30 to i64
-  %arrayidx.i45.i = getelementptr inbounds %struct.mcclellan, ptr %add.ptr, i64 0, i32 15, i64 %idxprom.i44.i
+  %arrayidx.i45.i = getelementptr inbounds [256 x i8], ptr %remap.i43.i, i64 0, i64 %idxprom.i44.i
   %31 = load i8, ptr %arrayidx.i45.i, align 1
   %shl.i46.i = shl i32 %s.addr.i23.0.i, %conv2.i37.i
   %conv4.i47.i = zext i8 %31 to i32
@@ -5317,7 +5328,7 @@ while.cond.i.i:                                   ; preds = %while.body.i.i, %if
 while.body.i.i:                                   ; preds = %while.cond.i.i
   %38 = load i8, ptr %c.i3.0.i, align 1
   %idxprom.i11.i = zext i8 %38 to i64
-  %arrayidx.i12.i = getelementptr inbounds %struct.mcclellan, ptr %add.ptr, i64 0, i32 15, i64 %idxprom.i11.i
+  %arrayidx.i12.i = getelementptr inbounds [256 x i8], ptr %remap.i43.i, i64 0, i64 %idxprom.i11.i
   %39 = load i8, ptr %arrayidx.i12.i, align 1
   %shl.i.i = shl i32 %s.addr.i.0.i, %conv2.i.i
   %conv4.i.i = zext i8 %39 to i32
@@ -5349,13 +5360,13 @@ if.then79.i:                                      ; preds = %land.lhs.true.i.i, 
   %dec85.i = add i32 %42, -1
   store i32 %dec85.i, ptr %cur.i48, align 8
   %idxprom88.i = zext i32 %dec85.i to i64
-  %arrayidx89.i = getelementptr inbounds %struct.mq, ptr %q, i64 0, i32 14, i64 %idxprom88.i
+  %arrayidx89.i = getelementptr inbounds [10 x %struct.mq_item], ptr %items.i47, i64 0, i64 %idxprom88.i
   store i32 0, ptr %arrayidx89.i, align 8
   %sub.ptr.lhs.cast.i = ptrtoint ptr %add.ptr.i.sink.i to i64
   %sub.ptr.rhs.cast.i = ptrtoint ptr %cur_buf.i.0 to i64
   %reass.sub = sub i64 %sub.ptr.lhs.cast.i, %sub.ptr.rhs.cast.i
   %add91.i = add i64 %reass.sub, 1
-  %location96.i = getelementptr inbounds %struct.mq, ptr %q, i64 0, i32 14, i64 %idxprom88.i, i32 1
+  %location96.i = getelementptr inbounds [10 x %struct.mq_item], ptr %items.i47, i64 0, i64 %idxprom88.i, i32 1
   store i64 %add91.i, ptr %location96.i, align 8
   %conv97.i = trunc i32 %s.i.1 to i8
   %43 = load ptr, ptr %state.i, align 8
@@ -5366,7 +5377,7 @@ land.lhs.true102.i:                               ; preds = %do.body12.i.i, %if.
   %s.i.1.ph = phi i32 [ %s.i.3.i, %if.then63.i.i ], [ %s.addr.i23.1.i, %do.end49.i.i ], [ %s.i.0, %while.body.i ], [ 0, %do.body54.i.i ], [ %s.addr.i.1.i, %if.end111.i.i ], [ 0, %do.body12.i.i ]
   %44 = load i32, ptr %cur.i48, align 8
   %idxprom105.i = zext i32 %44 to i64
-  %location107.i = getelementptr inbounds %struct.mq, ptr %q, i64 0, i32 14, i64 %idxprom105.i, i32 1
+  %location107.i = getelementptr inbounds [10 x %struct.mq_item], ptr %items.i47, i64 0, i64 %idxprom105.i, i32 1
   %45 = load i64, ptr %location107.i, align 8
   %cmp108.i = icmp sgt i64 %45, %end
   br i1 %cmp108.i, label %if.then110.i, label %if.end127.i
@@ -5375,9 +5386,9 @@ if.then110.i:                                     ; preds = %land.lhs.true102.i
   %dec114.i = add i32 %44, -1
   store i32 %dec114.i, ptr %cur.i48, align 8
   %idxprom117.i = zext i32 %dec114.i to i64
-  %arrayidx118.i = getelementptr inbounds %struct.mq, ptr %q, i64 0, i32 14, i64 %idxprom117.i
+  %arrayidx118.i = getelementptr inbounds [10 x %struct.mq_item], ptr %items.i47, i64 0, i64 %idxprom117.i
   store i32 0, ptr %arrayidx118.i, align 8
-  %location124.i = getelementptr inbounds %struct.mq, ptr %q, i64 0, i32 14, i64 %idxprom117.i, i32 1
+  %location124.i = getelementptr inbounds [10 x %struct.mq_item], ptr %items.i47, i64 0, i64 %idxprom117.i, i32 1
   store i64 %end, ptr %location124.i, align 8
   %conv125.i = trunc i32 %s.i.1.ph to i8
   %46 = load ptr, ptr %state.i, align 8
@@ -5391,7 +5402,7 @@ if.end127.i:                                      ; preds = %land.lhs.true102.i
   br i1 %cmp132.i.not, label %if.end135.i, label %while.body.i.backedge
 
 if.end135.i:                                      ; preds = %if.end127.i
-  %arrayidx139.i = getelementptr inbounds %struct.mq, ptr %q, i64 0, i32 14, i64 %idxprom105.i
+  %arrayidx139.i = getelementptr inbounds [10 x %struct.mq_item], ptr %items.i47, i64 0, i64 %idxprom105.i
   %47 = load i32, ptr %arrayidx139.i, align 8
   switch i32 %47, label %sw.epilog.i [
     i32 2, label %sw.bb.i
@@ -5454,25 +5465,25 @@ entry:
   %a.i.i = alloca <2 x i64>, align 16
   %tmp.i311.i = alloca [16 x i8], align 16
   %tmp.i.i = alloca [16 x i8], align 16
-  %offset1 = getelementptr inbounds %struct.mq, ptr %q, i64 0, i32 5
+  %offset1 = getelementptr inbounds i8, ptr %q, i64 32
   %0 = load i64, ptr %offset1, align 8
-  %buffer2 = getelementptr inbounds %struct.mq, ptr %q, i64 0, i32 6
+  %buffer2 = getelementptr inbounds i8, ptr %q, i64 40
   %1 = load ptr, ptr %buffer2, align 8
-  %cb3 = getelementptr inbounds %struct.mq, ptr %q, i64 0, i32 12
+  %cb3 = getelementptr inbounds i8, ptr %q, i64 88
   %2 = load ptr, ptr %cb3, align 8
-  %context4 = getelementptr inbounds %struct.mq, ptr %q, i64 0, i32 13
+  %context4 = getelementptr inbounds i8, ptr %q, i64 96
   %3 = load ptr, ptr %context4, align 8
   %add.ptr = getelementptr inbounds i8, ptr %n, i64 64
-  %history = getelementptr inbounds %struct.mq, ptr %q, i64 0, i32 8
+  %history = getelementptr inbounds i8, ptr %q, i64 56
   %4 = load ptr, ptr %history, align 8
-  %hlength = getelementptr inbounds %struct.mq, ptr %q, i64 0, i32 9
+  %hlength = getelementptr inbounds i8, ptr %q, i64 64
   %5 = load i64, ptr %hlength, align 8
   %add.ptr5 = getelementptr inbounds i8, ptr %4, i64 %5
-  %state.i = getelementptr inbounds %struct.mq, ptr %q, i64 0, i32 3
+  %state.i = getelementptr inbounds i8, ptr %q, i64 16
   %6 = load ptr, ptr %state.i, align 8
   %7 = load i16, ptr %6, align 2
   %conv.i = zext i16 %7 to i32
-  %report_current.i = getelementptr inbounds %struct.mq, ptr %q, i64 0, i32 11
+  %report_current.i = getelementptr inbounds i8, ptr %q, i64 80
   %8 = load i8, ptr %report_current.i, align 8
   %tobool.i.not = icmp eq i8 %8, 0
   br i1 %tobool.i.not, label %if.end11.i, label %if.then.i
@@ -5482,10 +5493,11 @@ if.then.i:                                        ; preds = %entry
   %9 = load i8, ptr %flags, align 1
   %10 = and i8 %9, 1
   %tobool1.i.not = icmp eq i8 %10, 0
-  %cur.i17 = getelementptr inbounds %struct.mq, ptr %q, i64 0, i32 1
+  %items.i16 = getelementptr inbounds i8, ptr %q, i64 104
+  %cur.i17 = getelementptr inbounds i8, ptr %q, i64 8
   %11 = load i32, ptr %cur.i17, align 8
   %idxprom.i18 = zext i32 %11 to i64
-  %location.i20 = getelementptr inbounds %struct.mq, ptr %q, i64 0, i32 14, i64 %idxprom.i18, i32 1
+  %location.i20 = getelementptr inbounds [10 x %struct.mq_item], ptr %items.i16, i64 0, i64 %idxprom.i18, i32 1
   %12 = load i64, ptr %location.i20, align 8
   %add.i21 = add i64 %12, %0
   br i1 %tobool1.i.not, label %if.else.i, label %if.end.i
@@ -5558,10 +5570,12 @@ if.end.i:                                         ; preds = %if.then.i
   br i1 %cmp.i, label %nfaExecMcClellan16_Q2i.exit, label %if.end11.i
 
 if.end11.i:                                       ; preds = %if.end.i.thread142, %if.end.i, %entry
-  %cur.i48 = getelementptr inbounds %struct.mq, ptr %q, i64 0, i32 1
+  %items.i47 = getelementptr inbounds i8, ptr %q, i64 104
+  %cur.i48 = getelementptr inbounds i8, ptr %q, i64 8
   %19 = load i32, ptr %cur.i48, align 8
   %idxprom.i49 = zext i32 %19 to i64
-  %location.i51 = getelementptr inbounds %struct.mq, ptr %q, i64 0, i32 14, i64 %idxprom.i49, i32 1
+  %arrayidx.i50 = getelementptr inbounds [10 x %struct.mq_item], ptr %items.i47, i64 0, i64 %idxprom.i49
+  %location.i51 = getelementptr inbounds i8, ptr %arrayidx.i50, i64 8
   %20 = load i64, ptr %location.i51, align 8
   %inc.i = add i32 %19, 1
   store i32 %inc.i, ptr %cur.i48, align 8
@@ -5586,10 +5600,10 @@ while.body.i.preheader:                           ; preds = %if.end11.i
   br label %while.body.i
 
 if.then20.i:                                      ; preds = %if.end11.i
-  %arrayidx.i50 = getelementptr inbounds %struct.mq, ptr %q, i64 0, i32 14, i64 %idxprom.i49
   store i32 %19, ptr %cur.i48, align 8
   store i32 0, ptr %arrayidx.i50, align 8
-  store i64 %end, ptr %location.i51, align 8
+  %location32.i = getelementptr inbounds [10 x %struct.mq_item], ptr %items.i47, i64 0, i64 %idxprom.i49, i32 1
+  store i64 %end, ptr %location32.i, align 8
   %21 = load ptr, ptr %state.i, align 8
   store i16 %7, ptr %21, align 2
   br label %nfaExecMcClellan16_Q2i.exit
@@ -5600,7 +5614,7 @@ while.body.i:                                     ; preds = %while.body.i.backed
   %cur_buf.i.0 = phi ptr [ %cond.i, %while.body.i.preheader ], [ %spec.select, %while.body.i.backedge ]
   %sp.i.0 = phi i64 [ %20, %while.body.i.preheader ], [ %local_ep.i.0, %while.body.i.backedge ]
   %idxprom38.i = zext i32 %22 to i64
-  %location40.i = getelementptr inbounds %struct.mq, ptr %q, i64 0, i32 14, i64 %idxprom38.i, i32 1
+  %location40.i = getelementptr inbounds [10 x %struct.mq_item], ptr %items.i47, i64 0, i64 %idxprom38.i, i32 1
   %23 = load i64, ptr %location40.i, align 8
   %cond49.i = tail call i64 @llvm.smin.i64(i64 %23, i64 %end)
   %cmp51.i = icmp slt i64 %sp.i.0, 0
@@ -5683,7 +5697,7 @@ while.cond.i.i:                                   ; preds = %if.end34.i.i, %if.t
 while.body.i.i:                                   ; preds = %while.cond.i.i
   %35 = load i8, ptr %c.i19.0.i, align 1
   %idxprom.i28.i = zext i8 %35 to i64
-  %arrayidx.i29.i = getelementptr inbounds %struct.mcclellan, ptr %add.ptr, i64 0, i32 15, i64 %idxprom.i28.i
+  %arrayidx.i29.i = getelementptr inbounds [256 x i8], ptr %remap.i.i, i64 0, i64 %idxprom.i28.i
   %36 = load i8, ptr %arrayidx.i29.i, align 1
   %cmp10.i.not.i = icmp ult i16 %s.addr.i16.sroa.0.0.i, %28
   br i1 %cmp10.i.not.i, label %if.else.i32.i, label %if.then.i37.i
@@ -5976,7 +5990,7 @@ while.cond.i185.i:                                ; preds = %if.end.i196.i, %if.
 while.body.i188.i:                                ; preds = %while.cond.i185.i
   %74 = load i8, ptr %c.i168.0.i, align 1
   %idxprom.i190.i = zext i8 %74 to i64
-  %arrayidx.i191.i = getelementptr inbounds %struct.mcclellan, ptr %add.ptr, i64 0, i32 15, i64 %idxprom.i190.i
+  %arrayidx.i191.i = getelementptr inbounds [256 x i8], ptr %remap.i.i, i64 0, i64 %idxprom.i190.i
   %75 = load i8, ptr %arrayidx.i191.i, align 1
   %cmp5.i192.i = icmp ult i32 %s.addr.i165.0.i, %conv.i177.i
   br i1 %cmp5.i192.i, label %if.then.i212.i, label %if.else.i193.i
@@ -6140,7 +6154,7 @@ while.cond.i74.i:                                 ; preds = %if.end34.i95.i, %if
 while.body.i77.i:                                 ; preds = %while.cond.i74.i
   %94 = load i8, ptr %c.i48.0.i, align 1
   %idxprom.i79.i = zext i8 %94 to i64
-  %arrayidx.i80.i = getelementptr inbounds %struct.mcclellan, ptr %add.ptr, i64 0, i32 15, i64 %idxprom.i79.i
+  %arrayidx.i80.i = getelementptr inbounds [256 x i8], ptr %remap.i.i, i64 0, i64 %idxprom.i79.i
   %95 = load i8, ptr %arrayidx.i80.i, align 1
   %cmp10.i81.not.i = icmp ult i16 %s.addr.i43.sroa.0.0.i, %87
   br i1 %cmp10.i81.not.i, label %if.else.i85.i, label %if.then.i114.i
@@ -6437,7 +6451,7 @@ while.cond.i142.i:                                ; preds = %if.end.i151.i, %if.
 while.body.i145.i:                                ; preds = %while.cond.i142.i
   %133 = load i8, ptr %c.i127.0.i, align 1
   %idxprom.i147.i = zext i8 %133 to i64
-  %arrayidx.i148.i = getelementptr inbounds %struct.mcclellan, ptr %add.ptr, i64 0, i32 15, i64 %idxprom.i147.i
+  %arrayidx.i148.i = getelementptr inbounds [256 x i8], ptr %remap.i.i, i64 0, i64 %idxprom.i147.i
   %134 = load i8, ptr %arrayidx.i148.i, align 1
   %cmp5.i.i = icmp ult i32 %s.addr.i124.0.i, %conv.i136.i
   br i1 %cmp5.i.i, label %if.then.i157.i, label %if.else.i149.i
@@ -6553,13 +6567,13 @@ if.then78.i:                                      ; preds = %if.end34.i.i, %if.e
   %dec84.i = add i32 %146, -1
   store i32 %dec84.i, ptr %cur.i48, align 8
   %idxprom87.i = zext i32 %dec84.i to i64
-  %arrayidx88.i = getelementptr inbounds %struct.mq, ptr %q, i64 0, i32 14, i64 %idxprom87.i
+  %arrayidx88.i = getelementptr inbounds [10 x %struct.mq_item], ptr %items.i47, i64 0, i64 %idxprom87.i
   store i32 0, ptr %arrayidx88.i, align 8
   %sub.ptr.lhs.cast.i = ptrtoint ptr %final_look.i.0 to i64
   %sub.ptr.rhs.cast.i = ptrtoint ptr %cur_buf.i.0 to i64
   %reass.sub = sub i64 %sub.ptr.lhs.cast.i, %sub.ptr.rhs.cast.i
   %add90.i = add i64 %reass.sub, 1
-  %location95.i = getelementptr inbounds %struct.mq, ptr %q, i64 0, i32 14, i64 %idxprom87.i, i32 1
+  %location95.i = getelementptr inbounds [10 x %struct.mq_item], ptr %items.i47, i64 0, i64 %idxprom87.i, i32 1
   store i64 %add90.i, ptr %location95.i, align 8
   %conv96.i = and i16 %s.i.1.in, 16383
   %147 = load ptr, ptr %state.i, align 8
@@ -6576,7 +6590,7 @@ land.lhs.true101.i:                               ; preds = %do.body9.i.i, %whil
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %tmp.i.i)
   %148 = load i32, ptr %cur.i48, align 8
   %idxprom104.i = zext i32 %148 to i64
-  %location106.i = getelementptr inbounds %struct.mq, ptr %q, i64 0, i32 14, i64 %idxprom104.i, i32 1
+  %location106.i = getelementptr inbounds [10 x %struct.mq_item], ptr %items.i47, i64 0, i64 %idxprom104.i, i32 1
   %149 = load i64, ptr %location106.i, align 8
   %cmp107.i = icmp sgt i64 %149, %end
   br i1 %cmp107.i, label %if.then109.i, label %if.end126.i
@@ -6585,9 +6599,9 @@ if.then109.i:                                     ; preds = %land.lhs.true101.i
   %dec113.i = add i32 %148, -1
   store i32 %dec113.i, ptr %cur.i48, align 8
   %idxprom116.i = zext i32 %dec113.i to i64
-  %arrayidx117.i = getelementptr inbounds %struct.mq, ptr %q, i64 0, i32 14, i64 %idxprom116.i
+  %arrayidx117.i = getelementptr inbounds [10 x %struct.mq_item], ptr %items.i47, i64 0, i64 %idxprom116.i
   store i32 0, ptr %arrayidx117.i, align 8
-  %location123.i = getelementptr inbounds %struct.mq, ptr %q, i64 0, i32 14, i64 %idxprom116.i, i32 1
+  %location123.i = getelementptr inbounds [10 x %struct.mq_item], ptr %items.i47, i64 0, i64 %idxprom116.i, i32 1
   store i64 %end, ptr %location123.i, align 8
   %conv124.i = trunc i32 %s.i.1.ph to i16
   %150 = load ptr, ptr %state.i, align 8
@@ -6601,7 +6615,7 @@ if.end126.i:                                      ; preds = %land.lhs.true101.i
   br i1 %cmp131.i.not, label %if.end134.i, label %while.body.i.backedge
 
 if.end134.i:                                      ; preds = %if.end126.i
-  %arrayidx138.i = getelementptr inbounds %struct.mq, ptr %q, i64 0, i32 14, i64 %idxprom104.i
+  %arrayidx138.i = getelementptr inbounds [10 x %struct.mq_item], ptr %items.i47, i64 0, i64 %idxprom104.i
   %151 = load i32, ptr %arrayidx138.i, align 8
   switch i32 %151, label %sw.epilog.i [
     i32 2, label %sw.bb.i
@@ -6656,25 +6670,25 @@ nfaExecMcClellan16_Q2i.exit:                      ; preds = %if.end.i.thread, %i
 ; Function Attrs: nounwind uwtable
 define hidden noundef signext i8 @nfaExecMcClellan8_QR(ptr noundef %n, ptr nocapture noundef %q, i32 noundef %report) local_unnamed_addr #0 {
 entry:
-  %offset1 = getelementptr inbounds %struct.mq, ptr %q, i64 0, i32 5
+  %offset1 = getelementptr inbounds i8, ptr %q, i64 32
   %0 = load i64, ptr %offset1, align 8
-  %buffer2 = getelementptr inbounds %struct.mq, ptr %q, i64 0, i32 6
+  %buffer2 = getelementptr inbounds i8, ptr %q, i64 40
   %1 = load ptr, ptr %buffer2, align 8
-  %cb3 = getelementptr inbounds %struct.mq, ptr %q, i64 0, i32 12
+  %cb3 = getelementptr inbounds i8, ptr %q, i64 88
   %2 = load ptr, ptr %cb3, align 8
-  %context4 = getelementptr inbounds %struct.mq, ptr %q, i64 0, i32 13
+  %context4 = getelementptr inbounds i8, ptr %q, i64 96
   %3 = load ptr, ptr %context4, align 8
   %add.ptr = getelementptr inbounds i8, ptr %n, i64 64
-  %history = getelementptr inbounds %struct.mq, ptr %q, i64 0, i32 8
+  %history = getelementptr inbounds i8, ptr %q, i64 56
   %4 = load ptr, ptr %history, align 8
-  %hlength = getelementptr inbounds %struct.mq, ptr %q, i64 0, i32 9
+  %hlength = getelementptr inbounds i8, ptr %q, i64 64
   %5 = load i64, ptr %hlength, align 8
   %add.ptr5 = getelementptr inbounds i8, ptr %4, i64 %5
-  %state.i = getelementptr inbounds %struct.mq, ptr %q, i64 0, i32 3
+  %state.i = getelementptr inbounds i8, ptr %q, i64 16
   %6 = load ptr, ptr %state.i, align 8
   %7 = load i8, ptr %6, align 1
   %conv.i = zext i8 %7 to i32
-  %report_current.i = getelementptr inbounds %struct.mq, ptr %q, i64 0, i32 11
+  %report_current.i = getelementptr inbounds i8, ptr %q, i64 80
   %8 = load i8, ptr %report_current.i, align 8
   %tobool.i.not = icmp eq i8 %8, 0
   br i1 %tobool.i.not, label %if.end11.i, label %if.then.i
@@ -6684,10 +6698,11 @@ if.then.i:                                        ; preds = %entry
   %9 = load i8, ptr %flags, align 1
   %10 = and i8 %9, 1
   %tobool1.i.not = icmp eq i8 %10, 0
-  %cur.i21 = getelementptr inbounds %struct.mq, ptr %q, i64 0, i32 1
+  %items.i20 = getelementptr inbounds i8, ptr %q, i64 104
+  %cur.i21 = getelementptr inbounds i8, ptr %q, i64 8
   %11 = load i32, ptr %cur.i21, align 8
   %idxprom.i22 = zext i32 %11 to i64
-  %location.i24 = getelementptr inbounds %struct.mq, ptr %q, i64 0, i32 14, i64 %idxprom.i22, i32 1
+  %location.i24 = getelementptr inbounds [10 x %struct.mq_item], ptr %items.i20, i64 0, i64 %idxprom.i22, i32 1
   %12 = load i64, ptr %location.i24, align 8
   %add.i25 = add i64 %12, %0
   br i1 %tobool1.i.not, label %if.else.i, label %if.end.i
@@ -6760,10 +6775,11 @@ if.end.i:                                         ; preds = %if.then.i
   br i1 %cmp.i, label %return, label %if.end11.i
 
 if.end11.i:                                       ; preds = %if.end.i.thread149, %if.end.i, %entry
-  %cur.i52 = getelementptr inbounds %struct.mq, ptr %q, i64 0, i32 1
+  %items.i51 = getelementptr inbounds i8, ptr %q, i64 104
+  %cur.i52 = getelementptr inbounds i8, ptr %q, i64 8
   %19 = load i32, ptr %cur.i52, align 8
   %idxprom.i53 = zext i32 %19 to i64
-  %location.i55 = getelementptr inbounds %struct.mq, ptr %q, i64 0, i32 14, i64 %idxprom.i53, i32 1
+  %location.i55 = getelementptr inbounds [10 x %struct.mq_item], ptr %items.i51, i64 0, i64 %idxprom.i53, i32 1
   %20 = load i64, ptr %location.i55, align 8
   %inc.i = add i32 %19, 1
   store i32 %inc.i, ptr %cur.i52, align 8
@@ -6773,6 +6789,7 @@ if.end11.i:                                       ; preds = %if.end.i.thread149,
   %has_accel.i.i = getelementptr inbounds i8, ptr %n, i64 98
   %alphaShift.i36.i = getelementptr inbounds i8, ptr %n, i64 96
   %add.ptr.i38.i = getelementptr inbounds i8, ptr %n, i64 372
+  %remap.i43.i = getelementptr inbounds i8, ptr %n, i64 100
   %accel_limit_8.i.i = getelementptr inbounds i8, ptr %n, i64 88
   %add141.i = sub i64 0, %0
   %start_anchored.i = getelementptr inbounds i8, ptr %n, i64 72
@@ -6784,7 +6801,7 @@ while.body.i:                                     ; preds = %while.body.i.backed
   %cur_buf.i.0 = phi ptr [ %cond.i, %if.end11.i ], [ %cur_buf.i.1, %while.body.i.backedge ]
   %sp.i.0 = phi i64 [ %20, %if.end11.i ], [ %local_ep.i.0, %while.body.i.backedge ]
   %idxprom40.i = zext i32 %21 to i64
-  %location42.i = getelementptr inbounds %struct.mq, ptr %q, i64 0, i32 14, i64 %idxprom40.i, i32 1
+  %location42.i = getelementptr inbounds [10 x %struct.mq_item], ptr %items.i51, i64 0, i64 %idxprom40.i, i32 1
   %22 = load i64, ptr %location42.i, align 8
   %cmp53.i = icmp slt i64 %sp.i.0, 0
   %cond61.i = tail call i64 @llvm.smin.i64(i64 %22, i64 0)
@@ -6828,7 +6845,7 @@ while.body.i42.i:                                 ; preds = %if.end15.i.i, %whil
   %c.i26.05.i = phi ptr [ %incdec.ptr.i52.i, %while.body.i42.i ], [ %c.i.1.i, %if.end15.i.i ]
   %26 = load i8, ptr %c.i26.05.i, align 1
   %idxprom.i44.i = zext i8 %26 to i64
-  %arrayidx.i45.i = getelementptr inbounds %struct.mcclellan, ptr %add.ptr, i64 0, i32 15, i64 %idxprom.i44.i
+  %arrayidx.i45.i = getelementptr inbounds [256 x i8], ptr %remap.i43.i, i64 0, i64 %idxprom.i44.i
   %27 = load i8, ptr %arrayidx.i45.i, align 1
   %shl.i46.i = shl i32 %s.addr.i23.06.i, %conv2.i37.i
   %conv4.i47.i = zext i8 %27 to i32
@@ -6907,7 +6924,7 @@ while.cond.i.i:                                   ; preds = %while.body.i.i, %if
 while.body.i.i:                                   ; preds = %while.cond.i.i
   %34 = load i8, ptr %c.i3.0.i, align 1
   %idxprom.i11.i = zext i8 %34 to i64
-  %arrayidx.i12.i = getelementptr inbounds %struct.mcclellan, ptr %add.ptr, i64 0, i32 15, i64 %idxprom.i11.i
+  %arrayidx.i12.i = getelementptr inbounds [256 x i8], ptr %remap.i43.i, i64 0, i64 %idxprom.i11.i
   %35 = load i8, ptr %arrayidx.i12.i, align 1
   %shl.i.i = shl i32 %s.addr.i.0.i, %conv2.i.i
   %conv4.i.i = zext i8 %35 to i32
@@ -6937,7 +6954,7 @@ mcclellanExec8_i_nm.exit:                         ; preds = %do.body12.i.i, %do.
 
 if.end135.i:                                      ; preds = %mcclellanExec8_i_nm.exit
   %idxprom138.i = zext i32 %.pre.pre to i64
-  %arrayidx139.i = getelementptr inbounds %struct.mq, ptr %q, i64 0, i32 14, i64 %idxprom138.i
+  %arrayidx139.i = getelementptr inbounds [10 x %struct.mq_item], ptr %items.i51, i64 0, i64 %idxprom138.i
   %38 = load i32, ptr %arrayidx139.i, align 8
   switch i32 %38, label %sw.epilog.i [
     i32 2, label %sw.bb.i
@@ -7044,25 +7061,25 @@ entry:
   %a.i.i = alloca <2 x i64>, align 16
   %tmp.i311.i = alloca [16 x i8], align 16
   %tmp.i.i = alloca [16 x i8], align 16
-  %offset1 = getelementptr inbounds %struct.mq, ptr %q, i64 0, i32 5
+  %offset1 = getelementptr inbounds i8, ptr %q, i64 32
   %0 = load i64, ptr %offset1, align 8
-  %buffer2 = getelementptr inbounds %struct.mq, ptr %q, i64 0, i32 6
+  %buffer2 = getelementptr inbounds i8, ptr %q, i64 40
   %1 = load ptr, ptr %buffer2, align 8
-  %cb3 = getelementptr inbounds %struct.mq, ptr %q, i64 0, i32 12
+  %cb3 = getelementptr inbounds i8, ptr %q, i64 88
   %2 = load ptr, ptr %cb3, align 8
-  %context4 = getelementptr inbounds %struct.mq, ptr %q, i64 0, i32 13
+  %context4 = getelementptr inbounds i8, ptr %q, i64 96
   %3 = load ptr, ptr %context4, align 8
   %add.ptr = getelementptr inbounds i8, ptr %n, i64 64
-  %history = getelementptr inbounds %struct.mq, ptr %q, i64 0, i32 8
+  %history = getelementptr inbounds i8, ptr %q, i64 56
   %4 = load ptr, ptr %history, align 8
-  %hlength = getelementptr inbounds %struct.mq, ptr %q, i64 0, i32 9
+  %hlength = getelementptr inbounds i8, ptr %q, i64 64
   %5 = load i64, ptr %hlength, align 8
   %add.ptr5 = getelementptr inbounds i8, ptr %4, i64 %5
-  %state.i = getelementptr inbounds %struct.mq, ptr %q, i64 0, i32 3
+  %state.i = getelementptr inbounds i8, ptr %q, i64 16
   %6 = load ptr, ptr %state.i, align 8
   %7 = load i16, ptr %6, align 2
   %conv.i = zext i16 %7 to i32
-  %report_current.i = getelementptr inbounds %struct.mq, ptr %q, i64 0, i32 11
+  %report_current.i = getelementptr inbounds i8, ptr %q, i64 80
   %8 = load i8, ptr %report_current.i, align 8
   %tobool.i.not = icmp eq i8 %8, 0
   br i1 %tobool.i.not, label %if.end11.i, label %if.then.i
@@ -7072,10 +7089,11 @@ if.then.i:                                        ; preds = %entry
   %9 = load i8, ptr %flags, align 1
   %10 = and i8 %9, 1
   %tobool1.i.not = icmp eq i8 %10, 0
-  %cur.i21 = getelementptr inbounds %struct.mq, ptr %q, i64 0, i32 1
+  %items.i20 = getelementptr inbounds i8, ptr %q, i64 104
+  %cur.i21 = getelementptr inbounds i8, ptr %q, i64 8
   %11 = load i32, ptr %cur.i21, align 8
   %idxprom.i22 = zext i32 %11 to i64
-  %location.i24 = getelementptr inbounds %struct.mq, ptr %q, i64 0, i32 14, i64 %idxprom.i22, i32 1
+  %location.i24 = getelementptr inbounds [10 x %struct.mq_item], ptr %items.i20, i64 0, i64 %idxprom.i22, i32 1
   %12 = load i64, ptr %location.i24, align 8
   %add.i25 = add i64 %12, %0
   br i1 %tobool1.i.not, label %if.else.i, label %if.end.i
@@ -7148,10 +7166,11 @@ if.end.i:                                         ; preds = %if.then.i
   br i1 %cmp.i, label %return, label %if.end11.i
 
 if.end11.i:                                       ; preds = %if.end.i.thread153, %if.end.i, %entry
-  %cur.i52 = getelementptr inbounds %struct.mq, ptr %q, i64 0, i32 1
+  %items.i51 = getelementptr inbounds i8, ptr %q, i64 104
+  %cur.i52 = getelementptr inbounds i8, ptr %q, i64 8
   %19 = load i32, ptr %cur.i52, align 8
   %idxprom.i53 = zext i32 %19 to i64
-  %location.i55 = getelementptr inbounds %struct.mq, ptr %q, i64 0, i32 14, i64 %idxprom.i53, i32 1
+  %location.i55 = getelementptr inbounds [10 x %struct.mq_item], ptr %items.i51, i64 0, i64 %idxprom.i53, i32 1
   %20 = load i64, ptr %location.i55, align 8
   %inc.i = add i32 %19, 1
   store i32 %inc.i, ptr %cur.i52, align 8
@@ -7177,7 +7196,7 @@ while.body.i:                                     ; preds = %while.body.i.backed
   %cur_buf.i.0 = phi ptr [ %cond.i, %if.end11.i ], [ %cur_buf.i.1, %while.body.i.backedge ]
   %sp.i.0 = phi i64 [ %20, %if.end11.i ], [ %local_ep.i.0, %while.body.i.backedge ]
   %idxprom38.i = zext i32 %.pre.pre197 to i64
-  %location40.i = getelementptr inbounds %struct.mq, ptr %q, i64 0, i32 14, i64 %idxprom38.i, i32 1
+  %location40.i = getelementptr inbounds [10 x %struct.mq_item], ptr %items.i51, i64 0, i64 %idxprom38.i, i32 1
   %21 = load i64, ptr %location40.i, align 8
   %cmp51.i = icmp slt i64 %sp.i.0, 0
   %cond59.i = tail call i64 @llvm.smin.i64(i64 %21, i64 0)
@@ -7257,7 +7276,7 @@ while.body.i.i:                                   ; preds = %if.then16.i.i, %if.
   %offset.i.236.i = phi i16 [ %offset.i.5.i, %if.end34.i.i ], [ %offset.i.1.i, %if.then16.i.i ]
   %33 = load i8, ptr %c.i19.037.i, align 1
   %idxprom.i28.i = zext i8 %33 to i64
-  %arrayidx.i29.i = getelementptr inbounds %struct.mcclellan, ptr %add.ptr, i64 0, i32 15, i64 %idxprom.i28.i
+  %arrayidx.i29.i = getelementptr inbounds [256 x i8], ptr %remap.i.i, i64 0, i64 %idxprom.i28.i
   %34 = load i8, ptr %arrayidx.i29.i, align 1
   %cmp10.i.not.i = icmp ult i16 %s.addr.i16.sroa.0.038.i, %26
   br i1 %cmp10.i.not.i, label %if.else.i32.i, label %if.then.i37.i
@@ -7551,7 +7570,7 @@ while.body.i188.i:                                ; preds = %if.else.i.i, %if.en
   %c.i168.046.i = phi ptr [ %incdec.ptr.i197.i, %if.end.i196.i ], [ %c.i.1.i, %if.else.i.i ]
   %73 = load i8, ptr %c.i168.046.i, align 1
   %idxprom.i190.i = zext i8 %73 to i64
-  %arrayidx.i191.i = getelementptr inbounds %struct.mcclellan, ptr %add.ptr, i64 0, i32 15, i64 %idxprom.i190.i
+  %arrayidx.i191.i = getelementptr inbounds [256 x i8], ptr %remap.i.i, i64 0, i64 %idxprom.i190.i
   %74 = load i8, ptr %arrayidx.i191.i, align 1
   %cmp5.i192.i = icmp ult i32 %s.addr.i165.047.i, %conv.i177.i
   br i1 %cmp5.i192.i, label %if.then.i212.i, label %if.else.i193.i
@@ -7718,7 +7737,7 @@ while.cond.i74.i:                                 ; preds = %if.end34.i95.i, %if
 while.body.i77.i:                                 ; preds = %while.cond.i74.i
   %95 = load i8, ptr %c.i48.0.i, align 1
   %idxprom.i79.i = zext i8 %95 to i64
-  %arrayidx.i80.i = getelementptr inbounds %struct.mcclellan, ptr %add.ptr, i64 0, i32 15, i64 %idxprom.i79.i
+  %arrayidx.i80.i = getelementptr inbounds [256 x i8], ptr %remap.i.i, i64 0, i64 %idxprom.i79.i
   %96 = load i8, ptr %arrayidx.i80.i, align 1
   %cmp10.i81.not.i = icmp ult i16 %s.addr.i43.sroa.0.0.i, %88
   br i1 %cmp10.i81.not.i, label %if.else.i85.i, label %if.then.i114.i
@@ -8016,7 +8035,7 @@ while.cond.i142.i:                                ; preds = %if.end.i151.i, %if.
 while.body.i145.i:                                ; preds = %while.cond.i142.i
   %135 = load i8, ptr %c.i127.0.i, align 1
   %idxprom.i147.i = zext i8 %135 to i64
-  %arrayidx.i148.i = getelementptr inbounds %struct.mcclellan, ptr %add.ptr, i64 0, i32 15, i64 %idxprom.i147.i
+  %arrayidx.i148.i = getelementptr inbounds [256 x i8], ptr %remap.i.i, i64 0, i64 %idxprom.i147.i
   %136 = load i8, ptr %arrayidx.i148.i, align 1
   %cmp5.i.i = icmp ult i32 %s.addr.i124.0.i, %conv.i136.i
   br i1 %cmp5.i.i, label %if.then.i157.i, label %if.else.i149.i
@@ -8123,7 +8142,7 @@ mcclellanExec16_i_nm.exit:                        ; preds = %while.body.i, %if.e
 
 if.end134.i:                                      ; preds = %mcclellanExec16_i_nm.exit
   %idxprom137.i = zext i32 %.pre.pre to i64
-  %arrayidx138.i = getelementptr inbounds %struct.mq, ptr %q, i64 0, i32 14, i64 %idxprom137.i
+  %arrayidx138.i = getelementptr inbounds [10 x %struct.mq_item], ptr %items.i51, i64 0, i64 %idxprom137.i
   %146 = load i32, ptr %arrayidx138.i, align 8
   switch i32 %146, label %sw.epilog.i [
     i32 2, label %sw.bb.i
@@ -8255,7 +8274,7 @@ entry:
   br i1 %tobool3.not, label %if.end, label %if.then
 
 if.then:                                          ; preds = %entry
-  %add.ptr4 = getelementptr inbounds i16, ptr %state, i64 1
+  %add.ptr4 = getelementptr inbounds i8, ptr %state, i64 2
   store i16 0, ptr %add.ptr4, align 1
   br label %if.end
 
@@ -8821,7 +8840,7 @@ if.then:                                          ; preds = %entry
   br i1 %tobool1.not, label %if.end5, label %if.then2
 
 if.then2:                                         ; preds = %if.then
-  %add.ptr3 = getelementptr inbounds i16, ptr %state, i64 1
+  %add.ptr3 = getelementptr inbounds i8, ptr %state, i64 2
   store i16 0, ptr %add.ptr3, align 1
   br label %if.end5
 
@@ -11023,7 +11042,7 @@ mcclellanCheckEOD.exit:                           ; preds = %for.cond.i.i, %for.
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(write, argmem: readwrite, inaccessiblemem: none) uwtable
 define hidden noundef signext i8 @nfaExecMcClellan8_queueInitState(ptr nocapture noundef readnone %nfa, ptr nocapture noundef readonly %q) local_unnamed_addr #5 {
 entry:
-  %state = getelementptr inbounds %struct.mq, ptr %q, i64 0, i32 3
+  %state = getelementptr inbounds i8, ptr %q, i64 16
   %0 = load ptr, ptr %state, align 8
   store i8 0, ptr %0, align 1
   ret i8 0
@@ -11032,7 +11051,7 @@ entry:
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(write, argmem: readwrite, inaccessiblemem: none) uwtable
 define hidden noundef signext i8 @nfaExecMcClellan16_queueInitState(ptr nocapture noundef readonly %nfa, ptr nocapture noundef readonly %q) local_unnamed_addr #5 {
 entry:
-  %state = getelementptr inbounds %struct.mq, ptr %q, i64 0, i32 3
+  %state = getelementptr inbounds i8, ptr %q, i64 16
   %0 = load ptr, ptr %state, align 8
   store i16 0, ptr %0, align 2
   %has_wide = getelementptr inbounds i8, ptr %nfa, i64 99
@@ -11042,7 +11061,7 @@ entry:
 
 if.then:                                          ; preds = %entry
   %2 = load ptr, ptr %state, align 8
-  %add.ptr2 = getelementptr inbounds i16, ptr %2, i64 1
+  %add.ptr2 = getelementptr inbounds i8, ptr %2, i64 2
   store i16 0, ptr %add.ptr2, align 1
   br label %if.end
 
@@ -11053,9 +11072,9 @@ if.end:                                           ; preds = %if.then, %entry
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
 define hidden noundef signext i8 @nfaExecMcClellan8_queueCompressState(ptr nocapture noundef readnone %nfa, ptr nocapture noundef readonly %q, i64 noundef %loc) local_unnamed_addr #6 {
 entry:
-  %streamState = getelementptr inbounds %struct.mq, ptr %q, i64 0, i32 4
+  %streamState = getelementptr inbounds i8, ptr %q, i64 24
   %0 = load ptr, ptr %streamState, align 8
-  %state = getelementptr inbounds %struct.mq, ptr %q, i64 0, i32 3
+  %state = getelementptr inbounds i8, ptr %q, i64 16
   %1 = load ptr, ptr %state, align 8
   %2 = load i8, ptr %1, align 1
   store i8 %2, ptr %0, align 1
@@ -11073,9 +11092,9 @@ entry:
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
 define hidden noundef signext i8 @nfaExecMcClellan16_queueCompressState(ptr nocapture noundef readonly %nfa, ptr nocapture noundef readonly %q, i64 noundef %loc) local_unnamed_addr #6 {
 entry:
-  %streamState = getelementptr inbounds %struct.mq, ptr %q, i64 0, i32 4
+  %streamState = getelementptr inbounds i8, ptr %q, i64 24
   %0 = load ptr, ptr %streamState, align 8
-  %state = getelementptr inbounds %struct.mq, ptr %q, i64 0, i32 3
+  %state = getelementptr inbounds i8, ptr %q, i64 16
   %1 = load ptr, ptr %state, align 8
   %2 = load i16, ptr %1, align 2
   store i16 %2, ptr %0, align 1
@@ -11085,8 +11104,8 @@ entry:
   br i1 %tobool.not, label %if.end, label %if.then
 
 if.then:                                          ; preds = %entry
-  %add.ptr1 = getelementptr inbounds i16, ptr %0, i64 1
-  %add.ptr2 = getelementptr inbounds i16, ptr %1, i64 1
+  %add.ptr1 = getelementptr inbounds i8, ptr %0, i64 2
+  %add.ptr2 = getelementptr inbounds i8, ptr %1, i64 2
   %4 = load i16, ptr %add.ptr2, align 2
   store i16 %4, ptr %add.ptr1, align 1
   br label %if.end
@@ -11106,9 +11125,9 @@ entry:
   br i1 %tobool.not, label %if.end, label %if.then
 
 if.then:                                          ; preds = %entry
-  %add.ptr1 = getelementptr inbounds i16, ptr %src, i64 1
+  %add.ptr1 = getelementptr inbounds i8, ptr %src, i64 2
   %2 = load i16, ptr %add.ptr1, align 1
-  %add.ptr3 = getelementptr inbounds i16, ptr %dest, i64 1
+  %add.ptr3 = getelementptr inbounds i8, ptr %dest, i64 2
   store i16 %2, ptr %add.ptr3, align 2
   br label %if.end
 

@@ -3,13 +3,7 @@ source_filename = "bench/git/original/default.ll"
 target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:128-n8:16:32:64-S128"
 target triple = "x86_64-unknown-linux-gnu"
 
-%struct.fetch_negotiator = type { ptr, ptr, ptr, ptr, ptr, ptr }
-%struct.negotiation_state = type { %struct.prio_queue, i32 }
 %struct.prio_queue = type { ptr, i32, ptr, i32, i32, ptr }
-%struct.commit = type { %struct.object, i64, ptr, ptr, i32 }
-%struct.object = type { i32, %struct.object_id }
-%struct.object_id = type { [32 x i8], i32 }
-%struct.commit_list = type { ptr, ptr }
 
 @marked = internal unnamed_addr global i1 false, align 4
 @the_repository = external local_unnamed_addr global ptr, align 8
@@ -18,16 +12,16 @@ target triple = "x86_64-unknown-linux-gnu"
 define dso_local void @default_negotiator_init(ptr nocapture noundef writeonly %negotiator) local_unnamed_addr #0 {
 entry:
   store ptr @known_common, ptr %negotiator, align 8
-  %add_tip = getelementptr inbounds %struct.fetch_negotiator, ptr %negotiator, i64 0, i32 1
+  %add_tip = getelementptr inbounds i8, ptr %negotiator, i64 8
   store ptr @add_tip, ptr %add_tip, align 8
-  %next = getelementptr inbounds %struct.fetch_negotiator, ptr %negotiator, i64 0, i32 2
+  %next = getelementptr inbounds i8, ptr %negotiator, i64 16
   store ptr @next, ptr %next, align 8
-  %ack = getelementptr inbounds %struct.fetch_negotiator, ptr %negotiator, i64 0, i32 3
+  %ack = getelementptr inbounds i8, ptr %negotiator, i64 24
   store ptr @ack, ptr %ack, align 8
-  %release = getelementptr inbounds %struct.fetch_negotiator, ptr %negotiator, i64 0, i32 4
+  %release = getelementptr inbounds i8, ptr %negotiator, i64 32
   store ptr @release, ptr %release, align 8
   %call = tail call ptr @xcalloc(i64 noundef 1, i64 noundef 48) #4
-  %data = getelementptr inbounds %struct.fetch_negotiator, ptr %negotiator, i64 0, i32 5
+  %data = getelementptr inbounds i8, ptr %negotiator, i64 40
   store ptr %call, ptr %data, align 8
   store ptr @compare_commits_by_commit_date, ptr %call, align 8
   %.b = load i1, ptr @marked, align 4
@@ -51,7 +45,7 @@ entry:
   br i1 %tobool.not, label %if.then, label %if.end
 
 if.then:                                          ; preds = %entry
-  %data = getelementptr inbounds %struct.fetch_negotiator, ptr %n, i64 0, i32 5
+  %data = getelementptr inbounds i8, ptr %n, i64 40
   %1 = load ptr, ptr %data, align 8
   %2 = and i32 %bf.load, 128
   %tobool.not.i = icmp eq i32 %2, 0
@@ -73,7 +67,7 @@ if.end.i:                                         ; preds = %if.then.i
   br i1 %tobool11.not.i, label %if.then12.i, label %rev_list_push.exit
 
 if.then12.i:                                      ; preds = %if.end.i
-  %non_common_revs.i = getelementptr inbounds %struct.negotiation_state, ptr %1, i64 0, i32 1
+  %non_common_revs.i = getelementptr inbounds i8, ptr %1, i64 40
   %5 = load i32, ptr %non_common_revs.i, align 8
   %inc.i = add nsw i32 %5, 1
   store i32 %inc.i, ptr %non_common_revs.i, align 8
@@ -92,7 +86,7 @@ if.end:                                           ; preds = %rev_list_push.exit,
 define internal void @add_tip(ptr nocapture noundef %n, ptr noundef %c) #0 {
 entry:
   store ptr null, ptr %n, align 8
-  %data = getelementptr inbounds %struct.fetch_negotiator, ptr %n, i64 0, i32 5
+  %data = getelementptr inbounds i8, ptr %n, i64 40
   %0 = load ptr, ptr %data, align 8
   %bf.load.i = load i32, ptr %c, align 8
   %1 = and i32 %bf.load.i, 256
@@ -115,7 +109,7 @@ if.end.i:                                         ; preds = %if.then.i
   br i1 %tobool11.not.i, label %if.then12.i, label %rev_list_push.exit
 
 if.then12.i:                                      ; preds = %if.end.i
-  %non_common_revs.i = getelementptr inbounds %struct.negotiation_state, ptr %0, i64 0, i32 1
+  %non_common_revs.i = getelementptr inbounds i8, ptr %0, i64 40
   %4 = load i32, ptr %non_common_revs.i, align 8
   %inc.i = add nsw i32 %4, 1
   store i32 %inc.i, ptr %non_common_revs.i, align 8
@@ -128,11 +122,11 @@ rev_list_push.exit:                               ; preds = %entry, %if.then.i, 
 ; Function Attrs: nounwind uwtable
 define internal ptr @next(ptr nocapture noundef %n) #0 {
 entry:
-  %data = getelementptr inbounds %struct.fetch_negotiator, ptr %n, i64 0, i32 5
+  %data = getelementptr inbounds i8, ptr %n, i64 40
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %n, i8 0, i64 16, i1 false)
   %0 = load ptr, ptr %data, align 8
-  %nr.i = getelementptr inbounds %struct.prio_queue, ptr %0, i64 0, i32 4
-  %non_common_revs.i = getelementptr inbounds %struct.negotiation_state, ptr %0, i64 0, i32 1
+  %nr.i = getelementptr inbounds i8, ptr %0, i64 28
+  %non_common_revs.i = getelementptr inbounds i8, ptr %0, i64 40
   br label %while.body.i
 
 while.cond.loopexit.i:                            ; preds = %if.end38.i, %if.end38.us.i, %if.end12.i
@@ -153,7 +147,7 @@ if.end.i:                                         ; preds = %lor.lhs.false.i
   %call.i = tail call ptr @prio_queue_get(ptr noundef nonnull %0) #4
   %3 = load ptr, ptr @the_repository, align 8
   %call.i.i = tail call i32 @repo_parse_commit_gently(ptr noundef %3, ptr noundef %call.i, i32 noundef 0) #4
-  %parents5.i = getelementptr inbounds %struct.commit, ptr %call.i, i64 0, i32 2
+  %parents5.i = getelementptr inbounds i8, ptr %call.i, i64 48
   %4 = load ptr, ptr %parents5.i, align 8
   %bf.load.i = load i32, ptr %call.i, align 8
   %bf.set.i = or i32 %bf.load.i, 512
@@ -213,7 +207,7 @@ if.then12.i.us.i:                                 ; preds = %if.end.i.us.i
   br label %if.end38.us.i
 
 if.end38.us.i:                                    ; preds = %if.then12.i.us.i, %if.end.i.us.i, %if.then.i.us.i, %while.body30.us.i
-  %next.us.i = getelementptr inbounds %struct.commit_list, ptr %parents.020.us.i, i64 0, i32 1
+  %next.us.i = getelementptr inbounds i8, ptr %parents.020.us.i, i64 8
   %15 = load ptr, ptr %next.us.i, align 8
   %tobool29.not.us.i = icmp eq ptr %15, null
   br i1 %tobool29.not.us.i, label %while.cond.loopexit.i, label %while.body30.us.i, !llvm.loop !7
@@ -250,13 +244,13 @@ if.then12.i.i:                                    ; preds = %if.end.i.i
 if.end38.i:                                       ; preds = %if.then12.i.i, %if.end.i.i, %if.then.i.i, %while.body30.i
   %21 = load ptr, ptr %parents.020.i, align 8
   tail call fastcc void @mark_common(ptr noundef %0, ptr noundef %21, i32 noundef 1, i32 noundef 0)
-  %next.i = getelementptr inbounds %struct.commit_list, ptr %parents.020.i, i64 0, i32 1
+  %next.i = getelementptr inbounds i8, ptr %parents.020.i, i64 8
   %22 = load ptr, ptr %next.i, align 8
   %tobool29.not.i = icmp eq ptr %22, null
   br i1 %tobool29.not.i, label %while.cond.loopexit.i, label %while.body30.i, !llvm.loop !7
 
 while.end44.i:                                    ; preds = %while.cond.loopexit.i
-  %oid.i = getelementptr inbounds %struct.object, ptr %commit.1.i, i64 0, i32 1
+  %oid.i = getelementptr inbounds i8, ptr %commit.1.i, i64 4
   br label %get_rev.exit
 
 get_rev.exit:                                     ; preds = %while.body.i, %lor.lhs.false.i, %while.end44.i
@@ -270,7 +264,7 @@ entry:
   %bf.load = load i32, ptr %c, align 8
   %0 = lshr i32 %bf.load, 6
   %.lobit = and i32 %0, 1
-  %data = getelementptr inbounds %struct.fetch_negotiator, ptr %n, i64 0, i32 5
+  %data = getelementptr inbounds i8, ptr %n, i64 40
   %1 = load ptr, ptr %data, align 8
   tail call fastcc void @mark_common(ptr noundef %1, ptr noundef nonnull %c, i32 noundef 0, i32 noundef 1)
   ret i32 %.lobit
@@ -279,7 +273,7 @@ entry:
 ; Function Attrs: nounwind uwtable
 define internal void @release(ptr nocapture noundef %n) #0 {
 entry:
-  %data = getelementptr inbounds %struct.fetch_negotiator, ptr %n, i64 0, i32 5
+  %data = getelementptr inbounds i8, ptr %n, i64 40
   %0 = load ptr, ptr %data, align 8
   tail call void @clear_prio_queue(ptr noundef %0) #4
   %1 = load ptr, ptr %data, align 8
@@ -345,7 +339,7 @@ if.then3:                                         ; preds = %if.end
   br i1 %or.cond, label %if.then18, label %if.end20
 
 if.then18:                                        ; preds = %if.then3
-  %non_common_revs = getelementptr inbounds %struct.negotiation_state, ptr %ns, i64 0, i32 1
+  %non_common_revs = getelementptr inbounds i8, ptr %ns, i64 40
   %2 = load i32, ptr %non_common_revs, align 8
   %dec = add nsw i32 %2, -1
   store i32 %dec, ptr %non_common_revs, align 8
@@ -357,7 +351,7 @@ if.end20:                                         ; preds = %if.then3, %if.then1
   br i1 %tobool21.not24, label %while.end, label %while.body.lr.ph
 
 while.body.lr.ph:                                 ; preds = %if.end20
-  %non_common_revs68 = getelementptr inbounds %struct.negotiation_state, ptr %ns, i64 0, i32 1
+  %non_common_revs68 = getelementptr inbounds i8, ptr %ns, i64 40
   br label %while.body
 
 while.body:                                       ; preds = %while.body.lr.ph, %while.cond.backedge
@@ -401,7 +395,7 @@ if.then32:                                        ; preds = %if.else
   br i1 %tobool34.not, label %if.end37, label %while.cond.backedge
 
 if.end37:                                         ; preds = %if.then32, %if.else
-  %parents38 = getelementptr inbounds %struct.commit, ptr %call25, i64 0, i32 2
+  %parents38 = getelementptr inbounds i8, ptr %call25, i64 48
   %parents.020 = load ptr, ptr %parents38, align 8
   %tobool39.not21 = icmp eq ptr %parents.020, null
   br i1 %tobool39.not21, label %while.cond.backedge, label %for.body
@@ -433,7 +427,7 @@ if.end70:                                         ; preds = %if.then67, %if.end4
   br label %for.inc
 
 for.inc:                                          ; preds = %for.body, %if.end70
-  %next = getelementptr inbounds %struct.commit_list, ptr %parents.022, i64 0, i32 1
+  %next = getelementptr inbounds i8, ptr %parents.022, i64 8
   %parents.0 = load ptr, ptr %next, align 8
   %tobool39.not = icmp eq ptr %parents.0, null
   br i1 %tobool39.not, label %while.cond.backedge, label %for.body, !llvm.loop !8

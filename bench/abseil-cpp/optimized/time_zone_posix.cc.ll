@@ -3,16 +3,6 @@ source_filename = "bench/abseil-cpp/original/time_zone_posix.cc.ll"
 target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:128-n8:16:32:64-S128"
 target triple = "x86_64-unknown-linux-gnu"
 
-%"struct.absl::time_internal::cctz::PosixTimeZone" = type { %"class.std::__cxx11::basic_string", i64, %"class.std::__cxx11::basic_string", i64, %"struct.absl::time_internal::cctz::PosixTransition", %"struct.absl::time_internal::cctz::PosixTransition" }
-%"class.std::__cxx11::basic_string" = type { %"struct.std::__cxx11::basic_string<char>::_Alloc_hider", i64, %union.anon }
-%"struct.std::__cxx11::basic_string<char>::_Alloc_hider" = type { ptr }
-%union.anon = type { i64, [8 x i8] }
-%"struct.absl::time_internal::cctz::PosixTransition" = type { %"struct.absl::time_internal::cctz::PosixTransition::Date", %"struct.absl::time_internal::cctz::PosixTransition::Time" }
-%"struct.absl::time_internal::cctz::PosixTransition::Date" = type { i32, %union.anon.0 }
-%union.anon.0 = type { %"struct.absl::time_internal::cctz::PosixTransition::Date::NonLeapDay" }
-%"struct.absl::time_internal::cctz::PosixTransition::Date::NonLeapDay" = type { i64 }
-%"struct.absl::time_internal::cctz::PosixTransition::Time" = type { i64 }
-
 @_ZN4absl13time_internal4cctz12_GLOBAL__N_17kDigitsE = internal constant [11 x i8] c"0123456789\00", align 1
 
 ; Function Attrs: mustprogress uwtable
@@ -82,7 +72,7 @@ if.end28.i:                                       ; preds = %while.end22.i
 
 _ZN4absl13time_internal4cctz12_GLOBAL__N_19ParseAbbrEPKcPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit: ; preds = %while.cond.i, %while.end.i, %while.end22.i, %if.end28.i
   %retval.0.i = phi ptr [ %incdec.ptr6.i, %while.end.i ], [ %p.addr.1.lcssa.i, %if.end28.i ], [ null, %while.end22.i ], [ null, %while.cond.i ]
-  %std_offset = getelementptr inbounds %"struct.absl::time_internal::cctz::PosixTimeZone", ptr %res, i64 0, i32 1
+  %std_offset = getelementptr inbounds i8, ptr %res, i64 32
   %call2 = tail call fastcc noundef ptr @_ZN4absl13time_internal4cctz12_GLOBAL__N_111ParseOffsetEPKciiiPl(ptr noundef %retval.0.i, i32 noundef 0, i32 noundef 24, i32 noundef -1, ptr noundef nonnull %std_offset)
   %cmp3 = icmp eq ptr %call2, null
   br i1 %cmp3, label %return, label %if.end5
@@ -93,7 +83,7 @@ if.end5:                                          ; preds = %_ZN4absl13time_inte
   br i1 %cmp7, label %return, label %if.end9
 
 if.end9:                                          ; preds = %if.end5
-  %dst_abbr = getelementptr inbounds %"struct.absl::time_internal::cctz::PosixTimeZone", ptr %res, i64 0, i32 2
+  %dst_abbr = getelementptr inbounds i8, ptr %res, i64 40
   %cond = icmp eq i8 %8, 60
   br i1 %cond, label %while.cond.i29, label %while.body11.i39
 
@@ -155,7 +145,7 @@ if.end13:                                         ; preds = %if.end28.i26, %whil
   %retval.0.i28 = phi ptr [ %incdec.ptr6.i38, %while.end.i32 ], [ %p.addr.1.lcssa.i21, %if.end28.i26 ]
   %16 = load i64, ptr %std_offset, align 8
   %add = add nsw i64 %16, 3600
-  %dst_offset = getelementptr inbounds %"struct.absl::time_internal::cctz::PosixTimeZone", ptr %res, i64 0, i32 3
+  %dst_offset = getelementptr inbounds i8, ptr %res, i64 72
   store i64 %add, ptr %dst_offset, align 8
   %17 = load i8, ptr %retval.0.i28, align 1
   %cmp16.not = icmp eq i8 %17, 44
@@ -167,9 +157,9 @@ if.then17:                                        ; preds = %if.end13
 
 if.end20:                                         ; preds = %if.then17, %if.end13
   %p.0 = phi ptr [ %call19, %if.then17 ], [ %retval.0.i28, %if.end13 ]
-  %dst_start = getelementptr inbounds %"struct.absl::time_internal::cctz::PosixTimeZone", ptr %res, i64 0, i32 4
+  %dst_start = getelementptr inbounds i8, ptr %res, i64 80
   %call21 = tail call fastcc noundef ptr @_ZN4absl13time_internal4cctz12_GLOBAL__N_113ParseDateTimeEPKcPNS1_15PosixTransitionE(ptr noundef %p.0, ptr noundef nonnull %dst_start)
-  %dst_end = getelementptr inbounds %"struct.absl::time_internal::cctz::PosixTimeZone", ptr %res, i64 0, i32 5
+  %dst_end = getelementptr inbounds i8, ptr %res, i64 104
   %call22 = tail call fastcc noundef ptr @_ZN4absl13time_internal4cctz12_GLOBAL__N_113ParseDateTimeEPKcPNS1_15PosixTransitionE(ptr noundef %call21, ptr noundef nonnull %dst_end)
   %cmp23.not = icmp eq ptr %call22, null
   br i1 %cmp23.not, label %return, label %land.rhs
@@ -525,7 +515,7 @@ if.then16:                                        ; preds = %land.lhs.true13
 if.then20:                                        ; preds = %if.then16
   store i32 2, ptr %res, align 8
   %conv21 = trunc i32 %value.0.lcssa.i to i8
-  %10 = getelementptr inbounds %"struct.absl::time_internal::cctz::PosixTransition::Date", ptr %res, i64 0, i32 1
+  %10 = getelementptr inbounds i8, ptr %res, i64 8
   store i8 %conv21, ptr %10, align 8
   %conv24 = trunc i32 %value.0.lcssa.i47 to i8
   %week26 = getelementptr inbounds i8, ptr %res, i64 9
@@ -588,7 +578,7 @@ if.then38:                                        ; preds = %for.end.i79
   %p.addr.0.lcssa.i81.ptr = getelementptr inbounds i8, ptr %p, i64 %p.addr.0.lcssa.i81.idx
   store i32 0, ptr %res, align 8
   %conv41 = zext nneg i32 %value.0.lcssa.i80 to i64
-  %15 = getelementptr inbounds %"struct.absl::time_internal::cctz::PosixTransition::Date", ptr %res, i64 0, i32 1
+  %15 = getelementptr inbounds i8, ptr %res, i64 8
   store i64 %conv41, ptr %15, align 8
   br label %if.then60
 
@@ -642,13 +632,13 @@ if.then49:                                        ; preds = %for.end.i112
   %p.addr.0.lcssa.i114.ptr = getelementptr inbounds i8, ptr %p, i64 %p.addr.0.lcssa.i114.idx
   store i32 1, ptr %res, align 8
   %conv52 = zext nneg i32 %value.0.lcssa.i113 to i64
-  %18 = getelementptr inbounds %"struct.absl::time_internal::cctz::PosixTransition::Date", ptr %res, i64 0, i32 1
+  %18 = getelementptr inbounds i8, ptr %res, i64 8
   store i64 %conv52, ptr %18, align 8
   br label %if.then60
 
 if.then60:                                        ; preds = %land.lhs.true, %if.then38, %if.then49, %land.lhs.true6, %if.then20, %land.lhs.true13
   %p.addr.0 = phi ptr [ %call18, %if.then20 ], [ %p.addr.0.lcssa.i48.ptr, %land.lhs.true13 ], [ %p.addr.0.lcssa.i.ptr, %land.lhs.true6 ], [ %p.addr.0.lcssa.i81.ptr, %if.then38 ], [ %p.addr.0.lcssa.i114.ptr, %if.then49 ], [ %p, %land.lhs.true ]
-  %time = getelementptr inbounds %"struct.absl::time_internal::cctz::PosixTransition", ptr %res, i64 0, i32 1
+  %time = getelementptr inbounds i8, ptr %res, i64 16
   store i64 7200, ptr %time, align 8
   %19 = load i8, ptr %p.addr.0, align 1
   %cmp62 = icmp eq i8 %19, 47

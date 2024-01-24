@@ -52,18 +52,18 @@ entry:
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(16) %usage, ptr noundef nonnull align 16 dereferenceable(16) @__const.cmd_credential_store.usage, i64 16, i1 false)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(128) %c, ptr noundef nonnull align 8 dereferenceable(128) @__const.parse_credential_file.entry, i64 128, i1 false)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %fns, i8 0, i64 40, i1 false)
-  %0 = getelementptr inbounds %struct.string_list, ptr %fns, i64 0, i32 3
+  %0 = getelementptr inbounds i8, ptr %fns, i64 24
   store i8 1, ptr %0, align 8
   store ptr null, ptr %file, align 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(176) %options, i8 0, i64 176, i1 false)
   store i32 10, ptr %options, align 16
-  %long_name = getelementptr inbounds %struct.option, ptr %options, i64 0, i32 2
+  %long_name = getelementptr inbounds i8, ptr %options, i64 8
   store ptr @.str.1, ptr %long_name, align 8
-  %value = getelementptr inbounds %struct.option, ptr %options, i64 0, i32 3
+  %value = getelementptr inbounds i8, ptr %options, i64 16
   store ptr %file, ptr %value, align 16
-  %argh = getelementptr inbounds %struct.option, ptr %options, i64 0, i32 4
+  %argh = getelementptr inbounds i8, ptr %options, i64 24
   store ptr @.str.2, ptr %argh, align 8
-  %help = getelementptr inbounds %struct.option, ptr %options, i64 0, i32 5
+  %help = getelementptr inbounds i8, ptr %options, i64 32
   store ptr @.str.3, ptr %help, align 16
   %call = call i32 @umask(i32 noundef 63) #12
   %call7 = call i32 @parse_options(i32 noundef %argc, ptr noundef %argv, ptr noundef %prefix, ptr noundef nonnull %options, ptr noundef nonnull %usage, i32 noundef 0) #12
@@ -105,7 +105,7 @@ if.then19:                                        ; preds = %if.end16
   br label %if.end22
 
 if.end22:                                         ; preds = %if.end16, %if.then19, %if.then10
-  %nr = getelementptr inbounds %struct.string_list, ptr %fns, i64 0, i32 1
+  %nr = getelementptr inbounds i8, ptr %fns, i64 8
   %3 = load i64, ptr %nr, align 8
   %tobool23.not = icmp eq i64 %3, 0
   br i1 %tobool23.not, label %if.then24, label %if.end25
@@ -138,7 +138,7 @@ if.then32:                                        ; preds = %if.end29
   br i1 %or.cond60, label %for.body.i, label %if.end44
 
 land.rhs.i:                                       ; preds = %for.body.i
-  %incdec.ptr.i = getelementptr inbounds %struct.string_list_item, ptr %fn.07.i54, i64 1
+  %incdec.ptr.i = getelementptr inbounds i8, ptr %fn.07.i54, i64 16
   %7 = load ptr, ptr %fns, align 8
   %8 = load i64, ptr %nr, align 8
   %add.ptr.i = getelementptr inbounds %struct.string_list_item, ptr %7, i64 %8
@@ -158,18 +158,18 @@ if.else33:                                        ; preds = %if.end29
   br i1 %tobool35.not, label %if.then36, label %if.else37
 
 if.then36:                                        ; preds = %if.else33
-  %protocol.i = getelementptr inbounds %struct.credential, ptr %c, i64 0, i32 5
+  %protocol.i = getelementptr inbounds i8, ptr %c, i64 88
   %10 = load ptr, ptr %protocol.i, align 8
   %tobool.not.i = icmp ne ptr %10, null
-  %host.i = getelementptr inbounds %struct.credential, ptr %c, i64 0, i32 6
+  %host.i = getelementptr inbounds i8, ptr %c, i64 96
   %11 = load ptr, ptr %host.i, align 8
   %tobool1.not.i = icmp ne ptr %11, null
   %or.cond.not = select i1 %tobool.not.i, i1 true, i1 %tobool1.not.i
-  %path.i = getelementptr inbounds %struct.credential, ptr %c, i64 0, i32 7
+  %path.i = getelementptr inbounds i8, ptr %c, i64 104
   %12 = load ptr, ptr %path.i, align 8
   %tobool3.not.i = icmp ne ptr %12, null
   %or.cond39 = select i1 %or.cond.not, i1 true, i1 %tobool3.not.i
-  %username.i = getelementptr inbounds %struct.credential, ptr %c, i64 0, i32 3
+  %username.i = getelementptr inbounds i8, ptr %c, i64 72
   %13 = load ptr, ptr %username.i, align 8
   %tobool5.not.i = icmp ne ptr %13, null
   %or.cond40 = select i1 %or.cond39, i1 true, i1 %tobool5.not.i
@@ -194,7 +194,7 @@ if.then9.i:                                       ; preds = %for.body.i10
   br label %for.inc.i
 
 for.inc.i:                                        ; preds = %if.then9.i, %for.body.i10
-  %incdec.ptr.i12 = getelementptr inbounds %struct.string_list_item, ptr %fn.012.i51, i64 1
+  %incdec.ptr.i12 = getelementptr inbounds i8, ptr %fn.012.i51, i64 16
   %18 = load ptr, ptr %fns, align 8
   %19 = load i64, ptr %nr, align 8
   %add.ptr.i8 = getelementptr inbounds %struct.string_list_item, ptr %18, i64 %19
@@ -207,29 +207,29 @@ if.else37:                                        ; preds = %if.else33
   br i1 %tobool39.not, label %if.then40, label %if.end44
 
 if.then40:                                        ; preds = %if.else37
-  %protocol.i13 = getelementptr inbounds %struct.credential, ptr %c, i64 0, i32 5
+  %protocol.i13 = getelementptr inbounds i8, ptr %c, i64 88
   %20 = load ptr, ptr %protocol.i13, align 8
   %tobool.not.i14 = icmp eq ptr %20, null
   br i1 %tobool.not.i14, label %if.end44, label %lor.lhs.false.i
 
 lor.lhs.false.i:                                  ; preds = %if.then40
-  %host.i15 = getelementptr inbounds %struct.credential, ptr %c, i64 0, i32 6
+  %host.i15 = getelementptr inbounds i8, ptr %c, i64 96
   %21 = load ptr, ptr %host.i15, align 8
   %tobool1.not.i16 = icmp eq ptr %21, null
-  %path.i29 = getelementptr inbounds %struct.credential, ptr %c, i64 0, i32 7
+  %path.i29 = getelementptr inbounds i8, ptr %c, i64 104
   %22 = load ptr, ptr %path.i29, align 8
   %tobool3.not.i30 = icmp eq ptr %22, null
   %or.cond41 = select i1 %tobool1.not.i16, i1 %tobool3.not.i30, i1 false
   br i1 %or.cond41, label %if.end44, label %lor.lhs.false4.i
 
 lor.lhs.false4.i:                                 ; preds = %lor.lhs.false.i
-  %username.i17 = getelementptr inbounds %struct.credential, ptr %c, i64 0, i32 3
+  %username.i17 = getelementptr inbounds i8, ptr %c, i64 72
   %23 = load ptr, ptr %username.i17, align 8
   %tobool5.not.i18 = icmp eq ptr %23, null
   br i1 %tobool5.not.i18, label %if.end44, label %lor.lhs.false6.i
 
 lor.lhs.false6.i:                                 ; preds = %lor.lhs.false4.i
-  %password.i = getelementptr inbounds %struct.credential, ptr %c, i64 0, i32 4
+  %password.i = getelementptr inbounds i8, ptr %c, i64 80
   %24 = load ptr, ptr %password.i, align 8
   %tobool7.not.i = icmp eq ptr %24, null
   br i1 %tobool7.not.i, label %if.end44, label %if.end.i19
@@ -252,7 +252,7 @@ for.body.i25:                                     ; preds = %land.rhs.i22.prehea
   br i1 %tobool10.not.i, label %if.end19.sink.split.i, label %for.inc.i27
 
 for.inc.i27:                                      ; preds = %for.body.i25
-  %incdec.ptr.i28 = getelementptr inbounds %struct.string_list_item, ptr %fn.017.i48, i64 1
+  %incdec.ptr.i28 = getelementptr inbounds i8, ptr %fn.017.i48, i64 16
   %27 = load ptr, ptr %fns, align 8
   %28 = load i64, ptr %nr, align 8
   %add.ptr.i23 = getelementptr inbounds %struct.string_list_item, ptr %27, i64 %28
@@ -279,7 +279,7 @@ if.end19.sink.split.i:                            ; preds = %for.body.i25, %for.
   br i1 %tobool.not.i.i.i, label %if.then.i.i, label %strbuf_avail.exit.i.i
 
 strbuf_avail.exit.i.i:                            ; preds = %if.end19.sink.split.i
-  %len.i.i.i = getelementptr inbounds %struct.strbuf, ptr %buf.i, i64 0, i32 1
+  %len.i.i.i = getelementptr inbounds i8, ptr %buf.i, i64 8
   %35 = load i64, ptr %len.i.i.i, align 8
   %.neg.i.i = add i64 %35, 1
   %tobool.not.i.i = icmp eq i64 %34, %.neg.i.i
@@ -287,7 +287,7 @@ strbuf_avail.exit.i.i:                            ; preds = %if.end19.sink.split
 
 if.then.i.i:                                      ; preds = %strbuf_avail.exit.i.i, %if.end19.sink.split.i
   call void @strbuf_grow(ptr noundef nonnull %buf.i, i64 noundef 1) #12
-  %len.phi.trans.insert.i.i = getelementptr inbounds %struct.strbuf, ptr %buf.i, i64 0, i32 1
+  %len.phi.trans.insert.i.i = getelementptr inbounds i8, ptr %buf.i, i64 8
   %.pre.i.i = load i64, ptr %len.phi.trans.insert.i.i, align 8
   %.pre8.i.i = add i64 %.pre.i.i, 1
   br label %strbuf_addch.exit.i
@@ -295,9 +295,9 @@ if.then.i.i:                                      ; preds = %strbuf_avail.exit.i
 strbuf_addch.exit.i:                              ; preds = %if.then.i.i, %strbuf_avail.exit.i.i
   %inc.pre-phi.i.i = phi i64 [ %.pre8.i.i, %if.then.i.i ], [ %.neg.i.i, %strbuf_avail.exit.i.i ]
   %36 = phi i64 [ %.pre.i.i, %if.then.i.i ], [ %35, %strbuf_avail.exit.i.i ]
-  %buf.i.i = getelementptr inbounds %struct.strbuf, ptr %buf.i, i64 0, i32 2
+  %buf.i.i = getelementptr inbounds i8, ptr %buf.i, i64 16
   %37 = load ptr, ptr %buf.i.i, align 8
-  %len.i.i = getelementptr inbounds %struct.strbuf, ptr %buf.i, i64 0, i32 1
+  %len.i.i = getelementptr inbounds i8, ptr %buf.i, i64 8
   store i64 %inc.pre-phi.i.i, ptr %len.i.i, align 8
   %arrayidx.i.i = getelementptr inbounds i8, ptr %37, i64 %36
   store i8 58, ptr %arrayidx.i.i, align 1
@@ -439,9 +439,9 @@ while.cond.preheader:                             ; preds = %entry
   br i1 %cmp8.not10, label %while.end, label %while.body.lr.ph
 
 while.body.lr.ph:                                 ; preds = %while.cond.preheader
-  %buf = getelementptr inbounds %struct.strbuf, ptr %line, i64 0, i32 2
-  %username = getelementptr inbounds %struct.credential, ptr %entry1, i64 0, i32 3
-  %password = getelementptr inbounds %struct.credential, ptr %entry1, i64 0, i32 4
+  %buf = getelementptr inbounds i8, ptr %line, i64 16
+  %username = getelementptr inbounds i8, ptr %entry1, i64 72
+  %password = getelementptr inbounds i8, ptr %entry1, i64 80
   %tobool19.not = icmp eq ptr %match_cb, null
   %tobool22.not = icmp eq ptr %other_cb, null
   br i1 %tobool22.not, label %while.body.lr.ph.split.us, label %while.body.lr.ph.split
@@ -583,10 +583,10 @@ return:                                           ; preds = %if.then, %if.then, 
 ; Function Attrs: nofree nounwind uwtable
 define internal void @print_entry(ptr nocapture noundef readonly %c) #7 {
 entry:
-  %username = getelementptr inbounds %struct.credential, ptr %c, i64 0, i32 3
+  %username = getelementptr inbounds i8, ptr %c, i64 72
   %0 = load ptr, ptr %username, align 8
   %call = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.13, ptr noundef %0)
-  %password = getelementptr inbounds %struct.credential, ptr %c, i64 0, i32 4
+  %password = getelementptr inbounds i8, ptr %c, i64 80
   %1 = load ptr, ptr %password, align 8
   %call1 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.14, ptr noundef %1)
   ret void
@@ -647,7 +647,7 @@ if.then4:                                         ; preds = %if.end
   br i1 %tobool.not.i.i.i, label %if.then.i.i, label %strbuf_avail.exit.i.i
 
 strbuf_avail.exit.i.i:                            ; preds = %if.then4
-  %len.i.i.i = getelementptr inbounds %struct.strbuf, ptr %extra, i64 0, i32 1
+  %len.i.i.i = getelementptr inbounds i8, ptr %extra, i64 8
   %3 = load i64, ptr %len.i.i.i, align 8
   %.neg.i.i = add i64 %3, 1
   %tobool.not.i.i = icmp eq i64 %2, %.neg.i.i
@@ -655,7 +655,7 @@ strbuf_avail.exit.i.i:                            ; preds = %if.then4
 
 if.then.i.i:                                      ; preds = %strbuf_avail.exit.i.i, %if.then4
   call void @strbuf_grow(ptr noundef nonnull %extra, i64 noundef 1) #12
-  %len.phi.trans.insert.i.i = getelementptr inbounds %struct.strbuf, ptr %extra, i64 0, i32 1
+  %len.phi.trans.insert.i.i = getelementptr inbounds i8, ptr %extra, i64 8
   %.pre.i.i = load i64, ptr %len.phi.trans.insert.i.i, align 8
   %.pre8.i.i = add i64 %.pre.i.i, 1
   br label %print_line.exit
@@ -663,9 +663,9 @@ if.then.i.i:                                      ; preds = %strbuf_avail.exit.i
 print_line.exit:                                  ; preds = %strbuf_avail.exit.i.i, %if.then.i.i
   %inc.pre-phi.i.i = phi i64 [ %.pre8.i.i, %if.then.i.i ], [ %.neg.i.i, %strbuf_avail.exit.i.i ]
   %4 = phi i64 [ %.pre.i.i, %if.then.i.i ], [ %3, %strbuf_avail.exit.i.i ]
-  %buf.i.i = getelementptr inbounds %struct.strbuf, ptr %extra, i64 0, i32 2
+  %buf.i.i = getelementptr inbounds i8, ptr %extra, i64 16
   %5 = load ptr, ptr %buf.i.i, align 8
-  %len.i.i = getelementptr inbounds %struct.strbuf, ptr %extra, i64 0, i32 1
+  %len.i.i = getelementptr inbounds i8, ptr %extra, i64 8
   store i64 %inc.pre-phi.i.i, ptr %len.i.i, align 8
   %arrayidx.i.i = getelementptr inbounds i8, ptr %5, i64 %4
   store i8 10, ptr %arrayidx.i.i, align 1
@@ -720,7 +720,7 @@ entry:
   br i1 %tobool.not.i.i, label %if.then.i, label %strbuf_avail.exit.i
 
 strbuf_avail.exit.i:                              ; preds = %entry
-  %len.i.i = getelementptr inbounds %struct.strbuf, ptr %buf, i64 0, i32 1
+  %len.i.i = getelementptr inbounds i8, ptr %buf, i64 8
   %1 = load i64, ptr %len.i.i, align 8
   %.neg.i = add i64 %1, 1
   %tobool.not.i = icmp eq i64 %0, %.neg.i
@@ -728,7 +728,7 @@ strbuf_avail.exit.i:                              ; preds = %entry
 
 if.then.i:                                        ; preds = %strbuf_avail.exit.i, %entry
   tail call void @strbuf_grow(ptr noundef nonnull %buf, i64 noundef 1) #12
-  %len.phi.trans.insert.i = getelementptr inbounds %struct.strbuf, ptr %buf, i64 0, i32 1
+  %len.phi.trans.insert.i = getelementptr inbounds i8, ptr %buf, i64 8
   %.pre.i = load i64, ptr %len.phi.trans.insert.i, align 8
   %.pre8.i = add i64 %.pre.i, 1
   br label %strbuf_addch.exit
@@ -736,9 +736,9 @@ if.then.i:                                        ; preds = %strbuf_avail.exit.i
 strbuf_addch.exit:                                ; preds = %strbuf_avail.exit.i, %if.then.i
   %inc.pre-phi.i = phi i64 [ %.pre8.i, %if.then.i ], [ %.neg.i, %strbuf_avail.exit.i ]
   %2 = phi i64 [ %.pre.i, %if.then.i ], [ %1, %strbuf_avail.exit.i ]
-  %buf.i = getelementptr inbounds %struct.strbuf, ptr %buf, i64 0, i32 2
+  %buf.i = getelementptr inbounds i8, ptr %buf, i64 16
   %3 = load ptr, ptr %buf.i, align 8
-  %len.i = getelementptr inbounds %struct.strbuf, ptr %buf, i64 0, i32 1
+  %len.i = getelementptr inbounds i8, ptr %buf, i64 8
   store i64 %inc.pre-phi.i, ptr %len.i, align 8
   %arrayidx.i = getelementptr inbounds i8, ptr %3, i64 %2
   store i8 10, ptr %arrayidx.i, align 1

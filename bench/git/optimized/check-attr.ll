@@ -7,10 +7,6 @@ target triple = "x86_64-unknown-linux-gnu"
 %struct.strbuf = type { i64, i64, ptr }
 %struct.index_state = type opaque
 %struct.object_id = type { [32 x i8], i32 }
-%struct.repository = type { ptr, ptr, ptr, ptr, ptr, %struct.repo_path_cache, ptr, ptr, ptr, ptr, %struct.repo_settings, ptr, ptr, ptr, ptr, ptr, i32, i32, i32, ptr, ptr, i32, i8 }
-%struct.repo_path_cache = type { ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr }
-%struct.repo_settings = type { i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, ptr, i32, i32, i32, i32, i32, i32 }
-%struct.attr_check = type { i32, i32, ptr, i32, ptr, ptr }
 %struct.attr_check_item = type { ptr, ptr }
 
 @check_attr_options = internal constant [6 x %struct.option] [%struct.option { i32 9, i32 97, ptr @.str.9, ptr @all_attrs, ptr null, ptr @.str.10, i32 2, ptr null, i64 1, ptr null, i64 0, ptr null }, %struct.option { i32 9, i32 0, ptr @.str.11, ptr @cached_attrs, ptr null, ptr @.str.12, i32 2, ptr null, i64 1, ptr null, i64 0, ptr null }, %struct.option { i32 9, i32 0, ptr @.str.13, ptr @stdin_paths, ptr null, ptr @.str.14, i32 2, ptr null, i64 1, ptr null, i64 0, ptr null }, %struct.option { i32 9, i32 122, ptr null, ptr @nul_term_line, ptr null, ptr @.str.15, i32 2, ptr null, i64 1, ptr null, i64 0, ptr null }, %struct.option { i32 10, i32 0, ptr @.str.16, ptr @source, ptr @.str.17, ptr @.str.18, i32 0, ptr null, i64 0, ptr null, i64 0, ptr null }, %struct.option zeroinitializer], align 16
@@ -78,7 +74,7 @@ if.end:                                           ; preds = %if.then, %entry
   %0 = load ptr, ptr @the_repository, align 8
   tail call void @prepare_repo_settings(ptr noundef %0) #9
   %1 = load ptr, ptr @the_repository, align 8
-  %command_requires_full_index = getelementptr inbounds %struct.repository, ptr %1, i64 0, i32 10, i32 6
+  %command_requires_full_index = getelementptr inbounds i8, ptr %1, i64 168
   store i32 0, ptr %command_requires_full_index, align 8
   %call2 = tail call i32 @repo_read_index(ptr noundef %1) #9
   %cmp = icmp slt i32 %call2, 0
@@ -272,9 +268,9 @@ if.then75:                                        ; preds = %if.end73
   br i1 %cmp.not2.i, label %check_attr_stdin_paths.exit, label %while.body.lr.ph.i
 
 while.body.lr.ph.i:                               ; preds = %if.then75
-  %buf2.i = getelementptr inbounds %struct.strbuf, ptr %buf.i, i64 0, i32 2
-  %len2.i.i = getelementptr inbounds %struct.strbuf, ptr %unquoted.i, i64 0, i32 1
-  %buf.i.i = getelementptr inbounds %struct.strbuf, ptr %unquoted.i, i64 0, i32 2
+  %buf2.i = getelementptr inbounds i8, ptr %buf.i, i64 16
+  %len2.i.i = getelementptr inbounds i8, ptr %unquoted.i, i64 8
+  %buf.i.i = getelementptr inbounds i8, ptr %unquoted.i, i64 16
   br label %while.body.i
 
 while.body.i:                                     ; preds = %if.end9.i, %while.body.lr.ph.i
@@ -433,7 +429,7 @@ if.end:                                           ; preds = %if.else, %if.then
   br i1 %cmp13.i, label %for.body.lr.ph.i, label %output_attr.exit
 
 for.body.lr.ph.i:                                 ; preds = %if.end
-  %items.i = getelementptr inbounds %struct.attr_check, ptr %check, i64 0, i32 2
+  %items.i = getelementptr inbounds i8, ptr %check, i64 8
   %wide.trip.count.i = zext nneg i32 %1 to i64
   br label %for.body.i
 

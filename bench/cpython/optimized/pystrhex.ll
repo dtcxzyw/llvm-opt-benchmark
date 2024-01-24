@@ -3,14 +3,6 @@ source_filename = "bench/cpython/original/pystrhex.ll"
 target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:128-n8:16:32:64-S128"
 target triple = "x86_64-unknown-linux-gnu"
 
-%struct.PyASCIIObject = type { %struct._object, i64, i64, %struct.anon }
-%struct._object = type { %union.anon, ptr }
-%union.anon = type { i64 }
-%struct.anon = type { i32 }
-%struct.PyCompactUnicodeObject = type { %struct.PyASCIIObject, i64, ptr }
-%struct.PyBytesObject = type { %struct.PyVarObject, i64, [1 x i8] }
-%struct.PyVarObject = type { %struct._object, i64 }
-
 @PyExc_ValueError = external local_unnamed_addr global ptr, align 8
 @.str = private unnamed_addr constant [22 x i8] c"sep must be length 1.\00", align 1
 @.str.1 = private unnamed_addr constant [19 x i8] c"sep must be ASCII.\00", align 1
@@ -44,9 +36,8 @@ if.end62.i:                                       ; preds = %if.end44.i
 if.then.i94.i:                                    ; preds = %if.end62.i
   %2 = and i32 %op.val.i.i, 64
   %tobool.not.i.i.i = icmp eq i32 %2, 0
-  %add.ptr.i.i.i = getelementptr %struct.PyASCIIObject, ptr %call59.i, i64 1
-  %add.ptr1.i.i.i = getelementptr %struct.PyCompactUnicodeObject, ptr %call59.i, i64 1
-  %retval.0.i.i95.i = select i1 %tobool.not.i.i.i, ptr %add.ptr1.i.i.i, ptr %add.ptr.i.i.i
+  %retval.0.v.i.i.i = select i1 %tobool.not.i.i.i, i64 56, i64 40
+  %retval.0.i.i95.i = getelementptr i8, ptr %call59.i, i64 %retval.0.v.i.i.i
   br label %if.end64.i
 
 if.end.i.i:                                       ; preds = %if.end62.i
@@ -120,7 +111,7 @@ if.end4:                                          ; preds = %if.end
   br i1 %tobool7.not, label %if.else, label %if.then8
 
 if.then8:                                         ; preds = %if.end4
-  %state = getelementptr inbounds %struct.PyASCIIObject, ptr %sep, i64 0, i32 3
+  %state = getelementptr inbounds i8, ptr %sep, i64 32
   %bf.load = load i32, ptr %state, align 8
   %4 = and i32 %bf.load, 28
   %cmp9.not = icmp eq i32 %4, 4
@@ -133,15 +124,14 @@ if.then10:                                        ; preds = %if.then8
 
 if.end11:                                         ; preds = %if.then8
   %6 = and i32 %bf.load, 32
-  %tobool.not.i19.i = icmp eq i32 %6, 0
-  br i1 %tobool.not.i19.i, label %if.end.i.i, label %if.then.i.i
+  %tobool.not.i18.i = icmp eq i32 %6, 0
+  br i1 %tobool.not.i18.i, label %if.end.i.i, label %if.then.i.i
 
 if.then.i.i:                                      ; preds = %if.end11
   %7 = and i32 %bf.load, 64
   %tobool.not.i.i.i = icmp eq i32 %7, 0
-  %add.ptr.i.i.i = getelementptr %struct.PyASCIIObject, ptr %sep, i64 1
-  %add.ptr1.i.i.i = getelementptr %struct.PyCompactUnicodeObject, ptr %sep, i64 1
-  %retval.0.i.i.i = select i1 %tobool.not.i.i.i, ptr %add.ptr1.i.i.i, ptr %add.ptr.i.i.i
+  %retval.0.v.i.i.i = select i1 %tobool.not.i.i.i, i64 56, i64 40
+  %retval.0.i.i.i = getelementptr i8, ptr %sep, i64 %retval.0.v.i.i.i
   br label %if.end20
 
 if.end.i.i:                                       ; preds = %if.end11
@@ -155,7 +145,7 @@ if.else:                                          ; preds = %if.end4
   br i1 %tobool15.not, label %if.else18, label %if.then16
 
 if.then16:                                        ; preds = %if.else
-  %ob_sval.i = getelementptr inbounds %struct.PyBytesObject, ptr %sep, i64 0, i32 2
+  %ob_sval.i = getelementptr inbounds i8, ptr %sep, i64 32
   br label %if.end20
 
 if.else18:                                        ; preds = %if.else
@@ -218,7 +208,7 @@ if.then52:                                        ; preds = %if.end44
   br i1 %tobool54.not, label %return, label %if.end56
 
 if.end56:                                         ; preds = %if.then52
-  %ob_sval.i93 = getelementptr inbounds %struct.PyBytesObject, ptr %call53, i64 0, i32 2
+  %ob_sval.i93 = getelementptr inbounds i8, ptr %call53, i64 32
   br label %if.end64
 
 if.else58:                                        ; preds = %if.end44
@@ -236,9 +226,8 @@ if.end62:                                         ; preds = %if.else58
 if.then.i94:                                      ; preds = %if.end62
   %14 = and i32 %op.val.i, 64
   %tobool.not.i.i = icmp eq i32 %14, 0
-  %add.ptr.i.i = getelementptr %struct.PyASCIIObject, ptr %call59, i64 1
-  %add.ptr1.i.i = getelementptr %struct.PyCompactUnicodeObject, ptr %call59, i64 1
-  %retval.0.i.i95 = select i1 %tobool.not.i.i, ptr %add.ptr1.i.i, ptr %add.ptr.i.i
+  %retval.0.v.i.i = select i1 %tobool.not.i.i, i64 56, i64 40
+  %retval.0.i.i95 = getelementptr i8, ptr %call59, i64 %retval.0.v.i.i
   br label %if.end64
 
 if.end.i:                                         ; preds = %if.end62
@@ -488,7 +477,7 @@ if.end44.i:                                       ; preds = %entry
   br i1 %tobool54.not.i, label %_Py_strhex_impl.exit, label %if.end56.i
 
 if.end56.i:                                       ; preds = %if.end44.i
-  %ob_sval.i93.i = getelementptr inbounds %struct.PyBytesObject, ptr %call53.i, i64 0, i32 2
+  %ob_sval.i93.i = getelementptr inbounds i8, ptr %call53.i, i64 32
   %cmp68141.i = icmp sgt i64 %arglen, 0
   br i1 %cmp68141.i, label %for.body.i, label %_Py_strhex_impl.exit
 

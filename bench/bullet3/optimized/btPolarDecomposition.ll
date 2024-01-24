@@ -4,7 +4,6 @@ target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:
 target triple = "x86_64-unknown-linux-gnu"
 
 %class.btPolarDecomposition = type { float, i32 }
-%class.btVector3 = type { [4 x float] }
 
 @_ZZ14polarDecomposeRK11btMatrix3x3RS_S2_E5polar = internal global %class.btPolarDecomposition zeroinitializer, align 4
 @_ZGVZ14polarDecomposeRK11btMatrix3x3RS_S2_E5polar = internal global i64 0, align 8
@@ -16,7 +15,7 @@ target triple = "x86_64-unknown-linux-gnu"
 define dso_local void @_ZN20btPolarDecompositionC2Efj(ptr nocapture noundef nonnull writeonly align 4 dereferenceable(8) %this, float noundef %tolerance, i32 noundef %maxIterations) unnamed_addr #0 align 2 {
 entry:
   store float %tolerance, ptr %this, align 4
-  %m_maxIterations = getelementptr inbounds %class.btPolarDecomposition, ptr %this, i64 0, i32 1
+  %m_maxIterations = getelementptr inbounds i8, ptr %this, i64 4
   store i32 %maxIterations, ptr %m_maxIterations, align 4
   ret void
 }
@@ -25,22 +24,22 @@ entry:
 define dso_local noundef i32 @_ZNK20btPolarDecomposition9decomposeERK11btMatrix3x3RS0_S3_(ptr nocapture noundef nonnull readonly align 4 dereferenceable(8) %this, ptr nocapture noundef nonnull readonly align 4 dereferenceable(48) %a, ptr nocapture noundef nonnull align 4 dereferenceable(48) %u, ptr nocapture noundef nonnull align 4 dereferenceable(48) %h) local_unnamed_addr #1 align 2 {
 entry:
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %u, ptr noundef nonnull align 4 dereferenceable(16) %a, i64 16, i1 false)
-  %arrayidx5.i = getelementptr inbounds [3 x %class.btVector3], ptr %a, i64 0, i64 1
-  %arrayidx7.i = getelementptr inbounds [3 x %class.btVector3], ptr %u, i64 0, i64 1
+  %arrayidx5.i = getelementptr inbounds i8, ptr %a, i64 16
+  %arrayidx7.i = getelementptr inbounds i8, ptr %u, i64 16
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %arrayidx7.i, ptr noundef nonnull align 4 dereferenceable(16) %arrayidx5.i, i64 16, i1 false)
-  %arrayidx9.i = getelementptr inbounds [3 x %class.btVector3], ptr %a, i64 0, i64 2
-  %arrayidx11.i = getelementptr inbounds [3 x %class.btVector3], ptr %u, i64 0, i64 2
+  %arrayidx9.i = getelementptr inbounds i8, ptr %a, i64 32
+  %arrayidx11.i = getelementptr inbounds i8, ptr %u, i64 32
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %arrayidx11.i, ptr noundef nonnull align 4 dereferenceable(16) %arrayidx9.i, i64 16, i1 false)
-  %arrayidx9.i.i = getelementptr inbounds [3 x %class.btVector3], ptr %a, i64 0, i64 2, i32 0, i64 2
+  %arrayidx9.i.i = getelementptr inbounds i8, ptr %a, i64 40
   %0 = load float, ptr %arrayidx9.i.i, align 4, !noalias !5
-  %arrayidx15.i.i = getelementptr inbounds [3 x %class.btVector3], ptr %a, i64 0, i64 1, i32 0, i64 2
+  %arrayidx15.i.i = getelementptr inbounds i8, ptr %a, i64 24
   %1 = load float, ptr %arrayidx15.i.i, align 4, !noalias !5
   %2 = fneg float %1
   %3 = load <2 x float>, ptr %arrayidx5.i, align 4, !noalias !5
   %4 = load float, ptr %a, align 4, !noalias !5
-  %arrayidx5.i20.i = getelementptr inbounds [4 x float], ptr %a, i64 0, i64 1
+  %arrayidx5.i20.i = getelementptr inbounds i8, ptr %a, i64 4
   %5 = load float, ptr %arrayidx5.i20.i, align 4, !noalias !5
-  %arrayidx10.i.i = getelementptr inbounds [4 x float], ptr %a, i64 0, i64 2
+  %arrayidx10.i.i = getelementptr inbounds i8, ptr %a, i64 8
   %6 = load float, ptr %arrayidx10.i.i, align 4, !noalias !5
   %7 = fneg float %6
   %8 = load <2 x float>, ptr %arrayidx9.i, align 4, !noalias !5
@@ -103,37 +102,37 @@ entry:
   store float %56, ptr %ref.tmp.sroa.3.0.h.sroa_idx, align 4
   %ref.tmp.sroa.4.0.h.sroa_idx = getelementptr inbounds i8, ptr %h, i64 12
   store float 0.000000e+00, ptr %ref.tmp.sroa.4.0.h.sroa_idx, align 4
-  %arrayidx7.i30 = getelementptr inbounds [3 x %class.btVector3], ptr %h, i64 0, i64 1
+  %arrayidx7.i30 = getelementptr inbounds i8, ptr %h, i64 16
   %57 = extractelement <2 x float> %34, i64 1
   store float %57, ptr %arrayidx7.i30, align 4
-  %ref.tmp.sroa.7.16.arrayidx7.i30.sroa_idx = getelementptr inbounds [3 x %class.btVector3], ptr %h, i64 0, i64 1, i32 0, i64 1
-  %ref.tmp.sroa.8.16.arrayidx7.i30.sroa_idx = getelementptr inbounds [3 x %class.btVector3], ptr %h, i64 0, i64 1, i32 0, i64 2
+  %ref.tmp.sroa.7.16.arrayidx7.i30.sroa_idx = getelementptr inbounds i8, ptr %h, i64 20
+  %ref.tmp.sroa.8.16.arrayidx7.i30.sroa_idx = getelementptr inbounds i8, ptr %h, i64 24
   %58 = shufflevector <4 x float> %54, <4 x float> poison, <2 x i32> <i32 3, i32 1>
   store <2 x float> %58, ptr %ref.tmp.sroa.7.16.arrayidx7.i30.sroa_idx, align 4
-  %ref.tmp.sroa.9.16.arrayidx7.i30.sroa_idx = getelementptr inbounds [3 x %class.btVector3], ptr %h, i64 0, i64 1, i32 0, i64 3
+  %ref.tmp.sroa.9.16.arrayidx7.i30.sroa_idx = getelementptr inbounds i8, ptr %h, i64 28
   store float 0.000000e+00, ptr %ref.tmp.sroa.9.16.arrayidx7.i30.sroa_idx, align 4
-  %arrayidx11.i32 = getelementptr inbounds [3 x %class.btVector3], ptr %h, i64 0, i64 2
+  %arrayidx11.i32 = getelementptr inbounds i8, ptr %h, i64 32
   store <2 x float> %35, ptr %arrayidx11.i32, align 4
-  %ref.tmp.sroa.13.32.arrayidx11.i32.sroa_idx = getelementptr inbounds [3 x %class.btVector3], ptr %h, i64 0, i64 2, i32 0, i64 2
+  %ref.tmp.sroa.13.32.arrayidx11.i32.sroa_idx = getelementptr inbounds i8, ptr %h, i64 40
   %59 = extractelement <4 x float> %54, i64 0
   store float %59, ptr %ref.tmp.sroa.13.32.arrayidx11.i32.sroa_idx, align 4
-  %ref.tmp.sroa.14.32.arrayidx11.i32.sroa_idx = getelementptr inbounds [3 x %class.btVector3], ptr %h, i64 0, i64 2, i32 0, i64 3
+  %ref.tmp.sroa.14.32.arrayidx11.i32.sroa_idx = getelementptr inbounds i8, ptr %h, i64 44
   store float 0.000000e+00, ptr %ref.tmp.sroa.14.32.arrayidx11.i32.sroa_idx, align 4
-  %m_maxIterations = getelementptr inbounds %class.btPolarDecomposition, ptr %this, i64 0, i32 1
+  %m_maxIterations = getelementptr inbounds i8, ptr %this, i64 4
   %60 = load i32, ptr %m_maxIterations, align 4
   %cmp524.not = icmp eq i32 %60, 0
   br i1 %cmp524.not, label %for.end, label %for.body.lr.ph
 
 for.body.lr.ph:                                   ; preds = %entry
-  %arrayidx.i.i45 = getelementptr inbounds float, ptr %u, i64 1
-  %arrayidx6.i.i46 = getelementptr inbounds [3 x %class.btVector3], ptr %u, i64 0, i64 1, i32 0, i64 1
-  %arrayidx11.i.i48 = getelementptr inbounds [3 x %class.btVector3], ptr %u, i64 0, i64 2, i32 0, i64 1
-  %arrayidx.i7.i50 = getelementptr inbounds float, ptr %u, i64 2
-  %arrayidx6.i9.i51 = getelementptr inbounds [3 x %class.btVector3], ptr %u, i64 0, i64 1, i32 0, i64 2
-  %arrayidx11.i12.i53 = getelementptr inbounds [3 x %class.btVector3], ptr %u, i64 0, i64 2, i32 0, i64 2
-  %arrayidx7.i.i.i = getelementptr inbounds [4 x float], ptr %u, i64 0, i64 3
-  %arrayidx7.i3.i.i = getelementptr inbounds [3 x %class.btVector3], ptr %u, i64 0, i64 1, i32 0, i64 3
-  %arrayidx7.i6.i.i = getelementptr inbounds [3 x %class.btVector3], ptr %u, i64 0, i64 2, i32 0, i64 3
+  %arrayidx.i.i45 = getelementptr inbounds i8, ptr %u, i64 4
+  %arrayidx6.i.i46 = getelementptr inbounds i8, ptr %u, i64 20
+  %arrayidx11.i.i48 = getelementptr inbounds i8, ptr %u, i64 36
+  %arrayidx.i7.i50 = getelementptr inbounds i8, ptr %u, i64 8
+  %arrayidx6.i9.i51 = getelementptr inbounds i8, ptr %u, i64 24
+  %arrayidx11.i12.i53 = getelementptr inbounds i8, ptr %u, i64 40
+  %arrayidx7.i.i.i = getelementptr inbounds i8, ptr %u, i64 12
+  %arrayidx7.i3.i.i = getelementptr inbounds i8, ptr %u, i64 28
+  %arrayidx7.i6.i.i = getelementptr inbounds i8, ptr %u, i64 44
   br label %for.body
 
 for.body:                                         ; preds = %for.body.lr.ph, %for.inc
@@ -469,9 +468,9 @@ for.inc:                                          ; preds = %if.end
   br i1 %cmp, label %for.body, label %for.end, !llvm.loop !17
 
 for.end:                                          ; preds = %for.inc, %for.body, %entry
-  %arrayidx.i3.i372 = getelementptr inbounds [4 x float], ptr %u, i64 0, i64 2
-  %arrayidx.i4.i373 = getelementptr inbounds [3 x %class.btVector3], ptr %u, i64 0, i64 1, i32 0, i64 2
-  %arrayidx.i5.i374 = getelementptr inbounds [3 x %class.btVector3], ptr %u, i64 0, i64 2, i32 0, i64 2
+  %arrayidx.i3.i372 = getelementptr inbounds i8, ptr %u, i64 8
+  %arrayidx.i4.i373 = getelementptr inbounds i8, ptr %u, i64 24
+  %arrayidx.i5.i374 = getelementptr inbounds i8, ptr %u, i64 40
   %312 = load float, ptr %arrayidx.i3.i372, align 4, !noalias !19
   %313 = load float, ptr %arrayidx.i4.i373, align 4, !noalias !19
   %314 = load float, ptr %arrayidx.i5.i374, align 4, !noalias !19
@@ -559,7 +558,7 @@ return:                                           ; preds = %for.end, %if.then24
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
 define dso_local noundef i32 @_ZNK20btPolarDecomposition13maxIterationsEv(ptr nocapture noundef nonnull readonly align 4 dereferenceable(8) %this) local_unnamed_addr #2 align 2 {
 entry:
-  %m_maxIterations = getelementptr inbounds %class.btPolarDecomposition, ptr %this, i64 0, i32 1
+  %m_maxIterations = getelementptr inbounds i8, ptr %this, i64 4
   %0 = load i32, ptr %m_maxIterations, align 4
   ret i32 %0
 }

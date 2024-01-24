@@ -3,25 +3,20 @@ source_filename = "bench/libquic/original/simple.c.ll"
 target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:128-n8:16:32:64-S128"
 target triple = "x86_64-unknown-linux-gnu"
 
-%struct.ec_group_st = type { ptr, ptr, %struct.bignum_st, %struct.bignum_st, i32, ptr, %struct.bignum_st, %struct.bignum_st, %struct.bignum_st, i32, ptr, %struct.bignum_st }
-%struct.bignum_st = type { ptr, i32, i32, i32, i32 }
-%struct.ec_method_st = type { ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr }
-%struct.ec_point_st = type { ptr, %struct.bignum_st, %struct.bignum_st, %struct.bignum_st }
-
 @.str = private unnamed_addr constant [122 x i8] c"generated/home/dtcxzyw/WorkSpace/Projects/compilers/llvm-opt-benchmark/bench/libquic/libquic/boringssl/crypto/ec/simple.c\00", align 1
 
 ; Function Attrs: nounwind uwtable
 define hidden noundef i32 @ec_GFp_simple_group_init(ptr noundef %group) local_unnamed_addr #0 {
 entry:
-  %field = getelementptr inbounds %struct.ec_group_st, ptr %group, i64 0, i32 6
+  %field = getelementptr inbounds i8, ptr %group, i64 80
   tail call void @BN_init(ptr noundef nonnull %field) #5
-  %a = getelementptr inbounds %struct.ec_group_st, ptr %group, i64 0, i32 7
+  %a = getelementptr inbounds i8, ptr %group, i64 104
   tail call void @BN_init(ptr noundef nonnull %a) #5
-  %b = getelementptr inbounds %struct.ec_group_st, ptr %group, i64 0, i32 8
+  %b = getelementptr inbounds i8, ptr %group, i64 128
   tail call void @BN_init(ptr noundef nonnull %b) #5
-  %one = getelementptr inbounds %struct.ec_group_st, ptr %group, i64 0, i32 11
+  %one = getelementptr inbounds i8, ptr %group, i64 168
   tail call void @BN_init(ptr noundef nonnull %one) #5
-  %a_is_minus3 = getelementptr inbounds %struct.ec_group_st, ptr %group, i64 0, i32 9
+  %a_is_minus3 = getelementptr inbounds i8, ptr %group, i64 152
   store i32 0, ptr %a_is_minus3, align 8
   ret i32 1
 }
@@ -31,13 +26,13 @@ declare void @BN_init(ptr noundef) local_unnamed_addr #1
 ; Function Attrs: nounwind uwtable
 define hidden void @ec_GFp_simple_group_finish(ptr noundef %group) local_unnamed_addr #0 {
 entry:
-  %field = getelementptr inbounds %struct.ec_group_st, ptr %group, i64 0, i32 6
+  %field = getelementptr inbounds i8, ptr %group, i64 80
   tail call void @BN_free(ptr noundef nonnull %field) #5
-  %a = getelementptr inbounds %struct.ec_group_st, ptr %group, i64 0, i32 7
+  %a = getelementptr inbounds i8, ptr %group, i64 104
   tail call void @BN_free(ptr noundef nonnull %a) #5
-  %b = getelementptr inbounds %struct.ec_group_st, ptr %group, i64 0, i32 8
+  %b = getelementptr inbounds i8, ptr %group, i64 128
   tail call void @BN_free(ptr noundef nonnull %b) #5
-  %one = getelementptr inbounds %struct.ec_group_st, ptr %group, i64 0, i32 11
+  %one = getelementptr inbounds i8, ptr %group, i64 168
   tail call void @BN_free(ptr noundef nonnull %one) #5
   ret void
 }
@@ -47,37 +42,37 @@ declare void @BN_free(ptr noundef) local_unnamed_addr #1
 ; Function Attrs: nounwind uwtable
 define hidden noundef i32 @ec_GFp_simple_group_copy(ptr noundef %dest, ptr noundef %src) local_unnamed_addr #0 {
 entry:
-  %field = getelementptr inbounds %struct.ec_group_st, ptr %dest, i64 0, i32 6
-  %field1 = getelementptr inbounds %struct.ec_group_st, ptr %src, i64 0, i32 6
+  %field = getelementptr inbounds i8, ptr %dest, i64 80
+  %field1 = getelementptr inbounds i8, ptr %src, i64 80
   %call = tail call ptr @BN_copy(ptr noundef nonnull %field, ptr noundef nonnull %field1) #5
   %tobool.not = icmp eq ptr %call, null
   br i1 %tobool.not, label %return, label %lor.lhs.false
 
 lor.lhs.false:                                    ; preds = %entry
-  %a = getelementptr inbounds %struct.ec_group_st, ptr %dest, i64 0, i32 7
-  %a2 = getelementptr inbounds %struct.ec_group_st, ptr %src, i64 0, i32 7
+  %a = getelementptr inbounds i8, ptr %dest, i64 104
+  %a2 = getelementptr inbounds i8, ptr %src, i64 104
   %call3 = tail call ptr @BN_copy(ptr noundef nonnull %a, ptr noundef nonnull %a2) #5
   %tobool4.not = icmp eq ptr %call3, null
   br i1 %tobool4.not, label %return, label %lor.lhs.false5
 
 lor.lhs.false5:                                   ; preds = %lor.lhs.false
-  %b = getelementptr inbounds %struct.ec_group_st, ptr %dest, i64 0, i32 8
-  %b6 = getelementptr inbounds %struct.ec_group_st, ptr %src, i64 0, i32 8
+  %b = getelementptr inbounds i8, ptr %dest, i64 128
+  %b6 = getelementptr inbounds i8, ptr %src, i64 128
   %call7 = tail call ptr @BN_copy(ptr noundef nonnull %b, ptr noundef nonnull %b6) #5
   %tobool8.not = icmp eq ptr %call7, null
   br i1 %tobool8.not, label %return, label %lor.lhs.false9
 
 lor.lhs.false9:                                   ; preds = %lor.lhs.false5
-  %one = getelementptr inbounds %struct.ec_group_st, ptr %dest, i64 0, i32 11
-  %one10 = getelementptr inbounds %struct.ec_group_st, ptr %src, i64 0, i32 11
+  %one = getelementptr inbounds i8, ptr %dest, i64 168
+  %one10 = getelementptr inbounds i8, ptr %src, i64 168
   %call11 = tail call ptr @BN_copy(ptr noundef nonnull %one, ptr noundef nonnull %one10) #5
   %tobool12.not = icmp eq ptr %call11, null
   br i1 %tobool12.not, label %return, label %if.end
 
 if.end:                                           ; preds = %lor.lhs.false9
-  %a_is_minus3 = getelementptr inbounds %struct.ec_group_st, ptr %src, i64 0, i32 9
+  %a_is_minus3 = getelementptr inbounds i8, ptr %src, i64 152
   %0 = load i32, ptr %a_is_minus3, align 8
-  %a_is_minus313 = getelementptr inbounds %struct.ec_group_st, ptr %dest, i64 0, i32 9
+  %a_is_minus313 = getelementptr inbounds i8, ptr %dest, i64 152
   store i32 %0, ptr %a_is_minus313, align 8
   br label %return
 
@@ -122,7 +117,7 @@ if.end8:                                          ; preds = %if.then3, %if.end
   br i1 %cmp10, label %err, label %if.end12
 
 if.end12:                                         ; preds = %if.end8
-  %field = getelementptr inbounds %struct.ec_group_st, ptr %group, i64 0, i32 6
+  %field = getelementptr inbounds i8, ptr %group, i64 80
   %call13 = tail call ptr @BN_copy(ptr noundef nonnull %field, ptr noundef %p) #5
   %tobool14.not = icmp eq ptr %call13, null
   br i1 %tobool14.not, label %err, label %if.end16
@@ -135,10 +130,10 @@ if.end16:                                         ; preds = %if.end12
 
 if.end21:                                         ; preds = %if.end16
   %0 = load ptr, ptr %group, align 8
-  %field_encode = getelementptr inbounds %struct.ec_method_st, ptr %0, i64 0, i32 9
+  %field_encode = getelementptr inbounds i8, ptr %0, i64 72
   %1 = load ptr, ptr %field_encode, align 8
   %tobool22.not = icmp eq ptr %1, null
-  %a31 = getelementptr inbounds %struct.ec_group_st, ptr %group, i64 0, i32 7
+  %a31 = getelementptr inbounds i8, ptr %group, i64 104
   br i1 %tobool22.not, label %if.else, label %if.then23
 
 if.then23:                                        ; preds = %if.end21
@@ -152,14 +147,14 @@ if.else:                                          ; preds = %if.end21
   br i1 %tobool33.not, label %err, label %if.end36
 
 if.end36:                                         ; preds = %if.else, %if.then23
-  %b37 = getelementptr inbounds %struct.ec_group_st, ptr %group, i64 0, i32 8
+  %b37 = getelementptr inbounds i8, ptr %group, i64 128
   %call38 = tail call i32 @BN_nnmod(ptr noundef nonnull %b37, ptr noundef %b, ptr noundef %p, ptr noundef nonnull %ctx.addr.0) #5
   %tobool39.not = icmp eq i32 %call38, 0
   br i1 %tobool39.not, label %err, label %if.end41
 
 if.end41:                                         ; preds = %if.end36
   %2 = load ptr, ptr %group, align 8
-  %field_encode43 = getelementptr inbounds %struct.ec_method_st, ptr %2, i64 0, i32 9
+  %field_encode43 = getelementptr inbounds i8, ptr %2, i64 72
   %3 = load ptr, ptr %field_encode43, align 8
   %tobool44.not = icmp eq ptr %3, null
   br i1 %tobool44.not, label %if.end52, label %land.lhs.true
@@ -178,13 +173,13 @@ if.end56:                                         ; preds = %if.end52
   %call58 = tail call i32 @BN_cmp(ptr noundef nonnull %call9, ptr noundef nonnull %field) #5
   %cmp59 = icmp eq i32 %call58, 0
   %conv = zext i1 %cmp59 to i32
-  %a_is_minus3 = getelementptr inbounds %struct.ec_group_st, ptr %group, i64 0, i32 9
+  %a_is_minus3 = getelementptr inbounds i8, ptr %group, i64 152
   store i32 %conv, ptr %a_is_minus3, align 8
   %4 = load ptr, ptr %group, align 8
-  %field_encode61 = getelementptr inbounds %struct.ec_method_st, ptr %4, i64 0, i32 9
+  %field_encode61 = getelementptr inbounds i8, ptr %4, i64 72
   %5 = load ptr, ptr %field_encode61, align 8
   %cmp62.not = icmp eq ptr %5, null
-  %one73 = getelementptr inbounds %struct.ec_group_st, ptr %group, i64 0, i32 11
+  %one73 = getelementptr inbounds i8, ptr %group, i64 168
   %call74 = tail call ptr @BN_value_one() #5
   br i1 %cmp62.not, label %if.else72, label %if.then64
 
@@ -245,7 +240,7 @@ entry:
   br i1 %cmp.not, label %if.end, label %land.lhs.true
 
 land.lhs.true:                                    ; preds = %entry
-  %field = getelementptr inbounds %struct.ec_group_st, ptr %group, i64 0, i32 6
+  %field = getelementptr inbounds i8, ptr %group, i64 80
   %call = tail call ptr @BN_copy(ptr noundef nonnull %p, ptr noundef nonnull %field) #5
   %tobool.not = icmp eq ptr %call, null
   br i1 %tobool.not, label %return, label %if.end
@@ -258,7 +253,7 @@ if.end:                                           ; preds = %land.lhs.true, %ent
 
 if.then3:                                         ; preds = %if.end
   %0 = load ptr, ptr %group, align 8
-  %field_decode = getelementptr inbounds %struct.ec_method_st, ptr %0, i64 0, i32 10
+  %field_decode = getelementptr inbounds i8, ptr %0, i64 80
   %1 = load ptr, ptr %field_decode, align 8
   %tobool4.not = icmp eq ptr %1, null
   br i1 %tobool4.not, label %if.else, label %if.then5
@@ -279,9 +274,9 @@ if.end12:                                         ; preds = %if.then7, %if.then5
 
 land.lhs.true14:                                  ; preds = %if.end12
   %2 = load ptr, ptr %group, align 8
-  %field_decode16 = getelementptr inbounds %struct.ec_method_st, ptr %2, i64 0, i32 10
+  %field_decode16 = getelementptr inbounds i8, ptr %2, i64 80
   %3 = load ptr, ptr %field_decode16, align 8
-  %a17 = getelementptr inbounds %struct.ec_group_st, ptr %group, i64 0, i32 7
+  %a17 = getelementptr inbounds i8, ptr %group, i64 104
   %call18 = tail call i32 %3(ptr noundef nonnull %group, ptr noundef nonnull %a, ptr noundef nonnull %a17, ptr noundef nonnull %ctx.addr.0) #5
   %tobool19.not = icmp eq i32 %call18, 0
   br i1 %tobool19.not, label %err, label %if.end21
@@ -291,9 +286,9 @@ if.end21:                                         ; preds = %land.lhs.true14, %i
 
 land.lhs.true23:                                  ; preds = %if.end21
   %4 = load ptr, ptr %group, align 8
-  %field_decode25 = getelementptr inbounds %struct.ec_method_st, ptr %4, i64 0, i32 10
+  %field_decode25 = getelementptr inbounds i8, ptr %4, i64 80
   %5 = load ptr, ptr %field_decode25, align 8
-  %b26 = getelementptr inbounds %struct.ec_group_st, ptr %group, i64 0, i32 8
+  %b26 = getelementptr inbounds i8, ptr %group, i64 128
   %call27 = tail call i32 %5(ptr noundef nonnull %group, ptr noundef nonnull %b, ptr noundef nonnull %b26, ptr noundef nonnull %ctx.addr.0) #5
   %tobool28.not = icmp eq i32 %call27, 0
   br i1 %tobool28.not, label %err, label %if.end46
@@ -302,7 +297,7 @@ if.else:                                          ; preds = %if.then3
   br i1 %cmp1, label %land.lhs.true32, label %if.end37
 
 land.lhs.true32:                                  ; preds = %if.else
-  %a33 = getelementptr inbounds %struct.ec_group_st, ptr %group, i64 0, i32 7
+  %a33 = getelementptr inbounds i8, ptr %group, i64 104
   %call34 = tail call ptr @BN_copy(ptr noundef nonnull %a, ptr noundef nonnull %a33) #5
   %tobool35.not = icmp eq ptr %call34, null
   br i1 %tobool35.not, label %err, label %if.end37
@@ -311,7 +306,7 @@ if.end37:                                         ; preds = %land.lhs.true32, %i
   br i1 %cmp2, label %land.lhs.true39, label %if.end46
 
 land.lhs.true39:                                  ; preds = %if.end37
-  %b40 = getelementptr inbounds %struct.ec_group_st, ptr %group, i64 0, i32 8
+  %b40 = getelementptr inbounds i8, ptr %group, i64 128
   %call41 = tail call ptr @BN_copy(ptr noundef nonnull %b, ptr noundef nonnull %b40) #5
   %tobool42.not = icmp eq ptr %call41, null
   br i1 %tobool42.not, label %err, label %if.end46
@@ -334,7 +329,7 @@ return:                                           ; preds = %if.then7, %land.lhs
 ; Function Attrs: nounwind uwtable
 define hidden i32 @ec_GFp_simple_group_get_degree(ptr noundef %group) local_unnamed_addr #0 {
 entry:
-  %field = getelementptr inbounds %struct.ec_group_st, ptr %group, i64 0, i32 6
+  %field = getelementptr inbounds i8, ptr %group, i64 80
   %call = tail call i32 @BN_num_bits(ptr noundef nonnull %field) #5
   ret i32 %call
 }
@@ -342,11 +337,11 @@ entry:
 ; Function Attrs: nounwind uwtable
 define hidden noundef i32 @ec_GFp_simple_point_init(ptr noundef %point) local_unnamed_addr #0 {
 entry:
-  %X = getelementptr inbounds %struct.ec_point_st, ptr %point, i64 0, i32 1
+  %X = getelementptr inbounds i8, ptr %point, i64 8
   tail call void @BN_init(ptr noundef nonnull %X) #5
-  %Y = getelementptr inbounds %struct.ec_point_st, ptr %point, i64 0, i32 2
+  %Y = getelementptr inbounds i8, ptr %point, i64 32
   tail call void @BN_init(ptr noundef nonnull %Y) #5
-  %Z = getelementptr inbounds %struct.ec_point_st, ptr %point, i64 0, i32 3
+  %Z = getelementptr inbounds i8, ptr %point, i64 56
   tail call void @BN_init(ptr noundef nonnull %Z) #5
   ret i32 1
 }
@@ -354,11 +349,11 @@ entry:
 ; Function Attrs: nounwind uwtable
 define hidden void @ec_GFp_simple_point_finish(ptr noundef %point) local_unnamed_addr #0 {
 entry:
-  %X = getelementptr inbounds %struct.ec_point_st, ptr %point, i64 0, i32 1
+  %X = getelementptr inbounds i8, ptr %point, i64 8
   tail call void @BN_free(ptr noundef nonnull %X) #5
-  %Y = getelementptr inbounds %struct.ec_point_st, ptr %point, i64 0, i32 2
+  %Y = getelementptr inbounds i8, ptr %point, i64 32
   tail call void @BN_free(ptr noundef nonnull %Y) #5
-  %Z = getelementptr inbounds %struct.ec_point_st, ptr %point, i64 0, i32 3
+  %Z = getelementptr inbounds i8, ptr %point, i64 56
   tail call void @BN_free(ptr noundef nonnull %Z) #5
   ret void
 }
@@ -366,11 +361,11 @@ entry:
 ; Function Attrs: nounwind uwtable
 define hidden void @ec_GFp_simple_point_clear_finish(ptr noundef %point) local_unnamed_addr #0 {
 entry:
-  %X = getelementptr inbounds %struct.ec_point_st, ptr %point, i64 0, i32 1
+  %X = getelementptr inbounds i8, ptr %point, i64 8
   tail call void @BN_clear_free(ptr noundef nonnull %X) #5
-  %Y = getelementptr inbounds %struct.ec_point_st, ptr %point, i64 0, i32 2
+  %Y = getelementptr inbounds i8, ptr %point, i64 32
   tail call void @BN_clear_free(ptr noundef nonnull %Y) #5
-  %Z = getelementptr inbounds %struct.ec_point_st, ptr %point, i64 0, i32 3
+  %Z = getelementptr inbounds i8, ptr %point, i64 56
   tail call void @BN_clear_free(ptr noundef nonnull %Z) #5
   ret void
 }
@@ -380,22 +375,22 @@ declare void @BN_clear_free(ptr noundef) local_unnamed_addr #1
 ; Function Attrs: nounwind uwtable
 define hidden i32 @ec_GFp_simple_point_copy(ptr noundef %dest, ptr noundef %src) local_unnamed_addr #0 {
 entry:
-  %X = getelementptr inbounds %struct.ec_point_st, ptr %dest, i64 0, i32 1
-  %X1 = getelementptr inbounds %struct.ec_point_st, ptr %src, i64 0, i32 1
+  %X = getelementptr inbounds i8, ptr %dest, i64 8
+  %X1 = getelementptr inbounds i8, ptr %src, i64 8
   %call = tail call ptr @BN_copy(ptr noundef nonnull %X, ptr noundef nonnull %X1) #5
   %tobool.not = icmp eq ptr %call, null
   br i1 %tobool.not, label %return, label %lor.lhs.false
 
 lor.lhs.false:                                    ; preds = %entry
-  %Y = getelementptr inbounds %struct.ec_point_st, ptr %dest, i64 0, i32 2
-  %Y2 = getelementptr inbounds %struct.ec_point_st, ptr %src, i64 0, i32 2
+  %Y = getelementptr inbounds i8, ptr %dest, i64 32
+  %Y2 = getelementptr inbounds i8, ptr %src, i64 32
   %call3 = tail call ptr @BN_copy(ptr noundef nonnull %Y, ptr noundef nonnull %Y2) #5
   %tobool4.not = icmp eq ptr %call3, null
   br i1 %tobool4.not, label %return, label %lor.lhs.false5
 
 lor.lhs.false5:                                   ; preds = %lor.lhs.false
-  %Z = getelementptr inbounds %struct.ec_point_st, ptr %dest, i64 0, i32 3
-  %Z6 = getelementptr inbounds %struct.ec_point_st, ptr %src, i64 0, i32 3
+  %Z = getelementptr inbounds i8, ptr %dest, i64 56
+  %Z6 = getelementptr inbounds i8, ptr %src, i64 56
   %call7 = tail call ptr @BN_copy(ptr noundef nonnull %Z, ptr noundef nonnull %Z6) #5
   %tobool8.not = icmp ne ptr %call7, null
   %spec.select = zext i1 %tobool8.not to i32
@@ -409,7 +404,7 @@ return:                                           ; preds = %lor.lhs.false5, %en
 ; Function Attrs: nounwind uwtable
 define hidden noundef i32 @ec_GFp_simple_point_set_to_infinity(ptr nocapture noundef readnone %group, ptr noundef %point) local_unnamed_addr #0 {
 entry:
-  %Z = getelementptr inbounds %struct.ec_point_st, ptr %point, i64 0, i32 3
+  %Z = getelementptr inbounds i8, ptr %point, i64 56
   tail call void @BN_zero(ptr noundef nonnull %Z) #5
   ret i32 1
 }
@@ -430,7 +425,7 @@ if.then:                                          ; preds = %entry
 if.end3:                                          ; preds = %if.then, %entry
   %ctx.addr.0 = phi ptr [ %call, %if.then ], [ %ctx, %entry ]
   %new_ctx.0 = phi ptr [ %call, %if.then ], [ null, %entry ]
-  %X = getelementptr inbounds %struct.ec_point_st, ptr %point, i64 0, i32 1
+  %X = getelementptr inbounds i8, ptr %point, i64 8
   %cmp.i = icmp eq ptr %x, null
   br i1 %cmp.i, label %lor.lhs.false, label %if.end.i
 
@@ -440,7 +435,7 @@ if.end.i:                                         ; preds = %if.end3
   br i1 %tobool.not.i, label %lor.lhs.false.i, label %set_Jprojective_coordinate_GFp.exit.thread
 
 lor.lhs.false.i:                                  ; preds = %if.end.i
-  %field.i = getelementptr inbounds %struct.ec_group_st, ptr %group, i64 0, i32 6
+  %field.i = getelementptr inbounds i8, ptr %group, i64 80
   %call1.i = tail call i32 @BN_cmp(ptr noundef nonnull %x, ptr noundef nonnull %field.i) #5
   %cmp2.i = icmp sgt i32 %call1.i, -1
   br i1 %cmp2.i, label %set_Jprojective_coordinate_GFp.exit.thread, label %if.end4.i
@@ -451,7 +446,7 @@ set_Jprojective_coordinate_GFp.exit.thread:       ; preds = %if.end.i, %lor.lhs.
 
 if.end4.i:                                        ; preds = %lor.lhs.false.i
   %0 = load ptr, ptr %group, align 8
-  %field_encode.i = getelementptr inbounds %struct.ec_method_st, ptr %0, i64 0, i32 9
+  %field_encode.i = getelementptr inbounds i8, ptr %0, i64 72
   %1 = load ptr, ptr %field_encode.i, align 8
   %tobool5.not.i = icmp eq ptr %1, null
   br i1 %tobool5.not.i, label %if.end10.i, label %if.then6.i
@@ -472,7 +467,7 @@ set_Jprojective_coordinate_GFp.exit:              ; preds = %if.then6.i, %if.end
   br i1 %tobool.not, label %err, label %lor.lhs.false
 
 lor.lhs.false:                                    ; preds = %if.end3, %set_Jprojective_coordinate_GFp.exit
-  %Y = getelementptr inbounds %struct.ec_point_st, ptr %point, i64 0, i32 2
+  %Y = getelementptr inbounds i8, ptr %point, i64 32
   %cmp.i9 = icmp eq ptr %y, null
   br i1 %cmp.i9, label %lor.lhs.false7, label %if.end.i10
 
@@ -482,7 +477,7 @@ if.end.i10:                                       ; preds = %lor.lhs.false
   br i1 %tobool.not.i12, label %lor.lhs.false.i15, label %set_Jprojective_coordinate_GFp.exit28.thread
 
 lor.lhs.false.i15:                                ; preds = %if.end.i10
-  %field.i16 = getelementptr inbounds %struct.ec_group_st, ptr %group, i64 0, i32 6
+  %field.i16 = getelementptr inbounds i8, ptr %group, i64 80
   %call1.i17 = tail call i32 @BN_cmp(ptr noundef nonnull %y, ptr noundef nonnull %field.i16) #5
   %cmp2.i18 = icmp sgt i32 %call1.i17, -1
   br i1 %cmp2.i18, label %set_Jprojective_coordinate_GFp.exit28.thread, label %if.end4.i19
@@ -493,7 +488,7 @@ set_Jprojective_coordinate_GFp.exit28.thread:     ; preds = %if.end.i10, %lor.lh
 
 if.end4.i19:                                      ; preds = %lor.lhs.false.i15
   %2 = load ptr, ptr %group, align 8
-  %field_encode.i20 = getelementptr inbounds %struct.ec_method_st, ptr %2, i64 0, i32 9
+  %field_encode.i20 = getelementptr inbounds i8, ptr %2, i64 72
   %3 = load ptr, ptr %field_encode.i20, align 8
   %tobool5.not.i21 = icmp eq ptr %3, null
   br i1 %tobool5.not.i21, label %if.end10.i24, label %if.then6.i22
@@ -514,7 +509,7 @@ set_Jprojective_coordinate_GFp.exit28:            ; preds = %if.then6.i22, %if.e
   br i1 %tobool6.not, label %err, label %lor.lhs.false7
 
 lor.lhs.false7:                                   ; preds = %lor.lhs.false, %set_Jprojective_coordinate_GFp.exit28
-  %Z = getelementptr inbounds %struct.ec_point_st, ptr %point, i64 0, i32 3
+  %Z = getelementptr inbounds i8, ptr %point, i64 56
   %cmp.i29 = icmp eq ptr %z, null
   br i1 %cmp.i29, label %err, label %if.end.i30
 
@@ -524,7 +519,7 @@ if.end.i30:                                       ; preds = %lor.lhs.false7
   br i1 %tobool.not.i32, label %lor.lhs.false.i35, label %set_Jprojective_coordinate_GFp.exit48.thread
 
 lor.lhs.false.i35:                                ; preds = %if.end.i30
-  %field.i36 = getelementptr inbounds %struct.ec_group_st, ptr %group, i64 0, i32 6
+  %field.i36 = getelementptr inbounds i8, ptr %group, i64 80
   %call1.i37 = tail call i32 @BN_cmp(ptr noundef nonnull %z, ptr noundef nonnull %field.i36) #5
   %cmp2.i38 = icmp sgt i32 %call1.i37, -1
   br i1 %cmp2.i38, label %set_Jprojective_coordinate_GFp.exit48.thread, label %if.end4.i39
@@ -535,7 +530,7 @@ set_Jprojective_coordinate_GFp.exit48.thread:     ; preds = %if.end.i30, %lor.lh
 
 if.end4.i39:                                      ; preds = %lor.lhs.false.i35
   %4 = load ptr, ptr %group, align 8
-  %field_encode.i40 = getelementptr inbounds %struct.ec_method_st, ptr %4, i64 0, i32 9
+  %field_encode.i40 = getelementptr inbounds i8, ptr %4, i64 72
   %5 = load ptr, ptr %field_encode.i40, align 8
   %tobool5.not.i41 = icmp eq ptr %5, null
   br i1 %tobool5.not.i41, label %if.end10.i44, label %if.then6.i42
@@ -573,7 +568,7 @@ return:                                           ; preds = %if.then, %err
 define hidden noundef i32 @ec_GFp_simple_get_Jprojective_coordinates_GFp(ptr noundef %group, ptr noundef %point, ptr noundef %x, ptr noundef %y, ptr noundef %z, ptr noundef %ctx) local_unnamed_addr #0 {
 entry:
   %0 = load ptr, ptr %group, align 8
-  %field_decode = getelementptr inbounds %struct.ec_method_st, ptr %0, i64 0, i32 10
+  %field_decode = getelementptr inbounds i8, ptr %0, i64 80
   %1 = load ptr, ptr %field_decode, align 8
   %cmp.not = icmp eq ptr %1, null
   br i1 %cmp.not, label %if.else, label %if.then
@@ -595,9 +590,9 @@ if.end5:                                          ; preds = %if.then2, %if.then
 
 land.lhs.true:                                    ; preds = %if.end5
   %2 = load ptr, ptr %group, align 8
-  %field_decode8 = getelementptr inbounds %struct.ec_method_st, ptr %2, i64 0, i32 10
+  %field_decode8 = getelementptr inbounds i8, ptr %2, i64 80
   %3 = load ptr, ptr %field_decode8, align 8
-  %X = getelementptr inbounds %struct.ec_point_st, ptr %point, i64 0, i32 1
+  %X = getelementptr inbounds i8, ptr %point, i64 8
   %call9 = tail call i32 %3(ptr noundef nonnull %group, ptr noundef nonnull %x, ptr noundef nonnull %X, ptr noundef nonnull %ctx.addr.0) #5
   %tobool.not = icmp eq i32 %call9, 0
   br i1 %tobool.not, label %err, label %if.end11
@@ -608,9 +603,9 @@ if.end11:                                         ; preds = %land.lhs.true, %if.
 
 land.lhs.true13:                                  ; preds = %if.end11
   %4 = load ptr, ptr %group, align 8
-  %field_decode15 = getelementptr inbounds %struct.ec_method_st, ptr %4, i64 0, i32 10
+  %field_decode15 = getelementptr inbounds i8, ptr %4, i64 80
   %5 = load ptr, ptr %field_decode15, align 8
-  %Y = getelementptr inbounds %struct.ec_point_st, ptr %point, i64 0, i32 2
+  %Y = getelementptr inbounds i8, ptr %point, i64 32
   %call16 = tail call i32 %5(ptr noundef nonnull %group, ptr noundef nonnull %y, ptr noundef nonnull %Y, ptr noundef nonnull %ctx.addr.0) #5
   %tobool17.not = icmp eq i32 %call16, 0
   br i1 %tobool17.not, label %err, label %if.end19
@@ -621,9 +616,9 @@ if.end19:                                         ; preds = %land.lhs.true13, %i
 
 land.lhs.true21:                                  ; preds = %if.end19
   %6 = load ptr, ptr %group, align 8
-  %field_decode23 = getelementptr inbounds %struct.ec_method_st, ptr %6, i64 0, i32 10
+  %field_decode23 = getelementptr inbounds i8, ptr %6, i64 80
   %7 = load ptr, ptr %field_decode23, align 8
-  %Z = getelementptr inbounds %struct.ec_point_st, ptr %point, i64 0, i32 3
+  %Z = getelementptr inbounds i8, ptr %point, i64 56
   %call24 = tail call i32 %7(ptr noundef nonnull %group, ptr noundef nonnull %z, ptr noundef nonnull %Z, ptr noundef nonnull %ctx.addr.0) #5
   %tobool25.not = icmp eq i32 %call24, 0
   br i1 %tobool25.not, label %err, label %if.end49
@@ -633,7 +628,7 @@ if.else:                                          ; preds = %entry
   br i1 %cmp28.not, label %if.end34, label %land.lhs.true29
 
 land.lhs.true29:                                  ; preds = %if.else
-  %X30 = getelementptr inbounds %struct.ec_point_st, ptr %point, i64 0, i32 1
+  %X30 = getelementptr inbounds i8, ptr %point, i64 8
   %call31 = tail call ptr @BN_copy(ptr noundef nonnull %x, ptr noundef nonnull %X30) #5
   %tobool32.not = icmp eq ptr %call31, null
   br i1 %tobool32.not, label %err, label %if.end34
@@ -643,7 +638,7 @@ if.end34:                                         ; preds = %land.lhs.true29, %i
   br i1 %cmp35.not, label %if.end41, label %land.lhs.true36
 
 land.lhs.true36:                                  ; preds = %if.end34
-  %Y37 = getelementptr inbounds %struct.ec_point_st, ptr %point, i64 0, i32 2
+  %Y37 = getelementptr inbounds i8, ptr %point, i64 32
   %call38 = tail call ptr @BN_copy(ptr noundef nonnull %y, ptr noundef nonnull %Y37) #5
   %tobool39.not = icmp eq ptr %call38, null
   br i1 %tobool39.not, label %err, label %if.end41
@@ -653,7 +648,7 @@ if.end41:                                         ; preds = %land.lhs.true36, %i
   br i1 %cmp42.not, label %if.end49, label %land.lhs.true43
 
 land.lhs.true43:                                  ; preds = %if.end41
-  %Z44 = getelementptr inbounds %struct.ec_point_st, ptr %point, i64 0, i32 3
+  %Z44 = getelementptr inbounds i8, ptr %point, i64 56
   %call45 = tail call ptr @BN_copy(ptr noundef nonnull %z, ptr noundef nonnull %Z44) #5
   %tobool46.not = icmp eq ptr %call45, null
   br i1 %tobool46.not, label %err, label %if.end49
@@ -727,11 +722,11 @@ if.then7:                                         ; preds = %if.end4
 
 if.end9:                                          ; preds = %if.end4
   %0 = load ptr, ptr %group, align 8
-  %field_mul10 = getelementptr inbounds %struct.ec_method_st, ptr %0, i64 0, i32 7
+  %field_mul10 = getelementptr inbounds i8, ptr %0, i64 56
   %1 = load ptr, ptr %field_mul10, align 8
-  %field_sqr12 = getelementptr inbounds %struct.ec_method_st, ptr %0, i64 0, i32 8
+  %field_sqr12 = getelementptr inbounds i8, ptr %0, i64 64
   %2 = load ptr, ptr %field_sqr12, align 8
-  %field = getelementptr inbounds %struct.ec_group_st, ptr %group, i64 0, i32 6
+  %field = getelementptr inbounds i8, ptr %group, i64 80
   %cmp13 = icmp eq ptr %ctx, null
   br i1 %cmp13, label %if.then14, label %if.end19
 
@@ -755,20 +750,20 @@ if.end19:                                         ; preds = %if.then14, %if.end9
   br i1 %cmp27, label %if.then207, label %if.end29
 
 if.end29:                                         ; preds = %if.end19
-  %Z = getelementptr inbounds %struct.ec_point_st, ptr %b, i64 0, i32 3
-  %one = getelementptr inbounds %struct.ec_group_st, ptr %group, i64 0, i32 11
+  %Z = getelementptr inbounds i8, ptr %b, i64 56
+  %one = getelementptr inbounds i8, ptr %group, i64 168
   %call30 = tail call i32 @BN_cmp(ptr noundef nonnull %Z, ptr noundef nonnull %one) #5
   %cmp31 = icmp eq i32 %call30, 0
   br i1 %cmp31, label %if.then33, label %if.else
 
 if.then33:                                        ; preds = %if.end29
-  %X = getelementptr inbounds %struct.ec_point_st, ptr %a, i64 0, i32 1
+  %X = getelementptr inbounds i8, ptr %a, i64 8
   %call34 = tail call ptr @BN_copy(ptr noundef %call21, ptr noundef nonnull %X) #5
   %tobool35.not = icmp eq ptr %call34, null
   br i1 %tobool35.not, label %if.then207, label %lor.lhs.false
 
 lor.lhs.false:                                    ; preds = %if.then33
-  %Y = getelementptr inbounds %struct.ec_point_st, ptr %a, i64 0, i32 2
+  %Y = getelementptr inbounds i8, ptr %a, i64 32
   %call36 = tail call ptr @BN_copy(ptr noundef %call22, ptr noundef nonnull %Y) #5
   %tobool37.not = icmp eq ptr %call36, null
   br i1 %tobool37.not, label %if.then207, label %if.end58
@@ -779,7 +774,7 @@ if.else:                                          ; preds = %if.end29
   br i1 %tobool42.not, label %if.then207, label %lor.lhs.false43
 
 lor.lhs.false43:                                  ; preds = %if.else
-  %X44 = getelementptr inbounds %struct.ec_point_st, ptr %a, i64 0, i32 1
+  %X44 = getelementptr inbounds i8, ptr %a, i64 8
   %call45 = tail call i32 %1(ptr noundef nonnull %group, ptr noundef %call21, ptr noundef nonnull %X44, ptr noundef %call20, ptr noundef nonnull %ctx.addr.0) #5
   %tobool46.not = icmp eq i32 %call45, 0
   br i1 %tobool46.not, label %if.then207, label %if.end48
@@ -790,25 +785,25 @@ if.end48:                                         ; preds = %lor.lhs.false43
   br i1 %tobool51.not, label %if.then207, label %lor.lhs.false52
 
 lor.lhs.false52:                                  ; preds = %if.end48
-  %Y53 = getelementptr inbounds %struct.ec_point_st, ptr %a, i64 0, i32 2
+  %Y53 = getelementptr inbounds i8, ptr %a, i64 32
   %call54 = tail call i32 %1(ptr noundef nonnull %group, ptr noundef %call22, ptr noundef nonnull %Y53, ptr noundef %call20, ptr noundef nonnull %ctx.addr.0) #5
   %tobool55.not = icmp eq i32 %call54, 0
   br i1 %tobool55.not, label %if.then207, label %if.end58
 
 if.end58:                                         ; preds = %lor.lhs.false52, %lor.lhs.false
-  %Z59 = getelementptr inbounds %struct.ec_point_st, ptr %a, i64 0, i32 3
+  %Z59 = getelementptr inbounds i8, ptr %a, i64 56
   %call61 = tail call i32 @BN_cmp(ptr noundef nonnull %Z59, ptr noundef nonnull %one) #5
   %cmp62 = icmp eq i32 %call61, 0
   br i1 %cmp62, label %if.then65, label %if.else75
 
 if.then65:                                        ; preds = %if.end58
-  %X66 = getelementptr inbounds %struct.ec_point_st, ptr %b, i64 0, i32 1
+  %X66 = getelementptr inbounds i8, ptr %b, i64 8
   %call67 = tail call ptr @BN_copy(ptr noundef %call23, ptr noundef nonnull %X66) #5
   %tobool68.not = icmp eq ptr %call67, null
   br i1 %tobool68.not, label %if.then207, label %lor.lhs.false69
 
 lor.lhs.false69:                                  ; preds = %if.then65
-  %Y70 = getelementptr inbounds %struct.ec_point_st, ptr %b, i64 0, i32 2
+  %Y70 = getelementptr inbounds i8, ptr %b, i64 32
   %call71 = tail call ptr @BN_copy(ptr noundef %call24, ptr noundef nonnull %Y70) #5
   %tobool72.not = icmp eq ptr %call71, null
   br i1 %tobool72.not, label %if.then207, label %if.end94
@@ -819,7 +814,7 @@ if.else75:                                        ; preds = %if.end58
   br i1 %tobool78.not, label %if.then207, label %lor.lhs.false79
 
 lor.lhs.false79:                                  ; preds = %if.else75
-  %X80 = getelementptr inbounds %struct.ec_point_st, ptr %b, i64 0, i32 1
+  %X80 = getelementptr inbounds i8, ptr %b, i64 8
   %call81 = tail call i32 %1(ptr noundef nonnull %group, ptr noundef %call23, ptr noundef nonnull %X80, ptr noundef %call20, ptr noundef nonnull %ctx.addr.0) #5
   %tobool82.not = icmp eq i32 %call81, 0
   br i1 %tobool82.not, label %if.then207, label %if.end84
@@ -830,7 +825,7 @@ if.end84:                                         ; preds = %lor.lhs.false79
   br i1 %tobool87.not, label %if.then207, label %lor.lhs.false88
 
 lor.lhs.false88:                                  ; preds = %if.end84
-  %Y89 = getelementptr inbounds %struct.ec_point_st, ptr %b, i64 0, i32 2
+  %Y89 = getelementptr inbounds i8, ptr %b, i64 32
   %call90 = tail call i32 %1(ptr noundef nonnull %group, ptr noundef %call24, ptr noundef nonnull %Y89, ptr noundef %call20, ptr noundef nonnull %ctx.addr.0) #5
   %tobool91.not = icmp eq i32 %call90, 0
   br i1 %tobool91.not, label %if.then207, label %if.end94
@@ -856,7 +851,7 @@ if.then104:                                       ; preds = %if.end101
   br i1 %tobool106.not, label %if.else109, label %end
 
 if.else109:                                       ; preds = %if.then104
-  %Z110 = getelementptr inbounds %struct.ec_point_st, ptr %r, i64 0, i32 3
+  %Z110 = getelementptr inbounds i8, ptr %r, i64 56
   tail call void @BN_zero(ptr noundef nonnull %Z110) #5
   br label %if.then207
 
@@ -876,7 +871,7 @@ if.end118:                                        ; preds = %lor.lhs.false114
   br i1 %or.cond, label %if.then121, label %if.else127
 
 if.then121:                                       ; preds = %if.end118
-  %Z122 = getelementptr inbounds %struct.ec_point_st, ptr %r, i64 0, i32 3
+  %Z122 = getelementptr inbounds i8, ptr %r, i64 56
   %call123 = tail call ptr @BN_copy(ptr noundef nonnull %Z122, ptr noundef %call25) #5
   %tobool124.not = icmp eq ptr %call123, null
   br i1 %tobool124.not, label %if.then207, label %if.end157
@@ -903,7 +898,7 @@ if.else143:                                       ; preds = %if.else135
   br i1 %tobool147.not, label %if.then207, label %if.end151
 
 if.end151:                                        ; preds = %if.then137, %if.else143, %if.then129
-  %Z152 = getelementptr inbounds %struct.ec_point_st, ptr %r, i64 0, i32 3
+  %Z152 = getelementptr inbounds i8, ptr %r, i64 56
   %call153 = tail call i32 %1(ptr noundef nonnull %group, ptr noundef nonnull %Z152, ptr noundef %call20, ptr noundef %call25, ptr noundef nonnull %ctx.addr.0) #5
   %tobool154.not = icmp eq i32 %call153, 0
   br i1 %tobool154.not, label %if.then207, label %if.end157
@@ -924,7 +919,7 @@ lor.lhs.false163:                                 ; preds = %lor.lhs.false160
   br i1 %tobool165.not, label %if.then207, label %lor.lhs.false166
 
 lor.lhs.false166:                                 ; preds = %lor.lhs.false163
-  %X167 = getelementptr inbounds %struct.ec_point_st, ptr %r, i64 0, i32 1
+  %X167 = getelementptr inbounds i8, ptr %r, i64 8
   %call168 = tail call i32 @BN_mod_sub_quick(ptr noundef nonnull %X167, ptr noundef %call20, ptr noundef %call23, ptr noundef nonnull %field) #5
   %tobool169.not = icmp eq i32 %call168, 0
   br i1 %tobool169.not, label %if.then207, label %if.end171
@@ -970,7 +965,7 @@ land.lhs.true196:                                 ; preds = %if.end193
   br i1 %tobool198.not, label %if.then207, label %if.end200
 
 if.end200:                                        ; preds = %land.lhs.true196, %if.end193
-  %Y201 = getelementptr inbounds %struct.ec_point_st, ptr %r, i64 0, i32 2
+  %Y201 = getelementptr inbounds i8, ptr %r, i64 32
   %call202 = tail call i32 @BN_rshift1(ptr noundef nonnull %Y201, ptr noundef %call20) #5
   %tobool203.not = icmp ne i32 %call202, 0
   %spec.select = zext i1 %tobool203.not to i32
@@ -1022,17 +1017,17 @@ entry:
   br i1 %tobool.not, label %if.end, label %if.then
 
 if.then:                                          ; preds = %entry
-  %Z = getelementptr inbounds %struct.ec_point_st, ptr %r, i64 0, i32 3
+  %Z = getelementptr inbounds i8, ptr %r, i64 56
   tail call void @BN_zero(ptr noundef nonnull %Z) #5
   br label %return
 
 if.end:                                           ; preds = %entry
   %0 = load ptr, ptr %group, align 8
-  %field_mul1 = getelementptr inbounds %struct.ec_method_st, ptr %0, i64 0, i32 7
+  %field_mul1 = getelementptr inbounds i8, ptr %0, i64 56
   %1 = load ptr, ptr %field_mul1, align 8
-  %field_sqr3 = getelementptr inbounds %struct.ec_method_st, ptr %0, i64 0, i32 8
+  %field_sqr3 = getelementptr inbounds i8, ptr %0, i64 64
   %2 = load ptr, ptr %field_sqr3, align 8
-  %field = getelementptr inbounds %struct.ec_group_st, ptr %group, i64 0, i32 6
+  %field = getelementptr inbounds i8, ptr %group, i64 80
   %cmp = icmp eq ptr %ctx, null
   br i1 %cmp, label %if.then4, label %if.end9
 
@@ -1053,14 +1048,14 @@ if.end9:                                          ; preds = %if.then4, %if.end
   br i1 %cmp14, label %err, label %if.end16
 
 if.end16:                                         ; preds = %if.end9
-  %Z17 = getelementptr inbounds %struct.ec_point_st, ptr %a, i64 0, i32 3
-  %one = getelementptr inbounds %struct.ec_group_st, ptr %group, i64 0, i32 11
+  %Z17 = getelementptr inbounds i8, ptr %a, i64 56
+  %one = getelementptr inbounds i8, ptr %group, i64 168
   %call18 = tail call i32 @BN_cmp(ptr noundef nonnull %Z17, ptr noundef nonnull %one) #5
   %cmp19 = icmp eq i32 %call18, 0
   br i1 %cmp19, label %if.then20, label %if.else
 
 if.then20:                                        ; preds = %if.end16
-  %X = getelementptr inbounds %struct.ec_point_st, ptr %a, i64 0, i32 1
+  %X = getelementptr inbounds i8, ptr %a, i64 8
   %call21 = tail call i32 %2(ptr noundef nonnull %group, ptr noundef %call10, ptr noundef nonnull %X, ptr noundef nonnull %ctx.addr.0) #5
   %tobool22.not = icmp eq i32 %call21, 0
   br i1 %tobool22.not, label %err, label %lor.lhs.false
@@ -1076,13 +1071,13 @@ lor.lhs.false25:                                  ; preds = %lor.lhs.false
   br i1 %tobool27.not, label %err, label %lor.lhs.false28
 
 lor.lhs.false28:                                  ; preds = %lor.lhs.false25
-  %a29 = getelementptr inbounds %struct.ec_group_st, ptr %group, i64 0, i32 7
+  %a29 = getelementptr inbounds i8, ptr %group, i64 104
   %call30 = tail call i32 @BN_mod_add_quick(ptr noundef %call11, ptr noundef %call10, ptr noundef nonnull %a29, ptr noundef nonnull %field) #5
   %tobool31.not = icmp eq i32 %call30, 0
   br i1 %tobool31.not, label %err, label %if.end85
 
 if.else:                                          ; preds = %if.end16
-  %a_is_minus3 = getelementptr inbounds %struct.ec_group_st, ptr %group, i64 0, i32 9
+  %a_is_minus3 = getelementptr inbounds i8, ptr %group, i64 152
   %3 = load i32, ptr %a_is_minus3, align 8
   %tobool34.not = icmp eq i32 %3, 0
   br i1 %tobool34.not, label %if.else58, label %if.then35
@@ -1093,7 +1088,7 @@ if.then35:                                        ; preds = %if.else
   br i1 %tobool38.not, label %err, label %lor.lhs.false39
 
 lor.lhs.false39:                                  ; preds = %if.then35
-  %X40 = getelementptr inbounds %struct.ec_point_st, ptr %a, i64 0, i32 1
+  %X40 = getelementptr inbounds i8, ptr %a, i64 8
   %call41 = tail call i32 @BN_mod_add_quick(ptr noundef %call10, ptr noundef nonnull %X40, ptr noundef %call11, ptr noundef nonnull %field) #5
   %tobool42.not = icmp eq i32 %call41, 0
   br i1 %tobool42.not, label %err, label %lor.lhs.false43
@@ -1119,7 +1114,7 @@ lor.lhs.false53:                                  ; preds = %lor.lhs.false50
   br i1 %tobool55.not, label %err, label %if.end85
 
 if.else58:                                        ; preds = %if.else
-  %X59 = getelementptr inbounds %struct.ec_point_st, ptr %a, i64 0, i32 1
+  %X59 = getelementptr inbounds i8, ptr %a, i64 8
   %call60 = tail call i32 %2(ptr noundef nonnull %group, ptr noundef %call10, ptr noundef nonnull %X59, ptr noundef nonnull %ctx.addr.0) #5
   %tobool61.not = icmp eq i32 %call60, 0
   br i1 %tobool61.not, label %err, label %lor.lhs.false62
@@ -1145,7 +1140,7 @@ lor.lhs.false72:                                  ; preds = %lor.lhs.false68
   br i1 %tobool74.not, label %err, label %lor.lhs.false75
 
 lor.lhs.false75:                                  ; preds = %lor.lhs.false72
-  %a76 = getelementptr inbounds %struct.ec_group_st, ptr %group, i64 0, i32 7
+  %a76 = getelementptr inbounds i8, ptr %group, i64 104
   %call77 = tail call i32 %1(ptr noundef nonnull %group, ptr noundef %call11, ptr noundef %call11, ptr noundef nonnull %a76, ptr noundef nonnull %ctx.addr.0) #5
   %tobool78.not = icmp eq i32 %call77, 0
   br i1 %tobool78.not, label %err, label %lor.lhs.false79
@@ -1158,7 +1153,7 @@ lor.lhs.false79:                                  ; preds = %lor.lhs.false75
 if.end85:                                         ; preds = %lor.lhs.false53, %lor.lhs.false79, %lor.lhs.false28
   %call88 = tail call i32 @BN_cmp(ptr noundef nonnull %Z17, ptr noundef nonnull %one) #5
   %cmp89 = icmp eq i32 %call88, 0
-  %Y = getelementptr inbounds %struct.ec_point_st, ptr %a, i64 0, i32 2
+  %Y = getelementptr inbounds i8, ptr %a, i64 32
   br i1 %cmp89, label %if.then90, label %if.else95
 
 if.then90:                                        ; preds = %if.end85
@@ -1172,19 +1167,19 @@ if.else95:                                        ; preds = %if.end85
   br i1 %tobool99.not, label %err, label %if.end102
 
 if.end102:                                        ; preds = %if.else95, %if.then90
-  %Z103 = getelementptr inbounds %struct.ec_point_st, ptr %r, i64 0, i32 3
+  %Z103 = getelementptr inbounds i8, ptr %r, i64 56
   %call104 = tail call i32 @BN_mod_lshift1_quick(ptr noundef nonnull %Z103, ptr noundef %call10, ptr noundef nonnull %field) #5
   %tobool105.not = icmp eq i32 %call104, 0
   br i1 %tobool105.not, label %err, label %if.end107
 
 if.end107:                                        ; preds = %if.end102
-  %Y108 = getelementptr inbounds %struct.ec_point_st, ptr %a, i64 0, i32 2
+  %Y108 = getelementptr inbounds i8, ptr %a, i64 32
   %call109 = tail call i32 %2(ptr noundef nonnull %group, ptr noundef nonnull %call13, ptr noundef nonnull %Y108, ptr noundef nonnull %ctx.addr.0) #5
   %tobool110.not = icmp eq i32 %call109, 0
   br i1 %tobool110.not, label %err, label %lor.lhs.false111
 
 lor.lhs.false111:                                 ; preds = %if.end107
-  %X112 = getelementptr inbounds %struct.ec_point_st, ptr %a, i64 0, i32 1
+  %X112 = getelementptr inbounds i8, ptr %a, i64 8
   %call113 = tail call i32 %1(ptr noundef nonnull %group, ptr noundef %call12, ptr noundef nonnull %X112, ptr noundef nonnull %call13, ptr noundef nonnull %ctx.addr.0) #5
   %tobool114.not = icmp eq i32 %call113, 0
   br i1 %tobool114.not, label %err, label %lor.lhs.false115
@@ -1200,7 +1195,7 @@ if.end119:                                        ; preds = %lor.lhs.false115
   br i1 %tobool121.not, label %err, label %lor.lhs.false122
 
 lor.lhs.false122:                                 ; preds = %if.end119
-  %X123 = getelementptr inbounds %struct.ec_point_st, ptr %r, i64 0, i32 1
+  %X123 = getelementptr inbounds i8, ptr %r, i64 8
   %call124 = tail call i32 %2(ptr noundef nonnull %group, ptr noundef nonnull %X123, ptr noundef %call11, ptr noundef nonnull %ctx.addr.0) #5
   %tobool125.not = icmp eq i32 %call124, 0
   br i1 %tobool125.not, label %err, label %lor.lhs.false126
@@ -1231,7 +1226,7 @@ lor.lhs.false143:                                 ; preds = %if.end139
   br i1 %tobool145.not, label %err, label %lor.lhs.false146
 
 lor.lhs.false146:                                 ; preds = %lor.lhs.false143
-  %Y147 = getelementptr inbounds %struct.ec_point_st, ptr %r, i64 0, i32 2
+  %Y147 = getelementptr inbounds i8, ptr %r, i64 32
   %call148 = tail call i32 @BN_mod_sub_quick(ptr noundef nonnull %Y147, ptr noundef %call10, ptr noundef nonnull %call13, ptr noundef nonnull %field) #5
   %tobool149.not = icmp ne i32 %call148, 0
   %spec.select = zext i1 %tobool149.not to i32
@@ -1258,13 +1253,13 @@ entry:
   br i1 %tobool.not, label %lor.lhs.false, label %return
 
 lor.lhs.false:                                    ; preds = %entry
-  %Y = getelementptr inbounds %struct.ec_point_st, ptr %point, i64 0, i32 2
+  %Y = getelementptr inbounds i8, ptr %point, i64 32
   %call1 = tail call i32 @BN_is_zero(ptr noundef nonnull %Y) #5
   %tobool2.not = icmp eq i32 %call1, 0
   br i1 %tobool2.not, label %if.end, label %return
 
 if.end:                                           ; preds = %lor.lhs.false
-  %field = getelementptr inbounds %struct.ec_group_st, ptr %group, i64 0, i32 6
+  %field = getelementptr inbounds i8, ptr %group, i64 80
   %call5 = tail call i32 @BN_usub(ptr noundef nonnull %Y, ptr noundef nonnull %field, ptr noundef nonnull %Y) #5
   br label %return
 
@@ -1278,7 +1273,7 @@ declare i32 @BN_usub(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #
 ; Function Attrs: nounwind uwtable
 define hidden i32 @ec_GFp_simple_is_at_infinity(ptr nocapture noundef readnone %group, ptr noundef %point) local_unnamed_addr #0 {
 entry:
-  %Z = getelementptr inbounds %struct.ec_point_st, ptr %point, i64 0, i32 3
+  %Z = getelementptr inbounds i8, ptr %point, i64 56
   %call = tail call i32 @BN_is_zero(ptr noundef nonnull %Z) #5
   ret i32 %call
 }
@@ -1292,11 +1287,11 @@ entry:
 
 if.end:                                           ; preds = %entry
   %0 = load ptr, ptr %group, align 8
-  %field_mul1 = getelementptr inbounds %struct.ec_method_st, ptr %0, i64 0, i32 7
+  %field_mul1 = getelementptr inbounds i8, ptr %0, i64 56
   %1 = load ptr, ptr %field_mul1, align 8
-  %field_sqr3 = getelementptr inbounds %struct.ec_method_st, ptr %0, i64 0, i32 8
+  %field_sqr3 = getelementptr inbounds i8, ptr %0, i64 64
   %2 = load ptr, ptr %field_sqr3, align 8
-  %field = getelementptr inbounds %struct.ec_group_st, ptr %group, i64 0, i32 6
+  %field = getelementptr inbounds i8, ptr %group, i64 80
   %cmp = icmp eq ptr %ctx, null
   br i1 %cmp, label %if.then4, label %if.end9
 
@@ -1317,14 +1312,14 @@ if.end9:                                          ; preds = %if.then4, %if.end
   br i1 %cmp14, label %err, label %if.end16
 
 if.end16:                                         ; preds = %if.end9
-  %X = getelementptr inbounds %struct.ec_point_st, ptr %point, i64 0, i32 1
+  %X = getelementptr inbounds i8, ptr %point, i64 8
   %call17 = tail call i32 %2(ptr noundef nonnull %group, ptr noundef %call10, ptr noundef nonnull %X, ptr noundef nonnull %ctx.addr.0) #5
   %tobool18.not = icmp eq i32 %call17, 0
   br i1 %tobool18.not, label %err, label %if.end20
 
 if.end20:                                         ; preds = %if.end16
-  %Z = getelementptr inbounds %struct.ec_point_st, ptr %point, i64 0, i32 3
-  %one = getelementptr inbounds %struct.ec_group_st, ptr %group, i64 0, i32 11
+  %Z = getelementptr inbounds i8, ptr %point, i64 56
+  %one = getelementptr inbounds i8, ptr %group, i64 168
   %call21 = tail call i32 @BN_cmp(ptr noundef nonnull %Z, ptr noundef nonnull %one) #5
   %cmp22.not = icmp eq i32 %call21, 0
   br i1 %cmp22.not, label %if.else69, label %if.then23
@@ -1345,7 +1340,7 @@ lor.lhs.false29:                                  ; preds = %lor.lhs.false
   br i1 %tobool31.not, label %err, label %if.end33
 
 if.end33:                                         ; preds = %lor.lhs.false29
-  %a_is_minus3 = getelementptr inbounds %struct.ec_group_st, ptr %group, i64 0, i32 9
+  %a_is_minus3 = getelementptr inbounds i8, ptr %group, i64 152
   %3 = load i32, ptr %a_is_minus3, align 8
   %tobool34.not = icmp eq i32 %3, 0
   br i1 %tobool34.not, label %if.else, label %if.then35
@@ -1371,7 +1366,7 @@ lor.lhs.false44:                                  ; preds = %lor.lhs.false41
   br i1 %tobool47.not, label %err, label %if.end61
 
 if.else:                                          ; preds = %if.end33
-  %a = getelementptr inbounds %struct.ec_group_st, ptr %group, i64 0, i32 7
+  %a = getelementptr inbounds i8, ptr %group, i64 104
   %call50 = tail call i32 %1(ptr noundef nonnull %group, ptr noundef %call11, ptr noundef %call12, ptr noundef nonnull %a, ptr noundef nonnull %ctx.addr.0) #5
   %tobool51.not = icmp eq i32 %call50, 0
   br i1 %tobool51.not, label %err, label %lor.lhs.false52
@@ -1387,7 +1382,7 @@ lor.lhs.false55:                                  ; preds = %lor.lhs.false52
   br i1 %tobool58.not, label %err, label %if.end61
 
 if.end61:                                         ; preds = %lor.lhs.false55, %lor.lhs.false44
-  %b = getelementptr inbounds %struct.ec_group_st, ptr %group, i64 0, i32 8
+  %b = getelementptr inbounds i8, ptr %group, i64 128
   %call62 = tail call i32 %1(ptr noundef nonnull %group, ptr noundef %call11, ptr noundef nonnull %b, ptr noundef nonnull %call13, ptr noundef nonnull %ctx.addr.0) #5
   %tobool63.not = icmp eq i32 %call62, 0
   br i1 %tobool63.not, label %err, label %lor.lhs.false64
@@ -1398,7 +1393,7 @@ lor.lhs.false64:                                  ; preds = %if.end61
   br i1 %tobool66.not, label %err, label %if.end84
 
 if.else69:                                        ; preds = %if.end20
-  %a70 = getelementptr inbounds %struct.ec_group_st, ptr %group, i64 0, i32 7
+  %a70 = getelementptr inbounds i8, ptr %group, i64 104
   %call71 = tail call i32 @BN_mod_add_quick(ptr noundef %call10, ptr noundef %call10, ptr noundef nonnull %a70, ptr noundef nonnull %field) #5
   %tobool72.not = icmp eq i32 %call71, 0
   br i1 %tobool72.not, label %err, label %lor.lhs.false73
@@ -1409,13 +1404,13 @@ lor.lhs.false73:                                  ; preds = %if.else69
   br i1 %tobool76.not, label %err, label %if.end78
 
 if.end78:                                         ; preds = %lor.lhs.false73
-  %b79 = getelementptr inbounds %struct.ec_group_st, ptr %group, i64 0, i32 8
+  %b79 = getelementptr inbounds i8, ptr %group, i64 128
   %call80 = tail call i32 @BN_mod_add_quick(ptr noundef %call10, ptr noundef %call10, ptr noundef nonnull %b79, ptr noundef nonnull %field) #5
   %tobool81.not = icmp eq i32 %call80, 0
   br i1 %tobool81.not, label %err, label %if.end84
 
 if.end84:                                         ; preds = %if.end78, %lor.lhs.false64
-  %Y = getelementptr inbounds %struct.ec_point_st, ptr %point, i64 0, i32 2
+  %Y = getelementptr inbounds i8, ptr %point, i64 32
   %call85 = tail call i32 %2(ptr noundef nonnull %group, ptr noundef %call11, ptr noundef nonnull %Y, ptr noundef nonnull %ctx.addr.0) #5
   %tobool86.not = icmp eq i32 %call85, 0
   br i1 %tobool86.not, label %err, label %if.end88
@@ -1456,26 +1451,26 @@ if.end:                                           ; preds = %entry
   br i1 %tobool4.not, label %if.end6, label %return
 
 if.end6:                                          ; preds = %if.end
-  %Z = getelementptr inbounds %struct.ec_point_st, ptr %a, i64 0, i32 3
-  %one = getelementptr inbounds %struct.ec_group_st, ptr %group, i64 0, i32 11
+  %Z = getelementptr inbounds i8, ptr %a, i64 56
+  %one = getelementptr inbounds i8, ptr %group, i64 168
   %call7 = tail call i32 @BN_cmp(ptr noundef nonnull %Z, ptr noundef nonnull %one) #5
   %cmp = icmp eq i32 %call7, 0
-  %Z8 = getelementptr inbounds %struct.ec_point_st, ptr %b, i64 0, i32 3
+  %Z8 = getelementptr inbounds i8, ptr %b, i64 56
   %call10 = tail call i32 @BN_cmp(ptr noundef nonnull %Z8, ptr noundef nonnull %one) #5
   %cmp11 = icmp eq i32 %call10, 0
   %or.cond = select i1 %cmp, i1 %cmp11, i1 false
   br i1 %or.cond, label %if.then15, label %if.end25
 
 if.then15:                                        ; preds = %if.end6
-  %X = getelementptr inbounds %struct.ec_point_st, ptr %a, i64 0, i32 1
-  %X16 = getelementptr inbounds %struct.ec_point_st, ptr %b, i64 0, i32 1
+  %X = getelementptr inbounds i8, ptr %a, i64 8
+  %X16 = getelementptr inbounds i8, ptr %b, i64 8
   %call17 = tail call i32 @BN_cmp(ptr noundef nonnull %X, ptr noundef nonnull %X16) #5
   %cmp18 = icmp eq i32 %call17, 0
   br i1 %cmp18, label %land.rhs, label %return
 
 land.rhs:                                         ; preds = %if.then15
-  %Y = getelementptr inbounds %struct.ec_point_st, ptr %a, i64 0, i32 2
-  %Y20 = getelementptr inbounds %struct.ec_point_st, ptr %b, i64 0, i32 2
+  %Y = getelementptr inbounds i8, ptr %a, i64 32
+  %Y20 = getelementptr inbounds i8, ptr %b, i64 32
   %call21 = tail call i32 @BN_cmp(ptr noundef nonnull %Y, ptr noundef nonnull %Y20) #5
   %cmp22 = icmp ne i32 %call21, 0
   %0 = zext i1 %cmp22 to i32
@@ -1483,9 +1478,9 @@ land.rhs:                                         ; preds = %if.then15
 
 if.end25:                                         ; preds = %if.end6
   %1 = load ptr, ptr %group, align 8
-  %field_mul26 = getelementptr inbounds %struct.ec_method_st, ptr %1, i64 0, i32 7
+  %field_mul26 = getelementptr inbounds i8, ptr %1, i64 56
   %2 = load ptr, ptr %field_mul26, align 8
-  %field_sqr28 = getelementptr inbounds %struct.ec_method_st, ptr %1, i64 0, i32 8
+  %field_sqr28 = getelementptr inbounds i8, ptr %1, i64 64
   %3 = load ptr, ptr %field_sqr28, align 8
   %cmp29 = icmp eq ptr %ctx, null
   br i1 %cmp29, label %if.then31, label %if.end37
@@ -1515,13 +1510,13 @@ if.then47:                                        ; preds = %if.end45
   br i1 %tobool50.not, label %end, label %lor.lhs.false
 
 lor.lhs.false:                                    ; preds = %if.then47
-  %X51 = getelementptr inbounds %struct.ec_point_st, ptr %a, i64 0, i32 1
+  %X51 = getelementptr inbounds i8, ptr %a, i64 8
   %call52 = tail call i32 %2(ptr noundef nonnull %group, ptr noundef %call38, ptr noundef nonnull %X51, ptr noundef nonnull %call41, ptr noundef nonnull %ctx.addr.0) #5
   %tobool53.not = icmp eq i32 %call52, 0
   br i1 %tobool53.not, label %end, label %if.end57
 
 if.else:                                          ; preds = %if.end45
-  %X56 = getelementptr inbounds %struct.ec_point_st, ptr %a, i64 0, i32 1
+  %X56 = getelementptr inbounds i8, ptr %a, i64 8
   br label %if.end57
 
 if.end57:                                         ; preds = %lor.lhs.false, %if.else
@@ -1534,13 +1529,13 @@ if.then59:                                        ; preds = %if.end57
   br i1 %tobool62.not, label %end, label %lor.lhs.false63
 
 lor.lhs.false63:                                  ; preds = %if.then59
-  %X64 = getelementptr inbounds %struct.ec_point_st, ptr %b, i64 0, i32 1
+  %X64 = getelementptr inbounds i8, ptr %b, i64 8
   %call65 = tail call i32 %2(ptr noundef nonnull %group, ptr noundef %call39, ptr noundef nonnull %X64, ptr noundef %call40, ptr noundef nonnull %ctx.addr.0) #5
   %tobool66.not = icmp eq i32 %call65, 0
   br i1 %tobool66.not, label %end, label %if.end71
 
 if.else69:                                        ; preds = %if.end57
-  %X70 = getelementptr inbounds %struct.ec_point_st, ptr %b, i64 0, i32 1
+  %X70 = getelementptr inbounds i8, ptr %b, i64 8
   br label %if.end71
 
 if.end71:                                         ; preds = %lor.lhs.false63, %if.else69
@@ -1558,13 +1553,13 @@ if.then78:                                        ; preds = %if.end76
   br i1 %tobool81.not, label %end, label %lor.lhs.false82
 
 lor.lhs.false82:                                  ; preds = %if.then78
-  %Y83 = getelementptr inbounds %struct.ec_point_st, ptr %a, i64 0, i32 2
+  %Y83 = getelementptr inbounds i8, ptr %a, i64 32
   %call84 = tail call i32 %2(ptr noundef nonnull %group, ptr noundef %call38, ptr noundef nonnull %Y83, ptr noundef nonnull %call41, ptr noundef nonnull %ctx.addr.0) #5
   %tobool85.not = icmp eq i32 %call84, 0
   br i1 %tobool85.not, label %end, label %if.end90
 
 if.else88:                                        ; preds = %if.end76
-  %Y89 = getelementptr inbounds %struct.ec_point_st, ptr %a, i64 0, i32 2
+  %Y89 = getelementptr inbounds i8, ptr %a, i64 32
   br label %if.end90
 
 if.end90:                                         ; preds = %lor.lhs.false82, %if.else88
@@ -1577,13 +1572,13 @@ if.then92:                                        ; preds = %if.end90
   br i1 %tobool95.not, label %end, label %lor.lhs.false96
 
 lor.lhs.false96:                                  ; preds = %if.then92
-  %Y97 = getelementptr inbounds %struct.ec_point_st, ptr %b, i64 0, i32 2
+  %Y97 = getelementptr inbounds i8, ptr %b, i64 32
   %call98 = tail call i32 %2(ptr noundef nonnull %group, ptr noundef %call39, ptr noundef nonnull %Y97, ptr noundef %call40, ptr noundef nonnull %ctx.addr.0) #5
   %tobool99.not = icmp eq i32 %call98, 0
   br i1 %tobool99.not, label %end, label %if.end104
 
 if.else102:                                       ; preds = %if.end90
-  %Y103 = getelementptr inbounds %struct.ec_point_st, ptr %b, i64 0, i32 2
+  %Y103 = getelementptr inbounds i8, ptr %b, i64 32
   br label %if.end104
 
 if.end104:                                        ; preds = %lor.lhs.false96, %if.else102
@@ -1607,8 +1602,8 @@ return:                                           ; preds = %if.then31, %if.then
 ; Function Attrs: nounwind uwtable
 define hidden noundef i32 @ec_GFp_simple_make_affine(ptr noundef %group, ptr noundef %point, ptr noundef %ctx) local_unnamed_addr #0 {
 entry:
-  %Z = getelementptr inbounds %struct.ec_point_st, ptr %point, i64 0, i32 3
-  %one = getelementptr inbounds %struct.ec_group_st, ptr %group, i64 0, i32 11
+  %Z = getelementptr inbounds i8, ptr %point, i64 56
+  %one = getelementptr inbounds i8, ptr %group, i64 168
   %call = tail call i32 @BN_cmp(ptr noundef nonnull %Z, ptr noundef nonnull %one) #5
   %cmp = icmp eq i32 %call, 0
   br i1 %cmp, label %return, label %lor.lhs.false
@@ -1717,7 +1712,7 @@ for.body:                                         ; preds = %if.end12, %for.cond
 
 for.end:                                          ; preds = %for.cond
   %0 = load ptr, ptr %points, align 8
-  %Z = getelementptr inbounds %struct.ec_point_st, ptr %0, i64 0, i32 3
+  %Z = getelementptr inbounds i8, ptr %0, i64 56
   %call25 = tail call i32 @BN_is_zero(ptr noundef nonnull %Z) #5
   %tobool.not = icmp eq i32 %call25, 0
   %1 = load ptr, ptr %calloc, align 8
@@ -1725,13 +1720,13 @@ for.end:                                          ; preds = %for.cond
 
 if.then26:                                        ; preds = %for.end
   %2 = load ptr, ptr %points, align 8
-  %Z29 = getelementptr inbounds %struct.ec_point_st, ptr %2, i64 0, i32 3
+  %Z29 = getelementptr inbounds i8, ptr %2, i64 56
   %call30 = tail call ptr @BN_copy(ptr noundef %1, ptr noundef nonnull %Z29) #5
   %tobool31.not = icmp eq ptr %call30, null
   br i1 %tobool31.not, label %err, label %if.end39
 
 if.else:                                          ; preds = %for.end
-  %one = getelementptr inbounds %struct.ec_group_st, ptr %group, i64 0, i32 11
+  %one = getelementptr inbounds i8, ptr %group, i64 168
   %call35 = tail call ptr @BN_copy(ptr noundef %1, ptr noundef nonnull %one) #5
   %cmp36 = icmp eq ptr %call35, null
   br i1 %cmp36, label %err, label %if.end39
@@ -1748,21 +1743,21 @@ for.body42:                                       ; preds = %for.body42.preheade
   %i.1122 = phi i64 [ %inc66, %for.inc65 ], [ 1, %for.body42.preheader ]
   %arrayidx43 = getelementptr inbounds ptr, ptr %points, i64 %i.1122
   %3 = load ptr, ptr %arrayidx43, align 8
-  %Z44 = getelementptr inbounds %struct.ec_point_st, ptr %3, i64 0, i32 3
+  %Z44 = getelementptr inbounds i8, ptr %3, i64 56
   %call45 = tail call i32 @BN_is_zero(ptr noundef nonnull %Z44) #5
   %tobool46.not = icmp eq i32 %call45, 0
   br i1 %tobool46.not, label %if.then47, label %if.else56
 
 if.then47:                                        ; preds = %for.body42
   %4 = load ptr, ptr %group, align 8
-  %field_mul = getelementptr inbounds %struct.ec_method_st, ptr %4, i64 0, i32 7
+  %field_mul = getelementptr inbounds i8, ptr %4, i64 56
   %5 = load ptr, ptr %field_mul, align 8
   %arrayidx48 = getelementptr inbounds ptr, ptr %calloc, i64 %i.1122
   %6 = load ptr, ptr %arrayidx48, align 8
-  %arrayidx49 = getelementptr ptr, ptr %arrayidx48, i64 -1
+  %arrayidx49 = getelementptr i8, ptr %arrayidx48, i64 -8
   %7 = load ptr, ptr %arrayidx49, align 8
   %8 = load ptr, ptr %arrayidx43, align 8
-  %Z51 = getelementptr inbounds %struct.ec_point_st, ptr %8, i64 0, i32 3
+  %Z51 = getelementptr inbounds i8, ptr %8, i64 56
   %call52 = tail call i32 %5(ptr noundef nonnull %group, ptr noundef %6, ptr noundef %7, ptr noundef nonnull %Z51, ptr noundef nonnull %ctx.addr.0) #5
   %tobool53.not = icmp eq i32 %call52, 0
   br i1 %tobool53.not, label %err, label %for.inc65
@@ -1770,7 +1765,7 @@ if.then47:                                        ; preds = %for.body42
 if.else56:                                        ; preds = %for.body42
   %arrayidx57 = getelementptr inbounds ptr, ptr %calloc, i64 %i.1122
   %9 = load ptr, ptr %arrayidx57, align 8
-  %arrayidx59 = getelementptr ptr, ptr %arrayidx57, i64 -1
+  %arrayidx59 = getelementptr i8, ptr %arrayidx57, i64 -8
   %10 = load ptr, ptr %arrayidx59, align 8
   %call60 = tail call ptr @BN_copy(ptr noundef %9, ptr noundef %10) #5
   %tobool61.not = icmp eq ptr %call60, null
@@ -1785,7 +1780,7 @@ for.end67:                                        ; preds = %for.inc65, %if.end3
   %sub68 = add i64 %num, -1
   %arrayidx69 = getelementptr inbounds ptr, ptr %calloc, i64 %sub68
   %11 = load ptr, ptr %arrayidx69, align 8
-  %field = getelementptr inbounds %struct.ec_group_st, ptr %group, i64 0, i32 6
+  %field = getelementptr inbounds i8, ptr %group, i64 80
   %call70 = tail call ptr @BN_mod_inverse(ptr noundef %call7, ptr noundef %11, ptr noundef nonnull %field, ptr noundef nonnull %ctx.addr.0) #5
   %tobool71.not = icmp eq ptr %call70, null
   br i1 %tobool71.not, label %if.then72, label %if.end73
@@ -1796,7 +1791,7 @@ if.then72:                                        ; preds = %for.end67
 
 if.end73:                                         ; preds = %for.end67
   %12 = load ptr, ptr %group, align 8
-  %field_encode = getelementptr inbounds %struct.ec_method_st, ptr %12, i64 0, i32 9
+  %field_encode = getelementptr inbounds i8, ptr %12, i64 72
   %13 = load ptr, ptr %field_encode, align 8
   %cmp75.not = icmp eq ptr %13, null
   br i1 %cmp75.not, label %if.end88, label %if.then76
@@ -1808,14 +1803,14 @@ if.then76:                                        ; preds = %if.end73
 
 lor.lhs.false81:                                  ; preds = %if.then76
   %14 = load ptr, ptr %group, align 8
-  %field_encode83 = getelementptr inbounds %struct.ec_method_st, ptr %14, i64 0, i32 9
+  %field_encode83 = getelementptr inbounds i8, ptr %14, i64 72
   %15 = load ptr, ptr %field_encode83, align 8
   %call84 = tail call i32 %15(ptr noundef nonnull %group, ptr noundef %call7, ptr noundef %call7, ptr noundef nonnull %ctx.addr.0) #5
   %tobool85.not = icmp eq i32 %call84, 0
   br i1 %tobool85.not, label %err, label %if.end88
 
 if.end88:                                         ; preds = %lor.lhs.false81, %if.end73
-  %invariant.gep = getelementptr ptr, ptr %calloc, i64 -1
+  %invariant.gep = getelementptr i8, ptr %calloc, i64 -8
   %cmp91.not123 = icmp eq i64 %sub68, 0
   br i1 %cmp91.not123, label %for.end120, label %for.body92
 
@@ -1823,14 +1818,14 @@ for.body92:                                       ; preds = %if.end88, %for.inc1
   %i.2124 = phi i64 [ %dec, %for.inc119 ], [ %sub68, %if.end88 ]
   %arrayidx93 = getelementptr inbounds ptr, ptr %points, i64 %i.2124
   %16 = load ptr, ptr %arrayidx93, align 8
-  %Z94 = getelementptr inbounds %struct.ec_point_st, ptr %16, i64 0, i32 3
+  %Z94 = getelementptr inbounds i8, ptr %16, i64 56
   %call95 = tail call i32 @BN_is_zero(ptr noundef nonnull %Z94) #5
   %tobool96.not = icmp eq i32 %call95, 0
   br i1 %tobool96.not, label %if.end98, label %for.inc119
 
 if.end98:                                         ; preds = %for.body92
   %17 = load ptr, ptr %group, align 8
-  %field_mul100 = getelementptr inbounds %struct.ec_method_st, ptr %17, i64 0, i32 7
+  %field_mul100 = getelementptr inbounds i8, ptr %17, i64 56
   %18 = load ptr, ptr %field_mul100, align 8
   %gep = getelementptr ptr, ptr %invariant.gep, i64 %i.2124
   %19 = load ptr, ptr %gep, align 8
@@ -1840,17 +1835,17 @@ if.end98:                                         ; preds = %for.body92
 
 lor.lhs.false105:                                 ; preds = %if.end98
   %20 = load ptr, ptr %group, align 8
-  %field_mul107 = getelementptr inbounds %struct.ec_method_st, ptr %20, i64 0, i32 7
+  %field_mul107 = getelementptr inbounds i8, ptr %20, i64 56
   %21 = load ptr, ptr %field_mul107, align 8
   %22 = load ptr, ptr %arrayidx93, align 8
-  %Z109 = getelementptr inbounds %struct.ec_point_st, ptr %22, i64 0, i32 3
+  %Z109 = getelementptr inbounds i8, ptr %22, i64 56
   %call110 = tail call i32 %21(ptr noundef nonnull %group, ptr noundef %call7, ptr noundef %call7, ptr noundef nonnull %Z109, ptr noundef nonnull %ctx.addr.0) #5
   %tobool111.not = icmp eq i32 %call110, 0
   br i1 %tobool111.not, label %err, label %lor.lhs.false112
 
 lor.lhs.false112:                                 ; preds = %lor.lhs.false105
   %23 = load ptr, ptr %arrayidx93, align 8
-  %Z114 = getelementptr inbounds %struct.ec_point_st, ptr %23, i64 0, i32 3
+  %Z114 = getelementptr inbounds i8, ptr %23, i64 56
   %call115 = tail call ptr @BN_copy(ptr noundef nonnull %Z114, ptr noundef %call8) #5
   %tobool116.not = icmp eq ptr %call115, null
   br i1 %tobool116.not, label %err, label %for.inc119
@@ -1862,34 +1857,34 @@ for.inc119:                                       ; preds = %lor.lhs.false112, %
 
 for.end120:                                       ; preds = %for.inc119, %if.end88
   %24 = load ptr, ptr %points, align 8
-  %Z122 = getelementptr inbounds %struct.ec_point_st, ptr %24, i64 0, i32 3
+  %Z122 = getelementptr inbounds i8, ptr %24, i64 56
   %call123 = tail call i32 @BN_is_zero(ptr noundef nonnull %Z122) #5
   %tobool124.not = icmp eq i32 %call123, 0
   br i1 %tobool124.not, label %land.lhs.true, label %if.end130
 
 land.lhs.true:                                    ; preds = %for.end120
   %25 = load ptr, ptr %points, align 8
-  %Z126 = getelementptr inbounds %struct.ec_point_st, ptr %25, i64 0, i32 3
+  %Z126 = getelementptr inbounds i8, ptr %25, i64 56
   %call127 = tail call ptr @BN_copy(ptr noundef nonnull %Z126, ptr noundef %call7) #5
   %tobool128.not = icmp eq ptr %call127, null
   br i1 %tobool128.not, label %err, label %if.end130
 
 if.end130:                                        ; preds = %land.lhs.true, %for.end120
-  %one164 = getelementptr inbounds %struct.ec_group_st, ptr %group, i64 0, i32 11
+  %one164 = getelementptr inbounds i8, ptr %group, i64 168
   br label %for.body133
 
 for.body133:                                      ; preds = %if.end130, %for.inc170
   %i.3125 = phi i64 [ 0, %if.end130 ], [ %inc171, %for.inc170 ]
   %arrayidx134 = getelementptr inbounds ptr, ptr %points, i64 %i.3125
   %26 = load ptr, ptr %arrayidx134, align 8
-  %Z135 = getelementptr inbounds %struct.ec_point_st, ptr %26, i64 0, i32 3
+  %Z135 = getelementptr inbounds i8, ptr %26, i64 56
   %call136 = tail call i32 @BN_is_zero(ptr noundef nonnull %Z135) #5
   %tobool137.not = icmp eq i32 %call136, 0
   br i1 %tobool137.not, label %if.then138, label %for.inc170
 
 if.then138:                                       ; preds = %for.body133
   %27 = load ptr, ptr %group, align 8
-  %field_sqr = getelementptr inbounds %struct.ec_method_st, ptr %27, i64 0, i32 8
+  %field_sqr = getelementptr inbounds i8, ptr %27, i64 64
   %28 = load ptr, ptr %field_sqr, align 8
   %call141 = tail call i32 %28(ptr noundef nonnull %group, ptr noundef %call7, ptr noundef nonnull %Z135, ptr noundef nonnull %ctx.addr.0) #5
   %tobool142.not = icmp eq i32 %call141, 0
@@ -1897,16 +1892,16 @@ if.then138:                                       ; preds = %for.body133
 
 lor.lhs.false143:                                 ; preds = %if.then138
   %29 = load ptr, ptr %group, align 8
-  %field_mul145 = getelementptr inbounds %struct.ec_method_st, ptr %29, i64 0, i32 7
+  %field_mul145 = getelementptr inbounds i8, ptr %29, i64 56
   %30 = load ptr, ptr %field_mul145, align 8
-  %X = getelementptr inbounds %struct.ec_point_st, ptr %26, i64 0, i32 1
+  %X = getelementptr inbounds i8, ptr %26, i64 8
   %call147 = tail call i32 %30(ptr noundef nonnull %group, ptr noundef nonnull %X, ptr noundef nonnull %X, ptr noundef %call7, ptr noundef nonnull %ctx.addr.0) #5
   %tobool148.not = icmp eq i32 %call147, 0
   br i1 %tobool148.not, label %err, label %lor.lhs.false149
 
 lor.lhs.false149:                                 ; preds = %lor.lhs.false143
   %31 = load ptr, ptr %group, align 8
-  %field_mul151 = getelementptr inbounds %struct.ec_method_st, ptr %31, i64 0, i32 7
+  %field_mul151 = getelementptr inbounds i8, ptr %31, i64 56
   %32 = load ptr, ptr %field_mul151, align 8
   %call153 = tail call i32 %32(ptr noundef nonnull %group, ptr noundef %call7, ptr noundef %call7, ptr noundef nonnull %Z135, ptr noundef nonnull %ctx.addr.0) #5
   %tobool154.not = icmp eq i32 %call153, 0
@@ -1914,9 +1909,9 @@ lor.lhs.false149:                                 ; preds = %lor.lhs.false143
 
 lor.lhs.false155:                                 ; preds = %lor.lhs.false149
   %33 = load ptr, ptr %group, align 8
-  %field_mul157 = getelementptr inbounds %struct.ec_method_st, ptr %33, i64 0, i32 7
+  %field_mul157 = getelementptr inbounds i8, ptr %33, i64 56
   %34 = load ptr, ptr %field_mul157, align 8
-  %Y = getelementptr inbounds %struct.ec_point_st, ptr %26, i64 0, i32 2
+  %Y = getelementptr inbounds i8, ptr %26, i64 32
   %call159 = tail call i32 %34(ptr noundef nonnull %group, ptr noundef nonnull %Y, ptr noundef nonnull %Y, ptr noundef %call7, ptr noundef nonnull %ctx.addr.0) #5
   %tobool160.not = icmp eq i32 %call159, 0
   br i1 %tobool160.not, label %err, label %if.end162
@@ -1975,7 +1970,7 @@ declare void @free(ptr allocptr nocapture noundef) local_unnamed_addr #2
 ; Function Attrs: nounwind uwtable
 define hidden i32 @ec_GFp_simple_field_mul(ptr noundef %group, ptr noundef %r, ptr noundef %a, ptr noundef %b, ptr noundef %ctx) local_unnamed_addr #0 {
 entry:
-  %field = getelementptr inbounds %struct.ec_group_st, ptr %group, i64 0, i32 6
+  %field = getelementptr inbounds i8, ptr %group, i64 80
   %call = tail call i32 @BN_mod_mul(ptr noundef %r, ptr noundef %a, ptr noundef %b, ptr noundef nonnull %field, ptr noundef %ctx) #5
   ret i32 %call
 }
@@ -1985,7 +1980,7 @@ declare i32 @BN_mod_mul(ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr 
 ; Function Attrs: nounwind uwtable
 define hidden i32 @ec_GFp_simple_field_sqr(ptr noundef %group, ptr noundef %r, ptr noundef %a, ptr noundef %ctx) local_unnamed_addr #0 {
 entry:
-  %field = getelementptr inbounds %struct.ec_group_st, ptr %group, i64 0, i32 6
+  %field = getelementptr inbounds i8, ptr %group, i64 80
   %call = tail call i32 @BN_mod_sqr(ptr noundef %r, ptr noundef %a, ptr noundef nonnull %field, ptr noundef %ctx) #5
   ret i32 %call
 }

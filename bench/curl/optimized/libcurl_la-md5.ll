@@ -6,7 +6,6 @@ target triple = "x86_64-unknown-linux-gnu"
 %struct.HMAC_params = type { ptr, ptr, ptr, i32, i32, i32 }
 %struct.MD5_params = type { ptr, ptr, ptr, i32, i32 }
 %struct.MD5state_st = type { i32, i32, i32, i32, i32, i32, [16 x i32], i32 }
-%struct.MD5_context = type { ptr, ptr }
 
 @Curl_HMAC_MD5 = hidden local_unnamed_addr constant [1 x %struct.HMAC_params] [%struct.HMAC_params { ptr @my_md5_init, ptr @my_md5_update, ptr @my_md5_final, i32 92, i32 64, i32 16 }], align 16
 @Curl_DIGEST_MD5 = hidden local_unnamed_addr constant [1 x %struct.MD5_params] [%struct.MD5_params { ptr @my_md5_init, ptr @my_md5_update, ptr @my_md5_final, i32 92, i32 16 }], align 16
@@ -69,11 +68,11 @@ entry:
 
 if.end:                                           ; preds = %entry
   %1 = load ptr, ptr @Curl_cmalloc, align 8
-  %md5_ctxtsize = getelementptr inbounds %struct.MD5_params, ptr %md5params, i64 0, i32 3
+  %md5_ctxtsize = getelementptr inbounds i8, ptr %md5params, i64 24
   %2 = load i32, ptr %md5_ctxtsize, align 8
   %conv = zext i32 %2 to i64
   %call1 = tail call ptr %1(i64 noundef %conv) #2
-  %md5_hashctx = getelementptr inbounds %struct.MD5_context, ptr %call, i64 0, i32 1
+  %md5_hashctx = getelementptr inbounds i8, ptr %call, i64 8
   store ptr %call1, ptr %md5_hashctx, align 8
   %tobool3.not = icmp eq ptr %call1, null
   br i1 %tobool3.not, label %return.sink.split, label %if.end5
@@ -105,9 +104,9 @@ return:                                           ; preds = %return.sink.split, 
 define hidden noundef i32 @Curl_MD5_update(ptr nocapture noundef readonly %context, ptr noundef %data, i32 noundef %len) local_unnamed_addr #0 {
 entry:
   %0 = load ptr, ptr %context, align 8
-  %md5_update_func = getelementptr inbounds %struct.MD5_params, ptr %0, i64 0, i32 1
+  %md5_update_func = getelementptr inbounds i8, ptr %0, i64 8
   %1 = load ptr, ptr %md5_update_func, align 8
-  %md5_hashctx = getelementptr inbounds %struct.MD5_context, ptr %context, i64 0, i32 1
+  %md5_hashctx = getelementptr inbounds i8, ptr %context, i64 8
   %2 = load ptr, ptr %md5_hashctx, align 8
   tail call void %1(ptr noundef %2, ptr noundef %data, i32 noundef %len) #2
   ret i32 0
@@ -117,9 +116,9 @@ entry:
 define hidden noundef i32 @Curl_MD5_final(ptr noundef %context, ptr noundef %result) local_unnamed_addr #0 {
 entry:
   %0 = load ptr, ptr %context, align 8
-  %md5_final_func = getelementptr inbounds %struct.MD5_params, ptr %0, i64 0, i32 2
+  %md5_final_func = getelementptr inbounds i8, ptr %0, i64 16
   %1 = load ptr, ptr %md5_final_func, align 8
-  %md5_hashctx = getelementptr inbounds %struct.MD5_context, ptr %context, i64 0, i32 1
+  %md5_hashctx = getelementptr inbounds i8, ptr %context, i64 8
   %2 = load ptr, ptr %md5_hashctx, align 8
   tail call void %1(ptr noundef %result, ptr noundef %2) #2
   %3 = load ptr, ptr @Curl_cfree, align 8

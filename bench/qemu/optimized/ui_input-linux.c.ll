@@ -8,14 +8,6 @@ target triple = "x86_64-unknown-linux-gnu"
 %union.anon.0 = type { %struct.QTailQLink }
 %struct.QTailQLink = type { ptr, ptr }
 %struct.QEnumLookup = type { ptr, ptr, i32 }
-%struct.InputLinux = type { %struct.Object, ptr, i32, i8, i8, i8, i8, [768 x i8], i32, i32, i8, i8, i8, i32, i32, i32, i32, i32, i32, %struct.input_event, i32, i32, %union.anon }
-%struct.Object = type { ptr, ptr, ptr, i32, ptr }
-%struct.input_event = type { %struct.timeval, i16, i16, i32 }
-%struct.timeval = type { i64, i64 }
-%union.anon = type { %struct.QTailQLink }
-%struct.UserCreatableClass = type { %struct.InterfaceClass, ptr, ptr }
-%struct.InterfaceClass = type { %struct.ObjectClass, ptr, ptr }
-%struct.ObjectClass = type { ptr, ptr, [4 x ptr], [4 x ptr], ptr, ptr }
 %struct.input_absinfo = type { i32, i32, i32, i32, i32, i32 }
 
 @input_linux_info = internal constant %struct.TypeInfo { ptr @.str, ptr @.str.1, i64 912, i64 0, ptr @input_linux_instance_init, ptr null, ptr @input_linux_instance_finalize, i8 0, i64 0, ptr @input_linux_class_init, ptr null, ptr null, ptr @.compoundliteral }, align 8
@@ -77,22 +69,22 @@ entry:
 define internal void @input_linux_instance_finalize(ptr noundef %obj) #0 {
 entry:
   %call.i = tail call ptr @object_dynamic_cast_assert(ptr noundef %obj, ptr noundef nonnull @.str, ptr noundef nonnull @.str.3, i32 noundef 35, ptr noundef nonnull @__func__.INPUT_LINUX) #8
-  %initialized = getelementptr inbounds %struct.InputLinux, ptr %call.i, i64 0, i32 10
+  %initialized = getelementptr inbounds i8, ptr %call.i, i64 832
   %0 = load i8, ptr %initialized, align 8
   %1 = and i8 %0, 1
   %tobool.not = icmp eq i8 %1, 0
   br i1 %tobool.not, label %if.end18, label %do.body
 
 do.body:                                          ; preds = %entry
-  %next = getelementptr inbounds %struct.InputLinux, ptr %call.i, i64 0, i32 22
+  %next = getelementptr inbounds i8, ptr %call.i, i64 896
   %2 = load ptr, ptr %next, align 8
   %cmp.not = icmp eq ptr %2, null
-  %tql_prev7 = getelementptr inbounds %struct.InputLinux, ptr %call.i, i64 0, i32 22, i32 0, i32 1
+  %tql_prev7 = getelementptr inbounds i8, ptr %call.i, i64 904
   %3 = load ptr, ptr %tql_prev7, align 8
   br i1 %cmp.not, label %if.else, label %if.then1
 
 if.then1:                                         ; preds = %do.body
-  %tql_prev5 = getelementptr inbounds %struct.InputLinux, ptr %2, i64 0, i32 22, i32 0, i32 1
+  %tql_prev5 = getelementptr inbounds i8, ptr %2, i64 904
   store ptr %3, ptr %tql_prev5, align 8
   %.pre = load ptr, ptr %next, align 8
   br label %if.end
@@ -104,7 +96,7 @@ if.else:                                          ; preds = %do.body
 if.end:                                           ; preds = %if.else, %if.then1
   %4 = phi ptr [ null, %if.else ], [ %.pre, %if.then1 ]
   store ptr %4, ptr %3, align 8
-  %fd = getelementptr inbounds %struct.InputLinux, ptr %call.i, i64 0, i32 2
+  %fd = getelementptr inbounds i8, ptr %call.i, i64 48
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %next, i8 0, i64 16, i1 false)
   %5 = load i32, ptr %fd, align 8
   tail call void @qemu_set_fd_handler(i32 noundef %5, ptr noundef null, ptr noundef null, ptr noundef null) #8
@@ -113,7 +105,7 @@ if.end:                                           ; preds = %if.else, %if.then1
   br label %if.end18
 
 if.end18:                                         ; preds = %if.end, %entry
-  %evdev = getelementptr inbounds %struct.InputLinux, ptr %call.i, i64 0, i32 1
+  %evdev = getelementptr inbounds i8, ptr %call.i, i64 40
   %7 = load ptr, ptr %evdev, align 8
   tail call void @g_free(ptr noundef %7) #8
   ret void
@@ -123,7 +115,7 @@ if.end18:                                         ; preds = %if.end, %entry
 define internal void @input_linux_class_init(ptr noundef %oc, ptr nocapture readnone %data) #0 {
 entry:
   %call.i = tail call ptr @object_class_dynamic_cast_assert(ptr noundef %oc, ptr noundef nonnull @.str.2, ptr noundef nonnull @.str.9, i32 noundef 12, ptr noundef nonnull @__func__.USER_CREATABLE_CLASS) #8
-  %complete = getelementptr inbounds %struct.UserCreatableClass, ptr %call.i, i64 0, i32 1
+  %complete = getelementptr inbounds i8, ptr %call.i, i64 112
   store ptr @input_linux_complete, ptr %complete, align 8
   %call1 = tail call ptr @object_class_property_add_str(ptr noundef %oc, ptr noundef nonnull @.str.4, ptr noundef nonnull @input_linux_get_evdev, ptr noundef nonnull @input_linux_set_evdev) #8
   %call2 = tail call ptr @object_class_property_add_bool(ptr noundef %oc, ptr noundef nonnull @.str.5, ptr noundef nonnull @input_linux_get_grab_all, ptr noundef nonnull @input_linux_set_grab_all) #8
@@ -151,7 +143,7 @@ entry:
   %ver = alloca i32, align 4
   %absinfo = alloca %struct.input_absinfo, align 4
   %call.i = tail call ptr @object_dynamic_cast_assert(ptr noundef %uc, ptr noundef nonnull @.str, ptr noundef nonnull @.str.3, i32 noundef 35, ptr noundef nonnull @__func__.INPUT_LINUX) #8
-  %evdev = getelementptr inbounds %struct.InputLinux, ptr %call.i, i64 0, i32 1
+  %evdev = getelementptr inbounds i8, ptr %call.i, i64 40
   %0 = load ptr, ptr %evdev, align 8
   %tobool.not = icmp eq ptr %0, null
   br i1 %tobool.not, label %if.then, label %if.end
@@ -162,7 +154,7 @@ if.then:                                          ; preds = %entry
 
 if.end:                                           ; preds = %entry
   %call2 = tail call i32 (ptr, i32, ...) @open64(ptr noundef nonnull %0, i32 noundef 2) #8
-  %fd = getelementptr inbounds %struct.InputLinux, ptr %call.i, i64 0, i32 2
+  %fd = getelementptr inbounds i8, ptr %call.i, i64 48
   store i32 %call2, ptr %fd, align 8
   %cmp = icmp slt i32 %call2, 0
   br i1 %cmp, label %if.then4, label %if.end7
@@ -222,7 +214,7 @@ if.end32:                                         ; preds = %if.then26
   br i1 %tobool35.not, label %if.end38, label %if.then36
 
 if.then36:                                        ; preds = %if.end32
-  %has_rel_x = getelementptr inbounds %struct.InputLinux, ptr %call.i, i64 0, i32 11
+  %has_rel_x = getelementptr inbounds i8, ptr %call.i, i64 833
   store i8 1, ptr %has_rel_x, align 1
   br label %if.end38
 
@@ -246,7 +238,7 @@ if.end48:                                         ; preds = %if.then42
   br i1 %tobool51.not, label %if.end70, label %if.then52
 
 if.then52:                                        ; preds = %if.end48
-  %has_abs_x = getelementptr inbounds %struct.InputLinux, ptr %call.i, i64 0, i32 12
+  %has_abs_x = getelementptr inbounds i8, ptr %call.i, i64 834
   store i8 1, ptr %has_abs_x, align 2
   %17 = load i32, ptr %fd, align 8
   %call54 = call i32 (i32, i64, ...) @ioctl(i32 noundef %17, i64 noundef 2149074240, ptr noundef nonnull %absinfo) #8
@@ -259,8 +251,8 @@ if.then57:                                        ; preds = %if.then52
   br label %err_close
 
 if.end59:                                         ; preds = %if.then52
-  %minimum = getelementptr inbounds %struct.input_absinfo, ptr %absinfo, i64 0, i32 1
-  %abs_x_min = getelementptr inbounds %struct.InputLinux, ptr %call.i, i64 0, i32 15
+  %minimum = getelementptr inbounds i8, ptr %absinfo, i64 4
+  %abs_x_min = getelementptr inbounds i8, ptr %call.i, i64 844
   %19 = load <2 x i32>, ptr %minimum, align 4
   store <2 x i32> %19, ptr %abs_x_min, align 4
   %20 = load i32, ptr %fd, align 8
@@ -274,7 +266,7 @@ if.then64:                                        ; preds = %if.end59
   br label %err_close
 
 if.end66:                                         ; preds = %if.end59
-  %abs_y_min = getelementptr inbounds %struct.InputLinux, ptr %call.i, i64 0, i32 17
+  %abs_y_min = getelementptr inbounds i8, ptr %call.i, i64 852
   %22 = load <2 x i32>, ptr %minimum, align 4
   store <2 x i32> %22, ptr %abs_y_min, align 4
   br label %if.end70
@@ -299,9 +291,10 @@ if.end81:                                         ; preds = %if.then74
   br i1 %cmp85, label %if.then87, label %for.cond.preheader
 
 for.cond.preheader:                               ; preds = %if.end81
-  %num_keys = getelementptr inbounds %struct.InputLinux, ptr %call.i, i64 0, i32 13
-  %num_btns = getelementptr inbounds %struct.InputLinux, ptr %call.i, i64 0, i32 14
-  %keycount = getelementptr inbounds %struct.InputLinux, ptr %call.i, i64 0, i32 8
+  %num_keys = getelementptr inbounds i8, ptr %call.i, i64 836
+  %num_btns = getelementptr inbounds i8, ptr %call.i, i64 840
+  %keydown = getelementptr inbounds i8, ptr %call.i, i64 56
+  %keycount = getelementptr inbounds i8, ptr %call.i, i64 824
   br label %for.body
 
 if.then87:                                        ; preds = %if.end81
@@ -352,7 +345,7 @@ if.end99:                                         ; preds = %if.else, %if.then97
   br i1 %tobool107.not, label %for.inc, label %if.then108
 
 if.then108:                                       ; preds = %if.end99
-  %arrayidx110 = getelementptr %struct.InputLinux, ptr %call.i, i64 0, i32 7, i64 %indvars.iv
+  %arrayidx110 = getelementptr [768 x i8], ptr %keydown, i64 0, i64 %indvars.iv
   store i8 1, ptr %arrayidx110, align 1
   %35 = load i32, ptr %keycount, align 8
   %inc111 = add i32 %35, 1
@@ -367,13 +360,13 @@ for.inc:                                          ; preds = %for.body, %if.then1
 if.end115:                                        ; preds = %for.inc, %if.end70
   %36 = load i32, ptr %fd, align 8
   call void @qemu_set_fd_handler(i32 noundef %36, ptr noundef nonnull @input_linux_event, ptr noundef null, ptr noundef %call.i) #8
-  %keycount117 = getelementptr inbounds %struct.InputLinux, ptr %call.i, i64 0, i32 8
+  %keycount117 = getelementptr inbounds i8, ptr %call.i, i64 824
   %37 = load i32, ptr %keycount117, align 8
   %tobool118.not = icmp eq i32 %37, 0
   br i1 %tobool118.not, label %if.else120, label %if.then119
 
 if.then119:                                       ; preds = %if.end115
-  %grab_request = getelementptr inbounds %struct.InputLinux, ptr %call.i, i64 0, i32 4
+  %grab_request = getelementptr inbounds i8, ptr %call.i, i64 53
   store i8 1, ptr %grab_request, align 1
   br label %do.body
 
@@ -382,14 +375,14 @@ if.else120:                                       ; preds = %if.end115
   br label %do.body
 
 do.body:                                          ; preds = %if.then119, %if.else120
-  %next = getelementptr inbounds %struct.InputLinux, ptr %call.i, i64 0, i32 22
+  %next = getelementptr inbounds i8, ptr %call.i, i64 896
   store ptr null, ptr %next, align 8
   %38 = load ptr, ptr getelementptr inbounds (%union.anon.0, ptr @inputs, i64 0, i32 0, i32 1), align 8
-  %tql_prev = getelementptr inbounds %struct.InputLinux, ptr %call.i, i64 0, i32 22, i32 0, i32 1
+  %tql_prev = getelementptr inbounds i8, ptr %call.i, i64 904
   store ptr %38, ptr %tql_prev, align 8
   store ptr %call.i, ptr %38, align 8
   store ptr %next, ptr getelementptr inbounds (%union.anon.0, ptr @inputs, i64 0, i32 0, i32 1), align 8
-  %initialized = getelementptr inbounds %struct.InputLinux, ptr %call.i, i64 0, i32 10
+  %initialized = getelementptr inbounds i8, ptr %call.i, i64 832
   store i8 1, ptr %initialized, align 8
   br label %return
 
@@ -413,7 +406,7 @@ declare ptr @object_class_property_add_str(ptr noundef, ptr noundef, ptr noundef
 define internal noalias ptr @input_linux_get_evdev(ptr noundef %obj, ptr nocapture readnone %errp) #0 {
 entry:
   %call.i = tail call ptr @object_dynamic_cast_assert(ptr noundef %obj, ptr noundef nonnull @.str, ptr noundef nonnull @.str.3, i32 noundef 35, ptr noundef nonnull @__func__.INPUT_LINUX) #8
-  %evdev = getelementptr inbounds %struct.InputLinux, ptr %call.i, i64 0, i32 1
+  %evdev = getelementptr inbounds i8, ptr %call.i, i64 40
   %0 = load ptr, ptr %evdev, align 8
   %call1 = tail call noalias ptr @g_strdup(ptr noundef %0) #8
   ret ptr %call1
@@ -423,7 +416,7 @@ entry:
 define internal void @input_linux_set_evdev(ptr noundef %obj, ptr noundef %value, ptr noundef %errp) #0 {
 entry:
   %call.i = tail call ptr @object_dynamic_cast_assert(ptr noundef %obj, ptr noundef nonnull @.str, ptr noundef nonnull @.str.3, i32 noundef 35, ptr noundef nonnull @__func__.INPUT_LINUX) #8
-  %evdev = getelementptr inbounds %struct.InputLinux, ptr %call.i, i64 0, i32 1
+  %evdev = getelementptr inbounds i8, ptr %call.i, i64 40
   %0 = load ptr, ptr %evdev, align 8
   %tobool.not = icmp eq ptr %0, null
   br i1 %tobool.not, label %if.end, label %if.then
@@ -447,7 +440,7 @@ declare ptr @object_class_property_add_bool(ptr noundef, ptr noundef, ptr nounde
 define internal zeroext i1 @input_linux_get_grab_all(ptr noundef %obj, ptr nocapture readnone %errp) #0 {
 entry:
   %call.i = tail call ptr @object_dynamic_cast_assert(ptr noundef %obj, ptr noundef nonnull @.str, ptr noundef nonnull @.str.3, i32 noundef 35, ptr noundef nonnull @__func__.INPUT_LINUX) #8
-  %grab_all = getelementptr inbounds %struct.InputLinux, ptr %call.i, i64 0, i32 6
+  %grab_all = getelementptr inbounds i8, ptr %call.i, i64 55
   %0 = load i8, ptr %grab_all, align 1
   %1 = and i8 %0, 1
   %tobool = icmp ne i8 %1, 0
@@ -459,7 +452,7 @@ define internal void @input_linux_set_grab_all(ptr noundef %obj, i1 noundef zero
 entry:
   %frombool = zext i1 %value to i8
   %call.i = tail call ptr @object_dynamic_cast_assert(ptr noundef %obj, ptr noundef nonnull @.str, ptr noundef nonnull @.str.3, i32 noundef 35, ptr noundef nonnull @__func__.INPUT_LINUX) #8
-  %grab_all = getelementptr inbounds %struct.InputLinux, ptr %call.i, i64 0, i32 6
+  %grab_all = getelementptr inbounds i8, ptr %call.i, i64 55
   store i8 %frombool, ptr %grab_all, align 1
   ret void
 }
@@ -468,7 +461,7 @@ entry:
 define internal zeroext i1 @input_linux_get_repeat(ptr noundef %obj, ptr nocapture readnone %errp) #0 {
 entry:
   %call.i = tail call ptr @object_dynamic_cast_assert(ptr noundef %obj, ptr noundef nonnull @.str, ptr noundef nonnull @.str.3, i32 noundef 35, ptr noundef nonnull @__func__.INPUT_LINUX) #8
-  %repeat = getelementptr inbounds %struct.InputLinux, ptr %call.i, i64 0, i32 3
+  %repeat = getelementptr inbounds i8, ptr %call.i, i64 52
   %0 = load i8, ptr %repeat, align 4
   %1 = and i8 %0, 1
   %tobool = icmp ne i8 %1, 0
@@ -480,7 +473,7 @@ define internal void @input_linux_set_repeat(ptr noundef %obj, i1 noundef zeroex
 entry:
   %frombool = zext i1 %value to i8
   %call.i = tail call ptr @object_dynamic_cast_assert(ptr noundef %obj, ptr noundef nonnull @.str, ptr noundef nonnull @.str.3, i32 noundef 35, ptr noundef nonnull @__func__.INPUT_LINUX) #8
-  %repeat = getelementptr inbounds %struct.InputLinux, ptr %call.i, i64 0, i32 3
+  %repeat = getelementptr inbounds i8, ptr %call.i, i64 52
   store i8 %frombool, ptr %repeat, align 4
   ret void
 }
@@ -491,7 +484,7 @@ declare ptr @object_class_property_add_enum(ptr noundef, ptr noundef, ptr nounde
 define internal i32 @input_linux_get_grab_toggle(ptr noundef %obj, ptr nocapture readnone %errp) #0 {
 entry:
   %call.i = tail call ptr @object_dynamic_cast_assert(ptr noundef %obj, ptr noundef nonnull @.str, ptr noundef nonnull @.str.3, i32 noundef 35, ptr noundef nonnull @__func__.INPUT_LINUX) #8
-  %grab_toggle = getelementptr inbounds %struct.InputLinux, ptr %call.i, i64 0, i32 21
+  %grab_toggle = getelementptr inbounds i8, ptr %call.i, i64 892
   %0 = load i32, ptr %grab_toggle, align 4
   ret i32 %0
 }
@@ -500,7 +493,7 @@ entry:
 define internal void @input_linux_set_grab_toggle(ptr noundef %obj, i32 noundef %value, ptr nocapture readnone %errp) #0 {
 entry:
   %call.i = tail call ptr @object_dynamic_cast_assert(ptr noundef %obj, ptr noundef nonnull @.str, ptr noundef nonnull @.str.3, i32 noundef 35, ptr noundef nonnull @__func__.INPUT_LINUX) #8
-  %grab_toggle = getelementptr inbounds %struct.InputLinux, ptr %call.i, i64 0, i32 21
+  %grab_toggle = getelementptr inbounds i8, ptr %call.i, i64 892
   store i32 %value, ptr %grab_toggle, align 4
   ret void
 }
@@ -530,9 +523,9 @@ declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #6
 ; Function Attrs: nounwind sspstrong uwtable
 define internal void @input_linux_event(ptr noundef %opaque) #0 {
 entry:
-  %event = getelementptr inbounds %struct.InputLinux, ptr %opaque, i64 0, i32 19
-  %read_offset = getelementptr inbounds %struct.InputLinux, ptr %opaque, i64 0, i32 20
-  %fd = getelementptr inbounds %struct.InputLinux, ptr %opaque, i64 0, i32 2
+  %event = getelementptr inbounds i8, ptr %opaque, i64 864
+  %read_offset = getelementptr inbounds i8, ptr %opaque, i64 888
+  %fd = getelementptr inbounds i8, ptr %opaque, i64 48
   %0 = load i32, ptr %read_offset, align 8
   %conv28 = sext i32 %0 to i64
   %sub29 = sub i32 24, %0
@@ -545,32 +538,33 @@ entry:
   br i1 %cmp.not34, label %if.end23.lr.ph, label %if.then
 
 if.end23.lr.ph:                                   ; preds = %entry
-  %num_keys = getelementptr inbounds %struct.InputLinux, ptr %opaque, i64 0, i32 13
-  %type.i = getelementptr inbounds %struct.InputLinux, ptr %opaque, i64 0, i32 19, i32 1
-  %value.i = getelementptr inbounds %struct.InputLinux, ptr %opaque, i64 0, i32 19, i32 3
-  %repeat.i = getelementptr inbounds %struct.InputLinux, ptr %opaque, i64 0, i32 3
-  %code.i = getelementptr inbounds %struct.InputLinux, ptr %opaque, i64 0, i32 19, i32 2
-  %keycount.i = getelementptr inbounds %struct.InputLinux, ptr %opaque, i64 0, i32 8
-  %grab_active.i = getelementptr inbounds %struct.InputLinux, ptr %opaque, i64 0, i32 5
+  %num_keys = getelementptr inbounds i8, ptr %opaque, i64 836
+  %type.i = getelementptr inbounds i8, ptr %opaque, i64 880
+  %value.i = getelementptr inbounds i8, ptr %opaque, i64 884
+  %repeat.i = getelementptr inbounds i8, ptr %opaque, i64 52
+  %code.i = getelementptr inbounds i8, ptr %opaque, i64 882
+  %keydown.i = getelementptr inbounds i8, ptr %opaque, i64 56
+  %keycount.i = getelementptr inbounds i8, ptr %opaque, i64 824
+  %grab_active.i = getelementptr inbounds i8, ptr %opaque, i64 54
   %2 = getelementptr i8, ptr %opaque, i64 892
-  %arrayidx37.i.i = getelementptr %struct.InputLinux, ptr %opaque, i64 0, i32 7, i64 29
-  %arrayidx40.i.i = getelementptr %struct.InputLinux, ptr %opaque, i64 0, i32 7, i64 97
-  %arrayidx44.i.i = getelementptr %struct.InputLinux, ptr %opaque, i64 0, i32 7, i64 70
-  %arrayidx24.i.i = getelementptr %struct.InputLinux, ptr %opaque, i64 0, i32 7, i64 125
-  %arrayidx28.i.i = getelementptr %struct.InputLinux, ptr %opaque, i64 0, i32 7, i64 126
-  %arrayidx15.i.i = getelementptr %struct.InputLinux, ptr %opaque, i64 0, i32 7, i64 42
-  %arrayidx19.i.i = getelementptr %struct.InputLinux, ptr %opaque, i64 0, i32 7, i64 54
-  %arrayidx6.i.i = getelementptr %struct.InputLinux, ptr %opaque, i64 0, i32 7, i64 56
-  %arrayidx10.i.i = getelementptr %struct.InputLinux, ptr %opaque, i64 0, i32 7, i64 100
-  %grab_request.i = getelementptr inbounds %struct.InputLinux, ptr %opaque, i64 0, i32 4
-  %has_rel_x = getelementptr inbounds %struct.InputLinux, ptr %opaque, i64 0, i32 11
-  %has_abs_x = getelementptr inbounds %struct.InputLinux, ptr %opaque, i64 0, i32 12
-  %num_btns = getelementptr inbounds %struct.InputLinux, ptr %opaque, i64 0, i32 14
-  %wheel41.i = getelementptr inbounds %struct.InputLinux, ptr %opaque, i64 0, i32 9
-  %abs_y_min.i = getelementptr inbounds %struct.InputLinux, ptr %opaque, i64 0, i32 17
-  %abs_y_max.i = getelementptr inbounds %struct.InputLinux, ptr %opaque, i64 0, i32 18
-  %abs_x_min.i = getelementptr inbounds %struct.InputLinux, ptr %opaque, i64 0, i32 15
-  %abs_x_max.i = getelementptr inbounds %struct.InputLinux, ptr %opaque, i64 0, i32 16
+  %arrayidx37.i.i = getelementptr i8, ptr %opaque, i64 85
+  %arrayidx40.i.i = getelementptr i8, ptr %opaque, i64 153
+  %arrayidx44.i.i = getelementptr i8, ptr %opaque, i64 126
+  %arrayidx24.i.i = getelementptr i8, ptr %opaque, i64 181
+  %arrayidx28.i.i = getelementptr i8, ptr %opaque, i64 182
+  %arrayidx15.i.i = getelementptr i8, ptr %opaque, i64 98
+  %arrayidx19.i.i = getelementptr i8, ptr %opaque, i64 110
+  %arrayidx6.i.i = getelementptr i8, ptr %opaque, i64 112
+  %arrayidx10.i.i = getelementptr i8, ptr %opaque, i64 156
+  %grab_request.i = getelementptr inbounds i8, ptr %opaque, i64 53
+  %has_rel_x = getelementptr inbounds i8, ptr %opaque, i64 833
+  %has_abs_x = getelementptr inbounds i8, ptr %opaque, i64 834
+  %num_btns = getelementptr inbounds i8, ptr %opaque, i64 840
+  %wheel41.i = getelementptr inbounds i8, ptr %opaque, i64 828
+  %abs_y_min.i = getelementptr inbounds i8, ptr %opaque, i64 852
+  %abs_y_max.i = getelementptr inbounds i8, ptr %opaque, i64 856
+  %abs_x_min.i = getelementptr inbounds i8, ptr %opaque, i64 844
+  %abs_x_max.i = getelementptr inbounds i8, ptr %opaque, i64 848
   br label %if.end23
 
 if.then:                                          ; preds = %if.end36, %entry
@@ -637,7 +631,7 @@ if.end.i:                                         ; preds = %land.lhs.true.i, %l
 
 if.end12.i:                                       ; preds = %if.end.i
   %idxprom.i = zext nneg i16 %13 to i64
-  %arrayidx.i = getelementptr %struct.InputLinux, ptr %opaque, i64 0, i32 7, i64 %idxprom.i
+  %arrayidx.i = getelementptr [768 x i8], ptr %keydown.i, i64 0, i64 %idxprom.i
   %14 = load i8, ptr %arrayidx.i, align 1
   %15 = and i8 %14, 1
   %tobool14.not.i = icmp ne i8 %15, 0
@@ -652,7 +646,7 @@ if.then18.i:                                      ; preds = %if.end12.i
   store i32 %inc.i, ptr %keycount.i, align 8
   %.pre.i = load i16, ptr %code.i, align 2
   %idxprom26.phi.trans.insert.i = zext i16 %.pre.i to i64
-  %arrayidx27.phi.trans.insert.i = getelementptr %struct.InputLinux, ptr %opaque, i64 0, i32 7, i64 %idxprom26.phi.trans.insert.i
+  %arrayidx27.phi.trans.insert.i = getelementptr [768 x i8], ptr %keydown.i, i64 0, i64 %idxprom26.phi.trans.insert.i
   %.pre29.i = load i8, ptr %arrayidx27.phi.trans.insert.i, align 1
   %.pre31.i = and i8 %.pre29.i, 1
   br label %if.end23.i
@@ -660,7 +654,7 @@ if.then18.i:                                      ; preds = %if.end12.i
 if.end23.i:                                       ; preds = %if.then18.i, %if.end12.i
   %.pre-phi.i = phi i8 [ %.pre31.i, %if.then18.i ], [ %15, %if.end12.i ]
   %idxprom26.pre-phi.i = phi i64 [ %idxprom26.phi.trans.insert.i, %if.then18.i ], [ %idxprom.i, %if.end12.i ]
-  %arrayidx27.i = getelementptr %struct.InputLinux, ptr %opaque, i64 0, i32 7, i64 %idxprom26.pre-phi.i
+  %arrayidx27.i = getelementptr [768 x i8], ptr %keydown.i, i64 0, i64 %idxprom26.pre-phi.i
   %tobool28.not.i = icmp eq i8 %.pre-phi.i, 0
   br i1 %tobool28.not.i, label %if.end39.i, label %land.lhs.true30.i
 
@@ -968,12 +962,12 @@ for.end:                                          ; preds = %land.lhs.true, %if.
 ; Function Attrs: nounwind sspstrong uwtable
 define internal fastcc void @input_linux_toggle_grab(ptr noundef %il) unnamed_addr #0 {
 entry:
-  %grab_active = getelementptr inbounds %struct.InputLinux, ptr %il, i64 0, i32 5
+  %grab_active = getelementptr inbounds i8, ptr %il, i64 54
   %0 = load i8, ptr %grab_active, align 2
   %1 = and i8 %0, 1
   %2 = xor i8 %1, 1
   %conv = zext nneg i8 %2 to i64
-  %fd = getelementptr inbounds %struct.InputLinux, ptr %il, i64 0, i32 2
+  %fd = getelementptr inbounds i8, ptr %il, i64 48
   %3 = load i32, ptr %fd, align 8
   %call = tail call i32 (i32, i64, ...) @ioctl(i32 noundef %3, i64 noundef 1074021776, i64 noundef %conv) #8
   %cmp = icmp slt i32 %call, 0
@@ -984,7 +978,7 @@ if.end:                                           ; preds = %entry
   %5 = and i8 %4, 1
   %frombool = xor i8 %5, 1
   store i8 %frombool, ptr %grab_active, align 2
-  %grab_all = getelementptr inbounds %struct.InputLinux, ptr %il, i64 0, i32 6
+  %grab_all = getelementptr inbounds i8, ptr %il, i64 55
   %6 = load i8, ptr %grab_all, align 1
   %7 = and i8 %6, 1
   %tobool7.not = icmp eq i8 %7, 0
@@ -999,14 +993,14 @@ for.body:                                         ; preds = %if.end, %for.inc
   br i1 %cmp11, label %for.inc, label %lor.lhs.false
 
 lor.lhs.false:                                    ; preds = %for.body
-  %grab_all13 = getelementptr inbounds %struct.InputLinux, ptr %item.014, i64 0, i32 6
+  %grab_all13 = getelementptr inbounds i8, ptr %item.014, i64 55
   %8 = load i8, ptr %grab_all13, align 1
   %9 = and i8 %8, 1
   %tobool14.not = icmp eq i8 %9, 0
   br i1 %tobool14.not, label %if.end17, label %for.inc
 
 if.end17:                                         ; preds = %lor.lhs.false
-  %grab_active18 = getelementptr inbounds %struct.InputLinux, ptr %item.014, i64 0, i32 5
+  %grab_active18 = getelementptr inbounds i8, ptr %item.014, i64 54
   %10 = load i8, ptr %grab_active18, align 2
   %11 = load i8, ptr %grab_active, align 2
   %12 = xor i8 %11, %10
@@ -1019,7 +1013,7 @@ if.then26:                                        ; preds = %if.end17
   br label %for.inc
 
 for.inc:                                          ; preds = %if.end17, %if.then26, %for.body, %lor.lhs.false
-  %next = getelementptr inbounds %struct.InputLinux, ptr %item.014, i64 0, i32 22
+  %next = getelementptr inbounds i8, ptr %item.014, i64 896
   %item.0 = load ptr, ptr %next, align 8
   %tobool10.not = icmp eq ptr %item.0, null
   br i1 %tobool10.not, label %for.end, label %for.body, !llvm.loop !7

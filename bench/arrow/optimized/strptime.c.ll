@@ -3,8 +3,6 @@ source_filename = "bench/arrow/original/strptime.c.ll"
 target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:128-n8:16:32:64-S128"
 target triple = "x86_64-unknown-linux-gnu"
 
-%struct.tm = type { i32, i32, i32, i32, i32, i32, i32, i32, i32, i64, ptr }
-
 @.str = private unnamed_addr constant [9 x i8] c"%m/%d/%y\00", align 1
 @.str.1 = private unnamed_addr constant [6 x i8] c"%H:%M\00", align 1
 @.str.2 = private unnamed_addr constant [9 x i8] c"%H:%M:%S\00", align 1
@@ -18,13 +16,13 @@ entry:
   %new_f = alloca ptr, align 8
   store i32 0, ptr %century, align 4
   store i32 0, ptr %relyear, align 4
-  %tm_year = getelementptr inbounds %struct.tm, ptr %tm, i64 0, i32 5
-  %tm_wday125 = getelementptr inbounds %struct.tm, ptr %tm, i64 0, i32 6
-  %tm_hour101 = getelementptr inbounds %struct.tm, ptr %tm, i64 0, i32 2
-  %tm_min = getelementptr inbounds %struct.tm, ptr %tm, i64 0, i32 1
-  %tm_mon69 = getelementptr inbounds %struct.tm, ptr %tm, i64 0, i32 4
-  %tm_yday = getelementptr inbounds %struct.tm, ptr %tm, i64 0, i32 7
-  %tm_mday = getelementptr inbounds %struct.tm, ptr %tm, i64 0, i32 3
+  %tm_year = getelementptr inbounds i8, ptr %tm, i64 20
+  %tm_wday125 = getelementptr inbounds i8, ptr %tm, i64 24
+  %tm_hour101 = getelementptr inbounds i8, ptr %tm, i64 8
+  %tm_min = getelementptr inbounds i8, ptr %tm, i64 4
+  %tm_mon69 = getelementptr inbounds i8, ptr %tm, i64 16
+  %tm_yday = getelementptr inbounds i8, ptr %tm, i64 28
+  %tm_mday = getelementptr inbounds i8, ptr %tm, i64 12
   br label %while.cond.outer
 
 while.cond.outer:                                 ; preds = %sw.epilog256, %entry

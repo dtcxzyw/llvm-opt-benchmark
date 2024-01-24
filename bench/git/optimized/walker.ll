@@ -7,19 +7,8 @@ target triple = "x86_64-unknown-linux-gnu"
 %struct.object_id = type { [32 x i8], i32 }
 %struct.git_hash_algo = type { ptr, i32, i64, i64, i64, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr }
 %struct.__va_list_tag = type { i32, i32, ptr, ptr }
-%struct.walker = type { ptr, ptr, ptr, ptr, ptr, i32, i32, i32, i32 }
 %struct.tree_desc = type { ptr, %struct.name_entry, i32, i32 }
 %struct.name_entry = type { %struct.object_id, ptr, i32, i32 }
-%struct.ref = type { ptr, %struct.object_id, %struct.object_id, %struct.object_id, ptr, ptr, i8, i32, i32, i32, ptr, ptr, ptr, [0 x i8] }
-%struct.object = type { i32, %struct.object_id }
-%struct.object_list = type { ptr, ptr }
-%struct.repository = type { ptr, ptr, ptr, ptr, ptr, %struct.repo_path_cache, ptr, ptr, ptr, ptr, %struct.repo_settings, ptr, ptr, ptr, ptr, ptr, i32, i32, i32, ptr, ptr, i32, i8 }
-%struct.repo_path_cache = type { ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr }
-%struct.repo_settings = type { i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, ptr, i32, i32, i32, i32, i32, i32 }
-%struct.commit = type { %struct.object, i64, ptr, ptr, i32 }
-%struct.commit_list = type { ptr, ptr }
-%struct.tree = type { %struct.object, ptr, i64 }
-%struct.tag = type { %struct.object, ptr, ptr, i64 }
 
 @stderr = external local_unnamed_addr global ptr, align 8
 @strbuf_slopbuf = external global [0 x i8], align 1
@@ -51,7 +40,7 @@ target triple = "x86_64-unknown-linux-gnu"
 define dso_local void @walker_say(ptr nocapture noundef readonly %walker, ptr nocapture noundef readonly %fmt, ...) local_unnamed_addr #0 {
 entry:
   %ap = alloca [1 x %struct.__va_list_tag], align 16
-  %get_verbosely = getelementptr inbounds %struct.walker, ptr %walker, i64 0, i32 5
+  %get_verbosely = getelementptr inbounds i8, ptr %walker, i64 40
   %0 = load i32, ptr %get_verbosely, align 8
   %tobool.not = icmp eq i32 %0, 0
   br i1 %tobool.not, label %if.end, label %if.then
@@ -89,7 +78,7 @@ entry:
   br i1 %cmp25, label %while.end, label %if.end.lr.ph
 
 if.end.lr.ph:                                     ; preds = %entry
-  %buf1 = getelementptr inbounds %struct.strbuf, ptr %buf, i64 0, i32 2
+  %buf1 = getelementptr inbounds i8, ptr %buf, i64 16
   br label %if.end
 
 if.end:                                           ; preds = %if.end.lr.ph, %xstrdup_or_null.exit
@@ -252,14 +241,14 @@ if.then:                                          ; preds = %st_mult.exit
   br i1 %tobool3.not, label %if.then4, label %if.end7
 
 if.then4:                                         ; preds = %if.then
-  %buf = getelementptr inbounds %struct.strbuf, ptr %err, i64 0, i32 2
+  %buf = getelementptr inbounds i8, ptr %err, i64 16
   %0 = load ptr, ptr %buf, align 8
   %call5 = call i32 (ptr, ...) @error(ptr noundef nonnull @.str, ptr noundef %0) #14
   br label %done
 
 if.end7:                                          ; preds = %if.then, %st_mult.exit
   %transaction.0 = phi ptr [ %call2, %if.then ], [ null, %st_mult.exit ]
-  %get_recover = getelementptr inbounds %struct.walker, ptr %walker, i64 0, i32 7
+  %get_recover = getelementptr inbounds i8, ptr %walker, i64 48
   %1 = load i32, ptr %get_recover, align 8
   %tobool8.not = icmp eq i32 %1, 0
   br i1 %tobool8.not, label %if.then9, label %if.end11
@@ -274,8 +263,8 @@ if.end11:                                         ; preds = %if.then9, %if.end7
   br i1 %cmp72.not, label %for.end, label %for.body.lr.ph
 
 for.body.lr.ph:                                   ; preds = %if.end11
-  %fetch_ref.i = getelementptr inbounds %struct.walker, ptr %walker, i64 0, i32 1
-  %prefetch.i = getelementptr inbounds %struct.walker, ptr %walker, i64 0, i32 2
+  %fetch_ref.i = getelementptr inbounds i8, ptr %walker, i64 8
+  %prefetch.i = getelementptr inbounds i8, ptr %walker, i64 16
   %wide.trip.count = zext nneg i32 %targets to i64
   br label %for.body
 
@@ -301,11 +290,11 @@ if.then3.i:                                       ; preds = %if.end.i
   br i1 %tobool6.not.i, label %interpret_target.exit.thread50, label %interpret_target.exit
 
 interpret_target.exit.thread50:                   ; preds = %if.then3.i
-  %old_oid.i = getelementptr inbounds %struct.ref, ptr %call4.i, i64 0, i32 1
+  %old_oid.i = getelementptr inbounds i8, ptr %call4.i, i64 8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(32) %add.ptr, ptr noundef nonnull align 4 dereferenceable(32) %old_oid.i, i64 32, i1 false)
-  %algo.i.i = getelementptr inbounds %struct.ref, ptr %call4.i, i64 0, i32 1, i32 1
+  %algo.i.i = getelementptr inbounds i8, ptr %call4.i, i64 40
   %4 = load i32, ptr %algo.i.i, align 4
-  %algo3.i.i = getelementptr inbounds %struct.object_id, ptr %call1, i64 %indvars.iv, i32 1
+  %algo3.i.i = getelementptr inbounds i8, ptr %add.ptr, i64 32
   store i32 %4, ptr %algo3.i.i, align 4
   call void @free(ptr noundef %call4.i) #14
   br label %if.end20
@@ -332,7 +321,7 @@ if.end.i30:                                       ; preds = %if.end20
   %bf.set.i = or disjoint i32 %bf.load.i, 32
   store i32 %bf.set.i, ptr %call23, align 4
   %8 = load ptr, ptr @the_repository, align 8
-  %oid.i = getelementptr inbounds %struct.object, ptr %call23, i64 0, i32 1
+  %oid.i = getelementptr inbounds i8, ptr %call23, i64 4
   %call.i31 = call i32 @repo_has_object_file(ptr noundef %8, ptr noundef nonnull %oid.i) #14
   %tobool4.not.i = icmp eq i32 %call.i31, 0
   %bf.load14.i = load i32, ptr %call23, align 4
@@ -358,7 +347,7 @@ if.end21.i:                                       ; preds = %if.end19.i, %if.the
   %call22.i = call ptr @object_list_insert(ptr noundef nonnull %call23, ptr noundef %11) #14
   %12 = load ptr, ptr @process_queue_end, align 8
   %13 = load ptr, ptr %12, align 8
-  %next.i = getelementptr inbounds %struct.object_list, ptr %13, i64 0, i32 1
+  %next.i = getelementptr inbounds i8, ptr %13, i64 8
   store ptr %next.i, ptr @process_queue_end, align 8
   br label %process.exit
 
@@ -370,7 +359,7 @@ process.exit:                                     ; preds = %if.end20, %if.else.
 for.end:                                          ; preds = %process.exit, %if.end11
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %progress.i)
   store ptr null, ptr %progress.i, align 8
-  %get_progress.i = getelementptr inbounds %struct.walker, ptr %walker, i64 0, i32 6
+  %get_progress.i = getelementptr inbounds i8, ptr %walker, i64 44
   %14 = load i32, ptr %get_progress.i, align 4
   %tobool.not.i32 = icmp eq i32 %14, 0
   br i1 %tobool.not.i32, label %if.end.i35, label %if.then.i33
@@ -396,16 +385,16 @@ if.end.i35:                                       ; preds = %_.exit.i, %for.end
   br i1 %tobool2.not43.i, label %while.end.i, label %while.body.lr.ph.i
 
 while.body.lr.ph.i:                               ; preds = %if.end.i35
-  %fetch.i = getelementptr inbounds %struct.walker, ptr %walker, i64 0, i32 3
-  %prefetch.i.i54.i.i = getelementptr inbounds %struct.walker, ptr %walker, i64 0, i32 2
-  %mode.i.i.i = getelementptr inbounds %struct.name_entry, ptr %entry1.i.i.i, i64 0, i32 3
+  %fetch.i = getelementptr inbounds i8, ptr %walker, i64 24
+  %prefetch.i.i54.i.i = getelementptr inbounds i8, ptr %walker, i64 16
+  %mode.i.i.i = getelementptr inbounds i8, ptr %entry1.i.i.i, i64 52
   br label %while.body.i
 
 while.body.i:                                     ; preds = %if.end23.i, %while.body.lr.ph.i
   %17 = phi ptr [ %16, %while.body.lr.ph.i ], [ %80, %if.end23.i ]
   %nr.044.i = phi i64 [ 0, %while.body.lr.ph.i ], [ %inc.i, %if.end23.i ]
   %18 = load ptr, ptr %17, align 8
-  %next.i36 = getelementptr inbounds %struct.object_list, ptr %17, i64 0, i32 1
+  %next.i36 = getelementptr inbounds i8, ptr %17, i64 8
   %19 = load ptr, ptr %next.i36, align 8
   store ptr %19, ptr @process_queue, align 8
   call void @free(ptr noundef nonnull %17) #14
@@ -425,7 +414,7 @@ if.end5.i:                                        ; preds = %if.then4.i, %while.
 
 if.then7.i42:                                     ; preds = %if.end5.i
   %22 = load ptr, ptr %fetch.i, align 8
-  %oid.i43 = getelementptr inbounds %struct.object, ptr %18, i64 0, i32 1
+  %oid.i43 = getelementptr inbounds i8, ptr %18, i64 4
   %call8.i = call i32 %22(ptr noundef %walker, ptr noundef nonnull %oid.i43) #14
   %tobool9.not.i = icmp eq i32 %call8.i, 0
   br i1 %tobool9.not.i, label %if.then7.if.end12_crit_edge.i, label %if.then10.i
@@ -468,7 +457,7 @@ cond.end.i.i:                                     ; preds = %cond.true.i.i, %sto
 
 if.then.i.i.i.i:                                  ; preds = %cond.end.i.i
   %26 = load ptr, ptr @the_repository, align 8
-  %hash_algo.i.i.i.i = getelementptr inbounds %struct.repository, ptr %26, i64 0, i32 15
+  %hash_algo.i.i.i.i = getelementptr inbounds i8, ptr %26, i64 256
   %27 = load ptr, ptr %hash_algo.i.i.i.i, align 8
   br label %if.end.i.i.i.i
 
@@ -511,7 +500,7 @@ if.end12.i:                                       ; preds = %if.then7.if.end12_c
 
 if.then16.i:                                      ; preds = %if.end12.i
   %31 = load ptr, ptr @the_repository, align 8
-  %oid17.i = getelementptr inbounds %struct.object, ptr %18, i64 0, i32 1
+  %oid17.i = getelementptr inbounds i8, ptr %18, i64 4
   %call18.i = call ptr @parse_object(ptr noundef %31, ptr noundef nonnull %oid17.i) #14
   %bf.load.i12.pre.i = load i32, ptr %18, align 4
   br label %if.end19.i39
@@ -539,13 +528,13 @@ while.cond.preheader.i.i.i:                       ; preds = %if.then.i17.i
   br i1 %tobool1.not30.i.i.i, label %while.end.i.i.i, label %land.rhs.lr.ph.i.i.i
 
 land.rhs.lr.ph.i.i.i:                             ; preds = %while.cond.preheader.i.i.i
-  %date2.i.i.i = getelementptr inbounds %struct.commit, ptr %18, i64 0, i32 1
+  %date2.i.i.i = getelementptr inbounds i8, ptr %18, i64 40
   br label %land.rhs.i.i.i
 
 land.rhs.i.i.i:                                   ; preds = %while.body.i.i.i, %land.rhs.lr.ph.i.i.i
   %34 = phi ptr [ %33, %land.rhs.lr.ph.i.i.i ], [ %38, %while.body.i.i.i ]
   %35 = load ptr, ptr %34, align 8
-  %date.i.i.i = getelementptr inbounds %struct.commit, ptr %35, i64 0, i32 1
+  %date.i.i.i = getelementptr inbounds i8, ptr %35, i64 40
   %36 = load i64, ptr %date.i.i.i, align 8
   %37 = load i64, ptr %date2.i.i.i, align 8
   %cmp.not.i.i.i = icmp ult i64 %36, %37
@@ -564,9 +553,9 @@ while.end.i.i.i:                                  ; preds = %while.body.i.i.i, %
   br i1 %tobool4.not.i.i.i, label %if.end6.i.i.i, label %if.end23.i
 
 if.end6.i.i.i:                                    ; preds = %while.end.i.i.i
-  %oid.i.i.i = getelementptr inbounds %struct.object, ptr %18, i64 0, i32 1
+  %oid.i.i.i = getelementptr inbounds i8, ptr %18, i64 4
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(32) @current_commit_oid, ptr noundef nonnull align 4 dereferenceable(32) %oid.i.i.i, i64 32, i1 false)
-  %algo.i.i.i.i = getelementptr inbounds %struct.object, ptr %18, i64 0, i32 1, i32 1
+  %algo.i.i.i.i = getelementptr inbounds i8, ptr %18, i64 36
   %40 = load i32, ptr %algo.i.i.i.i, align 4
   store i32 %40, ptr getelementptr inbounds (%struct.object_id, ptr @current_commit_oid, i64 0, i32 1), align 4
   %call10.i.i.i = call ptr @oid_to_hex(ptr noundef nonnull %oid.i.i.i) #14
@@ -582,7 +571,7 @@ if.end.i.i.i20.i:                                 ; preds = %if.end6.i.i.i
   %bf.set.i.i.i.i = or disjoint i32 %bf.load.i.i.i.i, 32
   store i32 %bf.set.i.i.i.i, ptr %call11.i.i.i, align 4
   %43 = load ptr, ptr @the_repository, align 8
-  %oid.i.i.i.i = getelementptr inbounds %struct.object, ptr %call11.i.i.i, i64 0, i32 1
+  %oid.i.i.i.i = getelementptr inbounds i8, ptr %call11.i.i.i, i64 4
   %call.i11.i.i.i = call i32 @repo_has_object_file(ptr noundef %43, ptr noundef nonnull %oid.i.i.i.i) #14
   %tobool4.not.i.i.i.i = icmp eq i32 %call.i11.i.i.i, 0
   %bf.load14.i.i.i.i = load i32, ptr %call11.i.i.i, align 4
@@ -608,12 +597,12 @@ if.end21.i.i.i.i:                                 ; preds = %if.end19.i.i.i.i, %
   %call22.i.i.i.i = call ptr @object_list_insert(ptr noundef nonnull %call11.i.i.i, ptr noundef %46) #14
   %47 = load ptr, ptr @process_queue_end, align 8
   %48 = load ptr, ptr %47, align 8
-  %next.i.i.i.i = getelementptr inbounds %struct.object_list, ptr %48, i64 0, i32 1
+  %next.i.i.i.i = getelementptr inbounds i8, ptr %48, i64 8
   store ptr %next.i.i.i.i, ptr @process_queue_end, align 8
   br label %process.exit.i.i.i
 
 process.exit.i.i.i:                               ; preds = %if.end21.i.i.i.i, %if.else.i.i.i21.i, %if.end6.i.i.i
-  %parents17.i.i.i = getelementptr inbounds %struct.commit, ptr %18, i64 0, i32 2
+  %parents17.i.i.i = getelementptr inbounds i8, ptr %18, i64 48
   %parents.031.i.i.i = load ptr, ptr %parents17.i.i.i, align 8
   %tobool18.not32.i.i.i = icmp eq ptr %parents.031.i.i.i, null
   br i1 %tobool18.not32.i.i.i, label %if.end23.i, label %for.body.i.i.i
@@ -630,7 +619,7 @@ if.end.i14.i.i.i:                                 ; preds = %for.body.i.i.i
   %bf.set.i15.i.i.i = or disjoint i32 %bf.load.i12.i.i.i, 32
   store i32 %bf.set.i15.i.i.i, ptr %49, align 4
   %51 = load ptr, ptr @the_repository, align 8
-  %oid.i16.i.i.i = getelementptr inbounds %struct.object, ptr %49, i64 0, i32 1
+  %oid.i16.i.i.i = getelementptr inbounds i8, ptr %49, i64 4
   %call.i17.i.i.i = call i32 @repo_has_object_file(ptr noundef %51, ptr noundef nonnull %oid.i16.i.i.i) #14
   %tobool4.not.i18.i.i.i = icmp eq i32 %call.i17.i.i.i, 0
   %bf.load14.i19.i.i.i = load i32, ptr %49, align 4
@@ -656,12 +645,12 @@ if.end21.i22.i.i.i:                               ; preds = %if.end19.i27.i.i.i,
   %call22.i23.i.i.i = call ptr @object_list_insert(ptr noundef nonnull %49, ptr noundef %54) #14
   %55 = load ptr, ptr @process_queue_end, align 8
   %56 = load ptr, ptr %55, align 8
-  %next.i24.i.i.i = getelementptr inbounds %struct.object_list, ptr %56, i64 0, i32 1
+  %next.i24.i.i.i = getelementptr inbounds i8, ptr %56, i64 8
   store ptr %next.i24.i.i.i, ptr @process_queue_end, align 8
   br label %process.exit29.i.i.i
 
 process.exit29.i.i.i:                             ; preds = %if.end21.i22.i.i.i, %if.else.i25.i.i.i, %for.body.i.i.i
-  %next.i.i.i = getelementptr inbounds %struct.commit_list, ptr %parents.033.i.i.i, i64 0, i32 1
+  %next.i.i.i = getelementptr inbounds i8, ptr %parents.033.i.i.i, i64 8
   %parents.0.i.i.i = load ptr, ptr %next.i.i.i, align 8
   %tobool18.not.i.i.i = icmp eq ptr %parents.0.i.i.i, null
   br i1 %tobool18.not.i.i.i, label %if.end23.i, label %for.body.i.i.i, !llvm.loop !9
@@ -674,9 +663,9 @@ if.then7.i.i:                                     ; preds = %if.end19.i39
   br i1 %tobool.not.i14.i.i, label %if.end.i.i.i, label %process_tree.exit.thread.i.i
 
 if.end.i.i.i:                                     ; preds = %if.then7.i.i
-  %buffer.i.i.i = getelementptr inbounds %struct.tree, ptr %18, i64 0, i32 1
+  %buffer.i.i.i = getelementptr inbounds i8, ptr %18, i64 40
   %57 = load ptr, ptr %buffer.i.i.i, align 8
-  %size.i.i.i = getelementptr inbounds %struct.tree, ptr %18, i64 0, i32 2
+  %size.i.i.i = getelementptr inbounds i8, ptr %18, i64 48
   %58 = load i64, ptr %size.i.i.i, align 8
   call void @init_tree_desc(ptr noundef nonnull %desc.i.i.i, ptr noundef %57, i64 noundef %58) #14
   %call29.i.i.i = call i32 @tree_entry(ptr noundef nonnull %desc.i.i.i, ptr noundef nonnull %entry1.i.i.i) #14
@@ -717,7 +706,7 @@ if.end.i.i22.i.i:                                 ; preds = %lor.lhs.false.i.i.i
   %bf.set.i.i23.i.i = or disjoint i32 %bf.load.i.i19.i.i, 32
   store i32 %bf.set.i.i23.i.i, ptr %obj.0.i.i.i, align 4
   %64 = load ptr, ptr @the_repository, align 8
-  %oid.i.i24.i.i = getelementptr inbounds %struct.object, ptr %obj.0.i.i.i, i64 0, i32 1
+  %oid.i.i24.i.i = getelementptr inbounds i8, ptr %obj.0.i.i.i, i64 4
   %call.i8.i.i.i = call i32 @repo_has_object_file(ptr noundef %64, ptr noundef nonnull %oid.i.i24.i.i) #14
   %tobool4.not.i.i25.i.i = icmp eq i32 %call.i8.i.i.i, 0
   %bf.load14.i.i26.i.i = load i32, ptr %obj.0.i.i.i, align 4
@@ -743,7 +732,7 @@ if.end21.i.i29.i.i:                               ; preds = %if.end19.i.i34.i.i,
   %call22.i.i30.i.i = call ptr @object_list_insert(ptr noundef nonnull %obj.0.i.i.i, ptr noundef %67) #14
   %68 = load ptr, ptr @process_queue_end, align 8
   %69 = load ptr, ptr %68, align 8
-  %next.i.i31.i.i = getelementptr inbounds %struct.object_list, ptr %69, i64 0, i32 1
+  %next.i.i31.i.i = getelementptr inbounds i8, ptr %69, i64 8
   store ptr %next.i.i31.i.i, ptr @process_queue_end, align 8
   br label %while.cond.backedge.i.i.i
 
@@ -769,7 +758,7 @@ if.then23.i.i:                                    ; preds = %if.end19.i39
   br i1 %tobool.not.i35.i.i, label %if.end.i37.i.i, label %if.then22.i
 
 if.end.i37.i.i:                                   ; preds = %if.then23.i.i
-  %tagged.i.i.i = getelementptr inbounds %struct.tag, ptr %18, i64 0, i32 1
+  %tagged.i.i.i = getelementptr inbounds i8, ptr %18, i64 40
   %70 = load ptr, ptr %tagged.i.i.i, align 8
   %bf.load.i.i38.i.i = load i32, ptr %70, align 4
   %71 = and i32 %bf.load.i.i38.i.i, 32
@@ -780,7 +769,7 @@ if.end.i.i40.i.i:                                 ; preds = %if.end.i37.i.i
   %bf.set.i.i41.i.i = or disjoint i32 %bf.load.i.i38.i.i, 32
   store i32 %bf.set.i.i41.i.i, ptr %70, align 4
   %72 = load ptr, ptr @the_repository, align 8
-  %oid.i.i42.i.i = getelementptr inbounds %struct.object, ptr %70, i64 0, i32 1
+  %oid.i.i42.i.i = getelementptr inbounds i8, ptr %70, i64 4
   %call.i.i43.i.i = call i32 @repo_has_object_file(ptr noundef %72, ptr noundef nonnull %oid.i.i42.i.i) #14
   %tobool4.not.i.i44.i.i = icmp eq i32 %call.i.i43.i.i, 0
   %bf.load14.i.i45.i.i = load i32, ptr %70, align 4
@@ -806,13 +795,13 @@ if.end21.i.i48.i.i:                               ; preds = %if.end19.i.i53.i.i,
   %call22.i.i49.i.i = call ptr @object_list_insert(ptr noundef nonnull %70, ptr noundef %75) #14
   %76 = load ptr, ptr @process_queue_end, align 8
   %77 = load ptr, ptr %76, align 8
-  %next.i.i50.i.i = getelementptr inbounds %struct.object_list, ptr %77, i64 0, i32 1
+  %next.i.i50.i.i = getelementptr inbounds i8, ptr %77, i64 8
   store ptr %next.i.i50.i.i, ptr @process_queue_end, align 8
   br label %if.end23.i
 
 if.end28.i.i:                                     ; preds = %if.end19.i39
   %call32.i.i = call ptr @type_name(i32 noundef %bf.clear.i14.i) #14
-  %oid.i22.i = getelementptr inbounds %struct.object, ptr %18, i64 0, i32 1
+  %oid.i22.i = getelementptr inbounds i8, ptr %18, i64 4
   %call33.i.i = call ptr @oid_to_hex(ptr noundef nonnull %oid.i22.i) #14
   %call34.i.i = call i32 (ptr, ...) @error(ptr noundef nonnull @.str.12, ptr noundef %call32.i.i, ptr noundef %call33.i.i) #14
   br label %if.then22.i
@@ -871,8 +860,8 @@ if.end38:                                         ; preds = %if.end34, %if.then3
   br i1 %cmp72.not, label %for.end63, label %for.body42.lr.ph
 
 for.body42.lr.ph:                                 ; preds = %if.end38
-  %len2.i = getelementptr inbounds %struct.strbuf, ptr %refname, i64 0, i32 1
-  %buf.i = getelementptr inbounds %struct.strbuf, ptr %refname, i64 0, i32 2
+  %len2.i = getelementptr inbounds i8, ptr %refname, i64 8
+  %buf.i = getelementptr inbounds i8, ptr %refname, i64 16
   %tobool53.not = icmp eq ptr %msg.0, null
   %cond = select i1 %tobool53.not, ptr @.str.4, ptr %msg.0
   %smax93 = call i32 @llvm.smax.i32(i32 %targets, i32 1)
@@ -907,7 +896,7 @@ strbuf_setlen.exit:                               ; preds = %if.end47, %if.then4
   br i1 %tobool55.not, label %for.inc61, label %if.then56
 
 if.then56:                                        ; preds = %strbuf_setlen.exit
-  %buf57 = getelementptr inbounds %struct.strbuf, ptr %err, i64 0, i32 2
+  %buf57 = getelementptr inbounds i8, ptr %err, i64 16
   %86 = load ptr, ptr %buf57, align 8
   %call58 = call i32 (ptr, ...) @error(ptr noundef nonnull @.str, ptr noundef %86) #14
   br label %done
@@ -923,7 +912,7 @@ for.end63:                                        ; preds = %for.inc61, %if.end3
   br i1 %tobool65.not, label %done, label %if.then66
 
 if.then66:                                        ; preds = %for.end63
-  %buf67 = getelementptr inbounds %struct.strbuf, ptr %err, i64 0, i32 2
+  %buf67 = getelementptr inbounds i8, ptr %err, i64 16
   %87 = load ptr, ptr %buf67, align 8
   %call68 = call i32 (ptr, ...) @error(ptr noundef nonnull @.str, ptr noundef %87) #14
   br label %done
@@ -984,7 +973,7 @@ declare void @ref_transaction_free(ptr noundef) local_unnamed_addr #5
 ; Function Attrs: nounwind uwtable
 define dso_local void @walker_free(ptr noundef %walker) local_unnamed_addr #3 {
 entry:
-  %cleanup = getelementptr inbounds %struct.walker, ptr %walker, i64 0, i32 4
+  %cleanup = getelementptr inbounds i8, ptr %walker, i64 32
   %0 = load ptr, ptr %cleanup, align 8
   tail call void %0(ptr noundef %walker) #14
   tail call void @free(ptr noundef %walker) #14

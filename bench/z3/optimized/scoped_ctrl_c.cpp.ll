@@ -4,7 +4,6 @@ target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:
 target triple = "x86_64-unknown-linux-gnu"
 
 %"class.std::ios_base::Init" = type { i8 }
-%struct.scoped_ctrl_c = type { ptr, i8, i8, i8, ptr, ptr }
 
 @_ZStL8__ioinit = internal global %"class.std::ios_base::Init" zeroinitializer, align 1
 @__dso_handle = external hidden global i8
@@ -28,13 +27,13 @@ entry:
   %frombool = zext i1 %once to i8
   %frombool1 = zext i1 %enabled to i8
   store ptr %eh, ptr %this, align 8
-  %m_first = getelementptr inbounds %struct.scoped_ctrl_c, ptr %this, i64 0, i32 1
+  %m_first = getelementptr inbounds i8, ptr %this, i64 8
   store i8 1, ptr %m_first, align 8
-  %m_once = getelementptr inbounds %struct.scoped_ctrl_c, ptr %this, i64 0, i32 2
+  %m_once = getelementptr inbounds i8, ptr %this, i64 9
   store i8 %frombool, ptr %m_once, align 1
-  %m_enabled = getelementptr inbounds %struct.scoped_ctrl_c, ptr %this, i64 0, i32 3
+  %m_enabled = getelementptr inbounds i8, ptr %this, i64 10
   store i8 %frombool1, ptr %m_enabled, align 2
-  %m_old_scoped_ctrl_c = getelementptr inbounds %struct.scoped_ctrl_c, ptr %this, i64 0, i32 5
+  %m_old_scoped_ctrl_c = getelementptr inbounds i8, ptr %this, i64 24
   %0 = load ptr, ptr @_ZL5g_obj, align 8
   store ptr %0, ptr %m_old_scoped_ctrl_c, align 8
   br i1 %enabled, label %if.then, label %if.end
@@ -42,7 +41,7 @@ entry:
 if.then:                                          ; preds = %entry
   store ptr %this, ptr @_ZL5g_obj, align 8
   %call = tail call ptr @signal(i32 noundef 2, ptr noundef nonnull @_ZL9on_ctrl_ci) #6
-  %m_old_handler = getelementptr inbounds %struct.scoped_ctrl_c, ptr %this, i64 0, i32 4
+  %m_old_handler = getelementptr inbounds i8, ptr %this, i64 16
   store ptr %call, ptr %m_old_handler, align 8
   br label %if.end
 
@@ -57,7 +56,7 @@ declare ptr @signal(i32 noundef, ptr noundef) local_unnamed_addr #1
 define internal void @_ZL9on_ctrl_ci(i32 %0) #4 {
 entry:
   %1 = load ptr, ptr @_ZL5g_obj, align 8
-  %m_first = getelementptr inbounds %struct.scoped_ctrl_c, ptr %1, i64 0, i32 1
+  %m_first = getelementptr inbounds i8, ptr %1, i64 8
   %2 = load i8, ptr %m_first, align 8
   %3 = and i8 %2, 1
   %tobool.not = icmp eq i8 %3, 0
@@ -66,24 +65,24 @@ entry:
 if.then:                                          ; preds = %entry
   %4 = load ptr, ptr %1, align 8
   %vtable = load ptr, ptr %4, align 8
-  %vfn = getelementptr inbounds ptr, ptr %vtable, i64 2
+  %vfn = getelementptr inbounds i8, ptr %vtable, i64 16
   %5 = load ptr, ptr %vfn, align 8
   tail call void %5(ptr noundef nonnull align 8 dereferenceable(12) %4, i32 noundef 1)
   %6 = load ptr, ptr @_ZL5g_obj, align 8
-  %m_once = getelementptr inbounds %struct.scoped_ctrl_c, ptr %6, i64 0, i32 2
+  %m_once = getelementptr inbounds i8, ptr %6, i64 9
   %7 = load i8, ptr %m_once, align 1
   %8 = and i8 %7, 1
   %tobool1.not = icmp eq i8 %8, 0
   br i1 %tobool1.not, label %if.end6, label %if.then2
 
 if.then2:                                         ; preds = %if.then
-  %m_first3 = getelementptr inbounds %struct.scoped_ctrl_c, ptr %6, i64 0, i32 1
+  %m_first3 = getelementptr inbounds i8, ptr %6, i64 8
   store i8 0, ptr %m_first3, align 8
   %call = tail call ptr @signal(i32 noundef 2, ptr noundef nonnull @_ZL9on_ctrl_ci) #6
   br label %if.end6
 
 if.else:                                          ; preds = %entry
-  %m_old_handler = getelementptr inbounds %struct.scoped_ctrl_c, ptr %1, i64 0, i32 4
+  %m_old_handler = getelementptr inbounds i8, ptr %1, i64 16
   %9 = load ptr, ptr %m_old_handler, align 8
   %call4 = tail call ptr @signal(i32 noundef 2, ptr noundef %9) #6
   %call5 = tail call i32 @raise(i32 noundef 2) #6
@@ -96,17 +95,17 @@ if.end6:                                          ; preds = %if.then, %if.then2,
 ; Function Attrs: mustprogress nounwind uwtable
 define hidden void @_ZN13scoped_ctrl_cD2Ev(ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %this) unnamed_addr #3 align 2 {
 entry:
-  %m_enabled = getelementptr inbounds %struct.scoped_ctrl_c, ptr %this, i64 0, i32 3
+  %m_enabled = getelementptr inbounds i8, ptr %this, i64 10
   %0 = load i8, ptr %m_enabled, align 2
   %1 = and i8 %0, 1
   %tobool.not = icmp eq i8 %1, 0
   br i1 %tobool.not, label %if.end4, label %if.then
 
 if.then:                                          ; preds = %entry
-  %m_old_scoped_ctrl_c = getelementptr inbounds %struct.scoped_ctrl_c, ptr %this, i64 0, i32 5
+  %m_old_scoped_ctrl_c = getelementptr inbounds i8, ptr %this, i64 24
   %2 = load ptr, ptr %m_old_scoped_ctrl_c, align 8
   store ptr %2, ptr @_ZL5g_obj, align 8
-  %m_old_handler = getelementptr inbounds %struct.scoped_ctrl_c, ptr %this, i64 0, i32 4
+  %m_old_handler = getelementptr inbounds i8, ptr %this, i64 16
   %3 = load ptr, ptr %m_old_handler, align 8
   %cmp.not = icmp eq ptr %3, inttoptr (i64 -1 to ptr)
   br i1 %cmp.not, label %if.end4, label %if.then2

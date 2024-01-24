@@ -4,7 +4,6 @@ target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:
 target triple = "x86_64-unknown-linux-gnu"
 
 %struct.lock_file = type { ptr }
-%struct.unix_ss_socket = type { ptr, %struct.stat, i32 }
 %struct.stat = type { i64, i64, i64, i32, i32, i32, i32, i64, i64, i64, i64, %struct.timespec, %struct.timespec, %struct.timespec, [3 x i64] }
 %struct.timespec = type { i64, i64 }
 
@@ -52,9 +51,9 @@ if.end13:                                         ; preds = %if.end7
   %call14 = call ptr @xcalloc(i64 noundef 1, i64 noundef 160) #8
   %call15 = call noalias ptr @strdup(ptr noundef %path) #8
   store ptr %call15, ptr %call14, align 8
-  %fd_socket16 = getelementptr inbounds %struct.unix_ss_socket, ptr %call14, i64 0, i32 2
+  %fd_socket16 = getelementptr inbounds i8, ptr %call14, i64 152
   store i32 %call8, ptr %fd_socket16, align 8
-  %st_socket = getelementptr inbounds %struct.unix_ss_socket, ptr %call14, i64 0, i32 1
+  %st_socket = getelementptr inbounds i8, ptr %call14, i64 8
   %call17 = call i32 @lstat64(ptr noundef %path, ptr noundef nonnull %st_socket) #8
   store ptr %call14, ptr %new_server_socket, align 8
   call void @delete_tempfile(ptr noundef nonnull %lock) #8
@@ -86,7 +85,7 @@ entry:
   br i1 %tobool.not, label %return, label %if.end
 
 if.end:                                           ; preds = %entry
-  %fd_socket = getelementptr inbounds %struct.unix_ss_socket, ptr %server_socket, i64 0, i32 2
+  %fd_socket = getelementptr inbounds i8, ptr %server_socket, i64 152
   %0 = load i32, ptr %fd_socket, align 8
   %cmp = icmp sgt i32 %0, -1
   br i1 %cmp, label %if.end.i, label %if.end8
@@ -99,15 +98,15 @@ if.end.i:                                         ; preds = %if.end
   br i1 %cmp.i, label %unix_ss_was_stolen.exit.thread, label %if.end2.i
 
 if.end2.i:                                        ; preds = %if.end.i
-  %st_ino.i = getelementptr inbounds %struct.stat, ptr %st_now.i, i64 0, i32 1
+  %st_ino.i = getelementptr inbounds i8, ptr %st_now.i, i64 8
   %2 = load i64, ptr %st_ino.i, align 8
-  %st_ino3.i = getelementptr inbounds %struct.unix_ss_socket, ptr %server_socket, i64 0, i32 1, i32 1
+  %st_ino3.i = getelementptr inbounds i8, ptr %server_socket, i64 16
   %3 = load i64, ptr %st_ino3.i, align 8
   %cmp4.not.i = icmp eq i64 %2, %3
   br i1 %cmp4.not.i, label %if.end6.i, label %unix_ss_was_stolen.exit.thread
 
 if.end6.i:                                        ; preds = %if.end2.i
-  %st_socket.i = getelementptr inbounds %struct.unix_ss_socket, ptr %server_socket, i64 0, i32 1
+  %st_socket.i = getelementptr inbounds i8, ptr %server_socket, i64 8
   %4 = load i64, ptr %st_now.i, align 8
   %5 = load i64, ptr %st_socket.i, align 8
   %cmp9.not.i = icmp eq i64 %4, %5
@@ -118,7 +117,7 @@ unix_ss_was_stolen.exit.thread:                   ; preds = %if.end.i, %if.end2.
   br label %if.end5
 
 unix_ss_was_stolen.exit:                          ; preds = %if.end6.i
-  %st_mode.i = getelementptr inbounds %struct.stat, ptr %st_now.i, i64 0, i32 3
+  %st_mode.i = getelementptr inbounds i8, ptr %st_now.i, i64 24
   %6 = load i32, ptr %st_mode.i, align 8
   %and.i = and i32 %6, 61440
   %cmp12.i.not = icmp eq i32 %and.i, 49152
@@ -159,22 +158,22 @@ if.end:                                           ; preds = %entry
   br i1 %cmp, label %return, label %if.end2
 
 if.end2:                                          ; preds = %if.end
-  %st_ino = getelementptr inbounds %struct.stat, ptr %st_now, i64 0, i32 1
+  %st_ino = getelementptr inbounds i8, ptr %st_now, i64 8
   %1 = load i64, ptr %st_ino, align 8
-  %st_ino3 = getelementptr inbounds %struct.unix_ss_socket, ptr %server_socket, i64 0, i32 1, i32 1
+  %st_ino3 = getelementptr inbounds i8, ptr %server_socket, i64 16
   %2 = load i64, ptr %st_ino3, align 8
   %cmp4.not = icmp eq i64 %1, %2
   br i1 %cmp4.not, label %if.end6, label %return
 
 if.end6:                                          ; preds = %if.end2
-  %st_socket = getelementptr inbounds %struct.unix_ss_socket, ptr %server_socket, i64 0, i32 1
+  %st_socket = getelementptr inbounds i8, ptr %server_socket, i64 8
   %3 = load i64, ptr %st_now, align 8
   %4 = load i64, ptr %st_socket, align 8
   %cmp9.not = icmp eq i64 %3, %4
   br i1 %cmp9.not, label %if.end11, label %return
 
 if.end11:                                         ; preds = %if.end6
-  %st_mode = getelementptr inbounds %struct.stat, ptr %st_now, i64 0, i32 3
+  %st_mode = getelementptr inbounds i8, ptr %st_now, i64 24
   %5 = load i32, ptr %st_mode, align 8
   %and = and i32 %5, 61440
   %cmp12 = icmp ne i32 %and, 49152

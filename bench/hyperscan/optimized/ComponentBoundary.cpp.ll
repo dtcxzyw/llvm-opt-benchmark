@@ -3,13 +3,11 @@ source_filename = "bench/hyperscan/original/ComponentBoundary.cpp.ll"
 target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:128-n8:16:32:64-S128"
 target triple = "x86_64-unknown-linux-gnu"
 
-%"class.ue2::ComponentBoundary" = type { %"class.ue2::Component", i32, i32, %"class.std::vector", %"class.std::vector" }
-%"class.ue2::Component" = type { ptr, i32, i32 }
+%"class.ue2::PositionInfo" = type { i32, i32 }
 %"class.std::vector" = type { %"struct.std::_Vector_base" }
 %"struct.std::_Vector_base" = type { %"struct.std::_Vector_base<ue2::PositionInfo, std::allocator<ue2::PositionInfo>>::_Vector_impl" }
 %"struct.std::_Vector_base<ue2::PositionInfo, std::allocator<ue2::PositionInfo>>::_Vector_impl" = type { %"struct.std::_Vector_base<ue2::PositionInfo, std::allocator<ue2::PositionInfo>>::_Vector_impl_data" }
 %"struct.std::_Vector_base<ue2::PositionInfo, std::allocator<ue2::PositionInfo>>::_Vector_impl_data" = type { ptr, ptr, ptr }
-%"class.ue2::PositionInfo" = type { i32, i32 }
 %"class.ue2::CharReach" = type { %"class.ue2::bitfield" }
 %"class.ue2::bitfield" = type { %"struct.std::array" }
 %"struct.std::array" = type { [4 x i64] }
@@ -55,12 +53,12 @@ define hidden void @_ZN3ue217ComponentBoundaryC2ENS0_8BoundaryE(ptr noundef nonn
 entry:
   tail call void @_ZN3ue29ComponentC2Ev(ptr noundef nonnull align 8 dereferenceable(16) %this)
   store ptr getelementptr inbounds ({ [17 x ptr] }, ptr @_ZTVN3ue217ComponentBoundaryE, i64 0, inrange i32 0, i64 2), ptr %this, align 8
-  %m_bound = getelementptr inbounds %"class.ue2::ComponentBoundary", ptr %this, i64 0, i32 1
+  %m_bound = getelementptr inbounds i8, ptr %this, i64 16
   store i32 %bound, ptr %m_bound, align 8
-  %m_newline = getelementptr inbounds %"class.ue2::ComponentBoundary", ptr %this, i64 0, i32 2
+  %m_newline = getelementptr inbounds i8, ptr %this, i64 20
   %0 = load i32, ptr @_ZN3ue218GlushkovBuildState17POS_UNINITIALIZEDE, align 4
   store i32 %0, ptr %m_newline, align 4
-  %m_first = getelementptr inbounds %"class.ue2::ComponentBoundary", ptr %this, i64 0, i32 3
+  %m_first = getelementptr inbounds i8, ptr %this, i64 24
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %m_first, i8 0, i64 48, i1 false)
   ret void
 }
@@ -71,7 +69,7 @@ declare void @_ZN3ue29ComponentC2Ev(ptr noundef nonnull align 8 dereferenceable(
 define hidden void @_ZN3ue217ComponentBoundaryD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %this) unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store ptr getelementptr inbounds ({ [17 x ptr] }, ptr @_ZTVN3ue217ComponentBoundaryE, i64 0, inrange i32 0, i64 2), ptr %this, align 8
-  %m_last = getelementptr inbounds %"class.ue2::ComponentBoundary", ptr %this, i64 0, i32 4
+  %m_last = getelementptr inbounds i8, ptr %this, i64 48
   %0 = load ptr, ptr %m_last, align 8
   %tobool.not.i.i.i = icmp eq ptr %0, null
   br i1 %tobool.not.i.i.i, label %_ZNSt6vectorIN3ue212PositionInfoESaIS1_EED2Ev.exit, label %if.then.i.i.i
@@ -81,7 +79,7 @@ if.then.i.i.i:                                    ; preds = %entry
   br label %_ZNSt6vectorIN3ue212PositionInfoESaIS1_EED2Ev.exit
 
 _ZNSt6vectorIN3ue212PositionInfoESaIS1_EED2Ev.exit: ; preds = %entry, %if.then.i.i.i
-  %m_first = getelementptr inbounds %"class.ue2::ComponentBoundary", ptr %this, i64 0, i32 3
+  %m_first = getelementptr inbounds i8, ptr %this, i64 24
   %1 = load ptr, ptr %m_first, align 8
   %tobool.not.i.i.i1 = icmp eq ptr %1, null
   br i1 %tobool.not.i.i.i1, label %_ZNSt6vectorIN3ue212PositionInfoESaIS1_EED2Ev.exit3, label %if.then.i.i.i2
@@ -102,7 +100,7 @@ declare void @_ZN3ue29ComponentD2Ev(ptr noundef nonnull align 8 dereferenceable(
 define hidden void @_ZN3ue217ComponentBoundaryD0Ev(ptr noundef nonnull align 8 dereferenceable(72) %this) unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store ptr getelementptr inbounds ({ [17 x ptr] }, ptr @_ZTVN3ue217ComponentBoundaryE, i64 0, inrange i32 0, i64 2), ptr %this, align 8
-  %m_last.i = getelementptr inbounds %"class.ue2::ComponentBoundary", ptr %this, i64 0, i32 4
+  %m_last.i = getelementptr inbounds i8, ptr %this, i64 48
   %0 = load ptr, ptr %m_last.i, align 8
   %tobool.not.i.i.i.i = icmp eq ptr %0, null
   br i1 %tobool.not.i.i.i.i, label %_ZNSt6vectorIN3ue212PositionInfoESaIS1_EED2Ev.exit.i, label %if.then.i.i.i.i
@@ -112,7 +110,7 @@ if.then.i.i.i.i:                                  ; preds = %entry
   br label %_ZNSt6vectorIN3ue212PositionInfoESaIS1_EED2Ev.exit.i
 
 _ZNSt6vectorIN3ue212PositionInfoESaIS1_EED2Ev.exit.i: ; preds = %if.then.i.i.i.i, %entry
-  %m_first.i = getelementptr inbounds %"class.ue2::ComponentBoundary", ptr %this, i64 0, i32 3
+  %m_first.i = getelementptr inbounds i8, ptr %this, i64 24
   %1 = load ptr, ptr %m_first.i, align 8
   %tobool.not.i.i.i1.i = icmp eq ptr %1, null
   br i1 %tobool.not.i.i.i1.i, label %_ZN3ue217ComponentBoundaryD2Ev.exit, label %if.then.i.i.i2.i
@@ -134,26 +132,26 @@ declare void @_ZdlPv(ptr noundef) local_unnamed_addr #4
 define hidden void @_ZN3ue217ComponentBoundaryC2ERKS0_(ptr noundef nonnull align 8 dereferenceable(72) %this, ptr nocapture noundef nonnull readonly align 8 dereferenceable(72) %other) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store ptr getelementptr inbounds ({ [17 x ptr] }, ptr @_ZTVN3ue29ComponentE, i64 0, inrange i32 0, i64 2), ptr %this, align 8
-  %pos_begin.i = getelementptr inbounds %"class.ue2::Component", ptr %this, i64 0, i32 1
-  %pos_begin2.i = getelementptr inbounds %"class.ue2::Component", ptr %other, i64 0, i32 1
+  %pos_begin.i = getelementptr inbounds i8, ptr %this, i64 8
+  %pos_begin2.i = getelementptr inbounds i8, ptr %other, i64 8
   %0 = load i32, ptr %pos_begin2.i, align 8
   store i32 %0, ptr %pos_begin.i, align 8
-  %pos_end.i = getelementptr inbounds %"class.ue2::Component", ptr %this, i64 0, i32 2
-  %pos_end3.i = getelementptr inbounds %"class.ue2::Component", ptr %other, i64 0, i32 2
+  %pos_end.i = getelementptr inbounds i8, ptr %this, i64 12
+  %pos_end3.i = getelementptr inbounds i8, ptr %other, i64 12
   %1 = load i32, ptr %pos_end3.i, align 4
   store i32 %1, ptr %pos_end.i, align 4
   store ptr getelementptr inbounds ({ [17 x ptr] }, ptr @_ZTVN3ue217ComponentBoundaryE, i64 0, inrange i32 0, i64 2), ptr %this, align 8
-  %m_bound = getelementptr inbounds %"class.ue2::ComponentBoundary", ptr %this, i64 0, i32 1
-  %m_bound2 = getelementptr inbounds %"class.ue2::ComponentBoundary", ptr %other, i64 0, i32 1
+  %m_bound = getelementptr inbounds i8, ptr %this, i64 16
+  %m_bound2 = getelementptr inbounds i8, ptr %other, i64 16
   %2 = load i32, ptr %m_bound2, align 8
   store i32 %2, ptr %m_bound, align 8
-  %m_newline = getelementptr inbounds %"class.ue2::ComponentBoundary", ptr %this, i64 0, i32 2
-  %m_newline3 = getelementptr inbounds %"class.ue2::ComponentBoundary", ptr %other, i64 0, i32 2
+  %m_newline = getelementptr inbounds i8, ptr %this, i64 20
+  %m_newline3 = getelementptr inbounds i8, ptr %other, i64 20
   %3 = load i32, ptr %m_newline3, align 4
   store i32 %3, ptr %m_newline, align 4
-  %m_first = getelementptr inbounds %"class.ue2::ComponentBoundary", ptr %this, i64 0, i32 3
-  %m_first4 = getelementptr inbounds %"class.ue2::ComponentBoundary", ptr %other, i64 0, i32 3
-  %_M_finish.i.i = getelementptr inbounds %"class.ue2::ComponentBoundary", ptr %other, i64 0, i32 3, i32 0, i32 0, i32 0, i32 1
+  %m_first = getelementptr inbounds i8, ptr %this, i64 24
+  %m_first4 = getelementptr inbounds i8, ptr %other, i64 24
+  %_M_finish.i.i = getelementptr inbounds i8, ptr %other, i64 32
   %4 = load ptr, ptr %_M_finish.i.i, align 8
   %5 = load ptr, ptr %m_first4, align 8
   %sub.ptr.lhs.cast.i.i = ptrtoint ptr %4 to i64
@@ -182,10 +180,10 @@ _ZNSt16allocator_traitsISaIN3ue212PositionInfoEEE8allocateERS2_m.exit.i.i.i.i: ;
 invoke.cont.i:                                    ; preds = %_ZNSt16allocator_traitsISaIN3ue212PositionInfoEEE8allocateERS2_m.exit.i.i.i.i, %entry
   %cond.i.i.i.i = phi ptr [ null, %entry ], [ %call5.i.i.i.i2.i6.i6, %_ZNSt16allocator_traitsISaIN3ue212PositionInfoEEE8allocateERS2_m.exit.i.i.i.i ]
   store ptr %cond.i.i.i.i, ptr %m_first, align 8
-  %_M_finish.i.i.i = getelementptr inbounds %"class.ue2::ComponentBoundary", ptr %this, i64 0, i32 3, i32 0, i32 0, i32 0, i32 1
+  %_M_finish.i.i.i = getelementptr inbounds i8, ptr %this, i64 32
   store ptr %cond.i.i.i.i, ptr %_M_finish.i.i.i, align 8
   %add.ptr.i.i.i = getelementptr inbounds %"class.ue2::PositionInfo", ptr %cond.i.i.i.i, i64 %sub.ptr.div.i.i
-  %_M_end_of_storage.i.i.i = getelementptr inbounds %"class.ue2::ComponentBoundary", ptr %this, i64 0, i32 3, i32 0, i32 0, i32 0, i32 2
+  %_M_end_of_storage.i.i.i = getelementptr inbounds i8, ptr %this, i64 40
   store ptr %add.ptr.i.i.i, ptr %_M_end_of_storage.i.i.i, align 8
   %6 = load ptr, ptr %m_first4, align 8
   %7 = load ptr, ptr %_M_finish.i.i, align 8
@@ -197,17 +195,17 @@ for.body.i.i.i.i.i:                               ; preds = %invoke.cont.i, %for
   %__first.sroa.0.06.i.i.i.i.i = phi ptr [ %incdec.ptr.i.i.i.i.i.i, %for.body.i.i.i.i.i ], [ %6, %invoke.cont.i ]
   %8 = load i64, ptr %__first.sroa.0.06.i.i.i.i.i, align 4
   store i64 %8, ptr %__cur.07.i.i.i.i.i, align 4
-  %incdec.ptr.i.i.i.i.i.i = getelementptr inbounds %"class.ue2::PositionInfo", ptr %__first.sroa.0.06.i.i.i.i.i, i64 1
-  %incdec.ptr.i.i.i.i.i = getelementptr inbounds %"class.ue2::PositionInfo", ptr %__cur.07.i.i.i.i.i, i64 1
+  %incdec.ptr.i.i.i.i.i.i = getelementptr inbounds i8, ptr %__first.sroa.0.06.i.i.i.i.i, i64 8
+  %incdec.ptr.i.i.i.i.i = getelementptr inbounds i8, ptr %__cur.07.i.i.i.i.i, i64 8
   %cmp.i.not.i.i.i.i.i = icmp eq ptr %incdec.ptr.i.i.i.i.i.i, %7
   br i1 %cmp.i.not.i.i.i.i.i, label %invoke.cont, label %for.body.i.i.i.i.i, !llvm.loop !5
 
 invoke.cont:                                      ; preds = %for.body.i.i.i.i.i, %invoke.cont.i
   %__cur.0.lcssa.i.i.i.i.i = phi ptr [ %cond.i.i.i.i, %invoke.cont.i ], [ %incdec.ptr.i.i.i.i.i, %for.body.i.i.i.i.i ]
   store ptr %__cur.0.lcssa.i.i.i.i.i, ptr %_M_finish.i.i.i, align 8
-  %m_last = getelementptr inbounds %"class.ue2::ComponentBoundary", ptr %this, i64 0, i32 4
-  %m_last5 = getelementptr inbounds %"class.ue2::ComponentBoundary", ptr %other, i64 0, i32 4
-  %_M_finish.i.i7 = getelementptr inbounds %"class.ue2::ComponentBoundary", ptr %other, i64 0, i32 4, i32 0, i32 0, i32 0, i32 1
+  %m_last = getelementptr inbounds i8, ptr %this, i64 48
+  %m_last5 = getelementptr inbounds i8, ptr %other, i64 48
+  %_M_finish.i.i7 = getelementptr inbounds i8, ptr %other, i64 56
   %9 = load ptr, ptr %_M_finish.i.i7, align 8
   %10 = load ptr, ptr %m_last5, align 8
   %sub.ptr.lhs.cast.i.i8 = ptrtoint ptr %9 to i64
@@ -236,10 +234,10 @@ _ZNSt16allocator_traitsISaIN3ue212PositionInfoEEE8allocateERS2_m.exit.i.i.i.i15:
 invoke.cont.i16:                                  ; preds = %_ZNSt16allocator_traitsISaIN3ue212PositionInfoEEE8allocateERS2_m.exit.i.i.i.i15, %invoke.cont
   %cond.i.i.i.i17 = phi ptr [ null, %invoke.cont ], [ %call5.i.i.i.i2.i6.i32, %_ZNSt16allocator_traitsISaIN3ue212PositionInfoEEE8allocateERS2_m.exit.i.i.i.i15 ]
   store ptr %cond.i.i.i.i17, ptr %m_last, align 8
-  %_M_finish.i.i.i18 = getelementptr inbounds %"class.ue2::ComponentBoundary", ptr %this, i64 0, i32 4, i32 0, i32 0, i32 0, i32 1
+  %_M_finish.i.i.i18 = getelementptr inbounds i8, ptr %this, i64 56
   store ptr %cond.i.i.i.i17, ptr %_M_finish.i.i.i18, align 8
   %add.ptr.i.i.i19 = getelementptr inbounds %"class.ue2::PositionInfo", ptr %cond.i.i.i.i17, i64 %sub.ptr.div.i.i11
-  %_M_end_of_storage.i.i.i20 = getelementptr inbounds %"class.ue2::ComponentBoundary", ptr %this, i64 0, i32 4, i32 0, i32 0, i32 0, i32 2
+  %_M_end_of_storage.i.i.i20 = getelementptr inbounds i8, ptr %this, i64 64
   store ptr %add.ptr.i.i.i19, ptr %_M_end_of_storage.i.i.i20, align 8
   %11 = load ptr, ptr %m_last5, align 8
   %12 = load ptr, ptr %_M_finish.i.i7, align 8
@@ -251,8 +249,8 @@ for.body.i.i.i.i.i22:                             ; preds = %invoke.cont.i16, %f
   %__first.sroa.0.06.i.i.i.i.i24 = phi ptr [ %incdec.ptr.i.i.i.i.i.i25, %for.body.i.i.i.i.i22 ], [ %11, %invoke.cont.i16 ]
   %13 = load i64, ptr %__first.sroa.0.06.i.i.i.i.i24, align 4
   store i64 %13, ptr %__cur.07.i.i.i.i.i23, align 4
-  %incdec.ptr.i.i.i.i.i.i25 = getelementptr inbounds %"class.ue2::PositionInfo", ptr %__first.sroa.0.06.i.i.i.i.i24, i64 1
-  %incdec.ptr.i.i.i.i.i26 = getelementptr inbounds %"class.ue2::PositionInfo", ptr %__cur.07.i.i.i.i.i23, i64 1
+  %incdec.ptr.i.i.i.i.i.i25 = getelementptr inbounds i8, ptr %__first.sroa.0.06.i.i.i.i.i24, i64 8
+  %incdec.ptr.i.i.i.i.i26 = getelementptr inbounds i8, ptr %__cur.07.i.i.i.i.i23, i64 8
   %cmp.i.not.i.i.i.i.i27 = icmp eq ptr %incdec.ptr.i.i.i.i.i.i25, %12
   br i1 %cmp.i.not.i.i.i.i.i27, label %invoke.cont7, label %for.body.i.i.i.i.i22, !llvm.loop !5
 
@@ -308,8 +306,8 @@ declare noundef nonnull ptr @_Znwm(i64 noundef) local_unnamed_addr #5
 ; Function Attrs: mustprogress uwtable
 define hidden void @_ZNK3ue217ComponentBoundary5firstEv(ptr noalias nocapture writeonly sret(%"class.std::vector") align 8 %agg.result, ptr nocapture noundef nonnull readonly align 8 dereferenceable(72) %this) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  %m_first = getelementptr inbounds %"class.ue2::ComponentBoundary", ptr %this, i64 0, i32 3
-  %_M_finish.i.i = getelementptr inbounds %"class.ue2::ComponentBoundary", ptr %this, i64 0, i32 3, i32 0, i32 0, i32 0, i32 1
+  %m_first = getelementptr inbounds i8, ptr %this, i64 24
+  %_M_finish.i.i = getelementptr inbounds i8, ptr %this, i64 32
   %0 = load ptr, ptr %_M_finish.i.i, align 8
   %1 = load ptr, ptr %m_first, align 8
   %sub.ptr.lhs.cast.i.i = ptrtoint ptr %0 to i64
@@ -321,7 +319,7 @@ entry:
 
 invoke.cont.i.thread:                             ; preds = %entry
   %add.ptr.i.i.i3 = getelementptr inbounds i8, ptr null, i64 %sub.ptr.sub.i.i
-  %_M_end_of_storage.i.i.i4 = getelementptr inbounds %"struct.std::_Vector_base<ue2::PositionInfo, std::allocator<ue2::PositionInfo>>::_Vector_impl_data", ptr %agg.result, i64 0, i32 2
+  %_M_end_of_storage.i.i.i4 = getelementptr inbounds i8, ptr %agg.result, i64 16
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %agg.result, i8 0, i64 16, i1 false)
   store ptr %add.ptr.i.i.i3, ptr %_M_end_of_storage.i.i.i4, align 8
   br label %_ZNSt6vectorIN3ue212PositionInfoESaIS1_EEC2ERKS3_.exit
@@ -338,7 +336,7 @@ invoke.cont.i:                                    ; preds = %cond.true.i.i.i.i
   %call5.i.i.i.i2.i6.i = tail call noalias noundef nonnull ptr @_Znwm(i64 noundef %sub.ptr.sub.i.i) #17
   store ptr %call5.i.i.i.i2.i6.i, ptr %agg.result, align 8
   %add.ptr.i.i.i = getelementptr inbounds i8, ptr %call5.i.i.i.i2.i6.i, i64 %sub.ptr.sub.i.i
-  %_M_end_of_storage.i.i.i = getelementptr inbounds %"struct.std::_Vector_base<ue2::PositionInfo, std::allocator<ue2::PositionInfo>>::_Vector_impl_data", ptr %agg.result, i64 0, i32 2
+  %_M_end_of_storage.i.i.i = getelementptr inbounds i8, ptr %agg.result, i64 16
   store ptr %add.ptr.i.i.i, ptr %_M_end_of_storage.i.i.i, align 8
   br label %for.body.i.i.i.i.i
 
@@ -347,14 +345,14 @@ for.body.i.i.i.i.i:                               ; preds = %invoke.cont.i, %for
   %__first.sroa.0.06.i.i.i.i.i = phi ptr [ %incdec.ptr.i.i.i.i.i.i, %for.body.i.i.i.i.i ], [ %1, %invoke.cont.i ]
   %2 = load i64, ptr %__first.sroa.0.06.i.i.i.i.i, align 4
   store i64 %2, ptr %__cur.07.i.i.i.i.i, align 4
-  %incdec.ptr.i.i.i.i.i.i = getelementptr inbounds %"class.ue2::PositionInfo", ptr %__first.sroa.0.06.i.i.i.i.i, i64 1
-  %incdec.ptr.i.i.i.i.i = getelementptr inbounds %"class.ue2::PositionInfo", ptr %__cur.07.i.i.i.i.i, i64 1
+  %incdec.ptr.i.i.i.i.i.i = getelementptr inbounds i8, ptr %__first.sroa.0.06.i.i.i.i.i, i64 8
+  %incdec.ptr.i.i.i.i.i = getelementptr inbounds i8, ptr %__cur.07.i.i.i.i.i, i64 8
   %cmp.i.not.i.i.i.i.i = icmp eq ptr %incdec.ptr.i.i.i.i.i.i, %0
   br i1 %cmp.i.not.i.i.i.i.i, label %_ZNSt6vectorIN3ue212PositionInfoESaIS1_EEC2ERKS3_.exit, label %for.body.i.i.i.i.i, !llvm.loop !5
 
 _ZNSt6vectorIN3ue212PositionInfoESaIS1_EEC2ERKS3_.exit: ; preds = %for.body.i.i.i.i.i, %invoke.cont.i.thread
   %__cur.0.lcssa.i.i.i.i.i = phi ptr [ null, %invoke.cont.i.thread ], [ %incdec.ptr.i.i.i.i.i, %for.body.i.i.i.i.i ]
-  %_M_finish.i.i.i5 = getelementptr inbounds %"struct.std::_Vector_base<ue2::PositionInfo, std::allocator<ue2::PositionInfo>>::_Vector_impl_data", ptr %agg.result, i64 0, i32 1
+  %_M_finish.i.i.i5 = getelementptr inbounds i8, ptr %agg.result, i64 8
   store ptr %__cur.0.lcssa.i.i.i.i.i, ptr %_M_finish.i.i.i5, align 8
   ret void
 }
@@ -362,8 +360,8 @@ _ZNSt6vectorIN3ue212PositionInfoESaIS1_EEC2ERKS3_.exit: ; preds = %for.body.i.i.
 ; Function Attrs: mustprogress uwtable
 define hidden void @_ZNK3ue217ComponentBoundary4lastEv(ptr noalias nocapture writeonly sret(%"class.std::vector") align 8 %agg.result, ptr nocapture noundef nonnull readonly align 8 dereferenceable(72) %this) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  %m_last = getelementptr inbounds %"class.ue2::ComponentBoundary", ptr %this, i64 0, i32 4
-  %_M_finish.i.i = getelementptr inbounds %"class.ue2::ComponentBoundary", ptr %this, i64 0, i32 4, i32 0, i32 0, i32 0, i32 1
+  %m_last = getelementptr inbounds i8, ptr %this, i64 48
+  %_M_finish.i.i = getelementptr inbounds i8, ptr %this, i64 56
   %0 = load ptr, ptr %_M_finish.i.i, align 8
   %1 = load ptr, ptr %m_last, align 8
   %sub.ptr.lhs.cast.i.i = ptrtoint ptr %0 to i64
@@ -375,7 +373,7 @@ entry:
 
 invoke.cont.i.thread:                             ; preds = %entry
   %add.ptr.i.i.i3 = getelementptr inbounds i8, ptr null, i64 %sub.ptr.sub.i.i
-  %_M_end_of_storage.i.i.i4 = getelementptr inbounds %"struct.std::_Vector_base<ue2::PositionInfo, std::allocator<ue2::PositionInfo>>::_Vector_impl_data", ptr %agg.result, i64 0, i32 2
+  %_M_end_of_storage.i.i.i4 = getelementptr inbounds i8, ptr %agg.result, i64 16
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %agg.result, i8 0, i64 16, i1 false)
   store ptr %add.ptr.i.i.i3, ptr %_M_end_of_storage.i.i.i4, align 8
   br label %_ZNSt6vectorIN3ue212PositionInfoESaIS1_EEC2ERKS3_.exit
@@ -392,7 +390,7 @@ invoke.cont.i:                                    ; preds = %cond.true.i.i.i.i
   %call5.i.i.i.i2.i6.i = tail call noalias noundef nonnull ptr @_Znwm(i64 noundef %sub.ptr.sub.i.i) #17
   store ptr %call5.i.i.i.i2.i6.i, ptr %agg.result, align 8
   %add.ptr.i.i.i = getelementptr inbounds i8, ptr %call5.i.i.i.i2.i6.i, i64 %sub.ptr.sub.i.i
-  %_M_end_of_storage.i.i.i = getelementptr inbounds %"struct.std::_Vector_base<ue2::PositionInfo, std::allocator<ue2::PositionInfo>>::_Vector_impl_data", ptr %agg.result, i64 0, i32 2
+  %_M_end_of_storage.i.i.i = getelementptr inbounds i8, ptr %agg.result, i64 16
   store ptr %add.ptr.i.i.i, ptr %_M_end_of_storage.i.i.i, align 8
   br label %for.body.i.i.i.i.i
 
@@ -401,14 +399,14 @@ for.body.i.i.i.i.i:                               ; preds = %invoke.cont.i, %for
   %__first.sroa.0.06.i.i.i.i.i = phi ptr [ %incdec.ptr.i.i.i.i.i.i, %for.body.i.i.i.i.i ], [ %1, %invoke.cont.i ]
   %2 = load i64, ptr %__first.sroa.0.06.i.i.i.i.i, align 4
   store i64 %2, ptr %__cur.07.i.i.i.i.i, align 4
-  %incdec.ptr.i.i.i.i.i.i = getelementptr inbounds %"class.ue2::PositionInfo", ptr %__first.sroa.0.06.i.i.i.i.i, i64 1
-  %incdec.ptr.i.i.i.i.i = getelementptr inbounds %"class.ue2::PositionInfo", ptr %__cur.07.i.i.i.i.i, i64 1
+  %incdec.ptr.i.i.i.i.i.i = getelementptr inbounds i8, ptr %__first.sroa.0.06.i.i.i.i.i, i64 8
+  %incdec.ptr.i.i.i.i.i = getelementptr inbounds i8, ptr %__cur.07.i.i.i.i.i, i64 8
   %cmp.i.not.i.i.i.i.i = icmp eq ptr %incdec.ptr.i.i.i.i.i.i, %0
   br i1 %cmp.i.not.i.i.i.i.i, label %_ZNSt6vectorIN3ue212PositionInfoESaIS1_EEC2ERKS3_.exit, label %for.body.i.i.i.i.i, !llvm.loop !5
 
 _ZNSt6vectorIN3ue212PositionInfoESaIS1_EEC2ERKS3_.exit: ; preds = %for.body.i.i.i.i.i, %invoke.cont.i.thread
   %__cur.0.lcssa.i.i.i.i.i = phi ptr [ null, %invoke.cont.i.thread ], [ %incdec.ptr.i.i.i.i.i, %for.body.i.i.i.i.i ]
-  %_M_finish.i.i.i5 = getelementptr inbounds %"struct.std::_Vector_base<ue2::PositionInfo, std::allocator<ue2::PositionInfo>>::_Vector_impl_data", ptr %agg.result, i64 0, i32 1
+  %_M_finish.i.i.i5 = getelementptr inbounds i8, ptr %agg.result, i64 8
   store ptr %__cur.0.lcssa.i.i.i.i.i, ptr %_M_finish.i.i.i5, align 8
   ret void
 }
@@ -430,14 +428,14 @@ define hidden void @_ZN3ue217ComponentBoundary13notePositionsERNS_18GlushkovBuil
 entry:
   %ref.tmp.i = alloca %"class.ue2::CharReach", align 8
   %vtable = load ptr, ptr %bs, align 8
-  %vfn = getelementptr inbounds ptr, ptr %vtable, i64 2
+  %vfn = getelementptr inbounds i8, ptr %vtable, i64 16
   %0 = load ptr, ptr %vfn, align 8
   %call = tail call noundef nonnull align 8 dereferenceable(8) ptr %0(ptr noundef nonnull align 8 dereferenceable(8) %bs)
   %vtable2 = load ptr, ptr %call, align 8
-  %vfn3 = getelementptr inbounds ptr, ptr %vtable2, i64 3
+  %vfn3 = getelementptr inbounds i8, ptr %vtable2, i64 24
   %1 = load ptr, ptr %vfn3, align 8
   %call4 = tail call noundef i32 %1(ptr noundef nonnull align 8 dereferenceable(8) %call)
-  %m_bound = getelementptr inbounds %"class.ue2::ComponentBoundary", ptr %this, i64 0, i32 1
+  %m_bound = getelementptr inbounds i8, ptr %this, i64 16
   %2 = load i32, ptr %m_bound, align 8
   switch i32 %2, label %sw.epilog [
     i32 0, label %sw.bb
@@ -449,10 +447,10 @@ entry:
 
 sw.bb:                                            ; preds = %entry
   %3 = load i32, ptr @_ZN3ue218GlushkovBuildState11POS_EPSILONE, align 4
-  %m_first = getelementptr inbounds %"class.ue2::ComponentBoundary", ptr %this, i64 0, i32 3
-  %_M_finish.i = getelementptr inbounds %"class.ue2::ComponentBoundary", ptr %this, i64 0, i32 3, i32 0, i32 0, i32 0, i32 1
+  %m_first = getelementptr inbounds i8, ptr %this, i64 24
+  %_M_finish.i = getelementptr inbounds i8, ptr %this, i64 32
   %4 = load ptr, ptr %_M_finish.i, align 8
-  %_M_end_of_storage.i = getelementptr inbounds %"class.ue2::ComponentBoundary", ptr %this, i64 0, i32 3, i32 0, i32 0, i32 0, i32 2
+  %_M_end_of_storage.i = getelementptr inbounds i8, ptr %this, i64 40
   %5 = load ptr, ptr %_M_end_of_storage.i, align 8
   %cmp.not.i = icmp eq ptr %4, %5
   br i1 %cmp.not.i, label %if.else.i, label %if.then.i
@@ -462,7 +460,7 @@ if.then.i:                                        ; preds = %sw.bb
   %epsilon.sroa.0.0.insert.insert = or disjoint i64 %epsilon.sroa.0.0.insert.ext, 4294967296
   store i64 %epsilon.sroa.0.0.insert.insert, ptr %4, align 4
   %6 = load ptr, ptr %_M_finish.i, align 8
-  %incdec.ptr.i = getelementptr inbounds %"class.ue2::PositionInfo", ptr %6, i64 1
+  %incdec.ptr.i = getelementptr inbounds i8, ptr %6, i64 8
   store ptr %incdec.ptr.i, ptr %_M_finish.i, align 8
   %.pre376 = load ptr, ptr %_M_end_of_storage.i, align 8
   br label %_ZNSt6vectorIN3ue212PositionInfoESaIS1_EE9push_backERKS1_.exit
@@ -510,14 +508,14 @@ for.body.i.i.i.i.i:                               ; preds = %_ZNSt12_Vector_base
   tail call void @llvm.experimental.noalias.scope.decl(metadata !10)
   %9 = load i64, ptr %__first.addr.06.i.i.i.i.i, align 4, !alias.scope !10, !noalias !7
   store i64 %9, ptr %__cur.07.i.i.i.i.i, align 4, !alias.scope !7, !noalias !10
-  %incdec.ptr.i.i.i.i.i = getelementptr inbounds %"class.ue2::PositionInfo", ptr %__first.addr.06.i.i.i.i.i, i64 1
-  %incdec.ptr1.i.i.i.i.i = getelementptr inbounds %"class.ue2::PositionInfo", ptr %__cur.07.i.i.i.i.i, i64 1
+  %incdec.ptr.i.i.i.i.i = getelementptr inbounds i8, ptr %__first.addr.06.i.i.i.i.i, i64 8
+  %incdec.ptr1.i.i.i.i.i = getelementptr inbounds i8, ptr %__cur.07.i.i.i.i.i, i64 8
   %cmp.not.i.i.i.i.i = icmp eq ptr %incdec.ptr.i.i.i.i.i, %4
   br i1 %cmp.not.i.i.i.i.i, label %_ZNSt6vectorIN3ue212PositionInfoESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit19.i.i, label %for.body.i.i.i.i.i, !llvm.loop !12
 
 _ZNSt6vectorIN3ue212PositionInfoESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit19.i.i: ; preds = %for.body.i.i.i.i.i, %_ZNSt12_Vector_baseIN3ue212PositionInfoESaIS1_EE11_M_allocateEm.exit.i.i
   %__cur.0.lcssa.i.i.i.i.i = phi ptr [ %cond.i10.i.i, %_ZNSt12_Vector_baseIN3ue212PositionInfoESaIS1_EE11_M_allocateEm.exit.i.i ], [ %incdec.ptr1.i.i.i.i.i, %for.body.i.i.i.i.i ]
-  %incdec.ptr.i.i = getelementptr %"class.ue2::PositionInfo", ptr %__cur.0.lcssa.i.i.i.i.i, i64 1
+  %incdec.ptr.i.i = getelementptr i8, ptr %__cur.0.lcssa.i.i.i.i.i, i64 8
   %tobool.not.i.i.i = icmp eq ptr %7, null
   br i1 %tobool.not.i.i.i, label %_ZNSt6vectorIN3ue212PositionInfoESaIS1_EE17_M_realloc_insertIJRKS1_EEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_.exit.i, label %if.then.i20.i.i
 
@@ -542,7 +540,7 @@ if.then.i.i:                                      ; preds = %_ZNSt6vectorIN3ue21
   %ref.tmp.sroa.0.0.insert.ext = zext i32 %call4 to i64
   store i64 %ref.tmp.sroa.0.0.insert.ext, ptr %11, align 4
   %12 = load ptr, ptr %_M_finish.i, align 8
-  %incdec.ptr.i.i6 = getelementptr inbounds %"class.ue2::PositionInfo", ptr %12, i64 1
+  %incdec.ptr.i.i6 = getelementptr inbounds i8, ptr %12, i64 8
   store ptr %incdec.ptr.i.i6, ptr %_M_finish.i, align 8
   br label %sw.epilog
 
@@ -588,14 +586,14 @@ for.body.i.i.i.i.i.i:                             ; preds = %_ZNSt12_Vector_base
   tail call void @llvm.experimental.noalias.scope.decl(metadata !16)
   %15 = load i64, ptr %__first.addr.06.i.i.i.i.i.i, align 4, !alias.scope !16, !noalias !13
   store i64 %15, ptr %__cur.07.i.i.i.i.i.i, align 4, !alias.scope !13, !noalias !16
-  %incdec.ptr.i.i.i.i.i.i = getelementptr inbounds %"class.ue2::PositionInfo", ptr %__first.addr.06.i.i.i.i.i.i, i64 1
-  %incdec.ptr1.i.i.i.i.i.i = getelementptr inbounds %"class.ue2::PositionInfo", ptr %__cur.07.i.i.i.i.i.i, i64 1
+  %incdec.ptr.i.i.i.i.i.i = getelementptr inbounds i8, ptr %__first.addr.06.i.i.i.i.i.i, i64 8
+  %incdec.ptr1.i.i.i.i.i.i = getelementptr inbounds i8, ptr %__cur.07.i.i.i.i.i.i, i64 8
   %cmp.not.i.i.i.i.i.i = icmp eq ptr %incdec.ptr.i.i.i.i.i.i, %10
   br i1 %cmp.not.i.i.i.i.i.i, label %_ZNSt6vectorIN3ue212PositionInfoESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit19.i.i.i, label %for.body.i.i.i.i.i.i, !llvm.loop !12
 
 _ZNSt6vectorIN3ue212PositionInfoESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit19.i.i.i: ; preds = %for.body.i.i.i.i.i.i, %_ZNSt12_Vector_baseIN3ue212PositionInfoESaIS1_EE11_M_allocateEm.exit.i.i.i
   %__cur.0.lcssa.i.i.i.i.i.i = phi ptr [ %cond.i10.i.i.i, %_ZNSt12_Vector_baseIN3ue212PositionInfoESaIS1_EE11_M_allocateEm.exit.i.i.i ], [ %incdec.ptr1.i.i.i.i.i.i, %for.body.i.i.i.i.i.i ]
-  %incdec.ptr.i.i.i = getelementptr %"class.ue2::PositionInfo", ptr %__cur.0.lcssa.i.i.i.i.i.i, i64 1
+  %incdec.ptr.i.i.i = getelementptr i8, ptr %__cur.0.lcssa.i.i.i.i.i.i, i64 8
   %tobool.not.i.i.i.i = icmp eq ptr %13, null
   br i1 %tobool.not.i.i.i.i, label %_ZNSt6vectorIN3ue212PositionInfoESaIS1_EE17_M_realloc_insertIJS1_EEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_.exit.i.i, label %if.then.i20.i.i.i
 
@@ -612,10 +610,10 @@ _ZNSt6vectorIN3ue212PositionInfoESaIS1_EE17_M_realloc_insertIJS1_EEEvN9__gnu_cxx
 
 sw.bb6:                                           ; preds = %entry
   %16 = load i32, ptr @_ZN3ue218GlushkovBuildState11POS_EPSILONE, align 4
-  %m_first9 = getelementptr inbounds %"class.ue2::ComponentBoundary", ptr %this, i64 0, i32 3
-  %_M_finish.i8 = getelementptr inbounds %"class.ue2::ComponentBoundary", ptr %this, i64 0, i32 3, i32 0, i32 0, i32 0, i32 1
+  %m_first9 = getelementptr inbounds i8, ptr %this, i64 24
+  %_M_finish.i8 = getelementptr inbounds i8, ptr %this, i64 32
   %17 = load ptr, ptr %_M_finish.i8, align 8
-  %_M_end_of_storage.i9 = getelementptr inbounds %"class.ue2::ComponentBoundary", ptr %this, i64 0, i32 3, i32 0, i32 0, i32 0, i32 2
+  %_M_end_of_storage.i9 = getelementptr inbounds i8, ptr %this, i64 40
   %18 = load ptr, ptr %_M_end_of_storage.i9, align 8
   %cmp.not.i10 = icmp eq ptr %17, %18
   br i1 %cmp.not.i10, label %if.else.i13, label %if.then.i11
@@ -625,7 +623,7 @@ if.then.i11:                                      ; preds = %sw.bb6
   %epsilon7.sroa.0.0.insert.insert = or disjoint i64 %epsilon7.sroa.0.0.insert.ext, 4294967296
   store i64 %epsilon7.sroa.0.0.insert.insert, ptr %17, align 4
   %19 = load ptr, ptr %_M_finish.i8, align 8
-  %incdec.ptr.i12 = getelementptr inbounds %"class.ue2::PositionInfo", ptr %19, i64 1
+  %incdec.ptr.i12 = getelementptr inbounds i8, ptr %19, i64 8
   store ptr %incdec.ptr.i12, ptr %_M_finish.i8, align 8
   %.pre = load ptr, ptr %_M_end_of_storage.i9, align 8
   br label %_ZNSt6vectorIN3ue212PositionInfoESaIS1_EE9push_backERKS1_.exit46
@@ -673,14 +671,14 @@ for.body.i.i.i.i.i32:                             ; preds = %_ZNSt12_Vector_base
   tail call void @llvm.experimental.noalias.scope.decl(metadata !21)
   %22 = load i64, ptr %__first.addr.06.i.i.i.i.i34, align 4, !alias.scope !21, !noalias !18
   store i64 %22, ptr %__cur.07.i.i.i.i.i33, align 4, !alias.scope !18, !noalias !21
-  %incdec.ptr.i.i.i.i.i35 = getelementptr inbounds %"class.ue2::PositionInfo", ptr %__first.addr.06.i.i.i.i.i34, i64 1
-  %incdec.ptr1.i.i.i.i.i36 = getelementptr inbounds %"class.ue2::PositionInfo", ptr %__cur.07.i.i.i.i.i33, i64 1
+  %incdec.ptr.i.i.i.i.i35 = getelementptr inbounds i8, ptr %__first.addr.06.i.i.i.i.i34, i64 8
+  %incdec.ptr1.i.i.i.i.i36 = getelementptr inbounds i8, ptr %__cur.07.i.i.i.i.i33, i64 8
   %cmp.not.i.i.i.i.i37 = icmp eq ptr %incdec.ptr.i.i.i.i.i35, %17
   br i1 %cmp.not.i.i.i.i.i37, label %_ZNSt6vectorIN3ue212PositionInfoESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit19.i.i38, label %for.body.i.i.i.i.i32, !llvm.loop !12
 
 _ZNSt6vectorIN3ue212PositionInfoESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit19.i.i38: ; preds = %for.body.i.i.i.i.i32, %_ZNSt12_Vector_baseIN3ue212PositionInfoESaIS1_EE11_M_allocateEm.exit.i.i28
   %__cur.0.lcssa.i.i.i.i.i39 = phi ptr [ %cond.i10.i.i29, %_ZNSt12_Vector_baseIN3ue212PositionInfoESaIS1_EE11_M_allocateEm.exit.i.i28 ], [ %incdec.ptr1.i.i.i.i.i36, %for.body.i.i.i.i.i32 ]
-  %incdec.ptr.i.i40 = getelementptr %"class.ue2::PositionInfo", ptr %__cur.0.lcssa.i.i.i.i.i39, i64 1
+  %incdec.ptr.i.i40 = getelementptr i8, ptr %__cur.0.lcssa.i.i.i.i.i39, i64 8
   %tobool.not.i.i.i41 = icmp eq ptr %20, null
   br i1 %tobool.not.i.i.i41, label %_ZNSt6vectorIN3ue212PositionInfoESaIS1_EE17_M_realloc_insertIJRKS1_EEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_.exit.i43, label %if.then.i20.i.i42
 
@@ -705,7 +703,7 @@ if.then.i.i51:                                    ; preds = %_ZNSt6vectorIN3ue21
   %ref.tmp11.sroa.0.0.insert.ext = zext i32 %call4 to i64
   store i64 %ref.tmp11.sroa.0.0.insert.ext, ptr %24, align 4
   %25 = load ptr, ptr %_M_finish.i8, align 8
-  %incdec.ptr.i.i52 = getelementptr inbounds %"class.ue2::PositionInfo", ptr %25, i64 1
+  %incdec.ptr.i.i52 = getelementptr inbounds i8, ptr %25, i64 8
   store ptr %incdec.ptr.i.i52, ptr %_M_finish.i8, align 8
   br label %_ZNSt6vectorIN3ue212PositionInfoESaIS1_EE9push_backEOS1_.exit86
 
@@ -751,14 +749,14 @@ for.body.i.i.i.i.i.i72:                           ; preds = %_ZNSt12_Vector_base
   tail call void @llvm.experimental.noalias.scope.decl(metadata !26)
   %28 = load i64, ptr %__first.addr.06.i.i.i.i.i.i74, align 4, !alias.scope !26, !noalias !23
   store i64 %28, ptr %__cur.07.i.i.i.i.i.i73, align 4, !alias.scope !23, !noalias !26
-  %incdec.ptr.i.i.i.i.i.i75 = getelementptr inbounds %"class.ue2::PositionInfo", ptr %__first.addr.06.i.i.i.i.i.i74, i64 1
-  %incdec.ptr1.i.i.i.i.i.i76 = getelementptr inbounds %"class.ue2::PositionInfo", ptr %__cur.07.i.i.i.i.i.i73, i64 1
+  %incdec.ptr.i.i.i.i.i.i75 = getelementptr inbounds i8, ptr %__first.addr.06.i.i.i.i.i.i74, i64 8
+  %incdec.ptr1.i.i.i.i.i.i76 = getelementptr inbounds i8, ptr %__cur.07.i.i.i.i.i.i73, i64 8
   %cmp.not.i.i.i.i.i.i77 = icmp eq ptr %incdec.ptr.i.i.i.i.i.i75, %23
   br i1 %cmp.not.i.i.i.i.i.i77, label %_ZNSt6vectorIN3ue212PositionInfoESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit19.i.i.i78, label %for.body.i.i.i.i.i.i72, !llvm.loop !12
 
 _ZNSt6vectorIN3ue212PositionInfoESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit19.i.i.i78: ; preds = %for.body.i.i.i.i.i.i72, %_ZNSt12_Vector_baseIN3ue212PositionInfoESaIS1_EE11_M_allocateEm.exit.i.i.i68
   %__cur.0.lcssa.i.i.i.i.i.i79 = phi ptr [ %cond.i10.i.i.i69, %_ZNSt12_Vector_baseIN3ue212PositionInfoESaIS1_EE11_M_allocateEm.exit.i.i.i68 ], [ %incdec.ptr1.i.i.i.i.i.i76, %for.body.i.i.i.i.i.i72 ]
-  %incdec.ptr.i.i.i80 = getelementptr %"class.ue2::PositionInfo", ptr %__cur.0.lcssa.i.i.i.i.i.i79, i64 1
+  %incdec.ptr.i.i.i80 = getelementptr i8, ptr %__cur.0.lcssa.i.i.i.i.i.i79, i64 8
   %tobool.not.i.i.i.i81 = icmp eq ptr %26, null
   br i1 %tobool.not.i.i.i.i81, label %_ZNSt6vectorIN3ue212PositionInfoESaIS1_EE17_M_realloc_insertIJS1_EEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_.exit.i.i83, label %if.then.i20.i.i.i82
 
@@ -776,30 +774,30 @@ _ZNSt6vectorIN3ue212PositionInfoESaIS1_EE17_M_realloc_insertIJS1_EEEvN9__gnu_cxx
 _ZNSt6vectorIN3ue212PositionInfoESaIS1_EE9push_backEOS1_.exit86: ; preds = %if.then.i.i51, %_ZNSt6vectorIN3ue212PositionInfoESaIS1_EE17_M_realloc_insertIJS1_EEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_.exit.i.i83
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %ref.tmp.i)
   %vtable.i = load ptr, ptr %bs, align 8
-  %vfn.i = getelementptr inbounds ptr, ptr %vtable.i, i64 2
+  %vfn.i = getelementptr inbounds i8, ptr %vtable.i, i64 16
   %29 = load ptr, ptr %vfn.i, align 8
   %call.i = tail call noundef nonnull align 8 dereferenceable(8) ptr %29(ptr noundef nonnull align 8 dereferenceable(8) %bs)
   %vtable1.i = load ptr, ptr %call.i, align 8
-  %vfn2.i = getelementptr inbounds ptr, ptr %vtable1.i, i64 2
+  %vfn2.i = getelementptr inbounds i8, ptr %vtable1.i, i64 16
   %30 = load ptr, ptr %vfn2.i, align 8
   %call3.i = tail call noundef i32 %30(ptr noundef nonnull align 8 dereferenceable(8) %call.i, i64 noundef 1)
   %31 = getelementptr inbounds i8, ptr %ref.tmp.i, i64 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %31, i8 0, i64 24, i1 false)
   store i64 1024, ptr %ref.tmp.i, align 8
   %vtable4.i = load ptr, ptr %call.i, align 8
-  %vfn5.i = getelementptr inbounds ptr, ptr %vtable4.i, i64 9
+  %vfn5.i = getelementptr inbounds i8, ptr %vtable4.i, i64 72
   %32 = load ptr, ptr %vfn5.i, align 8
   call void %32(ptr noundef nonnull align 8 dereferenceable(8) %call.i, i32 noundef %call3.i, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp.i)
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %ref.tmp.i)
-  %m_newline = getelementptr inbounds %"class.ue2::ComponentBoundary", ptr %this, i64 0, i32 2
+  %m_newline = getelementptr inbounds i8, ptr %this, i64 20
   store i32 %call3.i, ptr %m_newline, align 4
   %vtable14 = load ptr, ptr %call, align 8
-  %vfn15 = getelementptr inbounds ptr, ptr %vtable14, i64 10
+  %vfn15 = getelementptr inbounds i8, ptr %vtable14, i64 80
   %33 = load ptr, ptr %vfn15, align 8
   call void %33(ptr noundef nonnull align 8 dereferenceable(8) %call, i32 noundef %call3.i, i32 noundef 256)
   %34 = load i32, ptr %m_newline, align 4
   %vtable17 = load ptr, ptr %call, align 8
-  %vfn18 = getelementptr inbounds ptr, ptr %vtable17, i64 10
+  %vfn18 = getelementptr inbounds i8, ptr %vtable17, i64 80
   %35 = load ptr, ptr %vfn18, align 8
   call void %35(ptr noundef nonnull align 8 dereferenceable(8) %call, i32 noundef %34, i32 noundef 128)
   %36 = load i32, ptr %m_newline, align 4
@@ -813,7 +811,7 @@ if.then.i91:                                      ; preds = %_ZNSt6vectorIN3ue21
   %nl.sroa.0.0.insert.insert = or disjoint i64 %nl.sroa.0.0.insert.ext, 25769803776
   store i64 %nl.sroa.0.0.insert.insert, ptr %37, align 4
   %39 = load ptr, ptr %_M_finish.i8, align 8
-  %incdec.ptr.i92 = getelementptr inbounds %"class.ue2::PositionInfo", ptr %39, i64 1
+  %incdec.ptr.i92 = getelementptr inbounds i8, ptr %39, i64 8
   store ptr %incdec.ptr.i92, ptr %_M_finish.i8, align 8
   br label %_ZNSt6vectorIN3ue212PositionInfoESaIS1_EE9push_backERKS1_.exit126
 
@@ -860,14 +858,14 @@ for.body.i.i.i.i.i112:                            ; preds = %_ZNSt12_Vector_base
   call void @llvm.experimental.noalias.scope.decl(metadata !31)
   %42 = load i64, ptr %__first.addr.06.i.i.i.i.i114, align 4, !alias.scope !31, !noalias !28
   store i64 %42, ptr %__cur.07.i.i.i.i.i113, align 4, !alias.scope !28, !noalias !31
-  %incdec.ptr.i.i.i.i.i115 = getelementptr inbounds %"class.ue2::PositionInfo", ptr %__first.addr.06.i.i.i.i.i114, i64 1
-  %incdec.ptr1.i.i.i.i.i116 = getelementptr inbounds %"class.ue2::PositionInfo", ptr %__cur.07.i.i.i.i.i113, i64 1
+  %incdec.ptr.i.i.i.i.i115 = getelementptr inbounds i8, ptr %__first.addr.06.i.i.i.i.i114, i64 8
+  %incdec.ptr1.i.i.i.i.i116 = getelementptr inbounds i8, ptr %__cur.07.i.i.i.i.i113, i64 8
   %cmp.not.i.i.i.i.i117 = icmp eq ptr %incdec.ptr.i.i.i.i.i115, %37
   br i1 %cmp.not.i.i.i.i.i117, label %_ZNSt6vectorIN3ue212PositionInfoESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit19.i.i118, label %for.body.i.i.i.i.i112, !llvm.loop !12
 
 _ZNSt6vectorIN3ue212PositionInfoESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit19.i.i118: ; preds = %for.body.i.i.i.i.i112, %_ZNSt12_Vector_baseIN3ue212PositionInfoESaIS1_EE11_M_allocateEm.exit.i.i108
   %__cur.0.lcssa.i.i.i.i.i119 = phi ptr [ %cond.i10.i.i109, %_ZNSt12_Vector_baseIN3ue212PositionInfoESaIS1_EE11_M_allocateEm.exit.i.i108 ], [ %incdec.ptr1.i.i.i.i.i116, %for.body.i.i.i.i.i112 ]
-  %incdec.ptr.i.i120 = getelementptr %"class.ue2::PositionInfo", ptr %__cur.0.lcssa.i.i.i.i.i119, i64 1
+  %incdec.ptr.i.i120 = getelementptr i8, ptr %__cur.0.lcssa.i.i.i.i.i119, i64 8
   %tobool.not.i.i.i121 = icmp eq ptr %40, null
   br i1 %tobool.not.i.i.i121, label %_ZNSt6vectorIN3ue212PositionInfoESaIS1_EE17_M_realloc_insertIJRKS1_EEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_.exit.i123, label %if.then.i20.i.i122
 
@@ -883,10 +881,10 @@ _ZNSt6vectorIN3ue212PositionInfoESaIS1_EE17_M_realloc_insertIJRKS1_EEEvN9__gnu_c
   br label %_ZNSt6vectorIN3ue212PositionInfoESaIS1_EE9push_backERKS1_.exit126
 
 _ZNSt6vectorIN3ue212PositionInfoESaIS1_EE9push_backERKS1_.exit126: ; preds = %if.then.i91, %_ZNSt6vectorIN3ue212PositionInfoESaIS1_EE17_M_realloc_insertIJRKS1_EEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_.exit.i123
-  %m_last = getelementptr inbounds %"class.ue2::ComponentBoundary", ptr %this, i64 0, i32 4
-  %_M_finish.i127 = getelementptr inbounds %"class.ue2::ComponentBoundary", ptr %this, i64 0, i32 4, i32 0, i32 0, i32 0, i32 1
+  %m_last = getelementptr inbounds i8, ptr %this, i64 48
+  %_M_finish.i127 = getelementptr inbounds i8, ptr %this, i64 56
   %43 = load ptr, ptr %_M_finish.i127, align 8
-  %_M_end_of_storage.i128 = getelementptr inbounds %"class.ue2::ComponentBoundary", ptr %this, i64 0, i32 4, i32 0, i32 0, i32 0, i32 2
+  %_M_end_of_storage.i128 = getelementptr inbounds i8, ptr %this, i64 64
   %44 = load ptr, ptr %_M_end_of_storage.i128, align 8
   %cmp.not.i129 = icmp eq ptr %43, %44
   br i1 %cmp.not.i129, label %if.else.i132, label %if.then.i130
@@ -896,7 +894,7 @@ if.then.i130:                                     ; preds = %_ZNSt6vectorIN3ue21
   %nl.sroa.0.0.insert.insert320 = or disjoint i64 %nl.sroa.0.0.insert.ext318, 25769803776
   store i64 %nl.sroa.0.0.insert.insert320, ptr %43, align 4
   %45 = load ptr, ptr %_M_finish.i127, align 8
-  %incdec.ptr.i131 = getelementptr inbounds %"class.ue2::PositionInfo", ptr %45, i64 1
+  %incdec.ptr.i131 = getelementptr inbounds i8, ptr %45, i64 8
   store ptr %incdec.ptr.i131, ptr %_M_finish.i127, align 8
   br label %_ZNSt6vectorIN3ue212PositionInfoESaIS1_EE9push_backERKS1_.exit165
 
@@ -943,14 +941,14 @@ for.body.i.i.i.i.i151:                            ; preds = %_ZNSt12_Vector_base
   call void @llvm.experimental.noalias.scope.decl(metadata !36)
   %48 = load i64, ptr %__first.addr.06.i.i.i.i.i153, align 4, !alias.scope !36, !noalias !33
   store i64 %48, ptr %__cur.07.i.i.i.i.i152, align 4, !alias.scope !33, !noalias !36
-  %incdec.ptr.i.i.i.i.i154 = getelementptr inbounds %"class.ue2::PositionInfo", ptr %__first.addr.06.i.i.i.i.i153, i64 1
-  %incdec.ptr1.i.i.i.i.i155 = getelementptr inbounds %"class.ue2::PositionInfo", ptr %__cur.07.i.i.i.i.i152, i64 1
+  %incdec.ptr.i.i.i.i.i154 = getelementptr inbounds i8, ptr %__first.addr.06.i.i.i.i.i153, i64 8
+  %incdec.ptr1.i.i.i.i.i155 = getelementptr inbounds i8, ptr %__cur.07.i.i.i.i.i152, i64 8
   %cmp.not.i.i.i.i.i156 = icmp eq ptr %incdec.ptr.i.i.i.i.i154, %43
   br i1 %cmp.not.i.i.i.i.i156, label %_ZNSt6vectorIN3ue212PositionInfoESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit19.i.i157, label %for.body.i.i.i.i.i151, !llvm.loop !12
 
 _ZNSt6vectorIN3ue212PositionInfoESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit19.i.i157: ; preds = %for.body.i.i.i.i.i151, %_ZNSt12_Vector_baseIN3ue212PositionInfoESaIS1_EE11_M_allocateEm.exit.i.i147
   %__cur.0.lcssa.i.i.i.i.i158 = phi ptr [ %cond.i10.i.i148, %_ZNSt12_Vector_baseIN3ue212PositionInfoESaIS1_EE11_M_allocateEm.exit.i.i147 ], [ %incdec.ptr1.i.i.i.i.i155, %for.body.i.i.i.i.i151 ]
-  %incdec.ptr.i.i159 = getelementptr %"class.ue2::PositionInfo", ptr %__cur.0.lcssa.i.i.i.i.i158, i64 1
+  %incdec.ptr.i.i159 = getelementptr i8, ptr %__cur.0.lcssa.i.i.i.i.i158, i64 8
   %tobool.not.i.i.i160 = icmp eq ptr %46, null
   br i1 %tobool.not.i.i.i160, label %_ZNSt6vectorIN3ue212PositionInfoESaIS1_EE17_M_realloc_insertIJRKS1_EEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_.exit.i162, label %if.then.i20.i.i161
 
@@ -973,10 +971,10 @@ _ZNSt6vectorIN3ue212PositionInfoESaIS1_EE9push_backERKS1_.exit165: ; preds = %if
 
 sw.bb24:                                          ; preds = %entry
   %50 = load i32, ptr @_ZN3ue218GlushkovBuildState11POS_EPSILONE, align 4
-  %m_first27 = getelementptr inbounds %"class.ue2::ComponentBoundary", ptr %this, i64 0, i32 3
-  %_M_finish.i167 = getelementptr inbounds %"class.ue2::ComponentBoundary", ptr %this, i64 0, i32 3, i32 0, i32 0, i32 0, i32 1
+  %m_first27 = getelementptr inbounds i8, ptr %this, i64 24
+  %_M_finish.i167 = getelementptr inbounds i8, ptr %this, i64 32
   %51 = load ptr, ptr %_M_finish.i167, align 8
-  %_M_end_of_storage.i168 = getelementptr inbounds %"class.ue2::ComponentBoundary", ptr %this, i64 0, i32 3, i32 0, i32 0, i32 0, i32 2
+  %_M_end_of_storage.i168 = getelementptr inbounds i8, ptr %this, i64 40
   %52 = load ptr, ptr %_M_end_of_storage.i168, align 8
   %cmp.not.i169 = icmp eq ptr %51, %52
   br i1 %cmp.not.i169, label %if.else.i172, label %if.then.i170
@@ -986,7 +984,7 @@ if.then.i170:                                     ; preds = %sw.bb24
   %epsilon25.sroa.0.0.insert.insert = or disjoint i64 %epsilon25.sroa.0.0.insert.ext, 1837468647967162368
   store i64 %epsilon25.sroa.0.0.insert.insert, ptr %51, align 4
   %53 = load ptr, ptr %_M_finish.i167, align 8
-  %incdec.ptr.i171 = getelementptr inbounds %"class.ue2::PositionInfo", ptr %53, i64 1
+  %incdec.ptr.i171 = getelementptr inbounds i8, ptr %53, i64 8
   store ptr %incdec.ptr.i171, ptr %_M_finish.i167, align 8
   br label %sw.epilog
 
@@ -1033,14 +1031,14 @@ for.body.i.i.i.i.i191:                            ; preds = %_ZNSt12_Vector_base
   tail call void @llvm.experimental.noalias.scope.decl(metadata !41)
   %56 = load i64, ptr %__first.addr.06.i.i.i.i.i193, align 4, !alias.scope !41, !noalias !38
   store i64 %56, ptr %__cur.07.i.i.i.i.i192, align 4, !alias.scope !38, !noalias !41
-  %incdec.ptr.i.i.i.i.i194 = getelementptr inbounds %"class.ue2::PositionInfo", ptr %__first.addr.06.i.i.i.i.i193, i64 1
-  %incdec.ptr1.i.i.i.i.i195 = getelementptr inbounds %"class.ue2::PositionInfo", ptr %__cur.07.i.i.i.i.i192, i64 1
+  %incdec.ptr.i.i.i.i.i194 = getelementptr inbounds i8, ptr %__first.addr.06.i.i.i.i.i193, i64 8
+  %incdec.ptr1.i.i.i.i.i195 = getelementptr inbounds i8, ptr %__cur.07.i.i.i.i.i192, i64 8
   %cmp.not.i.i.i.i.i196 = icmp eq ptr %incdec.ptr.i.i.i.i.i194, %51
   br i1 %cmp.not.i.i.i.i.i196, label %_ZNSt6vectorIN3ue212PositionInfoESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit19.i.i197, label %for.body.i.i.i.i.i191, !llvm.loop !12
 
 _ZNSt6vectorIN3ue212PositionInfoESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit19.i.i197: ; preds = %for.body.i.i.i.i.i191, %_ZNSt12_Vector_baseIN3ue212PositionInfoESaIS1_EE11_M_allocateEm.exit.i.i187
   %__cur.0.lcssa.i.i.i.i.i198 = phi ptr [ %cond.i10.i.i188, %_ZNSt12_Vector_baseIN3ue212PositionInfoESaIS1_EE11_M_allocateEm.exit.i.i187 ], [ %incdec.ptr1.i.i.i.i.i195, %for.body.i.i.i.i.i191 ]
-  %incdec.ptr.i.i199 = getelementptr %"class.ue2::PositionInfo", ptr %__cur.0.lcssa.i.i.i.i.i198, i64 1
+  %incdec.ptr.i.i199 = getelementptr i8, ptr %__cur.0.lcssa.i.i.i.i.i198, i64 8
   %tobool.not.i.i.i200 = icmp eq ptr %54, null
   br i1 %tobool.not.i.i.i200, label %_ZNSt6vectorIN3ue212PositionInfoESaIS1_EE17_M_realloc_insertIJRKS1_EEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_.exit.i202, label %if.then.i20.i.i201
 
@@ -1057,10 +1055,10 @@ _ZNSt6vectorIN3ue212PositionInfoESaIS1_EE17_M_realloc_insertIJRKS1_EEEvN9__gnu_c
 
 sw.bb28:                                          ; preds = %entry
   %57 = load i32, ptr @_ZN3ue218GlushkovBuildState11POS_EPSILONE, align 4
-  %m_first31 = getelementptr inbounds %"class.ue2::ComponentBoundary", ptr %this, i64 0, i32 3
-  %_M_finish.i207 = getelementptr inbounds %"class.ue2::ComponentBoundary", ptr %this, i64 0, i32 3, i32 0, i32 0, i32 0, i32 1
+  %m_first31 = getelementptr inbounds i8, ptr %this, i64 24
+  %_M_finish.i207 = getelementptr inbounds i8, ptr %this, i64 32
   %58 = load ptr, ptr %_M_finish.i207, align 8
-  %_M_end_of_storage.i208 = getelementptr inbounds %"class.ue2::ComponentBoundary", ptr %this, i64 0, i32 3, i32 0, i32 0, i32 0, i32 2
+  %_M_end_of_storage.i208 = getelementptr inbounds i8, ptr %this, i64 40
   %59 = load ptr, ptr %_M_end_of_storage.i208, align 8
   %cmp.not.i209 = icmp eq ptr %58, %59
   br i1 %cmp.not.i209, label %if.else.i212, label %if.then.i210
@@ -1070,7 +1068,7 @@ if.then.i210:                                     ; preds = %sw.bb28
   %epsilon29.sroa.0.0.insert.insert = or disjoint i64 %epsilon29.sroa.0.0.insert.ext, 1405123083739594752
   store i64 %epsilon29.sroa.0.0.insert.insert, ptr %58, align 4
   %60 = load ptr, ptr %_M_finish.i207, align 8
-  %incdec.ptr.i211 = getelementptr inbounds %"class.ue2::PositionInfo", ptr %60, i64 1
+  %incdec.ptr.i211 = getelementptr inbounds i8, ptr %60, i64 8
   store ptr %incdec.ptr.i211, ptr %_M_finish.i207, align 8
   br label %sw.epilog
 
@@ -1117,14 +1115,14 @@ for.body.i.i.i.i.i231:                            ; preds = %_ZNSt12_Vector_base
   tail call void @llvm.experimental.noalias.scope.decl(metadata !46)
   %63 = load i64, ptr %__first.addr.06.i.i.i.i.i233, align 4, !alias.scope !46, !noalias !43
   store i64 %63, ptr %__cur.07.i.i.i.i.i232, align 4, !alias.scope !43, !noalias !46
-  %incdec.ptr.i.i.i.i.i234 = getelementptr inbounds %"class.ue2::PositionInfo", ptr %__first.addr.06.i.i.i.i.i233, i64 1
-  %incdec.ptr1.i.i.i.i.i235 = getelementptr inbounds %"class.ue2::PositionInfo", ptr %__cur.07.i.i.i.i.i232, i64 1
+  %incdec.ptr.i.i.i.i.i234 = getelementptr inbounds i8, ptr %__first.addr.06.i.i.i.i.i233, i64 8
+  %incdec.ptr1.i.i.i.i.i235 = getelementptr inbounds i8, ptr %__cur.07.i.i.i.i.i232, i64 8
   %cmp.not.i.i.i.i.i236 = icmp eq ptr %incdec.ptr.i.i.i.i.i234, %58
   br i1 %cmp.not.i.i.i.i.i236, label %_ZNSt6vectorIN3ue212PositionInfoESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit19.i.i237, label %for.body.i.i.i.i.i231, !llvm.loop !12
 
 _ZNSt6vectorIN3ue212PositionInfoESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit19.i.i237: ; preds = %for.body.i.i.i.i.i231, %_ZNSt12_Vector_baseIN3ue212PositionInfoESaIS1_EE11_M_allocateEm.exit.i.i227
   %__cur.0.lcssa.i.i.i.i.i238 = phi ptr [ %cond.i10.i.i228, %_ZNSt12_Vector_baseIN3ue212PositionInfoESaIS1_EE11_M_allocateEm.exit.i.i227 ], [ %incdec.ptr1.i.i.i.i.i235, %for.body.i.i.i.i.i231 ]
-  %incdec.ptr.i.i239 = getelementptr %"class.ue2::PositionInfo", ptr %__cur.0.lcssa.i.i.i.i.i238, i64 1
+  %incdec.ptr.i.i239 = getelementptr i8, ptr %__cur.0.lcssa.i.i.i.i.i238, i64 8
   %tobool.not.i.i.i240 = icmp eq ptr %61, null
   br i1 %tobool.not.i.i.i240, label %_ZNSt6vectorIN3ue212PositionInfoESaIS1_EE17_M_realloc_insertIJRKS1_EEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_.exit.i242, label %if.then.i20.i.i241
 
@@ -1141,10 +1139,10 @@ _ZNSt6vectorIN3ue212PositionInfoESaIS1_EE17_M_realloc_insertIJRKS1_EEEvN9__gnu_c
 
 sw.bb32:                                          ; preds = %entry
   %64 = load i32, ptr @_ZN3ue218GlushkovBuildState11POS_EPSILONE, align 4
-  %m_first35 = getelementptr inbounds %"class.ue2::ComponentBoundary", ptr %this, i64 0, i32 3
-  %_M_finish.i247 = getelementptr inbounds %"class.ue2::ComponentBoundary", ptr %this, i64 0, i32 3, i32 0, i32 0, i32 0, i32 1
+  %m_first35 = getelementptr inbounds i8, ptr %this, i64 24
+  %_M_finish.i247 = getelementptr inbounds i8, ptr %this, i64 32
   %65 = load ptr, ptr %_M_finish.i247, align 8
-  %_M_end_of_storage.i248 = getelementptr inbounds %"class.ue2::ComponentBoundary", ptr %this, i64 0, i32 3, i32 0, i32 0, i32 0, i32 2
+  %_M_end_of_storage.i248 = getelementptr inbounds i8, ptr %this, i64 40
   %66 = load ptr, ptr %_M_end_of_storage.i248, align 8
   %cmp.not.i249 = icmp eq ptr %65, %66
   br i1 %cmp.not.i249, label %if.else.i252, label %if.then.i250
@@ -1154,7 +1152,7 @@ if.then.i250:                                     ; preds = %sw.bb32
   %epsilon33.sroa.0.0.insert.insert = or disjoint i64 %epsilon33.sroa.0.0.insert.ext, 540431955284459520
   store i64 %epsilon33.sroa.0.0.insert.insert, ptr %65, align 4
   %67 = load ptr, ptr %_M_finish.i247, align 8
-  %incdec.ptr.i251 = getelementptr inbounds %"class.ue2::PositionInfo", ptr %67, i64 1
+  %incdec.ptr.i251 = getelementptr inbounds i8, ptr %67, i64 8
   store ptr %incdec.ptr.i251, ptr %_M_finish.i247, align 8
   br label %sw.epilog
 
@@ -1201,14 +1199,14 @@ for.body.i.i.i.i.i271:                            ; preds = %_ZNSt12_Vector_base
   tail call void @llvm.experimental.noalias.scope.decl(metadata !51)
   %70 = load i64, ptr %__first.addr.06.i.i.i.i.i273, align 4, !alias.scope !51, !noalias !48
   store i64 %70, ptr %__cur.07.i.i.i.i.i272, align 4, !alias.scope !48, !noalias !51
-  %incdec.ptr.i.i.i.i.i274 = getelementptr inbounds %"class.ue2::PositionInfo", ptr %__first.addr.06.i.i.i.i.i273, i64 1
-  %incdec.ptr1.i.i.i.i.i275 = getelementptr inbounds %"class.ue2::PositionInfo", ptr %__cur.07.i.i.i.i.i272, i64 1
+  %incdec.ptr.i.i.i.i.i274 = getelementptr inbounds i8, ptr %__first.addr.06.i.i.i.i.i273, i64 8
+  %incdec.ptr1.i.i.i.i.i275 = getelementptr inbounds i8, ptr %__cur.07.i.i.i.i.i272, i64 8
   %cmp.not.i.i.i.i.i276 = icmp eq ptr %incdec.ptr.i.i.i.i.i274, %65
   br i1 %cmp.not.i.i.i.i.i276, label %_ZNSt6vectorIN3ue212PositionInfoESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit19.i.i277, label %for.body.i.i.i.i.i271, !llvm.loop !12
 
 _ZNSt6vectorIN3ue212PositionInfoESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit19.i.i277: ; preds = %for.body.i.i.i.i.i271, %_ZNSt12_Vector_baseIN3ue212PositionInfoESaIS1_EE11_M_allocateEm.exit.i.i267
   %__cur.0.lcssa.i.i.i.i.i278 = phi ptr [ %cond.i10.i.i268, %_ZNSt12_Vector_baseIN3ue212PositionInfoESaIS1_EE11_M_allocateEm.exit.i.i267 ], [ %incdec.ptr1.i.i.i.i.i275, %for.body.i.i.i.i.i271 ]
-  %incdec.ptr.i.i279 = getelementptr %"class.ue2::PositionInfo", ptr %__cur.0.lcssa.i.i.i.i.i278, i64 1
+  %incdec.ptr.i.i279 = getelementptr i8, ptr %__cur.0.lcssa.i.i.i.i.i278, i64 8
   %tobool.not.i.i.i280 = icmp eq ptr %68, null
   br i1 %tobool.not.i.i.i280, label %_ZNSt6vectorIN3ue212PositionInfoESaIS1_EE17_M_realloc_insertIJRKS1_EEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_.exit.i282, label %if.then.i20.i.i281
 
@@ -1243,7 +1241,7 @@ entry:
   br i1 %at_start, label %return, label %if.end
 
 if.end:                                           ; preds = %entry
-  %m_bound = getelementptr inbounds %"class.ue2::ComponentBoundary", ptr %this, i64 0, i32 1
+  %m_bound = getelementptr inbounds i8, ptr %this, i64 16
   %0 = load i32, ptr %m_bound, align 8
   switch i32 %0, label %return [
     i32 0, label %if.then5
@@ -1352,7 +1350,7 @@ entry:
   br i1 %at_end, label %return, label %if.end
 
 if.end:                                           ; preds = %entry
-  %m_bound = getelementptr inbounds %"class.ue2::ComponentBoundary", ptr %this, i64 0, i32 1
+  %m_bound = getelementptr inbounds i8, ptr %this, i64 16
   %0 = load i32, ptr %m_bound, align 8
   switch i32 %0, label %if.then5 [
     i32 0, label %return
@@ -1408,11 +1406,11 @@ unreachable:                                      ; preds = %invoke.cont7
 define linkonce_odr hidden noundef ptr @_ZN3ue217ComponentBoundary6acceptERNS_16ComponentVisitorE(ptr noundef nonnull align 8 dereferenceable(72) %this, ptr noundef nonnull align 8 dereferenceable(8) %v) unnamed_addr #0 comdat align 2 {
 entry:
   %vtable = load ptr, ptr %v, align 8
-  %vfn = getelementptr inbounds ptr, ptr %vtable, i64 7
+  %vfn = getelementptr inbounds i8, ptr %vtable, i64 56
   %0 = load ptr, ptr %vfn, align 8
   %call = tail call noundef ptr %0(ptr noundef nonnull align 8 dereferenceable(8) %v, ptr noundef nonnull %this)
   %vtable2 = load ptr, ptr %v, align 8
-  %vfn3 = getelementptr inbounds ptr, ptr %vtable2, i64 21
+  %vfn3 = getelementptr inbounds i8, ptr %vtable2, i64 168
   %1 = load ptr, ptr %vfn3, align 8
   tail call void %1(ptr noundef nonnull align 8 dereferenceable(8) %v, ptr noundef nonnull %this)
   ret ptr %call
@@ -1422,15 +1420,15 @@ entry:
 define linkonce_odr hidden void @_ZNK3ue217ComponentBoundary6acceptERNS_21ConstComponentVisitorE(ptr noundef nonnull align 8 dereferenceable(72) %this, ptr noundef nonnull align 8 dereferenceable(8) %v) unnamed_addr #0 comdat align 2 {
 entry:
   %vtable = load ptr, ptr %v, align 8
-  %vfn = getelementptr inbounds ptr, ptr %vtable, i64 7
+  %vfn = getelementptr inbounds i8, ptr %vtable, i64 56
   %0 = load ptr, ptr %vfn, align 8
   tail call void %0(ptr noundef nonnull align 8 dereferenceable(8) %v, ptr noundef nonnull align 8 dereferenceable(72) %this)
   %vtable2 = load ptr, ptr %v, align 8
-  %vfn3 = getelementptr inbounds ptr, ptr %vtable2, i64 21
+  %vfn3 = getelementptr inbounds i8, ptr %vtable2, i64 168
   %1 = load ptr, ptr %vfn3, align 8
   tail call void %1(ptr noundef nonnull align 8 dereferenceable(8) %v, ptr noundef nonnull align 8 dereferenceable(72) %this)
   %vtable4 = load ptr, ptr %v, align 8
-  %vfn5 = getelementptr inbounds ptr, ptr %vtable4, i64 35
+  %vfn5 = getelementptr inbounds i8, ptr %vtable4, i64 280
   %2 = load ptr, ptr %vfn5, align 8
   tail call void %2(ptr noundef nonnull align 8 dereferenceable(8) %v, ptr noundef nonnull align 8 dereferenceable(72) %this)
   ret void

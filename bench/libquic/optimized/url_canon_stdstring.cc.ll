@@ -3,9 +3,6 @@ source_filename = "bench/libquic/original/url_canon_stdstring.cc.ll"
 target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:128-n8:16:32:64-S128"
 target triple = "x86_64-unknown-linux-gnu"
 
-%"class.url::CanonOutputT" = type { ptr, ptr, i32, i32 }
-%"class.url::StdStringCanonOutput" = type { %"class.url::CanonOutputT", ptr }
-
 $_ZTSN3url12CanonOutputTIcEE = comdat any
 
 $_ZTIN3url12CanonOutputTIcEE = comdat any
@@ -24,14 +21,14 @@ $_ZTIN3url12CanonOutputTIcEE = comdat any
 ; Function Attrs: mustprogress uwtable
 define dso_local void @_ZN3url20StdStringCanonOutputC2EPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr nocapture noundef nonnull align 8 dereferenceable(32) %this, ptr noundef nonnull %str) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  %buffer_.i = getelementptr inbounds %"class.url::CanonOutputT", ptr %this, i64 0, i32 1
+  %buffer_.i = getelementptr inbounds i8, ptr %this, i64 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %buffer_.i, i8 0, i64 16, i1 false)
   store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN3url20StdStringCanonOutputE, i64 0, inrange i32 0, i64 2), ptr %this, align 8
-  %str_ = getelementptr inbounds %"class.url::StdStringCanonOutput", ptr %this, i64 0, i32 1
+  %str_ = getelementptr inbounds i8, ptr %this, i64 24
   store ptr %str, ptr %str_, align 8
   %call = tail call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4sizeEv(ptr noundef nonnull align 8 dereferenceable(32) %str) #7
   %conv = trunc i64 %call to i32
-  %cur_len_ = getelementptr inbounds %"class.url::CanonOutputT", ptr %this, i64 0, i32 3
+  %cur_len_ = getelementptr inbounds i8, ptr %this, i64 20
   store i32 %conv, ptr %cur_len_, align 4
   %0 = load ptr, ptr %str_, align 8
   %call5 = tail call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE8capacityEv(ptr noundef nonnull align 8 dereferenceable(32) %0) #7
@@ -51,7 +48,7 @@ cond.end:                                         ; preds = %cond.false, %entry
   %3 = load ptr, ptr %str_, align 8
   %call12 = tail call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4sizeEv(ptr noundef nonnull align 8 dereferenceable(32) %3) #7
   %conv13 = trunc i64 %call12 to i32
-  %buffer_len_ = getelementptr inbounds %"class.url::CanonOutputT", ptr %this, i64 0, i32 2
+  %buffer_len_ = getelementptr inbounds i8, ptr %this, i64 16
   store i32 %conv13, ptr %buffer_len_, align 8
   ret void
 }
@@ -90,14 +87,14 @@ declare void @_ZdlPv(ptr noundef) local_unnamed_addr #5
 ; Function Attrs: mustprogress uwtable
 define dso_local void @_ZN3url20StdStringCanonOutput8CompleteEv(ptr nocapture noundef nonnull align 8 dereferenceable(32) %this) local_unnamed_addr #0 align 2 {
 entry:
-  %str_ = getelementptr inbounds %"class.url::StdStringCanonOutput", ptr %this, i64 0, i32 1
+  %str_ = getelementptr inbounds i8, ptr %this, i64 24
   %0 = load ptr, ptr %str_, align 8
-  %cur_len_ = getelementptr inbounds %"class.url::CanonOutputT", ptr %this, i64 0, i32 3
+  %cur_len_ = getelementptr inbounds i8, ptr %this, i64 20
   %1 = load i32, ptr %cur_len_, align 4
   %conv = sext i32 %1 to i64
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6resizeEm(ptr noundef nonnull align 8 dereferenceable(32) %0, i64 noundef %conv)
   %2 = load i32, ptr %cur_len_, align 4
-  %buffer_len_ = getelementptr inbounds %"class.url::CanonOutputT", ptr %this, i64 0, i32 2
+  %buffer_len_ = getelementptr inbounds i8, ptr %this, i64 16
   store i32 %2, ptr %buffer_len_, align 8
   ret void
 }
@@ -105,7 +102,7 @@ entry:
 ; Function Attrs: mustprogress uwtable
 define dso_local void @_ZN3url20StdStringCanonOutput6ResizeEi(ptr nocapture noundef nonnull align 8 dereferenceable(32) %this, i32 noundef %sz) unnamed_addr #0 align 2 {
 entry:
-  %str_ = getelementptr inbounds %"class.url::StdStringCanonOutput", ptr %this, i64 0, i32 1
+  %str_ = getelementptr inbounds i8, ptr %this, i64 24
   %0 = load ptr, ptr %str_, align 8
   %conv = sext i32 %sz to i64
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6resizeEm(ptr noundef nonnull align 8 dereferenceable(32) %0, i64 noundef %conv)
@@ -120,9 +117,9 @@ cond.false:                                       ; preds = %entry
 
 cond.end:                                         ; preds = %entry, %cond.false
   %cond = phi ptr [ %call4, %cond.false ], [ null, %entry ]
-  %buffer_ = getelementptr inbounds %"class.url::CanonOutputT", ptr %this, i64 0, i32 1
+  %buffer_ = getelementptr inbounds i8, ptr %this, i64 8
   store ptr %cond, ptr %buffer_, align 8
-  %buffer_len_ = getelementptr inbounds %"class.url::CanonOutputT", ptr %this, i64 0, i32 2
+  %buffer_len_ = getelementptr inbounds i8, ptr %this, i64 16
   store i32 %sz, ptr %buffer_len_, align 8
   ret void
 }

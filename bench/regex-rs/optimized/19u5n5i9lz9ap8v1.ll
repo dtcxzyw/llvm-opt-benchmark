@@ -34,7 +34,7 @@ define void @_ZN14regex_automata3nfa8thompson6pikevm7Builder10build_many17h1dba0
   br i1 %9, label %10, label %13
 
 10:                                               ; preds = %4
-  %11 = getelementptr inbounds { [1 x i64], ptr }, ptr %7, i64 0, i32 1
+  %11 = getelementptr inbounds i8, ptr %7, i64 8
   %12 = load ptr, ptr %11, align 8, !nonnull !5, !noundef !5
   call void @_ZN14regex_automata3nfa8thompson6pikevm7Builder14build_from_nfa17hf94aae4505318414E(ptr sret({ i32, [31 x i32] }) align 8 %0, ptr align 8 %1, ptr nonnull %12)
   br label %14
@@ -59,7 +59,7 @@ define zeroext i1 @_ZN14regex_automata3nfa8thompson6pikevm6PikeVM8is_match17h96a
   %.fca.0.extract = extractvalue { i32, i32 } %7, 0
   store i32 %.fca.0.extract, ptr %4, align 4
   %.fca.1.extract = extractvalue { i32, i32 } %7, 1
-  %.fca.1.gep = getelementptr inbounds { i32, i32 }, ptr %4, i64 0, i32 1
+  %.fca.1.gep = getelementptr inbounds i8, ptr %4, i64 4
   store i32 %.fca.1.extract, ptr %.fca.1.gep, align 4
   %8 = call zeroext i1 @"_ZN4core6option15Option$LT$T$GT$7is_some17h1cb5bc1762aaf73eE"(ptr nonnull align 4 %4)
   ret i1 %8
@@ -69,7 +69,7 @@ define zeroext i1 @_ZN14regex_automata3nfa8thompson6pikevm6PikeVM8is_match17h96a
 define i32 @"_ZN14regex_automata3nfa8thompson6pikevm6PikeVM12search_slots28_$u7b$$u7b$closure$u7d$$u7d$17ha7902de75c363598E"(i64 %0, i32 %1) unnamed_addr #1 {
   %3 = alloca { i64, i32 }, align 8
   store i64 %0, ptr %3, align 8
-  %4 = getelementptr inbounds { i64, i32 }, ptr %3, i64 0, i32 1
+  %4 = getelementptr inbounds i8, ptr %3, i64 8
   store i32 %1, ptr %4, align 8
   %5 = call i32 @_ZN14regex_automata4util6search9HalfMatch7pattern17hb501fd973067c685E(ptr nonnull align 8 %3)
   ret i32 %5
@@ -79,7 +79,7 @@ define i32 @"_ZN14regex_automata3nfa8thompson6pikevm6PikeVM12search_slots28_$u7b
 define i32 @"_ZN14regex_automata3nfa8thompson6pikevm6PikeVM12search_slots28_$u7b$$u7b$closure$u7d$$u7d$17h2aa773889f4565baE"(i64 %0, i32 %1) unnamed_addr #1 {
   %3 = alloca { i64, i32 }, align 8
   store i64 %0, ptr %3, align 8
-  %4 = getelementptr inbounds { i64, i32 }, ptr %3, i64 0, i32 1
+  %4 = getelementptr inbounds i8, ptr %3, i64 8
   store i32 %1, ptr %4, align 8
   %5 = call i32 @_ZN14regex_automata4util6search9HalfMatch7pattern17hb501fd973067c685E(ptr nonnull align 8 %3)
   ret i32 %5
@@ -90,11 +90,11 @@ define hidden void @"_ZN14regex_automata3nfa8thompson6pikevm6PikeVM16search_slot
   %4 = alloca { i64, [2 x i64] }, align 8
   %5 = alloca { i64, [3 x i64] }, align 8
   %6 = load ptr, ptr %1, align 8, !nonnull !5, !align !6, !noundef !5
-  %7 = getelementptr inbounds { ptr, ptr, { ptr, i64 } }, ptr %1, i64 0, i32 1
+  %7 = getelementptr inbounds i8, ptr %1, i64 8
   %8 = load ptr, ptr %7, align 8, !nonnull !5, !align !6, !noundef !5
-  %9 = getelementptr inbounds { ptr, ptr, { ptr, i64 } }, ptr %1, i64 0, i32 2
+  %9 = getelementptr inbounds i8, ptr %1, i64 16
   %10 = load ptr, ptr %9, align 8, !nonnull !5, !align !6, !noundef !5
-  %11 = getelementptr inbounds { ptr, ptr, { ptr, i64 } }, ptr %1, i64 0, i32 2, i32 1
+  %11 = getelementptr inbounds i8, ptr %1, i64 24
   %12 = load i64, ptr %11, align 8, !noundef !5
   call void @_ZN14regex_automata3nfa8thompson6pikevm6PikeVM10search_imp17h0c12669308a2dca4E(ptr nonnull sret({ i64, [2 x i64] }) align 8 %4, ptr nonnull align 8 %6, ptr nonnull align 8 %8, ptr align 8 %2, ptr nonnull align 8 %10, i64 %12)
   call void @"_ZN4core6option15Option$LT$T$GT$3map17h0fd07a42bf3f3f85E"(ptr nonnull sret({ i64, [3 x i64] }) align 8 %5, ptr nonnull align 8 %4)
@@ -106,13 +106,13 @@ define hidden void @"_ZN14regex_automata3nfa8thompson6pikevm6PikeVM16search_slot
 define hidden void @"_ZN14regex_automata3nfa8thompson6pikevm6PikeVM16search_slots_imp28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17hb87f11877bc648aeE"(ptr nocapture writeonly sret({ { i64, i32 }, i64 }) align 8 %0, i64 %1, i32 %2) unnamed_addr #1 {
   %4 = alloca { i64, i32 }, align 8
   store i64 %1, ptr %4, align 8
-  %5 = getelementptr inbounds { i64, i32 }, ptr %4, i64 0, i32 1
+  %5 = getelementptr inbounds i8, ptr %4, i64 8
   store i32 %2, ptr %5, align 8
   %6 = call i64 @_ZN14regex_automata4util6search9HalfMatch6offset17hf0af348b59984ef7E(ptr nonnull align 8 %4)
   store i64 %1, ptr %0, align 8
-  %7 = getelementptr inbounds { i64, i32 }, ptr %0, i64 0, i32 1
+  %7 = getelementptr inbounds i8, ptr %0, i64 8
   store i32 %2, ptr %7, align 8
-  %8 = getelementptr inbounds { { i64, i32 }, i64 }, ptr %0, i64 0, i32 1
+  %8 = getelementptr inbounds i8, ptr %0, i64 16
   store i64 %6, ptr %8, align 8
   ret void
 }

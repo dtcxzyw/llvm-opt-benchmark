@@ -15,7 +15,7 @@ target triple = "x86_64-unknown-linux-gnu"
 
 ; Function Attrs: inlinehint mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: write) uwtable
 define void @"_ZN153_$LT$core..result..Result$LT$T$C$F$GT$$u20$as$u20$core..ops..try_trait..FromResidual$LT$core..result..Result$LT$core..convert..Infallible$C$E$GT$$GT$$GT$13from_residual17h09d89d573ea567aeE"(ptr nocapture writeonly sret({ i8, [23 x i8] }) align 8 %0, i8 %1, ptr nocapture readnone align 8 %2) unnamed_addr #0 {
-  %4 = getelementptr inbounds { [1 x i8], i8 }, ptr %0, i64 0, i32 1
+  %4 = getelementptr inbounds i8, ptr %0, i64 1
   store i8 %1, ptr %4, align 1
   store i8 1, ptr %0, align 8
   ret void
@@ -24,7 +24,7 @@ define void @"_ZN153_$LT$core..result..Result$LT$T$C$F$GT$$u20$as$u20$core..ops.
 ; Function Attrs: inlinehint mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: readwrite) uwtable
 define void @"_ZN153_$LT$core..result..Result$LT$T$C$F$GT$$u20$as$u20$core..ops..try_trait..FromResidual$LT$core..result..Result$LT$core..convert..Infallible$C$E$GT$$GT$$GT$13from_residual17h09e8be599a5df900E"(ptr nocapture writeonly sret({ [50 x i32], i32, [3 x i32] }) align 8 %0, ptr nocapture readonly align 8 %1, ptr nocapture readnone align 8 %2) unnamed_addr #1 {
   tail call void @llvm.memmove.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(128) %0, ptr noundef nonnull align 8 dereferenceable(128) %1, i64 128, i1 false)
-  %4 = getelementptr inbounds { [50 x i32], i32, [3 x i32] }, ptr %0, i64 0, i32 1
+  %4 = getelementptr inbounds i8, ptr %0, i64 200
   store i32 1114121, ptr %4, align 8
   ret void
 }
@@ -38,7 +38,7 @@ define void @"_ZN153_$LT$core..result..Result$LT$T$C$F$GT$$u20$as$u20$core..ops.
 ; Function Attrs: inlinehint mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: readwrite) uwtable
 define void @"_ZN153_$LT$core..result..Result$LT$T$C$F$GT$$u20$as$u20$core..ops..try_trait..FromResidual$LT$core..result..Result$LT$core..convert..Infallible$C$E$GT$$GT$$GT$13from_residual17h242ba483ca51c391E"(ptr nocapture writeonly sret({ [38 x i32], i32, [1 x i32] }) align 8 %0, ptr nocapture readonly align 8 %1, ptr nocapture readnone align 8 %2) unnamed_addr #1 {
   tail call void @llvm.memmove.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(128) %0, ptr noundef nonnull align 8 dereferenceable(128) %1, i64 128, i1 false)
-  %4 = getelementptr inbounds { [38 x i32], i32, [1 x i32] }, ptr %0, i64 0, i32 1
+  %4 = getelementptr inbounds i8, ptr %0, i64 152
   store i32 1114120, ptr %4, align 8
   ret void
 }
@@ -63,7 +63,7 @@ define void @"_ZN153_$LT$core..result..Result$LT$T$C$F$GT$$u20$as$u20$core..ops.
 
 ; Function Attrs: inlinehint mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: readwrite) uwtable
 define void @"_ZN153_$LT$core..result..Result$LT$T$C$F$GT$$u20$as$u20$core..ops..try_trait..FromResidual$LT$core..result..Result$LT$core..convert..Infallible$C$E$GT$$GT$$GT$13from_residual17h576cdc4ba4d0b118E"(ptr nocapture writeonly sret({ i8, [143 x i8] }) align 8 %0, ptr nocapture readonly align 8 %1, ptr nocapture readnone align 8 %2) unnamed_addr #1 {
-  %4 = getelementptr inbounds { [1 x i64], { { i32, [13 x i32] }, { { { ptr, i64 }, i64 } }, { { i64, i64, i64 }, { i64, i64, i64 } } } }, ptr %0, i64 0, i32 1
+  %4 = getelementptr inbounds i8, ptr %0, i64 8
   tail call void @llvm.memmove.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(128) %4, ptr noundef nonnull align 8 dereferenceable(128) %1, i64 128, i1 false)
   store i8 4, ptr %0, align 8
   ret void
@@ -72,7 +72,7 @@ define void @"_ZN153_$LT$core..result..Result$LT$T$C$F$GT$$u20$as$u20$core..ops.
 ; Function Attrs: inlinehint mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: write) uwtable
 define void @"_ZN153_$LT$core..result..Result$LT$T$C$F$GT$$u20$as$u20$core..ops..try_trait..FromResidual$LT$core..result..Result$LT$core..convert..Infallible$C$E$GT$$GT$$GT$13from_residual17h5906a3a773f04d80E"(ptr nocapture writeonly sret({ [24 x i8], i8, [7 x i8] }) align 8 %0, i8 %1, ptr nocapture readnone align 8 %2) unnamed_addr #0 {
   store i8 %1, ptr %0, align 8
-  %4 = getelementptr inbounds { [24 x i8], i8, [7 x i8] }, ptr %0, i64 0, i32 1
+  %4 = getelementptr inbounds i8, ptr %0, i64 24
   store i8 2, ptr %4, align 8
   ret void
 }
@@ -175,7 +175,7 @@ define void @"_ZN153_$LT$core..result..Result$LT$T$C$F$GT$$u20$as$u20$core..ops.
 
 ; Function Attrs: inlinehint mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: write) uwtable
 define void @"_ZN153_$LT$core..result..Result$LT$T$C$F$GT$$u20$as$u20$core..ops..try_trait..FromResidual$LT$core..result..Result$LT$core..convert..Infallible$C$E$GT$$GT$$GT$13from_residual17he9195e39fc766086E"(ptr nocapture writeonly sret({ i64, [4 x i64] }) align 8 %0, i8 %1, ptr nocapture readnone align 8 %2) unnamed_addr #0 {
-  %4 = getelementptr inbounds { [8 x i8], i8 }, ptr %0, i64 0, i32 1
+  %4 = getelementptr inbounds i8, ptr %0, i64 8
   store i8 %1, ptr %4, align 8
   store i64 4, ptr %0, align 8
   ret void
@@ -235,7 +235,7 @@ define { i8, i8 } @"_ZN4core6result19Result$LT$T$C$E$GT$2ok17hc796102d402556cdE"
 ; Function Attrs: inlinehint nonlazybind uwtable
 define i8 @"_ZN4core6result19Result$LT$T$C$E$GT$3map17hb8243fbfe93363d9E"(ptr nocapture readonly align 8 %0, ptr align 4 %1) unnamed_addr #3 {
   %3 = alloca { { { ptr, i64 }, i64, i32, [1 x i32] } }, align 8
-  %4 = getelementptr inbounds { [6 x i32], i32, [1 x i32] }, ptr %0, i64 0, i32 1
+  %4 = getelementptr inbounds i8, ptr %0, i64 24
   %5 = load i32, ptr %4, align 8, !range !5, !noundef !6
   %.not = icmp eq i32 %5, 1114113
   br i1 %.not, label %9, label %6
@@ -259,14 +259,14 @@ define void @"_ZN4core6result19Result$LT$T$C$E$GT$3map17hd1c996f68b7086aaE"(ptr 
   br i1 %5, label %6, label %13
 
 6:                                                ; preds = %2
-  %7 = getelementptr inbounds { [1 x i64], { { i64, ptr }, { { ptr, i64 }, i64 } } }, ptr %1, i64 0, i32 1
+  %7 = getelementptr inbounds i8, ptr %1, i64 8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %3, ptr noundef nonnull align 8 dereferenceable(40) %7, i64 40, i1 false)
   %8 = call { i64, ptr } @"_ZN12regex_syntax3ast5parse16ParserI$LT$P$GT$5parse28_$u7b$$u7b$closure$u7d$$u7d$17h6e5136a25d7f6d5aE"(ptr nonnull align 8 %3)
   %9 = extractvalue { i64, ptr } %8, 0
   %10 = extractvalue { i64, ptr } %8, 1
-  %11 = getelementptr inbounds { [1 x i64], { i64, ptr } }, ptr %0, i64 0, i32 1
+  %11 = getelementptr inbounds i8, ptr %0, i64 8
   store i64 %9, ptr %11, align 8
-  %12 = getelementptr inbounds { [1 x i64], { i64, ptr } }, ptr %0, i64 0, i32 1, i32 1
+  %12 = getelementptr inbounds i8, ptr %0, i64 16
   store ptr %10, ptr %12, align 8
   store i32 34, ptr %0, align 8
   br label %14
@@ -396,9 +396,9 @@ define i64 @"_ZN4core6result19Result$LT$T$C$E$GT$6map_or17hddfdbaa1d9ca5097E"(pt
   br i1 %4, label %5, label %11
 
 5:                                                ; preds = %2
-  %6 = getelementptr inbounds { [1 x i64], { ptr, i64 } }, ptr %0, i64 0, i32 1
+  %6 = getelementptr inbounds i8, ptr %0, i64 8
   %7 = load ptr, ptr %6, align 8, !nonnull !6, !align !9, !noundef !6
-  %8 = getelementptr inbounds { [1 x i64], { ptr, i64 } }, ptr %0, i64 0, i32 1, i32 1
+  %8 = getelementptr inbounds i8, ptr %0, i64 16
   %9 = load i64, ptr %8, align 8, !noundef !6
   %10 = tail call i64 @"_ZN97_$LT$regex_syntax..hir..print..Writer$LT$W$GT$$u20$as$u20$regex_syntax..hir..visitor..Visitor$GT$9visit_pre28_$u7b$$u7b$closure$u7d$$u7d$17h1ae9fd58f60aa8b5E"(ptr nonnull align 1 %7, i64 %9)
   br label %11
@@ -452,7 +452,7 @@ define i8 @"_ZN4core6result19Result$LT$T$C$E$GT$6unwrap17h7d96f4b59c982fe9E"(i1 
 ; Function Attrs: inlinehint nonlazybind uwtable
 define void @"_ZN4core6result19Result$LT$T$C$E$GT$6unwrap17ha41bab202b951284E"(ptr nocapture writeonly sret({ { { ptr, i64 }, i64 } }) align 8 %0, ptr nocapture readonly align 8 %1, ptr align 8 %2) unnamed_addr #3 personality ptr @rust_eh_personality {
   %4 = alloca { { { ptr, i64 }, i64 }, { i64, { i8, i8 }, [6 x i8] } }, align 8
-  %5 = getelementptr inbounds { [32 x i8], i8, [7 x i8] }, ptr %1, i64 0, i32 1
+  %5 = getelementptr inbounds i8, ptr %1, i64 32
   %6 = load i8, ptr %5, align 8, !range !10, !noundef !6
   %7 = icmp eq i8 %6, 2
   br i1 %7, label %8, label %9
@@ -508,20 +508,19 @@ define { ptr, i64 } @"_ZN4core6result19Result$LT$T$C$E$GT$6unwrap17he62855541bf4
   %3 = alloca { i64, { i8, i8 }, [6 x i8] }, align 8
   %4 = load i64, ptr %0, align 8, !range !8, !noundef !6
   %5 = icmp eq i64 %4, 0
-  br i1 %5, label %6, label %13
+  %6 = getelementptr inbounds i8, ptr %0, i64 8
+  br i1 %5, label %7, label %13
 
-6:                                                ; preds = %2
-  %7 = getelementptr inbounds { [1 x i64], { ptr, i64 } }, ptr %0, i64 0, i32 1
-  %8 = load ptr, ptr %7, align 8, !nonnull !6, !align !9, !noundef !6
-  %9 = getelementptr inbounds { [1 x i64], { ptr, i64 } }, ptr %0, i64 0, i32 1, i32 1
+7:                                                ; preds = %2
+  %8 = load ptr, ptr %6, align 8, !nonnull !6, !align !9, !noundef !6
+  %9 = getelementptr inbounds i8, ptr %0, i64 16
   %10 = load i64, ptr %9, align 8, !noundef !6
   %11 = insertvalue { ptr, i64 } poison, ptr %8, 0
   %12 = insertvalue { ptr, i64 } %11, i64 %10, 1
   ret { ptr, i64 } %12
 
 13:                                               ; preds = %2
-  %14 = getelementptr inbounds { [1 x i64], { i64, { i8, i8 }, [6 x i8] } }, ptr %0, i64 0, i32 1
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %3, ptr noundef nonnull align 8 dereferenceable(16) %14, i64 16, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %3, ptr noundef nonnull align 8 dereferenceable(16) %6, i64 16, i1 false)
   call void @_ZN4core6result13unwrap_failed17hddb4fea594200c52E(ptr nonnull align 1 @anon.5a6e03bb08828690d7f6bb9af10fdf90.5, i64 43, ptr nonnull align 1 %3, ptr nonnull align 8 @anon.5a6e03bb08828690d7f6bb9af10fdf90.9, ptr align 8 %1) #10
   unreachable
 }
@@ -532,7 +531,7 @@ define void @"_ZN4core6result19Result$LT$T$C$E$GT$7map_err17h493ebc9b676edba3E"(
   br i1 %1, label %8, label %6
 
 6:                                                ; preds = %4
-  %7 = getelementptr inbounds { [72 x i8], i8, [7 x i8] }, ptr %0, i64 0, i32 1
+  %7 = getelementptr inbounds i8, ptr %0, i64 72
   store i8 7, ptr %7, align 8
   br label %9
 
@@ -554,7 +553,7 @@ define void @"_ZN4core6result19Result$LT$T$C$E$GT$7map_err17h4d7fea4ca44c1f90E"(
 6:                                                ; preds = %4
   %7 = and i8 %1, 1
   store i8 %7, ptr %0, align 8
-  %8 = getelementptr inbounds { [72 x i8], i8, [7 x i8] }, ptr %0, i64 0, i32 1
+  %8 = getelementptr inbounds i8, ptr %0, i64 72
   store i8 7, ptr %8, align 8
   br label %10
 
@@ -573,7 +572,7 @@ define void @"_ZN4core6result19Result$LT$T$C$E$GT$7map_err17h50358ec99c3f2ab4E"(
   br i1 %1, label %8, label %6
 
 6:                                                ; preds = %4
-  %7 = getelementptr inbounds { [72 x i8], i8, [7 x i8] }, ptr %0, i64 0, i32 1
+  %7 = getelementptr inbounds i8, ptr %0, i64 72
   store i8 7, ptr %7, align 8
   br label %9
 
@@ -589,27 +588,23 @@ define void @"_ZN4core6result19Result$LT$T$C$E$GT$7map_err17h50358ec99c3f2ab4E"(
 ; Function Attrs: inlinehint nonlazybind uwtable
 define void @"_ZN4core6result19Result$LT$T$C$E$GT$7map_err17h6ffdeca99072f390E"(ptr nocapture writeonly sret({ i64, [2 x i64] }) align 8 %0, ptr %1, i64 %2, ptr align 8 %3) unnamed_addr #3 {
   %.not = icmp eq ptr %1, null
-  br i1 %.not, label %8, label %5
+  br i1 %.not, label %5, label %10
 
 5:                                                ; preds = %4
-  %6 = getelementptr inbounds { [1 x i64], { ptr, i64 } }, ptr %0, i64 0, i32 1
-  store ptr %1, ptr %6, align 8
-  %7 = getelementptr inbounds { [1 x i64], { ptr, i64 } }, ptr %0, i64 0, i32 1, i32 1
-  store i64 %2, ptr %7, align 8
-  br label %14
+  %6 = tail call { i64, i64 } @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$6shrink28_$u7b$$u7b$closure$u7d$$u7d$17hbd0f688f11a4d161E"(ptr align 8 %3)
+  %7 = extractvalue { i64, i64 } %6, 0
+  %8 = extractvalue { i64, i64 } %6, 1
+  %9 = inttoptr i64 %7 to ptr
+  br label %10
 
-8:                                                ; preds = %4
-  %9 = tail call { i64, i64 } @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$6shrink28_$u7b$$u7b$closure$u7d$$u7d$17hbd0f688f11a4d161E"(ptr align 8 %3)
-  %10 = extractvalue { i64, i64 } %9, 0
-  %11 = extractvalue { i64, i64 } %9, 1
-  %12 = getelementptr inbounds { [1 x i64], { i64, i64 } }, ptr %0, i64 0, i32 1
-  store i64 %10, ptr %12, align 8
-  %13 = getelementptr inbounds { [1 x i64], { i64, i64 } }, ptr %0, i64 0, i32 1, i32 1
-  store i64 %11, ptr %13, align 8
-  br label %14
-
-14:                                               ; preds = %5, %8
-  %storemerge = phi i64 [ 1, %8 ], [ 0, %5 ]
+10:                                               ; preds = %4, %5
+  %.sink3 = phi ptr [ %9, %5 ], [ %1, %4 ]
+  %.sink = phi i64 [ %8, %5 ], [ %2, %4 ]
+  %storemerge = phi i64 [ 1, %5 ], [ 0, %4 ]
+  %11 = getelementptr inbounds i8, ptr %0, i64 8
+  store ptr %.sink3, ptr %11, align 8
+  %12 = getelementptr inbounds i8, ptr %0, i64 16
+  store i64 %.sink, ptr %12, align 8
   store i64 %storemerge, ptr %0, align 8
   ret void
 }
@@ -620,7 +615,7 @@ define void @"_ZN4core6result19Result$LT$T$C$E$GT$7map_err17h776380d8c0420ceeE"(
   br i1 %1, label %8, label %6
 
 6:                                                ; preds = %4
-  %7 = getelementptr inbounds { [72 x i8], i8, [7 x i8] }, ptr %0, i64 0, i32 1
+  %7 = getelementptr inbounds i8, ptr %0, i64 72
   store i8 7, ptr %7, align 8
   br label %9
 
@@ -658,7 +653,7 @@ define void @"_ZN4core6result19Result$LT$T$C$E$GT$7map_err17h983d886d5b58f880E"(
   br i1 %1, label %8, label %6
 
 6:                                                ; preds = %4
-  %7 = getelementptr inbounds { [72 x i8], i8, [7 x i8] }, ptr %0, i64 0, i32 1
+  %7 = getelementptr inbounds i8, ptr %0, i64 72
   store i8 7, ptr %7, align 8
   br label %9
 
@@ -686,9 +681,9 @@ define void @"_ZN4core6result19Result$LT$T$C$E$GT$7map_err17ha36d3075b9fc8405E"(
   %.sink3 = phi i64 [ %6, %4 ], [ %1, %3 ]
   %.sink = phi i64 [ %7, %4 ], [ %2, %3 ]
   %storemerge = phi i64 [ 1, %4 ], [ 0, %3 ]
-  %9 = getelementptr inbounds { [1 x i64], { i64, i64 } }, ptr %0, i64 0, i32 1
+  %9 = getelementptr inbounds i8, ptr %0, i64 8
   store i64 %.sink3, ptr %9, align 8
-  %10 = getelementptr inbounds { [1 x i64], { i64, i64 } }, ptr %0, i64 0, i32 1, i32 1
+  %10 = getelementptr inbounds i8, ptr %0, i64 16
   store i64 %.sink, ptr %10, align 8
   store i64 %storemerge, ptr %0, align 8
   ret void
@@ -697,14 +692,14 @@ define void @"_ZN4core6result19Result$LT$T$C$E$GT$7map_err17ha36d3075b9fc8405E"(
 ; Function Attrs: inlinehint nonlazybind uwtable
 define void @"_ZN4core6result19Result$LT$T$C$E$GT$7map_err17hafded4a1e2dbed67E"(ptr nocapture writeonly sret({ [72 x i8], i8, [7 x i8] }) align 8 %0, ptr nocapture readonly align 8 %1, ptr align 8 %2, ptr align 8 %3) unnamed_addr #3 {
   %5 = alloca { { { { ptr, i64 }, i64 } }, { { i64, i64, i64 }, { i64, i64, i64 } }, i8, [7 x i8] }, align 8
-  %6 = getelementptr inbounds { [24 x i8], i8, [7 x i8] }, ptr %1, i64 0, i32 1
+  %6 = getelementptr inbounds i8, ptr %1, i64 24
   %7 = load i8, ptr %6, align 8, !range !10, !noundef !6
   %.not = icmp eq i8 %7, 2
   br i1 %.not, label %10, label %8
 
 8:                                                ; preds = %4
   tail call void @llvm.memmove.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef nonnull align 8 dereferenceable(32) %1, i64 32, i1 false)
-  %9 = getelementptr inbounds { [72 x i8], i8, [7 x i8] }, ptr %0, i64 0, i32 1
+  %9 = getelementptr inbounds i8, ptr %0, i64 72
   store i8 7, ptr %9, align 8
   br label %12
 
@@ -736,27 +731,23 @@ define { i8, i8 } @"_ZN4core6result19Result$LT$T$C$E$GT$7map_err17he0ef10e5d4f0d
 ; Function Attrs: inlinehint nonlazybind uwtable
 define void @"_ZN4core6result19Result$LT$T$C$E$GT$7map_err17hfadb88db6d91ad4aE"(ptr nocapture writeonly sret({ i64, [2 x i64] }) align 8 %0, ptr %1, i64 %2, ptr align 8 %3) unnamed_addr #3 {
   %.not = icmp eq ptr %1, null
-  br i1 %.not, label %8, label %5
+  br i1 %.not, label %5, label %10
 
 5:                                                ; preds = %4
-  %6 = getelementptr inbounds { [1 x i64], { ptr, i64 } }, ptr %0, i64 0, i32 1
-  store ptr %1, ptr %6, align 8
-  %7 = getelementptr inbounds { [1 x i64], { ptr, i64 } }, ptr %0, i64 0, i32 1, i32 1
-  store i64 %2, ptr %7, align 8
-  br label %14
+  %6 = tail call { i64, i64 } @"_ZN5alloc7raw_vec11finish_grow28_$u7b$$u7b$closure$u7d$$u7d$17h4cd705d165a78705E"(ptr align 8 %3)
+  %7 = extractvalue { i64, i64 } %6, 0
+  %8 = extractvalue { i64, i64 } %6, 1
+  %9 = inttoptr i64 %7 to ptr
+  br label %10
 
-8:                                                ; preds = %4
-  %9 = tail call { i64, i64 } @"_ZN5alloc7raw_vec11finish_grow28_$u7b$$u7b$closure$u7d$$u7d$17h4cd705d165a78705E"(ptr align 8 %3)
-  %10 = extractvalue { i64, i64 } %9, 0
-  %11 = extractvalue { i64, i64 } %9, 1
-  %12 = getelementptr inbounds { [1 x i64], { i64, i64 } }, ptr %0, i64 0, i32 1
-  store i64 %10, ptr %12, align 8
-  %13 = getelementptr inbounds { [1 x i64], { i64, i64 } }, ptr %0, i64 0, i32 1, i32 1
-  store i64 %11, ptr %13, align 8
-  br label %14
-
-14:                                               ; preds = %5, %8
-  %storemerge = phi i64 [ 1, %8 ], [ 0, %5 ]
+10:                                               ; preds = %4, %5
+  %.sink3 = phi ptr [ %9, %5 ], [ %1, %4 ]
+  %.sink = phi i64 [ %8, %5 ], [ %2, %4 ]
+  %storemerge = phi i64 [ 1, %5 ], [ 0, %4 ]
+  %11 = getelementptr inbounds i8, ptr %0, i64 8
+  store ptr %.sink3, ptr %11, align 8
+  %12 = getelementptr inbounds i8, ptr %0, i64 16
+  store i64 %.sink, ptr %12, align 8
   store i64 %storemerge, ptr %0, align 8
   ret void
 }
@@ -786,8 +777,8 @@ define void @"_ZN79_$LT$core..result..Result$LT$T$C$E$GT$$u20$as$u20$core..ops..
   br label %8
 
 5:                                                ; preds = %2
-  %6 = getelementptr inbounds { [1 x i64], { { i32, [13 x i32] }, { { { ptr, i64 }, i64 } }, { { i64, i64, i64 }, { i64, i64, i64 } } } }, ptr %1, i64 0, i32 1
-  %7 = getelementptr inbounds { [1 x i64], { { { i32, [13 x i32] }, { { { ptr, i64 }, i64 } }, { { i64, i64, i64 }, { i64, i64, i64 } } } } }, ptr %0, i64 0, i32 1
+  %6 = getelementptr inbounds i8, ptr %1, i64 8
+  %7 = getelementptr inbounds i8, ptr %0, i64 8
   tail call void @llvm.memmove.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(128) %7, ptr noundef nonnull align 8 dereferenceable(128) %6, i64 128, i1 false)
   store i8 4, ptr %0, align 8
   br label %8
@@ -803,8 +794,8 @@ define void @"_ZN79_$LT$core..result..Result$LT$T$C$E$GT$$u20$as$u20$core..ops..
   br i1 %4, label %5, label %8
 
 5:                                                ; preds = %2
-  %6 = getelementptr inbounds { [1 x i64], { { { i64, i64, i64 }, { i64, i64, i64 } }, i32, { i8, i8 }, [2 x i8] } }, ptr %1, i64 0, i32 1
-  %7 = getelementptr inbounds { [1 x i64], { { { i64, i64, i64 }, { i64, i64, i64 } }, i32, { i8, i8 }, [2 x i8] } }, ptr %0, i64 0, i32 1
+  %6 = getelementptr inbounds i8, ptr %1, i64 8
+  %7 = getelementptr inbounds i8, ptr %0, i64 8
   tail call void @llvm.memmove.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %7, ptr noundef nonnull align 8 dereferenceable(56) %6, i64 56, i1 false)
   store i32 34, ptr %0, align 8
   br label %9
@@ -821,36 +812,34 @@ define void @"_ZN79_$LT$core..result..Result$LT$T$C$E$GT$$u20$as$u20$core..ops..
 define void @"_ZN79_$LT$core..result..Result$LT$T$C$E$GT$$u20$as$u20$core..ops..try_trait..Try$GT$6branch17h268d5a6948184a2eE"(ptr nocapture writeonly sret({ ptr, [1 x i64] }) align 8 %0, ptr nocapture readonly align 8 %1) unnamed_addr #1 {
   %3 = load ptr, ptr %1, align 8, !noundef !6
   %.not = icmp eq ptr %3, null
-  br i1 %.not, label %8, label %4
+  %4 = getelementptr inbounds i8, ptr %1, i64 8
+  %5 = getelementptr inbounds i8, ptr %0, i64 8
+  br i1 %.not, label %8, label %6
 
-4:                                                ; preds = %2
-  %5 = getelementptr inbounds { ptr, ptr }, ptr %1, i64 0, i32 1
-  %6 = load ptr, ptr %5, align 8, !noundef !6
-  %7 = getelementptr inbounds { ptr, ptr }, ptr %0, i64 0, i32 1
-  store ptr %6, ptr %7, align 8
-  br label %12
+6:                                                ; preds = %2
+  %7 = load ptr, ptr %4, align 8, !noundef !6
+  store ptr %7, ptr %5, align 8
+  br label %10
 
 8:                                                ; preds = %2
-  %9 = getelementptr inbounds { [8 x i8], i8 }, ptr %1, i64 0, i32 1
-  %10 = load i8, ptr %9, align 8, !range !10, !noundef !6
-  %11 = getelementptr inbounds { [8 x i8], i8 }, ptr %0, i64 0, i32 1
-  store i8 %10, ptr %11, align 8
-  br label %12
+  %9 = load i8, ptr %4, align 8, !range !10, !noundef !6
+  store i8 %9, ptr %5, align 8
+  br label %10
 
-12:                                               ; preds = %8, %4
+10:                                               ; preds = %8, %6
   store ptr %3, ptr %0, align 8
   ret void
 }
 
 ; Function Attrs: inlinehint mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: readwrite) uwtable
 define void @"_ZN79_$LT$core..result..Result$LT$T$C$E$GT$$u20$as$u20$core..ops..try_trait..Try$GT$6branch17h2810eb203a7b78e4E"(ptr nocapture writeonly sret({ [72 x i8], i8, [7 x i8] }) align 8 %0, ptr nocapture readonly align 8 %1) unnamed_addr #1 {
-  %3 = getelementptr inbounds { [72 x i8], i8, [7 x i8] }, ptr %1, i64 0, i32 1
+  %3 = getelementptr inbounds i8, ptr %1, i64 72
   %4 = load i8, ptr %3, align 8, !range !12, !noundef !6
   %5 = icmp eq i8 %4, 7
   br i1 %5, label %6, label %8
 
 6:                                                ; preds = %2
-  %7 = getelementptr inbounds { [72 x i8], i8, [7 x i8] }, ptr %0, i64 0, i32 1
+  %7 = getelementptr inbounds i8, ptr %0, i64 72
   store i8 7, ptr %7, align 8
   br label %9
 
@@ -869,8 +858,8 @@ define void @"_ZN79_$LT$core..result..Result$LT$T$C$E$GT$$u20$as$u20$core..ops..
   br i1 %4, label %5, label %8
 
 5:                                                ; preds = %2
-  %6 = getelementptr inbounds { [1 x i64], { { { { ptr, i64 }, i64 } }, { { i64, i64, i64 }, { i64, i64, i64 } }, i32, [1 x i32] } }, ptr %1, i64 0, i32 1
-  %7 = getelementptr inbounds { [1 x i64], { { { { ptr, i64 }, i64 } }, { { i64, i64, i64 }, { i64, i64, i64 } }, i32, [1 x i32] } }, ptr %0, i64 0, i32 1
+  %6 = getelementptr inbounds i8, ptr %1, i64 8
+  %7 = getelementptr inbounds i8, ptr %0, i64 8
   tail call void @llvm.memmove.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(80) %7, ptr noundef nonnull align 8 dereferenceable(80) %6, i64 80, i1 false)
   store i32 34, ptr %0, align 8
   br label %9
@@ -890,8 +879,8 @@ define void @"_ZN79_$LT$core..result..Result$LT$T$C$E$GT$$u20$as$u20$core..ops..
   br i1 %4, label %5, label %8
 
 5:                                                ; preds = %2
-  %6 = getelementptr inbounds { [1 x i64], { { { ptr, i64 }, i64 }, { { i64, i64, i64 }, { i64, i64, i64 } } } }, ptr %1, i64 0, i32 1
-  %7 = getelementptr inbounds { [1 x i64], { { { ptr, i64 }, i64 }, { { i64, i64, i64 }, { i64, i64, i64 } } } }, ptr %0, i64 0, i32 1
+  %6 = getelementptr inbounds i8, ptr %1, i64 8
+  %7 = getelementptr inbounds i8, ptr %0, i64 8
   tail call void @llvm.memmove.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(72) %7, ptr noundef nonnull align 8 dereferenceable(72) %6, i64 72, i1 false)
   store i32 34, ptr %0, align 8
   br label %9
@@ -916,9 +905,9 @@ define void @"_ZN79_$LT$core..result..Result$LT$T$C$E$GT$$u20$as$u20$core..ops..
   br i1 %4, label %5, label %9
 
 5:                                                ; preds = %2
-  %6 = getelementptr inbounds { [4 x i8], i8 }, ptr %1, i64 0, i32 1
+  %6 = getelementptr inbounds i8, ptr %1, i64 4
   %7 = load i8, ptr %6, align 4, !range !13, !noundef !6
-  %8 = getelementptr inbounds { [4 x i8], i8 }, ptr %0, i64 0, i32 1
+  %8 = getelementptr inbounds i8, ptr %0, i64 4
   store i8 %7, ptr %8, align 4
   store i32 34, ptr %0, align 8
   br label %10
@@ -933,14 +922,14 @@ define void @"_ZN79_$LT$core..result..Result$LT$T$C$E$GT$$u20$as$u20$core..ops..
 
 ; Function Attrs: inlinehint mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: readwrite) uwtable
 define void @"_ZN79_$LT$core..result..Result$LT$T$C$E$GT$$u20$as$u20$core..ops..try_trait..Try$GT$6branch17h4fb8835bf804425cE"(ptr nocapture writeonly sret({ [72 x i8], i8, [7 x i8] }) align 8 %0, ptr nocapture readonly align 8 %1) unnamed_addr #1 {
-  %3 = getelementptr inbounds { [72 x i8], i8, [7 x i8] }, ptr %1, i64 0, i32 1
+  %3 = getelementptr inbounds i8, ptr %1, i64 72
   %4 = load i8, ptr %3, align 8, !range !12, !noundef !6
   %5 = icmp eq i8 %4, 7
   br i1 %5, label %6, label %8
 
 6:                                                ; preds = %2
   tail call void @llvm.memmove.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef nonnull align 8 dereferenceable(32) %1, i64 32, i1 false)
-  %7 = getelementptr inbounds { [72 x i8], i8, [7 x i8] }, ptr %0, i64 0, i32 1
+  %7 = getelementptr inbounds i8, ptr %0, i64 72
   store i8 7, ptr %7, align 8
   br label %9
 
@@ -972,7 +961,7 @@ define void @"_ZN79_$LT$core..result..Result$LT$T$C$E$GT$$u20$as$u20$core..ops..
 
 ; Function Attrs: inlinehint mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: readwrite) uwtable
 define void @"_ZN79_$LT$core..result..Result$LT$T$C$E$GT$$u20$as$u20$core..ops..try_trait..Try$GT$6branch17h52cf98e505be2654E"(ptr nocapture writeonly sret({ [50 x i32], i32, [3 x i32] }) align 8 %0, ptr nocapture readonly align 8 %1) unnamed_addr #1 {
-  %3 = getelementptr inbounds { [50 x i32], i32, [3 x i32] }, ptr %1, i64 0, i32 1
+  %3 = getelementptr inbounds i8, ptr %1, i64 200
   %4 = load i32, ptr %3, align 8, !range !14, !noundef !6
   %.not = icmp eq i32 %4, 1114121
   br i1 %.not, label %6, label %5
@@ -983,7 +972,7 @@ define void @"_ZN79_$LT$core..result..Result$LT$T$C$E$GT$$u20$as$u20$core..ops..
 
 6:                                                ; preds = %2
   tail call void @llvm.memmove.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(128) %0, ptr noundef nonnull align 8 dereferenceable(128) %1, i64 128, i1 false)
-  %7 = getelementptr inbounds { [50 x i32], i32, [3 x i32] }, ptr %0, i64 0, i32 1
+  %7 = getelementptr inbounds i8, ptr %0, i64 200
   store i32 1114121, ptr %7, align 8
   br label %8
 
@@ -998,8 +987,8 @@ define void @"_ZN79_$LT$core..result..Result$LT$T$C$E$GT$$u20$as$u20$core..ops..
   br i1 %4, label %5, label %8
 
 5:                                                ; preds = %2
-  %6 = getelementptr inbounds { [1 x i64], { i64, [3 x i64] } }, ptr %1, i64 0, i32 1
-  %7 = getelementptr inbounds { [1 x i64], { i64, [3 x i64] } }, ptr %0, i64 0, i32 1
+  %6 = getelementptr inbounds i8, ptr %1, i64 8
+  %7 = getelementptr inbounds i8, ptr %0, i64 8
   tail call void @llvm.memmove.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %7, ptr noundef nonnull align 8 dereferenceable(32) %6, i64 32, i1 false)
   store i32 34, ptr %0, align 8
   br label %9
@@ -1014,7 +1003,7 @@ define void @"_ZN79_$LT$core..result..Result$LT$T$C$E$GT$$u20$as$u20$core..ops..
 
 ; Function Attrs: inlinehint mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: readwrite) uwtable
 define void @"_ZN79_$LT$core..result..Result$LT$T$C$E$GT$$u20$as$u20$core..ops..try_trait..Try$GT$6branch17h5f2231bee0dbf846E"(ptr nocapture writeonly sret({ [72 x i8], i8, [7 x i8] }) align 8 %0, ptr nocapture readonly align 8 %1) unnamed_addr #1 {
-  %3 = getelementptr inbounds { [72 x i8], i8, [7 x i8] }, ptr %1, i64 0, i32 1
+  %3 = getelementptr inbounds i8, ptr %1, i64 72
   %4 = load i8, ptr %3, align 8, !range !12, !noundef !6
   %5 = icmp eq i8 %4, 7
   br i1 %5, label %6, label %9
@@ -1022,7 +1011,7 @@ define void @"_ZN79_$LT$core..result..Result$LT$T$C$E$GT$$u20$as$u20$core..ops..
 6:                                                ; preds = %2
   %7 = load i8, ptr %1, align 8, !noundef !6
   store i8 %7, ptr %0, align 8
-  %8 = getelementptr inbounds { [72 x i8], i8, [7 x i8] }, ptr %0, i64 0, i32 1
+  %8 = getelementptr inbounds i8, ptr %0, i64 72
   store i8 7, ptr %8, align 8
   br label %10
 
@@ -1036,7 +1025,7 @@ define void @"_ZN79_$LT$core..result..Result$LT$T$C$E$GT$$u20$as$u20$core..ops..
 
 ; Function Attrs: inlinehint mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: readwrite) uwtable
 define void @"_ZN79_$LT$core..result..Result$LT$T$C$E$GT$$u20$as$u20$core..ops..try_trait..Try$GT$6branch17h650e8d17dd824ed4E"(ptr nocapture writeonly sret({ [72 x i8], i8, [7 x i8] }) align 8 %0, ptr nocapture readonly align 8 %1) unnamed_addr #1 {
-  %3 = getelementptr inbounds { [72 x i8], i8, [7 x i8] }, ptr %1, i64 0, i32 1
+  %3 = getelementptr inbounds i8, ptr %1, i64 72
   %4 = load i8, ptr %3, align 8, !range !12, !noundef !6
   %5 = icmp eq i8 %4, 7
   br i1 %5, label %6, label %9
@@ -1044,7 +1033,7 @@ define void @"_ZN79_$LT$core..result..Result$LT$T$C$E$GT$$u20$as$u20$core..ops..
 6:                                                ; preds = %2
   %7 = load i64, ptr %1, align 8
   store i64 %7, ptr %0, align 8
-  %8 = getelementptr inbounds { [72 x i8], i8, [7 x i8] }, ptr %0, i64 0, i32 1
+  %8 = getelementptr inbounds i8, ptr %0, i64 72
   store i8 7, ptr %8, align 8
   br label %10
 
@@ -1058,14 +1047,14 @@ define void @"_ZN79_$LT$core..result..Result$LT$T$C$E$GT$$u20$as$u20$core..ops..
 
 ; Function Attrs: inlinehint mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: readwrite) uwtable
 define void @"_ZN79_$LT$core..result..Result$LT$T$C$E$GT$$u20$as$u20$core..ops..try_trait..Try$GT$6branch17h7424fe77a6dc5d38E"(ptr nocapture writeonly sret({ [72 x i8], i8, [7 x i8] }) align 8 %0, ptr nocapture readonly align 8 %1) unnamed_addr #1 {
-  %3 = getelementptr inbounds { [72 x i8], i8, [7 x i8] }, ptr %1, i64 0, i32 1
+  %3 = getelementptr inbounds i8, ptr %1, i64 72
   %4 = load i8, ptr %3, align 8, !range !12, !noundef !6
   %5 = icmp eq i8 %4, 7
   br i1 %5, label %6, label %8
 
 6:                                                ; preds = %2
   tail call void @llvm.memmove.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef nonnull align 8 dereferenceable(32) %1, i64 32, i1 false)
-  %7 = getelementptr inbounds { [72 x i8], i8, [7 x i8] }, ptr %0, i64 0, i32 1
+  %7 = getelementptr inbounds i8, ptr %0, i64 72
   store i8 7, ptr %7, align 8
   br label %9
 
@@ -1084,8 +1073,8 @@ define void @"_ZN79_$LT$core..result..Result$LT$T$C$E$GT$$u20$as$u20$core..ops..
   br i1 %4, label %5, label %8
 
 5:                                                ; preds = %2
-  %6 = getelementptr inbounds { [1 x i64], { { { ptr, i64 }, i64 }, { { i64, i64, i64 }, { i64, i64, i64 } } } }, ptr %1, i64 0, i32 1
-  %7 = getelementptr inbounds { [1 x i64], { { { ptr, i64 }, i64 }, { { i64, i64, i64 }, { i64, i64, i64 } } } }, ptr %0, i64 0, i32 1
+  %6 = getelementptr inbounds i8, ptr %1, i64 8
+  %7 = getelementptr inbounds i8, ptr %0, i64 8
   tail call void @llvm.memmove.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(72) %7, ptr noundef nonnull align 8 dereferenceable(72) %6, i64 72, i1 false)
   store i32 34, ptr %0, align 8
   br label %9
@@ -1105,7 +1094,7 @@ define zeroext i1 @"_ZN79_$LT$core..result..Result$LT$T$C$E$GT$$u20$as$u20$core.
 
 ; Function Attrs: inlinehint mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: readwrite) uwtable
 define void @"_ZN79_$LT$core..result..Result$LT$T$C$E$GT$$u20$as$u20$core..ops..try_trait..Try$GT$6branch17h7a8c451e699dd52eE"(ptr nocapture writeonly sret({ [6 x i32], i32, [1 x i32] }) align 8 %0, ptr nocapture readonly align 8 %1) unnamed_addr #1 {
-  %3 = getelementptr inbounds { [6 x i32], i32, [1 x i32] }, ptr %1, i64 0, i32 1
+  %3 = getelementptr inbounds i8, ptr %1, i64 24
   %4 = load i32, ptr %3, align 8, !range !5, !noundef !6
   %.not = icmp eq i32 %4, 1114113
   br i1 %.not, label %6, label %5
@@ -1115,7 +1104,7 @@ define void @"_ZN79_$LT$core..result..Result$LT$T$C$E$GT$$u20$as$u20$core..ops..
   br label %8
 
 6:                                                ; preds = %2
-  %7 = getelementptr inbounds { [6 x i32], i32, [1 x i32] }, ptr %0, i64 0, i32 1
+  %7 = getelementptr inbounds i8, ptr %0, i64 24
   store i32 1114113, ptr %7, align 8
   br label %8
 
@@ -1125,14 +1114,14 @@ define void @"_ZN79_$LT$core..result..Result$LT$T$C$E$GT$$u20$as$u20$core..ops..
 
 ; Function Attrs: inlinehint mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: readwrite) uwtable
 define void @"_ZN79_$LT$core..result..Result$LT$T$C$E$GT$$u20$as$u20$core..ops..try_trait..Try$GT$6branch17h7c63b40637482d42E"(ptr nocapture writeonly sret({ [72 x i8], i8, [7 x i8] }) align 8 %0, ptr nocapture readonly align 8 %1) unnamed_addr #1 {
-  %3 = getelementptr inbounds { [72 x i8], i8, [7 x i8] }, ptr %1, i64 0, i32 1
+  %3 = getelementptr inbounds i8, ptr %1, i64 72
   %4 = load i8, ptr %3, align 8, !range !12, !noundef !6
   %5 = icmp eq i8 %4, 7
   br i1 %5, label %6, label %8
 
 6:                                                ; preds = %2
   tail call void @llvm.memmove.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %0, ptr noundef nonnull align 8 dereferenceable(48) %1, i64 48, i1 false)
-  %7 = getelementptr inbounds { [72 x i8], i8, [7 x i8] }, ptr %0, i64 0, i32 1
+  %7 = getelementptr inbounds i8, ptr %0, i64 72
   store i8 7, ptr %7, align 8
   br label %9
 
@@ -1151,8 +1140,8 @@ define void @"_ZN79_$LT$core..result..Result$LT$T$C$E$GT$$u20$as$u20$core..ops..
   br i1 %4, label %5, label %8
 
 5:                                                ; preds = %2
-  %6 = getelementptr inbounds { [1 x i64], { [104 x i8], i8, [7 x i8] } }, ptr %1, i64 0, i32 1
-  %7 = getelementptr inbounds { [1 x i64], { [104 x i8], i8, [7 x i8] } }, ptr %0, i64 0, i32 1
+  %6 = getelementptr inbounds i8, ptr %1, i64 8
+  %7 = getelementptr inbounds i8, ptr %0, i64 8
   tail call void @llvm.memmove.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(112) %7, ptr noundef nonnull align 8 dereferenceable(112) %6, i64 112, i1 false)
   store i32 34, ptr %0, align 8
   br label %9
@@ -1167,7 +1156,7 @@ define void @"_ZN79_$LT$core..result..Result$LT$T$C$E$GT$$u20$as$u20$core..ops..
 
 ; Function Attrs: inlinehint mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: readwrite) uwtable
 define void @"_ZN79_$LT$core..result..Result$LT$T$C$E$GT$$u20$as$u20$core..ops..try_trait..Try$GT$6branch17h8381501b99db928dE"(ptr nocapture writeonly sret({ [38 x i32], i32, [1 x i32] }) align 8 %0, ptr nocapture readonly align 8 %1) unnamed_addr #1 {
-  %3 = getelementptr inbounds { [38 x i32], i32, [1 x i32] }, ptr %1, i64 0, i32 1
+  %3 = getelementptr inbounds i8, ptr %1, i64 152
   %4 = load i32, ptr %3, align 8, !range !15, !noundef !6
   %.not = icmp eq i32 %4, 1114120
   br i1 %.not, label %6, label %5
@@ -1178,7 +1167,7 @@ define void @"_ZN79_$LT$core..result..Result$LT$T$C$E$GT$$u20$as$u20$core..ops..
 
 6:                                                ; preds = %2
   tail call void @llvm.memmove.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(128) %0, ptr noundef nonnull align 8 dereferenceable(128) %1, i64 128, i1 false)
-  %7 = getelementptr inbounds { [38 x i32], i32, [1 x i32] }, ptr %0, i64 0, i32 1
+  %7 = getelementptr inbounds i8, ptr %0, i64 152
   store i32 1114120, ptr %7, align 8
   br label %8
 
@@ -1193,20 +1182,20 @@ define void @"_ZN79_$LT$core..result..Result$LT$T$C$E$GT$$u20$as$u20$core..ops..
   br i1 %4, label %5, label %12
 
 5:                                                ; preds = %2
-  %6 = getelementptr inbounds { [1 x i64], { ptr, i64 } }, ptr %1, i64 0, i32 1
+  %6 = getelementptr inbounds i8, ptr %1, i64 8
   %7 = load ptr, ptr %6, align 8, !align !9, !noundef !6
-  %8 = getelementptr inbounds { [1 x i64], { ptr, i64 } }, ptr %1, i64 0, i32 1, i32 1
+  %8 = getelementptr inbounds i8, ptr %1, i64 16
   %9 = load i64, ptr %8, align 8
-  %10 = getelementptr inbounds { [1 x i64], { ptr, i64 } }, ptr %0, i64 0, i32 1
+  %10 = getelementptr inbounds i8, ptr %0, i64 8
   store ptr %7, ptr %10, align 8
-  %11 = getelementptr inbounds { [1 x i64], { ptr, i64 } }, ptr %0, i64 0, i32 1, i32 1
+  %11 = getelementptr inbounds i8, ptr %0, i64 16
   store i64 %9, ptr %11, align 8
   br label %16
 
 12:                                               ; preds = %2
-  %13 = getelementptr inbounds { [1 x i8], i8 }, ptr %1, i64 0, i32 1
+  %13 = getelementptr inbounds i8, ptr %1, i64 1
   %14 = load i8, ptr %13, align 1, !range !10, !noundef !6
-  %15 = getelementptr inbounds { [1 x i8], i8 }, ptr %0, i64 0, i32 1
+  %15 = getelementptr inbounds i8, ptr %0, i64 1
   store i8 %14, ptr %15, align 1
   br label %16
 
@@ -1227,9 +1216,9 @@ define void @"_ZN79_$LT$core..result..Result$LT$T$C$E$GT$$u20$as$u20$core..ops..
   br label %9
 
 5:                                                ; preds = %2
-  %6 = getelementptr inbounds { [8 x i8], i8 }, ptr %1, i64 0, i32 1
+  %6 = getelementptr inbounds i8, ptr %1, i64 8
   %7 = load i8, ptr %6, align 8, !range !10, !noundef !6
-  %8 = getelementptr inbounds { [8 x i8], i8 }, ptr %0, i64 0, i32 1
+  %8 = getelementptr inbounds i8, ptr %0, i64 8
   store i8 %7, ptr %8, align 8
   store i64 4, ptr %0, align 8
   br label %9
@@ -1245,9 +1234,9 @@ define void @"_ZN79_$LT$core..result..Result$LT$T$C$E$GT$$u20$as$u20$core..ops..
   br i1 %4, label %5, label %9
 
 5:                                                ; preds = %2
-  %6 = getelementptr inbounds { [1 x i32], i32 }, ptr %1, i64 0, i32 1
+  %6 = getelementptr inbounds i8, ptr %1, i64 4
   %7 = load i32, ptr %6, align 4, !noundef !6
-  %8 = getelementptr inbounds { [1 x i32], i32 }, ptr %0, i64 0, i32 1
+  %8 = getelementptr inbounds i8, ptr %0, i64 4
   store i32 %7, ptr %8, align 4
   store i32 34, ptr %0, align 8
   br label %10
@@ -1267,9 +1256,9 @@ define void @"_ZN79_$LT$core..result..Result$LT$T$C$E$GT$$u20$as$u20$core..ops..
   br i1 %4, label %5, label %9
 
 5:                                                ; preds = %2
-  %6 = getelementptr inbounds { [4 x i8], i8 }, ptr %1, i64 0, i32 1
+  %6 = getelementptr inbounds i8, ptr %1, i64 4
   %7 = load i8, ptr %6, align 4, !range !18, !noundef !6
-  %8 = getelementptr inbounds { [4 x i8], i8 }, ptr %0, i64 0, i32 1
+  %8 = getelementptr inbounds i8, ptr %0, i64 4
   store i8 %7, ptr %8, align 4
   store i32 34, ptr %0, align 8
   br label %10
@@ -1289,13 +1278,13 @@ define void @"_ZN79_$LT$core..result..Result$LT$T$C$E$GT$$u20$as$u20$core..ops..
   br i1 %4, label %5, label %12
 
 5:                                                ; preds = %2
-  %6 = getelementptr inbounds { [1 x i64], { i64, ptr } }, ptr %1, i64 0, i32 1
+  %6 = getelementptr inbounds i8, ptr %1, i64 8
   %7 = load i64, ptr %6, align 8, !range !19, !noundef !6
-  %8 = getelementptr inbounds { [1 x i64], { i64, ptr } }, ptr %1, i64 0, i32 1, i32 1
+  %8 = getelementptr inbounds i8, ptr %1, i64 16
   %9 = load ptr, ptr %8, align 8, !noundef !6
-  %10 = getelementptr inbounds { [1 x i64], { i64, ptr } }, ptr %0, i64 0, i32 1
+  %10 = getelementptr inbounds i8, ptr %0, i64 8
   store i64 %7, ptr %10, align 8
-  %11 = getelementptr inbounds { [1 x i64], { i64, ptr } }, ptr %0, i64 0, i32 1, i32 1
+  %11 = getelementptr inbounds i8, ptr %0, i64 16
   store ptr %9, ptr %11, align 8
   store i32 34, ptr %0, align 8
   br label %13
@@ -1310,14 +1299,14 @@ define void @"_ZN79_$LT$core..result..Result$LT$T$C$E$GT$$u20$as$u20$core..ops..
 
 ; Function Attrs: inlinehint mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: readwrite) uwtable
 define void @"_ZN79_$LT$core..result..Result$LT$T$C$E$GT$$u20$as$u20$core..ops..try_trait..Try$GT$6branch17ha72e6575e7adeeebE"(ptr nocapture writeonly sret({ [72 x i8], i8, [7 x i8] }) align 8 %0, ptr nocapture readonly align 8 %1) unnamed_addr #1 {
-  %3 = getelementptr inbounds { [72 x i8], i8, [7 x i8] }, ptr %1, i64 0, i32 1
+  %3 = getelementptr inbounds i8, ptr %1, i64 72
   %4 = load i8, ptr %3, align 8, !range !12, !noundef !6
   %5 = icmp eq i8 %4, 7
   br i1 %5, label %6, label %8
 
 6:                                                ; preds = %2
   tail call void @llvm.memmove.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef nonnull align 8 dereferenceable(32) %1, i64 32, i1 false)
-  %7 = getelementptr inbounds { [72 x i8], i8, [7 x i8] }, ptr %0, i64 0, i32 1
+  %7 = getelementptr inbounds i8, ptr %0, i64 72
   store i8 7, ptr %7, align 8
   br label %9
 
@@ -1336,8 +1325,8 @@ define void @"_ZN79_$LT$core..result..Result$LT$T$C$E$GT$$u20$as$u20$core..ops..
   br i1 %4, label %5, label %8
 
 5:                                                ; preds = %2
-  %6 = getelementptr inbounds { [1 x i64], { { { ptr, i64 }, i64 }, { { i64, i64, i64 }, { i64, i64, i64 } } } }, ptr %1, i64 0, i32 1
-  %7 = getelementptr inbounds { [1 x i64], { { { ptr, i64 }, i64 }, { { i64, i64, i64 }, { i64, i64, i64 } } } }, ptr %0, i64 0, i32 1
+  %6 = getelementptr inbounds i8, ptr %1, i64 8
+  %7 = getelementptr inbounds i8, ptr %0, i64 8
   tail call void @llvm.memmove.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(72) %7, ptr noundef nonnull align 8 dereferenceable(72) %6, i64 72, i1 false)
   store i32 34, ptr %0, align 8
   br label %9
@@ -1375,20 +1364,20 @@ define void @"_ZN79_$LT$core..result..Result$LT$T$C$E$GT$$u20$as$u20$core..ops..
   br i1 %4, label %5, label %12
 
 5:                                                ; preds = %2
-  %6 = getelementptr inbounds { [1 x i64], { ptr, i64 } }, ptr %1, i64 0, i32 1
+  %6 = getelementptr inbounds i8, ptr %1, i64 8
   %7 = load ptr, ptr %6, align 8, !align !21, !noundef !6
-  %8 = getelementptr inbounds { [1 x i64], { ptr, i64 } }, ptr %1, i64 0, i32 1, i32 1
+  %8 = getelementptr inbounds i8, ptr %1, i64 16
   %9 = load i64, ptr %8, align 8
-  %10 = getelementptr inbounds { [1 x i64], { ptr, i64 } }, ptr %0, i64 0, i32 1
+  %10 = getelementptr inbounds i8, ptr %0, i64 8
   store ptr %7, ptr %10, align 8
-  %11 = getelementptr inbounds { [1 x i64], { ptr, i64 } }, ptr %0, i64 0, i32 1, i32 1
+  %11 = getelementptr inbounds i8, ptr %0, i64 16
   store i64 %9, ptr %11, align 8
   br label %16
 
 12:                                               ; preds = %2
-  %13 = getelementptr inbounds { [1 x i8], i8 }, ptr %1, i64 0, i32 1
+  %13 = getelementptr inbounds i8, ptr %1, i64 1
   %14 = load i8, ptr %13, align 1, !range !10, !noundef !6
-  %15 = getelementptr inbounds { [1 x i8], i8 }, ptr %0, i64 0, i32 1
+  %15 = getelementptr inbounds i8, ptr %0, i64 1
   store i8 %14, ptr %15, align 1
   br label %16
 
@@ -1400,7 +1389,7 @@ define void @"_ZN79_$LT$core..result..Result$LT$T$C$E$GT$$u20$as$u20$core..ops..
 
 ; Function Attrs: inlinehint mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: readwrite) uwtable
 define void @"_ZN79_$LT$core..result..Result$LT$T$C$E$GT$$u20$as$u20$core..ops..try_trait..Try$GT$6branch17hcf211c7e912271a9E"(ptr nocapture writeonly sret({ [24 x i8], i8, [7 x i8] }) align 8 %0, ptr nocapture readonly align 8 %1) unnamed_addr #1 {
-  %3 = getelementptr inbounds { [24 x i8], i8, [7 x i8] }, ptr %1, i64 0, i32 1
+  %3 = getelementptr inbounds i8, ptr %1, i64 24
   %4 = load i8, ptr %3, align 8, !range !10, !noundef !6
   %.not = icmp eq i8 %4, 2
   br i1 %.not, label %6, label %5
@@ -1412,7 +1401,7 @@ define void @"_ZN79_$LT$core..result..Result$LT$T$C$E$GT$$u20$as$u20$core..ops..
 6:                                                ; preds = %2
   %7 = load i8, ptr %1, align 8, !range !10, !noundef !6
   store i8 %7, ptr %0, align 8
-  %8 = getelementptr inbounds { [24 x i8], i8, [7 x i8] }, ptr %0, i64 0, i32 1
+  %8 = getelementptr inbounds i8, ptr %0, i64 24
   store i8 2, ptr %8, align 8
   br label %9
 
@@ -1422,14 +1411,14 @@ define void @"_ZN79_$LT$core..result..Result$LT$T$C$E$GT$$u20$as$u20$core..ops..
 
 ; Function Attrs: inlinehint mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: readwrite) uwtable
 define void @"_ZN79_$LT$core..result..Result$LT$T$C$E$GT$$u20$as$u20$core..ops..try_trait..Try$GT$6branch17hd72ceb5330acaf9dE"(ptr nocapture writeonly sret({ [72 x i8], i8, [7 x i8] }) align 8 %0, ptr nocapture readonly align 8 %1) unnamed_addr #1 {
-  %3 = getelementptr inbounds { [72 x i8], i8, [7 x i8] }, ptr %1, i64 0, i32 1
+  %3 = getelementptr inbounds i8, ptr %1, i64 72
   %4 = load i8, ptr %3, align 8, !range !12, !noundef !6
   %5 = icmp eq i8 %4, 7
   br i1 %5, label %6, label %8
 
 6:                                                ; preds = %2
   tail call void @llvm.memmove.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %0, ptr noundef nonnull align 8 dereferenceable(48) %1, i64 48, i1 false)
-  %7 = getelementptr inbounds { [72 x i8], i8, [7 x i8] }, ptr %0, i64 0, i32 1
+  %7 = getelementptr inbounds i8, ptr %0, i64 72
   store i8 7, ptr %7, align 8
   br label %9
 
@@ -1443,7 +1432,7 @@ define void @"_ZN79_$LT$core..result..Result$LT$T$C$E$GT$$u20$as$u20$core..ops..
 
 ; Function Attrs: inlinehint mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: readwrite) uwtable
 define void @"_ZN79_$LT$core..result..Result$LT$T$C$E$GT$$u20$as$u20$core..ops..try_trait..Try$GT$6branch17hed141901a22e4f94E"(ptr nocapture writeonly sret({ [50 x i32], i32, [3 x i32] }) align 8 %0, ptr nocapture readonly align 8 %1) unnamed_addr #1 {
-  %3 = getelementptr inbounds { [50 x i32], i32, [3 x i32] }, ptr %1, i64 0, i32 1
+  %3 = getelementptr inbounds i8, ptr %1, i64 200
   %4 = load i32, ptr %3, align 8, !range !22, !noundef !6
   %.not = icmp eq i32 %4, 1114122
   br i1 %.not, label %6, label %5
@@ -1454,7 +1443,7 @@ define void @"_ZN79_$LT$core..result..Result$LT$T$C$E$GT$$u20$as$u20$core..ops..
 
 6:                                                ; preds = %2
   tail call void @llvm.memmove.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(128) %0, ptr noundef nonnull align 8 dereferenceable(128) %1, i64 128, i1 false)
-  %7 = getelementptr inbounds { [50 x i32], i32, [3 x i32] }, ptr %0, i64 0, i32 1
+  %7 = getelementptr inbounds i8, ptr %0, i64 200
   store i32 1114122, ptr %7, align 8
   br label %8
 
@@ -1469,8 +1458,8 @@ define void @"_ZN79_$LT$core..result..Result$LT$T$C$E$GT$$u20$as$u20$core..ops..
   br i1 %4, label %5, label %8
 
 5:                                                ; preds = %2
-  %6 = getelementptr inbounds { [1 x i64], { { i8, [55 x i8] }, { { i64, i64, i64 }, { i64, i64, i64 } }, i8, [7 x i8] } }, ptr %1, i64 0, i32 1
-  %7 = getelementptr inbounds { [1 x i64], { { i8, [55 x i8] }, { { i64, i64, i64 }, { i64, i64, i64 } }, i8, [7 x i8] } }, ptr %0, i64 0, i32 1
+  %6 = getelementptr inbounds i8, ptr %1, i64 8
+  %7 = getelementptr inbounds i8, ptr %0, i64 8
   tail call void @llvm.memmove.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(112) %7, ptr noundef nonnull align 8 dereferenceable(112) %6, i64 112, i1 false)
   store i32 34, ptr %0, align 8
   br label %9
@@ -1485,7 +1474,7 @@ define void @"_ZN79_$LT$core..result..Result$LT$T$C$E$GT$$u20$as$u20$core..ops..
 
 ; Function Attrs: inlinehint mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: readwrite) uwtable
 define void @"_ZN79_$LT$core..result..Result$LT$T$C$E$GT$$u20$as$u20$core..ops..try_trait..Try$GT$6branch17hf4774928a4aa07baE"(ptr nocapture writeonly sret({ [50 x i32], i32, [21 x i32] }) align 8 %0, ptr nocapture readonly align 8 %1) unnamed_addr #1 {
-  %3 = getelementptr inbounds { [50 x i32], i32, [21 x i32] }, ptr %1, i64 0, i32 1
+  %3 = getelementptr inbounds i8, ptr %1, i64 200
   %4 = load i32, ptr %3, align 8, !range !14, !noundef !6
   %.not = icmp eq i32 %4, 1114121
   br i1 %.not, label %6, label %5
@@ -1496,7 +1485,7 @@ define void @"_ZN79_$LT$core..result..Result$LT$T$C$E$GT$$u20$as$u20$core..ops..
 
 6:                                                ; preds = %2
   tail call void @llvm.memmove.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(128) %0, ptr noundef nonnull align 8 dereferenceable(128) %1, i64 128, i1 false)
-  %7 = getelementptr inbounds { [50 x i32], i32, [21 x i32] }, ptr %0, i64 0, i32 1
+  %7 = getelementptr inbounds i8, ptr %0, i64 200
   store i32 1114121, ptr %7, align 8
   br label %8
 
@@ -1506,7 +1495,7 @@ define void @"_ZN79_$LT$core..result..Result$LT$T$C$E$GT$$u20$as$u20$core..ops..
 
 ; Function Attrs: inlinehint mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: readwrite) uwtable
 define void @"_ZN79_$LT$core..result..Result$LT$T$C$E$GT$$u20$as$u20$core..ops..try_trait..Try$GT$6branch17hf87c7e3e84badfecE"(ptr nocapture writeonly sret({ [72 x i8], i8, [7 x i8] }) align 8 %0, ptr nocapture readonly align 8 %1) unnamed_addr #1 {
-  %3 = getelementptr inbounds { [72 x i8], i8, [7 x i8] }, ptr %1, i64 0, i32 1
+  %3 = getelementptr inbounds i8, ptr %1, i64 72
   %4 = load i8, ptr %3, align 8, !range !12, !noundef !6
   %5 = icmp eq i8 %4, 7
   br i1 %5, label %6, label %9
@@ -1514,7 +1503,7 @@ define void @"_ZN79_$LT$core..result..Result$LT$T$C$E$GT$$u20$as$u20$core..ops..
 6:                                                ; preds = %2
   %7 = load i8, ptr %1, align 8, !range !16, !noundef !6
   store i8 %7, ptr %0, align 8
-  %8 = getelementptr inbounds { [72 x i8], i8, [7 x i8] }, ptr %0, i64 0, i32 1
+  %8 = getelementptr inbounds i8, ptr %0, i64 72
   store i8 7, ptr %8, align 8
   br label %10
 

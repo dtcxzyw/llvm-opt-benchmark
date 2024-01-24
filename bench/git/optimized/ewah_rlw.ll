@@ -3,20 +3,16 @@ source_filename = "bench/git/original/ewah_rlw.ll"
 target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:128-n8:16:32:64-S128"
 target triple = "x86_64-unknown-linux-gnu"
 
-%struct.ewah_bitmap = type { ptr, i64, i64, i64, ptr }
-%struct.rlw_iterator = type { ptr, i64, i64, i64, %struct.anon }
-%struct.anon = type { ptr, i32, i32, i32, i32 }
-
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
 define dso_local void @rlwit_init(ptr nocapture noundef %it, ptr nocapture noundef readonly %from_ewah) local_unnamed_addr #0 {
 entry:
   %0 = load ptr, ptr %from_ewah, align 8
   store ptr %0, ptr %it, align 8
-  %buffer_size = getelementptr inbounds %struct.ewah_bitmap, ptr %from_ewah, i64 0, i32 1
+  %buffer_size = getelementptr inbounds i8, ptr %from_ewah, i64 8
   %1 = load i64, ptr %buffer_size, align 8
-  %size = getelementptr inbounds %struct.rlw_iterator, ptr %it, i64 0, i32 1
+  %size = getelementptr inbounds i8, ptr %it, i64 8
   store i64 %1, ptr %size, align 8
-  %pointer = getelementptr inbounds %struct.rlw_iterator, ptr %it, i64 0, i32 2
+  %pointer = getelementptr inbounds i8, ptr %it, i64 16
   store i64 0, ptr %pointer, align 8
   %cmp.not.i.not = icmp eq i64 %1, 0
   br i1 %cmp.not.i.not, label %entry.next_word.exit_crit_edge, label %if.end.i
@@ -24,13 +20,13 @@ entry:
 entry.next_word.exit_crit_edge:                   ; preds = %entry
   %.phi.trans.insert = getelementptr i8, ptr %it, i64 40
   %it.val8.pre = load i32, ptr %.phi.trans.insert, align 8
-  %literal_word_offset.phi.trans.insert = getelementptr inbounds %struct.rlw_iterator, ptr %it, i64 0, i32 4, i32 3
+  %literal_word_offset.phi.trans.insert = getelementptr inbounds i8, ptr %it, i64 48
   %.pre = load i32, ptr %literal_word_offset.phi.trans.insert, align 8
   %2 = sext i32 %.pre to i64
   br label %next_word.exit
 
 if.end.i:                                         ; preds = %entry
-  %rlw.i = getelementptr inbounds %struct.rlw_iterator, ptr %it, i64 0, i32 4
+  %rlw.i = getelementptr inbounds i8, ptr %it, i64 32
   store ptr %0, ptr %rlw.i, align 8
   %arrayidx.val.i = load i64, ptr %0, align 8
   %shr.i.i = lshr i64 %arrayidx.val.i, 33
@@ -39,19 +35,19 @@ if.end.i:                                         ; preds = %entry
   %.val.i = load i64, ptr %0, align 8
   %shr.i16.i = lshr i64 %.val.i, 33
   %conv.i = trunc i64 %shr.i16.i to i32
-  %literal_words.i = getelementptr inbounds %struct.rlw_iterator, ptr %it, i64 0, i32 4, i32 1
+  %literal_words.i = getelementptr inbounds i8, ptr %it, i64 40
   store i32 %conv.i, ptr %literal_words.i, align 8
   %.val14.i = load i64, ptr %0, align 8
   %shr.i17.i = lshr i64 %.val14.i, 1
   %conv13.i = trunc i64 %shr.i17.i to i32
-  %running_len.i = getelementptr inbounds %struct.rlw_iterator, ptr %it, i64 0, i32 4, i32 2
+  %running_len.i = getelementptr inbounds i8, ptr %it, i64 44
   store i32 %conv13.i, ptr %running_len.i, align 4
   %.val15.i = load i64, ptr %0, align 8
   %3 = trunc i64 %.val15.i to i32
   %conv.i.i = and i32 %3, 1
-  %running_bit.i = getelementptr inbounds %struct.rlw_iterator, ptr %it, i64 0, i32 4, i32 4
+  %running_bit.i = getelementptr inbounds i8, ptr %it, i64 52
   store i32 %conv.i.i, ptr %running_bit.i, align 4
-  %literal_word_offset.i = getelementptr inbounds %struct.rlw_iterator, ptr %it, i64 0, i32 4, i32 3
+  %literal_word_offset.i = getelementptr inbounds i8, ptr %it, i64 48
   store i32 0, ptr %literal_word_offset.i, align 8
   br label %next_word.exit
 
@@ -62,7 +58,7 @@ next_word.exit:                                   ; preds = %entry.next_word.exi
   %conv.i9 = sext i32 %it.val8 to i64
   %sub.i = sub nsw i64 %it.val, %conv.i9
   %add = add nsw i64 %sub.i, %conv
-  %literal_word_start = getelementptr inbounds %struct.rlw_iterator, ptr %it, i64 0, i32 3
+  %literal_word_start = getelementptr inbounds i8, ptr %it, i64 24
   store i64 %add, ptr %literal_word_start, align 8
   ret void
 }
@@ -74,14 +70,14 @@ entry:
   br i1 %cmp.not31, label %while.end, label %while.body.lr.ph
 
 while.body.lr.ph:                                 ; preds = %entry
-  %running_len = getelementptr inbounds %struct.rlw_iterator, ptr %it, i64 0, i32 4, i32 2
-  %literal_words = getelementptr inbounds %struct.rlw_iterator, ptr %it, i64 0, i32 4, i32 1
-  %literal_word_start = getelementptr inbounds %struct.rlw_iterator, ptr %it, i64 0, i32 3
-  %pointer.i = getelementptr inbounds %struct.rlw_iterator, ptr %it, i64 0, i32 2
-  %size.i = getelementptr inbounds %struct.rlw_iterator, ptr %it, i64 0, i32 1
-  %rlw.i = getelementptr inbounds %struct.rlw_iterator, ptr %it, i64 0, i32 4
-  %running_bit.i = getelementptr inbounds %struct.rlw_iterator, ptr %it, i64 0, i32 4, i32 4
-  %literal_word_offset.i = getelementptr inbounds %struct.rlw_iterator, ptr %it, i64 0, i32 4, i32 3
+  %running_len = getelementptr inbounds i8, ptr %it, i64 44
+  %literal_words = getelementptr inbounds i8, ptr %it, i64 40
+  %literal_word_start = getelementptr inbounds i8, ptr %it, i64 24
+  %pointer.i = getelementptr inbounds i8, ptr %it, i64 16
+  %size.i = getelementptr inbounds i8, ptr %it, i64 8
+  %rlw.i = getelementptr inbounds i8, ptr %it, i64 32
+  %running_bit.i = getelementptr inbounds i8, ptr %it, i64 52
+  %literal_word_offset.i = getelementptr inbounds i8, ptr %it, i64 48
   %running_len.promoted = load i32, ptr %running_len, align 4
   br label %while.body
 
@@ -162,12 +158,12 @@ entry:
 
 land.rhs.lr.ph:                                   ; preds = %entry
   %1 = getelementptr i8, ptr %it, i64 44
-  %running_bit = getelementptr inbounds %struct.rlw_iterator, ptr %it, i64 0, i32 4, i32 4
-  %literal_word_start = getelementptr inbounds %struct.rlw_iterator, ptr %it, i64 0, i32 3
-  %pointer.i.i = getelementptr inbounds %struct.rlw_iterator, ptr %it, i64 0, i32 2
-  %size.i.i = getelementptr inbounds %struct.rlw_iterator, ptr %it, i64 0, i32 1
-  %rlw.i.i = getelementptr inbounds %struct.rlw_iterator, ptr %it, i64 0, i32 4
-  %literal_word_offset.i.i = getelementptr inbounds %struct.rlw_iterator, ptr %it, i64 0, i32 4, i32 3
+  %running_bit = getelementptr inbounds i8, ptr %it, i64 52
+  %literal_word_start = getelementptr inbounds i8, ptr %it, i64 24
+  %pointer.i.i = getelementptr inbounds i8, ptr %it, i64 16
+  %size.i.i = getelementptr inbounds i8, ptr %it, i64 8
+  %rlw.i.i = getelementptr inbounds i8, ptr %it, i64 32
+  %literal_word_offset.i.i = getelementptr inbounds i8, ptr %it, i64 48
   br label %land.rhs
 
 land.rhs:                                         ; preds = %land.rhs.lr.ph, %rlwit_discard_first_words.exit

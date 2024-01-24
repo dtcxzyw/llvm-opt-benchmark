@@ -12,17 +12,6 @@ target triple = "x86_64-unknown-linux-gnu"
 %union.MonitorList = type { %struct.QTailQLink }
 %struct.QEnumLookup = type { ptr, ptr, i32 }
 %struct.timeval = type { i64, i64 }
-%struct.MonitorQMP = type { %struct.Monitor, %struct.JSONMessageParser, i8, ptr, [1 x i8], [1 x i8], %struct.QemuMutex, ptr }
-%struct.Monitor = type { %struct.CharBackend, i32, i8, i8, i8, ptr, %union.anon, %struct.QemuMutex, %struct.anon.0, ptr, i32, i32, i32 }
-%struct.CharBackend = type { ptr, ptr, ptr, ptr, ptr, ptr, i32, i32 }
-%union.anon = type { %struct.QTailQLink }
-%struct.anon.0 = type { ptr }
-%struct.JSONMessageParser = type { ptr, ptr, ptr, %struct.JSONLexer, i32, i32, %struct._GQueue, i64 }
-%struct.JSONLexer = type { i32, i32, ptr, i32, i32 }
-%struct._GQueue = type { ptr, ptr, i32 }
-%struct._GString = type { ptr, i64, i64 }
-%struct.QMPRequest = type { ptr, ptr, ptr }
-%struct.QObjectBase_ = type { i32, i64 }
 
 @.str = private unnamed_addr constant [13 x i8] c"json != NULL\00", align 1
 @.str.1 = private unnamed_addr constant [22 x i8] c"../qemu/monitor/qmp.c\00", align 1
@@ -97,7 +86,7 @@ target triple = "x86_64-unknown-linux-gnu"
 define dso_local void @qmp_send_response(ptr noundef %mon, ptr noundef %rsp) local_unnamed_addr #0 {
 entry:
   %_now.i.i = alloca %struct.timeval, align 8
-  %pretty = getelementptr inbounds %struct.MonitorQMP, ptr %mon, i64 0, i32 2
+  %pretty = getelementptr inbounds i8, ptr %mon, i64 256
   %0 = load i8, ptr %pretty, align 8
   %1 = and i8 %0, 1
   %tobool2 = icmp ne i8 %1, 0
@@ -135,7 +124,7 @@ if.then8.i.i:                                     ; preds = %if.then.i.i
   %call9.i.i = call i32 @gettimeofday(ptr noundef nonnull %_now.i.i, ptr noundef null) #6
   %call10.i.i = tail call i32 @qemu_get_thread_id() #6
   %8 = load i64, ptr %_now.i.i, align 8
-  %tv_usec.i.i = getelementptr inbounds %struct.timeval, ptr %_now.i.i, i64 0, i32 1
+  %tv_usec.i.i = getelementptr inbounds i8, ptr %_now.i.i, i64 8
   %9 = load i64, ptr %tv_usec.i.i, align 8
   tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.5, i32 noundef %call10.i.i, i64 noundef %8, i64 noundef %9, ptr noundef nonnull %mon, ptr noundef %2) #6
   br label %trace_monitor_qmp_respond.exit
@@ -146,10 +135,10 @@ if.else.i.i:                                      ; preds = %if.then.i.i
 
 trace_monitor_qmp_respond.exit:                   ; preds = %if.end, %land.lhs.true5.i.i, %if.then8.i.i, %if.else.i.i
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %_now.i.i)
-  %len.i = getelementptr inbounds %struct._GString, ptr %call, i64 0, i32 1
+  %len.i = getelementptr inbounds i8, ptr %call, i64 8
   %10 = load i64, ptr %len.i, align 8
   %add.i = add i64 %10, 1
-  %allocated_len.i = getelementptr inbounds %struct._GString, ptr %call, i64 0, i32 2
+  %allocated_len.i = getelementptr inbounds i8, ptr %call, i64 16
   %11 = load i64, ptr %allocated_len.i, align 8
   %cmp.i = icmp ult i64 %add.i, %11
   br i1 %cmp.i, label %if.then.i, label %if.else.i
@@ -197,9 +186,9 @@ entry:
   br i1 %tobool.not32.i71, label %if.else.i, label %while.end9.i.preheader.lr.ph
 
 while.end9.i.preheader.lr.ph:                     ; preds = %entry
-  %tv_usec.i.i = getelementptr inbounds %struct.timeval, ptr %_now.i.i, i64 0, i32 1
-  %tv_usec.i.i41 = getelementptr inbounds %struct.timeval, ptr %_now.i.i29, i64 0, i32 1
-  %tv_usec.i.i55 = getelementptr inbounds %struct.timeval, ptr %_now.i.i43, i64 0, i32 1
+  %tv_usec.i.i = getelementptr inbounds i8, ptr %_now.i.i, i64 8
+  %tv_usec.i.i41 = getelementptr inbounds i8, ptr %_now.i.i29, i64 8
+  %tv_usec.i.i55 = getelementptr inbounds i8, ptr %_now.i.i43, i64 8
   br label %while.end9.i
 
 if.else.i:                                        ; preds = %qmp_request_free.exit, %qemu_lockable_auto_unlock.exit.us.i, %entry
@@ -233,9 +222,9 @@ for.body.i.us.i:                                  ; preds = %if.end21.us.i, %for
 if.end.i.us.i:                                    ; preds = %for.body.i.us.i
   %9 = load atomic i64, ptr @qemu_mutex_lock_func monotonic, align 8
   %10 = inttoptr i64 %9 to ptr
-  %qmp_queue_lock.i.us.i = getelementptr inbounds %struct.MonitorQMP, ptr %mon.027.i.us.i, i64 0, i32 6
+  %qmp_queue_lock.i.us.i = getelementptr inbounds i8, ptr %mon.027.i.us.i, i64 280
   tail call void %10(ptr noundef nonnull %qmp_queue_lock.i.us.i, ptr noundef nonnull @.str.1, i32 noundef 211) #6
-  %qmp_requests.i.us.i = getelementptr inbounds %struct.MonitorQMP, ptr %mon.027.i.us.i, i64 0, i32 7
+  %qmp_requests.i.us.i = getelementptr inbounds i8, ptr %mon.027.i.us.i, i64 328
   %11 = load ptr, ptr %qmp_requests.i.us.i, align 8
   %call2.i.us.i = tail call ptr @g_queue_pop_head(ptr noundef %11) #6
   %tobool3.not.i.us.i = icmp eq ptr %call2.i.us.i, null
@@ -246,7 +235,7 @@ if.end5.i.us.i:                                   ; preds = %if.end.i.us.i
   br label %for.inc.i.us.i
 
 for.inc.i.us.i:                                   ; preds = %if.end5.i.us.i, %for.body.i.us.i
-  %entry7.i.us.i = getelementptr inbounds %struct.Monitor, ptr %mon.027.i.us.i, i64 0, i32 6
+  %entry7.i.us.i = getelementptr inbounds i8, ptr %mon.027.i.us.i, i64 72
   %mon.0.i.us.i = load ptr, ptr %entry7.i.us.i, align 8
   %tobool.not.i.us.i = icmp eq ptr %mon.0.i.us.i, null
   br i1 %tobool.not.i.us.i, label %qemu_lockable_auto_unlock.exit.us.i, label %for.body.i.us.i, !llvm.loop !5
@@ -263,15 +252,15 @@ while.end9.i.backedge:                            ; preds = %qemu_lockable_auto_
   br label %while.end9.i, !llvm.loop !7
 
 do.body10.i.i:                                    ; preds = %if.end.i.us.i
-  %entry11.i.i = getelementptr inbounds %struct.Monitor, ptr %mon.027.i.us.i, i64 0, i32 6
+  %entry11.i.i = getelementptr inbounds i8, ptr %mon.027.i.us.i, i64 72
   %14 = load ptr, ptr %entry11.i.i, align 8
   %cmp.not.i.i = icmp eq ptr %14, null
-  %tql_prev18.i.i = getelementptr inbounds %struct.Monitor, ptr %mon.027.i.us.i, i64 0, i32 6, i32 0, i32 1
+  %tql_prev18.i.i = getelementptr inbounds i8, ptr %mon.027.i.us.i, i64 80
   %15 = load ptr, ptr %tql_prev18.i.i, align 8
   br i1 %cmp.not.i.i, label %if.else.i.i, label %if.then12.i.i
 
 if.then12.i.i:                                    ; preds = %do.body10.i.i
-  %tql_prev16.i.i = getelementptr inbounds %struct.Monitor, ptr %14, i64 0, i32 6, i32 0, i32 1
+  %tql_prev16.i.i = getelementptr inbounds i8, ptr %14, i64 80
   store ptr %15, ptr %tql_prev16.i.i, align 8
   %.pre.i.i = load ptr, ptr %entry11.i.i, align 8
   br label %while.body
@@ -290,9 +279,9 @@ while.body:                                       ; preds = %if.else.i.i, %if.th
   store ptr %entry11.i.i, ptr getelementptr inbounds (%union.MonitorList, ptr @mon_list, i64 0, i32 0, i32 1), align 8
   tail call void @qemu_mutex_unlock_impl(ptr noundef nonnull @monitor_lock, ptr noundef nonnull @.str.8, i32 noundef 132) #6
   %18 = load ptr, ptr %call2.i.us.i, align 8
-  %qmp_requests = getelementptr inbounds %struct.MonitorQMP, ptr %18, i64 0, i32 7
+  %qmp_requests = getelementptr inbounds i8, ptr %18, i64 328
   %19 = load ptr, ptr %qmp_requests, align 8
-  %length = getelementptr inbounds %struct._GQueue, ptr %19, i64 0, i32 2
+  %length = getelementptr inbounds i8, ptr %19, i64 16
   %20 = load i32, ptr %length, align 8
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %_now.i.i)
   %21 = load i32, ptr @trace_events_enabled_count, align 4
@@ -336,9 +325,9 @@ trace_monitor_qmp_in_band_dequeue.exit:           ; preds = %while.body, %land.l
   br i1 %tobool.i.not, label %if.end, label %land.lhs.true
 
 land.lhs.true:                                    ; preds = %trace_monitor_qmp_in_band_dequeue.exit
-  %qmp_requests4 = getelementptr inbounds %struct.MonitorQMP, ptr %28, i64 0, i32 7
+  %qmp_requests4 = getelementptr inbounds i8, ptr %28, i64 328
   %31 = load ptr, ptr %qmp_requests4, align 8
-  %length5 = getelementptr inbounds %struct._GQueue, ptr %31, i64 0, i32 2
+  %length5 = getelementptr inbounds i8, ptr %31, i64 16
   %32 = load i32, ptr %length5, align 8
   %cmp6 = icmp eq i32 %32, 7
   br i1 %cmp6, label %if.then, label %if.end
@@ -348,7 +337,7 @@ if.then:                                          ; preds = %land.lhs.true
   br label %if.end
 
 if.end:                                           ; preds = %if.then, %land.lhs.true, %trace_monitor_qmp_in_band_dequeue.exit
-  %qmp_queue_lock = getelementptr inbounds %struct.MonitorQMP, ptr %28, i64 0, i32 6
+  %qmp_queue_lock = getelementptr inbounds i8, ptr %28, i64 280
   tail call void @qemu_mutex_unlock_impl(ptr noundef nonnull %qmp_queue_lock, ptr noundef nonnull @.str.1, i32 noundef 312) #6
   %33 = atomicrmw xchg ptr @qmp_dispatcher_co_busy, i8 1 seq_cst, align 1
   %34 = and i8 %33, 1
@@ -364,7 +353,7 @@ if.end18:                                         ; preds = %if.then17, %if.end
   %35 = load ptr, ptr @qmp_dispatcher_co, align 8
   tail call void @aio_co_schedule(ptr noundef %call19, ptr noundef %35) #6
   tail call void @qemu_coroutine_yield() #6
-  %req = getelementptr inbounds %struct.QMPRequest, ptr %call2.i.us.i, i64 0, i32 1
+  %req = getelementptr inbounds i8, ptr %call2.i.us.i, i64 8
   %36 = load ptr, ptr %req, align 8
   %tobool20.not = icmp eq ptr %36, null
   br i1 %tobool20.not, label %if.else, label %if.then21
@@ -451,7 +440,7 @@ if.end42:                                         ; preds = %trace_monitor_qmp_c
   br label %if.end60
 
 if.else:                                          ; preds = %if.end18
-  %err = getelementptr inbounds %struct.QMPRequest, ptr %call2.i.us.i, i64 0, i32 2
+  %err = getelementptr inbounds i8, ptr %call2.i.us.i, i64 16
   %49 = load ptr, ptr %err, align 8
   %tobool44.not = icmp eq ptr %49, null
   br i1 %tobool44.not, label %if.else46, label %if.end47
@@ -504,7 +493,7 @@ trace_monitor_qmp_err_in_band.exit:               ; preds = %if.end47, %land.lhs
 
 lor.lhs.false.i:                                  ; preds = %trace_monitor_qmp_err_in_band.exit
   tail call void @qmp_send_response(ptr noundef nonnull %28, ptr noundef nonnull %call51)
-  %refcnt.i = getelementptr inbounds %struct.QObjectBase_, ptr %call51, i64 0, i32 1
+  %refcnt.i = getelementptr inbounds i8, ptr %call51, i64 8
   %58 = load i64, ptr %refcnt.i, align 8
   %tobool1.not.i = icmp eq i64 %58, 0
   br i1 %tobool1.not.i, label %if.else.i60, label %land.lhs.true.i58
@@ -536,7 +525,7 @@ if.end64:                                         ; preds = %if.then62, %if.end6
   br i1 %tobool.not.i61, label %qmp_request_free.exit, label %lor.lhs.false.i.i
 
 lor.lhs.false.i.i:                                ; preds = %if.end64
-  %refcnt.i.i = getelementptr inbounds %struct.QObjectBase_, ptr %59, i64 0, i32 1
+  %refcnt.i.i = getelementptr inbounds i8, ptr %59, i64 8
   %60 = load i64, ptr %refcnt.i.i, align 8
   %tobool1.not.i.i = icmp eq i64 %60, 0
   br i1 %tobool1.not.i.i, label %if.else.i.i62, label %land.lhs.true.i.i
@@ -556,7 +545,7 @@ if.then5.i.i:                                     ; preds = %land.lhs.true.i.i
   br label %qmp_request_free.exit
 
 qmp_request_free.exit:                            ; preds = %if.end64, %land.lhs.true.i.i, %if.then5.i.i
-  %err.i = getelementptr inbounds %struct.QMPRequest, ptr %call2.i.us.i, i64 0, i32 2
+  %err.i = getelementptr inbounds i8, ptr %call2.i.us.i, i64 16
   %61 = load ptr, ptr %err.i, align 8
   tail call void @error_free(ptr noundef %61) #6
   tail call void @g_free(ptr noundef nonnull %call2.i.us.i) #6
@@ -594,7 +583,7 @@ declare ptr @g_string_new(ptr noundef) local_unnamed_addr #1
 ; Function Attrs: nounwind sspstrong uwtable
 define internal fastcc void @monitor_qmp_dispatch(ptr noundef %mon, ptr noundef %req) unnamed_addr #0 {
 entry:
-  %commands = getelementptr inbounds %struct.MonitorQMP, ptr %mon, i64 0, i32 3
+  %commands = getelementptr inbounds i8, ptr %mon, i64 264
   %0 = load ptr, ptr %commands, align 8
   %1 = getelementptr i8, ptr %mon, i64 273
   %mon.val = load i8, ptr %1, align 1
@@ -628,7 +617,7 @@ if.end9:                                          ; preds = %if.then, %land.lhs.
 
 lor.lhs.false.i:                                  ; preds = %if.end9
   tail call void @qmp_send_response(ptr noundef nonnull %mon, ptr noundef nonnull %call1)
-  %refcnt.i = getelementptr inbounds %struct.QObjectBase_, ptr %call1, i64 0, i32 1
+  %refcnt.i = getelementptr inbounds i8, ptr %call1, i64 8
   %4 = load i64, ptr %refcnt.i, align 8
   %tobool1.not.i = icmp eq i64 %4, 0
   br i1 %tobool1.not.i, label %if.else.i, label %land.lhs.true.i
@@ -680,12 +669,12 @@ declare void @aio_co_wake(ptr noundef) local_unnamed_addr #1
 ; Function Attrs: nounwind sspstrong uwtable
 define dso_local void @monitor_data_destroy_qmp(ptr noundef %mon) local_unnamed_addr #0 {
 entry:
-  %parser = getelementptr inbounds %struct.MonitorQMP, ptr %mon, i64 0, i32 1
+  %parser = getelementptr inbounds i8, ptr %mon, i64 168
   tail call void @json_message_parser_destroy(ptr noundef nonnull %parser) #6
-  %qmp_queue_lock = getelementptr inbounds %struct.MonitorQMP, ptr %mon, i64 0, i32 6
+  %qmp_queue_lock = getelementptr inbounds i8, ptr %mon, i64 280
   tail call void @qemu_mutex_destroy(ptr noundef nonnull %qmp_queue_lock) #6
   tail call fastcc void @monitor_qmp_cleanup_req_queue_locked(ptr noundef %mon)
-  %qmp_requests = getelementptr inbounds %struct.MonitorQMP, ptr %mon, i64 0, i32 7
+  %qmp_requests = getelementptr inbounds i8, ptr %mon, i64 328
   %0 = load ptr, ptr %qmp_requests, align 8
   tail call void @g_queue_free(ptr noundef %0) #6
   ret void
@@ -698,7 +687,7 @@ declare void @qemu_mutex_destroy(ptr noundef) local_unnamed_addr #1
 ; Function Attrs: nounwind sspstrong uwtable
 define internal fastcc void @monitor_qmp_cleanup_req_queue_locked(ptr nocapture noundef readonly %mon) unnamed_addr #0 {
 entry:
-  %qmp_requests = getelementptr inbounds %struct.MonitorQMP, ptr %mon, i64 0, i32 7
+  %qmp_requests = getelementptr inbounds i8, ptr %mon, i64 328
   %0 = load ptr, ptr %qmp_requests, align 8
   %call3 = tail call i32 @g_queue_is_empty(ptr noundef %0) #6
   %tobool.not4 = icmp eq i32 %call3, 0
@@ -707,13 +696,13 @@ entry:
 while.body:                                       ; preds = %entry, %qmp_request_free.exit
   %1 = load ptr, ptr %qmp_requests, align 8
   %call2 = tail call ptr @g_queue_pop_head(ptr noundef %1) #6
-  %req1.i = getelementptr inbounds %struct.QMPRequest, ptr %call2, i64 0, i32 1
+  %req1.i = getelementptr inbounds i8, ptr %call2, i64 8
   %2 = load ptr, ptr %req1.i, align 8
   %tobool.not.i = icmp eq ptr %2, null
   br i1 %tobool.not.i, label %qmp_request_free.exit, label %lor.lhs.false.i.i
 
 lor.lhs.false.i.i:                                ; preds = %while.body
-  %refcnt.i.i = getelementptr inbounds %struct.QObjectBase_, ptr %2, i64 0, i32 1
+  %refcnt.i.i = getelementptr inbounds i8, ptr %2, i64 8
   %3 = load i64, ptr %refcnt.i.i, align 8
   %tobool1.not.i.i = icmp eq i64 %3, 0
   br i1 %tobool1.not.i.i, label %if.else.i.i, label %land.lhs.true.i.i
@@ -733,7 +722,7 @@ if.then5.i.i:                                     ; preds = %land.lhs.true.i.i
   br label %qmp_request_free.exit
 
 qmp_request_free.exit:                            ; preds = %while.body, %land.lhs.true.i.i, %if.then5.i.i
-  %err.i = getelementptr inbounds %struct.QMPRequest, ptr %call2, i64 0, i32 2
+  %err.i = getelementptr inbounds i8, ptr %call2, i64 16
   %4 = load ptr, ptr %err.i, align 8
   tail call void @error_free(ptr noundef %4) #6
   tail call void @g_free(ptr noundef nonnull %call2) #6
@@ -764,16 +753,16 @@ if.end:                                           ; preds = %entry
   tail call void @qemu_chr_fe_set_echo(ptr noundef %call, i1 noundef zeroext true) #6
   %call6 = tail call zeroext i1 @qemu_chr_has_feature(ptr noundef %chr, i32 noundef 3) #6
   tail call void @monitor_data_init(ptr noundef %call, i1 noundef zeroext true, i1 noundef zeroext false, i1 noundef zeroext %call6) #6
-  %pretty7 = getelementptr inbounds %struct.MonitorQMP, ptr %call, i64 0, i32 2
+  %pretty7 = getelementptr inbounds i8, ptr %call, i64 256
   store i8 %frombool, ptr %pretty7, align 8
-  %qmp_queue_lock = getelementptr inbounds %struct.MonitorQMP, ptr %call, i64 0, i32 6
+  %qmp_queue_lock = getelementptr inbounds i8, ptr %call, i64 280
   tail call void @qemu_mutex_init(ptr noundef nonnull %qmp_queue_lock) #6
   %call9 = tail call ptr @g_queue_new() #6
-  %qmp_requests = getelementptr inbounds %struct.MonitorQMP, ptr %call, i64 0, i32 7
+  %qmp_requests = getelementptr inbounds i8, ptr %call, i64 328
   store ptr %call9, ptr %qmp_requests, align 8
-  %parser = getelementptr inbounds %struct.MonitorQMP, ptr %call, i64 0, i32 1
+  %parser = getelementptr inbounds i8, ptr %call, i64 168
   tail call void @json_message_parser_init(ptr noundef nonnull %parser, ptr noundef nonnull @handle_qmp_command, ptr noundef %call, ptr noundef null) #6
-  %use_io_thread = getelementptr inbounds %struct.Monitor, ptr %call, i64 0, i32 4
+  %use_io_thread = getelementptr inbounds i8, ptr %call, i64 62
   %0 = load i8, ptr %use_io_thread, align 2
   %1 = and i8 %0, 1
   %tobool11.not = icmp eq i8 %1, 0
@@ -882,7 +871,7 @@ if.then8.i.i:                                     ; preds = %if.then.i.i
   %call9.i.i = call i32 @gettimeofday(ptr noundef nonnull %_now.i.i, ptr noundef null) #6
   %call10.i.i = tail call i32 @qemu_get_thread_id() #6
   %9 = load i64, ptr %_now.i.i, align 8
-  %tv_usec.i.i = getelementptr inbounds %struct.timeval, ptr %_now.i.i, i64 0, i32 1
+  %tv_usec.i.i = getelementptr inbounds i8, ptr %_now.i.i, i64 8
   %10 = load i64, ptr %tv_usec.i.i, align 8
   tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.24, i32 noundef %call10.i.i, i64 noundef %9, i64 noundef %10, ptr noundef %opaque, ptr noundef %3) #6
   br label %trace_handle_qmp_command.exit
@@ -952,7 +941,7 @@ if.then8.i.i40:                                   ; preds = %if.then.i.i38
   %call9.i.i41 = call i32 @gettimeofday(ptr noundef nonnull %_now.i.i31, ptr noundef null) #6
   %call10.i.i42 = tail call i32 @qemu_get_thread_id() #6
   %19 = load i64, ptr %_now.i.i31, align 8
-  %tv_usec.i.i43 = getelementptr inbounds %struct.timeval, ptr %_now.i.i31, i64 0, i32 1
+  %tv_usec.i.i43 = getelementptr inbounds i8, ptr %_now.i.i31, i64 8
   %20 = load i64, ptr %tv_usec.i.i43, align 8
   tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.26, i32 noundef %call10.i.i42, i64 noundef %19, i64 noundef %20, ptr noundef %13) #6
   br label %trace_monitor_qmp_cmd_out_of_band.exit
@@ -968,7 +957,7 @@ trace_monitor_qmp_cmd_out_of_band.exit:           ; preds = %cond.end, %land.lhs
 
 lor.lhs.false.i:                                  ; preds = %if.then22, %trace_monitor_qmp_cmd_out_of_band.exit
   tail call fastcc void @monitor_qmp_dispatch(ptr noundef %opaque, ptr noundef nonnull %req)
-  %refcnt.i = getelementptr inbounds %struct.QObjectBase_, ptr %req, i64 0, i32 1
+  %refcnt.i = getelementptr inbounds i8, ptr %req, i64 8
   %21 = load i64, ptr %refcnt.i, align 8
   %tobool1.not.i = icmp eq i64 %21, 0
   br i1 %tobool1.not.i, label %if.else.i47, label %land.lhs.true.i45
@@ -990,17 +979,17 @@ if.then5.i:                                       ; preds = %land.lhs.true.i45
 if.end47:                                         ; preds = %qobject_check_type.exit, %land.lhs.true19, %if.end17
   %call48 = tail call noalias dereferenceable_or_null(24) ptr @g_malloc0_n(i64 noundef 1, i64 noundef 24) #8
   store ptr %opaque, ptr %call48, align 8
-  %req50 = getelementptr inbounds %struct.QMPRequest, ptr %call48, i64 0, i32 1
+  %req50 = getelementptr inbounds i8, ptr %call48, i64 8
   store ptr %req, ptr %req50, align 8
-  %err51 = getelementptr inbounds %struct.QMPRequest, ptr %call48, i64 0, i32 2
+  %err51 = getelementptr inbounds i8, ptr %call48, i64 16
   store ptr %err, ptr %err51, align 8
-  %qmp_queue_lock = getelementptr inbounds %struct.MonitorQMP, ptr %opaque, i64 0, i32 6
+  %qmp_queue_lock = getelementptr inbounds i8, ptr %opaque, i64 280
   %22 = load atomic i64, ptr @qemu_mutex_lock_func monotonic, align 8
   %23 = inttoptr i64 %22 to ptr
   tail call void %23(ptr noundef nonnull %qmp_queue_lock, ptr noundef nonnull @.str.8, i32 noundef 122) #6
   %24 = getelementptr i8, ptr %opaque, i64 273
-  %qmp_requests = getelementptr inbounds %struct.MonitorQMP, ptr %opaque, i64 0, i32 7
-  %tv_usec.i.i61 = getelementptr inbounds %struct.timeval, ptr %_now.i.i49, i64 0, i32 1
+  %qmp_requests = getelementptr inbounds i8, ptr %opaque, i64 328
+  %tv_usec.i.i61 = getelementptr inbounds i8, ptr %_now.i.i49, i64 8
   %opaque.val = load i8, ptr %24, align 1
   %25 = and i8 %opaque.val, 1
   %tobool.i.not = icmp eq i8 %25, 0
@@ -1013,7 +1002,7 @@ if.then.i:                                        ; preds = %qemu_lockable_auto_
 
 lor.lhs.false:                                    ; preds = %if.end47
   %27 = load ptr, ptr %qmp_requests, align 8
-  %length = getelementptr inbounds %struct._GQueue, ptr %27, i64 0, i32 2
+  %length = getelementptr inbounds i8, ptr %27, i64 16
   %28 = load i32, ptr %length, align 8
   %cmp55 = icmp eq i32 %28, 7
   br i1 %cmp55, label %if.then57, label %if.end59
@@ -1021,7 +1010,7 @@ lor.lhs.false:                                    ; preds = %if.end47
 if.then57:                                        ; preds = %lor.lhs.false, %if.end47
   %call58 = tail call i32 @monitor_suspend(ptr noundef nonnull %opaque) #6
   %.pre = load ptr, ptr %qmp_requests, align 8
-  %length61.phi.trans.insert = getelementptr inbounds %struct._GQueue, ptr %.pre, i64 0, i32 2
+  %length61.phi.trans.insert = getelementptr inbounds i8, ptr %.pre, i64 16
   %.pre80 = load i32, ptr %length61.phi.trans.insert, align 8
   br label %if.end59
 
@@ -1062,7 +1051,7 @@ if.else.i.i62:                                    ; preds = %if.then.i.i56
 trace_monitor_qmp_in_band_enqueue.exit:           ; preds = %if.end59, %land.lhs.true5.i.i53, %if.then8.i.i58, %if.else.i.i62
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %_now.i.i49)
   %37 = load ptr, ptr %qmp_requests, align 8
-  %length63 = getelementptr inbounds %struct._GQueue, ptr %37, i64 0, i32 2
+  %length63 = getelementptr inbounds i8, ptr %37, i64 16
   %38 = load i32, ptr %length63, align 8
   %cmp64 = icmp ult i32 %38, 8
   br i1 %cmp64, label %qemu_lockable_auto_unlock.exit, label %if.else67
@@ -1093,7 +1082,7 @@ declare ptr @iothread_get_aio_context(ptr noundef) local_unnamed_addr #1
 ; Function Attrs: nounwind sspstrong uwtable
 define internal void @monitor_qmp_setup_handlers_bh(ptr noundef %opaque) #0 {
 entry:
-  %use_io_thread = getelementptr inbounds %struct.Monitor, ptr %opaque, i64 0, i32 4
+  %use_io_thread = getelementptr inbounds i8, ptr %opaque, i64 62
   %0 = load i8, ptr %use_io_thread, align 2
   %1 = and i8 %0, 1
   %tobool.not = icmp eq i8 %1, 0
@@ -1126,7 +1115,7 @@ declare i32 @monitor_can_read(ptr noundef) #1
 ; Function Attrs: nounwind sspstrong uwtable
 define internal void @monitor_qmp_read(ptr noundef %opaque, ptr noundef %buf, i32 noundef %size) #0 {
 entry:
-  %parser = getelementptr inbounds %struct.MonitorQMP, ptr %opaque, i64 0, i32 1
+  %parser = getelementptr inbounds i8, ptr %opaque, i64 168
   %conv = sext i32 %size to i64
   tail call void @json_message_parser_feed(ptr noundef nonnull %parser, ptr noundef %buf, i64 noundef %conv) #6
   ret void
@@ -1142,12 +1131,12 @@ entry:
   ]
 
 sw.bb:                                            ; preds = %entry
-  %commands = getelementptr inbounds %struct.MonitorQMP, ptr %opaque, i64 0, i32 3
+  %commands = getelementptr inbounds i8, ptr %opaque, i64 264
   store ptr @qmp_cap_negotiation_commands, ptr %commands, align 8
-  %capab_offered.i = getelementptr inbounds %struct.MonitorQMP, ptr %opaque, i64 0, i32 4
-  %capab.i = getelementptr inbounds %struct.MonitorQMP, ptr %opaque, i64 0, i32 5
+  %capab_offered.i = getelementptr inbounds i8, ptr %opaque, i64 272
+  %capab.i = getelementptr inbounds i8, ptr %opaque, i64 273
   store i8 0, ptr %capab.i, align 1
-  %use_io_thread.i = getelementptr inbounds %struct.Monitor, ptr %opaque, i64 0, i32 4
+  %use_io_thread.i = getelementptr inbounds i8, ptr %opaque, i64 62
   %0 = load i8, ptr %use_io_thread.i, align 2
   %1 = and i8 %0, 1
   store i8 %1, ptr %capab_offered.i, align 8
@@ -1160,7 +1149,7 @@ sw.bb:                                            ; preds = %entry
   br i1 %tobool.not.i, label %qobject_unref_impl.exit.i, label %lor.lhs.false.i.i
 
 lor.lhs.false.i.i:                                ; preds = %sw.bb
-  %refcnt.i.i = getelementptr inbounds %struct.QObjectBase_, ptr %call1.i, i64 0, i32 1
+  %refcnt.i.i = getelementptr inbounds i8, ptr %call1.i, i64 8
   %2 = load i64, ptr %refcnt.i.i, align 8
   %tobool1.not.i.i = icmp eq i64 %2, 0
   br i1 %tobool1.not.i.i, label %if.else.i.i, label %land.lhs.true.i.i
@@ -1199,7 +1188,7 @@ qmp_greeting.exit:                                ; preds = %qobject_unref_impl.
   br i1 %tobool.not, label %qobject_unref_impl.exit, label %lor.lhs.false.i
 
 lor.lhs.false.i:                                  ; preds = %qmp_greeting.exit
-  %refcnt.i = getelementptr inbounds %struct.QObjectBase_, ptr %call5.i, i64 0, i32 1
+  %refcnt.i = getelementptr inbounds i8, ptr %call5.i, i64 8
   %6 = load i64, ptr %refcnt.i, align 8
   %tobool1.not.i = icmp eq i64 %6, 0
   br i1 %tobool1.not.i, label %if.else.i, label %land.lhs.true.i
@@ -1225,7 +1214,7 @@ qobject_unref_impl.exit:                          ; preds = %qmp_greeting.exit, 
   br label %sw.epilog
 
 sw.bb2:                                           ; preds = %entry
-  %qmp_queue_lock.i = getelementptr inbounds %struct.MonitorQMP, ptr %opaque, i64 0, i32 6
+  %qmp_queue_lock.i = getelementptr inbounds i8, ptr %opaque, i64 280
   %8 = load atomic i64, ptr @qemu_mutex_lock_func monotonic, align 8
   %9 = inttoptr i64 %8 to ptr
   tail call void %9(ptr noundef nonnull %qmp_queue_lock.i, ptr noundef nonnull @.str.8, i32 noundef 122) #6
@@ -1233,12 +1222,12 @@ sw.bb2:                                           ; preds = %entry
   %mon.val.i = load i8, ptr %10, align 1
   %11 = and i8 %mon.val.i, 1
   %tobool.i.not.i = icmp eq i8 %11, 0
-  %qmp_requests4.phi.trans.insert.i = getelementptr inbounds %struct.MonitorQMP, ptr %opaque, i64 0, i32 7
+  %qmp_requests4.phi.trans.insert.i = getelementptr inbounds i8, ptr %opaque, i64 328
   %.pre.i = load ptr, ptr %qmp_requests4.phi.trans.insert.i, align 8
   br i1 %tobool.i.not.i, label %land.rhs.i, label %lor.lhs.false.i11
 
 lor.lhs.false.i11:                                ; preds = %sw.bb2
-  %length.i = getelementptr inbounds %struct._GQueue, ptr %.pre.i, i64 0, i32 2
+  %length.i = getelementptr inbounds i8, ptr %.pre.i, i64 16
   %12 = load i32, ptr %length.i, align 8
   %cmp.i12 = icmp eq i32 %12, 8
   br i1 %cmp.i12, label %land.rhs.i, label %if.end.critedge.i
@@ -1259,7 +1248,7 @@ if.end.critedge.i:                                ; preds = %lor.lhs.false.i11
 
 monitor_qmp_cleanup_queue_and_resume.exit:        ; preds = %land.rhs.i, %if.then.i15, %if.end.critedge.i
   tail call void @qemu_mutex_unlock_impl(ptr noundef nonnull %qmp_queue_lock.i, ptr noundef nonnull @.str.8, i32 noundef 132) #6
-  %parser = getelementptr inbounds %struct.MonitorQMP, ptr %opaque, i64 0, i32 1
+  %parser = getelementptr inbounds i8, ptr %opaque, i64 168
   tail call void @json_message_parser_destroy(ptr noundef nonnull %parser) #6
   tail call void @json_message_parser_init(ptr noundef nonnull %parser, ptr noundef nonnull @handle_qmp_command, ptr noundef nonnull %opaque, ptr noundef null) #6
   %13 = load i32, ptr @mon_refcount, align 4

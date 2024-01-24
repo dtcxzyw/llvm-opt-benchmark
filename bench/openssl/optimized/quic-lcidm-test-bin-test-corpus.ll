@@ -13,7 +13,7 @@ target triple = "x86_64-unknown-linux-gnu"
 @.str.3 = private unnamed_addr constant [30 x i8] c"../openssl/fuzz/test-corpus.c\00", align 1
 
 ; Function Attrs: nounwind uwtable
-define dso_local i32 @main(i32 noundef %argc, ptr noundef %argv) local_unnamed_addr #0 {
+define dso_local noundef i32 @main(i32 noundef %argc, ptr noundef %argv) local_unnamed_addr #0 {
 entry:
   %st.i15 = alloca %struct.stat, align 8
   %st.i = alloca %struct.stat, align 8
@@ -28,10 +28,10 @@ entry:
   br i1 %cmp57, label %for.body.lr.ph, label %for.end
 
 for.body.lr.ph:                                   ; preds = %entry
-  %st_mode.i = getelementptr inbounds %struct.stat, ptr %st.i, i64 0, i32 3
-  %st_size.i = getelementptr inbounds %struct.stat, ptr %st.i, i64 0, i32 8
-  %st_mode.i19 = getelementptr inbounds %struct.stat, ptr %st.i15, i64 0, i32 3
-  %st_size.i28 = getelementptr inbounds %struct.stat, ptr %st.i15, i64 0, i32 8
+  %st_mode.i = getelementptr inbounds i8, ptr %st.i, i64 24
+  %st_size.i = getelementptr inbounds i8, ptr %st.i, i64 48
+  %st_mode.i19 = getelementptr inbounds i8, ptr %st.i15, i64 24
+  %st_size.i28 = getelementptr inbounds i8, ptr %st.i15, i64 48
   br label %for.body
 
 for.body:                                         ; preds = %for.body.lr.ph, %if.end21

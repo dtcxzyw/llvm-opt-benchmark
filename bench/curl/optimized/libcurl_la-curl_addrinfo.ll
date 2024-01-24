@@ -3,16 +3,9 @@ source_filename = "bench/curl/original/libcurl_la-curl_addrinfo.ll"
 target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:128-n8:16:32:64-S128"
 target triple = "x86_64-unknown-linux-gnu"
 
-%struct.Curl_addrinfo = type { i32, i32, i32, i32, i32, ptr, ptr, ptr }
-%struct.addrinfo = type { i32, i32, i32, i32, i32, ptr, ptr, ptr }
-%struct.hostent = type { ptr, ptr, i32, i32, ptr }
-%struct.sockaddr_in = type { i16, i16, %struct.in_addr, [8 x i8] }
 %struct.in_addr = type { i32 }
-%struct.sockaddr_in6 = type { i16, i16, i32, %struct.in6_addr, i32 }
 %struct.in6_addr = type { %union.anon }
 %union.anon = type { [4 x i32] }
-%struct.namebuff = type { %struct.hostent, %union.anon.0, [2 x ptr] }
-%union.anon.0 = type { %struct.in6_addr }
 
 @Curl_cfree = external local_unnamed_addr global ptr, align 8
 @Curl_cmalloc = external local_unnamed_addr global ptr, align 8
@@ -27,7 +20,7 @@ entry:
 
 for.body:                                         ; preds = %entry, %for.body
   %ca.04 = phi ptr [ %0, %for.body ], [ %cahead, %entry ]
-  %ai_next = getelementptr inbounds %struct.Curl_addrinfo, ptr %ca.04, i64 0, i32 7
+  %ai_next = getelementptr inbounds i8, ptr %ca.04, i64 40
   %0 = load ptr, ptr %ai_next, align 8
   %1 = load ptr, ptr @Curl_cfree, align 8
   tail call void %1(ptr noundef nonnull %ca.04) #7
@@ -56,7 +49,7 @@ for.body:                                         ; preds = %for.cond.preheader,
   %ai.055 = phi ptr [ %ai.0, %for.inc ], [ %ai.051, %for.cond.preheader ]
   %calast.054 = phi ptr [ %calast.1, %for.inc ], [ null, %for.cond.preheader ]
   %cafirst.053 = phi ptr [ %cafirst.2, %for.inc ], [ null, %for.cond.preheader ]
-  %ai_canonname = getelementptr inbounds %struct.addrinfo, ptr %ai.055, i64 0, i32 6
+  %ai_canonname = getelementptr inbounds i8, ptr %ai.055, i64 32
   %0 = load ptr, ptr %ai_canonname, align 8
   %tobool1.not = icmp eq ptr %0, null
   br i1 %tobool1.not, label %cond.end, label %cond.true
@@ -68,7 +61,7 @@ cond.true:                                        ; preds = %for.body
 
 cond.end:                                         ; preds = %for.body, %cond.true
   %cond = phi i64 [ %add, %cond.true ], [ 0, %for.body ]
-  %ai_family = getelementptr inbounds %struct.addrinfo, ptr %ai.055, i64 0, i32 1
+  %ai_family = getelementptr inbounds i8, ptr %ai.055, i64 4
   %1 = load i32, ptr %ai_family, align 4
   switch i32 %1, label %for.inc [
     i32 2, label %if.end11
@@ -80,13 +73,13 @@ if.then8:                                         ; preds = %cond.end
 
 if.end11:                                         ; preds = %cond.end, %if.then8
   %ss_size.0 = phi i64 [ 28, %if.then8 ], [ 16, %cond.end ]
-  %ai_addr = getelementptr inbounds %struct.addrinfo, ptr %ai.055, i64 0, i32 5
+  %ai_addr = getelementptr inbounds i8, ptr %ai.055, i64 24
   %2 = load ptr, ptr %ai_addr, align 8
   %tobool12.not = icmp eq ptr %2, null
   br i1 %tobool12.not, label %for.inc, label %lor.lhs.false
 
 lor.lhs.false:                                    ; preds = %if.end11
-  %ai_addrlen = getelementptr inbounds %struct.addrinfo, ptr %ai.055, i64 0, i32 4
+  %ai_addrlen = getelementptr inbounds i8, ptr %ai.055, i64 16
   %3 = load i32, ptr %ai_addrlen, align 8
   %conv = zext i32 %3 to i64
   %cmp17 = icmp ugt i64 %ss_size.0, %conv
@@ -104,21 +97,21 @@ if.end26:                                         ; preds = %if.end20
   %5 = load i32, ptr %ai.055, align 8
   store i32 %5, ptr %call23, align 8
   %6 = load i32, ptr %ai_family, align 4
-  %ai_family29 = getelementptr inbounds %struct.Curl_addrinfo, ptr %call23, i64 0, i32 1
+  %ai_family29 = getelementptr inbounds i8, ptr %call23, i64 4
   store i32 %6, ptr %ai_family29, align 4
-  %ai_socktype = getelementptr inbounds %struct.addrinfo, ptr %ai.055, i64 0, i32 2
+  %ai_socktype = getelementptr inbounds i8, ptr %ai.055, i64 8
   %7 = load i32, ptr %ai_socktype, align 8
-  %ai_socktype30 = getelementptr inbounds %struct.Curl_addrinfo, ptr %call23, i64 0, i32 2
+  %ai_socktype30 = getelementptr inbounds i8, ptr %call23, i64 8
   store i32 %7, ptr %ai_socktype30, align 8
-  %ai_protocol = getelementptr inbounds %struct.addrinfo, ptr %ai.055, i64 0, i32 3
+  %ai_protocol = getelementptr inbounds i8, ptr %ai.055, i64 12
   %8 = load i32, ptr %ai_protocol, align 4
-  %ai_protocol31 = getelementptr inbounds %struct.Curl_addrinfo, ptr %call23, i64 0, i32 3
+  %ai_protocol31 = getelementptr inbounds i8, ptr %call23, i64 12
   store i32 %8, ptr %ai_protocol31, align 4
   %conv32 = trunc i64 %ss_size.0 to i32
-  %ai_addrlen33 = getelementptr inbounds %struct.Curl_addrinfo, ptr %call23, i64 0, i32 4
+  %ai_addrlen33 = getelementptr inbounds i8, ptr %call23, i64 16
   store i32 %conv32, ptr %ai_addrlen33, align 8
-  %ai_addr34 = getelementptr inbounds %struct.Curl_addrinfo, ptr %call23, i64 0, i32 6
-  %ai_canonname35 = getelementptr inbounds %struct.Curl_addrinfo, ptr %call23, i64 0, i32 5
+  %ai_addr34 = getelementptr inbounds i8, ptr %call23, i64 32
+  %ai_canonname35 = getelementptr inbounds i8, ptr %call23, i64 24
   %add.ptr = getelementptr inbounds i8, ptr %call23, i64 48
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %ai_canonname35, i8 0, i64 24, i1 false)
   store ptr %add.ptr, ptr %ai_addr34, align 8
@@ -141,14 +134,14 @@ if.end46:                                         ; preds = %if.then40, %if.end2
   br i1 %tobool50.not, label %for.inc, label %if.then51
 
 if.then51:                                        ; preds = %if.end46
-  %ai_next52 = getelementptr inbounds %struct.Curl_addrinfo, ptr %calast.054, i64 0, i32 7
+  %ai_next52 = getelementptr inbounds i8, ptr %calast.054, i64 40
   store ptr %call23, ptr %ai_next52, align 8
   br label %for.inc
 
 for.inc:                                          ; preds = %if.end46, %if.then51, %cond.end, %if.end11, %lor.lhs.false
   %cafirst.2 = phi ptr [ %cafirst.053, %lor.lhs.false ], [ %cafirst.053, %if.end11 ], [ %cafirst.053, %cond.end ], [ %spec.select, %if.then51 ], [ %spec.select, %if.end46 ]
   %calast.1 = phi ptr [ %calast.054, %lor.lhs.false ], [ %calast.054, %if.end11 ], [ %calast.054, %cond.end ], [ %call23, %if.then51 ], [ %call23, %if.end46 ]
-  %ai_next54 = getelementptr inbounds %struct.addrinfo, ptr %ai.055, i64 0, i32 7
+  %ai_next54 = getelementptr inbounds i8, ptr %ai.055, i64 40
   %ai.0 = load ptr, ptr %ai_next54, align 8
   %cmp.not = icmp eq ptr %ai.0, null
   br i1 %cmp.not, label %for.end, label %for.body, !llvm.loop !6
@@ -177,7 +170,7 @@ if.then59:                                        ; preds = %for.end.thread75, %
 
 for.body.i:                                       ; preds = %if.then59, %for.body.i
   %ca.04.i = phi ptr [ %11, %for.body.i ], [ %cafirst.053, %if.then59 ]
-  %ai_next.i = getelementptr inbounds %struct.Curl_addrinfo, ptr %ca.04.i, i64 0, i32 7
+  %ai_next.i = getelementptr inbounds i8, ptr %ca.04.i, i64 40
   %11 = load ptr, ptr %ai_next.i, align 8
   %12 = load ptr, ptr @Curl_cfree, align 8
   call void %12(ptr noundef nonnull %ca.04.i) #7
@@ -219,20 +212,20 @@ entry:
   br i1 %tobool.not, label %return, label %for.cond.preheader
 
 for.cond.preheader:                               ; preds = %entry
-  %h_addr_list = getelementptr inbounds %struct.hostent, ptr %he, i64 0, i32 4
+  %h_addr_list = getelementptr inbounds i8, ptr %he, i64 24
   %0 = load ptr, ptr %h_addr_list, align 8
   %1 = load ptr, ptr %0, align 8
   %cmp.not37 = icmp eq ptr %1, null
   br i1 %cmp.not37, label %return, label %for.body.lr.ph
 
 for.body.lr.ph:                                   ; preds = %for.cond.preheader
-  %h_addrtype = getelementptr inbounds %struct.hostent, ptr %he, i64 0, i32 2
+  %h_addrtype = getelementptr inbounds i8, ptr %he, i64 16
   %conv31 = trunc i32 %port to i16
   br label %for.body
 
 for.body:                                         ; preds = %for.body.lr.ph, %sw.epilog
   %indvars.iv = phi i64 [ 0, %for.body.lr.ph ], [ %indvars.iv.next, %sw.epilog ]
-  %2 = phi ptr [ %1, %for.body.lr.ph ], [ %14, %sw.epilog ]
+  %2 = phi ptr [ %1, %for.body.lr.ph ], [ %13, %sw.epilog ]
   %prevai.040 = phi ptr [ null, %for.body.lr.ph ], [ %call6, %sw.epilog ]
   %firstai.038 = phi ptr [ null, %for.body.lr.ph ], [ %spec.select, %sw.epilog ]
   %3 = load ptr, ptr %he, align 8
@@ -250,10 +243,10 @@ for.body:                                         ; preds = %for.body.lr.ph, %sw
 if.end9:                                          ; preds = %for.body
   %add = add i64 %call, 1
   %add.ptr = getelementptr inbounds i8, ptr %call6, i64 48
-  %ai_addr = getelementptr inbounds %struct.Curl_addrinfo, ptr %call6, i64 0, i32 6
+  %ai_addr = getelementptr inbounds i8, ptr %call6, i64 32
   store ptr %add.ptr, ptr %ai_addr, align 8
   %add.ptr11 = getelementptr inbounds i8, ptr %add.ptr, i64 %.
-  %ai_canonname = getelementptr inbounds %struct.Curl_addrinfo, ptr %call6, i64 0, i32 5
+  %ai_canonname = getelementptr inbounds i8, ptr %call6, i64 24
   store ptr %add.ptr11, ptr %ai_canonname, align 8
   %6 = load ptr, ptr %he, align 8
   tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %add.ptr11, ptr align 1 %6, i64 %add, i1 false)
@@ -263,18 +256,18 @@ if.end9:                                          ; preds = %for.body
   br i1 %tobool17.not, label %if.end19, label %if.then18
 
 if.then18:                                        ; preds = %if.end9
-  %ai_next = getelementptr inbounds %struct.Curl_addrinfo, ptr %prevai.040, i64 0, i32 7
+  %ai_next = getelementptr inbounds i8, ptr %prevai.040, i64 40
   store ptr %call6, ptr %ai_next, align 8
   br label %if.end19
 
 if.end19:                                         ; preds = %if.then18, %if.end9
   %7 = load i32, ptr %h_addrtype, align 8
-  %ai_family = getelementptr inbounds %struct.Curl_addrinfo, ptr %call6, i64 0, i32 1
+  %ai_family = getelementptr inbounds i8, ptr %call6, i64 4
   store i32 %7, ptr %ai_family, align 4
-  %ai_socktype = getelementptr inbounds %struct.Curl_addrinfo, ptr %call6, i64 0, i32 2
+  %ai_socktype = getelementptr inbounds i8, ptr %call6, i64 8
   store i32 1, ptr %ai_socktype, align 8
   %conv = trunc i64 %. to i32
-  %ai_addrlen = getelementptr inbounds %struct.Curl_addrinfo, ptr %call6, i64 0, i32 4
+  %ai_addrlen = getelementptr inbounds i8, ptr %call6, i64 16
   store i32 %conv, ptr %ai_addrlen, align 8
   switch i32 %7, label %sw.epilog [
     i32 2, label %sw.bb
@@ -283,35 +276,33 @@ if.end19:                                         ; preds = %if.then18, %if.end9
 
 sw.bb:                                            ; preds = %if.end19
   %8 = load ptr, ptr %ai_addr, align 8
-  %sin_addr = getelementptr inbounds %struct.sockaddr_in, ptr %8, i64 0, i32 2
+  %sin_addr = getelementptr inbounds i8, ptr %8, i64 4
   %9 = load i32, ptr %2, align 1
   store i32 %9, ptr %sin_addr, align 4
-  %10 = load i32, ptr %h_addrtype, align 8
-  %conv24 = trunc i32 %10 to i16
-  store i16 %conv24, ptr %8, align 4
-  %call26 = tail call zeroext i16 @htons(i16 noundef zeroext %conv31) #9
-  %sin_port = getelementptr inbounds %struct.sockaddr_in, ptr %8, i64 0, i32 1
-  store i16 %call26, ptr %sin_port, align 2
-  br label %sw.epilog
+  br label %sw.epilog.sink.split
 
 sw.bb27:                                          ; preds = %if.end19
-  %11 = load ptr, ptr %ai_addr, align 8
-  %sin6_addr = getelementptr inbounds %struct.sockaddr_in6, ptr %11, i64 0, i32 3
+  %10 = load ptr, ptr %ai_addr, align 8
+  %sin6_addr = getelementptr inbounds i8, ptr %10, i64 8
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %sin6_addr, ptr noundef nonnull align 1 dereferenceable(16) %2, i64 16, i1 false)
-  %12 = load i32, ptr %h_addrtype, align 8
-  %conv30 = trunc i32 %12 to i16
-  store i16 %conv30, ptr %11, align 4
+  br label %sw.epilog.sink.split
+
+sw.epilog.sink.split:                             ; preds = %sw.bb, %sw.bb27
+  %.sink46 = phi ptr [ %10, %sw.bb27 ], [ %8, %sw.bb ]
+  %11 = load i32, ptr %h_addrtype, align 8
+  %conv30 = trunc i32 %11 to i16
+  store i16 %conv30, ptr %.sink46, align 4
   %call32 = tail call zeroext i16 @htons(i16 noundef zeroext %conv31) #9
-  %sin6_port = getelementptr inbounds %struct.sockaddr_in6, ptr %11, i64 0, i32 1
+  %sin6_port = getelementptr inbounds i8, ptr %.sink46, i64 2
   store i16 %call32, ptr %sin6_port, align 2
   br label %sw.epilog
 
-sw.epilog:                                        ; preds = %sw.bb27, %sw.bb, %if.end19
+sw.epilog:                                        ; preds = %sw.epilog.sink.split, %if.end19
   %indvars.iv.next = add nuw i64 %indvars.iv, 1
-  %13 = load ptr, ptr %h_addr_list, align 8
-  %arrayidx = getelementptr inbounds ptr, ptr %13, i64 %indvars.iv.next
-  %14 = load ptr, ptr %arrayidx, align 8
-  %cmp.not = icmp eq ptr %14, null
+  %12 = load ptr, ptr %h_addr_list, align 8
+  %arrayidx = getelementptr inbounds ptr, ptr %12, i64 %indvars.iv.next
+  %13 = load ptr, ptr %arrayidx, align 8
+  %cmp.not = icmp eq ptr %13, null
   br i1 %cmp.not, label %return, label %for.body, !llvm.loop !7
 
 if.then34:                                        ; preds = %for.body
@@ -319,12 +310,12 @@ if.then34:                                        ; preds = %for.body
   br i1 %tobool.not3.i, label %return, label %for.body.i
 
 for.body.i:                                       ; preds = %if.then34, %for.body.i
-  %ca.04.i = phi ptr [ %15, %for.body.i ], [ %firstai.038, %if.then34 ]
-  %ai_next.i = getelementptr inbounds %struct.Curl_addrinfo, ptr %ca.04.i, i64 0, i32 7
-  %15 = load ptr, ptr %ai_next.i, align 8
-  %16 = load ptr, ptr @Curl_cfree, align 8
-  tail call void %16(ptr noundef nonnull %ca.04.i) #7
-  %tobool.not.i = icmp eq ptr %15, null
+  %ca.04.i = phi ptr [ %14, %for.body.i ], [ %firstai.038, %if.then34 ]
+  %ai_next.i = getelementptr inbounds i8, ptr %ca.04.i, i64 40
+  %14 = load ptr, ptr %ai_next.i, align 8
+  %15 = load ptr, ptr @Curl_cfree, align 8
+  tail call void %15(ptr noundef nonnull %ca.04.i) #7
+  %tobool.not.i = icmp eq ptr %14, null
   br i1 %tobool.not.i, label %return, label %for.body.i, !llvm.loop !4
 
 return:                                           ; preds = %sw.epilog, %for.body.i, %for.cond.preheader, %if.then34, %entry
@@ -356,13 +347,13 @@ if.end4:                                          ; preds = %if.end
   ]
 
 sw.bb:                                            ; preds = %if.end4
-  %addrentry5 = getelementptr inbounds %struct.namebuff, ptr %call, i64 0, i32 1
+  %addrentry5 = getelementptr inbounds i8, ptr %call, i64 32
   %2 = load i32, ptr %inaddr, align 1
   store i32 %2, ptr %addrentry5, align 1
   br label %sw.epilog
 
 sw.bb6:                                           ; preds = %if.end4
-  %addrentry7 = getelementptr inbounds %struct.namebuff, ptr %call, i64 0, i32 1
+  %addrentry7 = getelementptr inbounds i8, ptr %call, i64 32
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(16) %addrentry7, ptr noundef nonnull align 1 dereferenceable(16) %inaddr, i64 16, i1 false)
   br label %sw.epilog
 
@@ -370,17 +361,17 @@ sw.epilog:                                        ; preds = %sw.bb6, %sw.bb
   %addrentry.0 = phi ptr [ %addrentry7, %sw.bb6 ], [ %addrentry5, %sw.bb ]
   %addrsize.0 = phi i32 [ 16, %sw.bb6 ], [ 4, %sw.bb ]
   store ptr %call1, ptr %call, align 8
-  %h_aliases = getelementptr inbounds %struct.hostent, ptr %call, i64 0, i32 1
+  %h_aliases = getelementptr inbounds i8, ptr %call, i64 8
   store ptr null, ptr %h_aliases, align 8
-  %h_addrtype = getelementptr inbounds %struct.hostent, ptr %call, i64 0, i32 2
+  %h_addrtype = getelementptr inbounds i8, ptr %call, i64 16
   store i32 %af, ptr %h_addrtype, align 8
-  %h_length = getelementptr inbounds %struct.hostent, ptr %call, i64 0, i32 3
+  %h_length = getelementptr inbounds i8, ptr %call, i64 20
   store i32 %addrsize.0, ptr %h_length, align 4
-  %h_addr_list = getelementptr inbounds %struct.namebuff, ptr %call, i64 0, i32 2
-  %h_addr_list11 = getelementptr inbounds %struct.hostent, ptr %call, i64 0, i32 4
+  %h_addr_list = getelementptr inbounds i8, ptr %call, i64 48
+  %h_addr_list11 = getelementptr inbounds i8, ptr %call, i64 24
   store ptr %h_addr_list, ptr %h_addr_list11, align 8
   store ptr %addrentry.0, ptr %h_addr_list, align 8
-  %arrayidx15 = getelementptr inbounds %struct.namebuff, ptr %call, i64 0, i32 2, i64 1
+  %arrayidx15 = getelementptr inbounds i8, ptr %call, i64 56
   store ptr null, ptr %arrayidx15, align 8
   %call16 = tail call ptr @Curl_he2ai(ptr noundef nonnull %call, i32 noundef %port)
   br label %return.sink.split.sink.split
@@ -424,18 +415,18 @@ if.end.i:                                         ; preds = %if.then
   br i1 %tobool2.not.i, label %return.sink.split, label %if.end4.i
 
 if.end4.i:                                        ; preds = %if.end.i
-  %addrentry5.i = getelementptr inbounds %struct.namebuff, ptr %call.i, i64 0, i32 1
+  %addrentry5.i = getelementptr inbounds i8, ptr %call.i, i64 32
   %2 = load i32, ptr %in, align 4
   store i32 %2, ptr %addrentry5.i, align 1
   store ptr %call1.i, ptr %call.i, align 8
-  %h_aliases.i = getelementptr inbounds %struct.hostent, ptr %call.i, i64 0, i32 1
+  %h_aliases.i = getelementptr inbounds i8, ptr %call.i, i64 8
   store ptr null, ptr %h_aliases.i, align 8
-  %h_addrtype.i = getelementptr inbounds %struct.hostent, ptr %call.i, i64 0, i32 2
+  %h_addrtype.i = getelementptr inbounds i8, ptr %call.i, i64 16
   store i32 2, ptr %h_addrtype.i, align 8
-  %h_length.i = getelementptr inbounds %struct.hostent, ptr %call.i, i64 0, i32 3
+  %h_length.i = getelementptr inbounds i8, ptr %call.i, i64 20
   store i32 4, ptr %h_length.i, align 4
-  %h_addr_list.i = getelementptr inbounds %struct.namebuff, ptr %call.i, i64 0, i32 2
-  %h_addr_list11.i = getelementptr inbounds %struct.hostent, ptr %call.i, i64 0, i32 4
+  %h_addr_list.i = getelementptr inbounds i8, ptr %call.i, i64 48
+  %h_addr_list11.i = getelementptr inbounds i8, ptr %call.i, i64 24
   store ptr %h_addr_list.i, ptr %h_addr_list11.i, align 8
   store ptr %addrentry5.i, ptr %h_addr_list.i, align 8
   br label %return.sink.split.sink.split
@@ -458,17 +449,17 @@ if.end.i7:                                        ; preds = %if.then4
   br i1 %tobool2.not.i9, label %return.sink.split, label %if.end4.i10
 
 if.end4.i10:                                      ; preds = %if.end.i7
-  %addrentry7.i = getelementptr inbounds %struct.namebuff, ptr %call.i5, i64 0, i32 1
+  %addrentry7.i = getelementptr inbounds i8, ptr %call.i5, i64 32
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(16) %addrentry7.i, ptr noundef nonnull align 4 dereferenceable(16) %in6, i64 16, i1 false)
   store ptr %call1.i8, ptr %call.i5, align 8
-  %h_aliases.i11 = getelementptr inbounds %struct.hostent, ptr %call.i5, i64 0, i32 1
+  %h_aliases.i11 = getelementptr inbounds i8, ptr %call.i5, i64 8
   store ptr null, ptr %h_aliases.i11, align 8
-  %h_addrtype.i12 = getelementptr inbounds %struct.hostent, ptr %call.i5, i64 0, i32 2
+  %h_addrtype.i12 = getelementptr inbounds i8, ptr %call.i5, i64 16
   store i32 10, ptr %h_addrtype.i12, align 8
-  %h_length.i13 = getelementptr inbounds %struct.hostent, ptr %call.i5, i64 0, i32 3
+  %h_length.i13 = getelementptr inbounds i8, ptr %call.i5, i64 20
   store i32 16, ptr %h_length.i13, align 4
-  %h_addr_list.i14 = getelementptr inbounds %struct.namebuff, ptr %call.i5, i64 0, i32 2
-  %h_addr_list11.i15 = getelementptr inbounds %struct.hostent, ptr %call.i5, i64 0, i32 4
+  %h_addr_list.i14 = getelementptr inbounds i8, ptr %call.i5, i64 48
+  %h_addr_list11.i15 = getelementptr inbounds i8, ptr %call.i5, i64 24
   store ptr %h_addr_list.i14, ptr %h_addr_list11.i15, align 8
   store ptr %addrentry7.i, ptr %h_addr_list.i14, align 8
   br label %return.sink.split.sink.split
@@ -476,7 +467,7 @@ if.end4.i10:                                      ; preds = %if.end.i7
 return.sink.split.sink.split:                     ; preds = %if.end4.i, %if.end4.i10
   %call.i5.sink23 = phi ptr [ %call.i5, %if.end4.i10 ], [ %call.i, %if.end4.i ]
   %call1.i8.sink = phi ptr [ %call1.i8, %if.end4.i10 ], [ %call1.i, %if.end4.i ]
-  %arrayidx15.i16 = getelementptr inbounds %struct.namebuff, ptr %call.i5.sink23, i64 0, i32 2, i64 1
+  %arrayidx15.i16 = getelementptr inbounds i8, ptr %call.i5.sink23, i64 56
   store ptr null, ptr %arrayidx15.i16, align 8
   %call16.i17 = call ptr @Curl_he2ai(ptr noundef nonnull %call.i5.sink23, i32 noundef %port)
   %5 = load ptr, ptr @Curl_cfree, align 8
@@ -509,7 +500,7 @@ entry:
 
 if.end:                                           ; preds = %entry
   %add.ptr = getelementptr inbounds i8, ptr %call, i64 48
-  %ai_addr = getelementptr inbounds %struct.Curl_addrinfo, ptr %call, i64 0, i32 6
+  %ai_addr = getelementptr inbounds i8, ptr %call, i64 32
   store ptr %add.ptr, ptr %ai_addr, align 8
   store i16 1, ptr %add.ptr, align 2
   %call2 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %path) #8
@@ -524,13 +515,13 @@ if.then3:                                         ; preds = %if.end
   br label %return
 
 if.end4:                                          ; preds = %if.end
-  %ai_family = getelementptr inbounds %struct.Curl_addrinfo, ptr %call, i64 0, i32 1
+  %ai_family = getelementptr inbounds i8, ptr %call, i64 4
   store i32 1, ptr %ai_family, align 4
-  %ai_socktype = getelementptr inbounds %struct.Curl_addrinfo, ptr %call, i64 0, i32 2
+  %ai_socktype = getelementptr inbounds i8, ptr %call, i64 8
   store i32 1, ptr %ai_socktype, align 8
   %2 = trunc i64 %call2 to i32
   %3 = add nsw i32 %2, 3
-  %ai_addrlen = getelementptr inbounds %struct.Curl_addrinfo, ptr %call, i64 0, i32 4
+  %ai_addrlen = getelementptr inbounds i8, ptr %call, i64 16
   store i32 %3, ptr %ai_addrlen, align 8
   br i1 %abstract, label %if.then7, label %if.else
 

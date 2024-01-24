@@ -194,7 +194,7 @@ entry:
 delete.notnull.i:                                 ; preds = %entry
   %2 = inttoptr i64 %1 to ptr
   %vtable.i = load ptr, ptr %2, align 8
-  %vfn.i = getelementptr inbounds ptr, ptr %vtable.i, i64 1
+  %vfn.i = getelementptr inbounds i8, ptr %vtable.i, i64 8
   %3 = load ptr, ptr %vfn.i, align 8
   tail call void %3(ptr noundef nonnull align 8 dereferenceable(8) %2) #13
   br label %_ZN4base22DefaultSingletonTraitsIN3net12_GLOBAL__N_118CommonCertSetsQUICEE6DeleteEPS3_.exit
@@ -234,7 +234,7 @@ entry:
   call void @_ZN4base16BasicStringPieceINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEC1EPKcm(ptr noundef nonnull align 8 dereferenceable(16) %retval, ptr noundef nonnull @_ZN3net12_GLOBAL__N_110kSetHashesE, i64 noundef 16)
   %.fca.0.load = load ptr, ptr %retval, align 8
   %.fca.0.insert = insertvalue { ptr, i64 } poison, ptr %.fca.0.load, 0
-  %.fca.1.gep = getelementptr inbounds { ptr, i64 }, ptr %retval, i64 0, i32 1
+  %.fca.1.gep = getelementptr inbounds i8, ptr %retval, i64 8
   %.fca.1.load = load i64, ptr %.fca.1.gep, align 8
   %.fca.1.insert = insertvalue { ptr, i64 } %.fca.0.insert, i64 %.fca.1.load, 1
   ret { ptr, i64 } %.fca.1.insert
@@ -246,44 +246,44 @@ entry:
   %retval = alloca %"class.base::BasicStringPiece", align 8
   br label %for.body
 
-for.body:                                         ; preds = %entry, %for.inc
-  %cmp = phi i1 [ true, %entry ], [ false, %for.inc ]
-  %i.09 = phi i64 [ 0, %entry ], [ 1, %for.inc ]
-  %hash2 = getelementptr inbounds [2 x %"struct.net::(anonymous namespace)::CertSet"], ptr @_ZN3net12_GLOBAL__N_15kSetsE, i64 0, i64 %i.09, i32 3
+for.cond:                                         ; preds = %for.body
+  br i1 %cmp, label %for.body, label %for.end, !llvm.loop !5
+
+for.body:                                         ; preds = %entry, %for.cond
+  %cmp = phi i1 [ true, %entry ], [ false, %for.cond ]
+  %i.08 = phi i64 [ 0, %entry ], [ 1, %for.cond ]
+  %arrayidx = getelementptr inbounds [2 x %"struct.net::(anonymous namespace)::CertSet"], ptr @_ZN3net12_GLOBAL__N_15kSetsE, i64 0, i64 %i.08
+  %hash2 = getelementptr inbounds i8, ptr %arrayidx, i64 24
   %0 = load i64, ptr %hash2, align 8
   %cmp3 = icmp eq i64 %0, %hash
-  br i1 %cmp3, label %if.then, label %for.inc
+  br i1 %cmp3, label %if.then, label %for.cond
 
 if.then:                                          ; preds = %for.body
-  %arrayidx = getelementptr inbounds [2 x %"struct.net::(anonymous namespace)::CertSet"], ptr @_ZN3net12_GLOBAL__N_15kSetsE, i64 0, i64 %i.09
   %conv = zext i32 %index to i64
   %1 = load i64, ptr %arrayidx, align 16
   %cmp5 = icmp ugt i64 %1, %conv
   br i1 %cmp5, label %if.then6, label %for.end
 
 if.then6:                                         ; preds = %if.then
-  %certs = getelementptr inbounds [2 x %"struct.net::(anonymous namespace)::CertSet"], ptr @_ZN3net12_GLOBAL__N_15kSetsE, i64 0, i64 %i.09, i32 1
+  %certs = getelementptr inbounds i8, ptr %arrayidx, i64 8
   %2 = load ptr, ptr %certs, align 8
   %arrayidx8 = getelementptr inbounds ptr, ptr %2, i64 %conv
   %3 = load ptr, ptr %arrayidx8, align 8
-  %lens = getelementptr inbounds [2 x %"struct.net::(anonymous namespace)::CertSet"], ptr @_ZN3net12_GLOBAL__N_15kSetsE, i64 0, i64 %i.09, i32 2
+  %lens = getelementptr inbounds i8, ptr %arrayidx, i64 16
   %4 = load ptr, ptr %lens, align 16
   %arrayidx11 = getelementptr inbounds i64, ptr %4, i64 %conv
   %5 = load i64, ptr %arrayidx11, align 8
   call void @_ZN4base16BasicStringPieceINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEC1EPKcm(ptr noundef nonnull align 8 dereferenceable(16) %retval, ptr noundef %3, i64 noundef %5)
   br label %return
 
-for.inc:                                          ; preds = %for.body
-  br i1 %cmp, label %for.body, label %for.end, !llvm.loop !5
-
-for.end:                                          ; preds = %for.inc, %if.then
+for.end:                                          ; preds = %for.cond, %if.then
   call void @_ZN4base16BasicStringPieceINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEC1Ev(ptr noundef nonnull align 8 dereferenceable(16) %retval)
   br label %return
 
 return:                                           ; preds = %for.end, %if.then6
   %.fca.0.load = load ptr, ptr %retval, align 8
   %.fca.0.insert = insertvalue { ptr, i64 } poison, ptr %.fca.0.load, 0
-  %.fca.1.gep = getelementptr inbounds { ptr, i64 }, ptr %retval, i64 0, i32 1
+  %.fca.1.gep = getelementptr inbounds i8, ptr %retval, i64 8
   %.fca.1.load = load i64, ptr %.fca.1.gep, align 8
   %.fca.1.insert = insertvalue { ptr, i64 } %.fca.0.insert, i64 %.fca.1.load, 1
   ret { ptr, i64 } %.fca.1.insert
@@ -295,7 +295,7 @@ entry:
   %a.i = alloca %"class.base::BasicStringPiece", align 8
   %common_set_hashes = alloca %"class.base::BasicStringPiece", align 8
   store ptr %common_set_hashes.coerce0, ptr %common_set_hashes, align 8
-  %0 = getelementptr inbounds { ptr, i64 }, ptr %common_set_hashes, i64 0, i32 1
+  %0 = getelementptr inbounds i8, ptr %common_set_hashes, i64 8
   store i64 %common_set_hashes.coerce1, ptr %0, align 8
   %call = call noundef i64 @_ZNK4base16BasicStringPieceINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %common_set_hashes)
   %rem = and i64 %call, 7
@@ -308,7 +308,7 @@ for.cond.preheader:                               ; preds = %entry
   br i1 %cmp334.not, label %return, label %for.body.lr.ph
 
 for.body.lr.ph:                                   ; preds = %for.cond.preheader
-  %1 = getelementptr inbounds { ptr, i64 }, ptr %a.i, i64 0, i32 1
+  %1 = getelementptr inbounds i8, ptr %a.i, i64 8
   br label %for.body
 
 for.body:                                         ; preds = %for.body.lr.ph, %for.inc38
@@ -322,22 +322,22 @@ for.body:                                         ; preds = %for.body.lr.ph, %fo
 for.body7:                                        ; preds = %for.body, %for.inc
   %cmp6 = phi i1 [ true, %for.body ], [ false, %for.inc ]
   %j.031 = phi i64 [ 0, %for.body ], [ 1, %for.inc ]
-  %hash8 = getelementptr inbounds [2 x %"struct.net::(anonymous namespace)::CertSet"], ptr @_ZN3net12_GLOBAL__N_15kSetsE, i64 0, i64 %j.031, i32 3
+  %arrayidx = getelementptr inbounds [2 x %"struct.net::(anonymous namespace)::CertSet"], ptr @_ZN3net12_GLOBAL__N_15kSetsE, i64 0, i64 %j.031
+  %hash8 = getelementptr inbounds i8, ptr %arrayidx, i64 24
   %2 = load i64, ptr %hash8, align 8
   %cmp9.not = icmp eq i64 %2, %hash.0.copyload
   br i1 %cmp9.not, label %if.end11, label %for.inc
 
 if.end11:                                         ; preds = %for.body7
-  %arrayidx = getelementptr inbounds [2 x %"struct.net::(anonymous namespace)::CertSet"], ptr @_ZN3net12_GLOBAL__N_15kSetsE, i64 0, i64 %j.031
   %3 = load i64, ptr %arrayidx, align 16
   %cmp13 = icmp eq i64 %3, 0
   br i1 %cmp13, label %for.inc, label %if.end15
 
 if.end15:                                         ; preds = %if.end11
   %sub = add i64 %3, -1
-  %certs = getelementptr inbounds [2 x %"struct.net::(anonymous namespace)::CertSet"], ptr @_ZN3net12_GLOBAL__N_15kSetsE, i64 0, i64 %j.031, i32 1
+  %certs = getelementptr inbounds i8, ptr %arrayidx, i64 8
   %4 = load ptr, ptr %certs, align 8
-  %lens = getelementptr inbounds [2 x %"struct.net::(anonymous namespace)::CertSet"], ptr @_ZN3net12_GLOBAL__N_15kSetsE, i64 0, i64 %j.031, i32 2
+  %lens = getelementptr inbounds i8, ptr %arrayidx, i64 16
   %5 = load ptr, ptr %lens, align 16
   br label %while.body
 

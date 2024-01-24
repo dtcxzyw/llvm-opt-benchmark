@@ -3,8 +3,8 @@ source_filename = "bench/libquic/original/url_parse.cc.ll"
 target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:128-n8:16:32:64-S128"
 target triple = "x86_64-unknown-linux-gnu"
 
-%"struct.url::Parsed" = type { %"struct.url::Component", %"struct.url::Component", %"struct.url::Component", %"struct.url::Component", %"struct.url::Component", %"struct.url::Component", %"struct.url::Component", %"struct.url::Component", ptr }
 %"struct.url::Component" = type { i32, i32 }
+%"struct.url::Parsed" = type { %"struct.url::Component", %"struct.url::Component", %"struct.url::Component", %"struct.url::Component", %"struct.url::Component", %"struct.url::Component", %"struct.url::Component", %"struct.url::Component", ptr }
 
 $_ZN3url6Parsed16set_inner_parsedERKS0_ = comdat any
 
@@ -19,13 +19,13 @@ $_ZN3url6Parsed16set_inner_parsedERKS0_ = comdat any
 define dso_local void @_ZN3url6ParsedC2Ev(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(72) %this) unnamed_addr #0 align 2 {
 entry:
   store <4 x i32> <i32 0, i32 -1, i32 0, i32 -1>, ptr %this, align 8
-  %password = getelementptr inbounds %"struct.url::Parsed", ptr %this, i64 0, i32 2
+  %password = getelementptr inbounds i8, ptr %this, i64 16
   store <4 x i32> <i32 0, i32 -1, i32 0, i32 -1>, ptr %password, align 8
-  %port = getelementptr inbounds %"struct.url::Parsed", ptr %this, i64 0, i32 4
+  %port = getelementptr inbounds i8, ptr %this, i64 32
   store <4 x i32> <i32 0, i32 -1, i32 0, i32 -1>, ptr %port, align 8
-  %query = getelementptr inbounds %"struct.url::Parsed", ptr %this, i64 0, i32 6
+  %query = getelementptr inbounds i8, ptr %this, i64 48
   store <4 x i32> <i32 0, i32 -1, i32 0, i32 -1>, ptr %query, align 8
-  %inner_parsed_ = getelementptr inbounds %"struct.url::Parsed", ptr %this, i64 0, i32 8
+  %inner_parsed_ = getelementptr inbounds i8, ptr %this, i64 64
   store ptr null, ptr %inner_parsed_, align 8
   ret void
 }
@@ -35,37 +35,37 @@ define dso_local void @_ZN3url6ParsedC2ERKS0_(ptr nocapture noundef nonnull writ
 entry:
   %0 = load i64, ptr %other, align 8
   store i64 %0, ptr %this, align 8
-  %username = getelementptr inbounds %"struct.url::Parsed", ptr %this, i64 0, i32 1
-  %username3 = getelementptr inbounds %"struct.url::Parsed", ptr %other, i64 0, i32 1
+  %username = getelementptr inbounds i8, ptr %this, i64 8
+  %username3 = getelementptr inbounds i8, ptr %other, i64 8
   %1 = load i64, ptr %username3, align 8
   store i64 %1, ptr %username, align 8
-  %password = getelementptr inbounds %"struct.url::Parsed", ptr %this, i64 0, i32 2
-  %password4 = getelementptr inbounds %"struct.url::Parsed", ptr %other, i64 0, i32 2
+  %password = getelementptr inbounds i8, ptr %this, i64 16
+  %password4 = getelementptr inbounds i8, ptr %other, i64 16
   %2 = load i64, ptr %password4, align 8
   store i64 %2, ptr %password, align 8
-  %host = getelementptr inbounds %"struct.url::Parsed", ptr %this, i64 0, i32 3
-  %host5 = getelementptr inbounds %"struct.url::Parsed", ptr %other, i64 0, i32 3
+  %host = getelementptr inbounds i8, ptr %this, i64 24
+  %host5 = getelementptr inbounds i8, ptr %other, i64 24
   %3 = load i64, ptr %host5, align 8
   store i64 %3, ptr %host, align 8
-  %port = getelementptr inbounds %"struct.url::Parsed", ptr %this, i64 0, i32 4
-  %port6 = getelementptr inbounds %"struct.url::Parsed", ptr %other, i64 0, i32 4
+  %port = getelementptr inbounds i8, ptr %this, i64 32
+  %port6 = getelementptr inbounds i8, ptr %other, i64 32
   %4 = load i64, ptr %port6, align 8
   store i64 %4, ptr %port, align 8
-  %path = getelementptr inbounds %"struct.url::Parsed", ptr %this, i64 0, i32 5
-  %path7 = getelementptr inbounds %"struct.url::Parsed", ptr %other, i64 0, i32 5
+  %path = getelementptr inbounds i8, ptr %this, i64 40
+  %path7 = getelementptr inbounds i8, ptr %other, i64 40
   %5 = load i64, ptr %path7, align 8
   store i64 %5, ptr %path, align 8
-  %query = getelementptr inbounds %"struct.url::Parsed", ptr %this, i64 0, i32 6
-  %query8 = getelementptr inbounds %"struct.url::Parsed", ptr %other, i64 0, i32 6
+  %query = getelementptr inbounds i8, ptr %this, i64 48
+  %query8 = getelementptr inbounds i8, ptr %other, i64 48
   %6 = load i64, ptr %query8, align 8
   store i64 %6, ptr %query, align 8
-  %ref = getelementptr inbounds %"struct.url::Parsed", ptr %this, i64 0, i32 7
-  %ref9 = getelementptr inbounds %"struct.url::Parsed", ptr %other, i64 0, i32 7
+  %ref = getelementptr inbounds i8, ptr %this, i64 56
+  %ref9 = getelementptr inbounds i8, ptr %other, i64 56
   %7 = load i64, ptr %ref9, align 8
   store i64 %7, ptr %ref, align 8
-  %inner_parsed_ = getelementptr inbounds %"struct.url::Parsed", ptr %this, i64 0, i32 8
+  %inner_parsed_ = getelementptr inbounds i8, ptr %this, i64 64
   store ptr null, ptr %inner_parsed_, align 8
-  %inner_parsed_10 = getelementptr inbounds %"struct.url::Parsed", ptr %other, i64 0, i32 8
+  %inner_parsed_10 = getelementptr inbounds i8, ptr %other, i64 64
   %8 = load ptr, ptr %inner_parsed_10, align 8
   %tobool.not = icmp eq ptr %8, null
   br i1 %tobool.not, label %if.end, label %if.then.i
@@ -97,7 +97,7 @@ entry:
 tailrecurse:                                      ; preds = %if.then.i, %entry
   %this.tr = phi ptr [ %this, %entry ], [ %0, %if.then.i ]
   %inner_parsed.tr = phi ptr [ %inner_parsed, %entry ], [ %10, %if.then.i ]
-  %inner_parsed_ = getelementptr inbounds %"struct.url::Parsed", ptr %this.tr, i64 0, i32 8
+  %inner_parsed_ = getelementptr inbounds i8, ptr %this.tr, i64 64
   %0 = load ptr, ptr %inner_parsed_, align 8
   %tobool.not = icmp eq ptr %0, null
   br i1 %tobool.not, label %if.then, label %if.else
@@ -108,7 +108,7 @@ if.then:                                          ; preds = %tailrecurse
           to label %invoke.cont unwind label %lpad
 
 invoke.cont:                                      ; preds = %if.then
-  %inner_parsed_.le = getelementptr inbounds %"struct.url::Parsed", ptr %this.tr, i64 0, i32 8
+  %inner_parsed_.le = getelementptr inbounds i8, ptr %this.tr, i64 64
   store ptr %call, ptr %inner_parsed_.le, align 8
   br label %if.end
 
@@ -125,41 +125,41 @@ if.else:                                          ; preds = %tailrecurse
 if.then.i:                                        ; preds = %if.else
   %2 = load i64, ptr %inner_parsed.tr, align 8
   store i64 %2, ptr %0, align 8
-  %username.i = getelementptr inbounds %"struct.url::Parsed", ptr %inner_parsed.tr, i64 0, i32 1
-  %username3.i = getelementptr inbounds %"struct.url::Parsed", ptr %0, i64 0, i32 1
+  %username.i = getelementptr inbounds i8, ptr %inner_parsed.tr, i64 8
+  %username3.i = getelementptr inbounds i8, ptr %0, i64 8
   %3 = load i64, ptr %username.i, align 8
   store i64 %3, ptr %username3.i, align 8
-  %password.i = getelementptr inbounds %"struct.url::Parsed", ptr %inner_parsed.tr, i64 0, i32 2
-  %password4.i = getelementptr inbounds %"struct.url::Parsed", ptr %0, i64 0, i32 2
+  %password.i = getelementptr inbounds i8, ptr %inner_parsed.tr, i64 16
+  %password4.i = getelementptr inbounds i8, ptr %0, i64 16
   %4 = load i64, ptr %password.i, align 8
   store i64 %4, ptr %password4.i, align 8
-  %host.i = getelementptr inbounds %"struct.url::Parsed", ptr %inner_parsed.tr, i64 0, i32 3
-  %host5.i = getelementptr inbounds %"struct.url::Parsed", ptr %0, i64 0, i32 3
+  %host.i = getelementptr inbounds i8, ptr %inner_parsed.tr, i64 24
+  %host5.i = getelementptr inbounds i8, ptr %0, i64 24
   %5 = load i64, ptr %host.i, align 8
   store i64 %5, ptr %host5.i, align 8
-  %port.i = getelementptr inbounds %"struct.url::Parsed", ptr %inner_parsed.tr, i64 0, i32 4
-  %port6.i = getelementptr inbounds %"struct.url::Parsed", ptr %0, i64 0, i32 4
+  %port.i = getelementptr inbounds i8, ptr %inner_parsed.tr, i64 32
+  %port6.i = getelementptr inbounds i8, ptr %0, i64 32
   %6 = load i64, ptr %port.i, align 8
   store i64 %6, ptr %port6.i, align 8
-  %path.i = getelementptr inbounds %"struct.url::Parsed", ptr %inner_parsed.tr, i64 0, i32 5
-  %path7.i = getelementptr inbounds %"struct.url::Parsed", ptr %0, i64 0, i32 5
+  %path.i = getelementptr inbounds i8, ptr %inner_parsed.tr, i64 40
+  %path7.i = getelementptr inbounds i8, ptr %0, i64 40
   %7 = load i64, ptr %path.i, align 8
   store i64 %7, ptr %path7.i, align 8
-  %query.i = getelementptr inbounds %"struct.url::Parsed", ptr %inner_parsed.tr, i64 0, i32 6
-  %query8.i = getelementptr inbounds %"struct.url::Parsed", ptr %0, i64 0, i32 6
+  %query.i = getelementptr inbounds i8, ptr %inner_parsed.tr, i64 48
+  %query8.i = getelementptr inbounds i8, ptr %0, i64 48
   %8 = load i64, ptr %query.i, align 8
   store i64 %8, ptr %query8.i, align 8
-  %ref.i = getelementptr inbounds %"struct.url::Parsed", ptr %inner_parsed.tr, i64 0, i32 7
-  %ref9.i = getelementptr inbounds %"struct.url::Parsed", ptr %0, i64 0, i32 7
+  %ref.i = getelementptr inbounds i8, ptr %inner_parsed.tr, i64 56
+  %ref9.i = getelementptr inbounds i8, ptr %0, i64 56
   %9 = load i64, ptr %ref.i, align 8
   store i64 %9, ptr %ref9.i, align 8
-  %inner_parsed_.i = getelementptr inbounds %"struct.url::Parsed", ptr %inner_parsed.tr, i64 0, i32 8
+  %inner_parsed_.i = getelementptr inbounds i8, ptr %inner_parsed.tr, i64 64
   %10 = load ptr, ptr %inner_parsed_.i, align 8
   %tobool.not.i = icmp eq ptr %10, null
   br i1 %tobool.not.i, label %if.else.i, label %tailrecurse
 
 if.else.i:                                        ; preds = %if.then.i
-  %inner_parsed_.i2 = getelementptr inbounds %"struct.url::Parsed", ptr %0, i64 0, i32 8
+  %inner_parsed_.i2 = getelementptr inbounds i8, ptr %0, i64 64
   %11 = load ptr, ptr %inner_parsed_.i2, align 8
   %tobool.not.i3 = icmp eq ptr %11, null
   br i1 %tobool.not.i3, label %if.end, label %delete.notnull.i
@@ -183,35 +183,35 @@ entry:
 if.then:                                          ; preds = %entry
   %0 = load i64, ptr %other, align 8
   store i64 %0, ptr %this, align 8
-  %username = getelementptr inbounds %"struct.url::Parsed", ptr %other, i64 0, i32 1
-  %username3 = getelementptr inbounds %"struct.url::Parsed", ptr %this, i64 0, i32 1
+  %username = getelementptr inbounds i8, ptr %other, i64 8
+  %username3 = getelementptr inbounds i8, ptr %this, i64 8
   %1 = load i64, ptr %username, align 8
   store i64 %1, ptr %username3, align 8
-  %password = getelementptr inbounds %"struct.url::Parsed", ptr %other, i64 0, i32 2
-  %password4 = getelementptr inbounds %"struct.url::Parsed", ptr %this, i64 0, i32 2
+  %password = getelementptr inbounds i8, ptr %other, i64 16
+  %password4 = getelementptr inbounds i8, ptr %this, i64 16
   %2 = load i64, ptr %password, align 8
   store i64 %2, ptr %password4, align 8
-  %host = getelementptr inbounds %"struct.url::Parsed", ptr %other, i64 0, i32 3
-  %host5 = getelementptr inbounds %"struct.url::Parsed", ptr %this, i64 0, i32 3
+  %host = getelementptr inbounds i8, ptr %other, i64 24
+  %host5 = getelementptr inbounds i8, ptr %this, i64 24
   %3 = load i64, ptr %host, align 8
   store i64 %3, ptr %host5, align 8
-  %port = getelementptr inbounds %"struct.url::Parsed", ptr %other, i64 0, i32 4
-  %port6 = getelementptr inbounds %"struct.url::Parsed", ptr %this, i64 0, i32 4
+  %port = getelementptr inbounds i8, ptr %other, i64 32
+  %port6 = getelementptr inbounds i8, ptr %this, i64 32
   %4 = load i64, ptr %port, align 8
   store i64 %4, ptr %port6, align 8
-  %path = getelementptr inbounds %"struct.url::Parsed", ptr %other, i64 0, i32 5
-  %path7 = getelementptr inbounds %"struct.url::Parsed", ptr %this, i64 0, i32 5
+  %path = getelementptr inbounds i8, ptr %other, i64 40
+  %path7 = getelementptr inbounds i8, ptr %this, i64 40
   %5 = load i64, ptr %path, align 8
   store i64 %5, ptr %path7, align 8
-  %query = getelementptr inbounds %"struct.url::Parsed", ptr %other, i64 0, i32 6
-  %query8 = getelementptr inbounds %"struct.url::Parsed", ptr %this, i64 0, i32 6
+  %query = getelementptr inbounds i8, ptr %other, i64 48
+  %query8 = getelementptr inbounds i8, ptr %this, i64 48
   %6 = load i64, ptr %query, align 8
   store i64 %6, ptr %query8, align 8
-  %ref = getelementptr inbounds %"struct.url::Parsed", ptr %other, i64 0, i32 7
-  %ref9 = getelementptr inbounds %"struct.url::Parsed", ptr %this, i64 0, i32 7
+  %ref = getelementptr inbounds i8, ptr %other, i64 56
+  %ref9 = getelementptr inbounds i8, ptr %this, i64 56
   %7 = load i64, ptr %ref, align 8
   store i64 %7, ptr %ref9, align 8
-  %inner_parsed_ = getelementptr inbounds %"struct.url::Parsed", ptr %other, i64 0, i32 8
+  %inner_parsed_ = getelementptr inbounds i8, ptr %other, i64 64
   %8 = load ptr, ptr %inner_parsed_, align 8
   %tobool.not = icmp eq ptr %8, null
   br i1 %tobool.not, label %if.else, label %if.then10
@@ -221,7 +221,7 @@ if.then10:                                        ; preds = %if.then
   br label %if.end12
 
 if.else:                                          ; preds = %if.then
-  %inner_parsed_.i = getelementptr inbounds %"struct.url::Parsed", ptr %this, i64 0, i32 8
+  %inner_parsed_.i = getelementptr inbounds i8, ptr %this, i64 64
   %9 = load ptr, ptr %inner_parsed_.i, align 8
   %tobool.not.i = icmp eq ptr %9, null
   br i1 %tobool.not.i, label %if.end12, label %delete.notnull.i
@@ -239,7 +239,7 @@ if.end12:                                         ; preds = %delete.notnull.i, %
 ; Function Attrs: mustprogress nounwind uwtable
 define dso_local void @_ZN3url6ParsedD2Ev(ptr nocapture noundef nonnull readonly align 8 dereferenceable(72) %this) unnamed_addr #2 align 2 {
 entry:
-  %inner_parsed_ = getelementptr inbounds %"struct.url::Parsed", ptr %this, i64 0, i32 8
+  %inner_parsed_ = getelementptr inbounds i8, ptr %this, i64 64
   %0 = load ptr, ptr %inner_parsed_, align 8
   %isnull = icmp eq ptr %0, null
   br i1 %isnull, label %common.ret1, label %delete.notnull
@@ -259,64 +259,64 @@ declare void @_ZdlPv(ptr noundef) local_unnamed_addr #3
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
 define dso_local noundef i32 @_ZNK3url6Parsed6LengthEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(72) %this) local_unnamed_addr #4 align 2 {
 entry:
-  %len.i = getelementptr inbounds %"struct.url::Parsed", ptr %this, i64 0, i32 7, i32 1
+  %len.i = getelementptr inbounds i8, ptr %this, i64 60
   %0 = load i32, ptr %len.i, align 4
   %cmp.i.not = icmp eq i32 %0, -1
   br i1 %cmp.i.not, label %if.end, label %if.then
 
 if.then:                                          ; preds = %entry
-  %ref = getelementptr inbounds %"struct.url::Parsed", ptr %this, i64 0, i32 7
+  %ref = getelementptr inbounds i8, ptr %this, i64 56
   %1 = load i32, ptr %ref, align 8
   %add.i = add nsw i32 %1, %0
   br label %return
 
 if.end:                                           ; preds = %entry
-  %len.i.i = getelementptr inbounds %"struct.url::Component", ptr %this, i64 0, i32 1
+  %len.i.i = getelementptr inbounds i8, ptr %this, i64 4
   %2 = load i32, ptr %len.i.i, align 4
   %cmp.i.not.i = icmp eq i32 %2, -1
   %3 = load i32, ptr %this, align 8
   %add.i.i = add i32 %2, 1
   %add.i2 = add i32 %add.i.i, %3
   %cur.0.i = select i1 %cmp.i.not.i, i32 0, i32 %add.i2
-  %username.i = getelementptr inbounds %"struct.url::Parsed", ptr %this, i64 0, i32 1
-  %len.i18.i = getelementptr inbounds %"struct.url::Parsed", ptr %this, i64 0, i32 1, i32 1
+  %username.i = getelementptr inbounds i8, ptr %this, i64 8
+  %len.i18.i = getelementptr inbounds i8, ptr %this, i64 12
   %4 = load i32, ptr %len.i18.i, align 4
   %cmp.i19.not.i = icmp eq i32 %4, -1
   %5 = load i32, ptr %username.i, align 8
   %add.i21.i = add nuw i32 %4, 1
   %add16.i = add i32 %add.i21.i, %5
   %cur.1.i = select i1 %cmp.i19.not.i, i32 %cur.0.i, i32 %add16.i
-  %password.i = getelementptr inbounds %"struct.url::Parsed", ptr %this, i64 0, i32 2
-  %len.i22.i = getelementptr inbounds %"struct.url::Parsed", ptr %this, i64 0, i32 2, i32 1
+  %password.i = getelementptr inbounds i8, ptr %this, i64 16
+  %len.i22.i = getelementptr inbounds i8, ptr %this, i64 20
   %6 = load i32, ptr %len.i22.i, align 4
   %cmp.i23.not.i = icmp eq i32 %6, -1
   %7 = load i32, ptr %password.i, align 8
   %add.i25.i = add nuw i32 %6, 1
   %add27.i = add i32 %add.i25.i, %7
   %cur.2.i = select i1 %cmp.i23.not.i, i32 %cur.1.i, i32 %add27.i
-  %host.i = getelementptr inbounds %"struct.url::Parsed", ptr %this, i64 0, i32 3
-  %len.i26.i = getelementptr inbounds %"struct.url::Parsed", ptr %this, i64 0, i32 3, i32 1
+  %host.i = getelementptr inbounds i8, ptr %this, i64 24
+  %len.i26.i = getelementptr inbounds i8, ptr %this, i64 28
   %8 = load i32, ptr %len.i26.i, align 4
   %cmp.i27.not.i = icmp eq i32 %8, -1
   %9 = load i32, ptr %host.i, align 8
   %add.i29.i = add nsw i32 %9, %8
   %cur.3.i = select i1 %cmp.i27.not.i, i32 %cur.2.i, i32 %add.i29.i
-  %port.i = getelementptr inbounds %"struct.url::Parsed", ptr %this, i64 0, i32 4
-  %len.i30.i = getelementptr inbounds %"struct.url::Parsed", ptr %this, i64 0, i32 4, i32 1
+  %port.i = getelementptr inbounds i8, ptr %this, i64 32
+  %len.i30.i = getelementptr inbounds i8, ptr %this, i64 36
   %10 = load i32, ptr %len.i30.i, align 4
   %cmp.i31.not.i = icmp eq i32 %10, -1
   %11 = load i32, ptr %port.i, align 8
   %add.i33.i = add nsw i32 %11, %10
   %cur.4.i = select i1 %cmp.i31.not.i, i32 %cur.3.i, i32 %add.i33.i
-  %path.i = getelementptr inbounds %"struct.url::Parsed", ptr %this, i64 0, i32 5
-  %len.i34.i = getelementptr inbounds %"struct.url::Parsed", ptr %this, i64 0, i32 5, i32 1
+  %path.i = getelementptr inbounds i8, ptr %this, i64 40
+  %len.i34.i = getelementptr inbounds i8, ptr %this, i64 44
   %12 = load i32, ptr %len.i34.i, align 4
   %cmp.i35.not.i = icmp eq i32 %12, -1
   %13 = load i32, ptr %path.i, align 8
   %add.i37.i = add nsw i32 %13, %12
   %cur.5.i = select i1 %cmp.i35.not.i, i32 %cur.4.i, i32 %add.i37.i
-  %query.i = getelementptr inbounds %"struct.url::Parsed", ptr %this, i64 0, i32 6
-  %len.i38.i = getelementptr inbounds %"struct.url::Parsed", ptr %this, i64 0, i32 6, i32 1
+  %query.i = getelementptr inbounds i8, ptr %this, i64 48
+  %len.i38.i = getelementptr inbounds i8, ptr %this, i64 52
   %14 = load i32, ptr %len.i38.i, align 4
   %cmp.i39.not.i = icmp eq i32 %14, -1
   %15 = load i32, ptr %query.i, align 8
@@ -340,20 +340,20 @@ if.then:                                          ; preds = %entry
   br label %return
 
 if.end:                                           ; preds = %entry
-  %len.i = getelementptr inbounds %"struct.url::Component", ptr %this, i64 0, i32 1
+  %len.i = getelementptr inbounds i8, ptr %this, i64 4
   %1 = load i32, ptr %len.i, align 4
   %cmp.i.not = icmp eq i32 %1, -1
   %2 = load i32, ptr %this, align 8
   %add.i = add i32 %1, 1
   %add = add i32 %add.i, %2
   %cur.0 = select i1 %cmp.i.not, i32 0, i32 %add
-  %len.i18 = getelementptr inbounds %"struct.url::Parsed", ptr %this, i64 0, i32 1, i32 1
+  %len.i18 = getelementptr inbounds i8, ptr %this, i64 12
   %3 = load i32, ptr %len.i18, align 4
   %cmp.i19.not = icmp eq i32 %3, -1
   br i1 %cmp.i19.not, label %if.end17, label %if.then8
 
 if.then8:                                         ; preds = %if.end
-  %username = getelementptr inbounds %"struct.url::Parsed", ptr %this, i64 0, i32 1
+  %username = getelementptr inbounds i8, ptr %this, i64 8
   %cmp9 = icmp slt i32 %type, 2
   %4 = load i32, ptr %username, align 8
   br i1 %cmp9, label %return, label %if.end13
@@ -365,13 +365,13 @@ if.end13:                                         ; preds = %if.then8
 
 if.end17:                                         ; preds = %if.end13, %if.end
   %cur.1 = phi i32 [ %add16, %if.end13 ], [ %cur.0, %if.end ]
-  %len.i22 = getelementptr inbounds %"struct.url::Parsed", ptr %this, i64 0, i32 2, i32 1
+  %len.i22 = getelementptr inbounds i8, ptr %this, i64 20
   %5 = load i32, ptr %len.i22, align 4
   %cmp.i23.not = icmp eq i32 %5, -1
   br i1 %cmp.i23.not, label %if.end28, label %if.then19
 
 if.then19:                                        ; preds = %if.end17
-  %password = getelementptr inbounds %"struct.url::Parsed", ptr %this, i64 0, i32 2
+  %password = getelementptr inbounds i8, ptr %this, i64 16
   %cmp20 = icmp slt i32 %type, 3
   %6 = load i32, ptr %password, align 8
   br i1 %cmp20, label %return, label %if.end24
@@ -383,13 +383,13 @@ if.end24:                                         ; preds = %if.then19
 
 if.end28:                                         ; preds = %if.end24, %if.end17
   %cur.2 = phi i32 [ %add27, %if.end24 ], [ %cur.1, %if.end17 ]
-  %len.i26 = getelementptr inbounds %"struct.url::Parsed", ptr %this, i64 0, i32 3, i32 1
+  %len.i26 = getelementptr inbounds i8, ptr %this, i64 28
   %7 = load i32, ptr %len.i26, align 4
   %cmp.i27.not = icmp eq i32 %7, -1
   br i1 %cmp.i27.not, label %if.end38, label %if.then30
 
 if.then30:                                        ; preds = %if.end28
-  %host = getelementptr inbounds %"struct.url::Parsed", ptr %this, i64 0, i32 3
+  %host = getelementptr inbounds i8, ptr %this, i64 24
   %cmp31 = icmp slt i32 %type, 4
   %8 = load i32, ptr %host, align 8
   br i1 %cmp31, label %return, label %if.end35
@@ -400,8 +400,8 @@ if.end35:                                         ; preds = %if.then30
 
 if.end38:                                         ; preds = %if.end35, %if.end28
   %cur.3 = phi i32 [ %add.i29, %if.end35 ], [ %cur.2, %if.end28 ]
-  %port = getelementptr inbounds %"struct.url::Parsed", ptr %this, i64 0, i32 4
-  %len.i30 = getelementptr inbounds %"struct.url::Parsed", ptr %this, i64 0, i32 4, i32 1
+  %port = getelementptr inbounds i8, ptr %this, i64 32
+  %len.i30 = getelementptr inbounds i8, ptr %this, i64 36
   %9 = load i32, ptr %len.i30, align 4
   %cmp.i31.not = icmp eq i32 %9, -1
   br i1 %cmp.i31.not, label %if.end54, label %if.then40
@@ -430,13 +430,13 @@ if.end51:                                         ; preds = %if.end46
 
 if.end54:                                         ; preds = %if.end51, %if.end38
   %cur.4 = phi i32 [ %add.i33, %if.end51 ], [ %cur.3, %if.end38 ]
-  %len.i34 = getelementptr inbounds %"struct.url::Parsed", ptr %this, i64 0, i32 5, i32 1
+  %len.i34 = getelementptr inbounds i8, ptr %this, i64 44
   %12 = load i32, ptr %len.i34, align 4
   %cmp.i35.not = icmp eq i32 %12, -1
   br i1 %cmp.i35.not, label %if.end64, label %if.then56
 
 if.then56:                                        ; preds = %if.end54
-  %path = getelementptr inbounds %"struct.url::Parsed", ptr %this, i64 0, i32 5
+  %path = getelementptr inbounds i8, ptr %this, i64 40
   %cmp57 = icmp slt i32 %type, 6
   %13 = load i32, ptr %path, align 8
   br i1 %cmp57, label %return, label %if.end61
@@ -447,8 +447,8 @@ if.end61:                                         ; preds = %if.then56
 
 if.end64:                                         ; preds = %if.end61, %if.end54
   %cur.5 = phi i32 [ %add.i37, %if.end61 ], [ %cur.4, %if.end54 ]
-  %query = getelementptr inbounds %"struct.url::Parsed", ptr %this, i64 0, i32 6
-  %len.i38 = getelementptr inbounds %"struct.url::Parsed", ptr %this, i64 0, i32 6, i32 1
+  %query = getelementptr inbounds i8, ptr %this, i64 48
+  %len.i38 = getelementptr inbounds i8, ptr %this, i64 52
   %14 = load i32, ptr %len.i38, align 4
   %cmp.i39.not = icmp eq i32 %14, -1
   br i1 %cmp.i39.not, label %if.end84, label %if.then66
@@ -477,13 +477,13 @@ if.end81:                                         ; preds = %if.end76
 
 if.end84:                                         ; preds = %if.end81, %if.end64
   %cur.6 = phi i32 [ %add.i41, %if.end81 ], [ %cur.5, %if.end64 ]
-  %len.i42 = getelementptr inbounds %"struct.url::Parsed", ptr %this, i64 0, i32 7, i32 1
+  %len.i42 = getelementptr inbounds i8, ptr %this, i64 60
   %17 = load i32, ptr %len.i42, align 4
   %cmp.i43.not = icmp eq i32 %17, -1
   br i1 %cmp.i43.not, label %return, label %if.then86
 
 if.then86:                                        ; preds = %if.end84
-  %ref = getelementptr inbounds %"struct.url::Parsed", ptr %this, i64 0, i32 7
+  %ref = getelementptr inbounds i8, ptr %this, i64 56
   %cmp87 = icmp ne i32 %type, 7
   %brmerge16 = or i1 %cmp87, %include_delimiter
   %18 = load i32, ptr %ref, align 8
@@ -499,15 +499,15 @@ return:                                           ; preds = %if.end76, %if.then5
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
 define dso_local i64 @_ZNK3url6Parsed10GetContentEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(72) %this) local_unnamed_addr #4 align 2 {
 entry:
-  %len.i.i = getelementptr inbounds %"struct.url::Component", ptr %this, i64 0, i32 1
+  %len.i.i = getelementptr inbounds i8, ptr %this, i64 4
   %0 = load i32, ptr %len.i.i, align 4
   %cmp.i.not.i = icmp eq i32 %0, -1
   %1 = load i32, ptr %this, align 8
   %add.i.i = add i32 %0, 1
   %add.i = add i32 %add.i.i, %1
   %cur.0.i = select i1 %cmp.i.not.i, i32 0, i32 %add.i
-  %username.i = getelementptr inbounds %"struct.url::Parsed", ptr %this, i64 0, i32 1
-  %len.i18.i = getelementptr inbounds %"struct.url::Parsed", ptr %this, i64 0, i32 1, i32 1
+  %username.i = getelementptr inbounds i8, ptr %this, i64 8
+  %len.i18.i = getelementptr inbounds i8, ptr %this, i64 12
   %2 = load i32, ptr %len.i18.i, align 4
   %cmp.i19.not.i = icmp eq i32 %2, -1
   br i1 %cmp.i19.not.i, label %if.end17.i, label %if.then8.i
@@ -517,83 +517,83 @@ if.then8.i:                                       ; preds = %entry
   br label %_ZNK3url6Parsed21CountCharactersBeforeENS0_13ComponentTypeEb.exit
 
 if.end17.i:                                       ; preds = %entry
-  %len.i22.i = getelementptr inbounds %"struct.url::Parsed", ptr %this, i64 0, i32 2, i32 1
+  %len.i22.i = getelementptr inbounds i8, ptr %this, i64 20
   %4 = load i32, ptr %len.i22.i, align 4
   %cmp.i23.not.i = icmp eq i32 %4, -1
   br i1 %cmp.i23.not.i, label %if.end28.i, label %if.then19.i
 
 if.then19.i:                                      ; preds = %if.end17.i
-  %password.i = getelementptr inbounds %"struct.url::Parsed", ptr %this, i64 0, i32 2
+  %password.i = getelementptr inbounds i8, ptr %this, i64 16
   %5 = load i32, ptr %password.i, align 8
   br label %_ZNK3url6Parsed21CountCharactersBeforeENS0_13ComponentTypeEb.exit
 
 if.end28.i:                                       ; preds = %if.end17.i
-  %len.i26.i = getelementptr inbounds %"struct.url::Parsed", ptr %this, i64 0, i32 3, i32 1
+  %len.i26.i = getelementptr inbounds i8, ptr %this, i64 28
   %6 = load i32, ptr %len.i26.i, align 4
   %cmp.i27.not.i = icmp eq i32 %6, -1
   br i1 %cmp.i27.not.i, label %if.end38.i, label %if.then30.i
 
 if.then30.i:                                      ; preds = %if.end28.i
-  %host.i = getelementptr inbounds %"struct.url::Parsed", ptr %this, i64 0, i32 3
+  %host.i = getelementptr inbounds i8, ptr %this, i64 24
   %7 = load i32, ptr %host.i, align 8
   br label %_ZNK3url6Parsed21CountCharactersBeforeENS0_13ComponentTypeEb.exit
 
 if.end38.i:                                       ; preds = %if.end28.i
-  %len.i30.i = getelementptr inbounds %"struct.url::Parsed", ptr %this, i64 0, i32 4, i32 1
+  %len.i30.i = getelementptr inbounds i8, ptr %this, i64 36
   %8 = load i32, ptr %len.i30.i, align 4
   %cmp.i31.not.i = icmp eq i32 %8, -1
   br i1 %cmp.i31.not.i, label %if.end54.i, label %if.then40.i
 
 if.then40.i:                                      ; preds = %if.end38.i
-  %port.i = getelementptr inbounds %"struct.url::Parsed", ptr %this, i64 0, i32 4
+  %port.i = getelementptr inbounds i8, ptr %this, i64 32
   %9 = load i32, ptr %port.i, align 8
   %sub.i = add nsw i32 %9, -1
   br label %_ZNK3url6Parsed21CountCharactersBeforeENS0_13ComponentTypeEb.exit
 
 if.end54.i:                                       ; preds = %if.end38.i
-  %len.i34.i = getelementptr inbounds %"struct.url::Parsed", ptr %this, i64 0, i32 5, i32 1
+  %len.i34.i = getelementptr inbounds i8, ptr %this, i64 44
   %10 = load i32, ptr %len.i34.i, align 4
   %cmp.i35.not.i = icmp eq i32 %10, -1
   br i1 %cmp.i35.not.i, label %if.end64.i, label %if.then56.i
 
 if.then56.i:                                      ; preds = %if.end54.i
-  %path.i = getelementptr inbounds %"struct.url::Parsed", ptr %this, i64 0, i32 5
+  %path.i = getelementptr inbounds i8, ptr %this, i64 40
   %11 = load i32, ptr %path.i, align 8
   br label %_ZNK3url6Parsed21CountCharactersBeforeENS0_13ComponentTypeEb.exit
 
 if.end64.i:                                       ; preds = %if.end54.i
-  %len.i38.i = getelementptr inbounds %"struct.url::Parsed", ptr %this, i64 0, i32 6, i32 1
+  %len.i38.i = getelementptr inbounds i8, ptr %this, i64 52
   %12 = load i32, ptr %len.i38.i, align 4
   %cmp.i39.not.i = icmp eq i32 %12, -1
   br i1 %cmp.i39.not.i, label %if.end84.i, label %if.then66.i
 
 if.then66.i:                                      ; preds = %if.end64.i
-  %query.i = getelementptr inbounds %"struct.url::Parsed", ptr %this, i64 0, i32 6
+  %query.i = getelementptr inbounds i8, ptr %this, i64 48
   %13 = load i32, ptr %query.i, align 8
   %sub75.i = add nsw i32 %13, -1
   br label %_ZNK3url6Parsed21CountCharactersBeforeENS0_13ComponentTypeEb.exit
 
 if.end84.i:                                       ; preds = %if.end64.i
-  %len.i42.i = getelementptr inbounds %"struct.url::Parsed", ptr %this, i64 0, i32 7, i32 1
+  %len.i42.i = getelementptr inbounds i8, ptr %this, i64 60
   %14 = load i32, ptr %len.i42.i, align 4
   %cmp.i43.not.i = icmp eq i32 %14, -1
   br i1 %cmp.i43.not.i, label %_ZNK3url6Parsed21CountCharactersBeforeENS0_13ComponentTypeEb.exit, label %if.then86.i
 
 if.then86.i:                                      ; preds = %if.end84.i
-  %ref.i = getelementptr inbounds %"struct.url::Parsed", ptr %this, i64 0, i32 7
+  %ref.i = getelementptr inbounds i8, ptr %this, i64 56
   %15 = load i32, ptr %ref.i, align 8
   %spec.select.i = add nsw i32 %15, -1
   br label %_ZNK3url6Parsed21CountCharactersBeforeENS0_13ComponentTypeEb.exit
 
 _ZNK3url6Parsed21CountCharactersBeforeENS0_13ComponentTypeEb.exit: ; preds = %if.then8.i, %if.then19.i, %if.then30.i, %if.then40.i, %if.then56.i, %if.then66.i, %if.end84.i, %if.then86.i
   %retval.0.i = phi i32 [ %3, %if.then8.i ], [ %5, %if.then19.i ], [ %7, %if.then30.i ], [ %sub.i, %if.then40.i ], [ %11, %if.then56.i ], [ %sub75.i, %if.then66.i ], [ %cur.0.i, %if.end84.i ], [ %spec.select.i, %if.then86.i ]
-  %len.i.i3 = getelementptr inbounds %"struct.url::Parsed", ptr %this, i64 0, i32 7, i32 1
+  %len.i.i3 = getelementptr inbounds i8, ptr %this, i64 60
   %16 = load i32, ptr %len.i.i3, align 4
   %cmp.i.not.i4 = icmp eq i32 %16, -1
   br i1 %cmp.i.not.i4, label %if.end.i, label %if.then.i
 
 if.then.i:                                        ; preds = %_ZNK3url6Parsed21CountCharactersBeforeENS0_13ComponentTypeEb.exit
-  %ref.i5 = getelementptr inbounds %"struct.url::Parsed", ptr %this, i64 0, i32 7
+  %ref.i5 = getelementptr inbounds i8, ptr %this, i64 56
   %17 = load i32, ptr %ref.i5, align 8
   %add.i.i6 = add nsw i32 %17, %16
   br label %_ZNK3url6Parsed6LengthEv.exit
@@ -603,37 +603,37 @@ if.end.i:                                         ; preds = %_ZNK3url6Parsed21Co
   %add.i21.i.i = add nuw i32 %2, 1
   %add16.i.i = add i32 %add.i21.i.i, %18
   %cur.1.i.i = select i1 %cmp.i19.not.i, i32 %cur.0.i, i32 %add16.i.i
-  %password.i.i = getelementptr inbounds %"struct.url::Parsed", ptr %this, i64 0, i32 2
-  %len.i22.i.i = getelementptr inbounds %"struct.url::Parsed", ptr %this, i64 0, i32 2, i32 1
+  %password.i.i = getelementptr inbounds i8, ptr %this, i64 16
+  %len.i22.i.i = getelementptr inbounds i8, ptr %this, i64 20
   %19 = load i32, ptr %len.i22.i.i, align 4
   %cmp.i23.not.i.i = icmp eq i32 %19, -1
   %20 = load i32, ptr %password.i.i, align 8
   %add.i25.i.i = add nuw i32 %19, 1
   %add27.i.i = add i32 %add.i25.i.i, %20
   %cur.2.i.i = select i1 %cmp.i23.not.i.i, i32 %cur.1.i.i, i32 %add27.i.i
-  %host.i.i = getelementptr inbounds %"struct.url::Parsed", ptr %this, i64 0, i32 3
-  %len.i26.i.i = getelementptr inbounds %"struct.url::Parsed", ptr %this, i64 0, i32 3, i32 1
+  %host.i.i = getelementptr inbounds i8, ptr %this, i64 24
+  %len.i26.i.i = getelementptr inbounds i8, ptr %this, i64 28
   %21 = load i32, ptr %len.i26.i.i, align 4
   %cmp.i27.not.i.i = icmp eq i32 %21, -1
   %22 = load i32, ptr %host.i.i, align 8
   %add.i29.i.i = add nsw i32 %22, %21
   %cur.3.i.i = select i1 %cmp.i27.not.i.i, i32 %cur.2.i.i, i32 %add.i29.i.i
-  %port.i.i = getelementptr inbounds %"struct.url::Parsed", ptr %this, i64 0, i32 4
-  %len.i30.i.i = getelementptr inbounds %"struct.url::Parsed", ptr %this, i64 0, i32 4, i32 1
+  %port.i.i = getelementptr inbounds i8, ptr %this, i64 32
+  %len.i30.i.i = getelementptr inbounds i8, ptr %this, i64 36
   %23 = load i32, ptr %len.i30.i.i, align 4
   %cmp.i31.not.i.i = icmp eq i32 %23, -1
   %24 = load i32, ptr %port.i.i, align 8
   %add.i33.i.i = add nsw i32 %24, %23
   %cur.4.i.i = select i1 %cmp.i31.not.i.i, i32 %cur.3.i.i, i32 %add.i33.i.i
-  %path.i.i = getelementptr inbounds %"struct.url::Parsed", ptr %this, i64 0, i32 5
-  %len.i34.i.i = getelementptr inbounds %"struct.url::Parsed", ptr %this, i64 0, i32 5, i32 1
+  %path.i.i = getelementptr inbounds i8, ptr %this, i64 40
+  %len.i34.i.i = getelementptr inbounds i8, ptr %this, i64 44
   %25 = load i32, ptr %len.i34.i.i, align 4
   %cmp.i35.not.i.i = icmp eq i32 %25, -1
   %26 = load i32, ptr %path.i.i, align 8
   %add.i37.i.i = add nsw i32 %26, %25
   %cur.5.i.i = select i1 %cmp.i35.not.i.i, i32 %cur.4.i.i, i32 %add.i37.i.i
-  %query.i.i = getelementptr inbounds %"struct.url::Parsed", ptr %this, i64 0, i32 6
-  %len.i38.i.i = getelementptr inbounds %"struct.url::Parsed", ptr %this, i64 0, i32 6, i32 1
+  %query.i.i = getelementptr inbounds i8, ptr %this, i64 48
+  %len.i38.i.i = getelementptr inbounds i8, ptr %this, i64 52
   %27 = load i32, ptr %len.i38.i.i, align 4
   %cmp.i39.not.i.i = icmp eq i32 %27, -1
   %28 = load i32, ptr %query.i.i, align 8
@@ -801,7 +801,7 @@ entry:
 
 if.then.i:                                        ; preds = %entry
   store i32 0, ptr %file_name, align 4
-  %len.i14.i = getelementptr inbounds %"struct.url::Component", ptr %file_name, i64 0, i32 1
+  %len.i14.i = getelementptr inbounds i8, ptr %file_name, i64 4
   store i32 -1, ptr %len.i14.i, align 4
   br label %_ZN3url12_GLOBAL__N_117DoExtractFileNameIcEEvPKT_RKNS_9ComponentEPS5_.exit
 
@@ -866,7 +866,7 @@ entry:
 
 if.then.i:                                        ; preds = %entry
   store i32 0, ptr %file_name, align 4
-  %len.i14.i = getelementptr inbounds %"struct.url::Component", ptr %file_name, i64 0, i32 1
+  %len.i14.i = getelementptr inbounds i8, ptr %file_name, i64 4
   store i32 -1, ptr %len.i14.i, align 4
   br label %_ZN3url12_GLOBAL__N_117DoExtractFileNameItEEvPKT_RKNS_9ComponentEPS5_.exit
 
@@ -923,7 +923,7 @@ _ZN3url12_GLOBAL__N_117DoExtractFileNameItEEvPKT_RKNS_9ComponentEPS5_.exit: ; pr
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
 define dso_local noundef zeroext i1 @_ZN3url20ExtractQueryKeyValueEPKcPNS_9ComponentES3_S3_(ptr nocapture noundef readonly %url, ptr nocapture noundef %query, ptr nocapture noundef writeonly %key, ptr nocapture noundef writeonly %value) local_unnamed_addr #5 {
 entry:
-  %len.i.i = getelementptr inbounds %"struct.url::Component", ptr %query, i64 0, i32 1
+  %len.i.i = getelementptr inbounds i8, ptr %query, i64 4
   %0 = load i32, ptr %len.i.i, align 4
   %cmp.i.i = icmp sgt i32 %0, 0
   br i1 %cmp.i.i, label %if.end.i, label %_ZN3url12_GLOBAL__N_122DoExtractQueryKeyValueIcEEbPKT_PNS_9ComponentES6_S6_.exit
@@ -956,7 +956,7 @@ land.lhs.true10.i:                                ; preds = %land.lhs.true.i, %l
   %arrayidx.i.le = getelementptr inbounds i8, ptr %url, i64 %indvars.iv.i
   %6 = trunc i64 %indvars.iv.i to i32
   %sub.i = sub nsw i32 %6, %1
-  %len.i = getelementptr inbounds %"struct.url::Component", ptr %key, i64 0, i32 1
+  %len.i = getelementptr inbounds i8, ptr %key, i64 4
   store i32 %sub.i, ptr %len.i, align 4
   %7 = load i8, ptr %arrayidx.i.le, align 1
   %cmp14.i = icmp eq i8 %7, 61
@@ -967,7 +967,7 @@ land.lhs.true10.i:                                ; preds = %land.lhs.true.i, %l
 if.end17.critedge.i:                              ; preds = %while.body.i
   %8 = trunc i64 %smax to i32
   %sub.c.i = sub nsw i32 %8, %1
-  %len.c.i = getelementptr inbounds %"struct.url::Component", ptr %key, i64 0, i32 1
+  %len.c.i = getelementptr inbounds i8, ptr %key, i64 4
   store i32 %sub.c.i, ptr %len.c.i, align 4
   br label %if.end17.i
 
@@ -998,7 +998,7 @@ land.lhs.true34.i:                                ; preds = %land.rhs21.i
   %arrayidx23.i.le = getelementptr inbounds i8, ptr %url, i64 %indvars.iv45.i
   %11 = trunc i64 %indvars.iv45.i to i32
   %sub31.i = sub nsw i32 %11, %cur.1.i
-  %len32.i = getelementptr inbounds %"struct.url::Component", ptr %value, i64 0, i32 1
+  %len32.i = getelementptr inbounds i8, ptr %value, i64 4
   store i32 %sub31.i, ptr %len32.i, align 4
   %12 = load i8, ptr %arrayidx23.i.le, align 1
   %cmp38.i = icmp eq i8 %12, 38
@@ -1009,7 +1009,7 @@ land.lhs.true34.i:                                ; preds = %land.rhs21.i
 if.end41.critedge.i:                              ; preds = %while.body27.i, %if.end17.i
   %cur.2.lcssa.i = phi i32 [ %cur.1.i, %if.end17.i ], [ %add.i.i, %while.body27.i ]
   %sub31.c.i = sub nsw i32 %cur.2.lcssa.i, %cur.1.i
-  %len32.c.i = getelementptr inbounds %"struct.url::Component", ptr %value, i64 0, i32 1
+  %len32.c.i = getelementptr inbounds i8, ptr %value, i64 4
   store i32 %sub31.c.i, ptr %len32.c.i, align 4
   br label %if.end41.i
 
@@ -1030,7 +1030,7 @@ _ZN3url12_GLOBAL__N_122DoExtractQueryKeyValueIcEEbPKT_PNS_9ComponentES6_S6_.exit
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
 define dso_local noundef zeroext i1 @_ZN3url20ExtractQueryKeyValueEPKtPNS_9ComponentES3_S3_(ptr nocapture noundef readonly %url, ptr nocapture noundef %query, ptr nocapture noundef writeonly %key, ptr nocapture noundef writeonly %value) local_unnamed_addr #5 {
 entry:
-  %len.i.i = getelementptr inbounds %"struct.url::Component", ptr %query, i64 0, i32 1
+  %len.i.i = getelementptr inbounds i8, ptr %query, i64 4
   %0 = load i32, ptr %len.i.i, align 4
   %cmp.i.i = icmp sgt i32 %0, 0
   br i1 %cmp.i.i, label %if.end.i, label %_ZN3url12_GLOBAL__N_122DoExtractQueryKeyValueItEEbPKT_PNS_9ComponentES6_S6_.exit
@@ -1063,7 +1063,7 @@ land.lhs.true10.i:                                ; preds = %land.lhs.true.i, %l
   %arrayidx.i.le = getelementptr inbounds i16, ptr %url, i64 %indvars.iv.i
   %6 = trunc i64 %indvars.iv.i to i32
   %sub.i = sub nsw i32 %6, %1
-  %len.i = getelementptr inbounds %"struct.url::Component", ptr %key, i64 0, i32 1
+  %len.i = getelementptr inbounds i8, ptr %key, i64 4
   store i32 %sub.i, ptr %len.i, align 4
   %7 = load i16, ptr %arrayidx.i.le, align 2
   %cmp14.i = icmp eq i16 %7, 61
@@ -1074,7 +1074,7 @@ land.lhs.true10.i:                                ; preds = %land.lhs.true.i, %l
 if.end17.critedge.i:                              ; preds = %while.body.i
   %8 = trunc i64 %smax to i32
   %sub.c.i = sub nsw i32 %8, %1
-  %len.c.i = getelementptr inbounds %"struct.url::Component", ptr %key, i64 0, i32 1
+  %len.c.i = getelementptr inbounds i8, ptr %key, i64 4
   store i32 %sub.c.i, ptr %len.c.i, align 4
   br label %if.end17.i
 
@@ -1105,7 +1105,7 @@ land.lhs.true34.i:                                ; preds = %land.rhs21.i
   %arrayidx23.i.le = getelementptr inbounds i16, ptr %url, i64 %indvars.iv45.i
   %11 = trunc i64 %indvars.iv45.i to i32
   %sub31.i = sub nsw i32 %11, %cur.1.i
-  %len32.i = getelementptr inbounds %"struct.url::Component", ptr %value, i64 0, i32 1
+  %len32.i = getelementptr inbounds i8, ptr %value, i64 4
   store i32 %sub31.i, ptr %len32.i, align 4
   %12 = load i16, ptr %arrayidx23.i.le, align 2
   %cmp38.i = icmp eq i16 %12, 38
@@ -1116,7 +1116,7 @@ land.lhs.true34.i:                                ; preds = %land.rhs21.i
 if.end41.critedge.i:                              ; preds = %while.body27.i, %if.end17.i
   %cur.2.lcssa.i = phi i32 [ %cur.1.i, %if.end17.i ], [ %add.i.i, %while.body27.i ]
   %sub31.c.i = sub nsw i32 %cur.2.lcssa.i, %cur.1.i
-  %len32.c.i = getelementptr inbounds %"struct.url::Component", ptr %value, i64 0, i32 1
+  %len32.c.i = getelementptr inbounds i8, ptr %value, i64 4
   store i32 %sub31.c.i, ptr %len32.c.i, align 4
   br label %if.end41.i
 
@@ -1144,23 +1144,23 @@ entry:
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
 define internal fastcc void @_ZN3url12_GLOBAL__N_116DoParseAuthorityIcEEvPKT_RKNS_9ComponentEPS5_S8_S8_S8_(ptr nocapture noundef readonly %spec, ptr nocapture noundef nonnull readonly align 4 dereferenceable(8) %auth, ptr nocapture noundef writeonly %username, ptr nocapture noundef writeonly %password, ptr nocapture noundef writeonly %hostname, ptr nocapture noundef writeonly %port_num) unnamed_addr #5 {
 entry:
-  %len = getelementptr inbounds %"struct.url::Component", ptr %auth, i64 0, i32 1
+  %len = getelementptr inbounds i8, ptr %auth, i64 4
   %0 = load i32, ptr %len, align 4
   %cmp = icmp eq i32 %0, 0
   br i1 %cmp, label %if.then, label %if.end
 
 if.then:                                          ; preds = %entry
   store i32 0, ptr %username, align 4
-  %len.i = getelementptr inbounds %"struct.url::Component", ptr %username, i64 0, i32 1
+  %len.i = getelementptr inbounds i8, ptr %username, i64 4
   store i32 -1, ptr %len.i, align 4
   store i32 0, ptr %password, align 4
-  %len.i26 = getelementptr inbounds %"struct.url::Component", ptr %password, i64 0, i32 1
+  %len.i26 = getelementptr inbounds i8, ptr %password, i64 4
   store i32 -1, ptr %len.i26, align 4
   store i32 0, ptr %hostname, align 4
-  %len.i27 = getelementptr inbounds %"struct.url::Component", ptr %hostname, i64 0, i32 1
+  %len.i27 = getelementptr inbounds i8, ptr %hostname, i64 4
   store i32 -1, ptr %len.i27, align 4
   store i32 0, ptr %port_num, align 4
-  %len.i28 = getelementptr inbounds %"struct.url::Component", ptr %port_num, i64 0, i32 1
+  %len.i28 = getelementptr inbounds i8, ptr %port_num, i64 4
   store i32 -1, ptr %len.i28, align 4
   br label %if.end18
 
@@ -1256,10 +1256,10 @@ _ZN3url12_GLOBAL__N_113ParseUserInfoIcEEvPKT_RKNS_9ComponentEPS5_S8_.exit: ; pre
 
 if.then.i40:                                      ; preds = %_ZN3url12_GLOBAL__N_113ParseUserInfoIcEEvPKT_RKNS_9ComponentEPS5_S8_.exit
   store i32 0, ptr %hostname, align 4
-  %len.i.i = getelementptr inbounds %"struct.url::Component", ptr %hostname, i64 0, i32 1
+  %len.i.i = getelementptr inbounds i8, ptr %hostname, i64 4
   store i32 -1, ptr %len.i.i, align 4
   store i32 0, ptr %port_num, align 4
-  %len.i21.i = getelementptr inbounds %"struct.url::Component", ptr %port_num, i64 0, i32 1
+  %len.i21.i = getelementptr inbounds i8, ptr %port_num, i64 4
   store i32 -1, ptr %len.i21.i, align 4
   br label %if.end18
 
@@ -1320,7 +1320,7 @@ if.then10.i:                                      ; preds = %for.end.i
   br i1 %cmp14.i, label %if.then15.i, label %if.end16.i
 
 if.then15.i:                                      ; preds = %if.then10.i
-  %len13.i = getelementptr inbounds %"struct.url::Component", ptr %hostname, i64 0, i32 1
+  %len13.i = getelementptr inbounds i8, ptr %hostname, i64 4
   store i32 0, ptr %hostname, align 4
   store i32 -1, ptr %len13.i, align 4
   br label %if.end16.i
@@ -1341,16 +1341,16 @@ if.else.i32:                                      ; preds = %for.end.i
   %ref.tmp13.sroa.0.0.insert.insert = or disjoint i64 %retval.sroa.2.0.insert.shift.i, %ref.tmp13.sroa.0.0.insert.ext
   store i64 %ref.tmp13.sroa.0.0.insert.insert, ptr %hostname, align 4
   store i32 0, ptr %port_num, align 4
-  %len.i33.i = getelementptr inbounds %"struct.url::Component", ptr %port_num, i64 0, i32 1
+  %len.i33.i = getelementptr inbounds i8, ptr %port_num, i64 4
   store i32 -1, ptr %len.i33.i, align 4
   br label %if.end18
 
 if.else:                                          ; preds = %while.end
   store i32 0, ptr %username, align 4
-  %len.i41 = getelementptr inbounds %"struct.url::Component", ptr %username, i64 0, i32 1
+  %len.i41 = getelementptr inbounds i8, ptr %username, i64 4
   store i32 -1, ptr %len.i41, align 4
   store i32 0, ptr %password, align 4
-  %len.i42 = getelementptr inbounds %"struct.url::Component", ptr %password, i64 0, i32 1
+  %len.i42 = getelementptr inbounds i8, ptr %password, i64 4
   store i32 -1, ptr %len.i42, align 4
   %17 = load i32, ptr %len, align 4
   %cmp.i44 = icmp eq i32 %17, 0
@@ -1358,10 +1358,10 @@ if.else:                                          ; preds = %while.end
 
 if.then.i89:                                      ; preds = %if.else
   store i32 0, ptr %hostname, align 4
-  %len.i.i90 = getelementptr inbounds %"struct.url::Component", ptr %hostname, i64 0, i32 1
+  %len.i.i90 = getelementptr inbounds i8, ptr %hostname, i64 4
   store i32 -1, ptr %len.i.i90, align 4
   store i32 0, ptr %port_num, align 4
-  %len.i21.i91 = getelementptr inbounds %"struct.url::Component", ptr %port_num, i64 0, i32 1
+  %len.i21.i91 = getelementptr inbounds i8, ptr %port_num, i64 4
   store i32 -1, ptr %len.i21.i91, align 4
   br label %if.end18
 
@@ -1423,7 +1423,7 @@ if.then10.i58:                                    ; preds = %for.end.i52
   br i1 %cmp14.i64, label %if.then15.i74, label %if.end16.i65
 
 if.then15.i74:                                    ; preds = %if.then10.i58
-  %len13.i75 = getelementptr inbounds %"struct.url::Component", ptr %hostname, i64 0, i32 1
+  %len13.i75 = getelementptr inbounds i8, ptr %hostname, i64 4
   store i32 0, ptr %hostname, align 4
   store i32 -1, ptr %len13.i75, align 4
   br label %if.end16.i65
@@ -1446,7 +1446,7 @@ if.else.i56:                                      ; preds = %for.end.i52
   %26 = load i64, ptr %auth, align 4
   store i64 %26, ptr %hostname, align 4
   store i32 0, ptr %port_num, align 4
-  %len.i33.i57 = getelementptr inbounds %"struct.url::Component", ptr %port_num, i64 0, i32 1
+  %len.i33.i57 = getelementptr inbounds i8, ptr %port_num, i64 4
   store i32 -1, ptr %len.i33.i57, align 4
   br label %if.end18
 
@@ -1464,23 +1464,23 @@ entry:
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
 define internal fastcc void @_ZN3url12_GLOBAL__N_116DoParseAuthorityItEEvPKT_RKNS_9ComponentEPS5_S8_S8_S8_(ptr nocapture noundef readonly %spec, ptr nocapture noundef nonnull readonly align 4 dereferenceable(8) %auth, ptr nocapture noundef writeonly %username, ptr nocapture noundef writeonly %password, ptr nocapture noundef writeonly %hostname, ptr nocapture noundef writeonly %port_num) unnamed_addr #5 {
 entry:
-  %len = getelementptr inbounds %"struct.url::Component", ptr %auth, i64 0, i32 1
+  %len = getelementptr inbounds i8, ptr %auth, i64 4
   %0 = load i32, ptr %len, align 4
   %cmp = icmp eq i32 %0, 0
   br i1 %cmp, label %if.then, label %if.end
 
 if.then:                                          ; preds = %entry
   store i32 0, ptr %username, align 4
-  %len.i = getelementptr inbounds %"struct.url::Component", ptr %username, i64 0, i32 1
+  %len.i = getelementptr inbounds i8, ptr %username, i64 4
   store i32 -1, ptr %len.i, align 4
   store i32 0, ptr %password, align 4
-  %len.i26 = getelementptr inbounds %"struct.url::Component", ptr %password, i64 0, i32 1
+  %len.i26 = getelementptr inbounds i8, ptr %password, i64 4
   store i32 -1, ptr %len.i26, align 4
   store i32 0, ptr %hostname, align 4
-  %len.i27 = getelementptr inbounds %"struct.url::Component", ptr %hostname, i64 0, i32 1
+  %len.i27 = getelementptr inbounds i8, ptr %hostname, i64 4
   store i32 -1, ptr %len.i27, align 4
   store i32 0, ptr %port_num, align 4
-  %len.i28 = getelementptr inbounds %"struct.url::Component", ptr %port_num, i64 0, i32 1
+  %len.i28 = getelementptr inbounds i8, ptr %port_num, i64 4
   store i32 -1, ptr %len.i28, align 4
   br label %if.end18
 
@@ -1576,10 +1576,10 @@ _ZN3url12_GLOBAL__N_113ParseUserInfoItEEvPKT_RKNS_9ComponentEPS5_S8_.exit: ; pre
 
 if.then.i40:                                      ; preds = %_ZN3url12_GLOBAL__N_113ParseUserInfoItEEvPKT_RKNS_9ComponentEPS5_S8_.exit
   store i32 0, ptr %hostname, align 4
-  %len.i.i = getelementptr inbounds %"struct.url::Component", ptr %hostname, i64 0, i32 1
+  %len.i.i = getelementptr inbounds i8, ptr %hostname, i64 4
   store i32 -1, ptr %len.i.i, align 4
   store i32 0, ptr %port_num, align 4
-  %len.i21.i = getelementptr inbounds %"struct.url::Component", ptr %port_num, i64 0, i32 1
+  %len.i21.i = getelementptr inbounds i8, ptr %port_num, i64 4
   store i32 -1, ptr %len.i21.i, align 4
   br label %if.end18
 
@@ -1640,7 +1640,7 @@ if.then10.i:                                      ; preds = %for.end.i
   br i1 %cmp14.i, label %if.then15.i, label %if.end16.i
 
 if.then15.i:                                      ; preds = %if.then10.i
-  %len13.i = getelementptr inbounds %"struct.url::Component", ptr %hostname, i64 0, i32 1
+  %len13.i = getelementptr inbounds i8, ptr %hostname, i64 4
   store i32 0, ptr %hostname, align 4
   store i32 -1, ptr %len13.i, align 4
   br label %if.end16.i
@@ -1661,16 +1661,16 @@ if.else.i32:                                      ; preds = %for.end.i
   %ref.tmp13.sroa.0.0.insert.insert = or disjoint i64 %retval.sroa.2.0.insert.shift.i, %ref.tmp13.sroa.0.0.insert.ext
   store i64 %ref.tmp13.sroa.0.0.insert.insert, ptr %hostname, align 4
   store i32 0, ptr %port_num, align 4
-  %len.i33.i = getelementptr inbounds %"struct.url::Component", ptr %port_num, i64 0, i32 1
+  %len.i33.i = getelementptr inbounds i8, ptr %port_num, i64 4
   store i32 -1, ptr %len.i33.i, align 4
   br label %if.end18
 
 if.else:                                          ; preds = %while.end
   store i32 0, ptr %username, align 4
-  %len.i41 = getelementptr inbounds %"struct.url::Component", ptr %username, i64 0, i32 1
+  %len.i41 = getelementptr inbounds i8, ptr %username, i64 4
   store i32 -1, ptr %len.i41, align 4
   store i32 0, ptr %password, align 4
-  %len.i42 = getelementptr inbounds %"struct.url::Component", ptr %password, i64 0, i32 1
+  %len.i42 = getelementptr inbounds i8, ptr %password, i64 4
   store i32 -1, ptr %len.i42, align 4
   %17 = load i32, ptr %len, align 4
   %cmp.i44 = icmp eq i32 %17, 0
@@ -1678,10 +1678,10 @@ if.else:                                          ; preds = %while.end
 
 if.then.i89:                                      ; preds = %if.else
   store i32 0, ptr %hostname, align 4
-  %len.i.i90 = getelementptr inbounds %"struct.url::Component", ptr %hostname, i64 0, i32 1
+  %len.i.i90 = getelementptr inbounds i8, ptr %hostname, i64 4
   store i32 -1, ptr %len.i.i90, align 4
   store i32 0, ptr %port_num, align 4
-  %len.i21.i91 = getelementptr inbounds %"struct.url::Component", ptr %port_num, i64 0, i32 1
+  %len.i21.i91 = getelementptr inbounds i8, ptr %port_num, i64 4
   store i32 -1, ptr %len.i21.i91, align 4
   br label %if.end18
 
@@ -1743,7 +1743,7 @@ if.then10.i58:                                    ; preds = %for.end.i52
   br i1 %cmp14.i64, label %if.then15.i74, label %if.end16.i65
 
 if.then15.i74:                                    ; preds = %if.then10.i58
-  %len13.i75 = getelementptr inbounds %"struct.url::Component", ptr %hostname, i64 0, i32 1
+  %len13.i75 = getelementptr inbounds i8, ptr %hostname, i64 4
   store i32 0, ptr %hostname, align 4
   store i32 -1, ptr %len13.i75, align 4
   br label %if.end16.i65
@@ -1766,7 +1766,7 @@ if.else.i56:                                      ; preds = %for.end.i52
   %26 = load i64, ptr %auth, align 4
   store i64 %26, ptr %hostname, align 4
   store i32 0, ptr %port_num, align 4
-  %len.i33.i57 = getelementptr inbounds %"struct.url::Component", ptr %port_num, i64 0, i32 1
+  %len.i33.i57 = getelementptr inbounds i8, ptr %port_num, i64 4
   store i32 -1, ptr %len.i33.i57, align 4
   br label %if.end18
 
@@ -2061,7 +2061,7 @@ if.else.i:                                        ; preds = %while.body.i13.i, %
   %spec_len.addr.131.ph.i = phi i32 [ %spec_len.addr.130.i, %while.end.i6.i ], [ %spec_len.addr.130.i, %for.inc.i.i ], [ %spec_len.addr.1.i, %while.body.i13.i ]
   %begin.12428.ph.i = phi i32 [ %begin.12429.i, %while.end.i6.i ], [ %begin.12429.i, %for.inc.i.i ], [ %begin.157.i, %while.body.i13.i ]
   store i32 0, ptr %parsed, align 4
-  %len.i15.i = getelementptr inbounds %"struct.url::Component", ptr %parsed, i64 0, i32 1
+  %len.i15.i = getelementptr inbounds i8, ptr %parsed, i64 4
   store i32 -1, ptr %len.i15.i, align 4
   br label %_ZN3url12_GLOBAL__N_118DoParseStandardURLIcEEvPKT_iPNS_6ParsedE.exit
 
@@ -2201,7 +2201,7 @@ if.else:                                          ; preds = %while.body.i13, %fo
   %spec_len.addr.131.ph = phi i32 [ %spec_len.addr.130, %while.end.i6 ], [ %spec_len.addr.130, %for.inc.i ], [ %spec_len.addr.1, %while.body.i13 ]
   %begin.12428.ph = phi i32 [ %begin.12429, %while.end.i6 ], [ %begin.12429, %for.inc.i ], [ %begin.157, %while.body.i13 ]
   store i32 0, ptr %parsed, align 4
-  %len.i15 = getelementptr inbounds %"struct.url::Component", ptr %parsed, i64 0, i32 1
+  %len.i15 = getelementptr inbounds i8, ptr %parsed, i64 4
   store i32 -1, ptr %len.i15, align 4
   br label %if.end
 
@@ -2246,7 +2246,7 @@ while.end.i.loopexit.i:                           ; preds = %land.rhs.i.i
 
 while.end.i.i:                                    ; preds = %while.end.i.loopexit.i, %land.rhs.i.preheader.i
   %begin.1.i = phi i32 [ 0, %land.rhs.i.preheader.i ], [ %4, %while.end.i.loopexit.i ]
-  %invariant.gep.i.i = getelementptr i16, ptr %url, i64 -1
+  %invariant.gep.i.i = getelementptr i8, ptr %url, i64 -2
   %cmp211.i.i = icmp slt i32 %begin.1.i, %url_len
   br i1 %cmp211.i.i, label %land.rhs3.preheader.i.i, label %_ZN3url7TrimURLItEEvPKT_PiS4_b.exit.i
 
@@ -2341,7 +2341,7 @@ if.else.i:                                        ; preds = %while.body.i13.i, %
   %spec_len.addr.131.ph.i = phi i32 [ %spec_len.addr.130.i, %while.end.i6.i ], [ %spec_len.addr.130.i, %for.inc.i.i ], [ %spec_len.addr.1.i, %while.body.i13.i ]
   %begin.12428.ph.i = phi i32 [ %begin.12429.i, %while.end.i6.i ], [ %begin.12429.i, %for.inc.i.i ], [ %begin.157.i, %while.body.i13.i ]
   store i32 0, ptr %parsed, align 4
-  %len.i15.i = getelementptr inbounds %"struct.url::Component", ptr %parsed, i64 0, i32 1
+  %len.i15.i = getelementptr inbounds i8, ptr %parsed, i64 4
   store i32 -1, ptr %len.i15.i, align 4
   br label %_ZN3url12_GLOBAL__N_118DoParseStandardURLItEEvPKT_iPNS_6ParsedE.exit
 
@@ -2386,7 +2386,7 @@ while.end.i.loopexit:                             ; preds = %land.rhs.i
 
 while.end.i:                                      ; preds = %while.end.i.loopexit, %land.rhs.i.preheader
   %begin.1 = phi i32 [ 0, %land.rhs.i.preheader ], [ %4, %while.end.i.loopexit ]
-  %invariant.gep.i = getelementptr i16, ptr %spec, i64 -1
+  %invariant.gep.i = getelementptr i8, ptr %spec, i64 -2
   %cmp211.i = icmp slt i32 %begin.1, %spec_len
   br i1 %cmp211.i, label %land.rhs3.preheader.i, label %_ZN3url7TrimURLItEEvPKT_PiS4_b.exit
 
@@ -2481,7 +2481,7 @@ if.else:                                          ; preds = %while.body.i13, %fo
   %spec_len.addr.131.ph = phi i32 [ %spec_len.addr.130, %while.end.i6 ], [ %spec_len.addr.130, %for.inc.i ], [ %spec_len.addr.1, %while.body.i13 ]
   %begin.12428.ph = phi i32 [ %begin.12429, %while.end.i6 ], [ %begin.12429, %for.inc.i ], [ %begin.157, %while.body.i13 ]
   store i32 0, ptr %parsed, align 4
-  %len.i15 = getelementptr inbounds %"struct.url::Component", ptr %parsed, i64 0, i32 1
+  %len.i15 = getelementptr inbounds i8, ptr %parsed, i64 4
   store i32 -1, ptr %len.i15, align 4
   br label %if.end
 
@@ -2495,18 +2495,18 @@ if.end:                                           ; preds = %if.else, %if.then
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
 define dso_local void @_ZN3url12ParsePathURLEPKcibPNS_6ParsedE(ptr nocapture noundef readonly %url, i32 noundef %url_len, i1 noundef zeroext %trim_path_end, ptr nocapture noundef writeonly %parsed) local_unnamed_addr #5 personality ptr @__gxx_personality_v0 {
 entry:
-  %username.i = getelementptr inbounds %"struct.url::Parsed", ptr %parsed, i64 0, i32 1
+  %username.i = getelementptr inbounds i8, ptr %parsed, i64 8
   store <4 x i32> <i32 0, i32 -1, i32 0, i32 -1>, ptr %username.i, align 4
-  %host.i = getelementptr inbounds %"struct.url::Parsed", ptr %parsed, i64 0, i32 3
+  %host.i = getelementptr inbounds i8, ptr %parsed, i64 24
   store <4 x i32> <i32 0, i32 -1, i32 0, i32 -1>, ptr %host.i, align 4
-  %path.i = getelementptr inbounds %"struct.url::Parsed", ptr %parsed, i64 0, i32 5
-  %len.i23.i = getelementptr inbounds %"struct.url::Parsed", ptr %parsed, i64 0, i32 5, i32 1
-  %query.i = getelementptr inbounds %"struct.url::Parsed", ptr %parsed, i64 0, i32 6
-  %len.i24.i = getelementptr inbounds %"struct.url::Parsed", ptr %parsed, i64 0, i32 6, i32 1
+  %path.i = getelementptr inbounds i8, ptr %parsed, i64 40
+  %len.i23.i = getelementptr inbounds i8, ptr %parsed, i64 44
+  %query.i = getelementptr inbounds i8, ptr %parsed, i64 48
+  %len.i24.i = getelementptr inbounds i8, ptr %parsed, i64 52
   store <4 x i32> <i32 0, i32 -1, i32 0, i32 -1>, ptr %path.i, align 4
-  %ref.i = getelementptr inbounds %"struct.url::Parsed", ptr %parsed, i64 0, i32 7
+  %ref.i = getelementptr inbounds i8, ptr %parsed, i64 56
   store i32 0, ptr %ref.i, align 4
-  %len.i25.i = getelementptr inbounds %"struct.url::Parsed", ptr %parsed, i64 0, i32 7, i32 1
+  %len.i25.i = getelementptr inbounds i8, ptr %parsed, i64 60
   store i32 -1, ptr %len.i25.i, align 4
   %cmp10.i.i = icmp sgt i32 %url_len, 0
   br i1 %cmp10.i.i, label %land.rhs.i.preheader.i, label %while.end.i.i
@@ -2580,7 +2580,7 @@ _ZN3url7TrimURLIcEEvPKT_PiS4_b.exit.i:            ; preds = %while.body9.i.i, %_
 
 if.then.i:                                        ; preds = %_ZN3url7TrimURLIcEEvPKT_PiS4_b.exit.i
   store i32 0, ptr %parsed, align 4
-  %len.i26.i = getelementptr inbounds %"struct.url::Component", ptr %parsed, i64 0, i32 1
+  %len.i26.i = getelementptr inbounds i8, ptr %parsed, i64 4
   store i32 -1, ptr %len.i26.i, align 4
   store i32 0, ptr %path.i, align 4
   store i32 -1, ptr %len.i23.i, align 4
@@ -2650,7 +2650,7 @@ if.then3.i:                                       ; preds = %for.body.i.i.i
 
 if.else.i:                                        ; preds = %while.body.i.i.i, %for.inc.i.i.i, %while.end.i.i.i
   store i32 0, ptr %parsed, align 4
-  %len.i29.i = getelementptr inbounds %"struct.url::Component", ptr %parsed, i64 0, i32 1
+  %len.i29.i = getelementptr inbounds i8, ptr %parsed, i64 4
   store i32 -1, ptr %len.i29.i, align 4
   br label %if.end9.i
 
@@ -2778,18 +2778,18 @@ _ZN3url12_GLOBAL__N_114DoParsePathURLIcEEvPKT_ibPNS_6ParsedE.exit: ; preds = %if
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
 define dso_local void @_ZN3url12ParsePathURLEPKtibPNS_6ParsedE(ptr nocapture noundef readonly %url, i32 noundef %url_len, i1 noundef zeroext %trim_path_end, ptr nocapture noundef writeonly %parsed) local_unnamed_addr #5 {
 entry:
-  %username.i = getelementptr inbounds %"struct.url::Parsed", ptr %parsed, i64 0, i32 1
+  %username.i = getelementptr inbounds i8, ptr %parsed, i64 8
   store <4 x i32> <i32 0, i32 -1, i32 0, i32 -1>, ptr %username.i, align 4
-  %host.i = getelementptr inbounds %"struct.url::Parsed", ptr %parsed, i64 0, i32 3
+  %host.i = getelementptr inbounds i8, ptr %parsed, i64 24
   store <4 x i32> <i32 0, i32 -1, i32 0, i32 -1>, ptr %host.i, align 4
-  %path.i = getelementptr inbounds %"struct.url::Parsed", ptr %parsed, i64 0, i32 5
-  %len.i23.i = getelementptr inbounds %"struct.url::Parsed", ptr %parsed, i64 0, i32 5, i32 1
-  %query.i = getelementptr inbounds %"struct.url::Parsed", ptr %parsed, i64 0, i32 6
-  %len.i24.i = getelementptr inbounds %"struct.url::Parsed", ptr %parsed, i64 0, i32 6, i32 1
+  %path.i = getelementptr inbounds i8, ptr %parsed, i64 40
+  %len.i23.i = getelementptr inbounds i8, ptr %parsed, i64 44
+  %query.i = getelementptr inbounds i8, ptr %parsed, i64 48
+  %len.i24.i = getelementptr inbounds i8, ptr %parsed, i64 52
   store <4 x i32> <i32 0, i32 -1, i32 0, i32 -1>, ptr %path.i, align 4
-  %ref.i = getelementptr inbounds %"struct.url::Parsed", ptr %parsed, i64 0, i32 7
+  %ref.i = getelementptr inbounds i8, ptr %parsed, i64 56
   store i32 0, ptr %ref.i, align 4
-  %len.i25.i = getelementptr inbounds %"struct.url::Parsed", ptr %parsed, i64 0, i32 7, i32 1
+  %len.i25.i = getelementptr inbounds i8, ptr %parsed, i64 60
   store i32 -1, ptr %len.i25.i, align 4
   %cmp10.i.i = icmp sgt i32 %url_len, 0
   br i1 %cmp10.i.i, label %land.rhs.i.preheader.i, label %while.end.i.i
@@ -2825,7 +2825,7 @@ while.end.i.i:                                    ; preds = %while.body.i.i, %wh
   br i1 %trim_path_end, label %while.cond1.preheader.i.i, label %_ZN3url7TrimURLItEEvPKT_PiS4_b.exit.i
 
 while.cond1.preheader.i.i:                        ; preds = %while.end.i.i
-  %invariant.gep.i.i = getelementptr i16, ptr %url, i64 -1
+  %invariant.gep.i.i = getelementptr i8, ptr %url, i64 -2
   %cmp211.i.i = icmp slt i32 %scheme_begin.1.i, %url_len
   br i1 %cmp211.i.i, label %land.rhs3.preheader.i.i, label %_ZN3url7TrimURLItEEvPKT_PiS4_b.exit.i
 
@@ -2863,7 +2863,7 @@ _ZN3url7TrimURLItEEvPKT_PiS4_b.exit.i:            ; preds = %while.body8.i.i, %_
 
 if.then.i:                                        ; preds = %_ZN3url7TrimURLItEEvPKT_PiS4_b.exit.i
   store i32 0, ptr %parsed, align 4
-  %len.i26.i = getelementptr inbounds %"struct.url::Component", ptr %parsed, i64 0, i32 1
+  %len.i26.i = getelementptr inbounds i8, ptr %parsed, i64 4
   store i32 -1, ptr %len.i26.i, align 4
   store i32 0, ptr %path.i, align 4
   store i32 -1, ptr %len.i23.i, align 4
@@ -2933,7 +2933,7 @@ if.then3.i:                                       ; preds = %for.body.i.i.i
 
 if.else.i:                                        ; preds = %while.body.i.i.i, %for.inc.i.i.i, %while.end.i.i.i
   store i32 0, ptr %parsed, align 4
-  %len.i29.i = getelementptr inbounds %"struct.url::Component", ptr %parsed, i64 0, i32 1
+  %len.i29.i = getelementptr inbounds i8, ptr %parsed, i64 4
   store i32 -1, ptr %len.i29.i, align 4
   br label %if.end9.i
 
@@ -3065,19 +3065,19 @@ entry:
   %inner_parsed.i = alloca %"struct.url::Parsed", align 16
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %inner_scheme.i)
   call void @llvm.lifetime.start.p0(i64 72, ptr nonnull %inner_parsed.i)
-  %username.i = getelementptr inbounds %"struct.url::Parsed", ptr %parsed, i64 0, i32 1
+  %username.i = getelementptr inbounds i8, ptr %parsed, i64 8
   store <4 x i32> <i32 0, i32 -1, i32 0, i32 -1>, ptr %username.i, align 4
-  %host.i = getelementptr inbounds %"struct.url::Parsed", ptr %parsed, i64 0, i32 3
+  %host.i = getelementptr inbounds i8, ptr %parsed, i64 24
   store <4 x i32> <i32 0, i32 -1, i32 0, i32 -1>, ptr %host.i, align 4
-  %path.i = getelementptr inbounds %"struct.url::Parsed", ptr %parsed, i64 0, i32 5
-  %len.i50.i = getelementptr inbounds %"struct.url::Parsed", ptr %parsed, i64 0, i32 5, i32 1
-  %ref.i = getelementptr inbounds %"struct.url::Parsed", ptr %parsed, i64 0, i32 7
+  %path.i = getelementptr inbounds i8, ptr %parsed, i64 40
+  %len.i50.i = getelementptr inbounds i8, ptr %parsed, i64 44
+  %ref.i = getelementptr inbounds i8, ptr %parsed, i64 56
   store i32 0, ptr %ref.i, align 4
-  %len.i51.i = getelementptr inbounds %"struct.url::Parsed", ptr %parsed, i64 0, i32 7, i32 1
+  %len.i51.i = getelementptr inbounds i8, ptr %parsed, i64 60
   store i32 -1, ptr %len.i51.i, align 4
-  %query.i = getelementptr inbounds %"struct.url::Parsed", ptr %parsed, i64 0, i32 6
+  %query.i = getelementptr inbounds i8, ptr %parsed, i64 48
   store <4 x i32> <i32 0, i32 -1, i32 0, i32 -1>, ptr %path.i, align 4
-  %inner_parsed_.i.i = getelementptr inbounds %"struct.url::Parsed", ptr %parsed, i64 0, i32 8
+  %inner_parsed_.i.i = getelementptr inbounds i8, ptr %parsed, i64 64
   %0 = load ptr, ptr %inner_parsed_.i.i, align 8
   %tobool.not.i.i = icmp eq ptr %0, null
   br i1 %tobool.not.i.i, label %_ZN3url6Parsed18clear_inner_parsedEv.exit.i, label %delete.notnull.i.i
@@ -3159,7 +3159,7 @@ _ZN3url7TrimURLIcEEvPKT_PiS4_b.exit.i:            ; preds = %_ZN3url7TrimURLIcEE
 
 if.then.i:                                        ; preds = %while.body.i.i, %while.body9.i.i, %_ZN3url7TrimURLIcEEvPKT_PiS4_b.exit.i
   store i32 0, ptr %parsed, align 4
-  %len.i53.i = getelementptr inbounds %"struct.url::Component", ptr %parsed, i64 0, i32 1
+  %len.i53.i = getelementptr inbounds i8, ptr %parsed, i64 4
   store i32 -1, ptr %len.i53.i, align 4
   br label %_ZN3url12_GLOBAL__N_120DoParseFileSystemURLIcEEvPKT_iPNS_6ParsedE.exit
 
@@ -3278,7 +3278,7 @@ for.inc.i77.i:                                    ; preds = %for.body.i73.i
 
 if.else.i:                                        ; preds = %while.body.i61.i, %for.inc.i.i, %while.end.i54.i
   store i32 0, ptr %parsed, align 4
-  %len.i96.i = getelementptr inbounds %"struct.url::Component", ptr %parsed, i64 0, i32 1
+  %len.i96.i = getelementptr inbounds i8, ptr %parsed, i64 4
   store i32 -1, ptr %len.i96.i, align 4
   br label %_ZN3url12_GLOBAL__N_120DoParseFileSystemURLIcEEvPKT_iPNS_6ParsedE.exit
 
@@ -3296,20 +3296,20 @@ if.then20.i:                                      ; preds = %for.body.i73.i
   br i1 %cmp25.i, label %_ZN3url12_GLOBAL__N_120DoParseFileSystemURLIcEEvPKT_iPNS_6ParsedE.exit, label %if.end29.i
 
 if.end29.i:                                       ; preds = %if.then20.i
-  %len.i.i.i = getelementptr inbounds %"struct.url::Component", ptr %inner_parsed.i, i64 0, i32 1
-  %username.i.i = getelementptr inbounds %"struct.url::Parsed", ptr %inner_parsed.i, i64 0, i32 1
+  %len.i.i.i = getelementptr inbounds i8, ptr %inner_parsed.i, i64 4
+  %username.i.i = getelementptr inbounds i8, ptr %inner_parsed.i, i64 8
   store <4 x i32> <i32 0, i32 -1, i32 0, i32 -1>, ptr %inner_parsed.i, align 16
-  %password.i.i = getelementptr inbounds %"struct.url::Parsed", ptr %inner_parsed.i, i64 0, i32 2
-  %host.i.i = getelementptr inbounds %"struct.url::Parsed", ptr %inner_parsed.i, i64 0, i32 3
+  %password.i.i = getelementptr inbounds i8, ptr %inner_parsed.i, i64 16
+  %host.i.i = getelementptr inbounds i8, ptr %inner_parsed.i, i64 24
   store <4 x i32> <i32 0, i32 -1, i32 0, i32 -1>, ptr %password.i.i, align 16
-  %port.i.i = getelementptr inbounds %"struct.url::Parsed", ptr %inner_parsed.i, i64 0, i32 4
-  %path.i.i = getelementptr inbounds %"struct.url::Parsed", ptr %inner_parsed.i, i64 0, i32 5
-  %len.i5.i.i = getelementptr inbounds %"struct.url::Parsed", ptr %inner_parsed.i, i64 0, i32 5, i32 1
+  %port.i.i = getelementptr inbounds i8, ptr %inner_parsed.i, i64 32
+  %path.i.i = getelementptr inbounds i8, ptr %inner_parsed.i, i64 40
+  %len.i5.i.i = getelementptr inbounds i8, ptr %inner_parsed.i, i64 44
   store <4 x i32> <i32 0, i32 -1, i32 0, i32 -1>, ptr %port.i.i, align 16
-  %query.i.i = getelementptr inbounds %"struct.url::Parsed", ptr %inner_parsed.i, i64 0, i32 6
-  %ref.i.i = getelementptr inbounds %"struct.url::Parsed", ptr %inner_parsed.i, i64 0, i32 7
+  %query.i.i = getelementptr inbounds i8, ptr %inner_parsed.i, i64 48
+  %ref.i.i = getelementptr inbounds i8, ptr %inner_parsed.i, i64 56
   store <4 x i32> <i32 0, i32 -1, i32 0, i32 -1>, ptr %query.i.i, align 16
-  %inner_parsed_.i99.i = getelementptr inbounds %"struct.url::Parsed", ptr %inner_parsed.i, i64 0, i32 8
+  %inner_parsed_.i99.i = getelementptr inbounds i8, ptr %inner_parsed.i, i64 64
   store ptr null, ptr %inner_parsed_.i99.i, align 16
   %call30.i = invoke noundef zeroext i1 @_ZN3url22CompareSchemeComponentEPKcRKNS_9ComponentES1_(ptr noundef nonnull %url, ptr noundef nonnull align 4 dereferenceable(8) %inner_scheme.i, ptr noundef nonnull @_ZN3url11kFileSchemeE)
           to label %invoke.cont.i unwind label %lpad.i
@@ -3428,7 +3428,7 @@ while.end.i:                                      ; preds = %while.cond.i, %whil
   %sub107.i = sub nsw i32 %34, %sub105.i
   store i32 %sub107.i, ptr %len.i50.i, align 4
   %42 = load ptr, ptr %inner_parsed_.i.i, align 8
-  %len113.i = getelementptr inbounds %"struct.url::Parsed", ptr %42, i64 0, i32 5, i32 1
+  %len113.i = getelementptr inbounds i8, ptr %42, i64 44
   store i32 %sub105.i, ptr %len113.i, align 4
   br label %cleanup.i
 
@@ -3449,19 +3449,19 @@ entry:
   %inner_parsed.i = alloca %"struct.url::Parsed", align 16
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %inner_scheme.i)
   call void @llvm.lifetime.start.p0(i64 72, ptr nonnull %inner_parsed.i)
-  %username.i = getelementptr inbounds %"struct.url::Parsed", ptr %parsed, i64 0, i32 1
+  %username.i = getelementptr inbounds i8, ptr %parsed, i64 8
   store <4 x i32> <i32 0, i32 -1, i32 0, i32 -1>, ptr %username.i, align 4
-  %host.i = getelementptr inbounds %"struct.url::Parsed", ptr %parsed, i64 0, i32 3
+  %host.i = getelementptr inbounds i8, ptr %parsed, i64 24
   store <4 x i32> <i32 0, i32 -1, i32 0, i32 -1>, ptr %host.i, align 4
-  %path.i = getelementptr inbounds %"struct.url::Parsed", ptr %parsed, i64 0, i32 5
-  %len.i50.i = getelementptr inbounds %"struct.url::Parsed", ptr %parsed, i64 0, i32 5, i32 1
-  %ref.i = getelementptr inbounds %"struct.url::Parsed", ptr %parsed, i64 0, i32 7
+  %path.i = getelementptr inbounds i8, ptr %parsed, i64 40
+  %len.i50.i = getelementptr inbounds i8, ptr %parsed, i64 44
+  %ref.i = getelementptr inbounds i8, ptr %parsed, i64 56
   store i32 0, ptr %ref.i, align 4
-  %len.i51.i = getelementptr inbounds %"struct.url::Parsed", ptr %parsed, i64 0, i32 7, i32 1
+  %len.i51.i = getelementptr inbounds i8, ptr %parsed, i64 60
   store i32 -1, ptr %len.i51.i, align 4
-  %query.i = getelementptr inbounds %"struct.url::Parsed", ptr %parsed, i64 0, i32 6
+  %query.i = getelementptr inbounds i8, ptr %parsed, i64 48
   store <4 x i32> <i32 0, i32 -1, i32 0, i32 -1>, ptr %path.i, align 4
-  %inner_parsed_.i.i = getelementptr inbounds %"struct.url::Parsed", ptr %parsed, i64 0, i32 8
+  %inner_parsed_.i.i = getelementptr inbounds i8, ptr %parsed, i64 64
   %0 = load ptr, ptr %inner_parsed_.i.i, align 8
   %tobool.not.i.i = icmp eq ptr %0, null
   br i1 %tobool.not.i.i, label %_ZN3url6Parsed18clear_inner_parsedEv.exit.i, label %delete.notnull.i.i
@@ -3504,7 +3504,7 @@ while.end.i.loopexit.i:                           ; preds = %land.rhs.i.i
 
 while.end.i.i:                                    ; preds = %while.end.i.loopexit.i, %land.rhs.i.preheader.i
   %begin.1.i = phi i32 [ 0, %land.rhs.i.preheader.i ], [ %5, %while.end.i.loopexit.i ]
-  %invariant.gep.i.i = getelementptr i16, ptr %url, i64 -1
+  %invariant.gep.i.i = getelementptr i8, ptr %url, i64 -2
   %cmp211.i.i = icmp slt i32 %begin.1.i, %url_len
   br i1 %cmp211.i.i, label %land.rhs3.preheader.i.i, label %_ZN3url7TrimURLItEEvPKT_PiS4_b.exit.i
 
@@ -3543,7 +3543,7 @@ _ZN3url7TrimURLItEEvPKT_PiS4_b.exit.i:            ; preds = %_ZN3url7TrimURLItEE
 
 if.then.i:                                        ; preds = %while.body.i.i, %while.body8.i.i, %_ZN3url7TrimURLItEEvPKT_PiS4_b.exit.i
   store i32 0, ptr %parsed, align 4
-  %len.i53.i = getelementptr inbounds %"struct.url::Component", ptr %parsed, i64 0, i32 1
+  %len.i53.i = getelementptr inbounds i8, ptr %parsed, i64 4
   store i32 -1, ptr %len.i53.i, align 4
   br label %_ZN3url12_GLOBAL__N_120DoParseFileSystemURLItEEvPKT_iPNS_6ParsedE.exit
 
@@ -3662,7 +3662,7 @@ for.inc.i77.i:                                    ; preds = %for.body.i73.i
 
 if.else.i:                                        ; preds = %while.body.i61.i, %for.inc.i.i, %while.end.i54.i
   store i32 0, ptr %parsed, align 4
-  %len.i96.i = getelementptr inbounds %"struct.url::Component", ptr %parsed, i64 0, i32 1
+  %len.i96.i = getelementptr inbounds i8, ptr %parsed, i64 4
   store i32 -1, ptr %len.i96.i, align 4
   br label %_ZN3url12_GLOBAL__N_120DoParseFileSystemURLItEEvPKT_iPNS_6ParsedE.exit
 
@@ -3680,20 +3680,20 @@ if.then20.i:                                      ; preds = %for.body.i73.i
   br i1 %cmp25.i, label %_ZN3url12_GLOBAL__N_120DoParseFileSystemURLItEEvPKT_iPNS_6ParsedE.exit, label %if.end29.i
 
 if.end29.i:                                       ; preds = %if.then20.i
-  %len.i.i.i = getelementptr inbounds %"struct.url::Component", ptr %inner_parsed.i, i64 0, i32 1
-  %username.i.i = getelementptr inbounds %"struct.url::Parsed", ptr %inner_parsed.i, i64 0, i32 1
+  %len.i.i.i = getelementptr inbounds i8, ptr %inner_parsed.i, i64 4
+  %username.i.i = getelementptr inbounds i8, ptr %inner_parsed.i, i64 8
   store <4 x i32> <i32 0, i32 -1, i32 0, i32 -1>, ptr %inner_parsed.i, align 16
-  %password.i.i = getelementptr inbounds %"struct.url::Parsed", ptr %inner_parsed.i, i64 0, i32 2
-  %host.i.i = getelementptr inbounds %"struct.url::Parsed", ptr %inner_parsed.i, i64 0, i32 3
+  %password.i.i = getelementptr inbounds i8, ptr %inner_parsed.i, i64 16
+  %host.i.i = getelementptr inbounds i8, ptr %inner_parsed.i, i64 24
   store <4 x i32> <i32 0, i32 -1, i32 0, i32 -1>, ptr %password.i.i, align 16
-  %port.i.i = getelementptr inbounds %"struct.url::Parsed", ptr %inner_parsed.i, i64 0, i32 4
-  %path.i.i = getelementptr inbounds %"struct.url::Parsed", ptr %inner_parsed.i, i64 0, i32 5
-  %len.i5.i.i = getelementptr inbounds %"struct.url::Parsed", ptr %inner_parsed.i, i64 0, i32 5, i32 1
+  %port.i.i = getelementptr inbounds i8, ptr %inner_parsed.i, i64 32
+  %path.i.i = getelementptr inbounds i8, ptr %inner_parsed.i, i64 40
+  %len.i5.i.i = getelementptr inbounds i8, ptr %inner_parsed.i, i64 44
   store <4 x i32> <i32 0, i32 -1, i32 0, i32 -1>, ptr %port.i.i, align 16
-  %query.i.i = getelementptr inbounds %"struct.url::Parsed", ptr %inner_parsed.i, i64 0, i32 6
-  %ref.i.i = getelementptr inbounds %"struct.url::Parsed", ptr %inner_parsed.i, i64 0, i32 7
+  %query.i.i = getelementptr inbounds i8, ptr %inner_parsed.i, i64 48
+  %ref.i.i = getelementptr inbounds i8, ptr %inner_parsed.i, i64 56
   store <4 x i32> <i32 0, i32 -1, i32 0, i32 -1>, ptr %query.i.i, align 16
-  %inner_parsed_.i99.i = getelementptr inbounds %"struct.url::Parsed", ptr %inner_parsed.i, i64 0, i32 8
+  %inner_parsed_.i99.i = getelementptr inbounds i8, ptr %inner_parsed.i, i64 64
   store ptr null, ptr %inner_parsed_.i99.i, align 16
   %call30.i = invoke noundef zeroext i1 @_ZN3url22CompareSchemeComponentEPKtRKNS_9ComponentEPKc(ptr noundef nonnull %url, ptr noundef nonnull align 4 dereferenceable(8) %inner_scheme.i, ptr noundef nonnull @_ZN3url11kFileSchemeE)
           to label %invoke.cont.i unwind label %lpad.i
@@ -3812,7 +3812,7 @@ while.end.i:                                      ; preds = %while.cond.i, %whil
   %sub105.i = sub nsw i32 %34, %sub103.i
   store i32 %sub105.i, ptr %len.i50.i, align 4
   %42 = load ptr, ptr %inner_parsed_.i.i, align 8
-  %len110.i = getelementptr inbounds %"struct.url::Parsed", ptr %42, i64 0, i32 5, i32 1
+  %len110.i = getelementptr inbounds i8, ptr %42, i64 44
   store i32 %sub103.i, ptr %len110.i, align 4
   br label %cleanup.i
 
@@ -3829,11 +3829,11 @@ _ZN3url12_GLOBAL__N_120DoParseFileSystemURLItEEvPKT_iPNS_6ParsedE.exit: ; preds 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
 define dso_local void @_ZN3url14ParseMailtoURLEPKciPNS_6ParsedE(ptr nocapture noundef readonly %url, i32 noundef %url_len, ptr nocapture noundef writeonly %parsed) local_unnamed_addr #5 {
 entry:
-  %username.i = getelementptr inbounds %"struct.url::Parsed", ptr %parsed, i64 0, i32 1
+  %username.i = getelementptr inbounds i8, ptr %parsed, i64 8
   store <4 x i32> <i32 0, i32 -1, i32 0, i32 -1>, ptr %username.i, align 4
-  %host.i = getelementptr inbounds %"struct.url::Parsed", ptr %parsed, i64 0, i32 3
+  %host.i = getelementptr inbounds i8, ptr %parsed, i64 24
   store <4 x i32> <i32 0, i32 -1, i32 0, i32 -1>, ptr %host.i, align 4
-  %query.i = getelementptr inbounds %"struct.url::Parsed", ptr %parsed, i64 0, i32 6
+  %query.i = getelementptr inbounds i8, ptr %parsed, i64 48
   store <4 x i32> <i32 0, i32 -1, i32 0, i32 -1>, ptr %query.i, align 4
   %cmp10.i.i = icmp sgt i32 %url_len, 0
   br i1 %cmp10.i.i, label %land.rhs.i.preheader.i, label %_ZN3url7TrimURLIcEEvPKT_PiS4_b.exit.i
@@ -3905,11 +3905,11 @@ _ZN3url7TrimURLIcEEvPKT_PiS4_b.exit.i:            ; preds = %_ZN3url7TrimURLIcEE
 
 if.then.i:                                        ; preds = %while.body.i.i, %while.body9.i.i, %_ZN3url7TrimURLIcEEvPKT_PiS4_b.exit.i
   store i32 0, ptr %parsed, align 4
-  %len.i33.i = getelementptr inbounds %"struct.url::Component", ptr %parsed, i64 0, i32 1
+  %len.i33.i = getelementptr inbounds i8, ptr %parsed, i64 4
   store i32 -1, ptr %len.i33.i, align 4
-  %path.i = getelementptr inbounds %"struct.url::Parsed", ptr %parsed, i64 0, i32 5
+  %path.i = getelementptr inbounds i8, ptr %parsed, i64 40
   store i32 0, ptr %path.i, align 4
-  %len.i34.i = getelementptr inbounds %"struct.url::Parsed", ptr %parsed, i64 0, i32 5, i32 1
+  %len.i34.i = getelementptr inbounds i8, ptr %parsed, i64 44
   store i32 -1, ptr %len.i34.i, align 4
   br label %_ZN3url12_GLOBAL__N_116DoParseMailtoURLIcEEvPKT_iPNS_6ParsedE.exit
 
@@ -3981,7 +3981,7 @@ if.then2.i:                                       ; preds = %for.body.i.i.i
 
 if.else.i:                                        ; preds = %while.body.i.i.i, %for.inc.i.i.i, %while.end.i.i.i
   store i32 0, ptr %parsed, align 4
-  %len.i38.i = getelementptr inbounds %"struct.url::Component", ptr %parsed, i64 0, i32 1
+  %len.i38.i = getelementptr inbounds i8, ptr %parsed, i64 4
   store i32 -1, ptr %len.i38.i, align 4
   br label %if.end15.i
 
@@ -4025,9 +4025,9 @@ for.end.i:                                        ; preds = %for.inc.i, %if.then
   br i1 %cmp25.i, label %if.then26.i, label %if.else28.i
 
 if.then26.i:                                      ; preds = %for.end.i
-  %path27.i = getelementptr inbounds %"struct.url::Parsed", ptr %parsed, i64 0, i32 5
+  %path27.i = getelementptr inbounds i8, ptr %parsed, i64 40
   store i32 0, ptr %path27.i, align 4
-  %len.i39.i = getelementptr inbounds %"struct.url::Parsed", ptr %parsed, i64 0, i32 5, i32 1
+  %len.i39.i = getelementptr inbounds i8, ptr %parsed, i64 44
   store i32 -1, ptr %len.i39.i, align 4
   br label %_ZN3url12_GLOBAL__N_116DoParseMailtoURLIcEEvPKT_iPNS_6ParsedE.exit
 
@@ -4037,7 +4037,7 @@ if.else28.i:                                      ; preds = %for.end.i
   %retval.sroa.2.0.insert.shift.i42.i = shl nuw i64 %retval.sroa.2.0.insert.ext.i41.i, 32
   %retval.sroa.0.0.insert.ext.i43.i = zext i32 %path_begin.0.i to i64
   %retval.sroa.0.0.insert.insert.i44.i = or disjoint i64 %retval.sroa.2.0.insert.shift.i42.i, %retval.sroa.0.0.insert.ext.i43.i
-  %path31.i = getelementptr inbounds %"struct.url::Parsed", ptr %parsed, i64 0, i32 5
+  %path31.i = getelementptr inbounds i8, ptr %parsed, i64 40
   store i64 %retval.sroa.0.0.insert.insert.i44.i, ptr %path31.i, align 8
   br label %_ZN3url12_GLOBAL__N_116DoParseMailtoURLIcEEvPKT_iPNS_6ParsedE.exit
 
@@ -4048,11 +4048,11 @@ _ZN3url12_GLOBAL__N_116DoParseMailtoURLIcEEvPKT_iPNS_6ParsedE.exit: ; preds = %i
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
 define dso_local void @_ZN3url14ParseMailtoURLEPKtiPNS_6ParsedE(ptr nocapture noundef readonly %url, i32 noundef %url_len, ptr nocapture noundef writeonly %parsed) local_unnamed_addr #5 {
 entry:
-  %username.i = getelementptr inbounds %"struct.url::Parsed", ptr %parsed, i64 0, i32 1
+  %username.i = getelementptr inbounds i8, ptr %parsed, i64 8
   store <4 x i32> <i32 0, i32 -1, i32 0, i32 -1>, ptr %username.i, align 4
-  %host.i = getelementptr inbounds %"struct.url::Parsed", ptr %parsed, i64 0, i32 3
+  %host.i = getelementptr inbounds i8, ptr %parsed, i64 24
   store <4 x i32> <i32 0, i32 -1, i32 0, i32 -1>, ptr %host.i, align 4
-  %query.i = getelementptr inbounds %"struct.url::Parsed", ptr %parsed, i64 0, i32 6
+  %query.i = getelementptr inbounds i8, ptr %parsed, i64 48
   store <4 x i32> <i32 0, i32 -1, i32 0, i32 -1>, ptr %query.i, align 4
   %cmp10.i.i = icmp sgt i32 %url_len, 0
   br i1 %cmp10.i.i, label %land.rhs.i.preheader.i, label %_ZN3url7TrimURLItEEvPKT_PiS4_b.exit.i
@@ -4085,7 +4085,7 @@ while.end.i.loopexit.i:                           ; preds = %land.rhs.i.i
 
 while.end.i.i:                                    ; preds = %while.end.i.loopexit.i, %land.rhs.i.preheader.i
   %begin.1.i = phi i32 [ 0, %land.rhs.i.preheader.i ], [ %4, %while.end.i.loopexit.i ]
-  %invariant.gep.i.i = getelementptr i16, ptr %url, i64 -1
+  %invariant.gep.i.i = getelementptr i8, ptr %url, i64 -2
   %cmp211.i.i = icmp slt i32 %begin.1.i, %url_len
   br i1 %cmp211.i.i, label %land.rhs3.preheader.i.i, label %_ZN3url7TrimURLItEEvPKT_PiS4_b.exit.i
 
@@ -4124,11 +4124,11 @@ _ZN3url7TrimURLItEEvPKT_PiS4_b.exit.i:            ; preds = %_ZN3url7TrimURLItEE
 
 if.then.i:                                        ; preds = %while.body.i.i, %while.body8.i.i, %_ZN3url7TrimURLItEEvPKT_PiS4_b.exit.i
   store i32 0, ptr %parsed, align 4
-  %len.i33.i = getelementptr inbounds %"struct.url::Component", ptr %parsed, i64 0, i32 1
+  %len.i33.i = getelementptr inbounds i8, ptr %parsed, i64 4
   store i32 -1, ptr %len.i33.i, align 4
-  %path.i = getelementptr inbounds %"struct.url::Parsed", ptr %parsed, i64 0, i32 5
+  %path.i = getelementptr inbounds i8, ptr %parsed, i64 40
   store i32 0, ptr %path.i, align 4
-  %len.i34.i = getelementptr inbounds %"struct.url::Parsed", ptr %parsed, i64 0, i32 5, i32 1
+  %len.i34.i = getelementptr inbounds i8, ptr %parsed, i64 44
   store i32 -1, ptr %len.i34.i, align 4
   br label %_ZN3url12_GLOBAL__N_116DoParseMailtoURLItEEvPKT_iPNS_6ParsedE.exit
 
@@ -4200,7 +4200,7 @@ if.then2.i:                                       ; preds = %for.body.i.i.i
 
 if.else.i:                                        ; preds = %while.body.i.i.i, %for.inc.i.i.i, %while.end.i.i.i
   store i32 0, ptr %parsed, align 4
-  %len.i38.i = getelementptr inbounds %"struct.url::Component", ptr %parsed, i64 0, i32 1
+  %len.i38.i = getelementptr inbounds i8, ptr %parsed, i64 4
   store i32 -1, ptr %len.i38.i, align 4
   br label %if.end15.i
 
@@ -4244,9 +4244,9 @@ for.end.i:                                        ; preds = %for.inc.i, %if.then
   br i1 %cmp25.i, label %if.then26.i, label %if.else28.i
 
 if.then26.i:                                      ; preds = %for.end.i
-  %path27.i = getelementptr inbounds %"struct.url::Parsed", ptr %parsed, i64 0, i32 5
+  %path27.i = getelementptr inbounds i8, ptr %parsed, i64 40
   store i32 0, ptr %path27.i, align 4
-  %len.i39.i = getelementptr inbounds %"struct.url::Parsed", ptr %parsed, i64 0, i32 5, i32 1
+  %len.i39.i = getelementptr inbounds i8, ptr %parsed, i64 44
   store i32 -1, ptr %len.i39.i, align 4
   br label %_ZN3url12_GLOBAL__N_116DoParseMailtoURLItEEvPKT_iPNS_6ParsedE.exit
 
@@ -4256,7 +4256,7 @@ if.else28.i:                                      ; preds = %for.end.i
   %retval.sroa.2.0.insert.shift.i42.i = shl nuw i64 %retval.sroa.2.0.insert.ext.i41.i, 32
   %retval.sroa.0.0.insert.ext.i43.i = zext i32 %path_begin.0.i to i64
   %retval.sroa.0.0.insert.insert.i44.i = or disjoint i64 %retval.sroa.2.0.insert.shift.i42.i, %retval.sroa.0.0.insert.ext.i43.i
-  %path31.i = getelementptr inbounds %"struct.url::Parsed", ptr %parsed, i64 0, i32 5
+  %path31.i = getelementptr inbounds i8, ptr %parsed, i64 40
   store i64 %retval.sroa.0.0.insert.insert.i44.i, ptr %path31.i, align 8
   br label %_ZN3url12_GLOBAL__N_116DoParseMailtoURLItEEvPKT_iPNS_6ParsedE.exit
 
@@ -4267,20 +4267,20 @@ _ZN3url12_GLOBAL__N_116DoParseMailtoURLItEEvPKT_iPNS_6ParsedE.exit: ; preds = %i
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
 define dso_local void @_ZN3url17ParsePathInternalEPKcRKNS_9ComponentEPS2_S5_S5_(ptr nocapture noundef readonly %spec, ptr nocapture noundef nonnull readonly align 4 dereferenceable(8) %path, ptr nocapture noundef writeonly %filepath, ptr nocapture noundef writeonly %query, ptr nocapture noundef writeonly %ref) local_unnamed_addr #5 {
 entry:
-  %len.i = getelementptr inbounds %"struct.url::Component", ptr %path, i64 0, i32 1
+  %len.i = getelementptr inbounds i8, ptr %path, i64 4
   %0 = load i32, ptr %len.i, align 4
   %cmp.i = icmp eq i32 %0, -1
   br i1 %cmp.i, label %if.then.i, label %if.end.i
 
 if.then.i:                                        ; preds = %entry
   store i32 0, ptr %filepath, align 4
-  %len.i.i = getelementptr inbounds %"struct.url::Component", ptr %filepath, i64 0, i32 1
+  %len.i.i = getelementptr inbounds i8, ptr %filepath, i64 4
   store i32 -1, ptr %len.i.i, align 4
   store i32 0, ptr %query, align 4
-  %len.i28.i = getelementptr inbounds %"struct.url::Component", ptr %query, i64 0, i32 1
+  %len.i28.i = getelementptr inbounds i8, ptr %query, i64 4
   store i32 -1, ptr %len.i28.i, align 4
   store i32 0, ptr %ref, align 4
-  %len.i29.i = getelementptr inbounds %"struct.url::Component", ptr %ref, i64 0, i32 1
+  %len.i29.i = getelementptr inbounds i8, ptr %ref, i64 4
   store i32 -1, ptr %len.i29.i, align 4
   br label %_ZN3url12_GLOBAL__N_19ParsePathIcEEvPKT_RKNS_9ComponentEPS5_S8_S8_.exit
 
@@ -4344,7 +4344,7 @@ if.then13.i:                                      ; preds = %for.end.i
 if.else.i:                                        ; preds = %for.end.i, %if.end.i
   %query_separator.0.lcssa53.i = phi i32 [ %query_separator.1.i, %for.end.i ], [ -1, %if.end.i ]
   store i32 0, ptr %ref, align 4
-  %len.i30.i = getelementptr inbounds %"struct.url::Component", ptr %ref, i64 0, i32 1
+  %len.i30.i = getelementptr inbounds i8, ptr %ref, i64 4
   store i32 -1, ptr %len.i30.i, align 4
   br label %if.end15.i
 
@@ -4366,7 +4366,7 @@ if.then17.i:                                      ; preds = %if.end15.i
 
 if.else21.i:                                      ; preds = %if.end15.i
   store i32 0, ptr %query, align 4
-  %len.i36.i = getelementptr inbounds %"struct.url::Component", ptr %query, i64 0, i32 1
+  %len.i36.i = getelementptr inbounds i8, ptr %query, i64 4
   store i32 -1, ptr %len.i36.i, align 4
   br label %if.end22.i
 
@@ -4387,7 +4387,7 @@ if.then25.i:                                      ; preds = %if.end22.i
 
 if.else29.i:                                      ; preds = %if.end22.i
   store i32 0, ptr %filepath, align 4
-  %len.i42.i = getelementptr inbounds %"struct.url::Component", ptr %filepath, i64 0, i32 1
+  %len.i42.i = getelementptr inbounds i8, ptr %filepath, i64 4
   store i32 -1, ptr %len.i42.i, align 4
   br label %_ZN3url12_GLOBAL__N_19ParsePathIcEEvPKT_RKNS_9ComponentEPS5_S8_S8_.exit
 
@@ -4398,20 +4398,20 @@ _ZN3url12_GLOBAL__N_19ParsePathIcEEvPKT_RKNS_9ComponentEPS5_S8_S8_.exit: ; preds
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
 define dso_local void @_ZN3url17ParsePathInternalEPKtRKNS_9ComponentEPS2_S5_S5_(ptr nocapture noundef readonly %spec, ptr nocapture noundef nonnull readonly align 4 dereferenceable(8) %path, ptr nocapture noundef writeonly %filepath, ptr nocapture noundef writeonly %query, ptr nocapture noundef writeonly %ref) local_unnamed_addr #5 {
 entry:
-  %len.i = getelementptr inbounds %"struct.url::Component", ptr %path, i64 0, i32 1
+  %len.i = getelementptr inbounds i8, ptr %path, i64 4
   %0 = load i32, ptr %len.i, align 4
   %cmp.i = icmp eq i32 %0, -1
   br i1 %cmp.i, label %if.then.i, label %if.end.i
 
 if.then.i:                                        ; preds = %entry
   store i32 0, ptr %filepath, align 4
-  %len.i.i = getelementptr inbounds %"struct.url::Component", ptr %filepath, i64 0, i32 1
+  %len.i.i = getelementptr inbounds i8, ptr %filepath, i64 4
   store i32 -1, ptr %len.i.i, align 4
   store i32 0, ptr %query, align 4
-  %len.i28.i = getelementptr inbounds %"struct.url::Component", ptr %query, i64 0, i32 1
+  %len.i28.i = getelementptr inbounds i8, ptr %query, i64 4
   store i32 -1, ptr %len.i28.i, align 4
   store i32 0, ptr %ref, align 4
-  %len.i29.i = getelementptr inbounds %"struct.url::Component", ptr %ref, i64 0, i32 1
+  %len.i29.i = getelementptr inbounds i8, ptr %ref, i64 4
   store i32 -1, ptr %len.i29.i, align 4
   br label %_ZN3url12_GLOBAL__N_19ParsePathItEEvPKT_RKNS_9ComponentEPS5_S8_S8_.exit
 
@@ -4475,7 +4475,7 @@ if.then13.i:                                      ; preds = %for.end.i
 if.else.i:                                        ; preds = %for.end.i, %if.end.i
   %query_separator.0.lcssa53.i = phi i32 [ %query_separator.1.i, %for.end.i ], [ -1, %if.end.i ]
   store i32 0, ptr %ref, align 4
-  %len.i30.i = getelementptr inbounds %"struct.url::Component", ptr %ref, i64 0, i32 1
+  %len.i30.i = getelementptr inbounds i8, ptr %ref, i64 4
   store i32 -1, ptr %len.i30.i, align 4
   br label %if.end15.i
 
@@ -4497,7 +4497,7 @@ if.then17.i:                                      ; preds = %if.end15.i
 
 if.else21.i:                                      ; preds = %if.end15.i
   store i32 0, ptr %query, align 4
-  %len.i36.i = getelementptr inbounds %"struct.url::Component", ptr %query, i64 0, i32 1
+  %len.i36.i = getelementptr inbounds i8, ptr %query, i64 4
   store i32 -1, ptr %len.i36.i, align 4
   br label %if.end22.i
 
@@ -4518,7 +4518,7 @@ if.then25.i:                                      ; preds = %if.end22.i
 
 if.else29.i:                                      ; preds = %if.end22.i
   store i32 0, ptr %filepath, align 4
-  %len.i42.i = getelementptr inbounds %"struct.url::Component", ptr %filepath, i64 0, i32 1
+  %len.i42.i = getelementptr inbounds i8, ptr %filepath, i64 4
   store i32 -1, ptr %len.i42.i, align 4
   br label %_ZN3url12_GLOBAL__N_19ParsePathItEEvPKT_RKNS_9ComponentEPS5_S8_S8_.exit
 
@@ -4635,21 +4635,21 @@ if.end:                                           ; preds = %if.else, %if.then
   %full_path.sroa.0.0.extract.trunc = trunc i64 %storemerge to i32
   %full_path.sroa.4.0.extract.shift = lshr i64 %storemerge, 32
   %full_path.sroa.4.0.extract.trunc = trunc i64 %full_path.sroa.4.0.extract.shift to i32
-  %username = getelementptr inbounds %"struct.url::Parsed", ptr %parsed, i64 0, i32 1
-  %password = getelementptr inbounds %"struct.url::Parsed", ptr %parsed, i64 0, i32 2
-  %host = getelementptr inbounds %"struct.url::Parsed", ptr %parsed, i64 0, i32 3
-  %port = getelementptr inbounds %"struct.url::Parsed", ptr %parsed, i64 0, i32 4
+  %username = getelementptr inbounds i8, ptr %parsed, i64 8
+  %password = getelementptr inbounds i8, ptr %parsed, i64 16
+  %host = getelementptr inbounds i8, ptr %parsed, i64 24
+  %port = getelementptr inbounds i8, ptr %parsed, i64 32
   call fastcc void @_ZN3url12_GLOBAL__N_116DoParseAuthorityIcEEvPKT_RKNS_9ComponentEPS5_S8_S8_S8_(ptr noundef %spec, ptr noundef nonnull align 4 dereferenceable(8) %authority, ptr noundef nonnull %username, ptr noundef nonnull %password, ptr noundef nonnull %host, ptr noundef nonnull %port)
-  %path = getelementptr inbounds %"struct.url::Parsed", ptr %parsed, i64 0, i32 5
-  %query = getelementptr inbounds %"struct.url::Parsed", ptr %parsed, i64 0, i32 6
-  %ref = getelementptr inbounds %"struct.url::Parsed", ptr %parsed, i64 0, i32 7
+  %path = getelementptr inbounds i8, ptr %parsed, i64 40
+  %query = getelementptr inbounds i8, ptr %parsed, i64 48
+  %ref = getelementptr inbounds i8, ptr %parsed, i64 56
   %cmp.i = icmp eq i32 %full_path.sroa.4.0.extract.trunc, -1
   br i1 %cmp.i, label %if.then.i, label %if.end.i
 
 if.then.i:                                        ; preds = %if.end
   store <4 x i32> <i32 0, i32 -1, i32 0, i32 -1>, ptr %path, align 4
   store i32 0, ptr %ref, align 4
-  %len.i29.i = getelementptr inbounds %"struct.url::Parsed", ptr %parsed, i64 0, i32 7, i32 1
+  %len.i29.i = getelementptr inbounds i8, ptr %parsed, i64 60
   store i32 -1, ptr %len.i29.i, align 4
   br label %_ZN3url12_GLOBAL__N_19ParsePathIcEEvPKT_RKNS_9ComponentEPS5_S8_S8_.exit
 
@@ -4713,7 +4713,7 @@ if.then13.i:                                      ; preds = %for.end.i
 if.else.i:                                        ; preds = %for.end.i, %if.end.i
   %query_separator.0.lcssa53.i = phi i32 [ %query_separator.1.i, %for.end.i ], [ -1, %if.end.i ]
   store i32 0, ptr %ref, align 4
-  %len.i30.i = getelementptr inbounds %"struct.url::Parsed", ptr %parsed, i64 0, i32 7, i32 1
+  %len.i30.i = getelementptr inbounds i8, ptr %parsed, i64 60
   store i32 -1, ptr %len.i30.i, align 4
   br label %if.end15.i
 
@@ -4735,7 +4735,7 @@ if.then17.i:                                      ; preds = %if.end15.i
 
 if.else21.i:                                      ; preds = %if.end15.i
   store i32 0, ptr %query, align 4
-  %len.i36.i = getelementptr inbounds %"struct.url::Parsed", ptr %parsed, i64 0, i32 6, i32 1
+  %len.i36.i = getelementptr inbounds i8, ptr %parsed, i64 52
   store i32 -1, ptr %len.i36.i, align 4
   br label %if.end22.i
 
@@ -4755,7 +4755,7 @@ if.then25.i:                                      ; preds = %if.end22.i
 
 if.else29.i:                                      ; preds = %if.end22.i
   store i32 0, ptr %path, align 4
-  %len.i42.i = getelementptr inbounds %"struct.url::Parsed", ptr %parsed, i64 0, i32 5, i32 1
+  %len.i42.i = getelementptr inbounds i8, ptr %parsed, i64 44
   store i32 -1, ptr %len.i42.i, align 4
   br label %_ZN3url12_GLOBAL__N_19ParsePathIcEEvPKT_RKNS_9ComponentEPS5_S8_S8_.exit
 
@@ -4872,21 +4872,21 @@ if.end:                                           ; preds = %if.else, %if.then
   %full_path.sroa.0.0.extract.trunc = trunc i64 %storemerge to i32
   %full_path.sroa.4.0.extract.shift = lshr i64 %storemerge, 32
   %full_path.sroa.4.0.extract.trunc = trunc i64 %full_path.sroa.4.0.extract.shift to i32
-  %username = getelementptr inbounds %"struct.url::Parsed", ptr %parsed, i64 0, i32 1
-  %password = getelementptr inbounds %"struct.url::Parsed", ptr %parsed, i64 0, i32 2
-  %host = getelementptr inbounds %"struct.url::Parsed", ptr %parsed, i64 0, i32 3
-  %port = getelementptr inbounds %"struct.url::Parsed", ptr %parsed, i64 0, i32 4
+  %username = getelementptr inbounds i8, ptr %parsed, i64 8
+  %password = getelementptr inbounds i8, ptr %parsed, i64 16
+  %host = getelementptr inbounds i8, ptr %parsed, i64 24
+  %port = getelementptr inbounds i8, ptr %parsed, i64 32
   call fastcc void @_ZN3url12_GLOBAL__N_116DoParseAuthorityItEEvPKT_RKNS_9ComponentEPS5_S8_S8_S8_(ptr noundef %spec, ptr noundef nonnull align 4 dereferenceable(8) %authority, ptr noundef nonnull %username, ptr noundef nonnull %password, ptr noundef nonnull %host, ptr noundef nonnull %port)
-  %path = getelementptr inbounds %"struct.url::Parsed", ptr %parsed, i64 0, i32 5
-  %query = getelementptr inbounds %"struct.url::Parsed", ptr %parsed, i64 0, i32 6
-  %ref = getelementptr inbounds %"struct.url::Parsed", ptr %parsed, i64 0, i32 7
+  %path = getelementptr inbounds i8, ptr %parsed, i64 40
+  %query = getelementptr inbounds i8, ptr %parsed, i64 48
+  %ref = getelementptr inbounds i8, ptr %parsed, i64 56
   %cmp.i = icmp eq i32 %full_path.sroa.4.0.extract.trunc, -1
   br i1 %cmp.i, label %if.then.i, label %if.end.i
 
 if.then.i:                                        ; preds = %if.end
   store <4 x i32> <i32 0, i32 -1, i32 0, i32 -1>, ptr %path, align 4
   store i32 0, ptr %ref, align 4
-  %len.i29.i = getelementptr inbounds %"struct.url::Parsed", ptr %parsed, i64 0, i32 7, i32 1
+  %len.i29.i = getelementptr inbounds i8, ptr %parsed, i64 60
   store i32 -1, ptr %len.i29.i, align 4
   br label %_ZN3url12_GLOBAL__N_19ParsePathItEEvPKT_RKNS_9ComponentEPS5_S8_S8_.exit
 
@@ -4950,7 +4950,7 @@ if.then13.i:                                      ; preds = %for.end.i
 if.else.i:                                        ; preds = %for.end.i, %if.end.i
   %query_separator.0.lcssa53.i = phi i32 [ %query_separator.1.i, %for.end.i ], [ -1, %if.end.i ]
   store i32 0, ptr %ref, align 4
-  %len.i30.i = getelementptr inbounds %"struct.url::Parsed", ptr %parsed, i64 0, i32 7, i32 1
+  %len.i30.i = getelementptr inbounds i8, ptr %parsed, i64 60
   store i32 -1, ptr %len.i30.i, align 4
   br label %if.end15.i
 
@@ -4972,7 +4972,7 @@ if.then17.i:                                      ; preds = %if.end15.i
 
 if.else21.i:                                      ; preds = %if.end15.i
   store i32 0, ptr %query, align 4
-  %len.i36.i = getelementptr inbounds %"struct.url::Parsed", ptr %parsed, i64 0, i32 6, i32 1
+  %len.i36.i = getelementptr inbounds i8, ptr %parsed, i64 52
   store i32 -1, ptr %len.i36.i, align 4
   br label %if.end22.i
 
@@ -4992,7 +4992,7 @@ if.then25.i:                                      ; preds = %if.end22.i
 
 if.else29.i:                                      ; preds = %if.end22.i
   store i32 0, ptr %path, align 4
-  %len.i42.i = getelementptr inbounds %"struct.url::Parsed", ptr %parsed, i64 0, i32 5, i32 1
+  %len.i42.i = getelementptr inbounds i8, ptr %parsed, i64 44
   store i32 -1, ptr %len.i42.i, align 4
   br label %_ZN3url12_GLOBAL__N_19ParsePathItEEvPKT_RKNS_9ComponentEPS5_S8_S8_.exit
 

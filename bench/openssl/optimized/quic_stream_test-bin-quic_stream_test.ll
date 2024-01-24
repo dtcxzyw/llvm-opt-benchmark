@@ -113,7 +113,7 @@ target triple = "x86_64-unknown-linux-gnu"
 @.str.102 = private unnamed_addr constant [13 x i8] c"bulk_data[i]\00", align 1
 
 ; Function Attrs: nounwind uwtable
-define dso_local i32 @setup_tests() local_unnamed_addr #0 {
+define dso_local noundef i32 @setup_tests() local_unnamed_addr #0 {
 entry:
   tail call void @add_test(ptr noundef nonnull @.str, ptr noundef nonnull @test_sstream_simple) #7
   tail call void @add_all_tests(ptr noundef nonnull @.str.1, ptr noundef nonnull @test_sstream_bulk, i32 noundef 100, i32 noundef 1) #7
@@ -193,21 +193,21 @@ lor.lhs.false36:                                  ; preds = %if.end29
   br i1 %tobool38.not, label %err, label %lor.lhs.false39
 
 lor.lhs.false39:                                  ; preds = %lor.lhs.false36
-  %offset = getelementptr inbounds %struct.ossl_quic_frame_stream_st, ptr %hdr, i64 0, i32 1
+  %offset = getelementptr inbounds i8, ptr %hdr, i64 8
   %2 = load i64, ptr %offset, align 8
   %call40 = call i32 @test_uint64_t_eq(ptr noundef nonnull @.str.4, i32 noundef 76, ptr noundef nonnull @.str.13, ptr noundef nonnull @.str.12, i64 noundef %2, i64 noundef 0) #7
   %tobool41.not = icmp eq i32 %call40, 0
   br i1 %tobool41.not, label %err, label %lor.lhs.false42
 
 lor.lhs.false42:                                  ; preds = %lor.lhs.false39
-  %len = getelementptr inbounds %struct.ossl_quic_frame_stream_st, ptr %hdr, i64 0, i32 2
+  %len = getelementptr inbounds i8, ptr %hdr, i64 16
   %3 = load i64, ptr %len, align 8
   %call43 = call i32 @test_uint64_t_eq(ptr noundef nonnull @.str.4, i32 noundef 77, ptr noundef nonnull @.str.14, ptr noundef nonnull @.str.10, i64 noundef %3, i64 noundef 16) #7
   %tobool44.not = icmp eq i32 %call43, 0
   br i1 %tobool44.not, label %err, label %lor.lhs.false45
 
 lor.lhs.false45:                                  ; preds = %lor.lhs.false42
-  %is_fin = getelementptr inbounds %struct.ossl_quic_frame_stream_st, ptr %hdr, i64 0, i32 4
+  %is_fin = getelementptr inbounds i8, ptr %hdr, i64 32
   %bf.load = load i8, ptr %is_fin, align 8
   %4 = lshr i8 %bf.load, 1
   %.lobit = and i8 %4, 1
@@ -736,7 +736,7 @@ for.cond113.preheader:                            ; preds = %lor.lhs.false105
   br i1 %cmp11485.not, label %for.end153, label %for.body116.lr.ph
 
 for.body116.lr.ph:                                ; preds = %for.cond113.preheader
-  %len = getelementptr inbounds %struct.ossl_quic_frame_stream_st, ptr %hdr, i64 0, i32 2
+  %len = getelementptr inbounds i8, ptr %hdr, i64 16
   br label %for.body116
 
 for.body116:                                      ; preds = %for.body116.lr.ph, %if.end149
@@ -760,7 +760,8 @@ for.body127:                                      ; preds = %for.cond124.prehead
   %dst_cur.182 = phi ptr [ %add.ptr139, %if.end133 ], [ %dst_cur.088, %for.cond124.preheader ]
   %cur_rd.081 = phi i64 [ %add142, %if.end133 ], [ 0, %for.cond124.preheader ]
   %j.080 = phi i64 [ %inc144, %if.end133 ], [ 0, %for.cond124.preheader ]
-  %buf_len = getelementptr inbounds [2 x %struct.ossl_qtx_iovec_st], ptr %iov, i64 0, i64 %j.080, i32 1
+  %arrayidx128 = getelementptr inbounds [2 x %struct.ossl_qtx_iovec_st], ptr %iov, i64 0, i64 %j.080
+  %buf_len = getelementptr inbounds i8, ptr %arrayidx128, i64 8
   %5 = load i64, ptr %buf_len, align 8
   %add129 = add i64 %5, %rd.087
   %call130 = call i32 @test_size_t_le(ptr noundef nonnull @.str.4, i32 noundef 314, ptr noundef nonnull @.str.52, ptr noundef nonnull @.str.53, i64 noundef %add129, i64 noundef %expected.0.lcssa) #7
@@ -768,7 +769,6 @@ for.body127:                                      ; preds = %for.cond124.prehead
   br i1 %tobool131.not, label %err, label %if.end133
 
 if.end133:                                        ; preds = %for.body127
-  %arrayidx128 = getelementptr inbounds [2 x %struct.ossl_qtx_iovec_st], ptr %iov, i64 0, i64 %j.080
   %6 = load ptr, ptr %arrayidx128, align 16
   %7 = load i64, ptr %buf_len, align 8
   call void @llvm.memcpy.p0.p0.i64(ptr align 1 %dst_cur.182, ptr align 1 %6, i64 %7, i1 false)
@@ -1194,7 +1194,7 @@ err:                                              ; preds = %lor.lhs.false254, %
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @test_rstream_random(i32 noundef %idx) #0 {
+define internal noundef i32 @test_rstream_random(i32 noundef %idx) #0 {
 entry:
   %record.i = alloca ptr, align 8
   %rec_len.i = alloca i64, align 8
@@ -1590,7 +1590,7 @@ for.body4:                                        ; preds = %for.end, %for.body4
   %i.118 = phi i64 [ %inc13, %for.body4 ], [ 0, %for.end ]
   %arrayidx5 = getelementptr inbounds %struct.ossl_qtx_iovec_st, ptr %iov, i64 %i.118
   %1 = load ptr, ptr %arrayidx5, align 8
-  %buf_len7 = getelementptr inbounds %struct.ossl_qtx_iovec_st, ptr %iov, i64 %i.118, i32 1
+  %buf_len7 = getelementptr inbounds i8, ptr %arrayidx5, i64 8
   %2 = load i64, ptr %buf_len7, align 8
   %bcmp = tail call i32 @bcmp(ptr %cur.019, ptr %1, i64 %2)
   %tobool.not = icmp eq i32 %bcmp, 0
@@ -1646,7 +1646,7 @@ declare i32 @test_mem_eq(ptr noundef, i32 noundef, ptr noundef, ptr noundef, ptr
 declare void @CRYPTO_free(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @test_single_copy_read(ptr noundef %qrs, ptr nocapture noundef writeonly %buf, i64 noundef %size, ptr nocapture noundef %readbytes, ptr noundef %fin) unnamed_addr #0 {
+define internal noundef i32 @test_single_copy_read(ptr noundef %qrs, ptr nocapture noundef writeonly %buf, i64 noundef %size, ptr nocapture noundef %readbytes, ptr noundef %fin) unnamed_addr #0 {
 entry:
   %record = alloca ptr, align 8
   %rec_len = alloca i64, align 8

@@ -98,9 +98,9 @@ do.body.i.us.us:                                  ; preds = %land.rhs.us394.us, 
   %i.0.i.us.us = phi i64 [ %dec.i.us.us, %do.body.i.us.us ], [ %div8.i251, %land.rhs.us394.us ]
   %5 = load i64, ptr %pi.0.i.us.us, align 8
   %6 = load i64, ptr %pj.0.i.us.us, align 8
-  %incdec.ptr.i.us.us = getelementptr inbounds i64, ptr %pi.0.i.us.us, i64 1
+  %incdec.ptr.i.us.us = getelementptr inbounds i8, ptr %pi.0.i.us.us, i64 8
   store i64 %6, ptr %pi.0.i.us.us, align 8
-  %incdec.ptr1.i.us.us = getelementptr inbounds i64, ptr %pj.0.i.us.us, i64 1
+  %incdec.ptr1.i.us.us = getelementptr inbounds i8, ptr %pj.0.i.us.us, i64 8
   store i64 %5, ptr %pj.0.i.us.us, align 8
   %dec.i.us.us = add i64 %i.0.i.us.us, -1
   %cmp2.not.i.us.us = icmp eq i64 %dec.i.us.us, 0
@@ -300,9 +300,9 @@ do.body.i252:                                     ; preds = %if.else57, %do.body
   %i.0.i255 = phi i64 [ %dec.i258, %do.body.i252 ], [ %div8.i251, %if.else57 ]
   %11 = load i64, ptr %pi.0.i254, align 8
   %12 = load i64, ptr %pj.0.i253, align 8
-  %incdec.ptr.i256 = getelementptr inbounds i64, ptr %pi.0.i254, i64 1
+  %incdec.ptr.i256 = getelementptr inbounds i8, ptr %pi.0.i254, i64 8
   store i64 %12, ptr %pi.0.i254, align 8
-  %incdec.ptr1.i257 = getelementptr inbounds i64, ptr %pj.0.i253, i64 1
+  %incdec.ptr1.i257 = getelementptr inbounds i8, ptr %pj.0.i253, i64 8
   store i64 %11, ptr %pj.0.i253, align 8
   %dec.i258 = add i64 %i.0.i255, -1
   %cmp2.not.i259 = icmp eq i64 %dec.i258, 0
@@ -385,9 +385,9 @@ do.body.i271:                                     ; preds = %if.then70, %do.body
   %i.0.i274 = phi i64 [ %dec.i277, %do.body.i271 ], [ %div8.i251, %if.then70 ]
   %17 = load i64, ptr %pi.0.i273, align 8
   %18 = load i64, ptr %pj.0.i272, align 8
-  %incdec.ptr.i275 = getelementptr inbounds i64, ptr %pi.0.i273, i64 1
+  %incdec.ptr.i275 = getelementptr inbounds i8, ptr %pi.0.i273, i64 8
   store i64 %18, ptr %pi.0.i273, align 8
-  %incdec.ptr1.i276 = getelementptr inbounds i64, ptr %pj.0.i272, i64 1
+  %incdec.ptr1.i276 = getelementptr inbounds i8, ptr %pj.0.i272, i64 8
   store i64 %17, ptr %pj.0.i272, align 8
   %dec.i277 = add i64 %i.0.i274, -1
   %cmp2.not.i278 = icmp eq i64 %dec.i277, 0
@@ -453,9 +453,9 @@ do.body.i290:                                     ; preds = %if.else91, %do.body
   %i.0.i293 = phi i64 [ %dec.i296, %do.body.i290 ], [ %div8.i251, %if.else91 ]
   %23 = load i64, ptr %pi.0.i292, align 8
   %24 = load i64, ptr %pj.0.i291, align 8
-  %incdec.ptr.i294 = getelementptr inbounds i64, ptr %pi.0.i292, i64 1
+  %incdec.ptr.i294 = getelementptr inbounds i8, ptr %pi.0.i292, i64 8
   store i64 %24, ptr %pi.0.i292, align 8
-  %incdec.ptr1.i295 = getelementptr inbounds i64, ptr %pj.0.i291, i64 1
+  %incdec.ptr1.i295 = getelementptr inbounds i8, ptr %pj.0.i291, i64 8
   store i64 %23, ptr %pj.0.i291, align 8
   %dec.i296 = add i64 %i.0.i293, -1
   %cmp2.not.i297 = icmp eq i64 %dec.i296, 0
@@ -504,9 +504,9 @@ do.body.i309:                                     ; preds = %if.else105, %do.bod
   %i.0.i312 = phi i64 [ %dec.i315, %do.body.i309 ], [ %div8.i251, %if.else105 ]
   %29 = load i64, ptr %pi.0.i311, align 8
   %30 = load i64, ptr %pj.0.i310, align 8
-  %incdec.ptr.i313 = getelementptr inbounds i64, ptr %pi.0.i311, i64 1
+  %incdec.ptr.i313 = getelementptr inbounds i8, ptr %pi.0.i311, i64 8
   store i64 %30, ptr %pi.0.i311, align 8
-  %incdec.ptr1.i314 = getelementptr inbounds i64, ptr %pj.0.i310, i64 1
+  %incdec.ptr1.i314 = getelementptr inbounds i8, ptr %pj.0.i310, i64 8
   store i64 %29, ptr %pj.0.i310, align 8
   %dec.i315 = add i64 %i.0.i312, -1
   %cmp2.not.i316 = icmp eq i64 %dec.i315, 0
@@ -559,9 +559,9 @@ do.body.i328:                                     ; preds = %do.body.i328, %if.t
   %i.0.i331 = phi i64 [ %div8.i327, %if.then.i326 ], [ %dec.i334, %do.body.i328 ]
   %33 = load i64, ptr %pi.0.i330, align 8
   %34 = load i64, ptr %pj.0.i329, align 8
-  %incdec.ptr.i332 = getelementptr inbounds i64, ptr %pi.0.i330, i64 1
+  %incdec.ptr.i332 = getelementptr inbounds i8, ptr %pi.0.i330, i64 8
   store i64 %34, ptr %pi.0.i330, align 8
-  %incdec.ptr1.i333 = getelementptr inbounds i64, ptr %pj.0.i329, i64 1
+  %incdec.ptr1.i333 = getelementptr inbounds i8, ptr %pj.0.i329, i64 8
   store i64 %33, ptr %pj.0.i329, align 8
   %dec.i334 = add i64 %i.0.i331, -1
   %cmp2.not.i335 = icmp eq i64 %dec.i334, 0
@@ -607,9 +607,9 @@ do.body.i347:                                     ; preds = %do.body.i347, %if.t
   %i.0.i350 = phi i64 [ %div8.i346, %if.then.i345 ], [ %dec.i353, %do.body.i347 ]
   %38 = load i64, ptr %pi.0.i349, align 8
   %39 = load i64, ptr %pj.0.i348, align 8
-  %incdec.ptr.i351 = getelementptr inbounds i64, ptr %pi.0.i349, i64 1
+  %incdec.ptr.i351 = getelementptr inbounds i8, ptr %pi.0.i349, i64 8
   store i64 %39, ptr %pi.0.i349, align 8
-  %incdec.ptr1.i352 = getelementptr inbounds i64, ptr %pj.0.i348, i64 1
+  %incdec.ptr1.i352 = getelementptr inbounds i8, ptr %pj.0.i348, i64 8
   store i64 %38, ptr %pj.0.i348, align 8
   %dec.i353 = add i64 %i.0.i350, -1
   %cmp2.not.i354 = icmp eq i64 %dec.i353, 0

@@ -5,17 +5,6 @@ target triple = "x86_64-unknown-linux-gnu"
 
 %struct.TypeInfo = type { ptr, ptr, i64, i64, ptr, ptr, ptr, i8, i64, ptr, ptr, ptr, ptr }
 %struct.InterfaceInfo = type { ptr }
-%struct.CanBusClientState = type { ptr, ptr, i32, %union.anon, ptr, ptr, ptr, ptr, i8 }
-%union.anon = type { %struct.QTailQLink }
-%struct.QTailQLink = type { ptr, ptr }
-%struct.CanBusState = type { %struct.Object, %union.anon.0 }
-%struct.Object = type { ptr, ptr, ptr, i32, ptr }
-%union.anon.0 = type { %struct.QTailQLink }
-%struct.CanBusClientInfo = type { ptr, ptr }
-%struct.qemu_can_filter = type { i32, i32 }
-%struct.UserCreatableClass = type { %struct.InterfaceClass, ptr, ptr }
-%struct.InterfaceClass = type { %struct.ObjectClass, ptr, ptr }
-%struct.ObjectClass = type { ptr, ptr, [4 x ptr], [4 x ptr], ptr, ptr }
 
 @dlc2len = internal unnamed_addr constant [16 x i8] c"\00\01\02\03\04\05\06\07\08\0C\10\14\18 0@", align 16
 @len2dlc = internal unnamed_addr constant [65 x i8] c"\00\01\02\03\04\05\06\07\08\09\09\09\09\0A\0A\0A\0A\0B\0B\0B\0B\0C\0C\0C\0C\0D\0D\0D\0D\0D\0D\0D\0D\0E\0E\0E\0E\0E\0E\0E\0E\0E\0E\0E\0E\0E\0E\0E\0E\0F\0F\0F\0F\0F\0F\0F\0F\0F\0F\0F\0F\0F\0F\0F\0F", align 16
@@ -56,37 +45,37 @@ return:                                           ; preds = %entry, %if.end
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(write, argmem: readwrite, inaccessiblemem: none) uwtable
-define dso_local i32 @can_bus_insert_client(ptr noundef %bus, ptr noundef %client) local_unnamed_addr #1 {
+define dso_local noundef i32 @can_bus_insert_client(ptr noundef %bus, ptr noundef %client) local_unnamed_addr #1 {
 entry:
-  %bus1 = getelementptr inbounds %struct.CanBusClientState, ptr %client, i64 0, i32 1
+  %bus1 = getelementptr inbounds i8, ptr %client, i64 8
   store ptr %bus, ptr %bus1, align 8
-  %next = getelementptr inbounds %struct.CanBusClientState, ptr %client, i64 0, i32 3
+  %next = getelementptr inbounds i8, ptr %client, i64 24
   store ptr null, ptr %next, align 8
-  %tql_prev = getelementptr inbounds %struct.CanBusState, ptr %bus, i64 0, i32 1, i32 0, i32 1
+  %tql_prev = getelementptr inbounds i8, ptr %bus, i64 48
   %0 = load ptr, ptr %tql_prev, align 8
-  %tql_prev3 = getelementptr inbounds %struct.CanBusClientState, ptr %client, i64 0, i32 3, i32 0, i32 1
+  %tql_prev3 = getelementptr inbounds i8, ptr %client, i64 32
   store ptr %0, ptr %tql_prev3, align 8
   store ptr %client, ptr %0, align 8
   store ptr %next, ptr %tql_prev, align 8
   ret i32 0
 }
 
-; Function Attrs: mustprogress nofree nosync nounwind sspstrong willreturn memory(write, argmem: readwrite, inaccessiblemem: none) uwtable
-define dso_local i32 @can_bus_remove_client(ptr nocapture noundef %client) local_unnamed_addr #2 {
+; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(write, argmem: readwrite, inaccessiblemem: none) uwtable
+define dso_local noundef i32 @can_bus_remove_client(ptr nocapture noundef %client) local_unnamed_addr #1 {
 entry:
-  %bus1 = getelementptr inbounds %struct.CanBusClientState, ptr %client, i64 0, i32 1
+  %bus1 = getelementptr inbounds i8, ptr %client, i64 8
   %0 = load ptr, ptr %bus1, align 8
   %cmp = icmp eq ptr %0, null
   br i1 %cmp, label %return, label %do.body
 
 do.body:                                          ; preds = %entry
-  %next = getelementptr inbounds %struct.CanBusClientState, ptr %client, i64 0, i32 3
+  %next = getelementptr inbounds i8, ptr %client, i64 24
   %1 = load ptr, ptr %next, align 8
   %cmp2.not = icmp eq ptr %1, null
-  %tql_prev9 = getelementptr inbounds %struct.CanBusClientState, ptr %client, i64 0, i32 3, i32 0, i32 1
+  %tql_prev9 = getelementptr inbounds i8, ptr %client, i64 32
   %2 = load ptr, ptr %tql_prev9, align 8
-  %tql_prev10 = getelementptr inbounds %struct.CanBusState, ptr %0, i64 0, i32 1, i32 0, i32 1
-  %tql_prev7 = getelementptr inbounds %struct.CanBusClientState, ptr %1, i64 0, i32 3, i32 0, i32 1
+  %tql_prev10 = getelementptr inbounds i8, ptr %0, i64 48
+  %tql_prev7 = getelementptr inbounds i8, ptr %1, i64 32
   %tql_prev10.sink = select i1 %cmp2.not, ptr %tql_prev10, ptr %tql_prev7
   store ptr %2, ptr %tql_prev10.sink, align 8
   %3 = load ptr, ptr %next, align 8
@@ -101,15 +90,15 @@ return:                                           ; preds = %entry, %do.body
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local i64 @can_bus_client_send(ptr noundef readonly %client, ptr noundef %frames, i64 noundef %frames_cnt) local_unnamed_addr #3 {
+define dso_local i64 @can_bus_client_send(ptr noundef readonly %client, ptr noundef %frames, i64 noundef %frames_cnt) local_unnamed_addr #2 {
 entry:
-  %bus1 = getelementptr inbounds %struct.CanBusClientState, ptr %client, i64 0, i32 1
+  %bus1 = getelementptr inbounds i8, ptr %client, i64 8
   %0 = load ptr, ptr %bus1, align 8
   %cmp = icmp eq ptr %0, null
   br i1 %cmp, label %return, label %if.end
 
 if.end:                                           ; preds = %entry
-  %clients = getelementptr inbounds %struct.CanBusState, ptr %0, i64 0, i32 1
+  %clients = getelementptr inbounds i8, ptr %0, i64 40
   %peer.09 = load ptr, ptr %clients, align 8
   %tobool.not10 = icmp eq ptr %peer.09, null
   br i1 %tobool.not10, label %return, label %for.body
@@ -119,23 +108,23 @@ for.body:                                         ; preds = %if.end, %for.inc
   %ret.011 = phi i32 [ %ret.1, %for.inc ], [ 0, %if.end ]
   %1 = load ptr, ptr %peer.012, align 8
   %2 = load ptr, ptr %1, align 8
-  %call = tail call zeroext i1 %2(ptr noundef nonnull %peer.012) #8
+  %call = tail call zeroext i1 %2(ptr noundef nonnull %peer.012) #7
   %cmp3 = icmp ne ptr %peer.012, %client
   %or.cond.not = and i1 %cmp3, %call
   br i1 %or.cond.not, label %if.end5, label %for.inc
 
 if.end5:                                          ; preds = %for.body
   %3 = load ptr, ptr %peer.012, align 8
-  %receive = getelementptr inbounds %struct.CanBusClientInfo, ptr %3, i64 0, i32 1
+  %receive = getelementptr inbounds i8, ptr %3, i64 8
   %4 = load ptr, ptr %receive, align 8
-  %call7 = tail call i64 %4(ptr noundef nonnull %peer.012, ptr noundef %frames, i64 noundef %frames_cnt) #8
+  %call7 = tail call i64 %4(ptr noundef nonnull %peer.012, ptr noundef %frames, i64 noundef %frames_cnt) #7
   %cmp8 = icmp sgt i64 %call7, 0
   %spec.select = select i1 %cmp8, i32 1, i32 %ret.011
   br label %for.inc
 
 for.inc:                                          ; preds = %if.end5, %for.body
   %ret.1 = phi i32 [ %ret.011, %for.body ], [ %spec.select, %if.end5 ]
-  %next = getelementptr inbounds %struct.CanBusClientState, ptr %peer.012, i64 0, i32 3
+  %next = getelementptr inbounds i8, ptr %peer.012, i64 24
   %peer.0 = load ptr, ptr %next, align 8
   %tobool.not = icmp eq ptr %peer.0, null
   br i1 %tobool.not, label %for.end.loopexit, label %for.body, !llvm.loop !5
@@ -150,9 +139,9 @@ return:                                           ; preds = %if.end, %for.end.lo
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(argmem: read) uwtable
-define dso_local i32 @can_bus_filter_match(ptr nocapture noundef readonly %filter, i32 noundef %can_id) local_unnamed_addr #4 {
+define dso_local i32 @can_bus_filter_match(ptr nocapture noundef readonly %filter, i32 noundef %can_id) local_unnamed_addr #3 {
 entry:
-  %can_mask = getelementptr inbounds %struct.qemu_can_filter, ptr %filter, i64 0, i32 1
+  %can_mask = getelementptr inbounds i8, ptr %filter, i64 4
   %0 = load i32, ptr %can_mask, align 4
   %or = or i32 %0, %can_id
   %and = and i32 %or, 536870912
@@ -181,68 +170,67 @@ return:                                           ; preds = %if.end, %if.then
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(none) uwtable
-define dso_local i32 @can_bus_client_set_filters(ptr nocapture noundef readnone %client, ptr nocapture noundef readnone %filters, i64 noundef %filters_cnt) local_unnamed_addr #0 {
+define dso_local noundef i32 @can_bus_client_set_filters(ptr nocapture noundef readnone %client, ptr nocapture noundef readnone %filters, i64 noundef %filters_cnt) local_unnamed_addr #0 {
 entry:
   ret i32 0
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal void @do_qemu_init_can_bus_register_types() #3 {
+define internal void @do_qemu_init_can_bus_register_types() #2 {
 entry:
-  tail call void @register_module_init(ptr noundef nonnull @can_bus_register_types, i32 noundef 3) #8
+  tail call void @register_module_init(ptr noundef nonnull @can_bus_register_types, i32 noundef 3) #7
   ret void
 }
 
-declare void @register_module_init(ptr noundef, i32 noundef) local_unnamed_addr #5
+declare void @register_module_init(ptr noundef, i32 noundef) local_unnamed_addr #4
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal void @can_bus_register_types() #3 {
+define internal void @can_bus_register_types() #2 {
 entry:
-  %call = tail call ptr @type_register_static(ptr noundef nonnull @can_bus_info) #8
+  %call = tail call ptr @type_register_static(ptr noundef nonnull @can_bus_info) #7
   ret void
 }
 
-declare ptr @type_register_static(ptr noundef) local_unnamed_addr #5
+declare ptr @type_register_static(ptr noundef) local_unnamed_addr #4
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(argmem: write) uwtable
-define internal void @can_bus_instance_init(ptr noundef %object) #6 {
+define internal void @can_bus_instance_init(ptr noundef %object) #5 {
 entry:
-  %clients = getelementptr inbounds %struct.CanBusState, ptr %object, i64 0, i32 1
+  %clients = getelementptr inbounds i8, ptr %object, i64 40
   store ptr null, ptr %clients, align 8
-  %tql_prev = getelementptr inbounds %struct.CanBusState, ptr %object, i64 0, i32 1, i32 0, i32 1
+  %tql_prev = getelementptr inbounds i8, ptr %object, i64 48
   store ptr %clients, ptr %tql_prev, align 8
   ret void
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal void @can_bus_class_init(ptr noundef %klass, ptr nocapture readnone %class_data) #3 {
+define internal void @can_bus_class_init(ptr noundef %klass, ptr nocapture readnone %class_data) #2 {
 entry:
-  %call.i = tail call ptr @object_class_dynamic_cast_assert(ptr noundef %klass, ptr noundef nonnull @.str.2, ptr noundef nonnull @.str.3, i32 noundef 12, ptr noundef nonnull @__func__.USER_CREATABLE_CLASS) #8
-  %can_be_deleted = getelementptr inbounds %struct.UserCreatableClass, ptr %call.i, i64 0, i32 2
+  %call.i = tail call ptr @object_class_dynamic_cast_assert(ptr noundef %klass, ptr noundef nonnull @.str.2, ptr noundef nonnull @.str.3, i32 noundef 12, ptr noundef nonnull @__func__.USER_CREATABLE_CLASS) #7
+  %can_be_deleted = getelementptr inbounds i8, ptr %call.i, i64 120
   store ptr @can_bus_can_be_deleted, ptr %can_be_deleted, align 8
   ret void
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(none) uwtable
-define internal zeroext i1 @can_bus_can_be_deleted(ptr nocapture readnone %uc) #0 {
+define internal noundef zeroext i1 @can_bus_can_be_deleted(ptr nocapture readnone %uc) #0 {
 entry:
   ret i1 false
 }
 
-declare ptr @object_class_dynamic_cast_assert(ptr noundef, ptr noundef, ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #5
+declare ptr @object_class_dynamic_cast_assert(ptr noundef, ptr noundef, ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #4
 
 ; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #7
+declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #6
 
 attributes #0 = { mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx16,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(write, argmem: readwrite, inaccessiblemem: none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx16,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #2 = { mustprogress nofree nosync nounwind sspstrong willreturn memory(write, argmem: readwrite, inaccessiblemem: none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx16,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #3 = { nounwind sspstrong uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx16,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #4 = { mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(argmem: read) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx16,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #5 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx16,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #6 = { mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(argmem: write) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx16,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #7 = { nocallback nofree nounwind willreturn memory(argmem: write) }
-attributes #8 = { nounwind }
+attributes #2 = { nounwind sspstrong uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx16,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #3 = { mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(argmem: read) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx16,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #4 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx16,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #5 = { mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(argmem: write) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx16,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #6 = { nocallback nofree nounwind willreturn memory(argmem: write) }
+attributes #7 = { nounwind }
 
 !llvm.module.flags = !{!0, !1, !2, !3, !4}
 

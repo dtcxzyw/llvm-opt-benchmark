@@ -3,10 +3,6 @@ source_filename = "bench/libquic/original/quic_alarm.cc.ll"
 target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:128-n8:16:32:64-S128"
 target triple = "x86_64-unknown-linux-gnu"
 
-%"class.net::QuicAlarm" = type { ptr, %"class.net::QuicArenaScopedPtr", %"class.net::QuicTime" }
-%"class.net::QuicArenaScopedPtr" = type { ptr }
-%"class.net::QuicTime" = type { i64 }
-
 @_ZTVN3net9QuicAlarmE = dso_local unnamed_addr constant { [7 x ptr] } { [7 x ptr] [ptr null, ptr @_ZTIN3net9QuicAlarmE, ptr @_ZN3net9QuicAlarmD2Ev, ptr @_ZN3net9QuicAlarmD0Ev, ptr @__cxa_pure_virtual, ptr @__cxa_pure_virtual, ptr @_ZN3net9QuicAlarm10UpdateImplEv] }, align 8
 @_ZTVN10__cxxabiv117__class_type_infoE = external global [0 x ptr]
 @_ZTSN3net9QuicAlarmE = dso_local constant [17 x i8] c"N3net9QuicAlarmE\00", align 1
@@ -18,11 +14,11 @@ target triple = "x86_64-unknown-linux-gnu"
 define dso_local void @_ZN3net9QuicAlarmC2ENS_18QuicArenaScopedPtrINS0_8DelegateEEE(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(24) %this, ptr nocapture noundef %delegate) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 invoke.cont:
   store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVN3net9QuicAlarmE, i64 0, inrange i32 0, i64 2), ptr %this, align 8
-  %delegate_ = getelementptr inbounds %"class.net::QuicAlarm", ptr %this, i64 0, i32 1
+  %delegate_ = getelementptr inbounds i8, ptr %this, i64 8
   %0 = load ptr, ptr %delegate, align 8
   store ptr %0, ptr %delegate_, align 8
   store ptr null, ptr %delegate, align 8
-  %deadline_ = getelementptr inbounds %"class.net::QuicAlarm", ptr %this, i64 0, i32 2
+  %deadline_ = getelementptr inbounds i8, ptr %this, i64 16
   store i64 0, ptr %deadline_, align 8
   ret void
 }
@@ -33,7 +29,7 @@ declare i32 @__gxx_personality_v0(...)
 define dso_local void @_ZN3net9QuicAlarmD2Ev(ptr nocapture noundef nonnull align 8 dereferenceable(24) %this) unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVN3net9QuicAlarmE, i64 0, inrange i32 0, i64 2), ptr %this, align 8
-  %delegate_ = getelementptr inbounds %"class.net::QuicAlarm", ptr %this, i64 0, i32 1
+  %delegate_ = getelementptr inbounds i8, ptr %this, i64 8
   %0 = load ptr, ptr %delegate_, align 8
   %cmp.not.i.i = icmp eq ptr %0, null
   br i1 %cmp.not.i.i, label %_ZN3net18QuicArenaScopedPtrINS_9QuicAlarm8DelegateEED2Ev.exit, label %if.then.i.i
@@ -52,7 +48,7 @@ if.then2.i.i:                                     ; preds = %if.then.i.i
 
 delete.notnull.i.i:                               ; preds = %if.then.i.i
   %vtable5.i.i = load ptr, ptr %0, align 8
-  %vfn6.i.i = getelementptr inbounds ptr, ptr %vtable5.i.i, i64 1
+  %vfn6.i.i = getelementptr inbounds i8, ptr %vtable5.i.i, i64 8
   br label %if.end13.sink.split.i.i
 
 if.end13.sink.split.i.i:                          ; preds = %delete.notnull.i.i, %if.then2.i.i
@@ -80,10 +76,10 @@ declare void @llvm.trap() #3
 ; Function Attrs: mustprogress uwtable
 define dso_local void @_ZN3net9QuicAlarm3SetENS_8QuicTimeE(ptr noundef nonnull align 8 dereferenceable(24) %this, i64 %new_deadline.coerce) local_unnamed_addr #4 align 2 {
 entry:
-  %deadline_ = getelementptr inbounds %"class.net::QuicAlarm", ptr %this, i64 0, i32 2
+  %deadline_ = getelementptr inbounds i8, ptr %this, i64 16
   store i64 %new_deadline.coerce, ptr %deadline_, align 8
   %vtable = load ptr, ptr %this, align 8
-  %vfn = getelementptr inbounds ptr, ptr %vtable, i64 2
+  %vfn = getelementptr inbounds i8, ptr %vtable, i64 16
   %0 = load ptr, ptr %vfn, align 8
   tail call void %0(ptr noundef nonnull align 8 dereferenceable(24) %this)
   ret void
@@ -92,7 +88,7 @@ entry:
 ; Function Attrs: mustprogress uwtable
 define dso_local void @_ZN3net9QuicAlarm6CancelEv(ptr noundef nonnull align 8 dereferenceable(24) %this) local_unnamed_addr #4 align 2 {
 entry:
-  %deadline_.i = getelementptr inbounds %"class.net::QuicAlarm", ptr %this, i64 0, i32 2
+  %deadline_.i = getelementptr inbounds i8, ptr %this, i64 16
   %0 = load i64, ptr %deadline_.i, align 8
   %cmp.i.i.not = icmp eq i64 %0, 0
   br i1 %cmp.i.i.not, label %return, label %if.end
@@ -100,7 +96,7 @@ entry:
 if.end:                                           ; preds = %entry
   store i64 0, ptr %deadline_.i, align 8
   %vtable = load ptr, ptr %this, align 8
-  %vfn = getelementptr inbounds ptr, ptr %vtable, i64 3
+  %vfn = getelementptr inbounds i8, ptr %vtable, i64 24
   %1 = load ptr, ptr %vfn, align 8
   tail call void %1(ptr noundef nonnull align 8 dereferenceable(24) %this)
   br label %return
@@ -112,7 +108,7 @@ return:                                           ; preds = %entry, %if.end
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
 define dso_local noundef zeroext i1 @_ZNK3net9QuicAlarm5IsSetEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %this) local_unnamed_addr #5 align 2 {
 entry:
-  %deadline_ = getelementptr inbounds %"class.net::QuicAlarm", ptr %this, i64 0, i32 2
+  %deadline_ = getelementptr inbounds i8, ptr %this, i64 16
   %0 = load i64, ptr %deadline_, align 8
   %cmp.i = icmp ne i64 %0, 0
   ret i1 %cmp.i
@@ -122,7 +118,7 @@ entry:
 define dso_local void @_ZN3net9QuicAlarm6UpdateENS_8QuicTimeENS1_5DeltaE(ptr noundef nonnull align 8 dereferenceable(24) %this, i64 %new_deadline.coerce, i64 %granularity.coerce0, i64 %granularity.coerce1) local_unnamed_addr #4 align 2 {
 entry:
   %cmp.i.not = icmp eq i64 %new_deadline.coerce, 0
-  %deadline_.i.i = getelementptr inbounds %"class.net::QuicAlarm", ptr %this, i64 0, i32 2
+  %deadline_.i.i = getelementptr inbounds i8, ptr %this, i64 16
   %0 = load i64, ptr %deadline_.i.i, align 8
   br i1 %cmp.i.not, label %if.then, label %if.end
 
@@ -133,7 +129,7 @@ if.then:                                          ; preds = %entry
 if.end.i:                                         ; preds = %if.then
   store i64 0, ptr %deadline_.i.i, align 8
   %vtable.i = load ptr, ptr %this, align 8
-  %vfn.i = getelementptr inbounds ptr, ptr %vtable.i, i64 3
+  %vfn.i = getelementptr inbounds i8, ptr %vtable.i, i64 24
   br label %if.end16.sink.split
 
 if.end:                                           ; preds = %entry
@@ -149,11 +145,11 @@ if.end10:                                         ; preds = %if.end
   br i1 %cmp.i.i.not, label %if.else, label %if.then13
 
 if.then13:                                        ; preds = %if.end10
-  %vfn = getelementptr inbounds ptr, ptr %vtable14, i64 4
+  %vfn = getelementptr inbounds i8, ptr %vtable14, i64 32
   br label %if.end16.sink.split
 
 if.else:                                          ; preds = %if.end10
-  %vfn15 = getelementptr inbounds ptr, ptr %vtable14, i64 2
+  %vfn15 = getelementptr inbounds i8, ptr %vtable14, i64 16
   br label %if.end16.sink.split
 
 if.end16.sink.split:                              ; preds = %if.then13, %if.else, %if.end.i
@@ -169,20 +165,20 @@ if.end16:                                         ; preds = %if.end16.sink.split
 ; Function Attrs: mustprogress uwtable
 define dso_local void @_ZN3net9QuicAlarm4FireEv(ptr nocapture noundef nonnull align 8 dereferenceable(24) %this) local_unnamed_addr #4 align 2 {
 entry:
-  %deadline_.i = getelementptr inbounds %"class.net::QuicAlarm", ptr %this, i64 0, i32 2
+  %deadline_.i = getelementptr inbounds i8, ptr %this, i64 16
   %0 = load i64, ptr %deadline_.i, align 8
   %cmp.i.i.not = icmp eq i64 %0, 0
   br i1 %cmp.i.i.not, label %return, label %if.end
 
 if.end:                                           ; preds = %entry
   store i64 0, ptr %deadline_.i, align 8
-  %delegate_ = getelementptr inbounds %"class.net::QuicAlarm", ptr %this, i64 0, i32 1
+  %delegate_ = getelementptr inbounds i8, ptr %this, i64 8
   %1 = load ptr, ptr %delegate_, align 8
   %2 = ptrtoint ptr %1 to i64
   %and.i.i = and i64 %2, -2
   %3 = inttoptr i64 %and.i.i to ptr
   %vtable = load ptr, ptr %3, align 8
-  %vfn = getelementptr inbounds ptr, ptr %vtable, i64 2
+  %vfn = getelementptr inbounds i8, ptr %vtable, i64 16
   %4 = load ptr, ptr %vfn, align 8
   tail call void %4(ptr noundef nonnull align 8 dereferenceable(8) %3)
   br label %return
@@ -194,16 +190,16 @@ return:                                           ; preds = %entry, %if.end
 ; Function Attrs: mustprogress uwtable
 define dso_local void @_ZN3net9QuicAlarm10UpdateImplEv(ptr noundef nonnull align 8 dereferenceable(24) %this) unnamed_addr #4 align 2 {
 entry:
-  %deadline_ = getelementptr inbounds %"class.net::QuicAlarm", ptr %this, i64 0, i32 2
+  %deadline_ = getelementptr inbounds i8, ptr %this, i64 16
   %new_deadline.sroa.0.0.copyload = load i64, ptr %deadline_, align 8
   store i64 0, ptr %deadline_, align 8
   %vtable = load ptr, ptr %this, align 8
-  %vfn = getelementptr inbounds ptr, ptr %vtable, i64 3
+  %vfn = getelementptr inbounds i8, ptr %vtable, i64 24
   %0 = load ptr, ptr %vfn, align 8
   tail call void %0(ptr noundef nonnull align 8 dereferenceable(24) %this)
   store i64 %new_deadline.sroa.0.0.copyload, ptr %deadline_, align 8
   %vtable4 = load ptr, ptr %this, align 8
-  %vfn5 = getelementptr inbounds ptr, ptr %vtable4, i64 2
+  %vfn5 = getelementptr inbounds i8, ptr %vtable4, i64 16
   %1 = load ptr, ptr %vfn5, align 8
   tail call void %1(ptr noundef nonnull align 8 dereferenceable(24) %this)
   ret void

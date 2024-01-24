@@ -17,10 +17,10 @@ entry:
   %__dnew.i.i.i = alloca i64, align 8
   %quoted = alloca %"class.std::__cxx11::basic_string", align 8
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %quoted) #8
-  %0 = getelementptr inbounds %"class.std::__cxx11::basic_string", ptr %quoted, i64 0, i32 2
+  %0 = getelementptr inbounds i8, ptr %quoted, i64 16
   store ptr %0, ptr %quoted, align 8, !tbaa !7
   store i8 39, ptr %0, align 8, !tbaa !12
-  %_M_string_length.i.i.i.i = getelementptr inbounds %"class.std::__cxx11::basic_string", ptr %quoted, i64 0, i32 1
+  %_M_string_length.i.i.i.i = getelementptr inbounds i8, ptr %quoted, i64 8
   store i64 1, ptr %_M_string_length.i.i.i.i, align 8, !tbaa !13
   %arrayidx.i.i.i = getelementptr inbounds i8, ptr %quoted, i64 17
   store i8 0, ptr %arrayidx.i.i.i, align 1, !tbaa !12
@@ -29,7 +29,7 @@ entry:
 
 if.end.i.i.i.thread:                              ; preds = %entry
   call void @llvm.experimental.noalias.scope.decl(metadata !16)
-  %1 = getelementptr inbounds %"class.std::__cxx11::basic_string", ptr %agg.result, i64 0, i32 2
+  %1 = getelementptr inbounds i8, ptr %agg.result, i64 16
   store ptr %1, ptr %agg.result, align 8, !tbaa !7, !alias.scope !16
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %__dnew.i.i.i) #8, !noalias !16
   store i64 1, ptr %__dnew.i.i.i, align 8, !tbaa !19, !noalias !16
@@ -39,7 +39,7 @@ for.cond.cleanup:                                 ; preds = %if.end
   %.pre = load ptr, ptr %quoted, align 8, !tbaa !20, !noalias !21
   %.pre52 = load i64, ptr %_M_string_length.i.i.i.i, align 8, !tbaa !13, !noalias !21
   call void @llvm.experimental.noalias.scope.decl(metadata !21)
-  %2 = getelementptr inbounds %"class.std::__cxx11::basic_string", ptr %agg.result, i64 0, i32 2
+  %2 = getelementptr inbounds i8, ptr %agg.result, i64 16
   store ptr %2, ptr %agg.result, align 8, !tbaa !7, !alias.scope !21
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %__dnew.i.i.i) #8, !noalias !21
   store i64 %.pre52, ptr %__dnew.i.i.i, align 8, !tbaa !19, !noalias !21
@@ -78,7 +78,7 @@ if.end.i.i.i.i.i.i:                               ; preds = %if.end.i.i.i
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2ERKS4_.exit.i: ; preds = %if.end.i.i.i.i.i.i, %if.then.i.i.i.i.i, %if.end.i.i.i
   %9 = phi ptr [ %2, %if.end.i.i.i.i.i.i ], [ %7, %if.then.i.i.i.i.i ], [ %2, %if.end.i.i.i ]
   %10 = load i64, ptr %__dnew.i.i.i, align 8, !tbaa !19, !noalias !21
-  %_M_string_length.i.i.i.i.i = getelementptr inbounds %"class.std::__cxx11::basic_string", ptr %agg.result, i64 0, i32 1
+  %_M_string_length.i.i.i.i.i = getelementptr inbounds i8, ptr %agg.result, i64 8
   store i64 %10, ptr %_M_string_length.i.i.i.i.i, align 8, !tbaa !13, !alias.scope !21
   %11 = load ptr, ptr %agg.result, align 8, !tbaa !20, !alias.scope !21
   %arrayidx.i.i.i.i = getelementptr inbounds i8, ptr %11, i64 %10

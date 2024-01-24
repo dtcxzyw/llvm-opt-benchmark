@@ -16,7 +16,7 @@ define void @"_ZN14regex_automata4util4pool5inner17Pool$LT$T$C$F$GT$3new17h363bd
   %8 = alloca { { ptr, i64 }, i64 }, align 8
   %9 = alloca { ptr, ptr }, align 8
   store ptr %1, ptr %9, align 8
-  %10 = getelementptr inbounds { ptr, ptr }, ptr %9, i64 0, i32 1
+  %10 = getelementptr inbounds i8, ptr %9, i64 8
   store ptr %2, ptr %10, align 8
   invoke void @"_ZN5alloc3vec12Vec$LT$T$GT$13with_capacity17h64319e6fd69fefd3E"(ptr nonnull sret({ { ptr, i64 }, i64 }) align 8 %8, i64 8)
           to label %14 unwind label %12
@@ -58,7 +58,7 @@ define void @"_ZN14regex_automata4util4pool5inner17Pool$LT$T$C$F$GT$3new17h363bd
   %20 = extractvalue { i64, i64 } %18, 0
   %21 = extractvalue { i64, i64 } %18, 1
   store i64 %20, ptr %7, align 8
-  %22 = getelementptr inbounds { i64, i64 }, ptr %7, i64 0, i32 1
+  %22 = getelementptr inbounds i8, ptr %7, i64 8
   store i64 %21, ptr %22, align 8
   br label %23
 
@@ -82,13 +82,13 @@ define void @"_ZN14regex_automata4util4pool5inner17Pool$LT$T$C$F$GT$3new17h363bd
 
 31:                                               ; preds = %27
   store ptr %1, ptr %0, align 8
-  %32 = getelementptr inbounds { ptr, ptr }, ptr %0, i64 0, i32 1
+  %32 = getelementptr inbounds i8, ptr %0, i64 8
   store ptr %2, ptr %32, align 8
-  %33 = getelementptr inbounds { { ptr, ptr }, { { ptr, i64 }, i64 }, { i64 }, { { i64, [174 x i64] } } }, ptr %0, i64 0, i32 1
+  %33 = getelementptr inbounds i8, ptr %0, i64 16
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %33, ptr noundef nonnull align 8 dereferenceable(24) %8, i64 24, i1 false)
-  %34 = getelementptr inbounds { { ptr, ptr }, { { ptr, i64 }, i64 }, { i64 }, { { i64, [174 x i64] } } }, ptr %0, i64 0, i32 2
+  %34 = getelementptr inbounds i8, ptr %0, i64 40
   store i64 %29, ptr %34, align 8
-  %35 = getelementptr inbounds { { ptr, ptr }, { { ptr, i64 }, i64 }, { i64 }, { { i64, [174 x i64] } } }, ptr %0, i64 0, i32 3
+  %35 = getelementptr inbounds i8, ptr %0, i64 48
   store i64 3, ptr %35, align 8
   ret void
 
@@ -118,14 +118,14 @@ define align 8 ptr @"_ZN14regex_automata4util4pool5inner22PoolGuard$LT$T$C$F$GT$
   br i1 %3, label %4, label %7
 
 4:                                                ; preds = %1
-  %5 = getelementptr inbounds { [1 x i64], ptr }, ptr %0, i64 0, i32 1
+  %5 = getelementptr inbounds i8, ptr %0, i64 8
   %6 = load ptr, ptr %5, align 8, !nonnull !5, !align !7, !noundef !5
   br label %13
 
 7:                                                ; preds = %1
-  %8 = getelementptr inbounds { { i64, [1 x i64] }, ptr, i8, [7 x i8] }, ptr %0, i64 0, i32 1
+  %8 = getelementptr inbounds i8, ptr %0, i64 16
   %9 = load ptr, ptr %8, align 8, !nonnull !5, !align !7, !noundef !5
-  %10 = getelementptr inbounds { { ptr, ptr }, { { ptr, i64 }, i64 }, { i64 }, { { i64, [174 x i64] } } }, ptr %9, i64 0, i32 3
+  %10 = getelementptr inbounds i8, ptr %9, i64 48
   %11 = tail call align 8 ptr @"_ZN4core6option15Option$LT$T$GT$6as_mut17hdf41cef263339e7eE"(ptr nonnull align 8 %10)
   %12 = tail call align 8 ptr @"_ZN4core6option15Option$LT$T$GT$16unwrap_unchecked17h9219927229b82195E"(ptr align 8 %11, ptr nonnull align 8 @anon.3e8171080ff572a5175d51c5ed0ac283.1)
   br label %13

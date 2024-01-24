@@ -6,7 +6,6 @@ target triple = "x86_64-unknown-linux-gnu"
 %"class.std::ios_base::Init" = type { i8 }
 %struct.smt_params_helper = type { ptr, %class.params_ref }
 %class.params_ref = type { ptr }
-%struct.theory_str_params = type <{ i8, i8, i8, i8, i8, i8, i8, i8, double, i32, i32, i32, i32, i32, i8, i8, [2 x i8] }>
 
 @_ZStL8__ioinit = internal global %"class.std::ios_base::Init" zeroinitializer, align 1
 @__dso_handle = external hidden global i8
@@ -55,7 +54,7 @@ define hidden void @_ZN17theory_str_params11updt_paramsERK10params_ref(ptr nocap
 entry:
   %p = alloca %struct.smt_params_helper, align 8
   store ptr %_p, ptr %p, align 8
-  %g.i = getelementptr inbounds %struct.smt_params_helper, ptr %p, i64 0, i32 1
+  %g.i = getelementptr inbounds i8, ptr %p, i64 8
   call void @_ZN7gparams10get_moduleEPKc(ptr nonnull sret(%class.params_ref) align 8 %g.i, ptr noundef nonnull @.str.14)
   %0 = load ptr, ptr %p, align 8
   %call.i2 = invoke noundef zeroext i1 @_ZNK10params_ref8get_boolEPKcRKS_b(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef nonnull @.str.15, ptr noundef nonnull align 8 dereferenceable(8) %g.i, i1 noundef zeroext true)
@@ -69,7 +68,7 @@ invoke.cont:                                      ; preds = %entry
           to label %invoke.cont2 unwind label %lpad
 
 invoke.cont2:                                     ; preds = %invoke.cont
-  %m_AggressiveLengthTesting = getelementptr inbounds %struct.theory_str_params, ptr %this, i64 0, i32 1
+  %m_AggressiveLengthTesting = getelementptr inbounds i8, ptr %this, i64 1
   %frombool4 = zext i1 %call.i4 to i8
   store i8 %frombool4, ptr %m_AggressiveLengthTesting, align 1
   %2 = load ptr, ptr %p, align 8
@@ -77,7 +76,7 @@ invoke.cont2:                                     ; preds = %invoke.cont
           to label %invoke.cont5 unwind label %lpad
 
 invoke.cont5:                                     ; preds = %invoke.cont2
-  %m_AggressiveValueTesting = getelementptr inbounds %struct.theory_str_params, ptr %this, i64 0, i32 2
+  %m_AggressiveValueTesting = getelementptr inbounds i8, ptr %this, i64 2
   %frombool7 = zext i1 %call.i6 to i8
   store i8 %frombool7, ptr %m_AggressiveValueTesting, align 2
   %3 = load ptr, ptr %p, align 8
@@ -85,7 +84,7 @@ invoke.cont5:                                     ; preds = %invoke.cont2
           to label %invoke.cont8 unwind label %lpad
 
 invoke.cont8:                                     ; preds = %invoke.cont5
-  %m_AggressiveUnrollTesting = getelementptr inbounds %struct.theory_str_params, ptr %this, i64 0, i32 3
+  %m_AggressiveUnrollTesting = getelementptr inbounds i8, ptr %this, i64 3
   %frombool10 = zext i1 %call.i8 to i8
   store i8 %frombool10, ptr %m_AggressiveUnrollTesting, align 1
   %4 = load ptr, ptr %p, align 8
@@ -93,7 +92,7 @@ invoke.cont8:                                     ; preds = %invoke.cont5
           to label %invoke.cont11 unwind label %lpad
 
 invoke.cont11:                                    ; preds = %invoke.cont8
-  %m_UseFastLengthTesterCache = getelementptr inbounds %struct.theory_str_params, ptr %this, i64 0, i32 4
+  %m_UseFastLengthTesterCache = getelementptr inbounds i8, ptr %this, i64 4
   %frombool13 = zext i1 %call.i10 to i8
   store i8 %frombool13, ptr %m_UseFastLengthTesterCache, align 4
   %5 = load ptr, ptr %p, align 8
@@ -101,7 +100,7 @@ invoke.cont11:                                    ; preds = %invoke.cont8
           to label %invoke.cont14 unwind label %lpad
 
 invoke.cont14:                                    ; preds = %invoke.cont11
-  %m_UseFastValueTesterCache = getelementptr inbounds %struct.theory_str_params, ptr %this, i64 0, i32 5
+  %m_UseFastValueTesterCache = getelementptr inbounds i8, ptr %this, i64 5
   %frombool16 = zext i1 %call.i12 to i8
   store i8 %frombool16, ptr %m_UseFastValueTesterCache, align 1
   %6 = load ptr, ptr %p, align 8
@@ -109,7 +108,7 @@ invoke.cont14:                                    ; preds = %invoke.cont11
           to label %invoke.cont17 unwind label %lpad
 
 invoke.cont17:                                    ; preds = %invoke.cont14
-  %m_StringConstantCache = getelementptr inbounds %struct.theory_str_params, ptr %this, i64 0, i32 6
+  %m_StringConstantCache = getelementptr inbounds i8, ptr %this, i64 6
   %frombool19 = zext i1 %call.i14 to i8
   store i8 %frombool19, ptr %m_StringConstantCache, align 2
   %7 = load ptr, ptr %p, align 8
@@ -117,49 +116,49 @@ invoke.cont17:                                    ; preds = %invoke.cont14
           to label %invoke.cont20 unwind label %lpad
 
 invoke.cont20:                                    ; preds = %invoke.cont17
-  %m_OverlapTheoryAwarePriority = getelementptr inbounds %struct.theory_str_params, ptr %this, i64 0, i32 8
+  %m_OverlapTheoryAwarePriority = getelementptr inbounds i8, ptr %this, i64 8
   store double %call.i16, ptr %m_OverlapTheoryAwarePriority, align 8
   %8 = load ptr, ptr %p, align 8
   %call.i18 = invoke noundef i32 @_ZNK10params_ref8get_uintEPKcRKS_j(ptr noundef nonnull align 8 dereferenceable(8) %8, ptr noundef nonnull @.str.23, ptr noundef nonnull align 8 dereferenceable(8) %g.i, i32 noundef 1000)
           to label %invoke.cont22 unwind label %lpad
 
 invoke.cont22:                                    ; preds = %invoke.cont20
-  %m_RegexAutomata_DifficultyThreshold = getelementptr inbounds %struct.theory_str_params, ptr %this, i64 0, i32 9
+  %m_RegexAutomata_DifficultyThreshold = getelementptr inbounds i8, ptr %this, i64 16
   store i32 %call.i18, ptr %m_RegexAutomata_DifficultyThreshold, align 8
   %9 = load ptr, ptr %p, align 8
   %call.i20 = invoke noundef i32 @_ZNK10params_ref8get_uintEPKcRKS_j(ptr noundef nonnull align 8 dereferenceable(8) %9, ptr noundef nonnull @.str.24, ptr noundef nonnull align 8 dereferenceable(8) %g.i, i32 noundef 1000)
           to label %invoke.cont24 unwind label %lpad
 
 invoke.cont24:                                    ; preds = %invoke.cont22
-  %m_RegexAutomata_IntersectionDifficultyThreshold = getelementptr inbounds %struct.theory_str_params, ptr %this, i64 0, i32 10
+  %m_RegexAutomata_IntersectionDifficultyThreshold = getelementptr inbounds i8, ptr %this, i64 20
   store i32 %call.i20, ptr %m_RegexAutomata_IntersectionDifficultyThreshold, align 4
   %10 = load ptr, ptr %p, align 8
   %call.i22 = invoke noundef i32 @_ZNK10params_ref8get_uintEPKcRKS_j(ptr noundef nonnull align 8 dereferenceable(8) %10, ptr noundef nonnull @.str.25, ptr noundef nonnull align 8 dereferenceable(8) %g.i, i32 noundef 10)
           to label %invoke.cont26 unwind label %lpad
 
 invoke.cont26:                                    ; preds = %invoke.cont24
-  %m_RegexAutomata_FailedAutomatonThreshold = getelementptr inbounds %struct.theory_str_params, ptr %this, i64 0, i32 11
+  %m_RegexAutomata_FailedAutomatonThreshold = getelementptr inbounds i8, ptr %this, i64 24
   store i32 %call.i22, ptr %m_RegexAutomata_FailedAutomatonThreshold, align 8
   %11 = load ptr, ptr %p, align 8
   %call.i24 = invoke noundef i32 @_ZNK10params_ref8get_uintEPKcRKS_j(ptr noundef nonnull align 8 dereferenceable(8) %11, ptr noundef nonnull @.str.26, ptr noundef nonnull align 8 dereferenceable(8) %g.i, i32 noundef 10)
           to label %invoke.cont28 unwind label %lpad
 
 invoke.cont28:                                    ; preds = %invoke.cont26
-  %m_RegexAutomata_FailedIntersectionThreshold = getelementptr inbounds %struct.theory_str_params, ptr %this, i64 0, i32 12
+  %m_RegexAutomata_FailedIntersectionThreshold = getelementptr inbounds i8, ptr %this, i64 28
   store i32 %call.i24, ptr %m_RegexAutomata_FailedIntersectionThreshold, align 4
   %12 = load ptr, ptr %p, align 8
   %call.i26 = invoke noundef i32 @_ZNK10params_ref8get_uintEPKcRKS_j(ptr noundef nonnull align 8 dereferenceable(8) %12, ptr noundef nonnull @.str.27, ptr noundef nonnull align 8 dereferenceable(8) %g.i, i32 noundef 10)
           to label %invoke.cont30 unwind label %lpad
 
 invoke.cont30:                                    ; preds = %invoke.cont28
-  %m_RegexAutomata_LengthAttemptThreshold = getelementptr inbounds %struct.theory_str_params, ptr %this, i64 0, i32 13
+  %m_RegexAutomata_LengthAttemptThreshold = getelementptr inbounds i8, ptr %this, i64 32
   store i32 %call.i26, ptr %m_RegexAutomata_LengthAttemptThreshold, align 8
   %13 = load ptr, ptr %p, align 8
   %call.i28 = invoke noundef zeroext i1 @_ZNK10params_ref8get_boolEPKcRKS_b(ptr noundef nonnull align 8 dereferenceable(8) %13, ptr noundef nonnull @.str.28, ptr noundef nonnull align 8 dereferenceable(8) %g.i, i1 noundef zeroext false)
           to label %invoke.cont32 unwind label %lpad
 
 invoke.cont32:                                    ; preds = %invoke.cont30
-  %m_FixedLengthRefinement = getelementptr inbounds %struct.theory_str_params, ptr %this, i64 0, i32 14
+  %m_FixedLengthRefinement = getelementptr inbounds i8, ptr %this, i64 36
   %frombool34 = zext i1 %call.i28 to i8
   store i8 %frombool34, ptr %m_FixedLengthRefinement, align 4
   %14 = load ptr, ptr %p, align 8
@@ -167,7 +166,7 @@ invoke.cont32:                                    ; preds = %invoke.cont30
           to label %invoke.cont35 unwind label %lpad
 
 invoke.cont35:                                    ; preds = %invoke.cont32
-  %m_FixedLengthNaiveCounterexamples = getelementptr inbounds %struct.theory_str_params, ptr %this, i64 0, i32 15
+  %m_FixedLengthNaiveCounterexamples = getelementptr inbounds i8, ptr %this, i64 37
   %frombool37 = zext i1 %call.i30 to i8
   store i8 %frombool37, ptr %m_FixedLengthNaiveCounterexamples, align 1
   call void @_ZN10params_refD1Ev(ptr noundef nonnull align 8 dereferenceable(8) %g.i) #5
@@ -192,79 +191,79 @@ entry:
   %call2 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSolsEb(ptr noundef nonnull align 8 dereferenceable(8) %call, i1 noundef zeroext %tobool)
   %call3 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_c(ptr noundef nonnull align 8 dereferenceable(8) %call2, i8 noundef signext 10)
   %call4 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc(ptr noundef nonnull align 8 dereferenceable(8) %out, ptr noundef nonnull @.str.1)
-  %m_AggressiveLengthTesting = getelementptr inbounds %struct.theory_str_params, ptr %this, i64 0, i32 1
+  %m_AggressiveLengthTesting = getelementptr inbounds i8, ptr %this, i64 1
   %2 = load i8, ptr %m_AggressiveLengthTesting, align 1
   %3 = and i8 %2, 1
   %tobool5 = icmp ne i8 %3, 0
   %call6 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSolsEb(ptr noundef nonnull align 8 dereferenceable(8) %call4, i1 noundef zeroext %tobool5)
   %call7 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_c(ptr noundef nonnull align 8 dereferenceable(8) %call6, i8 noundef signext 10)
   %call8 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc(ptr noundef nonnull align 8 dereferenceable(8) %out, ptr noundef nonnull @.str.2)
-  %m_AggressiveValueTesting = getelementptr inbounds %struct.theory_str_params, ptr %this, i64 0, i32 2
+  %m_AggressiveValueTesting = getelementptr inbounds i8, ptr %this, i64 2
   %4 = load i8, ptr %m_AggressiveValueTesting, align 2
   %5 = and i8 %4, 1
   %tobool9 = icmp ne i8 %5, 0
   %call10 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSolsEb(ptr noundef nonnull align 8 dereferenceable(8) %call8, i1 noundef zeroext %tobool9)
   %call11 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_c(ptr noundef nonnull align 8 dereferenceable(8) %call10, i8 noundef signext 10)
   %call12 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc(ptr noundef nonnull align 8 dereferenceable(8) %out, ptr noundef nonnull @.str.3)
-  %m_AggressiveUnrollTesting = getelementptr inbounds %struct.theory_str_params, ptr %this, i64 0, i32 3
+  %m_AggressiveUnrollTesting = getelementptr inbounds i8, ptr %this, i64 3
   %6 = load i8, ptr %m_AggressiveUnrollTesting, align 1
   %7 = and i8 %6, 1
   %tobool13 = icmp ne i8 %7, 0
   %call14 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSolsEb(ptr noundef nonnull align 8 dereferenceable(8) %call12, i1 noundef zeroext %tobool13)
   %call15 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_c(ptr noundef nonnull align 8 dereferenceable(8) %call14, i8 noundef signext 10)
   %call16 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc(ptr noundef nonnull align 8 dereferenceable(8) %out, ptr noundef nonnull @.str.4)
-  %m_UseFastLengthTesterCache = getelementptr inbounds %struct.theory_str_params, ptr %this, i64 0, i32 4
+  %m_UseFastLengthTesterCache = getelementptr inbounds i8, ptr %this, i64 4
   %8 = load i8, ptr %m_UseFastLengthTesterCache, align 4
   %9 = and i8 %8, 1
   %tobool17 = icmp ne i8 %9, 0
   %call18 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSolsEb(ptr noundef nonnull align 8 dereferenceable(8) %call16, i1 noundef zeroext %tobool17)
   %call19 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_c(ptr noundef nonnull align 8 dereferenceable(8) %call18, i8 noundef signext 10)
   %call20 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc(ptr noundef nonnull align 8 dereferenceable(8) %out, ptr noundef nonnull @.str.5)
-  %m_UseFastValueTesterCache = getelementptr inbounds %struct.theory_str_params, ptr %this, i64 0, i32 5
+  %m_UseFastValueTesterCache = getelementptr inbounds i8, ptr %this, i64 5
   %10 = load i8, ptr %m_UseFastValueTesterCache, align 1
   %11 = and i8 %10, 1
   %tobool21 = icmp ne i8 %11, 0
   %call22 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSolsEb(ptr noundef nonnull align 8 dereferenceable(8) %call20, i1 noundef zeroext %tobool21)
   %call23 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_c(ptr noundef nonnull align 8 dereferenceable(8) %call22, i8 noundef signext 10)
   %call24 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc(ptr noundef nonnull align 8 dereferenceable(8) %out, ptr noundef nonnull @.str.6)
-  %m_StringConstantCache = getelementptr inbounds %struct.theory_str_params, ptr %this, i64 0, i32 6
+  %m_StringConstantCache = getelementptr inbounds i8, ptr %this, i64 6
   %12 = load i8, ptr %m_StringConstantCache, align 2
   %13 = and i8 %12, 1
   %tobool25 = icmp ne i8 %13, 0
   %call26 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSolsEb(ptr noundef nonnull align 8 dereferenceable(8) %call24, i1 noundef zeroext %tobool25)
   %call27 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_c(ptr noundef nonnull align 8 dereferenceable(8) %call26, i8 noundef signext 10)
   %call28 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc(ptr noundef nonnull align 8 dereferenceable(8) %out, ptr noundef nonnull @.str.7)
-  %m_OverlapTheoryAwarePriority = getelementptr inbounds %struct.theory_str_params, ptr %this, i64 0, i32 8
+  %m_OverlapTheoryAwarePriority = getelementptr inbounds i8, ptr %this, i64 8
   %14 = load double, ptr %m_OverlapTheoryAwarePriority, align 8
   %call29 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSolsEd(ptr noundef nonnull align 8 dereferenceable(8) %call28, double noundef %14)
   %call30 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_c(ptr noundef nonnull align 8 dereferenceable(8) %call29, i8 noundef signext 10)
   %call31 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc(ptr noundef nonnull align 8 dereferenceable(8) %out, ptr noundef nonnull @.str.8)
-  %m_RegexAutomata_DifficultyThreshold = getelementptr inbounds %struct.theory_str_params, ptr %this, i64 0, i32 9
+  %m_RegexAutomata_DifficultyThreshold = getelementptr inbounds i8, ptr %this, i64 16
   %15 = load i32, ptr %m_RegexAutomata_DifficultyThreshold, align 8
   %call32 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSolsEj(ptr noundef nonnull align 8 dereferenceable(8) %call31, i32 noundef %15)
   %call33 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_c(ptr noundef nonnull align 8 dereferenceable(8) %call32, i8 noundef signext 10)
   %call34 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc(ptr noundef nonnull align 8 dereferenceable(8) %out, ptr noundef nonnull @.str.9)
-  %m_RegexAutomata_IntersectionDifficultyThreshold = getelementptr inbounds %struct.theory_str_params, ptr %this, i64 0, i32 10
+  %m_RegexAutomata_IntersectionDifficultyThreshold = getelementptr inbounds i8, ptr %this, i64 20
   %16 = load i32, ptr %m_RegexAutomata_IntersectionDifficultyThreshold, align 4
   %call35 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSolsEj(ptr noundef nonnull align 8 dereferenceable(8) %call34, i32 noundef %16)
   %call36 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_c(ptr noundef nonnull align 8 dereferenceable(8) %call35, i8 noundef signext 10)
   %call37 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc(ptr noundef nonnull align 8 dereferenceable(8) %out, ptr noundef nonnull @.str.10)
-  %m_RegexAutomata_FailedAutomatonThreshold = getelementptr inbounds %struct.theory_str_params, ptr %this, i64 0, i32 11
+  %m_RegexAutomata_FailedAutomatonThreshold = getelementptr inbounds i8, ptr %this, i64 24
   %17 = load i32, ptr %m_RegexAutomata_FailedAutomatonThreshold, align 8
   %call38 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSolsEj(ptr noundef nonnull align 8 dereferenceable(8) %call37, i32 noundef %17)
   %call39 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_c(ptr noundef nonnull align 8 dereferenceable(8) %call38, i8 noundef signext 10)
   %call40 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc(ptr noundef nonnull align 8 dereferenceable(8) %out, ptr noundef nonnull @.str.11)
-  %m_RegexAutomata_FailedIntersectionThreshold = getelementptr inbounds %struct.theory_str_params, ptr %this, i64 0, i32 12
+  %m_RegexAutomata_FailedIntersectionThreshold = getelementptr inbounds i8, ptr %this, i64 28
   %18 = load i32, ptr %m_RegexAutomata_FailedIntersectionThreshold, align 4
   %call41 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSolsEj(ptr noundef nonnull align 8 dereferenceable(8) %call40, i32 noundef %18)
   %call42 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_c(ptr noundef nonnull align 8 dereferenceable(8) %call41, i8 noundef signext 10)
   %call43 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc(ptr noundef nonnull align 8 dereferenceable(8) %out, ptr noundef nonnull @.str.12)
-  %m_RegexAutomata_LengthAttemptThreshold = getelementptr inbounds %struct.theory_str_params, ptr %this, i64 0, i32 13
+  %m_RegexAutomata_LengthAttemptThreshold = getelementptr inbounds i8, ptr %this, i64 32
   %19 = load i32, ptr %m_RegexAutomata_LengthAttemptThreshold, align 8
   %call44 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSolsEj(ptr noundef nonnull align 8 dereferenceable(8) %call43, i32 noundef %19)
   %call45 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_c(ptr noundef nonnull align 8 dereferenceable(8) %call44, i8 noundef signext 10)
   %call46 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc(ptr noundef nonnull align 8 dereferenceable(8) %out, ptr noundef nonnull @.str.13)
-  %m_FixedLengthNaiveCounterexamples = getelementptr inbounds %struct.theory_str_params, ptr %this, i64 0, i32 15
+  %m_FixedLengthNaiveCounterexamples = getelementptr inbounds i8, ptr %this, i64 37
   %20 = load i8, ptr %m_FixedLengthNaiveCounterexamples, align 1
   %21 = and i8 %20, 1
   %tobool47 = icmp ne i8 %21, 0

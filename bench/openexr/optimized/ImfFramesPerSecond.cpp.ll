@@ -12,7 +12,7 @@ entry:
   call void @_ZN7Imf_3_28RationalC1Ed(ptr noundef nonnull align 4 dereferenceable(8) %ref.tmp, double noundef %fps)
   %0 = load i32, ptr %ref.tmp, align 8
   %conv.i.i = sitofp i32 %0 to double
-  %d.i.i = getelementptr inbounds %"class.Imf_3_2::Rational", ptr %ref.tmp, i64 0, i32 1
+  %d.i.i = getelementptr inbounds i8, ptr %ref.tmp, i64 4
   %1 = load i32, ptr %d.i.i, align 4
   %conv2.i.i = uitofp i32 %1 to double
   %div.i.i = fdiv double %conv.i.i, %conv2.i.i
@@ -48,12 +48,12 @@ _ZN7Imf_3_213guessExactFpsERKNS_8RationalE.exit:  ; preds = %entry, %if.end.i, %
   ret i64 %retval.sroa.0.0.i
 }
 
-; Function Attrs: mustprogress nofree nosync nounwind willreturn memory(argmem: read) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
 define i64 @_ZN7Imf_3_213guessExactFpsERKNS_8RationalE(ptr nocapture noundef nonnull readonly align 4 dereferenceable(8) %fps) local_unnamed_addr #1 {
 entry:
   %0 = load i32, ptr %fps, align 4
   %conv.i = sitofp i32 %0 to double
-  %d.i = getelementptr inbounds %"class.Imf_3_2::Rational", ptr %fps, i64 0, i32 1
+  %d.i = getelementptr inbounds i8, ptr %fps, i64 4
   %1 = load i32, ptr %d.i, align 4
   %conv2.i = uitofp i32 %1 to double
   %div.i = fdiv double %conv.i, %conv2.i
@@ -95,7 +95,7 @@ declare void @_ZN7Imf_3_28RationalC1Ed(ptr noundef nonnull align 4 dereferenceab
 declare double @llvm.fabs.f64(double) #3
 
 attributes #0 = { mustprogress uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #1 = { mustprogress nofree nosync nounwind willreturn memory(argmem: read) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #1 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #2 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #3 = { mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none) }
 

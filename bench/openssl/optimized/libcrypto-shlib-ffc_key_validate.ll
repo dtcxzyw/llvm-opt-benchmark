@@ -3,10 +3,8 @@ source_filename = "bench/openssl/original/libcrypto-shlib-ffc_key_validate.ll"
 target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:128-n8:16:32:64-S128"
 target triple = "x86_64-unknown-linux-gnu"
 
-%struct.ffc_params_st = type { ptr, ptr, ptr, ptr, ptr, i64, i32, i32, i32, i32, i32, ptr, ptr, i32 }
-
 ; Function Attrs: nounwind uwtable
-define i32 @ossl_ffc_validate_public_key_partial(ptr noundef readonly %params, ptr noundef %pub_key, ptr nocapture noundef %ret) local_unnamed_addr #0 {
+define noundef i32 @ossl_ffc_validate_public_key_partial(ptr noundef readonly %params, ptr noundef %pub_key, ptr nocapture noundef %ret) local_unnamed_addr #0 {
 entry:
   store i32 0, ptr %ret, align 4
   %cmp = icmp eq ptr %params, null
@@ -102,7 +100,7 @@ declare void @BN_CTX_end(ptr noundef) local_unnamed_addr #1
 declare void @BN_CTX_free(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define i32 @ossl_ffc_validate_public_key(ptr noundef %params, ptr noundef %pub_key, ptr nocapture noundef %ret) local_unnamed_addr #0 {
+define noundef i32 @ossl_ffc_validate_public_key(ptr noundef %params, ptr noundef %pub_key, ptr nocapture noundef %ret) local_unnamed_addr #0 {
 entry:
   %call = tail call i32 @ossl_ffc_validate_public_key_partial(ptr noundef %params, ptr noundef %pub_key, ptr noundef %ret), !range !4
   %tobool.not = icmp eq i32 %call, 0
@@ -114,7 +112,7 @@ if.end:                                           ; preds = %entry
   br i1 %cmp, label %land.lhs.true, label %return
 
 land.lhs.true:                                    ; preds = %if.end
-  %q = getelementptr inbounds %struct.ffc_params_st, ptr %params, i64 0, i32 1
+  %q = getelementptr inbounds i8, ptr %params, i64 8
   %1 = load ptr, ptr %q, align 8
   %cmp1.not = icmp eq ptr %1, null
   br i1 %cmp1.not, label %return, label %if.then2
@@ -164,7 +162,7 @@ declare i32 @BN_mod_exp(ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr 
 declare i32 @BN_is_one(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define i32 @ossl_ffc_validate_private_key(ptr noundef %upper, ptr noundef %priv, ptr nocapture noundef %ret) local_unnamed_addr #0 {
+define noundef i32 @ossl_ffc_validate_private_key(ptr noundef %upper, ptr noundef %priv, ptr nocapture noundef %ret) local_unnamed_addr #0 {
 entry:
   store i32 0, ptr %ret, align 4
   %cmp = icmp eq ptr %priv, null

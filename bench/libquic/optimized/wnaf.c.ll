@@ -3,8 +3,6 @@ source_filename = "bench/libquic/original/wnaf.c.ll"
 target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:128-n8:16:32:64-S128"
 target triple = "x86_64-unknown-linux-gnu"
 
-%struct.bignum_st = type { ptr, i32, i32, i32, i32 }
-
 @.str = private unnamed_addr constant [120 x i8] c"generated/home/dtcxzyw/WorkSpace/Projects/compilers/llvm-opt-benchmark/bench/libquic/libquic/boringssl/crypto/ec/wnaf.c\00", align 1
 
 ; Function Attrs: nounwind uwtable
@@ -135,7 +133,7 @@ if.end7.i:                                        ; preds = %cond.end77
   br i1 %cmp13.i, label %if.then16.i, label %lor.lhs.false14.i
 
 lor.lhs.false14.i:                                ; preds = %if.end7.i
-  %top.i = getelementptr inbounds %struct.bignum_st, ptr %g_scalar.mux, i64 0, i32 1
+  %top.i = getelementptr inbounds i8, ptr %g_scalar.mux, i64 8
   %2 = load i32, ptr %top.i, align 8
   %cmp15.i = icmp eq i32 %2, 0
   br i1 %cmp15.i, label %if.then16.i, label %if.end17.i
@@ -374,7 +372,7 @@ for.body128:                                      ; preds = %for.body120, %if.en
   br i1 %cmp130, label %err, label %if.end133
 
 if.end133:                                        ; preds = %for.body128
-  %incdec.ptr = getelementptr inbounds ptr, ptr %v.1240, i64 1
+  %incdec.ptr = getelementptr inbounds i8, ptr %v.1240, i64 8
   %inc135 = add i64 %j.0239, 1
   %9 = load i64, ptr %arrayidx123, align 8
   %sub124 = add i64 %9, -1
@@ -452,7 +450,7 @@ for.body185:                                      ; preds = %for.body185.prehead
   %j.1247 = phi i64 [ %inc196, %for.cond179 ], [ 1, %for.body185.preheader ]
   %arrayidx187 = getelementptr inbounds ptr, ptr %15, i64 %j.1247
   %17 = load ptr, ptr %arrayidx187, align 8
-  %arrayidx190 = getelementptr ptr, ptr %arrayidx187, i64 -1
+  %arrayidx190 = getelementptr i8, ptr %arrayidx187, i64 -8
   %18 = load ptr, ptr %arrayidx190, align 8
   %call191 = tail call i32 @EC_POINT_add(ptr noundef %group, ptr noundef %17, ptr noundef %18, ptr noundef nonnull %call144, ptr noundef nonnull %ctx.addr.0) #5
   %tobool192.not = icmp eq i32 %call191, 0
@@ -611,7 +609,7 @@ for.body294:                                      ; preds = %for.cond291.prehead
   %31 = phi ptr [ %32, %for.body294 ], [ %30, %for.cond291.preheader ]
   %w.0265 = phi ptr [ %incdec.ptr296, %for.body294 ], [ %wNAF.0, %for.cond291.preheader ]
   tail call void @free(ptr noundef nonnull %31) #5
-  %incdec.ptr296 = getelementptr inbounds ptr, ptr %w.0265, i64 1
+  %incdec.ptr296 = getelementptr inbounds i8, ptr %w.0265, i64 8
   %32 = load ptr, ptr %incdec.ptr296, align 8
   %cmp292.not = icmp eq ptr %32, null
   br i1 %cmp292.not, label %for.end297, label %for.body294, !llvm.loop !16
@@ -633,7 +631,7 @@ for.body305:                                      ; preds = %for.cond302.prehead
   %34 = phi ptr [ %35, %for.body305 ], [ %33, %for.cond302.preheader ]
   %v.2267 = phi ptr [ %incdec.ptr307, %for.body305 ], [ %val.0, %for.cond302.preheader ]
   tail call void @EC_POINT_clear_free(ptr noundef nonnull %34) #5
-  %incdec.ptr307 = getelementptr inbounds ptr, ptr %v.2267, i64 1
+  %incdec.ptr307 = getelementptr inbounds i8, ptr %v.2267, i64 8
   %35 = load ptr, ptr %incdec.ptr307, align 8
   %cmp303.not = icmp eq ptr %35, null
   br i1 %cmp303.not, label %for.end308, label %for.body305, !llvm.loop !17

@@ -3,11 +3,6 @@ source_filename = "bench/openssl/original/libcrypto-shlib-ec_oct.ll"
 target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:128-n8:16:32:64-S128"
 target triple = "x86_64-unknown-linux-gnu"
 
-%struct.ec_method_st = type { i32, i32, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr }
-%struct.ec_group_st = type { ptr, ptr, ptr, ptr, i32, i32, i32, i32, ptr, i64, ptr, [6 x i32], ptr, ptr, i32, ptr, ptr, ptr, ptr, i32, %union.anon, ptr, ptr }
-%union.anon = type { ptr }
-%struct.ec_point_st = type { ptr, i32, ptr, ptr, ptr, i32 }
-
 @.str = private unnamed_addr constant [30 x i8] c"../openssl/crypto/ec/ec_oct.c\00", align 1
 @__func__.EC_POINT_set_compressed_coordinates = private unnamed_addr constant [36 x i8] c"EC_POINT_set_compressed_coordinates\00", align 1
 @__func__.EC_POINT_point2oct = private unnamed_addr constant [19 x i8] c"EC_POINT_point2oct\00", align 1
@@ -17,7 +12,7 @@ target triple = "x86_64-unknown-linux-gnu"
 define i32 @EC_POINT_set_compressed_coordinates(ptr noundef %group, ptr noundef %point, ptr noundef %x, i32 noundef %y_bit, ptr noundef %ctx) local_unnamed_addr #0 {
 entry:
   %0 = load ptr, ptr %group, align 8
-  %point_set_compressed_coordinates = getelementptr inbounds %struct.ec_method_st, ptr %0, i64 0, i32 18
+  %point_set_compressed_coordinates = getelementptr inbounds i8, ptr %0, i64 136
   %1 = load ptr, ptr %point_set_compressed_coordinates, align 8
   %cmp = icmp eq ptr %1, null
   br i1 %cmp, label %land.lhs.true, label %if.end
@@ -40,13 +35,13 @@ if.end:                                           ; preds = %land.lhs.true, %ent
   br i1 %cmp.i, label %land.rhs.i, label %if.then3
 
 land.rhs.i:                                       ; preds = %if.end
-  %curve_name.i = getelementptr inbounds %struct.ec_group_st, ptr %group, i64 0, i32 4
+  %curve_name.i = getelementptr inbounds i8, ptr %group, i64 32
   %4 = load i32, ptr %curve_name.i, align 8
   %cmp2.i = icmp eq i32 %4, 0
   br i1 %cmp2.i, label %if.end4, label %lor.lhs.false.i
 
 lor.lhs.false.i:                                  ; preds = %land.rhs.i
-  %curve_name3.i = getelementptr inbounds %struct.ec_point_st, ptr %point, i64 0, i32 1
+  %curve_name3.i = getelementptr inbounds i8, ptr %point, i64 8
   %5 = load i32, ptr %curve_name3.i, align 8
   %cmp4.i = icmp eq i32 %5, 0
   %cmp7.i.not = icmp eq i32 %4, %5
@@ -66,7 +61,7 @@ if.end4:                                          ; preds = %land.rhs.i, %lor.lh
   br i1 %tobool8.not, label %if.end15, label %if.then9
 
 if.then9:                                         ; preds = %if.end4
-  %field_type = getelementptr inbounds %struct.ec_method_st, ptr %0, i64 0, i32 1
+  %field_type = getelementptr inbounds i8, ptr %0, i64 4
   %7 = load i32, ptr %field_type, align 4
   %cmp11 = icmp eq i32 %7, 406
   br i1 %cmp11, label %if.then12, label %if.else
@@ -116,7 +111,7 @@ entry:
 define i64 @EC_POINT_point2oct(ptr noundef %group, ptr noundef %point, i32 noundef %form, ptr noundef %buf, i64 noundef %len, ptr noundef %ctx) local_unnamed_addr #0 {
 entry:
   %0 = load ptr, ptr %group, align 8
-  %point2oct = getelementptr inbounds %struct.ec_method_st, ptr %0, i64 0, i32 19
+  %point2oct = getelementptr inbounds i8, ptr %0, i64 144
   %1 = load ptr, ptr %point2oct, align 8
   %cmp = icmp eq ptr %1, null
   br i1 %cmp, label %land.lhs.true, label %if.end
@@ -139,13 +134,13 @@ if.end:                                           ; preds = %land.lhs.true, %ent
   br i1 %cmp.i, label %land.rhs.i, label %if.then3
 
 land.rhs.i:                                       ; preds = %if.end
-  %curve_name.i = getelementptr inbounds %struct.ec_group_st, ptr %group, i64 0, i32 4
+  %curve_name.i = getelementptr inbounds i8, ptr %group, i64 32
   %4 = load i32, ptr %curve_name.i, align 8
   %cmp2.i = icmp eq i32 %4, 0
   br i1 %cmp2.i, label %if.end4, label %lor.lhs.false.i
 
 lor.lhs.false.i:                                  ; preds = %land.rhs.i
-  %curve_name3.i = getelementptr inbounds %struct.ec_point_st, ptr %point, i64 0, i32 1
+  %curve_name3.i = getelementptr inbounds i8, ptr %point, i64 8
   %5 = load i32, ptr %curve_name3.i, align 8
   %cmp4.i = icmp eq i32 %5, 0
   %cmp7.i.not = icmp eq i32 %4, %5
@@ -165,7 +160,7 @@ if.end4:                                          ; preds = %land.rhs.i, %lor.lh
   br i1 %tobool8.not, label %if.end15, label %if.then9
 
 if.then9:                                         ; preds = %if.end4
-  %field_type = getelementptr inbounds %struct.ec_method_st, ptr %0, i64 0, i32 1
+  %field_type = getelementptr inbounds i8, ptr %0, i64 4
   %7 = load i32, ptr %field_type, align 4
   %cmp11 = icmp eq i32 %7, 406
   br i1 %cmp11, label %if.then12, label %if.else
@@ -195,7 +190,7 @@ declare i64 @ossl_ec_GF2m_simple_point2oct(ptr noundef, ptr noundef, i32 noundef
 define i32 @EC_POINT_oct2point(ptr noundef %group, ptr noundef %point, ptr noundef %buf, i64 noundef %len, ptr noundef %ctx) local_unnamed_addr #0 {
 entry:
   %0 = load ptr, ptr %group, align 8
-  %oct2point = getelementptr inbounds %struct.ec_method_st, ptr %0, i64 0, i32 20
+  %oct2point = getelementptr inbounds i8, ptr %0, i64 152
   %1 = load ptr, ptr %oct2point, align 8
   %cmp = icmp eq ptr %1, null
   br i1 %cmp, label %land.lhs.true, label %if.end
@@ -218,13 +213,13 @@ if.end:                                           ; preds = %land.lhs.true, %ent
   br i1 %cmp.i, label %land.rhs.i, label %if.then3
 
 land.rhs.i:                                       ; preds = %if.end
-  %curve_name.i = getelementptr inbounds %struct.ec_group_st, ptr %group, i64 0, i32 4
+  %curve_name.i = getelementptr inbounds i8, ptr %group, i64 32
   %4 = load i32, ptr %curve_name.i, align 8
   %cmp2.i = icmp eq i32 %4, 0
   br i1 %cmp2.i, label %if.end4, label %lor.lhs.false.i
 
 lor.lhs.false.i:                                  ; preds = %land.rhs.i
-  %curve_name3.i = getelementptr inbounds %struct.ec_point_st, ptr %point, i64 0, i32 1
+  %curve_name3.i = getelementptr inbounds i8, ptr %point, i64 8
   %5 = load i32, ptr %curve_name3.i, align 8
   %cmp4.i = icmp eq i32 %5, 0
   %cmp7.i.not = icmp eq i32 %4, %5
@@ -244,7 +239,7 @@ if.end4:                                          ; preds = %land.rhs.i, %lor.lh
   br i1 %tobool8.not, label %if.end15, label %if.then9
 
 if.then9:                                         ; preds = %if.end4
-  %field_type = getelementptr inbounds %struct.ec_method_st, ptr %0, i64 0, i32 1
+  %field_type = getelementptr inbounds i8, ptr %0, i64 4
   %7 = load i32, ptr %field_type, align 4
   %cmp11 = icmp eq i32 %7, 406
   br i1 %cmp11, label %if.then12, label %if.else

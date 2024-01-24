@@ -3,8 +3,6 @@ source_filename = "bench/libsodium/original/libsodium_la-blake2b-compress-ref.ll
 target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:128-n8:16:32:64-S128"
 target triple = "x86_64-unknown-linux-gnu"
 
-%struct.blake2b_state = type <{ [8 x i64], [2 x i64], [2 x i64], [256 x i8], i64, i8 }>
-
 ; Function Attrs: nofree norecurse nosync nounwind ssp memory(argmem: readwrite) uwtable
 define hidden noundef i32 @_sodium_blake2b_compress_ref(ptr nocapture noundef %S, ptr nocapture noundef readonly %block) local_unnamed_addr #0 {
 entry:
@@ -41,23 +39,23 @@ entry:
   %m.sroa.136.0.block.sroa_idx = getelementptr inbounds i8, ptr %block, i64 120
   %m.sroa.136.0.copyload = load i64, ptr %m.sroa.136.0.block.sroa_idx, align 1
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(64) %v, ptr noundef nonnull align 1 dereferenceable(64) %S, i64 64, i1 false)
-  %arrayidx12 = getelementptr inbounds [16 x i64], ptr %v, i64 0, i64 8
-  %arrayidx13 = getelementptr inbounds [16 x i64], ptr %v, i64 0, i64 9
-  %arrayidx14 = getelementptr inbounds [16 x i64], ptr %v, i64 0, i64 10
-  %arrayidx15 = getelementptr inbounds [16 x i64], ptr %v, i64 0, i64 11
-  %t = getelementptr inbounds %struct.blake2b_state, ptr %S, i64 0, i32 1
+  %arrayidx12 = getelementptr inbounds i8, ptr %v, i64 64
+  %arrayidx13 = getelementptr inbounds i8, ptr %v, i64 72
+  %arrayidx14 = getelementptr inbounds i8, ptr %v, i64 80
+  %arrayidx15 = getelementptr inbounds i8, ptr %v, i64 88
+  %t = getelementptr inbounds i8, ptr %S, i64 64
   %0 = load i64, ptr %t, align 1
-  %arrayidx17 = getelementptr inbounds [16 x i64], ptr %v, i64 0, i64 12
-  %arrayidx19 = getelementptr %struct.blake2b_state, ptr %S, i64 0, i32 1, i64 1
+  %arrayidx17 = getelementptr inbounds i8, ptr %v, i64 96
+  %arrayidx19 = getelementptr i8, ptr %S, i64 72
   %1 = load i64, ptr %arrayidx19, align 1
-  %arrayidx21 = getelementptr inbounds [16 x i64], ptr %v, i64 0, i64 13
-  %f = getelementptr inbounds %struct.blake2b_state, ptr %S, i64 0, i32 2
+  %arrayidx21 = getelementptr inbounds i8, ptr %v, i64 104
+  %f = getelementptr inbounds i8, ptr %S, i64 80
   %2 = load i64, ptr %f, align 1
-  %arrayidx24 = getelementptr inbounds [16 x i64], ptr %v, i64 0, i64 14
-  %arrayidx26 = getelementptr %struct.blake2b_state, ptr %S, i64 0, i32 2, i64 1
+  %arrayidx24 = getelementptr inbounds i8, ptr %v, i64 112
+  %arrayidx26 = getelementptr i8, ptr %S, i64 88
   %3 = load i64, ptr %arrayidx26, align 1
-  %arrayidx28 = getelementptr inbounds [16 x i64], ptr %v, i64 0, i64 15
-  %arrayidx30 = getelementptr inbounds [16 x i64], ptr %v, i64 0, i64 4
+  %arrayidx28 = getelementptr inbounds i8, ptr %v, i64 120
+  %arrayidx30 = getelementptr inbounds i8, ptr %v, i64 32
   %4 = load i64, ptr %arrayidx30, align 16
   %add = add i64 %m.sroa.0.0.copyload, %4
   %5 = load i64, ptr %v, align 16
@@ -75,10 +73,10 @@ entry:
   %add61 = add i64 %or.i25, %add42
   %xor64 = xor i64 %add61, %or.i22
   %or.i28 = tail call i64 @llvm.fshl.i64(i64 %xor64, i64 %xor64, i64 1)
-  %arrayidx68 = getelementptr inbounds [16 x i64], ptr %v, i64 0, i64 5
+  %arrayidx68 = getelementptr inbounds i8, ptr %v, i64 40
   %7 = load i64, ptr %arrayidx68, align 8
   %add71 = add i64 %m.sroa.19.0.copyload, %7
-  %arrayidx72 = getelementptr inbounds [16 x i64], ptr %v, i64 0, i64 1
+  %arrayidx72 = getelementptr inbounds i8, ptr %v, i64 8
   %8 = load i64, ptr %arrayidx72, align 8
   %add73 = add i64 %add71, %8
   %9 = xor i64 %1, %add73
@@ -94,10 +92,10 @@ entry:
   %add100 = add i64 %or.i37, %add81
   %xor103 = xor i64 %add100, %or.i34
   %or.i40 = tail call i64 @llvm.fshl.i64(i64 %xor103, i64 %xor103, i64 1)
-  %arrayidx108 = getelementptr inbounds [16 x i64], ptr %v, i64 0, i64 6
+  %arrayidx108 = getelementptr inbounds i8, ptr %v, i64 48
   %10 = load i64, ptr %arrayidx108, align 16
   %add111 = add i64 %m.sroa.37.0.copyload, %10
-  %arrayidx112 = getelementptr inbounds [16 x i64], ptr %v, i64 0, i64 2
+  %arrayidx112 = getelementptr inbounds i8, ptr %v, i64 16
   %11 = load i64, ptr %arrayidx112, align 16
   %add113 = add i64 %add111, %11
   %12 = xor i64 %2, %add113
@@ -113,10 +111,10 @@ entry:
   %add140 = add i64 %or.i49, %add121
   %xor143 = xor i64 %add140, %or.i46
   %or.i52 = tail call i64 @llvm.fshl.i64(i64 %xor143, i64 %xor143, i64 1)
-  %arrayidx148 = getelementptr inbounds [16 x i64], ptr %v, i64 0, i64 7
+  %arrayidx148 = getelementptr inbounds i8, ptr %v, i64 56
   %13 = load i64, ptr %arrayidx148, align 8
   %add151 = add i64 %m.sroa.56.0.copyload, %13
-  %arrayidx152 = getelementptr inbounds [16 x i64], ptr %v, i64 0, i64 3
+  %arrayidx152 = getelementptr inbounds i8, ptr %v, i64 24
   %14 = load i64, ptr %arrayidx152, align 8
   %add153 = add i64 %add151, %14
   %15 = xor i64 %3, %add153

@@ -3,8 +3,6 @@ source_filename = "bench/openexr/original/ImfRational.cpp.ll"
 target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:128-n8:16:32:64-S128"
 target triple = "x86_64-unknown-linux-gnu"
 
-%"class.Imf_3_2::Rational" = type { i32, i32 }
-
 @_ZN7Imf_3_28RationalC1Ed = unnamed_addr alias void (ptr, double), ptr @_ZN7Imf_3_28RationalC2Ed
 
 ; Function Attrs: mustprogress nofree nosync nounwind willreturn memory(argmem: write) uwtable
@@ -23,7 +21,7 @@ if.then3:                                         ; preds = %if.else
 
 if.else4:                                         ; preds = %if.else
   store i32 0, ptr %this, align 4
-  %d = getelementptr inbounds %"class.Imf_3_2::Rational", ptr %this, i64 0, i32 1
+  %d = getelementptr inbounds i8, ptr %this, i64 4
   store i32 0, ptr %d, align 4
   br label %return
 
@@ -35,7 +33,7 @@ if.end5:                                          ; preds = %entry, %if.then3
 
 if.then7:                                         ; preds = %if.end5
   store i32 %sign.0, ptr %this, align 4
-  %d9 = getelementptr inbounds %"class.Imf_3_2::Rational", ptr %this, i64 0, i32 1
+  %d9 = getelementptr inbounds i8, ptr %this, i64 4
   store i32 0, ptr %d9, align 4
   br label %return
 
@@ -45,7 +43,7 @@ if.end10:                                         ; preds = %if.end5
   %div = fmul double %cond, 0x3E10000000000000
   %call = tail call fastcc noundef double @_ZN7Imf_3_212_GLOBAL__N_15denomEdd(double noundef %x.addr.0, double noundef %div)
   %conv = fptoui double %call to i32
-  %d12 = getelementptr inbounds %"class.Imf_3_2::Rational", ptr %this, i64 0, i32 1
+  %d12 = getelementptr inbounds i8, ptr %this, i64 4
   store i32 %conv, ptr %d12, align 4
   %conv14 = uitofp i32 %conv to double
   %0 = tail call double @llvm.fmuladd.f64(double %x.addr.0, double %conv14, double 5.000000e-01)

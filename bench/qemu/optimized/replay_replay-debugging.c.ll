@@ -3,7 +3,6 @@ source_filename = "bench/qemu/original/replay_replay-debugging.c.ll"
 target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:128-n8:16:32:64-S128"
 target triple = "x86_64-unknown-linux-gnu"
 
-%struct.ReplayInfo = type { i32, ptr, i64 }
 %struct.QEMUSnapshotInfo = type { [128 x i8], [256 x i8], i64, i32, i32, i64, i64 }
 
 @replay_is_debugging = internal unnamed_addr global i1 false, align 1
@@ -75,7 +74,7 @@ declare ptr @replay_get_filename() local_unnamed_addr #2
 declare i64 @replay_get_current_icount() local_unnamed_addr #2
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local noalias ptr @qmp_query_replay(ptr nocapture noundef readnone %errp) local_unnamed_addr #1 {
+define dso_local noalias noundef ptr @qmp_query_replay(ptr nocapture noundef readnone %errp) local_unnamed_addr #1 {
 entry:
   %call = tail call noalias dereferenceable_or_null(24) ptr @g_malloc0_n(i64 noundef 1, i64 noundef 24) #7
   %0 = load i32, ptr @replay_mode, align 4
@@ -87,13 +86,13 @@ entry:
 if.then:                                          ; preds = %entry
   %call3 = tail call ptr @replay_get_filename() #6
   %call4 = tail call noalias ptr @g_strdup(ptr noundef %call3) #6
-  %filename = getelementptr inbounds %struct.ReplayInfo, ptr %call, i64 0, i32 1
+  %filename = getelementptr inbounds i8, ptr %call, i64 8
   store ptr %call4, ptr %filename, align 8
   br label %if.end
 
 if.end:                                           ; preds = %if.then, %entry
   %call5 = tail call i64 @replay_get_current_icount() #6
-  %icount = getelementptr inbounds %struct.ReplayInfo, ptr %call, i64 0, i32 2
+  %icount = getelementptr inbounds i8, ptr %call, i64 16
   store i64 %call5, ptr %icount, align 8
   ret ptr %call
 }
@@ -415,7 +414,7 @@ land.lhs.true17.i:                                ; preds = %if.then8.i
   br i1 %tobool18.not.i, label %if.then24.i, label %lor.lhs.false.i
 
 lor.lhs.false.i:                                  ; preds = %land.lhs.true17.i
-  %icount19.i = getelementptr inbounds %struct.QEMUSnapshotInfo, ptr %nearest.019.i, i64 0, i32 6
+  %icount19.i = getelementptr inbounds i8, ptr %nearest.019.i, i64 408
   %4 = load i64, ptr %icount19.i, align 8
   %cmp23.i = icmp ult i64 %4, %3
   br i1 %cmp23.i, label %if.then24.i, label %for.inc.i
@@ -445,9 +444,9 @@ replay_find_nearest_snapshot.exit.thread12:       ; preds = %for.end.i, %if.end.
   br label %if.end10
 
 replay_find_nearest_snapshot.exit:                ; preds = %for.end.i
-  %name31.i = getelementptr inbounds %struct.QEMUSnapshotInfo, ptr %nearest.1.i, i64 0, i32 1
+  %name31.i = getelementptr inbounds i8, ptr %nearest.1.i, i64 128
   %call33.i = call noalias ptr @g_strdup(ptr noundef nonnull %name31.i) #6
-  %icount34.i = getelementptr inbounds %struct.QEMUSnapshotInfo, ptr %nearest.1.i, i64 0, i32 6
+  %icount34.i = getelementptr inbounds i8, ptr %nearest.1.i, i64 408
   %6 = load i64, ptr %icount34.i, align 8
   %7 = load ptr, ptr %sn_tab.i, align 8
   call void @g_free(ptr noundef %7) #6
@@ -512,7 +511,7 @@ if.end:                                           ; preds = %if.then, %entry
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local zeroext i1 @replay_reverse_step() local_unnamed_addr #1 {
+define dso_local noundef zeroext i1 @replay_reverse_step() local_unnamed_addr #1 {
 entry:
   %err = alloca ptr, align 8
   store ptr null, ptr %err, align 8
@@ -593,7 +592,7 @@ replay_delete_break.exit:                         ; preds = %if.end3.i, %if.then
 declare void @error_free(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local zeroext i1 @replay_reverse_continue() local_unnamed_addr #1 {
+define dso_local noundef zeroext i1 @replay_reverse_continue() local_unnamed_addr #1 {
 entry:
   %err = alloca ptr, align 8
   store ptr null, ptr %err, align 8

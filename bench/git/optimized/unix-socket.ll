@@ -6,7 +6,6 @@ target triple = "x86_64-unknown-linux-gnu"
 %struct.strbuf = type { i64, i64, ptr }
 %struct.sockaddr_un = type { i16, [108 x i8] }
 %struct.unix_sockaddr_context = type { ptr }
-%struct.unix_stream_listen_opts = type { i32, i8 }
 
 @strbuf_slopbuf = external global [0 x i8], align 1
 @__const.unix_sockaddr_init.cwd = private unnamed_addr constant %struct.strbuf { i64 0, i64 0, ptr @strbuf_slopbuf }, align 8
@@ -164,7 +163,7 @@ if.end31:                                         ; preds = %if.end22, %entry
   %2 = getelementptr inbounds i8, ptr %sa, i64 2
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 2 dereferenceable(110) %2, i8 0, i64 108, i1 false)
   store i16 1, ptr %sa, align 2
-  %sun_path = getelementptr inbounds %struct.sockaddr_un, ptr %sa, i64 0, i32 1
+  %sun_path = getelementptr inbounds i8, ptr %sa, i64 2
   %conv32 = zext nneg i32 %size.0 to i64
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 2 %sun_path, ptr align 1 %path.addr.0, i64 %conv32, i1 false)
   br label %return
@@ -190,7 +189,7 @@ entry:
   %sa = alloca %struct.sockaddr_un, align 2
   %ctx = alloca %struct.unix_sockaddr_context, align 8
   %call = tail call i32 @unlink(ptr noundef %path) #10
-  %disallow_chdir = getelementptr inbounds %struct.unix_stream_listen_opts, ptr %opts, i64 0, i32 1
+  %disallow_chdir = getelementptr inbounds i8, ptr %opts, i64 4
   %bf.load = load i8, ptr %disallow_chdir, align 4
   %bf.clear = and i8 %bf.load, 1
   %bf.cast = zext nneg i8 %bf.clear to i32

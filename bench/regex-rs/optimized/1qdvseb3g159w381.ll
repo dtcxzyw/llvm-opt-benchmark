@@ -27,9 +27,9 @@ define hidden void @_ZN14regex_automata3nfa8thompson3map14Utf8BoundedMap3new17h6
 
 5:                                                ; preds = %2
   call void @"_ZN5alloc3vec12Vec$LT$T$GT$3new17h57631bab4cf45dbaE"(ptr nonnull sret({ { ptr, i64 }, i64 }) align 8 %3)
-  %6 = getelementptr inbounds { { { ptr, i64 }, i64 }, i64, i16, [3 x i16] }, ptr %0, i64 0, i32 2
+  %6 = getelementptr inbounds i8, ptr %0, i64 32
   store i16 0, ptr %6, align 8
-  %7 = getelementptr inbounds { { { ptr, i64 }, i64 }, i64, i16, [3 x i16] }, ptr %0, i64 0, i32 1
+  %7 = getelementptr inbounds i8, ptr %0, i64 24
   store i64 %1, ptr %7, align 8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr noundef nonnull align 8 dereferenceable(24) %3, i64 24, i1 false)
   ret void
@@ -47,7 +47,7 @@ define hidden void @_ZN14regex_automata3nfa8thompson3map14Utf8BoundedMap5clear17
   br i1 %8, label %14, label %9
 
 9:                                                ; preds = %1
-  %10 = getelementptr inbounds { { { ptr, i64 }, i64 }, i64, i16, [3 x i16] }, ptr %0, i64 0, i32 2
+  %10 = getelementptr inbounds i8, ptr %0, i64 32
   %11 = load i16, ptr %10, align 8, !noundef !5
   %12 = add i16 %11, 1
   store i16 %12, ptr %10, align 8
@@ -84,13 +84,13 @@ common.resume:                                    ; preds = %common.resume.sink.
   resume { ptr, i32 } %common.resume.op
 
 "_ZN95_$LT$regex_automata..nfa..thompson..map..Utf8BoundedEntry$u20$as$u20$core..default..Default$GT$7default17h3049ce961ab131f5E.exit": ; preds = %14
-  %20 = getelementptr inbounds { { { ptr, i64 }, i64 }, i32, i16, [1 x i16] }, ptr %6, i64 0, i32 2
+  %20 = getelementptr inbounds i8, ptr %6, i64 28
   store i16 0, ptr %20, align 4, !alias.scope !6
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %6, ptr noundef nonnull align 8 dereferenceable(24) %3, i64 24, i1 false)
-  %21 = getelementptr inbounds { { { ptr, i64 }, i64 }, i32, i16, [1 x i16] }, ptr %6, i64 0, i32 1
+  %21 = getelementptr inbounds i8, ptr %6, i64 24
   store i32 %15, ptr %21, align 8, !alias.scope !6
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %3)
-  %22 = getelementptr inbounds { { { ptr, i64 }, i64 }, i64, i16, [3 x i16] }, ptr %0, i64 0, i32 1
+  %22 = getelementptr inbounds i8, ptr %0, i64 24
   %23 = load i64, ptr %22, align 8, !noundef !5
   call void @_ZN5alloc3vec9from_elem17hf37fe23f16977d92E(ptr nonnull sret({ { ptr, i64 }, i64 }) align 8 %7, ptr nonnull align 8 %6, i64 %23)
   invoke void @"_ZN4core3ptr96drop_in_place$LT$alloc..vec..Vec$LT$regex_automata..nfa..thompson..map..Utf8BoundedEntry$GT$$GT$17h640002f71a436c4eE"(ptr nonnull align 8 %0)
@@ -116,13 +116,13 @@ common.resume:                                    ; preds = %common.resume.sink.
   unreachable
 
 "_ZN95_$LT$regex_automata..nfa..thompson..map..Utf8BoundedEntry$u20$as$u20$core..default..Default$GT$7default17h3049ce961ab131f5E.exit2": ; preds = %24
-  %30 = getelementptr inbounds { { { ptr, i64 }, i64 }, i32, i16, [1 x i16] }, ptr %4, i64 0, i32 2
+  %30 = getelementptr inbounds i8, ptr %4, i64 28
   store i16 0, ptr %30, align 4, !alias.scope !9
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %4, ptr noundef nonnull align 8 dereferenceable(24) %2, i64 24, i1 false)
-  %31 = getelementptr inbounds { { { ptr, i64 }, i64 }, i32, i16, [1 x i16] }, ptr %4, i64 0, i32 1
+  %31 = getelementptr inbounds i8, ptr %4, i64 24
   store i32 %25, ptr %31, align 8, !alias.scope !9
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %2)
-  %32 = getelementptr inbounds { { { ptr, i64 }, i64 }, i64, i16, [3 x i16] }, ptr %0, i64 0, i32 1
+  %32 = getelementptr inbounds i8, ptr %0, i64 24
   %33 = load i64, ptr %32, align 8, !noundef !5
   call void @_ZN5alloc3vec9from_elem17hf37fe23f16977d92E(ptr nonnull sret({ { ptr, i64 }, i64 }) align 8 %5, ptr nonnull align 8 %4, i64 %33)
   invoke void @"_ZN4core3ptr96drop_in_place$LT$alloc..vec..Vec$LT$regex_automata..nfa..thompson..map..Utf8BoundedEntry$GT$$GT$17h640002f71a436c4eE"(ptr nonnull align 8 %0)
@@ -154,7 +154,7 @@ define hidden i64 @_ZN14regex_automata3nfa8thompson3map14Utf8BoundedMap4hash17h0
   %6 = extractvalue { ptr, ptr } %5, 0
   %7 = extractvalue { ptr, ptr } %5, 1
   store ptr %6, ptr %4, align 8
-  %8 = getelementptr inbounds { ptr, ptr }, ptr %4, i64 0, i32 1
+  %8 = getelementptr inbounds i8, ptr %4, i64 8
   store ptr %7, ptr %8, align 8
   %9 = call align 4 ptr @"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h652aaaecca188060E"(ptr nonnull align 8 %4)
   %10 = icmp eq ptr %9, null
@@ -170,12 +170,12 @@ define hidden i64 @_ZN14regex_automata3nfa8thompson3map14Utf8BoundedMap4hash17h0
 .lr.ph:                                           ; preds = %3, %.lr.ph
   %14 = phi ptr [ %28, %.lr.ph ], [ %9, %3 ]
   %.06 = phi i64 [ %27, %.lr.ph ], [ -3750763034362895579, %3 ]
-  %15 = getelementptr inbounds { i32, i8, i8, [2 x i8] }, ptr %14, i64 0, i32 1
+  %15 = getelementptr inbounds i8, ptr %14, i64 4
   %16 = load i8, ptr %15, align 4, !noundef !5
   %17 = zext i8 %16 to i64
   %18 = xor i64 %.06, %17
   %19 = mul i64 %18, 1099511628211
-  %20 = getelementptr inbounds { i32, i8, i8, [2 x i8] }, ptr %14, i64 0, i32 2
+  %20 = getelementptr inbounds i8, ptr %14, i64 5
   %21 = load i8, ptr %20, align 1, !noundef !5
   %22 = zext i8 %21 to i64
   %23 = xor i64 %19, %22
@@ -201,12 +201,12 @@ define hidden i64 @_ZN14regex_automata3nfa8thompson3map14Utf8BoundedMap4hash17h0
 define hidden { i32, i32 } @_ZN14regex_automata3nfa8thompson3map14Utf8BoundedMap3get17h749d18b3339e982fE(ptr align 8 %0, ptr align 4 %1, i64 %2, i64 %3) unnamed_addr #0 {
   %5 = alloca { ptr, i64 }, align 8
   store ptr %1, ptr %5, align 8
-  %6 = getelementptr inbounds { ptr, i64 }, ptr %5, i64 0, i32 1
+  %6 = getelementptr inbounds i8, ptr %5, i64 8
   store i64 %2, ptr %6, align 8
   %7 = tail call align 8 ptr @"_ZN81_$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$core..ops..index..Index$LT$I$GT$$GT$5index17h6a28f4cc41bc2f73E"(ptr align 8 %0, i64 %3, ptr nonnull align 8 @anon.352d33512c24ece956cbc51b3e3df432.4)
-  %8 = getelementptr inbounds { { { ptr, i64 }, i64 }, i32, i16, [1 x i16] }, ptr %7, i64 0, i32 2
+  %8 = getelementptr inbounds i8, ptr %7, i64 28
   %9 = load i16, ptr %8, align 4, !noundef !5
-  %10 = getelementptr inbounds { { { ptr, i64 }, i64 }, i64, i16, [3 x i16] }, ptr %0, i64 0, i32 2
+  %10 = getelementptr inbounds i8, ptr %0, i64 32
   %11 = load i16, ptr %10, align 8, !noundef !5
   %.not = icmp eq i16 %9, %11
   br i1 %.not, label %12, label %17
@@ -216,7 +216,7 @@ define hidden { i32, i32 } @_ZN14regex_automata3nfa8thompson3map14Utf8BoundedMap
   br i1 %13, label %17, label %14
 
 14:                                               ; preds = %12
-  %15 = getelementptr inbounds { { { ptr, i64 }, i64 }, i32, i16, [1 x i16] }, ptr %7, i64 0, i32 1
+  %15 = getelementptr inbounds i8, ptr %7, i64 24
   %16 = load i32, ptr %15, align 8, !noundef !5
   br label %17
 
@@ -231,12 +231,12 @@ define hidden { i32, i32 } @_ZN14regex_automata3nfa8thompson3map14Utf8BoundedMap
 ; Function Attrs: nonlazybind uwtable
 define hidden void @_ZN14regex_automata3nfa8thompson3map14Utf8BoundedMap3set17hb303eaaa2c56e948E(ptr align 8 %0, ptr nocapture readonly align 8 %1, i64 %2, i32 %3) unnamed_addr #0 personality ptr @rust_eh_personality {
   %5 = alloca { { { ptr, i64 }, i64 }, i32, i16, [1 x i16] }, align 8
-  %6 = getelementptr inbounds { { { ptr, i64 }, i64 }, i64, i16, [3 x i16] }, ptr %0, i64 0, i32 2
+  %6 = getelementptr inbounds i8, ptr %0, i64 32
   %7 = load i16, ptr %6, align 8, !noundef !5
-  %8 = getelementptr inbounds { { { ptr, i64 }, i64 }, i32, i16, [1 x i16] }, ptr %5, i64 0, i32 2
+  %8 = getelementptr inbounds i8, ptr %5, i64 28
   store i16 %7, ptr %8, align 4
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %5, ptr noundef nonnull align 8 dereferenceable(24) %1, i64 24, i1 false)
-  %9 = getelementptr inbounds { { { ptr, i64 }, i64 }, i32, i16, [1 x i16] }, ptr %5, i64 0, i32 1
+  %9 = getelementptr inbounds i8, ptr %5, i64 24
   store i32 %3, ptr %9, align 8
   %10 = invoke align 8 ptr @"_ZN84_$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$core..ops..index..IndexMut$LT$I$GT$$GT$9index_mut17h6307374893620128E"(ptr nonnull align 8 %0, i64 %2, ptr nonnull align 8 @anon.352d33512c24ece956cbc51b3e3df432.5)
           to label %13 unwind label %16
@@ -284,9 +284,9 @@ define hidden void @_ZN14regex_automata3nfa8thompson3map13Utf8SuffixMap3new17h3f
 
 5:                                                ; preds = %2
   call void @"_ZN5alloc3vec12Vec$LT$T$GT$3new17hf8047e80f1d5ec3fE"(ptr nonnull sret({ { ptr, i64 }, i64 }) align 8 %3)
-  %6 = getelementptr inbounds { { { ptr, i64 }, i64 }, i64, i16, [3 x i16] }, ptr %0, i64 0, i32 2
+  %6 = getelementptr inbounds i8, ptr %0, i64 32
   store i16 0, ptr %6, align 8
-  %7 = getelementptr inbounds { { { ptr, i64 }, i64 }, i64, i16, [3 x i16] }, ptr %0, i64 0, i32 1
+  %7 = getelementptr inbounds i8, ptr %0, i64 24
   store i64 %1, ptr %7, align 8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr noundef nonnull align 8 dereferenceable(24) %3, i64 24, i1 false)
   ret void
@@ -302,7 +302,7 @@ define hidden void @_ZN14regex_automata3nfa8thompson3map13Utf8SuffixMap5clear17h
   br i1 %6, label %12, label %7
 
 7:                                                ; preds = %1
-  %8 = getelementptr inbounds { { { ptr, i64 }, i64 }, i64, i16, [3 x i16] }, ptr %0, i64 0, i32 2
+  %8 = getelementptr inbounds i8, ptr %0, i64 32
   %9 = load i16, ptr %8, align 8, !noundef !5
   %10 = add i16 %9, 1
   store i16 %10, ptr %8, align 8
@@ -314,12 +314,12 @@ define hidden void @_ZN14regex_automata3nfa8thompson3map13Utf8SuffixMap5clear17h
   %13 = tail call i32 @"_ZN84_$LT$regex_automata..util..primitives..StateID$u20$as$u20$core..default..Default$GT$7default17habbdd4882547189dE"(), !noalias !13
   %.sroa.0.0.insert.ext.i.i = zext i32 %13 to i64
   %14 = tail call i32 @"_ZN84_$LT$regex_automata..util..primitives..StateID$u20$as$u20$core..default..Default$GT$7default17habbdd4882547189dE"(), !noalias !13
-  %15 = getelementptr inbounds { { i32, i8, i8, [2 x i8] }, i32, i16, [1 x i16] }, ptr %4, i64 0, i32 2
+  %15 = getelementptr inbounds i8, ptr %4, i64 12
   store i16 0, ptr %15, align 4, !alias.scope !13
   store i64 %.sroa.0.0.insert.ext.i.i, ptr %4, align 8, !alias.scope !13
-  %16 = getelementptr inbounds { { i32, i8, i8, [2 x i8] }, i32, i16, [1 x i16] }, ptr %4, i64 0, i32 1
+  %16 = getelementptr inbounds i8, ptr %4, i64 8
   store i32 %14, ptr %16, align 8, !alias.scope !13
-  %17 = getelementptr inbounds { { { ptr, i64 }, i64 }, i64, i16, [3 x i16] }, ptr %0, i64 0, i32 1
+  %17 = getelementptr inbounds i8, ptr %0, i64 24
   %18 = load i64, ptr %17, align 8, !noundef !5
   call void @_ZN5alloc3vec9from_elem17h393fc8a7f85bd972E(ptr nonnull sret({ { ptr, i64 }, i64 }) align 8 %5, ptr nonnull align 4 %4, i64 %18)
   invoke void @"_ZN4core3ptr95drop_in_place$LT$alloc..vec..Vec$LT$regex_automata..nfa..thompson..map..Utf8SuffixEntry$GT$$GT$17h6950bd6edd321228E"(ptr nonnull align 8 %0)
@@ -330,12 +330,12 @@ define hidden void @_ZN14regex_automata3nfa8thompson3map13Utf8SuffixMap5clear17h
   %20 = tail call i32 @"_ZN84_$LT$regex_automata..util..primitives..StateID$u20$as$u20$core..default..Default$GT$7default17habbdd4882547189dE"(), !noalias !16
   %.sroa.0.0.insert.ext.i.i2 = zext i32 %20 to i64
   %21 = tail call i32 @"_ZN84_$LT$regex_automata..util..primitives..StateID$u20$as$u20$core..default..Default$GT$7default17habbdd4882547189dE"(), !noalias !16
-  %22 = getelementptr inbounds { { i32, i8, i8, [2 x i8] }, i32, i16, [1 x i16] }, ptr %2, i64 0, i32 2
+  %22 = getelementptr inbounds i8, ptr %2, i64 12
   store i16 0, ptr %22, align 4, !alias.scope !16
   store i64 %.sroa.0.0.insert.ext.i.i2, ptr %2, align 8, !alias.scope !16
-  %23 = getelementptr inbounds { { i32, i8, i8, [2 x i8] }, i32, i16, [1 x i16] }, ptr %2, i64 0, i32 1
+  %23 = getelementptr inbounds i8, ptr %2, i64 8
   store i32 %21, ptr %23, align 8, !alias.scope !16
-  %24 = getelementptr inbounds { { { ptr, i64 }, i64 }, i64, i16, [3 x i16] }, ptr %0, i64 0, i32 1
+  %24 = getelementptr inbounds i8, ptr %0, i64 24
   %25 = load i64, ptr %24, align 8, !noundef !5
   call void @_ZN5alloc3vec9from_elem17h393fc8a7f85bd972E(ptr nonnull sret({ { ptr, i64 }, i64 }) align 8 %3, ptr nonnull align 4 %2, i64 %25)
   invoke void @"_ZN4core3ptr95drop_in_place$LT$alloc..vec..Vec$LT$regex_automata..nfa..thompson..map..Utf8SuffixEntry$GT$$GT$17h6950bd6edd321228E"(ptr nonnull align 8 %0)
@@ -369,9 +369,9 @@ define hidden void @_ZN14regex_automata3nfa8thompson3map13Utf8SuffixMap5clear17h
 ; Function Attrs: nonlazybind uwtable
 define hidden i64 @_ZN14regex_automata3nfa8thompson3map13Utf8SuffixMap4hash17hd86d0e466b910359E(ptr align 8 %0, ptr align 4 %1) unnamed_addr #0 {
   %3 = tail call i64 @_ZN14regex_automata4util10primitives7StateID6as_u6417h6469e1bbc49ca214E(ptr align 4 %1)
-  %4 = getelementptr inbounds { i32, i8, i8, [2 x i8] }, ptr %1, i64 0, i32 1
+  %4 = getelementptr inbounds i8, ptr %1, i64 4
   %5 = load i8, ptr %4, align 4, !noundef !5
-  %6 = getelementptr inbounds { i32, i8, i8, [2 x i8] }, ptr %1, i64 0, i32 2
+  %6 = getelementptr inbounds i8, ptr %1, i64 5
   %7 = load i8, ptr %6, align 1, !noundef !5
   %8 = tail call i64 @"_ZN5alloc3vec16Vec$LT$T$C$A$GT$3len17h465f4f6ba0550a1dE"(ptr align 8 %0)
   %9 = tail call i64 @"_ZN58_$LT$usize$u20$as$u20$regex_automata..util..int..Usize$GT$6as_u6417hf8f95d1993e94a70E"(i64 %8)
@@ -402,9 +402,9 @@ define hidden { i32, i32 } @_ZN14regex_automata3nfa8thompson3map13Utf8SuffixMap3
   %5 = alloca ptr, align 8
   store ptr %1, ptr %5, align 8
   %6 = tail call align 4 ptr @"_ZN81_$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$core..ops..index..Index$LT$I$GT$$GT$5index17h11ecd3ed1fc7e145E"(ptr align 8 %0, i64 %2, ptr nonnull align 8 @anon.352d33512c24ece956cbc51b3e3df432.8)
-  %7 = getelementptr inbounds { { i32, i8, i8, [2 x i8] }, i32, i16, [1 x i16] }, ptr %6, i64 0, i32 2
+  %7 = getelementptr inbounds i8, ptr %6, i64 12
   %8 = load i16, ptr %7, align 4, !noundef !5
-  %9 = getelementptr inbounds { { { ptr, i64 }, i64 }, i64, i16, [3 x i16] }, ptr %0, i64 0, i32 2
+  %9 = getelementptr inbounds i8, ptr %0, i64 32
   %10 = load i16, ptr %9, align 8, !noundef !5
   %.not = icmp eq i16 %8, %10
   br i1 %.not, label %11, label %16
@@ -415,7 +415,7 @@ define hidden { i32, i32 } @_ZN14regex_automata3nfa8thompson3map13Utf8SuffixMap3
   br i1 %12, label %16, label %13
 
 13:                                               ; preds = %11
-  %14 = getelementptr inbounds { { i32, i8, i8, [2 x i8] }, i32, i16, [1 x i16] }, ptr %6, i64 0, i32 1
+  %14 = getelementptr inbounds i8, ptr %6, i64 8
   %15 = load i32, ptr %14, align 4, !noundef !5
   br label %16
 
@@ -429,7 +429,7 @@ define hidden { i32, i32 } @_ZN14regex_automata3nfa8thompson3map13Utf8SuffixMap3
 
 ; Function Attrs: nonlazybind uwtable
 define hidden void @_ZN14regex_automata3nfa8thompson3map13Utf8SuffixMap3set17h4dd5870058389a65E(ptr align 8 %0, i64 %1, i64 %2, i32 %3) unnamed_addr #0 {
-  %5 = getelementptr inbounds { { { ptr, i64 }, i64 }, i64, i16, [3 x i16] }, ptr %0, i64 0, i32 2
+  %5 = getelementptr inbounds i8, ptr %0, i64 32
   %6 = load i16, ptr %5, align 8, !noundef !5
   %7 = tail call align 4 ptr @"_ZN84_$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$core..ops..index..IndexMut$LT$I$GT$$GT$9index_mut17h738767974cb68352E"(ptr align 8 %0, i64 %2, ptr nonnull align 8 @anon.352d33512c24ece956cbc51b3e3df432.9)
   store i64 %1, ptr %7, align 4
@@ -443,14 +443,14 @@ define hidden void @_ZN14regex_automata3nfa8thompson3map13Utf8SuffixMap3set17h4d
 ; Function Attrs: inlinehint nonlazybind uwtable
 define hidden void @"_ZN89_$LT$regex_automata..nfa..thompson..map..Utf8BoundedMap$u20$as$u20$core..clone..Clone$GT$5clone17h0fdc5263522cce45E"(ptr nocapture writeonly sret({ { { ptr, i64 }, i64 }, i64, i16, [3 x i16] }) align 8 %0, ptr align 8 %1) unnamed_addr #1 {
   %3 = alloca { { ptr, i64 }, i64 }, align 8
-  %4 = getelementptr inbounds { { { ptr, i64 }, i64 }, i64, i16, [3 x i16] }, ptr %1, i64 0, i32 2
+  %4 = getelementptr inbounds i8, ptr %1, i64 32
   %5 = load i16, ptr %4, align 8, !noundef !5
-  %6 = getelementptr inbounds { { { ptr, i64 }, i64 }, i64, i16, [3 x i16] }, ptr %1, i64 0, i32 1
+  %6 = getelementptr inbounds i8, ptr %1, i64 24
   %7 = load i64, ptr %6, align 8, !noundef !5
   call void @"_ZN67_$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$core..clone..Clone$GT$5clone17h1396cad0eba07066E"(ptr nonnull sret({ { ptr, i64 }, i64 }) align 8 %3, ptr align 8 %1)
-  %8 = getelementptr inbounds { { { ptr, i64 }, i64 }, i64, i16, [3 x i16] }, ptr %0, i64 0, i32 2
+  %8 = getelementptr inbounds i8, ptr %0, i64 32
   store i16 %5, ptr %8, align 8
-  %9 = getelementptr inbounds { { { ptr, i64 }, i64 }, i64, i16, [3 x i16] }, ptr %0, i64 0, i32 1
+  %9 = getelementptr inbounds i8, ptr %0, i64 24
   store i64 %7, ptr %9, align 8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr noundef nonnull align 8 dereferenceable(24) %3, i64 24, i1 false)
   ret void
@@ -459,10 +459,10 @@ define hidden void @"_ZN89_$LT$regex_automata..nfa..thompson..map..Utf8BoundedMa
 ; Function Attrs: inlinehint nonlazybind uwtable
 define hidden void @"_ZN91_$LT$regex_automata..nfa..thompson..map..Utf8BoundedEntry$u20$as$u20$core..clone..Clone$GT$5clone17h887606b4c97a467fE"(ptr nocapture writeonly sret({ { { ptr, i64 }, i64 }, i32, i16, [1 x i16] }) align 8 %0, ptr align 8 %1) unnamed_addr #1 personality ptr @rust_eh_personality {
   %3 = alloca { { ptr, i64 }, i64 }, align 8
-  %4 = getelementptr inbounds { { { ptr, i64 }, i64 }, i32, i16, [1 x i16] }, ptr %1, i64 0, i32 2
+  %4 = getelementptr inbounds i8, ptr %1, i64 28
   %5 = load i16, ptr %4, align 4, !noundef !5
   call void @"_ZN67_$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$core..clone..Clone$GT$5clone17hc5600136b9d508fcE"(ptr nonnull sret({ { ptr, i64 }, i64 }) align 8 %3, ptr align 8 %1)
-  %6 = getelementptr inbounds { { { ptr, i64 }, i64 }, i32, i16, [1 x i16] }, ptr %1, i64 0, i32 1
+  %6 = getelementptr inbounds i8, ptr %1, i64 24
   %7 = invoke i32 @"_ZN80_$LT$regex_automata..util..primitives..StateID$u20$as$u20$core..clone..Clone$GT$5clone17he1f1a5c197b0d13fE"(ptr nonnull align 4 %6)
           to label %10 unwind label %8
 
@@ -473,10 +473,10 @@ define hidden void @"_ZN91_$LT$regex_automata..nfa..thompson..map..Utf8BoundedEn
           to label %15 unwind label %13
 
 10:                                               ; preds = %2
-  %11 = getelementptr inbounds { { { ptr, i64 }, i64 }, i32, i16, [1 x i16] }, ptr %0, i64 0, i32 2
+  %11 = getelementptr inbounds i8, ptr %0, i64 28
   store i16 %5, ptr %11, align 4
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr noundef nonnull align 8 dereferenceable(24) %3, i64 24, i1 false)
-  %12 = getelementptr inbounds { { { ptr, i64 }, i64 }, i32, i16, [1 x i16] }, ptr %0, i64 0, i32 1
+  %12 = getelementptr inbounds i8, ptr %0, i64 24
   store i32 %7, ptr %12, align 8
   ret void
 
@@ -493,14 +493,14 @@ define hidden void @"_ZN91_$LT$regex_automata..nfa..thompson..map..Utf8BoundedEn
 ; Function Attrs: inlinehint nonlazybind uwtable
 define hidden void @"_ZN88_$LT$regex_automata..nfa..thompson..map..Utf8SuffixMap$u20$as$u20$core..clone..Clone$GT$5clone17h9f97f172c23cc6eaE"(ptr nocapture writeonly sret({ { { ptr, i64 }, i64 }, i64, i16, [3 x i16] }) align 8 %0, ptr align 8 %1) unnamed_addr #1 {
   %3 = alloca { { ptr, i64 }, i64 }, align 8
-  %4 = getelementptr inbounds { { { ptr, i64 }, i64 }, i64, i16, [3 x i16] }, ptr %1, i64 0, i32 2
+  %4 = getelementptr inbounds i8, ptr %1, i64 32
   %5 = load i16, ptr %4, align 8, !noundef !5
-  %6 = getelementptr inbounds { { { ptr, i64 }, i64 }, i64, i16, [3 x i16] }, ptr %1, i64 0, i32 1
+  %6 = getelementptr inbounds i8, ptr %1, i64 24
   %7 = load i64, ptr %6, align 8, !noundef !5
   call void @"_ZN67_$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$core..clone..Clone$GT$5clone17h08a9702841c3f261E"(ptr nonnull sret({ { ptr, i64 }, i64 }) align 8 %3, ptr align 8 %1)
-  %8 = getelementptr inbounds { { { ptr, i64 }, i64 }, i64, i16, [3 x i16] }, ptr %0, i64 0, i32 2
+  %8 = getelementptr inbounds i8, ptr %0, i64 32
   store i16 %5, ptr %8, align 8
-  %9 = getelementptr inbounds { { { ptr, i64 }, i64 }, i64, i16, [3 x i16] }, ptr %0, i64 0, i32 1
+  %9 = getelementptr inbounds i8, ptr %0, i64 24
   store i64 %7, ptr %9, align 8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr noundef nonnull align 8 dereferenceable(24) %3, i64 24, i1 false)
   ret void
@@ -512,17 +512,17 @@ define hidden noundef zeroext i1 @"_ZN90_$LT$regex_automata..nfa..thompson..map.
   br i1 %3, label %4, label %16
 
 4:                                                ; preds = %2
-  %5 = getelementptr inbounds { i32, i8, i8, [2 x i8] }, ptr %0, i64 0, i32 1
+  %5 = getelementptr inbounds i8, ptr %0, i64 4
   %6 = load i8, ptr %5, align 4, !noundef !5
-  %7 = getelementptr inbounds { i32, i8, i8, [2 x i8] }, ptr %1, i64 0, i32 1
+  %7 = getelementptr inbounds i8, ptr %1, i64 4
   %8 = load i8, ptr %7, align 4, !noundef !5
   %9 = icmp eq i8 %6, %8
   br i1 %9, label %10, label %16
 
 10:                                               ; preds = %4
-  %11 = getelementptr inbounds { i32, i8, i8, [2 x i8] }, ptr %0, i64 0, i32 2
+  %11 = getelementptr inbounds i8, ptr %0, i64 5
   %12 = load i8, ptr %11, align 1, !noundef !5
-  %13 = getelementptr inbounds { i32, i8, i8, [2 x i8] }, ptr %1, i64 0, i32 2
+  %13 = getelementptr inbounds i8, ptr %1, i64 5
   %14 = load i8, ptr %13, align 1, !noundef !5
   %15 = icmp eq i8 %12, %14
   br label %16
@@ -534,21 +534,21 @@ define hidden noundef zeroext i1 @"_ZN90_$LT$regex_automata..nfa..thompson..map.
 
 ; Function Attrs: inlinehint nonlazybind uwtable
 define hidden void @"_ZN90_$LT$regex_automata..nfa..thompson..map..Utf8SuffixEntry$u20$as$u20$core..clone..Clone$GT$5clone17hcb297b29c72eb31dE"(ptr nocapture writeonly sret({ { i32, i8, i8, [2 x i8] }, i32, i16, [1 x i16] }) align 4 %0, ptr align 4 %1) unnamed_addr #1 {
-  %3 = getelementptr inbounds { { i32, i8, i8, [2 x i8] }, i32, i16, [1 x i16] }, ptr %1, i64 0, i32 2
+  %3 = getelementptr inbounds i8, ptr %1, i64 12
   %4 = load i16, ptr %3, align 4, !noundef !5
   %5 = tail call i32 @"_ZN80_$LT$regex_automata..util..primitives..StateID$u20$as$u20$core..clone..Clone$GT$5clone17he1f1a5c197b0d13fE"(ptr align 4 %1)
-  %6 = getelementptr inbounds { i32, i8, i8, [2 x i8] }, ptr %1, i64 0, i32 1
+  %6 = getelementptr inbounds i8, ptr %1, i64 4
   %7 = load i16, ptr %6, align 4
   %8 = zext i16 %7 to i64
   %9 = shl nuw nsw i64 %8, 32
   %.sroa.0.0.insert.ext.i = zext i32 %5 to i64
   %.sroa.0.0.insert.insert.i = or disjoint i64 %9, %.sroa.0.0.insert.ext.i
-  %10 = getelementptr inbounds { { i32, i8, i8, [2 x i8] }, i32, i16, [1 x i16] }, ptr %1, i64 0, i32 1
+  %10 = getelementptr inbounds i8, ptr %1, i64 8
   %11 = tail call i32 @"_ZN80_$LT$regex_automata..util..primitives..StateID$u20$as$u20$core..clone..Clone$GT$5clone17he1f1a5c197b0d13fE"(ptr nonnull align 4 %10)
-  %12 = getelementptr inbounds { { i32, i8, i8, [2 x i8] }, i32, i16, [1 x i16] }, ptr %0, i64 0, i32 2
+  %12 = getelementptr inbounds i8, ptr %0, i64 12
   store i16 %4, ptr %12, align 4
   store i64 %.sroa.0.0.insert.insert.i, ptr %0, align 4
-  %13 = getelementptr inbounds { { i32, i8, i8, [2 x i8] }, i32, i16, [1 x i16] }, ptr %0, i64 0, i32 1
+  %13 = getelementptr inbounds i8, ptr %0, i64 8
   store i32 %11, ptr %13, align 4
   ret void
 }

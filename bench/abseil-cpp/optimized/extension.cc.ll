@@ -6,8 +6,6 @@ target triple = "x86_64-unknown-linux-gnu"
 %"class.std::__cxx11::basic_string" = type { %"struct.std::__cxx11::basic_string<char>::_Alloc_hider", i64, %union.anon }
 %"struct.std::__cxx11::basic_string<char>::_Alloc_hider" = type { ptr }
 %union.anon = type { i64, [8 x i8] }
-%"class.absl::str_format_internal::FormatSinkImpl" = type { %"class.absl::str_format_internal::FormatRawSinkImpl", i64, ptr, [1024 x i8] }
-%"class.absl::str_format_internal::FormatRawSinkImpl" = type { ptr, ptr }
 
 @.str = private unnamed_addr constant [2 x i8] c"-\00", align 1
 @.str.1 = private unnamed_addr constant [1 x i8] zeroinitializer, align 1
@@ -91,12 +89,12 @@ if.then10:                                        ; preds = %entry
   br i1 %cmp.i7.not, label %if.end.i, label %_ZN4absl19str_format_internal14FormatSinkImpl6AppendEmc.exit
 
 if.end.i:                                         ; preds = %if.then10
-  %size_.i = getelementptr inbounds %"class.absl::str_format_internal::FormatSinkImpl", ptr %this, i64 0, i32 1
+  %size_.i = getelementptr inbounds i8, ptr %this, i64 16
   %0 = load i64, ptr %size_.i, align 8
   %add.i = add i64 %0, %cond.i
   store i64 %add.i, ptr %size_.i, align 8
-  %add.ptr.i.i = getelementptr inbounds %"class.absl::str_format_internal::FormatSinkImpl", ptr %this, i64 1
-  %pos_.i.i = getelementptr inbounds %"class.absl::str_format_internal::FormatSinkImpl", ptr %this, i64 0, i32 2
+  %add.ptr.i.i = getelementptr inbounds i8, ptr %this, i64 1056
+  %pos_.i.i = getelementptr inbounds i8, ptr %this, i64 24
   %sub.ptr.lhs.cast.i.i = ptrtoint ptr %add.ptr.i.i to i64
   %1 = load ptr, ptr %pos_.i.i, align 8
   %sub.ptr.rhs.cast.i31.i = ptrtoint ptr %1 to i64
@@ -105,9 +103,9 @@ if.end.i:                                         ; preds = %if.then10
   br i1 %cmp233.i, label %while.body.lr.ph.i, label %while.end.i
 
 while.body.lr.ph.i:                               ; preds = %if.end.i
-  %buf_.i.i = getelementptr inbounds %"class.absl::str_format_internal::FormatSinkImpl", ptr %this, i64 0, i32 3
+  %buf_.i.i = getelementptr inbounds i8, ptr %this, i64 32
   %sub.ptr.rhs.cast.i24.i = ptrtoint ptr %buf_.i.i to i64
-  %write_.i.i.i = getelementptr inbounds %"class.absl::str_format_internal::FormatRawSinkImpl", ptr %this, i64 0, i32 1
+  %write_.i.i.i = getelementptr inbounds i8, ptr %this, i64 8
   br label %while.body.i
 
 while.body.i:                                     ; preds = %if.end8.i, %while.body.lr.ph.i
@@ -150,12 +148,12 @@ _ZN4absl19str_format_internal14FormatSinkImpl6AppendEmc.exit: ; preds = %if.then
   br i1 %cmp.i8, label %if.end14, label %if.end.i9
 
 if.end.i9:                                        ; preds = %_ZN4absl19str_format_internal14FormatSinkImpl6AppendEmc.exit
-  %size_.i10 = getelementptr inbounds %"class.absl::str_format_internal::FormatSinkImpl", ptr %this, i64 0, i32 1
+  %size_.i10 = getelementptr inbounds i8, ptr %this, i64 16
   %7 = load i64, ptr %size_.i10, align 8
   %add.i11 = add i64 %7, %n.0
   store i64 %add.i11, ptr %size_.i10, align 8
-  %add.ptr.i.i12 = getelementptr inbounds %"class.absl::str_format_internal::FormatSinkImpl", ptr %this, i64 1
-  %pos_.i.i13 = getelementptr inbounds %"class.absl::str_format_internal::FormatSinkImpl", ptr %this, i64 0, i32 2
+  %add.ptr.i.i12 = getelementptr inbounds i8, ptr %this, i64 1056
+  %pos_.i.i13 = getelementptr inbounds i8, ptr %this, i64 24
   %8 = load ptr, ptr %pos_.i.i13, align 8
   %sub.ptr.lhs.cast.i.i14 = ptrtoint ptr %add.ptr.i.i12 to i64
   %sub.ptr.rhs.cast.i.i = ptrtoint ptr %8 to i64
@@ -164,10 +162,10 @@ if.end.i9:                                        ; preds = %_ZN4absl19str_forma
   br i1 %cmp3.not.i, label %if.end5.i, label %if.then4.i
 
 if.then4.i:                                       ; preds = %if.end.i9
-  %buf_.i.i15 = getelementptr inbounds %"class.absl::str_format_internal::FormatSinkImpl", ptr %this, i64 0, i32 3
+  %buf_.i.i15 = getelementptr inbounds i8, ptr %this, i64 32
   %sub.ptr.rhs.cast.i7.i = ptrtoint ptr %buf_.i.i15 to i64
   %sub.ptr.sub.i8.i = sub i64 %sub.ptr.rhs.cast.i.i, %sub.ptr.rhs.cast.i7.i
-  %write_.i.i.i16 = getelementptr inbounds %"class.absl::str_format_internal::FormatRawSinkImpl", ptr %this, i64 0, i32 1
+  %write_.i.i.i16 = getelementptr inbounds i8, ptr %this, i64 8
   %9 = load ptr, ptr %write_.i.i.i16, align 8
   %10 = load ptr, ptr %this, align 8
   tail call void %9(ptr noundef %10, i64 %sub.ptr.sub.i8.i, ptr nonnull %buf_.i.i15)
@@ -189,12 +187,12 @@ if.then13.critedge:                               ; preds = %entry
   br i1 %cmp.i17, label %_ZN4absl19str_format_internal14FormatSinkImpl6AppendESt17basic_string_viewIcSt11char_traitsIcEE.exit34, label %if.end.i18
 
 if.end.i18:                                       ; preds = %if.then13.critedge
-  %size_.i19 = getelementptr inbounds %"class.absl::str_format_internal::FormatSinkImpl", ptr %this, i64 0, i32 1
+  %size_.i19 = getelementptr inbounds i8, ptr %this, i64 16
   %14 = load i64, ptr %size_.i19, align 8
   %add.i20 = add i64 %14, %n.0
   store i64 %add.i20, ptr %size_.i19, align 8
-  %add.ptr.i.i21 = getelementptr inbounds %"class.absl::str_format_internal::FormatSinkImpl", ptr %this, i64 1
-  %pos_.i.i22 = getelementptr inbounds %"class.absl::str_format_internal::FormatSinkImpl", ptr %this, i64 0, i32 2
+  %add.ptr.i.i21 = getelementptr inbounds i8, ptr %this, i64 1056
+  %pos_.i.i22 = getelementptr inbounds i8, ptr %this, i64 24
   %15 = load ptr, ptr %pos_.i.i22, align 8
   %sub.ptr.lhs.cast.i.i23 = ptrtoint ptr %add.ptr.i.i21 to i64
   %sub.ptr.rhs.cast.i.i24 = ptrtoint ptr %15 to i64
@@ -203,10 +201,10 @@ if.end.i18:                                       ; preds = %if.then13.critedge
   br i1 %cmp3.not.i26, label %if.end5.i32, label %if.then4.i27
 
 if.then4.i27:                                     ; preds = %if.end.i18
-  %buf_.i.i28 = getelementptr inbounds %"class.absl::str_format_internal::FormatSinkImpl", ptr %this, i64 0, i32 3
+  %buf_.i.i28 = getelementptr inbounds i8, ptr %this, i64 32
   %sub.ptr.rhs.cast.i7.i29 = ptrtoint ptr %buf_.i.i28 to i64
   %sub.ptr.sub.i8.i30 = sub i64 %sub.ptr.rhs.cast.i.i24, %sub.ptr.rhs.cast.i7.i29
-  %write_.i.i.i31 = getelementptr inbounds %"class.absl::str_format_internal::FormatRawSinkImpl", ptr %this, i64 0, i32 1
+  %write_.i.i.i31 = getelementptr inbounds i8, ptr %this, i64 8
   %16 = load ptr, ptr %write_.i.i.i31, align 8
   %17 = load ptr, ptr %this, align 8
   tail call void %16(ptr noundef %17, i64 %sub.ptr.sub.i8.i30, ptr nonnull %buf_.i.i28)
@@ -228,12 +226,12 @@ _ZN4absl19str_format_internal14FormatSinkImpl6AppendESt17basic_string_viewIcSt11
   br i1 %cmp.i35.not, label %if.end.i36, label %if.end14
 
 if.end.i36:                                       ; preds = %_ZN4absl19str_format_internal14FormatSinkImpl6AppendESt17basic_string_viewIcSt11char_traitsIcEE.exit34
-  %size_.i37 = getelementptr inbounds %"class.absl::str_format_internal::FormatSinkImpl", ptr %this, i64 0, i32 1
+  %size_.i37 = getelementptr inbounds i8, ptr %this, i64 16
   %21 = load i64, ptr %size_.i37, align 8
   %add.i38 = add i64 %21, %cond.i
   store i64 %add.i38, ptr %size_.i37, align 8
-  %add.ptr.i.i39 = getelementptr inbounds %"class.absl::str_format_internal::FormatSinkImpl", ptr %this, i64 1
-  %pos_.i.i40 = getelementptr inbounds %"class.absl::str_format_internal::FormatSinkImpl", ptr %this, i64 0, i32 2
+  %add.ptr.i.i39 = getelementptr inbounds i8, ptr %this, i64 1056
+  %pos_.i.i40 = getelementptr inbounds i8, ptr %this, i64 24
   %sub.ptr.lhs.cast.i.i41 = ptrtoint ptr %add.ptr.i.i39 to i64
   %22 = load ptr, ptr %pos_.i.i40, align 8
   %sub.ptr.rhs.cast.i31.i42 = ptrtoint ptr %22 to i64
@@ -242,9 +240,9 @@ if.end.i36:                                       ; preds = %_ZN4absl19str_forma
   br i1 %cmp233.i44, label %while.body.lr.ph.i49, label %while.end.i45
 
 while.body.lr.ph.i49:                             ; preds = %if.end.i36
-  %buf_.i.i50 = getelementptr inbounds %"class.absl::str_format_internal::FormatSinkImpl", ptr %this, i64 0, i32 3
+  %buf_.i.i50 = getelementptr inbounds i8, ptr %this, i64 32
   %sub.ptr.rhs.cast.i24.i51 = ptrtoint ptr %buf_.i.i50 to i64
-  %write_.i.i.i52 = getelementptr inbounds %"class.absl::str_format_internal::FormatRawSinkImpl", ptr %this, i64 0, i32 1
+  %write_.i.i.i52 = getelementptr inbounds i8, ptr %this, i64 8
   br label %while.body.i53
 
 while.body.i53:                                   ; preds = %if.end8.i61, %while.body.lr.ph.i49

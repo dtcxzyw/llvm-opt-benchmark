@@ -26,7 +26,7 @@ for.body:                                         ; preds = %entry, %for.cond
   br i1 %cmp2, label %if.then, label %for.cond
 
 if.then:                                          ; preds = %for.body
-  %nice_value = getelementptr inbounds %"struct.base::internal::ThreadPriorityToNiceValuePair", ptr %__begin2.0.ptr6, i64 0, i32 1
+  %nice_value = getelementptr inbounds i8, ptr %__begin2.0.ptr6, i64 4
   %1 = load i32, ptr %nice_value, align 4
   br label %return
 
@@ -41,13 +41,13 @@ entry:
   br label %for.cond
 
 for.cond:                                         ; preds = %for.body, %entry
-  %__begin2.sroa.0.0 = phi ptr [ getelementptr inbounds ([4 x %"struct.base::internal::ThreadPriorityToNiceValuePair"], ptr @_ZN4base8internal29kThreadPriorityToNiceValueMapE, i64 1, i64 0), %entry ], [ %incdec.ptr.i, %for.body ]
+  %__begin2.sroa.0.0 = phi ptr [ getelementptr inbounds ([4 x %"struct.base::internal::ThreadPriorityToNiceValuePair"], ptr @_ZN4base8internal29kThreadPriorityToNiceValueMapE, i64 1, i64 0, i32 0), %entry ], [ %incdec.ptr.i, %for.body ]
   %cmp.i.i.not = icmp eq ptr %__begin2.sroa.0.0, @_ZN4base8internal29kThreadPriorityToNiceValueMapE
   br i1 %cmp.i.i.not, label %return, label %for.body
 
 for.body:                                         ; preds = %for.cond
-  %incdec.ptr.i = getelementptr inbounds %"struct.base::internal::ThreadPriorityToNiceValuePair", ptr %__begin2.sroa.0.0, i64 -1
-  %nice_value2 = getelementptr %"struct.base::internal::ThreadPriorityToNiceValuePair", ptr %__begin2.sroa.0.0, i64 -1, i32 1
+  %incdec.ptr.i = getelementptr inbounds i8, ptr %__begin2.sroa.0.0, i64 -8
+  %nice_value2 = getelementptr inbounds i8, ptr %__begin2.sroa.0.0, i64 -4
   %0 = load i32, ptr %nice_value2, align 4
   %cmp.not = icmp slt i32 %0, %nice_value
   br i1 %cmp.not, label %for.cond, label %if.then

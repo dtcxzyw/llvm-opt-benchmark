@@ -42,7 +42,7 @@ target triple = "x86_64-unknown-linux-gnu"
 @.str.32 = private unnamed_addr constant [18 x i8] c"interval is empty\00", align 1
 
 ; Function Attrs: nounwind uwtable
-define dso_local i32 @luaopen_math(ptr noundef %L) local_unnamed_addr #0 {
+define dso_local noundef i32 @luaopen_math(ptr noundef %L) local_unnamed_addr #0 {
 entry:
   tail call void @luaL_checkversion_(ptr noundef %L, double noundef 5.040000e+02, i64 noundef 136) #6
   tail call void @lua_createtable(ptr noundef %L, i32 noundef 0, i32 noundef 27) #6
@@ -78,9 +78,9 @@ for.body.i.i.i:                                   ; preds = %for.body.i.i.i, %en
   br i1 %exitcond.not.i.i.i, label %setrandfunc.exit, label %for.body.i.i.i, !llvm.loop !5
 
 setrandfunc.exit:                                 ; preds = %for.body.i.i.i
-  %arrayidx3.i.i.i = getelementptr inbounds i64, ptr %call.i, i64 3
-  %arrayidx2.i.i.i = getelementptr inbounds i64, ptr %call.i, i64 2
-  %arrayidx1.i.i.i = getelementptr inbounds i64, ptr %call.i, i64 1
+  %arrayidx3.i.i.i = getelementptr inbounds i8, ptr %call.i, i64 24
+  %arrayidx2.i.i.i = getelementptr inbounds i8, ptr %call.i, i64 16
+  %arrayidx1.i.i.i = getelementptr inbounds i8, ptr %call.i, i64 8
   store i64 %xor6.i.i.i.i, ptr %call.i, align 8
   store i64 %xor8.i.i.i.i, ptr %arrayidx1.i.i.i, align 8
   store i64 %xor10.i.i.i.i, ptr %arrayidx2.i.i.i, align 8
@@ -105,7 +105,7 @@ declare void @lua_setfield(ptr noundef, i32 noundef, ptr noundef) local_unnamed_
 declare void @lua_pushinteger(ptr noundef, i64 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @math_abs(ptr noundef %L) #0 {
+define internal noundef i32 @math_abs(ptr noundef %L) #0 {
 entry:
   %call = tail call i32 @lua_isinteger(ptr noundef %L, i32 noundef 1) #6
   %tobool.not = icmp eq i32 %call, 0
@@ -128,7 +128,7 @@ if.end4:                                          ; preds = %if.else, %if.then
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @math_acos(ptr noundef %L) #0 {
+define internal noundef i32 @math_acos(ptr noundef %L) #0 {
 entry:
   %call = tail call double @luaL_checknumber(ptr noundef %L, i32 noundef 1) #6
   %call1 = tail call double @acos(double noundef %call) #6
@@ -137,7 +137,7 @@ entry:
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @math_asin(ptr noundef %L) #0 {
+define internal noundef i32 @math_asin(ptr noundef %L) #0 {
 entry:
   %call = tail call double @luaL_checknumber(ptr noundef %L, i32 noundef 1) #6
   %call1 = tail call double @asin(double noundef %call) #6
@@ -146,7 +146,7 @@ entry:
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @math_atan(ptr noundef %L) #0 {
+define internal noundef i32 @math_atan(ptr noundef %L) #0 {
 entry:
   %call = tail call double @luaL_checknumber(ptr noundef %L, i32 noundef 1) #6
   %call1 = tail call double @luaL_optnumber(ptr noundef %L, i32 noundef 2, double noundef 1.000000e+00) #6
@@ -156,7 +156,7 @@ entry:
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @math_ceil(ptr noundef %L) #0 {
+define internal noundef i32 @math_ceil(ptr noundef %L) #0 {
 entry:
   %call = tail call i32 @lua_isinteger(ptr noundef %L, i32 noundef 1) #6
   %tobool.not = icmp eq i32 %call, 0
@@ -188,7 +188,7 @@ if.end:                                           ; preds = %if.else.i, %land.lh
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @math_cos(ptr noundef %L) #0 {
+define internal noundef i32 @math_cos(ptr noundef %L) #0 {
 entry:
   %call = tail call double @luaL_checknumber(ptr noundef %L, i32 noundef 1) #6
   %call1 = tail call double @cos(double noundef %call) #6
@@ -197,7 +197,7 @@ entry:
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @math_deg(ptr noundef %L) #0 {
+define internal noundef i32 @math_deg(ptr noundef %L) #0 {
 entry:
   %call = tail call double @luaL_checknumber(ptr noundef %L, i32 noundef 1) #6
   %mul = fmul double %call, 0x404CA5DC1A63C1F8
@@ -206,7 +206,7 @@ entry:
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @math_exp(ptr noundef %L) #0 {
+define internal noundef i32 @math_exp(ptr noundef %L) #0 {
 entry:
   %call = tail call double @luaL_checknumber(ptr noundef %L, i32 noundef 1) #6
   %call1 = tail call double @exp(double noundef %call) #6
@@ -215,7 +215,7 @@ entry:
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @math_toint(ptr noundef %L) #0 {
+define internal noundef i32 @math_toint(ptr noundef %L) #0 {
 entry:
   %valid = alloca i32, align 4
   %call = call i64 @lua_tointegerx(ptr noundef %L, i32 noundef 1, ptr noundef nonnull %valid) #6
@@ -237,7 +237,7 @@ if.end:                                           ; preds = %if.else, %if.then
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @math_floor(ptr noundef %L) #0 {
+define internal noundef i32 @math_floor(ptr noundef %L) #0 {
 entry:
   %call = tail call i32 @lua_isinteger(ptr noundef %L, i32 noundef 1) #6
   %tobool.not = icmp eq i32 %call, 0
@@ -269,7 +269,7 @@ if.end:                                           ; preds = %if.else.i, %land.lh
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @math_fmod(ptr noundef %L) #0 {
+define internal noundef i32 @math_fmod(ptr noundef %L) #0 {
 entry:
   %call = tail call i32 @lua_isinteger(ptr noundef %L, i32 noundef 1) #6
   %tobool.not = icmp eq i32 %call, 0
@@ -316,7 +316,7 @@ if.end17:                                         ; preds = %lor.end, %if.else, 
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @math_ult(ptr noundef %L) #0 {
+define internal noundef i32 @math_ult(ptr noundef %L) #0 {
 entry:
   %call = tail call i64 @luaL_checkinteger(ptr noundef %L, i32 noundef 1) #6
   %call1 = tail call i64 @luaL_checkinteger(ptr noundef %L, i32 noundef 2) #6
@@ -327,7 +327,7 @@ entry:
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @math_log(ptr noundef %L) #0 {
+define internal noundef i32 @math_log(ptr noundef %L) #0 {
 entry:
   %call = tail call double @luaL_checknumber(ptr noundef %L, i32 noundef 1) #6
   %call1 = tail call i32 @lua_type(ptr noundef %L, i32 noundef 2) #6
@@ -368,7 +368,7 @@ if.end15:                                         ; preds = %if.then5, %if.else1
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @math_max(ptr noundef %L) #0 {
+define internal noundef i32 @math_max(ptr noundef %L) #0 {
 entry:
   %call = tail call i32 @lua_gettop(ptr noundef %L) #6
   %cmp = icmp sgt i32 %call, 0
@@ -399,7 +399,7 @@ for.end:                                          ; preds = %for.body, %lor.end.
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @math_min(ptr noundef %L) #0 {
+define internal noundef i32 @math_min(ptr noundef %L) #0 {
 entry:
   %call = tail call i32 @lua_gettop(ptr noundef %L) #6
   %cmp = icmp sgt i32 %call, 0
@@ -430,7 +430,7 @@ for.end:                                          ; preds = %for.body, %lor.end.
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @math_modf(ptr noundef %L) #0 {
+define internal noundef i32 @math_modf(ptr noundef %L) #0 {
 entry:
   %call = tail call i32 @lua_isinteger(ptr noundef %L, i32 noundef 1) #6
   %tobool.not = icmp eq i32 %call, 0
@@ -482,7 +482,7 @@ if.end:                                           ; preds = %pushnumint.exit, %i
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @math_rad(ptr noundef %L) #0 {
+define internal noundef i32 @math_rad(ptr noundef %L) #0 {
 entry:
   %call = tail call double @luaL_checknumber(ptr noundef %L, i32 noundef 1) #6
   %mul = fmul double %call, 0x3F91DF46A2529D39
@@ -491,7 +491,7 @@ entry:
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @math_sin(ptr noundef %L) #0 {
+define internal noundef i32 @math_sin(ptr noundef %L) #0 {
 entry:
   %call = tail call double @luaL_checknumber(ptr noundef %L, i32 noundef 1) #6
   %call1 = tail call double @sin(double noundef %call) #6
@@ -500,7 +500,7 @@ entry:
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @math_sqrt(ptr noundef %L) #0 {
+define internal noundef i32 @math_sqrt(ptr noundef %L) #0 {
 entry:
   %call = tail call double @luaL_checknumber(ptr noundef %L, i32 noundef 1) #6
   %call1 = tail call double @sqrt(double noundef %call) #6
@@ -509,7 +509,7 @@ entry:
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @math_tan(ptr noundef %L) #0 {
+define internal noundef i32 @math_tan(ptr noundef %L) #0 {
 entry:
   %call = tail call double @luaL_checknumber(ptr noundef %L, i32 noundef 1) #6
   %call1 = tail call double @tan(double noundef %call) #6
@@ -518,7 +518,7 @@ entry:
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @math_type(ptr noundef %L) #0 {
+define internal noundef i32 @math_type(ptr noundef %L) #0 {
 entry:
   %call = tail call i32 @lua_type(ptr noundef %L, i32 noundef 1) #6
   %cmp = icmp eq i32 %call, 3
@@ -625,12 +625,12 @@ define internal i32 @math_random(ptr noundef %L) #0 {
 entry:
   %call = tail call ptr @lua_touserdata(ptr noundef %L, i32 noundef -1001001) #6
   %0 = load i64, ptr %call, align 8
-  %arrayidx1.i = getelementptr inbounds i64, ptr %call, i64 1
+  %arrayidx1.i = getelementptr inbounds i8, ptr %call, i64 8
   %1 = load i64, ptr %arrayidx1.i, align 8
-  %arrayidx2.i = getelementptr inbounds i64, ptr %call, i64 2
+  %arrayidx2.i = getelementptr inbounds i8, ptr %call, i64 16
   %2 = load i64, ptr %arrayidx2.i, align 8
   %xor.i = xor i64 %2, %0
-  %arrayidx3.i = getelementptr inbounds i64, ptr %call, i64 3
+  %arrayidx3.i = getelementptr inbounds i8, ptr %call, i64 24
   %3 = load i64, ptr %arrayidx3.i, align 8
   %xor4.i = xor i64 %3, %1
   %mul.i = mul i64 %1, 5
@@ -764,7 +764,7 @@ return:                                           ; preds = %project.exit, %sw.d
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @math_randomseed(ptr noundef %L) #0 {
+define internal noundef i32 @math_randomseed(ptr noundef %L) #0 {
 entry:
   %call = tail call ptr @lua_touserdata(ptr noundef %L, i32 noundef -1001001) #6
   %call1 = tail call i32 @lua_type(ptr noundef %L, i32 noundef 1) #6
@@ -822,9 +822,9 @@ if.end:                                           ; preds = %for.body.i, %for.bo
   %or.i16.i.i.lcssa.sink = phi i64 [ %or.i16.i.i.i, %for.body.i.i ], [ %or.i16.i.i, %for.body.i ]
   %call2.sink = phi i64 [ %call.i, %for.body.i.i ], [ %call2, %for.body.i ]
   %call3.sink = phi i64 [ %0, %for.body.i.i ], [ %call3, %for.body.i ]
-  %arrayidx3.i = getelementptr inbounds i64, ptr %call, i64 3
-  %arrayidx2.i = getelementptr inbounds i64, ptr %call, i64 2
-  %arrayidx1.i = getelementptr inbounds i64, ptr %call, i64 1
+  %arrayidx3.i = getelementptr inbounds i8, ptr %call, i64 24
+  %arrayidx2.i = getelementptr inbounds i8, ptr %call, i64 16
+  %arrayidx1.i = getelementptr inbounds i8, ptr %call, i64 8
   store i64 %xor6.i.i.lcssa.sink, ptr %call, align 8
   store i64 %xor8.i.i.lcssa.sink, ptr %arrayidx1.i, align 8
   store i64 %xor10.i.i.lcssa.sink, ptr %arrayidx2.i, align 8

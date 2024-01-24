@@ -5,30 +5,6 @@ target triple = "x86_64-unknown-linux-gnu"
 
 %struct.desc_info = type { ptr, %struct.rocker_desc, ptr, i64 }
 %struct.rocker_desc = type { i64, i64, i16, i16, [5 x i16], i16 }
-%struct.desc_ring = type { i64, i32, i32, i32, i32, i32, ptr, ptr, i32, ptr, i32 }
-%struct.PCIDevice = type { %struct.DeviceState, i8, i8, ptr, ptr, ptr, ptr, ptr, i32, %struct.PCIReqIDCache, [64 x i8], [7 x %struct.PCIIORegion], %struct.AddressSpace, %struct.MemoryRegion, %struct.MemoryRegion, ptr, ptr, [3 x ptr], i8, i8, i32, i8, i32, ptr, ptr, ptr, ptr, ptr, ptr, %struct.MemoryRegion, %struct.MemoryRegion, %struct.MemoryRegion, ptr, i8, i32, i8, %struct.PCIExpressDevice, ptr, ptr, i32, i8, %struct.MemoryRegion, i32, ptr, ptr, ptr, ptr, ptr, i32 }
-%struct.DeviceState = type { %struct.Object, ptr, ptr, i8, i8, i64, ptr, i32, i8, ptr, %struct.NamedGPIOListHead, %struct.NamedClockListHead, %struct.BusStateHead, i32, i32, i32, %struct.ResettableState, ptr, %struct.MemReentrancyGuard }
-%struct.Object = type { ptr, ptr, ptr, i32, ptr }
-%struct.NamedGPIOListHead = type { ptr }
-%struct.NamedClockListHead = type { ptr }
-%struct.BusStateHead = type { ptr }
-%struct.ResettableState = type { i32, i8, i8 }
-%struct.MemReentrancyGuard = type { i8 }
-%struct.PCIReqIDCache = type { ptr, i32 }
-%struct.PCIIORegion = type { i64, i64, i8, ptr, ptr }
-%struct.AddressSpace = type { %struct.rcu_head, ptr, ptr, ptr, i32, i32, ptr, %union.anon, %union.anon.0 }
-%struct.rcu_head = type { ptr, ptr }
-%union.anon = type { %struct.QTailQLink }
-%struct.QTailQLink = type { ptr, ptr }
-%union.anon.0 = type { %struct.QTailQLink }
-%struct.PCIExpressDevice = type { i8, i8, i8, i16, %struct.PCIEAERLog, i16, i16, i16, %struct.PCIESriovPF, %struct.PCIESriovVF }
-%struct.PCIEAERLog = type { i16, i16, ptr }
-%struct.PCIESriovPF = type { i16, [7 x i8], ptr, ptr }
-%struct.PCIESriovVF = type { ptr, i16 }
-%struct.MemoryRegion = type { %struct.Object, i8, i8, i8, i8, i8, i8, i8, i8, i8, i8, ptr, ptr, ptr, ptr, ptr, ptr, i32, i128, i64, ptr, i64, i8, i8, i8, i8, i8, ptr, i64, i32, %union.anon.1, %union.anon.2, %union.anon.3, ptr, i32, ptr, ptr, i8 }
-%union.anon.1 = type { %struct.QTailQLink }
-%union.anon.2 = type { %struct.QTailQLink }
-%union.anon.3 = type { %struct.QTailQLink }
 
 @.str.9 = private unnamed_addr constant [11 x i8] c"pci-device\00", align 1
 @.str.10 = private unnamed_addr constant [106 x i8] c"/home/dtcxzyw/WorkSpace/Projects/compilers/llvm-opt-benchmark/bench/qemu/qemu/include/hw/pci/pci_device.h\00", align 1
@@ -37,7 +13,7 @@ target triple = "x86_64-unknown-linux-gnu"
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(argmem: read) uwtable
 define dso_local zeroext i16 @desc_buf_size(ptr nocapture noundef readonly %info) local_unnamed_addr #0 {
 entry:
-  %buf_size = getelementptr inbounds %struct.desc_info, ptr %info, i64 0, i32 1, i32 2
+  %buf_size = getelementptr inbounds i8, ptr %info, i64 24
   %0 = load i16, ptr %buf_size, align 8
   ret i16 %0
 }
@@ -45,7 +21,7 @@ entry:
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(argmem: read) uwtable
 define dso_local zeroext i16 @desc_tlv_size(ptr nocapture noundef readonly %info) local_unnamed_addr #0 {
 entry:
-  %tlv_size = getelementptr inbounds %struct.desc_info, ptr %info, i64 0, i32 1, i32 3
+  %tlv_size = getelementptr inbounds i8, ptr %info, i64 26
   %0 = load i16, ptr %tlv_size, align 2
   ret i16 %0
 }
@@ -54,36 +30,35 @@ entry:
 define dso_local ptr @desc_get_buf(ptr nocapture noundef %info, i1 noundef zeroext %read_only) local_unnamed_addr #1 {
 entry:
   %0 = load ptr, ptr %info, align 8
-  %r = getelementptr inbounds %struct.desc_ring, ptr %0, i64 0, i32 6
+  %r = getelementptr inbounds i8, ptr %0, i64 32
   %1 = load ptr, ptr %r, align 8
-  %call.i = tail call ptr @object_dynamic_cast_assert(ptr noundef %1, ptr noundef nonnull @.str.9, ptr noundef nonnull @.str.10, i32 noundef 10, ptr noundef nonnull @__func__.PCI_DEVICE) #9
-  %tlv_size = getelementptr inbounds %struct.desc_info, ptr %info, i64 0, i32 1, i32 3
-  %buf_size = getelementptr inbounds %struct.desc_info, ptr %info, i64 0, i32 1, i32 2
-  %cond.in.in = select i1 %read_only, ptr %tlv_size, ptr %buf_size
+  %call.i = tail call ptr @object_dynamic_cast_assert(ptr noundef %1, ptr noundef nonnull @.str.9, ptr noundef nonnull @.str.10, i32 noundef 10, ptr noundef nonnull @__func__.PCI_DEVICE) #8
+  %cond.in.in.v = select i1 %read_only, i64 26, i64 24
+  %cond.in.in = getelementptr inbounds i8, ptr %info, i64 %cond.in.in.v
   %cond.in = load i16, ptr %cond.in.in, align 2
   %conv5 = zext i16 %cond.in to i64
-  %buf_size6 = getelementptr inbounds %struct.desc_info, ptr %info, i64 0, i32 3
+  %buf_size6 = getelementptr inbounds i8, ptr %info, i64 48
   %2 = load i64, ptr %buf_size6, align 8
   %cmp = icmp ult i64 %2, %conv5
-  %buf = getelementptr inbounds %struct.desc_info, ptr %info, i64 0, i32 2
+  %buf = getelementptr inbounds i8, ptr %info, i64 40
   %3 = load ptr, ptr %buf, align 8
   br i1 %cmp, label %if.then, label %if.end
 
 if.then:                                          ; preds = %entry
-  %call8 = tail call ptr @g_realloc(ptr noundef %3, i64 noundef %conv5) #9
+  %call8 = tail call ptr @g_realloc(ptr noundef %3, i64 noundef %conv5) #8
   store ptr %call8, ptr %buf, align 8
   store i64 %conv5, ptr %buf_size6, align 8
   br label %if.end
 
 if.end:                                           ; preds = %entry, %if.then
   %4 = phi ptr [ %call8, %if.then ], [ %3, %entry ]
-  %desc11 = getelementptr inbounds %struct.desc_info, ptr %info, i64 0, i32 1
+  %desc11 = getelementptr inbounds i8, ptr %info, i64 8
   %5 = load i64, ptr %desc11, align 8
-  %buf13 = getelementptr inbounds %struct.desc_info, ptr %info, i64 0, i32 2
-  %bus_master_as.i.i.i = getelementptr inbounds %struct.PCIDevice, ptr %call.i, i64 0, i32 12
-  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #9, !srcloc !5
+  %buf13 = getelementptr inbounds i8, ptr %info, i64 40
+  %bus_master_as.i.i.i = getelementptr inbounds i8, ptr %call.i, i64 576
+  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #8, !srcloc !5
   fence seq_cst
-  %call.i.i.i.i = tail call i32 @address_space_rw(ptr noundef nonnull %bus_master_as.i.i.i, i64 noundef %5, i32 1, ptr noundef %4, i64 noundef %conv5, i1 noundef zeroext false) #9
+  %call.i.i.i.i = tail call i32 @address_space_rw(ptr noundef nonnull %bus_master_as.i.i.i, i64 noundef %5, i32 1, ptr noundef %4, i64 noundef %conv5, i1 noundef zeroext false) #8
   %6 = load ptr, ptr %buf13, align 8
   ret ptr %6
 }
@@ -91,29 +66,29 @@ if.end:                                           ; preds = %entry, %if.then
 declare ptr @g_realloc(ptr noundef, i64 noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local i32 @desc_set_buf(ptr nocapture noundef %info, i64 noundef %tlv_size) local_unnamed_addr #1 {
+define dso_local noundef i32 @desc_set_buf(ptr nocapture noundef %info, i64 noundef %tlv_size) local_unnamed_addr #1 {
 entry:
   %0 = load ptr, ptr %info, align 8
-  %r = getelementptr inbounds %struct.desc_ring, ptr %0, i64 0, i32 6
+  %r = getelementptr inbounds i8, ptr %0, i64 32
   %1 = load ptr, ptr %r, align 8
-  %call.i = tail call ptr @object_dynamic_cast_assert(ptr noundef %1, ptr noundef nonnull @.str.9, ptr noundef nonnull @.str.10, i32 noundef 10, ptr noundef nonnull @__func__.PCI_DEVICE) #9
-  %buf_size = getelementptr inbounds %struct.desc_info, ptr %info, i64 0, i32 3
+  %call.i = tail call ptr @object_dynamic_cast_assert(ptr noundef %1, ptr noundef nonnull @.str.9, ptr noundef nonnull @.str.10, i32 noundef 10, ptr noundef nonnull @__func__.PCI_DEVICE) #8
+  %buf_size = getelementptr inbounds i8, ptr %info, i64 48
   %2 = load i64, ptr %buf_size, align 8
   %cmp = icmp ult i64 %2, %tlv_size
   br i1 %cmp, label %return, label %if.end
 
 if.end:                                           ; preds = %entry
   %conv = trunc i64 %tlv_size to i16
-  %desc = getelementptr inbounds %struct.desc_info, ptr %info, i64 0, i32 1
-  %tlv_size4 = getelementptr inbounds %struct.desc_info, ptr %info, i64 0, i32 1, i32 3
+  %desc = getelementptr inbounds i8, ptr %info, i64 8
+  %tlv_size4 = getelementptr inbounds i8, ptr %info, i64 26
   store i16 %conv, ptr %tlv_size4, align 2
   %3 = load i64, ptr %desc, align 8
-  %buf = getelementptr inbounds %struct.desc_info, ptr %info, i64 0, i32 2
+  %buf = getelementptr inbounds i8, ptr %info, i64 40
   %4 = load ptr, ptr %buf, align 8
-  %bus_master_as.i.i.i = getelementptr inbounds %struct.PCIDevice, ptr %call.i, i64 0, i32 12
-  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #9, !srcloc !5
+  %bus_master_as.i.i.i = getelementptr inbounds i8, ptr %call.i, i64 576
+  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #8, !srcloc !5
   fence seq_cst
-  %call.i.i.i.i = tail call i32 @address_space_rw(ptr noundef nonnull %bus_master_as.i.i.i, i64 noundef %3, i32 1, ptr noundef %4, i64 noundef %tlv_size, i1 noundef zeroext true) #9
+  %call.i.i.i.i = tail call i32 @address_space_rw(ptr noundef nonnull %bus_master_as.i.i.i, i64 noundef %3, i32 1, ptr noundef %4, i64 noundef %tlv_size, i1 noundef zeroext true) #8
   br label %return
 
 return:                                           ; preds = %entry, %if.end
@@ -131,13 +106,13 @@ entry:
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(argmem: read) uwtable
 define dso_local i32 @desc_ring_index(ptr nocapture noundef readonly %ring) local_unnamed_addr #0 {
 entry:
-  %index = getelementptr inbounds %struct.desc_ring, ptr %ring, i64 0, i32 8
+  %index = getelementptr inbounds i8, ptr %ring, i64 48
   %0 = load i32, ptr %index, align 8
   ret i32 %0
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(argmem: write) uwtable
-define dso_local zeroext i1 @desc_ring_set_base_addr(ptr nocapture noundef writeonly %ring, i64 noundef %base_addr) local_unnamed_addr #3 {
+define dso_local noundef zeroext i1 @desc_ring_set_base_addr(ptr nocapture noundef writeonly %ring, i64 noundef %base_addr) local_unnamed_addr #3 {
 entry:
   %and = and i64 %base_addr, 7
   %tobool.not = icmp eq i64 %and, 0
@@ -159,7 +134,7 @@ entry:
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local zeroext i1 @desc_ring_set_size(ptr noundef %ring, i32 noundef %size) local_unnamed_addr #1 {
+define dso_local noundef zeroext i1 @desc_ring_set_size(ptr noundef %ring, i32 noundef %size) local_unnamed_addr #1 {
 entry:
   %0 = add i32 %size, -65537
   %or.cond = icmp ult i32 %0, -65535
@@ -172,13 +147,13 @@ lor.lhs.false2:                                   ; preds = %entry
   br i1 %tobool.not, label %for.cond.preheader, label %return
 
 for.cond.preheader:                               ; preds = %lor.lhs.false2
-  %size3 = getelementptr inbounds %struct.desc_ring, ptr %ring, i64 0, i32 1
+  %size3 = getelementptr inbounds i8, ptr %ring, i64 8
   %1 = load i32, ptr %size3, align 8
   %cmp424.not = icmp eq i32 %1, 0
   br i1 %cmp424.not, label %for.end, label %for.body.lr.ph
 
 for.body.lr.ph:                                   ; preds = %for.cond.preheader
-  %info = getelementptr inbounds %struct.desc_ring, ptr %ring, i64 0, i32 7
+  %info = getelementptr inbounds i8, ptr %ring, i64 40
   br label %for.body
 
 for.body:                                         ; preds = %for.body.lr.ph, %for.body
@@ -187,7 +162,7 @@ for.body:                                         ; preds = %for.body.lr.ph, %fo
   %idxprom = sext i32 %i.025 to i64
   %buf = getelementptr %struct.desc_info, ptr %2, i64 %idxprom, i32 2
   %3 = load ptr, ptr %buf, align 8
-  tail call void @g_free(ptr noundef %3) #9
+  tail call void @g_free(ptr noundef %3) #8
   %inc = add nuw i32 %i.025, 1
   %4 = load i32, ptr %size3, align 8
   %cmp4 = icmp ult i32 %inc, %4
@@ -195,14 +170,14 @@ for.body:                                         ; preds = %for.body.lr.ph, %fo
 
 for.end:                                          ; preds = %for.body, %for.cond.preheader
   store i32 %size, ptr %size3, align 8
-  %tail = getelementptr inbounds %struct.desc_ring, ptr %ring, i64 0, i32 3
+  %tail = getelementptr inbounds i8, ptr %ring, i64 16
   store i32 0, ptr %tail, align 8
-  %head = getelementptr inbounds %struct.desc_ring, ptr %ring, i64 0, i32 2
+  %head = getelementptr inbounds i8, ptr %ring, i64 12
   store i32 0, ptr %head, align 4
-  %info6 = getelementptr inbounds %struct.desc_ring, ptr %ring, i64 0, i32 7
+  %info6 = getelementptr inbounds i8, ptr %ring, i64 40
   %5 = load ptr, ptr %info6, align 8
   %conv = zext nneg i32 %size to i64
-  %call7 = tail call ptr @g_realloc_n(ptr noundef %5, i64 noundef %conv, i64 noundef 56) #9
+  %call7 = tail call ptr @g_realloc_n(ptr noundef %5, i64 noundef %conv, i64 noundef 56) #8
   store ptr %call7, ptr %info6, align 8
   %mul = mul nuw nsw i64 %conv, 56
   tail call void @llvm.memset.p0.i64(ptr align 8 %call7, i8 0, i64 %mul, i1 false)
@@ -233,7 +208,7 @@ declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #4
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(argmem: read) uwtable
 define dso_local i32 @desc_ring_get_size(ptr nocapture noundef readonly %ring) local_unnamed_addr #0 {
 entry:
-  %size = getelementptr inbounds %struct.desc_ring, ptr %ring, i64 0, i32 1
+  %size = getelementptr inbounds i8, ptr %ring, i64 8
   %0 = load i32, ptr %size, align 8
   ret i32 %0
 }
@@ -254,21 +229,21 @@ lor.lhs.false:                                    ; preds = %entry
   br i1 %tobool.not.i.not, label %return, label %if.end
 
 if.end:                                           ; preds = %lor.lhs.false
-  %r.i = getelementptr inbounds %struct.desc_ring, ptr %ring, i64 0, i32 6
+  %r.i = getelementptr inbounds i8, ptr %ring, i64 32
   %3 = load ptr, ptr %r.i, align 8
-  %call.i.i = tail call ptr @object_dynamic_cast_assert(ptr noundef %3, ptr noundef nonnull @.str.9, ptr noundef nonnull @.str.10, i32 noundef 10, ptr noundef nonnull @__func__.PCI_DEVICE) #9
-  %info1.i = getelementptr inbounds %struct.desc_ring, ptr %ring, i64 0, i32 7
+  %call.i.i = tail call ptr @object_dynamic_cast_assert(ptr noundef %3, ptr noundef nonnull @.str.9, ptr noundef nonnull @.str.10, i32 noundef 10, ptr noundef nonnull @__func__.PCI_DEVICE) #8
+  %info1.i = getelementptr inbounds i8, ptr %ring, i64 40
   %4 = load ptr, ptr %info1.i, align 8
   %idxprom.i = zext i32 %ring.val4 to i64
   %arrayidx.i = getelementptr %struct.desc_info, ptr %4, i64 %idxprom.i
   %5 = load i64, ptr %ring, align 8
   %mul.i = shl nuw nsw i64 %idxprom.i, 5
   %add.i = add i64 %5, %mul.i
-  %desc.i = getelementptr %struct.desc_info, ptr %4, i64 %idxprom.i, i32 1
-  %bus_master_as.i.i.i.i = getelementptr inbounds %struct.PCIDevice, ptr %call.i.i, i64 0, i32 12
-  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #9, !srcloc !5
+  %desc.i = getelementptr inbounds i8, ptr %arrayidx.i, i64 8
+  %bus_master_as.i.i.i.i = getelementptr inbounds i8, ptr %call.i.i, i64 576
+  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #8, !srcloc !5
   fence seq_cst
-  %call.i.i.i.i.i = tail call i32 @address_space_rw(ptr noundef nonnull %bus_master_as.i.i.i.i, i64 noundef %add.i, i32 1, ptr noundef %desc.i, i64 noundef 32, i1 noundef zeroext false) #9
+  %call.i.i.i.i.i = tail call i32 @address_space_rw(ptr noundef nonnull %bus_master_as.i.i.i.i, i64 noundef %add.i, i32 1, ptr noundef nonnull %desc.i, i64 noundef 32, i1 noundef zeroext false) #8
   br label %return
 
 return:                                           ; preds = %entry, %lor.lhs.false, %if.end
@@ -295,32 +270,32 @@ if.end4:                                          ; preds = %if.end
   %3 = trunc i32 %err to i16
   %4 = sub i16 0, %3
   %conv2.i = or i16 %4, -32768
-  %info3.i = getelementptr inbounds %struct.desc_ring, ptr %ring, i64 0, i32 7
+  %info3.i = getelementptr inbounds i8, ptr %ring, i64 40
   %5 = load ptr, ptr %info3.i, align 8
   %idxprom.i = zext i32 %ring.val4 to i64
   %comp_err4.i = getelementptr %struct.desc_info, ptr %5, i64 %idxprom.i, i32 1, i32 5
   store i16 %conv2.i, ptr %comp_err4.i, align 2
   %6 = load i32, ptr %1, align 8
-  %r.i.i = getelementptr inbounds %struct.desc_ring, ptr %ring, i64 0, i32 6
+  %r.i.i = getelementptr inbounds i8, ptr %ring, i64 32
   %7 = load ptr, ptr %r.i.i, align 8
-  %call.i.i.i = tail call ptr @object_dynamic_cast_assert(ptr noundef %7, ptr noundef nonnull @.str.9, ptr noundef nonnull @.str.10, i32 noundef 10, ptr noundef nonnull @__func__.PCI_DEVICE) #9
+  %call.i.i.i = tail call ptr @object_dynamic_cast_assert(ptr noundef %7, ptr noundef nonnull @.str.9, ptr noundef nonnull @.str.10, i32 noundef 10, ptr noundef nonnull @__func__.PCI_DEVICE) #8
   %8 = load ptr, ptr %info3.i, align 8
   %idxprom.i.i = zext i32 %6 to i64
   %9 = load i64, ptr %ring, align 8
   %mul.i.i = shl nuw nsw i64 %idxprom.i.i, 5
   %add.i.i = add i64 %9, %mul.i.i
   %desc.i.i = getelementptr %struct.desc_info, ptr %8, i64 %idxprom.i.i, i32 1
-  %bus_master_as.i.i.i.i.i = getelementptr inbounds %struct.PCIDevice, ptr %call.i.i.i, i64 0, i32 12
-  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #9, !srcloc !5
+  %bus_master_as.i.i.i.i.i = getelementptr inbounds i8, ptr %call.i.i.i, i64 576
+  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #8, !srcloc !5
   fence seq_cst
-  %call.i.i.i.i.i.i = tail call i32 @address_space_rw(ptr noundef nonnull %bus_master_as.i.i.i.i.i, i64 noundef %add.i.i, i32 1, ptr noundef %desc.i.i, i64 noundef 32, i1 noundef zeroext true) #9
+  %call.i.i.i.i.i.i = tail call i32 @address_space_rw(ptr noundef nonnull %bus_master_as.i.i.i.i.i, i64 noundef %add.i.i, i32 1, ptr noundef %desc.i.i, i64 noundef 32, i1 noundef zeroext true) #8
   %10 = load i32, ptr %1, align 8
   %add.i = add i32 %10, 1
-  %size.i = getelementptr inbounds %struct.desc_ring, ptr %ring, i64 0, i32 1
+  %size.i = getelementptr inbounds i8, ptr %ring, i64 8
   %11 = load i32, ptr %size.i, align 8
   %rem.i = urem i32 %add.i, %11
   store i32 %rem.i, ptr %1, align 8
-  %credits.i = getelementptr inbounds %struct.desc_ring, ptr %ring, i64 0, i32 5
+  %credits.i = getelementptr inbounds i8, ptr %ring, i64 24
   %12 = load i32, ptr %credits.i, align 8
   %inc.i = add i32 %12, 1
   store i32 %inc.i, ptr %credits.i, align 8
@@ -335,16 +310,16 @@ return:                                           ; preds = %entry, %if.end, %if
 ; Function Attrs: nounwind sspstrong uwtable
 define dso_local zeroext i1 @desc_ring_set_head(ptr nocapture noundef %ring, i32 noundef %new) local_unnamed_addr #1 {
 entry:
-  %tail1 = getelementptr inbounds %struct.desc_ring, ptr %ring, i64 0, i32 3
+  %tail1 = getelementptr inbounds i8, ptr %ring, i64 16
   %0 = load i32, ptr %tail1, align 8
-  %head2 = getelementptr inbounds %struct.desc_ring, ptr %ring, i64 0, i32 2
+  %head2 = getelementptr inbounds i8, ptr %ring, i64 12
   %1 = load i32, ptr %head2, align 4
   %2 = load i64, ptr %ring, align 8
   %tobool.not.i.not = icmp eq i64 %2, 0
   br i1 %tobool.not.i.not, label %return, label %if.end
 
 if.end:                                           ; preds = %entry
-  %size = getelementptr inbounds %struct.desc_ring, ptr %ring, i64 0, i32 1
+  %size = getelementptr inbounds i8, ptr %ring, i64 8
   %3 = load i32, ptr %size, align 8
   %cmp.not = icmp ugt i32 %3, %new
   br i1 %cmp.not, label %if.end6, label %return
@@ -369,7 +344,7 @@ lor.lhs.false10:                                  ; preds = %land.lhs.true, %if.
 
 if.end24:                                         ; preds = %lor.lhs.false10
   store i32 %new, ptr %head2, align 4
-  %consume.i = getelementptr inbounds %struct.desc_ring, ptr %ring, i64 0, i32 9
+  %consume.i = getelementptr inbounds i8, ptr %ring, i64 56
   %4 = load ptr, ptr %consume.i, align 8
   %tobool.not.i32 = icmp eq ptr %4, null
   %cmp.not16.i = icmp eq i32 %0, %new
@@ -377,30 +352,30 @@ if.end24:                                         ; preds = %lor.lhs.false10
   br i1 %or.cond33, label %return, label %while.body.lr.ph.i
 
 while.body.lr.ph.i:                               ; preds = %if.end24
-  %r.i.i.i = getelementptr inbounds %struct.desc_ring, ptr %ring, i64 0, i32 6
-  %info1.i.i.i = getelementptr inbounds %struct.desc_ring, ptr %ring, i64 0, i32 7
-  %credits.i.i = getelementptr inbounds %struct.desc_ring, ptr %ring, i64 0, i32 5
+  %r.i.i.i = getelementptr inbounds i8, ptr %ring, i64 32
+  %info1.i.i.i = getelementptr inbounds i8, ptr %ring, i64 40
+  %credits.i.i = getelementptr inbounds i8, ptr %ring, i64 24
   br label %while.body.i
 
 while.body.i:                                     ; preds = %while.body.i, %while.body.lr.ph.i
   %5 = phi i32 [ %0, %while.body.lr.ph.i ], [ %rem.i.i, %while.body.i ]
   %primed.017.i = phi i8 [ 0, %while.body.lr.ph.i ], [ %spec.select.i, %while.body.i ]
   %6 = load ptr, ptr %r.i.i.i, align 8
-  %call.i.i.i.i = tail call ptr @object_dynamic_cast_assert(ptr noundef %6, ptr noundef nonnull @.str.9, ptr noundef nonnull @.str.10, i32 noundef 10, ptr noundef nonnull @__func__.PCI_DEVICE) #9
+  %call.i.i.i.i = tail call ptr @object_dynamic_cast_assert(ptr noundef %6, ptr noundef nonnull @.str.9, ptr noundef nonnull @.str.10, i32 noundef 10, ptr noundef nonnull @__func__.PCI_DEVICE) #8
   %7 = load ptr, ptr %info1.i.i.i, align 8
   %idxprom.i.i.i = zext i32 %5 to i64
   %arrayidx.i.i.i = getelementptr %struct.desc_info, ptr %7, i64 %idxprom.i.i.i
   %8 = load i64, ptr %ring, align 8
   %mul.i.i.i = shl nuw nsw i64 %idxprom.i.i.i, 5
   %add.i.i.i = add i64 %8, %mul.i.i.i
-  %desc.i.i.i = getelementptr %struct.desc_info, ptr %7, i64 %idxprom.i.i.i, i32 1
-  %bus_master_as.i.i.i.i.i.i = getelementptr inbounds %struct.PCIDevice, ptr %call.i.i.i.i, i64 0, i32 12
-  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #9, !srcloc !5
+  %desc.i.i.i = getelementptr inbounds i8, ptr %arrayidx.i.i.i, i64 8
+  %bus_master_as.i.i.i.i.i.i = getelementptr inbounds i8, ptr %call.i.i.i.i, i64 576
+  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #8, !srcloc !5
   fence seq_cst
-  %call.i.i.i.i.i.i.i = tail call i32 @address_space_rw(ptr noundef nonnull %bus_master_as.i.i.i.i.i.i, i64 noundef %add.i.i.i, i32 1, ptr noundef %desc.i.i.i, i64 noundef 32, i1 noundef zeroext false) #9
+  %call.i.i.i.i.i.i.i = tail call i32 @address_space_rw(ptr noundef nonnull %bus_master_as.i.i.i.i.i.i, i64 noundef %add.i.i.i, i32 1, ptr noundef nonnull %desc.i.i.i, i64 noundef 32, i1 noundef zeroext false) #8
   %9 = load ptr, ptr %consume.i, align 8
   %10 = load ptr, ptr %r.i.i.i, align 8
-  %call2.i = tail call i32 %9(ptr noundef %10, ptr noundef %arrayidx.i.i.i) #9
+  %call2.i = tail call i32 %9(ptr noundef %10, ptr noundef %arrayidx.i.i.i) #8
   %11 = trunc i32 %call2.i to i16
   %12 = sub i16 0, %11
   %conv2.i.i = or i16 %12, -32768
@@ -411,17 +386,17 @@ while.body.i:                                     ; preds = %while.body.i, %whil
   store i16 %conv2.i.i, ptr %comp_err4.i.i, align 2
   %15 = load i32, ptr %tail1, align 8
   %16 = load ptr, ptr %r.i.i.i, align 8
-  %call.i.i.i9.i = tail call ptr @object_dynamic_cast_assert(ptr noundef %16, ptr noundef nonnull @.str.9, ptr noundef nonnull @.str.10, i32 noundef 10, ptr noundef nonnull @__func__.PCI_DEVICE) #9
+  %call.i.i.i9.i = tail call ptr @object_dynamic_cast_assert(ptr noundef %16, ptr noundef nonnull @.str.9, ptr noundef nonnull @.str.10, i32 noundef 10, ptr noundef nonnull @__func__.PCI_DEVICE) #8
   %17 = load ptr, ptr %info1.i.i.i, align 8
   %idxprom.i.i10.i = zext i32 %15 to i64
   %18 = load i64, ptr %ring, align 8
   %mul.i.i11.i = shl nuw nsw i64 %idxprom.i.i10.i, 5
   %add.i.i12.i = add i64 %18, %mul.i.i11.i
   %desc.i.i13.i = getelementptr %struct.desc_info, ptr %17, i64 %idxprom.i.i10.i, i32 1
-  %bus_master_as.i.i.i.i.i14.i = getelementptr inbounds %struct.PCIDevice, ptr %call.i.i.i9.i, i64 0, i32 12
-  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #9, !srcloc !5
+  %bus_master_as.i.i.i.i.i14.i = getelementptr inbounds i8, ptr %call.i.i.i9.i, i64 576
+  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #8, !srcloc !5
   fence seq_cst
-  %call.i.i.i.i.i.i15.i = tail call i32 @address_space_rw(ptr noundef nonnull %bus_master_as.i.i.i.i.i14.i, i64 noundef %add.i.i12.i, i32 1, ptr noundef %desc.i.i13.i, i64 noundef 32, i1 noundef zeroext true) #9
+  %call.i.i.i.i.i.i15.i = tail call i32 @address_space_rw(ptr noundef nonnull %bus_master_as.i.i.i.i.i14.i, i64 noundef %add.i.i12.i, i32 1, ptr noundef %desc.i.i13.i, i64 noundef 32, i1 noundef zeroext true) #8
   %19 = load i32, ptr %tail1, align 8
   %add.i.i = add i32 %19, 1
   %20 = load i32, ptr %size, align 8
@@ -449,7 +424,7 @@ return:                                           ; preds = %land.lhs.true, %lor
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(argmem: read) uwtable
 define dso_local i32 @desc_ring_get_head(ptr nocapture noundef readonly %ring) local_unnamed_addr #0 {
 entry:
-  %head = getelementptr inbounds %struct.desc_ring, ptr %ring, i64 0, i32 2
+  %head = getelementptr inbounds i8, ptr %ring, i64 12
   %0 = load i32, ptr %head, align 4
   ret i32 %0
 }
@@ -457,13 +432,13 @@ entry:
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(argmem: read) uwtable
 define dso_local i32 @desc_ring_get_tail(ptr nocapture noundef readonly %ring) local_unnamed_addr #0 {
 entry:
-  %tail = getelementptr inbounds %struct.desc_ring, ptr %ring, i64 0, i32 3
+  %tail = getelementptr inbounds i8, ptr %ring, i64 16
   %0 = load i32, ptr %tail, align 8
   ret i32 %0
 }
 
-; Function Attrs: mustprogress nofree nosync nounwind sspstrong willreturn memory(argmem: write) uwtable
-define dso_local void @desc_ring_set_ctrl(ptr nocapture noundef writeonly %ring, i32 noundef %val) local_unnamed_addr #5 {
+; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(argmem: write) uwtable
+define dso_local void @desc_ring_set_ctrl(ptr nocapture noundef writeonly %ring, i32 noundef %val) local_unnamed_addr #3 {
 entry:
   %and = and i32 %val, 1
   %tobool.not = icmp eq i32 %and, 0
@@ -477,17 +452,17 @@ if.end:                                           ; preds = %if.then, %entry
   ret void
 }
 
-; Function Attrs: mustprogress nofree nosync nounwind sspstrong willreturn memory(argmem: write) uwtable
-define dso_local void @desc_ring_reset(ptr nocapture noundef writeonly %ring) local_unnamed_addr #5 {
+; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(argmem: write) uwtable
+define dso_local void @desc_ring_reset(ptr nocapture noundef writeonly %ring) local_unnamed_addr #3 {
 entry:
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(28) %ring, i8 0, i64 28, i1 false)
   ret void
 }
 
-; Function Attrs: mustprogress nofree nosync nounwind sspstrong willreturn memory(argmem: readwrite) uwtable
-define dso_local zeroext i1 @desc_ring_ret_credits(ptr nocapture noundef %ring, i32 noundef %credits) local_unnamed_addr #6 {
+; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(argmem: readwrite) uwtable
+define dso_local zeroext i1 @desc_ring_ret_credits(ptr nocapture noundef %ring, i32 noundef %credits) local_unnamed_addr #5 {
 entry:
-  %credits1 = getelementptr inbounds %struct.desc_ring, ptr %ring, i64 0, i32 5
+  %credits1 = getelementptr inbounds i8, ptr %ring, i64 24
   %0 = load i32, ptr %credits1, align 8
   %sub.sink = tail call i32 @llvm.usub.sat.i32(i32 %0, i32 %credits)
   %retval.0 = icmp ugt i32 %0, %credits
@@ -498,7 +473,7 @@ entry:
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(argmem: read) uwtable
 define dso_local i32 @desc_ring_get_credits(ptr nocapture noundef readonly %ring) local_unnamed_addr #0 {
 entry:
-  %credits = getelementptr inbounds %struct.desc_ring, ptr %ring, i64 0, i32 5
+  %credits = getelementptr inbounds i8, ptr %ring, i64 24
   %0 = load i32, ptr %credits, align 8
   ret i32 %0
 }
@@ -506,9 +481,9 @@ entry:
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(argmem: write) uwtable
 define dso_local void @desc_ring_set_consume(ptr nocapture noundef writeonly %ring, ptr noundef %consume, i32 noundef %vector) local_unnamed_addr #3 {
 entry:
-  %consume1 = getelementptr inbounds %struct.desc_ring, ptr %ring, i64 0, i32 9
+  %consume1 = getelementptr inbounds i8, ptr %ring, i64 56
   store ptr %consume, ptr %consume1, align 8
-  %msix_vector = getelementptr inbounds %struct.desc_ring, ptr %ring, i64 0, i32 10
+  %msix_vector = getelementptr inbounds i8, ptr %ring, i64 64
   store i32 %vector, ptr %msix_vector, align 8
   ret void
 }
@@ -516,32 +491,32 @@ entry:
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(argmem: read) uwtable
 define dso_local i32 @desc_ring_get_msix_vector(ptr nocapture noundef readonly %ring) local_unnamed_addr #0 {
 entry:
-  %msix_vector = getelementptr inbounds %struct.desc_ring, ptr %ring, i64 0, i32 10
+  %msix_vector = getelementptr inbounds i8, ptr %ring, i64 64
   %0 = load i32, ptr %msix_vector, align 8
   ret i32 %0
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local noalias ptr @desc_ring_alloc(ptr noundef %r, i32 noundef %index) local_unnamed_addr #1 {
+define dso_local noalias noundef ptr @desc_ring_alloc(ptr noundef %r, i32 noundef %index) local_unnamed_addr #1 {
 entry:
-  %call = tail call noalias dereferenceable_or_null(72) ptr @g_malloc0_n(i64 noundef 1, i64 noundef 72) #10
-  %r1 = getelementptr inbounds %struct.desc_ring, ptr %call, i64 0, i32 6
+  %call = tail call noalias dereferenceable_or_null(72) ptr @g_malloc0_n(i64 noundef 1, i64 noundef 72) #9
+  %r1 = getelementptr inbounds i8, ptr %call, i64 32
   store ptr %r, ptr %r1, align 8
-  %index2 = getelementptr inbounds %struct.desc_ring, ptr %call, i64 0, i32 8
+  %index2 = getelementptr inbounds i8, ptr %call, i64 48
   store i32 %index, ptr %index2, align 8
   ret ptr %call
 }
 
 ; Function Attrs: allocsize(0,1)
-declare noalias ptr @g_malloc0_n(i64 noundef, i64 noundef) local_unnamed_addr #7
+declare noalias ptr @g_malloc0_n(i64 noundef, i64 noundef) local_unnamed_addr #6
 
 ; Function Attrs: nounwind sspstrong uwtable
 define dso_local void @desc_ring_free(ptr noundef %ring) local_unnamed_addr #1 {
 entry:
-  %info = getelementptr inbounds %struct.desc_ring, ptr %ring, i64 0, i32 7
+  %info = getelementptr inbounds i8, ptr %ring, i64 40
   %0 = load ptr, ptr %info, align 8
-  tail call void @g_free(ptr noundef %0) #9
-  tail call void @g_free(ptr noundef %ring) #9
+  tail call void @g_free(ptr noundef %0) #8
+  tail call void @g_free(ptr noundef %ring) #8
   ret void
 }
 
@@ -550,19 +525,18 @@ declare ptr @object_dynamic_cast_assert(ptr noundef, ptr noundef, ptr noundef, i
 declare i32 @address_space_rw(ptr noundef, i64 noundef, i32, ptr noundef, i64 noundef, i1 noundef zeroext) local_unnamed_addr #2
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i32 @llvm.usub.sat.i32(i32, i32) #8
+declare i32 @llvm.usub.sat.i32(i32, i32) #7
 
 attributes #0 = { mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(argmem: read) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx16,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { nounwind sspstrong uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx16,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #2 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx16,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #3 = { mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(argmem: write) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx16,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #4 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: write) }
-attributes #5 = { mustprogress nofree nosync nounwind sspstrong willreturn memory(argmem: write) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx16,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #6 = { mustprogress nofree nosync nounwind sspstrong willreturn memory(argmem: readwrite) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx16,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #7 = { allocsize(0,1) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx16,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #8 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
-attributes #9 = { nounwind }
-attributes #10 = { nounwind allocsize(0,1) }
+attributes #5 = { mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(argmem: readwrite) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx16,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #6 = { allocsize(0,1) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx16,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #7 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
+attributes #8 = { nounwind }
+attributes #9 = { nounwind allocsize(0,1) }
 
 !llvm.module.flags = !{!0, !1, !2, !3, !4}
 

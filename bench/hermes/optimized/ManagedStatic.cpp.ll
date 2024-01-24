@@ -5,11 +5,6 @@ target triple = "x86_64-unknown-linux-gnu"
 
 %"struct.std::once_flag" = type { i32 }
 %class.anon = type { ptr }
-%"class.llvh::ManagedStaticBase" = type { %"struct.std::atomic", ptr, ptr }
-%"struct.std::atomic" = type { %"struct.std::__atomic_base" }
-%"struct.std::__atomic_base" = type { ptr }
-%"class.llvh::sys::SmartMutex" = type <{ %"class.llvh::sys::MutexImpl", i32, i8, [3 x i8] }>
-%"class.llvh::sys::MutexImpl" = type { ptr }
 
 $_ZZNSt9once_flag18_Prepare_executionC1IZSt9call_onceIRFvvEJEEvRS_OT_DpOT0_EUlvE_EERS6_ENUlvE_8__invokeEv = comdat any
 
@@ -55,10 +50,10 @@ if.then4:                                         ; preds = %_ZL21getManagedStat
   %call5 = call noundef ptr %Creator() #6
   %4 = ptrtoint ptr %call5 to i64
   store atomic i64 %4, ptr %this release, align 8
-  %DeleterFn = getelementptr inbounds %"class.llvh::ManagedStaticBase", ptr %this, i64 0, i32 1
+  %DeleterFn = getelementptr inbounds i8, ptr %this, i64 8
   store ptr %Deleter, ptr %DeleterFn, align 8
   %5 = load ptr, ptr @_ZL10StaticList, align 8
-  %Next = getelementptr inbounds %"class.llvh::ManagedStaticBase", ptr %this, i64 0, i32 2
+  %Next = getelementptr inbounds i8, ptr %this, i64 16
   store ptr %5, ptr %Next, align 8
   store ptr %this, ptr @_ZL10StaticList, align 8
   br label %if.end
@@ -71,10 +66,10 @@ if.else:                                          ; preds = %entry
   %call7 = tail call noundef ptr %Creator() #6
   %6 = ptrtoint ptr %call7 to i64
   store atomic i64 %6, ptr %this seq_cst, align 8
-  %DeleterFn10 = getelementptr inbounds %"class.llvh::ManagedStaticBase", ptr %this, i64 0, i32 1
+  %DeleterFn10 = getelementptr inbounds i8, ptr %this, i64 8
   store ptr %Deleter, ptr %DeleterFn10, align 8
   %7 = load ptr, ptr @_ZL10StaticList, align 8
-  %Next11 = getelementptr inbounds %"class.llvh::ManagedStaticBase", ptr %this, i64 0, i32 2
+  %Next11 = getelementptr inbounds i8, ptr %this, i64 16
   store ptr %7, ptr %Next11, align 8
   store ptr %this, ptr @_ZL10StaticList, align 8
   br label %if.end12
@@ -88,11 +83,11 @@ declare noundef zeroext i1 @_ZN4llvh21llvm_is_multithreadedEv() local_unnamed_ad
 ; Function Attrs: mustprogress nounwind uwtable
 define hidden void @_ZNK4llvh17ManagedStaticBase7destroyEv(ptr nocapture noundef nonnull align 8 dereferenceable(24) %this) local_unnamed_addr #0 align 2 {
 entry:
-  %Next = getelementptr inbounds %"class.llvh::ManagedStaticBase", ptr %this, i64 0, i32 2
+  %Next = getelementptr inbounds i8, ptr %this, i64 16
   %0 = load ptr, ptr %Next, align 8
   store ptr %0, ptr @_ZL10StaticList, align 8
   store ptr null, ptr %Next, align 8
-  %DeleterFn = getelementptr inbounds %"class.llvh::ManagedStaticBase", ptr %this, i64 0, i32 1
+  %DeleterFn = getelementptr inbounds i8, ptr %this, i64 8
   %1 = load ptr, ptr %DeleterFn, align 8
   %2 = load atomic i64, ptr %this seq_cst, align 8
   %3 = inttoptr i64 %2 to ptr
@@ -132,11 +127,11 @@ _ZL21getManagedStaticMutexv.exit:                 ; preds = %entry
 
 while.body:                                       ; preds = %_ZL21getManagedStaticMutexv.exit, %while.body
   %4 = phi ptr [ %9, %while.body ], [ %3, %_ZL21getManagedStaticMutexv.exit ]
-  %Next.i = getelementptr inbounds %"class.llvh::ManagedStaticBase", ptr %4, i64 0, i32 2
+  %Next.i = getelementptr inbounds i8, ptr %4, i64 16
   %5 = load ptr, ptr %Next.i, align 8
   store ptr %5, ptr @_ZL10StaticList, align 8
   store ptr null, ptr %Next.i, align 8
-  %DeleterFn.i = getelementptr inbounds %"class.llvh::ManagedStaticBase", ptr %4, i64 0, i32 1
+  %DeleterFn.i = getelementptr inbounds i8, ptr %4, i64 8
   %6 = load ptr, ptr %DeleterFn.i, align 8
   %7 = load atomic i64, ptr %4 seq_cst, align 8
   %8 = inttoptr i64 %7 to ptr
@@ -157,9 +152,9 @@ define internal void @_ZL15initializeMutexv() #0 {
 entry:
   %call = tail call noalias noundef nonnull dereferenceable(16) ptr @_Znwm(i64 noundef 16) #8
   tail call void @_ZN4llvh3sys9MutexImplC1Eb(ptr noundef nonnull align 8 dereferenceable(8) %call, i1 noundef zeroext true) #6
-  %acquired.i = getelementptr inbounds %"class.llvh::sys::SmartMutex", ptr %call, i64 0, i32 1
+  %acquired.i = getelementptr inbounds i8, ptr %call, i64 8
   store i32 0, ptr %acquired.i, align 8
-  %recursive.i = getelementptr inbounds %"class.llvh::sys::SmartMutex", ptr %call, i64 0, i32 2
+  %recursive.i = getelementptr inbounds i8, ptr %call, i64 12
   store i8 1, ptr %recursive.i, align 4
   store ptr %call, ptr @_ZL18ManagedStaticMutex, align 8
   ret void

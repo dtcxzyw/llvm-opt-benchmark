@@ -15,121 +15,6 @@ target triple = "x86_64-unknown-linux-gnu"
 %"struct.std::less" = type { i8 }
 %"struct.std::_Rb_tree_header" = type { %"struct.std::_Rb_tree_node_base", i64 }
 %"struct.std::_Rb_tree_node_base" = type { i32, ptr, ptr, ptr }
-%"class.flatbuffers::Parser" = type { %"struct.flatbuffers::ParserState", %"class.flatbuffers::SymbolTable", %"class.flatbuffers::SymbolTable.11", %"class.flatbuffers::SymbolTable.22", %"class.flatbuffers::SymbolTable.33", %"class.std::vector.44", ptr, ptr, %"class.std::__cxx11::basic_string", %"class.flatbuffers::FlatBufferBuilderImpl", %"class.flexbuffers::Builder", %"class.flexbuffers::Reference", ptr, %"class.std::__cxx11::basic_string", %"class.std::__cxx11::basic_string", %"class.std::map.70", %"class.std::map.78", %"class.std::vector", %"class.std::map.83", %"struct.flatbuffers::IDLOptions", i8, i8, i64, %"class.std::__cxx11::basic_string", ptr, %"class.std::vector.88", %"class.std::set.93", i32, i32 }
-%"struct.flatbuffers::ParserState" = type { ptr, ptr, ptr, i32, i32, i8, %"class.std::__cxx11::basic_string", %"class.std::vector" }
-%"class.flatbuffers::SymbolTable" = type { %"class.std::map", %"class.std::vector.6" }
-%"class.std::map" = type { %"class.std::_Rb_tree" }
-%"class.std::_Rb_tree" = type { %"struct.std::_Rb_tree<std::__cxx11::basic_string<char>, std::pair<const std::__cxx11::basic_string<char>, flatbuffers::Type *>, std::_Select1st<std::pair<const std::__cxx11::basic_string<char>, flatbuffers::Type *>>, std::less<std::__cxx11::basic_string<char>>>::_Rb_tree_impl" }
-%"struct.std::_Rb_tree<std::__cxx11::basic_string<char>, std::pair<const std::__cxx11::basic_string<char>, flatbuffers::Type *>, std::_Select1st<std::pair<const std::__cxx11::basic_string<char>, flatbuffers::Type *>>, std::less<std::__cxx11::basic_string<char>>>::_Rb_tree_impl" = type { %"struct.std::_Rb_tree_key_compare", %"struct.std::_Rb_tree_header" }
-%"class.std::vector.6" = type { %"struct.std::_Vector_base.7" }
-%"struct.std::_Vector_base.7" = type { %"struct.std::_Vector_base<flatbuffers::Type *, std::allocator<flatbuffers::Type *>>::_Vector_impl" }
-%"struct.std::_Vector_base<flatbuffers::Type *, std::allocator<flatbuffers::Type *>>::_Vector_impl" = type { %"struct.std::_Vector_base<flatbuffers::Type *, std::allocator<flatbuffers::Type *>>::_Vector_impl_data" }
-%"struct.std::_Vector_base<flatbuffers::Type *, std::allocator<flatbuffers::Type *>>::_Vector_impl_data" = type { ptr, ptr, ptr }
-%"class.flatbuffers::SymbolTable.11" = type { %"class.std::map.12", %"class.std::vector.17" }
-%"class.std::map.12" = type { %"class.std::_Rb_tree.13" }
-%"class.std::_Rb_tree.13" = type { %"struct.std::_Rb_tree<std::__cxx11::basic_string<char>, std::pair<const std::__cxx11::basic_string<char>, flatbuffers::StructDef *>, std::_Select1st<std::pair<const std::__cxx11::basic_string<char>, flatbuffers::StructDef *>>, std::less<std::__cxx11::basic_string<char>>>::_Rb_tree_impl" }
-%"struct.std::_Rb_tree<std::__cxx11::basic_string<char>, std::pair<const std::__cxx11::basic_string<char>, flatbuffers::StructDef *>, std::_Select1st<std::pair<const std::__cxx11::basic_string<char>, flatbuffers::StructDef *>>, std::less<std::__cxx11::basic_string<char>>>::_Rb_tree_impl" = type { %"struct.std::_Rb_tree_key_compare", %"struct.std::_Rb_tree_header" }
-%"class.std::vector.17" = type { %"struct.std::_Vector_base.18" }
-%"struct.std::_Vector_base.18" = type { %"struct.std::_Vector_base<flatbuffers::StructDef *, std::allocator<flatbuffers::StructDef *>>::_Vector_impl" }
-%"struct.std::_Vector_base<flatbuffers::StructDef *, std::allocator<flatbuffers::StructDef *>>::_Vector_impl" = type { %"struct.std::_Vector_base<flatbuffers::StructDef *, std::allocator<flatbuffers::StructDef *>>::_Vector_impl_data" }
-%"struct.std::_Vector_base<flatbuffers::StructDef *, std::allocator<flatbuffers::StructDef *>>::_Vector_impl_data" = type { ptr, ptr, ptr }
-%"class.flatbuffers::SymbolTable.22" = type { %"class.std::map.23", %"class.std::vector.28" }
-%"class.std::map.23" = type { %"class.std::_Rb_tree.24" }
-%"class.std::_Rb_tree.24" = type { %"struct.std::_Rb_tree<std::__cxx11::basic_string<char>, std::pair<const std::__cxx11::basic_string<char>, flatbuffers::EnumDef *>, std::_Select1st<std::pair<const std::__cxx11::basic_string<char>, flatbuffers::EnumDef *>>, std::less<std::__cxx11::basic_string<char>>>::_Rb_tree_impl" }
-%"struct.std::_Rb_tree<std::__cxx11::basic_string<char>, std::pair<const std::__cxx11::basic_string<char>, flatbuffers::EnumDef *>, std::_Select1st<std::pair<const std::__cxx11::basic_string<char>, flatbuffers::EnumDef *>>, std::less<std::__cxx11::basic_string<char>>>::_Rb_tree_impl" = type { %"struct.std::_Rb_tree_key_compare", %"struct.std::_Rb_tree_header" }
-%"class.std::vector.28" = type { %"struct.std::_Vector_base.29" }
-%"struct.std::_Vector_base.29" = type { %"struct.std::_Vector_base<flatbuffers::EnumDef *, std::allocator<flatbuffers::EnumDef *>>::_Vector_impl" }
-%"struct.std::_Vector_base<flatbuffers::EnumDef *, std::allocator<flatbuffers::EnumDef *>>::_Vector_impl" = type { %"struct.std::_Vector_base<flatbuffers::EnumDef *, std::allocator<flatbuffers::EnumDef *>>::_Vector_impl_data" }
-%"struct.std::_Vector_base<flatbuffers::EnumDef *, std::allocator<flatbuffers::EnumDef *>>::_Vector_impl_data" = type { ptr, ptr, ptr }
-%"class.flatbuffers::SymbolTable.33" = type { %"class.std::map.34", %"class.std::vector.39" }
-%"class.std::map.34" = type { %"class.std::_Rb_tree.35" }
-%"class.std::_Rb_tree.35" = type { %"struct.std::_Rb_tree<std::__cxx11::basic_string<char>, std::pair<const std::__cxx11::basic_string<char>, flatbuffers::ServiceDef *>, std::_Select1st<std::pair<const std::__cxx11::basic_string<char>, flatbuffers::ServiceDef *>>, std::less<std::__cxx11::basic_string<char>>>::_Rb_tree_impl" }
-%"struct.std::_Rb_tree<std::__cxx11::basic_string<char>, std::pair<const std::__cxx11::basic_string<char>, flatbuffers::ServiceDef *>, std::_Select1st<std::pair<const std::__cxx11::basic_string<char>, flatbuffers::ServiceDef *>>, std::less<std::__cxx11::basic_string<char>>>::_Rb_tree_impl" = type { %"struct.std::_Rb_tree_key_compare", %"struct.std::_Rb_tree_header" }
-%"class.std::vector.39" = type { %"struct.std::_Vector_base.40" }
-%"struct.std::_Vector_base.40" = type { %"struct.std::_Vector_base<flatbuffers::ServiceDef *, std::allocator<flatbuffers::ServiceDef *>>::_Vector_impl" }
-%"struct.std::_Vector_base<flatbuffers::ServiceDef *, std::allocator<flatbuffers::ServiceDef *>>::_Vector_impl" = type { %"struct.std::_Vector_base<flatbuffers::ServiceDef *, std::allocator<flatbuffers::ServiceDef *>>::_Vector_impl_data" }
-%"struct.std::_Vector_base<flatbuffers::ServiceDef *, std::allocator<flatbuffers::ServiceDef *>>::_Vector_impl_data" = type { ptr, ptr, ptr }
-%"class.std::vector.44" = type { %"struct.std::_Vector_base.45" }
-%"struct.std::_Vector_base.45" = type { %"struct.std::_Vector_base<flatbuffers::Namespace *, std::allocator<flatbuffers::Namespace *>>::_Vector_impl" }
-%"struct.std::_Vector_base<flatbuffers::Namespace *, std::allocator<flatbuffers::Namespace *>>::_Vector_impl" = type { %"struct.std::_Vector_base<flatbuffers::Namespace *, std::allocator<flatbuffers::Namespace *>>::_Vector_impl_data" }
-%"struct.std::_Vector_base<flatbuffers::Namespace *, std::allocator<flatbuffers::Namespace *>>::_Vector_impl_data" = type { ptr, ptr, ptr }
-%"class.flatbuffers::FlatBufferBuilderImpl" = type { %"class.flatbuffers::vector_downward", i32, i16, i64, i8, i8, i64, i8, i8, ptr }
-%"class.flatbuffers::vector_downward" = type { ptr, i8, i64, i32, i64, i64, i32, ptr, ptr, ptr }
-%"class.flexbuffers::Builder" = type { %"class.std::vector.49", %"class.std::vector.54", i8, i8, i32, i32, %"class.std::set", %"class.std::set.64" }
-%"class.std::vector.49" = type { %"struct.std::_Vector_base.50" }
-%"struct.std::_Vector_base.50" = type { %"struct.std::_Vector_base<unsigned char, std::allocator<unsigned char>>::_Vector_impl" }
-%"struct.std::_Vector_base<unsigned char, std::allocator<unsigned char>>::_Vector_impl" = type { %"struct.std::_Vector_base<unsigned char, std::allocator<unsigned char>>::_Vector_impl_data" }
-%"struct.std::_Vector_base<unsigned char, std::allocator<unsigned char>>::_Vector_impl_data" = type { ptr, ptr, ptr }
-%"class.std::vector.54" = type { %"struct.std::_Vector_base.55" }
-%"struct.std::_Vector_base.55" = type { %"struct.std::_Vector_base<flexbuffers::Builder::Value, std::allocator<flexbuffers::Builder::Value>>::_Vector_impl" }
-%"struct.std::_Vector_base<flexbuffers::Builder::Value, std::allocator<flexbuffers::Builder::Value>>::_Vector_impl" = type { %"struct.std::_Vector_base<flexbuffers::Builder::Value, std::allocator<flexbuffers::Builder::Value>>::_Vector_impl_data" }
-%"struct.std::_Vector_base<flexbuffers::Builder::Value, std::allocator<flexbuffers::Builder::Value>>::_Vector_impl_data" = type { ptr, ptr, ptr }
-%"class.std::set" = type { %"class.std::_Rb_tree.59" }
-%"class.std::_Rb_tree.59" = type { %"struct.std::_Rb_tree<unsigned long, unsigned long, std::_Identity<unsigned long>, flexbuffers::Builder::KeyOffsetCompare>::_Rb_tree_impl" }
-%"struct.std::_Rb_tree<unsigned long, unsigned long, std::_Identity<unsigned long>, flexbuffers::Builder::KeyOffsetCompare>::_Rb_tree_impl" = type { %"struct.std::_Rb_tree_key_compare.63", %"struct.std::_Rb_tree_header" }
-%"struct.std::_Rb_tree_key_compare.63" = type { %"struct.flexbuffers::Builder::KeyOffsetCompare" }
-%"struct.flexbuffers::Builder::KeyOffsetCompare" = type { ptr }
-%"class.std::set.64" = type { %"class.std::_Rb_tree.65" }
-%"class.std::_Rb_tree.65" = type { %"struct.std::_Rb_tree<std::pair<unsigned long, unsigned long>, std::pair<unsigned long, unsigned long>, std::_Identity<std::pair<unsigned long, unsigned long>>, flexbuffers::Builder::StringOffsetCompare>::_Rb_tree_impl" }
-%"struct.std::_Rb_tree<std::pair<unsigned long, unsigned long>, std::pair<unsigned long, unsigned long>, std::_Identity<std::pair<unsigned long, unsigned long>>, flexbuffers::Builder::StringOffsetCompare>::_Rb_tree_impl" = type { %"struct.std::_Rb_tree_key_compare.69", %"struct.std::_Rb_tree_header" }
-%"struct.std::_Rb_tree_key_compare.69" = type { %"struct.flexbuffers::Builder::StringOffsetCompare" }
-%"struct.flexbuffers::Builder::StringOffsetCompare" = type { ptr }
-%"class.flexbuffers::Reference" = type { ptr, i8, i8, i32 }
-%"class.std::map.70" = type { %"class.std::_Rb_tree.71" }
-%"class.std::_Rb_tree.71" = type { %"struct.std::_Rb_tree<unsigned long, std::pair<const unsigned long, std::__cxx11::basic_string<char>>, std::_Select1st<std::pair<const unsigned long, std::__cxx11::basic_string<char>>>, std::less<unsigned long>>::_Rb_tree_impl" }
-%"struct.std::_Rb_tree<unsigned long, std::pair<const unsigned long, std::__cxx11::basic_string<char>>, std::_Select1st<std::pair<const unsigned long, std::__cxx11::basic_string<char>>>, std::less<unsigned long>>::_Rb_tree_impl" = type { %"struct.std::_Rb_tree_key_compare.75", %"struct.std::_Rb_tree_header" }
-%"struct.std::_Rb_tree_key_compare.75" = type { %"struct.std::less.76" }
-%"struct.std::less.76" = type { i8 }
-%"class.std::map.78" = type { %"class.std::_Rb_tree.79" }
-%"class.std::_Rb_tree.79" = type { %"struct.std::_Rb_tree<std::__cxx11::basic_string<char>, std::pair<const std::__cxx11::basic_string<char>, std::set<flatbuffers::IncludedFile>>, std::_Select1st<std::pair<const std::__cxx11::basic_string<char>, std::set<flatbuffers::IncludedFile>>>, std::less<std::__cxx11::basic_string<char>>>::_Rb_tree_impl" }
-%"struct.std::_Rb_tree<std::__cxx11::basic_string<char>, std::pair<const std::__cxx11::basic_string<char>, std::set<flatbuffers::IncludedFile>>, std::_Select1st<std::pair<const std::__cxx11::basic_string<char>, std::set<flatbuffers::IncludedFile>>>, std::less<std::__cxx11::basic_string<char>>>::_Rb_tree_impl" = type { %"struct.std::_Rb_tree_key_compare", %"struct.std::_Rb_tree_header" }
-%"class.std::vector" = type { %"struct.std::_Vector_base" }
-%"struct.std::_Vector_base" = type { %"struct.std::_Vector_base<std::__cxx11::basic_string<char>, std::allocator<std::__cxx11::basic_string<char>>>::_Vector_impl" }
-%"struct.std::_Vector_base<std::__cxx11::basic_string<char>, std::allocator<std::__cxx11::basic_string<char>>>::_Vector_impl" = type { %"struct.std::_Vector_base<std::__cxx11::basic_string<char>, std::allocator<std::__cxx11::basic_string<char>>>::_Vector_impl_data" }
-%"struct.std::_Vector_base<std::__cxx11::basic_string<char>, std::allocator<std::__cxx11::basic_string<char>>>::_Vector_impl_data" = type { ptr, ptr, ptr }
-%"class.std::map.83" = type { %"class.std::_Rb_tree.84" }
-%"class.std::_Rb_tree.84" = type { %"struct.std::_Rb_tree<std::__cxx11::basic_string<char>, std::pair<const std::__cxx11::basic_string<char>, bool>, std::_Select1st<std::pair<const std::__cxx11::basic_string<char>, bool>>, std::less<std::__cxx11::basic_string<char>>>::_Rb_tree_impl" }
-%"struct.std::_Rb_tree<std::__cxx11::basic_string<char>, std::pair<const std::__cxx11::basic_string<char>, bool>, std::_Select1st<std::pair<const std::__cxx11::basic_string<char>, bool>>, std::less<std::__cxx11::basic_string<char>>>::_Rb_tree_impl" = type { %"struct.std::_Rb_tree_key_compare", %"struct.std::_Rb_tree_header" }
-%"struct.flatbuffers::IDLOptions" = type <{ i8, i8, i8, i8, i32, i8, i8, i8, i8, i8, i8, i8, i8, i8, i8, i8, i8, i8, i8, i8, i8, %"class.std::__cxx11::basic_string", %"class.std::__cxx11::basic_string", i8, [3 x i8], i32, i8, i8, [6 x i8], %"class.std::__cxx11::basic_string", i8, i8, i8, [5 x i8], %"class.std::__cxx11::basic_string", %"class.std::__cxx11::basic_string", i8, i8, i8, [5 x i8], %"class.std::__cxx11::basic_string", i8, i8, i8, i8, i8, [3 x i8], %"class.std::__cxx11::basic_string", %"class.std::__cxx11::basic_string", %"class.std::__cxx11::basic_string", i8, i8, [6 x i8], %"class.std::__cxx11::basic_string", i8, i8, i8, [5 x i8], %"class.std::vector", %"class.std::__cxx11::basic_string", i8, [7 x i8], %"class.std::__cxx11::basic_string", %"class.std::__cxx11::basic_string", %"class.std::__cxx11::basic_string", i8, i8, [6 x i8], %"class.std::__cxx11::basic_string", i8, i8, i8, i8, i8, i8, i8, i8, i8, i8, i8, i8, i8, [3 x i8], i32, i32, i8, i8, i8, [5 x i8], i64, i8, i8, [6 x i8] }>
-%"class.std::vector.88" = type { %"struct.std::_Vector_base.89" }
-%"struct.std::_Vector_base.89" = type { %"struct.std::_Vector_base<std::pair<flatbuffers::Value, flatbuffers::FieldDef *>, std::allocator<std::pair<flatbuffers::Value, flatbuffers::FieldDef *>>>::_Vector_impl" }
-%"struct.std::_Vector_base<std::pair<flatbuffers::Value, flatbuffers::FieldDef *>, std::allocator<std::pair<flatbuffers::Value, flatbuffers::FieldDef *>>>::_Vector_impl" = type { %"struct.std::_Vector_base<std::pair<flatbuffers::Value, flatbuffers::FieldDef *>, std::allocator<std::pair<flatbuffers::Value, flatbuffers::FieldDef *>>>::_Vector_impl_data" }
-%"struct.std::_Vector_base<std::pair<flatbuffers::Value, flatbuffers::FieldDef *>, std::allocator<std::pair<flatbuffers::Value, flatbuffers::FieldDef *>>>::_Vector_impl_data" = type { ptr, ptr, ptr }
-%"struct.flatbuffers::Definition" = type { %"class.std::__cxx11::basic_string", %"class.std::__cxx11::basic_string", %"class.std::vector", %"class.flatbuffers::SymbolTable.98", i8, ptr, i32, i32, i32, ptr }
-%"class.flatbuffers::SymbolTable.98" = type { %"class.std::map.99", %"class.std::vector.104" }
-%"class.std::map.99" = type { %"class.std::_Rb_tree.100" }
-%"class.std::_Rb_tree.100" = type { %"struct.std::_Rb_tree<std::__cxx11::basic_string<char>, std::pair<const std::__cxx11::basic_string<char>, flatbuffers::Value *>, std::_Select1st<std::pair<const std::__cxx11::basic_string<char>, flatbuffers::Value *>>, std::less<std::__cxx11::basic_string<char>>>::_Rb_tree_impl" }
-%"struct.std::_Rb_tree<std::__cxx11::basic_string<char>, std::pair<const std::__cxx11::basic_string<char>, flatbuffers::Value *>, std::_Select1st<std::pair<const std::__cxx11::basic_string<char>, flatbuffers::Value *>>, std::less<std::__cxx11::basic_string<char>>>::_Rb_tree_impl" = type { %"struct.std::_Rb_tree_key_compare", %"struct.std::_Rb_tree_header" }
-%"class.std::vector.104" = type { %"struct.std::_Vector_base.105" }
-%"struct.std::_Vector_base.105" = type { %"struct.std::_Vector_base<flatbuffers::Value *, std::allocator<flatbuffers::Value *>>::_Vector_impl" }
-%"struct.std::_Vector_base<flatbuffers::Value *, std::allocator<flatbuffers::Value *>>::_Vector_impl" = type { %"struct.std::_Vector_base<flatbuffers::Value *, std::allocator<flatbuffers::Value *>>::_Vector_impl_data" }
-%"struct.std::_Vector_base<flatbuffers::Value *, std::allocator<flatbuffers::Value *>>::_Vector_impl_data" = type { ptr, ptr, ptr }
-%"struct.std::_Rb_tree_node" = type { %"struct.std::_Rb_tree_node_base", %"struct.__gnu_cxx::__aligned_membuf" }
-%"struct.__gnu_cxx::__aligned_membuf" = type { [32 x i8] }
-%"class.flatbuffers::CodeWriter" = type <{ %"class.std::map.139", %"class.std::__cxx11::basic_stringstream", %"class.std::__cxx11::basic_string", i32, i8, [3 x i8] }>
-%"class.std::map.139" = type { %"class.std::_Rb_tree.140" }
-%"class.std::_Rb_tree.140" = type { %"struct.std::_Rb_tree<std::__cxx11::basic_string<char>, std::pair<const std::__cxx11::basic_string<char>, std::__cxx11::basic_string<char>>, std::_Select1st<std::pair<const std::__cxx11::basic_string<char>, std::__cxx11::basic_string<char>>>, std::less<std::__cxx11::basic_string<char>>>::_Rb_tree_impl" }
-%"struct.std::_Rb_tree<std::__cxx11::basic_string<char>, std::pair<const std::__cxx11::basic_string<char>, std::__cxx11::basic_string<char>>, std::_Select1st<std::pair<const std::__cxx11::basic_string<char>, std::__cxx11::basic_string<char>>>, std::less<std::__cxx11::basic_string<char>>>::_Rb_tree_impl" = type { %"struct.std::_Rb_tree_key_compare", %"struct.std::_Rb_tree_header" }
-%"class.std::__cxx11::basic_stringstream" = type { %"class.std::basic_iostream.base", %"class.std::__cxx11::basic_stringbuf", %"class.std::basic_ios" }
-%"class.std::basic_iostream.base" = type { %"class.std::basic_istream.base", %"class.std::basic_ostream.base" }
-%"class.std::basic_istream.base" = type { ptr, i64 }
-%"class.std::basic_ostream.base" = type { ptr }
-%"class.std::__cxx11::basic_stringbuf" = type { %"class.std::basic_streambuf", i32, %"class.std::__cxx11::basic_string" }
-%"class.std::basic_streambuf" = type { ptr, ptr, ptr, ptr, ptr, ptr, ptr, %"class.std::locale" }
-%"class.std::locale" = type { ptr }
-%"class.std::basic_ios" = type { %"class.std::ios_base", ptr, i8, i8, ptr, ptr, ptr, ptr }
-%"class.std::ios_base" = type { ptr, i64, i64, i32, i32, i32, ptr, %"struct.std::ios_base::_Words", [8 x %"struct.std::ios_base::_Words"], i32, ptr, %"class.std::locale" }
-%"struct.std::ios_base::_Words" = type { ptr, i64 }
-%"struct.std::_Rb_tree_node.145" = type { %"struct.std::_Rb_tree_node_base", %"struct.__gnu_cxx::__aligned_membuf.146" }
-%"struct.__gnu_cxx::__aligned_membuf.146" = type { [64 x i8] }
-%"class.flatbuffers::BaseGenerator" = type { ptr, ptr, ptr, ptr, %"class.std::__cxx11::basic_string", %"class.std::__cxx11::basic_string", %"class.std::__cxx11::basic_string" }
-%"struct.flatbuffers::CommentConfig" = type { ptr, ptr, ptr }
-%"struct.flatbuffers::FieldDef" = type { %"struct.flatbuffers::Definition", %"struct.flatbuffers::Value", i8, i8, i8, i8, i8, i8, i32, ptr, i64, ptr }
-%"struct.flatbuffers::Value" = type <{ %"struct.flatbuffers::Type", %"class.std::__cxx11::basic_string", i16, [6 x i8] }>
-%"struct.flatbuffers::Type" = type <{ i32, i32, ptr, ptr, i16, [6 x i8] }>
-%"class.flatbuffers::TypedFloatConstantGenerator" = type { %"class.flatbuffers::FloatConstantGenerator", %"class.std::__cxx11::basic_string", %"class.std::__cxx11::basic_string", %"class.std::__cxx11::basic_string", %"class.std::__cxx11::basic_string", %"class.std::__cxx11::basic_string" }
-%"class.flatbuffers::FloatConstantGenerator" = type { ptr }
-%"class.flatbuffers::SimpleFloatConstantGenerator" = type { %"class.flatbuffers::FloatConstantGenerator", %"class.std::__cxx11::basic_string", %"class.std::__cxx11::basic_string", %"class.std::__cxx11::basic_string" }
 %struct._Guard = type { ptr }
 
 $_ZStplIcSt11char_traitsIcESaIcEENSt7__cxx1112basic_stringIT_T0_T1_EEPKS5_RKS8_ = comdat any
@@ -228,9 +113,9 @@ lpad.i:                                           ; preds = %.noexc
 invoke.cont:                                      ; preds = %.noexc
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp) #12
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(32) %agg.result) #12
-  %vec = getelementptr inbounds %"class.flatbuffers::Parser", ptr %parser, i64 0, i32 3, i32 1
+  %vec = getelementptr inbounds i8, ptr %parser, i64 288
   %1 = load ptr, ptr %vec, align 8
-  %_M_finish.i = getelementptr inbounds %"class.flatbuffers::Parser", ptr %parser, i64 0, i32 3, i32 1, i32 0, i32 0, i32 0, i32 1
+  %_M_finish.i = getelementptr inbounds i8, ptr %parser, i64 296
   %2 = load ptr, ptr %_M_finish.i, align 8
   %cmp.i.not47 = icmp eq ptr %1, %2
   br i1 %cmp.i.not47, label %for.end, label %for.body
@@ -271,7 +156,7 @@ lpad9.loopexit.split-lp.loopexit.split-lp:        ; preds = %invoke.cont61, %for
   br label %ehcleanup85
 
 if.end:                                           ; preds = %if.then, %for.body
-  %defined_namespace = getelementptr inbounds %"struct.flatbuffers::Definition", ptr %3, i64 0, i32 5
+  %defined_namespace = getelementptr inbounds i8, ptr %3, i64 168
   %5 = load ptr, ptr %defined_namespace, align 8
   invoke void @_ZN11flatbuffers13BaseGenerator12NamespaceDirERKNS_6ParserERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKNS_9NamespaceEb(ptr nonnull sret(%"class.std::__cxx11::basic_string") align 8 %directory, ptr noundef nonnull align 8 dereferenceable(1784) %parser, ptr noundef nonnull align 8 dereferenceable(32) %path, ptr noundef nonnull align 8 dereferenceable(32) %5, i1 noundef zeroext false)
           to label %invoke.cont12 unwind label %lpad9.loopexit.split-lp.loopexit
@@ -303,7 +188,7 @@ invoke.cont20:                                    ; preds = %invoke.cont18
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp13) #12
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp14) #12
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %directory) #12
-  %incdec.ptr.i = getelementptr inbounds ptr, ptr %it.sroa.0.048, i64 1
+  %incdec.ptr.i = getelementptr inbounds i8, ptr %it.sroa.0.048, i64 8
   %7 = load ptr, ptr %_M_finish.i, align 8
   %cmp.i.not = icmp eq ptr %incdec.ptr.i, %7
   br i1 %cmp.i.not, label %for.end, label %for.body, !llvm.loop !5
@@ -335,9 +220,9 @@ ehcleanup22:                                      ; preds = %lpad15, %lpad.i20, 
   br label %ehcleanup85
 
 for.end:                                          ; preds = %invoke.cont20, %invoke.cont
-  %vec25 = getelementptr inbounds %"class.flatbuffers::Parser", ptr %parser, i64 0, i32 2, i32 1
+  %vec25 = getelementptr inbounds i8, ptr %parser, i64 216
   %11 = load ptr, ptr %vec25, align 8
-  %_M_finish.i25 = getelementptr inbounds %"class.flatbuffers::Parser", ptr %parser, i64 0, i32 2, i32 1, i32 0, i32 0, i32 0, i32 1
+  %_M_finish.i25 = getelementptr inbounds i8, ptr %parser, i64 224
   %12 = load ptr, ptr %_M_finish.i25, align 8
   %cmp.i26.not49 = icmp eq ptr %11, %12
   br i1 %cmp.i26.not49, label %for.end60, label %for.body35
@@ -353,7 +238,7 @@ if.then38:                                        ; preds = %for.body35
           to label %if.end41 unwind label %lpad9.loopexit
 
 if.end41:                                         ; preds = %if.then38, %for.body35
-  %defined_namespace43 = getelementptr inbounds %"struct.flatbuffers::Definition", ptr %13, i64 0, i32 5
+  %defined_namespace43 = getelementptr inbounds i8, ptr %13, i64 168
   %14 = load ptr, ptr %defined_namespace43, align 8
   invoke void @_ZN11flatbuffers13BaseGenerator12NamespaceDirERKNS_6ParserERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKNS_9NamespaceEb(ptr nonnull sret(%"class.std::__cxx11::basic_string") align 8 %directory42, ptr noundef nonnull align 8 dereferenceable(1784) %parser, ptr noundef nonnull align 8 dereferenceable(32) %path, ptr noundef nonnull align 8 dereferenceable(32) %14, i1 noundef zeroext false)
           to label %invoke.cont44 unwind label %lpad9.loopexit
@@ -385,7 +270,7 @@ invoke.cont53:                                    ; preds = %invoke.cont51
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp45) #12
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp46) #12
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %directory42) #12
-  %incdec.ptr.i35 = getelementptr inbounds ptr, ptr %it24.sroa.0.050, i64 1
+  %incdec.ptr.i35 = getelementptr inbounds i8, ptr %it24.sroa.0.050, i64 8
   %16 = load ptr, ptr %_M_finish.i25, align 8
   %cmp.i26.not = icmp eq ptr %incdec.ptr.i35, %16
   br i1 %cmp.i26.not, label %for.end60, label %for.body35, !llvm.loop !7
@@ -433,7 +318,7 @@ invoke.cont63:                                    ; preds = %invoke.cont61
 
 for.body72:                                       ; preds = %invoke.cont63, %invoke.cont78
   %it64.sroa.0.052 = phi ptr [ %call.i37, %invoke.cont78 ], [ %20, %invoke.cont63 ]
-  %_M_storage.i.i = getelementptr inbounds %"struct.std::_Rb_tree_node", ptr %it64.sroa.0.052, i64 0, i32 1
+  %_M_storage.i.i = getelementptr inbounds i8, ptr %it64.sroa.0.052, i64 32
   invoke void @_ZStplIcSt11char_traitsIcESaIcEENSt7__cxx1112basic_stringIT_T0_T1_EEPKS5_RKS8_(ptr nonnull sret(%"class.std::__cxx11::basic_string") align 8 %ref.tmp73, ptr noundef nonnull @.str.2, ptr noundef nonnull align 8 dereferenceable(32) %_M_storage.i.i)
           to label %invoke.cont76 unwind label %lpad75
 
@@ -512,7 +397,7 @@ define dso_local void @_ZN11flatbuffers13BaseGenerator12NamespaceDirERKNS_6Parse
 entry:
   %ref.tmp4 = alloca %"class.std::__cxx11::basic_string", align 8
   tail call void @_ZN11flatbuffers15EnsureDirExistsERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(32) %path)
-  %one_file = getelementptr inbounds %"class.flatbuffers::Parser", ptr %parser, i64 0, i32 19, i32 13
+  %one_file = getelementptr inbounds i8, ptr %parser, i64 1016
   %0 = load i8, ptr %one_file, align 8
   %1 = and i8 %0, 1
   %tobool.not = icmp eq i8 %1, 0
@@ -521,7 +406,7 @@ entry:
 
 if.end:                                           ; preds = %entry
   %2 = load ptr, ptr %ns, align 8
-  %_M_finish.i = getelementptr inbounds %"struct.std::_Vector_base<std::__cxx11::basic_string<char>, std::allocator<std::__cxx11::basic_string<char>>>::_Vector_impl_data", ptr %ns, i64 0, i32 1
+  %_M_finish.i = getelementptr inbounds i8, ptr %ns, i64 8
   %3 = load ptr, ptr %_M_finish.i, align 8
   %cmp.i.not8 = icmp eq ptr %2, %3
   br i1 %cmp.i.not8, label %return, label %for.body.lr.ph
@@ -548,7 +433,7 @@ invoke.cont12.us:                                 ; preds = %invoke.cont10.us
           to label %for.inc.us unwind label %lpad.split.us
 
 for.inc.us:                                       ; preds = %invoke.cont12.us
-  %incdec.ptr.i.us = getelementptr inbounds %"class.std::__cxx11::basic_string", ptr %it.sroa.0.09.us, i64 1
+  %incdec.ptr.i.us = getelementptr inbounds i8, ptr %it.sroa.0.09.us, i64 32
   %4 = load ptr, ptr %_M_finish.i, align 8
   %cmp.i.not.us = icmp eq ptr %incdec.ptr.i.us, %4
   br i1 %cmp.i.not.us, label %return, label %for.body.us, !llvm.loop !9
@@ -582,7 +467,7 @@ invoke.cont12:                                    ; preds = %invoke.cont10
           to label %for.inc unwind label %lpad.split
 
 for.inc:                                          ; preds = %invoke.cont12
-  %incdec.ptr.i = getelementptr inbounds %"class.std::__cxx11::basic_string", ptr %it.sroa.0.09, i64 1
+  %incdec.ptr.i = getelementptr inbounds i8, ptr %it.sroa.0.09, i64 32
   %7 = load ptr, ptr %_M_finish.i, align 8
   %cmp.i.not = icmp eq ptr %incdec.ptr.i, %7
   br i1 %cmp.i.not, label %return, label %for.body, !llvm.loop !9
@@ -676,7 +561,7 @@ define dso_local void @_ZN11flatbuffers10CodeWriterpLENSt7__cxx1112basic_stringI
 entry:
   %key = alloca %"class.std::__cxx11::basic_string", align 8
   %ref.tmp30 = alloca %"class.std::__cxx11::basic_string", align 8
-  %ignore_ident_ = getelementptr inbounds %"class.flatbuffers::CodeWriter", ptr %this, i64 0, i32 4
+  %ignore_ident_ = getelementptr inbounds i8, ptr %this, i64 476
   %0 = load i8, ptr %ignore_ident_, align 4
   %1 = and i8 %0, 1
   %tobool.not = icmp eq i8 %1, 0
@@ -687,14 +572,14 @@ land.lhs.true:                                    ; preds = %entry
   br i1 %call, label %if.end, label %if.then
 
 if.then:                                          ; preds = %land.lhs.true
-  %cur_ident_lvl_.i = getelementptr inbounds %"class.flatbuffers::CodeWriter", ptr %this, i64 0, i32 3
+  %cur_ident_lvl_.i = getelementptr inbounds i8, ptr %this, i64 472
   %2 = load i32, ptr %cur_ident_lvl_.i, align 8
   %tobool.not1.i = icmp eq i32 %2, 0
   br i1 %tobool.not1.i, label %if.end, label %while.body.lr.ph.i
 
 while.body.lr.ph.i:                               ; preds = %if.then
-  %add.ptr.i = getelementptr inbounds %"class.flatbuffers::CodeWriter", ptr %this, i64 0, i32 1, i32 0, i32 1
-  %pad_.i = getelementptr inbounds %"class.flatbuffers::CodeWriter", ptr %this, i64 0, i32 2
+  %add.ptr.i = getelementptr inbounds i8, ptr %this, i64 64
+  %pad_.i = getelementptr inbounds i8, ptr %this, i64 440
   br label %while.body.i
 
 while.body.i:                                     ; preds = %while.body.i, %while.body.lr.ph.i
@@ -712,7 +597,7 @@ if.end:                                           ; preds = %while.body.i, %if.t
   br i1 %cmp13, label %while.end, label %if.end4.lr.ph
 
 if.end4.lr.ph:                                    ; preds = %if.end
-  %add.ptr = getelementptr inbounds %"class.flatbuffers::CodeWriter", ptr %this, i64 0, i32 1, i32 0, i32 1
+  %add.ptr = getelementptr inbounds i8, ptr %this, i64 64
   %_M_parent.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 16
   %add.ptr.i.i.i = getelementptr inbounds i8, ptr %this, i64 8
   br label %if.end4
@@ -739,7 +624,7 @@ if.end9:                                          ; preds = %if.end4
 while.body.i.i.i:                                 ; preds = %if.end9, %_ZNKSt4lessINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclERKS5_S8_.exit.i.i.i
   %__x.addr.08.i.i.i = phi ptr [ %__x.addr.1.i.i.i, %_ZNKSt4lessINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclERKS5_S8_.exit.i.i.i ], [ %3, %if.end9 ]
   %__y.addr.07.i.i.i = phi ptr [ %__y.addr.1.i.i.i, %_ZNKSt4lessINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclERKS5_S8_.exit.i.i.i ], [ %add.ptr.i.i.i, %if.end9 ]
-  %_M_storage.i.i.i.i.i = getelementptr inbounds %"struct.std::_Rb_tree_node.145", ptr %__x.addr.08.i.i.i, i64 0, i32 1
+  %_M_storage.i.i.i.i.i = getelementptr inbounds i8, ptr %__x.addr.08.i.i.i, i64 32
   %call.i.i.i.i.i = invoke noundef i32 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE7compareERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %_M_storage.i.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(32) %key)
           to label %_ZNKSt4lessINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclERKS5_S8_.exit.i.i.i unwind label %terminate.lpad.i.i.i.i.i
 
@@ -752,10 +637,9 @@ terminate.lpad.i.i.i.i.i:                         ; preds = %while.body.i.i.i
 
 _ZNKSt4lessINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclERKS5_S8_.exit.i.i.i: ; preds = %while.body.i.i.i
   %cmp.i.i.i.i.i = icmp slt i32 %call.i.i.i.i.i, 0
-  %_M_right.i.i.i.i = getelementptr inbounds %"struct.std::_Rb_tree_node_base", ptr %__x.addr.08.i.i.i, i64 0, i32 3
-  %_M_left.i.i.i.i = getelementptr inbounds %"struct.std::_Rb_tree_node_base", ptr %__x.addr.08.i.i.i, i64 0, i32 2
   %__y.addr.1.i.i.i = select i1 %cmp.i.i.i.i.i, ptr %__y.addr.07.i.i.i, ptr %__x.addr.08.i.i.i
-  %__x.addr.1.in.i.i.i = select i1 %cmp.i.i.i.i.i, ptr %_M_right.i.i.i.i, ptr %_M_left.i.i.i.i
+  %__x.addr.1.in.v.i.i.i = select i1 %cmp.i.i.i.i.i, i64 24, i64 16
+  %__x.addr.1.in.i.i.i = getelementptr inbounds i8, ptr %__x.addr.08.i.i.i, i64 %__x.addr.1.in.v.i.i.i
   %__x.addr.1.i.i.i = load ptr, ptr %__x.addr.1.in.i.i.i, align 8
   %cmp.not.i.i.i = icmp eq ptr %__x.addr.1.i.i.i, null
   br i1 %cmp.not.i.i.i, label %_ZNSt8_Rb_treeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS5_S5_ESt10_Select1stIS8_ESt4lessIS5_ESaIS8_EE14_M_lower_boundEPSt13_Rb_tree_nodeIS8_EPSt18_Rb_tree_node_baseRS7_.exit.i.i, label %while.body.i.i.i, !llvm.loop !11
@@ -765,7 +649,7 @@ _ZNSt8_Rb_treeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS5_S
   br i1 %cmp.i.i.i, label %if.else.invoke, label %lor.lhs.false.i.i
 
 lor.lhs.false.i.i:                                ; preds = %_ZNSt8_Rb_treeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS5_S5_ESt10_Select1stIS8_ESt4lessIS5_ESaIS8_EE14_M_lower_boundEPSt13_Rb_tree_nodeIS8_EPSt18_Rb_tree_node_baseRS7_.exit.i.i
-  %_M_storage.i.i.i3.i.i = getelementptr inbounds %"struct.std::_Rb_tree_node.145", ptr %__y.addr.1.i.i.i, i64 0, i32 1
+  %_M_storage.i.i.i3.i.i = getelementptr inbounds i8, ptr %__y.addr.1.i.i.i, i64 32
   %call.i.i.i.i = invoke noundef i32 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE7compareERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %key, ptr noundef nonnull align 8 dereferenceable(32) %_M_storage.i.i.i3.i.i)
           to label %invoke.cont unwind label %terminate.lpad.i.i.i.i
 
@@ -778,7 +662,7 @@ terminate.lpad.i.i.i.i:                           ; preds = %lor.lhs.false.i.i
 
 invoke.cont:                                      ; preds = %lor.lhs.false.i.i
   %cmp.i.i.i.i = icmp slt i32 %call.i.i.i.i, 0
-  %second = getelementptr inbounds %"struct.std::_Rb_tree_node.145", ptr %__y.addr.1.i.i.i, i64 0, i32 1, i32 0, i64 32
+  %second = getelementptr inbounds i8, ptr %__y.addr.1.i.i.i, i64 64
   %spec.select = select i1 %cmp.i.i.i.i, ptr %key, ptr %second
   br label %if.else.invoke
 
@@ -819,13 +703,13 @@ land.lhs.true35:                                  ; preds = %while.end
 if.then38:                                        ; preds = %land.lhs.true35
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE8pop_backEv(ptr noundef nonnull align 8 dereferenceable(32) %text) #12
   store i8 1, ptr %ignore_ident_, align 4
-  %add.ptr41 = getelementptr inbounds %"class.flatbuffers::CodeWriter", ptr %this, i64 0, i32 1, i32 0, i32 1
+  %add.ptr41 = getelementptr inbounds i8, ptr %this, i64 64
   %call42 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsIcSt11char_traitsIcESaIcEERSt13basic_ostreamIT_T0_ES7_RKNSt7__cxx1112basic_stringIS4_S5_T1_EE(ptr noundef nonnull align 8 dereferenceable(8) %add.ptr41, ptr noundef nonnull align 8 dereferenceable(32) %text)
   br label %if.end49
 
 if.else43:                                        ; preds = %land.lhs.true35, %while.end
   store i8 0, ptr %ignore_ident_, align 4
-  %add.ptr46 = getelementptr inbounds %"class.flatbuffers::CodeWriter", ptr %this, i64 0, i32 1, i32 0, i32 1
+  %add.ptr46 = getelementptr inbounds i8, ptr %this, i64 64
   %call47 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsIcSt11char_traitsIcESaIcEERSt13basic_ostreamIT_T0_ES7_RKNSt7__cxx1112basic_stringIS4_S5_T1_EE(ptr noundef nonnull align 8 dereferenceable(8) %add.ptr46, ptr noundef nonnull align 8 dereferenceable(32) %text)
   %call48 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSolsEPFRSoS_E(ptr noundef nonnull align 8 dereferenceable(8) %call47, ptr noundef nonnull @_ZSt4endlIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_)
   br label %if.end49
@@ -837,14 +721,14 @@ if.end49:                                         ; preds = %if.else43, %if.then
 ; Function Attrs: mustprogress uwtable
 define dso_local void @_ZN11flatbuffers10CodeWriter11AppendIdentERNSt7__cxx1118basic_stringstreamIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(477) %this, ptr noundef nonnull align 8 dereferenceable(128) %stream) local_unnamed_addr #0 align 2 {
 entry:
-  %cur_ident_lvl_ = getelementptr inbounds %"class.flatbuffers::CodeWriter", ptr %this, i64 0, i32 3
+  %cur_ident_lvl_ = getelementptr inbounds i8, ptr %this, i64 472
   %0 = load i32, ptr %cur_ident_lvl_, align 8
   %tobool.not1 = icmp eq i32 %0, 0
   br i1 %tobool.not1, label %while.end, label %while.body.lr.ph
 
 while.body.lr.ph:                                 ; preds = %entry
   %add.ptr = getelementptr inbounds i8, ptr %stream, i64 16
-  %pad_ = getelementptr inbounds %"class.flatbuffers::CodeWriter", ptr %this, i64 0, i32 2
+  %pad_ = getelementptr inbounds i8, ptr %this, i64 440
   br label %while.body
 
 while.body:                                       ; preds = %while.body.lr.ph, %while.body
@@ -905,9 +789,9 @@ declare noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_st
 ; Function Attrs: mustprogress uwtable
 define dso_local void @_ZNK11flatbuffers13BaseGenerator12NamespaceDirB5cxx11ERKNS_9NamespaceEb(ptr noalias sret(%"class.std::__cxx11::basic_string") align 8 %agg.result, ptr nocapture noundef nonnull readonly align 8 dereferenceable(128) %this, ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %ns, i1 noundef zeroext %dasherize) local_unnamed_addr #0 align 2 {
 entry:
-  %parser_ = getelementptr inbounds %"class.flatbuffers::BaseGenerator", ptr %this, i64 0, i32 1
+  %parser_ = getelementptr inbounds i8, ptr %this, i64 8
   %0 = load ptr, ptr %parser_, align 8
-  %path_ = getelementptr inbounds %"class.flatbuffers::BaseGenerator", ptr %this, i64 0, i32 2
+  %path_ = getelementptr inbounds i8, ptr %this, i64 16
   %1 = load ptr, ptr %path_, align 8
   tail call void @_ZN11flatbuffers13BaseGenerator12NamespaceDirERKNS_6ParserERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKNS_9NamespaceEb(ptr sret(%"class.std::__cxx11::basic_string") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(1784) %0, ptr noundef nonnull align 8 dereferenceable(32) %1, ptr noundef nonnull align 8 dereferenceable(32) %ns, i1 noundef zeroext %dasherize)
   ret void
@@ -918,7 +802,7 @@ define dso_local void @_ZN11flatbuffers13BaseGenerator13FullNamespaceB5cxx11EPKc
 entry:
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(32) %agg.result) #12
   %0 = load ptr, ptr %ns, align 8
-  %_M_finish.i = getelementptr inbounds %"struct.std::_Vector_base<std::__cxx11::basic_string<char>, std::allocator<std::__cxx11::basic_string<char>>>::_Vector_impl_data", ptr %ns, i64 0, i32 1
+  %_M_finish.i = getelementptr inbounds i8, ptr %ns, i64 8
   %1 = load ptr, ptr %_M_finish.i, align 8
   %cmp.i.not4 = icmp eq ptr %0, %1
   br i1 %cmp.i.not4, label %nrvo.skipdtor, label %for.body
@@ -944,7 +828,7 @@ if.end:                                           ; preds = %if.then, %for.body
           to label %for.inc unwind label %lpad
 
 for.inc:                                          ; preds = %if.end
-  %incdec.ptr.i = getelementptr inbounds %"class.std::__cxx11::basic_string", ptr %it.sroa.0.05, i64 1
+  %incdec.ptr.i = getelementptr inbounds i8, ptr %it.sroa.0.05, i64 32
   %3 = load ptr, ptr %_M_finish.i, align 8
   %cmp.i.not = icmp eq ptr %incdec.ptr.i, %3
   br i1 %cmp.i.not, label %nrvo.skipdtor, label %for.body, !llvm.loop !13
@@ -961,13 +845,13 @@ define dso_local void @_ZN11flatbuffers13BaseGenerator17LastNamespacePartB5cxx11
 entry:
   %ref.tmp = alloca %"class.std::allocator", align 1
   %0 = load ptr, ptr %ns, align 8
-  %_M_finish.i.i = getelementptr inbounds %"struct.std::_Vector_base<std::__cxx11::basic_string<char>, std::allocator<std::__cxx11::basic_string<char>>>::_Vector_impl_data", ptr %ns, i64 0, i32 1
+  %_M_finish.i.i = getelementptr inbounds i8, ptr %ns, i64 8
   %1 = load ptr, ptr %_M_finish.i.i, align 8
   %cmp.i.i = icmp eq ptr %0, %1
   br i1 %cmp.i.i, label %if.else, label %if.then
 
 if.then:                                          ; preds = %entry
-  %add.ptr.i.i = getelementptr inbounds %"class.std::__cxx11::basic_string", ptr %1, i64 -1
+  %add.ptr.i.i = getelementptr inbounds i8, ptr %1, i64 -32
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1ERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %agg.result, ptr noundef nonnull align 8 dereferenceable(32) %add.ptr.i.i)
   br label %return
 
@@ -1013,16 +897,16 @@ define dso_local void @_ZNK11flatbuffers13BaseGenerator15WrapInNameSpaceEPKNS_9N
 entry:
   %qualified_name = alloca %"class.std::__cxx11::basic_string", align 8
   %ref.tmp6 = alloca %"class.std::__cxx11::basic_string", align 8
-  %qualifying_start_ = getelementptr inbounds %"class.flatbuffers::BaseGenerator", ptr %this, i64 0, i32 4
+  %qualifying_start_ = getelementptr inbounds i8, ptr %this, i64 32
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1ERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %qualified_name, ptr noundef nonnull align 8 dereferenceable(32) %qualifying_start_)
   %0 = load ptr, ptr %ns, align 8
-  %_M_finish.i = getelementptr inbounds %"struct.std::_Vector_base<std::__cxx11::basic_string<char>, std::allocator<std::__cxx11::basic_string<char>>>::_Vector_impl_data", ptr %ns, i64 0, i32 1
+  %_M_finish.i = getelementptr inbounds i8, ptr %ns, i64 8
   %1 = load ptr, ptr %_M_finish.i, align 8
   %cmp.i.not13 = icmp eq ptr %0, %1
   br i1 %cmp.i.not13, label %for.end, label %for.body.lr.ph
 
 for.body.lr.ph:                                   ; preds = %entry
-  %qualifying_separator_ = getelementptr inbounds %"class.flatbuffers::BaseGenerator", ptr %this, i64 0, i32 5
+  %qualifying_separator_ = getelementptr inbounds i8, ptr %this, i64 64
   br label %for.body
 
 for.body:                                         ; preds = %for.body.lr.ph, %invoke.cont9
@@ -1046,7 +930,7 @@ invoke.cont:                                      ; preds = %.noexc
 
 invoke.cont9:                                     ; preds = %invoke.cont
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp6) #12
-  %incdec.ptr.i = getelementptr inbounds %"class.std::__cxx11::basic_string", ptr %it.sroa.0.014, i64 1
+  %incdec.ptr.i = getelementptr inbounds i8, ptr %it.sroa.0.014, i64 32
   %3 = load ptr, ptr %_M_finish.i, align 8
   %cmp.i.not = icmp eq ptr %incdec.ptr.i, %3
   br i1 %cmp.i.not, label %for.end, label %for.body, !llvm.loop !14
@@ -1095,7 +979,7 @@ ehcleanup:                                        ; preds = %lpad.loopexit, %lpa
 define dso_local void @_ZNK11flatbuffers13BaseGenerator15WrapInNameSpaceERKNS_10DefinitionERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noalias sret(%"class.std::__cxx11::basic_string") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(128) %this, ptr noundef nonnull align 8 dereferenceable(200) %def, ptr noundef nonnull align 8 dereferenceable(32) %suffix) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp = alloca %"class.std::__cxx11::basic_string", align 8
-  %defined_namespace = getelementptr inbounds %"struct.flatbuffers::Definition", ptr %def, i64 0, i32 5
+  %defined_namespace = getelementptr inbounds i8, ptr %def, i64 168
   %0 = load ptr, ptr %defined_namespace, align 8
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1ERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp, ptr noundef nonnull align 8 dereferenceable(32) %def)
   %call.i = invoke noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6appendERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp, ptr noundef nonnull align 8 dereferenceable(32) %suffix)
@@ -1129,10 +1013,10 @@ lpad:                                             ; preds = %_ZStplIcSt11char_tr
 define dso_local void @_ZNK11flatbuffers13BaseGenerator12GetNameSpaceB5cxx11ERKNS_10DefinitionE(ptr noalias sret(%"class.std::__cxx11::basic_string") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(128) %this, ptr nocapture noundef nonnull readonly align 8 dereferenceable(200) %def) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp = alloca %"class.std::allocator", align 1
-  %defined_namespace = getelementptr inbounds %"struct.flatbuffers::Definition", ptr %def, i64 0, i32 5
+  %defined_namespace = getelementptr inbounds i8, ptr %def, i64 168
   %0 = load ptr, ptr %defined_namespace, align 8
   %vtable = load ptr, ptr %this, align 8
-  %vfn = getelementptr inbounds ptr, ptr %vtable, i64 3
+  %vfn = getelementptr inbounds i8, ptr %vtable, i64 24
   %1 = load ptr, ptr %vfn, align 8
   %call = tail call noundef ptr %1(ptr noundef nonnull align 8 dereferenceable(128) %this)
   %cmp = icmp eq ptr %call, %0
@@ -1172,16 +1056,16 @@ lpad.body:                                        ; preds = %lpad.i, %lpad
   br label %eh.resume
 
 if.end:                                           ; preds = %entry
-  %qualifying_start_ = getelementptr inbounds %"class.flatbuffers::BaseGenerator", ptr %this, i64 0, i32 4
+  %qualifying_start_ = getelementptr inbounds i8, ptr %this, i64 32
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1ERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %agg.result, ptr noundef nonnull align 8 dereferenceable(32) %qualifying_start_)
   %4 = load ptr, ptr %0, align 8
-  %_M_finish.i = getelementptr inbounds %"struct.std::_Vector_base<std::__cxx11::basic_string<char>, std::allocator<std::__cxx11::basic_string<char>>>::_Vector_impl_data", ptr %0, i64 0, i32 1
+  %_M_finish.i = getelementptr inbounds i8, ptr %0, i64 8
   %5 = load ptr, ptr %_M_finish.i, align 8
   %cmp.i.not12 = icmp eq ptr %4, %5
   br i1 %cmp.i.not12, label %return, label %for.body.lr.ph
 
 for.body.lr.ph:                                   ; preds = %if.end
-  %qualifying_separator_ = getelementptr inbounds %"class.flatbuffers::BaseGenerator", ptr %this, i64 0, i32 5
+  %qualifying_separator_ = getelementptr inbounds i8, ptr %this, i64 64
   br label %for.body
 
 for.body:                                         ; preds = %for.body.lr.ph, %for.inc
@@ -1190,7 +1074,7 @@ for.body:                                         ; preds = %for.body.lr.ph, %fo
           to label %invoke.cont10 unwind label %lpad9
 
 invoke.cont10:                                    ; preds = %for.body
-  %add.ptr.i6 = getelementptr inbounds %"class.std::__cxx11::basic_string", ptr %it.sroa.0.013, i64 1
+  %add.ptr.i6 = getelementptr inbounds i8, ptr %it.sroa.0.013, i64 32
   %6 = load ptr, ptr %_M_finish.i, align 8
   %cmp.i8.not = icmp eq ptr %add.ptr.i6, %6
   br i1 %cmp.i8.not, label %return, label %if.then20
@@ -1239,7 +1123,7 @@ lpad.i:                                           ; preds = %entry
   br label %common.resume
 
 _ZStplIcSt11char_traitsIcESaIcEENSt7__cxx1112basic_stringIT_T0_T1_EERKS8_SA_.exit: ; preds = %entry
-  %filename_suffix = getelementptr inbounds %"struct.flatbuffers::IDLOptions", ptr %options, i64 0, i32 63
+  %filename_suffix = getelementptr inbounds i8, ptr %options, i64 496
   %call.i56 = invoke noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6appendERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp3, ptr noundef nonnull align 8 dereferenceable(32) %filename_suffix)
           to label %invoke.cont unwind label %lpad
 
@@ -1250,9 +1134,9 @@ invoke.cont:                                      ; preds = %_ZStplIcSt11char_tr
 
 invoke.cont5:                                     ; preds = %invoke.cont
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EOS4_(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp, ptr noundef nonnull align 8 dereferenceable(32) %call.i78) #12
-  %filename_extension = getelementptr inbounds %"struct.flatbuffers::IDLOptions", ptr %options, i64 0, i32 64
+  %filename_extension = getelementptr inbounds i8, ptr %options, i64 528
   %call = call noundef zeroext i1 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5emptyEv(ptr noundef nonnull align 8 dereferenceable(32) %filename_extension) #12
-  %default_extension_ = getelementptr inbounds %"class.flatbuffers::BaseGenerator", ptr %this, i64 0, i32 6
+  %default_extension_ = getelementptr inbounds i8, ptr %this, i64 96
   %cond-lvalue = select i1 %call, ptr %default_extension_, ptr %filename_extension
   %call.i910 = invoke noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6appendERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp, ptr noundef nonnull align 8 dereferenceable(32) %cond-lvalue)
           to label %invoke.cont8 unwind label %lpad7
@@ -1307,7 +1191,7 @@ entry:
   %ref.tmp69 = alloca %"class.std::__cxx11::basic_string", align 8
   %ref.tmp71 = alloca %"class.std::allocator", align 1
   %0 = load ptr, ptr %dc, align 8
-  %_M_finish.i = getelementptr inbounds %"struct.std::_Vector_base<std::__cxx11::basic_string<char>, std::allocator<std::__cxx11::basic_string<char>>>::_Vector_impl_data", ptr %dc, i64 0, i32 1
+  %_M_finish.i = getelementptr inbounds i8, ptr %dc, i64 8
   %1 = load ptr, ptr %_M_finish.i, align 8
   %cmp.i = icmp eq ptr %0, %1
   br i1 %cmp.i, label %return, label %if.end
@@ -1510,7 +1394,7 @@ invoke.cont31:                                    ; preds = %if.end.i52
   br i1 %cmp.not, label %cond.end, label %land.lhs.true33
 
 land.lhs.true33:                                  ; preds = %invoke.cont31
-  %content_line_prefix = getelementptr inbounds %"struct.flatbuffers::CommentConfig", ptr %config, i64 0, i32 1
+  %content_line_prefix = getelementptr inbounds i8, ptr %config, i64 8
   %12 = load ptr, ptr %content_line_prefix, align 8
   %cmp34.not = icmp eq ptr %12, null
   %spec.select = select i1 %cmp34.not, ptr @.str.10, ptr %12
@@ -1557,7 +1441,7 @@ invoke.cont52:                                    ; preds = %invoke.cont50
 invoke.cont54:                                    ; preds = %invoke.cont52
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp46) #12
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp47) #12
-  %incdec.ptr.i = getelementptr inbounds %"class.std::__cxx11::basic_string", ptr %it.sroa.0.0120, i64 1
+  %incdec.ptr.i = getelementptr inbounds i8, ptr %it.sroa.0.0120, i64 32
   %16 = load ptr, ptr %_M_finish.i, align 8
   %cmp.i66.not = icmp eq ptr %incdec.ptr.i, %16
   br i1 %cmp.i66.not, label %for.end, label %for.body, !llvm.loop !19
@@ -1603,7 +1487,7 @@ for.end:                                          ; preds = %invoke.cont54, %inv
   br i1 %cmp.not, label %if.end87, label %land.lhs.true60
 
 land.lhs.true60:                                  ; preds = %for.end
-  %last_line = getelementptr inbounds %"struct.flatbuffers::CommentConfig", ptr %config, i64 0, i32 2
+  %last_line = getelementptr inbounds i8, ptr %config, i64 16
   %22 = load ptr, ptr %last_line, align 8
   %cmp61.not = icmp eq ptr %22, null
   br i1 %cmp61.not, label %if.end87, label %if.then62
@@ -1771,7 +1655,7 @@ eh.resume:                                        ; preds = %ehcleanup88, %ehcle
 define dso_local void @_ZNK11flatbuffers22FloatConstantGenerator16GenFloatConstantB5cxx11ERKNS_8FieldDefE(ptr noalias sret(%"class.std::__cxx11::basic_string") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(8) %this, ptr noundef nonnull align 8 dereferenceable(312) %field) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp = alloca %"class.std::allocator", align 1
-  %value = getelementptr inbounds %"struct.flatbuffers::FieldDef", ptr %field, i64 0, i32 1
+  %value = getelementptr inbounds i8, ptr %field, i64 200
   %0 = load i32, ptr %value, align 8
   switch i32 %0, label %sw.default [
     i32 11, label %sw.bb
@@ -1828,7 +1712,7 @@ define linkonce_odr dso_local void @_ZNK11flatbuffers22FloatConstantGenerator20G
 entry:
   %end.i.i = alloca ptr, align 8
   %ref.tmp = alloca %"class.std::allocator", align 1
-  %constant2 = getelementptr inbounds %"struct.flatbuffers::FieldDef", ptr %field, i64 0, i32 1, i32 1
+  %constant2 = getelementptr inbounds i8, ptr %field, i64 232
   %call = tail call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5c_strEv(ptr noundef nonnull align 8 dereferenceable(32) %constant2) #12
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %end.i.i)
   store ptr %call, ptr %end.i.i, align 8
@@ -1850,7 +1734,7 @@ land.lhs.true.i.i:                                ; preds = %land.end.i.i
 
 if.then5:                                         ; preds = %land.lhs.true.i.i
   %vtable = load ptr, ptr %this, align 8
-  %vfn = getelementptr inbounds ptr, ptr %vtable, i64 7
+  %vfn = getelementptr inbounds i8, ptr %vtable, i64 56
   %4 = load ptr, ptr %vfn, align 8
   call void %4(ptr sret(%"class.std::__cxx11::basic_string") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(8) %this, float noundef 0x7FF8000000000000)
   br label %return
@@ -1862,13 +1746,13 @@ if.end:                                           ; preds = %land.lhs.true.i.i
   br i1 %6, label %if.then7, label %if.end10
 
 if.then7:                                         ; preds = %if.end
-  %vfn9 = getelementptr inbounds ptr, ptr %vtable8, i64 6
+  %vfn9 = getelementptr inbounds i8, ptr %vtable8, i64 48
   %7 = load ptr, ptr %vfn9, align 8
   call void %7(ptr sret(%"class.std::__cxx11::basic_string") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(8) %this, float noundef %call1.i.i.i)
   br label %return
 
 if.end10:                                         ; preds = %if.end
-  %vfn12 = getelementptr inbounds ptr, ptr %vtable8, i64 5
+  %vfn12 = getelementptr inbounds i8, ptr %vtable8, i64 40
   %8 = load ptr, ptr %vfn12, align 8
   call void %8(ptr sret(%"class.std::__cxx11::basic_string") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(8) %this, float noundef %call1.i.i.i, ptr noundef nonnull align 8 dereferenceable(32) %constant2)
   br label %return
@@ -1916,7 +1800,7 @@ define linkonce_odr dso_local void @_ZNK11flatbuffers22FloatConstantGenerator20G
 entry:
   %end.i.i = alloca ptr, align 8
   %ref.tmp = alloca %"class.std::allocator", align 1
-  %constant2 = getelementptr inbounds %"struct.flatbuffers::FieldDef", ptr %field, i64 0, i32 1, i32 1
+  %constant2 = getelementptr inbounds i8, ptr %field, i64 232
   %call = tail call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5c_strEv(ptr noundef nonnull align 8 dereferenceable(32) %constant2) #12
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %end.i.i)
   store ptr %call, ptr %end.i.i, align 8
@@ -1938,7 +1822,7 @@ land.lhs.true.i.i:                                ; preds = %land.end.i.i
 
 if.then5:                                         ; preds = %land.lhs.true.i.i
   %vtable = load ptr, ptr %this, align 8
-  %vfn = getelementptr inbounds ptr, ptr %vtable, i64 4
+  %vfn = getelementptr inbounds i8, ptr %vtable, i64 32
   %4 = load ptr, ptr %vfn, align 8
   call void %4(ptr sret(%"class.std::__cxx11::basic_string") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(8) %this, double noundef 0x7FF8000000000000)
   br label %return
@@ -1950,13 +1834,13 @@ if.end:                                           ; preds = %land.lhs.true.i.i
   br i1 %6, label %if.then7, label %if.end10
 
 if.then7:                                         ; preds = %if.end
-  %vfn9 = getelementptr inbounds ptr, ptr %vtable8, i64 3
+  %vfn9 = getelementptr inbounds i8, ptr %vtable8, i64 24
   %7 = load ptr, ptr %vfn9, align 8
   call void %7(ptr sret(%"class.std::__cxx11::basic_string") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(8) %this, double noundef %call1.i.i.i)
   br label %return
 
 if.end10:                                         ; preds = %if.end
-  %vfn12 = getelementptr inbounds ptr, ptr %vtable8, i64 2
+  %vfn12 = getelementptr inbounds i8, ptr %vtable8, i64 16
   %8 = load ptr, ptr %vfn12, align 8
   call void %8(ptr sret(%"class.std::__cxx11::basic_string") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(8) %this, double noundef %call1.i.i.i, ptr noundef nonnull align 8 dereferenceable(32) %constant2)
   br label %return
@@ -2008,7 +1892,7 @@ entry:
   %ref.tmp8 = alloca %"class.std::allocator", align 1
   %ref.tmp11 = alloca %"class.std::allocator", align 1
   store ptr getelementptr inbounds ({ [10 x ptr] }, ptr @_ZTVN11flatbuffers27TypedFloatConstantGeneratorE, i64 0, inrange i32 0, i64 2), ptr %this, align 8
-  %double_prefix_ = getelementptr inbounds %"class.flatbuffers::TypedFloatConstantGenerator", ptr %this, i64 0, i32 1
+  %double_prefix_ = getelementptr inbounds i8, ptr %this, i64 8
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp) #12
   %call.i5 = invoke noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_M_local_dataEv(ptr noundef nonnull align 8 dereferenceable(32) %double_prefix_)
           to label %call.i.noexc unwind label %lpad
@@ -2042,7 +1926,7 @@ if.end.i:                                         ; preds = %.noexc
 
 invoke.cont:                                      ; preds = %if.end.i
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp) #12
-  %single_prefix_ = getelementptr inbounds %"class.flatbuffers::TypedFloatConstantGenerator", ptr %this, i64 0, i32 2
+  %single_prefix_ = getelementptr inbounds i8, ptr %this, i64 40
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp2) #12
   %call.i14 = invoke noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_M_local_dataEv(ptr noundef nonnull align 8 dereferenceable(32) %single_prefix_)
           to label %call.i.noexc13 unwind label %lpad3
@@ -2076,7 +1960,7 @@ if.end.i7:                                        ; preds = %.noexc15
 
 invoke.cont4:                                     ; preds = %if.end.i7
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp2) #12
-  %nan_number_ = getelementptr inbounds %"class.flatbuffers::TypedFloatConstantGenerator", ptr %this, i64 0, i32 3
+  %nan_number_ = getelementptr inbounds i8, ptr %this, i64 72
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp5) #12
   %call.i26 = invoke noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_M_local_dataEv(ptr noundef nonnull align 8 dereferenceable(32) %nan_number_)
           to label %call.i.noexc25 unwind label %lpad6
@@ -2110,7 +1994,7 @@ if.end.i19:                                       ; preds = %.noexc27
 
 invoke.cont7:                                     ; preds = %if.end.i19
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp5) #12
-  %pos_inf_number_ = getelementptr inbounds %"class.flatbuffers::TypedFloatConstantGenerator", ptr %this, i64 0, i32 4
+  %pos_inf_number_ = getelementptr inbounds i8, ptr %this, i64 104
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp8) #12
   %call.i38 = invoke noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_M_local_dataEv(ptr noundef nonnull align 8 dereferenceable(32) %pos_inf_number_)
           to label %call.i.noexc37 unwind label %lpad9
@@ -2144,7 +2028,7 @@ if.end.i31:                                       ; preds = %.noexc39
 
 invoke.cont10:                                    ; preds = %if.end.i31
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp8) #12
-  %neg_inf_number_ = getelementptr inbounds %"class.flatbuffers::TypedFloatConstantGenerator", ptr %this, i64 0, i32 5
+  %neg_inf_number_ = getelementptr inbounds i8, ptr %this, i64 136
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp11) #12
   %call.i50 = invoke noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_M_local_dataEv(ptr noundef nonnull align 8 dereferenceable(32) %neg_inf_number_)
           to label %call.i.noexc49 unwind label %lpad12
@@ -2254,7 +2138,7 @@ ehcleanup16:                                      ; preds = %ehcleanup15, %lpad.
 ; Function Attrs: mustprogress uwtable
 define dso_local void @_ZNK11flatbuffers27TypedFloatConstantGenerator7MakeNaNERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noalias nonnull sret(%"class.std::__cxx11::basic_string") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(168) %this, ptr noundef nonnull align 8 dereferenceable(32) %prefix) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  %nan_number_ = getelementptr inbounds %"class.flatbuffers::TypedFloatConstantGenerator", ptr %this, i64 0, i32 3
+  %nan_number_ = getelementptr inbounds i8, ptr %this, i64 72
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1ERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %agg.result, ptr noundef nonnull align 8 dereferenceable(32) %prefix)
   %call.i = invoke noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6appendERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %agg.result, ptr noundef nonnull align 8 dereferenceable(32) %nan_number_)
           to label %_ZStplIcSt11char_traitsIcESaIcEENSt7__cxx1112basic_stringIT_T0_T1_EERKS8_SA_.exit unwind label %lpad.i
@@ -2276,7 +2160,7 @@ entry:
   br i1 %neg, label %if.then, label %if.else
 
 if.then:                                          ; preds = %entry
-  %neg_inf_number_ = getelementptr inbounds %"class.flatbuffers::TypedFloatConstantGenerator", ptr %this, i64 0, i32 5
+  %neg_inf_number_ = getelementptr inbounds i8, ptr %this, i64 136
   %call = tail call noundef zeroext i1 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5emptyEv(ptr noundef nonnull align 8 dereferenceable(32) %neg_inf_number_) #12
   br i1 %call, label %cond.false, label %cond.true
 
@@ -2297,7 +2181,7 @@ lpad.i:                                           ; preds = %cond.true
 
 cond.false:                                       ; preds = %if.then
   call void @_ZStplIcSt11char_traitsIcESaIcEENSt7__cxx1112basic_stringIT_T0_T1_EEPKS5_RKS8_(ptr nonnull sret(%"class.std::__cxx11::basic_string") align 8 %ref.tmp, ptr noundef nonnull @.str.12, ptr noundef nonnull align 8 dereferenceable(32) %prefix)
-  %pos_inf_number_ = getelementptr inbounds %"class.flatbuffers::TypedFloatConstantGenerator", ptr %this, i64 0, i32 4
+  %pos_inf_number_ = getelementptr inbounds i8, ptr %this, i64 104
   %call.i34 = invoke noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6appendERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp, ptr noundef nonnull align 8 dereferenceable(32) %pos_inf_number_)
           to label %cleanup.action unwind label %lpad
 
@@ -2313,7 +2197,7 @@ lpad:                                             ; preds = %cond.false
   br label %common.resume
 
 if.else:                                          ; preds = %entry
-  %pos_inf_number_6 = getelementptr inbounds %"class.flatbuffers::TypedFloatConstantGenerator", ptr %this, i64 0, i32 4
+  %pos_inf_number_6 = getelementptr inbounds i8, ptr %this, i64 104
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1ERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %agg.result, ptr noundef nonnull align 8 dereferenceable(32) %prefix)
   %call.i5 = invoke noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6appendERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %agg.result, ptr noundef nonnull align 8 dereferenceable(32) %pos_inf_number_6)
           to label %return unwind label %lpad.i6
@@ -2339,7 +2223,7 @@ entry:
 define dso_local void @_ZNK11flatbuffers27TypedFloatConstantGenerator3InfB5cxx11Ed(ptr noalias sret(%"class.std::__cxx11::basic_string") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(168) %this, double noundef %v) unnamed_addr #0 align 2 {
 entry:
   %cmp = fcmp olt double %v, 0.000000e+00
-  %double_prefix_ = getelementptr inbounds %"class.flatbuffers::TypedFloatConstantGenerator", ptr %this, i64 0, i32 1
+  %double_prefix_ = getelementptr inbounds i8, ptr %this, i64 8
   tail call void @_ZNK11flatbuffers27TypedFloatConstantGenerator7MakeInfEbRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr sret(%"class.std::__cxx11::basic_string") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(168) %this, i1 noundef zeroext %cmp, ptr noundef nonnull align 8 dereferenceable(32) %double_prefix_)
   ret void
 }
@@ -2347,8 +2231,8 @@ entry:
 ; Function Attrs: mustprogress uwtable
 define dso_local void @_ZNK11flatbuffers27TypedFloatConstantGenerator3NaNB5cxx11Ed(ptr noalias nonnull sret(%"class.std::__cxx11::basic_string") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(168) %this, double %v) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  %double_prefix_ = getelementptr inbounds %"class.flatbuffers::TypedFloatConstantGenerator", ptr %this, i64 0, i32 1
-  %nan_number_.i = getelementptr inbounds %"class.flatbuffers::TypedFloatConstantGenerator", ptr %this, i64 0, i32 3
+  %double_prefix_ = getelementptr inbounds i8, ptr %this, i64 8
+  %nan_number_.i = getelementptr inbounds i8, ptr %this, i64 72
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1ERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %agg.result, ptr noundef nonnull align 8 dereferenceable(32) %double_prefix_)
   %call.i.i = invoke noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6appendERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %agg.result, ptr noundef nonnull align 8 dereferenceable(32) %nan_number_.i)
           to label %_ZNK11flatbuffers27TypedFloatConstantGenerator7MakeNaNERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit unwind label %lpad.i.i
@@ -2384,7 +2268,7 @@ _ZStplIcSt11char_traitsIcESaIcEENSt7__cxx1112basic_stringIT_T0_T1_EERKS8_PKS5_.e
 define dso_local void @_ZNK11flatbuffers27TypedFloatConstantGenerator3InfB5cxx11Ef(ptr noalias sret(%"class.std::__cxx11::basic_string") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(168) %this, float noundef %v) unnamed_addr #0 align 2 {
 entry:
   %cmp = fcmp olt float %v, 0.000000e+00
-  %single_prefix_ = getelementptr inbounds %"class.flatbuffers::TypedFloatConstantGenerator", ptr %this, i64 0, i32 2
+  %single_prefix_ = getelementptr inbounds i8, ptr %this, i64 40
   tail call void @_ZNK11flatbuffers27TypedFloatConstantGenerator7MakeInfEbRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr sret(%"class.std::__cxx11::basic_string") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(168) %this, i1 noundef zeroext %cmp, ptr noundef nonnull align 8 dereferenceable(32) %single_prefix_)
   ret void
 }
@@ -2392,8 +2276,8 @@ entry:
 ; Function Attrs: mustprogress uwtable
 define dso_local void @_ZNK11flatbuffers27TypedFloatConstantGenerator3NaNB5cxx11Ef(ptr noalias nonnull sret(%"class.std::__cxx11::basic_string") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(168) %this, float %v) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  %single_prefix_ = getelementptr inbounds %"class.flatbuffers::TypedFloatConstantGenerator", ptr %this, i64 0, i32 2
-  %nan_number_.i = getelementptr inbounds %"class.flatbuffers::TypedFloatConstantGenerator", ptr %this, i64 0, i32 3
+  %single_prefix_ = getelementptr inbounds i8, ptr %this, i64 40
+  %nan_number_.i = getelementptr inbounds i8, ptr %this, i64 72
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1ERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %agg.result, ptr noundef nonnull align 8 dereferenceable(32) %single_prefix_)
   %call.i.i = invoke noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6appendERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %agg.result, ptr noundef nonnull align 8 dereferenceable(32) %nan_number_.i)
           to label %_ZNK11flatbuffers27TypedFloatConstantGenerator7MakeNaNERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit unwind label %lpad.i.i
@@ -2415,7 +2299,7 @@ entry:
   %ref.tmp2 = alloca %"class.std::allocator", align 1
   %ref.tmp5 = alloca %"class.std::allocator", align 1
   store ptr getelementptr inbounds ({ [10 x ptr] }, ptr @_ZTVN11flatbuffers28SimpleFloatConstantGeneratorE, i64 0, inrange i32 0, i64 2), ptr %this, align 8
-  %nan_number_ = getelementptr inbounds %"class.flatbuffers::SimpleFloatConstantGenerator", ptr %this, i64 0, i32 1
+  %nan_number_ = getelementptr inbounds i8, ptr %this, i64 8
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp) #12
   %call.i3 = invoke noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_M_local_dataEv(ptr noundef nonnull align 8 dereferenceable(32) %nan_number_)
           to label %call.i.noexc unwind label %lpad
@@ -2449,7 +2333,7 @@ if.end.i:                                         ; preds = %.noexc
 
 invoke.cont:                                      ; preds = %if.end.i
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp) #12
-  %pos_inf_number_ = getelementptr inbounds %"class.flatbuffers::SimpleFloatConstantGenerator", ptr %this, i64 0, i32 2
+  %pos_inf_number_ = getelementptr inbounds i8, ptr %this, i64 40
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp2) #12
   %call.i12 = invoke noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_M_local_dataEv(ptr noundef nonnull align 8 dereferenceable(32) %pos_inf_number_)
           to label %call.i.noexc11 unwind label %lpad3
@@ -2483,7 +2367,7 @@ if.end.i5:                                        ; preds = %.noexc13
 
 invoke.cont4:                                     ; preds = %if.end.i5
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp2) #12
-  %neg_inf_number_ = getelementptr inbounds %"class.flatbuffers::SimpleFloatConstantGenerator", ptr %this, i64 0, i32 3
+  %neg_inf_number_ = getelementptr inbounds i8, ptr %this, i64 72
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp5) #12
   %call.i24 = invoke noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_M_local_dataEv(ptr noundef nonnull align 8 dereferenceable(32) %neg_inf_number_)
           to label %call.i.noexc23 unwind label %lpad6
@@ -2571,9 +2455,8 @@ entry:
 define dso_local void @_ZNK11flatbuffers28SimpleFloatConstantGenerator3InfB5cxx11Ed(ptr noalias nonnull sret(%"class.std::__cxx11::basic_string") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(104) %this, double noundef %v) unnamed_addr #0 align 2 {
 entry:
   %cmp = fcmp olt double %v, 0.000000e+00
-  %neg_inf_number_ = getelementptr inbounds %"class.flatbuffers::SimpleFloatConstantGenerator", ptr %this, i64 0, i32 3
-  %pos_inf_number_ = getelementptr inbounds %"class.flatbuffers::SimpleFloatConstantGenerator", ptr %this, i64 0, i32 2
-  %cond-lvalue = select i1 %cmp, ptr %neg_inf_number_, ptr %pos_inf_number_
+  %cond-lvalue.v = select i1 %cmp, i64 72, i64 40
+  %cond-lvalue = getelementptr inbounds i8, ptr %this, i64 %cond-lvalue.v
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1ERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %agg.result, ptr noundef nonnull align 8 dereferenceable(32) %cond-lvalue)
   ret void
 }
@@ -2581,7 +2464,7 @@ entry:
 ; Function Attrs: mustprogress uwtable
 define dso_local void @_ZNK11flatbuffers28SimpleFloatConstantGenerator3NaNB5cxx11Ed(ptr noalias nonnull sret(%"class.std::__cxx11::basic_string") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(104) %this, double %v) unnamed_addr #0 align 2 {
 entry:
-  %nan_number_ = getelementptr inbounds %"class.flatbuffers::SimpleFloatConstantGenerator", ptr %this, i64 0, i32 1
+  %nan_number_ = getelementptr inbounds i8, ptr %this, i64 8
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1ERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %agg.result, ptr noundef nonnull align 8 dereferenceable(32) %nan_number_)
   ret void
 }
@@ -2591,7 +2474,7 @@ define dso_local void @_ZNK11flatbuffers28SimpleFloatConstantGenerator5ValueEfRK
 entry:
   %conv = fpext float %v to double
   %vtable = load ptr, ptr %this, align 8
-  %vfn = getelementptr inbounds ptr, ptr %vtable, i64 2
+  %vfn = getelementptr inbounds i8, ptr %vtable, i64 16
   %0 = load ptr, ptr %vfn, align 8
   tail call void %0(ptr sret(%"class.std::__cxx11::basic_string") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(104) %this, double noundef %conv, ptr noundef nonnull align 8 dereferenceable(32) %src)
   ret void
@@ -2602,7 +2485,7 @@ define dso_local void @_ZNK11flatbuffers28SimpleFloatConstantGenerator3InfB5cxx1
 entry:
   %conv = fpext float %v to double
   %vtable = load ptr, ptr %this, align 8
-  %vfn = getelementptr inbounds ptr, ptr %vtable, i64 3
+  %vfn = getelementptr inbounds i8, ptr %vtable, i64 24
   %0 = load ptr, ptr %vfn, align 8
   tail call void %0(ptr sret(%"class.std::__cxx11::basic_string") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(104) %this, double noundef %conv)
   ret void
@@ -2613,7 +2496,7 @@ define dso_local void @_ZNK11flatbuffers28SimpleFloatConstantGenerator3NaNB5cxx1
 entry:
   %conv = fpext float %v to double
   %vtable = load ptr, ptr %this, align 8
-  %vfn = getelementptr inbounds ptr, ptr %vtable, i64 4
+  %vfn = getelementptr inbounds i8, ptr %vtable, i64 32
   %0 = load ptr, ptr %vfn, align 8
   tail call void %0(ptr sret(%"class.std::__cxx11::basic_string") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(104) %this, double noundef %conv)
   ret void
@@ -2623,15 +2506,15 @@ entry:
 define linkonce_odr dso_local void @_ZN11flatbuffers27TypedFloatConstantGeneratorD2Ev(ptr noundef nonnull align 8 dereferenceable(168) %this) unnamed_addr #3 comdat align 2 {
 entry:
   store ptr getelementptr inbounds ({ [10 x ptr] }, ptr @_ZTVN11flatbuffers27TypedFloatConstantGeneratorE, i64 0, inrange i32 0, i64 2), ptr %this, align 8
-  %neg_inf_number_ = getelementptr inbounds %"class.flatbuffers::TypedFloatConstantGenerator", ptr %this, i64 0, i32 5
+  %neg_inf_number_ = getelementptr inbounds i8, ptr %this, i64 136
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %neg_inf_number_) #12
-  %pos_inf_number_ = getelementptr inbounds %"class.flatbuffers::TypedFloatConstantGenerator", ptr %this, i64 0, i32 4
+  %pos_inf_number_ = getelementptr inbounds i8, ptr %this, i64 104
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %pos_inf_number_) #12
-  %nan_number_ = getelementptr inbounds %"class.flatbuffers::TypedFloatConstantGenerator", ptr %this, i64 0, i32 3
+  %nan_number_ = getelementptr inbounds i8, ptr %this, i64 72
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %nan_number_) #12
-  %single_prefix_ = getelementptr inbounds %"class.flatbuffers::TypedFloatConstantGenerator", ptr %this, i64 0, i32 2
+  %single_prefix_ = getelementptr inbounds i8, ptr %this, i64 40
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %single_prefix_) #12
-  %double_prefix_ = getelementptr inbounds %"class.flatbuffers::TypedFloatConstantGenerator", ptr %this, i64 0, i32 1
+  %double_prefix_ = getelementptr inbounds i8, ptr %this, i64 8
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %double_prefix_) #12
   ret void
 }
@@ -2640,15 +2523,15 @@ entry:
 define linkonce_odr dso_local void @_ZN11flatbuffers27TypedFloatConstantGeneratorD0Ev(ptr noundef nonnull align 8 dereferenceable(168) %this) unnamed_addr #3 comdat align 2 {
 entry:
   store ptr getelementptr inbounds ({ [10 x ptr] }, ptr @_ZTVN11flatbuffers27TypedFloatConstantGeneratorE, i64 0, inrange i32 0, i64 2), ptr %this, align 8
-  %neg_inf_number_.i = getelementptr inbounds %"class.flatbuffers::TypedFloatConstantGenerator", ptr %this, i64 0, i32 5
+  %neg_inf_number_.i = getelementptr inbounds i8, ptr %this, i64 136
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %neg_inf_number_.i) #12
-  %pos_inf_number_.i = getelementptr inbounds %"class.flatbuffers::TypedFloatConstantGenerator", ptr %this, i64 0, i32 4
+  %pos_inf_number_.i = getelementptr inbounds i8, ptr %this, i64 104
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %pos_inf_number_.i) #12
-  %nan_number_.i = getelementptr inbounds %"class.flatbuffers::TypedFloatConstantGenerator", ptr %this, i64 0, i32 3
+  %nan_number_.i = getelementptr inbounds i8, ptr %this, i64 72
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %nan_number_.i) #12
-  %single_prefix_.i = getelementptr inbounds %"class.flatbuffers::TypedFloatConstantGenerator", ptr %this, i64 0, i32 2
+  %single_prefix_.i = getelementptr inbounds i8, ptr %this, i64 40
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %single_prefix_.i) #12
-  %double_prefix_.i = getelementptr inbounds %"class.flatbuffers::TypedFloatConstantGenerator", ptr %this, i64 0, i32 1
+  %double_prefix_.i = getelementptr inbounds i8, ptr %this, i64 8
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %double_prefix_.i) #12
   tail call void @_ZdlPv(ptr noundef nonnull %this) #16
   ret void
@@ -2658,11 +2541,11 @@ entry:
 define linkonce_odr dso_local void @_ZN11flatbuffers28SimpleFloatConstantGeneratorD2Ev(ptr noundef nonnull align 8 dereferenceable(104) %this) unnamed_addr #3 comdat align 2 {
 entry:
   store ptr getelementptr inbounds ({ [10 x ptr] }, ptr @_ZTVN11flatbuffers28SimpleFloatConstantGeneratorE, i64 0, inrange i32 0, i64 2), ptr %this, align 8
-  %neg_inf_number_ = getelementptr inbounds %"class.flatbuffers::SimpleFloatConstantGenerator", ptr %this, i64 0, i32 3
+  %neg_inf_number_ = getelementptr inbounds i8, ptr %this, i64 72
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %neg_inf_number_) #12
-  %pos_inf_number_ = getelementptr inbounds %"class.flatbuffers::SimpleFloatConstantGenerator", ptr %this, i64 0, i32 2
+  %pos_inf_number_ = getelementptr inbounds i8, ptr %this, i64 40
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %pos_inf_number_) #12
-  %nan_number_ = getelementptr inbounds %"class.flatbuffers::SimpleFloatConstantGenerator", ptr %this, i64 0, i32 1
+  %nan_number_ = getelementptr inbounds i8, ptr %this, i64 8
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %nan_number_) #12
   ret void
 }
@@ -2671,11 +2554,11 @@ entry:
 define linkonce_odr dso_local void @_ZN11flatbuffers28SimpleFloatConstantGeneratorD0Ev(ptr noundef nonnull align 8 dereferenceable(104) %this) unnamed_addr #3 comdat align 2 {
 entry:
   store ptr getelementptr inbounds ({ [10 x ptr] }, ptr @_ZTVN11flatbuffers28SimpleFloatConstantGeneratorE, i64 0, inrange i32 0, i64 2), ptr %this, align 8
-  %neg_inf_number_.i = getelementptr inbounds %"class.flatbuffers::SimpleFloatConstantGenerator", ptr %this, i64 0, i32 3
+  %neg_inf_number_.i = getelementptr inbounds i8, ptr %this, i64 72
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %neg_inf_number_.i) #12
-  %pos_inf_number_.i = getelementptr inbounds %"class.flatbuffers::SimpleFloatConstantGenerator", ptr %this, i64 0, i32 2
+  %pos_inf_number_.i = getelementptr inbounds i8, ptr %this, i64 40
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %pos_inf_number_.i) #12
-  %nan_number_.i = getelementptr inbounds %"class.flatbuffers::SimpleFloatConstantGenerator", ptr %this, i64 0, i32 1
+  %nan_number_.i = getelementptr inbounds i8, ptr %this, i64 8
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %nan_number_.i) #12
   tail call void @_ZdlPv(ptr noundef nonnull %this) #16
   ret void
@@ -2689,12 +2572,12 @@ entry:
 
 while.body:                                       ; preds = %entry, %while.body
   %__x.addr.05 = phi ptr [ %1, %while.body ], [ %__x, %entry ]
-  %_M_right.i = getelementptr inbounds %"struct.std::_Rb_tree_node_base", ptr %__x.addr.05, i64 0, i32 3
+  %_M_right.i = getelementptr inbounds i8, ptr %__x.addr.05, i64 24
   %0 = load ptr, ptr %_M_right.i, align 8
   tail call void @_ZNSt8_Rb_treeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_St9_IdentityIS5_ESt4lessIS5_ESaIS5_EE8_M_eraseEPSt13_Rb_tree_nodeIS5_E(ptr noundef nonnull align 8 dereferenceable(48) %this, ptr noundef %0)
-  %_M_left.i = getelementptr inbounds %"struct.std::_Rb_tree_node_base", ptr %__x.addr.05, i64 0, i32 2
+  %_M_left.i = getelementptr inbounds i8, ptr %__x.addr.05, i64 16
   %1 = load ptr, ptr %_M_left.i, align 8
-  %_M_storage.i.i.i = getelementptr inbounds %"struct.std::_Rb_tree_node", ptr %__x.addr.05, i64 0, i32 1
+  %_M_storage.i.i.i = getelementptr inbounds i8, ptr %__x.addr.05, i64 32
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %_M_storage.i.i.i) #12
   tail call void @_ZdlPv(ptr noundef nonnull %__x.addr.05) #16
   %cmp.not = icmp eq ptr %1, null

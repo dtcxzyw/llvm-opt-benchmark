@@ -3,10 +3,6 @@ source_filename = "bench/velox/original/AverageAggregateBase.cpp.ll"
 target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:128-n8:16:32:64-S128"
 target triple = "x86_64-unknown-linux-gnu"
 
-%"class.facebook::velox::Type" = type <{ %"class.facebook::velox::Tree", %"class.facebook::velox::ISerializable", i8, [7 x i8] }>
-%"class.facebook::velox::Tree" = type { ptr }
-%"class.facebook::velox::ISerializable" = type { ptr }
-
 $_ZTSN8facebook5velox4TypeE = comdat any
 
 $_ZTSN8facebook5velox4TreeIKSt10shared_ptrIKNS0_4TypeEEEE = comdat any
@@ -57,7 +53,7 @@ $_ZTIN8facebook5velox15LongDecimalTypeE = comdat any
 define void @_ZN8facebook5velox9functions9aggregate24checkAvgIntermediateTypeERKSt10shared_ptrIKNS0_4TypeEE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %type) local_unnamed_addr #0 {
 entry:
   %0 = load ptr, ptr %type, align 8
-  %kind_.i.i = getelementptr inbounds %"class.facebook::velox::Type", ptr %0, i64 0, i32 2
+  %kind_.i.i = getelementptr inbounds i8, ptr %0, i64 16
   %1 = load i8, ptr %kind_.i.i, align 8
   switch i8 %1, label %if.then [
     i8 32, label %if.end7
@@ -70,11 +66,11 @@ if.then:                                          ; preds = %entry
 
 if.end7:                                          ; preds = %entry
   %vtable = load ptr, ptr %0, align 8
-  %vfn = getelementptr inbounds ptr, ptr %vtable, i64 3
+  %vfn = getelementptr inbounds i8, ptr %vtable, i64 24
   %2 = load ptr, ptr %vfn, align 8
   %call9 = tail call noundef nonnull align 8 dereferenceable(16) ptr %2(ptr noundef nonnull align 8 dereferenceable(8) %0, i32 noundef 0)
   %3 = load ptr, ptr %call9, align 8
-  %kind_.i8 = getelementptr inbounds %"class.facebook::velox::Type", ptr %3, i64 0, i32 2
+  %kind_.i8 = getelementptr inbounds i8, ptr %3, i64 16
   %4 = load i8, ptr %kind_.i8, align 8
   %cmp12 = icmp eq i8 %4, 6
   br i1 %cmp12, label %if.end23, label %lor.rhs13
@@ -82,7 +78,7 @@ if.end7:                                          ; preds = %entry
 lor.rhs13:                                        ; preds = %if.end7
   %5 = load ptr, ptr %type, align 8
   %vtable15 = load ptr, ptr %5, align 8
-  %vfn16 = getelementptr inbounds ptr, ptr %vtable15, i64 3
+  %vfn16 = getelementptr inbounds i8, ptr %vtable15, i64 24
   %6 = load ptr, ptr %vfn16, align 8
   %call17 = tail call noundef nonnull align 8 dereferenceable(16) ptr %6(ptr noundef nonnull align 8 dereferenceable(8) %5, i32 noundef 0)
   %7 = load ptr, ptr %call17, align 8
@@ -101,11 +97,11 @@ if.then22:                                        ; preds = %lor.rhs13, %dynamic
 if.end23:                                         ; preds = %if.end7, %dynamic_cast.notnull.i
   %11 = load ptr, ptr %type, align 8
   %vtable25 = load ptr, ptr %11, align 8
-  %vfn26 = getelementptr inbounds ptr, ptr %vtable25, i64 3
+  %vfn26 = getelementptr inbounds i8, ptr %vtable25, i64 24
   %12 = load ptr, ptr %vfn26, align 8
   %call27 = tail call noundef nonnull align 8 dereferenceable(16) ptr %12(ptr noundef nonnull align 8 dereferenceable(8) %11, i32 noundef 1)
   %13 = load ptr, ptr %call27, align 8
-  %kind_.i9 = getelementptr inbounds %"class.facebook::velox::Type", ptr %13, i64 0, i32 2
+  %kind_.i9 = getelementptr inbounds i8, ptr %13, i64 16
   %14 = load i8, ptr %kind_.i9, align 8
   %cmp30.not = icmp eq i8 %14, 4
   br i1 %cmp30.not, label %if.end33, label %if.then32

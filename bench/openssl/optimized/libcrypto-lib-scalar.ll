@@ -10,7 +10,7 @@ target triple = "x86_64-unknown-linux-gnu"
 @sc_r2 = internal constant [1 x %struct.curve448_scalar_s] [%struct.curve448_scalar_s { [7 x i64] [i64 -2066146901595808928, i64 8859473595851707865, i64 965703414319814745, i64 -5902020696520468424, i64 1917620071967259716, i64 2329131455307870383, i64 3747743906366994217] }], align 16
 @sc_p = internal unnamed_addr constant [1 x %struct.curve448_scalar_s] [%struct.curve448_scalar_s { [7 x i64] [i64 2556006723728458995, i64 2408513697996967765, i64 -4301259484579875184, i64 -2201345047, i64 -1, i64 -1, i64 4611686018427387903] }], align 16
 
-; Function Attrs: nofree nosync nounwind memory(argmem: readwrite) uwtable
+; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
 define void @ossl_curve448_scalar_mul(ptr nocapture noundef %out, ptr nocapture noundef readonly %a, ptr nocapture noundef readonly %b) local_unnamed_addr #0 {
 entry:
   tail call fastcc void @sc_montmul(ptr noundef %out, ptr noundef %a, ptr noundef %b)
@@ -18,13 +18,13 @@ entry:
   ret void
 }
 
-; Function Attrs: nofree nosync nounwind memory(argmem: readwrite) uwtable
+; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
 define internal fastcc void @sc_montmul(ptr nocapture noundef %out, ptr nocapture noundef readonly %a, ptr nocapture noundef readonly %b) unnamed_addr #0 {
 entry:
   %accum = alloca [8 x i64], align 16
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(64) %accum, i8 0, i64 64, i1 false)
-  %arrayidx17 = getelementptr inbounds [8 x i64], ptr %accum, i64 0, i64 7
-  %arrayidx50 = getelementptr inbounds [8 x i64], ptr %accum, i64 0, i64 6
+  %arrayidx17 = getelementptr inbounds i8, ptr %accum, i64 56
+  %arrayidx50 = getelementptr inbounds i8, ptr %accum, i64 48
   br label %for.body
 
 for.body:                                         ; preds = %entry, %for.end40
@@ -152,7 +152,7 @@ sc_subx.exit:                                     ; preds = %for.body14.i
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define void @ossl_curve448_scalar_sub(ptr nocapture noundef %out, ptr nocapture noundef readonly %a, ptr nocapture noundef readonly %b) local_unnamed_addr #1 {
+define void @ossl_curve448_scalar_sub(ptr nocapture noundef %out, ptr nocapture noundef readonly %a, ptr nocapture noundef readonly %b) local_unnamed_addr #0 {
 entry:
   br label %for.body.i
 
@@ -203,7 +203,7 @@ sc_subx.exit:                                     ; preds = %for.body14.i
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define void @ossl_curve448_scalar_add(ptr nocapture noundef %out, ptr nocapture noundef readonly %a, ptr nocapture noundef readonly %b) local_unnamed_addr #1 {
+define void @ossl_curve448_scalar_add(ptr nocapture noundef %out, ptr nocapture noundef readonly %a, ptr nocapture noundef readonly %b) local_unnamed_addr #0 {
 entry:
   br label %for.body
 
@@ -273,7 +273,7 @@ sc_subx.exit:                                     ; preds = %for.body14.i
   ret void
 }
 
-; Function Attrs: nofree nosync nounwind memory(argmem: readwrite) uwtable
+; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
 define i32 @ossl_curve448_scalar_decode(ptr nocapture noundef %s, ptr nocapture noundef readonly %ser) local_unnamed_addr #0 {
 entry:
   br label %for.cond1.preheader.i
@@ -336,16 +336,16 @@ for.end:                                          ; preds = %for.body
 }
 
 ; Function Attrs: nounwind uwtable
-define void @ossl_curve448_scalar_destroy(ptr noundef %scalar) local_unnamed_addr #2 {
+define void @ossl_curve448_scalar_destroy(ptr noundef %scalar) local_unnamed_addr #1 {
 entry:
-  tail call void @OPENSSL_cleanse(ptr noundef %scalar, i64 noundef 56) #7
+  tail call void @OPENSSL_cleanse(ptr noundef %scalar, i64 noundef 56) #6
   ret void
 }
 
-declare void @OPENSSL_cleanse(ptr noundef, i64 noundef) local_unnamed_addr #3
+declare void @OPENSSL_cleanse(ptr noundef, i64 noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define void @ossl_curve448_scalar_decode_long(ptr nocapture noundef %s, ptr nocapture noundef readonly %ser, i64 noundef %ser_len) local_unnamed_addr #2 {
+define void @ossl_curve448_scalar_decode_long(ptr nocapture noundef %s, ptr nocapture noundef readonly %ser, i64 noundef %ser_len) local_unnamed_addr #1 {
 entry:
   %t1 = alloca [1 x %struct.curve448_scalar_s], align 16
   %t2 = alloca [1 x %struct.curve448_scalar_s], align 16
@@ -409,7 +409,7 @@ while.cond.preheader:                             ; preds = %scalar_decode_short
 if.then7:                                         ; preds = %scalar_decode_short.exit
   call fastcc void @sc_montmul(ptr noundef %s, ptr noundef nonnull %t1, ptr noundef nonnull @ossl_curve448_scalar_one)
   tail call fastcc void @sc_montmul(ptr noundef %s, ptr noundef %s, ptr noundef nonnull @sc_r2)
-  call void @OPENSSL_cleanse(ptr noundef nonnull %t1, i64 noundef 56) #7
+  call void @OPENSSL_cleanse(ptr noundef nonnull %t1, i64 noundef 56) #6
   br label %return
 
 while.body:                                       ; preds = %while.cond.preheader, %ossl_curve448_scalar_add.exit
@@ -523,8 +523,8 @@ ossl_curve448_scalar_add.exit:                    ; preds = %for.body14.i.i
 
 while.end:                                        ; preds = %ossl_curve448_scalar_add.exit, %while.cond.preheader
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %s, ptr noundef nonnull align 16 dereferenceable(56) %t1, i64 56, i1 false)
-  call void @OPENSSL_cleanse(ptr noundef nonnull %t1, i64 noundef 56) #7
-  call void @OPENSSL_cleanse(ptr noundef nonnull %t2, i64 noundef 56) #7
+  call void @OPENSSL_cleanse(ptr noundef nonnull %t1, i64 noundef 56) #6
+  call void @OPENSSL_cleanse(ptr noundef nonnull %t2, i64 noundef 56) #6
   br label %return
 
 return:                                           ; preds = %while.end, %if.then7, %if.then
@@ -532,7 +532,7 @@ return:                                           ; preds = %while.end, %if.then
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define void @ossl_curve448_scalar_encode(ptr nocapture noundef writeonly %ser, ptr nocapture noundef readonly %s) local_unnamed_addr #1 {
+define void @ossl_curve448_scalar_encode(ptr nocapture noundef writeonly %ser, ptr nocapture noundef readonly %s) local_unnamed_addr #0 {
 entry:
   br label %for.cond1.preheader
 
@@ -566,7 +566,7 @@ for.end11:                                        ; preds = %for.inc9
   ret void
 }
 
-; Function Attrs: nofree nosync nounwind memory(argmem: readwrite) uwtable
+; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
 define void @ossl_curve448_scalar_halve(ptr nocapture noundef %out, ptr nocapture noundef readonly %a) local_unnamed_addr #0 {
 entry:
   %0 = load i64, ptr %a, align 8
@@ -626,7 +626,7 @@ for.body15:                                       ; preds = %for.cond12.preheade
   br i1 %exitcond34.not, label %for.end29, label %for.body15, !llvm.loop !18
 
 for.end29:                                        ; preds = %for.body15
-  %arrayidx32 = getelementptr inbounds [7 x i64], ptr %out, i64 0, i64 6
+  %arrayidx32 = getelementptr inbounds i8, ptr %out, i64 48
   %7 = load i64, ptr %arrayidx32, align 8
   %or36 = tail call i64 @llvm.fshl.i64(i64 %.us-phi.off0, i64 %7, i64 63)
   store i64 %or36, ptr %arrayidx32, align 8
@@ -634,22 +634,21 @@ for.end29:                                        ; preds = %for.body15
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #4
+declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #3
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #5
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #4
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i64 @llvm.fshl.i64(i64, i64, i64) #6
+declare i64 @llvm.fshl.i64(i64, i64, i64) #5
 
-attributes #0 = { nofree nosync nounwind memory(argmem: readwrite) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #1 = { nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #2 = { nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #3 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #4 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: write) }
-attributes #5 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
-attributes #6 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
-attributes #7 = { nounwind }
+attributes #0 = { nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #1 = { nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #2 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #3 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: write) }
+attributes #4 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
+attributes #5 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
+attributes #6 = { nounwind }
 
 !llvm.module.flags = !{!0, !1, !2, !3}
 

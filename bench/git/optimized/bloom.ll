@@ -5,30 +5,12 @@ target triple = "x86_64-unknown-linux-gnu"
 
 %struct.diff_queue_struct = type { ptr, i32, i32 }
 %struct.hashmap = type { ptr, ptr, ptr, i32, i32, i32, i32, i8 }
-%struct.bloom_filter_settings = type { i32, i32, i32, i32 }
-%struct.bloom_filter = type { ptr, i64 }
 %struct.diff_options = type { ptr, ptr, i32, i32, ptr, i32, ptr, i64, i64, ptr, ptr, ptr, ptr, i64, %struct.diff_flags, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, ptr, i32, ptr, i32, i32, ptr, i64, i64, i32, i32, i32, i32, ptr, i32, i32, ptr, i32, i32, ptr, ptr, i32, [3 x i8], %struct.pathspec, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, i32, ptr, i32, i32, ptr, ptr, i32 }
 %struct.diff_flags = type { i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32 }
 %struct.pathspec = type { i32, i8, i32, i32, ptr }
 %struct.hashmap_iter = type { ptr, ptr, i32 }
 %struct.bloom_key = type { ptr }
-%struct.repository = type { ptr, ptr, ptr, ptr, ptr, %struct.repo_path_cache, ptr, ptr, ptr, ptr, %struct.repo_settings, ptr, ptr, ptr, ptr, ptr, i32, i32, i32, ptr, ptr, i32, i8 }
-%struct.repo_path_cache = type { ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr }
-%struct.repo_settings = type { i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, ptr, i32, i32, i32, i32, i32, i32 }
-%struct.raw_object_store = type { ptr, ptr, ptr, i32, ptr, ptr, i8, %union.pthread_mutex_t, ptr, i8, ptr, ptr, %struct.list_head, %struct.anon, %struct.hashmap, i64, i8 }
-%union.pthread_mutex_t = type { %struct.__pthread_mutex_s }
-%struct.__pthread_mutex_s = type { i32, i32, i32, i32, i32, i16, i16, %struct.__pthread_internal_list }
-%struct.__pthread_internal_list = type { ptr, ptr }
-%struct.list_head = type { ptr, ptr }
-%struct.anon = type { ptr, i32 }
-%struct.commit_graph = type { ptr, i64, i8, i8, i32, %struct.object_id, ptr, ptr, i32, i32, ptr, ptr, ptr, ptr, ptr, ptr, i64, ptr, i64, ptr, i64, ptr, ptr, i64, ptr, ptr }
-%struct.object_id = type { [32 x i8], i32 }
-%struct.commit = type { %struct.object, i64, ptr, ptr, i32 }
-%struct.object = type { i32, %struct.object_id }
-%struct.diff_filepair = type { ptr, ptr, i16, i8, i8 }
-%struct.diff_filespec = type { %struct.object_id, ptr, ptr, ptr, i64, i32, i32, i16, i16, ptr }
-%struct.pathmap_hash_entry = type { %struct.hashmap_entry, [0 x i8] }
-%struct.hashmap_entry = type { ptr, i32 }
+%struct.bloom_filter = type { ptr, i64 }
 
 @bloom_filters.0 = internal unnamed_addr global i1 false, align 8
 @bloom_filters.1 = internal unnamed_addr global i1 false, align 8
@@ -332,7 +314,7 @@ murmur3_seeded.exit74:                            ; preds = %for.end.i11, %sw.bb
   %mul52.i33 = mul i32 %xor51.i32, -1028477387
   %shr53.i34 = lshr i32 %mul52.i33, 16
   %xor54.i35 = xor i32 %shr53.i34, %mul52.i33
-  %num_hashes = getelementptr inbounds %struct.bloom_filter_settings, ptr %settings, i64 0, i32 1
+  %num_hashes = getelementptr inbounds i8, ptr %settings, i64 4
   %22 = load i32, ptr %num_hashes, align 4
   %conv = zext i32 %22 to i64
   %call2 = tail call ptr @xcalloc(i64 noundef %conv, i64 noundef 4) #14
@@ -376,10 +358,10 @@ declare void @free(ptr allocptr nocapture noundef) local_unnamed_addr #4
 ; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
 define dso_local void @add_key_to_filter(ptr nocapture noundef readonly %key, ptr nocapture noundef readonly %filter, ptr nocapture noundef readonly %settings) local_unnamed_addr #5 {
 entry:
-  %len = getelementptr inbounds %struct.bloom_filter, ptr %filter, i64 0, i32 1
+  %len = getelementptr inbounds i8, ptr %filter, i64 8
   %0 = load i64, ptr %len, align 8
   %mul = shl i64 %0, 3
-  %num_hashes = getelementptr inbounds %struct.bloom_filter_settings, ptr %settings, i64 0, i32 1
+  %num_hashes = getelementptr inbounds i8, ptr %settings, i64 4
   %1 = load i32, ptr %num_hashes, align 4
   %cmp7.not = icmp eq i32 %1, 0
   br i1 %cmp7.not, label %for.end, label %for.body
@@ -516,21 +498,21 @@ if.then5:                                         ; preds = %bloom_filter_slab_a
   br i1 %tobool7.not, label %if.end11, label %if.then8
 
 if.then8:                                         ; preds = %if.then5
-  %objects = getelementptr inbounds %struct.repository, ptr %r, i64 0, i32 2
+  %objects = getelementptr inbounds i8, ptr %r, i64 16
   %11 = load ptr, ptr %objects, align 8
-  %commit_graph = getelementptr inbounds %struct.raw_object_store, ptr %11, i64 0, i32 8
+  %commit_graph = getelementptr inbounds i8, ptr %11, i64 96
   %12 = load ptr, ptr %commit_graph, align 8
   %13 = load i32, ptr %graph_pos, align 4
-  %num_commits_in_base53.i = getelementptr inbounds %struct.commit_graph, ptr %12, i64 0, i32 8
+  %num_commits_in_base53.i = getelementptr inbounds i8, ptr %12, i64 80
   %14 = load i32, ptr %num_commits_in_base53.i, align 8
   %cmp54.i = icmp ugt i32 %14, %13
   br i1 %cmp54.i, label %while.body.i, label %while.end.i
 
 while.body.i:                                     ; preds = %if.then8, %while.body.i
   %g.addr.055.i = phi ptr [ %15, %while.body.i ], [ %12, %if.then8 ]
-  %base_graph.i = getelementptr inbounds %struct.commit_graph, ptr %g.addr.055.i, i64 0, i32 10
+  %base_graph.i = getelementptr inbounds i8, ptr %g.addr.055.i, i64 88
   %15 = load ptr, ptr %base_graph.i, align 8
-  %num_commits_in_base.i = getelementptr inbounds %struct.commit_graph, ptr %15, i64 0, i32 8
+  %num_commits_in_base.i = getelementptr inbounds i8, ptr %15, i64 80
   %16 = load i32, ptr %num_commits_in_base.i, align 8
   %cmp.i = icmp ugt i32 %16, %13
   br i1 %cmp.i, label %while.body.i, label %while.end.i, !llvm.loop !10
@@ -538,7 +520,7 @@ while.body.i:                                     ; preds = %if.then8, %while.bo
 while.end.i:                                      ; preds = %while.body.i, %if.then8
   %g.addr.0.lcssa.i = phi ptr [ %12, %if.then8 ], [ %15, %while.body.i ]
   %.lcssa.i = phi i32 [ %14, %if.then8 ], [ %16, %while.body.i ]
-  %chunk_bloom_indexes.i = getelementptr inbounds %struct.commit_graph, ptr %g.addr.0.lcssa.i, i64 0, i32 21
+  %chunk_bloom_indexes.i = getelementptr inbounds i8, ptr %g.addr.0.lcssa.i, i64 176
   %17 = load ptr, ptr %chunk_bloom_indexes.i, align 8
   %tobool.not.i = icmp eq ptr %17, null
   br i1 %tobool.not.i, label %if.end11, label %if.end.i
@@ -594,7 +576,7 @@ if.then4.i:                                       ; preds = %if.end.i
 if.end11.i:                                       ; preds = %if.then4.i, %if.end.i
   %start_index.0.i = phi i32 [ %or11.i38.i, %if.then4.i ], [ 0, %if.end.i ]
   %conv.i39.i = zext i32 %or11.i.i to i64
-  %chunk_bloom_data_size.i.i = getelementptr inbounds %struct.commit_graph, ptr %g.addr.0.lcssa.i, i64 0, i32 23
+  %chunk_bloom_data_size.i.i = getelementptr inbounds i8, ptr %g.addr.0.lcssa.i, i64 192
   %26 = load i64, ptr %chunk_bloom_data_size.i.i, align 8
   %sub.i.i = add i64 %26, -12
   %cmp.not.i.i62 = icmp ult i64 %sub.i.i, %conv.i39.i
@@ -602,7 +584,7 @@ if.end11.i:                                       ; preds = %if.then4.i, %if.end
 
 check_bloom_offset.exit.thread.i:                 ; preds = %if.end11.i
   %conv3.i.i = zext i32 %sub.i to i64
-  %filename.i.i = getelementptr inbounds %struct.commit_graph, ptr %g.addr.0.lcssa.i, i64 0, i32 6
+  %filename.i.i = getelementptr inbounds i8, ptr %g.addr.0.lcssa.i, i64 64
   %27 = load ptr, ptr %filename.i.i, align 8
   call void (ptr, ...) @warning(ptr noundef nonnull @.str.3, i64 noundef %conv.i39.i, i64 noundef %conv3.i.i, ptr noundef %27, i64 noundef %26) #14
   br label %if.end11
@@ -615,7 +597,7 @@ lor.lhs.false.i:                                  ; preds = %if.end11.i
 
 check_bloom_offset.exit48.thread.i:               ; preds = %lor.lhs.false.i
   %conv3.i46.i = zext i32 %sub14.i to i64
-  %filename.i47.i = getelementptr inbounds %struct.commit_graph, ptr %g.addr.0.lcssa.i, i64 0, i32 6
+  %filename.i47.i = getelementptr inbounds i8, ptr %g.addr.0.lcssa.i, i64 64
   %28 = load ptr, ptr %filename.i47.i, align 8
   call void (ptr, ...) @warning(ptr noundef nonnull @.str.3, i64 noundef %conv.i40.i, i64 noundef %conv3.i46.i, ptr noundef %28, i64 noundef %26) #14
   br label %if.end11
@@ -627,7 +609,7 @@ if.end18.i:                                       ; preds = %lor.lhs.false.i
 if.then20.i:                                      ; preds = %if.end18.i
   %conv23.i = zext i32 %sub14.i to i64
   %conv24.i = zext i32 %sub.i to i64
-  %filename.i = getelementptr inbounds %struct.commit_graph, ptr %g.addr.0.lcssa.i, i64 0, i32 6
+  %filename.i = getelementptr inbounds i8, ptr %g.addr.0.lcssa.i, i64 64
   %29 = load ptr, ptr %filename.i, align 8
   call void (ptr, ...) @warning(ptr noundef nonnull @.str.2, i64 noundef %conv.i40.i, i64 noundef %conv.i39.i, i64 noundef %conv23.i, i64 noundef %conv24.i, ptr noundef %29) #14
   br label %if.end11
@@ -635,9 +617,9 @@ if.then20.i:                                      ; preds = %if.end18.i
 if.end25.i:                                       ; preds = %if.end18.i
   %sub26.i = sub i32 %or11.i.i, %start_index.0.i
   %conv27.i = zext i32 %sub26.i to i64
-  %len.i = getelementptr inbounds %struct.bloom_filter, ptr %8, i64 %idxprom34.i.i, i32 1
+  %len.i = getelementptr inbounds i8, ptr %arrayidx35.i.i, i64 8
   store i64 %conv27.i, ptr %len.i, align 8
-  %chunk_bloom_data.i = getelementptr inbounds %struct.commit_graph, ptr %g.addr.0.lcssa.i, i64 0, i32 22
+  %chunk_bloom_data.i = getelementptr inbounds i8, ptr %g.addr.0.lcssa.i, i64 184
   %30 = load ptr, ptr %chunk_bloom_data.i, align 8
   %add.ptr30.i = getelementptr inbounds i8, ptr %30, i64 %conv.i40.i
   %add.ptr31.i = getelementptr inbounds i8, ptr %add.ptr30.i, i64 12
@@ -650,7 +632,7 @@ if.end11:                                         ; preds = %if.then20.i, %check
   br i1 %tobool13.not, label %if.end16, label %land.lhs.true
 
 land.lhs.true:                                    ; preds = %bloom_filter_slab_at.exit, %if.end25.i, %if.end11
-  %len = getelementptr inbounds %struct.bloom_filter, ptr %8, i64 %idxprom34.i.i, i32 1
+  %len = getelementptr inbounds i8, ptr %arrayidx35.i.i, i64 8
   %31 = load i64, ptr %len, align 8
   %tobool14.not = icmp eq i64 %31, 0
   br i1 %tobool14.not, label %if.end16, label %return
@@ -661,30 +643,30 @@ if.end16:                                         ; preds = %land.lhs.true, %if.
 
 if.end19:                                         ; preds = %if.end16
   call void @repo_diff_setup(ptr noundef %r, ptr noundef nonnull %diffopt) #14
-  %flags = getelementptr inbounds %struct.diff_options, ptr %diffopt, i64 0, i32 14
+  %flags = getelementptr inbounds i8, ptr %diffopt, i64 104
   store i32 1, ptr %flags, align 8
-  %detect_rename = getelementptr inbounds %struct.diff_options, ptr %diffopt, i64 0, i32 21
+  %detect_rename = getelementptr inbounds i8, ptr %diffopt, i64 268
   store i32 0, ptr %detect_rename, align 4
-  %max_changed_paths = getelementptr inbounds %struct.bloom_filter_settings, ptr %settings, i64 0, i32 3
+  %max_changed_paths = getelementptr inbounds i8, ptr %settings, i64 12
   %32 = load i32, ptr %max_changed_paths, align 4
-  %max_changes = getelementptr inbounds %struct.diff_options, ptr %diffopt, i64 0, i32 34
+  %max_changes = getelementptr inbounds i8, ptr %diffopt, i64 320
   store i32 %32, ptr %max_changes, align 8
   call void @diff_setup_done(ptr noundef nonnull %diffopt) #14
   %call.i = call i32 @repo_parse_commit_gently(ptr noundef %r, ptr noundef %c, i32 noundef 0) #14
-  %parents = getelementptr inbounds %struct.commit, ptr %c, i64 0, i32 2
+  %parents = getelementptr inbounds i8, ptr %c, i64 48
   %33 = load ptr, ptr %parents, align 8
   %tobool21.not = icmp eq ptr %33, null
   br i1 %tobool21.not, label %if.else, label %if.then22
 
 if.then22:                                        ; preds = %if.end19
   %34 = load ptr, ptr %33, align 8
-  %oid = getelementptr inbounds %struct.object, ptr %34, i64 0, i32 1
-  %oid25 = getelementptr inbounds %struct.object, ptr %c, i64 0, i32 1
+  %oid = getelementptr inbounds i8, ptr %34, i64 4
+  %oid25 = getelementptr inbounds i8, ptr %c, i64 4
   call void @diff_tree_oid(ptr noundef nonnull %oid, ptr noundef nonnull %oid25, ptr noundef nonnull @.str, ptr noundef nonnull %diffopt) #14
   br label %if.end28
 
 if.else:                                          ; preds = %if.end19
-  %oid27 = getelementptr inbounds %struct.object, ptr %c, i64 0, i32 1
+  %oid27 = getelementptr inbounds i8, ptr %c, i64 4
   call void @diff_tree_oid(ptr noundef null, ptr noundef nonnull %oid27, ptr noundef nonnull @.str, ptr noundef nonnull %diffopt) #14
   br label %if.end28
 
@@ -709,9 +691,9 @@ for.body:                                         ; preds = %if.then30, %do.end5
   %37 = load ptr, ptr @diff_queued_diff, align 8
   %arrayidx = getelementptr inbounds ptr, ptr %37, i64 %indvars.iv
   %38 = load ptr, ptr %arrayidx, align 8
-  %two = getelementptr inbounds %struct.diff_filepair, ptr %38, i64 0, i32 1
+  %two = getelementptr inbounds i8, ptr %38, i64 8
   %39 = load ptr, ptr %two, align 8
-  %path32 = getelementptr inbounds %struct.diff_filespec, ptr %39, i64 0, i32 1
+  %path32 = getelementptr inbounds i8, ptr %39, i64 40
   %40 = load ptr, ptr %path32, align 8
   br label %do.body
 
@@ -736,10 +718,10 @@ if.then.i69:                                      ; preds = %st_add.exit
 st_add.exit70:                                    ; preds = %st_add.exit
   %add.i68 = add nuw i64 %call35, 17
   %call38 = call ptr @xcalloc(i64 noundef 1, i64 noundef %add.i68) #14
-  %path39 = getelementptr inbounds %struct.pathmap_hash_entry, ptr %call38, i64 0, i32 1
+  %path39 = getelementptr inbounds i8, ptr %call38, i64 16
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %path39, ptr align 1 %40, i64 %call35, i1 false)
   %call41 = call i32 @strhash(ptr noundef %40) #14
-  %hash1.i = getelementptr inbounds %struct.hashmap_entry, ptr %call38, i64 0, i32 1
+  %hash1.i = getelementptr inbounds i8, ptr %call38, i64 8
   store i32 %call41, ptr %hash1.i, align 8
   store ptr null, ptr %call38, align 8
   %call43 = call ptr @hashmap_get(ptr noundef nonnull %pathmap, ptr noundef nonnull %call38, ptr noundef null) #14
@@ -795,7 +777,7 @@ if.then59:                                        ; preds = %hashmap_get_size.ex
   %call.i74 = call ptr @xmalloc(i64 noundef 1) #14
   store ptr %call.i74, ptr %arrayidx35.i.i, align 8
   store i8 -1, ptr %call.i74, align 1
-  %len.i75 = getelementptr inbounds %struct.bloom_filter, ptr %8, i64 %idxprom34.i.i, i32 1
+  %len.i75 = getelementptr inbounds i8, ptr %arrayidx35.i.i, i64 8
   store i64 1, ptr %len.i75, align 8
   br i1 %tobool.not, label %if.end106.thread89, label %if.end106.thread90
 
@@ -812,13 +794,13 @@ if.end106.thread90:                               ; preds = %if.then59
 
 hashmap_get_size.exit80:                          ; preds = %if.then30, %hashmap_get_size.exit
   %pathmap.val112115 = phi i32 [ %pathmap.val.pre, %hashmap_get_size.exit ], [ 0, %if.then30 ]
-  %bits_per_entry = getelementptr inbounds %struct.bloom_filter_settings, ptr %settings, i64 0, i32 2
+  %bits_per_entry = getelementptr inbounds i8, ptr %settings, i64 8
   %50 = load i32, ptr %bits_per_entry, align 4
   %mul = mul i32 %50, %pathmap.val112115
   %sub = add i32 %mul, 7
   %div57 = lshr i32 %sub, 3
   %conv = zext nneg i32 %div57 to i64
-  %len65 = getelementptr inbounds %struct.bloom_filter, ptr %8, i64 %idxprom34.i.i, i32 1
+  %len65 = getelementptr inbounds i8, ptr %arrayidx35.i.i, i64 8
   store i64 %conv, ptr %len65, align 8
   %tobool67.not = icmp ult i32 %sub, 8
   br i1 %tobool67.not, label %if.then68, label %if.end74
@@ -846,12 +828,12 @@ if.end74:                                         ; preds = %if.end72, %hashmap_
   br i1 %tobool81.not96, label %if.end106, label %for.body82.lr.ph
 
 for.body82.lr.ph:                                 ; preds = %if.end74
-  %num_hashes.i = getelementptr inbounds %struct.bloom_filter_settings, ptr %settings, i64 0, i32 1
+  %num_hashes.i = getelementptr inbounds i8, ptr %settings, i64 4
   br label %for.body82
 
 for.body82:                                       ; preds = %for.body82.lr.ph, %add_key_to_filter.exit
   %e.097 = phi ptr [ %call.i81, %for.body82.lr.ph ], [ %call89, %add_key_to_filter.exit ]
-  %path83 = getelementptr inbounds %struct.pathmap_hash_entry, ptr %e.097, i64 0, i32 1
+  %path83 = getelementptr inbounds i8, ptr %e.097, i64 16
   %call87 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %path83) #15
   call void @fill_bloom_key(ptr noundef nonnull %path83, i64 noundef %call87, ptr noundef nonnull %key, ptr noundef nonnull %settings)
   %53 = load i64, ptr %len65, align 8
@@ -905,7 +887,7 @@ for.end101:                                       ; preds = %for.body96, %for.co
   %call.i86 = call ptr @xmalloc(i64 noundef 1) #14
   store ptr %call.i86, ptr %arrayidx35.i.i, align 8
   store i8 -1, ptr %call.i86, align 1
-  %len.i87 = getelementptr inbounds %struct.bloom_filter, ptr %8, i64 %idxprom34.i.i, i32 1
+  %len.i87 = getelementptr inbounds i8, ptr %arrayidx35.i.i, i64 8
   store i64 1, ptr %len.i87, align 8
   br i1 %tobool.not, label %if.end110, label %if.end106.thread
 
@@ -949,8 +931,8 @@ declare void @diffcore_std(ptr noundef) local_unnamed_addr #2
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read) uwtable
 define internal i32 @pathmap_cmp(ptr nocapture readnone %hashmap_cmp_fn_data, ptr nocapture noundef readonly %eptr, ptr nocapture noundef readonly %entry_or_key, ptr nocapture readnone %keydata) #7 {
 entry:
-  %path = getelementptr inbounds %struct.pathmap_hash_entry, ptr %eptr, i64 0, i32 1
-  %path2 = getelementptr inbounds %struct.pathmap_hash_entry, ptr %entry_or_key, i64 0, i32 1
+  %path = getelementptr inbounds i8, ptr %eptr, i64 16
+  %path2 = getelementptr inbounds i8, ptr %entry_or_key, i64 16
   %call = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %path, ptr noundef nonnull dereferenceable(1) %path2) #15
   ret i32 %call
 }
@@ -979,14 +961,14 @@ declare void @hashmap_clear_(ptr noundef, i64 noundef) local_unnamed_addr #2
 ; Function Attrs: nofree norecurse nosync nounwind memory(read, inaccessiblemem: none) uwtable
 define dso_local noundef i32 @bloom_filter_contains(ptr nocapture noundef readonly %filter, ptr nocapture noundef readonly %key, ptr nocapture noundef readonly %settings) local_unnamed_addr #10 {
 entry:
-  %len = getelementptr inbounds %struct.bloom_filter, ptr %filter, i64 0, i32 1
+  %len = getelementptr inbounds i8, ptr %filter, i64 8
   %0 = load i64, ptr %len, align 8
   %mul = shl i64 %0, 3
   %tobool.not = icmp eq i64 %mul, 0
   br i1 %tobool.not, label %return, label %for.cond.preheader
 
 for.cond.preheader:                               ; preds = %entry
-  %num_hashes = getelementptr inbounds %struct.bloom_filter_settings, ptr %settings, i64 0, i32 1
+  %num_hashes = getelementptr inbounds i8, ptr %settings, i64 4
   %1 = load i32, ptr %num_hashes, align 4
   %cmp8.not = icmp eq i32 %1, 0
   br i1 %cmp8.not, label %return, label %for.body.lr.ph

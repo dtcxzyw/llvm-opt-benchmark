@@ -5,7 +5,6 @@ target triple = "x86_64-unknown-linux-gnu"
 
 %struct.evp_cipher_info_st = type { ptr, [16 x i8] }
 %struct.evp_encode_ctx_st = type { i32, i32, [80 x i8], i32, i32 }
-%struct.buf_mem_st = type { i64, ptr, i64 }
 %struct.evp_cipher_ctx_st = type { ptr, ptr, ptr, i32, i32, i32, [16 x i8], [16 x i8], [32 x i8], i32, i32, i32, i32, [32 x i8] }
 
 @.str = private unnamed_addr constant [10 x i8] c"ENCRYPTED\00", align 1
@@ -366,14 +365,14 @@ if.then:                                          ; preds = %entry
   br label %return
 
 if.end:                                           ; preds = %entry
-  %arrayidx = getelementptr inbounds [256 x i8], ptr %buf, i64 0, i64 254
+  %arrayidx = getelementptr inbounds i8, ptr %buf, i64 254
   store i8 0, ptr %arrayidx, align 2
   %call692 = call i32 @BIO_gets(ptr noundef %bp, ptr noundef nonnull %buf, i32 noundef 254) #11
   %cmp793 = icmp slt i32 %call692, 1
   br i1 %cmp793, label %if.then8, label %while.cond.preheader.lr.ph
 
 while.cond.preheader.lr.ph:                       ; preds = %if.end
-  %arrayidx24 = getelementptr inbounds [256 x i8], ptr %buf, i64 0, i64 11
+  %arrayidx24 = getelementptr inbounds i8, ptr %buf, i64 11
   br label %land.rhs
 
 if.then8:                                         ; preds = %for.cond.backedge, %if.end
@@ -438,7 +437,7 @@ if.then37:                                        ; preds = %if.end33
   br label %err
 
 if.end38:                                         ; preds = %if.end33
-  %data39 = getelementptr inbounds %struct.buf_mem_st, ptr %call, i64 0, i32 1
+  %data39 = getelementptr inbounds i8, ptr %call, i64 8
   %1 = load ptr, ptr %data39, align 8
   %sext84 = add i64 %sub, -25769803776
   %conv42 = ashr exact i64 %sext84, 32
@@ -455,7 +454,7 @@ if.then50:                                        ; preds = %if.end38
   br label %err
 
 if.end51:                                         ; preds = %if.end38
-  %data52 = getelementptr inbounds %struct.buf_mem_st, ptr %call1, i64 0, i32 1
+  %data52 = getelementptr inbounds i8, ptr %call1, i64 8
   %3 = load ptr, ptr %data52, align 8
   store i8 0, ptr %3, align 1
   %call5696 = call i32 @BIO_gets(ptr noundef %bp, ptr noundef nonnull %buf, i32 noundef 254) #11
@@ -537,7 +536,7 @@ if.then112:                                       ; preds = %for.end109
   br label %err
 
 if.end113:                                        ; preds = %for.end109
-  %data114 = getelementptr inbounds %struct.buf_mem_st, ptr %call2, i64 0, i32 1
+  %data114 = getelementptr inbounds i8, ptr %call2, i64 8
   %8 = load ptr, ptr %data114, align 8
   store i8 0, ptr %8, align 1
   br i1 %tobool116.not, label %for.cond118, label %if.else
@@ -649,7 +648,7 @@ if.end205:                                        ; preds = %for.cond118, %while
 lor.lhs.false213:                                 ; preds = %if.end205
   %15 = load ptr, ptr %data39, align 8
   %call207 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %15) #12
-  %arrayidx215 = getelementptr inbounds [256 x i8], ptr %buf, i64 0, i64 9
+  %arrayidx215 = getelementptr inbounds i8, ptr %buf, i64 9
   %sext88 = shl i64 %call207, 32
   %conv216 = ashr exact i64 %sext88, 32
   %call217 = call i32 @strncmp(ptr noundef %15, ptr noundef nonnull %arrayidx215, i64 noundef %conv216) #12
@@ -670,7 +669,7 @@ if.then227:                                       ; preds = %lor.lhs.false220, %
 
 if.end228:                                        ; preds = %lor.lhs.false220
   call void @EVP_DecodeInit(ptr noundef nonnull %ctx) #11
-  %data229 = getelementptr inbounds %struct.buf_mem_st, ptr %dataB.0, i64 0, i32 1
+  %data229 = getelementptr inbounds i8, ptr %dataB.0, i64 8
   %16 = load ptr, ptr %data229, align 8
   %conv231 = sext i32 %14 to i64
   %call232 = call i32 @EVP_DecodeUpdate(ptr noundef nonnull %ctx, ptr noundef %16, ptr noundef nonnull %bl, ptr noundef %16, i64 noundef %conv231) #11
@@ -705,7 +704,7 @@ if.end244:                                        ; preds = %if.end236
 if.end249:                                        ; preds = %if.end244
   %21 = load ptr, ptr %data39, align 8
   store ptr %21, ptr %name, align 8
-  %data251 = getelementptr inbounds %struct.buf_mem_st, ptr %headerB.0, i64 0, i32 1
+  %data251 = getelementptr inbounds i8, ptr %headerB.0, i64 8
   %22 = load ptr, ptr %data251, align 8
   store ptr %22, ptr %header, align 8
   %23 = load ptr, ptr %data229, align 8
@@ -841,7 +840,7 @@ if.then75:                                        ; preds = %for.end69
   br label %return
 
 if.end76:                                         ; preds = %for.end69
-  %iv = getelementptr inbounds %struct.evp_cipher_info_st, ptr %cipher, i64 0, i32 1
+  %iv = getelementptr inbounds i8, ptr %cipher, i64 8
   %call77 = tail call i32 @EVP_CIPHER_iv_length(ptr noundef nonnull %call70) #11
   %call78 = call fastcc i32 @load_iv(ptr noundef nonnull %header.addr, ptr noundef nonnull %iv, i32 noundef %call77), !range !9
   br label %return
@@ -879,7 +878,7 @@ if.then5:                                         ; preds = %if.end
 if.end6:                                          ; preds = %if.end
   %2 = load ptr, ptr %cipher, align 8
   %call8 = call ptr @EVP_md5() #11
-  %iv = getelementptr inbounds %struct.evp_cipher_info_st, ptr %cipher, i64 0, i32 1
+  %iv = getelementptr inbounds i8, ptr %cipher, i64 8
   %conv = zext nneg i32 %call to i64
   %call11 = call i32 @EVP_BytesToKey(ptr noundef %2, ptr noundef %call8, ptr noundef nonnull %iv, ptr noundef nonnull %buf, i64 noundef %conv, i32 noundef 1, ptr noundef nonnull %key, ptr noundef null) #11
   %tobool12.not = icmp eq i32 %call11, 0

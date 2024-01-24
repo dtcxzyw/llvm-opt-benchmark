@@ -3,8 +3,6 @@ source_filename = "bench/libquic/original/sqrt.c.ll"
 target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:128-n8:16:32:64-S128"
 target triple = "x86_64-unknown-linux-gnu"
 
-%struct.bignum_st = type { ptr, i32, i32, i32, i32 }
-
 @.str = private unnamed_addr constant [120 x i8] c"generated/home/dtcxzyw/WorkSpace/Projects/compilers/llvm-opt-benchmark/bench/libquic/libquic/boringssl/crypto/bn/sqrt.c\00", align 1
 
 ; Function Attrs: nounwind uwtable
@@ -133,7 +131,7 @@ if.then75:                                        ; preds = %while.end
   br i1 %tobool77.not, label %if.then301, label %if.end79
 
 if.end79:                                         ; preds = %if.then75
-  %neg = getelementptr inbounds %struct.bignum_st, ptr %call50, i64 0, i32 3
+  %neg = getelementptr inbounds i8, ptr %call50, i64 16
   store i32 0, ptr %neg, align 8
   %call80 = tail call i32 @BN_add_word(ptr noundef %call50, i64 noundef 1) #2
   %tobool81.not = icmp eq i32 %call80, 0
@@ -155,7 +153,7 @@ if.end94:                                         ; preds = %if.then90
   br i1 %tobool96.not, label %if.then301, label %if.end98
 
 if.end98:                                         ; preds = %if.end94
-  %neg99 = getelementptr inbounds %struct.bignum_st, ptr %call50, i64 0, i32 3
+  %neg99 = getelementptr inbounds i8, ptr %call50, i64 16
   store i32 0, ptr %neg99, align 8
   %call100 = tail call i32 @BN_mod_exp(ptr noundef %call49, ptr noundef %call51, ptr noundef %call50, ptr noundef %p, ptr noundef %ctx) #2
   %tobool101.not = icmp eq i32 %call100, 0
@@ -197,9 +195,9 @@ if.end126:                                        ; preds = %while.end
   br i1 %tobool128.not, label %if.then301, label %if.end130
 
 if.end130:                                        ; preds = %if.end126
-  %neg131 = getelementptr inbounds %struct.bignum_st, ptr %call50, i64 0, i32 3
+  %neg131 = getelementptr inbounds i8, ptr %call50, i64 16
   store i32 0, ptr %neg131, align 8
-  %neg149 = getelementptr inbounds %struct.bignum_st, ptr %p, i64 0, i32 3
+  %neg149 = getelementptr inbounds i8, ptr %p, i64 16
   br label %do.body
 
 do.body:                                          ; preds = %land.rhs, %if.end130
@@ -516,7 +514,7 @@ declare void @BN_CTX_end(ptr noundef) local_unnamed_addr #1
 ; Function Attrs: nounwind uwtable
 define hidden i32 @BN_sqrt(ptr noundef %out_sqrt, ptr noundef %in, ptr noundef %ctx) local_unnamed_addr #0 {
 entry:
-  %neg = getelementptr inbounds %struct.bignum_st, ptr %in, i64 0, i32 3
+  %neg = getelementptr inbounds i8, ptr %in, i64 16
   %0 = load i32, ptr %neg, align 8
   %tobool.not = icmp eq i32 %0, 0
   br i1 %tobool.not, label %if.end, label %if.then
@@ -599,7 +597,7 @@ if.then35:                                        ; preds = %if.end42, %lor.lhs.
   br label %if.end54
 
 if.end36:                                         ; preds = %lor.lhs.false32
-  %neg37 = getelementptr inbounds %struct.bignum_st, ptr %delta.044, i64 0, i32 3
+  %neg37 = getelementptr inbounds i8, ptr %delta.044, i64 16
   store i32 0, ptr %neg37, align 8
   br i1 %tobool38.not46, label %if.end42, label %land.lhs.true
 

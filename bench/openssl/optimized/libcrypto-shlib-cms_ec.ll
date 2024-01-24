@@ -3,15 +3,6 @@ source_filename = "bench/openssl/original/libcrypto-shlib-cms_ec.ll"
 target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:128-n8:16:32:64-S128"
 target triple = "x86_64-unknown-linux-gnu"
 
-%struct.asn1_string_st = type { i32, i32, ptr, i64 }
-%struct.X509_algor_st = type { ptr, ptr }
-%struct.asn1_type_st = type { i32, %union.anon }
-%union.anon = type { ptr }
-%struct.evp_pkey_ctx_st = type { i32, ptr, ptr, ptr, ptr, %union.anon.0, %struct.anon.5, ptr, ptr, ptr, i32, i32, ptr, ptr, ptr, ptr, ptr, i8, ptr }
-%union.anon.0 = type { %struct.anon.1 }
-%struct.anon.1 = type { ptr, ptr }
-%struct.anon.5 = type { ptr, ptr, i64, i8 }
-
 @.str = private unnamed_addr constant [31 x i8] c"../openssl/crypto/cms/cms_ec.c\00", align 1
 @__func__.ossl_cms_ecdh_envelope = private unnamed_addr constant [23 x i8] c"ossl_cms_ecdh_envelope\00", align 1
 @__func__.ecdh_cms_decrypt = private unnamed_addr constant [17 x i8] c"ecdh_cms_decrypt\00", align 1
@@ -123,7 +114,7 @@ if.else.i.i:                                      ; preds = %if.end.i.i
   ]
 
 if.then.i.i.i:                                    ; preds = %if.else.i.i
-  %data.i.i.i = getelementptr inbounds %struct.asn1_string_st, ptr %4, i64 0, i32 2
+  %data.i.i.i = getelementptr inbounds i8, ptr %4, i64 8
   %5 = load ptr, ptr %data.i.i.i, align 8
   store ptr %5, ptr %pm.i.i.i, align 8
   %6 = load i32, ptr %4, align 8
@@ -322,16 +313,16 @@ if.then4.i.i:                                     ; preds = %ecdh_cms_set_kdf_pa
 
 if.end5.i.i:                                      ; preds = %ecdh_cms_set_kdf_param.exit.i.i
   %12 = load ptr, ptr %alg.i.i, align 8
-  %parameter.i.i = getelementptr inbounds %struct.X509_algor_st, ptr %12, i64 0, i32 1
+  %parameter.i.i = getelementptr inbounds i8, ptr %12, i64 8
   %13 = load ptr, ptr %parameter.i.i, align 8
   %14 = load i32, ptr %13, align 8
   %cmp.not.i19.i = icmp eq i32 %14, 16
   br i1 %cmp.not.i19.i, label %if.end7.i20.i, label %ecdh_cms_set_shared_info.exit.thread.i
 
 if.end7.i20.i:                                    ; preds = %if.end5.i.i
-  %value.i.i = getelementptr inbounds %struct.asn1_type_st, ptr %13, i64 0, i32 1
+  %value.i.i = getelementptr inbounds i8, ptr %13, i64 8
   %15 = load ptr, ptr %value.i.i, align 8
-  %data.i.i = getelementptr inbounds %struct.asn1_string_st, ptr %15, i64 0, i32 2
+  %data.i.i = getelementptr inbounds i8, ptr %15, i64 8
   %16 = load ptr, ptr %data.i.i, align 8
   store ptr %16, ptr %p.i.i, align 8
   %17 = load i32, ptr %15, align 8
@@ -348,9 +339,9 @@ if.end15.i.i:                                     ; preds = %if.end7.i20.i
 if.end20.i.i:                                     ; preds = %if.end15.i.i
   %18 = load ptr, ptr %call11.i.i, align 8
   %call22.i23.i = call i32 @OBJ_obj2txt(ptr noundef nonnull %name.i.i, i32 noundef 50, ptr noundef %18, i32 noundef 0) #3
-  %libctx.i.i = getelementptr inbounds %struct.evp_pkey_ctx_st, ptr %call.i, i64 0, i32 1
+  %libctx.i.i = getelementptr inbounds i8, ptr %call.i, i64 8
   %19 = load ptr, ptr %libctx.i.i, align 8
-  %propquery.i.i = getelementptr inbounds %struct.evp_pkey_ctx_st, ptr %call.i, i64 0, i32 2
+  %propquery.i.i = getelementptr inbounds i8, ptr %call.i, i64 16
   %20 = load ptr, ptr %propquery.i.i, align 8
   %call24.i.i = call ptr @EVP_CIPHER_fetch(ptr noundef %19, ptr noundef nonnull %name.i.i, ptr noundef %20) #3
   %cmp25.i.i = icmp eq ptr %call24.i.i, null
@@ -367,7 +358,7 @@ if.end31.i.i:                                     ; preds = %lor.lhs.false.i.i
   br i1 %tobool33.not.i.i, label %if.then18.critedge.i, label %if.end35.i.i
 
 if.end35.i.i:                                     ; preds = %if.end31.i.i
-  %parameter36.i.i = getelementptr inbounds %struct.X509_algor_st, ptr %call11.i.i, i64 0, i32 1
+  %parameter36.i.i = getelementptr inbounds i8, ptr %call11.i.i, i64 8
   %21 = load ptr, ptr %parameter36.i.i, align 8
   %call37.i.i = call i32 @EVP_CIPHER_asn1_to_param(ptr noundef nonnull %call16.i22.i, ptr noundef %21) #3
   %cmp38.i.i = icmp slt i32 %call37.i.i, 1
@@ -548,7 +539,7 @@ if.end77.i:                                       ; preds = %if.end68.i
   %call78.i = call ptr @OBJ_nid2obj(i32 noundef %call71.i) #3
   store ptr %call78.i, ptr %call73.i, align 8
   %call79.i = call ptr @ASN1_TYPE_new() #3
-  %parameter.i = getelementptr inbounds %struct.X509_algor_st, ptr %call73.i, i64 0, i32 1
+  %parameter.i = getelementptr inbounds i8, ptr %call73.i, i64 8
   store ptr %call79.i, ptr %parameter.i, align 8
   %cmp81.i = icmp eq ptr %call79.i, null
   br i1 %cmp81.i, label %err.i, label %if.end84.i

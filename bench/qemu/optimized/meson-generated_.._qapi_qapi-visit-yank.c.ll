@@ -4,10 +4,6 @@ target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:
 target triple = "x86_64-unknown-linux-gnu"
 
 %struct.QEnumLookup = type { ptr, ptr, i32 }
-%struct.YankInstance = type { i32, %union.anon }
-%union.anon = type { %struct.YankInstanceBlockNode }
-%struct.YankInstanceBlockNode = type { ptr }
-%struct.YankInstanceList = type { ptr, ptr }
 
 @YankInstanceType_lookup = external constant %struct.QEnumLookup, align 8
 @.str = private unnamed_addr constant [10 x i8] c"node-name\00", align 1
@@ -45,7 +41,7 @@ entry:
 declare zeroext i1 @visit_type_str(ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local zeroext i1 @visit_type_YankInstanceBlockNode(ptr noundef %v, ptr noundef %name, ptr noundef %obj, ptr noundef %errp) local_unnamed_addr #0 {
+define dso_local noundef zeroext i1 @visit_type_YankInstanceBlockNode(ptr noundef %v, ptr noundef %name, ptr noundef %obj, ptr noundef %errp) local_unnamed_addr #0 {
 entry:
   %call = tail call zeroext i1 @visit_start_struct(ptr noundef %v, ptr noundef %name, ptr noundef %obj, i64 noundef 8, ptr noundef %errp) #4
   br i1 %call, label %if.end, label %return
@@ -118,7 +114,7 @@ entry:
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local zeroext i1 @visit_type_YankInstanceChardev(ptr noundef %v, ptr noundef %name, ptr noundef %obj, ptr noundef %errp) local_unnamed_addr #0 {
+define dso_local noundef zeroext i1 @visit_type_YankInstanceChardev(ptr noundef %v, ptr noundef %name, ptr noundef %obj, ptr noundef %errp) local_unnamed_addr #0 {
 entry:
   %call = tail call zeroext i1 @visit_start_struct(ptr noundef %v, ptr noundef %name, ptr noundef %obj, i64 noundef 8, ptr noundef %errp) #4
   br i1 %call, label %if.end, label %return
@@ -213,7 +209,7 @@ sw.default:                                       ; preds = %if.end
 
 return.sink.split:                                ; preds = %if.end, %sw.bb2
   %.str.3.sink = phi ptr [ @.str.3, %sw.bb2 ], [ @.str, %if.end ]
-  %u3 = getelementptr inbounds %struct.YankInstance, ptr %obj, i64 0, i32 1
+  %u3 = getelementptr inbounds i8, ptr %obj, i64 8
   %call.i8 = call zeroext i1 @visit_type_str(ptr noundef %v, ptr noundef nonnull %.str.3.sink, ptr noundef nonnull %u3, ptr noundef %errp) #4
   br label %return
 
@@ -226,7 +222,7 @@ return:                                           ; preds = %return.sink.split, 
 declare void @abort() local_unnamed_addr #2
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local zeroext i1 @visit_type_YankInstance(ptr noundef %v, ptr noundef %name, ptr noundef %obj, ptr noundef %errp) local_unnamed_addr #0 {
+define dso_local noundef zeroext i1 @visit_type_YankInstance(ptr noundef %v, ptr noundef %name, ptr noundef %obj, ptr noundef %errp) local_unnamed_addr #0 {
 entry:
   %value.i.i.i = alloca i32, align 4
   %call = tail call zeroext i1 @visit_start_struct(ptr noundef %v, ptr noundef %name, ptr noundef %obj, i64 noundef 16, ptr noundef %errp) #4
@@ -275,7 +271,7 @@ sw.default.i:                                     ; preds = %if.end.i
 
 visit_type_YankInstance_members.exit:             ; preds = %if.end.i, %sw.bb2.i
   %.str.3.sink.i = phi ptr [ @.str.3, %sw.bb2.i ], [ @.str, %if.end.i ]
-  %u3.i = getelementptr inbounds %struct.YankInstance, ptr %0, i64 0, i32 1
+  %u3.i = getelementptr inbounds i8, ptr %0, i64 8
   %call.i8.i = call zeroext i1 @visit_type_str(ptr noundef %v, ptr noundef nonnull %.str.3.sink.i, ptr noundef nonnull %u3.i, ptr noundef %errp) #4
   br i1 %call.i8.i, label %out_obj, label %out_obj.thread
 
@@ -306,7 +302,7 @@ return:                                           ; preds = %out_obj.thread19, %
 declare void @qapi_free_YankInstance(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local zeroext i1 @visit_type_YankInstanceList(ptr noundef %v, ptr noundef %name, ptr noundef %obj, ptr noundef %errp) local_unnamed_addr #0 {
+define dso_local noundef zeroext i1 @visit_type_YankInstanceList(ptr noundef %v, ptr noundef %name, ptr noundef %obj, ptr noundef %errp) local_unnamed_addr #0 {
 entry:
   %call = tail call zeroext i1 @visit_start_list(ptr noundef %v, ptr noundef %name, ptr noundef %obj, i64 noundef 16, ptr noundef %errp) #4
   br i1 %call, label %if.end, label %return
@@ -318,7 +314,7 @@ if.end:                                           ; preds = %entry
 
 for.body:                                         ; preds = %if.end, %for.inc
   %tail.019 = phi ptr [ %call4, %for.inc ], [ %0, %if.end ]
-  %value = getelementptr inbounds %struct.YankInstanceList, ptr %tail.019, i64 0, i32 1
+  %value = getelementptr inbounds i8, ptr %tail.019, i64 8
   %call1 = tail call zeroext i1 @visit_type_YankInstance(ptr noundef %v, ptr noundef null, ptr noundef nonnull %value, ptr noundef %errp)
   br i1 %call1, label %for.inc, label %out_obj.thread
 
@@ -362,7 +358,7 @@ declare void @visit_end_list(ptr noundef, ptr noundef) local_unnamed_addr #1
 declare void @qapi_free_YankInstanceList(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local zeroext i1 @visit_type_q_obj_yank_arg_members(ptr noundef %v, ptr noundef %obj, ptr noundef %errp) local_unnamed_addr #0 {
+define dso_local noundef zeroext i1 @visit_type_q_obj_yank_arg_members(ptr noundef %v, ptr noundef %obj, ptr noundef %errp) local_unnamed_addr #0 {
 entry:
   %call = tail call zeroext i1 @visit_type_YankInstanceList(ptr noundef %v, ptr noundef nonnull @.str.5, ptr noundef %obj, ptr noundef %errp)
   ret i1 %call

@@ -86,16 +86,16 @@ lor.lhs.false3:                                   ; preds = %lor.lhs.false
   br i1 %cmp5, label %return, label %if.end
 
 if.end:                                           ; preds = %lor.lhs.false3
-  %arrayidx1.i = getelementptr inbounds i64, ptr %one_minus_y, i64 1
-  %Y = getelementptr inbounds %struct.ge25519_p3, ptr %A, i64 0, i32 1
+  %arrayidx1.i = getelementptr inbounds i8, ptr %one_minus_y, i64 8
+  %Y = getelementptr inbounds i8, ptr %A, i64 40
   %0 = load i64, ptr %Y, align 8
-  %arrayidx1.i1 = getelementptr inbounds %struct.ge25519_p3, ptr %A, i64 0, i32 1, i64 1
+  %arrayidx1.i1 = getelementptr inbounds i8, ptr %A, i64 48
   %1 = load i64, ptr %arrayidx1.i1, align 8
-  %arrayidx2.i = getelementptr inbounds %struct.ge25519_p3, ptr %A, i64 0, i32 1, i64 2
+  %arrayidx2.i = getelementptr inbounds i8, ptr %A, i64 56
   %2 = load i64, ptr %arrayidx2.i, align 8
-  %arrayidx3.i = getelementptr inbounds %struct.ge25519_p3, ptr %A, i64 0, i32 1, i64 3
+  %arrayidx3.i = getelementptr inbounds i8, ptr %A, i64 64
   %3 = load i64, ptr %arrayidx3.i, align 8
-  %arrayidx4.i = getelementptr inbounds %struct.ge25519_p3, ptr %A, i64 0, i32 1, i64 4
+  %arrayidx4.i = getelementptr inbounds i8, ptr %A, i64 72
   %4 = load i64, ptr %arrayidx4.i, align 8
   %shr.i = lshr i64 %0, 51
   %add.i = add i64 %1, %shr.i
@@ -115,21 +115,21 @@ if.end:                                           ; preds = %lor.lhs.false3
   %reass.sub16 = sub nsw i64 %mul.neg.i, %and.i
   %sub.i = add nsw i64 %reass.sub16, 4503599627370459
   %sub21.i = sub nuw nsw i64 4503599627370494, %and7.i
-  %arrayidx22.i = getelementptr inbounds i64, ptr %one_minus_y, i64 2
+  %arrayidx22.i = getelementptr inbounds i8, ptr %one_minus_y, i64 16
   %sub24.i = sub nuw nsw i64 4503599627370494, %and10.i
-  %arrayidx25.i = getelementptr inbounds i64, ptr %one_minus_y, i64 3
+  %arrayidx25.i = getelementptr inbounds i8, ptr %one_minus_y, i64 24
   %sub27.i = sub nuw nsw i64 4503599627370494, %and13.i
-  %arrayidx28.i = getelementptr inbounds i64, ptr %one_minus_y, i64 4
+  %arrayidx28.i = getelementptr inbounds i8, ptr %one_minus_y, i64 32
   %sub30.i = sub nuw nsw i64 4503599627370494, %and16.i
   store i64 %sub.i, ptr %one_minus_y, align 16
   store i64 %sub21.i, ptr %arrayidx1.i, align 8
   store i64 %sub24.i, ptr %arrayidx22.i, align 16
   store i64 %sub27.i, ptr %arrayidx25.i, align 8
   store i64 %sub30.i, ptr %arrayidx28.i, align 16
-  %arrayidx1.i2 = getelementptr inbounds i64, ptr %x, i64 1
+  %arrayidx1.i2 = getelementptr inbounds i8, ptr %x, i64 8
   %add.i3 = add i64 %0, 1
-  %arrayidx5.i = getelementptr inbounds i64, ptr %x, i64 2
-  %arrayidx8.i = getelementptr inbounds i64, ptr %x, i64 3
+  %arrayidx5.i = getelementptr inbounds i8, ptr %x, i64 16
+  %arrayidx8.i = getelementptr inbounds i8, ptr %x, i64 24
   call void @_sodium_fe25519_invert(ptr noundef nonnull %one_minus_y, ptr noundef nonnull %one_minus_y) #4
   %conv.i = zext i64 %add.i3 to i128
   %conv2.i = zext i64 %1 to i128
@@ -257,7 +257,7 @@ entry:
   %0 = load i8, ptr %h, align 16
   %1 = and i8 %0, -8
   store i8 %1, ptr %h, align 16
-  %arrayidx2 = getelementptr inbounds [64 x i8], ptr %h, i64 0, i64 31
+  %arrayidx2 = getelementptr inbounds i8, ptr %h, i64 31
   %2 = load i8, ptr %arrayidx2, align 1
   %3 = and i8 %2, 63
   %4 = or disjoint i8 %3, 64

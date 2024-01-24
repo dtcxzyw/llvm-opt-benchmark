@@ -4,8 +4,6 @@ target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:
 target triple = "x86_64-unknown-linux-gnu"
 
 %"class.std::ios_base::Init" = type { i8 }
-%"class.cvc5::internal::AssumptionProofGenerator" = type { %"class.cvc5::internal::ProofGenerator", ptr }
-%"class.cvc5::internal::ProofGenerator" = type { ptr }
 %"class.std::shared_ptr" = type { %"class.std::__shared_ptr" }
 %"class.std::__shared_ptr" = type { ptr, %"class.std::__shared_count" }
 %"class.std::__shared_count" = type { ptr }
@@ -55,7 +53,7 @@ define hidden void @_ZN4cvc58internal24AssumptionProofGeneratorC2EPNS0_16ProofNo
 entry:
   tail call void @_ZN4cvc58internal14ProofGeneratorC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this)
   store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTVN4cvc58internal24AssumptionProofGeneratorE, i64 0, inrange i32 0, i64 2), ptr %this, align 8
-  %d_pnm = getelementptr inbounds %"class.cvc5::internal::AssumptionProofGenerator", ptr %this, i64 0, i32 1
+  %d_pnm = getelementptr inbounds i8, ptr %this, i64 8
   store ptr %pnm, ptr %d_pnm, align 8
   ret void
 }
@@ -66,7 +64,7 @@ declare void @_ZN4cvc58internal14ProofGeneratorC2Ev(ptr noundef nonnull align 8 
 define hidden void @_ZN4cvc58internal24AssumptionProofGenerator11getProofForENS0_12NodeTemplateILb1EEE(ptr noalias sret(%"class.std::shared_ptr") align 8 %agg.result, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %this, ptr nocapture noundef readonly %f) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %agg.tmp = alloca %"class.cvc5::internal::NodeTemplate", align 8
-  %d_pnm = getelementptr inbounds %"class.cvc5::internal::AssumptionProofGenerator", ptr %this, i64 0, i32 1
+  %d_pnm = getelementptr inbounds i8, ptr %this, i64 8
   %0 = load ptr, ptr %d_pnm, align 8
   %1 = load ptr, ptr %f, align 8
   store ptr %1, ptr %agg.tmp, align 8

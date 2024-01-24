@@ -3,7 +3,6 @@ source_filename = "bench/libquic/original/a_bytes.c.ll"
 target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:128-n8:16:32:64-S128"
 target triple = "x86_64-unknown-linux-gnu"
 
-%struct.asn1_string_st = type { i32, i32, ptr, i64 }
 %struct.buf_mem_st = type { i64, ptr, i64 }
 %struct.asn1_const_ctx_st = type { ptr, i32, i32, i32, i32, i32, i64, ptr, ptr, ptr, i32 }
 
@@ -84,7 +83,7 @@ if.end33:                                         ; preds = %if.then26
 
 if.end37:                                         ; preds = %if.end23, %if.end33
   %s.0 = phi ptr [ %call29, %if.end33 ], [ null, %if.end23 ]
-  %data = getelementptr inbounds %struct.asn1_string_st, ptr %ret.0, i64 0, i32 2
+  %data = getelementptr inbounds i8, ptr %ret.0, i64 8
   %6 = load ptr, ptr %data, align 8
   %cmp38.not = icmp eq ptr %6, null
   br i1 %cmp38.not, label %if.end42, label %if.then40
@@ -100,7 +99,7 @@ if.end42:                                         ; preds = %if.then40, %if.end3
   store i32 %conv43, ptr %ret.0, align 8
   store ptr %s.0, ptr %data, align 8
   %8 = load i32, ptr %tag, align 4
-  %type46 = getelementptr inbounds %struct.asn1_string_st, ptr %ret.0, i64 0, i32 1
+  %type46 = getelementptr inbounds i8, ptr %ret.0, i64 4
   store i32 %8, ptr %type46, align 4
   br i1 %cmp13, label %if.end50, label %if.then49
 
@@ -186,7 +185,7 @@ if.end7:                                          ; preds = %if.end3
   %. = zext i1 %or.cond to i32
   call void @ASN1_put_object(ptr noundef nonnull %p, i32 noundef %., i32 noundef %0, i32 noundef %tag, i32 noundef %xclass) #7
   %3 = load ptr, ptr %p, align 8
-  %data = getelementptr inbounds %struct.asn1_string_st, ptr %a, i64 0, i32 2
+  %data = getelementptr inbounds i8, ptr %a, i64 8
   %4 = load ptr, ptr %data, align 8
   %5 = load i32, ptr %a, align 8
   %conv = sext i32 %5 to i64
@@ -252,30 +251,30 @@ if.end10:                                         ; preds = %if.end7
   br i1 %tobool12.not, label %if.else26, label %if.then13
 
 if.then13:                                        ; preds = %if.end10
-  %pp14 = getelementptr inbounds %struct.asn1_const_ctx_st, ptr %c, i64 0, i32 9
+  %pp14 = getelementptr inbounds i8, ptr %c, i64 56
   store ptr %pp, ptr %pp14, align 8
   %3 = load ptr, ptr %p, align 8
   store ptr %3, ptr %c, align 8
-  %inf16 = getelementptr inbounds %struct.asn1_const_ctx_st, ptr %c, i64 0, i32 3
+  %inf16 = getelementptr inbounds i8, ptr %c, i64 16
   store i32 %call5, ptr %inf16, align 8
   %4 = load i64, ptr %len, align 8
-  %slen = getelementptr inbounds %struct.asn1_const_ctx_st, ptr %c, i64 0, i32 6
+  %slen = getelementptr inbounds i8, ptr %c, i64 32
   store i64 %4, ptr %slen, align 8
-  %tag17 = getelementptr inbounds %struct.asn1_const_ctx_st, ptr %c, i64 0, i32 4
+  %tag17 = getelementptr inbounds i8, ptr %c, i64 20
   store i32 %Ptag, ptr %tag17, align 4
-  %xclass18 = getelementptr inbounds %struct.asn1_const_ctx_st, ptr %c, i64 0, i32 5
+  %xclass18 = getelementptr inbounds i8, ptr %c, i64 24
   store i32 %Pclass, ptr %xclass18, align 8
   %cmp19 = icmp eq i64 %length, 0
   %add.ptr = getelementptr inbounds i8, ptr %3, i64 %length
   %cond = select i1 %cmp19, ptr null, ptr %add.ptr
-  %max = getelementptr inbounds %struct.asn1_const_ctx_st, ptr %c, i64 0, i32 7
+  %max = getelementptr inbounds i8, ptr %c, i64 40
   store ptr %cond, ptr %max, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %os.i)
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %b.i)
   store ptr null, ptr %os.i, align 8
-  %data.i = getelementptr inbounds %struct.buf_mem_st, ptr %b.i, i64 0, i32 1
-  %eos.i = getelementptr inbounds %struct.asn1_const_ctx_st, ptr %c, i64 0, i32 1
-  %q.i = getelementptr inbounds %struct.asn1_const_ctx_st, ptr %c, i64 0, i32 8
+  %data.i = getelementptr inbounds i8, ptr %b.i, i64 8
+  %eos.i = getelementptr inbounds i8, ptr %c, i64 8
+  %q.i = getelementptr inbounds i8, ptr %c, i64 48
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %b.i, i8 0, i64 24, i1 false)
   br label %for.cond.i
 
@@ -316,7 +315,7 @@ if.end11.i:                                       ; preds = %if.else.i, %if.then
   br i1 %cmp20.i, label %if.then21.i, label %if.end23.i
 
 if.then21.i:                                      ; preds = %if.end11.i
-  %error22.i = getelementptr inbounds %struct.asn1_const_ctx_st, ptr %c, i64 0, i32 2
+  %error22.i = getelementptr inbounds i8, ptr %c, i64 12
   store i32 12, ptr %error22.i, align 4
   br label %err.i
 
@@ -330,7 +329,7 @@ if.end23.i:                                       ; preds = %if.end11.i
   br i1 %tobool26.not.i, label %if.then27.i, label %if.end29.i
 
 if.then27.i:                                      ; preds = %if.end23.i
-  %error28.i = getelementptr inbounds %struct.asn1_const_ctx_st, ptr %c, i64 0, i32 2
+  %error28.i = getelementptr inbounds i8, ptr %c, i64 12
   store i32 7, ptr %error28.i, align 4
   br label %err.i
 
@@ -339,7 +338,7 @@ if.end29.i:                                       ; preds = %if.end23.i
   %idxprom.i = sext i32 %num.0.i to i64
   %arrayidx.i = getelementptr inbounds i8, ptr %15, i64 %idxprom.i
   %16 = load ptr, ptr %os.i, align 8
-  %data31.i = getelementptr inbounds %struct.asn1_string_st, ptr %16, i64 0, i32 2
+  %data31.i = getelementptr inbounds i8, ptr %16, i64 8
   %17 = load ptr, ptr %data31.i, align 8
   %18 = load i32, ptr %16, align 8
   %conv33.i = sext i32 %18 to i64
@@ -372,13 +371,13 @@ for.end.i:                                        ; preds = %if.else.i, %if.then
   br i1 %tobool48.not.i, label %for.end.i.err.i_crit_edge, label %if.end50.i
 
 for.end.i.err.i_crit_edge:                        ; preds = %for.end.i
-  %error64.i.phi.trans.insert = getelementptr inbounds %struct.asn1_const_ctx_st, ptr %c, i64 0, i32 2
+  %error64.i.phi.trans.insert = getelementptr inbounds i8, ptr %c, i64 12
   %.pre = load i32, ptr %error64.i.phi.trans.insert, align 4
   br label %err.i
 
 if.end50.i:                                       ; preds = %for.end.i
   store i32 %num.0.i, ptr %ret.0, align 8
-  %data52.i = getelementptr inbounds %struct.asn1_string_st, ptr %ret.0, i64 0, i32 2
+  %data52.i = getelementptr inbounds i8, ptr %ret.0, i64 8
   %25 = load ptr, ptr %data52.i, align 8
   %cmp53.not.i = icmp eq ptr %25, null
   br i1 %cmp53.not.i, label %if.end57.i, label %if.then55.i
@@ -439,7 +438,7 @@ if.then28:                                        ; preds = %if.else26
   %33 = load i32, ptr %ret.0, align 8
   %conv = sext i32 %33 to i64
   %cmp30 = icmp sgt i64 %32, %conv
-  %data36.phi.trans.insert = getelementptr inbounds %struct.asn1_string_st, ptr %ret.0, i64 0, i32 2
+  %data36.phi.trans.insert = getelementptr inbounds i8, ptr %ret.0, i64 8
   %.pre44 = load ptr, ptr %data36.phi.trans.insert, align 8
   %cmp37.not = icmp eq ptr %.pre44, null
   br i1 %cmp30, label %if.then35, label %lor.lhs.false32
@@ -484,7 +483,7 @@ if.end51:                                         ; preds = %lor.lhs.false32.if.
   br label %if.end62
 
 if.else55:                                        ; preds = %if.else26
-  %data56 = getelementptr inbounds %struct.asn1_string_st, ptr %ret.0, i64 0, i32 2
+  %data56 = getelementptr inbounds i8, ptr %ret.0, i64 8
   %39 = load ptr, ptr %data56, align 8
   %cmp57.not = icmp eq ptr %39, null
   br i1 %cmp57.not, label %if.end62, label %if.then59
@@ -499,9 +498,9 @@ if.end62:                                         ; preds = %if.else55, %if.then
   %s.1 = phi ptr [ %s.0, %if.end51 ], [ null, %if.then59 ], [ null, %if.else55 ]
   %conv63 = trunc i64 %40 to i32
   store i32 %conv63, ptr %ret.0, align 8
-  %data65 = getelementptr inbounds %struct.asn1_string_st, ptr %ret.0, i64 0, i32 2
+  %data65 = getelementptr inbounds i8, ptr %ret.0, i64 8
   store ptr %s.1, ptr %data65, align 8
-  %type = getelementptr inbounds %struct.asn1_string_st, ptr %ret.0, i64 0, i32 1
+  %type = getelementptr inbounds i8, ptr %ret.0, i64 4
   store i32 %Ptag, ptr %type, align 4
   br label %if.end66
 

@@ -4,9 +4,6 @@ target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:
 target triple = "x86_64-unknown-linux-gnu"
 
 %"class.std::ios_base::Init" = type { i8 }
-%"class.Imf_3_2::TypedAttribute" = type <{ %"class.Imf_3_2::Attribute", %"class.Imf_3_2::KeyCode", [4 x i8] }>
-%"class.Imf_3_2::Attribute" = type { ptr }
-%"class.Imf_3_2::KeyCode" = type { i32, i32, i32, i32, i32, i32, i32 }
 
 $_ZN7Imf_3_214TypedAttributeINS_7KeyCodeEEC5ERKS1_ = comdat any
 
@@ -70,7 +67,7 @@ define weak_odr void @_ZN7Imf_3_214TypedAttributeINS_7KeyCodeEEC2ERKS1_(ptr noun
 entry:
   tail call void @_ZN7Imf_3_29AttributeC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this)
   store ptr getelementptr inbounds ({ [9 x ptr] }, ptr @_ZTVN7Imf_3_214TypedAttributeINS_7KeyCodeEEE, i64 0, inrange i32 0, i64 2), ptr %this, align 8
-  %_value = getelementptr inbounds %"class.Imf_3_2::TypedAttribute", ptr %this, i64 0, i32 1
+  %_value = getelementptr inbounds i8, ptr %this, i64 8
   invoke void @_ZN7Imf_3_27KeyCodeC1ERKS0_(ptr noundef nonnull align 4 dereferenceable(28) %_value, ptr noundef nonnull align 4 dereferenceable(28) %value)
           to label %invoke.cont unwind label %lpad
 
@@ -114,14 +111,14 @@ declare void @_ZdlPv(ptr noundef) local_unnamed_addr #5
 ; Function Attrs: mustprogress nounwind uwtable
 define weak_odr noundef nonnull align 4 dereferenceable(28) ptr @_ZN7Imf_3_214TypedAttributeINS_7KeyCodeEE5valueEv(ptr noundef nonnull align 8 dereferenceable(36) %this) local_unnamed_addr #4 comdat align 2 {
 entry:
-  %_value = getelementptr inbounds %"class.Imf_3_2::TypedAttribute", ptr %this, i64 0, i32 1
+  %_value = getelementptr inbounds i8, ptr %this, i64 8
   ret ptr %_value
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
 define weak_odr noundef nonnull align 4 dereferenceable(28) ptr @_ZNK7Imf_3_214TypedAttributeINS_7KeyCodeEE5valueEv(ptr noundef nonnull align 8 dereferenceable(36) %this) local_unnamed_addr #4 comdat align 2 {
 entry:
-  %_value = getelementptr inbounds %"class.Imf_3_2::TypedAttribute", ptr %this, i64 0, i32 1
+  %_value = getelementptr inbounds i8, ptr %this, i64 8
   ret ptr %_value
 }
 
@@ -147,7 +144,7 @@ entry:
 
 .noexc:                                           ; preds = %entry
   store ptr getelementptr inbounds ({ [9 x ptr] }, ptr @_ZTVN7Imf_3_214TypedAttributeINS_7KeyCodeEEE, i64 0, inrange i32 0, i64 2), ptr %call, align 8
-  %_value.i = getelementptr inbounds %"class.Imf_3_2::TypedAttribute", ptr %call, i64 0, i32 1
+  %_value.i = getelementptr inbounds i8, ptr %call, i64 8
   invoke void @_ZN7Imf_3_27KeyCodeC1Eiiiiiii(ptr noundef nonnull align 4 dereferenceable(28) %_value.i, i32 noundef 0, i32 noundef 0, i32 noundef 0, i32 noundef 0, i32 noundef 0, i32 noundef 4, i32 noundef 64)
           to label %invoke.cont unwind label %lpad.i
 
@@ -187,7 +184,7 @@ entry:
 
 .noexc:                                           ; preds = %entry
   store ptr getelementptr inbounds ({ [9 x ptr] }, ptr @_ZTVN7Imf_3_214TypedAttributeINS_7KeyCodeEEE, i64 0, inrange i32 0, i64 2), ptr %call, align 8
-  %_value.i = getelementptr inbounds %"class.Imf_3_2::TypedAttribute", ptr %call, i64 0, i32 1
+  %_value.i = getelementptr inbounds i8, ptr %call, i64 8
   invoke void @_ZN7Imf_3_27KeyCodeC1Eiiiiiii(ptr noundef nonnull align 4 dereferenceable(28) %_value.i, i32 noundef 0, i32 noundef 0, i32 noundef 0, i32 noundef 0, i32 noundef 0, i32 noundef 4, i32 noundef 64)
           to label %invoke.cont unwind label %lpad.i
 
@@ -199,7 +196,7 @@ lpad.i:                                           ; preds = %.noexc
 
 invoke.cont:                                      ; preds = %.noexc
   %vtable = load ptr, ptr %call, align 8
-  %vfn = getelementptr inbounds ptr, ptr %vtable, i64 6
+  %vfn = getelementptr inbounds i8, ptr %vtable, i64 48
   %1 = load ptr, ptr %vfn, align 8
   tail call void %1(ptr noundef nonnull align 8 dereferenceable(8) %call, ptr noundef nonnull align 8 dereferenceable(8) %this)
   ret ptr %call
@@ -238,8 +235,8 @@ lpad.i.i:                                         ; preds = %if.then.i.i
   resume { ptr, i32 } %1
 
 _ZN7Imf_3_214TypedAttributeINS_7KeyCodeEE4castERKNS_9AttributeE.exit: ; preds = %entry
-  %_value = getelementptr inbounds %"class.Imf_3_2::TypedAttribute", ptr %0, i64 0, i32 1
-  %_value2 = getelementptr inbounds %"class.Imf_3_2::TypedAttribute", ptr %this, i64 0, i32 1
+  %_value = getelementptr inbounds i8, ptr %0, i64 8
+  %_value2 = getelementptr inbounds i8, ptr %this, i64 8
   %call3 = tail call noundef nonnull align 4 dereferenceable(28) ptr @_ZN7Imf_3_27KeyCodeaSERKS0_(ptr noundef nonnull align 4 dereferenceable(28) %_value2, ptr noundef nonnull align 4 dereferenceable(28) %_value)
   ret void
 }
@@ -400,25 +397,25 @@ entry:
   %b.i20 = alloca [4 x i8], align 1
   %b.i7 = alloca [4 x i8], align 1
   %b.i = alloca [4 x i8], align 1
-  %_value = getelementptr inbounds %"class.Imf_3_2::TypedAttribute", ptr %this, i64 0, i32 1
+  %_value = getelementptr inbounds i8, ptr %this, i64 8
   %call = tail call noundef i32 @_ZNK7Imf_3_27KeyCode11filmMfcCodeEv(ptr noundef nonnull align 4 dereferenceable(28) %_value)
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %b.i)
   %conv.i = trunc i32 %call to i8
   store i8 %conv.i, ptr %b.i, align 1
   %shr.i = lshr i32 %call, 8
   %conv1.i = trunc i32 %shr.i to i8
-  %arrayidx2.i = getelementptr inbounds [4 x i8], ptr %b.i, i64 0, i64 1
+  %arrayidx2.i = getelementptr inbounds i8, ptr %b.i, i64 1
   store i8 %conv1.i, ptr %arrayidx2.i, align 1
   %shr3.i = lshr i32 %call, 16
   %conv4.i = trunc i32 %shr3.i to i8
-  %arrayidx5.i = getelementptr inbounds [4 x i8], ptr %b.i, i64 0, i64 2
+  %arrayidx5.i = getelementptr inbounds i8, ptr %b.i, i64 2
   store i8 %conv4.i, ptr %arrayidx5.i, align 1
   %shr6.i = lshr i32 %call, 24
   %conv7.i = trunc i32 %shr6.i to i8
-  %arrayidx8.i = getelementptr inbounds [4 x i8], ptr %b.i, i64 0, i64 3
+  %arrayidx8.i = getelementptr inbounds i8, ptr %b.i, i64 3
   store i8 %conv7.i, ptr %arrayidx8.i, align 1
   %vtable.i.i.i = load ptr, ptr %os, align 8
-  %vfn.i.i.i = getelementptr inbounds ptr, ptr %vtable.i.i.i, i64 2
+  %vfn.i.i.i = getelementptr inbounds i8, ptr %vtable.i.i.i, i64 16
   %0 = load ptr, ptr %vfn.i.i.i, align 8
   call void %0(ptr noundef nonnull align 8 dereferenceable(40) %os, ptr noundef nonnull %b.i, i32 noundef 4)
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %b.i)
@@ -428,18 +425,18 @@ entry:
   store i8 %conv.i8, ptr %b.i7, align 1
   %shr.i9 = lshr i32 %call3, 8
   %conv1.i10 = trunc i32 %shr.i9 to i8
-  %arrayidx2.i11 = getelementptr inbounds [4 x i8], ptr %b.i7, i64 0, i64 1
+  %arrayidx2.i11 = getelementptr inbounds i8, ptr %b.i7, i64 1
   store i8 %conv1.i10, ptr %arrayidx2.i11, align 1
   %shr3.i12 = lshr i32 %call3, 16
   %conv4.i13 = trunc i32 %shr3.i12 to i8
-  %arrayidx5.i14 = getelementptr inbounds [4 x i8], ptr %b.i7, i64 0, i64 2
+  %arrayidx5.i14 = getelementptr inbounds i8, ptr %b.i7, i64 2
   store i8 %conv4.i13, ptr %arrayidx5.i14, align 1
   %shr6.i15 = lshr i32 %call3, 24
   %conv7.i16 = trunc i32 %shr6.i15 to i8
-  %arrayidx8.i17 = getelementptr inbounds [4 x i8], ptr %b.i7, i64 0, i64 3
+  %arrayidx8.i17 = getelementptr inbounds i8, ptr %b.i7, i64 3
   store i8 %conv7.i16, ptr %arrayidx8.i17, align 1
   %vtable.i.i.i18 = load ptr, ptr %os, align 8
-  %vfn.i.i.i19 = getelementptr inbounds ptr, ptr %vtable.i.i.i18, i64 2
+  %vfn.i.i.i19 = getelementptr inbounds i8, ptr %vtable.i.i.i18, i64 16
   %1 = load ptr, ptr %vfn.i.i.i19, align 8
   call void %1(ptr noundef nonnull align 8 dereferenceable(40) %os, ptr noundef nonnull %b.i7, i32 noundef 4)
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %b.i7)
@@ -449,18 +446,18 @@ entry:
   store i8 %conv.i21, ptr %b.i20, align 1
   %shr.i22 = lshr i32 %call5, 8
   %conv1.i23 = trunc i32 %shr.i22 to i8
-  %arrayidx2.i24 = getelementptr inbounds [4 x i8], ptr %b.i20, i64 0, i64 1
+  %arrayidx2.i24 = getelementptr inbounds i8, ptr %b.i20, i64 1
   store i8 %conv1.i23, ptr %arrayidx2.i24, align 1
   %shr3.i25 = lshr i32 %call5, 16
   %conv4.i26 = trunc i32 %shr3.i25 to i8
-  %arrayidx5.i27 = getelementptr inbounds [4 x i8], ptr %b.i20, i64 0, i64 2
+  %arrayidx5.i27 = getelementptr inbounds i8, ptr %b.i20, i64 2
   store i8 %conv4.i26, ptr %arrayidx5.i27, align 1
   %shr6.i28 = lshr i32 %call5, 24
   %conv7.i29 = trunc i32 %shr6.i28 to i8
-  %arrayidx8.i30 = getelementptr inbounds [4 x i8], ptr %b.i20, i64 0, i64 3
+  %arrayidx8.i30 = getelementptr inbounds i8, ptr %b.i20, i64 3
   store i8 %conv7.i29, ptr %arrayidx8.i30, align 1
   %vtable.i.i.i31 = load ptr, ptr %os, align 8
-  %vfn.i.i.i32 = getelementptr inbounds ptr, ptr %vtable.i.i.i31, i64 2
+  %vfn.i.i.i32 = getelementptr inbounds i8, ptr %vtable.i.i.i31, i64 16
   %2 = load ptr, ptr %vfn.i.i.i32, align 8
   call void %2(ptr noundef nonnull align 8 dereferenceable(40) %os, ptr noundef nonnull %b.i20, i32 noundef 4)
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %b.i20)
@@ -470,18 +467,18 @@ entry:
   store i8 %conv.i34, ptr %b.i33, align 1
   %shr.i35 = lshr i32 %call7, 8
   %conv1.i36 = trunc i32 %shr.i35 to i8
-  %arrayidx2.i37 = getelementptr inbounds [4 x i8], ptr %b.i33, i64 0, i64 1
+  %arrayidx2.i37 = getelementptr inbounds i8, ptr %b.i33, i64 1
   store i8 %conv1.i36, ptr %arrayidx2.i37, align 1
   %shr3.i38 = lshr i32 %call7, 16
   %conv4.i39 = trunc i32 %shr3.i38 to i8
-  %arrayidx5.i40 = getelementptr inbounds [4 x i8], ptr %b.i33, i64 0, i64 2
+  %arrayidx5.i40 = getelementptr inbounds i8, ptr %b.i33, i64 2
   store i8 %conv4.i39, ptr %arrayidx5.i40, align 1
   %shr6.i41 = lshr i32 %call7, 24
   %conv7.i42 = trunc i32 %shr6.i41 to i8
-  %arrayidx8.i43 = getelementptr inbounds [4 x i8], ptr %b.i33, i64 0, i64 3
+  %arrayidx8.i43 = getelementptr inbounds i8, ptr %b.i33, i64 3
   store i8 %conv7.i42, ptr %arrayidx8.i43, align 1
   %vtable.i.i.i44 = load ptr, ptr %os, align 8
-  %vfn.i.i.i45 = getelementptr inbounds ptr, ptr %vtable.i.i.i44, i64 2
+  %vfn.i.i.i45 = getelementptr inbounds i8, ptr %vtable.i.i.i44, i64 16
   %3 = load ptr, ptr %vfn.i.i.i45, align 8
   call void %3(ptr noundef nonnull align 8 dereferenceable(40) %os, ptr noundef nonnull %b.i33, i32 noundef 4)
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %b.i33)
@@ -491,18 +488,18 @@ entry:
   store i8 %conv.i47, ptr %b.i46, align 1
   %shr.i48 = lshr i32 %call9, 8
   %conv1.i49 = trunc i32 %shr.i48 to i8
-  %arrayidx2.i50 = getelementptr inbounds [4 x i8], ptr %b.i46, i64 0, i64 1
+  %arrayidx2.i50 = getelementptr inbounds i8, ptr %b.i46, i64 1
   store i8 %conv1.i49, ptr %arrayidx2.i50, align 1
   %shr3.i51 = lshr i32 %call9, 16
   %conv4.i52 = trunc i32 %shr3.i51 to i8
-  %arrayidx5.i53 = getelementptr inbounds [4 x i8], ptr %b.i46, i64 0, i64 2
+  %arrayidx5.i53 = getelementptr inbounds i8, ptr %b.i46, i64 2
   store i8 %conv4.i52, ptr %arrayidx5.i53, align 1
   %shr6.i54 = lshr i32 %call9, 24
   %conv7.i55 = trunc i32 %shr6.i54 to i8
-  %arrayidx8.i56 = getelementptr inbounds [4 x i8], ptr %b.i46, i64 0, i64 3
+  %arrayidx8.i56 = getelementptr inbounds i8, ptr %b.i46, i64 3
   store i8 %conv7.i55, ptr %arrayidx8.i56, align 1
   %vtable.i.i.i57 = load ptr, ptr %os, align 8
-  %vfn.i.i.i58 = getelementptr inbounds ptr, ptr %vtable.i.i.i57, i64 2
+  %vfn.i.i.i58 = getelementptr inbounds i8, ptr %vtable.i.i.i57, i64 16
   %4 = load ptr, ptr %vfn.i.i.i58, align 8
   call void %4(ptr noundef nonnull align 8 dereferenceable(40) %os, ptr noundef nonnull %b.i46, i32 noundef 4)
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %b.i46)
@@ -512,18 +509,18 @@ entry:
   store i8 %conv.i60, ptr %b.i59, align 1
   %shr.i61 = lshr i32 %call11, 8
   %conv1.i62 = trunc i32 %shr.i61 to i8
-  %arrayidx2.i63 = getelementptr inbounds [4 x i8], ptr %b.i59, i64 0, i64 1
+  %arrayidx2.i63 = getelementptr inbounds i8, ptr %b.i59, i64 1
   store i8 %conv1.i62, ptr %arrayidx2.i63, align 1
   %shr3.i64 = lshr i32 %call11, 16
   %conv4.i65 = trunc i32 %shr3.i64 to i8
-  %arrayidx5.i66 = getelementptr inbounds [4 x i8], ptr %b.i59, i64 0, i64 2
+  %arrayidx5.i66 = getelementptr inbounds i8, ptr %b.i59, i64 2
   store i8 %conv4.i65, ptr %arrayidx5.i66, align 1
   %shr6.i67 = lshr i32 %call11, 24
   %conv7.i68 = trunc i32 %shr6.i67 to i8
-  %arrayidx8.i69 = getelementptr inbounds [4 x i8], ptr %b.i59, i64 0, i64 3
+  %arrayidx8.i69 = getelementptr inbounds i8, ptr %b.i59, i64 3
   store i8 %conv7.i68, ptr %arrayidx8.i69, align 1
   %vtable.i.i.i70 = load ptr, ptr %os, align 8
-  %vfn.i.i.i71 = getelementptr inbounds ptr, ptr %vtable.i.i.i70, i64 2
+  %vfn.i.i.i71 = getelementptr inbounds i8, ptr %vtable.i.i.i70, i64 16
   %5 = load ptr, ptr %vfn.i.i.i71, align 8
   call void %5(ptr noundef nonnull align 8 dereferenceable(40) %os, ptr noundef nonnull %b.i59, i32 noundef 4)
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %b.i59)
@@ -533,18 +530,18 @@ entry:
   store i8 %conv.i73, ptr %b.i72, align 1
   %shr.i74 = lshr i32 %call13, 8
   %conv1.i75 = trunc i32 %shr.i74 to i8
-  %arrayidx2.i76 = getelementptr inbounds [4 x i8], ptr %b.i72, i64 0, i64 1
+  %arrayidx2.i76 = getelementptr inbounds i8, ptr %b.i72, i64 1
   store i8 %conv1.i75, ptr %arrayidx2.i76, align 1
   %shr3.i77 = lshr i32 %call13, 16
   %conv4.i78 = trunc i32 %shr3.i77 to i8
-  %arrayidx5.i79 = getelementptr inbounds [4 x i8], ptr %b.i72, i64 0, i64 2
+  %arrayidx5.i79 = getelementptr inbounds i8, ptr %b.i72, i64 2
   store i8 %conv4.i78, ptr %arrayidx5.i79, align 1
   %shr6.i80 = lshr i32 %call13, 24
   %conv7.i81 = trunc i32 %shr6.i80 to i8
-  %arrayidx8.i82 = getelementptr inbounds [4 x i8], ptr %b.i72, i64 0, i64 3
+  %arrayidx8.i82 = getelementptr inbounds i8, ptr %b.i72, i64 3
   store i8 %conv7.i81, ptr %arrayidx8.i82, align 1
   %vtable.i.i.i83 = load ptr, ptr %os, align 8
-  %vfn.i.i.i84 = getelementptr inbounds ptr, ptr %vtable.i.i.i83, i64 2
+  %vfn.i.i.i84 = getelementptr inbounds i8, ptr %vtable.i.i.i83, i64 16
   %6 = load ptr, ptr %vfn.i.i.i84, align 8
   call void %6(ptr noundef nonnull align 8 dereferenceable(40) %os, ptr noundef nonnull %b.i72, i32 noundef 4)
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %b.i72)
@@ -577,16 +574,16 @@ entry:
   %b.i = alloca [4 x i8], align 4
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %b.i)
   %vtable.i.i.i = load ptr, ptr %is, align 8
-  %vfn.i.i.i = getelementptr inbounds ptr, ptr %vtable.i.i.i, i64 3
+  %vfn.i.i.i = getelementptr inbounds i8, ptr %vtable.i.i.i, i64 24
   %0 = load ptr, ptr %vfn.i.i.i, align 8
   %call.i.i.i = call noundef zeroext i1 %0(ptr noundef nonnull align 8 dereferenceable(40) %is, ptr noundef nonnull %b.i, i32 noundef 4)
   %1 = load i32, ptr %b.i, align 4
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %b.i)
-  %_value = getelementptr inbounds %"class.Imf_3_2::TypedAttribute", ptr %this, i64 0, i32 1
+  %_value = getelementptr inbounds i8, ptr %this, i64 8
   call void @_ZN7Imf_3_27KeyCode14setFilmMfcCodeEi(ptr noundef nonnull align 4 dereferenceable(28) %_value, i32 noundef %1)
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %b.i7)
   %vtable.i.i.i8 = load ptr, ptr %is, align 8
-  %vfn.i.i.i9 = getelementptr inbounds ptr, ptr %vtable.i.i.i8, i64 3
+  %vfn.i.i.i9 = getelementptr inbounds i8, ptr %vtable.i.i.i8, i64 24
   %2 = load ptr, ptr %vfn.i.i.i9, align 8
   %call.i.i.i10 = call noundef zeroext i1 %2(ptr noundef nonnull align 8 dereferenceable(40) %is, ptr noundef nonnull %b.i7, i32 noundef 4)
   %3 = load i32, ptr %b.i7, align 4
@@ -594,7 +591,7 @@ entry:
   call void @_ZN7Imf_3_27KeyCode11setFilmTypeEi(ptr noundef nonnull align 4 dereferenceable(28) %_value, i32 noundef %3)
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %b.i11)
   %vtable.i.i.i12 = load ptr, ptr %is, align 8
-  %vfn.i.i.i13 = getelementptr inbounds ptr, ptr %vtable.i.i.i12, i64 3
+  %vfn.i.i.i13 = getelementptr inbounds i8, ptr %vtable.i.i.i12, i64 24
   %4 = load ptr, ptr %vfn.i.i.i13, align 8
   %call.i.i.i14 = call noundef zeroext i1 %4(ptr noundef nonnull align 8 dereferenceable(40) %is, ptr noundef nonnull %b.i11, i32 noundef 4)
   %5 = load i32, ptr %b.i11, align 4
@@ -602,7 +599,7 @@ entry:
   call void @_ZN7Imf_3_27KeyCode9setPrefixEi(ptr noundef nonnull align 4 dereferenceable(28) %_value, i32 noundef %5)
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %b.i15)
   %vtable.i.i.i16 = load ptr, ptr %is, align 8
-  %vfn.i.i.i17 = getelementptr inbounds ptr, ptr %vtable.i.i.i16, i64 3
+  %vfn.i.i.i17 = getelementptr inbounds i8, ptr %vtable.i.i.i16, i64 24
   %6 = load ptr, ptr %vfn.i.i.i17, align 8
   %call.i.i.i18 = call noundef zeroext i1 %6(ptr noundef nonnull align 8 dereferenceable(40) %is, ptr noundef nonnull %b.i15, i32 noundef 4)
   %7 = load i32, ptr %b.i15, align 4
@@ -610,7 +607,7 @@ entry:
   call void @_ZN7Imf_3_27KeyCode8setCountEi(ptr noundef nonnull align 4 dereferenceable(28) %_value, i32 noundef %7)
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %b.i19)
   %vtable.i.i.i20 = load ptr, ptr %is, align 8
-  %vfn.i.i.i21 = getelementptr inbounds ptr, ptr %vtable.i.i.i20, i64 3
+  %vfn.i.i.i21 = getelementptr inbounds i8, ptr %vtable.i.i.i20, i64 24
   %8 = load ptr, ptr %vfn.i.i.i21, align 8
   %call.i.i.i22 = call noundef zeroext i1 %8(ptr noundef nonnull align 8 dereferenceable(40) %is, ptr noundef nonnull %b.i19, i32 noundef 4)
   %9 = load i32, ptr %b.i19, align 4
@@ -618,7 +615,7 @@ entry:
   call void @_ZN7Imf_3_27KeyCode13setPerfOffsetEi(ptr noundef nonnull align 4 dereferenceable(28) %_value, i32 noundef %9)
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %b.i23)
   %vtable.i.i.i24 = load ptr, ptr %is, align 8
-  %vfn.i.i.i25 = getelementptr inbounds ptr, ptr %vtable.i.i.i24, i64 3
+  %vfn.i.i.i25 = getelementptr inbounds i8, ptr %vtable.i.i.i24, i64 24
   %10 = load ptr, ptr %vfn.i.i.i25, align 8
   %call.i.i.i26 = call noundef zeroext i1 %10(ptr noundef nonnull align 8 dereferenceable(40) %is, ptr noundef nonnull %b.i23, i32 noundef 4)
   %11 = load i32, ptr %b.i23, align 4
@@ -626,7 +623,7 @@ entry:
   call void @_ZN7Imf_3_27KeyCode16setPerfsPerFrameEi(ptr noundef nonnull align 4 dereferenceable(28) %_value, i32 noundef %11)
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %b.i27)
   %vtable.i.i.i28 = load ptr, ptr %is, align 8
-  %vfn.i.i.i29 = getelementptr inbounds ptr, ptr %vtable.i.i.i28, i64 3
+  %vfn.i.i.i29 = getelementptr inbounds i8, ptr %vtable.i.i.i28, i64 24
   %12 = load ptr, ptr %vfn.i.i.i29, align 8
   %call.i.i.i30 = call noundef zeroext i1 %12(ptr noundef nonnull align 8 dereferenceable(40) %is, ptr noundef nonnull %b.i27, i32 noundef 4)
   %13 = load i32, ptr %b.i27, align 4

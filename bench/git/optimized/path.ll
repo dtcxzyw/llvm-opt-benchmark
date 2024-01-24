@@ -7,16 +7,9 @@ target triple = "x86_64-unknown-linux-gnu"
 %struct.strbuf = type { i64, i64, ptr }
 %struct.trie = type { [256 x ptr], i32, ptr, ptr }
 %struct.__va_list_tag = type { i32, i32, ptr, ptr }
-%struct.repository = type { ptr, ptr, ptr, ptr, ptr, %struct.repo_path_cache, ptr, ptr, ptr, ptr, %struct.repo_settings, ptr, ptr, ptr, ptr, ptr, i32, i32, i32, ptr, ptr, i32, i8 }
-%struct.repo_path_cache = type { ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr }
-%struct.repo_settings = type { i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, ptr, i32, i32, i32, i32, i32, i32 }
-%struct.worktree = type { ptr, ptr, ptr, ptr, ptr, %struct.object_id, i32, i32, i32, i32, i32 }
-%struct.object_id = type { [32 x i8], i32 }
-%struct.object_directory = type { ptr, [8 x i32], ptr, i32, i32, ptr }
 %struct.stat = type { i64, i64, i64, i32, i32, i32, i32, i64, i64, i64, i64, %struct.timespec, %struct.timespec, %struct.timespec, [3 x i64] }
 %struct.timespec = type { i64, i64 }
-%struct.passwd = type { ptr, ptr, i32, i32, ptr, ptr, ptr }
-%struct.string_list = type { ptr, i64, i64, i8, ptr }
+%struct.object_id = type { [32 x i8], i32 }
 %struct.string_list_item = type { ptr, ptr }
 
 @bad_path = internal global [11 x i8] c"/bad-path/\00", align 1
@@ -168,7 +161,7 @@ entry:
   %sb = alloca %struct.strbuf, align 8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %sb, ptr noundef nonnull align 8 dereferenceable(24) @__const.do_submodule_path.git_submodule_dir, i64 24, i1 false)
   %0 = load ptr, ptr @the_repository, align 8
-  %different_commondir = getelementptr inbounds %struct.repository, ptr %0, i64 0, i32 22
+  %different_commondir = getelementptr inbounds i8, ptr %0, i64 300
   %bf.load = load i8, ptr %different_commondir, align 4
   %bf.clear = and i8 %bf.load, 1
   %tobool.not = icmp eq i8 %bf.clear, 0
@@ -177,7 +170,7 @@ entry:
 if.end:                                           ; preds = %entry
   %call = tail call ptr @get_git_dir() #25
   call void (ptr, ptr, ...) @strbuf_addf(ptr noundef nonnull %sb, ptr noundef nonnull @.str, ptr noundef %call) #25
-  %len1 = getelementptr inbounds %struct.strbuf, ptr %sb, i64 0, i32 1
+  %len1 = getelementptr inbounds i8, ptr %sb, i64 8
   %1 = load ptr, ptr getelementptr inbounds ([25 x %struct.common_dir], ptr @common_list, i64 0, i64 0, i32 1), align 8
   %tobool2.not4 = icmp eq ptr %1, null
   br i1 %tobool2.not4, label %for.end, label %for.body.lr.ph
@@ -186,7 +179,7 @@ for.body.lr.ph:                                   ; preds = %if.end
   %2 = load i64, ptr %len1, align 8
   %sext = shl i64 %2, 32
   %conv11 = ashr exact i64 %sext, 32
-  %buf.i = getelementptr inbounds %struct.strbuf, ptr %sb, i64 0, i32 2
+  %buf.i = getelementptr inbounds i8, ptr %sb, i64 16
   br label %for.body
 
 for.body:                                         ; preds = %for.body.lr.ph, %for.inc
@@ -233,8 +226,8 @@ if.then14:                                        ; preds = %strbuf_setlen.exit
   br label %for.inc
 
 for.inc:                                          ; preds = %strbuf_setlen.exit, %if.then14, %for.body
-  %incdec.ptr = getelementptr inbounds %struct.common_dir, ptr %p.05, i64 1
-  %path = getelementptr inbounds %struct.common_dir, ptr %p.05, i64 1, i32 1
+  %incdec.ptr = getelementptr inbounds i8, ptr %p.05, i64 16
+  %path = getelementptr inbounds i8, ptr %p.05, i64 24
   %9 = load ptr, ptr %path, align 8
   %tobool2.not = icmp eq ptr %9, null
   br i1 %tobool2.not, label %for.end, label %for.body, !llvm.loop !8
@@ -267,9 +260,9 @@ if.then:                                          ; preds = %entry
   unreachable
 
 if.end:                                           ; preds = %entry
-  %len2 = getelementptr inbounds %struct.strbuf, ptr %sb, i64 0, i32 1
+  %len2 = getelementptr inbounds i8, ptr %sb, i64 8
   store i64 %len, ptr %len2, align 8
-  %buf = getelementptr inbounds %struct.strbuf, ptr %sb, i64 0, i32 2
+  %buf = getelementptr inbounds i8, ptr %sb, i64 16
   %1 = load ptr, ptr %buf, align 8
   %cmp3.not = icmp eq ptr %1, @strbuf_slopbuf
   br i1 %cmp3.not, label %if.end6, label %if.then4
@@ -313,13 +306,13 @@ if.then.i:                                        ; preds = %entry
   br label %strbuf_worktree_gitdir.exit
 
 if.else.i:                                        ; preds = %entry
-  %id.i = getelementptr inbounds %struct.worktree, ptr %wt, i64 0, i32 1
+  %id.i = getelementptr inbounds i8, ptr %wt, i64 8
   %1 = load ptr, ptr %id.i, align 8
   %tobool1.not.i = icmp eq ptr %1, null
   br i1 %tobool1.not.i, label %if.then2.i, label %if.else3.i
 
 if.then2.i:                                       ; preds = %if.else.i
-  %commondir.i = getelementptr inbounds %struct.repository, ptr %repo, i64 0, i32 1
+  %commondir.i = getelementptr inbounds i8, ptr %repo, i64 8
   %2 = load ptr, ptr %commondir.i, align 8
   %call.i7.i = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %2) #27
   tail call void @strbuf_add(ptr noundef %buf, ptr noundef %2, i64 noundef %call.i7.i) #25
@@ -330,13 +323,13 @@ if.else3.i:                                       ; preds = %if.else.i
   br label %strbuf_worktree_gitdir.exit
 
 strbuf_worktree_gitdir.exit:                      ; preds = %if.then.i, %if.then2.i, %if.else3.i
-  %len = getelementptr inbounds %struct.strbuf, ptr %buf, i64 0, i32 1
+  %len = getelementptr inbounds i8, ptr %buf, i64 8
   %3 = load i64, ptr %len, align 8
   %tobool.not = icmp eq i64 %3, 0
   br i1 %tobool.not, label %if.end, label %land.lhs.true
 
 land.lhs.true:                                    ; preds = %strbuf_worktree_gitdir.exit
-  %buf1 = getelementptr inbounds %struct.strbuf, ptr %buf, i64 0, i32 2
+  %buf1 = getelementptr inbounds i8, ptr %buf, i64 16
   %4 = load ptr, ptr %buf1, align 8
   %5 = getelementptr i8, ptr %4, i64 %3
   %arrayidx = getelementptr i8, ptr %5, i64 -1
@@ -380,7 +373,7 @@ if.end:                                           ; preds = %strbuf_addch.exit, 
 
 if.then7:                                         ; preds = %if.end
   %conv5 = trunc i64 %12 to i32
-  %buf1.i = getelementptr inbounds %struct.strbuf, ptr %buf, i64 0, i32 2
+  %buf1.i = getelementptr inbounds i8, ptr %buf, i64 16
   %13 = load ptr, ptr %buf1.i, align 8
   %sext = shl i64 %12, 32
   %idx.ext.i = ashr exact i64 %sext, 32
@@ -411,7 +404,7 @@ is_dir_file.exit.i:                               ; preds = %while.cond.i.i
 
 if.then.i16:                                      ; preds = %is_dir_file.exit.i
   %16 = load i64, ptr %len, align 8
-  %graft_file.i = getelementptr inbounds %struct.repository, ptr %repo, i64 0, i32 6
+  %graft_file.i = getelementptr inbounds i8, ptr %repo, i64 112
   %17 = load ptr, ptr %graft_file.i, align 8
   %call3.i = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %17) #27
   tail call void @strbuf_splice(ptr noundef %buf, i64 noundef 0, i64 noundef %16, ptr noundef %17, i64 noundef %call3.i) #25
@@ -424,7 +417,7 @@ if.else.i14:                                      ; preds = %is_dir_file.exit.i,
 
 if.then6.i:                                       ; preds = %if.else.i14
   %18 = load i64, ptr %len, align 8
-  %index_file.i = getelementptr inbounds %struct.repository, ptr %repo, i64 0, i32 7
+  %index_file.i = getelementptr inbounds i8, ptr %repo, i64 120
   %19 = load ptr, ptr %index_file.i, align 8
   %call9.i = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %19) #27
   tail call void @strbuf_splice(ptr noundef %buf, i64 noundef 0, i64 noundef %18, ptr noundef %19, i64 noundef %call9.i) #25
@@ -445,10 +438,10 @@ land.rhs.i.i:                                     ; preds = %if.else10.i
 
 if.then13.i:                                      ; preds = %land.rhs.i.i, %land.rhs.i.i
   %add.i = add nsw i32 %conv5, 7
-  %objects.i = getelementptr inbounds %struct.repository, ptr %repo, i64 0, i32 2
+  %objects.i = getelementptr inbounds i8, ptr %repo, i64 16
   %21 = load ptr, ptr %objects.i, align 8
   %22 = load ptr, ptr %21, align 8
-  %path.i = getelementptr inbounds %struct.object_directory, ptr %22, i64 0, i32 5
+  %path.i = getelementptr inbounds i8, ptr %22, i64 56
   %23 = load ptr, ptr %path.i, align 8
   %call.i24.i = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %23) #27
   switch i8 %20, label %land.end.thread.i.i [
@@ -539,20 +532,20 @@ if.then18.i58.i:                                  ; preds = %land.end.thread.i46
   br label %if.end8
 
 if.else20.i:                                      ; preds = %land.rhs.i33.i, %land.lhs.true.i, %if.else14.i
-  %different_commondir.i = getelementptr inbounds %struct.repository, ptr %repo, i64 0, i32 22
+  %different_commondir.i = getelementptr inbounds i8, ptr %repo, i64 300
   %bf.load.i = load i8, ptr %different_commondir.i, align 4
   %bf.clear.i = and i8 %bf.load.i, 1
   %tobool21.not.i = icmp eq i8 %bf.clear.i, 0
   br i1 %tobool21.not.i, label %if.end8, label %if.then22.i
 
 if.then22.i:                                      ; preds = %if.else20.i
-  %commondir.i15 = getelementptr inbounds %struct.repository, ptr %repo, i64 0, i32 1
+  %commondir.i15 = getelementptr inbounds i8, ptr %repo, i64 8
   %30 = load ptr, ptr %commondir.i15, align 8
   tail call fastcc void @update_common_dir(ptr noundef %buf, i32 noundef %conv5, ptr noundef %30)
   br label %if.end8
 
 if.end8:                                          ; preds = %if.then22.i, %if.else20.i, %if.then18.i58.i, %land.end.thread.i46.i, %land.end.thread.thread.i43.i, %if.then18.i.i, %land.end.thread.i.i, %land.end.thread.thread.i.i, %if.then6.i, %if.then.i16, %if.end
-  %buf.i18 = getelementptr inbounds %struct.strbuf, ptr %buf, i64 0, i32 2
+  %buf.i18 = getelementptr inbounds i8, ptr %buf, i64 16
   %31 = load ptr, ptr %buf.i18, align 8
   %scevgep.i.i = getelementptr i8, ptr %31, i64 2
   br label %do.body.i.i.i
@@ -610,9 +603,9 @@ entry:
 define dso_local ptr @git_path_buf(ptr noundef %buf, ptr noundef %fmt, ...) local_unnamed_addr #0 {
 entry:
   %args = alloca [1 x %struct.__va_list_tag], align 16
-  %len2.i = getelementptr inbounds %struct.strbuf, ptr %buf, i64 0, i32 1
+  %len2.i = getelementptr inbounds i8, ptr %buf, i64 8
   store i64 0, ptr %len2.i, align 8
-  %buf.i = getelementptr inbounds %struct.strbuf, ptr %buf, i64 0, i32 2
+  %buf.i = getelementptr inbounds i8, ptr %buf, i64 16
   %0 = load ptr, ptr %buf.i, align 8
   %cmp3.not.i = icmp eq ptr %0, @strbuf_slopbuf
   br i1 %cmp3.not.i, label %strbuf_setlen.exit, label %if.then4.i
@@ -647,12 +640,13 @@ entry:
   %args = alloca [1 x %struct.__va_list_tag], align 16
   %0 = load i32, ptr @get_pathname.index, align 4
   %idxprom.i = zext nneg i32 %0 to i64
+  %arrayidx.i = getelementptr inbounds [4 x %struct.strbuf], ptr @get_pathname.pathname_array, i64 0, i64 %idxprom.i
   %add.i = add nuw nsw i32 %0, 1
   %1 = and i32 %add.i, 3
   store i32 %1, ptr @get_pathname.index, align 4
-  %len2.i.i = getelementptr inbounds [4 x %struct.strbuf], ptr @get_pathname.pathname_array, i64 0, i64 %idxprom.i, i32 1
+  %len2.i.i = getelementptr inbounds i8, ptr %arrayidx.i, i64 8
   store i64 0, ptr %len2.i.i, align 8
-  %buf.i.i = getelementptr inbounds [4 x %struct.strbuf], ptr @get_pathname.pathname_array, i64 0, i64 %idxprom.i, i32 2
+  %buf.i.i = getelementptr inbounds i8, ptr %arrayidx.i, i64 16
   %2 = load ptr, ptr %buf.i.i, align 8
   %cmp3.not.i.i = icmp eq ptr %2, @strbuf_slopbuf
   br i1 %cmp3.not.i.i, label %get_pathname.exit, label %if.then4.i.i
@@ -662,7 +656,6 @@ if.then4.i.i:                                     ; preds = %entry
   br label %get_pathname.exit
 
 get_pathname.exit:                                ; preds = %entry, %if.then4.i.i
-  %arrayidx.i = getelementptr inbounds [4 x %struct.strbuf], ptr @get_pathname.pathname_array, i64 0, i64 %idxprom.i
   call void @llvm.va_start(ptr nonnull %args)
   %3 = load ptr, ptr @the_repository, align 8
   call fastcc void @do_git_path(ptr noundef %3, ptr noundef null, ptr noundef nonnull %arrayidx.i, ptr noundef %fmt, ptr noundef nonnull %args)
@@ -694,7 +687,7 @@ entry:
   call void @llvm.va_start(ptr nonnull %args)
   call void @strbuf_vaddf(ptr noundef nonnull %sb, ptr noundef %fmt, ptr noundef nonnull %args) #25
   call void @llvm.va_end(ptr nonnull %args)
-  %buf.i = getelementptr inbounds %struct.strbuf, ptr %sb, i64 0, i32 2
+  %buf.i = getelementptr inbounds i8, ptr %sb, i64 16
   %0 = load ptr, ptr %buf.i, align 8
   %scevgep.i.i = getelementptr i8, ptr %0, i64 2
   br label %do.body.i.i.i
@@ -745,12 +738,13 @@ entry:
   %args = alloca [1 x %struct.__va_list_tag], align 16
   %0 = load i32, ptr @get_pathname.index, align 4
   %idxprom.i = zext nneg i32 %0 to i64
+  %arrayidx.i = getelementptr inbounds [4 x %struct.strbuf], ptr @get_pathname.pathname_array, i64 0, i64 %idxprom.i
   %add.i = add nuw nsw i32 %0, 1
   %1 = and i32 %add.i, 3
   store i32 %1, ptr @get_pathname.index, align 4
-  %len2.i.i = getelementptr inbounds [4 x %struct.strbuf], ptr @get_pathname.pathname_array, i64 0, i64 %idxprom.i, i32 1
+  %len2.i.i = getelementptr inbounds i8, ptr %arrayidx.i, i64 8
   store i64 0, ptr %len2.i.i, align 8
-  %buf.i.i = getelementptr inbounds [4 x %struct.strbuf], ptr @get_pathname.pathname_array, i64 0, i64 %idxprom.i, i32 2
+  %buf.i.i = getelementptr inbounds i8, ptr %arrayidx.i, i64 16
   %2 = load ptr, ptr %buf.i.i, align 8
   %cmp3.not.i.i = icmp eq ptr %2, @strbuf_slopbuf
   br i1 %cmp3.not.i.i, label %get_pathname.exit, label %if.then4.i.i
@@ -760,7 +754,6 @@ if.then4.i.i:                                     ; preds = %entry
   br label %get_pathname.exit
 
 get_pathname.exit:                                ; preds = %entry, %if.then4.i.i
-  %arrayidx.i = getelementptr inbounds [4 x %struct.strbuf], ptr @get_pathname.pathname_array, i64 0, i64 %idxprom.i
   call void @llvm.va_start(ptr nonnull %args)
   call void @strbuf_vaddf(ptr noundef nonnull %arrayidx.i, ptr noundef %fmt, ptr noundef nonnull %args) #25
   call void @llvm.va_end(ptr nonnull %args)
@@ -801,12 +794,13 @@ entry:
   %args = alloca [1 x %struct.__va_list_tag], align 16
   %0 = load i32, ptr @get_pathname.index, align 4
   %idxprom.i = zext nneg i32 %0 to i64
+  %arrayidx.i = getelementptr inbounds [4 x %struct.strbuf], ptr @get_pathname.pathname_array, i64 0, i64 %idxprom.i
   %add.i = add nuw nsw i32 %0, 1
   %1 = and i32 %add.i, 3
   store i32 %1, ptr @get_pathname.index, align 4
-  %len2.i.i = getelementptr inbounds [4 x %struct.strbuf], ptr @get_pathname.pathname_array, i64 0, i64 %idxprom.i, i32 1
+  %len2.i.i = getelementptr inbounds i8, ptr %arrayidx.i, i64 8
   store i64 0, ptr %len2.i.i, align 8
-  %buf.i.i = getelementptr inbounds [4 x %struct.strbuf], ptr @get_pathname.pathname_array, i64 0, i64 %idxprom.i, i32 2
+  %buf.i.i = getelementptr inbounds i8, ptr %arrayidx.i, i64 16
   %2 = load ptr, ptr %buf.i.i, align 8
   %cmp3.not.i.i = icmp eq ptr %2, @strbuf_slopbuf
   br i1 %cmp3.not.i.i, label %get_pathname.exit, label %if.then4.i.i
@@ -816,7 +810,6 @@ if.then4.i.i:                                     ; preds = %entry
   br label %get_pathname.exit
 
 get_pathname.exit:                                ; preds = %entry, %if.then4.i.i
-  %arrayidx.i = getelementptr inbounds [4 x %struct.strbuf], ptr @get_pathname.pathname_array, i64 0, i64 %idxprom.i
   call void @llvm.va_start(ptr nonnull %args)
   %3 = load ptr, ptr @the_repository, align 8
   call fastcc void @do_git_path(ptr noundef %3, ptr noundef %wt, ptr noundef nonnull %arrayidx.i, ptr noundef %fmt, ptr noundef nonnull %args)
@@ -831,7 +824,7 @@ entry:
   %path = alloca %struct.strbuf, align 8
   %args = alloca [1 x %struct.__va_list_tag], align 16
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %path, ptr noundef nonnull align 8 dereferenceable(24) @__const.do_submodule_path.git_submodule_dir, i64 24, i1 false)
-  %worktree = getelementptr inbounds %struct.repository, ptr %repo, i64 0, i32 8
+  %worktree = getelementptr inbounds i8, ptr %repo, i64 128
   %0 = load ptr, ptr %worktree, align 8
   %tobool.not = icmp eq ptr %0, null
   br i1 %tobool.not, label %return, label %if.end
@@ -854,13 +847,13 @@ define internal fastcc void @do_worktree_path(ptr %repo.128.val, ptr noundef %bu
 entry:
   %call.i = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %repo.128.val) #27
   tail call void @strbuf_add(ptr noundef %buf, ptr noundef %repo.128.val, i64 noundef %call.i) #25
-  %len = getelementptr inbounds %struct.strbuf, ptr %buf, i64 0, i32 1
+  %len = getelementptr inbounds i8, ptr %buf, i64 8
   %0 = load i64, ptr %len, align 8
   %tobool.not = icmp eq i64 %0, 0
   br i1 %tobool.not, label %if.end, label %land.lhs.true
 
 land.lhs.true:                                    ; preds = %entry
-  %buf1 = getelementptr inbounds %struct.strbuf, ptr %buf, i64 0, i32 2
+  %buf1 = getelementptr inbounds i8, ptr %buf, i64 16
   %1 = load ptr, ptr %buf1, align 8
   %2 = getelementptr i8, ptr %1, i64 %0
   %arrayidx = getelementptr i8, ptr %2, i64 -1
@@ -898,7 +891,7 @@ strbuf_addch.exit:                                ; preds = %if.then, %if.then.i
 
 if.end:                                           ; preds = %strbuf_addch.exit, %land.lhs.true, %entry
   tail call void @strbuf_vaddf(ptr noundef nonnull %buf, ptr noundef %fmt, ptr noundef %args) #25
-  %buf.i7 = getelementptr inbounds %struct.strbuf, ptr %buf, i64 0, i32 2
+  %buf.i7 = getelementptr inbounds i8, ptr %buf, i64 16
   %9 = load ptr, ptr %buf.i7, align 8
   %scevgep.i.i = getelementptr i8, ptr %9, i64 2
   br label %do.body.i.i.i
@@ -944,7 +937,7 @@ strbuf_cleanup_path.exit:                         ; preds = %do.cond.i.i.i, %cle
 define dso_local void @strbuf_repo_worktree_path(ptr noundef %sb, ptr nocapture noundef readonly %repo, ptr noundef %fmt, ...) local_unnamed_addr #0 {
 entry:
   %args = alloca [1 x %struct.__va_list_tag], align 16
-  %worktree = getelementptr inbounds %struct.repository, ptr %repo, i64 0, i32 8
+  %worktree = getelementptr inbounds i8, ptr %repo, i64 128
   %0 = load ptr, ptr %worktree, align 8
   %tobool.not = icmp eq ptr %0, null
   br i1 %tobool.not, label %return, label %if.end
@@ -997,13 +990,13 @@ entry:
   br i1 %tobool.not, label %if.end, label %cleanup
 
 if.end:                                           ; preds = %entry
-  %len.i = getelementptr inbounds %struct.strbuf, ptr %git_submodule_dir, i64 0, i32 1
+  %len.i = getelementptr inbounds i8, ptr %git_submodule_dir, i64 8
   %0 = load i64, ptr %len.i, align 8
   %tobool.not.i = icmp eq i64 %0, 0
   br i1 %tobool.not.i, label %strbuf_complete.exit, label %land.lhs.true.i
 
 land.lhs.true.i:                                  ; preds = %if.end
-  %buf.i = getelementptr inbounds %struct.strbuf, ptr %git_submodule_dir, i64 0, i32 2
+  %buf.i = getelementptr inbounds i8, ptr %git_submodule_dir, i64 16
   %1 = load ptr, ptr %buf.i, align 8
   %2 = getelementptr i8, ptr %1, i64 %0
   %arrayidx.i = getelementptr i8, ptr %2, i64 -1
@@ -1042,7 +1035,7 @@ strbuf_addch.exit.i:                              ; preds = %if.then.i.i, %if.th
 strbuf_complete.exit:                             ; preds = %if.end, %land.lhs.true.i, %strbuf_addch.exit.i
   call void @strbuf_addbuf(ptr noundef %buf, ptr noundef nonnull %git_submodule_dir) #25
   call void @strbuf_vaddf(ptr noundef %buf, ptr noundef %fmt, ptr noundef %args) #25
-  %buf1 = getelementptr inbounds %struct.strbuf, ptr %git_submodule_dir, i64 0, i32 2
+  %buf1 = getelementptr inbounds i8, ptr %git_submodule_dir, i64 16
   %9 = load ptr, ptr %buf1, align 8
   %call2 = call i32 @get_common_dir_noenv(ptr noundef nonnull %git_submodule_common_dir, ptr noundef %9) #25
   %tobool3.not = icmp eq i32 %call2, 0
@@ -1051,13 +1044,13 @@ strbuf_complete.exit:                             ; preds = %if.end, %land.lhs.t
 if.then4:                                         ; preds = %strbuf_complete.exit
   %10 = load i64, ptr %len.i, align 8
   %conv = trunc i64 %10 to i32
-  %buf5 = getelementptr inbounds %struct.strbuf, ptr %git_submodule_common_dir, i64 0, i32 2
+  %buf5 = getelementptr inbounds i8, ptr %git_submodule_common_dir, i64 16
   %11 = load ptr, ptr %buf5, align 8
   call fastcc void @update_common_dir(ptr noundef %buf, i32 noundef %conv, ptr noundef %11)
   br label %if.end6
 
 if.end6:                                          ; preds = %if.then4, %strbuf_complete.exit
-  %buf.i5 = getelementptr inbounds %struct.strbuf, ptr %buf, i64 0, i32 2
+  %buf.i5 = getelementptr inbounds i8, ptr %buf, i64 16
   %12 = load ptr, ptr %buf.i5, align 8
   %scevgep.i.i = getelementptr i8, ptr %12, i64 2
   br label %do.body.i.i.i
@@ -1117,12 +1110,13 @@ entry:
   %args = alloca [1 x %struct.__va_list_tag], align 16
   %0 = load i32, ptr @get_pathname.index, align 4
   %idxprom.i = zext nneg i32 %0 to i64
+  %arrayidx.i = getelementptr inbounds [4 x %struct.strbuf], ptr @get_pathname.pathname_array, i64 0, i64 %idxprom.i
   %add.i = add nuw nsw i32 %0, 1
   %1 = and i32 %add.i, 3
   store i32 %1, ptr @get_pathname.index, align 4
-  %len2.i.i = getelementptr inbounds [4 x %struct.strbuf], ptr @get_pathname.pathname_array, i64 0, i64 %idxprom.i, i32 1
+  %len2.i.i = getelementptr inbounds i8, ptr %arrayidx.i, i64 8
   store i64 0, ptr %len2.i.i, align 8
-  %buf.i.i = getelementptr inbounds [4 x %struct.strbuf], ptr @get_pathname.pathname_array, i64 0, i64 %idxprom.i, i32 2
+  %buf.i.i = getelementptr inbounds i8, ptr %arrayidx.i, i64 16
   %2 = load ptr, ptr %buf.i.i, align 8
   %cmp3.not.i.i = icmp eq ptr %2, @strbuf_slopbuf
   br i1 %cmp3.not.i.i, label %get_pathname.exit, label %if.then4.i.i
@@ -1132,7 +1126,6 @@ if.then4.i.i:                                     ; preds = %entry
   br label %get_pathname.exit
 
 get_pathname.exit:                                ; preds = %entry, %if.then4.i.i
-  %arrayidx.i = getelementptr inbounds [4 x %struct.strbuf], ptr @get_pathname.pathname_array, i64 0, i64 %idxprom.i
   call void @llvm.va_start(ptr nonnull %args)
   %3 = load ptr, ptr @the_repository, align 8
   %4 = getelementptr i8, ptr %3, i64 8
@@ -1148,13 +1141,13 @@ define internal fastcc void @do_git_common_path(ptr %repo.8.val, ptr noundef %bu
 entry:
   %call.i = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %repo.8.val) #27
   tail call void @strbuf_add(ptr noundef %buf, ptr noundef %repo.8.val, i64 noundef %call.i) #25
-  %len = getelementptr inbounds %struct.strbuf, ptr %buf, i64 0, i32 1
+  %len = getelementptr inbounds i8, ptr %buf, i64 8
   %0 = load i64, ptr %len, align 8
   %tobool.not = icmp eq i64 %0, 0
   br i1 %tobool.not, label %if.end, label %land.lhs.true
 
 land.lhs.true:                                    ; preds = %entry
-  %buf1 = getelementptr inbounds %struct.strbuf, ptr %buf, i64 0, i32 2
+  %buf1 = getelementptr inbounds i8, ptr %buf, i64 16
   %1 = load ptr, ptr %buf1, align 8
   %2 = getelementptr i8, ptr %1, i64 %0
   %arrayidx = getelementptr i8, ptr %2, i64 -1
@@ -1192,7 +1185,7 @@ strbuf_addch.exit:                                ; preds = %if.then, %if.then.i
 
 if.end:                                           ; preds = %strbuf_addch.exit, %land.lhs.true, %entry
   tail call void @strbuf_vaddf(ptr noundef nonnull %buf, ptr noundef %fmt, ptr noundef %args) #25
-  %buf.i7 = getelementptr inbounds %struct.strbuf, ptr %buf, i64 0, i32 2
+  %buf.i7 = getelementptr inbounds i8, ptr %buf, i64 16
   %9 = load ptr, ptr %buf.i7, align 8
   %scevgep.i.i = getelementptr i8, ptr %9, i64 2
   br label %do.body.i.i.i
@@ -1257,7 +1250,7 @@ entry:
   br i1 %cmp, label %return, label %if.end
 
 if.end:                                           ; preds = %entry
-  %st_mode = getelementptr inbounds %struct.stat, ptr %st, i64 0, i32 3
+  %st_mode = getelementptr inbounds i8, ptr %st, i64 24
   %0 = load i32, ptr %st_mode, align 8
   %and = and i32 %0, 61440
   %cmp1 = icmp eq i32 %and, 40960
@@ -1423,7 +1416,7 @@ if.else17:                                        ; preds = %if.then5
   br i1 %tobool19.not, label %return_null, label %if.end21
 
 if.end21:                                         ; preds = %if.else17
-  %pw_dir = getelementptr inbounds %struct.passwd, ptr %call1.i, i64 0, i32 5
+  %pw_dir = getelementptr inbounds i8, ptr %call1.i, i64 32
   %3 = load ptr, ptr %pw_dir, align 8
   %call.i8 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %3) #27
   call void @strbuf_add(ptr noundef nonnull %user_path, ptr noundef %3, i64 noundef %call.i8) #25
@@ -1531,7 +1524,7 @@ if.end21:                                         ; preds = %if.then17
   br label %if.end24
 
 if.end24:                                         ; preds = %if.end21, %strbuf_setlen.exit25
-  %st_mode = getelementptr inbounds %struct.stat, ptr %st, i64 0, i32 3
+  %st_mode = getelementptr inbounds i8, ptr %st, i64 24
   %.pre43 = load i64, ptr getelementptr inbounds (%struct.strbuf, ptr @enter_repo.used_path, i64 0, i32 1), align 8
   br label %for.body
 
@@ -1678,7 +1671,7 @@ get_st_mode_bits.exit.thread:                     ; preds = %if.end
   br label %return
 
 if.end3:                                          ; preds = %if.end
-  %st_mode.i = getelementptr inbounds %struct.stat, ptr %st.i, i64 0, i32 3
+  %st_mode.i = getelementptr inbounds i8, ptr %st.i, i64 24
   %0 = load i32, ptr %st_mode.i, align 8
   call void @llvm.lifetime.end.p0(i64 144, ptr nonnull %st.i)
   %call.i7 = tail call i32 @get_shared_repository() #25
@@ -1995,9 +1988,9 @@ if.then109:                                       ; preds = %if.end106
 
 if.end113:                                        ; preds = %if.end106
   %sub = sub nsw i32 %cond, %in_off.2
-  %len2.i = getelementptr inbounds %struct.strbuf, ptr %sb, i64 0, i32 1
+  %len2.i = getelementptr inbounds i8, ptr %sb, i64 8
   store i64 0, ptr %len2.i, align 8
-  %buf.i = getelementptr inbounds %struct.strbuf, ptr %sb, i64 0, i32 2
+  %buf.i = getelementptr inbounds i8, ptr %sb, i64 16
   %13 = load ptr, ptr %buf.i, align 8
   %cmp3.not.i = icmp eq ptr %13, @strbuf_slopbuf
   br i1 %cmp3.not.i, label %while.body118.preheader, label %if.then4.i
@@ -2625,12 +2618,12 @@ entry:
   %_swap_buffer.i = alloca [24 x i8], align 16
   %dst = alloca %struct.strbuf, align 8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %dst, ptr noundef nonnull align 8 dereferenceable(24) @__const.do_submodule_path.git_submodule_dir, i64 24, i1 false)
-  %len = getelementptr inbounds %struct.strbuf, ptr %src, i64 0, i32 1
+  %len = getelementptr inbounds i8, ptr %src, i64 8
   %0 = load i64, ptr %len, align 8
   call void @strbuf_grow(ptr noundef nonnull %dst, i64 noundef %0) #25
-  %buf = getelementptr inbounds %struct.strbuf, ptr %dst, i64 0, i32 2
+  %buf = getelementptr inbounds i8, ptr %dst, i64 16
   %1 = load ptr, ptr %buf, align 8
-  %buf1 = getelementptr inbounds %struct.strbuf, ptr %src, i64 0, i32 2
+  %buf1 = getelementptr inbounds i8, ptr %src, i64 16
   %2 = load ptr, ptr %buf1, align 8
   %src.val.i.i = load i8, ptr %2, align 1
   %cmp.i.i.i.i = icmp eq i8 %src.val.i.i, 47
@@ -2785,7 +2778,7 @@ if.then.i:                                        ; preds = %if.end
   unreachable
 
 if.end.i:                                         ; preds = %if.end
-  %len2.i = getelementptr inbounds %struct.strbuf, ptr %dst, i64 0, i32 1
+  %len2.i = getelementptr inbounds i8, ptr %dst, i64 8
   store i64 %call3, ptr %len2.i, align 8
   %cmp3.not.i = icmp eq ptr %12, @strbuf_slopbuf
   br i1 %cmp3.not.i, label %strbuf_setlen.exit, label %if.then4.i
@@ -2817,7 +2810,7 @@ entry:
   br i1 %tobool.not, label %return, label %for.cond.preheader
 
 for.cond.preheader:                               ; preds = %entry
-  %nr = getelementptr inbounds %struct.string_list, ptr %prefixes, i64 0, i32 1
+  %nr = getelementptr inbounds i8, ptr %prefixes, i64 8
   %0 = load i64, ptr %nr, align 8
   %cmp18.not = icmp eq i64 %0, 0
   br i1 %cmp18.not, label %return, label %for.body.lr.ph
@@ -3445,7 +3438,7 @@ return:                                           ; preds = %if.end, %if.then5, 
 ; Function Attrs: nounwind uwtable
 define dso_local ptr @git_path_squash_msg(ptr nocapture noundef %r) local_unnamed_addr #0 {
 entry:
-  %cached_paths = getelementptr inbounds %struct.repository, ptr %r, i64 0, i32 5
+  %cached_paths = getelementptr inbounds i8, ptr %r, i64 40
   %0 = load ptr, ptr %cached_paths, align 8
   %tobool.not = icmp eq ptr %0, null
   br i1 %tobool.not, label %if.then, label %if.end
@@ -3463,7 +3456,7 @@ if.end:                                           ; preds = %if.then, %entry
 ; Function Attrs: nounwind uwtable
 define dso_local ptr @git_path_merge_msg(ptr nocapture noundef %r) local_unnamed_addr #0 {
 entry:
-  %merge_msg = getelementptr inbounds %struct.repository, ptr %r, i64 0, i32 5, i32 1
+  %merge_msg = getelementptr inbounds i8, ptr %r, i64 48
   %0 = load ptr, ptr %merge_msg, align 8
   %tobool.not = icmp eq ptr %0, null
   br i1 %tobool.not, label %if.then, label %if.end
@@ -3481,7 +3474,7 @@ if.end:                                           ; preds = %if.then, %entry
 ; Function Attrs: nounwind uwtable
 define dso_local ptr @git_path_merge_rr(ptr nocapture noundef %r) local_unnamed_addr #0 {
 entry:
-  %merge_rr = getelementptr inbounds %struct.repository, ptr %r, i64 0, i32 5, i32 2
+  %merge_rr = getelementptr inbounds i8, ptr %r, i64 56
   %0 = load ptr, ptr %merge_rr, align 8
   %tobool.not = icmp eq ptr %0, null
   br i1 %tobool.not, label %if.then, label %if.end
@@ -3499,7 +3492,7 @@ if.end:                                           ; preds = %if.then, %entry
 ; Function Attrs: nounwind uwtable
 define dso_local ptr @git_path_merge_mode(ptr nocapture noundef %r) local_unnamed_addr #0 {
 entry:
-  %merge_mode = getelementptr inbounds %struct.repository, ptr %r, i64 0, i32 5, i32 3
+  %merge_mode = getelementptr inbounds i8, ptr %r, i64 64
   %0 = load ptr, ptr %merge_mode, align 8
   %tobool.not = icmp eq ptr %0, null
   br i1 %tobool.not, label %if.then, label %if.end
@@ -3517,7 +3510,7 @@ if.end:                                           ; preds = %if.then, %entry
 ; Function Attrs: nounwind uwtable
 define dso_local ptr @git_path_merge_head(ptr nocapture noundef %r) local_unnamed_addr #0 {
 entry:
-  %merge_head = getelementptr inbounds %struct.repository, ptr %r, i64 0, i32 5, i32 4
+  %merge_head = getelementptr inbounds i8, ptr %r, i64 72
   %0 = load ptr, ptr %merge_head, align 8
   %tobool.not = icmp eq ptr %0, null
   br i1 %tobool.not, label %if.then, label %if.end
@@ -3535,7 +3528,7 @@ if.end:                                           ; preds = %if.then, %entry
 ; Function Attrs: nounwind uwtable
 define dso_local ptr @git_path_merge_autostash(ptr nocapture noundef %r) local_unnamed_addr #0 {
 entry:
-  %merge_autostash = getelementptr inbounds %struct.repository, ptr %r, i64 0, i32 5, i32 5
+  %merge_autostash = getelementptr inbounds i8, ptr %r, i64 80
   %0 = load ptr, ptr %merge_autostash, align 8
   %tobool.not = icmp eq ptr %0, null
   br i1 %tobool.not, label %if.then, label %if.end
@@ -3553,7 +3546,7 @@ if.end:                                           ; preds = %if.then, %entry
 ; Function Attrs: nounwind uwtable
 define dso_local ptr @git_path_auto_merge(ptr nocapture noundef %r) local_unnamed_addr #0 {
 entry:
-  %auto_merge = getelementptr inbounds %struct.repository, ptr %r, i64 0, i32 5, i32 6
+  %auto_merge = getelementptr inbounds i8, ptr %r, i64 88
   %0 = load ptr, ptr %auto_merge, align 8
   %tobool.not = icmp eq ptr %0, null
   br i1 %tobool.not, label %if.then, label %if.end
@@ -3571,7 +3564,7 @@ if.end:                                           ; preds = %if.then, %entry
 ; Function Attrs: nounwind uwtable
 define dso_local ptr @git_path_fetch_head(ptr nocapture noundef %r) local_unnamed_addr #0 {
 entry:
-  %fetch_head = getelementptr inbounds %struct.repository, ptr %r, i64 0, i32 5, i32 7
+  %fetch_head = getelementptr inbounds i8, ptr %r, i64 96
   %0 = load ptr, ptr %fetch_head, align 8
   %tobool.not = icmp eq ptr %0, null
   br i1 %tobool.not, label %if.then, label %if.end
@@ -3589,7 +3582,7 @@ if.end:                                           ; preds = %if.then, %entry
 ; Function Attrs: nounwind uwtable
 define dso_local ptr @git_path_shallow(ptr nocapture noundef %r) local_unnamed_addr #0 {
 entry:
-  %shallow = getelementptr inbounds %struct.repository, ptr %r, i64 0, i32 5, i32 8
+  %shallow = getelementptr inbounds i8, ptr %r, i64 104
   %0 = load ptr, ptr %shallow, align 8
   %tobool.not = icmp eq ptr %0, null
   br i1 %tobool.not, label %if.then, label %if.end
@@ -3612,11 +3605,11 @@ declare void @strbuf_splice(ptr noundef, i64 noundef, i64 noundef, ptr noundef, 
 ; Function Attrs: nounwind uwtable
 define internal fastcc void @update_common_dir(ptr noundef %buf, i32 noundef %git_dir_len, ptr noundef %common_dir) unnamed_addr #0 {
 entry:
-  %buf1 = getelementptr inbounds %struct.strbuf, ptr %buf, i64 0, i32 2
+  %buf1 = getelementptr inbounds i8, ptr %buf, i64 16
   %0 = load ptr, ptr %buf1, align 8
   %idx.ext = sext i32 %git_dir_len to i64
   %add.ptr = getelementptr inbounds i8, ptr %0, i64 %idx.ext
-  %len.i = getelementptr inbounds %struct.strbuf, ptr %buf, i64 0, i32 1
+  %len.i = getelementptr inbounds i8, ptr %buf, i64 8
   %1 = load i64, ptr %len.i, align 8
   %cmp.i.i = icmp ult i64 %1, 5
   br i1 %cmp.i.i, label %strbuf_strip_suffix.exit, label %lor.lhs.false.i.i
@@ -3667,20 +3660,20 @@ for.body.i:                                       ; preds = %for.cond.preheader.
 for.cond.preheader.i.i:                           ; preds = %for.body.i, %if.then57.i.i
   %key.tr88.i.i = phi ptr [ %add.ptr61.i.i, %if.then57.i.i ], [ %4, %for.body.i ]
   %root.tr87.i.i = phi ptr [ %20, %if.then57.i.i ], [ @common_trie, %for.body.i ]
-  %len.i.i = getelementptr inbounds %struct.trie, ptr %root.tr87.i.i, i64 0, i32 1
+  %len.i.i = getelementptr inbounds i8, ptr %root.tr87.i.i, i64 2048
   %6 = load i32, ptr %len.i.i, align 8
   %cmp82.i.i = icmp sgt i32 %6, 0
   br i1 %cmp82.i.i, label %for.body.lr.ph.i.i, label %if.then49.i.i
 
 for.body.lr.ph.i.i:                               ; preds = %for.cond.preheader.i.i
-  %contents.i.i = getelementptr inbounds %struct.trie, ptr %root.tr87.i.i, i64 0, i32 2
+  %contents.i.i = getelementptr inbounds i8, ptr %root.tr87.i.i, i64 2056
   %7 = load ptr, ptr %contents.i.i, align 8
   %wide.trip.count.i.i = zext nneg i32 %6 to i64
   br label %for.body.i.i
 
 if.then.i.i6:                                     ; preds = %if.then57.i.i, %for.body.i
   %root.tr.lcssa.i.i = phi ptr [ @common_trie, %for.body.i ], [ %20, %if.then57.i.i ]
-  %value1.i.i = getelementptr inbounds %struct.trie, ptr %root.tr.lcssa.i.i, i64 0, i32 3
+  %value1.i.i = getelementptr inbounds i8, ptr %root.tr.lcssa.i.i, i64 2064
   store ptr %p.024.i, ptr %value1.i.i, align 8
   br label %add_to_trie.exit.i
 
@@ -3694,8 +3687,8 @@ for.body.i.i:                                     ; preds = %for.inc.i.i, %for.b
   br i1 %cmp6.i.i, label %for.inc.i.i, label %if.end9.i.i
 
 if.end9.i.i:                                      ; preds = %for.body.i.i
-  %len.i.i.le54 = getelementptr inbounds %struct.trie, ptr %root.tr87.i.i, i64 0, i32 1
-  %contents.i.i.le = getelementptr inbounds %struct.trie, ptr %root.tr87.i.i, i64 0, i32 2
+  %len.i.i.le54 = getelementptr inbounds i8, ptr %root.tr87.i.i, i64 2048
+  %contents.i.i.le = getelementptr inbounds i8, ptr %root.tr87.i.i, i64 2056
   %arrayidx4.i.i.le = getelementptr inbounds i8, ptr %key.tr88.i.i, i64 %indvars.iv.i.i
   %10 = trunc i64 %indvars.iv.i.i to i32
   %call.i.i = tail call ptr @xmalloc(i64 noundef 2072) #25
@@ -3703,7 +3696,7 @@ if.end9.i.i:                                      ; preds = %for.body.i.i
   %11 = load i32, ptr %len.i.i.le54, align 8
   %12 = xor i32 %10, -1
   %sub13.i.i = add i32 %11, %12
-  %len14.i.i = getelementptr inbounds %struct.trie, ptr %call.i.i, i64 0, i32 1
+  %len14.i.i = getelementptr inbounds i8, ptr %call.i.i, i64 2048
   store i32 %sub13.i.i, ptr %len14.i.i, align 8
   %tobool16.not.i.i = icmp eq i32 %sub13.i.i, 0
   br i1 %tobool16.not.i.i, label %if.end24.i.i, label %if.then17.i.i
@@ -3714,14 +3707,14 @@ if.then17.i.i:                                    ; preds = %if.end9.i.i
   %add.ptr19.i.i = getelementptr inbounds i8, ptr %add.ptr.i.i7, i64 1
   %conv21.i.i = sext i32 %sub13.i.i to i64
   %call22.i.i = tail call ptr @xstrndup(ptr noundef nonnull %add.ptr19.i.i, i64 noundef %conv21.i.i) #25
-  %contents23.i.i = getelementptr inbounds %struct.trie, ptr %call.i.i, i64 0, i32 2
+  %contents23.i.i = getelementptr inbounds i8, ptr %call.i.i, i64 2056
   store ptr %call22.i.i, ptr %contents23.i.i, align 8
   br label %if.end24.i.i
 
 if.end24.i.i:                                     ; preds = %if.then17.i.i, %if.end9.i.i
-  %value25.i.i = getelementptr inbounds %struct.trie, ptr %root.tr87.i.i, i64 0, i32 3
+  %value25.i.i = getelementptr inbounds i8, ptr %root.tr87.i.i, i64 2064
   %14 = load ptr, ptr %value25.i.i, align 8
-  %value26.i.i = getelementptr inbounds %struct.trie, ptr %call.i.i, i64 0, i32 3
+  %value26.i.i = getelementptr inbounds i8, ptr %call.i.i, i64 2064
   store ptr %14, ptr %value26.i.i, align 8
   store ptr null, ptr %value25.i.i, align 8
   store i32 %10, ptr %len.i.i.le54, align 8
@@ -3736,7 +3729,7 @@ if.end24.i.i:                                     ; preds = %if.then17.i.i, %if.
   %call.i.i.i = tail call ptr @xcalloc(i64 noundef 1, i64 noundef 2072) #25
   %call1.i.i.i = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %add.ptr39.i.i) #27
   %conv.i.i.i = trunc i64 %call1.i.i.i to i32
-  %len.i.i.i = getelementptr inbounds %struct.trie, ptr %call.i.i.i, i64 0, i32 1
+  %len.i.i.i = getelementptr inbounds i8, ptr %call.i.i.i, i64 2048
   store i32 %conv.i.i.i, ptr %len.i.i.i, align 8
   %tobool.not.i.i.i = icmp eq i32 %conv.i.i.i, 0
   br i1 %tobool.not.i.i.i, label %make_trie_node.exit.i.i, label %if.then.i.i.i
@@ -3745,7 +3738,7 @@ if.then.i.i.i:                                    ; preds = %if.end24.i.i
   %sext.i.i.i = shl i64 %call1.i.i.i, 32
   %conv4.i.i.i = ashr exact i64 %sext.i.i.i, 32
   %call5.i.i.i = tail call ptr @xmalloc(i64 noundef %conv4.i.i.i) #25
-  %contents.i.i.i = getelementptr inbounds %struct.trie, ptr %call.i.i.i, i64 0, i32 2
+  %contents.i.i.i = getelementptr inbounds i8, ptr %call.i.i.i, i64 2056
   store ptr %call5.i.i.i, ptr %contents.i.i.i, align 8
   %17 = load i32, ptr %len.i.i.i, align 8
   %conv8.i.i.i = sext i32 %17 to i64
@@ -3753,7 +3746,7 @@ if.then.i.i.i:                                    ; preds = %if.end24.i.i
   br label %make_trie_node.exit.i.i
 
 make_trie_node.exit.i.i:                          ; preds = %if.then.i.i.i, %if.end24.i.i
-  %value9.i.i.i = getelementptr inbounds %struct.trie, ptr %call.i.i.i, i64 0, i32 3
+  %value9.i.i.i = getelementptr inbounds i8, ptr %call.i.i.i, i64 2064
   store ptr %p.024.i, ptr %value9.i.i.i, align 8
   %18 = load i8, ptr %arrayidx4.i.i.le, align 1
   %idxprom44.i.i = zext i8 %18 to i64
@@ -3789,12 +3782,12 @@ if.then57.i.i:                                    ; preds = %if.then49.i.i
   br i1 %tobool.not.i.i5, label %if.then.i.i6, label %for.cond.preheader.i.i
 
 if.else.i.i:                                      ; preds = %if.then49.i.i
-  %len.i.i.le = getelementptr inbounds %struct.trie, ptr %root.tr87.i.i, i64 0, i32 1
+  %len.i.i.le = getelementptr inbounds i8, ptr %root.tr87.i.i, i64 2048
   %add.ptr66.i.i = getelementptr inbounds i8, ptr %arrayidx53.i.i, i64 1
   %call.i55.i.i = tail call ptr @xcalloc(i64 noundef 1, i64 noundef 2072) #25
   %call1.i56.i.i = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %add.ptr66.i.i) #27
   %conv.i57.i.i = trunc i64 %call1.i56.i.i to i32
-  %len.i58.i.i = getelementptr inbounds %struct.trie, ptr %call.i55.i.i, i64 0, i32 1
+  %len.i58.i.i = getelementptr inbounds i8, ptr %call.i55.i.i, i64 2048
   store i32 %conv.i57.i.i, ptr %len.i58.i.i, align 8
   %tobool.not.i59.i.i = icmp eq i32 %conv.i57.i.i, 0
   br i1 %tobool.not.i59.i.i, label %make_trie_node.exit67.i.i, label %if.then.i60.i.i
@@ -3803,7 +3796,7 @@ if.then.i60.i.i:                                  ; preds = %if.else.i.i
   %sext.i61.i.i = shl i64 %call1.i56.i.i, 32
   %conv4.i62.i.i = ashr exact i64 %sext.i61.i.i, 32
   %call5.i63.i.i = tail call ptr @xmalloc(i64 noundef %conv4.i62.i.i) #25
-  %contents.i64.i.i = getelementptr inbounds %struct.trie, ptr %call.i55.i.i, i64 0, i32 2
+  %contents.i64.i.i = getelementptr inbounds i8, ptr %call.i55.i.i, i64 2056
   store ptr %call5.i63.i.i, ptr %contents.i64.i.i, align 8
   %22 = load i32, ptr %len.i58.i.i, align 8
   %conv8.i65.i.i = sext i32 %22 to i64
@@ -3811,7 +3804,7 @@ if.then.i60.i.i:                                  ; preds = %if.else.i.i
   br label %make_trie_node.exit67.i.i
 
 make_trie_node.exit67.i.i:                        ; preds = %if.then.i60.i.i, %if.else.i.i
-  %value9.i66.i.i = getelementptr inbounds %struct.trie, ptr %call.i55.i.i, i64 0, i32 3
+  %value9.i66.i.i = getelementptr inbounds i8, ptr %call.i55.i.i, i64 2064
   store ptr %p.024.i, ptr %value9.i66.i.i, align 8
   %23 = load i32, ptr %len.i.i.le, align 8
   %idxprom70.i.i = sext i32 %23 to i64
@@ -3823,13 +3816,13 @@ make_trie_node.exit67.i.i:                        ; preds = %if.then.i60.i.i, %i
   br label %add_to_trie.exit.i
 
 if.end74.i.i:                                     ; preds = %for.end.i.i
-  %value75.i.i = getelementptr inbounds %struct.trie, ptr %root.tr87.i.i, i64 0, i32 3
+  %value75.i.i = getelementptr inbounds i8, ptr %root.tr87.i.i, i64 2064
   store ptr %p.024.i, ptr %value75.i.i, align 8
   br label %add_to_trie.exit.i
 
 add_to_trie.exit.i:                               ; preds = %if.end74.i.i, %make_trie_node.exit67.i.i, %make_trie_node.exit.i.i, %if.then.i.i6
-  %incdec.ptr.i = getelementptr inbounds %struct.common_dir, ptr %p.024.i, i64 1
-  %path.i = getelementptr inbounds %struct.common_dir, ptr %p.024.i, i64 1, i32 1
+  %incdec.ptr.i = getelementptr inbounds i8, ptr %p.024.i, i64 16
+  %path.i = getelementptr inbounds i8, ptr %p.024.i, i64 24
   %25 = load ptr, ptr %path.i, align 8
   %tobool1.not.i = icmp eq ptr %25, null
   br i1 %tobool1.not.i, label %for.end.i, label %for.body.i, !llvm.loop !38
@@ -3899,24 +3892,24 @@ entry:
   br i1 %tobool.not, label %if.then, label %for.cond.preheader
 
 for.cond.preheader:                               ; preds = %entry
-  %len5 = getelementptr inbounds %struct.trie, ptr %root, i64 0, i32 1
+  %len5 = getelementptr inbounds i8, ptr %root, i64 2048
   %1 = load i32, ptr %len5, align 8
   %cmp7 = icmp sgt i32 %1, 0
   br i1 %cmp7, label %for.body.lr.ph, label %while.cond.preheader
 
 for.body.lr.ph:                                   ; preds = %for.cond.preheader
-  %contents = getelementptr inbounds %struct.trie, ptr %root, i64 0, i32 2
+  %contents = getelementptr inbounds i8, ptr %root, i64 2056
   %wide.trip.count = zext nneg i32 %1 to i64
   br label %for.body
 
 if.then:                                          ; preds = %entry
-  %value = getelementptr inbounds %struct.trie, ptr %root, i64 0, i32 3
+  %value = getelementptr inbounds i8, ptr %root, i64 2064
   %2 = load ptr, ptr %value, align 8
   %tobool1.not = icmp eq ptr %2, null
   br i1 %tobool1.not, label %return, label %land.lhs.true
 
 land.lhs.true:                                    ; preds = %if.then
-  %len = getelementptr inbounds %struct.trie, ptr %root, i64 0, i32 1
+  %len = getelementptr inbounds i8, ptr %root, i64 2048
   %3 = load i32, ptr %len, align 8
   %tobool2.not = icmp eq i32 %3, 0
   br i1 %tobool2.not, label %if.then3, label %return
@@ -3980,7 +3973,7 @@ while.cond.preheader:                             ; preds = %for.cond.preheader,
   br label %while.cond
 
 if.then27:                                        ; preds = %for.end
-  %value28 = getelementptr inbounds %struct.trie, ptr %root, i64 0, i32 3
+  %value28 = getelementptr inbounds i8, ptr %root, i64 2064
   %11 = load ptr, ptr %value28, align 8
   %tobool29.not = icmp eq ptr %11, null
   br i1 %tobool29.not, label %return, label %if.then30
@@ -4023,7 +4016,7 @@ lor.lhs.false:                                    ; preds = %while.end, %if.end5
   br i1 %cond, label %if.end62, label %return
 
 if.end62:                                         ; preds = %lor.lhs.false
-  %value63 = getelementptr inbounds %struct.trie, ptr %root, i64 0, i32 3
+  %value63 = getelementptr inbounds i8, ptr %root, i64 2064
   %15 = load ptr, ptr %value63, align 8
   %tobool64.not = icmp eq ptr %15, null
   br i1 %tobool64.not, label %return, label %if.then65

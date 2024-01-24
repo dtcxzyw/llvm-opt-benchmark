@@ -163,18 +163,18 @@ while.end:                                        ; preds = %if.then.i4, %entry
 declare noalias ptr @g_strdup(ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal i32 @add_semihosting_arg(ptr nocapture noundef %opaque, ptr nocapture noundef readonly %name, ptr noundef %val, ptr nocapture readnone %errp) #2 {
+define internal noundef i32 @add_semihosting_arg(ptr nocapture noundef %opaque, ptr nocapture noundef readonly %name, ptr noundef %val, ptr nocapture readnone %errp) #2 {
 entry:
   %call = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %name, ptr noundef nonnull dereferenceable(4) @.str.5) #9
   %cmp = icmp eq i32 %call, 0
   br i1 %cmp, label %if.then, label %if.end
 
 if.then:                                          ; preds = %entry
-  %argc = getelementptr inbounds %struct.SemihostingConfig, ptr %opaque, i64 0, i32 4
+  %argc = getelementptr inbounds i8, ptr %opaque, i64 16
   %0 = load i32, ptr %argc, align 8
   %inc = add i32 %0, 1
   store i32 %inc, ptr %argc, align 8
-  %argv = getelementptr inbounds %struct.SemihostingConfig, ptr %opaque, i64 0, i32 3
+  %argv = getelementptr inbounds i8, ptr %opaque, i64 8
   %1 = load ptr, ptr %argv, align 8
   %add = add i32 %0, 2
   %conv = sext i32 %add to i64
@@ -210,7 +210,7 @@ entry:
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local i32 @qemu_semihosting_config_options(ptr noundef %optstr) local_unnamed_addr #2 {
+define dso_local noundef i32 @qemu_semihosting_config_options(ptr noundef %optstr) local_unnamed_addr #2 {
 entry:
   %call = tail call ptr @qemu_find_opts(ptr noundef nonnull @.str) #8
   %call1 = tail call ptr @qemu_opts_parse_noisily(ptr noundef %call, ptr noundef %optstr, i1 noundef zeroext false) #8

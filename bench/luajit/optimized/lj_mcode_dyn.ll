@@ -3,20 +3,6 @@ source_filename = "bench/luajit/original/lj_mcode_dyn.ll"
 target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:128-n8:16:32:64-S128"
 target triple = "x86_64-unknown-linux-gnu"
 
-%struct.jit_State = type { %struct.GCtrace, ptr, ptr, ptr, ptr, ptr, ptr, i32, i32, i32, i8, i8, %struct.IRType1, i8, %struct.FoldState, ptr, i32, i32, i32, i32, i32, i32, i32, [1 x i32], [5 x %union.TValue], [3 x %union.TValue], ptr, i32, i32, i32, i32, ptr, ptr, i32, i32, i8, ptr, i32, i32, i16, [101 x i16], [258 x i32], [15 x i32], [16 x ptr], [64 x %struct.HotPenalty], i32, [16 x %struct.BPropEntry], i32, %struct.ScEvEntry, ptr, i32, i32, i32, ptr, i32, i32, ptr, ptr, ptr, i64, i64, %union.TValue, ptr, i32, i32 }
-%struct.GCtrace = type { %struct.GCRef, i8, i8, i16, i32, i32, %struct.GCRef, ptr, i32, i32, ptr, ptr, %struct.GCRef, %struct.MRef, i32, i32, ptr, i32, i16, i16, i16, i16, i16, i16, i16, i8, i8, i8, i8 }
-%struct.GCRef = type { i64 }
-%struct.MRef = type { i64 }
-%struct.IRType1 = type { i8 }
-%struct.FoldState = type { %union.IRIns, [2 x %union.IRIns], [2 x %union.IRIns] }
-%union.IRIns = type { %struct.GCRef }
-%struct.HotPenalty = type { %struct.MRef, i16, i16 }
-%struct.BPropEntry = type { i16, i16, i32 }
-%struct.ScEvEntry = type { %struct.MRef, i16, i16, i16, i16, %struct.IRType1, i8 }
-%union.TValue = type { i64 }
-%struct.MCLink = type { ptr, i64 }
-%struct.lua_State = type { %struct.GCRef, i8, i8, i8, i8, %struct.MRef, %struct.GCRef, ptr, ptr, %struct.MRef, %struct.MRef, %struct.GCRef, %struct.GCRef, ptr, i32 }
-
 @lj_vm_exit_handler = external hidden global [0 x i8], align 1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
@@ -28,10 +14,10 @@ entry:
 ; Function Attrs: nounwind uwtable
 define hidden void @lj_mcode_free(ptr nocapture noundef %J) local_unnamed_addr #1 {
 entry:
-  %mcarea = getelementptr inbounds %struct.jit_State, ptr %J, i64 0, i32 56
+  %mcarea = getelementptr inbounds i8, ptr %J, i64 3048
   %0 = load ptr, ptr %mcarea, align 8
   store ptr null, ptr %mcarea, align 8
-  %szallmcarea = getelementptr inbounds %struct.jit_State, ptr %J, i64 0, i32 60
+  %szallmcarea = getelementptr inbounds i8, ptr %J, i64 3080
   store i64 0, ptr %szallmcarea, align 8
   %tobool.not10 = icmp eq ptr %0, null
   br i1 %tobool.not10, label %while.end, label %while.body
@@ -39,7 +25,7 @@ entry:
 while.body:                                       ; preds = %entry, %while.body
   %mc.011 = phi ptr [ %1, %while.body ], [ %0, %entry ]
   %1 = load ptr, ptr %mc.011, align 8
-  %size = getelementptr inbounds %struct.MCLink, ptr %mc.011, i64 0, i32 1
+  %size = getelementptr inbounds i8, ptr %mc.011, i64 8
   %2 = load i64, ptr %size, align 8
   %add.ptr = getelementptr inbounds i8, ptr %mc.011, i64 16
   tail call void @lj_err_deregister_mcode(ptr noundef nonnull %mc.011, i64 noundef %2, ptr noundef nonnull %add.ptr) #7
@@ -56,7 +42,7 @@ declare hidden void @lj_err_deregister_mcode(ptr noundef, i64 noundef, ptr nound
 ; Function Attrs: nounwind uwtable
 define hidden ptr @lj_mcode_reserve(ptr noundef %J, ptr nocapture noundef writeonly %lim) local_unnamed_addr #1 {
 entry:
-  %mcarea = getelementptr inbounds %struct.jit_State, ptr %J, i64 0, i32 56
+  %mcarea = getelementptr inbounds i8, ptr %J, i64 3048
   %0 = load ptr, ptr %mcarea, align 8
   %tobool.not = icmp eq ptr %0, null
   br i1 %tobool.not, label %if.then, label %if.else
@@ -66,13 +52,13 @@ if.then:                                          ; preds = %entry
   br label %if.end
 
 if.else:                                          ; preds = %entry
-  %mcprot.i = getelementptr inbounds %struct.jit_State, ptr %J, i64 0, i32 55
+  %mcprot.i = getelementptr inbounds i8, ptr %J, i64 3044
   %1 = load i32, ptr %mcprot.i, align 4
   %cmp.not.i = icmp eq i32 %1, 3
   br i1 %cmp.not.i, label %if.end, label %if.then.i
 
 if.then.i:                                        ; preds = %if.else
-  %szmcarea.i = getelementptr inbounds %struct.jit_State, ptr %J, i64 0, i32 59
+  %szmcarea.i = getelementptr inbounds i8, ptr %J, i64 3072
   %2 = load i64, ptr %szmcarea.i, align 8
   %call.i.i = tail call i32 @mprotect(ptr noundef nonnull %0, i64 noundef %2, i32 noundef 3) #7
   %tobool.not.i = icmp eq i32 %call.i.i, 0
@@ -87,10 +73,10 @@ if.end.i:                                         ; preds = %if.then.i
   br label %if.end
 
 if.end:                                           ; preds = %if.end.i, %if.else, %if.then
-  %mcbot = getelementptr inbounds %struct.jit_State, ptr %J, i64 0, i32 58
+  %mcbot = getelementptr inbounds i8, ptr %J, i64 3064
   %3 = load ptr, ptr %mcbot, align 8
   store ptr %3, ptr %lim, align 8
-  %mctop = getelementptr inbounds %struct.jit_State, ptr %J, i64 0, i32 57
+  %mctop = getelementptr inbounds i8, ptr %J, i64 3056
   %4 = load ptr, ptr %mctop, align 8
   ret ptr %4
 }
@@ -98,9 +84,9 @@ if.end:                                           ; preds = %if.end.i, %if.else,
 ; Function Attrs: nounwind uwtable
 define internal fastcc void @mcode_allocarea(ptr noundef %J) unnamed_addr #1 {
 entry:
-  %mcarea = getelementptr inbounds %struct.jit_State, ptr %J, i64 0, i32 56
+  %mcarea = getelementptr inbounds i8, ptr %J, i64 3048
   %0 = load ptr, ptr %mcarea, align 8
-  %arrayidx = getelementptr inbounds %struct.jit_State, ptr %J, i64 0, i32 42, i64 13
+  %arrayidx = getelementptr inbounds i8, ptr %J, i64 1688
   %1 = load i32, ptr %arrayidx, align 4
   %conv = sext i32 %1 to i64
   %shl = shl nsw i64 %conv, 10
@@ -165,21 +151,21 @@ for.end.i:                                        ; preds = %do.end.i
 
 mcode_alloc.exit:                                 ; preds = %land.lhs.true.i
   store ptr %call.i.i, ptr %mcarea, align 8
-  %szmcarea = getelementptr inbounds %struct.jit_State, ptr %J, i64 0, i32 59
+  %szmcarea = getelementptr inbounds i8, ptr %J, i64 3072
   store i64 %and, ptr %szmcarea, align 8
-  %mcprot = getelementptr inbounds %struct.jit_State, ptr %J, i64 0, i32 55
+  %mcprot = getelementptr inbounds i8, ptr %J, i64 3044
   store i32 3, ptr %mcprot, align 4
   %add.ptr = getelementptr inbounds i8, ptr %call.i.i, i64 %and
-  %mctop = getelementptr inbounds %struct.jit_State, ptr %J, i64 0, i32 57
+  %mctop = getelementptr inbounds i8, ptr %J, i64 3056
   store ptr %add.ptr, ptr %mctop, align 8
   %add.ptr5 = getelementptr inbounds i8, ptr %call.i.i, i64 16
-  %mcbot = getelementptr inbounds %struct.jit_State, ptr %J, i64 0, i32 58
+  %mcbot = getelementptr inbounds i8, ptr %J, i64 3064
   store ptr %add.ptr5, ptr %mcbot, align 8
   store ptr %0, ptr %call.i.i, align 8
   %4 = load ptr, ptr %mcarea, align 8
-  %size = getelementptr inbounds %struct.MCLink, ptr %4, i64 0, i32 1
+  %size = getelementptr inbounds i8, ptr %4, i64 8
   store i64 %and, ptr %size, align 8
-  %szallmcarea = getelementptr inbounds %struct.jit_State, ptr %J, i64 0, i32 60
+  %szallmcarea = getelementptr inbounds i8, ptr %J, i64 3080
   %5 = load i64, ptr %szallmcarea, align 8
   %add8 = add i64 %5, %and
   store i64 %add8, ptr %szallmcarea, align 8
@@ -193,17 +179,17 @@ mcode_alloc.exit:                                 ; preds = %land.lhs.true.i
 ; Function Attrs: nounwind uwtable
 define hidden void @lj_mcode_commit(ptr nocapture noundef %J, ptr noundef %top) local_unnamed_addr #1 {
 entry:
-  %mctop = getelementptr inbounds %struct.jit_State, ptr %J, i64 0, i32 57
+  %mctop = getelementptr inbounds i8, ptr %J, i64 3056
   store ptr %top, ptr %mctop, align 8
-  %mcprot.i = getelementptr inbounds %struct.jit_State, ptr %J, i64 0, i32 55
+  %mcprot.i = getelementptr inbounds i8, ptr %J, i64 3044
   %0 = load i32, ptr %mcprot.i, align 4
   %cmp.not.i = icmp eq i32 %0, 5
   br i1 %cmp.not.i, label %mcode_protect.exit, label %if.then.i
 
 if.then.i:                                        ; preds = %entry
-  %mcarea.i = getelementptr inbounds %struct.jit_State, ptr %J, i64 0, i32 56
+  %mcarea.i = getelementptr inbounds i8, ptr %J, i64 3048
   %1 = load ptr, ptr %mcarea.i, align 8
-  %szmcarea.i = getelementptr inbounds %struct.jit_State, ptr %J, i64 0, i32 59
+  %szmcarea.i = getelementptr inbounds i8, ptr %J, i64 3072
   %2 = load i64, ptr %szmcarea.i, align 8
   %call.i.i = tail call i32 @mprotect(ptr noundef %1, i64 noundef %2, i32 noundef 5) #7
   %tobool.not.i = icmp eq i32 %call.i.i, 0
@@ -224,19 +210,19 @@ mcode_protect.exit:                               ; preds = %entry, %if.end.i
 ; Function Attrs: nounwind uwtable
 define hidden void @lj_mcode_abort(ptr nocapture noundef %J) local_unnamed_addr #1 {
 entry:
-  %mcarea = getelementptr inbounds %struct.jit_State, ptr %J, i64 0, i32 56
+  %mcarea = getelementptr inbounds i8, ptr %J, i64 3048
   %0 = load ptr, ptr %mcarea, align 8
   %tobool.not = icmp eq ptr %0, null
   br i1 %tobool.not, label %if.end, label %if.then
 
 if.then:                                          ; preds = %entry
-  %mcprot.i = getelementptr inbounds %struct.jit_State, ptr %J, i64 0, i32 55
+  %mcprot.i = getelementptr inbounds i8, ptr %J, i64 3044
   %1 = load i32, ptr %mcprot.i, align 4
   %cmp.not.i = icmp eq i32 %1, 5
   br i1 %cmp.not.i, label %if.end, label %if.then.i
 
 if.then.i:                                        ; preds = %if.then
-  %szmcarea.i = getelementptr inbounds %struct.jit_State, ptr %J, i64 0, i32 59
+  %szmcarea.i = getelementptr inbounds i8, ptr %J, i64 3072
   %2 = load i64, ptr %szmcarea.i, align 8
   %call.i.i = tail call i32 @mprotect(ptr noundef nonnull %0, i64 noundef %2, i32 noundef 5) #7
   %tobool.not.i = icmp eq i32 %call.i.i, 0
@@ -258,7 +244,7 @@ if.end:                                           ; preds = %if.end.i, %if.then,
 define hidden ptr @lj_mcode_patch(ptr nocapture noundef %J, ptr noundef %ptr, i32 noundef %finish) local_unnamed_addr #1 {
 entry:
   %tobool.not = icmp eq i32 %finish, 0
-  %mcarea8 = getelementptr inbounds %struct.jit_State, ptr %J, i64 0, i32 56
+  %mcarea8 = getelementptr inbounds i8, ptr %J, i64 3048
   %0 = load ptr, ptr %mcarea8, align 8
   br i1 %tobool.not, label %if.else7, label %if.then
 
@@ -267,13 +253,13 @@ if.then:                                          ; preds = %entry
   br i1 %cmp, label %if.then1, label %if.else
 
 if.then1:                                         ; preds = %if.then
-  %mcprot.i = getelementptr inbounds %struct.jit_State, ptr %J, i64 0, i32 55
+  %mcprot.i = getelementptr inbounds i8, ptr %J, i64 3044
   %1 = load i32, ptr %mcprot.i, align 4
   %cmp.not.i = icmp eq i32 %1, 5
   br i1 %cmp.not.i, label %return, label %if.then.i
 
 if.then.i:                                        ; preds = %if.then1
-  %szmcarea.i = getelementptr inbounds %struct.jit_State, ptr %J, i64 0, i32 59
+  %szmcarea.i = getelementptr inbounds i8, ptr %J, i64 3072
   %2 = load i64, ptr %szmcarea.i, align 8
   %call.i.i = tail call i32 @mprotect(ptr noundef %ptr, i64 noundef %2, i32 noundef 5) #7
   %tobool.not.i = icmp eq i32 %call.i.i, 0
@@ -288,7 +274,7 @@ if.end.i:                                         ; preds = %if.then.i
   br label %return
 
 if.else:                                          ; preds = %if.then
-  %size = getelementptr inbounds %struct.MCLink, ptr %ptr, i64 0, i32 1
+  %size = getelementptr inbounds i8, ptr %ptr, i64 8
   %3 = load i64, ptr %size, align 8
   %call.i = tail call i32 @mprotect(ptr noundef %ptr, i64 noundef %3, i32 noundef 5) #7
   %tobool2.not = icmp eq i32 %call.i, 0
@@ -306,14 +292,14 @@ for.cond.preheader:                               ; preds = %land.lhs.true, %if.
   br label %for.cond
 
 land.lhs.true:                                    ; preds = %if.else7
-  %szmcarea = getelementptr inbounds %struct.jit_State, ptr %J, i64 0, i32 59
+  %szmcarea = getelementptr inbounds i8, ptr %J, i64 3072
   %4 = load i64, ptr %szmcarea, align 8
   %add.ptr = getelementptr inbounds i8, ptr %0, i64 %4
   %cmp11 = icmp ugt ptr %add.ptr, %ptr
   br i1 %cmp11, label %if.then13, label %for.cond.preheader
 
 if.then13:                                        ; preds = %land.lhs.true
-  %mcprot.i23 = getelementptr inbounds %struct.jit_State, ptr %J, i64 0, i32 55
+  %mcprot.i23 = getelementptr inbounds i8, ptr %J, i64 3044
   %5 = load i32, ptr %mcprot.i23, align 4
   %cmp.not.i24 = icmp eq i32 %5, 3
   br i1 %cmp.not.i24, label %return, label %if.then.i25
@@ -338,7 +324,7 @@ for.cond:                                         ; preds = %for.cond.backedge, 
   br i1 %cmp15.not, label %for.cond.backedge, label %land.lhs.true17
 
 land.lhs.true17:                                  ; preds = %for.cond
-  %size18 = getelementptr inbounds %struct.MCLink, ptr %6, i64 0, i32 1
+  %size18 = getelementptr inbounds i8, ptr %6, i64 8
   %7 = load i64, ptr %size18, align 8
   %add.ptr19 = getelementptr inbounds i8, ptr %6, i64 %7
   %cmp20 = icmp ugt ptr %add.ptr19, %ptr
@@ -370,11 +356,11 @@ entry:
   br i1 %tobool.not, label %if.end, label %if.then
 
 if.then:                                          ; preds = %entry
-  %L2 = getelementptr inbounds %struct.jit_State, ptr %J, i64 0, i32 2
+  %L2 = getelementptr inbounds i8, ptr %J, i64 128
   %1 = load ptr, ptr %L2, align 8
-  %top = getelementptr inbounds %struct.lua_State, ptr %1, i64 0, i32 8
+  %top = getelementptr inbounds i8, ptr %1, i64 40
   %2 = load ptr, ptr %top, align 8
-  %incdec.ptr = getelementptr inbounds %union.TValue, ptr %2, i64 1
+  %incdec.ptr = getelementptr inbounds i8, ptr %2, i64 8
   store ptr %incdec.ptr, ptr %top, align 8
   %call = tail call ptr @lj_err_str(ptr noundef %1, i32 noundef 2003) #7
   %3 = ptrtoint ptr %call to i64
@@ -391,19 +377,19 @@ if.end:                                           ; preds = %if.then, %entry
 ; Function Attrs: noreturn nounwind uwtable
 define hidden void @lj_mcode_limiterr(ptr noundef %J, i64 noundef %need) local_unnamed_addr #3 {
 entry:
-  %mcarea.i = getelementptr inbounds %struct.jit_State, ptr %J, i64 0, i32 56
+  %mcarea.i = getelementptr inbounds i8, ptr %J, i64 3048
   %0 = load ptr, ptr %mcarea.i, align 8
   %tobool.not.i = icmp eq ptr %0, null
   br i1 %tobool.not.i, label %lj_mcode_abort.exit, label %if.then.i
 
 if.then.i:                                        ; preds = %entry
-  %mcprot.i.i = getelementptr inbounds %struct.jit_State, ptr %J, i64 0, i32 55
+  %mcprot.i.i = getelementptr inbounds i8, ptr %J, i64 3044
   %1 = load i32, ptr %mcprot.i.i, align 4
   %cmp.not.i.i = icmp eq i32 %1, 5
   br i1 %cmp.not.i.i, label %lj_mcode_abort.exit, label %if.then.i.i
 
 if.then.i.i:                                      ; preds = %if.then.i
-  %szmcarea.i.i = getelementptr inbounds %struct.jit_State, ptr %J, i64 0, i32 59
+  %szmcarea.i.i = getelementptr inbounds i8, ptr %J, i64 3072
   %2 = load i64, ptr %szmcarea.i.i, align 8
   %call.i.i.i = tail call i32 @mprotect(ptr noundef nonnull %0, i64 noundef %2, i32 noundef 5) #7
   %tobool.not.i.i = icmp eq i32 %call.i.i.i, 0
@@ -418,7 +404,7 @@ if.end.i.i:                                       ; preds = %if.then.i.i
   br label %lj_mcode_abort.exit
 
 lj_mcode_abort.exit:                              ; preds = %entry, %if.then.i, %if.end.i.i
-  %arrayidx = getelementptr inbounds %struct.jit_State, ptr %J, i64 0, i32 42, i64 13
+  %arrayidx = getelementptr inbounds i8, ptr %J, i64 1688
   %3 = load i32, ptr %arrayidx, align 4
   %conv = sext i32 %3 to i64
   %shl = shl nsw i64 %conv, 10
@@ -432,11 +418,11 @@ if.then:                                          ; preds = %lj_mcode_abort.exit
   unreachable
 
 if.end:                                           ; preds = %lj_mcode_abort.exit
-  %arrayidx2 = getelementptr inbounds %struct.jit_State, ptr %J, i64 0, i32 42, i64 14
+  %arrayidx2 = getelementptr inbounds i8, ptr %J, i64 1692
   %4 = load i32, ptr %arrayidx2, align 4
   %conv3 = sext i32 %4 to i64
   %shl4 = shl nsw i64 %conv3, 10
-  %szallmcarea = getelementptr inbounds %struct.jit_State, ptr %J, i64 0, i32 60
+  %szallmcarea = getelementptr inbounds i8, ptr %J, i64 3080
   %5 = load i64, ptr %szallmcarea, align 8
   %add6 = add i64 %5, %and
   %cmp7 = icmp ugt i64 %add6, %shl4

@@ -3,17 +3,7 @@ source_filename = "bench/libquic/original/d1_lib.c.ll"
 target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:128-n8:16:32:64-S128"
 target triple = "x86_64-unknown-linux-gnu"
 
-%struct.dtls1_state_st = type { i32, [256 x i8], i64, i16, i16, %struct.dtls1_bitmap_st, i16, i16, i16, [8 x i8], ptr, ptr, i32, %struct.hm_header_st, i32, %struct.timeval, i16 }
-%struct.dtls1_bitmap_st = type { i64, i64 }
-%struct.hm_header_st = type { i8, i32, i16, i32, i32, i32, i16 }
 %struct.timeval = type { i64, i64 }
-%struct.ssl_st = type { i32, i16, i16, ptr, ptr, ptr, ptr, ptr, i32, i32, ptr, ptr, i32, i32, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, i32, i32, [32 x i8], ptr, ptr, ptr, ptr, ptr, ptr, ptr, i64, %struct.crypto_ex_data_st, ptr, i32, i32, i32, i32, i16, ptr, i32, i64, ptr, ptr, ptr, ptr, ptr, ptr, i32, i32, ptr, ptr, i8, i8, i32 }
-%struct.crypto_ex_data_st = type { ptr }
-%struct._pitem = type { [8 x i8], ptr, ptr }
-%struct.ssl_cipher_st = type { ptr, i32, i32, i32, i32, i32, i32 }
-%struct.ssl_ctx_st = type { ptr, %union.crypto_mutex_st, i16, i16, ptr, ptr, ptr, ptr, ptr, ptr, i64, ptr, ptr, i32, i32, i64, ptr, ptr, ptr, i32, ptr, ptr, ptr, ptr, ptr, ptr, %struct.crypto_ex_data_st, ptr, ptr, ptr, ptr, i32, i32, i32, ptr, ptr, ptr, i32, i32, [32 x i8], ptr, ptr, ptr, ptr, i16, ptr, ptr, [16 x i8], [16 x i8], [16 x i8], ptr, ptr, ptr, ptr, i8, ptr, ptr, ptr, ptr, ptr, ptr, ptr, i32, ptr, i64, ptr, ptr, ptr, i64, ptr, i64, ptr, ptr, i8, ptr, i32 }
-%union.crypto_mutex_st = type { double, [48 x i8] }
-%struct.buf_mem_st = type { i64, ptr, i64 }
 
 @.str = private unnamed_addr constant [116 x i8] c"generated/home/dtcxzyw/WorkSpace/Projects/compilers/llvm-opt-benchmark/bench/libquic/libquic/boringssl/ssl/d1_lib.c\00", align 1
 
@@ -35,10 +25,10 @@ if.then2:                                         ; preds = %if.end
 
 if.end3:                                          ; preds = %if.end
   %call4 = tail call ptr @pqueue_new() #9
-  %buffered_messages = getelementptr inbounds %struct.dtls1_state_st, ptr %calloc, i64 0, i32 10
+  %buffered_messages = getelementptr inbounds i8, ptr %calloc, i64 312
   store ptr %call4, ptr %buffered_messages, align 8
   %call5 = tail call ptr @pqueue_new() #9
-  %sent_messages = getelementptr inbounds %struct.dtls1_state_st, ptr %calloc, i64 0, i32 11
+  %sent_messages = getelementptr inbounds i8, ptr %calloc, i64 320
   store ptr %call5, ptr %sent_messages, align 8
   %tobool7.not = icmp eq ptr %call4, null
   %tobool9.not = icmp eq ptr %call5, null
@@ -53,7 +43,7 @@ if.then10:                                        ; preds = %if.end3
   br label %return
 
 if.end13:                                         ; preds = %if.end3
-  %d114 = getelementptr inbounds %struct.ssl_st, ptr %ssl, i64 0, i32 15
+  %d114 = getelementptr inbounds i8, ptr %ssl, i64 88
   store ptr %calloc, ptr %d114, align 8
   store i32 65277, ptr %ssl, align 8
   br label %return
@@ -85,13 +75,13 @@ entry:
   br i1 %cmp, label %return, label %lor.lhs.false
 
 lor.lhs.false:                                    ; preds = %entry
-  %d1 = getelementptr inbounds %struct.ssl_st, ptr %ssl, i64 0, i32 15
+  %d1 = getelementptr inbounds i8, ptr %ssl, i64 88
   %0 = load ptr, ptr %d1, align 8
   %cmp1 = icmp eq ptr %0, null
   br i1 %cmp1, label %return, label %if.end
 
 if.end:                                           ; preds = %lor.lhs.false
-  %buffered_messages6.i = getelementptr inbounds %struct.dtls1_state_st, ptr %0, i64 0, i32 10
+  %buffered_messages6.i = getelementptr inbounds i8, ptr %0, i64 312
   %1 = load ptr, ptr %buffered_messages6.i, align 8
   %call7.i = tail call ptr @pqueue_pop(ptr noundef %1) #9
   %cmp.not8.i = icmp eq ptr %call7.i, null
@@ -99,7 +89,7 @@ if.end:                                           ; preds = %lor.lhs.false
 
 while.cond1.preheader.i:                          ; preds = %while.body.i, %if.end
   %2 = load ptr, ptr %d1, align 8
-  %sent_messages10.i = getelementptr inbounds %struct.dtls1_state_st, ptr %2, i64 0, i32 11
+  %sent_messages10.i = getelementptr inbounds i8, ptr %2, i64 320
   %3 = load ptr, ptr %sent_messages10.i, align 8
   %call311.i = tail call ptr @pqueue_pop(ptr noundef %3) #9
   %cmp4.not12.i = icmp eq ptr %call311.i, null
@@ -107,12 +97,12 @@ while.cond1.preheader.i:                          ; preds = %while.body.i, %if.e
 
 while.body.i:                                     ; preds = %if.end, %while.body.i
   %call9.i = phi ptr [ %call.i, %while.body.i ], [ %call7.i, %if.end ]
-  %data.i = getelementptr inbounds %struct._pitem, ptr %call9.i, i64 0, i32 1
+  %data.i = getelementptr inbounds i8, ptr %call9.i, i64 8
   %4 = load ptr, ptr %data.i, align 8
   tail call void @dtls1_hm_fragment_free(ptr noundef %4) #9
   tail call void @pitem_free(ptr noundef nonnull %call9.i) #9
   %5 = load ptr, ptr %d1, align 8
-  %buffered_messages.i = getelementptr inbounds %struct.dtls1_state_st, ptr %5, i64 0, i32 10
+  %buffered_messages.i = getelementptr inbounds i8, ptr %5, i64 312
   %6 = load ptr, ptr %buffered_messages.i, align 8
   %call.i = tail call ptr @pqueue_pop(ptr noundef %6) #9
   %cmp.not.i = icmp eq ptr %call.i, null
@@ -120,12 +110,12 @@ while.body.i:                                     ; preds = %if.end, %while.body
 
 while.body5.i:                                    ; preds = %while.cond1.preheader.i, %while.body5.i
   %call313.i = phi ptr [ %call3.i, %while.body5.i ], [ %call311.i, %while.cond1.preheader.i ]
-  %data6.i = getelementptr inbounds %struct._pitem, ptr %call313.i, i64 0, i32 1
+  %data6.i = getelementptr inbounds i8, ptr %call313.i, i64 8
   %7 = load ptr, ptr %data6.i, align 8
   tail call void @dtls1_hm_fragment_free(ptr noundef %7) #9
   tail call void @pitem_free(ptr noundef nonnull %call313.i) #9
   %8 = load ptr, ptr %d1, align 8
-  %sent_messages.i = getelementptr inbounds %struct.dtls1_state_st, ptr %8, i64 0, i32 11
+  %sent_messages.i = getelementptr inbounds i8, ptr %8, i64 320
   %9 = load ptr, ptr %sent_messages.i, align 8
   %call3.i = tail call ptr @pqueue_pop(ptr noundef %9) #9
   %cmp4.not.i = icmp eq ptr %call3.i, null
@@ -133,11 +123,11 @@ while.body5.i:                                    ; preds = %while.cond1.prehead
 
 dtls1_clear_queues.exit:                          ; preds = %while.body5.i, %while.cond1.preheader.i
   %10 = load ptr, ptr %d1, align 8
-  %buffered_messages = getelementptr inbounds %struct.dtls1_state_st, ptr %10, i64 0, i32 10
+  %buffered_messages = getelementptr inbounds i8, ptr %10, i64 312
   %11 = load ptr, ptr %buffered_messages, align 8
   tail call void @pqueue_free(ptr noundef %11) #9
   %12 = load ptr, ptr %d1, align 8
-  %sent_messages = getelementptr inbounds %struct.dtls1_state_st, ptr %12, i64 0, i32 11
+  %sent_messages = getelementptr inbounds i8, ptr %12, i64 320
   %13 = load ptr, ptr %sent_messages, align 8
   tail call void @pqueue_free(ptr noundef %13) #9
   %14 = load ptr, ptr %d1, align 8
@@ -152,7 +142,7 @@ return:                                           ; preds = %entry, %lor.lhs.fal
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
 define hidden i32 @dtls1_supports_cipher(ptr nocapture noundef readonly %cipher) local_unnamed_addr #4 {
 entry:
-  %algorithm_enc = getelementptr inbounds %struct.ssl_cipher_st, ptr %cipher, i64 0, i32 4
+  %algorithm_enc = getelementptr inbounds i8, ptr %cipher, i64 20
   %0 = load i32, ptr %algorithm_enc, align 4
   %cmp.not = icmp ne i32 %0, 2
   %cmp4 = icmp ne i32 %0, 128
@@ -164,31 +154,31 @@ entry:
 ; Function Attrs: nounwind uwtable
 define hidden void @dtls1_start_timer(ptr noundef %ssl) local_unnamed_addr #0 {
 entry:
-  %d1 = getelementptr inbounds %struct.ssl_st, ptr %ssl, i64 0, i32 15
+  %d1 = getelementptr inbounds i8, ptr %ssl, i64 88
   %0 = load ptr, ptr %d1, align 8
-  %next_timeout = getelementptr inbounds %struct.dtls1_state_st, ptr %0, i64 0, i32 15
+  %next_timeout = getelementptr inbounds i8, ptr %0, i64 368
   %1 = load i64, ptr %next_timeout, align 8
   %cmp = icmp eq i64 %1, 0
   br i1 %cmp, label %land.lhs.true, label %if.end
 
 land.lhs.true:                                    ; preds = %entry
-  %tv_usec = getelementptr inbounds %struct.dtls1_state_st, ptr %0, i64 0, i32 15, i32 1
+  %tv_usec = getelementptr inbounds i8, ptr %0, i64 376
   %2 = load i64, ptr %tv_usec, align 8
   %cmp3 = icmp eq i64 %2, 0
   br i1 %cmp3, label %if.then, label %if.end
 
 if.then:                                          ; preds = %land.lhs.true
-  %timeout_duration = getelementptr inbounds %struct.dtls1_state_st, ptr %0, i64 0, i32 16
+  %timeout_duration = getelementptr inbounds i8, ptr %0, i64 384
   store i16 1, ptr %timeout_duration, align 8
   %.pre = load ptr, ptr %d1, align 8
   br label %if.end
 
 if.end:                                           ; preds = %if.then, %land.lhs.true, %entry
   %3 = phi ptr [ %.pre, %if.then ], [ %0, %land.lhs.true ], [ %0, %entry ]
-  %next_timeout6 = getelementptr inbounds %struct.dtls1_state_st, ptr %3, i64 0, i32 15
-  %ctx.i = getelementptr inbounds %struct.ssl_st, ptr %ssl, i64 0, i32 31
+  %next_timeout6 = getelementptr inbounds i8, ptr %3, i64 368
+  %ctx.i = getelementptr inbounds i8, ptr %ssl, i64 232
   %4 = load ptr, ptr %ctx.i, align 8
-  %current_time_cb.i = getelementptr inbounds %struct.ssl_ctx_st, ptr %4, i64 0, i32 72
+  %current_time_cb.i = getelementptr inbounds i8, ptr %4, i64 640
   %5 = load ptr, ptr %current_time_cb.i, align 8
   %cmp.not.i = icmp eq ptr %5, null
   br i1 %cmp.not.i, label %if.end.i, label %if.then.i
@@ -203,16 +193,16 @@ if.end.i:                                         ; preds = %if.end
 
 get_current_time.exit:                            ; preds = %if.then.i, %if.end.i
   %6 = load ptr, ptr %d1, align 8
-  %timeout_duration8 = getelementptr inbounds %struct.dtls1_state_st, ptr %6, i64 0, i32 16
+  %timeout_duration8 = getelementptr inbounds i8, ptr %6, i64 384
   %7 = load i16, ptr %timeout_duration8, align 8
   %conv = zext i16 %7 to i64
-  %next_timeout10 = getelementptr inbounds %struct.dtls1_state_st, ptr %6, i64 0, i32 15
+  %next_timeout10 = getelementptr inbounds i8, ptr %6, i64 368
   %8 = load i64, ptr %next_timeout10, align 8
   %add = add nsw i64 %8, %conv
   store i64 %add, ptr %next_timeout10, align 8
   %call = tail call ptr @SSL_get_rbio(ptr noundef nonnull %ssl) #9
   %9 = load ptr, ptr %d1, align 8
-  %next_timeout13 = getelementptr inbounds %struct.dtls1_state_st, ptr %9, i64 0, i32 15
+  %next_timeout13 = getelementptr inbounds i8, ptr %9, i64 368
   %call14 = tail call i64 @BIO_ctrl(ptr noundef %call, i32 noundef 45, i64 noundef 0, ptr noundef nonnull %next_timeout13) #9
   ret void
 }
@@ -225,30 +215,30 @@ declare ptr @SSL_get_rbio(ptr noundef) local_unnamed_addr #1
 define hidden noundef i32 @DTLSv1_get_timeout(ptr noundef %ssl, ptr nocapture noundef %out) local_unnamed_addr #0 {
 entry:
   %timenow = alloca %struct.timeval, align 8
-  %method = getelementptr inbounds %struct.ssl_st, ptr %ssl, i64 0, i32 3
+  %method = getelementptr inbounds i8, ptr %ssl, i64 8
   %0 = load ptr, ptr %method, align 8
   %1 = load i8, ptr %0, align 8
   %tobool.not = icmp eq i8 %1, 0
   br i1 %tobool.not, label %return, label %if.end
 
 if.end:                                           ; preds = %entry
-  %d1 = getelementptr inbounds %struct.ssl_st, ptr %ssl, i64 0, i32 15
+  %d1 = getelementptr inbounds i8, ptr %ssl, i64 88
   %2 = load ptr, ptr %d1, align 8
-  %next_timeout = getelementptr inbounds %struct.dtls1_state_st, ptr %2, i64 0, i32 15
+  %next_timeout = getelementptr inbounds i8, ptr %2, i64 368
   %3 = load i64, ptr %next_timeout, align 8
   %cmp = icmp eq i64 %3, 0
   br i1 %cmp, label %land.lhs.true, label %if.end5
 
 land.lhs.true:                                    ; preds = %if.end
-  %tv_usec = getelementptr inbounds %struct.dtls1_state_st, ptr %2, i64 0, i32 15, i32 1
+  %tv_usec = getelementptr inbounds i8, ptr %2, i64 376
   %4 = load i64, ptr %tv_usec, align 8
   %cmp3 = icmp eq i64 %4, 0
   br i1 %cmp3, label %return, label %if.end5
 
 if.end5:                                          ; preds = %land.lhs.true, %if.end
-  %ctx.i = getelementptr inbounds %struct.ssl_st, ptr %ssl, i64 0, i32 31
+  %ctx.i = getelementptr inbounds i8, ptr %ssl, i64 232
   %5 = load ptr, ptr %ctx.i, align 8
-  %current_time_cb.i = getelementptr inbounds %struct.ssl_ctx_st, ptr %5, i64 0, i32 72
+  %current_time_cb.i = getelementptr inbounds i8, ptr %5, i64 640
   %6 = load ptr, ptr %current_time_cb.i, align 8
   %cmp.not.i = icmp eq ptr %6, null
   br i1 %cmp.not.i, label %if.end.i, label %if.then.i
@@ -263,7 +253,7 @@ if.end.i:                                         ; preds = %if.end5
 
 get_current_time.exit:                            ; preds = %if.then.i, %if.end.i
   %7 = load ptr, ptr %d1, align 8
-  %next_timeout7 = getelementptr inbounds %struct.dtls1_state_st, ptr %7, i64 0, i32 15
+  %next_timeout7 = getelementptr inbounds i8, ptr %7, i64 368
   %8 = load i64, ptr %next_timeout7, align 8
   %9 = load i64, ptr %timenow, align 8
   %cmp10 = icmp slt i64 %8, %9
@@ -274,14 +264,14 @@ lor.lhs.false:                                    ; preds = %get_current_time.ex
   br i1 %cmp15, label %land.lhs.true16, label %lor.lhs.false.if.end23_crit_edge
 
 lor.lhs.false.if.end23_crit_edge:                 ; preds = %lor.lhs.false
-  %tv_usec28.phi.trans.insert = getelementptr inbounds %struct.timeval, ptr %timenow, i64 0, i32 1
+  %tv_usec28.phi.trans.insert = getelementptr inbounds i8, ptr %timenow, i64 8
   %.pre = load i64, ptr %tv_usec28.phi.trans.insert, align 8
   br label %if.end23
 
 land.lhs.true16:                                  ; preds = %lor.lhs.false
-  %tv_usec19 = getelementptr inbounds %struct.dtls1_state_st, ptr %7, i64 0, i32 15, i32 1
+  %tv_usec19 = getelementptr inbounds i8, ptr %7, i64 376
   %10 = load i64, ptr %tv_usec19, align 8
-  %tv_usec20 = getelementptr inbounds %struct.timeval, ptr %timenow, i64 0, i32 1
+  %tv_usec20 = getelementptr inbounds i8, ptr %timenow, i64 8
   %11 = load i64, ptr %tv_usec20, align 8
   %cmp21.not = icmp sgt i64 %10, %11
   br i1 %cmp21.not, label %if.end23, label %return.sink.split
@@ -292,7 +282,7 @@ if.end23:                                         ; preds = %lor.lhs.false.if.en
   %13 = load i64, ptr %out, align 8
   %sub = sub nsw i64 %13, %9
   store i64 %sub, ptr %out, align 8
-  %tv_usec29 = getelementptr inbounds %struct.timeval, ptr %out, i64 0, i32 1
+  %tv_usec29 = getelementptr inbounds i8, ptr %out, i64 8
   %14 = load i64, ptr %tv_usec29, align 8
   %sub30 = sub nsw i64 %14, %12
   store i64 %sub30, ptr %tv_usec29, align 8
@@ -331,30 +321,30 @@ define hidden i32 @dtls1_is_timer_expired(ptr noundef %ssl) local_unnamed_addr #
 entry:
   %timenow.i = alloca %struct.timeval, align 8
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %timenow.i)
-  %method.i = getelementptr inbounds %struct.ssl_st, ptr %ssl, i64 0, i32 3
+  %method.i = getelementptr inbounds i8, ptr %ssl, i64 8
   %0 = load ptr, ptr %method.i, align 8
   %1 = load i8, ptr %0, align 8
   %tobool.not.i = icmp eq i8 %1, 0
   br i1 %tobool.not.i, label %DTLSv1_get_timeout.exit.thread, label %if.end.i
 
 if.end.i:                                         ; preds = %entry
-  %d1.i = getelementptr inbounds %struct.ssl_st, ptr %ssl, i64 0, i32 15
+  %d1.i = getelementptr inbounds i8, ptr %ssl, i64 88
   %2 = load ptr, ptr %d1.i, align 8
-  %next_timeout.i = getelementptr inbounds %struct.dtls1_state_st, ptr %2, i64 0, i32 15
+  %next_timeout.i = getelementptr inbounds i8, ptr %2, i64 368
   %3 = load i64, ptr %next_timeout.i, align 8
   %cmp.i = icmp eq i64 %3, 0
   br i1 %cmp.i, label %land.lhs.true.i, label %if.end5.i
 
 land.lhs.true.i:                                  ; preds = %if.end.i
-  %tv_usec.i = getelementptr inbounds %struct.dtls1_state_st, ptr %2, i64 0, i32 15, i32 1
+  %tv_usec.i = getelementptr inbounds i8, ptr %2, i64 376
   %4 = load i64, ptr %tv_usec.i, align 8
   %cmp3.i = icmp eq i64 %4, 0
   br i1 %cmp3.i, label %DTLSv1_get_timeout.exit.thread, label %if.end5.i
 
 if.end5.i:                                        ; preds = %land.lhs.true.i, %if.end.i
-  %ctx.i.i = getelementptr inbounds %struct.ssl_st, ptr %ssl, i64 0, i32 31
+  %ctx.i.i = getelementptr inbounds i8, ptr %ssl, i64 232
   %5 = load ptr, ptr %ctx.i.i, align 8
-  %current_time_cb.i.i = getelementptr inbounds %struct.ssl_ctx_st, ptr %5, i64 0, i32 72
+  %current_time_cb.i.i = getelementptr inbounds i8, ptr %5, i64 640
   %6 = load ptr, ptr %current_time_cb.i.i, align 8
   %cmp.not.i.i = icmp eq ptr %6, null
   br i1 %cmp.not.i.i, label %if.end.i.i, label %if.then.i.i
@@ -369,7 +359,7 @@ if.end.i.i:                                       ; preds = %if.end5.i
 
 get_current_time.exit.i:                          ; preds = %if.end.i.i, %if.then.i.i
   %7 = load ptr, ptr %d1.i, align 8
-  %next_timeout7.i = getelementptr inbounds %struct.dtls1_state_st, ptr %7, i64 0, i32 15
+  %next_timeout7.i = getelementptr inbounds i8, ptr %7, i64 368
   %8 = load i64, ptr %next_timeout7.i, align 8
   %9 = load i64, ptr %timenow.i, align 8
   %cmp10.i = icmp slt i64 %8, %9
@@ -380,16 +370,16 @@ lor.lhs.false.i:                                  ; preds = %get_current_time.ex
   br i1 %cmp15.i, label %land.lhs.true16.i, label %lor.lhs.false.if.end23_crit_edge.i
 
 lor.lhs.false.if.end23_crit_edge.i:               ; preds = %lor.lhs.false.i
-  %tv_usec28.phi.trans.insert.i = getelementptr inbounds %struct.timeval, ptr %timenow.i, i64 0, i32 1
+  %tv_usec28.phi.trans.insert.i = getelementptr inbounds i8, ptr %timenow.i, i64 8
   %.pre.i = load i64, ptr %tv_usec28.phi.trans.insert.i, align 8
-  %timeleft.sroa.6.0.next_timeout7.i.sroa_idx.phi.trans.insert = getelementptr inbounds %struct.dtls1_state_st, ptr %7, i64 0, i32 15, i32 1
+  %timeleft.sroa.6.0.next_timeout7.i.sroa_idx.phi.trans.insert = getelementptr inbounds i8, ptr %7, i64 376
   %timeleft.sroa.6.0.copyload.pre = load i64, ptr %timeleft.sroa.6.0.next_timeout7.i.sroa_idx.phi.trans.insert, align 8
   br label %if.end23.i
 
 land.lhs.true16.i:                                ; preds = %lor.lhs.false.i
-  %tv_usec19.i = getelementptr inbounds %struct.dtls1_state_st, ptr %7, i64 0, i32 15, i32 1
+  %tv_usec19.i = getelementptr inbounds i8, ptr %7, i64 376
   %10 = load i64, ptr %tv_usec19.i, align 8
-  %tv_usec20.i = getelementptr inbounds %struct.timeval, ptr %timenow.i, i64 0, i32 1
+  %tv_usec20.i = getelementptr inbounds i8, ptr %timenow.i, i64 8
   %11 = load i64, ptr %tv_usec20.i, align 8
   %cmp21.not.i = icmp sgt i64 %10, %11
   br i1 %cmp21.not.i, label %if.end23.i, label %return.sink.split.i
@@ -434,14 +424,14 @@ return:                                           ; preds = %DTLSv1_get_timeout.
 ; Function Attrs: nounwind uwtable
 define hidden void @dtls1_double_timeout(ptr noundef %ssl) local_unnamed_addr #0 {
 entry:
-  %d1 = getelementptr inbounds %struct.ssl_st, ptr %ssl, i64 0, i32 15
+  %d1 = getelementptr inbounds i8, ptr %ssl, i64 88
   %0 = load ptr, ptr %d1, align 8
-  %timeout_duration = getelementptr inbounds %struct.dtls1_state_st, ptr %0, i64 0, i32 16
+  %timeout_duration = getelementptr inbounds i8, ptr %0, i64 384
   %1 = load i16, ptr %timeout_duration, align 8
   %mul = shl i16 %1, 1
   store i16 %mul, ptr %timeout_duration, align 8
   %2 = load ptr, ptr %d1, align 8
-  %timeout_duration3 = getelementptr inbounds %struct.dtls1_state_st, ptr %2, i64 0, i32 16
+  %timeout_duration3 = getelementptr inbounds i8, ptr %2, i64 384
   %3 = load i16, ptr %timeout_duration3, align 8
   %cmp = icmp ugt i16 %3, 60
   br i1 %cmp, label %if.then, label %if.end
@@ -453,29 +443,29 @@ if.then:                                          ; preds = %entry
 
 if.end:                                           ; preds = %if.then, %entry
   %4 = phi ptr [ %.pre, %if.then ], [ %2, %entry ]
-  %next_timeout.i = getelementptr inbounds %struct.dtls1_state_st, ptr %4, i64 0, i32 15
+  %next_timeout.i = getelementptr inbounds i8, ptr %4, i64 368
   %5 = load i64, ptr %next_timeout.i, align 8
   %cmp.i = icmp eq i64 %5, 0
   br i1 %cmp.i, label %land.lhs.true.i, label %if.end.i
 
 land.lhs.true.i:                                  ; preds = %if.end
-  %tv_usec.i = getelementptr inbounds %struct.dtls1_state_st, ptr %4, i64 0, i32 15, i32 1
+  %tv_usec.i = getelementptr inbounds i8, ptr %4, i64 376
   %6 = load i64, ptr %tv_usec.i, align 8
   %cmp3.i = icmp eq i64 %6, 0
   br i1 %cmp3.i, label %if.then.i, label %if.end.i
 
 if.then.i:                                        ; preds = %land.lhs.true.i
-  %timeout_duration.i = getelementptr inbounds %struct.dtls1_state_st, ptr %4, i64 0, i32 16
+  %timeout_duration.i = getelementptr inbounds i8, ptr %4, i64 384
   store i16 1, ptr %timeout_duration.i, align 8
   %.pre.i = load ptr, ptr %d1, align 8
   br label %if.end.i
 
 if.end.i:                                         ; preds = %if.then.i, %land.lhs.true.i, %if.end
   %7 = phi ptr [ %.pre.i, %if.then.i ], [ %4, %land.lhs.true.i ], [ %4, %if.end ]
-  %next_timeout6.i = getelementptr inbounds %struct.dtls1_state_st, ptr %7, i64 0, i32 15
-  %ctx.i.i = getelementptr inbounds %struct.ssl_st, ptr %ssl, i64 0, i32 31
+  %next_timeout6.i = getelementptr inbounds i8, ptr %7, i64 368
+  %ctx.i.i = getelementptr inbounds i8, ptr %ssl, i64 232
   %8 = load ptr, ptr %ctx.i.i, align 8
-  %current_time_cb.i.i = getelementptr inbounds %struct.ssl_ctx_st, ptr %8, i64 0, i32 72
+  %current_time_cb.i.i = getelementptr inbounds i8, ptr %8, i64 640
   %9 = load ptr, ptr %current_time_cb.i.i, align 8
   %cmp.not.i.i = icmp eq ptr %9, null
   br i1 %cmp.not.i.i, label %if.end.i.i, label %if.then.i.i
@@ -490,16 +480,16 @@ if.end.i.i:                                       ; preds = %if.end.i
 
 dtls1_start_timer.exit:                           ; preds = %if.then.i.i, %if.end.i.i
   %10 = load ptr, ptr %d1, align 8
-  %timeout_duration8.i = getelementptr inbounds %struct.dtls1_state_st, ptr %10, i64 0, i32 16
+  %timeout_duration8.i = getelementptr inbounds i8, ptr %10, i64 384
   %11 = load i16, ptr %timeout_duration8.i, align 8
   %conv.i = zext i16 %11 to i64
-  %next_timeout10.i = getelementptr inbounds %struct.dtls1_state_st, ptr %10, i64 0, i32 15
+  %next_timeout10.i = getelementptr inbounds i8, ptr %10, i64 368
   %12 = load i64, ptr %next_timeout10.i, align 8
   %add.i = add nsw i64 %12, %conv.i
   store i64 %add.i, ptr %next_timeout10.i, align 8
   %call.i = tail call ptr @SSL_get_rbio(ptr noundef nonnull %ssl) #9
   %13 = load ptr, ptr %d1, align 8
-  %next_timeout13.i = getelementptr inbounds %struct.dtls1_state_st, ptr %13, i64 0, i32 15
+  %next_timeout13.i = getelementptr inbounds i8, ptr %13, i64 368
   %call14.i = tail call i64 @BIO_ctrl(ptr noundef %call.i, i32 noundef 45, i64 noundef 0, ptr noundef nonnull %next_timeout13.i) #9
   ret void
 }
@@ -507,19 +497,19 @@ dtls1_start_timer.exit:                           ; preds = %if.then.i.i, %if.en
 ; Function Attrs: nounwind uwtable
 define hidden void @dtls1_stop_timer(ptr noundef %ssl) local_unnamed_addr #0 {
 entry:
-  %d1 = getelementptr inbounds %struct.ssl_st, ptr %ssl, i64 0, i32 15
+  %d1 = getelementptr inbounds i8, ptr %ssl, i64 88
   %0 = load ptr, ptr %d1, align 8
-  %num_timeouts = getelementptr inbounds %struct.dtls1_state_st, ptr %0, i64 0, i32 14
+  %num_timeouts = getelementptr inbounds i8, ptr %0, i64 360
   store i32 0, ptr %num_timeouts, align 8
   %1 = load ptr, ptr %d1, align 8
-  %next_timeout = getelementptr inbounds %struct.dtls1_state_st, ptr %1, i64 0, i32 15
+  %next_timeout = getelementptr inbounds i8, ptr %1, i64 368
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %next_timeout, i8 0, i64 16, i1 false)
   %2 = load ptr, ptr %d1, align 8
-  %timeout_duration = getelementptr inbounds %struct.dtls1_state_st, ptr %2, i64 0, i32 16
+  %timeout_duration = getelementptr inbounds i8, ptr %2, i64 384
   store i16 1, ptr %timeout_duration, align 8
   %call = tail call ptr @SSL_get_rbio(ptr noundef %ssl) #9
   %3 = load ptr, ptr %d1, align 8
-  %next_timeout4 = getelementptr inbounds %struct.dtls1_state_st, ptr %3, i64 0, i32 15
+  %next_timeout4 = getelementptr inbounds i8, ptr %3, i64 368
   %call5 = tail call i64 @BIO_ctrl(ptr noundef %call, i32 noundef 45, i64 noundef 0, ptr noundef nonnull %next_timeout4) #9
   tail call void @dtls1_clear_record_buffer(ptr noundef %ssl) #9
   ret void
@@ -530,14 +520,14 @@ declare void @dtls1_clear_record_buffer(ptr noundef) local_unnamed_addr #1
 ; Function Attrs: nounwind uwtable
 define hidden noundef i32 @dtls1_check_timeout_num(ptr noundef %ssl) local_unnamed_addr #0 {
 entry:
-  %d1 = getelementptr inbounds %struct.ssl_st, ptr %ssl, i64 0, i32 15
+  %d1 = getelementptr inbounds i8, ptr %ssl, i64 88
   %0 = load ptr, ptr %d1, align 8
-  %num_timeouts = getelementptr inbounds %struct.dtls1_state_st, ptr %0, i64 0, i32 14
+  %num_timeouts = getelementptr inbounds i8, ptr %0, i64 360
   %1 = load i32, ptr %num_timeouts, align 8
   %inc = add i32 %1, 1
   store i32 %inc, ptr %num_timeouts, align 8
   %2 = load ptr, ptr %d1, align 8
-  %num_timeouts2 = getelementptr inbounds %struct.dtls1_state_st, ptr %2, i64 0, i32 14
+  %num_timeouts2 = getelementptr inbounds i8, ptr %2, i64 360
   %3 = load i32, ptr %num_timeouts2, align 8
   %cmp = icmp ugt i32 %3, 2
   br i1 %cmp, label %land.lhs.true, label %if.end19
@@ -562,13 +552,13 @@ land.lhs.true10:                                  ; preds = %if.then
 
 if.then15:                                        ; preds = %land.lhs.true10
   %5 = load ptr, ptr %d1, align 8
-  %mtu18 = getelementptr inbounds %struct.dtls1_state_st, ptr %5, i64 0, i32 12
+  %mtu18 = getelementptr inbounds i8, ptr %5, i64 328
   store i32 %conv11, ptr %mtu18, align 8
   br label %if.end19
 
 if.end19:                                         ; preds = %if.then, %land.lhs.true10, %if.then15, %land.lhs.true, %entry
   %6 = load ptr, ptr %d1, align 8
-  %num_timeouts21 = getelementptr inbounds %struct.dtls1_state_st, ptr %6, i64 0, i32 14
+  %num_timeouts21 = getelementptr inbounds i8, ptr %6, i64 360
   %7 = load i32, ptr %num_timeouts21, align 8
   %cmp22 = icmp ugt i32 %7, 12
   br i1 %cmp22, label %if.then24, label %return
@@ -594,10 +584,10 @@ declare void @ERR_put_error(i32 noundef, i32 noundef, i32 noundef, ptr noundef, 
 define hidden i32 @DTLSv1_handle_timeout(ptr noundef %ssl) local_unnamed_addr #0 {
 entry:
   %timenow.i.i = alloca %struct.timeval, align 8
-  %rwstate = getelementptr inbounds %struct.ssl_st, ptr %ssl, i64 0, i32 22
+  %rwstate = getelementptr inbounds i8, ptr %ssl, i64 144
   store i32 1, ptr %rwstate, align 8
   tail call void @ERR_clear_error() #9
-  %method = getelementptr inbounds %struct.ssl_st, ptr %ssl, i64 0, i32 3
+  %method = getelementptr inbounds i8, ptr %ssl, i64 8
   %0 = load ptr, ptr %method, align 8
   %1 = load i8, ptr %0, align 8
   %tobool.not = icmp eq i8 %1, 0
@@ -605,23 +595,23 @@ entry:
 
 if.end.i.i:                                       ; preds = %entry
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %timenow.i.i)
-  %d1.i.i = getelementptr inbounds %struct.ssl_st, ptr %ssl, i64 0, i32 15
+  %d1.i.i = getelementptr inbounds i8, ptr %ssl, i64 88
   %2 = load ptr, ptr %d1.i.i, align 8
-  %next_timeout.i.i = getelementptr inbounds %struct.dtls1_state_st, ptr %2, i64 0, i32 15
+  %next_timeout.i.i = getelementptr inbounds i8, ptr %2, i64 368
   %3 = load i64, ptr %next_timeout.i.i, align 8
   %cmp.i.i = icmp eq i64 %3, 0
   br i1 %cmp.i.i, label %land.lhs.true.i.i, label %if.end5.i.i
 
 land.lhs.true.i.i:                                ; preds = %if.end.i.i
-  %tv_usec.i.i = getelementptr inbounds %struct.dtls1_state_st, ptr %2, i64 0, i32 15, i32 1
+  %tv_usec.i.i = getelementptr inbounds i8, ptr %2, i64 376
   %4 = load i64, ptr %tv_usec.i.i, align 8
   %cmp3.i.i = icmp eq i64 %4, 0
   br i1 %cmp3.i.i, label %dtls1_is_timer_expired.exit.thread, label %if.end5.i.i
 
 if.end5.i.i:                                      ; preds = %land.lhs.true.i.i, %if.end.i.i
-  %ctx.i.i.i = getelementptr inbounds %struct.ssl_st, ptr %ssl, i64 0, i32 31
+  %ctx.i.i.i = getelementptr inbounds i8, ptr %ssl, i64 232
   %5 = load ptr, ptr %ctx.i.i.i, align 8
-  %current_time_cb.i.i.i = getelementptr inbounds %struct.ssl_ctx_st, ptr %5, i64 0, i32 72
+  %current_time_cb.i.i.i = getelementptr inbounds i8, ptr %5, i64 640
   %6 = load ptr, ptr %current_time_cb.i.i.i, align 8
   %cmp.not.i.i.i = icmp eq ptr %6, null
   br i1 %cmp.not.i.i.i, label %if.end.i.i.i, label %if.then.i.i.i
@@ -636,7 +626,7 @@ if.end.i.i.i:                                     ; preds = %if.end5.i.i
 
 get_current_time.exit.i.i:                        ; preds = %if.end.i.i.i, %if.then.i.i.i
   %7 = load ptr, ptr %d1.i.i, align 8
-  %next_timeout7.i.i = getelementptr inbounds %struct.dtls1_state_st, ptr %7, i64 0, i32 15
+  %next_timeout7.i.i = getelementptr inbounds i8, ptr %7, i64 368
   %8 = load i64, ptr %next_timeout7.i.i, align 8
   %9 = load i64, ptr %timenow.i.i, align 8
   %cmp10.i.i = icmp slt i64 %8, %9
@@ -647,16 +637,16 @@ lor.lhs.false.i.i:                                ; preds = %get_current_time.ex
   br i1 %cmp15.i.i, label %land.lhs.true16.i.i, label %lor.lhs.false.if.end23_crit_edge.i.i
 
 lor.lhs.false.if.end23_crit_edge.i.i:             ; preds = %lor.lhs.false.i.i
-  %tv_usec28.phi.trans.insert.i.i = getelementptr inbounds %struct.timeval, ptr %timenow.i.i, i64 0, i32 1
+  %tv_usec28.phi.trans.insert.i.i = getelementptr inbounds i8, ptr %timenow.i.i, i64 8
   %.pre.i.i = load i64, ptr %tv_usec28.phi.trans.insert.i.i, align 8
-  %timeleft.sroa.6.0.next_timeout7.i.sroa_idx.phi.trans.insert.i = getelementptr inbounds %struct.dtls1_state_st, ptr %7, i64 0, i32 15, i32 1
+  %timeleft.sroa.6.0.next_timeout7.i.sroa_idx.phi.trans.insert.i = getelementptr inbounds i8, ptr %7, i64 376
   %timeleft.sroa.6.0.copyload.pre.i = load i64, ptr %timeleft.sroa.6.0.next_timeout7.i.sroa_idx.phi.trans.insert.i, align 8
   br label %if.end23.i.i
 
 land.lhs.true16.i.i:                              ; preds = %lor.lhs.false.i.i
-  %tv_usec19.i.i = getelementptr inbounds %struct.dtls1_state_st, ptr %7, i64 0, i32 15, i32 1
+  %tv_usec19.i.i = getelementptr inbounds i8, ptr %7, i64 376
   %10 = load i64, ptr %tv_usec19.i.i, align 8
-  %tv_usec20.i.i = getelementptr inbounds %struct.timeval, ptr %timenow.i.i, i64 0, i32 1
+  %tv_usec20.i.i = getelementptr inbounds i8, ptr %timenow.i.i, i64 8
   %11 = load i64, ptr %tv_usec20.i.i, align 8
   %cmp21.not.i.i = icmp sgt i64 %10, %11
   br i1 %cmp21.not.i.i, label %if.end23.i.i, label %return.sink.split.i.i
@@ -693,12 +683,12 @@ dtls1_is_timer_expired.exit:                      ; preds = %if.end23.i.i, %retu
   br i1 %or.cond.not.i.not, label %return, label %if.end3
 
 if.end3:                                          ; preds = %dtls1_is_timer_expired.exit
-  %timeout_duration.i = getelementptr inbounds %struct.dtls1_state_st, ptr %7, i64 0, i32 16
+  %timeout_duration.i = getelementptr inbounds i8, ptr %7, i64 384
   %13 = load i16, ptr %timeout_duration.i, align 8
   %mul.i = shl i16 %13, 1
   store i16 %mul.i, ptr %timeout_duration.i, align 8
   %14 = load ptr, ptr %d1.i.i, align 8
-  %timeout_duration3.i = getelementptr inbounds %struct.dtls1_state_st, ptr %14, i64 0, i32 16
+  %timeout_duration3.i = getelementptr inbounds i8, ptr %14, i64 384
   %15 = load i16, ptr %timeout_duration3.i, align 8
   %cmp.i7 = icmp ugt i16 %15, 60
   br i1 %cmp.i7, label %if.then.i, label %if.end.i8
@@ -710,28 +700,28 @@ if.then.i:                                        ; preds = %if.end3
 
 if.end.i8:                                        ; preds = %if.then.i, %if.end3
   %16 = phi ptr [ %.pre.i, %if.then.i ], [ %14, %if.end3 ]
-  %next_timeout.i.i9 = getelementptr inbounds %struct.dtls1_state_st, ptr %16, i64 0, i32 15
+  %next_timeout.i.i9 = getelementptr inbounds i8, ptr %16, i64 368
   %17 = load i64, ptr %next_timeout.i.i9, align 8
   %cmp.i.i10 = icmp eq i64 %17, 0
   br i1 %cmp.i.i10, label %land.lhs.true.i.i19, label %if.end.i.i11
 
 land.lhs.true.i.i19:                              ; preds = %if.end.i8
-  %tv_usec.i.i20 = getelementptr inbounds %struct.dtls1_state_st, ptr %16, i64 0, i32 15, i32 1
+  %tv_usec.i.i20 = getelementptr inbounds i8, ptr %16, i64 376
   %18 = load i64, ptr %tv_usec.i.i20, align 8
   %cmp3.i.i21 = icmp eq i64 %18, 0
   br i1 %cmp3.i.i21, label %if.then.i.i, label %if.end.i.i11
 
 if.then.i.i:                                      ; preds = %land.lhs.true.i.i19
-  %timeout_duration.i.i = getelementptr inbounds %struct.dtls1_state_st, ptr %16, i64 0, i32 16
+  %timeout_duration.i.i = getelementptr inbounds i8, ptr %16, i64 384
   store i16 1, ptr %timeout_duration.i.i, align 8
   %.pre.i.i22 = load ptr, ptr %d1.i.i, align 8
   br label %if.end.i.i11
 
 if.end.i.i11:                                     ; preds = %if.then.i.i, %land.lhs.true.i.i19, %if.end.i8
   %19 = phi ptr [ %.pre.i.i22, %if.then.i.i ], [ %16, %land.lhs.true.i.i19 ], [ %16, %if.end.i8 ]
-  %next_timeout6.i.i = getelementptr inbounds %struct.dtls1_state_st, ptr %19, i64 0, i32 15
+  %next_timeout6.i.i = getelementptr inbounds i8, ptr %19, i64 368
   %20 = load ptr, ptr %ctx.i.i.i, align 8
-  %current_time_cb.i.i.i13 = getelementptr inbounds %struct.ssl_ctx_st, ptr %20, i64 0, i32 72
+  %current_time_cb.i.i.i13 = getelementptr inbounds i8, ptr %20, i64 640
   %21 = load ptr, ptr %current_time_cb.i.i.i13, align 8
   %cmp.not.i.i.i14 = icmp eq ptr %21, null
   br i1 %cmp.not.i.i.i14, label %if.end.i.i.i17, label %if.then.i.i.i15
@@ -746,16 +736,16 @@ if.end.i.i.i17:                                   ; preds = %if.end.i.i11
 
 dtls1_double_timeout.exit:                        ; preds = %if.then.i.i.i15, %if.end.i.i.i17
   %22 = load ptr, ptr %d1.i.i, align 8
-  %timeout_duration8.i.i = getelementptr inbounds %struct.dtls1_state_st, ptr %22, i64 0, i32 16
+  %timeout_duration8.i.i = getelementptr inbounds i8, ptr %22, i64 384
   %23 = load i16, ptr %timeout_duration8.i.i, align 8
   %conv.i.i = zext i16 %23 to i64
-  %next_timeout10.i.i = getelementptr inbounds %struct.dtls1_state_st, ptr %22, i64 0, i32 15
+  %next_timeout10.i.i = getelementptr inbounds i8, ptr %22, i64 368
   %24 = load i64, ptr %next_timeout10.i.i, align 8
   %add.i.i16 = add nsw i64 %24, %conv.i.i
   store i64 %add.i.i16, ptr %next_timeout10.i.i, align 8
   %call.i.i = call ptr @SSL_get_rbio(ptr noundef nonnull %ssl) #9
   %25 = load ptr, ptr %d1.i.i, align 8
-  %next_timeout13.i.i = getelementptr inbounds %struct.dtls1_state_st, ptr %25, i64 0, i32 15
+  %next_timeout13.i.i = getelementptr inbounds i8, ptr %25, i64 368
   %call14.i.i = call i64 @BIO_ctrl(ptr noundef %call.i.i, i32 noundef 45, i64 noundef 0, ptr noundef nonnull %next_timeout13.i.i) #9
   %call4 = call i32 @dtls1_check_timeout_num(ptr noundef nonnull %ssl), !range !10
   %cmp = icmp slt i32 %call4, 0
@@ -763,28 +753,28 @@ dtls1_double_timeout.exit:                        ; preds = %if.then.i.i.i15, %i
 
 if.end6:                                          ; preds = %dtls1_double_timeout.exit
   %26 = load ptr, ptr %d1.i.i, align 8
-  %next_timeout.i = getelementptr inbounds %struct.dtls1_state_st, ptr %26, i64 0, i32 15
+  %next_timeout.i = getelementptr inbounds i8, ptr %26, i64 368
   %27 = load i64, ptr %next_timeout.i, align 8
   %cmp.i24 = icmp eq i64 %27, 0
   br i1 %cmp.i24, label %land.lhs.true.i, label %if.end.i25
 
 land.lhs.true.i:                                  ; preds = %if.end6
-  %tv_usec.i = getelementptr inbounds %struct.dtls1_state_st, ptr %26, i64 0, i32 15, i32 1
+  %tv_usec.i = getelementptr inbounds i8, ptr %26, i64 376
   %28 = load i64, ptr %tv_usec.i, align 8
   %cmp3.i = icmp eq i64 %28, 0
   br i1 %cmp3.i, label %if.then.i29, label %if.end.i25
 
 if.then.i29:                                      ; preds = %land.lhs.true.i
-  %timeout_duration.i30 = getelementptr inbounds %struct.dtls1_state_st, ptr %26, i64 0, i32 16
+  %timeout_duration.i30 = getelementptr inbounds i8, ptr %26, i64 384
   store i16 1, ptr %timeout_duration.i30, align 8
   %.pre.i31 = load ptr, ptr %d1.i.i, align 8
   br label %if.end.i25
 
 if.end.i25:                                       ; preds = %if.then.i29, %land.lhs.true.i, %if.end6
   %29 = phi ptr [ %.pre.i31, %if.then.i29 ], [ %26, %land.lhs.true.i ], [ %26, %if.end6 ]
-  %next_timeout6.i = getelementptr inbounds %struct.dtls1_state_st, ptr %29, i64 0, i32 15
+  %next_timeout6.i = getelementptr inbounds i8, ptr %29, i64 368
   %30 = load ptr, ptr %ctx.i.i.i, align 8
-  %current_time_cb.i.i = getelementptr inbounds %struct.ssl_ctx_st, ptr %30, i64 0, i32 72
+  %current_time_cb.i.i = getelementptr inbounds i8, ptr %30, i64 640
   %31 = load ptr, ptr %current_time_cb.i.i, align 8
   %cmp.not.i.i = icmp eq ptr %31, null
   br i1 %cmp.not.i.i, label %if.end.i.i27, label %if.then.i.i26
@@ -799,16 +789,16 @@ if.end.i.i27:                                     ; preds = %if.end.i25
 
 dtls1_start_timer.exit:                           ; preds = %if.then.i.i26, %if.end.i.i27
   %32 = load ptr, ptr %d1.i.i, align 8
-  %timeout_duration8.i = getelementptr inbounds %struct.dtls1_state_st, ptr %32, i64 0, i32 16
+  %timeout_duration8.i = getelementptr inbounds i8, ptr %32, i64 384
   %33 = load i16, ptr %timeout_duration8.i, align 8
   %conv.i = zext i16 %33 to i64
-  %next_timeout10.i = getelementptr inbounds %struct.dtls1_state_st, ptr %32, i64 0, i32 15
+  %next_timeout10.i = getelementptr inbounds i8, ptr %32, i64 368
   %34 = load i64, ptr %next_timeout10.i, align 8
   %add.i = add nsw i64 %34, %conv.i
   store i64 %add.i, ptr %next_timeout10.i, align 8
   %call.i = call ptr @SSL_get_rbio(ptr noundef nonnull %ssl) #9
   %35 = load ptr, ptr %d1.i.i, align 8
-  %next_timeout13.i = getelementptr inbounds %struct.dtls1_state_st, ptr %35, i64 0, i32 15
+  %next_timeout13.i = getelementptr inbounds i8, ptr %35, i64 368
   %call14.i = call i64 @BIO_ctrl(ptr noundef %call.i, i32 noundef 45, i64 noundef 0, ptr noundef nonnull %next_timeout13.i) #9
   %call7 = call i32 @dtls1_retransmit_buffered_messages(ptr noundef nonnull %ssl) #9
   br label %return
@@ -826,38 +816,38 @@ declare i32 @dtls1_retransmit_buffered_messages(ptr noundef) local_unnamed_addr 
 define hidden i32 @dtls1_set_handshake_header(ptr noundef %ssl, i32 noundef %htype, i64 noundef %len) local_unnamed_addr #0 {
 entry:
   %serialised_header = alloca [12 x i8], align 1
-  %init_buf = getelementptr inbounds %struct.ssl_st, ptr %ssl, i64 0, i32 10
+  %init_buf = getelementptr inbounds i8, ptr %ssl, i64 56
   %0 = load ptr, ptr %init_buf, align 8
-  %data = getelementptr inbounds %struct.buf_mem_st, ptr %0, i64 0, i32 1
+  %data = getelementptr inbounds i8, ptr %0, i64 8
   %1 = load ptr, ptr %data, align 8
-  %d1 = getelementptr inbounds %struct.ssl_st, ptr %ssl, i64 0, i32 15
+  %d1 = getelementptr inbounds i8, ptr %ssl, i64 88
   %2 = load ptr, ptr %d1, align 8
-  %w_msg_hdr = getelementptr inbounds %struct.dtls1_state_st, ptr %2, i64 0, i32 13
-  %next_handshake_write_seq = getelementptr inbounds %struct.dtls1_state_st, ptr %2, i64 0, i32 7
+  %w_msg_hdr = getelementptr inbounds i8, ptr %2, i64 332
+  %next_handshake_write_seq = getelementptr inbounds i8, ptr %2, i64 298
   %3 = load i16, ptr %next_handshake_write_seq, align 2
-  %handshake_write_seq = getelementptr inbounds %struct.dtls1_state_st, ptr %2, i64 0, i32 6
+  %handshake_write_seq = getelementptr inbounds i8, ptr %2, i64 296
   store i16 %3, ptr %handshake_write_seq, align 8
   %4 = load ptr, ptr %d1, align 8
-  %next_handshake_write_seq4 = getelementptr inbounds %struct.dtls1_state_st, ptr %4, i64 0, i32 7
+  %next_handshake_write_seq4 = getelementptr inbounds i8, ptr %4, i64 298
   %5 = load i16, ptr %next_handshake_write_seq4, align 2
   %inc = add i16 %5, 1
   store i16 %inc, ptr %next_handshake_write_seq4, align 2
   %conv = trunc i32 %htype to i8
   %6 = load ptr, ptr %d1, align 8
-  %handshake_write_seq6 = getelementptr inbounds %struct.dtls1_state_st, ptr %6, i64 0, i32 6
+  %handshake_write_seq6 = getelementptr inbounds i8, ptr %6, i64 296
   %7 = load i16, ptr %handshake_write_seq6, align 8
   tail call void @dtls1_set_message_header(ptr noundef %ssl, i8 noundef zeroext %conv, i64 noundef %len, i16 noundef zeroext %7, i64 noundef 0, i64 noundef %len) #9
   %conv7 = trunc i64 %len to i32
   %add = add nsw i32 %conv7, 12
-  %init_num = getelementptr inbounds %struct.ssl_st, ptr %ssl, i64 0, i32 12
+  %init_num = getelementptr inbounds i8, ptr %ssl, i64 72
   store i32 %add, ptr %init_num, align 8
-  %init_off = getelementptr inbounds %struct.ssl_st, ptr %ssl, i64 0, i32 13
+  %init_off = getelementptr inbounds i8, ptr %ssl, i64 76
   store i32 0, ptr %init_off, align 4
   %call = tail call i32 @dtls1_buffer_message(ptr noundef %ssl) #9
   %8 = load i8, ptr %w_msg_hdr, align 4
   %incdec.ptr = getelementptr inbounds i8, ptr %serialised_header, i64 1
   store i8 %8, ptr %serialised_header, align 1
-  %msg_len = getelementptr inbounds %struct.dtls1_state_st, ptr %2, i64 0, i32 13, i32 1
+  %msg_len = getelementptr inbounds i8, ptr %2, i64 336
   %9 = load i32, ptr %msg_len, align 4
   %shr = lshr i32 %9, 16
   %conv8 = trunc i32 %shr to i8
@@ -870,7 +860,7 @@ entry:
   %arrayidx17 = getelementptr inbounds i8, ptr %serialised_header, i64 3
   store i8 %conv16, ptr %arrayidx17, align 1
   %add.ptr = getelementptr inbounds i8, ptr %serialised_header, i64 4
-  %seq = getelementptr inbounds %struct.dtls1_state_st, ptr %2, i64 0, i32 13, i32 2
+  %seq = getelementptr inbounds i8, ptr %2, i64 340
   %10 = load i16, ptr %seq, align 4
   %11 = lshr i16 %10, 8
   %conv21 = trunc i16 %11 to i8

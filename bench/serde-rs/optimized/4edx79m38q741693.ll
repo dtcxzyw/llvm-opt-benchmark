@@ -15,7 +15,7 @@ define void @_ZN3syn11parse_quote5parse17h4c997e1efd032320E(ptr nocapture writeo
   %3 = alloca { { { ptr, i64 }, i64 } }, align 8
   %4 = alloca { [8 x i32], i32, [3 x i32] }, align 8
   call void @"_ZN40_$LT$F$u20$as$u20$syn..parse..Parser$GT$6parse217h8e77d34358d04cc0E"(ptr nonnull sret({ [8 x i32], i32, [3 x i32] }) align 8 %4, ptr align 8 %1)
-  %5 = getelementptr inbounds { [8 x i32], i32, [3 x i32] }, ptr %4, i64 0, i32 1
+  %5 = getelementptr inbounds i8, ptr %4, i64 32
   %6 = load i32, ptr %5, align 8, !range !5, !noundef !6
   %.not = icmp eq i32 %6, 2
   br i1 %.not, label %8, label %7
@@ -53,7 +53,7 @@ define void @_ZN3syn11parse_quote5parse17hde51dae468a78712E(ptr nocapture writeo
   %3 = alloca { { { ptr, i64 }, i64 } }, align 8
   %4 = alloca { [16 x i32], i32, [3 x i32] }, align 8
   call void @"_ZN40_$LT$F$u20$as$u20$syn..parse..Parser$GT$6parse217h23d480f4b5c5f5bfE"(ptr nonnull sret({ [16 x i32], i32, [3 x i32] }) align 8 %4, ptr align 8 %1)
-  %5 = getelementptr inbounds { [16 x i32], i32, [3 x i32] }, ptr %4, i64 0, i32 1
+  %5 = getelementptr inbounds i8, ptr %4, i64 64
   %6 = load i32, ptr %5, align 8, !range !5, !noundef !6
   %.not = icmp eq i32 %6, 2
   br i1 %.not, label %8, label %7
@@ -108,7 +108,7 @@ define void @"_ZN40_$LT$F$u20$as$u20$syn..parse..Parser$GT$6parse217h23d480f4b5c
   %.fca.0.extract = extractvalue { ptr, i64 } %13, 0
   store ptr %.fca.0.extract, ptr %12, align 8
   %.fca.1.extract = extractvalue { ptr, i64 } %13, 1
-  %.fca.1.gep = getelementptr inbounds { ptr, i64 }, ptr %12, i64 0, i32 1
+  %.fca.1.gep = getelementptr inbounds i8, ptr %12, i64 8
   store i64 %.fca.1.extract, ptr %.fca.1.gep, align 8
   invoke void @_ZN3syn5parse22tokens_to_parse_buffer17h399771f83a60a120E(ptr nonnull sret({ { ptr, ptr }, ptr, i32, {}, [4 x i8] }) align 8 %11, ptr nonnull align 8 %12)
           to label %17 unwind label %15
@@ -142,7 +142,7 @@ define void @"_ZN40_$LT$F$u20$as$u20$syn..parse..Parser$GT$6parse217h23d480f4b5c
           to label %22 unwind label %19
 
 22:                                               ; preds = %21
-  %23 = getelementptr inbounds { [16 x i32], i32, [3 x i32] }, ptr %9, i64 0, i32 1
+  %23 = getelementptr inbounds i8, ptr %9, i64 64
   %24 = load i32, ptr %23, align 8, !range !5, !noundef !6
   %.not = icmp eq i32 %24, 2
   br i1 %.not, label %26, label %25
@@ -203,7 +203,7 @@ define void @"_ZN40_$LT$F$u20$as$u20$syn..parse..Parser$GT$6parse217h23d480f4b5c
 
 44:                                               ; preds = %42
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr noundef nonnull align 8 dereferenceable(24) %3, i64 24, i1 false)
-  %45 = getelementptr inbounds { [16 x i32], i32, [3 x i32] }, ptr %0, i64 0, i32 1
+  %45 = getelementptr inbounds i8, ptr %0, i64 64
   store i32 2, ptr %45, align 8
   br label %.invoke11
 
@@ -245,7 +245,7 @@ define void @"_ZN40_$LT$F$u20$as$u20$syn..parse..Parser$GT$6parse217h8e77d34358d
   %.fca.0.extract = extractvalue { ptr, i64 } %13, 0
   store ptr %.fca.0.extract, ptr %12, align 8
   %.fca.1.extract = extractvalue { ptr, i64 } %13, 1
-  %.fca.1.gep = getelementptr inbounds { ptr, i64 }, ptr %12, i64 0, i32 1
+  %.fca.1.gep = getelementptr inbounds i8, ptr %12, i64 8
   store i64 %.fca.1.extract, ptr %.fca.1.gep, align 8
   invoke void @_ZN3syn5parse22tokens_to_parse_buffer17h399771f83a60a120E(ptr nonnull sret({ { ptr, ptr }, ptr, i32, {}, [4 x i8] }) align 8 %11, ptr nonnull align 8 %12)
           to label %17 unwind label %15
@@ -279,7 +279,7 @@ define void @"_ZN40_$LT$F$u20$as$u20$syn..parse..Parser$GT$6parse217h8e77d34358d
           to label %22 unwind label %19
 
 22:                                               ; preds = %21
-  %23 = getelementptr inbounds { [8 x i32], i32, [3 x i32] }, ptr %9, i64 0, i32 1
+  %23 = getelementptr inbounds i8, ptr %9, i64 32
   %24 = load i32, ptr %23, align 8, !range !5, !noundef !6
   %.not = icmp eq i32 %24, 2
   br i1 %.not, label %26, label %25
@@ -340,7 +340,7 @@ define void @"_ZN40_$LT$F$u20$as$u20$syn..parse..Parser$GT$6parse217h8e77d34358d
 
 44:                                               ; preds = %42
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr noundef nonnull align 8 dereferenceable(24) %3, i64 24, i1 false)
-  %45 = getelementptr inbounds { [8 x i32], i32, [3 x i32] }, ptr %0, i64 0, i32 1
+  %45 = getelementptr inbounds i8, ptr %0, i64 32
   store i32 2, ptr %45, align 8
   br label %.invoke11
 

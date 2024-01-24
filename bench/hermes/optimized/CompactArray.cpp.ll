@@ -3,13 +3,11 @@ source_filename = "bench/hermes/original/CompactArray.cpp.ll"
 target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:128-n8:16:32:64-S128"
 target triple = "x86_64-unknown-linux-gnu"
 
-%"class.hermes::CompactArray" = type { i32, i32, ptr }
-
 ; Function Attrs: mustprogress nounwind uwtable
 define hidden void @_ZN6hermes12CompactArray7scaleUpEv(ptr nocapture noundef nonnull align 8 dereferenceable(16) %this) local_unnamed_addr #0 align 2 {
 entry:
   %0 = load i32, ptr %this, align 8
-  %scale_ = getelementptr inbounds %"class.hermes::CompactArray", ptr %this, i64 0, i32 1
+  %scale_ = getelementptr inbounds i8, ptr %this, i64 4
   %1 = load i32, ptr %scale_, align 4
   %.fr = freeze i32 %1
   %add = add nsw i32 %.fr, 1
@@ -22,13 +20,13 @@ entry:
   br i1 %cmp23.not, label %entry.for.end_crit_edge, label %for.body.lr.ph
 
 entry.for.end_crit_edge:                          ; preds = %entry
-  %raw_.i16.phi.trans.insert = getelementptr inbounds %"class.hermes::CompactArray", ptr %this, i64 0, i32 2
+  %raw_.i16.phi.trans.insert = getelementptr inbounds i8, ptr %this, i64 8
   %.pre = load ptr, ptr %raw_.i16.phi.trans.insert, align 8
   br label %for.end
 
 for.body.lr.ph:                                   ; preds = %entry
   %3 = load i32, ptr %scale_, align 4
-  %raw_.i5 = getelementptr inbounds %"class.hermes::CompactArray", ptr %this, i64 0, i32 2
+  %raw_.i5 = getelementptr inbounds i8, ptr %this, i64 8
   %4 = load ptr, ptr %raw_.i5, align 8
   %switch = icmp ult i32 %3, 3
   tail call void @llvm.assume(i1 %switch)
@@ -181,7 +179,7 @@ for.end:                                          ; preds = %for.body.us43.us86,
   %14 = phi ptr [ %.pre, %entry.for.end_crit_edge ], [ %4, %_ZN6hermes12CompactArray6trySetEjj.exit.us ], [ %4, %for.body.us.us ], [ %4, %_ZN6hermes12CompactArray6trySetEjj.exit.us.us69 ], [ %4, %_ZN6hermes12CompactArray6trySetEjj.exit.us39 ], [ %4, %for.body.us26.us ], [ %4, %for.body.us26.us73 ], [ %4, %for.body.us43 ], [ %4, %for.body.us43.us ], [ %4, %for.body.us43.us86 ]
   store i32 %0, ptr %this, align 8
   store i32 %add, ptr %scale_, align 4
-  %raw_.i16 = getelementptr inbounds %"class.hermes::CompactArray", ptr %this, i64 0, i32 2
+  %raw_.i16 = getelementptr inbounds i8, ptr %this, i64 8
   store ptr %call.i, ptr %raw_.i16, align 8
   tail call void @free(ptr noundef %14) #4
   ret void

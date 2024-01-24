@@ -3,10 +3,6 @@ source_filename = "bench/libquic/original/x509_obj.c.ll"
 target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:128-n8:16:32:64-S128"
 target triple = "x86_64-unknown-linux-gnu"
 
-%struct.buf_mem_st = type { i64, ptr, i64 }
-%struct.X509_name_entry_st = type { ptr, ptr, i32, i32 }
-%struct.asn1_string_st = type { i32, i32, ptr, i64 }
-
 @X509_NAME_oneline.hex = internal unnamed_addr constant [17 x i8] c"0123456789ABCDEF\00", align 16
 @.str = private unnamed_addr constant [13 x i8] c"NO X509_NAME\00", align 1
 @.str.1 = private unnamed_addr constant [126 x i8] c"generated/home/dtcxzyw/WorkSpace/Projects/compilers/llvm-opt-benchmark/bench/libquic/libquic/boringssl/crypto/x509/x509_obj.c\00", align 1
@@ -30,7 +26,7 @@ if.end:                                           ; preds = %if.then
   br i1 %tobool.not, label %if.then188, label %if.end6
 
 if.end6:                                          ; preds = %if.end
-  %data = getelementptr inbounds %struct.buf_mem_st, ptr %call, i64 0, i32 1
+  %data = getelementptr inbounds i8, ptr %call, i64 8
   %0 = load ptr, ptr %data, align 8
   store i8 0, ptr %0, align 1
   %cmp7 = icmp eq ptr %a, null
@@ -49,10 +45,10 @@ for.cond.preheader:                               ; preds = %if.end6, %if.end6.t
   br i1 %cmp17105.not, label %for.end175, label %for.body.lr.ph
 
 for.body.lr.ph:                                   ; preds = %for.cond.preheader
-  %arrayidx77 = getelementptr inbounds [4 x i32], ptr %gs_doit, i64 0, i64 2
-  %arrayidx78 = getelementptr inbounds [4 x i32], ptr %gs_doit, i64 0, i64 1
+  %arrayidx77 = getelementptr inbounds i8, ptr %gs_doit, i64 8
+  %arrayidx78 = getelementptr inbounds i8, ptr %gs_doit, i64 4
   %cmp112.not = icmp eq ptr %b.083.ph, null
-  %data121 = getelementptr inbounds %struct.buf_mem_st, ptr %b.083.ph, i64 0, i32 1
+  %data121 = getelementptr inbounds i8, ptr %b.083.ph, i64 8
   br label %for.body
 
 if.then10:                                        ; preds = %if.end6
@@ -95,12 +91,12 @@ if.end31:                                         ; preds = %if.then27, %lor.lhs
   %s.0 = phi ptr [ %tmp_buf, %if.then27 ], [ %call24, %lor.lhs.false ]
   %call32 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %s.0) #8
   %conv33 = trunc i64 %call32 to i32
-  %value = getelementptr inbounds %struct.X509_name_entry_st, ptr %call20, i64 0, i32 1
+  %value = getelementptr inbounds i8, ptr %call20, i64 8
   %6 = load ptr, ptr %value, align 8
-  %type34 = getelementptr inbounds %struct.asn1_string_st, ptr %6, i64 0, i32 1
+  %type34 = getelementptr inbounds i8, ptr %6, i64 4
   %7 = load i32, ptr %type34, align 4
   %8 = load i32, ptr %6, align 8
-  %data37 = getelementptr inbounds %struct.asn1_string_st, ptr %6, i64 0, i32 2
+  %data37 = getelementptr inbounds i8, ptr %6, i64 8
   %9 = load ptr, ptr %data37, align 8
   %cmp38 = icmp eq i32 %7, 27
   %10 = and i32 %8, 3
@@ -224,7 +220,7 @@ if.end132:                                        ; preds = %if.else124, %if.end
   %incdec.ptr134 = getelementptr inbounds i8, ptr %add.ptr, i64 1
   store i8 61, ptr %add.ptr, align 1
   %18 = load ptr, ptr %value, align 8
-  %data136 = getelementptr inbounds %struct.asn1_string_st, ptr %18, i64 0, i32 2
+  %data136 = getelementptr inbounds i8, ptr %18, i64 8
   %19 = load ptr, ptr %data136, align 8
   br i1 %cmp8297, label %for.body140.preheader, label %for.end172
 
@@ -294,7 +290,7 @@ for.end175:                                       ; preds = %for.end172, %for.co
   br i1 %cmp176.not, label %if.end181, label %if.then178
 
 if.then178:                                       ; preds = %for.end175
-  %data179 = getelementptr inbounds %struct.buf_mem_st, ptr %b.083.ph, i64 0, i32 1
+  %data179 = getelementptr inbounds i8, ptr %b.083.ph, i64 8
   %26 = load ptr, ptr %data179, align 8
   call void @free(ptr noundef nonnull %b.083.ph) #7
   br label %if.end181

@@ -3,20 +3,18 @@ source_filename = "bench/jemalloc/original/bitmap.sym.ll"
 target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:128-n8:16:32:64-S128"
 target triple = "x86_64-unknown-linux-gnu"
 
-%struct.bitmap_info_s = type { i64, i64 }
-
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
 define hidden void @bitmap_info_init(ptr nocapture noundef writeonly %binfo, i64 noundef %nbits) local_unnamed_addr #0 {
 entry:
   %add = add i64 %nbits, 63
   %shr = lshr i64 %add, 6
-  %ngroups = getelementptr inbounds %struct.bitmap_info_s, ptr %binfo, i64 0, i32 1
+  %ngroups = getelementptr inbounds i8, ptr %binfo, i64 8
   store i64 %shr, ptr %ngroups, align 8
   store i64 %nbits, ptr %binfo, align 8
   ret void
 }
 
-; Function Attrs: mustprogress nofree nosync nounwind willreturn memory(argmem: readwrite) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
 define hidden void @bitmap_init(ptr nocapture noundef %bitmap, ptr nocapture noundef readonly %binfo, i1 noundef zeroext %fill) local_unnamed_addr #1 {
 entry:
   %0 = getelementptr i8, ptr %binfo, i64 8
@@ -39,7 +37,7 @@ if.end:                                           ; preds = %entry
 if.then3:                                         ; preds = %if.end
   %2 = load i64, ptr %0, align 8
   %3 = getelementptr i64, ptr %bitmap, i64 %2
-  %arrayidx = getelementptr i64, ptr %3, i64 -1
+  %arrayidx = getelementptr i8, ptr %3, i64 -8
   %4 = load i64, ptr %arrayidx, align 8
   %shr = lshr i64 %4, %and2
   store i64 %shr, ptr %arrayidx, align 8
@@ -62,7 +60,7 @@ entry:
 declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #3
 
 attributes #0 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #1 = { mustprogress nofree nosync nounwind willreturn memory(argmem: readwrite) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #1 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #2 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #3 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: write) }
 

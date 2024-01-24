@@ -19,19 +19,6 @@ target triple = "x86_64-unknown-linux-gnu"
 %"struct.std::_Vector_base.20" = type { %"struct.std::_Vector_base<msdfgen::TrueDistanceSelector::EdgeCache, std::allocator<msdfgen::TrueDistanceSelector::EdgeCache>>::_Vector_impl" }
 %"struct.std::_Vector_base<msdfgen::TrueDistanceSelector::EdgeCache, std::allocator<msdfgen::TrueDistanceSelector::EdgeCache>>::_Vector_impl" = type { %"struct.std::_Vector_base<msdfgen::TrueDistanceSelector::EdgeCache, std::allocator<msdfgen::TrueDistanceSelector::EdgeCache>>::_Vector_impl_data" }
 %"struct.std::_Vector_base<msdfgen::TrueDistanceSelector::EdgeCache, std::allocator<msdfgen::TrueDistanceSelector::EdgeCache>>::_Vector_impl_data" = type { ptr, ptr, ptr }
-%"struct.msdfgen::BitmapRef" = type { ptr, i32, i32 }
-%"class.msdfgen::Shape" = type <{ %"class.std::vector", i8, [7 x i8] }>
-%"class.std::vector" = type { %"struct.std::_Vector_base" }
-%"struct.std::_Vector_base" = type { %"struct.std::_Vector_base<msdfgen::Contour, std::allocator<msdfgen::Contour>>::_Vector_impl" }
-%"struct.std::_Vector_base<msdfgen::Contour, std::allocator<msdfgen::Contour>>::_Vector_impl" = type { %"struct.std::_Vector_base<msdfgen::Contour, std::allocator<msdfgen::Contour>>::_Vector_impl_data" }
-%"struct.std::_Vector_base<msdfgen::Contour, std::allocator<msdfgen::Contour>>::_Vector_impl_data" = type { ptr, ptr, ptr }
-%"struct.std::_Vector_base<msdfgen::EdgeHolder, std::allocator<msdfgen::EdgeHolder>>::_Vector_impl_data" = type { ptr, ptr, ptr }
-%"class.msdfgen::EdgeHolder" = type { ptr }
-%"struct.msdfgen::TrueDistanceSelector::EdgeCache" = type { %"struct.msdfgen::Vector2", double }
-%"class.msdfgen::Contour" = type { %"class.std::vector.3" }
-%"class.std::vector.3" = type { %"struct.std::_Vector_base.4" }
-%"struct.std::_Vector_base.4" = type { %"struct.std::_Vector_base<msdfgen::EdgeHolder, std::allocator<msdfgen::EdgeHolder>>::_Vector_impl" }
-%"struct.std::_Vector_base<msdfgen::EdgeHolder, std::allocator<msdfgen::EdgeHolder>>::_Vector_impl" = type { %"struct.std::_Vector_base<msdfgen::EdgeHolder, std::allocator<msdfgen::EdgeHolder>>::_Vector_impl_data" }
 %"class.msdfgen::ShapeDistanceFinder.24" = type { ptr, %"class.msdfgen::SimpleContourCombiner", %"class.std::vector.19" }
 %"class.msdfgen::SimpleContourCombiner" = type { %"class.msdfgen::TrueDistanceSelector" }
 %"class.msdfgen::TrueDistanceSelector" = type { %"struct.msdfgen::Vector2", %"class.msdfgen::SignedDistance" }
@@ -47,7 +34,6 @@ target triple = "x86_64-unknown-linux-gnu"
 %"struct.std::_Vector_base.33" = type { %"struct.std::_Vector_base<msdfgen::PseudoDistanceSelectorBase::EdgeCache, std::allocator<msdfgen::PseudoDistanceSelectorBase::EdgeCache>>::_Vector_impl" }
 %"struct.std::_Vector_base<msdfgen::PseudoDistanceSelectorBase::EdgeCache, std::allocator<msdfgen::PseudoDistanceSelectorBase::EdgeCache>>::_Vector_impl" = type { %"struct.std::_Vector_base<msdfgen::PseudoDistanceSelectorBase::EdgeCache, std::allocator<msdfgen::PseudoDistanceSelectorBase::EdgeCache>>::_Vector_impl_data" }
 %"struct.std::_Vector_base<msdfgen::PseudoDistanceSelectorBase::EdgeCache, std::allocator<msdfgen::PseudoDistanceSelectorBase::EdgeCache>>::_Vector_impl_data" = type { ptr, ptr, ptr }
-%"struct.msdfgen::PseudoDistanceSelectorBase::EdgeCache" = type { %"struct.msdfgen::Vector2", double, double, double, double, double }
 %"class.msdfgen::ShapeDistanceFinder.37" = type { ptr, %"class.msdfgen::SimpleContourCombiner.38", %"class.std::vector.32" }
 %"class.msdfgen::SimpleContourCombiner.38" = type { %"class.msdfgen::PseudoDistanceSelector" }
 %"class.msdfgen::PseudoDistanceSelector" = type { %"class.msdfgen::PseudoDistanceSelectorBase", %"struct.msdfgen::Vector2" }
@@ -59,7 +45,6 @@ target triple = "x86_64-unknown-linux-gnu"
 %"struct.std::_Vector_base<msdfgen::MultiDistanceSelector, std::allocator<msdfgen::MultiDistanceSelector>>::_Vector_impl" = type { %"struct.std::_Vector_base<msdfgen::MultiDistanceSelector, std::allocator<msdfgen::MultiDistanceSelector>>::_Vector_impl_data" }
 %"struct.std::_Vector_base<msdfgen::MultiDistanceSelector, std::allocator<msdfgen::MultiDistanceSelector>>::_Vector_impl_data" = type { ptr, ptr, ptr }
 %"struct.msdfgen::MultiDistance" = type { double, double, double }
-%"struct.msdfgen::BitmapRef.0" = type { ptr, i32, i32 }
 %"class.msdfgen::ShapeDistanceFinder.47" = type { ptr, %"class.msdfgen::SimpleContourCombiner.48", %"class.std::vector.32" }
 %"class.msdfgen::SimpleContourCombiner.48" = type { %"class.msdfgen::MultiDistanceSelector" }
 %"class.msdfgen::MultiDistanceSelector" = type { %"struct.msdfgen::Vector2", %"class.msdfgen::PseudoDistanceSelectorBase", %"class.msdfgen::PseudoDistanceSelectorBase", %"class.msdfgen::PseudoDistanceSelectorBase" }
@@ -70,7 +55,6 @@ target triple = "x86_64-unknown-linux-gnu"
 %"struct.std::_Vector_base<msdfgen::MultiAndTrueDistanceSelector, std::allocator<msdfgen::MultiAndTrueDistanceSelector>>::_Vector_impl" = type { %"struct.std::_Vector_base<msdfgen::MultiAndTrueDistanceSelector, std::allocator<msdfgen::MultiAndTrueDistanceSelector>>::_Vector_impl_data" }
 %"struct.std::_Vector_base<msdfgen::MultiAndTrueDistanceSelector, std::allocator<msdfgen::MultiAndTrueDistanceSelector>>::_Vector_impl_data" = type { ptr, ptr, ptr }
 %"struct.msdfgen::MultiAndTrueDistance" = type { %"struct.msdfgen::MultiDistance", double }
-%"struct.msdfgen::BitmapRef.1" = type { ptr, i32, i32 }
 %"class.msdfgen::ShapeDistanceFinder.57" = type { ptr, %"class.msdfgen::SimpleContourCombiner.58", %"class.std::vector.32" }
 %"class.msdfgen::SimpleContourCombiner.58" = type { %"class.msdfgen::MultiAndTrueDistanceSelector" }
 %"class.msdfgen::MultiAndTrueDistanceSelector" = type { %"class.msdfgen::MultiDistanceSelector" }
@@ -79,8 +63,9 @@ target triple = "x86_64-unknown-linux-gnu"
 %"struct.msdfgen::GeneratorConfig" = type { i8 }
 %"struct.msdfgen::ErrorCorrectionConfig" = type { i32, i32, double, double, ptr }
 %struct.anon = type { %"class.msdfgen::SignedDistance", ptr, double }
-%"class.msdfgen::EdgeSegment" = type <{ ptr, i32, [4 x i8] }>
 %struct.anon.8 = type { %"class.msdfgen::SignedDistance", ptr, double }
+%"struct.msdfgen::TrueDistanceSelector::EdgeCache" = type { %"struct.msdfgen::Vector2", double }
+%"struct.msdfgen::PseudoDistanceSelectorBase::EdgeCache" = type { %"struct.msdfgen::Vector2", double, double, double, double, double }
 
 $_ZN7msdfgen21generateDistanceFieldINS_26OverlappingContourCombinerINS_20TrueDistanceSelectorEEEEEvRKNS_23DistancePixelConversionINT_12DistanceTypeEE13BitmapRefTypeERKNS_5ShapeERKNS_10ProjectionEd = comdat any
 
@@ -152,13 +137,13 @@ entry:
   %div.i = fdiv double 1.000000e+00, %range
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %ref.tmp.i)
   store ptr %shape, ptr %distanceFinder, align 8
-  %contourCombiner.i = getelementptr inbounds %"class.msdfgen::ShapeDistanceFinder", ptr %distanceFinder, i64 0, i32 1
+  %contourCombiner.i = getelementptr inbounds i8, ptr %distanceFinder, i64 8
   call void @_ZN7msdfgen26OverlappingContourCombinerINS_20TrueDistanceSelectorEEC1ERKNS_5ShapeE(ptr noundef nonnull align 8 dereferenceable(64) %contourCombiner.i, ptr noundef nonnull align 8 dereferenceable(25) %shape)
   %call.i = invoke noundef i32 @_ZNK7msdfgen5Shape9edgeCountEv(ptr noundef nonnull align 8 dereferenceable(25) %shape)
           to label %invoke.cont.i unwind label %lpad.i
 
 invoke.cont.i:                                    ; preds = %entry
-  %shapeEdgeCache.i = getelementptr inbounds %"class.msdfgen::ShapeDistanceFinder", ptr %distanceFinder, i64 0, i32 2
+  %shapeEdgeCache.i = getelementptr inbounds i8, ptr %distanceFinder, i64 72
   %conv.i = sext i32 %call.i to i64
   invoke void @_ZNSt6vectorIN7msdfgen20TrueDistanceSelector9EdgeCacheESaIS2_EEC2EmRKS3_(ptr noundef nonnull align 8 dereferenceable(24) %shapeEdgeCache.i, i64 noundef %conv.i, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i)
           to label %_ZN7msdfgen19ShapeDistanceFinderINS_26OverlappingContourCombinerINS_20TrueDistanceSelectorEEEEC2ERKNS_5ShapeE.exit unwind label %lpad3.i
@@ -184,16 +169,16 @@ ehcleanup.i:                                      ; preds = %lpad3.i, %lpad.i
 
 _ZN7msdfgen19ShapeDistanceFinderINS_26OverlappingContourCombinerINS_20TrueDistanceSelectorEEEEC2ERKNS_5ShapeE.exit: ; preds = %invoke.cont.i
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %ref.tmp.i)
-  %height = getelementptr inbounds %"struct.msdfgen::BitmapRef", ptr %output, i64 0, i32 2
+  %height = getelementptr inbounds i8, ptr %output, i64 12
   %2 = load i32, ptr %height, align 4
   %cmp34 = icmp sgt i32 %2, 0
   br i1 %cmp34, label %for.body.lr.ph, label %for.end25
 
 for.body.lr.ph:                                   ; preds = %_ZN7msdfgen19ShapeDistanceFinderINS_26OverlappingContourCombinerINS_20TrueDistanceSelectorEEEEC2ERKNS_5ShapeE.exit
-  %inverseYAxis = getelementptr inbounds %"class.msdfgen::Shape", ptr %shape, i64 0, i32 1
-  %width = getelementptr inbounds %"struct.msdfgen::BitmapRef", ptr %output, i64 0, i32 1
-  %y3.i = getelementptr inbounds %"struct.msdfgen::Vector2", ptr %ref.tmp, i64 0, i32 1
-  %3 = getelementptr inbounds { double, double }, ptr %p, i64 0, i32 1
+  %inverseYAxis = getelementptr inbounds i8, ptr %shape, i64 24
+  %width = getelementptr inbounds i8, ptr %output, i64 8
+  %y3.i = getelementptr inbounds i8, ptr %ref.tmp, i64 8
+  %3 = getelementptr inbounds i8, ptr %p, i64 8
   %4 = load i32, ptr %width, align 8
   %5 = icmp sgt i32 %4, 0
   br i1 %5, label %for.body, label %for.end25
@@ -242,7 +227,7 @@ invoke.cont16:                                    ; preds = %for.body5
 .noexc:                                           ; preds = %invoke.cont16
   %16 = load ptr, ptr %distanceFinder, align 8
   %17 = load ptr, ptr %16, align 8
-  %_M_finish.i29.i = getelementptr inbounds %"struct.std::_Vector_base<msdfgen::Contour, std::allocator<msdfgen::Contour>>::_Vector_impl_data", ptr %16, i64 0, i32 1
+  %_M_finish.i29.i = getelementptr inbounds i8, ptr %16, i64 8
   %18 = load ptr, ptr %_M_finish.i29.i, align 8
   %cmp.i.not30.i = icmp eq ptr %17, %18
   br i1 %cmp.i.not30.i, label %for.end58.i, label %for.body.preheader.i
@@ -256,7 +241,7 @@ for.body.i:                                       ; preds = %for.inc56.i, %for.b
   %edgeCache.032.i = phi ptr [ %edgeCache.2.i, %for.inc56.i ], [ %19, %for.body.preheader.i ]
   %contour.sroa.0.031.i = phi ptr [ %incdec.ptr.i12.i, %for.inc56.i ], [ %17, %for.body.preheader.i ]
   %21 = load ptr, ptr %contour.sroa.0.031.i, align 8
-  %_M_finish.i.i.i = getelementptr inbounds %"struct.std::_Vector_base<msdfgen::EdgeHolder, std::allocator<msdfgen::EdgeHolder>>::_Vector_impl_data", ptr %contour.sroa.0.031.i, i64 0, i32 1
+  %_M_finish.i.i.i = getelementptr inbounds i8, ptr %contour.sroa.0.031.i, i64 8
   %22 = load ptr, ptr %_M_finish.i.i.i, align 8
   %cmp.i.i.i = icmp eq ptr %21, %22
   br i1 %cmp.i.i.i, label %for.inc56.i, label %if.then.i
@@ -278,14 +263,14 @@ call17.i.noexc:                                   ; preds = %if.then.i
   %sub.ptr.rhs.cast.i5.i = ptrtoint ptr %25 to i64
   %sub.ptr.sub.i6.i = sub i64 %sub.ptr.lhs.cast.i4.i, %sub.ptr.rhs.cast.i5.i
   %cmp.i = icmp ugt i64 %sub.ptr.sub.i6.i, 8
-  %add.ptr.i.i = getelementptr inbounds %"class.msdfgen::EdgeHolder", ptr %24, i64 -2
+  %add.ptr.i.i = getelementptr inbounds i8, ptr %24, i64 -16
   %spec.select.i = select i1 %cmp.i, ptr %add.ptr.i.i, ptr %25
   %call36.i20 = invoke noundef ptr @_ZNK7msdfgen10EdgeHoldercvPKNS_11EdgeSegmentEEv(ptr noundef nonnull align 8 dereferenceable(8) %spec.select.i)
           to label %call36.i.noexc unwind label %lpad.loopexit.split-lp.loopexit
 
 call36.i.noexc:                                   ; preds = %call17.i.noexc
   %26 = load ptr, ptr %_M_finish.i.i.i, align 8
-  %add.ptr.i.i.i = getelementptr inbounds %"class.msdfgen::EdgeHolder", ptr %26, i64 -1
+  %add.ptr.i.i.i = getelementptr inbounds i8, ptr %26, i64 -8
   %call40.i21 = invoke noundef ptr @_ZNK7msdfgen10EdgeHoldercvPKNS_11EdgeSegmentEEv(ptr noundef nonnull align 8 dereferenceable(8) %add.ptr.i.i.i)
           to label %call40.i.noexc unwind label %lpad.loopexit.split-lp.loopexit
 
@@ -308,17 +293,17 @@ call54.i.noexc:                                   ; preds = %for.body52.i
           to label %.noexc23 unwind label %lpad.loopexit
 
 .noexc23:                                         ; preds = %call54.i.noexc
-  %incdec.ptr.i = getelementptr inbounds %"struct.msdfgen::TrueDistanceSelector::EdgeCache", ptr %edgeCache.128.i, i64 1
-  %incdec.ptr.i.i = getelementptr inbounds %"class.msdfgen::EdgeHolder", ptr %edge.sroa.0.025.i, i64 1
+  %incdec.ptr.i = getelementptr inbounds i8, ptr %edgeCache.128.i, i64 24
+  %incdec.ptr.i.i = getelementptr inbounds i8, ptr %edge.sroa.0.025.i, i64 8
   %29 = load ptr, ptr %_M_finish.i.i.i, align 8
   %cmp.i11.not.i = icmp eq ptr %incdec.ptr.i.i, %29
   br i1 %cmp.i11.not.i, label %for.inc56.i, label %for.body52.i, !llvm.loop !5
 
 for.inc56.i:                                      ; preds = %.noexc23, %call40.i.noexc, %for.body.i
   %edgeCache.2.i = phi ptr [ %edgeCache.032.i, %for.body.i ], [ %edgeCache.032.i, %call40.i.noexc ], [ %incdec.ptr.i, %.noexc23 ]
-  %incdec.ptr.i12.i = getelementptr inbounds %"class.msdfgen::Contour", ptr %contour.sroa.0.031.i, i64 1
+  %incdec.ptr.i12.i = getelementptr inbounds i8, ptr %contour.sroa.0.031.i, i64 24
   %30 = load ptr, ptr %distanceFinder, align 8
-  %_M_finish.i.i = getelementptr inbounds %"struct.std::_Vector_base<msdfgen::Contour, std::allocator<msdfgen::Contour>>::_Vector_impl_data", ptr %30, i64 0, i32 1
+  %_M_finish.i.i = getelementptr inbounds i8, ptr %30, i64 8
   %31 = load ptr, ptr %_M_finish.i.i, align 8
   %cmp.i.not.i = icmp eq ptr %incdec.ptr.i12.i, %31
   br i1 %cmp.i.not.i, label %for.end58.i, label %for.body.i, !llvm.loop !7
@@ -383,7 +368,7 @@ if.then.i.i.i.i:                                  ; preds = %for.end25
   br label %_ZNSt6vectorIN7msdfgen20TrueDistanceSelector9EdgeCacheESaIS2_EED2Ev.exit.i
 
 _ZNSt6vectorIN7msdfgen20TrueDistanceSelector9EdgeCacheESaIS2_EED2Ev.exit.i: ; preds = %if.then.i.i.i.i, %for.end25
-  %edgeSelectors.i.i = getelementptr inbounds %"class.msdfgen::ShapeDistanceFinder", ptr %distanceFinder, i64 0, i32 1, i32 2
+  %edgeSelectors.i.i = getelementptr inbounds i8, ptr %distanceFinder, i64 48
   %39 = load ptr, ptr %edgeSelectors.i.i, align 8
   %tobool.not.i.i.i.i.i = icmp eq ptr %39, null
   br i1 %tobool.not.i.i.i.i.i, label %_ZNSt6vectorIN7msdfgen20TrueDistanceSelectorESaIS1_EED2Ev.exit.i.i, label %if.then.i.i.i.i.i
@@ -393,7 +378,7 @@ if.then.i.i.i.i.i:                                ; preds = %_ZNSt6vectorIN7msdf
   br label %_ZNSt6vectorIN7msdfgen20TrueDistanceSelectorESaIS1_EED2Ev.exit.i.i
 
 _ZNSt6vectorIN7msdfgen20TrueDistanceSelectorESaIS1_EED2Ev.exit.i.i: ; preds = %if.then.i.i.i.i.i, %_ZNSt6vectorIN7msdfgen20TrueDistanceSelector9EdgeCacheESaIS2_EED2Ev.exit.i
-  %windings.i.i = getelementptr inbounds %"class.msdfgen::ShapeDistanceFinder", ptr %distanceFinder, i64 0, i32 1, i32 1
+  %windings.i.i = getelementptr inbounds i8, ptr %distanceFinder, i64 24
   %40 = load ptr, ptr %windings.i.i, align 8
   %tobool.not.i.i.i1.i.i = icmp eq ptr %40, null
   br i1 %tobool.not.i.i.i1.i.i, label %_ZN7msdfgen19ShapeDistanceFinderINS_26OverlappingContourCombinerINS_20TrueDistanceSelectorEEEED2Ev.exit, label %if.then.i.i.i2.i.i
@@ -416,23 +401,23 @@ entry:
   %div.i = fdiv double 1.000000e+00, %range
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %ref.tmp.i)
   store ptr %shape, ptr %distanceFinder, align 8
-  %contourCombiner.i = getelementptr inbounds %"class.msdfgen::ShapeDistanceFinder.24", ptr %distanceFinder, i64 0, i32 1
+  %contourCombiner.i = getelementptr inbounds i8, ptr %distanceFinder, i64 8
   call void @_ZN7msdfgen21SimpleContourCombinerINS_20TrueDistanceSelectorEEC1ERKNS_5ShapeE(ptr noundef nonnull align 8 dereferenceable(32) %contourCombiner.i, ptr noundef nonnull align 8 dereferenceable(25) %shape)
-  %shapeEdgeCache.i = getelementptr inbounds %"class.msdfgen::ShapeDistanceFinder.24", ptr %distanceFinder, i64 0, i32 2
+  %shapeEdgeCache.i = getelementptr inbounds i8, ptr %distanceFinder, i64 40
   %call.i = call noundef i32 @_ZNK7msdfgen5Shape9edgeCountEv(ptr noundef nonnull align 8 dereferenceable(25) %shape)
   %conv.i = sext i32 %call.i to i64
   call void @_ZNSt6vectorIN7msdfgen20TrueDistanceSelector9EdgeCacheESaIS2_EEC2EmRKS3_(ptr noundef nonnull align 8 dereferenceable(24) %shapeEdgeCache.i, i64 noundef %conv.i, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i)
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %ref.tmp.i)
-  %height = getelementptr inbounds %"struct.msdfgen::BitmapRef", ptr %output, i64 0, i32 2
+  %height = getelementptr inbounds i8, ptr %output, i64 12
   %0 = load i32, ptr %height, align 4
   %cmp38 = icmp sgt i32 %0, 0
   br i1 %cmp38, label %for.body.lr.ph, label %for.end24
 
 for.body.lr.ph:                                   ; preds = %entry
-  %inverseYAxis = getelementptr inbounds %"class.msdfgen::Shape", ptr %shape, i64 0, i32 1
-  %width = getelementptr inbounds %"struct.msdfgen::BitmapRef", ptr %output, i64 0, i32 1
-  %y3.i = getelementptr inbounds %"struct.msdfgen::Vector2", ptr %ref.tmp, i64 0, i32 1
-  %1 = getelementptr inbounds { double, double }, ptr %p, i64 0, i32 1
+  %inverseYAxis = getelementptr inbounds i8, ptr %shape, i64 24
+  %width = getelementptr inbounds i8, ptr %output, i64 8
+  %y3.i = getelementptr inbounds i8, ptr %ref.tmp, i64 8
+  %1 = getelementptr inbounds i8, ptr %p, i64 8
   %2 = load i32, ptr %width, align 8
   %3 = icmp sgt i32 %2, 0
   br i1 %3, label %for.body, label %for.end24
@@ -481,7 +466,7 @@ invoke.cont16:                                    ; preds = %for.body5
 .noexc:                                           ; preds = %invoke.cont16
   %14 = load ptr, ptr %distanceFinder, align 8
   %15 = load ptr, ptr %14, align 8
-  %_M_finish.i29.i = getelementptr inbounds %"struct.std::_Vector_base<msdfgen::Contour, std::allocator<msdfgen::Contour>>::_Vector_impl_data", ptr %14, i64 0, i32 1
+  %_M_finish.i29.i = getelementptr inbounds i8, ptr %14, i64 8
   %16 = load ptr, ptr %_M_finish.i29.i, align 8
   %cmp.i.not30.i = icmp eq ptr %15, %16
   br i1 %cmp.i.not30.i, label %for.end58.i, label %for.body.preheader.i
@@ -495,7 +480,7 @@ for.body.i:                                       ; preds = %for.inc56.i, %for.b
   %edgeCache.032.i = phi ptr [ %edgeCache.2.i, %for.inc56.i ], [ %17, %for.body.preheader.i ]
   %contour.sroa.0.031.i = phi ptr [ %incdec.ptr.i12.i, %for.inc56.i ], [ %15, %for.body.preheader.i ]
   %19 = load ptr, ptr %contour.sroa.0.031.i, align 8
-  %_M_finish.i.i.i = getelementptr inbounds %"struct.std::_Vector_base<msdfgen::EdgeHolder, std::allocator<msdfgen::EdgeHolder>>::_Vector_impl_data", ptr %contour.sroa.0.031.i, i64 0, i32 1
+  %_M_finish.i.i.i = getelementptr inbounds i8, ptr %contour.sroa.0.031.i, i64 8
   %20 = load ptr, ptr %_M_finish.i.i.i, align 8
   %cmp.i.i.i = icmp eq ptr %19, %20
   br i1 %cmp.i.i.i, label %for.inc56.i, label %if.then.i
@@ -517,14 +502,14 @@ call17.i.noexc:                                   ; preds = %if.then.i
   %sub.ptr.rhs.cast.i5.i = ptrtoint ptr %23 to i64
   %sub.ptr.sub.i6.i = sub i64 %sub.ptr.lhs.cast.i4.i, %sub.ptr.rhs.cast.i5.i
   %cmp.i = icmp ugt i64 %sub.ptr.sub.i6.i, 8
-  %add.ptr.i.i = getelementptr inbounds %"class.msdfgen::EdgeHolder", ptr %22, i64 -2
+  %add.ptr.i.i = getelementptr inbounds i8, ptr %22, i64 -16
   %spec.select.i = select i1 %cmp.i, ptr %add.ptr.i.i, ptr %23
   %call36.i20 = invoke noundef ptr @_ZNK7msdfgen10EdgeHoldercvPKNS_11EdgeSegmentEEv(ptr noundef nonnull align 8 dereferenceable(8) %spec.select.i)
           to label %call36.i.noexc unwind label %lpad.loopexit.split-lp.loopexit
 
 call36.i.noexc:                                   ; preds = %call17.i.noexc
   %24 = load ptr, ptr %_M_finish.i.i.i, align 8
-  %add.ptr.i.i.i = getelementptr inbounds %"class.msdfgen::EdgeHolder", ptr %24, i64 -1
+  %add.ptr.i.i.i = getelementptr inbounds i8, ptr %24, i64 -8
   %call40.i21 = invoke noundef ptr @_ZNK7msdfgen10EdgeHoldercvPKNS_11EdgeSegmentEEv(ptr noundef nonnull align 8 dereferenceable(8) %add.ptr.i.i.i)
           to label %call40.i.noexc unwind label %lpad.loopexit.split-lp.loopexit
 
@@ -547,17 +532,17 @@ call54.i.noexc:                                   ; preds = %for.body52.i
           to label %.noexc23 unwind label %lpad.loopexit
 
 .noexc23:                                         ; preds = %call54.i.noexc
-  %incdec.ptr.i = getelementptr inbounds %"struct.msdfgen::TrueDistanceSelector::EdgeCache", ptr %edgeCache.128.i, i64 1
-  %incdec.ptr.i.i = getelementptr inbounds %"class.msdfgen::EdgeHolder", ptr %edge.sroa.0.025.i, i64 1
+  %incdec.ptr.i = getelementptr inbounds i8, ptr %edgeCache.128.i, i64 24
+  %incdec.ptr.i.i = getelementptr inbounds i8, ptr %edge.sroa.0.025.i, i64 8
   %27 = load ptr, ptr %_M_finish.i.i.i, align 8
   %cmp.i11.not.i = icmp eq ptr %incdec.ptr.i.i, %27
   br i1 %cmp.i11.not.i, label %for.inc56.i, label %for.body52.i, !llvm.loop !11
 
 for.inc56.i:                                      ; preds = %.noexc23, %call40.i.noexc, %for.body.i
   %edgeCache.2.i = phi ptr [ %edgeCache.032.i, %for.body.i ], [ %edgeCache.032.i, %call40.i.noexc ], [ %incdec.ptr.i, %.noexc23 ]
-  %incdec.ptr.i12.i = getelementptr inbounds %"class.msdfgen::Contour", ptr %contour.sroa.0.031.i, i64 1
+  %incdec.ptr.i12.i = getelementptr inbounds i8, ptr %contour.sroa.0.031.i, i64 24
   %28 = load ptr, ptr %distanceFinder, align 8
-  %_M_finish.i.i = getelementptr inbounds %"struct.std::_Vector_base<msdfgen::Contour, std::allocator<msdfgen::Contour>>::_Vector_impl_data", ptr %28, i64 0, i32 1
+  %_M_finish.i.i = getelementptr inbounds i8, ptr %28, i64 8
   %29 = load ptr, ptr %_M_finish.i.i, align 8
   %cmp.i.not.i = icmp eq ptr %incdec.ptr.i12.i, %29
   br i1 %cmp.i.not.i, label %for.end58.i, label %for.body.i, !llvm.loop !12
@@ -663,13 +648,13 @@ entry:
   %div.i = fdiv double 1.000000e+00, %range
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %ref.tmp.i)
   store ptr %shape, ptr %distanceFinder, align 8
-  %contourCombiner.i = getelementptr inbounds %"class.msdfgen::ShapeDistanceFinder.25", ptr %distanceFinder, i64 0, i32 1
+  %contourCombiner.i = getelementptr inbounds i8, ptr %distanceFinder, i64 8
   call void @_ZN7msdfgen26OverlappingContourCombinerINS_22PseudoDistanceSelectorEEC1ERKNS_5ShapeE(ptr noundef nonnull align 8 dereferenceable(64) %contourCombiner.i, ptr noundef nonnull align 8 dereferenceable(25) %shape)
   %call.i = invoke noundef i32 @_ZNK7msdfgen5Shape9edgeCountEv(ptr noundef nonnull align 8 dereferenceable(25) %shape)
           to label %invoke.cont.i unwind label %lpad.i
 
 invoke.cont.i:                                    ; preds = %entry
-  %shapeEdgeCache.i = getelementptr inbounds %"class.msdfgen::ShapeDistanceFinder.25", ptr %distanceFinder, i64 0, i32 2
+  %shapeEdgeCache.i = getelementptr inbounds i8, ptr %distanceFinder, i64 72
   %conv.i = sext i32 %call.i to i64
   invoke void @_ZNSt6vectorIN7msdfgen26PseudoDistanceSelectorBase9EdgeCacheESaIS2_EEC2EmRKS3_(ptr noundef nonnull align 8 dereferenceable(24) %shapeEdgeCache.i, i64 noundef %conv.i, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i)
           to label %_ZN7msdfgen19ShapeDistanceFinderINS_26OverlappingContourCombinerINS_22PseudoDistanceSelectorEEEEC2ERKNS_5ShapeE.exit unwind label %lpad3.i
@@ -695,16 +680,16 @@ ehcleanup.i:                                      ; preds = %lpad3.i, %lpad.i
 
 _ZN7msdfgen19ShapeDistanceFinderINS_26OverlappingContourCombinerINS_22PseudoDistanceSelectorEEEEC2ERKNS_5ShapeE.exit: ; preds = %invoke.cont.i
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %ref.tmp.i)
-  %height = getelementptr inbounds %"struct.msdfgen::BitmapRef", ptr %output, i64 0, i32 2
+  %height = getelementptr inbounds i8, ptr %output, i64 12
   %2 = load i32, ptr %height, align 4
   %cmp34 = icmp sgt i32 %2, 0
   br i1 %cmp34, label %for.body.lr.ph, label %for.end24
 
 for.body.lr.ph:                                   ; preds = %_ZN7msdfgen19ShapeDistanceFinderINS_26OverlappingContourCombinerINS_22PseudoDistanceSelectorEEEEC2ERKNS_5ShapeE.exit
-  %inverseYAxis = getelementptr inbounds %"class.msdfgen::Shape", ptr %shape, i64 0, i32 1
-  %width = getelementptr inbounds %"struct.msdfgen::BitmapRef", ptr %output, i64 0, i32 1
-  %y3.i = getelementptr inbounds %"struct.msdfgen::Vector2", ptr %ref.tmp, i64 0, i32 1
-  %3 = getelementptr inbounds { double, double }, ptr %p, i64 0, i32 1
+  %inverseYAxis = getelementptr inbounds i8, ptr %shape, i64 24
+  %width = getelementptr inbounds i8, ptr %output, i64 8
+  %y3.i = getelementptr inbounds i8, ptr %ref.tmp, i64 8
+  %3 = getelementptr inbounds i8, ptr %p, i64 8
   %4 = load i32, ptr %width, align 8
   %5 = icmp sgt i32 %4, 0
   br i1 %5, label %for.body, label %for.end24
@@ -753,7 +738,7 @@ invoke.cont16:                                    ; preds = %for.body5
 .noexc:                                           ; preds = %invoke.cont16
   %16 = load ptr, ptr %distanceFinder, align 8
   %17 = load ptr, ptr %16, align 8
-  %_M_finish.i29.i = getelementptr inbounds %"struct.std::_Vector_base<msdfgen::Contour, std::allocator<msdfgen::Contour>>::_Vector_impl_data", ptr %16, i64 0, i32 1
+  %_M_finish.i29.i = getelementptr inbounds i8, ptr %16, i64 8
   %18 = load ptr, ptr %_M_finish.i29.i, align 8
   %cmp.i.not30.i = icmp eq ptr %17, %18
   br i1 %cmp.i.not30.i, label %for.end58.i, label %for.body.preheader.i
@@ -767,7 +752,7 @@ for.body.i:                                       ; preds = %for.inc56.i, %for.b
   %edgeCache.032.i = phi ptr [ %edgeCache.2.i, %for.inc56.i ], [ %19, %for.body.preheader.i ]
   %contour.sroa.0.031.i = phi ptr [ %incdec.ptr.i12.i, %for.inc56.i ], [ %17, %for.body.preheader.i ]
   %21 = load ptr, ptr %contour.sroa.0.031.i, align 8
-  %_M_finish.i.i.i = getelementptr inbounds %"struct.std::_Vector_base<msdfgen::EdgeHolder, std::allocator<msdfgen::EdgeHolder>>::_Vector_impl_data", ptr %contour.sroa.0.031.i, i64 0, i32 1
+  %_M_finish.i.i.i = getelementptr inbounds i8, ptr %contour.sroa.0.031.i, i64 8
   %22 = load ptr, ptr %_M_finish.i.i.i, align 8
   %cmp.i.i.i = icmp eq ptr %21, %22
   br i1 %cmp.i.i.i, label %for.inc56.i, label %if.then.i
@@ -789,14 +774,14 @@ call17.i.noexc:                                   ; preds = %if.then.i
   %sub.ptr.rhs.cast.i5.i = ptrtoint ptr %25 to i64
   %sub.ptr.sub.i6.i = sub i64 %sub.ptr.lhs.cast.i4.i, %sub.ptr.rhs.cast.i5.i
   %cmp.i = icmp ugt i64 %sub.ptr.sub.i6.i, 8
-  %add.ptr.i.i = getelementptr inbounds %"class.msdfgen::EdgeHolder", ptr %24, i64 -2
+  %add.ptr.i.i = getelementptr inbounds i8, ptr %24, i64 -16
   %spec.select.i = select i1 %cmp.i, ptr %add.ptr.i.i, ptr %25
   %call36.i20 = invoke noundef ptr @_ZNK7msdfgen10EdgeHoldercvPKNS_11EdgeSegmentEEv(ptr noundef nonnull align 8 dereferenceable(8) %spec.select.i)
           to label %call36.i.noexc unwind label %lpad.loopexit.split-lp.loopexit
 
 call36.i.noexc:                                   ; preds = %call17.i.noexc
   %26 = load ptr, ptr %_M_finish.i.i.i, align 8
-  %add.ptr.i.i.i = getelementptr inbounds %"class.msdfgen::EdgeHolder", ptr %26, i64 -1
+  %add.ptr.i.i.i = getelementptr inbounds i8, ptr %26, i64 -8
   %call40.i21 = invoke noundef ptr @_ZNK7msdfgen10EdgeHoldercvPKNS_11EdgeSegmentEEv(ptr noundef nonnull align 8 dereferenceable(8) %add.ptr.i.i.i)
           to label %call40.i.noexc unwind label %lpad.loopexit.split-lp.loopexit
 
@@ -819,17 +804,17 @@ call54.i.noexc:                                   ; preds = %for.body52.i
           to label %.noexc23 unwind label %lpad.loopexit
 
 .noexc23:                                         ; preds = %call54.i.noexc
-  %incdec.ptr.i = getelementptr inbounds %"struct.msdfgen::PseudoDistanceSelectorBase::EdgeCache", ptr %edgeCache.128.i, i64 1
-  %incdec.ptr.i.i = getelementptr inbounds %"class.msdfgen::EdgeHolder", ptr %edge.sroa.0.025.i, i64 1
+  %incdec.ptr.i = getelementptr inbounds i8, ptr %edgeCache.128.i, i64 56
+  %incdec.ptr.i.i = getelementptr inbounds i8, ptr %edge.sroa.0.025.i, i64 8
   %29 = load ptr, ptr %_M_finish.i.i.i, align 8
   %cmp.i11.not.i = icmp eq ptr %incdec.ptr.i.i, %29
   br i1 %cmp.i11.not.i, label %for.inc56.i, label %for.body52.i, !llvm.loop !15
 
 for.inc56.i:                                      ; preds = %.noexc23, %call40.i.noexc, %for.body.i
   %edgeCache.2.i = phi ptr [ %edgeCache.032.i, %for.body.i ], [ %edgeCache.032.i, %call40.i.noexc ], [ %incdec.ptr.i, %.noexc23 ]
-  %incdec.ptr.i12.i = getelementptr inbounds %"class.msdfgen::Contour", ptr %contour.sroa.0.031.i, i64 1
+  %incdec.ptr.i12.i = getelementptr inbounds i8, ptr %contour.sroa.0.031.i, i64 24
   %30 = load ptr, ptr %distanceFinder, align 8
-  %_M_finish.i.i = getelementptr inbounds %"struct.std::_Vector_base<msdfgen::Contour, std::allocator<msdfgen::Contour>>::_Vector_impl_data", ptr %30, i64 0, i32 1
+  %_M_finish.i.i = getelementptr inbounds i8, ptr %30, i64 8
   %31 = load ptr, ptr %_M_finish.i.i, align 8
   %cmp.i.not.i = icmp eq ptr %incdec.ptr.i12.i, %31
   br i1 %cmp.i.not.i, label %for.end58.i, label %for.body.i, !llvm.loop !16
@@ -894,7 +879,7 @@ if.then.i.i.i.i:                                  ; preds = %for.end24
   br label %_ZNSt6vectorIN7msdfgen26PseudoDistanceSelectorBase9EdgeCacheESaIS2_EED2Ev.exit.i
 
 _ZNSt6vectorIN7msdfgen26PseudoDistanceSelectorBase9EdgeCacheESaIS2_EED2Ev.exit.i: ; preds = %if.then.i.i.i.i, %for.end24
-  %edgeSelectors.i.i = getelementptr inbounds %"class.msdfgen::ShapeDistanceFinder.25", ptr %distanceFinder, i64 0, i32 1, i32 2
+  %edgeSelectors.i.i = getelementptr inbounds i8, ptr %distanceFinder, i64 48
   %39 = load ptr, ptr %edgeSelectors.i.i, align 8
   %tobool.not.i.i.i.i.i = icmp eq ptr %39, null
   br i1 %tobool.not.i.i.i.i.i, label %_ZNSt6vectorIN7msdfgen22PseudoDistanceSelectorESaIS1_EED2Ev.exit.i.i, label %if.then.i.i.i.i.i
@@ -904,7 +889,7 @@ if.then.i.i.i.i.i:                                ; preds = %_ZNSt6vectorIN7msdf
   br label %_ZNSt6vectorIN7msdfgen22PseudoDistanceSelectorESaIS1_EED2Ev.exit.i.i
 
 _ZNSt6vectorIN7msdfgen22PseudoDistanceSelectorESaIS1_EED2Ev.exit.i.i: ; preds = %if.then.i.i.i.i.i, %_ZNSt6vectorIN7msdfgen26PseudoDistanceSelectorBase9EdgeCacheESaIS2_EED2Ev.exit.i
-  %windings.i.i = getelementptr inbounds %"class.msdfgen::ShapeDistanceFinder.25", ptr %distanceFinder, i64 0, i32 1, i32 1
+  %windings.i.i = getelementptr inbounds i8, ptr %distanceFinder, i64 24
   %40 = load ptr, ptr %windings.i.i, align 8
   %tobool.not.i.i.i1.i.i = icmp eq ptr %40, null
   br i1 %tobool.not.i.i.i1.i.i, label %_ZN7msdfgen19ShapeDistanceFinderINS_26OverlappingContourCombinerINS_22PseudoDistanceSelectorEEEED2Ev.exit, label %if.then.i.i.i2.i.i
@@ -927,23 +912,23 @@ entry:
   %div.i = fdiv double 1.000000e+00, %range
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %ref.tmp.i)
   store ptr %shape, ptr %distanceFinder, align 8
-  %contourCombiner.i = getelementptr inbounds %"class.msdfgen::ShapeDistanceFinder.37", ptr %distanceFinder, i64 0, i32 1
+  %contourCombiner.i = getelementptr inbounds i8, ptr %distanceFinder, i64 8
   call void @_ZN7msdfgen21SimpleContourCombinerINS_22PseudoDistanceSelectorEEC1ERKNS_5ShapeE(ptr noundef nonnull align 8 dereferenceable(64) %contourCombiner.i, ptr noundef nonnull align 8 dereferenceable(25) %shape)
-  %shapeEdgeCache.i = getelementptr inbounds %"class.msdfgen::ShapeDistanceFinder.37", ptr %distanceFinder, i64 0, i32 2
+  %shapeEdgeCache.i = getelementptr inbounds i8, ptr %distanceFinder, i64 72
   %call.i = call noundef i32 @_ZNK7msdfgen5Shape9edgeCountEv(ptr noundef nonnull align 8 dereferenceable(25) %shape)
   %conv.i = sext i32 %call.i to i64
   call void @_ZNSt6vectorIN7msdfgen26PseudoDistanceSelectorBase9EdgeCacheESaIS2_EEC2EmRKS3_(ptr noundef nonnull align 8 dereferenceable(24) %shapeEdgeCache.i, i64 noundef %conv.i, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i)
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %ref.tmp.i)
-  %height = getelementptr inbounds %"struct.msdfgen::BitmapRef", ptr %output, i64 0, i32 2
+  %height = getelementptr inbounds i8, ptr %output, i64 12
   %0 = load i32, ptr %height, align 4
   %cmp38 = icmp sgt i32 %0, 0
   br i1 %cmp38, label %for.body.lr.ph, label %for.end24
 
 for.body.lr.ph:                                   ; preds = %entry
-  %inverseYAxis = getelementptr inbounds %"class.msdfgen::Shape", ptr %shape, i64 0, i32 1
-  %width = getelementptr inbounds %"struct.msdfgen::BitmapRef", ptr %output, i64 0, i32 1
-  %y3.i = getelementptr inbounds %"struct.msdfgen::Vector2", ptr %ref.tmp, i64 0, i32 1
-  %1 = getelementptr inbounds { double, double }, ptr %p, i64 0, i32 1
+  %inverseYAxis = getelementptr inbounds i8, ptr %shape, i64 24
+  %width = getelementptr inbounds i8, ptr %output, i64 8
+  %y3.i = getelementptr inbounds i8, ptr %ref.tmp, i64 8
+  %1 = getelementptr inbounds i8, ptr %p, i64 8
   %2 = load i32, ptr %width, align 8
   %3 = icmp sgt i32 %2, 0
   br i1 %3, label %for.body, label %for.end24
@@ -992,7 +977,7 @@ invoke.cont16:                                    ; preds = %for.body5
 .noexc:                                           ; preds = %invoke.cont16
   %14 = load ptr, ptr %distanceFinder, align 8
   %15 = load ptr, ptr %14, align 8
-  %_M_finish.i29.i = getelementptr inbounds %"struct.std::_Vector_base<msdfgen::Contour, std::allocator<msdfgen::Contour>>::_Vector_impl_data", ptr %14, i64 0, i32 1
+  %_M_finish.i29.i = getelementptr inbounds i8, ptr %14, i64 8
   %16 = load ptr, ptr %_M_finish.i29.i, align 8
   %cmp.i.not30.i = icmp eq ptr %15, %16
   br i1 %cmp.i.not30.i, label %for.end58.i, label %for.body.preheader.i
@@ -1006,7 +991,7 @@ for.body.i:                                       ; preds = %for.inc56.i, %for.b
   %edgeCache.032.i = phi ptr [ %edgeCache.2.i, %for.inc56.i ], [ %17, %for.body.preheader.i ]
   %contour.sroa.0.031.i = phi ptr [ %incdec.ptr.i12.i, %for.inc56.i ], [ %15, %for.body.preheader.i ]
   %19 = load ptr, ptr %contour.sroa.0.031.i, align 8
-  %_M_finish.i.i.i = getelementptr inbounds %"struct.std::_Vector_base<msdfgen::EdgeHolder, std::allocator<msdfgen::EdgeHolder>>::_Vector_impl_data", ptr %contour.sroa.0.031.i, i64 0, i32 1
+  %_M_finish.i.i.i = getelementptr inbounds i8, ptr %contour.sroa.0.031.i, i64 8
   %20 = load ptr, ptr %_M_finish.i.i.i, align 8
   %cmp.i.i.i = icmp eq ptr %19, %20
   br i1 %cmp.i.i.i, label %for.inc56.i, label %if.then.i
@@ -1028,14 +1013,14 @@ call17.i.noexc:                                   ; preds = %if.then.i
   %sub.ptr.rhs.cast.i5.i = ptrtoint ptr %23 to i64
   %sub.ptr.sub.i6.i = sub i64 %sub.ptr.lhs.cast.i4.i, %sub.ptr.rhs.cast.i5.i
   %cmp.i = icmp ugt i64 %sub.ptr.sub.i6.i, 8
-  %add.ptr.i.i = getelementptr inbounds %"class.msdfgen::EdgeHolder", ptr %22, i64 -2
+  %add.ptr.i.i = getelementptr inbounds i8, ptr %22, i64 -16
   %spec.select.i = select i1 %cmp.i, ptr %add.ptr.i.i, ptr %23
   %call36.i20 = invoke noundef ptr @_ZNK7msdfgen10EdgeHoldercvPKNS_11EdgeSegmentEEv(ptr noundef nonnull align 8 dereferenceable(8) %spec.select.i)
           to label %call36.i.noexc unwind label %lpad.loopexit.split-lp.loopexit
 
 call36.i.noexc:                                   ; preds = %call17.i.noexc
   %24 = load ptr, ptr %_M_finish.i.i.i, align 8
-  %add.ptr.i.i.i = getelementptr inbounds %"class.msdfgen::EdgeHolder", ptr %24, i64 -1
+  %add.ptr.i.i.i = getelementptr inbounds i8, ptr %24, i64 -8
   %call40.i21 = invoke noundef ptr @_ZNK7msdfgen10EdgeHoldercvPKNS_11EdgeSegmentEEv(ptr noundef nonnull align 8 dereferenceable(8) %add.ptr.i.i.i)
           to label %call40.i.noexc unwind label %lpad.loopexit.split-lp.loopexit
 
@@ -1058,17 +1043,17 @@ call54.i.noexc:                                   ; preds = %for.body52.i
           to label %.noexc23 unwind label %lpad.loopexit
 
 .noexc23:                                         ; preds = %call54.i.noexc
-  %incdec.ptr.i = getelementptr inbounds %"struct.msdfgen::PseudoDistanceSelectorBase::EdgeCache", ptr %edgeCache.128.i, i64 1
-  %incdec.ptr.i.i = getelementptr inbounds %"class.msdfgen::EdgeHolder", ptr %edge.sroa.0.025.i, i64 1
+  %incdec.ptr.i = getelementptr inbounds i8, ptr %edgeCache.128.i, i64 56
+  %incdec.ptr.i.i = getelementptr inbounds i8, ptr %edge.sroa.0.025.i, i64 8
   %27 = load ptr, ptr %_M_finish.i.i.i, align 8
   %cmp.i11.not.i = icmp eq ptr %incdec.ptr.i.i, %27
   br i1 %cmp.i11.not.i, label %for.inc56.i, label %for.body52.i, !llvm.loop !19
 
 for.inc56.i:                                      ; preds = %.noexc23, %call40.i.noexc, %for.body.i
   %edgeCache.2.i = phi ptr [ %edgeCache.032.i, %for.body.i ], [ %edgeCache.032.i, %call40.i.noexc ], [ %incdec.ptr.i, %.noexc23 ]
-  %incdec.ptr.i12.i = getelementptr inbounds %"class.msdfgen::Contour", ptr %contour.sroa.0.031.i, i64 1
+  %incdec.ptr.i12.i = getelementptr inbounds i8, ptr %contour.sroa.0.031.i, i64 24
   %28 = load ptr, ptr %distanceFinder, align 8
-  %_M_finish.i.i = getelementptr inbounds %"struct.std::_Vector_base<msdfgen::Contour, std::allocator<msdfgen::Contour>>::_Vector_impl_data", ptr %28, i64 0, i32 1
+  %_M_finish.i.i = getelementptr inbounds i8, ptr %28, i64 8
   %29 = load ptr, ptr %_M_finish.i.i, align 8
   %cmp.i.not.i = icmp eq ptr %incdec.ptr.i12.i, %29
   br i1 %cmp.i.not.i, label %for.end58.i, label %for.body.i, !llvm.loop !20
@@ -1176,13 +1161,13 @@ entry:
   %div.i = fdiv double 1.000000e+00, %range
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %ref.tmp.i)
   store ptr %shape, ptr %distanceFinder, align 8
-  %contourCombiner.i = getelementptr inbounds %"class.msdfgen::ShapeDistanceFinder.40", ptr %distanceFinder, i64 0, i32 1
+  %contourCombiner.i = getelementptr inbounds i8, ptr %distanceFinder, i64 8
   call void @_ZN7msdfgen26OverlappingContourCombinerINS_21MultiDistanceSelectorEEC1ERKNS_5ShapeE(ptr noundef nonnull align 8 dereferenceable(64) %contourCombiner.i, ptr noundef nonnull align 8 dereferenceable(25) %shape)
   %call.i = invoke noundef i32 @_ZNK7msdfgen5Shape9edgeCountEv(ptr noundef nonnull align 8 dereferenceable(25) %shape)
           to label %invoke.cont.i unwind label %lpad.i
 
 invoke.cont.i:                                    ; preds = %entry
-  %shapeEdgeCache.i = getelementptr inbounds %"class.msdfgen::ShapeDistanceFinder.40", ptr %distanceFinder, i64 0, i32 2
+  %shapeEdgeCache.i = getelementptr inbounds i8, ptr %distanceFinder, i64 72
   %conv.i = sext i32 %call.i to i64
   invoke void @_ZNSt6vectorIN7msdfgen26PseudoDistanceSelectorBase9EdgeCacheESaIS2_EEC2EmRKS3_(ptr noundef nonnull align 8 dereferenceable(24) %shapeEdgeCache.i, i64 noundef %conv.i, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i)
           to label %_ZN7msdfgen19ShapeDistanceFinderINS_26OverlappingContourCombinerINS_21MultiDistanceSelectorEEEEC2ERKNS_5ShapeE.exit unwind label %lpad3.i
@@ -1208,18 +1193,18 @@ ehcleanup.i:                                      ; preds = %lpad3.i, %lpad.i
 
 _ZN7msdfgen19ShapeDistanceFinderINS_26OverlappingContourCombinerINS_21MultiDistanceSelectorEEEEC2ERKNS_5ShapeE.exit: ; preds = %invoke.cont.i
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %ref.tmp.i)
-  %height = getelementptr inbounds %"struct.msdfgen::BitmapRef.0", ptr %output, i64 0, i32 2
+  %height = getelementptr inbounds i8, ptr %output, i64 12
   %2 = load i32, ptr %height, align 4
   %cmp36 = icmp sgt i32 %2, 0
   br i1 %cmp36, label %for.body.lr.ph, label %for.end24
 
 for.body.lr.ph:                                   ; preds = %_ZN7msdfgen19ShapeDistanceFinderINS_26OverlappingContourCombinerINS_21MultiDistanceSelectorEEEEC2ERKNS_5ShapeE.exit
-  %inverseYAxis = getelementptr inbounds %"class.msdfgen::Shape", ptr %shape, i64 0, i32 1
-  %width = getelementptr inbounds %"struct.msdfgen::BitmapRef.0", ptr %output, i64 0, i32 1
-  %y3.i = getelementptr inbounds %"struct.msdfgen::Vector2", ptr %ref.tmp, i64 0, i32 1
-  %3 = getelementptr inbounds { double, double }, ptr %p, i64 0, i32 1
-  %g.i = getelementptr inbounds %"struct.msdfgen::MultiDistance", ptr %distance, i64 0, i32 1
-  %b.i = getelementptr inbounds %"struct.msdfgen::MultiDistance", ptr %distance, i64 0, i32 2
+  %inverseYAxis = getelementptr inbounds i8, ptr %shape, i64 24
+  %width = getelementptr inbounds i8, ptr %output, i64 8
+  %y3.i = getelementptr inbounds i8, ptr %ref.tmp, i64 8
+  %3 = getelementptr inbounds i8, ptr %p, i64 8
+  %g.i = getelementptr inbounds i8, ptr %distance, i64 8
+  %b.i = getelementptr inbounds i8, ptr %distance, i64 16
   %4 = load i32, ptr %width, align 8
   %5 = icmp sgt i32 %4, 0
   br i1 %5, label %for.body, label %for.end24
@@ -1268,7 +1253,7 @@ invoke.cont16:                                    ; preds = %for.body5
 .noexc:                                           ; preds = %invoke.cont16
   %16 = load ptr, ptr %distanceFinder, align 8, !noalias !23
   %17 = load ptr, ptr %16, align 8, !noalias !23
-  %_M_finish.i29.i = getelementptr inbounds %"struct.std::_Vector_base<msdfgen::Contour, std::allocator<msdfgen::Contour>>::_Vector_impl_data", ptr %16, i64 0, i32 1
+  %_M_finish.i29.i = getelementptr inbounds i8, ptr %16, i64 8
   %18 = load ptr, ptr %_M_finish.i29.i, align 8, !noalias !23
   %cmp.i.not30.i = icmp eq ptr %17, %18
   br i1 %cmp.i.not30.i, label %for.end58.i, label %for.body.preheader.i
@@ -1282,7 +1267,7 @@ for.body.i:                                       ; preds = %for.inc56.i, %for.b
   %edgeCache.032.i = phi ptr [ %edgeCache.2.i, %for.inc56.i ], [ %19, %for.body.preheader.i ]
   %contour.sroa.0.031.i = phi ptr [ %incdec.ptr.i12.i, %for.inc56.i ], [ %17, %for.body.preheader.i ]
   %21 = load ptr, ptr %contour.sroa.0.031.i, align 8, !noalias !23
-  %_M_finish.i.i.i = getelementptr inbounds %"struct.std::_Vector_base<msdfgen::EdgeHolder, std::allocator<msdfgen::EdgeHolder>>::_Vector_impl_data", ptr %contour.sroa.0.031.i, i64 0, i32 1
+  %_M_finish.i.i.i = getelementptr inbounds i8, ptr %contour.sroa.0.031.i, i64 8
   %22 = load ptr, ptr %_M_finish.i.i.i, align 8, !noalias !23
   %cmp.i.i.i = icmp eq ptr %21, %22
   br i1 %cmp.i.i.i, label %for.inc56.i, label %if.then.i
@@ -1304,14 +1289,14 @@ call17.i.noexc:                                   ; preds = %if.then.i
   %sub.ptr.rhs.cast.i5.i = ptrtoint ptr %25 to i64
   %sub.ptr.sub.i6.i = sub i64 %sub.ptr.lhs.cast.i4.i, %sub.ptr.rhs.cast.i5.i
   %cmp.i = icmp ugt i64 %sub.ptr.sub.i6.i, 8
-  %add.ptr.i.i = getelementptr inbounds %"class.msdfgen::EdgeHolder", ptr %24, i64 -2
+  %add.ptr.i.i = getelementptr inbounds i8, ptr %24, i64 -16
   %spec.select.i = select i1 %cmp.i, ptr %add.ptr.i.i, ptr %25
   %call36.i20 = invoke noundef ptr @_ZNK7msdfgen10EdgeHoldercvPKNS_11EdgeSegmentEEv(ptr noundef nonnull align 8 dereferenceable(8) %spec.select.i)
           to label %call36.i.noexc unwind label %lpad.loopexit.split-lp.loopexit
 
 call36.i.noexc:                                   ; preds = %call17.i.noexc
   %26 = load ptr, ptr %_M_finish.i.i.i, align 8, !noalias !23
-  %add.ptr.i.i.i = getelementptr inbounds %"class.msdfgen::EdgeHolder", ptr %26, i64 -1
+  %add.ptr.i.i.i = getelementptr inbounds i8, ptr %26, i64 -8
   %call40.i21 = invoke noundef ptr @_ZNK7msdfgen10EdgeHoldercvPKNS_11EdgeSegmentEEv(ptr noundef nonnull align 8 dereferenceable(8) %add.ptr.i.i.i)
           to label %call40.i.noexc unwind label %lpad.loopexit.split-lp.loopexit
 
@@ -1334,17 +1319,17 @@ call54.i.noexc:                                   ; preds = %for.body52.i
           to label %.noexc23 unwind label %lpad.loopexit
 
 .noexc23:                                         ; preds = %call54.i.noexc
-  %incdec.ptr.i = getelementptr inbounds %"struct.msdfgen::PseudoDistanceSelectorBase::EdgeCache", ptr %edgeCache.128.i, i64 1
-  %incdec.ptr.i.i = getelementptr inbounds %"class.msdfgen::EdgeHolder", ptr %edge.sroa.0.025.i, i64 1
+  %incdec.ptr.i = getelementptr inbounds i8, ptr %edgeCache.128.i, i64 56
+  %incdec.ptr.i.i = getelementptr inbounds i8, ptr %edge.sroa.0.025.i, i64 8
   %29 = load ptr, ptr %_M_finish.i.i.i, align 8, !noalias !23
   %cmp.i11.not.i = icmp eq ptr %incdec.ptr.i.i, %29
   br i1 %cmp.i11.not.i, label %for.inc56.i, label %for.body52.i, !llvm.loop !26
 
 for.inc56.i:                                      ; preds = %.noexc23, %call40.i.noexc, %for.body.i
   %edgeCache.2.i = phi ptr [ %edgeCache.032.i, %for.body.i ], [ %edgeCache.032.i, %call40.i.noexc ], [ %incdec.ptr.i, %.noexc23 ]
-  %incdec.ptr.i12.i = getelementptr inbounds %"class.msdfgen::Contour", ptr %contour.sroa.0.031.i, i64 1
+  %incdec.ptr.i12.i = getelementptr inbounds i8, ptr %contour.sroa.0.031.i, i64 24
   %30 = load ptr, ptr %distanceFinder, align 8, !noalias !23
-  %_M_finish.i.i = getelementptr inbounds %"struct.std::_Vector_base<msdfgen::Contour, std::allocator<msdfgen::Contour>>::_Vector_impl_data", ptr %30, i64 0, i32 1
+  %_M_finish.i.i = getelementptr inbounds i8, ptr %30, i64 8
   %31 = load ptr, ptr %_M_finish.i.i, align 8, !noalias !23
   %cmp.i.not.i = icmp eq ptr %incdec.ptr.i12.i, %31
   br i1 %cmp.i.not.i, label %for.end58.i, label %for.body.i, !llvm.loop !27
@@ -1368,12 +1353,12 @@ invoke.cont17:                                    ; preds = %for.end58.i
   %36 = load double, ptr %g.i, align 8
   %37 = call double @llvm.fmuladd.f64(double %div.i, double %36, double 5.000000e-01)
   %conv3.i = fptrunc double %37 to float
-  %arrayidx4.i = getelementptr inbounds float, ptr %add.ptr.i, i64 1
+  %arrayidx4.i = getelementptr inbounds i8, ptr %add.ptr.i, i64 4
   store float %conv3.i, ptr %arrayidx4.i, align 4
   %38 = load double, ptr %b.i, align 8
   %39 = call double @llvm.fmuladd.f64(double %div.i, double %38, double 5.000000e-01)
   %conv6.i = fptrunc double %39 to float
-  %arrayidx7.i = getelementptr inbounds float, ptr %add.ptr.i, i64 2
+  %arrayidx7.i = getelementptr inbounds i8, ptr %add.ptr.i, i64 8
   store float %conv6.i, ptr %arrayidx7.i, align 4
   %inc = add nuw nsw i32 %col.035, 1
   %40 = load i32, ptr %width, align 8
@@ -1421,7 +1406,7 @@ if.then.i.i.i.i:                                  ; preds = %for.end24
   br label %_ZNSt6vectorIN7msdfgen26PseudoDistanceSelectorBase9EdgeCacheESaIS2_EED2Ev.exit.i
 
 _ZNSt6vectorIN7msdfgen26PseudoDistanceSelectorBase9EdgeCacheESaIS2_EED2Ev.exit.i: ; preds = %if.then.i.i.i.i, %for.end24
-  %edgeSelectors.i.i = getelementptr inbounds %"class.msdfgen::ShapeDistanceFinder.40", ptr %distanceFinder, i64 0, i32 1, i32 2
+  %edgeSelectors.i.i = getelementptr inbounds i8, ptr %distanceFinder, i64 48
   %44 = load ptr, ptr %edgeSelectors.i.i, align 8
   %tobool.not.i.i.i.i.i = icmp eq ptr %44, null
   br i1 %tobool.not.i.i.i.i.i, label %_ZNSt6vectorIN7msdfgen21MultiDistanceSelectorESaIS1_EED2Ev.exit.i.i, label %if.then.i.i.i.i.i
@@ -1431,7 +1416,7 @@ if.then.i.i.i.i.i:                                ; preds = %_ZNSt6vectorIN7msdf
   br label %_ZNSt6vectorIN7msdfgen21MultiDistanceSelectorESaIS1_EED2Ev.exit.i.i
 
 _ZNSt6vectorIN7msdfgen21MultiDistanceSelectorESaIS1_EED2Ev.exit.i.i: ; preds = %if.then.i.i.i.i.i, %_ZNSt6vectorIN7msdfgen26PseudoDistanceSelectorBase9EdgeCacheESaIS2_EED2Ev.exit.i
-  %windings.i.i = getelementptr inbounds %"class.msdfgen::ShapeDistanceFinder.40", ptr %distanceFinder, i64 0, i32 1, i32 1
+  %windings.i.i = getelementptr inbounds i8, ptr %distanceFinder, i64 24
   %45 = load ptr, ptr %windings.i.i, align 8
   %tobool.not.i.i.i1.i.i = icmp eq ptr %45, null
   br i1 %tobool.not.i.i.i1.i.i, label %_ZN7msdfgen19ShapeDistanceFinderINS_26OverlappingContourCombinerINS_21MultiDistanceSelectorEEEED2Ev.exit, label %if.then.i.i.i2.i.i
@@ -1455,25 +1440,25 @@ entry:
   %div.i = fdiv double 1.000000e+00, %range
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %ref.tmp.i)
   store ptr %shape, ptr %distanceFinder, align 8
-  %contourCombiner.i = getelementptr inbounds %"class.msdfgen::ShapeDistanceFinder.47", ptr %distanceFinder, i64 0, i32 1
+  %contourCombiner.i = getelementptr inbounds i8, ptr %distanceFinder, i64 8
   call void @_ZN7msdfgen21SimpleContourCombinerINS_21MultiDistanceSelectorEEC1ERKNS_5ShapeE(ptr noundef nonnull align 8 dereferenceable(160) %contourCombiner.i, ptr noundef nonnull align 8 dereferenceable(25) %shape)
-  %shapeEdgeCache.i = getelementptr inbounds %"class.msdfgen::ShapeDistanceFinder.47", ptr %distanceFinder, i64 0, i32 2
+  %shapeEdgeCache.i = getelementptr inbounds i8, ptr %distanceFinder, i64 168
   %call.i = call noundef i32 @_ZNK7msdfgen5Shape9edgeCountEv(ptr noundef nonnull align 8 dereferenceable(25) %shape)
   %conv.i = sext i32 %call.i to i64
   call void @_ZNSt6vectorIN7msdfgen26PseudoDistanceSelectorBase9EdgeCacheESaIS2_EEC2EmRKS3_(ptr noundef nonnull align 8 dereferenceable(24) %shapeEdgeCache.i, i64 noundef %conv.i, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i)
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %ref.tmp.i)
-  %height = getelementptr inbounds %"struct.msdfgen::BitmapRef.0", ptr %output, i64 0, i32 2
+  %height = getelementptr inbounds i8, ptr %output, i64 12
   %0 = load i32, ptr %height, align 4
   %cmp40 = icmp sgt i32 %0, 0
   br i1 %cmp40, label %for.body.lr.ph, label %for.end23
 
 for.body.lr.ph:                                   ; preds = %entry
-  %inverseYAxis = getelementptr inbounds %"class.msdfgen::Shape", ptr %shape, i64 0, i32 1
-  %width = getelementptr inbounds %"struct.msdfgen::BitmapRef.0", ptr %output, i64 0, i32 1
-  %y3.i = getelementptr inbounds %"struct.msdfgen::Vector2", ptr %ref.tmp, i64 0, i32 1
-  %1 = getelementptr inbounds { double, double }, ptr %p, i64 0, i32 1
-  %g.i = getelementptr inbounds %"struct.msdfgen::MultiDistance", ptr %distance, i64 0, i32 1
-  %b.i = getelementptr inbounds %"struct.msdfgen::MultiDistance", ptr %distance, i64 0, i32 2
+  %inverseYAxis = getelementptr inbounds i8, ptr %shape, i64 24
+  %width = getelementptr inbounds i8, ptr %output, i64 8
+  %y3.i = getelementptr inbounds i8, ptr %ref.tmp, i64 8
+  %1 = getelementptr inbounds i8, ptr %p, i64 8
+  %g.i = getelementptr inbounds i8, ptr %distance, i64 8
+  %b.i = getelementptr inbounds i8, ptr %distance, i64 16
   %2 = load i32, ptr %width, align 8
   %3 = icmp sgt i32 %2, 0
   br i1 %3, label %for.body, label %for.end23
@@ -1522,7 +1507,7 @@ invoke.cont16:                                    ; preds = %for.body5
 .noexc:                                           ; preds = %invoke.cont16
   %14 = load ptr, ptr %distanceFinder, align 8, !noalias !30
   %15 = load ptr, ptr %14, align 8, !noalias !30
-  %_M_finish.i29.i = getelementptr inbounds %"struct.std::_Vector_base<msdfgen::Contour, std::allocator<msdfgen::Contour>>::_Vector_impl_data", ptr %14, i64 0, i32 1
+  %_M_finish.i29.i = getelementptr inbounds i8, ptr %14, i64 8
   %16 = load ptr, ptr %_M_finish.i29.i, align 8, !noalias !30
   %cmp.i.not30.i = icmp eq ptr %15, %16
   br i1 %cmp.i.not30.i, label %for.end58.i, label %for.body.preheader.i
@@ -1536,7 +1521,7 @@ for.body.i:                                       ; preds = %for.inc56.i, %for.b
   %edgeCache.032.i = phi ptr [ %edgeCache.2.i, %for.inc56.i ], [ %17, %for.body.preheader.i ]
   %contour.sroa.0.031.i = phi ptr [ %incdec.ptr.i12.i, %for.inc56.i ], [ %15, %for.body.preheader.i ]
   %19 = load ptr, ptr %contour.sroa.0.031.i, align 8, !noalias !30
-  %_M_finish.i.i.i = getelementptr inbounds %"struct.std::_Vector_base<msdfgen::EdgeHolder, std::allocator<msdfgen::EdgeHolder>>::_Vector_impl_data", ptr %contour.sroa.0.031.i, i64 0, i32 1
+  %_M_finish.i.i.i = getelementptr inbounds i8, ptr %contour.sroa.0.031.i, i64 8
   %20 = load ptr, ptr %_M_finish.i.i.i, align 8, !noalias !30
   %cmp.i.i.i = icmp eq ptr %19, %20
   br i1 %cmp.i.i.i, label %for.inc56.i, label %if.then.i
@@ -1558,14 +1543,14 @@ call17.i.noexc:                                   ; preds = %if.then.i
   %sub.ptr.rhs.cast.i5.i = ptrtoint ptr %23 to i64
   %sub.ptr.sub.i6.i = sub i64 %sub.ptr.lhs.cast.i4.i, %sub.ptr.rhs.cast.i5.i
   %cmp.i = icmp ugt i64 %sub.ptr.sub.i6.i, 8
-  %add.ptr.i.i = getelementptr inbounds %"class.msdfgen::EdgeHolder", ptr %22, i64 -2
+  %add.ptr.i.i = getelementptr inbounds i8, ptr %22, i64 -16
   %spec.select.i = select i1 %cmp.i, ptr %add.ptr.i.i, ptr %23
   %call36.i20 = invoke noundef ptr @_ZNK7msdfgen10EdgeHoldercvPKNS_11EdgeSegmentEEv(ptr noundef nonnull align 8 dereferenceable(8) %spec.select.i)
           to label %call36.i.noexc unwind label %lpad.loopexit.split-lp.loopexit
 
 call36.i.noexc:                                   ; preds = %call17.i.noexc
   %24 = load ptr, ptr %_M_finish.i.i.i, align 8, !noalias !30
-  %add.ptr.i.i.i = getelementptr inbounds %"class.msdfgen::EdgeHolder", ptr %24, i64 -1
+  %add.ptr.i.i.i = getelementptr inbounds i8, ptr %24, i64 -8
   %call40.i21 = invoke noundef ptr @_ZNK7msdfgen10EdgeHoldercvPKNS_11EdgeSegmentEEv(ptr noundef nonnull align 8 dereferenceable(8) %add.ptr.i.i.i)
           to label %call40.i.noexc unwind label %lpad.loopexit.split-lp.loopexit
 
@@ -1588,17 +1573,17 @@ call54.i.noexc:                                   ; preds = %for.body52.i
           to label %.noexc23 unwind label %lpad.loopexit
 
 .noexc23:                                         ; preds = %call54.i.noexc
-  %incdec.ptr.i = getelementptr inbounds %"struct.msdfgen::PseudoDistanceSelectorBase::EdgeCache", ptr %edgeCache.128.i, i64 1
-  %incdec.ptr.i.i = getelementptr inbounds %"class.msdfgen::EdgeHolder", ptr %edge.sroa.0.025.i, i64 1
+  %incdec.ptr.i = getelementptr inbounds i8, ptr %edgeCache.128.i, i64 56
+  %incdec.ptr.i.i = getelementptr inbounds i8, ptr %edge.sroa.0.025.i, i64 8
   %27 = load ptr, ptr %_M_finish.i.i.i, align 8, !noalias !30
   %cmp.i11.not.i = icmp eq ptr %incdec.ptr.i.i, %27
   br i1 %cmp.i11.not.i, label %for.inc56.i, label %for.body52.i, !llvm.loop !33
 
 for.inc56.i:                                      ; preds = %.noexc23, %call40.i.noexc, %for.body.i
   %edgeCache.2.i = phi ptr [ %edgeCache.032.i, %for.body.i ], [ %edgeCache.032.i, %call40.i.noexc ], [ %incdec.ptr.i, %.noexc23 ]
-  %incdec.ptr.i12.i = getelementptr inbounds %"class.msdfgen::Contour", ptr %contour.sroa.0.031.i, i64 1
+  %incdec.ptr.i12.i = getelementptr inbounds i8, ptr %contour.sroa.0.031.i, i64 24
   %28 = load ptr, ptr %distanceFinder, align 8, !noalias !30
-  %_M_finish.i.i = getelementptr inbounds %"struct.std::_Vector_base<msdfgen::Contour, std::allocator<msdfgen::Contour>>::_Vector_impl_data", ptr %28, i64 0, i32 1
+  %_M_finish.i.i = getelementptr inbounds i8, ptr %28, i64 8
   %29 = load ptr, ptr %_M_finish.i.i, align 8, !noalias !30
   %cmp.i.not.i = icmp eq ptr %incdec.ptr.i12.i, %29
   br i1 %cmp.i.not.i, label %for.end58.i, label %for.body.i, !llvm.loop !34
@@ -1622,12 +1607,12 @@ invoke.cont17:                                    ; preds = %for.end58.i
   %34 = load double, ptr %g.i, align 8
   %35 = call double @llvm.fmuladd.f64(double %div.i, double %34, double 5.000000e-01)
   %conv3.i = fptrunc double %35 to float
-  %arrayidx4.i = getelementptr inbounds float, ptr %add.ptr.i, i64 1
+  %arrayidx4.i = getelementptr inbounds i8, ptr %add.ptr.i, i64 4
   store float %conv3.i, ptr %arrayidx4.i, align 4
   %36 = load double, ptr %b.i, align 8
   %37 = call double @llvm.fmuladd.f64(double %div.i, double %36, double 5.000000e-01)
   %conv6.i = fptrunc double %37 to float
-  %arrayidx7.i = getelementptr inbounds float, ptr %add.ptr.i, i64 2
+  %arrayidx7.i = getelementptr inbounds i8, ptr %add.ptr.i, i64 8
   store float %conv6.i, ptr %arrayidx7.i, align 4
   %inc = add nuw nsw i32 %col.039, 1
   %38 = load i32, ptr %width, align 8
@@ -1720,13 +1705,13 @@ entry:
   %div.i = fdiv double 1.000000e+00, %range
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %ref.tmp.i)
   store ptr %shape, ptr %distanceFinder, align 8
-  %contourCombiner.i = getelementptr inbounds %"class.msdfgen::ShapeDistanceFinder.50", ptr %distanceFinder, i64 0, i32 1
+  %contourCombiner.i = getelementptr inbounds i8, ptr %distanceFinder, i64 8
   call void @_ZN7msdfgen26OverlappingContourCombinerINS_28MultiAndTrueDistanceSelectorEEC1ERKNS_5ShapeE(ptr noundef nonnull align 8 dereferenceable(64) %contourCombiner.i, ptr noundef nonnull align 8 dereferenceable(25) %shape)
   %call.i = invoke noundef i32 @_ZNK7msdfgen5Shape9edgeCountEv(ptr noundef nonnull align 8 dereferenceable(25) %shape)
           to label %invoke.cont.i unwind label %lpad.i
 
 invoke.cont.i:                                    ; preds = %entry
-  %shapeEdgeCache.i = getelementptr inbounds %"class.msdfgen::ShapeDistanceFinder.50", ptr %distanceFinder, i64 0, i32 2
+  %shapeEdgeCache.i = getelementptr inbounds i8, ptr %distanceFinder, i64 72
   %conv.i = sext i32 %call.i to i64
   invoke void @_ZNSt6vectorIN7msdfgen26PseudoDistanceSelectorBase9EdgeCacheESaIS2_EEC2EmRKS3_(ptr noundef nonnull align 8 dereferenceable(24) %shapeEdgeCache.i, i64 noundef %conv.i, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i)
           to label %_ZN7msdfgen19ShapeDistanceFinderINS_26OverlappingContourCombinerINS_28MultiAndTrueDistanceSelectorEEEEC2ERKNS_5ShapeE.exit unwind label %lpad3.i
@@ -1752,19 +1737,19 @@ ehcleanup.i:                                      ; preds = %lpad3.i, %lpad.i
 
 _ZN7msdfgen19ShapeDistanceFinderINS_26OverlappingContourCombinerINS_28MultiAndTrueDistanceSelectorEEEEC2ERKNS_5ShapeE.exit: ; preds = %invoke.cont.i
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %ref.tmp.i)
-  %height = getelementptr inbounds %"struct.msdfgen::BitmapRef.1", ptr %output, i64 0, i32 2
+  %height = getelementptr inbounds i8, ptr %output, i64 12
   %2 = load i32, ptr %height, align 4
   %cmp37 = icmp sgt i32 %2, 0
   br i1 %cmp37, label %for.body.lr.ph, label %for.end24
 
 for.body.lr.ph:                                   ; preds = %_ZN7msdfgen19ShapeDistanceFinderINS_26OverlappingContourCombinerINS_28MultiAndTrueDistanceSelectorEEEEC2ERKNS_5ShapeE.exit
-  %inverseYAxis = getelementptr inbounds %"class.msdfgen::Shape", ptr %shape, i64 0, i32 1
-  %width = getelementptr inbounds %"struct.msdfgen::BitmapRef.1", ptr %output, i64 0, i32 1
-  %y3.i = getelementptr inbounds %"struct.msdfgen::Vector2", ptr %ref.tmp, i64 0, i32 1
-  %3 = getelementptr inbounds { double, double }, ptr %p, i64 0, i32 1
-  %g.i = getelementptr inbounds %"struct.msdfgen::MultiDistance", ptr %distance, i64 0, i32 1
-  %b.i = getelementptr inbounds %"struct.msdfgen::MultiDistance", ptr %distance, i64 0, i32 2
-  %a.i = getelementptr inbounds %"struct.msdfgen::MultiAndTrueDistance", ptr %distance, i64 0, i32 1
+  %inverseYAxis = getelementptr inbounds i8, ptr %shape, i64 24
+  %width = getelementptr inbounds i8, ptr %output, i64 8
+  %y3.i = getelementptr inbounds i8, ptr %ref.tmp, i64 8
+  %3 = getelementptr inbounds i8, ptr %p, i64 8
+  %g.i = getelementptr inbounds i8, ptr %distance, i64 8
+  %b.i = getelementptr inbounds i8, ptr %distance, i64 16
+  %a.i = getelementptr inbounds i8, ptr %distance, i64 24
   %4 = load i32, ptr %width, align 8
   %5 = icmp sgt i32 %4, 0
   br i1 %5, label %for.body, label %for.end24
@@ -1813,7 +1798,7 @@ invoke.cont16:                                    ; preds = %for.body5
 .noexc:                                           ; preds = %invoke.cont16
   %16 = load ptr, ptr %distanceFinder, align 8, !noalias !37
   %17 = load ptr, ptr %16, align 8, !noalias !37
-  %_M_finish.i29.i = getelementptr inbounds %"struct.std::_Vector_base<msdfgen::Contour, std::allocator<msdfgen::Contour>>::_Vector_impl_data", ptr %16, i64 0, i32 1
+  %_M_finish.i29.i = getelementptr inbounds i8, ptr %16, i64 8
   %18 = load ptr, ptr %_M_finish.i29.i, align 8, !noalias !37
   %cmp.i.not30.i = icmp eq ptr %17, %18
   br i1 %cmp.i.not30.i, label %for.end58.i, label %for.body.preheader.i
@@ -1827,7 +1812,7 @@ for.body.i:                                       ; preds = %for.inc56.i, %for.b
   %edgeCache.032.i = phi ptr [ %edgeCache.2.i, %for.inc56.i ], [ %19, %for.body.preheader.i ]
   %contour.sroa.0.031.i = phi ptr [ %incdec.ptr.i12.i, %for.inc56.i ], [ %17, %for.body.preheader.i ]
   %21 = load ptr, ptr %contour.sroa.0.031.i, align 8, !noalias !37
-  %_M_finish.i.i.i = getelementptr inbounds %"struct.std::_Vector_base<msdfgen::EdgeHolder, std::allocator<msdfgen::EdgeHolder>>::_Vector_impl_data", ptr %contour.sroa.0.031.i, i64 0, i32 1
+  %_M_finish.i.i.i = getelementptr inbounds i8, ptr %contour.sroa.0.031.i, i64 8
   %22 = load ptr, ptr %_M_finish.i.i.i, align 8, !noalias !37
   %cmp.i.i.i = icmp eq ptr %21, %22
   br i1 %cmp.i.i.i, label %for.inc56.i, label %if.then.i
@@ -1849,14 +1834,14 @@ call17.i.noexc:                                   ; preds = %if.then.i
   %sub.ptr.rhs.cast.i5.i = ptrtoint ptr %25 to i64
   %sub.ptr.sub.i6.i = sub i64 %sub.ptr.lhs.cast.i4.i, %sub.ptr.rhs.cast.i5.i
   %cmp.i = icmp ugt i64 %sub.ptr.sub.i6.i, 8
-  %add.ptr.i.i = getelementptr inbounds %"class.msdfgen::EdgeHolder", ptr %24, i64 -2
+  %add.ptr.i.i = getelementptr inbounds i8, ptr %24, i64 -16
   %spec.select.i = select i1 %cmp.i, ptr %add.ptr.i.i, ptr %25
   %call36.i20 = invoke noundef ptr @_ZNK7msdfgen10EdgeHoldercvPKNS_11EdgeSegmentEEv(ptr noundef nonnull align 8 dereferenceable(8) %spec.select.i)
           to label %call36.i.noexc unwind label %lpad.loopexit.split-lp.loopexit
 
 call36.i.noexc:                                   ; preds = %call17.i.noexc
   %26 = load ptr, ptr %_M_finish.i.i.i, align 8, !noalias !37
-  %add.ptr.i.i.i = getelementptr inbounds %"class.msdfgen::EdgeHolder", ptr %26, i64 -1
+  %add.ptr.i.i.i = getelementptr inbounds i8, ptr %26, i64 -8
   %call40.i21 = invoke noundef ptr @_ZNK7msdfgen10EdgeHoldercvPKNS_11EdgeSegmentEEv(ptr noundef nonnull align 8 dereferenceable(8) %add.ptr.i.i.i)
           to label %call40.i.noexc unwind label %lpad.loopexit.split-lp.loopexit
 
@@ -1879,17 +1864,17 @@ call54.i.noexc:                                   ; preds = %for.body52.i
           to label %.noexc23 unwind label %lpad.loopexit
 
 .noexc23:                                         ; preds = %call54.i.noexc
-  %incdec.ptr.i = getelementptr inbounds %"struct.msdfgen::PseudoDistanceSelectorBase::EdgeCache", ptr %edgeCache.128.i, i64 1
-  %incdec.ptr.i.i = getelementptr inbounds %"class.msdfgen::EdgeHolder", ptr %edge.sroa.0.025.i, i64 1
+  %incdec.ptr.i = getelementptr inbounds i8, ptr %edgeCache.128.i, i64 56
+  %incdec.ptr.i.i = getelementptr inbounds i8, ptr %edge.sroa.0.025.i, i64 8
   %29 = load ptr, ptr %_M_finish.i.i.i, align 8, !noalias !37
   %cmp.i11.not.i = icmp eq ptr %incdec.ptr.i.i, %29
   br i1 %cmp.i11.not.i, label %for.inc56.i, label %for.body52.i, !llvm.loop !40
 
 for.inc56.i:                                      ; preds = %.noexc23, %call40.i.noexc, %for.body.i
   %edgeCache.2.i = phi ptr [ %edgeCache.032.i, %for.body.i ], [ %edgeCache.032.i, %call40.i.noexc ], [ %incdec.ptr.i, %.noexc23 ]
-  %incdec.ptr.i12.i = getelementptr inbounds %"class.msdfgen::Contour", ptr %contour.sroa.0.031.i, i64 1
+  %incdec.ptr.i12.i = getelementptr inbounds i8, ptr %contour.sroa.0.031.i, i64 24
   %30 = load ptr, ptr %distanceFinder, align 8, !noalias !37
-  %_M_finish.i.i = getelementptr inbounds %"struct.std::_Vector_base<msdfgen::Contour, std::allocator<msdfgen::Contour>>::_Vector_impl_data", ptr %30, i64 0, i32 1
+  %_M_finish.i.i = getelementptr inbounds i8, ptr %30, i64 8
   %31 = load ptr, ptr %_M_finish.i.i, align 8, !noalias !37
   %cmp.i.not.i = icmp eq ptr %incdec.ptr.i12.i, %31
   br i1 %cmp.i.not.i, label %for.end58.i, label %for.body.i, !llvm.loop !41
@@ -1913,17 +1898,17 @@ invoke.cont17:                                    ; preds = %for.end58.i
   %36 = load double, ptr %g.i, align 8
   %37 = call double @llvm.fmuladd.f64(double %div.i, double %36, double 5.000000e-01)
   %conv3.i = fptrunc double %37 to float
-  %arrayidx4.i = getelementptr inbounds float, ptr %add.ptr.i, i64 1
+  %arrayidx4.i = getelementptr inbounds i8, ptr %add.ptr.i, i64 4
   store float %conv3.i, ptr %arrayidx4.i, align 4
   %38 = load double, ptr %b.i, align 8
   %39 = call double @llvm.fmuladd.f64(double %div.i, double %38, double 5.000000e-01)
   %conv6.i = fptrunc double %39 to float
-  %arrayidx7.i = getelementptr inbounds float, ptr %add.ptr.i, i64 2
+  %arrayidx7.i = getelementptr inbounds i8, ptr %add.ptr.i, i64 8
   store float %conv6.i, ptr %arrayidx7.i, align 4
   %40 = load double, ptr %a.i, align 8
   %41 = call double @llvm.fmuladd.f64(double %div.i, double %40, double 5.000000e-01)
   %conv9.i = fptrunc double %41 to float
-  %arrayidx10.i = getelementptr inbounds float, ptr %add.ptr.i, i64 3
+  %arrayidx10.i = getelementptr inbounds i8, ptr %add.ptr.i, i64 12
   store float %conv9.i, ptr %arrayidx10.i, align 4
   %inc = add nuw nsw i32 %col.036, 1
   %42 = load i32, ptr %width, align 8
@@ -1971,7 +1956,7 @@ if.then.i.i.i.i:                                  ; preds = %for.end24
   br label %_ZNSt6vectorIN7msdfgen26PseudoDistanceSelectorBase9EdgeCacheESaIS2_EED2Ev.exit.i
 
 _ZNSt6vectorIN7msdfgen26PseudoDistanceSelectorBase9EdgeCacheESaIS2_EED2Ev.exit.i: ; preds = %if.then.i.i.i.i, %for.end24
-  %edgeSelectors.i.i = getelementptr inbounds %"class.msdfgen::ShapeDistanceFinder.50", ptr %distanceFinder, i64 0, i32 1, i32 2
+  %edgeSelectors.i.i = getelementptr inbounds i8, ptr %distanceFinder, i64 48
   %46 = load ptr, ptr %edgeSelectors.i.i, align 8
   %tobool.not.i.i.i.i.i = icmp eq ptr %46, null
   br i1 %tobool.not.i.i.i.i.i, label %_ZNSt6vectorIN7msdfgen28MultiAndTrueDistanceSelectorESaIS1_EED2Ev.exit.i.i, label %if.then.i.i.i.i.i
@@ -1981,7 +1966,7 @@ if.then.i.i.i.i.i:                                ; preds = %_ZNSt6vectorIN7msdf
   br label %_ZNSt6vectorIN7msdfgen28MultiAndTrueDistanceSelectorESaIS1_EED2Ev.exit.i.i
 
 _ZNSt6vectorIN7msdfgen28MultiAndTrueDistanceSelectorESaIS1_EED2Ev.exit.i.i: ; preds = %if.then.i.i.i.i.i, %_ZNSt6vectorIN7msdfgen26PseudoDistanceSelectorBase9EdgeCacheESaIS2_EED2Ev.exit.i
-  %windings.i.i = getelementptr inbounds %"class.msdfgen::ShapeDistanceFinder.50", ptr %distanceFinder, i64 0, i32 1, i32 1
+  %windings.i.i = getelementptr inbounds i8, ptr %distanceFinder, i64 24
   %47 = load ptr, ptr %windings.i.i, align 8
   %tobool.not.i.i.i1.i.i = icmp eq ptr %47, null
   br i1 %tobool.not.i.i.i1.i.i, label %_ZN7msdfgen19ShapeDistanceFinderINS_26OverlappingContourCombinerINS_28MultiAndTrueDistanceSelectorEEEED2Ev.exit, label %if.then.i.i.i2.i.i
@@ -2005,26 +1990,26 @@ entry:
   %div.i = fdiv double 1.000000e+00, %range
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %ref.tmp.i)
   store ptr %shape, ptr %distanceFinder, align 8
-  %contourCombiner.i = getelementptr inbounds %"class.msdfgen::ShapeDistanceFinder.57", ptr %distanceFinder, i64 0, i32 1
+  %contourCombiner.i = getelementptr inbounds i8, ptr %distanceFinder, i64 8
   call void @_ZN7msdfgen21SimpleContourCombinerINS_28MultiAndTrueDistanceSelectorEEC1ERKNS_5ShapeE(ptr noundef nonnull align 8 dereferenceable(160) %contourCombiner.i, ptr noundef nonnull align 8 dereferenceable(25) %shape)
-  %shapeEdgeCache.i = getelementptr inbounds %"class.msdfgen::ShapeDistanceFinder.57", ptr %distanceFinder, i64 0, i32 2
+  %shapeEdgeCache.i = getelementptr inbounds i8, ptr %distanceFinder, i64 168
   %call.i = call noundef i32 @_ZNK7msdfgen5Shape9edgeCountEv(ptr noundef nonnull align 8 dereferenceable(25) %shape)
   %conv.i = sext i32 %call.i to i64
   call void @_ZNSt6vectorIN7msdfgen26PseudoDistanceSelectorBase9EdgeCacheESaIS2_EEC2EmRKS3_(ptr noundef nonnull align 8 dereferenceable(24) %shapeEdgeCache.i, i64 noundef %conv.i, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i)
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %ref.tmp.i)
-  %height = getelementptr inbounds %"struct.msdfgen::BitmapRef.1", ptr %output, i64 0, i32 2
+  %height = getelementptr inbounds i8, ptr %output, i64 12
   %0 = load i32, ptr %height, align 4
   %cmp41 = icmp sgt i32 %0, 0
   br i1 %cmp41, label %for.body.lr.ph, label %for.end23
 
 for.body.lr.ph:                                   ; preds = %entry
-  %inverseYAxis = getelementptr inbounds %"class.msdfgen::Shape", ptr %shape, i64 0, i32 1
-  %width = getelementptr inbounds %"struct.msdfgen::BitmapRef.1", ptr %output, i64 0, i32 1
-  %y3.i = getelementptr inbounds %"struct.msdfgen::Vector2", ptr %ref.tmp, i64 0, i32 1
-  %1 = getelementptr inbounds { double, double }, ptr %p, i64 0, i32 1
-  %g.i = getelementptr inbounds %"struct.msdfgen::MultiDistance", ptr %distance, i64 0, i32 1
-  %b.i = getelementptr inbounds %"struct.msdfgen::MultiDistance", ptr %distance, i64 0, i32 2
-  %a.i = getelementptr inbounds %"struct.msdfgen::MultiAndTrueDistance", ptr %distance, i64 0, i32 1
+  %inverseYAxis = getelementptr inbounds i8, ptr %shape, i64 24
+  %width = getelementptr inbounds i8, ptr %output, i64 8
+  %y3.i = getelementptr inbounds i8, ptr %ref.tmp, i64 8
+  %1 = getelementptr inbounds i8, ptr %p, i64 8
+  %g.i = getelementptr inbounds i8, ptr %distance, i64 8
+  %b.i = getelementptr inbounds i8, ptr %distance, i64 16
+  %a.i = getelementptr inbounds i8, ptr %distance, i64 24
   %2 = load i32, ptr %width, align 8
   %3 = icmp sgt i32 %2, 0
   br i1 %3, label %for.body, label %for.end23
@@ -2073,7 +2058,7 @@ invoke.cont16:                                    ; preds = %for.body5
 .noexc:                                           ; preds = %invoke.cont16
   %14 = load ptr, ptr %distanceFinder, align 8, !noalias !44
   %15 = load ptr, ptr %14, align 8, !noalias !44
-  %_M_finish.i29.i = getelementptr inbounds %"struct.std::_Vector_base<msdfgen::Contour, std::allocator<msdfgen::Contour>>::_Vector_impl_data", ptr %14, i64 0, i32 1
+  %_M_finish.i29.i = getelementptr inbounds i8, ptr %14, i64 8
   %16 = load ptr, ptr %_M_finish.i29.i, align 8, !noalias !44
   %cmp.i.not30.i = icmp eq ptr %15, %16
   br i1 %cmp.i.not30.i, label %for.end58.i, label %for.body.preheader.i
@@ -2087,7 +2072,7 @@ for.body.i:                                       ; preds = %for.inc56.i, %for.b
   %edgeCache.032.i = phi ptr [ %edgeCache.2.i, %for.inc56.i ], [ %17, %for.body.preheader.i ]
   %contour.sroa.0.031.i = phi ptr [ %incdec.ptr.i12.i, %for.inc56.i ], [ %15, %for.body.preheader.i ]
   %19 = load ptr, ptr %contour.sroa.0.031.i, align 8, !noalias !44
-  %_M_finish.i.i.i = getelementptr inbounds %"struct.std::_Vector_base<msdfgen::EdgeHolder, std::allocator<msdfgen::EdgeHolder>>::_Vector_impl_data", ptr %contour.sroa.0.031.i, i64 0, i32 1
+  %_M_finish.i.i.i = getelementptr inbounds i8, ptr %contour.sroa.0.031.i, i64 8
   %20 = load ptr, ptr %_M_finish.i.i.i, align 8, !noalias !44
   %cmp.i.i.i = icmp eq ptr %19, %20
   br i1 %cmp.i.i.i, label %for.inc56.i, label %if.then.i
@@ -2109,14 +2094,14 @@ call17.i.noexc:                                   ; preds = %if.then.i
   %sub.ptr.rhs.cast.i5.i = ptrtoint ptr %23 to i64
   %sub.ptr.sub.i6.i = sub i64 %sub.ptr.lhs.cast.i4.i, %sub.ptr.rhs.cast.i5.i
   %cmp.i = icmp ugt i64 %sub.ptr.sub.i6.i, 8
-  %add.ptr.i.i = getelementptr inbounds %"class.msdfgen::EdgeHolder", ptr %22, i64 -2
+  %add.ptr.i.i = getelementptr inbounds i8, ptr %22, i64 -16
   %spec.select.i = select i1 %cmp.i, ptr %add.ptr.i.i, ptr %23
   %call36.i20 = invoke noundef ptr @_ZNK7msdfgen10EdgeHoldercvPKNS_11EdgeSegmentEEv(ptr noundef nonnull align 8 dereferenceable(8) %spec.select.i)
           to label %call36.i.noexc unwind label %lpad.loopexit.split-lp.loopexit
 
 call36.i.noexc:                                   ; preds = %call17.i.noexc
   %24 = load ptr, ptr %_M_finish.i.i.i, align 8, !noalias !44
-  %add.ptr.i.i.i = getelementptr inbounds %"class.msdfgen::EdgeHolder", ptr %24, i64 -1
+  %add.ptr.i.i.i = getelementptr inbounds i8, ptr %24, i64 -8
   %call40.i21 = invoke noundef ptr @_ZNK7msdfgen10EdgeHoldercvPKNS_11EdgeSegmentEEv(ptr noundef nonnull align 8 dereferenceable(8) %add.ptr.i.i.i)
           to label %call40.i.noexc unwind label %lpad.loopexit.split-lp.loopexit
 
@@ -2139,17 +2124,17 @@ call54.i.noexc:                                   ; preds = %for.body52.i
           to label %.noexc23 unwind label %lpad.loopexit
 
 .noexc23:                                         ; preds = %call54.i.noexc
-  %incdec.ptr.i = getelementptr inbounds %"struct.msdfgen::PseudoDistanceSelectorBase::EdgeCache", ptr %edgeCache.128.i, i64 1
-  %incdec.ptr.i.i = getelementptr inbounds %"class.msdfgen::EdgeHolder", ptr %edge.sroa.0.025.i, i64 1
+  %incdec.ptr.i = getelementptr inbounds i8, ptr %edgeCache.128.i, i64 56
+  %incdec.ptr.i.i = getelementptr inbounds i8, ptr %edge.sroa.0.025.i, i64 8
   %27 = load ptr, ptr %_M_finish.i.i.i, align 8, !noalias !44
   %cmp.i11.not.i = icmp eq ptr %incdec.ptr.i.i, %27
   br i1 %cmp.i11.not.i, label %for.inc56.i, label %for.body52.i, !llvm.loop !47
 
 for.inc56.i:                                      ; preds = %.noexc23, %call40.i.noexc, %for.body.i
   %edgeCache.2.i = phi ptr [ %edgeCache.032.i, %for.body.i ], [ %edgeCache.032.i, %call40.i.noexc ], [ %incdec.ptr.i, %.noexc23 ]
-  %incdec.ptr.i12.i = getelementptr inbounds %"class.msdfgen::Contour", ptr %contour.sroa.0.031.i, i64 1
+  %incdec.ptr.i12.i = getelementptr inbounds i8, ptr %contour.sroa.0.031.i, i64 24
   %28 = load ptr, ptr %distanceFinder, align 8, !noalias !44
-  %_M_finish.i.i = getelementptr inbounds %"struct.std::_Vector_base<msdfgen::Contour, std::allocator<msdfgen::Contour>>::_Vector_impl_data", ptr %28, i64 0, i32 1
+  %_M_finish.i.i = getelementptr inbounds i8, ptr %28, i64 8
   %29 = load ptr, ptr %_M_finish.i.i, align 8, !noalias !44
   %cmp.i.not.i = icmp eq ptr %incdec.ptr.i12.i, %29
   br i1 %cmp.i.not.i, label %for.end58.i, label %for.body.i, !llvm.loop !48
@@ -2173,17 +2158,17 @@ invoke.cont17:                                    ; preds = %for.end58.i
   %34 = load double, ptr %g.i, align 8
   %35 = call double @llvm.fmuladd.f64(double %div.i, double %34, double 5.000000e-01)
   %conv3.i = fptrunc double %35 to float
-  %arrayidx4.i = getelementptr inbounds float, ptr %add.ptr.i, i64 1
+  %arrayidx4.i = getelementptr inbounds i8, ptr %add.ptr.i, i64 4
   store float %conv3.i, ptr %arrayidx4.i, align 4
   %36 = load double, ptr %b.i, align 8
   %37 = call double @llvm.fmuladd.f64(double %div.i, double %36, double 5.000000e-01)
   %conv6.i = fptrunc double %37 to float
-  %arrayidx7.i = getelementptr inbounds float, ptr %add.ptr.i, i64 2
+  %arrayidx7.i = getelementptr inbounds i8, ptr %add.ptr.i, i64 8
   store float %conv6.i, ptr %arrayidx7.i, align 4
   %38 = load double, ptr %a.i, align 8
   %39 = call double @llvm.fmuladd.f64(double %div.i, double %38, double 5.000000e-01)
   %conv9.i = fptrunc double %39 to float
-  %arrayidx10.i = getelementptr inbounds float, ptr %add.ptr.i, i64 3
+  %arrayidx10.i = getelementptr inbounds i8, ptr %add.ptr.i, i64 12
   store float %conv9.i, ptr %arrayidx10.i, align 4
   %inc = add nuw nsw i32 %col.040, 1
   %40 = load i32, ptr %width, align 8
@@ -2292,7 +2277,7 @@ entry:
   call void @_ZN7msdfgen10ProjectionC1ERKNS_7Vector2ES3_(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp, ptr noundef nonnull align 8 dereferenceable(16) %scale, ptr noundef nonnull align 8 dereferenceable(16) %translate)
   %frombool.i.i = zext i1 %overlapSupport to i8
   store i8 %frombool.i.i, ptr %ref.tmp1, align 8
-  %errorCorrection2.i = getelementptr inbounds %"struct.msdfgen::MSDFGeneratorConfig", ptr %ref.tmp1, i64 0, i32 1
+  %errorCorrection2.i = getelementptr inbounds i8, ptr %ref.tmp1, i64 8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %errorCorrection2.i, ptr noundef nonnull align 8 dereferenceable(32) %errorCorrectionConfig, i64 32, i1 false)
   br i1 %overlapSupport, label %if.then.i, label %if.else.i
 
@@ -2317,7 +2302,7 @@ entry:
   call void @_ZN7msdfgen10ProjectionC1ERKNS_7Vector2ES3_(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp, ptr noundef nonnull align 8 dereferenceable(16) %scale, ptr noundef nonnull align 8 dereferenceable(16) %translate)
   %frombool.i.i = zext i1 %overlapSupport to i8
   store i8 %frombool.i.i, ptr %ref.tmp1, align 8
-  %errorCorrection2.i = getelementptr inbounds %"struct.msdfgen::MSDFGeneratorConfig", ptr %ref.tmp1, i64 0, i32 1
+  %errorCorrection2.i = getelementptr inbounds i8, ptr %ref.tmp1, i64 8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %errorCorrection2.i, ptr noundef nonnull align 8 dereferenceable(32) %errorCorrectionConfig, i64 32, i1 false)
   br i1 %overlapSupport, label %if.then.i, label %if.else.i
 
@@ -2338,17 +2323,17 @@ _ZN7msdfgen13generateMTSDFERKNS_9BitmapRefIfLi4EEERKNS_5ShapeERKNS_10ProjectionE
 define dso_local void @_ZN7msdfgen18generateSDF_legacyERKNS_9BitmapRefIfLi1EEERKNS_5ShapeEdRKNS_7Vector2ES9_(ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %output, ptr nocapture noundef nonnull readonly align 8 dereferenceable(25) %shape, double noundef %range, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %scale, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %translate) local_unnamed_addr #0 {
 entry:
   %dummy = alloca double, align 8
-  %height = getelementptr inbounds %"struct.msdfgen::BitmapRef", ptr %output, i64 0, i32 2
+  %height = getelementptr inbounds i8, ptr %output, i64 12
   %0 = load i32, ptr %height, align 4
   %cmp36 = icmp sgt i32 %0, 0
   br i1 %cmp36, label %for.body.lr.ph, label %for.end49
 
 for.body.lr.ph:                                   ; preds = %entry
-  %inverseYAxis = getelementptr inbounds %"class.msdfgen::Shape", ptr %shape, i64 0, i32 1
-  %width = getelementptr inbounds %"struct.msdfgen::BitmapRef", ptr %output, i64 0, i32 1
+  %inverseYAxis = getelementptr inbounds i8, ptr %shape, i64 24
+  %width = getelementptr inbounds i8, ptr %output, i64 8
   %agg.tmp9.sroa.2.0..sroa_idx = getelementptr inbounds i8, ptr %scale, i64 8
   %agg.tmp10.sroa.2.0..sroa_idx = getelementptr inbounds i8, ptr %translate, i64 8
-  %_M_finish.i = getelementptr inbounds %"struct.std::_Vector_base<msdfgen::Contour, std::allocator<msdfgen::Contour>>::_Vector_impl_data", ptr %shape, i64 0, i32 1
+  %_M_finish.i = getelementptr inbounds i8, ptr %shape, i64 8
   %1 = load i32, ptr %width, align 8
   %2 = icmp sgt i32 %1, 0
   br i1 %2, label %for.body, label %for.end49
@@ -2395,7 +2380,7 @@ for.body18:                                       ; preds = %for.body5, %for.inc
   %minDistance.sroa.0.031 = phi double [ %minDistance.sroa.0.1.lcssa, %for.inc38 ], [ 0xFFEFFFFFFFFFFFFF, %for.body5 ]
   %contour.sroa.0.030 = phi ptr [ %incdec.ptr.i18, %for.inc38 ], [ %9, %for.body5 ]
   %12 = load ptr, ptr %contour.sroa.0.030, align 8
-  %_M_finish.i15 = getelementptr inbounds %"struct.std::_Vector_base<msdfgen::EdgeHolder, std::allocator<msdfgen::EdgeHolder>>::_Vector_impl_data", ptr %contour.sroa.0.030, i64 0, i32 1
+  %_M_finish.i15 = getelementptr inbounds i8, ptr %contour.sroa.0.030, i64 8
   %13 = load ptr, ptr %_M_finish.i15, align 8
   %cmp.i16.not24 = icmp eq ptr %12, %13
   br i1 %cmp.i16.not24, label %for.inc38, label %for.body29
@@ -2406,7 +2391,7 @@ for.body29:                                       ; preds = %for.body18, %for.in
   %minDistance.sroa.0.125 = phi double [ %minDistance.sroa.0.2, %for.inc ], [ %minDistance.sroa.0.031, %for.body18 ]
   %call31 = call noundef ptr @_ZNK7msdfgen10EdgeHolderptEv(ptr noundef nonnull align 8 dereferenceable(8) %edge.sroa.0.026)
   %vtable = load ptr, ptr %call31, align 8
-  %vfn = getelementptr inbounds ptr, ptr %vtable, i64 8
+  %vfn = getelementptr inbounds i8, ptr %vtable, i64 64
   %14 = load ptr, ptr %vfn, align 8
   %call33 = call { double, double } %14(ptr noundef nonnull align 8 dereferenceable(12) %call31, double %sub.i, double %sub3.i, ptr noundef nonnull align 8 dereferenceable(8) %dummy)
   %15 = extractvalue { double, double } %call33, 0
@@ -2428,7 +2413,7 @@ if.then:                                          ; preds = %for.body29, %_ZN7ms
 for.inc:                                          ; preds = %_ZN7msdfgenltENS_14SignedDistanceES0_.exit, %if.then
   %minDistance.sroa.0.2 = phi double [ %15, %if.then ], [ %minDistance.sroa.0.125, %_ZN7msdfgenltENS_14SignedDistanceES0_.exit ]
   %minDistance.sroa.4.2 = phi double [ %16, %if.then ], [ %minDistance.sroa.4.127, %_ZN7msdfgenltENS_14SignedDistanceES0_.exit ]
-  %incdec.ptr.i = getelementptr inbounds %"class.msdfgen::EdgeHolder", ptr %edge.sroa.0.026, i64 1
+  %incdec.ptr.i = getelementptr inbounds i8, ptr %edge.sroa.0.026, i64 8
   %20 = load ptr, ptr %_M_finish.i15, align 8
   %cmp.i16.not = icmp eq ptr %incdec.ptr.i, %20
   br i1 %cmp.i16.not, label %for.inc38.loopexit, label %for.body29, !llvm.loop !51
@@ -2441,7 +2426,7 @@ for.inc38:                                        ; preds = %for.inc38.loopexit,
   %21 = phi ptr [ %11, %for.body18 ], [ %.pre, %for.inc38.loopexit ]
   %minDistance.sroa.0.1.lcssa = phi double [ %minDistance.sroa.0.031, %for.body18 ], [ %minDistance.sroa.0.2, %for.inc38.loopexit ]
   %minDistance.sroa.4.1.lcssa = phi double [ %minDistance.sroa.4.032, %for.body18 ], [ %minDistance.sroa.4.2, %for.inc38.loopexit ]
-  %incdec.ptr.i18 = getelementptr inbounds %"class.msdfgen::Contour", ptr %contour.sroa.0.030, i64 1
+  %incdec.ptr.i18 = getelementptr inbounds i8, ptr %contour.sroa.0.030, i64 24
   %cmp.i.not = icmp eq ptr %incdec.ptr.i18, %21
   br i1 %cmp.i.not, label %for.end40.loopexit, label %for.body18, !llvm.loop !52
 
@@ -2491,18 +2476,18 @@ define dso_local void @_ZN7msdfgen24generatePseudoSDF_legacyERKNS_9BitmapRefIfLi
 entry:
   %minDistance = alloca %"class.msdfgen::SignedDistance", align 16
   %param = alloca double, align 8
-  %height = getelementptr inbounds %"struct.msdfgen::BitmapRef", ptr %output, i64 0, i32 2
+  %height = getelementptr inbounds i8, ptr %output, i64 12
   %0 = load i32, ptr %height, align 4
   %cmp39 = icmp sgt i32 %0, 0
   br i1 %cmp39, label %for.body.lr.ph, label %for.end57
 
 for.body.lr.ph:                                   ; preds = %entry
-  %inverseYAxis = getelementptr inbounds %"class.msdfgen::Shape", ptr %shape, i64 0, i32 1
-  %width = getelementptr inbounds %"struct.msdfgen::BitmapRef", ptr %output, i64 0, i32 1
+  %inverseYAxis = getelementptr inbounds i8, ptr %shape, i64 24
+  %width = getelementptr inbounds i8, ptr %output, i64 8
   %agg.tmp9.sroa.2.0..sroa_idx = getelementptr inbounds i8, ptr %scale, i64 8
   %agg.tmp10.sroa.2.0..sroa_idx = getelementptr inbounds i8, ptr %translate, i64 8
-  %dot.i = getelementptr inbounds %"class.msdfgen::SignedDistance", ptr %minDistance, i64 0, i32 1
-  %_M_finish.i = getelementptr inbounds %"struct.std::_Vector_base<msdfgen::Contour, std::allocator<msdfgen::Contour>>::_Vector_impl_data", ptr %shape, i64 0, i32 1
+  %dot.i = getelementptr inbounds i8, ptr %minDistance, i64 8
+  %_M_finish.i = getelementptr inbounds i8, ptr %shape, i64 8
   %1 = load i32, ptr %width, align 8
   %2 = icmp sgt i32 %1, 0
   br i1 %2, label %for.body, label %for.end57
@@ -2550,7 +2535,7 @@ for.body18:                                       ; preds = %for.body5, %for.inc
   %nearParam.033 = phi double [ %nearParam.1.lcssa, %for.inc39 ], [ 0.000000e+00, %for.body5 ]
   %contour.sroa.0.032 = phi ptr [ %incdec.ptr.i19, %for.inc39 ], [ %8, %for.body5 ]
   %12 = load ptr, ptr %contour.sroa.0.032, align 8
-  %_M_finish.i16 = getelementptr inbounds %"struct.std::_Vector_base<msdfgen::EdgeHolder, std::allocator<msdfgen::EdgeHolder>>::_Vector_impl_data", ptr %contour.sroa.0.032, i64 0, i32 1
+  %_M_finish.i16 = getelementptr inbounds i8, ptr %contour.sroa.0.032, i64 8
   %13 = load ptr, ptr %_M_finish.i16, align 8
   %cmp.i17.not26 = icmp eq ptr %12, %13
   br i1 %cmp.i17.not26, label %for.inc39, label %for.body29
@@ -2561,7 +2546,7 @@ for.body29:                                       ; preds = %for.body18, %for.in
   %edge.sroa.0.027 = phi ptr [ %incdec.ptr.i, %for.inc ], [ %12, %for.body18 ]
   %call31 = call noundef ptr @_ZNK7msdfgen10EdgeHolderptEv(ptr noundef nonnull align 8 dereferenceable(8) %edge.sroa.0.027)
   %vtable = load ptr, ptr %call31, align 8
-  %vfn = getelementptr inbounds ptr, ptr %vtable, i64 8
+  %vfn = getelementptr inbounds i8, ptr %vtable, i64 64
   %14 = load ptr, ptr %vfn, align 8
   %call33 = call { double, double } %14(ptr noundef nonnull align 8 dereferenceable(12) %call31, double %sub.i, double %sub3.i, ptr noundef nonnull align 8 dereferenceable(8) %param)
   %15 = extractvalue { double, double } %call33, 0
@@ -2589,7 +2574,7 @@ for.inc:                                          ; preds = %_ZN7msdfgenltENS_14
   %21 = phi double [ %15, %if.then ], [ %agg.tmp35.sroa.0.0.copyload, %_ZN7msdfgenltENS_14SignedDistanceES0_.exit ]
   %nearParam.2 = phi double [ %20, %if.then ], [ %nearParam.128, %_ZN7msdfgenltENS_14SignedDistanceES0_.exit ]
   %nearEdge.2 = phi ptr [ %edge.sroa.0.027, %if.then ], [ %nearEdge.129, %_ZN7msdfgenltENS_14SignedDistanceES0_.exit ]
-  %incdec.ptr.i = getelementptr inbounds %"class.msdfgen::EdgeHolder", ptr %edge.sroa.0.027, i64 1
+  %incdec.ptr.i = getelementptr inbounds i8, ptr %edge.sroa.0.027, i64 8
   %22 = load ptr, ptr %_M_finish.i16, align 8
   %cmp.i17.not = icmp eq ptr %incdec.ptr.i, %22
   br i1 %cmp.i17.not, label %for.inc39.loopexit, label %for.body29, !llvm.loop !55
@@ -2603,7 +2588,7 @@ for.inc39:                                        ; preds = %for.inc39.loopexit,
   %24 = phi ptr [ %11, %for.body18 ], [ %.pre, %for.inc39.loopexit ]
   %nearParam.1.lcssa = phi double [ %nearParam.033, %for.body18 ], [ %nearParam.2, %for.inc39.loopexit ]
   %nearEdge.1.lcssa = phi ptr [ %nearEdge.034, %for.body18 ], [ %nearEdge.2, %for.inc39.loopexit ]
-  %incdec.ptr.i19 = getelementptr inbounds %"class.msdfgen::Contour", ptr %contour.sroa.0.032, i64 1
+  %incdec.ptr.i19 = getelementptr inbounds i8, ptr %contour.sroa.0.032, i64 24
   %cmp.i.not = icmp eq ptr %incdec.ptr.i19, %24
   br i1 %cmp.i.not, label %for.end41, label %for.body18, !llvm.loop !56
 
@@ -2614,7 +2599,7 @@ for.end41:                                        ; preds = %for.inc39
 if.then43:                                        ; preds = %for.end41
   %call44 = call noundef ptr @_ZNK7msdfgen10EdgeHolderptEv(ptr noundef nonnull align 8 dereferenceable(8) %nearEdge.1.lcssa)
   %vtable46 = load ptr, ptr %call44, align 8
-  %vfn47 = getelementptr inbounds ptr, ptr %vtable46, i64 9
+  %vfn47 = getelementptr inbounds i8, ptr %vtable46, i64 72
   %25 = load ptr, ptr %vfn47, align 8
   call void %25(ptr noundef nonnull align 8 dereferenceable(12) %call44, ptr noundef nonnull align 8 dereferenceable(16) %minDistance, double %sub.i, double %sub3.i, double noundef %nearParam.1.lcssa)
   %.pre42 = load double, ptr %minDistance, align 16
@@ -2661,26 +2646,26 @@ entry:
   %param = alloca double, align 8
   %ref.tmp141 = alloca %"class.msdfgen::Projection", align 8
   %ref.tmp142 = alloca %"struct.msdfgen::MSDFGeneratorConfig", align 8
-  %height = getelementptr inbounds %"struct.msdfgen::BitmapRef.0", ptr %output, i64 0, i32 2
+  %height = getelementptr inbounds i8, ptr %output, i64 12
   %0 = load i32, ptr %height, align 4
   %cmp80 = icmp sgt i32 %0, 0
   br i1 %cmp80, label %for.body.lr.ph, label %for.end140
 
 for.body.lr.ph:                                   ; preds = %entry
-  %inverseYAxis = getelementptr inbounds %"class.msdfgen::Shape", ptr %shape, i64 0, i32 1
-  %width = getelementptr inbounds %"struct.msdfgen::BitmapRef.0", ptr %output, i64 0, i32 1
+  %inverseYAxis = getelementptr inbounds i8, ptr %shape, i64 24
+  %width = getelementptr inbounds i8, ptr %output, i64 8
   %agg.tmp9.sroa.2.0..sroa_idx = getelementptr inbounds i8, ptr %scale, i64 8
   %agg.tmp10.sroa.2.0..sroa_idx = getelementptr inbounds i8, ptr %translate, i64 8
-  %dot.i.i = getelementptr inbounds %"class.msdfgen::SignedDistance", ptr %r, i64 0, i32 1
-  %dot.i.i35 = getelementptr inbounds %"class.msdfgen::SignedDistance", ptr %g, i64 0, i32 1
-  %dot.i.i36 = getelementptr inbounds %"class.msdfgen::SignedDistance", ptr %b, i64 0, i32 1
-  %nearEdge = getelementptr inbounds %struct.anon, ptr %b, i64 0, i32 1
-  %nearEdge12 = getelementptr inbounds %struct.anon, ptr %g, i64 0, i32 1
-  %nearEdge13 = getelementptr inbounds %struct.anon, ptr %r, i64 0, i32 1
-  %nearParam = getelementptr inbounds %struct.anon, ptr %b, i64 0, i32 2
-  %nearParam14 = getelementptr inbounds %struct.anon, ptr %g, i64 0, i32 2
-  %nearParam15 = getelementptr inbounds %struct.anon, ptr %r, i64 0, i32 2
-  %_M_finish.i = getelementptr inbounds %"struct.std::_Vector_base<msdfgen::Contour, std::allocator<msdfgen::Contour>>::_Vector_impl_data", ptr %shape, i64 0, i32 1
+  %dot.i.i = getelementptr inbounds i8, ptr %r, i64 8
+  %dot.i.i35 = getelementptr inbounds i8, ptr %g, i64 8
+  %dot.i.i36 = getelementptr inbounds i8, ptr %b, i64 8
+  %nearEdge = getelementptr inbounds i8, ptr %b, i64 16
+  %nearEdge12 = getelementptr inbounds i8, ptr %g, i64 16
+  %nearEdge13 = getelementptr inbounds i8, ptr %r, i64 16
+  %nearParam = getelementptr inbounds i8, ptr %b, i64 24
+  %nearParam14 = getelementptr inbounds i8, ptr %g, i64 24
+  %nearParam15 = getelementptr inbounds i8, ptr %r, i64 24
+  %_M_finish.i = getelementptr inbounds i8, ptr %shape, i64 8
   %1 = load i32, ptr %width, align 8
   %2 = icmp sgt i32 %1, 0
   br i1 %2, label %for.body, label %for.end140
@@ -2733,7 +2718,7 @@ for.body22:                                       ; preds = %for.body5, %for.inc
   %10 = phi ptr [ %32, %for.inc81 ], [ %9, %for.body5 ]
   %contour.sroa.0.077 = phi ptr [ %incdec.ptr.i50, %for.inc81 ], [ %8, %for.body5 ]
   %11 = load ptr, ptr %contour.sroa.0.077, align 8
-  %_M_finish.i37 = getelementptr inbounds %"struct.std::_Vector_base<msdfgen::EdgeHolder, std::allocator<msdfgen::EdgeHolder>>::_Vector_impl_data", ptr %contour.sroa.0.077, i64 0, i32 1
+  %_M_finish.i37 = getelementptr inbounds i8, ptr %contour.sroa.0.077, i64 8
   %12 = load ptr, ptr %_M_finish.i37, align 8
   %cmp.i38.not74 = icmp eq ptr %11, %12
   br i1 %cmp.i38.not74, label %for.inc81, label %for.body33
@@ -2742,13 +2727,13 @@ for.body33:                                       ; preds = %for.body22, %for.in
   %edge.sroa.0.075 = phi ptr [ %incdec.ptr.i, %for.inc ], [ %11, %for.body22 ]
   %call35 = call noundef ptr @_ZNK7msdfgen10EdgeHolderptEv(ptr noundef nonnull align 8 dereferenceable(8) %edge.sroa.0.075)
   %vtable = load ptr, ptr %call35, align 8
-  %vfn = getelementptr inbounds ptr, ptr %vtable, i64 8
+  %vfn = getelementptr inbounds i8, ptr %vtable, i64 64
   %13 = load ptr, ptr %vfn, align 8
   %call37 = call { double, double } %13(ptr noundef nonnull align 8 dereferenceable(12) %call35, double %sub.i, double %sub3.i, ptr noundef nonnull align 8 dereferenceable(8) %param)
   %14 = extractvalue { double, double } %call37, 0
   %15 = extractvalue { double, double } %call37, 1
   %call39 = call noundef ptr @_ZNK7msdfgen10EdgeHolderptEv(ptr noundef nonnull align 8 dereferenceable(8) %edge.sroa.0.075)
-  %color = getelementptr inbounds %"class.msdfgen::EdgeSegment", ptr %call39, i64 0, i32 1
+  %color = getelementptr inbounds i8, ptr %call39, i64 8
   %16 = load i32, ptr %color, align 8
   %and = and i32 %16, 1
   %tobool40.not = icmp eq i32 %and, 0
@@ -2778,7 +2763,7 @@ if.then:                                          ; preds = %land.lhs.true, %_ZN
 
 if.end:                                           ; preds = %if.then, %_ZN7msdfgenltENS_14SignedDistanceES0_.exit, %for.body33
   %call49 = call noundef ptr @_ZNK7msdfgen10EdgeHolderptEv(ptr noundef nonnull align 8 dereferenceable(8) %edge.sroa.0.075)
-  %color50 = getelementptr inbounds %"class.msdfgen::EdgeSegment", ptr %call49, i64 0, i32 1
+  %color50 = getelementptr inbounds i8, ptr %call49, i64 8
   %21 = load i32, ptr %color50, align 8
   %and51 = and i32 %21, 2
   %tobool52.not = icmp eq i32 %and51, 0
@@ -2808,7 +2793,7 @@ if.then58:                                        ; preds = %land.lhs.true53, %_
 
 if.end63:                                         ; preds = %if.then58, %_ZN7msdfgenltENS_14SignedDistanceES0_.exit44, %if.end
   %call65 = call noundef ptr @_ZNK7msdfgen10EdgeHolderptEv(ptr noundef nonnull align 8 dereferenceable(8) %edge.sroa.0.075)
-  %color66 = getelementptr inbounds %"class.msdfgen::EdgeSegment", ptr %call65, i64 0, i32 1
+  %color66 = getelementptr inbounds i8, ptr %call65, i64 8
   %26 = load i32, ptr %color66, align 8
   %and67 = and i32 %26, 4
   %tobool68.not = icmp eq i32 %and67, 0
@@ -2837,7 +2822,7 @@ if.then74:                                        ; preds = %land.lhs.true69, %_
   br label %for.inc
 
 for.inc:                                          ; preds = %if.end63, %_ZN7msdfgenltENS_14SignedDistanceES0_.exit49, %if.then74
-  %incdec.ptr.i = getelementptr inbounds %"class.msdfgen::EdgeHolder", ptr %edge.sroa.0.075, i64 1
+  %incdec.ptr.i = getelementptr inbounds i8, ptr %edge.sroa.0.075, i64 8
   %31 = load ptr, ptr %_M_finish.i37, align 8
   %cmp.i38.not = icmp eq ptr %incdec.ptr.i, %31
   br i1 %cmp.i38.not, label %for.inc81.loopexit, label %for.body33, !llvm.loop !59
@@ -2848,7 +2833,7 @@ for.inc81.loopexit:                               ; preds = %for.inc
 
 for.inc81:                                        ; preds = %for.inc81.loopexit, %for.body22
   %32 = phi ptr [ %.pre, %for.inc81.loopexit ], [ %10, %for.body22 ]
-  %incdec.ptr.i50 = getelementptr inbounds %"class.msdfgen::Contour", ptr %contour.sroa.0.077, i64 1
+  %incdec.ptr.i50 = getelementptr inbounds i8, ptr %contour.sroa.0.077, i64 24
   %cmp.i.not = icmp eq ptr %incdec.ptr.i50, %32
   br i1 %cmp.i.not, label %for.end83, label %for.body22, !llvm.loop !60
 
@@ -2861,7 +2846,7 @@ if.then86:                                        ; preds = %for.end83
   %call88 = call noundef ptr @_ZNK7msdfgen10EdgeHolderptEv(ptr noundef nonnull align 8 dereferenceable(8) %.pre83)
   %33 = load double, ptr %nearParam15, align 8
   %vtable92 = load ptr, ptr %call88, align 8
-  %vfn93 = getelementptr inbounds ptr, ptr %vtable92, i64 9
+  %vfn93 = getelementptr inbounds i8, ptr %vtable92, i64 72
   %34 = load ptr, ptr %vfn93, align 8
   call void %34(ptr noundef nonnull align 8 dereferenceable(12) %call88, ptr noundef nonnull align 8 dereferenceable(16) %r, double %sub.i, double %sub3.i, double noundef %33)
   br label %if.end94
@@ -2875,7 +2860,7 @@ if.then97:                                        ; preds = %if.end94
   %call99 = call noundef ptr @_ZNK7msdfgen10EdgeHolderptEv(ptr noundef nonnull align 8 dereferenceable(8) %35)
   %36 = load double, ptr %nearParam14, align 8
   %vtable103 = load ptr, ptr %call99, align 8
-  %vfn104 = getelementptr inbounds ptr, ptr %vtable103, i64 9
+  %vfn104 = getelementptr inbounds i8, ptr %vtable103, i64 72
   %37 = load ptr, ptr %vfn104, align 8
   call void %37(ptr noundef nonnull align 8 dereferenceable(12) %call99, ptr noundef nonnull align 8 dereferenceable(16) %g, double %sub.i, double %sub3.i, double noundef %36)
   br label %if.end105
@@ -2889,7 +2874,7 @@ if.then108:                                       ; preds = %if.end105
   %call110 = call noundef ptr @_ZNK7msdfgen10EdgeHolderptEv(ptr noundef nonnull align 8 dereferenceable(8) %38)
   %39 = load double, ptr %nearParam, align 8
   %vtable114 = load ptr, ptr %call110, align 8
-  %vfn115 = getelementptr inbounds ptr, ptr %vtable114, i64 9
+  %vfn115 = getelementptr inbounds i8, ptr %vtable114, i64 72
   %40 = load ptr, ptr %vfn115, align 8
   call void %40(ptr noundef nonnull align 8 dereferenceable(12) %call110, ptr noundef nonnull align 8 dereferenceable(16) %b, double %sub.i, double %sub3.i, double noundef %39)
   br label %if.end116
@@ -2918,7 +2903,7 @@ if.end116:                                        ; preds = %if.then108, %if.end
   %mul2.i54 = mul nsw i32 %add.i53, 3
   %idx.ext.i55 = sext i32 %mul2.i54 to i64
   %add.ptr.i56 = getelementptr inbounds float, ptr %45, i64 %idx.ext.i55
-  %arrayidx128 = getelementptr inbounds float, ptr %add.ptr.i56, i64 1
+  %arrayidx128 = getelementptr inbounds i8, ptr %add.ptr.i56, i64 4
   store float %conv126, ptr %arrayidx128, align 4
   %47 = load double, ptr %b, align 8
   %div131 = fdiv double %47, %range
@@ -2931,7 +2916,7 @@ if.end116:                                        ; preds = %if.then108, %if.end
   %mul2.i60 = mul nsw i32 %add.i59, 3
   %idx.ext.i61 = sext i32 %mul2.i60 to i64
   %add.ptr.i62 = getelementptr inbounds float, ptr %48, i64 %idx.ext.i61
-  %arrayidx135 = getelementptr inbounds float, ptr %add.ptr.i62, i64 2
+  %arrayidx135 = getelementptr inbounds i8, ptr %add.ptr.i62, i64 8
   store float %conv133, ptr %arrayidx135, align 4
   %inc = add nuw nsw i32 %x.079, 1
   %50 = load i32, ptr %width, align 8
@@ -2950,11 +2935,11 @@ for.inc138:                                       ; preds = %for.inc138.loopexit
   br i1 %cmp, label %for.body, label %for.end140, !llvm.loop !62
 
 for.end140:                                       ; preds = %for.inc138, %for.body.lr.ph, %entry
-  %distanceCheckMode = getelementptr inbounds %"struct.msdfgen::ErrorCorrectionConfig", ptr %errorCorrectionConfig, i64 0, i32 1
+  %distanceCheckMode = getelementptr inbounds i8, ptr %errorCorrectionConfig, i64 4
   store i32 0, ptr %distanceCheckMode, align 4
   call void @_ZN7msdfgen10ProjectionC1ERKNS_7Vector2ES3_(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp141, ptr noundef nonnull align 8 dereferenceable(16) %scale, ptr noundef nonnull align 8 dereferenceable(16) %translate)
   store i8 0, ptr %ref.tmp142, align 8
-  %errorCorrection2.i = getelementptr inbounds %"struct.msdfgen::MSDFGeneratorConfig", ptr %ref.tmp142, i64 0, i32 1
+  %errorCorrection2.i = getelementptr inbounds i8, ptr %ref.tmp142, i64 8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %errorCorrection2.i, ptr noundef nonnull align 8 dereferenceable(32) %errorCorrectionConfig, i64 32, i1 false)
   call void @_ZN7msdfgen19msdfErrorCorrectionERKNS_9BitmapRefIfLi3EEERKNS_5ShapeERKNS_10ProjectionEdRKNS_19MSDFGeneratorConfigE(ptr noundef nonnull align 8 dereferenceable(16) %output, ptr noundef nonnull align 8 dereferenceable(25) %shape, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp141, double noundef %range, ptr noundef nonnull align 8 dereferenceable(40) %ref.tmp142)
   ret void
@@ -2969,26 +2954,26 @@ entry:
   %param = alloca double, align 8
   %ref.tmp153 = alloca %"class.msdfgen::Projection", align 8
   %ref.tmp154 = alloca %"struct.msdfgen::MSDFGeneratorConfig", align 8
-  %height = getelementptr inbounds %"struct.msdfgen::BitmapRef.1", ptr %output, i64 0, i32 2
+  %height = getelementptr inbounds i8, ptr %output, i64 12
   %0 = load i32, ptr %height, align 4
   %cmp103 = icmp sgt i32 %0, 0
   br i1 %cmp103, label %for.body.lr.ph, label %for.end152
 
 for.body.lr.ph:                                   ; preds = %entry
-  %inverseYAxis = getelementptr inbounds %"class.msdfgen::Shape", ptr %shape, i64 0, i32 1
-  %width = getelementptr inbounds %"struct.msdfgen::BitmapRef.1", ptr %output, i64 0, i32 1
+  %inverseYAxis = getelementptr inbounds i8, ptr %shape, i64 24
+  %width = getelementptr inbounds i8, ptr %output, i64 8
   %agg.tmp9.sroa.2.0..sroa_idx = getelementptr inbounds i8, ptr %scale, i64 8
   %agg.tmp10.sroa.2.0..sroa_idx = getelementptr inbounds i8, ptr %translate, i64 8
-  %dot.i.i = getelementptr inbounds %"class.msdfgen::SignedDistance", ptr %r, i64 0, i32 1
-  %dot.i.i41 = getelementptr inbounds %"class.msdfgen::SignedDistance", ptr %g, i64 0, i32 1
-  %dot.i.i42 = getelementptr inbounds %"class.msdfgen::SignedDistance", ptr %b, i64 0, i32 1
-  %nearEdge = getelementptr inbounds %struct.anon.8, ptr %b, i64 0, i32 1
-  %nearEdge12 = getelementptr inbounds %struct.anon.8, ptr %g, i64 0, i32 1
-  %nearEdge13 = getelementptr inbounds %struct.anon.8, ptr %r, i64 0, i32 1
-  %nearParam = getelementptr inbounds %struct.anon.8, ptr %b, i64 0, i32 2
-  %nearParam14 = getelementptr inbounds %struct.anon.8, ptr %g, i64 0, i32 2
-  %nearParam15 = getelementptr inbounds %struct.anon.8, ptr %r, i64 0, i32 2
-  %_M_finish.i = getelementptr inbounds %"struct.std::_Vector_base<msdfgen::Contour, std::allocator<msdfgen::Contour>>::_Vector_impl_data", ptr %shape, i64 0, i32 1
+  %dot.i.i = getelementptr inbounds i8, ptr %r, i64 8
+  %dot.i.i41 = getelementptr inbounds i8, ptr %g, i64 8
+  %dot.i.i42 = getelementptr inbounds i8, ptr %b, i64 8
+  %nearEdge = getelementptr inbounds i8, ptr %b, i64 16
+  %nearEdge12 = getelementptr inbounds i8, ptr %g, i64 16
+  %nearEdge13 = getelementptr inbounds i8, ptr %r, i64 16
+  %nearParam = getelementptr inbounds i8, ptr %b, i64 24
+  %nearParam14 = getelementptr inbounds i8, ptr %g, i64 24
+  %nearParam15 = getelementptr inbounds i8, ptr %r, i64 24
+  %_M_finish.i = getelementptr inbounds i8, ptr %shape, i64 8
   %1 = load i32, ptr %width, align 8
   %2 = icmp sgt i32 %1, 0
   br i1 %2, label %for.body, label %for.end152
@@ -3043,7 +3028,7 @@ for.body22:                                       ; preds = %for.body5, %for.inc
   %minDistance.sroa.0.098 = phi double [ %minDistance.sroa.0.1.lcssa, %for.inc87 ], [ 0xFFEFFFFFFFFFFFFF, %for.body5 ]
   %contour.sroa.0.097 = phi ptr [ %incdec.ptr.i61, %for.inc87 ], [ %8, %for.body5 ]
   %11 = load ptr, ptr %contour.sroa.0.097, align 8
-  %_M_finish.i43 = getelementptr inbounds %"struct.std::_Vector_base<msdfgen::EdgeHolder, std::allocator<msdfgen::EdgeHolder>>::_Vector_impl_data", ptr %contour.sroa.0.097, i64 0, i32 1
+  %_M_finish.i43 = getelementptr inbounds i8, ptr %contour.sroa.0.097, i64 8
   %12 = load ptr, ptr %_M_finish.i43, align 8
   %cmp.i44.not91 = icmp eq ptr %11, %12
   br i1 %cmp.i44.not91, label %for.inc87, label %for.body33
@@ -3054,7 +3039,7 @@ for.body33:                                       ; preds = %for.body22, %for.in
   %minDistance.sroa.0.192 = phi double [ %minDistance.sroa.0.2, %for.inc ], [ %minDistance.sroa.0.098, %for.body22 ]
   %call35 = call noundef ptr @_ZNK7msdfgen10EdgeHolderptEv(ptr noundef nonnull align 8 dereferenceable(8) %edge.sroa.0.093)
   %vtable = load ptr, ptr %call35, align 8
-  %vfn = getelementptr inbounds ptr, ptr %vtable, i64 8
+  %vfn = getelementptr inbounds i8, ptr %vtable, i64 64
   %13 = load ptr, ptr %vfn, align 8
   %call37 = call { double, double } %13(ptr noundef nonnull align 8 dereferenceable(12) %call35, double %sub.i, double %sub3.i, ptr noundef nonnull align 8 dereferenceable(8) %param)
   %14 = extractvalue { double, double } %call37, 0
@@ -3077,7 +3062,7 @@ if.end:                                           ; preds = %if.then, %_ZN7msdfg
   %minDistance.sroa.0.2 = phi double [ %14, %if.then ], [ %minDistance.sroa.0.192, %_ZN7msdfgenltENS_14SignedDistanceES0_.exit ]
   %minDistance.sroa.4.2 = phi double [ %15, %if.then ], [ %minDistance.sroa.4.194, %_ZN7msdfgenltENS_14SignedDistanceES0_.exit ]
   %call42 = call noundef ptr @_ZNK7msdfgen10EdgeHolderptEv(ptr noundef nonnull align 8 dereferenceable(8) %edge.sroa.0.093)
-  %color = getelementptr inbounds %"class.msdfgen::EdgeSegment", ptr %call42, i64 0, i32 1
+  %color = getelementptr inbounds i8, ptr %call42, i64 8
   %19 = load i32, ptr %color, align 8
   %and = and i32 %19, 1
   %tobool43.not = icmp eq i32 %and, 0
@@ -3106,7 +3091,7 @@ if.then48:                                        ; preds = %land.lhs.true, %_ZN
 
 if.end53:                                         ; preds = %if.then48, %_ZN7msdfgenltENS_14SignedDistanceES0_.exit50, %if.end
   %call55 = call noundef ptr @_ZNK7msdfgen10EdgeHolderptEv(ptr noundef nonnull align 8 dereferenceable(8) %edge.sroa.0.093)
-  %color56 = getelementptr inbounds %"class.msdfgen::EdgeSegment", ptr %call55, i64 0, i32 1
+  %color56 = getelementptr inbounds i8, ptr %call55, i64 8
   %23 = load i32, ptr %color56, align 8
   %and57 = and i32 %23, 2
   %tobool58.not = icmp eq i32 %and57, 0
@@ -3135,7 +3120,7 @@ if.then64:                                        ; preds = %land.lhs.true59, %_
 
 if.end69:                                         ; preds = %if.then64, %_ZN7msdfgenltENS_14SignedDistanceES0_.exit55, %if.end53
   %call71 = call noundef ptr @_ZNK7msdfgen10EdgeHolderptEv(ptr noundef nonnull align 8 dereferenceable(8) %edge.sroa.0.093)
-  %color72 = getelementptr inbounds %"class.msdfgen::EdgeSegment", ptr %call71, i64 0, i32 1
+  %color72 = getelementptr inbounds i8, ptr %call71, i64 8
   %27 = load i32, ptr %color72, align 8
   %and73 = and i32 %27, 4
   %tobool74.not = icmp eq i32 %and73, 0
@@ -3163,7 +3148,7 @@ if.then80:                                        ; preds = %land.lhs.true75, %_
   br label %for.inc
 
 for.inc:                                          ; preds = %if.end69, %_ZN7msdfgenltENS_14SignedDistanceES0_.exit60, %if.then80
-  %incdec.ptr.i = getelementptr inbounds %"class.msdfgen::EdgeHolder", ptr %edge.sroa.0.093, i64 1
+  %incdec.ptr.i = getelementptr inbounds i8, ptr %edge.sroa.0.093, i64 8
   %31 = load ptr, ptr %_M_finish.i43, align 8
   %cmp.i44.not = icmp eq ptr %incdec.ptr.i, %31
   br i1 %cmp.i44.not, label %for.inc87.loopexit, label %for.body33, !llvm.loop !63
@@ -3176,7 +3161,7 @@ for.inc87:                                        ; preds = %for.inc87.loopexit,
   %32 = phi ptr [ %10, %for.body22 ], [ %.pre, %for.inc87.loopexit ]
   %minDistance.sroa.0.1.lcssa = phi double [ %minDistance.sroa.0.098, %for.body22 ], [ %minDistance.sroa.0.2, %for.inc87.loopexit ]
   %minDistance.sroa.4.1.lcssa = phi double [ %minDistance.sroa.4.099, %for.body22 ], [ %minDistance.sroa.4.2, %for.inc87.loopexit ]
-  %incdec.ptr.i61 = getelementptr inbounds %"class.msdfgen::Contour", ptr %contour.sroa.0.097, i64 1
+  %incdec.ptr.i61 = getelementptr inbounds i8, ptr %contour.sroa.0.097, i64 24
   %cmp.i.not = icmp eq ptr %incdec.ptr.i61, %32
   br i1 %cmp.i.not, label %for.end89, label %for.body22, !llvm.loop !64
 
@@ -3189,7 +3174,7 @@ if.then92:                                        ; preds = %for.end89
   %call94 = call noundef ptr @_ZNK7msdfgen10EdgeHolderptEv(ptr noundef nonnull align 8 dereferenceable(8) %.pre106)
   %33 = load double, ptr %nearParam15, align 8
   %vtable98 = load ptr, ptr %call94, align 8
-  %vfn99 = getelementptr inbounds ptr, ptr %vtable98, i64 9
+  %vfn99 = getelementptr inbounds i8, ptr %vtable98, i64 72
   %34 = load ptr, ptr %vfn99, align 8
   call void %34(ptr noundef nonnull align 8 dereferenceable(12) %call94, ptr noundef nonnull align 8 dereferenceable(16) %r, double %sub.i, double %sub3.i, double noundef %33)
   br label %if.end100
@@ -3204,7 +3189,7 @@ if.then103:                                       ; preds = %if.end100
   %call105 = call noundef ptr @_ZNK7msdfgen10EdgeHolderptEv(ptr noundef nonnull align 8 dereferenceable(8) %35)
   %36 = load double, ptr %nearParam14, align 8
   %vtable109 = load ptr, ptr %call105, align 8
-  %vfn110 = getelementptr inbounds ptr, ptr %vtable109, i64 9
+  %vfn110 = getelementptr inbounds i8, ptr %vtable109, i64 72
   %37 = load ptr, ptr %vfn110, align 8
   call void %37(ptr noundef nonnull align 8 dereferenceable(12) %call105, ptr noundef nonnull align 8 dereferenceable(16) %g, double %sub.i, double %sub3.i, double noundef %36)
   br label %if.end111
@@ -3218,7 +3203,7 @@ if.then114:                                       ; preds = %if.end111
   %call116 = call noundef ptr @_ZNK7msdfgen10EdgeHolderptEv(ptr noundef nonnull align 8 dereferenceable(8) %38)
   %39 = load double, ptr %nearParam, align 8
   %vtable120 = load ptr, ptr %call116, align 8
-  %vfn121 = getelementptr inbounds ptr, ptr %vtable120, i64 9
+  %vfn121 = getelementptr inbounds i8, ptr %vtable120, i64 72
   %40 = load ptr, ptr %vfn121, align 8
   call void %40(ptr noundef nonnull align 8 dereferenceable(12) %call116, ptr noundef nonnull align 8 dereferenceable(16) %b, double %sub.i, double %sub3.i, double noundef %39)
   br label %if.end122
@@ -3247,7 +3232,7 @@ if.end122:                                        ; preds = %if.then114, %if.end
   %mul2.i65 = shl nsw i32 %add.i64, 2
   %idx.ext.i66 = sext i32 %mul2.i65 to i64
   %add.ptr.i67 = getelementptr inbounds float, ptr %45, i64 %idx.ext.i66
-  %arrayidx134 = getelementptr inbounds float, ptr %add.ptr.i67, i64 1
+  %arrayidx134 = getelementptr inbounds i8, ptr %add.ptr.i67, i64 4
   store float %conv132, ptr %arrayidx134, align 4
   %47 = load double, ptr %b, align 8
   %div137 = fdiv double %47, %range
@@ -3260,7 +3245,7 @@ if.end122:                                        ; preds = %if.then114, %if.end
   %mul2.i71 = shl nsw i32 %add.i70, 2
   %idx.ext.i72 = sext i32 %mul2.i71 to i64
   %add.ptr.i73 = getelementptr inbounds float, ptr %48, i64 %idx.ext.i72
-  %arrayidx141 = getelementptr inbounds float, ptr %add.ptr.i73, i64 2
+  %arrayidx141 = getelementptr inbounds i8, ptr %add.ptr.i73, i64 8
   store float %conv139, ptr %arrayidx141, align 4
   %div143 = fdiv double %minDistance.sroa.0.0.lcssa110, %range
   %add144 = fadd double %div143, 5.000000e-01
@@ -3272,7 +3257,7 @@ if.end122:                                        ; preds = %if.then114, %if.end
   %mul2.i77 = shl nsw i32 %add.i76, 2
   %idx.ext.i78 = sext i32 %mul2.i77 to i64
   %add.ptr.i79 = getelementptr inbounds float, ptr %50, i64 %idx.ext.i78
-  %arrayidx147 = getelementptr inbounds float, ptr %add.ptr.i79, i64 3
+  %arrayidx147 = getelementptr inbounds i8, ptr %add.ptr.i79, i64 12
   store float %conv145, ptr %arrayidx147, align 4
   %inc = add nuw nsw i32 %x.0102, 1
   %52 = load i32, ptr %width, align 8
@@ -3291,11 +3276,11 @@ for.inc150:                                       ; preds = %for.inc150.loopexit
   br i1 %cmp, label %for.body, label %for.end152, !llvm.loop !66
 
 for.end152:                                       ; preds = %for.inc150, %for.body.lr.ph, %entry
-  %distanceCheckMode = getelementptr inbounds %"struct.msdfgen::ErrorCorrectionConfig", ptr %errorCorrectionConfig, i64 0, i32 1
+  %distanceCheckMode = getelementptr inbounds i8, ptr %errorCorrectionConfig, i64 4
   store i32 0, ptr %distanceCheckMode, align 4
   call void @_ZN7msdfgen10ProjectionC1ERKNS_7Vector2ES3_(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp153, ptr noundef nonnull align 8 dereferenceable(16) %scale, ptr noundef nonnull align 8 dereferenceable(16) %translate)
   store i8 0, ptr %ref.tmp154, align 8
-  %errorCorrection2.i = getelementptr inbounds %"struct.msdfgen::MSDFGeneratorConfig", ptr %ref.tmp154, i64 0, i32 1
+  %errorCorrection2.i = getelementptr inbounds i8, ptr %ref.tmp154, i64 8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %errorCorrection2.i, ptr noundef nonnull align 8 dereferenceable(32) %errorCorrectionConfig, i64 32, i1 false)
   call void @_ZN7msdfgen19msdfErrorCorrectionERKNS_9BitmapRefIfLi4EEERKNS_5ShapeERKNS_10ProjectionEdRKNS_19MSDFGeneratorConfigE(ptr noundef nonnull align 8 dereferenceable(16) %output, ptr noundef nonnull align 8 dereferenceable(25) %shape, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp153, double noundef %range, ptr noundef nonnull align 8 dereferenceable(40) %ref.tmp154)
   ret void
@@ -3311,7 +3296,7 @@ declare i32 @__gxx_personality_v0(...)
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr dso_local void @_ZN7msdfgen19ShapeDistanceFinderINS_26OverlappingContourCombinerINS_20TrueDistanceSelectorEEEED2Ev(ptr noundef nonnull align 8 dereferenceable(96) %this) unnamed_addr #4 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  %shapeEdgeCache = getelementptr inbounds %"class.msdfgen::ShapeDistanceFinder", ptr %this, i64 0, i32 2
+  %shapeEdgeCache = getelementptr inbounds i8, ptr %this, i64 72
   %0 = load ptr, ptr %shapeEdgeCache, align 8
   %tobool.not.i.i.i = icmp eq ptr %0, null
   br i1 %tobool.not.i.i.i, label %_ZNSt6vectorIN7msdfgen20TrueDistanceSelector9EdgeCacheESaIS2_EED2Ev.exit, label %if.then.i.i.i
@@ -3321,7 +3306,7 @@ if.then.i.i.i:                                    ; preds = %entry
   br label %_ZNSt6vectorIN7msdfgen20TrueDistanceSelector9EdgeCacheESaIS2_EED2Ev.exit
 
 _ZNSt6vectorIN7msdfgen20TrueDistanceSelector9EdgeCacheESaIS2_EED2Ev.exit: ; preds = %entry, %if.then.i.i.i
-  %edgeSelectors.i = getelementptr inbounds %"class.msdfgen::ShapeDistanceFinder", ptr %this, i64 0, i32 1, i32 2
+  %edgeSelectors.i = getelementptr inbounds i8, ptr %this, i64 48
   %1 = load ptr, ptr %edgeSelectors.i, align 8
   %tobool.not.i.i.i.i = icmp eq ptr %1, null
   br i1 %tobool.not.i.i.i.i, label %_ZNSt6vectorIN7msdfgen20TrueDistanceSelectorESaIS1_EED2Ev.exit.i, label %if.then.i.i.i.i
@@ -3331,7 +3316,7 @@ if.then.i.i.i.i:                                  ; preds = %_ZNSt6vectorIN7msdf
   br label %_ZNSt6vectorIN7msdfgen20TrueDistanceSelectorESaIS1_EED2Ev.exit.i
 
 _ZNSt6vectorIN7msdfgen20TrueDistanceSelectorESaIS1_EED2Ev.exit.i: ; preds = %if.then.i.i.i.i, %_ZNSt6vectorIN7msdfgen20TrueDistanceSelector9EdgeCacheESaIS2_EED2Ev.exit
-  %windings.i = getelementptr inbounds %"class.msdfgen::ShapeDistanceFinder", ptr %this, i64 0, i32 1, i32 1
+  %windings.i = getelementptr inbounds i8, ptr %this, i64 24
   %2 = load ptr, ptr %windings.i, align 8
   %tobool.not.i.i.i1.i = icmp eq ptr %2, null
   br i1 %tobool.not.i.i.i1.i, label %_ZN7msdfgen26OverlappingContourCombinerINS_20TrueDistanceSelectorEED2Ev.exit, label %if.then.i.i.i2.i
@@ -3364,7 +3349,7 @@ _ZNSt6vectorIN7msdfgen20TrueDistanceSelector9EdgeCacheESaIS2_EE17_S_check_init_l
   br i1 %cmp.not.i.i.i, label %_ZNSt12_Vector_baseIN7msdfgen20TrueDistanceSelector9EdgeCacheESaIS2_EEC2EmRKS3_.exit.thread, label %_ZNSt12_Vector_baseIN7msdfgen20TrueDistanceSelector9EdgeCacheESaIS2_EEC2EmRKS3_.exit
 
 _ZNSt12_Vector_baseIN7msdfgen20TrueDistanceSelector9EdgeCacheESaIS2_EEC2EmRKS3_.exit.thread: ; preds = %_ZNSt6vectorIN7msdfgen20TrueDistanceSelector9EdgeCacheESaIS2_EE17_S_check_init_lenEmRKS3_.exit
-  %_M_finish.i.i4 = getelementptr inbounds %"struct.std::_Vector_base<msdfgen::TrueDistanceSelector::EdgeCache, std::allocator<msdfgen::TrueDistanceSelector::EdgeCache>>::_Vector_impl_data", ptr %this, i64 0, i32 1
+  %_M_finish.i.i4 = getelementptr inbounds i8, ptr %this, i64 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %this, i8 0, i64 24, i1 false)
   br label %invoke.cont
 
@@ -3372,10 +3357,10 @@ _ZNSt12_Vector_baseIN7msdfgen20TrueDistanceSelector9EdgeCacheESaIS2_EEC2EmRKS3_.
   %mul.i.i.i.i.i = mul nuw nsw i64 %__n, 24
   %call5.i.i.i.i2.i = tail call noalias noundef nonnull ptr @_Znwm(i64 noundef %mul.i.i.i.i.i) #14
   store ptr %call5.i.i.i.i2.i, ptr %this, align 8
-  %_M_finish.i.i = getelementptr inbounds %"struct.std::_Vector_base<msdfgen::TrueDistanceSelector::EdgeCache, std::allocator<msdfgen::TrueDistanceSelector::EdgeCache>>::_Vector_impl_data", ptr %this, i64 0, i32 1
+  %_M_finish.i.i = getelementptr inbounds i8, ptr %this, i64 8
   store ptr %call5.i.i.i.i2.i, ptr %_M_finish.i.i, align 8
   %add.ptr.i.i = getelementptr inbounds %"struct.msdfgen::TrueDistanceSelector::EdgeCache", ptr %call5.i.i.i.i2.i, i64 %__n
-  %_M_end_of_storage.i.i = getelementptr inbounds %"struct.std::_Vector_base<msdfgen::TrueDistanceSelector::EdgeCache, std::allocator<msdfgen::TrueDistanceSelector::EdgeCache>>::_Vector_impl_data", ptr %this, i64 0, i32 2
+  %_M_end_of_storage.i.i = getelementptr inbounds i8, ptr %this, i64 16
   store ptr %add.ptr.i.i, ptr %_M_end_of_storage.i.i, align 8
   br label %for.body.i.i.i.i
 
@@ -3387,7 +3372,7 @@ for.body.i.i.i.i:                                 ; preds = %_ZNSt12_Vector_base
 
 for.inc.i.i.i.i:                                  ; preds = %for.body.i.i.i.i
   %dec.i.i.i.i = add i64 %__n.addr.08.i.i.i.i, -1
-  %incdec.ptr.i.i.i.i = getelementptr inbounds %"struct.msdfgen::TrueDistanceSelector::EdgeCache", ptr %__cur.09.i.i.i.i, i64 1
+  %incdec.ptr.i.i.i.i = getelementptr inbounds i8, ptr %__cur.09.i.i.i.i, i64 24
   %cmp.not.i.i.i.i = icmp eq i64 %dec.i.i.i.i, 0
   br i1 %cmp.not.i.i.i.i, label %invoke.cont, label %for.body.i.i.i.i, !llvm.loop !67
 
@@ -3437,7 +3422,7 @@ _ZNSt12_Vector_baseIN7msdfgen20TrueDistanceSelector9EdgeCacheESaIS2_EED2Ev.exit:
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr dso_local void @_ZN7msdfgen26OverlappingContourCombinerINS_20TrueDistanceSelectorEED2Ev(ptr noundef nonnull align 8 dereferenceable(64) %this) unnamed_addr #4 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  %edgeSelectors = getelementptr inbounds %"class.msdfgen::OverlappingContourCombiner", ptr %this, i64 0, i32 2
+  %edgeSelectors = getelementptr inbounds i8, ptr %this, i64 40
   %0 = load ptr, ptr %edgeSelectors, align 8
   %tobool.not.i.i.i = icmp eq ptr %0, null
   br i1 %tobool.not.i.i.i, label %_ZNSt6vectorIN7msdfgen20TrueDistanceSelectorESaIS1_EED2Ev.exit, label %if.then.i.i.i
@@ -3447,7 +3432,7 @@ if.then.i.i.i:                                    ; preds = %entry
   br label %_ZNSt6vectorIN7msdfgen20TrueDistanceSelectorESaIS1_EED2Ev.exit
 
 _ZNSt6vectorIN7msdfgen20TrueDistanceSelectorESaIS1_EED2Ev.exit: ; preds = %entry, %if.then.i.i.i
-  %windings = getelementptr inbounds %"class.msdfgen::OverlappingContourCombiner", ptr %this, i64 0, i32 1
+  %windings = getelementptr inbounds i8, ptr %this, i64 16
   %1 = load ptr, ptr %windings, align 8
   %tobool.not.i.i.i1 = icmp eq ptr %1, null
   br i1 %tobool.not.i.i.i1, label %_ZNSt6vectorIiSaIiEED2Ev.exit, label %if.then.i.i.i2
@@ -3510,7 +3495,7 @@ declare noundef double @_ZNK7msdfgen21SimpleContourCombinerINS_20TrueDistanceSel
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr dso_local void @_ZN7msdfgen19ShapeDistanceFinderINS_26OverlappingContourCombinerINS_22PseudoDistanceSelectorEEEED2Ev(ptr noundef nonnull align 8 dereferenceable(96) %this) unnamed_addr #4 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  %shapeEdgeCache = getelementptr inbounds %"class.msdfgen::ShapeDistanceFinder.25", ptr %this, i64 0, i32 2
+  %shapeEdgeCache = getelementptr inbounds i8, ptr %this, i64 72
   %0 = load ptr, ptr %shapeEdgeCache, align 8
   %tobool.not.i.i.i = icmp eq ptr %0, null
   br i1 %tobool.not.i.i.i, label %_ZNSt6vectorIN7msdfgen26PseudoDistanceSelectorBase9EdgeCacheESaIS2_EED2Ev.exit, label %if.then.i.i.i
@@ -3520,7 +3505,7 @@ if.then.i.i.i:                                    ; preds = %entry
   br label %_ZNSt6vectorIN7msdfgen26PseudoDistanceSelectorBase9EdgeCacheESaIS2_EED2Ev.exit
 
 _ZNSt6vectorIN7msdfgen26PseudoDistanceSelectorBase9EdgeCacheESaIS2_EED2Ev.exit: ; preds = %entry, %if.then.i.i.i
-  %edgeSelectors.i = getelementptr inbounds %"class.msdfgen::ShapeDistanceFinder.25", ptr %this, i64 0, i32 1, i32 2
+  %edgeSelectors.i = getelementptr inbounds i8, ptr %this, i64 48
   %1 = load ptr, ptr %edgeSelectors.i, align 8
   %tobool.not.i.i.i.i = icmp eq ptr %1, null
   br i1 %tobool.not.i.i.i.i, label %_ZNSt6vectorIN7msdfgen22PseudoDistanceSelectorESaIS1_EED2Ev.exit.i, label %if.then.i.i.i.i
@@ -3530,7 +3515,7 @@ if.then.i.i.i.i:                                  ; preds = %_ZNSt6vectorIN7msdf
   br label %_ZNSt6vectorIN7msdfgen22PseudoDistanceSelectorESaIS1_EED2Ev.exit.i
 
 _ZNSt6vectorIN7msdfgen22PseudoDistanceSelectorESaIS1_EED2Ev.exit.i: ; preds = %if.then.i.i.i.i, %_ZNSt6vectorIN7msdfgen26PseudoDistanceSelectorBase9EdgeCacheESaIS2_EED2Ev.exit
-  %windings.i = getelementptr inbounds %"class.msdfgen::ShapeDistanceFinder.25", ptr %this, i64 0, i32 1, i32 1
+  %windings.i = getelementptr inbounds i8, ptr %this, i64 24
   %2 = load ptr, ptr %windings.i, align 8
   %tobool.not.i.i.i1.i = icmp eq ptr %2, null
   br i1 %tobool.not.i.i.i1.i, label %_ZN7msdfgen26OverlappingContourCombinerINS_22PseudoDistanceSelectorEED2Ev.exit, label %if.then.i.i.i2.i
@@ -3561,7 +3546,7 @@ _ZNSt6vectorIN7msdfgen26PseudoDistanceSelectorBase9EdgeCacheESaIS2_EE17_S_check_
   br i1 %cmp.not.i.i.i, label %_ZNSt12_Vector_baseIN7msdfgen26PseudoDistanceSelectorBase9EdgeCacheESaIS2_EEC2EmRKS3_.exit.thread, label %_ZNSt12_Vector_baseIN7msdfgen26PseudoDistanceSelectorBase9EdgeCacheESaIS2_EEC2EmRKS3_.exit
 
 _ZNSt12_Vector_baseIN7msdfgen26PseudoDistanceSelectorBase9EdgeCacheESaIS2_EEC2EmRKS3_.exit.thread: ; preds = %_ZNSt6vectorIN7msdfgen26PseudoDistanceSelectorBase9EdgeCacheESaIS2_EE17_S_check_init_lenEmRKS3_.exit
-  %_M_finish.i.i4 = getelementptr inbounds %"struct.std::_Vector_base<msdfgen::PseudoDistanceSelectorBase::EdgeCache, std::allocator<msdfgen::PseudoDistanceSelectorBase::EdgeCache>>::_Vector_impl_data", ptr %this, i64 0, i32 1
+  %_M_finish.i.i4 = getelementptr inbounds i8, ptr %this, i64 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %this, i8 0, i64 24, i1 false)
   br label %invoke.cont
 
@@ -3569,10 +3554,10 @@ _ZNSt12_Vector_baseIN7msdfgen26PseudoDistanceSelectorBase9EdgeCacheESaIS2_EEC2Em
   %mul.i.i.i.i.i = mul nuw nsw i64 %__n, 56
   %call5.i.i.i.i2.i = tail call noalias noundef nonnull ptr @_Znwm(i64 noundef %mul.i.i.i.i.i) #14
   store ptr %call5.i.i.i.i2.i, ptr %this, align 8
-  %_M_finish.i.i = getelementptr inbounds %"struct.std::_Vector_base<msdfgen::PseudoDistanceSelectorBase::EdgeCache, std::allocator<msdfgen::PseudoDistanceSelectorBase::EdgeCache>>::_Vector_impl_data", ptr %this, i64 0, i32 1
+  %_M_finish.i.i = getelementptr inbounds i8, ptr %this, i64 8
   store ptr %call5.i.i.i.i2.i, ptr %_M_finish.i.i, align 8
   %add.ptr.i.i = getelementptr inbounds %"struct.msdfgen::PseudoDistanceSelectorBase::EdgeCache", ptr %call5.i.i.i.i2.i, i64 %__n
-  %_M_end_of_storage.i.i = getelementptr inbounds %"struct.std::_Vector_base<msdfgen::PseudoDistanceSelectorBase::EdgeCache, std::allocator<msdfgen::PseudoDistanceSelectorBase::EdgeCache>>::_Vector_impl_data", ptr %this, i64 0, i32 2
+  %_M_end_of_storage.i.i = getelementptr inbounds i8, ptr %this, i64 16
   store ptr %add.ptr.i.i, ptr %_M_end_of_storage.i.i, align 8
   br label %for.body.i.i.i.i
 
@@ -3584,7 +3569,7 @@ for.body.i.i.i.i:                                 ; preds = %_ZNSt12_Vector_base
 
 for.inc.i.i.i.i:                                  ; preds = %for.body.i.i.i.i
   %dec.i.i.i.i = add i64 %__n.addr.08.i.i.i.i, -1
-  %incdec.ptr.i.i.i.i = getelementptr inbounds %"struct.msdfgen::PseudoDistanceSelectorBase::EdgeCache", ptr %__cur.09.i.i.i.i, i64 1
+  %incdec.ptr.i.i.i.i = getelementptr inbounds i8, ptr %__cur.09.i.i.i.i, i64 56
   %cmp.not.i.i.i.i = icmp eq i64 %dec.i.i.i.i, 0
   br i1 %cmp.not.i.i.i.i, label %invoke.cont, label %for.body.i.i.i.i, !llvm.loop !68
 
@@ -3634,7 +3619,7 @@ _ZNSt12_Vector_baseIN7msdfgen26PseudoDistanceSelectorBase9EdgeCacheESaIS2_EED2Ev
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr dso_local void @_ZN7msdfgen26OverlappingContourCombinerINS_22PseudoDistanceSelectorEED2Ev(ptr noundef nonnull align 8 dereferenceable(64) %this) unnamed_addr #4 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  %edgeSelectors = getelementptr inbounds %"class.msdfgen::OverlappingContourCombiner.26", ptr %this, i64 0, i32 2
+  %edgeSelectors = getelementptr inbounds i8, ptr %this, i64 40
   %0 = load ptr, ptr %edgeSelectors, align 8
   %tobool.not.i.i.i = icmp eq ptr %0, null
   br i1 %tobool.not.i.i.i, label %_ZNSt6vectorIN7msdfgen22PseudoDistanceSelectorESaIS1_EED2Ev.exit, label %if.then.i.i.i
@@ -3644,7 +3629,7 @@ if.then.i.i.i:                                    ; preds = %entry
   br label %_ZNSt6vectorIN7msdfgen22PseudoDistanceSelectorESaIS1_EED2Ev.exit
 
 _ZNSt6vectorIN7msdfgen22PseudoDistanceSelectorESaIS1_EED2Ev.exit: ; preds = %entry, %if.then.i.i.i
-  %windings = getelementptr inbounds %"class.msdfgen::OverlappingContourCombiner.26", ptr %this, i64 0, i32 1
+  %windings = getelementptr inbounds i8, ptr %this, i64 16
   %1 = load ptr, ptr %windings, align 8
   %tobool.not.i.i.i1 = icmp eq ptr %1, null
   br i1 %tobool.not.i.i.i1, label %_ZNSt6vectorIiSaIiEED2Ev.exit, label %if.then.i.i.i2
@@ -3678,7 +3663,7 @@ declare noundef double @_ZNK7msdfgen21SimpleContourCombinerINS_22PseudoDistanceS
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr dso_local void @_ZN7msdfgen19ShapeDistanceFinderINS_26OverlappingContourCombinerINS_21MultiDistanceSelectorEEEED2Ev(ptr noundef nonnull align 8 dereferenceable(96) %this) unnamed_addr #4 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  %shapeEdgeCache = getelementptr inbounds %"class.msdfgen::ShapeDistanceFinder.40", ptr %this, i64 0, i32 2
+  %shapeEdgeCache = getelementptr inbounds i8, ptr %this, i64 72
   %0 = load ptr, ptr %shapeEdgeCache, align 8
   %tobool.not.i.i.i = icmp eq ptr %0, null
   br i1 %tobool.not.i.i.i, label %_ZNSt6vectorIN7msdfgen26PseudoDistanceSelectorBase9EdgeCacheESaIS2_EED2Ev.exit, label %if.then.i.i.i
@@ -3688,7 +3673,7 @@ if.then.i.i.i:                                    ; preds = %entry
   br label %_ZNSt6vectorIN7msdfgen26PseudoDistanceSelectorBase9EdgeCacheESaIS2_EED2Ev.exit
 
 _ZNSt6vectorIN7msdfgen26PseudoDistanceSelectorBase9EdgeCacheESaIS2_EED2Ev.exit: ; preds = %entry, %if.then.i.i.i
-  %edgeSelectors.i = getelementptr inbounds %"class.msdfgen::ShapeDistanceFinder.40", ptr %this, i64 0, i32 1, i32 2
+  %edgeSelectors.i = getelementptr inbounds i8, ptr %this, i64 48
   %1 = load ptr, ptr %edgeSelectors.i, align 8
   %tobool.not.i.i.i.i = icmp eq ptr %1, null
   br i1 %tobool.not.i.i.i.i, label %_ZNSt6vectorIN7msdfgen21MultiDistanceSelectorESaIS1_EED2Ev.exit.i, label %if.then.i.i.i.i
@@ -3698,7 +3683,7 @@ if.then.i.i.i.i:                                  ; preds = %_ZNSt6vectorIN7msdf
   br label %_ZNSt6vectorIN7msdfgen21MultiDistanceSelectorESaIS1_EED2Ev.exit.i
 
 _ZNSt6vectorIN7msdfgen21MultiDistanceSelectorESaIS1_EED2Ev.exit.i: ; preds = %if.then.i.i.i.i, %_ZNSt6vectorIN7msdfgen26PseudoDistanceSelectorBase9EdgeCacheESaIS2_EED2Ev.exit
-  %windings.i = getelementptr inbounds %"class.msdfgen::ShapeDistanceFinder.40", ptr %this, i64 0, i32 1, i32 1
+  %windings.i = getelementptr inbounds i8, ptr %this, i64 24
   %2 = load ptr, ptr %windings.i, align 8
   %tobool.not.i.i.i1.i = icmp eq ptr %2, null
   br i1 %tobool.not.i.i.i1.i, label %_ZN7msdfgen26OverlappingContourCombinerINS_21MultiDistanceSelectorEED2Ev.exit, label %if.then.i.i.i2.i
@@ -3716,7 +3701,7 @@ declare void @_ZN7msdfgen26OverlappingContourCombinerINS_21MultiDistanceSelector
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr dso_local void @_ZN7msdfgen26OverlappingContourCombinerINS_21MultiDistanceSelectorEED2Ev(ptr noundef nonnull align 8 dereferenceable(64) %this) unnamed_addr #4 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  %edgeSelectors = getelementptr inbounds %"class.msdfgen::OverlappingContourCombiner.41", ptr %this, i64 0, i32 2
+  %edgeSelectors = getelementptr inbounds i8, ptr %this, i64 40
   %0 = load ptr, ptr %edgeSelectors, align 8
   %tobool.not.i.i.i = icmp eq ptr %0, null
   br i1 %tobool.not.i.i.i, label %_ZNSt6vectorIN7msdfgen21MultiDistanceSelectorESaIS1_EED2Ev.exit, label %if.then.i.i.i
@@ -3726,7 +3711,7 @@ if.then.i.i.i:                                    ; preds = %entry
   br label %_ZNSt6vectorIN7msdfgen21MultiDistanceSelectorESaIS1_EED2Ev.exit
 
 _ZNSt6vectorIN7msdfgen21MultiDistanceSelectorESaIS1_EED2Ev.exit: ; preds = %entry, %if.then.i.i.i
-  %windings = getelementptr inbounds %"class.msdfgen::OverlappingContourCombiner.41", ptr %this, i64 0, i32 1
+  %windings = getelementptr inbounds i8, ptr %this, i64 16
   %1 = load ptr, ptr %windings, align 8
   %tobool.not.i.i.i1 = icmp eq ptr %1, null
   br i1 %tobool.not.i.i.i1, label %_ZNSt6vectorIiSaIiEED2Ev.exit, label %if.then.i.i.i2
@@ -3758,7 +3743,7 @@ declare void @_ZNK7msdfgen21SimpleContourCombinerINS_21MultiDistanceSelectorEE8d
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr dso_local void @_ZN7msdfgen19ShapeDistanceFinderINS_26OverlappingContourCombinerINS_28MultiAndTrueDistanceSelectorEEEED2Ev(ptr noundef nonnull align 8 dereferenceable(96) %this) unnamed_addr #4 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  %shapeEdgeCache = getelementptr inbounds %"class.msdfgen::ShapeDistanceFinder.50", ptr %this, i64 0, i32 2
+  %shapeEdgeCache = getelementptr inbounds i8, ptr %this, i64 72
   %0 = load ptr, ptr %shapeEdgeCache, align 8
   %tobool.not.i.i.i = icmp eq ptr %0, null
   br i1 %tobool.not.i.i.i, label %_ZNSt6vectorIN7msdfgen26PseudoDistanceSelectorBase9EdgeCacheESaIS2_EED2Ev.exit, label %if.then.i.i.i
@@ -3768,7 +3753,7 @@ if.then.i.i.i:                                    ; preds = %entry
   br label %_ZNSt6vectorIN7msdfgen26PseudoDistanceSelectorBase9EdgeCacheESaIS2_EED2Ev.exit
 
 _ZNSt6vectorIN7msdfgen26PseudoDistanceSelectorBase9EdgeCacheESaIS2_EED2Ev.exit: ; preds = %entry, %if.then.i.i.i
-  %edgeSelectors.i = getelementptr inbounds %"class.msdfgen::ShapeDistanceFinder.50", ptr %this, i64 0, i32 1, i32 2
+  %edgeSelectors.i = getelementptr inbounds i8, ptr %this, i64 48
   %1 = load ptr, ptr %edgeSelectors.i, align 8
   %tobool.not.i.i.i.i = icmp eq ptr %1, null
   br i1 %tobool.not.i.i.i.i, label %_ZNSt6vectorIN7msdfgen28MultiAndTrueDistanceSelectorESaIS1_EED2Ev.exit.i, label %if.then.i.i.i.i
@@ -3778,7 +3763,7 @@ if.then.i.i.i.i:                                  ; preds = %_ZNSt6vectorIN7msdf
   br label %_ZNSt6vectorIN7msdfgen28MultiAndTrueDistanceSelectorESaIS1_EED2Ev.exit.i
 
 _ZNSt6vectorIN7msdfgen28MultiAndTrueDistanceSelectorESaIS1_EED2Ev.exit.i: ; preds = %if.then.i.i.i.i, %_ZNSt6vectorIN7msdfgen26PseudoDistanceSelectorBase9EdgeCacheESaIS2_EED2Ev.exit
-  %windings.i = getelementptr inbounds %"class.msdfgen::ShapeDistanceFinder.50", ptr %this, i64 0, i32 1, i32 1
+  %windings.i = getelementptr inbounds i8, ptr %this, i64 24
   %2 = load ptr, ptr %windings.i, align 8
   %tobool.not.i.i.i1.i = icmp eq ptr %2, null
   br i1 %tobool.not.i.i.i1.i, label %_ZN7msdfgen26OverlappingContourCombinerINS_28MultiAndTrueDistanceSelectorEED2Ev.exit, label %if.then.i.i.i2.i
@@ -3796,7 +3781,7 @@ declare void @_ZN7msdfgen26OverlappingContourCombinerINS_28MultiAndTrueDistanceS
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr dso_local void @_ZN7msdfgen26OverlappingContourCombinerINS_28MultiAndTrueDistanceSelectorEED2Ev(ptr noundef nonnull align 8 dereferenceable(64) %this) unnamed_addr #4 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  %edgeSelectors = getelementptr inbounds %"class.msdfgen::OverlappingContourCombiner.51", ptr %this, i64 0, i32 2
+  %edgeSelectors = getelementptr inbounds i8, ptr %this, i64 40
   %0 = load ptr, ptr %edgeSelectors, align 8
   %tobool.not.i.i.i = icmp eq ptr %0, null
   br i1 %tobool.not.i.i.i, label %_ZNSt6vectorIN7msdfgen28MultiAndTrueDistanceSelectorESaIS1_EED2Ev.exit, label %if.then.i.i.i
@@ -3806,7 +3791,7 @@ if.then.i.i.i:                                    ; preds = %entry
   br label %_ZNSt6vectorIN7msdfgen28MultiAndTrueDistanceSelectorESaIS1_EED2Ev.exit
 
 _ZNSt6vectorIN7msdfgen28MultiAndTrueDistanceSelectorESaIS1_EED2Ev.exit: ; preds = %entry, %if.then.i.i.i
-  %windings = getelementptr inbounds %"class.msdfgen::OverlappingContourCombiner.51", ptr %this, i64 0, i32 1
+  %windings = getelementptr inbounds i8, ptr %this, i64 16
   %1 = load ptr, ptr %windings, align 8
   %tobool.not.i.i.i1 = icmp eq ptr %1, null
   br i1 %tobool.not.i.i.i1, label %_ZNSt6vectorIiSaIiEED2Ev.exit, label %if.then.i.i.i2

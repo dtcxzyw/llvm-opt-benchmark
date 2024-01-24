@@ -46,7 +46,7 @@ define void @_ZN5alloc3str17join_generic_copy17h8531bef9cec6e33cE(ptr nocapture 
   %28 = icmp ne ptr %1, null
   tail call void @llvm.assume(i1 %28)
   store ptr %1, ptr %26, align 8
-  %29 = getelementptr inbounds { ptr, ptr }, ptr %26, i64 0, i32 1
+  %29 = getelementptr inbounds i8, ptr %26, i64 8
   store ptr %27, ptr %29, align 8
   %30 = call align 8 ptr @"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h8463f334dd593fc5E"(ptr nonnull align 8 %26)
   %31 = icmp eq ptr %30, null
@@ -54,7 +54,7 @@ define void @_ZN5alloc3str17join_generic_copy17h8531bef9cec6e33cE(ptr nocapture 
 
 32:                                               ; preds = %5
   store ptr inttoptr (i64 1 to ptr), ptr %0, align 8
-  %33 = getelementptr inbounds { ptr, i64 }, ptr %0, i64 0, i32 1
+  %33 = getelementptr inbounds i8, ptr %0, i64 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %33, i8 0, i64 16, i1 false)
   br label %43
 
@@ -76,7 +76,7 @@ define void @_ZN5alloc3str17join_generic_copy17h8531bef9cec6e33cE(ptr nocapture 
   %45 = extractvalue { i64, i1 } %41, 0
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %6)
   store ptr %1, ptr %6, align 8
-  %46 = getelementptr inbounds { ptr, ptr }, ptr %6, i64 0, i32 1
+  %46 = getelementptr inbounds i8, ptr %6, i64 8
   store ptr %27, ptr %46, align 8
   %47 = call { i64, i64 } @"_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$8try_fold17h27baa767ee37b12aE"(ptr nonnull align 8 %6, i64 %45)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %6)
@@ -94,9 +94,9 @@ define void @_ZN5alloc3str17join_generic_copy17h8531bef9cec6e33cE(ptr nocapture 
   %51 = extractvalue { ptr, i64 } %50, 0
   %52 = extractvalue { ptr, i64 } %50, 1
   store ptr %51, ptr %25, align 8
-  %53 = getelementptr inbounds { ptr, i64 }, ptr %25, i64 0, i32 1
+  %53 = getelementptr inbounds i8, ptr %25, i64 8
   store i64 %52, ptr %53, align 8
-  %54 = getelementptr inbounds { { ptr, i64 }, i64 }, ptr %25, i64 0, i32 1
+  %54 = getelementptr inbounds i8, ptr %25, i64 16
   store i64 0, ptr %54, align 8
   %55 = invoke { ptr, i64 } @"_ZN5alloc3str83_$LT$impl$u20$core..borrow..Borrow$LT$str$GT$$u20$for$u20$alloc..string..String$GT$6borrow17h44c468b197c32526E"(ptr nonnull align 8 %30)
           to label %56 unwind label %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp
@@ -173,74 +173,74 @@ define void @_ZN5alloc3str17join_generic_copy17h8531bef9cec6e33cE(ptr nocapture 
 
 71:                                               ; preds = %66
   store ptr %69, ptr %9, align 8
-  %72 = getelementptr inbounds { ptr, ptr }, ptr %9, i64 0, i32 1
+  %72 = getelementptr inbounds i8, ptr %9, i64 8
   store ptr %70, ptr %72, align 8
-  %73 = getelementptr inbounds { ptr, i64 }, ptr %8, i64 0, i32 1
-  %74 = getelementptr inbounds { { ptr, i64 }, { ptr, i64 } }, ptr %8, i64 0, i32 1
-  %75 = getelementptr inbounds { { ptr, i64 }, { ptr, i64 } }, ptr %8, i64 0, i32 1, i32 1
-  %76 = getelementptr inbounds { ptr, i64 }, ptr %7, i64 0, i32 1
-  %77 = getelementptr inbounds { { ptr, i64 }, { ptr, i64 } }, ptr %7, i64 0, i32 1
-  %78 = getelementptr inbounds { { ptr, i64 }, { ptr, i64 } }, ptr %7, i64 0, i32 1, i32 1
+  %73 = getelementptr inbounds i8, ptr %8, i64 8
+  %74 = getelementptr inbounds i8, ptr %8, i64 16
+  %75 = getelementptr inbounds i8, ptr %8, i64 24
+  %76 = getelementptr inbounds i8, ptr %7, i64 8
+  %77 = getelementptr inbounds i8, ptr %7, i64 16
+  %78 = getelementptr inbounds i8, ptr %7, i64 24
   br label %206
 
 79:                                               ; preds = %66
   store ptr %69, ptr %24, align 8
-  %80 = getelementptr inbounds { ptr, ptr }, ptr %24, i64 0, i32 1
+  %80 = getelementptr inbounds i8, ptr %24, i64 8
   store ptr %70, ptr %80, align 8
-  %81 = getelementptr inbounds { ptr, i64 }, ptr %23, i64 0, i32 1
-  %82 = getelementptr inbounds { { ptr, i64 }, { ptr, i64 } }, ptr %23, i64 0, i32 1
-  %83 = getelementptr inbounds { { ptr, i64 }, { ptr, i64 } }, ptr %23, i64 0, i32 1, i32 1
-  %84 = getelementptr inbounds { ptr, i64 }, ptr %22, i64 0, i32 1
-  %85 = getelementptr inbounds { { ptr, i64 }, { ptr, i64 } }, ptr %22, i64 0, i32 1
-  %86 = getelementptr inbounds { { ptr, i64 }, { ptr, i64 } }, ptr %22, i64 0, i32 1, i32 1
+  %81 = getelementptr inbounds i8, ptr %23, i64 8
+  %82 = getelementptr inbounds i8, ptr %23, i64 16
+  %83 = getelementptr inbounds i8, ptr %23, i64 24
+  %84 = getelementptr inbounds i8, ptr %22, i64 8
+  %85 = getelementptr inbounds i8, ptr %22, i64 16
+  %86 = getelementptr inbounds i8, ptr %22, i64 24
   br label %119
 
 87:                                               ; preds = %66
   store ptr %69, ptr %21, align 8
-  %88 = getelementptr inbounds { ptr, ptr }, ptr %21, i64 0, i32 1
+  %88 = getelementptr inbounds i8, ptr %21, i64 8
   store ptr %70, ptr %88, align 8
-  %89 = getelementptr inbounds { ptr, i64 }, ptr %20, i64 0, i32 1
-  %90 = getelementptr inbounds { { ptr, i64 }, { ptr, i64 } }, ptr %20, i64 0, i32 1
-  %91 = getelementptr inbounds { { ptr, i64 }, { ptr, i64 } }, ptr %20, i64 0, i32 1, i32 1
-  %92 = getelementptr inbounds { ptr, i64 }, ptr %19, i64 0, i32 1
-  %93 = getelementptr inbounds { { ptr, i64 }, { ptr, i64 } }, ptr %19, i64 0, i32 1
-  %94 = getelementptr inbounds { { ptr, i64 }, { ptr, i64 } }, ptr %19, i64 0, i32 1, i32 1
+  %89 = getelementptr inbounds i8, ptr %20, i64 8
+  %90 = getelementptr inbounds i8, ptr %20, i64 16
+  %91 = getelementptr inbounds i8, ptr %20, i64 24
+  %92 = getelementptr inbounds i8, ptr %19, i64 8
+  %93 = getelementptr inbounds i8, ptr %19, i64 16
+  %94 = getelementptr inbounds i8, ptr %19, i64 24
   br label %138
 
 95:                                               ; preds = %66
   store ptr %69, ptr %18, align 8
-  %96 = getelementptr inbounds { ptr, ptr }, ptr %18, i64 0, i32 1
+  %96 = getelementptr inbounds i8, ptr %18, i64 8
   store ptr %70, ptr %96, align 8
-  %97 = getelementptr inbounds { ptr, i64 }, ptr %17, i64 0, i32 1
-  %98 = getelementptr inbounds { { ptr, i64 }, { ptr, i64 } }, ptr %17, i64 0, i32 1
-  %99 = getelementptr inbounds { { ptr, i64 }, { ptr, i64 } }, ptr %17, i64 0, i32 1, i32 1
-  %100 = getelementptr inbounds { ptr, i64 }, ptr %16, i64 0, i32 1
-  %101 = getelementptr inbounds { { ptr, i64 }, { ptr, i64 } }, ptr %16, i64 0, i32 1
-  %102 = getelementptr inbounds { { ptr, i64 }, { ptr, i64 } }, ptr %16, i64 0, i32 1, i32 1
+  %97 = getelementptr inbounds i8, ptr %17, i64 8
+  %98 = getelementptr inbounds i8, ptr %17, i64 16
+  %99 = getelementptr inbounds i8, ptr %17, i64 24
+  %100 = getelementptr inbounds i8, ptr %16, i64 8
+  %101 = getelementptr inbounds i8, ptr %16, i64 16
+  %102 = getelementptr inbounds i8, ptr %16, i64 24
   br label %155
 
 103:                                              ; preds = %66
   store ptr %69, ptr %15, align 8
-  %104 = getelementptr inbounds { ptr, ptr }, ptr %15, i64 0, i32 1
+  %104 = getelementptr inbounds i8, ptr %15, i64 8
   store ptr %70, ptr %104, align 8
-  %105 = getelementptr inbounds { ptr, i64 }, ptr %14, i64 0, i32 1
-  %106 = getelementptr inbounds { { ptr, i64 }, { ptr, i64 } }, ptr %14, i64 0, i32 1
-  %107 = getelementptr inbounds { { ptr, i64 }, { ptr, i64 } }, ptr %14, i64 0, i32 1, i32 1
-  %108 = getelementptr inbounds { ptr, i64 }, ptr %13, i64 0, i32 1
-  %109 = getelementptr inbounds { { ptr, i64 }, { ptr, i64 } }, ptr %13, i64 0, i32 1
-  %110 = getelementptr inbounds { { ptr, i64 }, { ptr, i64 } }, ptr %13, i64 0, i32 1, i32 1
+  %105 = getelementptr inbounds i8, ptr %14, i64 8
+  %106 = getelementptr inbounds i8, ptr %14, i64 16
+  %107 = getelementptr inbounds i8, ptr %14, i64 24
+  %108 = getelementptr inbounds i8, ptr %13, i64 8
+  %109 = getelementptr inbounds i8, ptr %13, i64 16
+  %110 = getelementptr inbounds i8, ptr %13, i64 24
   br label %172
 
 111:                                              ; preds = %66
   store ptr %69, ptr %12, align 8
-  %112 = getelementptr inbounds { ptr, ptr }, ptr %12, i64 0, i32 1
+  %112 = getelementptr inbounds i8, ptr %12, i64 8
   store ptr %70, ptr %112, align 8
-  %113 = getelementptr inbounds { ptr, i64 }, ptr %11, i64 0, i32 1
-  %114 = getelementptr inbounds { { ptr, i64 }, { ptr, i64 } }, ptr %11, i64 0, i32 1
-  %115 = getelementptr inbounds { { ptr, i64 }, { ptr, i64 } }, ptr %11, i64 0, i32 1, i32 1
-  %116 = getelementptr inbounds { ptr, i64 }, ptr %10, i64 0, i32 1
-  %117 = getelementptr inbounds { { ptr, i64 }, { ptr, i64 } }, ptr %10, i64 0, i32 1
-  %118 = getelementptr inbounds { { ptr, i64 }, { ptr, i64 } }, ptr %10, i64 0, i32 1, i32 1
+  %113 = getelementptr inbounds i8, ptr %11, i64 8
+  %114 = getelementptr inbounds i8, ptr %11, i64 16
+  %115 = getelementptr inbounds i8, ptr %11, i64 24
+  %116 = getelementptr inbounds i8, ptr %10, i64 8
+  %117 = getelementptr inbounds i8, ptr %10, i64 16
+  %118 = getelementptr inbounds i8, ptr %10, i64 24
   br label %189
 
 119:                                              ; preds = %133, %79
@@ -498,7 +498,7 @@ define { i64, i64 } @"_ZN5alloc3str17join_generic_copy28_$u7b$$u7b$closure$u7d$$
   tail call void @llvm.assume(i1 %5)
   %6 = getelementptr inbounds { { { ptr, i64 }, i64 } }, ptr %0, i64 %1
   store ptr %0, ptr %4, align 8
-  %7 = getelementptr inbounds { ptr, ptr }, ptr %4, i64 0, i32 1
+  %7 = getelementptr inbounds i8, ptr %4, i64 8
   store ptr %6, ptr %7, align 8
   %8 = call { i64, i64 } @"_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$8try_fold17h27baa767ee37b12aE"(ptr nonnull align 8 %4, i64 %2)
   ret { i64, i64 } %8

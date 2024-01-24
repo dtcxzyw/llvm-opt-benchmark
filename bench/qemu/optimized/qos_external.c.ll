@@ -3,12 +3,6 @@ source_filename = "bench/qemu/original/qos_external.c.ll"
 target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:128-n8:16:32:64-S128"
 target triple = "x86_64-unknown-linux-gnu"
 
-%struct.MachineInfoList = type { ptr, ptr }
-%struct.MachineInfo = type { ptr, ptr, i8, i8, i64, i8, i8, i8, ptr, ptr, i8 }
-%struct.ObjectTypeInfoList = type { ptr, ptr }
-%struct.ObjectTypeInfo = type { ptr, i8, i8, ptr }
-%struct.QOSGraphObject = type { ptr, ptr, ptr, ptr, ptr }
-
 @.str = private unnamed_addr constant [42 x i8] c"../qemu/tests/qtest/libqos/qos_external.c\00", align 1
 @__func__.allocate_objects = private unnamed_addr constant [17 x i8] c"allocate_objects\00", align 1
 @.str.1 = private unnamed_addr constant [28 x i8] c"node->type == QNODE_MACHINE\00", align 1
@@ -24,7 +18,7 @@ entry:
 
 for.body:                                         ; preds = %entry, %for.inc
   %tail.08 = phi ptr [ %4, %for.inc ], [ %mach_info, %entry ]
-  %value = getelementptr inbounds %struct.MachineInfoList, ptr %tail.08, i64 0, i32 1
+  %value = getelementptr inbounds i8, ptr %tail.08, i64 8
   %0 = load ptr, ptr %value, align 8
   %1 = load ptr, ptr %0, align 8
   %call.i = tail call ptr @qtest_get_arch() #3
@@ -32,7 +26,7 @@ for.body:                                         ; preds = %entry, %for.inc
   tail call void @qos_graph_node_set_availability(ptr noundef %call1.i, i1 noundef zeroext true) #3
   tail call void @g_free(ptr noundef %call1.i) #3
   %2 = load ptr, ptr %value, align 8
-  %alias = getelementptr inbounds %struct.MachineInfo, ptr %2, i64 0, i32 1
+  %alias = getelementptr inbounds i8, ptr %2, i64 8
   %3 = load ptr, ptr %alias, align 8
   %tobool2.not = icmp eq ptr %3, null
   br i1 %tobool2.not, label %for.inc, label %if.then
@@ -61,10 +55,10 @@ entry:
 
 for.body:                                         ; preds = %entry, %type_apply_to_node.exit
   %tail.05 = phi ptr [ %4, %type_apply_to_node.exit ], [ %type_info, %entry ]
-  %value = getelementptr inbounds %struct.ObjectTypeInfoList, ptr %tail.05, i64 0, i32 1
+  %value = getelementptr inbounds i8, ptr %tail.05, i64 8
   %0 = load ptr, ptr %value, align 8
   %1 = load ptr, ptr %0, align 8
-  %abstract = getelementptr inbounds %struct.ObjectTypeInfo, ptr %0, i64 0, i32 2
+  %abstract = getelementptr inbounds i8, ptr %0, i64 9
   %2 = load i8, ptr %abstract, align 1
   %3 = and i8 %2, 1
   %tobool2.not = icmp eq i8 %3, 0
@@ -181,7 +175,7 @@ sw.bb32:                                          ; preds = %if.end27
 
 sw.bb35:                                          ; preds = %if.end27
   %arrayidx12.le = getelementptr ptr, ptr %path, i64 %idxprom11
-  %get_device = getelementptr inbounds %struct.QOSGraphObject, ptr %parent.1, i64 0, i32 1
+  %get_device = getelementptr inbounds i8, ptr %parent.1, i64 8
   %10 = load ptr, ptr %get_device, align 8
   %11 = load ptr, ptr %arrayidx12.le, align 8
   %call38 = tail call ptr %10(ptr noundef %parent.1, ptr noundef %11) #3

@@ -3,19 +3,11 @@ source_filename = "bench/libquic/original/x509_cmp.c.ll"
 target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:128-n8:16:32:64-S128"
 target triple = "x86_64-unknown-linux-gnu"
 
+%struct.env_md_ctx_st = type { ptr, ptr, ptr, ptr }
 %struct.x509_cinf_st = type { ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, %struct.ASN1_ENCODING_st }
 %struct.ASN1_ENCODING_st = type { ptr, i64, i32 }
-%struct.X509_name_st = type { ptr, i32, ptr, ptr, i32 }
-%struct.env_md_ctx_st = type { ptr, ptr, ptr, ptr }
-%struct.asn1_string_st = type { i32, i32, ptr, i64 }
-%struct.X509_crl_info_st = type { ptr, ptr, ptr, ptr, ptr, ptr, ptr, %struct.ASN1_ENCODING_st }
-%struct.X509_crl_st = type { ptr, ptr, ptr, i32, i32, ptr, ptr, i32, i32, ptr, ptr, [20 x i8], ptr, ptr, ptr }
-%struct.buf_mem_st = type { i64, ptr, i64 }
 %struct.x509_st = type { ptr, ptr, ptr, i32, i32, ptr, %struct.crypto_ex_data_st, i64, i64, i64, i64, i64, i64, ptr, ptr, ptr, ptr, ptr, ptr, [20 x i8], ptr }
 %struct.crypto_ex_data_st = type { ptr }
-%struct.X509_pubkey_st = type { ptr, ptr, ptr }
-%struct.evp_pkey_st = type { i32, i32, %union.anon, ptr }
-%union.anon = type { ptr }
 
 @.str = private unnamed_addr constant [126 x i8] c"generated/home/dtcxzyw/WorkSpace/Projects/compilers/llvm-opt-benchmark/bench/libquic/libquic/boringssl/crypto/x509/x509_cmp.c\00", align 1
 
@@ -24,26 +16,26 @@ define hidden i32 @X509_issuer_and_serial_cmp(ptr nocapture noundef readonly %a,
 entry:
   %0 = load ptr, ptr %a, align 8
   %1 = load ptr, ptr %b, align 8
-  %serialNumber = getelementptr inbounds %struct.x509_cinf_st, ptr %0, i64 0, i32 1
+  %serialNumber = getelementptr inbounds i8, ptr %0, i64 8
   %2 = load ptr, ptr %serialNumber, align 8
-  %serialNumber2 = getelementptr inbounds %struct.x509_cinf_st, ptr %1, i64 0, i32 1
+  %serialNumber2 = getelementptr inbounds i8, ptr %1, i64 8
   %3 = load ptr, ptr %serialNumber2, align 8
   %call = tail call i32 @ASN1_STRING_cmp(ptr noundef %2, ptr noundef %3) #8
   %tobool.not = icmp eq i32 %call, 0
   br i1 %tobool.not, label %if.end, label %return
 
 if.end:                                           ; preds = %entry
-  %issuer = getelementptr inbounds %struct.x509_cinf_st, ptr %0, i64 0, i32 3
+  %issuer = getelementptr inbounds i8, ptr %0, i64 24
   %4 = load ptr, ptr %issuer, align 8
-  %issuer3 = getelementptr inbounds %struct.x509_cinf_st, ptr %1, i64 0, i32 3
+  %issuer3 = getelementptr inbounds i8, ptr %1, i64 24
   %5 = load ptr, ptr %issuer3, align 8
-  %canon_enc.i = getelementptr inbounds %struct.X509_name_st, ptr %4, i64 0, i32 3
+  %canon_enc.i = getelementptr inbounds i8, ptr %4, i64 24
   %6 = load ptr, ptr %canon_enc.i, align 8
   %tobool.not.i = icmp eq ptr %6, null
   br i1 %tobool.not.i, label %if.then.i, label %lor.lhs.false.i
 
 lor.lhs.false.i:                                  ; preds = %if.end
-  %modified.i = getelementptr inbounds %struct.X509_name_st, ptr %4, i64 0, i32 1
+  %modified.i = getelementptr inbounds i8, ptr %4, i64 8
   %7 = load i32, ptr %modified.i, align 8
   %tobool1.not.i = icmp eq i32 %7, 0
   br i1 %tobool1.not.i, label %if.end3.i, label %if.then.i
@@ -54,13 +46,13 @@ if.then.i:                                        ; preds = %lor.lhs.false.i, %i
   br i1 %cmp.i, label %return, label %if.end3.i
 
 if.end3.i:                                        ; preds = %if.then.i, %lor.lhs.false.i
-  %canon_enc4.i = getelementptr inbounds %struct.X509_name_st, ptr %5, i64 0, i32 3
+  %canon_enc4.i = getelementptr inbounds i8, ptr %5, i64 24
   %8 = load ptr, ptr %canon_enc4.i, align 8
   %tobool5.not.i = icmp eq ptr %8, null
   br i1 %tobool5.not.i, label %if.then9.i, label %lor.lhs.false6.i
 
 lor.lhs.false6.i:                                 ; preds = %if.end3.i
-  %modified7.i = getelementptr inbounds %struct.X509_name_st, ptr %5, i64 0, i32 1
+  %modified7.i = getelementptr inbounds i8, ptr %5, i64 8
   %9 = load i32, ptr %modified7.i, align 8
   %tobool8.not.i = icmp eq i32 %9, 0
   br i1 %tobool8.not.i, label %if.end14.i, label %if.then9.i
@@ -71,9 +63,9 @@ if.then9.i:                                       ; preds = %lor.lhs.false6.i, %
   br i1 %cmp11.i, label %return, label %if.end14.i
 
 if.end14.i:                                       ; preds = %if.then9.i, %lor.lhs.false6.i
-  %canon_enclen.i = getelementptr inbounds %struct.X509_name_st, ptr %4, i64 0, i32 4
+  %canon_enclen.i = getelementptr inbounds i8, ptr %4, i64 32
   %10 = load i32, ptr %canon_enclen.i, align 8
-  %canon_enclen15.i = getelementptr inbounds %struct.X509_name_st, ptr %5, i64 0, i32 4
+  %canon_enclen15.i = getelementptr inbounds i8, ptr %5, i64 32
   %11 = load i32, ptr %canon_enclen15.i, align 8
   %sub.i = sub nsw i32 %10, %11
   %tobool16.not.i = icmp eq i32 %sub.i, 0
@@ -96,13 +88,13 @@ declare i32 @ASN1_STRING_cmp(ptr noundef, ptr noundef) local_unnamed_addr #1
 ; Function Attrs: nounwind uwtable
 define hidden i32 @X509_NAME_cmp(ptr noundef %a, ptr noundef %b) local_unnamed_addr #0 {
 entry:
-  %canon_enc = getelementptr inbounds %struct.X509_name_st, ptr %a, i64 0, i32 3
+  %canon_enc = getelementptr inbounds i8, ptr %a, i64 24
   %0 = load ptr, ptr %canon_enc, align 8
   %tobool.not = icmp eq ptr %0, null
   br i1 %tobool.not, label %if.then, label %lor.lhs.false
 
 lor.lhs.false:                                    ; preds = %entry
-  %modified = getelementptr inbounds %struct.X509_name_st, ptr %a, i64 0, i32 1
+  %modified = getelementptr inbounds i8, ptr %a, i64 8
   %1 = load i32, ptr %modified, align 8
   %tobool1.not = icmp eq i32 %1, 0
   br i1 %tobool1.not, label %if.end3, label %if.then
@@ -113,13 +105,13 @@ if.then:                                          ; preds = %lor.lhs.false, %ent
   br i1 %cmp, label %return, label %if.end3
 
 if.end3:                                          ; preds = %if.then, %lor.lhs.false
-  %canon_enc4 = getelementptr inbounds %struct.X509_name_st, ptr %b, i64 0, i32 3
+  %canon_enc4 = getelementptr inbounds i8, ptr %b, i64 24
   %2 = load ptr, ptr %canon_enc4, align 8
   %tobool5.not = icmp eq ptr %2, null
   br i1 %tobool5.not, label %if.then9, label %lor.lhs.false6
 
 lor.lhs.false6:                                   ; preds = %if.end3
-  %modified7 = getelementptr inbounds %struct.X509_name_st, ptr %b, i64 0, i32 1
+  %modified7 = getelementptr inbounds i8, ptr %b, i64 8
   %3 = load i32, ptr %modified7, align 8
   %tobool8.not = icmp eq i32 %3, 0
   br i1 %tobool8.not, label %if.end14, label %if.then9
@@ -130,9 +122,9 @@ if.then9:                                         ; preds = %lor.lhs.false6, %if
   br i1 %cmp11, label %return, label %if.end14
 
 if.end14:                                         ; preds = %if.then9, %lor.lhs.false6
-  %canon_enclen = getelementptr inbounds %struct.X509_name_st, ptr %a, i64 0, i32 4
+  %canon_enclen = getelementptr inbounds i8, ptr %a, i64 32
   %4 = load i32, ptr %canon_enclen, align 8
-  %canon_enclen15 = getelementptr inbounds %struct.X509_name_st, ptr %b, i64 0, i32 4
+  %canon_enclen15 = getelementptr inbounds i8, ptr %b, i64 32
   %5 = load i32, ptr %canon_enclen15, align 8
   %sub = sub nsw i32 %4, %5
   %tobool16.not = icmp eq i32 %sub, 0
@@ -157,7 +149,7 @@ entry:
   %md = alloca [16 x i8], align 16
   call void @EVP_MD_CTX_init(ptr noundef nonnull %ctx) #8
   %0 = load ptr, ptr %a, align 8
-  %issuer = getelementptr inbounds %struct.x509_cinf_st, ptr %0, i64 0, i32 3
+  %issuer = getelementptr inbounds i8, ptr %0, i64 24
   %1 = load ptr, ptr %issuer, align 8
   %call = call ptr @X509_NAME_oneline(ptr noundef %1, ptr noundef null, i32 noundef 0) #8
   %call1 = call ptr @EVP_md5() #8
@@ -174,9 +166,9 @@ if.end:                                           ; preds = %entry
 if.end7:                                          ; preds = %if.end
   call void @free(ptr noundef %call) #8
   %2 = load ptr, ptr %a, align 8
-  %serialNumber = getelementptr inbounds %struct.x509_cinf_st, ptr %2, i64 0, i32 1
+  %serialNumber = getelementptr inbounds i8, ptr %2, i64 8
   %3 = load ptr, ptr %serialNumber, align 8
-  %data = getelementptr inbounds %struct.asn1_string_st, ptr %3, i64 0, i32 2
+  %data = getelementptr inbounds i8, ptr %3, i64 8
   %4 = load ptr, ptr %data, align 8
   %5 = load i32, ptr %3, align 8
   %conv = sext i32 %5 to i64
@@ -224,18 +216,18 @@ declare i32 @EVP_MD_CTX_cleanup(ptr noundef) local_unnamed_addr #1
 define hidden i32 @X509_issuer_name_cmp(ptr nocapture noundef readonly %a, ptr nocapture noundef readonly %b) local_unnamed_addr #0 {
 entry:
   %0 = load ptr, ptr %a, align 8
-  %issuer = getelementptr inbounds %struct.x509_cinf_st, ptr %0, i64 0, i32 3
+  %issuer = getelementptr inbounds i8, ptr %0, i64 24
   %1 = load ptr, ptr %issuer, align 8
   %2 = load ptr, ptr %b, align 8
-  %issuer2 = getelementptr inbounds %struct.x509_cinf_st, ptr %2, i64 0, i32 3
+  %issuer2 = getelementptr inbounds i8, ptr %2, i64 24
   %3 = load ptr, ptr %issuer2, align 8
-  %canon_enc.i = getelementptr inbounds %struct.X509_name_st, ptr %1, i64 0, i32 3
+  %canon_enc.i = getelementptr inbounds i8, ptr %1, i64 24
   %4 = load ptr, ptr %canon_enc.i, align 8
   %tobool.not.i = icmp eq ptr %4, null
   br i1 %tobool.not.i, label %if.then.i, label %lor.lhs.false.i
 
 lor.lhs.false.i:                                  ; preds = %entry
-  %modified.i = getelementptr inbounds %struct.X509_name_st, ptr %1, i64 0, i32 1
+  %modified.i = getelementptr inbounds i8, ptr %1, i64 8
   %5 = load i32, ptr %modified.i, align 8
   %tobool1.not.i = icmp eq i32 %5, 0
   br i1 %tobool1.not.i, label %if.end3.i, label %if.then.i
@@ -246,13 +238,13 @@ if.then.i:                                        ; preds = %lor.lhs.false.i, %e
   br i1 %cmp.i, label %X509_NAME_cmp.exit, label %if.end3.i
 
 if.end3.i:                                        ; preds = %if.then.i, %lor.lhs.false.i
-  %canon_enc4.i = getelementptr inbounds %struct.X509_name_st, ptr %3, i64 0, i32 3
+  %canon_enc4.i = getelementptr inbounds i8, ptr %3, i64 24
   %6 = load ptr, ptr %canon_enc4.i, align 8
   %tobool5.not.i = icmp eq ptr %6, null
   br i1 %tobool5.not.i, label %if.then9.i, label %lor.lhs.false6.i
 
 lor.lhs.false6.i:                                 ; preds = %if.end3.i
-  %modified7.i = getelementptr inbounds %struct.X509_name_st, ptr %3, i64 0, i32 1
+  %modified7.i = getelementptr inbounds i8, ptr %3, i64 8
   %7 = load i32, ptr %modified7.i, align 8
   %tobool8.not.i = icmp eq i32 %7, 0
   br i1 %tobool8.not.i, label %if.end14.i, label %if.then9.i
@@ -263,9 +255,9 @@ if.then9.i:                                       ; preds = %lor.lhs.false6.i, %
   br i1 %cmp11.i, label %X509_NAME_cmp.exit, label %if.end14.i
 
 if.end14.i:                                       ; preds = %if.then9.i, %lor.lhs.false6.i
-  %canon_enclen.i = getelementptr inbounds %struct.X509_name_st, ptr %1, i64 0, i32 4
+  %canon_enclen.i = getelementptr inbounds i8, ptr %1, i64 32
   %8 = load i32, ptr %canon_enclen.i, align 8
-  %canon_enclen15.i = getelementptr inbounds %struct.X509_name_st, ptr %3, i64 0, i32 4
+  %canon_enclen15.i = getelementptr inbounds i8, ptr %3, i64 32
   %9 = load i32, ptr %canon_enclen15.i, align 8
   %sub.i = sub nsw i32 %8, %9
   %tobool16.not.i = icmp eq i32 %sub.i, 0
@@ -287,18 +279,18 @@ X509_NAME_cmp.exit:                               ; preds = %if.then.i, %if.then
 define hidden i32 @X509_subject_name_cmp(ptr nocapture noundef readonly %a, ptr nocapture noundef readonly %b) local_unnamed_addr #0 {
 entry:
   %0 = load ptr, ptr %a, align 8
-  %subject = getelementptr inbounds %struct.x509_cinf_st, ptr %0, i64 0, i32 5
+  %subject = getelementptr inbounds i8, ptr %0, i64 40
   %1 = load ptr, ptr %subject, align 8
   %2 = load ptr, ptr %b, align 8
-  %subject2 = getelementptr inbounds %struct.x509_cinf_st, ptr %2, i64 0, i32 5
+  %subject2 = getelementptr inbounds i8, ptr %2, i64 40
   %3 = load ptr, ptr %subject2, align 8
-  %canon_enc.i = getelementptr inbounds %struct.X509_name_st, ptr %1, i64 0, i32 3
+  %canon_enc.i = getelementptr inbounds i8, ptr %1, i64 24
   %4 = load ptr, ptr %canon_enc.i, align 8
   %tobool.not.i = icmp eq ptr %4, null
   br i1 %tobool.not.i, label %if.then.i, label %lor.lhs.false.i
 
 lor.lhs.false.i:                                  ; preds = %entry
-  %modified.i = getelementptr inbounds %struct.X509_name_st, ptr %1, i64 0, i32 1
+  %modified.i = getelementptr inbounds i8, ptr %1, i64 8
   %5 = load i32, ptr %modified.i, align 8
   %tobool1.not.i = icmp eq i32 %5, 0
   br i1 %tobool1.not.i, label %if.end3.i, label %if.then.i
@@ -309,13 +301,13 @@ if.then.i:                                        ; preds = %lor.lhs.false.i, %e
   br i1 %cmp.i, label %X509_NAME_cmp.exit, label %if.end3.i
 
 if.end3.i:                                        ; preds = %if.then.i, %lor.lhs.false.i
-  %canon_enc4.i = getelementptr inbounds %struct.X509_name_st, ptr %3, i64 0, i32 3
+  %canon_enc4.i = getelementptr inbounds i8, ptr %3, i64 24
   %6 = load ptr, ptr %canon_enc4.i, align 8
   %tobool5.not.i = icmp eq ptr %6, null
   br i1 %tobool5.not.i, label %if.then9.i, label %lor.lhs.false6.i
 
 lor.lhs.false6.i:                                 ; preds = %if.end3.i
-  %modified7.i = getelementptr inbounds %struct.X509_name_st, ptr %3, i64 0, i32 1
+  %modified7.i = getelementptr inbounds i8, ptr %3, i64 8
   %7 = load i32, ptr %modified7.i, align 8
   %tobool8.not.i = icmp eq i32 %7, 0
   br i1 %tobool8.not.i, label %if.end14.i, label %if.then9.i
@@ -326,9 +318,9 @@ if.then9.i:                                       ; preds = %lor.lhs.false6.i, %
   br i1 %cmp11.i, label %X509_NAME_cmp.exit, label %if.end14.i
 
 if.end14.i:                                       ; preds = %if.then9.i, %lor.lhs.false6.i
-  %canon_enclen.i = getelementptr inbounds %struct.X509_name_st, ptr %1, i64 0, i32 4
+  %canon_enclen.i = getelementptr inbounds i8, ptr %1, i64 32
   %8 = load i32, ptr %canon_enclen.i, align 8
-  %canon_enclen15.i = getelementptr inbounds %struct.X509_name_st, ptr %3, i64 0, i32 4
+  %canon_enclen15.i = getelementptr inbounds i8, ptr %3, i64 32
   %9 = load i32, ptr %canon_enclen15.i, align 8
   %sub.i = sub nsw i32 %8, %9
   %tobool16.not.i = icmp eq i32 %sub.i, 0
@@ -350,18 +342,18 @@ X509_NAME_cmp.exit:                               ; preds = %if.then.i, %if.then
 define hidden i32 @X509_CRL_cmp(ptr nocapture noundef readonly %a, ptr nocapture noundef readonly %b) local_unnamed_addr #0 {
 entry:
   %0 = load ptr, ptr %a, align 8
-  %issuer = getelementptr inbounds %struct.X509_crl_info_st, ptr %0, i64 0, i32 2
+  %issuer = getelementptr inbounds i8, ptr %0, i64 16
   %1 = load ptr, ptr %issuer, align 8
   %2 = load ptr, ptr %b, align 8
-  %issuer2 = getelementptr inbounds %struct.X509_crl_info_st, ptr %2, i64 0, i32 2
+  %issuer2 = getelementptr inbounds i8, ptr %2, i64 16
   %3 = load ptr, ptr %issuer2, align 8
-  %canon_enc.i = getelementptr inbounds %struct.X509_name_st, ptr %1, i64 0, i32 3
+  %canon_enc.i = getelementptr inbounds i8, ptr %1, i64 24
   %4 = load ptr, ptr %canon_enc.i, align 8
   %tobool.not.i = icmp eq ptr %4, null
   br i1 %tobool.not.i, label %if.then.i, label %lor.lhs.false.i
 
 lor.lhs.false.i:                                  ; preds = %entry
-  %modified.i = getelementptr inbounds %struct.X509_name_st, ptr %1, i64 0, i32 1
+  %modified.i = getelementptr inbounds i8, ptr %1, i64 8
   %5 = load i32, ptr %modified.i, align 8
   %tobool1.not.i = icmp eq i32 %5, 0
   br i1 %tobool1.not.i, label %if.end3.i, label %if.then.i
@@ -372,13 +364,13 @@ if.then.i:                                        ; preds = %lor.lhs.false.i, %e
   br i1 %cmp.i, label %X509_NAME_cmp.exit, label %if.end3.i
 
 if.end3.i:                                        ; preds = %if.then.i, %lor.lhs.false.i
-  %canon_enc4.i = getelementptr inbounds %struct.X509_name_st, ptr %3, i64 0, i32 3
+  %canon_enc4.i = getelementptr inbounds i8, ptr %3, i64 24
   %6 = load ptr, ptr %canon_enc4.i, align 8
   %tobool5.not.i = icmp eq ptr %6, null
   br i1 %tobool5.not.i, label %if.then9.i, label %lor.lhs.false6.i
 
 lor.lhs.false6.i:                                 ; preds = %if.end3.i
-  %modified7.i = getelementptr inbounds %struct.X509_name_st, ptr %3, i64 0, i32 1
+  %modified7.i = getelementptr inbounds i8, ptr %3, i64 8
   %7 = load i32, ptr %modified7.i, align 8
   %tobool8.not.i = icmp eq i32 %7, 0
   br i1 %tobool8.not.i, label %if.end14.i, label %if.then9.i
@@ -389,9 +381,9 @@ if.then9.i:                                       ; preds = %lor.lhs.false6.i, %
   br i1 %cmp11.i, label %X509_NAME_cmp.exit, label %if.end14.i
 
 if.end14.i:                                       ; preds = %if.then9.i, %lor.lhs.false6.i
-  %canon_enclen.i = getelementptr inbounds %struct.X509_name_st, ptr %1, i64 0, i32 4
+  %canon_enclen.i = getelementptr inbounds i8, ptr %1, i64 32
   %8 = load i32, ptr %canon_enclen.i, align 8
-  %canon_enclen15.i = getelementptr inbounds %struct.X509_name_st, ptr %3, i64 0, i32 4
+  %canon_enclen15.i = getelementptr inbounds i8, ptr %3, i64 32
   %9 = load i32, ptr %canon_enclen15.i, align 8
   %sub.i = sub nsw i32 %8, %9
   %tobool16.not.i = icmp eq i32 %sub.i, 0
@@ -412,8 +404,8 @@ X509_NAME_cmp.exit:                               ; preds = %if.then.i, %if.then
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read) uwtable
 define hidden i32 @X509_CRL_match(ptr nocapture noundef readonly %a, ptr nocapture noundef readonly %b) local_unnamed_addr #4 {
 entry:
-  %sha1_hash = getelementptr inbounds %struct.X509_crl_st, ptr %a, i64 0, i32 11
-  %sha1_hash1 = getelementptr inbounds %struct.X509_crl_st, ptr %b, i64 0, i32 11
+  %sha1_hash = getelementptr inbounds i8, ptr %a, i64 72
+  %sha1_hash1 = getelementptr inbounds i8, ptr %b, i64 72
   %call = tail call i32 @memcmp(ptr noundef nonnull dereferenceable(20) %sha1_hash, ptr noundef nonnull dereferenceable(20) %sha1_hash1, i64 noundef 20) #9
   ret i32 %call
 }
@@ -425,7 +417,7 @@ declare i32 @memcmp(ptr nocapture noundef, ptr nocapture noundef, i64 noundef) l
 define hidden ptr @X509_get_issuer_name(ptr nocapture noundef readonly %a) local_unnamed_addr #5 {
 entry:
   %0 = load ptr, ptr %a, align 8
-  %issuer = getelementptr inbounds %struct.x509_cinf_st, ptr %0, i64 0, i32 3
+  %issuer = getelementptr inbounds i8, ptr %0, i64 24
   %1 = load ptr, ptr %issuer, align 8
   ret ptr %1
 }
@@ -435,13 +427,13 @@ define hidden i64 @X509_issuer_name_hash(ptr nocapture noundef readonly %x) loca
 entry:
   %md.i = alloca [20 x i8], align 16
   %0 = load ptr, ptr %x, align 8
-  %issuer = getelementptr inbounds %struct.x509_cinf_st, ptr %0, i64 0, i32 3
+  %issuer = getelementptr inbounds i8, ptr %0, i64 24
   %1 = load ptr, ptr %issuer, align 8
   call void @llvm.lifetime.start.p0(i64 20, ptr nonnull %md.i)
   %call.i = tail call i32 @i2d_X509_NAME(ptr noundef %1, ptr noundef null) #8
-  %canon_enc.i = getelementptr inbounds %struct.X509_name_st, ptr %1, i64 0, i32 3
+  %canon_enc.i = getelementptr inbounds i8, ptr %1, i64 24
   %2 = load ptr, ptr %canon_enc.i, align 8
-  %canon_enclen.i = getelementptr inbounds %struct.X509_name_st, ptr %1, i64 0, i32 4
+  %canon_enclen.i = getelementptr inbounds i8, ptr %1, i64 32
   %3 = load i32, ptr %canon_enclen.i, align 8
   %conv.i = sext i32 %3 to i64
   %call1.i = tail call ptr @EVP_sha1() #8
@@ -459,9 +451,9 @@ define hidden i64 @X509_NAME_hash(ptr noundef %x) local_unnamed_addr #0 {
 entry:
   %md = alloca [20 x i8], align 16
   %call = tail call i32 @i2d_X509_NAME(ptr noundef %x, ptr noundef null) #8
-  %canon_enc = getelementptr inbounds %struct.X509_name_st, ptr %x, i64 0, i32 3
+  %canon_enc = getelementptr inbounds i8, ptr %x, i64 24
   %0 = load ptr, ptr %canon_enc, align 8
-  %canon_enclen = getelementptr inbounds %struct.X509_name_st, ptr %x, i64 0, i32 4
+  %canon_enclen = getelementptr inbounds i8, ptr %x, i64 32
   %1 = load i32, ptr %canon_enclen, align 8
   %conv = sext i32 %1 to i64
   %call1 = tail call ptr @EVP_sha1() #8
@@ -477,7 +469,7 @@ entry:
 define hidden i64 @X509_issuer_name_hash_old(ptr nocapture noundef readonly %x) local_unnamed_addr #0 {
 entry:
   %0 = load ptr, ptr %x, align 8
-  %issuer = getelementptr inbounds %struct.x509_cinf_st, ptr %0, i64 0, i32 3
+  %issuer = getelementptr inbounds i8, ptr %0, i64 24
   %1 = load ptr, ptr %issuer, align 8
   %call = tail call i64 @X509_NAME_hash_old(ptr noundef %1), !range !7
   ret i64 %call
@@ -496,9 +488,9 @@ entry:
   br i1 %tobool.not, label %if.end, label %land.lhs.true
 
 land.lhs.true:                                    ; preds = %entry
-  %bytes = getelementptr inbounds %struct.X509_name_st, ptr %x, i64 0, i32 2
+  %bytes = getelementptr inbounds i8, ptr %x, i64 16
   %0 = load ptr, ptr %bytes, align 8
-  %data = getelementptr inbounds %struct.buf_mem_st, ptr %0, i64 0, i32 1
+  %data = getelementptr inbounds i8, ptr %0, i64 8
   %1 = load ptr, ptr %data, align 8
   %2 = load i64, ptr %0, align 8
   %call4 = call i32 @EVP_DigestUpdate(ptr noundef nonnull %md_ctx, ptr noundef %1, i64 noundef %2) #8
@@ -525,7 +517,7 @@ if.end:                                           ; preds = %if.then, %land.lhs.
 define hidden ptr @X509_get_subject_name(ptr nocapture noundef readonly %a) local_unnamed_addr #5 {
 entry:
   %0 = load ptr, ptr %a, align 8
-  %subject = getelementptr inbounds %struct.x509_cinf_st, ptr %0, i64 0, i32 5
+  %subject = getelementptr inbounds i8, ptr %0, i64 40
   %1 = load ptr, ptr %subject, align 8
   ret ptr %1
 }
@@ -534,7 +526,7 @@ entry:
 define hidden ptr @X509_get_serialNumber(ptr nocapture noundef readonly %a) local_unnamed_addr #5 {
 entry:
   %0 = load ptr, ptr %a, align 8
-  %serialNumber = getelementptr inbounds %struct.x509_cinf_st, ptr %0, i64 0, i32 1
+  %serialNumber = getelementptr inbounds i8, ptr %0, i64 8
   %1 = load ptr, ptr %serialNumber, align 8
   ret ptr %1
 }
@@ -544,13 +536,13 @@ define hidden i64 @X509_subject_name_hash(ptr nocapture noundef readonly %x) loc
 entry:
   %md.i = alloca [20 x i8], align 16
   %0 = load ptr, ptr %x, align 8
-  %subject = getelementptr inbounds %struct.x509_cinf_st, ptr %0, i64 0, i32 5
+  %subject = getelementptr inbounds i8, ptr %0, i64 40
   %1 = load ptr, ptr %subject, align 8
   call void @llvm.lifetime.start.p0(i64 20, ptr nonnull %md.i)
   %call.i = tail call i32 @i2d_X509_NAME(ptr noundef %1, ptr noundef null) #8
-  %canon_enc.i = getelementptr inbounds %struct.X509_name_st, ptr %1, i64 0, i32 3
+  %canon_enc.i = getelementptr inbounds i8, ptr %1, i64 24
   %2 = load ptr, ptr %canon_enc.i, align 8
-  %canon_enclen.i = getelementptr inbounds %struct.X509_name_st, ptr %1, i64 0, i32 4
+  %canon_enclen.i = getelementptr inbounds i8, ptr %1, i64 32
   %3 = load i32, ptr %canon_enclen.i, align 8
   %conv.i = sext i32 %3 to i64
   %call1.i = tail call ptr @EVP_sha1() #8
@@ -567,7 +559,7 @@ entry:
 define hidden i64 @X509_subject_name_hash_old(ptr nocapture noundef readonly %x) local_unnamed_addr #0 {
 entry:
   %0 = load ptr, ptr %x, align 8
-  %subject = getelementptr inbounds %struct.x509_cinf_st, ptr %0, i64 0, i32 5
+  %subject = getelementptr inbounds i8, ptr %0, i64 40
   %1 = load ptr, ptr %subject, align 8
   %call = tail call i64 @X509_NAME_hash_old(ptr noundef %1), !range !7
   ret i64 %call
@@ -578,32 +570,32 @@ define hidden i32 @X509_cmp(ptr noundef %a, ptr noundef %b) local_unnamed_addr #
 entry:
   %call = tail call i32 @X509_check_purpose(ptr noundef %a, i32 noundef -1, i32 noundef 0) #8
   %call1 = tail call i32 @X509_check_purpose(ptr noundef %b, i32 noundef -1, i32 noundef 0) #8
-  %sha1_hash = getelementptr inbounds %struct.x509_st, ptr %a, i64 0, i32 19
-  %sha1_hash2 = getelementptr inbounds %struct.x509_st, ptr %b, i64 0, i32 19
+  %sha1_hash = getelementptr inbounds i8, ptr %a, i64 144
+  %sha1_hash2 = getelementptr inbounds i8, ptr %b, i64 144
   %call4 = tail call i32 @memcmp(ptr noundef nonnull dereferenceable(20) %sha1_hash, ptr noundef nonnull dereferenceable(20) %sha1_hash2, i64 noundef 20) #9
   %tobool.not = icmp eq i32 %call4, 0
   br i1 %tobool.not, label %if.end, label %return
 
 if.end:                                           ; preds = %entry
   %0 = load ptr, ptr %a, align 8
-  %enc = getelementptr inbounds %struct.x509_cinf_st, ptr %0, i64 0, i32 10
-  %modified = getelementptr inbounds %struct.x509_cinf_st, ptr %0, i64 0, i32 10, i32 2
+  %enc = getelementptr inbounds i8, ptr %0, i64 80
+  %modified = getelementptr inbounds i8, ptr %0, i64 96
   %1 = load i32, ptr %modified, align 8
   %tobool5.not = icmp eq i32 %1, 0
   br i1 %tobool5.not, label %land.lhs.true, label %return
 
 land.lhs.true:                                    ; preds = %if.end
   %2 = load ptr, ptr %b, align 8
-  %enc7 = getelementptr inbounds %struct.x509_cinf_st, ptr %2, i64 0, i32 10
-  %modified8 = getelementptr inbounds %struct.x509_cinf_st, ptr %2, i64 0, i32 10, i32 2
+  %enc7 = getelementptr inbounds i8, ptr %2, i64 80
+  %modified8 = getelementptr inbounds i8, ptr %2, i64 96
   %3 = load i32, ptr %modified8, align 8
   %tobool9.not = icmp eq i32 %3, 0
   br i1 %tobool9.not, label %if.then10, label %return
 
 if.then10:                                        ; preds = %land.lhs.true
-  %len = getelementptr inbounds %struct.x509_cinf_st, ptr %0, i64 0, i32 10, i32 1
+  %len = getelementptr inbounds i8, ptr %0, i64 88
   %4 = load i64, ptr %len, align 8
-  %len15 = getelementptr inbounds %struct.x509_cinf_st, ptr %2, i64 0, i32 10, i32 1
+  %len15 = getelementptr inbounds i8, ptr %2, i64 88
   %5 = load i64, ptr %len15, align 8
   %sub = sub nsw i64 %4, %5
   %conv = trunc i64 %sub to i32
@@ -639,9 +631,9 @@ entry:
 
 if.end:                                           ; preds = %entry
   store ptr %cinf, ptr %x, align 8
-  %serialNumber = getelementptr inbounds %struct.x509_cinf_st, ptr %cinf, i64 0, i32 1
+  %serialNumber = getelementptr inbounds i8, ptr %cinf, i64 8
   store ptr %serial, ptr %serialNumber, align 8
-  %issuer = getelementptr inbounds %struct.x509_cinf_st, ptr %cinf, i64 0, i32 3
+  %issuer = getelementptr inbounds i8, ptr %cinf, i64 24
   store ptr %name, ptr %issuer, align 8
   %call6 = call i64 @sk_num(ptr noundef nonnull %sk) #8
   %cmp7.not = icmp eq i64 %call6, 0
@@ -677,24 +669,24 @@ entry:
   br i1 %cmp8.not, label %return, label %for.body.lr.ph
 
 for.body.lr.ph:                                   ; preds = %entry
-  %canon_enc4.i = getelementptr inbounds %struct.X509_name_st, ptr %name, i64 0, i32 3
-  %modified7.i = getelementptr inbounds %struct.X509_name_st, ptr %name, i64 0, i32 1
-  %canon_enclen15.i = getelementptr inbounds %struct.X509_name_st, ptr %name, i64 0, i32 4
+  %canon_enc4.i = getelementptr inbounds i8, ptr %name, i64 24
+  %modified7.i = getelementptr inbounds i8, ptr %name, i64 8
+  %canon_enclen15.i = getelementptr inbounds i8, ptr %name, i64 32
   br label %for.body
 
 for.body:                                         ; preds = %for.body.lr.ph, %for.inc
   %i.09 = phi i64 [ 0, %for.body.lr.ph ], [ %inc, %for.inc ]
   %call1 = tail call ptr @sk_value(ptr noundef %sk, i64 noundef %i.09) #8
   %0 = load ptr, ptr %call1, align 8
-  %subject.i = getelementptr inbounds %struct.x509_cinf_st, ptr %0, i64 0, i32 5
+  %subject.i = getelementptr inbounds i8, ptr %0, i64 40
   %1 = load ptr, ptr %subject.i, align 8
-  %canon_enc.i = getelementptr inbounds %struct.X509_name_st, ptr %1, i64 0, i32 3
+  %canon_enc.i = getelementptr inbounds i8, ptr %1, i64 24
   %2 = load ptr, ptr %canon_enc.i, align 8
   %tobool.not.i = icmp eq ptr %2, null
   br i1 %tobool.not.i, label %if.then.i, label %lor.lhs.false.i
 
 lor.lhs.false.i:                                  ; preds = %for.body
-  %modified.i = getelementptr inbounds %struct.X509_name_st, ptr %1, i64 0, i32 1
+  %modified.i = getelementptr inbounds i8, ptr %1, i64 8
   %3 = load i32, ptr %modified.i, align 8
   %tobool1.not.i = icmp eq i32 %3, 0
   br i1 %tobool1.not.i, label %if.end3.i, label %if.then.i
@@ -720,7 +712,7 @@ if.then9.i:                                       ; preds = %lor.lhs.false6.i, %
   br i1 %cmp11.i, label %for.inc, label %if.end14.i
 
 if.end14.i:                                       ; preds = %if.then9.i, %lor.lhs.false6.i
-  %canon_enclen.i = getelementptr inbounds %struct.X509_name_st, ptr %1, i64 0, i32 4
+  %canon_enclen.i = getelementptr inbounds i8, ptr %1, i64 32
   %6 = load i32, ptr %canon_enclen.i, align 8
   %7 = load i32, ptr %canon_enclen15.i, align 8
   %tobool16.not.i = icmp eq i32 %6, %7
@@ -757,7 +749,7 @@ lor.lhs.false:                                    ; preds = %entry
   br i1 %cmp1, label %return, label %if.end
 
 if.end:                                           ; preds = %lor.lhs.false
-  %key = getelementptr inbounds %struct.x509_cinf_st, ptr %0, i64 0, i32 6
+  %key = getelementptr inbounds i8, ptr %0, i64 48
   %1 = load ptr, ptr %key, align 8
   %call = tail call ptr @X509_PUBKEY_get(ptr noundef %1) #8
   br label %return
@@ -777,9 +769,9 @@ entry:
 
 if.end:                                           ; preds = %entry
   %0 = load ptr, ptr %x, align 8
-  %key = getelementptr inbounds %struct.x509_cinf_st, ptr %0, i64 0, i32 6
+  %key = getelementptr inbounds i8, ptr %0, i64 48
   %1 = load ptr, ptr %key, align 8
-  %public_key = getelementptr inbounds %struct.X509_pubkey_st, ptr %1, i64 0, i32 1
+  %public_key = getelementptr inbounds i8, ptr %1, i64 8
   %2 = load ptr, ptr %public_key, align 8
   br label %return
 
@@ -800,7 +792,7 @@ lor.lhs.false.i:                                  ; preds = %entry
   br i1 %cmp1.i, label %if.end7.thread, label %X509_get_pubkey.exit
 
 X509_get_pubkey.exit:                             ; preds = %lor.lhs.false.i
-  %key.i = getelementptr inbounds %struct.x509_cinf_st, ptr %0, i64 0, i32 6
+  %key.i = getelementptr inbounds i8, ptr %0, i64 48
   %1 = load ptr, ptr %key.i, align 8
   %call.i = tail call ptr @X509_PUBKEY_get(ptr noundef %1) #8
   %tobool.not = icmp eq ptr %call.i, null
@@ -882,20 +874,20 @@ lor.lhs.false.i:                                  ; preds = %if.end2
   br i1 %cmp1.i, label %if.then33.thread, label %X509_get_pubkey.exit
 
 X509_get_pubkey.exit:                             ; preds = %lor.lhs.false.i
-  %key.i = getelementptr inbounds %struct.x509_cinf_st, ptr %2, i64 0, i32 6
+  %key.i = getelementptr inbounds i8, ptr %2, i64 48
   %3 = load ptr, ptr %key.i, align 8
   %call.i = tail call ptr @X509_PUBKEY_get(ptr noundef %3) #8
   %tobool.not.i = icmp eq ptr %call.i, null
   br i1 %tobool.not.i, label %if.then33.thread, label %land.lhs.true.i
 
 land.lhs.true.i:                                  ; preds = %X509_get_pubkey.exit
-  %type.i = getelementptr inbounds %struct.evp_pkey_st, ptr %call.i, i64 0, i32 1
+  %type.i = getelementptr inbounds i8, ptr %call.i, i64 4
   %4 = load i32, ptr %type.i, align 4
   %cmp.i30 = icmp eq i32 %4, 408
   br i1 %cmp.i30, label %if.end.i32, label %if.then33
 
 if.end.i32:                                       ; preds = %land.lhs.true.i
-  %pkey1.i = getelementptr inbounds %struct.evp_pkey_st, ptr %call.i, i64 0, i32 2
+  %pkey1.i = getelementptr inbounds i8, ptr %call.i, i64 8
   %5 = load ptr, ptr %pkey1.i, align 8
   %call.i33 = tail call ptr @EC_KEY_get0_group(ptr noundef %5) #8
   %tobool2.not.i = icmp eq ptr %call.i33, null
@@ -948,20 +940,20 @@ lor.lhs.false.i35:                                ; preds = %for.body
   br i1 %cmp1.i36, label %if.then33.thread, label %X509_get_pubkey.exit41
 
 X509_get_pubkey.exit41:                           ; preds = %lor.lhs.false.i35
-  %key.i38 = getelementptr inbounds %struct.x509_cinf_st, ptr %8, i64 0, i32 6
+  %key.i38 = getelementptr inbounds i8, ptr %8, i64 48
   %9 = load ptr, ptr %key.i38, align 8
   %call.i39 = tail call ptr @X509_PUBKEY_get(ptr noundef %9) #8
   %tobool.not.i42 = icmp eq ptr %call.i39, null
   br i1 %tobool.not.i42, label %if.then33.thread, label %land.lhs.true.i43
 
 land.lhs.true.i43:                                ; preds = %X509_get_pubkey.exit41
-  %type.i44 = getelementptr inbounds %struct.evp_pkey_st, ptr %call.i39, i64 0, i32 1
+  %type.i44 = getelementptr inbounds i8, ptr %call.i39, i64 4
   %10 = load i32, ptr %type.i44, align 4
   %cmp.i45 = icmp eq i32 %10, 408
   br i1 %cmp.i45, label %if.end.i47, label %if.then33
 
 if.end.i47:                                       ; preds = %land.lhs.true.i43
-  %pkey1.i48 = getelementptr inbounds %struct.evp_pkey_st, ptr %call.i39, i64 0, i32 2
+  %pkey1.i48 = getelementptr inbounds i8, ptr %call.i39, i64 8
   %11 = load ptr, ptr %pkey1.i48, align 8
   %call.i49 = tail call ptr @EC_KEY_get0_group(ptr noundef %11) #8
   %tobool2.not.i50 = icmp eq ptr %call.i49, null
@@ -1013,13 +1005,13 @@ land.lhs.true.i64:                                ; preds = %for.inc, %check_sui
   %i.1.lcssa = phi i64 [ %i.0, %check_suite_b.exit ], [ %inc, %for.inc ]
   %pk.0.lcssa = phi ptr [ %call.i, %check_suite_b.exit ], [ %call.i39, %for.inc ]
   %call27 = tail call i32 @X509_get_signature_nid(ptr noundef nonnull %x.addr.1.lcssa) #8
-  %type.i65 = getelementptr inbounds %struct.evp_pkey_st, ptr %pk.0.lcssa, i64 0, i32 1
+  %type.i65 = getelementptr inbounds i8, ptr %pk.0.lcssa, i64 4
   %12 = load i32, ptr %type.i65, align 4
   %cmp.i66 = icmp eq i32 %12, 408
   br i1 %cmp.i66, label %if.end.i68, label %if.then33
 
 if.end.i68:                                       ; preds = %land.lhs.true.i64
-  %pkey1.i69 = getelementptr inbounds %struct.evp_pkey_st, ptr %pk.0.lcssa, i64 0, i32 2
+  %pkey1.i69 = getelementptr inbounds i8, ptr %pk.0.lcssa, i64 8
   %13 = load ptr, ptr %pkey1.i69, align 8
   %call.i70 = tail call ptr @EC_KEY_get0_group(ptr noundef %13) #8
   %tobool2.not.i71 = icmp eq ptr %call.i70, null
@@ -1107,7 +1099,7 @@ entry:
 
 if.end:                                           ; preds = %entry
   %0 = load ptr, ptr %crl, align 8
-  %sig_alg = getelementptr inbounds %struct.X509_crl_info_st, ptr %0, i64 0, i32 1
+  %sig_alg = getelementptr inbounds i8, ptr %0, i64 8
   %1 = load ptr, ptr %sig_alg, align 8
   %2 = load ptr, ptr %1, align 8
   %call = tail call i32 @OBJ_obj2nid(ptr noundef %2) #8
@@ -1115,13 +1107,13 @@ if.end:                                           ; preds = %entry
   br i1 %tobool.not.i, label %return, label %land.lhs.true.i
 
 land.lhs.true.i:                                  ; preds = %if.end
-  %type.i = getelementptr inbounds %struct.evp_pkey_st, ptr %pk, i64 0, i32 1
+  %type.i = getelementptr inbounds i8, ptr %pk, i64 4
   %3 = load i32, ptr %type.i, align 4
   %cmp.i = icmp eq i32 %3, 408
   br i1 %cmp.i, label %if.end.i, label %return
 
 if.end.i:                                         ; preds = %land.lhs.true.i
-  %pkey1.i = getelementptr inbounds %struct.evp_pkey_st, ptr %pk, i64 0, i32 2
+  %pkey1.i = getelementptr inbounds i8, ptr %pk, i64 8
   %4 = load ptr, ptr %pkey1.i, align 8
   %call.i = tail call ptr @EC_KEY_get0_group(ptr noundef %4) #8
   %tobool2.not.i = icmp eq ptr %call.i, null

@@ -3,11 +3,9 @@ source_filename = "bench/nghttp2/original/sfparse.c.ll"
 target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:128-n8:16:32:64-S128"
 target triple = "x86_64-unknown-linux-gnu"
 
-%struct.sf_parser = type { ptr, ptr, i32 }
 %struct.sf_value = type { i32, i32, %union.anon }
 %union.anon = type { %struct.sf_decimal }
 %struct.sf_decimal = type { i64, i64 }
-%struct.sf_vec = type { ptr, i64 }
 
 @.str = private unnamed_addr constant [2 x i8] c"0\00", align 1
 @.str.1 = private unnamed_addr constant [107 x i8] c"generated/home/dtcxzyw/WorkSpace/Projects/compilers/llvm-opt-benchmark/bench/nghttp2/nghttp2/lib/sfparse.c\00", align 1
@@ -34,11 +32,12 @@ target triple = "x86_64-unknown-linux-gnu"
 @__PRETTY_FUNCTION__.parser_boolean = private unnamed_addr constant [44 x i8] c"int parser_boolean(sf_parser *, sf_value *)\00", align 1
 @__PRETTY_FUNCTION__.parser_skip_params = private unnamed_addr constant [36 x i8] c"int parser_skip_params(sf_parser *)\00", align 1
 @__PRETTY_FUNCTION__.parser_skip_inner_list = private unnamed_addr constant [40 x i8] c"int parser_skip_inner_list(sf_parser *)\00", align 1
+@switch.table.parser_number = private unnamed_addr constant [3 x i64] [i64 10, i64 100, i64 1000], align 8
 
 ; Function Attrs: nounwind uwtable
 define hidden noundef i32 @sf_parser_param(ptr nocapture noundef %sfp, ptr noundef %dest_key, ptr noundef %dest_value) local_unnamed_addr #0 {
 entry:
-  %state = getelementptr inbounds %struct.sf_parser, ptr %sfp, i64 0, i32 2
+  %state = getelementptr inbounds i8, ptr %sfp, i64 16
   %0 = load i32, ptr %state, align 8
   %and = and i32 %0, 3
   switch i32 %and, label %sw.default [
@@ -136,9 +135,9 @@ if.then25:                                        ; preds = %lor.lhs.false20, %i
 
 if.then27:                                        ; preds = %if.then25
   store i32 0, ptr %dest_value, align 8
-  %flags = getelementptr inbounds %struct.sf_value, ptr %dest_value, i64 0, i32 1
+  %flags = getelementptr inbounds i8, ptr %dest_value, i64 4
   store i32 0, ptr %flags, align 4
-  %7 = getelementptr inbounds %struct.sf_value, ptr %dest_value, i64 0, i32 2
+  %7 = getelementptr inbounds i8, ptr %dest_value, i64 8
   store i32 1, ptr %7, align 8
   br label %return
 
@@ -265,7 +264,7 @@ if.then:                                          ; preds = %for.end
   %sub.ptr.lhs.cast = ptrtoint ptr %4 to i64
   %sub.ptr.rhs.cast = ptrtoint ptr %0 to i64
   %sub.ptr.sub = sub i64 %sub.ptr.lhs.cast, %sub.ptr.rhs.cast
-  %len = getelementptr inbounds %struct.sf_vec, ptr %dest, i64 0, i32 1
+  %len = getelementptr inbounds i8, ptr %dest, i64 8
   store i64 %sub.ptr.sub, ptr %len, align 8
   br label %return
 
@@ -475,15 +474,15 @@ for.end.i:                                        ; preds = %for.inc.i, %for.bod
 
 if.then.i:                                        ; preds = %for.end.i
   store i32 4, ptr %dest, align 8
-  %flags.i = getelementptr inbounds %struct.sf_value, ptr %dest, i64 0, i32 1
+  %flags.i = getelementptr inbounds i8, ptr %dest, i64 4
   store i32 0, ptr %flags.i, align 4
-  %4 = getelementptr inbounds %struct.sf_value, ptr %dest, i64 0, i32 2
+  %4 = getelementptr inbounds i8, ptr %dest, i64 8
   store ptr %0, ptr %4, align 8
   %5 = load ptr, ptr %sfp, align 8
   %sub.ptr.lhs.cast.i = ptrtoint ptr %5 to i64
   %sub.ptr.rhs.cast.i = ptrtoint ptr %0 to i64
   %sub.ptr.sub.i = sub i64 %sub.ptr.lhs.cast.i, %sub.ptr.rhs.cast.i
-  %len.i = getelementptr inbounds %struct.sf_value, ptr %dest, i64 0, i32 2, i32 0, i32 1
+  %len.i = getelementptr inbounds i8, ptr %dest, i64 16
   store i64 %sub.ptr.sub.i, ptr %len.i, align 8
   br label %return
 
@@ -495,7 +494,7 @@ return:                                           ; preds = %if.then.i, %for.end
 ; Function Attrs: nounwind uwtable
 define hidden noundef i32 @sf_parser_inner_list(ptr nocapture noundef %sfp, ptr noundef %dest) local_unnamed_addr #0 {
 entry:
-  %state = getelementptr inbounds %struct.sf_parser, ptr %sfp, i64 0, i32 2
+  %state = getelementptr inbounds i8, ptr %sfp, i64 16
   %0 = load i32, ptr %state, align 8
   %and = and i32 %0, 3
   switch i32 %and, label %sw.default16 [
@@ -607,7 +606,7 @@ return:                                           ; preds = %for.cond.i, %for.in
 ; Function Attrs: nounwind uwtable
 define hidden noundef i32 @sf_parser_dict(ptr nocapture noundef %sfp, ptr noundef %dest_key, ptr noundef %dest_value) local_unnamed_addr #0 {
 entry:
-  %state = getelementptr inbounds %struct.sf_parser, ptr %sfp, i64 0, i32 2
+  %state = getelementptr inbounds i8, ptr %sfp, i64 16
   %0 = load i32, ptr %state, align 8
   switch i32 %0, label %sw.default [
     i32 12, label %for.cond.i
@@ -746,9 +745,9 @@ if.then.i:                                        ; preds = %lor.lhs.false.i, %i
 
 if.then3.i:                                       ; preds = %if.then.i
   store i32 0, ptr %dest_value, align 8
-  %flags.i = getelementptr inbounds %struct.sf_value, ptr %dest_value, i64 0, i32 1
+  %flags.i = getelementptr inbounds i8, ptr %dest_value, i64 4
   store i32 0, ptr %flags.i, align 4
-  %8 = getelementptr inbounds %struct.sf_value, ptr %dest_value, i64 0, i32 2
+  %8 = getelementptr inbounds i8, ptr %dest_value, i64 8
   store i32 1, ptr %8, align 8
   br label %return.sink.split.i
 
@@ -769,7 +768,7 @@ if.then14.i:                                      ; preds = %if.end9.i
 
 if.then16.i:                                      ; preds = %if.then14.i
   store i32 6, ptr %dest_value, align 8
-  %flags18.i = getelementptr inbounds %struct.sf_value, ptr %dest_value, i64 0, i32 1
+  %flags18.i = getelementptr inbounds i8, ptr %dest_value, i64 4
   store i32 0, ptr %flags18.i, align 4
   %.pre.i = load ptr, ptr %sfp, align 8
   br label %if.end19.i
@@ -798,7 +797,7 @@ return:                                           ; preds = %for.inc.i, %for.con
 ; Function Attrs: nounwind uwtable
 define hidden noundef i32 @sf_parser_list(ptr nocapture noundef %sfp, ptr noundef %dest) local_unnamed_addr #0 {
 entry:
-  %state = getelementptr inbounds %struct.sf_parser, ptr %sfp, i64 0, i32 2
+  %state = getelementptr inbounds i8, ptr %sfp, i64 16
   %0 = load i32, ptr %state, align 8
   switch i32 %0, label %sw.default [
     i32 20, label %for.cond.i
@@ -930,7 +929,7 @@ if.then17:                                        ; preds = %sw.epilog
 
 if.then19:                                        ; preds = %if.then17
   store i32 6, ptr %dest, align 8
-  %flags = getelementptr inbounds %struct.sf_value, ptr %dest, i64 0, i32 1
+  %flags = getelementptr inbounds i8, ptr %dest, i64 4
   store i32 0, ptr %flags, align 4
   %.pre57 = load ptr, ptr %sfp, align 8
   br label %if.end20
@@ -959,7 +958,7 @@ return:                                           ; preds = %for.inc.i, %for.con
 ; Function Attrs: nounwind uwtable
 define hidden i32 @sf_parser_item(ptr nocapture noundef %sfp, ptr noundef %dest) local_unnamed_addr #0 {
 entry:
-  %state = getelementptr inbounds %struct.sf_parser, ptr %sfp, i64 0, i32 2
+  %state = getelementptr inbounds i8, ptr %sfp, i64 16
   %0 = load i32, ptr %state, align 8
   switch i32 %0, label %sw.default [
     i32 0, label %sw.bb
@@ -1058,7 +1057,7 @@ if.then17:                                        ; preds = %sw.epilog
 
 if.then19:                                        ; preds = %if.then17
   store i32 6, ptr %dest, align 8
-  %flags = getelementptr inbounds %struct.sf_value, ptr %dest, i64 0, i32 1
+  %flags = getelementptr inbounds i8, ptr %dest, i64 4
   store i32 0, ptr %flags, align 4
   %.pre = load ptr, ptr %sfp, align 8
   br label %if.end20
@@ -1091,10 +1090,10 @@ entry:
   %add.ptr = getelementptr inbounds i8, ptr %data, i64 %datalen
   %spec.select = select i1 %cmp, ptr null, ptr %add.ptr
   %spec.select7 = select i1 %cmp, ptr null, ptr %data
-  %0 = getelementptr inbounds %struct.sf_parser, ptr %sfp, i64 0, i32 1
+  %0 = getelementptr inbounds i8, ptr %sfp, i64 8
   store ptr %spec.select, ptr %0, align 8
   store ptr %spec.select7, ptr %sfp, align 8
-  %state = getelementptr inbounds %struct.sf_parser, ptr %sfp, i64 0, i32 2
+  %state = getelementptr inbounds i8, ptr %sfp, i64 16
   store i32 0, ptr %state, align 8
   ret void
 }
@@ -1102,7 +1101,7 @@ entry:
 ; Function Attrs: nofree nounwind memory(readwrite, inaccessiblemem: none) uwtable
 define hidden void @sf_unescape(ptr nocapture noundef %dest, ptr nocapture noundef readonly %src) local_unnamed_addr #4 {
 entry:
-  %len1 = getelementptr inbounds %struct.sf_vec, ptr %src, i64 0, i32 1
+  %len1 = getelementptr inbounds i8, ptr %src, i64 8
   %0 = load i64, ptr %len1, align 8
   %cmp = icmp eq i64 %0, 0
   br i1 %cmp, label %if.then, label %if.end
@@ -1137,7 +1136,7 @@ if.end9:                                          ; preds = %if.then5
   %sub.ptr.lhs.cast15 = ptrtoint ptr %add.ptr to i64
   %sub.ptr.rhs.cast16 = ptrtoint ptr %3 to i64
   %sub.ptr.sub17 = sub i64 %sub.ptr.lhs.cast15, %sub.ptr.rhs.cast16
-  %len18 = getelementptr inbounds %struct.sf_vec, ptr %dest, i64 0, i32 1
+  %len18 = getelementptr inbounds i8, ptr %dest, i64 8
   store i64 %sub.ptr.sub17, ptr %len18, align 8
   br label %return
 
@@ -1175,7 +1174,7 @@ declare ptr @memchr(ptr noundef, i32 noundef, i64 noundef) local_unnamed_addr #6
 ; Function Attrs: nounwind uwtable
 define hidden void @sf_base64decode(ptr nocapture noundef %dest, ptr nocapture noundef readonly %src) local_unnamed_addr #0 {
 entry:
-  %len = getelementptr inbounds %struct.sf_vec, ptr %src, i64 0, i32 1
+  %len = getelementptr inbounds i8, ptr %src, i64 8
   %0 = load i64, ptr %len, align 8
   %and = and i64 %0, 3
   %cmp = icmp eq i64 %and, 0
@@ -1304,7 +1303,7 @@ fin:                                              ; preds = %for.end, %fin.sink.
   %sub.ptr.lhs.cast = ptrtoint ptr %o.1 to i64
   %sub.ptr.rhs.cast = ptrtoint ptr %8 to i64
   %sub.ptr.sub = sub i64 %sub.ptr.lhs.cast, %sub.ptr.rhs.cast
-  %len66 = getelementptr inbounds %struct.sf_vec, ptr %dest, i64 0, i32 1
+  %len66 = getelementptr inbounds i8, ptr %dest, i64 8
   store i64 %sub.ptr.sub, ptr %len66, align 8
   br label %return
 
@@ -1453,14 +1452,14 @@ sw.bb15:                                          ; preds = %for.body
 
 if.then17:                                        ; preds = %sw.bb15
   store i32 3, ptr %dest, align 8
-  %flags18 = getelementptr inbounds %struct.sf_value, ptr %dest, i64 0, i32 1
+  %flags18 = getelementptr inbounds i8, ptr %dest, i64 4
   store i32 %flags.025, ptr %flags18, align 4
   %5 = load ptr, ptr %sfp, align 8
   %sub.ptr.lhs.cast = ptrtoint ptr %5 to i64
   %sub.ptr.rhs.cast = ptrtoint ptr %incdec.ptr to i64
   %sub.ptr.sub = sub i64 %sub.ptr.lhs.cast, %sub.ptr.rhs.cast
-  %6 = getelementptr inbounds %struct.sf_value, ptr %dest, i64 0, i32 2
-  %len = getelementptr inbounds %struct.sf_value, ptr %dest, i64 0, i32 2, i32 0, i32 1
+  %6 = getelementptr inbounds i8, ptr %dest, i64 8
+  %len = getelementptr inbounds i8, ptr %dest, i64 16
   store i64 %sub.ptr.sub, ptr %len, align 8
   %cmp21 = icmp eq ptr %5, %incdec.ptr
   %cond = select i1 %cmp21, ptr null, ptr %incdec.ptr
@@ -1567,12 +1566,10 @@ if.then32:                                        ; preds = %for.end.thread, %lo
 
 if.then34:                                        ; preds = %if.then32
   store i32 1, ptr %dest, align 8
-  %flags = getelementptr inbounds %struct.sf_value, ptr %dest, i64 0, i32 1
+  %flags = getelementptr inbounds i8, ptr %dest, i64 4
   store i32 0, ptr %flags, align 4
   %mul36 = mul nsw i64 %value.069, %sign.0
-  %4 = getelementptr inbounds %struct.sf_value, ptr %dest, i64 0, i32 2
-  store i64 %mul36, ptr %4, align 8
-  br label %return
+  br label %return.sink.split
 
 if.end38:                                         ; preds = %lor.lhs.false
   %cmp39 = icmp ugt i64 %len.074, 12
@@ -1585,16 +1582,16 @@ for.cond45.preheader:                             ; preds = %if.end38
   br i1 %cmp.i57.not77, label %for.end68, label %for.body49.preheader
 
 for.body49.preheader:                             ; preds = %for.cond45.preheader
-  %5 = xor i64 %sfp.promoted94, -1
-  %6 = add i64 %5, %sfp.val4893
+  %4 = xor i64 %sfp.promoted94, -1
+  %5 = add i64 %4, %sfp.val4893
   br label %for.body49
 
 for.body49:                                       ; preds = %for.body49.preheader, %if.end57
   %storemerge80 = phi ptr [ %storemerge, %if.end57 ], [ %storemerge76, %for.body49.preheader ]
   %len.179 = phi i64 [ %inc53, %if.end57 ], [ %len.074, %for.body49.preheader ]
   %value.178 = phi i64 [ %add63, %if.end57 ], [ %value.073, %for.body49.preheader ]
-  %7 = load i8, ptr %storemerge80, align 1
-  %.off40 = add i8 %7, -48
+  %6 = load i8, ptr %storemerge80, align 1
+  %.off40 = add i8 %6, -48
   %switch41 = icmp ult i8 %.off40, 10
   br i1 %switch41, label %sw.bb52, label %for.end68
 
@@ -1605,7 +1602,7 @@ sw.bb52:                                          ; preds = %for.body49
 if.end57:                                         ; preds = %sw.bb52
   %inc53 = add nuw nsw i64 %len.179, 1
   %mul58 = mul nsw i64 %value.178, 10
-  %conv60 = zext nneg i8 %7 to i64
+  %conv60 = zext nneg i8 %6 to i64
   %sub61 = add i64 %mul58, -48
   %add63 = add i64 %sub61, %conv60
   %storemerge = getelementptr inbounds i8, ptr %storemerge80, i64 1
@@ -1615,7 +1612,7 @@ if.end57:                                         ; preds = %sw.bb52
 
 for.end68:                                        ; preds = %if.end57, %for.body49, %for.cond45.preheader
   %value.1.lcssa = phi i64 [ %value.073, %for.cond45.preheader ], [ %value.178, %for.body49 ], [ %add63, %if.end57 ]
-  %len.1.lcssa = phi i64 [ %len.074, %for.cond45.preheader ], [ %len.179, %for.body49 ], [ %6, %if.end57 ]
+  %len.1.lcssa = phi i64 [ %len.074, %for.cond45.preheader ], [ %len.179, %for.body49 ], [ %5, %if.end57 ]
   %cmp69 = icmp eq i64 %len.074, %len.1.lcssa
   br i1 %cmp69, label %return, label %lor.lhs.false71
 
@@ -1630,34 +1627,29 @@ if.end76:                                         ; preds = %lor.lhs.false71
 
 if.then78:                                        ; preds = %if.end76
   store i32 2, ptr %dest, align 8
-  %flags80 = getelementptr inbounds %struct.sf_value, ptr %dest, i64 0, i32 1
+  %flags80 = getelementptr inbounds i8, ptr %dest, i64 4
   store i32 0, ptr %flags80, align 4
   %mul82 = mul nsw i64 %value.1.lcssa, %sign.0
-  %8 = getelementptr inbounds %struct.sf_value, ptr %dest, i64 0, i32 2
-  store i64 %mul82, ptr %8, align 8
-  switch i64 %sub72, label %return [
-    i64 1, label %sw.bb84
-    i64 2, label %sw.bb85
-    i64 3, label %sw.bb87
-  ]
+  %7 = getelementptr inbounds i8, ptr %dest, i64 8
+  store i64 %mul82, ptr %7, align 8
+  %switch.tableidx = add nsw i64 %sub72, -1
+  %8 = icmp ult i64 %switch.tableidx, 3
+  br i1 %8, label %switch.lookup, label %return
 
-sw.bb84:                                          ; preds = %if.then78
-  %denom = getelementptr inbounds %struct.sf_value, ptr %dest, i64 0, i32 2, i32 0, i32 1
-  store i64 10, ptr %denom, align 8
+switch.lookup:                                    ; preds = %if.then78
+  %switch.gep = getelementptr inbounds [3 x i64], ptr @switch.table.parser_number, i64 0, i64 %switch.tableidx
+  %switch.load = load i64, ptr %switch.gep, align 8
+  br label %return.sink.split
+
+return.sink.split:                                ; preds = %switch.lookup, %if.then34
+  %.sink106 = phi i64 [ 8, %if.then34 ], [ 16, %switch.lookup ]
+  %.sink = phi i64 [ %mul36, %if.then34 ], [ %switch.load, %switch.lookup ]
+  %denom88 = getelementptr inbounds i8, ptr %dest, i64 %.sink106
+  store i64 %.sink, ptr %denom88, align 8
   br label %return
 
-sw.bb85:                                          ; preds = %if.then78
-  %denom86 = getelementptr inbounds %struct.sf_value, ptr %dest, i64 0, i32 2, i32 0, i32 1
-  store i64 100, ptr %denom86, align 8
-  br label %return
-
-sw.bb87:                                          ; preds = %if.then78
-  %denom88 = getelementptr inbounds %struct.sf_value, ptr %dest, i64 0, i32 2, i32 0, i32 1
-  store i64 1000, ptr %denom88, align 8
-  br label %return
-
-return:                                           ; preds = %sw.bb, %sw.bb52, %for.end.thread, %if.end76, %sw.bb87, %sw.bb85, %sw.bb84, %if.then78, %for.end68, %lor.lhs.false71, %if.end38, %if.then32, %if.then34, %for.end, %if.then
-  %retval.0 = phi i32 [ -1, %if.then ], [ -1, %for.end ], [ 0, %if.then34 ], [ 0, %if.then32 ], [ -1, %if.end38 ], [ -1, %lor.lhs.false71 ], [ -1, %for.end68 ], [ 0, %if.then78 ], [ 0, %sw.bb84 ], [ 0, %sw.bb85 ], [ 0, %sw.bb87 ], [ 0, %if.end76 ], [ -1, %for.end.thread ], [ -1, %sw.bb52 ], [ -1, %sw.bb ]
+return:                                           ; preds = %sw.bb, %sw.bb52, %if.then78, %return.sink.split, %for.end.thread, %if.end76, %for.end68, %lor.lhs.false71, %if.end38, %if.then32, %for.end, %if.then
+  %retval.0 = phi i32 [ -1, %if.then ], [ -1, %for.end ], [ 0, %if.then32 ], [ -1, %if.end38 ], [ -1, %lor.lhs.false71 ], [ -1, %for.end68 ], [ 0, %if.then78 ], [ 0, %if.end76 ], [ -1, %for.end.thread ], [ 0, %return.sink.split ], [ -1, %sw.bb52 ], [ -1, %sw.bb ]
   ret i32 %retval.0
 }
 
@@ -1887,14 +1879,14 @@ fin:                                              ; preds = %sw.bb41, %lor.lhs.f
 
 if.then54:                                        ; preds = %fin
   store i32 5, ptr %dest, align 8
-  %flags = getelementptr inbounds %struct.sf_value, ptr %dest, i64 0, i32 1
+  %flags = getelementptr inbounds i8, ptr %dest, i64 4
   store i32 0, ptr %flags, align 4
   %10 = load ptr, ptr %sfp, align 8
   %sub.ptr.lhs.cast56 = ptrtoint ptr %10 to i64
   %sub.ptr.rhs.cast57 = ptrtoint ptr %incdec.ptr to i64
   %sub.ptr.sub58 = sub i64 %sub.ptr.lhs.cast56, %sub.ptr.rhs.cast57
-  %11 = getelementptr inbounds %struct.sf_value, ptr %dest, i64 0, i32 2
-  %len = getelementptr inbounds %struct.sf_value, ptr %dest, i64 0, i32 2, i32 0, i32 1
+  %11 = getelementptr inbounds i8, ptr %dest, i64 8
+  %len = getelementptr inbounds i8, ptr %dest, i64 16
   store i64 %sub.ptr.sub58, ptr %len, align 8
   %cmp60 = icmp eq ptr %10, %incdec.ptr
   %cond = select i1 %cmp60, ptr null, ptr %incdec.ptr
@@ -1952,9 +1944,9 @@ sw.epilog:                                        ; preds = %if.end4, %sw.bb7
 
 if.then11:                                        ; preds = %sw.epilog
   store i32 0, ptr %dest, align 8
-  %flags = getelementptr inbounds %struct.sf_value, ptr %dest, i64 0, i32 1
+  %flags = getelementptr inbounds i8, ptr %dest, i64 4
   store i32 0, ptr %flags, align 4
-  %4 = getelementptr inbounds %struct.sf_value, ptr %dest, i64 0, i32 2
+  %4 = getelementptr inbounds i8, ptr %dest, i64 8
   store i32 %b.0, ptr %4, align 8
   br label %return
 

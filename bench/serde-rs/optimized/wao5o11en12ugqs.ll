@@ -22,8 +22,8 @@ define i64 @"_ZN114_$LT$core..iter..adapters..flatten..FlatMap$LT$I$C$U$C$F$GT$$
 
 ; Function Attrs: inlinehint nonlazybind uwtable
 define align 8 ptr @"_ZN114_$LT$core..iter..adapters..flatten..FlatMap$LT$I$C$U$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h237b55c82fe8d9e7E"(ptr align 8 %0) unnamed_addr #0 personality ptr @rust_eh_personality {
-  %2 = getelementptr inbounds { { ptr, ptr }, { ptr, ptr }, { ptr, ptr } }, ptr %0, i64 0, i32 1
-  %3 = getelementptr inbounds { { ptr, ptr }, { ptr, ptr }, { ptr, ptr } }, ptr %0, i64 0, i32 1, i32 1
+  %2 = getelementptr inbounds i8, ptr %0, i64 16
+  %3 = getelementptr inbounds i8, ptr %0, i64 24
   %.pre.i = load ptr, ptr %2, align 8
   br label %4
 
@@ -48,7 +48,7 @@ define align 8 ptr @"_ZN114_$LT$core..iter..adapters..flatten..FlatMap$LT$I$C$U$
   br i1 %12, label %13, label %20
 
 13:                                               ; preds = %10
-  %14 = getelementptr inbounds { { ptr, ptr }, { ptr, ptr }, { ptr, ptr } }, ptr %0, i64 0, i32 2
+  %14 = getelementptr inbounds i8, ptr %0, i64 32
   %15 = load ptr, ptr %14, align 8, !noundef !5
   %16 = icmp eq ptr %15, null
   br i1 %16, label %"_ZN116_$LT$core..iter..adapters..flatten..FlattenCompat$LT$I$C$U$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hf1996f949dc62ab4E.exit", label %17
@@ -111,8 +111,8 @@ define { i64, i64 } @"_ZN116_$LT$core..iter..adapters..flatten..FlattenCompat$LT
 
 ; Function Attrs: inlinehint nonlazybind uwtable
 define align 8 ptr @"_ZN116_$LT$core..iter..adapters..flatten..FlattenCompat$LT$I$C$U$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hf1996f949dc62ab4E"(ptr align 8 %0) unnamed_addr #0 personality ptr @rust_eh_personality {
-  %2 = getelementptr inbounds { { ptr, ptr }, { ptr, ptr }, { ptr, ptr } }, ptr %0, i64 0, i32 1
-  %3 = getelementptr inbounds { { ptr, ptr }, { ptr, ptr }, { ptr, ptr } }, ptr %0, i64 0, i32 1, i32 1
+  %2 = getelementptr inbounds i8, ptr %0, i64 16
+  %3 = getelementptr inbounds i8, ptr %0, i64 24
   %.pre = load ptr, ptr %2, align 8
   br label %4
 
@@ -141,7 +141,7 @@ _ZN4core4iter8adapters7flatten17and_then_or_clear17h5ffef21de40902b3E.exit: ; pr
   ret ptr %.0
 
 13:                                               ; preds = %10
-  %14 = getelementptr inbounds { { ptr, ptr }, { ptr, ptr }, { ptr, ptr } }, ptr %0, i64 0, i32 2
+  %14 = getelementptr inbounds i8, ptr %0, i64 32
   %15 = load ptr, ptr %14, align 8, !noundef !5
   %16 = icmp eq ptr %15, null
   br i1 %16, label %_ZN4core4iter8adapters7flatten17and_then_or_clear17h5ffef21de40902b3E.exit, label %17
@@ -173,35 +173,35 @@ define void @"_ZN116_$LT$core..iter..adapters..flatten..FlattenCompat$LT$I$C$U$G
   %6 = alloca { i64, { i64, i64 } }, align 8
   %7 = alloca { i64, { i64, i64 } }, align 8
   %8 = alloca { i64, { i64, i64 } }, align 8
-  %9 = getelementptr inbounds { { ptr, ptr }, { ptr, ptr }, { ptr, ptr } }, ptr %1, i64 0, i32 1
+  %9 = getelementptr inbounds i8, ptr %1, i64 16
   %10 = load ptr, ptr %9, align 8, !noundef !5
   %11 = icmp eq ptr %10, null
   %. = select i1 %11, ptr null, ptr %9
   store i64 0, ptr %7, align 8
-  %12 = getelementptr inbounds { i64, { i64, i64 } }, ptr %7, i64 0, i32 1
+  %12 = getelementptr inbounds i8, ptr %7, i64 8
   store i64 1, ptr %12, align 8
-  %13 = getelementptr inbounds { i64, { i64, i64 } }, ptr %7, i64 0, i32 1, i32 1
+  %13 = getelementptr inbounds i8, ptr %7, i64 16
   store i64 0, ptr %13, align 8
   call void @"_ZN4core6option15Option$LT$T$GT$6map_or17h82d69be1e4dce343E"(ptr nonnull sret({ i64, { i64, i64 } }) align 8 %8, ptr align 8 %., ptr nonnull align 8 %7)
   %14 = load i64, ptr %8, align 8, !noundef !5
-  %15 = getelementptr inbounds { i64, { i64, i64 } }, ptr %8, i64 0, i32 1
+  %15 = getelementptr inbounds i8, ptr %8, i64 8
   %16 = load i64, ptr %15, align 8, !range !6, !noundef !5
-  %17 = getelementptr inbounds { i64, { i64, i64 } }, ptr %8, i64 0, i32 1, i32 1
+  %17 = getelementptr inbounds i8, ptr %8, i64 16
   %18 = load i64, ptr %17, align 8
-  %19 = getelementptr inbounds { { ptr, ptr }, { ptr, ptr }, { ptr, ptr } }, ptr %1, i64 0, i32 2
+  %19 = getelementptr inbounds i8, ptr %1, i64 32
   %20 = load ptr, ptr %19, align 8, !noundef !5
   %21 = icmp eq ptr %20, null
   %.057 = select i1 %21, ptr null, ptr %19
   store i64 0, ptr %5, align 8
-  %22 = getelementptr inbounds { i64, { i64, i64 } }, ptr %5, i64 0, i32 1
+  %22 = getelementptr inbounds i8, ptr %5, i64 8
   store i64 1, ptr %22, align 8
-  %23 = getelementptr inbounds { i64, { i64, i64 } }, ptr %5, i64 0, i32 1, i32 1
+  %23 = getelementptr inbounds i8, ptr %5, i64 16
   store i64 0, ptr %23, align 8
   call void @"_ZN4core6option15Option$LT$T$GT$6map_or17h82d69be1e4dce343E"(ptr nonnull sret({ i64, { i64, i64 } }) align 8 %6, ptr align 8 %.057, ptr nonnull align 8 %5)
   %24 = load i64, ptr %6, align 8, !noundef !5
-  %25 = getelementptr inbounds { i64, { i64, i64 } }, ptr %6, i64 0, i32 1
+  %25 = getelementptr inbounds i8, ptr %6, i64 8
   %26 = load i64, ptr %25, align 8, !range !6, !noundef !5
-  %27 = getelementptr inbounds { i64, { i64, i64 } }, ptr %6, i64 0, i32 1, i32 1
+  %27 = getelementptr inbounds i8, ptr %6, i64 16
   %28 = load i64, ptr %27, align 8
   %29 = call i64 @llvm.uadd.sat.i64(i64 %14, i64 %24)
   %30 = call { i64, i64 } @"_ZN74_$LT$T$u20$as$u20$core..iter..adapters..flatten..ConstSizeIntoIterator$GT$4size17h1cfbd977982208d9E"()
@@ -220,18 +220,18 @@ define void @"_ZN116_$LT$core..iter..adapters..flatten..FlattenCompat$LT$I$C$U$G
 
 36:                                               ; preds = %34
   store i64 0, ptr %4, align 8
-  %37 = getelementptr inbounds { i64, { i64, i64 } }, ptr %4, i64 0, i32 1
+  %37 = getelementptr inbounds i8, ptr %4, i64 8
   store i64 1, ptr %37, align 8
-  %38 = getelementptr inbounds { i64, { i64, i64 } }, ptr %4, i64 0, i32 1, i32 1
+  %38 = getelementptr inbounds i8, ptr %4, i64 16
   store i64 0, ptr %38, align 8
   br label %41
 
 39:                                               ; preds = %34
   call void @"_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$9size_hint17h0d33fe395a1b6a9eE"(ptr nonnull sret({ i64, { i64, i64 } }) align 8 %4, ptr nonnull align 8 %1)
   %.pre68 = load i64, ptr %4, align 8
-  %.phi.trans.insert69 = getelementptr inbounds { i64, { i64, i64 } }, ptr %4, i64 0, i32 1
+  %.phi.trans.insert69 = getelementptr inbounds i8, ptr %4, i64 8
   %.pre70 = load i64, ptr %.phi.trans.insert69, align 8, !range !6
-  %.phi.trans.insert71 = getelementptr inbounds { i64, { i64, i64 } }, ptr %4, i64 0, i32 1, i32 1
+  %.phi.trans.insert71 = getelementptr inbounds i8, ptr %4, i64 16
   %.pre72 = load i64, ptr %.phi.trans.insert71, align 8
   %40 = icmp eq i64 %.pre70, 0
   br label %41
@@ -272,21 +272,23 @@ define void @"_ZN116_$LT$core..iter..adapters..flatten..FlattenCompat$LT$I$C$U$G
   %.sroa.8.0 = phi i64 [ undef, %41 ], [ undef, %46 ], [ undef, %50 ], [ %56, %53 ]
   %.sroa.023.0 = phi i64 [ 0, %41 ], [ 0, %46 ], [ 0, %50 ], [ %spec.select63, %53 ]
   store i64 %45, ptr %0, align 8
-  %59 = getelementptr inbounds { i64, { i64, i64 } }, ptr %0, i64 0, i32 1
+  %59 = getelementptr inbounds i8, ptr %0, i64 8
   store i64 %.sroa.023.0, ptr %59, align 8
-  %60 = getelementptr inbounds { i64, { i64, i64 } }, ptr %0, i64 0, i32 1, i32 1
-  store i64 %.sroa.8.0, ptr %60, align 8
-  br label %61
+  br label %60
 
-61:                                               ; preds = %71, %73, %58
+60:                                               ; preds = %71, %72, %58
+  %.sink74 = phi i64 [ 8, %71 ], [ 16, %72 ], [ 16, %58 ]
+  %.sink = phi i64 [ 0, %71 ], [ %74, %72 ], [ %.sroa.8.0, %58 ]
+  %61 = getelementptr inbounds i8, ptr %0, i64 %.sink74
+  store i64 %.sink, ptr %61, align 8
   ret void
 
 62:                                               ; preds = %35
   call void @"_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$9size_hint17h0d33fe395a1b6a9eE"(ptr nonnull sret({ i64, { i64, i64 } }) align 8 %3, ptr nonnull align 8 %1)
   %.pre = load i64, ptr %3, align 8
-  %.phi.trans.insert = getelementptr inbounds { i64, { i64, i64 } }, ptr %3, i64 0, i32 1
+  %.phi.trans.insert = getelementptr inbounds i8, ptr %3, i64 8
   %.pre65 = load i64, ptr %.phi.trans.insert, align 8, !range !6
-  %.phi.trans.insert66 = getelementptr inbounds { i64, { i64, i64 } }, ptr %3, i64 0, i32 1, i32 1
+  %.phi.trans.insert66 = getelementptr inbounds i8, ptr %3, i64 16
   %.pre67 = load i64, ptr %.phi.trans.insert66, align 8
   %63 = icmp eq i64 %.pre, 0
   %64 = icmp ne i64 %.pre65, 0
@@ -302,26 +304,22 @@ define void @"_ZN116_$LT$core..iter..adapters..flatten..FlattenCompat$LT$I$C$U$G
   %70 = icmp ne i64 %26, 0
   %or.cond5 = and i1 %70, %or.cond3
   %or.cond8 = select i1 %or.cond5, i1 %68, i1 false
-  br i1 %or.cond8, label %73, label %71
+  br i1 %or.cond8, label %72, label %71
 
 71:                                               ; preds = %67
   store i64 %29, ptr %0, align 8
-  %72 = getelementptr inbounds { i64, { i64, i64 } }, ptr %0, i64 0, i32 1
-  store i64 0, ptr %72, align 8
-  br label %61
+  br label %60
 
-73:                                               ; preds = %67
-  %74 = call { i64, i1 } @llvm.uadd.with.overflow.i64(i64 %18, i64 %28)
-  %75 = extractvalue { i64, i1 } %74, 0
-  %76 = extractvalue { i64, i1 } %74, 1
-  %not. = xor i1 %76, true
+72:                                               ; preds = %67
+  %73 = call { i64, i1 } @llvm.uadd.with.overflow.i64(i64 %18, i64 %28)
+  %74 = extractvalue { i64, i1 } %73, 0
+  %75 = extractvalue { i64, i1 } %73, 1
+  %not. = xor i1 %75, true
   %.60 = zext i1 %not. to i64
   store i64 %29, ptr %0, align 8
-  %77 = getelementptr inbounds { i64, { i64, i64 } }, ptr %0, i64 0, i32 1
-  store i64 %.60, ptr %77, align 8
-  %78 = getelementptr inbounds { i64, { i64, i64 } }, ptr %0, i64 0, i32 1, i32 1
-  store i64 %75, ptr %78, align 8
-  br label %61
+  %76 = getelementptr inbounds i8, ptr %0, i64 8
+  store i64 %.60, ptr %76, align 8
+  br label %60
 }
 
 ; Function Attrs: inlinehint nonlazybind uwtable
@@ -338,8 +336,8 @@ define align 8 ptr @_ZN4core4iter6traits8iterator8Iterator3nth17h2c17876e715ffd7
   br i1 %.not.not, label %"_ZN114_$LT$core..iter..adapters..flatten..FlatMap$LT$I$C$U$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$10advance_by17hacbc8ba5df294c81E.exit.thread", label %"_ZN114_$LT$core..iter..adapters..flatten..FlatMap$LT$I$C$U$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h237b55c82fe8d9e7E.exit"
 
 "_ZN114_$LT$core..iter..adapters..flatten..FlatMap$LT$I$C$U$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$10advance_by17hacbc8ba5df294c81E.exit.thread": ; preds = %2, %"_ZN114_$LT$core..iter..adapters..flatten..FlatMap$LT$I$C$U$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$10advance_by17hacbc8ba5df294c81E.exit"
-  %6 = getelementptr inbounds { { ptr, ptr }, { ptr, ptr }, { ptr, ptr } }, ptr %0, i64 0, i32 1
-  %7 = getelementptr inbounds { { ptr, ptr }, { ptr, ptr }, { ptr, ptr } }, ptr %0, i64 0, i32 1, i32 1
+  %6 = getelementptr inbounds i8, ptr %0, i64 16
+  %7 = getelementptr inbounds i8, ptr %0, i64 24
   %.pre.i.i = load ptr, ptr %6, align 8
   br label %8
 
@@ -364,7 +362,7 @@ define align 8 ptr @_ZN4core4iter6traits8iterator8Iterator3nth17h2c17876e715ffd7
   br i1 %16, label %17, label %24
 
 17:                                               ; preds = %14
-  %18 = getelementptr inbounds { { ptr, ptr }, { ptr, ptr }, { ptr, ptr } }, ptr %0, i64 0, i32 2
+  %18 = getelementptr inbounds i8, ptr %0, i64 32
   %19 = load ptr, ptr %18, align 8, !noundef !5
   %20 = icmp eq ptr %19, null
   br i1 %20, label %"_ZN114_$LT$core..iter..adapters..flatten..FlatMap$LT$I$C$U$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h237b55c82fe8d9e7E.exit", label %21
@@ -415,7 +413,7 @@ define align 8 ptr @_ZN4core4iter8adapters7flatten17and_then_or_clear17h5ffef21d
 ; Function Attrs: inlinehint nonlazybind uwtable
 define { i64, i64 } @"_ZN4core4iter8adapters7flatten26FlattenCompat$LT$I$C$U$GT$13iter_try_fold17hc4572314d458c6a1E"(ptr align 8 %0, i64 %1) unnamed_addr #0 personality ptr @rust_eh_personality {
   %3 = alloca {}, align 1
-  %4 = getelementptr inbounds { { ptr, ptr }, { ptr, ptr }, { ptr, ptr } }, ptr %0, i64 0, i32 1
+  %4 = getelementptr inbounds i8, ptr %0, i64 16
   %5 = load ptr, ptr %4, align 8, !noundef !5
   %.not = icmp eq ptr %5, null
   br i1 %.not, label %12, label %6
@@ -451,7 +449,7 @@ define { i64, i64 } @"_ZN4core4iter8adapters7flatten26FlattenCompat$LT$I$C$U$GT$
 
 21:                                               ; preds = %12
   store ptr null, ptr %4, align 8
-  %22 = getelementptr inbounds { { ptr, ptr }, { ptr, ptr }, { ptr, ptr } }, ptr %0, i64 0, i32 2
+  %22 = getelementptr inbounds i8, ptr %0, i64 32
   %23 = load ptr, ptr %22, align 8, !noundef !5
   %.not40 = icmp eq ptr %23, null
   br i1 %.not40, label %32, label %26
@@ -491,7 +489,7 @@ define { i64, i64 } @"_ZN4core4iter8adapters7flatten26FlattenCompat$LT$I$C$U$GT$
 ; Function Attrs: inlinehint nonlazybind uwtable
 define { i64, i64 } @"_ZN4core4iter8adapters7flatten26FlattenCompat$LT$I$C$U$GT$13iter_try_fold7flatten28_$u7b$$u7b$closure$u7d$$u7d$17hc26e5608eb63644bE"(ptr nocapture readonly align 8 %0, i64 %1, ptr %2, ptr %3) unnamed_addr #0 personality ptr @rust_eh_personality {
   %5 = load ptr, ptr %0, align 8, !nonnull !5, !align !7, !noundef !5
-  %6 = getelementptr inbounds { ptr, ptr }, ptr %0, i64 0, i32 1
+  %6 = getelementptr inbounds i8, ptr %0, i64 8
   %7 = load ptr, ptr %6, align 8, !nonnull !5, !align !8, !noundef !5
   %8 = tail call { ptr, ptr } @"_ZN63_$LT$I$u20$as$u20$core..iter..traits..collect..IntoIterator$GT$9into_iter17h0a24a01dbe0f605fE"(ptr %2, ptr %3)
   %9 = extractvalue { ptr, ptr } %8, 0

@@ -32,7 +32,7 @@ entry:
   ]
 
 sw.bb2:                                           ; preds = %entry
-  %arrayidx = getelementptr inbounds ptr, ptr %argv, i64 1
+  %arrayidx = getelementptr inbounds i8, ptr %argv, i64 8
   %0 = load ptr, ptr %arrayidx, align 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) @variables_set, i8 0, i64 24, i1 false)
   %1 = load i8, ptr %0, align 1
@@ -436,7 +436,7 @@ for.cond.i.backedge:                              ; preds = %if.end92.critedge.i
   br label %for.cond.i
 
 sw.bb3:                                           ; preds = %entry
-  %arrayidx4 = getelementptr inbounds ptr, ptr %argv, i64 1
+  %arrayidx4 = getelementptr inbounds i8, ptr %argv, i64 8
   %58 = load ptr, ptr %arrayidx4, align 8
   %call5 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %58, ptr noundef nonnull dereferenceable(12) @.str.3) #12
   %tobool.not = icmp eq i32 %call5, 0
@@ -447,7 +447,7 @@ if.then:                                          ; preds = %sw.bb3
   br label %if.end
 
 if.end:                                           ; preds = %if.then, %sw.bb3
-  %arrayidx8 = getelementptr inbounds ptr, ptr %argv, i64 2
+  %arrayidx8 = getelementptr inbounds i8, ptr %argv, i64 16
   %59 = load ptr, ptr %arrayidx8, align 8
   %60 = load i8, ptr %59, align 1
   %cmp.not33.i.i9 = icmp eq i8 %60, 0

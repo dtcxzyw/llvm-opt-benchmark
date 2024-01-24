@@ -8,18 +8,12 @@ target triple = "x86_64-unknown-linux-gnu"
 %struct.git_hash_algo = type { ptr, i32, i64, i64, i64, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr }
 %struct.strbuf = type { i64, i64, ptr }
 %struct.object_id = type { [32 x i8], i32 }
-%struct.repository = type { ptr, ptr, ptr, ptr, ptr, %struct.repo_path_cache, ptr, ptr, ptr, ptr, %struct.repo_settings, ptr, ptr, ptr, ptr, ptr, i32, i32, i32, ptr, ptr, i32, i8 }
-%struct.repo_path_cache = type { ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr }
-%struct.repo_settings = type { i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, ptr, i32, i32, i32, i32, i32, i32 }
 %struct.string_list_item = type { ptr, ptr }
 %struct.leaf_node = type { %struct.object_id, %struct.object_id }
 %struct.tree_desc = type { ptr, %struct.name_entry, i32, i32 }
 %struct.name_entry = type { %struct.object_id, ptr, i32, i32 }
-%struct.non_note = type { ptr, ptr, i32, %struct.object_id }
-%struct.display_notes_opt = type { i32, %struct.string_list }
 %struct.tree_write_stack = type { ptr, %struct.strbuf, [2 x i8] }
 %struct.write_each_note_data = type { ptr, ptr, ptr }
-%struct.note_delete_list = type { ptr, ptr }
 
 @the_repository = external local_unnamed_addr global ptr, align 8
 @strbuf_slopbuf = external global [0 x i8], align 1
@@ -66,14 +60,14 @@ entry:
   %cur_type = alloca i32, align 4
   %new_type = alloca i32, align 4
   %call.i = tail call ptr @null_oid() #16
-  %algo.i.i = getelementptr inbounds %struct.object_id, ptr %new_oid, i64 0, i32 1
+  %algo.i.i = getelementptr inbounds i8, ptr %new_oid, i64 32
   %0 = load i32, ptr %algo.i.i, align 4
   %tobool.not.i.i = icmp eq i32 %0, 0
   br i1 %tobool.not.i.i, label %if.then.i.i, label %if.else.i.i
 
 if.then.i.i:                                      ; preds = %entry
   %1 = load ptr, ptr @the_repository, align 8
-  %hash_algo.i.i = getelementptr inbounds %struct.repository, ptr %1, i64 0, i32 15
+  %hash_algo.i.i = getelementptr inbounds i8, ptr %1, i64 256
   %2 = load ptr, ptr %hash_algo.i.i, align 8
   br label %if.end.i.i
 
@@ -121,14 +115,14 @@ if.then5:                                         ; preds = %is_null_oid.exit, %
 
 if.end6:                                          ; preds = %if.end
   %call.i25 = call ptr @null_oid() #16
-  %algo.i.i26 = getelementptr inbounds %struct.object_id, ptr %cur_oid, i64 0, i32 1
+  %algo.i.i26 = getelementptr inbounds i8, ptr %cur_oid, i64 32
   %7 = load i32, ptr %algo.i.i26, align 4
   %tobool.not.i.i27 = icmp eq i32 %7, 0
   br i1 %tobool.not.i.i27, label %if.then.i.i42, label %if.else.i.i28
 
 if.then.i.i42:                                    ; preds = %if.end6
   %8 = load ptr, ptr @the_repository, align 8
-  %hash_algo.i.i43 = getelementptr inbounds %struct.repository, ptr %8, i64 0, i32 15
+  %hash_algo.i.i43 = getelementptr inbounds i8, ptr %8, i64 256
   %9 = load ptr, ptr %hash_algo.i.i43, align 8
   br label %if.end.i.i31
 
@@ -224,14 +218,14 @@ return:                                           ; preds = %if.end22, %if.then1
 define internal fastcc i32 @is_null_oid(ptr nocapture noundef readonly %oid) unnamed_addr #0 {
 entry:
   %call = tail call ptr @null_oid() #16
-  %algo.i = getelementptr inbounds %struct.object_id, ptr %oid, i64 0, i32 1
+  %algo.i = getelementptr inbounds i8, ptr %oid, i64 32
   %0 = load i32, ptr %algo.i, align 4
   %tobool.not.i = icmp eq i32 %0, 0
   br i1 %tobool.not.i, label %if.then.i, label %if.else.i
 
 if.then.i:                                        ; preds = %entry
   %1 = load ptr, ptr @the_repository, align 8
-  %hash_algo.i = getelementptr inbounds %struct.repository, ptr %1, i64 0, i32 15
+  %hash_algo.i = getelementptr inbounds i8, ptr %1, i64 256
   %2 = load ptr, ptr %hash_algo.i, align 8
   br label %if.end.i
 
@@ -276,9 +270,9 @@ declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias
 define dso_local noundef i32 @combine_notes_overwrite(ptr nocapture noundef writeonly %cur_oid, ptr nocapture noundef readonly %new_oid) local_unnamed_addr #4 {
 entry:
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(32) %cur_oid, ptr noundef nonnull align 4 dereferenceable(32) %new_oid, i64 32, i1 false)
-  %algo.i = getelementptr inbounds %struct.object_id, ptr %new_oid, i64 0, i32 1
+  %algo.i = getelementptr inbounds i8, ptr %new_oid, i64 32
   %0 = load i32, ptr %algo.i, align 4
-  %algo3.i = getelementptr inbounds %struct.object_id, ptr %cur_oid, i64 0, i32 1
+  %algo3.i = getelementptr inbounds i8, ptr %cur_oid, i64 32
   store i32 %0, ptr %algo3.i, align 4
   ret i32 0
 }
@@ -295,7 +289,7 @@ entry:
   %sort_uniq_list = alloca %struct.string_list, align 8
   %buf = alloca %struct.strbuf, align 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %sort_uniq_list, i8 0, i64 40, i1 false)
-  %0 = getelementptr inbounds %struct.string_list, ptr %sort_uniq_list, i64 0, i32 3
+  %0 = getelementptr inbounds i8, ptr %sort_uniq_list, i64 24
   store i8 1, ptr %0, align 8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %buf, ptr noundef nonnull align 8 dereferenceable(24) @__const.load_subtree.non_note_path, i64 24, i1 false)
   %call = call fastcc i32 @string_list_add_note_lines(ptr noundef nonnull %sort_uniq_list, ptr noundef %cur_oid), !range !5
@@ -316,9 +310,9 @@ if.end4:                                          ; preds = %if.end
   br i1 %tobool6.not, label %if.end8, label %out
 
 if.end8:                                          ; preds = %if.end4
-  %buf9 = getelementptr inbounds %struct.strbuf, ptr %buf, i64 0, i32 2
+  %buf9 = getelementptr inbounds i8, ptr %buf, i64 16
   %1 = load ptr, ptr %buf9, align 8
-  %len = getelementptr inbounds %struct.strbuf, ptr %buf, i64 0, i32 1
+  %len = getelementptr inbounds i8, ptr %buf, i64 8
   %2 = load i64, ptr %len, align 8
   %call.i = call i32 @write_object_file_flags(ptr noundef %1, i64 noundef %2, i32 noundef 3, ptr noundef %cur_oid, i32 noundef 0) #16
   br label %out
@@ -339,14 +333,14 @@ entry:
   %len = alloca i64, align 8
   %t = alloca i32, align 4
   %call.i = tail call ptr @null_oid() #16
-  %algo.i.i = getelementptr inbounds %struct.object_id, ptr %oid, i64 0, i32 1
+  %algo.i.i = getelementptr inbounds i8, ptr %oid, i64 32
   %0 = load i32, ptr %algo.i.i, align 4
   %tobool.not.i.i = icmp eq i32 %0, 0
   br i1 %tobool.not.i.i, label %if.then.i.i, label %if.else.i.i
 
 if.then.i.i:                                      ; preds = %entry
   %1 = load ptr, ptr @the_repository, align 8
-  %hash_algo.i.i = getelementptr inbounds %struct.repository, ptr %1, i64 0, i32 15
+  %hash_algo.i.i = getelementptr inbounds i8, ptr %1, i64 256
   %2 = load ptr, ptr %hash_algo.i.i, align 8
   br label %if.end.i.i
 
@@ -425,7 +419,7 @@ entry:
   br i1 %tobool.not.i.i, label %if.then.i, label %strbuf_avail.exit.i
 
 strbuf_avail.exit.i:                              ; preds = %entry
-  %len.i.i = getelementptr inbounds %struct.strbuf, ptr %cb_data, i64 0, i32 1
+  %len.i.i = getelementptr inbounds i8, ptr %cb_data, i64 8
   %2 = load i64, ptr %len.i.i, align 8
   %.neg.i = add i64 %2, 1
   %tobool.not.i = icmp eq i64 %1, %.neg.i
@@ -433,7 +427,7 @@ strbuf_avail.exit.i:                              ; preds = %entry
 
 if.then.i:                                        ; preds = %strbuf_avail.exit.i, %entry
   tail call void @strbuf_grow(ptr noundef nonnull %cb_data, i64 noundef 1) #16
-  %len.phi.trans.insert.i = getelementptr inbounds %struct.strbuf, ptr %cb_data, i64 0, i32 1
+  %len.phi.trans.insert.i = getelementptr inbounds i8, ptr %cb_data, i64 8
   %.pre.i = load i64, ptr %len.phi.trans.insert.i, align 8
   %.pre8.i = add i64 %.pre.i, 1
   br label %strbuf_addch.exit
@@ -441,9 +435,9 @@ if.then.i:                                        ; preds = %strbuf_avail.exit.i
 strbuf_addch.exit:                                ; preds = %strbuf_avail.exit.i, %if.then.i
   %inc.pre-phi.i = phi i64 [ %.pre8.i, %if.then.i ], [ %.neg.i, %strbuf_avail.exit.i ]
   %3 = phi i64 [ %.pre.i, %if.then.i ], [ %2, %strbuf_avail.exit.i ]
-  %buf.i = getelementptr inbounds %struct.strbuf, ptr %cb_data, i64 0, i32 2
+  %buf.i = getelementptr inbounds i8, ptr %cb_data, i64 16
   %4 = load ptr, ptr %buf.i, align 8
-  %len.i = getelementptr inbounds %struct.strbuf, ptr %cb_data, i64 0, i32 1
+  %len.i = getelementptr inbounds i8, ptr %cb_data, i64 8
   store i64 %inc.pre-phi.i, ptr %len.i, align 8
   %arrayidx.i = getelementptr inbounds i8, ptr %4, i64 %3
   store i8 10, ptr %arrayidx.i, align 1
@@ -526,7 +520,7 @@ entry:
   %call = tail call ptr @xstrdup(ptr noundef %globs) #16
   %call1 = call i32 @string_list_split_in_place(ptr noundef nonnull %split, ptr noundef %call, ptr noundef nonnull @.str.1, i32 noundef -1) #16
   call void @string_list_remove_empty_items(ptr noundef nonnull %split, i32 noundef 0) #16
-  %nr = getelementptr inbounds %struct.string_list, ptr %split, i64 0, i32 1
+  %nr = getelementptr inbounds i8, ptr %split, i64 8
   %0 = load i64, ptr %nr, align 8
   %cmp4.not = icmp eq i64 %0, 0
   br i1 %cmp4.not, label %for.end, label %for.body
@@ -596,21 +590,21 @@ if.end3:                                          ; preds = %if.then2, %entry
   %spec.store.select1 = select i1 %tobool5.not, ptr @combine_notes_concatenate, ptr %combine_notes
   %call8 = tail call ptr @xcalloc(i64 noundef 1, i64 noundef 128) #16
   store ptr %call8, ptr %spec.store.select, align 8
-  %first_non_note = getelementptr inbounds %struct.notes_tree, ptr %spec.store.select, i64 0, i32 1
+  %first_non_note = getelementptr inbounds i8, ptr %spec.store.select, i64 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %first_non_note, i8 0, i64 16, i1 false)
   %call9 = tail call ptr @xstrdup(ptr noundef nonnull %notes_ref.addr.0) #16
-  %ref = getelementptr inbounds %struct.notes_tree, ptr %spec.store.select, i64 0, i32 3
+  %ref = getelementptr inbounds i8, ptr %spec.store.select, i64 24
   store ptr %call9, ptr %ref, align 8
   %and = and i32 %flags, 2
   %tobool10.not = icmp eq i32 %and, 0
   %spec.select = select i1 %tobool10.not, ptr null, ptr %call9
-  %update_ref = getelementptr inbounds %struct.notes_tree, ptr %spec.store.select, i64 0, i32 4
+  %update_ref = getelementptr inbounds i8, ptr %spec.store.select, i64 32
   store ptr %spec.select, ptr %update_ref, align 8
-  %combine_notes12 = getelementptr inbounds %struct.notes_tree, ptr %spec.store.select, i64 0, i32 5
+  %combine_notes12 = getelementptr inbounds i8, ptr %spec.store.select, i64 40
   store ptr %spec.store.select1, ptr %combine_notes12, align 8
-  %initialized = getelementptr inbounds %struct.notes_tree, ptr %spec.store.select, i64 0, i32 6
+  %initialized = getelementptr inbounds i8, ptr %spec.store.select, i64 48
   store i32 1, ptr %initialized, align 8
-  %dirty = getelementptr inbounds %struct.notes_tree, ptr %spec.store.select, i64 0, i32 7
+  %dirty = getelementptr inbounds i8, ptr %spec.store.select, i64 52
   store i32 0, ptr %dirty, align 4
   %and13 = and i32 %flags, 1
   %tobool14.not = icmp eq i32 %and13, 0
@@ -648,19 +642,19 @@ if.then27:                                        ; preds = %if.end24
 if.end29:                                         ; preds = %if.end24
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(32) %root_tree, i8 0, i64 32, i1 false)
   %3 = load ptr, ptr @the_repository, align 8
-  %hash_algo.i = getelementptr inbounds %struct.repository, ptr %3, i64 0, i32 15
+  %hash_algo.i = getelementptr inbounds i8, ptr %3, i64 256
   %4 = load ptr, ptr %hash_algo.i, align 8
   %sub.ptr.lhs.cast.i.i = ptrtoint ptr %4 to i64
   %sub.ptr.sub.i.i = sub i64 %sub.ptr.lhs.cast.i.i, ptrtoint (ptr @hash_algos to i64)
   %sub.ptr.div.i.i = sdiv exact i64 %sub.ptr.sub.i.i, 104
   %conv.i.i = trunc i64 %sub.ptr.div.i.i to i32
-  %algo.i = getelementptr inbounds %struct.object_id, ptr %root_tree, i64 0, i32 1
+  %algo.i = getelementptr inbounds i8, ptr %root_tree, i64 32
   store i32 %conv.i.i, ptr %algo.i, align 4
-  %val_oid = getelementptr inbounds %struct.leaf_node, ptr %root_tree, i64 0, i32 1
+  %val_oid = getelementptr inbounds i8, ptr %root_tree, i64 36
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(32) %val_oid, ptr noundef nonnull align 4 dereferenceable(32) %oid, i64 32, i1 false)
-  %algo.i22 = getelementptr inbounds %struct.object_id, ptr %oid, i64 0, i32 1
+  %algo.i22 = getelementptr inbounds i8, ptr %oid, i64 32
   %5 = load i32, ptr %algo.i22, align 4
-  %algo3.i = getelementptr inbounds %struct.leaf_node, ptr %root_tree, i64 0, i32 1, i32 1
+  %algo3.i = getelementptr inbounds i8, ptr %root_tree, i64 68
   store i32 %5, ptr %algo3.i, align 4
   %6 = load ptr, ptr %spec.store.select, align 8
   call fastcc void @load_subtree(ptr noundef nonnull %spec.store.select, ptr noundef nonnull %root_tree, ptr noundef %6, i32 noundef 0)
@@ -693,11 +687,11 @@ entry:
   %entry1 = alloca %struct.name_entry, align 8
   %non_note_path = alloca %struct.strbuf, align 8
   %0 = load ptr, ptr @the_repository, align 8
-  %hash_algo = getelementptr inbounds %struct.repository, ptr %0, i64 0, i32 15
+  %hash_algo = getelementptr inbounds i8, ptr %0, i64 256
   %1 = load ptr, ptr %hash_algo, align 8
-  %rawsz = getelementptr inbounds %struct.git_hash_algo, ptr %1, i64 0, i32 2
+  %rawsz = getelementptr inbounds i8, ptr %1, i64 16
   %2 = load i64, ptr %rawsz, align 8
-  %val_oid = getelementptr inbounds %struct.leaf_node, ptr %subtree, i64 0, i32 1
+  %val_oid = getelementptr inbounds i8, ptr %subtree, i64 36
   %call = call ptr @fill_tree_descriptor(ptr noundef %0, ptr noundef nonnull %desc, ptr noundef nonnull %val_oid) #16
   %tobool.not = icmp eq ptr %call, null
   br i1 %tobool.not, label %if.then, label %if.end
@@ -709,9 +703,9 @@ if.then:                                          ; preds = %entry
 
 if.end:                                           ; preds = %entry
   %3 = load ptr, ptr @the_repository, align 8
-  %hash_algo4 = getelementptr inbounds %struct.repository, ptr %3, i64 0, i32 15
+  %hash_algo4 = getelementptr inbounds i8, ptr %3, i64 256
   %4 = load ptr, ptr %hash_algo4, align 8
-  %rawsz5 = getelementptr inbounds %struct.git_hash_algo, ptr %4, i64 0, i32 2
+  %rawsz5 = getelementptr inbounds i8, ptr %4, i64 16
   %5 = load i64, ptr %rawsz5, align 8
   %sub = add i64 %5, -1
   %arrayidx = getelementptr inbounds [32 x i8], ptr %subtree, i64 0, i64 %sub
@@ -742,22 +736,22 @@ if.end15:                                         ; preds = %if.end10
   br i1 %tobool21.not82, label %while.end, label %while.body.lr.ph
 
 while.body.lr.ph:                                 ; preds = %if.end15
-  %path = getelementptr inbounds %struct.name_entry, ptr %entry1, i64 0, i32 1
+  %path = getelementptr inbounds i8, ptr %entry1, i64 40
   %sub24 = sub nsw i64 %conv7, %conv6
   %mul25 = shl nsw i64 %sub24, 1
-  %mode45 = getelementptr inbounds %struct.name_entry, ptr %entry1, i64 0, i32 3
+  %mode45 = getelementptr inbounds i8, ptr %entry1, i64 52
   %add.ptr53 = getelementptr inbounds i8, ptr %object_oid, i64 %conv6
   %inc = add nuw nsw i64 %conv6, 1
   %add.ptr61 = getelementptr inbounds i8, ptr %object_oid, i64 %inc
   %sub64 = add nsw i64 %sub24, -2
   %conv65 = trunc i64 %inc to i8
   %cmp9278.not = icmp eq i8 %6, 0
-  %len.i.i = getelementptr inbounds %struct.strbuf, ptr %non_note_path, i64 0, i32 1
-  %buf.i = getelementptr inbounds %struct.strbuf, ptr %non_note_path, i64 0, i32 2
-  %algo.i74 = getelementptr inbounds %struct.object_id, ptr %entry1, i64 0, i32 1
-  %prev_non_note.i = getelementptr inbounds %struct.notes_tree, ptr %t, i64 0, i32 2
-  %first_non_note.i = getelementptr inbounds %struct.notes_tree, ptr %t, i64 0, i32 1
-  %algo.i = getelementptr inbounds %struct.object_id, ptr %object_oid, i64 0, i32 1
+  %len.i.i = getelementptr inbounds i8, ptr %non_note_path, i64 8
+  %buf.i = getelementptr inbounds i8, ptr %non_note_path, i64 16
+  %algo.i74 = getelementptr inbounds i8, ptr %entry1, i64 32
+  %prev_non_note.i = getelementptr inbounds i8, ptr %t, i64 16
+  %first_non_note.i = getelementptr inbounds i8, ptr %t, i64 8
+  %algo.i = getelementptr inbounds i8, ptr %object_oid, i64 32
   %conv81 = trunc i32 %n to i8
   br label %while.body
 
@@ -796,9 +790,9 @@ if.end50:                                         ; preds = %if.then44
 if.end58:                                         ; preds = %if.end50
   call void @llvm.memset.p0.i64(ptr nonnull align 1 %add.ptr61, i8 0, i64 %sub64, i1 false)
   %10 = load ptr, ptr @the_repository, align 8
-  %hash_algo67 = getelementptr inbounds %struct.repository, ptr %10, i64 0, i32 15
+  %hash_algo67 = getelementptr inbounds i8, ptr %10, i64 256
   %11 = load ptr, ptr %hash_algo67, align 8
-  %rawsz68 = getelementptr inbounds %struct.git_hash_algo, ptr %11, i64 0, i32 2
+  %rawsz68 = getelementptr inbounds i8, ptr %11, i64 16
   %12 = load i64, ptr %rawsz68, align 8
   %sub69 = add i64 %12, -1
   %arrayidx70 = getelementptr inbounds [32 x i8], ptr %object_oid, i64 0, i64 %sub69
@@ -810,15 +804,15 @@ if.end73:                                         ; preds = %if.end32, %if.end58
   %call74 = call ptr @xcalloc(i64 noundef 1, i64 noundef 72) #16
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(32) %call74, ptr noundef nonnull align 4 dereferenceable(32) %object_oid, i64 32, i1 false)
   %13 = load i32, ptr %algo.i, align 4
-  %algo3.i = getelementptr inbounds %struct.object_id, ptr %call74, i64 0, i32 1
+  %algo3.i = getelementptr inbounds i8, ptr %call74, i64 32
   store i32 %13, ptr %algo3.i, align 4
-  %val_oid76 = getelementptr inbounds %struct.leaf_node, ptr %call74, i64 0, i32 1
+  %val_oid76 = getelementptr inbounds i8, ptr %call74, i64 36
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(32) %val_oid76, ptr noundef nonnull align 8 dereferenceable(32) %entry1, i64 32, i1 false)
   %14 = load i32, ptr %algo.i74, align 8
-  %algo3.i33 = getelementptr inbounds %struct.leaf_node, ptr %call74, i64 0, i32 1, i32 1
+  %algo3.i33 = getelementptr inbounds i8, ptr %call74, i64 68
   store i32 %14, ptr %algo3.i33, align 4
   %15 = load ptr, ptr @the_repository, align 8
-  %hash_algo78 = getelementptr inbounds %struct.repository, ptr %15, i64 0, i32 15
+  %hash_algo78 = getelementptr inbounds i8, ptr %15, i64 256
   %16 = load ptr, ptr %hash_algo78, align 8
   %sub.ptr.lhs.cast.i.i = ptrtoint ptr %16 to i64
   %sub.ptr.sub.i.i = sub i64 %sub.ptr.lhs.cast.i.i, ptrtoint (ptr @hash_algos to i64)
@@ -838,7 +832,7 @@ if.end73:                                         ; preds = %if.end32, %if.end58
 if.then84:                                        ; preds = %if.end73
   %cond = select i1 %cmp26, ptr @.str.18, ptr @.str.19
   %call88 = call ptr @oid_to_hex(ptr noundef nonnull %object_oid) #16
-  %ref = getelementptr inbounds %struct.notes_tree, ptr %t, i64 0, i32 3
+  %ref = getelementptr inbounds i8, ptr %t, i64 24
   %18 = load ptr, ptr %ref, align 8
   call void (ptr, ...) @die(ptr noundef nonnull @.str.17, ptr noundef nonnull %cond, ptr noundef %call88, ptr noundef %18) #18
   unreachable
@@ -945,7 +939,7 @@ for.end:                                          ; preds = %strbuf_addch.exit69
   %call.i = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %39) #17
   call void @strbuf_add(ptr noundef nonnull %non_note_path, ptr noundef %39, i64 noundef %call.i) #16
   %40 = load ptr, ptr @the_repository, align 8
-  %hash_algo100 = getelementptr inbounds %struct.repository, ptr %40, i64 0, i32 15
+  %hash_algo100 = getelementptr inbounds i8, ptr %40, i64 256
   %41 = load ptr, ptr %hash_algo100, align 8
   %sub.ptr.lhs.cast.i.i70 = ptrtoint ptr %41 to i64
   %sub.ptr.sub.i.i71 = sub i64 %sub.ptr.lhs.cast.i.i70, ptrtoint (ptr @hash_algos to i64)
@@ -957,15 +951,15 @@ for.end:                                          ; preds = %strbuf_addch.exit69
   %43 = load ptr, ptr %prev_non_note.i, align 8
   %call.i75 = call ptr @xmalloc(i64 noundef 56) #16
   store ptr null, ptr %call.i75, align 8
-  %path1.i = getelementptr inbounds %struct.non_note, ptr %call.i75, i64 0, i32 1
+  %path1.i = getelementptr inbounds i8, ptr %call.i75, i64 8
   store ptr %call101, ptr %path1.i, align 8
-  %mode2.i = getelementptr inbounds %struct.non_note, ptr %call.i75, i64 0, i32 2
+  %mode2.i = getelementptr inbounds i8, ptr %call.i75, i64 16
   store i32 %42, ptr %mode2.i, align 8
-  %oid.i = getelementptr inbounds %struct.non_note, ptr %call.i75, i64 0, i32 3
+  %oid.i = getelementptr inbounds i8, ptr %call.i75, i64 20
   %44 = load ptr, ptr @the_repository, align 8
-  %hash_algo.i.i = getelementptr inbounds %struct.repository, ptr %44, i64 0, i32 15
+  %hash_algo.i.i = getelementptr inbounds i8, ptr %44, i64 256
   %45 = load ptr, ptr %hash_algo.i.i, align 8
-  %rawsz.i.i = getelementptr inbounds %struct.git_hash_algo, ptr %45, i64 0, i32 2
+  %rawsz.i.i = getelementptr inbounds i8, ptr %45, i64 16
   %46 = load i64, ptr %rawsz.i.i, align 8
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 4 %oid.i, ptr nonnull align 8 %entry1, i64 %46, i1 false)
   %47 = load ptr, ptr %hash_algo.i.i, align 8
@@ -973,7 +967,7 @@ for.end:                                          ; preds = %strbuf_addch.exit69
   %sub.ptr.sub.i.i.i = sub i64 %sub.ptr.lhs.cast.i.i.i, ptrtoint (ptr @hash_algos to i64)
   %sub.ptr.div.i.i.i = sdiv exact i64 %sub.ptr.sub.i.i.i, 104
   %conv.i.i.i = trunc i64 %sub.ptr.div.i.i.i to i32
-  %algo.i.i = getelementptr inbounds %struct.non_note, ptr %call.i75, i64 0, i32 3, i32 1
+  %algo.i.i = getelementptr inbounds i8, ptr %call.i75, i64 52
   store i32 %conv.i.i.i, ptr %algo.i.i, align 4
   store ptr %call.i75, ptr %prev_non_note.i, align 8
   %48 = load ptr, ptr %first_non_note.i, align 8
@@ -1030,12 +1024,12 @@ while.end.i:                                      ; preds = %land.rhs.i, %while.
 
 if.then26.i:                                      ; preds = %while.end.i
   %54 = load i32, ptr %mode2.i, align 8
-  %mode28.i = getelementptr inbounds %struct.non_note, ptr %p.1.i, i64 0, i32 2
+  %mode28.i = getelementptr inbounds i8, ptr %p.1.i, i64 16
   store i32 %54, ptr %mode28.i, align 8
-  %oid29.i = getelementptr inbounds %struct.non_note, ptr %p.1.i, i64 0, i32 3
+  %oid29.i = getelementptr inbounds i8, ptr %p.1.i, i64 20
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(32) %oid29.i, ptr noundef nonnull align 4 dereferenceable(32) %oid.i, i64 32, i1 false)
   %55 = load i32, ptr %algo.i.i, align 4
-  %algo3.i.i = getelementptr inbounds %struct.non_note, ptr %p.1.i, i64 0, i32 3, i32 1
+  %algo3.i.i = getelementptr inbounds i8, ptr %p.1.i, i64 52
   store i32 %55, ptr %algo3.i.i, align 4
   call void @free(ptr noundef %call.i75) #16
   store ptr %p.1.i, ptr %prev_non_note.i, align 8
@@ -1059,7 +1053,7 @@ while.end:                                        ; preds = %while.cond.backedge
 ; Function Attrs: nounwind uwtable
 define dso_local ptr @load_notes_trees(ptr nocapture noundef readonly %refs, i32 noundef %flags) local_unnamed_addr #0 {
 entry:
-  %nr = getelementptr inbounds %struct.string_list, ptr %refs, i64 0, i32 1
+  %nr = getelementptr inbounds i8, ptr %refs, i64 8
   %0 = load i64, ptr %nr, align 8
   %add = add i64 %0, 1
   %cmp.i = icmp ugt i64 %add, 2305843009213693951
@@ -1092,7 +1086,7 @@ for.body:                                         ; preds = %land.rhs.preheader,
   %indvars.iv.next = add nuw i64 %indvars.iv18, 1
   %arrayidx = getelementptr inbounds ptr, ptr %call1, i64 %indvars.iv18
   store ptr %call4, ptr %arrayidx, align 8
-  %incdec.ptr = getelementptr inbounds %struct.string_list_item, ptr %item.01319, i64 1
+  %incdec.ptr = getelementptr inbounds i8, ptr %item.01319, i64 16
   %5 = load ptr, ptr %refs, align 8
   %6 = load i64, ptr %nr, align 8
   %add.ptr = getelementptr inbounds %struct.string_list_item, ptr %5, i64 %6
@@ -1133,7 +1127,7 @@ entry:
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %buf, ptr noundef nonnull align 8 dereferenceable(24) @__const.load_subtree.non_note_path, i64 24, i1 false)
   %call.i = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %ref) #17
   call void @strbuf_add(ptr noundef nonnull %buf, ptr noundef %ref, i64 noundef %call.i) #16
-  %buf.i = getelementptr inbounds %struct.strbuf, ptr %buf, i64 0, i32 2
+  %buf.i = getelementptr inbounds i8, ptr %buf, i64 16
   %0 = load ptr, ptr %buf.i, align 8
   %call.i1 = call i32 @starts_with(ptr noundef %0, ptr noundef nonnull @.str.9) #16
   %tobool.not.i = icmp eq i32 %call.i1, 0
@@ -1154,7 +1148,7 @@ if.else5.i:                                       ; preds = %if.else.i
   br label %expand_notes_ref.exit
 
 expand_notes_ref.exit:                            ; preds = %entry, %if.then4.i, %if.else5.i
-  %extra_notes_refs = getelementptr inbounds %struct.display_notes_opt, ptr %opt, i64 0, i32 1
+  %extra_notes_refs = getelementptr inbounds i8, ptr %opt, i64 8
   %call = call ptr @strbuf_detach(ptr noundef nonnull %buf, ptr noundef null) #16
   %call1 = call ptr @string_list_append(ptr noundef nonnull %extra_notes_refs, ptr noundef %call) #16
   store i32 1, ptr %show_notes, align 4
@@ -1164,7 +1158,7 @@ expand_notes_ref.exit:                            ; preds = %entry, %if.then4.i,
 ; Function Attrs: nounwind uwtable
 define dso_local void @expand_notes_ref(ptr noundef %sb) local_unnamed_addr #0 {
 entry:
-  %buf = getelementptr inbounds %struct.strbuf, ptr %sb, i64 0, i32 2
+  %buf = getelementptr inbounds i8, ptr %sb, i64 16
   %0 = load ptr, ptr %buf, align 8
   %call = tail call i32 @starts_with(ptr noundef %0, ptr noundef nonnull @.str.9) #16
   %tobool.not = icmp eq i32 %call, 0
@@ -1194,8 +1188,8 @@ declare ptr @strbuf_detach(ptr noundef, ptr noundef) local_unnamed_addr #1
 define dso_local void @disable_display_notes(ptr noundef %opt, ptr nocapture noundef writeonly %show_notes) local_unnamed_addr #0 {
 entry:
   store i32 -1, ptr %opt, align 8
-  %extra_notes_refs = getelementptr inbounds %struct.display_notes_opt, ptr %opt, i64 0, i32 1
-  %strdup_strings = getelementptr inbounds %struct.display_notes_opt, ptr %opt, i64 0, i32 1, i32 3
+  %extra_notes_refs = getelementptr inbounds i8, ptr %opt, i64 8
+  %strdup_strings = getelementptr inbounds i8, ptr %opt, i64 32
   %bf.load = load i8, ptr %strdup_strings, align 8
   %bf.set = or i8 %bf.load, 1
   store i8 %bf.set, ptr %strdup_strings, align 8
@@ -1228,7 +1222,7 @@ lor.lhs.false1:                                   ; preds = %lor.lhs.false
   br i1 %cmp3, label %land.lhs.true, label %if.end9.thread
 
 land.lhs.true:                                    ; preds = %lor.lhs.false1
-  %nr = getelementptr inbounds %struct.display_notes_opt, ptr %opt, i64 0, i32 1, i32 1
+  %nr = getelementptr inbounds i8, ptr %opt, i64 16
   %1 = load i64, ptr %nr, align 8
   %tobool4.not = icmp eq i64 %1, 0
   br i1 %tobool4.not, label %if.then, label %if.end9.thread
@@ -1260,13 +1254,13 @@ if.end9:                                          ; preds = %if.then, %if.then8
   br i1 %tobool.not, label %if.end19, label %if.then11
 
 if.then11:                                        ; preds = %if.end9.thread, %if.end9
-  %extra_notes_refs12 = getelementptr inbounds %struct.display_notes_opt, ptr %opt, i64 0, i32 1
+  %extra_notes_refs12 = getelementptr inbounds i8, ptr %opt, i64 8
   %3 = load ptr, ptr %extra_notes_refs12, align 8
   %tobool13.not12 = icmp eq ptr %3, null
   br i1 %tobool13.not12, label %if.end19, label %land.rhs.lr.ph
 
 land.rhs.lr.ph:                                   ; preds = %if.then11
-  %nr17 = getelementptr inbounds %struct.display_notes_opt, ptr %opt, i64 0, i32 1, i32 1
+  %nr17 = getelementptr inbounds i8, ptr %opt, i64 16
   %4 = load ptr, ptr %extra_notes_refs12, align 8
   %5 = load i64, ptr %nr17, align 8
   %add.ptr18 = getelementptr inbounds %struct.string_list_item, ptr %4, i64 %5
@@ -1277,7 +1271,7 @@ for.body:                                         ; preds = %land.rhs.lr.ph, %fo
   %item.01320 = phi ptr [ %incdec.ptr, %for.body ], [ %3, %land.rhs.lr.ph ]
   %6 = load ptr, ptr %item.01320, align 8
   call void @string_list_add_refs_by_glob(ptr noundef nonnull @display_notes_refs, ptr noundef %6)
-  %incdec.ptr = getelementptr inbounds %struct.string_list_item, ptr %item.01320, i64 1
+  %incdec.ptr = getelementptr inbounds i8, ptr %item.01320, i64 16
   %7 = load ptr, ptr %extra_notes_refs12, align 8
   %8 = load i64, ptr %nr17, align 8
   %add.ptr = getelementptr inbounds %struct.string_list_item, ptr %7, i64 %8
@@ -1313,7 +1307,7 @@ for.body.i:                                       ; preds = %st_mult.exit.i, %fo
   %indvars.iv.next.i = add nuw i64 %indvars.iv.i16, 1
   %arrayidx.i = getelementptr inbounds ptr, ptr %call1.i, i64 %indvars.iv.i16
   store ptr %call4.i, ptr %arrayidx.i, align 8
-  %incdec.ptr.i = getelementptr inbounds %struct.string_list_item, ptr %item.013.i17, i64 1
+  %incdec.ptr.i = getelementptr inbounds i8, ptr %item.013.i17, i64 16
   %13 = load ptr, ptr @display_notes_refs, align 8
   %14 = load i64, ptr getelementptr inbounds (%struct.string_list, ptr @display_notes_refs, i64 0, i32 1), align 8
   %add.ptr.i = getelementptr inbounds %struct.string_list_item, ptr %13, i64 %14
@@ -1369,13 +1363,13 @@ define dso_local i32 @add_note(ptr noundef %t, ptr nocapture noundef readonly %o
 entry:
   %tobool.not = icmp eq ptr %t, null
   %spec.store.select = select i1 %tobool.not, ptr @default_notes_tree, ptr %t
-  %dirty = getelementptr inbounds %struct.notes_tree, ptr %spec.store.select, i64 0, i32 7
+  %dirty = getelementptr inbounds i8, ptr %spec.store.select, i64 52
   store i32 1, ptr %dirty, align 4
   %tobool1.not = icmp eq ptr %combine_notes, null
   br i1 %tobool1.not, label %if.then2, label %if.end4
 
 if.then2:                                         ; preds = %entry
-  %combine_notes3 = getelementptr inbounds %struct.notes_tree, ptr %spec.store.select, i64 0, i32 5
+  %combine_notes3 = getelementptr inbounds i8, ptr %spec.store.select, i64 40
   %0 = load ptr, ptr %combine_notes3, align 8
   br label %if.end4
 
@@ -1383,15 +1377,15 @@ if.end4:                                          ; preds = %if.then2, %entry
   %combine_notes.addr.0 = phi ptr [ %combine_notes, %entry ], [ %0, %if.then2 ]
   %call = tail call ptr @xmalloc(i64 noundef 72) #16
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(32) %call, ptr noundef nonnull align 4 dereferenceable(32) %object_oid, i64 32, i1 false)
-  %algo.i = getelementptr inbounds %struct.object_id, ptr %object_oid, i64 0, i32 1
+  %algo.i = getelementptr inbounds i8, ptr %object_oid, i64 32
   %1 = load i32, ptr %algo.i, align 4
-  %algo3.i = getelementptr inbounds %struct.object_id, ptr %call, i64 0, i32 1
+  %algo3.i = getelementptr inbounds i8, ptr %call, i64 32
   store i32 %1, ptr %algo3.i, align 4
-  %val_oid = getelementptr inbounds %struct.leaf_node, ptr %call, i64 0, i32 1
+  %val_oid = getelementptr inbounds i8, ptr %call, i64 36
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(32) %val_oid, ptr noundef nonnull align 4 dereferenceable(32) %note_oid, i64 32, i1 false)
-  %algo.i8 = getelementptr inbounds %struct.object_id, ptr %note_oid, i64 0, i32 1
+  %algo.i8 = getelementptr inbounds i8, ptr %note_oid, i64 32
   %2 = load i32, ptr %algo.i8, align 4
-  %algo3.i9 = getelementptr inbounds %struct.leaf_node, ptr %call, i64 0, i32 1, i32 1
+  %algo3.i9 = getelementptr inbounds i8, ptr %call, i64 68
   store i32 %2, ptr %algo3.i9, align 4
   %3 = load ptr, ptr %spec.store.select, align 8
   %call5 = tail call fastcc i32 @note_tree_insert(ptr noundef nonnull %spec.store.select, ptr noundef %3, i8 noundef zeroext 0, ptr noundef %call, i8 noundef zeroext 2, ptr noundef %combine_notes.addr.0)
@@ -1423,16 +1417,16 @@ tailrecurse:                                      ; preds = %if.end77, %if.then5
   ]
 
 sw.bb:                                            ; preds = %tailrecurse
-  %val_oid = getelementptr inbounds %struct.leaf_node, ptr %entry1, i64 0, i32 1
+  %val_oid = getelementptr inbounds i8, ptr %entry1, i64 36
   %call.i = tail call ptr @null_oid() #16
-  %algo.i.i = getelementptr inbounds %struct.leaf_node, ptr %entry1, i64 0, i32 1, i32 1
+  %algo.i.i = getelementptr inbounds i8, ptr %entry1, i64 68
   %3 = load i32, ptr %algo.i.i, align 4
   %tobool.not.i.i = icmp eq i32 %3, 0
   br i1 %tobool.not.i.i, label %if.then.i.i, label %if.else.i.i
 
 if.then.i.i:                                      ; preds = %sw.bb
   %4 = load ptr, ptr @the_repository, align 8
-  %hash_algo.i.i = getelementptr inbounds %struct.repository, ptr %4, i64 0, i32 15
+  %hash_algo.i.i = getelementptr inbounds i8, ptr %4, i64 256
   %5 = load ptr, ptr %hash_algo.i.i, align 8
   br label %if.end.i.i
 
@@ -1480,14 +1474,14 @@ sw.bb4:                                           ; preds = %tailrecurse
   ]
 
 sw.bb6:                                           ; preds = %sw.bb4
-  %algo.i = getelementptr inbounds %struct.object_id, ptr %2, i64 0, i32 1
+  %algo.i = getelementptr inbounds i8, ptr %2, i64 32
   %9 = load i32, ptr %algo.i, align 4
   %tobool.not.i = icmp eq i32 %9, 0
   br i1 %tobool.not.i, label %if.then.i, label %if.else.i
 
 if.then.i:                                        ; preds = %sw.bb6
   %10 = load ptr, ptr @the_repository, align 8
-  %hash_algo.i = getelementptr inbounds %struct.repository, ptr %10, i64 0, i32 15
+  %hash_algo.i = getelementptr inbounds i8, ptr %10, i64 256
   %11 = load ptr, ptr %hash_algo.i, align 8
   br label %if.end.i
 
@@ -1517,16 +1511,16 @@ oideq.exit:                                       ; preds = %if.then.i.i52, %if.
   br i1 %retval.0.in.i.i.not, label %if.then11, label %sw.epilog63
 
 if.then11:                                        ; preds = %oideq.exit
-  %val_oid12 = getelementptr inbounds %struct.leaf_node, ptr %2, i64 0, i32 1
-  %val_oid13 = getelementptr inbounds %struct.leaf_node, ptr %entry1, i64 0, i32 1
-  %algo.i53 = getelementptr inbounds %struct.leaf_node, ptr %2, i64 0, i32 1, i32 1
+  %val_oid12 = getelementptr inbounds i8, ptr %2, i64 36
+  %val_oid13 = getelementptr inbounds i8, ptr %entry1, i64 36
+  %algo.i53 = getelementptr inbounds i8, ptr %2, i64 68
   %13 = load i32, ptr %algo.i53, align 4
   %tobool.not.i54 = icmp eq i32 %13, 0
   br i1 %tobool.not.i54, label %if.then.i69, label %if.else.i55
 
 if.then.i69:                                      ; preds = %if.then11
   %14 = load ptr, ptr @the_repository, align 8
-  %hash_algo.i70 = getelementptr inbounds %struct.repository, ptr %14, i64 0, i32 15
+  %hash_algo.i70 = getelementptr inbounds i8, ptr %14, i64 256
   %15 = load ptr, ptr %hash_algo.i70, align 8
   br label %if.end.i58
 
@@ -1581,9 +1575,9 @@ if.end26:                                         ; preds = %if.then25, %land.lh
 
 sw.bb28:                                          ; preds = %sw.bb4
   %19 = load ptr, ptr @the_repository, align 8
-  %hash_algo = getelementptr inbounds %struct.repository, ptr %19, i64 0, i32 15
+  %hash_algo = getelementptr inbounds i8, ptr %19, i64 256
   %20 = load ptr, ptr %hash_algo, align 8
-  %rawsz = getelementptr inbounds %struct.git_hash_algo, ptr %20, i64 0, i32 2
+  %rawsz = getelementptr inbounds i8, ptr %20, i64 16
   %21 = load i64, ptr %rawsz, align 8
   %sub = add i64 %21, -1
   %arrayidx = getelementptr inbounds [32 x i8], ptr %entry1, i64 0, i64 %sub
@@ -1603,9 +1597,9 @@ if.then40:                                        ; preds = %sw.bb28
 
 sw.bb43:                                          ; preds = %tailrecurse
   %25 = load ptr, ptr @the_repository, align 8
-  %hash_algo52 = getelementptr inbounds %struct.repository, ptr %25, i64 0, i32 15
+  %hash_algo52 = getelementptr inbounds i8, ptr %25, i64 256
   %26 = load ptr, ptr %hash_algo52, align 8
-  %rawsz53 = getelementptr inbounds %struct.git_hash_algo, ptr %26, i64 0, i32 2
+  %rawsz53 = getelementptr inbounds i8, ptr %26, i64 16
   %27 = load i64, ptr %rawsz53, align 8
   %sub54 = add i64 %27, -1
   %arrayidx55 = getelementptr inbounds [32 x i8], ptr %2, i64 0, i64 %sub54
@@ -1625,16 +1619,16 @@ if.then59:                                        ; preds = %sw.bb43
   br label %tailrecurse
 
 sw.epilog63:                                      ; preds = %sw.bb43, %sw.bb4, %oideq.exit, %sw.bb28, %tailrecurse
-  %val_oid64 = getelementptr inbounds %struct.leaf_node, ptr %entry1, i64 0, i32 1
+  %val_oid64 = getelementptr inbounds i8, ptr %entry1, i64 36
   %call.i72 = tail call ptr @null_oid() #16
-  %algo.i.i73 = getelementptr inbounds %struct.leaf_node, ptr %entry1, i64 0, i32 1, i32 1
+  %algo.i.i73 = getelementptr inbounds i8, ptr %entry1, i64 68
   %31 = load i32, ptr %algo.i.i73, align 4
   %tobool.not.i.i74 = icmp eq i32 %31, 0
   br i1 %tobool.not.i.i74, label %if.then.i.i89, label %if.else.i.i75
 
 if.then.i.i89:                                    ; preds = %sw.epilog63
   %32 = load ptr, ptr @the_repository, align 8
-  %hash_algo.i.i90 = getelementptr inbounds %struct.repository, ptr %32, i64 0, i32 15
+  %hash_algo.i.i90 = getelementptr inbounds i8, ptr %32, i64 256
   %33 = load ptr, ptr %hash_algo.i.i90, align 8
   br label %if.end.i.i78
 
@@ -1700,20 +1694,20 @@ entry:
   %tobool.not = icmp eq ptr %t, null
   %spec.store.select = select i1 %tobool.not, ptr @default_notes_tree, ptr %t
   %0 = load ptr, ptr @the_repository, align 8
-  %hash_algo.i = getelementptr inbounds %struct.repository, ptr %0, i64 0, i32 15
+  %hash_algo.i = getelementptr inbounds i8, ptr %0, i64 256
   %1 = load ptr, ptr %hash_algo.i, align 8
-  %rawsz.i = getelementptr inbounds %struct.git_hash_algo, ptr %1, i64 0, i32 2
+  %rawsz.i = getelementptr inbounds i8, ptr %1, i64 16
   %2 = load i64, ptr %rawsz.i, align 8
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 4 %l, ptr align 1 %object_sha1, i64 %2, i1 false)
   %sub.ptr.lhs.cast.i.i = ptrtoint ptr %1 to i64
   %sub.ptr.sub.i.i = sub i64 %sub.ptr.lhs.cast.i.i, ptrtoint (ptr @hash_algos to i64)
   %sub.ptr.div.i.i = sdiv exact i64 %sub.ptr.sub.i.i, 104
   %conv.i.i = trunc i64 %sub.ptr.div.i.i to i32
-  %algo.i = getelementptr inbounds %struct.object_id, ptr %l, i64 0, i32 1
+  %algo.i = getelementptr inbounds i8, ptr %l, i64 32
   store i32 %conv.i.i, ptr %algo.i, align 4
-  %val_oid = getelementptr inbounds %struct.leaf_node, ptr %l, i64 0, i32 1
+  %val_oid = getelementptr inbounds i8, ptr %l, i64 36
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(32) %val_oid, i8 0, i64 32, i1 false)
-  %algo.i9 = getelementptr inbounds %struct.leaf_node, ptr %l, i64 0, i32 1, i32 1
+  %algo.i9 = getelementptr inbounds i8, ptr %l, i64 68
   store i32 %conv.i.i, ptr %algo.i9, align 4
   %3 = load ptr, ptr %spec.store.select, align 8
   call fastcc void @note_tree_remove(ptr noundef nonnull %spec.store.select, ptr noundef %3, i8 noundef zeroext 0, ptr noundef nonnull %l)
@@ -1724,7 +1718,7 @@ entry:
 
 if.then.i.i:                                      ; preds = %entry
   %5 = load ptr, ptr @the_repository, align 8
-  %hash_algo.i.i = getelementptr inbounds %struct.repository, ptr %5, i64 0, i32 15
+  %hash_algo.i.i = getelementptr inbounds i8, ptr %5, i64 256
   %6 = load ptr, ptr %hash_algo.i.i, align 8
   br label %if.end.i.i
 
@@ -1754,7 +1748,7 @@ is_null_oid.exit:                                 ; preds = %if.then.i.i.i, %if.
   br i1 %retval.0.in.i.i.i.not, label %return, label %if.end4
 
 if.end4:                                          ; preds = %is_null_oid.exit
-  %dirty = getelementptr inbounds %struct.notes_tree, ptr %spec.store.select, i64 0, i32 7
+  %dirty = getelementptr inbounds i8, ptr %spec.store.select, i64 52
   store i32 1, ptr %dirty, align 4
   br label %return
 
@@ -1781,14 +1775,14 @@ entry:
 if.end:                                           ; preds = %entry
   %and2 = and i64 %1, -4
   %2 = inttoptr i64 %and2 to ptr
-  %algo.i = getelementptr inbounds %struct.object_id, ptr %2, i64 0, i32 1
+  %algo.i = getelementptr inbounds i8, ptr %2, i64 32
   %3 = load i32, ptr %algo.i, align 4
   %tobool.not.i = icmp eq i32 %3, 0
   br i1 %tobool.not.i, label %if.then.i, label %if.else.i
 
 if.then.i:                                        ; preds = %if.end
   %4 = load ptr, ptr @the_repository, align 8
-  %hash_algo.i = getelementptr inbounds %struct.repository, ptr %4, i64 0, i32 15
+  %hash_algo.i = getelementptr inbounds i8, ptr %4, i64 256
   %5 = load ptr, ptr %hash_algo.i, align 8
   br label %if.end.i
 
@@ -1818,12 +1812,12 @@ oideq.exit:                                       ; preds = %if.then.i.i, %if.en
   br i1 %retval.0.in.i.i.not, label %if.end7, label %while.end
 
 if.end7:                                          ; preds = %oideq.exit
-  %val_oid = getelementptr inbounds %struct.leaf_node, ptr %entry1, i64 0, i32 1
-  %val_oid8 = getelementptr inbounds %struct.leaf_node, ptr %2, i64 0, i32 1
+  %val_oid = getelementptr inbounds i8, ptr %entry1, i64 36
+  %val_oid8 = getelementptr inbounds i8, ptr %2, i64 36
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(32) %val_oid, ptr noundef nonnull align 4 dereferenceable(32) %val_oid8, i64 32, i1 false)
-  %algo.i21 = getelementptr inbounds %struct.leaf_node, ptr %2, i64 0, i32 1, i32 1
+  %algo.i21 = getelementptr inbounds i8, ptr %2, i64 68
   %7 = load i32, ptr %algo.i21, align 4
-  %algo3.i = getelementptr inbounds %struct.leaf_node, ptr %entry1, i64 0, i32 1, i32 1
+  %algo3.i = getelementptr inbounds i8, ptr %entry1, i64 68
   store i32 %7, ptr %algo3.i, align 4
   tail call void @free(ptr noundef nonnull %2) #16
   store ptr null, ptr %call, align 8
@@ -1950,7 +1944,7 @@ if.then.i:                                        ; preds = %entry
   %and1.i = and i64 %2, -4
   %3 = inttoptr i64 %and1.i to ptr
   %4 = load ptr, ptr @the_repository, align 8
-  %hash_algo.i.i = getelementptr inbounds %struct.repository, ptr %4, i64 0, i32 15
+  %hash_algo.i.i = getelementptr inbounds i8, ptr %4, i64 256
   %5 = load ptr, ptr %hash_algo.i.i, align 8
   %6 = getelementptr i8, ptr %5, i64 16
   %.val.i.i = load i64, ptr %6, align 8
@@ -1978,7 +1972,7 @@ note_tree_find.exit:                              ; preds = %hasheq.exit.i, %if.
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %tree.addr.i)
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %n.addr.i)
   %tobool1.not = icmp eq ptr %retval.0.i, null
-  %val_oid = getelementptr inbounds %struct.leaf_node, ptr %retval.0.i, i64 0, i32 1
+  %val_oid = getelementptr inbounds i8, ptr %retval.0.i, i64 36
   %cond = select i1 %tobool1.not, ptr null, ptr %val_oid
   ret ptr %cond
 }
@@ -2085,7 +2079,7 @@ construct_path_with_fanout.exit68.us.us:          ; preds = %sw.bb45.split.us.sp
   %conv.i65.us.us = zext i32 %sub.i64.us.us to i64
   %add.ptr14.i66.us.us = getelementptr inbounds i8, ptr %call.i44.us.us, i64 %j.0.lcssa.i61.us.us
   %call15.i67.us.us = tail call i32 (ptr, i64, ptr, ...) @xsnprintf(ptr noundef nonnull %add.ptr.i63.us.us, i64 noundef %conv.i65.us.us, ptr noundef nonnull @.str.22, ptr noundef %add.ptr14.i66.us.us) #16
-  %val_oid51.us.us = getelementptr inbounds %struct.leaf_node, ptr %11, i64 0, i32 1
+  %val_oid51.us.us = getelementptr inbounds i8, ptr %11, i64 36
   %call52.us.us = tail call i32 %fn(ptr noundef %11, ptr noundef nonnull %val_oid51.us.us, ptr noundef nonnull @for_each_note_helper.path, ptr noundef %cb_data) #16
   br label %sw.epilog.us.us
 
@@ -2175,7 +2169,7 @@ construct_path_with_fanout.exit68.us:             ; preds = %sw.bb45.split.us.sp
   %conv.i65.us = zext i32 %sub.i64.us to i64
   %add.ptr14.i66.us = getelementptr inbounds i8, ptr %call.i44.us, i64 %j.0.lcssa.i61.us
   %call15.i67.us = tail call i32 (ptr, i64, ptr, ...) @xsnprintf(ptr noundef nonnull %add.ptr.i63.us, i64 noundef %conv.i65.us, ptr noundef nonnull @.str.22, ptr noundef %add.ptr14.i66.us) #16
-  %val_oid51.us = getelementptr inbounds %struct.leaf_node, ptr %20, i64 0, i32 1
+  %val_oid51.us = getelementptr inbounds i8, ptr %20, i64 36
   %call52.us = tail call i32 %fn(ptr noundef %20, ptr noundef nonnull %val_oid51.us, ptr noundef nonnull @for_each_note_helper.path, ptr noundef %cb_data) #16
   br label %sw.epilog.us
 
@@ -2232,9 +2226,9 @@ sw.bb4:                                           ; preds = %redo
   %and5 = and i64 %22, -4
   %24 = inttoptr i64 %and5 to ptr
   %25 = load ptr, ptr @the_repository, align 8
-  %hash_algo = getelementptr inbounds %struct.repository, ptr %25, i64 0, i32 15
+  %hash_algo = getelementptr inbounds i8, ptr %25, i64 256
   %26 = load ptr, ptr %hash_algo, align 8
-  %rawsz = getelementptr inbounds %struct.git_hash_algo, ptr %26, i64 0, i32 2
+  %rawsz = getelementptr inbounds i8, ptr %26, i64 16
   %27 = load i64, ptr %rawsz, align 8
   %sub = add i64 %27, -1
   %arrayidx11 = getelementptr inbounds [32 x i8], ptr %24, i64 0, i64 %sub
@@ -2293,7 +2287,7 @@ if.end:                                           ; preds = %if.then24, %while.e
   %idxprom27 = zext nneg i32 %path_len.0 to i64
   %arrayidx28 = getelementptr inbounds [96 x i8], ptr @for_each_note_helper.path, i64 0, i64 %idxprom27
   store i8 0, ptr %arrayidx28, align 1
-  %val_oid = getelementptr inbounds %struct.leaf_node, ptr %24, i64 0, i32 1
+  %val_oid = getelementptr inbounds i8, ptr %24, i64 36
   %call30 = tail call i32 %fn(ptr noundef %24, ptr noundef nonnull %val_oid, ptr noundef nonnull @for_each_note_helper.path, ptr noundef %cb_data) #16
   br i1 %or.cond38, label %if.then39, label %sw.epilog
 
@@ -2344,7 +2338,7 @@ construct_path_with_fanout.exit68:                ; preds = %sw.bb45.split, %whi
   %conv.i65 = zext i32 %sub.i64 to i64
   %add.ptr14.i66 = getelementptr inbounds i8, ptr %call.i44, i64 %j.0.lcssa.i61
   %call15.i67 = tail call i32 (ptr, i64, ptr, ...) @xsnprintf(ptr noundef nonnull %add.ptr.i63, i64 noundef %conv.i65, ptr noundef nonnull @.str.22, ptr noundef %add.ptr14.i66) #16
-  %val_oid51 = getelementptr inbounds %struct.leaf_node, ptr %34, i64 0, i32 1
+  %val_oid51 = getelementptr inbounds i8, ptr %34, i64 36
   %call52 = tail call i32 %fn(ptr noundef %34, ptr noundef nonnull %val_oid51, ptr noundef nonnull @for_each_note_helper.path, ptr noundef %cb_data) #16
   br label %sw.epilog
 
@@ -2366,24 +2360,24 @@ entry:
   %tobool.not = icmp eq ptr %t, null
   %spec.store.select = select i1 %tobool.not, ptr @default_notes_tree, ptr %t
   store ptr null, ptr %root, align 8
-  %buf = getelementptr inbounds %struct.tree_write_stack, ptr %root, i64 0, i32 1
+  %buf = getelementptr inbounds i8, ptr %root, i64 8
   %0 = load ptr, ptr @the_repository, align 8
-  %hash_algo = getelementptr inbounds %struct.repository, ptr %0, i64 0, i32 15
+  %hash_algo = getelementptr inbounds i8, ptr %0, i64 256
   %1 = load ptr, ptr %hash_algo, align 8
-  %hexsz = getelementptr inbounds %struct.git_hash_algo, ptr %1, i64 0, i32 3
+  %hexsz = getelementptr inbounds i8, ptr %1, i64 24
   %2 = load i64, ptr %hexsz, align 8
   %add = shl i64 %2, 8
   %mul = add i64 %add, 8192
   call void @strbuf_init(ptr noundef nonnull %buf, i64 noundef %mul) #16
-  %path = getelementptr inbounds %struct.tree_write_stack, ptr %root, i64 0, i32 2
-  %arrayidx = getelementptr inbounds %struct.tree_write_stack, ptr %root, i64 0, i32 2, i64 1
+  %path = getelementptr inbounds i8, ptr %root, i64 32
+  %arrayidx = getelementptr inbounds i8, ptr %root, i64 33
   store i8 0, ptr %arrayidx, align 1
   store i8 0, ptr %path, align 8
   store ptr %root, ptr %cb_data, align 8
-  %first_non_note = getelementptr inbounds %struct.notes_tree, ptr %spec.store.select, i64 0, i32 1
-  %nn_list = getelementptr inbounds %struct.write_each_note_data, ptr %cb_data, i64 0, i32 1
+  %first_non_note = getelementptr inbounds i8, ptr %spec.store.select, i64 8
+  %nn_list = getelementptr inbounds i8, ptr %cb_data, i64 8
   store ptr %first_non_note, ptr %nn_list, align 8
-  %nn_prev = getelementptr inbounds %struct.write_each_note_data, ptr %cb_data, i64 0, i32 2
+  %nn_prev = getelementptr inbounds i8, ptr %cb_data, i64 16
   store ptr null, ptr %nn_prev, align 8
   %3 = load ptr, ptr %spec.store.select, align 8
   %call.i = call fastcc i32 @for_each_note_helper(ptr noundef nonnull %spec.store.select, ptr noundef %3, i8 noundef zeroext 0, i8 noundef zeroext 0, i32 noundef 3, ptr noundef nonnull @write_each_note, ptr noundef nonnull %cb_data)
@@ -2402,11 +2396,11 @@ lor.lhs.false:                                    ; preds = %entry
 land.rhs.us.i:                                    ; preds = %lor.lhs.false, %if.end10.us.i
   %n.024.us.i = phi ptr [ %n.0.us.i, %if.end10.us.i ], [ %n.021.i, %lor.lhs.false ]
   %6 = load ptr, ptr %cb_data, align 8
-  %path6.us.i = getelementptr inbounds %struct.non_note, ptr %n.024.us.i, i64 0, i32 1
+  %path6.us.i = getelementptr inbounds i8, ptr %n.024.us.i, i64 8
   %7 = load ptr, ptr %path6.us.i, align 8
-  %mode.us.i = getelementptr inbounds %struct.non_note, ptr %n.024.us.i, i64 0, i32 2
+  %mode.us.i = getelementptr inbounds i8, ptr %n.024.us.i, i64 16
   %8 = load i32, ptr %mode.us.i, align 8
-  %oid.us.i = getelementptr inbounds %struct.non_note, ptr %n.024.us.i, i64 0, i32 3
+  %oid.us.i = getelementptr inbounds i8, ptr %n.024.us.i, i64 20
   %call7.us.i = call fastcc i32 @write_each_note_helper(ptr noundef %6, ptr noundef %7, i32 noundef %8, ptr noundef nonnull %oid.us.i)
   %tobool8.not.us.i = icmp eq i32 %call7.us.i, 0
   br i1 %tobool8.not.us.i, label %if.end10.us.i, label %lor.end
@@ -2424,9 +2418,9 @@ lor.lhs.false7:                                   ; preds = %if.end10.us.i, %lor
   br i1 %tobool9.not, label %lor.rhs, label %lor.end
 
 lor.rhs:                                          ; preds = %lor.lhs.false7
-  %buf11 = getelementptr inbounds %struct.tree_write_stack, ptr %root, i64 0, i32 1, i32 2
+  %buf11 = getelementptr inbounds i8, ptr %root, i64 24
   %9 = load ptr, ptr %buf11, align 8
-  %len = getelementptr inbounds %struct.tree_write_stack, ptr %root, i64 0, i32 1, i32 1
+  %len = getelementptr inbounds i8, ptr %root, i64 16
   %10 = load i64, ptr %len, align 8
   %call.i3 = call i32 @write_object_file_flags(ptr noundef %9, i64 noundef %10, i32 noundef 2, ptr noundef %result, i32 noundef 0) #16
   %tobool14 = icmp ne i32 %call.i3, 0
@@ -2476,13 +2470,13 @@ lor.end:                                          ; preds = %lor.rhs, %if.end
 ; Function Attrs: nounwind uwtable
 define internal fastcc i32 @write_each_non_note_until(ptr noundef readonly %note_path, ptr nocapture noundef %d) unnamed_addr #0 {
 entry:
-  %nn_prev = getelementptr inbounds %struct.write_each_note_data, ptr %d, i64 0, i32 2
+  %nn_prev = getelementptr inbounds i8, ptr %d, i64 16
   %0 = load ptr, ptr %nn_prev, align 8
   %tobool.not = icmp eq ptr %0, null
   br i1 %tobool.not, label %cond.false, label %cond.end
 
 cond.false:                                       ; preds = %entry
-  %nn_list = getelementptr inbounds %struct.write_each_note_data, ptr %d, i64 0, i32 1
+  %nn_list = getelementptr inbounds i8, ptr %d, i64 8
   %1 = load ptr, ptr %nn_list, align 8
   br label %cond.end
 
@@ -2499,11 +2493,11 @@ land.rhs.lr.ph:                                   ; preds = %cond.end
 land.rhs.us:                                      ; preds = %land.rhs.lr.ph, %if.end10.us
   %n.024.us = phi ptr [ %n.0.us, %if.end10.us ], [ %n.021, %land.rhs.lr.ph ]
   %2 = load ptr, ptr %d, align 8
-  %path6.us = getelementptr inbounds %struct.non_note, ptr %n.024.us, i64 0, i32 1
+  %path6.us = getelementptr inbounds i8, ptr %n.024.us, i64 8
   %3 = load ptr, ptr %path6.us, align 8
-  %mode.us = getelementptr inbounds %struct.non_note, ptr %n.024.us, i64 0, i32 2
+  %mode.us = getelementptr inbounds i8, ptr %n.024.us, i64 16
   %4 = load i32, ptr %mode.us, align 8
-  %oid.us = getelementptr inbounds %struct.non_note, ptr %n.024.us, i64 0, i32 3
+  %oid.us = getelementptr inbounds i8, ptr %n.024.us, i64 20
   %call7.us = tail call fastcc i32 @write_each_note_helper(ptr noundef %2, ptr noundef %3, i32 noundef %4, ptr noundef nonnull %oid.us)
   %tobool8.not.us = icmp eq i32 %call7.us, 0
   br i1 %tobool8.not.us, label %if.end10.us, label %return
@@ -2514,14 +2508,14 @@ if.end10.us:                                      ; preds = %land.rhs.us
   br i1 %tobool1.not.us, label %while.end, label %land.rhs.us, !llvm.loop !17
 
 land.rhs.lr.ph.split:                             ; preds = %land.rhs.lr.ph
-  %path27 = getelementptr inbounds %struct.non_note, ptr %n.021, i64 0, i32 1
+  %path27 = getelementptr inbounds i8, ptr %n.021, i64 8
   %5 = load ptr, ptr %path27, align 8
   %call28 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %5, ptr noundef nonnull dereferenceable(1) %note_path) #17
   %cmp329 = icmp slt i32 %call28, 1
   br i1 %cmp329, label %while.body, label %while.end
 
 land.rhs:                                         ; preds = %if.end10
-  %path = getelementptr inbounds %struct.non_note, ptr %n.0, i64 0, i32 1
+  %path = getelementptr inbounds i8, ptr %n.0, i64 8
   %6 = load ptr, ptr %path, align 8
   %call = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %6, ptr noundef nonnull dereferenceable(1) %note_path) #17
   %cmp3 = icmp slt i32 %call, 1
@@ -2536,9 +2530,9 @@ while.body:                                       ; preds = %land.rhs.lr.ph.spli
 
 if.else:                                          ; preds = %while.body
   %8 = load ptr, ptr %d, align 8
-  %mode = getelementptr inbounds %struct.non_note, ptr %n.02430, i64 0, i32 2
+  %mode = getelementptr inbounds i8, ptr %n.02430, i64 16
   %9 = load i32, ptr %mode, align 8
-  %oid = getelementptr inbounds %struct.non_note, ptr %n.02430, i64 0, i32 3
+  %oid = getelementptr inbounds i8, ptr %n.02430, i64 20
   %call7 = tail call fastcc i32 @write_each_note_helper(ptr noundef %8, ptr noundef %7, i32 noundef %9, ptr noundef nonnull %oid)
   %tobool8.not = icmp eq i32 %call7, 0
   br i1 %tobool8.not, label %if.end10, label %return
@@ -2572,29 +2566,29 @@ if.then:                                          ; preds = %entry
   br i1 %tobool1.not, label %if.end, label %return
 
 if.end:                                           ; preds = %if.then
-  %buf3 = getelementptr inbounds %struct.tree_write_stack, ptr %0, i64 0, i32 1, i32 2
+  %buf3 = getelementptr inbounds i8, ptr %0, i64 24
   %1 = load ptr, ptr %buf3, align 8
-  %len = getelementptr inbounds %struct.tree_write_stack, ptr %0, i64 0, i32 1, i32 1
+  %len = getelementptr inbounds i8, ptr %0, i64 16
   %2 = load i64, ptr %len, align 8
   %call.i = call i32 @write_object_file_flags(ptr noundef %1, i64 noundef %2, i32 noundef 2, ptr noundef nonnull %s, i32 noundef 0) #16
   %tobool6.not = icmp eq i32 %call.i, 0
   br i1 %tobool6.not, label %if.end8, label %return
 
 if.end8:                                          ; preds = %if.end
-  %buf = getelementptr inbounds %struct.tree_write_stack, ptr %0, i64 0, i32 1
+  %buf = getelementptr inbounds i8, ptr %0, i64 8
   call void @strbuf_release(ptr noundef nonnull %buf) #16
   call void @free(ptr noundef nonnull %0) #16
   store ptr null, ptr %tws, align 8
-  %buf11 = getelementptr inbounds %struct.tree_write_stack, ptr %tws, i64 0, i32 1
-  %path = getelementptr inbounds %struct.tree_write_stack, ptr %tws, i64 0, i32 2
+  %buf11 = getelementptr inbounds i8, ptr %tws, i64 8
+  %path = getelementptr inbounds i8, ptr %tws, i64 32
   call void (ptr, ptr, ...) @strbuf_addf(ptr noundef nonnull %buf11, ptr noundef nonnull @.str.23, i32 noundef 16384, i32 noundef 2, ptr noundef nonnull %path, i32 noundef 0) #16
   %3 = load ptr, ptr @the_repository, align 8
-  %hash_algo.i = getelementptr inbounds %struct.repository, ptr %3, i64 0, i32 15
+  %hash_algo.i = getelementptr inbounds i8, ptr %3, i64 256
   %4 = load ptr, ptr %hash_algo.i, align 8
-  %rawsz.i = getelementptr inbounds %struct.git_hash_algo, ptr %4, i64 0, i32 2
+  %rawsz.i = getelementptr inbounds i8, ptr %4, i64 16
   %5 = load i64, ptr %rawsz.i, align 8
   call void @strbuf_add(ptr noundef nonnull %buf11, ptr noundef nonnull %s, i64 noundef %5) #16
-  %arrayidx = getelementptr inbounds %struct.tree_write_stack, ptr %tws, i64 0, i32 2, i64 1
+  %arrayidx = getelementptr inbounds i8, ptr %tws, i64 33
   store i8 0, ptr %arrayidx, align 1
   store i8 0, ptr %path, align 8
   br label %return
@@ -2623,10 +2617,10 @@ while.body.lr.ph:                                 ; preds = %entry
   %tobool2.not = icmp eq i32 %and, 0
   %and7 = and i32 %flags, 2
   %tobool8.not = icmp eq i32 %and7, 0
-  %algo.i.i = getelementptr inbounds %struct.object_id, ptr %l.i, i64 0, i32 1
-  %val_oid.i = getelementptr inbounds %struct.leaf_node, ptr %l.i, i64 0, i32 1
-  %algo.i9.i = getelementptr inbounds %struct.leaf_node, ptr %l.i, i64 0, i32 1, i32 1
-  %dirty.i = getelementptr inbounds %struct.notes_tree, ptr %spec.store.select, i64 0, i32 7
+  %algo.i.i = getelementptr inbounds i8, ptr %l.i, i64 32
+  %val_oid.i = getelementptr inbounds i8, ptr %l.i, i64 36
+  %algo.i9.i = getelementptr inbounds i8, ptr %l.i, i64 68
+  %dirty.i = getelementptr inbounds i8, ptr %spec.store.select, i64 52
   br i1 %tobool8.not, label %while.body.us, label %while.body.lr.ph.split
 
 while.body.us:                                    ; preds = %while.body.lr.ph, %remove_note.exit.us
@@ -2634,7 +2628,7 @@ while.body.us:                                    ; preds = %while.body.lr.ph, %
   br i1 %tobool2.not, label %if.end6.us, label %if.then3.us
 
 if.then3.us:                                      ; preds = %while.body.us
-  %sha1.us = getelementptr inbounds %struct.note_delete_list, ptr %1, i64 0, i32 1
+  %sha1.us = getelementptr inbounds i8, ptr %1, i64 8
   %2 = load ptr, ptr %sha1.us, align 8
   %call4.us = call ptr @hash_to_hex(ptr noundef %2) #16
   %puts.us = call i32 @puts(ptr nonnull dereferenceable(1) %call4.us)
@@ -2643,13 +2637,13 @@ if.then3.us:                                      ; preds = %while.body.us
 
 if.end6.us:                                       ; preds = %if.then3.us, %while.body.us
   %3 = phi ptr [ %.pre, %if.then3.us ], [ %1, %while.body.us ]
-  %sha110.us = getelementptr inbounds %struct.note_delete_list, ptr %3, i64 0, i32 1
+  %sha110.us = getelementptr inbounds i8, ptr %3, i64 8
   %4 = load ptr, ptr %sha110.us, align 8
   call void @llvm.lifetime.start.p0(i64 72, ptr nonnull %l.i)
   %5 = load ptr, ptr @the_repository, align 8
-  %hash_algo.i.i.us = getelementptr inbounds %struct.repository, ptr %5, i64 0, i32 15
+  %hash_algo.i.i.us = getelementptr inbounds i8, ptr %5, i64 256
   %6 = load ptr, ptr %hash_algo.i.i.us, align 8
-  %rawsz.i.i.us = getelementptr inbounds %struct.git_hash_algo, ptr %6, i64 0, i32 2
+  %rawsz.i.i.us = getelementptr inbounds i8, ptr %6, i64 16
   %7 = load i64, ptr %rawsz.i.i.us, align 8
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 4 %l.i, ptr align 1 %4, i64 %7, i1 false)
   %sub.ptr.lhs.cast.i.i.i.us = ptrtoint ptr %6 to i64
@@ -2673,7 +2667,7 @@ if.else.i.i.i.us:                                 ; preds = %if.end6.us
 
 if.then.i.i.i.us:                                 ; preds = %if.end6.us
   %10 = load ptr, ptr @the_repository, align 8
-  %hash_algo.i.i.i.us = getelementptr inbounds %struct.repository, ptr %10, i64 0, i32 15
+  %hash_algo.i.i.i.us = getelementptr inbounds i8, ptr %10, i64 256
   %11 = load ptr, ptr %hash_algo.i.i.i.us, align 8
   br label %if.end.i.i.i.us
 
@@ -2721,7 +2715,7 @@ while.body.us5:                                   ; preds = %while.body.lr.ph.sp
 
 while.body:                                       ; preds = %while.body.lr.ph.split, %while.body
   %17 = phi ptr [ %20, %while.body ], [ %.pr, %while.body.lr.ph.split ]
-  %sha1 = getelementptr inbounds %struct.note_delete_list, ptr %17, i64 0, i32 1
+  %sha1 = getelementptr inbounds i8, ptr %17, i64 8
   %18 = load ptr, ptr %sha1, align 8
   %call4 = call ptr @hash_to_hex(ptr noundef %18) #16
   %puts = call i32 @puts(ptr nonnull dereferenceable(1) %call4)
@@ -2747,7 +2741,7 @@ if.end:                                           ; preds = %entry
   %call1 = tail call ptr @xmalloc(i64 noundef 16) #16
   %1 = load ptr, ptr %cb_data, align 8
   store ptr %1, ptr %call1, align 8
-  %sha1 = getelementptr inbounds %struct.note_delete_list, ptr %call1, i64 0, i32 1
+  %sha1 = getelementptr inbounds i8, ptr %call1, i64 8
   store ptr %object_oid, ptr %sha1, align 8
   store ptr %call1, ptr %cb_data, align 8
   br label %return
@@ -2775,20 +2769,20 @@ if.then2:                                         ; preds = %entry
 if.end4:                                          ; preds = %if.then2, %entry
   %1 = phi ptr [ %.pre, %if.then2 ], [ null, %entry ]
   tail call void @free(ptr noundef %1) #16
-  %first_non_note = getelementptr inbounds %struct.notes_tree, ptr %spec.store.select, i64 0, i32 1
+  %first_non_note = getelementptr inbounds i8, ptr %spec.store.select, i64 8
   %2 = load ptr, ptr %first_non_note, align 8
   %tobool6.not14 = icmp eq ptr %2, null
   br i1 %tobool6.not14, label %while.end, label %while.body.lr.ph
 
 while.body.lr.ph:                                 ; preds = %if.end4
-  %prev_non_note = getelementptr inbounds %struct.notes_tree, ptr %spec.store.select, i64 0, i32 2
+  %prev_non_note = getelementptr inbounds i8, ptr %spec.store.select, i64 16
   br label %while.body
 
 while.body:                                       ; preds = %while.body.lr.ph, %while.body
   %3 = phi ptr [ %2, %while.body.lr.ph ], [ %7, %while.body ]
   %4 = load ptr, ptr %3, align 8
   store ptr %4, ptr %prev_non_note, align 8
-  %path = getelementptr inbounds %struct.non_note, ptr %3, i64 0, i32 1
+  %path = getelementptr inbounds i8, ptr %3, i64 8
   %5 = load ptr, ptr %path, align 8
   tail call void @free(ptr noundef %5) #16
   %6 = load ptr, ptr %first_non_note, align 8
@@ -2799,7 +2793,7 @@ while.body:                                       ; preds = %while.body.lr.ph, %
   br i1 %tobool6.not, label %while.end, label %while.body, !llvm.loop !19
 
 while.end:                                        ; preds = %while.body, %if.end4
-  %ref = getelementptr inbounds %struct.notes_tree, ptr %spec.store.select, i64 0, i32 3
+  %ref = getelementptr inbounds i8, ptr %spec.store.select, i64 24
   %8 = load ptr, ptr %ref, align 8
   tail call void @free(ptr noundef %8) #16
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %spec.store.select, i8 0, i64 56, i1 false)
@@ -2859,8 +2853,8 @@ entry:
 for.body.lr.ph:                                   ; preds = %entry
   %tobool11.not.i = icmp eq ptr %output_encoding, null
   %tobool30.not.i = icmp eq i32 %raw, 0
-  %len.i.i56.i = getelementptr inbounds %struct.strbuf, ptr %sb, i64 0, i32 1
-  %buf.i57.i = getelementptr inbounds %struct.strbuf, ptr %sb, i64 0, i32 2
+  %len.i.i56.i = getelementptr inbounds i8, ptr %sb, i64 8
+  %buf.i57.i = getelementptr inbounds i8, ptr %sb, i64 16
   br label %for.body
 
 for.body:                                         ; preds = %for.body.lr.ph, %format_note.exit
@@ -2868,7 +2862,7 @@ for.body:                                         ; preds = %for.body.lr.ph, %fo
   %2 = phi ptr [ %1, %for.body.lr.ph ], [ %38, %format_note.exit ]
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %msglen.i)
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %type.i)
-  %initialized.i = getelementptr inbounds %struct.notes_tree, ptr %2, i64 0, i32 6
+  %initialized.i = getelementptr inbounds i8, ptr %2, i64 48
   %3 = load i32, ptr %initialized.i, align 8
   %tobool1.not.i = icmp eq i32 %3, 0
   br i1 %tobool1.not.i, label %if.then2.i, label %if.end3.i
@@ -2894,7 +2888,7 @@ if.then.i.i.i:                                    ; preds = %if.end3.i
   %and1.i.i.i = and i64 %6, -4
   %7 = inttoptr i64 %and1.i.i.i to ptr
   %8 = load ptr, ptr @the_repository, align 8
-  %hash_algo.i.i.i.i = getelementptr inbounds %struct.repository, ptr %8, i64 0, i32 15
+  %hash_algo.i.i.i.i = getelementptr inbounds i8, ptr %8, i64 256
   %9 = load ptr, ptr %hash_algo.i.i.i.i, align 8
   %10 = getelementptr i8, ptr %9, i64 16
   %.val.i.i.i.i = load i64, ptr %10, align 8
@@ -2926,7 +2920,7 @@ get_note.exit.i:                                  ; preds = %hasheq.exit.i.i.i
   br i1 %tobool1.not.i.i, label %format_note.exit, label %if.end6.i
 
 if.end6.i:                                        ; preds = %get_note.exit.i
-  %val_oid.i.i = getelementptr inbounds %struct.leaf_node, ptr %7, i64 0, i32 1
+  %val_oid.i.i = getelementptr inbounds i8, ptr %7, i64 36
   %call7.i = call ptr @repo_read_object_file(ptr noundef nonnull %8, ptr noundef nonnull %val_oid.i.i, ptr noundef nonnull %type.i, ptr noundef nonnull %msglen.i) #16
   %tobool8.i = icmp eq ptr %call7.i, null
   %11 = load i32, ptr %type.i, align 4
@@ -2992,7 +2986,7 @@ if.end29.i.thread:                                ; preds = %if.end22.i
   br i1 %tobool30.not.i, label %if.then31.i, label %for.end.i
 
 if.then31.i:                                      ; preds = %if.end29.i.thread, %if.end29.i
-  %ref32.i = getelementptr inbounds %struct.notes_tree, ptr %2, i64 0, i32 3
+  %ref32.i = getelementptr inbounds i8, ptr %2, i64 24
   %16 = load ptr, ptr %ref32.i, align 8
   %tobool33.not.i = icmp eq ptr %16, null
   br i1 %tobool33.not.i, label %if.end41.thread60.i, label %lor.lhs.false34.i
@@ -3187,7 +3181,7 @@ if.then.i.i:                                      ; preds = %entry
   %and1.i.i = and i64 %2, -4
   %3 = inttoptr i64 %and1.i.i to ptr
   %4 = load ptr, ptr @the_repository, align 8
-  %hash_algo.i.i.i = getelementptr inbounds %struct.repository, ptr %4, i64 0, i32 15
+  %hash_algo.i.i.i = getelementptr inbounds i8, ptr %4, i64 256
   %5 = load ptr, ptr %hash_algo.i.i.i, align 8
   %6 = getelementptr i8, ptr %5, i64 16
   %.val.i.i.i = load i64, ptr %6, align 8
@@ -3215,7 +3209,7 @@ get_note.exit:                                    ; preds = %hasheq.exit.i.i, %i
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %tree.addr.i.i)
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %n.addr.i.i)
   %tobool1.not.i = icmp eq ptr %retval.0.i.i, null
-  %val_oid.i = getelementptr inbounds %struct.leaf_node, ptr %retval.0.i.i, i64 0, i32 1
+  %val_oid.i = getelementptr inbounds i8, ptr %retval.0.i.i, i64 36
   %7 = load ptr, ptr %spec.store.select.i, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %tree.addr.i.i9)
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %n.addr.i.i10)
@@ -3232,7 +3226,7 @@ if.then.i.i21:                                    ; preds = %get_note.exit
   %and1.i.i22 = and i64 %9, -4
   %10 = inttoptr i64 %and1.i.i22 to ptr
   %11 = load ptr, ptr @the_repository, align 8
-  %hash_algo.i.i.i23 = getelementptr inbounds %struct.repository, ptr %11, i64 0, i32 15
+  %hash_algo.i.i.i23 = getelementptr inbounds i8, ptr %11, i64 256
   %12 = load ptr, ptr %hash_algo.i.i.i23, align 8
   %13 = getelementptr i8, ptr %12, i64 16
   %.val.i.i.i24 = load i64, ptr %13, align 8
@@ -3269,13 +3263,13 @@ if.end.thread:                                    ; preds = %hasheq.exit.i.i28, 
   br i1 %tobool1.not.i, label %return, label %if.then4
 
 if.then4:                                         ; preds = %if.end.thread, %if.end
-  %dirty.i = getelementptr inbounds %struct.notes_tree, ptr %spec.store.select.i, i64 0, i32 7
+  %dirty.i = getelementptr inbounds i8, ptr %spec.store.select.i, i64 52
   store i32 1, ptr %dirty.i, align 4
   %tobool1.not.i36 = icmp eq ptr %combine_notes, null
   br i1 %tobool1.not.i36, label %if.then2.i, label %add_note.exit
 
 if.then2.i:                                       ; preds = %if.then4
-  %combine_notes3.i = getelementptr inbounds %struct.notes_tree, ptr %spec.store.select.i, i64 0, i32 5
+  %combine_notes3.i = getelementptr inbounds i8, ptr %spec.store.select.i, i64 40
   %14 = load ptr, ptr %combine_notes3.i, align 8
   br label %add_note.exit
 
@@ -3283,15 +3277,15 @@ add_note.exit:                                    ; preds = %if.then4, %if.then2
   %combine_notes.addr.0.i = phi ptr [ %combine_notes, %if.then4 ], [ %14, %if.then2.i ]
   %call.i = tail call ptr @xmalloc(i64 noundef 72) #16
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(32) %call.i, ptr noundef nonnull align 4 dereferenceable(32) %to_obj, i64 32, i1 false)
-  %algo.i.i = getelementptr inbounds %struct.object_id, ptr %to_obj, i64 0, i32 1
+  %algo.i.i = getelementptr inbounds i8, ptr %to_obj, i64 32
   %15 = load i32, ptr %algo.i.i, align 4
-  %algo3.i.i = getelementptr inbounds %struct.object_id, ptr %call.i, i64 0, i32 1
+  %algo3.i.i = getelementptr inbounds i8, ptr %call.i, i64 32
   store i32 %15, ptr %algo3.i.i, align 4
-  %val_oid.i37 = getelementptr inbounds %struct.leaf_node, ptr %call.i, i64 0, i32 1
+  %val_oid.i37 = getelementptr inbounds i8, ptr %call.i, i64 36
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(32) %val_oid.i37, ptr noundef nonnull align 4 dereferenceable(32) %val_oid.i, i64 32, i1 false)
-  %algo.i8.i = getelementptr inbounds %struct.leaf_node, ptr %retval.0.i.i, i64 0, i32 1, i32 1
+  %algo.i8.i = getelementptr inbounds i8, ptr %retval.0.i.i, i64 68
   %16 = load i32, ptr %algo.i8.i, align 4
-  %algo3.i9.i = getelementptr inbounds %struct.leaf_node, ptr %call.i, i64 0, i32 1, i32 1
+  %algo3.i9.i = getelementptr inbounds i8, ptr %call.i, i64 68
   store i32 %16, ptr %algo3.i9.i, align 4
   %17 = load ptr, ptr %spec.store.select.i, align 8
   %call5.i = tail call fastcc i32 @note_tree_insert(ptr noundef nonnull %spec.store.select.i, ptr noundef %17, i8 noundef zeroext 0, ptr noundef %call.i, i8 noundef zeroext 2, ptr noundef %combine_notes.addr.0.i)
@@ -3302,13 +3296,13 @@ if.else:                                          ; preds = %if.end
 
 if.then7:                                         ; preds = %if.else
   %call8 = tail call ptr @null_oid() #16
-  %dirty.i40 = getelementptr inbounds %struct.notes_tree, ptr %spec.store.select.i, i64 0, i32 7
+  %dirty.i40 = getelementptr inbounds i8, ptr %spec.store.select.i, i64 52
   store i32 1, ptr %dirty.i40, align 4
   %tobool1.not.i41 = icmp eq ptr %combine_notes, null
   br i1 %tobool1.not.i41, label %if.then2.i50, label %add_note.exit52
 
 if.then2.i50:                                     ; preds = %if.then7
-  %combine_notes3.i51 = getelementptr inbounds %struct.notes_tree, ptr %spec.store.select.i, i64 0, i32 5
+  %combine_notes3.i51 = getelementptr inbounds i8, ptr %spec.store.select.i, i64 40
   %18 = load ptr, ptr %combine_notes3.i51, align 8
   br label %add_note.exit52
 
@@ -3316,15 +3310,15 @@ add_note.exit52:                                  ; preds = %if.then7, %if.then2
   %combine_notes.addr.0.i42 = phi ptr [ %combine_notes, %if.then7 ], [ %18, %if.then2.i50 ]
   %call.i43 = tail call ptr @xmalloc(i64 noundef 72) #16
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(32) %call.i43, ptr noundef nonnull align 4 dereferenceable(32) %to_obj, i64 32, i1 false)
-  %algo.i.i44 = getelementptr inbounds %struct.object_id, ptr %to_obj, i64 0, i32 1
+  %algo.i.i44 = getelementptr inbounds i8, ptr %to_obj, i64 32
   %19 = load i32, ptr %algo.i.i44, align 4
-  %algo3.i.i45 = getelementptr inbounds %struct.object_id, ptr %call.i43, i64 0, i32 1
+  %algo3.i.i45 = getelementptr inbounds i8, ptr %call.i43, i64 32
   store i32 %19, ptr %algo3.i.i45, align 4
-  %val_oid.i46 = getelementptr inbounds %struct.leaf_node, ptr %call.i43, i64 0, i32 1
+  %val_oid.i46 = getelementptr inbounds i8, ptr %call.i43, i64 36
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(32) %val_oid.i46, ptr noundef nonnull align 4 dereferenceable(32) %call8, i64 32, i1 false)
-  %algo.i8.i47 = getelementptr inbounds %struct.object_id, ptr %call8, i64 0, i32 1
+  %algo.i8.i47 = getelementptr inbounds i8, ptr %call8, i64 32
   %20 = load i32, ptr %algo.i8.i47, align 4
-  %algo3.i9.i48 = getelementptr inbounds %struct.leaf_node, ptr %call.i43, i64 0, i32 1, i32 1
+  %algo3.i9.i48 = getelementptr inbounds i8, ptr %call.i43, i64 68
   store i32 %20, ptr %algo3.i9.i48, align 4
   %21 = load ptr, ptr %spec.store.select.i, align 8
   %call5.i49 = tail call fastcc i32 @note_tree_insert(ptr noundef nonnull %spec.store.select.i, ptr noundef %21, i8 noundef zeroext 0, ptr noundef %call.i43, i8 noundef zeroext 2, ptr noundef %combine_notes.addr.0.i42)
@@ -3344,7 +3338,7 @@ define dso_local void @expand_loose_notes_ref(ptr noundef %sb) local_unnamed_add
 entry:
   %object = alloca %struct.object_id, align 4
   %0 = load ptr, ptr @the_repository, align 8
-  %buf = getelementptr inbounds %struct.strbuf, ptr %sb, i64 0, i32 2
+  %buf = getelementptr inbounds i8, ptr %sb, i64 16
   %1 = load ptr, ptr %buf, align 8
   %call = call i32 @repo_get_oid(ptr noundef %0, ptr noundef %1, ptr noundef nonnull %object) #16
   %tobool.not = icmp eq i32 %call, 0
@@ -3419,9 +3413,9 @@ if.then:                                          ; preds = %tailrecurse
   %and1 = and i64 %2, -4
   %3 = inttoptr i64 %and1 to ptr
   %4 = load ptr, ptr @the_repository, align 8
-  %hash_algo = getelementptr inbounds %struct.repository, ptr %4, i64 0, i32 15
+  %hash_algo = getelementptr inbounds i8, ptr %4, i64 256
   %5 = load ptr, ptr %hash_algo, align 8
-  %rawsz = getelementptr inbounds %struct.git_hash_algo, ptr %5, i64 0, i32 2
+  %rawsz = getelementptr inbounds i8, ptr %5, i64 16
   %6 = load i64, ptr %rawsz, align 8
   %sub = add i64 %6, -1
   %arrayidx4 = getelementptr inbounds [32 x i8], ptr %3, i64 0, i64 %sub
@@ -3477,9 +3471,9 @@ sw.bb25:                                          ; preds = %if.end10
   %and26 = and i64 %14, -4
   %17 = inttoptr i64 %and26 to ptr
   %18 = load ptr, ptr @the_repository, align 8
-  %hash_algo32 = getelementptr inbounds %struct.repository, ptr %18, i64 0, i32 15
+  %hash_algo32 = getelementptr inbounds i8, ptr %18, i64 256
   %19 = load ptr, ptr %hash_algo32, align 8
-  %rawsz33 = getelementptr inbounds %struct.git_hash_algo, ptr %19, i64 0, i32 2
+  %rawsz33 = getelementptr inbounds i8, ptr %19, i64 16
   %20 = load i64, ptr %rawsz33, align 8
   %sub34 = add i64 %20, -1
   %arrayidx35 = getelementptr inbounds [32 x i8], ptr %17, i64 0, i64 %sub34
@@ -3522,7 +3516,7 @@ land.lhs.true:                                    ; preds = %entry, %while.body
 land.rhs:                                         ; preds = %land.lhs.true
   %add.ptr = getelementptr inbounds i8, ptr %path, i64 %conv
   %0 = load i8, ptr %add.ptr, align 1
-  %path.i = getelementptr inbounds %struct.tree_write_stack, ptr %tws.addr.026, i64 0, i32 2
+  %path.i = getelementptr inbounds i8, ptr %tws.addr.026, i64 32
   %1 = load i8, ptr %path.i, align 8
   %cmp.i = icmp eq i8 %0, %1
   br i1 %cmp.i, label %land.lhs.true.i, label %while.end
@@ -3530,7 +3524,7 @@ land.rhs:                                         ; preds = %land.lhs.true
 land.lhs.true.i:                                  ; preds = %land.rhs
   %arrayidx4.i = getelementptr inbounds i8, ptr %add.ptr, i64 1
   %2 = load i8, ptr %arrayidx4.i, align 1
-  %arrayidx7.i = getelementptr inbounds %struct.tree_write_stack, ptr %tws.addr.026, i64 0, i32 2, i64 1
+  %arrayidx7.i = getelementptr inbounds i8, ptr %tws.addr.026, i64 33
   %3 = load i8, ptr %arrayidx7.i, align 1
   %cmp9.i = icmp eq i8 %2, %3
   br i1 %cmp9.i, label %matches_tree_write_stack.exit, label %while.end
@@ -3576,26 +3570,26 @@ while.body19:                                     ; preds = %land.rhs12
   %add.ptr22 = getelementptr inbounds i8, ptr %path, i64 %idx.ext21
   %call.i = tail call ptr @xmalloc(i64 noundef 40) #16
   store ptr null, ptr %call.i, align 8
-  %buf.i = getelementptr inbounds %struct.tree_write_stack, ptr %call.i, i64 0, i32 1
+  %buf.i = getelementptr inbounds i8, ptr %call.i, i64 8
   %7 = load ptr, ptr @the_repository, align 8
-  %hash_algo.i = getelementptr inbounds %struct.repository, ptr %7, i64 0, i32 15
+  %hash_algo.i = getelementptr inbounds i8, ptr %7, i64 256
   %8 = load ptr, ptr %hash_algo.i, align 8
-  %hexsz.i = getelementptr inbounds %struct.git_hash_algo, ptr %8, i64 0, i32 3
+  %hexsz.i = getelementptr inbounds i8, ptr %8, i64 24
   %9 = load i64, ptr %hexsz.i, align 8
   %add.i = shl i64 %9, 8
   %mul.i = add i64 %add.i, 8192
   tail call void @strbuf_init(ptr noundef nonnull %buf.i, i64 noundef %mul.i) #16
-  %path1.i = getelementptr inbounds %struct.tree_write_stack, ptr %call.i, i64 0, i32 2
-  %arrayidx.i = getelementptr inbounds %struct.tree_write_stack, ptr %call.i, i64 0, i32 2, i64 1
+  %path1.i = getelementptr inbounds i8, ptr %call.i, i64 32
+  %arrayidx.i = getelementptr inbounds i8, ptr %call.i, i64 33
   store i8 0, ptr %arrayidx.i, align 1
   store i8 0, ptr %path1.i, align 8
   store ptr %call.i, ptr %tws.addr.141, align 8
   %10 = load i8, ptr %add.ptr22, align 1
-  %path6.i = getelementptr inbounds %struct.tree_write_stack, ptr %tws.addr.141, i64 0, i32 2
+  %path6.i = getelementptr inbounds i8, ptr %tws.addr.141, i64 32
   store i8 %10, ptr %path6.i, align 8
   %arrayidx8.i = getelementptr inbounds i8, ptr %add.ptr22, i64 1
   %11 = load i8, ptr %arrayidx8.i, align 1
-  %arrayidx10.i = getelementptr inbounds %struct.tree_write_stack, ptr %tws.addr.141, i64 0, i32 2, i64 1
+  %arrayidx10.i = getelementptr inbounds i8, ptr %tws.addr.141, i64 33
   store i8 %11, ptr %arrayidx10.i, align 1
   %inc23 = add i32 %n.142, 1
   %mul8 = mul i32 %inc23, 3
@@ -3607,16 +3601,16 @@ while.body19:                                     ; preds = %land.rhs12
 while.end25:                                      ; preds = %land.rhs12, %while.body19, %while.cond7.preheader
   %tws.addr.1.lcssa = phi ptr [ %tws.addr.0.lcssa, %while.cond7.preheader ], [ %call.i, %while.body19 ], [ %tws.addr.141, %land.rhs12 ]
   %mul8.lcssa = phi i32 [ %mul837, %while.cond7.preheader ], [ %mul8, %while.body19 ], [ %mul843, %land.rhs12 ]
-  %buf = getelementptr inbounds %struct.tree_write_stack, ptr %tws.addr.1.lcssa, i64 0, i32 1
+  %buf = getelementptr inbounds i8, ptr %tws.addr.1.lcssa, i64 8
   %idx.ext27 = zext i32 %mul8.lcssa to i64
   %add.ptr28 = getelementptr inbounds i8, ptr %path, i64 %idx.ext27
   %12 = trunc i64 %call to i32
   %conv31 = sub i32 %12, %mul8.lcssa
   tail call void (ptr, ptr, ...) @strbuf_addf(ptr noundef nonnull %buf, ptr noundef nonnull @.str.23, i32 noundef %mode, i32 noundef %conv31, ptr noundef %add.ptr28, i32 noundef 0) #16
   %13 = load ptr, ptr @the_repository, align 8
-  %hash_algo.i22 = getelementptr inbounds %struct.repository, ptr %13, i64 0, i32 15
+  %hash_algo.i22 = getelementptr inbounds i8, ptr %13, i64 256
   %14 = load ptr, ptr %hash_algo.i22, align 8
-  %rawsz.i = getelementptr inbounds %struct.git_hash_algo, ptr %14, i64 0, i32 2
+  %rawsz.i = getelementptr inbounds i8, ptr %14, i64 16
   %15 = load i64, ptr %rawsz.i, align 8
   tail call void @strbuf_add(ptr noundef nonnull %buf, ptr noundef %oid, i64 noundef %15) #16
   br label %return

@@ -85,7 +85,7 @@ if.then8.i.i:                                     ; preds = %if.then.i.i
   %call9.i.i = call i32 @gettimeofday(ptr noundef nonnull %_now.i.i, ptr noundef null) #5
   %call10.i.i = tail call i32 @qemu_get_thread_id() #5
   %8 = load i64, ptr %_now.i.i, align 8
-  %tv_usec.i.i = getelementptr inbounds %struct.timeval, ptr %_now.i.i, i64 0, i32 1
+  %tv_usec.i.i = getelementptr inbounds i8, ptr %_now.i.i, i64 8
   %9 = load i64, ptr %tv_usec.i.i, align 8
   tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.1, i32 noundef %call10.i.i, i64 noundef %8, i64 noundef %9, ptr noundef %2) #5
   br label %glib_autoptr_cleanup_GString.exit
@@ -131,7 +131,7 @@ if.then8.i.i26:                                   ; preds = %if.then.i.i24
   %call9.i.i27 = call i32 @gettimeofday(ptr noundef nonnull %_now.i.i17, ptr noundef null) #5
   %call10.i.i28 = call i32 @qemu_get_thread_id() #5
   %16 = load i64, ptr %_now.i.i17, align 8
-  %tv_usec.i.i29 = getelementptr inbounds %struct.timeval, ptr %_now.i.i17, i64 0, i32 1
+  %tv_usec.i.i29 = getelementptr inbounds i8, ptr %_now.i.i17, i64 8
   %17 = load i64, ptr %tv_usec.i.i29, align 8
   call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.3, i32 noundef %call10.i.i28, i64 noundef %16, i64 noundef %17, ptr noundef %call28, i32 noundef 0) #5
   br label %trace_qmp_exit_query_status.exit
@@ -198,7 +198,7 @@ if.then8.i.i40:                                   ; preds = %if.then.i.i38
   %call9.i.i41 = call i32 @gettimeofday(ptr noundef nonnull %_now.i.i31, ptr noundef null) #5
   %call10.i.i42 = call i32 @qemu_get_thread_id() #5
   %28 = load i64, ptr %_now.i.i31, align 8
-  %tv_usec.i.i43 = getelementptr inbounds %struct.timeval, ptr %_now.i.i31, i64 0, i32 1
+  %tv_usec.i.i43 = getelementptr inbounds i8, ptr %_now.i.i31, i64 8
   %29 = load i64, ptr %tv_usec.i.i43, align 8
   call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.3, i32 noundef %call10.i.i42, i64 noundef %28, i64 noundef %29, ptr noundef %22, i32 noundef 1) #5
   br label %glib_autoptr_cleanup_GString.exit49
@@ -299,7 +299,7 @@ if.then8.i.i:                                     ; preds = %if.then.i.i
   %call9.i.i = call i32 @gettimeofday(ptr noundef nonnull %_now.i.i, ptr noundef null) #5
   %call10.i.i = call i32 @qemu_get_thread_id() #5
   %8 = load i64, ptr %_now.i.i, align 8
-  %tv_usec.i.i = getelementptr inbounds %struct.timeval, ptr %_now.i.i, i64 0, i32 1
+  %tv_usec.i.i = getelementptr inbounds i8, ptr %_now.i.i, i64 8
   %9 = load i64, ptr %tv_usec.i.i, align 8
   call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.6, i32 noundef %call10.i.i, i64 noundef %8, i64 noundef %9, ptr noundef %2) #5
   br label %glib_autoptr_cleanup_GString.exit
@@ -346,7 +346,7 @@ if.then8.i.i26:                                   ; preds = %if.then.i.i24
   %call9.i.i27 = call i32 @gettimeofday(ptr noundef nonnull %_now.i.i17, ptr noundef null) #5
   %call10.i.i28 = call i32 @qemu_get_thread_id() #5
   %17 = load i64, ptr %_now.i.i17, align 8
-  %tv_usec.i.i29 = getelementptr inbounds %struct.timeval, ptr %_now.i.i17, i64 0, i32 1
+  %tv_usec.i.i29 = getelementptr inbounds i8, ptr %_now.i.i17, i64 8
   %18 = load i64, ptr %tv_usec.i.i29, align 8
   call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.8, i32 noundef %call10.i.i28, i64 noundef %17, i64 noundef %18, ptr noundef %call30, i32 noundef 0) #5
   br label %trace_qmp_exit_watchdog_set_action.exit
@@ -386,7 +386,7 @@ if.then8.i.i40:                                   ; preds = %if.then.i.i38
   %call9.i.i41 = call i32 @gettimeofday(ptr noundef nonnull %_now.i.i31, ptr noundef null) #5
   %call10.i.i42 = call i32 @qemu_get_thread_id() #5
   %25 = load i64, ptr %_now.i.i31, align 8
-  %tv_usec.i.i43 = getelementptr inbounds %struct.timeval, ptr %_now.i.i31, i64 0, i32 1
+  %tv_usec.i.i43 = getelementptr inbounds i8, ptr %_now.i.i31, i64 8
   %26 = load i64, ptr %tv_usec.i.i43, align 8
   call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.8, i32 noundef %call10.i.i42, i64 noundef %25, i64 noundef %26, ptr noundef nonnull @.str, i32 noundef 1) #5
   br label %trace_qmp_exit_watchdog_set_action.exit45
@@ -478,7 +478,7 @@ if.then8.i.i:                                     ; preds = %if.then.i.i
   %call9.i.i = call i32 @gettimeofday(ptr noundef nonnull %_now.i.i, ptr noundef null) #5
   %call10.i.i = call i32 @qemu_get_thread_id() #5
   %8 = load i64, ptr %_now.i.i, align 8
-  %tv_usec.i.i = getelementptr inbounds %struct.timeval, ptr %_now.i.i, i64 0, i32 1
+  %tv_usec.i.i = getelementptr inbounds i8, ptr %_now.i.i, i64 8
   %9 = load i64, ptr %tv_usec.i.i, align 8
   call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.10, i32 noundef %call10.i.i, i64 noundef %8, i64 noundef %9, ptr noundef %2) #5
   br label %glib_autoptr_cleanup_GString.exit
@@ -496,25 +496,25 @@ if.end27:                                         ; preds = %glib_autoptr_cleanu
   %10 = load i8, ptr %arg, align 4
   %11 = and i8 %10, 1
   %tobool28 = icmp ne i8 %11, 0
-  %reboot = getelementptr inbounds %struct.q_obj_set_action_arg, ptr %arg, i64 0, i32 1
+  %reboot = getelementptr inbounds i8, ptr %arg, i64 4
   %12 = load i32, ptr %reboot, align 4
-  %has_shutdown = getelementptr inbounds %struct.q_obj_set_action_arg, ptr %arg, i64 0, i32 2
+  %has_shutdown = getelementptr inbounds i8, ptr %arg, i64 8
   %13 = load i8, ptr %has_shutdown, align 4
   %14 = and i8 %13, 1
   %tobool29 = icmp ne i8 %14, 0
-  %shutdown = getelementptr inbounds %struct.q_obj_set_action_arg, ptr %arg, i64 0, i32 3
+  %shutdown = getelementptr inbounds i8, ptr %arg, i64 12
   %15 = load i32, ptr %shutdown, align 4
-  %has_panic = getelementptr inbounds %struct.q_obj_set_action_arg, ptr %arg, i64 0, i32 4
+  %has_panic = getelementptr inbounds i8, ptr %arg, i64 16
   %16 = load i8, ptr %has_panic, align 4
   %17 = and i8 %16, 1
   %tobool30 = icmp ne i8 %17, 0
-  %panic = getelementptr inbounds %struct.q_obj_set_action_arg, ptr %arg, i64 0, i32 5
+  %panic = getelementptr inbounds i8, ptr %arg, i64 20
   %18 = load i32, ptr %panic, align 4
-  %has_watchdog = getelementptr inbounds %struct.q_obj_set_action_arg, ptr %arg, i64 0, i32 6
+  %has_watchdog = getelementptr inbounds i8, ptr %arg, i64 24
   %19 = load i8, ptr %has_watchdog, align 4
   %20 = and i8 %19, 1
   %tobool31 = icmp ne i8 %20, 0
-  %watchdog = getelementptr inbounds %struct.q_obj_set_action_arg, ptr %arg, i64 0, i32 7
+  %watchdog = getelementptr inbounds i8, ptr %arg, i64 28
   %21 = load i32, ptr %watchdog, align 4
   call void @qmp_set_action(i1 noundef zeroext %tobool28, i32 noundef %12, i1 noundef zeroext %tobool29, i32 noundef %15, i1 noundef zeroext %tobool30, i32 noundef %18, i1 noundef zeroext %tobool31, i32 noundef %21, ptr noundef nonnull %err) #5
   %22 = load ptr, ptr %err, align 8
@@ -547,7 +547,7 @@ if.then8.i.i26:                                   ; preds = %if.then.i.i24
   %call9.i.i27 = call i32 @gettimeofday(ptr noundef nonnull %_now.i.i17, ptr noundef null) #5
   %call10.i.i28 = call i32 @qemu_get_thread_id() #5
   %28 = load i64, ptr %_now.i.i17, align 8
-  %tv_usec.i.i29 = getelementptr inbounds %struct.timeval, ptr %_now.i.i17, i64 0, i32 1
+  %tv_usec.i.i29 = getelementptr inbounds i8, ptr %_now.i.i17, i64 8
   %29 = load i64, ptr %tv_usec.i.i29, align 8
   call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.12, i32 noundef %call10.i.i28, i64 noundef %28, i64 noundef %29, ptr noundef %call34, i32 noundef 0) #5
   br label %trace_qmp_exit_set_action.exit
@@ -587,7 +587,7 @@ if.then8.i.i40:                                   ; preds = %if.then.i.i38
   %call9.i.i41 = call i32 @gettimeofday(ptr noundef nonnull %_now.i.i31, ptr noundef null) #5
   %call10.i.i42 = call i32 @qemu_get_thread_id() #5
   %36 = load i64, ptr %_now.i.i31, align 8
-  %tv_usec.i.i43 = getelementptr inbounds %struct.timeval, ptr %_now.i.i31, i64 0, i32 1
+  %tv_usec.i.i43 = getelementptr inbounds i8, ptr %_now.i.i31, i64 8
   %37 = load i64, ptr %tv_usec.i.i43, align 8
   call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.12, i32 noundef %call10.i.i42, i64 noundef %36, i64 noundef %37, ptr noundef nonnull @.str, i32 noundef 1) #5
   br label %trace_qmp_exit_set_action.exit45

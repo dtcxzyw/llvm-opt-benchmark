@@ -293,9 +293,9 @@ define hidden void @_ZN14regex_automata4util11determinize4next17hb69aa0f81863327
   %133 = extractvalue { ptr, ptr } %131, 0
   %134 = extractvalue { ptr, ptr } %131, 1
   store ptr %133, ptr %17, align 8
-  %135 = getelementptr inbounds { ptr, ptr }, ptr %17, i64 0, i32 1
+  %135 = getelementptr inbounds i8, ptr %17, i64 8
   store ptr %134, ptr %135, align 8
-  %136 = getelementptr inbounds { { { { ptr, i64 }, i64 }, { { ptr, i64 }, i64 }, i64 }, { { { ptr, i64 }, i64 }, { { ptr, i64 }, i64 }, i64 } }, ptr %3, i64 0, i32 1
+  %136 = getelementptr inbounds i8, ptr %3, i64 56
   br label %137
 
 137:                                              ; preds = %144, %132
@@ -416,9 +416,9 @@ define hidden void @_ZN14regex_automata4util11determinize4next17hb69aa0f81863327
   %183 = extractvalue { ptr, ptr } %181, 0
   %184 = extractvalue { ptr, ptr } %181, 1
   store ptr %183, ptr %12, align 8
-  %185 = getelementptr inbounds { ptr, ptr }, ptr %12, i64 0, i32 1
+  %185 = getelementptr inbounds i8, ptr %12, i64 8
   store ptr %184, ptr %185, align 8
-  %186 = getelementptr inbounds { { { { ptr, i64 }, i64 }, { { ptr, i64 }, i64 }, i64 }, { { { ptr, i64 }, i64 }, { { ptr, i64 }, i64 }, i64 } }, ptr %3, i64 0, i32 1
+  %186 = getelementptr inbounds i8, ptr %3, i64 56
   br label %.backedge
 
 .backedge:                                        ; preds = %.backedge.backedge, %182
@@ -461,22 +461,22 @@ default.unreachable121:                           ; preds = %196
   unreachable
 
 198:                                              ; preds = %196
-  %199 = getelementptr inbounds { [1 x i32], { i32, i8, i8, [2 x i8] } }, ptr %195, i64 0, i32 1
+  %199 = getelementptr inbounds i8, ptr %195, i64 4
   %200 = invoke zeroext i1 @_ZN14regex_automata3nfa8thompson3nfa10Transition12matches_unit17h9fc5ba6b2a91fa00E(ptr nonnull align 4 %199, i32 %6)
           to label %210 unwind label %.loopexit
 
 201:                                              ; preds = %196
-  %202 = getelementptr inbounds { [1 x i64], { ptr, i64 } }, ptr %195, i64 0, i32 1
+  %202 = getelementptr inbounds i8, ptr %195, i64 8
   %203 = invoke { i32, i32 } @_ZN14regex_automata3nfa8thompson3nfa17SparseTransitions12matches_unit17hb15460869cef3029E(ptr nonnull align 8 %202, i32 %6)
           to label %216 unwind label %.loopexit
 
 204:                                              ; preds = %196
-  %205 = getelementptr inbounds { [1 x i64], { ptr, i64 } }, ptr %195, i64 0, i32 1
+  %205 = getelementptr inbounds i8, ptr %195, i64 8
   %206 = invoke { i32, i32 } @_ZN14regex_automata3nfa8thompson3nfa16DenseTransitions12matches_unit17hfb07099127966462E(ptr nonnull align 8 %205, i32 %6)
           to label %220 unwind label %.loopexit
 
 207:                                              ; preds = %196
-  %208 = getelementptr inbounds { [1 x i32], i32 }, ptr %195, i64 0, i32 1
+  %208 = getelementptr inbounds i8, ptr %195, i64 4
   %209 = load i32, ptr %208, align 4, !noundef !6
   invoke void @_ZN14regex_automata4util11determinize5state19StateBuilderMatches20add_match_pattern_id17h373b81e578b15eb2E(ptr nonnull align 8 %16, i32 %209)
           to label %224 unwind label %.loopexit
@@ -680,15 +680,15 @@ define hidden void @_ZN14regex_automata4util11determinize15epsilon_closure17h800
   %28 = tail call i64 @_ZN14regex_automata4util10sparse_set9SparseSet8capacity17h0562a876cc97223bE(ptr align 8 %4)
   store i64 %28, ptr %6, align 8
   store ptr %9, ptr %7, align 8
-  %29 = getelementptr inbounds { ptr, ptr }, ptr %7, i64 0, i32 1
+  %29 = getelementptr inbounds i8, ptr %7, i64 8
   store ptr @"_ZN4core3fmt3num52_$LT$impl$u20$core..fmt..Debug$u20$for$u20$usize$GT$3fmt17h88cfa37c04fce35fE", ptr %29, align 8
-  %30 = getelementptr inbounds [3 x { ptr, ptr }], ptr %7, i64 0, i64 1
+  %30 = getelementptr inbounds i8, ptr %7, i64 16
   store ptr %6, ptr %30, align 8
-  %31 = getelementptr inbounds [3 x { ptr, ptr }], ptr %7, i64 0, i64 1, i32 1
+  %31 = getelementptr inbounds i8, ptr %7, i64 24
   store ptr @"_ZN4core3fmt3num52_$LT$impl$u20$core..fmt..Debug$u20$for$u20$usize$GT$3fmt17h88cfa37c04fce35fE", ptr %31, align 8
-  %32 = getelementptr inbounds [3 x { ptr, ptr }], ptr %7, i64 0, i64 2
+  %32 = getelementptr inbounds i8, ptr %7, i64 32
   store ptr %10, ptr %32, align 8
-  %33 = getelementptr inbounds [3 x { ptr, ptr }], ptr %7, i64 0, i64 2, i32 1
+  %33 = getelementptr inbounds i8, ptr %7, i64 40
   store ptr @"_ZN78_$LT$regex_automata..util..primitives..StateID$u20$as$u20$core..fmt..Debug$GT$3fmt17h2b9242e7318ee123E", ptr %33, align 8
   call void @_ZN4core3fmt9Arguments6new_v117h051e31f362cb8353E(ptr nonnull sret({ { ptr, i64 }, { ptr, i64 }, { ptr, i64 } }) align 8 %8, ptr nonnull align 8 @anon.8a08ff38709248cd9567cb6b6fcf52d3.7, i64 3, ptr nonnull align 8 %7, i64 3)
   call void @_ZN4core9panicking9panic_fmt17hbf0e066aabfa482cE(ptr nonnull align 8 %8, ptr nonnull align 8 @anon.8a08ff38709248cd9567cb6b6fcf52d3.9) #8
@@ -698,10 +698,10 @@ define hidden void @_ZN14regex_automata4util11determinize15epsilon_closure17h800
   %35 = tail call i32 @_ZN14regex_automata4util10primitives7StateID13new_unchecked17h0fe6f0edb4fa1a0eE(i64 %24)
   %36 = tail call align 4 ptr @"_ZN14regex_automata4util10primitives130_$LT$impl$u20$core..ops..index..IndexMut$LT$regex_automata..util..primitives..StateID$GT$$u20$for$u20$alloc..vec..Vec$LT$T$GT$$GT$9index_mut17h2be929250bdc7886E"(ptr align 8 %4, i32 %35, ptr nonnull align 8 @anon.8a08ff38709248cd9567cb6b6fcf52d3.10)
   store i32 %1, ptr %36, align 4
-  %37 = getelementptr inbounds { { { ptr, i64 }, i64 }, { { ptr, i64 }, i64 }, i64 }, ptr %4, i64 0, i32 1
+  %37 = getelementptr inbounds i8, ptr %4, i64 24
   %38 = tail call align 4 ptr @"_ZN14regex_automata4util10primitives130_$LT$impl$u20$core..ops..index..IndexMut$LT$regex_automata..util..primitives..StateID$GT$$u20$for$u20$alloc..vec..Vec$LT$T$GT$$GT$9index_mut17h2be929250bdc7886E"(ptr nonnull align 8 %37, i32 %1, ptr nonnull align 8 @anon.8a08ff38709248cd9567cb6b6fcf52d3.11)
   store i32 %35, ptr %38, align 4
-  %39 = getelementptr inbounds { { { ptr, i64 }, i64 }, { { ptr, i64 }, i64 }, i64 }, ptr %4, i64 0, i32 2
+  %39 = getelementptr inbounds i8, ptr %4, i64 48
   %40 = load i64, ptr %39, align 8, !noundef !6
   %41 = add i64 %40, 1
   store i64 %41, ptr %39, align 8
@@ -715,8 +715,8 @@ define hidden void @_ZN14regex_automata4util11determinize15epsilon_closure17h800
   br i1 %44, label %.lr.ph27, label %.loopexit
 
 .lr.ph27:                                         ; preds = %42
-  %45 = getelementptr inbounds { { { ptr, i64 }, i64 }, { { ptr, i64 }, i64 }, i64 }, ptr %4, i64 0, i32 1
-  %46 = getelementptr inbounds { { { ptr, i64 }, i64 }, { { ptr, i64 }, i64 }, i64 }, ptr %4, i64 0, i32 2
+  %45 = getelementptr inbounds i8, ptr %4, i64 24
+  %46 = getelementptr inbounds i8, ptr %4, i64 48
   br label %49
 
 .loopexit:                                        ; preds = %.critedge.loopexit, %42, %21, %34
@@ -747,15 +747,15 @@ define hidden void @_ZN14regex_automata4util11determinize15epsilon_closure17h800
   %57 = tail call i64 @_ZN14regex_automata4util10sparse_set9SparseSet8capacity17h0562a876cc97223bE(ptr align 8 %4)
   store i64 %57, ptr %11, align 8
   store ptr %14, ptr %12, align 8
-  %58 = getelementptr inbounds { ptr, ptr }, ptr %12, i64 0, i32 1
+  %58 = getelementptr inbounds i8, ptr %12, i64 8
   store ptr @"_ZN4core3fmt3num52_$LT$impl$u20$core..fmt..Debug$u20$for$u20$usize$GT$3fmt17h88cfa37c04fce35fE", ptr %58, align 8
-  %59 = getelementptr inbounds [3 x { ptr, ptr }], ptr %12, i64 0, i64 1
+  %59 = getelementptr inbounds i8, ptr %12, i64 16
   store ptr %11, ptr %59, align 8
-  %60 = getelementptr inbounds [3 x { ptr, ptr }], ptr %12, i64 0, i64 1, i32 1
+  %60 = getelementptr inbounds i8, ptr %12, i64 24
   store ptr @"_ZN4core3fmt3num52_$LT$impl$u20$core..fmt..Debug$u20$for$u20$usize$GT$3fmt17h88cfa37c04fce35fE", ptr %60, align 8
-  %61 = getelementptr inbounds [3 x { ptr, ptr }], ptr %12, i64 0, i64 2
+  %61 = getelementptr inbounds i8, ptr %12, i64 32
   store ptr %15, ptr %61, align 8
-  %62 = getelementptr inbounds [3 x { ptr, ptr }], ptr %12, i64 0, i64 2, i32 1
+  %62 = getelementptr inbounds i8, ptr %12, i64 40
   store ptr @"_ZN78_$LT$regex_automata..util..primitives..StateID$u20$as$u20$core..fmt..Debug$GT$3fmt17h2b9242e7318ee123E", ptr %62, align 8
   call void @_ZN4core3fmt9Arguments6new_v117h051e31f362cb8353E(ptr nonnull sret({ { ptr, i64 }, { ptr, i64 }, { ptr, i64 } }) align 8 %13, ptr nonnull align 8 @anon.8a08ff38709248cd9567cb6b6fcf52d3.7, i64 3, ptr nonnull align 8 %12, i64 3)
   call void @_ZN4core9panicking9panic_fmt17hbf0e066aabfa482cE(ptr nonnull align 8 %13, ptr nonnull align 8 @anon.8a08ff38709248cd9567cb6b6fcf52d3.9) #8
@@ -788,26 +788,26 @@ default.unreachable28:                            ; preds = %63
   unreachable
 
 71:                                               ; preds = %63
-  %72 = getelementptr inbounds { [1 x i32], i32, i32 }, ptr %69, i64 0, i32 2
+  %72 = getelementptr inbounds i8, ptr %69, i64 8
   %73 = load i32, ptr %72, align 8, !range !7, !noundef !6
-  %74 = getelementptr inbounds { [1 x i32], i32, i32 }, ptr %69, i64 0, i32 1
+  %74 = getelementptr inbounds i8, ptr %69, i64 4
   %75 = load i32, ptr %74, align 4, !noundef !6
   %76 = tail call zeroext i1 @_ZN14regex_automata4util4look7LookSet8contains17h7226d6bf7702d92aE(i32 %2, i32 %73)
   br i1 %76, label %.backedge, label %.critedge.loopexit
 
 77:                                               ; preds = %63
-  %78 = getelementptr inbounds { [1 x i64], { ptr, i64 } }, ptr %69, i64 0, i32 1
+  %78 = getelementptr inbounds i8, ptr %69, i64 8
   %79 = load ptr, ptr %78, align 8, !nonnull !6, !align !8, !noundef !6
-  %80 = getelementptr inbounds { [1 x i64], { ptr, i64 } }, ptr %69, i64 0, i32 1, i32 1
+  %80 = getelementptr inbounds i8, ptr %69, i64 16
   %81 = load i64, ptr %80, align 8, !noundef !6
   %82 = tail call align 4 ptr @"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$3get17hb0985a85c3d6874eE"(ptr nonnull align 4 %79, i64 %81, i64 0)
   %83 = icmp eq ptr %82, null
   br i1 %83, label %.critedge.loopexit, label %93
 
 84:                                               ; preds = %63
-  %85 = getelementptr inbounds { [1 x i32], i32, i32 }, ptr %69, i64 0, i32 1
+  %85 = getelementptr inbounds i8, ptr %69, i64 4
   %86 = load i32, ptr %85, align 4, !noundef !6
-  %87 = getelementptr inbounds { [1 x i32], i32, i32 }, ptr %69, i64 0, i32 2
+  %87 = getelementptr inbounds i8, ptr %69, i64 8
   %88 = load i32, ptr %87, align 8, !noundef !6
   tail call void @"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17h83b754dd47b49aa1E"(ptr align 8 %3, i32 %88)
   br label %.backedge
@@ -819,7 +819,7 @@ default.unreachable28:                            ; preds = %63
   br i1 %89, label %.critedge.loopexit, label %.lr.ph
 
 90:                                               ; preds = %63
-  %91 = getelementptr inbounds { [1 x i32], i32, i32, i32, i32 }, ptr %69, i64 0, i32 1
+  %91 = getelementptr inbounds i8, ptr %69, i64 4
   %92 = load i32, ptr %91, align 4, !noundef !6
   br label %.backedge
 
@@ -851,7 +851,7 @@ define hidden void @_ZN14regex_automata4util11determinize14add_nfa_states17h02af
   %10 = extractvalue { ptr, ptr } %9, 0
   %11 = extractvalue { ptr, ptr } %9, 1
   store ptr %10, ptr %5, align 8
-  %12 = getelementptr inbounds { ptr, ptr }, ptr %5, i64 0, i32 1
+  %12 = getelementptr inbounds i8, ptr %5, i64 8
   store ptr %11, ptr %12, align 8
   %13 = call align 4 ptr @"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h21f4ed4ff36a7eb8E"(ptr nonnull align 8 %5)
   %14 = call { i32, i32 } @"_ZN4core6option15Option$LT$T$GT$3map17h534cbd92380b702dE"(ptr align 4 %13)
@@ -911,7 +911,7 @@ default.unreachable4:                             ; preds = %.lr.ph
   br label %.backedge
 
 28:                                               ; preds = %.lr.ph
-  %29 = getelementptr inbounds { [1 x i32], i32, i32 }, ptr %18, i64 0, i32 2
+  %29 = getelementptr inbounds i8, ptr %18, i64 8
   %30 = load i32, ptr %29, align 8, !range !7, !noundef !6
   store i32 %30, ptr %4, align 4
   call void @_ZN14regex_automata4util11determinize5state15StateBuilderNFA16add_nfa_state_id17ha36b98be9c40d482E(ptr align 8 %2, i32 %.fca.1.extract3)

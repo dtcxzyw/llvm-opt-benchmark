@@ -5,201 +5,19 @@ target triple = "x86_64-unknown-linux-gnu"
 
 %"class.std::ios_base::Init" = type { i8 }
 %"struct.node::AssertionInfo" = type { ptr, ptr, ptr }
-%"struct.node::crypto::PBKDF2Config" = type { %"class.node::MemoryRetainer", i32, %"class.node::crypto::ByteSource", %"class.node::crypto::ByteSource", i32, i32, ptr }
-%"class.node::MemoryRetainer" = type { ptr }
-%"class.node::crypto::ByteSource" = type { ptr, ptr, i64 }
 %"class.std::unique_ptr" = type { %"struct.std::__uniq_ptr_data" }
 %"struct.std::__uniq_ptr_data" = type { %"class.std::__uniq_ptr_impl" }
 %"class.std::__uniq_ptr_impl" = type { %"class.std::tuple" }
 %"class.std::tuple" = type { %"struct.std::_Tuple_impl" }
 %"struct.std::_Tuple_impl" = type { %"struct.std::_Head_base.12" }
 %"struct.std::_Head_base.12" = type { ptr }
-%"class.node::MemoryRetainerNode" = type <{ %"class.v8::EmbedderGraph::Node", ptr, ptr, i8, [7 x i8], ptr, i64, i8, [7 x i8] }>
-%"class.v8::EmbedderGraph::Node" = type { ptr }
-%"class.node::MemoryTracker" = type { ptr, ptr, %"class.std::stack", %"class.std::unordered_map" }
-%"class.std::stack" = type { %"class.std::deque" }
-%"class.std::deque" = type { %"class.std::_Deque_base" }
-%"class.std::_Deque_base" = type { %"struct.std::_Deque_base<node::MemoryRetainerNode *, std::allocator<node::MemoryRetainerNode *>>::_Deque_impl" }
-%"struct.std::_Deque_base<node::MemoryRetainerNode *, std::allocator<node::MemoryRetainerNode *>>::_Deque_impl" = type { %"struct.std::_Deque_base<node::MemoryRetainerNode *, std::allocator<node::MemoryRetainerNode *>>::_Deque_impl_data" }
-%"struct.std::_Deque_base<node::MemoryRetainerNode *, std::allocator<node::MemoryRetainerNode *>>::_Deque_impl_data" = type { ptr, i64, %"struct.std::_Deque_iterator", %"struct.std::_Deque_iterator" }
-%"struct.std::_Deque_iterator" = type { ptr, ptr, ptr, ptr }
-%"class.std::unordered_map" = type { %"class.std::_Hashtable" }
-%"class.std::_Hashtable" = type { ptr, i64, %"struct.std::__detail::_Hash_node_base", i64, %"struct.std::__detail::_Prime_rehash_policy", ptr }
-%"struct.std::__detail::_Hash_node_base" = type { ptr }
-%"struct.std::__detail::_Prime_rehash_policy" = type { float, i64 }
 %"class.node::crypto::ArrayBufferOrViewContents" = type { i8, i64, i64, ptr }
+%"class.node::crypto::ByteSource" = type { ptr, ptr, i64 }
 %"class.node::Utf8Value" = type { %"class.node::MaybeStackBuffer" }
 %"class.node::MaybeStackBuffer" = type { i64, i64, ptr, [1024 x i8] }
-%"class.v8::FunctionCallbackInfo" = type <{ ptr, ptr, i32, [4 x i8] }>
-%"class.node::Environment" = type { %"class.node::MemoryRetainer", %"class.std::unordered_multimap", %"class.std::__cxx11::list", ptr, ptr, %struct.uv_timer_s, %struct.uv_check_s, %struct.uv_idle_s, %struct.uv_prepare_s, %struct.uv_check_s, %struct.uv_async_s, i64, %"struct.std::atomic", %"struct.std::atomic", %"class.node::AsyncHooks", %"class.node::ImmediateInfo", %"class.node::AliasedBufferBase.58", %"class.node::TickInfo", %"class.node::permission::Permission", i64, %"class.std::shared_ptr", i8, i8, i8, i8, i8, i8, i64, %"class.std::vector.84", %"class.std::unordered_set", %"class.std::unique_ptr.108", %"class.std::unique_ptr.116", %"class.std::__cxx11::basic_string", %"class.std::__cxx11::basic_string", %"class.std::__cxx11::basic_string", i64, %"class.std::unique_ptr.128", %"class.std::__cxx11::basic_string", %"class.std::__cxx11::basic_string", i64, %"class.std::shared_ptr.136", %"class.std::shared_ptr.139", %"class.std::vector.142", %"class.std::vector.142", %"class.std::__cxx11::basic_string", i8, i32, i32, i8, i32, i32, i32, i32, %"class.node::AliasedBufferBase.58", %"class.node::AliasedBufferBase.48", i32, %"class.std::unique_ptr.147", %"class.node::AliasedBufferBase.58", i64, double, i64, %"class.std::unique_ptr.155", i8, i64, i64, %"class.std::unordered_set.163", %"class.std::unique_ptr.183", i8, %"class.std::__cxx11::list.191", %"class.node::ListHead", %"class.node::ListHead.196", %"class.std::__cxx11::list.198", i32, i32, %"class.node::EnabledDebugList", %"class.std::vector.203", %"class.std::__cxx11::list.208", %"class.node::MutexBase", %"class.std::__cxx11::list.213", %"class.node::CallbackQueue", %"class.node::MutexBase", %"class.node::CallbackQueue", %"class.node::CallbackQueue", i8, %"struct.std::atomic.228", %"class.node::CleanupQueue", i8, %"class.std::unordered_set.246", %"class.std::function", %"class.std::unique_ptr.261", %"class.node::builtins::BuiltinLoader", %"class.std::function.275", %"class.std::unordered_map.277" }
-%"class.std::unordered_multimap" = type { %"class.std::_Hashtable.22" }
-%"class.std::_Hashtable.22" = type { ptr, i64, %"struct.std::__detail::_Hash_node_base", i64, %"struct.std::__detail::_Prime_rehash_policy", ptr }
-%"class.std::__cxx11::list" = type { %"class.std::__cxx11::_List_base" }
-%"class.std::__cxx11::_List_base" = type { %"struct.std::__cxx11::_List_base<node::binding::DLib, std::allocator<node::binding::DLib>>::_List_impl" }
-%"struct.std::__cxx11::_List_base<node::binding::DLib, std::allocator<node::binding::DLib>>::_List_impl" = type { %"struct.std::__detail::_List_node_header" }
-%"struct.std::__detail::_List_node_header" = type { %"struct.std::__detail::_List_node_base", i64 }
-%"struct.std::__detail::_List_node_base" = type { ptr, ptr }
-%struct.uv_timer_s = type { ptr, ptr, i32, ptr, %struct.uv__queue, %union.anon, ptr, i32, ptr, [3 x ptr], i64, i64, i64 }
-%struct.uv__queue = type { ptr, ptr }
-%union.anon = type { [4 x ptr] }
-%struct.uv_idle_s = type { ptr, ptr, i32, ptr, %struct.uv__queue, %union.anon.45, ptr, i32, ptr, %struct.uv__queue }
-%union.anon.45 = type { [4 x ptr] }
-%struct.uv_prepare_s = type { ptr, ptr, i32, ptr, %struct.uv__queue, %union.anon.46, ptr, i32, ptr, %struct.uv__queue }
-%union.anon.46 = type { [4 x ptr] }
-%struct.uv_check_s = type { ptr, ptr, i32, ptr, %struct.uv__queue, %union.anon.44, ptr, i32, ptr, %struct.uv__queue }
-%union.anon.44 = type { [4 x ptr] }
-%struct.uv_async_s = type { ptr, ptr, i32, ptr, %struct.uv__queue, %union.anon.47, ptr, i32, ptr, %struct.uv__queue, i32 }
-%union.anon.47 = type { [4 x ptr] }
-%"struct.std::atomic" = type { %"struct.std::__atomic_base" }
-%"struct.std::__atomic_base" = type { i8 }
-%"class.node::AsyncHooks" = type { %"class.node::MemoryRetainer", %"class.node::AliasedBufferBase", %"class.node::AliasedBufferBase.48", %"class.node::AliasedBufferBase", %"class.v8::Global.51", %"class.std::vector", ptr, %"struct.std::array" }
-%"class.node::AliasedBufferBase" = type { %"class.node::MemoryRetainer", ptr, i64, i64, ptr, %"class.v8::Global", ptr }
-%"class.v8::Global" = type { %"class.v8::PersistentBase" }
-%"class.v8::PersistentBase" = type { %"class.v8::IndirectHandleBase" }
-%"class.v8::IndirectHandleBase" = type { ptr }
-%"class.v8::Global.51" = type { %"class.v8::PersistentBase.52" }
-%"class.v8::PersistentBase.52" = type { %"class.v8::IndirectHandleBase" }
-%"class.std::vector" = type { %"struct.std::_Vector_base" }
-%"struct.std::_Vector_base" = type { %"struct.std::_Vector_base<v8::Local<v8::Object>, std::allocator<v8::Local<v8::Object>>>::_Vector_impl" }
-%"struct.std::_Vector_base<v8::Local<v8::Object>, std::allocator<v8::Local<v8::Object>>>::_Vector_impl" = type { %"struct.std::_Vector_base<v8::Local<v8::Object>, std::allocator<v8::Local<v8::Object>>>::_Vector_impl_data" }
-%"struct.std::_Vector_base<v8::Local<v8::Object>, std::allocator<v8::Local<v8::Object>>>::_Vector_impl_data" = type { ptr, ptr, ptr }
-%"struct.std::array" = type { [4 x %"class.v8::Global.56"] }
-%"class.v8::Global.56" = type { %"class.v8::PersistentBase.57" }
-%"class.v8::PersistentBase.57" = type { %"class.v8::IndirectHandleBase" }
-%"class.node::ImmediateInfo" = type { %"class.node::MemoryRetainer", %"class.node::AliasedBufferBase.48" }
-%"class.node::TickInfo" = type { %"class.node::MemoryRetainer", %"class.node::AliasedBufferBase.61" }
-%"class.node::AliasedBufferBase.61" = type { %"class.node::MemoryRetainer", ptr, i64, i64, ptr, %"class.v8::Global.62", ptr }
-%"class.v8::Global.62" = type { %"class.v8::PersistentBase.63" }
-%"class.v8::PersistentBase.63" = type { %"class.v8::IndirectHandleBase" }
-%"class.node::permission::Permission" = type <{ %"class.std::unordered_map.64", i8, [7 x i8] }>
-%"class.std::unordered_map.64" = type { %"class.std::_Hashtable.65" }
-%"class.std::_Hashtable.65" = type { ptr, i64, %"struct.std::__detail::_Hash_node_base", i64, %"struct.std::__detail::_Prime_rehash_policy", ptr }
-%"class.std::shared_ptr" = type { %"class.std::__shared_ptr" }
-%"class.std::__shared_ptr" = type { ptr, %"class.std::__shared_count" }
-%"class.std::__shared_count" = type { ptr }
-%"class.std::vector.84" = type { %"struct.std::_Vector_base.85" }
-%"struct.std::_Vector_base.85" = type { %"struct.std::_Vector_base<double, std::allocator<double>>::_Vector_impl" }
-%"struct.std::_Vector_base<double, std::allocator<double>>::_Vector_impl" = type { %"struct.std::_Vector_base<double, std::allocator<double>>::_Vector_impl_data" }
-%"struct.std::_Vector_base<double, std::allocator<double>>::_Vector_impl_data" = type { ptr, ptr, ptr }
-%"class.std::unordered_set" = type { %"class.std::_Hashtable.89" }
-%"class.std::_Hashtable.89" = type { ptr, i64, %"struct.std::__detail::_Hash_node_base", i64, %"struct.std::__detail::_Prime_rehash_policy", ptr }
-%"class.std::unique_ptr.108" = type { %"struct.std::__uniq_ptr_data.109" }
-%"struct.std::__uniq_ptr_data.109" = type { %"class.std::__uniq_ptr_impl.110" }
-%"class.std::__uniq_ptr_impl.110" = type { %"class.std::tuple.111" }
-%"class.std::tuple.111" = type { %"struct.std::_Tuple_impl.112" }
-%"struct.std::_Tuple_impl.112" = type { %"struct.std::_Head_base.115" }
-%"struct.std::_Head_base.115" = type { ptr }
-%"class.std::unique_ptr.116" = type { %"struct.std::__uniq_ptr_data.117" }
-%"struct.std::__uniq_ptr_data.117" = type { %"class.std::__uniq_ptr_impl.118" }
-%"class.std::__uniq_ptr_impl.118" = type { %"class.std::tuple.119" }
-%"class.std::tuple.119" = type { %"struct.std::_Tuple_impl.120" }
-%"struct.std::_Tuple_impl.120" = type { %"struct.std::_Head_base.123" }
-%"struct.std::_Head_base.123" = type { ptr }
-%"class.std::unique_ptr.128" = type { %"struct.std::__uniq_ptr_data.129" }
-%"struct.std::__uniq_ptr_data.129" = type { %"class.std::__uniq_ptr_impl.130" }
-%"class.std::__uniq_ptr_impl.130" = type { %"class.std::tuple.131" }
-%"class.std::tuple.131" = type { %"struct.std::_Tuple_impl.132" }
-%"struct.std::_Tuple_impl.132" = type { %"struct.std::_Head_base.135" }
-%"struct.std::_Head_base.135" = type { ptr }
-%"class.std::shared_ptr.136" = type { %"class.std::__shared_ptr.137" }
-%"class.std::__shared_ptr.137" = type { ptr, %"class.std::__shared_count" }
-%"class.std::shared_ptr.139" = type { %"class.std::__shared_ptr.140" }
-%"class.std::__shared_ptr.140" = type { ptr, %"class.std::__shared_count" }
-%"class.std::vector.142" = type { %"struct.std::_Vector_base.143" }
-%"struct.std::_Vector_base.143" = type { %"struct.std::_Vector_base<std::__cxx11::basic_string<char>, std::allocator<std::__cxx11::basic_string<char>>>::_Vector_impl" }
-%"struct.std::_Vector_base<std::__cxx11::basic_string<char>, std::allocator<std::__cxx11::basic_string<char>>>::_Vector_impl" = type { %"struct.std::_Vector_base<std::__cxx11::basic_string<char>, std::allocator<std::__cxx11::basic_string<char>>>::_Vector_impl_data" }
-%"struct.std::_Vector_base<std::__cxx11::basic_string<char>, std::allocator<std::__cxx11::basic_string<char>>>::_Vector_impl_data" = type { ptr, ptr, ptr }
 %"class.std::__cxx11::basic_string" = type { %"struct.std::__cxx11::basic_string<char>::_Alloc_hider", i64, %union.anon.127 }
 %"struct.std::__cxx11::basic_string<char>::_Alloc_hider" = type { ptr }
 %union.anon.127 = type { i64, [8 x i8] }
-%"class.node::AliasedBufferBase.48" = type { %"class.node::MemoryRetainer", ptr, i64, i64, ptr, %"class.v8::Global.49", ptr }
-%"class.v8::Global.49" = type { %"class.v8::PersistentBase.50" }
-%"class.v8::PersistentBase.50" = type { %"class.v8::IndirectHandleBase" }
-%"class.std::unique_ptr.147" = type { %"struct.std::__uniq_ptr_data.148" }
-%"struct.std::__uniq_ptr_data.148" = type { %"class.std::__uniq_ptr_impl.149" }
-%"class.std::__uniq_ptr_impl.149" = type { %"class.std::tuple.150" }
-%"class.std::tuple.150" = type { %"struct.std::_Tuple_impl.151" }
-%"struct.std::_Tuple_impl.151" = type { %"struct.std::_Head_base.154" }
-%"struct.std::_Head_base.154" = type { ptr }
-%"class.node::AliasedBufferBase.58" = type { %"class.node::MemoryRetainer", ptr, i64, i64, ptr, %"class.v8::Global.59", ptr }
-%"class.v8::Global.59" = type { %"class.v8::PersistentBase.60" }
-%"class.v8::PersistentBase.60" = type { %"class.v8::IndirectHandleBase" }
-%"class.std::unique_ptr.155" = type { %"struct.std::__uniq_ptr_data.156" }
-%"struct.std::__uniq_ptr_data.156" = type { %"class.std::__uniq_ptr_impl.157" }
-%"class.std::__uniq_ptr_impl.157" = type { %"class.std::tuple.158" }
-%"class.std::tuple.158" = type { %"struct.std::_Tuple_impl.159" }
-%"struct.std::_Tuple_impl.159" = type { %"struct.std::_Head_base.162" }
-%"struct.std::_Head_base.162" = type { ptr }
-%"class.std::unordered_set.163" = type { %"class.std::_Hashtable.164" }
-%"class.std::_Hashtable.164" = type { ptr, i64, %"struct.std::__detail::_Hash_node_base", i64, %"struct.std::__detail::_Prime_rehash_policy", ptr }
-%"class.std::unique_ptr.183" = type { %"struct.std::__uniq_ptr_data.184" }
-%"struct.std::__uniq_ptr_data.184" = type { %"class.std::__uniq_ptr_impl.185" }
-%"class.std::__uniq_ptr_impl.185" = type { %"class.std::tuple.186" }
-%"class.std::tuple.186" = type { %"struct.std::_Tuple_impl.187" }
-%"struct.std::_Tuple_impl.187" = type { %"struct.std::_Head_base.190" }
-%"struct.std::_Head_base.190" = type { ptr }
-%"class.std::__cxx11::list.191" = type { %"class.std::__cxx11::_List_base.192" }
-%"class.std::__cxx11::_List_base.192" = type { %"struct.std::__cxx11::_List_base<node::DeserializeRequest, std::allocator<node::DeserializeRequest>>::_List_impl" }
-%"struct.std::__cxx11::_List_base<node::DeserializeRequest, std::allocator<node::DeserializeRequest>>::_List_impl" = type { %"struct.std::__detail::_List_node_header" }
-%"class.node::ListHead" = type { %"class.node::ListNode" }
-%"class.node::ListNode" = type { ptr, ptr }
-%"class.node::ListHead.196" = type { %"class.node::ListNode.197" }
-%"class.node::ListNode.197" = type { ptr, ptr }
-%"class.std::__cxx11::list.198" = type { %"class.std::__cxx11::_List_base.199" }
-%"class.std::__cxx11::_List_base.199" = type { %"struct.std::__cxx11::_List_base<node::Environment::HandleCleanup, std::allocator<node::Environment::HandleCleanup>>::_List_impl" }
-%"struct.std::__cxx11::_List_base<node::Environment::HandleCleanup, std::allocator<node::Environment::HandleCleanup>>::_List_impl" = type { %"struct.std::__detail::_List_node_header" }
-%"class.node::EnabledDebugList" = type { [75 x i8] }
-%"class.std::vector.203" = type { %"struct.std::_Vector_base.204" }
-%"struct.std::_Vector_base.204" = type { %"struct.std::_Vector_base<v8::Global<v8::Context>, std::allocator<v8::Global<v8::Context>>>::_Vector_impl" }
-%"struct.std::_Vector_base<v8::Global<v8::Context>, std::allocator<v8::Global<v8::Context>>>::_Vector_impl" = type { %"struct.std::_Vector_base<v8::Global<v8::Context>, std::allocator<v8::Global<v8::Context>>>::_Vector_impl_data" }
-%"struct.std::_Vector_base<v8::Global<v8::Context>, std::allocator<v8::Global<v8::Context>>>::_Vector_impl_data" = type { ptr, ptr, ptr }
-%"class.std::__cxx11::list.208" = type { %"class.std::__cxx11::_List_base.209" }
-%"class.std::__cxx11::_List_base.209" = type { %"struct.std::__cxx11::_List_base<node::node_module, std::allocator<node::node_module>>::_List_impl" }
-%"struct.std::__cxx11::_List_base<node::node_module, std::allocator<node::node_module>>::_List_impl" = type { %"struct.std::__detail::_List_node_header" }
-%"class.std::__cxx11::list.213" = type { %"class.std::__cxx11::_List_base.214" }
-%"class.std::__cxx11::_List_base.214" = type { %"struct.std::__cxx11::_List_base<node::Environment::ExitCallback, std::allocator<node::Environment::ExitCallback>>::_List_impl" }
-%"struct.std::__cxx11::_List_base<node::Environment::ExitCallback, std::allocator<node::Environment::ExitCallback>>::_List_impl" = type { %"struct.std::__detail::_List_node_header" }
-%"class.node::MutexBase" = type { %union.pthread_mutex_t }
-%union.pthread_mutex_t = type { %struct.__pthread_mutex_s }
-%struct.__pthread_mutex_s = type { i32, i32, i32, i32, i32, i16, i16, %struct.__pthread_internal_list }
-%struct.__pthread_internal_list = type { ptr, ptr }
-%"class.node::CallbackQueue" = type { %"struct.std::atomic.218", %"class.std::unique_ptr.220", ptr }
-%"struct.std::atomic.218" = type { %"struct.std::__atomic_base.219" }
-%"struct.std::__atomic_base.219" = type { i64 }
-%"class.std::unique_ptr.220" = type { %"struct.std::__uniq_ptr_data.221" }
-%"struct.std::__uniq_ptr_data.221" = type { %"class.std::__uniq_ptr_impl.222" }
-%"class.std::__uniq_ptr_impl.222" = type { %"class.std::tuple.223" }
-%"class.std::tuple.223" = type { %"struct.std::_Tuple_impl.224" }
-%"struct.std::_Tuple_impl.224" = type { %"struct.std::_Head_base.227" }
-%"struct.std::_Head_base.227" = type { ptr }
-%"struct.std::atomic.228" = type { %"struct.std::__atomic_base.229" }
-%"struct.std::__atomic_base.229" = type { ptr }
-%"class.node::CleanupQueue" = type { %"class.node::MemoryRetainer", %"class.std::unordered_set.230", i64 }
-%"class.std::unordered_set.230" = type { %"class.std::_Hashtable.231" }
-%"class.std::_Hashtable.231" = type { ptr, i64, %"struct.std::__detail::_Hash_node_base", i64, %"struct.std::__detail::_Prime_rehash_policy", ptr }
-%"class.std::unordered_set.246" = type { %"class.std::_Hashtable.247" }
-%"class.std::_Hashtable.247" = type { ptr, i64, %"struct.std::__detail::_Hash_node_base", i64, %"struct.std::__detail::_Prime_rehash_policy", ptr }
-%"class.std::function" = type { %"class.std::_Function_base", ptr }
-%"class.std::_Function_base" = type { %"union.std::_Any_data", ptr }
-%"union.std::_Any_data" = type { %"union.std::_Nocopy_types" }
-%"union.std::_Nocopy_types" = type { { i64, i64 } }
-%"class.std::unique_ptr.261" = type { %"struct.std::__uniq_ptr_data.262" }
-%"struct.std::__uniq_ptr_data.262" = type { %"class.std::__uniq_ptr_impl.263" }
-%"class.std::__uniq_ptr_impl.263" = type { %"class.std::tuple.264" }
-%"class.std::tuple.264" = type { %"struct.std::_Tuple_impl.265" }
-%"struct.std::_Tuple_impl.265" = type { %"struct.std::_Head_base.268" }
-%"struct.std::_Head_base.268" = type { ptr }
-%"class.node::builtins::BuiltinLoader" = type { %"class.node::ThreadsafeCopyOnWrite", %"class.node::UnionBytes", %"class.std::shared_ptr.272" }
-%"class.node::ThreadsafeCopyOnWrite" = type { %"class.node::CopyOnWrite" }
-%"class.node::CopyOnWrite" = type { %"class.std::shared_ptr.269" }
-%"class.std::shared_ptr.269" = type { %"class.std::__shared_ptr.270" }
-%"class.std::__shared_ptr.270" = type { ptr, %"class.std::__shared_count" }
-%"class.node::UnionBytes" = type { ptr, ptr }
-%"class.std::shared_ptr.272" = type { %"class.std::__shared_ptr.273" }
-%"class.std::__shared_ptr.273" = type { ptr, %"class.std::__shared_count" }
-%"class.std::function.275" = type { %"class.std::_Function_base", ptr }
-%"class.std::unordered_map.277" = type { %"class.std::_Hashtable.278" }
-%"class.std::_Hashtable.278" = type { ptr, i64, %"struct.std::__detail::_Hash_node_base", i64, %"struct.std::__detail::_Prime_rehash_policy", ptr }
 %"class.std::allocator.124" = type { i8 }
 
 $_ZN4node6crypto12PBKDF2ConfigD2Ev = comdat any
@@ -352,26 +170,26 @@ declare i32 @__cxa_atexit(ptr, ptr, ptr) local_unnamed_addr #2
 define dso_local void @_ZN4node6crypto12PBKDF2ConfigC2EOS1_(ptr noundef nonnull align 8 dereferenceable(80) %this, ptr noundef nonnull align 8 dereferenceable(80) %other) unnamed_addr #3 align 2 {
 entry:
   store ptr getelementptr inbounds ({ [10 x ptr] }, ptr @_ZTVN4node6crypto12PBKDF2ConfigE, i64 0, inrange i32 0, i64 2), ptr %this, align 8
-  %mode = getelementptr inbounds %"struct.node::crypto::PBKDF2Config", ptr %this, i64 0, i32 1
-  %mode2 = getelementptr inbounds %"struct.node::crypto::PBKDF2Config", ptr %other, i64 0, i32 1
+  %mode = getelementptr inbounds i8, ptr %this, i64 8
+  %mode2 = getelementptr inbounds i8, ptr %other, i64 8
   %0 = load i32, ptr %mode2, align 8
   store i32 %0, ptr %mode, align 8
-  %pass = getelementptr inbounds %"struct.node::crypto::PBKDF2Config", ptr %this, i64 0, i32 2
-  %pass3 = getelementptr inbounds %"struct.node::crypto::PBKDF2Config", ptr %other, i64 0, i32 2
+  %pass = getelementptr inbounds i8, ptr %this, i64 16
+  %pass3 = getelementptr inbounds i8, ptr %other, i64 16
   tail call void @_ZN4node6crypto10ByteSourceC1EOS1_(ptr noundef nonnull align 8 dereferenceable(24) %pass, ptr noundef nonnull align 8 dereferenceable(24) %pass3) #19
-  %salt = getelementptr inbounds %"struct.node::crypto::PBKDF2Config", ptr %this, i64 0, i32 3
-  %salt4 = getelementptr inbounds %"struct.node::crypto::PBKDF2Config", ptr %other, i64 0, i32 3
+  %salt = getelementptr inbounds i8, ptr %this, i64 40
+  %salt4 = getelementptr inbounds i8, ptr %other, i64 40
   tail call void @_ZN4node6crypto10ByteSourceC1EOS1_(ptr noundef nonnull align 8 dereferenceable(24) %salt, ptr noundef nonnull align 8 dereferenceable(24) %salt4) #19
-  %iterations = getelementptr inbounds %"struct.node::crypto::PBKDF2Config", ptr %this, i64 0, i32 4
-  %iterations5 = getelementptr inbounds %"struct.node::crypto::PBKDF2Config", ptr %other, i64 0, i32 4
+  %iterations = getelementptr inbounds i8, ptr %this, i64 64
+  %iterations5 = getelementptr inbounds i8, ptr %other, i64 64
   %1 = load i32, ptr %iterations5, align 8
   store i32 %1, ptr %iterations, align 8
-  %length = getelementptr inbounds %"struct.node::crypto::PBKDF2Config", ptr %this, i64 0, i32 5
-  %length6 = getelementptr inbounds %"struct.node::crypto::PBKDF2Config", ptr %other, i64 0, i32 5
+  %length = getelementptr inbounds i8, ptr %this, i64 68
+  %length6 = getelementptr inbounds i8, ptr %other, i64 68
   %2 = load i32, ptr %length6, align 4
   store i32 %2, ptr %length, align 4
-  %digest = getelementptr inbounds %"struct.node::crypto::PBKDF2Config", ptr %this, i64 0, i32 6
-  %digest7 = getelementptr inbounds %"struct.node::crypto::PBKDF2Config", ptr %other, i64 0, i32 6
+  %digest = getelementptr inbounds i8, ptr %this, i64 72
+  %digest7 = getelementptr inbounds i8, ptr %other, i64 72
   %3 = load ptr, ptr %digest7, align 8
   store ptr %3, ptr %digest, align 8
   ret void
@@ -387,29 +205,29 @@ entry:
   br i1 %cmp, label %return, label %if.end
 
 if.end:                                           ; preds = %entry
-  %salt.i = getelementptr inbounds %"struct.node::crypto::PBKDF2Config", ptr %this, i64 0, i32 3
+  %salt.i = getelementptr inbounds i8, ptr %this, i64 40
   tail call void @_ZN4node6crypto10ByteSourceD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %salt.i) #19
-  %pass.i = getelementptr inbounds %"struct.node::crypto::PBKDF2Config", ptr %this, i64 0, i32 2
+  %pass.i = getelementptr inbounds i8, ptr %this, i64 16
   tail call void @_ZN4node6crypto10ByteSourceD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %pass.i) #19
   store ptr getelementptr inbounds ({ [10 x ptr] }, ptr @_ZTVN4node6crypto12PBKDF2ConfigE, i64 0, inrange i32 0, i64 2), ptr %this, align 8
-  %mode.i = getelementptr inbounds %"struct.node::crypto::PBKDF2Config", ptr %this, i64 0, i32 1
-  %mode2.i = getelementptr inbounds %"struct.node::crypto::PBKDF2Config", ptr %other, i64 0, i32 1
+  %mode.i = getelementptr inbounds i8, ptr %this, i64 8
+  %mode2.i = getelementptr inbounds i8, ptr %other, i64 8
   %0 = load i32, ptr %mode2.i, align 8
   store i32 %0, ptr %mode.i, align 8
-  %pass3.i = getelementptr inbounds %"struct.node::crypto::PBKDF2Config", ptr %other, i64 0, i32 2
+  %pass3.i = getelementptr inbounds i8, ptr %other, i64 16
   tail call void @_ZN4node6crypto10ByteSourceC1EOS1_(ptr noundef nonnull align 8 dereferenceable(24) %pass.i, ptr noundef nonnull align 8 dereferenceable(24) %pass3.i) #19
-  %salt4.i = getelementptr inbounds %"struct.node::crypto::PBKDF2Config", ptr %other, i64 0, i32 3
+  %salt4.i = getelementptr inbounds i8, ptr %other, i64 40
   tail call void @_ZN4node6crypto10ByteSourceC1EOS1_(ptr noundef nonnull align 8 dereferenceable(24) %salt.i, ptr noundef nonnull align 8 dereferenceable(24) %salt4.i) #19
-  %iterations.i = getelementptr inbounds %"struct.node::crypto::PBKDF2Config", ptr %this, i64 0, i32 4
-  %iterations5.i = getelementptr inbounds %"struct.node::crypto::PBKDF2Config", ptr %other, i64 0, i32 4
+  %iterations.i = getelementptr inbounds i8, ptr %this, i64 64
+  %iterations5.i = getelementptr inbounds i8, ptr %other, i64 64
   %1 = load i32, ptr %iterations5.i, align 8
   store i32 %1, ptr %iterations.i, align 8
-  %length.i = getelementptr inbounds %"struct.node::crypto::PBKDF2Config", ptr %this, i64 0, i32 5
-  %length6.i = getelementptr inbounds %"struct.node::crypto::PBKDF2Config", ptr %other, i64 0, i32 5
+  %length.i = getelementptr inbounds i8, ptr %this, i64 68
+  %length6.i = getelementptr inbounds i8, ptr %other, i64 68
   %2 = load i32, ptr %length6.i, align 4
   store i32 %2, ptr %length.i, align 4
-  %digest.i = getelementptr inbounds %"struct.node::crypto::PBKDF2Config", ptr %this, i64 0, i32 6
-  %digest7.i = getelementptr inbounds %"struct.node::crypto::PBKDF2Config", ptr %other, i64 0, i32 6
+  %digest.i = getelementptr inbounds i8, ptr %this, i64 72
+  %digest7.i = getelementptr inbounds i8, ptr %other, i64 72
   %3 = load ptr, ptr %digest7.i, align 8
   store ptr %3, ptr %digest.i, align 8
   br label %return
@@ -421,9 +239,9 @@ return:                                           ; preds = %entry, %if.end
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr dso_local void @_ZN4node6crypto12PBKDF2ConfigD2Ev(ptr noundef nonnull align 8 dereferenceable(80) %this) unnamed_addr #3 comdat align 2 {
 entry:
-  %salt = getelementptr inbounds %"struct.node::crypto::PBKDF2Config", ptr %this, i64 0, i32 3
+  %salt = getelementptr inbounds i8, ptr %this, i64 40
   tail call void @_ZN4node6crypto10ByteSourceD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %salt) #19
-  %pass = getelementptr inbounds %"struct.node::crypto::PBKDF2Config", ptr %this, i64 0, i32 2
+  %pass = getelementptr inbounds i8, ptr %this, i64 16
   tail call void @_ZN4node6crypto10ByteSourceD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %pass) #19
   ret void
 }
@@ -433,13 +251,13 @@ define dso_local void @_ZNK4node6crypto12PBKDF2Config10MemoryInfoEPNS_13MemoryTr
 entry:
   %agg.tmp.i.i3 = alloca %"class.std::unique_ptr", align 8
   %agg.tmp.i.i = alloca %"class.std::unique_ptr", align 8
-  %mode = getelementptr inbounds %"struct.node::crypto::PBKDF2Config", ptr %this, i64 0, i32 1
+  %mode = getelementptr inbounds i8, ptr %this, i64 8
   %0 = load i32, ptr %mode, align 8
   %cmp = icmp eq i32 %0, 0
   br i1 %cmp, label %if.then, label %if.end
 
 if.then:                                          ; preds = %entry
-  %size_.i = getelementptr inbounds %"struct.node::crypto::PBKDF2Config", ptr %this, i64 0, i32 2, i32 2
+  %size_.i = getelementptr inbounds i8, ptr %this, i64 32
   %1 = load i64, ptr %size_.i, align 8
   %cmp.not.i = icmp eq i64 %1, 0
   br i1 %cmp.not.i, label %_ZN4node13MemoryTracker18TrackFieldWithSizeEPKcmS2_.exit, label %if.then.i
@@ -448,21 +266,21 @@ if.then.i:                                        ; preds = %if.then
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %agg.tmp.i.i)
   %call.i.i = tail call noalias noundef nonnull dereferenceable(56) ptr @_Znwm(i64 noundef 56) #20
   store ptr getelementptr inbounds ({ [13 x ptr] }, ptr @_ZTVN4node18MemoryRetainerNodeE, i64 0, inrange i32 0, i64 2), ptr %call.i.i, align 8
-  %retainer_.i.i.i = getelementptr inbounds %"class.node::MemoryRetainerNode", ptr %call.i.i, i64 0, i32 1
-  %is_root_node_.i.i.i = getelementptr inbounds %"class.node::MemoryRetainerNode", ptr %call.i.i, i64 0, i32 3
-  %size_.i.i.i = getelementptr inbounds %"class.node::MemoryRetainerNode", ptr %call.i.i, i64 0, i32 6
-  %detachedness_.i.i.i = getelementptr inbounds %"class.node::MemoryRetainerNode", ptr %call.i.i, i64 0, i32 7
+  %retainer_.i.i.i = getelementptr inbounds i8, ptr %call.i.i, i64 8
+  %is_root_node_.i.i.i = getelementptr inbounds i8, ptr %call.i.i, i64 24
+  %size_.i.i.i = getelementptr inbounds i8, ptr %call.i.i, i64 40
+  %detachedness_.i.i.i = getelementptr inbounds i8, ptr %call.i.i, i64 48
   store i8 0, ptr %detachedness_.i.i.i, align 8
-  %name_.i.i.i = getelementptr inbounds %"class.node::MemoryRetainerNode", ptr %call.i.i, i64 0, i32 5
+  %name_.i.i.i = getelementptr inbounds i8, ptr %call.i.i, i64 32
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %retainer_.i.i.i, i8 0, i64 16, i1 false)
   store ptr @.str, ptr %name_.i.i.i, align 8
   store i64 %1, ptr %size_.i.i.i, align 8
   store i8 0, ptr %is_root_node_.i.i.i, align 8
-  %graph_.i.i = getelementptr inbounds %"class.node::MemoryTracker", ptr %tracker, i64 0, i32 1
+  %graph_.i.i = getelementptr inbounds i8, ptr %tracker, i64 8
   %2 = load ptr, ptr %graph_.i.i, align 8
   store ptr %call.i.i, ptr %agg.tmp.i.i, align 8
   %vtable.i.i = load ptr, ptr %2, align 8
-  %vfn.i.i = getelementptr inbounds ptr, ptr %vtable.i.i, i64 1
+  %vfn.i.i = getelementptr inbounds i8, ptr %vtable.i.i, i64 8
   %3 = load ptr, ptr %vfn.i.i, align 8
   %call2.i.i = call noundef ptr %3(ptr noundef nonnull align 8 dereferenceable(8) %2, ptr noundef nonnull %agg.tmp.i.i) #19
   %4 = load ptr, ptr %agg.tmp.i.i, align 8
@@ -471,38 +289,38 @@ if.then.i:                                        ; preds = %if.then
 
 _ZNKSt14default_deleteIN2v813EmbedderGraph4NodeEEclEPS2_.exit.i.i.i: ; preds = %if.then.i
   %vtable.i.i.i.i = load ptr, ptr %4, align 8
-  %vfn.i.i.i.i = getelementptr inbounds ptr, ptr %vtable.i.i.i.i, i64 1
+  %vfn.i.i.i.i = getelementptr inbounds i8, ptr %vtable.i.i.i.i, i64 8
   %5 = load ptr, ptr %vfn.i.i.i.i, align 8
   call void %5(ptr noundef nonnull align 8 dereferenceable(8) %4) #19
   br label %_ZNSt10unique_ptrIN2v813EmbedderGraph4NodeESt14default_deleteIS2_EED2Ev.exit.i.i
 
 _ZNSt10unique_ptrIN2v813EmbedderGraph4NodeESt14default_deleteIS2_EED2Ev.exit.i.i: ; preds = %_ZNKSt14default_deleteIN2v813EmbedderGraph4NodeEEclEPS2_.exit.i.i.i, %if.then.i
   store ptr null, ptr %agg.tmp.i.i, align 8
-  %_M_finish.i.i.i.i.i = getelementptr inbounds %"class.node::MemoryTracker", ptr %tracker, i64 0, i32 2, i32 0, i32 0, i32 0, i32 0, i32 3
-  %_M_start.i.i.i.i.i = getelementptr inbounds %"class.node::MemoryTracker", ptr %tracker, i64 0, i32 2, i32 0, i32 0, i32 0, i32 0, i32 2
+  %_M_finish.i.i.i.i.i = getelementptr inbounds i8, ptr %tracker, i64 64
+  %_M_start.i.i.i.i.i = getelementptr inbounds i8, ptr %tracker, i64 32
   %6 = load ptr, ptr %_M_finish.i.i.i.i.i, align 8
   %7 = load ptr, ptr %_M_start.i.i.i.i.i, align 8
   %cmp.i.i.i.i.i.i = icmp eq ptr %6, %7
   br i1 %cmp.i.i.i.i.i.i, label %_ZN4node13MemoryTracker7AddNodeEPKcmS2_.exit.i, label %if.end.i.i.i
 
 if.end.i.i.i:                                     ; preds = %_ZNSt10unique_ptrIN2v813EmbedderGraph4NodeESt14default_deleteIS2_EED2Ev.exit.i.i
-  %_M_first3.i.i.i.i.i.i.i = getelementptr inbounds %"class.node::MemoryTracker", ptr %tracker, i64 0, i32 2, i32 0, i32 0, i32 0, i32 0, i32 3, i32 1
+  %_M_first3.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %tracker, i64 72
   %8 = load ptr, ptr %_M_first3.i.i.i.i.i.i.i, align 8, !noalias !5
   %cmp.i.i.i1.i.i.i = icmp eq ptr %6, %8
   br i1 %cmp.i.i.i1.i.i.i, label %_ZNK4node13MemoryTracker11CurrentNodeEv.exit.i.i, label %_ZNK4node13MemoryTracker11CurrentNodeEv.exit.thread.i.i
 
 _ZNK4node13MemoryTracker11CurrentNodeEv.exit.i.i: ; preds = %if.end.i.i.i
-  %_M_node5.i.i.i.i.i.i.i = getelementptr inbounds %"class.node::MemoryTracker", ptr %tracker, i64 0, i32 2, i32 0, i32 0, i32 0, i32 0, i32 3, i32 3
+  %_M_node5.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %tracker, i64 88
   %9 = load ptr, ptr %_M_node5.i.i.i.i.i.i.i, align 8, !noalias !5
-  %add.ptr.i.i.i.i.i.i = getelementptr inbounds ptr, ptr %9, i64 -1
+  %add.ptr.i.i.i.i.i.i = getelementptr inbounds i8, ptr %9, i64 -8
   %10 = load ptr, ptr %add.ptr.i.i.i.i.i.i, align 8
-  %incdec.ptr.i.i.i.i.i.i = getelementptr inbounds ptr, ptr %10, i64 63
+  %incdec.ptr.i.i.i.i.i.i = getelementptr inbounds i8, ptr %10, i64 504
   %11 = load ptr, ptr %incdec.ptr.i.i.i.i.i.i, align 8
   %cmp.not.i3.i = icmp eq ptr %11, null
   br i1 %cmp.not.i3.i, label %_ZN4node13MemoryTracker7AddNodeEPKcmS2_.exit.i, label %_ZNK4node13MemoryTracker11CurrentNodeEv.exit16.i.i
 
 _ZNK4node13MemoryTracker11CurrentNodeEv.exit.thread.i.i: ; preds = %if.end.i.i.i
-  %incdec.ptr.i.i.i.i19.i.i = getelementptr inbounds ptr, ptr %6, i64 -1
+  %incdec.ptr.i.i.i.i19.i.i = getelementptr inbounds i8, ptr %6, i64 -8
   %12 = load ptr, ptr %incdec.ptr.i.i.i.i19.i.i, align 8
   %cmp.not20.i.i = icmp eq ptr %12, null
   br i1 %cmp.not20.i.i, label %_ZN4node13MemoryTracker7AddNodeEPKcmS2_.exit.i, label %_ZNK4node13MemoryTracker11CurrentNodeEv.exit16.i.i
@@ -511,7 +329,7 @@ _ZNK4node13MemoryTracker11CurrentNodeEv.exit16.i.i: ; preds = %_ZNK4node13Memory
   %13 = phi ptr [ %12, %_ZNK4node13MemoryTracker11CurrentNodeEv.exit.thread.i.i ], [ %11, %_ZNK4node13MemoryTracker11CurrentNodeEv.exit.i.i ]
   %14 = load ptr, ptr %graph_.i.i, align 8
   %vtable6.i.i = load ptr, ptr %14, align 8
-  %vfn7.i.i = getelementptr inbounds ptr, ptr %vtable6.i.i, i64 2
+  %vfn7.i.i = getelementptr inbounds i8, ptr %vtable6.i.i, i64 16
   %15 = load ptr, ptr %vfn7.i.i, align 8
   call void %15(ptr noundef nonnull align 8 dereferenceable(8) %14, ptr noundef nonnull %13, ptr noundef nonnull %call.i.i, ptr noundef nonnull @.str) #19
   br label %_ZN4node13MemoryTracker7AddNodeEPKcmS2_.exit.i
@@ -521,7 +339,7 @@ _ZN4node13MemoryTracker7AddNodeEPKcmS2_.exit.i:   ; preds = %_ZNK4node13MemoryTr
   br label %_ZN4node13MemoryTracker18TrackFieldWithSizeEPKcmS2_.exit
 
 _ZN4node13MemoryTracker18TrackFieldWithSizeEPKcmS2_.exit: ; preds = %if.then, %_ZN4node13MemoryTracker7AddNodeEPKcmS2_.exit.i
-  %size_.i2 = getelementptr inbounds %"struct.node::crypto::PBKDF2Config", ptr %this, i64 0, i32 3, i32 2
+  %size_.i2 = getelementptr inbounds i8, ptr %this, i64 56
   %16 = load i64, ptr %size_.i2, align 8
   %cmp.not.i4 = icmp eq i64 %16, 0
   br i1 %cmp.not.i4, label %if.end, label %if.then.i5
@@ -530,21 +348,21 @@ if.then.i5:                                       ; preds = %_ZN4node13MemoryTra
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %agg.tmp.i.i3)
   %call.i.i6 = call noalias noundef nonnull dereferenceable(56) ptr @_Znwm(i64 noundef 56) #20
   store ptr getelementptr inbounds ({ [13 x ptr] }, ptr @_ZTVN4node18MemoryRetainerNodeE, i64 0, inrange i32 0, i64 2), ptr %call.i.i6, align 8
-  %retainer_.i.i.i7 = getelementptr inbounds %"class.node::MemoryRetainerNode", ptr %call.i.i6, i64 0, i32 1
-  %is_root_node_.i.i.i8 = getelementptr inbounds %"class.node::MemoryRetainerNode", ptr %call.i.i6, i64 0, i32 3
-  %size_.i.i.i9 = getelementptr inbounds %"class.node::MemoryRetainerNode", ptr %call.i.i6, i64 0, i32 6
-  %detachedness_.i.i.i10 = getelementptr inbounds %"class.node::MemoryRetainerNode", ptr %call.i.i6, i64 0, i32 7
+  %retainer_.i.i.i7 = getelementptr inbounds i8, ptr %call.i.i6, i64 8
+  %is_root_node_.i.i.i8 = getelementptr inbounds i8, ptr %call.i.i6, i64 24
+  %size_.i.i.i9 = getelementptr inbounds i8, ptr %call.i.i6, i64 40
+  %detachedness_.i.i.i10 = getelementptr inbounds i8, ptr %call.i.i6, i64 48
   store i8 0, ptr %detachedness_.i.i.i10, align 8
-  %name_.i.i.i11 = getelementptr inbounds %"class.node::MemoryRetainerNode", ptr %call.i.i6, i64 0, i32 5
+  %name_.i.i.i11 = getelementptr inbounds i8, ptr %call.i.i6, i64 32
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %retainer_.i.i.i7, i8 0, i64 16, i1 false)
   store ptr @.str.1, ptr %name_.i.i.i11, align 8
   store i64 %16, ptr %size_.i.i.i9, align 8
   store i8 0, ptr %is_root_node_.i.i.i8, align 8
-  %graph_.i.i12 = getelementptr inbounds %"class.node::MemoryTracker", ptr %tracker, i64 0, i32 1
+  %graph_.i.i12 = getelementptr inbounds i8, ptr %tracker, i64 8
   %17 = load ptr, ptr %graph_.i.i12, align 8
   store ptr %call.i.i6, ptr %agg.tmp.i.i3, align 8
   %vtable.i.i13 = load ptr, ptr %17, align 8
-  %vfn.i.i14 = getelementptr inbounds ptr, ptr %vtable.i.i13, i64 1
+  %vfn.i.i14 = getelementptr inbounds i8, ptr %vtable.i.i13, i64 8
   %18 = load ptr, ptr %vfn.i.i14, align 8
   %call2.i.i15 = call noundef ptr %18(ptr noundef nonnull align 8 dereferenceable(8) %17, ptr noundef nonnull %agg.tmp.i.i3) #19
   %19 = load ptr, ptr %agg.tmp.i.i3, align 8
@@ -553,38 +371,38 @@ if.then.i5:                                       ; preds = %_ZN4node13MemoryTra
 
 _ZNKSt14default_deleteIN2v813EmbedderGraph4NodeEEclEPS2_.exit.i.i.i17: ; preds = %if.then.i5
   %vtable.i.i.i.i18 = load ptr, ptr %19, align 8
-  %vfn.i.i.i.i19 = getelementptr inbounds ptr, ptr %vtable.i.i.i.i18, i64 1
+  %vfn.i.i.i.i19 = getelementptr inbounds i8, ptr %vtable.i.i.i.i18, i64 8
   %20 = load ptr, ptr %vfn.i.i.i.i19, align 8
   call void %20(ptr noundef nonnull align 8 dereferenceable(8) %19) #19
   br label %_ZNSt10unique_ptrIN2v813EmbedderGraph4NodeESt14default_deleteIS2_EED2Ev.exit.i.i20
 
 _ZNSt10unique_ptrIN2v813EmbedderGraph4NodeESt14default_deleteIS2_EED2Ev.exit.i.i20: ; preds = %_ZNKSt14default_deleteIN2v813EmbedderGraph4NodeEEclEPS2_.exit.i.i.i17, %if.then.i5
   store ptr null, ptr %agg.tmp.i.i3, align 8
-  %_M_finish.i.i.i.i.i21 = getelementptr inbounds %"class.node::MemoryTracker", ptr %tracker, i64 0, i32 2, i32 0, i32 0, i32 0, i32 0, i32 3
-  %_M_start.i.i.i.i.i22 = getelementptr inbounds %"class.node::MemoryTracker", ptr %tracker, i64 0, i32 2, i32 0, i32 0, i32 0, i32 0, i32 2
+  %_M_finish.i.i.i.i.i21 = getelementptr inbounds i8, ptr %tracker, i64 64
+  %_M_start.i.i.i.i.i22 = getelementptr inbounds i8, ptr %tracker, i64 32
   %21 = load ptr, ptr %_M_finish.i.i.i.i.i21, align 8
   %22 = load ptr, ptr %_M_start.i.i.i.i.i22, align 8
   %cmp.i.i.i.i.i.i23 = icmp eq ptr %21, %22
   br i1 %cmp.i.i.i.i.i.i23, label %_ZN4node13MemoryTracker7AddNodeEPKcmS2_.exit.i33, label %if.end.i.i.i24
 
 if.end.i.i.i24:                                   ; preds = %_ZNSt10unique_ptrIN2v813EmbedderGraph4NodeESt14default_deleteIS2_EED2Ev.exit.i.i20
-  %_M_first3.i.i.i.i.i.i.i25 = getelementptr inbounds %"class.node::MemoryTracker", ptr %tracker, i64 0, i32 2, i32 0, i32 0, i32 0, i32 0, i32 3, i32 1
+  %_M_first3.i.i.i.i.i.i.i25 = getelementptr inbounds i8, ptr %tracker, i64 72
   %23 = load ptr, ptr %_M_first3.i.i.i.i.i.i.i25, align 8, !noalias !5
   %cmp.i.i.i1.i.i.i26 = icmp eq ptr %21, %23
   br i1 %cmp.i.i.i1.i.i.i26, label %_ZNK4node13MemoryTracker11CurrentNodeEv.exit.i.i34, label %_ZNK4node13MemoryTracker11CurrentNodeEv.exit.thread.i.i27
 
 _ZNK4node13MemoryTracker11CurrentNodeEv.exit.i.i34: ; preds = %if.end.i.i.i24
-  %_M_node5.i.i.i.i.i.i.i35 = getelementptr inbounds %"class.node::MemoryTracker", ptr %tracker, i64 0, i32 2, i32 0, i32 0, i32 0, i32 0, i32 3, i32 3
+  %_M_node5.i.i.i.i.i.i.i35 = getelementptr inbounds i8, ptr %tracker, i64 88
   %24 = load ptr, ptr %_M_node5.i.i.i.i.i.i.i35, align 8, !noalias !5
-  %add.ptr.i.i.i.i.i.i36 = getelementptr inbounds ptr, ptr %24, i64 -1
+  %add.ptr.i.i.i.i.i.i36 = getelementptr inbounds i8, ptr %24, i64 -8
   %25 = load ptr, ptr %add.ptr.i.i.i.i.i.i36, align 8
-  %incdec.ptr.i.i.i.i.i.i37 = getelementptr inbounds ptr, ptr %25, i64 63
+  %incdec.ptr.i.i.i.i.i.i37 = getelementptr inbounds i8, ptr %25, i64 504
   %26 = load ptr, ptr %incdec.ptr.i.i.i.i.i.i37, align 8
   %cmp.not.i3.i38 = icmp eq ptr %26, null
   br i1 %cmp.not.i3.i38, label %_ZN4node13MemoryTracker7AddNodeEPKcmS2_.exit.i33, label %_ZNK4node13MemoryTracker11CurrentNodeEv.exit16.i.i30
 
 _ZNK4node13MemoryTracker11CurrentNodeEv.exit.thread.i.i27: ; preds = %if.end.i.i.i24
-  %incdec.ptr.i.i.i.i19.i.i28 = getelementptr inbounds ptr, ptr %21, i64 -1
+  %incdec.ptr.i.i.i.i19.i.i28 = getelementptr inbounds i8, ptr %21, i64 -8
   %27 = load ptr, ptr %incdec.ptr.i.i.i.i19.i.i28, align 8
   %cmp.not20.i.i29 = icmp eq ptr %27, null
   br i1 %cmp.not20.i.i29, label %_ZN4node13MemoryTracker7AddNodeEPKcmS2_.exit.i33, label %_ZNK4node13MemoryTracker11CurrentNodeEv.exit16.i.i30
@@ -593,7 +411,7 @@ _ZNK4node13MemoryTracker11CurrentNodeEv.exit16.i.i30: ; preds = %_ZNK4node13Memo
   %28 = phi ptr [ %27, %_ZNK4node13MemoryTracker11CurrentNodeEv.exit.thread.i.i27 ], [ %26, %_ZNK4node13MemoryTracker11CurrentNodeEv.exit.i.i34 ]
   %29 = load ptr, ptr %graph_.i.i12, align 8
   %vtable6.i.i31 = load ptr, ptr %29, align 8
-  %vfn7.i.i32 = getelementptr inbounds ptr, ptr %vtable6.i.i31, i64 2
+  %vfn7.i.i32 = getelementptr inbounds i8, ptr %vtable6.i.i31, i64 16
   %30 = load ptr, ptr %vfn7.i.i32, align 8
   call void %30(ptr noundef nonnull align 8 dereferenceable(8) %29, ptr noundef nonnull %28, ptr noundef nonnull %call.i.i6, ptr noundef nonnull @.str.1) #19
   br label %_ZN4node13MemoryTracker7AddNodeEPKcmS2_.exit.i33
@@ -633,7 +451,7 @@ entry:
   %name = alloca %"class.node::Utf8Value", align 8
   %ref.tmp138 = alloca ptr, align 8
   %0 = load ptr, ptr %args, align 8
-  %arrayidx.i.i = getelementptr inbounds i64, ptr %0, i64 1
+  %arrayidx.i.i = getelementptr inbounds i8, ptr %0, i64 8
   %1 = load ptr, ptr %arrayidx.i.i, align 8
   %call1.i = tail call ptr @_ZN2v87Isolate17GetCurrentContextEv(ptr noundef nonnull align 1 dereferenceable(1) %1) #19
   %cmp.i.i.i.i = icmp eq ptr %call1.i, null
@@ -666,10 +484,10 @@ if.end.i.i:                                       ; preds = %_ZN4node18ContextEm
 
 _ZN4node11Environment10GetCurrentERKN2v820FunctionCallbackInfoINS1_5ValueEEE.exit: ; preds = %entry, %if.end.i.i.i, %_ZN4node18ContextEmbedderTag13IsNodeContextEN2v85LocalINS1_7ContextEEE.exit.i.i, %if.end.i.i
   %retval.0.i.i = phi ptr [ %11, %if.end.i.i ], [ null, %_ZN4node18ContextEmbedderTag13IsNodeContextEN2v85LocalINS1_7ContextEEE.exit.i.i ], [ null, %entry ], [ null, %if.end.i.i.i ]
-  %mode1 = getelementptr inbounds %"struct.node::crypto::PBKDF2Config", ptr %params, i64 0, i32 1
+  %mode1 = getelementptr inbounds i8, ptr %params, i64 8
   store i32 %mode, ptr %mode1, align 8
   %cmp.i257 = icmp sgt i32 %offset, -1
-  %length_.i259 = getelementptr inbounds %"class.v8::FunctionCallbackInfo", ptr %args, i64 0, i32 2
+  %length_.i259 = getelementptr inbounds i8, ptr %args, i64 16
   %12 = load i32, ptr %length_.i259, align 8
   %cmp2.i260.not = icmp sgt i32 %12, %offset
   %or.cond = select i1 %cmp.i257, i1 %cmp2.i260.not, i1 false
@@ -677,7 +495,7 @@ _ZN4node11Environment10GetCurrentERKN2v820FunctionCallbackInfoINS1_5ValueEEE.exi
 
 if.then.i266:                                     ; preds = %_ZN4node11Environment10GetCurrentERKN2v820FunctionCallbackInfoINS1_5ValueEEE.exit
   %13 = load ptr, ptr %args, align 8
-  %arrayidx.i = getelementptr inbounds i64, ptr %13, i64 1
+  %arrayidx.i = getelementptr inbounds i8, ptr %13, i64 8
   %14 = load ptr, ptr %arrayidx.i, align 8
   %15 = ptrtoint ptr %14 to i64
   %add1.i482 = add i64 %15, 608
@@ -685,7 +503,7 @@ if.then.i266:                                     ; preds = %_ZN4node11Environme
   br label %_ZNK2v820FunctionCallbackInfoINS_5ValueEEixEi.exit269
 
 if.end.i261:                                      ; preds = %_ZN4node11Environment10GetCurrentERKN2v820FunctionCallbackInfoINS1_5ValueEEE.exit
-  %values_.i262 = getelementptr inbounds %"class.v8::FunctionCallbackInfo", ptr %args, i64 0, i32 1
+  %values_.i262 = getelementptr inbounds i8, ptr %args, i64 8
   %17 = load ptr, ptr %values_.i262, align 8
   %idx.ext.i263 = zext nneg i32 %offset to i64
   %add.ptr.i264 = getelementptr inbounds i64, ptr %17, i64 %idx.ext.i263
@@ -703,7 +521,7 @@ _ZNK2v820FunctionCallbackInfoINS_5ValueEEixEi.exit269: ; preds = %if.end.i261, %
 
 if.then.i248:                                     ; preds = %_ZNK2v820FunctionCallbackInfoINS_5ValueEEixEi.exit269
   %19 = load ptr, ptr %args, align 8
-  %arrayidx.i302 = getelementptr inbounds i64, ptr %19, i64 1
+  %arrayidx.i302 = getelementptr inbounds i8, ptr %19, i64 8
   %20 = load ptr, ptr %arrayidx.i302, align 8
   %21 = ptrtoint ptr %20 to i64
   %add1.i475 = add i64 %21, 608
@@ -711,7 +529,7 @@ if.then.i248:                                     ; preds = %_ZNK2v820FunctionCa
   br label %_ZNK2v820FunctionCallbackInfoINS_5ValueEEixEi.exit251
 
 if.end.i243:                                      ; preds = %_ZNK2v820FunctionCallbackInfoINS_5ValueEEixEi.exit269
-  %values_.i244 = getelementptr inbounds %"class.v8::FunctionCallbackInfo", ptr %args, i64 0, i32 1
+  %values_.i244 = getelementptr inbounds i8, ptr %args, i64 8
   %23 = load ptr, ptr %values_.i244, align 8
   %idx.ext.i245 = zext nneg i32 %add to i64
   %add.ptr.i246 = getelementptr inbounds i64, ptr %23, i64 %idx.ext.i245
@@ -720,26 +538,26 @@ if.end.i243:                                      ; preds = %_ZNK2v820FunctionCa
 _ZNK2v820FunctionCallbackInfoINS_5ValueEEixEi.exit251: ; preds = %if.end.i243, %if.then.i248
   %retval.i234.sroa.0.0 = phi ptr [ %22, %if.then.i248 ], [ %add.ptr.i246, %if.end.i243 ]
   call void @_ZN4node6crypto25ArrayBufferOrViewContentsIcEC2EN2v85LocalINS3_5ValueEEE(ptr noundef nonnull align 8 dereferenceable(32) %salt, ptr %retval.i234.sroa.0.0)
-  %length_.i.i = getelementptr inbounds %"class.node::crypto::ArrayBufferOrViewContents", ptr %pass, i64 0, i32 2
+  %length_.i.i = getelementptr inbounds i8, ptr %pass, i64 16
   %24 = load i64, ptr %length_.i.i, align 8
   %cmp.i = icmp ult i64 %24, 2147483648
   br i1 %cmp.i, label %if.end, label %if.then
 
 if.then:                                          ; preds = %_ZNK2v820FunctionCallbackInfoINS_5ValueEEixEi.exit251
-  %isolate_.i.i = getelementptr inbounds %"class.node::Environment", ptr %retval.0.i.i, i64 0, i32 3
+  %isolate_.i.i = getelementptr inbounds i8, ptr %retval.0.i.i, i64 88
   %25 = load ptr, ptr %isolate_.i.i, align 8
   %call.i.i = call ptr @_ZN4node16ERR_OUT_OF_RANGEIJEEEN2v85LocalINS1_5ValueEEEPNS1_7IsolateEPKcDpOT_(ptr noundef %25, ptr noundef nonnull @.str.2)
   %call6.i.i = call ptr @_ZN2v87Isolate14ThrowExceptionENS_5LocalINS_5ValueEEE(ptr noundef nonnull align 1 dereferenceable(1) %25, ptr %call.i.i) #19
   br label %return
 
 if.end:                                           ; preds = %_ZNK2v820FunctionCallbackInfoINS_5ValueEEixEi.exit251
-  %length_.i.i66 = getelementptr inbounds %"class.node::crypto::ArrayBufferOrViewContents", ptr %salt, i64 0, i32 2
+  %length_.i.i66 = getelementptr inbounds i8, ptr %salt, i64 16
   %26 = load i64, ptr %length_.i.i66, align 8
   %cmp.i67 = icmp ult i64 %26, 2147483648
   br i1 %cmp.i67, label %if.end26, label %if.then24
 
 if.then24:                                        ; preds = %if.end
-  %isolate_.i.i68 = getelementptr inbounds %"class.node::Environment", ptr %retval.0.i.i, i64 0, i32 3
+  %isolate_.i.i68 = getelementptr inbounds i8, ptr %retval.0.i.i, i64 88
   %27 = load ptr, ptr %isolate_.i.i68, align 8
   %call.i.i69 = call ptr @_ZN4node16ERR_OUT_OF_RANGEIJEEEN2v85LocalINS1_5ValueEEEPNS1_7IsolateEPKcDpOT_(ptr noundef %27, ptr noundef nonnull @.str.3)
   %call6.i.i70 = call ptr @_ZN2v87Isolate14ThrowExceptionENS_5LocalINS_5ValueEEE(ptr noundef nonnull align 1 dereferenceable(1) %27, ptr %call.i.i69) #19
@@ -771,9 +589,9 @@ do.body5.i.i.i:                                   ; preds = %if.end.i73
 _ZNO4node6crypto10ByteSource7Builder7releaseESt8optionalImE.exit.i: ; preds = %if.end.i73
   %28 = load i64, ptr %length_.i.i, align 8, !noalias !6
   %cmp.i.i = icmp eq i64 %28, 0
-  %data_.i.i = getelementptr inbounds %"class.node::crypto::ArrayBufferOrViewContents", ptr %pass, i64 0, i32 3
+  %data_.i.i = getelementptr inbounds i8, ptr %pass, i64 24
   %29 = load ptr, ptr %data_.i.i, align 8, !noalias !6
-  %offset_.i.i = getelementptr inbounds %"class.node::crypto::ArrayBufferOrViewContents", ptr %pass, i64 0, i32 1
+  %offset_.i.i = getelementptr inbounds i8, ptr %pass, i64 8
   %30 = load i64, ptr %offset_.i.i, align 8, !noalias !6
   %add.ptr.i.i = getelementptr inbounds i8, ptr %29, i64 %30
   %retval.0.i.i75 = select i1 %cmp.i.i, ptr %pass, ptr %add.ptr.i.i
@@ -784,9 +602,9 @@ _ZNO4node6crypto10ByteSource7Builder7releaseESt8optionalImE.exit.i: ; preds = %i
 
 cond.false:                                       ; preds = %if.end26
   %cmp.i.i77 = icmp eq i64 %24, 0
-  %data_.i.i78 = getelementptr inbounds %"class.node::crypto::ArrayBufferOrViewContents", ptr %pass, i64 0, i32 3
+  %data_.i.i78 = getelementptr inbounds i8, ptr %pass, i64 24
   %31 = load ptr, ptr %data_.i.i78, align 8, !noalias !9
-  %offset_.i.i79 = getelementptr inbounds %"class.node::crypto::ArrayBufferOrViewContents", ptr %pass, i64 0, i32 1
+  %offset_.i.i79 = getelementptr inbounds i8, ptr %pass, i64 8
   %32 = load i64, ptr %offset_.i.i79, align 8, !noalias !9
   %add.ptr.i.i80 = getelementptr inbounds i8, ptr %31, i64 %32
   %retval.0.i.i81 = select i1 %cmp.i.i77, ptr %pass, ptr %add.ptr.i.i80
@@ -794,7 +612,7 @@ cond.false:                                       ; preds = %if.end26
   br label %cond.end
 
 cond.end:                                         ; preds = %_ZNO4node6crypto10ByteSource7Builder7releaseESt8optionalImE.exit.i, %if.then.i76, %cond.false
-  %pass27 = getelementptr inbounds %"struct.node::crypto::PBKDF2Config", ptr %params, i64 0, i32 2
+  %pass27 = getelementptr inbounds i8, ptr %params, i64 16
   %call28 = call noundef nonnull align 8 dereferenceable(24) ptr @_ZN4node6crypto10ByteSourceaSEOS1_(ptr noundef nonnull align 8 dereferenceable(24) %pass27, ptr noundef nonnull align 8 dereferenceable(24) %ref.tmp) #19
   call void @_ZN4node6crypto10ByteSourceD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %ref.tmp) #19
   br i1 %cmp, label %cond.true31, label %cond.false32
@@ -822,9 +640,9 @@ do.body5.i.i.i93:                                 ; preds = %if.end.i84
 _ZNO4node6crypto10ByteSource7Builder7releaseESt8optionalImE.exit.i87: ; preds = %if.end.i84
   %34 = load i64, ptr %length_.i.i66, align 8, !noalias !12
   %cmp.i.i88 = icmp eq i64 %34, 0
-  %data_.i.i89 = getelementptr inbounds %"class.node::crypto::ArrayBufferOrViewContents", ptr %salt, i64 0, i32 3
+  %data_.i.i89 = getelementptr inbounds i8, ptr %salt, i64 24
   %35 = load ptr, ptr %data_.i.i89, align 8, !noalias !12
-  %offset_.i.i90 = getelementptr inbounds %"class.node::crypto::ArrayBufferOrViewContents", ptr %salt, i64 0, i32 1
+  %offset_.i.i90 = getelementptr inbounds i8, ptr %salt, i64 8
   %36 = load i64, ptr %offset_.i.i90, align 8, !noalias !12
   %add.ptr.i.i91 = getelementptr inbounds i8, ptr %35, i64 %36
   %retval.0.i.i92 = select i1 %cmp.i.i88, ptr %salt, ptr %add.ptr.i.i91
@@ -836,9 +654,9 @@ _ZNO4node6crypto10ByteSource7Builder7releaseESt8optionalImE.exit.i87: ; preds = 
 cond.false32:                                     ; preds = %cond.end
   %37 = load i64, ptr %length_.i.i66, align 8, !noalias !15
   %cmp.i.i97 = icmp eq i64 %37, 0
-  %data_.i.i98 = getelementptr inbounds %"class.node::crypto::ArrayBufferOrViewContents", ptr %salt, i64 0, i32 3
+  %data_.i.i98 = getelementptr inbounds i8, ptr %salt, i64 24
   %38 = load ptr, ptr %data_.i.i98, align 8, !noalias !15
-  %offset_.i.i99 = getelementptr inbounds %"class.node::crypto::ArrayBufferOrViewContents", ptr %salt, i64 0, i32 1
+  %offset_.i.i99 = getelementptr inbounds i8, ptr %salt, i64 8
   %39 = load i64, ptr %offset_.i.i99, align 8, !noalias !15
   %add.ptr.i.i100 = getelementptr inbounds i8, ptr %38, i64 %39
   %retval.0.i.i101 = select i1 %cmp.i.i97, ptr %salt, ptr %add.ptr.i.i100
@@ -846,7 +664,7 @@ cond.false32:                                     ; preds = %cond.end
   br label %cond.end33
 
 cond.end33:                                       ; preds = %_ZNO4node6crypto10ByteSource7Builder7releaseESt8optionalImE.exit.i87, %if.then.i94, %cond.false32
-  %salt34 = getelementptr inbounds %"struct.node::crypto::PBKDF2Config", ptr %params, i64 0, i32 3
+  %salt34 = getelementptr inbounds i8, ptr %params, i64 40
   %call35 = call noundef nonnull align 8 dereferenceable(24) ptr @_ZN4node6crypto10ByteSourceaSEOS1_(ptr noundef nonnull align 8 dereferenceable(24) %salt34, ptr noundef nonnull align 8 dereferenceable(24) %ref.tmp29) #19
   call void @_ZN4node6crypto10ByteSourceD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %ref.tmp29) #19
   %add37 = add i32 %offset, 2
@@ -858,7 +676,7 @@ cond.end33:                                       ; preds = %_ZNO4node6crypto10B
 
 if.then.i230:                                     ; preds = %cond.end33
   %41 = load ptr, ptr %args, align 8
-  %arrayidx.i305 = getelementptr inbounds i64, ptr %41, i64 1
+  %arrayidx.i305 = getelementptr inbounds i8, ptr %41, i64 8
   %42 = load ptr, ptr %arrayidx.i305, align 8
   %43 = ptrtoint ptr %42 to i64
   %add1.i468 = add i64 %43, 608
@@ -866,7 +684,7 @@ if.then.i230:                                     ; preds = %cond.end33
   br label %_ZNK2v820FunctionCallbackInfoINS_5ValueEEixEi.exit233
 
 if.end.i225:                                      ; preds = %cond.end33
-  %values_.i226 = getelementptr inbounds %"class.v8::FunctionCallbackInfo", ptr %args, i64 0, i32 1
+  %values_.i226 = getelementptr inbounds i8, ptr %args, i64 8
   %45 = load ptr, ptr %values_.i226, align 8
   %idx.ext.i227 = zext nneg i32 %add37 to i64
   %add.ptr.i228 = getelementptr inbounds i64, ptr %45, i64 %idx.ext.i227
@@ -892,7 +710,7 @@ do.body51:                                        ; preds = %_ZNK2v820FunctionCa
 
 if.then.i212:                                     ; preds = %do.body51
   %47 = load ptr, ptr %args, align 8
-  %arrayidx.i308 = getelementptr inbounds i64, ptr %47, i64 1
+  %arrayidx.i308 = getelementptr inbounds i8, ptr %47, i64 8
   %48 = load ptr, ptr %arrayidx.i308, align 8
   %49 = ptrtoint ptr %48 to i64
   %add1.i461 = add i64 %49, 608
@@ -900,7 +718,7 @@ if.then.i212:                                     ; preds = %do.body51
   br label %_ZNK2v820FunctionCallbackInfoINS_5ValueEEixEi.exit215
 
 if.end.i207:                                      ; preds = %do.body51
-  %values_.i208 = getelementptr inbounds %"class.v8::FunctionCallbackInfo", ptr %args, i64 0, i32 1
+  %values_.i208 = getelementptr inbounds i8, ptr %args, i64 8
   %51 = load ptr, ptr %values_.i208, align 8
   %idx.ext.i209 = zext nneg i32 %add53 to i64
   %add.ptr.i210 = getelementptr inbounds i64, ptr %51, i64 %idx.ext.i209
@@ -926,7 +744,7 @@ do.body68:                                        ; preds = %_ZNK2v820FunctionCa
 
 if.then.i194:                                     ; preds = %do.body68
   %53 = load ptr, ptr %args, align 8
-  %arrayidx.i311 = getelementptr inbounds i64, ptr %53, i64 1
+  %arrayidx.i311 = getelementptr inbounds i8, ptr %53, i64 8
   %54 = load ptr, ptr %arrayidx.i311, align 8
   %55 = ptrtoint ptr %54 to i64
   %add1.i454 = add i64 %55, 608
@@ -934,7 +752,7 @@ if.then.i194:                                     ; preds = %do.body68
   br label %_ZNK2v820FunctionCallbackInfoINS_5ValueEEixEi.exit197
 
 if.end.i189:                                      ; preds = %do.body68
-  %values_.i190 = getelementptr inbounds %"class.v8::FunctionCallbackInfo", ptr %args, i64 0, i32 1
+  %values_.i190 = getelementptr inbounds i8, ptr %args, i64 8
   %57 = load ptr, ptr %values_.i190, align 8
   %idx.ext.i191 = zext nneg i32 %add70 to i64
   %add.ptr.i192 = getelementptr inbounds i64, ptr %57, i64 %idx.ext.i191
@@ -969,7 +787,7 @@ do.end84:                                         ; preds = %if.end.i328
 
 if.then.i176:                                     ; preds = %do.end84
   %63 = load ptr, ptr %args, align 8
-  %arrayidx.i314 = getelementptr inbounds i64, ptr %63, i64 1
+  %arrayidx.i314 = getelementptr inbounds i8, ptr %63, i64 8
   %64 = load ptr, ptr %arrayidx.i314, align 8
   %65 = ptrtoint ptr %64 to i64
   %add1.i447 = add i64 %65, 608
@@ -977,7 +795,7 @@ if.then.i176:                                     ; preds = %do.end84
   br label %_ZNK2v820FunctionCallbackInfoINS_5ValueEEixEi.exit179
 
 if.end.i171:                                      ; preds = %do.end84
-  %values_.i172 = getelementptr inbounds %"class.v8::FunctionCallbackInfo", ptr %args, i64 0, i32 1
+  %values_.i172 = getelementptr inbounds i8, ptr %args, i64 8
   %67 = load ptr, ptr %values_.i172, align 8
   %idx.ext.i173 = zext nneg i32 %add37 to i64
   %add.ptr.i174 = getelementptr inbounds i64, ptr %67, i64 %idx.ext.i173
@@ -986,14 +804,14 @@ if.end.i171:                                      ; preds = %do.end84
 _ZNK2v820FunctionCallbackInfoINS_5ValueEEixEi.exit179: ; preds = %if.end.i171, %if.then.i176
   %retval.i162.sroa.0.0 = phi ptr [ %66, %if.then.i176 ], [ %add.ptr.i174, %if.end.i171 ]
   %call97 = call noundef i32 @_ZNK2v85Int325ValueEv(ptr noundef nonnull align 1 dereferenceable(1) %retval.i162.sroa.0.0) #19
-  %iterations = getelementptr inbounds %"struct.node::crypto::PBKDF2Config", ptr %params, i64 0, i32 4
+  %iterations = getelementptr inbounds i8, ptr %params, i64 64
   store i32 %call97, ptr %iterations, align 8
   %cmp99 = icmp slt i32 %call97, 0
   br i1 %cmp99, label %if.then100, label %if.end103
 
 if.then100:                                       ; preds = %_ZNK2v820FunctionCallbackInfoINS_5ValueEEixEi.exit179
   store i32 2147483647, ptr %ref.tmp101, align 4
-  %isolate_.i.i102 = getelementptr inbounds %"class.node::Environment", ptr %retval.0.i.i, i64 0, i32 3
+  %isolate_.i.i102 = getelementptr inbounds i8, ptr %retval.0.i.i, i64 88
   %68 = load ptr, ptr %isolate_.i.i102, align 8
   %call.i.i103 = call ptr @_ZN4node16ERR_OUT_OF_RANGEIJiEEEN2v85LocalINS1_5ValueEEEPNS1_7IsolateEPKcDpOT_(ptr noundef %68, ptr noundef nonnull @.str.11, ptr noundef nonnull align 4 dereferenceable(4) %ref.tmp101)
   %call6.i.i104 = call ptr @_ZN2v87Isolate14ThrowExceptionENS_5LocalINS_5ValueEEE(ptr noundef nonnull align 1 dereferenceable(1) %68, ptr %call.i.i103) #19
@@ -1007,7 +825,7 @@ if.end103:                                        ; preds = %_ZNK2v820FunctionCa
 
 if.then.i158:                                     ; preds = %if.end103
   %70 = load ptr, ptr %args, align 8
-  %arrayidx.i317 = getelementptr inbounds i64, ptr %70, i64 1
+  %arrayidx.i317 = getelementptr inbounds i8, ptr %70, i64 8
   %71 = load ptr, ptr %arrayidx.i317, align 8
   %72 = ptrtoint ptr %71 to i64
   %add1.i440 = add i64 %72, 608
@@ -1015,7 +833,7 @@ if.then.i158:                                     ; preds = %if.end103
   br label %_ZNK2v820FunctionCallbackInfoINS_5ValueEEixEi.exit161
 
 if.end.i153:                                      ; preds = %if.end103
-  %values_.i154 = getelementptr inbounds %"class.v8::FunctionCallbackInfo", ptr %args, i64 0, i32 1
+  %values_.i154 = getelementptr inbounds i8, ptr %args, i64 8
   %74 = load ptr, ptr %values_.i154, align 8
   %idx.ext.i155 = zext nneg i32 %add53 to i64
   %add.ptr.i156 = getelementptr inbounds i64, ptr %74, i64 %idx.ext.i155
@@ -1024,14 +842,14 @@ if.end.i153:                                      ; preds = %if.end103
 _ZNK2v820FunctionCallbackInfoINS_5ValueEEixEi.exit161: ; preds = %if.end.i153, %if.then.i158
   %retval.i144.sroa.0.0 = phi ptr [ %73, %if.then.i158 ], [ %add.ptr.i156, %if.end.i153 ]
   %call116 = call noundef i32 @_ZNK2v85Int325ValueEv(ptr noundef nonnull align 1 dereferenceable(1) %retval.i144.sroa.0.0) #19
-  %length = getelementptr inbounds %"struct.node::crypto::PBKDF2Config", ptr %params, i64 0, i32 5
+  %length = getelementptr inbounds i8, ptr %params, i64 68
   store i32 %call116, ptr %length, align 4
   %cmp118 = icmp slt i32 %call116, 0
   br i1 %cmp118, label %if.then119, label %if.end122
 
 if.then119:                                       ; preds = %_ZNK2v820FunctionCallbackInfoINS_5ValueEEixEi.exit161
   store i32 2147483647, ptr %ref.tmp120, align 4
-  %isolate_.i.i105 = getelementptr inbounds %"class.node::Environment", ptr %retval.0.i.i, i64 0, i32 3
+  %isolate_.i.i105 = getelementptr inbounds i8, ptr %retval.0.i.i, i64 88
   %75 = load ptr, ptr %isolate_.i.i105, align 8
   %call.i.i106 = call ptr @_ZN4node16ERR_OUT_OF_RANGEIJiEEEN2v85LocalINS1_5ValueEEEPNS1_7IsolateEPKcDpOT_(ptr noundef %75, ptr noundef nonnull @.str.12, ptr noundef nonnull align 4 dereferenceable(4) %ref.tmp120)
   %call6.i.i107 = call ptr @_ZN2v87Isolate14ThrowExceptionENS_5LocalINS_5ValueEEE(ptr noundef nonnull align 1 dereferenceable(1) %75, ptr %call.i.i106) #19
@@ -1039,7 +857,7 @@ if.then119:                                       ; preds = %_ZNK2v820FunctionCa
 
 if.end122:                                        ; preds = %_ZNK2v820FunctionCallbackInfoINS_5ValueEEixEi.exit161
   %76 = load ptr, ptr %args, align 8
-  %arrayidx.i323 = getelementptr inbounds i64, ptr %76, i64 1
+  %arrayidx.i323 = getelementptr inbounds i8, ptr %76, i64 8
   %77 = load ptr, ptr %arrayidx.i323, align 8
   %78 = load i32, ptr %length_.i259, align 8
   %cmp2.i.not = icmp sgt i32 %78, %add70
@@ -1047,16 +865,16 @@ if.end122:                                        ; preds = %_ZNK2v820FunctionCa
   %79 = ptrtoint ptr %77 to i64
   %add1.i = add i64 %79, 608
   %80 = inttoptr i64 %add1.i to ptr
-  %values_.i = getelementptr inbounds %"class.v8::FunctionCallbackInfo", ptr %args, i64 0, i32 1
+  %values_.i = getelementptr inbounds i8, ptr %args, i64 8
   %81 = load ptr, ptr %values_.i, align 8
   %idx.ext.i = zext nneg i32 %add70 to i64
   %add.ptr.i = getelementptr inbounds i64, ptr %81, i64 %idx.ext.i
   %retval.i.sroa.0.0 = select i1 %or.cond65, ptr %add.ptr.i, ptr %80
   call void @_ZN4node9Utf8ValueC1EPN2v87IsolateENS1_5LocalINS1_5ValueEEE(ptr noundef nonnull align 8 dereferenceable(1048) %name, ptr noundef %77, ptr %retval.i.sroa.0.0) #19
-  %buf_.i = getelementptr inbounds %"class.node::MaybeStackBuffer", ptr %name, i64 0, i32 2
+  %buf_.i = getelementptr inbounds i8, ptr %name, i64 16
   %82 = load ptr, ptr %buf_.i, align 8
   %call134 = call ptr @EVP_get_digestbyname(ptr noundef %82) #19
-  %digest = getelementptr inbounds %"struct.node::crypto::PBKDF2Config", ptr %params, i64 0, i32 6
+  %digest = getelementptr inbounds i8, ptr %params, i64 72
   store ptr %call134, ptr %digest, align 8
   %cmp136 = icmp eq ptr %call134, null
   br i1 %cmp136, label %if.then137, label %cleanup
@@ -1064,7 +882,7 @@ if.end122:                                        ; preds = %_ZNK2v820FunctionCa
 if.then137:                                       ; preds = %if.end122
   %83 = load ptr, ptr %buf_.i, align 8
   store ptr %83, ptr %ref.tmp138, align 8
-  %isolate_.i.i109 = getelementptr inbounds %"class.node::Environment", ptr %retval.0.i.i, i64 0, i32 3
+  %isolate_.i.i109 = getelementptr inbounds i8, ptr %retval.0.i.i, i64 88
   %84 = load ptr, ptr %isolate_.i.i109, align 8
   %call.i.i110 = call ptr @_ZN4node25ERR_CRYPTO_INVALID_DIGESTIJPcEEEN2v85LocalINS2_5ValueEEEPNS2_7IsolateEPKcDpOT_(ptr noundef %84, ptr noundef nonnull @.str.13, ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp138)
   %call6.i.i111 = call ptr @_ZN2v87Isolate14ThrowExceptionENS_5LocalINS_5ValueEEE(ptr noundef nonnull align 1 dereferenceable(1) %84, ptr %call.i.i110) #19
@@ -1074,7 +892,7 @@ cleanup:                                          ; preds = %if.end122, %if.then
   %retval.sroa.0.0 = phi i16 [ 0, %if.then137 ], [ 257, %if.end122 ]
   %85 = load ptr, ptr %buf_.i, align 8
   %cmp.i.i.i.i112 = icmp ne ptr %85, null
-  %buf_st_.i.i.i = getelementptr inbounds %"class.node::MaybeStackBuffer", ptr %name, i64 0, i32 3
+  %buf_st_.i.i.i = getelementptr inbounds i8, ptr %name, i64 24
   %cmp.i.i.i113 = icmp ne ptr %85, %buf_st_.i.i.i
   %86 = select i1 %cmp.i.i.i.i112, i1 %cmp.i.i.i113, i1 false
   br i1 %86, label %if.then.i.i, label %return
@@ -1092,9 +910,9 @@ return:                                           ; preds = %if.then.i.i, %clean
 define linkonce_odr dso_local void @_ZN4node6crypto25ArrayBufferOrViewContentsIcEC2EN2v85LocalINS3_5ValueEEE(ptr noundef nonnull align 8 dereferenceable(32) %this, ptr %buf.coerce) unnamed_addr #3 comdat align 2 {
 entry:
   store i8 0, ptr %this, align 8
-  %offset_ = getelementptr inbounds %"class.node::crypto::ArrayBufferOrViewContents", ptr %this, i64 0, i32 1
-  %length_ = getelementptr inbounds %"class.node::crypto::ArrayBufferOrViewContents", ptr %this, i64 0, i32 2
-  %data_ = getelementptr inbounds %"class.node::crypto::ArrayBufferOrViewContents", ptr %this, i64 0, i32 3
+  %offset_ = getelementptr inbounds i8, ptr %this, i64 8
+  %length_ = getelementptr inbounds i8, ptr %this, i64 16
+  %data_ = getelementptr inbounds i8, ptr %this, i64 24
   %cmp.i = icmp eq ptr %buf.coerce, null
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %offset_, i8 0, i64 24, i1 false)
   br i1 %cmp.i, label %if.end63, label %do.body
@@ -1178,7 +996,7 @@ declare ptr @EVP_get_digestbyname(ptr noundef) local_unnamed_addr #0
 define dso_local noundef zeroext i1 @_ZN4node6crypto12PBKDF2Traits10DeriveBitsEPNS_11EnvironmentERKNS0_12PBKDF2ConfigEPNS0_10ByteSourceE(ptr nocapture noundef readnone %env, ptr nocapture noundef nonnull readonly align 8 dereferenceable(80) %params, ptr noundef %out) local_unnamed_addr #3 align 2 {
 entry:
   %ref.tmp = alloca %"class.node::crypto::ByteSource", align 8
-  %length = getelementptr inbounds %"struct.node::crypto::PBKDF2Config", ptr %params, i64 0, i32 5
+  %length = getelementptr inbounds i8, ptr %params, i64 68
   %0 = load i32, ptr %length, align 4
   %conv = sext i32 %0 to i64
   %call1.i.i = tail call ptr @CRYPTO_malloc(i64 noundef %conv, ptr noundef nonnull @.str.16, i32 noundef 205) #19
@@ -1193,19 +1011,19 @@ do.body5.i.i:                                     ; preds = %entry
   unreachable
 
 _ZN4node6crypto10ByteSource7BuilderC2Em.exit:     ; preds = %entry
-  %pass = getelementptr inbounds %"struct.node::crypto::PBKDF2Config", ptr %params, i64 0, i32 2
+  %pass = getelementptr inbounds i8, ptr %params, i64 16
   %1 = load ptr, ptr %pass, align 8
-  %size_.i8 = getelementptr inbounds %"struct.node::crypto::PBKDF2Config", ptr %params, i64 0, i32 2, i32 2
+  %size_.i8 = getelementptr inbounds i8, ptr %params, i64 32
   %2 = load i64, ptr %size_.i8, align 8
   %conv3 = trunc i64 %2 to i32
-  %salt = getelementptr inbounds %"struct.node::crypto::PBKDF2Config", ptr %params, i64 0, i32 3
+  %salt = getelementptr inbounds i8, ptr %params, i64 40
   %3 = load ptr, ptr %salt, align 8
-  %size_.i9 = getelementptr inbounds %"struct.node::crypto::PBKDF2Config", ptr %params, i64 0, i32 3, i32 2
+  %size_.i9 = getelementptr inbounds i8, ptr %params, i64 56
   %4 = load i64, ptr %size_.i9, align 8
   %conv7 = trunc i64 %4 to i32
-  %iterations = getelementptr inbounds %"struct.node::crypto::PBKDF2Config", ptr %params, i64 0, i32 4
+  %iterations = getelementptr inbounds i8, ptr %params, i64 64
   %5 = load i32, ptr %iterations, align 8
-  %digest = getelementptr inbounds %"struct.node::crypto::PBKDF2Config", ptr %params, i64 0, i32 6
+  %digest = getelementptr inbounds i8, ptr %params, i64 72
   %6 = load ptr, ptr %digest, align 8
   %7 = load i32, ptr %length, align 4
   %call10 = tail call i32 @PKCS5_PBKDF2_HMAC(ptr noundef %1, i32 noundef %conv3, ptr noundef %3, i32 noundef %conv7, i32 noundef %5, ptr noundef %6, i32 noundef %7, ptr noundef %call1.i.i) #19
@@ -1230,9 +1048,9 @@ declare i32 @PKCS5_PBKDF2_HMAC(ptr noundef, i32 noundef, ptr noundef, i32 nounde
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr dso_local void @_ZN4node6crypto12PBKDF2ConfigD0Ev(ptr noundef nonnull align 8 dereferenceable(80) %this) unnamed_addr #3 comdat align 2 {
 entry:
-  %salt.i = getelementptr inbounds %"struct.node::crypto::PBKDF2Config", ptr %this, i64 0, i32 3
+  %salt.i = getelementptr inbounds i8, ptr %this, i64 40
   tail call void @_ZN4node6crypto10ByteSourceD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %salt.i) #19
-  %pass.i = getelementptr inbounds %"struct.node::crypto::PBKDF2Config", ptr %this, i64 0, i32 2
+  %pass.i = getelementptr inbounds i8, ptr %this, i64 16
   tail call void @_ZN4node6crypto10ByteSourceD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %pass.i) #19
   tail call void @_ZdlPv(ptr noundef nonnull %this) #22
   ret void
@@ -1287,7 +1105,7 @@ entry:
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr dso_local noundef ptr @_ZN4node18MemoryRetainerNode4NameEv(ptr noundef nonnull align 8 dereferenceable(49) %this) unnamed_addr #3 comdat align 2 {
 entry:
-  %name_ = getelementptr inbounds %"class.node::MemoryRetainerNode", ptr %this, i64 0, i32 5
+  %name_ = getelementptr inbounds i8, ptr %this, i64 32
   %0 = load ptr, ptr %name_, align 8
   ret ptr %0
 }
@@ -1295,7 +1113,7 @@ entry:
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr dso_local noundef i64 @_ZN4node18MemoryRetainerNode11SizeInBytesEv(ptr noundef nonnull align 8 dereferenceable(49) %this) unnamed_addr #3 comdat align 2 {
 entry:
-  %size_ = getelementptr inbounds %"class.node::MemoryRetainerNode", ptr %this, i64 0, i32 6
+  %size_ = getelementptr inbounds i8, ptr %this, i64 40
   %0 = load i64, ptr %size_, align 8
   ret i64 %0
 }
@@ -1309,20 +1127,20 @@ entry:
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr dso_local noundef zeroext i1 @_ZN4node18MemoryRetainerNode10IsRootNodeEv(ptr noundef nonnull align 8 dereferenceable(49) %this) unnamed_addr #3 comdat align 2 {
 entry:
-  %retainer_ = getelementptr inbounds %"class.node::MemoryRetainerNode", ptr %this, i64 0, i32 1
+  %retainer_ = getelementptr inbounds i8, ptr %this, i64 8
   %0 = load ptr, ptr %retainer_, align 8
   %cmp.not = icmp eq ptr %0, null
   br i1 %cmp.not, label %if.end, label %if.then
 
 if.then:                                          ; preds = %entry
   %vtable = load ptr, ptr %0, align 8
-  %vfn = getelementptr inbounds ptr, ptr %vtable, i64 6
+  %vfn = getelementptr inbounds i8, ptr %vtable, i64 48
   %1 = load ptr, ptr %vfn, align 8
   %call = tail call noundef zeroext i1 %1(ptr noundef nonnull align 8 dereferenceable(8) %0) #19
   br label %return
 
 if.end:                                           ; preds = %entry
-  %is_root_node_ = getelementptr inbounds %"class.node::MemoryRetainerNode", ptr %this, i64 0, i32 3
+  %is_root_node_ = getelementptr inbounds i8, ptr %this, i64 24
   %2 = load i8, ptr %is_root_node_, align 8
   %3 = and i8 %2, 1
   %tobool = icmp ne i8 %3, 0
@@ -1354,7 +1172,7 @@ entry:
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr dso_local noundef zeroext i8 @_ZN4node18MemoryRetainerNode15GetDetachednessEv(ptr noundef nonnull align 8 dereferenceable(49) %this) unnamed_addr #3 comdat align 2 {
 entry:
-  %detachedness_ = getelementptr inbounds %"class.node::MemoryRetainerNode", ptr %this, i64 0, i32 7
+  %detachedness_ = getelementptr inbounds i8, ptr %this, i64 48
   %0 = load i8, ptr %detachedness_, align 8
   ret i8 %0
 }
@@ -1525,7 +1343,7 @@ do.end10:                                         ; preds = %do.body
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp12) #19
   %call.i6 = call noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_M_local_dataEv(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp11) #19
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC1EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp11, ptr noundef %call.i6, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp12) #19
-  %_M_string_length.i = getelementptr inbounds %"class.std::__cxx11::basic_string", ptr %ref.tmp11, i64 0, i32 1
+  %_M_string_length.i = getelementptr inbounds i8, ptr %ref.tmp11, i64 8
   store i64 0, ptr %_M_string_length.i, align 8
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp11, ptr noundef %format, ptr noundef nonnull %arrayidx)
   %add.ptr14 = getelementptr inbounds i8, ptr %call, i64 2
@@ -1770,7 +1588,7 @@ do.end4:                                          ; preds = %entry
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp) #19
   %call.i = call noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_M_local_dataEv(ptr noundef nonnull align 8 dereferenceable(32) %ret) #19
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC1EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(8) %ret, ptr noundef %call.i, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp) #19
-  %_M_string_length.i = getelementptr inbounds %"class.std::__cxx11::basic_string", ptr %ret, i64 0, i32 1
+  %_M_string_length.i = getelementptr inbounds i8, ptr %ret, i64 8
   store i64 0, ptr %_M_string_length.i, align 8
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(32) %ret, ptr noundef %format, ptr noundef nonnull %call)
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp) #19
@@ -1969,7 +1787,7 @@ for.body:                                         ; preds = %entry, %for.body
   %call.i6 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSt6locale7classicEv() #19
   %call.i.i = call noundef nonnull align 8 dereferenceable(570) ptr @_ZSt9use_facetISt5ctypeIcEERKT_RKSt6locale(ptr noundef nonnull align 8 dereferenceable(8) %call.i6) #19
   %vtable.i.i.i = load ptr, ptr %call.i.i, align 8
-  %vfn.i.i.i = getelementptr inbounds ptr, ptr %vtable.i.i.i, i64 2
+  %vfn.i.i.i = getelementptr inbounds i8, ptr %vtable.i.i.i, i64 16
   %1 = load ptr, ptr %vfn.i.i.i, align 8
   %call.i.i.i = call noundef signext i8 %1(ptr noundef nonnull align 8 dereferenceable(570) %call.i.i, i8 noundef signext %0) #19
   %call4 = call noundef nonnull align 1 dereferenceable(1) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEixEm(ptr noundef nonnull align 8 dereferenceable(32) %agg.result, i64 noundef %i.09) #19
@@ -2211,7 +2029,7 @@ do.end4:                                          ; preds = %entry
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp) #19
   %call.i = call noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_M_local_dataEv(ptr noundef nonnull align 8 dereferenceable(32) %ret) #19
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC1EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(8) %ret, ptr noundef %call.i, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp) #19
-  %_M_string_length.i = getelementptr inbounds %"class.std::__cxx11::basic_string", ptr %ret, i64 0, i32 1
+  %_M_string_length.i = getelementptr inbounds i8, ptr %ret, i64 8
   store i64 0, ptr %_M_string_length.i, align 8
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(32) %ret, ptr noundef %format, ptr noundef nonnull %call)
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp) #19

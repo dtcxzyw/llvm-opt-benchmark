@@ -12,62 +12,18 @@ target triple = "x86_64-unknown-linux-gnu"
 %struct.QEnumLookup = type { ptr, ptr, i32 }
 %struct.QDictRenames = type { ptr, ptr }
 %struct.QEDHeader = type { i32, i32, i32, i32, i64, i64, i64, i64, i64, i32, i32 }
-%struct.BDRVQEDState = type { ptr, %struct.QEDHeader, %struct.CoMutex, ptr, %struct.L2TableCache, i32, i32, i32, i32, i64, ptr, %struct.CoQueue, i8, ptr }
-%struct.CoMutex = type { i32, ptr, %struct.anon, %struct.anon, i32, i32, ptr }
-%struct.anon = type { ptr }
-%struct.L2TableCache = type { %union.anon, i32 }
-%union.anon = type { %struct.QTailQLink }
-%struct.CoQueue = type { %struct.anon.0 }
-%struct.anon.0 = type { ptr, ptr }
-%struct.BlockDriverState = type { i32, i8, i8, i8, i8, i8, ptr, ptr, ptr, %struct.anon.1, i8, [4096 x i8], [4096 x i8], [4096 x i8], [16 x i8], ptr, [4096 x i8], %struct.BlockLimits, i32, i32, i32, i32, [32 x i8], %union.anon.2, %union.anon.3, %union.anon.4, i32, [16 x %struct.anon.5], ptr, %struct.anon.6, ptr, ptr, %struct.anon.7, ptr, ptr, i32, ptr, i64, i64, %struct.QemuMutex, %struct.anon.8, %struct.Stat64, i32, i32, i32, i32, i32, i32, %struct.QemuMutex, %struct.anon.9, %struct.CoQueue, i8, i32, i8, %struct.CoMutex, ptr, ptr }
-%struct.anon.1 = type { ptr }
-%struct.BlockLimits = type { i32, i64, i32, i64, i32, i32, i32, i64, i32, i64, i64, i32, i8, i32, i32, i32, i32, i32, i32, i32 }
-%union.anon.2 = type { %struct.QTailQLink }
-%union.anon.3 = type { %struct.QTailQLink }
-%union.anon.4 = type { %struct.QTailQLink }
-%struct.anon.5 = type { ptr }
-%struct.anon.6 = type { ptr }
-%struct.anon.7 = type { ptr }
-%struct.anon.8 = type { ptr }
-%struct.Stat64 = type { i64 }
-%struct.QemuMutex = type { %union.pthread_mutex_t, i8 }
-%union.pthread_mutex_t = type { %struct.__pthread_mutex_s }
-%struct.__pthread_mutex_s = type { i32, i32, i32, i32, i32, i16, i16, %struct.__pthread_internal_list }
-%struct.__pthread_internal_list = type { ptr, ptr }
-%struct.anon.9 = type { ptr }
 %struct.QEDOpenCo = type { ptr, ptr, i32, ptr, i32 }
-%struct.BlockdevCreateOptions = type { i32, %union.anon.17 }
-%union.anon.17 = type { %struct.BlockdevCreateOptionsQcow2 }
-%struct.BlockdevCreateOptionsQcow2 = type { ptr, ptr, i8, i8, i8, i8, i64, i8, i32, ptr, i8, i32, ptr, i8, i64, i8, i32, i8, i8, i8, i64, i8, i32 }
-%struct.QObjectBase_ = type { i32, i64 }
-%struct.AioContext = type { %struct._GSource, %struct.QemuRecMutex, ptr, %struct.AioHandlerList, %struct.AioHandlerList, i32, %struct.QemuLockCnt, %struct.BHList, %struct.anon.19, i8, %struct.EventNotifier, %struct.anon.20, ptr, i32, i32, ptr, ptr, %struct.io_uring, %struct.AioHandlerSList, %struct.QEMUTimerListGroup, i32, i64, i64, i64, i64, i64, %struct.AioHandlerList, i8, i32, ptr }
-%struct._GSource = type { ptr, ptr, ptr, i32, ptr, i32, i32, i32, ptr, ptr, ptr, ptr, ptr }
-%struct.QemuRecMutex = type { %struct.QemuMutex }
-%struct.QemuLockCnt = type { i32 }
-%struct.BHList = type { ptr }
-%struct.anon.19 = type { ptr, ptr }
-%struct.EventNotifier = type { i32, i32, i8 }
-%struct.anon.20 = type { ptr }
-%struct.io_uring = type { %struct.io_uring_sq, %struct.io_uring_cq, i32, i32, i32, [3 x i32] }
-%struct.io_uring_sq = type { ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, i32, i32, i64, ptr, [4 x i32] }
-%struct.io_uring_cq = type { ptr, ptr, ptr, ptr, ptr, ptr, ptr, i64, ptr, [4 x i32] }
-%struct.AioHandlerSList = type { ptr }
-%struct.QEMUTimerListGroup = type { [4 x ptr] }
-%struct.AioHandlerList = type { ptr }
 %struct.QEMUIOVector = type { ptr, i32, %union.anon.14 }
 %union.anon.14 = type { %struct.anon.15 }
 %struct.anon.15 = type { i32, %struct.iovec }
 %struct.iovec = type { ptr, i64 }
 %struct.QEDRequest = type { ptr }
-%struct.BlockDriverInfo = type { i32, i32, i64, i8, i8 }
 %struct.BdrvCheckResult = type { i32, i32, i32, i32, i32, i64, %struct.BlockFragInfo }
 %struct.BlockFragInfo = type { i64, i64, i64, i64 }
 %struct.timeval = type { i64, i64 }
 %struct.QEDAIOCB = type { ptr, %struct.anon.21, i32, i64, ptr, i64, %struct.QEMUIOVector, i64, i64, i32, i32, %struct.QEDRequest }
 %struct.anon.21 = type { ptr }
 %struct.QemuLockable = type { ptr, ptr, ptr }
-%struct.CachedL2Table = type { ptr, i64, %union.anon.22, i32 }
-%union.anon.22 = type { %struct.QTailQLink }
 
 @bdrv_qed = internal global %struct.BlockDriver { ptr @.str, i32 216, i8 0, i8 0, i8 1, i8 0, i8 0, i8 1, ptr null, ptr @qed_create_opts, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr @bdrv_qed_reopen_prepare, ptr null, ptr null, ptr null, ptr null, ptr @bdrv_qed_open, ptr null, ptr @bdrv_qed_close, ptr @bdrv_qed_co_create, ptr @bdrv_qed_co_create_opts, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr @bdrv_qed_co_change_backing_file, ptr null, ptr null, ptr null, ptr null, ptr @bdrv_qed_refresh_limits, ptr @bdrv_has_zero_init_1, ptr @bdrv_qed_detach_aio_context, ptr @bdrv_qed_attach_aio_context, ptr @bdrv_qed_drain_begin, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr @bdrv_default_perms, ptr null, ptr null, %struct.anon.10 zeroinitializer, ptr @bdrv_qed_probe, ptr null, ptr null, ptr null, ptr null, ptr null, ptr @bdrv_qed_co_readv, ptr null, ptr null, ptr @bdrv_qed_co_writev, ptr null, ptr null, ptr @bdrv_qed_co_pwrite_zeroes, ptr null, ptr null, ptr null, ptr @bdrv_qed_co_block_status, ptr null, ptr null, ptr null, ptr @bdrv_qed_co_invalidate_cache, ptr null, ptr null, ptr null, ptr null, ptr @bdrv_qed_co_truncate, ptr @bdrv_qed_co_getlength, ptr null, ptr null, ptr null, ptr null, ptr @bdrv_qed_co_get_info, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr @bdrv_qed_co_check, ptr null, ptr null, ptr null, ptr null }, align 8
 @.str = private unnamed_addr constant [4 x i8] c"qed\00", align 1
@@ -208,29 +164,29 @@ target triple = "x86_64-unknown-linux-gnu"
 define dso_local i32 @qed_write_header_sync(ptr nocapture noundef readonly %s) local_unnamed_addr #0 {
 entry:
   %le = alloca %struct.QEDHeader, align 16
-  %header = getelementptr inbounds %struct.BDRVQEDState, ptr %s, i64 0, i32 1
+  %header = getelementptr inbounds i8, ptr %s, i64 8
   %0 = load <4 x i32>, ptr %header, align 1
   store <4 x i32> %0, ptr %le, align 16
-  %features.i = getelementptr inbounds %struct.BDRVQEDState, ptr %s, i64 0, i32 1, i32 4
-  %features9.i = getelementptr inbounds %struct.QEDHeader, ptr %le, i64 0, i32 4
+  %features.i = getelementptr inbounds i8, ptr %s, i64 24
+  %features9.i = getelementptr inbounds i8, ptr %le, i64 16
   %1 = load <2 x i64>, ptr %features.i, align 1
   store <2 x i64> %1, ptr %features9.i, align 16
-  %autoclear_features.i = getelementptr inbounds %struct.BDRVQEDState, ptr %s, i64 0, i32 1, i32 6
-  %autoclear_features13.i = getelementptr inbounds %struct.QEDHeader, ptr %le, i64 0, i32 6
+  %autoclear_features.i = getelementptr inbounds i8, ptr %s, i64 40
+  %autoclear_features13.i = getelementptr inbounds i8, ptr %le, i64 32
   %2 = load <2 x i64>, ptr %autoclear_features.i, align 1
   store <2 x i64> %2, ptr %autoclear_features13.i, align 16
-  %image_size.i = getelementptr inbounds %struct.BDRVQEDState, ptr %s, i64 0, i32 1, i32 8
+  %image_size.i = getelementptr inbounds i8, ptr %s, i64 56
   %3 = load i64, ptr %image_size.i, align 1
-  %image_size17.i = getelementptr inbounds %struct.QEDHeader, ptr %le, i64 0, i32 8
+  %image_size17.i = getelementptr inbounds i8, ptr %le, i64 48
   store i64 %3, ptr %image_size17.i, align 16
-  %backing_filename_offset.i = getelementptr inbounds %struct.BDRVQEDState, ptr %s, i64 0, i32 1, i32 9
-  %backing_filename_offset19.i = getelementptr inbounds %struct.QEDHeader, ptr %le, i64 0, i32 9
+  %backing_filename_offset.i = getelementptr inbounds i8, ptr %s, i64 64
+  %backing_filename_offset19.i = getelementptr inbounds i8, ptr %le, i64 56
   %4 = load <2 x i32>, ptr %backing_filename_offset.i, align 1
   store <2 x i32> %4, ptr %backing_filename_offset19.i, align 8
   %5 = load ptr, ptr %s, align 8
-  %file = getelementptr inbounds %struct.BlockDriverState, ptr %5, i64 0, i32 31
+  %file = getelementptr inbounds i8, ptr %5, i64 16840
   %6 = load ptr, ptr %file, align 8
-  %call = call i32 @bdrv_pwrite(ptr noundef %6, i64 noundef 0, i64 noundef 64, ptr noundef nonnull %le, i32 noundef 0) #19
+  %call = call i32 @bdrv_pwrite(ptr noundef %6, i64 noundef 0, i64 noundef 64, ptr noundef nonnull %le, i32 noundef 0) #18
   ret i32 %call
 }
 
@@ -240,13 +196,13 @@ declare i32 @bdrv_pwrite(ptr noundef, i64 noundef, i64 noundef, ptr noundef, i32
 define dso_local ptr @qed_alloc_table(ptr nocapture noundef readonly %s) local_unnamed_addr #0 {
 entry:
   %0 = load ptr, ptr %s, align 8
-  %cluster_size = getelementptr inbounds %struct.BDRVQEDState, ptr %s, i64 0, i32 1, i32 1
+  %cluster_size = getelementptr inbounds i8, ptr %s, i64 12
   %1 = load i32, ptr %cluster_size, align 4
-  %table_size = getelementptr inbounds %struct.BDRVQEDState, ptr %s, i64 0, i32 1, i32 2
+  %table_size = getelementptr inbounds i8, ptr %s, i64 16
   %2 = load i32, ptr %table_size, align 8
   %mul = mul i32 %2, %1
   %conv = zext i32 %mul to i64
-  %call = tail call ptr @qemu_blockalign(ptr noundef %0, i64 noundef %conv) #19
+  %call = tail call ptr @qemu_blockalign(ptr noundef %0, i64 noundef %conv) #18
   ret ptr %call
 }
 
@@ -255,7 +211,7 @@ declare ptr @qemu_blockalign(ptr noundef, i64 noundef) local_unnamed_addr #1
 ; Function Attrs: nounwind sspstrong uwtable
 define internal void @do_qemu_init_bdrv_qed_init() #0 {
 entry:
-  tail call void @register_module_init(ptr noundef nonnull @bdrv_qed_init, i32 noundef 1) #19
+  tail call void @register_module_init(ptr noundef nonnull @bdrv_qed_init, i32 noundef 1) #18
   ret void
 }
 
@@ -264,14 +220,14 @@ declare void @register_module_init(ptr noundef, i32 noundef) local_unnamed_addr 
 ; Function Attrs: nounwind sspstrong uwtable
 define internal void @bdrv_qed_init() #0 {
 entry:
-  tail call void @bdrv_register(ptr noundef nonnull @bdrv_qed) #19
+  tail call void @bdrv_register(ptr noundef nonnull @bdrv_qed) #18
   ret void
 }
 
 declare void @bdrv_register(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(none) uwtable
-define internal i32 @bdrv_qed_reopen_prepare(ptr nocapture readnone %state, ptr nocapture readnone %queue, ptr nocapture readnone %errp) #2 {
+define internal noundef i32 @bdrv_qed_reopen_prepare(ptr nocapture readnone %state, ptr nocapture readnone %queue, ptr nocapture readnone %errp) #2 {
 entry:
   ret i32 0
 }
@@ -281,66 +237,66 @@ define internal i32 @bdrv_qed_open(ptr noundef %bs, ptr noundef %options, i32 no
 entry:
   %qoc = alloca %struct.QEDOpenCo, align 8
   store ptr %bs, ptr %qoc, align 8
-  %options2 = getelementptr inbounds %struct.QEDOpenCo, ptr %qoc, i64 0, i32 1
+  %options2 = getelementptr inbounds i8, ptr %qoc, i64 8
   store ptr %options, ptr %options2, align 8
-  %flags3 = getelementptr inbounds %struct.QEDOpenCo, ptr %qoc, i64 0, i32 2
+  %flags3 = getelementptr inbounds i8, ptr %qoc, i64 16
   store i32 %flags, ptr %flags3, align 8
-  %errp4 = getelementptr inbounds %struct.QEDOpenCo, ptr %qoc, i64 0, i32 3
+  %errp4 = getelementptr inbounds i8, ptr %qoc, i64 24
   store ptr %errp, ptr %errp4, align 8
-  %ret = getelementptr inbounds %struct.QEDOpenCo, ptr %qoc, i64 0, i32 4
+  %ret = getelementptr inbounds i8, ptr %qoc, i64 32
   store i32 -115, ptr %ret, align 8
-  %call = tail call i32 @bdrv_open_file_child(ptr noundef null, ptr noundef %options, ptr noundef nonnull @.str.14, ptr noundef %bs, ptr noundef %errp) #19
+  %call = tail call i32 @bdrv_open_file_child(ptr noundef null, ptr noundef %options, ptr noundef nonnull @.str.14, ptr noundef %bs, ptr noundef %errp) #18
   %cmp = icmp slt i32 %call, 0
   br i1 %cmp, label %return, label %if.end
 
 if.end:                                           ; preds = %entry
-  %opaque.i = getelementptr inbounds %struct.BlockDriverState, ptr %bs, i64 0, i32 7
+  %opaque.i = getelementptr inbounds i8, ptr %bs, i64 24
   %0 = load ptr, ptr %opaque.i, align 8
   %1 = getelementptr inbounds i8, ptr %0, i64 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(216) %1, i8 0, i64 208, i1 false)
   store ptr %bs, ptr %0, align 8
-  %table_lock.i = getelementptr inbounds %struct.BDRVQEDState, ptr %0, i64 0, i32 2
-  tail call void @qemu_co_mutex_init(ptr noundef nonnull %table_lock.i) #19
-  %allocating_write_reqs.i = getelementptr inbounds %struct.BDRVQEDState, ptr %0, i64 0, i32 11
-  tail call void @qemu_co_queue_init(ptr noundef nonnull %allocating_write_reqs.i) #19
-  %call6 = tail call zeroext i1 @qemu_in_coroutine() #19
+  %table_lock.i = getelementptr inbounds i8, ptr %0, i64 72
+  tail call void @qemu_co_mutex_init(ptr noundef nonnull %table_lock.i) #18
+  %allocating_write_reqs.i = getelementptr inbounds i8, ptr %0, i64 184
+  tail call void @qemu_co_queue_init(ptr noundef nonnull %allocating_write_reqs.i) #18
+  %call6 = tail call zeroext i1 @qemu_in_coroutine() #18
   br i1 %call6, label %if.else, label %if.end8
 
 if.else:                                          ; preds = %if.end
-  tail call void @__assert_fail(ptr noundef nonnull @.str.15, ptr noundef nonnull @.str.16, i32 noundef 591, ptr noundef nonnull @__PRETTY_FUNCTION__.bdrv_qed_open) #20
+  tail call void @__assert_fail(ptr noundef nonnull @.str.15, ptr noundef nonnull @.str.16, i32 noundef 591, ptr noundef nonnull @__PRETTY_FUNCTION__.bdrv_qed_open) #19
   unreachable
 
 if.end8:                                          ; preds = %if.end
-  %call9 = tail call ptr @qemu_get_current_aio_context() #19
-  %call10 = tail call ptr @qemu_get_aio_context() #19
+  %call9 = tail call ptr @qemu_get_current_aio_context() #18
+  %call10 = tail call ptr @qemu_get_aio_context() #18
   %cmp11 = icmp eq ptr %call9, %call10
   br i1 %cmp11, label %if.end14, label %if.else13
 
 if.else13:                                        ; preds = %if.end8
-  tail call void @__assert_fail(ptr noundef nonnull @.str.17, ptr noundef nonnull @.str.16, i32 noundef 592, ptr noundef nonnull @__PRETTY_FUNCTION__.bdrv_qed_open) #20
+  tail call void @__assert_fail(ptr noundef nonnull @.str.17, ptr noundef nonnull @.str.16, i32 noundef 592, ptr noundef nonnull @__PRETTY_FUNCTION__.bdrv_qed_open) #19
   unreachable
 
 if.end14:                                         ; preds = %if.end8
-  %call15 = call ptr @qemu_coroutine_create(ptr noundef nonnull @bdrv_qed_open_entry, ptr noundef nonnull %qoc) #19
-  call void @qemu_coroutine_enter(ptr noundef %call15) #19
-  %call16 = call ptr @bdrv_get_aio_context(ptr noundef nonnull %bs) #19
+  %call15 = call ptr @qemu_coroutine_create(ptr noundef nonnull @bdrv_qed_open_entry, ptr noundef nonnull %qoc) #18
+  call void @qemu_coroutine_enter(ptr noundef %call15) #18
+  %call16 = call ptr @bdrv_get_aio_context(ptr noundef nonnull %bs) #18
   %2 = atomicrmw add ptr @global_aio_wait, i32 1 seq_cst, align 4
   fence syncscope("singlethread") seq_cst
   %tobool.not = icmp eq ptr %call16, null
   br i1 %tobool.not, label %if.else22, label %land.lhs.true
 
 land.lhs.true:                                    ; preds = %if.end14
-  %call.i = call ptr @qemu_get_current_aio_context() #19
+  %call.i = call ptr @qemu_get_current_aio_context() #18
   %cmp.i = icmp eq ptr %call.i, %call16
   br i1 %cmp.i, label %while.cond.preheader, label %if.end.i
 
 if.end.i:                                         ; preds = %land.lhs.true
-  %call1.i = call ptr @qemu_get_aio_context() #19
+  %call1.i = call ptr @qemu_get_aio_context() #18
   %cmp2.i = icmp eq ptr %call1.i, %call16
   br i1 %cmp2.i, label %if.then3.i, label %if.else22
 
 if.then3.i:                                       ; preds = %if.end.i
-  %call4.i = call zeroext i1 @qemu_mutex_iothread_locked() #19
+  %call4.i = call zeroext i1 @qemu_mutex_iothread_locked() #18
   br i1 %call4.i, label %while.cond.preheader, label %if.else22
 
 while.cond.preheader:                             ; preds = %if.then3.i, %land.lhs.true
@@ -349,14 +305,14 @@ while.cond.preheader:                             ; preds = %if.then3.i, %land.l
   br i1 %cmp2016, label %while.body, label %if.end42
 
 while.body:                                       ; preds = %while.cond.preheader, %while.body
-  %call21 = call zeroext i1 @aio_poll(ptr noundef nonnull %call16, i1 noundef zeroext true) #19
+  %call21 = call zeroext i1 @aio_poll(ptr noundef nonnull %call16, i1 noundef zeroext true) #18
   %4 = load i32, ptr %ret, align 8
   %cmp20 = icmp eq i32 %4, -115
   br i1 %cmp20, label %while.body, label %if.end42, !llvm.loop !5
 
 if.else22:                                        ; preds = %if.end.i, %if.then3.i, %if.end14
-  %call23 = call ptr @qemu_get_current_aio_context() #19
-  %call24 = call ptr @qemu_get_aio_context() #19
+  %call23 = call ptr @qemu_get_current_aio_context() #18
+  %call24 = call ptr @qemu_get_aio_context() #18
   %cmp25 = icmp eq ptr %call23, %call24
   br i1 %cmp25, label %while.cond29.preheader, label %if.else27
 
@@ -369,21 +325,21 @@ while.body32.lr.ph:                               ; preds = %while.cond29.prehea
   br i1 %tobool.not, label %while.body32.us, label %while.body32
 
 while.body32.us:                                  ; preds = %while.body32.lr.ph, %while.body32.us
-  %call36.c.us = call ptr @qemu_get_aio_context() #19
-  %call37.c.us = call zeroext i1 @aio_poll(ptr noundef %call36.c.us, i1 noundef zeroext true) #19
+  %call36.c.us = call ptr @qemu_get_aio_context() #18
+  %call37.c.us = call zeroext i1 @aio_poll(ptr noundef %call36.c.us, i1 noundef zeroext true) #18
   %6 = load i32, ptr %ret, align 8
   %cmp31.us = icmp eq i32 %6, -115
   br i1 %cmp31.us, label %while.body32.us, label %if.end42, !llvm.loop !7
 
 if.else27:                                        ; preds = %if.else22
-  call void @__assert_fail(ptr noundef nonnull @.str.17, ptr noundef nonnull @.str.16, i32 noundef 594, ptr noundef nonnull @__PRETTY_FUNCTION__.bdrv_qed_open) #20
+  call void @__assert_fail(ptr noundef nonnull @.str.17, ptr noundef nonnull @.str.16, i32 noundef 594, ptr noundef nonnull @__PRETTY_FUNCTION__.bdrv_qed_open) #19
   unreachable
 
 while.body32:                                     ; preds = %while.body32.lr.ph, %while.body32
-  call void @aio_context_release(ptr noundef nonnull %call16) #19
-  %call36 = call ptr @qemu_get_aio_context() #19
-  %call37 = call zeroext i1 @aio_poll(ptr noundef %call36, i1 noundef zeroext true) #19
-  call void @aio_context_acquire(ptr noundef nonnull %call16) #19
+  call void @aio_context_release(ptr noundef nonnull %call16) #18
+  %call36 = call ptr @qemu_get_aio_context() #18
+  %call37 = call zeroext i1 @aio_poll(ptr noundef %call36, i1 noundef zeroext true) #18
+  call void @aio_context_acquire(ptr noundef nonnull %call16) #18
   %7 = load i32, ptr %ret, align 8
   %cmp31 = icmp eq i32 %7, -115
   br i1 %cmp31, label %while.body32, label %if.end42, !llvm.loop !7
@@ -401,17 +357,17 @@ return:                                           ; preds = %entry, %if.end42
 ; Function Attrs: nounwind sspstrong uwtable
 define internal void @bdrv_qed_close(ptr nocapture noundef readonly %bs) #0 {
 entry:
-  %call = tail call zeroext i1 @qemu_in_main_thread() #19
+  %call = tail call zeroext i1 @qemu_in_main_thread() #18
   br i1 %call, label %glib_autoptr_cleanup_GraphLockableMainloop.exit, label %if.else
 
 if.else:                                          ; preds = %entry
-  tail call void @__assert_fail(ptr noundef nonnull @.str.33, ptr noundef nonnull @.str.16, i32 noundef 636, ptr noundef nonnull @__PRETTY_FUNCTION__.bdrv_qed_close) #20
+  tail call void @__assert_fail(ptr noundef nonnull @.str.33, ptr noundef nonnull @.str.16, i32 noundef 636, ptr noundef nonnull @__PRETTY_FUNCTION__.bdrv_qed_close) #19
   unreachable
 
 glib_autoptr_cleanup_GraphLockableMainloop.exit:  ; preds = %entry
-  tail call void @bdrv_graph_rdlock_main_loop() #19
+  tail call void @bdrv_graph_rdlock_main_loop() #18
   tail call fastcc void @bdrv_qed_do_close(ptr noundef %bs)
-  tail call void @bdrv_graph_rdunlock_main_loop() #19
+  tail call void @bdrv_graph_rdunlock_main_loop() #18
   ret void
 }
 
@@ -424,36 +380,36 @@ entry:
   br i1 %cmp, label %if.end, label %if.else
 
 if.else:                                          ; preds = %entry
-  tail call void @__assert_fail(ptr noundef nonnull @.str.34, ptr noundef nonnull @.str.16, i32 noundef 655, ptr noundef nonnull @__PRETTY_FUNCTION__.bdrv_qed_co_create) #20
+  tail call void @__assert_fail(ptr noundef nonnull @.str.34, ptr noundef nonnull @.str.16, i32 noundef 655, ptr noundef nonnull @__PRETTY_FUNCTION__.bdrv_qed_co_create) #19
   unreachable
 
 if.end:                                           ; preds = %entry
-  %u = getelementptr inbounds %struct.BlockdevCreateOptions, ptr %opts, i64 0, i32 1
-  %has_cluster_size = getelementptr inbounds %struct.BlockdevCreateOptions, ptr %opts, i64 0, i32 1, i32 0, i32 7
+  %u = getelementptr inbounds i8, ptr %opts, i64 8
+  %has_cluster_size = getelementptr inbounds i8, ptr %opts, i64 40
   %1 = load i8, ptr %has_cluster_size, align 8
   %2 = and i8 %1, 1
   %tobool.not = icmp eq i8 %2, 0
   br i1 %tobool.not, label %if.then1, label %if.end2
 
 if.then1:                                         ; preds = %if.end
-  %cluster_size = getelementptr inbounds %struct.BlockdevCreateOptions, ptr %opts, i64 0, i32 1, i32 0, i32 9
+  %cluster_size = getelementptr inbounds i8, ptr %opts, i64 48
   store i64 65536, ptr %cluster_size, align 8
   br label %if.end2
 
 if.end2:                                          ; preds = %if.then1, %if.end
-  %has_table_size = getelementptr inbounds %struct.BlockdevCreateOptions, ptr %opts, i64 0, i32 1, i32 0, i32 10
+  %has_table_size = getelementptr inbounds i8, ptr %opts, i64 56
   %3 = load i8, ptr %has_table_size, align 8
   %4 = and i8 %3, 1
   %tobool3.not = icmp eq i8 %4, 0
   br i1 %tobool3.not, label %if.then4, label %if.end5
 
 if.then4:                                         ; preds = %if.end2
-  %table_size = getelementptr inbounds %struct.BlockdevCreateOptions, ptr %opts, i64 0, i32 1, i32 0, i32 12
+  %table_size = getelementptr inbounds i8, ptr %opts, i64 64
   store i64 4, ptr %table_size, align 8
   br label %if.end5
 
 if.end5:                                          ; preds = %if.then4, %if.end2
-  %cluster_size6 = getelementptr inbounds %struct.BlockdevCreateOptions, ptr %opts, i64 0, i32 1, i32 0, i32 9
+  %cluster_size6 = getelementptr inbounds i8, ptr %opts, i64 48
   %5 = load i64, ptr %cluster_size6, align 8
   %conv = trunc i64 %5 to i32
   %6 = add i32 %conv, -4096
@@ -465,11 +421,11 @@ if.end5:                                          ; preds = %if.then4, %if.end2
   br i1 %retval.0.i, label %if.end8, label %if.then7
 
 if.then7:                                         ; preds = %if.end5
-  tail call void (ptr, ptr, i32, ptr, ptr, ...) @error_setg_internal(ptr noundef %errp, ptr noundef nonnull @.str.16, i32 noundef 669, ptr noundef nonnull @__func__.bdrv_qed_co_create, ptr noundef nonnull @.str.35, i32 noundef 4096, i32 noundef 67108864) #19
+  tail call void (ptr, ptr, i32, ptr, ptr, ...) @error_setg_internal(ptr noundef %errp, ptr noundef nonnull @.str.16, i32 noundef 669, ptr noundef nonnull @__func__.bdrv_qed_co_create, ptr noundef nonnull @.str.35, i32 noundef 4096, i32 noundef 67108864) #18
   br label %return
 
 if.end8:                                          ; preds = %if.end5
-  %table_size9 = getelementptr inbounds %struct.BlockdevCreateOptions, ptr %opts, i64 0, i32 1, i32 0, i32 12
+  %table_size9 = getelementptr inbounds i8, ptr %opts, i64 64
   %7 = load i64, ptr %table_size9, align 8
   %conv10 = trunc i64 %7 to i32
   %8 = add i32 %conv10, -1
@@ -481,11 +437,11 @@ if.end8:                                          ; preds = %if.end5
   br i1 %retval.0.i45, label %if.end13, label %if.then12
 
 if.then12:                                        ; preds = %if.end8
-  tail call void (ptr, ptr, i32, ptr, ptr, ...) @error_setg_internal(ptr noundef %errp, ptr noundef nonnull @.str.16, i32 noundef 675, ptr noundef nonnull @__func__.bdrv_qed_co_create, ptr noundef nonnull @.str.36, i32 noundef 1, i32 noundef 16) #19
+  tail call void (ptr, ptr, i32, ptr, ptr, ...) @error_setg_internal(ptr noundef %errp, ptr noundef nonnull @.str.16, i32 noundef 675, ptr noundef nonnull @__func__.bdrv_qed_co_create, ptr noundef nonnull @.str.36, i32 noundef 1, i32 noundef 16) #18
   br label %return
 
 if.end13:                                         ; preds = %if.end8
-  %size = getelementptr inbounds %struct.BlockdevCreateOptions, ptr %opts, i64 0, i32 1, i32 0, i32 1
+  %size = getelementptr inbounds i8, ptr %opts, i64 16
   %9 = load i64, ptr %size, align 8
   %rem.i = and i64 %9, 511
   %cmp.not.i = icmp ne i64 %rem.i, 0
@@ -500,22 +456,22 @@ if.end13:                                         ; preds = %if.end8
   br i1 %or.cond, label %if.then19, label %if.end25
 
 if.then19:                                        ; preds = %if.end13
-  tail call void (ptr, ptr, i32, ptr, ptr, ...) @error_setg_internal(ptr noundef %errp, ptr noundef nonnull @.str.16, i32 noundef 684, ptr noundef nonnull @__func__.bdrv_qed_co_create, ptr noundef nonnull @.str.37, i64 noundef %mul3.i.i) #19
+  tail call void (ptr, ptr, i32, ptr, ptr, ...) @error_setg_internal(ptr noundef %errp, ptr noundef nonnull @.str.16, i32 noundef 684, ptr noundef nonnull @__func__.bdrv_qed_co_create, ptr noundef nonnull @.str.37, i64 noundef %mul3.i.i) #18
   br label %return
 
 if.end25:                                         ; preds = %if.end13
   %11 = load ptr, ptr %u, align 8
-  %call26 = tail call ptr @bdrv_co_open_blockdev_ref(ptr noundef %11, ptr noundef %errp) #19
+  %call26 = tail call ptr @bdrv_co_open_blockdev_ref(ptr noundef %11, ptr noundef %errp) #18
   %cmp27 = icmp eq ptr %call26, null
   br i1 %cmp27, label %return, label %if.end30
 
 if.end30:                                         ; preds = %if.end25
-  %call31 = tail call ptr @blk_co_new_with_bs(ptr noundef nonnull %call26, i64 noundef 10, i64 noundef 15, ptr noundef %errp) #19
+  %call31 = tail call ptr @blk_co_new_with_bs(ptr noundef nonnull %call26, i64 noundef 10, i64 noundef 15, ptr noundef %errp) #18
   %tobool32.not = icmp eq ptr %call31, null
   br i1 %tobool32.not, label %out, label %if.end34
 
 if.end34:                                         ; preds = %if.end30
-  tail call void @blk_set_allow_write_beyond_eof(ptr noundef nonnull %call31, i1 noundef zeroext true) #19
+  tail call void @blk_set_allow_write_beyond_eof(ptr noundef nonnull %call31, i1 noundef zeroext true) #18
   %12 = load i64, ptr %cluster_size6, align 8
   %conv37 = trunc i64 %12 to i32
   %13 = load i64, ptr %table_size9, align 8
@@ -523,20 +479,20 @@ if.end34:                                         ; preds = %if.end30
   %14 = load i64, ptr %size, align 8
   %mul = mul i64 %13, %12
   %conv45 = and i64 %mul, 4294967295
-  %call46 = tail call i32 @blk_co_truncate(ptr noundef nonnull %call31, i64 noundef 0, i1 noundef zeroext true, i32 noundef 0, i32 noundef 0, ptr noundef %errp) #19
+  %call46 = tail call i32 @blk_co_truncate(ptr noundef nonnull %call31, i64 noundef 0, i1 noundef zeroext true, i32 noundef 0, i32 noundef 0, ptr noundef %errp) #18
   %cmp47 = icmp slt i32 %call46, 0
   br i1 %cmp47, label %out, label %if.end50
 
 if.end50:                                         ; preds = %if.end34
-  %backing_file = getelementptr inbounds %struct.BlockdevCreateOptions, ptr %opts, i64 0, i32 1, i32 0, i32 2
+  %backing_file = getelementptr inbounds i8, ptr %opts, i64 24
   %15 = load ptr, ptr %backing_file, align 8
   %tobool51.not = icmp eq ptr %15, null
   br i1 %tobool51.not, label %if.end69, label %if.then52
 
 if.then52:                                        ; preds = %if.end50
-  %call56 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %15) #21
+  %call56 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %15) #20
   %conv57 = trunc i64 %call56 to i32
-  %has_backing_fmt = getelementptr inbounds %struct.BlockdevCreateOptions, ptr %opts, i64 0, i32 1, i32 0, i32 6
+  %has_backing_fmt = getelementptr inbounds i8, ptr %opts, i64 32
   %16 = load i8, ptr %has_backing_fmt, align 8
   %17 = and i8 %16, 1
   %tobool59.not = icmp eq i8 %17, 0
@@ -545,12 +501,12 @@ if.then52:                                        ; preds = %if.end50
 if.then60:                                        ; preds = %if.then52
   %backing_fmt61 = getelementptr inbounds i8, ptr %opts, i64 36
   %18 = load i32, ptr %backing_fmt61, align 4
-  %call62 = tail call ptr @qapi_enum_lookup(ptr noundef nonnull @BlockdevDriver_lookup, i32 noundef %18) #19
+  %call62 = tail call ptr @qapi_enum_lookup(ptr noundef nonnull @BlockdevDriver_lookup, i32 noundef %18) #18
   %tobool.not.i47 = icmp eq ptr %call62, null
   br i1 %tobool.not.i47, label %if.end69, label %qed_fmt_is_raw.exit
 
 qed_fmt_is_raw.exit:                              ; preds = %if.then60
-  %call.i = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %call62, ptr noundef nonnull dereferenceable(4) @.str.29) #21
+  %call.i = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %call62, ptr noundef nonnull dereferenceable(4) @.str.29) #20
   %cmp.i = icmp eq i32 %call.i, 0
   %spec.select = select i1 %cmp.i, i64 5, i64 1
   br label %if.end69
@@ -560,47 +516,47 @@ if.end69:                                         ; preds = %qed_fmt_is_raw.exit
   %header.sroa.25.0 = phi i32 [ 0, %if.end50 ], [ 64, %if.then52 ], [ 64, %if.then60 ], [ 64, %qed_fmt_is_raw.exit ]
   %header.sroa.28.0 = phi i32 [ 0, %if.end50 ], [ %conv57, %if.then52 ], [ %conv57, %if.then60 ], [ %conv57, %qed_fmt_is_raw.exit ]
   store i32 4474193, ptr %le_header, align 4
-  %cluster_size3.i = getelementptr inbounds %struct.QEDHeader, ptr %le_header, i64 0, i32 1
+  %cluster_size3.i = getelementptr inbounds i8, ptr %le_header, i64 4
   store i32 %conv37, ptr %cluster_size3.i, align 4
-  %table_size5.i = getelementptr inbounds %struct.QEDHeader, ptr %le_header, i64 0, i32 2
+  %table_size5.i = getelementptr inbounds i8, ptr %le_header, i64 8
   store i32 %conv40, ptr %table_size5.i, align 4
-  %header_size7.i = getelementptr inbounds %struct.QEDHeader, ptr %le_header, i64 0, i32 3
+  %header_size7.i = getelementptr inbounds i8, ptr %le_header, i64 12
   store i32 1, ptr %header_size7.i, align 4
-  %features9.i = getelementptr inbounds %struct.QEDHeader, ptr %le_header, i64 0, i32 4
+  %features9.i = getelementptr inbounds i8, ptr %le_header, i64 16
   store i64 %header.sroa.10.0, ptr %features9.i, align 4
-  %compat_features11.i = getelementptr inbounds %struct.QEDHeader, ptr %le_header, i64 0, i32 5
-  %l1_table_offset15.i = getelementptr inbounds %struct.QEDHeader, ptr %le_header, i64 0, i32 7
+  %compat_features11.i = getelementptr inbounds i8, ptr %le_header, i64 24
+  %l1_table_offset15.i = getelementptr inbounds i8, ptr %le_header, i64 40
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %compat_features11.i, i8 0, i64 16, i1 false)
   store i64 %12, ptr %l1_table_offset15.i, align 4
-  %image_size17.i = getelementptr inbounds %struct.QEDHeader, ptr %le_header, i64 0, i32 8
+  %image_size17.i = getelementptr inbounds i8, ptr %le_header, i64 48
   store i64 %14, ptr %image_size17.i, align 4
-  %backing_filename_offset19.i = getelementptr inbounds %struct.QEDHeader, ptr %le_header, i64 0, i32 9
+  %backing_filename_offset19.i = getelementptr inbounds i8, ptr %le_header, i64 56
   store i32 %header.sroa.25.0, ptr %backing_filename_offset19.i, align 4
-  %backing_filename_size21.i = getelementptr inbounds %struct.QEDHeader, ptr %le_header, i64 0, i32 10
+  %backing_filename_size21.i = getelementptr inbounds i8, ptr %le_header, i64 60
   store i32 %header.sroa.28.0, ptr %backing_filename_size21.i, align 4
-  %call70 = call i32 @blk_co_pwrite(ptr noundef nonnull %call31, i64 noundef 0, i64 noundef 64, ptr noundef nonnull %le_header, i32 noundef 0) #19
+  %call70 = call i32 @blk_co_pwrite(ptr noundef nonnull %call31, i64 noundef 0, i64 noundef 64, ptr noundef nonnull %le_header, i32 noundef 0) #18
   %cmp71 = icmp slt i32 %call70, 0
   br i1 %cmp71, label %out, label %if.end74
 
 if.end74:                                         ; preds = %if.end69
   %conv76 = zext i32 %header.sroa.28.0 to i64
   %19 = load ptr, ptr %backing_file, align 8
-  %call78 = call i32 @blk_co_pwrite(ptr noundef nonnull %call31, i64 noundef 64, i64 noundef %conv76, ptr noundef %19, i32 noundef 0) #19
+  %call78 = call i32 @blk_co_pwrite(ptr noundef nonnull %call31, i64 noundef 64, i64 noundef %conv76, ptr noundef %19, i32 noundef 0) #18
   %cmp79 = icmp slt i32 %call78, 0
   br i1 %cmp79, label %out, label %if.end82
 
 if.end82:                                         ; preds = %if.end74
-  %call83 = call noalias ptr @g_malloc0(i64 noundef %conv45) #22
-  %call85 = call i32 @blk_co_pwrite(ptr noundef nonnull %call31, i64 noundef %12, i64 noundef %conv45, ptr noundef %call83, i32 noundef 0) #19
+  %call83 = call noalias ptr @g_malloc0(i64 noundef %conv45) #21
+  %call85 = call i32 @blk_co_pwrite(ptr noundef nonnull %call31, i64 noundef %12, i64 noundef %conv45, ptr noundef %call83, i32 noundef 0) #18
   %spec.store.select = call i32 @llvm.smin.i32(i32 %call85, i32 0)
   br label %out
 
 out:                                              ; preds = %if.end30, %if.end82, %if.end74, %if.end69, %if.end34
   %ret.0 = phi i32 [ %call46, %if.end34 ], [ %call70, %if.end69 ], [ %call78, %if.end74 ], [ %spec.store.select, %if.end82 ], [ -1, %if.end30 ]
   %l1_table.0 = phi ptr [ null, %if.end34 ], [ null, %if.end69 ], [ null, %if.end74 ], [ %call83, %if.end82 ], [ null, %if.end30 ]
-  call void @g_free(ptr noundef %l1_table.0) #19
-  call void @blk_co_unref(ptr noundef %call31) #19
-  call void @bdrv_co_unref(ptr noundef nonnull %call26) #19
+  call void @g_free(ptr noundef %l1_table.0) #18
+  call void @blk_co_unref(ptr noundef %call31) #18
+  call void @bdrv_co_unref(ptr noundef nonnull %call26) #18
   br label %return
 
 return:                                           ; preds = %if.end25, %out, %if.then19, %if.then12, %if.then7
@@ -613,31 +569,31 @@ define internal i32 @bdrv_qed_co_create_opts(ptr nocapture readnone %drv, ptr no
 entry:
   %create_options = alloca ptr, align 8
   store ptr null, ptr %create_options, align 8
-  %call = tail call ptr @qemu_opts_to_qdict_filtered(ptr noundef %opts, ptr noundef null, ptr noundef nonnull @qed_create_opts, i1 noundef zeroext true) #19
-  %call1 = tail call zeroext i1 @qdict_rename_keys(ptr noundef %call, ptr noundef nonnull @bdrv_qed_co_create_opts.opt_renames, ptr noundef %errp) #19
+  %call = tail call ptr @qemu_opts_to_qdict_filtered(ptr noundef %opts, ptr noundef null, ptr noundef nonnull @qed_create_opts, i1 noundef zeroext true) #18
+  %call1 = tail call zeroext i1 @qdict_rename_keys(ptr noundef %call, ptr noundef nonnull @bdrv_qed_co_create_opts.opt_renames, ptr noundef %errp) #18
   br i1 %call1, label %if.end, label %fail
 
 if.end:                                           ; preds = %entry
-  %call2 = tail call i32 @bdrv_co_create_file(ptr noundef %filename, ptr noundef %opts, ptr noundef %errp) #19
+  %call2 = tail call i32 @bdrv_co_create_file(ptr noundef %filename, ptr noundef %opts, ptr noundef %errp) #18
   %cmp = icmp slt i32 %call2, 0
   br i1 %cmp, label %fail, label %if.end4
 
 if.end4:                                          ; preds = %if.end
-  %call5 = tail call ptr @bdrv_co_open(ptr noundef %filename, ptr noundef null, ptr noundef null, i32 noundef 32774, ptr noundef %errp) #19
+  %call5 = tail call ptr @bdrv_co_open(ptr noundef %filename, ptr noundef null, ptr noundef null, i32 noundef 32774, ptr noundef %errp) #18
   %cmp6 = icmp eq ptr %call5, null
   br i1 %cmp6, label %fail, label %if.end8
 
 if.end8:                                          ; preds = %if.end4
-  tail call void @qdict_put_str(ptr noundef %call, ptr noundef nonnull @.str.42, ptr noundef nonnull @.str) #19
-  %node_name = getelementptr inbounds %struct.BlockDriverState, ptr %call5, i64 0, i32 22
-  tail call void @qdict_put_str(ptr noundef %call, ptr noundef nonnull @.str.14, ptr noundef nonnull %node_name) #19
-  %call9 = tail call ptr @qobject_input_visitor_new_flat_confused(ptr noundef %call, ptr noundef %errp) #19
+  tail call void @qdict_put_str(ptr noundef %call, ptr noundef nonnull @.str.42, ptr noundef nonnull @.str) #18
+  %node_name = getelementptr inbounds i8, ptr %call5, i64 16600
+  tail call void @qdict_put_str(ptr noundef %call, ptr noundef nonnull @.str.14, ptr noundef nonnull %node_name) #18
+  %call9 = tail call ptr @qobject_input_visitor_new_flat_confused(ptr noundef %call, ptr noundef %errp) #18
   %tobool.not = icmp eq ptr %call9, null
   br i1 %tobool.not, label %fail, label %if.end11
 
 if.end11:                                         ; preds = %if.end8
-  %call12 = call zeroext i1 @visit_type_BlockdevCreateOptions(ptr noundef nonnull %call9, ptr noundef null, ptr noundef nonnull %create_options, ptr noundef %errp) #19
-  call void @visit_free(ptr noundef nonnull %call9) #19
+  %call12 = call zeroext i1 @visit_type_BlockdevCreateOptions(ptr noundef nonnull %call9, ptr noundef null, ptr noundef nonnull %create_options, ptr noundef %errp) #18
+  call void @visit_free(ptr noundef nonnull %call9) #18
   %0 = load ptr, ptr %create_options, align 8
   %tobool13.not = icmp eq ptr %0, null
   br i1 %tobool13.not, label %fail, label %if.end15
@@ -648,11 +604,11 @@ if.end15:                                         ; preds = %if.end11
   br i1 %cmp16, label %if.end18, label %if.else
 
 if.else:                                          ; preds = %if.end15
-  call void @__assert_fail(ptr noundef nonnull @.str.43, ptr noundef nonnull @.str.16, i32 noundef 820, ptr noundef nonnull @__PRETTY_FUNCTION__.bdrv_qed_co_create_opts) #20
+  call void @__assert_fail(ptr noundef nonnull @.str.43, ptr noundef nonnull @.str.16, i32 noundef 820, ptr noundef nonnull @__PRETTY_FUNCTION__.bdrv_qed_co_create_opts) #19
   unreachable
 
 if.end18:                                         ; preds = %if.end15
-  %size = getelementptr inbounds %struct.BlockdevCreateOptions, ptr %0, i64 0, i32 1, i32 0, i32 1
+  %size = getelementptr inbounds i8, ptr %0, i64 16
   %2 = load i64, ptr %size, align 8
   %sub = add i64 %2, 511
   %and = and i64 %sub, -512
@@ -667,13 +623,13 @@ fail:                                             ; preds = %if.end11, %if.end8,
   br i1 %tobool22.not, label %qobject_unref_impl.exit, label %lor.lhs.false.i
 
 lor.lhs.false.i:                                  ; preds = %fail
-  %refcnt.i = getelementptr inbounds %struct.QObjectBase_, ptr %call, i64 0, i32 1
+  %refcnt.i = getelementptr inbounds i8, ptr %call, i64 8
   %3 = load i64, ptr %refcnt.i, align 8
   %tobool1.not.i = icmp eq i64 %3, 0
   br i1 %tobool1.not.i, label %if.else.i, label %land.lhs.true.i
 
 if.else.i:                                        ; preds = %lor.lhs.false.i
-  call void @__assert_fail(ptr noundef nonnull @.str.44, ptr noundef nonnull @.str.45, i32 noundef 97, ptr noundef nonnull @__PRETTY_FUNCTION__.qobject_unref_impl) #20
+  call void @__assert_fail(ptr noundef nonnull @.str.44, ptr noundef nonnull @.str.45, i32 noundef 97, ptr noundef nonnull @__PRETTY_FUNCTION__.qobject_unref_impl) #19
   unreachable
 
 land.lhs.true.i:                                  ; preds = %lor.lhs.false.i
@@ -683,23 +639,23 @@ land.lhs.true.i:                                  ; preds = %lor.lhs.false.i
   br i1 %cmp.i, label %if.then5.i, label %qobject_unref_impl.exit
 
 if.then5.i:                                       ; preds = %land.lhs.true.i
-  call void @qobject_destroy(ptr noundef nonnull %call) #19
+  call void @qobject_destroy(ptr noundef nonnull %call) #18
   br label %qobject_unref_impl.exit
 
 qobject_unref_impl.exit:                          ; preds = %fail, %land.lhs.true.i, %if.then5.i
-  call void @bdrv_co_unref(ptr noundef %bs.0) #19
+  call void @bdrv_co_unref(ptr noundef %bs.0) #18
   %4 = load ptr, ptr %create_options, align 8
-  call void @qapi_free_BlockdevCreateOptions(ptr noundef %4) #19
+  call void @qapi_free_BlockdevCreateOptions(ptr noundef %4) #18
   ret i32 %ret.0
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
 define internal i32 @bdrv_qed_co_change_backing_file(ptr nocapture noundef readonly %bs, ptr noundef readonly %backing_file, ptr noundef readonly %backing_fmt) #0 {
 entry:
-  %opaque = getelementptr inbounds %struct.BlockDriverState, ptr %bs, i64 0, i32 7
+  %opaque = getelementptr inbounds i8, ptr %bs, i64 24
   %0 = load ptr, ptr %opaque, align 8
   %tobool.not = icmp eq ptr %backing_file, null
-  %new_header.sroa.14.0.header2.sroa_idx.phi.trans.insert = getelementptr inbounds %struct.BDRVQEDState, ptr %0, i64 0, i32 1, i32 5
+  %new_header.sroa.14.0.header2.sroa_idx.phi.trans.insert = getelementptr inbounds i8, ptr %0, i64 32
   %new_header.sroa.14.0.copyload.pre = load i64, ptr %new_header.sroa.14.0.header2.sroa_idx.phi.trans.insert, align 8
   br i1 %tobool.not, label %if.end, label %land.lhs.true
 
@@ -709,25 +665,25 @@ land.lhs.true:                                    ; preds = %entry
 
 if.end:                                           ; preds = %entry, %land.lhs.true
   %new_header.sroa.14.0.copyload = phi i64 [ 0, %land.lhs.true ], [ %new_header.sroa.14.0.copyload.pre, %entry ]
-  %header2 = getelementptr inbounds %struct.BDRVQEDState, ptr %0, i64 0, i32 1
+  %header2 = getelementptr inbounds i8, ptr %0, i64 8
   %new_header.sroa.0.0.copyload = load i32, ptr %header2, align 8
-  %new_header.sroa.3.0.header2.sroa_idx = getelementptr inbounds %struct.BDRVQEDState, ptr %0, i64 0, i32 1, i32 1
+  %new_header.sroa.3.0.header2.sroa_idx = getelementptr inbounds i8, ptr %0, i64 12
   %new_header.sroa.3.0.copyload = load i32, ptr %new_header.sroa.3.0.header2.sroa_idx, align 4
-  %new_header.sroa.5.0.header2.sroa_idx = getelementptr inbounds %struct.BDRVQEDState, ptr %0, i64 0, i32 1, i32 2
+  %new_header.sroa.5.0.header2.sroa_idx = getelementptr inbounds i8, ptr %0, i64 16
   %new_header.sroa.5.0.copyload = load i32, ptr %new_header.sroa.5.0.header2.sroa_idx, align 8
-  %new_header.sroa.6.0.header2.sroa_idx = getelementptr inbounds %struct.BDRVQEDState, ptr %0, i64 0, i32 1, i32 3
+  %new_header.sroa.6.0.header2.sroa_idx = getelementptr inbounds i8, ptr %0, i64 20
   %new_header.sroa.6.0.copyload = load i32, ptr %new_header.sroa.6.0.header2.sroa_idx, align 4
-  %new_header.sroa.8.0.header2.sroa_idx = getelementptr inbounds %struct.BDRVQEDState, ptr %0, i64 0, i32 1, i32 4
+  %new_header.sroa.8.0.header2.sroa_idx = getelementptr inbounds i8, ptr %0, i64 24
   %new_header.sroa.8.0.copyload = load i64, ptr %new_header.sroa.8.0.header2.sroa_idx, align 8
-  %new_header.sroa.14.0.header2.sroa_idx = getelementptr inbounds %struct.BDRVQEDState, ptr %0, i64 0, i32 1, i32 5
-  %new_header.sroa.15.0.header2.sroa_idx = getelementptr inbounds %struct.BDRVQEDState, ptr %0, i64 0, i32 1, i32 6
+  %new_header.sroa.14.0.header2.sroa_idx = getelementptr inbounds i8, ptr %0, i64 32
+  %new_header.sroa.15.0.header2.sroa_idx = getelementptr inbounds i8, ptr %0, i64 40
   %new_header.sroa.15.0.copyload = load i64, ptr %new_header.sroa.15.0.header2.sroa_idx, align 8
-  %new_header.sroa.16.0.header2.sroa_idx = getelementptr inbounds %struct.BDRVQEDState, ptr %0, i64 0, i32 1, i32 7
+  %new_header.sroa.16.0.header2.sroa_idx = getelementptr inbounds i8, ptr %0, i64 48
   %new_header.sroa.16.0.copyload = load i64, ptr %new_header.sroa.16.0.header2.sroa_idx, align 8
-  %new_header.sroa.17.0.header2.sroa_idx = getelementptr inbounds %struct.BDRVQEDState, ptr %0, i64 0, i32 1, i32 8
+  %new_header.sroa.17.0.header2.sroa_idx = getelementptr inbounds i8, ptr %0, i64 56
   %new_header.sroa.17.0.copyload = load i64, ptr %new_header.sroa.17.0.header2.sroa_idx, align 8
-  %new_header.sroa.18.0.header2.sroa_idx = getelementptr inbounds %struct.BDRVQEDState, ptr %0, i64 0, i32 1, i32 9
-  %new_header.sroa.20.0.header2.sroa_idx = getelementptr inbounds %struct.BDRVQEDState, ptr %0, i64 0, i32 1, i32 10
+  %new_header.sroa.18.0.header2.sroa_idx = getelementptr inbounds i8, ptr %0, i64 64
+  %new_header.sroa.20.0.header2.sroa_idx = getelementptr inbounds i8, ptr %0, i64 68
   %and3 = and i64 %new_header.sroa.8.0.copyload, -6
   br i1 %tobool.not, label %if.end15, label %if.then5
 
@@ -737,7 +693,7 @@ if.then5:                                         ; preds = %if.end
   br i1 %tobool.not.i, label %if.then13, label %qed_fmt_is_raw.exit
 
 qed_fmt_is_raw.exit:                              ; preds = %if.then5
-  %call.i = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %backing_fmt, ptr noundef nonnull dereferenceable(4) @.str.29) #21
+  %call.i = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %backing_fmt, ptr noundef nonnull dereferenceable(4) @.str.29) #20
   %cmp.i = icmp eq i32 %call.i, 0
   %or9 = or i64 %new_header.sroa.8.0.copyload, 5
   %spec.select = select i1 %cmp.i, i64 %or9, i64 %or
@@ -745,7 +701,7 @@ qed_fmt_is_raw.exit:                              ; preds = %if.then5
 
 if.then13:                                        ; preds = %qed_fmt_is_raw.exit, %if.then5
   %new_header.sroa.8.0 = phi i64 [ %or, %if.then5 ], [ %spec.select, %qed_fmt_is_raw.exit ]
-  %call14 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %backing_file) #21
+  %call14 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %backing_file) #20
   br label %if.end15
 
 if.end15:                                         ; preds = %if.end, %if.then13
@@ -759,7 +715,7 @@ if.end15:                                         ; preds = %if.end, %if.then13
   br i1 %cmp, label %return, label %if.end20
 
 if.end20:                                         ; preds = %if.end15
-  %call21 = tail call noalias ptr @g_malloc(i64 noundef %add) #22
+  %call21 = tail call noalias ptr @g_malloc(i64 noundef %add) #21
   store i32 %new_header.sroa.0.0.copyload, ptr %call21, align 1
   %le_header.sroa.2.0.call21.sroa_idx = getelementptr inbounds i8, ptr %call21, i64 4
   store i32 %new_header.sroa.3.0.copyload, ptr %le_header.sroa.2.0.call21.sroa_idx, align 1
@@ -790,10 +746,10 @@ if.then23:                                        ; preds = %if.end20
 
 if.end25:                                         ; preds = %if.then23, %if.end20
   %buffer_len.0 = phi i64 [ %add, %if.then23 ], [ 64, %if.end20 ]
-  %file = getelementptr inbounds %struct.BlockDriverState, ptr %bs, i64 0, i32 31
+  %file = getelementptr inbounds i8, ptr %bs, i64 16840
   %1 = load ptr, ptr %file, align 8
-  %call26 = tail call i32 @bdrv_co_pwrite_sync(ptr noundef %1, i64 noundef 0, i64 noundef %buffer_len.0, ptr noundef nonnull %call21, i32 noundef 0) #19
-  tail call void @g_free(ptr noundef nonnull %call21) #19
+  %call26 = tail call i32 @bdrv_co_pwrite_sync(ptr noundef %1, i64 noundef 0, i64 noundef %buffer_len.0, ptr noundef nonnull %call21, i32 noundef 0) #18
+  tail call void @g_free(ptr noundef nonnull %call21) #18
   %cmp27 = icmp eq i32 %call26, 0
   br i1 %cmp27, label %if.then29, label %return
 
@@ -819,16 +775,16 @@ return:                                           ; preds = %if.end25, %if.then2
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
 define internal void @bdrv_qed_refresh_limits(ptr nocapture noundef %bs, ptr nocapture readnone %errp) #3 {
 entry:
-  %opaque = getelementptr inbounds %struct.BlockDriverState, ptr %bs, i64 0, i32 7
+  %opaque = getelementptr inbounds i8, ptr %bs, i64 24
   %0 = load ptr, ptr %opaque, align 8
-  %cluster_size = getelementptr inbounds %struct.BDRVQEDState, ptr %0, i64 0, i32 1, i32 1
+  %cluster_size = getelementptr inbounds i8, ptr %0, i64 12
   %1 = load i32, ptr %cluster_size, align 4
-  %pwrite_zeroes_alignment = getelementptr inbounds %struct.BlockDriverState, ptr %bs, i64 0, i32 17, i32 4
+  %pwrite_zeroes_alignment = getelementptr inbounds i8, ptr %bs, i64 16496
   store i32 %1, ptr %pwrite_zeroes_alignment, align 8
   %2 = urem i32 2147483647, %1
   %mul = xor i32 %2, 2147483647
   %conv = zext nneg i32 %mul to i64
-  %max_pwrite_zeroes = getelementptr inbounds %struct.BlockDriverState, ptr %bs, i64 0, i32 17, i32 3
+  %max_pwrite_zeroes = getelementptr inbounds i8, ptr %bs, i64 16488
   store i64 %conv, ptr %max_pwrite_zeroes, align 8
   ret void
 }
@@ -838,17 +794,17 @@ declare i32 @bdrv_has_zero_init_1(ptr noundef) #1
 ; Function Attrs: nounwind sspstrong uwtable
 define internal void @bdrv_qed_detach_aio_context(ptr nocapture noundef readonly %bs) #0 {
 entry:
-  %opaque = getelementptr inbounds %struct.BlockDriverState, ptr %bs, i64 0, i32 7
+  %opaque = getelementptr inbounds i8, ptr %bs, i64 24
   %0 = load ptr, ptr %opaque, align 8
   tail call fastcc void @qed_cancel_need_check_timer(ptr noundef %0)
-  %need_check_timer = getelementptr inbounds %struct.BDRVQEDState, ptr %0, i64 0, i32 13
+  %need_check_timer = getelementptr inbounds i8, ptr %0, i64 208
   %1 = load ptr, ptr %need_check_timer, align 8
   %tobool.not.i = icmp eq ptr %1, null
   br i1 %tobool.not.i, label %timer_free.exit, label %if.then.i
 
 if.then.i:                                        ; preds = %entry
-  tail call void @timer_del(ptr noundef nonnull %1) #19
-  tail call void @g_free(ptr noundef nonnull %1) #19
+  tail call void @timer_del(ptr noundef nonnull %1) #18
+  tail call void @g_free(ptr noundef nonnull %1) #18
   br label %timer_free.exit
 
 timer_free.exit:                                  ; preds = %entry, %if.then.i
@@ -858,14 +814,14 @@ timer_free.exit:                                  ; preds = %entry, %if.then.i
 ; Function Attrs: nounwind sspstrong uwtable
 define internal void @bdrv_qed_attach_aio_context(ptr nocapture noundef readonly %bs, ptr noundef %new_context) #0 {
 entry:
-  %opaque = getelementptr inbounds %struct.BlockDriverState, ptr %bs, i64 0, i32 7
+  %opaque = getelementptr inbounds i8, ptr %bs, i64 24
   %0 = load ptr, ptr %opaque, align 8
-  %tlg.i = getelementptr inbounds %struct.AioContext, ptr %new_context, i64 0, i32 19
-  %call.i.i = tail call noalias dereferenceable_or_null(48) ptr @g_malloc0_n(i64 noundef 1, i64 noundef 48) #23
-  tail call void @timer_init_full(ptr noundef %call.i.i, ptr noundef nonnull %tlg.i, i32 noundef 1, i32 noundef 1, i32 noundef 0, ptr noundef nonnull @qed_need_check_timer_cb, ptr noundef %0) #19
-  %need_check_timer = getelementptr inbounds %struct.BDRVQEDState, ptr %0, i64 0, i32 13
+  %tlg.i = getelementptr inbounds i8, ptr %new_context, i64 480
+  %call.i.i = tail call noalias dereferenceable_or_null(48) ptr @g_malloc0_n(i64 noundef 1, i64 noundef 48) #22
+  tail call void @timer_init_full(ptr noundef %call.i.i, ptr noundef nonnull %tlg.i, i32 noundef 1, i32 noundef 1, i32 noundef 0, ptr noundef nonnull @qed_need_check_timer_cb, ptr noundef %0) #18
+  %need_check_timer = getelementptr inbounds i8, ptr %0, i64 208
   store ptr %call.i.i, ptr %need_check_timer, align 8
-  %features = getelementptr inbounds %struct.BDRVQEDState, ptr %0, i64 0, i32 1, i32 4
+  %features = getelementptr inbounds i8, ptr %0, i64 24
   %1 = load i64, ptr %features, align 8
   %and = and i64 %1, 2
   %tobool.not = icmp eq i64 %and, 0
@@ -882,23 +838,23 @@ if.end:                                           ; preds = %if.then, %entry
 ; Function Attrs: nounwind sspstrong uwtable
 define internal void @bdrv_qed_drain_begin(ptr noundef %bs) #0 {
 entry:
-  %opaque = getelementptr inbounds %struct.BlockDriverState, ptr %bs, i64 0, i32 7
+  %opaque = getelementptr inbounds i8, ptr %bs, i64 24
   %0 = load ptr, ptr %opaque, align 8
-  %need_check_timer = getelementptr inbounds %struct.BDRVQEDState, ptr %0, i64 0, i32 13
+  %need_check_timer = getelementptr inbounds i8, ptr %0, i64 208
   %1 = load ptr, ptr %need_check_timer, align 8
   %tobool.not = icmp eq ptr %1, null
   br i1 %tobool.not, label %if.end, label %land.lhs.true
 
 land.lhs.true:                                    ; preds = %entry
-  %call = tail call zeroext i1 @timer_pending(ptr noundef nonnull %1) #19
+  %call = tail call zeroext i1 @timer_pending(ptr noundef nonnull %1) #18
   br i1 %call, label %if.then, label %if.end
 
 if.then:                                          ; preds = %land.lhs.true
   tail call fastcc void @qed_cancel_need_check_timer(ptr noundef nonnull %0)
-  %call2 = tail call ptr @qemu_coroutine_create(ptr noundef nonnull @qed_need_check_timer_entry, ptr noundef nonnull %0) #19
-  tail call void @bdrv_inc_in_flight(ptr noundef nonnull %bs) #19
-  %call3 = tail call ptr @bdrv_get_aio_context(ptr noundef nonnull %bs) #19
-  tail call void @aio_co_enter(ptr noundef %call3, ptr noundef %call2) #19
+  %call2 = tail call ptr @qemu_coroutine_create(ptr noundef nonnull @qed_need_check_timer_entry, ptr noundef nonnull %0) #18
+  tail call void @bdrv_inc_in_flight(ptr noundef nonnull %bs) #18
+  %call3 = tail call ptr @bdrv_get_aio_context(ptr noundef nonnull %bs) #18
+  tail call void @aio_co_enter(ptr noundef %call3, ptr noundef %call2) #18
   br label %if.end
 
 if.end:                                           ; preds = %if.then, %land.lhs.true, %entry
@@ -942,22 +898,22 @@ entry:
 define internal i32 @bdrv_qed_co_pwrite_zeroes(ptr noundef %bs, i64 noundef %offset, i64 noundef %bytes, i32 %flags) #0 {
 entry:
   %qiov = alloca %struct.QEMUIOVector, align 8
-  %opaque = getelementptr inbounds %struct.BlockDriverState, ptr %bs, i64 0, i32 7
+  %opaque = getelementptr inbounds i8, ptr %bs, i64 24
   %0 = load ptr, ptr %opaque, align 8
-  %1 = getelementptr inbounds %struct.QEMUIOVector, ptr %qiov, i64 0, i32 2
-  %local_iov = getelementptr inbounds %struct.QEMUIOVector, ptr %qiov, i64 0, i32 2, i32 0, i32 1
+  %1 = getelementptr inbounds i8, ptr %qiov, i64 16
+  %local_iov = getelementptr inbounds i8, ptr %qiov, i64 24
   store ptr %local_iov, ptr %qiov, align 8
-  %niov = getelementptr inbounds %struct.QEMUIOVector, ptr %qiov, i64 0, i32 1
+  %niov = getelementptr inbounds i8, ptr %qiov, i64 8
   store i32 1, ptr %niov, align 8
   store i32 -1, ptr %1, align 8
   store ptr null, ptr %local_iov, align 8
-  %iov_len = getelementptr inbounds %struct.QEMUIOVector, ptr %qiov, i64 0, i32 2, i32 0, i32 1, i32 1
+  %iov_len = getelementptr inbounds i8, ptr %qiov, i64 32
   store i64 %bytes, ptr %iov_len, align 8
   %cmp = icmp slt i64 %bytes, 2147483648
   br i1 %cmp, label %if.end, label %if.else
 
 if.else:                                          ; preds = %entry
-  call void @__assert_fail(ptr noundef nonnull @.str.75, ptr noundef nonnull @.str.16, i32 noundef 1441, ptr noundef nonnull @__PRETTY_FUNCTION__.bdrv_qed_co_pwrite_zeroes) #20
+  call void @__assert_fail(ptr noundef nonnull @.str.75, ptr noundef nonnull @.str.16, i32 noundef 1441, ptr noundef nonnull @__PRETTY_FUNCTION__.bdrv_qed_co_pwrite_zeroes) #19
   unreachable
 
 if.end:                                           ; preds = %entry
@@ -983,18 +939,18 @@ return:                                           ; preds = %if.end, %if.end5
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal i32 @bdrv_qed_co_block_status(ptr nocapture noundef readonly %bs, i1 zeroext %want_zero, i64 noundef %pos, i64 noundef %bytes, ptr nocapture noundef writeonly %pnum, ptr nocapture noundef writeonly %map, ptr nocapture noundef writeonly %file) #0 {
+define internal noundef i32 @bdrv_qed_co_block_status(ptr nocapture noundef readonly %bs, i1 zeroext %want_zero, i64 noundef %pos, i64 noundef %bytes, ptr nocapture noundef writeonly %pnum, ptr nocapture noundef writeonly %map, ptr nocapture noundef writeonly %file) #0 {
 entry:
   %len = alloca i64, align 8
   %request = alloca %struct.QEDRequest, align 8
   %offset = alloca i64, align 8
-  %opaque = getelementptr inbounds %struct.BlockDriverState, ptr %bs, i64 0, i32 7
+  %opaque = getelementptr inbounds i8, ptr %bs, i64 24
   %0 = load ptr, ptr %opaque, align 8
   store i64 %bytes, ptr %len, align 8
   store i64 0, ptr %request, align 8
-  %table_lock = getelementptr inbounds %struct.BDRVQEDState, ptr %0, i64 0, i32 2
-  tail call void @qemu_co_mutex_lock(ptr noundef nonnull %table_lock) #19
-  %call = call i32 @qed_find_cluster(ptr noundef %0, ptr noundef nonnull %request, i64 noundef %pos, ptr noundef nonnull %len, ptr noundef nonnull %offset) #19
+  %table_lock = getelementptr inbounds i8, ptr %0, i64 72
+  tail call void @qemu_co_mutex_lock(ptr noundef nonnull %table_lock) #18
+  %call = call i32 @qed_find_cluster(ptr noundef %0, ptr noundef nonnull %request, i64 noundef %pos, ptr noundef nonnull %len, ptr noundef nonnull %offset) #18
   %1 = load i64, ptr %len, align 8
   store i64 %1, ptr %pnum, align 8
   switch i32 %call, label %sw.default [
@@ -1013,7 +969,7 @@ sw.bb:                                            ; preds = %entry
   %and.i = and i64 %conv.i, %pos
   %or = or i64 %and.i, %2
   store i64 %or, ptr %map, align 8
-  %file2 = getelementptr inbounds %struct.BlockDriverState, ptr %bs, i64 0, i32 31
+  %file2 = getelementptr inbounds i8, ptr %bs, i64 16840
   %4 = load ptr, ptr %file2, align 8
   %5 = load ptr, ptr %4, align 8
   store ptr %5, ptr %file, align 8
@@ -1027,41 +983,41 @@ sw.default:                                       ; preds = %entry
   br i1 %cmp6, label %sw.epilog, label %if.else
 
 if.else:                                          ; preds = %sw.default
-  call void @__assert_fail(ptr noundef nonnull @.str.76, ptr noundef nonnull @.str.16, i32 noundef 864, ptr noundef nonnull @__PRETTY_FUNCTION__.bdrv_qed_co_block_status) #20
+  call void @__assert_fail(ptr noundef nonnull @.str.76, ptr noundef nonnull @.str.16, i32 noundef 864, ptr noundef nonnull @__PRETTY_FUNCTION__.bdrv_qed_co_block_status) #19
   unreachable
 
 sw.epilog:                                        ; preds = %sw.default, %entry, %sw.bb5, %sw.bb
   %status.0 = phi i32 [ 0, %sw.bb5 ], [ 5, %sw.bb ], [ 2, %entry ], [ %call, %sw.default ]
   %6 = load ptr, ptr %request, align 8
-  call void @qed_unref_l2_cache_entry(ptr noundef %6) #19
-  call void @qemu_co_mutex_unlock(ptr noundef nonnull %table_lock) #19
+  call void @qed_unref_l2_cache_entry(ptr noundef %6) #18
+  call void @qemu_co_mutex_unlock(ptr noundef nonnull %table_lock) #18
   ret i32 %status.0
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
 define internal void @bdrv_qed_co_invalidate_cache(ptr noundef %bs, ptr noundef %errp) #0 {
 entry:
-  %opaque = getelementptr inbounds %struct.BlockDriverState, ptr %bs, i64 0, i32 7
+  %opaque = getelementptr inbounds i8, ptr %bs, i64 24
   %0 = load ptr, ptr %opaque, align 8
   tail call fastcc void @bdrv_qed_do_close(ptr noundef %bs)
   %1 = load ptr, ptr %opaque, align 8
   %2 = getelementptr inbounds i8, ptr %1, i64 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(216) %2, i8 0, i64 208, i1 false)
   store ptr %bs, ptr %1, align 8
-  %table_lock.i = getelementptr inbounds %struct.BDRVQEDState, ptr %1, i64 0, i32 2
-  tail call void @qemu_co_mutex_init(ptr noundef nonnull %table_lock.i) #19
-  %allocating_write_reqs.i = getelementptr inbounds %struct.BDRVQEDState, ptr %1, i64 0, i32 11
-  tail call void @qemu_co_queue_init(ptr noundef nonnull %allocating_write_reqs.i) #19
-  %table_lock = getelementptr inbounds %struct.BDRVQEDState, ptr %0, i64 0, i32 2
-  tail call void @qemu_co_mutex_lock(ptr noundef nonnull %table_lock) #19
+  %table_lock.i = getelementptr inbounds i8, ptr %1, i64 72
+  tail call void @qemu_co_mutex_init(ptr noundef nonnull %table_lock.i) #18
+  %allocating_write_reqs.i = getelementptr inbounds i8, ptr %1, i64 184
+  tail call void @qemu_co_queue_init(ptr noundef nonnull %allocating_write_reqs.i) #18
+  %table_lock = getelementptr inbounds i8, ptr %0, i64 72
+  tail call void @qemu_co_mutex_lock(ptr noundef nonnull %table_lock) #18
   %3 = load i32, ptr %bs, align 8
   %call = tail call i32 @bdrv_qed_do_open(ptr noundef nonnull %bs, ptr poison, i32 noundef %3, ptr noundef %errp)
-  tail call void @qemu_co_mutex_unlock(ptr noundef nonnull %table_lock) #19
+  tail call void @qemu_co_mutex_unlock(ptr noundef nonnull %table_lock) #18
   %cmp = icmp slt i32 %call, 0
   br i1 %cmp, label %if.then, label %if.end
 
 if.then:                                          ; preds = %entry
-  tail call void (ptr, ptr, ...) @error_prepend(ptr noundef %errp, ptr noundef nonnull @.str.77) #19
+  tail call void (ptr, ptr, ...) @error_prepend(ptr noundef %errp, ptr noundef nonnull @.str.77) #18
   br label %if.end
 
 if.end:                                           ; preds = %if.then, %entry
@@ -1072,14 +1028,14 @@ if.end:                                           ; preds = %if.then, %entry
 define internal i32 @bdrv_qed_co_truncate(ptr nocapture noundef readonly %bs, i64 noundef %offset, i1 zeroext %exact, i32 noundef %prealloc, i32 %flags, ptr noundef %errp) #0 {
 entry:
   %le.i = alloca %struct.QEDHeader, align 4
-  %opaque = getelementptr inbounds %struct.BlockDriverState, ptr %bs, i64 0, i32 7
+  %opaque = getelementptr inbounds i8, ptr %bs, i64 24
   %0 = load ptr, ptr %opaque, align 8
   %cmp.not = icmp eq i32 %prealloc, 0
   br i1 %cmp.not, label %if.end, label %if.then
 
 if.then:                                          ; preds = %entry
-  %call = tail call ptr @qapi_enum_lookup(ptr noundef nonnull @PreallocMode_lookup, i32 noundef %prealloc) #19
-  tail call void (ptr, ptr, i32, ptr, ptr, ...) @error_setg_internal(ptr noundef %errp, ptr noundef nonnull @.str.16, i32 noundef 1465, ptr noundef nonnull @__func__.bdrv_qed_co_truncate, ptr noundef nonnull @.str.78, ptr noundef %call) #19
+  %call = tail call ptr @qapi_enum_lookup(ptr noundef nonnull @PreallocMode_lookup, i32 noundef %prealloc) #18
+  tail call void (ptr, ptr, i32, ptr, ptr, ...) @error_setg_internal(ptr noundef %errp, ptr noundef nonnull @.str.16, i32 noundef 1465, ptr noundef nonnull @__func__.bdrv_qed_co_truncate, ptr noundef nonnull @.str.78, ptr noundef %call) #18
   br label %return
 
 if.end:                                           ; preds = %entry
@@ -1088,8 +1044,8 @@ if.end:                                           ; preds = %entry
   br i1 %cmp.not.i, label %qed_is_image_size_valid.exit, label %if.then3
 
 qed_is_image_size_valid.exit:                     ; preds = %if.end
-  %table_size = getelementptr inbounds %struct.BDRVQEDState, ptr %0, i64 0, i32 1, i32 2
-  %cluster_size = getelementptr inbounds %struct.BDRVQEDState, ptr %0, i64 0, i32 1, i32 1
+  %table_size = getelementptr inbounds i8, ptr %0, i64 16
+  %cluster_size = getelementptr inbounds i8, ptr %0, i64 12
   %1 = load i32, ptr %table_size, align 8
   %2 = load i32, ptr %cluster_size, align 4
   %mul.i.i = mul i32 %2, %1
@@ -1102,51 +1058,51 @@ qed_is_image_size_valid.exit:                     ; preds = %if.end
   br i1 %cmp1.i.not, label %if.then3, label %if.end4
 
 if.then3:                                         ; preds = %if.end, %qed_is_image_size_valid.exit
-  tail call void (ptr, ptr, i32, ptr, ptr, ...) @error_setg_internal(ptr noundef %errp, ptr noundef nonnull @.str.16, i32 noundef 1471, ptr noundef nonnull @__func__.bdrv_qed_co_truncate, ptr noundef nonnull @.str.79) #19
+  tail call void (ptr, ptr, i32, ptr, ptr, ...) @error_setg_internal(ptr noundef %errp, ptr noundef nonnull @.str.16, i32 noundef 1471, ptr noundef nonnull @__func__.bdrv_qed_co_truncate, ptr noundef nonnull @.str.79) #18
   br label %return
 
 if.end4:                                          ; preds = %qed_is_image_size_valid.exit
-  %image_size = getelementptr inbounds %struct.BDRVQEDState, ptr %0, i64 0, i32 1, i32 8
+  %image_size = getelementptr inbounds i8, ptr %0, i64 56
   %4 = load i64, ptr %image_size, align 8
   %cmp6 = icmp ugt i64 %4, %offset
   br i1 %cmp6, label %if.then7, label %if.end8
 
 if.then7:                                         ; preds = %if.end4
-  tail call void (ptr, ptr, i32, ptr, ptr, ...) @error_setg_internal(ptr noundef %errp, ptr noundef nonnull @.str.16, i32 noundef 1476, ptr noundef nonnull @__func__.bdrv_qed_co_truncate, ptr noundef nonnull @.str.80) #19
+  tail call void (ptr, ptr, i32, ptr, ptr, ...) @error_setg_internal(ptr noundef %errp, ptr noundef nonnull @.str.16, i32 noundef 1476, ptr noundef nonnull @__func__.bdrv_qed_co_truncate, ptr noundef nonnull @.str.80) #18
   br label %return
 
 if.end8:                                          ; preds = %if.end4
   store i64 %offset, ptr %image_size, align 8
   call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %le.i)
-  %header.i = getelementptr inbounds %struct.BDRVQEDState, ptr %0, i64 0, i32 1
+  %header.i = getelementptr inbounds i8, ptr %0, i64 8
   %5 = load i32, ptr %header.i, align 1
   store i32 %5, ptr %le.i, align 4
-  %cluster_size3.i.i = getelementptr inbounds %struct.QEDHeader, ptr %le.i, i64 0, i32 1
+  %cluster_size3.i.i = getelementptr inbounds i8, ptr %le.i, i64 4
   store i32 %2, ptr %cluster_size3.i.i, align 4
-  %table_size5.i.i = getelementptr inbounds %struct.QEDHeader, ptr %le.i, i64 0, i32 2
+  %table_size5.i.i = getelementptr inbounds i8, ptr %le.i, i64 8
   store i32 %1, ptr %table_size5.i.i, align 4
-  %header_size.i.i = getelementptr inbounds %struct.BDRVQEDState, ptr %0, i64 0, i32 1, i32 3
+  %header_size.i.i = getelementptr inbounds i8, ptr %0, i64 20
   %6 = load i32, ptr %header_size.i.i, align 1
-  %header_size7.i.i = getelementptr inbounds %struct.QEDHeader, ptr %le.i, i64 0, i32 3
+  %header_size7.i.i = getelementptr inbounds i8, ptr %le.i, i64 12
   store i32 %6, ptr %header_size7.i.i, align 4
-  %features.i.i = getelementptr inbounds %struct.BDRVQEDState, ptr %0, i64 0, i32 1, i32 4
-  %features9.i.i = getelementptr inbounds %struct.QEDHeader, ptr %le.i, i64 0, i32 4
+  %features.i.i = getelementptr inbounds i8, ptr %0, i64 24
+  %features9.i.i = getelementptr inbounds i8, ptr %le.i, i64 16
   %7 = load <2 x i64>, ptr %features.i.i, align 1
   store <2 x i64> %7, ptr %features9.i.i, align 4
-  %autoclear_features.i.i = getelementptr inbounds %struct.BDRVQEDState, ptr %0, i64 0, i32 1, i32 6
-  %autoclear_features13.i.i = getelementptr inbounds %struct.QEDHeader, ptr %le.i, i64 0, i32 6
+  %autoclear_features.i.i = getelementptr inbounds i8, ptr %0, i64 40
+  %autoclear_features13.i.i = getelementptr inbounds i8, ptr %le.i, i64 32
   %8 = load <2 x i64>, ptr %autoclear_features.i.i, align 1
   store <2 x i64> %8, ptr %autoclear_features13.i.i, align 4
-  %image_size17.i.i = getelementptr inbounds %struct.QEDHeader, ptr %le.i, i64 0, i32 8
+  %image_size17.i.i = getelementptr inbounds i8, ptr %le.i, i64 48
   store i64 %offset, ptr %image_size17.i.i, align 4
-  %backing_filename_offset.i.i = getelementptr inbounds %struct.BDRVQEDState, ptr %0, i64 0, i32 1, i32 9
-  %backing_filename_offset19.i.i = getelementptr inbounds %struct.QEDHeader, ptr %le.i, i64 0, i32 9
+  %backing_filename_offset.i.i = getelementptr inbounds i8, ptr %0, i64 64
+  %backing_filename_offset19.i.i = getelementptr inbounds i8, ptr %le.i, i64 56
   %9 = load <2 x i32>, ptr %backing_filename_offset.i.i, align 1
   store <2 x i32> %9, ptr %backing_filename_offset19.i.i, align 4
   %10 = load ptr, ptr %0, align 8
-  %file.i = getelementptr inbounds %struct.BlockDriverState, ptr %10, i64 0, i32 31
+  %file.i = getelementptr inbounds i8, ptr %10, i64 16840
   %11 = load ptr, ptr %file.i, align 8
-  %call.i = call i32 @bdrv_pwrite(ptr noundef %11, i64 noundef 0, i64 noundef 64, ptr noundef nonnull %le.i, i32 noundef 0) #19
+  %call.i = call i32 @bdrv_pwrite(ptr noundef %11, i64 noundef 0, i64 noundef 64, ptr noundef nonnull %le.i, i32 noundef 0) #18
   call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %le.i)
   %cmp14 = icmp slt i32 %call.i, 0
   br i1 %cmp14, label %if.then15, label %return
@@ -1154,7 +1110,7 @@ if.end8:                                          ; preds = %if.end4
 if.then15:                                        ; preds = %if.end8
   store i64 %4, ptr %image_size, align 8
   %sub = sub i32 0, %call.i
-  call void (ptr, ptr, i32, ptr, i32, ptr, ...) @error_setg_errno_internal(ptr noundef %errp, ptr noundef nonnull @.str.16, i32 noundef 1485, ptr noundef nonnull @__func__.bdrv_qed_co_truncate, i32 noundef %sub, ptr noundef nonnull @.str.81) #19
+  call void (ptr, ptr, i32, ptr, i32, ptr, ...) @error_setg_errno_internal(ptr noundef %errp, ptr noundef nonnull @.str.16, i32 noundef 1485, ptr noundef nonnull @__func__.bdrv_qed_co_truncate, i32 noundef %sub, ptr noundef nonnull @.str.81) #18
   br label %return
 
 return:                                           ; preds = %if.end8, %if.then15, %if.then7, %if.then3, %if.then
@@ -1165,25 +1121,25 @@ return:                                           ; preds = %if.end8, %if.then15
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(read, inaccessiblemem: none) uwtable
 define internal i64 @bdrv_qed_co_getlength(ptr nocapture noundef readonly %bs) #5 {
 entry:
-  %opaque = getelementptr inbounds %struct.BlockDriverState, ptr %bs, i64 0, i32 7
+  %opaque = getelementptr inbounds i8, ptr %bs, i64 24
   %0 = load ptr, ptr %opaque, align 8
-  %image_size = getelementptr inbounds %struct.BDRVQEDState, ptr %0, i64 0, i32 1, i32 8
+  %image_size = getelementptr inbounds i8, ptr %0, i64 56
   %1 = load i64, ptr %image_size, align 8
   ret i64 %1
 }
 
-; Function Attrs: mustprogress nofree nosync nounwind sspstrong willreturn memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define internal i32 @bdrv_qed_co_get_info(ptr nocapture noundef readonly %bs, ptr nocapture noundef writeonly %bdi) #6 {
+; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
+define internal noundef i32 @bdrv_qed_co_get_info(ptr nocapture noundef readonly %bs, ptr nocapture noundef writeonly %bdi) #3 {
 entry:
-  %opaque = getelementptr inbounds %struct.BlockDriverState, ptr %bs, i64 0, i32 7
+  %opaque = getelementptr inbounds i8, ptr %bs, i64 24
   %0 = load ptr, ptr %opaque, align 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %bdi, i8 0, i64 24, i1 false)
-  %cluster_size = getelementptr inbounds %struct.BDRVQEDState, ptr %0, i64 0, i32 1, i32 1
+  %cluster_size = getelementptr inbounds i8, ptr %0, i64 12
   %1 = load i32, ptr %cluster_size, align 4
   store i32 %1, ptr %bdi, align 8
-  %features = getelementptr inbounds %struct.BDRVQEDState, ptr %0, i64 0, i32 1, i32 4
+  %features = getelementptr inbounds i8, ptr %0, i64 24
   %2 = load i64, ptr %features, align 8
-  %is_dirty = getelementptr inbounds %struct.BlockDriverInfo, ptr %bdi, i64 0, i32 3
+  %is_dirty = getelementptr inbounds i8, ptr %bdi, i64 16
   %3 = trunc i64 %2 to i8
   %4 = lshr i8 %3, 1
   %frombool = and i8 %4, 1
@@ -1194,13 +1150,13 @@ entry:
 ; Function Attrs: nounwind sspstrong uwtable
 define internal i32 @bdrv_qed_co_check(ptr nocapture noundef readonly %bs, ptr noundef %result, i32 noundef %fix) #0 {
 entry:
-  %opaque = getelementptr inbounds %struct.BlockDriverState, ptr %bs, i64 0, i32 7
+  %opaque = getelementptr inbounds i8, ptr %bs, i64 24
   %0 = load ptr, ptr %opaque, align 8
-  %table_lock = getelementptr inbounds %struct.BDRVQEDState, ptr %0, i64 0, i32 2
-  tail call void @qemu_co_mutex_lock(ptr noundef nonnull %table_lock) #19
+  %table_lock = getelementptr inbounds i8, ptr %0, i64 72
+  tail call void @qemu_co_mutex_lock(ptr noundef nonnull %table_lock) #18
   %tobool = icmp ne i32 %fix, 0
-  %call = tail call i32 @qed_check(ptr noundef %0, ptr noundef %result, i1 noundef zeroext %tobool) #19
-  tail call void @qemu_co_mutex_unlock(ptr noundef nonnull %table_lock) #19
+  %call = tail call i32 @qed_check(ptr noundef %0, ptr noundef %result, i1 noundef zeroext %tobool) #18
+  tail call void @qemu_co_mutex_unlock(ptr noundef nonnull %table_lock) #18
   ret i32 %call
 }
 
@@ -1209,7 +1165,7 @@ declare i32 @bdrv_open_file_child(ptr noundef, ptr noundef, ptr noundef, ptr nou
 declare zeroext i1 @qemu_in_coroutine() local_unnamed_addr #1
 
 ; Function Attrs: noreturn nounwind
-declare void @__assert_fail(ptr noundef, ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #7
+declare void @__assert_fail(ptr noundef, ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #6
 
 declare ptr @qemu_get_current_aio_context() local_unnamed_addr #1
 
@@ -1223,21 +1179,21 @@ declare ptr @qemu_coroutine_create(ptr noundef, ptr noundef) local_unnamed_addr 
 define internal void @bdrv_qed_open_entry(ptr nocapture noundef %opaque) #0 {
 glib_autoptr_cleanup_GraphLockable.exit:
   %0 = load ptr, ptr %opaque, align 8
-  %opaque1 = getelementptr inbounds %struct.BlockDriverState, ptr %0, i64 0, i32 7
+  %opaque1 = getelementptr inbounds i8, ptr %0, i64 24
   %1 = load ptr, ptr %opaque1, align 8
-  tail call void @bdrv_graph_co_rdlock() #19
-  %table_lock = getelementptr inbounds %struct.BDRVQEDState, ptr %1, i64 0, i32 2
-  tail call void @qemu_co_mutex_lock(ptr noundef nonnull %table_lock) #19
+  tail call void @bdrv_graph_co_rdlock() #18
+  %table_lock = getelementptr inbounds i8, ptr %1, i64 72
+  tail call void @qemu_co_mutex_lock(ptr noundef nonnull %table_lock) #18
   %2 = load ptr, ptr %opaque, align 8
-  %flags = getelementptr inbounds %struct.QEDOpenCo, ptr %opaque, i64 0, i32 2
+  %flags = getelementptr inbounds i8, ptr %opaque, i64 16
   %3 = load i32, ptr %flags, align 8
-  %errp = getelementptr inbounds %struct.QEDOpenCo, ptr %opaque, i64 0, i32 3
+  %errp = getelementptr inbounds i8, ptr %opaque, i64 24
   %4 = load ptr, ptr %errp, align 8
   %call3 = tail call i32 @bdrv_qed_do_open(ptr noundef %2, ptr poison, i32 noundef %3, ptr noundef %4)
-  %ret = getelementptr inbounds %struct.QEDOpenCo, ptr %opaque, i64 0, i32 4
+  %ret = getelementptr inbounds i8, ptr %opaque, i64 32
   store i32 %call3, ptr %ret, align 8
-  tail call void @qemu_co_mutex_unlock(ptr noundef nonnull %table_lock) #19
-  tail call void @bdrv_graph_co_rdunlock() #19
+  tail call void @qemu_co_mutex_unlock(ptr noundef nonnull %table_lock) #18
+  tail call void @bdrv_graph_co_rdunlock() #18
   ret void
 }
 
@@ -1250,16 +1206,16 @@ declare void @aio_context_release(ptr noundef) local_unnamed_addr #1
 declare void @aio_context_acquire(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #8
+declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #7
 
 declare void @qemu_co_mutex_init(ptr noundef) local_unnamed_addr #1
 
 declare void @qemu_co_queue_init(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal ptr @graph_lockable_auto_lock(ptr noundef readnone returned %x) #0 {
+define internal noundef ptr @graph_lockable_auto_lock(ptr noundef readnone returned %x) #0 {
 entry:
-  tail call void @bdrv_graph_co_rdlock() #19
+  tail call void @bdrv_graph_co_rdlock() #18
   ret ptr %x
 }
 
@@ -1271,73 +1227,73 @@ entry:
   %qiov.i = alloca %struct.QEMUIOVector, align 8
   %le_header = alloca %struct.QEDHeader, align 4
   %result = alloca %struct.BdrvCheckResult, align 8
-  %opaque = getelementptr inbounds %struct.BlockDriverState, ptr %bs, i64 0, i32 7
+  %opaque = getelementptr inbounds i8, ptr %bs, i64 24
   %0 = load ptr, ptr %opaque, align 8
-  %file = getelementptr inbounds %struct.BlockDriverState, ptr %bs, i64 0, i32 31
+  %file = getelementptr inbounds i8, ptr %bs, i64 16840
   %1 = load ptr, ptr %file, align 8
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %qiov.i)
-  %2 = getelementptr inbounds %struct.QEMUIOVector, ptr %qiov.i, i64 0, i32 2
-  %local_iov.i = getelementptr inbounds %struct.QEMUIOVector, ptr %qiov.i, i64 0, i32 2, i32 0, i32 1
+  %2 = getelementptr inbounds i8, ptr %qiov.i, i64 16
+  %local_iov.i = getelementptr inbounds i8, ptr %qiov.i, i64 24
   store ptr %local_iov.i, ptr %qiov.i, align 8
-  %niov.i = getelementptr inbounds %struct.QEMUIOVector, ptr %qiov.i, i64 0, i32 1
+  %niov.i = getelementptr inbounds i8, ptr %qiov.i, i64 8
   store i32 1, ptr %niov.i, align 8
   store i32 -1, ptr %2, align 8
   store ptr %le_header, ptr %local_iov.i, align 8
-  %iov_len.i = getelementptr inbounds %struct.QEMUIOVector, ptr %qiov.i, i64 0, i32 2, i32 0, i32 1, i32 1
+  %iov_len.i = getelementptr inbounds i8, ptr %qiov.i, i64 32
   store i64 64, ptr %iov_len.i, align 8
-  call void @assert_bdrv_graph_readable() #19
-  %call.i = call i32 @bdrv_co_preadv(ptr noundef %1, i64 noundef 0, i64 noundef 64, ptr noundef nonnull %qiov.i, i32 noundef 0) #19
+  call void @assert_bdrv_graph_readable() #18
+  %call.i = call i32 @bdrv_co_preadv(ptr noundef %1, i64 noundef 0, i64 noundef 64, ptr noundef nonnull %qiov.i, i32 noundef 0) #18
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %qiov.i)
   %cmp = icmp slt i32 %call.i, 0
   br i1 %cmp, label %if.then, label %if.end
 
 if.then:                                          ; preds = %entry
-  call void (ptr, ptr, i32, ptr, ptr, ...) @error_setg_internal(ptr noundef %errp, ptr noundef nonnull @.str.16, i32 noundef 409, ptr noundef nonnull @__func__.bdrv_qed_do_open, ptr noundef nonnull @.str.18) #19
+  call void (ptr, ptr, i32, ptr, ptr, ...) @error_setg_internal(ptr noundef %errp, ptr noundef nonnull @.str.16, i32 noundef 409, ptr noundef nonnull @__func__.bdrv_qed_do_open, ptr noundef nonnull @.str.18) #18
   br label %return
 
 if.end:                                           ; preds = %entry
-  %header = getelementptr inbounds %struct.BDRVQEDState, ptr %0, i64 0, i32 1
+  %header = getelementptr inbounds i8, ptr %0, i64 8
   %3 = load i32, ptr %le_header, align 4
   store i32 %3, ptr %header, align 1
-  %cluster_size.i = getelementptr inbounds %struct.QEDHeader, ptr %le_header, i64 0, i32 1
-  %cluster_size3.i = getelementptr inbounds %struct.BDRVQEDState, ptr %0, i64 0, i32 1, i32 1
-  %table_size5.i = getelementptr inbounds %struct.BDRVQEDState, ptr %0, i64 0, i32 1, i32 2
+  %cluster_size.i = getelementptr inbounds i8, ptr %le_header, i64 4
+  %cluster_size3.i = getelementptr inbounds i8, ptr %0, i64 12
+  %table_size5.i = getelementptr inbounds i8, ptr %0, i64 16
   %4 = load <2 x i32>, ptr %cluster_size.i, align 4
   store <2 x i32> %4, ptr %cluster_size3.i, align 1
-  %header_size.i = getelementptr inbounds %struct.QEDHeader, ptr %le_header, i64 0, i32 3
+  %header_size.i = getelementptr inbounds i8, ptr %le_header, i64 12
   %5 = load i32, ptr %header_size.i, align 4
-  %header_size7.i = getelementptr inbounds %struct.BDRVQEDState, ptr %0, i64 0, i32 1, i32 3
+  %header_size7.i = getelementptr inbounds i8, ptr %0, i64 20
   store i32 %5, ptr %header_size7.i, align 1
-  %features.i = getelementptr inbounds %struct.QEDHeader, ptr %le_header, i64 0, i32 4
+  %features.i = getelementptr inbounds i8, ptr %le_header, i64 16
   %6 = load i64, ptr %features.i, align 4
-  %features9.i = getelementptr inbounds %struct.BDRVQEDState, ptr %0, i64 0, i32 1, i32 4
+  %features9.i = getelementptr inbounds i8, ptr %0, i64 24
   store i64 %6, ptr %features9.i, align 1
-  %compat_features.i = getelementptr inbounds %struct.QEDHeader, ptr %le_header, i64 0, i32 5
+  %compat_features.i = getelementptr inbounds i8, ptr %le_header, i64 24
   %7 = load i64, ptr %compat_features.i, align 4
-  %compat_features11.i = getelementptr inbounds %struct.BDRVQEDState, ptr %0, i64 0, i32 1, i32 5
+  %compat_features11.i = getelementptr inbounds i8, ptr %0, i64 32
   store i64 %7, ptr %compat_features11.i, align 1
-  %autoclear_features.i = getelementptr inbounds %struct.QEDHeader, ptr %le_header, i64 0, i32 6
+  %autoclear_features.i = getelementptr inbounds i8, ptr %le_header, i64 32
   %8 = load i64, ptr %autoclear_features.i, align 4
-  %autoclear_features13.i = getelementptr inbounds %struct.BDRVQEDState, ptr %0, i64 0, i32 1, i32 6
+  %autoclear_features13.i = getelementptr inbounds i8, ptr %0, i64 40
   store i64 %8, ptr %autoclear_features13.i, align 1
-  %l1_table_offset.i = getelementptr inbounds %struct.QEDHeader, ptr %le_header, i64 0, i32 7
+  %l1_table_offset.i = getelementptr inbounds i8, ptr %le_header, i64 40
   %9 = load i64, ptr %l1_table_offset.i, align 4
-  %l1_table_offset15.i = getelementptr inbounds %struct.BDRVQEDState, ptr %0, i64 0, i32 1, i32 7
+  %l1_table_offset15.i = getelementptr inbounds i8, ptr %0, i64 48
   store i64 %9, ptr %l1_table_offset15.i, align 1
-  %image_size.i = getelementptr inbounds %struct.QEDHeader, ptr %le_header, i64 0, i32 8
+  %image_size.i = getelementptr inbounds i8, ptr %le_header, i64 48
   %10 = load i64, ptr %image_size.i, align 4
-  %image_size17.i = getelementptr inbounds %struct.BDRVQEDState, ptr %0, i64 0, i32 1, i32 8
+  %image_size17.i = getelementptr inbounds i8, ptr %0, i64 56
   store i64 %10, ptr %image_size17.i, align 1
-  %backing_filename_offset.i = getelementptr inbounds %struct.QEDHeader, ptr %le_header, i64 0, i32 9
-  %backing_filename_offset19.i = getelementptr inbounds %struct.BDRVQEDState, ptr %0, i64 0, i32 1, i32 9
-  %backing_filename_size21.i = getelementptr inbounds %struct.BDRVQEDState, ptr %0, i64 0, i32 1, i32 10
+  %backing_filename_offset.i = getelementptr inbounds i8, ptr %le_header, i64 56
+  %backing_filename_offset19.i = getelementptr inbounds i8, ptr %0, i64 64
+  %backing_filename_size21.i = getelementptr inbounds i8, ptr %0, i64 68
   %11 = load <2 x i32>, ptr %backing_filename_offset.i, align 4
   store <2 x i32> %11, ptr %backing_filename_offset19.i, align 1
   %cmp2.not = icmp eq i32 %3, 4474193
   br i1 %cmp2.not, label %if.end4, label %if.then3
 
 if.then3:                                         ; preds = %if.end
-  call void (ptr, ptr, i32, ptr, ptr, ...) @error_setg_internal(ptr noundef %errp, ptr noundef nonnull @.str.16, i32 noundef 415, ptr noundef nonnull @__func__.bdrv_qed_do_open, ptr noundef nonnull @.str.19) #19
+  call void (ptr, ptr, i32, ptr, ptr, ...) @error_setg_internal(ptr noundef %errp, ptr noundef nonnull @.str.16, i32 noundef 415, ptr noundef nonnull @__func__.bdrv_qed_do_open, ptr noundef nonnull @.str.19) #18
   br label %return
 
 if.end4:                                          ; preds = %if.end
@@ -1346,7 +1302,7 @@ if.end4:                                          ; preds = %if.end
   br i1 %tobool.not, label %if.end10, label %if.then6
 
 if.then6:                                         ; preds = %if.end4
-  call void (ptr, ptr, i32, ptr, ptr, ...) @error_setg_internal(ptr noundef %errp, ptr noundef nonnull @.str.16, i32 noundef 421, ptr noundef nonnull @__func__.bdrv_qed_do_open, ptr noundef nonnull @.str.20, i64 noundef %and) #19
+  call void (ptr, ptr, i32, ptr, ptr, ...) @error_setg_internal(ptr noundef %errp, ptr noundef nonnull @.str.16, i32 noundef 421, ptr noundef nonnull @__func__.bdrv_qed_do_open, ptr noundef nonnull @.str.20, i64 noundef %and) #18
   br label %return
 
 if.end10:                                         ; preds = %if.end4
@@ -1360,18 +1316,18 @@ if.end10:                                         ; preds = %if.end4
   br i1 %retval.0.i, label %if.end14, label %if.then13
 
 if.then13:                                        ; preds = %if.end10
-  call void (ptr, ptr, i32, ptr, ptr, ...) @error_setg_internal(ptr noundef %errp, ptr noundef nonnull @.str.16, i32 noundef 425, ptr noundef nonnull @__func__.bdrv_qed_do_open, ptr noundef nonnull @.str.21) #19
+  call void (ptr, ptr, i32, ptr, ptr, ...) @error_setg_internal(ptr noundef %errp, ptr noundef nonnull @.str.16, i32 noundef 425, ptr noundef nonnull @__func__.bdrv_qed_do_open, ptr noundef nonnull @.str.21) #18
   br label %return
 
 if.end14:                                         ; preds = %if.end10
   %14 = load ptr, ptr %file, align 8
   %15 = load ptr, ptr %14, align 8
-  %call17 = call i64 @bdrv_co_getlength(ptr noundef %15) #19
+  %call17 = call i64 @bdrv_co_getlength(ptr noundef %15) #18
   %cmp18 = icmp slt i64 %call17, 0
   br i1 %cmp18, label %if.then19, label %if.end20
 
 if.then19:                                        ; preds = %if.end14
-  call void (ptr, ptr, i32, ptr, ptr, ...) @error_setg_internal(ptr noundef %errp, ptr noundef nonnull @.str.16, i32 noundef 432, ptr noundef nonnull @__func__.bdrv_qed_do_open, ptr noundef nonnull @.str.22) #19
+  call void (ptr, ptr, i32, ptr, ptr, ...) @error_setg_internal(ptr noundef %errp, ptr noundef nonnull @.str.16, i32 noundef 432, ptr noundef nonnull @__func__.bdrv_qed_do_open, ptr noundef nonnull @.str.22) #18
   %conv = trunc i64 %call17 to i32
   br label %return
 
@@ -1381,7 +1337,7 @@ if.end20:                                         ; preds = %if.end14
   %conv.i = zext i32 %sub.i84 to i64
   %not.i = xor i64 %conv.i, -1
   %and.i85 = and i64 %call17, %not.i
-  %file_size22 = getelementptr inbounds %struct.BDRVQEDState, ptr %0, i64 0, i32 9
+  %file_size22 = getelementptr inbounds i8, ptr %0, i64 168
   store i64 %and.i85, ptr %file_size22, align 8
   %16 = load i32, ptr %table_size5.i, align 8
   %17 = add i32 %16, -1
@@ -1393,7 +1349,7 @@ if.end20:                                         ; preds = %if.end14
   br i1 %retval.0.i90, label %if.end26, label %if.then25
 
 if.then25:                                        ; preds = %if.end20
-  call void (ptr, ptr, i32, ptr, ptr, ...) @error_setg_internal(ptr noundef %errp, ptr noundef nonnull @.str.16, i32 noundef 438, ptr noundef nonnull @__func__.bdrv_qed_do_open, ptr noundef nonnull @.str.23) #19
+  call void (ptr, ptr, i32, ptr, ptr, ...) @error_setg_internal(ptr noundef %errp, ptr noundef nonnull @.str.16, i32 noundef 438, ptr noundef nonnull @__func__.bdrv_qed_do_open, ptr noundef nonnull @.str.23) #18
   br label %return
 
 if.end26:                                         ; preds = %if.end20
@@ -1413,7 +1369,7 @@ qed_is_image_size_valid.exit:                     ; preds = %if.end26
   br i1 %cmp1.i.not, label %if.then33, label %if.end34
 
 if.then33:                                        ; preds = %if.end26, %qed_is_image_size_valid.exit
-  call void (ptr, ptr, i32, ptr, ptr, ...) @error_setg_internal(ptr noundef %errp, ptr noundef nonnull @.str.16, i32 noundef 444, ptr noundef nonnull @__func__.bdrv_qed_do_open, ptr noundef nonnull @.str.24) #19
+  call void (ptr, ptr, i32, ptr, ptr, ...) @error_setg_internal(ptr noundef %errp, ptr noundef nonnull @.str.16, i32 noundef 444, ptr noundef nonnull @__func__.bdrv_qed_do_open, ptr noundef nonnull @.str.24) #18
   br label %return
 
 if.end34:                                         ; preds = %qed_is_image_size_valid.exit
@@ -1422,21 +1378,21 @@ if.end34:                                         ; preds = %qed_is_image_size_v
   br i1 %call36, label %if.end38, label %if.then37
 
 if.then37:                                        ; preds = %if.end34
-  call void (ptr, ptr, i32, ptr, ptr, ...) @error_setg_internal(ptr noundef %errp, ptr noundef nonnull @.str.16, i32 noundef 448, ptr noundef nonnull @__func__.bdrv_qed_do_open, ptr noundef nonnull @.str.25) #19
+  call void (ptr, ptr, i32, ptr, ptr, ...) @error_setg_internal(ptr noundef %errp, ptr noundef nonnull @.str.16, i32 noundef 448, ptr noundef nonnull @__func__.bdrv_qed_do_open, ptr noundef nonnull @.str.25) #18
   br label %return
 
 if.end38:                                         ; preds = %if.end34
-  %table_nelems = getelementptr inbounds %struct.BDRVQEDState, ptr %0, i64 0, i32 5
+  %table_nelems = getelementptr inbounds i8, ptr %0, i64 152
   store i32 %19, ptr %table_nelems, align 8
   %21 = call i32 @llvm.cttz.i32(i32 %.val, i1 false), !range !8
-  %l2_shift = getelementptr inbounds %struct.BDRVQEDState, ptr %0, i64 0, i32 7
+  %l2_shift = getelementptr inbounds i8, ptr %0, i64 160
   store i32 %21, ptr %l2_shift, align 8
   %sub = add nsw i32 %19, -1
-  %l2_mask = getelementptr inbounds %struct.BDRVQEDState, ptr %0, i64 0, i32 8
+  %l2_mask = getelementptr inbounds i8, ptr %0, i64 164
   store i32 %sub, ptr %l2_mask, align 4
   %22 = call i32 @llvm.cttz.i32(i32 %19, i1 false), !range !8
   %add = add nuw nsw i32 %22, %21
-  %l1_shift = getelementptr inbounds %struct.BDRVQEDState, ptr %0, i64 0, i32 6
+  %l1_shift = getelementptr inbounds i8, ptr %0, i64 156
   store i32 %add, ptr %l1_shift, align 4
   %23 = load i32, ptr %header_size7.i, align 4
   %mul82 = call { i32, i1 } @llvm.umul.with.overflow.i32(i32 %.val, i32 %23)
@@ -1444,7 +1400,7 @@ if.end38:                                         ; preds = %if.end34
   br i1 %mul.ov, label %if.then58, label %if.end59
 
 if.then58:                                        ; preds = %if.end38
-  call void (ptr, ptr, i32, ptr, ptr, ...) @error_setg_internal(ptr noundef %errp, ptr noundef nonnull @.str.16, i32 noundef 460, ptr noundef nonnull @__func__.bdrv_qed_do_open, ptr noundef nonnull @.str.26) #19
+  call void (ptr, ptr, i32, ptr, ptr, ...) @error_setg_internal(ptr noundef %errp, ptr noundef nonnull @.str.16, i32 noundef 460, ptr noundef nonnull @__func__.bdrv_qed_do_open, ptr noundef nonnull @.str.26) #18
   br label %return
 
 if.end59:                                         ; preds = %if.end38
@@ -1465,11 +1421,11 @@ if.then64:                                        ; preds = %if.end59
   br i1 %cmp76, label %if.then78, label %if.end79
 
 if.then78:                                        ; preds = %if.then64
-  call void (ptr, ptr, i32, ptr, ptr, ...) @error_setg_internal(ptr noundef %errp, ptr noundef nonnull @.str.16, i32 noundef 470, ptr noundef nonnull @__func__.bdrv_qed_do_open, ptr noundef nonnull @.str.27) #19
+  call void (ptr, ptr, i32, ptr, ptr, ...) @error_setg_internal(ptr noundef %errp, ptr noundef nonnull @.str.16, i32 noundef 470, ptr noundef nonnull @__func__.bdrv_qed_do_open, ptr noundef nonnull @.str.27) #18
   br label %cleanup
 
 if.end79:                                         ; preds = %if.then64
-  %call80 = call noalias dereferenceable_or_null(4096) ptr @g_malloc(i64 noundef 4096) #22
+  %call80 = call noalias dereferenceable_or_null(4096) ptr @g_malloc(i64 noundef 4096) #21
   %27 = load ptr, ptr %file, align 8
   %28 = load i32, ptr %backing_filename_offset19.i, align 8
   %conv84 = zext i32 %28 to i64
@@ -1480,19 +1436,19 @@ if.end79:                                         ; preds = %if.then64
   br i1 %cmp89, label %if.then91, label %if.end92
 
 if.then91:                                        ; preds = %if.end79
-  call void (ptr, ptr, i32, ptr, ptr, ...) @error_setg_internal(ptr noundef %errp, ptr noundef nonnull @.str.16, i32 noundef 479, ptr noundef nonnull @__func__.bdrv_qed_do_open, ptr noundef nonnull @.str.28) #19
+  call void (ptr, ptr, i32, ptr, ptr, ...) @error_setg_internal(ptr noundef %errp, ptr noundef nonnull @.str.16, i32 noundef 479, ptr noundef nonnull @__func__.bdrv_qed_do_open, ptr noundef nonnull @.str.28) #18
   br label %cleanup
 
 if.end92:                                         ; preds = %if.end79
-  %backing_file = getelementptr inbounds %struct.BlockDriverState, ptr %bs, i64 0, i32 12
-  %call93 = call i32 @g_str_equal(ptr noundef %call80, ptr noundef nonnull %backing_file) #19
+  %backing_file = getelementptr inbounds i8, ptr %bs, i64 4145
+  %call93 = call i32 @g_str_equal(ptr noundef %call80, ptr noundef nonnull %backing_file) #18
   %tobool94.not = icmp eq i32 %call93, 0
   br i1 %tobool94.not, label %if.then95, label %if.end99
 
 if.then95:                                        ; preds = %if.end92
-  call void @pstrcpy(ptr noundef nonnull %backing_file, i32 noundef 4096, ptr noundef %call80) #19
-  %auto_backing_file = getelementptr inbounds %struct.BlockDriverState, ptr %bs, i64 0, i32 13
-  call void @pstrcpy(ptr noundef nonnull %auto_backing_file, i32 noundef 4096, ptr noundef %call80) #19
+  call void @pstrcpy(ptr noundef nonnull %backing_file, i32 noundef 4096, ptr noundef %call80) #18
+  %auto_backing_file = getelementptr inbounds i8, ptr %bs, i64 8241
+  call void @pstrcpy(ptr noundef nonnull %auto_backing_file, i32 noundef 4096, ptr noundef %call80) #18
   br label %if.end99
 
 if.end99:                                         ; preds = %if.then95, %if.end92
@@ -1502,18 +1458,18 @@ if.end99:                                         ; preds = %if.then95, %if.end9
   br i1 %tobool103.not, label %cleanup.thread, label %if.then104
 
 if.then104:                                       ; preds = %if.end99
-  %backing_format = getelementptr inbounds %struct.BlockDriverState, ptr %bs, i64 0, i32 14
-  call void @pstrcpy(ptr noundef nonnull %backing_format, i32 noundef 16, ptr noundef nonnull @.str.29) #19
+  %backing_format = getelementptr inbounds i8, ptr %bs, i64 12337
+  call void @pstrcpy(ptr noundef nonnull %backing_format, i32 noundef 16, ptr noundef nonnull @.str.29) #18
   br label %cleanup.thread
 
 cleanup.thread:                                   ; preds = %if.then104, %if.end99
-  call void @g_free(ptr noundef %call80) #19
+  call void @g_free(ptr noundef %call80) #18
   br label %if.end107
 
 cleanup:                                          ; preds = %if.then91, %if.then78
   %backing_file_str.0 = phi ptr [ null, %if.then78 ], [ %call80, %if.then91 ]
   %retval.0 = phi i32 [ -22, %if.then78 ], [ %call88, %if.then91 ]
-  call void @g_free(ptr noundef %backing_file_str.0) #19
+  call void @g_free(ptr noundef %backing_file_str.0) #18
   br label %return
 
 if.end107:                                        ; preds = %cleanup.thread, %if.end59
@@ -1524,7 +1480,7 @@ if.end107:                                        ; preds = %cleanup.thread, %if
 land.lhs.true:                                    ; preds = %if.end107
   %32 = load ptr, ptr %file, align 8
   %33 = load ptr, ptr %32, align 8
-  %call114 = call zeroext i1 @bdrv_is_read_only(ptr noundef %33) #19
+  %call114 = call zeroext i1 @bdrv_is_read_only(ptr noundef %33) #18
   %and116 = and i32 %flags, 2048
   %tobool117.not = icmp ne i32 %and116, 0
   %or.cond.not = or i1 %tobool117.not, %call114
@@ -1537,13 +1493,13 @@ if.then118:                                       ; preds = %land.lhs.true
   br i1 %tobool123.not, label %if.end125, label %if.then124
 
 if.then124:                                       ; preds = %if.then118
-  call void (ptr, ptr, i32, ptr, ptr, ...) @error_setg_internal(ptr noundef %errp, ptr noundef nonnull @.str.16, i32 noundef 507, ptr noundef nonnull @__func__.bdrv_qed_do_open, ptr noundef nonnull @.str.30) #19
+  call void (ptr, ptr, i32, ptr, ptr, ...) @error_setg_internal(ptr noundef %errp, ptr noundef nonnull @.str.16, i32 noundef 507, ptr noundef nonnull @__func__.bdrv_qed_do_open, ptr noundef nonnull @.str.30) #18
   br label %return
 
 if.end125:                                        ; preds = %if.then118
   %34 = load ptr, ptr %file, align 8
   %35 = load ptr, ptr %34, align 8
-  %call128 = call i32 @bdrv_co_flush(ptr noundef %35) #19
+  %call128 = call i32 @bdrv_co_flush(ptr noundef %35) #18
   br label %if.end129
 
 if.end129:                                        ; preds = %if.end125, %land.lhs.true, %if.end107
@@ -1552,17 +1508,17 @@ if.end129:                                        ; preds = %if.end125, %land.lh
   %38 = load i32, ptr %table_size5.i, align 8
   %mul.i = mul i32 %38, %37
   %conv.i94 = zext i32 %mul.i to i64
-  %call.i95 = call ptr @qemu_blockalign(ptr noundef %36, i64 noundef %conv.i94) #19
-  %l1_table = getelementptr inbounds %struct.BDRVQEDState, ptr %0, i64 0, i32 3
+  %call.i95 = call ptr @qemu_blockalign(ptr noundef %36, i64 noundef %conv.i94) #18
+  %l1_table = getelementptr inbounds i8, ptr %0, i64 120
   store ptr %call.i95, ptr %l1_table, align 8
-  %l2_cache = getelementptr inbounds %struct.BDRVQEDState, ptr %0, i64 0, i32 4
-  call void @qed_init_l2_cache(ptr noundef nonnull %l2_cache) #19
-  %call131 = call i32 @qed_read_l1_table_sync(ptr noundef nonnull %0) #19
+  %l2_cache = getelementptr inbounds i8, ptr %0, i64 128
+  call void @qed_init_l2_cache(ptr noundef nonnull %l2_cache) #18
+  %call131 = call i32 @qed_read_l1_table_sync(ptr noundef nonnull %0) #18
   %tobool132.not = icmp eq i32 %call131, 0
   br i1 %tobool132.not, label %if.end134, label %if.then133
 
 if.then133:                                       ; preds = %if.end129
-  call void (ptr, ptr, i32, ptr, ptr, ...) @error_setg_internal(ptr noundef %errp, ptr noundef nonnull @.str.16, i32 noundef 520, ptr noundef nonnull @__func__.bdrv_qed_do_open, ptr noundef nonnull @.str.31) #19
+  call void (ptr, ptr, i32, ptr, ptr, ...) @error_setg_internal(ptr noundef %errp, ptr noundef nonnull @.str.16, i32 noundef 520, ptr noundef nonnull @__func__.bdrv_qed_do_open, ptr noundef nonnull @.str.31) #18
   br label %if.then158
 
 if.end134:                                        ; preds = %if.end129
@@ -1579,7 +1535,7 @@ land.lhs.true137:                                 ; preds = %if.end134
 if.then142:                                       ; preds = %land.lhs.true137
   %40 = load ptr, ptr %file, align 8
   %41 = load ptr, ptr %40, align 8
-  %call145 = call zeroext i1 @bdrv_is_read_only(ptr noundef %41) #19
+  %call145 = call zeroext i1 @bdrv_is_read_only(ptr noundef %41) #18
   %and147 = and i32 %flags, 2048
   %tobool148.not = icmp ne i32 %and147, 0
   %or.cond83.not = or i1 %tobool148.not, %call145
@@ -1587,24 +1543,24 @@ if.then142:                                       ; preds = %land.lhs.true137
 
 if.then149:                                       ; preds = %if.then142
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %result, i8 0, i64 64, i1 false)
-  %call150 = call i32 @qed_check(ptr noundef nonnull %0, ptr noundef nonnull %result, i1 noundef zeroext true) #19
+  %call150 = call i32 @qed_check(ptr noundef nonnull %0, ptr noundef nonnull %result, i1 noundef zeroext true) #18
   %tobool151.not = icmp eq i32 %call150, 0
   br i1 %tobool151.not, label %out, label %if.then152
 
 if.then152:                                       ; preds = %if.then149
-  call void (ptr, ptr, i32, ptr, ptr, ...) @error_setg_internal(ptr noundef %errp, ptr noundef nonnull @.str.16, i32 noundef 537, ptr noundef nonnull @__func__.bdrv_qed_do_open, ptr noundef nonnull @.str.32) #19
+  call void (ptr, ptr, i32, ptr, ptr, ...) @error_setg_internal(ptr noundef %errp, ptr noundef nonnull @.str.16, i32 noundef 537, ptr noundef nonnull @__func__.bdrv_qed_do_open, ptr noundef nonnull @.str.32) #18
   br label %if.then158
 
 out:                                              ; preds = %if.end134, %land.lhs.true137, %if.then149, %if.then142
-  %call156 = call ptr @bdrv_get_aio_context(ptr noundef nonnull %bs) #19
+  %call156 = call ptr @bdrv_get_aio_context(ptr noundef nonnull %bs) #18
   call void @bdrv_qed_attach_aio_context(ptr noundef nonnull %bs, ptr noundef %call156)
   br label %return
 
 if.then158:                                       ; preds = %if.then133, %if.then152
   %ret.1.ph = phi i32 [ %call150, %if.then152 ], [ %call131, %if.then133 ]
-  call void @qed_free_l2_cache(ptr noundef nonnull %l2_cache) #19
+  call void @qed_free_l2_cache(ptr noundef nonnull %l2_cache) #18
   %42 = load ptr, ptr %l1_table, align 8
-  call void @qemu_vfree(ptr noundef %42) #19
+  call void @qemu_vfree(ptr noundef %42) #18
   br label %return
 
 return:                                           ; preds = %out, %cleanup, %if.then158, %if.then124, %if.then58, %if.then37, %if.then33, %if.then25, %if.then19, %if.then13, %if.then6, %if.then3, %if.then
@@ -1619,7 +1575,7 @@ declare void @bdrv_graph_co_rdlock() #1
 ; Function Attrs: nounwind sspstrong uwtable
 define internal void @graph_lockable_auto_unlock(ptr nocapture readnone %x) #0 {
 entry:
-  tail call void @bdrv_graph_co_rdunlock() #19
+  tail call void @bdrv_graph_co_rdunlock() #18
   ret void
 }
 
@@ -1629,17 +1585,17 @@ declare void @bdrv_graph_co_rdunlock() #1
 define internal i32 @bdrv_co_pread(ptr noundef %child, i64 noundef %offset, i64 noundef %bytes, ptr noundef %buf, i32 noundef %flags) #0 {
 entry:
   %qiov = alloca %struct.QEMUIOVector, align 8
-  %0 = getelementptr inbounds %struct.QEMUIOVector, ptr %qiov, i64 0, i32 2
-  %local_iov = getelementptr inbounds %struct.QEMUIOVector, ptr %qiov, i64 0, i32 2, i32 0, i32 1
+  %0 = getelementptr inbounds i8, ptr %qiov, i64 16
+  %local_iov = getelementptr inbounds i8, ptr %qiov, i64 24
   store ptr %local_iov, ptr %qiov, align 8
-  %niov = getelementptr inbounds %struct.QEMUIOVector, ptr %qiov, i64 0, i32 1
+  %niov = getelementptr inbounds i8, ptr %qiov, i64 8
   store i32 1, ptr %niov, align 8
   store i32 -1, ptr %0, align 8
   store ptr %buf, ptr %local_iov, align 8
-  %iov_len = getelementptr inbounds %struct.QEMUIOVector, ptr %qiov, i64 0, i32 2, i32 0, i32 1, i32 1
+  %iov_len = getelementptr inbounds i8, ptr %qiov, i64 32
   store i64 %bytes, ptr %iov_len, align 8
-  call void @assert_bdrv_graph_readable() #19
-  %call = call i32 @bdrv_co_preadv(ptr noundef %child, i64 noundef %offset, i64 noundef %bytes, ptr noundef nonnull %qiov, i32 noundef %flags) #19
+  call void @assert_bdrv_graph_readable() #18
+  %call = call i32 @bdrv_co_preadv(ptr noundef %child, i64 noundef %offset, i64 noundef %bytes, ptr noundef nonnull %qiov, i32 noundef %flags) #18
   ret i32 %call
 }
 
@@ -1650,10 +1606,10 @@ declare i64 @bdrv_co_getlength(ptr noundef) #1
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(argmem: read) uwtable
 define internal fastcc zeroext i1 @qed_check_table_offset(ptr nocapture noundef readonly %s, i64 noundef %offset) unnamed_addr #4 {
 entry:
-  %table_size = getelementptr inbounds %struct.BDRVQEDState, ptr %s, i64 0, i32 1, i32 2
+  %table_size = getelementptr inbounds i8, ptr %s, i64 16
   %0 = load i32, ptr %table_size, align 8
   %sub = add i32 %0, -1
-  %cluster_size = getelementptr inbounds %struct.BDRVQEDState, ptr %s, i64 0, i32 1, i32 1
+  %cluster_size = getelementptr inbounds i8, ptr %s, i64 12
   %1 = load i32, ptr %cluster_size, align 4
   %mul = mul i32 %sub, %1
   %conv = zext i32 %mul to i64
@@ -1669,7 +1625,7 @@ if.end:                                           ; preds = %entry
   br i1 %tobool.not.i, label %if.end.i, label %return
 
 if.end.i:                                         ; preds = %if.end
-  %header_size1.i = getelementptr inbounds %struct.BDRVQEDState, ptr %s, i64 0, i32 1, i32 3
+  %header_size1.i = getelementptr inbounds i8, ptr %s, i64 20
   %2 = load i32, ptr %header_size1.i, align 4
   %conv.i = zext i32 %2 to i64
   %conv3.i = zext i32 %1 to i64
@@ -1678,7 +1634,7 @@ if.end.i:                                         ; preds = %if.end
   br i1 %cmp.not.i, label %return, label %qed_check_cluster_offset.exit
 
 qed_check_cluster_offset.exit:                    ; preds = %if.end.i
-  %file_size.i = getelementptr inbounds %struct.BDRVQEDState, ptr %s, i64 0, i32 9
+  %file_size.i = getelementptr inbounds i8, ptr %s, i64 168
   %3 = load i64, ptr %file_size.i, align 8
   %cmp8.i = icmp ule i64 %3, %offset
   %and.i10 = and i64 %add, %conv6.i
@@ -1697,7 +1653,7 @@ return:                                           ; preds = %qed_check_cluster_o
 }
 
 ; Function Attrs: allocsize(0)
-declare noalias ptr @g_malloc(i64 noundef) local_unnamed_addr #9
+declare noalias ptr @g_malloc(i64 noundef) local_unnamed_addr #8
 
 ; Function Attrs: nounwind sspstrong uwtable
 define internal i32 @qed_read_string(ptr noundef %file, i64 noundef %offset, i64 noundef %n, ptr noundef %buf, i64 noundef %buflen) #0 {
@@ -1708,17 +1664,17 @@ entry:
 
 if.end:                                           ; preds = %entry
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %qiov.i)
-  %0 = getelementptr inbounds %struct.QEMUIOVector, ptr %qiov.i, i64 0, i32 2
-  %local_iov.i = getelementptr inbounds %struct.QEMUIOVector, ptr %qiov.i, i64 0, i32 2, i32 0, i32 1
+  %0 = getelementptr inbounds i8, ptr %qiov.i, i64 16
+  %local_iov.i = getelementptr inbounds i8, ptr %qiov.i, i64 24
   store ptr %local_iov.i, ptr %qiov.i, align 8
-  %niov.i = getelementptr inbounds %struct.QEMUIOVector, ptr %qiov.i, i64 0, i32 1
+  %niov.i = getelementptr inbounds i8, ptr %qiov.i, i64 8
   store i32 1, ptr %niov.i, align 8
   store i32 -1, ptr %0, align 8
   store ptr %buf, ptr %local_iov.i, align 8
-  %iov_len.i = getelementptr inbounds %struct.QEMUIOVector, ptr %qiov.i, i64 0, i32 2, i32 0, i32 1, i32 1
+  %iov_len.i = getelementptr inbounds i8, ptr %qiov.i, i64 32
   store i64 %n, ptr %iov_len.i, align 8
-  call void @assert_bdrv_graph_readable() #19
-  %call.i = call i32 @bdrv_co_preadv(ptr noundef %file, i64 noundef %offset, i64 noundef %n, ptr noundef nonnull %qiov.i, i32 noundef 0) #19
+  call void @assert_bdrv_graph_readable() #18
+  %call.i = call i32 @bdrv_co_preadv(ptr noundef %file, i64 noundef %offset, i64 noundef %n, ptr noundef nonnull %qiov.i, i32 noundef 0) #18
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %qiov.i)
   %cmp1 = icmp slt i32 %call.i, 0
   br i1 %cmp1, label %return, label %if.end3
@@ -1756,7 +1712,7 @@ declare void @assert_bdrv_graph_readable() local_unnamed_addr #1
 declare i32 @bdrv_co_preadv(ptr noundef, i64 noundef, i64 noundef, ptr noundef, i32 noundef) #1
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i32 @llvm.cttz.i32(i32, i1 immarg) #10
+declare i32 @llvm.cttz.i32(i32, i1 immarg) #9
 
 declare void @g_free(ptr noundef) local_unnamed_addr #1
 
@@ -1768,25 +1724,25 @@ declare zeroext i1 @qemu_in_main_thread() local_unnamed_addr #1
 define internal fastcc void @bdrv_qed_do_close(ptr nocapture noundef readonly %bs) unnamed_addr #0 {
 entry:
   %le.i = alloca %struct.QEDHeader, align 16
-  %opaque = getelementptr inbounds %struct.BlockDriverState, ptr %bs, i64 0, i32 7
+  %opaque = getelementptr inbounds i8, ptr %bs, i64 24
   %0 = load ptr, ptr %opaque, align 8
   tail call fastcc void @qed_cancel_need_check_timer(ptr noundef %0)
-  %need_check_timer.i = getelementptr inbounds %struct.BDRVQEDState, ptr %0, i64 0, i32 13
+  %need_check_timer.i = getelementptr inbounds i8, ptr %0, i64 208
   %1 = load ptr, ptr %need_check_timer.i, align 8
   %tobool.not.i.i = icmp eq ptr %1, null
   br i1 %tobool.not.i.i, label %bdrv_qed_detach_aio_context.exit, label %if.then.i.i
 
 if.then.i.i:                                      ; preds = %entry
-  tail call void @timer_del(ptr noundef nonnull %1) #19
-  tail call void @g_free(ptr noundef nonnull %1) #19
+  tail call void @timer_del(ptr noundef nonnull %1) #18
+  tail call void @g_free(ptr noundef nonnull %1) #18
   br label %bdrv_qed_detach_aio_context.exit
 
 bdrv_qed_detach_aio_context.exit:                 ; preds = %entry, %if.then.i.i
-  %file = getelementptr inbounds %struct.BlockDriverState, ptr %bs, i64 0, i32 31
+  %file = getelementptr inbounds i8, ptr %bs, i64 16840
   %2 = load ptr, ptr %file, align 8
   %3 = load ptr, ptr %2, align 8
-  %call = tail call i32 @bdrv_flush(ptr noundef %3) #19
-  %features = getelementptr inbounds %struct.BDRVQEDState, ptr %0, i64 0, i32 1, i32 4
+  %call = tail call i32 @bdrv_flush(ptr noundef %3) #18
+  %features = getelementptr inbounds i8, ptr %0, i64 24
   %4 = load i64, ptr %features, align 8
   %and = and i64 %4, 2
   %tobool.not = icmp eq i64 %and, 0
@@ -1796,36 +1752,36 @@ if.then:                                          ; preds = %bdrv_qed_detach_aio
   %and4 = and i64 %4, -3
   store i64 %and4, ptr %features, align 8
   call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %le.i)
-  %header.i = getelementptr inbounds %struct.BDRVQEDState, ptr %0, i64 0, i32 1
+  %header.i = getelementptr inbounds i8, ptr %0, i64 8
   %5 = load <4 x i32>, ptr %header.i, align 1
   store <4 x i32> %5, ptr %le.i, align 16
-  %features9.i.i = getelementptr inbounds %struct.QEDHeader, ptr %le.i, i64 0, i32 4
+  %features9.i.i = getelementptr inbounds i8, ptr %le.i, i64 16
   store i64 %and4, ptr %features9.i.i, align 16
-  %compat_features.i.i = getelementptr inbounds %struct.BDRVQEDState, ptr %0, i64 0, i32 1, i32 5
-  %compat_features11.i.i = getelementptr inbounds %struct.QEDHeader, ptr %le.i, i64 0, i32 5
+  %compat_features.i.i = getelementptr inbounds i8, ptr %0, i64 32
+  %compat_features11.i.i = getelementptr inbounds i8, ptr %le.i, i64 24
   %6 = load <2 x i64>, ptr %compat_features.i.i, align 1
   store <2 x i64> %6, ptr %compat_features11.i.i, align 8
-  %l1_table_offset.i.i = getelementptr inbounds %struct.BDRVQEDState, ptr %0, i64 0, i32 1, i32 7
-  %l1_table_offset15.i.i = getelementptr inbounds %struct.QEDHeader, ptr %le.i, i64 0, i32 7
+  %l1_table_offset.i.i = getelementptr inbounds i8, ptr %0, i64 48
+  %l1_table_offset15.i.i = getelementptr inbounds i8, ptr %le.i, i64 40
   %7 = load <2 x i64>, ptr %l1_table_offset.i.i, align 1
   store <2 x i64> %7, ptr %l1_table_offset15.i.i, align 8
-  %backing_filename_offset.i.i = getelementptr inbounds %struct.BDRVQEDState, ptr %0, i64 0, i32 1, i32 9
-  %backing_filename_offset19.i.i = getelementptr inbounds %struct.QEDHeader, ptr %le.i, i64 0, i32 9
+  %backing_filename_offset.i.i = getelementptr inbounds i8, ptr %0, i64 64
+  %backing_filename_offset19.i.i = getelementptr inbounds i8, ptr %le.i, i64 56
   %8 = load <2 x i32>, ptr %backing_filename_offset.i.i, align 1
   store <2 x i32> %8, ptr %backing_filename_offset19.i.i, align 8
   %9 = load ptr, ptr %0, align 8
-  %file.i = getelementptr inbounds %struct.BlockDriverState, ptr %9, i64 0, i32 31
+  %file.i = getelementptr inbounds i8, ptr %9, i64 16840
   %10 = load ptr, ptr %file.i, align 8
-  %call.i = call i32 @bdrv_pwrite(ptr noundef %10, i64 noundef 0, i64 noundef 64, ptr noundef nonnull %le.i, i32 noundef 0) #19
+  %call.i = call i32 @bdrv_pwrite(ptr noundef %10, i64 noundef 0, i64 noundef 64, ptr noundef nonnull %le.i, i32 noundef 0) #18
   call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %le.i)
   br label %if.end
 
 if.end:                                           ; preds = %if.then, %bdrv_qed_detach_aio_context.exit
-  %l2_cache = getelementptr inbounds %struct.BDRVQEDState, ptr %0, i64 0, i32 4
-  call void @qed_free_l2_cache(ptr noundef nonnull %l2_cache) #19
-  %l1_table = getelementptr inbounds %struct.BDRVQEDState, ptr %0, i64 0, i32 3
+  %l2_cache = getelementptr inbounds i8, ptr %0, i64 128
+  call void @qed_free_l2_cache(ptr noundef nonnull %l2_cache) #18
+  %l1_table = getelementptr inbounds i8, ptr %0, i64 120
   %11 = load ptr, ptr %l1_table, align 8
-  call void @qemu_vfree(ptr noundef %11) #19
+  call void @qemu_vfree(ptr noundef %11) #18
   ret void
 }
 
@@ -1842,26 +1798,26 @@ declare ptr @blk_co_new_with_bs(ptr noundef, i64 noundef, i64 noundef, ptr nound
 declare void @blk_set_allow_write_beyond_eof(ptr noundef, i1 noundef zeroext) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #11
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #10
 
 declare i32 @blk_co_truncate(ptr noundef, i64 noundef, i1 noundef zeroext, i32 noundef, i32 noundef, ptr noundef) #1
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i64 @strlen(ptr nocapture noundef) local_unnamed_addr #12
+declare i64 @strlen(ptr nocapture noundef) local_unnamed_addr #11
 
 declare ptr @qapi_enum_lookup(ptr noundef, i32 noundef) local_unnamed_addr #1
 
 declare i32 @blk_co_pwrite(ptr noundef, i64 noundef, i64 noundef, ptr noundef, i32 noundef) #1
 
 ; Function Attrs: allocsize(0)
-declare noalias ptr @g_malloc0(i64 noundef) local_unnamed_addr #9
+declare noalias ptr @g_malloc0(i64 noundef) local_unnamed_addr #8
 
 declare void @blk_co_unref(ptr noundef) #1
 
 declare void @bdrv_co_unref(ptr noundef) #1
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i32 @strcmp(ptr nocapture noundef, ptr nocapture noundef) local_unnamed_addr #12
+declare i32 @strcmp(ptr nocapture noundef, ptr nocapture noundef) local_unnamed_addr #11
 
 declare ptr @qemu_opts_to_qdict_filtered(ptr noundef, ptr noundef, ptr noundef, i1 noundef zeroext) local_unnamed_addr #1
 
@@ -1910,30 +1866,30 @@ if.then.i.i:                                      ; preds = %land.lhs.true5.i.i
   br i1 %tobool7.not.i.i, label %if.else.i.i, label %if.then8.i.i
 
 if.then8.i.i:                                     ; preds = %if.then.i.i
-  %call9.i.i = call i32 @gettimeofday(ptr noundef nonnull %_now.i.i, ptr noundef null) #19
-  %call10.i.i = tail call i32 @qemu_get_thread_id() #19
+  %call9.i.i = call i32 @gettimeofday(ptr noundef nonnull %_now.i.i, ptr noundef null) #18
+  %call10.i.i = tail call i32 @qemu_get_thread_id() #18
   %5 = load i64, ptr %_now.i.i, align 8
-  %tv_usec.i.i = getelementptr inbounds %struct.timeval, ptr %_now.i.i, i64 0, i32 1
+  %tv_usec.i.i = getelementptr inbounds i8, ptr %_now.i.i, i64 8
   %6 = load i64, ptr %tv_usec.i.i, align 8
-  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.46, i32 noundef %call10.i.i, i64 noundef %5, i64 noundef %6, ptr noundef %s) #19
+  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.46, i32 noundef %call10.i.i, i64 noundef %5, i64 noundef %6, ptr noundef %s) #18
   br label %trace_qed_cancel_need_check_timer.exit
 
 if.else.i.i:                                      ; preds = %if.then.i.i
-  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.47, ptr noundef %s) #19
+  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.47, ptr noundef %s) #18
   br label %trace_qed_cancel_need_check_timer.exit
 
 trace_qed_cancel_need_check_timer.exit:           ; preds = %entry, %land.lhs.true5.i.i, %if.then8.i.i, %if.else.i.i
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %_now.i.i)
-  %need_check_timer = getelementptr inbounds %struct.BDRVQEDState, ptr %s, i64 0, i32 13
+  %need_check_timer = getelementptr inbounds i8, ptr %s, i64 208
   %7 = load ptr, ptr %need_check_timer, align 8
-  tail call void @timer_del(ptr noundef %7) #19
+  tail call void @timer_del(ptr noundef %7) #18
   ret void
 }
 
 declare void @timer_del(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @gettimeofday(ptr nocapture noundef, ptr nocapture noundef) local_unnamed_addr #13
+declare noundef i32 @gettimeofday(ptr nocapture noundef, ptr nocapture noundef) local_unnamed_addr #12
 
 declare void @qemu_log(ptr noundef, ...) local_unnamed_addr #1
 
@@ -1942,10 +1898,10 @@ declare i32 @qemu_get_thread_id() local_unnamed_addr #1
 ; Function Attrs: nounwind sspstrong uwtable
 define internal void @qed_need_check_timer_cb(ptr noundef %opaque) #0 {
 entry:
-  %call = tail call ptr @qemu_coroutine_create(ptr noundef nonnull @qed_need_check_timer_entry, ptr noundef %opaque) #19
+  %call = tail call ptr @qemu_coroutine_create(ptr noundef nonnull @qed_need_check_timer_entry, ptr noundef %opaque) #18
   %0 = load ptr, ptr %opaque, align 8
-  tail call void @bdrv_inc_in_flight(ptr noundef %0) #19
-  tail call void @qemu_coroutine_enter(ptr noundef %call) #19
+  tail call void @bdrv_inc_in_flight(ptr noundef %0) #18
+  tail call void @qemu_coroutine_enter(ptr noundef %call) #18
   ret void
 }
 
@@ -1974,41 +1930,41 @@ if.then.i.i:                                      ; preds = %land.lhs.true5.i.i
   br i1 %tobool7.not.i.i, label %if.else.i.i, label %if.then8.i.i
 
 if.then8.i.i:                                     ; preds = %if.then.i.i
-  %call9.i.i = call i32 @gettimeofday(ptr noundef nonnull %_now.i.i, ptr noundef null) #19
-  %call10.i.i = tail call i32 @qemu_get_thread_id() #19
+  %call9.i.i = call i32 @gettimeofday(ptr noundef nonnull %_now.i.i, ptr noundef null) #18
+  %call10.i.i = tail call i32 @qemu_get_thread_id() #18
   %5 = load i64, ptr %_now.i.i, align 8
-  %tv_usec.i.i = getelementptr inbounds %struct.timeval, ptr %_now.i.i, i64 0, i32 1
+  %tv_usec.i.i = getelementptr inbounds i8, ptr %_now.i.i, i64 8
   %6 = load i64, ptr %tv_usec.i.i, align 8
-  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.53, i32 noundef %call10.i.i, i64 noundef %5, i64 noundef %6, ptr noundef %s) #19
+  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.53, i32 noundef %call10.i.i, i64 noundef %5, i64 noundef %6, ptr noundef %s) #18
   br label %trace_qed_start_need_check_timer.exit
 
 if.else.i.i:                                      ; preds = %if.then.i.i
-  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.54, ptr noundef %s) #19
+  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.54, ptr noundef %s) #18
   br label %trace_qed_start_need_check_timer.exit
 
 trace_qed_start_need_check_timer.exit:            ; preds = %entry, %land.lhs.true5.i.i, %if.then8.i.i, %if.else.i.i
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %_now.i.i)
-  %need_check_timer = getelementptr inbounds %struct.BDRVQEDState, ptr %s, i64 0, i32 13
+  %need_check_timer = getelementptr inbounds i8, ptr %s, i64 208
   %7 = load ptr, ptr %need_check_timer, align 8
-  %call = tail call i64 @qemu_clock_get_ns(i32 noundef 1) #19
+  %call = tail call i64 @qemu_clock_get_ns(i32 noundef 1) #18
   %add = add i64 %call, 5000000000
-  tail call void @timer_mod(ptr noundef %7, i64 noundef %add) #19
+  tail call void @timer_mod(ptr noundef %7, i64 noundef %add) #18
   ret void
 }
 
 ; Function Attrs: allocsize(0,1)
-declare noalias ptr @g_malloc0_n(i64 noundef, i64 noundef) local_unnamed_addr #14
+declare noalias ptr @g_malloc0_n(i64 noundef, i64 noundef) local_unnamed_addr #13
 
 declare void @timer_init_full(ptr noundef, ptr noundef, i32 noundef, i32 noundef, i32 noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind sspstrong uwtable
 define internal void @qed_need_check_timer_entry(ptr noundef %opaque) #0 {
 glib_autoptr_cleanup_GraphLockable.exit:
-  tail call void @bdrv_graph_co_rdlock() #19
+  tail call void @bdrv_graph_co_rdlock() #18
   tail call void @qed_need_check_timer(ptr noundef %opaque)
   %0 = load ptr, ptr %opaque, align 8
-  tail call void @bdrv_dec_in_flight(ptr noundef %0) #19
-  tail call void @bdrv_graph_co_rdunlock() #19
+  tail call void @bdrv_dec_in_flight(ptr noundef %0) #18
+  tail call void @bdrv_graph_co_rdunlock() #18
   ret void
 }
 
@@ -2039,95 +1995,95 @@ if.then.i.i:                                      ; preds = %land.lhs.true5.i.i
   br i1 %tobool7.not.i.i, label %if.else.i.i, label %if.then8.i.i
 
 if.then8.i.i:                                     ; preds = %if.then.i.i
-  %call9.i.i = call i32 @gettimeofday(ptr noundef nonnull %_now.i.i, ptr noundef null) #19
-  %call10.i.i = tail call i32 @qemu_get_thread_id() #19
+  %call9.i.i = call i32 @gettimeofday(ptr noundef nonnull %_now.i.i, ptr noundef null) #18
+  %call10.i.i = tail call i32 @qemu_get_thread_id() #18
   %5 = load i64, ptr %_now.i.i, align 8
-  %tv_usec.i.i = getelementptr inbounds %struct.timeval, ptr %_now.i.i, i64 0, i32 1
+  %tv_usec.i.i = getelementptr inbounds i8, ptr %_now.i.i, i64 8
   %6 = load i64, ptr %tv_usec.i.i, align 8
-  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.48, i32 noundef %call10.i.i, i64 noundef %5, i64 noundef %6, ptr noundef %s) #19
+  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.48, i32 noundef %call10.i.i, i64 noundef %5, i64 noundef %6, ptr noundef %s) #18
   br label %trace_qed_need_check_timer_cb.exit
 
 if.else.i.i:                                      ; preds = %if.then.i.i
-  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.49, ptr noundef %s) #19
+  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.49, ptr noundef %s) #18
   br label %trace_qed_need_check_timer_cb.exit
 
 trace_qed_need_check_timer_cb.exit:               ; preds = %entry, %land.lhs.true5.i.i, %if.then8.i.i, %if.else.i.i
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %_now.i.i)
-  tail call void @assert_bdrv_graph_readable() #19
-  %table_lock.i = getelementptr inbounds %struct.BDRVQEDState, ptr %s, i64 0, i32 2
-  tail call void @qemu_co_mutex_lock(ptr noundef nonnull %table_lock.i) #19
-  %allocating_write_reqs_plugged.i = getelementptr inbounds %struct.BDRVQEDState, ptr %s, i64 0, i32 12
+  tail call void @assert_bdrv_graph_readable() #18
+  %table_lock.i = getelementptr inbounds i8, ptr %s, i64 72
+  tail call void @qemu_co_mutex_lock(ptr noundef nonnull %table_lock.i) #18
+  %allocating_write_reqs_plugged.i = getelementptr inbounds i8, ptr %s, i64 200
   %7 = load i8, ptr %allocating_write_reqs_plugged.i, align 8
   %8 = and i8 %7, 1
   %tobool.not.i = icmp eq i8 %8, 0
   br i1 %tobool.not.i, label %if.end.i, label %if.else.i
 
 if.else.i:                                        ; preds = %trace_qed_need_check_timer_cb.exit
-  tail call void @__assert_fail(ptr noundef nonnull @.str.50, ptr noundef nonnull @.str.16, i32 noundef 263, ptr noundef nonnull @__PRETTY_FUNCTION__.qed_plug_allocating_write_reqs) #20
+  tail call void @__assert_fail(ptr noundef nonnull @.str.50, ptr noundef nonnull @.str.16, i32 noundef 263, ptr noundef nonnull @__PRETTY_FUNCTION__.qed_plug_allocating_write_reqs) #19
   unreachable
 
 if.end.i:                                         ; preds = %trace_qed_need_check_timer_cb.exit
-  %allocating_acb.i = getelementptr inbounds %struct.BDRVQEDState, ptr %s, i64 0, i32 10
+  %allocating_acb.i = getelementptr inbounds i8, ptr %s, i64 176
   %9 = load ptr, ptr %allocating_acb.i, align 8
   %cmp.not.i = icmp eq ptr %9, null
   br i1 %cmp.not.i, label %if.end, label %qed_plug_allocating_write_reqs.exit
 
 qed_plug_allocating_write_reqs.exit:              ; preds = %if.end.i
-  tail call void @qemu_co_mutex_unlock(ptr noundef nonnull %table_lock.i) #19
+  tail call void @qemu_co_mutex_unlock(ptr noundef nonnull %table_lock.i) #18
   br label %return
 
 if.end:                                           ; preds = %if.end.i
   store i8 1, ptr %allocating_write_reqs_plugged.i, align 8
-  tail call void @qemu_co_mutex_unlock(ptr noundef nonnull %table_lock.i) #19
+  tail call void @qemu_co_mutex_unlock(ptr noundef nonnull %table_lock.i) #18
   %10 = load ptr, ptr %s, align 8
-  %file = getelementptr inbounds %struct.BlockDriverState, ptr %10, i64 0, i32 31
+  %file = getelementptr inbounds i8, ptr %10, i64 16840
   %11 = load ptr, ptr %file, align 8
   %12 = load ptr, ptr %11, align 8
-  %call2 = tail call i32 @bdrv_co_flush(ptr noundef %12) #19
+  %call2 = tail call i32 @bdrv_co_flush(ptr noundef %12) #18
   %cmp = icmp slt i32 %call2, 0
   br i1 %cmp, label %if.then3, label %if.end4
 
 if.then3:                                         ; preds = %if.end
-  tail call void @qemu_co_mutex_lock(ptr noundef nonnull %table_lock.i) #19
+  tail call void @qemu_co_mutex_lock(ptr noundef nonnull %table_lock.i) #18
   %13 = load i8, ptr %allocating_write_reqs_plugged.i, align 8
   %14 = and i8 %13, 1
   %tobool.not.i10 = icmp eq i8 %14, 0
   br i1 %tobool.not.i10, label %if.else.i12, label %qed_unplug_allocating_write_reqs.exit
 
 if.else.i12:                                      ; preds = %if.then3
-  tail call void @__assert_fail(ptr noundef nonnull @.str.51, ptr noundef nonnull @.str.16, i32 noundef 280, ptr noundef nonnull @__PRETTY_FUNCTION__.qed_unplug_allocating_write_reqs) #20
+  tail call void @__assert_fail(ptr noundef nonnull @.str.51, ptr noundef nonnull @.str.16, i32 noundef 280, ptr noundef nonnull @__PRETTY_FUNCTION__.qed_unplug_allocating_write_reqs) #19
   unreachable
 
 qed_unplug_allocating_write_reqs.exit:            ; preds = %if.then3
   store i8 0, ptr %allocating_write_reqs_plugged.i, align 8
-  %allocating_write_reqs.i = getelementptr inbounds %struct.BDRVQEDState, ptr %s, i64 0, i32 11
-  %call.i = tail call zeroext i1 @qemu_co_queue_next(ptr noundef nonnull %allocating_write_reqs.i) #19
-  tail call void @qemu_co_mutex_unlock(ptr noundef nonnull %table_lock.i) #19
+  %allocating_write_reqs.i = getelementptr inbounds i8, ptr %s, i64 184
+  %call.i = tail call zeroext i1 @qemu_co_queue_next(ptr noundef nonnull %allocating_write_reqs.i) #18
+  tail call void @qemu_co_mutex_unlock(ptr noundef nonnull %table_lock.i) #18
   br label %return
 
 if.end4:                                          ; preds = %if.end
-  %features = getelementptr inbounds %struct.BDRVQEDState, ptr %s, i64 0, i32 1, i32 4
+  %features = getelementptr inbounds i8, ptr %s, i64 24
   %15 = load i64, ptr %features, align 8
   %and = and i64 %15, -3
   store i64 %and, ptr %features, align 8
   %call5 = tail call i32 @qed_write_header(ptr noundef nonnull %s)
-  tail call void @qemu_co_mutex_lock(ptr noundef nonnull %table_lock.i) #19
+  tail call void @qemu_co_mutex_lock(ptr noundef nonnull %table_lock.i) #18
   %16 = load i8, ptr %allocating_write_reqs_plugged.i, align 8
   %17 = and i8 %16, 1
   %tobool.not.i15 = icmp eq i8 %17, 0
   br i1 %tobool.not.i15, label %if.else.i19, label %qed_unplug_allocating_write_reqs.exit20
 
 if.else.i19:                                      ; preds = %if.end4
-  tail call void @__assert_fail(ptr noundef nonnull @.str.51, ptr noundef nonnull @.str.16, i32 noundef 280, ptr noundef nonnull @__PRETTY_FUNCTION__.qed_unplug_allocating_write_reqs) #20
+  tail call void @__assert_fail(ptr noundef nonnull @.str.51, ptr noundef nonnull @.str.16, i32 noundef 280, ptr noundef nonnull @__PRETTY_FUNCTION__.qed_unplug_allocating_write_reqs) #19
   unreachable
 
 qed_unplug_allocating_write_reqs.exit20:          ; preds = %if.end4
   store i8 0, ptr %allocating_write_reqs_plugged.i, align 8
-  %allocating_write_reqs.i17 = getelementptr inbounds %struct.BDRVQEDState, ptr %s, i64 0, i32 11
-  %call.i18 = tail call zeroext i1 @qemu_co_queue_next(ptr noundef nonnull %allocating_write_reqs.i17) #19
-  tail call void @qemu_co_mutex_unlock(ptr noundef nonnull %table_lock.i) #19
+  %allocating_write_reqs.i17 = getelementptr inbounds i8, ptr %s, i64 184
+  %call.i18 = tail call zeroext i1 @qemu_co_queue_next(ptr noundef nonnull %allocating_write_reqs.i17) #18
+  tail call void @qemu_co_mutex_unlock(ptr noundef nonnull %table_lock.i) #18
   %18 = load ptr, ptr %s, align 8
-  %call7 = tail call i32 @bdrv_co_flush(ptr noundef %18) #19
+  %call7 = tail call i32 @bdrv_co_flush(ptr noundef %18) #18
   br label %return
 
 return:                                           ; preds = %qed_plug_allocating_write_reqs.exit, %qed_unplug_allocating_write_reqs.exit20, %qed_unplug_allocating_write_reqs.exit
@@ -2137,22 +2093,22 @@ return:                                           ; preds = %qed_plug_allocating
 declare void @bdrv_dec_in_flight(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal zeroext i1 @qed_plug_allocating_write_reqs(ptr noundef %s) #0 {
+define internal noundef zeroext i1 @qed_plug_allocating_write_reqs(ptr noundef %s) #0 {
 entry:
-  %table_lock = getelementptr inbounds %struct.BDRVQEDState, ptr %s, i64 0, i32 2
-  tail call void @qemu_co_mutex_lock(ptr noundef nonnull %table_lock) #19
-  %allocating_write_reqs_plugged = getelementptr inbounds %struct.BDRVQEDState, ptr %s, i64 0, i32 12
+  %table_lock = getelementptr inbounds i8, ptr %s, i64 72
+  tail call void @qemu_co_mutex_lock(ptr noundef nonnull %table_lock) #18
+  %allocating_write_reqs_plugged = getelementptr inbounds i8, ptr %s, i64 200
   %0 = load i8, ptr %allocating_write_reqs_plugged, align 8
   %1 = and i8 %0, 1
   %tobool.not = icmp eq i8 %1, 0
   br i1 %tobool.not, label %if.end, label %if.else
 
 if.else:                                          ; preds = %entry
-  tail call void @__assert_fail(ptr noundef nonnull @.str.50, ptr noundef nonnull @.str.16, i32 noundef 263, ptr noundef nonnull @__PRETTY_FUNCTION__.qed_plug_allocating_write_reqs) #20
+  tail call void @__assert_fail(ptr noundef nonnull @.str.50, ptr noundef nonnull @.str.16, i32 noundef 263, ptr noundef nonnull @__PRETTY_FUNCTION__.qed_plug_allocating_write_reqs) #19
   unreachable
 
 if.end:                                           ; preds = %entry
-  %allocating_acb = getelementptr inbounds %struct.BDRVQEDState, ptr %s, i64 0, i32 10
+  %allocating_acb = getelementptr inbounds i8, ptr %s, i64 176
   %2 = load ptr, ptr %allocating_acb, align 8
   %cmp.not = icmp eq ptr %2, null
   br i1 %cmp.not, label %if.end3, label %return
@@ -2162,30 +2118,30 @@ if.end3:                                          ; preds = %if.end
   br label %return
 
 return:                                           ; preds = %if.end, %if.end3
-  tail call void @qemu_co_mutex_unlock(ptr noundef nonnull %table_lock) #19
+  tail call void @qemu_co_mutex_unlock(ptr noundef nonnull %table_lock) #18
   ret i1 %cmp.not
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
 define internal void @qed_unplug_allocating_write_reqs(ptr noundef %s) #0 {
 entry:
-  %table_lock = getelementptr inbounds %struct.BDRVQEDState, ptr %s, i64 0, i32 2
-  tail call void @qemu_co_mutex_lock(ptr noundef nonnull %table_lock) #19
-  %allocating_write_reqs_plugged = getelementptr inbounds %struct.BDRVQEDState, ptr %s, i64 0, i32 12
+  %table_lock = getelementptr inbounds i8, ptr %s, i64 72
+  tail call void @qemu_co_mutex_lock(ptr noundef nonnull %table_lock) #18
+  %allocating_write_reqs_plugged = getelementptr inbounds i8, ptr %s, i64 200
   %0 = load i8, ptr %allocating_write_reqs_plugged, align 8
   %1 = and i8 %0, 1
   %tobool.not = icmp eq i8 %1, 0
   br i1 %tobool.not, label %if.else, label %if.end
 
 if.else:                                          ; preds = %entry
-  tail call void @__assert_fail(ptr noundef nonnull @.str.51, ptr noundef nonnull @.str.16, i32 noundef 280, ptr noundef nonnull @__PRETTY_FUNCTION__.qed_unplug_allocating_write_reqs) #20
+  tail call void @__assert_fail(ptr noundef nonnull @.str.51, ptr noundef nonnull @.str.16, i32 noundef 280, ptr noundef nonnull @__PRETTY_FUNCTION__.qed_unplug_allocating_write_reqs) #19
   unreachable
 
 if.end:                                           ; preds = %entry
   store i8 0, ptr %allocating_write_reqs_plugged, align 8
-  %allocating_write_reqs = getelementptr inbounds %struct.BDRVQEDState, ptr %s, i64 0, i32 11
-  %call = tail call zeroext i1 @qemu_co_queue_next(ptr noundef nonnull %allocating_write_reqs) #19
-  tail call void @qemu_co_mutex_unlock(ptr noundef nonnull %table_lock) #19
+  %allocating_write_reqs = getelementptr inbounds i8, ptr %s, i64 184
+  %call = tail call zeroext i1 @qemu_co_queue_next(ptr noundef nonnull %allocating_write_reqs) #18
+  tail call void @qemu_co_mutex_unlock(ptr noundef nonnull %table_lock) #18
   ret void
 }
 
@@ -2194,110 +2150,110 @@ define internal i32 @qed_write_header(ptr nocapture noundef readonly %s) #0 {
 entry:
   %qiov.i13 = alloca %struct.QEMUIOVector, align 8
   %qiov.i = alloca %struct.QEMUIOVector, align 8
-  %allocating_acb = getelementptr inbounds %struct.BDRVQEDState, ptr %s, i64 0, i32 10
+  %allocating_acb = getelementptr inbounds i8, ptr %s, i64 176
   %0 = load ptr, ptr %allocating_acb, align 8
   %tobool.not = icmp eq ptr %0, null
   br i1 %tobool.not, label %lor.lhs.false, label %if.end
 
 lor.lhs.false:                                    ; preds = %entry
-  %allocating_write_reqs_plugged = getelementptr inbounds %struct.BDRVQEDState, ptr %s, i64 0, i32 12
+  %allocating_write_reqs_plugged = getelementptr inbounds i8, ptr %s, i64 200
   %1 = load i8, ptr %allocating_write_reqs_plugged, align 8
   %2 = and i8 %1, 1
   %tobool1.not = icmp eq i8 %2, 0
   br i1 %tobool1.not, label %if.else, label %if.end
 
 if.else:                                          ; preds = %lor.lhs.false
-  tail call void @__assert_fail(ptr noundef nonnull @.str.52, ptr noundef nonnull @.str.16, i32 noundef 116, ptr noundef nonnull @__PRETTY_FUNCTION__.qed_write_header) #20
+  tail call void @__assert_fail(ptr noundef nonnull @.str.52, ptr noundef nonnull @.str.16, i32 noundef 116, ptr noundef nonnull @__PRETTY_FUNCTION__.qed_write_header) #19
   unreachable
 
 if.end:                                           ; preds = %entry, %lor.lhs.false
   %3 = load ptr, ptr %s, align 8
-  %call = tail call ptr @qemu_blockalign(ptr noundef %3, i64 noundef 512) #19
+  %call = tail call ptr @qemu_blockalign(ptr noundef %3, i64 noundef 512) #18
   %4 = load ptr, ptr %s, align 8
-  %file = getelementptr inbounds %struct.BlockDriverState, ptr %4, i64 0, i32 31
+  %file = getelementptr inbounds i8, ptr %4, i64 16840
   %5 = load ptr, ptr %file, align 8
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %qiov.i)
-  %6 = getelementptr inbounds %struct.QEMUIOVector, ptr %qiov.i, i64 0, i32 2
-  %local_iov.i = getelementptr inbounds %struct.QEMUIOVector, ptr %qiov.i, i64 0, i32 2, i32 0, i32 1
+  %6 = getelementptr inbounds i8, ptr %qiov.i, i64 16
+  %local_iov.i = getelementptr inbounds i8, ptr %qiov.i, i64 24
   store ptr %local_iov.i, ptr %qiov.i, align 8
-  %niov.i = getelementptr inbounds %struct.QEMUIOVector, ptr %qiov.i, i64 0, i32 1
+  %niov.i = getelementptr inbounds i8, ptr %qiov.i, i64 8
   store i32 1, ptr %niov.i, align 8
   store i32 -1, ptr %6, align 8
   store ptr %call, ptr %local_iov.i, align 8
-  %iov_len.i = getelementptr inbounds %struct.QEMUIOVector, ptr %qiov.i, i64 0, i32 2, i32 0, i32 1, i32 1
+  %iov_len.i = getelementptr inbounds i8, ptr %qiov.i, i64 32
   store i64 512, ptr %iov_len.i, align 8
-  call void @assert_bdrv_graph_readable() #19
-  %call.i = call i32 @bdrv_co_preadv(ptr noundef %5, i64 noundef 0, i64 noundef 512, ptr noundef nonnull %qiov.i, i32 noundef 0) #19
+  call void @assert_bdrv_graph_readable() #18
+  %call.i = call i32 @bdrv_co_preadv(ptr noundef %5, i64 noundef 0, i64 noundef 512, ptr noundef nonnull %qiov.i, i32 noundef 0) #18
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %qiov.i)
   %cmp = icmp slt i32 %call.i, 0
   br i1 %cmp, label %out, label %if.end7
 
 if.end7:                                          ; preds = %if.end
-  %header = getelementptr inbounds %struct.BDRVQEDState, ptr %s, i64 0, i32 1
+  %header = getelementptr inbounds i8, ptr %s, i64 8
   %7 = load i32, ptr %header, align 1
   store i32 %7, ptr %call, align 1
-  %cluster_size.i = getelementptr inbounds %struct.BDRVQEDState, ptr %s, i64 0, i32 1, i32 1
+  %cluster_size.i = getelementptr inbounds i8, ptr %s, i64 12
   %8 = load i32, ptr %cluster_size.i, align 1
-  %cluster_size3.i = getelementptr inbounds %struct.QEDHeader, ptr %call, i64 0, i32 1
+  %cluster_size3.i = getelementptr inbounds i8, ptr %call, i64 4
   store i32 %8, ptr %cluster_size3.i, align 1
-  %table_size.i = getelementptr inbounds %struct.BDRVQEDState, ptr %s, i64 0, i32 1, i32 2
+  %table_size.i = getelementptr inbounds i8, ptr %s, i64 16
   %9 = load i32, ptr %table_size.i, align 1
-  %table_size5.i = getelementptr inbounds %struct.QEDHeader, ptr %call, i64 0, i32 2
+  %table_size5.i = getelementptr inbounds i8, ptr %call, i64 8
   store i32 %9, ptr %table_size5.i, align 1
-  %header_size.i = getelementptr inbounds %struct.BDRVQEDState, ptr %s, i64 0, i32 1, i32 3
+  %header_size.i = getelementptr inbounds i8, ptr %s, i64 20
   %10 = load i32, ptr %header_size.i, align 1
-  %header_size7.i = getelementptr inbounds %struct.QEDHeader, ptr %call, i64 0, i32 3
+  %header_size7.i = getelementptr inbounds i8, ptr %call, i64 12
   store i32 %10, ptr %header_size7.i, align 1
-  %features.i = getelementptr inbounds %struct.BDRVQEDState, ptr %s, i64 0, i32 1, i32 4
+  %features.i = getelementptr inbounds i8, ptr %s, i64 24
   %11 = load i64, ptr %features.i, align 1
-  %features9.i = getelementptr inbounds %struct.QEDHeader, ptr %call, i64 0, i32 4
+  %features9.i = getelementptr inbounds i8, ptr %call, i64 16
   store i64 %11, ptr %features9.i, align 1
-  %compat_features.i = getelementptr inbounds %struct.BDRVQEDState, ptr %s, i64 0, i32 1, i32 5
+  %compat_features.i = getelementptr inbounds i8, ptr %s, i64 32
   %12 = load i64, ptr %compat_features.i, align 1
-  %compat_features11.i = getelementptr inbounds %struct.QEDHeader, ptr %call, i64 0, i32 5
+  %compat_features11.i = getelementptr inbounds i8, ptr %call, i64 24
   store i64 %12, ptr %compat_features11.i, align 1
-  %autoclear_features.i = getelementptr inbounds %struct.BDRVQEDState, ptr %s, i64 0, i32 1, i32 6
+  %autoclear_features.i = getelementptr inbounds i8, ptr %s, i64 40
   %13 = load i64, ptr %autoclear_features.i, align 1
-  %autoclear_features13.i = getelementptr inbounds %struct.QEDHeader, ptr %call, i64 0, i32 6
+  %autoclear_features13.i = getelementptr inbounds i8, ptr %call, i64 32
   store i64 %13, ptr %autoclear_features13.i, align 1
-  %l1_table_offset.i = getelementptr inbounds %struct.BDRVQEDState, ptr %s, i64 0, i32 1, i32 7
+  %l1_table_offset.i = getelementptr inbounds i8, ptr %s, i64 48
   %14 = load i64, ptr %l1_table_offset.i, align 1
-  %l1_table_offset15.i = getelementptr inbounds %struct.QEDHeader, ptr %call, i64 0, i32 7
+  %l1_table_offset15.i = getelementptr inbounds i8, ptr %call, i64 40
   store i64 %14, ptr %l1_table_offset15.i, align 1
-  %image_size.i = getelementptr inbounds %struct.BDRVQEDState, ptr %s, i64 0, i32 1, i32 8
+  %image_size.i = getelementptr inbounds i8, ptr %s, i64 56
   %15 = load i64, ptr %image_size.i, align 1
-  %image_size17.i = getelementptr inbounds %struct.QEDHeader, ptr %call, i64 0, i32 8
+  %image_size17.i = getelementptr inbounds i8, ptr %call, i64 48
   store i64 %15, ptr %image_size17.i, align 1
-  %backing_filename_offset.i = getelementptr inbounds %struct.BDRVQEDState, ptr %s, i64 0, i32 1, i32 9
+  %backing_filename_offset.i = getelementptr inbounds i8, ptr %s, i64 64
   %16 = load i32, ptr %backing_filename_offset.i, align 1
-  %backing_filename_offset19.i = getelementptr inbounds %struct.QEDHeader, ptr %call, i64 0, i32 9
+  %backing_filename_offset19.i = getelementptr inbounds i8, ptr %call, i64 56
   store i32 %16, ptr %backing_filename_offset19.i, align 1
-  %backing_filename_size.i = getelementptr inbounds %struct.BDRVQEDState, ptr %s, i64 0, i32 1, i32 10
+  %backing_filename_size.i = getelementptr inbounds i8, ptr %s, i64 68
   %17 = load i32, ptr %backing_filename_size.i, align 1
-  %backing_filename_size21.i = getelementptr inbounds %struct.QEDHeader, ptr %call, i64 0, i32 10
+  %backing_filename_size21.i = getelementptr inbounds i8, ptr %call, i64 60
   store i32 %17, ptr %backing_filename_size21.i, align 1
   %18 = load ptr, ptr %s, align 8
-  %file9 = getelementptr inbounds %struct.BlockDriverState, ptr %18, i64 0, i32 31
+  %file9 = getelementptr inbounds i8, ptr %18, i64 16840
   %19 = load ptr, ptr %file9, align 8
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %qiov.i13)
-  %20 = getelementptr inbounds %struct.QEMUIOVector, ptr %qiov.i13, i64 0, i32 2
-  %local_iov.i14 = getelementptr inbounds %struct.QEMUIOVector, ptr %qiov.i13, i64 0, i32 2, i32 0, i32 1
+  %20 = getelementptr inbounds i8, ptr %qiov.i13, i64 16
+  %local_iov.i14 = getelementptr inbounds i8, ptr %qiov.i13, i64 24
   store ptr %local_iov.i14, ptr %qiov.i13, align 8
-  %niov.i15 = getelementptr inbounds %struct.QEMUIOVector, ptr %qiov.i13, i64 0, i32 1
+  %niov.i15 = getelementptr inbounds i8, ptr %qiov.i13, i64 8
   store i32 1, ptr %niov.i15, align 8
   store i32 -1, ptr %20, align 8
   store ptr %call, ptr %local_iov.i14, align 8
-  %iov_len.i16 = getelementptr inbounds %struct.QEMUIOVector, ptr %qiov.i13, i64 0, i32 2, i32 0, i32 1, i32 1
+  %iov_len.i16 = getelementptr inbounds i8, ptr %qiov.i13, i64 32
   store i64 512, ptr %iov_len.i16, align 8
-  call void @assert_bdrv_graph_readable() #19
-  %call.i17 = call i32 @bdrv_co_pwritev(ptr noundef %19, i64 noundef 0, i64 noundef 512, ptr noundef nonnull %qiov.i13, i32 noundef 0) #19
+  call void @assert_bdrv_graph_readable() #18
+  %call.i17 = call i32 @bdrv_co_pwritev(ptr noundef %19, i64 noundef 0, i64 noundef 512, ptr noundef nonnull %qiov.i13, i32 noundef 0) #18
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %qiov.i13)
   %spec.store.select = call i32 @llvm.smin.i32(i32 %call.i17, i32 0)
   br label %out
 
 out:                                              ; preds = %if.end7, %if.end
   %ret.0 = phi i32 [ %call.i, %if.end ], [ %spec.store.select, %if.end7 ]
-  call void @qemu_vfree(ptr noundef %call) #19
+  call void @qemu_vfree(ptr noundef %call) #18
   ret i32 %ret.0
 }
 
@@ -2307,17 +2263,17 @@ declare zeroext i1 @qemu_co_queue_next(ptr noundef) #1
 define internal i32 @bdrv_co_pwrite(ptr noundef %child, i64 noundef %offset, i64 noundef %bytes, ptr noundef %buf, i32 noundef %flags) #0 {
 entry:
   %qiov = alloca %struct.QEMUIOVector, align 8
-  %0 = getelementptr inbounds %struct.QEMUIOVector, ptr %qiov, i64 0, i32 2
-  %local_iov = getelementptr inbounds %struct.QEMUIOVector, ptr %qiov, i64 0, i32 2, i32 0, i32 1
+  %0 = getelementptr inbounds i8, ptr %qiov, i64 16
+  %local_iov = getelementptr inbounds i8, ptr %qiov, i64 24
   store ptr %local_iov, ptr %qiov, align 8
-  %niov = getelementptr inbounds %struct.QEMUIOVector, ptr %qiov, i64 0, i32 1
+  %niov = getelementptr inbounds i8, ptr %qiov, i64 8
   store i32 1, ptr %niov, align 8
   store i32 -1, ptr %0, align 8
   store ptr %buf, ptr %local_iov, align 8
-  %iov_len = getelementptr inbounds %struct.QEMUIOVector, ptr %qiov, i64 0, i32 2, i32 0, i32 1, i32 1
+  %iov_len = getelementptr inbounds i8, ptr %qiov, i64 32
   store i64 %bytes, ptr %iov_len, align 8
-  call void @assert_bdrv_graph_readable() #19
-  %call = call i32 @bdrv_co_pwritev(ptr noundef %child, i64 noundef %offset, i64 noundef %bytes, ptr noundef nonnull %qiov, i32 noundef %flags) #19
+  call void @assert_bdrv_graph_readable() #18
+  %call = call i32 @bdrv_co_pwritev(ptr noundef %child, i64 noundef %offset, i64 noundef %bytes, ptr noundef nonnull %qiov, i32 noundef %flags) #18
   ret i32 %call
 }
 
@@ -2337,29 +2293,29 @@ entry:
   %_now.i.i = alloca %struct.timeval, align 8
   %acb = alloca %struct.QEDAIOCB, align 8
   store ptr %bs, ptr %acb, align 8
-  %next = getelementptr inbounds %struct.QEDAIOCB, ptr %acb, i64 0, i32 1
+  %next = getelementptr inbounds i8, ptr %acb, i64 8
   store i64 0, ptr %next, align 8
-  %flags2 = getelementptr inbounds %struct.QEDAIOCB, ptr %acb, i64 0, i32 2
+  %flags2 = getelementptr inbounds i8, ptr %acb, i64 16
   store i32 %flags, ptr %flags2, align 8
-  %end_pos = getelementptr inbounds %struct.QEDAIOCB, ptr %acb, i64 0, i32 3
+  %end_pos = getelementptr inbounds i8, ptr %acb, i64 24
   %conv = sext i32 %nb_sectors to i64
   %add = add i64 %conv, %sector_num
   %mul = shl i64 %add, 9
   store i64 %mul, ptr %end_pos, align 8
-  %qiov3 = getelementptr inbounds %struct.QEDAIOCB, ptr %acb, i64 0, i32 4
+  %qiov3 = getelementptr inbounds i8, ptr %acb, i64 32
   store ptr %qiov, ptr %qiov3, align 8
-  %qiov_offset = getelementptr inbounds %struct.QEDAIOCB, ptr %acb, i64 0, i32 5
-  %cur_qiov = getelementptr inbounds %struct.QEDAIOCB, ptr %acb, i64 0, i32 6
-  %cur_pos = getelementptr inbounds %struct.QEDAIOCB, ptr %acb, i64 0, i32 7
+  %qiov_offset = getelementptr inbounds i8, ptr %acb, i64 40
+  %cur_qiov = getelementptr inbounds i8, ptr %acb, i64 48
+  %cur_pos = getelementptr inbounds i8, ptr %acb, i64 88
   %mul4 = shl i64 %sector_num, 9
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %qiov_offset, i8 0, i64 48, i1 false)
   store i64 %mul4, ptr %cur_pos, align 8
-  %cur_cluster = getelementptr inbounds %struct.QEDAIOCB, ptr %acb, i64 0, i32 8
-  %niov = getelementptr inbounds %struct.QEMUIOVector, ptr %qiov, i64 0, i32 1
+  %cur_cluster = getelementptr inbounds i8, ptr %acb, i64 96
+  %niov = getelementptr inbounds i8, ptr %qiov, i64 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %cur_cluster, i8 0, i64 24, i1 false)
   %0 = load i32, ptr %niov, align 8
-  call void @qemu_iovec_init(ptr noundef nonnull %cur_qiov, i32 noundef %0) #19
-  %opaque = getelementptr inbounds %struct.BlockDriverState, ptr %bs, i64 0, i32 7
+  call void @qemu_iovec_init(ptr noundef nonnull %cur_qiov, i32 noundef %0) #18
+  %opaque = getelementptr inbounds i8, ptr %bs, i64 24
   %1 = load ptr, ptr %opaque, align 8
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %_now.i.i)
   %2 = load i32, ptr @trace_events_enabled_count, align 4
@@ -2382,16 +2338,16 @@ if.then.i.i:                                      ; preds = %land.lhs.true5.i.i
   br i1 %tobool7.not.i.i, label %if.else.i.i, label %if.then8.i.i
 
 if.then8.i.i:                                     ; preds = %if.then.i.i
-  %call9.i.i = call i32 @gettimeofday(ptr noundef nonnull %_now.i.i, ptr noundef null) #19
-  %call10.i.i = call i32 @qemu_get_thread_id() #19
+  %call9.i.i = call i32 @gettimeofday(ptr noundef nonnull %_now.i.i, ptr noundef null) #18
+  %call10.i.i = call i32 @qemu_get_thread_id() #18
   %7 = load i64, ptr %_now.i.i, align 8
-  %tv_usec.i.i = getelementptr inbounds %struct.timeval, ptr %_now.i.i, i64 0, i32 1
+  %tv_usec.i.i = getelementptr inbounds i8, ptr %_now.i.i, i64 8
   %8 = load i64, ptr %tv_usec.i.i, align 8
-  call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.55, i32 noundef %call10.i.i, i64 noundef %7, i64 noundef %8, ptr noundef %1, ptr noundef nonnull %acb, i64 noundef %sector_num, i32 noundef %nb_sectors, ptr noundef null, i32 noundef %flags) #19
+  call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.55, i32 noundef %call10.i.i, i64 noundef %7, i64 noundef %8, ptr noundef %1, ptr noundef nonnull %acb, i64 noundef %sector_num, i32 noundef %nb_sectors, ptr noundef null, i32 noundef %flags) #18
   br label %trace_qed_aio_setup.exit
 
 if.else.i.i:                                      ; preds = %if.then.i.i
-  call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.56, ptr noundef %1, ptr noundef nonnull %acb, i64 noundef %sector_num, i32 noundef %nb_sectors, ptr noundef null, i32 noundef %flags) #19
+  call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.56, ptr noundef %1, ptr noundef nonnull %acb, i64 noundef %sector_num, i32 noundef %nb_sectors, ptr noundef null, i32 noundef %flags) #18
   br label %trace_qed_aio_setup.exit
 
 trace_qed_aio_setup.exit:                         ; preds = %entry, %land.lhs.true5.i.i, %if.then8.i.i, %if.else.i.i
@@ -2412,16 +2368,16 @@ entry:
   %acb.val = load ptr, ptr %acb, align 8
   %0 = getelementptr i8, ptr %acb.val, i64 24
   %acb.val.val = load ptr, ptr %0, align 8
-  %table_lock = getelementptr inbounds %struct.BDRVQEDState, ptr %acb.val.val, i64 0, i32 2
-  tail call void @qemu_co_mutex_lock(ptr noundef nonnull %table_lock) #19
-  %cur_pos = getelementptr inbounds %struct.QEDAIOCB, ptr %acb, i64 0, i32 7
-  %cur_qiov = getelementptr inbounds %struct.QEDAIOCB, ptr %acb, i64 0, i32 6
-  %size = getelementptr inbounds %struct.QEDAIOCB, ptr %acb, i64 0, i32 6, i32 2, i32 0, i32 1, i32 1
-  %tv_usec.i.i = getelementptr inbounds %struct.timeval, ptr %_now.i.i, i64 0, i32 1
-  %qiov_offset = getelementptr inbounds %struct.QEDAIOCB, ptr %acb, i64 0, i32 5
-  %end_pos = getelementptr inbounds %struct.QEDAIOCB, ptr %acb, i64 0, i32 3
-  %request = getelementptr inbounds %struct.QEDAIOCB, ptr %acb, i64 0, i32 11
-  %flags = getelementptr inbounds %struct.QEDAIOCB, ptr %acb, i64 0, i32 2
+  %table_lock = getelementptr inbounds i8, ptr %acb.val.val, i64 72
+  tail call void @qemu_co_mutex_lock(ptr noundef nonnull %table_lock) #18
+  %cur_pos = getelementptr inbounds i8, ptr %acb, i64 88
+  %cur_qiov = getelementptr inbounds i8, ptr %acb, i64 48
+  %size = getelementptr inbounds i8, ptr %acb, i64 80
+  %tv_usec.i.i = getelementptr inbounds i8, ptr %_now.i.i, i64 8
+  %qiov_offset = getelementptr inbounds i8, ptr %acb, i64 40
+  %end_pos = getelementptr inbounds i8, ptr %acb, i64 24
+  %request = getelementptr inbounds i8, ptr %acb, i64 112
+  %flags = getelementptr inbounds i8, ptr %acb, i64 16
   br label %while.body
 
 while.body:                                       ; preds = %if.end20, %entry
@@ -2449,15 +2405,15 @@ if.then.i.i:                                      ; preds = %land.lhs.true5.i.i
   br i1 %tobool7.not.i.i, label %if.else.i.i, label %if.then8.i.i
 
 if.then8.i.i:                                     ; preds = %if.then.i.i
-  %call9.i.i = call i32 @gettimeofday(ptr noundef nonnull %_now.i.i, ptr noundef null) #19
-  %call10.i.i = call i32 @qemu_get_thread_id() #19
+  %call9.i.i = call i32 @gettimeofday(ptr noundef nonnull %_now.i.i, ptr noundef null) #18
+  %call10.i.i = call i32 @qemu_get_thread_id() #18
   %8 = load i64, ptr %_now.i.i, align 8
   %9 = load i64, ptr %tv_usec.i.i, align 8
-  call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.57, i32 noundef %call10.i.i, i64 noundef %8, i64 noundef %9, ptr noundef %acb.val.val, ptr noundef nonnull %acb, i32 noundef 0, i64 noundef %add) #19
+  call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.57, i32 noundef %call10.i.i, i64 noundef %8, i64 noundef %9, ptr noundef %acb.val.val, ptr noundef nonnull %acb, i32 noundef 0, i64 noundef %add) #18
   br label %trace_qed_aio_next_io.exit
 
 if.else.i.i:                                      ; preds = %if.then.i.i
-  call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.58, ptr noundef %acb.val.val, ptr noundef nonnull %acb, i32 noundef 0, i64 noundef %add) #19
+  call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.58, ptr noundef %acb.val.val, ptr noundef nonnull %acb, i32 noundef 0, i64 noundef %add) #18
   br label %trace_qed_aio_next_io.exit
 
 trace_qed_aio_next_io.exit:                       ; preds = %while.body, %land.lhs.true5.i.i, %if.then8.i.i, %if.else.i.i
@@ -2469,7 +2425,7 @@ trace_qed_aio_next_io.exit:                       ; preds = %while.body, %land.l
   %12 = load i64, ptr %cur_pos, align 8
   %add7 = add i64 %12, %10
   store i64 %add7, ptr %cur_pos, align 8
-  call void @qemu_iovec_reset(ptr noundef nonnull %cur_qiov) #19
+  call void @qemu_iovec_reset(ptr noundef nonnull %cur_qiov) #18
   %13 = load i64, ptr %cur_pos, align 8
   %14 = load i64, ptr %end_pos, align 8
   %cmp.not = icmp ult i64 %13, %14
@@ -2478,7 +2434,7 @@ trace_qed_aio_next_io.exit:                       ; preds = %while.body, %land.l
 if.end:                                           ; preds = %trace_qed_aio_next_io.exit
   %sub = sub i64 %14, %13
   store i64 %sub, ptr %len, align 8
-  %call13 = call i32 @qed_find_cluster(ptr noundef %acb.val.val, ptr noundef nonnull %request, i64 noundef %13, ptr noundef nonnull %len, ptr noundef nonnull %offset) #19
+  %call13 = call i32 @qed_find_cluster(ptr noundef %acb.val.val, ptr noundef nonnull %request, i64 noundef %13, ptr noundef nonnull %len, ptr noundef nonnull %offset) #18
   %cmp14 = icmp slt i32 %call13, 0
   br i1 %cmp14, label %while.end, label %if.end16
 
@@ -2528,22 +2484,22 @@ if.then.i.i38:                                    ; preds = %land.lhs.true5.i.i3
   br i1 %tobool7.not.i.i39, label %if.else.i.i44, label %if.then8.i.i40
 
 if.then8.i.i40:                                   ; preds = %if.then.i.i38
-  %call9.i.i41 = call i32 @gettimeofday(ptr noundef nonnull %_now.i.i31, ptr noundef null) #19
-  %call10.i.i42 = call i32 @qemu_get_thread_id() #19
+  %call9.i.i41 = call i32 @gettimeofday(ptr noundef nonnull %_now.i.i31, ptr noundef null) #18
+  %call10.i.i42 = call i32 @qemu_get_thread_id() #18
   %23 = load i64, ptr %_now.i.i31, align 8
-  %tv_usec.i.i43 = getelementptr inbounds %struct.timeval, ptr %_now.i.i31, i64 0, i32 1
+  %tv_usec.i.i43 = getelementptr inbounds i8, ptr %_now.i.i31, i64 8
   %24 = load i64, ptr %tv_usec.i.i43, align 8
-  call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.73, i32 noundef %call10.i.i42, i64 noundef %23, i64 noundef %24, ptr noundef %acb.val.val, ptr noundef nonnull %acb, i32 noundef %ret.1) #19
+  call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.73, i32 noundef %call10.i.i42, i64 noundef %23, i64 noundef %24, ptr noundef %acb.val.val, ptr noundef nonnull %acb, i32 noundef %ret.1) #18
   br label %trace_qed_aio_complete.exit
 
 if.else.i.i44:                                    ; preds = %if.then.i.i38
-  call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.74, ptr noundef %acb.val.val, ptr noundef nonnull %acb, i32 noundef %ret.1) #19
+  call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.74, ptr noundef %acb.val.val, ptr noundef nonnull %acb, i32 noundef %ret.1) #18
   br label %trace_qed_aio_complete.exit
 
 trace_qed_aio_complete.exit:                      ; preds = %while.end, %land.lhs.true5.i.i35, %if.then8.i.i40, %if.else.i.i44
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %_now.i.i31)
   call void @qed_aio_complete(ptr noundef nonnull %acb)
-  call void @qemu_co_mutex_unlock(ptr noundef nonnull %table_lock) #19
+  call void @qemu_co_mutex_unlock(ptr noundef nonnull %table_lock) #18
   ret i32 %ret.1
 }
 
@@ -2579,21 +2535,21 @@ if.then.i.i:                                      ; preds = %land.lhs.true5.i.i
   br i1 %tobool7.not.i.i, label %if.else.i.i, label %if.then8.i.i
 
 if.then8.i.i:                                     ; preds = %if.then.i.i
-  %call9.i.i = call i32 @gettimeofday(ptr noundef nonnull %_now.i.i, ptr noundef null) #19
-  %call10.i.i = tail call i32 @qemu_get_thread_id() #19
+  %call9.i.i = call i32 @gettimeofday(ptr noundef nonnull %_now.i.i, ptr noundef null) #18
+  %call10.i.i = tail call i32 @qemu_get_thread_id() #18
   %6 = load i64, ptr %_now.i.i, align 8
-  %tv_usec.i.i = getelementptr inbounds %struct.timeval, ptr %_now.i.i, i64 0, i32 1
+  %tv_usec.i.i = getelementptr inbounds i8, ptr %_now.i.i, i64 8
   %7 = load i64, ptr %tv_usec.i.i, align 8
-  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.59, i32 noundef %call10.i.i, i64 noundef %6, i64 noundef %7, ptr noundef %opaque.val.val, ptr noundef nonnull %opaque, i32 noundef %ret, i64 noundef %offset, i64 noundef %len) #19
+  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.59, i32 noundef %call10.i.i, i64 noundef %6, i64 noundef %7, ptr noundef %opaque.val.val, ptr noundef nonnull %opaque, i32 noundef %ret, i64 noundef %offset, i64 noundef %len) #18
   br label %trace_qed_aio_write_data.exit
 
 if.else.i.i:                                      ; preds = %if.then.i.i
-  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.60, ptr noundef %opaque.val.val, ptr noundef nonnull %opaque, i32 noundef %ret, i64 noundef %offset, i64 noundef %len) #19
+  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.60, ptr noundef %opaque.val.val, ptr noundef nonnull %opaque, i32 noundef %ret, i64 noundef %offset, i64 noundef %len) #18
   br label %trace_qed_aio_write_data.exit
 
 trace_qed_aio_write_data.exit:                    ; preds = %entry, %land.lhs.true5.i.i, %if.then8.i.i, %if.else.i.i
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %_now.i.i)
-  %find_cluster_ret = getelementptr inbounds %struct.QEDAIOCB, ptr %opaque, i64 0, i32 10
+  %find_cluster_ret = getelementptr inbounds i8, ptr %opaque, i64 108
   store i32 %ret, ptr %find_cluster_ret, align 4
   switch i32 %ret, label %do.body [
     i32 0, label %sw.bb
@@ -2611,7 +2567,7 @@ sw.bb2:                                           ; preds = %trace_qed_aio_write
   br label %sw.epilog
 
 do.body:                                          ; preds = %trace_qed_aio_write_data.exit
-  tail call void @g_assertion_message_expr(ptr noundef null, ptr noundef nonnull @.str.16, i32 noundef 1295, ptr noundef nonnull @__func__.qed_aio_write_data, ptr noundef null) #20
+  tail call void @g_assertion_message_expr(ptr noundef null, ptr noundef nonnull @.str.16, i32 noundef 1295, ptr noundef nonnull @__func__.qed_aio_write_data, ptr noundef null) #19
   unreachable
 
 sw.epilog:                                        ; preds = %sw.bb2, %sw.bb
@@ -2626,9 +2582,9 @@ entry:
   %opaque.val = load ptr, ptr %opaque, align 8
   %0 = getelementptr i8, ptr %opaque.val, i64 24
   %opaque.val.val = load ptr, ptr %0, align 8
-  %table_lock = getelementptr inbounds %struct.BDRVQEDState, ptr %opaque.val.val, i64 0, i32 2
-  tail call void @qemu_co_mutex_unlock(ptr noundef nonnull %table_lock) #19
-  %cur_pos = getelementptr inbounds %struct.QEDAIOCB, ptr %opaque, i64 0, i32 7
+  %table_lock = getelementptr inbounds i8, ptr %opaque.val.val, i64 72
+  tail call void @qemu_co_mutex_unlock(ptr noundef nonnull %table_lock) #18
+  %cur_pos = getelementptr inbounds i8, ptr %opaque, i64 88
   %1 = load i64, ptr %cur_pos, align 8
   %2 = getelementptr i8, ptr %opaque.val.val, i64 12
   %call.val = load i32, ptr %2, align 4
@@ -2657,94 +2613,94 @@ if.then.i.i:                                      ; preds = %land.lhs.true5.i.i
   br i1 %tobool7.not.i.i, label %if.else.i.i, label %if.then8.i.i
 
 if.then8.i.i:                                     ; preds = %if.then.i.i
-  %call9.i.i = call i32 @gettimeofday(ptr noundef nonnull %_now.i.i, ptr noundef null) #19
-  %call10.i.i = tail call i32 @qemu_get_thread_id() #19
+  %call9.i.i = call i32 @gettimeofday(ptr noundef nonnull %_now.i.i, ptr noundef null) #18
+  %call10.i.i = tail call i32 @qemu_get_thread_id() #18
   %8 = load i64, ptr %_now.i.i, align 8
-  %tv_usec.i.i = getelementptr inbounds %struct.timeval, ptr %_now.i.i, i64 0, i32 1
+  %tv_usec.i.i = getelementptr inbounds i8, ptr %_now.i.i, i64 8
   %9 = load i64, ptr %tv_usec.i.i, align 8
-  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.71, i32 noundef %call10.i.i, i64 noundef %8, i64 noundef %9, ptr noundef nonnull %opaque.val.val, ptr noundef nonnull %opaque, i32 noundef %ret, i64 noundef %add, i64 noundef %len) #19
+  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.71, i32 noundef %call10.i.i, i64 noundef %8, i64 noundef %9, ptr noundef nonnull %opaque.val.val, ptr noundef nonnull %opaque, i32 noundef %ret, i64 noundef %add, i64 noundef %len) #18
   br label %trace_qed_aio_read_data.exit
 
 if.else.i.i:                                      ; preds = %if.then.i.i
-  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.72, ptr noundef nonnull %opaque.val.val, ptr noundef nonnull %opaque, i32 noundef %ret, i64 noundef %add, i64 noundef %len) #19
+  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.72, ptr noundef nonnull %opaque.val.val, ptr noundef nonnull %opaque, i32 noundef %ret, i64 noundef %add, i64 noundef %len) #18
   br label %trace_qed_aio_read_data.exit
 
 trace_qed_aio_read_data.exit:                     ; preds = %entry, %land.lhs.true5.i.i, %if.then8.i.i, %if.else.i.i
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %_now.i.i)
-  %cur_qiov = getelementptr inbounds %struct.QEDAIOCB, ptr %opaque, i64 0, i32 6
-  %qiov = getelementptr inbounds %struct.QEDAIOCB, ptr %opaque, i64 0, i32 4
+  %cur_qiov = getelementptr inbounds i8, ptr %opaque, i64 48
+  %qiov = getelementptr inbounds i8, ptr %opaque, i64 32
   %10 = load ptr, ptr %qiov, align 8
-  %qiov_offset = getelementptr inbounds %struct.QEDAIOCB, ptr %opaque, i64 0, i32 5
+  %qiov_offset = getelementptr inbounds i8, ptr %opaque, i64 40
   %11 = load i64, ptr %qiov_offset, align 8
-  tail call void @qemu_iovec_concat(ptr noundef nonnull %cur_qiov, ptr noundef %10, i64 noundef %11, i64 noundef %len) #19
+  tail call void @qemu_iovec_concat(ptr noundef nonnull %cur_qiov, ptr noundef %10, i64 noundef %11, i64 noundef %len) #18
   switch i32 %ret, label %if.then7 [
     i32 1, label %if.then
     i32 0, label %do.body
   ]
 
 if.then:                                          ; preds = %trace_qed_aio_read_data.exit
-  %size = getelementptr inbounds %struct.QEDAIOCB, ptr %opaque, i64 0, i32 6, i32 2, i32 0, i32 1, i32 1
+  %size = getelementptr inbounds i8, ptr %opaque, i64 80
   %12 = load i64, ptr %size, align 8
-  %call5 = tail call i64 @qemu_iovec_memset(ptr noundef nonnull %cur_qiov, i64 noundef 0, i32 noundef 0, i64 noundef %12) #19
+  %call5 = tail call i64 @qemu_iovec_memset(ptr noundef nonnull %cur_qiov, i64 noundef 0, i32 noundef 0, i64 noundef %12) #18
   br label %if.end21
 
 if.then7:                                         ; preds = %trace_qed_aio_read_data.exit
   %13 = load i64, ptr %cur_pos, align 8
   %14 = load ptr, ptr %opaque.val.val, align 8
-  %backing.i = getelementptr inbounds %struct.BlockDriverState, ptr %14, i64 0, i32 30
+  %backing.i = getelementptr inbounds i8, ptr %14, i64 16832
   %15 = load ptr, ptr %backing.i, align 8
   %tobool.not.i = icmp eq ptr %15, null
   br i1 %tobool.not.i, label %if.end9.i, label %do.body.i
 
 do.body.i:                                        ; preds = %if.then7
-  %file.i = getelementptr inbounds %struct.BlockDriverState, ptr %14, i64 0, i32 31
+  %file.i = getelementptr inbounds i8, ptr %14, i64 16840
   %16 = load ptr, ptr %file.i, align 8
   %tobool2.not.i = icmp eq ptr %16, null
   br i1 %tobool2.not.i, label %do.end.i, label %if.then3.i
 
 if.then3.i:                                       ; preds = %do.body.i
   %17 = load ptr, ptr %16, align 8
-  tail call void @bdrv_co_debug_event(ptr noundef %17, i32 noundef 10) #19
+  tail call void @bdrv_co_debug_event(ptr noundef %17, i32 noundef 10) #18
   %.pre.i = load ptr, ptr %opaque.val.val, align 8
-  %backing8.phi.trans.insert.i = getelementptr inbounds %struct.BlockDriverState, ptr %.pre.i, i64 0, i32 30
+  %backing8.phi.trans.insert.i = getelementptr inbounds i8, ptr %.pre.i, i64 16832
   %.pre7.i = load ptr, ptr %backing8.phi.trans.insert.i, align 8
   br label %do.end.i
 
 do.end.i:                                         ; preds = %if.then3.i, %do.body.i
   %18 = phi ptr [ %15, %do.body.i ], [ %.pre7.i, %if.then3.i ]
-  %size.i = getelementptr inbounds %struct.QEDAIOCB, ptr %opaque, i64 0, i32 6, i32 2, i32 0, i32 1, i32 1
+  %size.i = getelementptr inbounds i8, ptr %opaque, i64 80
   %19 = load i64, ptr %size.i, align 8
-  %call.i = tail call i32 @bdrv_co_preadv(ptr noundef %18, i64 noundef %13, i64 noundef %19, ptr noundef nonnull %cur_qiov, i32 noundef 0) #19
+  %call.i = tail call i32 @bdrv_co_preadv(ptr noundef %18, i64 noundef %13, i64 noundef %19, ptr noundef nonnull %cur_qiov, i32 noundef 0) #18
   br label %if.end21
 
 if.end9.i:                                        ; preds = %if.then7
-  %size10.i = getelementptr inbounds %struct.QEDAIOCB, ptr %opaque, i64 0, i32 6, i32 2, i32 0, i32 1, i32 1
+  %size10.i = getelementptr inbounds i8, ptr %opaque, i64 80
   %20 = load i64, ptr %size10.i, align 8
-  %call11.i = tail call i64 @qemu_iovec_memset(ptr noundef nonnull %cur_qiov, i64 noundef 0, i32 noundef 0, i64 noundef %20) #19
+  %call11.i = tail call i64 @qemu_iovec_memset(ptr noundef nonnull %cur_qiov, i64 noundef 0, i32 noundef 0, i64 noundef %20) #18
   br label %if.end21
 
 do.body:                                          ; preds = %trace_qed_aio_read_data.exit
-  %file = getelementptr inbounds %struct.BlockDriverState, ptr %opaque.val, i64 0, i32 31
+  %file = getelementptr inbounds i8, ptr %opaque.val, i64 16840
   %21 = load ptr, ptr %file, align 8
   %tobool.not = icmp eq ptr %21, null
   br i1 %tobool.not, label %do.end, label %if.then12
 
 if.then12:                                        ; preds = %do.body
   %22 = load ptr, ptr %21, align 8
-  tail call void @bdrv_co_debug_event(ptr noundef %22, i32 noundef 9) #19
+  tail call void @bdrv_co_debug_event(ptr noundef %22, i32 noundef 9) #18
   %.pre = load ptr, ptr %file, align 8
   br label %do.end
 
 do.end:                                           ; preds = %do.body, %if.then12
   %23 = phi ptr [ null, %do.body ], [ %.pre, %if.then12 ]
-  %size17 = getelementptr inbounds %struct.QEDAIOCB, ptr %opaque, i64 0, i32 6, i32 2, i32 0, i32 1, i32 1
+  %size17 = getelementptr inbounds i8, ptr %opaque, i64 80
   %24 = load i64, ptr %size17, align 8
-  %call19 = tail call i32 @bdrv_co_preadv(ptr noundef %23, i64 noundef %add, i64 noundef %24, ptr noundef nonnull %cur_qiov, i32 noundef 0) #19
+  %call19 = tail call i32 @bdrv_co_preadv(ptr noundef %23, i64 noundef %add, i64 noundef %24, ptr noundef nonnull %cur_qiov, i32 noundef 0) #18
   br label %if.end21
 
 if.end21:                                         ; preds = %if.end9.i, %do.end.i, %do.end, %if.then
   %r.0 = phi i32 [ 0, %if.then ], [ %call19, %do.end ], [ %call.i, %do.end.i ], [ 0, %if.end9.i ]
-  tail call void @qemu_co_mutex_lock(ptr noundef nonnull %table_lock) #19
+  tail call void @qemu_co_mutex_lock(ptr noundef nonnull %table_lock) #18
   ret i32 %r.0
 }
 
@@ -2754,46 +2710,46 @@ entry:
   %acb.val = load ptr, ptr %acb, align 8
   %0 = getelementptr i8, ptr %acb.val, i64 24
   %acb.val.val = load ptr, ptr %0, align 8
-  %cur_qiov = getelementptr inbounds %struct.QEDAIOCB, ptr %acb, i64 0, i32 6
-  tail call void @qemu_iovec_destroy(ptr noundef nonnull %cur_qiov) #19
-  %request = getelementptr inbounds %struct.QEDAIOCB, ptr %acb, i64 0, i32 11
+  %cur_qiov = getelementptr inbounds i8, ptr %acb, i64 48
+  tail call void @qemu_iovec_destroy(ptr noundef nonnull %cur_qiov) #18
+  %request = getelementptr inbounds i8, ptr %acb, i64 112
   %1 = load ptr, ptr %request, align 8
-  tail call void @qed_unref_l2_cache_entry(ptr noundef %1) #19
-  %flags = getelementptr inbounds %struct.QEDAIOCB, ptr %acb, i64 0, i32 2
+  tail call void @qed_unref_l2_cache_entry(ptr noundef %1) #18
+  %flags = getelementptr inbounds i8, ptr %acb, i64 16
   %2 = load i32, ptr %flags, align 8
   %and = and i32 %2, 2
   %tobool.not = icmp eq i32 %and, 0
   br i1 %tobool.not, label %if.end, label %if.then
 
 if.then:                                          ; preds = %entry
-  %qiov = getelementptr inbounds %struct.QEDAIOCB, ptr %acb, i64 0, i32 4
+  %qiov = getelementptr inbounds i8, ptr %acb, i64 32
   %3 = load ptr, ptr %qiov, align 8
   %4 = load ptr, ptr %3, align 8
   %5 = load ptr, ptr %4, align 8
-  tail call void @qemu_vfree(ptr noundef %5) #19
+  tail call void @qemu_vfree(ptr noundef %5) #18
   %6 = load ptr, ptr %qiov, align 8
   %7 = load ptr, ptr %6, align 8
   store ptr null, ptr %7, align 8
   br label %if.end
 
 if.end:                                           ; preds = %if.then, %entry
-  %allocating_acb = getelementptr inbounds %struct.BDRVQEDState, ptr %acb.val.val, i64 0, i32 10
+  %allocating_acb = getelementptr inbounds i8, ptr %acb.val.val, i64 176
   %8 = load ptr, ptr %allocating_acb, align 8
   %cmp = icmp eq ptr %8, %acb
   br i1 %cmp, label %if.then5, label %if.end16
 
 if.then5:                                         ; preds = %if.end
   store ptr null, ptr %allocating_acb, align 8
-  %allocating_write_reqs = getelementptr inbounds %struct.BDRVQEDState, ptr %acb.val.val, i64 0, i32 11
-  %call7 = tail call zeroext i1 @qemu_co_queue_empty(ptr noundef nonnull %allocating_write_reqs) #19
+  %allocating_write_reqs = getelementptr inbounds i8, ptr %acb.val.val, i64 184
+  %call7 = tail call zeroext i1 @qemu_co_queue_empty(ptr noundef nonnull %allocating_write_reqs) #18
   br i1 %call7, label %if.else, label %if.then8
 
 if.then8:                                         ; preds = %if.then5
-  %call10 = tail call zeroext i1 @qemu_co_queue_next(ptr noundef nonnull %allocating_write_reqs) #19
+  %call10 = tail call zeroext i1 @qemu_co_queue_next(ptr noundef nonnull %allocating_write_reqs) #18
   br label %if.end16
 
 if.else:                                          ; preds = %if.then5
-  %features = getelementptr inbounds %struct.BDRVQEDState, ptr %acb.val.val, i64 0, i32 1, i32 4
+  %features = getelementptr inbounds i8, ptr %acb.val.val, i64 24
   %9 = load i64, ptr %features, align 8
   %and11 = and i64 %9, 2
   %tobool12.not = icmp eq i64 %and11, 0
@@ -2813,16 +2769,16 @@ entry:
   %acb.val = load ptr, ptr %acb, align 8
   %0 = getelementptr i8, ptr %acb.val, i64 24
   %acb.val.val = load ptr, ptr %0, align 8
-  %table_lock = getelementptr inbounds %struct.BDRVQEDState, ptr %acb.val.val, i64 0, i32 2
-  tail call void @qemu_co_mutex_unlock(ptr noundef nonnull %table_lock) #19
-  %flags = getelementptr inbounds %struct.QEDAIOCB, ptr %acb, i64 0, i32 2
+  %table_lock = getelementptr inbounds i8, ptr %acb.val.val, i64 72
+  tail call void @qemu_co_mutex_unlock(ptr noundef nonnull %table_lock) #18
+  %flags = getelementptr inbounds i8, ptr %acb, i64 16
   %1 = load i32, ptr %flags, align 8
   %and = and i32 %1, 2
   %tobool.not = icmp eq i32 %and, 0
   br i1 %tobool.not, label %if.end11, label %if.then
 
 if.then:                                          ; preds = %entry
-  %qiov = getelementptr inbounds %struct.QEDAIOCB, ptr %acb, i64 0, i32 4
+  %qiov = getelementptr inbounds i8, ptr %acb, i64 32
   %2 = load ptr, ptr %qiov, align 8
   %3 = load ptr, ptr %2, align 8
   %4 = load ptr, ptr %3, align 8
@@ -2831,9 +2787,9 @@ if.then:                                          ; preds = %entry
 
 if.then3:                                         ; preds = %if.then
   %5 = load ptr, ptr %acb, align 8
-  %iov_len = getelementptr inbounds %struct.iovec, ptr %3, i64 0, i32 1
+  %iov_len = getelementptr inbounds i8, ptr %3, i64 8
   %6 = load i64, ptr %iov_len, align 8
-  %call4 = tail call ptr @qemu_try_blockalign(ptr noundef %5, i64 noundef %6) #19
+  %call4 = tail call ptr @qemu_try_blockalign(ptr noundef %5, i64 noundef %6) #18
   store ptr %call4, ptr %3, align 8
   %cmp = icmp eq ptr %call4, null
   br i1 %cmp, label %out, label %if.end
@@ -2844,20 +2800,20 @@ if.end:                                           ; preds = %if.then3
   br label %if.end11
 
 if.end11:                                         ; preds = %if.then, %if.end, %entry
-  %cur_cluster = getelementptr inbounds %struct.QEDAIOCB, ptr %acb, i64 0, i32 8
+  %cur_cluster = getelementptr inbounds i8, ptr %acb, i64 96
   store i64 %offset, ptr %cur_cluster, align 8
-  %cur_qiov = getelementptr inbounds %struct.QEDAIOCB, ptr %acb, i64 0, i32 6
-  %qiov12 = getelementptr inbounds %struct.QEDAIOCB, ptr %acb, i64 0, i32 4
+  %cur_qiov = getelementptr inbounds i8, ptr %acb, i64 48
+  %qiov12 = getelementptr inbounds i8, ptr %acb, i64 32
   %8 = load ptr, ptr %qiov12, align 8
-  %qiov_offset = getelementptr inbounds %struct.QEDAIOCB, ptr %acb, i64 0, i32 5
+  %qiov_offset = getelementptr inbounds i8, ptr %acb, i64 40
   %9 = load i64, ptr %qiov_offset, align 8
-  tail call void @qemu_iovec_concat(ptr noundef nonnull %cur_qiov, ptr noundef %8, i64 noundef %9, i64 noundef %len) #19
+  tail call void @qemu_iovec_concat(ptr noundef nonnull %cur_qiov, ptr noundef %8, i64 noundef %9, i64 noundef %len) #18
   %call13 = tail call i32 @qed_aio_write_main(ptr noundef nonnull %acb)
   br label %out
 
 out:                                              ; preds = %if.then3, %if.end11
   %r.0 = phi i32 [ %call13, %if.end11 ], [ -12, %if.then3 ]
-  tail call void @qemu_co_mutex_lock(ptr noundef nonnull %table_lock) #19
+  tail call void @qemu_co_mutex_lock(ptr noundef nonnull %table_lock) #18
   ret i32 %r.0
 }
 
@@ -2868,7 +2824,7 @@ entry:
   %acb.val = load ptr, ptr %acb, align 8
   %0 = getelementptr i8, ptr %acb.val, i64 24
   %acb.val.val = load ptr, ptr %0, align 8
-  %allocating_acb = getelementptr inbounds %struct.BDRVQEDState, ptr %acb.val.val, i64 0, i32 10
+  %allocating_acb = getelementptr inbounds i8, ptr %acb.val.val, i64 176
   %1 = load ptr, ptr %allocating_acb, align 8
   %cmp = icmp eq ptr %1, null
   br i1 %cmp, label %if.then, label %if.end
@@ -2884,7 +2840,7 @@ if.end:                                           ; preds = %if.then, %entry
   br i1 %cmp2.not, label %lor.lhs.false, label %if.then3
 
 lor.lhs.false:                                    ; preds = %if.end
-  %allocating_write_reqs_plugged = getelementptr inbounds %struct.BDRVQEDState, ptr %acb.val.val, i64 0, i32 12
+  %allocating_write_reqs_plugged = getelementptr inbounds i8, ptr %acb.val.val, i64 200
   %3 = load i8, ptr %allocating_write_reqs_plugged, align 8
   %4 = and i8 %3, 1
   %tobool.not = icmp eq i8 %4, 0
@@ -2895,20 +2851,20 @@ if.then3:                                         ; preds = %lor.lhs.false, %if.
   br i1 %cmp5.not, label %if.end13, label %if.then6
 
 if.then6:                                         ; preds = %if.then3
-  %allocating_write_reqs = getelementptr inbounds %struct.BDRVQEDState, ptr %acb.val.val, i64 0, i32 11
-  %table_lock = getelementptr inbounds %struct.BDRVQEDState, ptr %acb.val.val, i64 0, i32 2
+  %allocating_write_reqs = getelementptr inbounds i8, ptr %acb.val.val, i64 184
+  %table_lock = getelementptr inbounds i8, ptr %acb.val.val, i64 72
   store ptr %table_lock, ptr %.compoundliteral, align 8
-  %lock = getelementptr inbounds %struct.QemuLockable, ptr %.compoundliteral, i64 0, i32 1
+  %lock = getelementptr inbounds i8, ptr %.compoundliteral, i64 8
   store ptr @qemu_co_mutex_lock, ptr %lock, align 8
-  %unlock = getelementptr inbounds %struct.QemuLockable, ptr %.compoundliteral, i64 0, i32 2
+  %unlock = getelementptr inbounds i8, ptr %.compoundliteral, i64 16
   store ptr @qemu_co_mutex_unlock, ptr %unlock, align 8
-  call void @qemu_co_queue_wait_impl(ptr noundef nonnull %allocating_write_reqs, ptr noundef nonnull %.compoundliteral, i32 noundef 0) #19
+  call void @qemu_co_queue_wait_impl(ptr noundef nonnull %allocating_write_reqs, ptr noundef nonnull %.compoundliteral, i32 noundef 0) #18
   %5 = load ptr, ptr %allocating_acb, align 8
   %cmp10 = icmp eq ptr %5, null
   br i1 %cmp10, label %if.end13, label %if.else
 
 if.else:                                          ; preds = %if.then6
-  call void @__assert_fail(ptr noundef nonnull @.str.63, ptr noundef nonnull @.str.16, i32 noundef 1184, ptr noundef nonnull @__PRETTY_FUNCTION__.qed_aio_write_alloc) #20
+  call void @__assert_fail(ptr noundef nonnull @.str.63, ptr noundef nonnull @.str.16, i32 noundef 1184, ptr noundef nonnull @__PRETTY_FUNCTION__.qed_aio_write_alloc) #19
   unreachable
 
 if.end13:                                         ; preds = %if.then6, %if.then3
@@ -2916,7 +2872,7 @@ if.end13:                                         ; preds = %if.then6, %if.then3
   br label %return
 
 if.end15:                                         ; preds = %lor.lhs.false
-  %cur_pos = getelementptr inbounds %struct.QEDAIOCB, ptr %acb, i64 0, i32 7
+  %cur_pos = getelementptr inbounds i8, ptr %acb, i64 88
   %6 = load i64, ptr %cur_pos, align 8
   %7 = getelementptr i8, ptr %acb.val.val, i64 12
   %call.val = load i32, ptr %7, align 4
@@ -2929,29 +2885,29 @@ if.end15:                                         ; preds = %lor.lhs.false
   %and.i.i = and i64 %add.i, %not.i.i
   %div.i = udiv i64 %and.i.i, %conv.i
   %conv = trunc i64 %div.i to i32
-  %cur_nclusters = getelementptr inbounds %struct.QEDAIOCB, ptr %acb, i64 0, i32 9
+  %cur_nclusters = getelementptr inbounds i8, ptr %acb, i64 104
   store i32 %conv, ptr %cur_nclusters, align 8
-  %cur_qiov = getelementptr inbounds %struct.QEDAIOCB, ptr %acb, i64 0, i32 6
-  %qiov = getelementptr inbounds %struct.QEDAIOCB, ptr %acb, i64 0, i32 4
+  %cur_qiov = getelementptr inbounds i8, ptr %acb, i64 48
+  %qiov = getelementptr inbounds i8, ptr %acb, i64 32
   %8 = load ptr, ptr %qiov, align 8
-  %qiov_offset = getelementptr inbounds %struct.QEDAIOCB, ptr %acb, i64 0, i32 5
+  %qiov_offset = getelementptr inbounds i8, ptr %acb, i64 40
   %9 = load i64, ptr %qiov_offset, align 8
-  tail call void @qemu_iovec_concat(ptr noundef nonnull %cur_qiov, ptr noundef %8, i64 noundef %9, i64 noundef %len) #19
-  %flags = getelementptr inbounds %struct.QEDAIOCB, ptr %acb, i64 0, i32 2
+  tail call void @qemu_iovec_concat(ptr noundef nonnull %cur_qiov, ptr noundef %8, i64 noundef %9, i64 noundef %len) #18
+  %flags = getelementptr inbounds i8, ptr %acb, i64 16
   %10 = load i32, ptr %flags, align 8
   %and = and i32 %10, 2
   %tobool18.not = icmp eq i32 %and, 0
   br i1 %tobool18.not, label %if.else24, label %if.then19
 
 if.then19:                                        ; preds = %if.end15
-  %find_cluster_ret = getelementptr inbounds %struct.QEDAIOCB, ptr %acb, i64 0, i32 10
+  %find_cluster_ret = getelementptr inbounds i8, ptr %acb, i64 108
   %11 = load i32, ptr %find_cluster_ret, align 4
   %cmp20 = icmp eq i32 %11, 1
   br i1 %cmp20, label %return, label %if.end28
 
 if.else24:                                        ; preds = %if.end15
   %12 = load i32, ptr %cur_nclusters, align 8
-  %file_size.i = getelementptr inbounds %struct.BDRVQEDState, ptr %acb.val.val, i64 0, i32 9
+  %file_size.i = getelementptr inbounds i8, ptr %acb.val.val, i64 168
   %13 = load i64, ptr %file_size.i, align 8
   %14 = load i32, ptr %7, align 4
   %mul.i = mul i32 %14, %12
@@ -2962,16 +2918,16 @@ if.else24:                                        ; preds = %if.end15
 
 if.end28:                                         ; preds = %if.then19, %if.else24
   %.sink = phi i64 [ %13, %if.else24 ], [ 1, %if.then19 ]
-  %cur_cluster27 = getelementptr inbounds %struct.QEDAIOCB, ptr %acb, i64 0, i32 8
+  %cur_cluster27 = getelementptr inbounds i8, ptr %acb, i64 96
   store i64 %.sink, ptr %cur_cluster27, align 8
   %15 = load ptr, ptr %acb.val.val, align 8
-  %backing.i = getelementptr inbounds %struct.BlockDriverState, ptr %15, i64 0, i32 30
+  %backing.i = getelementptr inbounds i8, ptr %15, i64 16832
   %16 = load ptr, ptr %backing.i, align 8
   %tobool.not.i = icmp eq ptr %16, null
   br i1 %tobool.not.i, label %qed_should_set_need_check.exit, label %if.end36
 
 qed_should_set_need_check.exit:                   ; preds = %if.end28
-  %features.i = getelementptr inbounds %struct.BDRVQEDState, ptr %acb.val.val, i64 0, i32 1, i32 4
+  %features.i = getelementptr inbounds i8, ptr %acb.val.val, i64 24
   %17 = load i64, ptr %features.i, align 8
   %and.i41 = and i64 %17, 2
   %tobool1.not.i = icmp eq i64 %and.i41, 0
@@ -2996,7 +2952,7 @@ if.then40:                                        ; preds = %if.end36
   br i1 %cmp42, label %return, label %if.end46
 
 if.end46:                                         ; preds = %if.then40, %if.end36
-  %cur_cluster47 = getelementptr inbounds %struct.QEDAIOCB, ptr %acb, i64 0, i32 8
+  %cur_cluster47 = getelementptr inbounds i8, ptr %acb, i64 96
   %19 = load i64, ptr %cur_cluster47, align 8
   %call48 = tail call i32 @qed_aio_write_l2_update(ptr noundef nonnull %acb, i64 noundef %19)
   br label %return
@@ -3007,7 +2963,7 @@ return:                                           ; preds = %if.then40, %if.then
 }
 
 ; Function Attrs: noreturn
-declare void @g_assertion_message_expr(ptr noundef, ptr noundef, i32 noundef, ptr noundef, ptr noundef) local_unnamed_addr #15
+declare void @g_assertion_message_expr(ptr noundef, ptr noundef, i32 noundef, ptr noundef, ptr noundef) local_unnamed_addr #14
 
 declare ptr @qemu_try_blockalign(ptr noundef, i64 noundef) local_unnamed_addr #1
 
@@ -3020,9 +2976,9 @@ entry:
   %acb.val = load ptr, ptr %acb, align 8
   %0 = getelementptr i8, ptr %acb.val, i64 24
   %acb.val.val = load ptr, ptr %0, align 8
-  %cur_cluster = getelementptr inbounds %struct.QEDAIOCB, ptr %acb, i64 0, i32 8
+  %cur_cluster = getelementptr inbounds i8, ptr %acb, i64 96
   %1 = load i64, ptr %cur_cluster, align 8
-  %cur_pos = getelementptr inbounds %struct.QEDAIOCB, ptr %acb, i64 0, i32 7
+  %cur_pos = getelementptr inbounds i8, ptr %acb, i64 88
   %2 = load i64, ptr %cur_pos, align 8
   %3 = getelementptr i8, ptr %acb.val.val, i64 12
   %call.val = load i32, ptr %3, align 4
@@ -3030,7 +2986,7 @@ entry:
   %conv.i = zext i32 %sub.i to i64
   %and.i = and i64 %2, %conv.i
   %add = add i64 %and.i, %1
-  %size = getelementptr inbounds %struct.QEDAIOCB, ptr %acb, i64 0, i32 6, i32 2, i32 0, i32 1, i32 1
+  %size = getelementptr inbounds i8, ptr %acb, i64 80
   %4 = load i64, ptr %size, align 8
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %_now.i.i)
   %5 = load i32, ptr @trace_events_enabled_count, align 4
@@ -3053,39 +3009,39 @@ if.then.i.i:                                      ; preds = %land.lhs.true5.i.i
   br i1 %tobool7.not.i.i, label %if.else.i.i, label %if.then8.i.i
 
 if.then8.i.i:                                     ; preds = %if.then.i.i
-  %call9.i.i = call i32 @gettimeofday(ptr noundef nonnull %_now.i.i, ptr noundef null) #19
-  %call10.i.i = tail call i32 @qemu_get_thread_id() #19
+  %call9.i.i = call i32 @gettimeofday(ptr noundef nonnull %_now.i.i, ptr noundef null) #18
+  %call10.i.i = tail call i32 @qemu_get_thread_id() #18
   %10 = load i64, ptr %_now.i.i, align 8
-  %tv_usec.i.i = getelementptr inbounds %struct.timeval, ptr %_now.i.i, i64 0, i32 1
+  %tv_usec.i.i = getelementptr inbounds i8, ptr %_now.i.i, i64 8
   %11 = load i64, ptr %tv_usec.i.i, align 8
-  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.61, i32 noundef %call10.i.i, i64 noundef %10, i64 noundef %11, ptr noundef nonnull %acb.val.val, ptr noundef nonnull %acb, i32 noundef 0, i64 noundef %add, i64 noundef %4) #19
+  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.61, i32 noundef %call10.i.i, i64 noundef %10, i64 noundef %11, ptr noundef nonnull %acb.val.val, ptr noundef nonnull %acb, i32 noundef 0, i64 noundef %add, i64 noundef %4) #18
   br label %trace_qed_aio_write_main.exit
 
 if.else.i.i:                                      ; preds = %if.then.i.i
-  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.62, ptr noundef nonnull %acb.val.val, ptr noundef nonnull %acb, i32 noundef 0, i64 noundef %add, i64 noundef %4) #19
+  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.62, ptr noundef nonnull %acb.val.val, ptr noundef nonnull %acb, i32 noundef 0, i64 noundef %add, i64 noundef %4) #18
   br label %trace_qed_aio_write_main.exit
 
 trace_qed_aio_write_main.exit:                    ; preds = %entry, %land.lhs.true5.i.i, %if.then8.i.i, %if.else.i.i
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %_now.i.i)
   %12 = load ptr, ptr %acb.val.val, align 8
-  %file = getelementptr inbounds %struct.BlockDriverState, ptr %12, i64 0, i32 31
+  %file = getelementptr inbounds i8, ptr %12, i64 16840
   %13 = load ptr, ptr %file, align 8
   %tobool.not = icmp eq ptr %13, null
   br i1 %tobool.not, label %do.end, label %if.then
 
 if.then:                                          ; preds = %trace_qed_aio_write_main.exit
   %14 = load ptr, ptr %13, align 8
-  tail call void @bdrv_co_debug_event(ptr noundef %14, i32 noundef 12) #19
+  tail call void @bdrv_co_debug_event(ptr noundef %14, i32 noundef 12) #18
   %.pre = load ptr, ptr %acb.val.val, align 8
-  %file6.phi.trans.insert = getelementptr inbounds %struct.BlockDriverState, ptr %.pre, i64 0, i32 31
+  %file6.phi.trans.insert = getelementptr inbounds i8, ptr %.pre, i64 16840
   %.pre12 = load ptr, ptr %file6.phi.trans.insert, align 8
   br label %do.end
 
 do.end:                                           ; preds = %trace_qed_aio_write_main.exit, %if.then
   %15 = phi ptr [ null, %trace_qed_aio_write_main.exit ], [ %.pre12, %if.then ]
-  %cur_qiov = getelementptr inbounds %struct.QEDAIOCB, ptr %acb, i64 0, i32 6
+  %cur_qiov = getelementptr inbounds i8, ptr %acb, i64 48
   %16 = load i64, ptr %size, align 8
-  %call10 = tail call i32 @bdrv_co_pwritev(ptr noundef %15, i64 noundef %add, i64 noundef %16, ptr noundef nonnull %cur_qiov, i32 noundef 0) #19
+  %call10 = tail call i32 @bdrv_co_pwritev(ptr noundef %15, i64 noundef %add, i64 noundef %16, ptr noundef nonnull %cur_qiov, i32 noundef 0) #18
   ret i32 %call10
 }
 
@@ -3101,9 +3057,9 @@ entry:
   %acb.val = load ptr, ptr %acb, align 8
   %0 = getelementptr i8, ptr %acb.val, i64 24
   %acb.val.val = load ptr, ptr %0, align 8
-  %table_lock = getelementptr inbounds %struct.BDRVQEDState, ptr %acb.val.val, i64 0, i32 2
-  tail call void @qemu_co_mutex_unlock(ptr noundef nonnull %table_lock) #19
-  %cur_pos = getelementptr inbounds %struct.QEDAIOCB, ptr %acb, i64 0, i32 7
+  %table_lock = getelementptr inbounds i8, ptr %acb.val.val, i64 72
+  tail call void @qemu_co_mutex_unlock(ptr noundef nonnull %table_lock) #18
+  %cur_pos = getelementptr inbounds i8, ptr %acb, i64 88
   %1 = load i64, ptr %cur_pos, align 8
   %2 = getelementptr i8, ptr %acb.val.val, i64 12
   %call.val39 = load i32, ptr %2, align 4
@@ -3112,7 +3068,7 @@ entry:
   %not.i = xor i64 %conv.i, -1
   %and.i = and i64 %1, %not.i
   %and.i42 = and i64 %1, %conv.i
-  %cur_cluster = getelementptr inbounds %struct.QEDAIOCB, ptr %acb, i64 0, i32 8
+  %cur_cluster = getelementptr inbounds i8, ptr %acb, i64 96
   %3 = load i64, ptr %cur_cluster, align 8
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %_now.i.i)
   %4 = load i32, ptr @trace_events_enabled_count, align 4
@@ -3135,16 +3091,16 @@ if.then.i.i:                                      ; preds = %land.lhs.true5.i.i
   br i1 %tobool7.not.i.i, label %if.else.i.i, label %if.then8.i.i
 
 if.then8.i.i:                                     ; preds = %if.then.i.i
-  %call9.i.i = call i32 @gettimeofday(ptr noundef nonnull %_now.i.i, ptr noundef null) #19
-  %call10.i.i = tail call i32 @qemu_get_thread_id() #19
+  %call9.i.i = call i32 @gettimeofday(ptr noundef nonnull %_now.i.i, ptr noundef null) #18
+  %call10.i.i = tail call i32 @qemu_get_thread_id() #18
   %9 = load i64, ptr %_now.i.i, align 8
-  %tv_usec.i.i = getelementptr inbounds %struct.timeval, ptr %_now.i.i, i64 0, i32 1
+  %tv_usec.i.i = getelementptr inbounds i8, ptr %_now.i.i, i64 8
   %10 = load i64, ptr %tv_usec.i.i, align 8
-  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.64, i32 noundef %call10.i.i, i64 noundef %9, i64 noundef %10, ptr noundef nonnull %acb.val.val, ptr noundef nonnull %acb, i64 noundef %and.i, i64 noundef %and.i42, i64 noundef %3) #19
+  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.64, i32 noundef %call10.i.i, i64 noundef %9, i64 noundef %10, ptr noundef nonnull %acb.val.val, ptr noundef nonnull %acb, i64 noundef %and.i, i64 noundef %and.i42, i64 noundef %3) #18
   br label %trace_qed_aio_write_prefill.exit
 
 if.else.i.i:                                      ; preds = %if.then.i.i
-  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.65, ptr noundef nonnull %acb.val.val, ptr noundef nonnull %acb, i64 noundef %and.i, i64 noundef %and.i42, i64 noundef %3) #19
+  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.65, ptr noundef nonnull %acb.val.val, ptr noundef nonnull %acb, i64 noundef %and.i, i64 noundef %and.i42, i64 noundef %3) #18
   br label %trace_qed_aio_write_prefill.exit
 
 trace_qed_aio_write_prefill.exit:                 ; preds = %entry, %land.lhs.true5.i.i, %if.then8.i.i, %if.else.i.i
@@ -3156,7 +3112,7 @@ trace_qed_aio_write_prefill.exit:                 ; preds = %entry, %land.lhs.tr
 
 if.end:                                           ; preds = %trace_qed_aio_write_prefill.exit
   %12 = load i64, ptr %cur_pos, align 8
-  %size = getelementptr inbounds %struct.QEDAIOCB, ptr %acb, i64 0, i32 6, i32 2, i32 0, i32 1, i32 1
+  %size = getelementptr inbounds i8, ptr %acb, i64 80
   %13 = load i64, ptr %size, align 8
   %add = add i64 %13, %12
   %14 = load i32, ptr %2, align 4
@@ -3193,16 +3149,16 @@ if.then.i.i57:                                    ; preds = %land.lhs.true5.i.i5
   br i1 %tobool7.not.i.i58, label %if.else.i.i63, label %if.then8.i.i59
 
 if.then8.i.i59:                                   ; preds = %if.then.i.i57
-  %call9.i.i60 = call i32 @gettimeofday(ptr noundef nonnull %_now.i.i50, ptr noundef null) #19
-  %call10.i.i61 = tail call i32 @qemu_get_thread_id() #19
+  %call9.i.i60 = call i32 @gettimeofday(ptr noundef nonnull %_now.i.i50, ptr noundef null) #18
+  %call10.i.i61 = tail call i32 @qemu_get_thread_id() #18
   %21 = load i64, ptr %_now.i.i50, align 8
-  %tv_usec.i.i62 = getelementptr inbounds %struct.timeval, ptr %_now.i.i50, i64 0, i32 1
+  %tv_usec.i.i62 = getelementptr inbounds i8, ptr %_now.i.i50, i64 8
   %22 = load i64, ptr %tv_usec.i.i62, align 8
-  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.68, i32 noundef %call10.i.i61, i64 noundef %21, i64 noundef %22, ptr noundef nonnull %acb.val.val, ptr noundef nonnull %acb, i64 noundef %add, i64 noundef %sub9, i64 noundef %add16) #19
+  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.68, i32 noundef %call10.i.i61, i64 noundef %21, i64 noundef %22, ptr noundef nonnull %acb.val.val, ptr noundef nonnull %acb, i64 noundef %add, i64 noundef %sub9, i64 noundef %add16) #18
   br label %trace_qed_aio_write_postfill.exit
 
 if.else.i.i63:                                    ; preds = %if.then.i.i57
-  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.69, ptr noundef nonnull %acb.val.val, ptr noundef nonnull %acb, i64 noundef %add, i64 noundef %sub9, i64 noundef %add16) #19
+  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.69, ptr noundef nonnull %acb.val.val, ptr noundef nonnull %acb, i64 noundef %add, i64 noundef %sub9, i64 noundef %add16) #18
   br label %trace_qed_aio_write_postfill.exit
 
 trace_qed_aio_write_postfill.exit:                ; preds = %if.end, %land.lhs.true5.i.i54, %if.then8.i.i59, %if.else.i.i63
@@ -3218,21 +3174,21 @@ if.end21:                                         ; preds = %trace_qed_aio_write
 
 if.end26:                                         ; preds = %if.end21
   %23 = load ptr, ptr %acb.val.val, align 8
-  %backing = getelementptr inbounds %struct.BlockDriverState, ptr %23, i64 0, i32 30
+  %backing = getelementptr inbounds i8, ptr %23, i64 16832
   %24 = load ptr, ptr %backing, align 8
   %tobool.not = icmp eq ptr %24, null
   br i1 %tobool.not, label %out, label %if.then27
 
 if.then27:                                        ; preds = %if.end26
-  %file = getelementptr inbounds %struct.BlockDriverState, ptr %23, i64 0, i32 31
+  %file = getelementptr inbounds i8, ptr %23, i64 16840
   %25 = load ptr, ptr %file, align 8
   %26 = load ptr, ptr %25, align 8
-  %call30 = tail call i32 @bdrv_co_flush(ptr noundef %26) #19
+  %call30 = tail call i32 @bdrv_co_flush(ptr noundef %26) #18
   br label %out
 
 out:                                              ; preds = %if.end26, %if.then27, %if.end21, %trace_qed_aio_write_postfill.exit, %trace_qed_aio_write_prefill.exit
   %ret.0 = phi i32 [ %call5, %trace_qed_aio_write_prefill.exit ], [ %call17, %trace_qed_aio_write_postfill.exit ], [ %call22, %if.end21 ], [ %call30, %if.then27 ], [ %call22, %if.end26 ]
-  tail call void @qemu_co_mutex_lock(ptr noundef nonnull %table_lock) #19
+  tail call void @qemu_co_mutex_lock(ptr noundef nonnull %table_lock) #18
   ret i32 %ret.0
 }
 
@@ -3242,35 +3198,35 @@ entry:
   %acb.val = load ptr, ptr %acb, align 8
   %0 = getelementptr i8, ptr %acb.val, i64 24
   %acb.val.val = load ptr, ptr %0, align 8
-  %find_cluster_ret = getelementptr inbounds %struct.QEDAIOCB, ptr %acb, i64 0, i32 10
+  %find_cluster_ret = getelementptr inbounds i8, ptr %acb, i64 108
   %1 = load i32, ptr %find_cluster_ret, align 4
   %cmp = icmp eq i32 %1, 3
-  %request = getelementptr inbounds %struct.QEDAIOCB, ptr %acb, i64 0, i32 11
+  %request = getelementptr inbounds i8, ptr %acb, i64 112
   %2 = load ptr, ptr %request, align 8
   br i1 %cmp, label %if.then, label %if.end
 
 if.then:                                          ; preds = %entry
-  tail call void @qed_unref_l2_cache_entry(ptr noundef %2) #19
-  %l2_cache.i = getelementptr inbounds %struct.BDRVQEDState, ptr %acb.val.val, i64 0, i32 4
-  %call.i = tail call ptr @qed_alloc_l2_cache_entry(ptr noundef nonnull %l2_cache.i) #19
+  tail call void @qed_unref_l2_cache_entry(ptr noundef %2) #18
+  %l2_cache.i = getelementptr inbounds i8, ptr %acb.val.val, i64 128
+  %call.i = tail call ptr @qed_alloc_l2_cache_entry(ptr noundef nonnull %l2_cache.i) #18
   %3 = load ptr, ptr %acb.val.val, align 8
-  %cluster_size.i.i = getelementptr inbounds %struct.BDRVQEDState, ptr %acb.val.val, i64 0, i32 1, i32 1
+  %cluster_size.i.i = getelementptr inbounds i8, ptr %acb.val.val, i64 12
   %4 = load i32, ptr %cluster_size.i.i, align 4
-  %table_size.i.i = getelementptr inbounds %struct.BDRVQEDState, ptr %acb.val.val, i64 0, i32 1, i32 2
+  %table_size.i.i = getelementptr inbounds i8, ptr %acb.val.val, i64 16
   %5 = load i32, ptr %table_size.i.i, align 8
   %mul.i.i = mul i32 %5, %4
   %conv.i.i = zext i32 %mul.i.i to i64
-  %call.i.i = tail call ptr @qemu_blockalign(ptr noundef %3, i64 noundef %conv.i.i) #19
+  %call.i.i = tail call ptr @qemu_blockalign(ptr noundef %3, i64 noundef %conv.i.i) #18
   store ptr %call.i.i, ptr %call.i, align 8
   %6 = load i32, ptr %table_size.i.i, align 8
-  %file_size.i.i = getelementptr inbounds %struct.BDRVQEDState, ptr %acb.val.val, i64 0, i32 9
+  %file_size.i.i = getelementptr inbounds i8, ptr %acb.val.val, i64 168
   %7 = load i64, ptr %file_size.i.i, align 8
   %8 = load i32, ptr %cluster_size.i.i, align 4
   %mul.i10.i = mul i32 %8, %6
   %conv.i11.i = zext i32 %mul.i10.i to i64
   %add.i.i = add i64 %7, %conv.i11.i
   store i64 %add.i.i, ptr %file_size.i.i, align 8
-  %offset.i = getelementptr inbounds %struct.CachedL2Table, ptr %call.i, i64 0, i32 1
+  %offset.i = getelementptr inbounds i8, ptr %call.i, i64 8
   store i64 %7, ptr %offset.i, align 8
   %9 = load ptr, ptr %call.i, align 8
   %10 = load i32, ptr %cluster_size.i.i, align 4
@@ -3283,7 +3239,7 @@ if.then:                                          ; preds = %entry
 
 if.end:                                           ; preds = %entry, %if.then
   %12 = phi ptr [ %call.i, %if.then ], [ %2, %entry ]
-  %cur_pos = getelementptr inbounds %struct.QEDAIOCB, ptr %acb, i64 0, i32 7
+  %cur_pos = getelementptr inbounds i8, ptr %acb, i64 88
   %13 = load i64, ptr %cur_pos, align 8
   %14 = getelementptr i8, ptr %acb.val.val, i64 160
   %call.val = load i32, ptr %14, align 8
@@ -3293,16 +3249,16 @@ if.end:                                           ; preds = %entry, %if.then
   %shr.i = lshr i64 %13, %sh_prom.i
   %16 = trunc i64 %shr.i to i32
   %conv1.i = and i32 %call.val21, %16
-  %request5 = getelementptr inbounds %struct.QEDAIOCB, ptr %acb, i64 0, i32 11
+  %request5 = getelementptr inbounds i8, ptr %acb, i64 112
   %17 = load ptr, ptr %12, align 8
-  %cur_nclusters = getelementptr inbounds %struct.QEDAIOCB, ptr %acb, i64 0, i32 9
+  %cur_nclusters = getelementptr inbounds i8, ptr %acb, i64 104
   %18 = load i32, ptr %cur_nclusters, align 8
   %add.i = add i32 %18, %conv1.i
   %cmp8.i = icmp ugt i32 %add.i, %conv1.i
   br i1 %cmp8.i, label %for.body.lr.ph.i, label %qed_update_l2_table.exit
 
 for.body.lr.ph.i:                                 ; preds = %if.end
-  %cluster_size.i = getelementptr inbounds %struct.BDRVQEDState, ptr %acb.val.val, i64 0, i32 1, i32 1
+  %cluster_size.i = getelementptr inbounds i8, ptr %acb.val.val, i64 12
   br label %for.body.i
 
 for.body.i:                                       ; preds = %for.inc.i, %for.body.lr.ph.i
@@ -3335,9 +3291,9 @@ qed_update_l2_table.exit:                         ; preds = %for.inc.i, %if.end
   br i1 %cmp, label %if.then8, label %if.else
 
 if.then8:                                         ; preds = %qed_update_l2_table.exit
-  %table_nelems = getelementptr inbounds %struct.BDRVQEDState, ptr %acb.val.val, i64 0, i32 5
+  %table_nelems = getelementptr inbounds i8, ptr %acb.val.val, i64 152
   %20 = load i32, ptr %table_nelems, align 8
-  %call10 = tail call i32 @qed_write_l2_table(ptr noundef %acb.val.val, ptr noundef nonnull %request5, i32 noundef 0, i32 noundef %20, i1 noundef zeroext true) #19
+  %call10 = tail call i32 @qed_write_l2_table(ptr noundef %acb.val.val, ptr noundef nonnull %request5, i32 noundef 0, i32 noundef %20, i1 noundef zeroext true) #18
   %tobool11.not = icmp eq i32 %call10, 0
   br i1 %tobool11.not, label %if.end13, label %return
 
@@ -3346,7 +3302,7 @@ if.end13:                                         ; preds = %if.then8
   %21 = getelementptr i8, ptr %acb.val.i, i64 24
   %acb.val.val.i = load ptr, ptr %21, align 8
   %22 = load ptr, ptr %request5, align 8
-  %offset.i23 = getelementptr inbounds %struct.CachedL2Table, ptr %22, i64 0, i32 1
+  %offset.i23 = getelementptr inbounds i8, ptr %22, i64 8
   %23 = load i64, ptr %offset.i23, align 8
   %24 = load i64, ptr %cur_pos, align 8
   %25 = getelementptr i8, ptr %acb.val.val.i, i64 156
@@ -3354,27 +3310,27 @@ if.end13:                                         ; preds = %if.then8
   %sh_prom.i.i = zext nneg i32 %call.val.i to i64
   %shr.i.i = lshr i64 %24, %sh_prom.i.i
   %conv.i.i24 = trunc i64 %shr.i.i to i32
-  %l1_table.i = getelementptr inbounds %struct.BDRVQEDState, ptr %acb.val.val.i, i64 0, i32 3
+  %l1_table.i = getelementptr inbounds i8, ptr %acb.val.val.i, i64 120
   %26 = load ptr, ptr %l1_table.i, align 8
   %sext.i = shl i64 %shr.i.i, 32
   %idxprom.i25 = ashr exact i64 %sext.i, 32
   %arrayidx.i26 = getelementptr [0 x i64], ptr %26, i64 0, i64 %idxprom.i25
   store i64 %23, ptr %arrayidx.i26, align 8
-  %call4.i = tail call i32 @qed_write_l1_table(ptr noundef %acb.val.val.i, i32 noundef %conv.i.i24, i32 noundef 1) #19
-  %l2_cache.i27 = getelementptr inbounds %struct.BDRVQEDState, ptr %acb.val.val.i, i64 0, i32 4
-  tail call void @qed_commit_l2_cache_entry(ptr noundef nonnull %l2_cache.i27, ptr noundef %22) #19
-  %call6.i = tail call ptr @qed_find_l2_cache_entry(ptr noundef nonnull %l2_cache.i27, i64 noundef %23) #19
+  %call4.i = tail call i32 @qed_write_l1_table(ptr noundef %acb.val.val.i, i32 noundef %conv.i.i24, i32 noundef 1) #18
+  %l2_cache.i27 = getelementptr inbounds i8, ptr %acb.val.val.i, i64 128
+  tail call void @qed_commit_l2_cache_entry(ptr noundef nonnull %l2_cache.i27, ptr noundef %22) #18
+  %call6.i = tail call ptr @qed_find_l2_cache_entry(ptr noundef nonnull %l2_cache.i27, i64 noundef %23) #18
   store ptr %call6.i, ptr %request5, align 8
   %cmp.not.i = icmp eq ptr %call6.i, null
   br i1 %cmp.not.i, label %if.else.i, label %return
 
 if.else.i:                                        ; preds = %if.end13
-  tail call void @__assert_fail(ptr noundef nonnull @.str.70, ptr noundef nonnull @.str.16, i32 noundef 1023, ptr noundef nonnull @__PRETTY_FUNCTION__.qed_aio_write_l1_update) #20
+  tail call void @__assert_fail(ptr noundef nonnull @.str.70, ptr noundef nonnull @.str.16, i32 noundef 1023, ptr noundef nonnull @__PRETTY_FUNCTION__.qed_aio_write_l1_update) #19
   unreachable
 
 if.else:                                          ; preds = %qed_update_l2_table.exit
   %27 = load i32, ptr %cur_nclusters, align 8
-  %call17 = tail call i32 @qed_write_l2_table(ptr noundef %acb.val.val, ptr noundef nonnull %request5, i32 noundef %conv1.i, i32 noundef %27, i1 noundef zeroext false) #19
+  %call17 = tail call i32 @qed_write_l2_table(ptr noundef %acb.val.val, ptr noundef nonnull %request5, i32 noundef %conv1.i, i32 noundef %27, i1 noundef zeroext false) #18
   br label %return
 
 return:                                           ; preds = %if.end13, %if.else, %if.then8
@@ -3391,9 +3347,9 @@ entry:
 
 if.end:                                           ; preds = %entry
   %0 = load ptr, ptr %s, align 8
-  %call = tail call ptr @qemu_blockalign(ptr noundef %0, i64 noundef %len) #19
-  %1 = getelementptr inbounds %struct.QEMUIOVector, ptr %qiov, i64 0, i32 2
-  %local_iov.i = getelementptr inbounds %struct.QEMUIOVector, ptr %qiov, i64 0, i32 2, i32 0, i32 1
+  %call = tail call ptr @qemu_blockalign(ptr noundef %0, i64 noundef %len) #18
+  %1 = getelementptr inbounds i8, ptr %qiov, i64 16
+  %local_iov.i = getelementptr inbounds i8, ptr %qiov, i64 24
   store ptr %local_iov.i, ptr %qiov, align 8
   %.compoundliteral.sroa.2.0..sroa_idx.i = getelementptr inbounds i8, ptr %qiov, i64 8
   store i32 1, ptr %.compoundliteral.sroa.2.0..sroa_idx.i, align 8
@@ -3402,56 +3358,56 @@ if.end:                                           ; preds = %entry
   %.compoundliteral.sroa.5.0..sroa_idx.i = getelementptr inbounds i8, ptr %qiov, i64 32
   store i64 %len, ptr %.compoundliteral.sroa.5.0..sroa_idx.i, align 8
   %2 = load ptr, ptr %s, align 8
-  %backing.i = getelementptr inbounds %struct.BlockDriverState, ptr %2, i64 0, i32 30
+  %backing.i = getelementptr inbounds i8, ptr %2, i64 16832
   %3 = load ptr, ptr %backing.i, align 8
   %tobool.not.i = icmp eq ptr %3, null
   br i1 %tobool.not.i, label %qed_read_backing_file.exit.thread, label %do.body.i
 
 do.body.i:                                        ; preds = %if.end
-  %file.i = getelementptr inbounds %struct.BlockDriverState, ptr %2, i64 0, i32 31
+  %file.i = getelementptr inbounds i8, ptr %2, i64 16840
   %4 = load ptr, ptr %file.i, align 8
   %tobool2.not.i = icmp eq ptr %4, null
   br i1 %tobool2.not.i, label %qed_read_backing_file.exit, label %if.then3.i
 
 if.then3.i:                                       ; preds = %do.body.i
   %5 = load ptr, ptr %4, align 8
-  call void @bdrv_co_debug_event(ptr noundef %5, i32 noundef 10) #19
+  call void @bdrv_co_debug_event(ptr noundef %5, i32 noundef 10) #18
   %.pre.i = load ptr, ptr %s, align 8
-  %backing8.phi.trans.insert.i = getelementptr inbounds %struct.BlockDriverState, ptr %.pre.i, i64 0, i32 30
+  %backing8.phi.trans.insert.i = getelementptr inbounds i8, ptr %.pre.i, i64 16832
   %.pre7.i = load ptr, ptr %backing8.phi.trans.insert.i, align 8
   %.pre = load i64, ptr %.compoundliteral.sroa.5.0..sroa_idx.i, align 8
   br label %qed_read_backing_file.exit
 
 qed_read_backing_file.exit.thread:                ; preds = %if.end
-  %call11.i = call i64 @qemu_iovec_memset(ptr noundef nonnull %qiov, i64 noundef 0, i32 noundef 0, i64 noundef %len) #19
+  %call11.i = call i64 @qemu_iovec_memset(ptr noundef nonnull %qiov, i64 noundef 0, i32 noundef 0, i64 noundef %len) #18
   br label %do.body
 
 qed_read_backing_file.exit:                       ; preds = %do.body.i, %if.then3.i
   %6 = phi i64 [ %len, %do.body.i ], [ %.pre, %if.then3.i ]
   %7 = phi ptr [ %3, %do.body.i ], [ %.pre7.i, %if.then3.i ]
-  %call.i = call i32 @bdrv_co_preadv(ptr noundef %7, i64 noundef %pos, i64 noundef %6, ptr noundef nonnull %qiov, i32 noundef 0) #19
+  %call.i = call i32 @bdrv_co_preadv(ptr noundef %7, i64 noundef %pos, i64 noundef %6, ptr noundef nonnull %qiov, i32 noundef 0) #18
   %tobool.not = icmp eq i32 %call.i, 0
   br i1 %tobool.not, label %do.body, label %out
 
 do.body:                                          ; preds = %qed_read_backing_file.exit.thread, %qed_read_backing_file.exit
   %8 = load ptr, ptr %s, align 8
-  %file = getelementptr inbounds %struct.BlockDriverState, ptr %8, i64 0, i32 31
+  %file = getelementptr inbounds i8, ptr %8, i64 16840
   %9 = load ptr, ptr %file, align 8
   %tobool5.not = icmp eq ptr %9, null
   br i1 %tobool5.not, label %do.end, label %if.then6
 
 if.then6:                                         ; preds = %do.body
   %10 = load ptr, ptr %9, align 8
-  call void @bdrv_co_debug_event(ptr noundef %10, i32 noundef 17) #19
+  call void @bdrv_co_debug_event(ptr noundef %10, i32 noundef 17) #18
   %.pre12 = load ptr, ptr %s, align 8
-  %file12.phi.trans.insert = getelementptr inbounds %struct.BlockDriverState, ptr %.pre12, i64 0, i32 31
+  %file12.phi.trans.insert = getelementptr inbounds i8, ptr %.pre12, i64 16840
   %.pre13 = load ptr, ptr %file12.phi.trans.insert, align 8
   br label %do.end
 
 do.end:                                           ; preds = %do.body, %if.then6
   %11 = phi ptr [ null, %do.body ], [ %.pre13, %if.then6 ]
   %12 = load i64, ptr %.compoundliteral.sroa.5.0..sroa_idx.i, align 8
-  %call13 = call i32 @bdrv_co_pwritev(ptr noundef %11, i64 noundef %offset, i64 noundef %12, ptr noundef nonnull %qiov, i32 noundef 0) #19
+  %call13 = call i32 @bdrv_co_pwritev(ptr noundef %11, i64 noundef %offset, i64 noundef %12, ptr noundef nonnull %qiov, i32 noundef 0) #18
   %spec.store.select = call i32 @llvm.smin.i32(i32 %call13, i32 0)
   br label %out
 
@@ -3465,12 +3421,12 @@ out:                                              ; preds = %do.end, %qed_read_b
   br i1 %or.cond, label %qemu_iovec_buf.exit, label %if.else.i
 
 if.else.i:                                        ; preds = %out
-  call void @__assert_fail(ptr noundef nonnull @.str.66, ptr noundef nonnull @.str.67, i32 noundef 218, ptr noundef nonnull @__PRETTY_FUNCTION__.qemu_iovec_buf) #20
+  call void @__assert_fail(ptr noundef nonnull @.str.66, ptr noundef nonnull @.str.67, i32 noundef 218, ptr noundef nonnull @__PRETTY_FUNCTION__.qemu_iovec_buf) #19
   unreachable
 
 qemu_iovec_buf.exit:                              ; preds = %out
   %15 = load ptr, ptr %local_iov.i, align 8
-  call void @qemu_vfree(ptr noundef %15) #19
+  call void @qemu_vfree(ptr noundef %15) #18
   br label %return
 
 return:                                           ; preds = %entry, %qemu_iovec_buf.exit
@@ -3482,36 +3438,36 @@ return:                                           ; preds = %entry, %qemu_iovec_
 define internal i32 @qed_read_backing_file(ptr nocapture noundef readonly %s, i64 noundef %pos, ptr noundef %qiov) #0 {
 entry:
   %0 = load ptr, ptr %s, align 8
-  %backing = getelementptr inbounds %struct.BlockDriverState, ptr %0, i64 0, i32 30
+  %backing = getelementptr inbounds i8, ptr %0, i64 16832
   %1 = load ptr, ptr %backing, align 8
   %tobool.not = icmp eq ptr %1, null
   br i1 %tobool.not, label %if.end9, label %do.body
 
 do.body:                                          ; preds = %entry
-  %file = getelementptr inbounds %struct.BlockDriverState, ptr %0, i64 0, i32 31
+  %file = getelementptr inbounds i8, ptr %0, i64 16840
   %2 = load ptr, ptr %file, align 8
   %tobool2.not = icmp eq ptr %2, null
   br i1 %tobool2.not, label %do.end, label %if.then3
 
 if.then3:                                         ; preds = %do.body
   %3 = load ptr, ptr %2, align 8
-  tail call void @bdrv_co_debug_event(ptr noundef %3, i32 noundef 10) #19
+  tail call void @bdrv_co_debug_event(ptr noundef %3, i32 noundef 10) #18
   %.pre = load ptr, ptr %s, align 8
-  %backing8.phi.trans.insert = getelementptr inbounds %struct.BlockDriverState, ptr %.pre, i64 0, i32 30
+  %backing8.phi.trans.insert = getelementptr inbounds i8, ptr %.pre, i64 16832
   %.pre7 = load ptr, ptr %backing8.phi.trans.insert, align 8
   br label %do.end
 
 do.end:                                           ; preds = %do.body, %if.then3
   %4 = phi ptr [ %1, %do.body ], [ %.pre7, %if.then3 ]
-  %size = getelementptr inbounds %struct.QEMUIOVector, ptr %qiov, i64 0, i32 2, i32 0, i32 1, i32 1
+  %size = getelementptr inbounds i8, ptr %qiov, i64 32
   %5 = load i64, ptr %size, align 8
-  %call = tail call i32 @bdrv_co_preadv(ptr noundef %4, i64 noundef %pos, i64 noundef %5, ptr noundef %qiov, i32 noundef 0) #19
+  %call = tail call i32 @bdrv_co_preadv(ptr noundef %4, i64 noundef %pos, i64 noundef %5, ptr noundef %qiov, i32 noundef 0) #18
   br label %return
 
 if.end9:                                          ; preds = %entry
-  %size10 = getelementptr inbounds %struct.QEMUIOVector, ptr %qiov, i64 0, i32 2, i32 0, i32 1, i32 1
+  %size10 = getelementptr inbounds i8, ptr %qiov, i64 32
   %6 = load i64, ptr %size10, align 8
-  %call11 = tail call i64 @qemu_iovec_memset(ptr noundef %qiov, i64 noundef 0, i32 noundef 0, i64 noundef %6) #19
+  %call11 = tail call i64 @qemu_iovec_memset(ptr noundef %qiov, i64 noundef 0, i32 noundef 0, i64 noundef %6) #18
   br label %return
 
 return:                                           ; preds = %if.end9, %do.end
@@ -3524,14 +3480,14 @@ declare i64 @qemu_iovec_memset(ptr noundef, i64 noundef, i32 noundef, i64 nounde
 declare void @qed_unref_l2_cache_entry(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nofree norecurse nosync nounwind sspstrong memory(argmem: readwrite) uwtable
-define internal void @qed_update_l2_table(ptr nocapture noundef readonly %s, ptr nocapture noundef writeonly %table, i32 noundef %index, i32 noundef %n, i64 noundef %cluster) #16 {
+define internal void @qed_update_l2_table(ptr nocapture noundef readonly %s, ptr nocapture noundef writeonly %table, i32 noundef %index, i32 noundef %n, i64 noundef %cluster) #15 {
 entry:
   %add = add i32 %n, %index
   %cmp8 = icmp ugt i32 %add, %index
   br i1 %cmp8, label %for.body.lr.ph, label %for.end
 
 for.body.lr.ph:                                   ; preds = %entry
-  %cluster_size = getelementptr inbounds %struct.BDRVQEDState, ptr %s, i64 0, i32 1, i32 1
+  %cluster_size = getelementptr inbounds i8, ptr %s, i64 12
   br label %for.body
 
 for.body:                                         ; preds = %for.body.lr.ph, %for.inc
@@ -3572,33 +3528,33 @@ entry:
   %acb.val = load ptr, ptr %acb, align 8
   %0 = getelementptr i8, ptr %acb.val, i64 24
   %acb.val.val = load ptr, ptr %0, align 8
-  %request = getelementptr inbounds %struct.QEDAIOCB, ptr %acb, i64 0, i32 11
+  %request = getelementptr inbounds i8, ptr %acb, i64 112
   %1 = load ptr, ptr %request, align 8
-  %offset = getelementptr inbounds %struct.CachedL2Table, ptr %1, i64 0, i32 1
+  %offset = getelementptr inbounds i8, ptr %1, i64 8
   %2 = load i64, ptr %offset, align 8
-  %cur_pos = getelementptr inbounds %struct.QEDAIOCB, ptr %acb, i64 0, i32 7
+  %cur_pos = getelementptr inbounds i8, ptr %acb, i64 88
   %3 = load i64, ptr %cur_pos, align 8
   %4 = getelementptr i8, ptr %acb.val.val, i64 156
   %call.val = load i32, ptr %4, align 4
   %sh_prom.i = zext nneg i32 %call.val to i64
   %shr.i = lshr i64 %3, %sh_prom.i
   %conv.i = trunc i64 %shr.i to i32
-  %l1_table = getelementptr inbounds %struct.BDRVQEDState, ptr %acb.val.val, i64 0, i32 3
+  %l1_table = getelementptr inbounds i8, ptr %acb.val.val, i64 120
   %5 = load ptr, ptr %l1_table, align 8
   %sext = shl i64 %shr.i, 32
   %idxprom = ashr exact i64 %sext, 32
   %arrayidx = getelementptr [0 x i64], ptr %5, i64 0, i64 %idxprom
   store i64 %2, ptr %arrayidx, align 8
-  %call4 = tail call i32 @qed_write_l1_table(ptr noundef %acb.val.val, i32 noundef %conv.i, i32 noundef 1) #19
-  %l2_cache = getelementptr inbounds %struct.BDRVQEDState, ptr %acb.val.val, i64 0, i32 4
-  tail call void @qed_commit_l2_cache_entry(ptr noundef nonnull %l2_cache, ptr noundef %1) #19
-  %call6 = tail call ptr @qed_find_l2_cache_entry(ptr noundef nonnull %l2_cache, i64 noundef %2) #19
+  %call4 = tail call i32 @qed_write_l1_table(ptr noundef %acb.val.val, i32 noundef %conv.i, i32 noundef 1) #18
+  %l2_cache = getelementptr inbounds i8, ptr %acb.val.val, i64 128
+  tail call void @qed_commit_l2_cache_entry(ptr noundef nonnull %l2_cache, ptr noundef %1) #18
+  %call6 = tail call ptr @qed_find_l2_cache_entry(ptr noundef nonnull %l2_cache, i64 noundef %2) #18
   store ptr %call6, ptr %request, align 8
   %cmp.not = icmp eq ptr %call6, null
   br i1 %cmp.not, label %if.else, label %if.end
 
 if.else:                                          ; preds = %entry
-  tail call void @__assert_fail(ptr noundef nonnull @.str.70, ptr noundef nonnull @.str.16, i32 noundef 1023, ptr noundef nonnull @__PRETTY_FUNCTION__.qed_aio_write_l1_update) #20
+  tail call void @__assert_fail(ptr noundef nonnull @.str.70, ptr noundef nonnull @.str.16, i32 noundef 1023, ptr noundef nonnull @__PRETTY_FUNCTION__.qed_aio_write_l1_update) #19
   unreachable
 
 if.end:                                           ; preds = %entry
@@ -3622,16 +3578,16 @@ declare void @error_prepend(ptr noundef, ptr noundef, ...) local_unnamed_addr #1
 declare void @error_setg_errno_internal(ptr noundef, ptr noundef, i32 noundef, ptr noundef, i32 noundef, ptr noundef, ...) local_unnamed_addr #1
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i32 @llvm.smin.i32(i32, i32) #17
+declare i32 @llvm.smin.i32(i32, i32) #16
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare { i32, i1 } @llvm.umul.with.overflow.i32(i32, i32) #17
+declare { i32, i1 } @llvm.umul.with.overflow.i32(i32, i32) #16
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #18
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #17
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #18
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #17
 
 attributes #0 = { nounwind sspstrong uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx16,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx16,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
@@ -3639,24 +3595,23 @@ attributes #2 = { mustprogress nofree norecurse nosync nounwind sspstrong willre
 attributes #3 = { mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(read, argmem: readwrite, inaccessiblemem: none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx16,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #4 = { mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(argmem: read) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx16,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #5 = { mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(read, inaccessiblemem: none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx16,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #6 = { mustprogress nofree nosync nounwind sspstrong willreturn memory(read, argmem: readwrite, inaccessiblemem: none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx16,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #7 = { noreturn nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx16,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #8 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: write) }
-attributes #9 = { allocsize(0) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx16,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #10 = { mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none) }
-attributes #11 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
-attributes #12 = { mustprogress nofree nounwind willreturn memory(argmem: read) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx16,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #13 = { nofree nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx16,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #14 = { allocsize(0,1) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx16,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #15 = { noreturn "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx16,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #16 = { nofree norecurse nosync nounwind sspstrong memory(argmem: readwrite) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx16,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #17 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
-attributes #18 = { nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
-attributes #19 = { nounwind }
-attributes #20 = { noreturn nounwind }
-attributes #21 = { nounwind willreturn memory(read) }
-attributes #22 = { nounwind allocsize(0) }
-attributes #23 = { nounwind allocsize(0,1) }
+attributes #6 = { noreturn nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx16,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #7 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: write) }
+attributes #8 = { allocsize(0) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx16,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #9 = { mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none) }
+attributes #10 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
+attributes #11 = { mustprogress nofree nounwind willreturn memory(argmem: read) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx16,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #12 = { nofree nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx16,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #13 = { allocsize(0,1) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx16,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #14 = { noreturn "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx16,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #15 = { nofree norecurse nosync nounwind sspstrong memory(argmem: readwrite) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx16,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #16 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
+attributes #17 = { nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
+attributes #18 = { nounwind }
+attributes #19 = { noreturn nounwind }
+attributes #20 = { nounwind willreturn memory(read) }
+attributes #21 = { nounwind allocsize(0) }
+attributes #22 = { nounwind allocsize(0,1) }
 
 !llvm.module.flags = !{!0, !1, !2, !3, !4}
 

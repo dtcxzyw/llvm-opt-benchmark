@@ -9,32 +9,6 @@ target triple = "x86_64-unknown-linux-gnu"
 %"class.std::tuple" = type { %"struct.std::_Tuple_impl" }
 %"struct.std::_Tuple_impl" = type { %"struct.std::_Head_base.1" }
 %"struct.std::_Head_base.1" = type { ptr }
-%"class.hermes::vm::StatSamplingThread" = type { i8, %"class.std::mutex", %"class.std::condition_variable", %"class.std::chrono::duration", %"class.hermes::vm::ProcessStats", %"class.std::thread" }
-%"class.std::mutex" = type { %"class.std::__mutex_base" }
-%"class.std::__mutex_base" = type { %union.pthread_mutex_t }
-%union.pthread_mutex_t = type { %struct.__pthread_mutex_s }
-%struct.__pthread_mutex_s = type { i32, i32, i32, i32, i32, i16, i16, %struct.__pthread_internal_list }
-%struct.__pthread_internal_list = type { ptr, ptr }
-%"class.std::condition_variable" = type { %"class.std::__condvar" }
-%"class.std::__condvar" = type { %union.pthread_cond_t }
-%union.pthread_cond_t = type { %struct.__pthread_cond_s }
-%struct.__pthread_cond_s = type { %union.__atomic_wide_counter, %union.__atomic_wide_counter, [2 x i32], [2 x i32], i32, i32, [2 x i32] }
-%union.__atomic_wide_counter = type { i64 }
-%"class.std::chrono::duration" = type { i64 }
-%"class.hermes::vm::ProcessStats" = type { %"class.std::chrono::time_point", %"struct.hermes::vm::ProcessStats::Info", %"class.hermes::vm::ApproxIntegral", %"class.hermes::vm::ApproxIntegral" }
-%"class.std::chrono::time_point" = type { %"class.std::chrono::duration" }
-%"struct.hermes::vm::ProcessStats::Info" = type { i64, i64 }
-%"class.hermes::vm::ApproxIntegral" = type { i64, i64, i64 }
-%"class.std::thread" = type { %"class.std::thread::id" }
-%"class.std::thread::id" = type { i64 }
-%"struct.std::thread::_State_impl" = type { %"struct.std::thread::_State", %"struct.std::thread::_Invoker" }
-%"struct.std::thread::_State" = type { ptr }
-%"struct.std::thread::_Invoker" = type { %"class.std::tuple.2" }
-%"class.std::tuple.2" = type { %"struct.std::_Tuple_impl.3" }
-%"struct.std::_Tuple_impl.3" = type { %"struct.std::_Tuple_impl.4", %"struct.std::_Head_base.6" }
-%"struct.std::_Tuple_impl.4" = type { %"struct.std::_Head_base.5" }
-%"struct.std::_Head_base.5" = type { ptr }
-%"struct.std::_Head_base.6" = type { { i64, i64 } }
 %struct.timespec = type { i64, i64 }
 
 $_ZNSt6thread11_State_implINS_8_InvokerISt5tupleIJMN6hermes2vm18StatSamplingThreadEFvvEPS5_EEEEED2Ev = comdat any
@@ -55,24 +29,24 @@ define hidden void @_ZN6hermes2vm18StatSamplingThreadC2ENSt6chrono8durationIlSt5
 entry:
   %agg.tmp.i = alloca %"class.std::unique_ptr", align 8
   store i8 0, ptr %this, align 8
-  %mExit_ = getelementptr inbounds %"class.hermes::vm::StatSamplingThread", ptr %this, i64 0, i32 1
-  %exitMonitor_ = getelementptr inbounds %"class.hermes::vm::StatSamplingThread", ptr %this, i64 0, i32 2
+  %mExit_ = getelementptr inbounds i8, ptr %this, i64 8
+  %exitMonitor_ = getelementptr inbounds i8, ptr %this, i64 48
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %mExit_, i8 0, i64 40, i1 false)
   tail call void @_ZNSt18condition_variableC1Ev(ptr noundef nonnull align 8 dereferenceable(48) %exitMonitor_) #10
-  %interval_ = getelementptr inbounds %"class.hermes::vm::StatSamplingThread", ptr %this, i64 0, i32 3
+  %interval_ = getelementptr inbounds i8, ptr %this, i64 96
   store i64 %interval.coerce, ptr %interval_, align 8
-  %stats_ = getelementptr inbounds %"class.hermes::vm::StatSamplingThread", ptr %this, i64 0, i32 4
+  %stats_ = getelementptr inbounds i8, ptr %this, i64 104
   tail call void @_ZN6hermes2vm12ProcessStatsC1Ev(ptr noundef nonnull align 8 dereferenceable(72) %stats_) #10
-  %sampler_ = getelementptr inbounds %"class.hermes::vm::StatSamplingThread", ptr %this, i64 0, i32 5
+  %sampler_ = getelementptr inbounds i8, ptr %this, i64 176
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %agg.tmp.i)
   store i64 0, ptr %sampler_, align 8
   %call.i = tail call noalias noundef nonnull dereferenceable(32) ptr @_Znwm(i64 noundef 32) #11
   store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVNSt6thread11_State_implINS_8_InvokerISt5tupleIJMN6hermes2vm18StatSamplingThreadEFvvEPS5_EEEEEE, i64 0, inrange i32 0, i64 2), ptr %call.i, align 8
-  %_M_func.i.i = getelementptr inbounds %"struct.std::thread::_State_impl", ptr %call.i, i64 0, i32 1
+  %_M_func.i.i = getelementptr inbounds i8, ptr %call.i, i64 8
   store ptr %this, ptr %_M_func.i.i, align 8
-  %0 = getelementptr inbounds %"struct.std::thread::_State_impl", ptr %call.i, i64 0, i32 1, i32 0, i32 0, i32 1
+  %0 = getelementptr inbounds i8, ptr %call.i, i64 16
   store i64 ptrtoint (ptr @_ZN6hermes2vm18StatSamplingThread3runEv to i64), ptr %0, align 8
-  %this.repack3.i.i.i.i.i.i = getelementptr inbounds %"struct.std::thread::_State_impl", ptr %call.i, i64 0, i32 1, i32 0, i32 0, i32 1, i32 0, i32 1
+  %this.repack3.i.i.i.i.i.i = getelementptr inbounds i8, ptr %call.i, i64 24
   store i64 0, ptr %this.repack3.i.i.i.i.i.i, align 8
   store ptr %call.i, ptr %agg.tmp.i, align 8
   call void @_ZNSt6thread15_M_start_threadESt10unique_ptrINS_6_StateESt14default_deleteIS1_EEPFvvE(ptr noundef nonnull align 8 dereferenceable(8) %sampler_, ptr noundef nonnull %agg.tmp.i, ptr noundef null) #10
@@ -82,7 +56,7 @@ entry:
 
 _ZNKSt14default_deleteINSt6thread6_StateEEclEPS1_.exit.i.i: ; preds = %entry
   %vtable.i.i.i = load ptr, ptr %1, align 8
-  %vfn.i.i.i = getelementptr inbounds ptr, ptr %vtable.i.i.i, i64 1
+  %vfn.i.i.i = getelementptr inbounds i8, ptr %vtable.i.i.i, i64 8
   %2 = load ptr, ptr %vfn.i.i.i, align 8
   call void %2(ptr noundef nonnull align 8 dereferenceable(8) %1) #10
   br label %_ZNSt6threadC2IMN6hermes2vm18StatSamplingThreadEFvvEJPS3_EvEEOT_DpOT0_.exit
@@ -104,7 +78,7 @@ declare void @_ZN6hermes2vm12ProcessStatsC1Ev(ptr noundef nonnull align 8 derefe
 define hidden void @_ZN6hermes2vm18StatSamplingThread3runEv(ptr noundef nonnull align 8 dereferenceable(184) %this) #0 align 2 {
 entry:
   %__ts.i.i.i = alloca %struct.timespec, align 8
-  %mExit_ = getelementptr inbounds %"class.hermes::vm::StatSamplingThread", ptr %this, i64 0, i32 1
+  %mExit_ = getelementptr inbounds i8, ptr %this, i64 8
   %call1.i.i.i.i = tail call noundef i32 @pthread_mutex_lock(ptr noundef nonnull %mExit_) #10
   %tobool.not.i.i.i = icmp eq i32 %call1.i.i.i.i, 0
   br i1 %tobool.not.i.i.i, label %while.cond.preheader, label %if.then.i.i.i
@@ -116,10 +90,10 @@ while.cond.preheader:                             ; preds = %entry
   br i1 %tobool.not4, label %while.body.lr.ph, label %_ZNSt11unique_lockISt5mutexED2Ev.exit
 
 while.body.lr.ph:                                 ; preds = %while.cond.preheader
-  %stats_ = getelementptr inbounds %"class.hermes::vm::StatSamplingThread", ptr %this, i64 0, i32 4
-  %exitMonitor_ = getelementptr inbounds %"class.hermes::vm::StatSamplingThread", ptr %this, i64 0, i32 2
-  %interval_ = getelementptr inbounds %"class.hermes::vm::StatSamplingThread", ptr %this, i64 0, i32 3
-  %tv_nsec.i.i.i = getelementptr inbounds %struct.timespec, ptr %__ts.i.i.i, i64 0, i32 1
+  %stats_ = getelementptr inbounds i8, ptr %this, i64 104
+  %exitMonitor_ = getelementptr inbounds i8, ptr %this, i64 48
+  %interval_ = getelementptr inbounds i8, ptr %this, i64 96
+  %tv_nsec.i.i.i = getelementptr inbounds i8, ptr %__ts.i.i.i, i64 8
   br label %while.body
 
 if.then.i.i.i:                                    ; preds = %entry
@@ -154,13 +128,13 @@ _ZNSt11unique_lockISt5mutexED2Ev.exit:            ; preds = %while.body, %while.
 ; Function Attrs: mustprogress nounwind uwtable
 define hidden void @_ZN6hermes2vm18StatSamplingThreadD2Ev(ptr noundef nonnull align 8 dereferenceable(184) %this) unnamed_addr #0 align 2 {
 entry:
-  %sampler_.i = getelementptr inbounds %"class.hermes::vm::StatSamplingThread", ptr %this, i64 0, i32 5
+  %sampler_.i = getelementptr inbounds i8, ptr %this, i64 176
   %agg.tmp.sroa.0.0.copyload.i.i = load i64, ptr %sampler_.i, align 8
   %cmp.i.i.i.not = icmp eq i64 %agg.tmp.sroa.0.0.copyload.i.i, 0
   br i1 %cmp.i.i.i.not, label %_ZNSt6threadD2Ev.exit, label %if.then
 
 if.then:                                          ; preds = %entry
-  %mExit_.i = getelementptr inbounds %"class.hermes::vm::StatSamplingThread", ptr %this, i64 0, i32 1
+  %mExit_.i = getelementptr inbounds i8, ptr %this, i64 8
   %call1.i.i.i.i.i = tail call noundef i32 @pthread_mutex_lock(ptr noundef nonnull %mExit_.i) #10
   %tobool.not.i.i.i.i = icmp eq i32 %call1.i.i.i.i.i, 0
   br i1 %tobool.not.i.i.i.i, label %if.end, label %if.then.i.i.i.i
@@ -172,10 +146,10 @@ if.then.i.i.i.i:                                  ; preds = %if.then
 if.end:                                           ; preds = %if.then
   store i8 1, ptr %this, align 8
   %call1.i.i.i.i2.i = tail call noundef i32 @pthread_mutex_unlock(ptr noundef nonnull %mExit_.i) #10
-  %exitMonitor_.i = getelementptr inbounds %"class.hermes::vm::StatSamplingThread", ptr %this, i64 0, i32 2
+  %exitMonitor_.i = getelementptr inbounds i8, ptr %this, i64 48
   tail call void @_ZNSt18condition_variable10notify_oneEv(ptr noundef nonnull align 8 dereferenceable(48) %exitMonitor_.i) #10
   tail call void @_ZNSt6thread4joinEv(ptr noundef nonnull align 8 dereferenceable(8) %sampler_.i) #10
-  %stats_.i.i = getelementptr inbounds %"class.hermes::vm::StatSamplingThread", ptr %this, i64 0, i32 4
+  %stats_.i.i = getelementptr inbounds i8, ptr %this, i64 104
   %call.i.i = tail call { i64, i64 } @_ZNK6hermes2vm12ProcessStats17getIntegratedInfoEv(ptr noundef nonnull align 8 dereferenceable(72) %stats_.i.i) #10
   %agg.tmp.sroa.0.0.copyload.i.i2.pr = load i64, ptr %sampler_.i, align 8
   %cmp.i.i.not.i = icmp eq i64 %agg.tmp.sroa.0.0.copyload.i.i2.pr, 0
@@ -186,7 +160,7 @@ if.then.i:                                        ; preds = %if.end
   unreachable
 
 _ZNSt6threadD2Ev.exit:                            ; preds = %entry, %if.end
-  %exitMonitor_ = getelementptr inbounds %"class.hermes::vm::StatSamplingThread", ptr %this, i64 0, i32 2
+  %exitMonitor_ = getelementptr inbounds i8, ptr %this, i64 48
   tail call void @_ZNSt18condition_variableD1Ev(ptr noundef nonnull align 8 dereferenceable(48) %exitMonitor_) #10
   ret void
 }
@@ -194,7 +168,7 @@ _ZNSt6threadD2Ev.exit:                            ; preds = %entry, %if.end
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
 define hidden noundef zeroext i1 @_ZNK6hermes2vm18StatSamplingThread9isRunningEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(184) %this) local_unnamed_addr #4 align 2 {
 entry:
-  %sampler_ = getelementptr inbounds %"class.hermes::vm::StatSamplingThread", ptr %this, i64 0, i32 5
+  %sampler_ = getelementptr inbounds i8, ptr %this, i64 176
   %agg.tmp.sroa.0.0.copyload.i = load i64, ptr %sampler_, align 8
   %cmp.i.i = icmp ne i64 %agg.tmp.sroa.0.0.copyload.i, 0
   ret i1 %cmp.i.i
@@ -203,7 +177,7 @@ entry:
 ; Function Attrs: mustprogress nounwind uwtable
 define hidden { i64, i64 } @_ZN6hermes2vm18StatSamplingThread4stopEv(ptr noundef nonnull align 8 dereferenceable(184) %this) local_unnamed_addr #0 align 2 {
 entry:
-  %mExit_ = getelementptr inbounds %"class.hermes::vm::StatSamplingThread", ptr %this, i64 0, i32 1
+  %mExit_ = getelementptr inbounds i8, ptr %this, i64 8
   %call1.i.i.i.i = tail call noundef i32 @pthread_mutex_lock(ptr noundef nonnull %mExit_) #10
   %tobool.not.i.i.i = icmp eq i32 %call1.i.i.i.i, 0
   br i1 %tobool.not.i.i.i, label %_ZNSt11unique_lockISt5mutexED2Ev.exit, label %if.then.i.i.i
@@ -215,11 +189,11 @@ if.then.i.i.i:                                    ; preds = %entry
 _ZNSt11unique_lockISt5mutexED2Ev.exit:            ; preds = %entry
   store i8 1, ptr %this, align 8
   %call1.i.i.i.i2 = tail call noundef i32 @pthread_mutex_unlock(ptr noundef nonnull %mExit_) #10
-  %exitMonitor_ = getelementptr inbounds %"class.hermes::vm::StatSamplingThread", ptr %this, i64 0, i32 2
+  %exitMonitor_ = getelementptr inbounds i8, ptr %this, i64 48
   tail call void @_ZNSt18condition_variable10notify_oneEv(ptr noundef nonnull align 8 dereferenceable(48) %exitMonitor_) #10
-  %sampler_ = getelementptr inbounds %"class.hermes::vm::StatSamplingThread", ptr %this, i64 0, i32 5
+  %sampler_ = getelementptr inbounds i8, ptr %this, i64 176
   tail call void @_ZNSt6thread4joinEv(ptr noundef nonnull align 8 dereferenceable(8) %sampler_) #10
-  %stats_.i = getelementptr inbounds %"class.hermes::vm::StatSamplingThread", ptr %this, i64 0, i32 4
+  %stats_.i = getelementptr inbounds i8, ptr %this, i64 104
   %call.i = tail call { i64, i64 } @_ZNK6hermes2vm12ProcessStats17getIntegratedInfoEv(ptr noundef nonnull align 8 dereferenceable(72) %stats_.i) #10
   ret { i64, i64 } %call.i
 }
@@ -235,7 +209,7 @@ declare void @_ZNSt6thread4joinEv(ptr noundef nonnull align 8 dereferenceable(8)
 ; Function Attrs: mustprogress nounwind uwtable
 define hidden { i64, i64 } @_ZNK6hermes2vm18StatSamplingThread4infoEv(ptr noundef nonnull align 8 dereferenceable(184) %this) local_unnamed_addr #0 align 2 {
 entry:
-  %stats_ = getelementptr inbounds %"class.hermes::vm::StatSamplingThread", ptr %this, i64 0, i32 4
+  %stats_ = getelementptr inbounds i8, ptr %this, i64 104
   %call = tail call { i64, i64 } @_ZNK6hermes2vm12ProcessStats17getIntegratedInfoEv(ptr noundef nonnull align 8 dereferenceable(72) %stats_) #10
   ret { i64, i64 } %call
 }
@@ -273,11 +247,11 @@ entry:
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZNSt6thread11_State_implINS_8_InvokerISt5tupleIJMN6hermes2vm18StatSamplingThreadEFvvEPS5_EEEEE6_M_runEv(ptr noundef nonnull align 8 dereferenceable(32) %this) unnamed_addr #0 comdat align 2 {
 entry:
-  %_M_func = getelementptr inbounds %"struct.std::thread::_State_impl", ptr %this, i64 0, i32 1
-  %add.ptr.i.i.i.i.i = getelementptr inbounds %"struct.std::thread::_State_impl", ptr %this, i64 0, i32 1, i32 0, i32 0, i32 1
+  %_M_func = getelementptr inbounds i8, ptr %this, i64 8
+  %add.ptr.i.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 16
   %0 = load ptr, ptr %_M_func, align 8
   %.unpack.i.i.i.i = load i64, ptr %add.ptr.i.i.i.i.i, align 8
-  %.elt1.i.i.i.i = getelementptr inbounds %"struct.std::thread::_State_impl", ptr %this, i64 0, i32 1, i32 0, i32 0, i32 1, i32 0, i32 1
+  %.elt1.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 24
   %.unpack2.i.i.i.i = load i64, ptr %.elt1.i.i.i.i, align 8
   %1 = getelementptr inbounds i8, ptr %0, i64 %.unpack2.i.i.i.i
   %2 = and i64 %.unpack.i.i.i.i, 1

@@ -7,7 +7,6 @@ target triple = "x86_64-unknown-linux-gnu"
 %struct.hashmap_entry = type { ptr, i32 }
 %struct.child_process = type { %struct.strvec, %struct.strvec, i32, i32, i64, ptr, ptr, i32, i32, i32, ptr, i16, ptr }
 %struct.strvec = type { ptr, i64, i64 }
-%struct.strbuf = type { i64, i64, ptr }
 %struct.subprocess_capability = type { ptr, i32 }
 
 @.str = private unnamed_addr constant [8 x i8] c"status=\00", align 1
@@ -35,9 +34,9 @@ target triple = "x86_64-unknown-linux-gnu"
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(read, inaccessiblemem: none) uwtable
 define dso_local i32 @cmd2process_cmp(ptr nocapture noundef readnone %cmp_data, ptr nocapture noundef readonly %eptr, ptr nocapture noundef readonly %entry_or_key, ptr nocapture noundef readnone %keydata) local_unnamed_addr #0 {
 entry:
-  %cmd = getelementptr inbounds %struct.subprocess_entry, ptr %eptr, i64 0, i32 1
+  %cmd = getelementptr inbounds i8, ptr %eptr, i64 16
   %0 = load ptr, ptr %cmd, align 8
-  %cmd2 = getelementptr inbounds %struct.subprocess_entry, ptr %entry_or_key, i64 0, i32 1
+  %cmd2 = getelementptr inbounds i8, ptr %entry_or_key, i64 16
   %1 = load ptr, ptr %cmd2, align 8
   %call = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %0, ptr noundef nonnull dereferenceable(1) %1) #11
   ret i32 %call
@@ -51,10 +50,10 @@ define dso_local ptr @subprocess_find_entry(ptr noundef %hashmap, ptr noundef %c
 entry:
   %key = alloca %struct.subprocess_entry, align 8
   %call = tail call i32 @strhash(ptr noundef %cmd) #12
-  %hash1.i = getelementptr inbounds %struct.hashmap_entry, ptr %key, i64 0, i32 1
+  %hash1.i = getelementptr inbounds i8, ptr %key, i64 8
   store i32 %call, ptr %hash1.i, align 8
   store ptr null, ptr %key, align 8
-  %cmd1 = getelementptr inbounds %struct.subprocess_entry, ptr %key, i64 0, i32 1
+  %cmd1 = getelementptr inbounds i8, ptr %key, i64 16
   store ptr %cmd, ptr %cmd1, align 8
   %call3 = call ptr @hashmap_get(ptr noundef %hashmap, ptr noundef nonnull %key, ptr noundef null) #12
   ret ptr %call3
@@ -76,8 +75,8 @@ entry:
   br i1 %or.cond13, label %if.end.lr.ph, label %for.end
 
 if.end.lr.ph:                                     ; preds = %entry
-  %len2.i = getelementptr inbounds %struct.strbuf, ptr %status, i64 0, i32 1
-  %buf.i = getelementptr inbounds %struct.strbuf, ptr %status, i64 0, i32 2
+  %len2.i = getelementptr inbounds i8, ptr %status, i64 8
+  %buf.i = getelementptr inbounds i8, ptr %status, i64 16
   br label %if.end
 
 if.end:                                           ; preds = %if.end.lr.ph, %if.end16
@@ -89,19 +88,19 @@ if.end:                                           ; preds = %if.end.lr.ph, %if.e
   br i1 %tobool2.not, label %if.end16, label %land.lhs.true
 
 land.lhs.true:                                    ; preds = %if.end
-  %len4 = getelementptr inbounds %struct.strbuf, ptr %2, i64 0, i32 1
+  %len4 = getelementptr inbounds i8, ptr %2, i64 8
   %3 = load i64, ptr %len4, align 8
   %tobool5.not = icmp eq i64 %3, 0
   br i1 %tobool5.not, label %if.end16, label %land.lhs.true6
 
 land.lhs.true6:                                   ; preds = %land.lhs.true
-  %arrayidx7 = getelementptr inbounds ptr, ptr %call1.i, i64 1
+  %arrayidx7 = getelementptr inbounds i8, ptr %call1.i, i64 8
   %4 = load ptr, ptr %arrayidx7, align 8
   %tobool8.not = icmp eq ptr %4, null
   br i1 %tobool8.not, label %if.end16, label %if.then9
 
 if.then9:                                         ; preds = %land.lhs.true6
-  %buf = getelementptr inbounds %struct.strbuf, ptr %2, i64 0, i32 2
+  %buf = getelementptr inbounds i8, ptr %2, i64 16
   %5 = load ptr, ptr %buf, align 8
   %call11 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %5, ptr noundef nonnull dereferenceable(8) @.str) #11
   %tobool12.not = icmp eq i32 %call11, 0
@@ -150,12 +149,12 @@ entry:
   br i1 %tobool.not, label %return, label %if.end
 
 if.end:                                           ; preds = %entry
-  %process = getelementptr inbounds %struct.subprocess_entry, ptr %entry1, i64 0, i32 2
-  %clean_on_exit = getelementptr inbounds %struct.subprocess_entry, ptr %entry1, i64 0, i32 2, i32 11
+  %process = getelementptr inbounds i8, ptr %entry1, i64 24
+  %clean_on_exit = getelementptr inbounds i8, ptr %entry1, i64 128
   %bf.load = load i16, ptr %clean_on_exit, align 8
   %bf.clear = and i16 %bf.load, -257
   store i16 %bf.clear, ptr %clean_on_exit, align 8
-  %pid = getelementptr inbounds %struct.subprocess_entry, ptr %entry1, i64 0, i32 2, i32 2
+  %pid = getelementptr inbounds i8, ptr %entry1, i64 72
   %0 = load i32, ptr %pid, align 8
   %call = tail call i32 @kill(i32 noundef %0, i32 noundef 15) #12
   %call4 = tail call i32 @finish_command(ptr noundef nonnull %process) #12
@@ -176,22 +175,22 @@ declare ptr @hashmap_remove(ptr noundef, ptr noundef, ptr noundef) local_unnamed
 ; Function Attrs: nounwind uwtable
 define dso_local i32 @subprocess_start(ptr noundef %hashmap, ptr noundef %entry1, ptr noundef %cmd, ptr nocapture noundef readonly %startfn) local_unnamed_addr #2 {
 entry:
-  %cmd2 = getelementptr inbounds %struct.subprocess_entry, ptr %entry1, i64 0, i32 1
+  %cmd2 = getelementptr inbounds i8, ptr %entry1, i64 16
   store ptr %cmd, ptr %cmd2, align 8
-  %process3 = getelementptr inbounds %struct.subprocess_entry, ptr %entry1, i64 0, i32 2
+  %process3 = getelementptr inbounds i8, ptr %entry1, i64 24
   tail call void @child_process_init(ptr noundef nonnull %process3) #12
   %call = tail call ptr @strvec_push(ptr noundef nonnull %process3, ptr noundef %cmd) #12
-  %use_shell = getelementptr inbounds %struct.subprocess_entry, ptr %entry1, i64 0, i32 2, i32 11
+  %use_shell = getelementptr inbounds i8, ptr %entry1, i64 128
   %bf.load = load i16, ptr %use_shell, align 8
-  %in = getelementptr inbounds %struct.subprocess_entry, ptr %entry1, i64 0, i32 2, i32 7
+  %in = getelementptr inbounds i8, ptr %entry1, i64 104
   store i32 -1, ptr %in, align 8
-  %out = getelementptr inbounds %struct.subprocess_entry, ptr %entry1, i64 0, i32 2, i32 8
+  %out = getelementptr inbounds i8, ptr %entry1, i64 108
   store i32 -1, ptr %out, align 4
   %bf.set6 = or i16 %bf.load, 288
   store i16 %bf.set6, ptr %use_shell, align 8
-  %clean_on_exit_handler = getelementptr inbounds %struct.subprocess_entry, ptr %entry1, i64 0, i32 2, i32 12
+  %clean_on_exit_handler = getelementptr inbounds i8, ptr %entry1, i64 136
   store ptr @subprocess_exit_handler, ptr %clean_on_exit_handler, align 8
-  %trace2_child_class = getelementptr inbounds %struct.subprocess_entry, ptr %entry1, i64 0, i32 2, i32 5
+  %trace2_child_class = getelementptr inbounds i8, ptr %entry1, i64 88
   store ptr @.str.1, ptr %trace2_child_class, align 8
   %call7 = tail call i32 @start_command(ptr noundef nonnull %process3) #12
   %tobool.not = icmp eq i32 %call7, 0
@@ -203,7 +202,7 @@ if.then:                                          ; preds = %entry
 
 if.end:                                           ; preds = %entry
   %call10 = tail call i32 @strhash(ptr noundef %cmd) #12
-  %hash1.i = getelementptr inbounds %struct.hashmap_entry, ptr %entry1, i64 0, i32 1
+  %hash1.i = getelementptr inbounds i8, ptr %entry1, i64 8
   store i32 %call10, ptr %hash1.i, align 8
   store ptr null, ptr %entry1, align 8
   %call11 = tail call i32 %startfn(ptr noundef nonnull %entry1) #12
@@ -215,7 +214,7 @@ subprocess_stop.exit:                             ; preds = %if.end
   %bf.load.i = load i16, ptr %use_shell, align 8
   %bf.clear.i = and i16 %bf.load.i, -257
   store i16 %bf.clear.i, ptr %use_shell, align 8
-  %pid.i = getelementptr inbounds %struct.subprocess_entry, ptr %entry1, i64 0, i32 2, i32 2
+  %pid.i = getelementptr inbounds i8, ptr %entry1, i64 72
   %0 = load i32, ptr %pid.i, align 8
   %call.i = tail call i32 @kill(i32 noundef %0, i32 noundef 15) #12
   %call4.i = tail call i32 @finish_command(ptr noundef nonnull %process3) #12
@@ -239,10 +238,10 @@ declare ptr @strvec_push(ptr noundef, ptr noundef) local_unnamed_addr #3
 define internal void @subprocess_exit_handler(ptr noundef %process) #2 {
 entry:
   %call = tail call i32 @sigchain_push(i32 noundef 13, ptr noundef nonnull inttoptr (i64 1 to ptr)) #12
-  %in = getelementptr inbounds %struct.child_process, ptr %process, i64 0, i32 7
+  %in = getelementptr inbounds i8, ptr %process, i64 80
   %0 = load i32, ptr %in, align 8
   %call1 = tail call i32 @close(i32 noundef %0) #12
-  %out = getelementptr inbounds %struct.child_process, ptr %process, i64 0, i32 8
+  %out = getelementptr inbounds i8, ptr %process, i64 84
   %1 = load i32, ptr %out, align 4
   %call2 = tail call i32 @close(i32 noundef %1) #12
   %call3 = tail call i32 @sigchain_pop(i32 noundef 13) #12
@@ -264,7 +263,7 @@ entry:
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %version_scratch.i)
   %tobool.not.i = icmp eq ptr %chosen_version, null
   %spec.select.i = select i1 %tobool.not.i, ptr %version_scratch.i, ptr %chosen_version
-  %in.i = getelementptr inbounds %struct.subprocess_entry, ptr %entry1, i64 0, i32 2, i32 7
+  %in.i = getelementptr inbounds i8, ptr %entry1, i64 104
   %0 = load i32, ptr %in.i, align 8
   %call.i = tail call i32 (i32, ptr, ...) @packet_write_fmt_gently(i32 noundef %0, ptr noundef nonnull @.str.6, ptr noundef %welcome_prefix) #12
   %tobool1.not.i = icmp eq i32 %call.i, 0
@@ -309,7 +308,7 @@ if.then19.i:                                      ; preds = %for.end.i
   br label %handshake_version.exit.thread
 
 if.end22.i:                                       ; preds = %for.end.i
-  %out.i = getelementptr inbounds %struct.subprocess_entry, ptr %entry1, i64 0, i32 2, i32 8
+  %out.i = getelementptr inbounds i8, ptr %entry1, i64 108
   %6 = load i32, ptr %out.i, align 4
   %call23.i = tail call ptr @packet_read_line(i32 noundef %6, ptr noundef null) #12
   %tobool24.not.i = icmp eq ptr %call23.i, null
@@ -532,41 +531,46 @@ skip_prefix.exit.i:                               ; preds = %do.cond.i.i17, %do.
 for.cond19.preheader.i:                           ; preds = %skip_prefix.exit.i
   %29 = load ptr, ptr %capabilities, align 8
   %tobool23.not22.i = icmp eq ptr %29, null
-  br i1 %tobool23.not22.i, label %if.else.i, label %land.rhs.i
+  br i1 %tobool23.not22.i, label %if.else.i, label %land.rhs.i.preheader
 
-for.cond19.i:                                     ; preds = %land.rhs.i
-  %indvars.iv.next47.i = add nuw i64 %indvars.iv46.i, 1
+land.rhs.i.preheader:                             ; preds = %for.cond19.preheader.i
+  %call27.i2035 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %p.1.i, ptr noundef nonnull dereferenceable(1) %29) #11
+  %tobool28.not.i2136 = icmp eq i32 %call27.i2035, 0
+  br i1 %tobool28.not.i2136, label %if.then37.i, label %for.cond19.i
+
+for.cond19.i:                                     ; preds = %land.rhs.i.preheader, %land.rhs.i
+  %indvars.iv46.i37 = phi i64 [ %indvars.iv.next47.i, %land.rhs.i ], [ 0, %land.rhs.i.preheader ]
+  %indvars.iv.next47.i = add nuw i64 %indvars.iv46.i37, 1
   %arrayidx21.i = getelementptr inbounds %struct.subprocess_capability, ptr %capabilities, i64 %indvars.iv.next47.i
   %30 = load ptr, ptr %arrayidx21.i, align 8
   %tobool23.not.i = icmp eq ptr %30, null
   br i1 %tobool23.not.i, label %if.else.i, label %land.rhs.i, !llvm.loop !10
 
-land.rhs.i:                                       ; preds = %for.cond19.preheader.i, %for.cond19.i
-  %indvars.iv46.i = phi i64 [ %indvars.iv.next47.i, %for.cond19.i ], [ 0, %for.cond19.preheader.i ]
-  %31 = phi ptr [ %30, %for.cond19.i ], [ %29, %for.cond19.preheader.i ]
-  %call27.i20 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %p.1.i, ptr noundef nonnull dereferenceable(1) %31) #11
+land.rhs.i:                                       ; preds = %for.cond19.i
+  %call27.i20 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %p.1.i, ptr noundef nonnull dereferenceable(1) %30) #11
   %tobool28.not.i21 = icmp eq i32 %call27.i20, 0
-  br i1 %tobool28.not.i21, label %if.then37.i, label %for.cond19.i
+  br i1 %tobool28.not.i21, label %if.then37.i, label %for.cond19.i, !llvm.loop !10
 
-if.then37.i:                                      ; preds = %land.rhs.i
-  %flag.i = getelementptr inbounds %struct.subprocess_capability, ptr %capabilities, i64 %indvars.iv46.i, i32 1
-  %32 = load i32, ptr %flag.i, align 8
-  %33 = load i32, ptr %supported_capabilities, align 4
-  %or.i = or i32 %33, %32
+if.then37.i:                                      ; preds = %land.rhs.i, %land.rhs.i.preheader
+  %arrayidx2124.i.lcssa = phi ptr [ %capabilities, %land.rhs.i.preheader ], [ %arrayidx21.i, %land.rhs.i ]
+  %flag.i = getelementptr inbounds i8, ptr %arrayidx2124.i.lcssa, i64 8
+  %31 = load i32, ptr %flag.i, align 8
+  %32 = load i32, ptr %supported_capabilities, align 4
+  %or.i = or i32 %32, %31
   store i32 %or.i, ptr %supported_capabilities, align 4
   br label %while.cond.backedge.i
 
 if.else.i:                                        ; preds = %for.cond19.preheader.i, %for.cond19.i, %for.cond19.preheader.us.i, %for.cond19.us.i
   %p.1.lcssa.i = phi ptr [ %p.1.us.i, %for.cond19.us.i ], [ %p.1.us.i, %for.cond19.preheader.us.i ], [ %p.1.i, %for.cond19.i ], [ %p.1.i, %for.cond19.preheader.i ]
-  %process3 = getelementptr inbounds %struct.subprocess_entry, ptr %entry1, i64 0, i32 2
-  %34 = load ptr, ptr %process3, align 8
-  %35 = load ptr, ptr %34, align 8
-  tail call void (ptr, ...) @die(ptr noundef nonnull @.str.21, ptr noundef %35, ptr noundef %p.1.lcssa.i) #13
+  %process3 = getelementptr inbounds i8, ptr %entry1, i64 24
+  %33 = load ptr, ptr %process3, align 8
+  %34 = load ptr, ptr %33, align 8
+  tail call void (ptr, ...) @die(ptr noundef nonnull @.str.21, ptr noundef %34, ptr noundef %p.1.lcssa.i) #13
   unreachable
 
 while.cond.backedge.i:                            ; preds = %if.then37.i, %skip_prefix.exit.i
-  %36 = load i32, ptr %out.i, align 4
-  %call14.i = tail call ptr @packet_read_line(i32 noundef %36, ptr noundef null) #12
+  %35 = load i32, ptr %out.i, align 4
+  %call14.i = tail call ptr @packet_read_line(i32 noundef %35, ptr noundef null) #12
   %tobool15.not.i = icmp eq ptr %call14.i, null
   br i1 %tobool15.not.i, label %lor.end, label %do.body.i.preheader.i, !llvm.loop !11
 

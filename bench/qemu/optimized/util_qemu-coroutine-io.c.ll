@@ -113,7 +113,7 @@ define dso_local i64 @qemu_co_send_recv(i32 noundef %sockfd, ptr noundef %buf, i
 entry:
   %iov = alloca %struct.iovec, align 8
   store ptr %buf, ptr %iov, align 8
-  %iov_len = getelementptr inbounds %struct.iovec, ptr %iov, i64 0, i32 1
+  %iov_len = getelementptr inbounds i8, ptr %iov, i64 8
   store i64 %bytes, ptr %iov_len, align 8
   %call = call i64 @qemu_co_sendv_recvv(i32 noundef %sockfd, ptr noundef nonnull %iov, i32 noundef 1, i64 noundef 0, i64 noundef %bytes, i1 noundef zeroext %do_send)
   ret i64 %call
@@ -134,9 +134,9 @@ if.end:                                           ; preds = %entry
   %call1 = tail call ptr @qemu_get_current_aio_context() #4
   store ptr %call1, ptr %data, align 8
   %call2 = tail call ptr @qemu_coroutine_self() #4
-  %co = getelementptr inbounds %struct.FDYieldUntilData, ptr %data, i64 0, i32 1
+  %co = getelementptr inbounds i8, ptr %data, i64 8
   store ptr %call2, ptr %co, align 8
-  %fd3 = getelementptr inbounds %struct.FDYieldUntilData, ptr %data, i64 0, i32 2
+  %fd3 = getelementptr inbounds i8, ptr %data, i64 16
   store i32 %fd, ptr %fd3, align 8
   call void @aio_set_fd_handler(ptr noundef %call1, i32 noundef %fd, ptr noundef nonnull @fd_coroutine_enter, ptr noundef null, ptr noundef null, ptr noundef null, ptr noundef nonnull %data) #4
   call void @qemu_coroutine_yield() #4
@@ -158,10 +158,10 @@ declare void @aio_set_fd_handler(ptr noundef, i32 noundef, ptr noundef, ptr noun
 define internal void @fd_coroutine_enter(ptr nocapture noundef readonly %opaque) #0 {
 entry:
   %0 = load ptr, ptr %opaque, align 8
-  %fd = getelementptr inbounds %struct.FDYieldUntilData, ptr %opaque, i64 0, i32 2
+  %fd = getelementptr inbounds i8, ptr %opaque, i64 16
   %1 = load i32, ptr %fd, align 8
   tail call void @aio_set_fd_handler(ptr noundef %0, i32 noundef %1, ptr noundef null, ptr noundef null, ptr noundef null, ptr noundef null, ptr noundef null) #4
-  %co = getelementptr inbounds %struct.FDYieldUntilData, ptr %opaque, i64 0, i32 1
+  %co = getelementptr inbounds i8, ptr %opaque, i64 8
   %2 = load ptr, ptr %co, align 8
   tail call void @qemu_coroutine_enter(ptr noundef %2) #4
   ret void

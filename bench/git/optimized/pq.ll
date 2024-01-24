@@ -21,9 +21,9 @@ entry:
   %bk = alloca %struct.strbuf, align 8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %ak, ptr noundef nonnull align 8 dereferenceable(24) @__const.pq_less.bk, i64 24, i1 false)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %bk, ptr noundef nonnull align 8 dereferenceable(24) @__const.pq_less.bk, i64 24, i1 false)
-  %rec = getelementptr inbounds %struct.pq_entry, ptr %a, i64 0, i32 1
+  %rec = getelementptr inbounds i8, ptr %a, i64 8
   call void @reftable_record_key(ptr noundef nonnull %rec, ptr noundef nonnull %ak) #8
-  %rec1 = getelementptr inbounds %struct.pq_entry, ptr %b, i64 0, i32 1
+  %rec1 = getelementptr inbounds i8, ptr %b, i64 8
   call void @reftable_record_key(ptr noundef nonnull %rec1, ptr noundef nonnull %bk) #8
   %call = call i32 @strbuf_cmp(ptr noundef nonnull %ak, ptr noundef nonnull %bk) #8
   call void @strbuf_release(ptr noundef nonnull %ak) #8
@@ -67,7 +67,7 @@ entry:
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
 define dso_local i32 @merged_iter_pqueue_is_empty(ptr nocapture noundef readonly byval(%struct.merged_iter_pqueue) align 8 %pq) local_unnamed_addr #4 {
 entry:
-  %len = getelementptr inbounds %struct.merged_iter_pqueue, ptr %pq, i64 0, i32 1
+  %len = getelementptr inbounds i8, ptr %pq, i64 8
   %0 = load i64, ptr %len, align 8
   %cmp = icmp eq i64 %0, 0
   %conv = zext i1 %cmp to i32
@@ -84,10 +84,10 @@ entry:
   %_swap_buffer = alloca [104 x i8], align 16
   %0 = load ptr, ptr %pq, align 8
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(104) %agg.result, ptr noundef nonnull align 8 dereferenceable(104) %0, i64 104, i1 false)
-  %len = getelementptr inbounds %struct.merged_iter_pqueue, ptr %pq, i64 0, i32 1
+  %len = getelementptr inbounds i8, ptr %pq, i64 8
   %1 = load i64, ptr %len, align 8
   %2 = getelementptr %struct.pq_entry, ptr %0, i64 %1
-  %arrayidx4 = getelementptr %struct.pq_entry, ptr %2, i64 -1
+  %arrayidx4 = getelementptr i8, ptr %2, i64 -104
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(104) %0, ptr noundef nonnull align 8 dereferenceable(104) %arrayidx4, i64 104, i1 false)
   %3 = load i64, ptr %len, align 8
   %dec = add i64 %3, -1
@@ -108,13 +108,15 @@ while.body:                                       ; preds = %entry, %do.body
 
 land.lhs.true:                                    ; preds = %while.body
   %5 = load ptr, ptr %pq, align 8
+  %arrayidx15 = getelementptr inbounds %struct.pq_entry, ptr %5, i64 %conv10
+  %arrayidx18 = getelementptr inbounds %struct.pq_entry, ptr %5, i64 %conv45
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %ak.i)
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %bk.i)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %ak.i, ptr noundef nonnull align 8 dereferenceable(24) @__const.pq_less.bk, i64 24, i1 false)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %bk.i, ptr noundef nonnull align 8 dereferenceable(24) @__const.pq_less.bk, i64 24, i1 false)
-  %rec.i = getelementptr inbounds %struct.pq_entry, ptr %5, i64 %conv10, i32 1
+  %rec.i = getelementptr inbounds i8, ptr %arrayidx15, i64 8
   call void @reftable_record_key(ptr noundef nonnull %rec.i, ptr noundef nonnull %ak.i) #8
-  %rec1.i = getelementptr inbounds %struct.pq_entry, ptr %5, i64 %conv45, i32 1
+  %rec1.i = getelementptr inbounds i8, ptr %arrayidx18, i64 8
   call void @reftable_record_key(ptr noundef nonnull %rec1.i, ptr noundef nonnull %bk.i) #8
   %call.i = call i32 @strbuf_cmp(ptr noundef nonnull %ak.i, ptr noundef nonnull %bk.i) #8
   call void @strbuf_release(ptr noundef nonnull %ak.i) #8
@@ -123,8 +125,6 @@ land.lhs.true:                                    ; preds = %while.body
   br i1 %cmp2.i, label %if.then.i, label %if.end.i
 
 if.then.i:                                        ; preds = %land.lhs.true
-  %arrayidx18 = getelementptr inbounds %struct.pq_entry, ptr %5, i64 %conv45
-  %arrayidx15 = getelementptr inbounds %struct.pq_entry, ptr %5, i64 %conv10
   %6 = load i32, ptr %arrayidx15, align 8
   %7 = load i32, ptr %arrayidx18, align 8
   %cmp4.i = icmp sgt i32 %6, %7
@@ -153,14 +153,16 @@ if.end:                                           ; preds = %pq_less.exit, %whil
 
 land.lhs.true23:                                  ; preds = %if.end
   %9 = load ptr, ptr %pq, align 8
+  %arrayidx26 = getelementptr inbounds %struct.pq_entry, ptr %9, i64 %conv19
   %idxprom28 = sext i32 %min.0 to i64
+  %arrayidx29 = getelementptr inbounds %struct.pq_entry, ptr %9, i64 %idxprom28
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %ak.i30)
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %bk.i31)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %ak.i30, ptr noundef nonnull align 8 dereferenceable(24) @__const.pq_less.bk, i64 24, i1 false)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %bk.i31, ptr noundef nonnull align 8 dereferenceable(24) @__const.pq_less.bk, i64 24, i1 false)
-  %rec.i32 = getelementptr inbounds %struct.pq_entry, ptr %9, i64 %conv19, i32 1
+  %rec.i32 = getelementptr inbounds i8, ptr %arrayidx26, i64 8
   call void @reftable_record_key(ptr noundef nonnull %rec.i32, ptr noundef nonnull %ak.i30) #8
-  %rec1.i33 = getelementptr inbounds %struct.pq_entry, ptr %9, i64 %idxprom28, i32 1
+  %rec1.i33 = getelementptr inbounds i8, ptr %arrayidx29, i64 8
   call void @reftable_record_key(ptr noundef nonnull %rec1.i33, ptr noundef nonnull %bk.i31) #8
   %call.i34 = call i32 @strbuf_cmp(ptr noundef nonnull %ak.i30, ptr noundef nonnull %bk.i31) #8
   call void @strbuf_release(ptr noundef nonnull %ak.i30) #8
@@ -169,8 +171,6 @@ land.lhs.true23:                                  ; preds = %if.end
   br i1 %cmp2.i35, label %if.then.i39, label %if.end.i36
 
 if.then.i39:                                      ; preds = %land.lhs.true23
-  %arrayidx29 = getelementptr inbounds %struct.pq_entry, ptr %9, i64 %idxprom28
-  %arrayidx26 = getelementptr inbounds %struct.pq_entry, ptr %9, i64 %conv19
   %10 = load i32, ptr %arrayidx26, align 8
   %11 = load i32, ptr %arrayidx29, align 8
   %cmp4.i40 = icmp sgt i32 %10, %11
@@ -216,9 +216,9 @@ entry:
   %ak.i = alloca %struct.strbuf, align 8
   %bk.i = alloca %struct.strbuf, align 8
   %_swap_buffer = alloca [104 x i8], align 16
-  %len = getelementptr inbounds %struct.merged_iter_pqueue, ptr %pq, i64 0, i32 1
+  %len = getelementptr inbounds i8, ptr %pq, i64 8
   %0 = load i64, ptr %len, align 8
-  %cap = getelementptr inbounds %struct.merged_iter_pqueue, ptr %pq, i64 0, i32 2
+  %cap = getelementptr inbounds i8, ptr %pq, i64 16
   %1 = load i64, ptr %cap, align 8
   %cmp = icmp eq i64 %0, %1
   %.pre = load ptr, ptr %pq, align 8
@@ -253,14 +253,16 @@ while.body:                                       ; preds = %if.end, %do.body
   %div21 = lshr i32 %sub11, 1
   %6 = load ptr, ptr %pq, align 8
   %idxprom = zext nneg i32 %div21 to i64
+  %arrayidx13 = getelementptr inbounds %struct.pq_entry, ptr %6, i64 %idxprom
   %idxprom15 = zext nneg i32 %i.023 to i64
+  %arrayidx16 = getelementptr inbounds %struct.pq_entry, ptr %6, i64 %idxprom15
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %ak.i)
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %bk.i)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %ak.i, ptr noundef nonnull align 8 dereferenceable(24) @__const.pq_less.bk, i64 24, i1 false)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %bk.i, ptr noundef nonnull align 8 dereferenceable(24) @__const.pq_less.bk, i64 24, i1 false)
-  %rec.i = getelementptr inbounds %struct.pq_entry, ptr %6, i64 %idxprom, i32 1
+  %rec.i = getelementptr inbounds i8, ptr %arrayidx13, i64 8
   call void @reftable_record_key(ptr noundef nonnull %rec.i, ptr noundef nonnull %ak.i) #8
-  %rec1.i = getelementptr inbounds %struct.pq_entry, ptr %6, i64 %idxprom15, i32 1
+  %rec1.i = getelementptr inbounds i8, ptr %arrayidx16, i64 8
   call void @reftable_record_key(ptr noundef nonnull %rec1.i, ptr noundef nonnull %bk.i) #8
   %call.i = call i32 @strbuf_cmp(ptr noundef nonnull %ak.i, ptr noundef nonnull %bk.i) #8
   call void @strbuf_release(ptr noundef nonnull %ak.i) #8
@@ -269,8 +271,6 @@ while.body:                                       ; preds = %if.end, %do.body
   br i1 %cmp2.i, label %if.then.i, label %if.end.i
 
 if.then.i:                                        ; preds = %while.body
-  %arrayidx16 = getelementptr inbounds %struct.pq_entry, ptr %6, i64 %idxprom15
-  %arrayidx13 = getelementptr inbounds %struct.pq_entry, ptr %6, i64 %idxprom
   %7 = load i32, ptr %arrayidx13, align 8
   %8 = load i32, ptr %arrayidx16, align 8
   %cmp4.i = icmp sgt i32 %7, %8
@@ -307,7 +307,7 @@ declare ptr @reftable_realloc(ptr noundef, i64 noundef) local_unnamed_addr #2
 ; Function Attrs: nounwind uwtable
 define dso_local void @merged_iter_pqueue_release(ptr nocapture noundef %pq) local_unnamed_addr #0 {
 entry:
-  %len = getelementptr inbounds %struct.merged_iter_pqueue, ptr %pq, i64 0, i32 1
+  %len = getelementptr inbounds i8, ptr %pq, i64 8
   %0 = load i64, ptr %len, align 8
   %cmp8.not = icmp eq i64 %0, 0
   br i1 %cmp8.not, label %do.body, label %for.body

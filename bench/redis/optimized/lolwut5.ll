@@ -3,12 +3,6 @@ source_filename = "bench/redis/original/lolwut5.ll"
 target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:128-n8:16:32:64-S128"
 target triple = "x86_64-unknown-linux-gnu"
 
-%struct.client = type { i64, i64, ptr, i32, ptr, ptr, ptr, ptr, ptr, i64, i64, i32, ptr, i32, i32, ptr, i64, ptr, ptr, ptr, ptr, i32, i32, i64, ptr, i64, ptr, i64, i64, i64, i32, ptr, i64, i64, i32, i32, i32, i32, i64, i64, ptr, i64, i64, i64, i64, i64, i64, i64, i64, [41 x i8], i32, ptr, i32, i32, %struct.multiState, %struct.blockingState, i64, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, i64, ptr, i64, i32, ptr, ptr, ptr, i64, %struct.listNode, i64, i64, i32, i64, ptr }
-%struct.multiState = type { ptr, i32, i32, i32, i64, i32 }
-%struct.blockingState = type { i32, i64, i32, ptr, i32, i32, i64, ptr, ptr }
-%struct.listNode = type { ptr, ptr, ptr }
-%struct.lwCanvas = type { i32, i32, ptr }
-
 @.str = private unnamed_addr constant [60 x i8] c"\0AGeorg Nees - schotter, plotter on paper, 1968. Redis ver. \00", align 1
 @.str.1 = private unnamed_addr constant [12 x i8] c"255.255.255\00", align 1
 @.str.2 = private unnamed_addr constant [2 x i8] c"\0A\00", align 1
@@ -161,15 +155,15 @@ entry:
   store i64 66, ptr %cols, align 8
   store i64 8, ptr %squares_per_row, align 8
   store i64 12, ptr %squares_per_col, align 8
-  %argc = getelementptr inbounds %struct.client, ptr %c, i64 0, i32 11
+  %argc = getelementptr inbounds i8, ptr %c, i64 88
   %0 = load i32, ptr %argc, align 8
   %cmp = icmp sgt i32 %0, 1
   br i1 %cmp, label %land.lhs.true, label %if.end19
 
 land.lhs.true:                                    ; preds = %entry
-  %argv = getelementptr inbounds %struct.client, ptr %c, i64 0, i32 12
+  %argv = getelementptr inbounds i8, ptr %c, i64 96
   %1 = load ptr, ptr %argv, align 8
-  %arrayidx = getelementptr inbounds ptr, ptr %1, i64 1
+  %arrayidx = getelementptr inbounds i8, ptr %1, i64 8
   %2 = load ptr, ptr %arrayidx, align 8
   %call = call i32 @getLongFromObjectOrReply(ptr noundef nonnull %c, ptr noundef %2, ptr noundef nonnull %cols, ptr noundef null) #6
   %cmp1.not = icmp eq i32 %call, 0
@@ -182,7 +176,7 @@ if.end:                                           ; preds = %land.lhs.true
 
 land.lhs.true4:                                   ; preds = %if.end
   %3 = load ptr, ptr %argv, align 8
-  %arrayidx6 = getelementptr inbounds ptr, ptr %3, i64 2
+  %arrayidx6 = getelementptr inbounds i8, ptr %3, i64 16
   %4 = load ptr, ptr %arrayidx6, align 8
   %call7 = call i32 @getLongFromObjectOrReply(ptr noundef nonnull %c, ptr noundef %4, ptr noundef nonnull %squares_per_row, ptr noundef null) #6
   %cmp8.not = icmp eq i32 %call7, 0
@@ -195,7 +189,7 @@ if.end10:                                         ; preds = %land.lhs.true4
 
 land.lhs.true13:                                  ; preds = %if.end10
   %5 = load ptr, ptr %argv, align 8
-  %arrayidx15 = getelementptr inbounds ptr, ptr %5, i64 3
+  %arrayidx15 = getelementptr inbounds i8, ptr %5, i64 24
   %6 = load ptr, ptr %arrayidx15, align 8
   %call16 = call i32 @getLongFromObjectOrReply(ptr noundef nonnull %c, ptr noundef %6, ptr noundef nonnull %squares_per_col, ptr noundef null) #6
   %cmp17.not = icmp eq i32 %call16, 0
@@ -262,7 +256,7 @@ if.end37:                                         ; preds = %if.end34.thread, %i
   %call40 = call ptr @lwDrawSchotter(i32 noundef %conv, i32 noundef %conv38, i32 noundef %conv39)
   call void @llvm.lifetime.start.p0(i64 3, ptr nonnull %unicode.i)
   %call.i = call ptr @sdsempty() #6
-  %height.i = getelementptr inbounds %struct.lwCanvas, ptr %call40, i64 0, i32 1
+  %height.i = getelementptr inbounds i8, ptr %call40, i64 4
   %13 = load i32, ptr %height.i, align 4
   %cmp43.i = icmp sgt i32 %13, 0
   br i1 %cmp43.i, label %for.cond1.preheader.lr.ph.i, label %renderCanvas.exit

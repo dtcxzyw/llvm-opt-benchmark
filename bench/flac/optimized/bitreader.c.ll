@@ -3,14 +3,12 @@ source_filename = "bench/flac/original/bitreader.c.ll"
 target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:128-n8:16:32:64-S128"
 target triple = "x86_64-unknown-linux-gnu"
 
-%struct.FLAC__BitReader = type { ptr, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, ptr, ptr }
-
 @FLAC__crc16_table = external local_unnamed_addr constant [8 x [256 x i16]], align 16
 
 ; Function Attrs: mustprogress nofree nounwind sspstrong willreturn memory(inaccessiblemem: readwrite) uwtable
-define hidden noalias ptr @FLAC__bitreader_new() local_unnamed_addr #0 {
+define hidden noalias noundef ptr @FLAC__bitreader_new() local_unnamed_addr #0 {
 entry:
-  %call = tail call noalias dereferenceable_or_null(72) ptr @calloc(i64 noundef 1, i64 noundef 72) #18
+  %call = tail call noalias dereferenceable_or_null(72) ptr @calloc(i64 noundef 1, i64 noundef 72) #17
   ret ptr %call
 }
 
@@ -25,11 +23,11 @@ entry:
   br i1 %cmp.not.i, label %FLAC__bitreader_free.exit, label %if.then.i
 
 if.then.i:                                        ; preds = %entry
-  tail call void @free(ptr noundef nonnull %0) #19
+  tail call void @free(ptr noundef nonnull %0) #18
   br label %FLAC__bitreader_free.exit
 
 FLAC__bitreader_free.exit:                        ; preds = %entry, %if.then.i
-  tail call void @free(ptr noundef nonnull %br) #19
+  tail call void @free(ptr noundef nonnull %br) #18
   ret void
 }
 
@@ -41,18 +39,18 @@ entry:
   br i1 %cmp.not, label %if.end, label %if.then
 
 if.then:                                          ; preds = %entry
-  tail call void @free(ptr noundef nonnull %0) #19
+  tail call void @free(ptr noundef nonnull %0) #18
   br label %if.end
 
 if.end:                                           ; preds = %if.then, %entry
-  %read_callback = getelementptr inbounds %struct.FLAC__BitReader, ptr %br, i64 0, i32 12
-  %read_limit_set = getelementptr inbounds %struct.FLAC__BitReader, ptr %br, i64 0, i32 9
+  %read_callback = getelementptr inbounds i8, ptr %br, i64 56
+  %read_limit_set = getelementptr inbounds i8, ptr %br, i64 40
   store i32 0, ptr %read_limit_set, align 8
-  %read_limit = getelementptr inbounds %struct.FLAC__BitReader, ptr %br, i64 0, i32 10
+  %read_limit = getelementptr inbounds i8, ptr %br, i64 44
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(28) %br, i8 0, i64 28, i1 false)
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %read_callback, i8 0, i64 16, i1 false)
   store i32 -1, ptr %read_limit, align 4
-  %last_seen_framesync = getelementptr inbounds %struct.FLAC__BitReader, ptr %br, i64 0, i32 11
+  %last_seen_framesync = getelementptr inbounds i8, ptr %br, i64 48
   store i32 -1, ptr %last_seen_framesync, align 8
   ret void
 }
@@ -61,27 +59,27 @@ if.end:                                           ; preds = %if.then, %entry
 declare void @free(ptr allocptr nocapture noundef) local_unnamed_addr #3
 
 ; Function Attrs: mustprogress nofree nounwind sspstrong willreturn memory(argmem: write, inaccessiblemem: readwrite) uwtable
-define hidden i32 @FLAC__bitreader_init(ptr nocapture noundef writeonly %br, ptr noundef %rcb, ptr noundef %cd) local_unnamed_addr #4 {
+define hidden noundef i32 @FLAC__bitreader_init(ptr nocapture noundef writeonly %br, ptr noundef %rcb, ptr noundef %cd) local_unnamed_addr #4 {
 entry:
-  %words = getelementptr inbounds %struct.FLAC__BitReader, ptr %br, i64 0, i32 2
-  %capacity = getelementptr inbounds %struct.FLAC__BitReader, ptr %br, i64 0, i32 1
+  %words = getelementptr inbounds i8, ptr %br, i64 12
+  %capacity = getelementptr inbounds i8, ptr %br, i64 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %words, i8 0, i64 16, i1 false)
   store i32 1024, ptr %capacity, align 8
-  %call = tail call noalias dereferenceable_or_null(8192) ptr @malloc(i64 noundef 8192) #20
+  %call = tail call noalias dereferenceable_or_null(8192) ptr @malloc(i64 noundef 8192) #19
   store ptr %call, ptr %br, align 8
   %cmp = icmp eq ptr %call, null
   br i1 %cmp, label %return, label %if.end
 
 if.end:                                           ; preds = %entry
-  %read_callback = getelementptr inbounds %struct.FLAC__BitReader, ptr %br, i64 0, i32 12
+  %read_callback = getelementptr inbounds i8, ptr %br, i64 56
   store ptr %rcb, ptr %read_callback, align 8
-  %client_data = getelementptr inbounds %struct.FLAC__BitReader, ptr %br, i64 0, i32 13
+  %client_data = getelementptr inbounds i8, ptr %br, i64 64
   store ptr %cd, ptr %client_data, align 8
-  %read_limit_set = getelementptr inbounds %struct.FLAC__BitReader, ptr %br, i64 0, i32 9
+  %read_limit_set = getelementptr inbounds i8, ptr %br, i64 40
   store i32 0, ptr %read_limit_set, align 8
-  %read_limit = getelementptr inbounds %struct.FLAC__BitReader, ptr %br, i64 0, i32 10
+  %read_limit = getelementptr inbounds i8, ptr %br, i64 44
   store i32 -1, ptr %read_limit, align 4
-  %last_seen_framesync = getelementptr inbounds %struct.FLAC__BitReader, ptr %br, i64 0, i32 11
+  %last_seen_framesync = getelementptr inbounds i8, ptr %br, i64 48
   store i32 -1, ptr %last_seen_framesync, align 8
   br label %return
 
@@ -93,16 +91,16 @@ return:                                           ; preds = %entry, %if.end
 ; Function Attrs: mustprogress nofree nounwind willreturn allockind("alloc,uninitialized") allocsize(0) memory(inaccessiblemem: readwrite)
 declare noalias noundef ptr @malloc(i64 noundef) local_unnamed_addr #5
 
-; Function Attrs: mustprogress nofree nosync nounwind sspstrong willreturn memory(argmem: write) uwtable
-define hidden i32 @FLAC__bitreader_clear(ptr nocapture noundef writeonly %br) local_unnamed_addr #6 {
+; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(argmem: write) uwtable
+define hidden noundef i32 @FLAC__bitreader_clear(ptr nocapture noundef writeonly %br) local_unnamed_addr #6 {
 entry:
-  %words = getelementptr inbounds %struct.FLAC__BitReader, ptr %br, i64 0, i32 2
-  %read_limit_set = getelementptr inbounds %struct.FLAC__BitReader, ptr %br, i64 0, i32 9
+  %words = getelementptr inbounds i8, ptr %br, i64 12
+  %read_limit_set = getelementptr inbounds i8, ptr %br, i64 40
   store i32 0, ptr %read_limit_set, align 8
-  %read_limit = getelementptr inbounds %struct.FLAC__BitReader, ptr %br, i64 0, i32 10
+  %read_limit = getelementptr inbounds i8, ptr %br, i64 44
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %words, i8 0, i64 16, i1 false)
   store i32 -1, ptr %read_limit, align 4
-  %last_seen_framesync = getelementptr inbounds %struct.FLAC__BitReader, ptr %br, i64 0, i32 11
+  %last_seen_framesync = getelementptr inbounds i8, ptr %br, i64 48
   store i32 -1, ptr %last_seen_framesync, align 8
   ret i32 1
 }
@@ -110,22 +108,22 @@ entry:
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(argmem: readwrite) uwtable
 define hidden void @FLAC__bitreader_set_framesync_location(ptr nocapture noundef %br) local_unnamed_addr #7 {
 entry:
-  %consumed_words = getelementptr inbounds %struct.FLAC__BitReader, ptr %br, i64 0, i32 4
+  %consumed_words = getelementptr inbounds i8, ptr %br, i64 20
   %0 = load i32, ptr %consumed_words, align 4
   %mul = shl i32 %0, 3
-  %consumed_bits = getelementptr inbounds %struct.FLAC__BitReader, ptr %br, i64 0, i32 5
+  %consumed_bits = getelementptr inbounds i8, ptr %br, i64 24
   %1 = load i32, ptr %consumed_bits, align 8
   %div3 = lshr i32 %1, 3
   %add = add i32 %div3, %mul
-  %last_seen_framesync = getelementptr inbounds %struct.FLAC__BitReader, ptr %br, i64 0, i32 11
+  %last_seen_framesync = getelementptr inbounds i8, ptr %br, i64 48
   store i32 %add, ptr %last_seen_framesync, align 8
   ret void
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(argmem: readwrite) uwtable
-define hidden i32 @FLAC__bitreader_rewind_to_after_last_seen_framesync(ptr nocapture noundef %br) local_unnamed_addr #7 {
+define hidden noundef i32 @FLAC__bitreader_rewind_to_after_last_seen_framesync(ptr nocapture noundef %br) local_unnamed_addr #7 {
 entry:
-  %last_seen_framesync = getelementptr inbounds %struct.FLAC__BitReader, ptr %br, i64 0, i32 11
+  %last_seen_framesync = getelementptr inbounds i8, ptr %br, i64 48
   %0 = load i32, ptr %last_seen_framesync, align 8
   %cmp = icmp eq i32 %0, -1
   br i1 %cmp, label %return, label %if.else
@@ -142,9 +140,9 @@ return:                                           ; preds = %entry, %if.else
   %mul.sink = phi i32 [ %mul, %if.else ], [ 0, %entry ]
   %div7.sink = phi i32 [ %div7, %if.else ], [ 0, %entry ]
   %retval.0 = phi i32 [ 1, %if.else ], [ 0, %entry ]
-  %1 = getelementptr inbounds %struct.FLAC__BitReader, ptr %br, i64 0, i32 5
+  %1 = getelementptr inbounds i8, ptr %br, i64 24
   store i32 %mul.sink, ptr %1, align 8
-  %2 = getelementptr inbounds %struct.FLAC__BitReader, ptr %br, i64 0, i32 4
+  %2 = getelementptr inbounds i8, ptr %br, i64 20
   store i32 %div7.sink, ptr %2, align 4
   ret i32 %retval.0
 }
@@ -153,10 +151,10 @@ return:                                           ; preds = %entry, %if.else
 define hidden void @FLAC__bitreader_reset_read_crc16(ptr nocapture noundef %br, i16 noundef zeroext %seed) local_unnamed_addr #7 {
 entry:
   %conv = zext i16 %seed to i32
-  %read_crc16 = getelementptr inbounds %struct.FLAC__BitReader, ptr %br, i64 0, i32 6
+  %read_crc16 = getelementptr inbounds i8, ptr %br, i64 28
   store i32 %conv, ptr %read_crc16, align 4
-  %consumed_words = getelementptr inbounds %struct.FLAC__BitReader, ptr %br, i64 0, i32 4
-  %crc16_offset = getelementptr inbounds %struct.FLAC__BitReader, ptr %br, i64 0, i32 7
+  %consumed_words = getelementptr inbounds i8, ptr %br, i64 20
+  %crc16_offset = getelementptr inbounds i8, ptr %br, i64 32
   %0 = load <2 x i32>, ptr %consumed_words, align 4
   store <2 x i32> %0, ptr %crc16_offset, align 8
   ret void
@@ -165,15 +163,15 @@ entry:
 ; Function Attrs: nounwind sspstrong uwtable
 define hidden zeroext i16 @FLAC__bitreader_get_read_crc16(ptr nocapture noundef %br) local_unnamed_addr #8 {
 entry:
-  %consumed_words.i = getelementptr inbounds %struct.FLAC__BitReader, ptr %br, i64 0, i32 4
+  %consumed_words.i = getelementptr inbounds i8, ptr %br, i64 20
   %0 = load i32, ptr %consumed_words.i, align 4
-  %crc16_offset.i = getelementptr inbounds %struct.FLAC__BitReader, ptr %br, i64 0, i32 7
+  %crc16_offset.i = getelementptr inbounds i8, ptr %br, i64 32
   %1 = load i32, ptr %crc16_offset.i, align 8
   %cmp.i = icmp ugt i32 %0, %1
   br i1 %cmp.i, label %land.lhs.true.i, label %if.end.i
 
 land.lhs.true.i:                                  ; preds = %entry
-  %crc16_align.i = getelementptr inbounds %struct.FLAC__BitReader, ptr %br, i64 0, i32 8
+  %crc16_align.i = getelementptr inbounds i8, ptr %br, i64 36
   %2 = load i32, ptr %crc16_align.i, align 4
   %tobool.not.i = icmp eq i32 %2, 0
   br i1 %tobool.not.i, label %if.end.i, label %if.then.i
@@ -185,10 +183,10 @@ if.then.i:                                        ; preds = %land.lhs.true.i
   %idxprom.i = zext i32 %1 to i64
   %arrayidx.i = getelementptr inbounds i64, ptr %3, i64 %idxprom.i
   %4 = load i64, ptr %arrayidx.i, align 8
-  %read_crc16.i.i = getelementptr inbounds %struct.FLAC__BitReader, ptr %br, i64 0, i32 6
+  %read_crc16.i.i = getelementptr inbounds i8, ptr %br, i64 28
   %5 = load i32, ptr %read_crc16.i.i, align 4
-  %cmp10.i.i = icmp ult i32 %2, 64
-  br i1 %cmp10.i.i, label %for.body.preheader.i.i, label %crc16_update_word_.exit.i
+  %cmp9.i.i = icmp ult i32 %2, 64
+  br i1 %cmp9.i.i, label %for.body.preheader.i.i, label %crc16_update_word_.exit.i
 
 for.body.preheader.i.i:                           ; preds = %if.then.i
   %6 = zext nneg i32 %2 to i64
@@ -196,11 +194,11 @@ for.body.preheader.i.i:                           ; preds = %if.then.i
 
 for.body.i.i:                                     ; preds = %for.body.i.i, %for.body.preheader.i.i
   %indvars.iv.i.i = phi i64 [ %6, %for.body.preheader.i.i ], [ %indvars.iv.next.i.i, %for.body.i.i ]
-  %crc.012.i.i = phi i32 [ %5, %for.body.preheader.i.i ], [ %xor6.i.i, %for.body.i.i ]
+  %crc.010.i.i = phi i32 [ %5, %for.body.preheader.i.i ], [ %xor6.i.i, %for.body.i.i ]
   %7 = sub nsw i64 56, %indvars.iv.i.i
-  %shl.i.i = shl i32 %crc.012.i.i, 8
+  %shl.i.i = shl i32 %crc.010.i.i, 8
   %and.i.i = and i32 %shl.i.i, 65280
-  %shr.i.i = lshr i32 %crc.012.i.i, 8
+  %shr.i.i = lshr i32 %crc.010.i.i, 8
   %8 = and i64 %7, 4294967232
   %cmp2.i.i = icmp eq i64 %8, 0
   %shr3.i.i = lshr i64 %4, %7
@@ -233,17 +231,17 @@ if.then5.i:                                       ; preds = %if.end.i
   %idx.ext.i = zext i32 %12 to i64
   %add.ptr.i = getelementptr inbounds i64, ptr %13, i64 %idx.ext.i
   %sub.i = sub i32 %0, %12
-  %read_crc16.i = getelementptr inbounds %struct.FLAC__BitReader, ptr %br, i64 0, i32 6
+  %read_crc16.i = getelementptr inbounds i8, ptr %br, i64 28
   %14 = load i32, ptr %read_crc16.i, align 4
   %conv.i = trunc i32 %14 to i16
-  %call.i = tail call zeroext i16 @FLAC__crc16_update_words64(ptr noundef %add.ptr.i, i32 noundef %sub.i, i16 noundef zeroext %conv.i) #19
+  %call.i = tail call zeroext i16 @FLAC__crc16_update_words64(ptr noundef %add.ptr.i, i32 noundef %sub.i, i16 noundef zeroext %conv.i) #18
   %conv10.i = zext i16 %call.i to i32
   store i32 %conv10.i, ptr %read_crc16.i, align 4
   br label %crc16_update_block_.exit
 
 crc16_update_block_.exit:                         ; preds = %if.end.i, %if.then5.i
   store i32 0, ptr %crc16_offset.i, align 8
-  %consumed_bits = getelementptr inbounds %struct.FLAC__BitReader, ptr %br, i64 0, i32 5
+  %consumed_bits = getelementptr inbounds i8, ptr %br, i64 24
   %15 = load i32, ptr %consumed_bits, align 8
   %tobool.not = icmp eq i32 %15, 0
   br i1 %tobool.not, label %if.end, label %if.then
@@ -254,50 +252,50 @@ if.then:                                          ; preds = %crc16_update_block_
   %idxprom = zext i32 %17 to i64
   %arrayidx = getelementptr inbounds i64, ptr %16, i64 %idxprom
   %18 = load i64, ptr %arrayidx, align 8
-  %crc16_align = getelementptr inbounds %struct.FLAC__BitReader, ptr %br, i64 0, i32 8
+  %crc16_align = getelementptr inbounds i8, ptr %br, i64 36
   %crc16_align.promoted = load i32, ptr %crc16_align, align 4
-  %cmp13 = icmp ult i32 %crc16_align.promoted, %15
-  br i1 %cmp13, label %for.body.lr.ph, label %if.end
+  %cmp12 = icmp ult i32 %crc16_align.promoted, %15
+  br i1 %cmp12, label %for.body.lr.ph, label %if.end
 
 for.body.lr.ph:                                   ; preds = %if.then
-  %read_crc16 = getelementptr inbounds %struct.FLAC__BitReader, ptr %br, i64 0, i32 6
+  %read_crc16 = getelementptr inbounds i8, ptr %br, i64 28
   %read_crc16.promoted = load i32, ptr %read_crc16, align 4
   br label %for.body
 
 for.body:                                         ; preds = %for.body.lr.ph, %for.body
-  %xor915 = phi i32 [ %read_crc16.promoted, %for.body.lr.ph ], [ %xor9, %for.body ]
-  %add1214 = phi i32 [ %crc16_align.promoted, %for.body.lr.ph ], [ %add, %for.body ]
-  %shl = shl i32 %xor915, 8
+  %19 = phi i32 [ %read_crc16.promoted, %for.body.lr.ph ], [ %xor9, %for.body ]
+  %20 = phi i32 [ %crc16_align.promoted, %for.body.lr.ph ], [ %add, %for.body ]
+  %shl = shl i32 %19, 8
   %and = and i32 %shl, 65280
-  %shr = lshr i32 %xor915, 8
-  %sub = sub i32 56, %add1214
+  %shr = lshr i32 %19, 8
+  %sub = sub i32 56, %20
   %sh_prom = zext nneg i32 %sub to i64
   %shr4 = lshr i64 %18, %sh_prom
-  %19 = trunc i64 %shr4 to i32
-  %conv = and i32 %19, 255
+  %21 = trunc i64 %shr4 to i32
+  %conv = and i32 %21, 255
   %xor = xor i32 %shr, %conv
   %idxprom6 = zext nneg i32 %xor to i64
   %arrayidx7 = getelementptr inbounds [256 x i16], ptr @FLAC__crc16_table, i64 0, i64 %idxprom6
-  %20 = load i16, ptr %arrayidx7, align 2
-  %conv8 = zext i16 %20 to i32
+  %22 = load i16, ptr %arrayidx7, align 2
+  %conv8 = zext i16 %22 to i32
   %xor9 = xor i32 %and, %conv8
   store i32 %xor9, ptr %read_crc16, align 4
-  %add = add i32 %add1214, 8
+  %add = add i32 %20, 8
   store i32 %add, ptr %crc16_align, align 4
   %cmp = icmp ult i32 %add, %15
   br i1 %cmp, label %for.body, label %if.end, !llvm.loop !6
 
 if.end:                                           ; preds = %for.body, %if.then, %crc16_update_block_.exit
-  %read_crc1612 = getelementptr inbounds %struct.FLAC__BitReader, ptr %br, i64 0, i32 6
-  %21 = load i32, ptr %read_crc1612, align 4
-  %conv13 = trunc i32 %21 to i16
+  %read_crc1612 = getelementptr inbounds i8, ptr %br, i64 28
+  %23 = load i32, ptr %read_crc1612, align 4
+  %conv13 = trunc i32 %23 to i16
   ret i16 %conv13
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(argmem: read) uwtable
 define hidden i32 @FLAC__bitreader_is_consumed_byte_aligned(ptr nocapture noundef readonly %br) local_unnamed_addr #9 {
 entry:
-  %consumed_bits = getelementptr inbounds %struct.FLAC__BitReader, ptr %br, i64 0, i32 5
+  %consumed_bits = getelementptr inbounds i8, ptr %br, i64 24
   %0 = load i32, ptr %consumed_bits, align 8
   %and = and i32 %0, 7
   %cmp = icmp eq i32 %and, 0
@@ -308,7 +306,7 @@ entry:
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(argmem: read) uwtable
 define hidden i32 @FLAC__bitreader_bits_left_for_byte_alignment(ptr nocapture noundef readonly %br) local_unnamed_addr #9 {
 entry:
-  %consumed_bits = getelementptr inbounds %struct.FLAC__BitReader, ptr %br, i64 0, i32 5
+  %consumed_bits = getelementptr inbounds i8, ptr %br, i64 24
   %0 = load i32, ptr %consumed_bits, align 8
   %and = and i32 %0, 7
   %sub = sub nuw nsw i32 8, %and
@@ -318,38 +316,38 @@ entry:
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(argmem: read) uwtable
 define hidden i32 @FLAC__bitreader_get_input_bits_unconsumed(ptr nocapture noundef readonly %br) local_unnamed_addr #9 {
 entry:
-  %words = getelementptr inbounds %struct.FLAC__BitReader, ptr %br, i64 0, i32 2
+  %words = getelementptr inbounds i8, ptr %br, i64 12
   %0 = load i32, ptr %words, align 4
-  %consumed_words = getelementptr inbounds %struct.FLAC__BitReader, ptr %br, i64 0, i32 4
+  %consumed_words = getelementptr inbounds i8, ptr %br, i64 20
   %1 = load i32, ptr %consumed_words, align 4
   %sub = sub i32 %0, %1
   %mul = shl i32 %sub, 6
-  %bytes = getelementptr inbounds %struct.FLAC__BitReader, ptr %br, i64 0, i32 3
+  %bytes = getelementptr inbounds i8, ptr %br, i64 16
   %2 = load i32, ptr %bytes, align 8
   %mul1 = shl i32 %2, 3
   %add = add i32 %mul, %mul1
-  %consumed_bits = getelementptr inbounds %struct.FLAC__BitReader, ptr %br, i64 0, i32 5
+  %consumed_bits = getelementptr inbounds i8, ptr %br, i64 24
   %3 = load i32, ptr %consumed_bits, align 8
   %sub2 = sub i32 %add, %3
   ret i32 %sub2
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(argmem: write) uwtable
-define hidden void @FLAC__bitreader_set_limit(ptr nocapture noundef writeonly %br, i32 noundef %limit) local_unnamed_addr #10 {
+define hidden void @FLAC__bitreader_set_limit(ptr nocapture noundef writeonly %br, i32 noundef %limit) local_unnamed_addr #6 {
 entry:
-  %read_limit = getelementptr inbounds %struct.FLAC__BitReader, ptr %br, i64 0, i32 10
+  %read_limit = getelementptr inbounds i8, ptr %br, i64 44
   store i32 %limit, ptr %read_limit, align 4
-  %read_limit_set = getelementptr inbounds %struct.FLAC__BitReader, ptr %br, i64 0, i32 9
+  %read_limit_set = getelementptr inbounds i8, ptr %br, i64 40
   store i32 1, ptr %read_limit_set, align 8
   ret void
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(argmem: write) uwtable
-define hidden void @FLAC__bitreader_remove_limit(ptr nocapture noundef writeonly %br) local_unnamed_addr #10 {
+define hidden void @FLAC__bitreader_remove_limit(ptr nocapture noundef writeonly %br) local_unnamed_addr #6 {
 entry:
-  %read_limit_set = getelementptr inbounds %struct.FLAC__BitReader, ptr %br, i64 0, i32 9
+  %read_limit_set = getelementptr inbounds i8, ptr %br, i64 40
   store i32 0, ptr %read_limit_set, align 8
-  %read_limit = getelementptr inbounds %struct.FLAC__BitReader, ptr %br, i64 0, i32 10
+  %read_limit = getelementptr inbounds i8, ptr %br, i64 44
   store i32 -1, ptr %read_limit, align 4
   ret void
 }
@@ -357,21 +355,21 @@ entry:
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(argmem: read) uwtable
 define hidden i32 @FLAC__bitreader_limit_remaining(ptr nocapture noundef readonly %br) local_unnamed_addr #9 {
 entry:
-  %read_limit = getelementptr inbounds %struct.FLAC__BitReader, ptr %br, i64 0, i32 10
+  %read_limit = getelementptr inbounds i8, ptr %br, i64 44
   %0 = load i32, ptr %read_limit, align 4
   ret i32 %0
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(argmem: write) uwtable
-define hidden void @FLAC__bitreader_limit_invalidate(ptr nocapture noundef writeonly %br) local_unnamed_addr #10 {
+define hidden void @FLAC__bitreader_limit_invalidate(ptr nocapture noundef writeonly %br) local_unnamed_addr #6 {
 entry:
-  %read_limit = getelementptr inbounds %struct.FLAC__BitReader, ptr %br, i64 0, i32 10
+  %read_limit = getelementptr inbounds i8, ptr %br, i64 44
   store i32 -1, ptr %read_limit, align 4
   ret void
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define hidden i32 @FLAC__bitreader_read_raw_uint32(ptr nocapture noundef %br, ptr nocapture noundef %val, i32 noundef %bits) local_unnamed_addr #8 {
+define hidden noundef i32 @FLAC__bitreader_read_raw_uint32(ptr nocapture noundef %br, ptr nocapture noundef %val, i32 noundef %bits) local_unnamed_addr #8 {
 entry:
   %cmp = icmp eq i32 %bits, 0
   br i1 %cmp, label %if.then, label %if.end
@@ -381,13 +379,13 @@ if.then:                                          ; preds = %entry
   br label %return
 
 if.end:                                           ; preds = %entry
-  %read_limit_set = getelementptr inbounds %struct.FLAC__BitReader, ptr %br, i64 0, i32 9
+  %read_limit_set = getelementptr inbounds i8, ptr %br, i64 40
   %0 = load i32, ptr %read_limit_set, align 8
   %tobool.not = icmp eq i32 %0, 0
   br i1 %tobool.not, label %if.end9, label %land.lhs.true
 
 land.lhs.true:                                    ; preds = %if.end
-  %read_limit = getelementptr inbounds %struct.FLAC__BitReader, ptr %br, i64 0, i32 10
+  %read_limit = getelementptr inbounds i8, ptr %br, i64 44
   %1 = load i32, ptr %read_limit, align 4
   %cmp1.not = icmp eq i32 %1, -1
   br i1 %cmp1.not, label %if.end9, label %if.then2
@@ -406,10 +404,10 @@ if.else:                                          ; preds = %if.then2
   br label %if.end9
 
 if.end9:                                          ; preds = %if.else, %land.lhs.true, %if.end
-  %words = getelementptr inbounds %struct.FLAC__BitReader, ptr %br, i64 0, i32 2
-  %consumed_words = getelementptr inbounds %struct.FLAC__BitReader, ptr %br, i64 0, i32 4
-  %bytes = getelementptr inbounds %struct.FLAC__BitReader, ptr %br, i64 0, i32 3
-  %consumed_bits = getelementptr inbounds %struct.FLAC__BitReader, ptr %br, i64 0, i32 5
+  %words = getelementptr inbounds i8, ptr %br, i64 12
+  %consumed_words = getelementptr inbounds i8, ptr %br, i64 20
+  %bytes = getelementptr inbounds i8, ptr %br, i64 16
+  %consumed_bits = getelementptr inbounds i8, ptr %br, i64 24
   br label %while.cond
 
 while.cond:                                       ; preds = %while.body, %if.end9
@@ -575,23 +573,23 @@ return:                                           ; preds = %while.body, %if.end
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc i32 @bitreader_read_from_client_(ptr nocapture noundef %br) unnamed_addr #8 {
+define internal fastcc noundef i32 @bitreader_read_from_client_(ptr nocapture noundef %br) unnamed_addr #8 {
 entry:
   %bytes = alloca i64, align 8
-  %consumed_words = getelementptr inbounds %struct.FLAC__BitReader, ptr %br, i64 0, i32 4
+  %consumed_words = getelementptr inbounds i8, ptr %br, i64 20
   %0 = load i32, ptr %consumed_words, align 4
   %cmp.not = icmp eq i32 %0, 0
   br i1 %cmp.not, label %entry.if.end_crit_edge, label %if.then
 
 entry.if.end_crit_edge:                           ; preds = %entry
-  %words7.phi.trans.insert = getelementptr inbounds %struct.FLAC__BitReader, ptr %br, i64 0, i32 2
+  %words7.phi.trans.insert = getelementptr inbounds i8, ptr %br, i64 12
   %.pre52 = load i32, ptr %words7.phi.trans.insert, align 4
   br label %if.end
 
 if.then:                                          ; preds = %entry
-  %last_seen_framesync = getelementptr inbounds %struct.FLAC__BitReader, ptr %br, i64 0, i32 11
+  %last_seen_framesync = getelementptr inbounds i8, ptr %br, i64 48
   store i32 -1, ptr %last_seen_framesync, align 8
-  %crc16_offset.i = getelementptr inbounds %struct.FLAC__BitReader, ptr %br, i64 0, i32 7
+  %crc16_offset.i = getelementptr inbounds i8, ptr %br, i64 32
   %1 = load i32, ptr %crc16_offset.i, align 8
   %cmp.i = icmp ugt i32 %0, %1
   br i1 %cmp.i, label %land.lhs.true.i, label %if.then.if.end.i_crit_edge
@@ -601,7 +599,7 @@ if.then.if.end.i_crit_edge:                       ; preds = %if.then
   br label %if.end.i
 
 land.lhs.true.i:                                  ; preds = %if.then
-  %crc16_align.i = getelementptr inbounds %struct.FLAC__BitReader, ptr %br, i64 0, i32 8
+  %crc16_align.i = getelementptr inbounds i8, ptr %br, i64 36
   %2 = load i32, ptr %crc16_align.i, align 4
   %tobool.not.i = icmp eq i32 %2, 0
   %.pre51.pre56 = load ptr, ptr %br, align 8
@@ -613,10 +611,10 @@ if.then.i:                                        ; preds = %land.lhs.true.i
   %idxprom.i = zext i32 %1 to i64
   %arrayidx.i = getelementptr inbounds i64, ptr %.pre51.pre56, i64 %idxprom.i
   %3 = load i64, ptr %arrayidx.i, align 8
-  %read_crc16.i.i = getelementptr inbounds %struct.FLAC__BitReader, ptr %br, i64 0, i32 6
+  %read_crc16.i.i = getelementptr inbounds i8, ptr %br, i64 28
   %4 = load i32, ptr %read_crc16.i.i, align 4
-  %cmp10.i.i = icmp ult i32 %2, 64
-  br i1 %cmp10.i.i, label %for.body.preheader.i.i, label %crc16_update_word_.exit.i
+  %cmp9.i.i = icmp ult i32 %2, 64
+  br i1 %cmp9.i.i, label %for.body.preheader.i.i, label %crc16_update_word_.exit.i
 
 for.body.preheader.i.i:                           ; preds = %if.then.i
   %5 = zext nneg i32 %2 to i64
@@ -624,11 +622,11 @@ for.body.preheader.i.i:                           ; preds = %if.then.i
 
 for.body.i.i:                                     ; preds = %for.body.i.i, %for.body.preheader.i.i
   %indvars.iv.i.i = phi i64 [ %5, %for.body.preheader.i.i ], [ %indvars.iv.next.i.i, %for.body.i.i ]
-  %crc.012.i.i = phi i32 [ %4, %for.body.preheader.i.i ], [ %xor6.i.i, %for.body.i.i ]
+  %crc.010.i.i = phi i32 [ %4, %for.body.preheader.i.i ], [ %xor6.i.i, %for.body.i.i ]
   %6 = sub nsw i64 56, %indvars.iv.i.i
-  %shl.i.i = shl i32 %crc.012.i.i, 8
+  %shl.i.i = shl i32 %crc.010.i.i, 8
   %and.i.i = and i32 %shl.i.i, 65280
-  %shr.i.i = lshr i32 %crc.012.i.i, 8
+  %shr.i.i = lshr i32 %crc.010.i.i, 8
   %7 = and i64 %6, 4294967232
   %cmp2.i.i = icmp eq i64 %7, 0
   %shr3.i.i = lshr i64 %3, %6
@@ -661,10 +659,10 @@ if.then5.i:                                       ; preds = %if.end.i
   %idx.ext.i = zext i32 %11 to i64
   %add.ptr.i = getelementptr inbounds i64, ptr %.pre51, i64 %idx.ext.i
   %sub.i = sub i32 %0, %11
-  %read_crc16.i = getelementptr inbounds %struct.FLAC__BitReader, ptr %br, i64 0, i32 6
+  %read_crc16.i = getelementptr inbounds i8, ptr %br, i64 28
   %12 = load i32, ptr %read_crc16.i, align 4
   %conv.i = trunc i32 %12 to i16
-  %call.i = tail call zeroext i16 @FLAC__crc16_update_words64(ptr noundef %add.ptr.i, i32 noundef %sub.i, i16 noundef zeroext %conv.i) #19
+  %call.i = tail call zeroext i16 @FLAC__crc16_update_words64(ptr noundef %add.ptr.i, i32 noundef %sub.i, i16 noundef zeroext %conv.i) #18
   %conv10.i = zext i16 %call.i to i32
   store i32 %conv10.i, ptr %read_crc16.i, align 4
   %.pre = load i32, ptr %consumed_words, align 4
@@ -675,9 +673,9 @@ crc16_update_block_.exit:                         ; preds = %if.end.i, %if.then5
   %13 = phi ptr [ %.pre51, %if.end.i ], [ %.pre50, %if.then5.i ]
   %14 = phi i32 [ %0, %if.end.i ], [ %.pre, %if.then5.i ]
   store i32 0, ptr %crc16_offset.i, align 8
-  %words = getelementptr inbounds %struct.FLAC__BitReader, ptr %br, i64 0, i32 2
+  %words = getelementptr inbounds i8, ptr %br, i64 12
   %15 = load i32, ptr %words, align 4
-  %bytes2 = getelementptr inbounds %struct.FLAC__BitReader, ptr %br, i64 0, i32 3
+  %bytes2 = getelementptr inbounds i8, ptr %br, i64 16
   %16 = load i32, ptr %bytes2, align 8
   %tobool.not = icmp ne i32 %16, 0
   %cond = zext i1 %tobool.not to i32
@@ -696,12 +694,12 @@ crc16_update_block_.exit:                         ; preds = %if.end.i, %if.then5
 
 if.end:                                           ; preds = %entry.if.end_crit_edge, %crc16_update_block_.exit
   %18 = phi i32 [ %.pre52, %entry.if.end_crit_edge ], [ %sub5, %crc16_update_block_.exit ]
-  %capacity = getelementptr inbounds %struct.FLAC__BitReader, ptr %br, i64 0, i32 1
+  %capacity = getelementptr inbounds i8, ptr %br, i64 8
   %19 = load i32, ptr %capacity, align 8
-  %words7 = getelementptr inbounds %struct.FLAC__BitReader, ptr %br, i64 0, i32 2
+  %words7 = getelementptr inbounds i8, ptr %br, i64 12
   %sub8 = sub i32 %19, %18
   %mul9 = shl i32 %sub8, 3
-  %bytes10 = getelementptr inbounds %struct.FLAC__BitReader, ptr %br, i64 0, i32 3
+  %bytes10 = getelementptr inbounds i8, ptr %br, i64 16
   %20 = load i32, ptr %bytes10, align 8
   %sub11 = sub i32 %mul9, %20
   %conv12 = zext i32 %sub11 to i64
@@ -725,11 +723,11 @@ if.then28:                                        ; preds = %if.end16
   br label %if.end37
 
 if.end37:                                         ; preds = %if.then28, %if.end16
-  %read_callback = getelementptr inbounds %struct.FLAC__BitReader, ptr %br, i64 0, i32 12
+  %read_callback = getelementptr inbounds i8, ptr %br, i64 56
   %24 = load ptr, ptr %read_callback, align 8
-  %client_data = getelementptr inbounds %struct.FLAC__BitReader, ptr %br, i64 0, i32 13
+  %client_data = getelementptr inbounds i8, ptr %br, i64 64
   %25 = load ptr, ptr %client_data, align 8
-  %call = call i32 %24(ptr noundef nonnull %add.ptr23, ptr noundef nonnull %bytes, ptr noundef %25) #19
+  %call = call i32 %24(ptr noundef nonnull %add.ptr23, ptr noundef nonnull %bytes, ptr noundef %25) #18
   %tobool38.not = icmp eq i32 %call, 0
   br i1 %tobool38.not, label %if.then39, label %if.end44
 
@@ -755,7 +753,7 @@ if.end44:                                         ; preds = %if.end37
   br i1 %cmp5347, label %for.body.preheader, label %for.end
 
 for.body.preheader:                               ; preds = %if.end44
-  %31 = zext i32 %28 to i64
+  %31 = zext nneg i32 %28 to i64
   %wide.trip.count = zext nneg i32 %div45 to i64
   br label %for.body
 
@@ -796,7 +794,7 @@ return:                                           ; preds = %if.end, %for.end, %
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define hidden i32 @FLAC__bitreader_read_raw_int32(ptr nocapture noundef %br, ptr nocapture noundef writeonly %val, i32 noundef %bits) local_unnamed_addr #8 {
+define hidden noundef i32 @FLAC__bitreader_read_raw_int32(ptr nocapture noundef %br, ptr nocapture noundef writeonly %val, i32 noundef %bits) local_unnamed_addr #8 {
 entry:
   %uval = alloca i32, align 4
   %cmp = icmp eq i32 %bits, 0
@@ -826,7 +824,7 @@ return:                                           ; preds = %entry, %lor.lhs.fal
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define hidden i32 @FLAC__bitreader_read_raw_uint64(ptr nocapture noundef %br, ptr nocapture noundef writeonly %val, i32 noundef %bits) local_unnamed_addr #8 {
+define hidden noundef i32 @FLAC__bitreader_read_raw_uint64(ptr nocapture noundef %br, ptr nocapture noundef writeonly %val, i32 noundef %bits) local_unnamed_addr #8 {
 entry:
   %hi = alloca i32, align 4
   %lo = alloca i32, align 4
@@ -874,7 +872,7 @@ return:                                           ; preds = %if.else, %if.end, %
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define hidden i32 @FLAC__bitreader_read_raw_int64(ptr nocapture noundef %br, ptr nocapture noundef writeonly %val, i32 noundef %bits) local_unnamed_addr #8 {
+define hidden noundef i32 @FLAC__bitreader_read_raw_int64(ptr nocapture noundef %br, ptr nocapture noundef writeonly %val, i32 noundef %bits) local_unnamed_addr #8 {
 entry:
   %hi.i = alloca i32, align 4
   %lo.i = alloca i32, align 4
@@ -942,7 +940,7 @@ return:                                           ; preds = %FLAC__bitreader_rea
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define hidden i32 @FLAC__bitreader_read_uint32_little_endian(ptr nocapture noundef %br, ptr nocapture noundef writeonly %val) local_unnamed_addr #8 {
+define hidden noundef i32 @FLAC__bitreader_read_uint32_little_endian(ptr nocapture noundef %br, ptr nocapture noundef writeonly %val) local_unnamed_addr #8 {
 entry:
   %x8 = alloca i32, align 4
   %x32 = alloca i32, align 4
@@ -986,14 +984,14 @@ return:                                           ; preds = %if.end8, %if.end4, 
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define hidden i32 @FLAC__bitreader_skip_bits_no_crc(ptr nocapture noundef %br, i32 noundef %bits) local_unnamed_addr #8 {
+define hidden noundef i32 @FLAC__bitreader_skip_bits_no_crc(ptr nocapture noundef %br, i32 noundef %bits) local_unnamed_addr #8 {
 entry:
   %x = alloca i32, align 4
   %cmp.not = icmp eq i32 %bits, 0
   br i1 %cmp.not, label %if.end22, label %if.then
 
 if.then:                                          ; preds = %entry
-  %consumed_bits = getelementptr inbounds %struct.FLAC__BitReader, ptr %br, i64 0, i32 5
+  %consumed_bits = getelementptr inbounds i8, ptr %br, i64 24
   %0 = load i32, ptr %consumed_bits, align 8
   %and = and i32 %0, 7
   %cmp1.not = icmp eq i32 %and, 0
@@ -1044,16 +1042,16 @@ return:                                           ; preds = %if.then16, %if.then
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define hidden i32 @FLAC__bitreader_skip_byte_block_aligned_no_crc(ptr nocapture noundef %br, i32 noundef %nvals) local_unnamed_addr #8 {
+define hidden noundef i32 @FLAC__bitreader_skip_byte_block_aligned_no_crc(ptr nocapture noundef %br, i32 noundef %nvals) local_unnamed_addr #8 {
 entry:
   %x = alloca i32, align 4
-  %read_limit_set = getelementptr inbounds %struct.FLAC__BitReader, ptr %br, i64 0, i32 9
+  %read_limit_set = getelementptr inbounds i8, ptr %br, i64 40
   %0 = load i32, ptr %read_limit_set, align 8
   %tobool.not = icmp eq i32 %0, 0
   br i1 %tobool.not, label %if.end5, label %land.lhs.true
 
 land.lhs.true:                                    ; preds = %entry
-  %read_limit = getelementptr inbounds %struct.FLAC__BitReader, ptr %br, i64 0, i32 10
+  %read_limit = getelementptr inbounds i8, ptr %br, i64 44
   %1 = load i32, ptr %read_limit, align 4
   %mul = shl i32 %nvals, 3
   %cmp2 = icmp ult i32 %1, %mul
@@ -1068,7 +1066,7 @@ if.end5:                                          ; preds = %land.lhs.true, %ent
   br i1 %cond26, label %return, label %land.rhs.lr.ph
 
 land.rhs.lr.ph:                                   ; preds = %if.end5
-  %consumed_bits = getelementptr inbounds %struct.FLAC__BitReader, ptr %br, i64 0, i32 5
+  %consumed_bits = getelementptr inbounds i8, ptr %br, i64 24
   br label %land.rhs
 
 land.rhs:                                         ; preds = %land.rhs.lr.ph, %if.end10
@@ -1082,9 +1080,9 @@ while.cond14.preheader:                           ; preds = %land.rhs
   br i1 %cmp1529, label %while.body16.lr.ph, label %while.body34.preheader
 
 while.body16.lr.ph:                               ; preds = %while.cond14.preheader
-  %consumed_words = getelementptr inbounds %struct.FLAC__BitReader, ptr %br, i64 0, i32 4
-  %words = getelementptr inbounds %struct.FLAC__BitReader, ptr %br, i64 0, i32 2
-  %read_limit23 = getelementptr inbounds %struct.FLAC__BitReader, ptr %br, i64 0, i32 10
+  %consumed_words = getelementptr inbounds i8, ptr %br, i64 20
+  %words = getelementptr inbounds i8, ptr %br, i64 12
+  %read_limit23 = getelementptr inbounds i8, ptr %br, i64 44
   br label %while.body16
 
 while.body:                                       ; preds = %land.rhs
@@ -1153,16 +1151,16 @@ return:                                           ; preds = %while.body, %if.end
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define hidden i32 @FLAC__bitreader_read_byte_block_aligned_no_crc(ptr nocapture noundef %br, ptr nocapture noundef writeonly %val, i32 noundef %nvals) local_unnamed_addr #8 {
+define hidden noundef i32 @FLAC__bitreader_read_byte_block_aligned_no_crc(ptr nocapture noundef %br, ptr nocapture noundef writeonly %val, i32 noundef %nvals) local_unnamed_addr #8 {
 entry:
   %x = alloca i32, align 4
-  %read_limit_set = getelementptr inbounds %struct.FLAC__BitReader, ptr %br, i64 0, i32 9
+  %read_limit_set = getelementptr inbounds i8, ptr %br, i64 40
   %0 = load i32, ptr %read_limit_set, align 8
   %tobool.not = icmp eq i32 %0, 0
   br i1 %tobool.not, label %if.end5, label %land.lhs.true
 
 land.lhs.true:                                    ; preds = %entry
-  %read_limit = getelementptr inbounds %struct.FLAC__BitReader, ptr %br, i64 0, i32 10
+  %read_limit = getelementptr inbounds i8, ptr %br, i64 44
   %1 = load i32, ptr %read_limit, align 4
   %mul = shl i32 %nvals, 3
   %cmp2 = icmp ult i32 %1, %mul
@@ -1177,7 +1175,7 @@ if.end5:                                          ; preds = %land.lhs.true, %ent
   br i1 %cond46, label %return, label %land.rhs.lr.ph
 
 land.rhs.lr.ph:                                   ; preds = %if.end5
-  %consumed_bits = getelementptr inbounds %struct.FLAC__BitReader, ptr %br, i64 0, i32 5
+  %consumed_bits = getelementptr inbounds i8, ptr %br, i64 24
   br label %land.rhs
 
 land.rhs:                                         ; preds = %land.rhs.lr.ph, %if.end10
@@ -1192,9 +1190,9 @@ while.cond15.preheader:                           ; preds = %land.rhs
   br i1 %cmp1650, label %while.body18.lr.ph, label %while.body59.preheader
 
 while.body18.lr.ph:                               ; preds = %while.cond15.preheader
-  %consumed_words = getelementptr inbounds %struct.FLAC__BitReader, ptr %br, i64 0, i32 4
-  %words = getelementptr inbounds %struct.FLAC__BitReader, ptr %br, i64 0, i32 2
-  %read_limit48 = getelementptr inbounds %struct.FLAC__BitReader, ptr %br, i64 0, i32 10
+  %consumed_words = getelementptr inbounds i8, ptr %br, i64 20
+  %words = getelementptr inbounds i8, ptr %br, i64 12
+  %read_limit48 = getelementptr inbounds i8, ptr %br, i64 44
   br label %while.body18
 
 while.body:                                       ; preds = %land.rhs
@@ -1310,13 +1308,13 @@ return:                                           ; preds = %while.body, %if.end
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define hidden i32 @FLAC__bitreader_read_unary_unsigned(ptr nocapture noundef %br, ptr nocapture noundef %val) local_unnamed_addr #8 {
+define hidden noundef i32 @FLAC__bitreader_read_unary_unsigned(ptr nocapture noundef %br, ptr nocapture noundef %val) local_unnamed_addr #8 {
 entry:
   store i32 0, ptr %val, align 4
-  %consumed_words = getelementptr inbounds %struct.FLAC__BitReader, ptr %br, i64 0, i32 4
-  %words = getelementptr inbounds %struct.FLAC__BitReader, ptr %br, i64 0, i32 2
-  %consumed_bits = getelementptr inbounds %struct.FLAC__BitReader, ptr %br, i64 0, i32 5
-  %bytes = getelementptr inbounds %struct.FLAC__BitReader, ptr %br, i64 0, i32 3
+  %consumed_words = getelementptr inbounds i8, ptr %br, i64 20
+  %words = getelementptr inbounds i8, ptr %br, i64 12
+  %consumed_bits = getelementptr inbounds i8, ptr %br, i64 24
+  %bytes = getelementptr inbounds i8, ptr %br, i64 16
   br label %while.body
 
 while.body:                                       ; preds = %if.end49, %entry
@@ -1435,7 +1433,7 @@ return:                                           ; preds = %if.end49, %return.s
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define hidden i32 @FLAC__bitreader_read_rice_signed_block(ptr nocapture noundef %br, ptr noundef writeonly %vals, i32 noundef %nvals, i32 noundef %parameter) local_unnamed_addr #8 {
+define hidden noundef i32 @FLAC__bitreader_read_rice_signed_block(ptr nocapture noundef %br, ptr noundef writeonly %vals, i32 noundef %nvals, i32 noundef %parameter) local_unnamed_addr #8 {
 entry:
   %lsbs = alloca i32, align 4
   %msbs = alloca i32, align 4
@@ -1461,21 +1459,21 @@ if.end:                                           ; preds = %while.body
   %and = and i32 %0, 1
   %sub = sub nsw i32 0, %and
   %xor = xor i32 %shr3, %sub
-  %incdec.ptr = getelementptr inbounds i32, ptr %val.0114, i64 1
+  %incdec.ptr = getelementptr inbounds i8, ptr %val.0114, i64 4
   store i32 %xor, ptr %val.0114, align 4
   %cmp1 = icmp ult ptr %incdec.ptr, %add.ptr
   br i1 %cmp1, label %while.body, label %return, !llvm.loop !18
 
 if.end4:                                          ; preds = %entry
-  %consumed_words = getelementptr inbounds %struct.FLAC__BitReader, ptr %br, i64 0, i32 4
+  %consumed_words = getelementptr inbounds i8, ptr %br, i64 20
   %1 = load i32, ptr %consumed_words, align 4
-  %words5 = getelementptr inbounds %struct.FLAC__BitReader, ptr %br, i64 0, i32 2
+  %words5 = getelementptr inbounds i8, ptr %br, i64 12
   %2 = load i32, ptr %words5, align 4
   %cmp6.not = icmp ult i32 %1, %2
   br i1 %cmp6.not, label %if.end8, label %if.end71
 
 if.end8:                                          ; preds = %if.end4
-  %consumed_bits = getelementptr inbounds %struct.FLAC__BitReader, ptr %br, i64 0, i32 5
+  %consumed_bits = getelementptr inbounds i8, ptr %br, i64 24
   %3 = load i32, ptr %consumed_bits, align 8
   %4 = load ptr, ptr %br, align 8
   %idxprom = zext i32 %1 to i64
@@ -1586,7 +1584,7 @@ if.end59:                                         ; preds = %if.end47, %if.then3
   %and63 = and i32 %or61, 1
   %sub64 = sub nsw i32 0, %and63
   %xor65 = xor i32 %shr62, %sub64
-  %incdec.ptr66 = getelementptr inbounds i32, ptr %val.1111, i64 1
+  %incdec.ptr66 = getelementptr inbounds i8, ptr %val.1111, i64 4
   store i32 %xor65, ptr %val.1111, align 4
   %cmp12 = icmp ult ptr %incdec.ptr66, %add.ptr
   br i1 %cmp12, label %while.body13, label %while.end112, !llvm.loop !20
@@ -1594,7 +1592,7 @@ if.end59:                                         ; preds = %if.end47, %if.then3
 incomplete_msbs:                                  ; preds = %do.body
   %13 = add i32 %cwords.0108, 1
   %umax.le = tail call i32 @llvm.umax.i32(i32 %words.0.ph, i32 %13)
-  %consumed_bits69 = getelementptr inbounds %struct.FLAC__BitReader, ptr %br, i64 0, i32 5
+  %consumed_bits69 = getelementptr inbounds i8, ptr %br, i64 24
   store i32 0, ptr %consumed_bits69, align 8
   store i32 %umax.le, ptr %consumed_words, align 4
   br label %if.end71
@@ -1613,7 +1611,7 @@ if.end75:                                         ; preds = %if.end71
   br label %if.end80
 
 incomplete_lsbs:                                  ; preds = %if.else
-  %consumed_bits78 = getelementptr inbounds %struct.FLAC__BitReader, ptr %br, i64 0, i32 5
+  %consumed_bits78 = getelementptr inbounds i8, ptr %br, i64 24
   store i32 0, ptr %consumed_bits78, align 8
   store i32 %inc43, ptr %consumed_words, align 4
   br label %if.end80
@@ -1638,13 +1636,13 @@ if.end85:                                         ; preds = %if.end80
   %and90 = and i32 %or88, 1
   %sub91 = sub nsw i32 0, %and90
   %xor92 = xor i32 %shr89, %sub91
-  %incdec.ptr93 = getelementptr inbounds i32, ptr %val.4, i64 1
+  %incdec.ptr93 = getelementptr inbounds i8, ptr %val.4, i64 4
   store i32 %xor92, ptr %val.4, align 4
   %17 = load i32, ptr %consumed_words, align 4
   %18 = load i32, ptr %words5, align 4
-  %consumed_bits96 = getelementptr inbounds %struct.FLAC__BitReader, ptr %br, i64 0, i32 5
+  %consumed_bits96 = getelementptr inbounds i8, ptr %br, i64 24
   %19 = load i32, ptr %consumed_bits96, align 8
-  %capacity = getelementptr inbounds %struct.FLAC__BitReader, ptr %br, i64 0, i32 1
+  %capacity = getelementptr inbounds i8, ptr %br, i64 8
   %20 = load i32, ptr %capacity, align 8
   %cmp98 = icmp ult i32 %17, %20
   br i1 %cmp98, label %cond.true, label %cond.end
@@ -1679,7 +1677,7 @@ while.end112:                                     ; preds = %if.end59, %while.co
   %cwords.4 = add i32 %cwords.0.lcssa, %spec.select
   %ucbits.3 = select i1 %cmp113, i32 %spec.select91, i32 %ucbits.0.lcssa
   %sub120 = sub i32 64, %ucbits.3
-  %consumed_bits121 = getelementptr inbounds %struct.FLAC__BitReader, ptr %br, i64 0, i32 5
+  %consumed_bits121 = getelementptr inbounds i8, ptr %br, i64 24
   store i32 %sub120, ptr %consumed_bits121, align 8
   store i32 %cwords.4, ptr %consumed_words, align 4
   br label %return
@@ -1690,7 +1688,7 @@ return:                                           ; preds = %if.end25, %while.bo
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define hidden i32 @FLAC__bitreader_read_rice_signed_block_bmi2(ptr nocapture noundef %br, ptr noundef writeonly %vals, i32 noundef %nvals, i32 noundef %parameter) local_unnamed_addr #11 {
+define hidden noundef i32 @FLAC__bitreader_read_rice_signed_block_bmi2(ptr nocapture noundef %br, ptr noundef writeonly %vals, i32 noundef %nvals, i32 noundef %parameter) local_unnamed_addr #10 {
 entry:
   %lsbs = alloca i32, align 4
   %msbs = alloca i32, align 4
@@ -1716,21 +1714,21 @@ if.end:                                           ; preds = %while.body
   %and = and i32 %0, 1
   %sub = sub nsw i32 0, %and
   %xor = xor i32 %shr3, %sub
-  %incdec.ptr = getelementptr inbounds i32, ptr %val.0114, i64 1
+  %incdec.ptr = getelementptr inbounds i8, ptr %val.0114, i64 4
   store i32 %xor, ptr %val.0114, align 4
   %cmp1 = icmp ult ptr %incdec.ptr, %add.ptr
   br i1 %cmp1, label %while.body, label %return, !llvm.loop !22
 
 if.end4:                                          ; preds = %entry
-  %consumed_words = getelementptr inbounds %struct.FLAC__BitReader, ptr %br, i64 0, i32 4
+  %consumed_words = getelementptr inbounds i8, ptr %br, i64 20
   %1 = load i32, ptr %consumed_words, align 4
-  %words5 = getelementptr inbounds %struct.FLAC__BitReader, ptr %br, i64 0, i32 2
+  %words5 = getelementptr inbounds i8, ptr %br, i64 12
   %2 = load i32, ptr %words5, align 4
   %cmp6.not = icmp ult i32 %1, %2
   br i1 %cmp6.not, label %if.end8, label %if.end71
 
 if.end8:                                          ; preds = %if.end4
-  %consumed_bits = getelementptr inbounds %struct.FLAC__BitReader, ptr %br, i64 0, i32 5
+  %consumed_bits = getelementptr inbounds i8, ptr %br, i64 24
   %3 = load i32, ptr %consumed_bits, align 8
   %4 = load ptr, ptr %br, align 8
   %idxprom = zext i32 %1 to i64
@@ -1841,7 +1839,7 @@ if.end59:                                         ; preds = %if.end47, %if.then3
   %and63 = and i32 %or61, 1
   %sub64 = sub nsw i32 0, %and63
   %xor65 = xor i32 %shr62, %sub64
-  %incdec.ptr66 = getelementptr inbounds i32, ptr %val.1111, i64 1
+  %incdec.ptr66 = getelementptr inbounds i8, ptr %val.1111, i64 4
   store i32 %xor65, ptr %val.1111, align 4
   %cmp12 = icmp ult ptr %incdec.ptr66, %add.ptr
   br i1 %cmp12, label %while.body13, label %while.end112, !llvm.loop !24
@@ -1849,7 +1847,7 @@ if.end59:                                         ; preds = %if.end47, %if.then3
 incomplete_msbs:                                  ; preds = %do.body
   %13 = add i32 %cwords.0108, 1
   %umax.le = tail call i32 @llvm.umax.i32(i32 %words.0.ph, i32 %13)
-  %consumed_bits69 = getelementptr inbounds %struct.FLAC__BitReader, ptr %br, i64 0, i32 5
+  %consumed_bits69 = getelementptr inbounds i8, ptr %br, i64 24
   store i32 0, ptr %consumed_bits69, align 8
   store i32 %umax.le, ptr %consumed_words, align 4
   br label %if.end71
@@ -1868,7 +1866,7 @@ if.end75:                                         ; preds = %if.end71
   br label %if.end80
 
 incomplete_lsbs:                                  ; preds = %if.else
-  %consumed_bits78 = getelementptr inbounds %struct.FLAC__BitReader, ptr %br, i64 0, i32 5
+  %consumed_bits78 = getelementptr inbounds i8, ptr %br, i64 24
   store i32 0, ptr %consumed_bits78, align 8
   store i32 %inc43, ptr %consumed_words, align 4
   br label %if.end80
@@ -1893,13 +1891,13 @@ if.end85:                                         ; preds = %if.end80
   %and90 = and i32 %or88, 1
   %sub91 = sub nsw i32 0, %and90
   %xor92 = xor i32 %shr89, %sub91
-  %incdec.ptr93 = getelementptr inbounds i32, ptr %val.4, i64 1
+  %incdec.ptr93 = getelementptr inbounds i8, ptr %val.4, i64 4
   store i32 %xor92, ptr %val.4, align 4
   %17 = load i32, ptr %consumed_words, align 4
   %18 = load i32, ptr %words5, align 4
-  %consumed_bits96 = getelementptr inbounds %struct.FLAC__BitReader, ptr %br, i64 0, i32 5
+  %consumed_bits96 = getelementptr inbounds i8, ptr %br, i64 24
   %19 = load i32, ptr %consumed_bits96, align 8
-  %capacity = getelementptr inbounds %struct.FLAC__BitReader, ptr %br, i64 0, i32 1
+  %capacity = getelementptr inbounds i8, ptr %br, i64 8
   %20 = load i32, ptr %capacity, align 8
   %cmp98 = icmp ult i32 %17, %20
   br i1 %cmp98, label %cond.true, label %cond.end
@@ -1934,7 +1932,7 @@ while.end112:                                     ; preds = %if.end59, %while.co
   %cwords.4 = add i32 %cwords.0.lcssa, %spec.select
   %ucbits.3 = select i1 %cmp113, i32 %spec.select91, i32 %ucbits.0.lcssa
   %sub120 = sub i32 64, %ucbits.3
-  %consumed_bits121 = getelementptr inbounds %struct.FLAC__BitReader, ptr %br, i64 0, i32 5
+  %consumed_bits121 = getelementptr inbounds i8, ptr %br, i64 24
   store i32 %sub120, ptr %consumed_bits121, align 8
   store i32 %cwords.4, ptr %consumed_words, align 4
   br label %return
@@ -1945,7 +1943,7 @@ return:                                           ; preds = %if.end25, %while.bo
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define hidden i32 @FLAC__bitreader_read_utf8_uint32(ptr nocapture noundef %br, ptr nocapture noundef writeonly %val, ptr noundef writeonly %raw, ptr nocapture noundef %rawlen) local_unnamed_addr #8 {
+define hidden noundef i32 @FLAC__bitreader_read_utf8_uint32(ptr nocapture noundef %br, ptr nocapture noundef writeonly %val, ptr noundef writeonly %raw, ptr nocapture noundef %rawlen) local_unnamed_addr #8 {
 entry:
   %x = alloca i32, align 4
   %call = call i32 @FLAC__bitreader_read_raw_uint32(ptr noundef %br, ptr noundef nonnull %x, i32 noundef 8), !range !7
@@ -2078,7 +2076,7 @@ return:                                           ; preds = %for.body, %for.body
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define hidden i32 @FLAC__bitreader_read_utf8_uint64(ptr nocapture noundef %br, ptr nocapture noundef writeonly %val, ptr noundef writeonly %raw, ptr nocapture noundef %rawlen) local_unnamed_addr #8 {
+define hidden noundef i32 @FLAC__bitreader_read_utf8_uint64(ptr nocapture noundef %br, ptr nocapture noundef writeonly %val, ptr noundef writeonly %raw, ptr nocapture noundef %rawlen) local_unnamed_addr #8 {
 entry:
   %x = alloca i32, align 4
   %call = call i32 @FLAC__bitreader_read_raw_uint32(ptr noundef %br, ptr noundef nonnull %x, i32 noundef 8), !range !7
@@ -2244,31 +2242,31 @@ return:                                           ; preds = %for.body, %for.body
   ret i32 %retval.0
 }
 
-declare zeroext i16 @FLAC__crc16_update_words64(ptr noundef, i32 noundef, i16 noundef zeroext) local_unnamed_addr #12
+declare zeroext i16 @FLAC__crc16_update_words64(ptr noundef, i32 noundef, i16 noundef zeroext) local_unnamed_addr #11
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memmove.p0.p0.i64(ptr nocapture writeonly, ptr nocapture readonly, i64, i1 immarg) #13
+declare void @llvm.memmove.p0.p0.i64(ptr nocapture writeonly, ptr nocapture readonly, i64, i1 immarg) #12
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i64 @llvm.bswap.i64(i64) #14
+declare i64 @llvm.bswap.i64(i64) #13
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i64 @llvm.ctlz.i64(i64, i1 immarg) #14
+declare i64 @llvm.ctlz.i64(i64, i1 immarg) #13
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i32 @llvm.umin.i32(i32, i32) #15
+declare i32 @llvm.umin.i32(i32, i32) #14
 
 ; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #16
+declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #15
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #17
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #16
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #17
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #16
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i32 @llvm.umax.i32(i32, i32) #15
+declare i32 @llvm.umax.i32(i32, i32) #14
 
 attributes #0 = { mustprogress nofree nounwind sspstrong willreturn memory(inaccessiblemem: readwrite) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-signed-zeros-fp-math"="true" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { mustprogress nofree nounwind willreturn allockind("alloc,zeroed") allocsize(0,1) memory(inaccessiblemem: readwrite) "alloc-family"="malloc" "frame-pointer"="all" "no-signed-zeros-fp-math"="true" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
@@ -2276,21 +2274,20 @@ attributes #2 = { mustprogress nounwind sspstrong willreturn uwtable "frame-poin
 attributes #3 = { mustprogress nounwind willreturn allockind("free") memory(argmem: readwrite, inaccessiblemem: readwrite) "alloc-family"="malloc" "frame-pointer"="all" "no-signed-zeros-fp-math"="true" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #4 = { mustprogress nofree nounwind sspstrong willreturn memory(argmem: write, inaccessiblemem: readwrite) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-signed-zeros-fp-math"="true" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #5 = { mustprogress nofree nounwind willreturn allockind("alloc,uninitialized") allocsize(0) memory(inaccessiblemem: readwrite) "alloc-family"="malloc" "frame-pointer"="all" "no-signed-zeros-fp-math"="true" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #6 = { mustprogress nofree nosync nounwind sspstrong willreturn memory(argmem: write) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-signed-zeros-fp-math"="true" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #6 = { mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(argmem: write) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-signed-zeros-fp-math"="true" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #7 = { mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(argmem: readwrite) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-signed-zeros-fp-math"="true" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #8 = { nounwind sspstrong uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-signed-zeros-fp-math"="true" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #9 = { mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(argmem: read) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-signed-zeros-fp-math"="true" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #10 = { mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(argmem: write) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-signed-zeros-fp-math"="true" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #11 = { nounwind sspstrong uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-signed-zeros-fp-math"="true" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+bmi2,+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #12 = { "frame-pointer"="all" "no-signed-zeros-fp-math"="true" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #13 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
-attributes #14 = { mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none) }
-attributes #15 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
-attributes #16 = { nocallback nofree nounwind willreturn memory(argmem: write) }
-attributes #17 = { nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
-attributes #18 = { nounwind allocsize(0,1) }
-attributes #19 = { nounwind }
-attributes #20 = { nounwind allocsize(0) }
+attributes #10 = { nounwind sspstrong uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-signed-zeros-fp-math"="true" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+bmi2,+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #11 = { "frame-pointer"="all" "no-signed-zeros-fp-math"="true" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #12 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
+attributes #13 = { mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none) }
+attributes #14 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
+attributes #15 = { nocallback nofree nounwind willreturn memory(argmem: write) }
+attributes #16 = { nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
+attributes #17 = { nounwind allocsize(0,1) }
+attributes #18 = { nounwind }
+attributes #19 = { nounwind allocsize(0) }
 
 !llvm.module.flags = !{!0, !1, !2, !3}
 

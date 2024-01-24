@@ -36,7 +36,7 @@ entry:
 invoke.cont:                                      ; preds = %entry
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %b.i)
   %vtable.i.i.i = load ptr, ptr %is, align 8
-  %vfn.i.i.i = getelementptr inbounds ptr, ptr %vtable.i.i.i, i64 3
+  %vfn.i.i.i = getelementptr inbounds i8, ptr %vtable.i.i.i, i64 24
   %0 = load ptr, ptr %vfn.i.i.i, align 8
   %call.i.i.i2 = invoke noundef zeroext i1 %0(ptr noundef nonnull align 8 dereferenceable(40) %is, ptr noundef nonnull %b.i, i32 noundef 4)
           to label %invoke.cont2 unwind label %lpad1
@@ -46,7 +46,7 @@ invoke.cont2:                                     ; preds = %invoke.cont
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %b.i)
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %b.i3)
   %vtable.i.i.i4 = load ptr, ptr %is, align 8
-  %vfn.i.i.i5 = getelementptr inbounds ptr, ptr %vtable.i.i.i4, i64 3
+  %vfn.i.i.i5 = getelementptr inbounds i8, ptr %vtable.i.i.i4, i64 24
   %2 = load ptr, ptr %vfn.i.i.i5, align 8
   %call.i.i.i6 = invoke noundef zeroext i1 %2(ptr noundef nonnull align 8 dereferenceable(40) %is, ptr noundef nonnull %b.i3, i32 noundef 4)
           to label %invoke.cont3 unwind label %lpad1
@@ -180,7 +180,7 @@ entry:
   %b.i9 = alloca [4 x i8], align 4
   %b.i = alloca [4 x i8], align 4
   %vtable = load ptr, ptr %is, align 8
-  %vfn = getelementptr inbounds ptr, ptr %vtable, i64 5
+  %vfn = getelementptr inbounds i8, ptr %vtable, i64 40
   %0 = load ptr, ptr %vfn, align 8
   %call = invoke noundef i64 %0(ptr noundef nonnull align 8 dereferenceable(40) %is)
           to label %invoke.cont unwind label %lpad
@@ -191,7 +191,7 @@ invoke.cont:                                      ; preds = %entry
 
 if.then:                                          ; preds = %invoke.cont
   %vtable1 = load ptr, ptr %is, align 8
-  %vfn2 = getelementptr inbounds ptr, ptr %vtable1, i64 6
+  %vfn2 = getelementptr inbounds i8, ptr %vtable1, i64 48
   %1 = load ptr, ptr %vfn2, align 8
   invoke void %1(ptr noundef nonnull align 8 dereferenceable(40) %is, i64 noundef 0)
           to label %if.end unwind label %lpad
@@ -202,7 +202,7 @@ lpad:                                             ; preds = %invoke.cont4, %if.e
   %3 = extractvalue { ptr, i32 } %2, 0
   %4 = call ptr @__cxa_begin_catch(ptr %3) #7
   %vtable18 = load ptr, ptr %is, align 8
-  %vfn19 = getelementptr inbounds ptr, ptr %vtable18, i64 7
+  %vfn19 = getelementptr inbounds i8, ptr %vtable18, i64 56
   %5 = load ptr, ptr %vfn19, align 8
   invoke void %5(ptr noundef nonnull align 8 dereferenceable(40) %is)
           to label %invoke.cont21 unwind label %lpad20
@@ -215,7 +215,7 @@ invoke.cont21:                                    ; preds = %lpad
 if.end:                                           ; preds = %if.then, %invoke.cont
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %b.i)
   %vtable.i.i.i = load ptr, ptr %is, align 8
-  %vfn.i.i.i = getelementptr inbounds ptr, ptr %vtable.i.i.i, i64 3
+  %vfn.i.i.i = getelementptr inbounds i8, ptr %vtable.i.i.i, i64 24
   %6 = load ptr, ptr %vfn.i.i.i, align 8
   %call.i.i.i8 = invoke noundef zeroext i1 %6(ptr noundef nonnull align 8 dereferenceable(40) %is, ptr noundef nonnull %b.i, i32 noundef 4)
           to label %invoke.cont4 unwind label %lpad
@@ -225,7 +225,7 @@ invoke.cont4:                                     ; preds = %if.end
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %b.i)
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %b.i9)
   %vtable.i.i.i10 = load ptr, ptr %is, align 8
-  %vfn.i.i.i11 = getelementptr inbounds ptr, ptr %vtable.i.i.i10, i64 3
+  %vfn.i.i.i11 = getelementptr inbounds i8, ptr %vtable.i.i.i10, i64 24
   %8 = load ptr, ptr %vfn.i.i.i11, align 8
   %call.i.i.i12 = invoke noundef zeroext i1 %8(ptr noundef nonnull align 8 dereferenceable(40) %is, ptr noundef nonnull %b.i9, i32 noundef 4)
           to label %invoke.cont5 unwind label %lpad
@@ -234,7 +234,7 @@ invoke.cont5:                                     ; preds = %invoke.cont4
   %9 = load i32, ptr %b.i9, align 4
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %b.i9)
   %vtable6 = load ptr, ptr %is, align 8
-  %vfn7 = getelementptr inbounds ptr, ptr %vtable6, i64 6
+  %vfn7 = getelementptr inbounds i8, ptr %vtable6, i64 48
   %10 = load ptr, ptr %vfn7, align 8
   invoke void %10(ptr noundef nonnull align 8 dereferenceable(40) %is, i64 noundef %call)
           to label %invoke.cont8 unwind label %lpad

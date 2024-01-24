@@ -4,9 +4,6 @@ target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:
 target triple = "x86_64-unknown-linux-gnu"
 
 %struct.ec_method_st = type { ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr }
-%struct.ec_group_st = type { ptr, ptr, %struct.bignum_st, %struct.bignum_st, i32, ptr, %struct.bignum_st, %struct.bignum_st, %struct.bignum_st, i32, ptr, %struct.bignum_st }
-%struct.bignum_st = type { ptr, i32, i32, i32, i32 }
-%struct.ec_point_st = type { ptr, %struct.bignum_st, %struct.bignum_st, %struct.bignum_st }
 
 @.str = private unnamed_addr constant [129 x i8] c"generated/home/dtcxzyw/WorkSpace/Projects/compilers/llvm-opt-benchmark/bench/libquic/libquic/boringssl/crypto/ec/ec_montgomery.c\00", align 1
 @EC_GFp_mont_method.ret = internal constant %struct.ec_method_st { ptr @ec_GFp_mont_group_init, ptr @ec_GFp_mont_group_finish, ptr @ec_GFp_mont_group_copy, ptr @ec_GFp_mont_group_set_curve, ptr @ec_GFp_mont_point_get_affine_coordinates, ptr @ec_wNAF_mul, ptr @ec_GFp_mont_check_pub_key_order, ptr @ec_GFp_mont_field_mul, ptr @ec_GFp_mont_field_sqr, ptr @ec_GFp_mont_field_encode, ptr @ec_GFp_mont_field_decode }, align 8
@@ -15,7 +12,7 @@ target triple = "x86_64-unknown-linux-gnu"
 define hidden i32 @ec_GFp_mont_group_init(ptr noundef %group) #0 {
 entry:
   %call = tail call i32 @ec_GFp_simple_group_init(ptr noundef %group) #3
-  %mont = getelementptr inbounds %struct.ec_group_st, ptr %group, i64 0, i32 10
+  %mont = getelementptr inbounds i8, ptr %group, i64 160
   store ptr null, ptr %mont, align 8
   ret i32 %call
 }
@@ -25,7 +22,7 @@ declare i32 @ec_GFp_simple_group_init(ptr noundef) local_unnamed_addr #1
 ; Function Attrs: nounwind uwtable
 define hidden void @ec_GFp_mont_group_finish(ptr noundef %group) #0 {
 entry:
-  %mont = getelementptr inbounds %struct.ec_group_st, ptr %group, i64 0, i32 10
+  %mont = getelementptr inbounds i8, ptr %group, i64 160
   %0 = load ptr, ptr %mont, align 8
   tail call void @BN_MONT_CTX_free(ptr noundef %0) #3
   store ptr null, ptr %mont, align 8
@@ -40,7 +37,7 @@ declare void @ec_GFp_simple_group_finish(ptr noundef) local_unnamed_addr #1
 ; Function Attrs: nounwind uwtable
 define hidden noundef i32 @ec_GFp_mont_group_copy(ptr noundef %dest, ptr noundef %src) #0 {
 entry:
-  %mont = getelementptr inbounds %struct.ec_group_st, ptr %dest, i64 0, i32 10
+  %mont = getelementptr inbounds i8, ptr %dest, i64 160
   %0 = load ptr, ptr %mont, align 8
   tail call void @BN_MONT_CTX_free(ptr noundef %0) #3
   store ptr null, ptr %mont, align 8
@@ -49,7 +46,7 @@ entry:
   br i1 %tobool.not, label %return, label %if.end
 
 if.end:                                           ; preds = %entry
-  %mont2 = getelementptr inbounds %struct.ec_group_st, ptr %src, i64 0, i32 10
+  %mont2 = getelementptr inbounds i8, ptr %src, i64 160
   %1 = load ptr, ptr %mont2, align 8
   %cmp.not = icmp eq ptr %1, null
   br i1 %cmp.not, label %return, label %if.then3
@@ -86,7 +83,7 @@ declare ptr @BN_MONT_CTX_copy(ptr noundef, ptr noundef) local_unnamed_addr #1
 ; Function Attrs: nounwind uwtable
 define hidden i32 @ec_GFp_mont_group_set_curve(ptr noundef %group, ptr noundef %p, ptr noundef %a, ptr noundef %b, ptr noundef %ctx) #0 {
 entry:
-  %mont1 = getelementptr inbounds %struct.ec_group_st, ptr %group, i64 0, i32 10
+  %mont1 = getelementptr inbounds i8, ptr %group, i64 160
   %0 = load ptr, ptr %mont1, align 8
   tail call void @BN_MONT_CTX_free(ptr noundef %0) #3
   store ptr null, ptr %mont1, align 8
@@ -151,7 +148,7 @@ declare void @BN_CTX_free(ptr noundef) local_unnamed_addr #1
 ; Function Attrs: nounwind uwtable
 define hidden i32 @ec_GFp_mont_field_mul(ptr nocapture noundef readonly %group, ptr noundef %r, ptr noundef %a, ptr noundef %b, ptr noundef %ctx) #0 {
 entry:
-  %mont = getelementptr inbounds %struct.ec_group_st, ptr %group, i64 0, i32 10
+  %mont = getelementptr inbounds i8, ptr %group, i64 160
   %0 = load ptr, ptr %mont, align 8
   %cmp = icmp eq ptr %0, null
   br i1 %cmp, label %if.then, label %if.end
@@ -174,7 +171,7 @@ declare i32 @BN_mod_mul_montgomery(ptr noundef, ptr noundef, ptr noundef, ptr no
 ; Function Attrs: nounwind uwtable
 define hidden i32 @ec_GFp_mont_field_sqr(ptr nocapture noundef readonly %group, ptr noundef %r, ptr noundef %a, ptr noundef %ctx) #0 {
 entry:
-  %mont = getelementptr inbounds %struct.ec_group_st, ptr %group, i64 0, i32 10
+  %mont = getelementptr inbounds i8, ptr %group, i64 160
   %0 = load ptr, ptr %mont, align 8
   %cmp = icmp eq ptr %0, null
   br i1 %cmp, label %if.then, label %if.end
@@ -195,7 +192,7 @@ return:                                           ; preds = %if.end, %if.then
 ; Function Attrs: nounwind uwtable
 define hidden i32 @ec_GFp_mont_field_encode(ptr nocapture noundef readonly %group, ptr noundef %r, ptr noundef %a, ptr noundef %ctx) #0 {
 entry:
-  %mont = getelementptr inbounds %struct.ec_group_st, ptr %group, i64 0, i32 10
+  %mont = getelementptr inbounds i8, ptr %group, i64 160
   %0 = load ptr, ptr %mont, align 8
   %cmp = icmp eq ptr %0, null
   br i1 %cmp, label %if.then, label %if.end
@@ -218,7 +215,7 @@ declare i32 @BN_to_montgomery(ptr noundef, ptr noundef, ptr noundef, ptr noundef
 ; Function Attrs: nounwind uwtable
 define hidden i32 @ec_GFp_mont_field_decode(ptr nocapture noundef readonly %group, ptr noundef %r, ptr noundef %a, ptr noundef %ctx) #0 {
 entry:
-  %mont = getelementptr inbounds %struct.ec_group_st, ptr %group, i64 0, i32 10
+  %mont = getelementptr inbounds i8, ptr %group, i64 160
   %0 = load ptr, ptr %mont, align 8
   %cmp = icmp eq ptr %0, null
   br i1 %cmp, label %if.then, label %if.end
@@ -268,8 +265,8 @@ if.end6:                                          ; preds = %if.then1, %if.end
   %new_ctx.0 = phi ptr [ %call2, %if.then1 ], [ null, %if.end ]
   %ctx.addr.0 = phi ptr [ %call2, %if.then1 ], [ %ctx, %if.end ]
   tail call void @BN_CTX_start(ptr noundef nonnull %ctx.addr.0) #3
-  %Z = getelementptr inbounds %struct.ec_point_st, ptr %point, i64 0, i32 3
-  %one = getelementptr inbounds %struct.ec_group_st, ptr %group, i64 0, i32 11
+  %Z = getelementptr inbounds i8, ptr %point, i64 56
+  %one = getelementptr inbounds i8, ptr %group, i64 168
   %call7 = tail call i32 @BN_cmp(ptr noundef nonnull %Z, ptr noundef nonnull %one) #3
   %cmp8 = icmp eq i32 %call7, 0
   br i1 %cmp8, label %if.then9, label %if.else
@@ -279,8 +276,8 @@ if.then9:                                         ; preds = %if.end6
   br i1 %cmp10.not, label %if.end14, label %land.lhs.true
 
 land.lhs.true:                                    ; preds = %if.then9
-  %X = getelementptr inbounds %struct.ec_point_st, ptr %point, i64 0, i32 1
-  %mont = getelementptr inbounds %struct.ec_group_st, ptr %group, i64 0, i32 10
+  %X = getelementptr inbounds i8, ptr %point, i64 8
+  %mont = getelementptr inbounds i8, ptr %group, i64 160
   %0 = load ptr, ptr %mont, align 8
   %call11 = tail call i32 @BN_from_montgomery(ptr noundef nonnull %x, ptr noundef nonnull %X, ptr noundef %0, ptr noundef nonnull %ctx.addr.0) #3
   %tobool12.not = icmp eq i32 %call11, 0
@@ -291,8 +288,8 @@ if.end14:                                         ; preds = %land.lhs.true, %if.
   br i1 %cmp15.not, label %if.end76, label %land.lhs.true16
 
 land.lhs.true16:                                  ; preds = %if.end14
-  %Y = getelementptr inbounds %struct.ec_point_st, ptr %point, i64 0, i32 2
-  %mont17 = getelementptr inbounds %struct.ec_group_st, ptr %group, i64 0, i32 10
+  %Y = getelementptr inbounds i8, ptr %point, i64 32
+  %mont17 = getelementptr inbounds i8, ptr %group, i64 160
   %1 = load ptr, ptr %mont17, align 8
   %call18 = tail call i32 @BN_from_montgomery(ptr noundef nonnull %y, ptr noundef nonnull %Y, ptr noundef %1, ptr noundef nonnull %ctx.addr.0) #3
   %tobool19.not = icmp eq i32 %call18, 0
@@ -310,7 +307,7 @@ if.else:                                          ; preds = %if.end6
   br i1 %or.cond1, label %err, label %if.end30
 
 if.end30:                                         ; preds = %if.else
-  %mont32 = getelementptr inbounds %struct.ec_group_st, ptr %group, i64 0, i32 10
+  %mont32 = getelementptr inbounds i8, ptr %group, i64 160
   %2 = load ptr, ptr %mont32, align 8
   %call33 = tail call i32 @BN_from_montgomery(ptr noundef nonnull %call22, ptr noundef nonnull %Z, ptr noundef %2, ptr noundef nonnull %ctx.addr.0) #3
   %tobool34.not = icmp eq i32 %call33, 0
@@ -323,7 +320,7 @@ lor.lhs.false35:                                  ; preds = %if.end30
   br i1 %tobool38.not, label %err, label %lor.lhs.false39
 
 lor.lhs.false39:                                  ; preds = %lor.lhs.false35
-  %field = getelementptr inbounds %struct.ec_group_st, ptr %group, i64 0, i32 6
+  %field = getelementptr inbounds i8, ptr %group, i64 80
   %call40 = tail call ptr @BN_mod_inverse(ptr noundef nonnull %call22, ptr noundef nonnull %call22, ptr noundef nonnull %field, ptr noundef nonnull %ctx.addr.0) #3
   %tobool41.not = icmp eq ptr %call40, null
   br i1 %tobool41.not, label %err, label %if.end43
@@ -345,7 +342,7 @@ if.end53:                                         ; preds = %if.end48
   br i1 %cmp54.not, label %if.end62, label %if.then55
 
 if.then55:                                        ; preds = %if.end53
-  %X56 = getelementptr inbounds %struct.ec_point_st, ptr %point, i64 0, i32 1
+  %X56 = getelementptr inbounds i8, ptr %point, i64 8
   %6 = load ptr, ptr %mont32, align 8
   %call58 = tail call i32 @BN_mod_mul_montgomery(ptr noundef nonnull %x, ptr noundef nonnull %X56, ptr noundef nonnull %call23, ptr noundef %6, ptr noundef nonnull %ctx.addr.0) #3
   %tobool59.not = icmp eq i32 %call58, 0
@@ -362,7 +359,7 @@ if.then64:                                        ; preds = %if.end62
   br i1 %tobool67.not, label %err, label %lor.lhs.false68
 
 lor.lhs.false68:                                  ; preds = %if.then64
-  %Y69 = getelementptr inbounds %struct.ec_point_st, ptr %point, i64 0, i32 2
+  %Y69 = getelementptr inbounds i8, ptr %point, i64 32
   %8 = load ptr, ptr %mont32, align 8
   %call71 = tail call i32 @BN_mod_mul_montgomery(ptr noundef nonnull %y, ptr noundef nonnull %Y69, ptr noundef nonnull %call24, ptr noundef %8, ptr noundef nonnull %ctx.addr.0) #3
   %tobool72.not = icmp eq i32 %call71, 0

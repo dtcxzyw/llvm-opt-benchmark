@@ -141,25 +141,25 @@ define hidden void @_ZN22serde_derive_internals9internals5check5check17h05fe8a46
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %79)
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %80)
   %81 = tail call align 8 ptr @_ZN22serde_derive_internals9internals4attr9Container7default17h91b6ecdef14dd477E(ptr align 8 %1)
-  %82 = getelementptr inbounds { [22 x i32], i32, [3 x i32] }, ptr %81, i64 0, i32 1
+  %82 = getelementptr inbounds i8, ptr %81, i64 88
   %83 = load i32, ptr %82, align 8, !range !5, !noundef !6
   %84 = icmp eq i32 %83, 2
   br i1 %84, label %85, label %_ZN22serde_derive_internals9internals5check22check_default_on_tuple17hfef6342a3499e703E.exit
 
 85:                                               ; preds = %3
-  %86 = getelementptr inbounds { { { i64, [6 x i64] }, { i64, [28 x i64] }, { i64, [28 x i64] }, { i64, [28 x i64] }, { [8 x i32], i32, [3 x i32] }, { [8 x i32], i32, [3 x i32] }, { [22 x i32], i32, [3 x i32] }, { { { { ptr, i64 }, i64, { {} }, {} } }, { { { ptr, i64 }, i64 } }, { { { ptr, i64 }, i64 } }, i8, i8, [6 x i8] }, { ptr, [2 x i64] }, { ptr, [2 x i64] }, { ptr, [2 x i64] }, { i8, i8 }, { i8, i8 }, i8, i8, i8, i8, i8, i8, [6 x i8] }, { i8, [31 x i8] }, { { [24 x i8], i8, [7 x i8] }, {} }, ptr, ptr }, ptr %1, i64 0, i32 1
+  %86 = getelementptr inbounds i8, ptr %1, i64 1120
   %87 = load i8, ptr %86, align 8, !range !7, !noundef !6
   %.not.i = icmp eq i8 %87, 0
   br i1 %.not.i, label %_ZN22serde_derive_internals9internals5check22check_default_on_tuple17hfef6342a3499e703E.exit, label %88
 
 88:                                               ; preds = %85
-  %89 = getelementptr inbounds { { { i64, [6 x i64] }, { i64, [28 x i64] }, { i64, [28 x i64] }, { i64, [28 x i64] }, { [8 x i32], i32, [3 x i32] }, { [8 x i32], i32, [3 x i32] }, { [22 x i32], i32, [3 x i32] }, { { { { ptr, i64 }, i64, { {} }, {} } }, { { { ptr, i64 }, i64 } }, { { { ptr, i64 }, i64 } }, i8, i8, [6 x i8] }, { ptr, [2 x i64] }, { ptr, [2 x i64] }, { ptr, [2 x i64] }, { i8, i8 }, { i8, i8 }, i8, i8, i8, i8, i8, i8, [6 x i8] }, { i8, [31 x i8] }, { { [24 x i8], i8, [7 x i8] }, {} }, ptr, ptr }, ptr %1, i64 0, i32 1, i32 1
+  %89 = getelementptr inbounds i8, ptr %1, i64 1121
   %90 = load i8, ptr %89, align 1, !range !8, !noundef !6
   %91 = icmp eq i8 %90, 1
   br i1 %91, label %92, label %_ZN22serde_derive_internals9internals5check22check_default_on_tuple17hfef6342a3499e703E.exit
 
 92:                                               ; preds = %88
-  %93 = getelementptr inbounds { { { i64, [6 x i64] }, { i64, [28 x i64] }, { i64, [28 x i64] }, { i64, [28 x i64] }, { [8 x i32], i32, [3 x i32] }, { [8 x i32], i32, [3 x i32] }, { [22 x i32], i32, [3 x i32] }, { { { { ptr, i64 }, i64, { {} }, {} } }, { { { ptr, i64 }, i64 } }, { { { ptr, i64 }, i64 } }, i8, i8, [6 x i8] }, { ptr, [2 x i64] }, { ptr, [2 x i64] }, { ptr, [2 x i64] }, { i8, i8 }, { i8, i8 }, i8, i8, i8, i8, i8, i8, [6 x i8] }, { i8, [31 x i8] }, { { [24 x i8], i8, [7 x i8] }, {} }, ptr, ptr }, ptr %1, i64 0, i32 1, i32 1, i64 7
+  %93 = getelementptr inbounds i8, ptr %1, i64 1128
   store i64 0, ptr %80, align 8
   %94 = tail call { ptr, i64 } @"_ZN72_$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$core..ops..deref..Deref$GT$5deref17h5281f2645bf5050fE"(ptr nonnull align 8 %93)
   %95 = extractvalue { ptr, i64 } %94, 0
@@ -176,15 +176,15 @@ define hidden void @_ZN22serde_derive_internals9internals5check5check17h05fe8a46
   br i1 %101, label %_ZN22serde_derive_internals9internals5check22check_default_on_tuple17hfef6342a3499e703E.exit, label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %92
-  %102 = getelementptr inbounds { i64, i64 }, ptr %80, i64 0, i32 1
-  %103 = getelementptr inbounds { ptr, ptr }, ptr %73, i64 0, i32 1
+  %102 = getelementptr inbounds i8, ptr %80, i64 8
+  %103 = getelementptr inbounds i8, ptr %73, i64 8
   br label %104
 
 104:                                              ; preds = %.backedge.i, %.lr.ph.i
   %.fca.1.extract10.i = phi ptr [ %.fca.1.extract8.i, %.lr.ph.i ], [ %.fca.1.extract.i, %.backedge.i ]
   %.pn.i = phi { i64, ptr } [ %100, %.lr.ph.i ], [ %107, %.backedge.i ]
   %.fca.0.extract9.i = extractvalue { i64, ptr } %.pn.i, 0
-  %105 = getelementptr inbounds { { [24 x i8], i8, [7 x i8] }, ptr, ptr, { { { { { ptr, i64 }, i64, { {} }, {} } }, { { { ptr, i64 }, i64 } }, { { { ptr, i64 }, i64 } }, i8, i8, [6 x i8] }, { ptr, [2 x i64] }, { ptr, [2 x i64] }, { { { ptr, i64 }, i64, { {} }, {} } }, { [22 x i32], i32, [3 x i32] }, { [22 x i32], i32, [3 x i32] }, { [22 x i32], i32, [3 x i32] }, { [22 x i32], i32, [3 x i32] }, { [22 x i32], i32, [3 x i32] }, i8, i8, i8, i8, [4 x i8] } }, ptr %.fca.1.extract10.i, i64 0, i32 3
+  %105 = getelementptr inbounds i8, ptr %.fca.1.extract10.i, i64 48
   %106 = call zeroext i1 @_ZN22serde_derive_internals9internals4attr5Field18skip_deserializing17hf48a3d1ead8bd327E(ptr nonnull align 8 %105)
   br i1 %106, label %.backedge.i, label %109
 
@@ -196,7 +196,7 @@ define hidden void @_ZN22serde_derive_internals9internals5check5check17h05fe8a46
 
 109:                                              ; preds = %104
   %110 = call align 8 ptr @_ZN22serde_derive_internals9internals4attr5Field7default17hce2613784f7da895E(ptr nonnull align 8 %105)
-  %111 = getelementptr inbounds { [22 x i32], i32, [3 x i32] }, ptr %110, i64 0, i32 1
+  %111 = getelementptr inbounds i8, ptr %110, i64 88
   %112 = load i32, ptr %111, align 8, !range !5, !noundef !6
   %113 = icmp eq i32 %112, 2
   br i1 %113, label %114, label %116
@@ -213,7 +213,7 @@ define hidden void @_ZN22serde_derive_internals9internals5check5check17h05fe8a46
 118:                                              ; preds = %114
   %119 = load i64, ptr %102, align 8, !noundef !6
   store i64 %119, ptr %76, align 8
-  %120 = getelementptr inbounds { { [24 x i8], i8, [7 x i8] }, ptr, ptr, { { { { { ptr, i64 }, i64, { {} }, {} } }, { { { ptr, i64 }, i64 } }, { { { ptr, i64 }, i64 } }, i8, i8, [6 x i8] }, { ptr, [2 x i64] }, { ptr, [2 x i64] }, { { { ptr, i64 }, i64, { {} }, {} } }, { [22 x i32], i32, [3 x i32] }, { [22 x i32], i32, [3 x i32] }, { [22 x i32], i32, [3 x i32] }, { [22 x i32], i32, [3 x i32] }, { [22 x i32], i32, [3 x i32] }, i8, i8, i8, i8, [4 x i8] } }, ptr %.fca.1.extract10.i, i64 0, i32 1
+  %120 = getelementptr inbounds i8, ptr %.fca.1.extract10.i, i64 32
   %121 = load ptr, ptr %120, align 8, !nonnull !6, !align !10, !noundef !6
   store ptr %76, ptr %73, align 8
   store ptr @"_ZN4core3fmt3num3imp54_$LT$impl$u20$core..fmt..Display$u20$for$u20$usize$GT$3fmt17ha1a895f323c363e4E", ptr %103, align 8
@@ -241,9 +241,9 @@ _ZN22serde_derive_internals9internals5check22check_default_on_tuple17hfef6342a34
   br i1 %.not.i1, label %_ZN22serde_derive_internals9internals5check20check_remote_generic17h9c4b03da0b53e98bE.exit, label %124
 
 124:                                              ; preds = %_ZN22serde_derive_internals9internals5check22check_default_on_tuple17hfef6342a3499e703E.exit
-  %125 = getelementptr inbounds { { { i64, [6 x i64] }, { i64, [28 x i64] }, { i64, [28 x i64] }, { i64, [28 x i64] }, { [8 x i32], i32, [3 x i32] }, { [8 x i32], i32, [3 x i32] }, { [22 x i32], i32, [3 x i32] }, { { { { ptr, i64 }, i64, { {} }, {} } }, { { { ptr, i64 }, i64 } }, { { { ptr, i64 }, i64 } }, i8, i8, [6 x i8] }, { ptr, [2 x i64] }, { ptr, [2 x i64] }, { ptr, [2 x i64] }, { i8, i8 }, { i8, i8 }, i8, i8, i8, i8, i8, i8, [6 x i8] }, { i8, [31 x i8] }, { { [24 x i8], i8, [7 x i8] }, {} }, ptr, ptr }, ptr %1, i64 0, i32 3
+  %125 = getelementptr inbounds i8, ptr %1, i64 1184
   %126 = load ptr, ptr %125, align 8, !nonnull !6, !align !10, !noundef !6
-  %127 = getelementptr inbounds { { i32, [1 x i32] }, { i32, [1 x i32] }, { { { ptr, i64 }, i64 }, ptr }, { ptr, [4 x i64] } }, ptr %126, i64 0, i32 2
+  %127 = getelementptr inbounds i8, ptr %126, i64 16
   %128 = call zeroext i1 @"_ZN3syn10punctuated23Punctuated$LT$T$C$P$GT$8is_empty17h3de32c03b7e1a33eE"(ptr nonnull align 8 %127)
   %129 = call align 8 ptr @"_ZN3syn10punctuated23Punctuated$LT$T$C$P$GT$4last17h757dccf150b878c4E"(ptr nonnull align 8 %123)
   %130 = call align 8 ptr @"_ZN4core6option15Option$LT$T$GT$6unwrap17hb4a130bb0ffc7505E"(ptr align 8 %129, ptr nonnull align 8 @anon.1afab4bd373efb5043566ed828fa0c35.4)
@@ -257,7 +257,7 @@ _ZN22serde_derive_internals9internals5check22check_default_on_tuple17hfef6342a34
 
 _ZN22serde_derive_internals9internals5check20check_remote_generic17h9c4b03da0b53e98bE.exit: ; preds = %_ZN22serde_derive_internals9internals5check22check_default_on_tuple17hfef6342a3499e703E.exit, %124, %132
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %72)
-  %133 = getelementptr inbounds { { { i64, [6 x i64] }, { i64, [28 x i64] }, { i64, [28 x i64] }, { i64, [28 x i64] }, { [8 x i32], i32, [3 x i32] }, { [8 x i32], i32, [3 x i32] }, { [22 x i32], i32, [3 x i32] }, { { { { ptr, i64 }, i64, { {} }, {} } }, { { { ptr, i64 }, i64 } }, { { { ptr, i64 }, i64 } }, i8, i8, [6 x i8] }, { ptr, [2 x i64] }, { ptr, [2 x i64] }, { ptr, [2 x i64] }, { i8, i8 }, { i8, i8 }, i8, i8, i8, i8, i8, i8, [6 x i8] }, { i8, [31 x i8] }, { { [24 x i8], i8, [7 x i8] }, {} }, ptr, ptr }, ptr %1, i64 0, i32 1
+  %133 = getelementptr inbounds i8, ptr %1, i64 1120
   %134 = load i8, ptr %133, align 8, !range !7, !noundef !6
   %135 = icmp eq i8 %134, 0
   %136 = call zeroext i1 @_ZN22serde_derive_internals9internals3ast4Data10has_getter17h97bdc939681e2095E(ptr nonnull align 8 %133)
@@ -270,7 +270,7 @@ _ZN22serde_derive_internals9internals5check20check_remote_generic17h9c4b03da0b53
   br i1 %136, label %142, label %_ZN22serde_derive_internals9internals5check12check_getter17h843683a51a4aaef5E.exit
 
 139:                                              ; preds = %137
-  %140 = getelementptr inbounds { { { i64, [6 x i64] }, { i64, [28 x i64] }, { i64, [28 x i64] }, { i64, [28 x i64] }, { [8 x i32], i32, [3 x i32] }, { [8 x i32], i32, [3 x i32] }, { [22 x i32], i32, [3 x i32] }, { { { { ptr, i64 }, i64, { {} }, {} } }, { { { ptr, i64 }, i64 } }, { { { ptr, i64 }, i64 } }, i8, i8, [6 x i8] }, { ptr, [2 x i64] }, { ptr, [2 x i64] }, { ptr, [2 x i64] }, { i8, i8 }, { i8, i8 }, i8, i8, i8, i8, i8, i8, [6 x i8] }, { i8, [31 x i8] }, { { [24 x i8], i8, [7 x i8] }, {} }, ptr, ptr }, ptr %1, i64 0, i32 4
+  %140 = getelementptr inbounds i8, ptr %1, i64 1192
   %141 = load ptr, ptr %140, align 8, !nonnull !6, !align !10, !noundef !6
   call void @_ZN22serde_derive_internals9internals4ctxt4Ctxt16error_spanned_by17h0d04e0b3926d9e03E(ptr align 8 %0, ptr nonnull align 8 %141, ptr nonnull align 1 @anon.1afab4bd373efb5043566ed828fa0c35.6, i64 50)
   br label %_ZN22serde_derive_internals9internals5check12check_getter17h843683a51a4aaef5E.exit
@@ -282,7 +282,7 @@ _ZN22serde_derive_internals9internals5check20check_remote_generic17h9c4b03da0b53
   br i1 %144, label %145, label %_ZN22serde_derive_internals9internals5check12check_getter17h843683a51a4aaef5E.exit
 
 145:                                              ; preds = %142
-  %146 = getelementptr inbounds { { { i64, [6 x i64] }, { i64, [28 x i64] }, { i64, [28 x i64] }, { i64, [28 x i64] }, { [8 x i32], i32, [3 x i32] }, { [8 x i32], i32, [3 x i32] }, { [22 x i32], i32, [3 x i32] }, { { { { ptr, i64 }, i64, { {} }, {} } }, { { { ptr, i64 }, i64 } }, { { { ptr, i64 }, i64 } }, i8, i8, [6 x i8] }, { ptr, [2 x i64] }, { ptr, [2 x i64] }, { ptr, [2 x i64] }, { i8, i8 }, { i8, i8 }, i8, i8, i8, i8, i8, i8, [6 x i8] }, { i8, [31 x i8] }, { { [24 x i8], i8, [7 x i8] }, {} }, ptr, ptr }, ptr %1, i64 0, i32 4
+  %146 = getelementptr inbounds i8, ptr %1, i64 1192
   %147 = load ptr, ptr %146, align 8, !nonnull !6, !align !10, !noundef !6
   call void @_ZN22serde_derive_internals9internals4ctxt4Ctxt16error_spanned_by17h0d04e0b3926d9e03E(ptr align 8 %0, ptr nonnull align 8 %147, ptr nonnull align 1 @anon.1afab4bd373efb5043566ed828fa0c35.7, i64 87)
   br label %_ZN22serde_derive_internals9internals5check12check_getter17h843683a51a4aaef5E.exit
@@ -297,29 +297,29 @@ _ZN22serde_derive_internals9internals5check12check_getter17h843683a51a4aaef5E.ex
   br i1 %149, label %150, label %159
 
 150:                                              ; preds = %_ZN22serde_derive_internals9internals5check12check_getter17h843683a51a4aaef5E.exit
-  %151 = getelementptr inbounds { { { i64, [6 x i64] }, { i64, [28 x i64] }, { i64, [28 x i64] }, { i64, [28 x i64] }, { [8 x i32], i32, [3 x i32] }, { [8 x i32], i32, [3 x i32] }, { [22 x i32], i32, [3 x i32] }, { { { { ptr, i64 }, i64, { {} }, {} } }, { { { ptr, i64 }, i64 } }, { { { ptr, i64 }, i64 } }, i8, i8, [6 x i8] }, { ptr, [2 x i64] }, { ptr, [2 x i64] }, { ptr, [2 x i64] }, { i8, i8 }, { i8, i8 }, i8, i8, i8, i8, i8, i8, [6 x i8] }, { i8, [31 x i8] }, { { [24 x i8], i8, [7 x i8] }, {} }, ptr, ptr }, ptr %1, i64 0, i32 1, i32 1, i64 7
+  %151 = getelementptr inbounds i8, ptr %1, i64 1128
   %152 = call { ptr, ptr } @"_ZN94_$LT$$RF$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$core..iter..traits..collect..IntoIterator$GT$9into_iter17h20dedd1699737e61E"(ptr nonnull align 8 %151)
   %153 = extractvalue { ptr, ptr } %152, 0
   %154 = extractvalue { ptr, ptr } %152, 1
   store ptr %153, ptr %71, align 8
-  %155 = getelementptr inbounds { ptr, ptr }, ptr %71, i64 0, i32 1
+  %155 = getelementptr inbounds i8, ptr %71, i64 8
   store ptr %154, ptr %155, align 8
   %156 = call align 8 ptr @"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hdb92dededc74cfefE"(ptr nonnull align 8 %71)
   %157 = icmp eq ptr %156, null
   br i1 %157, label %_ZN22serde_derive_internals9internals5check13check_flatten17h1fd3dff9855e0b7fE.exit, label %.lr.ph10.i
 
 .lr.ph10.i:                                       ; preds = %150
-  %158 = getelementptr inbounds { ptr, ptr }, ptr %70, i64 0, i32 1
+  %158 = getelementptr inbounds i8, ptr %70, i64 8
   br label %170
 
 159:                                              ; preds = %_ZN22serde_derive_internals9internals5check12check_getter17h843683a51a4aaef5E.exit
-  %160 = getelementptr inbounds { { { i64, [6 x i64] }, { i64, [28 x i64] }, { i64, [28 x i64] }, { i64, [28 x i64] }, { [8 x i32], i32, [3 x i32] }, { [8 x i32], i32, [3 x i32] }, { [22 x i32], i32, [3 x i32] }, { { { { ptr, i64 }, i64, { {} }, {} } }, { { { ptr, i64 }, i64 } }, { { { ptr, i64 }, i64 } }, i8, i8, [6 x i8] }, { ptr, [2 x i64] }, { ptr, [2 x i64] }, { ptr, [2 x i64] }, { i8, i8 }, { i8, i8 }, i8, i8, i8, i8, i8, i8, [6 x i8] }, { i8, [31 x i8] }, { { [24 x i8], i8, [7 x i8] }, {} }, ptr, ptr }, ptr %1, i64 0, i32 1, i32 1
-  %161 = getelementptr inbounds { { { i64, [6 x i64] }, { i64, [28 x i64] }, { i64, [28 x i64] }, { i64, [28 x i64] }, { [8 x i32], i32, [3 x i32] }, { [8 x i32], i32, [3 x i32] }, { [22 x i32], i32, [3 x i32] }, { { { { ptr, i64 }, i64, { {} }, {} } }, { { { ptr, i64 }, i64 } }, { { { ptr, i64 }, i64 } }, i8, i8, [6 x i8] }, { ptr, [2 x i64] }, { ptr, [2 x i64] }, { ptr, [2 x i64] }, { i8, i8 }, { i8, i8 }, i8, i8, i8, i8, i8, i8, [6 x i8] }, { i8, [31 x i8] }, { { [24 x i8], i8, [7 x i8] }, {} }, ptr, ptr }, ptr %1, i64 0, i32 1, i32 1, i64 7
+  %160 = getelementptr inbounds i8, ptr %1, i64 1121
+  %161 = getelementptr inbounds i8, ptr %1, i64 1128
   %162 = call { ptr, ptr } @"_ZN94_$LT$$RF$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$core..iter..traits..collect..IntoIterator$GT$9into_iter17hba617fbb309a0a7dE"(ptr nonnull align 8 %161)
   %163 = extractvalue { ptr, ptr } %162, 0
   %164 = extractvalue { ptr, ptr } %162, 1
   store ptr %163, ptr %69, align 8
-  %165 = getelementptr inbounds { ptr, ptr }, ptr %69, i64 0, i32 1
+  %165 = getelementptr inbounds i8, ptr %69, i64 8
   store ptr %164, ptr %165, align 8
   %166 = call align 8 ptr @"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17ha2f594e3b0049f4eE"(ptr nonnull align 8 %69)
   %167 = icmp eq ptr %166, null
@@ -332,7 +332,7 @@ _ZN22serde_derive_internals9internals5check12check_getter17h843683a51a4aaef5E.ex
 
 170:                                              ; preds = %.loopexit.i, %.lr.ph10.i
   %171 = phi ptr [ %156, %.lr.ph10.i ], [ %168, %.loopexit.i ]
-  %172 = getelementptr inbounds { { { i64, [9 x i64] }, { [22 x i32], i32, [3 x i32] }, { [22 x i32], i32, [3 x i32] }, { { { { ptr, i64 }, i64, { {} }, {} } }, { { { ptr, i64 }, i64 } }, { { { ptr, i64 }, i64 } }, i8, i8, [6 x i8] }, { ptr, [2 x i64] }, { ptr, [2 x i64] }, { i8, i8 }, i8, i8, i8, i8, [2 x i8] }, { { [24 x i8], i8, [7 x i8] }, {} }, { { ptr, i64 }, i64 }, ptr, i8, [7 x i8] }, ptr %171, i64 0, i32 2
+  %172 = getelementptr inbounds i8, ptr %171, i64 456
   %173 = call { ptr, ptr } @"_ZN94_$LT$$RF$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$core..iter..traits..collect..IntoIterator$GT$9into_iter17hba617fbb309a0a7dE"(ptr nonnull align 8 %172)
   %174 = extractvalue { ptr, ptr } %173, 0
   %175 = extractvalue { ptr, ptr } %173, 1
@@ -343,13 +343,13 @@ _ZN22serde_derive_internals9internals5check12check_getter17h843683a51a4aaef5E.ex
   br i1 %177, label %.loopexit.i, label %.lr.ph9.i
 
 .lr.ph9.i:                                        ; preds = %170
-  %178 = getelementptr inbounds { { { i64, [9 x i64] }, { [22 x i32], i32, [3 x i32] }, { [22 x i32], i32, [3 x i32] }, { { { { ptr, i64 }, i64, { {} }, {} } }, { { { ptr, i64 }, i64 } }, { { { ptr, i64 }, i64 } }, i8, i8, [6 x i8] }, { ptr, [2 x i64] }, { ptr, [2 x i64] }, { i8, i8 }, i8, i8, i8, i8, [2 x i8] }, { { [24 x i8], i8, [7 x i8] }, {} }, { { ptr, i64 }, i64 }, ptr, i8, [7 x i8] }, ptr %171, i64 0, i32 4
+  %178 = getelementptr inbounds i8, ptr %171, i64 488
   br label %179
 
 179:                                              ; preds = %_ZN22serde_derive_internals9internals5check19check_flatten_field17h0e0cf36521ebbbebE.exit.i, %.lr.ph9.i
   %180 = phi ptr [ %176, %.lr.ph9.i ], [ %191, %_ZN22serde_derive_internals9internals5check19check_flatten_field17h0e0cf36521ebbbebE.exit.i ]
   %181 = load i8, ptr %178, align 8, !range !8, !noundef !6
-  %182 = getelementptr inbounds { { [24 x i8], i8, [7 x i8] }, ptr, ptr, { { { { { ptr, i64 }, i64, { {} }, {} } }, { { { ptr, i64 }, i64 } }, { { { ptr, i64 }, i64 } }, i8, i8, [6 x i8] }, { ptr, [2 x i64] }, { ptr, [2 x i64] }, { { { ptr, i64 }, i64, { {} }, {} } }, { [22 x i32], i32, [3 x i32] }, { [22 x i32], i32, [3 x i32] }, { [22 x i32], i32, [3 x i32] }, { [22 x i32], i32, [3 x i32] }, { [22 x i32], i32, [3 x i32] }, i8, i8, i8, i8, [4 x i8] } }, ptr %180, i64 0, i32 3
+  %182 = getelementptr inbounds i8, ptr %180, i64 48
   %183 = call zeroext i1 @_ZN22serde_derive_internals9internals4attr5Field7flatten17hfc6f4894ea730c23E(ptr nonnull align 8 %182)
   br i1 %183, label %184, label %_ZN22serde_derive_internals9internals5check19check_flatten_field17h0e0cf36521ebbbebE.exit.i
 
@@ -360,13 +360,13 @@ _ZN22serde_derive_internals9internals5check12check_getter17h843683a51a4aaef5E.ex
   ]
 
 185:                                              ; preds = %184
-  %186 = getelementptr inbounds { { [24 x i8], i8, [7 x i8] }, ptr, ptr, { { { { { ptr, i64 }, i64, { {} }, {} } }, { { { ptr, i64 }, i64 } }, { { { ptr, i64 }, i64 } }, i8, i8, [6 x i8] }, { ptr, [2 x i64] }, { ptr, [2 x i64] }, { { { ptr, i64 }, i64, { {} }, {} } }, { [22 x i32], i32, [3 x i32] }, { [22 x i32], i32, [3 x i32] }, { [22 x i32], i32, [3 x i32] }, { [22 x i32], i32, [3 x i32] }, { [22 x i32], i32, [3 x i32] }, i8, i8, i8, i8, [4 x i8] } }, ptr %180, i64 0, i32 2
+  %186 = getelementptr inbounds i8, ptr %180, i64 40
   %187 = load ptr, ptr %186, align 8, !nonnull !6, !align !10, !noundef !6
   call void @_ZN22serde_derive_internals9internals4ctxt4Ctxt16error_spanned_by17hdbfe0dba0389029aE(ptr align 8 %0, ptr nonnull align 8 %187, ptr nonnull align 1 @anon.1afab4bd373efb5043566ed828fa0c35.8, i64 49)
   br label %_ZN22serde_derive_internals9internals5check19check_flatten_field17h0e0cf36521ebbbebE.exit.i
 
 188:                                              ; preds = %184
-  %189 = getelementptr inbounds { { [24 x i8], i8, [7 x i8] }, ptr, ptr, { { { { { ptr, i64 }, i64, { {} }, {} } }, { { { ptr, i64 }, i64 } }, { { { ptr, i64 }, i64 } }, i8, i8, [6 x i8] }, { ptr, [2 x i64] }, { ptr, [2 x i64] }, { { { ptr, i64 }, i64, { {} }, {} } }, { [22 x i32], i32, [3 x i32] }, { [22 x i32], i32, [3 x i32] }, { [22 x i32], i32, [3 x i32] }, { [22 x i32], i32, [3 x i32] }, { [22 x i32], i32, [3 x i32] }, i8, i8, i8, i8, [4 x i8] } }, ptr %180, i64 0, i32 2
+  %189 = getelementptr inbounds i8, ptr %180, i64 40
   %190 = load ptr, ptr %189, align 8, !nonnull !6, !align !10, !noundef !6
   call void @_ZN22serde_derive_internals9internals4ctxt4Ctxt16error_spanned_by17hdbfe0dba0389029aE(ptr align 8 %0, ptr nonnull align 8 %190, ptr nonnull align 1 @anon.1afab4bd373efb5043566ed828fa0c35.9, i64 51)
   br label %_ZN22serde_derive_internals9internals5check19check_flatten_field17h0e0cf36521ebbbebE.exit.i
@@ -379,7 +379,7 @@ _ZN22serde_derive_internals9internals5check19check_flatten_field17h0e0cf36521ebb
 .lr.ph.i2:                                        ; preds = %159, %_ZN22serde_derive_internals9internals5check19check_flatten_field17h0e0cf36521ebbbebE.exit6.i
   %193 = phi ptr [ %204, %_ZN22serde_derive_internals9internals5check19check_flatten_field17h0e0cf36521ebbbebE.exit6.i ], [ %166, %159 ]
   %194 = load i8, ptr %160, align 1, !range !8, !noundef !6
-  %195 = getelementptr inbounds { { [24 x i8], i8, [7 x i8] }, ptr, ptr, { { { { { ptr, i64 }, i64, { {} }, {} } }, { { { ptr, i64 }, i64 } }, { { { ptr, i64 }, i64 } }, i8, i8, [6 x i8] }, { ptr, [2 x i64] }, { ptr, [2 x i64] }, { { { ptr, i64 }, i64, { {} }, {} } }, { [22 x i32], i32, [3 x i32] }, { [22 x i32], i32, [3 x i32] }, { [22 x i32], i32, [3 x i32] }, { [22 x i32], i32, [3 x i32] }, { [22 x i32], i32, [3 x i32] }, i8, i8, i8, i8, [4 x i8] } }, ptr %193, i64 0, i32 3
+  %195 = getelementptr inbounds i8, ptr %193, i64 48
   %196 = call zeroext i1 @_ZN22serde_derive_internals9internals4attr5Field7flatten17hfc6f4894ea730c23E(ptr nonnull align 8 %195)
   br i1 %196, label %197, label %_ZN22serde_derive_internals9internals5check19check_flatten_field17h0e0cf36521ebbbebE.exit6.i
 
@@ -390,13 +390,13 @@ _ZN22serde_derive_internals9internals5check19check_flatten_field17h0e0cf36521ebb
   ]
 
 198:                                              ; preds = %197
-  %199 = getelementptr inbounds { { [24 x i8], i8, [7 x i8] }, ptr, ptr, { { { { { ptr, i64 }, i64, { {} }, {} } }, { { { ptr, i64 }, i64 } }, { { { ptr, i64 }, i64 } }, i8, i8, [6 x i8] }, { ptr, [2 x i64] }, { ptr, [2 x i64] }, { { { ptr, i64 }, i64, { {} }, {} } }, { [22 x i32], i32, [3 x i32] }, { [22 x i32], i32, [3 x i32] }, { [22 x i32], i32, [3 x i32] }, { [22 x i32], i32, [3 x i32] }, { [22 x i32], i32, [3 x i32] }, i8, i8, i8, i8, [4 x i8] } }, ptr %193, i64 0, i32 2
+  %199 = getelementptr inbounds i8, ptr %193, i64 40
   %200 = load ptr, ptr %199, align 8, !nonnull !6, !align !10, !noundef !6
   call void @_ZN22serde_derive_internals9internals4ctxt4Ctxt16error_spanned_by17hdbfe0dba0389029aE(ptr align 8 %0, ptr nonnull align 8 %200, ptr nonnull align 1 @anon.1afab4bd373efb5043566ed828fa0c35.8, i64 49)
   br label %_ZN22serde_derive_internals9internals5check19check_flatten_field17h0e0cf36521ebbbebE.exit6.i
 
 201:                                              ; preds = %197
-  %202 = getelementptr inbounds { { [24 x i8], i8, [7 x i8] }, ptr, ptr, { { { { { ptr, i64 }, i64, { {} }, {} } }, { { { ptr, i64 }, i64 } }, { { { ptr, i64 }, i64 } }, i8, i8, [6 x i8] }, { ptr, [2 x i64] }, { ptr, [2 x i64] }, { { { ptr, i64 }, i64, { {} }, {} } }, { [22 x i32], i32, [3 x i32] }, { [22 x i32], i32, [3 x i32] }, { [22 x i32], i32, [3 x i32] }, { [22 x i32], i32, [3 x i32] }, { [22 x i32], i32, [3 x i32] }, i8, i8, i8, i8, [4 x i8] } }, ptr %193, i64 0, i32 2
+  %202 = getelementptr inbounds i8, ptr %193, i64 40
   %203 = load ptr, ptr %202, align 8, !nonnull !6, !align !10, !noundef !6
   call void @_ZN22serde_derive_internals9internals4ctxt4Ctxt16error_spanned_by17hdbfe0dba0389029aE(ptr align 8 %0, ptr nonnull align 8 %203, ptr nonnull align 1 @anon.1afab4bd373efb5043566ed828fa0c35.9, i64 51)
   br label %_ZN22serde_derive_internals9internals5check19check_flatten_field17h0e0cf36521ebbbebE.exit6.i
@@ -421,7 +421,7 @@ _ZN22serde_derive_internals9internals5check13check_flatten17h1fd3dff9855e0b7fE.e
   br i1 %207, label %208, label %_ZN22serde_derive_internals9internals5check16check_identifier17hf3f988f5fd5bdc8dE.exit
 
 208:                                              ; preds = %_ZN22serde_derive_internals9internals5check13check_flatten17h1fd3dff9855e0b7fE.exit
-  %209 = getelementptr inbounds { { { i64, [6 x i64] }, { i64, [28 x i64] }, { i64, [28 x i64] }, { i64, [28 x i64] }, { [8 x i32], i32, [3 x i32] }, { [8 x i32], i32, [3 x i32] }, { [22 x i32], i32, [3 x i32] }, { { { { ptr, i64 }, i64, { {} }, {} } }, { { { ptr, i64 }, i64 } }, { { { ptr, i64 }, i64 } }, i8, i8, [6 x i8] }, { ptr, [2 x i64] }, { ptr, [2 x i64] }, { ptr, [2 x i64] }, { i8, i8 }, { i8, i8 }, i8, i8, i8, i8, i8, i8, [6 x i8] }, { i8, [31 x i8] }, { { [24 x i8], i8, [7 x i8] }, {} }, ptr, ptr }, ptr %1, i64 0, i32 1, i32 1, i64 7
+  %209 = getelementptr inbounds i8, ptr %1, i64 1128
   %210 = call { ptr, i64 } @"_ZN72_$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$core..ops..deref..Deref$GT$5deref17h21d230bb2f91ce5cE"(ptr nonnull align 8 %209)
   %211 = extractvalue { ptr, i64 } %210, 0
   %212 = extractvalue { ptr, i64 } %210, 1
@@ -437,14 +437,14 @@ _ZN22serde_derive_internals9internals5check13check_flatten17h1fd3dff9855e0b7fE.e
   br i1 %217, label %_ZN22serde_derive_internals9internals5check16check_identifier17hf3f988f5fd5bdc8dE.exit, label %.lr.ph.i4
 
 .lr.ph.i4:                                        ; preds = %208
-  %218 = getelementptr inbounds { ptr, ptr }, ptr %63, i64 0, i32 1
+  %218 = getelementptr inbounds i8, ptr %63, i64 8
   br label %219
 
 219:                                              ; preds = %.backedge.i6, %.lr.ph.i4
   %.fca.1.extract20.i = phi ptr [ %.fca.1.extract18.i, %.lr.ph.i4 ], [ %.fca.1.extract.i7, %.backedge.i6 ]
   %.pn.i5 = phi { i64, ptr } [ %216, %.lr.ph.i4 ], [ %226, %.backedge.i6 ]
   %.fca.0.extract19.i = extractvalue { i64, ptr } %.pn.i5, 0
-  %220 = getelementptr inbounds { { { i64, [9 x i64] }, { [22 x i32], i32, [3 x i32] }, { [22 x i32], i32, [3 x i32] }, { { { { ptr, i64 }, i64, { {} }, {} } }, { { { ptr, i64 }, i64 } }, { { { ptr, i64 }, i64 } }, i8, i8, [6 x i8] }, { ptr, [2 x i64] }, { ptr, [2 x i64] }, { i8, i8 }, i8, i8, i8, i8, [2 x i8] }, { { [24 x i8], i8, [7 x i8] }, {} }, { { ptr, i64 }, i64 }, ptr, i8, [7 x i8] }, ptr %.fca.1.extract20.i, i64 0, i32 4
+  %220 = getelementptr inbounds i8, ptr %.fca.1.extract20.i, i64 488
   %221 = load i8, ptr %220, align 8, !range !8, !noundef !6
   %222 = call i8 @_ZN22serde_derive_internals9internals4attr9Container10identifier17h2e03a9737de3205aE(ptr align 8 %1), !range !11
   %223 = call zeroext i1 @_ZN22serde_derive_internals9internals4attr7Variant5other17hc0b2b1933d95d280E(ptr nonnull align 8 %.fca.1.extract20.i)
@@ -483,7 +483,7 @@ default.unreachable:                              ; preds = %219
   br i1 %234, label %235, label %238
 
 235:                                              ; preds = %231
-  %236 = getelementptr inbounds { { { i64, [9 x i64] }, { [22 x i32], i32, [3 x i32] }, { [22 x i32], i32, [3 x i32] }, { { { { ptr, i64 }, i64, { {} }, {} } }, { { { ptr, i64 }, i64 } }, { { { ptr, i64 }, i64 } }, i8, i8, [6 x i8] }, { ptr, [2 x i64] }, { ptr, [2 x i64] }, { i8, i8 }, i8, i8, i8, i8, [2 x i8] }, { { [24 x i8], i8, [7 x i8] }, {} }, { { ptr, i64 }, i64 }, ptr, i8, [7 x i8] }, ptr %.fca.1.extract20.i, i64 0, i32 3
+  %236 = getelementptr inbounds i8, ptr %.fca.1.extract20.i, i64 480
   %237 = load ptr, ptr %236, align 8, !nonnull !6, !align !10, !noundef !6
   call void @_ZN22serde_derive_internals9internals4ctxt4Ctxt16error_spanned_by17heed43526b02b4c21E(ptr align 8 %0, ptr nonnull align 8 %237, ptr nonnull align 1 @anon.1afab4bd373efb5043566ed828fa0c35.10, i64 46)
   br label %.backedge.i6
@@ -499,7 +499,7 @@ default.unreachable:                              ; preds = %219
   br i1 %243, label %248, label %.backedge.i6
 
 244:                                              ; preds = %247, %238
-  %245 = getelementptr inbounds { { { i64, [9 x i64] }, { [22 x i32], i32, [3 x i32] }, { [22 x i32], i32, [3 x i32] }, { { { { ptr, i64 }, i64, { {} }, {} } }, { { { ptr, i64 }, i64 } }, { { { ptr, i64 }, i64 } }, i8, i8, [6 x i8] }, { ptr, [2 x i64] }, { ptr, [2 x i64] }, { i8, i8 }, i8, i8, i8, i8, [2 x i8] }, { { [24 x i8], i8, [7 x i8] }, {} }, { { ptr, i64 }, i64 }, ptr, i8, [7 x i8] }, ptr %.fca.1.extract20.i, i64 0, i32 3
+  %245 = getelementptr inbounds i8, ptr %.fca.1.extract20.i, i64 480
   %246 = load ptr, ptr %245, align 8, !nonnull !6, !align !10, !noundef !6
   call void @_ZN22serde_derive_internals9internals4ctxt4Ctxt16error_spanned_by17heed43526b02b4c21E(ptr align 8 %0, ptr nonnull align 8 %246, ptr nonnull align 1 @anon.1afab4bd373efb5043566ed828fa0c35.12, i64 41)
   br label %.backedge.i6
@@ -508,7 +508,7 @@ default.unreachable:                              ; preds = %219
   br i1 %223, label %244, label %251
 
 248:                                              ; preds = %240
-  %249 = getelementptr inbounds { { { i64, [9 x i64] }, { [22 x i32], i32, [3 x i32] }, { [22 x i32], i32, [3 x i32] }, { { { { ptr, i64 }, i64, { {} }, {} } }, { { { ptr, i64 }, i64 } }, { { { ptr, i64 }, i64 } }, i8, i8, [6 x i8] }, { ptr, [2 x i64] }, { ptr, [2 x i64] }, { i8, i8 }, i8, i8, i8, i8, [2 x i8] }, { { [24 x i8], i8, [7 x i8] }, {} }, { { ptr, i64 }, i64 }, ptr, i8, [7 x i8] }, ptr %.fca.1.extract20.i, i64 0, i32 3
+  %249 = getelementptr inbounds i8, ptr %.fca.1.extract20.i, i64 480
   %250 = load ptr, ptr %249, align 8, !nonnull !6, !align !10, !noundef !6
   call void @_ZN22serde_derive_internals9internals4ctxt4Ctxt16error_spanned_by17heed43526b02b4c21E(ptr align 8 %0, ptr nonnull align 8 %250, ptr nonnull align 1 @anon.1afab4bd373efb5043566ed828fa0c35.11, i64 43)
   br label %.backedge.i6
@@ -520,7 +520,7 @@ default.unreachable:                              ; preds = %219
   ]
 
 252:                                              ; preds = %230
-  %253 = getelementptr inbounds { { { i64, [9 x i64] }, { [22 x i32], i32, [3 x i32] }, { [22 x i32], i32, [3 x i32] }, { { { { ptr, i64 }, i64, { {} }, {} } }, { { { ptr, i64 }, i64 } }, { { { ptr, i64 }, i64 } }, i8, i8, [6 x i8] }, { ptr, [2 x i64] }, { ptr, [2 x i64] }, { i8, i8 }, i8, i8, i8, i8, [2 x i8] }, { { [24 x i8], i8, [7 x i8] }, {} }, { { ptr, i64 }, i64 }, ptr, i8, [7 x i8] }, ptr %.fca.1.extract20.i, i64 0, i32 3
+  %253 = getelementptr inbounds i8, ptr %.fca.1.extract20.i, i64 480
   %254 = load ptr, ptr %253, align 8, !nonnull !6, !align !10, !noundef !6
   call void @_ZN22serde_derive_internals9internals4ctxt4Ctxt16error_spanned_by17heed43526b02b4c21E(ptr align 8 %0, ptr nonnull align 8 %254, ptr nonnull align 1 @anon.1afab4bd373efb5043566ed828fa0c35.18, i64 55)
   br label %.backedge.i6
@@ -540,9 +540,9 @@ default.unreachable:                              ; preds = %219
   br i1 %261, label %262, label %.backedge.i6
 
 262:                                              ; preds = %258
-  %263 = getelementptr inbounds { { { i64, [9 x i64] }, { [22 x i32], i32, [3 x i32] }, { [22 x i32], i32, [3 x i32] }, { { { { ptr, i64 }, i64, { {} }, {} } }, { { { ptr, i64 }, i64 } }, { { { ptr, i64 }, i64 } }, i8, i8, [6 x i8] }, { ptr, [2 x i64] }, { ptr, [2 x i64] }, { i8, i8 }, i8, i8, i8, i8, [2 x i8] }, { { [24 x i8], i8, [7 x i8] }, {} }, { { ptr, i64 }, i64 }, ptr, i8, [7 x i8] }, ptr %.fca.1.extract20.i, i64 0, i32 3
+  %263 = getelementptr inbounds i8, ptr %.fca.1.extract20.i, i64 480
   %264 = load ptr, ptr %263, align 8, !nonnull !6, !align !10, !noundef !6
-  %265 = getelementptr inbounds { { { i64, [9 x i64] }, { [22 x i32], i32, [3 x i32] }, { [22 x i32], i32, [3 x i32] }, { { { { ptr, i64 }, i64, { {} }, {} } }, { { { ptr, i64 }, i64 } }, { { { ptr, i64 }, i64 } }, i8, i8, [6 x i8] }, { ptr, [2 x i64] }, { ptr, [2 x i64] }, { i8, i8 }, i8, i8, i8, i8, [2 x i8] }, { { [24 x i8], i8, [7 x i8] }, {} }, { { ptr, i64 }, i64 }, ptr, i8, [7 x i8] }, ptr %.fca.1.extract20.i, i64 0, i32 1
+  %265 = getelementptr inbounds i8, ptr %.fca.1.extract20.i, i64 424
   store ptr %265, ptr %63, align 8
   store ptr @"_ZN57_$LT$proc_macro2..Ident$u20$as$u20$core..fmt..Display$GT$3fmt17hfd9e7efba353c38cE", ptr %218, align 8
   call void @_ZN4core3fmt9Arguments6new_v117h70ff4e7d6a51bed3E(ptr nonnull sret({ { ptr, i64 }, { ptr, i64 }, { ptr, i64 } }) align 8 %64, ptr nonnull align 8 @anon.1afab4bd373efb5043566ed828fa0c35.15, i64 2, ptr nonnull align 8 %63, i64 1)
@@ -553,7 +553,7 @@ default.unreachable:                              ; preds = %219
 266:                                              ; preds = %255
   %267 = xor i1 %223, true
   call void @llvm.assume(i1 %267)
-  %268 = getelementptr inbounds { { { i64, [9 x i64] }, { [22 x i32], i32, [3 x i32] }, { [22 x i32], i32, [3 x i32] }, { { { { ptr, i64 }, i64, { {} }, {} } }, { { { ptr, i64 }, i64 } }, { { { ptr, i64 }, i64 } }, i8, i8, [6 x i8] }, { ptr, [2 x i64] }, { ptr, [2 x i64] }, { i8, i8 }, i8, i8, i8, i8, [2 x i8] }, { { [24 x i8], i8, [7 x i8] }, {} }, { { ptr, i64 }, i64 }, ptr, i8, [7 x i8] }, ptr %.fca.1.extract20.i, i64 0, i32 3
+  %268 = getelementptr inbounds i8, ptr %.fca.1.extract20.i, i64 480
   %269 = load ptr, ptr %268, align 8, !nonnull !6, !align !10, !noundef !6
   call void @_ZN22serde_derive_internals9internals4ctxt4Ctxt16error_spanned_by17heed43526b02b4c21E(ptr align 8 %0, ptr nonnull align 8 %269, ptr nonnull align 1 @anon.1afab4bd373efb5043566ed828fa0c35.16, i64 57)
   br label %.backedge.i6
@@ -561,7 +561,7 @@ default.unreachable:                              ; preds = %219
 270:                                              ; preds = %257, %255
   %271 = xor i1 %223, true
   call void @llvm.assume(i1 %271)
-  %272 = getelementptr inbounds { { { i64, [9 x i64] }, { [22 x i32], i32, [3 x i32] }, { [22 x i32], i32, [3 x i32] }, { { { { ptr, i64 }, i64, { {} }, {} } }, { { { ptr, i64 }, i64 } }, { { { ptr, i64 }, i64 } }, i8, i8, [6 x i8] }, { ptr, [2 x i64] }, { ptr, [2 x i64] }, { i8, i8 }, i8, i8, i8, i8, [2 x i8] }, { { [24 x i8], i8, [7 x i8] }, {} }, { { ptr, i64 }, i64 }, ptr, i8, [7 x i8] }, ptr %.fca.1.extract20.i, i64 0, i32 3
+  %272 = getelementptr inbounds i8, ptr %.fca.1.extract20.i, i64 480
   %273 = load ptr, ptr %272, align 8, !nonnull !6, !align !10, !noundef !6
   call void @_ZN22serde_derive_internals9internals4ctxt4Ctxt16error_spanned_by17heed43526b02b4c21E(ptr align 8 %0, ptr nonnull align 8 %273, ptr nonnull align 1 @anon.1afab4bd373efb5043566ed828fa0c35.17, i64 59)
   br label %.backedge.i6
@@ -601,35 +601,35 @@ _ZN22serde_derive_internals9internals5check16check_identifier17hf3f988f5fd5bdc8d
   br i1 %275, label %276, label %_ZN22serde_derive_internals9internals5check24check_variant_skip_attrs17hb33cdb801fb1daa9E.exit
 
 276:                                              ; preds = %_ZN22serde_derive_internals9internals5check16check_identifier17hf3f988f5fd5bdc8dE.exit
-  %277 = getelementptr inbounds { { { i64, [6 x i64] }, { i64, [28 x i64] }, { i64, [28 x i64] }, { i64, [28 x i64] }, { [8 x i32], i32, [3 x i32] }, { [8 x i32], i32, [3 x i32] }, { [22 x i32], i32, [3 x i32] }, { { { { ptr, i64 }, i64, { {} }, {} } }, { { { ptr, i64 }, i64 } }, { { { ptr, i64 }, i64 } }, i8, i8, [6 x i8] }, { ptr, [2 x i64] }, { ptr, [2 x i64] }, { ptr, [2 x i64] }, { i8, i8 }, { i8, i8 }, i8, i8, i8, i8, i8, i8, [6 x i8] }, { i8, [31 x i8] }, { { [24 x i8], i8, [7 x i8] }, {} }, ptr, ptr }, ptr %1, i64 0, i32 1, i32 1, i64 7
+  %277 = getelementptr inbounds i8, ptr %1, i64 1128
   %278 = call { ptr, ptr } @"_ZN94_$LT$$RF$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$core..iter..traits..collect..IntoIterator$GT$9into_iter17h20dedd1699737e61E"(ptr nonnull align 8 %277)
   %279 = extractvalue { ptr, ptr } %278, 0
   %280 = extractvalue { ptr, ptr } %278, 1
   store ptr %279, ptr %62, align 8
-  %281 = getelementptr inbounds { ptr, ptr }, ptr %62, i64 0, i32 1
+  %281 = getelementptr inbounds i8, ptr %62, i64 8
   store ptr %280, ptr %281, align 8
   %282 = call align 8 ptr @"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hdb92dededc74cfefE"(ptr nonnull align 8 %62)
   %283 = icmp eq ptr %282, null
   br i1 %283, label %_ZN22serde_derive_internals9internals5check24check_variant_skip_attrs17hb33cdb801fb1daa9E.exit, label %.lr.ph29.i
 
 .lr.ph29.i:                                       ; preds = %276
-  %284 = getelementptr inbounds { ptr, ptr }, ptr %58, i64 0, i32 1
-  %285 = getelementptr inbounds { ptr, ptr }, ptr %57, i64 0, i32 1
-  %286 = getelementptr inbounds { ptr, ptr }, ptr %36, i64 0, i32 1
-  %287 = getelementptr inbounds { ptr, ptr }, ptr %33, i64 0, i32 1
-  %288 = getelementptr inbounds { ptr, ptr }, ptr %53, i64 0, i32 1
-  %289 = getelementptr inbounds [2 x { ptr, ptr }], ptr %53, i64 0, i64 1
-  %290 = getelementptr inbounds [2 x { ptr, ptr }], ptr %53, i64 0, i64 1, i32 1
-  %291 = getelementptr inbounds { ptr, ptr }, ptr %49, i64 0, i32 1
-  %292 = getelementptr inbounds [2 x { ptr, ptr }], ptr %49, i64 0, i64 1
-  %293 = getelementptr inbounds [2 x { ptr, ptr }], ptr %49, i64 0, i64 1, i32 1
-  %294 = getelementptr inbounds { ptr, ptr }, ptr %45, i64 0, i32 1
-  %295 = getelementptr inbounds { ptr, ptr }, ptr %44, i64 0, i32 1
-  %296 = getelementptr inbounds { ptr, ptr }, ptr %29, i64 0, i32 1
-  %297 = getelementptr inbounds { ptr, ptr }, ptr %26, i64 0, i32 1
-  %298 = getelementptr inbounds { ptr, ptr }, ptr %40, i64 0, i32 1
-  %299 = getelementptr inbounds [2 x { ptr, ptr }], ptr %40, i64 0, i64 1
-  %300 = getelementptr inbounds [2 x { ptr, ptr }], ptr %40, i64 0, i64 1, i32 1
+  %284 = getelementptr inbounds i8, ptr %58, i64 8
+  %285 = getelementptr inbounds i8, ptr %57, i64 8
+  %286 = getelementptr inbounds i8, ptr %36, i64 8
+  %287 = getelementptr inbounds i8, ptr %33, i64 8
+  %288 = getelementptr inbounds i8, ptr %53, i64 8
+  %289 = getelementptr inbounds i8, ptr %53, i64 16
+  %290 = getelementptr inbounds i8, ptr %53, i64 24
+  %291 = getelementptr inbounds i8, ptr %49, i64 8
+  %292 = getelementptr inbounds i8, ptr %49, i64 16
+  %293 = getelementptr inbounds i8, ptr %49, i64 24
+  %294 = getelementptr inbounds i8, ptr %45, i64 8
+  %295 = getelementptr inbounds i8, ptr %44, i64 8
+  %296 = getelementptr inbounds i8, ptr %29, i64 8
+  %297 = getelementptr inbounds i8, ptr %26, i64 8
+  %298 = getelementptr inbounds i8, ptr %40, i64 8
+  %299 = getelementptr inbounds i8, ptr %40, i64 16
+  %300 = getelementptr inbounds i8, ptr %40, i64 24
   br label %301
 
 301:                                              ; preds = %.backedge27.i, %.lr.ph29.i
@@ -655,7 +655,7 @@ _ZN22serde_derive_internals9internals5check16check_identifier17hf3f988f5fd5bdc8d
   br i1 %310, label %320, label %311
 
 311:                                              ; preds = %320, %309
-  %312 = getelementptr inbounds { { { i64, [9 x i64] }, { [22 x i32], i32, [3 x i32] }, { [22 x i32], i32, [3 x i32] }, { { { { ptr, i64 }, i64, { {} }, {} } }, { { { ptr, i64 }, i64 } }, { { { ptr, i64 }, i64 } }, i8, i8, [6 x i8] }, { ptr, [2 x i64] }, { ptr, [2 x i64] }, { i8, i8 }, i8, i8, i8, i8, [2 x i8] }, { { [24 x i8], i8, [7 x i8] }, {} }, { { ptr, i64 }, i64 }, ptr, i8, [7 x i8] }, ptr %302, i64 0, i32 2
+  %312 = getelementptr inbounds i8, ptr %302, i64 456
   %313 = call { ptr, ptr } @"_ZN94_$LT$$RF$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$core..iter..traits..collect..IntoIterator$GT$9into_iter17hba617fbb309a0a7dE"(ptr nonnull align 8 %312)
   %314 = extractvalue { ptr, ptr } %313, 0
   %315 = extractvalue { ptr, ptr } %313, 1
@@ -666,14 +666,14 @@ _ZN22serde_derive_internals9internals5check16check_identifier17hf3f988f5fd5bdc8d
   br i1 %317, label %.loopexit25.i, label %.lr.ph.i10
 
 .lr.ph.i10:                                       ; preds = %311
-  %318 = getelementptr inbounds { { { i64, [9 x i64] }, { [22 x i32], i32, [3 x i32] }, { [22 x i32], i32, [3 x i32] }, { { { { ptr, i64 }, i64, { {} }, {} } }, { { { ptr, i64 }, i64 } }, { { { ptr, i64 }, i64 } }, i8, i8, [6 x i8] }, { ptr, [2 x i64] }, { ptr, [2 x i64] }, { i8, i8 }, i8, i8, i8, i8, [2 x i8] }, { { [24 x i8], i8, [7 x i8] }, {} }, { { ptr, i64 }, i64 }, ptr, i8, [7 x i8] }, ptr %302, i64 0, i32 3
-  %319 = getelementptr inbounds { { { i64, [9 x i64] }, { [22 x i32], i32, [3 x i32] }, { [22 x i32], i32, [3 x i32] }, { { { { ptr, i64 }, i64, { {} }, {} } }, { { { ptr, i64 }, i64 } }, { { { ptr, i64 }, i64 } }, i8, i8, [6 x i8] }, { ptr, [2 x i64] }, { ptr, [2 x i64] }, { i8, i8 }, i8, i8, i8, i8, [2 x i8] }, { { [24 x i8], i8, [7 x i8] }, {} }, { { ptr, i64 }, i64 }, ptr, i8, [7 x i8] }, ptr %302, i64 0, i32 1
+  %318 = getelementptr inbounds i8, ptr %302, i64 480
+  %319 = getelementptr inbounds i8, ptr %302, i64 424
   br label %324
 
 320:                                              ; preds = %309
-  %321 = getelementptr inbounds { { { i64, [9 x i64] }, { [22 x i32], i32, [3 x i32] }, { [22 x i32], i32, [3 x i32] }, { { { { ptr, i64 }, i64, { {} }, {} } }, { { { ptr, i64 }, i64 } }, { { { ptr, i64 }, i64 } }, i8, i8, [6 x i8] }, { ptr, [2 x i64] }, { ptr, [2 x i64] }, { i8, i8 }, i8, i8, i8, i8, [2 x i8] }, { { [24 x i8], i8, [7 x i8] }, {} }, { { ptr, i64 }, i64 }, ptr, i8, [7 x i8] }, ptr %302, i64 0, i32 3
+  %321 = getelementptr inbounds i8, ptr %302, i64 480
   %322 = load ptr, ptr %321, align 8, !nonnull !6, !align !10, !noundef !6
-  %323 = getelementptr inbounds { { { i64, [9 x i64] }, { [22 x i32], i32, [3 x i32] }, { [22 x i32], i32, [3 x i32] }, { { { { ptr, i64 }, i64, { {} }, {} } }, { { { ptr, i64 }, i64 } }, { { { ptr, i64 }, i64 } }, i8, i8, [6 x i8] }, { ptr, [2 x i64] }, { ptr, [2 x i64] }, { i8, i8 }, i8, i8, i8, i8, [2 x i8] }, { { [24 x i8], i8, [7 x i8] }, {} }, { { ptr, i64 }, i64 }, ptr, i8, [7 x i8] }, ptr %302, i64 0, i32 1
+  %323 = getelementptr inbounds i8, ptr %302, i64 424
   store ptr %323, ptr %58, align 8
   store ptr @"_ZN57_$LT$proc_macro2..Ident$u20$as$u20$core..fmt..Display$GT$3fmt17hfd9e7efba353c38cE", ptr %284, align 8
   call void @_ZN4core3fmt9Arguments6new_v117h70ff4e7d6a51bed3E(ptr nonnull sret({ { ptr, i64 }, { ptr, i64 }, { ptr, i64 } }) align 8 %59, ptr nonnull align 8 @anon.1afab4bd373efb5043566ed828fa0c35.21, i64 2, ptr nonnull align 8 %58, i64 1)
@@ -690,7 +690,7 @@ _ZN22serde_derive_internals9internals5check16check_identifier17hf3f988f5fd5bdc8d
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %37)
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %38)
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %39)
-  %326 = getelementptr inbounds { [24 x i8], i8, [7 x i8] }, ptr %325, i64 0, i32 1
+  %326 = getelementptr inbounds i8, ptr %325, i64 24
   %327 = load i8, ptr %326, align 8, !range !8, !noalias !13, !noundef !6
   %.not.i.i = icmp eq i8 %327, 3
   br i1 %.not.i.i, label %329, label %328
@@ -720,7 +720,7 @@ _ZN22serde_derive_internals9internals5check14member_message17h65339be11b315990E.
   call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %37)
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %38)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %39)
-  %330 = getelementptr inbounds { { [24 x i8], i8, [7 x i8] }, ptr, ptr, { { { { { ptr, i64 }, i64, { {} }, {} } }, { { { ptr, i64 }, i64 } }, { { { ptr, i64 }, i64 } }, i8, i8, [6 x i8] }, { ptr, [2 x i64] }, { ptr, [2 x i64] }, { { { ptr, i64 }, i64, { {} }, {} } }, { [22 x i32], i32, [3 x i32] }, { [22 x i32], i32, [3 x i32] }, { [22 x i32], i32, [3 x i32] }, { [22 x i32], i32, [3 x i32] }, { [22 x i32], i32, [3 x i32] }, i8, i8, i8, i8, [4 x i8] } }, ptr %325, i64 0, i32 3
+  %330 = getelementptr inbounds i8, ptr %325, i64 48
   %331 = invoke zeroext i1 @_ZN22serde_derive_internals9internals4attr5Field16skip_serializing17h60df8843ec3dd7aaE(ptr nonnull align 8 %330)
           to label %369 unwind label %367
 
@@ -729,7 +729,7 @@ _ZN22serde_derive_internals9internals5check14member_message17h65339be11b315990E.
   br i1 %333, label %343, label %334
 
 334:                                              ; preds = %343, %332
-  %335 = getelementptr inbounds { { { i64, [9 x i64] }, { [22 x i32], i32, [3 x i32] }, { [22 x i32], i32, [3 x i32] }, { { { { ptr, i64 }, i64, { {} }, {} } }, { { { ptr, i64 }, i64 } }, { { { ptr, i64 }, i64 } }, i8, i8, [6 x i8] }, { ptr, [2 x i64] }, { ptr, [2 x i64] }, { i8, i8 }, i8, i8, i8, i8, [2 x i8] }, { { [24 x i8], i8, [7 x i8] }, {} }, { { ptr, i64 }, i64 }, ptr, i8, [7 x i8] }, ptr %302, i64 0, i32 2
+  %335 = getelementptr inbounds i8, ptr %302, i64 456
   %336 = call { ptr, ptr } @"_ZN94_$LT$$RF$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$core..iter..traits..collect..IntoIterator$GT$9into_iter17hba617fbb309a0a7dE"(ptr nonnull align 8 %335)
   %337 = extractvalue { ptr, ptr } %336, 0
   %338 = extractvalue { ptr, ptr } %336, 1
@@ -740,14 +740,14 @@ _ZN22serde_derive_internals9internals5check14member_message17h65339be11b315990E.
   br i1 %340, label %.backedge27.i, label %.lr.ph28.i
 
 .lr.ph28.i:                                       ; preds = %334
-  %341 = getelementptr inbounds { { { i64, [9 x i64] }, { [22 x i32], i32, [3 x i32] }, { [22 x i32], i32, [3 x i32] }, { { { { ptr, i64 }, i64, { {} }, {} } }, { { { ptr, i64 }, i64 } }, { { { ptr, i64 }, i64 } }, i8, i8, [6 x i8] }, { ptr, [2 x i64] }, { ptr, [2 x i64] }, { i8, i8 }, i8, i8, i8, i8, [2 x i8] }, { { [24 x i8], i8, [7 x i8] }, {} }, { { ptr, i64 }, i64 }, ptr, i8, [7 x i8] }, ptr %302, i64 0, i32 3
-  %342 = getelementptr inbounds { { { i64, [9 x i64] }, { [22 x i32], i32, [3 x i32] }, { [22 x i32], i32, [3 x i32] }, { { { { ptr, i64 }, i64, { {} }, {} } }, { { { ptr, i64 }, i64 } }, { { { ptr, i64 }, i64 } }, i8, i8, [6 x i8] }, { ptr, [2 x i64] }, { ptr, [2 x i64] }, { i8, i8 }, i8, i8, i8, i8, [2 x i8] }, { { [24 x i8], i8, [7 x i8] }, {} }, { { ptr, i64 }, i64 }, ptr, i8, [7 x i8] }, ptr %302, i64 0, i32 1
+  %341 = getelementptr inbounds i8, ptr %302, i64 480
+  %342 = getelementptr inbounds i8, ptr %302, i64 424
   br label %347
 
 343:                                              ; preds = %332
-  %344 = getelementptr inbounds { { { i64, [9 x i64] }, { [22 x i32], i32, [3 x i32] }, { [22 x i32], i32, [3 x i32] }, { { { { ptr, i64 }, i64, { {} }, {} } }, { { { ptr, i64 }, i64 } }, { { { ptr, i64 }, i64 } }, i8, i8, [6 x i8] }, { ptr, [2 x i64] }, { ptr, [2 x i64] }, { i8, i8 }, i8, i8, i8, i8, [2 x i8] }, { { [24 x i8], i8, [7 x i8] }, {} }, { { ptr, i64 }, i64 }, ptr, i8, [7 x i8] }, ptr %302, i64 0, i32 3
+  %344 = getelementptr inbounds i8, ptr %302, i64 480
   %345 = load ptr, ptr %344, align 8, !nonnull !6, !align !10, !noundef !6
-  %346 = getelementptr inbounds { { { i64, [9 x i64] }, { [22 x i32], i32, [3 x i32] }, { [22 x i32], i32, [3 x i32] }, { { { { ptr, i64 }, i64, { {} }, {} } }, { { { ptr, i64 }, i64 } }, { { { ptr, i64 }, i64 } }, i8, i8, [6 x i8] }, { ptr, [2 x i64] }, { ptr, [2 x i64] }, { i8, i8 }, i8, i8, i8, i8, [2 x i8] }, { { [24 x i8], i8, [7 x i8] }, {} }, { { ptr, i64 }, i64 }, ptr, i8, [7 x i8] }, ptr %302, i64 0, i32 1
+  %346 = getelementptr inbounds i8, ptr %302, i64 424
   store ptr %346, ptr %45, align 8
   store ptr @"_ZN57_$LT$proc_macro2..Ident$u20$as$u20$core..fmt..Display$GT$3fmt17hfd9e7efba353c38cE", ptr %294, align 8
   call void @_ZN4core3fmt9Arguments6new_v117h70ff4e7d6a51bed3E(ptr nonnull sret({ { ptr, i64 }, { ptr, i64 }, { ptr, i64 } }) align 8 %46, ptr nonnull align 8 @anon.1afab4bd373efb5043566ed828fa0c35.23, i64 2, ptr nonnull align 8 %45, i64 1)
@@ -757,7 +757,7 @@ _ZN22serde_derive_internals9internals5check14member_message17h65339be11b315990E.
 
 347:                                              ; preds = %.backedge.i8, %.lr.ph28.i
   %348 = phi ptr [ %339, %.lr.ph28.i ], [ %351, %.backedge.i8 ]
-  %349 = getelementptr inbounds { { [24 x i8], i8, [7 x i8] }, ptr, ptr, { { { { { ptr, i64 }, i64, { {} }, {} } }, { { { ptr, i64 }, i64 } }, { { { ptr, i64 }, i64 } }, i8, i8, [6 x i8] }, { ptr, [2 x i64] }, { ptr, [2 x i64] }, { { { ptr, i64 }, i64, { {} }, {} } }, { [22 x i32], i32, [3 x i32] }, { [22 x i32], i32, [3 x i32] }, { [22 x i32], i32, [3 x i32] }, { [22 x i32], i32, [3 x i32] }, { [22 x i32], i32, [3 x i32] }, i8, i8, i8, i8, [4 x i8] } }, ptr %348, i64 0, i32 3
+  %349 = getelementptr inbounds i8, ptr %348, i64 48
   %350 = call zeroext i1 @_ZN22serde_derive_internals9internals4attr5Field18skip_deserializing17hf48a3d1ead8bd327E(ptr nonnull align 8 %349)
   br i1 %350, label %353, label %.backedge.i8
 
@@ -774,7 +774,7 @@ _ZN22serde_derive_internals9internals5check14member_message17h65339be11b315990E.
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %30)
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %31)
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %32)
-  %354 = getelementptr inbounds { [24 x i8], i8, [7 x i8] }, ptr %348, i64 0, i32 1
+  %354 = getelementptr inbounds i8, ptr %348, i64 24
   %355 = load i8, ptr %354, align 8, !range !8, !noalias !16, !noundef !6
   %.not.i22.i = icmp eq i8 %355, 3
   br i1 %.not.i22.i, label %357, label %356
@@ -952,37 +952,37 @@ _ZN22serde_derive_internals9internals5check24check_variant_skip_attrs17hb33cdb80
   br label %_ZN22serde_derive_internals9internals5check38check_internal_tag_field_name_conflict17had757668618fd42aE.exit
 
 391:                                              ; preds = %388
-  %392 = getelementptr inbounds { { { i64, [6 x i64] }, { i64, [28 x i64] }, { i64, [28 x i64] }, { i64, [28 x i64] }, { [8 x i32], i32, [3 x i32] }, { [8 x i32], i32, [3 x i32] }, { [22 x i32], i32, [3 x i32] }, { { { { ptr, i64 }, i64, { {} }, {} } }, { { { ptr, i64 }, i64 } }, { { { ptr, i64 }, i64 } }, i8, i8, [6 x i8] }, { ptr, [2 x i64] }, { ptr, [2 x i64] }, { ptr, [2 x i64] }, { i8, i8 }, { i8, i8 }, i8, i8, i8, i8, i8, i8, [6 x i8] }, { i8, [31 x i8] }, { { [24 x i8], i8, [7 x i8] }, {} }, ptr, ptr }, ptr %1, i64 0, i32 1, i32 1, i64 7
-  %393 = getelementptr inbounds { [1 x i64], { { { ptr, i64 }, i64 } } }, ptr %389, i64 0, i32 1
+  %392 = getelementptr inbounds i8, ptr %1, i64 1128
+  %393 = getelementptr inbounds i8, ptr %389, i64 8
   %394 = call { ptr, i64 } @_ZN5alloc6string6String6as_str17h030070fdfddb99e6E(ptr nonnull align 8 %393)
   %.fca.0.extract.i = extractvalue { ptr, i64 } %394, 0
   store ptr %.fca.0.extract.i, ptr %23, align 8
   %.fca.1.extract.i11 = extractvalue { ptr, i64 } %394, 1
-  %.fca.1.gep.i = getelementptr inbounds { ptr, i64 }, ptr %23, i64 0, i32 1
+  %.fca.1.gep.i = getelementptr inbounds i8, ptr %23, i64 8
   store i64 %.fca.1.extract.i11, ptr %.fca.1.gep.i, align 8
   store ptr %25, ptr %22, align 8
-  %395 = getelementptr inbounds { ptr, ptr, ptr }, ptr %22, i64 0, i32 1
+  %395 = getelementptr inbounds i8, ptr %22, i64 8
   store ptr %24, ptr %395, align 8
-  %396 = getelementptr inbounds { ptr, ptr, ptr }, ptr %22, i64 0, i32 2
+  %396 = getelementptr inbounds i8, ptr %22, i64 16
   store ptr %23, ptr %396, align 8
   %397 = call { ptr, ptr } @"_ZN94_$LT$$RF$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$core..iter..traits..collect..IntoIterator$GT$9into_iter17h20dedd1699737e61E"(ptr nonnull align 8 %392)
   %398 = extractvalue { ptr, ptr } %397, 0
   %399 = extractvalue { ptr, ptr } %397, 1
   store ptr %398, ptr %21, align 8
-  %400 = getelementptr inbounds { ptr, ptr }, ptr %21, i64 0, i32 1
+  %400 = getelementptr inbounds i8, ptr %21, i64 8
   store ptr %399, ptr %400, align 8
   %401 = call align 8 ptr @"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hdb92dededc74cfefE"(ptr nonnull align 8 %21)
   %402 = icmp eq ptr %401, null
   br i1 %402, label %_ZN22serde_derive_internals9internals5check38check_internal_tag_field_name_conflict17had757668618fd42aE.exit, label %.lr.ph17.i
 
 .lr.ph17.i:                                       ; preds = %391
-  %403 = getelementptr inbounds { ptr, ptr }, ptr %20, i64 0, i32 1
-  %.fca.1.gep8.i = getelementptr inbounds { ptr, i64 }, ptr %19, i64 0, i32 1
+  %403 = getelementptr inbounds i8, ptr %20, i64 8
+  %.fca.1.gep8.i = getelementptr inbounds i8, ptr %19, i64 8
   br label %404
 
 404:                                              ; preds = %.backedge15.i, %.lr.ph17.i
   %405 = phi ptr [ %401, %.lr.ph17.i ], [ %410, %.backedge15.i ]
-  %406 = getelementptr inbounds { { { i64, [9 x i64] }, { [22 x i32], i32, [3 x i32] }, { [22 x i32], i32, [3 x i32] }, { { { { ptr, i64 }, i64, { {} }, {} } }, { { { ptr, i64 }, i64 } }, { { { ptr, i64 }, i64 } }, i8, i8, [6 x i8] }, { ptr, [2 x i64] }, { ptr, [2 x i64] }, { i8, i8 }, i8, i8, i8, i8, [2 x i8] }, { { [24 x i8], i8, [7 x i8] }, {} }, { { ptr, i64 }, i64 }, ptr, i8, [7 x i8] }, ptr %405, i64 0, i32 4
+  %406 = getelementptr inbounds i8, ptr %405, i64 488
   %407 = load i8, ptr %406, align 8, !range !8, !noundef !6
   %switch12.i = icmp eq i8 %407, 0
   br i1 %switch12.i, label %408, label %.backedge15.i
@@ -997,7 +997,7 @@ _ZN22serde_derive_internals9internals5check24check_variant_skip_attrs17hb33cdb80
   br i1 %411, label %_ZN22serde_derive_internals9internals5check38check_internal_tag_field_name_conflict17had757668618fd42aE.exit, label %404
 
 412:                                              ; preds = %408
-  %413 = getelementptr inbounds { { { i64, [9 x i64] }, { [22 x i32], i32, [3 x i32] }, { [22 x i32], i32, [3 x i32] }, { { { { ptr, i64 }, i64, { {} }, {} } }, { { { ptr, i64 }, i64 } }, { { { ptr, i64 }, i64 } }, i8, i8, [6 x i8] }, { ptr, [2 x i64] }, { ptr, [2 x i64] }, { i8, i8 }, i8, i8, i8, i8, [2 x i8] }, { { [24 x i8], i8, [7 x i8] }, {} }, { { ptr, i64 }, i64 }, ptr, i8, [7 x i8] }, ptr %405, i64 0, i32 2
+  %413 = getelementptr inbounds i8, ptr %405, i64 456
   %414 = call { ptr, ptr } @"_ZN94_$LT$$RF$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$core..iter..traits..collect..IntoIterator$GT$9into_iter17hba617fbb309a0a7dE"(ptr nonnull align 8 %413)
   %415 = extractvalue { ptr, ptr } %414, 0
   %416 = extractvalue { ptr, ptr } %414, 1
@@ -1014,7 +1014,7 @@ _ZN22serde_derive_internals9internals5check24check_variant_skip_attrs17hb33cdb80
 
 .lr.ph16.i:                                       ; preds = %412, %.loopexit.i14
   %421 = phi ptr [ %419, %.loopexit.i14 ], [ %417, %412 ]
-  %422 = getelementptr inbounds { { [24 x i8], i8, [7 x i8] }, ptr, ptr, { { { { { ptr, i64 }, i64, { {} }, {} } }, { { { ptr, i64 }, i64 } }, { { { ptr, i64 }, i64 } }, i8, i8, [6 x i8] }, { ptr, [2 x i64] }, { ptr, [2 x i64] }, { { { ptr, i64 }, i64, { {} }, {} } }, { [22 x i32], i32, [3 x i32] }, { [22 x i32], i32, [3 x i32] }, { [22 x i32], i32, [3 x i32] }, { [22 x i32], i32, [3 x i32] }, { [22 x i32], i32, [3 x i32] }, i8, i8, i8, i8, [4 x i8] } }, ptr %421, i64 0, i32 3
+  %422 = getelementptr inbounds i8, ptr %421, i64 48
   %423 = call zeroext i1 @_ZN22serde_derive_internals9internals4attr5Field16skip_serializing17h60df8843ec3dd7aaE(ptr nonnull align 8 %422)
   br i1 %423, label %426, label %424
 
@@ -1096,18 +1096,18 @@ _ZN22serde_derive_internals9internals5check38check_internal_tag_field_name_confl
   br i1 %switch.i15, label %448, label %_ZN22serde_derive_internals9internals5check27check_adjacent_tag_conflict17ha790fd5627435328E.exit
 
 448:                                              ; preds = %_ZN22serde_derive_internals9internals5check38check_internal_tag_field_name_conflict17had757668618fd42aE.exit
-  %449 = getelementptr inbounds { [1 x i64], { { { ptr, i64 }, i64 } }, { { { ptr, i64 }, i64 } } }, ptr %446, i64 0, i32 1
-  %450 = getelementptr inbounds { [1 x i64], { { { ptr, i64 }, i64 } }, { { { ptr, i64 }, i64 } } }, ptr %446, i64 0, i32 2
+  %449 = getelementptr inbounds i8, ptr %446, i64 8
+  %450 = getelementptr inbounds i8, ptr %446, i64 32
   store ptr %449, ptr %15, align 8
   store ptr %450, ptr %14, align 8
   %451 = call zeroext i1 @"_ZN4core3cmp5impls69_$LT$impl$u20$core..cmp..PartialEq$LT$$RF$B$GT$$u20$for$u20$$RF$A$GT$2eq17hb9c27efb7076bfc2E"(ptr nonnull align 8 %15, ptr nonnull align 8 %14)
   br i1 %451, label %452, label %_ZN22serde_derive_internals9internals5check27check_adjacent_tag_conflict17ha790fd5627435328E.exit
 
 452:                                              ; preds = %448
-  %453 = getelementptr inbounds { { { i64, [6 x i64] }, { i64, [28 x i64] }, { i64, [28 x i64] }, { i64, [28 x i64] }, { [8 x i32], i32, [3 x i32] }, { [8 x i32], i32, [3 x i32] }, { [22 x i32], i32, [3 x i32] }, { { { { ptr, i64 }, i64, { {} }, {} } }, { { { ptr, i64 }, i64 } }, { { { ptr, i64 }, i64 } }, i8, i8, [6 x i8] }, { ptr, [2 x i64] }, { ptr, [2 x i64] }, { ptr, [2 x i64] }, { i8, i8 }, { i8, i8 }, i8, i8, i8, i8, i8, i8, [6 x i8] }, { i8, [31 x i8] }, { { [24 x i8], i8, [7 x i8] }, {} }, ptr, ptr }, ptr %1, i64 0, i32 4
+  %453 = getelementptr inbounds i8, ptr %1, i64 1192
   %454 = load ptr, ptr %453, align 8, !nonnull !6, !align !10, !noundef !6
   store ptr %15, ptr %11, align 8
-  %455 = getelementptr inbounds { ptr, ptr }, ptr %11, i64 0, i32 1
+  %455 = getelementptr inbounds i8, ptr %11, i64 8
   store ptr @"_ZN44_$LT$$RF$T$u20$as$u20$core..fmt..Display$GT$3fmt17h4f7c004ce5838a40E", ptr %455, align 8
   call void @_ZN4core3fmt9Arguments6new_v117h70ff4e7d6a51bed3E(ptr nonnull sret({ { ptr, i64 }, { ptr, i64 }, { ptr, i64 } }) align 8 %12, ptr nonnull align 8 @anon.1afab4bd373efb5043566ed828fa0c35.34, i64 2, ptr nonnull align 8 %11, i64 1)
   call void @_ZN5alloc3fmt6format17h33baad1a8d99d4edE(ptr nonnull sret({ { { ptr, i64 }, i64 } }) align 8 %13, ptr nonnull align 8 %12)
@@ -1142,7 +1142,7 @@ _ZN22serde_derive_internals9internals5check27check_adjacent_tag_conflict17ha790f
   br i1 %462, label %469, label %466
 
 463:                                              ; preds = %457
-  %464 = getelementptr inbounds { { { i64, [6 x i64] }, { i64, [28 x i64] }, { i64, [28 x i64] }, { i64, [28 x i64] }, { [8 x i32], i32, [3 x i32] }, { [8 x i32], i32, [3 x i32] }, { [22 x i32], i32, [3 x i32] }, { { { { ptr, i64 }, i64, { {} }, {} } }, { { { ptr, i64 }, i64 } }, { { { ptr, i64 }, i64 } }, i8, i8, [6 x i8] }, { ptr, [2 x i64] }, { ptr, [2 x i64] }, { ptr, [2 x i64] }, { i8, i8 }, { i8, i8 }, i8, i8, i8, i8, i8, i8, [6 x i8] }, { i8, [31 x i8] }, { { [24 x i8], i8, [7 x i8] }, {} }, ptr, ptr }, ptr %1, i64 0, i32 4
+  %464 = getelementptr inbounds i8, ptr %1, i64 1192
   %465 = load ptr, ptr %464, align 8, !nonnull !6, !align !10, !noundef !6
   call void @_ZN22serde_derive_internals9internals4ctxt4Ctxt16error_spanned_by17h0d04e0b3926d9e03E(ptr align 8 %0, ptr nonnull align 8 %465, ptr nonnull align 1 @anon.1afab4bd373efb5043566ed828fa0c35.35, i64 64)
   br label %460
@@ -1154,7 +1154,7 @@ _ZN22serde_derive_internals9internals5check27check_adjacent_tag_conflict17ha790f
   br i1 %468, label %475, label %472
 
 469:                                              ; preds = %460
-  %470 = getelementptr inbounds { { { i64, [6 x i64] }, { i64, [28 x i64] }, { i64, [28 x i64] }, { i64, [28 x i64] }, { [8 x i32], i32, [3 x i32] }, { [8 x i32], i32, [3 x i32] }, { [22 x i32], i32, [3 x i32] }, { { { { ptr, i64 }, i64, { {} }, {} } }, { { { ptr, i64 }, i64 } }, { { { ptr, i64 }, i64 } }, i8, i8, [6 x i8] }, { ptr, [2 x i64] }, { ptr, [2 x i64] }, { ptr, [2 x i64] }, { i8, i8 }, { i8, i8 }, i8, i8, i8, i8, i8, i8, [6 x i8] }, { i8, [31 x i8] }, { { [24 x i8], i8, [7 x i8] }, {} }, ptr, ptr }, ptr %1, i64 0, i32 4
+  %470 = getelementptr inbounds i8, ptr %1, i64 1192
   %471 = load ptr, ptr %470, align 8, !nonnull !6, !align !10, !noundef !6
   call void @_ZN22serde_derive_internals9internals4ctxt4Ctxt16error_spanned_by17h0d04e0b3926d9e03E(ptr align 8 %0, ptr nonnull align 8 %471, ptr nonnull align 1 @anon.1afab4bd373efb5043566ed828fa0c35.36, i64 68)
   br label %466
@@ -1165,37 +1165,37 @@ _ZN22serde_derive_internals9internals5check27check_adjacent_tag_conflict17ha790f
   br i1 %474, label %478, label %481
 
 475:                                              ; preds = %466
-  %476 = getelementptr inbounds { { { i64, [6 x i64] }, { i64, [28 x i64] }, { i64, [28 x i64] }, { i64, [28 x i64] }, { [8 x i32], i32, [3 x i32] }, { [8 x i32], i32, [3 x i32] }, { [22 x i32], i32, [3 x i32] }, { { { { ptr, i64 }, i64, { {} }, {} } }, { { { ptr, i64 }, i64 } }, { { { ptr, i64 }, i64 } }, i8, i8, [6 x i8] }, { ptr, [2 x i64] }, { ptr, [2 x i64] }, { ptr, [2 x i64] }, { i8, i8 }, { i8, i8 }, i8, i8, i8, i8, i8, i8, [6 x i8] }, { i8, [31 x i8] }, { { [24 x i8], i8, [7 x i8] }, {} }, ptr, ptr }, ptr %1, i64 0, i32 4
+  %476 = getelementptr inbounds i8, ptr %1, i64 1192
   %477 = load ptr, ptr %476, align 8, !nonnull !6, !align !10, !noundef !6
   call void @_ZN22serde_derive_internals9internals4ctxt4Ctxt16error_spanned_by17h0d04e0b3926d9e03E(ptr align 8 %0, ptr nonnull align 8 %477, ptr nonnull align 1 @anon.1afab4bd373efb5043566ed828fa0c35.37, i64 64)
   br label %472
 
 478:                                              ; preds = %472
-  %479 = getelementptr inbounds { { { i64, [6 x i64] }, { i64, [28 x i64] }, { i64, [28 x i64] }, { i64, [28 x i64] }, { [8 x i32], i32, [3 x i32] }, { [8 x i32], i32, [3 x i32] }, { [22 x i32], i32, [3 x i32] }, { { { { ptr, i64 }, i64, { {} }, {} } }, { { { ptr, i64 }, i64 } }, { { { ptr, i64 }, i64 } }, i8, i8, [6 x i8] }, { ptr, [2 x i64] }, { ptr, [2 x i64] }, { ptr, [2 x i64] }, { i8, i8 }, { i8, i8 }, i8, i8, i8, i8, i8, i8, [6 x i8] }, { i8, [31 x i8] }, { { [24 x i8], i8, [7 x i8] }, {} }, ptr, ptr }, ptr %1, i64 0, i32 4
+  %479 = getelementptr inbounds i8, ptr %1, i64 1192
   %480 = load ptr, ptr %479, align 8, !nonnull !6, !align !10, !noundef !6
   call void @_ZN22serde_derive_internals9internals4ctxt4Ctxt16error_spanned_by17h0d04e0b3926d9e03E(ptr align 8 %0, ptr nonnull align 8 %480, ptr nonnull align 1 @anon.1afab4bd373efb5043566ed828fa0c35.38, i64 47)
   br label %_ZN22serde_derive_internals9internals5check17check_transparent17h25cfa9774da7b698E.exit
 
 481:                                              ; preds = %472
-  %482 = getelementptr inbounds { { { i64, [6 x i64] }, { i64, [28 x i64] }, { i64, [28 x i64] }, { i64, [28 x i64] }, { [8 x i32], i32, [3 x i32] }, { [8 x i32], i32, [3 x i32] }, { [22 x i32], i32, [3 x i32] }, { { { { ptr, i64 }, i64, { {} }, {} } }, { { { ptr, i64 }, i64 } }, { { { ptr, i64 }, i64 } }, i8, i8, [6 x i8] }, { ptr, [2 x i64] }, { ptr, [2 x i64] }, { ptr, [2 x i64] }, { i8, i8 }, { i8, i8 }, i8, i8, i8, i8, i8, i8, [6 x i8] }, { i8, [31 x i8] }, { { [24 x i8], i8, [7 x i8] }, {} }, ptr, ptr }, ptr %1, i64 0, i32 1, i32 1
+  %482 = getelementptr inbounds i8, ptr %1, i64 1121
   %483 = load i8, ptr %482, align 1, !range !8, !noundef !6
   %484 = icmp eq i8 %483, 3
   br i1 %484, label %485, label %488
 
 485:                                              ; preds = %481
-  %486 = getelementptr inbounds { { { i64, [6 x i64] }, { i64, [28 x i64] }, { i64, [28 x i64] }, { i64, [28 x i64] }, { [8 x i32], i32, [3 x i32] }, { [8 x i32], i32, [3 x i32] }, { [22 x i32], i32, [3 x i32] }, { { { { ptr, i64 }, i64, { {} }, {} } }, { { { ptr, i64 }, i64 } }, { { { ptr, i64 }, i64 } }, i8, i8, [6 x i8] }, { ptr, [2 x i64] }, { ptr, [2 x i64] }, { ptr, [2 x i64] }, { i8, i8 }, { i8, i8 }, i8, i8, i8, i8, i8, i8, [6 x i8] }, { i8, [31 x i8] }, { { [24 x i8], i8, [7 x i8] }, {} }, ptr, ptr }, ptr %1, i64 0, i32 4
+  %486 = getelementptr inbounds i8, ptr %1, i64 1192
   %487 = load ptr, ptr %486, align 8, !nonnull !6, !align !10, !noundef !6
   call void @_ZN22serde_derive_internals9internals4ctxt4Ctxt16error_spanned_by17h0d04e0b3926d9e03E(ptr align 8 %0, ptr nonnull align 8 %487, ptr nonnull align 1 @anon.1afab4bd373efb5043566ed828fa0c35.39, i64 53)
   br label %_ZN22serde_derive_internals9internals5check17check_transparent17h25cfa9774da7b698E.exit
 
 488:                                              ; preds = %481
-  %489 = getelementptr inbounds { { { i64, [6 x i64] }, { i64, [28 x i64] }, { i64, [28 x i64] }, { i64, [28 x i64] }, { [8 x i32], i32, [3 x i32] }, { [8 x i32], i32, [3 x i32] }, { [22 x i32], i32, [3 x i32] }, { { { { ptr, i64 }, i64, { {} }, {} } }, { { { ptr, i64 }, i64 } }, { { { ptr, i64 }, i64 } }, i8, i8, [6 x i8] }, { ptr, [2 x i64] }, { ptr, [2 x i64] }, { ptr, [2 x i64] }, { i8, i8 }, { i8, i8 }, i8, i8, i8, i8, i8, i8, [6 x i8] }, { i8, [31 x i8] }, { { [24 x i8], i8, [7 x i8] }, {} }, ptr, ptr }, ptr %1, i64 0, i32 1, i32 1, i64 7
+  %489 = getelementptr inbounds i8, ptr %1, i64 1128
   store ptr null, ptr %7, align 8
   %490 = call { ptr, ptr } @"_ZN102_$LT$$RF$mut$u20$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$core..iter..traits..collect..IntoIterator$GT$9into_iter17h53c1bbbdf8d88232E"(ptr nonnull align 8 %489)
   %491 = extractvalue { ptr, ptr } %490, 0
   %492 = extractvalue { ptr, ptr } %490, 1
   store ptr %491, ptr %6, align 8
-  %493 = getelementptr inbounds { ptr, ptr }, ptr %6, i64 0, i32 1
+  %493 = getelementptr inbounds i8, ptr %6, i64 8
   store ptr %492, ptr %493, align 8
   %494 = call align 8 ptr @"_ZN94_$LT$core..slice..iter..IterMut$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h498de11f3f07cd73E"(ptr nonnull align 8 %6)
   %495 = icmp eq ptr %494, null
@@ -1206,7 +1206,7 @@ _ZN22serde_derive_internals9internals5check27check_adjacent_tag_conflict17ha790f
 
 .lr.ph.split.us.i:                                ; preds = %.lr.ph.i16, %.backedge.us.i20
   %496 = phi ptr [ %517, %.backedge.us.i20 ], [ %494, %.lr.ph.i16 ]
-  %497 = getelementptr inbounds { { [24 x i8], i8, [7 x i8] }, ptr, ptr, { { { { { ptr, i64 }, i64, { {} }, {} } }, { { { ptr, i64 }, i64 } }, { { { ptr, i64 }, i64 } }, i8, i8, [6 x i8] }, { ptr, [2 x i64] }, { ptr, [2 x i64] }, { { { ptr, i64 }, i64, { {} }, {} } }, { [22 x i32], i32, [3 x i32] }, { [22 x i32], i32, [3 x i32] }, { [22 x i32], i32, [3 x i32] }, { [22 x i32], i32, [3 x i32] }, { [22 x i32], i32, [3 x i32] }, i8, i8, i8, i8, [4 x i8] } }, ptr %496, i64 0, i32 1
+  %497 = getelementptr inbounds i8, ptr %496, i64 32
   %498 = load ptr, ptr %497, align 8, !nonnull !6, !align !10, !noundef !6
   %499 = call align 8 ptr @_ZN22serde_derive_internals9internals7ungroup17hf44f5919df4ae8d2E(ptr nonnull align 8 %498)
   %500 = load i64, ptr %499, align 8, !range !19, !noundef !6
@@ -1214,18 +1214,18 @@ _ZN22serde_derive_internals9internals5check27check_adjacent_tag_conflict17ha790f
   br i1 %501, label %502, label %508
 
 502:                                              ; preds = %.lr.ph.split.us.i
-  %503 = getelementptr inbounds { [1 x i64], { { i32, [7 x i32] }, { { { { ptr, i64 }, i64 }, ptr }, { i32, [2 x i32] }, [1 x i32] } } }, ptr %499, i64 0, i32 1, i32 1
+  %503 = getelementptr inbounds i8, ptr %499, i64 40
   %504 = call align 8 ptr @"_ZN3syn10punctuated23Punctuated$LT$T$C$P$GT$4last17h757dccf150b878c4E"(ptr nonnull align 8 %503)
   %.not.i.us.i = icmp eq ptr %504, null
   br i1 %.not.i.us.i, label %508, label %505
 
 505:                                              ; preds = %502
-  %506 = getelementptr inbounds { { i64, [8 x i64] }, { { [24 x i8], i8, [7 x i8] }, {} } }, ptr %504, i64 0, i32 1
+  %506 = getelementptr inbounds i8, ptr %504, i64 72
   %507 = call zeroext i1 @"_ZN68_$LT$proc_macro2..Ident$u20$as$u20$core..cmp..PartialEq$LT$T$GT$$GT$2eq17h197be1acf0fa9a63E"(ptr nonnull align 8 %506, ptr nonnull align 8 @anon.1afab4bd373efb5043566ed828fa0c35.47)
   br i1 %507, label %.backedge.us.i20, label %508
 
 508:                                              ; preds = %505, %502, %.lr.ph.split.us.i
-  %509 = getelementptr inbounds { { [24 x i8], i8, [7 x i8] }, ptr, ptr, { { { { { ptr, i64 }, i64, { {} }, {} } }, { { { ptr, i64 }, i64 } }, { { { ptr, i64 }, i64 } }, i8, i8, [6 x i8] }, { ptr, [2 x i64] }, { ptr, [2 x i64] }, { { { ptr, i64 }, i64, { {} }, {} } }, { [22 x i32], i32, [3 x i32] }, { [22 x i32], i32, [3 x i32] }, { [22 x i32], i32, [3 x i32] }, { [22 x i32], i32, [3 x i32] }, { [22 x i32], i32, [3 x i32] }, i8, i8, i8, i8, [4 x i8] } }, ptr %496, i64 0, i32 3
+  %509 = getelementptr inbounds i8, ptr %496, i64 48
   %510 = call zeroext i1 @_ZN22serde_derive_internals9internals4attr5Field18skip_deserializing17hf48a3d1ead8bd327E(ptr nonnull align 8 %509)
   br i1 %510, label %.backedge.us.i20, label %511
 
@@ -1254,7 +1254,7 @@ _ZN22serde_derive_internals9internals5check27check_adjacent_tag_conflict17ha790f
 
 .lr.ph.split.i17:                                 ; preds = %.lr.ph.i16, %.backedge.i18
   %521 = phi ptr [ %546, %.backedge.i18 ], [ %494, %.lr.ph.i16 ]
-  %522 = getelementptr inbounds { { [24 x i8], i8, [7 x i8] }, ptr, ptr, { { { { { ptr, i64 }, i64, { {} }, {} } }, { { { ptr, i64 }, i64 } }, { { { ptr, i64 }, i64 } }, i8, i8, [6 x i8] }, { ptr, [2 x i64] }, { ptr, [2 x i64] }, { { { ptr, i64 }, i64, { {} }, {} } }, { [22 x i32], i32, [3 x i32] }, { [22 x i32], i32, [3 x i32] }, { [22 x i32], i32, [3 x i32] }, { [22 x i32], i32, [3 x i32] }, { [22 x i32], i32, [3 x i32] }, i8, i8, i8, i8, [4 x i8] } }, ptr %521, i64 0, i32 1
+  %522 = getelementptr inbounds i8, ptr %521, i64 32
   %523 = load ptr, ptr %522, align 8, !nonnull !6, !align !10, !noundef !6
   %524 = call align 8 ptr @_ZN22serde_derive_internals9internals7ungroup17hf44f5919df4ae8d2E(ptr nonnull align 8 %523)
   %525 = load i64, ptr %524, align 8, !range !19, !noundef !6
@@ -1262,28 +1262,28 @@ _ZN22serde_derive_internals9internals5check27check_adjacent_tag_conflict17ha790f
   br i1 %526, label %527, label %530
 
 527:                                              ; preds = %.lr.ph.split.i17
-  %528 = getelementptr inbounds { [1 x i64], { { i32, [7 x i32] }, { { { { ptr, i64 }, i64 }, ptr }, { i32, [2 x i32] }, [1 x i32] } } }, ptr %524, i64 0, i32 1, i32 1
+  %528 = getelementptr inbounds i8, ptr %524, i64 40
   %529 = call align 8 ptr @"_ZN3syn10punctuated23Punctuated$LT$T$C$P$GT$4last17h757dccf150b878c4E"(ptr nonnull align 8 %528)
   %.not.i.i19 = icmp eq ptr %529, null
   br i1 %.not.i.i19, label %530, label %533
 
 530:                                              ; preds = %533, %527, %.lr.ph.split.i17
-  %531 = getelementptr inbounds { { [24 x i8], i8, [7 x i8] }, ptr, ptr, { { { { { ptr, i64 }, i64, { {} }, {} } }, { { { ptr, i64 }, i64 } }, { { { ptr, i64 }, i64 } }, i8, i8, [6 x i8] }, { ptr, [2 x i64] }, { ptr, [2 x i64] }, { { { ptr, i64 }, i64, { {} }, {} } }, { [22 x i32], i32, [3 x i32] }, { [22 x i32], i32, [3 x i32] }, { [22 x i32], i32, [3 x i32] }, { [22 x i32], i32, [3 x i32] }, { [22 x i32], i32, [3 x i32] }, i8, i8, i8, i8, [4 x i8] } }, ptr %521, i64 0, i32 3
+  %531 = getelementptr inbounds i8, ptr %521, i64 48
   %532 = call zeroext i1 @_ZN22serde_derive_internals9internals4attr5Field16skip_serializing17h60df8843ec3dd7aaE(ptr nonnull align 8 %531)
   br i1 %532, label %.backedge.i18, label %543
 
 533:                                              ; preds = %527
-  %534 = getelementptr inbounds { { i64, [8 x i64] }, { { [24 x i8], i8, [7 x i8] }, {} } }, ptr %529, i64 0, i32 1
+  %534 = getelementptr inbounds i8, ptr %529, i64 72
   %535 = call zeroext i1 @"_ZN68_$LT$proc_macro2..Ident$u20$as$u20$core..cmp..PartialEq$LT$T$GT$$GT$2eq17h197be1acf0fa9a63E"(ptr nonnull align 8 %534, ptr nonnull align 8 @anon.1afab4bd373efb5043566ed828fa0c35.47)
   br i1 %535, label %.backedge.i18, label %530
 
 536:                                              ; preds = %._crit_edge.i
-  %537 = getelementptr inbounds { { { i64, [6 x i64] }, { i64, [28 x i64] }, { i64, [28 x i64] }, { i64, [28 x i64] }, { [8 x i32], i32, [3 x i32] }, { [8 x i32], i32, [3 x i32] }, { [22 x i32], i32, [3 x i32] }, { { { { ptr, i64 }, i64, { {} }, {} } }, { { { ptr, i64 }, i64 } }, { { { ptr, i64 }, i64 } }, i8, i8, [6 x i8] }, { ptr, [2 x i64] }, { ptr, [2 x i64] }, { ptr, [2 x i64] }, { i8, i8 }, { i8, i8 }, i8, i8, i8, i8, i8, i8, [6 x i8] }, { i8, [31 x i8] }, { { [24 x i8], i8, [7 x i8] }, {} }, ptr, ptr }, ptr %1, i64 0, i32 4
+  %537 = getelementptr inbounds i8, ptr %1, i64 1192
   %538 = load ptr, ptr %537, align 8, !nonnull !6, !align !10, !noundef !6
   br i1 %.fr.i, label %542, label %541
 
 539:                                              ; preds = %._crit_edge.i
-  %540 = getelementptr inbounds { { [24 x i8], i8, [7 x i8] }, ptr, ptr, { { { { { ptr, i64 }, i64, { {} }, {} } }, { { { ptr, i64 }, i64 } }, { { { ptr, i64 }, i64 } }, i8, i8, [6 x i8] }, { ptr, [2 x i64] }, { ptr, [2 x i64] }, { { { ptr, i64 }, i64, { {} }, {} } }, { [22 x i32], i32, [3 x i32] }, { [22 x i32], i32, [3 x i32] }, { [22 x i32], i32, [3 x i32] }, { [22 x i32], i32, [3 x i32] }, { [22 x i32], i32, [3 x i32] }, i8, i8, i8, i8, [4 x i8] } }, ptr %519, i64 0, i32 3
+  %540 = getelementptr inbounds i8, ptr %519, i64 48
   call void @_ZN22serde_derive_internals9internals4attr5Field16mark_transparent17he582ca40261f08a1E(ptr nonnull align 8 %540)
   br label %_ZN22serde_derive_internals9internals5check17check_transparent17h25cfa9774da7b698E.exit
 
@@ -1309,7 +1309,7 @@ _ZN22serde_derive_internals9internals5check27check_adjacent_tag_conflict17ha790f
   br i1 %547, label %._crit_edge.i, label %.lr.ph.split.i17
 
 .split.us.i:                                      ; preds = %543, %514
-  %548 = getelementptr inbounds { { { i64, [6 x i64] }, { i64, [28 x i64] }, { i64, [28 x i64] }, { i64, [28 x i64] }, { [8 x i32], i32, [3 x i32] }, { [8 x i32], i32, [3 x i32] }, { [22 x i32], i32, [3 x i32] }, { { { { ptr, i64 }, i64, { {} }, {} } }, { { { ptr, i64 }, i64 } }, { { { ptr, i64 }, i64 } }, i8, i8, [6 x i8] }, { ptr, [2 x i64] }, { ptr, [2 x i64] }, { ptr, [2 x i64] }, { i8, i8 }, { i8, i8 }, i8, i8, i8, i8, i8, i8, [6 x i8] }, { i8, [31 x i8] }, { { [24 x i8], i8, [7 x i8] }, {} }, ptr, ptr }, ptr %1, i64 0, i32 4
+  %548 = getelementptr inbounds i8, ptr %1, i64 1192
   %549 = load ptr, ptr %548, align 8, !nonnull !6, !align !10, !noundef !6
   call void @_ZN22serde_derive_internals9internals4ctxt4Ctxt16error_spanned_by17h0d04e0b3926d9e03E(ptr align 8 %0, ptr nonnull align 8 %549, ptr nonnull align 1 @anon.1afab4bd373efb5043566ed828fa0c35.42, i64 75)
   br label %_ZN22serde_derive_internals9internals5check17check_transparent17h25cfa9774da7b698E.exit
@@ -1334,7 +1334,7 @@ _ZN22serde_derive_internals9internals5check17check_transparent17h25cfa9774da7b69
   br i1 %554, label %555, label %_ZN22serde_derive_internals9internals5check23check_from_and_try_from17h0e71537622b59db2E.exit
 
 555:                                              ; preds = %552
-  %556 = getelementptr inbounds { { { i64, [6 x i64] }, { i64, [28 x i64] }, { i64, [28 x i64] }, { i64, [28 x i64] }, { [8 x i32], i32, [3 x i32] }, { [8 x i32], i32, [3 x i32] }, { [22 x i32], i32, [3 x i32] }, { { { { ptr, i64 }, i64, { {} }, {} } }, { { { ptr, i64 }, i64 } }, { { { ptr, i64 }, i64 } }, i8, i8, [6 x i8] }, { ptr, [2 x i64] }, { ptr, [2 x i64] }, { ptr, [2 x i64] }, { i8, i8 }, { i8, i8 }, i8, i8, i8, i8, i8, i8, [6 x i8] }, { i8, [31 x i8] }, { { [24 x i8], i8, [7 x i8] }, {} }, ptr, ptr }, ptr %1, i64 0, i32 4
+  %556 = getelementptr inbounds i8, ptr %1, i64 1192
   %557 = load ptr, ptr %556, align 8, !nonnull !6, !align !10, !noundef !6
   call void @_ZN22serde_derive_internals9internals4ctxt4Ctxt16error_spanned_by17h0d04e0b3926d9e03E(ptr align 8 %0, ptr nonnull align 8 %557, ptr nonnull align 1 @anon.1afab4bd373efb5043566ed828fa0c35.48, i64 78)
   br label %_ZN22serde_derive_internals9internals5check23check_from_and_try_from17h0e71537622b59db2E.exit

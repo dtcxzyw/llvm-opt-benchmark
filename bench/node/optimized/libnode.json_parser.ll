@@ -4,19 +4,6 @@ target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:
 target triple = "x86_64-unknown-linux-gnu"
 
 %"class.std::ios_base::Init" = type { i8 }
-%"class.node::JSONParser" = type <{ %"class.node::RAIIIsolateWithoutEntering", %"class.v8::Global", %"class.v8::Global.2", i8, [7 x i8] }>
-%"class.node::RAIIIsolateWithoutEntering" = type { %"class.std::unique_ptr", ptr }
-%"class.std::unique_ptr" = type { %"struct.std::__uniq_ptr_data" }
-%"struct.std::__uniq_ptr_data" = type { %"class.std::__uniq_ptr_impl" }
-%"class.std::__uniq_ptr_impl" = type { %"class.std::tuple" }
-%"class.std::tuple" = type { %"struct.std::_Tuple_impl" }
-%"struct.std::_Tuple_impl" = type { %"struct.std::_Head_base.1" }
-%"struct.std::_Head_base.1" = type { ptr }
-%"class.v8::Global" = type { %"class.v8::PersistentBase" }
-%"class.v8::PersistentBase" = type { %"class.v8::IndirectHandleBase" }
-%"class.v8::IndirectHandleBase" = type { ptr }
-%"class.v8::Global.2" = type { %"class.v8::PersistentBase.3" }
-%"class.v8::PersistentBase.3" = type { %"class.v8::IndirectHandleBase" }
 %"class.v8::HandleScope" = type { ptr, ptr, ptr }
 %"class.node::errors::PrinterTryCatch" = type <{ %"class.v8::TryCatch.base", [7 x i8], ptr, i32, [4 x i8] }>
 %"class.v8::TryCatch.base" = type <{ ptr, ptr, ptr, ptr, i64, i8 }>
@@ -32,7 +19,6 @@ target triple = "x86_64-unknown-linux-gnu"
 %"class.std::allocator" = type { i8 }
 %"class.node::Utf8Value" = type { %"class.node::MaybeStackBuffer" }
 %"class.node::MaybeStackBuffer" = type { i64, i64, ptr, [1024 x i8] }
-%"struct.std::_Optional_payload_base" = type <{ %"union.std::_Optional_payload_base<std::__cxx11::basic_string<char>>::_Storage", i8, [7 x i8] }>
 
 @_ZStL8__ioinit = internal global %"class.std::ios_base::Init" zeroinitializer, align 1
 @__dso_handle = external hidden global i8
@@ -52,7 +38,7 @@ declare i32 @__cxa_atexit(ptr, ptr, ptr) local_unnamed_addr #2
 define dso_local void @_ZN4node10JSONParserC2Ev(ptr noundef nonnull align 8 dereferenceable(33) %this) unnamed_addr #3 align 2 {
 entry:
   tail call void @_ZN4node26RAIIIsolateWithoutEnteringC1EPKNS_12SnapshotDataE(ptr noundef nonnull align 8 dereferenceable(16) %this, ptr noundef null) #8
-  %context_ = getelementptr inbounds %"class.node::JSONParser", ptr %this, i64 0, i32 1
+  %context_ = getelementptr inbounds i8, ptr %this, i64 16
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(17) %context_, i8 0, i64 17, i1 false)
   ret void
 }
@@ -64,16 +50,16 @@ define dso_local noundef zeroext i1 @_ZN4node10JSONParser5ParseERKNSt7__cxx1112b
 entry:
   %handle_scope = alloca %"class.v8::HandleScope", align 8
   %bootstrapCatch = alloca %"class.node::errors::PrinterTryCatch", align 8
-  %isolate_.i = getelementptr inbounds %"class.node::RAIIIsolateWithoutEntering", ptr %this, i64 0, i32 1
+  %isolate_.i = getelementptr inbounds i8, ptr %this, i64 8
   %0 = load ptr, ptr %isolate_.i, align 8
   tail call void @_ZN2v87Isolate5EnterEv(ptr noundef nonnull align 1 dereferenceable(1) %0) #8
   call void @_ZN2v811HandleScopeC1EPNS_7IsolateE(ptr noundef nonnull align 8 dereferenceable(24) %handle_scope, ptr noundef nonnull %0) #8
   %call11 = call ptr @_ZN2v87Context3NewEPNS_7IsolateEPNS_22ExtensionConfigurationENS_10MaybeLocalINS_14ObjectTemplateEEENS5_INS_5ValueEEENS_33DeserializeInternalFieldsCallbackEPNS_14MicrotaskQueueE(ptr noundef nonnull %0, ptr noundef null, ptr null, ptr null, ptr null, ptr null, ptr noundef null) #8
   call void @_ZN2v87Context5EnterEv(ptr noundef nonnull align 1 dereferenceable(1) %call11) #8
   call void @_ZN2v88TryCatchC2EPNS_7IsolateE(ptr noundef nonnull align 8 dereferenceable(41) %bootstrapCatch, ptr noundef nonnull %0) #8
-  %isolate_.i15 = getelementptr inbounds %"class.node::errors::PrinterTryCatch", ptr %bootstrapCatch, i64 0, i32 2
+  %isolate_.i15 = getelementptr inbounds i8, ptr %bootstrapCatch, i64 48
   store ptr %0, ptr %isolate_.i15, align 8
-  %print_source_line_.i = getelementptr inbounds %"class.node::errors::PrinterTryCatch", ptr %bootstrapCatch, i64 0, i32 3
+  %print_source_line_.i = getelementptr inbounds i8, ptr %bootstrapCatch, i64 56
   store i32 1, ptr %print_source_line_.i, align 8
   %call21 = call { i64, ptr } @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEcvSt17basic_string_viewIcS2_EEv(ptr noundef nonnull align 8 dereferenceable(32) %content) #8
   %1 = extractvalue { i64, ptr } %call21, 0
@@ -118,7 +104,7 @@ lor.rhs:                                          ; preds = %lor.lhs.false33
   br i1 %call54, label %if.end, label %cleanup
 
 if.end:                                           ; preds = %lor.rhs
-  %context_ = getelementptr inbounds %"class.node::JSONParser", ptr %this, i64 0, i32 1
+  %context_ = getelementptr inbounds i8, ptr %this, i64 16
   %8 = load ptr, ptr %context_, align 8
   %cmp.i.i213 = icmp eq ptr %8, null
   br i1 %cmp.i.i213, label %if.end.i219, label %if.end.i214
@@ -132,7 +118,7 @@ if.end.i219:                                      ; preds = %if.end, %if.end.i21
   %9 = load i64, ptr %call11, align 8
   %call2.i220 = call noundef ptr @_ZN2v812api_internal18GlobalizeReferenceEPNS_8internal7IsolateEm(ptr noundef nonnull %0, i64 noundef %9) #8
   store ptr %call2.i220, ptr %context_, align 8
-  %content_ = getelementptr inbounds %"class.node::JSONParser", ptr %this, i64 0, i32 2
+  %content_ = getelementptr inbounds i8, ptr %this, i64 24
   %10 = load ptr, ptr %content_, align 8
   %cmp.i.i242 = icmp eq ptr %10, null
   br i1 %cmp.i.i242, label %if.end.i249, label %if.end.i243
@@ -146,7 +132,7 @@ if.end.i249:                                      ; preds = %if.end.i219, %if.en
   %11 = load i64, ptr %call47, align 8
   %call2.i = call noundef ptr @_ZN2v812api_internal18GlobalizeReferenceEPNS_8internal7IsolateEm(ptr noundef nonnull %0, i64 noundef %11) #8
   store ptr %call2.i, ptr %content_, align 8
-  %parsed_ = getelementptr inbounds %"class.node::JSONParser", ptr %this, i64 0, i32 3
+  %parsed_ = getelementptr inbounds i8, ptr %this, i64 32
   store i8 1, ptr %parsed_, align 8
   br label %cleanup
 
@@ -184,11 +170,11 @@ entry:
   %bootstrapCatch = alloca %"class.node::errors::PrinterTryCatch", align 8
   %utf8_value = alloca %"class.node::Utf8Value", align 8
   %ref.tmp48 = alloca %"class.std::__cxx11::basic_string", align 8
-  %isolate_.i = getelementptr inbounds %"class.node::RAIIIsolateWithoutEntering", ptr %this, i64 0, i32 1
+  %isolate_.i = getelementptr inbounds i8, ptr %this, i64 8
   %0 = load ptr, ptr %isolate_.i, align 8
   tail call void @_ZN2v87Isolate5EnterEv(ptr noundef nonnull align 1 dereferenceable(1) %0) #8
   call void @_ZN2v811HandleScopeC1EPNS_7IsolateE(ptr noundef nonnull align 8 dereferenceable(24) %handle_scope, ptr noundef nonnull %0) #8
-  %context_ = getelementptr inbounds %"class.node::JSONParser", ptr %this, i64 0, i32 1
+  %context_ = getelementptr inbounds i8, ptr %this, i64 16
   %1 = load ptr, ptr %context_, align 8
   %cmp.i.i150 = icmp eq ptr %1, null
   br i1 %cmp.i.i150, label %_ZN2v89LocalBaseINS_7ContextEE3NewEPNS_7IsolateEPS1_.exit, label %if.end.i151
@@ -201,7 +187,7 @@ if.end.i151:                                      ; preds = %entry
 _ZN2v89LocalBaseINS_7ContextEE3NewEPNS_7IsolateEPS1_.exit: ; preds = %entry, %if.end.i151
   %retval.i147.sroa.0.0 = phi ptr [ %call.i, %if.end.i151 ], [ null, %entry ]
   call void @_ZN2v87Context5EnterEv(ptr noundef nonnull align 1 dereferenceable(1) %retval.i147.sroa.0.0) #8
-  %content_ = getelementptr inbounds %"class.node::JSONParser", ptr %this, i64 0, i32 2
+  %content_ = getelementptr inbounds i8, ptr %this, i64 24
   %3 = load ptr, ptr %content_, align 8
   %cmp.i.i185 = icmp eq ptr %3, null
   br i1 %cmp.i.i185, label %if.end.i13, label %if.end.i186
@@ -214,9 +200,9 @@ if.end.i186:                                      ; preds = %_ZN2v89LocalBaseINS
 if.end.i13:                                       ; preds = %if.end.i186, %_ZN2v89LocalBaseINS_7ContextEE3NewEPNS_7IsolateEPS1_.exit
   %retval.i182.sroa.0.0 = phi ptr [ %call.i195, %if.end.i186 ], [ null, %_ZN2v89LocalBaseINS_7ContextEE3NewEPNS_7IsolateEPS1_.exit ]
   call void @_ZN2v88TryCatchC2EPNS_7IsolateE(ptr noundef nonnull align 8 dereferenceable(41) %bootstrapCatch, ptr noundef nonnull %0) #8
-  %isolate_.i11 = getelementptr inbounds %"class.node::errors::PrinterTryCatch", ptr %bootstrapCatch, i64 0, i32 2
+  %isolate_.i11 = getelementptr inbounds i8, ptr %bootstrapCatch, i64 48
   store ptr %0, ptr %isolate_.i11, align 8
-  %print_source_line_.i = getelementptr inbounds %"class.node::errors::PrinterTryCatch", ptr %bootstrapCatch, i64 0, i32 3
+  %print_source_line_.i = getelementptr inbounds i8, ptr %bootstrapCatch, i64 56
   store i32 1, ptr %print_source_line_.i, align 8
   %cmp5.i = icmp ugt i64 %field.coerce0, 536870887
   br i1 %cmp5.i, label %_ZN4node9ToV8ValueEN2v85LocalINS0_7ContextEEESt17basic_string_viewIcSt11char_traitsIcEEPNS0_7IsolateE.exit.thread, label %_ZN4node9ToV8ValueEN2v85LocalINS0_7ContextEEESt17basic_string_viewIcSt11char_traitsIcEEPNS0_7IsolateE.exit
@@ -232,7 +218,7 @@ _ZN4node9ToV8ValueEN2v85LocalINS0_7ContextEEESt17basic_string_viewIcSt11char_tra
   br i1 %cmp.i.i, label %if.then, label %if.end
 
 if.then:                                          ; preds = %_ZN4node9ToV8ValueEN2v85LocalINS0_7ContextEEESt17basic_string_viewIcSt11char_traitsIcEEPNS0_7IsolateE.exit.thread, %_ZN4node9ToV8ValueEN2v85LocalINS0_7ContextEEESt17basic_string_viewIcSt11char_traitsIcEEPNS0_7IsolateE.exit
-  %_M_engaged.i.i.i.i.i = getelementptr inbounds %"struct.std::_Optional_payload_base", ptr %agg.result, i64 0, i32 1
+  %_M_engaged.i.i.i.i.i = getelementptr inbounds i8, ptr %agg.result, i64 32
   store i8 0, ptr %_M_engaged.i.i.i.i.i, align 8
   br label %cleanup
 
@@ -258,14 +244,14 @@ if.end.i:                                         ; preds = %lor.rhs
   br i1 %cmp.i, label %if.then42, label %if.end43
 
 if.then42:                                        ; preds = %lor.rhs, %if.end, %if.end.i
-  %_M_engaged.i.i.i.i.i14 = getelementptr inbounds %"struct.std::_Optional_payload_base", ptr %agg.result, i64 0, i32 1
+  %_M_engaged.i.i.i.i.i14 = getelementptr inbounds i8, ptr %agg.result, i64 32
   store i8 0, ptr %_M_engaged.i.i.i.i.i14, align 8
   br label %cleanup
 
 if.end43:                                         ; preds = %if.end.i
   call void @_ZN4node9Utf8ValueC1EPN2v87IsolateENS1_5LocalINS1_5ValueEEE(ptr noundef nonnull align 8 dereferenceable(1048) %utf8_value, ptr noundef nonnull %0, ptr nonnull %call33) #8
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %ref.tmp.i)
-  %buf_.i.i = getelementptr inbounds %"class.node::MaybeStackBuffer", ptr %utf8_value, i64 0, i32 2
+  %buf_.i.i = getelementptr inbounds i8, ptr %utf8_value, i64 16
   %10 = load ptr, ptr %buf_.i.i, align 8, !noalias !5
   %11 = load i64, ptr %utf8_value, align 8, !noalias !5
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i) #8, !noalias !5
@@ -273,12 +259,12 @@ if.end43:                                         ; preds = %if.end.i
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i) #8
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %ref.tmp.i)
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EOS4_(ptr noundef nonnull align 8 dereferenceable(32) %agg.result, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp48) #8
-  %_M_engaged.i.i.i.i.i15 = getelementptr inbounds %"struct.std::_Optional_payload_base", ptr %agg.result, i64 0, i32 1
+  %_M_engaged.i.i.i.i.i15 = getelementptr inbounds i8, ptr %agg.result, i64 32
   store i8 1, ptr %_M_engaged.i.i.i.i.i15, align 8
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp48) #8
   %12 = load ptr, ptr %buf_.i.i, align 8
   %cmp.i.i.i.i = icmp ne ptr %12, null
-  %buf_st_.i.i.i = getelementptr inbounds %"class.node::MaybeStackBuffer", ptr %utf8_value, i64 0, i32 3
+  %buf_st_.i.i.i = getelementptr inbounds i8, ptr %utf8_value, i64 24
   %cmp.i.i.i = icmp ne ptr %12, %buf_st_.i.i.i
   %13 = select i1 %cmp.i.i.i.i, i1 %cmp.i.i.i, i1 false
   br i1 %13, label %if.then.i.i, label %cleanup
@@ -307,11 +293,11 @@ define dso_local i16 @_ZN4node10JSONParser20GetTopLevelBoolFieldESt17basic_strin
 entry:
   %handle_scope = alloca %"class.v8::HandleScope", align 8
   %bootstrapCatch = alloca %"class.node::errors::PrinterTryCatch", align 8
-  %isolate_.i = getelementptr inbounds %"class.node::RAIIIsolateWithoutEntering", ptr %this, i64 0, i32 1
+  %isolate_.i = getelementptr inbounds i8, ptr %this, i64 8
   %0 = load ptr, ptr %isolate_.i, align 8
   tail call void @_ZN2v87Isolate5EnterEv(ptr noundef nonnull align 1 dereferenceable(1) %0) #8
   call void @_ZN2v811HandleScopeC1EPNS_7IsolateE(ptr noundef nonnull align 8 dereferenceable(24) %handle_scope, ptr noundef nonnull %0) #8
-  %context_ = getelementptr inbounds %"class.node::JSONParser", ptr %this, i64 0, i32 1
+  %context_ = getelementptr inbounds i8, ptr %this, i64 16
   %1 = load ptr, ptr %context_, align 8
   %cmp.i.i174 = icmp eq ptr %1, null
   br i1 %cmp.i.i174, label %_ZN2v89LocalBaseINS_7ContextEE3NewEPNS_7IsolateEPS1_.exit, label %if.end.i
@@ -324,7 +310,7 @@ if.end.i:                                         ; preds = %entry
 _ZN2v89LocalBaseINS_7ContextEE3NewEPNS_7IsolateEPS1_.exit: ; preds = %entry, %if.end.i
   %retval.i171.sroa.0.0 = phi ptr [ %call.i, %if.end.i ], [ null, %entry ]
   call void @_ZN2v87Context5EnterEv(ptr noundef nonnull align 1 dereferenceable(1) %retval.i171.sroa.0.0) #8
-  %content_ = getelementptr inbounds %"class.node::JSONParser", ptr %this, i64 0, i32 2
+  %content_ = getelementptr inbounds i8, ptr %this, i64 24
   %3 = load ptr, ptr %content_, align 8
   %cmp.i.i207 = icmp eq ptr %3, null
   br i1 %cmp.i.i207, label %if.end.i14, label %if.end.i208
@@ -337,9 +323,9 @@ if.end.i208:                                      ; preds = %_ZN2v89LocalBaseINS
 if.end.i14:                                       ; preds = %if.end.i208, %_ZN2v89LocalBaseINS_7ContextEE3NewEPNS_7IsolateEPS1_.exit
   %retval.i204.sroa.0.0 = phi ptr [ %call.i217, %if.end.i208 ], [ null, %_ZN2v89LocalBaseINS_7ContextEE3NewEPNS_7IsolateEPS1_.exit ]
   call void @_ZN2v88TryCatchC2EPNS_7IsolateE(ptr noundef nonnull align 8 dereferenceable(41) %bootstrapCatch, ptr noundef nonnull %0) #8
-  %isolate_.i13 = getelementptr inbounds %"class.node::errors::PrinterTryCatch", ptr %bootstrapCatch, i64 0, i32 2
+  %isolate_.i13 = getelementptr inbounds i8, ptr %bootstrapCatch, i64 48
   store ptr %0, ptr %isolate_.i13, align 8
-  %print_source_line_.i = getelementptr inbounds %"class.node::errors::PrinterTryCatch", ptr %bootstrapCatch, i64 0, i32 3
+  %print_source_line_.i = getelementptr inbounds i8, ptr %bootstrapCatch, i64 56
   store i32 1, ptr %print_source_line_.i, align 8
   %cmp5.i = icmp ugt i64 %field.coerce0, 536870887
   br i1 %cmp5.i, label %_ZN4node9ToV8ValueEN2v85LocalINS0_7ContextEEESt17basic_string_viewIcSt11char_traitsIcEEPNS0_7IsolateE.exit.thread, label %_ZN4node9ToV8ValueEN2v85LocalINS0_7ContextEEESt17basic_string_viewIcSt11char_traitsIcEEPNS0_7IsolateE.exit

@@ -3,10 +3,6 @@ source_filename = "bench/msdfgen/original/save-tiff.cpp.ll"
 target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:128-n8:16:32:64-S128"
 target triple = "x86_64-unknown-linux-gnu"
 
-%"struct.msdfgen::BitmapConstRef" = type { ptr, i32, i32 }
-%"struct.msdfgen::BitmapConstRef.0" = type { ptr, i32, i32 }
-%"struct.msdfgen::BitmapConstRef.1" = type { ptr, i32, i32 }
-
 @.str = private unnamed_addr constant [3 x i8] c"wb\00", align 1
 
 ; Function Attrs: mustprogress nofree nounwind uwtable
@@ -17,9 +13,9 @@ entry:
   br i1 %tobool.not.i, label %_ZN7msdfgen13saveTiffFloatILi1EEEbRKNS_14BitmapConstRefIfXT_EEEPKc.exit, label %if.end.i
 
 if.end.i:                                         ; preds = %entry
-  %width.i = getelementptr inbounds %"struct.msdfgen::BitmapConstRef", ptr %bitmap, i64 0, i32 1
+  %width.i = getelementptr inbounds i8, ptr %bitmap, i64 8
   %0 = load i32, ptr %width.i, align 8
-  %height.i = getelementptr inbounds %"struct.msdfgen::BitmapConstRef", ptr %bitmap, i64 0, i32 2
+  %height.i = getelementptr inbounds i8, ptr %bitmap, i64 12
   %1 = load i32, ptr %height.i, align 4
   tail call fastcc void @_ZN7msdfgenL15writeTiffHeaderEP8_IO_FILEiii(ptr noundef nonnull %call.i, i32 noundef %0, i32 noundef %1, i32 noundef 1)
   %2 = load i32, ptr %height.i, align 4
@@ -57,9 +53,9 @@ entry:
   br i1 %tobool.not.i, label %_ZN7msdfgen13saveTiffFloatILi3EEEbRKNS_14BitmapConstRefIfXT_EEEPKc.exit, label %if.end.i
 
 if.end.i:                                         ; preds = %entry
-  %width.i = getelementptr inbounds %"struct.msdfgen::BitmapConstRef.0", ptr %bitmap, i64 0, i32 1
+  %width.i = getelementptr inbounds i8, ptr %bitmap, i64 8
   %0 = load i32, ptr %width.i, align 8
-  %height.i = getelementptr inbounds %"struct.msdfgen::BitmapConstRef.0", ptr %bitmap, i64 0, i32 2
+  %height.i = getelementptr inbounds i8, ptr %bitmap, i64 12
   %1 = load i32, ptr %height.i, align 4
   tail call fastcc void @_ZN7msdfgenL15writeTiffHeaderEP8_IO_FILEiii(ptr noundef nonnull %call.i, i32 noundef %0, i32 noundef %1, i32 noundef 3)
   %2 = load i32, ptr %height.i, align 4
@@ -98,9 +94,9 @@ entry:
   br i1 %tobool.not.i, label %_ZN7msdfgen13saveTiffFloatILi4EEEbRKNS_14BitmapConstRefIfXT_EEEPKc.exit, label %if.end.i
 
 if.end.i:                                         ; preds = %entry
-  %width.i = getelementptr inbounds %"struct.msdfgen::BitmapConstRef.1", ptr %bitmap, i64 0, i32 1
+  %width.i = getelementptr inbounds i8, ptr %bitmap, i64 8
   %0 = load i32, ptr %width.i, align 8
-  %height.i = getelementptr inbounds %"struct.msdfgen::BitmapConstRef.1", ptr %bitmap, i64 0, i32 2
+  %height.i = getelementptr inbounds i8, ptr %bitmap, i64 12
   %1 = load i32, ptr %height.i, align 4
   tail call fastcc void @_ZN7msdfgenL15writeTiffHeaderEP8_IO_FILEiii(ptr noundef nonnull %call.i, i32 noundef %0, i32 noundef %1, i32 noundef 4)
   %2 = load i32, ptr %height.i, align 4

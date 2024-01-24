@@ -3,8 +3,6 @@ source_filename = "bench/qemu/original/trace_trace-hmp-cmds.c.ll"
 target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:128-n8:16:32:64-S128"
 target triple = "x86_64-unknown-linux-gnu"
 
-%struct.TraceEventInfoList = type { ptr, ptr }
-%struct.TraceEventInfo = type { ptr, i32, i8 }
 %struct.TraceEventIter = type { i64, i64, i64, ptr }
 
 @.str = private unnamed_addr constant [5 x i8] c"name\00", align 1
@@ -66,10 +64,10 @@ if.then2:                                         ; preds = %entry
 
 for.body:                                         ; preds = %for.cond.preheader, %for.body
   %elem.07 = phi ptr [ %4, %for.body ], [ %call1, %for.cond.preheader ]
-  %value = getelementptr inbounds %struct.TraceEventInfoList, ptr %elem.07, i64 0, i32 1
+  %value = getelementptr inbounds i8, ptr %elem.07, i64 8
   %1 = load ptr, ptr %value, align 8
   %2 = load ptr, ptr %1, align 8
-  %state = getelementptr inbounds %struct.TraceEventInfo, ptr %1, i64 0, i32 1
+  %state = getelementptr inbounds i8, ptr %1, i64 8
   %3 = load i32, ptr %state, align 8
   %cmp7 = icmp eq i32 %3, 2
   %cond = zext i1 %cmp7 to i32

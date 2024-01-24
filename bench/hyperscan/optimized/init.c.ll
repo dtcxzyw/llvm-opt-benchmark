@@ -3,10 +3,6 @@ source_filename = "bench/hyperscan/original/init.c.ll"
 target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:128-n8:16:32:64-S128"
 target triple = "x86_64-unknown-linux-gnu"
 
-%struct.RoseEngine = type { i8, i8, i8, i8, i8, i8, i8, i8, i8, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i64, i64, i32, i32, i32, i32, i32, i32, i32, %struct.RoseStateOffsets, %struct.RoseBoundaryReports, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, %struct.scatter_full_plan }
-%struct.RoseStateOffsets = type { i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32 }
-%struct.RoseBoundaryReports = type { i32, i32, i32 }
-%struct.scatter_full_plan = type { i32, i32, i32, i32, i32, i32, i32, i32 }
 %struct.scatter_unit_u64a = type { i32, i64 }
 %struct.scatter_unit_u32 = type { i32, i32 }
 %struct.scatter_unit_u16 = type { i32, i16 }
@@ -19,13 +15,13 @@ target triple = "x86_64-unknown-linux-gnu"
 ; Function Attrs: nounwind uwtable
 define hidden void @roseInitState(ptr noundef %t, ptr noundef %state) local_unnamed_addr #0 {
 entry:
-  %initialGroups.i = getelementptr inbounds %struct.RoseEngine, ptr %t, i64 0, i32 66
+  %initialGroups.i = getelementptr inbounds i8, ptr %t, i64 240
   %0 = load i64, ptr %initialGroups.i, align 8
-  %groups1.i = getelementptr inbounds %struct.RoseEngine, ptr %t, i64 0, i32 75, i32 13
+  %groups1.i = getelementptr inbounds i8, ptr %t, i64 336
   %1 = load i32, ptr %groups1.i, align 4
   %idx.ext.i7 = zext i32 %1 to i64
   %add.ptr.i8 = getelementptr inbounds i8, ptr %state, i64 %idx.ext.i7
-  %groups_size.i = getelementptr inbounds %struct.RoseEngine, ptr %t, i64 0, i32 75, i32 14
+  %groups_size.i = getelementptr inbounds i8, ptr %t, i64 340
   %2 = load i32, ptr %groups_size.i, align 4
   switch i32 %2, label %partial_store_u64a.exit [
     i32 8, label %sw.bb.i
@@ -98,7 +94,7 @@ sw.bb25.i:                                        ; preds = %entry
   br label %partial_store_u64a.exit
 
 partial_store_u64a.exit:                          ; preds = %sw.bb25.i, %sw.bb23.i, %sw.bb18.i, %sw.bb16.i, %sw.bb11.i, %sw.bb6.i, %sw.bb1.i, %sw.bb.i, %entry
-  %state_init.i = getelementptr inbounds %struct.RoseEngine, ptr %t, i64 0, i32 89
+  %state_init.i = getelementptr inbounds i8, ptr %t, i64 436
   %3 = load i32, ptr %state_init.i, align 4
   %tobool.i.not = icmp eq i32 %3, 0
   br i1 %tobool.i.not, label %if.end.i, label %if.then.i35
@@ -106,7 +102,7 @@ partial_store_u64a.exit:                          ; preds = %sw.bb25.i, %sw.bb23
 if.then.i35:                                      ; preds = %partial_store_u64a.exit
   %idx.ext.i36 = zext i32 %3 to i64
   %add.ptr.i37 = getelementptr inbounds i8, ptr %t, i64 %idx.ext.i36
-  %s_u64a_count.i = getelementptr inbounds %struct.RoseEngine, ptr %t, i64 0, i32 89, i32 1
+  %s_u64a_count.i = getelementptr inbounds i8, ptr %t, i64 440
   %4 = load i32, ptr %s_u64a_count.i, align 4
   %cmp.i40118.not = icmp eq i32 %4, 0
   br i1 %cmp.i40118.not, label %if.end.i, label %for.body.i42.preheader
@@ -121,7 +117,7 @@ for.body.i42:                                     ; preds = %for.body.i42.prehea
   %5 = load i32, ptr %add.ptr.i44, align 8
   %idx.ext1.i = zext i32 %5 to i64
   %add.ptr2.i = getelementptr inbounds i8, ptr %state, i64 %idx.ext1.i
-  %val.i = getelementptr inbounds %struct.scatter_unit_u64a, ptr %add.ptr.i37, i64 %indvars.iv, i32 1
+  %val.i = getelementptr inbounds i8, ptr %add.ptr.i44, i64 8
   %6 = load i64, ptr %val.i, align 8
   store i64 %6, ptr %add.ptr2.i, align 1
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
@@ -129,7 +125,7 @@ for.body.i42:                                     ; preds = %for.body.i42.prehea
   br i1 %exitcond.not, label %if.end.i, label %for.body.i42, !llvm.loop !5
 
 if.end.i:                                         ; preds = %for.body.i42, %if.then.i35, %partial_store_u64a.exit
-  %s_u32_offset.i = getelementptr inbounds %struct.RoseEngine, ptr %t, i64 0, i32 89, i32 2
+  %s_u32_offset.i = getelementptr inbounds i8, ptr %t, i64 444
   %7 = load i32, ptr %s_u32_offset.i, align 4
   %tobool2.i.not = icmp eq i32 %7, 0
   br i1 %tobool2.i.not, label %if.end8.i, label %if.then3.i
@@ -137,7 +133,7 @@ if.end.i:                                         ; preds = %for.body.i42, %if.t
 if.then3.i:                                       ; preds = %if.end.i
   %idx.ext6.i = zext i32 %7 to i64
   %add.ptr7.i = getelementptr inbounds i8, ptr %t, i64 %idx.ext6.i
-  %s_u32_count.i = getelementptr inbounds %struct.RoseEngine, ptr %t, i64 0, i32 89, i32 3
+  %s_u32_count.i = getelementptr inbounds i8, ptr %t, i64 448
   %8 = load i32, ptr %s_u32_count.i, align 4
   %cmp.i55120.not = icmp eq i32 %8, 0
   br i1 %cmp.i55120.not, label %if.end8.i, label %for.body.i57.preheader
@@ -152,7 +148,7 @@ for.body.i57:                                     ; preds = %for.body.i57.prehea
   %9 = load i32, ptr %add.ptr.i59, align 4
   %idx.ext1.i60 = zext i32 %9 to i64
   %add.ptr2.i61 = getelementptr inbounds i8, ptr %state, i64 %idx.ext1.i60
-  %val.i62 = getelementptr inbounds %struct.scatter_unit_u32, ptr %add.ptr7.i, i64 %indvars.iv138, i32 1
+  %val.i62 = getelementptr inbounds i8, ptr %add.ptr.i59, i64 4
   %10 = load i32, ptr %val.i62, align 4
   store i32 %10, ptr %add.ptr2.i61, align 1
   %indvars.iv.next139 = add nuw nsw i64 %indvars.iv138, 1
@@ -160,7 +156,7 @@ for.body.i57:                                     ; preds = %for.body.i57.prehea
   br i1 %exitcond142.not, label %if.end8.i, label %for.body.i57, !llvm.loop !7
 
 if.end8.i:                                        ; preds = %for.body.i57, %if.then3.i, %if.end.i
-  %s_u16_offset.i = getelementptr inbounds %struct.RoseEngine, ptr %t, i64 0, i32 89, i32 4
+  %s_u16_offset.i = getelementptr inbounds i8, ptr %t, i64 452
   %11 = load i32, ptr %s_u16_offset.i, align 4
   %tobool9.i.not = icmp eq i32 %11, 0
   br i1 %tobool9.i.not, label %if.end15.i, label %if.then10.i
@@ -168,7 +164,7 @@ if.end8.i:                                        ; preds = %for.body.i57, %if.t
 if.then10.i:                                      ; preds = %if.end8.i
   %idx.ext13.i = zext i32 %11 to i64
   %add.ptr14.i = getelementptr inbounds i8, ptr %t, i64 %idx.ext13.i
-  %s_u16_count.i = getelementptr inbounds %struct.RoseEngine, ptr %t, i64 0, i32 89, i32 5
+  %s_u16_count.i = getelementptr inbounds i8, ptr %t, i64 456
   %12 = load i32, ptr %s_u16_count.i, align 4
   %cmp.i73122.not = icmp eq i32 %12, 0
   br i1 %cmp.i73122.not, label %if.end15.i, label %for.body.i75.preheader
@@ -183,7 +179,7 @@ for.body.i75:                                     ; preds = %for.body.i75.prehea
   %13 = load i32, ptr %add.ptr.i77, align 4
   %idx.ext1.i78 = zext i32 %13 to i64
   %add.ptr2.i79 = getelementptr inbounds i8, ptr %state, i64 %idx.ext1.i78
-  %val.i80 = getelementptr inbounds %struct.scatter_unit_u16, ptr %add.ptr14.i, i64 %indvars.iv143, i32 1
+  %val.i80 = getelementptr inbounds i8, ptr %add.ptr.i77, i64 4
   %14 = load i16, ptr %val.i80, align 4
   store i16 %14, ptr %add.ptr2.i79, align 1
   %indvars.iv.next144 = add nuw nsw i64 %indvars.iv143, 1
@@ -191,7 +187,7 @@ for.body.i75:                                     ; preds = %for.body.i75.prehea
   br i1 %exitcond147.not, label %if.end15.i, label %for.body.i75, !llvm.loop !8
 
 if.end15.i:                                       ; preds = %for.body.i75, %if.then10.i, %if.end8.i
-  %s_u8_offset.i = getelementptr inbounds %struct.RoseEngine, ptr %t, i64 0, i32 89, i32 7
+  %s_u8_offset.i = getelementptr inbounds i8, ptr %t, i64 464
   %15 = load i32, ptr %s_u8_offset.i, align 4
   %tobool16.i.not = icmp eq i32 %15, 0
   br i1 %tobool16.i.not, label %scatter.exit, label %if.then17.i
@@ -199,7 +195,7 @@ if.end15.i:                                       ; preds = %for.body.i75, %if.t
 if.then17.i:                                      ; preds = %if.end15.i
   %idx.ext20.i = zext i32 %15 to i64
   %add.ptr21.i = getelementptr inbounds i8, ptr %t, i64 %idx.ext20.i
-  %s_u8_count.i = getelementptr inbounds %struct.RoseEngine, ptr %t, i64 0, i32 89, i32 6
+  %s_u8_count.i = getelementptr inbounds i8, ptr %t, i64 460
   %16 = load i32, ptr %s_u8_count.i, align 4
   %cmp.i88124.not = icmp eq i32 %16, 0
   br i1 %cmp.i88124.not, label %scatter.exit, label %for.body.i90.preheader
@@ -211,7 +207,7 @@ for.body.i90.preheader:                           ; preds = %if.then17.i
 for.body.i90:                                     ; preds = %for.body.i90.preheader, %for.body.i90
   %indvars.iv148 = phi i64 [ 0, %for.body.i90.preheader ], [ %indvars.iv.next149, %for.body.i90 ]
   %add.ptr.i92 = getelementptr inbounds %struct.scatter_unit_u8, ptr %add.ptr21.i, i64 %indvars.iv148
-  %val.i93 = getelementptr inbounds %struct.scatter_unit_u8, ptr %add.ptr21.i, i64 %indvars.iv148, i32 1
+  %val.i93 = getelementptr inbounds i8, ptr %add.ptr.i92, i64 4
   %17 = load i8, ptr %val.i93, align 4
   %18 = load i32, ptr %add.ptr.i92, align 4
   %idx.ext2.i = zext i32 %18 to i64
@@ -222,15 +218,15 @@ for.body.i90:                                     ; preds = %for.body.i90.prehea
   br i1 %exitcond152.not, label %scatter.exit, label %for.body.i90, !llvm.loop !9
 
 scatter.exit:                                     ; preds = %for.body.i90, %if.then17.i, %if.end15.i
-  %outfixBeginQueue.i = getelementptr inbounds %struct.RoseEngine, ptr %t, i64 0, i32 79
+  %outfixBeginQueue.i = getelementptr inbounds i8, ptr %t, i64 396
   %19 = load i32, ptr %outfixBeginQueue.i, align 4
-  %outfixEndQueue.i = getelementptr inbounds %struct.RoseEngine, ptr %t, i64 0, i32 80
+  %outfixEndQueue.i = getelementptr inbounds i8, ptr %t, i64 400
   %20 = load i32, ptr %outfixEndQueue.i, align 8
   %cmp.i127 = icmp ult i32 %19, %20
   br i1 %cmp.i127, label %for.body.i.lr.ph, label %for.end.i
 
 for.body.i.lr.ph:                                 ; preds = %scatter.exit
-  %nfaInfoOffset.i = getelementptr inbounds %struct.RoseEngine, ptr %t, i64 0, i32 65
+  %nfaInfoOffset.i = getelementptr inbounds i8, ptr %t, i64 236
   %21 = zext i32 %19 to i64
   br label %for.body.i
 
@@ -243,7 +239,7 @@ for.body.i:                                       ; preds = %for.body.i.lr.ph, %
   %23 = load i32, ptr %arrayidx.i, align 4
   %idx.ext.i107 = zext i32 %23 to i64
   %add.ptr.i108 = getelementptr inbounds i8, ptr %t, i64 %idx.ext.i107
-  %stateOffset.i = getelementptr inbounds %struct.NfaInfo, ptr %add.ptr.i97, i64 %indvars.iv153, i32 1
+  %stateOffset.i = getelementptr inbounds i8, ptr %arrayidx.i, i64 4
   %24 = load i32, ptr %stateOffset.i, align 4
   %idx.ext.i = zext i32 %24 to i64
   %add.ptr.i = getelementptr inbounds i8, ptr %state, i64 %idx.ext.i
@@ -255,13 +251,13 @@ for.body.i:                                       ; preds = %for.body.i.lr.ph, %
   br i1 %cmp.i, label %for.body.i, label %for.end.i, !llvm.loop !10
 
 for.end.i:                                        ; preds = %for.body.i, %scatter.exit
-  %initMpvNfa.i = getelementptr inbounds %struct.RoseEngine, ptr %t, i64 0, i32 82
+  %initMpvNfa.i = getelementptr inbounds i8, ptr %t, i64 408
   %27 = load i32, ptr %initMpvNfa.i, align 8
   %cmp3.i.not = icmp eq i32 %27, -1
   br i1 %cmp3.i.not, label %init_outfixes.exit, label %if.then.i
 
 if.then.i:                                        ; preds = %for.end.i
-  %nfaInfoOffset.i101 = getelementptr inbounds %struct.RoseEngine, ptr %t, i64 0, i32 65
+  %nfaInfoOffset.i101 = getelementptr inbounds i8, ptr %t, i64 236
   %28 = load i32, ptr %nfaInfoOffset.i101, align 4
   %idx.ext.i102 = zext i32 %28 to i64
   %add.ptr.i103 = getelementptr inbounds i8, ptr %t, i64 %idx.ext.i102
@@ -270,16 +266,16 @@ if.then.i:                                        ; preds = %for.end.i
   %29 = load i32, ptr %arrayidx.i105, align 4
   %idx.ext.i111 = zext i32 %29 to i64
   %add.ptr.i112 = getelementptr inbounds i8, ptr %t, i64 %idx.ext.i111
-  %stateOffset9.i = getelementptr inbounds %struct.NfaInfo, ptr %add.ptr.i103, i64 %idxprom.i104, i32 1
+  %stateOffset9.i = getelementptr inbounds i8, ptr %arrayidx.i105, i64 4
   %30 = load i32, ptr %stateOffset9.i, align 4
   %idx.ext10.i = zext i32 %30 to i64
   %add.ptr11.i = getelementptr inbounds i8, ptr %state, i64 %idx.ext10.i
   %call12.i = tail call signext i8 @nfaInitCompressedState(ptr noundef %add.ptr.i112, i64 noundef 0, ptr noundef %add.ptr11.i, i8 noundef zeroext 0) #3
-  %activeLeafArray.i = getelementptr inbounds %struct.RoseEngine, ptr %t, i64 0, i32 75, i32 7
+  %activeLeafArray.i = getelementptr inbounds i8, ptr %t, i64 312
   %31 = load i32, ptr %activeLeafArray.i, align 4
   %idx.ext.i116 = zext i32 %31 to i64
   %add.ptr.i117 = getelementptr inbounds i8, ptr %state, i64 %idx.ext.i116
-  %activeArrayCount.i = getelementptr inbounds %struct.RoseEngine, ptr %t, i64 0, i32 43
+  %activeArrayCount.i = getelementptr inbounds i8, ptr %t, i64 148
   %32 = load i32, ptr %activeArrayCount.i, align 4
   %33 = load i32, ptr %initMpvNfa.i, align 8
   %cmp.i126 = icmp ult i32 %32, 257

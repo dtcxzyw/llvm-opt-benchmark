@@ -8,158 +8,20 @@ target triple = "x86_64-unknown-linux-gnu"
 %"struct.std::__cxx11::basic_string<char>::_Alloc_hider" = type { ptr }
 %union.anon.0 = type { i64, [8 x i8] }
 %"struct.google::SiteFlag" = type { ptr, ptr, i64, ptr }
-%"class.proxygen::HTTPCodecFactory" = type { ptr, %"class.std::function" }
-%"class.std::function" = type { %"class.std::_Function_base", ptr }
-%"class.std::_Function_base" = type { %"union.std::_Any_data", ptr }
-%"union.std::_Any_data" = type { %"union.std::_Nocopy_types" }
-%"union.std::_Nocopy_types" = type { { i64, i64 } }
-%"class.proxygen::HTTPDefaultSessionCodecFactory" = type <{ %"class.proxygen::HTTPCodecFactory", ptr, %"class.folly::Optional", [6 x i8] }>
-%"class.folly::Optional" = type { %"struct.folly::Optional<bool>::StorageTriviallyDestructible" }
-%"struct.folly::Optional<bool>::StorageTriviallyDestructible" = type { %union.anon, i8 }
-%union.anon = type { i8 }
-%"struct.proxygen::AcceptorConfiguration" = type <{ %"struct.wangle::ServerSocketConfig", i8, [7 x i8], %"class.std::chrono::duration", i32, [4 x i8], %"class.std::__cxx11::basic_string", %"class.std::__cxx11::list", i8, [7 x i8], %"class.std::vector.61", i32, [4 x i8], i64, i64, i64, i64, i8, [7 x i8] }>
-%"struct.wangle::ServerSocketConfig" = type { %"class.std::__cxx11::basic_string", i32, i32, %"class.std::chrono::duration", %"class.std::chrono::duration", %"class.std::chrono::duration", %"class.folly::SocketAddress", %"struct.wangle::SSLCacheOptions", i8, %"struct.wangle::TLSTicketKeySeeds", %"class.std::vector.7", %"class.std::vector.12", i8, i32, i8, i8, i32, i32, i8, %"struct.wangle::FizzConfig", i8, %"class.std::unordered_map", %"class.std::map" }
-%"class.folly::SocketAddress" = type <{ %"union.folly::SocketAddress::AddrStorage", i16, i8, [5 x i8] }>
-%"union.folly::SocketAddress::AddrStorage" = type { %"struct.folly::SocketAddress::ExternalUnixAddr", [8 x i8] }
-%"struct.folly::SocketAddress::ExternalUnixAddr" = type { ptr, i32 }
-%"struct.wangle::SSLCacheOptions" = type { %"class.std::chrono::duration.3", i64, i64, %"class.std::chrono::duration.3" }
-%"class.std::chrono::duration.3" = type { i64 }
-%"struct.wangle::TLSTicketKeySeeds" = type { %"class.std::vector", %"class.std::vector", %"class.std::vector" }
-%"class.std::vector" = type { %"struct.std::_Vector_base" }
-%"struct.std::_Vector_base" = type { %"struct.std::_Vector_base<std::__cxx11::basic_string<char>, std::allocator<std::__cxx11::basic_string<char>>>::_Vector_impl" }
-%"struct.std::_Vector_base<std::__cxx11::basic_string<char>, std::allocator<std::__cxx11::basic_string<char>>>::_Vector_impl" = type { %"struct.std::_Vector_base<std::__cxx11::basic_string<char>, std::allocator<std::__cxx11::basic_string<char>>>::_Vector_impl_data" }
-%"struct.std::_Vector_base<std::__cxx11::basic_string<char>, std::allocator<std::__cxx11::basic_string<char>>>::_Vector_impl_data" = type { ptr, ptr, ptr }
-%"class.std::vector.7" = type { %"struct.std::_Vector_base.8" }
-%"struct.std::_Vector_base.8" = type { %"struct.std::_Vector_base<wangle::SSLContextConfig, std::allocator<wangle::SSLContextConfig>>::_Vector_impl" }
-%"struct.std::_Vector_base<wangle::SSLContextConfig, std::allocator<wangle::SSLContextConfig>>::_Vector_impl" = type { %"struct.std::_Vector_base<wangle::SSLContextConfig, std::allocator<wangle::SSLContextConfig>>::_Vector_impl_data" }
-%"struct.std::_Vector_base<wangle::SSLContextConfig, std::allocator<wangle::SSLContextConfig>>::_Vector_impl_data" = type { ptr, ptr, ptr }
-%"class.std::vector.12" = type { %"struct.std::_Vector_base.13" }
-%"struct.std::_Vector_base.13" = type { %"struct.std::_Vector_base<wangle::SNIConfig, std::allocator<wangle::SNIConfig>>::_Vector_impl" }
-%"struct.std::_Vector_base<wangle::SNIConfig, std::allocator<wangle::SNIConfig>>::_Vector_impl" = type { %"struct.std::_Vector_base<wangle::SNIConfig, std::allocator<wangle::SNIConfig>>::_Vector_impl_data" }
-%"struct.std::_Vector_base<wangle::SNIConfig, std::allocator<wangle::SNIConfig>>::_Vector_impl_data" = type { ptr, ptr, ptr }
-%"struct.wangle::FizzConfig" = type { i8, %"class.std::vector.17", %"class.std::vector.22", %"class.std::vector.27", %"class.std::vector.32", %"class.std::vector.37", i8, i8, i8, i8, i8, i8, %"class.folly::Optional.42", %"class.folly::Optional.42", %"class.std::vector.44", %"struct.fizz::AsyncFizzBase::TransportOptions" }
-%"class.std::vector.17" = type { %"struct.std::_Vector_base.18" }
-%"struct.std::_Vector_base.18" = type { %"struct.std::_Vector_base<fizz::ProtocolVersion, std::allocator<fizz::ProtocolVersion>>::_Vector_impl" }
-%"struct.std::_Vector_base<fizz::ProtocolVersion, std::allocator<fizz::ProtocolVersion>>::_Vector_impl" = type { %"struct.std::_Vector_base<fizz::ProtocolVersion, std::allocator<fizz::ProtocolVersion>>::_Vector_impl_data" }
-%"struct.std::_Vector_base<fizz::ProtocolVersion, std::allocator<fizz::ProtocolVersion>>::_Vector_impl_data" = type { ptr, ptr, ptr }
-%"class.std::vector.22" = type { %"struct.std::_Vector_base.23" }
-%"struct.std::_Vector_base.23" = type { %"struct.std::_Vector_base<std::vector<fizz::CipherSuite>, std::allocator<std::vector<fizz::CipherSuite>>>::_Vector_impl" }
-%"struct.std::_Vector_base<std::vector<fizz::CipherSuite>, std::allocator<std::vector<fizz::CipherSuite>>>::_Vector_impl" = type { %"struct.std::_Vector_base<std::vector<fizz::CipherSuite>, std::allocator<std::vector<fizz::CipherSuite>>>::_Vector_impl_data" }
-%"struct.std::_Vector_base<std::vector<fizz::CipherSuite>, std::allocator<std::vector<fizz::CipherSuite>>>::_Vector_impl_data" = type { ptr, ptr, ptr }
-%"class.std::vector.27" = type { %"struct.std::_Vector_base.28" }
-%"struct.std::_Vector_base.28" = type { %"struct.std::_Vector_base<fizz::SignatureScheme, std::allocator<fizz::SignatureScheme>>::_Vector_impl" }
-%"struct.std::_Vector_base<fizz::SignatureScheme, std::allocator<fizz::SignatureScheme>>::_Vector_impl" = type { %"struct.std::_Vector_base<fizz::SignatureScheme, std::allocator<fizz::SignatureScheme>>::_Vector_impl_data" }
-%"struct.std::_Vector_base<fizz::SignatureScheme, std::allocator<fizz::SignatureScheme>>::_Vector_impl_data" = type { ptr, ptr, ptr }
-%"class.std::vector.32" = type { %"struct.std::_Vector_base.33" }
-%"struct.std::_Vector_base.33" = type { %"struct.std::_Vector_base<fizz::NamedGroup, std::allocator<fizz::NamedGroup>>::_Vector_impl" }
-%"struct.std::_Vector_base<fizz::NamedGroup, std::allocator<fizz::NamedGroup>>::_Vector_impl" = type { %"struct.std::_Vector_base<fizz::NamedGroup, std::allocator<fizz::NamedGroup>>::_Vector_impl_data" }
-%"struct.std::_Vector_base<fizz::NamedGroup, std::allocator<fizz::NamedGroup>>::_Vector_impl_data" = type { ptr, ptr, ptr }
-%"class.std::vector.37" = type { %"struct.std::_Vector_base.38" }
-%"struct.std::_Vector_base.38" = type { %"struct.std::_Vector_base<fizz::PskKeyExchangeMode, std::allocator<fizz::PskKeyExchangeMode>>::_Vector_impl" }
-%"struct.std::_Vector_base<fizz::PskKeyExchangeMode, std::allocator<fizz::PskKeyExchangeMode>>::_Vector_impl" = type { %"struct.std::_Vector_base<fizz::PskKeyExchangeMode, std::allocator<fizz::PskKeyExchangeMode>>::_Vector_impl_data" }
-%"struct.std::_Vector_base<fizz::PskKeyExchangeMode, std::allocator<fizz::PskKeyExchangeMode>>::_Vector_impl_data" = type { ptr, ptr, ptr }
-%"class.folly::Optional.42" = type { %"struct.folly::Optional<unsigned short>::StorageTriviallyDestructible" }
-%"struct.folly::Optional<unsigned short>::StorageTriviallyDestructible" = type <{ %union.anon.43, i8, i8 }>
-%union.anon.43 = type { i16 }
-%"class.std::vector.44" = type { %"struct.std::_Vector_base.45" }
-%"struct.std::_Vector_base.45" = type { %"struct.std::_Vector_base<fizz::CertificateCompressionAlgorithm, std::allocator<fizz::CertificateCompressionAlgorithm>>::_Vector_impl" }
-%"struct.std::_Vector_base<fizz::CertificateCompressionAlgorithm, std::allocator<fizz::CertificateCompressionAlgorithm>>::_Vector_impl" = type { %"struct.std::_Vector_base<fizz::CertificateCompressionAlgorithm, std::allocator<fizz::CertificateCompressionAlgorithm>>::_Vector_impl_data" }
-%"struct.std::_Vector_base<fizz::CertificateCompressionAlgorithm, std::allocator<fizz::CertificateCompressionAlgorithm>>::_Vector_impl_data" = type { ptr, ptr, ptr }
-%"struct.fizz::AsyncFizzBase::TransportOptions" = type { i8, i8, %"class.std::shared_ptr", i64, i64, ptr }
-%"class.std::shared_ptr" = type { %"class.std::__shared_ptr" }
-%"class.std::__shared_ptr" = type { ptr, %"class.std::__shared_count" }
-%"class.std::__shared_count" = type { ptr }
-%"class.std::unordered_map" = type { %"class.std::_Hashtable" }
-%"class.std::_Hashtable" = type { ptr, i64, %"struct.std::__detail::_Hash_node_base", i64, %"struct.std::__detail::_Prime_rehash_policy", ptr }
-%"struct.std::__detail::_Hash_node_base" = type { ptr }
-%"struct.std::__detail::_Prime_rehash_policy" = type { float, i64 }
-%"class.std::map" = type { %"class.std::_Rb_tree" }
-%"class.std::_Rb_tree" = type { %"struct.std::_Rb_tree<folly::SocketOptionKey, std::pair<const folly::SocketOptionKey, int>, std::_Select1st<std::pair<const folly::SocketOptionKey, int>>, std::less<folly::SocketOptionKey>>::_Rb_tree_impl" }
-%"struct.std::_Rb_tree<folly::SocketOptionKey, std::pair<const folly::SocketOptionKey, int>, std::_Select1st<std::pair<const folly::SocketOptionKey, int>>, std::less<folly::SocketOptionKey>>::_Rb_tree_impl" = type { %"struct.std::_Rb_tree_key_compare", %"struct.std::_Rb_tree_header" }
-%"struct.std::_Rb_tree_key_compare" = type { %"struct.std::less" }
-%"struct.std::less" = type { i8 }
-%"struct.std::_Rb_tree_header" = type { %"struct.std::_Rb_tree_node_base", i64 }
-%"struct.std::_Rb_tree_node_base" = type { i32, ptr, ptr, ptr }
-%"class.std::chrono::duration" = type { i64 }
-%"class.std::__cxx11::list" = type { %"class.std::__cxx11::_List_base" }
-%"class.std::__cxx11::_List_base" = type { %"struct.std::__cxx11::_List_base<std::__cxx11::basic_string<char>, std::allocator<std::__cxx11::basic_string<char>>>::_List_impl" }
-%"struct.std::__cxx11::_List_base<std::__cxx11::basic_string<char>, std::allocator<std::__cxx11::basic_string<char>>>::_List_impl" = type { %"struct.std::__detail::_List_node_header" }
-%"struct.std::__detail::_List_node_header" = type { %"struct.std::__detail::_List_node_base", i64 }
-%"struct.std::__detail::_List_node_base" = type { ptr, ptr }
-%"class.std::vector.61" = type { %"struct.std::_Vector_base.62" }
-%"struct.std::_Vector_base.62" = type { %"struct.std::_Vector_base<proxygen::HTTPSetting, std::allocator<proxygen::HTTPSetting>>::_Vector_impl" }
-%"struct.std::_Vector_base<proxygen::HTTPSetting, std::allocator<proxygen::HTTPSetting>>::_Vector_impl" = type { %"struct.std::_Vector_base<proxygen::HTTPSetting, std::allocator<proxygen::HTTPSetting>>::_Vector_impl_data" }
-%"struct.std::_Vector_base<proxygen::HTTPSetting, std::allocator<proxygen::HTTPSetting>>::_Vector_impl_data" = type { ptr, ptr, ptr }
 %"class.std::unique_ptr" = type { %"struct.std::__uniq_ptr_data" }
 %"struct.std::__uniq_ptr_data" = type { %"class.std::__uniq_ptr_impl" }
 %"class.std::__uniq_ptr_impl" = type { %"class.std::tuple" }
 %"class.std::tuple" = type { %"struct.std::_Tuple_impl" }
 %"struct.std::_Tuple_impl" = type { %"struct.std::_Head_base.67" }
 %"struct.std::_Head_base.67" = type { ptr }
+%"class.std::__cxx11::list" = type { %"class.std::__cxx11::_List_base" }
+%"class.std::__cxx11::_List_base" = type { %"struct.std::__cxx11::_List_base<std::__cxx11::basic_string<char>, std::allocator<std::__cxx11::basic_string<char>>>::_List_impl" }
+%"struct.std::__cxx11::_List_base<std::__cxx11::basic_string<char>, std::allocator<std::__cxx11::basic_string<char>>>::_List_impl" = type { %"struct.std::__detail::_List_node_header" }
+%"struct.std::__detail::_List_node_header" = type { %"struct.std::__detail::_List_node_base", i64 }
+%"struct.std::__detail::_List_node_base" = type { ptr, ptr }
 %"class.google::LogMessage" = type { ptr, ptr, %"struct.google::LogMessageTime" }
 %"struct.google::LogMessageTime" = type { %struct.tm, i64, i32, i64 }
 %struct.tm = type { i32, i32, i32, i32, i32, i32, i32, i32, i32, i64, ptr }
-%"class.proxygen::HTTP2Codec" = type <{ %"class.proxygen::HTTPParallelCodec.base", [4 x i8], %"class.proxygen::HPACK::StreamingCallback", %"class.proxygen::HPACKCodec", %"struct.proxygen::http2::FrameHeader", [4 x i8], i64, %"class.folly::Optional.97", i8, i8, i8, [5 x i8], %"class.std::unordered_set", i16, [6 x i8], %"class.folly::IOBufQueue", %"class.folly::IOBufQueue", %"class.proxygen::HTTPSettings", %"class.proxygen::HTTPSettings", i8, [7 x i8], %"class.std::__cxx11::basic_string", i64, i64, %"class.proxygen::HeaderDecodeInfo", %"class.std::vector.128", %"class.folly::Optional.126", i8, i8, i8, i8, i8, i8, [2 x i8] }>
-%"class.proxygen::HTTPParallelCodec.base" = type <{ %"class.proxygen::HTTPCodec", i8, [7 x i8], i64, i64, ptr, i64, i64, %"class.std::__cxx11::basic_string", i32 }>
-%"class.proxygen::HTTPCodec" = type { ptr }
-%"class.proxygen::HPACK::StreamingCallback" = type { ptr, ptr }
-%"class.proxygen::HPACKCodec" = type { %"class.proxygen::HeaderCodec", %"class.proxygen::HPACKEncoder", %"class.proxygen::HPACKDecoder", %"class.std::vector.84" }
-%"class.proxygen::HeaderCodec" = type { ptr, %"struct.proxygen::HTTPHeaderSize", i32, i64, ptr }
-%"struct.proxygen::HTTPHeaderSize" = type { i32, i32, i32 }
-%"class.proxygen::HPACKEncoder" = type { %"class.proxygen::HPACKEncoderBase.base", [7 x i8], %"class.proxygen::HPACKContext.base", [4 x i8] }
-%"class.proxygen::HPACKEncoderBase.base" = type <{ ptr, %"class.proxygen::HPACKEncodeBuffer", i8 }>
-%"class.proxygen::HPACKEncodeBuffer" = type <{ %"class.folly::IOBufQueue", ptr, %"class.folly::io::QueueAppender", i32, i32, i32, [4 x i8] }>
-%"class.folly::io::QueueAppender" = type { %"class.folly::IOBufQueue::WritableRangeCache", i64 }
-%"class.folly::IOBufQueue::WritableRangeCache" = type { %"struct.folly::IOBufQueue::WritableRangeCacheData", ptr }
-%"struct.folly::IOBufQueue::WritableRangeCacheData" = type <{ %"struct.std::pair", i8, [7 x i8] }>
-%"struct.std::pair" = type { ptr, ptr }
-%"class.proxygen::HPACKContext.base" = type <{ %"class.proxygen::HeaderTable", i32 }>
-%"class.proxygen::HeaderTable" = type { ptr, i32, i32, %"class.std::vector.84", i32, i32, i32, i8, %"class.folly::F14FastMap" }
-%"class.folly::F14FastMap" = type { %"class.folly::f14::detail::F14VectorMapImpl" }
-%"class.folly::f14::detail::F14VectorMapImpl" = type { %"class.folly::f14::detail::F14BasicMap" }
-%"class.folly::f14::detail::F14BasicMap" = type { %"class.folly::f14::detail::F14Table" }
-%"class.folly::f14::detail::F14Table" = type { %"class.folly::f14::detail::VectorContainerPolicy", ptr, %"struct.folly::f14::detail::SizeAndChunkShiftAndPackedBegin" }
-%"class.folly::f14::detail::VectorContainerPolicy" = type { ptr }
-%"struct.folly::f14::detail::SizeAndChunkShiftAndPackedBegin" = type { %"struct.folly::f14::detail::PackedSizeAndChunkShift" }
-%"struct.folly::f14::detail::PackedSizeAndChunkShift" = type { i64 }
-%"class.proxygen::HPACKDecoder" = type <{ %"class.proxygen::HPACKDecoderBase", %"class.proxygen::HPACKContext.base", [4 x i8] }>
-%"class.proxygen::HPACKDecoderBase" = type { i8, i32, i64 }
-%"class.std::vector.84" = type { %"struct.std::_Vector_base.85" }
-%"struct.std::_Vector_base.85" = type { %"struct.std::_Vector_base<proxygen::HPACKHeader, std::allocator<proxygen::HPACKHeader>>::_Vector_impl" }
-%"struct.std::_Vector_base<proxygen::HPACKHeader, std::allocator<proxygen::HPACKHeader>>::_Vector_impl" = type { %"struct.std::_Vector_base<proxygen::HPACKHeader, std::allocator<proxygen::HPACKHeader>>::_Vector_impl_data" }
-%"struct.std::_Vector_base<proxygen::HPACKHeader, std::allocator<proxygen::HPACKHeader>>::_Vector_impl_data" = type { ptr, ptr, ptr }
-%"struct.proxygen::http2::FrameHeader" = type { i32, i32, i8, i8, i16 }
-%"class.folly::Optional.97" = type { %"struct.folly::Optional<unsigned long>::StorageTriviallyDestructible" }
-%"struct.folly::Optional<unsigned long>::StorageTriviallyDestructible" = type <{ %union.anon.98, i8, [7 x i8] }>
-%union.anon.98 = type { i64 }
-%"class.std::unordered_set" = type { %"class.std::_Hashtable.99" }
-%"class.std::_Hashtable.99" = type { ptr, i64, %"struct.std::__detail::_Hash_node_base", i64, %"struct.std::__detail::_Prime_rehash_policy", ptr }
-%"class.folly::IOBufQueue" = type { %"struct.folly::IOBufQueue::Options", i64, %"class.std::unique_ptr.76", ptr, ptr, %"struct.folly::IOBufQueue::WritableRangeCacheData", ptr }
-%"struct.folly::IOBufQueue::Options" = type { i8 }
-%"class.std::unique_ptr.76" = type { %"struct.std::__uniq_ptr_data.77" }
-%"struct.std::__uniq_ptr_data.77" = type { %"class.std::__uniq_ptr_impl.78" }
-%"class.std::__uniq_ptr_impl.78" = type { %"class.std::tuple.79" }
-%"class.std::tuple.79" = type { %"struct.std::_Tuple_impl.80" }
-%"struct.std::_Tuple_impl.80" = type { %"struct.std::_Head_base.83" }
-%"struct.std::_Head_base.83" = type { ptr }
-%"class.proxygen::HTTPSettings" = type { %"class.std::vector.61" }
-%"class.proxygen::HeaderDecodeInfo" = type <{ %"class.std::unique_ptr.118", %"class.proxygen::HTTPRequestVerifier", %"class.std::__cxx11::basic_string", %"class.std::__cxx11::basic_string", i8, i8, i8, i8, i8, i8, i8, i8, i8, [3 x i8], %"class.folly::Optional.126", [4 x i8] }>
-%"class.std::unique_ptr.118" = type { %"struct.std::__uniq_ptr_data.119" }
-%"struct.std::__uniq_ptr_data.119" = type { %"class.std::__uniq_ptr_impl.120" }
-%"class.std::__uniq_ptr_impl.120" = type { %"class.std::tuple.121" }
-%"class.std::tuple.121" = type { %"struct.std::_Tuple_impl.122" }
-%"struct.std::_Tuple_impl.122" = type { %"struct.std::_Head_base.125" }
-%"struct.std::_Head_base.125" = type { ptr }
-%"class.proxygen::HTTPRequestVerifier" = type <{ %"class.std::__cxx11::basic_string", ptr, i8, i8, i8, i8, i8, [3 x i8] }>
-%"class.std::vector.128" = type { %"struct.std::_Vector_base.129" }
-%"struct.std::_Vector_base.129" = type { %"struct.std::_Vector_base<unsigned long, std::allocator<unsigned long>>::_Vector_impl" }
-%"struct.std::_Vector_base<unsigned long, std::allocator<unsigned long>>::_Vector_impl" = type { %"struct.std::_Vector_base<unsigned long, std::allocator<unsigned long>>::_Vector_impl_data" }
-%"struct.std::_Vector_base<unsigned long, std::allocator<unsigned long>>::_Vector_impl_data" = type { ptr, ptr, ptr }
-%"class.folly::Optional.126" = type { %"struct.folly::Optional<unsigned int>::StorageTriviallyDestructible" }
-%"struct.folly::Optional<unsigned int>::StorageTriviallyDestructible" = type <{ %union.anon.127, i8, [3 x i8] }>
-%union.anon.127 = type { i32 }
-%"struct.std::_List_node" = type { %"struct.std::__detail::_List_node_base", %"struct.__gnu_cxx::__aligned_membuf" }
-%"struct.__gnu_cxx::__aligned_membuf" = type { [32 x i8] }
 
 $_ZNSt7__cxx114listINS_12basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EED2Ev = comdat any
 
@@ -224,20 +86,20 @@ declare i32 @__cxa_atexit(ptr, ptr, ptr) local_unnamed_addr #2
 ; Function Attrs: mustprogress nounwind uwtable
 define void @_ZN8proxygen30HTTPDefaultSessionCodecFactoryC2ERKNS_21AcceptorConfigurationE(ptr nocapture noundef nonnull align 8 dereferenceable(50) %this, ptr noundef nonnull align 8 dereferenceable(761) %accConfig) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  %useStrictValidationFn_.i = getelementptr inbounds %"class.proxygen::HTTPCodecFactory", ptr %this, i64 0, i32 1
-  %_M_manager.i.i.i = getelementptr inbounds %"class.proxygen::HTTPCodecFactory", ptr %this, i64 0, i32 1, i32 0, i32 1
-  %_M_invoker.i.i = getelementptr inbounds %"class.proxygen::HTTPCodecFactory", ptr %this, i64 0, i32 1, i32 1
+  %useStrictValidationFn_.i = getelementptr inbounds i8, ptr %this, i64 8
+  %_M_manager.i.i.i = getelementptr inbounds i8, ptr %this, i64 24
+  %_M_invoker.i.i = getelementptr inbounds i8, ptr %this, i64 32
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %useStrictValidationFn_.i, i8 0, i64 16, i1 false)
   store ptr @_ZNSt17_Function_handlerIFbvEN8proxygen16HTTPCodecFactory22useStrictValidationFn_MUlvE_EE9_M_invokeERKSt9_Any_data, ptr %_M_invoker.i.i, align 8
   store ptr @_ZNSt17_Function_handlerIFbvEN8proxygen16HTTPCodecFactory22useStrictValidationFn_MUlvE_EE10_M_managerERSt9_Any_dataRKS6_St18_Manager_operation, ptr %_M_manager.i.i.i, align 8
   store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN8proxygen30HTTPDefaultSessionCodecFactoryE, i64 0, inrange i32 0, i64 2), ptr %this, align 8
-  %accConfig_ = getelementptr inbounds %"class.proxygen::HTTPDefaultSessionCodecFactory", ptr %this, i64 0, i32 1
+  %accConfig_ = getelementptr inbounds i8, ptr %this, i64 40
   store ptr %accConfig, ptr %accConfig_, align 8
-  %alwaysUseHTTP2_ = getelementptr inbounds %"class.proxygen::HTTPDefaultSessionCodecFactory", ptr %this, i64 0, i32 2
+  %alwaysUseHTTP2_ = getelementptr inbounds i8, ptr %this, i64 48
   store i8 0, ptr %alwaysUseHTTP2_, align 8
-  %hasValue.i.i = getelementptr inbounds %"class.proxygen::HTTPDefaultSessionCodecFactory", ptr %this, i64 0, i32 2, i32 0, i32 1
+  %hasValue.i.i = getelementptr inbounds i8, ptr %this, i64 49
   store i8 0, ptr %hasValue.i.i, align 1
-  %plaintextProtocol = getelementptr inbounds %"struct.proxygen::AcceptorConfiguration", ptr %accConfig, i64 0, i32 6
+  %plaintextProtocol = getelementptr inbounds i8, ptr %accConfig, i64 632
   %call.i = tail call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4sizeEv(ptr noundef nonnull align 8 dereferenceable(32) %plaintextProtocol) #13
   %call1.i = tail call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4sizeEv(ptr noundef nonnull align 8 dereferenceable(32) @_ZN8proxygen5http224kProtocolCleartextStringB5cxx11E) #13
   %cmp.i = icmp eq i64 %call.i, %call1.i
@@ -283,7 +145,7 @@ entry:
   br i1 %isTLS, label %if.else, label %land.lhs.true
 
 land.lhs.true:                                    ; preds = %entry
-  %hasValue.i.i = getelementptr inbounds %"class.proxygen::HTTPDefaultSessionCodecFactory", ptr %this, i64 0, i32 2, i32 0, i32 1
+  %hasValue.i.i = getelementptr inbounds i8, ptr %this, i64 49
   %0 = load i8, ptr %hasValue.i.i, align 1
   %1 = and i8 %0, 1
   %tobool.i.i.not = icmp eq i8 %1, 0
@@ -305,7 +167,7 @@ lpad.i:                                           ; preds = %if.then
   br label %common.resume
 
 _ZSt11make_uniqueIN8proxygen10HTTP2CodecEJRNS0_18TransportDirectionEEENSt8__detail9_MakeUniqIT_E15__single_objectEDpOT0_.exit: ; preds = %if.then
-  %_M_manager.i.i.i = getelementptr inbounds %"class.proxygen::HTTPCodecFactory", ptr %this, i64 0, i32 1, i32 0, i32 1
+  %_M_manager.i.i.i = getelementptr inbounds i8, ptr %this, i64 24
   %3 = load ptr, ptr %_M_manager.i.i.i, align 8
   %tobool.not.i.i.i = icmp eq ptr %3, null
   br i1 %tobool.not.i.i.i, label %if.then.i.i, label %_ZNKSt8functionIFbvEEclEv.exit.i
@@ -318,15 +180,15 @@ if.then.i.i:                                      ; preds = %_ZSt11make_uniqueIN
   unreachable
 
 _ZNKSt8functionIFbvEEclEv.exit.i:                 ; preds = %_ZSt11make_uniqueIN8proxygen10HTTP2CodecEJRNS0_18TransportDirectionEEENSt8__detail9_MakeUniqIT_E15__single_objectEDpOT0_.exit
-  %useStrictValidationFn_.i = getelementptr inbounds %"class.proxygen::HTTPCodecFactory", ptr %this, i64 0, i32 1
-  %_M_invoker.i.i = getelementptr inbounds %"class.proxygen::HTTPCodecFactory", ptr %this, i64 0, i32 1, i32 1
+  %useStrictValidationFn_.i = getelementptr inbounds i8, ptr %this, i64 8
+  %_M_invoker.i.i = getelementptr inbounds i8, ptr %this, i64 32
   %4 = load ptr, ptr %_M_invoker.i.i, align 8
   %call2.i.i10 = invoke noundef zeroext i1 %4(ptr noundef nonnull align 8 dereferenceable(16) %useStrictValidationFn_.i)
           to label %_ZNSt10unique_ptrIN8proxygen10HTTP2CodecESt14default_deleteIS1_EED2Ev.exit unwind label %_ZNSt10unique_ptrIN8proxygen10HTTP2CodecESt14default_deleteIS1_EED2Ev.exit15
 
 _ZNSt10unique_ptrIN8proxygen10HTTP2CodecESt14default_deleteIS1_EED2Ev.exit: ; preds = %_ZNKSt8functionIFbvEEclEv.exit.i
   %frombool.i = zext i1 %call2.i.i10 to i8
-  %strictValidation_.i = getelementptr inbounds %"class.proxygen::HTTP2Codec", ptr %call.i, i64 0, i32 31
+  %strictValidation_.i = getelementptr inbounds i8, ptr %call.i, i64 1060
   store i8 %frombool.i, ptr %strictValidation_.i, align 4
   br label %return
 
@@ -334,7 +196,7 @@ _ZNSt10unique_ptrIN8proxygen10HTTP2CodecESt14default_deleteIS1_EED2Ev.exit15: ; 
   %5 = landingpad { ptr, i32 }
           cleanup
   %vtable.i.i13 = load ptr, ptr %call.i, align 8
-  %vfn.i.i14 = getelementptr inbounds ptr, ptr %vtable.i.i13, i64 1
+  %vfn.i.i14 = getelementptr inbounds i8, ptr %vtable.i.i13, i64 8
   %6 = load ptr, ptr %vfn.i.i14, align 8
   tail call void %6(ptr noundef nonnull align 8 dereferenceable(1062) %call.i) #13
   br label %common.resume
@@ -348,8 +210,8 @@ lor.lhs.false:                                    ; preds = %if.else
   br i1 %call6, label %if.then7, label %if.else19
 
 if.then7:                                         ; preds = %lor.lhs.false, %if.else
-  %accConfig_ = getelementptr inbounds %"class.proxygen::HTTPDefaultSessionCodecFactory", ptr %this, i64 0, i32 1
-  %_M_manager.i.i.i16 = getelementptr inbounds %"class.proxygen::HTTPCodecFactory", ptr %this, i64 0, i32 1, i32 0, i32 1
+  %accConfig_ = getelementptr inbounds i8, ptr %this, i64 40
+  %_M_manager.i.i.i16 = getelementptr inbounds i8, ptr %this, i64 24
   %7 = load ptr, ptr %_M_manager.i.i.i16, align 8
   %tobool.not.i.i.i17 = icmp eq ptr %7, null
   br i1 %tobool.not.i.i.i17, label %if.then.i.i21, label %_ZN8proxygen16HTTPCodecFactory19useStrictValidationEv.exit22
@@ -360,9 +222,9 @@ if.then.i.i21:                                    ; preds = %if.then7
 
 _ZN8proxygen16HTTPCodecFactory19useStrictValidationEv.exit22: ; preds = %if.then7
   %8 = load ptr, ptr %accConfig_, align 8
-  %forceHTTP1_0_to_1_1 = getelementptr inbounds %"struct.proxygen::AcceptorConfiguration", ptr %8, i64 0, i32 8
-  %useStrictValidationFn_.i19 = getelementptr inbounds %"class.proxygen::HTTPCodecFactory", ptr %this, i64 0, i32 1
-  %_M_invoker.i.i20 = getelementptr inbounds %"class.proxygen::HTTPCodecFactory", ptr %this, i64 0, i32 1, i32 1
+  %forceHTTP1_0_to_1_1 = getelementptr inbounds i8, ptr %8, i64 688
+  %useStrictValidationFn_.i19 = getelementptr inbounds i8, ptr %this, i64 8
+  %_M_invoker.i.i20 = getelementptr inbounds i8, ptr %this, i64 32
   %9 = load ptr, ptr %_M_invoker.i.i20, align 8
   %call2.i.i = tail call noundef zeroext i1 %9(ptr noundef nonnull align 8 dereferenceable(16) %useStrictValidationFn_.i19)
   %call.i23 = tail call noalias noundef nonnull dereferenceable(432) ptr @_Znwm(i64 noundef 432) #14, !noalias !7
@@ -383,11 +245,11 @@ _ZSt11make_uniqueIN8proxygen11HTTP1xCodecEJRNS0_18TransportDirectionERKbbEENSt8_
 
 if.then12:                                        ; preds = %_ZSt11make_uniqueIN8proxygen11HTTP1xCodecEJRNS0_18TransportDirectionERKbbEENSt8__detail9_MakeUniqIT_E15__single_objectEDpOT0_.exit
   %13 = load ptr, ptr %accConfig_, align 8
-  %allowedPlaintextUpgradeProtocols = getelementptr inbounds %"struct.proxygen::AcceptorConfiguration", ptr %13, i64 0, i32 7
-  %_M_prev.i.i.i.i.i = getelementptr inbounds %"struct.std::__detail::_List_node_base", ptr %agg.tmp, i64 0, i32 1
+  %allowedPlaintextUpgradeProtocols = getelementptr inbounds i8, ptr %13, i64 664
+  %_M_prev.i.i.i.i.i = getelementptr inbounds i8, ptr %agg.tmp, i64 8
   store ptr %agg.tmp, ptr %_M_prev.i.i.i.i.i, align 8
   store ptr %agg.tmp, ptr %agg.tmp, align 8
-  %_M_size.i.i.i.i.i = getelementptr inbounds %"struct.std::__detail::_List_node_header", ptr %agg.tmp, i64 0, i32 1
+  %_M_size.i.i.i.i.i = getelementptr inbounds i8, ptr %agg.tmp, i64 16
   store i64 0, ptr %_M_size.i.i.i.i.i, align 8
   %14 = load ptr, ptr %allowedPlaintextUpgradeProtocols, align 8
   %cmp.i.not3.i.i = icmp eq ptr %14, %allowedPlaintextUpgradeProtocols
@@ -399,8 +261,8 @@ for.body.i.i:                                     ; preds = %if.then12, %_ZNSt7_
           to label %call5.i.i.i.i.i.i.i.noexc.i unwind label %lpad9.i
 
 call5.i.i.i.i.i.i.i.noexc.i:                      ; preds = %for.body.i.i
-  %_M_storage.i.i.i.i = getelementptr inbounds %"struct.std::_List_node", ptr %__first.sroa.0.04.i.i, i64 0, i32 1
-  %_M_storage.i.i.i.i.i.i = getelementptr inbounds %"struct.std::_List_node", ptr %call5.i.i.i.i.i.i.i4.i, i64 0, i32 1
+  %_M_storage.i.i.i.i = getelementptr inbounds i8, ptr %__first.sroa.0.04.i.i, i64 16
+  %_M_storage.i.i.i.i.i.i = getelementptr inbounds i8, ptr %call5.i.i.i.i.i.i.i4.i, i64 16
   invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1ERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %_M_storage.i.i.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(32) %_M_storage.i.i.i.i)
           to label %_ZNSt7__cxx114listINS_12basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE12emplace_backIJRKS5_EEERS5_DpOT_.exit.i.i unwind label %_ZNSt15__allocated_ptrISaISt10_List_nodeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEED2Ev.exit9.i.i.i.i.i
 
@@ -441,7 +303,7 @@ invoke.cont18:                                    ; preds = %invoke.cont16
 while.body.i.i.i:                                 ; preds = %invoke.cont18, %while.body.i.i.i
   %__cur.05.i.i.i = phi ptr [ %20, %while.body.i.i.i ], [ %19, %invoke.cont18 ]
   %20 = load ptr, ptr %__cur.05.i.i.i, align 8
-  %_M_storage.i.i.i.i25 = getelementptr inbounds %"struct.std::_List_node", ptr %__cur.05.i.i.i, i64 0, i32 1
+  %_M_storage.i.i.i.i25 = getelementptr inbounds i8, ptr %__cur.05.i.i.i, i64 16
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %_M_storage.i.i.i.i25) #13
   call void @_ZdlPv(ptr noundef %__cur.05.i.i.i) #15
   %cmp.not.i.i.i = icmp eq ptr %20, %agg.tmp
@@ -456,7 +318,7 @@ lpad17:                                           ; preds = %invoke.cont16
 _ZNSt10unique_ptrIN8proxygen11HTTP1xCodecESt14default_deleteIS1_EED2Ev.exit33: ; preds = %lpad9.body.i, %lpad17
   %.pn = phi { ptr, i32 } [ %21, %lpad17 ], [ %eh.lpad-body.i, %lpad9.body.i ]
   %vtable.i.i31 = load ptr, ptr %call.i23, align 8
-  %vfn.i.i32 = getelementptr inbounds ptr, ptr %vtable.i.i31, i64 1
+  %vfn.i.i32 = getelementptr inbounds i8, ptr %vtable.i.i31, i64 8
   %22 = load ptr, ptr %vfn.i.i32, align 8
   call void %22(ptr noundef nonnull align 8 dereferenceable(428) %call.i23) #13
   br label %common.resume
@@ -527,7 +389,7 @@ lpad.i58:                                         ; preds = %if.then25
   br label %common.resume
 
 _ZSt11make_uniqueIN8proxygen10HTTP2CodecEJRNS0_18TransportDirectionEEENSt8__detail9_MakeUniqIT_E15__single_objectEDpOT0_.exit59: ; preds = %if.then25
-  %_M_manager.i.i.i60 = getelementptr inbounds %"class.proxygen::HTTPCodecFactory", ptr %this, i64 0, i32 1, i32 0, i32 1
+  %_M_manager.i.i.i60 = getelementptr inbounds i8, ptr %this, i64 24
   %27 = load ptr, ptr %_M_manager.i.i.i60, align 8
   %tobool.not.i.i.i61 = icmp eq ptr %27, null
   br i1 %tobool.not.i.i.i61, label %if.then.i.i66, label %_ZNKSt8functionIFbvEEclEv.exit.i62
@@ -540,15 +402,15 @@ if.then.i.i66:                                    ; preds = %_ZSt11make_uniqueIN
   unreachable
 
 _ZNKSt8functionIFbvEEclEv.exit.i62:               ; preds = %_ZSt11make_uniqueIN8proxygen10HTTP2CodecEJRNS0_18TransportDirectionEEENSt8__detail9_MakeUniqIT_E15__single_objectEDpOT0_.exit59
-  %useStrictValidationFn_.i63 = getelementptr inbounds %"class.proxygen::HTTPCodecFactory", ptr %this, i64 0, i32 1
-  %_M_invoker.i.i64 = getelementptr inbounds %"class.proxygen::HTTPCodecFactory", ptr %this, i64 0, i32 1, i32 1
+  %useStrictValidationFn_.i63 = getelementptr inbounds i8, ptr %this, i64 8
+  %_M_invoker.i.i64 = getelementptr inbounds i8, ptr %this, i64 32
   %28 = load ptr, ptr %_M_invoker.i.i64, align 8
   %call2.i.i6568 = invoke noundef zeroext i1 %28(ptr noundef nonnull align 8 dereferenceable(16) %useStrictValidationFn_.i63)
           to label %_ZNSt10unique_ptrIN8proxygen10HTTP2CodecESt14default_deleteIS1_EED2Ev.exit76 unwind label %_ZNSt10unique_ptrIN8proxygen10HTTP2CodecESt14default_deleteIS1_EED2Ev.exit81
 
 _ZNSt10unique_ptrIN8proxygen10HTTP2CodecESt14default_deleteIS1_EED2Ev.exit76: ; preds = %_ZNKSt8functionIFbvEEclEv.exit.i62
   %frombool.i70 = zext i1 %call2.i.i6568 to i8
-  %strictValidation_.i71 = getelementptr inbounds %"class.proxygen::HTTP2Codec", ptr %call.i57, i64 0, i32 31
+  %strictValidation_.i71 = getelementptr inbounds i8, ptr %call.i57, i64 1060
   store i8 %frombool.i70, ptr %strictValidation_.i71, align 4
   br label %return
 
@@ -556,7 +418,7 @@ _ZNSt10unique_ptrIN8proxygen10HTTP2CodecESt14default_deleteIS1_EED2Ev.exit81: ; 
   %29 = landingpad { ptr, i32 }
           cleanup
   %vtable.i.i79 = load ptr, ptr %call.i57, align 8
-  %vfn.i.i80 = getelementptr inbounds ptr, ptr %vtable.i.i79, i64 1
+  %vfn.i.i80 = getelementptr inbounds i8, ptr %vtable.i.i79, i64 8
   %30 = load ptr, ptr %vfn.i.i80, align 8
   tail call void %30(ptr noundef nonnull align 8 dereferenceable(1062) %call.i57) #13
   br label %common.resume
@@ -621,7 +483,7 @@ entry:
 while.body.i.i:                                   ; preds = %entry, %while.body.i.i
   %__cur.05.i.i = phi ptr [ %1, %while.body.i.i ], [ %0, %entry ]
   %1 = load ptr, ptr %__cur.05.i.i, align 8
-  %_M_storage.i.i.i = getelementptr inbounds %"struct.std::_List_node", ptr %__cur.05.i.i, i64 0, i32 1
+  %_M_storage.i.i.i = getelementptr inbounds i8, ptr %__cur.05.i.i, i64 16
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %_M_storage.i.i.i) #13
   tail call void @_ZdlPv(ptr noundef %__cur.05.i.i) #15
   %cmp.not.i.i = icmp eq ptr %1, %this
@@ -648,13 +510,13 @@ declare void @_ZN6google10LogMessageD1Ev(ptr noundef nonnull align 8 dereference
 define linkonce_odr void @_ZN8proxygen30HTTPDefaultSessionCodecFactoryD2Ev(ptr noundef nonnull align 8 dereferenceable(50) %this) unnamed_addr #3 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN8proxygen16HTTPCodecFactoryE, i64 0, inrange i32 0, i64 2), ptr %this, align 8
-  %_M_manager.i.i.i = getelementptr inbounds %"class.proxygen::HTTPCodecFactory", ptr %this, i64 0, i32 1, i32 0, i32 1
+  %_M_manager.i.i.i = getelementptr inbounds i8, ptr %this, i64 24
   %0 = load ptr, ptr %_M_manager.i.i.i, align 8
   %tobool.not.i.i.i = icmp eq ptr %0, null
   br i1 %tobool.not.i.i.i, label %_ZN8proxygen16HTTPCodecFactoryD2Ev.exit, label %if.then.i.i.i
 
 if.then.i.i.i:                                    ; preds = %entry
-  %useStrictValidationFn_.i = getelementptr inbounds %"class.proxygen::HTTPCodecFactory", ptr %this, i64 0, i32 1
+  %useStrictValidationFn_.i = getelementptr inbounds i8, ptr %this, i64 8
   %call.i.i.i = invoke noundef zeroext i1 %0(ptr noundef nonnull align 8 dereferenceable(16) %useStrictValidationFn_.i, ptr noundef nonnull align 8 dereferenceable(16) %useStrictValidationFn_.i, i32 noundef 3)
           to label %_ZN8proxygen16HTTPCodecFactoryD2Ev.exit unwind label %terminate.lpad.i.i.i
 
@@ -673,13 +535,13 @@ _ZN8proxygen16HTTPCodecFactoryD2Ev.exit:          ; preds = %entry, %if.then.i.i
 define linkonce_odr void @_ZN8proxygen30HTTPDefaultSessionCodecFactoryD0Ev(ptr noundef nonnull align 8 dereferenceable(50) %this) unnamed_addr #3 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN8proxygen16HTTPCodecFactoryE, i64 0, inrange i32 0, i64 2), ptr %this, align 8
-  %_M_manager.i.i.i.i = getelementptr inbounds %"class.proxygen::HTTPCodecFactory", ptr %this, i64 0, i32 1, i32 0, i32 1
+  %_M_manager.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 24
   %0 = load ptr, ptr %_M_manager.i.i.i.i, align 8
   %tobool.not.i.i.i.i = icmp eq ptr %0, null
   br i1 %tobool.not.i.i.i.i, label %_ZN8proxygen30HTTPDefaultSessionCodecFactoryD2Ev.exit, label %if.then.i.i.i.i
 
 if.then.i.i.i.i:                                  ; preds = %entry
-  %useStrictValidationFn_.i.i = getelementptr inbounds %"class.proxygen::HTTPCodecFactory", ptr %this, i64 0, i32 1
+  %useStrictValidationFn_.i.i = getelementptr inbounds i8, ptr %this, i64 8
   %call.i.i.i.i = invoke noundef zeroext i1 %0(ptr noundef nonnull align 8 dereferenceable(16) %useStrictValidationFn_.i.i, ptr noundef nonnull align 8 dereferenceable(16) %useStrictValidationFn_.i.i, i32 noundef 3)
           to label %_ZN8proxygen30HTTPDefaultSessionCodecFactoryD2Ev.exit unwind label %terminate.lpad.i.i.i.i
 
@@ -699,13 +561,13 @@ _ZN8proxygen30HTTPDefaultSessionCodecFactoryD2Ev.exit: ; preds = %entry, %if.the
 define linkonce_odr void @_ZN8proxygen16HTTPCodecFactoryD2Ev(ptr noundef nonnull align 8 dereferenceable(40) %this) unnamed_addr #3 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN8proxygen16HTTPCodecFactoryE, i64 0, inrange i32 0, i64 2), ptr %this, align 8
-  %_M_manager.i.i = getelementptr inbounds %"class.proxygen::HTTPCodecFactory", ptr %this, i64 0, i32 1, i32 0, i32 1
+  %_M_manager.i.i = getelementptr inbounds i8, ptr %this, i64 24
   %0 = load ptr, ptr %_M_manager.i.i, align 8
   %tobool.not.i.i = icmp eq ptr %0, null
   br i1 %tobool.not.i.i, label %_ZNSt8functionIFbvEED2Ev.exit, label %if.then.i.i
 
 if.then.i.i:                                      ; preds = %entry
-  %useStrictValidationFn_ = getelementptr inbounds %"class.proxygen::HTTPCodecFactory", ptr %this, i64 0, i32 1
+  %useStrictValidationFn_ = getelementptr inbounds i8, ptr %this, i64 8
   %call.i.i = invoke noundef zeroext i1 %0(ptr noundef nonnull align 8 dereferenceable(16) %useStrictValidationFn_, ptr noundef nonnull align 8 dereferenceable(16) %useStrictValidationFn_, i32 noundef 3)
           to label %_ZNSt8functionIFbvEED2Ev.exit unwind label %terminate.lpad.i.i
 
@@ -785,7 +647,7 @@ entry:
 while.body.i:                                     ; preds = %entry, %while.body.i
   %__cur.05.i = phi ptr [ %1, %while.body.i ], [ %0, %entry ]
   %1 = load ptr, ptr %__cur.05.i, align 8
-  %_M_storage.i.i = getelementptr inbounds %"struct.std::_List_node", ptr %__cur.05.i, i64 0, i32 1
+  %_M_storage.i.i = getelementptr inbounds i8, ptr %__cur.05.i, i64 16
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %_M_storage.i.i) #13
   tail call void @_ZdlPv(ptr noundef %__cur.05.i) #15
   %cmp.not.i = icmp eq ptr %1, %this

@@ -5,9 +5,6 @@ target triple = "x86_64-unknown-linux-gnu"
 
 %struct.ASN1_TEMPLATE_st = type { i64, i64, i64, ptr, ptr }
 %struct.ASN1_ITEM_st = type { i8, i64, ptr, i64, ptr, i64, ptr }
-%struct.X509_algor_st = type { ptr, ptr }
-%struct.asn1_type_st = type { i32, %union.anon }
-%union.anon = type { ptr }
 
 @X509_ALGOR_seq_tt = internal constant [2 x %struct.ASN1_TEMPLATE_st] [%struct.ASN1_TEMPLATE_st { i64 0, i64 0, i64 0, ptr @.str.2, ptr @ASN1_OBJECT_it }, %struct.ASN1_TEMPLATE_st { i64 1, i64 0, i64 8, ptr @.str.3, ptr @ASN1_ANY_it }], align 16
 @.str = private unnamed_addr constant [11 x i8] c"X509_ALGOR\00", align 1
@@ -91,7 +88,7 @@ if.end:                                           ; preds = %entry
   br i1 %cmp.not, label %if.then12, label %if.then1
 
 if.then1:                                         ; preds = %if.end
-  %parameter = getelementptr inbounds %struct.X509_algor_st, ptr %alg, i64 0, i32 1
+  %parameter = getelementptr inbounds i8, ptr %alg, i64 8
   %0 = load ptr, ptr %parameter, align 8
   %cmp2 = icmp eq ptr %0, null
   br i1 %cmp2, label %if.end5, label %if.then12
@@ -119,7 +116,7 @@ if.end16:                                         ; preds = %if.then14, %if.then
   ]
 
 if.then23:                                        ; preds = %if.end16
-  %parameter24 = getelementptr inbounds %struct.X509_algor_st, ptr %alg, i64 0, i32 1
+  %parameter24 = getelementptr inbounds i8, ptr %alg, i64 8
   %2 = load ptr, ptr %parameter24, align 8
   %tobool25.not = icmp eq ptr %2, null
   br i1 %tobool25.not, label %return, label %if.then26
@@ -130,7 +127,7 @@ if.then26:                                        ; preds = %if.then23
   br label %return
 
 if.else:                                          ; preds = %if.end16
-  %parameter30 = getelementptr inbounds %struct.X509_algor_st, ptr %alg, i64 0, i32 1
+  %parameter30 = getelementptr inbounds i8, ptr %alg, i64 8
   %3 = load ptr, ptr %parameter30, align 8
   tail call void @ASN1_TYPE_set(ptr noundef %3, i32 noundef %ptype, ptr noundef %pval) #3
   br label %return
@@ -164,7 +161,7 @@ if.end:                                           ; preds = %if.then, %entry
   br i1 %tobool1.not, label %if.end10, label %if.then2
 
 if.then2:                                         ; preds = %if.end
-  %parameter = getelementptr inbounds %struct.X509_algor_st, ptr %algor, i64 0, i32 1
+  %parameter = getelementptr inbounds i8, ptr %algor, i64 8
   %1 = load ptr, ptr %parameter, align 8
   %cmp = icmp eq ptr %1, null
   br i1 %cmp, label %if.then3, label %if.else
@@ -181,7 +178,7 @@ if.else:                                          ; preds = %if.then2
 
 if.then7:                                         ; preds = %if.else
   %3 = load ptr, ptr %parameter, align 8
-  %value = getelementptr inbounds %struct.asn1_type_st, ptr %3, i64 0, i32 1
+  %value = getelementptr inbounds i8, ptr %3, i64 8
   %4 = load ptr, ptr %value, align 8
   store ptr %4, ptr %ppval, align 8
   br label %if.end10
@@ -205,7 +202,7 @@ if.end.i:                                         ; preds = %entry
   br i1 %tobool.not.not, label %if.then1.i, label %if.then12.i
 
 if.then1.i:                                       ; preds = %if.end.i
-  %parameter.i = getelementptr inbounds %struct.X509_algor_st, ptr %alg, i64 0, i32 1
+  %parameter.i = getelementptr inbounds i8, ptr %alg, i64 8
   %0 = load ptr, ptr %parameter.i, align 8
   %cmp2.i = icmp eq ptr %0, null
   br i1 %cmp2.i, label %if.end5.i, label %if.then12.i
@@ -227,7 +224,7 @@ if.then14.i:                                      ; preds = %if.then12.i
 
 if.end16.i:                                       ; preds = %if.then14.i, %if.then12.i
   store ptr %call2, ptr %alg, align 8
-  %parameter30.i = getelementptr inbounds %struct.X509_algor_st, ptr %alg, i64 0, i32 1
+  %parameter30.i = getelementptr inbounds i8, ptr %alg, i64 8
   %2 = load ptr, ptr %parameter30.i, align 8
   br i1 %tobool.not.not, label %if.else.i, label %if.then23.i
 
@@ -264,10 +261,10 @@ entry:
   br i1 %tobool.not, label %if.end, label %return
 
 if.end:                                           ; preds = %entry
-  %parameter = getelementptr inbounds %struct.X509_algor_st, ptr %a, i64 0, i32 1
+  %parameter = getelementptr inbounds i8, ptr %a, i64 8
   %2 = load ptr, ptr %parameter, align 8
   %tobool2.not = icmp eq ptr %2, null
-  %parameter3 = getelementptr inbounds %struct.X509_algor_st, ptr %b, i64 0, i32 1
+  %parameter3 = getelementptr inbounds i8, ptr %b, i64 8
   %3 = load ptr, ptr %parameter3, align 8
   %tobool4.not = icmp eq ptr %3, null
   %or.cond = select i1 %tobool2.not, i1 %tobool4.not, i1 false

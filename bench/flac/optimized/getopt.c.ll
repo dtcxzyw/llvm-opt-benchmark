@@ -3,8 +3,6 @@ source_filename = "bench/flac/original/getopt.c.ll"
 target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:128-n8:16:32:64-S128"
 target triple = "x86_64-unknown-linux-gnu"
 
-%struct.share__option = type { ptr, i32, ptr, i32 }
-
 @share__optarg = dso_local local_unnamed_addr global ptr null, align 8
 @share__optind = dso_local local_unnamed_addr global i32 1, align 4
 @share__opterr = dso_local local_unnamed_addr global i32 1, align 4
@@ -515,7 +513,7 @@ for.inc165:                                       ; preds = %if.else157, %for.bo
   %pfound.1 = phi ptr [ %pfound.0234, %for.body144 ], [ %p.0.pfound.0, %if.else157 ]
   %ambig.1 = phi i32 [ %ambig.0235, %for.body144 ], [ %ambig.0., %if.else157 ]
   %indfound.1 = phi i32 [ %indfound.0236, %for.body144 ], [ %option_index.0.indfound.0, %if.else157 ]
-  %incdec.ptr166 = getelementptr inbounds %struct.share__option, ptr %p.0233, i64 1
+  %incdec.ptr166 = getelementptr inbounds i8, ptr %p.0233, i64 32
   %inc167 = add nuw nsw i32 %option_index.0237, 1
   %56 = load ptr, ptr %incdec.ptr166, align 8
   %tobool143.not.not = icmp eq ptr %56, null
@@ -565,7 +563,7 @@ if.then187:                                       ; preds = %if.then148, %if.end
   store i32 %inc188, ptr @share__optind, align 4
   %64 = load i8, ptr %nameend.0, align 1
   %tobool189.not = icmp eq i8 %64, 0
-  %has_arg224 = getelementptr inbounds %struct.share__option, ptr %pfound.2194200, i64 0, i32 1
+  %has_arg224 = getelementptr inbounds i8, ptr %pfound.2194200, i64 8
   %65 = load i32, ptr %has_arg224, align 8
   br i1 %tobool189.not, label %if.else223, label %if.then190
 
@@ -601,7 +599,7 @@ if.else208:                                       ; preds = %if.then196
   %72 = load i32, ptr @share__optind, align 4
   %73 = sext i32 %72 to i64
   %74 = getelementptr ptr, ptr %argv, i64 %73
-  %arrayidx213 = getelementptr ptr, ptr %74, i64 -1
+  %arrayidx213 = getelementptr i8, ptr %74, i64 -8
   %75 = load ptr, ptr %arrayidx213, align 8
   %76 = load i8, ptr %75, align 1
   %conv215 = sext i8 %76 to i32
@@ -614,7 +612,7 @@ if.end219:                                        ; preds = %if.then203, %if.els
   %call220 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %78) #6
   %add.ptr221 = getelementptr inbounds i8, ptr %78, i64 %call220
   store ptr %add.ptr221, ptr @nextchar, align 8
-  %val = getelementptr inbounds %struct.share__option, ptr %pfound.2194200, i64 0, i32 3
+  %val = getelementptr inbounds i8, ptr %pfound.2194200, i64 24
   %79 = load i32, ptr %val, align 8
   store i32 %79, ptr @share__optopt, align 4
   br label %return
@@ -647,7 +645,7 @@ if.then236:                                       ; preds = %if.else234
   %84 = load i32, ptr @share__optind, align 4
   %85 = sext i32 %84 to i64
   %86 = getelementptr ptr, ptr %argv, i64 %85
-  %arrayidx241 = getelementptr ptr, ptr %86, i64 -1
+  %arrayidx241 = getelementptr i8, ptr %86, i64 -8
   %87 = load ptr, ptr %arrayidx241, align 8
   %call242 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %82, ptr noundef %call237, ptr noundef %83, ptr noundef %87) #7
   %.pre257 = load ptr, ptr @nextchar, align 8
@@ -658,7 +656,7 @@ if.end243:                                        ; preds = %if.then236, %if.els
   %call244 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %88) #6
   %add.ptr245 = getelementptr inbounds i8, ptr %88, i64 %call244
   store ptr %add.ptr245, ptr @nextchar, align 8
-  %val246 = getelementptr inbounds %struct.share__option, ptr %pfound.2194200, i64 0, i32 3
+  %val246 = getelementptr inbounds i8, ptr %pfound.2194200, i64 24
   %89 = load i32, ptr %val246, align 8
   store i32 %89, ptr @share__optopt, align 4
   %90 = load i8, ptr %optstring.addr.0269, align 1
@@ -683,10 +681,10 @@ if.then258:                                       ; preds = %if.end253
   br label %if.end259
 
 if.end259:                                        ; preds = %if.then258, %if.end253
-  %flag = getelementptr inbounds %struct.share__option, ptr %pfound.2194200, i64 0, i32 2
+  %flag = getelementptr inbounds i8, ptr %pfound.2194200, i64 16
   %91 = load ptr, ptr %flag, align 8
   %tobool260.not = icmp eq ptr %91, null
-  %val265 = getelementptr inbounds %struct.share__option, ptr %pfound.2194200, i64 0, i32 3
+  %val265 = getelementptr inbounds i8, ptr %pfound.2194200, i64 24
   %92 = load i32, ptr %val265, align 8
   br i1 %tobool260.not, label %return, label %if.then261
 
@@ -905,7 +903,7 @@ for.inc427:                                       ; preds = %if.else419, %for.bo
   %pfound351.1 = phi ptr [ %pfound351.0243, %for.body403 ], [ %p350.0.pfound351.0, %if.else419 ]
   %ambig353.1 = phi i32 [ %ambig353.0244, %for.body403 ], [ %ambig353.0., %if.else419 ]
   %indfound354.1 = phi i32 [ %indfound354.0245, %for.body403 ], [ %option_index355.0.indfound354.0, %if.else419 ]
-  %incdec.ptr428 = getelementptr inbounds %struct.share__option, ptr %p350.0242, i64 1
+  %incdec.ptr428 = getelementptr inbounds i8, ptr %p350.0242, i64 32
   %inc429 = add nuw nsw i32 %option_index355.0246, 1
   %127 = load ptr, ptr %incdec.ptr428, align 8
   %tobool402.not.not = icmp eq ptr %127, null
@@ -951,7 +949,7 @@ if.then449:                                       ; preds = %if.then410, %if.end
   %pfound351.2209215 = phi ptr [ %pfound351.1, %if.end446 ], [ %p350.0242, %if.then410 ]
   %indfound354.2210214 = phi i32 [ %indfound354.1, %if.end446 ], [ %option_index355.0246, %if.then410 ]
   %tobool450.not = icmp eq i8 %124, 0
-  %has_arg468 = getelementptr inbounds %struct.share__option, ptr %pfound351.2209215, i64 0, i32 1
+  %has_arg468 = getelementptr inbounds i8, ptr %pfound351.2209215, i64 8
   %136 = load i32, ptr %has_arg468, align 8
   br i1 %tobool450.not, label %if.else467, label %if.then451
 
@@ -1012,7 +1010,7 @@ if.then480:                                       ; preds = %if.else478
   %146 = load i32, ptr @share__optind, align 4
   %147 = sext i32 %146 to i64
   %148 = getelementptr ptr, ptr %argv, i64 %147
-  %arrayidx485 = getelementptr ptr, ptr %148, i64 -1
+  %arrayidx485 = getelementptr i8, ptr %148, i64 -8
   %149 = load ptr, ptr %arrayidx485, align 8
   %call486 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %144, ptr noundef %call481, ptr noundef %145, ptr noundef %149) #7
   %.pre262 = load ptr, ptr @nextchar, align 8
@@ -1045,10 +1043,10 @@ if.then502:                                       ; preds = %if.end497
   br label %if.end503
 
 if.end503:                                        ; preds = %if.then502, %if.end497
-  %flag504 = getelementptr inbounds %struct.share__option, ptr %pfound351.2209215, i64 0, i32 2
+  %flag504 = getelementptr inbounds i8, ptr %pfound351.2209215, i64 16
   %152 = load ptr, ptr %flag504, align 8
   %tobool505.not = icmp eq ptr %152, null
-  %val510 = getelementptr inbounds %struct.share__option, ptr %pfound351.2209215, i64 0, i32 3
+  %val510 = getelementptr inbounds i8, ptr %pfound351.2209215, i64 24
   %153 = load i32, ptr %val510, align 8
   br i1 %tobool505.not, label %return, label %if.then506
 

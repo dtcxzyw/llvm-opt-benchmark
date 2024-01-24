@@ -4,8 +4,6 @@ target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:
 target triple = "x86_64-unknown-linux-gnu"
 
 %"class.arrow_vendored::double_conversion::DoubleToStringConverter" = type { i32, ptr, ptr, i8, i32, i32, i32, i32, i32 }
-%"class.arrow_vendored::double_conversion::StringBuilder" = type { %"class.arrow_vendored::double_conversion::Vector", i32, [4 x i8] }
-%"class.arrow_vendored::double_conversion::Vector" = type <{ ptr, i32, [4 x i8] }>
 
 @_ZZN14arrow_vendored17double_conversion23DoubleToStringConverter19EcmaScriptConverterEvE9converter = internal global %"class.arrow_vendored::double_conversion::DoubleToStringConverter" zeroinitializer, align 8
 @_ZGVZN14arrow_vendored17double_conversion23DoubleToStringConverter19EcmaScriptConverterEvE9converter = internal global i64 0, align 8
@@ -55,7 +53,7 @@ entry:
   br i1 %2, label %if.then, label %if.end7
 
 if.then:                                          ; preds = %entry
-  %infinity_symbol_ = getelementptr inbounds %"class.arrow_vendored::double_conversion::DoubleToStringConverter", ptr %this, i64 0, i32 1
+  %infinity_symbol_ = getelementptr inbounds i8, ptr %this, i64 8
   %3 = load ptr, ptr %infinity_symbol_, align 8
   %cmp = icmp eq ptr %3, null
   br i1 %cmp, label %return, label %if.end
@@ -65,7 +63,7 @@ if.end:                                           ; preds = %if.then
   br i1 %cmp3, label %if.then4, label %if.end5
 
 if.then4:                                         ; preds = %if.end
-  %position_.i = getelementptr inbounds %"class.arrow_vendored::double_conversion::StringBuilder", ptr %result_builder, i64 0, i32 1
+  %position_.i = getelementptr inbounds i8, ptr %result_builder, i64 16
   %4 = load i32, ptr %position_.i, align 8
   %inc.i = add nsw i32 %4, 1
   store i32 %inc.i, ptr %position_.i, align 8
@@ -79,7 +77,7 @@ if.then4:                                         ; preds = %if.end
 if.end5:                                          ; preds = %if.then4, %if.end
   %6 = phi ptr [ %.pre, %if.then4 ], [ %3, %if.end ]
   %call.i.i = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %6) #13
-  %position_.i.i = getelementptr inbounds %"class.arrow_vendored::double_conversion::StringBuilder", ptr %result_builder, i64 0, i32 1
+  %position_.i.i = getelementptr inbounds i8, ptr %result_builder, i64 16
   %7 = load i32, ptr %position_.i.i, align 8
   %8 = load ptr, ptr %result_builder, align 8
   %idxprom.i.i.i = sext i32 %7 to i64
@@ -99,14 +97,14 @@ if.end7:                                          ; preds = %entry
   br i1 %10, label %if.then9, label %return
 
 if.then9:                                         ; preds = %if.end7
-  %nan_symbol_ = getelementptr inbounds %"class.arrow_vendored::double_conversion::DoubleToStringConverter", ptr %this, i64 0, i32 2
+  %nan_symbol_ = getelementptr inbounds i8, ptr %this, i64 16
   %11 = load ptr, ptr %nan_symbol_, align 8
   %cmp10 = icmp eq ptr %11, null
   br i1 %cmp10, label %return, label %if.end12
 
 if.end12:                                         ; preds = %if.then9
   %call.i.i4 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %11) #13
-  %position_.i.i6 = getelementptr inbounds %"class.arrow_vendored::double_conversion::StringBuilder", ptr %result_builder, i64 0, i32 1
+  %position_.i.i6 = getelementptr inbounds i8, ptr %result_builder, i64 16
   %12 = load i32, ptr %position_.i.i6, align 8
   %13 = load ptr, ptr %result_builder, align 8
   %idxprom.i.i.i7 = sext i32 %12 to i64
@@ -135,7 +133,7 @@ define void @_ZNK14arrow_vendored17double_conversion23DoubleToStringConverter31C
 entry:
   %buffer = alloca [6 x i8], align 1
   %0 = load i8, ptr %decimal_digits, align 1
-  %position_.i = getelementptr inbounds %"class.arrow_vendored::double_conversion::StringBuilder", ptr %result_builder, i64 0, i32 1
+  %position_.i = getelementptr inbounds i8, ptr %result_builder, i64 16
   %1 = load i32, ptr %position_.i, align 8
   %inc.i = add nsw i32 %1, 1
   store i32 %inc.i, ptr %position_.i, align 8
@@ -199,7 +197,7 @@ if.else:                                          ; preds = %entry
 
 if.end10:                                         ; preds = %if.then, %if.then7, %if.then3, %if.else
   %12 = phi i32 [ %.pre68, %if.then ], [ %.pre, %if.then7 ], [ %.pre69, %if.then3 ], [ %add.i, %if.else ]
-  %exponent_character_ = getelementptr inbounds %"class.arrow_vendored::double_conversion::DoubleToStringConverter", ptr %this, i64 0, i32 3
+  %exponent_character_ = getelementptr inbounds i8, ptr %this, i64 24
   %13 = load i8, ptr %exponent_character_, align 8
   %inc.i37 = add nsw i32 %12, 1
   store i32 %inc.i37, ptr %position_.i, align 8
@@ -219,7 +217,7 @@ if.end20.thread:                                  ; preds = %if.end10
   %arrayidx.i.i43 = getelementptr inbounds i8, ptr %16, i64 %idxprom.i.i42
   store i8 45, ptr %arrayidx.i.i43, align 1
   %sub13 = sub nsw i32 0, %exponent
-  %arrayidx2171 = getelementptr inbounds [6 x i8], ptr %buffer, i64 0, i64 5
+  %arrayidx2171 = getelementptr inbounds i8, ptr %buffer, i64 5
   store i8 0, ptr %arrayidx2171, align 1
   br label %while.body.preheader
 
@@ -244,13 +242,13 @@ if.then18:                                        ; preds = %if.else14
   br label %if.end20
 
 if.end20:                                         ; preds = %if.else14, %if.then18
-  %arrayidx21 = getelementptr inbounds [6 x i8], ptr %buffer, i64 0, i64 5
+  %arrayidx21 = getelementptr inbounds i8, ptr %buffer, i64 5
   store i8 0, ptr %arrayidx21, align 1
   %cmp22 = icmp eq i32 %exponent, 0
   br i1 %cmp22, label %if.then23, label %while.body.preheader
 
 if.then23:                                        ; preds = %if.end20
-  %arrayidx24 = getelementptr inbounds [6 x i8], ptr %buffer, i64 0, i64 4
+  %arrayidx24 = getelementptr inbounds i8, ptr %buffer, i64 4
   store i8 48, ptr %arrayidx24, align 1
   br label %if.end30
 
@@ -273,7 +271,7 @@ if.end30.loopexit:                                ; preds = %while.body
 
 if.end30:                                         ; preds = %if.end30.loopexit, %if.then23
   %first_char_pos.1 = phi i32 [ 4, %if.then23 ], [ %21, %if.end30.loopexit ]
-  %min_exponent_width_ = getelementptr inbounds %"class.arrow_vendored::double_conversion::DoubleToStringConverter", ptr %this, i64 0, i32 8
+  %min_exponent_width_ = getelementptr inbounds i8, ptr %this, i64 44
   %22 = load i32, ptr %min_exponent_width_, align 4
   %.sroa.speculated = tail call i32 @llvm.smin.i32(i32 %22, i32 5)
   %sub3257 = sub nsw i32 5, %first_char_pos.1
@@ -330,7 +328,7 @@ entry:
   br i1 %cmp, label %if.then, label %if.else
 
 if.then:                                          ; preds = %entry
-  %position_.i = getelementptr inbounds %"class.arrow_vendored::double_conversion::StringBuilder", ptr %result_builder, i64 0, i32 1
+  %position_.i = getelementptr inbounds i8, ptr %result_builder, i64 16
   %0 = load i32, ptr %position_.i, align 8
   %inc.i = add nsw i32 %0, 1
   store i32 %inc.i, ptr %position_.i, align 8
@@ -396,7 +394,7 @@ for.body.i48:                                     ; preds = %_ZN14arrow_vendored
 
 if.else:                                          ; preds = %entry
   %cmp7.not = icmp slt i32 %decimal_point, %length
-  %position_.i87 = getelementptr inbounds %"class.arrow_vendored::double_conversion::StringBuilder", ptr %result_builder, i64 0, i32 1
+  %position_.i87 = getelementptr inbounds i8, ptr %result_builder, i64 16
   %11 = load i32, ptr %position_.i87, align 8
   %12 = load ptr, ptr %result_builder, align 8
   %idxprom.i.i88 = sext i32 %11 to i64
@@ -503,7 +501,7 @@ if.then21:                                        ; preds = %if.end19
   br i1 %cmp22.not, label %if.end24, label %if.then23
 
 if.then23:                                        ; preds = %if.then21
-  %position_.i112 = getelementptr inbounds %"class.arrow_vendored::double_conversion::StringBuilder", ptr %result_builder, i64 0, i32 1
+  %position_.i112 = getelementptr inbounds i8, ptr %result_builder, i64 16
   %28 = load i32, ptr %position_.i112, align 8
   %inc.i113 = add nsw i32 %28, 1
   store i32 %inc.i113, ptr %position_.i112, align 8
@@ -521,7 +519,7 @@ if.end24:                                         ; preds = %if.then23, %if.then
   br i1 %cmp27.not, label %if.end30, label %if.then28
 
 if.then28:                                        ; preds = %if.end24
-  %position_.i116 = getelementptr inbounds %"class.arrow_vendored::double_conversion::StringBuilder", ptr %result_builder, i64 0, i32 1
+  %position_.i116 = getelementptr inbounds i8, ptr %result_builder, i64 16
   %31 = load i32, ptr %position_.i116, align 8
   %inc.i117 = add nsw i32 %31, 1
   store i32 %inc.i117, ptr %position_.i116, align 8
@@ -554,7 +552,7 @@ if.then:                                          ; preds = %entry
   br i1 %3, label %if.then.i, label %if.end7.i
 
 if.then.i:                                        ; preds = %if.then
-  %infinity_symbol_.i = getelementptr inbounds %"class.arrow_vendored::double_conversion::DoubleToStringConverter", ptr %this, i64 0, i32 1
+  %infinity_symbol_.i = getelementptr inbounds i8, ptr %this, i64 8
   %4 = load ptr, ptr %infinity_symbol_.i, align 8
   %cmp.i10 = icmp eq ptr %4, null
   br i1 %cmp.i10, label %return, label %if.end.i
@@ -564,7 +562,7 @@ if.end.i:                                         ; preds = %if.then.i
   br i1 %cmp3.i, label %if.then4.i, label %if.end5.i
 
 if.then4.i:                                       ; preds = %if.end.i
-  %position_.i.i = getelementptr inbounds %"class.arrow_vendored::double_conversion::StringBuilder", ptr %result_builder, i64 0, i32 1
+  %position_.i.i = getelementptr inbounds i8, ptr %result_builder, i64 16
   %5 = load i32, ptr %position_.i.i, align 8
   %inc.i.i = add nsw i32 %5, 1
   store i32 %inc.i.i, ptr %position_.i.i, align 8
@@ -578,7 +576,7 @@ if.then4.i:                                       ; preds = %if.end.i
 if.end5.i:                                        ; preds = %if.then4.i, %if.end.i
   %7 = phi ptr [ %.pre.i, %if.then4.i ], [ %4, %if.end.i ]
   %call.i.i.i = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %7) #13
-  %position_.i.i.i = getelementptr inbounds %"class.arrow_vendored::double_conversion::StringBuilder", ptr %result_builder, i64 0, i32 1
+  %position_.i.i.i = getelementptr inbounds i8, ptr %result_builder, i64 16
   %8 = load i32, ptr %position_.i.i.i, align 8
   %9 = load ptr, ptr %result_builder, align 8
   %idxprom.i.i.i.i = sext i32 %8 to i64
@@ -594,14 +592,14 @@ if.end7.i:                                        ; preds = %if.then
   br i1 %cmp3.i.i.not, label %return, label %if.then9.i
 
 if.then9.i:                                       ; preds = %if.end7.i
-  %nan_symbol_.i = getelementptr inbounds %"class.arrow_vendored::double_conversion::DoubleToStringConverter", ptr %this, i64 0, i32 2
+  %nan_symbol_.i = getelementptr inbounds i8, ptr %this, i64 16
   %10 = load ptr, ptr %nan_symbol_.i, align 8
   %cmp10.i = icmp eq ptr %10, null
   br i1 %cmp10.i, label %return, label %if.end12.i
 
 if.end12.i:                                       ; preds = %if.then9.i
   %call.i.i4.i = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %10) #13
-  %position_.i.i6.i = getelementptr inbounds %"class.arrow_vendored::double_conversion::StringBuilder", ptr %result_builder, i64 0, i32 1
+  %position_.i.i6.i = getelementptr inbounds i8, ptr %result_builder, i64 16
   %11 = load i32, ptr %position_.i.i6.i, align 8
   %12 = load ptr, ptr %result_builder, align 8
   %idxprom.i.i.i7.i = sext i32 %11 to i64
@@ -634,7 +632,7 @@ if.end:                                           ; preds = %entry
   br i1 %or.cond9, label %if.then5, label %if.end6
 
 if.then5:                                         ; preds = %if.end
-  %position_.i = getelementptr inbounds %"class.arrow_vendored::double_conversion::StringBuilder", ptr %result_builder, i64 0, i32 1
+  %position_.i = getelementptr inbounds i8, ptr %result_builder, i64 16
   %17 = load i32, ptr %position_.i, align 8
   %inc.i = add nsw i32 %17, 1
   store i32 %inc.i, ptr %position_.i, align 8
@@ -646,10 +644,10 @@ if.then5:                                         ; preds = %if.end
 
 if.end6:                                          ; preds = %if.then5, %if.end
   %19 = load i32, ptr %decimal_point, align 4
-  %decimal_in_shortest_low_ = getelementptr inbounds %"class.arrow_vendored::double_conversion::DoubleToStringConverter", ptr %this, i64 0, i32 4
+  %decimal_in_shortest_low_ = getelementptr inbounds i8, ptr %this, i64 28
   %20 = load i32, ptr %decimal_in_shortest_low_, align 4
   %cmp7.not.not = icmp sge i32 %20, %19
-  %decimal_in_shortest_high_ = getelementptr inbounds %"class.arrow_vendored::double_conversion::DoubleToStringConverter", ptr %this, i64 0, i32 5
+  %decimal_in_shortest_high_ = getelementptr inbounds i8, ptr %this, i64 32
   %21 = load i32, ptr %decimal_in_shortest_high_, align 8
   %cmp9.not = icmp sgt i32 %19, %21
   %or.cond = select i1 %cmp7.not.not, i1 true, i1 %cmp9.not
@@ -763,7 +761,7 @@ if.then:                                          ; preds = %entry
   br i1 %3, label %if.then.i, label %if.end7.i
 
 if.then.i:                                        ; preds = %if.then
-  %infinity_symbol_.i = getelementptr inbounds %"class.arrow_vendored::double_conversion::DoubleToStringConverter", ptr %this, i64 0, i32 1
+  %infinity_symbol_.i = getelementptr inbounds i8, ptr %this, i64 8
   %4 = load ptr, ptr %infinity_symbol_.i, align 8
   %cmp.i11 = icmp eq ptr %4, null
   br i1 %cmp.i11, label %return, label %if.end.i
@@ -773,7 +771,7 @@ if.end.i:                                         ; preds = %if.then.i
   br i1 %cmp3.i, label %if.then4.i, label %if.end5.i
 
 if.then4.i:                                       ; preds = %if.end.i
-  %position_.i.i = getelementptr inbounds %"class.arrow_vendored::double_conversion::StringBuilder", ptr %result_builder, i64 0, i32 1
+  %position_.i.i = getelementptr inbounds i8, ptr %result_builder, i64 16
   %5 = load i32, ptr %position_.i.i, align 8
   %inc.i.i = add nsw i32 %5, 1
   store i32 %inc.i.i, ptr %position_.i.i, align 8
@@ -787,7 +785,7 @@ if.then4.i:                                       ; preds = %if.end.i
 if.end5.i:                                        ; preds = %if.then4.i, %if.end.i
   %7 = phi ptr [ %.pre.i, %if.then4.i ], [ %4, %if.end.i ]
   %call.i.i.i = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %7) #13
-  %position_.i.i.i = getelementptr inbounds %"class.arrow_vendored::double_conversion::StringBuilder", ptr %result_builder, i64 0, i32 1
+  %position_.i.i.i = getelementptr inbounds i8, ptr %result_builder, i64 16
   %8 = load i32, ptr %position_.i.i.i, align 8
   %9 = load ptr, ptr %result_builder, align 8
   %idxprom.i.i.i.i = sext i32 %8 to i64
@@ -803,14 +801,14 @@ if.end7.i:                                        ; preds = %if.then
   br i1 %cmp3.i.i.not, label %return, label %if.then9.i
 
 if.then9.i:                                       ; preds = %if.end7.i
-  %nan_symbol_.i = getelementptr inbounds %"class.arrow_vendored::double_conversion::DoubleToStringConverter", ptr %this, i64 0, i32 2
+  %nan_symbol_.i = getelementptr inbounds i8, ptr %this, i64 16
   %10 = load ptr, ptr %nan_symbol_.i, align 8
   %cmp10.i = icmp eq ptr %10, null
   br i1 %cmp10.i, label %return, label %if.end12.i
 
 if.end12.i:                                       ; preds = %if.then9.i
   %call.i.i4.i = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %10) #13
-  %position_.i.i6.i = getelementptr inbounds %"class.arrow_vendored::double_conversion::StringBuilder", ptr %result_builder, i64 0, i32 1
+  %position_.i.i6.i = getelementptr inbounds i8, ptr %result_builder, i64 16
   %11 = load i32, ptr %position_.i.i6.i, align 8
   %12 = load ptr, ptr %result_builder, align 8
   %idxprom.i.i.i7.i = sext i32 %11 to i64
@@ -876,7 +874,7 @@ _ZN14arrow_vendored17double_conversion23DoubleToStringConverter13DoubleToAsciiEd
   br i1 %or.cond10, label %if.then13, label %if.end14
 
 if.then13:                                        ; preds = %_ZN14arrow_vendored17double_conversion23DoubleToStringConverter13DoubleToAsciiEdNS1_8DtoaModeEiPciPbPiS5_.exit
-  %position_.i = getelementptr inbounds %"class.arrow_vendored::double_conversion::StringBuilder", ptr %result_builder, i64 0, i32 1
+  %position_.i = getelementptr inbounds i8, ptr %result_builder, i64 16
   %16 = load i32, ptr %position_.i, align 8
   %inc.i = add nsw i32 %16, 1
   store i32 %inc.i, ptr %position_.i, align 8
@@ -915,7 +913,7 @@ if.then:                                          ; preds = %entry
   br i1 %3, label %if.then.i, label %if.end7.i
 
 if.then.i:                                        ; preds = %if.then
-  %infinity_symbol_.i = getelementptr inbounds %"class.arrow_vendored::double_conversion::DoubleToStringConverter", ptr %this, i64 0, i32 1
+  %infinity_symbol_.i = getelementptr inbounds i8, ptr %this, i64 8
   %4 = load ptr, ptr %infinity_symbol_.i, align 8
   %cmp.i15 = icmp eq ptr %4, null
   br i1 %cmp.i15, label %return, label %if.end.i
@@ -925,7 +923,7 @@ if.end.i:                                         ; preds = %if.then.i
   br i1 %cmp3.i, label %if.then4.i, label %if.end5.i
 
 if.then4.i:                                       ; preds = %if.end.i
-  %position_.i.i = getelementptr inbounds %"class.arrow_vendored::double_conversion::StringBuilder", ptr %result_builder, i64 0, i32 1
+  %position_.i.i = getelementptr inbounds i8, ptr %result_builder, i64 16
   %5 = load i32, ptr %position_.i.i, align 8
   %inc.i.i = add nsw i32 %5, 1
   store i32 %inc.i.i, ptr %position_.i.i, align 8
@@ -939,7 +937,7 @@ if.then4.i:                                       ; preds = %if.end.i
 if.end5.i:                                        ; preds = %if.then4.i, %if.end.i
   %7 = phi ptr [ %.pre.i, %if.then4.i ], [ %4, %if.end.i ]
   %call.i.i.i = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %7) #13
-  %position_.i.i.i = getelementptr inbounds %"class.arrow_vendored::double_conversion::StringBuilder", ptr %result_builder, i64 0, i32 1
+  %position_.i.i.i = getelementptr inbounds i8, ptr %result_builder, i64 16
   %8 = load i32, ptr %position_.i.i.i, align 8
   %9 = load ptr, ptr %result_builder, align 8
   %idxprom.i.i.i.i = sext i32 %8 to i64
@@ -955,14 +953,14 @@ if.end7.i:                                        ; preds = %if.then
   br i1 %cmp3.i.i.not, label %return, label %if.then9.i
 
 if.then9.i:                                       ; preds = %if.end7.i
-  %nan_symbol_.i = getelementptr inbounds %"class.arrow_vendored::double_conversion::DoubleToStringConverter", ptr %this, i64 0, i32 2
+  %nan_symbol_.i = getelementptr inbounds i8, ptr %this, i64 16
   %10 = load ptr, ptr %nan_symbol_.i, align 8
   %cmp10.i = icmp eq ptr %10, null
   br i1 %cmp10.i, label %return, label %if.end12.i
 
 if.end12.i:                                       ; preds = %if.then9.i
   %call.i.i4.i = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %10) #13
-  %position_.i.i6.i = getelementptr inbounds %"class.arrow_vendored::double_conversion::StringBuilder", ptr %result_builder, i64 0, i32 1
+  %position_.i.i6.i = getelementptr inbounds i8, ptr %result_builder, i64 16
   %11 = load i32, ptr %position_.i.i6.i, align 8
   %12 = load ptr, ptr %result_builder, align 8
   %idxprom.i.i.i7.i = sext i32 %11 to i64
@@ -1077,7 +1075,7 @@ if.end14:                                         ; preds = %_ZN14arrow_vendored
   br i1 %or.cond14, label %if.then18, label %if.end19
 
 if.then18:                                        ; preds = %if.end14
-  %position_.i = getelementptr inbounds %"class.arrow_vendored::double_conversion::StringBuilder", ptr %result_builder, i64 0, i32 1
+  %position_.i = getelementptr inbounds i8, ptr %result_builder, i64 16
   %23 = load i32, ptr %position_.i, align 8
   %inc.i = add nsw i32 %23, 1
   store i32 %inc.i, ptr %position_.i, align 8
@@ -1117,7 +1115,7 @@ if.then:                                          ; preds = %entry
   br i1 %3, label %if.then.i, label %if.end7.i
 
 if.then.i:                                        ; preds = %if.then
-  %infinity_symbol_.i = getelementptr inbounds %"class.arrow_vendored::double_conversion::DoubleToStringConverter", ptr %this, i64 0, i32 1
+  %infinity_symbol_.i = getelementptr inbounds i8, ptr %this, i64 8
   %4 = load ptr, ptr %infinity_symbol_.i, align 8
   %cmp.i13 = icmp eq ptr %4, null
   br i1 %cmp.i13, label %return, label %if.end.i
@@ -1127,7 +1125,7 @@ if.end.i:                                         ; preds = %if.then.i
   br i1 %cmp3.i, label %if.then4.i, label %if.end5.i
 
 if.then4.i:                                       ; preds = %if.end.i
-  %position_.i.i = getelementptr inbounds %"class.arrow_vendored::double_conversion::StringBuilder", ptr %result_builder, i64 0, i32 1
+  %position_.i.i = getelementptr inbounds i8, ptr %result_builder, i64 16
   %5 = load i32, ptr %position_.i.i, align 8
   %inc.i.i = add nsw i32 %5, 1
   store i32 %inc.i.i, ptr %position_.i.i, align 8
@@ -1141,7 +1139,7 @@ if.then4.i:                                       ; preds = %if.end.i
 if.end5.i:                                        ; preds = %if.then4.i, %if.end.i
   %7 = phi ptr [ %.pre.i, %if.then4.i ], [ %4, %if.end.i ]
   %call.i.i.i = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %7) #13
-  %position_.i.i.i = getelementptr inbounds %"class.arrow_vendored::double_conversion::StringBuilder", ptr %result_builder, i64 0, i32 1
+  %position_.i.i.i = getelementptr inbounds i8, ptr %result_builder, i64 16
   %8 = load i32, ptr %position_.i.i.i, align 8
   %9 = load ptr, ptr %result_builder, align 8
   %idxprom.i.i.i.i = sext i32 %8 to i64
@@ -1157,14 +1155,14 @@ if.end7.i:                                        ; preds = %if.then
   br i1 %cmp3.i.i.not, label %return, label %if.then9.i
 
 if.then9.i:                                       ; preds = %if.end7.i
-  %nan_symbol_.i = getelementptr inbounds %"class.arrow_vendored::double_conversion::DoubleToStringConverter", ptr %this, i64 0, i32 2
+  %nan_symbol_.i = getelementptr inbounds i8, ptr %this, i64 16
   %10 = load ptr, ptr %nan_symbol_.i, align 8
   %cmp10.i = icmp eq ptr %10, null
   br i1 %cmp10.i, label %return, label %if.end12.i
 
 if.end12.i:                                       ; preds = %if.then9.i
   %call.i.i4.i = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %10) #13
-  %position_.i.i6.i = getelementptr inbounds %"class.arrow_vendored::double_conversion::StringBuilder", ptr %result_builder, i64 0, i32 1
+  %position_.i.i6.i = getelementptr inbounds i8, ptr %result_builder, i64 16
   %11 = load i32, ptr %position_.i.i6.i, align 8
   %12 = load ptr, ptr %result_builder, align 8
   %idxprom.i.i.i7.i = sext i32 %11 to i64
@@ -1225,7 +1223,7 @@ _ZN14arrow_vendored17double_conversion23DoubleToStringConverter13DoubleToAsciiEd
   br i1 %or.cond12, label %if.then10, label %if.end11
 
 if.then10:                                        ; preds = %_ZN14arrow_vendored17double_conversion23DoubleToStringConverter13DoubleToAsciiEdNS1_8DtoaModeEiPciPbPiS5_.exit
-  %position_.i = getelementptr inbounds %"class.arrow_vendored::double_conversion::StringBuilder", ptr %result_builder, i64 0, i32 1
+  %position_.i = getelementptr inbounds i8, ptr %result_builder, i64 16
   %17 = load i32, ptr %position_.i, align 8
   %inc.i = add nsw i32 %17, 1
   store i32 %inc.i, ptr %position_.i, align 8
@@ -1239,7 +1237,7 @@ if.end11:                                         ; preds = %if.then10, %_ZN14ar
   %19 = load i32, ptr %decimal_point, align 4
   %sub = add nsw i32 %19, -1
   %add = sub i32 1, %19
-  %max_leading_padding_zeroes_in_precision_mode_ = getelementptr inbounds %"class.arrow_vendored::double_conversion::DoubleToStringConverter", ptr %this, i64 0, i32 6
+  %max_leading_padding_zeroes_in_precision_mode_ = getelementptr inbounds i8, ptr %this, i64 36
   %20 = load i32, ptr %max_leading_padding_zeroes_in_precision_mode_, align 4
   %cmp16 = icmp sgt i32 %add, %20
   %21 = load i32, ptr %this, align 8
@@ -1250,7 +1248,7 @@ lor.end:                                          ; preds = %if.end11
   %and13.lobit = and i32 %and13, 1
   %sub17 = sub i32 %19, %precision
   %add18 = add nsw i32 %sub17, %and13.lobit
-  %max_trailing_padding_zeroes_in_precision_mode_ = getelementptr inbounds %"class.arrow_vendored::double_conversion::DoubleToStringConverter", ptr %this, i64 0, i32 7
+  %max_trailing_padding_zeroes_in_precision_mode_ = getelementptr inbounds i8, ptr %this, i64 40
   %22 = load i32, ptr %max_trailing_padding_zeroes_in_precision_mode_, align 8
   %cmp19 = icmp sgt i32 %add18, %22
   %and22 = and i32 %21, 16

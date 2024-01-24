@@ -3,9 +3,6 @@ source_filename = "bench/openssl/original/libcrypto-shlib-kdf_lib.ll"
 target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:128-n8:16:32:64-S128"
 target triple = "x86_64-unknown-linux-gnu"
 
-%struct.evp_kdf_st = type { ptr, i32, ptr, ptr, %struct.CRYPTO_REF_COUNT, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr }
-%struct.CRYPTO_REF_COUNT = type { i32 }
-%struct.evp_kdf_ctx_st = type { ptr, ptr }
 %struct.ossl_param_st = type { ptr, i32, ptr, i64, i64 }
 
 @.str = private unnamed_addr constant [32 x i8] c"../openssl/crypto/evp/kdf_lib.c\00", align 1
@@ -25,12 +22,12 @@ if.end:                                           ; preds = %entry
   br i1 %cmp1, label %if.end11.critedge, label %lor.lhs.false
 
 lor.lhs.false:                                    ; preds = %if.end
-  %newctx = getelementptr inbounds %struct.evp_kdf_st, ptr %kdf, i64 0, i32 5
+  %newctx = getelementptr inbounds i8, ptr %kdf, i64 40
   %0 = load ptr, ptr %newctx, align 8
   %1 = load ptr, ptr %kdf, align 8
   %call2 = tail call ptr @ossl_provider_ctx(ptr noundef %1) #5
   %call3 = tail call ptr %0(ptr noundef %call2) #5
-  %algctx = getelementptr inbounds %struct.evp_kdf_ctx_st, ptr %call, i64 0, i32 1
+  %algctx = getelementptr inbounds i8, ptr %call, i64 8
   store ptr %call3, ptr %algctx, align 8
   %cmp4 = icmp eq ptr %call3, null
   br i1 %cmp4, label %if.then7, label %lor.lhs.false5
@@ -44,7 +41,7 @@ if.then7:                                         ; preds = %lor.lhs.false5, %lo
   tail call void @ERR_new() #5
   tail call void @ERR_set_debug(ptr noundef nonnull @.str, i32 noundef 34, ptr noundef nonnull @__func__.EVP_KDF_CTX_new) #5
   tail call void (i32, i32, ptr, ...) @ERR_set_error(i32 noundef 6, i32 noundef 524294, ptr noundef null) #5
-  %freectx = getelementptr inbounds %struct.evp_kdf_st, ptr %kdf, i64 0, i32 7
+  %freectx = getelementptr inbounds i8, ptr %kdf, i64 56
   %2 = load ptr, ptr %freectx, align 8
   tail call void %2(ptr noundef %call3) #5
   br label %if.end11
@@ -90,9 +87,9 @@ entry:
 
 if.end:                                           ; preds = %entry
   %0 = load ptr, ptr %ctx, align 8
-  %freectx = getelementptr inbounds %struct.evp_kdf_st, ptr %0, i64 0, i32 7
+  %freectx = getelementptr inbounds i8, ptr %0, i64 56
   %1 = load ptr, ptr %freectx, align 8
-  %algctx = getelementptr inbounds %struct.evp_kdf_ctx_st, ptr %ctx, i64 0, i32 1
+  %algctx = getelementptr inbounds i8, ptr %ctx, i64 8
   %2 = load ptr, ptr %algctx, align 8
   tail call void %1(ptr noundef %2) #5
   store ptr null, ptr %algctx, align 8
@@ -114,14 +111,14 @@ entry:
   br i1 %cmp, label %return, label %lor.lhs.false
 
 lor.lhs.false:                                    ; preds = %entry
-  %algctx = getelementptr inbounds %struct.evp_kdf_ctx_st, ptr %src, i64 0, i32 1
+  %algctx = getelementptr inbounds i8, ptr %src, i64 8
   %0 = load ptr, ptr %algctx, align 8
   %cmp1 = icmp eq ptr %0, null
   br i1 %cmp1, label %return, label %lor.lhs.false2
 
 lor.lhs.false2:                                   ; preds = %lor.lhs.false
   %1 = load ptr, ptr %src, align 8
-  %dupctx = getelementptr inbounds %struct.evp_kdf_st, ptr %1, i64 0, i32 6
+  %dupctx = getelementptr inbounds i8, ptr %1, i64 48
   %2 = load ptr, ptr %dupctx, align 8
   %cmp3 = icmp eq ptr %2, null
   br i1 %cmp3, label %return, label %if.end
@@ -146,18 +143,18 @@ if.then9:                                         ; preds = %if.end6
 
 if.end10:                                         ; preds = %if.end6
   %4 = load ptr, ptr %src, align 8
-  %dupctx12 = getelementptr inbounds %struct.evp_kdf_st, ptr %4, i64 0, i32 6
+  %dupctx12 = getelementptr inbounds i8, ptr %4, i64 48
   %5 = load ptr, ptr %dupctx12, align 8
   %6 = load ptr, ptr %algctx, align 8
   %call14 = tail call ptr %5(ptr noundef %6) #5
-  %algctx15 = getelementptr inbounds %struct.evp_kdf_ctx_st, ptr %call, i64 0, i32 1
+  %algctx15 = getelementptr inbounds i8, ptr %call, i64 8
   store ptr %call14, ptr %algctx15, align 8
   %cmp17 = icmp eq ptr %call14, null
   br i1 %cmp17, label %EVP_KDF_CTX_free.exit, label %return
 
 EVP_KDF_CTX_free.exit:                            ; preds = %if.end10
   %7 = load ptr, ptr %call, align 8
-  %freectx.i = getelementptr inbounds %struct.evp_kdf_st, ptr %7, i64 0, i32 7
+  %freectx.i = getelementptr inbounds i8, ptr %7, i64 56
   %8 = load ptr, ptr %freectx.i, align 8
   tail call void %8(ptr noundef null) #5
   store ptr null, ptr %algctx15, align 8
@@ -183,7 +180,7 @@ declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
 define i32 @evp_kdf_get_number(ptr nocapture noundef readonly %kdf) local_unnamed_addr #3 {
 entry:
-  %name_id = getelementptr inbounds %struct.evp_kdf_st, ptr %kdf, i64 0, i32 1
+  %name_id = getelementptr inbounds i8, ptr %kdf, i64 8
   %0 = load i32, ptr %name_id, align 8
   ret i32 %0
 }
@@ -191,7 +188,7 @@ entry:
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
 define ptr @EVP_KDF_get0_name(ptr nocapture noundef readonly %kdf) local_unnamed_addr #3 {
 entry:
-  %type_name = getelementptr inbounds %struct.evp_kdf_st, ptr %kdf, i64 0, i32 2
+  %type_name = getelementptr inbounds i8, ptr %kdf, i64 16
   %0 = load ptr, ptr %type_name, align 8
   ret ptr %0
 }
@@ -199,7 +196,7 @@ entry:
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
 define ptr @EVP_KDF_get0_description(ptr nocapture noundef readonly %kdf) local_unnamed_addr #3 {
 entry:
-  %description = getelementptr inbounds %struct.evp_kdf_st, ptr %kdf, i64 0, i32 3
+  %description = getelementptr inbounds i8, ptr %kdf, i64 24
   %0 = load ptr, ptr %description, align 8
   ret ptr %0
 }
@@ -212,7 +209,7 @@ entry:
 
 land.rhs:                                         ; preds = %entry
   %0 = load ptr, ptr %kdf, align 8
-  %name_id = getelementptr inbounds %struct.evp_kdf_st, ptr %kdf, i64 0, i32 1
+  %name_id = getelementptr inbounds i8, ptr %kdf, i64 8
   %1 = load i32, ptr %name_id, align 8
   %call = tail call i32 @evp_is_a(ptr noundef %0, i32 noundef %1, ptr noundef null, ptr noundef %name) #5
   %tobool = icmp ne i32 %call, 0
@@ -248,13 +245,13 @@ entry:
 
 if.end:                                           ; preds = %entry
   %0 = load ptr, ptr %ctx, align 8
-  %reset = getelementptr inbounds %struct.evp_kdf_st, ptr %0, i64 0, i32 8
+  %reset = getelementptr inbounds i8, ptr %0, i64 64
   %1 = load ptr, ptr %reset, align 8
   %cmp1.not = icmp eq ptr %1, null
   br i1 %cmp1.not, label %if.end5, label %if.then2
 
 if.then2:                                         ; preds = %if.end
-  %algctx = getelementptr inbounds %struct.evp_kdf_ctx_st, ptr %ctx, i64 0, i32 1
+  %algctx = getelementptr inbounds i8, ptr %ctx, i64 8
   %2 = load ptr, ptr %algctx, align 8
   tail call void %1(ptr noundef %2) #5
   br label %if.end5
@@ -279,13 +276,13 @@ if.end:                                           ; preds = %entry
   call void @OSSL_PARAM_construct_size_t(ptr nonnull sret(%struct.ossl_param_st) align 8 %tmp, ptr noundef nonnull @.str.1, ptr noundef nonnull %s) #5
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(40) %params, ptr noundef nonnull align 8 dereferenceable(40) %tmp, i64 40, i1 false)
   %1 = load ptr, ptr %ctx, align 8
-  %get_ctx_params = getelementptr inbounds %struct.evp_kdf_st, ptr %1, i64 0, i32 14
+  %get_ctx_params = getelementptr inbounds i8, ptr %1, i64 112
   %2 = load ptr, ptr %get_ctx_params, align 8
   %cmp1.not = icmp eq ptr %2, null
   br i1 %cmp1.not, label %if.end6, label %land.lhs.true
 
 land.lhs.true:                                    ; preds = %if.end
-  %algctx = getelementptr inbounds %struct.evp_kdf_ctx_st, ptr %ctx, i64 0, i32 1
+  %algctx = getelementptr inbounds i8, ptr %ctx, i64 8
   %3 = load ptr, ptr %algctx, align 8
   %call = call i32 %2(ptr noundef %3, ptr noundef nonnull %params) #5
   %tobool.not = icmp eq i32 %call, 0
@@ -301,7 +298,7 @@ if.then5:                                         ; preds = %land.lhs.true
 
 if.end6:                                          ; preds = %land.lhs.true.if.end6_crit_edge, %if.end
   %5 = phi ptr [ %.pre, %land.lhs.true.if.end6_crit_edge ], [ %1, %if.end ]
-  %get_params = getelementptr inbounds %struct.evp_kdf_st, ptr %5, i64 0, i32 13
+  %get_params = getelementptr inbounds i8, ptr %5, i64 104
   %6 = load ptr, ptr %get_params, align 8
   %cmp8.not = icmp eq ptr %6, null
   br i1 %cmp8.not, label %return, label %land.lhs.true9
@@ -331,9 +328,9 @@ entry:
 
 if.end:                                           ; preds = %entry
   %0 = load ptr, ptr %ctx, align 8
-  %derive = getelementptr inbounds %struct.evp_kdf_st, ptr %0, i64 0, i32 9
+  %derive = getelementptr inbounds i8, ptr %0, i64 72
   %1 = load ptr, ptr %derive, align 8
-  %algctx = getelementptr inbounds %struct.evp_kdf_ctx_st, ptr %ctx, i64 0, i32 1
+  %algctx = getelementptr inbounds i8, ptr %ctx, i64 8
   %2 = load ptr, ptr %algctx, align 8
   %call = tail call i32 %1(ptr noundef %2, ptr noundef %key, i64 noundef %keylen, ptr noundef %params) #5
   br label %return
@@ -346,7 +343,7 @@ return:                                           ; preds = %entry, %if.end
 ; Function Attrs: nounwind uwtable
 define i32 @EVP_KDF_get_params(ptr nocapture noundef readonly %kdf, ptr noundef %params) local_unnamed_addr #0 {
 entry:
-  %get_params = getelementptr inbounds %struct.evp_kdf_st, ptr %kdf, i64 0, i32 13
+  %get_params = getelementptr inbounds i8, ptr %kdf, i64 104
   %0 = load ptr, ptr %get_params, align 8
   %cmp.not = icmp eq ptr %0, null
   br i1 %cmp.not, label %return, label %if.then
@@ -364,13 +361,13 @@ return:                                           ; preds = %entry, %if.then
 define i32 @EVP_KDF_CTX_get_params(ptr nocapture noundef readonly %ctx, ptr noundef %params) local_unnamed_addr #0 {
 entry:
   %0 = load ptr, ptr %ctx, align 8
-  %get_ctx_params = getelementptr inbounds %struct.evp_kdf_st, ptr %0, i64 0, i32 14
+  %get_ctx_params = getelementptr inbounds i8, ptr %0, i64 112
   %1 = load ptr, ptr %get_ctx_params, align 8
   %cmp.not = icmp eq ptr %1, null
   br i1 %cmp.not, label %return, label %if.then
 
 if.then:                                          ; preds = %entry
-  %algctx = getelementptr inbounds %struct.evp_kdf_ctx_st, ptr %ctx, i64 0, i32 1
+  %algctx = getelementptr inbounds i8, ptr %ctx, i64 8
   %2 = load ptr, ptr %algctx, align 8
   %call = tail call i32 %1(ptr noundef %2, ptr noundef %params) #5
   br label %return
@@ -384,13 +381,13 @@ return:                                           ; preds = %entry, %if.then
 define i32 @EVP_KDF_CTX_set_params(ptr nocapture noundef readonly %ctx, ptr noundef %params) local_unnamed_addr #0 {
 entry:
   %0 = load ptr, ptr %ctx, align 8
-  %set_ctx_params = getelementptr inbounds %struct.evp_kdf_st, ptr %0, i64 0, i32 15
+  %set_ctx_params = getelementptr inbounds i8, ptr %0, i64 120
   %1 = load ptr, ptr %set_ctx_params, align 8
   %cmp.not = icmp eq ptr %1, null
   br i1 %cmp.not, label %return, label %if.then
 
 if.then:                                          ; preds = %entry
-  %algctx = getelementptr inbounds %struct.evp_kdf_ctx_st, ptr %ctx, i64 0, i32 1
+  %algctx = getelementptr inbounds i8, ptr %ctx, i64 8
   %2 = load ptr, ptr %algctx, align 8
   %call = tail call i32 %1(ptr noundef %2, ptr noundef %params) #5
   br label %return
@@ -408,7 +405,7 @@ entry:
   br i1 %cmp.not, label %return, label %if.then
 
 if.then:                                          ; preds = %entry
-  %name_id = getelementptr inbounds %struct.evp_kdf_st, ptr %kdf, i64 0, i32 1
+  %name_id = getelementptr inbounds i8, ptr %kdf, i64 8
   %1 = load i32, ptr %name_id, align 8
   %call = tail call i32 @evp_names_do_all(ptr noundef nonnull %0, i32 noundef %1, ptr noundef %fn, ptr noundef %data) #5
   br label %return

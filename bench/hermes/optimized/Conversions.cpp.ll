@@ -65,7 +65,7 @@ entry:
   %nBuf = alloca [32 x i8], align 16
   %nBuf105 = alloca [32 x i8], align 16
   %call.i = call ptr @dtoa_alloc_init(ptr noundef nonnull %dalloc, i32 noundef 1200) #7
-  %dalloc_.i = getelementptr inbounds %class.DtoaAllocator, ptr %dalloc, i64 0, i32 1
+  %dalloc_.i = getelementptr inbounds i8, ptr %dalloc, i64 1200
   store ptr %call.i, ptr %dalloc_.i, align 8
   %0 = fcmp uno double %m, 0.000000e+00
   br i1 %0, label %if.then, label %if.end
@@ -354,7 +354,7 @@ declare i32 @llvm.abs.i32(i32, i1 immarg) #4
 declare void @g_freedtoa(ptr noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden i64 @hermes_numberToString(double noundef %m, ptr noundef %dest, i64 noundef %destSize) local_unnamed_addr #1 {
+define hidden noundef i64 @hermes_numberToString(double noundef %m, ptr noundef %dest, i64 noundef %destSize) local_unnamed_addr #1 {
 entry:
   %call = tail call noundef i64 @_ZN6hermes14numberToStringEdPcm(double noundef %m, ptr noundef %dest, i64 poison)
   ret i64 %call

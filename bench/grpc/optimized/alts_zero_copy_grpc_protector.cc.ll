@@ -10,13 +10,9 @@ target triple = "x86_64-unknown-linux-gnu"
 %"class.std::tuple" = type { %"struct.std::_Tuple_impl" }
 %"struct.std::_Tuple_impl" = type { %"struct.std::_Head_base.1" }
 %"struct.std::_Head_base.1" = type { ptr }
-%struct.alts_zero_copy_grpc_protector = type { %struct.tsi_zero_copy_grpc_protector, ptr, ptr, i64, i64, %struct.grpc_slice_buffer, %struct.grpc_slice_buffer, %struct.grpc_slice_buffer, i32 }
-%struct.tsi_zero_copy_grpc_protector = type { ptr }
-%struct.grpc_slice_buffer = type { ptr, ptr, i64, i64, i64, [7 x %struct.grpc_slice] }
 %struct.grpc_slice = type { ptr, %"union.grpc_slice::grpc_slice_data" }
 %"union.grpc_slice::grpc_slice_data" = type { %"struct.grpc_slice::grpc_slice_data::grpc_slice_refcounted", [8 x i8] }
 %"struct.grpc_slice::grpc_slice_data::grpc_slice_refcounted" = type { i64, ptr }
-%"struct.grpc_slice::grpc_slice_data::grpc_slice_inlined" = type { i8, [23 x i8] }
 
 @.str = private unnamed_addr constant [164 x i8] c"generated/home/dtcxzyw/WorkSpace/Projects/compilers/llvm-opt-benchmark/bench/grpc/grpc/src/core/tsi/alts/zero_copy_frame_protector/alts_zero_copy_grpc_protector.cc\00", align 1
 @.str.1 = private unnamed_addr constant [67 x i8] c"Invalid nullptr arguments to alts_zero_copy_grpc_protector create.\00", align 1
@@ -43,10 +39,10 @@ if.then:                                          ; preds = %entry
 if.end:                                           ; preds = %entry
   %call = tail call ptr @gpr_zalloc(i64 noundef 840)
   %vtable = load ptr, ptr %key_factory, align 8
-  %vfn = getelementptr inbounds ptr, ptr %vtable, i64 2
+  %vfn = getelementptr inbounds i8, ptr %vtable, i64 16
   %0 = load ptr, ptr %vfn, align 8
   call void %0(ptr nonnull sret(%"class.std::unique_ptr") align 8 %agg.tmp, ptr noundef nonnull align 8 dereferenceable(8) %key_factory)
-  %record_protocol = getelementptr inbounds %struct.alts_zero_copy_grpc_protector, ptr %call, i64 0, i32 1
+  %record_protocol = getelementptr inbounds i8, ptr %call, i64 8
   %call5 = invoke fastcc noundef i32 @_ZL32create_alts_grpc_record_protocolSt10unique_ptrIN9grpc_core16GsecKeyInterfaceESt14default_deleteIS1_EEbbbbPP25alts_grpc_record_protocol(ptr noundef nonnull %agg.tmp, i1 noundef zeroext %is_client, i1 noundef zeroext %is_integrity_only, i1 noundef zeroext true, i1 noundef zeroext %enable_extra_copy, ptr noundef nonnull %record_protocol)
           to label %invoke.cont unwind label %lpad
 
@@ -57,7 +53,7 @@ invoke.cont:                                      ; preds = %if.end
 
 _ZNKSt14default_deleteIN9grpc_core16GsecKeyInterfaceEEclEPS1_.exit.i: ; preds = %invoke.cont
   %vtable.i.i = load ptr, ptr %1, align 8
-  %vfn.i.i = getelementptr inbounds ptr, ptr %vtable.i.i, i64 1
+  %vfn.i.i = getelementptr inbounds i8, ptr %vtable.i.i, i64 8
   %2 = load ptr, ptr %vfn.i.i, align 8
   call void %2(ptr noundef nonnull align 8 dereferenceable(8) %1) #7
   br label %_ZNSt10unique_ptrIN9grpc_core16GsecKeyInterfaceESt14default_deleteIS1_EED2Ev.exit
@@ -69,10 +65,10 @@ _ZNSt10unique_ptrIN9grpc_core16GsecKeyInterfaceESt14default_deleteIS1_EED2Ev.exi
 
 if.then7:                                         ; preds = %_ZNSt10unique_ptrIN9grpc_core16GsecKeyInterfaceESt14default_deleteIS1_EED2Ev.exit
   %vtable9 = load ptr, ptr %key_factory, align 8
-  %vfn10 = getelementptr inbounds ptr, ptr %vtable9, i64 2
+  %vfn10 = getelementptr inbounds i8, ptr %vtable9, i64 16
   %3 = load ptr, ptr %vfn10, align 8
   call void %3(ptr nonnull sret(%"class.std::unique_ptr") align 8 %agg.tmp8, ptr noundef nonnull align 8 dereferenceable(8) %key_factory)
-  %unrecord_protocol = getelementptr inbounds %struct.alts_zero_copy_grpc_protector, ptr %call, i64 0, i32 2
+  %unrecord_protocol = getelementptr inbounds i8, ptr %call, i64 16
   %call16 = invoke fastcc noundef i32 @_ZL32create_alts_grpc_record_protocolSt10unique_ptrIN9grpc_core16GsecKeyInterfaceESt14default_deleteIS1_EEbbbbPP25alts_grpc_record_protocol(ptr noundef nonnull %agg.tmp8, i1 noundef zeroext %is_client, i1 noundef zeroext %is_integrity_only, i1 noundef zeroext false, i1 noundef zeroext %enable_extra_copy, ptr noundef nonnull %unrecord_protocol)
           to label %invoke.cont15 unwind label %lpad14
 
@@ -83,7 +79,7 @@ invoke.cont15:                                    ; preds = %if.then7
 
 _ZNKSt14default_deleteIN9grpc_core16GsecKeyInterfaceEEclEPS1_.exit.i29: ; preds = %invoke.cont15
   %vtable.i.i30 = load ptr, ptr %4, align 8
-  %vfn.i.i31 = getelementptr inbounds ptr, ptr %vtable.i.i30, i64 1
+  %vfn.i.i31 = getelementptr inbounds i8, ptr %vtable.i.i30, i64 8
   %5 = load ptr, ptr %vfn.i.i31, align 8
   call void %5(ptr noundef nonnull align 8 dereferenceable(8) %4) #7
   br label %_ZNSt10unique_ptrIN9grpc_core16GsecKeyInterfaceESt14default_deleteIS1_EED2Ev.exit32
@@ -120,11 +116,11 @@ lpad14:                                           ; preds = %if.then7
 
 if.end23:                                         ; preds = %if.then20, %if.then18
   %max_protected_frame_size_to_set.0 = phi i64 [ %8, %if.then20 ], [ 16384, %if.then18 ]
-  %max_protected_frame_size24 = getelementptr inbounds %struct.alts_zero_copy_grpc_protector, ptr %call, i64 0, i32 3
+  %max_protected_frame_size24 = getelementptr inbounds i8, ptr %call, i64 24
   store i64 %max_protected_frame_size_to_set.0, ptr %max_protected_frame_size24, align 8
   %13 = load ptr, ptr %record_protocol, align 8
   %call26 = call noundef i64 @_Z51alts_grpc_record_protocol_max_unprotected_data_sizePK25alts_grpc_record_protocolm(ptr noundef %13, i64 noundef %max_protected_frame_size_to_set.0)
-  %max_unprotected_data_size = getelementptr inbounds %struct.alts_zero_copy_grpc_protector, ptr %call, i64 0, i32 4
+  %max_unprotected_data_size = getelementptr inbounds i8, ptr %call, i64 32
   store i64 %call26, ptr %max_unprotected_data_size, align 8
   %cmp28.not = icmp eq i64 %call26, 0
   br i1 %cmp28.not, label %if.then29, label %do.end
@@ -134,13 +130,13 @@ if.then29:                                        ; preds = %if.end23
   unreachable
 
 do.end:                                           ; preds = %if.end23
-  %unprotected_staging_sb = getelementptr inbounds %struct.alts_zero_copy_grpc_protector, ptr %call, i64 0, i32 5
+  %unprotected_staging_sb = getelementptr inbounds i8, ptr %call, i64 40
   call void @grpc_slice_buffer_init(ptr noundef nonnull %unprotected_staging_sb)
-  %protected_sb = getelementptr inbounds %struct.alts_zero_copy_grpc_protector, ptr %call, i64 0, i32 6
+  %protected_sb = getelementptr inbounds i8, ptr %call, i64 304
   call void @grpc_slice_buffer_init(ptr noundef nonnull %protected_sb)
-  %protected_staging_sb = getelementptr inbounds %struct.alts_zero_copy_grpc_protector, ptr %call, i64 0, i32 7
+  %protected_staging_sb = getelementptr inbounds i8, ptr %call, i64 568
   call void @grpc_slice_buffer_init(ptr noundef nonnull %protected_staging_sb)
-  %parsed_frame_size = getelementptr inbounds %struct.alts_zero_copy_grpc_protector, ptr %call, i64 0, i32 8
+  %parsed_frame_size = getelementptr inbounds i8, ptr %call, i64 832
   store i32 0, ptr %parsed_frame_size, align 8
   store ptr @_ZL36alts_zero_copy_grpc_protector_vtable, ptr %call, align 8
   store ptr %call, ptr %protector, align 8
@@ -149,7 +145,7 @@ do.end:                                           ; preds = %if.end23
 if.end34:                                         ; preds = %_ZNSt10unique_ptrIN9grpc_core16GsecKeyInterfaceESt14default_deleteIS1_EED2Ev.exit32, %_ZNSt10unique_ptrIN9grpc_core16GsecKeyInterfaceESt14default_deleteIS1_EED2Ev.exit
   %14 = load ptr, ptr %record_protocol, align 8
   call void @_Z33alts_grpc_record_protocol_destroyP25alts_grpc_record_protocol(ptr noundef %14)
-  %unrecord_protocol36 = getelementptr inbounds %struct.alts_zero_copy_grpc_protector, ptr %call, i64 0, i32 2
+  %unrecord_protocol36 = getelementptr inbounds i8, ptr %call, i64 16
   %15 = load ptr, ptr %unrecord_protocol36, align 8
   call void @_Z33alts_grpc_record_protocol_destroyP25alts_grpc_record_protocol(ptr noundef %15)
   call void @gpr_free(ptr noundef %call)
@@ -163,7 +159,7 @@ eh.resume.sink.split:                             ; preds = %lpad14, %lpad
   %.sink46 = phi ptr [ %10, %lpad ], [ %12, %lpad14 ]
   %.pn.ph = phi { ptr, i32 } [ %9, %lpad ], [ %11, %lpad14 ]
   %vtable.i.i42 = load ptr, ptr %.sink46, align 8
-  %vfn.i.i43 = getelementptr inbounds ptr, ptr %vtable.i.i42, i64 1
+  %vfn.i.i43 = getelementptr inbounds i8, ptr %vtable.i.i42, i64 8
   %16 = load ptr, ptr %vfn.i.i43, align 8
   call void %16(ptr noundef nonnull align 8 dereferenceable(8) %.sink46) #7
   br label %eh.resume
@@ -193,7 +189,7 @@ if.end:                                           ; preds = %entry
   store ptr null, ptr %crypter, align 8
   store ptr null, ptr %error_details, align 8
   %vtable = load ptr, ptr %0, align 8
-  %vfn = getelementptr inbounds ptr, ptr %vtable, i64 2
+  %vfn = getelementptr inbounds i8, ptr %vtable, i64 16
   %1 = load ptr, ptr %vfn, align 8
   %call5 = tail call noundef zeroext i1 %1(ptr noundef nonnull align 8 dereferenceable(8) %0)
   %2 = load i64, ptr %key, align 8
@@ -209,7 +205,7 @@ invoke.cont:                                      ; preds = %if.end
 
 _ZNKSt14default_deleteIN9grpc_core16GsecKeyInterfaceEEclEPS1_.exit.i: ; preds = %invoke.cont
   %vtable.i.i = load ptr, ptr %3, align 8
-  %vfn.i.i = getelementptr inbounds ptr, ptr %vtable.i.i, i64 1
+  %vfn.i.i = getelementptr inbounds i8, ptr %vtable.i.i, i64 8
   %4 = load ptr, ptr %vfn.i.i, align 8
   call void %4(ptr noundef nonnull align 8 dereferenceable(8) %3) #7
   br label %_ZNSt10unique_ptrIN9grpc_core16GsecKeyInterfaceESt14default_deleteIS1_EED2Ev.exit
@@ -235,7 +231,7 @@ lpad:                                             ; preds = %if.end
 
 _ZNKSt14default_deleteIN9grpc_core16GsecKeyInterfaceEEclEPS1_.exit.i8: ; preds = %lpad
   %vtable.i.i9 = load ptr, ptr %8, align 8
-  %vfn.i.i10 = getelementptr inbounds ptr, ptr %vtable.i.i9, i64 1
+  %vfn.i.i10 = getelementptr inbounds i8, ptr %vtable.i.i9, i64 8
   %9 = load ptr, ptr %vfn.i.i10, align 8
   call void %9(ptr noundef nonnull align 8 dereferenceable(8) %8) #7
   br label %_ZNSt10unique_ptrIN9grpc_core16GsecKeyInterfaceESt14default_deleteIS1_EED2Ev.exit11
@@ -306,10 +302,10 @@ entry:
   br i1 %or.cond1, label %if.then, label %while.cond.preheader
 
 while.cond.preheader:                             ; preds = %entry
-  %length = getelementptr inbounds %struct.grpc_slice_buffer, ptr %unprotected_slices, i64 0, i32 4
-  %max_unprotected_data_size = getelementptr inbounds %struct.alts_zero_copy_grpc_protector, ptr %self, i64 0, i32 4
-  %unprotected_staging_sb = getelementptr inbounds %struct.alts_zero_copy_grpc_protector, ptr %self, i64 0, i32 5
-  %record_protocol = getelementptr inbounds %struct.alts_zero_copy_grpc_protector, ptr %self, i64 0, i32 1
+  %length = getelementptr inbounds i8, ptr %unprotected_slices, i64 32
+  %max_unprotected_data_size = getelementptr inbounds i8, ptr %self, i64 32
+  %unprotected_staging_sb = getelementptr inbounds i8, ptr %self, i64 40
+  %record_protocol = getelementptr inbounds i8, ptr %self, i64 8
   br label %while.cond
 
 if.then:                                          ; preds = %entry
@@ -355,16 +351,16 @@ if.then:                                          ; preds = %entry
   br label %return
 
 if.end:                                           ; preds = %entry
-  %protected_sb = getelementptr inbounds %struct.alts_zero_copy_grpc_protector, ptr %self, i64 0, i32 6
+  %protected_sb = getelementptr inbounds i8, ptr %self, i64 304
   tail call void @grpc_slice_buffer_move_into(ptr noundef nonnull %protected_slices, ptr noundef nonnull %protected_sb)
-  %length = getelementptr inbounds %struct.alts_zero_copy_grpc_protector, ptr %self, i64 0, i32 6, i32 4
-  %parsed_frame_size = getelementptr inbounds %struct.alts_zero_copy_grpc_protector, ptr %self, i64 0, i32 8
-  %count.i = getelementptr inbounds %struct.alts_zero_copy_grpc_protector, ptr %self, i64 0, i32 6, i32 2
-  %slices.i = getelementptr inbounds %struct.alts_zero_copy_grpc_protector, ptr %self, i64 0, i32 6, i32 1
+  %length = getelementptr inbounds i8, ptr %self, i64 336
+  %parsed_frame_size = getelementptr inbounds i8, ptr %self, i64 832
+  %count.i = getelementptr inbounds i8, ptr %self, i64 320
+  %slices.i = getelementptr inbounds i8, ptr %self, i64 312
   %0 = getelementptr inbounds i8, ptr %frame_size_buffer.i, i64 2
-  %arrayidx55.i = getelementptr inbounds [4 x i8], ptr %frame_size_buffer.i, i64 0, i64 1
-  %protected_staging_sb = getelementptr inbounds %struct.alts_zero_copy_grpc_protector, ptr %self, i64 0, i32 7
-  %unrecord_protocol31 = getelementptr inbounds %struct.alts_zero_copy_grpc_protector, ptr %self, i64 0, i32 2
+  %arrayidx55.i = getelementptr inbounds i8, ptr %frame_size_buffer.i, i64 1
+  %protected_staging_sb = getelementptr inbounds i8, ptr %self, i64 568
+  %unrecord_protocol31 = getelementptr inbounds i8, ptr %self, i64 16
   br label %while.cond
 
 while.cond:                                       ; preds = %if.end34, %if.end
@@ -380,57 +376,49 @@ while.body:                                       ; preds = %while.cond
 for.cond.preheader.i:                             ; preds = %while.body
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %frame_size_buffer.i)
   %3 = load i64, ptr %count.i, align 8
-  %cmp248.not.i = icmp eq i64 %3, 0
-  br i1 %cmp248.not.i, label %if.then48.i, label %for.body.lr.ph.i
+  %cmp246.not.i = icmp eq i64 %3, 0
+  br i1 %cmp246.not.i, label %if.then48.i, label %for.body.lr.ph.i
 
 for.body.lr.ph.i:                                 ; preds = %for.cond.preheader.i
   %4 = load ptr, ptr %slices.i, align 8
-  %invariant.gep.i = getelementptr %"struct.grpc_slice::grpc_slice_data::grpc_slice_inlined", ptr %4, i64 0, i32 1
   br label %for.body.i
 
 for.body.i:                                       ; preds = %cond.end43.i, %for.body.lr.ph.i
-  %buf.051.i = phi ptr [ %frame_size_buffer.i, %for.body.lr.ph.i ], [ %add.ptr.i, %cond.end43.i ]
-  %i.050.i = phi i64 [ 0, %for.body.lr.ph.i ], [ %inc.i, %cond.end43.i ]
-  %remaining.049.i = phi i64 [ 4, %for.body.lr.ph.i ], [ %sub.i, %cond.end43.i ]
-  %arrayidx.i = getelementptr inbounds %struct.grpc_slice, ptr %4, i64 %i.050.i
+  %buf.049.i = phi ptr [ %frame_size_buffer.i, %for.body.lr.ph.i ], [ %add.ptr.i, %cond.end43.i ]
+  %i.048.i = phi i64 [ 0, %for.body.lr.ph.i ], [ %inc.i, %cond.end43.i ]
+  %remaining.047.i = phi i64 [ 4, %for.body.lr.ph.i ], [ %sub.i, %cond.end43.i ]
+  %arrayidx.i = getelementptr inbounds %struct.grpc_slice, ptr %4, i64 %i.048.i
   %5 = load ptr, ptr %arrayidx.i, align 8
   %tobool.not.i = icmp eq ptr %5, null
-  %data8.i = getelementptr inbounds %struct.grpc_slice, ptr %4, i64 %i.050.i, i32 1
+  %data8.i = getelementptr inbounds i8, ptr %arrayidx.i, i64 8
   br i1 %tobool.not.i, label %cond.end.i, label %cond.end.thread.i
 
 cond.end.i:                                       ; preds = %for.body.i
   %6 = load i8, ptr %data8.i, align 8
   %conv.i = zext i8 %6 to i64
-  %cmp10.not.i = icmp ugt i64 %remaining.049.i, %conv.i
-  br i1 %cmp10.not.i, label %cond.false37.i, label %cond.false20.i
+  %cmp10.not.i = icmp ugt i64 %remaining.047.i, %conv.i
+  %bytes41.i = getelementptr inbounds i8, ptr %arrayidx.i, i64 9
+  br i1 %cmp10.not.i, label %cond.end43.i, label %do.body.thread.i
 
 cond.end.thread.i:                                ; preds = %for.body.i
   %7 = load i64, ptr %data8.i, align 8
-  %cmp10.not32.i = icmp ugt i64 %remaining.049.i, %7
-  %bytes36.i = getelementptr inbounds %struct.grpc_slice, ptr %4, i64 %i.050.i, i32 1, i32 0, i32 1
+  %cmp10.not32.i = icmp ugt i64 %remaining.047.i, %7
+  %bytes36.i = getelementptr inbounds i8, ptr %arrayidx.i, i64 16
   %8 = load ptr, ptr %bytes36.i, align 8
   br i1 %cmp10.not32.i, label %cond.end43.i, label %do.body.thread.i
 
-cond.false20.i:                                   ; preds = %cond.end.i
-  %bytes24.i = getelementptr inbounds %"struct.grpc_slice::grpc_slice_data::grpc_slice_inlined", ptr %data8.i, i64 0, i32 1
-  br label %do.body.thread.i
-
-do.body.thread.i:                                 ; preds = %cond.end.thread.i, %cond.false20.i
-  %cond27.i = phi ptr [ %bytes24.i, %cond.false20.i ], [ %8, %cond.end.thread.i ]
-  call void @llvm.memcpy.p0.p0.i64(ptr align 1 %buf.051.i, ptr align 1 %cond27.i, i64 %remaining.049.i, i1 false)
+do.body.thread.i:                                 ; preds = %cond.end.i, %cond.end.thread.i
+  %cond27.i = phi ptr [ %8, %cond.end.thread.i ], [ %bytes41.i, %cond.end.i ]
+  call void @llvm.memcpy.p0.p0.i64(ptr align 1 %buf.049.i, ptr align 1 %cond27.i, i64 %remaining.047.i, i1 false)
   br label %do.end.i
 
-cond.false37.i:                                   ; preds = %cond.end.i
-  %gep.i = getelementptr %struct.grpc_slice, ptr %invariant.gep.i, i64 %i.050.i, i32 1
-  br label %cond.end43.i
-
-cond.end43.i:                                     ; preds = %cond.end.thread.i, %cond.false37.i
-  %cond3335.i = phi i64 [ %conv.i, %cond.false37.i ], [ %7, %cond.end.thread.i ]
-  %cond44.i = phi ptr [ %gep.i, %cond.false37.i ], [ %8, %cond.end.thread.i ]
-  call void @llvm.memcpy.p0.p0.i64(ptr align 1 %buf.051.i, ptr align 1 %cond44.i, i64 %cond3335.i, i1 false)
-  %add.ptr.i = getelementptr inbounds i8, ptr %buf.051.i, i64 %cond3335.i
-  %sub.i = sub i64 %remaining.049.i, %cond3335.i
-  %inc.i = add nuw i64 %i.050.i, 1
+cond.end43.i:                                     ; preds = %cond.end.i, %cond.end.thread.i
+  %cond3335.i = phi i64 [ %7, %cond.end.thread.i ], [ %conv.i, %cond.end.i ]
+  %cond44.i = phi ptr [ %8, %cond.end.thread.i ], [ %bytes41.i, %cond.end.i ]
+  call void @llvm.memcpy.p0.p0.i64(ptr align 1 %buf.049.i, ptr align 1 %cond44.i, i64 %cond3335.i, i1 false)
+  %add.ptr.i = getelementptr inbounds i8, ptr %buf.049.i, i64 %cond3335.i
+  %sub.i = sub i64 %remaining.047.i, %cond3335.i
+  %inc.i = add nuw i64 %i.048.i, 1
   %exitcond.not.i = icmp eq i64 %inc.i, %3
   br i1 %exitcond.not.i, label %do.body.i, label %for.body.i, !llvm.loop !6
 
@@ -526,17 +514,17 @@ entry:
   br i1 %cmp, label %return, label %if.end
 
 if.end:                                           ; preds = %entry
-  %record_protocol = getelementptr inbounds %struct.alts_zero_copy_grpc_protector, ptr %self, i64 0, i32 1
+  %record_protocol = getelementptr inbounds i8, ptr %self, i64 8
   %0 = load ptr, ptr %record_protocol, align 8
   tail call void @_Z33alts_grpc_record_protocol_destroyP25alts_grpc_record_protocol(ptr noundef %0)
-  %unrecord_protocol = getelementptr inbounds %struct.alts_zero_copy_grpc_protector, ptr %self, i64 0, i32 2
+  %unrecord_protocol = getelementptr inbounds i8, ptr %self, i64 16
   %1 = load ptr, ptr %unrecord_protocol, align 8
   tail call void @_Z33alts_grpc_record_protocol_destroyP25alts_grpc_record_protocol(ptr noundef %1)
-  %unprotected_staging_sb = getelementptr inbounds %struct.alts_zero_copy_grpc_protector, ptr %self, i64 0, i32 5
+  %unprotected_staging_sb = getelementptr inbounds i8, ptr %self, i64 40
   tail call void @grpc_slice_buffer_destroy(ptr noundef nonnull %unprotected_staging_sb)
-  %protected_sb = getelementptr inbounds %struct.alts_zero_copy_grpc_protector, ptr %self, i64 0, i32 6
+  %protected_sb = getelementptr inbounds i8, ptr %self, i64 304
   tail call void @grpc_slice_buffer_destroy(ptr noundef nonnull %protected_sb)
-  %protected_staging_sb = getelementptr inbounds %struct.alts_zero_copy_grpc_protector, ptr %self, i64 0, i32 7
+  %protected_staging_sb = getelementptr inbounds i8, ptr %self, i64 568
   tail call void @grpc_slice_buffer_destroy(ptr noundef nonnull %protected_staging_sb)
   tail call void @gpr_free(ptr noundef nonnull %self)
   br label %return
@@ -554,7 +542,7 @@ entry:
   br i1 %or.cond, label %return, label %if.end
 
 if.end:                                           ; preds = %entry
-  %max_protected_frame_size = getelementptr inbounds %struct.alts_zero_copy_grpc_protector, ptr %self, i64 0, i32 3
+  %max_protected_frame_size = getelementptr inbounds i8, ptr %self, i64 24
   %0 = load i64, ptr %max_protected_frame_size, align 8
   store i64 %0, ptr %max_frame_size, align 8
   br label %return

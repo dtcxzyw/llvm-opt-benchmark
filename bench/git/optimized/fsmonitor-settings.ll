@@ -4,10 +4,6 @@ target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:
 target triple = "x86_64-unknown-linux-gnu"
 
 %struct.strbuf = type { i64, i64, ptr }
-%struct.repository = type { ptr, ptr, ptr, ptr, ptr, %struct.repo_path_cache, ptr, ptr, ptr, ptr, %struct.repo_settings, ptr, ptr, ptr, ptr, ptr, i32, i32, i32, ptr, ptr, i32, i8 }
-%struct.repo_path_cache = type { ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr }
-%struct.repo_settings = type { i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, ptr, i32, i32, i32, i32, i32, i32 }
-%struct.fsmonitor_settings = type { i32, i32, ptr }
 
 @strbuf_slopbuf = external global [0 x i8], align 1
 @__const.fsm_settings__get_incompatible_msg.msg = private unnamed_addr constant %struct.strbuf { i64 0, i64 0, ptr @strbuf_slopbuf }, align 8
@@ -25,7 +21,7 @@ target triple = "x86_64-unknown-linux-gnu"
 ; Function Attrs: nounwind uwtable
 define dso_local i32 @fsm_settings__get_mode(ptr noundef %r) local_unnamed_addr #0 {
 entry:
-  %fsmonitor = getelementptr inbounds %struct.repository, ptr %r, i64 0, i32 10, i32 11
+  %fsmonitor = getelementptr inbounds i8, ptr %r, i64 192
   %0 = load ptr, ptr %fsmonitor, align 8
   %tobool.not = icmp eq ptr %0, null
   br i1 %tobool.not, label %if.then, label %if.end
@@ -46,7 +42,7 @@ define internal fastcc void @lookup_fsmonitor_settings(ptr noundef %r) unnamed_a
 entry:
   %const_str = alloca ptr, align 8
   %bool_value = alloca i32, align 4
-  %fsmonitor = getelementptr inbounds %struct.repository, ptr %r, i64 0, i32 10, i32 11
+  %fsmonitor = getelementptr inbounds i8, ptr %r, i64 192
   %0 = load ptr, ptr %fsmonitor, align 8
   %tobool.not = icmp eq ptr %0, null
   br i1 %tobool.not, label %if.end, label %if.end15
@@ -78,7 +74,7 @@ if.then.i:                                        ; preds = %if.then2
 if.then.i.i:                                      ; preds = %if.then.i
   %call.i.i.i = call noundef ptr @xcalloc(i64 noundef 1, i64 noundef 16) #8
   store i32 0, ptr %call.i.i.i, align 8
-  %reason.i.i.i = getelementptr inbounds %struct.fsmonitor_settings, ptr %call.i.i.i, i64 0, i32 1
+  %reason.i.i.i = getelementptr inbounds i8, ptr %call.i.i.i, i64 4
   store i32 0, ptr %reason.i.i.i, align 4
   store ptr %call.i.i.i, ptr %fsmonitor, align 8
   br label %fsm_settings__set_incompatible.exit.i
@@ -94,7 +90,7 @@ if.end.i:                                         ; preds = %if.then2
 if.then1.i:                                       ; preds = %if.end.i
   %call.i.i = call noundef ptr @xcalloc(i64 noundef 1, i64 noundef 16) #8
   store i32 0, ptr %call.i.i, align 8
-  %reason.i.i = getelementptr inbounds %struct.fsmonitor_settings, ptr %call.i.i, i64 0, i32 1
+  %reason.i.i = getelementptr inbounds i8, ptr %call.i.i, i64 4
   store i32 0, ptr %reason.i.i, align 4
   store ptr %call.i.i, ptr %fsmonitor, align 8
   br label %if.end5.i
@@ -107,14 +103,14 @@ if.end5.i:                                        ; preds = %if.then1.i, %if.end
 fsm_settings__set_ipc.exit:                       ; preds = %fsm_settings__set_incompatible.exit.i, %if.end5.i
   %.sink.i = phi i32 [ 1, %if.end5.i ], [ 2, %fsm_settings__set_incompatible.exit.i ]
   %6 = load ptr, ptr %fsmonitor, align 8
-  %reason10.i = getelementptr inbounds %struct.fsmonitor_settings, ptr %6, i64 0, i32 1
+  %reason10.i = getelementptr inbounds i8, ptr %6, i64 4
   store i32 %.sink.i, ptr %reason10.i, align 4
   %7 = load ptr, ptr %fsmonitor, align 8
-  %hook_path.i = getelementptr inbounds %struct.fsmonitor_settings, ptr %7, i64 0, i32 2
+  %hook_path.i = getelementptr inbounds i8, ptr %7, i64 8
   %8 = load ptr, ptr %hook_path.i, align 8
   call void @free(ptr noundef %8) #8
   %9 = load ptr, ptr %fsmonitor, align 8
-  %hook_path15.i = getelementptr inbounds %struct.fsmonitor_settings, ptr %9, i64 0, i32 2
+  %hook_path15.i = getelementptr inbounds i8, ptr %9, i64 8
   store ptr null, ptr %hook_path15.i, align 8
   br label %if.end15
 
@@ -126,7 +122,7 @@ if.else:                                          ; preds = %sw.bb
 if.then.i9:                                       ; preds = %if.else
   %call.i.i10 = call noundef ptr @xcalloc(i64 noundef 1, i64 noundef 16) #8
   store i32 0, ptr %call.i.i10, align 8
-  %reason.i.i11 = getelementptr inbounds %struct.fsmonitor_settings, ptr %call.i.i10, i64 0, i32 1
+  %reason.i.i11 = getelementptr inbounds i8, ptr %call.i.i10, i64 4
   store i32 0, ptr %reason.i.i11, align 4
   store ptr %call.i.i10, ptr %fsmonitor, align 8
   br label %fsm_settings__set_disabled.exit
@@ -135,14 +131,14 @@ fsm_settings__set_disabled.exit:                  ; preds = %if.else, %if.then.i
   %11 = phi ptr [ %call.i.i10, %if.then.i9 ], [ %10, %if.else ]
   store i32 0, ptr %11, align 8
   %12 = load ptr, ptr %fsmonitor, align 8
-  %reason.i = getelementptr inbounds %struct.fsmonitor_settings, ptr %12, i64 0, i32 1
+  %reason.i = getelementptr inbounds i8, ptr %12, i64 4
   store i32 1, ptr %reason.i, align 4
   %13 = load ptr, ptr %fsmonitor, align 8
-  %hook_path.i8 = getelementptr inbounds %struct.fsmonitor_settings, ptr %13, i64 0, i32 2
+  %hook_path.i8 = getelementptr inbounds i8, ptr %13, i64 8
   %14 = load ptr, ptr %hook_path.i8, align 8
   call void @free(ptr noundef %14) #8
   %15 = load ptr, ptr %fsmonitor, align 8
-  %hook_path11.i = getelementptr inbounds %struct.fsmonitor_settings, ptr %15, i64 0, i32 2
+  %hook_path11.i = getelementptr inbounds i8, ptr %15, i64 8
   store ptr null, ptr %hook_path11.i, align 8
   br label %if.end15
 
@@ -182,7 +178,7 @@ if.else14:                                        ; preds = %land.lhs.true, %sw.
 if.then.i18:                                      ; preds = %if.else14
   %call.i.i19 = call noundef ptr @xcalloc(i64 noundef 1, i64 noundef 16) #8
   store i32 0, ptr %call.i.i19, align 8
-  %reason.i.i20 = getelementptr inbounds %struct.fsmonitor_settings, ptr %call.i.i19, i64 0, i32 1
+  %reason.i.i20 = getelementptr inbounds i8, ptr %call.i.i19, i64 4
   store i32 0, ptr %reason.i.i20, align 4
   store ptr %call.i.i19, ptr %fsmonitor, align 8
   br label %fsm_settings__set_disabled.exit21
@@ -191,14 +187,14 @@ fsm_settings__set_disabled.exit21:                ; preds = %if.else14, %if.then
   %19 = phi ptr [ %call.i.i19, %if.then.i18 ], [ %18, %if.else14 ]
   store i32 0, ptr %19, align 8
   %20 = load ptr, ptr %fsmonitor, align 8
-  %reason.i15 = getelementptr inbounds %struct.fsmonitor_settings, ptr %20, i64 0, i32 1
+  %reason.i15 = getelementptr inbounds i8, ptr %20, i64 4
   store i32 1, ptr %reason.i15, align 4
   %21 = load ptr, ptr %fsmonitor, align 8
-  %hook_path.i16 = getelementptr inbounds %struct.fsmonitor_settings, ptr %21, i64 0, i32 2
+  %hook_path.i16 = getelementptr inbounds i8, ptr %21, i64 8
   %22 = load ptr, ptr %hook_path.i16, align 8
   call void @free(ptr noundef %22) #8
   %23 = load ptr, ptr %fsmonitor, align 8
-  %hook_path11.i17 = getelementptr inbounds %struct.fsmonitor_settings, ptr %23, i64 0, i32 2
+  %hook_path11.i17 = getelementptr inbounds i8, ptr %23, i64 8
   store ptr null, ptr %hook_path11.i17, align 8
   br label %if.end15
 
@@ -209,7 +205,7 @@ if.end15:                                         ; preds = %if.end, %sw.bb6, %f
 ; Function Attrs: nounwind uwtable
 define dso_local ptr @fsm_settings__get_hook_path(ptr noundef %r) local_unnamed_addr #0 {
 entry:
-  %fsmonitor = getelementptr inbounds %struct.repository, ptr %r, i64 0, i32 10, i32 11
+  %fsmonitor = getelementptr inbounds i8, ptr %r, i64 192
   %0 = load ptr, ptr %fsmonitor, align 8
   %tobool.not = icmp eq ptr %0, null
   br i1 %tobool.not, label %if.then, label %if.end
@@ -221,7 +217,7 @@ if.then:                                          ; preds = %entry
 
 if.end:                                           ; preds = %if.then, %entry
   %1 = phi ptr [ %.pre, %if.then ], [ %0, %entry ]
-  %hook_path = getelementptr inbounds %struct.fsmonitor_settings, ptr %1, i64 0, i32 2
+  %hook_path = getelementptr inbounds i8, ptr %1, i64 8
   %2 = load ptr, ptr %hook_path, align 8
   ret ptr %2
 }
@@ -232,7 +228,7 @@ entry:
   %0 = getelementptr i8, ptr %r, i64 128
   %r.val = load ptr, ptr %0, align 8
   %tobool.not.i.not = icmp eq ptr %r.val, null
-  %fsmonitor.i = getelementptr inbounds %struct.repository, ptr %r, i64 0, i32 10, i32 11
+  %fsmonitor.i = getelementptr inbounds i8, ptr %r, i64 192
   %1 = load ptr, ptr %fsmonitor.i, align 8
   %tobool.not.i10 = icmp eq ptr %1, null
   br i1 %tobool.not.i.not, label %if.then, label %if.end
@@ -243,7 +239,7 @@ if.then:                                          ; preds = %entry
 if.then.i:                                        ; preds = %if.then
   %call.i.i = tail call noundef ptr @xcalloc(i64 noundef 1, i64 noundef 16) #8
   store i32 0, ptr %call.i.i, align 8
-  %reason.i.i = getelementptr inbounds %struct.fsmonitor_settings, ptr %call.i.i, i64 0, i32 1
+  %reason.i.i = getelementptr inbounds i8, ptr %call.i.i, i64 4
   store i32 0, ptr %reason.i.i, align 4
   store ptr %call.i.i, ptr %fsmonitor.i, align 8
   br label %fsm_settings__set_incompatible.exit
@@ -259,7 +255,7 @@ if.end:                                           ; preds = %entry
 if.then1:                                         ; preds = %if.end
   %call.i = tail call noundef ptr @xcalloc(i64 noundef 1, i64 noundef 16) #8
   store i32 0, ptr %call.i, align 8
-  %reason.i = getelementptr inbounds %struct.fsmonitor_settings, ptr %call.i, i64 0, i32 1
+  %reason.i = getelementptr inbounds i8, ptr %call.i, i64 4
   store i32 0, ptr %reason.i, align 4
   store ptr %call.i, ptr %fsmonitor.i, align 8
   br label %if.end5
@@ -272,14 +268,14 @@ if.end5:                                          ; preds = %if.then1, %if.end
 do.end:                                           ; preds = %if.end5, %fsm_settings__set_incompatible.exit
   %.sink = phi i32 [ 1, %if.end5 ], [ 2, %fsm_settings__set_incompatible.exit ]
   %4 = load ptr, ptr %fsmonitor.i, align 8
-  %reason10 = getelementptr inbounds %struct.fsmonitor_settings, ptr %4, i64 0, i32 1
+  %reason10 = getelementptr inbounds i8, ptr %4, i64 4
   store i32 %.sink, ptr %reason10, align 4
   %5 = load ptr, ptr %fsmonitor.i, align 8
-  %hook_path = getelementptr inbounds %struct.fsmonitor_settings, ptr %5, i64 0, i32 2
+  %hook_path = getelementptr inbounds i8, ptr %5, i64 8
   %6 = load ptr, ptr %hook_path, align 8
   tail call void @free(ptr noundef %6) #8
   %7 = load ptr, ptr %fsmonitor.i, align 8
-  %hook_path15 = getelementptr inbounds %struct.fsmonitor_settings, ptr %7, i64 0, i32 2
+  %hook_path15 = getelementptr inbounds i8, ptr %7, i64 8
   store ptr null, ptr %hook_path15, align 8
   ret void
 }
@@ -287,7 +283,7 @@ do.end:                                           ; preds = %if.end5, %fsm_setti
 ; Function Attrs: nounwind uwtable
 define dso_local void @fsm_settings__set_incompatible(ptr nocapture noundef %r, i32 noundef %reason) local_unnamed_addr #0 {
 entry:
-  %fsmonitor = getelementptr inbounds %struct.repository, ptr %r, i64 0, i32 10, i32 11
+  %fsmonitor = getelementptr inbounds i8, ptr %r, i64 192
   %0 = load ptr, ptr %fsmonitor, align 8
   %tobool.not = icmp eq ptr %0, null
   br i1 %tobool.not, label %if.then, label %if.end
@@ -295,7 +291,7 @@ entry:
 if.then:                                          ; preds = %entry
   %call.i = tail call noundef ptr @xcalloc(i64 noundef 1, i64 noundef 16) #8
   store i32 0, ptr %call.i, align 8
-  %reason.i = getelementptr inbounds %struct.fsmonitor_settings, ptr %call.i, i64 0, i32 1
+  %reason.i = getelementptr inbounds i8, ptr %call.i, i64 4
   store i32 0, ptr %reason.i, align 4
   store ptr %call.i, ptr %fsmonitor, align 8
   br label %if.end
@@ -304,14 +300,14 @@ if.end:                                           ; preds = %if.then, %entry
   %1 = phi ptr [ %call.i, %if.then ], [ %0, %entry ]
   store i32 -1, ptr %1, align 8
   %2 = load ptr, ptr %fsmonitor, align 8
-  %reason7 = getelementptr inbounds %struct.fsmonitor_settings, ptr %2, i64 0, i32 1
+  %reason7 = getelementptr inbounds i8, ptr %2, i64 4
   store i32 %reason, ptr %reason7, align 4
   %3 = load ptr, ptr %fsmonitor, align 8
-  %hook_path = getelementptr inbounds %struct.fsmonitor_settings, ptr %3, i64 0, i32 2
+  %hook_path = getelementptr inbounds i8, ptr %3, i64 8
   %4 = load ptr, ptr %hook_path, align 8
   tail call void @free(ptr noundef %4) #8
   %5 = load ptr, ptr %fsmonitor, align 8
-  %hook_path12 = getelementptr inbounds %struct.fsmonitor_settings, ptr %5, i64 0, i32 2
+  %hook_path12 = getelementptr inbounds i8, ptr %5, i64 8
   store ptr null, ptr %hook_path12, align 8
   ret void
 }
@@ -325,7 +321,7 @@ entry:
   %0 = getelementptr i8, ptr %r, i64 128
   %r.val = load ptr, ptr %0, align 8
   %tobool.not.i.not = icmp eq ptr %r.val, null
-  %fsmonitor.i = getelementptr inbounds %struct.repository, ptr %r, i64 0, i32 10, i32 11
+  %fsmonitor.i = getelementptr inbounds i8, ptr %r, i64 192
   %1 = load ptr, ptr %fsmonitor.i, align 8
   %tobool.not.i11 = icmp eq ptr %1, null
   br i1 %tobool.not.i.not, label %if.then, label %if.end
@@ -336,7 +332,7 @@ if.then:                                          ; preds = %entry
 if.then.i:                                        ; preds = %if.then
   %call.i.i = tail call noundef ptr @xcalloc(i64 noundef 1, i64 noundef 16) #8
   store i32 0, ptr %call.i.i, align 8
-  %reason.i.i = getelementptr inbounds %struct.fsmonitor_settings, ptr %call.i.i, i64 0, i32 1
+  %reason.i.i = getelementptr inbounds i8, ptr %call.i.i, i64 4
   store i32 0, ptr %reason.i.i, align 4
   store ptr %call.i.i, ptr %fsmonitor.i, align 8
   br label %fsm_settings__set_incompatible.exit
@@ -345,10 +341,10 @@ fsm_settings__set_incompatible.exit:              ; preds = %if.then, %if.then.i
   %2 = phi ptr [ %call.i.i, %if.then.i ], [ %1, %if.then ]
   store i32 -1, ptr %2, align 8
   %3 = load ptr, ptr %fsmonitor.i, align 8
-  %reason7.i = getelementptr inbounds %struct.fsmonitor_settings, ptr %3, i64 0, i32 1
+  %reason7.i = getelementptr inbounds i8, ptr %3, i64 4
   store i32 2, ptr %reason7.i, align 4
   %4 = load ptr, ptr %fsmonitor.i, align 8
-  %hook_path.i = getelementptr inbounds %struct.fsmonitor_settings, ptr %4, i64 0, i32 2
+  %hook_path.i = getelementptr inbounds i8, ptr %4, i64 8
   %5 = load ptr, ptr %hook_path.i, align 8
   tail call void @free(ptr noundef %5) #8
   br label %return
@@ -359,7 +355,7 @@ if.end:                                           ; preds = %entry
 if.then1:                                         ; preds = %if.end
   %call.i = tail call noundef ptr @xcalloc(i64 noundef 1, i64 noundef 16) #8
   store i32 0, ptr %call.i, align 8
-  %reason.i = getelementptr inbounds %struct.fsmonitor_settings, ptr %call.i, i64 0, i32 1
+  %reason.i = getelementptr inbounds i8, ptr %call.i, i64 4
   store i32 0, ptr %reason.i, align 4
   store ptr %call.i, ptr %fsmonitor.i, align 8
   br label %if.end5
@@ -368,14 +364,14 @@ if.end5:                                          ; preds = %if.then1, %if.end
   %6 = phi ptr [ %call.i, %if.then1 ], [ %1, %if.end ]
   store i32 1, ptr %6, align 8
   %7 = load ptr, ptr %fsmonitor.i, align 8
-  %reason10 = getelementptr inbounds %struct.fsmonitor_settings, ptr %7, i64 0, i32 1
+  %reason10 = getelementptr inbounds i8, ptr %7, i64 4
   store i32 1, ptr %reason10, align 4
   %8 = load ptr, ptr %fsmonitor.i, align 8
-  %hook_path = getelementptr inbounds %struct.fsmonitor_settings, ptr %8, i64 0, i32 2
+  %hook_path = getelementptr inbounds i8, ptr %8, i64 8
   %9 = load ptr, ptr %hook_path, align 8
   tail call void @free(ptr noundef %9) #8
   %10 = load ptr, ptr %fsmonitor.i, align 8
-  %hook_path15 = getelementptr inbounds %struct.fsmonitor_settings, ptr %10, i64 0, i32 2
+  %hook_path15 = getelementptr inbounds i8, ptr %10, i64 8
   store ptr null, ptr %hook_path15, align 8
   %call16 = tail call noalias ptr @strdup(ptr noundef %path) #8
   br label %return
@@ -383,7 +379,7 @@ if.end5:                                          ; preds = %if.then1, %if.end
 return:                                           ; preds = %if.end5, %fsm_settings__set_incompatible.exit
   %call16.sink = phi ptr [ %call16, %if.end5 ], [ null, %fsm_settings__set_incompatible.exit ]
   %11 = load ptr, ptr %fsmonitor.i, align 8
-  %hook_path19 = getelementptr inbounds %struct.fsmonitor_settings, ptr %11, i64 0, i32 2
+  %hook_path19 = getelementptr inbounds i8, ptr %11, i64 8
   store ptr %call16.sink, ptr %hook_path19, align 8
   ret void
 }
@@ -394,7 +390,7 @@ declare noalias ptr @strdup(ptr nocapture noundef readonly) local_unnamed_addr #
 ; Function Attrs: nounwind uwtable
 define dso_local void @fsm_settings__set_disabled(ptr nocapture noundef %r) local_unnamed_addr #0 {
 entry:
-  %fsmonitor = getelementptr inbounds %struct.repository, ptr %r, i64 0, i32 10, i32 11
+  %fsmonitor = getelementptr inbounds i8, ptr %r, i64 192
   %0 = load ptr, ptr %fsmonitor, align 8
   %tobool.not = icmp eq ptr %0, null
   br i1 %tobool.not, label %if.then, label %if.end
@@ -402,7 +398,7 @@ entry:
 if.then:                                          ; preds = %entry
   %call.i = tail call noundef ptr @xcalloc(i64 noundef 1, i64 noundef 16) #8
   store i32 0, ptr %call.i, align 8
-  %reason.i = getelementptr inbounds %struct.fsmonitor_settings, ptr %call.i, i64 0, i32 1
+  %reason.i = getelementptr inbounds i8, ptr %call.i, i64 4
   store i32 0, ptr %reason.i, align 4
   store ptr %call.i, ptr %fsmonitor, align 8
   br label %if.end
@@ -411,14 +407,14 @@ if.end:                                           ; preds = %if.then, %entry
   %1 = phi ptr [ %call.i, %if.then ], [ %0, %entry ]
   store i32 0, ptr %1, align 8
   %2 = load ptr, ptr %fsmonitor, align 8
-  %reason = getelementptr inbounds %struct.fsmonitor_settings, ptr %2, i64 0, i32 1
+  %reason = getelementptr inbounds i8, ptr %2, i64 4
   store i32 1, ptr %reason, align 4
   %3 = load ptr, ptr %fsmonitor, align 8
-  %hook_path = getelementptr inbounds %struct.fsmonitor_settings, ptr %3, i64 0, i32 2
+  %hook_path = getelementptr inbounds i8, ptr %3, i64 8
   %4 = load ptr, ptr %hook_path, align 8
   tail call void @free(ptr noundef %4) #8
   %5 = load ptr, ptr %fsmonitor, align 8
-  %hook_path11 = getelementptr inbounds %struct.fsmonitor_settings, ptr %5, i64 0, i32 2
+  %hook_path11 = getelementptr inbounds i8, ptr %5, i64 8
   store ptr null, ptr %hook_path11, align 8
   ret void
 }
@@ -426,7 +422,7 @@ if.end:                                           ; preds = %if.then, %entry
 ; Function Attrs: nounwind uwtable
 define dso_local i32 @fsm_settings__get_reason(ptr noundef %r) local_unnamed_addr #0 {
 entry:
-  %fsmonitor = getelementptr inbounds %struct.repository, ptr %r, i64 0, i32 10, i32 11
+  %fsmonitor = getelementptr inbounds i8, ptr %r, i64 192
   %0 = load ptr, ptr %fsmonitor, align 8
   %tobool.not = icmp eq ptr %0, null
   br i1 %tobool.not, label %if.then, label %if.end
@@ -438,7 +434,7 @@ if.then:                                          ; preds = %entry
 
 if.end:                                           ; preds = %if.then, %entry
   %1 = phi ptr [ %.pre, %if.then ], [ %0, %entry ]
-  %reason = getelementptr inbounds %struct.fsmonitor_settings, ptr %1, i64 0, i32 1
+  %reason = getelementptr inbounds i8, ptr %1, i64 4
   %2 = load i32, ptr %reason, align 4
   ret i32 %2
 }
@@ -485,7 +481,7 @@ if.end3.i7:                                       ; preds = %sw.bb3
 
 _.exit10:                                         ; preds = %sw.bb3, %if.end3.i7
   %retval.0.i9 = phi ptr [ %call.i8, %if.end3.i7 ], [ @.str.1, %sw.bb3 ]
-  %worktree = getelementptr inbounds %struct.repository, ptr %r, i64 0, i32 8
+  %worktree = getelementptr inbounds i8, ptr %r, i64 128
   %2 = load ptr, ptr %worktree, align 8
   call void (ptr, ptr, ...) @strbuf_addf(ptr noundef nonnull %msg, ptr noundef %retval.0.i9, ptr noundef %2) #8
   br label %done
@@ -501,7 +497,7 @@ if.end3.i12:                                      ; preds = %sw.bb5
 
 _.exit15:                                         ; preds = %sw.bb5, %if.end3.i12
   %retval.0.i14 = phi ptr [ %call.i13, %if.end3.i12 ], [ @.str.2, %sw.bb5 ]
-  %worktree7 = getelementptr inbounds %struct.repository, ptr %r, i64 0, i32 8
+  %worktree7 = getelementptr inbounds i8, ptr %r, i64 128
   %4 = load ptr, ptr %worktree7, align 8
   call void (ptr, ptr, ...) @strbuf_addf(ptr noundef nonnull %msg, ptr noundef %retval.0.i14, ptr noundef %4) #8
   br label %done
@@ -517,7 +513,7 @@ if.end3.i17:                                      ; preds = %sw.bb8
 
 _.exit20:                                         ; preds = %sw.bb8, %if.end3.i17
   %retval.0.i19 = phi ptr [ %call.i18, %if.end3.i17 ], [ @.str.3, %sw.bb8 ]
-  %worktree10 = getelementptr inbounds %struct.repository, ptr %r, i64 0, i32 8
+  %worktree10 = getelementptr inbounds i8, ptr %r, i64 128
   %6 = load ptr, ptr %worktree10, align 8
   call void (ptr, ptr, ...) @strbuf_addf(ptr noundef nonnull %msg, ptr noundef %retval.0.i19, ptr noundef %6) #8
   br label %done

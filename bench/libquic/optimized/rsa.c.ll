@@ -10,10 +10,6 @@ target triple = "x86_64-unknown-linux-gnu"
 %union.pthread_rwlock_t = type { %struct.__pthread_rwlock_arch_t }
 %struct.__pthread_rwlock_arch_t = type { i32, i32, i32, i32, i32, i32, i32, i32, i8, [7 x i8], i64, i32 }
 %struct.pkcs1_sig_prefix = type { i32, i8, [19 x i8] }
-%struct.rsa_st = type { ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, %struct.crypto_ex_data_st, i32, i32, %union.crypto_mutex_st, ptr, ptr, ptr, i32, ptr, ptr }
-%struct.crypto_ex_data_st = type { ptr }
-%union.crypto_mutex_st = type { double, [48 x i8] }
-%struct.RSA_additional_prime_st = type { ptr, ptr, ptr, ptr, ptr }
 %struct.bignum_st = type { ptr, i32, i32, i32, i32 }
 
 @.str = private unnamed_addr constant [120 x i8] c"generated/home/dtcxzyw/WorkSpace/Projects/compilers/llvm-opt-benchmark/bench/libquic/libquic/boringssl/crypto/rsa/rsa.c\00", align 1
@@ -55,18 +51,18 @@ if.end8:                                          ; preds = %if.then6, %if.then1
   %storemerge = phi ptr [ @RSA_default_method, %if.then6 ], [ %call2, %if.then1 ]
   store ptr %storemerge, ptr %calloc, align 8
   tail call void @METHOD_ref(ptr noundef nonnull %storemerge) #9
-  %references = getelementptr inbounds %struct.rsa_st, ptr %calloc, i64 0, i32 11
+  %references = getelementptr inbounds i8, ptr %calloc, i64 88
   store i32 1, ptr %references, align 8
-  %flags = getelementptr inbounds %struct.rsa_meth_st, ptr %storemerge, i64 0, i32 14
+  %flags = getelementptr inbounds i8, ptr %storemerge, i64 112
   %1 = load i32, ptr %flags, align 8
-  %flags11 = getelementptr inbounds %struct.rsa_st, ptr %calloc, i64 0, i32 12
+  %flags11 = getelementptr inbounds i8, ptr %calloc, i64 92
   store i32 %1, ptr %flags11, align 4
-  %lock = getelementptr inbounds %struct.rsa_st, ptr %calloc, i64 0, i32 13
+  %lock = getelementptr inbounds i8, ptr %calloc, i64 96
   tail call void @CRYPTO_MUTEX_init(ptr noundef nonnull %lock) #9
-  %ex_data = getelementptr inbounds %struct.rsa_st, ptr %calloc, i64 0, i32 10
+  %ex_data = getelementptr inbounds i8, ptr %calloc, i64 80
   tail call void @CRYPTO_new_ex_data(ptr noundef nonnull %ex_data) #9
   %2 = load ptr, ptr %calloc, align 8
-  %init = getelementptr inbounds %struct.rsa_meth_st, ptr %2, i64 0, i32 2
+  %init = getelementptr inbounds i8, ptr %2, i64 16
   %3 = load ptr, ptr %init, align 8
   %tobool13.not = icmp eq ptr %3, null
   br i1 %tobool13.not, label %return, label %land.lhs.true
@@ -120,16 +116,16 @@ entry:
 if.end:                                           ; preds = %entry
   %0 = load ptr, ptr %ap, align 8
   tail call void @BN_clear_free(ptr noundef %0) #9
-  %exp = getelementptr inbounds %struct.RSA_additional_prime_st, ptr %ap, i64 0, i32 1
+  %exp = getelementptr inbounds i8, ptr %ap, i64 8
   %1 = load ptr, ptr %exp, align 8
   tail call void @BN_clear_free(ptr noundef %1) #9
-  %coeff = getelementptr inbounds %struct.RSA_additional_prime_st, ptr %ap, i64 0, i32 2
+  %coeff = getelementptr inbounds i8, ptr %ap, i64 16
   %2 = load ptr, ptr %coeff, align 8
   tail call void @BN_clear_free(ptr noundef %2) #9
-  %r = getelementptr inbounds %struct.RSA_additional_prime_st, ptr %ap, i64 0, i32 3
+  %r = getelementptr inbounds i8, ptr %ap, i64 24
   %3 = load ptr, ptr %r, align 8
   tail call void @BN_clear_free(ptr noundef %3) #9
-  %mont = getelementptr inbounds %struct.RSA_additional_prime_st, ptr %ap, i64 0, i32 4
+  %mont = getelementptr inbounds i8, ptr %ap, i64 32
   %4 = load ptr, ptr %mont, align 8
   tail call void @BN_MONT_CTX_free(ptr noundef %4) #9
   tail call void @free(ptr noundef nonnull %ap) #9
@@ -150,14 +146,14 @@ entry:
   br i1 %cmp, label %return, label %if.end
 
 if.end:                                           ; preds = %entry
-  %references = getelementptr inbounds %struct.rsa_st, ptr %rsa, i64 0, i32 11
+  %references = getelementptr inbounds i8, ptr %rsa, i64 88
   %call = tail call i32 @CRYPTO_refcount_dec_and_test_zero(ptr noundef nonnull %references) #9
   %tobool.not = icmp eq i32 %call, 0
   br i1 %tobool.not, label %return, label %if.end2
 
 if.end2:                                          ; preds = %if.end
   %0 = load ptr, ptr %rsa, align 8
-  %finish = getelementptr inbounds %struct.rsa_meth_st, ptr %0, i64 0, i32 3
+  %finish = getelementptr inbounds i8, ptr %0, i64 24
   %1 = load ptr, ptr %finish, align 8
   %tobool3.not = icmp eq ptr %1, null
   br i1 %tobool3.not, label %if.end8, label %if.then4
@@ -170,48 +166,48 @@ if.then4:                                         ; preds = %if.end2
 if.end8:                                          ; preds = %if.then4, %if.end2
   %2 = phi ptr [ %.pre, %if.then4 ], [ %0, %if.end2 ]
   tail call void @METHOD_unref(ptr noundef %2) #9
-  %ex_data = getelementptr inbounds %struct.rsa_st, ptr %rsa, i64 0, i32 10
+  %ex_data = getelementptr inbounds i8, ptr %rsa, i64 80
   tail call void @CRYPTO_free_ex_data(ptr noundef nonnull @g_ex_data_class, ptr noundef nonnull %rsa, ptr noundef nonnull %ex_data) #9
-  %n = getelementptr inbounds %struct.rsa_st, ptr %rsa, i64 0, i32 1
+  %n = getelementptr inbounds i8, ptr %rsa, i64 8
   %3 = load ptr, ptr %n, align 8
   tail call void @BN_clear_free(ptr noundef %3) #9
-  %e = getelementptr inbounds %struct.rsa_st, ptr %rsa, i64 0, i32 2
+  %e = getelementptr inbounds i8, ptr %rsa, i64 16
   %4 = load ptr, ptr %e, align 8
   tail call void @BN_clear_free(ptr noundef %4) #9
-  %d = getelementptr inbounds %struct.rsa_st, ptr %rsa, i64 0, i32 3
+  %d = getelementptr inbounds i8, ptr %rsa, i64 24
   %5 = load ptr, ptr %d, align 8
   tail call void @BN_clear_free(ptr noundef %5) #9
-  %p = getelementptr inbounds %struct.rsa_st, ptr %rsa, i64 0, i32 4
+  %p = getelementptr inbounds i8, ptr %rsa, i64 32
   %6 = load ptr, ptr %p, align 8
   tail call void @BN_clear_free(ptr noundef %6) #9
-  %q = getelementptr inbounds %struct.rsa_st, ptr %rsa, i64 0, i32 5
+  %q = getelementptr inbounds i8, ptr %rsa, i64 40
   %7 = load ptr, ptr %q, align 8
   tail call void @BN_clear_free(ptr noundef %7) #9
-  %dmp1 = getelementptr inbounds %struct.rsa_st, ptr %rsa, i64 0, i32 6
+  %dmp1 = getelementptr inbounds i8, ptr %rsa, i64 48
   %8 = load ptr, ptr %dmp1, align 8
   tail call void @BN_clear_free(ptr noundef %8) #9
-  %dmq1 = getelementptr inbounds %struct.rsa_st, ptr %rsa, i64 0, i32 7
+  %dmq1 = getelementptr inbounds i8, ptr %rsa, i64 56
   %9 = load ptr, ptr %dmq1, align 8
   tail call void @BN_clear_free(ptr noundef %9) #9
-  %iqmp = getelementptr inbounds %struct.rsa_st, ptr %rsa, i64 0, i32 8
+  %iqmp = getelementptr inbounds i8, ptr %rsa, i64 64
   %10 = load ptr, ptr %iqmp, align 8
   tail call void @BN_clear_free(ptr noundef %10) #9
-  %mont_n = getelementptr inbounds %struct.rsa_st, ptr %rsa, i64 0, i32 14
+  %mont_n = getelementptr inbounds i8, ptr %rsa, i64 152
   %11 = load ptr, ptr %mont_n, align 8
   tail call void @BN_MONT_CTX_free(ptr noundef %11) #9
-  %mont_p = getelementptr inbounds %struct.rsa_st, ptr %rsa, i64 0, i32 15
+  %mont_p = getelementptr inbounds i8, ptr %rsa, i64 160
   %12 = load ptr, ptr %mont_p, align 8
   tail call void @BN_MONT_CTX_free(ptr noundef %12) #9
-  %mont_q = getelementptr inbounds %struct.rsa_st, ptr %rsa, i64 0, i32 16
+  %mont_q = getelementptr inbounds i8, ptr %rsa, i64 168
   %13 = load ptr, ptr %mont_q, align 8
   tail call void @BN_MONT_CTX_free(ptr noundef %13) #9
-  %num_blindings = getelementptr inbounds %struct.rsa_st, ptr %rsa, i64 0, i32 17
+  %num_blindings = getelementptr inbounds i8, ptr %rsa, i64 176
   %14 = load i32, ptr %num_blindings, align 8
   %cmp1030.not = icmp eq i32 %14, 0
   br i1 %cmp1030.not, label %for.end, label %for.body.lr.ph
 
 for.body.lr.ph:                                   ; preds = %if.end8
-  %blindings = getelementptr inbounds %struct.rsa_st, ptr %rsa, i64 0, i32 18
+  %blindings = getelementptr inbounds i8, ptr %rsa, i64 184
   br label %for.body
 
 for.body:                                         ; preds = %for.body.lr.ph, %for.body
@@ -227,13 +223,13 @@ for.body:                                         ; preds = %for.body.lr.ph, %fo
   br i1 %cmp10, label %for.body, label %for.end, !llvm.loop !7
 
 for.end:                                          ; preds = %for.body, %if.end8
-  %blindings11 = getelementptr inbounds %struct.rsa_st, ptr %rsa, i64 0, i32 18
+  %blindings11 = getelementptr inbounds i8, ptr %rsa, i64 184
   %19 = load ptr, ptr %blindings11, align 8
   tail call void @free(ptr noundef %19) #9
-  %blindings_inuse = getelementptr inbounds %struct.rsa_st, ptr %rsa, i64 0, i32 19
+  %blindings_inuse = getelementptr inbounds i8, ptr %rsa, i64 192
   %20 = load ptr, ptr %blindings_inuse, align 8
   tail call void @free(ptr noundef %20) #9
-  %additional_primes = getelementptr inbounds %struct.rsa_st, ptr %rsa, i64 0, i32 9
+  %additional_primes = getelementptr inbounds i8, ptr %rsa, i64 72
   %21 = load ptr, ptr %additional_primes, align 8
   %cmp12.not = icmp eq ptr %21, null
   br i1 %cmp12.not, label %if.end15, label %if.then13
@@ -243,7 +239,7 @@ if.then13:                                        ; preds = %for.end
   br label %if.end15
 
 if.end15:                                         ; preds = %if.then13, %for.end
-  %lock = getelementptr inbounds %struct.rsa_st, ptr %rsa, i64 0, i32 13
+  %lock = getelementptr inbounds i8, ptr %rsa, i64 96
   tail call void @CRYPTO_MUTEX_cleanup(ptr noundef nonnull %lock) #9
   tail call void @free(ptr noundef nonnull %rsa) #9
   br label %return
@@ -261,7 +257,7 @@ declare void @sk_pop_free(ptr noundef, ptr noundef) local_unnamed_addr #2
 ; Function Attrs: nounwind uwtable
 define hidden noundef i32 @RSA_up_ref(ptr noundef %rsa) local_unnamed_addr #0 {
 entry:
-  %references = getelementptr inbounds %struct.rsa_st, ptr %rsa, i64 0, i32 11
+  %references = getelementptr inbounds i8, ptr %rsa, i64 88
   tail call void @CRYPTO_refcount_inc(ptr noundef nonnull %references) #9
   ret i32 1
 }
@@ -272,7 +268,7 @@ declare void @CRYPTO_refcount_inc(ptr noundef) local_unnamed_addr #2
 define hidden i32 @RSA_generate_key_ex(ptr noundef %rsa, i32 noundef %bits, ptr noundef %e_value, ptr noundef %cb) local_unnamed_addr #0 {
 entry:
   %0 = load ptr, ptr %rsa, align 8
-  %keygen = getelementptr inbounds %struct.rsa_meth_st, ptr %0, i64 0, i32 15
+  %keygen = getelementptr inbounds i8, ptr %0, i64 120
   %1 = load ptr, ptr %keygen, align 8
   %tobool.not = icmp eq ptr %1, null
   br i1 %tobool.not, label %if.end, label %if.then
@@ -296,7 +292,7 @@ declare i32 @rsa_default_keygen(ptr noundef, i32 noundef, ptr noundef, ptr nound
 define hidden i32 @RSA_generate_multi_prime_key(ptr noundef %rsa, i32 noundef %bits, i32 noundef %num_primes, ptr noundef %e_value, ptr noundef %cb) local_unnamed_addr #0 {
 entry:
   %0 = load ptr, ptr %rsa, align 8
-  %multi_prime_keygen = getelementptr inbounds %struct.rsa_meth_st, ptr %0, i64 0, i32 16
+  %multi_prime_keygen = getelementptr inbounds i8, ptr %0, i64 128
   %1 = load ptr, ptr %multi_prime_keygen, align 8
   %tobool.not = icmp eq ptr %1, null
   br i1 %tobool.not, label %if.end, label %if.then
@@ -320,7 +316,7 @@ declare i32 @rsa_default_multi_prime_keygen(ptr noundef, i32 noundef, i32 nounde
 define hidden i32 @RSA_encrypt(ptr noundef %rsa, ptr noundef %out_len, ptr noundef %out, i64 noundef %max_out, ptr noundef %in, i64 noundef %in_len, i32 noundef %padding) local_unnamed_addr #0 {
 entry:
   %0 = load ptr, ptr %rsa, align 8
-  %encrypt = getelementptr inbounds %struct.rsa_meth_st, ptr %0, i64 0, i32 7
+  %encrypt = getelementptr inbounds i8, ptr %0, i64 56
   %1 = load ptr, ptr %encrypt, align 8
   %tobool.not = icmp eq ptr %1, null
   br i1 %tobool.not, label %if.end, label %if.then
@@ -345,7 +341,7 @@ define hidden i32 @RSA_public_encrypt(i64 noundef %flen, ptr noundef %from, ptr 
 entry:
   %out_len = alloca i64, align 8
   %0 = load ptr, ptr %rsa, align 8
-  %size.i = getelementptr inbounds %struct.rsa_meth_st, ptr %0, i64 0, i32 4
+  %size.i = getelementptr inbounds i8, ptr %0, i64 32
   %1 = load ptr, ptr %size.i, align 8
   %tobool.not.i = icmp eq ptr %1, null
   br i1 %tobool.not.i, label %if.end.i, label %if.then.i
@@ -362,7 +358,7 @@ RSA_size.exit:                                    ; preds = %if.then.i, %if.end.
   %retval.0.in.i = phi i64 [ %call.i, %if.then.i ], [ %call3.i, %if.end.i ]
   %conv = and i64 %retval.0.in.i, 4294967295
   %2 = load ptr, ptr %rsa, align 8
-  %encrypt.i = getelementptr inbounds %struct.rsa_meth_st, ptr %2, i64 0, i32 7
+  %encrypt.i = getelementptr inbounds i8, ptr %2, i64 56
   %3 = load ptr, ptr %encrypt.i, align 8
   %tobool.not.i2 = icmp eq ptr %3, null
   br i1 %tobool.not.i2, label %if.end.i6, label %if.then.i3
@@ -402,7 +398,7 @@ return:                                           ; preds = %RSA_encrypt.exit, %
 define hidden i32 @RSA_size(ptr noundef %rsa) local_unnamed_addr #0 {
 entry:
   %0 = load ptr, ptr %rsa, align 8
-  %size = getelementptr inbounds %struct.rsa_meth_st, ptr %0, i64 0, i32 4
+  %size = getelementptr inbounds i8, ptr %0, i64 32
   %1 = load ptr, ptr %size, align 8
   %tobool.not = icmp eq ptr %1, null
   br i1 %tobool.not, label %if.end, label %if.then
@@ -425,7 +421,7 @@ return:                                           ; preds = %if.end, %if.then
 define hidden i32 @RSA_sign_raw(ptr noundef %rsa, ptr noundef %out_len, ptr noundef %out, i64 noundef %max_out, ptr noundef %in, i64 noundef %in_len, i32 noundef %padding) local_unnamed_addr #0 {
 entry:
   %0 = load ptr, ptr %rsa, align 8
-  %sign_raw = getelementptr inbounds %struct.rsa_meth_st, ptr %0, i64 0, i32 8
+  %sign_raw = getelementptr inbounds i8, ptr %0, i64 64
   %1 = load ptr, ptr %sign_raw, align 8
   %tobool.not = icmp eq ptr %1, null
   br i1 %tobool.not, label %if.end, label %if.then
@@ -450,7 +446,7 @@ define hidden i32 @RSA_private_encrypt(i64 noundef %flen, ptr noundef %from, ptr
 entry:
   %out_len = alloca i64, align 8
   %0 = load ptr, ptr %rsa, align 8
-  %size.i = getelementptr inbounds %struct.rsa_meth_st, ptr %0, i64 0, i32 4
+  %size.i = getelementptr inbounds i8, ptr %0, i64 32
   %1 = load ptr, ptr %size.i, align 8
   %tobool.not.i = icmp eq ptr %1, null
   br i1 %tobool.not.i, label %if.end.i, label %if.then.i
@@ -467,7 +463,7 @@ RSA_size.exit:                                    ; preds = %if.then.i, %if.end.
   %retval.0.in.i = phi i64 [ %call.i, %if.then.i ], [ %call3.i, %if.end.i ]
   %conv = and i64 %retval.0.in.i, 4294967295
   %2 = load ptr, ptr %rsa, align 8
-  %sign_raw.i = getelementptr inbounds %struct.rsa_meth_st, ptr %2, i64 0, i32 8
+  %sign_raw.i = getelementptr inbounds i8, ptr %2, i64 64
   %3 = load ptr, ptr %sign_raw.i, align 8
   %tobool.not.i2 = icmp eq ptr %3, null
   br i1 %tobool.not.i2, label %if.end.i6, label %if.then.i3
@@ -507,7 +503,7 @@ return:                                           ; preds = %RSA_sign_raw.exit, 
 define hidden i32 @RSA_decrypt(ptr noundef %rsa, ptr noundef %out_len, ptr noundef %out, i64 noundef %max_out, ptr noundef %in, i64 noundef %in_len, i32 noundef %padding) local_unnamed_addr #0 {
 entry:
   %0 = load ptr, ptr %rsa, align 8
-  %decrypt = getelementptr inbounds %struct.rsa_meth_st, ptr %0, i64 0, i32 9
+  %decrypt = getelementptr inbounds i8, ptr %0, i64 72
   %1 = load ptr, ptr %decrypt, align 8
   %tobool.not = icmp eq ptr %1, null
   br i1 %tobool.not, label %if.end, label %if.then
@@ -532,7 +528,7 @@ define hidden i32 @RSA_private_decrypt(i64 noundef %flen, ptr noundef %from, ptr
 entry:
   %out_len = alloca i64, align 8
   %0 = load ptr, ptr %rsa, align 8
-  %size.i = getelementptr inbounds %struct.rsa_meth_st, ptr %0, i64 0, i32 4
+  %size.i = getelementptr inbounds i8, ptr %0, i64 32
   %1 = load ptr, ptr %size.i, align 8
   %tobool.not.i = icmp eq ptr %1, null
   br i1 %tobool.not.i, label %if.end.i, label %if.then.i
@@ -549,7 +545,7 @@ RSA_size.exit:                                    ; preds = %if.then.i, %if.end.
   %retval.0.in.i = phi i64 [ %call.i, %if.then.i ], [ %call3.i, %if.end.i ]
   %conv = and i64 %retval.0.in.i, 4294967295
   %2 = load ptr, ptr %rsa, align 8
-  %decrypt.i = getelementptr inbounds %struct.rsa_meth_st, ptr %2, i64 0, i32 9
+  %decrypt.i = getelementptr inbounds i8, ptr %2, i64 72
   %3 = load ptr, ptr %decrypt.i, align 8
   %tobool.not.i2 = icmp eq ptr %3, null
   br i1 %tobool.not.i2, label %if.end.i6, label %if.then.i3
@@ -590,7 +586,7 @@ define hidden i32 @RSA_public_decrypt(i64 noundef %flen, ptr noundef %from, ptr 
 entry:
   %out_len = alloca i64, align 8
   %0 = load ptr, ptr %rsa, align 8
-  %size.i = getelementptr inbounds %struct.rsa_meth_st, ptr %0, i64 0, i32 4
+  %size.i = getelementptr inbounds i8, ptr %0, i64 32
   %1 = load ptr, ptr %size.i, align 8
   %tobool.not.i = icmp eq ptr %1, null
   br i1 %tobool.not.i, label %if.end.i, label %if.then.i
@@ -640,7 +636,7 @@ entry:
   br i1 %tobool.not, label %land.end, label %land.rhs
 
 land.rhs:                                         ; preds = %entry
-  %flags = getelementptr inbounds %struct.rsa_meth_st, ptr %0, i64 0, i32 14
+  %flags = getelementptr inbounds i8, ptr %0, i64 112
   %1 = load i32, ptr %flags, align 8
   %and = and i32 %1, 1
   br label %land.end
@@ -658,7 +654,7 @@ entry:
   br i1 %tobool.not, label %return, label %land.lhs.true
 
 land.lhs.true:                                    ; preds = %entry
-  %supports_digest = getelementptr inbounds %struct.rsa_meth_st, ptr %0, i64 0, i32 17
+  %supports_digest = getelementptr inbounds i8, ptr %0, i64 136
   %1 = load ptr, ptr %supports_digest, align 8
   %tobool2.not = icmp eq ptr %1, null
   br i1 %tobool2.not, label %return, label %if.then
@@ -688,7 +684,7 @@ declare i32 @CRYPTO_get_ex_new_index(ptr noundef, ptr noundef, i64 noundef, ptr 
 ; Function Attrs: nounwind uwtable
 define hidden i32 @RSA_set_ex_data(ptr noundef %d, i32 noundef %idx, ptr noundef %arg) local_unnamed_addr #0 {
 entry:
-  %ex_data = getelementptr inbounds %struct.rsa_st, ptr %d, i64 0, i32 10
+  %ex_data = getelementptr inbounds i8, ptr %d, i64 80
   %call = tail call i32 @CRYPTO_set_ex_data(ptr noundef nonnull %ex_data, i32 noundef %idx, ptr noundef %arg) #9
   ret i32 %call
 }
@@ -698,7 +694,7 @@ declare i32 @CRYPTO_set_ex_data(ptr noundef, i32 noundef, ptr noundef) local_unn
 ; Function Attrs: nounwind uwtable
 define hidden ptr @RSA_get_ex_data(ptr noundef %d, i32 noundef %idx) local_unnamed_addr #0 {
 entry:
-  %ex_data = getelementptr inbounds %struct.rsa_st, ptr %d, i64 0, i32 10
+  %ex_data = getelementptr inbounds i8, ptr %d, i64 80
   %call = tail call ptr @CRYPTO_get_ex_data(ptr noundef nonnull %ex_data, i32 noundef %idx) #9
   ret ptr %call
 }
@@ -708,8 +704,10 @@ declare ptr @CRYPTO_get_ex_data(ptr noundef, i32 noundef) local_unnamed_addr #2
 ; Function Attrs: nounwind uwtable
 define hidden noundef i32 @RSA_add_pkcs1_prefix(ptr nocapture noundef writeonly %out_msg, ptr nocapture noundef writeonly %out_msg_len, ptr nocapture noundef writeonly %is_alloced, i32 noundef %hash_nid, ptr noundef %msg, i64 noundef %msg_len) local_unnamed_addr #0 {
 entry:
-  %cmp = icmp eq i32 %hash_nid, 114
-  br i1 %cmp, label %if.then, label %for.body
+  switch i32 %hash_nid, label %for.cond [
+    i32 114, label %if.then
+    i32 4, label %if.end10
+  ]
 
 if.then:                                          ; preds = %entry
   %cmp1.not = icmp eq i64 %msg_len, 36
@@ -725,25 +723,25 @@ if.end:                                           ; preds = %if.then
   store i32 0, ptr %is_alloced, align 4
   br label %return
 
-for.cond:                                         ; preds = %for.body
-  %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %arrayidx = getelementptr inbounds [7 x %struct.pkcs1_sig_prefix], ptr @kPKCS1SigPrefixes, i64 0, i64 %indvars.iv.next
-  %0 = load i32, ptr %arrayidx, align 8
+for.cond:                                         ; preds = %entry, %for.body
+  %indvars.iv28 = phi i64 [ %indvars.iv.next, %for.body ], [ 0, %entry ]
+  %indvars.iv.next = add nuw nsw i64 %indvars.iv28, 1
   %exitcond = icmp eq i64 %indvars.iv.next, 6
   br i1 %exitcond, label %for.end, label %for.body, !llvm.loop !9
 
-for.body:                                         ; preds = %entry, %for.cond
-  %indvars.iv = phi i64 [ %indvars.iv.next, %for.cond ], [ 0, %entry ]
-  %1 = phi i32 [ %0, %for.cond ], [ 4, %entry ]
-  %cmp8.not = icmp eq i32 %1, %hash_nid
-  br i1 %cmp8.not, label %if.end10, label %for.cond
+for.body:                                         ; preds = %for.cond
+  %arrayidx = getelementptr inbounds [7 x %struct.pkcs1_sig_prefix], ptr @kPKCS1SigPrefixes, i64 0, i64 %indvars.iv.next
+  %0 = load i32, ptr %arrayidx, align 8
+  %cmp8.not = icmp eq i32 %0, %hash_nid
+  br i1 %cmp8.not, label %if.end10, label %for.cond, !llvm.loop !9
 
-if.end10:                                         ; preds = %for.body
-  %bytes = getelementptr inbounds [7 x %struct.pkcs1_sig_prefix], ptr @kPKCS1SigPrefixes, i64 0, i64 %indvars.iv, i32 2
-  %len = getelementptr inbounds [7 x %struct.pkcs1_sig_prefix], ptr @kPKCS1SigPrefixes, i64 0, i64 %indvars.iv, i32 1
-  %2 = load i8, ptr %len, align 4
-  %conv = zext i8 %2 to i32
-  %conv11 = zext i8 %2 to i64
+if.end10:                                         ; preds = %for.body, %entry
+  %arrayidx22.lcssa = phi ptr [ @kPKCS1SigPrefixes, %entry ], [ %arrayidx, %for.body ]
+  %bytes = getelementptr inbounds i8, ptr %arrayidx22.lcssa, i64 5
+  %len = getelementptr inbounds i8, ptr %arrayidx22.lcssa, i64 4
+  %1 = load i8, ptr %len, align 4
+  %conv = zext i8 %1 to i32
+  %conv11 = zext i8 %1 to i64
   %add = add i64 %conv11, %msg_len
   %conv12 = trunc i64 %add to i32
   %cmp13 = icmp ult i32 %conv12, %conv
@@ -792,7 +790,7 @@ entry:
   %signed_msg_is_alloced = alloca i32, align 4
   %size_t_out_len = alloca i64, align 8
   %0 = load ptr, ptr %rsa, align 8
-  %size.i = getelementptr inbounds %struct.rsa_meth_st, ptr %0, i64 0, i32 4
+  %size.i = getelementptr inbounds i8, ptr %0, i64 32
   %1 = load ptr, ptr %size.i, align 8
   %tobool.not.i = icmp eq ptr %1, null
   br i1 %tobool.not.i, label %if.end.i, label %if.then.i
@@ -810,7 +808,7 @@ RSA_size.exit:                                    ; preds = %if.then.i, %if.end.
   %retval.0.i = trunc i64 %retval.0.in.i to i32
   store i32 0, ptr %signed_msg_is_alloced, align 4
   %2 = load ptr, ptr %rsa, align 8
-  %sign = getelementptr inbounds %struct.rsa_meth_st, ptr %2, i64 0, i32 5
+  %sign = getelementptr inbounds i8, ptr %2, i64 40
   %3 = load ptr, ptr %sign, align 8
   %tobool.not = icmp eq ptr %3, null
   br i1 %tobool.not, label %if.end, label %if.then
@@ -844,7 +842,7 @@ if.end13:                                         ; preds = %lor.lhs.false
   %conv14 = and i64 %retval.0.in.i, 4294967295
   %5 = load ptr, ptr %signed_msg, align 8
   %6 = load ptr, ptr %rsa, align 8
-  %sign_raw.i = getelementptr inbounds %struct.rsa_meth_st, ptr %6, i64 0, i32 8
+  %sign_raw.i = getelementptr inbounds i8, ptr %6, i64 64
   %7 = load ptr, ptr %sign_raw.i, align 8
   %tobool.not.i13 = icmp eq ptr %7, null
   br i1 %tobool.not.i13, label %if.end.i17, label %if.then.i14
@@ -891,13 +889,13 @@ entry:
   %signed_msg_len = alloca i64, align 8
   %len = alloca i64, align 8
   %signed_msg_is_alloced = alloca i32, align 4
-  %n = getelementptr inbounds %struct.rsa_st, ptr %rsa, i64 0, i32 1
+  %n = getelementptr inbounds i8, ptr %rsa, i64 8
   %0 = load ptr, ptr %n, align 8
   %cmp = icmp eq ptr %0, null
   br i1 %cmp, label %if.then, label %lor.lhs.false
 
 lor.lhs.false:                                    ; preds = %entry
-  %e = getelementptr inbounds %struct.rsa_st, ptr %rsa, i64 0, i32 2
+  %e = getelementptr inbounds i8, ptr %rsa, i64 16
   %1 = load ptr, ptr %e, align 8
   %cmp1 = icmp eq ptr %1, null
   br i1 %cmp1, label %if.then, label %if.end
@@ -908,7 +906,7 @@ if.then:                                          ; preds = %lor.lhs.false, %ent
 
 if.end:                                           ; preds = %lor.lhs.false
   %2 = load ptr, ptr %rsa, align 8
-  %size.i = getelementptr inbounds %struct.rsa_meth_st, ptr %2, i64 0, i32 4
+  %size.i = getelementptr inbounds i8, ptr %2, i64 32
   %3 = load ptr, ptr %size.i, align 8
   %tobool.not.i = icmp eq ptr %3, null
   br i1 %tobool.not.i, label %if.end.i, label %if.then.i
@@ -1004,17 +1002,17 @@ entry:
   br i1 %tobool.not.i, label %if.end, label %RSA_is_opaque.exit
 
 RSA_is_opaque.exit:                               ; preds = %entry
-  %flags.i = getelementptr inbounds %struct.rsa_meth_st, ptr %0, i64 0, i32 14
+  %flags.i = getelementptr inbounds i8, ptr %0, i64 112
   %1 = load i32, ptr %flags.i, align 8
   %and.i = and i32 %1, 1
   %tobool.not = icmp eq i32 %and.i, 0
   br i1 %tobool.not, label %if.end, label %return
 
 if.end:                                           ; preds = %entry, %RSA_is_opaque.exit
-  %p = getelementptr inbounds %struct.rsa_st, ptr %key, i64 0, i32 4
+  %p = getelementptr inbounds i8, ptr %key, i64 32
   %2 = load ptr, ptr %p, align 8
   %cmp = icmp ne ptr %2, null
-  %q = getelementptr inbounds %struct.rsa_st, ptr %key, i64 0, i32 5
+  %q = getelementptr inbounds i8, ptr %key, i64 40
   %3 = load ptr, ptr %q, align 8
   %4 = icmp eq ptr %3, null
   %cmp3.not = xor i1 %cmp, %4
@@ -1025,13 +1023,13 @@ if.then5:                                         ; preds = %if.end
   br label %return
 
 if.end6:                                          ; preds = %if.end
-  %n7 = getelementptr inbounds %struct.rsa_st, ptr %key, i64 0, i32 1
+  %n7 = getelementptr inbounds i8, ptr %key, i64 8
   %5 = load ptr, ptr %n7, align 8
   %tobool8.not = icmp eq ptr %5, null
   br i1 %tobool8.not, label %if.then10, label %lor.lhs.false
 
 lor.lhs.false:                                    ; preds = %if.end6
-  %e = getelementptr inbounds %struct.rsa_st, ptr %key, i64 0, i32 2
+  %e = getelementptr inbounds i8, ptr %key, i64 16
   %6 = load ptr, ptr %e, align 8
   %tobool9.not = icmp eq ptr %6, null
   br i1 %tobool9.not, label %if.then10, label %if.end11
@@ -1041,7 +1039,7 @@ if.then10:                                        ; preds = %lor.lhs.false, %if.
   br label %return
 
 if.end11:                                         ; preds = %lor.lhs.false
-  %d = getelementptr inbounds %struct.rsa_st, ptr %key, i64 0, i32 3
+  %d = getelementptr inbounds i8, ptr %key, i64 24
   %7 = load ptr, ptr %d, align 8
   %tobool12.not = icmp ne ptr %7, null
   %brmerge.not = and i1 %cmp, %tobool12.not
@@ -1101,7 +1099,7 @@ if.then43:                                        ; preds = %lor.lhs.false40, %l
   br label %out
 
 if.end44:                                         ; preds = %lor.lhs.false40
-  %additional_primes = getelementptr inbounds %struct.rsa_st, ptr %key, i64 0, i32 9
+  %additional_primes = getelementptr inbounds i8, ptr %key, i64 72
   %12 = load ptr, ptr %additional_primes, align 8
   %cmp45.not = icmp eq ptr %12, null
   br i1 %cmp45.not, label %for.end, label %if.end50
@@ -1188,17 +1186,17 @@ if.then90:                                        ; preds = %if.end87
   br label %out
 
 if.end91:                                         ; preds = %if.end87
-  %dmp192 = getelementptr inbounds %struct.rsa_st, ptr %key, i64 0, i32 6
+  %dmp192 = getelementptr inbounds i8, ptr %key, i64 48
   %19 = load ptr, ptr %dmp192, align 8
   %cmp93 = icmp ne ptr %19, null
-  %dmq195 = getelementptr inbounds %struct.rsa_st, ptr %key, i64 0, i32 7
+  %dmq195 = getelementptr inbounds i8, ptr %key, i64 56
   %20 = load ptr, ptr %dmq195, align 8
   %21 = icmp eq ptr %20, null
   %cmp98.not = xor i1 %cmp93, %21
   br i1 %cmp98.not, label %lor.lhs.false100, label %if.then106
 
 lor.lhs.false100:                                 ; preds = %if.end91
-  %iqmp101 = getelementptr inbounds %struct.rsa_st, ptr %key, i64 0, i32 8
+  %iqmp101 = getelementptr inbounds i8, ptr %key, i64 64
   %22 = load ptr, ptr %iqmp101, align 8
   %23 = icmp eq ptr %22, null
   %cmp104.not = xor i1 %cmp93, %23
@@ -1309,19 +1307,19 @@ declare void @BN_CTX_free(ptr noundef) local_unnamed_addr #2
 ; Function Attrs: nounwind uwtable
 define hidden noundef i32 @RSA_recover_crt_params(ptr nocapture noundef %rsa) local_unnamed_addr #0 {
 entry:
-  %n = getelementptr inbounds %struct.rsa_st, ptr %rsa, i64 0, i32 1
+  %n = getelementptr inbounds i8, ptr %rsa, i64 8
   %0 = load ptr, ptr %n, align 8
   %cmp = icmp eq ptr %0, null
   br i1 %cmp, label %if.then, label %lor.lhs.false
 
 lor.lhs.false:                                    ; preds = %entry
-  %e = getelementptr inbounds %struct.rsa_st, ptr %rsa, i64 0, i32 2
+  %e = getelementptr inbounds i8, ptr %rsa, i64 16
   %1 = load ptr, ptr %e, align 8
   %cmp1 = icmp eq ptr %1, null
   br i1 %cmp1, label %if.then, label %lor.lhs.false2
 
 lor.lhs.false2:                                   ; preds = %lor.lhs.false
-  %d = getelementptr inbounds %struct.rsa_st, ptr %rsa, i64 0, i32 3
+  %d = getelementptr inbounds i8, ptr %rsa, i64 24
   %2 = load ptr, ptr %d, align 8
   %cmp3 = icmp eq ptr %2, null
   br i1 %cmp3, label %if.then, label %if.end
@@ -1331,31 +1329,31 @@ if.then:                                          ; preds = %lor.lhs.false2, %lo
   br label %return
 
 if.end:                                           ; preds = %lor.lhs.false2
-  %p = getelementptr inbounds %struct.rsa_st, ptr %rsa, i64 0, i32 4
+  %p = getelementptr inbounds i8, ptr %rsa, i64 32
   %3 = load ptr, ptr %p, align 8
   %tobool.not = icmp eq ptr %3, null
   br i1 %tobool.not, label %lor.lhs.false4, label %if.then12
 
 lor.lhs.false4:                                   ; preds = %if.end
-  %q = getelementptr inbounds %struct.rsa_st, ptr %rsa, i64 0, i32 5
+  %q = getelementptr inbounds i8, ptr %rsa, i64 40
   %4 = load ptr, ptr %q, align 8
   %tobool5.not = icmp eq ptr %4, null
   br i1 %tobool5.not, label %lor.lhs.false6, label %if.then12
 
 lor.lhs.false6:                                   ; preds = %lor.lhs.false4
-  %dmp1 = getelementptr inbounds %struct.rsa_st, ptr %rsa, i64 0, i32 6
+  %dmp1 = getelementptr inbounds i8, ptr %rsa, i64 48
   %5 = load ptr, ptr %dmp1, align 8
   %tobool7.not = icmp eq ptr %5, null
   br i1 %tobool7.not, label %lor.lhs.false8, label %if.then12
 
 lor.lhs.false8:                                   ; preds = %lor.lhs.false6
-  %dmq1 = getelementptr inbounds %struct.rsa_st, ptr %rsa, i64 0, i32 7
+  %dmq1 = getelementptr inbounds i8, ptr %rsa, i64 56
   %6 = load ptr, ptr %dmq1, align 8
   %tobool9.not = icmp eq ptr %6, null
   br i1 %tobool9.not, label %lor.lhs.false10, label %if.then12
 
 lor.lhs.false10:                                  ; preds = %lor.lhs.false8
-  %iqmp = getelementptr inbounds %struct.rsa_st, ptr %rsa, i64 0, i32 8
+  %iqmp = getelementptr inbounds i8, ptr %rsa, i64 64
   %7 = load ptr, ptr %iqmp, align 8
   %tobool11.not = icmp eq ptr %7, null
   br i1 %tobool11.not, label %if.end13, label %if.then12
@@ -1365,7 +1363,7 @@ if.then12:                                        ; preds = %lor.lhs.false10, %l
   br label %return
 
 if.end13:                                         ; preds = %lor.lhs.false10
-  %additional_primes = getelementptr inbounds %struct.rsa_st, ptr %rsa, i64 0, i32 9
+  %additional_primes = getelementptr inbounds i8, ptr %rsa, i64 72
   %8 = load ptr, ptr %additional_primes, align 8
   %cmp14.not = icmp eq ptr %8, null
   br i1 %cmp14.not, label %if.end16, label %if.then15
@@ -1652,7 +1650,7 @@ declare void @BN_CTX_end(ptr noundef) local_unnamed_addr #2
 define hidden i32 @RSA_private_transform(ptr noundef %rsa, ptr noundef %out, ptr noundef %in, i64 noundef %len) local_unnamed_addr #0 {
 entry:
   %0 = load ptr, ptr %rsa, align 8
-  %private_transform = getelementptr inbounds %struct.rsa_meth_st, ptr %0, i64 0, i32 11
+  %private_transform = getelementptr inbounds i8, ptr %0, i64 88
   %1 = load ptr, ptr %private_transform, align 8
   %tobool.not = icmp eq ptr %1, null
   br i1 %tobool.not, label %if.end, label %if.then

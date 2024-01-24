@@ -8,7 +8,7 @@ define hidden { ptr, i64 } @"_ZN82_$LT$alloc..sync..Arc$LT$str$GT$$u20$as$u20$co
   %3 = tail call { ptr, i64 } @"_ZN5alloc4sync22Arc$LT$$u5b$T$u5d$$GT$15copy_from_slice17hd31d03cf79bad4d7E"(ptr align 1 %0, i64 %1)
   %4 = extractvalue { ptr, i64 } %3, 0
   %5 = extractvalue { ptr, i64 } %3, 1
-  %6 = getelementptr inbounds { { i64 }, { i64 }, [0 x i8] }, ptr %4, i64 0, i32 2
+  %6 = getelementptr inbounds i8, ptr %4, i64 16
   %7 = icmp ne ptr %4, null
   tail call void @llvm.assume(i1 %7)
   %8 = tail call { ptr, i64 } @"_ZN5alloc4sync16Arc$LT$T$C$A$GT$11from_raw_in17ha39ed4286e2df449E"(ptr nonnull %6, i64 %5)

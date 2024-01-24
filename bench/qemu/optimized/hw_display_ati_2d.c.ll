@@ -3,38 +3,6 @@ source_filename = "bench/qemu/original/hw_display_ati_2d.c.ll"
 target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:128-n8:16:32:64-S128"
 target triple = "x86_64-unknown-linux-gnu"
 
-%struct.ATIVGAState = type { %struct.PCIDevice, %struct.VGACommonState, ptr, i16, i8, i8, i8, i16, i32, ptr, %struct.QEMUTimer, %struct.bitbang_i2c_interface, %struct.MemoryRegion, %struct.MemoryRegion, %struct.ATIVGARegs }
-%struct.PCIDevice = type { %struct.DeviceState, i8, i8, ptr, ptr, ptr, ptr, ptr, i32, %struct.PCIReqIDCache, [64 x i8], [7 x %struct.PCIIORegion], %struct.AddressSpace, %struct.MemoryRegion, %struct.MemoryRegion, ptr, ptr, [3 x ptr], i8, i8, i32, i8, i32, ptr, ptr, ptr, ptr, ptr, ptr, %struct.MemoryRegion, %struct.MemoryRegion, %struct.MemoryRegion, ptr, i8, i32, i8, %struct.PCIExpressDevice, ptr, ptr, i32, i8, %struct.MemoryRegion, i32, ptr, ptr, ptr, ptr, ptr, i32 }
-%struct.DeviceState = type { %struct.Object, ptr, ptr, i8, i8, i64, ptr, i32, i8, ptr, %struct.NamedGPIOListHead, %struct.NamedClockListHead, %struct.BusStateHead, i32, i32, i32, %struct.ResettableState, ptr, %struct.MemReentrancyGuard }
-%struct.Object = type { ptr, ptr, ptr, i32, ptr }
-%struct.NamedGPIOListHead = type { ptr }
-%struct.NamedClockListHead = type { ptr }
-%struct.BusStateHead = type { ptr }
-%struct.ResettableState = type { i32, i8, i8 }
-%struct.MemReentrancyGuard = type { i8 }
-%struct.PCIReqIDCache = type { ptr, i32 }
-%struct.PCIIORegion = type { i64, i64, i8, ptr, ptr }
-%struct.AddressSpace = type { %struct.rcu_head, ptr, ptr, ptr, i32, i32, ptr, %union.anon, %union.anon.0 }
-%struct.rcu_head = type { ptr, ptr }
-%union.anon = type { %struct.QTailQLink }
-%struct.QTailQLink = type { ptr, ptr }
-%union.anon.0 = type { %struct.QTailQLink }
-%struct.PCIExpressDevice = type { i8, i8, i8, i16, %struct.PCIEAERLog, i16, i16, i16, %struct.PCIESriovPF, %struct.PCIESriovVF }
-%struct.PCIEAERLog = type { i16, i16, ptr }
-%struct.PCIESriovPF = type { i16, [7 x i8], ptr, ptr }
-%struct.PCIESriovVF = type { ptr, i16 }
-%struct.VGACommonState = type { ptr, ptr, %struct.MemoryRegion, i32, i32, i32, i32, i32, i8, %struct.MemoryRegion, i8, [256 x i8], [256 x i8], i8, [256 x i8], i8, [21 x i8], i32, i8, [256 x i8], i8, i8, i8, i8, i8, i8, i8, i8, [3 x i8], i32, [768 x i8], i32, ptr, ptr, ptr, %struct.PortioList, %struct.PortioList, i16, [10 x i16], i32, i32, i32, ptr, [2 x i32], i32, i8, i8, i32, i32, i32, i32, i32, i8, i8, i32, i32, i32, i32, i32, i8, i8, i8, i8, i8, i64, i32, ptr, i8, i8, i8, i8, i8, [64 x i32], i32, i32, ptr, ptr, [256 x i32], [16000 x i32], ptr, ptr, %union.vga_retrace, i8 }
-%struct.PortioList = type { ptr, ptr, ptr, i32, ptr, ptr, ptr, i8 }
-%union.vga_retrace = type { %struct.vga_precise_retrace }
-%struct.vga_precise_retrace = type { i64, i64, i32, i32, i32, i32, i32, i32 }
-%struct.QEMUTimer = type { i64, ptr, ptr, ptr, ptr, i32, i32 }
-%struct.bitbang_i2c_interface = type { ptr, i32, i32, i32, i32, i8, i32 }
-%struct.MemoryRegion = type { %struct.Object, i8, i8, i8, i8, i8, i8, i8, i8, i8, i8, ptr, ptr, ptr, ptr, ptr, ptr, i32, i128, i64, ptr, i64, i8, i8, i8, i8, i8, ptr, i64, i32, %union.anon.1, %union.anon.2, %union.anon.3, ptr, i32, ptr, ptr, i8 }
-%union.anon.1 = type { %struct.QTailQLink }
-%union.anon.2 = type { %struct.QTailQLink }
-%union.anon.3 = type { %struct.QTailQLink }
-%struct.ATIVGARegs = type { i32, [8 x i32], i32, i32, i32, i32, i32, i32, i32, i32, i32, [256 x i32], i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32 }
-
 @.str = private unnamed_addr constant [13 x i8] c"Invalid bpp\0A\00", align 1
 @.str.1 = private unnamed_addr constant [17 x i8] c"Zero dest pitch\0A\00", align 1
 @.str.2 = private unnamed_addr constant [34 x i8] c"blt outside vram not implemented\0A\00", align 1
@@ -49,20 +17,20 @@ target triple = "x86_64-unknown-linux-gnu"
 ; Function Attrs: nounwind sspstrong uwtable
 define dso_local void @ati_2d_blt(ptr noundef %s) local_unnamed_addr #0 {
 entry:
-  %con = getelementptr inbounds %struct.ATIVGAState, ptr %s, i64 0, i32 1, i32 42
+  %con = getelementptr inbounds i8, ptr %s, i64 5232
   %0 = load ptr, ptr %con, align 16
   %call = tail call ptr @qemu_console_surface(ptr noundef %0) #5
-  %dp_cntl = getelementptr inbounds %struct.ATIVGAState, ptr %s, i64 0, i32 14, i32 41
+  %dp_cntl = getelementptr inbounds i8, ptr %s, i64 72588
   %1 = load i32, ptr %dp_cntl, align 4
   %and = and i32 %1, 1
   %tobool.not = icmp eq i32 %and, 0
-  %dst_x4 = getelementptr inbounds %struct.ATIVGAState, ptr %s, i64 0, i32 14, i32 34
+  %dst_x4 = getelementptr inbounds i8, ptr %s, i64 72560
   %2 = load i32, ptr %dst_x4, align 16
   br i1 %tobool.not, label %cond.false, label %cond.end
 
 cond.false:                                       ; preds = %entry
   %add = add i32 %2, 1
-  %dst_width = getelementptr inbounds %struct.ATIVGAState, ptr %s, i64 0, i32 14, i32 27
+  %dst_width = getelementptr inbounds i8, ptr %s, i64 72532
   %3 = load i32, ptr %dst_width, align 4
   %sub = sub i32 %add, %3
   br label %cond.end
@@ -71,13 +39,13 @@ cond.end:                                         ; preds = %entry, %cond.false
   %cond = phi i32 [ %sub, %cond.false ], [ %2, %entry ]
   %and8 = and i32 %1, 2
   %tobool9.not = icmp eq i32 %and8, 0
-  %dst_y15 = getelementptr inbounds %struct.ATIVGAState, ptr %s, i64 0, i32 14, i32 35
+  %dst_y15 = getelementptr inbounds i8, ptr %s, i64 72564
   %4 = load i32, ptr %dst_y15, align 4
   br i1 %tobool9.not, label %cond.false13, label %cond.end19
 
 cond.false13:                                     ; preds = %cond.end
   %add16 = add i32 %4, 1
-  %dst_height = getelementptr inbounds %struct.ATIVGAState, ptr %s, i64 0, i32 14, i32 28
+  %dst_height = getelementptr inbounds i8, ptr %s, i64 72536
   %5 = load i32, ptr %dst_height, align 8
   %sub18 = sub i32 %add16, %5
   br label %cond.end19
@@ -116,12 +84,12 @@ switch.lookup:                                    ; preds = %cond.end19
   %10 = zext nneg i32 %switch.tableidx to i64
   %switch.gep = getelementptr inbounds [5 x i32], ptr @switch.table.ati_2d_blt, i64 0, i64 %10
   %switch.load = load i32, ptr %switch.gep, align 4
-  %dp_gui_master_cntl = getelementptr inbounds %struct.ATIVGAState, ptr %s, i64 0, i32 14, i32 36
+  %dp_gui_master_cntl = getelementptr inbounds i8, ptr %s, i64 72568
   %11 = load i32, ptr %dp_gui_master_cntl, align 8
   %and31 = and i32 %11, 2
   %tobool32.not = icmp eq i32 %and31, 0
-  %dst_pitch = getelementptr inbounds %struct.ATIVGAState, ptr %s, i64 0, i32 14, i32 25
-  %default_pitch = getelementptr inbounds %struct.ATIVGAState, ptr %s, i64 0, i32 14, i32 46
+  %dst_pitch = getelementptr inbounds i8, ptr %s, i64 72524
+  %default_pitch = getelementptr inbounds i8, ptr %s, i64 72608
   %cond38.in = select i1 %tobool32.not, ptr %default_pitch, ptr %dst_pitch
   %cond38 = load i32, ptr %cond38.in, align 4
   %tobool39.not = icmp eq i32 %cond38, 0
@@ -138,21 +106,21 @@ if.then49:                                        ; preds = %do.body41
   br label %sw.epilog579
 
 if.end52:                                         ; preds = %switch.lookup
-  %vram_ptr = getelementptr inbounds %struct.ATIVGAState, ptr %s, i64 0, i32 1, i32 1
+  %vram_ptr = getelementptr inbounds i8, ptr %s, i64 2616
   %13 = load ptr, ptr %vram_ptr, align 8
-  %dst_offset = getelementptr inbounds %struct.ATIVGAState, ptr %s, i64 0, i32 14, i32 24
-  %default_offset = getelementptr inbounds %struct.ATIVGAState, ptr %s, i64 0, i32 14, i32 45
+  %dst_offset = getelementptr inbounds i8, ptr %s, i64 72520
+  %default_offset = getelementptr inbounds i8, ptr %s, i64 72604
   %cond63.in = select i1 %tobool32.not, ptr %default_offset, ptr %dst_offset
   %cond63 = load i32, ptr %cond63.in, align 4
   %idx.ext = zext i32 %cond63 to i64
   %add.ptr = getelementptr i8, ptr %13, i64 %idx.ext
-  %dev_id = getelementptr inbounds %struct.ATIVGAState, ptr %s, i64 0, i32 3
+  %dev_id = getelementptr inbounds i8, ptr %s, i64 70728
   %14 = load i16, ptr %dev_id, align 8
   %cmp = icmp eq i16 %14, 20550
   br i1 %cmp, label %if.then66, label %if.end71
 
 if.then66:                                        ; preds = %if.end52
-  %crtc_offset = getelementptr inbounds %struct.ATIVGAState, ptr %s, i64 0, i32 14, i32 16
+  %crtc_offset = getelementptr inbounds i8, ptr %s, i64 72488
   %15 = load i32, ptr %crtc_offset, align 8
   %and68 = and i32 %15, 134217727
   %idx.ext69 = zext nneg i32 %and68 to i64
@@ -163,7 +131,7 @@ if.then66:                                        ; preds = %if.end52
 if.end71:                                         ; preds = %if.then66, %if.end52
   %dst_bits.0 = phi ptr [ %add.ptr70, %if.then66 ], [ %add.ptr, %if.end52 ]
   %dst_stride.0 = phi i32 [ %mul, %if.then66 ], [ %cond38, %if.end52 ]
-  %vram_size = getelementptr inbounds %struct.ATIVGAState, ptr %s, i64 0, i32 1, i32 3
+  %vram_size = getelementptr inbounds i8, ptr %s, i64 2896
   %16 = load i32, ptr %vram_size, align 16
   %idx.ext75 = zext i32 %16 to i64
   %add.ptr76 = getelementptr i8, ptr %13, i64 %idx.ext75
@@ -177,7 +145,7 @@ if.end71:                                         ; preds = %if.then66, %if.end5
 lor.lhs.false84:                                  ; preds = %if.end71
   %idx.ext85 = zext nneg i32 %cond to i64
   %add.ptr86 = getelementptr i8, ptr %dst_bits.0, i64 %idx.ext85
-  %dst_height88 = getelementptr inbounds %struct.ATIVGAState, ptr %s, i64 0, i32 14, i32 28
+  %dst_height88 = getelementptr inbounds i8, ptr %s, i64 72536
   %17 = load i32, ptr %dst_height88, align 8
   %add89 = add i32 %17, %cond20
   %mul90 = mul i32 %add89, %dst_stride.0
@@ -197,7 +165,7 @@ if.then104:                                       ; preds = %do.body96
   br label %sw.epilog579
 
 do.end109:                                        ; preds = %lor.lhs.false84
-  %dp_mix = getelementptr inbounds %struct.ATIVGAState, ptr %s, i64 0, i32 14, i32 43
+  %dp_mix = getelementptr inbounds i8, ptr %s, i64 72596
   %19 = load i32, ptr %dp_mix, align 4
   %and111 = and i32 %19, 16711680
   switch i32 %and111, label %do.body565 [
@@ -208,25 +176,25 @@ do.end109:                                        ; preds = %lor.lhs.false84
   ]
 
 sw.bb:                                            ; preds = %do.end109
-  %src_x121 = getelementptr inbounds %struct.ATIVGAState, ptr %s, i64 0, i32 14, i32 32
+  %src_x121 = getelementptr inbounds i8, ptr %s, i64 72552
   %20 = load i32, ptr %src_x121, align 8
   br i1 %tobool.not, label %cond.false119, label %cond.end126
 
 cond.false119:                                    ; preds = %sw.bb
   %add122 = add i32 %20, 1
-  %dst_width124 = getelementptr inbounds %struct.ATIVGAState, ptr %s, i64 0, i32 14, i32 27
+  %dst_width124 = getelementptr inbounds i8, ptr %s, i64 72532
   %21 = load i32, ptr %dst_width124, align 4
   %sub125 = sub i32 %add122, %21
   br label %cond.end126
 
 cond.end126:                                      ; preds = %sw.bb, %cond.false119
   %cond127 = phi i32 [ %sub125, %cond.false119 ], [ %20, %sw.bb ]
-  %src_y137 = getelementptr inbounds %struct.ATIVGAState, ptr %s, i64 0, i32 14, i32 33
+  %src_y137 = getelementptr inbounds i8, ptr %s, i64 72556
   %22 = load i32, ptr %src_y137, align 4
   %reass.sub = sub i32 %22, %17
   %sub141 = add i32 %reass.sub, 1
   %cond143 = select i1 %tobool9.not, i32 %sub141, i32 %22
-  %src_pitch = getelementptr inbounds %struct.ATIVGAState, ptr %s, i64 0, i32 14, i32 30
+  %src_pitch = getelementptr inbounds i8, ptr %s, i64 72544
   %cond154.in = select i1 %tobool32.not, ptr %default_pitch, ptr %src_pitch
   %cond154 = load i32, ptr %cond154.in, align 16
   %tobool155.not = icmp eq i32 %cond154, 0
@@ -243,7 +211,7 @@ if.then165:                                       ; preds = %do.body157
   br label %sw.epilog579
 
 if.end168:                                        ; preds = %cond.end126
-  %src_offset = getelementptr inbounds %struct.ATIVGAState, ptr %s, i64 0, i32 14, i32 29
+  %src_offset = getelementptr inbounds i8, ptr %s, i64 72540
   %cond181.in = select i1 %tobool32.not, ptr %default_offset, ptr %src_offset
   %cond181 = load i32, ptr %cond181.in, align 4
   %idx.ext182 = zext i32 %cond181 to i64
@@ -251,7 +219,7 @@ if.end168:                                        ; preds = %cond.end126
   br i1 %cmp, label %if.then188, label %if.end195
 
 if.then188:                                       ; preds = %if.end168
-  %crtc_offset190 = getelementptr inbounds %struct.ATIVGAState, ptr %s, i64 0, i32 14, i32 16
+  %crtc_offset190 = getelementptr inbounds i8, ptr %s, i64 72488
   %24 = load i32, ptr %crtc_offset190, align 8
   %and191 = and i32 %24, 134217727
   %idx.ext192 = zext nneg i32 %and191 to i64
@@ -292,7 +260,7 @@ if.then224:                                       ; preds = %do.body216
 if.end227:                                        ; preds = %lor.lhs.false204
   %conv229 = ashr i32 %src_stride.0, 2
   %conv232 = ashr i32 %dst_stride.0, 2
-  %use_pixman = getelementptr inbounds %struct.ATIVGAState, ptr %s, i64 0, i32 5
+  %use_pixman = getelementptr inbounds i8, ptr %s, i64 70731
   %26 = load i8, ptr %use_pixman, align 1
   %27 = and i8 %26, 2
   %tobool237.not = icmp eq i8 %27, 0
@@ -301,7 +269,7 @@ if.end227:                                        ; preds = %lor.lhs.false204
 land.lhs.true:                                    ; preds = %if.end227
   %28 = and i32 %1, 3
   %or.cond215.not = icmp eq i32 %28, 3
-  %dst_width249 = getelementptr inbounds %struct.ATIVGAState, ptr %s, i64 0, i32 14, i32 27
+  %dst_width249 = getelementptr inbounds i8, ptr %s, i64 72532
   %29 = load i32, ptr %dst_width249, align 4
   br i1 %or.cond215.not, label %if.then247, label %if.then260
 
@@ -351,7 +319,7 @@ if.then302:                                       ; preds = %if.end227, %if.end3
 for.body.lr.ph:                                   ; preds = %if.then302
   %mul316 = mul nuw nsw i32 %div303212, %cond
   %mul317 = mul nuw nsw i32 %cond127, %div303212
-  %dst_width348 = getelementptr inbounds %struct.ATIVGAState, ptr %s, i64 0, i32 14, i32 27
+  %dst_width348 = getelementptr inbounds i8, ptr %s, i64 72532
   br label %for.body
 
 for.body:                                         ; preds = %for.body.lr.ph, %if.end344
@@ -397,7 +365,7 @@ if.end344:                                        ; preds = %if.else329, %if.the
 
 if.end351:                                        ; preds = %if.end344, %if.then302, %if.then247, %if.end300
   %40 = load ptr, ptr %vram_ptr, align 8
-  %vbe_start_addr = getelementptr inbounds %struct.ATIVGAState, ptr %s, i64 0, i32 1, i32 39
+  %vbe_start_addr = getelementptr inbounds i8, ptr %s, i64 5216
   %41 = load i32, ptr %vbe_start_addr, align 16
   %idx.ext355 = zext i32 %41 to i64
   %add.ptr356 = getelementptr i8, ptr %40, i64 %idx.ext355
@@ -405,10 +373,10 @@ if.end351:                                        ; preds = %if.end344, %if.then
   br i1 %cmp357.not, label %if.end391, label %land.lhs.true359
 
 land.lhs.true359:                                 ; preds = %if.end351
-  %arrayidx367 = getelementptr %struct.ATIVGAState, ptr %s, i64 0, i32 1, i32 38, i64 2
+  %arrayidx367 = getelementptr i8, ptr %s, i64 5198
   %42 = load i16, ptr %arrayidx367, align 2
   %conv368 = zext i16 %42 to i32
-  %vbe_line_offset = getelementptr inbounds %struct.ATIVGAState, ptr %s, i64 0, i32 1, i32 40
+  %vbe_line_offset = getelementptr inbounds i8, ptr %s, i64 5220
   %43 = load i32, ptr %vbe_line_offset, align 4
   %mul370 = mul i32 %43, %conv368
   %idx.ext371 = zext i32 %mul370 to i64
@@ -417,7 +385,7 @@ land.lhs.true359:                                 ; preds = %if.end351
   br i1 %cmp373, label %if.then375, label %if.end391
 
 if.then375:                                       ; preds = %land.lhs.true359
-  %vram = getelementptr inbounds %struct.ATIVGAState, ptr %s, i64 0, i32 1, i32 2
+  %vram = getelementptr inbounds i8, ptr %s, i64 2624
   %44 = load i32, ptr %dst_offset, align 8
   %add381 = add i32 %44, %41
   %call.val = load ptr, ptr %call, align 8
@@ -440,14 +408,14 @@ if.end391:                                        ; preds = %if.then375, %land.l
   br i1 %tobool395.not, label %cond.end401, label %cond.true396
 
 cond.true396:                                     ; preds = %if.end391
-  %dst_width398 = getelementptr inbounds %struct.ATIVGAState, ptr %s, i64 0, i32 14, i32 27
+  %dst_width398 = getelementptr inbounds i8, ptr %s, i64 72532
   %47 = load i32, ptr %dst_width398, align 4
   %add399 = add i32 %47, %cond
   br label %cond.end401
 
 cond.end401:                                      ; preds = %if.end391, %cond.true396
   %cond402 = phi i32 [ %add399, %cond.true396 ], [ %cond, %if.end391 ]
-  %dst_x404 = getelementptr inbounds %struct.ATIVGAState, ptr %s, i64 0, i32 14, i32 34
+  %dst_x404 = getelementptr inbounds i8, ptr %s, i64 72560
   store i32 %cond402, ptr %dst_x404, align 16
   %and407 = and i32 %46, 2
   %tobool408.not = icmp eq i32 %and407, 0
@@ -460,23 +428,23 @@ cond.true409:                                     ; preds = %cond.end401
 
 cond.end414:                                      ; preds = %cond.end401, %cond.true409
   %cond415 = phi i32 [ %add412, %cond.true409 ], [ %cond20, %cond.end401 ]
-  %dst_y417 = getelementptr inbounds %struct.ATIVGAState, ptr %s, i64 0, i32 14, i32 35
+  %dst_y417 = getelementptr inbounds i8, ptr %s, i64 72564
   store i32 %cond415, ptr %dst_y417, align 4
   br label %sw.epilog579
 
 sw.bb422:                                         ; preds = %do.end109
-  %dp_brush_frgd_clr = getelementptr inbounds %struct.ATIVGAState, ptr %s, i64 0, i32 14, i32 38
+  %dp_brush_frgd_clr = getelementptr inbounds i8, ptr %s, i64 72576
   %49 = load i32, ptr %dp_brush_frgd_clr, align 16
   br label %sw.epilog
 
 sw.bb424:                                         ; preds = %do.end109
-  %palette = getelementptr inbounds %struct.ATIVGAState, ptr %s, i64 0, i32 1, i32 30
+  %palette = getelementptr inbounds i8, ptr %s, i64 4268
   %50 = load i8, ptr %palette, align 4
   %conv427 = zext i8 %50 to i32
-  %arrayidx430 = getelementptr %struct.ATIVGAState, ptr %s, i64 0, i32 1, i32 30, i64 1
+  %arrayidx430 = getelementptr i8, ptr %s, i64 4269
   %51 = load i8, ptr %arrayidx430, align 1
   %conv431 = zext i8 %51 to i32
-  %arrayidx434 = getelementptr %struct.ATIVGAState, ptr %s, i64 0, i32 1, i32 30, i64 2
+  %arrayidx434 = getelementptr i8, ptr %s, i64 4270
   %52 = load i8, ptr %arrayidx434, align 2
   %conv435 = zext i8 %52 to i32
   %shl.i = shl nuw nsw i32 %conv427, 16
@@ -487,13 +455,13 @@ sw.bb424:                                         ; preds = %do.end109
   br label %sw.epilog
 
 sw.bb439:                                         ; preds = %do.end109
-  %arrayidx442 = getelementptr %struct.ATIVGAState, ptr %s, i64 0, i32 1, i32 30, i64 3
+  %arrayidx442 = getelementptr i8, ptr %s, i64 4271
   %54 = load i8, ptr %arrayidx442, align 1
   %conv443 = zext i8 %54 to i32
-  %arrayidx446 = getelementptr %struct.ATIVGAState, ptr %s, i64 0, i32 1, i32 30, i64 4
+  %arrayidx446 = getelementptr i8, ptr %s, i64 4272
   %55 = load i8, ptr %arrayidx446, align 4
   %conv447 = zext i8 %55 to i32
-  %arrayidx450 = getelementptr %struct.ATIVGAState, ptr %s, i64 0, i32 1, i32 30, i64 5
+  %arrayidx450 = getelementptr i8, ptr %s, i64 4273
   %56 = load i8, ptr %arrayidx450, align 1
   %conv451 = zext i8 %56 to i32
   %shl.i229 = shl nuw nsw i32 %conv443, 16
@@ -505,7 +473,7 @@ sw.bb439:                                         ; preds = %do.end109
 
 sw.epilog:                                        ; preds = %sw.bb439, %sw.bb424, %sw.bb422
   %filler.0 = phi i32 [ %57, %sw.bb439 ], [ %53, %sw.bb424 ], [ %49, %sw.bb422 ]
-  %use_pixman461 = getelementptr inbounds %struct.ATIVGAState, ptr %s, i64 0, i32 5
+  %use_pixman461 = getelementptr inbounds i8, ptr %s, i64 70731
   %58 = load i8, ptr %use_pixman461, align 1
   %59 = and i8 %58, 1
   %tobool464.not = icmp eq i8 %59, 0
@@ -513,7 +481,7 @@ sw.epilog:                                        ; preds = %sw.bb439, %sw.bb424
 
 lor.lhs.false465:                                 ; preds = %sw.epilog
   %conv458 = ashr i32 %dst_stride.0, 2
-  %dst_width467 = getelementptr inbounds %struct.ATIVGAState, ptr %s, i64 0, i32 14, i32 27
+  %dst_width467 = getelementptr inbounds i8, ptr %s, i64 72532
   %60 = load i32, ptr %dst_width467, align 4
   %call470 = tail call i32 @pixman_fill(ptr noundef %dst_bits.0, i32 noundef %conv458, i32 noundef %switch.load, i32 noundef %cond, i32 noundef %cond20, i32 noundef %60, i32 noundef %17, i32 noundef %filler.0) #5
   %tobool471.not = icmp eq i32 %call470, 0
@@ -532,7 +500,7 @@ if.then472:                                       ; preds = %lor.lhs.false465.if
 
 for.body486.lr.ph:                                ; preds = %if.then472
   %mul487 = mul nuw nsw i32 %div476207, %cond
-  %dst_width493 = getelementptr inbounds %struct.ATIVGAState, ptr %s, i64 0, i32 14, i32 27
+  %dst_width493 = getelementptr inbounds i8, ptr %s, i64 72532
   %conv2.i = trunc i32 %filler.0 to i16
   %conv.i = trunc i32 %filler.0 to i8
   %62 = load i32, ptr %dst_width493, align 4
@@ -604,7 +572,7 @@ for.inc504:                                       ; preds = %for.body496, %for.b
 
 if.end507:                                        ; preds = %for.inc504, %for.body486.lr.ph, %if.then472, %lor.lhs.false465
   %69 = load ptr, ptr %vram_ptr, align 8
-  %vbe_start_addr511 = getelementptr inbounds %struct.ATIVGAState, ptr %s, i64 0, i32 1, i32 39
+  %vbe_start_addr511 = getelementptr inbounds i8, ptr %s, i64 5216
   %70 = load i32, ptr %vbe_start_addr511, align 16
   %idx.ext512 = zext i32 %70 to i64
   %add.ptr513 = getelementptr i8, ptr %69, i64 %idx.ext512
@@ -612,10 +580,10 @@ if.end507:                                        ; preds = %for.inc504, %for.bo
   br i1 %cmp514.not, label %if.end551, label %land.lhs.true516
 
 land.lhs.true516:                                 ; preds = %if.end507
-  %arrayidx525 = getelementptr %struct.ATIVGAState, ptr %s, i64 0, i32 1, i32 38, i64 2
+  %arrayidx525 = getelementptr i8, ptr %s, i64 5198
   %71 = load i16, ptr %arrayidx525, align 2
   %conv526 = zext i16 %71 to i32
-  %vbe_line_offset528 = getelementptr inbounds %struct.ATIVGAState, ptr %s, i64 0, i32 1, i32 40
+  %vbe_line_offset528 = getelementptr inbounds i8, ptr %s, i64 5220
   %72 = load i32, ptr %vbe_line_offset528, align 4
   %mul529 = mul i32 %72, %conv526
   %idx.ext530 = zext i32 %mul529 to i64
@@ -624,7 +592,7 @@ land.lhs.true516:                                 ; preds = %if.end507
   br i1 %cmp532, label %if.then534, label %if.end551
 
 if.then534:                                       ; preds = %land.lhs.true516
-  %vram536 = getelementptr inbounds %struct.ATIVGAState, ptr %s, i64 0, i32 1, i32 2
+  %vram536 = getelementptr inbounds i8, ptr %s, i64 2624
   %73 = load i32, ptr %dst_offset, align 8
   %add541 = add i32 %73, %70
   %call.val217 = load ptr, ptr %call, align 8
@@ -653,7 +621,7 @@ cond.true556:                                     ; preds = %if.end551
 
 cond.end561:                                      ; preds = %if.end551, %cond.true556
   %cond562 = phi i32 [ %add559, %cond.true556 ], [ %cond20, %if.end551 ]
-  %dst_y564 = getelementptr inbounds %struct.ATIVGAState, ptr %s, i64 0, i32 14, i32 35
+  %dst_y564 = getelementptr inbounds i8, ptr %s, i64 72564
   store i32 %cond562, ptr %dst_y564, align 4
   br label %sw.epilog579
 

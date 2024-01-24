@@ -3,7 +3,6 @@ source_filename = "bench/libsodium/original/libaesni_la-aead_aes256gcm_aesni.ll"
 target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:128-n8:16:32:64-S128"
 target triple = "x86_64-unknown-linux-gnu"
 
-%struct.State = type { [15 x <2 x i64>], [14 x <2 x i64>] }
 %struct.GHash = type { <2 x i64> }
 %struct.crypto_aead_aes256gcm_state_ = type { [512 x i8] }
 
@@ -14,7 +13,7 @@ entry:
   %0 = getelementptr i8, ptr %k, i64 16
   %k.val3 = load <2 x i64>, ptr %0, align 1
   store <2 x i64> %k.val, ptr %st_, align 16
-  %arrayidx5.i = getelementptr <2 x i64>, ptr %st_, i64 1
+  %arrayidx5.i = getelementptr i8, ptr %st_, i64 16
   store <2 x i64> %k.val3, ptr %arrayidx5.i, align 16
   %1 = tail call <2 x i64> @llvm.x86.aesni.aeskeygenassist(<2 x i64> %k.val3, i8 1)
   %cast.i = bitcast <2 x i64> %k.val to <16 x i8>
@@ -29,7 +28,7 @@ entry:
   %3 = bitcast <4 x i32> %permil.i to <2 x i64>
   %4 = xor <2 x i64> %3, %cast10.i
   %xor.i267.i = xor <2 x i64> %4, %xor.i273.i
-  %arrayidx14.i = getelementptr <2 x i64>, ptr %st_, i64 2
+  %arrayidx14.i = getelementptr i8, ptr %st_, i64 32
   store <2 x i64> %xor.i267.i, ptr %arrayidx14.i, align 16
   %5 = tail call <2 x i64> @llvm.x86.aesni.aeskeygenassist(<2 x i64> %xor.i267.i, i8 1)
   %cast15.i = bitcast <2 x i64> %k.val3 to <16 x i8>
@@ -44,7 +43,7 @@ entry:
   %7 = bitcast <4 x i32> %permil23.i to <2 x i64>
   %8 = xor <2 x i64> %cast21.i, %7
   %xor.i258.i = xor <2 x i64> %8, %xor.i264.i
-  %arrayidx26.i = getelementptr <2 x i64>, ptr %st_, i64 3
+  %arrayidx26.i = getelementptr i8, ptr %st_, i64 48
   store <2 x i64> %xor.i258.i, ptr %arrayidx26.i, align 16
   %9 = tail call <2 x i64> @llvm.x86.aesni.aeskeygenassist(<2 x i64> %xor.i258.i, i8 2)
   %cast27.i = bitcast <2 x i64> %xor.i267.i to <16 x i8>
@@ -59,7 +58,7 @@ entry:
   %11 = bitcast <4 x i32> %permil35.i to <2 x i64>
   %12 = xor <2 x i64> %11, %cast33.i
   %xor.i249.i = xor <2 x i64> %12, %xor.i255.i
-  %arrayidx38.i = getelementptr <2 x i64>, ptr %st_, i64 4
+  %arrayidx38.i = getelementptr i8, ptr %st_, i64 64
   store <2 x i64> %xor.i249.i, ptr %arrayidx38.i, align 16
   %13 = tail call <2 x i64> @llvm.x86.aesni.aeskeygenassist(<2 x i64> %xor.i249.i, i8 2)
   %cast39.i = bitcast <2 x i64> %xor.i258.i to <16 x i8>
@@ -74,7 +73,7 @@ entry:
   %15 = bitcast <4 x i32> %permil47.i to <2 x i64>
   %16 = xor <2 x i64> %15, %cast45.i
   %xor.i240.i = xor <2 x i64> %16, %xor.i246.i
-  %arrayidx50.i = getelementptr <2 x i64>, ptr %st_, i64 5
+  %arrayidx50.i = getelementptr i8, ptr %st_, i64 80
   store <2 x i64> %xor.i240.i, ptr %arrayidx50.i, align 16
   %17 = tail call <2 x i64> @llvm.x86.aesni.aeskeygenassist(<2 x i64> %xor.i240.i, i8 4)
   %cast51.i = bitcast <2 x i64> %xor.i249.i to <16 x i8>
@@ -89,7 +88,7 @@ entry:
   %19 = bitcast <4 x i32> %permil59.i to <2 x i64>
   %20 = xor <2 x i64> %19, %cast57.i
   %xor.i231.i = xor <2 x i64> %20, %xor.i237.i
-  %arrayidx62.i = getelementptr <2 x i64>, ptr %st_, i64 6
+  %arrayidx62.i = getelementptr i8, ptr %st_, i64 96
   store <2 x i64> %xor.i231.i, ptr %arrayidx62.i, align 16
   %21 = tail call <2 x i64> @llvm.x86.aesni.aeskeygenassist(<2 x i64> %xor.i231.i, i8 4)
   %cast63.i = bitcast <2 x i64> %xor.i240.i to <16 x i8>
@@ -104,7 +103,7 @@ entry:
   %23 = bitcast <4 x i32> %permil71.i to <2 x i64>
   %24 = xor <2 x i64> %23, %cast69.i
   %xor.i222.i = xor <2 x i64> %24, %xor.i228.i
-  %arrayidx74.i = getelementptr <2 x i64>, ptr %st_, i64 7
+  %arrayidx74.i = getelementptr i8, ptr %st_, i64 112
   store <2 x i64> %xor.i222.i, ptr %arrayidx74.i, align 16
   %25 = tail call <2 x i64> @llvm.x86.aesni.aeskeygenassist(<2 x i64> %xor.i222.i, i8 8)
   %cast75.i = bitcast <2 x i64> %xor.i231.i to <16 x i8>
@@ -119,7 +118,7 @@ entry:
   %27 = bitcast <4 x i32> %permil83.i to <2 x i64>
   %28 = xor <2 x i64> %27, %cast81.i
   %xor.i213.i = xor <2 x i64> %28, %xor.i219.i
-  %arrayidx86.i = getelementptr <2 x i64>, ptr %st_, i64 8
+  %arrayidx86.i = getelementptr i8, ptr %st_, i64 128
   store <2 x i64> %xor.i213.i, ptr %arrayidx86.i, align 16
   %29 = tail call <2 x i64> @llvm.x86.aesni.aeskeygenassist(<2 x i64> %xor.i213.i, i8 8)
   %cast87.i = bitcast <2 x i64> %xor.i222.i to <16 x i8>
@@ -134,7 +133,7 @@ entry:
   %31 = bitcast <4 x i32> %permil95.i to <2 x i64>
   %32 = xor <2 x i64> %31, %cast93.i
   %xor.i204.i = xor <2 x i64> %32, %xor.i210.i
-  %arrayidx98.i = getelementptr <2 x i64>, ptr %st_, i64 9
+  %arrayidx98.i = getelementptr i8, ptr %st_, i64 144
   store <2 x i64> %xor.i204.i, ptr %arrayidx98.i, align 16
   %33 = tail call <2 x i64> @llvm.x86.aesni.aeskeygenassist(<2 x i64> %xor.i204.i, i8 16)
   %cast99.i = bitcast <2 x i64> %xor.i213.i to <16 x i8>
@@ -149,7 +148,7 @@ entry:
   %35 = bitcast <4 x i32> %permil107.i to <2 x i64>
   %36 = xor <2 x i64> %35, %cast105.i
   %xor.i195.i = xor <2 x i64> %36, %xor.i201.i
-  %arrayidx110.i = getelementptr <2 x i64>, ptr %st_, i64 10
+  %arrayidx110.i = getelementptr i8, ptr %st_, i64 160
   store <2 x i64> %xor.i195.i, ptr %arrayidx110.i, align 16
   %37 = tail call <2 x i64> @llvm.x86.aesni.aeskeygenassist(<2 x i64> %xor.i195.i, i8 16)
   %cast111.i = bitcast <2 x i64> %xor.i204.i to <16 x i8>
@@ -164,7 +163,7 @@ entry:
   %39 = bitcast <4 x i32> %permil119.i to <2 x i64>
   %40 = xor <2 x i64> %39, %cast117.i
   %xor.i186.i = xor <2 x i64> %40, %xor.i192.i
-  %arrayidx122.i = getelementptr <2 x i64>, ptr %st_, i64 11
+  %arrayidx122.i = getelementptr i8, ptr %st_, i64 176
   store <2 x i64> %xor.i186.i, ptr %arrayidx122.i, align 16
   %41 = tail call <2 x i64> @llvm.x86.aesni.aeskeygenassist(<2 x i64> %xor.i186.i, i8 32)
   %cast123.i = bitcast <2 x i64> %xor.i195.i to <16 x i8>
@@ -179,7 +178,7 @@ entry:
   %43 = bitcast <4 x i32> %permil131.i to <2 x i64>
   %44 = xor <2 x i64> %43, %cast129.i
   %xor.i177.i = xor <2 x i64> %44, %xor.i183.i
-  %arrayidx134.i = getelementptr <2 x i64>, ptr %st_, i64 12
+  %arrayidx134.i = getelementptr i8, ptr %st_, i64 192
   store <2 x i64> %xor.i177.i, ptr %arrayidx134.i, align 16
   %45 = tail call <2 x i64> @llvm.x86.aesni.aeskeygenassist(<2 x i64> %xor.i177.i, i8 32)
   %cast135.i = bitcast <2 x i64> %xor.i186.i to <16 x i8>
@@ -194,7 +193,7 @@ entry:
   %47 = bitcast <4 x i32> %permil143.i to <2 x i64>
   %48 = xor <2 x i64> %47, %cast141.i
   %xor.i168.i = xor <2 x i64> %48, %xor.i174.i
-  %arrayidx146.i = getelementptr <2 x i64>, ptr %st_, i64 13
+  %arrayidx146.i = getelementptr i8, ptr %st_, i64 208
   store <2 x i64> %xor.i168.i, ptr %arrayidx146.i, align 16
   %49 = tail call <2 x i64> @llvm.x86.aesni.aeskeygenassist(<2 x i64> %xor.i168.i, i8 64)
   %cast147.i = bitcast <2 x i64> %xor.i177.i to <16 x i8>
@@ -209,7 +208,7 @@ entry:
   %51 = bitcast <4 x i32> %permil155.i to <2 x i64>
   %52 = xor <2 x i64> %51, %cast153.i
   %xor.i.i = xor <2 x i64> %52, %xor.i165.i
-  %arrayidx158.i = getelementptr <2 x i64>, ptr %st_, i64 14
+  %arrayidx158.i = getelementptr i8, ptr %st_, i64 224
   store <2 x i64> %xor.i.i, ptr %arrayidx158.i, align 16
   br label %for.body.i
 
@@ -225,7 +224,7 @@ for.body.i:                                       ; preds = %for.body.i, %entry
 
 encrypt.exit:                                     ; preds = %for.body.i
   %55 = tail call <2 x i64> @llvm.x86.aesni.aesenclast(<2 x i64> %54, <2 x i64> %xor.i.i)
-  %hx = getelementptr inbounds %struct.State, ptr %st_, i64 0, i32 1
+  %hx = getelementptr inbounds i8, ptr %st_, i64 240
   %56 = bitcast <2 x i64> %55 to <16 x i8>
   %57 = shufflevector <16 x i8> %56, <16 x i8> poison, <16 x i32> <i32 15, i32 14, i32 13, i32 12, i32 11, i32 10, i32 9, i32 8, i32 7, i32 6, i32 5, i32 4, i32 3, i32 2, i32 1, i32 0>
   %58 = bitcast <16 x i8> %57 to <2 x i64>
@@ -248,14 +247,14 @@ encrypt.exit:                                     ; preds = %for.body.i
   %66 = shufflevector <2 x i64> %xor.i18.i.i, <2 x i64> poison, <2 x i32> <i32 1, i32 0>
   %xor.i24.i.i = xor <2 x i64> %65, %62
   %xor.i.i.i = xor <2 x i64> %xor.i24.i.i, %66
-  %arrayidx15.i = getelementptr %struct.State, ptr %st_, i64 0, i32 1, i64 1
+  %arrayidx15.i = getelementptr i8, ptr %st_, i64 256
   store <2 x i64> %xor.i.i.i, ptr %arrayidx15.i, align 16
   br label %for.body.i.i
 
 for.body.i.i:                                     ; preds = %for.body.i.i, %encrypt.exit
   %i.028.i.i = phi i64 [ 2, %encrypt.exit ], [ %add7.i.i, %for.body.i.i ]
   %67 = getelementptr <2 x i64>, ptr %hx, i64 %i.028.i.i
-  %arrayidx1.i.i = getelementptr <2 x i64>, ptr %67, i64 -1
+  %arrayidx1.i.i = getelementptr i8, ptr %67, i64 -16
   %68 = load <2 x i64>, ptr %arrayidx1.i.i, align 16
   %69 = tail call <2 x i64> @llvm.x86.pclmulqdq(<2 x i64> %68, <2 x i64> %xor.i.i8, i8 17)
   %70 = tail call <2 x i64> @llvm.x86.pclmulqdq(<2 x i64> %68, <2 x i64> %xor.i.i8, i8 0)
@@ -417,7 +416,7 @@ for.cond6.preheader.i.i:                          ; preds = %for.body.i221.i, %f
   br label %for.body8.i.i
 
 for.cond20.preheader.i.i:                         ; preds = %for.inc17.i.i
-  %arrayidx25.i.i = getelementptr [15 x <2 x i64>], ptr %st_, i64 0, i64 14
+  %arrayidx25.i.i = getelementptr i8, ptr %st_, i64 224
   %9 = load <2 x i64>, ptr %arrayidx25.i.i, align 16
   br label %for.body22.i.i
 
@@ -461,7 +460,8 @@ encrypt_xor_wide.exit.for.end69_crit_edge.i:      ; preds = %encrypt_xor_wide.ex
   br label %for.end69.i
 
 for.body.i225.preheader.lr.ph.i:                  ; preds = %encrypt_xor_wide.exit.i
-  %arrayidx.i13 = getelementptr %struct.State, ptr %st_, i64 0, i32 1, i64 13
+  %hx.i = getelementptr inbounds i8, ptr %st_, i64 240
+  %arrayidx.i13 = getelementptr i8, ptr %st_, i64 448
   %sth.promoted = load <2 x i64>, ptr %sth, align 16
   br label %for.body.i225.preheader.i
 
@@ -569,7 +569,7 @@ for.body35.i:                                     ; preds = %for.body35.i, %encr
   %mul.i = shl nuw nsw i64 %j.0623.i, 4
   %add.ptr37.i = getelementptr i8, ptr %add.ptr32.i, i64 %mul.i
   %sub39.i = sub nuw nsw i64 13, %j.0623.i
-  %arrayidx40.i = getelementptr %struct.State, ptr %st_, i64 0, i32 1, i64 %sub39.i
+  %arrayidx40.i = getelementptr [14 x <2 x i64>], ptr %hx.i, i64 0, i64 %sub39.i
   %33 = load <2 x i64>, ptr %arrayidx40.i, align 16
   %add.ptr37.val.i = load <16 x i8>, ptr %add.ptr37.i, align 1
   %34 = shufflevector <16 x i8> %add.ptr37.val.i, <16 x i8> poison, <16 x i32> <i32 15, i32 14, i32 13, i32 12, i32 11, i32 10, i32 9, i32 8, i32 7, i32 6, i32 5, i32 4, i32 3, i32 2, i32 1, i32 0>
@@ -671,7 +671,7 @@ for.body56.i:                                     ; preds = %for.body56.i, %encr
   %mul58.i = shl nuw nsw i64 %j.1627.i, 4
   %add.ptr59.i = getelementptr i8, ptr %add.ptr23.i, i64 %mul58.i
   %sub61.i = sub nuw nsw i64 6, %j.1627.i
-  %arrayidx62.i = getelementptr %struct.State, ptr %st_, i64 0, i32 1, i64 %sub61.i
+  %arrayidx62.i = getelementptr [14 x <2 x i64>], ptr %hx.i, i64 0, i64 %sub61.i
   %51 = load <2 x i64>, ptr %arrayidx62.i, align 16
   %add.ptr59.val.i = load <16 x i8>, ptr %add.ptr59.i, align 1
   %52 = shufflevector <16 x i8> %add.ptr59.val.i, <16 x i8> poison, <16 x i32> <i32 15, i32 14, i32 13, i32 12, i32 11, i32 10, i32 9, i32 8, i32 7, i32 6, i32 5, i32 4, i32 3, i32 2, i32 1, i32 0>
@@ -713,7 +713,8 @@ for.end69.i:                                      ; preds = %for.end65.i, %encry
   %i.0.lcssa.i = phi i64 [ 112, %encrypt_xor_wide.exit.for.end69_crit_edge.i ], [ %add19631.i, %for.end65.i ]
   %65 = getelementptr i8, ptr %c, i64 %i.0.lcssa.i
   %add.ptr72.i = getelementptr i8, ptr %65, i64 -112
-  %arrayidx74.i = getelementptr %struct.State, ptr %st_, i64 0, i32 1, i64 6
+  %hx73.i = getelementptr inbounds i8, ptr %st_, i64 240
+  %arrayidx74.i = getelementptr i8, ptr %st_, i64 336
   %66 = load <2 x i64>, ptr %arrayidx74.i, align 16
   %add.ptr72.val.i = load <16 x i8>, ptr %add.ptr72.i, align 1
   %67 = shufflevector <16 x i8> %add.ptr72.val.i, <16 x i8> poison, <16 x i32> <i32 15, i32 14, i32 13, i32 12, i32 11, i32 10, i32 9, i32 8, i32 7, i32 6, i32 5, i32 4, i32 3, i32 2, i32 1, i32 0>
@@ -734,7 +735,7 @@ for.body77.i:                                     ; preds = %for.body77.i, %for.
   %mul79.i = shl nuw nsw i64 %j.2636.i, 4
   %add.ptr80.i = getelementptr i8, ptr %add.ptr72.i, i64 %mul79.i
   %sub82.i = sub nuw nsw i64 6, %j.2636.i
-  %arrayidx83.i = getelementptr %struct.State, ptr %st_, i64 0, i32 1, i64 %sub82.i
+  %arrayidx83.i = getelementptr [14 x <2 x i64>], ptr %hx73.i, i64 0, i64 %sub82.i
   %73 = load <2 x i64>, ptr %arrayidx83.i, align 16
   %add.ptr80.val.i = load <16 x i8>, ptr %add.ptr80.i, align 1
   %74 = shufflevector <16 x i8> %add.ptr80.val.i, <16 x i8> poison, <16 x i32> <i32 15, i32 14, i32 13, i32 12, i32 11, i32 10, i32 9, i32 8, i32 7, i32 6, i32 5, i32 4, i32 3, i32 2, i32 1, i32 0>
@@ -812,7 +813,7 @@ for.cond6.preheader.i350.i:                       ; preds = %for.body.i343.i, %f
 
 for.cond20.preheader.i361.i:                      ; preds = %for.inc17.i358.i
   %add.ptr96.i = getelementptr i8, ptr %m, i64 %i.1.i
-  %arrayidx25.i362.i = getelementptr [15 x <2 x i64>], ptr %st_, i64 0, i64 14
+  %arrayidx25.i362.i = getelementptr i8, ptr %st_, i64 224
   %92 = load <2 x i64>, ptr %arrayidx25.i362.i, align 16
   br label %for.body22.i363.i
 
@@ -852,16 +853,16 @@ encrypt_xor_wide.exit371.i:                       ; preds = %for.body22.i363.i
   %add98.i = add i64 %i.1.i, 112
   %add100641.i = add i64 %i.1.i, 224
   %cmp101.not642.i = icmp ugt i64 %add100641.i, %m_len_
+  %arrayidx134.i.phi.trans.insert = getelementptr i8, ptr %st_, i64 336
   br i1 %cmp101.not642.i, label %encrypt_xor_wide.exit371.for.end129_crit_edge.i, label %for.body.i372.preheader.lr.ph.i
 
 encrypt_xor_wide.exit371.for.end129_crit_edge.i:  ; preds = %encrypt_xor_wide.exit371.i
   %sth.val217.pre.i = load <2 x i64>, ptr %sth, align 16
-  %arrayidx134.i.phi.trans.insert = getelementptr %struct.State, ptr %st_, i64 0, i32 1, i64 6
   %.pre = load <2 x i64>, ptr %arrayidx134.i.phi.trans.insert, align 16
   br label %for.end129.i
 
 for.body.i372.preheader.lr.ph.i:                  ; preds = %encrypt_xor_wide.exit371.i
-  %arrayidx112.i = getelementptr %struct.State, ptr %st_, i64 0, i32 1, i64 6
+  %hx111.i = getelementptr inbounds i8, ptr %st_, i64 240
   %sth.promoted31 = load <2 x i64>, ptr %sth, align 16
   br label %for.body.i372.preheader.i
 
@@ -945,7 +946,7 @@ encrypt_xor_wide.exit409.i:                       ; preds = %for.body22.i401.i
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(112) %add.ptr105.i, ptr noundef nonnull align 16 dereferenceable(112) %ts.i380.i, i64 112, i1 false)
   call void @llvm.lifetime.end.p0(i64 112, ptr nonnull %ts.i380.i)
   %add.ptr110.i = getelementptr i8, ptr %add.ptr105.i, i64 -112
-  %109 = load <2 x i64>, ptr %arrayidx112.i, align 16
+  %109 = load <2 x i64>, ptr %arrayidx134.i.phi.trans.insert, align 16
   %add.ptr110.val.i = load <16 x i8>, ptr %add.ptr110.i, align 1
   %110 = shufflevector <16 x i8> %add.ptr110.val.i, <16 x i8> poison, <16 x i32> <i32 15, i32 14, i32 13, i32 12, i32 11, i32 10, i32 9, i32 8, i32 7, i32 6, i32 5, i32 4, i32 3, i32 2, i32 1, i32 0>
   %111 = bitcast <16 x i8> %110 to <2 x i64>
@@ -965,7 +966,7 @@ for.body115.i:                                    ; preds = %for.body115.i, %enc
   %mul117.i = shl nuw nsw i64 %j.3640.i, 4
   %add.ptr118.i = getelementptr i8, ptr %add.ptr110.i, i64 %mul117.i
   %sub120.i = sub nuw nsw i64 6, %j.3640.i
-  %arrayidx121.i = getelementptr %struct.State, ptr %st_, i64 0, i32 1, i64 %sub120.i
+  %arrayidx121.i = getelementptr [14 x <2 x i64>], ptr %hx111.i, i64 0, i64 %sub120.i
   %116 = load <2 x i64>, ptr %arrayidx121.i, align 16
   %add.ptr118.val.i = load <16 x i8>, ptr %add.ptr118.i, align 1
   %117 = shufflevector <16 x i8> %add.ptr118.val.i, <16 x i8> poison, <16 x i32> <i32 15, i32 14, i32 13, i32 12, i32 11, i32 10, i32 9, i32 8, i32 7, i32 6, i32 5, i32 4, i32 3, i32 2, i32 1, i32 0>
@@ -1008,6 +1009,7 @@ for.end129.i:                                     ; preds = %for.end124.i, %encr
   %i.2.lcssa.i = phi i64 [ %add98.i, %encrypt_xor_wide.exit371.for.end129_crit_edge.i ], [ %add100645.i, %for.end124.i ]
   %131 = getelementptr i8, ptr %c, i64 %i.2.lcssa.i
   %add.ptr132.i = getelementptr i8, ptr %131, i64 -112
+  %hx133.i = getelementptr inbounds i8, ptr %st_, i64 240
   %add.ptr132.val.i = load <16 x i8>, ptr %add.ptr132.i, align 1
   %132 = shufflevector <16 x i8> %add.ptr132.val.i, <16 x i8> poison, <16 x i32> <i32 15, i32 14, i32 13, i32 12, i32 11, i32 10, i32 9, i32 8, i32 7, i32 6, i32 5, i32 4, i32 3, i32 2, i32 1, i32 0>
   %133 = bitcast <16 x i8> %132 to <2 x i64>
@@ -1027,7 +1029,7 @@ for.body137.i:                                    ; preds = %for.body137.i, %for
   %mul139.i = shl nuw nsw i64 %j.4651.i, 4
   %add.ptr140.i = getelementptr i8, ptr %add.ptr132.i, i64 %mul139.i
   %sub142.i = sub nuw nsw i64 6, %j.4651.i
-  %arrayidx143.i = getelementptr %struct.State, ptr %st_, i64 0, i32 1, i64 %sub142.i
+  %arrayidx143.i = getelementptr [14 x <2 x i64>], ptr %hx133.i, i64 0, i64 %sub142.i
   %138 = load <2 x i64>, ptr %arrayidx143.i, align 16
   %add.ptr140.val.i = load <16 x i8>, ptr %add.ptr140.i, align 1
   %139 = shufflevector <16 x i8> %add.ptr140.val.i, <16 x i8> poison, <16 x i32> <i32 15, i32 14, i32 13, i32 12, i32 11, i32 10, i32 9, i32 8, i32 7, i32 6, i32 5, i32 4, i32 3, i32 2, i32 1, i32 0>
@@ -1070,8 +1072,9 @@ if.end149.i:                                      ; preds = %for.end146.i, %if.e
   br i1 %cmp152.not658.i, label %for.cond189.preheader.i, label %for.body.i456.preheader.lr.ph.i
 
 for.body.i456.preheader.lr.ph.i:                  ; preds = %if.end149.i
-  %arrayidx5.i.i = getelementptr [15 x <2 x i64>], ptr %st_, i64 0, i64 14
-  %arrayidx171.i = getelementptr %struct.State, ptr %st_, i64 0, i32 1, i64 3
+  %arrayidx5.i.i = getelementptr i8, ptr %st_, i64 224
+  %hx170.i = getelementptr inbounds i8, ptr %st_, i64 240
+  %arrayidx171.i = getelementptr i8, ptr %st_, i64 288
   %sth.promoted34 = load <2 x i64>, ptr %sth, align 16
   br label %for.body.i456.preheader.i
 
@@ -1094,9 +1097,9 @@ for.cond189.preheader.i:                          ; preds = %for.cond189.prehead
   br i1 %cmp191.not666.i, label %for.cond229.preheader.i, label %for.body.i492.preheader.lr.ph.i
 
 for.body.i492.preheader.lr.ph.i:                  ; preds = %for.cond189.preheader.i
-  %arrayidx5.i507.i = getelementptr [15 x <2 x i64>], ptr %st_, i64 0, i64 14
-  %hx210.i = getelementptr inbounds %struct.State, ptr %st_, i64 0, i32 1
-  %arrayidx211.i = getelementptr %struct.State, ptr %st_, i64 0, i32 1, i64 1
+  %arrayidx5.i507.i = getelementptr i8, ptr %st_, i64 224
+  %hx210.i = getelementptr inbounds i8, ptr %st_, i64 240
+  %arrayidx211.i = getelementptr i8, ptr %st_, i64 256
   %sth.promoted36 = load <2 x i64>, ptr %sth, align 16
   br label %for.body.i492.preheader.i
 
@@ -1169,7 +1172,7 @@ for.body174.i:                                    ; preds = %for.body174.i, %for
   %mul176.i = shl nuw nsw i64 %j.6656.i, 4
   %add.ptr177.i = getelementptr i8, ptr %add.ptr159.i, i64 %mul176.i
   %sub179.i = xor i64 %j.6656.i, 3
-  %arrayidx180.i = getelementptr %struct.State, ptr %st_, i64 0, i32 1, i64 %sub179.i
+  %arrayidx180.i = getelementptr [14 x <2 x i64>], ptr %hx170.i, i64 0, i64 %sub179.i
   %168 = load <2 x i64>, ptr %arrayidx180.i, align 16
   %add.ptr177.val.i = load <16 x i8>, ptr %add.ptr177.i, align 1
   %169 = shufflevector <16 x i8> %add.ptr177.val.i, <16 x i8> poison, <16 x i32> <i32 15, i32 14, i32 13, i32 12, i32 11, i32 10, i32 9, i32 8, i32 7, i32 6, i32 5, i32 4, i32 3, i32 2, i32 1, i32 0>
@@ -1224,8 +1227,8 @@ for.cond229.preheader.i:                          ; preds = %for.cond229.prehead
   br i1 %cmp231673.i, label %for.body232.lr.ph.i, label %for.end246.i
 
 for.body232.lr.ph.i:                              ; preds = %for.cond229.preheader.i
-  %arrayidx5.i540.i = getelementptr [15 x <2 x i64>], ptr %st_, i64 0, i64 14
-  %hx239.i = getelementptr inbounds %struct.State, ptr %st_, i64 0, i32 1
+  %arrayidx5.i540.i = getelementptr i8, ptr %st_, i64 224
+  %hx239.i = getelementptr inbounds i8, ptr %st_, i64 240
   %sth.promoted38 = load <2 x i64>, ptr %sth, align 16
   br label %for.body232.i
 
@@ -1406,7 +1409,7 @@ for.body.i564.i:                                  ; preds = %for.body.i564.i, %f
 encrypt.exit.i:                                   ; preds = %for.body.i564.i
   %238 = bitcast <2 x i64> %233 to <16 x i8>
   %239 = shufflevector <16 x i8> %238, <16 x i8> poison, <16 x i32> <i32 15, i32 14, i32 13, i32 12, i32 11, i32 10, i32 9, i32 8, i32 7, i32 6, i32 5, i32 4, i32 3, i32 2, i32 1, i32 0>
-  %arrayidx6.i.i = getelementptr [15 x <2 x i64>], ptr %st_, i64 0, i64 14
+  %arrayidx6.i.i = getelementptr i8, ptr %st_, i64 224
   %240 = load <2 x i64>, ptr %arrayidx6.i.i, align 16
   %241 = tail call <2 x i64> @llvm.x86.aesni.aesenclast(<2 x i64> %237, <2 x i64> %240)
   store <2 x i64> %241, ptr %mac, align 1
@@ -1653,7 +1656,7 @@ for.body.i.i:                                     ; preds = %for.body.i.i, %if.e
 encrypt.exit.i:                                   ; preds = %for.body.i.i
   %11 = bitcast <2 x i64> %6 to <16 x i8>
   %12 = shufflevector <16 x i8> %11, <16 x i8> poison, <16 x i32> <i32 15, i32 14, i32 13, i32 12, i32 11, i32 10, i32 9, i32 8, i32 7, i32 6, i32 5, i32 4, i32 3, i32 2, i32 1, i32 0>
-  %arrayidx6.i.i = getelementptr [15 x <2 x i64>], ptr %st_, i64 0, i64 14
+  %arrayidx6.i.i = getelementptr i8, ptr %st_, i64 224
   %13 = load <2 x i64>, ptr %arrayidx6.i.i, align 16
   %14 = tail call <2 x i64> @llvm.x86.aesni.aesenclast(<2 x i64> %10, <2 x i64> %13)
   store <16 x i8> %12, ptr %last_block.i, align 16
@@ -1732,8 +1735,9 @@ if.end8.i:                                        ; preds = %if.then4.i, %if.the
   br i1 %cmp12.not439.i, label %for.cond45.preheader.i, label %for.body.i.preheader.lr.ph.i
 
 for.body.i.preheader.lr.ph.i:                     ; preds = %if.end8.i
-  %arrayidx.i19 = getelementptr %struct.State, ptr %st_, i64 0, i32 1, i64 13
-  %arrayidx25.i.i = getelementptr [15 x <2 x i64>], ptr %st_, i64 0, i64 14
+  %hx.i = getelementptr inbounds i8, ptr %st_, i64 240
+  %arrayidx.i19 = getelementptr i8, ptr %st_, i64 448
+  %arrayidx25.i.i = getelementptr i8, ptr %st_, i64 224
   %sth.promoted = load <2 x i64>, ptr %sth, align 16
   br label %for.body.i.preheader.i
 
@@ -1756,8 +1760,9 @@ for.cond45.preheader.i:                           ; preds = %for.cond45.preheade
   br i1 %cmp47.not449.i, label %for.cond75.preheader.i, label %for.body.i218.preheader.lr.ph.i
 
 for.body.i218.preheader.lr.ph.i:                  ; preds = %for.cond45.preheader.i
-  %arrayidx54.i = getelementptr %struct.State, ptr %st_, i64 0, i32 1, i64 6
-  %arrayidx25.i269.i = getelementptr [15 x <2 x i64>], ptr %st_, i64 0, i64 14
+  %hx53.i = getelementptr inbounds i8, ptr %st_, i64 240
+  %arrayidx54.i = getelementptr i8, ptr %st_, i64 336
+  %arrayidx25.i269.i = getelementptr i8, ptr %st_, i64 224
   %sth.promoted53 = load <2 x i64>, ptr %sth, align 16
   br label %for.body.i218.preheader.i
 
@@ -1795,7 +1800,7 @@ for.body.i:                                       ; preds = %for.body.i, %incr_c
   %mul.i24 = shl nuw nsw i64 %j.0434.i, 4
   %add.ptr18.i = getelementptr i8, ptr %add.ptr15.i, i64 %mul.i24
   %sub.i = sub nuw nsw i64 13, %j.0434.i
-  %arrayidx20.i = getelementptr %struct.State, ptr %st_, i64 0, i32 1, i64 %sub.i
+  %arrayidx20.i = getelementptr [14 x <2 x i64>], ptr %hx.i, i64 0, i64 %sub.i
   %31 = load <2 x i64>, ptr %arrayidx20.i, align 16
   %add.ptr18.val.i = load <16 x i8>, ptr %add.ptr18.i, align 1
   %32 = shufflevector <16 x i8> %add.ptr18.val.i, <16 x i8> poison, <16 x i32> <i32 15, i32 14, i32 13, i32 12, i32 11, i32 10, i32 9, i32 8, i32 7, i32 6, i32 5, i32 4, i32 3, i32 2, i32 1, i32 0>
@@ -1898,7 +1903,7 @@ for.body30.i:                                     ; preds = %for.body30.i, %incr
   %mul32.i = shl nuw nsw i64 %j.1438.i, 4
   %add.ptr33.i = getelementptr i8, ptr %add.ptr31.i, i64 %mul32.i
   %sub35.i = sub nuw nsw i64 6, %j.1438.i
-  %arrayidx36.i = getelementptr %struct.State, ptr %st_, i64 0, i32 1, i64 %sub35.i
+  %arrayidx36.i = getelementptr [14 x <2 x i64>], ptr %hx.i, i64 0, i64 %sub35.i
   %49 = load <2 x i64>, ptr %arrayidx36.i, align 16
   %add.ptr33.val.i = load <16 x i8>, ptr %add.ptr33.i, align 1
   %50 = shufflevector <16 x i8> %add.ptr33.val.i, <16 x i8> poison, <16 x i32> <i32 15, i32 14, i32 13, i32 12, i32 11, i32 10, i32 9, i32 8, i32 7, i32 6, i32 5, i32 4, i32 3, i32 2, i32 1, i32 0>
@@ -2011,8 +2016,9 @@ for.cond75.preheader.i:                           ; preds = %for.cond75.preheade
   br i1 %cmp77.not461.i, label %for.cond114.preheader.i, label %for.body.i279.preheader.lr.ph.i
 
 for.body.i279.preheader.lr.ph.i:                  ; preds = %for.cond75.preheader.i
-  %arrayidx84.i = getelementptr %struct.State, ptr %st_, i64 0, i32 1, i64 3
-  %arrayidx5.i.i = getelementptr [15 x <2 x i64>], ptr %st_, i64 0, i64 14
+  %hx83.i = getelementptr inbounds i8, ptr %st_, i64 240
+  %arrayidx84.i = getelementptr i8, ptr %st_, i64 288
+  %arrayidx5.i.i = getelementptr i8, ptr %st_, i64 224
   %sth.promoted55 = load <2 x i64>, ptr %sth, align 16
   br label %for.body.i279.preheader.i
 
@@ -2050,7 +2056,7 @@ for.body57.i:                                     ; preds = %for.body57.i, %incr
   %mul59.i = shl nuw nsw i64 %j.2447.i, 4
   %add.ptr60.i = getelementptr i8, ptr %add.ptr52.i, i64 %mul59.i
   %sub62.i = sub nuw nsw i64 6, %j.2447.i
-  %arrayidx63.i = getelementptr %struct.State, ptr %st_, i64 0, i32 1, i64 %sub62.i
+  %arrayidx63.i = getelementptr [14 x <2 x i64>], ptr %hx53.i, i64 0, i64 %sub62.i
   %81 = load <2 x i64>, ptr %arrayidx63.i, align 16
   %add.ptr60.val.i = load <16 x i8>, ptr %add.ptr60.i, align 1
   %82 = shufflevector <16 x i8> %add.ptr60.val.i, <16 x i8> poison, <16 x i32> <i32 15, i32 14, i32 13, i32 12, i32 11, i32 10, i32 9, i32 8, i32 7, i32 6, i32 5, i32 4, i32 3, i32 2, i32 1, i32 0>
@@ -2169,9 +2175,9 @@ for.cond114.preheader.i:                          ; preds = %for.cond114.prehead
   br i1 %cmp116.not469.i, label %for.cond154.preheader.i, label %for.body.i315.preheader.lr.ph.i
 
 for.body.i315.preheader.lr.ph.i:                  ; preds = %for.cond114.preheader.i
-  %hx122.i = getelementptr inbounds %struct.State, ptr %st_, i64 0, i32 1
-  %arrayidx123.i = getelementptr %struct.State, ptr %st_, i64 0, i32 1, i64 1
-  %arrayidx5.i353.i = getelementptr [15 x <2 x i64>], ptr %st_, i64 0, i64 14
+  %hx122.i = getelementptr inbounds i8, ptr %st_, i64 240
+  %arrayidx123.i = getelementptr i8, ptr %st_, i64 256
+  %arrayidx5.i353.i = getelementptr i8, ptr %st_, i64 224
   %sth.promoted57 = load <2 x i64>, ptr %sth, align 16
   br label %for.body.i315.preheader.i
 
@@ -2209,7 +2215,7 @@ for.body87.i:                                     ; preds = %for.body87.i, %incr
   %mul89.i = shl nuw nsw i64 %j.3458.i, 4
   %add.ptr90.i = getelementptr i8, ptr %add.ptr82.i, i64 %mul89.i
   %sub92.i = xor i64 %j.3458.i, 3
-  %arrayidx93.i = getelementptr %struct.State, ptr %st_, i64 0, i32 1, i64 %sub92.i
+  %arrayidx93.i = getelementptr [14 x <2 x i64>], ptr %hx83.i, i64 0, i64 %sub92.i
   %113 = load <2 x i64>, ptr %arrayidx93.i, align 16
   %add.ptr90.val.i = load <16 x i8>, ptr %add.ptr90.i, align 1
   %114 = shufflevector <16 x i8> %add.ptr90.val.i, <16 x i8> poison, <16 x i32> <i32 15, i32 14, i32 13, i32 12, i32 11, i32 10, i32 9, i32 8, i32 7, i32 6, i32 5, i32 4, i32 3, i32 2, i32 1, i32 0>
@@ -2300,8 +2306,8 @@ for.cond154.preheader.i:                          ; preds = %for.cond154.prehead
   br i1 %cmp156476.i, label %for.body157.lr.ph.i, label %for.end171.i
 
 for.body157.lr.ph.i:                              ; preds = %for.cond154.preheader.i
-  %hx160.i = getelementptr inbounds %struct.State, ptr %st_, i64 0, i32 1
-  %arrayidx5.i380.i = getelementptr [15 x <2 x i64>], ptr %st_, i64 0, i64 14
+  %hx160.i = getelementptr inbounds i8, ptr %st_, i64 240
+  %arrayidx5.i380.i = getelementptr i8, ptr %st_, i64 224
   %sth.promoted59 = load <2 x i64>, ptr %sth, align 16
   br label %for.body157.i
 
@@ -2475,7 +2481,7 @@ for.body.i387.i:                                  ; preds = %for.body.i387.i, %f
 encrypt.exit.i30:                                 ; preds = %for.body.i387.i
   %190 = bitcast <2 x i64> %185 to <16 x i8>
   %191 = shufflevector <16 x i8> %190, <16 x i8> poison, <16 x i32> <i32 15, i32 14, i32 13, i32 12, i32 11, i32 10, i32 9, i32 8, i32 7, i32 6, i32 5, i32 4, i32 3, i32 2, i32 1, i32 0>
-  %arrayidx6.i.i31 = getelementptr [15 x <2 x i64>], ptr %st_, i64 0, i64 14
+  %arrayidx6.i.i31 = getelementptr i8, ptr %st_, i64 224
   %192 = load <2 x i64>, ptr %arrayidx6.i.i31, align 16
   %193 = tail call <2 x i64> @llvm.x86.aesni.aesenclast(<2 x i64> %189, <2 x i64> %192)
   %sub178.i = sub i64 %c_len_, %i.4.lcssa.i
@@ -2666,7 +2672,8 @@ entry:
   br i1 %cmp.not168, label %for.cond12.preheader, label %for.body.lr.ph
 
 for.body.lr.ph:                                   ; preds = %entry
-  %arrayidx = getelementptr %struct.State, ptr %st, i64 0, i32 1, i64 13
+  %hx = getelementptr inbounds i8, ptr %st, i64 240
+  %arrayidx = getelementptr i8, ptr %st, i64 448
   %sth.val.pre = load <2 x i64>, ptr %sth, align 16
   br label %for.body
 
@@ -2677,7 +2684,8 @@ for.cond12.preheader:                             ; preds = %for.end, %entry
   br i1 %cmp14.not176, label %for.cond38.preheader, label %for.body15.lr.ph
 
 for.body15.lr.ph:                                 ; preds = %for.cond12.preheader
-  %arrayidx19 = getelementptr %struct.State, ptr %st, i64 0, i32 1, i64 6
+  %hx18 = getelementptr inbounds i8, ptr %st, i64 240
+  %arrayidx19 = getelementptr i8, ptr %st, i64 336
   %sth.val59.pre = load <2 x i64>, ptr %sth, align 16
   br label %for.body15
 
@@ -2706,7 +2714,7 @@ for.body3:                                        ; preds = %for.body, %for.body
   %mul = shl nuw nsw i64 %j.0167, 4
   %add.ptr5 = getelementptr i8, ptr %add.ptr, i64 %mul
   %sub = sub nuw nsw i64 13, %j.0167
-  %arrayidx7 = getelementptr %struct.State, ptr %st, i64 0, i32 1, i64 %sub
+  %arrayidx7 = getelementptr [14 x <2 x i64>], ptr %hx, i64 0, i64 %sub
   %7 = load <2 x i64>, ptr %arrayidx7, align 16
   %add.ptr5.val = load <16 x i8>, ptr %add.ptr5, align 1
   %8 = shufflevector <16 x i8> %add.ptr5.val, <16 x i8> poison, <16 x i32> <i32 15, i32 14, i32 13, i32 12, i32 11, i32 10, i32 9, i32 8, i32 7, i32 6, i32 5, i32 4, i32 3, i32 2, i32 1, i32 0>
@@ -2750,7 +2758,8 @@ for.cond38.preheader:                             ; preds = %for.end32, %for.con
   br i1 %cmp40.not185, label %for.cond64.preheader, label %for.body41.lr.ph
 
 for.body41.lr.ph:                                 ; preds = %for.cond38.preheader
-  %arrayidx46 = getelementptr %struct.State, ptr %st, i64 0, i32 1, i64 3
+  %hx45 = getelementptr inbounds i8, ptr %st, i64 240
+  %arrayidx46 = getelementptr i8, ptr %st, i64 288
   %sth.val60.pre = load <2 x i64>, ptr %sth, align 16
   br label %for.body41
 
@@ -2779,7 +2788,7 @@ for.body23:                                       ; preds = %for.body15, %for.bo
   %mul25 = shl nuw nsw i64 %j20.0174, 4
   %add.ptr26 = getelementptr i8, ptr %add.ptr17, i64 %mul25
   %sub28 = sub nuw nsw i64 6, %j20.0174
-  %arrayidx29 = getelementptr %struct.State, ptr %st, i64 0, i32 1, i64 %sub28
+  %arrayidx29 = getelementptr [14 x <2 x i64>], ptr %hx18, i64 0, i64 %sub28
   %28 = load <2 x i64>, ptr %arrayidx29, align 16
   %add.ptr26.val = load <16 x i8>, ptr %add.ptr26, align 1
   %29 = shufflevector <16 x i8> %add.ptr26.val, <16 x i8> poison, <16 x i32> <i32 15, i32 14, i32 13, i32 12, i32 11, i32 10, i32 9, i32 8, i32 7, i32 6, i32 5, i32 4, i32 3, i32 2, i32 1, i32 0>
@@ -2823,8 +2832,8 @@ for.cond64.preheader:                             ; preds = %for.end58, %for.con
   br i1 %cmp66.not190, label %for.end89, label %for.body67.lr.ph
 
 for.body67.lr.ph:                                 ; preds = %for.cond64.preheader
-  %hx71 = getelementptr inbounds %struct.State, ptr %st, i64 0, i32 1
-  %arrayidx72 = getelementptr %struct.State, ptr %st, i64 0, i32 1, i64 1
+  %hx71 = getelementptr inbounds i8, ptr %st, i64 240
+  %arrayidx72 = getelementptr i8, ptr %st, i64 256
   %sth.val61.pre = load <2 x i64>, ptr %sth, align 16
   br label %for.body67
 
@@ -2853,7 +2862,7 @@ for.body49:                                       ; preds = %for.body41, %for.bo
   %mul51 = shl nuw nsw i64 %j42.0183, 4
   %add.ptr52 = getelementptr i8, ptr %add.ptr44, i64 %mul51
   %sub54 = xor i64 %j42.0183, 3
-  %arrayidx55 = getelementptr %struct.State, ptr %st, i64 0, i32 1, i64 %sub54
+  %arrayidx55 = getelementptr [14 x <2 x i64>], ptr %hx45, i64 0, i64 %sub54
   %49 = load <2 x i64>, ptr %arrayidx55, align 16
   %add.ptr52.val = load <16 x i8>, ptr %add.ptr52, align 1
   %50 = shufflevector <16 x i8> %add.ptr52.val, <16 x i8> poison, <16 x i32> <i32 15, i32 14, i32 13, i32 12, i32 11, i32 10, i32 9, i32 8, i32 7, i32 6, i32 5, i32 4, i32 3, i32 2, i32 1, i32 0>
@@ -2944,7 +2953,7 @@ for.end89:                                        ; preds = %for.body67, %for.co
 
 if.then:                                          ; preds = %for.end89
   %add.ptr92 = getelementptr i8, ptr %ad, i64 %i.3.lcssa
-  %hx93 = getelementptr inbounds %struct.State, ptr %st, i64 0, i32 1
+  %hx93 = getelementptr inbounds i8, ptr %st, i64 240
   %82 = load <2 x i64>, ptr %hx93, align 16
   %sth.val62 = load <2 x i64>, ptr %sth, align 16
   %add.ptr92.val = load <16 x i8>, ptr %add.ptr92, align 1

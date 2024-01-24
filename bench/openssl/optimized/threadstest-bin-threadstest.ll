@@ -164,13 +164,13 @@ target triple = "x86_64-unknown-linux-gnu"
 @.str.128 = private unnamed_addr constant [31 x i8] c"-----END RSA PRIVATE KEY-----\0A\00", align 1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define dso_local nonnull ptr @test_get_options() local_unnamed_addr #0 {
+define dso_local noundef nonnull ptr @test_get_options() local_unnamed_addr #0 {
 entry:
   ret ptr @test_get_options.options
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local i32 @setup_tests() local_unnamed_addr #1 {
+define dso_local noundef i32 @setup_tests() local_unnamed_addr #1 {
 entry:
   br label %while.cond
 
@@ -818,7 +818,7 @@ for.body.i14:                                     ; preds = %err, %for.body.i14
   %9 = phi ptr [ %10, %for.body.i14 ], [ %8, %err ]
   %p.04.i = phi ptr [ %incdec.ptr.i, %for.body.i14 ], [ @multi_provider, %err ]
   %call.i15 = tail call i32 @OSSL_PROVIDER_unload(ptr noundef nonnull %9) #8
-  %incdec.ptr.i = getelementptr inbounds ptr, ptr %p.04.i, i64 1
+  %incdec.ptr.i = getelementptr inbounds i8, ptr %p.04.i, i64 8
   %10 = load ptr, ptr %incdec.ptr.i, align 8
   %cmp.not.i = icmp eq ptr %10, null
   br i1 %cmp.not.i, label %thead_teardown_libctx.exit, label %for.body.i14, !llvm.loop !10
@@ -989,7 +989,7 @@ for.body.i12:                                     ; preds = %err, %for.body.i12
   %6 = phi ptr [ %7, %for.body.i12 ], [ %5, %err ]
   %p.04.i = phi ptr [ %incdec.ptr.i, %for.body.i12 ], [ @multi_provider, %err ]
   %call.i13 = tail call i32 @OSSL_PROVIDER_unload(ptr noundef nonnull %6) #8
-  %incdec.ptr.i = getelementptr inbounds ptr, ptr %p.04.i, i64 1
+  %incdec.ptr.i = getelementptr inbounds i8, ptr %p.04.i, i64 8
   %7 = load ptr, ptr %incdec.ptr.i, align 8
   %cmp.not.i = icmp eq ptr %7, null
   br i1 %cmp.not.i, label %thead_teardown_libctx.exit, label %for.body.i12, !llvm.loop !10
@@ -1034,7 +1034,7 @@ if.end:                                           ; preds = %if.end.i, %if.else,
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @thread_setup_libctx(i32 noundef %libctx, ptr noundef readonly %providers) unnamed_addr #1 {
+define internal fastcc noundef i32 @thread_setup_libctx(i32 noundef %libctx, ptr noundef readonly %providers) unnamed_addr #1 {
 entry:
   %tobool.not = icmp eq i32 %libctx, 0
   br i1 %tobool.not, label %if.end, label %land.lhs.true
@@ -1090,7 +1090,7 @@ for.body.i:                                       ; preds = %if.then15, %for.bod
   %6 = phi ptr [ %7, %for.body.i ], [ %5, %if.then15 ]
   %p.04.i = phi ptr [ %incdec.ptr.i, %for.body.i ], [ @multi_provider, %if.then15 ]
   %call.i = tail call i32 @OSSL_PROVIDER_unload(ptr noundef nonnull %6) #8
-  %incdec.ptr.i = getelementptr inbounds ptr, ptr %p.04.i, i64 1
+  %incdec.ptr.i = getelementptr inbounds i8, ptr %p.04.i, i64 8
   %7 = load ptr, ptr %incdec.ptr.i, align 8
   %cmp.not.i = icmp eq ptr %7, null
   br i1 %cmp.not.i, label %thead_teardown_libctx.exit, label %for.body.i, !llvm.loop !10
@@ -1127,7 +1127,7 @@ declare i32 @test_size_t_le(ptr noundef, i32 noundef, ptr noundef, ptr noundef, 
 declare i32 @pthread_create(ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #4
 
 ; Function Attrs: nounwind uwtable
-define internal ptr @thread_run(ptr nocapture noundef readonly %arg) #1 {
+define internal noundef ptr @thread_run(ptr nocapture noundef readonly %arg) #1 {
 entry:
   tail call void %arg() #8
   ret ptr null
@@ -1543,7 +1543,7 @@ for.body.i29:                                     ; preds = %err, %for.body.i29
   %11 = phi ptr [ %12, %for.body.i29 ], [ %10, %err ]
   %p.04.i = phi ptr [ %incdec.ptr.i, %for.body.i29 ], [ @multi_provider, %err ]
   %call.i30 = tail call i32 @OSSL_PROVIDER_unload(ptr noundef nonnull %11) #8
-  %incdec.ptr.i = getelementptr inbounds ptr, ptr %p.04.i, i64 1
+  %incdec.ptr.i = getelementptr inbounds i8, ptr %p.04.i, i64 8
   %12 = load ptr, ptr %incdec.ptr.i, align 8
   %cmp.not.i = icmp eq ptr %12, null
   br i1 %cmp.not.i, label %thead_teardown_libctx.exit, label %for.body.i29, !llvm.loop !10
@@ -1841,7 +1841,7 @@ entry:
 
 if.end:                                           ; preds = %entry
   store ptr %scratch, ptr %msg, align 8
-  %data_len = getelementptr inbounds %struct.bio_msg_st, ptr %msg, i64 0, i32 1
+  %data_len = getelementptr inbounds i8, ptr %msg, i64 8
   store i64 64, ptr %data_len, align 8
   %2 = load i8, ptr %ch, align 1
   %conv = zext i8 %2 to i32

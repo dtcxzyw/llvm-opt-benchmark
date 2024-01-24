@@ -4,7 +4,6 @@ target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:
 target triple = "x86_64-unknown-linux-gnu"
 
 %"class.msdfgen::EdgeHolder" = type { ptr }
-%"struct.std::_Vector_base<msdfgen::EdgeHolder, std::allocator<msdfgen::EdgeHolder>>::_Vector_impl_data" = type { ptr, ptr, ptr }
 %"class.tinyxml2::XMLDocument" = type { %"class.tinyxml2::XMLNode", i8, i8, i32, i32, %"class.tinyxml2::StrPair", i32, ptr, i32, i32, %"class.tinyxml2::DynArray", %"class.tinyxml2::MemPoolT", %"class.tinyxml2::MemPoolT.6", %"class.tinyxml2::MemPoolT.8", %"class.tinyxml2::MemPoolT.10" }
 %"class.tinyxml2::XMLNode" = type { ptr, ptr, ptr, %"class.tinyxml2::StrPair", i32, ptr, ptr, ptr, ptr, ptr, ptr }
 %"class.tinyxml2::StrPair" = type { i32, ptr, ptr }
@@ -19,21 +18,11 @@ target triple = "x86_64-unknown-linux-gnu"
 %"class.tinyxml2::MemPoolT.10" = type { %"class.tinyxml2::MemPool", %"class.tinyxml2::DynArray.11", ptr, i32, i32, i32, i32 }
 %"class.tinyxml2::DynArray.11" = type { ptr, [10 x ptr], i32, i32 }
 %"struct.msdfgen::Vector2" = type { double, double }
-%"struct.std::_Vector_base<msdfgen::Contour, std::allocator<msdfgen::Contour>>::_Vector_impl_data" = type { ptr, ptr, ptr }
-%"class.msdfgen::Contour" = type { %"class.std::vector.0" }
-%"class.std::vector.0" = type { %"struct.std::_Vector_base.1" }
-%"struct.std::_Vector_base.1" = type { %"struct.std::_Vector_base<msdfgen::EdgeHolder, std::allocator<msdfgen::EdgeHolder>>::_Vector_impl" }
-%"struct.std::_Vector_base<msdfgen::EdgeHolder, std::allocator<msdfgen::EdgeHolder>>::_Vector_impl" = type { %"struct.std::_Vector_base<msdfgen::EdgeHolder, std::allocator<msdfgen::EdgeHolder>>::_Vector_impl_data" }
-%"class.msdfgen::Shape" = type <{ %"class.std::vector", i8, [7 x i8] }>
-%"class.std::vector" = type { %"struct.std::_Vector_base" }
-%"struct.std::_Vector_base" = type { %"struct.std::_Vector_base<msdfgen::Contour, std::allocator<msdfgen::Contour>>::_Vector_impl" }
-%"struct.std::_Vector_base<msdfgen::Contour, std::allocator<msdfgen::Contour>>::_Vector_impl" = type { %"struct.std::_Vector_base<msdfgen::Contour, std::allocator<msdfgen::Contour>>::_Vector_impl_data" }
 %class.SkPath = type <{ %class.sk_sp, i32, %"struct.std::atomic", %"struct.std::atomic", i8, i8 }>
 %class.sk_sp = type { ptr }
 %"struct.std::atomic" = type { %"struct.std::__atomic_base" }
 %"struct.std::__atomic_base" = type { i8 }
 %class.SkMatrix = type { [9 x float], i32 }
-%"struct.msdfgen::Shape::Bounds" = type { double, double, double, double }
 %struct.SkRect = type { float, float, float, float }
 
 @_ZN7msdfgen18SVG_IMPORT_FAILUREE = dso_local local_unnamed_addr constant i32 0, align 4
@@ -1591,7 +1580,7 @@ NEXT_CONTOUR:                                     ; preds = %NEXT_CONTOUR.loopex
   %nodeTypePreread.1 = phi i1 [ false, %sw.bb13 ], [ false, %while.body ], [ true, %NEXT_CONTOUR.loopexit.split.loop.exit ], [ false, %NEXT_CONTOUR.loopexit.split.loop.exit1873 ]
   %311 = phi <2 x double> [ %10, %sw.bb13 ], [ zeroinitializer, %while.body ], [ %10, %NEXT_CONTOUR.loopexit.split.loop.exit ], [ %299, %NEXT_CONTOUR.loopexit.split.loop.exit1873 ]
   %312 = load ptr, ptr %call1, align 8
-  %_M_finish.i.i = getelementptr inbounds %"struct.std::_Vector_base<msdfgen::EdgeHolder, std::allocator<msdfgen::EdgeHolder>>::_Vector_impl_data", ptr %call1, i64 0, i32 1
+  %_M_finish.i.i = getelementptr inbounds i8, ptr %call1, i64 8
   %313 = load ptr, ptr %_M_finish.i.i, align 8
   %cmp.i.i377 = icmp eq ptr %312, %313
   br i1 %cmp.i.i377, label %if.end284, label %land.lhs.true
@@ -1605,10 +1594,10 @@ land.lhs.true:                                    ; preds = %NEXT_CONTOUR
   br i1 %316, label %if.then247, label %if.end284
 
 if.then247:                                       ; preds = %land.lhs.true
-  %add.ptr.i.i = getelementptr inbounds %"class.msdfgen::EdgeHolder", ptr %313, i64 -1
+  %add.ptr.i.i = getelementptr inbounds i8, ptr %313, i64 -8
   %call252 = call noundef ptr @_ZN7msdfgen10EdgeHolderptEv(ptr noundef nonnull align 8 dereferenceable(8) %add.ptr.i.i)
   %vtable = load ptr, ptr %call252, align 8
-  %vfn = getelementptr inbounds ptr, ptr %vtable, i64 5
+  %vfn = getelementptr inbounds i8, ptr %vtable, i64 40
   %317 = load ptr, ptr %vfn, align 8
   %call253 = call { double, double } %317(ptr noundef nonnull align 8 dereferenceable(12) %call252, double noundef 1.000000e+00)
   %318 = extractvalue { double, double } %call253, 0
@@ -1616,7 +1605,7 @@ if.then247:                                       ; preds = %land.lhs.true
   %320 = load ptr, ptr %call1, align 8
   %call257 = call noundef ptr @_ZN7msdfgen10EdgeHolderptEv(ptr noundef nonnull align 8 dereferenceable(8) %320)
   %vtable258 = load ptr, ptr %call257, align 8
-  %vfn259 = getelementptr inbounds ptr, ptr %vtable258, i64 5
+  %vfn259 = getelementptr inbounds i8, ptr %vtable258, i64 40
   %321 = load ptr, ptr %vfn259, align 8
   %call260 = call { double, double } %321(ptr noundef nonnull align 8 dereferenceable(12) %call257, double noundef 0.000000e+00)
   %322 = extractvalue { double, double } %call260, 0
@@ -1631,18 +1620,18 @@ if.then247:                                       ; preds = %land.lhs.true
 
 if.then264:                                       ; preds = %if.then247
   %325 = load ptr, ptr %_M_finish.i.i, align 8
-  %add.ptr.i.i388 = getelementptr inbounds %"class.msdfgen::EdgeHolder", ptr %325, i64 -1
+  %add.ptr.i.i388 = getelementptr inbounds i8, ptr %325, i64 -8
   %call267 = call noundef ptr @_ZN7msdfgen10EdgeHolderptEv(ptr noundef nonnull align 8 dereferenceable(8) %add.ptr.i.i388)
   %326 = load ptr, ptr %call1, align 8
   %call271 = call noundef ptr @_ZN7msdfgen10EdgeHolderptEv(ptr noundef nonnull align 8 dereferenceable(8) %326)
   %vtable272 = load ptr, ptr %call271, align 8
-  %vfn273 = getelementptr inbounds ptr, ptr %vtable272, i64 5
+  %vfn273 = getelementptr inbounds i8, ptr %vtable272, i64 40
   %327 = load ptr, ptr %vfn273, align 8
   %call274 = call { double, double } %327(ptr noundef nonnull align 8 dereferenceable(12) %call271, double noundef 0.000000e+00)
   %328 = extractvalue { double, double } %call274, 0
   %329 = extractvalue { double, double } %call274, 1
   %vtable275 = load ptr, ptr %call267, align 8
-  %vfn276 = getelementptr inbounds ptr, ptr %vtable275, i64 14
+  %vfn276 = getelementptr inbounds i8, ptr %vtable275, i64 112
   %330 = load ptr, ptr %vfn276, align 8
   call void %330(ptr noundef nonnull align 8 dereferenceable(12) %call267, double %328, double %329)
   br label %if.end284
@@ -1799,7 +1788,7 @@ invoke.cont19:                                    ; preds = %if.end18
 
 invoke.cont21:                                    ; preds = %invoke.cont19
   store double %call20, ptr %dims, align 8
-  %y3.i = getelementptr inbounds %"struct.msdfgen::Vector2", ptr %dims, i64 0, i32 1
+  %y3.i = getelementptr inbounds i8, ptr %dims, i64 8
   store double %call22, ptr %y3.i, align 8
   %call25 = invoke noundef ptr @_ZNK8tinyxml210XMLElement9AttributeEPKcS2_(ptr noundef nonnull align 8 dereferenceable(120) %call.i12, ptr noundef nonnull @.str.4, ptr noundef null)
           to label %invoke.cont24 unwind label %lpad
@@ -1885,7 +1874,7 @@ if.then39:                                        ; preds = %if.end37
 
 if.end40:                                         ; preds = %if.then39, %if.end37
   %8 = load ptr, ptr %output, align 8
-  %_M_finish.i.i = getelementptr inbounds %"struct.std::_Vector_base<msdfgen::Contour, std::allocator<msdfgen::Contour>>::_Vector_impl_data", ptr %output, i64 0, i32 1
+  %_M_finish.i.i = getelementptr inbounds i8, ptr %output, i64 8
   %9 = load ptr, ptr %_M_finish.i.i, align 8
   %tobool.not.i.i = icmp eq ptr %9, %8
   br i1 %tobool.not.i.i, label %_ZNSt6vectorIN7msdfgen7ContourESaIS1_EE5clearEv.exit, label %for.body.i.i.i.i.i
@@ -1893,7 +1882,7 @@ if.end40:                                         ; preds = %if.then39, %if.end3
 for.body.i.i.i.i.i:                               ; preds = %if.end40, %_ZSt8_DestroyIN7msdfgen7ContourEEvPT_.exit.i.i.i.i.i
   %__first.addr.04.i.i.i.i.i = phi ptr [ %incdec.ptr.i.i.i.i.i, %_ZSt8_DestroyIN7msdfgen7ContourEEvPT_.exit.i.i.i.i.i ], [ %8, %if.end40 ]
   %10 = load ptr, ptr %__first.addr.04.i.i.i.i.i, align 8
-  %_M_finish.i.i.i.i.i.i.i.i = getelementptr inbounds %"struct.std::_Vector_base<msdfgen::EdgeHolder, std::allocator<msdfgen::EdgeHolder>>::_Vector_impl_data", ptr %__first.addr.04.i.i.i.i.i, i64 0, i32 1
+  %_M_finish.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %__first.addr.04.i.i.i.i.i, i64 8
   %11 = load ptr, ptr %_M_finish.i.i.i.i.i.i.i.i, align 8
   %cmp.not3.i.i.i.i.i.i.i.i.i.i.i = icmp eq ptr %10, %11
   br i1 %cmp.not3.i.i.i.i.i.i.i.i.i.i.i, label %invoke.cont.i.i.i.i.i.i.i.i, label %for.body.i.i.i.i.i.i.i.i.i.i.i
@@ -1901,7 +1890,7 @@ for.body.i.i.i.i.i:                               ; preds = %if.end40, %_ZSt8_De
 for.body.i.i.i.i.i.i.i.i.i.i.i:                   ; preds = %for.body.i.i.i.i.i, %for.body.i.i.i.i.i.i.i.i.i.i.i
   %__first.addr.04.i.i.i.i.i.i.i.i.i.i.i = phi ptr [ %incdec.ptr.i.i.i.i.i.i.i.i.i.i.i, %for.body.i.i.i.i.i.i.i.i.i.i.i ], [ %10, %for.body.i.i.i.i.i ]
   call void @_ZN7msdfgen10EdgeHolderD1Ev(ptr noundef nonnull align 8 dereferenceable(8) %__first.addr.04.i.i.i.i.i.i.i.i.i.i.i) #16
-  %incdec.ptr.i.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds %"class.msdfgen::EdgeHolder", ptr %__first.addr.04.i.i.i.i.i.i.i.i.i.i.i, i64 1
+  %incdec.ptr.i.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %__first.addr.04.i.i.i.i.i.i.i.i.i.i.i, i64 8
   %cmp.not.i.i.i.i.i.i.i.i.i.i.i = icmp eq ptr %incdec.ptr.i.i.i.i.i.i.i.i.i.i.i, %11
   br i1 %cmp.not.i.i.i.i.i.i.i.i.i.i.i, label %invoke.contthread-pre-split.i.i.i.i.i.i.i.i, label %for.body.i.i.i.i.i.i.i.i.i.i.i, !llvm.loop !9
 
@@ -1919,7 +1908,7 @@ if.then.i.i.i.i.i.i.i.i.i.i:                      ; preds = %invoke.cont.i.i.i.i
   br label %_ZSt8_DestroyIN7msdfgen7ContourEEvPT_.exit.i.i.i.i.i
 
 _ZSt8_DestroyIN7msdfgen7ContourEEvPT_.exit.i.i.i.i.i: ; preds = %if.then.i.i.i.i.i.i.i.i.i.i, %invoke.cont.i.i.i.i.i.i.i.i
-  %incdec.ptr.i.i.i.i.i = getelementptr inbounds %"class.msdfgen::Contour", ptr %__first.addr.04.i.i.i.i.i, i64 1
+  %incdec.ptr.i.i.i.i.i = getelementptr inbounds i8, ptr %__first.addr.04.i.i.i.i.i, i64 24
   %cmp.not.i.i.i.i.i = icmp eq ptr %incdec.ptr.i.i.i.i.i, %9
   br i1 %cmp.not.i.i.i.i.i, label %invoke.cont.i.i, label %for.body.i.i.i.i.i, !llvm.loop !10
 
@@ -1928,7 +1917,7 @@ invoke.cont.i.i:                                  ; preds = %_ZSt8_DestroyIN7msd
   br label %_ZNSt6vectorIN7msdfgen7ContourESaIS1_EE5clearEv.exit
 
 _ZNSt6vectorIN7msdfgen7ContourESaIS1_EE5clearEv.exit: ; preds = %if.end40, %invoke.cont.i.i
-  %inverseYAxis = getelementptr inbounds %"class.msdfgen::Shape", ptr %output, i64 0, i32 1
+  %inverseYAxis = getelementptr inbounds i8, ptr %output, i64 24
   store i8 1, ptr %inverseYAxis, align 8
   %13 = load double, ptr %dims, align 8
   %14 = load double, ptr %y3.i, align 8
@@ -2269,11 +2258,11 @@ if.end5:                                          ; preds = %invoke.cont1
 invoke.cont8:                                     ; preds = %if.end5
   store i32 0, ptr %flags, align 4
   store <4 x float> <float 1.000000e+00, float 0.000000e+00, float 0.000000e+00, float 0.000000e+00>, ptr %ref.tmp, align 16
-  %arrayinit.element4.i.i = getelementptr inbounds float, ptr %ref.tmp, i64 4
+  %arrayinit.element4.i.i = getelementptr inbounds i8, ptr %ref.tmp, i64 16
   store <4 x float> <float 1.000000e+00, float 0.000000e+00, float 0.000000e+00, float 0.000000e+00>, ptr %arrayinit.element4.i.i, align 16
-  %arrayinit.element8.i.i = getelementptr inbounds float, ptr %ref.tmp, i64 8
+  %arrayinit.element8.i.i = getelementptr inbounds i8, ptr %ref.tmp, i64 32
   store float 1.000000e+00, ptr %arrayinit.element8.i.i, align 16
-  %fTypeMask.i.i = getelementptr inbounds %class.SkMatrix, ptr %ref.tmp, i64 0, i32 1
+  %fTypeMask.i.i = getelementptr inbounds i8, ptr %ref.tmp, i64 36
   store i32 16, ptr %fTypeMask.i.i, align 4
   invoke fastcc void @_ZN7msdfgenL11gatherPathsER6SkPathRiPN8tinyxml210XMLElementERK8SkMatrix(ptr noundef nonnull align 8 dereferenceable(15) %fullPath, ptr noundef nonnull align 4 dereferenceable(4) %flags, ptr noundef nonnull %call.i15, ptr noundef nonnull align 4 dereferenceable(40) %ref.tmp)
           to label %invoke.cont9 unwind label %lpad7
@@ -2302,13 +2291,13 @@ if.end14:                                         ; preds = %invoke.cont11
           to label %invoke.cont15 unwind label %lpad7
 
 invoke.cont15:                                    ; preds = %if.end14
-  %inverseYAxis = getelementptr inbounds %"class.msdfgen::Shape", ptr %output, i64 0, i32 1
+  %inverseYAxis = getelementptr inbounds i8, ptr %output, i64 24
   store i8 1, ptr %inverseYAxis, align 8
   invoke void @_ZN7msdfgen5Shape14orientContoursEv(ptr noundef nonnull align 8 dereferenceable(25) %output)
           to label %invoke.cont16 unwind label %lpad7
 
 invoke.cont16:                                    ; preds = %invoke.cont15
-  %b = getelementptr inbounds %"struct.msdfgen::Shape::Bounds", ptr %viewBox, i64 0, i32 1
+  %b = getelementptr inbounds i8, ptr %viewBox, i64 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %viewBox, i8 0, i64 16, i1 false)
   %call18 = invoke noundef double @_ZNK8tinyxml210XMLElement15DoubleAttributeEPKcd(ptr noundef nonnull align 8 dereferenceable(120) %call.i15, ptr noundef nonnull @.str.2, double noundef 0.000000e+00)
           to label %invoke.cont17 unwind label %lpad7
@@ -2319,7 +2308,7 @@ invoke.cont17:                                    ; preds = %invoke.cont16
 
 invoke.cont19:                                    ; preds = %invoke.cont17
   store double %call18, ptr %dims, align 16
-  %y3.i = getelementptr inbounds %"struct.msdfgen::Vector2", ptr %dims, i64 0, i32 1
+  %y3.i = getelementptr inbounds i8, ptr %dims, i64 8
   store double %call20, ptr %y3.i, align 8
   %call23 = invoke noundef ptr @_ZNK8tinyxml210XMLElement9AttributeEPKcS2_(ptr noundef nonnull align 8 dereferenceable(120) %call.i15, ptr noundef nonnull @.str.4, ptr noundef null)
           to label %invoke.cont22 unwind label %lpad7
@@ -2374,7 +2363,7 @@ land.rhs:                                         ; preds = %land.lhs.true33
   br label %if.end38
 
 if.end38:                                         ; preds = %_ZN7msdfgenL10readDoubleERdRPKc.exit, %land.lhs.true29, %land.lhs.true33, %land.rhs, %invoke.cont22
-  %r = getelementptr inbounds %"struct.msdfgen::Shape::Bounds", ptr %viewBox, i64 0, i32 2
+  %r = getelementptr inbounds i8, ptr %viewBox, i64 16
   %5 = load <2 x double>, ptr %viewBox, align 8
   %6 = load <2 x double>, ptr %dims, align 16
   %7 = fadd <2 x double> %5, %6
@@ -2419,16 +2408,16 @@ entry:
   br i1 %tobool.not156, label %for.end, label %land.rhs.lr.ph
 
 land.rhs.lr.ph:                                   ; preds = %entry
-  %0 = getelementptr inbounds { <2 x float>, <2 x float> }, ptr %ref.tmp119, i64 0, i32 1
-  %1 = getelementptr inbounds { <2 x float>, <2 x float> }, ptr %rect, i64 0, i32 1
-  %arrayinit.element = getelementptr inbounds float, ptr %radii, i64 1
-  %arrayinit.element60 = getelementptr inbounds float, ptr %radii, i64 2
-  %arrayinit.element61 = getelementptr inbounds float, ptr %radii, i64 3
-  %arrayinit.element62 = getelementptr inbounds float, ptr %radii, i64 4
-  %arrayinit.element63 = getelementptr inbounds float, ptr %radii, i64 5
-  %arrayinit.element64 = getelementptr inbounds float, ptr %radii, i64 6
-  %arrayinit.element65 = getelementptr inbounds float, ptr %radii, i64 7
-  %fFillType.i = getelementptr inbounds %class.SkPath, ptr %curPath, i64 0, i32 4
+  %0 = getelementptr inbounds i8, ptr %ref.tmp119, i64 8
+  %1 = getelementptr inbounds i8, ptr %rect, i64 8
+  %arrayinit.element = getelementptr inbounds i8, ptr %radii, i64 4
+  %arrayinit.element60 = getelementptr inbounds i8, ptr %radii, i64 8
+  %arrayinit.element61 = getelementptr inbounds i8, ptr %radii, i64 12
+  %arrayinit.element62 = getelementptr inbounds i8, ptr %radii, i64 16
+  %arrayinit.element63 = getelementptr inbounds i8, ptr %radii, i64 20
+  %arrayinit.element64 = getelementptr inbounds i8, ptr %radii, i64 24
+  %arrayinit.element65 = getelementptr inbounds i8, ptr %radii, i64 28
+  %fFillType.i = getelementptr inbounds i8, ptr %curPath, i64 14
   br label %land.rhs
 
 land.rhs:                                         ; preds = %land.rhs.lr.ph, %for.inc
@@ -3014,11 +3003,11 @@ if.then:                                          ; preds = %entry
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %partial.i)
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %ref.tmp.i)
   store <4 x float> <float 1.000000e+00, float 0.000000e+00, float 0.000000e+00, float 0.000000e+00>, ptr %transformation, align 16, !alias.scope !14
-  %arrayinit.element4.i.i.i = getelementptr inbounds float, ptr %transformation, i64 4
+  %arrayinit.element4.i.i.i = getelementptr inbounds i8, ptr %transformation, i64 16
   store <4 x float> <float 1.000000e+00, float 0.000000e+00, float 0.000000e+00, float 0.000000e+00>, ptr %arrayinit.element4.i.i.i, align 16, !alias.scope !14
-  %arrayinit.element8.i.i.i = getelementptr inbounds float, ptr %transformation, i64 8
+  %arrayinit.element8.i.i.i = getelementptr inbounds i8, ptr %transformation, i64 32
   store float 1.000000e+00, ptr %arrayinit.element8.i.i.i, align 16, !alias.scope !14
-  %fTypeMask.i.i.i = getelementptr inbounds %class.SkMatrix, ptr %transformation, i64 0, i32 1
+  %fTypeMask.i.i.i = getelementptr inbounds i8, ptr %transformation, i64 36
   store i32 16, ptr %fTypeMask.i.i.i, align 4, !alias.scope !14
   br label %while.cond.i.i
 
@@ -3039,19 +3028,19 @@ while.cond.preheader.i:                           ; preds = %while.cond.i.i
   br i1 %tobool.not26.i, label %_ZN7msdfgenL19parseTransformationERiPKc.exit, label %while.body.lr.ph.i
 
 while.body.lr.ph.i:                               ; preds = %while.cond.preheader.i
-  %arrayinit.element.i.i6.i = getelementptr inbounds float, ptr %partial.i, i64 1
-  %arrayinit.element3.i.i8.i = getelementptr inbounds float, ptr %partial.i, i64 3
-  %arrayinit.element4.i.i9.i = getelementptr inbounds float, ptr %partial.i, i64 4
-  %arrayinit.element5.i.i10.i = getelementptr inbounds float, ptr %partial.i, i64 5
-  %arrayinit.element6.i.i11.i = getelementptr inbounds float, ptr %partial.i, i64 6
-  %arrayinit.element8.i.i13.i = getelementptr inbounds float, ptr %partial.i, i64 8
-  %fTypeMask.i.i14.i = getelementptr inbounds %class.SkMatrix, ptr %partial.i, i64 0, i32 1
-  %arrayidx46.i = getelementptr inbounds [6 x float], ptr %values.i, i64 0, i64 1
-  %arrayidx47.i = getelementptr inbounds [6 x float], ptr %values.i, i64 0, i64 2
-  %arrayidx5.i = getelementptr inbounds [6 x float], ptr %values.i, i64 0, i64 5
-  %arrayinit.element4.i.i.i.i.i = getelementptr inbounds float, ptr %ref.tmp.i, i64 4
-  %arrayinit.element8.i.i.i.i.i = getelementptr inbounds float, ptr %ref.tmp.i, i64 8
-  %fTypeMask.i.i.i.i.i = getelementptr inbounds %class.SkMatrix, ptr %ref.tmp.i, i64 0, i32 1
+  %arrayinit.element.i.i6.i = getelementptr inbounds i8, ptr %partial.i, i64 4
+  %arrayinit.element3.i.i8.i = getelementptr inbounds i8, ptr %partial.i, i64 12
+  %arrayinit.element4.i.i9.i = getelementptr inbounds i8, ptr %partial.i, i64 16
+  %arrayinit.element5.i.i10.i = getelementptr inbounds i8, ptr %partial.i, i64 20
+  %arrayinit.element6.i.i11.i = getelementptr inbounds i8, ptr %partial.i, i64 24
+  %arrayinit.element8.i.i13.i = getelementptr inbounds i8, ptr %partial.i, i64 32
+  %fTypeMask.i.i14.i = getelementptr inbounds i8, ptr %partial.i, i64 36
+  %arrayidx46.i = getelementptr inbounds i8, ptr %values.i, i64 4
+  %arrayidx47.i = getelementptr inbounds i8, ptr %values.i, i64 8
+  %arrayidx5.i = getelementptr inbounds i8, ptr %values.i, i64 20
+  %arrayinit.element4.i.i.i.i.i = getelementptr inbounds i8, ptr %ref.tmp.i, i64 16
+  %arrayinit.element8.i.i.i.i.i = getelementptr inbounds i8, ptr %ref.tmp.i, i64 32
+  %fTypeMask.i.i.i.i.i = getelementptr inbounds i8, ptr %ref.tmp.i, i64 36
   br label %while.body.i
 
 while.body.i.i:                                   ; preds = %while.cond.i.i, %while.cond.i.i, %while.cond.i.i, %while.cond.i.i, %while.cond.i.i
@@ -3298,37 +3287,37 @@ if.then3:                                         ; preds = %_ZN7msdfgenL14skipE
   %conv = fptrunc double %call.i.i to float
   %conv6 = fptrunc double %call.i9.i to float
   store <4 x float> <float 1.000000e+00, float 0.000000e+00, float 0.000000e+00, float 0.000000e+00>, ptr %ref.tmp5, align 16, !alias.scope !23
-  %arrayinit.element4.i.i.i8 = getelementptr inbounds float, ptr %ref.tmp5, i64 4
+  %arrayinit.element4.i.i.i8 = getelementptr inbounds i8, ptr %ref.tmp5, i64 16
   store <4 x float> <float 1.000000e+00, float 0.000000e+00, float 0.000000e+00, float 0.000000e+00>, ptr %arrayinit.element4.i.i.i8, align 16, !alias.scope !23
-  %arrayinit.element8.i.i.i12 = getelementptr inbounds float, ptr %ref.tmp5, i64 8
+  %arrayinit.element8.i.i.i12 = getelementptr inbounds i8, ptr %ref.tmp5, i64 32
   store float 1.000000e+00, ptr %arrayinit.element8.i.i.i12, align 16, !alias.scope !23
-  %fTypeMask.i.i.i13 = getelementptr inbounds %class.SkMatrix, ptr %ref.tmp5, i64 0, i32 1
+  %fTypeMask.i.i.i13 = getelementptr inbounds i8, ptr %ref.tmp5, i64 36
   store i32 16, ptr %fTypeMask.i.i.i13, align 4, !alias.scope !23
   %call.i14 = call noundef nonnull align 4 dereferenceable(40) ptr @_ZN8SkMatrix12setTranslateEff(ptr noundef nonnull align 4 dereferenceable(40) %ref.tmp5, float noundef %conv, float noundef %conv6)
   store <4 x float> <float 1.000000e+00, float 0.000000e+00, float 0.000000e+00, float 0.000000e+00>, ptr %ref.tmp4, align 16, !alias.scope !26
-  %arrayinit.element4.i.i.i.i = getelementptr inbounds float, ptr %ref.tmp4, i64 4
+  %arrayinit.element4.i.i.i.i = getelementptr inbounds i8, ptr %ref.tmp4, i64 16
   store <4 x float> <float 1.000000e+00, float 0.000000e+00, float 0.000000e+00, float 0.000000e+00>, ptr %arrayinit.element4.i.i.i.i, align 16, !alias.scope !26
-  %arrayinit.element8.i.i.i.i = getelementptr inbounds float, ptr %ref.tmp4, i64 8
+  %arrayinit.element8.i.i.i.i = getelementptr inbounds i8, ptr %ref.tmp4, i64 32
   store float 1.000000e+00, ptr %arrayinit.element8.i.i.i.i, align 16, !alias.scope !26
-  %fTypeMask.i.i.i.i = getelementptr inbounds %class.SkMatrix, ptr %ref.tmp4, i64 0, i32 1
+  %fTypeMask.i.i.i.i = getelementptr inbounds i8, ptr %ref.tmp4, i64 36
   store i32 16, ptr %fTypeMask.i.i.i.i, align 4, !alias.scope !26
   %call.i.i15 = call noundef nonnull align 4 dereferenceable(40) ptr @_ZN8SkMatrix9setConcatERKS_S1_(ptr noundef nonnull align 4 dereferenceable(40) %ref.tmp4, ptr noundef nonnull align 4 dereferenceable(40) %ref.tmp5, ptr noundef nonnull align 4 dereferenceable(40) %transformation)
   %conv9 = fneg float %conv
   %conv12 = fneg float %conv6
   store <4 x float> <float 1.000000e+00, float 0.000000e+00, float 0.000000e+00, float 0.000000e+00>, ptr %ref.tmp7, align 16, !alias.scope !31
-  %arrayinit.element4.i.i.i19 = getelementptr inbounds float, ptr %ref.tmp7, i64 4
+  %arrayinit.element4.i.i.i19 = getelementptr inbounds i8, ptr %ref.tmp7, i64 16
   store <4 x float> <float 1.000000e+00, float 0.000000e+00, float 0.000000e+00, float 0.000000e+00>, ptr %arrayinit.element4.i.i.i19, align 16, !alias.scope !31
-  %arrayinit.element8.i.i.i23 = getelementptr inbounds float, ptr %ref.tmp7, i64 8
+  %arrayinit.element8.i.i.i23 = getelementptr inbounds i8, ptr %ref.tmp7, i64 32
   store float 1.000000e+00, ptr %arrayinit.element8.i.i.i23, align 16, !alias.scope !31
-  %fTypeMask.i.i.i24 = getelementptr inbounds %class.SkMatrix, ptr %ref.tmp7, i64 0, i32 1
+  %fTypeMask.i.i.i24 = getelementptr inbounds i8, ptr %ref.tmp7, i64 36
   store i32 16, ptr %fTypeMask.i.i.i24, align 4, !alias.scope !31
   %call.i25 = call noundef nonnull align 4 dereferenceable(40) ptr @_ZN8SkMatrix12setTranslateEff(ptr noundef nonnull align 4 dereferenceable(40) %ref.tmp7, float noundef %conv9, float noundef %conv12)
   store <4 x float> <float 1.000000e+00, float 0.000000e+00, float 0.000000e+00, float 0.000000e+00>, ptr %ref.tmp, align 16, !alias.scope !34
-  %arrayinit.element4.i.i.i.i29 = getelementptr inbounds float, ptr %ref.tmp, i64 4
+  %arrayinit.element4.i.i.i.i29 = getelementptr inbounds i8, ptr %ref.tmp, i64 16
   store <4 x float> <float 1.000000e+00, float 0.000000e+00, float 0.000000e+00, float 0.000000e+00>, ptr %arrayinit.element4.i.i.i.i29, align 16, !alias.scope !34
-  %arrayinit.element8.i.i.i.i33 = getelementptr inbounds float, ptr %ref.tmp, i64 8
+  %arrayinit.element8.i.i.i.i33 = getelementptr inbounds i8, ptr %ref.tmp, i64 32
   store float 1.000000e+00, ptr %arrayinit.element8.i.i.i.i33, align 16, !alias.scope !34
-  %fTypeMask.i.i.i.i34 = getelementptr inbounds %class.SkMatrix, ptr %ref.tmp, i64 0, i32 1
+  %fTypeMask.i.i.i.i34 = getelementptr inbounds i8, ptr %ref.tmp, i64 36
   store i32 16, ptr %fTypeMask.i.i.i.i34, align 4, !alias.scope !34
   %call.i.i35 = call noundef nonnull align 4 dereferenceable(40) ptr @_ZN8SkMatrix9setConcatERKS_S1_(ptr noundef nonnull align 4 dereferenceable(40) %ref.tmp, ptr noundef nonnull align 4 dereferenceable(40) %ref.tmp4, ptr noundef nonnull align 4 dereferenceable(40) %ref.tmp7)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(40) %transformation, ptr noundef nonnull align 16 dereferenceable(40) %ref.tmp, i64 40, i1 false)
@@ -3342,11 +3331,11 @@ if.else:                                          ; preds = %_ZN7msdfgenL14skipE
 
 if.end13:                                         ; preds = %if.then3, %if.else, %_ZN7msdfgenL19parseTransformationERiPKc.exit
   store <4 x float> <float 1.000000e+00, float 0.000000e+00, float 0.000000e+00, float 0.000000e+00>, ptr %agg.result, align 4, !alias.scope !39
-  %arrayinit.element4.i.i.i.i39 = getelementptr inbounds float, ptr %agg.result, i64 4
+  %arrayinit.element4.i.i.i.i39 = getelementptr inbounds i8, ptr %agg.result, i64 16
   store <4 x float> <float 1.000000e+00, float 0.000000e+00, float 0.000000e+00, float 0.000000e+00>, ptr %arrayinit.element4.i.i.i.i39, align 4, !alias.scope !39
-  %arrayinit.element8.i.i.i.i43 = getelementptr inbounds float, ptr %agg.result, i64 8
+  %arrayinit.element8.i.i.i.i43 = getelementptr inbounds i8, ptr %agg.result, i64 32
   store float 1.000000e+00, ptr %arrayinit.element8.i.i.i.i43, align 4, !alias.scope !39
-  %fTypeMask.i.i.i.i44 = getelementptr inbounds %class.SkMatrix, ptr %agg.result, i64 0, i32 1
+  %fTypeMask.i.i.i.i44 = getelementptr inbounds i8, ptr %agg.result, i64 36
   store i32 16, ptr %fTypeMask.i.i.i.i44, align 4, !alias.scope !39
   %call.i.i45 = call noundef nonnull align 4 dereferenceable(40) ptr @_ZN8SkMatrix9setConcatERKS_S1_(ptr noundef nonnull align 4 dereferenceable(40) %agg.result, ptr noundef nonnull align 4 dereferenceable(40) %parentTransformation, ptr noundef nonnull align 4 dereferenceable(40) %transformation)
   br label %return

@@ -9,8 +9,6 @@ target triple = "x86_64-unknown-linux-gnu"
 %"class.std::tuple" = type { %"struct.std::_Tuple_impl" }
 %"struct.std::_Tuple_impl" = type { %"struct.std::_Head_base.1" }
 %"struct.std::_Head_base.1" = type { ptr }
-%"class.tsi::(anonymous namespace)::BoringSslCachedSession" = type { %"class.tsi::SslCachedSession", %"class.std::unique_ptr.2" }
-%"class.tsi::SslCachedSession" = type { ptr }
 %"class.std::unique_ptr.2" = type { %"struct.std::__uniq_ptr_data.3" }
 %"struct.std::__uniq_ptr_data.3" = type { %"class.std::__uniq_ptr_impl.4" }
 %"class.std::__uniq_ptr_impl.4" = type { %"class.std::tuple.5" }
@@ -39,7 +37,7 @@ _ZNSt10unique_ptrIN3tsi12_GLOBAL__N_122BoringSslCachedSessionESt14default_delete
   %0 = load i64, ptr %session, align 8, !noalias !4
   store ptr null, ptr %session, align 8, !noalias !4
   store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN3tsi12_GLOBAL__N_122BoringSslCachedSessionE, i64 0, inrange i32 0, i64 2), ptr %call.i, align 8, !noalias !4
-  %session_.i.i = getelementptr inbounds %"class.tsi::(anonymous namespace)::BoringSslCachedSession", ptr %call.i, i64 0, i32 1
+  %session_.i.i = getelementptr inbounds i8, ptr %call.i, i64 8
   store i64 %0, ptr %session_.i.i, align 8, !noalias !4
   store ptr %call.i, ptr %agg.result, align 8
   ret void
@@ -57,7 +55,7 @@ declare void @_ZdlPv(ptr noundef) local_unnamed_addr #2
 define internal void @_ZN3tsi12_GLOBAL__N_122BoringSslCachedSessionD2Ev(ptr nocapture noundef nonnull align 8 dereferenceable(16) %this) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN3tsi12_GLOBAL__N_122BoringSslCachedSessionE, i64 0, inrange i32 0, i64 2), ptr %this, align 8
-  %session_ = getelementptr inbounds %"class.tsi::(anonymous namespace)::BoringSslCachedSession", ptr %this, i64 0, i32 1
+  %session_ = getelementptr inbounds i8, ptr %this, i64 8
   %0 = load ptr, ptr %session_, align 8
   %cmp.not.i = icmp eq ptr %0, null
   br i1 %cmp.not.i, label %_ZNSt10unique_ptrI14ssl_session_stN3tsi17SslSessionDeleterEED2Ev.exit, label %if.then.i
@@ -82,7 +80,7 @@ _ZNSt10unique_ptrI14ssl_session_stN3tsi17SslSessionDeleterEED2Ev.exit: ; preds =
 define internal void @_ZN3tsi12_GLOBAL__N_122BoringSslCachedSessionD0Ev(ptr noundef nonnull align 8 dereferenceable(16) %this) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN3tsi12_GLOBAL__N_122BoringSslCachedSessionE, i64 0, inrange i32 0, i64 2), ptr %this, align 8
-  %session_.i = getelementptr inbounds %"class.tsi::(anonymous namespace)::BoringSslCachedSession", ptr %this, i64 0, i32 1
+  %session_.i = getelementptr inbounds i8, ptr %this, i64 8
   %0 = load ptr, ptr %session_.i, align 8
   %cmp.not.i.i = icmp eq ptr %0, null
   br i1 %cmp.not.i.i, label %_ZN3tsi12_GLOBAL__N_122BoringSslCachedSessionD2Ev.exit, label %if.then.i.i
@@ -106,7 +104,7 @@ _ZN3tsi12_GLOBAL__N_122BoringSslCachedSessionD2Ev.exit: ; preds = %entry, %if.th
 ; Function Attrs: mustprogress uwtable
 define internal void @_ZNK3tsi12_GLOBAL__N_122BoringSslCachedSession11CopySessionEv(ptr noalias nocapture writeonly sret(%"class.std::unique_ptr.2") align 8 %agg.result, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %this) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  %session_ = getelementptr inbounds %"class.tsi::(anonymous namespace)::BoringSslCachedSession", ptr %this, i64 0, i32 1
+  %session_ = getelementptr inbounds i8, ptr %this, i64 8
   %0 = load ptr, ptr %session_, align 8
   %call2 = tail call i32 @SSL_SESSION_up_ref(ptr noundef %0)
   %1 = load ptr, ptr %session_, align 8

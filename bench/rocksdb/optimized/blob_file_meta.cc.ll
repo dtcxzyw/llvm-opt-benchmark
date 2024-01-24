@@ -3,7 +3,6 @@ source_filename = "bench/rocksdb/original/blob_file_meta.cc.ll"
 target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:128-n8:16:32:64-S128"
 target triple = "x86_64-unknown-linux-gnu"
 
-%"class.rocksdb::SharedBlobFileMetaData" = type { i64, i64, i64, %"class.std::__cxx11::basic_string", %"class.std::__cxx11::basic_string" }
 %"class.std::__cxx11::basic_string" = type { %"struct.std::__cxx11::basic_string<char>::_Alloc_hider", i64, %union.anon }
 %"struct.std::__cxx11::basic_string<char>::_Alloc_hider" = type { ptr }
 %union.anon = type { i64, [8 x i8] }
@@ -16,14 +15,6 @@ target triple = "x86_64-unknown-linux-gnu"
 %"class.std::ios_base" = type { ptr, i64, i64, i32, i32, i32, ptr, %"struct.std::ios_base::_Words", [8 x %"struct.std::ios_base::_Words"], i32, ptr, %"class.std::locale" }
 %"struct.std::ios_base::_Words" = type { ptr, i64 }
 %"class.rocksdb::Slice" = type { ptr, i64 }
-%"class.rocksdb::BlobFileMetaData" = type { %"class.std::shared_ptr", %"class.std::unordered_set", i64, i64 }
-%"class.std::shared_ptr" = type { %"class.std::__shared_ptr" }
-%"class.std::__shared_ptr" = type { ptr, %"class.std::__shared_count" }
-%"class.std::__shared_count" = type { ptr }
-%"class.std::unordered_set" = type { %"class.std::_Hashtable" }
-%"class.std::_Hashtable" = type { ptr, i64, %"struct.std::__detail::_Hash_node_base", i64, %"struct.std::__detail::_Prime_rehash_policy", ptr }
-%"struct.std::__detail::_Hash_node_base" = type { ptr }
-%"struct.std::__detail::_Prime_rehash_policy" = type { float, i64 }
 
 @.str = private unnamed_addr constant [19 x i8] c"blob_file_number: \00", align 1
 @.str.1 = private unnamed_addr constant [20 x i8] c" total_blob_count: \00", align 1
@@ -38,7 +29,7 @@ target triple = "x86_64-unknown-linux-gnu"
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
 define noundef i64 @_ZNK7rocksdb22SharedBlobFileMetaData15GetBlobFileSizeEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(88) %this) local_unnamed_addr #0 align 2 {
 entry:
-  %total_blob_bytes_ = getelementptr inbounds %"class.rocksdb::SharedBlobFileMetaData", ptr %this, i64 0, i32 2
+  %total_blob_bytes_ = getelementptr inbounds i8, ptr %this, i64 16
   %0 = load i64, ptr %total_blob_bytes_, align 8
   %add2 = add i64 %0, 62
   ret i64 %add2
@@ -78,21 +69,21 @@ entry:
   %0 = load i64, ptr %shared_meta, align 8
   %call2 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSolsEm(ptr noundef nonnull align 8 dereferenceable(8) %call, i64 noundef %0)
   %call3 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc(ptr noundef nonnull align 8 dereferenceable(8) %call2, ptr noundef nonnull @.str.1)
-  %total_blob_count_.i = getelementptr inbounds %"class.rocksdb::SharedBlobFileMetaData", ptr %shared_meta, i64 0, i32 1
+  %total_blob_count_.i = getelementptr inbounds i8, ptr %shared_meta, i64 8
   %1 = load i64, ptr %total_blob_count_.i, align 8
   %call5 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSolsEm(ptr noundef nonnull align 8 dereferenceable(8) %call3, i64 noundef %1)
   %call6 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc(ptr noundef nonnull align 8 dereferenceable(8) %call5, ptr noundef nonnull @.str.2)
-  %total_blob_bytes_.i = getelementptr inbounds %"class.rocksdb::SharedBlobFileMetaData", ptr %shared_meta, i64 0, i32 2
+  %total_blob_bytes_.i = getelementptr inbounds i8, ptr %shared_meta, i64 16
   %2 = load i64, ptr %total_blob_bytes_.i, align 8
   %call8 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSolsEm(ptr noundef nonnull align 8 dereferenceable(8) %call6, i64 noundef %2)
   %call9 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc(ptr noundef nonnull align 8 dereferenceable(8) %call8, ptr noundef nonnull @.str.3)
-  %checksum_method_.i = getelementptr inbounds %"class.rocksdb::SharedBlobFileMetaData", ptr %shared_meta, i64 0, i32 3
+  %checksum_method_.i = getelementptr inbounds i8, ptr %shared_meta, i64 24
   %call11 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsIcSt11char_traitsIcESaIcEERSt13basic_ostreamIT_T0_ES7_RKNSt7__cxx1112basic_stringIS4_S5_T1_EE(ptr noundef nonnull align 8 dereferenceable(8) %call9, ptr noundef nonnull align 8 dereferenceable(32) %checksum_method_.i)
   %call12 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc(ptr noundef nonnull align 8 dereferenceable(8) %call11, ptr noundef nonnull @.str.4)
-  %checksum_value_.i = getelementptr inbounds %"class.rocksdb::SharedBlobFileMetaData", ptr %shared_meta, i64 0, i32 4
+  %checksum_value_.i = getelementptr inbounds i8, ptr %shared_meta, i64 56
   %call.i = tail call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4dataEv(ptr noundef nonnull align 8 dereferenceable(32) %checksum_value_.i) #4
   store ptr %call.i, ptr %ref.tmp13, align 8
-  %size_.i = getelementptr inbounds %"class.rocksdb::Slice", ptr %ref.tmp13, i64 0, i32 1
+  %size_.i = getelementptr inbounds i8, ptr %ref.tmp13, i64 8
   %call2.i = tail call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4sizeEv(ptr noundef nonnull align 8 dereferenceable(32) %checksum_value_.i) #4
   store i64 %call2.i, ptr %size_.i, align 8
   call void @_ZNK7rocksdb5Slice8ToStringB5cxx11Eb(ptr nonnull sret(%"class.std::__cxx11::basic_string") align 8 %ref.tmp, ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp13, i1 noundef zeroext true)
@@ -157,7 +148,7 @@ entry:
   %0 = load ptr, ptr %meta, align 8
   %call2 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZN7rocksdblsERSoRKNS_22SharedBlobFileMetaDataE(ptr noundef nonnull align 8 dereferenceable(8) %os, ptr noundef nonnull align 8 dereferenceable(88) %0)
   %call3 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc(ptr noundef nonnull align 8 dereferenceable(8) %os, ptr noundef nonnull @.str.5)
-  %_M_before_begin.i.i.i = getelementptr inbounds %"class.rocksdb::BlobFileMetaData", ptr %meta, i64 0, i32 1, i32 0, i32 2
+  %_M_before_begin.i.i.i = getelementptr inbounds i8, ptr %meta, i64 32
   %__begin1.sroa.0.012 = load ptr, ptr %_M_before_begin.i.i.i, align 8
   %cmp.i.not13 = icmp eq ptr %__begin1.sroa.0.012, null
   br i1 %cmp.i.not13, label %for.end, label %for.body
@@ -175,11 +166,11 @@ for.body:                                         ; preds = %entry, %for.body
 for.end:                                          ; preds = %for.body, %entry
   %call15 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc(ptr noundef nonnull align 8 dereferenceable(8) %os, ptr noundef nonnull @.str.6)
   %call16 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc(ptr noundef nonnull align 8 dereferenceable(8) %os, ptr noundef nonnull @.str.7)
-  %garbage_blob_count_.i = getelementptr inbounds %"class.rocksdb::BlobFileMetaData", ptr %meta, i64 0, i32 2
+  %garbage_blob_count_.i = getelementptr inbounds i8, ptr %meta, i64 72
   %2 = load i64, ptr %garbage_blob_count_.i, align 8
   %call18 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSolsEm(ptr noundef nonnull align 8 dereferenceable(8) %call16, i64 noundef %2)
   %call19 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc(ptr noundef nonnull align 8 dereferenceable(8) %call18, ptr noundef nonnull @.str.8)
-  %garbage_blob_bytes_.i = getelementptr inbounds %"class.rocksdb::BlobFileMetaData", ptr %meta, i64 0, i32 3
+  %garbage_blob_bytes_.i = getelementptr inbounds i8, ptr %meta, i64 80
   %3 = load i64, ptr %garbage_blob_bytes_.i, align 8
   %call21 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSolsEm(ptr noundef nonnull align 8 dereferenceable(8) %call19, i64 noundef %3)
   ret ptr %os

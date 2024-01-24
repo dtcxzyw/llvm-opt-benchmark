@@ -5,9 +5,6 @@ target triple = "x86_64-unknown-linux-gnu"
 
 %struct.built_in_curve = type { i32, [8 x i8], i8, ptr, ptr }
 %struct.cbs_st = type { ptr, i64 }
-%struct.ec_key_st = type { ptr, ptr, ptr, i32, i32, i32, ptr, %struct.crypto_ex_data_st }
-%struct.crypto_ex_data_st = type { ptr }
-%struct.curve_data = type { ptr, i8, i8, [0 x i8] }
 %struct.cbb_st = type { ptr, ptr, i64, i8, i8, i8 }
 
 @.str = private unnamed_addr constant [123 x i8] c"generated/home/dtcxzyw/WorkSpace/Projects/compilers/llvm-opt-benchmark/bench/libquic/libquic/boringssl/crypto/ec/ec_asn1.c\00", align 1
@@ -111,10 +108,10 @@ if.end39:                                         ; preds = %lor.lhs.false35
   %call40 = call ptr @CBS_data(ptr noundef nonnull %private_key) #7
   %call41 = call i64 @CBS_len(ptr noundef nonnull %private_key) #7
   %call42 = call ptr @BN_bin2bn(ptr noundef %call40, i64 noundef %call41, ptr noundef null) #7
-  %priv_key = getelementptr inbounds %struct.ec_key_st, ptr %call33, i64 0, i32 2
+  %priv_key = getelementptr inbounds i8, ptr %call33, i64 16
   store ptr %call42, ptr %priv_key, align 8
   %call43 = call ptr @EC_POINT_new(ptr noundef nonnull %group.addr.131) #7
-  %pub_key = getelementptr inbounds %struct.ec_key_st, ptr %call33, i64 0, i32 1
+  %pub_key = getelementptr inbounds i8, ptr %call33, i64 8
   store ptr %call43, ptr %pub_key, align 8
   %1 = load ptr, ptr %priv_key, align 8
   %cmp45 = icmp eq ptr %1, null
@@ -182,7 +179,7 @@ if.end87:                                         ; preds = %lor.lhs.false82
   %4 = load i8, ptr %call88, align 1
   %5 = and i8 %4, -2
   %and = zext i8 %5 to i32
-  %conv_form = getelementptr inbounds %struct.ec_key_st, ptr %call33, i64 0, i32 4
+  %conv_form = getelementptr inbounds i8, ptr %call33, i64 28
   store i32 %and, ptr %conv_form, align 4
   br label %if.end97
 
@@ -194,7 +191,7 @@ if.else90:                                        ; preds = %if.end56
   br i1 %tobool94.not, label %err, label %if.end96
 
 if.end96:                                         ; preds = %if.else90
-  %enc_flag = getelementptr inbounds %struct.ec_key_st, ptr %call33, i64 0, i32 3
+  %enc_flag = getelementptr inbounds i8, ptr %call33, i64 24
   %8 = load i32, ptr %enc_flag, align 8
   %or = or i32 %8, 2
   store i32 %or, ptr %enc_flag, align 8
@@ -411,14 +408,14 @@ parse_explicit_prime_curve.exit:                  ; preds = %if.end50.i
 
 for.body:                                         ; preds = %parse_explicit_prime_curve.exit, %for.inc
   %3 = phi i32 [ %18, %for.inc ], [ %2, %parse_explicit_prime_curve.exit ]
-  %idxprom160 = phi i64 [ %idxprom, %for.inc ], [ 0, %parse_explicit_prime_curve.exit ]
+  %arrayidx160 = phi ptr [ %arrayidx, %for.inc ], [ @OPENSSL_built_in_curves, %parse_explicit_prime_curve.exit ]
   %i.0159 = phi i32 [ %inc, %for.inc ], [ 0, %parse_explicit_prime_curve.exit ]
-  %data = getelementptr inbounds [0 x %struct.built_in_curve], ptr @OPENSSL_built_in_curves, i64 0, i64 %idxprom160, i32 3
+  %data = getelementptr inbounds i8, ptr %arrayidx160, i64 16
   %4 = load ptr, ptr %data, align 8
-  %param_len8 = getelementptr inbounds %struct.curve_data, ptr %4, i64 0, i32 1
+  %param_len8 = getelementptr inbounds i8, ptr %4, i64 8
   %5 = load i8, ptr %param_len8, align 8
   %conv = zext i8 %5 to i32
-  %data10 = getelementptr inbounds %struct.curve_data, ptr %4, i64 0, i32 3
+  %data10 = getelementptr inbounds i8, ptr %4, i64 10
   %conv11 = zext i8 %5 to i64
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %a_copy.i)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %a_copy.i, ptr noundef nonnull align 8 dereferenceable(16) %prime, i64 16, i1 false)
@@ -783,7 +780,7 @@ lor.lhs.false:                                    ; preds = %entry
   br i1 %cmp1, label %if.then, label %lor.lhs.false2
 
 lor.lhs.false2:                                   ; preds = %lor.lhs.false
-  %priv_key = getelementptr inbounds %struct.ec_key_st, ptr %key, i64 0, i32 2
+  %priv_key = getelementptr inbounds i8, ptr %key, i64 16
   %1 = load ptr, ptr %priv_key, align 8
   %cmp3 = icmp eq ptr %1, null
   br i1 %cmp3, label %if.then, label %if.end
@@ -852,7 +849,7 @@ if.end32:                                         ; preds = %lor.lhs.false27, %i
   br i1 %tobool34.not, label %land.lhs.true, label %if.end57
 
 land.lhs.true:                                    ; preds = %if.end32
-  %pub_key = getelementptr inbounds %struct.ec_key_st, ptr %key, i64 0, i32 1
+  %pub_key = getelementptr inbounds i8, ptr %key, i64 8
   %5 = load ptr, ptr %pub_key, align 8
   %cmp35.not = icmp eq ptr %5, null
   br i1 %cmp35.not, label %if.end57, label %if.then37
@@ -875,7 +872,7 @@ lor.lhs.false44:                                  ; preds = %lor.lhs.false41
 lor.lhs.false47:                                  ; preds = %lor.lhs.false44
   %6 = load ptr, ptr %key, align 8
   %7 = load ptr, ptr %pub_key, align 8
-  %conv_form = getelementptr inbounds %struct.ec_key_st, ptr %key, i64 0, i32 4
+  %conv_form = getelementptr inbounds i8, ptr %key, i64 28
   %8 = load i32, ptr %conv_form, align 4
   %call50 = call i32 @EC_POINT_point2cbb(ptr noundef nonnull %public_key, ptr noundef %6, ptr noundef %7, i32 noundef %8, ptr noundef null) #7
   %tobool51.not = icmp eq i32 %call50, 0
@@ -947,14 +944,14 @@ for.body:                                         ; preds = %for.cond
   br i1 %cmp6, label %if.then7, label %for.cond, !llvm.loop !12
 
 if.then7:                                         ; preds = %for.body, %for.body.preheader
-  %idxprom10.lcssa = phi i64 [ 0, %for.body.preheader ], [ %idxprom, %for.body ]
+  %arrayidx10.lcssa = phi ptr [ @OPENSSL_built_in_curves, %for.body.preheader ], [ %arrayidx, %for.body ]
   %call8 = call i32 @CBB_add_asn1(ptr noundef %cbb, ptr noundef nonnull %child, i8 noundef zeroext 6) #7
   %tobool.not = icmp eq i32 %call8, 0
   br i1 %tobool.not, label %return, label %land.lhs.true
 
 land.lhs.true:                                    ; preds = %if.then7
-  %oid = getelementptr inbounds [0 x %struct.built_in_curve], ptr @OPENSSL_built_in_curves, i64 0, i64 %idxprom10.lcssa, i32 1
-  %oid_len = getelementptr inbounds [0 x %struct.built_in_curve], ptr @OPENSSL_built_in_curves, i64 0, i64 %idxprom10.lcssa, i32 2
+  %oid = getelementptr inbounds i8, ptr %arrayidx10.lcssa, i64 4
+  %oid_len = getelementptr inbounds i8, ptr %arrayidx10.lcssa, i64 12
   %2 = load i8, ptr %oid_len, align 4
   %conv = zext i8 %2 to i64
   %call9 = call i32 @CBB_add_bytes(ptr noundef nonnull %child, ptr noundef nonnull %oid, i64 noundef %conv) #7
@@ -1001,10 +998,10 @@ if.then:                                          ; preds = %entry
 
 for.body:                                         ; preds = %for.cond.preheader, %for.inc
   %1 = phi i32 [ %3, %for.inc ], [ %0, %for.cond.preheader ]
-  %idxprom9 = phi i64 [ %idxprom, %for.inc ], [ 0, %for.cond.preheader ]
+  %arrayidx9 = phi ptr [ %arrayidx, %for.inc ], [ @OPENSSL_built_in_curves, %for.cond.preheader ]
   %i.08 = phi i32 [ %inc, %for.inc ], [ 0, %for.cond.preheader ]
   %call3 = call i64 @CBS_len(ptr noundef nonnull %named_curve) #7
-  %oid_len = getelementptr inbounds [0 x %struct.built_in_curve], ptr @OPENSSL_built_in_curves, i64 0, i64 %idxprom9, i32 2
+  %oid_len = getelementptr inbounds i8, ptr %arrayidx9, i64 12
   %2 = load i8, ptr %oid_len, align 4
   %conv = zext i8 %2 to i64
   %cmp4 = icmp eq i64 %call3, %conv
@@ -1012,7 +1009,7 @@ for.body:                                         ; preds = %for.cond.preheader,
 
 land.lhs.true:                                    ; preds = %for.body
   %call6 = call ptr @CBS_data(ptr noundef nonnull %named_curve) #7
-  %oid = getelementptr inbounds [0 x %struct.built_in_curve], ptr @OPENSSL_built_in_curves, i64 0, i64 %idxprom9, i32 1
+  %oid = getelementptr inbounds i8, ptr %arrayidx9, i64 4
   %bcmp = call i32 @bcmp(ptr %call6, ptr nonnull %oid, i64 %call3)
   %cmp10 = icmp eq i32 %bcmp, 0
   br i1 %cmp10, label %if.then12, label %for.inc
@@ -1245,7 +1242,7 @@ if.then:                                          ; preds = %lor.lhs.false2, %lo
   br label %return
 
 if.end:                                           ; preds = %lor.lhs.false2
-  %pub_key = getelementptr inbounds %struct.ec_key_st, ptr %0, i64 0, i32 1
+  %pub_key = getelementptr inbounds i8, ptr %0, i64 8
   %2 = load ptr, ptr %pub_key, align 8
   %cmp4 = icmp eq ptr %2, null
   br i1 %cmp4, label %land.lhs.true, label %if.end9
@@ -1281,7 +1278,7 @@ if.end14:                                         ; preds = %if.end9
   %7 = load i8, ptr %6, align 1
   %8 = and i8 %7, -2
   %and = zext i8 %8 to i32
-  %conv_form = getelementptr inbounds %struct.ec_key_st, ptr %0, i64 0, i32 4
+  %conv_form = getelementptr inbounds i8, ptr %0, i64 28
   store i32 %and, ptr %conv_form, align 4
   %9 = load ptr, ptr %inp, align 8
   %add.ptr = getelementptr inbounds i8, ptr %9, i64 %len
@@ -1305,9 +1302,9 @@ if.then:                                          ; preds = %entry
 
 if.end:                                           ; preds = %entry
   %0 = load ptr, ptr %key, align 8
-  %pub_key = getelementptr inbounds %struct.ec_key_st, ptr %key, i64 0, i32 1
+  %pub_key = getelementptr inbounds i8, ptr %key, i64 8
   %1 = load ptr, ptr %pub_key, align 8
-  %conv_form = getelementptr inbounds %struct.ec_key_st, ptr %key, i64 0, i32 4
+  %conv_form = getelementptr inbounds i8, ptr %key, i64 28
   %2 = load i32, ptr %conv_form, align 4
   %call = tail call i64 @EC_POINT_point2oct(ptr noundef %0, ptr noundef %1, i32 noundef %2, ptr noundef null, i64 noundef 0, ptr noundef null) #7
   %cmp1 = icmp eq ptr %outp, null

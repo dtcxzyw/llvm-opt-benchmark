@@ -3,14 +3,10 @@ source_filename = "bench/hyperscan/original/ComponentWordBoundary.cpp.ll"
 target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:128-n8:16:32:64-S128"
 target triple = "x86_64-unknown-linux-gnu"
 
-%"class.ue2::ComponentWordBoundary" = type <{ %"class.ue2::Component", i32, i32, i8, i8, i8, [5 x i8] }>
-%"class.ue2::Component" = type { ptr, i32, i32 }
-%"struct.ue2::ParseMode" = type { i8, i8, i8, i8, i8, i8 }
 %"class.std::vector" = type { %"struct.std::_Vector_base" }
 %"struct.std::_Vector_base" = type { %"struct.std::_Vector_base<ue2::PositionInfo, std::allocator<ue2::PositionInfo>>::_Vector_impl" }
 %"struct.std::_Vector_base<ue2::PositionInfo, std::allocator<ue2::PositionInfo>>::_Vector_impl" = type { %"struct.std::_Vector_base<ue2::PositionInfo, std::allocator<ue2::PositionInfo>>::_Vector_impl_data" }
 %"struct.std::_Vector_base<ue2::PositionInfo, std::allocator<ue2::PositionInfo>>::_Vector_impl_data" = type { ptr, ptr, ptr }
-%"class.ue2::PositionInfo" = type { i32, i32 }
 
 $_ZN3ue221ComponentWordBoundary6acceptERNS_16ComponentVisitorE = comdat any
 
@@ -32,19 +28,19 @@ entry:
   %frombool = zext i1 %neg to i8
   tail call void @_ZN3ue29ComponentC2Ev(ptr noundef nonnull align 8 dereferenceable(16) %this)
   store ptr getelementptr inbounds ({ [17 x ptr] }, ptr @_ZTVN3ue221ComponentWordBoundaryE, i64 0, inrange i32 0, i64 2), ptr %this, align 8
-  %loc = getelementptr inbounds %"class.ue2::ComponentWordBoundary", ptr %this, i64 0, i32 1
+  %loc = getelementptr inbounds i8, ptr %this, i64 16
   store i32 %loc_in, ptr %loc, align 8
-  %position = getelementptr inbounds %"class.ue2::ComponentWordBoundary", ptr %this, i64 0, i32 2
+  %position = getelementptr inbounds i8, ptr %this, i64 20
   %0 = load i32, ptr @_ZN3ue218GlushkovBuildState17POS_UNINITIALIZEDE, align 4
   store i32 %0, ptr %position, align 4
-  %negated = getelementptr inbounds %"class.ue2::ComponentWordBoundary", ptr %this, i64 0, i32 3
+  %negated = getelementptr inbounds i8, ptr %this, i64 24
   store i8 %frombool, ptr %negated, align 8
-  %ucp = getelementptr inbounds %"class.ue2::ComponentWordBoundary", ptr %this, i64 0, i32 4
-  %ucp3 = getelementptr inbounds %"struct.ue2::ParseMode", ptr %mode, i64 0, i32 4
+  %ucp = getelementptr inbounds i8, ptr %this, i64 25
+  %ucp3 = getelementptr inbounds i8, ptr %mode, i64 4
   %1 = load i8, ptr %ucp3, align 1
   %2 = and i8 %1, 1
   store i8 %2, ptr %ucp, align 1
-  %prefilter = getelementptr inbounds %"class.ue2::ComponentWordBoundary", ptr %this, i64 0, i32 5
+  %prefilter = getelementptr inbounds i8, ptr %this, i64 26
   store i8 0, ptr %prefilter, align 2
   ret void
 }
@@ -76,23 +72,23 @@ declare void @_ZdlPv(ptr noundef) local_unnamed_addr #4
 define hidden noalias noundef nonnull ptr @_ZNK3ue221ComponentWordBoundary5cloneEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(27) %this) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 invoke.cont:
   %call = tail call noalias noundef nonnull dereferenceable(32) ptr @_Znwm(i64 noundef 32) #10
-  %pos_begin.i.i = getelementptr inbounds %"class.ue2::Component", ptr %call, i64 0, i32 1
-  %pos_begin2.i.i = getelementptr inbounds %"class.ue2::Component", ptr %this, i64 0, i32 1
+  %pos_begin.i.i = getelementptr inbounds i8, ptr %call, i64 8
+  %pos_begin2.i.i = getelementptr inbounds i8, ptr %this, i64 8
   store ptr getelementptr inbounds ({ [17 x ptr] }, ptr @_ZTVN3ue221ComponentWordBoundaryE, i64 0, inrange i32 0, i64 2), ptr %call, align 8
   %0 = load <4 x i32>, ptr %pos_begin2.i.i, align 8
   store <4 x i32> %0, ptr %pos_begin.i.i, align 8
-  %negated.i = getelementptr inbounds %"class.ue2::ComponentWordBoundary", ptr %call, i64 0, i32 3
-  %negated4.i = getelementptr inbounds %"class.ue2::ComponentWordBoundary", ptr %this, i64 0, i32 3
+  %negated.i = getelementptr inbounds i8, ptr %call, i64 24
+  %negated4.i = getelementptr inbounds i8, ptr %this, i64 24
   %1 = load i8, ptr %negated4.i, align 8
   %2 = and i8 %1, 1
   store i8 %2, ptr %negated.i, align 8
-  %ucp.i = getelementptr inbounds %"class.ue2::ComponentWordBoundary", ptr %call, i64 0, i32 4
-  %ucp5.i = getelementptr inbounds %"class.ue2::ComponentWordBoundary", ptr %this, i64 0, i32 4
+  %ucp.i = getelementptr inbounds i8, ptr %call, i64 25
+  %ucp5.i = getelementptr inbounds i8, ptr %this, i64 25
   %3 = load i8, ptr %ucp5.i, align 1
   %4 = and i8 %3, 1
   store i8 %4, ptr %ucp.i, align 1
-  %prefilter.i = getelementptr inbounds %"class.ue2::ComponentWordBoundary", ptr %call, i64 0, i32 5
-  %prefilter8.i = getelementptr inbounds %"class.ue2::ComponentWordBoundary", ptr %this, i64 0, i32 5
+  %prefilter.i = getelementptr inbounds i8, ptr %call, i64 26
+  %prefilter8.i = getelementptr inbounds i8, ptr %this, i64 26
   %5 = load i8, ptr %prefilter8.i, align 2
   %6 = and i8 %5, 1
   store i8 %6, ptr %prefilter.i, align 2
@@ -108,14 +104,14 @@ declare i32 @__gxx_personality_v0(...)
 define hidden void @_ZNK3ue221ComponentWordBoundary5firstEv(ptr noalias nocapture writeonly sret(%"class.std::vector") align 8 %agg.result, ptr nocapture noundef nonnull readonly align 8 dereferenceable(27) %this) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 cond.true.i.i.i.i:
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %agg.result, i8 0, i64 24, i1 false)
-  %position = getelementptr inbounds %"class.ue2::ComponentWordBoundary", ptr %this, i64 0, i32 2
+  %position = getelementptr inbounds i8, ptr %this, i64 20
   %0 = load i32, ptr %position, align 4
-  %_M_finish.i.i = getelementptr inbounds %"struct.std::_Vector_base<ue2::PositionInfo, std::allocator<ue2::PositionInfo>>::_Vector_impl_data", ptr %agg.result, i64 0, i32 1
-  %_M_end_of_storage.i.i = getelementptr inbounds %"struct.std::_Vector_base<ue2::PositionInfo, std::allocator<ue2::PositionInfo>>::_Vector_impl_data", ptr %agg.result, i64 0, i32 2
+  %_M_finish.i.i = getelementptr inbounds i8, ptr %agg.result, i64 8
+  %_M_end_of_storage.i.i = getelementptr inbounds i8, ptr %agg.result, i64 16
   %call5.i.i.i.i.i.i1 = tail call noalias noundef nonnull dereferenceable(8) ptr @_Znwm(i64 noundef 8) #10
   %ref.tmp.sroa.0.0.insert.ext3 = zext i32 %0 to i64
   store i64 %ref.tmp.sroa.0.0.insert.ext3, ptr %call5.i.i.i.i.i.i1, align 4
-  %incdec.ptr.i.i.i = getelementptr inbounds %"class.ue2::PositionInfo", ptr %call5.i.i.i.i.i.i1, i64 1
+  %incdec.ptr.i.i.i = getelementptr inbounds i8, ptr %call5.i.i.i.i.i.i1, i64 8
   store ptr %call5.i.i.i.i.i.i1, ptr %agg.result, align 8
   store ptr %incdec.ptr.i.i.i, ptr %_M_finish.i.i, align 8
   store ptr %incdec.ptr.i.i.i, ptr %_M_end_of_storage.i.i, align 8
@@ -126,7 +122,7 @@ cond.true.i.i.i.i:
 define hidden void @_ZNK3ue221ComponentWordBoundary4lastEv(ptr noalias sret(%"class.std::vector") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(27) %this) unnamed_addr #0 align 2 {
 entry:
   %vtable = load ptr, ptr %this, align 8
-  %vfn = getelementptr inbounds ptr, ptr %vtable, i64 5
+  %vfn = getelementptr inbounds i8, ptr %vtable, i64 40
   %0 = load ptr, ptr %vfn, align 8
   tail call void %0(ptr sret(%"class.std::vector") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(27) %this)
   ret void
@@ -148,21 +144,21 @@ entry:
 define hidden void @_ZN3ue221ComponentWordBoundary13notePositionsERNS_18GlushkovBuildStateE(ptr noundef nonnull align 8 dereferenceable(27) %this, ptr noundef nonnull align 8 dereferenceable(8) %bs) unnamed_addr #0 align 2 {
 entry:
   %vtable = load ptr, ptr %bs, align 8
-  %vfn = getelementptr inbounds ptr, ptr %vtable, i64 2
+  %vfn = getelementptr inbounds i8, ptr %vtable, i64 16
   %0 = load ptr, ptr %vfn, align 8
   %call = tail call noundef nonnull align 8 dereferenceable(8) ptr %0(ptr noundef nonnull align 8 dereferenceable(8) %bs)
   %vtable2 = load ptr, ptr %call, align 8
-  %vfn3 = getelementptr inbounds ptr, ptr %vtable2, i64 2
+  %vfn3 = getelementptr inbounds i8, ptr %vtable2, i64 16
   %1 = load ptr, ptr %vfn3, align 8
   %call4 = tail call noundef i32 %1(ptr noundef nonnull align 8 dereferenceable(8) %call, i64 noundef 1)
-  %position = getelementptr inbounds %"class.ue2::ComponentWordBoundary", ptr %this, i64 0, i32 2
+  %position = getelementptr inbounds i8, ptr %this, i64 20
   store i32 %call4, ptr %position, align 4
-  %negated14 = getelementptr inbounds %"class.ue2::ComponentWordBoundary", ptr %this, i64 0, i32 3
+  %negated14 = getelementptr inbounds i8, ptr %this, i64 24
   %2 = load <2 x i8>, ptr %negated14, align 8
   %3 = and <2 x i8> %2, <i8 1, i8 1>
   %4 = icmp eq <2 x i8> %3, zeroinitializer
   %vtable22 = load ptr, ptr %call, align 8
-  %vfn23 = getelementptr inbounds ptr, ptr %vtable22, i64 10
+  %vfn23 = getelementptr inbounds i8, ptr %vtable22, i64 80
   %5 = load ptr, ptr %vfn23, align 8
   %6 = extractelement <2 x i1> %4, i64 0
   %. = select i1 %6, i32 1536, i32 6144
@@ -188,11 +184,11 @@ entry:
 define linkonce_odr hidden noundef ptr @_ZN3ue221ComponentWordBoundary6acceptERNS_16ComponentVisitorE(ptr noundef nonnull align 8 dereferenceable(27) %this, ptr noundef nonnull align 8 dereferenceable(8) %v) unnamed_addr #0 comdat align 2 {
 entry:
   %vtable = load ptr, ptr %v, align 8
-  %vfn = getelementptr inbounds ptr, ptr %vtable, i64 14
+  %vfn = getelementptr inbounds i8, ptr %vtable, i64 112
   %0 = load ptr, ptr %vfn, align 8
   %call = tail call noundef ptr %0(ptr noundef nonnull align 8 dereferenceable(8) %v, ptr noundef nonnull %this)
   %vtable2 = load ptr, ptr %v, align 8
-  %vfn3 = getelementptr inbounds ptr, ptr %vtable2, i64 28
+  %vfn3 = getelementptr inbounds i8, ptr %vtable2, i64 224
   %1 = load ptr, ptr %vfn3, align 8
   tail call void %1(ptr noundef nonnull align 8 dereferenceable(8) %v, ptr noundef nonnull %this)
   ret ptr %call
@@ -202,15 +198,15 @@ entry:
 define linkonce_odr hidden void @_ZNK3ue221ComponentWordBoundary6acceptERNS_21ConstComponentVisitorE(ptr noundef nonnull align 8 dereferenceable(27) %this, ptr noundef nonnull align 8 dereferenceable(8) %v) unnamed_addr #0 comdat align 2 {
 entry:
   %vtable = load ptr, ptr %v, align 8
-  %vfn = getelementptr inbounds ptr, ptr %vtable, i64 14
+  %vfn = getelementptr inbounds i8, ptr %vtable, i64 112
   %0 = load ptr, ptr %vfn, align 8
   tail call void %0(ptr noundef nonnull align 8 dereferenceable(8) %v, ptr noundef nonnull align 8 dereferenceable(27) %this)
   %vtable2 = load ptr, ptr %v, align 8
-  %vfn3 = getelementptr inbounds ptr, ptr %vtable2, i64 28
+  %vfn3 = getelementptr inbounds i8, ptr %vtable2, i64 224
   %1 = load ptr, ptr %vfn3, align 8
   tail call void %1(ptr noundef nonnull align 8 dereferenceable(8) %v, ptr noundef nonnull align 8 dereferenceable(27) %this)
   %vtable4 = load ptr, ptr %v, align 8
-  %vfn5 = getelementptr inbounds ptr, ptr %vtable4, i64 42
+  %vfn5 = getelementptr inbounds i8, ptr %vtable4, i64 336
   %2 = load ptr, ptr %vfn5, align 8
   tail call void %2(ptr noundef nonnull align 8 dereferenceable(8) %v, ptr noundef nonnull align 8 dereferenceable(27) %this)
   ret void

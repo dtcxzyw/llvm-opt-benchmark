@@ -215,7 +215,7 @@ for.cond.preheader.i:                             ; preds = %if.then75, %sw.bb49
 for.body.i:                                       ; preds = %for.cond.preheader.i, %for.body.i
   %w.017.i = phi ptr [ %incdec.ptr7.i, %for.body.i ], [ %aes, %for.cond.preheader.i ]
   %len.addr.016.i = phi i32 [ %sub8.i, %for.body.i ], [ 848, %for.cond.preheader.i ]
-  %incdec.ptr7.i = getelementptr inbounds i64, ptr %w.017.i, i64 1
+  %incdec.ptr7.i = getelementptr inbounds i8, ptr %w.017.i, i64 8
   store volatile i64 0, ptr %w.017.i, align 8
   %sub8.i = add nsw i32 %len.addr.016.i, -8
   %cmp5.i.not = icmp eq i32 %sub8.i, 0
@@ -228,7 +228,7 @@ for.cond.preheader.i56:                           ; preds = %for.body.i, %if.end
 for.body.i69:                                     ; preds = %for.cond.preheader.i56, %for.body.i69
   %w.017.i70 = phi ptr [ %incdec.ptr7.i72, %for.body.i69 ], [ %key, %for.cond.preheader.i56 ]
   %len.addr.016.i71 = phi i32 [ %sub8.i73, %for.body.i69 ], [ 64, %for.cond.preheader.i56 ]
-  %incdec.ptr7.i72 = getelementptr inbounds i64, ptr %w.017.i70, i64 1
+  %incdec.ptr7.i72 = getelementptr inbounds i8, ptr %w.017.i70, i64 8
   store volatile i64 0, ptr %w.017.i70, align 8
   %sub8.i73 = add nsw i32 %len.addr.016.i71, -8
   %cmp5.i74.not = icmp eq i32 %sub8.i73, 0

@@ -25,7 +25,7 @@ target triple = "x86_64-unknown-linux-gnu"
 @qemu_loglevel = external local_unnamed_addr global i32, align 4
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(readwrite, argmem: none, inaccessiblemem: none) uwtable
-define dso_local i32 @qemu_add_balloon_handler(ptr noundef %event_func, ptr noundef %stat_func, ptr noundef %opaque) local_unnamed_addr #0 {
+define dso_local noundef i32 @qemu_add_balloon_handler(ptr noundef %event_func, ptr noundef %stat_func, ptr noundef %opaque) local_unnamed_addr #0 {
 entry:
   %0 = load ptr, ptr @balloon_event_fn, align 8
   %tobool = icmp ne ptr %0, null
@@ -66,7 +66,7 @@ return:                                           ; preds = %entry, %if.end
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local ptr @qmp_query_balloon(ptr noundef %errp) local_unnamed_addr #1 {
+define dso_local noundef ptr @qmp_query_balloon(ptr noundef %errp) local_unnamed_addr #1 {
 entry:
   %0 = load i8, ptr @kvm_allowed, align 1
   %1 = and i8 %0, 1
@@ -165,7 +165,7 @@ if.then8.i.i:                                     ; preds = %if.then.i.i
   %call9.i.i = call i32 @gettimeofday(ptr noundef nonnull %_now.i.i, ptr noundef null) #6
   %call10.i.i = tail call i32 @qemu_get_thread_id() #6
   %9 = load i64, ptr %_now.i.i, align 8
-  %tv_usec.i.i = getelementptr inbounds %struct.timeval, ptr %_now.i.i, i64 0, i32 1
+  %tv_usec.i.i = getelementptr inbounds i8, ptr %_now.i.i, i64 8
   %10 = load i64, ptr %tv_usec.i.i, align 8
   tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.6, i32 noundef %call10.i.i, i64 noundef %9, i64 noundef %10, ptr noundef %3, i64 noundef %value) #6
   br label %trace_balloon_event.exit

@@ -3,9 +3,6 @@ source_filename = "bench/luajit/original/lj_strscan_dyn.ll"
 target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:128-n8:16:32:64-S128"
 target triple = "x86_64-unknown-linux-gnu"
 
-%struct.GCstr = type { %struct.GCRef, i8, i8, i8, i8, i32, i32, i32 }
-%struct.GCRef = type { i64 }
-
 @lj_char_bits = external hidden local_unnamed_addr constant [257 x i8], align 16
 
 ; Function Attrs: nofree nounwind uwtable
@@ -687,7 +684,7 @@ return:                                           ; preds = %while.body, %if.end
 }
 
 ; Function Attrs: nofree nounwind uwtable
-define internal fastcc i32 @strscan_hex(ptr nocapture noundef readonly %p, ptr nocapture noundef writeonly %o, i32 noundef %fmt, i32 noundef %opt, i32 noundef %ex2, i32 noundef %neg, i32 noundef %dig) unnamed_addr #0 {
+define internal fastcc noundef i32 @strscan_hex(ptr nocapture noundef readonly %p, ptr nocapture noundef writeonly %o, i32 noundef %fmt, i32 noundef %opt, i32 noundef %ex2, i32 noundef %neg, i32 noundef %dig) unnamed_addr #0 {
 entry:
   %cmp = icmp ugt i32 %dig, 16
   %tobool.not44 = icmp eq i32 %dig, 0
@@ -900,7 +897,7 @@ return:                                           ; preds = %sw.bb76, %sw.bb61, 
 }
 
 ; Function Attrs: nofree nounwind uwtable
-define internal fastcc i32 @strscan_bin(ptr nocapture noundef readonly %p, ptr nocapture noundef writeonly %o, i32 noundef %fmt, i32 noundef %opt, i32 noundef %ex2, i32 noundef %neg, i32 noundef %dig) unnamed_addr #0 {
+define internal fastcc noundef i32 @strscan_bin(ptr nocapture noundef readonly %p, ptr nocapture noundef writeonly %o, i32 noundef %fmt, i32 noundef %opt, i32 noundef %ex2, i32 noundef %neg, i32 noundef %dig) unnamed_addr #0 {
 entry:
   %tobool = icmp ne i32 %ex2, 0
   %cmp = icmp ugt i32 %dig, 64
@@ -1009,7 +1006,7 @@ return:                                           ; preds = %for.body, %sw.bb25,
 }
 
 ; Function Attrs: nofree nounwind uwtable
-define internal fastcc i32 @strscan_dec(ptr nocapture noundef readonly %p, ptr nocapture noundef writeonly %o, i32 noundef %fmt, i32 noundef %opt, i32 noundef %ex10, i32 noundef %neg, i32 noundef %dig) unnamed_addr #0 {
+define internal fastcc noundef i32 @strscan_dec(ptr nocapture noundef readonly %p, ptr nocapture noundef writeonly %o, i32 noundef %fmt, i32 noundef %opt, i32 noundef %ex10, i32 noundef %neg, i32 noundef %dig) unnamed_addr #0 {
 entry:
   %xi = alloca [512 x i8], align 16
   %tobool.not = icmp eq i32 %dig, 0
@@ -1443,7 +1440,7 @@ if.else269:                                       ; preds = %if.then256
   br i1 %cmp270, label %if.then272, label %if.end286
 
 if.then272:                                       ; preds = %if.else269
-  %sub278 = add i32 %lo.1.lcssa, 510
+  %sub278 = add nuw nsw i32 %lo.1.lcssa, 510
   %and279 = and i32 %sub278, 511
   %idxprom280 = zext nneg i32 %and279 to i64
   %arrayidx281 = getelementptr inbounds [512 x i8], ptr %xi, i64 0, i64 %idxprom280
@@ -1703,8 +1700,8 @@ return:                                           ; preds = %if.else186, %if.the
 ; Function Attrs: nofree nounwind uwtable
 define hidden i32 @lj_strscan_num(ptr noundef %str, ptr nocapture noundef %o) local_unnamed_addr #0 {
 entry:
-  %add.ptr = getelementptr inbounds %struct.GCstr, ptr %str, i64 1
-  %len = getelementptr inbounds %struct.GCstr, ptr %str, i64 0, i32 7
+  %add.ptr = getelementptr inbounds i8, ptr %str, i64 24
+  %len = getelementptr inbounds i8, ptr %str, i64 20
   %0 = load i32, ptr %len, align 4
   %call = tail call i32 @lj_strscan_scan(ptr noundef nonnull %add.ptr, i32 noundef %0, ptr noundef %o, i32 noundef 2)
   %cmp = icmp ne i32 %call, 0

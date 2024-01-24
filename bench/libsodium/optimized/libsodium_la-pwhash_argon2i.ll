@@ -311,25 +311,25 @@ if.end:                                           ; preds = %entry
   br i1 %cmp6, label %return, label %if.end8
 
 if.end8:                                          ; preds = %if.end
-  %salt = getelementptr inbounds %struct.Argon2_Context, ptr %ctx, i64 0, i32 4
+  %salt = getelementptr inbounds i8, ptr %ctx, i64 32
   store ptr %call5, ptr %salt, align 8
-  %pwd = getelementptr inbounds %struct.Argon2_Context, ptr %ctx, i64 0, i32 2
+  %pwd = getelementptr inbounds i8, ptr %ctx, i64 16
   store ptr %call5, ptr %pwd, align 8
   store ptr %call5, ptr %ctx, align 8
   %conv = trunc i64 %call to i32
-  %saltlen = getelementptr inbounds %struct.Argon2_Context, ptr %ctx, i64 0, i32 5
+  %saltlen = getelementptr inbounds i8, ptr %ctx, i64 40
   store i32 %conv, ptr %saltlen, align 8
-  %pwdlen = getelementptr inbounds %struct.Argon2_Context, ptr %ctx, i64 0, i32 3
+  %pwdlen = getelementptr inbounds i8, ptr %ctx, i64 24
   store i32 %conv, ptr %pwdlen, align 8
-  %outlen = getelementptr inbounds %struct.Argon2_Context, ptr %ctx, i64 0, i32 1
+  %outlen = getelementptr inbounds i8, ptr %ctx, i64 8
   store i32 %conv, ptr %outlen, align 8
-  %secret = getelementptr inbounds %struct.Argon2_Context, ptr %ctx, i64 0, i32 6
+  %secret = getelementptr inbounds i8, ptr %ctx, i64 48
   store ptr null, ptr %secret, align 8
-  %ad = getelementptr inbounds %struct.Argon2_Context, ptr %ctx, i64 0, i32 8
+  %ad = getelementptr inbounds i8, ptr %ctx, i64 64
   store ptr null, ptr %ad, align 8
-  %secretlen = getelementptr inbounds %struct.Argon2_Context, ptr %ctx, i64 0, i32 7
+  %secretlen = getelementptr inbounds i8, ptr %ctx, i64 56
   store i32 0, ptr %secretlen, align 8
-  %adlen = getelementptr inbounds %struct.Argon2_Context, ptr %ctx, i64 0, i32 9
+  %adlen = getelementptr inbounds i8, ptr %ctx, i64 72
   store i32 0, ptr %adlen, align 8
   %call9 = call i32 @_sodium_argon2_decode_string(ptr noundef nonnull %ctx, ptr noundef %str, i32 noundef %type) #9
   %cmp10.not = icmp eq i32 %call9, 0
@@ -341,11 +341,11 @@ if.then12:                                        ; preds = %if.end8
   br label %if.end24
 
 if.else:                                          ; preds = %if.end8
-  %t_cost = getelementptr inbounds %struct.Argon2_Context, ptr %ctx, i64 0, i32 10
+  %t_cost = getelementptr inbounds i8, ptr %ctx, i64 76
   %1 = load i32, ptr %t_cost, align 4
   %conv14 = trunc i64 %opslimit to i32
   %cmp15.not = icmp ne i32 %1, %conv14
-  %m_cost = getelementptr inbounds %struct.Argon2_Context, ptr %ctx, i64 0, i32 11
+  %m_cost = getelementptr inbounds i8, ptr %ctx, i64 80
   %2 = load i32, ptr %m_cost, align 8
   %conv18 = trunc i64 %div9 to i32
   %cmp19.not = icmp ne i32 %2, %conv18

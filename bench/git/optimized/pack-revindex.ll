@@ -4,20 +4,9 @@ target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:
 target triple = "x86_64-unknown-linux-gnu"
 
 %struct.strbuf = type { i64, i64, ptr }
-%struct.packed_git = type { %struct.hashmap_entry, ptr, %struct.list_head, ptr, i64, ptr, i64, i32, i64, %struct.oidset, i32, i64, i32, i32, i8, [32 x i8], ptr, ptr, ptr, i64, ptr, i64, [0 x i8] }
-%struct.hashmap_entry = type { ptr, i32 }
-%struct.list_head = type { ptr, ptr }
-%struct.oidset = type { %struct.kh_oid_set }
-%struct.kh_oid_set = type { i32, i32, i32, i32, ptr, ptr, ptr }
 %struct.stat = type { i64, i64, i64, i32, i32, i32, i32, i64, i64, i64, i64, %struct.timespec, %struct.timespec, %struct.timespec, [3 x i64] }
 %struct.timespec = type { i64, i64 }
-%struct.repository = type { ptr, ptr, ptr, ptr, ptr, %struct.repo_path_cache, ptr, ptr, ptr, ptr, %struct.repo_settings, ptr, ptr, ptr, ptr, ptr, i32, i32, i32, ptr, ptr, i32, i8 }
-%struct.repo_path_cache = type { ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr }
-%struct.repo_settings = type { i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, ptr, i32, i32, i32, i32, i32, i32 }
-%struct.git_hash_algo = type { ptr, i32, i64, i64, i64, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr }
-%struct.revindex_header = type { i32, i32, i32 }
 %struct.revindex_entry = type { i64, i32 }
-%struct.multi_pack_index = type { ptr, ptr, i64, ptr, ptr, i64, i32, i8, i8, i8, i32, i32, i32, i32, ptr, i64, ptr, i64, ptr, ptr, ptr, ptr, i64, ptr, i64, ptr, ptr, [0 x i8] }
 %struct.midx_pack_key = type { i32, i64, i32, ptr }
 
 @.str = private unnamed_addr constant [17 x i8] c"invalid checksum\00", align 1
@@ -63,7 +52,7 @@ entry:
   br i1 %tobool.not, label %if.end, label %return
 
 if.end:                                           ; preds = %entry
-  %pack_name.i = getelementptr inbounds %struct.packed_git, ptr %p, i64 0, i32 22
+  %pack_name.i = getelementptr inbounds i8, ptr %p, i64 240
   %call.i.i = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %pack_name.i) #11
   %cmp.i.i.i = icmp ult i64 %call.i.i, 5
   br i1 %cmp.i.i.i, label %if.then.i, label %lor.lhs.false.i.i.i
@@ -82,10 +71,10 @@ if.then.i:                                        ; preds = %lor.lhs.false.i.i.i
 pack_revindex_filename.exit:                      ; preds = %lor.lhs.false.i.i.i
   %conv.i = trunc i64 %sub.i.i.i to i32
   %call3.i = tail call ptr (ptr, ...) @xstrfmt(ptr noundef nonnull @.str.17, i32 noundef %conv.i, ptr noundef nonnull %pack_name.i) #10
-  %num_objects = getelementptr inbounds %struct.packed_git, ptr %p, i64 0, i32 7
+  %num_objects = getelementptr inbounds i8, ptr %p, i64 72
   %0 = load i32, ptr %num_objects, align 8
-  %revindex_map = getelementptr inbounds %struct.packed_git, ptr %p, i64 0, i32 18
-  %revindex_size = getelementptr inbounds %struct.packed_git, ptr %p, i64 0, i32 19
+  %revindex_map = getelementptr inbounds i8, ptr %p, i64 208
+  %revindex_size = getelementptr inbounds i8, ptr %p, i64 216
   %call2 = tail call fastcc i32 @load_revindex_from_disk(ptr noundef %call3.i, i32 noundef %0, ptr noundef nonnull %revindex_map, ptr noundef nonnull %revindex_size), !range !5
   %tobool3.not = icmp eq i32 %call2, 0
   br i1 %tobool3.not, label %if.end5, label %cleanup
@@ -93,7 +82,7 @@ pack_revindex_filename.exit:                      ; preds = %lor.lhs.false.i.i.i
 if.end5:                                          ; preds = %pack_revindex_filename.exit
   %1 = load ptr, ptr %revindex_map, align 8
   %add.ptr = getelementptr inbounds i8, ptr %1, i64 12
-  %revindex_data = getelementptr inbounds %struct.packed_git, ptr %p, i64 0, i32 17
+  %revindex_data = getelementptr inbounds i8, ptr %p, i64 200
   store ptr %add.ptr, ptr %revindex_data, align 8
   br label %cleanup
 
@@ -145,7 +134,7 @@ _.exit:                                           ; preds = %if.then6, %if.end3.
   br label %if.then72
 
 if.end10:                                         ; preds = %if.end3
-  %st_size = getelementptr inbounds %struct.stat, ptr %st, i64 0, i32 8
+  %st_size = getelementptr inbounds i8, ptr %st, i64 48
   %1 = load i64, ptr %st_size, align 8
   %cmp.i = icmp slt i64 %1, 0
   br i1 %cmp.i, label %if.then.i, label %xsize_t.exit
@@ -156,9 +145,9 @@ if.then.i:                                        ; preds = %if.end10
 
 xsize_t.exit:                                     ; preds = %if.end10
   %2 = load ptr, ptr @the_repository, align 8
-  %hash_algo = getelementptr inbounds %struct.repository, ptr %2, i64 0, i32 15
+  %hash_algo = getelementptr inbounds i8, ptr %2, i64 256
   %3 = load ptr, ptr %hash_algo, align 8
-  %rawsz = getelementptr inbounds %struct.git_hash_algo, ptr %3, i64 0, i32 2
+  %rawsz = getelementptr inbounds i8, ptr %3, i64 16
   %4 = load i64, ptr %rawsz, align 8
   %mul = shl i64 %4, 1
   %add = add i64 %mul, 12
@@ -222,7 +211,7 @@ _.exit39:                                         ; preds = %if.then34, %if.end3
   br label %if.then66
 
 if.end38:                                         ; preds = %if.end29
-  %version = getelementptr inbounds %struct.revindex_header, ptr %call30, i64 0, i32 1
+  %version = getelementptr inbounds i8, ptr %call30, i64 4
   %10 = load i32, ptr %version, align 4
   %11 = tail call i32 asm "bswap $0", "=r,0,~{dirflag},~{fpsr},~{flags}"(i32 %10) #13, !srcloc !6
   %cmp40.not = icmp eq i32 %11, 1
@@ -246,7 +235,7 @@ if.else.i50:                                      ; preds = %if.end3.i46, %if.th
   br label %if.then66
 
 if.end48:                                         ; preds = %if.end38
-  %hash_id = getelementptr inbounds %struct.revindex_header, ptr %call30, i64 0, i32 2
+  %hash_id = getelementptr inbounds i8, ptr %call30, i64 8
   %15 = load i32, ptr %hash_id, align 4
   %16 = tail call i32 asm "bswap $0", "=r,0,~{dirflag},~{fpsr},~{flags}"(i32 %15) #13, !srcloc !6
   %cmp50 = icmp eq i32 %16, 1
@@ -299,20 +288,20 @@ declare void @free(ptr allocptr nocapture noundef) local_unnamed_addr #2
 ; Function Attrs: nounwind uwtable
 define dso_local noundef i32 @load_pack_revindex(ptr noundef %r, ptr noundef %p) local_unnamed_addr #0 {
 entry:
-  %revindex = getelementptr inbounds %struct.packed_git, ptr %p, i64 0, i32 16
+  %revindex = getelementptr inbounds i8, ptr %p, i64 192
   %0 = load ptr, ptr %revindex, align 8
   %tobool.not = icmp eq ptr %0, null
   br i1 %tobool.not, label %lor.lhs.false, label %return
 
 lor.lhs.false:                                    ; preds = %entry
-  %revindex_data = getelementptr inbounds %struct.packed_git, ptr %p, i64 0, i32 17
+  %revindex_data = getelementptr inbounds i8, ptr %p, i64 200
   %1 = load ptr, ptr %revindex_data, align 8
   %tobool1.not = icmp eq ptr %1, null
   br i1 %tobool1.not, label %if.end, label %return
 
 if.end:                                           ; preds = %lor.lhs.false
   tail call void @prepare_repo_settings(ptr noundef %r) #10
-  %pack_read_reverse_index = getelementptr inbounds %struct.repository, ptr %r, i64 0, i32 10, i32 8
+  %pack_read_reverse_index = getelementptr inbounds i8, ptr %r, i64 176
   %2 = load i32, ptr %pack_read_reverse_index, align 8
   %tobool2.not = icmp eq i32 %2, 0
   br i1 %tobool2.not, label %if.else, label %land.lhs.true
@@ -352,23 +341,23 @@ if.end:                                           ; preds = %entry
   br i1 %tobool2.not, label %if.end4, label %return
 
 if.end4:                                          ; preds = %if.end
-  %num_objects.i = getelementptr inbounds %struct.packed_git, ptr %p, i64 0, i32 7
+  %num_objects.i = getelementptr inbounds i8, ptr %p, i64 72
   %0 = load i32, ptr %num_objects.i, align 8
-  %index_data.i = getelementptr inbounds %struct.packed_git, ptr %p, i64 0, i32 5
+  %index_data.i = getelementptr inbounds i8, ptr %p, i64 56
   %1 = load ptr, ptr %index_data.i, align 8
   %2 = load ptr, ptr @the_repository, align 8
-  %hash_algo.i = getelementptr inbounds %struct.repository, ptr %2, i64 0, i32 15
+  %hash_algo.i = getelementptr inbounds i8, ptr %2, i64 256
   %3 = load ptr, ptr %hash_algo.i, align 8
-  %rawsz.i = getelementptr inbounds %struct.git_hash_algo, ptr %3, i64 0, i32 2
+  %rawsz.i = getelementptr inbounds i8, ptr %3, i64 16
   %4 = load i64, ptr %rawsz.i, align 8
   %add.i = add i32 %0, 1
   %conv1.i = zext i32 %add.i to i64
   %mul.i.i = shl nuw nsw i64 %conv1.i, 4
   %call2.i = tail call ptr @xmalloc(i64 noundef %mul.i.i) #10
-  %revindex.i = getelementptr inbounds %struct.packed_git, ptr %p, i64 0, i32 16
+  %revindex.i = getelementptr inbounds i8, ptr %p, i64 192
   store ptr %call2.i, ptr %revindex.i, align 8
   %add.ptr.i = getelementptr inbounds i8, ptr %1, i64 1024
-  %index_version.i = getelementptr inbounds %struct.packed_git, ptr %p, i64 0, i32 10
+  %index_version.i = getelementptr inbounds i8, ptr %p, i64 128
   %5 = load i32, ptr %index_version.i, align 8
   %cmp.i = icmp sgt i32 %5, 1
   %cmp1249.not.i = icmp eq i32 %0, 0
@@ -401,7 +390,7 @@ for.body.i:                                       ; preds = %if.end.i, %for.body
   %indvars.iv56.i = phi i64 [ 0, %for.body.preheader.i ], [ %indvars.iv.next57.i, %if.end.i ]
   %off_64.051.i = phi ptr [ %add.ptr11.i, %for.body.preheader.i ], [ %off_64.1.i, %if.end.i ]
   %off_32.050.i = phi ptr [ %add.ptr9.i, %for.body.preheader.i ], [ %incdec.ptr.i, %if.end.i ]
-  %incdec.ptr.i = getelementptr inbounds i32, ptr %off_32.050.i, i64 1
+  %incdec.ptr.i = getelementptr inbounds i8, ptr %off_32.050.i, i64 4
   %7 = load i32, ptr %off_32.050.i, align 4
   %8 = tail call i32 asm "bswap $0", "=r,0,~{dirflag},~{fpsr},~{flags}"(i32 %7) #13, !srcloc !6
   %tobool.not.i = icmp sgt i32 %8, -1
@@ -455,7 +444,7 @@ if.else.i:                                        ; preds = %for.body.i
   %18 = load ptr, ptr %revindex.i, align 8
   %arrayidx21.i = getelementptr inbounds %struct.revindex_entry, ptr %18, i64 %indvars.iv56.i
   store i64 %or.i.i, ptr %arrayidx21.i, align 8
-  %add.ptr23.i = getelementptr inbounds i32, ptr %off_64.051.i, i64 2
+  %add.ptr23.i = getelementptr inbounds i8, ptr %off_64.051.i, i64 8
   br label %if.end.i
 
 if.end.i:                                         ; preds = %if.else.i, %if.then15.i
@@ -488,7 +477,7 @@ for.body31.i:                                     ; preds = %for.body31.i, %for.
   br i1 %exitcond.not.i, label %if.end49.i, label %for.body31.i, !llvm.loop !10
 
 if.end49.i:                                       ; preds = %for.body31.i, %if.end.i, %if.then.i, %for.cond28.preheader.i
-  %pack_size.i = getelementptr inbounds %struct.packed_git, ptr %p, i64 0, i32 4
+  %pack_size.i = getelementptr inbounds i8, ptr %p, i64 48
   %26 = load i64, ptr %pack_size.i, align 8
   %conv50.i = and i64 %4, 4294967295
   %sub.i = sub nsw i64 %26, %conv50.i
@@ -616,19 +605,19 @@ return:                                           ; preds = %if.end, %create_pac
 ; Function Attrs: nounwind uwtable
 define dso_local i32 @verify_pack_revindex(ptr noundef %p) local_unnamed_addr #0 {
 entry:
-  %revindex_map = getelementptr inbounds %struct.packed_git, ptr %p, i64 0, i32 18
+  %revindex_map = getelementptr inbounds i8, ptr %p, i64 208
   %0 = load ptr, ptr %revindex_map, align 8
   %tobool.not = icmp eq ptr %0, null
   br i1 %tobool.not, label %return, label %lor.lhs.false
 
 lor.lhs.false:                                    ; preds = %entry
-  %revindex_data = getelementptr inbounds %struct.packed_git, ptr %p, i64 0, i32 17
+  %revindex_data = getelementptr inbounds i8, ptr %p, i64 200
   %1 = load ptr, ptr %revindex_data, align 8
   %tobool1.not = icmp eq ptr %1, null
   br i1 %tobool1.not, label %return, label %if.end
 
 if.end:                                           ; preds = %lor.lhs.false
-  %revindex_size = getelementptr inbounds %struct.packed_git, ptr %p, i64 0, i32 19
+  %revindex_size = getelementptr inbounds i8, ptr %p, i64 216
   %2 = load i64, ptr %revindex_size, align 8
   %call = tail call i32 @hashfile_checksum_valid(ptr noundef nonnull %0, i64 noundef %2) #10
   %tobool3.not = icmp eq i32 %call, 0
@@ -655,13 +644,13 @@ if.end8:                                          ; preds = %_.exit, %if.end
   br i1 %tobool10.not, label %for.cond.preheader, label %return
 
 for.cond.preheader:                               ; preds = %if.end8
-  %num_objects = getelementptr inbounds %struct.packed_git, ptr %p, i64 0, i32 7
+  %num_objects = getelementptr inbounds i8, ptr %p, i64 72
   %4 = load i32, ptr %num_objects, align 8
   %cmp23.not = icmp eq i32 %4, 0
   br i1 %cmp23.not, label %return, label %for.body.lr.ph
 
 for.body.lr.ph:                                   ; preds = %for.cond.preheader
-  %revindex = getelementptr inbounds %struct.packed_git, ptr %p, i64 0, i32 16
+  %revindex = getelementptr inbounds i8, ptr %p, i64 192
   br label %for.body
 
 for.body:                                         ; preds = %for.body.lr.ph, %for.inc
@@ -730,21 +719,21 @@ define dso_local noundef i32 @load_midx_revindex(ptr noundef %m) local_unnamed_a
 entry:
   %revindex_name = alloca %struct.strbuf, align 8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %revindex_name, ptr noundef nonnull align 8 dereferenceable(24) @__const.load_midx_revindex.revindex_name, i64 24, i1 false)
-  %revindex_data = getelementptr inbounds %struct.multi_pack_index, ptr %m, i64 0, i32 3
+  %revindex_data = getelementptr inbounds i8, ptr %m, i64 24
   %0 = load ptr, ptr %revindex_data, align 8
   %tobool.not = icmp eq ptr %0, null
   br i1 %tobool.not, label %if.end, label %return
 
 if.end:                                           ; preds = %entry
-  %chunk_revindex.i = getelementptr inbounds %struct.multi_pack_index, ptr %m, i64 0, i32 23
+  %chunk_revindex.i = getelementptr inbounds i8, ptr %m, i64 144
   %1 = load ptr, ptr %chunk_revindex.i, align 8
   %tobool.not.i = icmp eq ptr %1, null
   br i1 %tobool.not.i, label %if.end4, label %if.end.i
 
 if.end.i:                                         ; preds = %if.end
-  %chunk_revindex_len.i = getelementptr inbounds %struct.multi_pack_index, ptr %m, i64 0, i32 24
+  %chunk_revindex_len.i = getelementptr inbounds i8, ptr %m, i64 152
   %2 = load i64, ptr %chunk_revindex_len.i, align 8
-  %num_objects.i = getelementptr inbounds %struct.multi_pack_index, ptr %m, i64 0, i32 11
+  %num_objects.i = getelementptr inbounds i8, ptr %m, i64 60
   %3 = load i32, ptr %num_objects.i, align 4
   %conv.i = zext i32 %3 to i64
   %mul.i.i = shl nuw nsw i64 %conv.i, 2
@@ -776,12 +765,12 @@ if.end4:                                          ; preds = %_.exit.i, %if.end
   %7 = load ptr, ptr @the_repository, align 8
   tail call void @trace2_data_string_fl(ptr noundef nonnull @.str.2, i32 noundef 382, ptr noundef nonnull @.str.3, ptr noundef %7, ptr noundef nonnull @.str.4, ptr noundef nonnull @.str.6) #10
   call void @get_midx_rev_filename(ptr noundef nonnull %revindex_name, ptr noundef nonnull %m) #10
-  %buf = getelementptr inbounds %struct.strbuf, ptr %revindex_name, i64 0, i32 2
+  %buf = getelementptr inbounds i8, ptr %revindex_name, i64 16
   %8 = load ptr, ptr %buf, align 8
-  %num_objects = getelementptr inbounds %struct.multi_pack_index, ptr %m, i64 0, i32 11
+  %num_objects = getelementptr inbounds i8, ptr %m, i64 60
   %9 = load i32, ptr %num_objects, align 4
-  %revindex_map = getelementptr inbounds %struct.multi_pack_index, ptr %m, i64 0, i32 4
-  %revindex_len = getelementptr inbounds %struct.multi_pack_index, ptr %m, i64 0, i32 5
+  %revindex_map = getelementptr inbounds i8, ptr %m, i64 32
+  %revindex_len = getelementptr inbounds i8, ptr %m, i64 40
   %call5 = call fastcc i32 @load_revindex_from_disk(ptr noundef %8, i32 noundef %9, ptr noundef nonnull %revindex_map, ptr noundef nonnull %revindex_len), !range !5
   %tobool6.not = icmp eq i32 %call5, 0
   br i1 %tobool6.not, label %if.end8, label %cleanup
@@ -817,16 +806,16 @@ entry:
   br i1 %tobool.not, label %return, label %lor.lhs.false
 
 lor.lhs.false:                                    ; preds = %entry
-  %revindex_map = getelementptr inbounds %struct.multi_pack_index, ptr %m, i64 0, i32 4
+  %revindex_map = getelementptr inbounds i8, ptr %m, i64 32
   %0 = load ptr, ptr %revindex_map, align 8
   %tobool1.not = icmp eq ptr %0, null
   br i1 %tobool1.not, label %return, label %if.end
 
 if.end:                                           ; preds = %lor.lhs.false
-  %revindex_len = getelementptr inbounds %struct.multi_pack_index, ptr %m, i64 0, i32 5
+  %revindex_len = getelementptr inbounds i8, ptr %m, i64 40
   %1 = load i64, ptr %revindex_len, align 8
   %call = tail call i32 @munmap(ptr noundef nonnull %0, i64 noundef %1) #10
-  %revindex_data = getelementptr inbounds %struct.multi_pack_index, ptr %m, i64 0, i32 3
+  %revindex_data = getelementptr inbounds i8, ptr %m, i64 24
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %revindex_data, i8 0, i64 24, i1 false)
   br label %return
 
@@ -841,20 +830,20 @@ declare i32 @munmap(ptr noundef, i64 noundef) local_unnamed_addr #4
 define dso_local noundef i32 @offset_to_pack_pos(ptr noundef %p, i64 noundef %ofs, ptr nocapture noundef writeonly %pos) local_unnamed_addr #0 {
 entry:
   %0 = load ptr, ptr @the_repository, align 8
-  %revindex.i = getelementptr inbounds %struct.packed_git, ptr %p, i64 0, i32 16
+  %revindex.i = getelementptr inbounds i8, ptr %p, i64 192
   %1 = load ptr, ptr %revindex.i, align 8
   %tobool.not.i = icmp eq ptr %1, null
   br i1 %tobool.not.i, label %lor.lhs.false.i, label %if.end
 
 lor.lhs.false.i:                                  ; preds = %entry
-  %revindex_data.i = getelementptr inbounds %struct.packed_git, ptr %p, i64 0, i32 17
+  %revindex_data.i = getelementptr inbounds i8, ptr %p, i64 200
   %2 = load ptr, ptr %revindex_data.i, align 8
   %tobool1.not.i = icmp eq ptr %2, null
   br i1 %tobool1.not.i, label %if.end.i, label %if.end
 
 if.end.i:                                         ; preds = %lor.lhs.false.i
   tail call void @prepare_repo_settings(ptr noundef %0) #10
-  %pack_read_reverse_index.i = getelementptr inbounds %struct.repository, ptr %0, i64 0, i32 10, i32 8
+  %pack_read_reverse_index.i = getelementptr inbounds i8, ptr %0, i64 176
   %3 = load i32, ptr %pack_read_reverse_index.i, align 8
   %tobool2.not.i = icmp eq i32 %3, 0
   br i1 %tobool2.not.i, label %load_pack_revindex.exit, label %land.lhs.true.i
@@ -870,7 +859,7 @@ load_pack_revindex.exit:                          ; preds = %if.end.i, %land.lhs
   br i1 %tobool6.not.i.not, label %if.end, label %return
 
 if.end:                                           ; preds = %land.lhs.true.i, %entry, %lor.lhs.false.i, %load_pack_revindex.exit
-  %num_objects = getelementptr inbounds %struct.packed_git, ptr %p, i64 0, i32 7
+  %num_objects = getelementptr inbounds i8, ptr %p, i64 72
   %4 = load i32, ptr %num_objects, align 8
   %add = add i32 %4, 1
   br label %do.body
@@ -909,13 +898,13 @@ return:                                           ; preds = %load_pack_revindex.
 ; Function Attrs: nounwind uwtable
 define dso_local i64 @pack_pos_to_offset(ptr noundef %p, i32 noundef %pos) local_unnamed_addr #0 {
 entry:
-  %revindex = getelementptr inbounds %struct.packed_git, ptr %p, i64 0, i32 16
+  %revindex = getelementptr inbounds i8, ptr %p, i64 192
   %0 = load ptr, ptr %revindex, align 8
   %tobool.not = icmp eq ptr %0, null
   br i1 %tobool.not, label %lor.lhs.false, label %if.end.thread
 
 lor.lhs.false:                                    ; preds = %entry
-  %revindex_data = getelementptr inbounds %struct.packed_git, ptr %p, i64 0, i32 17
+  %revindex_data = getelementptr inbounds i8, ptr %p, i64 200
   %1 = load ptr, ptr %revindex_data, align 8
   %tobool1.not = icmp eq ptr %1, null
   br i1 %tobool1.not, label %if.then, label %if.end
@@ -925,13 +914,13 @@ if.then:                                          ; preds = %lor.lhs.false
   unreachable
 
 if.end:                                           ; preds = %lor.lhs.false
-  %num_objects = getelementptr inbounds %struct.packed_git, ptr %p, i64 0, i32 7
+  %num_objects = getelementptr inbounds i8, ptr %p, i64 72
   %2 = load i32, ptr %num_objects, align 8
   %cmp = icmp ult i32 %2, %pos
   br i1 %cmp, label %if.then2, label %if.else
 
 if.end.thread:                                    ; preds = %entry
-  %num_objects14 = getelementptr inbounds %struct.packed_git, ptr %p, i64 0, i32 7
+  %num_objects14 = getelementptr inbounds i8, ptr %p, i64 72
   %3 = load i32, ptr %num_objects14, align 8
   %cmp15 = icmp ult i32 %3, %pos
   br i1 %cmp15, label %if.then2, label %if.then6
@@ -951,12 +940,12 @@ if.else:                                          ; preds = %if.end
   br i1 %cmp9, label %if.then10, label %if.end.i
 
 if.then10:                                        ; preds = %if.else
-  %pack_size = getelementptr inbounds %struct.packed_git, ptr %p, i64 0, i32 4
+  %pack_size = getelementptr inbounds i8, ptr %p, i64 48
   %5 = load i64, ptr %pack_size, align 8
   %6 = load ptr, ptr @the_repository, align 8
-  %hash_algo = getelementptr inbounds %struct.repository, ptr %6, i64 0, i32 15
+  %hash_algo = getelementptr inbounds i8, ptr %6, i64 256
   %7 = load ptr, ptr %hash_algo, align 8
-  %rawsz = getelementptr inbounds %struct.git_hash_algo, ptr %7, i64 0, i32 2
+  %rawsz = getelementptr inbounds i8, ptr %7, i64 16
   %8 = load i64, ptr %rawsz, align 8
   %sub = sub i64 %5, %8
   br label %return
@@ -1000,13 +989,13 @@ return:                                           ; preds = %pack_pos_to_index.e
 ; Function Attrs: nounwind uwtable
 define dso_local i32 @pack_pos_to_index(ptr nocapture noundef readonly %p, i32 noundef %pos) local_unnamed_addr #0 {
 entry:
-  %revindex = getelementptr inbounds %struct.packed_git, ptr %p, i64 0, i32 16
+  %revindex = getelementptr inbounds i8, ptr %p, i64 192
   %0 = load ptr, ptr %revindex, align 8
   %tobool.not = icmp eq ptr %0, null
   br i1 %tobool.not, label %lor.lhs.false, label %if.end.thread
 
 lor.lhs.false:                                    ; preds = %entry
-  %revindex_data = getelementptr inbounds %struct.packed_git, ptr %p, i64 0, i32 17
+  %revindex_data = getelementptr inbounds i8, ptr %p, i64 200
   %1 = load ptr, ptr %revindex_data, align 8
   %tobool1.not = icmp eq ptr %1, null
   br i1 %tobool1.not, label %if.then, label %if.end
@@ -1016,13 +1005,13 @@ if.then:                                          ; preds = %lor.lhs.false
   unreachable
 
 if.end:                                           ; preds = %lor.lhs.false
-  %num_objects = getelementptr inbounds %struct.packed_git, ptr %p, i64 0, i32 7
+  %num_objects = getelementptr inbounds i8, ptr %p, i64 72
   %2 = load i32, ptr %num_objects, align 8
   %cmp.not = icmp ugt i32 %2, %pos
   br i1 %cmp.not, label %if.else, label %if.then2
 
 if.end.thread:                                    ; preds = %entry
-  %num_objects9 = getelementptr inbounds %struct.packed_git, ptr %p, i64 0, i32 7
+  %num_objects9 = getelementptr inbounds i8, ptr %p, i64 72
   %3 = load i32, ptr %num_objects9, align 8
   %cmp.not10 = icmp ugt i32 %3, %pos
   br i1 %cmp.not10, label %if.then6, label %if.then2
@@ -1072,7 +1061,7 @@ declare i64 @nth_packed_object_offset(ptr noundef, i32 noundef) local_unnamed_ad
 ; Function Attrs: nounwind uwtable
 define dso_local i32 @pack_pos_to_midx(ptr nocapture noundef readonly %m, i32 noundef %pos) local_unnamed_addr #0 {
 entry:
-  %revindex_data = getelementptr inbounds %struct.multi_pack_index, ptr %m, i64 0, i32 3
+  %revindex_data = getelementptr inbounds i8, ptr %m, i64 24
   %0 = load ptr, ptr %revindex_data, align 8
   %tobool.not = icmp eq ptr %0, null
   br i1 %tobool.not, label %if.then, label %if.end
@@ -1082,7 +1071,7 @@ if.then:                                          ; preds = %entry
   unreachable
 
 if.end:                                           ; preds = %entry
-  %num_objects = getelementptr inbounds %struct.multi_pack_index, ptr %m, i64 0, i32 11
+  %num_objects = getelementptr inbounds i8, ptr %m, i64 60
   %1 = load i32, ptr %num_objects, align 4
   %cmp.not = icmp ugt i32 %1, %pos
   br i1 %cmp.not, label %if.end2, label %if.then1
@@ -1118,7 +1107,7 @@ if.end2:                                          ; preds = %if.end
 define dso_local noundef i32 @midx_to_pack_pos(ptr noundef %m, i32 noundef %at, ptr nocapture noundef writeonly %pos) local_unnamed_addr #0 {
 entry:
   %key = alloca %struct.midx_pack_key, align 8
-  %revindex_data = getelementptr inbounds %struct.multi_pack_index, ptr %m, i64 0, i32 3
+  %revindex_data = getelementptr inbounds i8, ptr %m, i64 24
   %0 = load ptr, ptr %revindex_data, align 8
   %tobool.not = icmp eq ptr %0, null
   br i1 %tobool.not, label %if.then, label %if.end
@@ -1128,7 +1117,7 @@ if.then:                                          ; preds = %entry
   unreachable
 
 if.end:                                           ; preds = %entry
-  %num_objects = getelementptr inbounds %struct.multi_pack_index, ptr %m, i64 0, i32 11
+  %num_objects = getelementptr inbounds i8, ptr %m, i64 60
   %1 = load i32, ptr %num_objects, align 4
   %cmp.not = icmp ugt i32 %1, %at
   br i1 %cmp.not, label %if.end2, label %if.then1
@@ -1141,11 +1130,11 @@ if.end2:                                          ; preds = %if.end
   %call = tail call i32 @nth_midxed_pack_int_id(ptr noundef nonnull %m, i32 noundef %at) #10
   store i32 %call, ptr %key, align 8
   %call3 = tail call i64 @nth_midxed_offset(ptr noundef nonnull %m, i32 noundef %at) #10
-  %offset = getelementptr inbounds %struct.midx_pack_key, ptr %key, i64 0, i32 1
+  %offset = getelementptr inbounds i8, ptr %key, i64 8
   store i64 %call3, ptr %offset, align 8
-  %midx = getelementptr inbounds %struct.midx_pack_key, ptr %key, i64 0, i32 3
+  %midx = getelementptr inbounds i8, ptr %key, i64 24
   store ptr %m, ptr %midx, align 8
-  %preferred_pack.i = getelementptr inbounds %struct.midx_pack_key, ptr %key, i64 0, i32 2
+  %preferred_pack.i = getelementptr inbounds i8, ptr %key, i64 16
   %call.i = call i32 @midx_preferred_pack(ptr noundef nonnull %m, ptr noundef nonnull %preferred_pack.i) #10
   %cmp.i = icmp slt i32 %call.i, 0
   br i1 %cmp.i, label %if.then.i, label %if.end.i
@@ -1196,11 +1185,11 @@ define dso_local noundef i32 @midx_pair_to_pack_pos(ptr noundef %m, i32 noundef 
 entry:
   %key = alloca %struct.midx_pack_key, align 8
   store i32 %pack_int_id, ptr %key, align 8
-  %offset = getelementptr inbounds %struct.midx_pack_key, ptr %key, i64 0, i32 1
+  %offset = getelementptr inbounds i8, ptr %key, i64 8
   store i64 %ofs, ptr %offset, align 8
-  %preferred_pack = getelementptr inbounds %struct.midx_pack_key, ptr %key, i64 0, i32 2
+  %preferred_pack = getelementptr inbounds i8, ptr %key, i64 16
   store i32 0, ptr %preferred_pack, align 8
-  %midx = getelementptr inbounds %struct.midx_pack_key, ptr %key, i64 0, i32 3
+  %midx = getelementptr inbounds i8, ptr %key, i64 24
   store ptr %m, ptr %midx, align 8
   %call.i = call i32 @midx_preferred_pack(ptr noundef %m, ptr noundef nonnull %preferred_pack) #10
   %cmp.i = icmp slt i32 %call.i, 0
@@ -1221,9 +1210,9 @@ _.exit.i:                                         ; preds = %if.end3.i.i, %if.th
   br label %midx_key_to_pack_pos.exit
 
 if.end.i:                                         ; preds = %entry
-  %revindex_data.i = getelementptr inbounds %struct.multi_pack_index, ptr %m, i64 0, i32 3
+  %revindex_data.i = getelementptr inbounds i8, ptr %m, i64 24
   %1 = load ptr, ptr %revindex_data.i, align 8
-  %num_objects.i = getelementptr inbounds %struct.multi_pack_index, ptr %m, i64 0, i32 11
+  %num_objects.i = getelementptr inbounds i8, ptr %m, i64 60
   %2 = load i32, ptr %num_objects.i, align 4
   %conv.i = zext i32 %2 to i64
   %call4.i = call ptr @bsearch(ptr noundef nonnull %key, ptr noundef %1, i64 noundef %conv.i, i64 noundef 4, ptr noundef nonnull @midx_pack_order_cmp) #10
@@ -1281,9 +1270,9 @@ declare ptr @bsearch(ptr noundef, ptr noundef, i64 noundef, i64 noundef, ptr nou
 ; Function Attrs: nounwind uwtable
 define internal i32 @midx_pack_order_cmp(ptr nocapture noundef readonly %va, ptr noundef %vb) #0 {
 entry:
-  %midx1 = getelementptr inbounds %struct.midx_pack_key, ptr %va, i64 0, i32 3
+  %midx1 = getelementptr inbounds i8, ptr %va, i64 24
   %0 = load ptr, ptr %midx1, align 8
-  %revindex_data = getelementptr inbounds %struct.multi_pack_index, ptr %0, i64 0, i32 3
+  %revindex_data = getelementptr inbounds i8, ptr %0, i64 24
   %1 = load ptr, ptr %revindex_data, align 8
   %sub.ptr.lhs.cast = ptrtoint ptr %vb to i64
   %sub.ptr.rhs.cast = ptrtoint ptr %1 to i64
@@ -1298,7 +1287,7 @@ if.then.i:                                        ; preds = %entry
   unreachable
 
 if.end.i:                                         ; preds = %entry
-  %num_objects.i = getelementptr inbounds %struct.multi_pack_index, ptr %0, i64 0, i32 11
+  %num_objects.i = getelementptr inbounds i8, ptr %0, i64 60
   %2 = load i32, ptr %num_objects.i, align 4
   %cmp.not.i = icmp ugt i32 %2, %conv
   br i1 %cmp.not.i, label %pack_pos_to_midx.exit, label %if.then1.i
@@ -1329,7 +1318,7 @@ pack_pos_to_midx.exit:                            ; preds = %if.end.i
   %or11.i.i = or disjoint i32 %or7.i.i, %conv9.i.i
   %call2 = tail call i32 @nth_midxed_pack_int_id(ptr noundef nonnull %0, i32 noundef %or11.i.i) #10
   %7 = load i32, ptr %va, align 8
-  %preferred_pack = getelementptr inbounds %struct.midx_pack_key, ptr %va, i64 0, i32 2
+  %preferred_pack = getelementptr inbounds i8, ptr %va, i64 16
   %8 = load i32, ptr %preferred_pack, align 8
   %cmp = icmp ne i32 %7, %8
   %cmp5 = icmp eq i32 %call2, %8
@@ -1350,7 +1339,7 @@ if.else17:                                        ; preds = %if.end12
 
 if.end23:                                         ; preds = %if.else17
   %call24 = tail call i64 @nth_midxed_offset(ptr noundef nonnull %0, i32 noundef %or11.i.i) #10
-  %offset = getelementptr inbounds %struct.midx_pack_key, ptr %va, i64 0, i32 1
+  %offset = getelementptr inbounds i8, ptr %va, i64 8
   %9 = load i64, ptr %offset, align 8
   %cmp25 = icmp slt i64 %9, %call24
   br i1 %cmp25, label %return, label %if.else28

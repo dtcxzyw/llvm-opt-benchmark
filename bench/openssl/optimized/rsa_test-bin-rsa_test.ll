@@ -92,7 +92,7 @@ target triple = "x86_64-unknown-linux-gnu"
 @.str.43 = private unnamed_addr constant [53 x i8] c"EVP_DigestSign(ctx, sigbuf, &buflen, msgbuf, msglen)\00", align 1
 
 ; Function Attrs: nounwind uwtable
-define dso_local i32 @setup_tests() local_unnamed_addr #0 {
+define dso_local noundef i32 @setup_tests() local_unnamed_addr #0 {
 entry:
   tail call void @add_all_tests(ptr noundef nonnull @.str, ptr noundef nonnull @test_rsa_pkcs1, i32 noundef 3, i32 noundef 1) #4
   tail call void @add_all_tests(ptr noundef nonnull @.str.1, ptr noundef nonnull @test_rsa_oaep, i32 noundef 3, i32 noundef 1) #4
@@ -105,14 +105,14 @@ entry:
 declare void @add_all_tests(ptr noundef, ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @test_rsa_pkcs1(i32 noundef %idx) #0 {
+define internal noundef i32 @test_rsa_pkcs1(i32 noundef %idx) #0 {
 entry:
   %call = tail call fastcc i32 @test_rsa_simple(i32 noundef %idx, i32 noundef 1, i32 noundef 1, ptr noundef null, ptr noundef null, ptr noundef null)
   ret i32 %call
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @test_rsa_oaep(i32 noundef %idx) #0 {
+define internal noundef i32 @test_rsa_oaep(i32 noundef %idx) #0 {
 entry:
   %key = alloca ptr, align 8
   %ptext = alloca [256 x i8], align 16
@@ -199,7 +199,7 @@ entry:
   %idxprom = sext i32 %n to i64
   %arrayidx = getelementptr inbounds [17 x %struct.anon], ptr @rsa_security_bits_cases, i64 0, i64 %idxprom
   %0 = load i32, ptr %arrayidx, align 8
-  %r = getelementptr inbounds [17 x %struct.anon], ptr @rsa_security_bits_cases, i64 0, i64 %idxprom, i32 1
+  %r = getelementptr inbounds i8, ptr %arrayidx, i64 4
   %1 = load i32, ptr %r, align 4
   %add = add nsw i32 %0, 7
   %div = sdiv i32 %add, 8
@@ -244,7 +244,7 @@ err:                                              ; preds = %land.lhs.true, %if.
 declare void @add_test(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @test_rsa_saos() #0 {
+define internal noundef i32 @test_rsa_saos() #0 {
 entry:
   %siglen = alloca i32, align 4
   %sig = alloca [256 x i8], align 16
@@ -473,7 +473,7 @@ land.end:                                         ; preds = %land.rhs, %land.lhs
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @test_rsa_simple(i32 noundef %idx, i32 noundef %en_pad_type, i32 noundef %de_pad_type, ptr noundef writeonly %ctext_ex, ptr noundef writeonly %clen, ptr noundef writeonly %retkey) unnamed_addr #0 {
+define internal fastcc noundef i32 @test_rsa_simple(i32 noundef %idx, i32 noundef %en_pad_type, i32 noundef %de_pad_type, ptr noundef writeonly %ctext_ex, ptr noundef writeonly %clen, ptr noundef writeonly %retkey) unnamed_addr #0 {
 entry:
   %ptext = alloca [256 x i8], align 16
   %ctext = alloca [256 x i8], align 16
@@ -626,7 +626,7 @@ declare i32 @test_uint_eq(ptr noundef, i32 noundef, ptr noundef, ptr noundef, i3
 declare i32 @RSA_security_bits(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc ptr @load_key(i32 noundef %priv) unnamed_addr #0 {
+define internal fastcc noundef ptr @load_key(i32 noundef %priv) unnamed_addr #0 {
 entry:
   %call = tail call ptr @RSA_new() #4
   %call1 = tail call i32 @test_ptr(ptr noundef nonnull @.str.5, i32 noundef 559, ptr noundef nonnull @.str.28, ptr noundef %call) #4

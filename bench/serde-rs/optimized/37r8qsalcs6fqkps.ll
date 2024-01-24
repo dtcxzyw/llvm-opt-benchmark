@@ -10,13 +10,13 @@ define zeroext i1 @_ZN4core4iter6traits8iterator8Iterator3any17h3aa31328078f9e75
   %2 = alloca { {} }, align 1
   %3 = alloca i8, align 1
   call void @llvm.lifetime.start.p0(i64 0, ptr nonnull %2)
-  %4 = getelementptr inbounds { ptr, ptr }, ptr %0, i64 0, i32 1
+  %4 = getelementptr inbounds i8, ptr %0, i64 8
   br label %5
 
 5:                                                ; preds = %11, %1
   %6 = load ptr, ptr %0, align 8, !nonnull !5, !align !6, !noundef !5
   %7 = load ptr, ptr %4, align 8, !nonnull !5, !align !7, !noundef !5
-  %8 = getelementptr inbounds ptr, ptr %7, i64 3
+  %8 = getelementptr inbounds i8, ptr %7, i64 24
   %9 = load ptr, ptr %8, align 8, !invariant.load !5, !nonnull !5
   %10 = call align 8 ptr %9(ptr nonnull align 1 %6)
   %.not.i = icmp eq ptr %10, null
@@ -47,13 +47,13 @@ _ZN4core4iter6traits8iterator8Iterator8try_fold17hd70163e615d2a068E.exit: ; pred
 ; Function Attrs: inlinehint nonlazybind uwtable
 define zeroext i1 @_ZN4core4iter6traits8iterator8Iterator8try_fold17hd70163e615d2a068E(ptr nocapture readonly align 8 %0) unnamed_addr #0 personality ptr @rust_eh_personality {
   %2 = alloca { {} }, align 1
-  %3 = getelementptr inbounds { ptr, ptr }, ptr %0, i64 0, i32 1
+  %3 = getelementptr inbounds i8, ptr %0, i64 8
   br label %4
 
 4:                                                ; preds = %10, %1
   %5 = load ptr, ptr %0, align 8, !nonnull !5, !align !6, !noundef !5
   %6 = load ptr, ptr %3, align 8, !nonnull !5, !align !7, !noundef !5
-  %7 = getelementptr inbounds ptr, ptr %6, i64 3
+  %7 = getelementptr inbounds i8, ptr %6, i64 24
   %8 = load ptr, ptr %7, align 8, !invariant.load !5, !nonnull !5
   %9 = call align 8 ptr %8(ptr nonnull align 1 %5)
   %.not = icmp eq ptr %9, null
@@ -226,9 +226,9 @@ define noundef nonnull align 8 ptr @"_ZN80_$LT$alloc..boxed..Box$LT$T$C$A$GT$$u2
 ; Function Attrs: nonlazybind uwtable
 define align 8 ptr @"_ZN89_$LT$alloc..boxed..Box$LT$I$C$A$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h7d9ddfde190ca44fE"(ptr nocapture readonly align 8 %0) unnamed_addr #1 {
   %2 = load ptr, ptr %0, align 8, !nonnull !5, !align !6, !noundef !5
-  %3 = getelementptr inbounds { ptr, ptr }, ptr %0, i64 0, i32 1
+  %3 = getelementptr inbounds i8, ptr %0, i64 8
   %4 = load ptr, ptr %3, align 8, !nonnull !5, !align !7, !noundef !5
-  %5 = getelementptr inbounds ptr, ptr %4, i64 3
+  %5 = getelementptr inbounds i8, ptr %4, i64 24
   %6 = load ptr, ptr %5, align 8, !invariant.load !5, !nonnull !5
   %7 = tail call align 8 ptr %6(ptr nonnull align 1 %2)
   ret ptr %7

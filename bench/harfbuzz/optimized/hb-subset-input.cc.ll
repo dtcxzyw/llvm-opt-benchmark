@@ -3,32 +3,13 @@ source_filename = "bench/harfbuzz/original/hb-subset-input.cc.ll"
 target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:128-n8:16:32:64-S128"
 target triple = "x86_64-unknown-linux-gnu"
 
-%struct.hb_subset_input_t = type { %struct.hb_object_header_t, %union.anon, i32, i8, i8, %struct.hb_hashmap_t, %struct.hb_map_t }
-%struct.hb_object_header_t = type { %struct.hb_reference_count_t, %struct.hb_atomic_int_t, %struct.hb_atomic_ptr_t }
-%struct.hb_reference_count_t = type { %struct.hb_atomic_int_t }
-%struct.hb_atomic_int_t = type { i32 }
-%struct.hb_atomic_ptr_t = type { ptr }
-%union.anon = type { %"struct.hb_subset_input_t::sets_t" }
-%"struct.hb_subset_input_t::sets_t" = type { %"struct.hb::shared_ptr", %"struct.hb::shared_ptr", %"struct.hb::shared_ptr", %"struct.hb::shared_ptr", %"struct.hb::shared_ptr", %"struct.hb::shared_ptr", %"struct.hb::shared_ptr", %"struct.hb::shared_ptr" }
 %"struct.hb::shared_ptr" = type { ptr }
-%struct.hb_hashmap_t = type { %struct.hb_object_header_t, i8, i16, i32, i32, i32, i32, ptr }
-%struct.hb_map_t = type { %struct.hb_hashmap_t.0 }
-%struct.hb_hashmap_t.0 = type { %struct.hb_object_header_t, i8, i16, i32, i32, i32, i32, ptr }
-%struct.hb_sparseset_t = type { %struct.hb_object_header_t, %struct.hb_bit_set_invertible_t }
-%struct.hb_bit_set_invertible_t = type <{ %struct.hb_bit_set_t, i8, [7 x i8] }>
-%struct.hb_bit_set_t = type { i8, i32, %struct.hb_atomic_int_t, %struct.hb_vector_t, %struct.hb_vector_t.1 }
-%struct.hb_vector_t = type { i32, i32, ptr }
-%struct.hb_vector_t.1 = type { i32, i32, ptr }
-%struct.hb_user_data_array_t = type { %struct.hb_mutex_t, %struct.hb_lockable_set_t }
-%struct.hb_mutex_t = type { [40 x i8] }
-%struct.hb_lockable_set_t = type { %struct.hb_vector_t.34 }
-%struct.hb_vector_t.34 = type { i32, i32, ptr }
 %"struct.hb_user_data_array_t::hb_user_data_item_t" = type { ptr, ptr, ptr }
 %struct.hb_ot_var_axis_info_t = type { i32, i32, i32, i32, float, float, float, i32 }
 %struct.Triple = type { float, float, float }
+%"struct.hb_bit_set_t::page_map_t" = type { i32, i32 }
 %struct.hb_bit_page_t = type { i32, %struct.hb_vector_size_t }
 %struct.hb_vector_size_t = type { [8 x i64] }
-%"struct.hb_bit_set_t::page_map_t" = type { i32, i32 }
 %"struct.hb_hashmap_t<unsigned int, Triple>::item_t" = type { i32, i32, %struct.Triple }
 
 $_ZN23hb_bit_set_invertible_t9add_arrayIjEEvPKT_jj = comdat any
@@ -70,32 +51,32 @@ entry:
   %default_no_subset_tables = alloca [5 x i32], align 16
   %default_layout_features = alloca [72 x i32], align 16
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %this, i8 0, i64 16, i1 false)
-  %attach_accelerator_data = getelementptr inbounds %struct.hb_subset_input_t, ptr %this, i64 0, i32 3
+  %attach_accelerator_data = getelementptr inbounds i8, ptr %this, i64 84
   store i8 0, ptr %attach_accelerator_data, align 4
-  %force_long_loca = getelementptr inbounds %struct.hb_subset_input_t, ptr %this, i64 0, i32 4
+  %force_long_loca = getelementptr inbounds i8, ptr %this, i64 85
   store i8 0, ptr %force_long_loca, align 1
-  %axes_location = getelementptr inbounds %struct.hb_subset_input_t, ptr %this, i64 0, i32 5
+  %axes_location = getelementptr inbounds i8, ptr %this, i64 88
   store atomic i32 1, ptr %axes_location monotonic, align 8
-  %writable.i.i.i = getelementptr inbounds %struct.hb_subset_input_t, ptr %this, i64 0, i32 5, i32 0, i32 1
+  %writable.i.i.i = getelementptr inbounds i8, ptr %this, i64 92
   store atomic i32 1, ptr %writable.i.i.i monotonic, align 4
-  %user_data.i.i.i = getelementptr inbounds %struct.hb_subset_input_t, ptr %this, i64 0, i32 5, i32 0, i32 2
+  %user_data.i.i.i = getelementptr inbounds i8, ptr %this, i64 96
   store atomic i64 0, ptr %user_data.i.i.i monotonic, align 8
-  %successful.i.i = getelementptr inbounds %struct.hb_subset_input_t, ptr %this, i64 0, i32 5, i32 1
+  %successful.i.i = getelementptr inbounds i8, ptr %this, i64 104
   store i8 1, ptr %successful.i.i, align 8
-  %max_chain_length.i.i = getelementptr inbounds %struct.hb_subset_input_t, ptr %this, i64 0, i32 5, i32 2
-  %items.i.i = getelementptr inbounds %struct.hb_subset_input_t, ptr %this, i64 0, i32 5, i32 7
+  %max_chain_length.i.i = getelementptr inbounds i8, ptr %this, i64 106
+  %items.i.i = getelementptr inbounds i8, ptr %this, i64 128
   store ptr null, ptr %items.i.i, align 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 2 dereferenceable(18) %max_chain_length.i.i, i8 0, i64 18, i1 false)
-  %glyph_map = getelementptr inbounds %struct.hb_subset_input_t, ptr %this, i64 0, i32 6
+  %glyph_map = getelementptr inbounds i8, ptr %this, i64 136
   store atomic i32 1, ptr %glyph_map monotonic, align 8
-  %writable.i.i.i.i = getelementptr inbounds %struct.hb_subset_input_t, ptr %this, i64 0, i32 6, i32 0, i32 0, i32 1
+  %writable.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 140
   store atomic i32 1, ptr %writable.i.i.i.i monotonic, align 4
-  %user_data.i.i.i.i = getelementptr inbounds %struct.hb_subset_input_t, ptr %this, i64 0, i32 6, i32 0, i32 0, i32 2
+  %user_data.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 144
   store atomic i64 0, ptr %user_data.i.i.i.i monotonic, align 8
-  %successful.i.i.i = getelementptr inbounds %struct.hb_subset_input_t, ptr %this, i64 0, i32 6, i32 0, i32 1
+  %successful.i.i.i = getelementptr inbounds i8, ptr %this, i64 152
   store i8 1, ptr %successful.i.i.i, align 8
-  %max_chain_length.i.i.i = getelementptr inbounds %struct.hb_subset_input_t, ptr %this, i64 0, i32 6, i32 0, i32 2
-  %items.i.i.i = getelementptr inbounds %struct.hb_subset_input_t, ptr %this, i64 0, i32 6, i32 0, i32 7
+  %max_chain_length.i.i.i = getelementptr inbounds i8, ptr %this, i64 154
+  %items.i.i.i = getelementptr inbounds i8, ptr %this, i64 176
   store ptr null, ptr %items.i.i.i, align 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 2 dereferenceable(18) %max_chain_length.i.i.i, i8 0, i64 18, i1 false)
   br label %for.body
@@ -125,7 +106,7 @@ for.body.i:                                       ; preds = %for.body.i.preheade
   %indvars.iv.i = phi i64 [ %indvars.iv.next.i, %for.cond.i ], [ 0, %for.body.i.preheader ]
   %arrayidx.i = getelementptr inbounds [8 x %"struct.hb::shared_ptr"], ptr %.ptr, i64 0, i64 %indvars.iv.i
   %1 = load ptr, ptr %arrayidx.i, align 8
-  %s.i.i = getelementptr inbounds %struct.hb_sparseset_t, ptr %1, i64 0, i32 1
+  %s.i.i = getelementptr inbounds i8, ptr %1, i64 16
   %2 = load i8, ptr %s.i.i, align 8
   %3 = and i8 %2, 1
   %tobool.not.i.i.i.i = icmp eq i8 %3, 0
@@ -138,39 +119,39 @@ _ZNK17hb_subset_input_t8in_errorEv.exit:          ; preds = %for.cond.i
   br i1 %tobool.not.i.i, label %return, label %if.end
 
 if.end:                                           ; preds = %_ZNK17hb_subset_input_t8in_errorEv.exit
-  %flags = getelementptr inbounds %struct.hb_subset_input_t, ptr %this, i64 0, i32 2
+  %flags = getelementptr inbounds i8, ptr %this, i64 80
   store i32 0, ptr %flags, align 8
-  %name_ids = getelementptr inbounds %struct.hb_subset_input_t, ptr %this, i64 0, i32 1, i32 0, i32 4
+  %name_ids = getelementptr inbounds i8, ptr %this, i64 48
   %6 = load ptr, ptr %name_ids, align 8
   tail call void @hb_set_add_range(ptr noundef %6, i32 noundef 0, i32 noundef 6) #16
-  %name_languages = getelementptr inbounds %struct.hb_subset_input_t, ptr %this, i64 0, i32 1, i32 0, i32 5
+  %name_languages = getelementptr inbounds i8, ptr %this, i64 56
   %7 = load ptr, ptr %name_languages, align 8
   tail call void @hb_set_add(ptr noundef %7, i32 noundef 1033) #16
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(72) %default_drop_tables, ptr noundef nonnull align 16 dereferenceable(72) @__const.hb_subset_input_t.default_drop_tables, i64 72, i1 false)
-  %drop_tables = getelementptr inbounds %struct.hb_subset_input_t, ptr %this, i64 0, i32 1, i32 0, i32 3
+  %drop_tables = getelementptr inbounds i8, ptr %this, i64 40
   %8 = load ptr, ptr %drop_tables, align 8
-  %s.i = getelementptr inbounds %struct.hb_sparseset_t, ptr %8, i64 0, i32 1
+  %s.i = getelementptr inbounds i8, ptr %8, i64 16
   call void @_ZN23hb_bit_set_invertible_t9add_arrayIjEEvPKT_jj(ptr noundef nonnull align 8 dereferenceable(49) %s.i, ptr noundef nonnull %default_drop_tables, i32 noundef 18, i32 noundef 4)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(20) %default_no_subset_tables, ptr noundef nonnull align 16 dereferenceable(20) @__const.hb_subset_input_t.default_no_subset_tables, i64 20, i1 false)
-  %no_subset_tables = getelementptr inbounds %struct.hb_subset_input_t, ptr %this, i64 0, i32 1, i32 0, i32 2
+  %no_subset_tables = getelementptr inbounds i8, ptr %this, i64 32
   %9 = load ptr, ptr %no_subset_tables, align 8
-  %s.i5 = getelementptr inbounds %struct.hb_sparseset_t, ptr %9, i64 0, i32 1
+  %s.i5 = getelementptr inbounds i8, ptr %9, i64 16
   call void @_ZN23hb_bit_set_invertible_t9add_arrayIjEEvPKT_jj(ptr noundef nonnull align 8 dereferenceable(49) %s.i5, ptr noundef nonnull %default_no_subset_tables, i32 noundef 5, i32 noundef 4)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(288) %default_layout_features, ptr noundef nonnull align 16 dereferenceable(288) @__const.hb_subset_input_t.default_layout_features, i64 288, i1 false)
-  %layout_features = getelementptr inbounds %struct.hb_subset_input_t, ptr %this, i64 0, i32 1, i32 0, i32 6
+  %layout_features = getelementptr inbounds i8, ptr %this, i64 64
   %10 = load ptr, ptr %layout_features, align 8
-  %s.i6 = getelementptr inbounds %struct.hb_sparseset_t, ptr %10, i64 0, i32 1
+  %s.i6 = getelementptr inbounds i8, ptr %10, i64 16
   call void @_ZN23hb_bit_set_invertible_t9add_arrayIjEEvPKT_jj(ptr noundef nonnull align 8 dereferenceable(49) %s.i6, ptr noundef nonnull %default_layout_features, i32 noundef 72, i32 noundef 4)
-  %layout_scripts = getelementptr inbounds %struct.hb_subset_input_t, ptr %this, i64 0, i32 1, i32 0, i32 7
+  %layout_scripts = getelementptr inbounds i8, ptr %this, i64 72
   %11 = load ptr, ptr %layout_scripts, align 8
-  %s.i7 = getelementptr inbounds %struct.hb_sparseset_t, ptr %11, i64 0, i32 1
+  %s.i7 = getelementptr inbounds i8, ptr %11, i64 16
   %12 = load i8, ptr %s.i7, align 8
   %13 = and i8 %12, 1
   %tobool.not.i.i8 = icmp eq i8 %13, 0
   br i1 %tobool.not.i.i8, label %return, label %if.then.i.i
 
 if.then.i.i:                                      ; preds = %if.end
-  %inverted.i.i = getelementptr inbounds %struct.hb_sparseset_t, ptr %11, i64 0, i32 1, i32 1
+  %inverted.i.i = getelementptr inbounds i8, ptr %11, i64 64
   %14 = load i8, ptr %inverted.i.i, align 8
   %15 = and i8 %14, 1
   %frombool.i.i = xor i8 %15, 1
@@ -200,12 +181,12 @@ entry:
 if.end:                                           ; preds = %entry
   tail call void @_ZN17hb_subset_input_tC2Ev(ptr noundef nonnull align 8 dereferenceable(184) %call.i)
   store atomic i32 1, ptr %call.i monotonic, align 4
-  %writable.i.i = getelementptr inbounds %struct.hb_object_header_t, ptr %call.i, i64 0, i32 1
+  %writable.i.i = getelementptr inbounds i8, ptr %call.i, i64 4
   store atomic i32 1, ptr %writable.i.i monotonic, align 4
-  %user_data.i.i = getelementptr inbounds %struct.hb_object_header_t, ptr %call.i, i64 0, i32 2
+  %user_data.i.i = getelementptr inbounds i8, ptr %call.i, i64 8
   store atomic i64 0, ptr %user_data.i.i monotonic, align 8
   %0 = load atomic i32, ptr %call.i monotonic, align 4
-  %1 = getelementptr inbounds %struct.hb_subset_input_t, ptr %call.i, i64 0, i32 1
+  %1 = getelementptr inbounds i8, ptr %call.i, i64 16
   br label %for.body.i
 
 for.cond.i:                                       ; preds = %for.body.i
@@ -217,14 +198,14 @@ for.body.i:                                       ; preds = %for.cond.i, %if.end
   %indvars.iv.i = phi i64 [ 0, %if.end ], [ %indvars.iv.next.i, %for.cond.i ]
   %arrayidx.i = getelementptr inbounds [8 x %"struct.hb::shared_ptr"], ptr %1, i64 0, i64 %indvars.iv.i
   %2 = load ptr, ptr %arrayidx.i, align 8
-  %s.i.i = getelementptr inbounds %struct.hb_sparseset_t, ptr %2, i64 0, i32 1
+  %s.i.i = getelementptr inbounds i8, ptr %2, i64 16
   %3 = load i8, ptr %s.i.i, align 8
   %4 = and i8 %3, 1
   %tobool.not.i.i.i.i = icmp eq i8 %4, 0
   br i1 %tobool.not.i.i.i.i, label %lor.lhs.false.i.i, label %for.cond.i
 
 _ZNK17hb_subset_input_t8in_errorEv.exit:          ; preds = %for.cond.i
-  %successful.i.i = getelementptr inbounds %struct.hb_subset_input_t, ptr %call.i, i64 0, i32 5, i32 1
+  %successful.i.i = getelementptr inbounds i8, ptr %call.i, i64 104
   %5 = load i8, ptr %successful.i.i, align 8
   %6 = and i8 %5, 1
   %tobool.not.i.i = icmp eq i8 %6, 0
@@ -249,7 +230,7 @@ if.end4.i.i:                                      ; preds = %if.end.i.i
 
 if.then.i.i.i:                                    ; preds = %if.end4.i.i
   %11 = inttoptr i64 %10 to ptr
-  %items.i.i.i.i = getelementptr inbounds %struct.hb_user_data_array_t, ptr %11, i64 0, i32 1
+  %items.i.i.i.i = getelementptr inbounds i8, ptr %11, i64 40
   tail call void @_ZN17hb_lockable_set_tIN20hb_user_data_array_t19hb_user_data_item_tE10hb_mutex_tE4finiERS2_(ptr noundef nonnull align 8 dereferenceable(16) %items.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(40) %11)
   %call.i.i.i.i.i = tail call i32 @pthread_mutex_destroy(ptr noundef nonnull %11) #16
   tail call void @free(ptr noundef nonnull %11) #16
@@ -285,14 +266,14 @@ if.end.i:                                         ; preds = %lor.lhs.false.i
 
 if.end4.i:                                        ; preds = %if.end.i
   store atomic i32 -57005, ptr %input monotonic, align 4
-  %user_data2.i.i = getelementptr inbounds %struct.hb_object_header_t, ptr %input, i64 0, i32 2
+  %user_data2.i.i = getelementptr inbounds i8, ptr %input, i64 8
   %3 = load atomic i64, ptr %user_data2.i.i acquire, align 8
   %tobool.not.i7.i = icmp eq i64 %3, 0
   br i1 %tobool.not.i7.i, label %if.end, label %if.then.i.i
 
 if.then.i.i:                                      ; preds = %if.end4.i
   %4 = inttoptr i64 %3 to ptr
-  %items.i.i.i = getelementptr inbounds %struct.hb_user_data_array_t, ptr %4, i64 0, i32 1
+  %items.i.i.i = getelementptr inbounds i8, ptr %4, i64 40
   tail call void @_ZN17hb_lockable_set_tIN20hb_user_data_array_t19hb_user_data_item_tE10hb_mutex_tE4finiERS2_(ptr noundef nonnull align 8 dereferenceable(16) %items.i.i.i, ptr noundef nonnull align 8 dereferenceable(40) %4)
   %call.i.i.i.i = tail call i32 @pthread_mutex_destroy(ptr noundef nonnull %4) #16
   tail call void @free(ptr noundef nonnull %4) #16
@@ -334,7 +315,7 @@ declare void @free(ptr allocptr nocapture noundef) local_unnamed_addr #4
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
 define dso_local ptr @hb_subset_input_unicode_set(ptr nocapture noundef readonly %input) local_unnamed_addr #5 {
 entry:
-  %unicodes = getelementptr inbounds %struct.hb_subset_input_t, ptr %input, i64 0, i32 1, i32 0, i32 1
+  %unicodes = getelementptr inbounds i8, ptr %input, i64 24
   %0 = load ptr, ptr %unicodes, align 8
   ret ptr %0
 }
@@ -342,7 +323,7 @@ entry:
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
 define dso_local ptr @hb_subset_input_glyph_set(ptr nocapture noundef readonly %input) local_unnamed_addr #5 {
 entry:
-  %0 = getelementptr inbounds %struct.hb_subset_input_t, ptr %input, i64 0, i32 1
+  %0 = getelementptr inbounds i8, ptr %input, i64 16
   %1 = load ptr, ptr %0, align 8
   ret ptr %1
 }
@@ -360,7 +341,7 @@ if.then.i.i:                                      ; preds = %entry
   br label %_ZN9hb_iter_tI10hb_array_tIN2hb10shared_ptrI8hb_set_tEEERS4_EixEj.exit
 
 if.end.i.i:                                       ; preds = %entry
-  %2 = getelementptr inbounds %struct.hb_subset_input_t, ptr %input, i64 0, i32 1
+  %2 = getelementptr inbounds i8, ptr %input, i64 16
   %idxprom.i.i = zext nneg i32 %set_type to i64
   %arrayidx.i.i = getelementptr inbounds %"struct.hb::shared_ptr", ptr %2, i64 %idxprom.i.i
   %.pre = load ptr, ptr %arrayidx.i.i, align 8
@@ -374,7 +355,7 @@ _ZN9hb_iter_tI10hb_array_tIN2hb10shared_ptrI8hb_set_tEEERS4_EixEj.exit: ; preds 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
 define dso_local i32 @hb_subset_input_get_flags(ptr nocapture noundef readonly %input) local_unnamed_addr #5 {
 entry:
-  %flags = getelementptr inbounds %struct.hb_subset_input_t, ptr %input, i64 0, i32 2
+  %flags = getelementptr inbounds i8, ptr %input, i64 80
   %0 = load i32, ptr %flags, align 8
   ret i32 %0
 }
@@ -382,7 +363,7 @@ entry:
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
 define dso_local void @hb_subset_input_set_flags(ptr nocapture noundef writeonly %input, i32 noundef %value) local_unnamed_addr #7 {
 entry:
-  %flags = getelementptr inbounds %struct.hb_subset_input_t, ptr %input, i64 0, i32 2
+  %flags = getelementptr inbounds i8, ptr %input, i64 80
   store i32 %value, ptr %flags, align 8
   ret void
 }
@@ -399,7 +380,7 @@ lor.lhs.false.i:                                  ; preds = %entry
   br i1 %tobool.not.i.i, label %_ZL23hb_object_set_user_dataI17hb_subset_input_tEbPT_P18hb_user_data_key_tPvPFvS5_Ei.exit, label %retry.preheader.i
 
 retry.preheader.i:                                ; preds = %lor.lhs.false.i
-  %user_data2.i = getelementptr inbounds %struct.hb_object_header_t, ptr %input, i64 0, i32 2
+  %user_data2.i = getelementptr inbounds i8, ptr %input, i64 8
   %1 = load atomic i64, ptr %user_data2.i acquire, align 8
   %tobool4.not14.i = icmp eq i64 %1, 0
   br i1 %tobool4.not14.i, label %if.then5.i, label %if.end15.split.loop.exit12.i
@@ -411,7 +392,7 @@ if.then5.i:                                       ; preds = %retry.preheader.i, 
 
 if.end9.i:                                        ; preds = %if.then5.i
   %call.i.i.i = tail call i32 @pthread_mutex_init(ptr noundef nonnull %call6.i, ptr noundef null) #16
-  %items.i.i = getelementptr inbounds %struct.hb_user_data_array_t, ptr %call6.i, i64 0, i32 1
+  %items.i.i = getelementptr inbounds i8, ptr %call6.i, i64 40
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %items.i.i, i8 0, i64 16, i1 false)
   %2 = ptrtoint ptr %call6.i to i64
   %3 = cmpxchg weak ptr %user_data2.i, i64 0, i64 %2 acq_rel monotonic, align 8
@@ -454,7 +435,7 @@ lor.lhs.false.i:                                  ; preds = %entry
   br i1 %tobool.not.i.i, label %_ZL23hb_object_get_user_dataIK17hb_subset_input_tEPvPT_P18hb_user_data_key_t.exit, label %if.end.i
 
 if.end.i:                                         ; preds = %lor.lhs.false.i
-  %user_data2.i = getelementptr inbounds %struct.hb_object_header_t, ptr %input, i64 0, i32 2
+  %user_data2.i = getelementptr inbounds i8, ptr %input, i64 8
   %1 = load atomic i64, ptr %user_data2.i acquire, align 8
   %2 = inttoptr i64 %1 to ptr
   %tobool4.not.i = icmp eq i64 %1, 0
@@ -462,9 +443,9 @@ if.end.i:                                         ; preds = %lor.lhs.false.i
 
 if.end6.i:                                        ; preds = %if.end.i
   %call.i.i.i.i = tail call i32 @pthread_mutex_lock(ptr noundef nonnull %2) #16
-  %arrayZ.i.i.i.i.i = getelementptr inbounds %struct.hb_user_data_array_t, ptr %2, i64 0, i32 1, i32 0, i32 2
+  %arrayZ.i.i.i.i.i = getelementptr inbounds i8, ptr %2, i64 48
   %3 = load ptr, ptr %arrayZ.i.i.i.i.i, align 8
-  %length.i.i.i.i.i = getelementptr inbounds %struct.hb_user_data_array_t, ptr %2, i64 0, i32 1, i32 0, i32 1
+  %length.i.i.i.i.i = getelementptr inbounds i8, ptr %2, i64 44
   %4 = load i32, ptr %length.i.i.i.i.i, align 4
   %retval.sroa.2.8.insert.ext.i.i.i.i.i.i = zext i32 %4 to i64
   %cmp12.not.i.i.i.i.i.i = icmp eq i32 %4, 0
@@ -515,7 +496,7 @@ define dso_local void @hb_subset_input_keep_everything(ptr nocapture noundef %in
 entry:
   %0 = load i64, ptr @_hb_NullPool, align 16
   %1 = inttoptr i64 %0 to ptr
-  %2 = getelementptr inbounds %struct.hb_subset_input_t, ptr %input, i64 0, i32 1
+  %2 = getelementptr inbounds i8, ptr %input, i64 16
   br label %for.body
 
 for.body:                                         ; preds = %entry, %hb_subset_input_set.exit
@@ -544,10 +525,10 @@ hb_subset_input_set.exit:                         ; preds = %if.then.i.i.i, %if.
   br i1 %cmp.not, label %for.end, label %for.body
 
 for.end:                                          ; preds = %hb_subset_input_set.exit
-  %arrayidx.i.i.i8 = getelementptr inbounds %struct.hb_subset_input_t, ptr %input, i64 0, i32 1, i32 0, i32 3
+  %arrayidx.i.i.i8 = getelementptr inbounds i8, ptr %input, i64 40
   %.pre.i9 = load ptr, ptr %arrayidx.i.i.i8, align 8
   tail call void @hb_set_clear(ptr noundef %.pre.i9) #16
-  %flags.i = getelementptr inbounds %struct.hb_subset_input_t, ptr %input, i64 0, i32 2
+  %flags.i = getelementptr inbounds i8, ptr %input, i64 80
   store i32 480, ptr %flags.i, align 8
   ret void
 }
@@ -568,13 +549,13 @@ entry:
   br i1 %tobool.not, label %return, label %if.end
 
 if.end:                                           ; preds = %entry
-  %default_value = getelementptr inbounds %struct.hb_ot_var_axis_info_t, ptr %axis_info, i64 0, i32 5
+  %default_value = getelementptr inbounds i8, ptr %axis_info, i64 20
   %0 = load float, ptr %default_value, align 4
-  %axes_location = getelementptr inbounds %struct.hb_subset_input_t, ptr %input, i64 0, i32 5
+  %axes_location = getelementptr inbounds i8, ptr %input, i64 88
   store float %0, ptr %ref.tmp, align 4
-  %middle.i = getelementptr inbounds %struct.Triple, ptr %ref.tmp, i64 0, i32 1
+  %middle.i = getelementptr inbounds i8, ptr %ref.tmp, i64 4
   store float %0, ptr %middle.i, align 4
-  %maximum.i = getelementptr inbounds %struct.Triple, ptr %ref.tmp, i64 0, i32 2
+  %maximum.i = getelementptr inbounds i8, ptr %ref.tmp, i64 8
   store float %0, ptr %maximum.i, align 4
   %mul.i.i.i = mul i32 %axis_tag, -1640531535
   %call2.i = call noundef zeroext i1 @_ZN12hb_hashmap_tIj6TripleLb0EE13set_with_hashIRKjS0_EEbOT_jOT0_b(ptr noundef nonnull align 8 dereferenceable(48) %axes_location, ptr noundef nonnull align 4 dereferenceable(4) %axis_tag.addr, i32 noundef %mul.i.i.i, ptr noundef nonnull align 4 dereferenceable(12) %ref.tmp, i1 noundef zeroext true)
@@ -600,19 +581,19 @@ entry:
   br i1 %tobool.not, label %return, label %if.end
 
 if.end:                                           ; preds = %entry
-  %min_value = getelementptr inbounds %struct.hb_ot_var_axis_info_t, ptr %axis_info, i64 0, i32 4
-  %max_value = getelementptr inbounds %struct.hb_ot_var_axis_info_t, ptr %axis_info, i64 0, i32 6
+  %min_value = getelementptr inbounds i8, ptr %axis_info, i64 16
+  %max_value = getelementptr inbounds i8, ptr %axis_info, i64 24
   %0 = load float, ptr %min_value, align 4
   %cmp.i.i = fcmp ole float %0, %axis_value
   %1 = select i1 %cmp.i.i, float %axis_value, float %0
   %2 = load float, ptr %max_value, align 4
   %cmp.i1.i = fcmp ole float %1, %2
   %3 = select i1 %cmp.i1.i, float %1, float %2
-  %axes_location = getelementptr inbounds %struct.hb_subset_input_t, ptr %input, i64 0, i32 5
+  %axes_location = getelementptr inbounds i8, ptr %input, i64 88
   store float %3, ptr %ref.tmp, align 4
-  %middle.i = getelementptr inbounds %struct.Triple, ptr %ref.tmp, i64 0, i32 1
+  %middle.i = getelementptr inbounds i8, ptr %ref.tmp, i64 4
   store float %3, ptr %middle.i, align 4
-  %maximum.i = getelementptr inbounds %struct.Triple, ptr %ref.tmp, i64 0, i32 2
+  %maximum.i = getelementptr inbounds i8, ptr %ref.tmp, i64 8
   store float %3, ptr %maximum.i, align 4
   %mul.i.i.i = mul i32 %axis_tag, -1640531535
   %call2.i = call noundef zeroext i1 @_ZN12hb_hashmap_tIj6TripleLb0EE13set_with_hashIRKjS0_EEbOT_jOT0_b(ptr noundef nonnull align 8 dereferenceable(48) %axes_location, ptr noundef nonnull align 4 dereferenceable(4) %axis_tag.addr, i32 noundef %mul.i.i.i, ptr noundef nonnull align 4 dereferenceable(12) %ref.tmp, i1 noundef zeroext true)
@@ -634,7 +615,7 @@ entry:
 if.end:                                           ; preds = %entry
   %0 = load i64, ptr @_hb_NullPool, align 16
   %1 = inttoptr i64 %0 to ptr
-  %2 = getelementptr inbounds %struct.hb_subset_input_t, ptr %call, i64 0, i32 1
+  %2 = getelementptr inbounds i8, ptr %call, i64 16
   br label %for.body.i
 
 for.body.i:                                       ; preds = %hb_subset_input_set.exit.i, %if.end
@@ -663,14 +644,14 @@ hb_subset_input_set.exit.i:                       ; preds = %if.end.i.i.i.i, %if
   br i1 %cmp.not.i, label %lor.lhs.false.i.i, label %for.body.i
 
 lor.lhs.false.i.i:                                ; preds = %hb_subset_input_set.exit.i
-  %arrayidx.i.i.i8.i = getelementptr inbounds %struct.hb_subset_input_t, ptr %call, i64 0, i32 1, i32 0, i32 3
+  %arrayidx.i.i.i8.i = getelementptr inbounds i8, ptr %call, i64 40
   %.pre.i9.i = load ptr, ptr %arrayidx.i.i.i8.i, align 8
   tail call void @hb_set_clear(ptr noundef %.pre.i9.i) #16
-  %flags.i.i = getelementptr inbounds %struct.hb_subset_input_t, ptr %call, i64 0, i32 2
+  %flags.i.i = getelementptr inbounds i8, ptr %call, i64 80
   store i32 480, ptr %flags.i.i, align 8
-  %attach_accelerator_data = getelementptr inbounds %struct.hb_subset_input_t, ptr %call, i64 0, i32 3
+  %attach_accelerator_data = getelementptr inbounds i8, ptr %call, i64 84
   store i8 1, ptr %attach_accelerator_data, align 4
-  %force_long_loca = getelementptr inbounds %struct.hb_subset_input_t, ptr %call, i64 0, i32 4
+  %force_long_loca = getelementptr inbounds i8, ptr %call, i64 85
   store i8 1, ptr %force_long_loca, align 1
   %call2 = tail call ptr @hb_subset_or_fail(ptr noundef %source, ptr noundef nonnull %call) #16
   %5 = load atomic i32, ptr %call monotonic, align 4
@@ -685,14 +666,14 @@ if.end.i.i:                                       ; preds = %lor.lhs.false.i.i
 
 if.end4.i.i:                                      ; preds = %if.end.i.i
   store atomic i32 -57005, ptr %call monotonic, align 4
-  %user_data2.i.i.i = getelementptr inbounds %struct.hb_object_header_t, ptr %call, i64 0, i32 2
+  %user_data2.i.i.i = getelementptr inbounds i8, ptr %call, i64 8
   %8 = load atomic i64, ptr %user_data2.i.i.i acquire, align 8
   %tobool.not.i7.i.i = icmp eq i64 %8, 0
   br i1 %tobool.not.i7.i.i, label %if.end.i, label %if.then.i.i.i
 
 if.then.i.i.i:                                    ; preds = %if.end4.i.i
   %9 = inttoptr i64 %8 to ptr
-  %items.i.i.i.i = getelementptr inbounds %struct.hb_user_data_array_t, ptr %9, i64 0, i32 1
+  %items.i.i.i.i = getelementptr inbounds i8, ptr %9, i64 40
   tail call void @_ZN17hb_lockable_set_tIN20hb_user_data_array_t19hb_user_data_item_tE10hb_mutex_tE4finiERS2_(ptr noundef nonnull align 8 dereferenceable(16) %items.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(40) %9)
   %call.i.i.i.i.i = tail call i32 @pthread_mutex_destroy(ptr noundef nonnull %9) #16
   tail call void @free(ptr noundef nonnull %9) #16
@@ -724,7 +705,7 @@ declare ptr @hb_subset_or_fail(ptr noundef, ptr noundef) local_unnamed_addr #1
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
 define dso_local nonnull ptr @hb_subset_input_old_to_new_glyph_mapping(ptr noundef readnone %input) local_unnamed_addr #8 {
 entry:
-  %glyph_map = getelementptr inbounds %struct.hb_subset_input_t, ptr %input, i64 0, i32 6
+  %glyph_map = getelementptr inbounds i8, ptr %input, i64 136
   ret ptr %glyph_map
 }
 
@@ -733,7 +714,7 @@ declare void @hb_set_destroy(ptr noundef) local_unnamed_addr #1
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr dso_local void @_ZN23hb_bit_set_invertible_t9add_arrayIjEEvPKT_jj(ptr noundef nonnull align 8 dereferenceable(49) %this, ptr noundef %array, i32 noundef %count, i32 noundef %stride) local_unnamed_addr #0 comdat align 2 {
 entry:
-  %inverted = getelementptr inbounds %struct.hb_bit_set_invertible_t, ptr %this, i64 0, i32 1
+  %inverted = getelementptr inbounds i8, ptr %this, i64 48
   %0 = load i8, ptr %inverted, align 8
   %1 = and i8 %0, 1
   %tobool.not = icmp eq i8 %1, 0
@@ -752,7 +733,7 @@ cond.false:                                       ; preds = %entry
   br i1 %or.cond2.i.i, label %if.end4.i.i, label %cond.end
 
 if.end4.i.i:                                      ; preds = %cond.false
-  %population.i.i.i = getelementptr inbounds %struct.hb_bit_set_t, ptr %this, i64 0, i32 1
+  %population.i.i.i = getelementptr inbounds i8, ptr %this, i64 4
   store i32 -1, ptr %population.i.i.i, align 4
   %4 = load i32, ptr %array, align 4
   %idx.ext.i.i.i = zext i32 %stride to i64
@@ -767,7 +748,7 @@ if.end11.us.i.i:                                  ; preds = %if.end4.i.i, %do.en
   %array.addr.052.us.i5.i = phi ptr [ %add.ptr.i.us28.us.i.i, %do.end.split.split.us.us.i.i ], [ %array, %if.end4.i.i ]
   %shr.i.us.i.i = and i32 %g.050.us.i7.i, -512
   %shl.i20.us.i.i = add i32 %shr.i.us.i.i, 512
-  %v.i.i.i.us.i.i = getelementptr inbounds %struct.hb_bit_page_t, ptr %call7.us.i8.i, i64 0, i32 1
+  %v.i.i.i.us.i.i = getelementptr inbounds i8, ptr %call7.us.i8.i, i64 8
   br label %do.body.us23.us.i.i
 
 do.body.us23.us.i.i:                              ; preds = %land.rhs.us31.us.i.i, %if.end11.us.i.i
@@ -824,14 +805,14 @@ entry:
   br i1 %or.cond2.i, label %if.end4.i, label %_ZN12hb_bit_set_t9set_arrayIjEEvbPKT_jj.exit
 
 if.end4.i:                                        ; preds = %entry
-  %population.i.i = getelementptr inbounds %struct.hb_bit_set_t, ptr %this, i64 0, i32 1
+  %population.i.i = getelementptr inbounds i8, ptr %this, i64 4
   store i32 -1, ptr %population.i.i, align 4
   %2 = load i32, ptr %array, align 4
   %idx.ext.i.i = zext i32 %stride to i64
-  %last_page_lookup.i = getelementptr inbounds %struct.hb_bit_set_t, ptr %this, i64 0, i32 2
-  %length.i = getelementptr inbounds %struct.hb_bit_set_t, ptr %this, i64 0, i32 3, i32 1
-  %arrayZ.i = getelementptr inbounds %struct.hb_bit_set_t, ptr %this, i64 0, i32 3, i32 2
-  %arrayZ49.i = getelementptr inbounds %struct.hb_bit_set_t, ptr %this, i64 0, i32 4, i32 2
+  %last_page_lookup.i = getelementptr inbounds i8, ptr %this, i64 8
+  %length.i = getelementptr inbounds i8, ptr %this, i64 20
+  %arrayZ.i = getelementptr inbounds i8, ptr %this, i64 24
+  %arrayZ49.i = getelementptr inbounds i8, ptr %this, i64 40
   br label %if.end11.i
 
 if.end11.i:                                       ; preds = %do.end.i, %if.end4.i
@@ -850,7 +831,11 @@ if.then.i:                                        ; preds = %if.end11.i
   %arrayidx.i = getelementptr inbounds %"struct.hb_bit_set_t::page_map_t", ptr %5, i64 %idxprom.i
   %6 = load i32, ptr %arrayidx.i, align 4
   %cmp5.i = icmp eq i32 %6, %shr.i.i1
-  br i1 %cmp5.i, label %_ZN12hb_bit_set_t8page_forEjb.exit, label %if.end10.i
+  br i1 %cmp5.i, label %if.then6.i, label %if.end10.i
+
+if.then6.i:                                       ; preds = %if.then.i
+  %index.i = getelementptr inbounds i8, ptr %arrayidx.i, i64 4
+  br label %_ZN12hb_bit_set_t8page_forEjb.exit
 
 if.end10.i:                                       ; preds = %if.then.i, %if.end11.i
   %cmp.not1.i.i.i.i.i = icmp sgt i32 %4, 0
@@ -892,6 +877,7 @@ if.end8.i.i.i.i.i:                                ; preds = %if.then5.i.i.i.i.i,
 
 if.end45.i:                                       ; preds = %if.else.i.i.i.i.i
   store atomic i32 %div9.i.i.i.i.i, ptr %last_page_lookup.i monotonic, align 8
+  %index54.i = getelementptr inbounds %"struct.hb_bit_set_t::page_map_t", ptr %5, i64 %conv1.i.i.i.i.i, i32 1
   br label %_ZN12hb_bit_set_t8page_forEjb.exit
 
 _ZN12hb_bit_set_t8page_forEjb.exit.thread:        ; preds = %if.end8.i.i.i.i.i, %if.end10.i
@@ -899,17 +885,16 @@ _ZN12hb_bit_set_t8page_forEjb.exit.thread:        ; preds = %if.end8.i.i.i.i.i, 
   %shl.i20.i6 = add i32 %shr.i.i5, 512
   br label %if.end11.split.us.i
 
-_ZN12hb_bit_set_t8page_forEjb.exit:               ; preds = %if.then.i, %if.end45.i
-  %idxprom.i.sink = phi i64 [ %conv1.i.i.i.i.i, %if.end45.i ], [ %idxprom.i, %if.then.i ]
-  %8 = load ptr, ptr %arrayZ49.i, align 8
-  %index.i = getelementptr inbounds %"struct.hb_bit_set_t::page_map_t", ptr %5, i64 %idxprom.i.sink, i32 1
-  %9 = load i32, ptr %index.i, align 4
-  %idxprom8.i = zext i32 %9 to i64
-  %arrayidx9.i = getelementptr inbounds %struct.hb_bit_page_t, ptr %8, i64 %idxprom8.i
-  %tobool9.i = icmp eq ptr %8, null
+_ZN12hb_bit_set_t8page_forEjb.exit:               ; preds = %if.then6.i, %if.end45.i
+  %index.i.sink = phi ptr [ %index.i, %if.then6.i ], [ %index54.i, %if.end45.i ]
+  %.sink = load ptr, ptr %arrayZ49.i, align 8
+  %8 = load i32, ptr %index.i.sink, align 4
+  %idxprom8.i = zext i32 %8 to i64
+  %arrayidx9.i = getelementptr inbounds %struct.hb_bit_page_t, ptr %.sink, i64 %idxprom8.i
+  %tobool9.i = icmp eq ptr %.sink, null
   %shr.i.i = and i32 %g.050.i, -512
   %shl.i20.i = add i32 %shr.i.i, 512
-  %v.i.i5.i.i = getelementptr inbounds %struct.hb_bit_page_t, ptr %8, i64 %idxprom8.i, i32 1
+  %v.i.i5.i.i = getelementptr inbounds i8, ptr %arrayidx9.i, i64 8
   br i1 %tobool9.i, label %if.end11.split.us.i, label %do.body.i
 
 if.end11.split.us.i:                              ; preds = %_ZN12hb_bit_set_t8page_forEjb.exit.thread, %_ZN12hb_bit_set_t8page_forEjb.exit
@@ -928,14 +913,14 @@ land.rhs.us.i:                                    ; preds = %if.end11.split.us.i
   %dec.us44.i = phi i32 [ %dec.us.i, %do.body.us.i ], [ %dec.us41.i, %if.end11.split.us.i ]
   %add.ptr.i.us43.pn.i = phi ptr [ %add.ptr.i.us43.i, %do.body.us.i ], [ %array.addr.052.i, %if.end11.split.us.i ]
   %add.ptr.i.us43.i = getelementptr inbounds i8, ptr %add.ptr.i.us43.pn.i, i64 %idx.ext.i.i
-  %10 = load i32, ptr %add.ptr.i.us43.i, align 4
-  %cmp22.us.i = icmp ule i32 %shr.i.i8, %10
-  %cmp24.us.i = icmp ult i32 %10, %shl.i20.i9
-  %11 = and i1 %cmp22.us.i, %cmp24.us.i
-  br i1 %11, label %do.body.us.i, label %do.end.i, !llvm.loop !8
+  %9 = load i32, ptr %add.ptr.i.us43.i, align 4
+  %cmp22.us.i = icmp ule i32 %shr.i.i8, %9
+  %cmp24.us.i = icmp ult i32 %9, %shl.i20.i9
+  %10 = and i1 %cmp22.us.i, %cmp24.us.i
+  br i1 %10, label %do.body.us.i, label %do.end.i, !llvm.loop !8
 
 do.body.i:                                        ; preds = %_ZN12hb_bit_set_t8page_forEjb.exit, %land.rhs.i
-  %g.1.i = phi i32 [ %13, %land.rhs.i ], [ %g.050.i, %_ZN12hb_bit_set_t8page_forEjb.exit ]
+  %g.1.i = phi i32 [ %12, %land.rhs.i ], [ %g.050.i, %_ZN12hb_bit_set_t8page_forEjb.exit ]
   %count.addr.1.i = phi i32 [ %dec.i, %land.rhs.i ], [ %count.addr.051.i, %_ZN12hb_bit_set_t8page_forEjb.exit ]
   %array.addr.1.i = phi ptr [ %add.ptr.i.i, %land.rhs.i ], [ %array.addr.052.i, %_ZN12hb_bit_set_t8page_forEjb.exit ]
   %cmp.not.not.i = icmp eq i32 %g.1.i, -1
@@ -950,8 +935,8 @@ if.then17.i:                                      ; preds = %do.body.i
   %div1.i.i7.i.i = and i32 %and.i2.i6.i.i, 7
   %idxprom.i.i.i8.i.i = zext nneg i32 %div1.i.i7.i.i to i64
   %arrayidx.i.i.i9.i.i = getelementptr inbounds [8 x i64], ptr %v.i.i5.i.i, i64 0, i64 %idxprom.i.i.i8.i.i
-  %12 = load i64, ptr %arrayidx.i.i.i9.i.i, align 8
-  %and.i.i.i = and i64 %12, %not.i.i.i
+  %11 = load i64, ptr %arrayidx.i.i.i9.i.i, align 8
+  %and.i.i.i = and i64 %11, %not.i.i.i
   store i64 %and.i.i.i, ptr %arrayidx.i.i.i9.i.i, align 8
   store i32 -1, ptr %arrayidx9.i, align 8
   br label %if.end19.i
@@ -963,16 +948,16 @@ if.end19.i:                                       ; preds = %if.then17.i, %do.bo
 
 land.rhs.i:                                       ; preds = %if.end19.i
   %add.ptr.i.i = getelementptr inbounds i8, ptr %array.addr.1.i, i64 %idx.ext.i.i
-  %13 = load i32, ptr %add.ptr.i.i, align 4
-  %cmp22.i = icmp ule i32 %shr.i.i, %13
-  %cmp24.i = icmp ult i32 %13, %shl.i20.i
-  %14 = and i1 %cmp22.i, %cmp24.i
-  br i1 %14, label %do.body.i, label %do.end.i, !llvm.loop !8
+  %12 = load i32, ptr %add.ptr.i.i, align 4
+  %cmp22.i = icmp ule i32 %shr.i.i, %12
+  %cmp24.i = icmp ult i32 %12, %shl.i20.i
+  %13 = and i1 %cmp22.i, %cmp24.i
+  br i1 %13, label %do.body.i, label %do.end.i, !llvm.loop !8
 
 do.end.i:                                         ; preds = %land.rhs.i, %land.rhs.us.i
   %.us-phi.i = phi ptr [ %add.ptr.i.us43.i, %land.rhs.us.i ], [ %add.ptr.i.i, %land.rhs.i ]
   %.us-phi21.i = phi i32 [ %dec.us44.i, %land.rhs.us.i ], [ %dec.i, %land.rhs.i ]
-  %.us-phi22.i = phi i32 [ %10, %land.rhs.us.i ], [ %13, %land.rhs.i ]
+  %.us-phi22.i = phi i32 [ %9, %land.rhs.us.i ], [ %12, %land.rhs.i ]
   br label %if.end11.i, !llvm.loop !9
 
 _ZN12hb_bit_set_t9set_arrayIjEEvbPKT_jj.exit:     ; preds = %if.end11.split.us.i, %if.end19.i, %do.body.us.i, %entry
@@ -983,13 +968,13 @@ _ZN12hb_bit_set_t9set_arrayIjEEvbPKT_jj.exit:     ; preds = %if.end11.split.us.i
 define linkonce_odr dso_local noundef ptr @_ZN12hb_bit_set_t8page_forEjb(ptr noundef nonnull align 8 dereferenceable(48) %this, i32 noundef %g, i1 noundef zeroext %insert) local_unnamed_addr #0 comdat align 2 {
 entry:
   %shr.i = lshr i32 %g, 9
-  %last_page_lookup = getelementptr inbounds %struct.hb_bit_set_t, ptr %this, i64 0, i32 2
+  %last_page_lookup = getelementptr inbounds i8, ptr %this, i64 8
   %0 = load atomic i32, ptr %last_page_lookup monotonic, align 8
-  %page_map = getelementptr inbounds %struct.hb_bit_set_t, ptr %this, i64 0, i32 3
-  %length = getelementptr inbounds %struct.hb_bit_set_t, ptr %this, i64 0, i32 3, i32 1
+  %page_map = getelementptr inbounds i8, ptr %this, i64 16
+  %length = getelementptr inbounds i8, ptr %this, i64 20
   %1 = load i32, ptr %length, align 4
   %cmp = icmp ult i32 %0, %1
-  %arrayZ = getelementptr inbounds %struct.hb_bit_set_t, ptr %this, i64 0, i32 3, i32 2
+  %arrayZ = getelementptr inbounds i8, ptr %this, i64 24
   %2 = load ptr, ptr %arrayZ, align 8
   br i1 %cmp, label %if.then, label %if.end10
 
@@ -1001,18 +986,18 @@ if.then:                                          ; preds = %entry
   br i1 %cmp5, label %if.then6, label %if.end10
 
 if.then6:                                         ; preds = %if.then
-  %arrayZ7 = getelementptr inbounds %struct.hb_bit_set_t, ptr %this, i64 0, i32 4, i32 2
+  %arrayZ7 = getelementptr inbounds i8, ptr %this, i64 40
   %4 = load ptr, ptr %arrayZ7, align 8
-  %index = getelementptr inbounds %"struct.hb_bit_set_t::page_map_t", ptr %2, i64 %idxprom, i32 1
+  %index = getelementptr inbounds i8, ptr %arrayidx, i64 4
   %5 = load i32, ptr %index, align 4
   %idxprom8 = zext i32 %5 to i64
   %arrayidx9 = getelementptr inbounds %struct.hb_bit_page_t, ptr %4, i64 %idxprom8
   br label %return
 
 if.end10:                                         ; preds = %entry, %if.then
-  %length14 = getelementptr inbounds %struct.hb_bit_set_t, ptr %this, i64 0, i32 4, i32 1
+  %length14 = getelementptr inbounds i8, ptr %this, i64 36
   %6 = load i32, ptr %length14, align 4
-  %arrayZ.i.i = getelementptr inbounds %struct.hb_bit_set_t, ptr %this, i64 0, i32 3, i32 2
+  %arrayZ.i.i = getelementptr inbounds i8, ptr %this, i64 24
   %cmp.not1.i.i.i.i = icmp sgt i32 %1, 0
   br i1 %cmp.not1.i.i.i.i, label %while.body.preheader.i.i.i.i, label %if.then17
 
@@ -1062,7 +1047,7 @@ if.end19:                                         ; preds = %if.then17
   br i1 %tobool.not.i, label %return, label %if.end.i
 
 if.end.i:                                         ; preds = %if.end19
-  %pages.i = getelementptr inbounds %struct.hb_bit_set_t, ptr %this, i64 0, i32 4
+  %pages.i = getelementptr inbounds i8, ptr %this, i64 32
   %cmp.i = icmp eq i32 %6, 0
   %call.i = tail call noundef zeroext i1 @_ZN11hb_vector_tI13hb_bit_page_tLb0EE6resizeEibb(ptr noundef nonnull align 8 dereferenceable(16) %pages.i, i32 noundef %add, i1 noundef zeroext true, i1 noundef zeroext %cmp.i)
   br i1 %call.i, label %lor.lhs.false.i, label %if.then12.i
@@ -1162,17 +1147,17 @@ if.then12.i:                                      ; preds = %lor.lhs.false.i, %_
 
 if.end24:                                         ; preds = %if.end.i3, %if.then6.i, %if.end.i.i.i
   store i32 %cond.i, ptr %length, align 4
-  %arrayZ26 = getelementptr inbounds %struct.hb_bit_set_t, ptr %this, i64 0, i32 4, i32 2
+  %arrayZ26 = getelementptr inbounds i8, ptr %this, i64 40
   %19 = load ptr, ptr %arrayZ26, align 8
   %idxprom28 = zext i32 %6 to i64
   %arrayidx29 = getelementptr inbounds %struct.hb_bit_page_t, ptr %19, i64 %idxprom28
-  %v.i = getelementptr inbounds %struct.hb_bit_page_t, ptr %19, i64 %idxprom28, i32 1
+  %v.i = getelementptr inbounds i8, ptr %arrayidx29, i64 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %v.i, i8 0, i64 64, i1 false)
   store i32 0, ptr %arrayidx29, align 8
   %20 = load ptr, ptr %arrayZ.i.i, align 8
   %idx.ext = zext i32 %storemerge.i.i.ph.sink.i.i.ph to i64
   %add.ptr = getelementptr inbounds %"struct.hb_bit_set_t::page_map_t", ptr %20, i64 %idx.ext
-  %add.ptr32 = getelementptr inbounds %"struct.hb_bit_set_t::page_map_t", ptr %add.ptr, i64 1
+  %add.ptr32 = getelementptr inbounds i8, ptr %add.ptr, i64 8
   %21 = load i32, ptr %length, align 4
   %22 = xor i32 %storemerge.i.i.ph.sink.i.i.ph, -1
   %sub39 = add i32 %21, %22
@@ -1193,7 +1178,7 @@ if.end45:                                         ; preds = %if.else.i.i.i.i, %i
   %24 = phi ptr [ %.pre19, %if.end24 ], [ %2, %if.else.i.i.i.i ]
   %storemerge.i.i.ph.sink.i.i14 = phi i32 [ %storemerge.i.i.ph.sink.i.i.ph, %if.end24 ], [ %div9.i.i.i.i, %if.else.i.i.i.i ]
   store atomic i32 %storemerge.i.i.ph.sink.i.i14, ptr %last_page_lookup monotonic, align 8
-  %arrayZ49 = getelementptr inbounds %struct.hb_bit_set_t, ptr %this, i64 0, i32 4, i32 2
+  %arrayZ49 = getelementptr inbounds i8, ptr %this, i64 40
   %25 = load ptr, ptr %arrayZ49, align 8
   %index54 = getelementptr inbounds %"struct.hb_bit_set_t::page_map_t", ptr %24, i64 %idxprom52.pre-phi, i32 1
   %26 = load i32, ptr %index54, align 4
@@ -1221,7 +1206,7 @@ if.end.i:                                         ; preds = %entry
   br i1 %exact, label %if.then2.i, label %if.else.i
 
 if.then2.i:                                       ; preds = %if.end.i
-  %length.i = getelementptr inbounds %struct.hb_vector_t.1, ptr %this, i64 0, i32 1
+  %length.i = getelementptr inbounds i8, ptr %this, i64 4
   %1 = load i32, ptr %length.i, align 4
   %.sroa.speculated.i = tail call i32 @llvm.umax.i32(i32 %1, i32 %cond)
   %cmp.not.i = icmp ugt i32 %.sroa.speculated.i, %0
@@ -1249,7 +1234,7 @@ lor.rhs.i:                                        ; preds = %while.body.i, %if.t
 
 if.end23.i:                                       ; preds = %lor.rhs.i
   %tobool.not.i.i = icmp eq i32 %new_allocated.128.i, 0
-  %arrayZ.i.i = getelementptr inbounds %struct.hb_vector_t.1, ptr %this, i64 0, i32 2
+  %arrayZ.i.i = getelementptr inbounds i8, ptr %this, i64 8
   %3 = load ptr, ptr %arrayZ.i.i, align 8
   br i1 %tobool.not.i.i, label %_ZN11hb_vector_tI13hb_bit_page_tLb0EE14realloc_vectorIS0_TnPN12hb_enable_ifIXsr3std28is_trivially_copy_assignableIT_EE5valueEvE4typeELPv0EEEPS0_j11hb_priorityILj0EE.exit.thread.i, label %_ZN11hb_vector_tI13hb_bit_page_tLb0EE14realloc_vectorIS0_TnPN12hb_enable_ifIXsr3std28is_trivially_copy_assignableIT_EE5valueEvE4typeELPv0EEEPS0_j11hb_priorityILj0EE.exit.i
 
@@ -1282,7 +1267,7 @@ _ZN11hb_vector_tI13hb_bit_page_tLb0EE5allocEjb.exit: ; preds = %_ZN11hb_vector_t
   br label %if.end
 
 if.end:                                           ; preds = %if.then28.i, %if.else.i, %if.then2.i, %_ZN11hb_vector_tI13hb_bit_page_tLb0EE5allocEjb.exit
-  %length = getelementptr inbounds %struct.hb_vector_t.1, ptr %this, i64 0, i32 1
+  %length = getelementptr inbounds i8, ptr %this, i64 4
   %5 = load i32, ptr %length, align 4
   %cmp3 = icmp ugt i32 %cond, %5
   %brmerge.not = and i1 %cmp3, %initialize
@@ -1295,7 +1280,7 @@ if.then6:                                         ; preds = %if.end
   br i1 %tobool.not.i.i9, label %if.end15, label %if.end.i.i
 
 if.end.i.i:                                       ; preds = %if.then6
-  %arrayZ.i = getelementptr inbounds %struct.hb_vector_t.1, ptr %this, i64 0, i32 2
+  %arrayZ.i = getelementptr inbounds i8, ptr %this, i64 8
   %6 = load ptr, ptr %arrayZ.i, align 8
   %idx.ext.i = zext i32 %5 to i64
   %add.ptr.i = getelementptr inbounds %struct.hb_bit_page_t, ptr %6, i64 %idx.ext.i
@@ -1324,48 +1309,48 @@ declare noalias noundef ptr @calloc(i64 noundef, i64 noundef) local_unnamed_addr
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr dso_local void @_ZN17hb_subset_input_tD2Ev(ptr noundef nonnull align 8 dereferenceable(184) %this) unnamed_addr #0 comdat align 2 {
 entry:
-  %0 = getelementptr inbounds %struct.hb_subset_input_t, ptr %this, i64 0, i32 1
-  %layout_scripts.i = getelementptr inbounds %struct.hb_subset_input_t, ptr %this, i64 0, i32 1, i32 0, i32 7
+  %0 = getelementptr inbounds i8, ptr %this, i64 16
+  %layout_scripts.i = getelementptr inbounds i8, ptr %this, i64 72
   %1 = load ptr, ptr %layout_scripts.i, align 8
   tail call void @hb_set_destroy(ptr noundef %1) #16
   store ptr null, ptr %layout_scripts.i, align 8
-  %layout_features.i = getelementptr inbounds %struct.hb_subset_input_t, ptr %this, i64 0, i32 1, i32 0, i32 6
+  %layout_features.i = getelementptr inbounds i8, ptr %this, i64 64
   %2 = load ptr, ptr %layout_features.i, align 8
   tail call void @hb_set_destroy(ptr noundef %2) #16
   store ptr null, ptr %layout_features.i, align 8
-  %name_languages.i = getelementptr inbounds %struct.hb_subset_input_t, ptr %this, i64 0, i32 1, i32 0, i32 5
+  %name_languages.i = getelementptr inbounds i8, ptr %this, i64 56
   %3 = load ptr, ptr %name_languages.i, align 8
   tail call void @hb_set_destroy(ptr noundef %3) #16
   store ptr null, ptr %name_languages.i, align 8
-  %name_ids.i = getelementptr inbounds %struct.hb_subset_input_t, ptr %this, i64 0, i32 1, i32 0, i32 4
+  %name_ids.i = getelementptr inbounds i8, ptr %this, i64 48
   %4 = load ptr, ptr %name_ids.i, align 8
   tail call void @hb_set_destroy(ptr noundef %4) #16
   store ptr null, ptr %name_ids.i, align 8
-  %drop_tables.i = getelementptr inbounds %struct.hb_subset_input_t, ptr %this, i64 0, i32 1, i32 0, i32 3
+  %drop_tables.i = getelementptr inbounds i8, ptr %this, i64 40
   %5 = load ptr, ptr %drop_tables.i, align 8
   tail call void @hb_set_destroy(ptr noundef %5) #16
   store ptr null, ptr %drop_tables.i, align 8
-  %no_subset_tables.i = getelementptr inbounds %struct.hb_subset_input_t, ptr %this, i64 0, i32 1, i32 0, i32 2
+  %no_subset_tables.i = getelementptr inbounds i8, ptr %this, i64 32
   %6 = load ptr, ptr %no_subset_tables.i, align 8
   tail call void @hb_set_destroy(ptr noundef %6) #16
   store ptr null, ptr %no_subset_tables.i, align 8
-  %unicodes.i = getelementptr inbounds %struct.hb_subset_input_t, ptr %this, i64 0, i32 1, i32 0, i32 1
+  %unicodes.i = getelementptr inbounds i8, ptr %this, i64 24
   %7 = load ptr, ptr %unicodes.i, align 8
   tail call void @hb_set_destroy(ptr noundef %7) #16
   store ptr null, ptr %unicodes.i, align 8
   %8 = load ptr, ptr %0, align 8
   tail call void @hb_set_destroy(ptr noundef %8) #16
   store ptr null, ptr %0, align 8
-  %glyph_map = getelementptr inbounds %struct.hb_subset_input_t, ptr %this, i64 0, i32 6
+  %glyph_map = getelementptr inbounds i8, ptr %this, i64 136
   store atomic i32 -57005, ptr %glyph_map monotonic, align 8
-  %user_data2.i.i.i.i = getelementptr inbounds %struct.hb_subset_input_t, ptr %this, i64 0, i32 6, i32 0, i32 0, i32 2
+  %user_data2.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 144
   %9 = load atomic i64, ptr %user_data2.i.i.i.i acquire, align 8
   %tobool.not.i.i.i.i = icmp eq i64 %9, 0
   br i1 %tobool.not.i.i.i.i, label %_ZL14hb_object_finiI12hb_hashmap_tIjjLb1EEEvPT_.exit.i.i.i, label %if.then.i.i.i.i
 
 if.then.i.i.i.i:                                  ; preds = %entry
   %10 = inttoptr i64 %9 to ptr
-  %items.i.i.i.i.i = getelementptr inbounds %struct.hb_user_data_array_t, ptr %10, i64 0, i32 1
+  %items.i.i.i.i.i = getelementptr inbounds i8, ptr %10, i64 40
   tail call void @_ZN17hb_lockable_set_tIN20hb_user_data_array_t19hb_user_data_item_tE10hb_mutex_tE4finiERS2_(ptr noundef nonnull align 8 dereferenceable(16) %items.i.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(40) %10)
   %call.i.i.i.i.i.i = tail call i32 @pthread_mutex_destroy(ptr noundef nonnull %10) #16
   tail call void @free(ptr noundef nonnull %10) #16
@@ -1373,7 +1358,7 @@ if.then.i.i.i.i:                                  ; preds = %entry
   br label %_ZL14hb_object_finiI12hb_hashmap_tIjjLb1EEEvPT_.exit.i.i.i
 
 _ZL14hb_object_finiI12hb_hashmap_tIjjLb1EEEvPT_.exit.i.i.i: ; preds = %if.then.i.i.i.i, %entry
-  %items.i.i.i = getelementptr inbounds %struct.hb_subset_input_t, ptr %this, i64 0, i32 6, i32 0, i32 7
+  %items.i.i.i = getelementptr inbounds i8, ptr %this, i64 176
   %11 = load ptr, ptr %items.i.i.i, align 8
   %tobool.not.i.i.i = icmp eq ptr %11, null
   br i1 %tobool.not.i.i.i, label %_ZN8hb_map_tD2Ev.exit, label %if.then.i.i.i
@@ -1384,20 +1369,20 @@ if.then.i.i.i:                                    ; preds = %_ZL14hb_object_fini
   br label %_ZN8hb_map_tD2Ev.exit
 
 _ZN8hb_map_tD2Ev.exit:                            ; preds = %_ZL14hb_object_finiI12hb_hashmap_tIjjLb1EEEvPT_.exit.i.i.i, %if.then.i.i.i
-  %occupancy.i.i.i = getelementptr inbounds %struct.hb_subset_input_t, ptr %this, i64 0, i32 6, i32 0, i32 4
+  %occupancy.i.i.i = getelementptr inbounds i8, ptr %this, i64 160
   store i32 0, ptr %occupancy.i.i.i, align 8
-  %population.i.i.i = getelementptr inbounds %struct.hb_subset_input_t, ptr %this, i64 0, i32 6, i32 0, i32 3
+  %population.i.i.i = getelementptr inbounds i8, ptr %this, i64 156
   store i32 0, ptr %population.i.i.i, align 4
-  %axes_location = getelementptr inbounds %struct.hb_subset_input_t, ptr %this, i64 0, i32 5
+  %axes_location = getelementptr inbounds i8, ptr %this, i64 88
   store atomic i32 -57005, ptr %axes_location monotonic, align 8
-  %user_data2.i.i.i = getelementptr inbounds %struct.hb_subset_input_t, ptr %this, i64 0, i32 5, i32 0, i32 2
+  %user_data2.i.i.i = getelementptr inbounds i8, ptr %this, i64 96
   %12 = load atomic i64, ptr %user_data2.i.i.i acquire, align 8
   %tobool.not.i.i.i1 = icmp eq i64 %12, 0
   br i1 %tobool.not.i.i.i1, label %_ZL14hb_object_finiI12hb_hashmap_tIj6TripleLb0EEEvPT_.exit.i.i, label %if.then.i.i.i2
 
 if.then.i.i.i2:                                   ; preds = %_ZN8hb_map_tD2Ev.exit
   %13 = inttoptr i64 %12 to ptr
-  %items.i.i.i.i = getelementptr inbounds %struct.hb_user_data_array_t, ptr %13, i64 0, i32 1
+  %items.i.i.i.i = getelementptr inbounds i8, ptr %13, i64 40
   tail call void @_ZN17hb_lockable_set_tIN20hb_user_data_array_t19hb_user_data_item_tE10hb_mutex_tE4finiERS2_(ptr noundef nonnull align 8 dereferenceable(16) %items.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(40) %13)
   %call.i.i.i.i.i = tail call i32 @pthread_mutex_destroy(ptr noundef nonnull %13) #16
   tail call void @free(ptr noundef nonnull %13) #16
@@ -1405,7 +1390,7 @@ if.then.i.i.i2:                                   ; preds = %_ZN8hb_map_tD2Ev.ex
   br label %_ZL14hb_object_finiI12hb_hashmap_tIj6TripleLb0EEEvPT_.exit.i.i
 
 _ZL14hb_object_finiI12hb_hashmap_tIj6TripleLb0EEEvPT_.exit.i.i: ; preds = %if.then.i.i.i2, %_ZN8hb_map_tD2Ev.exit
-  %items.i.i = getelementptr inbounds %struct.hb_subset_input_t, ptr %this, i64 0, i32 5, i32 7
+  %items.i.i = getelementptr inbounds i8, ptr %this, i64 128
   %14 = load ptr, ptr %items.i.i, align 8
   %tobool.not.i.i = icmp eq ptr %14, null
   br i1 %tobool.not.i.i, label %_ZN12hb_hashmap_tIj6TripleLb0EED2Ev.exit, label %if.then.i.i
@@ -1416,9 +1401,9 @@ if.then.i.i:                                      ; preds = %_ZL14hb_object_fini
   br label %_ZN12hb_hashmap_tIj6TripleLb0EED2Ev.exit
 
 _ZN12hb_hashmap_tIj6TripleLb0EED2Ev.exit:         ; preds = %_ZL14hb_object_finiI12hb_hashmap_tIj6TripleLb0EEEvPT_.exit.i.i, %if.then.i.i
-  %occupancy.i.i = getelementptr inbounds %struct.hb_subset_input_t, ptr %this, i64 0, i32 5, i32 4
+  %occupancy.i.i = getelementptr inbounds i8, ptr %this, i64 112
   store i32 0, ptr %occupancy.i.i, align 8
-  %population.i.i = getelementptr inbounds %struct.hb_subset_input_t, ptr %this, i64 0, i32 5, i32 3
+  %population.i.i = getelementptr inbounds i8, ptr %this, i64 108
   store i32 0, ptr %population.i.i, align 4
   ret void
 }
@@ -1426,7 +1411,7 @@ _ZN12hb_hashmap_tIj6TripleLb0EED2Ev.exit:         ; preds = %_ZL14hb_object_fini
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr dso_local void @_ZN17hb_lockable_set_tIN20hb_user_data_array_t19hb_user_data_item_tE10hb_mutex_tE4finiERS2_(ptr noundef nonnull align 8 dereferenceable(16) %this, ptr noundef nonnull align 8 dereferenceable(40) %l) local_unnamed_addr #0 comdat align 2 {
 entry:
-  %length = getelementptr inbounds %struct.hb_vector_t.34, ptr %this, i64 0, i32 1
+  %length = getelementptr inbounds i8, ptr %this, i64 4
   %0 = load i32, ptr %length, align 4
   %tobool.not = icmp eq i32 %0, 0
   br i1 %tobool.not, label %if.then, label %if.end
@@ -1438,7 +1423,7 @@ if.then:                                          ; preds = %entry
 
 if.then.i:                                        ; preds = %if.then
   store i32 0, ptr %length, align 4
-  %arrayZ.i = getelementptr inbounds %struct.hb_vector_t.34, ptr %this, i64 0, i32 2
+  %arrayZ.i = getelementptr inbounds i8, ptr %this, i64 8
   %2 = load ptr, ptr %arrayZ.i, align 8
   tail call void @free(ptr noundef %2) #16
   br label %_ZN11hb_vector_tIN20hb_user_data_array_t19hb_user_data_item_tELb0EE4finiEv.exit
@@ -1454,7 +1439,7 @@ if.end:                                           ; preds = %entry
   br i1 %tobool5.not21, label %while.end, label %_ZN11hb_vector_tIN20hb_user_data_array_t19hb_user_data_item_tELb0EE4tailEv.exit.lr.ph
 
 _ZN11hb_vector_tIN20hb_user_data_array_t19hb_user_data_item_tELb0EE4tailEv.exit.lr.ph: ; preds = %if.end
-  %arrayZ.i.i = getelementptr inbounds %struct.hb_vector_t.34, ptr %this, i64 0, i32 2
+  %arrayZ.i.i = getelementptr inbounds i8, ptr %this, i64 8
   br label %_ZN11hb_vector_tIN20hb_user_data_array_t19hb_user_data_item_tELb0EE3popEv.exit
 
 _ZN11hb_vector_tIN20hb_user_data_array_t19hb_user_data_item_tELb0EE3popEv.exit: ; preds = %_ZN11hb_vector_tIN20hb_user_data_array_t19hb_user_data_item_tELb0EE4tailEv.exit.lr.ph, %_ZN20hb_user_data_array_t19hb_user_data_item_t4finiEv.exit
@@ -1489,7 +1474,7 @@ while.end:                                        ; preds = %_ZN20hb_user_data_a
 
 if.then.i15:                                      ; preds = %while.end
   store i32 0, ptr %length, align 4
-  %arrayZ.i17 = getelementptr inbounds %struct.hb_vector_t.34, ptr %this, i64 0, i32 2
+  %arrayZ.i17 = getelementptr inbounds i8, ptr %this, i64 8
   %8 = load ptr, ptr %arrayZ.i17, align 8
   tail call void @free(ptr noundef %8) #16
   br label %_ZN11hb_vector_tIN20hb_user_data_array_t19hb_user_data_item_tELb0EE4finiEv.exit19
@@ -1531,9 +1516,9 @@ if.then3:                                         ; preds = %if.end
 
 if.then6:                                         ; preds = %if.then3
   %call.i.i = tail call i32 @pthread_mutex_lock(ptr noundef nonnull %this) #16
-  %arrayZ.i.i.i = getelementptr inbounds %struct.hb_user_data_array_t, ptr %this, i64 0, i32 1, i32 0, i32 2
+  %arrayZ.i.i.i = getelementptr inbounds i8, ptr %this, i64 48
   %0 = load ptr, ptr %arrayZ.i.i.i, align 8
-  %length.i.i.i = getelementptr inbounds %struct.hb_user_data_array_t, ptr %this, i64 0, i32 1, i32 0, i32 1
+  %length.i.i.i = getelementptr inbounds i8, ptr %this, i64 44
   %1 = load i32, ptr %length.i.i.i, align 4
   %retval.sroa.2.8.insert.ext.i.i.i.i = zext i32 %1 to i64
   %cmp12.not.i.i.i.i = icmp eq i32 %1, 0
@@ -1599,7 +1584,7 @@ if.else.i:                                        ; preds = %for.inc.i.i.i.i, %i
   br label %return
 
 if.end8:                                          ; preds = %if.then3, %if.end
-  %items12 = getelementptr inbounds %struct.hb_user_data_array_t, ptr %this, i64 0, i32 1
+  %items12 = getelementptr inbounds i8, ptr %this, i64 40
   store ptr %key, ptr %agg.tmp, align 8
   %item.sroa.2.0.agg.tmp.sroa_idx = getelementptr inbounds i8, ptr %agg.tmp, i64 8
   store ptr %data, ptr %item.sroa.2.0.agg.tmp.sroa_idx, align 8
@@ -1621,9 +1606,9 @@ declare i32 @pthread_mutex_init(ptr noundef, ptr noundef) local_unnamed_addr #12
 define linkonce_odr dso_local noundef ptr @_ZN17hb_lockable_set_tIN20hb_user_data_array_t19hb_user_data_item_tE10hb_mutex_tE17replace_or_insertIS1_EEPS1_T_RS2_b(ptr noundef nonnull align 8 dereferenceable(16) %this, ptr noundef byval(%"struct.hb_user_data_array_t::hb_user_data_item_t") align 8 %v, ptr noundef nonnull align 8 dereferenceable(40) %l, i1 noundef zeroext %replace) local_unnamed_addr #0 comdat align 2 {
 entry:
   %call.i = tail call i32 @pthread_mutex_lock(ptr noundef nonnull %l) #16
-  %arrayZ.i.i = getelementptr inbounds %struct.hb_vector_t.34, ptr %this, i64 0, i32 2
+  %arrayZ.i.i = getelementptr inbounds i8, ptr %this, i64 8
   %0 = load ptr, ptr %arrayZ.i.i, align 8
-  %length.i.i = getelementptr inbounds %struct.hb_vector_t.34, ptr %this, i64 0, i32 1
+  %length.i.i = getelementptr inbounds i8, ptr %this, i64 4
   %1 = load i32, ptr %length.i.i, align 4
   %retval.sroa.2.8.insert.ext.i.i.i = zext i32 %1 to i64
   %cmp12.not.i.i.i = icmp eq i32 %1, 0
@@ -1759,18 +1744,18 @@ if.end7:                                          ; preds = %if.then.i, %if.then
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr dso_local noundef zeroext i1 @_ZN12hb_hashmap_tIj6TripleLb0EE13set_with_hashIRKjS0_EEbOT_jOT0_b(ptr noundef nonnull align 8 dereferenceable(48) %this, ptr noundef nonnull align 4 dereferenceable(4) %key, i32 noundef %hash, ptr noundef nonnull align 4 dereferenceable(12) %value, i1 noundef zeroext %overwrite) local_unnamed_addr #0 comdat align 2 {
 entry:
-  %successful = getelementptr inbounds %struct.hb_hashmap_t, ptr %this, i64 0, i32 1
+  %successful = getelementptr inbounds i8, ptr %this, i64 16
   %0 = load i8, ptr %successful, align 8
   %1 = and i8 %0, 1
   %tobool.not = icmp eq i8 %1, 0
   br i1 %tobool.not, label %return, label %if.end
 
 if.end:                                           ; preds = %entry
-  %occupancy = getelementptr inbounds %struct.hb_hashmap_t, ptr %this, i64 0, i32 4
+  %occupancy = getelementptr inbounds i8, ptr %this, i64 24
   %2 = load i32, ptr %occupancy, align 8
   %div18 = lshr i32 %2, 1
   %add = add i32 %div18, %2
-  %mask = getelementptr inbounds %struct.hb_hashmap_t, ptr %this, i64 0, i32 5
+  %mask = getelementptr inbounds i8, ptr %this, i64 28
   %3 = load i32, ptr %mask, align 4
   %cmp.not = icmp ult i32 %add, %3
   br i1 %cmp.not, label %if.end4, label %land.lhs.true
@@ -1781,17 +1766,18 @@ land.lhs.true:                                    ; preds = %if.end
 
 if.end4:                                          ; preds = %land.lhs.true, %if.end
   %and = and i32 %hash, 1073741823
-  %prime = getelementptr inbounds %struct.hb_hashmap_t, ptr %this, i64 0, i32 6
+  %prime = getelementptr inbounds i8, ptr %this, i64 32
   %4 = load i32, ptr %prime, align 8
   %rem = urem i32 %and, %4
-  %items = getelementptr inbounds %struct.hb_hashmap_t, ptr %this, i64 0, i32 7
+  %items = getelementptr inbounds i8, ptr %this, i64 40
   %5 = load ptr, ptr %items, align 8
   %idxprom42 = zext nneg i32 %rem to i64
-  %is_used_.i43 = getelementptr inbounds %"struct.hb_hashmap_t<unsigned int, Triple>::item_t", ptr %5, i64 %idxprom42, i32 1
-  %bf.load.i44 = load i32, ptr %is_used_.i43, align 4
-  %6 = and i32 %bf.load.i44, 2
-  %tobool.i.not45 = icmp eq i32 %6, 0
-  br i1 %tobool.i.not45, label %while.end.thread, label %while.body.lr.ph
+  %arrayidx43 = getelementptr inbounds %"struct.hb_hashmap_t<unsigned int, Triple>::item_t", ptr %5, i64 %idxprom42
+  %is_used_.i44 = getelementptr inbounds i8, ptr %arrayidx43, i64 4
+  %bf.load.i45 = load i32, ptr %is_used_.i44, align 4
+  %6 = and i32 %bf.load.i45, 2
+  %tobool.i.not46 = icmp eq i32 %6, 0
+  br i1 %tobool.i.not46, label %while.end.thread, label %while.body.lr.ph
 
 while.body.lr.ph:                                 ; preds = %if.end4
   %7 = load i32, ptr %key, align 4
@@ -1799,13 +1785,12 @@ while.body.lr.ph:                                 ; preds = %if.end4
   br label %while.body
 
 while.body:                                       ; preds = %while.body.lr.ph, %if.end13
-  %bf.load.i51 = phi i32 [ %bf.load.i44, %while.body.lr.ph ], [ %bf.load.i, %if.end13 ]
-  %idxprom50 = phi i64 [ %idxprom42, %while.body.lr.ph ], [ %idxprom, %if.end13 ]
-  %step.049 = phi i32 [ 0, %while.body.lr.ph ], [ %inc, %if.end13 ]
-  %i.047 = phi i32 [ %rem, %while.body.lr.ph ], [ %and24, %if.end13 ]
-  %tombstone.046 = phi i32 [ -1, %while.body.lr.ph ], [ %spec.select, %if.end13 ]
-  %arrayidx = getelementptr inbounds %"struct.hb_hashmap_t<unsigned int, Triple>::item_t", ptr %5, i64 %idxprom50
-  %9 = load i32, ptr %arrayidx, align 4
+  %bf.load.i52 = phi i32 [ %bf.load.i45, %while.body.lr.ph ], [ %bf.load.i, %if.end13 ]
+  %arrayidx51 = phi ptr [ %arrayidx43, %while.body.lr.ph ], [ %arrayidx, %if.end13 ]
+  %step.050 = phi i32 [ 0, %while.body.lr.ph ], [ %inc, %if.end13 ]
+  %i.048 = phi i32 [ %rem, %while.body.lr.ph ], [ %and24, %if.end13 ]
+  %tombstone.047 = phi i32 [ -1, %while.body.lr.ph ], [ %spec.select, %if.end13 ]
+  %9 = load i32, ptr %arrayidx51, align 4
   %cmp.i = icmp eq i32 %9, %7
   br i1 %cmp.i, label %if.then10, label %if.end13
 
@@ -1813,36 +1798,37 @@ if.then10:                                        ; preds = %while.body
   br i1 %overwrite, label %while.end, label %return
 
 if.end13:                                         ; preds = %while.body
-  %bf.clear.i = and i32 %bf.load.i51, 1
+  %bf.clear.i = and i32 %bf.load.i52, 1
   %tobool.i20 = icmp ne i32 %bf.clear.i, 0
-  %cmp19 = icmp ne i32 %tombstone.046, -1
+  %cmp19 = icmp ne i32 %tombstone.047, -1
   %or.cond.not = select i1 %tobool.i20, i1 true, i1 %cmp19
-  %spec.select = select i1 %or.cond.not, i32 %tombstone.046, i32 %i.047
-  %inc = add i32 %step.049, 1
-  %add22 = add i32 %inc, %i.047
+  %spec.select = select i1 %or.cond.not, i32 %tombstone.047, i32 %i.048
+  %inc = add i32 %step.050, 1
+  %add22 = add i32 %inc, %i.048
   %and24 = and i32 %8, %add22
   %idxprom = zext i32 %and24 to i64
-  %is_used_.i = getelementptr inbounds %"struct.hb_hashmap_t<unsigned int, Triple>::item_t", ptr %5, i64 %idxprom, i32 1
+  %arrayidx = getelementptr inbounds %"struct.hb_hashmap_t<unsigned int, Triple>::item_t", ptr %5, i64 %idxprom
+  %is_used_.i = getelementptr inbounds i8, ptr %arrayidx, i64 4
   %bf.load.i = load i32, ptr %is_used_.i, align 4
   %10 = and i32 %bf.load.i, 2
   %tobool.i.not = icmp eq i32 %10, 0
   br i1 %tobool.i.not, label %while.end, label %while.body, !llvm.loop !22
 
 while.end:                                        ; preds = %if.end13, %if.then10
-  %tombstone.041 = phi i32 [ %tombstone.046, %if.then10 ], [ %spec.select, %if.end13 ]
-  %i.039 = phi i32 [ %i.047, %if.then10 ], [ %and24, %if.end13 ]
-  %length.037 = phi i32 [ %step.049, %if.then10 ], [ %inc, %if.end13 ]
+  %tombstone.041 = phi i32 [ %tombstone.047, %if.then10 ], [ %spec.select, %if.end13 ]
+  %i.039 = phi i32 [ %i.048, %if.then10 ], [ %and24, %if.end13 ]
+  %length.037 = phi i32 [ %step.050, %if.then10 ], [ %inc, %if.end13 ]
   %tombstone.041.fr = freeze i32 %tombstone.041
   %cmp27 = icmp eq i32 %tombstone.041.fr, -1
-  %spec.select69 = select i1 %cmp27, i32 %i.039, i32 %tombstone.041.fr
+  %spec.select70 = select i1 %cmp27, i32 %i.039, i32 %tombstone.041.fr
   br label %while.end.thread
 
 while.end.thread:                                 ; preds = %while.end, %if.end4
-  %length.03764 = phi i32 [ 0, %if.end4 ], [ %length.037, %while.end ]
-  %11 = phi i32 [ %rem, %if.end4 ], [ %spec.select69, %while.end ]
+  %length.03765 = phi i32 [ 0, %if.end4 ], [ %length.037, %while.end ]
+  %11 = phi i32 [ %rem, %if.end4 ], [ %spec.select70, %while.end ]
   %idxprom28 = zext i32 %11 to i64
   %arrayidx29 = getelementptr inbounds %"struct.hb_hashmap_t<unsigned int, Triple>::item_t", ptr %5, i64 %idxprom28
-  %is_used_.i21 = getelementptr inbounds %"struct.hb_hashmap_t<unsigned int, Triple>::item_t", ptr %5, i64 %idxprom28, i32 1
+  %is_used_.i21 = getelementptr inbounds i8, ptr %arrayidx29, i64 4
   %bf.load.i22 = load i32, ptr %is_used_.i21, align 4
   %12 = and i32 %bf.load.i22, 2
   %tobool.i23.not = icmp eq i32 %12, 0
@@ -1854,7 +1840,7 @@ if.then31:                                        ; preds = %while.end.thread
   store i32 %dec, ptr %occupancy, align 8
   %bf.load.i25 = load i32, ptr %is_used_.i21, align 4
   %14 = and i32 %bf.load.i25, 1
-  %population = getelementptr inbounds %struct.hb_hashmap_t, ptr %this, i64 0, i32 3
+  %population = getelementptr inbounds i8, ptr %this, i64 20
   %15 = load i32, ptr %population, align 4
   %sub = sub i32 %15, %14
   store i32 %sub, ptr %population, align 4
@@ -1863,19 +1849,19 @@ if.then31:                                        ; preds = %while.end.thread
 if.end34:                                         ; preds = %if.then31, %while.end.thread
   %16 = load i32, ptr %key, align 4
   store i32 %16, ptr %arrayidx29, align 4
-  %value36 = getelementptr inbounds %"struct.hb_hashmap_t<unsigned int, Triple>::item_t", ptr %5, i64 %idxprom28, i32 2
+  %value36 = getelementptr inbounds i8, ptr %arrayidx29, i64 8
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %value36, ptr noundef nonnull align 4 dereferenceable(12) %value, i64 12, i1 false)
   %bf.shl = shl nuw i32 %and, 2
   %bf.set.i34 = or disjoint i32 %bf.shl, 3
   store i32 %bf.set.i34, ptr %is_used_.i21, align 4
-  %population40 = getelementptr inbounds %struct.hb_hashmap_t, ptr %this, i64 0, i32 3
+  %population40 = getelementptr inbounds i8, ptr %this, i64 20
   %17 = load <2 x i32>, ptr %population40, align 4
   %18 = add <2 x i32> %17, <i32 1, i32 1>
   store <2 x i32> %18, ptr %population40, align 4
-  %max_chain_length = getelementptr inbounds %struct.hb_hashmap_t, ptr %this, i64 0, i32 2
+  %max_chain_length = getelementptr inbounds i8, ptr %this, i64 18
   %19 = load i16, ptr %max_chain_length, align 2
   %conv42 = zext i16 %19 to i32
-  %cmp43 = icmp ugt i32 %length.03764, %conv42
+  %cmp43 = icmp ugt i32 %length.03765, %conv42
   br i1 %cmp43, label %land.lhs.true44, label %return
 
 land.lhs.true44:                                  ; preds = %if.end34
@@ -1898,7 +1884,7 @@ return:                                           ; preds = %if.end34, %land.lhs
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr dso_local noundef zeroext i1 @_ZN12hb_hashmap_tIj6TripleLb0EE5allocEj(ptr noundef nonnull align 8 dereferenceable(48) %this, i32 noundef %new_population) local_unnamed_addr #0 comdat align 2 {
 entry:
-  %successful = getelementptr inbounds %struct.hb_hashmap_t, ptr %this, i64 0, i32 1
+  %successful = getelementptr inbounds i8, ptr %this, i64 16
   %0 = load i8, ptr %successful, align 8
   %1 = and i8 %0, 1
   %tobool.not = icmp eq i8 %1, 0
@@ -1911,13 +1897,13 @@ if.end:                                           ; preds = %entry
 land.lhs.true:                                    ; preds = %if.end
   %div21 = lshr i32 %new_population, 1
   %add = add i32 %div21, %new_population
-  %mask = getelementptr inbounds %struct.hb_hashmap_t, ptr %this, i64 0, i32 5
+  %mask = getelementptr inbounds i8, ptr %this, i64 28
   %2 = load i32, ptr %mask, align 4
   %cmp2 = icmp ult i32 %add, %2
   br i1 %cmp2, label %return, label %if.end4
 
 if.end4:                                          ; preds = %land.lhs.true, %if.end
-  %population = getelementptr inbounds %struct.hb_hashmap_t, ptr %this, i64 0, i32 3
+  %population = getelementptr inbounds i8, ptr %this, i64 20
   %3 = load i32, ptr %population, align 4
   %.sroa.speculated = tail call i32 @llvm.umax.i32(i32 %3, i32 %new_population)
   %mul = shl i32 %.sroa.speculated, 1
@@ -1945,14 +1931,14 @@ for.end:                                          ; preds = %if.end4
   %10 = sub nuw i64 %8, %9
   %11 = add i64 %10, 20
   tail call void @llvm.memset.p0.i64(ptr nonnull align 4 %call8, i8 0, i64 %11, i1 false)
-  %mask.i = getelementptr inbounds %struct.hb_hashmap_t, ptr %this, i64 0, i32 5
+  %mask.i = getelementptr inbounds i8, ptr %this, i64 28
   %12 = load i32, ptr %mask.i, align 4
   %tobool.not.i22 = icmp eq i32 %12, 0
   %add.i = add i32 %12, 1
   %spec.select.i = select i1 %tobool.not.i22, i32 0, i32 %add.i
-  %items = getelementptr inbounds %struct.hb_hashmap_t, ptr %this, i64 0, i32 7
+  %items = getelementptr inbounds i8, ptr %this, i64 40
   %13 = load ptr, ptr %items, align 8
-  %occupancy = getelementptr inbounds %struct.hb_hashmap_t, ptr %this, i64 0, i32 4
+  %occupancy = getelementptr inbounds i8, ptr %this, i64 24
   store i32 0, ptr %occupancy, align 8
   store i32 0, ptr %population, align 4
   %notmask = shl nsw i32 -1, %retval.0.i
@@ -1968,11 +1954,11 @@ if.end.i:                                         ; preds = %for.end
 
 _ZN12hb_hashmap_tIj6TripleLb0EE9prime_forEj.exit: ; preds = %for.end, %if.end.i
   %retval.0.i23 = phi i32 [ %14, %if.end.i ], [ 2147483647, %for.end ]
-  %prime = getelementptr inbounds %struct.hb_hashmap_t, ptr %this, i64 0, i32 6
+  %prime = getelementptr inbounds i8, ptr %this, i64 32
   store i32 %retval.0.i23, ptr %prime, align 8
   %call6.tr = trunc i32 %retval.0.i to i16
   %conv23 = shl nuw nsw i16 %call6.tr, 1
-  %max_chain_length = getelementptr inbounds %struct.hb_hashmap_t, ptr %this, i64 0, i32 2
+  %max_chain_length = getelementptr inbounds i8, ptr %this, i64 18
   store i16 %conv23, ptr %max_chain_length, align 2
   store ptr %call8, ptr %items, align 8
   %cmp2629.not = icmp eq i32 %spec.select.i, 0
@@ -1988,16 +1974,16 @@ for.cond41.preheader:                             ; preds = %for.inc38, %_ZN12hb
 
 for.body27:                                       ; preds = %for.body27.preheader, %for.inc38
   %indvars.iv = phi i64 [ 0, %for.body27.preheader ], [ %indvars.iv.next, %for.inc38 ]
-  %is_real_.i = getelementptr inbounds %"struct.hb_hashmap_t<unsigned int, Triple>::item_t", ptr %13, i64 %indvars.iv, i32 1
+  %arrayidx = getelementptr inbounds %"struct.hb_hashmap_t<unsigned int, Triple>::item_t", ptr %13, i64 %indvars.iv
+  %is_real_.i = getelementptr inbounds i8, ptr %arrayidx, i64 4
   %bf.load.i = load i32, ptr %is_real_.i, align 4
   %bf.clear.i = and i32 %bf.load.i, 1
   %tobool.i.not = icmp eq i32 %bf.clear.i, 0
   br i1 %tobool.i.not, label %for.inc38, label %if.then29
 
 if.then29:                                        ; preds = %for.body27
-  %arrayidx = getelementptr inbounds %"struct.hb_hashmap_t<unsigned int, Triple>::item_t", ptr %13, i64 %indvars.iv
   %bf.lshr = lshr i32 %bf.load.i, 2
-  %value = getelementptr inbounds %"struct.hb_hashmap_t<unsigned int, Triple>::item_t", ptr %13, i64 %indvars.iv, i32 2
+  %value = getelementptr inbounds i8, ptr %arrayidx, i64 8
   %call36 = tail call noundef zeroext i1 @_ZN12hb_hashmap_tIj6TripleLb0EE13set_with_hashIjS0_EEbOT_jOT0_b(ptr noundef nonnull align 8 dereferenceable(48) %this, ptr noundef nonnull align 4 dereferenceable(4) %arrayidx, i32 noundef %bf.lshr, ptr noundef nonnull align 4 dereferenceable(12) %value, i1 noundef zeroext true)
   br label %for.inc38
 
@@ -2017,18 +2003,18 @@ declare noalias noundef ptr @malloc(i64 noundef) local_unnamed_addr #13
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr dso_local noundef zeroext i1 @_ZN12hb_hashmap_tIj6TripleLb0EE13set_with_hashIjS0_EEbOT_jOT0_b(ptr noundef nonnull align 8 dereferenceable(48) %this, ptr noundef nonnull align 4 dereferenceable(4) %key, i32 noundef %hash, ptr noundef nonnull align 4 dereferenceable(12) %value, i1 noundef zeroext %overwrite) local_unnamed_addr #0 comdat align 2 {
 entry:
-  %successful = getelementptr inbounds %struct.hb_hashmap_t, ptr %this, i64 0, i32 1
+  %successful = getelementptr inbounds i8, ptr %this, i64 16
   %0 = load i8, ptr %successful, align 8
   %1 = and i8 %0, 1
   %tobool.not = icmp eq i8 %1, 0
   br i1 %tobool.not, label %return, label %if.end
 
 if.end:                                           ; preds = %entry
-  %occupancy = getelementptr inbounds %struct.hb_hashmap_t, ptr %this, i64 0, i32 4
+  %occupancy = getelementptr inbounds i8, ptr %this, i64 24
   %2 = load i32, ptr %occupancy, align 8
   %div18 = lshr i32 %2, 1
   %add = add i32 %div18, %2
-  %mask = getelementptr inbounds %struct.hb_hashmap_t, ptr %this, i64 0, i32 5
+  %mask = getelementptr inbounds i8, ptr %this, i64 28
   %3 = load i32, ptr %mask, align 4
   %cmp.not = icmp ult i32 %add, %3
   br i1 %cmp.not, label %if.end4, label %land.lhs.true
@@ -2039,17 +2025,18 @@ land.lhs.true:                                    ; preds = %if.end
 
 if.end4:                                          ; preds = %land.lhs.true, %if.end
   %and = and i32 %hash, 1073741823
-  %prime = getelementptr inbounds %struct.hb_hashmap_t, ptr %this, i64 0, i32 6
+  %prime = getelementptr inbounds i8, ptr %this, i64 32
   %4 = load i32, ptr %prime, align 8
   %rem = urem i32 %and, %4
-  %items = getelementptr inbounds %struct.hb_hashmap_t, ptr %this, i64 0, i32 7
+  %items = getelementptr inbounds i8, ptr %this, i64 40
   %5 = load ptr, ptr %items, align 8
   %idxprom42 = zext nneg i32 %rem to i64
-  %is_used_.i43 = getelementptr inbounds %"struct.hb_hashmap_t<unsigned int, Triple>::item_t", ptr %5, i64 %idxprom42, i32 1
-  %bf.load.i44 = load i32, ptr %is_used_.i43, align 4
-  %6 = and i32 %bf.load.i44, 2
-  %tobool.i.not45 = icmp eq i32 %6, 0
-  br i1 %tobool.i.not45, label %while.end.thread, label %while.body.lr.ph
+  %arrayidx43 = getelementptr inbounds %"struct.hb_hashmap_t<unsigned int, Triple>::item_t", ptr %5, i64 %idxprom42
+  %is_used_.i44 = getelementptr inbounds i8, ptr %arrayidx43, i64 4
+  %bf.load.i45 = load i32, ptr %is_used_.i44, align 4
+  %6 = and i32 %bf.load.i45, 2
+  %tobool.i.not46 = icmp eq i32 %6, 0
+  br i1 %tobool.i.not46, label %while.end.thread, label %while.body.lr.ph
 
 while.body.lr.ph:                                 ; preds = %if.end4
   %7 = load i32, ptr %key, align 4
@@ -2057,13 +2044,12 @@ while.body.lr.ph:                                 ; preds = %if.end4
   br label %while.body
 
 while.body:                                       ; preds = %while.body.lr.ph, %if.end13
-  %bf.load.i51 = phi i32 [ %bf.load.i44, %while.body.lr.ph ], [ %bf.load.i, %if.end13 ]
-  %idxprom50 = phi i64 [ %idxprom42, %while.body.lr.ph ], [ %idxprom, %if.end13 ]
-  %step.049 = phi i32 [ 0, %while.body.lr.ph ], [ %inc, %if.end13 ]
-  %i.047 = phi i32 [ %rem, %while.body.lr.ph ], [ %and24, %if.end13 ]
-  %tombstone.046 = phi i32 [ -1, %while.body.lr.ph ], [ %spec.select, %if.end13 ]
-  %arrayidx = getelementptr inbounds %"struct.hb_hashmap_t<unsigned int, Triple>::item_t", ptr %5, i64 %idxprom50
-  %9 = load i32, ptr %arrayidx, align 4
+  %bf.load.i52 = phi i32 [ %bf.load.i45, %while.body.lr.ph ], [ %bf.load.i, %if.end13 ]
+  %arrayidx51 = phi ptr [ %arrayidx43, %while.body.lr.ph ], [ %arrayidx, %if.end13 ]
+  %step.050 = phi i32 [ 0, %while.body.lr.ph ], [ %inc, %if.end13 ]
+  %i.048 = phi i32 [ %rem, %while.body.lr.ph ], [ %and24, %if.end13 ]
+  %tombstone.047 = phi i32 [ -1, %while.body.lr.ph ], [ %spec.select, %if.end13 ]
+  %9 = load i32, ptr %arrayidx51, align 4
   %cmp.i = icmp eq i32 %9, %7
   br i1 %cmp.i, label %if.then10, label %if.end13
 
@@ -2071,36 +2057,37 @@ if.then10:                                        ; preds = %while.body
   br i1 %overwrite, label %while.end, label %return
 
 if.end13:                                         ; preds = %while.body
-  %bf.clear.i = and i32 %bf.load.i51, 1
+  %bf.clear.i = and i32 %bf.load.i52, 1
   %tobool.i20 = icmp ne i32 %bf.clear.i, 0
-  %cmp19 = icmp ne i32 %tombstone.046, -1
+  %cmp19 = icmp ne i32 %tombstone.047, -1
   %or.cond.not = select i1 %tobool.i20, i1 true, i1 %cmp19
-  %spec.select = select i1 %or.cond.not, i32 %tombstone.046, i32 %i.047
-  %inc = add i32 %step.049, 1
-  %add22 = add i32 %inc, %i.047
+  %spec.select = select i1 %or.cond.not, i32 %tombstone.047, i32 %i.048
+  %inc = add i32 %step.050, 1
+  %add22 = add i32 %inc, %i.048
   %and24 = and i32 %8, %add22
   %idxprom = zext i32 %and24 to i64
-  %is_used_.i = getelementptr inbounds %"struct.hb_hashmap_t<unsigned int, Triple>::item_t", ptr %5, i64 %idxprom, i32 1
+  %arrayidx = getelementptr inbounds %"struct.hb_hashmap_t<unsigned int, Triple>::item_t", ptr %5, i64 %idxprom
+  %is_used_.i = getelementptr inbounds i8, ptr %arrayidx, i64 4
   %bf.load.i = load i32, ptr %is_used_.i, align 4
   %10 = and i32 %bf.load.i, 2
   %tobool.i.not = icmp eq i32 %10, 0
   br i1 %tobool.i.not, label %while.end, label %while.body, !llvm.loop !25
 
 while.end:                                        ; preds = %if.end13, %if.then10
-  %tombstone.041 = phi i32 [ %tombstone.046, %if.then10 ], [ %spec.select, %if.end13 ]
-  %i.039 = phi i32 [ %i.047, %if.then10 ], [ %and24, %if.end13 ]
-  %length.037 = phi i32 [ %step.049, %if.then10 ], [ %inc, %if.end13 ]
+  %tombstone.041 = phi i32 [ %tombstone.047, %if.then10 ], [ %spec.select, %if.end13 ]
+  %i.039 = phi i32 [ %i.048, %if.then10 ], [ %and24, %if.end13 ]
+  %length.037 = phi i32 [ %step.050, %if.then10 ], [ %inc, %if.end13 ]
   %tombstone.041.fr = freeze i32 %tombstone.041
   %cmp27 = icmp eq i32 %tombstone.041.fr, -1
-  %spec.select69 = select i1 %cmp27, i32 %i.039, i32 %tombstone.041.fr
+  %spec.select70 = select i1 %cmp27, i32 %i.039, i32 %tombstone.041.fr
   br label %while.end.thread
 
 while.end.thread:                                 ; preds = %while.end, %if.end4
-  %length.03764 = phi i32 [ 0, %if.end4 ], [ %length.037, %while.end ]
-  %11 = phi i32 [ %rem, %if.end4 ], [ %spec.select69, %while.end ]
+  %length.03765 = phi i32 [ 0, %if.end4 ], [ %length.037, %while.end ]
+  %11 = phi i32 [ %rem, %if.end4 ], [ %spec.select70, %while.end ]
   %idxprom28 = zext i32 %11 to i64
   %arrayidx29 = getelementptr inbounds %"struct.hb_hashmap_t<unsigned int, Triple>::item_t", ptr %5, i64 %idxprom28
-  %is_used_.i21 = getelementptr inbounds %"struct.hb_hashmap_t<unsigned int, Triple>::item_t", ptr %5, i64 %idxprom28, i32 1
+  %is_used_.i21 = getelementptr inbounds i8, ptr %arrayidx29, i64 4
   %bf.load.i22 = load i32, ptr %is_used_.i21, align 4
   %12 = and i32 %bf.load.i22, 2
   %tobool.i23.not = icmp eq i32 %12, 0
@@ -2112,7 +2099,7 @@ if.then31:                                        ; preds = %while.end.thread
   store i32 %dec, ptr %occupancy, align 8
   %bf.load.i25 = load i32, ptr %is_used_.i21, align 4
   %14 = and i32 %bf.load.i25, 1
-  %population = getelementptr inbounds %struct.hb_hashmap_t, ptr %this, i64 0, i32 3
+  %population = getelementptr inbounds i8, ptr %this, i64 20
   %15 = load i32, ptr %population, align 4
   %sub = sub i32 %15, %14
   store i32 %sub, ptr %population, align 4
@@ -2121,19 +2108,19 @@ if.then31:                                        ; preds = %while.end.thread
 if.end34:                                         ; preds = %if.then31, %while.end.thread
   %16 = load i32, ptr %key, align 4
   store i32 %16, ptr %arrayidx29, align 4
-  %value36 = getelementptr inbounds %"struct.hb_hashmap_t<unsigned int, Triple>::item_t", ptr %5, i64 %idxprom28, i32 2
+  %value36 = getelementptr inbounds i8, ptr %arrayidx29, i64 8
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %value36, ptr noundef nonnull align 4 dereferenceable(12) %value, i64 12, i1 false)
   %bf.shl = shl nuw i32 %and, 2
   %bf.set.i34 = or disjoint i32 %bf.shl, 3
   store i32 %bf.set.i34, ptr %is_used_.i21, align 4
-  %population40 = getelementptr inbounds %struct.hb_hashmap_t, ptr %this, i64 0, i32 3
+  %population40 = getelementptr inbounds i8, ptr %this, i64 20
   %17 = load <2 x i32>, ptr %population40, align 4
   %18 = add <2 x i32> %17, <i32 1, i32 1>
   store <2 x i32> %18, ptr %population40, align 4
-  %max_chain_length = getelementptr inbounds %struct.hb_hashmap_t, ptr %this, i64 0, i32 2
+  %max_chain_length = getelementptr inbounds i8, ptr %this, i64 18
   %19 = load i16, ptr %max_chain_length, align 2
   %conv42 = zext i16 %19 to i32
-  %cmp43 = icmp ugt i32 %length.03764, %conv42
+  %cmp43 = icmp ugt i32 %length.03765, %conv42
   br i1 %cmp43, label %land.lhs.true44, label %return
 
 land.lhs.true44:                                  ; preds = %if.end34

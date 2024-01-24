@@ -4,39 +4,11 @@ target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:
 target triple = "x86_64-unknown-linux-gnu"
 
 %"class.std::ios_base::Init" = type { i8 }
-%"class.YAML::Emitter" = type { %"class.std::unique_ptr", %"class.YAML::ostream_wrapper" }
-%"class.std::unique_ptr" = type { %"struct.std::__uniq_ptr_data" }
-%"struct.std::__uniq_ptr_data" = type { %"class.std::__uniq_ptr_impl" }
-%"class.std::__uniq_ptr_impl" = type { %"class.std::tuple" }
-%"class.std::tuple" = type { %"struct.std::_Tuple_impl" }
-%"struct.std::_Tuple_impl" = type { %"struct.std::_Head_base.1" }
-%"struct.std::_Head_base.1" = type { ptr }
-%"class.YAML::ostream_wrapper" = type <{ %"class.std::vector", ptr, i64, i64, i64, i8, [7 x i8] }>
-%"class.std::vector" = type { %"struct.std::_Vector_base" }
-%"struct.std::_Vector_base" = type { %"struct.std::_Vector_base<char, std::allocator<char>>::_Vector_impl" }
-%"struct.std::_Vector_base<char, std::allocator<char>>::_Vector_impl" = type { %"struct.std::_Vector_base<char, std::allocator<char>>::_Vector_impl_data" }
-%"struct.std::_Vector_base<char, std::allocator<char>>::_Vector_impl_data" = type { ptr, ptr, ptr }
 %"class.std::__cxx11::basic_string" = type { %"struct.std::__cxx11::basic_string<char>::_Alloc_hider", i64, %union.anon }
 %"struct.std::__cxx11::basic_string<char>::_Alloc_hider" = type { ptr }
 %union.anon = type { i64, [8 x i8] }
-%"class.YAML::EmitterState" = type { i8, %"class.std::__cxx11::basic_string", %"class.YAML::Setting", %"class.YAML::Setting", %"class.YAML::Setting", %"class.YAML::Setting", %"class.YAML::Setting", %"class.YAML::Setting", %"class.YAML::Setting", %"class.YAML::Setting.2", %"class.YAML::Setting.2", %"class.YAML::Setting.2", %"class.YAML::Setting", %"class.YAML::Setting", %"class.YAML::Setting", %"class.YAML::Setting.2", %"class.YAML::Setting.2", %"class.YAML::SettingChanges", %"class.YAML::SettingChanges", %"class.std::vector.8", i64, i8, i8, i8, i8, i64 }
-%"class.YAML::Setting" = type { i32 }
-%"class.YAML::Setting.2" = type { i64 }
-%"class.YAML::SettingChanges" = type { %"class.std::vector.3" }
-%"class.std::vector.3" = type { %"struct.std::_Vector_base.4" }
-%"struct.std::_Vector_base.4" = type { %"struct.std::_Vector_base<std::unique_ptr<YAML::SettingChangeBase>, std::allocator<std::unique_ptr<YAML::SettingChangeBase>>>::_Vector_impl" }
-%"struct.std::_Vector_base<std::unique_ptr<YAML::SettingChangeBase>, std::allocator<std::unique_ptr<YAML::SettingChangeBase>>>::_Vector_impl" = type { %"struct.std::_Vector_base<std::unique_ptr<YAML::SettingChangeBase>, std::allocator<std::unique_ptr<YAML::SettingChangeBase>>>::_Vector_impl_data" }
-%"struct.std::_Vector_base<std::unique_ptr<YAML::SettingChangeBase>, std::allocator<std::unique_ptr<YAML::SettingChangeBase>>>::_Vector_impl_data" = type { ptr, ptr, ptr }
-%"class.std::vector.8" = type { %"struct.std::_Vector_base.9" }
-%"struct.std::_Vector_base.9" = type { %"struct.std::_Vector_base<std::unique_ptr<YAML::EmitterState::Group>, std::allocator<std::unique_ptr<YAML::EmitterState::Group>>>::_Vector_impl" }
-%"struct.std::_Vector_base<std::unique_ptr<YAML::EmitterState::Group>, std::allocator<std::unique_ptr<YAML::EmitterState::Group>>>::_Vector_impl" = type { %"struct.std::_Vector_base<std::unique_ptr<YAML::EmitterState::Group>, std::allocator<std::unique_ptr<YAML::EmitterState::Group>>>::_Vector_impl_data" }
-%"struct.std::_Vector_base<std::unique_ptr<YAML::EmitterState::Group>, std::allocator<std::unique_ptr<YAML::EmitterState::Group>>>::_Vector_impl_data" = type { ptr, ptr, ptr }
 %"class.std::allocator" = type { i8 }
 %"struct.YAML::_Tag" = type <{ %"class.std::__cxx11::basic_string", %"class.std::__cxx11::basic_string", i32, [4 x i8] }>
-%"struct.YAML::_Precision" = type { i32, i32 }
-%"class.std::ios_base" = type { ptr, i64, i64, i32, i32, i32, ptr, %"struct.std::ios_base::_Words", [8 x %"struct.std::ios_base::_Words"], i32, ptr, %"class.std::locale" }
-%"struct.std::ios_base::_Words" = type { ptr, i64 }
-%"class.std::locale" = type { ptr }
 
 $_ZNSt10unique_ptrIN4YAML12EmitterStateESt14default_deleteIS1_EED2Ev = comdat any
 
@@ -122,7 +94,7 @@ entry:
 
 invoke.cont:                                      ; preds = %entry
   store ptr %call, ptr %this, align 8
-  %m_stream = getelementptr inbounds %"class.YAML::Emitter", ptr %this, i64 0, i32 1
+  %m_stream = getelementptr inbounds i8, ptr %this, i64 8
   invoke void @_ZN4YAML15ostream_wrapperC1Ev(ptr noundef nonnull align 8 dereferenceable(57) %m_stream)
           to label %invoke.cont3 unwind label %lpad2
 
@@ -184,7 +156,7 @@ entry:
 
 invoke.cont:                                      ; preds = %entry
   store ptr %call, ptr %this, align 8
-  %m_stream = getelementptr inbounds %"class.YAML::Emitter", ptr %this, i64 0, i32 1
+  %m_stream = getelementptr inbounds i8, ptr %this, i64 8
   invoke void @_ZN4YAML15ostream_wrapperC1ERSo(ptr noundef nonnull align 8 dereferenceable(57) %m_stream, ptr noundef nonnull align 8 dereferenceable(8) %stream)
           to label %invoke.cont3 unwind label %lpad2
 
@@ -213,7 +185,7 @@ declare void @_ZN4YAML15ostream_wrapperC1ERSo(ptr noundef nonnull align 8 derefe
 ; Function Attrs: mustprogress nounwind uwtable
 define void @_ZN4YAML7EmitterD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %this) unnamed_addr #6 align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  %m_stream = getelementptr inbounds %"class.YAML::Emitter", ptr %this, i64 0, i32 1
+  %m_stream = getelementptr inbounds i8, ptr %this, i64 8
   tail call void @_ZN4YAML15ostream_wrapperD1Ev(ptr noundef nonnull align 8 dereferenceable(57) %m_stream) #15
   %0 = load ptr, ptr %this, align 8
   %cmp.not.i = icmp eq ptr %0, null
@@ -235,14 +207,14 @@ declare void @_ZN4YAML15ostream_wrapperD1Ev(ptr noundef nonnull align 8 derefere
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(write, argmem: readwrite, inaccessiblemem: none) uwtable
 define noundef ptr @_ZNK4YAML7Emitter5c_strEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(72) %this) local_unnamed_addr #7 align 2 {
 entry:
-  %m_pStream.i = getelementptr inbounds %"class.YAML::Emitter", ptr %this, i64 0, i32 1, i32 1
+  %m_pStream.i = getelementptr inbounds i8, ptr %this, i64 32
   %0 = load ptr, ptr %m_pStream.i, align 8
   %tobool.not.i = icmp eq ptr %0, null
   br i1 %tobool.not.i, label %if.else.i, label %_ZNK4YAML15ostream_wrapper3strEv.exit
 
 if.else.i:                                        ; preds = %entry
-  %m_stream = getelementptr inbounds %"class.YAML::Emitter", ptr %this, i64 0, i32 1
-  %m_pos.i = getelementptr inbounds %"class.YAML::Emitter", ptr %this, i64 0, i32 1, i32 2
+  %m_stream = getelementptr inbounds i8, ptr %this, i64 8
+  %m_pos.i = getelementptr inbounds i8, ptr %this, i64 40
   %1 = load i64, ptr %m_pos.i, align 8
   %2 = load ptr, ptr %m_stream, align 8
   %add.ptr.i.i = getelementptr inbounds i8, ptr %2, i64 %1
@@ -258,7 +230,7 @@ _ZNK4YAML15ostream_wrapper3strEv.exit:            ; preds = %entry, %if.else.i
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
 define noundef i64 @_ZNK4YAML7Emitter4sizeEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(72) %this) local_unnamed_addr #8 align 2 {
 entry:
-  %m_pos.i = getelementptr inbounds %"class.YAML::Emitter", ptr %this, i64 0, i32 1, i32 2
+  %m_pos.i = getelementptr inbounds i8, ptr %this, i64 40
   %0 = load i64, ptr %m_pos.i, align 8
   ret i64 %0
 }
@@ -277,7 +249,7 @@ entry:
 define void @_ZNK4YAML7Emitter12GetLastErrorB5cxx11Ev(ptr noalias nonnull sret(%"class.std::__cxx11::basic_string") align 8 %agg.result, ptr nocapture noundef nonnull readonly align 8 dereferenceable(72) %this) local_unnamed_addr #3 align 2 {
 entry:
   %0 = load ptr, ptr %this, align 8
-  %m_lastError.i = getelementptr inbounds %"class.YAML::EmitterState", ptr %0, i64 0, i32 1
+  %m_lastError.i = getelementptr inbounds i8, ptr %0, i64 8
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1ERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %agg.result, ptr noundef nonnull align 8 dereferenceable(32) %m_lastError.i)
   ret void
 }
@@ -484,7 +456,7 @@ sw.bb8:                                           ; preds = %if.end
 
 _ZN4YAML7Emitter11EmitNewlineEv.exit:             ; preds = %if.end
   tail call void @_ZN4YAML7Emitter11PrepareNodeENS_15EmitterNodeType5valueE(ptr noundef nonnull align 8 dereferenceable(72) %this, i32 noundef 0)
-  %m_stream.i = getelementptr inbounds %"class.YAML::Emitter", ptr %this, i64 0, i32 1
+  %m_stream.i = getelementptr inbounds i8, ptr %this, i64 8
   tail call void @_ZN4YAML15ostream_wrapper5writeEPKcm(ptr noundef nonnull align 8 dereferenceable(57) %m_stream.i, ptr noundef nonnull @.str.1, i64 noundef 1)
   %5 = load ptr, ptr %this, align 8
   tail call void @_ZN4YAML12EmitterState13SetNonContentEv(ptr noundef nonnull align 8 dereferenceable(224) %5)
@@ -524,7 +496,7 @@ if.then4:                                         ; preds = %if.end
 
 invoke.cont:                                      ; preds = %if.then4
   store i8 0, ptr %3, align 8
-  %m_lastError.i = getelementptr inbounds %"class.YAML::EmitterState", ptr %3, i64 0, i32 1
+  %m_lastError.i = getelementptr inbounds i8, ptr %3, i64 8
   %call.i5 = invoke noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEaSERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %m_lastError.i, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp)
           to label %invoke.cont9 unwind label %lpad8
 
@@ -545,14 +517,14 @@ lpad8:                                            ; preds = %invoke.cont
   br label %eh.resume
 
 if.end10:                                         ; preds = %if.end
-  %m_hasAnchor.i = getelementptr inbounds %"class.YAML::EmitterState", ptr %3, i64 0, i32 21
+  %m_hasAnchor.i = getelementptr inbounds i8, ptr %3, i64 208
   %6 = load i8, ptr %m_hasAnchor.i, align 8
   %7 = and i8 %6, 1
   %tobool.i.not = icmp eq i8 %7, 0
   br i1 %tobool.i.not, label %lor.lhs.false, label %if.then17
 
 lor.lhs.false:                                    ; preds = %if.end10
-  %m_hasTag.i = getelementptr inbounds %"class.YAML::EmitterState", ptr %3, i64 0, i32 23
+  %m_hasTag.i = getelementptr inbounds i8, ptr %3, i64 210
   %8 = load i8, ptr %m_hasTag.i, align 2
   %9 = and i8 %8, 1
   %tobool.i6.not = icmp eq i8 %9, 0
@@ -565,7 +537,7 @@ if.then17:                                        ; preds = %lor.lhs.false, %if.
 
 invoke.cont23:                                    ; preds = %if.then17
   store i8 0, ptr %3, align 8
-  %m_lastError.i7 = getelementptr inbounds %"class.YAML::EmitterState", ptr %3, i64 0, i32 1
+  %m_lastError.i7 = getelementptr inbounds i8, ptr %3, i64 8
   %call.i8 = invoke noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEaSERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %m_lastError.i7, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp20)
           to label %invoke.cont25 unwind label %lpad24
 
@@ -586,8 +558,8 @@ lpad24:                                           ; preds = %invoke.cont23
   br label %eh.resume
 
 if.end28:                                         ; preds = %lor.lhs.false
-  %m_stream = getelementptr inbounds %"class.YAML::Emitter", ptr %this, i64 0, i32 1
-  %m_col.i = getelementptr inbounds %"class.YAML::Emitter", ptr %this, i64 0, i32 1, i32 4
+  %m_stream = getelementptr inbounds i8, ptr %this, i64 8
+  %m_col.i = getelementptr inbounds i8, ptr %this, i64 56
   %12 = load i64, ptr %m_col.i, align 8
   %cmp30.not = icmp eq i64 %12, 0
   br i1 %cmp30.not, label %if.end34, label %if.then31
@@ -638,7 +610,7 @@ if.then4:                                         ; preds = %if.end
 
 invoke.cont:                                      ; preds = %if.then4
   store i8 0, ptr %3, align 8
-  %m_lastError.i = getelementptr inbounds %"class.YAML::EmitterState", ptr %3, i64 0, i32 1
+  %m_lastError.i = getelementptr inbounds i8, ptr %3, i64 8
   %call.i5 = invoke noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEaSERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %m_lastError.i, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp)
           to label %invoke.cont9 unwind label %lpad8
 
@@ -659,14 +631,14 @@ lpad8:                                            ; preds = %invoke.cont
   br label %eh.resume
 
 if.end10:                                         ; preds = %if.end
-  %m_hasAnchor.i = getelementptr inbounds %"class.YAML::EmitterState", ptr %3, i64 0, i32 21
+  %m_hasAnchor.i = getelementptr inbounds i8, ptr %3, i64 208
   %6 = load i8, ptr %m_hasAnchor.i, align 8
   %7 = and i8 %6, 1
   %tobool.i.not = icmp eq i8 %7, 0
   br i1 %tobool.i.not, label %lor.lhs.false, label %if.then17
 
 lor.lhs.false:                                    ; preds = %if.end10
-  %m_hasTag.i = getelementptr inbounds %"class.YAML::EmitterState", ptr %3, i64 0, i32 23
+  %m_hasTag.i = getelementptr inbounds i8, ptr %3, i64 210
   %8 = load i8, ptr %m_hasTag.i, align 2
   %9 = and i8 %8, 1
   %tobool.i6.not = icmp eq i8 %9, 0
@@ -679,7 +651,7 @@ if.then17:                                        ; preds = %lor.lhs.false, %if.
 
 invoke.cont23:                                    ; preds = %if.then17
   store i8 0, ptr %3, align 8
-  %m_lastError.i7 = getelementptr inbounds %"class.YAML::EmitterState", ptr %3, i64 0, i32 1
+  %m_lastError.i7 = getelementptr inbounds i8, ptr %3, i64 8
   %call.i8 = invoke noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEaSERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %m_lastError.i7, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp20)
           to label %invoke.cont25 unwind label %lpad24
 
@@ -700,8 +672,8 @@ lpad24:                                           ; preds = %invoke.cont23
   br label %eh.resume
 
 if.end28:                                         ; preds = %lor.lhs.false
-  %m_stream = getelementptr inbounds %"class.YAML::Emitter", ptr %this, i64 0, i32 1
-  %m_col.i = getelementptr inbounds %"class.YAML::Emitter", ptr %this, i64 0, i32 1, i32 4
+  %m_stream = getelementptr inbounds i8, ptr %this, i64 8
+  %m_col.i = getelementptr inbounds i8, ptr %this, i64 56
   %12 = load i64, ptr %m_col.i, align 8
   %cmp30.not = icmp eq i64 %12, 0
   br i1 %cmp30.not, label %if.end34, label %if.then31
@@ -773,8 +745,8 @@ if.end10:                                         ; preds = %if.then7, %if.end
   br i1 %cmp14, label %if.then15, label %if.end44
 
 if.then15:                                        ; preds = %if.end10
-  %m_stream = getelementptr inbounds %"class.YAML::Emitter", ptr %this, i64 0, i32 1
-  %m_comment.i = getelementptr inbounds %"class.YAML::Emitter", ptr %this, i64 0, i32 1, i32 5
+  %m_stream = getelementptr inbounds i8, ptr %this, i64 8
+  %m_comment.i = getelementptr inbounds i8, ptr %this, i64 64
   %6 = load i8, ptr %m_comment.i, align 8
   %7 = and i8 %6, 1
   %tobool.i.not = icmp eq i8 %7, 0
@@ -786,9 +758,9 @@ if.then17:                                        ; preds = %if.then15
 
 if.end20:                                         ; preds = %if.then17, %if.then15
   %8 = load ptr, ptr %this, align 8
-  %m_curIndent.i = getelementptr inbounds %"class.YAML::EmitterState", ptr %8, i64 0, i32 20
+  %m_curIndent.i = getelementptr inbounds i8, ptr %8, i64 200
   %9 = load i64, ptr %m_curIndent.i, align 8
-  %m_col.i.i = getelementptr inbounds %"class.YAML::Emitter", ptr %this, i64 0, i32 1, i32 4
+  %m_col.i.i = getelementptr inbounds i8, ptr %this, i64 56
   %10 = load i64, ptr %m_col.i.i, align 8
   %cmp3.i = icmp ult i64 %10, %9
   br i1 %cmp3.i, label %while.body.i, label %_ZN4YAMLlsERNS_15ostream_wrapperERKNS_8IndentToE.exit
@@ -814,21 +786,21 @@ if.else:                                          ; preds = %_ZN4YAMLlsERNS_15os
 
 land.lhs.true:                                    ; preds = %if.else
   %13 = load ptr, ptr %this, align 8
-  %m_hasAnchor.i = getelementptr inbounds %"class.YAML::EmitterState", ptr %13, i64 0, i32 21
+  %m_hasAnchor.i = getelementptr inbounds i8, ptr %13, i64 208
   %14 = load i8, ptr %m_hasAnchor.i, align 8
   %15 = and i8 %14, 1
   %tobool.not.i = icmp eq i8 %15, 0
   br i1 %tobool.not.i, label %lor.lhs.false.i, label %if.end41
 
 lor.lhs.false.i:                                  ; preds = %land.lhs.true
-  %m_hasTag.i = getelementptr inbounds %"class.YAML::EmitterState", ptr %13, i64 0, i32 23
+  %m_hasTag.i = getelementptr inbounds i8, ptr %13, i64 210
   %16 = load i8, ptr %m_hasTag.i, align 2
   %17 = and i8 %16, 1
   %tobool2.not.i = icmp eq i8 %17, 0
   br i1 %tobool2.not.i, label %_ZNK4YAML12EmitterState12HasBegunNodeEv.exit, label %if.end41
 
 _ZNK4YAML12EmitterState12HasBegunNodeEv.exit:     ; preds = %lor.lhs.false.i
-  %m_hasNonContent.i = getelementptr inbounds %"class.YAML::EmitterState", ptr %13, i64 0, i32 24
+  %m_hasNonContent.i = getelementptr inbounds i8, ptr %13, i64 211
   %18 = load i8, ptr %m_hasNonContent.i, align 1
   %19 = and i8 %18, 1
   %tobool3.i.not = icmp eq i8 %19, 0
@@ -900,8 +872,8 @@ if.end10:                                         ; preds = %if.then7, %if.end
   br i1 %cmp14, label %if.then15, label %if.end44
 
 if.then15:                                        ; preds = %if.end10
-  %m_stream = getelementptr inbounds %"class.YAML::Emitter", ptr %this, i64 0, i32 1
-  %m_comment.i = getelementptr inbounds %"class.YAML::Emitter", ptr %this, i64 0, i32 1, i32 5
+  %m_stream = getelementptr inbounds i8, ptr %this, i64 8
+  %m_comment.i = getelementptr inbounds i8, ptr %this, i64 64
   %6 = load i8, ptr %m_comment.i, align 8
   %7 = and i8 %6, 1
   %tobool.i.not = icmp eq i8 %7, 0
@@ -913,9 +885,9 @@ if.then17:                                        ; preds = %if.then15
 
 if.end20:                                         ; preds = %if.then17, %if.then15
   %8 = load ptr, ptr %this, align 8
-  %m_curIndent.i = getelementptr inbounds %"class.YAML::EmitterState", ptr %8, i64 0, i32 20
+  %m_curIndent.i = getelementptr inbounds i8, ptr %8, i64 200
   %9 = load i64, ptr %m_curIndent.i, align 8
-  %m_col.i.i = getelementptr inbounds %"class.YAML::Emitter", ptr %this, i64 0, i32 1, i32 4
+  %m_col.i.i = getelementptr inbounds i8, ptr %this, i64 56
   %10 = load i64, ptr %m_col.i.i, align 8
   %cmp3.i = icmp ult i64 %10, %9
   br i1 %cmp3.i, label %while.body.i, label %_ZN4YAMLlsERNS_15ostream_wrapperERKNS_8IndentToE.exit
@@ -941,21 +913,21 @@ if.else:                                          ; preds = %_ZN4YAMLlsERNS_15os
 
 land.lhs.true:                                    ; preds = %if.else
   %13 = load ptr, ptr %this, align 8
-  %m_hasAnchor.i = getelementptr inbounds %"class.YAML::EmitterState", ptr %13, i64 0, i32 21
+  %m_hasAnchor.i = getelementptr inbounds i8, ptr %13, i64 208
   %14 = load i8, ptr %m_hasAnchor.i, align 8
   %15 = and i8 %14, 1
   %tobool.not.i = icmp eq i8 %15, 0
   br i1 %tobool.not.i, label %lor.lhs.false.i, label %if.end41
 
 lor.lhs.false.i:                                  ; preds = %land.lhs.true
-  %m_hasTag.i = getelementptr inbounds %"class.YAML::EmitterState", ptr %13, i64 0, i32 23
+  %m_hasTag.i = getelementptr inbounds i8, ptr %13, i64 210
   %16 = load i8, ptr %m_hasTag.i, align 2
   %17 = and i8 %16, 1
   %tobool2.not.i = icmp eq i8 %17, 0
   br i1 %tobool2.not.i, label %_ZNK4YAML12EmitterState12HasBegunNodeEv.exit, label %if.end41
 
 _ZNK4YAML12EmitterState12HasBegunNodeEv.exit:     ; preds = %lor.lhs.false.i
-  %m_hasNonContent.i = getelementptr inbounds %"class.YAML::EmitterState", ptr %13, i64 0, i32 24
+  %m_hasNonContent.i = getelementptr inbounds i8, ptr %13, i64 211
   %18 = load i8, ptr %m_hasNonContent.i, align 1
   %19 = and i8 %18, 1
   %tobool3.i.not = icmp eq i8 %19, 0
@@ -997,7 +969,7 @@ invoke.cont5:                                     ; preds = %invoke.cont
           to label %invoke.cont7 unwind label %lpad6
 
 invoke.cont7:                                     ; preds = %invoke.cont5
-  %content.i = getelementptr inbounds %"struct.YAML::_Tag", ptr %ref.tmp, i64 0, i32 1
+  %content.i = getelementptr inbounds i8, ptr %ref.tmp, i64 32
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %content.i) #15
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp) #15
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp2) #15
@@ -1017,7 +989,7 @@ lpad4:                                            ; preds = %invoke.cont
 lpad6:                                            ; preds = %invoke.cont5
   %2 = landingpad { ptr, i32 }
           cleanup
-  %content.i3 = getelementptr inbounds %"struct.YAML::_Tag", ptr %ref.tmp, i64 0, i32 1
+  %content.i3 = getelementptr inbounds i8, ptr %ref.tmp, i64 32
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %content.i3) #15
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp) #15
   br label %ehcleanup
@@ -1044,7 +1016,7 @@ entry:
 
 if.end:                                           ; preds = %entry
   tail call void @_ZN4YAML7Emitter11PrepareNodeENS_15EmitterNodeType5valueE(ptr noundef nonnull align 8 dereferenceable(72) %this, i32 noundef 0)
-  %m_stream = getelementptr inbounds %"class.YAML::Emitter", ptr %this, i64 0, i32 1
+  %m_stream = getelementptr inbounds i8, ptr %this, i64 8
   tail call void @_ZN4YAML15ostream_wrapper5writeEPKcm(ptr noundef nonnull align 8 dereferenceable(57) %m_stream, ptr noundef nonnull @.str.1, i64 noundef 1)
   %3 = load ptr, ptr %this, align 8
   tail call void @_ZN4YAML12EmitterState13SetNonContentEv(ptr noundef nonnull align 8 dereferenceable(224) %3)
@@ -1080,7 +1052,7 @@ if.then:                                          ; preds = %entry
   br label %if.end
 
 if.end:                                           ; preds = %if.then, %entry
-  %doublePrecision = getelementptr inbounds %"struct.YAML::_Precision", ptr %precision, i64 0, i32 1
+  %doublePrecision = getelementptr inbounds i8, ptr %precision, i64 4
   %2 = load i32, ptr %doublePrecision, align 4
   %cmp4 = icmp sgt i32 %2, -1
   br i1 %cmp4, label %if.then5, label %if.end11
@@ -1179,7 +1151,7 @@ if.end:                                           ; preds = %entry
   %0 = load ptr, ptr %this, align 8
   %call2 = tail call noundef i64 @_ZNK4YAML12EmitterState18CurGroupChildCountEv(ptr noundef nonnull align 8 dereferenceable(224) %0)
   %cmp3.not = icmp eq i64 %call2, 0
-  %m_col.i = getelementptr inbounds %"class.YAML::Emitter", ptr %this, i64 0, i32 1, i32 4
+  %m_col.i = getelementptr inbounds i8, ptr %this, i64 56
   %1 = load i64, ptr %m_col.i, align 8
   %cmp5.not = icmp eq i64 %1, 0
   %or.cond = select i1 %cmp3.not, i1 true, i1 %cmp5.not
@@ -1201,17 +1173,17 @@ if.end7:                                          ; preds = %if.then6, %if.end
 
 sw.bb8:                                           ; preds = %if.end7, %if.end7, %if.end7, %if.end7
   %2 = load ptr, ptr %this, align 8
-  %m_hasAnchor.i = getelementptr inbounds %"class.YAML::EmitterState", ptr %2, i64 0, i32 21
+  %m_hasAnchor.i = getelementptr inbounds i8, ptr %2, i64 208
   %3 = load i8, ptr %m_hasAnchor.i, align 8
   %4 = and i8 %3, 1
   %tobool.not.i = icmp ne i8 %4, 0
-  %m_hasTag.i = getelementptr inbounds %"class.YAML::EmitterState", ptr %2, i64 0, i32 23
+  %m_hasTag.i = getelementptr inbounds i8, ptr %2, i64 210
   %5 = load i8, ptr %m_hasTag.i, align 2
   %6 = and i8 %5, 1
   %tobool2.i = icmp ne i8 %6, 0
   %7 = select i1 %tobool.not.i, i1 true, i1 %tobool2.i
-  %m_stream.i = getelementptr inbounds %"class.YAML::Emitter", ptr %this, i64 0, i32 1
-  %m_comment.i.i = getelementptr inbounds %"class.YAML::Emitter", ptr %this, i64 0, i32 1, i32 5
+  %m_stream.i = getelementptr inbounds i8, ptr %this, i64 8
+  %m_comment.i.i = getelementptr inbounds i8, ptr %this, i64 64
   %8 = load i8, ptr %m_comment.i.i, align 8
   %9 = and i8 %8, 1
   %tobool.i.not.i = icmp eq i8 %9, 0
@@ -1233,28 +1205,28 @@ if.then6.i:                                       ; preds = %if.end.i
 
 sw.bb12:                                          ; preds = %if.end7, %if.end7
   %11 = load ptr, ptr %this, align 8
-  %m_hasAnchor.i2 = getelementptr inbounds %"class.YAML::EmitterState", ptr %11, i64 0, i32 21
+  %m_hasAnchor.i2 = getelementptr inbounds i8, ptr %11, i64 208
   %12 = load i8, ptr %m_hasAnchor.i2, align 8
   %13 = and i8 %12, 1
   %tobool.not.i3 = icmp eq i8 %13, 0
   br i1 %tobool.not.i3, label %lor.lhs.false.i, label %if.then16
 
 lor.lhs.false.i:                                  ; preds = %sw.bb12
-  %m_hasTag.i4 = getelementptr inbounds %"class.YAML::EmitterState", ptr %11, i64 0, i32 23
+  %m_hasTag.i4 = getelementptr inbounds i8, ptr %11, i64 210
   %14 = load i8, ptr %m_hasTag.i4, align 2
   %15 = and i8 %14, 1
   %tobool2.not.i = icmp eq i8 %15, 0
   br i1 %tobool2.not.i, label %_ZNK4YAML12EmitterState12HasBegunNodeEv.exit, label %if.then16
 
 _ZNK4YAML12EmitterState12HasBegunNodeEv.exit:     ; preds = %lor.lhs.false.i
-  %m_hasNonContent.i = getelementptr inbounds %"class.YAML::EmitterState", ptr %11, i64 0, i32 24
+  %m_hasNonContent.i = getelementptr inbounds i8, ptr %11, i64 211
   %16 = load i8, ptr %m_hasNonContent.i, align 1
   %17 = and i8 %16, 1
   %tobool3.i.not = icmp eq i8 %17, 0
   br i1 %tobool3.i.not, label %sw.epilog, label %if.then16
 
 if.then16:                                        ; preds = %sw.bb12, %lor.lhs.false.i, %_ZNK4YAML12EmitterState12HasBegunNodeEv.exit
-  %m_stream17 = getelementptr inbounds %"class.YAML::Emitter", ptr %this, i64 0, i32 1
+  %m_stream17 = getelementptr inbounds i8, ptr %this, i64 8
   tail call void @_ZN4YAML15ostream_wrapper5writeEPKcm(ptr noundef nonnull align 8 dereferenceable(57) %m_stream17, ptr noundef nonnull @.str.1, i64 noundef 1)
   br label %sw.epilog
 
@@ -1270,29 +1242,29 @@ entry:
   %0 = load ptr, ptr %this, align 8
   %call2 = tail call noundef i64 @_ZNK4YAML12EmitterState10LastIndentEv(ptr noundef nonnull align 8 dereferenceable(224) %0)
   %1 = load ptr, ptr %this, align 8
-  %m_hasAnchor.i = getelementptr inbounds %"class.YAML::EmitterState", ptr %1, i64 0, i32 21
+  %m_hasAnchor.i = getelementptr inbounds i8, ptr %1, i64 208
   %2 = load i8, ptr %m_hasAnchor.i, align 8
   %3 = and i8 %2, 1
   %tobool.not.i = icmp eq i8 %3, 0
   br i1 %tobool.not.i, label %lor.lhs.false.i, label %if.end21
 
 lor.lhs.false.i:                                  ; preds = %entry
-  %m_hasTag.i = getelementptr inbounds %"class.YAML::EmitterState", ptr %1, i64 0, i32 23
+  %m_hasTag.i = getelementptr inbounds i8, ptr %1, i64 210
   %4 = load i8, ptr %m_hasTag.i, align 2
   %5 = and i8 %4, 1
   %tobool2.not.i = icmp eq i8 %5, 0
   br i1 %tobool2.not.i, label %_ZNK4YAML12EmitterState12HasBegunNodeEv.exit, label %if.end21
 
 _ZNK4YAML12EmitterState12HasBegunNodeEv.exit:     ; preds = %lor.lhs.false.i
-  %m_hasNonContent.i = getelementptr inbounds %"class.YAML::EmitterState", ptr %1, i64 0, i32 24
+  %m_hasNonContent.i = getelementptr inbounds i8, ptr %1, i64 211
   %6 = load i8, ptr %m_hasNonContent.i, align 1
   %7 = and i8 %6, 1
   %tobool3.i.not = icmp eq i8 %7, 0
   br i1 %tobool3.i.not, label %if.then, label %if.end21
 
 if.then:                                          ; preds = %_ZNK4YAML12EmitterState12HasBegunNodeEv.exit
-  %m_stream = getelementptr inbounds %"class.YAML::Emitter", ptr %this, i64 0, i32 1
-  %m_comment.i = getelementptr inbounds %"class.YAML::Emitter", ptr %this, i64 0, i32 1, i32 5
+  %m_stream = getelementptr inbounds i8, ptr %this, i64 8
+  %m_comment.i = getelementptr inbounds i8, ptr %this, i64 64
   %8 = load i8, ptr %m_comment.i, align 8
   %9 = and i8 %8, 1
   %tobool.i.not = icmp eq i8 %9, 0
@@ -1303,7 +1275,7 @@ if.then7:                                         ; preds = %if.then
   br label %if.end
 
 if.end:                                           ; preds = %if.then7, %if.then
-  %m_col.i.i = getelementptr inbounds %"class.YAML::Emitter", ptr %this, i64 0, i32 1, i32 4
+  %m_col.i.i = getelementptr inbounds i8, ptr %this, i64 56
   %10 = load i64, ptr %m_col.i.i, align 8
   %cmp3.i = icmp ult i64 %10, %call2
   br i1 %cmp3.i, label %while.body.i, label %_ZN4YAMLlsERNS_15ostream_wrapperERKNS_8IndentToE.exit
@@ -1335,11 +1307,11 @@ if.end21:                                         ; preds = %_ZN4YAMLlsERNS_15os
 
 sw.bb22:                                          ; preds = %if.end21, %if.end21, %if.end21, %if.end21
   %13 = load ptr, ptr %this, align 8
-  %m_hasAnchor.i2 = getelementptr inbounds %"class.YAML::EmitterState", ptr %13, i64 0, i32 21
+  %m_hasAnchor.i2 = getelementptr inbounds i8, ptr %13, i64 208
   %14 = load i8, ptr %m_hasAnchor.i2, align 8
   %15 = and i8 %14, 1
   %tobool.not.i3 = icmp ne i8 %15, 0
-  %m_hasTag.i4 = getelementptr inbounds %"class.YAML::EmitterState", ptr %13, i64 0, i32 23
+  %m_hasTag.i4 = getelementptr inbounds i8, ptr %13, i64 210
   %16 = load i8, ptr %m_hasTag.i4, align 2
   %17 = and i8 %16, 1
   %tobool2.i = icmp ne i8 %17, 0
@@ -1353,8 +1325,8 @@ lor.rhs:                                          ; preds = %sw.bb22
 
 lor.end:                                          ; preds = %lor.rhs, %sw.bb22
   %19 = phi i1 [ true, %sw.bb22 ], [ %cmp29, %lor.rhs ]
-  %m_stream.i = getelementptr inbounds %"class.YAML::Emitter", ptr %this, i64 0, i32 1
-  %m_comment.i.i = getelementptr inbounds %"class.YAML::Emitter", ptr %this, i64 0, i32 1, i32 5
+  %m_stream.i = getelementptr inbounds i8, ptr %this, i64 8
+  %m_comment.i.i = getelementptr inbounds i8, ptr %this, i64 64
   %20 = load i8, ptr %m_comment.i.i, align 8
   %21 = and i8 %20, 1
   %tobool.i.not.i = icmp eq i8 %21, 0
@@ -1365,7 +1337,7 @@ if.then.i:                                        ; preds = %lor.end
   br label %if.end.i
 
 if.end.i:                                         ; preds = %if.then.i, %lor.end
-  %m_col.i.i5 = getelementptr inbounds %"class.YAML::Emitter", ptr %this, i64 0, i32 1, i32 4
+  %m_col.i.i5 = getelementptr inbounds i8, ptr %this, i64 56
   %22 = load i64, ptr %m_col.i.i5, align 8
   %cmp.not.i = icmp ne i64 %22, 0
   %brmerge.not.i = and i1 %19, %cmp.not.i
@@ -1400,7 +1372,7 @@ entry:
   %ch.addr.i.i.i = alloca i8, align 1
   %ch.addr.i.i = alloca i8, align 1
   %0 = load ptr, ptr %this, align 8
-  %m_curIndent.i = getelementptr inbounds %"class.YAML::EmitterState", ptr %0, i64 0, i32 20
+  %m_curIndent.i = getelementptr inbounds i8, ptr %0, i64 200
   %1 = load i64, ptr %m_curIndent.i, align 8
   %call5 = tail call noundef i64 @_ZNK4YAML12EmitterState14CurGroupIndentEv(ptr noundef nonnull align 8 dereferenceable(224) %0)
   %add = add i64 %call5, %1
@@ -1409,11 +1381,11 @@ entry:
 
 if.end:                                           ; preds = %entry
   %2 = load ptr, ptr %this, align 8
-  %m_hasAnchor.i = getelementptr inbounds %"class.YAML::EmitterState", ptr %2, i64 0, i32 21
+  %m_hasAnchor.i = getelementptr inbounds i8, ptr %2, i64 208
   %3 = load i8, ptr %m_hasAnchor.i, align 8
   %4 = and i8 %3, 1
   %tobool.not.i = icmp ne i8 %4, 0
-  %m_hasTag.i = getelementptr inbounds %"class.YAML::EmitterState", ptr %2, i64 0, i32 23
+  %m_hasTag.i = getelementptr inbounds i8, ptr %2, i64 210
   %5 = load i8, ptr %m_hasTag.i, align 2
   %6 = and i8 %5, 1
   %tobool2.i = icmp ne i8 %6, 0
@@ -1426,20 +1398,20 @@ if.then9:                                         ; preds = %if.end
   br i1 %cmp13.not, label %lor.lhs.false, label %if.then15
 
 lor.lhs.false:                                    ; preds = %if.then9
-  %m_comment.i = getelementptr inbounds %"class.YAML::Emitter", ptr %this, i64 0, i32 1, i32 5
+  %m_comment.i = getelementptr inbounds i8, ptr %this, i64 64
   %8 = load i8, ptr %m_comment.i, align 8
   %9 = and i8 %8, 1
   %tobool.i.not = icmp eq i8 %9, 0
   br i1 %tobool.i.not, label %if.end18, label %if.then15
 
 if.then15:                                        ; preds = %lor.lhs.false, %if.then9
-  %m_stream16 = getelementptr inbounds %"class.YAML::Emitter", ptr %this, i64 0, i32 1
+  %m_stream16 = getelementptr inbounds i8, ptr %this, i64 8
   tail call void @_ZN4YAML15ostream_wrapper5writeEPKcm(ptr noundef nonnull align 8 dereferenceable(57) %m_stream16, ptr noundef nonnull @.str.1, i64 noundef 1)
   br label %if.end18
 
 if.end18:                                         ; preds = %if.then15, %lor.lhs.false
-  %m_stream19 = getelementptr inbounds %"class.YAML::Emitter", ptr %this, i64 0, i32 1
-  %m_col.i.i = getelementptr inbounds %"class.YAML::Emitter", ptr %this, i64 0, i32 1, i32 4
+  %m_stream19 = getelementptr inbounds i8, ptr %this, i64 8
+  %m_col.i.i = getelementptr inbounds i8, ptr %this, i64 56
   %10 = load i64, ptr %m_col.i.i, align 8
   %cmp3.i = icmp ult i64 %10, %1
   br i1 %cmp3.i, label %while.body.i, label %_ZN4YAMLlsERNS_15ostream_wrapperERKNS_8IndentToE.exit
@@ -1469,17 +1441,17 @@ if.end23:                                         ; preds = %_ZN4YAMLlsERNS_15os
 
 sw.bb24:                                          ; preds = %if.end23, %if.end23, %if.end23, %if.end23
   %12 = load ptr, ptr %this, align 8
-  %m_hasAnchor.i3 = getelementptr inbounds %"class.YAML::EmitterState", ptr %12, i64 0, i32 21
+  %m_hasAnchor.i3 = getelementptr inbounds i8, ptr %12, i64 208
   %13 = load i8, ptr %m_hasAnchor.i3, align 8
   %14 = and i8 %13, 1
   %tobool.not.i4 = icmp ne i8 %14, 0
-  %m_hasTag.i5 = getelementptr inbounds %"class.YAML::EmitterState", ptr %12, i64 0, i32 23
+  %m_hasTag.i5 = getelementptr inbounds i8, ptr %12, i64 210
   %15 = load i8, ptr %m_hasTag.i5, align 2
   %16 = and i8 %15, 1
   %tobool2.i6 = icmp ne i8 %16, 0
   %17 = select i1 %tobool.not.i4, i1 true, i1 %tobool2.i6
-  %m_stream.i = getelementptr inbounds %"class.YAML::Emitter", ptr %this, i64 0, i32 1
-  %m_comment.i.i = getelementptr inbounds %"class.YAML::Emitter", ptr %this, i64 0, i32 1, i32 5
+  %m_stream.i = getelementptr inbounds i8, ptr %this, i64 8
+  %m_comment.i.i = getelementptr inbounds i8, ptr %this, i64 64
   %18 = load i8, ptr %m_comment.i.i, align 8
   %19 = and i8 %18, 1
   %tobool.i.not.i = icmp eq i8 %19, 0
@@ -1490,7 +1462,7 @@ if.then.i:                                        ; preds = %sw.bb24
   br label %if.end.i
 
 if.end.i:                                         ; preds = %if.then.i, %sw.bb24
-  %m_col.i.i7 = getelementptr inbounds %"class.YAML::Emitter", ptr %this, i64 0, i32 1, i32 4
+  %m_col.i.i7 = getelementptr inbounds i8, ptr %this, i64 56
   %20 = load i64, ptr %m_col.i.i7, align 8
   %cmp.not.i = icmp ne i64 %20, 0
   %brmerge.not.i = and i1 %17, %cmp.not.i
@@ -1517,11 +1489,11 @@ while.body.i.i:                                   ; preds = %if.end9.i, %while.b
 
 sw.bb31:                                          ; preds = %if.end23
   %23 = load ptr, ptr %this, align 8
-  %m_hasAnchor.i8 = getelementptr inbounds %"class.YAML::EmitterState", ptr %23, i64 0, i32 21
+  %m_hasAnchor.i8 = getelementptr inbounds i8, ptr %23, i64 208
   %24 = load i8, ptr %m_hasAnchor.i8, align 8
   %25 = and i8 %24, 1
   %tobool.not.i9 = icmp ne i8 %25, 0
-  %m_hasTag.i10 = getelementptr inbounds %"class.YAML::EmitterState", ptr %23, i64 0, i32 23
+  %m_hasTag.i10 = getelementptr inbounds i8, ptr %23, i64 210
   %26 = load i8, ptr %m_hasTag.i10, align 2
   %27 = and i8 %26, 1
   %tobool2.i11 = icmp ne i8 %27, 0
@@ -1529,14 +1501,14 @@ sw.bb31:                                          ; preds = %if.end23
   br i1 %28, label %sw.epilog.sink.split, label %lor.lhs.false35
 
 lor.lhs.false35:                                  ; preds = %sw.bb31
-  %m_comment.i12 = getelementptr inbounds %"class.YAML::Emitter", ptr %this, i64 0, i32 1, i32 5
+  %m_comment.i12 = getelementptr inbounds i8, ptr %this, i64 64
   %29 = load i8, ptr %m_comment.i12, align 8
   %30 = and i8 %29, 1
   %tobool.i13.not = icmp eq i8 %30, 0
   br i1 %tobool.i13.not, label %sw.epilog, label %sw.epilog.sink.split
 
 sw.epilog.sink.split:                             ; preds = %sw.bb31, %lor.lhs.false35, %if.end23
-  %m_stream39 = getelementptr inbounds %"class.YAML::Emitter", ptr %this, i64 0, i32 1
+  %m_stream39 = getelementptr inbounds i8, ptr %this, i64 8
   call void @_ZN4YAML15ostream_wrapper5writeEPKcm(ptr noundef nonnull align 8 dereferenceable(57) %m_stream39, ptr noundef nonnull @.str.1, i64 noundef 1)
   br label %sw.epilog
 
@@ -1555,7 +1527,7 @@ entry:
   br i1 %cmp, label %if.then, label %if.else15
 
 if.then:                                          ; preds = %entry
-  %m_mapKeyFmt.i = getelementptr inbounds %"class.YAML::EmitterState", ptr %1, i64 0, i32 14
+  %m_mapKeyFmt.i = getelementptr inbounds i8, ptr %1, i64 104
   %2 = load i32, ptr %m_mapKeyFmt.i, align 4
   %cmp6 = icmp eq i32 %2, 34
   br i1 %cmp6, label %if.then7, label %if.end
@@ -1605,7 +1577,7 @@ entry:
   br i1 %cmp, label %if.then, label %if.else23
 
 if.then:                                          ; preds = %entry
-  %m_mapKeyFmt.i = getelementptr inbounds %"class.YAML::EmitterState", ptr %1, i64 0, i32 14
+  %m_mapKeyFmt.i = getelementptr inbounds i8, ptr %1, i64 104
   %2 = load i32, ptr %m_mapKeyFmt.i, align 4
   %cmp6 = icmp eq i32 %2, 34
   br i1 %cmp6, label %if.then7, label %if.end
@@ -1659,8 +1631,8 @@ if.end30:                                         ; preds = %if.then27, %if.else
 define void @_ZN4YAML7Emitter15SpaceOrIndentToEbm(ptr noundef nonnull align 8 dereferenceable(72) %this, i1 noundef zeroext %requireSpace, i64 noundef %indent) local_unnamed_addr #3 align 2 {
 entry:
   %ch.addr.i.i = alloca i8, align 1
-  %m_stream = getelementptr inbounds %"class.YAML::Emitter", ptr %this, i64 0, i32 1
-  %m_comment.i = getelementptr inbounds %"class.YAML::Emitter", ptr %this, i64 0, i32 1, i32 5
+  %m_stream = getelementptr inbounds i8, ptr %this, i64 8
+  %m_comment.i = getelementptr inbounds i8, ptr %this, i64 64
   %0 = load i8, ptr %m_comment.i, align 8
   %1 = and i8 %0, 1
   %tobool.i.not = icmp eq i8 %1, 0
@@ -1671,7 +1643,7 @@ if.then:                                          ; preds = %entry
   br label %if.end
 
 if.end:                                           ; preds = %if.then, %entry
-  %m_col.i = getelementptr inbounds %"class.YAML::Emitter", ptr %this, i64 0, i32 1, i32 4
+  %m_col.i = getelementptr inbounds i8, ptr %this, i64 56
   %2 = load i64, ptr %m_col.i, align 8
   %cmp.not = icmp ne i64 %2, 0
   %brmerge.not = and i1 %cmp.not, %requireSpace
@@ -1716,29 +1688,29 @@ entry:
   %0 = load ptr, ptr %this, align 8
   %call2 = tail call noundef i64 @_ZNK4YAML12EmitterState10LastIndentEv(ptr noundef nonnull align 8 dereferenceable(224) %0)
   %1 = load ptr, ptr %this, align 8
-  %m_hasAnchor.i = getelementptr inbounds %"class.YAML::EmitterState", ptr %1, i64 0, i32 21
+  %m_hasAnchor.i = getelementptr inbounds i8, ptr %1, i64 208
   %2 = load i8, ptr %m_hasAnchor.i, align 8
   %3 = and i8 %2, 1
   %tobool.not.i = icmp eq i8 %3, 0
   br i1 %tobool.not.i, label %lor.lhs.false.i, label %if.end21
 
 lor.lhs.false.i:                                  ; preds = %entry
-  %m_hasTag.i = getelementptr inbounds %"class.YAML::EmitterState", ptr %1, i64 0, i32 23
+  %m_hasTag.i = getelementptr inbounds i8, ptr %1, i64 210
   %4 = load i8, ptr %m_hasTag.i, align 2
   %5 = and i8 %4, 1
   %tobool2.not.i = icmp eq i8 %5, 0
   br i1 %tobool2.not.i, label %_ZNK4YAML12EmitterState12HasBegunNodeEv.exit, label %if.end21
 
 _ZNK4YAML12EmitterState12HasBegunNodeEv.exit:     ; preds = %lor.lhs.false.i
-  %m_hasNonContent.i = getelementptr inbounds %"class.YAML::EmitterState", ptr %1, i64 0, i32 24
+  %m_hasNonContent.i = getelementptr inbounds i8, ptr %1, i64 211
   %6 = load i8, ptr %m_hasNonContent.i, align 1
   %7 = and i8 %6, 1
   %tobool3.i.not = icmp eq i8 %7, 0
   br i1 %tobool3.i.not, label %if.then, label %if.end21
 
 if.then:                                          ; preds = %_ZNK4YAML12EmitterState12HasBegunNodeEv.exit
-  %m_stream = getelementptr inbounds %"class.YAML::Emitter", ptr %this, i64 0, i32 1
-  %m_comment.i = getelementptr inbounds %"class.YAML::Emitter", ptr %this, i64 0, i32 1, i32 5
+  %m_stream = getelementptr inbounds i8, ptr %this, i64 8
+  %m_comment.i = getelementptr inbounds i8, ptr %this, i64 64
   %8 = load i8, ptr %m_comment.i, align 8
   %9 = and i8 %8, 1
   %tobool.i.not = icmp eq i8 %9, 0
@@ -1749,7 +1721,7 @@ if.then7:                                         ; preds = %if.then
   br label %if.end
 
 if.end:                                           ; preds = %if.then7, %if.then
-  %m_col.i.i = getelementptr inbounds %"class.YAML::Emitter", ptr %this, i64 0, i32 1, i32 4
+  %m_col.i.i = getelementptr inbounds i8, ptr %this, i64 56
   %10 = load i64, ptr %m_col.i.i, align 8
   %cmp3.i = icmp ult i64 %10, %call2
   br i1 %cmp3.i, label %while.body.i, label %_ZN4YAMLlsERNS_15ostream_wrapperERKNS_8IndentToE.exit
@@ -1781,11 +1753,11 @@ if.end21:                                         ; preds = %_ZN4YAMLlsERNS_15os
 
 sw.bb22:                                          ; preds = %if.end21, %if.end21, %if.end21, %if.end21
   %13 = load ptr, ptr %this, align 8
-  %m_hasAnchor.i2 = getelementptr inbounds %"class.YAML::EmitterState", ptr %13, i64 0, i32 21
+  %m_hasAnchor.i2 = getelementptr inbounds i8, ptr %13, i64 208
   %14 = load i8, ptr %m_hasAnchor.i2, align 8
   %15 = and i8 %14, 1
   %tobool.not.i3 = icmp ne i8 %15, 0
-  %m_hasTag.i4 = getelementptr inbounds %"class.YAML::EmitterState", ptr %13, i64 0, i32 23
+  %m_hasTag.i4 = getelementptr inbounds i8, ptr %13, i64 210
   %16 = load i8, ptr %m_hasTag.i4, align 2
   %17 = and i8 %16, 1
   %tobool2.i = icmp ne i8 %17, 0
@@ -1799,8 +1771,8 @@ lor.rhs:                                          ; preds = %sw.bb22
 
 lor.end:                                          ; preds = %lor.rhs, %sw.bb22
   %19 = phi i1 [ true, %sw.bb22 ], [ %cmp29, %lor.rhs ]
-  %m_stream.i = getelementptr inbounds %"class.YAML::Emitter", ptr %this, i64 0, i32 1
-  %m_comment.i.i = getelementptr inbounds %"class.YAML::Emitter", ptr %this, i64 0, i32 1, i32 5
+  %m_stream.i = getelementptr inbounds i8, ptr %this, i64 8
+  %m_comment.i.i = getelementptr inbounds i8, ptr %this, i64 64
   %20 = load i8, ptr %m_comment.i.i, align 8
   %21 = and i8 %20, 1
   %tobool.i.not.i = icmp eq i8 %21, 0
@@ -1811,7 +1783,7 @@ if.then.i:                                        ; preds = %lor.end
   br label %if.end.i
 
 if.end.i:                                         ; preds = %if.then.i, %lor.end
-  %m_col.i.i5 = getelementptr inbounds %"class.YAML::Emitter", ptr %this, i64 0, i32 1, i32 4
+  %m_col.i.i5 = getelementptr inbounds i8, ptr %this, i64 56
   %22 = load i64, ptr %m_col.i.i5, align 8
   %cmp.not.i = icmp ne i64 %22, 0
   %brmerge.not.i = and i1 %19, %cmp.not.i
@@ -1848,29 +1820,29 @@ entry:
   %0 = load ptr, ptr %this, align 8
   %call2 = tail call noundef i64 @_ZNK4YAML12EmitterState10LastIndentEv(ptr noundef nonnull align 8 dereferenceable(224) %0)
   %1 = load ptr, ptr %this, align 8
-  %m_hasAnchor.i = getelementptr inbounds %"class.YAML::EmitterState", ptr %1, i64 0, i32 21
+  %m_hasAnchor.i = getelementptr inbounds i8, ptr %1, i64 208
   %2 = load i8, ptr %m_hasAnchor.i, align 8
   %3 = and i8 %2, 1
   %tobool.not.i = icmp eq i8 %3, 0
   br i1 %tobool.not.i, label %lor.lhs.false.i, label %if.end21
 
 lor.lhs.false.i:                                  ; preds = %entry
-  %m_hasTag.i = getelementptr inbounds %"class.YAML::EmitterState", ptr %1, i64 0, i32 23
+  %m_hasTag.i = getelementptr inbounds i8, ptr %1, i64 210
   %4 = load i8, ptr %m_hasTag.i, align 2
   %5 = and i8 %4, 1
   %tobool2.not.i = icmp eq i8 %5, 0
   br i1 %tobool2.not.i, label %_ZNK4YAML12EmitterState12HasBegunNodeEv.exit, label %if.end21
 
 _ZNK4YAML12EmitterState12HasBegunNodeEv.exit:     ; preds = %lor.lhs.false.i
-  %m_hasNonContent.i = getelementptr inbounds %"class.YAML::EmitterState", ptr %1, i64 0, i32 24
+  %m_hasNonContent.i = getelementptr inbounds i8, ptr %1, i64 211
   %6 = load i8, ptr %m_hasNonContent.i, align 1
   %7 = and i8 %6, 1
   %tobool3.i.not = icmp eq i8 %7, 0
   br i1 %tobool3.i.not, label %if.then, label %if.end21
 
 if.then:                                          ; preds = %_ZNK4YAML12EmitterState12HasBegunNodeEv.exit
-  %m_stream = getelementptr inbounds %"class.YAML::Emitter", ptr %this, i64 0, i32 1
-  %m_comment.i = getelementptr inbounds %"class.YAML::Emitter", ptr %this, i64 0, i32 1, i32 5
+  %m_stream = getelementptr inbounds i8, ptr %this, i64 8
+  %m_comment.i = getelementptr inbounds i8, ptr %this, i64 64
   %8 = load i8, ptr %m_comment.i, align 8
   %9 = and i8 %8, 1
   %tobool.i.not = icmp eq i8 %9, 0
@@ -1881,7 +1853,7 @@ if.then7:                                         ; preds = %if.then
   br label %if.end
 
 if.end:                                           ; preds = %if.then7, %if.then
-  %m_col.i.i = getelementptr inbounds %"class.YAML::Emitter", ptr %this, i64 0, i32 1, i32 4
+  %m_col.i.i = getelementptr inbounds i8, ptr %this, i64 56
   %10 = load i64, ptr %m_col.i.i, align 8
   %cmp3.i = icmp ult i64 %10, %call2
   br i1 %cmp3.i, label %while.body.i, label %_ZN4YAMLlsERNS_15ostream_wrapperERKNS_8IndentToE.exit
@@ -1913,11 +1885,11 @@ if.end21:                                         ; preds = %_ZN4YAMLlsERNS_15os
 
 sw.bb22:                                          ; preds = %if.end21, %if.end21, %if.end21, %if.end21
   %13 = load ptr, ptr %this, align 8
-  %m_hasAnchor.i2 = getelementptr inbounds %"class.YAML::EmitterState", ptr %13, i64 0, i32 21
+  %m_hasAnchor.i2 = getelementptr inbounds i8, ptr %13, i64 208
   %14 = load i8, ptr %m_hasAnchor.i2, align 8
   %15 = and i8 %14, 1
   %tobool.not.i3 = icmp ne i8 %15, 0
-  %m_hasTag.i4 = getelementptr inbounds %"class.YAML::EmitterState", ptr %13, i64 0, i32 23
+  %m_hasTag.i4 = getelementptr inbounds i8, ptr %13, i64 210
   %16 = load i8, ptr %m_hasTag.i4, align 2
   %17 = and i8 %16, 1
   %tobool2.i = icmp ne i8 %17, 0
@@ -1931,8 +1903,8 @@ lor.rhs:                                          ; preds = %sw.bb22
 
 lor.end:                                          ; preds = %lor.rhs, %sw.bb22
   %19 = phi i1 [ true, %sw.bb22 ], [ %cmp29, %lor.rhs ]
-  %m_stream.i = getelementptr inbounds %"class.YAML::Emitter", ptr %this, i64 0, i32 1
-  %m_comment.i.i = getelementptr inbounds %"class.YAML::Emitter", ptr %this, i64 0, i32 1, i32 5
+  %m_stream.i = getelementptr inbounds i8, ptr %this, i64 8
+  %m_comment.i.i = getelementptr inbounds i8, ptr %this, i64 64
   %20 = load i8, ptr %m_comment.i.i, align 8
   %21 = and i8 %20, 1
   %tobool.i.not.i = icmp eq i8 %21, 0
@@ -1943,7 +1915,7 @@ if.then.i:                                        ; preds = %lor.end
   br label %if.end.i
 
 if.end.i:                                         ; preds = %if.then.i, %lor.end
-  %m_col.i.i5 = getelementptr inbounds %"class.YAML::Emitter", ptr %this, i64 0, i32 1, i32 4
+  %m_col.i.i5 = getelementptr inbounds i8, ptr %this, i64 56
   %22 = load i64, ptr %m_col.i.i5, align 8
   %cmp.not.i = icmp ne i64 %22, 0
   %brmerge.not.i = and i1 %19, %cmp.not.i
@@ -1980,29 +1952,29 @@ entry:
   %0 = load ptr, ptr %this, align 8
   %call2 = tail call noundef i64 @_ZNK4YAML12EmitterState10LastIndentEv(ptr noundef nonnull align 8 dereferenceable(224) %0)
   %1 = load ptr, ptr %this, align 8
-  %m_hasAnchor.i = getelementptr inbounds %"class.YAML::EmitterState", ptr %1, i64 0, i32 21
+  %m_hasAnchor.i = getelementptr inbounds i8, ptr %1, i64 208
   %2 = load i8, ptr %m_hasAnchor.i, align 8
   %3 = and i8 %2, 1
   %tobool.not.i = icmp eq i8 %3, 0
   br i1 %tobool.not.i, label %lor.lhs.false.i, label %if.end14
 
 lor.lhs.false.i:                                  ; preds = %entry
-  %m_hasTag.i = getelementptr inbounds %"class.YAML::EmitterState", ptr %1, i64 0, i32 23
+  %m_hasTag.i = getelementptr inbounds i8, ptr %1, i64 210
   %4 = load i8, ptr %m_hasTag.i, align 2
   %5 = and i8 %4, 1
   %tobool2.not.i = icmp eq i8 %5, 0
   br i1 %tobool2.not.i, label %_ZNK4YAML12EmitterState12HasBegunNodeEv.exit, label %if.end14
 
 _ZNK4YAML12EmitterState12HasBegunNodeEv.exit:     ; preds = %lor.lhs.false.i
-  %m_hasNonContent.i = getelementptr inbounds %"class.YAML::EmitterState", ptr %1, i64 0, i32 24
+  %m_hasNonContent.i = getelementptr inbounds i8, ptr %1, i64 211
   %6 = load i8, ptr %m_hasNonContent.i, align 1
   %7 = and i8 %6, 1
   %tobool3.i.not = icmp eq i8 %7, 0
   br i1 %tobool3.i.not, label %if.then, label %if.end14
 
 if.then:                                          ; preds = %_ZNK4YAML12EmitterState12HasBegunNodeEv.exit
-  %m_stream = getelementptr inbounds %"class.YAML::Emitter", ptr %this, i64 0, i32 1
-  %m_comment.i = getelementptr inbounds %"class.YAML::Emitter", ptr %this, i64 0, i32 1, i32 5
+  %m_stream = getelementptr inbounds i8, ptr %this, i64 8
+  %m_comment.i = getelementptr inbounds i8, ptr %this, i64 64
   %8 = load i8, ptr %m_comment.i, align 8
   %9 = and i8 %8, 1
   %tobool.i.not = icmp eq i8 %9, 0
@@ -2013,7 +1985,7 @@ if.then7:                                         ; preds = %if.then
   br label %if.end
 
 if.end:                                           ; preds = %if.then7, %if.then
-  %m_col.i.i = getelementptr inbounds %"class.YAML::Emitter", ptr %this, i64 0, i32 1, i32 4
+  %m_col.i.i = getelementptr inbounds i8, ptr %this, i64 56
   %10 = load i64, ptr %m_col.i.i, align 8
   %cmp3.i = icmp ult i64 %10, %call2
   br i1 %cmp3.i, label %while.body.i, label %_ZN4YAMLlsERNS_15ostream_wrapperERKNS_8IndentToE.exit
@@ -2041,11 +2013,11 @@ if.end14:                                         ; preds = %entry, %lor.lhs.fal
 
 sw.bb15:                                          ; preds = %if.end14, %if.end14, %if.end14, %if.end14
   %12 = load ptr, ptr %this, align 8
-  %m_hasAnchor.i2 = getelementptr inbounds %"class.YAML::EmitterState", ptr %12, i64 0, i32 21
+  %m_hasAnchor.i2 = getelementptr inbounds i8, ptr %12, i64 208
   %13 = load i8, ptr %m_hasAnchor.i2, align 8
   %14 = and i8 %13, 1
   %tobool.not.i3 = icmp ne i8 %14, 0
-  %m_hasTag.i4 = getelementptr inbounds %"class.YAML::EmitterState", ptr %12, i64 0, i32 23
+  %m_hasTag.i4 = getelementptr inbounds i8, ptr %12, i64 210
   %15 = load i8, ptr %m_hasTag.i4, align 2
   %16 = and i8 %15, 1
   %tobool2.i = icmp ne i8 %16, 0
@@ -2059,8 +2031,8 @@ lor.rhs:                                          ; preds = %sw.bb15
 
 lor.end:                                          ; preds = %lor.rhs, %sw.bb15
   %18 = phi i1 [ true, %sw.bb15 ], [ %cmp, %lor.rhs ]
-  %m_stream.i = getelementptr inbounds %"class.YAML::Emitter", ptr %this, i64 0, i32 1
-  %m_comment.i.i = getelementptr inbounds %"class.YAML::Emitter", ptr %this, i64 0, i32 1, i32 5
+  %m_stream.i = getelementptr inbounds i8, ptr %this, i64 8
+  %m_comment.i.i = getelementptr inbounds i8, ptr %this, i64 64
   %19 = load i8, ptr %m_comment.i.i, align 8
   %20 = and i8 %19, 1
   %tobool.i.not.i = icmp eq i8 %20, 0
@@ -2071,7 +2043,7 @@ if.then.i:                                        ; preds = %lor.end
   br label %if.end.i
 
 if.end.i:                                         ; preds = %if.then.i, %lor.end
-  %m_col.i.i5 = getelementptr inbounds %"class.YAML::Emitter", ptr %this, i64 0, i32 1, i32 4
+  %m_col.i.i5 = getelementptr inbounds i8, ptr %this, i64 56
   %21 = load i64, ptr %m_col.i.i5, align 8
   %cmp.not.i = icmp ne i64 %21, 0
   %brmerge.not.i = and i1 %18, %cmp.not.i
@@ -2108,29 +2080,29 @@ entry:
   %0 = load ptr, ptr %this, align 8
   %call2 = tail call noundef i64 @_ZNK4YAML12EmitterState10LastIndentEv(ptr noundef nonnull align 8 dereferenceable(224) %0)
   %1 = load ptr, ptr %this, align 8
-  %m_hasAnchor.i = getelementptr inbounds %"class.YAML::EmitterState", ptr %1, i64 0, i32 21
+  %m_hasAnchor.i = getelementptr inbounds i8, ptr %1, i64 208
   %2 = load i8, ptr %m_hasAnchor.i, align 8
   %3 = and i8 %2, 1
   %tobool.not.i = icmp eq i8 %3, 0
   br i1 %tobool.not.i, label %lor.lhs.false.i, label %if.end21
 
 lor.lhs.false.i:                                  ; preds = %entry
-  %m_hasTag.i = getelementptr inbounds %"class.YAML::EmitterState", ptr %1, i64 0, i32 23
+  %m_hasTag.i = getelementptr inbounds i8, ptr %1, i64 210
   %4 = load i8, ptr %m_hasTag.i, align 2
   %5 = and i8 %4, 1
   %tobool2.not.i = icmp eq i8 %5, 0
   br i1 %tobool2.not.i, label %_ZNK4YAML12EmitterState12HasBegunNodeEv.exit, label %if.end21
 
 _ZNK4YAML12EmitterState12HasBegunNodeEv.exit:     ; preds = %lor.lhs.false.i
-  %m_hasNonContent.i = getelementptr inbounds %"class.YAML::EmitterState", ptr %1, i64 0, i32 24
+  %m_hasNonContent.i = getelementptr inbounds i8, ptr %1, i64 211
   %6 = load i8, ptr %m_hasNonContent.i, align 1
   %7 = and i8 %6, 1
   %tobool3.i.not = icmp eq i8 %7, 0
   br i1 %tobool3.i.not, label %if.then, label %if.end21
 
 if.then:                                          ; preds = %_ZNK4YAML12EmitterState12HasBegunNodeEv.exit
-  %m_stream = getelementptr inbounds %"class.YAML::Emitter", ptr %this, i64 0, i32 1
-  %m_comment.i = getelementptr inbounds %"class.YAML::Emitter", ptr %this, i64 0, i32 1, i32 5
+  %m_stream = getelementptr inbounds i8, ptr %this, i64 8
+  %m_comment.i = getelementptr inbounds i8, ptr %this, i64 64
   %8 = load i8, ptr %m_comment.i, align 8
   %9 = and i8 %8, 1
   %tobool.i.not = icmp eq i8 %9, 0
@@ -2141,7 +2113,7 @@ if.then7:                                         ; preds = %if.then
   br label %if.end
 
 if.end:                                           ; preds = %if.then7, %if.then
-  %m_col.i.i = getelementptr inbounds %"class.YAML::Emitter", ptr %this, i64 0, i32 1, i32 4
+  %m_col.i.i = getelementptr inbounds i8, ptr %this, i64 56
   %10 = load i64, ptr %m_col.i.i, align 8
   %cmp3.i = icmp ult i64 %10, %call2
   br i1 %cmp3.i, label %while.body.i, label %_ZN4YAMLlsERNS_15ostream_wrapperERKNS_8IndentToE.exit
@@ -2157,7 +2129,7 @@ while.body.i:                                     ; preds = %if.end, %while.body
 
 _ZN4YAMLlsERNS_15ostream_wrapperERKNS_8IndentToE.exit: ; preds = %while.body.i, %if.end
   %12 = load ptr, ptr %this, align 8
-  %m_hasAlias.i = getelementptr inbounds %"class.YAML::EmitterState", ptr %12, i64 0, i32 22
+  %m_hasAlias.i = getelementptr inbounds i8, ptr %12, i64 209
   %13 = load i8, ptr %m_hasAlias.i, align 1
   %14 = and i8 %13, 1
   %tobool.i2.not = icmp eq i8 %14, 0
@@ -2181,11 +2153,11 @@ if.end21:                                         ; preds = %entry, %lor.lhs.fal
 
 sw.bb22:                                          ; preds = %if.end21, %if.end21, %if.end21, %if.end21
   %15 = load ptr, ptr %this, align 8
-  %m_hasAnchor.i3 = getelementptr inbounds %"class.YAML::EmitterState", ptr %15, i64 0, i32 21
+  %m_hasAnchor.i3 = getelementptr inbounds i8, ptr %15, i64 208
   %16 = load i8, ptr %m_hasAnchor.i3, align 8
   %17 = and i8 %16, 1
   %tobool.not.i4 = icmp ne i8 %17, 0
-  %m_hasTag.i5 = getelementptr inbounds %"class.YAML::EmitterState", ptr %15, i64 0, i32 23
+  %m_hasTag.i5 = getelementptr inbounds i8, ptr %15, i64 210
   %18 = load i8, ptr %m_hasTag.i5, align 2
   %19 = and i8 %18, 1
   %tobool2.i = icmp ne i8 %19, 0
@@ -2199,8 +2171,8 @@ lor.rhs:                                          ; preds = %sw.bb22
 
 lor.end:                                          ; preds = %lor.rhs, %sw.bb22
   %21 = phi i1 [ true, %sw.bb22 ], [ %cmp, %lor.rhs ]
-  %m_stream.i = getelementptr inbounds %"class.YAML::Emitter", ptr %this, i64 0, i32 1
-  %m_comment.i.i = getelementptr inbounds %"class.YAML::Emitter", ptr %this, i64 0, i32 1, i32 5
+  %m_stream.i = getelementptr inbounds i8, ptr %this, i64 8
+  %m_comment.i.i = getelementptr inbounds i8, ptr %this, i64 64
   %22 = load i8, ptr %m_comment.i.i, align 8
   %23 = and i8 %22, 1
   %tobool.i.not.i = icmp eq i8 %23, 0
@@ -2211,7 +2183,7 @@ if.then.i:                                        ; preds = %lor.end
   br label %if.end.i
 
 if.end.i:                                         ; preds = %if.then.i, %lor.end
-  %m_col.i.i6 = getelementptr inbounds %"class.YAML::Emitter", ptr %this, i64 0, i32 1, i32 4
+  %m_col.i.i6 = getelementptr inbounds i8, ptr %this, i64 56
   %24 = load i64, ptr %m_col.i.i6, align 8
   %cmp.not.i = icmp ne i64 %24, 0
   %brmerge.not.i = and i1 %21, %cmp.not.i
@@ -2246,7 +2218,7 @@ entry:
   %ch.addr.i.i.i = alloca i8, align 1
   %ch.addr.i.i = alloca i8, align 1
   %0 = load ptr, ptr %this, align 8
-  %m_curIndent.i = getelementptr inbounds %"class.YAML::EmitterState", ptr %0, i64 0, i32 20
+  %m_curIndent.i = getelementptr inbounds i8, ptr %0, i64 200
   %1 = load i64, ptr %m_curIndent.i, align 8
   %call5 = tail call noundef i64 @_ZNK4YAML12EmitterState18CurGroupChildCountEv(ptr noundef nonnull align 8 dereferenceable(224) %0)
   %cmp = icmp eq i32 %child, 0
@@ -2254,11 +2226,11 @@ entry:
 
 if.end:                                           ; preds = %entry
   %2 = load ptr, ptr %this, align 8
-  %m_hasAnchor.i = getelementptr inbounds %"class.YAML::EmitterState", ptr %2, i64 0, i32 21
+  %m_hasAnchor.i = getelementptr inbounds i8, ptr %2, i64 208
   %3 = load i8, ptr %m_hasAnchor.i, align 8
   %4 = and i8 %3, 1
   %tobool.not.i = icmp ne i8 %4, 0
-  %m_hasTag.i = getelementptr inbounds %"class.YAML::EmitterState", ptr %2, i64 0, i32 23
+  %m_hasTag.i = getelementptr inbounds i8, ptr %2, i64 210
   %5 = load i8, ptr %m_hasTag.i, align 2
   %6 = and i8 %5, 1
   %tobool2.i = icmp ne i8 %6, 0
@@ -2270,13 +2242,13 @@ if.then9:                                         ; preds = %if.end
   br i1 %cmp10.not, label %if.end13, label %if.then11
 
 if.then11:                                        ; preds = %if.then9
-  %m_stream = getelementptr inbounds %"class.YAML::Emitter", ptr %this, i64 0, i32 1
+  %m_stream = getelementptr inbounds i8, ptr %this, i64 8
   tail call void @_ZN4YAML15ostream_wrapper5writeEPKcm(ptr noundef nonnull align 8 dereferenceable(57) %m_stream, ptr noundef nonnull @.str.1, i64 noundef 1)
   br label %if.end13
 
 if.end13:                                         ; preds = %if.then11, %if.then9
-  %m_stream14 = getelementptr inbounds %"class.YAML::Emitter", ptr %this, i64 0, i32 1
-  %m_comment.i = getelementptr inbounds %"class.YAML::Emitter", ptr %this, i64 0, i32 1, i32 5
+  %m_stream14 = getelementptr inbounds i8, ptr %this, i64 8
+  %m_comment.i = getelementptr inbounds i8, ptr %this, i64 64
   %8 = load i8, ptr %m_comment.i, align 8
   %9 = and i8 %8, 1
   %tobool.i.not = icmp eq i8 %9, 0
@@ -2287,7 +2259,7 @@ if.then16:                                        ; preds = %if.end13
   br label %if.end19
 
 if.end19:                                         ; preds = %if.then16, %if.end13
-  %m_col.i.i = getelementptr inbounds %"class.YAML::Emitter", ptr %this, i64 0, i32 1, i32 4
+  %m_col.i.i = getelementptr inbounds i8, ptr %this, i64 56
   %10 = load i64, ptr %m_col.i.i, align 8
   %cmp3.i = icmp ult i64 %10, %1
   br i1 %cmp3.i, label %while.body.i, label %_ZN4YAMLlsERNS_15ostream_wrapperERKNS_8IndentToE.exit
@@ -2317,8 +2289,8 @@ if.end24:                                         ; preds = %_ZN4YAMLlsERNS_15os
 
 sw.bb25:                                          ; preds = %if.end24, %if.end24, %if.end24, %if.end24
   %add = add i64 %1, 1
-  %m_stream.i = getelementptr inbounds %"class.YAML::Emitter", ptr %this, i64 0, i32 1
-  %m_comment.i.i = getelementptr inbounds %"class.YAML::Emitter", ptr %this, i64 0, i32 1, i32 5
+  %m_stream.i = getelementptr inbounds i8, ptr %this, i64 8
+  %m_comment.i.i = getelementptr inbounds i8, ptr %this, i64 64
   %12 = load i8, ptr %m_comment.i.i, align 8
   %13 = and i8 %12, 1
   %tobool.i.not.i = icmp eq i8 %13, 0
@@ -2329,7 +2301,7 @@ if.then.i:                                        ; preds = %sw.bb25
   br label %if.end.i
 
 if.end.i:                                         ; preds = %if.then.i, %sw.bb25
-  %m_col.i.i3 = getelementptr inbounds %"class.YAML::Emitter", ptr %this, i64 0, i32 1, i32 4
+  %m_col.i.i3 = getelementptr inbounds i8, ptr %this, i64 56
   %14 = load i64, ptr %m_col.i.i3, align 8
   %cmp.not.i.not = icmp eq i64 %14, 0
   br i1 %cmp.not.i.not, label %if.end9.i, label %if.then6.i
@@ -2355,11 +2327,11 @@ while.body.i.i:                                   ; preds = %if.end9.i, %while.b
 
 sw.bb26:                                          ; preds = %if.end24, %if.end24
   %17 = load ptr, ptr %this, align 8
-  %m_hasAnchor.i4 = getelementptr inbounds %"class.YAML::EmitterState", ptr %17, i64 0, i32 21
+  %m_hasAnchor.i4 = getelementptr inbounds i8, ptr %17, i64 208
   %18 = load i8, ptr %m_hasAnchor.i4, align 8
   %19 = and i8 %18, 1
   %tobool.not.i5 = icmp ne i8 %19, 0
-  %m_hasTag.i6 = getelementptr inbounds %"class.YAML::EmitterState", ptr %17, i64 0, i32 23
+  %m_hasTag.i6 = getelementptr inbounds i8, ptr %17, i64 210
   %20 = load i8, ptr %m_hasTag.i6, align 2
   %21 = and i8 %20, 1
   %tobool2.i7 = icmp ne i8 %21, 0
@@ -2367,7 +2339,7 @@ sw.bb26:                                          ; preds = %if.end24, %if.end24
   br i1 %22, label %if.then30, label %sw.epilog
 
 if.then30:                                        ; preds = %sw.bb26
-  %m_stream31 = getelementptr inbounds %"class.YAML::Emitter", ptr %this, i64 0, i32 1
+  %m_stream31 = getelementptr inbounds i8, ptr %this, i64 8
   call void @_ZN4YAML15ostream_wrapper5writeEPKcm(ptr noundef nonnull align 8 dereferenceable(57) %m_stream31, ptr noundef nonnull @.str.1, i64 noundef 1)
   br label %sw.epilog
 
@@ -2380,7 +2352,7 @@ define void @_ZN4YAML7Emitter24BlockMapPrepareSimpleKeyENS_15EmitterNodeType5val
 entry:
   %ch.addr.i.i.i = alloca i8, align 1
   %0 = load ptr, ptr %this, align 8
-  %m_curIndent.i = getelementptr inbounds %"class.YAML::EmitterState", ptr %0, i64 0, i32 20
+  %m_curIndent.i = getelementptr inbounds i8, ptr %0, i64 200
   %1 = load i64, ptr %m_curIndent.i, align 8
   %call5 = tail call noundef i64 @_ZNK4YAML12EmitterState18CurGroupChildCountEv(ptr noundef nonnull align 8 dereferenceable(224) %0)
   %cmp = icmp eq i32 %child, 0
@@ -2388,21 +2360,21 @@ entry:
 
 if.end:                                           ; preds = %entry
   %2 = load ptr, ptr %this, align 8
-  %m_hasAnchor.i = getelementptr inbounds %"class.YAML::EmitterState", ptr %2, i64 0, i32 21
+  %m_hasAnchor.i = getelementptr inbounds i8, ptr %2, i64 208
   %3 = load i8, ptr %m_hasAnchor.i, align 8
   %4 = and i8 %3, 1
   %tobool.not.i = icmp eq i8 %4, 0
   br i1 %tobool.not.i, label %lor.lhs.false.i, label %if.end14
 
 lor.lhs.false.i:                                  ; preds = %if.end
-  %m_hasTag.i = getelementptr inbounds %"class.YAML::EmitterState", ptr %2, i64 0, i32 23
+  %m_hasTag.i = getelementptr inbounds i8, ptr %2, i64 210
   %5 = load i8, ptr %m_hasTag.i, align 2
   %6 = and i8 %5, 1
   %tobool2.not.i = icmp eq i8 %6, 0
   br i1 %tobool2.not.i, label %_ZNK4YAML12EmitterState12HasBegunNodeEv.exit, label %if.end14
 
 _ZNK4YAML12EmitterState12HasBegunNodeEv.exit:     ; preds = %lor.lhs.false.i
-  %m_hasNonContent.i = getelementptr inbounds %"class.YAML::EmitterState", ptr %2, i64 0, i32 24
+  %m_hasNonContent.i = getelementptr inbounds i8, ptr %2, i64 211
   %7 = load i8, ptr %m_hasNonContent.i, align 1
   %8 = and i8 %7, 1
   %tobool3.i = icmp ne i8 %8, 0
@@ -2411,7 +2383,7 @@ _ZNK4YAML12EmitterState12HasBegunNodeEv.exit:     ; preds = %lor.lhs.false.i
   br i1 %or.cond.not, label %if.end14, label %if.then11
 
 if.then11:                                        ; preds = %_ZNK4YAML12EmitterState12HasBegunNodeEv.exit
-  %m_stream = getelementptr inbounds %"class.YAML::Emitter", ptr %this, i64 0, i32 1
+  %m_stream = getelementptr inbounds i8, ptr %this, i64 8
   tail call void @_ZN4YAML15ostream_wrapper5writeEPKcm(ptr noundef nonnull align 8 dereferenceable(57) %m_stream, ptr noundef nonnull @.str.1, i64 noundef 1)
   br label %if.end14
 
@@ -2425,17 +2397,17 @@ if.end14:                                         ; preds = %if.end, %lor.lhs.fa
 
 sw.bb15:                                          ; preds = %if.end14, %if.end14, %if.end14, %if.end14
   %9 = load ptr, ptr %this, align 8
-  %m_hasAnchor.i2 = getelementptr inbounds %"class.YAML::EmitterState", ptr %9, i64 0, i32 21
+  %m_hasAnchor.i2 = getelementptr inbounds i8, ptr %9, i64 208
   %10 = load i8, ptr %m_hasAnchor.i2, align 8
   %11 = and i8 %10, 1
   %tobool.not.i3 = icmp ne i8 %11, 0
-  %m_hasTag.i4 = getelementptr inbounds %"class.YAML::EmitterState", ptr %9, i64 0, i32 23
+  %m_hasTag.i4 = getelementptr inbounds i8, ptr %9, i64 210
   %12 = load i8, ptr %m_hasTag.i4, align 2
   %13 = and i8 %12, 1
   %tobool2.i = icmp ne i8 %13, 0
   %14 = select i1 %tobool.not.i3, i1 true, i1 %tobool2.i
-  %m_stream.i = getelementptr inbounds %"class.YAML::Emitter", ptr %this, i64 0, i32 1
-  %m_comment.i.i = getelementptr inbounds %"class.YAML::Emitter", ptr %this, i64 0, i32 1, i32 5
+  %m_stream.i = getelementptr inbounds i8, ptr %this, i64 8
+  %m_comment.i.i = getelementptr inbounds i8, ptr %this, i64 64
   %15 = load i8, ptr %m_comment.i.i, align 8
   %16 = and i8 %15, 1
   %tobool.i.not.i = icmp eq i8 %16, 0
@@ -2446,7 +2418,7 @@ if.then.i:                                        ; preds = %sw.bb15
   br label %if.end.i
 
 if.end.i:                                         ; preds = %if.then.i, %sw.bb15
-  %m_col.i.i = getelementptr inbounds %"class.YAML::Emitter", ptr %this, i64 0, i32 1, i32 4
+  %m_col.i.i = getelementptr inbounds i8, ptr %this, i64 56
   %17 = load i64, ptr %m_col.i.i, align 8
   %cmp.not.i = icmp ne i64 %17, 0
   %brmerge.not.i = and i1 %14, %cmp.not.i
@@ -2482,17 +2454,17 @@ entry:
   %ch.addr.i.i.i = alloca i8, align 1
   %ch.addr.i.i = alloca i8, align 1
   %0 = load ptr, ptr %this, align 8
-  %m_curIndent.i = getelementptr inbounds %"class.YAML::EmitterState", ptr %0, i64 0, i32 20
+  %m_curIndent.i = getelementptr inbounds i8, ptr %0, i64 200
   %1 = load i64, ptr %m_curIndent.i, align 8
   %cmp = icmp eq i32 %child, 0
   br i1 %cmp, label %sw.epilog, label %if.end
 
 if.end:                                           ; preds = %entry
-  %m_hasAnchor.i = getelementptr inbounds %"class.YAML::EmitterState", ptr %0, i64 0, i32 21
+  %m_hasAnchor.i = getelementptr inbounds i8, ptr %0, i64 208
   %2 = load i8, ptr %m_hasAnchor.i, align 8
   %3 = and i8 %2, 1
   %tobool.not.i = icmp ne i8 %3, 0
-  %m_hasTag.i = getelementptr inbounds %"class.YAML::EmitterState", ptr %0, i64 0, i32 23
+  %m_hasTag.i = getelementptr inbounds i8, ptr %0, i64 210
   %4 = load i8, ptr %m_hasTag.i, align 2
   %5 = and i8 %4, 1
   %tobool2.i = icmp ne i8 %5, 0
@@ -2500,9 +2472,9 @@ if.end:                                           ; preds = %entry
   br i1 %6, label %if.end12, label %if.then6
 
 if.then6:                                         ; preds = %if.end
-  %m_stream = getelementptr inbounds %"class.YAML::Emitter", ptr %this, i64 0, i32 1
+  %m_stream = getelementptr inbounds i8, ptr %this, i64 8
   tail call void @_ZN4YAML15ostream_wrapper5writeEPKcm(ptr noundef nonnull align 8 dereferenceable(57) %m_stream, ptr noundef nonnull @.str.1, i64 noundef 1)
-  %m_col.i.i = getelementptr inbounds %"class.YAML::Emitter", ptr %this, i64 0, i32 1, i32 4
+  %m_col.i.i = getelementptr inbounds i8, ptr %this, i64 56
   %7 = load i64, ptr %m_col.i.i, align 8
   %cmp3.i = icmp ult i64 %7, %1
   br i1 %cmp3.i, label %while.body.i, label %_ZN4YAMLlsERNS_15ostream_wrapperERKNS_8IndentToE.exit
@@ -2532,8 +2504,8 @@ if.end12:                                         ; preds = %_ZN4YAMLlsERNS_15os
 
 sw.bb13:                                          ; preds = %if.end12, %if.end12, %if.end12, %if.end12
   %add = add i64 %1, 1
-  %m_stream.i = getelementptr inbounds %"class.YAML::Emitter", ptr %this, i64 0, i32 1
-  %m_comment.i.i = getelementptr inbounds %"class.YAML::Emitter", ptr %this, i64 0, i32 1, i32 5
+  %m_stream.i = getelementptr inbounds i8, ptr %this, i64 8
+  %m_comment.i.i = getelementptr inbounds i8, ptr %this, i64 64
   %9 = load i8, ptr %m_comment.i.i, align 8
   %10 = and i8 %9, 1
   %tobool.i.not.i = icmp eq i8 %10, 0
@@ -2544,7 +2516,7 @@ if.then.i:                                        ; preds = %sw.bb13
   br label %if.end.i
 
 if.end.i:                                         ; preds = %if.then.i, %sw.bb13
-  %m_col.i.i4 = getelementptr inbounds %"class.YAML::Emitter", ptr %this, i64 0, i32 1, i32 4
+  %m_col.i.i4 = getelementptr inbounds i8, ptr %this, i64 56
   %11 = load i64, ptr %m_col.i.i4, align 8
   %cmp.not.i.not = icmp eq i64 %11, 0
   br i1 %cmp.not.i.not, label %if.end9.i, label %if.then6.i
@@ -2570,11 +2542,11 @@ while.body.i.i:                                   ; preds = %if.end9.i, %while.b
 
 sw.bb14:                                          ; preds = %if.end12, %if.end12
   %14 = load ptr, ptr %this, align 8
-  %m_hasAnchor.i5 = getelementptr inbounds %"class.YAML::EmitterState", ptr %14, i64 0, i32 21
+  %m_hasAnchor.i5 = getelementptr inbounds i8, ptr %14, i64 208
   %15 = load i8, ptr %m_hasAnchor.i5, align 8
   %16 = and i8 %15, 1
   %tobool.not.i6 = icmp ne i8 %16, 0
-  %m_hasTag.i7 = getelementptr inbounds %"class.YAML::EmitterState", ptr %14, i64 0, i32 23
+  %m_hasTag.i7 = getelementptr inbounds i8, ptr %14, i64 210
   %17 = load i8, ptr %m_hasTag.i7, align 2
   %18 = and i8 %17, 1
   %tobool2.i8 = icmp ne i8 %18, 0
@@ -2582,14 +2554,14 @@ sw.bb14:                                          ; preds = %if.end12, %if.end12
   br i1 %19, label %if.then18, label %if.end21
 
 if.then18:                                        ; preds = %sw.bb14
-  %m_stream19 = getelementptr inbounds %"class.YAML::Emitter", ptr %this, i64 0, i32 1
+  %m_stream19 = getelementptr inbounds i8, ptr %this, i64 8
   call void @_ZN4YAML15ostream_wrapper5writeEPKcm(ptr noundef nonnull align 8 dereferenceable(57) %m_stream19, ptr noundef nonnull @.str.1, i64 noundef 1)
   br label %if.end21
 
 if.end21:                                         ; preds = %if.then18, %sw.bb14
   %add22 = add i64 %1, 1
-  %m_stream.i10 = getelementptr inbounds %"class.YAML::Emitter", ptr %this, i64 0, i32 1
-  %m_comment.i.i11 = getelementptr inbounds %"class.YAML::Emitter", ptr %this, i64 0, i32 1, i32 5
+  %m_stream.i10 = getelementptr inbounds i8, ptr %this, i64 8
+  %m_comment.i.i11 = getelementptr inbounds i8, ptr %this, i64 64
   %20 = load i8, ptr %m_comment.i.i11, align 8
   %21 = and i8 %20, 1
   %tobool.i.not.i12 = icmp eq i8 %21, 0
@@ -2600,7 +2572,7 @@ if.then.i13:                                      ; preds = %if.end21
   br label %if.end.i14
 
 if.end.i14:                                       ; preds = %if.then.i13, %if.end21
-  %m_col.i.i15 = getelementptr inbounds %"class.YAML::Emitter", ptr %this, i64 0, i32 1, i32 4
+  %m_col.i.i15 = getelementptr inbounds i8, ptr %this, i64 56
   %22 = load i64, ptr %m_col.i.i15, align 8
   %cmp.not.i16.not = icmp eq i64 %22, 0
   br i1 %cmp.not.i16.not, label %if.end9.i17, label %if.then6.i21
@@ -2633,45 +2605,45 @@ define void @_ZN4YAML7Emitter29BlockMapPrepareSimpleKeyValueENS_15EmitterNodeTyp
 entry:
   %ch.addr.i.i.i = alloca i8, align 1
   %0 = load ptr, ptr %this, align 8
-  %m_curIndent.i = getelementptr inbounds %"class.YAML::EmitterState", ptr %0, i64 0, i32 20
+  %m_curIndent.i = getelementptr inbounds i8, ptr %0, i64 200
   %1 = load i64, ptr %m_curIndent.i, align 8
   %call5 = tail call noundef i64 @_ZNK4YAML12EmitterState14CurGroupIndentEv(ptr noundef nonnull align 8 dereferenceable(224) %0)
   %add = add i64 %call5, %1
   %2 = load ptr, ptr %this, align 8
-  %m_hasAnchor.i = getelementptr inbounds %"class.YAML::EmitterState", ptr %2, i64 0, i32 21
+  %m_hasAnchor.i = getelementptr inbounds i8, ptr %2, i64 208
   %3 = load i8, ptr %m_hasAnchor.i, align 8
   %4 = and i8 %3, 1
   %tobool.not.i = icmp eq i8 %4, 0
   br i1 %tobool.not.i, label %lor.lhs.false.i, label %if.end16
 
 lor.lhs.false.i:                                  ; preds = %entry
-  %m_hasTag.i = getelementptr inbounds %"class.YAML::EmitterState", ptr %2, i64 0, i32 23
+  %m_hasTag.i = getelementptr inbounds i8, ptr %2, i64 210
   %5 = load i8, ptr %m_hasTag.i, align 2
   %6 = and i8 %5, 1
   %tobool2.not.i = icmp eq i8 %6, 0
   br i1 %tobool2.not.i, label %_ZNK4YAML12EmitterState12HasBegunNodeEv.exit, label %if.end16
 
 _ZNK4YAML12EmitterState12HasBegunNodeEv.exit:     ; preds = %lor.lhs.false.i
-  %m_hasNonContent.i = getelementptr inbounds %"class.YAML::EmitterState", ptr %2, i64 0, i32 24
+  %m_hasNonContent.i = getelementptr inbounds i8, ptr %2, i64 211
   %7 = load i8, ptr %m_hasNonContent.i, align 1
   %8 = and i8 %7, 1
   %tobool3.i.not = icmp eq i8 %8, 0
   br i1 %tobool3.i.not, label %if.then, label %if.end16
 
 if.then:                                          ; preds = %_ZNK4YAML12EmitterState12HasBegunNodeEv.exit
-  %m_hasAlias.i = getelementptr inbounds %"class.YAML::EmitterState", ptr %2, i64 0, i32 22
+  %m_hasAlias.i = getelementptr inbounds i8, ptr %2, i64 209
   %9 = load i8, ptr %m_hasAlias.i, align 1
   %10 = and i8 %9, 1
   %tobool.i.not = icmp eq i8 %10, 0
   br i1 %tobool.i.not, label %if.end, label %if.then12
 
 if.then12:                                        ; preds = %if.then
-  %m_stream = getelementptr inbounds %"class.YAML::Emitter", ptr %this, i64 0, i32 1
+  %m_stream = getelementptr inbounds i8, ptr %this, i64 8
   tail call void @_ZN4YAML15ostream_wrapper5writeEPKcm(ptr noundef nonnull align 8 dereferenceable(57) %m_stream, ptr noundef nonnull @.str.13, i64 noundef 1)
   br label %if.end
 
 if.end:                                           ; preds = %if.then12, %if.then
-  %m_stream14 = getelementptr inbounds %"class.YAML::Emitter", ptr %this, i64 0, i32 1
+  %m_stream14 = getelementptr inbounds i8, ptr %this, i64 8
   tail call void @_ZN4YAML15ostream_wrapper5writeEPKcm(ptr noundef nonnull align 8 dereferenceable(57) %m_stream14, ptr noundef nonnull @.str.12, i64 noundef 1)
   br label %if.end16
 
@@ -2686,8 +2658,8 @@ if.end16:                                         ; preds = %entry, %lor.lhs.fal
   ]
 
 sw.bb17:                                          ; preds = %if.end16, %if.end16, %if.end16, %if.end16
-  %m_stream.i = getelementptr inbounds %"class.YAML::Emitter", ptr %this, i64 0, i32 1
-  %m_comment.i.i = getelementptr inbounds %"class.YAML::Emitter", ptr %this, i64 0, i32 1, i32 5
+  %m_stream.i = getelementptr inbounds i8, ptr %this, i64 8
+  %m_comment.i.i = getelementptr inbounds i8, ptr %this, i64 64
   %11 = load i8, ptr %m_comment.i.i, align 8
   %12 = and i8 %11, 1
   %tobool.i.not.i = icmp eq i8 %12, 0
@@ -2698,7 +2670,7 @@ if.then.i:                                        ; preds = %sw.bb17
   br label %if.end.i
 
 if.end.i:                                         ; preds = %if.then.i, %sw.bb17
-  %m_col.i.i = getelementptr inbounds %"class.YAML::Emitter", ptr %this, i64 0, i32 1, i32 4
+  %m_col.i.i = getelementptr inbounds i8, ptr %this, i64 56
   %13 = load i64, ptr %m_col.i.i, align 8
   %cmp.not.i.not = icmp eq i64 %13, 0
   br i1 %cmp.not.i.not, label %if.end9.i, label %if.then6.i
@@ -2723,7 +2695,7 @@ while.body.i.i:                                   ; preds = %if.end9.i, %while.b
   br i1 %cmp.i.i, label %while.body.i.i, label %sw.epilog, !llvm.loop !4
 
 sw.bb18:                                          ; preds = %if.end16, %if.end16
-  %m_stream19 = getelementptr inbounds %"class.YAML::Emitter", ptr %this, i64 0, i32 1
+  %m_stream19 = getelementptr inbounds i8, ptr %this, i64 8
   tail call void @_ZN4YAML15ostream_wrapper5writeEPKcm(ptr noundef nonnull align 8 dereferenceable(57) %m_stream19, ptr noundef nonnull @.str.1, i64 noundef 1)
   br label %sw.epilog
 
@@ -2735,7 +2707,7 @@ sw.epilog:                                        ; preds = %while.body.i.i, %if
 define void @_ZNK4YAML7Emitter21PrepareIntegralStreamERNSt7__cxx1118basic_stringstreamIcSt11char_traitsIcESaIcEEE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(72) %this, ptr noundef nonnull align 8 dereferenceable(128) %stream) local_unnamed_addr #3 align 2 {
 entry:
   %0 = load ptr, ptr %this, align 8
-  %m_intFmt.i = getelementptr inbounds %"class.YAML::EmitterState", ptr %0, i64 0, i32 8
+  %m_intFmt.i = getelementptr inbounds i8, ptr %0, i64 64
   %1 = load i32, ptr %m_intFmt.i, align 4
   switch i32 %1, label %sw.epilog [
     i32 21, label %sw.bb
@@ -2769,7 +2741,7 @@ declare noundef nonnull align 8 dereferenceable(8) ptr @_ZNSolsEPFRSt8ios_baseS0
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr noundef nonnull align 8 dereferenceable(216) ptr @_ZSt3decRSt8ios_base(ptr noundef nonnull align 8 dereferenceable(216) %__base) #3 comdat {
 entry:
-  %_M_flags.i = getelementptr inbounds %"class.std::ios_base", ptr %__base, i64 0, i32 3
+  %_M_flags.i = getelementptr inbounds i8, ptr %__base, i64 24
   %0 = load i32, ptr %_M_flags.i, align 8
   %and.i.i.i = and i32 %0, -75
   %or.i.i.i = or disjoint i32 %and.i.i.i, 2
@@ -2782,7 +2754,7 @@ declare noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIc
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr noundef nonnull align 8 dereferenceable(216) ptr @_ZSt3hexRSt8ios_base(ptr noundef nonnull align 8 dereferenceable(216) %__base) #3 comdat {
 entry:
-  %_M_flags.i = getelementptr inbounds %"class.std::ios_base", ptr %__base, i64 0, i32 3
+  %_M_flags.i = getelementptr inbounds i8, ptr %__base, i64 24
   %0 = load i32, ptr %_M_flags.i, align 8
   %and.i.i.i = and i32 %0, -75
   %or.i.i.i = or disjoint i32 %and.i.i.i, 8
@@ -2793,7 +2765,7 @@ entry:
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr noundef nonnull align 8 dereferenceable(216) ptr @_ZSt3octRSt8ios_base(ptr noundef nonnull align 8 dereferenceable(216) %__base) #3 comdat {
 entry:
-  %_M_flags.i = getelementptr inbounds %"class.std::ios_base", ptr %__base, i64 0, i32 3
+  %_M_flags.i = getelementptr inbounds i8, ptr %__base, i64 24
   %0 = load i32, ptr %_M_flags.i, align 8
   %and.i.i.i = and i32 %0, -75
   %or.i.i.i = or disjoint i32 %and.i.i.i, 64
@@ -2831,13 +2803,13 @@ entry:
   br i1 %tobool.i.i.not, label %return, label %if.end
 
 if.end:                                           ; preds = %entry
-  %m_charset.i = getelementptr inbounds %"class.YAML::EmitterState", ptr %0, i64 0, i32 2
+  %m_charset.i = getelementptr inbounds i8, ptr %0, i64 40
   %3 = load i32, ptr %m_charset.i, align 4
   %switch.selectcmp.i = icmp eq i32 %3, 5
   %switch.select.i = select i1 %switch.selectcmp.i, i32 2, i32 0
   %switch.selectcmp1.i = icmp eq i32 %3, 4
   %switch.select2.i = select i1 %switch.selectcmp1.i, i32 1, i32 %switch.select.i
-  %m_strFmt.i = getelementptr inbounds %"class.YAML::EmitterState", ptr %0, i64 0, i32 3
+  %m_strFmt.i = getelementptr inbounds i8, ptr %0, i64 44
   %4 = load i32, ptr %m_strFmt.i, align 4
   %call10 = tail call noundef i32 @_ZNK4YAML12EmitterState16CurGroupFlowTypeEv(ptr noundef nonnull align 8 dereferenceable(224) %0)
   %call11 = tail call noundef i32 @_ZN4YAML5Utils19ComputeStringFormatERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS_13EMITTER_MANIPENS_8FlowType5valueEb(ptr noundef nonnull align 8 dereferenceable(32) %str, i32 noundef %4, i32 noundef %call10, i1 noundef zeroext %switch.selectcmp1.i)
@@ -2864,26 +2836,26 @@ if.end19:                                         ; preds = %if.then15, %lor.lhs
   ]
 
 sw.bb:                                            ; preds = %if.end19
-  %m_stream = getelementptr inbounds %"class.YAML::Emitter", ptr %this, i64 0, i32 1
+  %m_stream = getelementptr inbounds i8, ptr %this, i64 8
   tail call void @_ZN4YAML15ostream_wrapper5writeERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(57) %m_stream, ptr noundef nonnull align 8 dereferenceable(32) %str)
   br label %sw.epilog
 
 sw.bb21:                                          ; preds = %if.end19
-  %m_stream22 = getelementptr inbounds %"class.YAML::Emitter", ptr %this, i64 0, i32 1
+  %m_stream22 = getelementptr inbounds i8, ptr %this, i64 8
   %call23 = tail call noundef zeroext i1 @_ZN4YAML5Utils23WriteSingleQuotedStringERNS_15ostream_wrapperERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(57) %m_stream22, ptr noundef nonnull align 8 dereferenceable(32) %str)
   br label %sw.epilog
 
 sw.bb24:                                          ; preds = %if.end19
-  %m_stream25 = getelementptr inbounds %"class.YAML::Emitter", ptr %this, i64 0, i32 1
+  %m_stream25 = getelementptr inbounds i8, ptr %this, i64 8
   %call26 = tail call noundef zeroext i1 @_ZN4YAML5Utils23WriteDoubleQuotedStringERNS_15ostream_wrapperERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS_14StringEscaping5valueE(ptr noundef nonnull align 8 dereferenceable(57) %m_stream25, ptr noundef nonnull align 8 dereferenceable(32) %str, i32 noundef %switch.select2.i)
   br label %sw.epilog
 
 sw.bb27:                                          ; preds = %if.end19
-  %m_stream28 = getelementptr inbounds %"class.YAML::Emitter", ptr %this, i64 0, i32 1
+  %m_stream28 = getelementptr inbounds i8, ptr %this, i64 8
   %6 = load ptr, ptr %this, align 8
-  %m_curIndent.i = getelementptr inbounds %"class.YAML::EmitterState", ptr %6, i64 0, i32 20
+  %m_curIndent.i = getelementptr inbounds i8, ptr %6, i64 200
   %7 = load i64, ptr %m_curIndent.i, align 8
-  %m_indent.i = getelementptr inbounds %"class.YAML::EmitterState", ptr %6, i64 0, i32 9
+  %m_indent.i = getelementptr inbounds i8, ptr %6, i64 72
   %8 = load i64, ptr %m_indent.i, align 8
   %add = add i64 %8, %7
   %call35 = tail call noundef zeroext i1 @_ZN4YAML5Utils18WriteLiteralStringERNS_15ostream_wrapperERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEm(ptr noundef nonnull align 8 dereferenceable(57) %m_stream28, ptr noundef nonnull align 8 dereferenceable(32) %str, i64 noundef %add)
@@ -2913,7 +2885,7 @@ declare noundef zeroext i1 @_ZN4YAML5Utils18WriteLiteralStringERNS_15ostream_wra
 define noundef i64 @_ZNK4YAML7Emitter17GetFloatPrecisionEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(72) %this) local_unnamed_addr #9 align 2 {
 entry:
   %0 = load ptr, ptr %this, align 8
-  %m_floatPrecision.i = getelementptr inbounds %"class.YAML::EmitterState", ptr %0, i64 0, i32 15
+  %m_floatPrecision.i = getelementptr inbounds i8, ptr %0, i64 112
   %1 = load i64, ptr %m_floatPrecision.i, align 8
   ret i64 %1
 }
@@ -2922,7 +2894,7 @@ entry:
 define noundef i64 @_ZNK4YAML7Emitter18GetDoublePrecisionEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(72) %this) local_unnamed_addr #9 align 2 {
 entry:
   %0 = load ptr, ptr %this, align 8
-  %m_doublePrecision.i = getelementptr inbounds %"class.YAML::EmitterState", ptr %0, i64 0, i32 16
+  %m_doublePrecision.i = getelementptr inbounds i8, ptr %0, i64 120
   %1 = load i64, ptr %m_doublePrecision.i, align 8
   ret i64 %1
 }
@@ -2931,20 +2903,20 @@ entry:
 define noundef nonnull ptr @_ZNK4YAML7Emitter19ComputeFullBoolNameEb(ptr nocapture noundef nonnull readonly align 8 dereferenceable(72) %this, i1 noundef zeroext %b) local_unnamed_addr #9 align 2 {
 entry:
   %0 = load ptr, ptr %this, align 8
-  %m_boolLengthFmt.i = getelementptr inbounds %"class.YAML::EmitterState", ptr %0, i64 0, i32 5
+  %m_boolLengthFmt.i = getelementptr inbounds i8, ptr %0, i64 52
   %1 = load i32, ptr %m_boolLengthFmt.i, align 4
   %cmp = icmp eq i32 %1, 20
   br i1 %cmp, label %cond.end.thread, label %cond.end
 
 cond.end.thread:                                  ; preds = %entry
-  %m_boolCaseFmt.i13 = getelementptr inbounds %"class.YAML::EmitterState", ptr %0, i64 0, i32 6
+  %m_boolCaseFmt.i13 = getelementptr inbounds i8, ptr %0, i64 56
   %2 = load i32, ptr %m_boolCaseFmt.i13, align 4
   br label %sw.bb
 
 cond.end:                                         ; preds = %entry
-  %m_boolFmt.i = getelementptr inbounds %"class.YAML::EmitterState", ptr %0, i64 0, i32 4
+  %m_boolFmt.i = getelementptr inbounds i8, ptr %0, i64 48
   %3 = load i32, ptr %m_boolFmt.i, align 4
-  %m_boolCaseFmt.i = getelementptr inbounds %"class.YAML::EmitterState", ptr %0, i64 0, i32 6
+  %m_boolCaseFmt.i = getelementptr inbounds i8, ptr %0, i64 56
   %4 = load i32, ptr %m_boolCaseFmt.i, align 4
   switch i32 %3, label %sw.epilog42 [
     i32 13, label %sw.bb
@@ -3023,7 +2995,7 @@ return:                                           ; preds = %sw.epilog42, %sw.bb
 define noundef nonnull ptr @_ZNK4YAML7Emitter15ComputeNullNameEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(72) %this) local_unnamed_addr #9 align 2 {
 entry:
   %0 = load ptr, ptr %this, align 8
-  %m_nullFmt.i = getelementptr inbounds %"class.YAML::EmitterState", ptr %0, i64 0, i32 7
+  %m_nullFmt.i = getelementptr inbounds i8, ptr %0, i64 60
   %1 = load i32, ptr %m_nullFmt.i, align 4
   %switch.tableidx = add i32 %1, -9
   %2 = icmp ult i32 %switch.tableidx, 3
@@ -3055,20 +3027,20 @@ entry:
 if.end:                                           ; preds = %entry
   tail call void @_ZN4YAML7Emitter11PrepareNodeENS_15EmitterNodeType5valueE(ptr noundef nonnull align 8 dereferenceable(72) %this, i32 noundef 2)
   %3 = load ptr, ptr %this, align 8
-  %m_boolLengthFmt.i.i = getelementptr inbounds %"class.YAML::EmitterState", ptr %3, i64 0, i32 5
+  %m_boolLengthFmt.i.i = getelementptr inbounds i8, ptr %3, i64 52
   %4 = load i32, ptr %m_boolLengthFmt.i.i, align 4
   %cmp.i = icmp eq i32 %4, 20
   br i1 %cmp.i, label %cond.end.thread.i, label %cond.end.i
 
 cond.end.thread.i:                                ; preds = %if.end
-  %m_boolCaseFmt.i13.i = getelementptr inbounds %"class.YAML::EmitterState", ptr %3, i64 0, i32 6
+  %m_boolCaseFmt.i13.i = getelementptr inbounds i8, ptr %3, i64 56
   %5 = load i32, ptr %m_boolCaseFmt.i13.i, align 4
   br label %sw.bb.i
 
 cond.end.i:                                       ; preds = %if.end
-  %m_boolFmt.i.i = getelementptr inbounds %"class.YAML::EmitterState", ptr %3, i64 0, i32 4
+  %m_boolFmt.i.i = getelementptr inbounds i8, ptr %3, i64 48
   %6 = load i32, ptr %m_boolFmt.i.i, align 4
-  %m_boolCaseFmt.i.i = getelementptr inbounds %"class.YAML::EmitterState", ptr %3, i64 0, i32 6
+  %m_boolCaseFmt.i.i = getelementptr inbounds i8, ptr %3, i64 56
   %7 = load i32, ptr %m_boolCaseFmt.i.i, align 4
   switch i32 %6, label %sw.epilog42.i [
     i32 13, label %sw.bb.i
@@ -3143,7 +3115,7 @@ _ZNK4YAML7Emitter19ComputeFullBoolNameEb.exit:    ; preds = %sw.bb9.i, %sw.bb11.
   br i1 %cmp.i, label %if.then5, label %if.else
 
 if.then5:                                         ; preds = %_ZNK4YAML7Emitter19ComputeFullBoolNameEb.exit
-  %m_stream = getelementptr inbounds %"class.YAML::Emitter", ptr %this, i64 0, i32 1
+  %m_stream = getelementptr inbounds i8, ptr %this, i64 8
   %9 = load i8, ptr %retval.0.i, align 1
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %ch.addr.i)
   store i8 %9, ptr %ch.addr.i, align 1
@@ -3158,7 +3130,7 @@ if.else:                                          ; preds = %sw.bb36.i, %sw.bb33
           to label %invoke.cont unwind label %lpad
 
 invoke.cont:                                      ; preds = %if.else
-  %m_stream7 = getelementptr inbounds %"class.YAML::Emitter", ptr %this, i64 0, i32 1
+  %m_stream7 = getelementptr inbounds i8, ptr %this, i64 8
   invoke void @_ZN4YAML15ostream_wrapper5writeERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(57) %m_stream7, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp)
           to label %invoke.cont10 unwind label %lpad9
 
@@ -3203,9 +3175,9 @@ entry:
 
 if.end:                                           ; preds = %entry
   tail call void @_ZN4YAML7Emitter11PrepareNodeENS_15EmitterNodeType5valueE(ptr noundef nonnull align 8 dereferenceable(72) %this, i32 noundef 2)
-  %m_stream = getelementptr inbounds %"class.YAML::Emitter", ptr %this, i64 0, i32 1
+  %m_stream = getelementptr inbounds i8, ptr %this, i64 8
   %3 = load ptr, ptr %this, align 8
-  %m_charset.i = getelementptr inbounds %"class.YAML::EmitterState", ptr %3, i64 0, i32 2
+  %m_charset.i = getelementptr inbounds i8, ptr %3, i64 40
   %4 = load i32, ptr %m_charset.i, align 4
   %switch.selectcmp.i = icmp eq i32 %4, 5
   %switch.select.i = select i1 %switch.selectcmp.i, i32 2, i32 0
@@ -3236,14 +3208,14 @@ entry:
   br i1 %tobool.i.i.not, label %return, label %if.end
 
 if.end:                                           ; preds = %entry
-  %m_hasAnchor.i = getelementptr inbounds %"class.YAML::EmitterState", ptr %0, i64 0, i32 21
+  %m_hasAnchor.i = getelementptr inbounds i8, ptr %0, i64 208
   %3 = load i8, ptr %m_hasAnchor.i, align 8
   %4 = and i8 %3, 1
   %tobool.i.not = icmp eq i8 %4, 0
   br i1 %tobool.i.not, label %lor.lhs.false, label %if.then7
 
 lor.lhs.false:                                    ; preds = %if.end
-  %m_hasTag.i = getelementptr inbounds %"class.YAML::EmitterState", ptr %0, i64 0, i32 23
+  %m_hasTag.i = getelementptr inbounds i8, ptr %0, i64 210
   %5 = load i8, ptr %m_hasTag.i, align 2
   %6 = and i8 %5, 1
   %tobool.i5.not = icmp eq i8 %6, 0
@@ -3256,7 +3228,7 @@ if.then7:                                         ; preds = %lor.lhs.false, %if.
 
 invoke.cont:                                      ; preds = %if.then7
   store i8 0, ptr %0, align 8
-  %m_lastError.i = getelementptr inbounds %"class.YAML::EmitterState", ptr %0, i64 0, i32 1
+  %m_lastError.i = getelementptr inbounds i8, ptr %0, i64 8
   %call.i6 = invoke noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEaSERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %m_lastError.i, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp)
           to label %invoke.cont12 unwind label %lpad11
 
@@ -3278,7 +3250,7 @@ lpad11:                                           ; preds = %invoke.cont
 
 if.end13:                                         ; preds = %lor.lhs.false
   tail call void @_ZN4YAML7Emitter11PrepareNodeENS_15EmitterNodeType5valueE(ptr noundef nonnull align 8 dereferenceable(72) %this, i32 noundef 2)
-  %m_stream = getelementptr inbounds %"class.YAML::Emitter", ptr %this, i64 0, i32 1
+  %m_stream = getelementptr inbounds i8, ptr %this, i64 8
   %call14 = tail call noundef zeroext i1 @_ZN4YAML5Utils10WriteAliasERNS_15ostream_wrapperERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(57) %m_stream, ptr noundef nonnull align 8 dereferenceable(32) %alias)
   %9 = load ptr, ptr %this, align 8
   br i1 %call14, label %if.end26, label %if.then15
@@ -3290,7 +3262,7 @@ if.then15:                                        ; preds = %if.end13
 
 invoke.cont21:                                    ; preds = %if.then15
   store i8 0, ptr %9, align 8
-  %m_lastError.i7 = getelementptr inbounds %"class.YAML::EmitterState", ptr %9, i64 0, i32 1
+  %m_lastError.i7 = getelementptr inbounds i8, ptr %9, i64 8
   %call.i8 = invoke noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEaSERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %m_lastError.i7, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp18)
           to label %invoke.cont23 unwind label %lpad22
 
@@ -3344,7 +3316,7 @@ entry:
   br i1 %tobool.i.i.not, label %return, label %if.end
 
 if.end:                                           ; preds = %entry
-  %m_hasAnchor.i = getelementptr inbounds %"class.YAML::EmitterState", ptr %0, i64 0, i32 21
+  %m_hasAnchor.i = getelementptr inbounds i8, ptr %0, i64 208
   %3 = load i8, ptr %m_hasAnchor.i, align 8
   %4 = and i8 %3, 1
   %tobool.i.not = icmp eq i8 %4, 0
@@ -3357,7 +3329,7 @@ if.then4:                                         ; preds = %if.end
 
 invoke.cont:                                      ; preds = %if.then4
   store i8 0, ptr %0, align 8
-  %m_lastError.i = getelementptr inbounds %"class.YAML::EmitterState", ptr %0, i64 0, i32 1
+  %m_lastError.i = getelementptr inbounds i8, ptr %0, i64 8
   %call.i5 = invoke noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEaSERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %m_lastError.i, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp)
           to label %invoke.cont9 unwind label %lpad8
 
@@ -3379,7 +3351,7 @@ lpad8:                                            ; preds = %invoke.cont
 
 if.end10:                                         ; preds = %if.end
   tail call void @_ZN4YAML7Emitter11PrepareNodeENS_15EmitterNodeType5valueE(ptr noundef nonnull align 8 dereferenceable(72) %this, i32 noundef 1)
-  %m_stream = getelementptr inbounds %"class.YAML::Emitter", ptr %this, i64 0, i32 1
+  %m_stream = getelementptr inbounds i8, ptr %this, i64 8
   %call11 = tail call noundef zeroext i1 @_ZN4YAML5Utils11WriteAnchorERNS_15ostream_wrapperERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(57) %m_stream, ptr noundef nonnull align 8 dereferenceable(32) %anchor)
   %7 = load ptr, ptr %this, align 8
   br i1 %call11, label %if.end23, label %if.then12
@@ -3391,7 +3363,7 @@ if.then12:                                        ; preds = %if.end10
 
 invoke.cont18:                                    ; preds = %if.then12
   store i8 0, ptr %7, align 8
-  %m_lastError.i6 = getelementptr inbounds %"class.YAML::EmitterState", ptr %7, i64 0, i32 1
+  %m_lastError.i6 = getelementptr inbounds i8, ptr %7, i64 8
   %call.i7 = invoke noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEaSERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %m_lastError.i6, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp15)
           to label %invoke.cont20 unwind label %lpad19
 
@@ -3443,7 +3415,7 @@ entry:
   br i1 %tobool.i.i.not, label %return, label %if.end
 
 if.end:                                           ; preds = %entry
-  %m_hasTag.i = getelementptr inbounds %"class.YAML::EmitterState", ptr %0, i64 0, i32 23
+  %m_hasTag.i = getelementptr inbounds i8, ptr %0, i64 210
   %3 = load i8, ptr %m_hasTag.i, align 2
   %4 = and i8 %3, 1
   %tobool.i.not = icmp eq i8 %4, 0
@@ -3456,7 +3428,7 @@ if.then4:                                         ; preds = %if.end
 
 invoke.cont:                                      ; preds = %if.then4
   store i8 0, ptr %0, align 8
-  %m_lastError.i = getelementptr inbounds %"class.YAML::EmitterState", ptr %0, i64 0, i32 1
+  %m_lastError.i = getelementptr inbounds i8, ptr %0, i64 8
   %call.i10 = invoke noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEaSERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %m_lastError.i, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp)
           to label %invoke.cont9 unwind label %lpad8
 
@@ -3478,10 +3450,10 @@ lpad8:                                            ; preds = %invoke.cont
 
 if.end10:                                         ; preds = %if.end
   tail call void @_ZN4YAML7Emitter11PrepareNodeENS_15EmitterNodeType5valueE(ptr noundef nonnull align 8 dereferenceable(72) %this, i32 noundef 1)
-  %type = getelementptr inbounds %"struct.YAML::_Tag", ptr %tag, i64 0, i32 2
+  %type = getelementptr inbounds i8, ptr %tag, i64 64
   %7 = load i32, ptr %type, align 8
-  %m_stream21 = getelementptr inbounds %"class.YAML::Emitter", ptr %this, i64 0, i32 1
-  %content22 = getelementptr inbounds %"struct.YAML::_Tag", ptr %tag, i64 0, i32 1
+  %m_stream21 = getelementptr inbounds i8, ptr %this, i64 8
+  %content22 = getelementptr inbounds i8, ptr %tag, i64 32
   switch i32 %7, label %if.end26 [
     i32 0, label %if.then11
     i32 1, label %if.then15
@@ -3507,7 +3479,7 @@ if.then27:                                        ; preds = %if.then15, %if.then
 
 invoke.cont33:                                    ; preds = %if.then27
   store i8 0, ptr %8, align 8
-  %m_lastError.i11 = getelementptr inbounds %"class.YAML::EmitterState", ptr %8, i64 0, i32 1
+  %m_lastError.i11 = getelementptr inbounds i8, ptr %8, i64 8
   %call.i12 = invoke noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEaSERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %m_lastError.i11, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp30)
           to label %invoke.cont35 unwind label %lpad34
 
@@ -3562,7 +3534,7 @@ invoke.cont:                                      ; preds = %entry
           to label %.noexc unwind label %lpad2
 
 .noexc:                                           ; preds = %invoke.cont
-  %content.i = getelementptr inbounds %"struct.YAML::_Tag", ptr %agg.result, i64 0, i32 1
+  %content.i = getelementptr inbounds i8, ptr %agg.result, i64 32
   invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1ERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %content.i, ptr noundef nonnull align 8 dereferenceable(32) %content)
           to label %invoke.cont3 unwind label %lpad.i
 
@@ -3573,7 +3545,7 @@ lpad.i:                                           ; preds = %.noexc
   br label %lpad2.body
 
 invoke.cont3:                                     ; preds = %.noexc
-  %type.i = getelementptr inbounds %"struct.YAML::_Tag", ptr %agg.result, i64 0, i32 2
+  %type.i = getelementptr inbounds i8, ptr %agg.result, i64 64
   store i32 1, ptr %type.i, align 8
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp) #15
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp1) #15
@@ -3612,15 +3584,15 @@ entry:
 
 if.end:                                           ; preds = %entry
   tail call void @_ZN4YAML7Emitter11PrepareNodeENS_15EmitterNodeType5valueE(ptr noundef nonnull align 8 dereferenceable(72) %this, i32 noundef 0)
-  %m_stream = getelementptr inbounds %"class.YAML::Emitter", ptr %this, i64 0, i32 1
-  %m_col.i = getelementptr inbounds %"class.YAML::Emitter", ptr %this, i64 0, i32 1, i32 4
+  %m_stream = getelementptr inbounds i8, ptr %this, i64 8
+  %m_col.i = getelementptr inbounds i8, ptr %this, i64 56
   %3 = load i64, ptr %m_col.i, align 8
   %cmp.not = icmp eq i64 %3, 0
   %.pre2 = load ptr, ptr %this, align 8
   br i1 %cmp.not, label %if.end8, label %if.then3
 
 if.then3:                                         ; preds = %if.end
-  %m_preCommentIndent.i = getelementptr inbounds %"class.YAML::EmitterState", ptr %.pre2, i64 0, i32 10
+  %m_preCommentIndent.i = getelementptr inbounds i8, ptr %.pre2, i64 80
   %4 = load i64, ptr %m_preCommentIndent.i, align 8
   %cmp3.not.i = icmp eq i64 %4, 0
   br i1 %cmp3.not.i, label %if.end8, label %for.body.i
@@ -3641,7 +3613,7 @@ if.end8.loopexit:                                 ; preds = %for.body.i
 
 if.end8:                                          ; preds = %if.end8.loopexit, %if.then3, %if.end
   %5 = phi ptr [ %.pre, %if.end8.loopexit ], [ %.pre2, %if.then3 ], [ %.pre2, %if.end ]
-  %m_postCommentIndent.i = getelementptr inbounds %"class.YAML::EmitterState", ptr %5, i64 0, i32 11
+  %m_postCommentIndent.i = getelementptr inbounds i8, ptr %5, i64 88
   %6 = load i64, ptr %m_postCommentIndent.i, align 8
   %call13 = call noundef zeroext i1 @_ZN4YAML5Utils12WriteCommentERNS_15ostream_wrapperERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEm(ptr noundef nonnull align 8 dereferenceable(57) %m_stream, ptr noundef nonnull align 8 dereferenceable(32) %comment, i64 noundef %6)
   %7 = load ptr, ptr %this, align 8
@@ -3668,7 +3640,7 @@ entry:
 if.end:                                           ; preds = %entry
   tail call void @_ZN4YAML7Emitter11PrepareNodeENS_15EmitterNodeType5valueE(ptr noundef nonnull align 8 dereferenceable(72) %this, i32 noundef 2)
   %4 = load ptr, ptr %this, align 8
-  %m_nullFmt.i.i = getelementptr inbounds %"class.YAML::EmitterState", ptr %4, i64 0, i32 7
+  %m_nullFmt.i.i = getelementptr inbounds i8, ptr %4, i64 60
   %5 = load i32, ptr %m_nullFmt.i.i, align 4
   %switch.tableidx = add i32 %5, -9
   %6 = icmp ult i32 %switch.tableidx, 3
@@ -3687,7 +3659,7 @@ _ZNK4YAML7Emitter15ComputeNullNameEv.exit:        ; preds = %if.end, %switch.loo
           to label %invoke.cont unwind label %lpad
 
 invoke.cont:                                      ; preds = %_ZNK4YAML7Emitter15ComputeNullNameEv.exit
-  %m_stream = getelementptr inbounds %"class.YAML::Emitter", ptr %this, i64 0, i32 1
+  %m_stream = getelementptr inbounds i8, ptr %this, i64 8
   invoke void @_ZN4YAML15ostream_wrapper5writeERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(57) %m_stream, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp)
           to label %invoke.cont5 unwind label %lpad4
 
@@ -3737,7 +3709,7 @@ invoke.cont5:                                     ; preds = %invoke.cont
           to label %invoke.cont7 unwind label %lpad6
 
 invoke.cont7:                                     ; preds = %invoke.cont5
-  %content.i = getelementptr inbounds %"struct.YAML::_Tag", ptr %ref.tmp, i64 0, i32 1
+  %content.i = getelementptr inbounds i8, ptr %ref.tmp, i64 32
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %content.i) #15
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp) #15
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp2) #15
@@ -3761,7 +3733,7 @@ lpad4:                                            ; preds = %invoke.cont
 lpad6:                                            ; preds = %invoke.cont5
   %5 = landingpad { ptr, i32 }
           cleanup
-  %content.i3 = getelementptr inbounds %"struct.YAML::_Tag", ptr %ref.tmp, i64 0, i32 1
+  %content.i3 = getelementptr inbounds i8, ptr %ref.tmp, i64 32
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %content.i3) #15
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp) #15
   br label %ehcleanup
@@ -3778,7 +3750,7 @@ ehcleanup8:                                       ; preds = %ehcleanup, %lpad
 
 if.end:                                           ; preds = %invoke.cont7
   call void @_ZN4YAML7Emitter11PrepareNodeENS_15EmitterNodeType5valueE(ptr noundef nonnull align 8 dereferenceable(72) %this, i32 noundef 2)
-  %m_stream = getelementptr inbounds %"class.YAML::Emitter", ptr %this, i64 0, i32 1
+  %m_stream = getelementptr inbounds i8, ptr %this, i64 8
   %call10 = call noundef zeroext i1 @_ZN4YAML5Utils11WriteBinaryERNS_15ostream_wrapperERKNS_6BinaryE(ptr noundef nonnull align 8 dereferenceable(57) %m_stream, ptr noundef nonnull align 8 dereferenceable(40) %binary)
   %6 = load ptr, ptr %this, align 8
   call void @_ZN4YAML12EmitterState13StartedScalarEv(ptr noundef nonnull align 8 dereferenceable(224) %6)
@@ -3802,7 +3774,7 @@ invoke.cont:                                      ; preds = %entry
           to label %.noexc unwind label %lpad2
 
 .noexc:                                           ; preds = %invoke.cont
-  %content.i = getelementptr inbounds %"struct.YAML::_Tag", ptr %agg.result, i64 0, i32 1
+  %content.i = getelementptr inbounds i8, ptr %agg.result, i64 32
   invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1ERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %content.i, ptr noundef nonnull align 8 dereferenceable(32) %content)
           to label %invoke.cont3 unwind label %lpad.i
 
@@ -3813,7 +3785,7 @@ lpad.i:                                           ; preds = %.noexc
   br label %lpad2.body
 
 invoke.cont3:                                     ; preds = %.noexc
-  %type.i = getelementptr inbounds %"struct.YAML::_Tag", ptr %agg.result, i64 0, i32 2
+  %type.i = getelementptr inbounds i8, ptr %agg.result, i64 64
   store i32 2, ptr %type.i, align 8
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp) #15
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp1) #15

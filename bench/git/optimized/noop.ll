@@ -3,8 +3,6 @@ source_filename = "bench/git/original/noop.ll"
 target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:128-n8:16:32:64-S128"
 target triple = "x86_64-unknown-linux-gnu"
 
-%struct.fetch_negotiator = type { ptr, ptr, ptr, ptr, ptr, ptr }
-
 @.str = private unnamed_addr constant [18 x i8] c"negotiator/noop.c\00", align 1
 @.str.1 = private unnamed_addr constant [58 x i8] c"ack with noop negotiator, which does not emit any commits\00", align 1
 
@@ -12,15 +10,15 @@ target triple = "x86_64-unknown-linux-gnu"
 define dso_local void @noop_negotiator_init(ptr nocapture noundef writeonly %negotiator) local_unnamed_addr #0 {
 entry:
   store ptr @known_common, ptr %negotiator, align 8
-  %add_tip = getelementptr inbounds %struct.fetch_negotiator, ptr %negotiator, i64 0, i32 1
+  %add_tip = getelementptr inbounds i8, ptr %negotiator, i64 8
   store ptr @add_tip, ptr %add_tip, align 8
-  %next = getelementptr inbounds %struct.fetch_negotiator, ptr %negotiator, i64 0, i32 2
+  %next = getelementptr inbounds i8, ptr %negotiator, i64 16
   store ptr @next, ptr %next, align 8
-  %ack = getelementptr inbounds %struct.fetch_negotiator, ptr %negotiator, i64 0, i32 3
+  %ack = getelementptr inbounds i8, ptr %negotiator, i64 24
   store ptr @ack, ptr %ack, align 8
-  %release = getelementptr inbounds %struct.fetch_negotiator, ptr %negotiator, i64 0, i32 4
+  %release = getelementptr inbounds i8, ptr %negotiator, i64 32
   store ptr @release, ptr %release, align 8
-  %data = getelementptr inbounds %struct.fetch_negotiator, ptr %negotiator, i64 0, i32 5
+  %data = getelementptr inbounds i8, ptr %negotiator, i64 40
   store ptr null, ptr %data, align 8
   ret void
 }

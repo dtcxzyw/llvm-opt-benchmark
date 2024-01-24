@@ -22,7 +22,7 @@ if.end:                                           ; preds = %entry
   br i1 %tobool.not, label %if.end2, label %if.then1
 
 if.then1:                                         ; preds = %if.end
-  %hash_id = getelementptr inbounds %struct.nid_triple, ptr %call, i64 0, i32 1
+  %hash_id = getelementptr inbounds i8, ptr %call, i64 4
   %0 = load i32, ptr %hash_id, align 4
   store i32 %0, ptr %out_digest_nid, align 4
   br label %if.end2
@@ -32,7 +32,7 @@ if.end2:                                          ; preds = %if.then1, %if.end
   br i1 %tobool3.not, label %return, label %if.then4
 
 if.then4:                                         ; preds = %if.end2
-  %pkey_id = getelementptr inbounds %struct.nid_triple, ptr %call, i64 0, i32 2
+  %pkey_id = getelementptr inbounds i8, ptr %call, i64 8
   %1 = load i32, ptr %pkey_id, align 4
   store i32 %1, ptr %out_pkey_nid, align 4
   br label %return
@@ -58,9 +58,9 @@ define hidden noundef i32 @OBJ_find_sigid_by_algs(ptr noundef writeonly %out_sig
 entry:
   %key = alloca %struct.nid_triple, align 4
   %pkey = alloca ptr, align 8
-  %hash_id = getelementptr inbounds %struct.nid_triple, ptr %key, i64 0, i32 1
+  %hash_id = getelementptr inbounds i8, ptr %key, i64 4
   store i32 %digest_nid, ptr %hash_id, align 4
-  %pkey_id = getelementptr inbounds %struct.nid_triple, ptr %key, i64 0, i32 2
+  %pkey_id = getelementptr inbounds i8, ptr %key, i64 8
   store i32 %pkey_nid, ptr %pkey_id, align 4
   store ptr %key, ptr %pkey, align 8
   %call = call ptr @bsearch(ptr noundef nonnull %pkey, ptr noundef nonnull @sigoid_srt_xref, i64 noundef 37, i64 noundef 8, ptr noundef nonnull @nid_triple_cmp_by_digest_and_hash) #4
@@ -87,18 +87,18 @@ define internal i32 @nid_triple_cmp_by_digest_and_hash(ptr nocapture noundef rea
 entry:
   %0 = load ptr, ptr %in_a, align 8
   %1 = load ptr, ptr %in_b, align 8
-  %hash_id = getelementptr inbounds %struct.nid_triple, ptr %0, i64 0, i32 1
+  %hash_id = getelementptr inbounds i8, ptr %0, i64 4
   %2 = load i32, ptr %hash_id, align 4
-  %hash_id1 = getelementptr inbounds %struct.nid_triple, ptr %1, i64 0, i32 1
+  %hash_id1 = getelementptr inbounds i8, ptr %1, i64 4
   %3 = load i32, ptr %hash_id1, align 4
   %sub = sub nsw i32 %2, %3
   %tobool.not = icmp eq i32 %sub, 0
   br i1 %tobool.not, label %if.end, label %return
 
 if.end:                                           ; preds = %entry
-  %pkey_id = getelementptr inbounds %struct.nid_triple, ptr %0, i64 0, i32 2
+  %pkey_id = getelementptr inbounds i8, ptr %0, i64 8
   %4 = load i32, ptr %pkey_id, align 4
-  %pkey_id2 = getelementptr inbounds %struct.nid_triple, ptr %1, i64 0, i32 2
+  %pkey_id2 = getelementptr inbounds i8, ptr %1, i64 8
   %5 = load i32, ptr %pkey_id2, align 4
   %sub3 = sub nsw i32 %4, %5
   br label %return

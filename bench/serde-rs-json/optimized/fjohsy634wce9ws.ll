@@ -25,10 +25,10 @@ define align 8 ptr @"_ZN5serde3ser10Serializer11collect_seq28_$u7b$$u7b$closure$
 define { i64, i64 } @_ZN5serde3ser17iterator_len_hint17hb1d4b62136207fd6E(ptr align 8 %0) unnamed_addr #1 {
   %2 = alloca { i64, { i64, i64 } }, align 8
   call void @"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$9size_hint17h4b1bc59dcd485707E"(ptr nonnull sret({ i64, { i64, i64 } }) align 8 %2, ptr align 8 %0)
-  %3 = getelementptr inbounds { i64, { i64, i64 } }, ptr %2, i64 0, i32 1
+  %3 = getelementptr inbounds i8, ptr %2, i64 8
   %4 = load i64, ptr %3, align 8, !range !7, !noundef !5
   %.not = icmp ne i64 %4, 0
-  %5 = getelementptr inbounds { i64, { i64, i64 } }, ptr %2, i64 0, i32 1, i32 1
+  %5 = getelementptr inbounds i8, ptr %2, i64 16
   %6 = load i64, ptr %2, align 8
   %7 = load i64, ptr %5, align 8
   %8 = icmp eq i64 %6, %7

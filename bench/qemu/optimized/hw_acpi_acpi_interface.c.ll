@@ -4,19 +4,6 @@ target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:
 target triple = "x86_64-unknown-linux-gnu"
 
 %struct.TypeInfo = type { ptr, ptr, i64, i64, ptr, ptr, ptr, i8, i64, ptr, ptr, ptr, ptr }
-%struct.AcpiDeviceIfClass = type { %struct.InterfaceClass, ptr, ptr }
-%struct.InterfaceClass = type { %struct.ObjectClass, ptr, ptr }
-%struct.ObjectClass = type { ptr, ptr, [4 x ptr], [4 x ptr], ptr, ptr }
-%struct.BusState = type { %struct.Object, ptr, ptr, ptr, i32, i8, i8, i32, %union.BusChildHead, %struct.BusStateEntry, %struct.ResettableState }
-%struct.Object = type { ptr, ptr, ptr, i32, ptr }
-%union.BusChildHead = type { %struct.QTailQLink }
-%struct.QTailQLink = type { ptr, ptr }
-%struct.BusStateEntry = type { ptr, ptr }
-%struct.ResettableState = type { i32, i8, i8 }
-%struct.BusChild = type { %struct.rcu_head, ptr, i32, %union.anon }
-%struct.rcu_head = type { ptr, ptr }
-%union.anon = type { %struct.QTailQLink }
-%struct.AcpiDevAmlIfClass = type { %struct.InterfaceClass, ptr }
 
 @.str = private unnamed_addr constant [22 x i8] c"acpi-device-interface\00", align 1
 @.str.1 = private unnamed_addr constant [33 x i8] c"../qemu/hw/acpi/acpi_interface.c\00", align 1
@@ -40,7 +27,7 @@ define dso_local void @acpi_send_event(ptr noundef %dev, i32 noundef %event) loc
 entry:
   %call.i = tail call ptr @object_get_class(ptr noundef %dev) #2
   %call1.i = tail call ptr @object_class_dynamic_cast_assert(ptr noundef %call.i, ptr noundef nonnull @.str, ptr noundef nonnull @.str.2, i32 noundef 22, ptr noundef nonnull @__func__.ACPI_DEVICE_IF_GET_CLASS) #2
-  %send_event = getelementptr inbounds %struct.AcpiDeviceIfClass, ptr %call1.i, i64 0, i32 2
+  %send_event = getelementptr inbounds i8, ptr %call1.i, i64 120
   %0 = load ptr, ptr %send_event, align 8
   %tobool.not = icmp eq ptr %0, null
   br i1 %tobool.not, label %if.end, label %if.then
@@ -60,14 +47,14 @@ declare ptr @object_dynamic_cast_assert(ptr noundef, ptr noundef, ptr noundef, i
 ; Function Attrs: nounwind sspstrong uwtable
 define dso_local void @qbus_build_aml(ptr nocapture noundef readonly %bus, ptr noundef %scope) local_unnamed_addr #0 {
 entry:
-  %children = getelementptr inbounds %struct.BusState, ptr %bus, i64 0, i32 8
+  %children = getelementptr inbounds i8, ptr %bus, i64 80
   %kid.03 = load ptr, ptr %children, align 8
   %tobool.not4 = icmp eq ptr %kid.03, null
   br i1 %tobool.not4, label %for.end, label %for.body
 
 for.body:                                         ; preds = %entry, %call_dev_aml_func.exit
   %kid.05 = phi ptr [ %kid.0, %call_dev_aml_func.exit ], [ %kid.03, %entry ]
-  %child = getelementptr inbounds %struct.BusChild, ptr %kid.05, i64 0, i32 1
+  %child = getelementptr inbounds i8, ptr %kid.05, i64 16
   %0 = load ptr, ptr %child, align 8
   %call.i = tail call ptr @object_dynamic_cast_assert(ptr noundef %0, ptr noundef nonnull @.str.5, ptr noundef nonnull @.str.6, i32 noundef 77, ptr noundef nonnull @__func__.DEVICE) #2
   %call.i.i = tail call ptr @object_dynamic_cast(ptr noundef %call.i, ptr noundef nonnull @.str.3) #2
@@ -77,7 +64,7 @@ for.body:                                         ; preds = %entry, %call_dev_am
 get_dev_aml_func.exit.i:                          ; preds = %for.body
   %call.i.i.i = tail call ptr @object_get_class(ptr noundef %call.i) #2
   %call1.i.i.i = tail call ptr @object_class_dynamic_cast_assert(ptr noundef %call.i.i.i, ptr noundef nonnull @.str.3, ptr noundef nonnull @.str.4, i32 noundef 10, ptr noundef nonnull @__func__.ACPI_DEV_AML_IF_GET_CLASS) #2
-  %build_dev_aml.i.i = getelementptr inbounds %struct.AcpiDevAmlIfClass, ptr %call1.i.i.i, i64 0, i32 1
+  %build_dev_aml.i.i = getelementptr inbounds i8, ptr %call1.i.i.i, i64 112
   %1 = load ptr, ptr %build_dev_aml.i.i, align 8
   %tobool.not.i = icmp eq ptr %1, null
   br i1 %tobool.not.i, label %call_dev_aml_func.exit, label %if.then.i
@@ -88,7 +75,7 @@ if.then.i:                                        ; preds = %get_dev_aml_func.ex
   br label %call_dev_aml_func.exit
 
 call_dev_aml_func.exit:                           ; preds = %for.body, %get_dev_aml_func.exit.i, %if.then.i
-  %sibling = getelementptr inbounds %struct.BusChild, ptr %kid.05, i64 0, i32 3
+  %sibling = getelementptr inbounds i8, ptr %kid.05, i64 32
   %kid.0 = load ptr, ptr %sibling, align 8
   %tobool.not = icmp eq ptr %kid.0, null
   br i1 %tobool.not, label %for.end, label %for.body, !llvm.loop !5

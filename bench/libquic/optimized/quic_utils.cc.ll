@@ -4,7 +4,6 @@ target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:
 target triple = "x86_64-unknown-linux-gnu"
 
 %"class.net::uint128" = type { i64, i64 }
-%"struct.std::_Vector_base<unsigned int, std::allocator<unsigned int>>::_Vector_impl_data" = type { ptr, ptr, ptr }
 %"class.std::__cxx11::basic_string" = type { %"struct.std::__cxx11::basic_string<char>::_Alloc_hider", i64, %union.anon }
 %"struct.std::__cxx11::basic_string<char>::_Alloc_hider" = type { ptr }
 %union.anon = type { i64, [8 x i8] }
@@ -12,26 +11,13 @@ target triple = "x86_64-unknown-linux-gnu"
 %"class.std::vector" = type { %"struct.std::_Vector_base" }
 %"struct.std::_Vector_base" = type { %"struct.std::_Vector_base<unsigned int, std::allocator<unsigned int>>::_Vector_impl" }
 %"struct.std::_Vector_base<unsigned int, std::allocator<unsigned int>>::_Vector_impl" = type { %"struct.std::_Vector_base<unsigned int, std::allocator<unsigned int>>::_Vector_impl_data" }
+%"struct.std::_Vector_base<unsigned int, std::allocator<unsigned int>>::_Vector_impl_data" = type { ptr, ptr, ptr }
 %"class.std::vector.3" = type { %"struct.std::_Vector_base.4" }
 %"struct.std::_Vector_base.4" = type { %"struct.std::_Vector_base<base::BasicStringPiece<std::string>, std::allocator<base::BasicStringPiece<std::string>>>::_Vector_impl" }
 %"struct.std::_Vector_base<base::BasicStringPiece<std::string>, std::allocator<base::BasicStringPiece<std::string>>>::_Vector_impl" = type { %"struct.std::_Vector_base<base::BasicStringPiece<std::string>, std::allocator<base::BasicStringPiece<std::string>>>::_Vector_impl_data" }
 %"struct.std::_Vector_base<base::BasicStringPiece<std::string>, std::allocator<base::BasicStringPiece<std::string>>>::_Vector_impl_data" = type { ptr, ptr, ptr }
 %"class.base::BasicStringPiece" = type { ptr, i64 }
 %"class.std::reverse_iterator" = type { ptr }
-%"struct.std::_Vector_base<net::QuicFrame, std::allocator<net::QuicFrame>>::_Vector_impl_data" = type { ptr, ptr, ptr }
-%"struct.net::QuicFrame" = type { i32, %union.anon.14 }
-%union.anon.14 = type { ptr }
-%"struct.net::QuicConnectionCloseFrame" = type { i32, %"class.std::__cxx11::basic_string" }
-%"struct.net::QuicGoAwayFrame" = type { i32, i32, %"class.std::__cxx11::basic_string" }
-%"struct.net::SerializedPacket" = type { ptr, i16, %"class.std::vector.8", i8, i16, i8, i64, i8, i8, i8, i8, i8, i8, i8, i64, %"class.std::__cxx11::list" }
-%"class.std::vector.8" = type { %"struct.std::_Vector_base.9" }
-%"struct.std::_Vector_base.9" = type { %"struct.std::_Vector_base<net::QuicFrame, std::allocator<net::QuicFrame>>::_Vector_impl" }
-%"struct.std::_Vector_base<net::QuicFrame, std::allocator<net::QuicFrame>>::_Vector_impl" = type { %"struct.std::_Vector_base<net::QuicFrame, std::allocator<net::QuicFrame>>::_Vector_impl_data" }
-%"class.std::__cxx11::list" = type { %"class.std::__cxx11::_List_base" }
-%"class.std::__cxx11::_List_base" = type { %"struct.std::__cxx11::_List_base<net::AckListenerWrapper, std::allocator<net::AckListenerWrapper>>::_List_impl" }
-%"struct.std::__cxx11::_List_base<net::AckListenerWrapper, std::allocator<net::AckListenerWrapper>>::_List_impl" = type { %"struct.std::__detail::_List_node_header" }
-%"struct.std::__detail::_List_node_header" = type { %"struct.std::__detail::_List_node_base", i64 }
-%"struct.std::__detail::_List_node_base" = type { ptr, ptr }
 %"class.std::vector.29" = type { %"struct.std::_Vector_base.30" }
 %"struct.std::_Vector_base.30" = type { %"struct.std::_Vector_base<unsigned char, std::allocator<unsigned char>>::_Vector_impl" }
 %"struct.std::_Vector_base<unsigned char, std::allocator<unsigned char>>::_Vector_impl" = type { %"struct.std::_Vector_base<unsigned char, std::allocator<unsigned char>>::_Vector_impl_data" }
@@ -242,7 +228,7 @@ _ZN3net9QuicUtils18FNV1a_128_Hash_TwoEPKciS2_i.exit: ; preds = %entry, %for.end.
   %xhash.0.lcssa.off0.i.i.i = phi i64 [ 7113472399480571277, %entry ], [ %extract.t4.i.i.i, %for.end.loopexit.i.i.i ]
   %xhash.0.lcssa.off64.i.i.i = phi i64 [ 7809847782465536322, %entry ], [ %extract.t7.i.i.i, %for.end.loopexit.i.i.i ]
   store i64 %xhash.0.lcssa.off0.i.i.i, ptr %agg.result, align 8, !alias.scope !7
-  %hi_.i5.i.i30.i = getelementptr inbounds %"class.net::uint128", ptr %agg.result, i64 0, i32 1
+  %hi_.i5.i.i30.i = getelementptr inbounds i8, ptr %agg.result, i64 8
   store i64 %xhash.0.lcssa.off64.i.i.i, ptr %hi_.i5.i.i30.i, align 8, !alias.scope !7
   ret void
 }
@@ -312,7 +298,7 @@ return:                                           ; preds = %for.end.loopexit.i.
   %xhash.0.lcssa.off0.i.i28.sink = phi i64 [ %xhash.0.lcssa.off0.i.i, %_ZN3net12_GLOBAL__N_115IncrementalHashENS_7uint128EPKcm.exit ], [ %xhash.0.lcssa.off0.i.i, %if.end ], [ %extract.t4.i.i27, %for.end.loopexit.i.i24 ]
   %xhash.0.lcssa.off64.i.i29.sink = phi i64 [ %xhash.0.lcssa.off64.i.i, %_ZN3net12_GLOBAL__N_115IncrementalHashENS_7uint128EPKcm.exit ], [ %xhash.0.lcssa.off64.i.i, %if.end ], [ %extract.t7.i.i26, %for.end.loopexit.i.i24 ]
   store i64 %xhash.0.lcssa.off0.i.i28.sink, ptr %agg.result, align 8
-  %hi_.i5.i.i30 = getelementptr inbounds %"class.net::uint128", ptr %agg.result, i64 0, i32 1
+  %hi_.i5.i.i30 = getelementptr inbounds i8, ptr %agg.result, i64 8
   store i64 %xhash.0.lcssa.off64.i.i29.sink, ptr %hi_.i5.i.i30, align 8
   ret void
 }
@@ -321,7 +307,7 @@ return:                                           ; preds = %for.end.loopexit.i.
 define dso_local noundef zeroext i1 @_ZN3net9QuicUtils13FindMutualTagERKSt6vectorIjSaIjEEPKjmNS0_8PriorityEPjPm(ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %our_tags_vector, ptr nocapture noundef readonly %their_tags, i64 noundef %num_their_tags, i32 noundef %priority, ptr nocapture noundef writeonly %out_result, ptr noundef writeonly %out_index) local_unnamed_addr #3 align 2 {
 entry:
   %0 = load ptr, ptr %our_tags_vector, align 8
-  %_M_finish.i.i = getelementptr inbounds %"struct.std::_Vector_base<unsigned int, std::allocator<unsigned int>>::_Vector_impl_data", ptr %our_tags_vector, i64 0, i32 1
+  %_M_finish.i.i = getelementptr inbounds i8, ptr %our_tags_vector, i64 8
   %1 = load ptr, ptr %_M_finish.i.i, align 8
   %cmp.i.i = icmp eq ptr %0, %1
   br i1 %cmp.i.i, label %return, label %if.end
@@ -383,7 +369,7 @@ return:                                           ; preds = %for.cond6.for.inc20
 define dso_local void @_ZN3net9QuicUtils21SerializeUint128ShortENS_7uint128EPh(ptr nocapture noundef readonly %v, ptr nocapture noundef writeonly %out) local_unnamed_addr #4 align 2 {
 entry:
   %0 = load i64, ptr %v, align 8
-  %hi_.i = getelementptr inbounds %"class.net::uint128", ptr %v, i64 0, i32 1
+  %hi_.i = getelementptr inbounds i8, ptr %v, i64 8
   %1 = load i64, ptr %hi_.i, align 8
   store i64 %0, ptr %out, align 1
   %add.ptr = getelementptr inbounds i8, ptr %out, i64 8
@@ -563,24 +549,24 @@ invoke.cont:                                      ; preds = %entry
 
 invoke.cont2:                                     ; preds = %invoke.cont
   %0 = load ptr, ptr %agg.tmp, align 8
-  %1 = getelementptr inbounds { ptr, i64 }, ptr %agg.tmp, i64 0, i32 1
+  %1 = getelementptr inbounds i8, ptr %agg.tmp, i64 8
   %2 = load i64, ptr %1, align 8
   %3 = load ptr, ptr %agg.tmp1, align 8
-  %4 = getelementptr inbounds { ptr, i64 }, ptr %agg.tmp1, i64 0, i32 1
+  %4 = getelementptr inbounds i8, ptr %agg.tmp1, i64 8
   %5 = load i64, ptr %4, align 8
   invoke void @_ZN4base16SplitStringPieceENS_16BasicStringPieceINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEES7_NS_18WhitespaceHandlingENS_11SplitResultE(ptr nonnull sret(%"class.std::vector.3") align 8 %ref.tmp, ptr %0, i64 %2, ptr %3, i64 %5, i32 noundef 1, i32 noundef 0)
           to label %invoke.cont3 unwind label %lpad
 
 invoke.cont3:                                     ; preds = %invoke.cont2
   %6 = load ptr, ptr %ref.tmp, align 8
-  %_M_finish.i = getelementptr inbounds %"struct.std::_Vector_base<base::BasicStringPiece<std::string>, std::allocator<base::BasicStringPiece<std::string>>>::_Vector_impl_data", ptr %ref.tmp, i64 0, i32 1
+  %_M_finish.i = getelementptr inbounds i8, ptr %ref.tmp, i64 8
   %7 = load ptr, ptr %_M_finish.i, align 8
   %cmp.i.not27 = icmp eq ptr %6, %7
   br i1 %cmp.i.not27, label %for.cond.cleanup, label %invoke.cont10.lr.ph
 
 invoke.cont10.lr.ph:                              ; preds = %invoke.cont3
-  %_M_finish.i8 = getelementptr inbounds %"struct.std::_Vector_base<unsigned int, std::allocator<unsigned int>>::_Vector_impl_data", ptr %agg.result, i64 0, i32 1
-  %_M_end_of_storage.i = getelementptr inbounds %"struct.std::_Vector_base<unsigned int, std::allocator<unsigned int>>::_Vector_impl_data", ptr %agg.result, i64 0, i32 2
+  %_M_finish.i8 = getelementptr inbounds i8, ptr %agg.result, i64 8
+  %_M_end_of_storage.i = getelementptr inbounds i8, ptr %agg.result, i64 16
   br label %invoke.cont10
 
 for.cond.cleanup.loopexit:                        ; preds = %for.inc22
@@ -661,7 +647,7 @@ for.end:                                          ; preds = %for.body16, %invoke
 
 if.then.i:                                        ; preds = %for.end
   store i32 %option.0.lcssa, ptr %10, align 4
-  %incdec.ptr.i9 = getelementptr inbounds i32, ptr %10, i64 1
+  %incdec.ptr.i9 = getelementptr inbounds i8, ptr %10, i64 4
   store ptr %incdec.ptr.i9, ptr %_M_finish.i8, align 8
   br label %for.inc22
 
@@ -707,7 +693,7 @@ if.then.i.i.i.i.i:                                ; preds = %_ZNSt12_Vector_base
 
 _ZNSt6vectorIjSaIjEE11_S_relocateEPjS2_S2_RS0_.exit17.i.i: ; preds = %if.then.i.i.i.i.i, %_ZNSt12_Vector_baseIjSaIjEE11_M_allocateEm.exit.i.i
   %add.ptr.i.i.i.i.i = getelementptr inbounds i8, ptr %cond.i10.i.i, i64 %sub.ptr.sub.i.i.i.i
-  %incdec.ptr.i.i = getelementptr inbounds i32, ptr %add.ptr.i.i.i.i.i, i64 1
+  %incdec.ptr.i.i = getelementptr inbounds i8, ptr %add.ptr.i.i.i.i.i, i64 4
   %tobool.not.i.i.i10 = icmp eq ptr %cond.i10.i.i2628, null
   br i1 %tobool.not.i.i.i10, label %_ZNSt6vectorIjSaIjEE17_M_realloc_insertIJRKjEEEvN9__gnu_cxx17__normal_iteratorIPjS1_EEDpOT_.exit.i, label %if.then.i18.i.i
 
@@ -725,7 +711,7 @@ _ZNSt6vectorIjSaIjEE17_M_realloc_insertIJRKjEEEvN9__gnu_cxx17__normal_iteratorIP
 for.inc22:                                        ; preds = %_ZNSt6vectorIjSaIjEE17_M_realloc_insertIJRKjEEEvN9__gnu_cxx17__normal_iteratorIPjS1_EEDpOT_.exit.i, %if.then.i
   %16 = phi ptr [ %incdec.ptr.i.i, %_ZNSt6vectorIjSaIjEE17_M_realloc_insertIJRKjEEEvN9__gnu_cxx17__normal_iteratorIPjS1_EEDpOT_.exit.i ], [ %incdec.ptr.i9, %if.then.i ]
   %cond.i10.i.i25 = phi ptr [ %cond.i10.i.i, %_ZNSt6vectorIjSaIjEE17_M_realloc_insertIJRKjEEEvN9__gnu_cxx17__normal_iteratorIPjS1_EEDpOT_.exit.i ], [ %cond.i10.i.i2628, %if.then.i ]
-  %incdec.ptr.i13 = getelementptr inbounds %"class.base::BasicStringPiece", ptr %__begin1.sroa.0.029, i64 1
+  %incdec.ptr.i13 = getelementptr inbounds i8, ptr %__begin1.sroa.0.029, i64 16
   %cmp.i.not = icmp eq ptr %incdec.ptr.i13, %7
   br i1 %cmp.i.not, label %for.cond.cleanup.loopexit, label %invoke.cont10
 
@@ -978,7 +964,7 @@ eh.resume:                                        ; preds = %lpad26, %lpad.i53, 
 define dso_local void @_ZN3net9QuicUtils12DeleteFramesEPSt6vectorINS_9QuicFrameESaIS2_EE(ptr nocapture noundef %frames) local_unnamed_addr #11 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %0 = load ptr, ptr %frames, align 8
-  %_M_finish.i = getelementptr inbounds %"struct.std::_Vector_base<net::QuicFrame, std::allocator<net::QuicFrame>>::_Vector_impl_data", ptr %frames, i64 0, i32 1
+  %_M_finish.i = getelementptr inbounds i8, ptr %frames, i64 8
   %1 = load ptr, ptr %_M_finish.i, align 8
   %cmp.i.not22 = icmp eq ptr %0, %1
   br i1 %cmp.i.not22, label %_ZNSt6vectorIN3net9QuicFrameESaIS1_EE5clearEv.exit, label %for.body
@@ -999,7 +985,7 @@ for.body:                                         ; preds = %entry, %for.inc
   ]
 
 sw.bb5:                                           ; preds = %for.body
-  %3 = getelementptr inbounds %"struct.net::QuicFrame", ptr %__begin1.sroa.0.023, i64 0, i32 1
+  %3 = getelementptr inbounds i8, ptr %__begin1.sroa.0.023, i64 8
   %4 = load ptr, ptr %3, align 8
   %isnull = icmp eq ptr %4, null
   br i1 %isnull, label %for.inc, label %delete.notnull
@@ -1009,7 +995,7 @@ delete.notnull:                                   ; preds = %sw.bb5
   br label %for.inc.sink.split
 
 sw.bb6:                                           ; preds = %for.body
-  %5 = getelementptr inbounds %"struct.net::QuicFrame", ptr %__begin1.sroa.0.023, i64 0, i32 1
+  %5 = getelementptr inbounds i8, ptr %__begin1.sroa.0.023, i64 8
   %6 = load ptr, ptr %5, align 8
   %isnull7 = icmp eq ptr %6, null
   br i1 %isnull7, label %for.inc, label %delete.notnull8
@@ -1019,7 +1005,7 @@ delete.notnull8:                                  ; preds = %sw.bb6
   br label %for.inc.sink.split
 
 sw.bb10:                                          ; preds = %for.body
-  %7 = getelementptr inbounds %"struct.net::QuicFrame", ptr %__begin1.sroa.0.023, i64 0, i32 1
+  %7 = getelementptr inbounds i8, ptr %__begin1.sroa.0.023, i64 8
   %8 = load ptr, ptr %7, align 8
   %isnull11 = icmp eq ptr %8, null
   br i1 %isnull11, label %for.inc, label %delete.notnull12
@@ -1029,47 +1015,47 @@ delete.notnull12:                                 ; preds = %sw.bb10
   br label %for.inc.sink.split
 
 sw.bb14:                                          ; preds = %for.body
-  %9 = getelementptr inbounds %"struct.net::QuicFrame", ptr %__begin1.sroa.0.023, i64 0, i32 1
+  %9 = getelementptr inbounds i8, ptr %__begin1.sroa.0.023, i64 8
   %10 = load ptr, ptr %9, align 8
   %isnull15 = icmp eq ptr %10, null
   br i1 %isnull15, label %for.inc, label %for.inc.sink.split
 
 sw.bb18:                                          ; preds = %for.body
-  %11 = getelementptr inbounds %"struct.net::QuicFrame", ptr %__begin1.sroa.0.023, i64 0, i32 1
+  %11 = getelementptr inbounds i8, ptr %__begin1.sroa.0.023, i64 8
   %12 = load ptr, ptr %11, align 8
   %isnull19 = icmp eq ptr %12, null
   br i1 %isnull19, label %for.inc, label %delete.notnull20
 
 delete.notnull20:                                 ; preds = %sw.bb18
-  %error_details.i = getelementptr inbounds %"struct.net::QuicConnectionCloseFrame", ptr %12, i64 0, i32 1
+  %error_details.i = getelementptr inbounds i8, ptr %12, i64 8
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %error_details.i) #21
   br label %for.inc.sink.split
 
 sw.bb22:                                          ; preds = %for.body
-  %13 = getelementptr inbounds %"struct.net::QuicFrame", ptr %__begin1.sroa.0.023, i64 0, i32 1
+  %13 = getelementptr inbounds i8, ptr %__begin1.sroa.0.023, i64 8
   %14 = load ptr, ptr %13, align 8
   %isnull23 = icmp eq ptr %14, null
   br i1 %isnull23, label %for.inc, label %delete.notnull24
 
 delete.notnull24:                                 ; preds = %sw.bb22
-  %reason_phrase.i = getelementptr inbounds %"struct.net::QuicGoAwayFrame", ptr %14, i64 0, i32 2
+  %reason_phrase.i = getelementptr inbounds i8, ptr %14, i64 8
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %reason_phrase.i) #21
   br label %for.inc.sink.split
 
 sw.bb26:                                          ; preds = %for.body
-  %15 = getelementptr inbounds %"struct.net::QuicFrame", ptr %__begin1.sroa.0.023, i64 0, i32 1
+  %15 = getelementptr inbounds i8, ptr %__begin1.sroa.0.023, i64 8
   %16 = load ptr, ptr %15, align 8
   %isnull27 = icmp eq ptr %16, null
   br i1 %isnull27, label %for.inc, label %for.inc.sink.split
 
 sw.bb30:                                          ; preds = %for.body
-  %17 = getelementptr inbounds %"struct.net::QuicFrame", ptr %__begin1.sroa.0.023, i64 0, i32 1
+  %17 = getelementptr inbounds i8, ptr %__begin1.sroa.0.023, i64 8
   %18 = load ptr, ptr %17, align 8
   %isnull31 = icmp eq ptr %18, null
   br i1 %isnull31, label %for.inc, label %for.inc.sink.split
 
 sw.bb34:                                          ; preds = %for.body
-  %19 = getelementptr inbounds %"struct.net::QuicFrame", ptr %__begin1.sroa.0.023, i64 0, i32 1
+  %19 = getelementptr inbounds i8, ptr %__begin1.sroa.0.023, i64 8
   %20 = load ptr, ptr %19, align 8
   %isnull35 = icmp eq ptr %20, null
   br i1 %isnull35, label %for.inc, label %for.inc.sink.split
@@ -1080,7 +1066,7 @@ for.inc.sink.split:                               ; preds = %sw.bb34, %sw.bb30, 
   br label %for.inc
 
 for.inc:                                          ; preds = %for.inc.sink.split, %for.body, %sw.bb5, %sw.bb6, %sw.bb10, %sw.bb14, %sw.bb18, %sw.bb22, %sw.bb26, %sw.bb30, %sw.bb34
-  %incdec.ptr.i = getelementptr inbounds %"struct.net::QuicFrame", ptr %__begin1.sroa.0.023, i64 1
+  %incdec.ptr.i = getelementptr inbounds i8, ptr %__begin1.sroa.0.023, i64 16
   %cmp.i.not = icmp eq ptr %incdec.ptr.i, %1
   br i1 %cmp.i.not, label %for.end, label %for.body
 
@@ -1114,7 +1100,7 @@ declare void @_ZN3net20QuicStopWaitingFrameD1Ev(ptr noundef nonnull align 8 dere
 define dso_local void @_ZN3net9QuicUtils21RemoveFramesForStreamEPSt6vectorINS_9QuicFrameESaIS2_EEj(ptr nocapture noundef %frames, i32 noundef %stream_id) local_unnamed_addr #11 align 2 {
 entry:
   %0 = load ptr, ptr %frames, align 8
-  %_M_finish.i = getelementptr inbounds %"struct.std::_Vector_base<net::QuicFrame, std::allocator<net::QuicFrame>>::_Vector_impl_data", ptr %frames, i64 0, i32 1
+  %_M_finish.i = getelementptr inbounds i8, ptr %frames, i64 8
   %1 = load ptr, ptr %_M_finish.i, align 8
   %cmp.i.not8 = icmp eq ptr %0, %1
   br i1 %cmp.i.not8, label %while.end, label %while.body
@@ -1127,14 +1113,14 @@ while.body:                                       ; preds = %entry, %while.cond.
   br i1 %cmp.not, label %lor.lhs.false, label %if.then
 
 lor.lhs.false:                                    ; preds = %while.body
-  %4 = getelementptr inbounds %"struct.net::QuicFrame", ptr %it.sroa.0.09, i64 0, i32 1
+  %4 = getelementptr inbounds i8, ptr %it.sroa.0.09, i64 8
   %5 = load ptr, ptr %4, align 8
   %6 = load i32, ptr %5, align 8
   %cmp7.not = icmp eq i32 %6, %stream_id
   br i1 %cmp7.not, label %delete.end, label %if.then
 
 if.then:                                          ; preds = %lor.lhs.false, %while.body
-  %incdec.ptr.i = getelementptr inbounds %"struct.net::QuicFrame", ptr %it.sroa.0.09, i64 1
+  %incdec.ptr.i = getelementptr inbounds i8, ptr %it.sroa.0.09, i64 16
   br label %while.cond.backedge
 
 while.cond.backedge:                              ; preds = %if.then, %_ZNSt6vectorIN3net9QuicFrameESaIS1_EE5eraseEN9__gnu_cxx17__normal_iteratorIPKS1_S3_EE.exit
@@ -1151,7 +1137,7 @@ delete.end:                                       ; preds = %lor.lhs.false
   %sub.ptr.rhs.cast.i.i = ptrtoint ptr %8 to i64
   %sub.ptr.sub.i.i = sub i64 %sub.ptr.lhs.cast.i.i, %sub.ptr.rhs.cast.i.i
   %add.ptr.i.i = getelementptr inbounds i8, ptr %8, i64 %sub.ptr.sub.i.i
-  %add.ptr.i.i.i = getelementptr inbounds %"struct.net::QuicFrame", ptr %add.ptr.i.i, i64 1
+  %add.ptr.i.i.i = getelementptr inbounds i8, ptr %add.ptr.i.i, i64 16
   %9 = load ptr, ptr %_M_finish.i, align 8
   %cmp.i.not.i.i = icmp eq ptr %add.ptr.i.i.i, %9
   br i1 %cmp.i.not.i.i, label %_ZNSt6vectorIN3net9QuicFrameESaIS1_EE5eraseEN9__gnu_cxx17__normal_iteratorIPKS1_S3_EE.exit, label %_ZSt4moveIN9__gnu_cxx17__normal_iteratorIPN3net9QuicFrameESt6vectorIS3_SaIS3_EEEES8_ET0_T_SA_S9_.exit.i.i
@@ -1166,7 +1152,7 @@ _ZSt4moveIN9__gnu_cxx17__normal_iteratorIPN3net9QuicFrameESt6vectorIS3_SaIS3_EEE
 
 _ZNSt6vectorIN3net9QuicFrameESaIS1_EE5eraseEN9__gnu_cxx17__normal_iteratorIPKS1_S3_EE.exit: ; preds = %delete.end, %_ZSt4moveIN9__gnu_cxx17__normal_iteratorIPN3net9QuicFrameESt6vectorIS3_SaIS3_EEEES8_ET0_T_SA_S9_.exit.i.i
   %10 = phi ptr [ %.pre.i.i, %_ZSt4moveIN9__gnu_cxx17__normal_iteratorIPN3net9QuicFrameESt6vectorIS3_SaIS3_EEEES8_ET0_T_SA_S9_.exit.i.i ], [ %add.ptr.i.i.i, %delete.end ]
-  %incdec.ptr.i.i = getelementptr inbounds %"struct.net::QuicFrame", ptr %10, i64 -1
+  %incdec.ptr.i.i = getelementptr inbounds i8, ptr %10, i64 -16
   store ptr %incdec.ptr.i.i, ptr %_M_finish.i, align 8
   br label %while.cond.backedge
 
@@ -1177,9 +1163,9 @@ while.end:                                        ; preds = %while.cond.backedge
 ; Function Attrs: mustprogress nounwind uwtable
 define dso_local void @_ZN3net9QuicUtils21ClearSerializedPacketEPNS_16SerializedPacketE(ptr nocapture noundef %serialized_packet) local_unnamed_addr #11 align 2 {
 entry:
-  %retransmittable_frames = getelementptr inbounds %"struct.net::SerializedPacket", ptr %serialized_packet, i64 0, i32 2
+  %retransmittable_frames = getelementptr inbounds i8, ptr %serialized_packet, i64 16
   %0 = load ptr, ptr %retransmittable_frames, align 8
-  %_M_finish.i.i = getelementptr inbounds %"struct.net::SerializedPacket", ptr %serialized_packet, i64 0, i32 2, i32 0, i32 0, i32 0, i32 1
+  %_M_finish.i.i = getelementptr inbounds i8, ptr %serialized_packet, i64 24
   %1 = load ptr, ptr %_M_finish.i.i, align 8
   %cmp.i.i = icmp eq ptr %0, %1
   br i1 %cmp.i.i, label %if.end, label %if.then
@@ -1190,7 +1176,7 @@ if.then:                                          ; preds = %entry
 
 if.end:                                           ; preds = %if.then, %entry
   store ptr null, ptr %serialized_packet, align 8
-  %encrypted_length = getelementptr inbounds %"struct.net::SerializedPacket", ptr %serialized_packet, i64 0, i32 1
+  %encrypted_length = getelementptr inbounds i8, ptr %serialized_packet, i64 8
   store i16 0, ptr %encrypted_length, align 8
   ret void
 }
@@ -1207,7 +1193,7 @@ entry:
 ; Function Attrs: mustprogress uwtable
 define dso_local noalias noundef nonnull ptr @_ZN3net9QuicUtils10CopyBufferERKNS_16SerializedPacketE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(96) %packet) local_unnamed_addr #7 align 2 {
 entry:
-  %encrypted_length = getelementptr inbounds %"struct.net::SerializedPacket", ptr %packet, i64 0, i32 1
+  %encrypted_length = getelementptr inbounds i8, ptr %packet, i64 8
   %0 = load i16, ptr %encrypted_length, align 8
   %conv = zext i16 %0 to i64
   %call = tail call noalias noundef nonnull ptr @_Znam(i64 noundef %conv) #24
@@ -1276,11 +1262,11 @@ entry:
   %agg.tmp = alloca %"class.base::BasicStringPiece", align 8
   call void @_ZN4base16BasicStringPieceINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEC1EPKcm(ptr noundef nonnull align 8 dereferenceable(16) %agg.tmp, ptr noundef %data, i64 noundef %length)
   %0 = load ptr, ptr %agg.tmp, align 8
-  %1 = getelementptr inbounds { ptr, i64 }, ptr %agg.tmp, i64 0, i32 1
+  %1 = getelementptr inbounds i8, ptr %agg.tmp, i64 8
   %2 = load i64, ptr %1, align 8
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %data.i)
   store ptr %0, ptr %data.i, align 8, !noalias !30
-  %3 = getelementptr inbounds { ptr, i64 }, ptr %data.i, i64 0, i32 1
+  %3 = getelementptr inbounds i8, ptr %data.i, i64 8
   store i64 %2, ptr %3, align 8, !noalias !30
   %call.i = call noundef ptr @_ZNK4base16BasicStringPieceINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE4dataEv(ptr noundef nonnull align 8 dereferenceable(16) %data.i), !noalias !30
   %call1.i = call noundef i64 @_ZNK4base16BasicStringPieceINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %data.i), !noalias !30
@@ -1294,7 +1280,7 @@ define dso_local void @_ZN3net9QuicUtils9HexEncodeEN4base16BasicStringPieceINSt7
 entry:
   %data = alloca %"class.base::BasicStringPiece", align 8
   store ptr %data.coerce0, ptr %data, align 8
-  %0 = getelementptr inbounds { ptr, i64 }, ptr %data, i64 0, i32 1
+  %0 = getelementptr inbounds i8, ptr %data, i64 8
   store i64 %data.coerce1, ptr %0, align 8
   %call = call noundef ptr @_ZNK4base16BasicStringPieceINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE4dataEv(ptr noundef nonnull align 8 dereferenceable(16) %data)
   %call1 = call noundef i64 @_ZNK4base16BasicStringPieceINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %data)
@@ -1316,7 +1302,7 @@ entry:
   %agg.tmp = alloca %"class.base::BasicStringPiece", align 8
   call void @_ZN4base16BasicStringPieceINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEC1EPKcm(ptr noundef nonnull align 8 dereferenceable(16) %agg.tmp, ptr noundef %data, i64 noundef %length)
   %0 = load ptr, ptr %agg.tmp, align 8
-  %1 = getelementptr inbounds { ptr, i64 }, ptr %agg.tmp, i64 0, i32 1
+  %1 = getelementptr inbounds i8, ptr %agg.tmp, i64 8
   %2 = load i64, ptr %1, align 8
   call void @_ZN3net9QuicUtils9HexDecodeEN4base16BasicStringPieceINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEE(ptr sret(%"class.std::__cxx11::basic_string") align 8 %agg.result, ptr %0, i64 %2)
   ret void
@@ -1331,7 +1317,7 @@ entry:
   %ref.tmp1 = alloca %"class.std::__cxx11::basic_string", align 8
   %ref.tmp8 = alloca %"class.std::allocator.0", align 1
   store ptr %data.coerce0, ptr %data, align 8
-  %0 = getelementptr inbounds { ptr, i64 }, ptr %data, i64 0, i32 1
+  %0 = getelementptr inbounds i8, ptr %data, i64 8
   store i64 %data.coerce1, ptr %0, align 8
   %call = call noundef zeroext i1 @_ZNK4base16BasicStringPieceINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE5emptyEv(ptr noundef nonnull align 8 dereferenceable(16) %data)
   br i1 %call, label %if.then, label %if.end
@@ -1429,7 +1415,7 @@ lpad9.body:                                       ; preds = %lpad.i7, %lpad9
 if.end11:                                         ; preds = %invoke.cont5
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(32) %agg.result) #21
   %7 = load ptr, ptr %v, align 8
-  %_M_finish.i.i = getelementptr inbounds %"struct.std::_Vector_base<unsigned char, std::allocator<unsigned char>>::_Vector_impl_data", ptr %v, i64 0, i32 1
+  %_M_finish.i.i = getelementptr inbounds i8, ptr %v, i64 8
   %8 = load ptr, ptr %_M_finish.i.i, align 8
   %cmp.i.i = icmp eq ptr %7, %8
   br i1 %cmp.i.i, label %cleanup, label %if.then13
@@ -1497,7 +1483,7 @@ define dso_local void @_ZN3net9QuicUtils7HexDumpEN4base16BasicStringPieceINSt7__
 entry:
   %binary_input = alloca %"class.base::BasicStringPiece", align 8
   store ptr %binary_input.coerce0, ptr %binary_input, align 8
-  %0 = getelementptr inbounds { ptr, i64 }, ptr %binary_input, i64 0, i32 1
+  %0 = getelementptr inbounds i8, ptr %binary_input, i64 8
   store i64 %binary_input.coerce1, ptr %0, align 8
   %call = call noundef ptr @_ZNK4base16BasicStringPieceINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE4dataEv(ptr noundef nonnull align 8 dereferenceable(16) %binary_input)
   %call1 = call noundef i64 @_ZNK4base16BasicStringPieceINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %binary_input)

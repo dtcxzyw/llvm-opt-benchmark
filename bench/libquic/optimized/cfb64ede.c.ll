@@ -23,7 +23,7 @@ while.body.lr.ph:                                 ; preds = %while.cond.preheade
   %incdec.ptr13 = getelementptr inbounds i8, ptr %ivec, i64 5
   %incdec.ptr15 = getelementptr inbounds i8, ptr %ivec, i64 6
   %incdec.ptr19 = getelementptr inbounds i8, ptr %ivec, i64 7
-  %arrayidx27 = getelementptr inbounds [2 x i32], ptr %ti, i64 0, i64 1
+  %arrayidx27 = getelementptr inbounds i8, ptr %ti, i64 4
   br label %while.body
 
 while.cond72.preheader:                           ; preds = %entry
@@ -37,7 +37,7 @@ while.body75.lr.ph:                               ; preds = %while.cond72.prehea
   %incdec.ptr93 = getelementptr inbounds i8, ptr %ivec, i64 5
   %incdec.ptr95 = getelementptr inbounds i8, ptr %ivec, i64 6
   %incdec.ptr99 = getelementptr inbounds i8, ptr %ivec, i64 7
-  %arrayidx108 = getelementptr inbounds [2 x i32], ptr %ti, i64 0, i64 1
+  %arrayidx108 = getelementptr inbounds i8, ptr %ti, i64 4
   br label %while.body75
 
 while.body:                                       ; preds = %while.body.lr.ph, %if.end
@@ -203,7 +203,7 @@ while.cond.preheader:                             ; preds = %if.end
   br i1 %cmp242.not257, label %if.end474, label %while.body.lr.ph
 
 while.body.lr.ph:                                 ; preds = %while.cond.preheader
-  %arrayidx30 = getelementptr inbounds [2 x i32], ptr %ti, i64 0, i64 1
+  %arrayidx30 = getelementptr inbounds i8, ptr %ti, i64 4
   %incdec.ptr120 = getelementptr inbounds i8, ptr %ovec, i64 1
   %incdec.ptr124 = getelementptr inbounds i8, ptr %ovec, i64 2
   %incdec.ptr128 = getelementptr inbounds i8, ptr %ovec, i64 3
@@ -232,7 +232,7 @@ while.cond241.preheader:                          ; preds = %if.end
   br i1 %cmp242.not257, label %if.end474, label %while.body244.lr.ph
 
 while.body244.lr.ph:                              ; preds = %while.cond241.preheader
-  %arrayidx247 = getelementptr inbounds [2 x i32], ptr %ti, i64 0, i64 1
+  %arrayidx247 = getelementptr inbounds i8, ptr %ti, i64 4
   %incdec.ptr299 = getelementptr inbounds i8, ptr %ovec, i64 1
   %incdec.ptr303 = getelementptr inbounds i8, ptr %ovec, i64 2
   %incdec.ptr307 = getelementptr inbounds i8, ptr %ovec, i64 3

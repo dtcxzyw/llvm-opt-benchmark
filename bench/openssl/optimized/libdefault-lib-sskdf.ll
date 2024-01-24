@@ -5,8 +5,6 @@ target triple = "x86_64-unknown-linux-gnu"
 
 %struct.ossl_dispatch_st = type { i32, ptr }
 %struct.ossl_param_st = type { ptr, i32, ptr, i64, i64 }
-%struct.KDF_SSKDF = type { ptr, ptr, %struct.PROV_DIGEST, ptr, i64, ptr, i64, ptr, i64, i64, i32 }
-%struct.PROV_DIGEST = type { ptr, ptr, ptr }
 
 @ossl_kdf_sskdf_functions = local_unnamed_addr constant [10 x %struct.ossl_dispatch_st] [%struct.ossl_dispatch_st { i32 1, ptr @sskdf_new }, %struct.ossl_dispatch_st { i32 2, ptr @sskdf_dup }, %struct.ossl_dispatch_st { i32 3, ptr @sskdf_free }, %struct.ossl_dispatch_st { i32 4, ptr @sskdf_reset }, %struct.ossl_dispatch_st { i32 5, ptr @sskdf_derive }, %struct.ossl_dispatch_st { i32 8, ptr @sskdf_settable_ctx_params }, %struct.ossl_dispatch_st { i32 11, ptr @sskdf_set_ctx_params }, %struct.ossl_dispatch_st { i32 7, ptr @sskdf_gettable_ctx_params }, %struct.ossl_dispatch_st { i32 10, ptr @sskdf_get_ctx_params }, %struct.ossl_dispatch_st zeroinitializer], align 16
 @ossl_kdf_x963_kdf_functions = local_unnamed_addr constant [10 x %struct.ossl_dispatch_st] [%struct.ossl_dispatch_st { i32 1, ptr @sskdf_new }, %struct.ossl_dispatch_st { i32 2, ptr @sskdf_dup }, %struct.ossl_dispatch_st { i32 3, ptr @sskdf_free }, %struct.ossl_dispatch_st { i32 4, ptr @sskdf_reset }, %struct.ossl_dispatch_st { i32 5, ptr @x963kdf_derive }, %struct.ossl_dispatch_st { i32 8, ptr @sskdf_settable_ctx_params }, %struct.ossl_dispatch_st { i32 11, ptr @sskdf_set_ctx_params }, %struct.ossl_dispatch_st { i32 7, ptr @sskdf_gettable_ctx_params }, %struct.ossl_dispatch_st { i32 10, ptr @sskdf_get_ctx_params }, %struct.ossl_dispatch_st zeroinitializer], align 16
@@ -67,89 +65,89 @@ if.end.i:                                         ; preds = %entry
 
 if.then:                                          ; preds = %if.end.i
   store ptr %0, ptr %call1.i, align 8
-  %macctx = getelementptr inbounds %struct.KDF_SSKDF, ptr %vctx, i64 0, i32 1
+  %macctx = getelementptr inbounds i8, ptr %vctx, i64 8
   %1 = load ptr, ptr %macctx, align 8
   %cmp1.not = icmp eq ptr %1, null
   br i1 %cmp1.not, label %if.end9, label %if.then2
 
 if.then2:                                         ; preds = %if.then
   %call4 = tail call ptr @EVP_MAC_CTX_dup(ptr noundef nonnull %1) #7
-  %macctx5 = getelementptr inbounds %struct.KDF_SSKDF, ptr %call1.i, i64 0, i32 1
+  %macctx5 = getelementptr inbounds i8, ptr %call1.i, i64 8
   store ptr %call4, ptr %macctx5, align 8
   %cmp7 = icmp eq ptr %call4, null
   br i1 %cmp7, label %sskdf_free.exit, label %if.end9
 
 if.end9:                                          ; preds = %if.then2, %if.then
-  %info = getelementptr inbounds %struct.KDF_SSKDF, ptr %vctx, i64 0, i32 5
+  %info = getelementptr inbounds i8, ptr %vctx, i64 56
   %2 = load ptr, ptr %info, align 8
-  %info_len = getelementptr inbounds %struct.KDF_SSKDF, ptr %vctx, i64 0, i32 6
+  %info_len = getelementptr inbounds i8, ptr %vctx, i64 64
   %3 = load i64, ptr %info_len, align 8
-  %info10 = getelementptr inbounds %struct.KDF_SSKDF, ptr %call1.i, i64 0, i32 5
-  %info_len11 = getelementptr inbounds %struct.KDF_SSKDF, ptr %call1.i, i64 0, i32 6
+  %info10 = getelementptr inbounds i8, ptr %call1.i, i64 56
+  %info_len11 = getelementptr inbounds i8, ptr %call1.i, i64 64
   %call12 = tail call i32 @ossl_prov_memdup(ptr noundef %2, i64 noundef %3, ptr noundef nonnull %info10, ptr noundef nonnull %info_len11) #7
   %tobool.not = icmp eq i32 %call12, 0
   br i1 %tobool.not, label %sskdf_free.exit, label %lor.lhs.false
 
 lor.lhs.false:                                    ; preds = %if.end9
-  %salt = getelementptr inbounds %struct.KDF_SSKDF, ptr %vctx, i64 0, i32 7
+  %salt = getelementptr inbounds i8, ptr %vctx, i64 72
   %4 = load ptr, ptr %salt, align 8
-  %salt_len = getelementptr inbounds %struct.KDF_SSKDF, ptr %vctx, i64 0, i32 8
+  %salt_len = getelementptr inbounds i8, ptr %vctx, i64 80
   %5 = load i64, ptr %salt_len, align 8
-  %salt13 = getelementptr inbounds %struct.KDF_SSKDF, ptr %call1.i, i64 0, i32 7
-  %salt_len14 = getelementptr inbounds %struct.KDF_SSKDF, ptr %call1.i, i64 0, i32 8
+  %salt13 = getelementptr inbounds i8, ptr %call1.i, i64 72
+  %salt_len14 = getelementptr inbounds i8, ptr %call1.i, i64 80
   %call15 = tail call i32 @ossl_prov_memdup(ptr noundef %4, i64 noundef %5, ptr noundef nonnull %salt13, ptr noundef nonnull %salt_len14) #7
   %tobool16.not = icmp eq i32 %call15, 0
   br i1 %tobool16.not, label %sskdf_free.exit, label %lor.lhs.false17
 
 lor.lhs.false17:                                  ; preds = %lor.lhs.false
-  %secret = getelementptr inbounds %struct.KDF_SSKDF, ptr %vctx, i64 0, i32 3
+  %secret = getelementptr inbounds i8, ptr %vctx, i64 40
   %6 = load ptr, ptr %secret, align 8
-  %secret_len = getelementptr inbounds %struct.KDF_SSKDF, ptr %vctx, i64 0, i32 4
+  %secret_len = getelementptr inbounds i8, ptr %vctx, i64 48
   %7 = load i64, ptr %secret_len, align 8
-  %secret18 = getelementptr inbounds %struct.KDF_SSKDF, ptr %call1.i, i64 0, i32 3
-  %secret_len19 = getelementptr inbounds %struct.KDF_SSKDF, ptr %call1.i, i64 0, i32 4
+  %secret18 = getelementptr inbounds i8, ptr %call1.i, i64 40
+  %secret_len19 = getelementptr inbounds i8, ptr %call1.i, i64 48
   %call20 = tail call i32 @ossl_prov_memdup(ptr noundef %6, i64 noundef %7, ptr noundef nonnull %secret18, ptr noundef nonnull %secret_len19) #7
   %tobool21.not = icmp eq i32 %call20, 0
   br i1 %tobool21.not, label %sskdf_free.exit, label %lor.lhs.false22
 
 lor.lhs.false22:                                  ; preds = %lor.lhs.false17
-  %digest = getelementptr inbounds %struct.KDF_SSKDF, ptr %call1.i, i64 0, i32 2
-  %digest23 = getelementptr inbounds %struct.KDF_SSKDF, ptr %vctx, i64 0, i32 2
+  %digest = getelementptr inbounds i8, ptr %call1.i, i64 16
+  %digest23 = getelementptr inbounds i8, ptr %vctx, i64 16
   %call24 = tail call i32 @ossl_prov_digest_copy(ptr noundef nonnull %digest, ptr noundef nonnull %digest23) #7
   %tobool25.not = icmp eq i32 %call24, 0
   br i1 %tobool25.not, label %sskdf_free.exit, label %if.end27
 
 if.end27:                                         ; preds = %lor.lhs.false22
-  %out_len = getelementptr inbounds %struct.KDF_SSKDF, ptr %vctx, i64 0, i32 9
+  %out_len = getelementptr inbounds i8, ptr %vctx, i64 88
   %8 = load i64, ptr %out_len, align 8
-  %out_len28 = getelementptr inbounds %struct.KDF_SSKDF, ptr %call1.i, i64 0, i32 9
+  %out_len28 = getelementptr inbounds i8, ptr %call1.i, i64 88
   store i64 %8, ptr %out_len28, align 8
-  %is_kmac = getelementptr inbounds %struct.KDF_SSKDF, ptr %vctx, i64 0, i32 10
+  %is_kmac = getelementptr inbounds i8, ptr %vctx, i64 96
   %9 = load i32, ptr %is_kmac, align 8
-  %is_kmac29 = getelementptr inbounds %struct.KDF_SSKDF, ptr %call1.i, i64 0, i32 10
+  %is_kmac29 = getelementptr inbounds i8, ptr %call1.i, i64 96
   store i32 %9, ptr %is_kmac29, align 8
   br label %return
 
 sskdf_free.exit:                                  ; preds = %if.end9, %lor.lhs.false, %lor.lhs.false17, %lor.lhs.false22, %if.then2
   %10 = load ptr, ptr %call1.i, align 8
-  %macctx.i.i = getelementptr inbounds %struct.KDF_SSKDF, ptr %call1.i, i64 0, i32 1
+  %macctx.i.i = getelementptr inbounds i8, ptr %call1.i, i64 8
   %11 = load ptr, ptr %macctx.i.i, align 8
   tail call void @EVP_MAC_CTX_free(ptr noundef %11) #7
-  %digest.i.i = getelementptr inbounds %struct.KDF_SSKDF, ptr %call1.i, i64 0, i32 2
+  %digest.i.i = getelementptr inbounds i8, ptr %call1.i, i64 16
   tail call void @ossl_prov_digest_reset(ptr noundef nonnull %digest.i.i) #7
-  %secret.i.i = getelementptr inbounds %struct.KDF_SSKDF, ptr %call1.i, i64 0, i32 3
+  %secret.i.i = getelementptr inbounds i8, ptr %call1.i, i64 40
   %12 = load ptr, ptr %secret.i.i, align 8
-  %secret_len.i.i = getelementptr inbounds %struct.KDF_SSKDF, ptr %call1.i, i64 0, i32 4
+  %secret_len.i.i = getelementptr inbounds i8, ptr %call1.i, i64 48
   %13 = load i64, ptr %secret_len.i.i, align 8
   tail call void @CRYPTO_clear_free(ptr noundef %12, i64 noundef %13, ptr noundef nonnull @.str, i32 noundef 307) #7
-  %info.i.i = getelementptr inbounds %struct.KDF_SSKDF, ptr %call1.i, i64 0, i32 5
+  %info.i.i = getelementptr inbounds i8, ptr %call1.i, i64 56
   %14 = load ptr, ptr %info.i.i, align 8
-  %info_len.i.i = getelementptr inbounds %struct.KDF_SSKDF, ptr %call1.i, i64 0, i32 6
+  %info_len.i.i = getelementptr inbounds i8, ptr %call1.i, i64 64
   %15 = load i64, ptr %info_len.i.i, align 8
   tail call void @CRYPTO_clear_free(ptr noundef %14, i64 noundef %15, ptr noundef nonnull @.str, i32 noundef 308) #7
-  %salt.i.i = getelementptr inbounds %struct.KDF_SSKDF, ptr %call1.i, i64 0, i32 7
+  %salt.i.i = getelementptr inbounds i8, ptr %call1.i, i64 72
   %16 = load ptr, ptr %salt.i.i, align 8
-  %salt_len.i.i = getelementptr inbounds %struct.KDF_SSKDF, ptr %call1.i, i64 0, i32 8
+  %salt_len.i.i = getelementptr inbounds i8, ptr %call1.i, i64 80
   %17 = load i64, ptr %salt_len.i.i, align 8
   tail call void @CRYPTO_clear_free(ptr noundef %16, i64 noundef %17, ptr noundef nonnull @.str, i32 noundef 309) #7
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(104) %macctx.i.i, i8 0, i64 96, i1 false)
@@ -170,24 +168,24 @@ entry:
 
 if.then:                                          ; preds = %entry
   %0 = load ptr, ptr %vctx, align 8
-  %macctx.i = getelementptr inbounds %struct.KDF_SSKDF, ptr %vctx, i64 0, i32 1
+  %macctx.i = getelementptr inbounds i8, ptr %vctx, i64 8
   %1 = load ptr, ptr %macctx.i, align 8
   tail call void @EVP_MAC_CTX_free(ptr noundef %1) #7
-  %digest.i = getelementptr inbounds %struct.KDF_SSKDF, ptr %vctx, i64 0, i32 2
+  %digest.i = getelementptr inbounds i8, ptr %vctx, i64 16
   tail call void @ossl_prov_digest_reset(ptr noundef nonnull %digest.i) #7
-  %secret.i = getelementptr inbounds %struct.KDF_SSKDF, ptr %vctx, i64 0, i32 3
+  %secret.i = getelementptr inbounds i8, ptr %vctx, i64 40
   %2 = load ptr, ptr %secret.i, align 8
-  %secret_len.i = getelementptr inbounds %struct.KDF_SSKDF, ptr %vctx, i64 0, i32 4
+  %secret_len.i = getelementptr inbounds i8, ptr %vctx, i64 48
   %3 = load i64, ptr %secret_len.i, align 8
   tail call void @CRYPTO_clear_free(ptr noundef %2, i64 noundef %3, ptr noundef nonnull @.str, i32 noundef 307) #7
-  %info.i = getelementptr inbounds %struct.KDF_SSKDF, ptr %vctx, i64 0, i32 5
+  %info.i = getelementptr inbounds i8, ptr %vctx, i64 56
   %4 = load ptr, ptr %info.i, align 8
-  %info_len.i = getelementptr inbounds %struct.KDF_SSKDF, ptr %vctx, i64 0, i32 6
+  %info_len.i = getelementptr inbounds i8, ptr %vctx, i64 64
   %5 = load i64, ptr %info_len.i, align 8
   tail call void @CRYPTO_clear_free(ptr noundef %4, i64 noundef %5, ptr noundef nonnull @.str, i32 noundef 308) #7
-  %salt.i = getelementptr inbounds %struct.KDF_SSKDF, ptr %vctx, i64 0, i32 7
+  %salt.i = getelementptr inbounds i8, ptr %vctx, i64 72
   %6 = load ptr, ptr %salt.i, align 8
-  %salt_len.i = getelementptr inbounds %struct.KDF_SSKDF, ptr %vctx, i64 0, i32 8
+  %salt_len.i = getelementptr inbounds i8, ptr %vctx, i64 80
   %7 = load i64, ptr %salt_len.i, align 8
   tail call void @CRYPTO_clear_free(ptr noundef %6, i64 noundef %7, ptr noundef nonnull @.str, i32 noundef 309) #7
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(104) %macctx.i, i8 0, i64 96, i1 false)
@@ -203,24 +201,24 @@ if.end:                                           ; preds = %if.then, %entry
 define internal void @sskdf_reset(ptr noundef %vctx) #0 {
 entry:
   %0 = load ptr, ptr %vctx, align 8
-  %macctx = getelementptr inbounds %struct.KDF_SSKDF, ptr %vctx, i64 0, i32 1
+  %macctx = getelementptr inbounds i8, ptr %vctx, i64 8
   %1 = load ptr, ptr %macctx, align 8
   tail call void @EVP_MAC_CTX_free(ptr noundef %1) #7
-  %digest = getelementptr inbounds %struct.KDF_SSKDF, ptr %vctx, i64 0, i32 2
+  %digest = getelementptr inbounds i8, ptr %vctx, i64 16
   tail call void @ossl_prov_digest_reset(ptr noundef nonnull %digest) #7
-  %secret = getelementptr inbounds %struct.KDF_SSKDF, ptr %vctx, i64 0, i32 3
+  %secret = getelementptr inbounds i8, ptr %vctx, i64 40
   %2 = load ptr, ptr %secret, align 8
-  %secret_len = getelementptr inbounds %struct.KDF_SSKDF, ptr %vctx, i64 0, i32 4
+  %secret_len = getelementptr inbounds i8, ptr %vctx, i64 48
   %3 = load i64, ptr %secret_len, align 8
   tail call void @CRYPTO_clear_free(ptr noundef %2, i64 noundef %3, ptr noundef nonnull @.str, i32 noundef 307) #7
-  %info = getelementptr inbounds %struct.KDF_SSKDF, ptr %vctx, i64 0, i32 5
+  %info = getelementptr inbounds i8, ptr %vctx, i64 56
   %4 = load ptr, ptr %info, align 8
-  %info_len = getelementptr inbounds %struct.KDF_SSKDF, ptr %vctx, i64 0, i32 6
+  %info_len = getelementptr inbounds i8, ptr %vctx, i64 64
   %5 = load i64, ptr %info_len, align 8
   tail call void @CRYPTO_clear_free(ptr noundef %4, i64 noundef %5, ptr noundef nonnull @.str, i32 noundef 308) #7
-  %salt = getelementptr inbounds %struct.KDF_SSKDF, ptr %vctx, i64 0, i32 7
+  %salt = getelementptr inbounds i8, ptr %vctx, i64 72
   %6 = load ptr, ptr %salt, align 8
-  %salt_len = getelementptr inbounds %struct.KDF_SSKDF, ptr %vctx, i64 0, i32 8
+  %salt_len = getelementptr inbounds i8, ptr %vctx, i64 80
   %7 = load i64, ptr %salt_len, align 8
   tail call void @CRYPTO_clear_free(ptr noundef %6, i64 noundef %7, ptr noundef nonnull @.str, i32 noundef 309) #7
   %8 = getelementptr inbounds i8, ptr %vctx, i64 8
@@ -249,7 +247,7 @@ lor.lhs.false:                                    ; preds = %entry
   br i1 %tobool2.not, label %return, label %if.end
 
 if.end:                                           ; preds = %lor.lhs.false
-  %secret = getelementptr inbounds %struct.KDF_SSKDF, ptr %vctx, i64 0, i32 3
+  %secret = getelementptr inbounds i8, ptr %vctx, i64 40
   %0 = load ptr, ptr %secret, align 8
   %cmp = icmp eq ptr %0, null
   br i1 %cmp, label %if.then3, label %if.end4
@@ -261,9 +259,9 @@ if.then3:                                         ; preds = %if.end
   br label %return
 
 if.end4:                                          ; preds = %if.end
-  %digest = getelementptr inbounds %struct.KDF_SSKDF, ptr %vctx, i64 0, i32 2
+  %digest = getelementptr inbounds i8, ptr %vctx, i64 16
   %call5 = tail call ptr @ossl_prov_digest_md(ptr noundef nonnull %digest) #7
-  %macctx = getelementptr inbounds %struct.KDF_SSKDF, ptr %vctx, i64 0, i32 1
+  %macctx = getelementptr inbounds i8, ptr %vctx, i64 8
   %1 = load ptr, ptr %macctx, align 8
   %cmp6.not = icmp eq ptr %1, null
   br i1 %cmp6.not, label %if.else49, label %if.then7
@@ -290,7 +288,7 @@ if.end15:                                         ; preds = %if.then12
   br i1 %cmp17, label %return, label %if.end29
 
 if.else:                                          ; preds = %if.then7
-  %is_kmac = getelementptr inbounds %struct.KDF_SSKDF, ptr %vctx, i64 0, i32 10
+  %is_kmac = getelementptr inbounds i8, ptr %vctx, i64 96
   %2 = load i32, ptr %is_kmac, align 8
   %tobool20.not = icmp eq i32 %2, 0
   br i1 %tobool20.not, label %if.else27, label %if.then21
@@ -311,13 +309,13 @@ if.end29:                                         ; preds = %if.then21, %if.end1
   %custom.0 = phi ptr [ null, %if.end15 ], [ @kmac_custom_str, %if.then21 ]
   %custom_len.0 = phi i64 [ 0, %if.end15 ], [ 3, %if.then21 ]
   %default_salt_len.0 = phi i32 [ %call16, %if.end15 ], [ %., %if.then21 ]
-  %salt = getelementptr inbounds %struct.KDF_SSKDF, ptr %vctx, i64 0, i32 7
+  %salt = getelementptr inbounds i8, ptr %vctx, i64 72
   %3 = load ptr, ptr %salt, align 8
   %cmp30 = icmp eq ptr %3, null
   br i1 %cmp30, label %if.then33, label %lor.lhs.false31
 
 lor.lhs.false31:                                  ; preds = %if.end29
-  %salt_len = getelementptr inbounds %struct.KDF_SSKDF, ptr %vctx, i64 0, i32 8
+  %salt_len = getelementptr inbounds i8, ptr %vctx, i64 80
   %4 = load i64, ptr %salt_len, align 8
   %cmp32 = icmp eq i64 %4, 0
   br i1 %cmp32, label %if.then33, label %if.end43
@@ -330,7 +328,7 @@ if.then33:                                        ; preds = %lor.lhs.false31, %i
   br i1 %cmp37, label %return, label %if.end40
 
 if.end40:                                         ; preds = %if.then33
-  %salt_len42 = getelementptr inbounds %struct.KDF_SSKDF, ptr %vctx, i64 0, i32 8
+  %salt_len42 = getelementptr inbounds i8, ptr %vctx, i64 80
   store i64 %conv, ptr %salt_len42, align 8
   br label %if.end43
 
@@ -338,14 +336,14 @@ if.end43:                                         ; preds = %if.end40, %lor.lhs.
   %5 = phi i64 [ %conv, %if.end40 ], [ %4, %lor.lhs.false31 ]
   %6 = phi ptr [ %call34, %if.end40 ], [ %3, %lor.lhs.false31 ]
   %7 = load ptr, ptr %macctx, align 8
-  %out_len = getelementptr inbounds %struct.KDF_SSKDF, ptr %vctx, i64 0, i32 9
+  %out_len = getelementptr inbounds i8, ptr %vctx, i64 88
   %8 = load i64, ptr %out_len, align 8
   %9 = load ptr, ptr %secret, align 8
-  %secret_len = getelementptr inbounds %struct.KDF_SSKDF, ptr %vctx, i64 0, i32 4
+  %secret_len = getelementptr inbounds i8, ptr %vctx, i64 48
   %10 = load i64, ptr %secret_len, align 8
-  %info = getelementptr inbounds %struct.KDF_SSKDF, ptr %vctx, i64 0, i32 5
+  %info = getelementptr inbounds i8, ptr %vctx, i64 56
   %11 = load ptr, ptr %info, align 8
-  %info_len = getelementptr inbounds %struct.KDF_SSKDF, ptr %vctx, i64 0, i32 6
+  %info_len = getelementptr inbounds i8, ptr %vctx, i64 64
   %12 = load i64, ptr %info_len, align 8
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %c.i)
   call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %mac_buf.i)
@@ -369,7 +367,7 @@ if.end.i:                                         ; preds = %if.end43
 if.end.i.i:                                       ; preds = %if.end.i
   call void @OSSL_PARAM_construct_octet_string(ptr nonnull sret(%struct.ossl_param_st) align 8 %tmp.i.i, ptr noundef nonnull @.str.3, ptr noundef nonnull %custom.0, i64 noundef %custom_len.0) #7
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(40) %params.i.i, ptr noundef nonnull align 8 dereferenceable(40) %tmp.i.i, i64 40, i1 false)
-  %arrayidx1.i.i = getelementptr inbounds [2 x %struct.ossl_param_st], ptr %params.i.i, i64 0, i64 1
+  %arrayidx1.i.i = getelementptr inbounds i8, ptr %params.i.i, i64 40
   call void @OSSL_PARAM_construct_end(ptr nonnull sret(%struct.ossl_param_st) align 8 %tmp2.i.i) #7
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %arrayidx1.i.i, ptr noundef nonnull align 8 dereferenceable(40) %tmp2.i.i, i64 40, i1 false)
   %call.i.i = call i32 @EVP_MAC_CTX_set_params(ptr noundef %7, ptr noundef nonnull %params.i.i) #7
@@ -448,9 +446,9 @@ lor.lhs.false17.i:                                ; preds = %if.end14.i
   br i1 %or.cond3.i, label %if.else68.i, label %for.cond.preheader.i
 
 for.cond.preheader.i:                             ; preds = %lor.lhs.false17.i
-  %arrayidx26.i = getelementptr inbounds [4 x i8], ptr %c.i, i64 0, i64 1
-  %arrayidx30.i = getelementptr inbounds [4 x i8], ptr %c.i, i64 0, i64 2
-  %arrayidx33.i = getelementptr inbounds [4 x i8], ptr %c.i, i64 0, i64 3
+  %arrayidx26.i = getelementptr inbounds i8, ptr %c.i, i64 1
+  %arrayidx30.i = getelementptr inbounds i8, ptr %c.i, i64 2
+  %arrayidx33.i = getelementptr inbounds i8, ptr %c.i, i64 3
   store <4 x i8> <i8 0, i8 0, i8 0, i8 1>, ptr %c.i, align 4
   %call3454.i = call ptr @EVP_MAC_CTX_dup(ptr noundef %7) #7
   %cmp35.not55.i = icmp eq ptr %call3454.i, null
@@ -556,11 +554,11 @@ if.then52:                                        ; preds = %if.else49
 
 if.end53:                                         ; preds = %if.else49
   %18 = load ptr, ptr %secret, align 8
-  %secret_len55 = getelementptr inbounds %struct.KDF_SSKDF, ptr %vctx, i64 0, i32 4
+  %secret_len55 = getelementptr inbounds i8, ptr %vctx, i64 48
   %19 = load i64, ptr %secret_len55, align 8
-  %info56 = getelementptr inbounds %struct.KDF_SSKDF, ptr %vctx, i64 0, i32 5
+  %info56 = getelementptr inbounds i8, ptr %vctx, i64 56
   %20 = load ptr, ptr %info56, align 8
-  %info_len57 = getelementptr inbounds %struct.KDF_SSKDF, ptr %vctx, i64 0, i32 6
+  %info_len57 = getelementptr inbounds i8, ptr %vctx, i64 64
   %21 = load i64, ptr %info_len57, align 8
   %call58 = tail call fastcc i32 @SSKDF_hash_kdm(ptr noundef nonnull %call5, ptr noundef %18, i64 noundef %19, ptr noundef %20, i64 noundef %21, i32 noundef 0, ptr noundef %key, i64 noundef %keylen), !range !4
   br label %return
@@ -586,7 +584,7 @@ entry:
   br i1 %cmp, label %return, label %if.end
 
 if.end:                                           ; preds = %entry
-  %macctx = getelementptr inbounds %struct.KDF_SSKDF, ptr %vctx, i64 0, i32 1
+  %macctx = getelementptr inbounds i8, ptr %vctx, i64 8
   %call1 = tail call i32 @ossl_prov_macctx_load_from_params(ptr noundef nonnull %macctx, ptr noundef nonnull %params, ptr noundef null, ptr noundef null, ptr noundef null, ptr noundef %call) #7
   %tobool.not = icmp eq i32 %call1, 0
   br i1 %tobool.not, label %return, label %if.end3
@@ -610,19 +608,19 @@ lor.lhs.false:                                    ; preds = %if.then6
   br i1 %tobool14.not, label %if.end17, label %if.then15
 
 if.then15:                                        ; preds = %lor.lhs.false, %if.then6
-  %is_kmac = getelementptr inbounds %struct.KDF_SSKDF, ptr %vctx, i64 0, i32 10
+  %is_kmac = getelementptr inbounds i8, ptr %vctx, i64 96
   store i32 1, ptr %is_kmac, align 8
   br label %if.end17
 
 if.end17:                                         ; preds = %lor.lhs.false, %if.then15, %if.end3
-  %digest = getelementptr inbounds %struct.KDF_SSKDF, ptr %vctx, i64 0, i32 2
+  %digest = getelementptr inbounds i8, ptr %vctx, i64 16
   %call18 = tail call i32 @ossl_prov_digest_load_from_params(ptr noundef nonnull %digest, ptr noundef nonnull %params, ptr noundef %call) #7
   %tobool19.not = icmp eq i32 %call18, 0
   br i1 %tobool19.not, label %return, label %if.end21
 
 if.end21:                                         ; preds = %if.end17
-  %secret = getelementptr inbounds %struct.KDF_SSKDF, ptr %vctx, i64 0, i32 3
-  %secret_len = getelementptr inbounds %struct.KDF_SSKDF, ptr %vctx, i64 0, i32 4
+  %secret = getelementptr inbounds i8, ptr %vctx, i64 40
+  %secret_len = getelementptr inbounds i8, ptr %vctx, i64 48
   %call22 = tail call i32 @ossl_param_get1_octet_string(ptr noundef nonnull %params, ptr noundef nonnull @.str.5, ptr noundef nonnull %secret, ptr noundef nonnull %secret_len) #7
   %cmp23 = icmp eq i32 %call22, -1
   br i1 %cmp23, label %if.then24, label %if.end28
@@ -637,15 +635,15 @@ if.end28:                                         ; preds = %if.then24, %if.end2
   br i1 %cmp29, label %return, label %if.end31
 
 if.end31:                                         ; preds = %if.end28
-  %info = getelementptr inbounds %struct.KDF_SSKDF, ptr %vctx, i64 0, i32 5
-  %info_len = getelementptr inbounds %struct.KDF_SSKDF, ptr %vctx, i64 0, i32 6
+  %info = getelementptr inbounds i8, ptr %vctx, i64 56
+  %info_len = getelementptr inbounds i8, ptr %vctx, i64 64
   %call32 = tail call i32 @ossl_param_get1_concat_octet_string(ptr noundef nonnull %params, ptr noundef nonnull @.str.7, ptr noundef nonnull %info, ptr noundef nonnull %info_len, i64 noundef 0) #7
   %cmp33 = icmp eq i32 %call32, 0
   br i1 %cmp33, label %return, label %if.end35
 
 if.end35:                                         ; preds = %if.end31
-  %salt = getelementptr inbounds %struct.KDF_SSKDF, ptr %vctx, i64 0, i32 7
-  %salt_len = getelementptr inbounds %struct.KDF_SSKDF, ptr %vctx, i64 0, i32 8
+  %salt = getelementptr inbounds i8, ptr %vctx, i64 72
+  %salt_len = getelementptr inbounds i8, ptr %vctx, i64 80
   %call36 = tail call i32 @ossl_param_get1_octet_string(ptr noundef nonnull %params, ptr noundef nonnull @.str.11, ptr noundef nonnull %salt, ptr noundef nonnull %salt_len) #7
   %cmp37 = icmp eq i32 %call36, 0
   br i1 %cmp37, label %return, label %if.end39
@@ -664,7 +662,7 @@ if.then42:                                        ; preds = %if.end39
   br i1 %or.cond, label %return, label %if.end48
 
 if.end48:                                         ; preds = %if.then42
-  %out_len = getelementptr inbounds %struct.KDF_SSKDF, ptr %vctx, i64 0, i32 9
+  %out_len = getelementptr inbounds i8, ptr %vctx, i64 88
   store i64 %3, ptr %out_len, align 8
   br label %return
 
@@ -687,13 +685,13 @@ entry:
   br i1 %cmp.not, label %return, label %if.then
 
 if.then:                                          ; preds = %entry
-  %is_kmac.i = getelementptr inbounds %struct.KDF_SSKDF, ptr %vctx, i64 0, i32 10
+  %is_kmac.i = getelementptr inbounds i8, ptr %vctx, i64 96
   %0 = load i32, ptr %is_kmac.i, align 8
   %tobool.not.i = icmp eq i32 %0, 0
   br i1 %tobool.not.i, label %if.end.i, label %sskdf_size.exit
 
 if.end.i:                                         ; preds = %if.then
-  %digest.i = getelementptr inbounds %struct.KDF_SSKDF, ptr %vctx, i64 0, i32 2
+  %digest.i = getelementptr inbounds i8, ptr %vctx, i64 16
   %call.i = tail call ptr @ossl_prov_digest_md(ptr noundef nonnull %digest.i) #7
   %cmp.i = icmp eq ptr %call.i, null
   br i1 %cmp.i, label %if.then1.i, label %if.end2.i
@@ -733,7 +731,7 @@ lor.lhs.false:                                    ; preds = %entry
   br i1 %tobool2.not, label %return, label %if.end
 
 if.end:                                           ; preds = %lor.lhs.false
-  %secret = getelementptr inbounds %struct.KDF_SSKDF, ptr %vctx, i64 0, i32 3
+  %secret = getelementptr inbounds i8, ptr %vctx, i64 40
   %0 = load ptr, ptr %secret, align 8
   %cmp = icmp eq ptr %0, null
   br i1 %cmp, label %if.then3, label %if.end4
@@ -745,7 +743,7 @@ if.then3:                                         ; preds = %if.end
   br label %return
 
 if.end4:                                          ; preds = %if.end
-  %macctx = getelementptr inbounds %struct.KDF_SSKDF, ptr %vctx, i64 0, i32 1
+  %macctx = getelementptr inbounds i8, ptr %vctx, i64 8
   %1 = load ptr, ptr %macctx, align 8
   %cmp5.not = icmp eq ptr %1, null
   br i1 %cmp5.not, label %if.end7, label %if.then6
@@ -757,7 +755,7 @@ if.then6:                                         ; preds = %if.end4
   br label %return
 
 if.end7:                                          ; preds = %if.end4
-  %digest = getelementptr inbounds %struct.KDF_SSKDF, ptr %vctx, i64 0, i32 2
+  %digest = getelementptr inbounds i8, ptr %vctx, i64 16
   %call8 = tail call ptr @ossl_prov_digest_md(ptr noundef nonnull %digest) #7
   %cmp9 = icmp eq ptr %call8, null
   br i1 %cmp9, label %if.then10, label %if.end11
@@ -770,11 +768,11 @@ if.then10:                                        ; preds = %if.end7
 
 if.end11:                                         ; preds = %if.end7
   %2 = load ptr, ptr %secret, align 8
-  %secret_len = getelementptr inbounds %struct.KDF_SSKDF, ptr %vctx, i64 0, i32 4
+  %secret_len = getelementptr inbounds i8, ptr %vctx, i64 48
   %3 = load i64, ptr %secret_len, align 8
-  %info = getelementptr inbounds %struct.KDF_SSKDF, ptr %vctx, i64 0, i32 5
+  %info = getelementptr inbounds i8, ptr %vctx, i64 56
   %4 = load ptr, ptr %info, align 8
-  %info_len = getelementptr inbounds %struct.KDF_SSKDF, ptr %vctx, i64 0, i32 6
+  %info_len = getelementptr inbounds i8, ptr %vctx, i64 64
   %5 = load i64, ptr %info_len, align 8
   %call13 = tail call fastcc i32 @SSKDF_hash_kdm(ptr noundef nonnull %call8, ptr noundef %2, i64 noundef %3, ptr noundef %4, i64 noundef %5, i32 noundef 1, ptr noundef %key, i64 noundef %keylen), !range !4
   br label %return
@@ -852,9 +850,9 @@ if.end17:                                         ; preds = %if.end8
   br i1 %tobool.not, label %end, label %for.cond.preheader
 
 for.cond.preheader:                               ; preds = %if.end17
-  %arrayidx25 = getelementptr inbounds [4 x i8], ptr %c, i64 0, i64 1
-  %arrayidx29 = getelementptr inbounds [4 x i8], ptr %c, i64 0, i64 2
-  %arrayidx32 = getelementptr inbounds [4 x i8], ptr %c, i64 0, i64 3
+  %arrayidx25 = getelementptr inbounds i8, ptr %c, i64 1
+  %arrayidx29 = getelementptr inbounds i8, ptr %c, i64 2
+  %arrayidx32 = getelementptr inbounds i8, ptr %c, i64 3
   store <4 x i8> <i8 0, i8 0, i8 0, i8 1>, ptr %c, align 4
   %call3337 = tail call i32 @EVP_MD_CTX_copy_ex(ptr noundef nonnull %call9, ptr noundef nonnull %call10) #7
   %tobool34.not38 = icmp eq i32 %call3337, 0

@@ -10,24 +10,15 @@ target triple = "x86_64-unknown-linux-gnu"
 %"class.std::tuple" = type { %"struct.std::_Tuple_impl" }
 %"struct.std::_Tuple_impl" = type { %"struct.std::_Head_base.1" }
 %"struct.std::_Head_base.1" = type { ptr }
-%"class.base::SparseHistogram" = type { %"class.base::HistogramBase.base", %"class.base::Lock", i8, %"class.std::unique_ptr.13", %"class.std::unique_ptr.13" }
-%"class.base::HistogramBase.base" = type <{ ptr, %"class.std::__cxx11::basic_string", i32 }>
-%"class.std::__cxx11::basic_string" = type { %"struct.std::__cxx11::basic_string<char>::_Alloc_hider", i64, %union.anon }
-%"struct.std::__cxx11::basic_string<char>::_Alloc_hider" = type { ptr }
-%union.anon = type { i64, [8 x i8] }
-%"class.base::Lock" = type { %"class.base::internal::LockImpl" }
-%"class.base::internal::LockImpl" = type { %union.pthread_mutex_t }
-%union.pthread_mutex_t = type { %struct.__pthread_mutex_s }
-%struct.__pthread_mutex_s = type { i32, i32, i32, i32, i32, i16, i16, %struct.__pthread_internal_list }
-%struct.__pthread_internal_list = type { ptr, ptr }
 %"class.std::unique_ptr.13" = type { %"struct.std::__uniq_ptr_data.14" }
 %"struct.std::__uniq_ptr_data.14" = type { %"class.std::__uniq_ptr_impl.15" }
 %"class.std::__uniq_ptr_impl.15" = type { %"class.std::tuple.16" }
 %"class.std::tuple.16" = type { %"struct.std::_Tuple_impl.17" }
 %"struct.std::_Tuple_impl.17" = type { %"struct.std::_Head_base.20" }
 %"struct.std::_Head_base.20" = type { ptr }
-%"class.base::HistogramSamples" = type { ptr, %"struct.base::HistogramSamples::Metadata", ptr }
-%"struct.base::HistogramSamples::Metadata" = type <{ i64, i64, i32, [4 x i8] }>
+%"class.std::__cxx11::basic_string" = type { %"struct.std::__cxx11::basic_string<char>::_Alloc_hider", i64, %union.anon }
+%"struct.std::__cxx11::basic_string<char>::_Alloc_hider" = type { ptr }
+%union.anon = type { i64, [8 x i8] }
 %"class.std::allocator" = type { i8 }
 %"class.std::unique_ptr.50" = type { %"struct.std::__uniq_ptr_data.51" }
 %"struct.std::__uniq_ptr_data.51" = type { %"class.std::__uniq_ptr_impl.52" }
@@ -35,7 +26,6 @@ target triple = "x86_64-unknown-linux-gnu"
 %"class.std::tuple.53" = type { %"struct.std::_Tuple_impl.54" }
 %"struct.std::_Tuple_impl.54" = type { %"struct.std::_Head_base.57" }
 %"struct.std::_Head_base.57" = type { ptr }
-%"class.base::HistogramBase" = type <{ ptr, %"class.std::__cxx11::basic_string", i32, [4 x i8] }>
 %struct._Guard = type { ptr }
 
 $__clang_call_terminate = comdat any
@@ -68,7 +58,7 @@ entry:
   %ref.tmp = alloca %"class.std::unique_ptr", align 8
   call void @_ZN4base16BasicStringPieceINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEC1ERKS6_(ptr noundef nonnull align 8 dereferenceable(16) %agg.tmp, ptr noundef nonnull align 8 dereferenceable(32) %name)
   %0 = load ptr, ptr %agg.tmp, align 8
-  %1 = getelementptr inbounds { ptr, i64 }, ptr %agg.tmp, i64 0, i32 1
+  %1 = getelementptr inbounds i8, ptr %agg.tmp, i64 8
   %2 = load i64, ptr %1, align 8
   %call = call noundef ptr @_ZN4base18StatisticsRecorder13FindHistogramENS_16BasicStringPieceINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEE(ptr %0, i64 %2)
   %tobool.not = icmp eq ptr %call, null
@@ -123,7 +113,7 @@ _ZNKSt14default_deleteIN4base13HistogramBaseEEclEPS1_.exit.i18: ; preds = %_ZNSt
   %lpad.thr_comm.split-lp = landingpad { ptr, i32 }
           cleanup
   %vtable.i.i19 = load ptr, ptr %call9, align 8
-  %vfn.i.i20 = getelementptr inbounds ptr, ptr %vtable.i.i19, i64 1
+  %vfn.i.i20 = getelementptr inbounds i8, ptr %vtable.i.i19, i64 8
   %6 = load ptr, ptr %vfn.i.i20, align 8
   call void %6(ptr noundef nonnull align 8 dereferenceable(44) %call9) #13
   br label %_ZNSt10unique_ptrIN4base13HistogramBaseESt14default_deleteIS1_EED2Ev.exit21
@@ -187,35 +177,35 @@ lpad:                                             ; preds = %entry
 define dso_local void @_ZN4base15SparseHistogramD2Ev(ptr noundef nonnull align 8 dereferenceable(112) %this) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store ptr getelementptr inbounds ({ [20 x ptr] }, ptr @_ZTVN4base15SparseHistogramE, i64 0, inrange i32 0, i64 2), ptr %this, align 8
-  %logged_samples_ = getelementptr inbounds %"class.base::SparseHistogram", ptr %this, i64 0, i32 4
+  %logged_samples_ = getelementptr inbounds i8, ptr %this, i64 104
   %0 = load ptr, ptr %logged_samples_, align 8
   %cmp.not.i = icmp eq ptr %0, null
   br i1 %cmp.not.i, label %_ZNSt10unique_ptrIN4base16HistogramSamplesESt14default_deleteIS1_EED2Ev.exit, label %_ZNKSt14default_deleteIN4base16HistogramSamplesEEclEPS1_.exit.i
 
 _ZNKSt14default_deleteIN4base16HistogramSamplesEEclEPS1_.exit.i: ; preds = %entry
   %vtable.i.i = load ptr, ptr %0, align 8
-  %vfn.i.i = getelementptr inbounds ptr, ptr %vtable.i.i, i64 1
+  %vfn.i.i = getelementptr inbounds i8, ptr %vtable.i.i, i64 8
   %1 = load ptr, ptr %vfn.i.i, align 8
   tail call void %1(ptr noundef nonnull align 8 dereferenceable(40) %0) #13
   br label %_ZNSt10unique_ptrIN4base16HistogramSamplesESt14default_deleteIS1_EED2Ev.exit
 
 _ZNSt10unique_ptrIN4base16HistogramSamplesESt14default_deleteIS1_EED2Ev.exit: ; preds = %entry, %_ZNKSt14default_deleteIN4base16HistogramSamplesEEclEPS1_.exit.i
   store ptr null, ptr %logged_samples_, align 8
-  %samples_ = getelementptr inbounds %"class.base::SparseHistogram", ptr %this, i64 0, i32 3
+  %samples_ = getelementptr inbounds i8, ptr %this, i64 96
   %2 = load ptr, ptr %samples_, align 8
   %cmp.not.i1 = icmp eq ptr %2, null
   br i1 %cmp.not.i1, label %_ZNSt10unique_ptrIN4base16HistogramSamplesESt14default_deleteIS1_EED2Ev.exit5, label %_ZNKSt14default_deleteIN4base16HistogramSamplesEEclEPS1_.exit.i2
 
 _ZNKSt14default_deleteIN4base16HistogramSamplesEEclEPS1_.exit.i2: ; preds = %_ZNSt10unique_ptrIN4base16HistogramSamplesESt14default_deleteIS1_EED2Ev.exit
   %vtable.i.i3 = load ptr, ptr %2, align 8
-  %vfn.i.i4 = getelementptr inbounds ptr, ptr %vtable.i.i3, i64 1
+  %vfn.i.i4 = getelementptr inbounds i8, ptr %vtable.i.i3, i64 8
   %3 = load ptr, ptr %vfn.i.i4, align 8
   tail call void %3(ptr noundef nonnull align 8 dereferenceable(40) %2) #13
   br label %_ZNSt10unique_ptrIN4base16HistogramSamplesESt14default_deleteIS1_EED2Ev.exit5
 
 _ZNSt10unique_ptrIN4base16HistogramSamplesESt14default_deleteIS1_EED2Ev.exit5: ; preds = %_ZNSt10unique_ptrIN4base16HistogramSamplesESt14default_deleteIS1_EED2Ev.exit, %_ZNKSt14default_deleteIN4base16HistogramSamplesEEclEPS1_.exit.i2
   store ptr null, ptr %samples_, align 8
-  %lock_ = getelementptr inbounds %"class.base::SparseHistogram", ptr %this, i64 0, i32 1
+  %lock_ = getelementptr inbounds i8, ptr %this, i64 48
   tail call void @_ZN4base8internal8LockImplD1Ev(ptr noundef nonnull align 8 dereferenceable(40) %lock_) #13
   tail call void @_ZN4base13HistogramBaseD2Ev(ptr noundef nonnull align 8 dereferenceable(44) %this) #13
   ret void
@@ -228,35 +218,35 @@ declare void @_ZN4base13HistogramBaseD2Ev(ptr noundef nonnull align 8 dereferenc
 define dso_local void @_ZN4base15SparseHistogramD0Ev(ptr noundef nonnull align 8 dereferenceable(112) %this) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store ptr getelementptr inbounds ({ [20 x ptr] }, ptr @_ZTVN4base15SparseHistogramE, i64 0, inrange i32 0, i64 2), ptr %this, align 8
-  %logged_samples_.i = getelementptr inbounds %"class.base::SparseHistogram", ptr %this, i64 0, i32 4
+  %logged_samples_.i = getelementptr inbounds i8, ptr %this, i64 104
   %0 = load ptr, ptr %logged_samples_.i, align 8
   %cmp.not.i.i = icmp eq ptr %0, null
   br i1 %cmp.not.i.i, label %_ZNSt10unique_ptrIN4base16HistogramSamplesESt14default_deleteIS1_EED2Ev.exit.i, label %_ZNKSt14default_deleteIN4base16HistogramSamplesEEclEPS1_.exit.i.i
 
 _ZNKSt14default_deleteIN4base16HistogramSamplesEEclEPS1_.exit.i.i: ; preds = %entry
   %vtable.i.i.i = load ptr, ptr %0, align 8
-  %vfn.i.i.i = getelementptr inbounds ptr, ptr %vtable.i.i.i, i64 1
+  %vfn.i.i.i = getelementptr inbounds i8, ptr %vtable.i.i.i, i64 8
   %1 = load ptr, ptr %vfn.i.i.i, align 8
   tail call void %1(ptr noundef nonnull align 8 dereferenceable(40) %0) #13
   br label %_ZNSt10unique_ptrIN4base16HistogramSamplesESt14default_deleteIS1_EED2Ev.exit.i
 
 _ZNSt10unique_ptrIN4base16HistogramSamplesESt14default_deleteIS1_EED2Ev.exit.i: ; preds = %_ZNKSt14default_deleteIN4base16HistogramSamplesEEclEPS1_.exit.i.i, %entry
   store ptr null, ptr %logged_samples_.i, align 8
-  %samples_.i = getelementptr inbounds %"class.base::SparseHistogram", ptr %this, i64 0, i32 3
+  %samples_.i = getelementptr inbounds i8, ptr %this, i64 96
   %2 = load ptr, ptr %samples_.i, align 8
   %cmp.not.i1.i = icmp eq ptr %2, null
   br i1 %cmp.not.i1.i, label %_ZN4base15SparseHistogramD2Ev.exit, label %_ZNKSt14default_deleteIN4base16HistogramSamplesEEclEPS1_.exit.i2.i
 
 _ZNKSt14default_deleteIN4base16HistogramSamplesEEclEPS1_.exit.i2.i: ; preds = %_ZNSt10unique_ptrIN4base16HistogramSamplesESt14default_deleteIS1_EED2Ev.exit.i
   %vtable.i.i3.i = load ptr, ptr %2, align 8
-  %vfn.i.i4.i = getelementptr inbounds ptr, ptr %vtable.i.i3.i, i64 1
+  %vfn.i.i4.i = getelementptr inbounds i8, ptr %vtable.i.i3.i, i64 8
   %3 = load ptr, ptr %vfn.i.i4.i, align 8
   tail call void %3(ptr noundef nonnull align 8 dereferenceable(40) %2) #13
   br label %_ZN4base15SparseHistogramD2Ev.exit
 
 _ZN4base15SparseHistogramD2Ev.exit:               ; preds = %_ZNSt10unique_ptrIN4base16HistogramSamplesESt14default_deleteIS1_EED2Ev.exit.i, %_ZNKSt14default_deleteIN4base16HistogramSamplesEEclEPS1_.exit.i2.i
   store ptr null, ptr %samples_.i, align 8
-  %lock_.i = getelementptr inbounds %"class.base::SparseHistogram", ptr %this, i64 0, i32 1
+  %lock_.i = getelementptr inbounds i8, ptr %this, i64 48
   tail call void @_ZN4base8internal8LockImplD1Ev(ptr noundef nonnull align 8 dereferenceable(40) %lock_.i) #13
   tail call void @_ZN4base13HistogramBaseD2Ev(ptr noundef nonnull align 8 dereferenceable(44) %this) #13
   tail call void @_ZdlPv(ptr noundef nonnull %this) #12
@@ -266,9 +256,9 @@ _ZN4base15SparseHistogramD2Ev.exit:               ; preds = %_ZNSt10unique_ptrIN
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
 define dso_local noundef i64 @_ZNK4base15SparseHistogram9name_hashEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(112) %this) unnamed_addr #6 align 2 {
 entry:
-  %samples_ = getelementptr inbounds %"class.base::SparseHistogram", ptr %this, i64 0, i32 3
+  %samples_ = getelementptr inbounds i8, ptr %this, i64 96
   %0 = load ptr, ptr %samples_, align 8
-  %meta_.i = getelementptr inbounds %"class.base::HistogramSamples", ptr %0, i64 0, i32 2
+  %meta_.i = getelementptr inbounds i8, ptr %0, i64 32
   %1 = load ptr, ptr %meta_.i, align 8
   %2 = load i64, ptr %1, align 8
   ret i64 %2
@@ -290,7 +280,7 @@ entry:
 define dso_local void @_ZN4base15SparseHistogram3AddEi(ptr noundef nonnull align 8 dereferenceable(112) %this, i32 noundef %value) unnamed_addr #0 align 2 {
 entry:
   %vtable = load ptr, ptr %this, align 8
-  %vfn = getelementptr inbounds ptr, ptr %vtable, i64 6
+  %vfn = getelementptr inbounds i8, ptr %vtable, i64 48
   %0 = load ptr, ptr %vfn, align 8
   tail call void %0(ptr noundef nonnull align 8 dereferenceable(112) %this, i32 noundef %value, i32 noundef 1)
   ret void
@@ -303,12 +293,12 @@ entry:
   br i1 %cmp, label %return, label %if.end
 
 if.end:                                           ; preds = %entry
-  %lock_ = getelementptr inbounds %"class.base::SparseHistogram", ptr %this, i64 0, i32 1
+  %lock_ = getelementptr inbounds i8, ptr %this, i64 48
   tail call void @_ZN4base8internal8LockImpl4LockEv(ptr noundef nonnull align 8 dereferenceable(40) %lock_)
-  %samples_ = getelementptr inbounds %"class.base::SparseHistogram", ptr %this, i64 0, i32 3
+  %samples_ = getelementptr inbounds i8, ptr %this, i64 96
   %0 = load ptr, ptr %samples_, align 8
   %vtable = load ptr, ptr %0, align 8
-  %vfn = getelementptr inbounds ptr, ptr %vtable, i64 2
+  %vfn = getelementptr inbounds i8, ptr %vtable, i64 16
   %1 = load ptr, ptr %vfn, align 8
   invoke void %1(ptr noundef nonnull align 8 dereferenceable(40) %0, i32 noundef %value, i32 noundef %count)
           to label %invoke.cont unwind label %lpad
@@ -355,7 +345,7 @@ define dso_local void @_ZNK4base15SparseHistogram15SnapshotSamplesEv(ptr noalias
 entry:
   %call = tail call noalias noundef nonnull dereferenceable(88) ptr @_Znwm(i64 noundef 88) #11
   %vtable = load ptr, ptr %this, align 8
-  %vfn = getelementptr inbounds ptr, ptr %vtable, i64 2
+  %vfn = getelementptr inbounds i8, ptr %vtable, i64 16
   %0 = load ptr, ptr %vfn, align 8
   %call2 = invoke noundef i64 %0(ptr noundef nonnull align 8 dereferenceable(112) %this)
           to label %invoke.cont unwind label %lpad
@@ -365,15 +355,15 @@ invoke.cont:                                      ; preds = %entry
           to label %invoke.cont3 unwind label %lpad
 
 invoke.cont3:                                     ; preds = %invoke.cont
-  %lock_ = getelementptr inbounds %"class.base::SparseHistogram", ptr %this, i64 0, i32 1
+  %lock_ = getelementptr inbounds i8, ptr %this, i64 48
   invoke void @_ZN4base8internal8LockImpl4LockEv(ptr noundef nonnull align 8 dereferenceable(40) %lock_)
           to label %invoke.cont5 unwind label %lpad4
 
 invoke.cont5:                                     ; preds = %invoke.cont3
-  %samples_ = getelementptr inbounds %"class.base::SparseHistogram", ptr %this, i64 0, i32 3
+  %samples_ = getelementptr inbounds i8, ptr %this, i64 96
   %1 = load ptr, ptr %samples_, align 8
   %vtable8 = load ptr, ptr %call, align 8
-  %vfn9 = getelementptr inbounds ptr, ptr %vtable8, i64 5
+  %vfn9 = getelementptr inbounds i8, ptr %vtable8, i64 40
   %2 = load ptr, ptr %vfn9, align 8
   invoke void %2(ptr noundef nonnull align 8 dereferenceable(40) %call, ptr noundef nonnull align 8 dereferenceable(40) %1)
           to label %invoke.cont11 unwind label %lpad10
@@ -420,7 +410,7 @@ terminate.lpad.i3:                                ; preds = %lpad10
 _ZNSt10unique_ptrIN4base9SampleMapESt14default_deleteIS1_EED2Ev.exit9: ; preds = %lpad10, %lpad4
   %.pn = phi { ptr, i32 } [ %6, %lpad4 ], [ %7, %lpad10 ]
   %vtable.i.i7 = load ptr, ptr %call, align 8
-  %vfn.i.i8 = getelementptr inbounds ptr, ptr %vtable.i.i7, i64 1
+  %vfn.i.i8 = getelementptr inbounds i8, ptr %vtable.i.i7, i64 8
   %10 = load ptr, ptr %vfn.i.i8, align 8
   tail call void %10(ptr noundef nonnull align 8 dereferenceable(88) %call) #13
   br label %eh.resume
@@ -437,7 +427,7 @@ define dso_local void @_ZN4base15SparseHistogram13SnapshotDeltaEv(ptr noalias no
 entry:
   %call = tail call noalias noundef nonnull dereferenceable(88) ptr @_Znwm(i64 noundef 88) #11
   %vtable = load ptr, ptr %this, align 8
-  %vfn = getelementptr inbounds ptr, ptr %vtable, i64 2
+  %vfn = getelementptr inbounds i8, ptr %vtable, i64 16
   %0 = load ptr, ptr %vfn, align 8
   %call2 = invoke noundef i64 %0(ptr noundef nonnull align 8 dereferenceable(112) %this)
           to label %invoke.cont unwind label %lpad
@@ -447,24 +437,24 @@ invoke.cont:                                      ; preds = %entry
           to label %invoke.cont3 unwind label %lpad
 
 invoke.cont3:                                     ; preds = %invoke.cont
-  %lock_ = getelementptr inbounds %"class.base::SparseHistogram", ptr %this, i64 0, i32 1
+  %lock_ = getelementptr inbounds i8, ptr %this, i64 48
   invoke void @_ZN4base8internal8LockImpl4LockEv(ptr noundef nonnull align 8 dereferenceable(40) %lock_)
           to label %invoke.cont5 unwind label %lpad4
 
 invoke.cont5:                                     ; preds = %invoke.cont3
-  %samples_ = getelementptr inbounds %"class.base::SparseHistogram", ptr %this, i64 0, i32 3
+  %samples_ = getelementptr inbounds i8, ptr %this, i64 96
   %1 = load ptr, ptr %samples_, align 8
   %vtable8 = load ptr, ptr %call, align 8
-  %vfn9 = getelementptr inbounds ptr, ptr %vtable8, i64 5
+  %vfn9 = getelementptr inbounds i8, ptr %vtable8, i64 40
   %2 = load ptr, ptr %vfn9, align 8
   invoke void %2(ptr noundef nonnull align 8 dereferenceable(40) %call, ptr noundef nonnull align 8 dereferenceable(40) %1)
           to label %invoke.cont11 unwind label %lpad10
 
 invoke.cont11:                                    ; preds = %invoke.cont5
-  %logged_samples_ = getelementptr inbounds %"class.base::SparseHistogram", ptr %this, i64 0, i32 4
+  %logged_samples_ = getelementptr inbounds i8, ptr %this, i64 104
   %3 = load ptr, ptr %logged_samples_, align 8
   %vtable14 = load ptr, ptr %call, align 8
-  %vfn15 = getelementptr inbounds ptr, ptr %vtable14, i64 7
+  %vfn15 = getelementptr inbounds i8, ptr %vtable14, i64 56
   %4 = load ptr, ptr %vfn15, align 8
   invoke void %4(ptr noundef nonnull align 8 dereferenceable(40) %call, ptr noundef nonnull align 8 dereferenceable(40) %3)
           to label %invoke.cont16 unwind label %lpad10
@@ -472,7 +462,7 @@ invoke.cont11:                                    ; preds = %invoke.cont5
 invoke.cont16:                                    ; preds = %invoke.cont11
   %5 = load ptr, ptr %logged_samples_, align 8
   %vtable20 = load ptr, ptr %5, align 8
-  %vfn21 = getelementptr inbounds ptr, ptr %vtable20, i64 5
+  %vfn21 = getelementptr inbounds i8, ptr %vtable20, i64 40
   %6 = load ptr, ptr %vfn21, align 8
   invoke void %6(ptr noundef nonnull align 8 dereferenceable(40) %5, ptr noundef nonnull align 8 dereferenceable(40) %call)
           to label %invoke.cont22 unwind label %lpad10
@@ -519,7 +509,7 @@ terminate.lpad.i3:                                ; preds = %lpad10
 _ZNSt10unique_ptrIN4base9SampleMapESt14default_deleteIS1_EED2Ev.exit9: ; preds = %lpad10, %lpad4
   %.pn = phi { ptr, i32 } [ %10, %lpad4 ], [ %11, %lpad10 ]
   %vtable.i.i7 = load ptr, ptr %call, align 8
-  %vfn.i.i8 = getelementptr inbounds ptr, ptr %vtable.i.i7, i64 1
+  %vfn.i.i8 = getelementptr inbounds i8, ptr %vtable.i.i7, i64 8
   %14 = load ptr, ptr %vfn.i.i8, align 8
   tail call void %14(ptr noundef nonnull align 8 dereferenceable(88) %call) #13
   br label %eh.resume
@@ -532,11 +522,11 @@ eh.resume:                                        ; preds = %_ZNSt10unique_ptrIN
 ; Function Attrs: mustprogress uwtable
 define dso_local void @_ZNK4base15SparseHistogram18SnapshotFinalDeltaEv(ptr noalias nocapture writeonly sret(%"class.std::unique_ptr.13") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(112) %this) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  %final_delta_created_ = getelementptr inbounds %"class.base::SparseHistogram", ptr %this, i64 0, i32 2
+  %final_delta_created_ = getelementptr inbounds i8, ptr %this, i64 88
   store i8 1, ptr %final_delta_created_, align 8
   %call = tail call noalias noundef nonnull dereferenceable(88) ptr @_Znwm(i64 noundef 88) #11
   %vtable = load ptr, ptr %this, align 8
-  %vfn = getelementptr inbounds ptr, ptr %vtable, i64 2
+  %vfn = getelementptr inbounds i8, ptr %vtable, i64 16
   %0 = load ptr, ptr %vfn, align 8
   %call2 = invoke noundef i64 %0(ptr noundef nonnull align 8 dereferenceable(112) %this)
           to label %invoke.cont unwind label %lpad
@@ -546,24 +536,24 @@ invoke.cont:                                      ; preds = %entry
           to label %invoke.cont3 unwind label %lpad
 
 invoke.cont3:                                     ; preds = %invoke.cont
-  %lock_ = getelementptr inbounds %"class.base::SparseHistogram", ptr %this, i64 0, i32 1
+  %lock_ = getelementptr inbounds i8, ptr %this, i64 48
   invoke void @_ZN4base8internal8LockImpl4LockEv(ptr noundef nonnull align 8 dereferenceable(40) %lock_)
           to label %invoke.cont5 unwind label %lpad4
 
 invoke.cont5:                                     ; preds = %invoke.cont3
-  %samples_ = getelementptr inbounds %"class.base::SparseHistogram", ptr %this, i64 0, i32 3
+  %samples_ = getelementptr inbounds i8, ptr %this, i64 96
   %1 = load ptr, ptr %samples_, align 8
   %vtable8 = load ptr, ptr %call, align 8
-  %vfn9 = getelementptr inbounds ptr, ptr %vtable8, i64 5
+  %vfn9 = getelementptr inbounds i8, ptr %vtable8, i64 40
   %2 = load ptr, ptr %vfn9, align 8
   invoke void %2(ptr noundef nonnull align 8 dereferenceable(40) %call, ptr noundef nonnull align 8 dereferenceable(40) %1)
           to label %invoke.cont11 unwind label %lpad10
 
 invoke.cont11:                                    ; preds = %invoke.cont5
-  %logged_samples_ = getelementptr inbounds %"class.base::SparseHistogram", ptr %this, i64 0, i32 4
+  %logged_samples_ = getelementptr inbounds i8, ptr %this, i64 104
   %3 = load ptr, ptr %logged_samples_, align 8
   %vtable14 = load ptr, ptr %call, align 8
-  %vfn15 = getelementptr inbounds ptr, ptr %vtable14, i64 7
+  %vfn15 = getelementptr inbounds i8, ptr %vtable14, i64 56
   %4 = load ptr, ptr %vfn15, align 8
   invoke void %4(ptr noundef nonnull align 8 dereferenceable(40) %call, ptr noundef nonnull align 8 dereferenceable(40) %3)
           to label %invoke.cont16 unwind label %lpad10
@@ -610,7 +600,7 @@ terminate.lpad.i3:                                ; preds = %lpad10
 _ZNSt10unique_ptrIN4base9SampleMapESt14default_deleteIS1_EED2Ev.exit9: ; preds = %lpad10, %lpad4
   %.pn = phi { ptr, i32 } [ %8, %lpad4 ], [ %9, %lpad10 ]
   %vtable.i.i7 = load ptr, ptr %call, align 8
-  %vfn.i.i8 = getelementptr inbounds ptr, ptr %vtable.i.i7, i64 1
+  %vfn.i.i8 = getelementptr inbounds i8, ptr %vtable.i.i7, i64 8
   %12 = load ptr, ptr %vfn.i.i8, align 8
   tail call void %12(ptr noundef nonnull align 8 dereferenceable(88) %call) #13
   br label %eh.resume
@@ -623,12 +613,12 @@ eh.resume:                                        ; preds = %_ZNSt10unique_ptrIN
 ; Function Attrs: mustprogress uwtable
 define dso_local void @_ZN4base15SparseHistogram10AddSamplesERKNS_16HistogramSamplesE(ptr noundef nonnull align 8 dereferenceable(112) %this, ptr noundef nonnull align 8 dereferenceable(40) %samples) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  %lock_ = getelementptr inbounds %"class.base::SparseHistogram", ptr %this, i64 0, i32 1
+  %lock_ = getelementptr inbounds i8, ptr %this, i64 48
   tail call void @_ZN4base8internal8LockImpl4LockEv(ptr noundef nonnull align 8 dereferenceable(40) %lock_)
-  %samples_ = getelementptr inbounds %"class.base::SparseHistogram", ptr %this, i64 0, i32 3
+  %samples_ = getelementptr inbounds i8, ptr %this, i64 96
   %0 = load ptr, ptr %samples_, align 8
   %vtable = load ptr, ptr %0, align 8
-  %vfn = getelementptr inbounds ptr, ptr %vtable, i64 5
+  %vfn = getelementptr inbounds i8, ptr %vtable, i64 40
   %1 = load ptr, ptr %vfn, align 8
   invoke void %1(ptr noundef nonnull align 8 dereferenceable(40) %0, ptr noundef nonnull align 8 dereferenceable(40) %samples)
           to label %invoke.cont unwind label %lpad
@@ -667,12 +657,12 @@ _ZN4base8AutoLockD2Ev.exit2:                      ; preds = %lpad
 ; Function Attrs: mustprogress uwtable
 define dso_local noundef zeroext i1 @_ZN4base15SparseHistogram20AddSamplesFromPickleEPNS_14PickleIteratorE(ptr noundef nonnull align 8 dereferenceable(112) %this, ptr noundef %iter) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  %lock_ = getelementptr inbounds %"class.base::SparseHistogram", ptr %this, i64 0, i32 1
+  %lock_ = getelementptr inbounds i8, ptr %this, i64 48
   tail call void @_ZN4base8internal8LockImpl4LockEv(ptr noundef nonnull align 8 dereferenceable(40) %lock_)
-  %samples_ = getelementptr inbounds %"class.base::SparseHistogram", ptr %this, i64 0, i32 3
+  %samples_ = getelementptr inbounds i8, ptr %this, i64 96
   %0 = load ptr, ptr %samples_, align 8
   %vtable = load ptr, ptr %0, align 8
-  %vfn = getelementptr inbounds ptr, ptr %vtable, i64 6
+  %vfn = getelementptr inbounds i8, ptr %vtable, i64 48
   %1 = load ptr, ptr %vfn, align 8
   %call2 = invoke noundef zeroext i1 %1(ptr noundef nonnull align 8 dereferenceable(40) %0, ptr noundef %iter)
           to label %invoke.cont unwind label %lpad
@@ -776,12 +766,12 @@ entry:
   %count47 = alloca i32, align 4
   %range = alloca %"class.std::__cxx11::basic_string", align 8
   %vtable = load ptr, ptr %this, align 8
-  %vfn = getelementptr inbounds ptr, ptr %vtable, i64 10
+  %vfn = getelementptr inbounds i8, ptr %vtable, i64 80
   %0 = load ptr, ptr %vfn, align 8
   call void %0(ptr nonnull sret(%"class.std::unique_ptr.13") align 8 %snapshot, ptr noundef nonnull align 8 dereferenceable(112) %this)
   %1 = load ptr, ptr %snapshot, align 8
   %vtable2 = load ptr, ptr %1, align 8
-  %vfn3 = getelementptr inbounds ptr, ptr %vtable2, i64 4
+  %vfn3 = getelementptr inbounds i8, ptr %vtable2, i64 32
   %2 = load ptr, ptr %vfn3, align 8
   %call4 = invoke noundef i32 %2(ptr noundef nonnull align 8 dereferenceable(40) %1)
           to label %invoke.cont unwind label %lpad
@@ -789,13 +779,13 @@ entry:
 invoke.cont:                                      ; preds = %entry
   %conv = sitofp i32 %call4 to double
   %div = fdiv double %conv, 1.000000e+02
-  %histogram_name_.i.i = getelementptr inbounds %"class.base::HistogramBase", ptr %this, i64 0, i32 1
+  %histogram_name_.i.i = getelementptr inbounds i8, ptr %this, i64 8
   %call2.i = call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5c_strEv(ptr noundef nonnull align 8 dereferenceable(32) %histogram_name_.i.i) #13
   invoke void (ptr, ptr, ...) @_ZN4base13StringAppendFEPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPKcz(ptr noundef %output, ptr noundef nonnull @.str.5, ptr noundef %call2.i, i32 noundef %call4)
           to label %.noexc unwind label %lpad
 
 .noexc:                                           ; preds = %invoke.cont
-  %flags_.i.i = getelementptr inbounds %"class.base::HistogramBase", ptr %this, i64 0, i32 2
+  %flags_.i.i = getelementptr inbounds i8, ptr %this, i64 40
   %3 = load atomic volatile i32, ptr %flags_.i.i monotonic, align 8
   %and.i = and i32 %3, -32769
   %tobool.not.i = icmp eq i32 %and.i, 0
@@ -814,7 +804,7 @@ invoke.cont5:                                     ; preds = %.noexc, %if.then.i
 invoke.cont6:                                     ; preds = %invoke.cont5
   %5 = load ptr, ptr %snapshot, align 8
   %vtable9 = load ptr, ptr %5, align 8
-  %vfn10 = getelementptr inbounds ptr, ptr %vtable9, i64 8
+  %vfn10 = getelementptr inbounds i8, ptr %vtable9, i64 64
   %6 = load ptr, ptr %vfn10, align 8
   invoke void %6(ptr nonnull sret(%"class.std::unique_ptr.50") align 8 %it, ptr noundef nonnull align 8 dereferenceable(40) %5)
           to label %while.cond unwind label %lpad
@@ -824,7 +814,7 @@ while.cond:                                       ; preds = %invoke.cont6, %invo
   %largest_sample.0 = phi i32 [ %spec.select, %invoke.cont21 ], [ 0, %invoke.cont6 ]
   %7 = load ptr, ptr %it, align 8
   %vtable13 = load ptr, ptr %7, align 8
-  %vfn14 = getelementptr inbounds ptr, ptr %vtable13, i64 2
+  %vfn14 = getelementptr inbounds i8, ptr %vtable13, i64 16
   %8 = load ptr, ptr %vfn14, align 8
   %call17 = invoke noundef zeroext i1 %8(ptr noundef nonnull align 8 dereferenceable(8) %7)
           to label %invoke.cont16 unwind label %lpad15.loopexit.split-lp.loopexit
@@ -835,7 +825,7 @@ invoke.cont16:                                    ; preds = %while.cond
 while.body:                                       ; preds = %invoke.cont16
   %9 = load ptr, ptr %it, align 8
   %vtable19 = load ptr, ptr %9, align 8
-  %vfn20 = getelementptr inbounds ptr, ptr %vtable19, i64 4
+  %vfn20 = getelementptr inbounds i8, ptr %vtable19, i64 32
   %10 = load ptr, ptr %vfn20, align 8
   invoke void %10(ptr noundef nonnull align 8 dereferenceable(8) %9, ptr noundef nonnull %min, ptr noundef nonnull %max, ptr noundef nonnull %count)
           to label %invoke.cont21 unwind label %lpad15.loopexit.split-lp.loopexit
@@ -847,7 +837,7 @@ invoke.cont21:                                    ; preds = %while.body
   %largest_count.1 = call i32 @llvm.smax.i32(i32 %12, i32 %largest_count.0)
   %13 = load ptr, ptr %it, align 8
   %vtable26 = load ptr, ptr %13, align 8
-  %vfn27 = getelementptr inbounds ptr, ptr %vtable26, i64 3
+  %vfn27 = getelementptr inbounds i8, ptr %vtable26, i64 24
   %14 = load ptr, ptr %vfn27, align 8
   invoke void %14(ptr noundef nonnull align 8 dereferenceable(8) %13)
           to label %while.cond unwind label %lpad15.loopexit.split-lp.loopexit, !llvm.loop !5
@@ -881,7 +871,7 @@ invoke.cont29:                                    ; preds = %while.end
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp) #13
   %16 = load ptr, ptr %snapshot, align 8
   %vtable33 = load ptr, ptr %16, align 8
-  %vfn34 = getelementptr inbounds ptr, ptr %vtable33, i64 8
+  %vfn34 = getelementptr inbounds i8, ptr %vtable33, i64 64
   %17 = load ptr, ptr %vfn34, align 8
   invoke void %17(ptr nonnull sret(%"class.std::unique_ptr.50") align 8 %ref.tmp31, ptr noundef nonnull align 8 dereferenceable(40) %16)
           to label %invoke.cont35 unwind label %lpad15.loopexit.split-lp.loopexit.split-lp
@@ -896,7 +886,7 @@ invoke.cont35:                                    ; preds = %invoke.cont29
 
 _ZNSt10unique_ptrIN4base19SampleCountIteratorESt14default_deleteIS1_EEaSEOS4_.exit: ; preds = %invoke.cont35
   %vtable.i.i.i.i.i = load ptr, ptr %19, align 8
-  %vfn.i.i.i.i.i = getelementptr inbounds ptr, ptr %vtable.i.i.i.i.i, i64 1
+  %vfn.i.i.i.i.i = getelementptr inbounds i8, ptr %vtable.i.i.i.i.i, i64 8
   %20 = load ptr, ptr %vfn.i.i.i.i.i, align 8
   call void %20(ptr noundef nonnull align 8 dereferenceable(8) %19) #13
   %.pr = load ptr, ptr %ref.tmp31, align 8
@@ -905,7 +895,7 @@ _ZNSt10unique_ptrIN4base19SampleCountIteratorESt14default_deleteIS1_EEaSEOS4_.ex
 
 _ZNKSt14default_deleteIN4base19SampleCountIteratorEEclEPS1_.exit.i: ; preds = %_ZNSt10unique_ptrIN4base19SampleCountIteratorESt14default_deleteIS1_EEaSEOS4_.exit
   %vtable.i.i = load ptr, ptr %.pr, align 8
-  %vfn.i.i = getelementptr inbounds ptr, ptr %vtable.i.i, i64 1
+  %vfn.i.i = getelementptr inbounds i8, ptr %vtable.i.i, i64 8
   %21 = load ptr, ptr %vfn.i.i, align 8
   call void %21(ptr noundef nonnull align 8 dereferenceable(8) %.pr) #13
   br label %_ZNSt10unique_ptrIN4base19SampleCountIteratorESt14default_deleteIS1_EED2Ev.exit
@@ -919,7 +909,7 @@ _ZNSt10unique_ptrIN4base19SampleCountIteratorESt14default_deleteIS1_EED2Ev.exit:
 while.cond37:                                     ; preds = %invoke.cont72, %_ZNSt10unique_ptrIN4base19SampleCountIteratorESt14default_deleteIS1_EED2Ev.exit
   %22 = load ptr, ptr %it, align 8
   %vtable39 = load ptr, ptr %22, align 8
-  %vfn40 = getelementptr inbounds ptr, ptr %vtable39, i64 2
+  %vfn40 = getelementptr inbounds i8, ptr %vtable39, i64 16
   %23 = load ptr, ptr %vfn40, align 8
   %call42 = invoke noundef zeroext i1 %23(ptr noundef nonnull align 8 dereferenceable(8) %22)
           to label %invoke.cont41 unwind label %lpad15.loopexit
@@ -930,7 +920,7 @@ invoke.cont41:                                    ; preds = %while.cond37
 
 while.body44:                                     ; preds = %invoke.cont41
   %vtable49 = load ptr, ptr %24, align 8
-  %vfn50 = getelementptr inbounds ptr, ptr %vtable49, i64 4
+  %vfn50 = getelementptr inbounds i8, ptr %vtable49, i64 32
   %25 = load ptr, ptr %vfn50, align 8
   invoke void %25(ptr noundef nonnull align 8 dereferenceable(8) %24, ptr noundef nonnull %min45, ptr noundef nonnull %max46, ptr noundef nonnull %count47)
           to label %invoke.cont51 unwind label %lpad15.loopexit
@@ -997,7 +987,7 @@ invoke.cont66:                                    ; preds = %if.end65
 invoke.cont67:                                    ; preds = %invoke.cont66
   %29 = load ptr, ptr %it, align 8
   %vtable70 = load ptr, ptr %29, align 8
-  %vfn71 = getelementptr inbounds ptr, ptr %vtable70, i64 3
+  %vfn71 = getelementptr inbounds i8, ptr %vtable70, i64 24
   %30 = load ptr, ptr %vfn71, align 8
   invoke void %30(ptr noundef nonnull align 8 dereferenceable(8) %29)
           to label %invoke.cont72 unwind label %lpad53.loopexit.split-lp
@@ -1012,7 +1002,7 @@ while.end73:                                      ; preds = %invoke.cont41
 
 _ZNKSt14default_deleteIN4base19SampleCountIteratorEEclEPS1_.exit.i17: ; preds = %while.end73
   %vtable.i.i18 = load ptr, ptr %24, align 8
-  %vfn.i.i19 = getelementptr inbounds ptr, ptr %vtable.i.i18, i64 1
+  %vfn.i.i19 = getelementptr inbounds i8, ptr %vtable.i.i18, i64 8
   %31 = load ptr, ptr %vfn.i.i19, align 8
   call void %31(ptr noundef nonnull align 8 dereferenceable(8) %24) #13
   br label %_ZNSt10unique_ptrIN4base19SampleCountIteratorESt14default_deleteIS1_EED2Ev.exit20
@@ -1025,7 +1015,7 @@ _ZNSt10unique_ptrIN4base19SampleCountIteratorESt14default_deleteIS1_EED2Ev.exit2
 
 _ZNKSt14default_deleteIN4base16HistogramSamplesEEclEPS1_.exit.i: ; preds = %_ZNSt10unique_ptrIN4base19SampleCountIteratorESt14default_deleteIS1_EED2Ev.exit20
   %vtable.i.i22 = load ptr, ptr %32, align 8
-  %vfn.i.i23 = getelementptr inbounds ptr, ptr %vtable.i.i22, i64 1
+  %vfn.i.i23 = getelementptr inbounds i8, ptr %vtable.i.i22, i64 8
   %33 = load ptr, ptr %vfn.i.i23, align 8
   call void %33(ptr noundef nonnull align 8 dereferenceable(40) %32) #13
   br label %_ZNSt10unique_ptrIN4base16HistogramSamplesESt14default_deleteIS1_EED2Ev.exit
@@ -1041,7 +1031,7 @@ ehcleanup:                                        ; preds = %lpad15.loopexit, %l
 
 _ZNKSt14default_deleteIN4base19SampleCountIteratorEEclEPS1_.exit.i25: ; preds = %ehcleanup
   %vtable.i.i26 = load ptr, ptr %34, align 8
-  %vfn.i.i27 = getelementptr inbounds ptr, ptr %vtable.i.i26, i64 1
+  %vfn.i.i27 = getelementptr inbounds i8, ptr %vtable.i.i26, i64 8
   %35 = load ptr, ptr %vfn.i.i27, align 8
   call void %35(ptr noundef nonnull align 8 dereferenceable(8) %34) #13
   br label %_ZNSt10unique_ptrIN4base19SampleCountIteratorESt14default_deleteIS1_EED2Ev.exit28
@@ -1058,7 +1048,7 @@ ehcleanup74:                                      ; preds = %_ZNSt10unique_ptrIN
 
 _ZNKSt14default_deleteIN4base16HistogramSamplesEEclEPS1_.exit.i30: ; preds = %ehcleanup74
   %vtable.i.i31 = load ptr, ptr %36, align 8
-  %vfn.i.i32 = getelementptr inbounds ptr, ptr %vtable.i.i31, i64 1
+  %vfn.i.i32 = getelementptr inbounds i8, ptr %vtable.i.i31, i64 8
   %37 = load ptr, ptr %vfn.i.i32, align 8
   call void %37(ptr noundef nonnull align 8 dereferenceable(40) %36) #13
   br label %_ZNSt10unique_ptrIN4base16HistogramSamplesESt14default_deleteIS1_EED2Ev.exit33
@@ -1130,13 +1120,13 @@ define dso_local noundef zeroext i1 @_ZNK4base15SparseHistogram17SerializeInfoIm
 entry:
   %value.addr.i = alloca i32, align 4
   %ref.tmp = alloca %"class.base::BasicStringPiece", align 8
-  %histogram_name_.i = getelementptr inbounds %"class.base::HistogramBase", ptr %this, i64 0, i32 1
+  %histogram_name_.i = getelementptr inbounds i8, ptr %this, i64 8
   call void @_ZN4base16BasicStringPieceINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEC1ERKS6_(ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp, ptr noundef nonnull align 8 dereferenceable(32) %histogram_name_.i)
   %call2 = call noundef zeroext i1 @_ZN4base6Pickle11WriteStringERKNS_16BasicStringPieceINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEE(ptr noundef nonnull align 8 dereferenceable(40) %pickle, ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp)
   br i1 %call2, label %land.rhs, label %land.end
 
 land.rhs:                                         ; preds = %entry
-  %flags_.i = getelementptr inbounds %"class.base::HistogramBase", ptr %this, i64 0, i32 2
+  %flags_.i = getelementptr inbounds i8, ptr %this, i64 40
   %0 = load atomic volatile i32, ptr %flags_.i monotonic, align 8
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %value.addr.i)
   store i32 %0, ptr %value.addr.i, align 4
@@ -1156,14 +1146,14 @@ entry:
   %agg.tmp = alloca %"class.base::BasicStringPiece", align 8
   tail call void @_ZN4base13HistogramBaseC2ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(44) %this, ptr noundef nonnull align 8 dereferenceable(32) %name)
   store ptr getelementptr inbounds ({ [20 x ptr] }, ptr @_ZTVN4base15SparseHistogramE, i64 0, inrange i32 0, i64 2), ptr %this, align 8
-  %lock_ = getelementptr inbounds %"class.base::SparseHistogram", ptr %this, i64 0, i32 1
+  %lock_ = getelementptr inbounds i8, ptr %this, i64 48
   invoke void @_ZN4base8internal8LockImplC1Ev(ptr noundef nonnull align 8 dereferenceable(40) %lock_)
           to label %invoke.cont unwind label %lpad
 
 invoke.cont:                                      ; preds = %entry
-  %final_delta_created_ = getelementptr inbounds %"class.base::SparseHistogram", ptr %this, i64 0, i32 2
+  %final_delta_created_ = getelementptr inbounds i8, ptr %this, i64 88
   store i8 0, ptr %final_delta_created_, align 8
-  %samples_ = getelementptr inbounds %"class.base::SparseHistogram", ptr %this, i64 0, i32 3
+  %samples_ = getelementptr inbounds i8, ptr %this, i64 96
   %call = invoke noalias noundef nonnull dereferenceable(88) ptr @_Znwm(i64 noundef 88) #11
           to label %invoke.cont3 unwind label %lpad2
 
@@ -1173,7 +1163,7 @@ invoke.cont3:                                     ; preds = %invoke.cont
 
 invoke.cont5:                                     ; preds = %invoke.cont3
   %0 = load ptr, ptr %agg.tmp, align 8
-  %1 = getelementptr inbounds { ptr, i64 }, ptr %agg.tmp, i64 0, i32 1
+  %1 = getelementptr inbounds i8, ptr %agg.tmp, i64 8
   %2 = load i64, ptr %1, align 8
   %call7 = invoke noundef i64 @_ZN4base14HashMetricNameENS_16BasicStringPieceINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEE(ptr %0, i64 %2)
           to label %invoke.cont6 unwind label %lpad4
@@ -1188,14 +1178,14 @@ invoke.cont8:                                     ; preds = %invoke.cont6
           to label %invoke.cont10 unwind label %ehcleanup.thread
 
 invoke.cont10:                                    ; preds = %invoke.cont8
-  %meta_.i = getelementptr inbounds %"class.base::HistogramSamples", ptr %call, i64 0, i32 2
+  %meta_.i = getelementptr inbounds i8, ptr %call, i64 32
   %3 = load ptr, ptr %meta_.i, align 8
   %4 = load i64, ptr %3, align 8
   invoke void @_ZN4base9SampleMapC1Em(ptr noundef nonnull align 8 dereferenceable(88) %call11, i64 noundef %4)
           to label %invoke.cont17 unwind label %ehcleanup
 
 invoke.cont17:                                    ; preds = %invoke.cont10
-  %logged_samples_ = getelementptr inbounds %"class.base::SparseHistogram", ptr %this, i64 0, i32 4
+  %logged_samples_ = getelementptr inbounds i8, ptr %this, i64 104
   store ptr %call11, ptr %logged_samples_, align 8
   ret void
 
@@ -1232,7 +1222,7 @@ _ZNKSt14default_deleteIN4base16HistogramSamplesEEclEPS1_.exit.i: ; preds = %ehcl
   %.pn7 = phi { ptr, i32 } [ %8, %ehcleanup.thread ], [ %9, %ehcleanup ]
   %10 = phi ptr [ %call, %ehcleanup.thread ], [ %.pr, %ehcleanup ]
   %vtable.i.i = load ptr, ptr %10, align 8
-  %vfn.i.i = getelementptr inbounds ptr, ptr %vtable.i.i, i64 1
+  %vfn.i.i = getelementptr inbounds i8, ptr %vtable.i.i, i64 8
   %11 = load ptr, ptr %vfn.i.i, align 8
   call void %11(ptr noundef nonnull align 8 dereferenceable(40) %10) #13
   br label %_ZNSt10unique_ptrIN4base16HistogramSamplesESt14default_deleteIS1_EED2Ev.exit
@@ -1263,14 +1253,14 @@ entry:
   %agg.tmp = alloca %"class.base::BasicStringPiece", align 8
   tail call void @_ZN4base13HistogramBaseC2ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(44) %this, ptr noundef nonnull align 8 dereferenceable(32) %name)
   store ptr getelementptr inbounds ({ [20 x ptr] }, ptr @_ZTVN4base15SparseHistogramE, i64 0, inrange i32 0, i64 2), ptr %this, align 8
-  %lock_ = getelementptr inbounds %"class.base::SparseHistogram", ptr %this, i64 0, i32 1
+  %lock_ = getelementptr inbounds i8, ptr %this, i64 48
   invoke void @_ZN4base8internal8LockImplC1Ev(ptr noundef nonnull align 8 dereferenceable(40) %lock_)
           to label %invoke.cont unwind label %lpad
 
 invoke.cont:                                      ; preds = %entry
-  %final_delta_created_ = getelementptr inbounds %"class.base::SparseHistogram", ptr %this, i64 0, i32 2
+  %final_delta_created_ = getelementptr inbounds i8, ptr %this, i64 88
   store i8 0, ptr %final_delta_created_, align 8
-  %samples_ = getelementptr inbounds %"class.base::SparseHistogram", ptr %this, i64 0, i32 3
+  %samples_ = getelementptr inbounds i8, ptr %this, i64 96
   %call = invoke noalias noundef nonnull dereferenceable(104) ptr @_Znwm(i64 noundef 104) #11
           to label %invoke.cont3 unwind label %lpad2
 
@@ -1280,7 +1270,7 @@ invoke.cont3:                                     ; preds = %invoke.cont
 
 invoke.cont5:                                     ; preds = %invoke.cont3
   %0 = load ptr, ptr %agg.tmp, align 8
-  %1 = getelementptr inbounds { ptr, i64 }, ptr %agg.tmp, i64 0, i32 1
+  %1 = getelementptr inbounds i8, ptr %agg.tmp, i64 8
   %2 = load i64, ptr %1, align 8
   %call7 = invoke noundef i64 @_ZN4base14HashMetricNameENS_16BasicStringPieceINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEE(ptr %0, i64 %2)
           to label %invoke.cont6 unwind label %lpad4
@@ -1295,7 +1285,7 @@ invoke.cont8:                                     ; preds = %invoke.cont6
           to label %invoke.cont10 unwind label %ehcleanup.thread
 
 invoke.cont10:                                    ; preds = %invoke.cont8
-  %meta_.i = getelementptr inbounds %"class.base::HistogramSamples", ptr %call, i64 0, i32 2
+  %meta_.i = getelementptr inbounds i8, ptr %call, i64 32
   %3 = load ptr, ptr %meta_.i, align 8
   %4 = load i64, ptr %3, align 8
   %add = add i64 %4, 1
@@ -1303,7 +1293,7 @@ invoke.cont10:                                    ; preds = %invoke.cont8
           to label %invoke.cont17 unwind label %ehcleanup
 
 invoke.cont17:                                    ; preds = %invoke.cont10
-  %logged_samples_ = getelementptr inbounds %"class.base::SparseHistogram", ptr %this, i64 0, i32 4
+  %logged_samples_ = getelementptr inbounds i8, ptr %this, i64 104
   store ptr %call11, ptr %logged_samples_, align 8
   ret void
 
@@ -1340,7 +1330,7 @@ _ZNKSt14default_deleteIN4base16HistogramSamplesEEclEPS1_.exit.i: ; preds = %ehcl
   %.pn8 = phi { ptr, i32 } [ %8, %ehcleanup.thread ], [ %9, %ehcleanup ]
   %10 = phi ptr [ %call, %ehcleanup.thread ], [ %.pr, %ehcleanup ]
   %vtable.i.i = load ptr, ptr %10, align 8
-  %vfn.i.i = getelementptr inbounds ptr, ptr %vtable.i.i, i64 1
+  %vfn.i.i = getelementptr inbounds i8, ptr %vtable.i.i, i64 8
   %11 = load ptr, ptr %vfn.i.i, align 8
   call void %11(ptr noundef nonnull align 8 dereferenceable(40) %10) #13
   br label %_ZNSt10unique_ptrIN4base16HistogramSamplesESt14default_deleteIS1_EED2Ev.exit
@@ -1423,10 +1413,10 @@ entry:
 ; Function Attrs: mustprogress uwtable
 define dso_local void @_ZNK4base15SparseHistogram16WriteAsciiHeaderEiPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(112) %this, i32 noundef %total_count, ptr noundef %output) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  %histogram_name_.i = getelementptr inbounds %"class.base::HistogramBase", ptr %this, i64 0, i32 1
+  %histogram_name_.i = getelementptr inbounds i8, ptr %this, i64 8
   %call2 = tail call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5c_strEv(ptr noundef nonnull align 8 dereferenceable(32) %histogram_name_.i) #13
   tail call void (ptr, ptr, ...) @_ZN4base13StringAppendFEPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPKcz(ptr noundef %output, ptr noundef nonnull @.str.5, ptr noundef %call2, i32 noundef %total_count)
-  %flags_.i = getelementptr inbounds %"class.base::HistogramBase", ptr %this, i64 0, i32 2
+  %flags_.i = getelementptr inbounds i8, ptr %this, i64 40
   %0 = load atomic volatile i32, ptr %flags_.i monotonic, align 8
   %and = and i32 %0, -32769
   %tobool.not = icmp eq i32 %and, 0

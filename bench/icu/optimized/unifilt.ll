@@ -93,11 +93,11 @@ entry:
 
 land.lhs.true:                                    ; preds = %entry
   %vtable.i = load ptr, ptr %text, align 8
-  %vfn.i = getelementptr inbounds ptr, ptr %vtable.i, i64 10
+  %vfn.i = getelementptr inbounds i8, ptr %vtable.i, i64 80
   %1 = load ptr, ptr %vfn.i, align 8
   %call.i = tail call noundef i32 %1(ptr noundef nonnull align 8 dereferenceable(8) %text, i32 noundef %0)
   %vtable = load ptr, ptr %this, align 8
-  %vfn = getelementptr inbounds ptr, ptr %vtable, i64 7
+  %vfn = getelementptr inbounds i8, ptr %vtable, i64 56
   %2 = load ptr, ptr %vfn, align 8
   %call2 = tail call noundef signext i8 %2(ptr noundef nonnull align 8 dereferenceable(16) %this, i32 noundef %call.i)
   %tobool.not = icmp eq i8 %call2, 0
@@ -118,11 +118,11 @@ if.end:                                           ; preds = %land.lhs.true, %ent
 
 land.lhs.true5:                                   ; preds = %if.end
   %vtable.i15 = load ptr, ptr %text, align 8
-  %vfn.i16 = getelementptr inbounds ptr, ptr %vtable.i15, i64 10
+  %vfn.i16 = getelementptr inbounds i8, ptr %vtable.i15, i64 80
   %4 = load ptr, ptr %vfn.i16, align 8
   %call.i17 = tail call noundef i32 %4(ptr noundef nonnull align 8 dereferenceable(8) %text, i32 noundef %3)
   %vtable7 = load ptr, ptr %this, align 8
-  %vfn8 = getelementptr inbounds ptr, ptr %vtable7, i64 7
+  %vfn8 = getelementptr inbounds i8, ptr %vtable7, i64 56
   %5 = load ptr, ptr %vfn8, align 8
   %call9 = tail call noundef signext i8 %5(ptr noundef nonnull align 8 dereferenceable(16) %this, i32 noundef %call.i17)
   %tobool10.not = icmp eq i8 %call9, 0
@@ -137,7 +137,7 @@ if.then11:                                        ; preds = %land.lhs.true5
 
 if.then13:                                        ; preds = %if.then11
   %vtable.i18 = load ptr, ptr %text, align 8
-  %vfn.i19 = getelementptr inbounds ptr, ptr %vtable.i18, i64 10
+  %vfn.i19 = getelementptr inbounds i8, ptr %vtable.i18, i64 80
   %6 = load ptr, ptr %vfn.i19, align 8
   %call.i20 = tail call noundef i32 %6(ptr noundef nonnull align 8 dereferenceable(8) %text, i32 noundef %dec)
   %cmp15 = icmp ugt i32 %call.i20, 65535
@@ -170,11 +170,11 @@ entry:
 
 land.lhs.true.i:                                  ; preds = %entry
   %vtable.i.i = load ptr, ptr %text, align 8
-  %vfn.i.i = getelementptr inbounds ptr, ptr %vtable.i.i, i64 10
+  %vfn.i.i = getelementptr inbounds i8, ptr %vtable.i.i, i64 80
   %2 = load ptr, ptr %vfn.i.i, align 8
   %call.i.i = tail call noundef i32 %2(ptr noundef nonnull align 8 dereferenceable(8) %text, i32 noundef %1)
   %vtable.i = load ptr, ptr %0, align 8
-  %vfn.i = getelementptr inbounds ptr, ptr %vtable.i, i64 7
+  %vfn.i = getelementptr inbounds i8, ptr %vtable.i, i64 56
   %3 = load ptr, ptr %vfn.i, align 8
   %call2.i = tail call noundef signext i8 %3(ptr noundef nonnull align 8 dereferenceable(16) %0, i32 noundef %call.i.i)
   %tobool.not.i = icmp eq i8 %call2.i, 0
@@ -195,11 +195,11 @@ if.end.i:                                         ; preds = %land.lhs.true.i, %e
 
 land.lhs.true5.i:                                 ; preds = %if.end.i
   %vtable.i15.i = load ptr, ptr %text, align 8
-  %vfn.i16.i = getelementptr inbounds ptr, ptr %vtable.i15.i, i64 10
+  %vfn.i16.i = getelementptr inbounds i8, ptr %vtable.i15.i, i64 80
   %5 = load ptr, ptr %vfn.i16.i, align 8
   %call.i17.i = tail call noundef i32 %5(ptr noundef nonnull align 8 dereferenceable(8) %text, i32 noundef %4)
   %vtable7.i = load ptr, ptr %0, align 8
-  %vfn8.i = getelementptr inbounds ptr, ptr %vtable7.i, i64 7
+  %vfn8.i = getelementptr inbounds i8, ptr %vtable7.i, i64 56
   %6 = load ptr, ptr %vfn8.i, align 8
   %call9.i = tail call noundef signext i8 %6(ptr noundef nonnull align 8 dereferenceable(16) %0, i32 noundef %call.i17.i)
   %tobool10.not.i = icmp eq i8 %call9.i, 0
@@ -214,7 +214,7 @@ if.then11.i:                                      ; preds = %land.lhs.true5.i
 
 if.then13.i:                                      ; preds = %if.then11.i
   %vtable.i18.i = load ptr, ptr %text, align 8
-  %vfn.i19.i = getelementptr inbounds ptr, ptr %vtable.i18.i, i64 10
+  %vfn.i19.i = getelementptr inbounds i8, ptr %vtable.i18.i, i64 80
   %7 = load ptr, ptr %vfn.i19.i, align 8
   %call.i20.i = tail call noundef i32 %7(ptr noundef nonnull align 8 dereferenceable(8) %text, i32 noundef %dec.i)
   %cmp15.i = icmp ugt i32 %call.i20.i, 65535

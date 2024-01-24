@@ -5,8 +5,6 @@ target triple = "x86_64-unknown-linux-gnu"
 
 %class.btVector3 = type { [4 x float] }
 %"struct.btGjkEpaSolver2::sResults" = type { i32, [2 x %class.btVector3], %class.btVector3, float }
-%class.btTransform = type { %class.btMatrix3x3, %class.btVector3 }
-%class.btMatrix3x3 = type { [3 x %class.btVector3] }
 
 $_ZN30btGjkEpaPenetrationDepthSolverD2Ev = comdat any
 
@@ -31,14 +29,14 @@ entry:
   %guessVectors = alloca [9 x %class.btVector3], align 16
   %guessVector = alloca %class.btVector3, align 4
   %results = alloca %"struct.btGjkEpaSolver2::sResults", align 4
-  %m_origin.i = getelementptr inbounds %class.btTransform, ptr %transformB, i64 0, i32 1
-  %m_origin.i17 = getelementptr inbounds %class.btTransform, ptr %transformA, i64 0, i32 1
+  %m_origin.i = getelementptr inbounds i8, ptr %transformB, i64 48
+  %m_origin.i17 = getelementptr inbounds i8, ptr %transformA, i64 48
   %0 = load <2 x float>, ptr %m_origin.i, align 4
   %1 = load <2 x float>, ptr %m_origin.i17, align 4
   %2 = fsub <2 x float> %0, %1
-  %arrayidx11.i = getelementptr inbounds %class.btTransform, ptr %transformB, i64 0, i32 1, i32 0, i64 2
+  %arrayidx11.i = getelementptr inbounds i8, ptr %transformB, i64 56
   %3 = load float, ptr %arrayidx11.i, align 4
-  %arrayidx13.i = getelementptr inbounds %class.btTransform, ptr %transformA, i64 0, i32 1, i32 0, i64 2
+  %arrayidx13.i = getelementptr inbounds i8, ptr %transformA, i64 56
   %4 = load float, ptr %arrayidx13.i, align 4
   %sub14.i = fsub float %3, %4
   %retval.sroa.3.12.vec.insert.i = insertelement <2 x float> <float poison, float 0.000000e+00>, float %sub14.i, i64 0
@@ -71,7 +69,7 @@ _ZN9btVector313safeNormalizeEv.exit:              ; preds = %if.then.i, %if.else
   store <2 x float> %12, ptr %guessVectors, align 16
   %ref.tmp.sroa.6.0.guessVectors.sroa_idx = getelementptr inbounds i8, ptr %guessVectors, i64 8
   store <2 x float> %ref.tmp.sroa.6.8.vec.insert, ptr %ref.tmp.sroa.6.0.guessVectors.sroa_idx, align 8
-  %arrayinit.element = getelementptr inbounds %class.btVector3, ptr %guessVectors, i64 1
+  %arrayinit.element = getelementptr inbounds i8, ptr %guessVectors, i64 16
   %13 = fsub <2 x float> %1, %0
   %sub14.i26 = fsub float %4, %3
   %retval.sroa.3.12.vec.insert.i29 = insertelement <2 x float> <float poison, float 0.000000e+00>, float %sub14.i26, i64 0
@@ -102,21 +100,21 @@ _ZN9btVector313safeNormalizeEv.exit47:            ; preds = %if.then.i36, %if.el
   %21 = phi <2 x float> [ <float 1.000000e+00, float 0.000000e+00>, %if.else.i45 ], [ %20, %if.then.i36 ]
   %ref.tmp5.sroa.6.8.vec.insert = insertelement <2 x float> %ref.tmp5.sroa.6.0, float %mul7.i.i.sink.i44, i64 0
   store <2 x float> %21, ptr %arrayinit.element, align 16
-  %ref.tmp5.sroa.6.0.arrayinit.element.sroa_idx = getelementptr inbounds %class.btVector3, ptr %guessVectors, i64 1, i32 0, i64 2
+  %ref.tmp5.sroa.6.0.arrayinit.element.sroa_idx = getelementptr inbounds i8, ptr %guessVectors, i64 24
   store <2 x float> %ref.tmp5.sroa.6.8.vec.insert, ptr %ref.tmp5.sroa.6.0.arrayinit.element.sroa_idx, align 8
-  %arrayinit.element11 = getelementptr inbounds %class.btVector3, ptr %guessVectors, i64 2
+  %arrayinit.element11 = getelementptr inbounds i8, ptr %guessVectors, i64 32
   store <4 x float> <float 0.000000e+00, float 0.000000e+00, float 1.000000e+00, float 0.000000e+00>, ptr %arrayinit.element11, align 16
-  %arrayinit.element15 = getelementptr inbounds %class.btVector3, ptr %guessVectors, i64 3
+  %arrayinit.element15 = getelementptr inbounds i8, ptr %guessVectors, i64 48
   store <4 x float> <float 0.000000e+00, float 1.000000e+00, float 0.000000e+00, float 0.000000e+00>, ptr %arrayinit.element15, align 16
-  %arrayinit.element19 = getelementptr inbounds %class.btVector3, ptr %guessVectors, i64 4
+  %arrayinit.element19 = getelementptr inbounds i8, ptr %guessVectors, i64 64
   store <4 x float> <float 1.000000e+00, float 0.000000e+00, float 0.000000e+00, float 0.000000e+00>, ptr %arrayinit.element19, align 16
-  %arrayinit.element23 = getelementptr inbounds %class.btVector3, ptr %guessVectors, i64 5
+  %arrayinit.element23 = getelementptr inbounds i8, ptr %guessVectors, i64 80
   store <4 x float> <float 1.000000e+00, float 1.000000e+00, float 0.000000e+00, float 0.000000e+00>, ptr %arrayinit.element23, align 16
-  %arrayinit.element27 = getelementptr inbounds %class.btVector3, ptr %guessVectors, i64 6
+  %arrayinit.element27 = getelementptr inbounds i8, ptr %guessVectors, i64 96
   store <4 x float> <float 1.000000e+00, float 1.000000e+00, float 1.000000e+00, float 0.000000e+00>, ptr %arrayinit.element27, align 16
-  %arrayinit.element31 = getelementptr inbounds %class.btVector3, ptr %guessVectors, i64 7
+  %arrayinit.element31 = getelementptr inbounds i8, ptr %guessVectors, i64 112
   store <4 x float> <float 0.000000e+00, float 1.000000e+00, float 1.000000e+00, float 0.000000e+00>, ptr %arrayinit.element31, align 16
-  %arrayinit.element35 = getelementptr inbounds %class.btVector3, ptr %guessVectors, i64 8
+  %arrayinit.element35 = getelementptr inbounds i8, ptr %guessVectors, i64 128
   store <4 x float> <float 1.000000e+00, float 0.000000e+00, float 1.000000e+00, float 0.000000e+00>, ptr %arrayinit.element35, align 16
   br label %for.body
 
@@ -134,11 +132,11 @@ for.body:                                         ; preds = %_ZN9btVector313safe
   br i1 %call39, label %if.then, label %if.else
 
 if.then:                                          ; preds = %for.body
-  %witnesses = getelementptr inbounds %"struct.btGjkEpaSolver2::sResults", ptr %results, i64 0, i32 1
+  %witnesses = getelementptr inbounds i8, ptr %results, i64 4
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %wWitnessOnA, ptr noundef nonnull align 4 dereferenceable(16) %witnesses, i64 16, i1 false)
-  %arrayidx42 = getelementptr inbounds %"struct.btGjkEpaSolver2::sResults", ptr %results, i64 0, i32 1, i64 1
+  %arrayidx42 = getelementptr inbounds i8, ptr %results, i64 20
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %wWitnessOnB, ptr noundef nonnull align 4 dereferenceable(16) %arrayidx42, i64 16, i1 false)
-  %normal = getelementptr inbounds %"struct.btGjkEpaSolver2::sResults", ptr %results, i64 0, i32 2
+  %normal = getelementptr inbounds i8, ptr %results, i64 36
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %v, ptr noundef nonnull align 4 dereferenceable(16) %normal, i64 16, i1 false)
   br label %return
 
@@ -147,11 +145,11 @@ if.else:                                          ; preds = %for.body
   br i1 %call43, label %if.then44, label %for.cond
 
 if.then44:                                        ; preds = %if.else
-  %witnesses45 = getelementptr inbounds %"struct.btGjkEpaSolver2::sResults", ptr %results, i64 0, i32 1
+  %witnesses45 = getelementptr inbounds i8, ptr %results, i64 4
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %wWitnessOnA, ptr noundef nonnull align 4 dereferenceable(16) %witnesses45, i64 16, i1 false)
-  %arrayidx48 = getelementptr inbounds %"struct.btGjkEpaSolver2::sResults", ptr %results, i64 0, i32 1, i64 1
+  %arrayidx48 = getelementptr inbounds i8, ptr %results, i64 20
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %wWitnessOnB, ptr noundef nonnull align 4 dereferenceable(16) %arrayidx48, i64 16, i1 false)
-  %normal49 = getelementptr inbounds %"struct.btGjkEpaSolver2::sResults", ptr %results, i64 0, i32 2
+  %normal49 = getelementptr inbounds i8, ptr %results, i64 36
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %v, ptr noundef nonnull align 4 dereferenceable(16) %normal49, i64 16, i1 false)
   br label %return
 

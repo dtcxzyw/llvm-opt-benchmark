@@ -3,22 +3,18 @@ source_filename = "bench/cpython/original/hashtable.ll"
 target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:128-n8:16:32:64-S128"
 target triple = "x86_64-unknown-linux-gnu"
 
-%struct._Py_hashtable_t = type { i64, i64, ptr, ptr, ptr, ptr, ptr, ptr, %struct._Py_hashtable_allocator_t }
-%struct._Py_hashtable_allocator_t = type { ptr, ptr }
 %struct._Py_slist_t = type { ptr }
-%struct._Py_hashtable_entry_t = type { %struct._Py_slist_item_s, i64, ptr, ptr }
-%struct._Py_slist_item_s = type { ptr }
 
-; Function Attrs: mustprogress nofree nosync nounwind willreturn memory(none) uwtable
-define dso_local i64 @_Py_hashtable_hash_ptr(ptr noundef %key) #0 {
+; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
+define dso_local noundef i64 @_Py_hashtable_hash_ptr(ptr noundef %key) #0 {
 entry:
   %0 = ptrtoint ptr %key to i64
-  %or.i = tail call i64 @llvm.fshl.i64(i64 %0, i64 %0, i64 60)
+  %or.i = tail call noundef i64 @llvm.fshl.i64(i64 %0, i64 %0, i64 60)
   ret i64 %or.i
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define dso_local i32 @_Py_hashtable_compare_direct(ptr noundef readnone %key1, ptr noundef readnone %key2) #1 {
+define dso_local noundef i32 @_Py_hashtable_compare_direct(ptr noundef readnone %key1, ptr noundef readnone %key2) #0 {
 entry:
   %cmp = icmp eq ptr %key1, %key2
   %conv = zext i1 %cmp to i32
@@ -26,9 +22,9 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define dso_local i64 @_Py_hashtable_size(ptr nocapture noundef readonly %ht) local_unnamed_addr #2 {
+define dso_local i64 @_Py_hashtable_size(ptr nocapture noundef readonly %ht) local_unnamed_addr #1 {
 entry:
-  %nbuckets = getelementptr inbounds %struct._Py_hashtable_t, ptr %ht, i64 0, i32 1
+  %nbuckets = getelementptr inbounds i8, ptr %ht, i64 8
   %0 = load i64, ptr %nbuckets, align 8
   %mul = shl i64 %0, 3
   %add = add i64 %mul, 80
@@ -39,42 +35,42 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define dso_local i64 @_Py_hashtable_len(ptr nocapture noundef readonly %ht) local_unnamed_addr #2 {
+define dso_local i64 @_Py_hashtable_len(ptr nocapture noundef readonly %ht) local_unnamed_addr #1 {
 entry:
   %0 = load i64, ptr %ht, align 8
   ret i64 %0
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden ptr @_Py_hashtable_get_entry_generic(ptr nocapture noundef readonly %ht, ptr noundef %key) #3 {
+define hidden ptr @_Py_hashtable_get_entry_generic(ptr nocapture noundef readonly %ht, ptr noundef %key) #2 {
 entry:
-  %hash_func = getelementptr inbounds %struct._Py_hashtable_t, ptr %ht, i64 0, i32 4
+  %hash_func = getelementptr inbounds i8, ptr %ht, i64 32
   %0 = load ptr, ptr %hash_func, align 8
-  %call = tail call i64 %0(ptr noundef %key) #8
-  %nbuckets = getelementptr inbounds %struct._Py_hashtable_t, ptr %ht, i64 0, i32 1
+  %call = tail call i64 %0(ptr noundef %key) #7
+  %nbuckets = getelementptr inbounds i8, ptr %ht, i64 8
   %1 = load i64, ptr %nbuckets, align 8
   %sub = add i64 %1, -1
   %and = and i64 %sub, %call
-  %buckets = getelementptr inbounds %struct._Py_hashtable_t, ptr %ht, i64 0, i32 2
+  %buckets = getelementptr inbounds i8, ptr %ht, i64 16
   %2 = load ptr, ptr %buckets, align 8
   %arrayidx = getelementptr %struct._Py_slist_t, ptr %2, i64 %and
-  %compare_func = getelementptr inbounds %struct._Py_hashtable_t, ptr %ht, i64 0, i32 5
+  %compare_func = getelementptr inbounds i8, ptr %ht, i64 40
   %entry1.010 = load ptr, ptr %arrayidx, align 8
   %cmp11 = icmp eq ptr %entry1.010, null
   br i1 %cmp11, label %return, label %if.end
 
 if.end:                                           ; preds = %entry, %if.end7
   %entry1.012 = phi ptr [ %entry1.0, %if.end7 ], [ %entry1.010, %entry ]
-  %key_hash2 = getelementptr inbounds %struct._Py_hashtable_entry_t, ptr %entry1.012, i64 0, i32 1
+  %key_hash2 = getelementptr inbounds i8, ptr %entry1.012, i64 8
   %3 = load i64, ptr %key_hash2, align 8
   %cmp3 = icmp eq i64 %3, %call
   br i1 %cmp3, label %land.lhs.true, label %if.end7
 
 land.lhs.true:                                    ; preds = %if.end
   %4 = load ptr, ptr %compare_func, align 8
-  %key4 = getelementptr inbounds %struct._Py_hashtable_entry_t, ptr %entry1.012, i64 0, i32 2
+  %key4 = getelementptr inbounds i8, ptr %entry1.012, i64 16
   %5 = load ptr, ptr %key4, align 8
-  %call5 = tail call i32 %4(ptr noundef %key, ptr noundef %5) #8
+  %call5 = tail call i32 %4(ptr noundef %key, ptr noundef %5) #7
   %tobool.not = icmp eq i32 %call5, 0
   br i1 %tobool.not, label %if.end7, label %return
 
@@ -89,16 +85,16 @@ return:                                           ; preds = %if.end7, %land.lhs.
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local ptr @_Py_hashtable_steal(ptr nocapture noundef %ht, ptr noundef %key) local_unnamed_addr #3 {
+define dso_local ptr @_Py_hashtable_steal(ptr nocapture noundef %ht, ptr noundef %key) local_unnamed_addr #2 {
 entry:
-  %hash_func = getelementptr inbounds %struct._Py_hashtable_t, ptr %ht, i64 0, i32 4
+  %hash_func = getelementptr inbounds i8, ptr %ht, i64 32
   %0 = load ptr, ptr %hash_func, align 8
-  %call = tail call i64 %0(ptr noundef %key) #8
-  %nbuckets = getelementptr inbounds %struct._Py_hashtable_t, ptr %ht, i64 0, i32 1
+  %call = tail call i64 %0(ptr noundef %key) #7
+  %nbuckets = getelementptr inbounds i8, ptr %ht, i64 8
   %1 = load i64, ptr %nbuckets, align 8
   %sub = add i64 %1, -1
   %and = and i64 %sub, %call
-  %buckets = getelementptr inbounds %struct._Py_hashtable_t, ptr %ht, i64 0, i32 2
+  %buckets = getelementptr inbounds i8, ptr %ht, i64 16
   %2 = load ptr, ptr %buckets, align 8
   %arrayidx = getelementptr %struct._Py_slist_t, ptr %2, i64 %and
   %entry1.022 = load ptr, ptr %arrayidx, align 8
@@ -106,22 +102,22 @@ entry:
   br i1 %cmp23, label %return, label %if.end.lr.ph
 
 if.end.lr.ph:                                     ; preds = %entry
-  %compare_func = getelementptr inbounds %struct._Py_hashtable_t, ptr %ht, i64 0, i32 5
+  %compare_func = getelementptr inbounds i8, ptr %ht, i64 40
   br label %if.end
 
 if.end:                                           ; preds = %if.end.lr.ph, %if.end7
   %entry1.025 = phi ptr [ %entry1.022, %if.end.lr.ph ], [ %entry1.0, %if.end7 ]
   %previous.024 = phi ptr [ null, %if.end.lr.ph ], [ %entry1.025, %if.end7 ]
-  %key_hash2 = getelementptr inbounds %struct._Py_hashtable_entry_t, ptr %entry1.025, i64 0, i32 1
+  %key_hash2 = getelementptr inbounds i8, ptr %entry1.025, i64 8
   %3 = load i64, ptr %key_hash2, align 8
   %cmp3 = icmp eq i64 %3, %call
   br i1 %cmp3, label %land.lhs.true, label %if.end7
 
 land.lhs.true:                                    ; preds = %if.end
   %4 = load ptr, ptr %compare_func, align 8
-  %key4 = getelementptr inbounds %struct._Py_hashtable_entry_t, ptr %entry1.025, i64 0, i32 2
+  %key4 = getelementptr inbounds i8, ptr %entry1.025, i64 16
   %5 = load ptr, ptr %key4, align 8
-  %call5 = tail call i32 %4(ptr noundef %key, ptr noundef %5) #8
+  %call5 = tail call i32 %4(ptr noundef %key, ptr noundef %5) #7
   %tobool.not = icmp eq i32 %call5, 0
   br i1 %tobool.not, label %if.end7, label %while.end
 
@@ -140,11 +136,11 @@ while.end:                                        ; preds = %land.lhs.true
   %8 = load i64, ptr %ht, align 8
   %dec = add i64 %8, -1
   store i64 %dec, ptr %ht, align 8
-  %value10 = getelementptr inbounds %struct._Py_hashtable_entry_t, ptr %entry1.025, i64 0, i32 3
+  %value10 = getelementptr inbounds i8, ptr %entry1.025, i64 24
   %9 = load ptr, ptr %value10, align 8
-  %free = getelementptr inbounds %struct._Py_hashtable_t, ptr %ht, i64 0, i32 8, i32 1
+  %free = getelementptr inbounds i8, ptr %ht, i64 72
   %10 = load ptr, ptr %free, align 8
-  tail call void %10(ptr noundef nonnull %entry1.025) #8
+  tail call void %10(ptr noundef nonnull %entry1.025) #7
   %11 = load i64, ptr %ht, align 8
   %conv = uitofp i64 %11 to float
   %12 = load i64, ptr %nbuckets, align 8
@@ -175,9 +171,9 @@ round_size.exit.i:                                ; preds = %while.cond.i.i, %if
 
 if.end.i:                                         ; preds = %round_size.exit.i
   %mul3.i = shl i64 %retval.0.i.i, 3
-  %alloc.i = getelementptr inbounds %struct._Py_hashtable_t, ptr %ht, i64 0, i32 8
+  %alloc.i = getelementptr inbounds i8, ptr %ht, i64 64
   %13 = load ptr, ptr %alloc.i, align 8
-  %call4.i = tail call ptr %13(i64 noundef %mul3.i) #8
+  %call4.i = tail call ptr %13(i64 noundef %mul3.i) #7
   %cmp5.i = icmp eq ptr %call4.i, null
   br i1 %cmp5.i, label %return, label %if.end8.i
 
@@ -203,7 +199,7 @@ for.body.i:                                       ; preds = %for.inc.i, %for.bod
 while.body.i:                                     ; preds = %for.body.i, %while.body.i
   %entry12.022.i = phi ptr [ %18, %while.body.i ], [ %17, %for.body.i ]
   %18 = load ptr, ptr %entry12.022.i, align 8
-  %key_hash.i = getelementptr inbounds %struct._Py_hashtable_entry_t, ptr %entry12.022.i, i64 0, i32 1
+  %key_hash.i = getelementptr inbounds i8, ptr %entry12.022.i, i64 8
   %19 = load i64, ptr %key_hash.i, align 8
   %and.i = and i64 %19, %sub.i
   %arrayidx16.i = getelementptr %struct._Py_slist_t, ptr %call4.i, i64 %and.i
@@ -226,7 +222,7 @@ for.inc.i:                                        ; preds = %for.inc.loopexit.i,
 for.end.i:                                        ; preds = %for.inc.i, %if.end8.i
   %22 = load ptr, ptr %free, align 8
   %23 = load ptr, ptr %buckets, align 8
-  tail call void %22(ptr noundef %23) #8
+  tail call void %22(ptr noundef %23) #7
   store i64 %retval.0.i.i, ptr %nbuckets, align 8
   store ptr %call4.i, ptr %buckets, align 8
   br label %return
@@ -237,29 +233,29 @@ return:                                           ; preds = %if.end7, %entry, %f
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local i32 @_Py_hashtable_set(ptr nocapture noundef %ht, ptr noundef %key, ptr noundef %value) local_unnamed_addr #3 {
+define dso_local noundef i32 @_Py_hashtable_set(ptr nocapture noundef %ht, ptr noundef %key, ptr noundef %value) local_unnamed_addr #2 {
 entry:
-  %alloc = getelementptr inbounds %struct._Py_hashtable_t, ptr %ht, i64 0, i32 8
+  %alloc = getelementptr inbounds i8, ptr %ht, i64 64
   %0 = load ptr, ptr %alloc, align 8
-  %call = tail call ptr %0(i64 noundef 32) #8
+  %call = tail call ptr %0(i64 noundef 32) #7
   %cmp = icmp eq ptr %call, null
   br i1 %cmp, label %return, label %if.end
 
 if.end:                                           ; preds = %entry
-  %hash_func = getelementptr inbounds %struct._Py_hashtable_t, ptr %ht, i64 0, i32 4
+  %hash_func = getelementptr inbounds i8, ptr %ht, i64 32
   %1 = load ptr, ptr %hash_func, align 8
-  %call2 = tail call i64 %1(ptr noundef %key) #8
-  %key_hash = getelementptr inbounds %struct._Py_hashtable_entry_t, ptr %call, i64 0, i32 1
+  %call2 = tail call i64 %1(ptr noundef %key) #7
+  %key_hash = getelementptr inbounds i8, ptr %call, i64 8
   store i64 %call2, ptr %key_hash, align 8
-  %key3 = getelementptr inbounds %struct._Py_hashtable_entry_t, ptr %call, i64 0, i32 2
+  %key3 = getelementptr inbounds i8, ptr %call, i64 16
   store ptr %key, ptr %key3, align 8
-  %value4 = getelementptr inbounds %struct._Py_hashtable_entry_t, ptr %call, i64 0, i32 3
+  %value4 = getelementptr inbounds i8, ptr %call, i64 24
   store ptr %value, ptr %value4, align 8
   %2 = load i64, ptr %ht, align 8
   %inc = add i64 %2, 1
   store i64 %inc, ptr %ht, align 8
   %conv = uitofp i64 %inc to float
-  %nbuckets = getelementptr inbounds %struct._Py_hashtable_t, ptr %ht, i64 0, i32 1
+  %nbuckets = getelementptr inbounds i8, ptr %ht, i64 8
   %3 = load i64, ptr %nbuckets, align 8
   %conv6 = uitofp i64 %3 to float
   %div = fdiv float %conv, %conv6
@@ -288,7 +284,7 @@ round_size.exit.i:                                ; preds = %while.cond.i.i, %if
 if.end.i:                                         ; preds = %round_size.exit.i
   %mul3.i = shl i64 %retval.0.i.i, 3
   %4 = load ptr, ptr %alloc, align 8
-  %call4.i = tail call ptr %4(i64 noundef %mul3.i) #8
+  %call4.i = tail call ptr %4(i64 noundef %mul3.i) #7
   %cmp5.i = icmp eq ptr %call4.i, null
   br i1 %cmp5.i, label %if.then14, label %if.end8.i
 
@@ -299,7 +295,7 @@ if.end8.i:                                        ; preds = %if.end.i
   br i1 %cmp1023.not.i, label %for.end.i, label %for.body.lr.ph.i
 
 for.body.lr.ph.i:                                 ; preds = %if.end8.i
-  %buckets.i = getelementptr inbounds %struct._Py_hashtable_t, ptr %ht, i64 0, i32 2
+  %buckets.i = getelementptr inbounds i8, ptr %ht, i64 16
   %sub.i = add i64 %retval.0.i.i, -1
   br label %for.body.i
 
@@ -315,7 +311,7 @@ for.body.i:                                       ; preds = %for.inc.i, %for.bod
 while.body.i:                                     ; preds = %for.body.i, %while.body.i
   %entry12.022.i = phi ptr [ %9, %while.body.i ], [ %8, %for.body.i ]
   %9 = load ptr, ptr %entry12.022.i, align 8
-  %key_hash.i = getelementptr inbounds %struct._Py_hashtable_entry_t, ptr %entry12.022.i, i64 0, i32 1
+  %key_hash.i = getelementptr inbounds i8, ptr %entry12.022.i, i64 8
   %10 = load i64, ptr %key_hash.i, align 8
   %and.i = and i64 %10, %sub.i
   %arrayidx16.i = getelementptr %struct._Py_slist_t, ptr %call4.i, i64 %and.i
@@ -336,11 +332,11 @@ for.inc.i:                                        ; preds = %for.inc.loopexit.i,
   br i1 %cmp10.i, label %for.body.i, label %for.end.i, !llvm.loop !8
 
 for.end.i:                                        ; preds = %for.inc.i, %if.end8.i
-  %free.i = getelementptr inbounds %struct._Py_hashtable_t, ptr %ht, i64 0, i32 8, i32 1
+  %free.i = getelementptr inbounds i8, ptr %ht, i64 72
   %13 = load ptr, ptr %free.i, align 8
-  %buckets18.i = getelementptr inbounds %struct._Py_hashtable_t, ptr %ht, i64 0, i32 2
+  %buckets18.i = getelementptr inbounds i8, ptr %ht, i64 16
   %14 = load ptr, ptr %buckets18.i, align 8
-  tail call void %13(ptr noundef %14) #8
+  tail call void %13(ptr noundef %14) #7
   store i64 %retval.0.i.i, ptr %nbuckets, align 8
   store ptr %call4.i, ptr %buckets18.i, align 8
   br label %if.end18
@@ -349,9 +345,9 @@ if.then14:                                        ; preds = %if.end.i
   %15 = load i64, ptr %ht, align 8
   %dec = add i64 %15, -1
   store i64 %dec, ptr %ht, align 8
-  %free = getelementptr inbounds %struct._Py_hashtable_t, ptr %ht, i64 0, i32 8, i32 1
+  %free = getelementptr inbounds i8, ptr %ht, i64 72
   %16 = load ptr, ptr %free, align 8
-  tail call void %16(ptr noundef nonnull %call) #8
+  tail call void %16(ptr noundef nonnull %call) #7
   br label %return
 
 if.end18:                                         ; preds = %round_size.exit.i, %for.end.i, %if.end
@@ -359,7 +355,7 @@ if.end18:                                         ; preds = %round_size.exit.i, 
   %18 = load i64, ptr %key_hash, align 8
   %sub = add i64 %17, -1
   %and = and i64 %sub, %18
-  %buckets = getelementptr inbounds %struct._Py_hashtable_t, ptr %ht, i64 0, i32 2
+  %buckets = getelementptr inbounds i8, ptr %ht, i64 16
   %19 = load ptr, ptr %buckets, align 8
   %arrayidx = getelementptr %struct._Py_slist_t, ptr %19, i64 %and
   %20 = load ptr, ptr %arrayidx, align 8
@@ -373,16 +369,16 @@ return:                                           ; preds = %entry, %if.end18, %
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local ptr @_Py_hashtable_get(ptr noundef %ht, ptr noundef %key) local_unnamed_addr #3 {
+define dso_local ptr @_Py_hashtable_get(ptr noundef %ht, ptr noundef %key) local_unnamed_addr #2 {
 entry:
-  %get_entry_func = getelementptr inbounds %struct._Py_hashtable_t, ptr %ht, i64 0, i32 3
+  %get_entry_func = getelementptr inbounds i8, ptr %ht, i64 24
   %0 = load ptr, ptr %get_entry_func, align 8
-  %call = tail call ptr %0(ptr noundef %ht, ptr noundef %key) #8
+  %call = tail call ptr %0(ptr noundef %ht, ptr noundef %key) #7
   %cmp.not = icmp eq ptr %call, null
   br i1 %cmp.not, label %return, label %if.then
 
 if.then:                                          ; preds = %entry
-  %value = getelementptr inbounds %struct._Py_hashtable_entry_t, ptr %call, i64 0, i32 3
+  %value = getelementptr inbounds i8, ptr %call, i64 24
   %1 = load ptr, ptr %value, align 8
   br label %return
 
@@ -392,15 +388,15 @@ return:                                           ; preds = %entry, %if.then
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local i32 @_Py_hashtable_foreach(ptr noundef %ht, ptr nocapture noundef readonly %func, ptr noundef %user_data) local_unnamed_addr #3 {
+define dso_local i32 @_Py_hashtable_foreach(ptr noundef %ht, ptr nocapture noundef readonly %func, ptr noundef %user_data) local_unnamed_addr #2 {
 entry:
-  %nbuckets = getelementptr inbounds %struct._Py_hashtable_t, ptr %ht, i64 0, i32 1
+  %nbuckets = getelementptr inbounds i8, ptr %ht, i64 8
   %0 = load i64, ptr %nbuckets, align 8
   %cmp10.not = icmp eq i64 %0, 0
   br i1 %cmp10.not, label %return, label %for.body.lr.ph
 
 for.body.lr.ph:                                   ; preds = %entry
-  %buckets = getelementptr inbounds %struct._Py_hashtable_t, ptr %ht, i64 0, i32 2
+  %buckets = getelementptr inbounds i8, ptr %ht, i64 16
   br label %for.body
 
 for.body:                                         ; preds = %for.body.lr.ph, %for.inc
@@ -416,11 +412,11 @@ while.cond:                                       ; preds = %while.body, %for.bo
   br i1 %cmp2.not, label %for.inc, label %while.body
 
 while.body:                                       ; preds = %while.cond
-  %key = getelementptr inbounds %struct._Py_hashtable_entry_t, ptr %entry1.0, i64 0, i32 2
+  %key = getelementptr inbounds i8, ptr %entry1.0, i64 16
   %2 = load ptr, ptr %key, align 8
-  %value = getelementptr inbounds %struct._Py_hashtable_entry_t, ptr %entry1.0, i64 0, i32 3
+  %value = getelementptr inbounds i8, ptr %entry1.0, i64 24
   %3 = load ptr, ptr %value, align 8
-  %call = tail call i32 %func(ptr noundef %ht, ptr noundef %2, ptr noundef %3, ptr noundef %user_data) #8
+  %call = tail call i32 %func(ptr noundef %ht, ptr noundef %2, ptr noundef %3, ptr noundef %user_data) #7
   %tobool.not = icmp eq i32 %call, 0
   br i1 %tobool.not, label %while.cond, label %return, !llvm.loop !9
 
@@ -436,7 +432,7 @@ return:                                           ; preds = %for.inc, %while.bod
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local ptr @_Py_hashtable_new_full(ptr noundef %hash_func, ptr noundef %compare_func, ptr noundef %key_destroy_func, ptr noundef %value_destroy_func, ptr noundef readonly %allocator) local_unnamed_addr #3 {
+define dso_local ptr @_Py_hashtable_new_full(ptr noundef %hash_func, ptr noundef %compare_func, ptr noundef %key_destroy_func, ptr noundef %value_destroy_func, ptr noundef readonly %allocator) local_unnamed_addr #2 {
 entry:
   %cmp = icmp eq ptr %allocator, null
   br i1 %cmp, label %if.end, label %if.else
@@ -450,39 +446,39 @@ if.else:                                          ; preds = %entry
 if.end:                                           ; preds = %entry, %if.else
   %alloc.sroa.0.0 = phi ptr [ %alloc.sroa.0.0.copyload, %if.else ], [ @PyMem_Malloc, %entry ]
   %alloc.sroa.5.0 = phi ptr [ %alloc.sroa.5.0.copyload, %if.else ], [ @PyMem_Free, %entry ]
-  %call = tail call ptr %alloc.sroa.0.0(i64 noundef 80) #8
+  %call = tail call ptr %alloc.sroa.0.0(i64 noundef 80) #7
   %cmp2 = icmp eq ptr %call, null
   br i1 %cmp2, label %return, label %if.end4
 
 if.end4:                                          ; preds = %if.end
-  %nbuckets = getelementptr inbounds %struct._Py_hashtable_t, ptr %call, i64 0, i32 1
+  %nbuckets = getelementptr inbounds i8, ptr %call, i64 8
   store i64 16, ptr %nbuckets, align 8
   store i64 0, ptr %call, align 8
-  %call7 = tail call ptr %alloc.sroa.0.0(i64 noundef 128) #8
-  %buckets = getelementptr inbounds %struct._Py_hashtable_t, ptr %call, i64 0, i32 2
+  %call7 = tail call ptr %alloc.sroa.0.0(i64 noundef 128) #7
+  %buckets = getelementptr inbounds i8, ptr %call, i64 16
   store ptr %call7, ptr %buckets, align 8
   %cmp9 = icmp eq ptr %call7, null
   br i1 %cmp9, label %if.then10, label %if.end12
 
 if.then10:                                        ; preds = %if.end4
-  tail call void %alloc.sroa.5.0(ptr noundef nonnull %call) #8
+  tail call void %alloc.sroa.5.0(ptr noundef nonnull %call) #7
   br label %return
 
 if.end12:                                         ; preds = %if.end4
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(128) %call7, i8 0, i64 128, i1 false)
-  %get_entry_func = getelementptr inbounds %struct._Py_hashtable_t, ptr %call, i64 0, i32 3
+  %get_entry_func = getelementptr inbounds i8, ptr %call, i64 24
   store ptr @_Py_hashtable_get_entry_generic, ptr %get_entry_func, align 8
-  %hash_func14 = getelementptr inbounds %struct._Py_hashtable_t, ptr %call, i64 0, i32 4
+  %hash_func14 = getelementptr inbounds i8, ptr %call, i64 32
   store ptr %hash_func, ptr %hash_func14, align 8
-  %compare_func15 = getelementptr inbounds %struct._Py_hashtable_t, ptr %call, i64 0, i32 5
+  %compare_func15 = getelementptr inbounds i8, ptr %call, i64 40
   store ptr %compare_func, ptr %compare_func15, align 8
-  %key_destroy_func16 = getelementptr inbounds %struct._Py_hashtable_t, ptr %call, i64 0, i32 6
+  %key_destroy_func16 = getelementptr inbounds i8, ptr %call, i64 48
   store ptr %key_destroy_func, ptr %key_destroy_func16, align 8
-  %value_destroy_func17 = getelementptr inbounds %struct._Py_hashtable_t, ptr %call, i64 0, i32 7
+  %value_destroy_func17 = getelementptr inbounds i8, ptr %call, i64 56
   store ptr %value_destroy_func, ptr %value_destroy_func17, align 8
-  %alloc18 = getelementptr inbounds %struct._Py_hashtable_t, ptr %call, i64 0, i32 8
+  %alloc18 = getelementptr inbounds i8, ptr %call, i64 64
   store ptr %alloc.sroa.0.0, ptr %alloc18, align 8
-  %alloc.sroa.5.0.alloc18.sroa_idx = getelementptr inbounds %struct._Py_hashtable_t, ptr %call, i64 0, i32 8, i32 1
+  %alloc.sroa.5.0.alloc18.sroa_idx = getelementptr inbounds i8, ptr %call, i64 72
   store ptr %alloc.sroa.5.0, ptr %alloc.sroa.5.0.alloc18.sroa_idx, align 8
   %cmp20 = icmp eq ptr %hash_func, @_Py_hashtable_hash_ptr
   %cmp22 = icmp eq ptr %compare_func, @_Py_hashtable_compare_direct
@@ -498,23 +494,23 @@ return:                                           ; preds = %if.end12, %if.then2
   ret ptr %retval.0
 }
 
-declare ptr @PyMem_Malloc(i64 noundef) #4
+declare ptr @PyMem_Malloc(i64 noundef) #3
 
-declare void @PyMem_Free(ptr noundef) #4
+declare void @PyMem_Free(ptr noundef) #3
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #5
+declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #4
 
-; Function Attrs: nofree nosync nounwind memory(read, inaccessiblemem: none) uwtable
-define internal ptr @_Py_hashtable_get_entry_ptr(ptr nocapture noundef readonly %ht, ptr noundef %key) #6 {
+; Function Attrs: nofree norecurse nosync nounwind memory(read, inaccessiblemem: none) uwtable
+define internal ptr @_Py_hashtable_get_entry_ptr(ptr nocapture noundef readonly %ht, ptr noundef %key) #5 {
 entry:
   %0 = ptrtoint ptr %key to i64
-  %or.i.i = tail call i64 @llvm.fshl.i64(i64 %0, i64 %0, i64 60)
-  %nbuckets = getelementptr inbounds %struct._Py_hashtable_t, ptr %ht, i64 0, i32 1
+  %or.i.i = tail call noundef i64 @llvm.fshl.i64(i64 %0, i64 %0, i64 60)
+  %nbuckets = getelementptr inbounds i8, ptr %ht, i64 8
   %1 = load i64, ptr %nbuckets, align 8
   %sub = add i64 %1, -1
   %and = and i64 %sub, %or.i.i
-  %buckets = getelementptr inbounds %struct._Py_hashtable_t, ptr %ht, i64 0, i32 2
+  %buckets = getelementptr inbounds i8, ptr %ht, i64 16
   %2 = load ptr, ptr %buckets, align 8
   %arrayidx = getelementptr %struct._Py_slist_t, ptr %2, i64 %and
   br label %while.body
@@ -526,7 +522,7 @@ while.body:                                       ; preds = %if.end, %entry
   br i1 %cmp, label %return, label %if.end
 
 if.end:                                           ; preds = %while.body
-  %key2 = getelementptr inbounds %struct._Py_hashtable_entry_t, ptr %entry1.0, i64 0, i32 2
+  %key2 = getelementptr inbounds i8, ptr %entry1.0, i64 16
   %3 = load ptr, ptr %key2, align 8
   %cmp3 = icmp eq ptr %3, %key
   br i1 %cmp3, label %return, label %while.body
@@ -536,39 +532,39 @@ return:                                           ; preds = %if.end, %while.body
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local ptr @_Py_hashtable_new(ptr noundef %hash_func, ptr noundef %compare_func) local_unnamed_addr #3 {
+define dso_local ptr @_Py_hashtable_new(ptr noundef %hash_func, ptr noundef %compare_func) local_unnamed_addr #2 {
 entry:
-  %call.i = tail call ptr @PyMem_Malloc(i64 noundef 80) #8
+  %call.i = tail call ptr @PyMem_Malloc(i64 noundef 80) #7
   %cmp2.i = icmp eq ptr %call.i, null
   br i1 %cmp2.i, label %_Py_hashtable_new_full.exit, label %if.end4.i
 
 if.end4.i:                                        ; preds = %entry
-  %nbuckets.i = getelementptr inbounds %struct._Py_hashtable_t, ptr %call.i, i64 0, i32 1
+  %nbuckets.i = getelementptr inbounds i8, ptr %call.i, i64 8
   store i64 16, ptr %nbuckets.i, align 8
   store i64 0, ptr %call.i, align 8
-  %call7.i = tail call ptr @PyMem_Malloc(i64 noundef 128) #8
-  %buckets.i = getelementptr inbounds %struct._Py_hashtable_t, ptr %call.i, i64 0, i32 2
+  %call7.i = tail call ptr @PyMem_Malloc(i64 noundef 128) #7
+  %buckets.i = getelementptr inbounds i8, ptr %call.i, i64 16
   store ptr %call7.i, ptr %buckets.i, align 8
   %cmp9.i = icmp eq ptr %call7.i, null
   br i1 %cmp9.i, label %if.then10.i, label %if.end12.i
 
 if.then10.i:                                      ; preds = %if.end4.i
-  tail call void @PyMem_Free(ptr noundef nonnull %call.i) #8
+  tail call void @PyMem_Free(ptr noundef nonnull %call.i) #7
   br label %_Py_hashtable_new_full.exit
 
 if.end12.i:                                       ; preds = %if.end4.i
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(128) %call7.i, i8 0, i64 128, i1 false)
-  %get_entry_func.i = getelementptr inbounds %struct._Py_hashtable_t, ptr %call.i, i64 0, i32 3
+  %get_entry_func.i = getelementptr inbounds i8, ptr %call.i, i64 24
   store ptr @_Py_hashtable_get_entry_generic, ptr %get_entry_func.i, align 8
-  %hash_func14.i = getelementptr inbounds %struct._Py_hashtable_t, ptr %call.i, i64 0, i32 4
+  %hash_func14.i = getelementptr inbounds i8, ptr %call.i, i64 32
   store ptr %hash_func, ptr %hash_func14.i, align 8
-  %compare_func15.i = getelementptr inbounds %struct._Py_hashtable_t, ptr %call.i, i64 0, i32 5
+  %compare_func15.i = getelementptr inbounds i8, ptr %call.i, i64 40
   store ptr %compare_func, ptr %compare_func15.i, align 8
-  %key_destroy_func16.i = getelementptr inbounds %struct._Py_hashtable_t, ptr %call.i, i64 0, i32 6
-  %alloc18.i = getelementptr inbounds %struct._Py_hashtable_t, ptr %call.i, i64 0, i32 8
+  %key_destroy_func16.i = getelementptr inbounds i8, ptr %call.i, i64 48
+  %alloc18.i = getelementptr inbounds i8, ptr %call.i, i64 64
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %key_destroy_func16.i, i8 0, i64 16, i1 false)
   store ptr @PyMem_Malloc, ptr %alloc18.i, align 8
-  %alloc.sroa.5.0.alloc18.sroa_idx.i = getelementptr inbounds %struct._Py_hashtable_t, ptr %call.i, i64 0, i32 8, i32 1
+  %alloc.sroa.5.0.alloc18.sroa_idx.i = getelementptr inbounds i8, ptr %call.i, i64 72
   store ptr @PyMem_Free, ptr %alloc.sroa.5.0.alloc18.sroa_idx.i, align 8
   %cmp20.i = icmp eq ptr %hash_func, @_Py_hashtable_hash_ptr
   %cmp22.i = icmp eq ptr %compare_func, @_Py_hashtable_compare_direct
@@ -585,9 +581,9 @@ _Py_hashtable_new_full.exit:                      ; preds = %entry, %if.then10.i
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local void @_Py_hashtable_clear(ptr nocapture noundef %ht) local_unnamed_addr #3 {
+define dso_local void @_Py_hashtable_clear(ptr nocapture noundef %ht) local_unnamed_addr #2 {
 entry:
-  %nbuckets = getelementptr inbounds %struct._Py_hashtable_t, ptr %ht, i64 0, i32 1
+  %nbuckets = getelementptr inbounds i8, ptr %ht, i64 8
   %0 = load i64, ptr %nbuckets, align 8
   %cmp15.not = icmp eq i64 %0, 0
   br i1 %cmp15.not, label %round_size.exit.i.thread, label %for.body.lr.ph
@@ -597,10 +593,10 @@ round_size.exit.i.thread:                         ; preds = %entry
   br label %if.end.i11
 
 for.body.lr.ph:                                   ; preds = %entry
-  %buckets = getelementptr inbounds %struct._Py_hashtable_t, ptr %ht, i64 0, i32 2
-  %key_destroy_func.i = getelementptr inbounds %struct._Py_hashtable_t, ptr %ht, i64 0, i32 6
-  %value_destroy_func.i = getelementptr inbounds %struct._Py_hashtable_t, ptr %ht, i64 0, i32 7
-  %free.i = getelementptr inbounds %struct._Py_hashtable_t, ptr %ht, i64 0, i32 8, i32 1
+  %buckets = getelementptr inbounds i8, ptr %ht, i64 16
+  %key_destroy_func.i = getelementptr inbounds i8, ptr %ht, i64 48
+  %value_destroy_func.i = getelementptr inbounds i8, ptr %ht, i64 56
+  %free.i = getelementptr inbounds i8, ptr %ht, i64 72
   br label %for.body
 
 for.body:                                         ; preds = %for.body.lr.ph, %while.end
@@ -619,9 +615,9 @@ while.body:                                       ; preds = %for.body, %_Py_hash
   br i1 %tobool.not.i, label %if.end.i, label %if.then.i
 
 if.then.i:                                        ; preds = %while.body
-  %key.i = getelementptr inbounds %struct._Py_hashtable_entry_t, ptr %entry1.014, i64 0, i32 2
+  %key.i = getelementptr inbounds i8, ptr %entry1.014, i64 16
   %5 = load ptr, ptr %key.i, align 8
-  tail call void %4(ptr noundef %5) #8
+  tail call void %4(ptr noundef %5) #7
   br label %if.end.i
 
 if.end.i:                                         ; preds = %if.then.i, %while.body
@@ -630,14 +626,14 @@ if.end.i:                                         ; preds = %if.then.i, %while.b
   br i1 %tobool3.not.i, label %_Py_hashtable_destroy_entry.exit, label %if.then4.i
 
 if.then4.i:                                       ; preds = %if.end.i
-  %value.i = getelementptr inbounds %struct._Py_hashtable_entry_t, ptr %entry1.014, i64 0, i32 3
+  %value.i = getelementptr inbounds i8, ptr %entry1.014, i64 24
   %7 = load ptr, ptr %value.i, align 8
-  tail call void %6(ptr noundef %7) #8
+  tail call void %6(ptr noundef %7) #7
   br label %_Py_hashtable_destroy_entry.exit
 
 _Py_hashtable_destroy_entry.exit:                 ; preds = %if.end.i, %if.then4.i
   %8 = load ptr, ptr %free.i, align 8
-  tail call void %8(ptr noundef nonnull %entry1.014) #8
+  tail call void %8(ptr noundef nonnull %entry1.014) #7
   %cmp2.not = icmp eq ptr %3, null
   br i1 %cmp2.not, label %while.end.loopexit, label %while.body, !llvm.loop !11
 
@@ -660,9 +656,9 @@ round_size.exit.i:                                ; preds = %while.end
   br i1 %11, label %hashtable_rehash.exit, label %if.end.i11
 
 if.end.i11:                                       ; preds = %round_size.exit.i.thread, %round_size.exit.i
-  %alloc.i = getelementptr inbounds %struct._Py_hashtable_t, ptr %ht, i64 0, i32 8
+  %alloc.i = getelementptr inbounds i8, ptr %ht, i64 64
   %12 = load ptr, ptr %alloc.i, align 8
-  %call4.i = tail call ptr %12(i64 noundef 128) #8
+  %call4.i = tail call ptr %12(i64 noundef 128) #7
   %cmp5.i = icmp eq ptr %call4.i, null
   br i1 %cmp5.i, label %hashtable_rehash.exit, label %if.end8.i
 
@@ -673,7 +669,7 @@ if.end8.i:                                        ; preds = %if.end.i11
   br i1 %cmp1023.not.i, label %for.end.i, label %for.body.lr.ph.i
 
 for.body.lr.ph.i:                                 ; preds = %if.end8.i
-  %buckets.i = getelementptr inbounds %struct._Py_hashtable_t, ptr %ht, i64 0, i32 2
+  %buckets.i = getelementptr inbounds i8, ptr %ht, i64 16
   br label %for.body.i
 
 for.body.i:                                       ; preds = %for.inc.i, %for.body.lr.ph.i
@@ -688,7 +684,7 @@ for.body.i:                                       ; preds = %for.inc.i, %for.bod
 while.body.i:                                     ; preds = %for.body.i, %while.body.i
   %entry12.022.i = phi ptr [ %17, %while.body.i ], [ %16, %for.body.i ]
   %17 = load ptr, ptr %entry12.022.i, align 8
-  %key_hash.i = getelementptr inbounds %struct._Py_hashtable_entry_t, ptr %entry12.022.i, i64 0, i32 1
+  %key_hash.i = getelementptr inbounds i8, ptr %entry12.022.i, i64 8
   %18 = load i64, ptr %key_hash.i, align 8
   %and.i = and i64 %18, 15
   %arrayidx16.i = getelementptr %struct._Py_slist_t, ptr %call4.i, i64 %and.i
@@ -709,11 +705,11 @@ for.inc.i:                                        ; preds = %for.inc.loopexit.i,
   br i1 %cmp10.i, label %for.body.i, label %for.end.i, !llvm.loop !8
 
 for.end.i:                                        ; preds = %for.inc.i, %if.end8.i
-  %free.i12 = getelementptr inbounds %struct._Py_hashtable_t, ptr %ht, i64 0, i32 8, i32 1
+  %free.i12 = getelementptr inbounds i8, ptr %ht, i64 72
   %21 = load ptr, ptr %free.i12, align 8
-  %buckets18.i = getelementptr inbounds %struct._Py_hashtable_t, ptr %ht, i64 0, i32 2
+  %buckets18.i = getelementptr inbounds i8, ptr %ht, i64 16
   %22 = load ptr, ptr %buckets18.i, align 8
-  tail call void %21(ptr noundef %22) #8
+  tail call void %21(ptr noundef %22) #7
   store i64 16, ptr %nbuckets, align 8
   store ptr %call4.i, ptr %buckets18.i, align 8
   br label %hashtable_rehash.exit
@@ -723,18 +719,18 @@ hashtable_rehash.exit:                            ; preds = %round_size.exit.i, 
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local void @_Py_hashtable_destroy(ptr noundef %ht) local_unnamed_addr #3 {
+define dso_local void @_Py_hashtable_destroy(ptr noundef %ht) local_unnamed_addr #2 {
 entry:
-  %nbuckets = getelementptr inbounds %struct._Py_hashtable_t, ptr %ht, i64 0, i32 1
+  %nbuckets = getelementptr inbounds i8, ptr %ht, i64 8
   %0 = load i64, ptr %nbuckets, align 8
   %cmp13.not = icmp eq i64 %0, 0
   br i1 %cmp13.not, label %for.end, label %for.body.lr.ph
 
 for.body.lr.ph:                                   ; preds = %entry
-  %buckets = getelementptr inbounds %struct._Py_hashtable_t, ptr %ht, i64 0, i32 2
-  %key_destroy_func.i = getelementptr inbounds %struct._Py_hashtable_t, ptr %ht, i64 0, i32 6
-  %value_destroy_func.i = getelementptr inbounds %struct._Py_hashtable_t, ptr %ht, i64 0, i32 7
-  %free.i = getelementptr inbounds %struct._Py_hashtable_t, ptr %ht, i64 0, i32 8, i32 1
+  %buckets = getelementptr inbounds i8, ptr %ht, i64 16
+  %key_destroy_func.i = getelementptr inbounds i8, ptr %ht, i64 48
+  %value_destroy_func.i = getelementptr inbounds i8, ptr %ht, i64 56
+  %free.i = getelementptr inbounds i8, ptr %ht, i64 72
   br label %for.body
 
 for.body:                                         ; preds = %for.body.lr.ph, %for.inc
@@ -754,9 +750,9 @@ while.body:                                       ; preds = %for.body, %_Py_hash
   br i1 %tobool.not.i, label %if.end.i, label %if.then.i
 
 if.then.i:                                        ; preds = %while.body
-  %key.i = getelementptr inbounds %struct._Py_hashtable_entry_t, ptr %entry1.012, i64 0, i32 2
+  %key.i = getelementptr inbounds i8, ptr %entry1.012, i64 16
   %6 = load ptr, ptr %key.i, align 8
-  tail call void %5(ptr noundef %6) #8
+  tail call void %5(ptr noundef %6) #7
   br label %if.end.i
 
 if.end.i:                                         ; preds = %if.then.i, %while.body
@@ -765,14 +761,14 @@ if.end.i:                                         ; preds = %if.then.i, %while.b
   br i1 %tobool3.not.i, label %_Py_hashtable_destroy_entry.exit, label %if.then4.i
 
 if.then4.i:                                       ; preds = %if.end.i
-  %value.i = getelementptr inbounds %struct._Py_hashtable_entry_t, ptr %entry1.012, i64 0, i32 3
+  %value.i = getelementptr inbounds i8, ptr %entry1.012, i64 24
   %8 = load ptr, ptr %value.i, align 8
-  tail call void %7(ptr noundef %8) #8
+  tail call void %7(ptr noundef %8) #7
   br label %_Py_hashtable_destroy_entry.exit
 
 _Py_hashtable_destroy_entry.exit:                 ; preds = %if.end.i, %if.then4.i
   %9 = load ptr, ptr %free.i, align 8
-  tail call void %9(ptr noundef nonnull %entry1.012) #8
+  tail call void %9(ptr noundef nonnull %entry1.012) #7
   %tobool.not = icmp eq ptr %4, null
   br i1 %tobool.not, label %for.inc.loopexit, label %while.body, !llvm.loop !13
 
@@ -787,28 +783,27 @@ for.inc:                                          ; preds = %for.inc.loopexit, %
   br i1 %cmp, label %for.body, label %for.end, !llvm.loop !14
 
 for.end:                                          ; preds = %for.inc, %entry
-  %free = getelementptr inbounds %struct._Py_hashtable_t, ptr %ht, i64 0, i32 8, i32 1
+  %free = getelementptr inbounds i8, ptr %ht, i64 72
   %11 = load ptr, ptr %free, align 8
-  %buckets2 = getelementptr inbounds %struct._Py_hashtable_t, ptr %ht, i64 0, i32 2
+  %buckets2 = getelementptr inbounds i8, ptr %ht, i64 16
   %12 = load ptr, ptr %buckets2, align 8
-  tail call void %11(ptr noundef %12) #8
+  tail call void %11(ptr noundef %12) #7
   %13 = load ptr, ptr %free, align 8
-  tail call void %13(ptr noundef nonnull %ht) #8
+  tail call void %13(ptr noundef nonnull %ht) #7
   ret void
 }
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i64 @llvm.fshl.i64(i64, i64, i64) #7
+declare i64 @llvm.fshl.i64(i64, i64, i64) #6
 
-attributes #0 = { mustprogress nofree nosync nounwind willreturn memory(none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #1 = { mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #2 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #3 = { nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #4 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #5 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: write) }
-attributes #6 = { nofree nosync nounwind memory(read, inaccessiblemem: none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #7 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
-attributes #8 = { nounwind }
+attributes #0 = { mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #1 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #2 = { nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #3 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #4 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: write) }
+attributes #5 = { nofree norecurse nosync nounwind memory(read, inaccessiblemem: none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #6 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
+attributes #7 = { nounwind }
 
 !llvm.module.flags = !{!0, !1, !2, !3, !4}
 

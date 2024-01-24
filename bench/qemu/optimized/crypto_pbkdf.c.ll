@@ -36,8 +36,8 @@ entry:
   br i1 %cmp.i35, label %qcrypto_pbkdf2_get_thread_cpu.exit.thread, label %if.end.lr.ph
 
 if.end.lr.ph:                                     ; preds = %entry
-  %tv_usec.i = getelementptr inbounds %struct.timeval, ptr %ru.i, i64 0, i32 1
-  %tv_usec.i17 = getelementptr inbounds %struct.timeval, ptr %ru.i12, i64 0, i32 1
+  %tv_usec.i = getelementptr inbounds i8, ptr %ru.i, i64 8
+  %tv_usec.i17 = getelementptr inbounds i8, ptr %ru.i12, i64 8
   br label %if.end
 
 qcrypto_pbkdf2_get_thread_cpu.exit.thread:        ; preds = %if.end17, %entry

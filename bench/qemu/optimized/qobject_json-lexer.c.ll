@@ -3,9 +3,6 @@ source_filename = "bench/qemu/original/qobject_json-lexer.c.ll"
 target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:128-n8:16:32:64-S128"
 target triple = "x86_64-unknown-linux-gnu"
 
-%struct.JSONLexer = type { i32, i32, ptr, i32, i32 }
-%struct._GString = type { ptr, i64, i64 }
-
 @.str = private unnamed_addr constant [35 x i8] c"lexer->state == lexer->start_state\00", align 1
 @.str.1 = private unnamed_addr constant [29 x i8] c"../qemu/qobject/json-lexer.c\00", align 1
 @__PRETTY_FUNCTION__.json_lexer_flush = private unnamed_addr constant [35 x i8] c"void json_lexer_flush(JSONLexer *)\00", align 1
@@ -19,15 +16,15 @@ target triple = "x86_64-unknown-linux-gnu"
 define dso_local void @json_lexer_init(ptr nocapture noundef writeonly %lexer, i1 noundef zeroext %enable_interpolation) local_unnamed_addr #0 {
 entry:
   %cond = select i1 %enable_interpolation, i32 17, i32 16
-  %state = getelementptr inbounds %struct.JSONLexer, ptr %lexer, i64 0, i32 1
+  %state = getelementptr inbounds i8, ptr %lexer, i64 4
   store i32 %cond, ptr %state, align 4
   store i32 %cond, ptr %lexer, align 8
   %call = tail call ptr @g_string_sized_new(i64 noundef 3) #3
-  %token = getelementptr inbounds %struct.JSONLexer, ptr %lexer, i64 0, i32 2
+  %token = getelementptr inbounds i8, ptr %lexer, i64 8
   store ptr %call, ptr %token, align 8
-  %y = getelementptr inbounds %struct.JSONLexer, ptr %lexer, i64 0, i32 4
+  %y = getelementptr inbounds i8, ptr %lexer, i64 20
   store i32 0, ptr %y, align 4
-  %x = getelementptr inbounds %struct.JSONLexer, ptr %lexer, i64 0, i32 3
+  %x = getelementptr inbounds i8, ptr %lexer, i64 16
   store i32 0, ptr %x, align 8
   ret void
 }
@@ -56,7 +53,7 @@ for.end:                                          ; preds = %for.body, %entry
 ; Function Attrs: nounwind sspstrong uwtable
 define internal fastcc void @json_lexer_feed_char(ptr noundef %lexer, i8 noundef signext %ch, i1 noundef zeroext %flush) unnamed_addr #0 {
 entry:
-  %x = getelementptr inbounds %struct.JSONLexer, ptr %lexer, i64 0, i32 3
+  %x = getelementptr inbounds i8, ptr %lexer, i64 16
   %0 = load i32, ptr %x, align 8
   %inc = add i32 %0, 1
   store i32 %inc, ptr %x, align 8
@@ -65,18 +62,18 @@ entry:
 
 if.then:                                          ; preds = %entry
   store i32 0, ptr %x, align 8
-  %y = getelementptr inbounds %struct.JSONLexer, ptr %lexer, i64 0, i32 4
+  %y = getelementptr inbounds i8, ptr %lexer, i64 20
   %1 = load i32, ptr %y, align 4
   %inc3 = add i32 %1, 1
   store i32 %inc3, ptr %y, align 4
   br label %if.end
 
 if.end:                                           ; preds = %if.then, %entry
-  %state = getelementptr %struct.JSONLexer, ptr %lexer, i64 0, i32 1
+  %state = getelementptr i8, ptr %lexer, i64 4
   %idxprom3.i = zext i8 %ch to i64
   %not.flush.i = xor i1 %flush, true
-  %token = getelementptr inbounds %struct.JSONLexer, ptr %lexer, i64 0, i32 2
-  %y28 = getelementptr inbounds %struct.JSONLexer, ptr %lexer, i64 0, i32 4
+  %token = getelementptr inbounds i8, ptr %lexer, i64 8
+  %y28 = getelementptr inbounds i8, ptr %lexer, i64 20
   br label %while.cond
 
 while.cond:                                       ; preds = %sw.epilog, %if.end
@@ -128,10 +125,10 @@ if.else:                                          ; preds = %if.then12
 
 if.end15:                                         ; preds = %if.then12
   %7 = load ptr, ptr %token, align 8
-  %len.i = getelementptr inbounds %struct._GString, ptr %7, i64 0, i32 1
+  %len.i = getelementptr inbounds i8, ptr %7, i64 8
   %8 = load i64, ptr %len.i, align 8
   %add.i = add i64 %8, 1
-  %allocated_len.i = getelementptr inbounds %struct._GString, ptr %7, i64 0, i32 2
+  %allocated_len.i = getelementptr inbounds i8, ptr %7, i64 16
   %9 = load i64, ptr %allocated_len.i, align 8
   %cmp.i34 = icmp ult i64 %add.i, %9
   br i1 %cmp.i34, label %if.then.i, label %if.else.i35
@@ -201,7 +198,7 @@ sw.epilog:                                        ; preds = %if.end17, %sw.bb29,
 
 while.end:                                        ; preds = %cond.end
   %22 = load ptr, ptr %token, align 8
-  %len = getelementptr inbounds %struct._GString, ptr %22, i64 0, i32 1
+  %len = getelementptr inbounds i8, ptr %22, i64 8
   %23 = load i64, ptr %len, align 8
   %cmp34 = icmp ugt i64 %23, 67108864
   br i1 %cmp34, label %if.then36, label %if.end45
@@ -225,7 +222,7 @@ if.end45:                                         ; preds = %if.then36, %while.e
 define dso_local void @json_lexer_flush(ptr noundef %lexer) local_unnamed_addr #0 {
 entry:
   tail call fastcc void @json_lexer_feed_char(ptr noundef %lexer, i8 noundef signext 0, i1 noundef zeroext true)
-  %state = getelementptr inbounds %struct.JSONLexer, ptr %lexer, i64 0, i32 1
+  %state = getelementptr inbounds i8, ptr %lexer, i64 4
   %0 = load i32, ptr %state, align 4
   %1 = load i32, ptr %lexer, align 8
   %cmp = icmp eq i32 %0, %1
@@ -236,11 +233,11 @@ if.else:                                          ; preds = %entry
   unreachable
 
 if.end:                                           ; preds = %entry
-  %token = getelementptr inbounds %struct.JSONLexer, ptr %lexer, i64 0, i32 2
+  %token = getelementptr inbounds i8, ptr %lexer, i64 8
   %2 = load ptr, ptr %token, align 8
-  %x = getelementptr inbounds %struct.JSONLexer, ptr %lexer, i64 0, i32 3
+  %x = getelementptr inbounds i8, ptr %lexer, i64 16
   %3 = load i32, ptr %x, align 8
-  %y = getelementptr inbounds %struct.JSONLexer, ptr %lexer, i64 0, i32 4
+  %y = getelementptr inbounds i8, ptr %lexer, i64 20
   %4 = load i32, ptr %y, align 4
   tail call void @json_message_process_token(ptr noundef nonnull %lexer, ptr noundef %2, i32 noundef 111, i32 noundef %3, i32 noundef %4) #3
   ret void
@@ -254,7 +251,7 @@ declare void @json_message_process_token(ptr noundef, ptr noundef, i32 noundef, 
 ; Function Attrs: nounwind sspstrong uwtable
 define dso_local void @json_lexer_destroy(ptr nocapture noundef readonly %lexer) local_unnamed_addr #0 {
 entry:
-  %token = getelementptr inbounds %struct.JSONLexer, ptr %lexer, i64 0, i32 2
+  %token = getelementptr inbounds i8, ptr %lexer, i64 8
   %0 = load ptr, ptr %token, align 8
   %call = tail call ptr @g_string_free(ptr noundef %0, i32 noundef 1) #3
   ret void

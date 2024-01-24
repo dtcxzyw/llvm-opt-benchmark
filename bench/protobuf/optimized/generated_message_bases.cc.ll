@@ -5,21 +5,6 @@ target triple = "x86_64-unknown-linux-gnu"
 
 %"class.std::ios_base::Init" = type { i8 }
 %"struct.google::protobuf::MessageLite::DescriptorMethods" = type { ptr, ptr }
-%"class.google::protobuf::MessageLite" = type { ptr, %"class.google::protobuf::internal::InternalMetadata" }
-%"class.google::protobuf::internal::InternalMetadata" = type { i64 }
-%"class.google::protobuf::internal::ZeroFieldsBase" = type <{ %"class.google::protobuf::Message", %"class.google::protobuf::internal::CachedSize", [4 x i8] }>
-%"class.google::protobuf::Message" = type { %"class.google::protobuf::MessageLite" }
-%"class.google::protobuf::internal::CachedSize" = type { i32 }
-%"class.google::protobuf::internal::ParseContext" = type { %"class.google::protobuf::internal::EpsCopyInputStream", i32, i32, %"struct.google::protobuf::internal::ParseContext::Data" }
-%"class.google::protobuf::internal::EpsCopyInputStream" = type { ptr, ptr, ptr, i32, i32, ptr, [32 x i8], i64, i32, i32 }
-%"struct.google::protobuf::internal::ParseContext::Data" = type { ptr, ptr }
-%"struct.google::protobuf::internal::InternalMetadata::Container" = type { %"struct.google::protobuf::internal::InternalMetadata::ContainerBase", %"class.google::protobuf::UnknownFieldSet" }
-%"struct.google::protobuf::internal::InternalMetadata::ContainerBase" = type { ptr }
-%"class.google::protobuf::UnknownFieldSet" = type { %"class.std::vector" }
-%"class.std::vector" = type { %"struct.std::_Vector_base" }
-%"struct.std::_Vector_base" = type { %"struct.std::_Vector_base<google::protobuf::UnknownField, std::allocator<google::protobuf::UnknownField>>::_Vector_impl" }
-%"struct.std::_Vector_base<google::protobuf::UnknownField, std::allocator<google::protobuf::UnknownField>>::_Vector_impl" = type { %"struct.std::_Vector_base<google::protobuf::UnknownField, std::allocator<google::protobuf::UnknownField>>::_Vector_impl_data" }
-%"struct.std::_Vector_base<google::protobuf::UnknownField, std::allocator<google::protobuf::UnknownField>>::_Vector_impl_data" = type { ptr, ptr, ptr }
 
 $__clang_call_terminate = comdat any
 
@@ -49,7 +34,7 @@ declare i32 @__cxa_atexit(ptr, ptr, ptr) local_unnamed_addr #2
 ; Function Attrs: mustprogress uwtable
 define void @_ZN6google8protobuf8internal14ZeroFieldsBase5ClearEv(ptr noundef nonnull align 8 dereferenceable(20) %this) unnamed_addr #3 align 2 {
 entry:
-  %_internal_metadata_ = getelementptr inbounds %"class.google::protobuf::MessageLite", ptr %this, i64 0, i32 1
+  %_internal_metadata_ = getelementptr inbounds i8, ptr %this, i64 8
   %0 = load i64, ptr %_internal_metadata_, align 8
   %and.i = and i64 %0, 1
   %tobool.i.not = icmp eq i64 %and.i, 0
@@ -67,7 +52,7 @@ _ZN6google8protobuf8internal16InternalMetadata5ClearINS0_15UnknownFieldSetEEEvv.
 define void @_ZN6google8protobuf8internal14ZeroFieldsBaseD2Ev(ptr noundef nonnull align 8 dereferenceable(20) %this) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store ptr getelementptr inbounds ({ [13 x ptr] }, ptr @_ZTVN6google8protobuf8internal14ZeroFieldsBaseE, i64 0, inrange i32 0, i64 2), ptr %this, align 8
-  %_internal_metadata_ = getelementptr inbounds %"class.google::protobuf::MessageLite", ptr %this, i64 0, i32 1
+  %_internal_metadata_ = getelementptr inbounds i8, ptr %this, i64 8
   %0 = load i64, ptr %_internal_metadata_, align 8
   %and.i.i = and i64 %0, 1
   %tobool.i.not.i = icmp eq i64 %and.i.i, 0
@@ -114,7 +99,7 @@ declare void @llvm.trap() #7
 ; Function Attrs: mustprogress uwtable
 define noundef i64 @_ZNK6google8protobuf8internal14ZeroFieldsBase12ByteSizeLongEv(ptr noundef nonnull align 8 dereferenceable(20) %this) unnamed_addr #3 align 2 {
 entry:
-  %_cached_size_ = getelementptr inbounds %"class.google::protobuf::internal::ZeroFieldsBase", ptr %this, i64 0, i32 1
+  %_cached_size_ = getelementptr inbounds i8, ptr %this, i64 16
   %call = tail call noundef i64 @_ZNK6google8protobuf7Message29MaybeComputeUnknownFieldsSizeEmPNS0_8internal10CachedSizeE(ptr noundef nonnull align 8 dereferenceable(16) %this, i64 noundef 0, ptr noundef nonnull %_cached_size_)
   ret i64 %call
 }
@@ -124,10 +109,10 @@ declare noundef i64 @_ZNK6google8protobuf7Message29MaybeComputeUnknownFieldsSize
 ; Function Attrs: mustprogress uwtable
 define noundef ptr @_ZN6google8protobuf8internal14ZeroFieldsBase14_InternalParseEPKcPNS1_12ParseContextE(ptr noundef nonnull align 8 dereferenceable(20) %this, ptr noundef %ptr, ptr noundef %ctx) unnamed_addr #3 align 2 {
 entry:
-  %group_depth_.i = getelementptr inbounds %"class.google::protobuf::internal::ParseContext", ptr %ctx, i64 0, i32 2
-  %buffer_end_.i.i = getelementptr inbounds %"class.google::protobuf::internal::EpsCopyInputStream", ptr %ctx, i64 0, i32 1
-  %limit_.i.i = getelementptr inbounds %"class.google::protobuf::internal::EpsCopyInputStream", ptr %ctx, i64 0, i32 4
-  %_internal_metadata_ = getelementptr inbounds %"class.google::protobuf::MessageLite", ptr %this, i64 0, i32 1
+  %group_depth_.i = getelementptr inbounds i8, ptr %ctx, i64 92
+  %buffer_end_.i.i = getelementptr inbounds i8, ptr %ctx, i64 8
+  %limit_.i.i = getelementptr inbounds i8, ptr %ctx, i64 28
+  %_internal_metadata_ = getelementptr inbounds i8, ptr %this, i64 8
   br label %while.cond
 
 while.cond:                                       ; preds = %_ZN6google8protobuf8internal16InternalMetadata22mutable_unknown_fieldsINS0_15UnknownFieldSetEEEPT_v.exit, %entry
@@ -149,7 +134,7 @@ if.end.i.i:                                       ; preds = %while.cond
 
 if.then3.i.i:                                     ; preds = %if.end.i.i
   %cmp4.i.i = icmp sgt i32 %conv.i.i, 0
-  %next_chunk_.i.i = getelementptr inbounds %"class.google::protobuf::internal::EpsCopyInputStream", ptr %ctx, i64 0, i32 2
+  %next_chunk_.i.i = getelementptr inbounds i8, ptr %ctx, i64 16
   %4 = load ptr, ptr %next_chunk_.i.i, align 8
   %cmp5.i.i = icmp eq ptr %4, null
   %or.cond.i.i = select i1 %cmp4.i.i, i1 %cmp5.i.i, i1 false
@@ -206,7 +191,7 @@ if.then:                                          ; preds = %_ZN6google8protobuf
 
 if.end:                                           ; preds = %if.then
   %sub.i4 = add i32 %tag.0, -1
-  %last_tag_minus_1_.i = getelementptr inbounds %"class.google::protobuf::internal::EpsCopyInputStream", ptr %ctx, i64 0, i32 8
+  %last_tag_minus_1_.i = getelementptr inbounds i8, ptr %ctx, i64 80
   store i32 %sub.i4, ptr %last_tag_minus_1_.i, align 8
   br label %message_done
 
@@ -220,7 +205,7 @@ if.end6:                                          ; preds = %_ZN6google8protobuf
 if.then.i:                                        ; preds = %if.end6
   %and.i5 = and i64 %12, -2
   %13 = inttoptr i64 %and.i5 to ptr
-  %unknown_fields.i = getelementptr inbounds %"struct.google::protobuf::internal::InternalMetadata::Container", ptr %13, i64 0, i32 1
+  %unknown_fields.i = getelementptr inbounds i8, ptr %13, i64 8
   br label %_ZN6google8protobuf8internal16InternalMetadata22mutable_unknown_fieldsINS0_15UnknownFieldSetEEEPT_v.exit
 
 if.else.i:                                        ; preds = %if.end6
@@ -243,7 +228,7 @@ declare noundef ptr @_ZN6google8protobuf8internal17UnknownFieldParseEmPNS0_15Unk
 ; Function Attrs: mustprogress uwtable
 define noundef ptr @_ZNK6google8protobuf8internal14ZeroFieldsBase18_InternalSerializeEPhPNS0_2io19EpsCopyOutputStreamE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(20) %this, ptr noundef %target, ptr noundef %stream) unnamed_addr #3 align 2 {
 entry:
-  %_internal_metadata_ = getelementptr inbounds %"class.google::protobuf::MessageLite", ptr %this, i64 0, i32 1
+  %_internal_metadata_ = getelementptr inbounds i8, ptr %this, i64 8
   %0 = load i64, ptr %_internal_metadata_, align 8
   %and.i11 = and i64 %0, 1
   %tobool.i12.not = icmp eq i64 %and.i11, 0
@@ -252,7 +237,7 @@ entry:
 if.then.i:                                        ; preds = %entry
   %and.i = and i64 %0, -2
   %1 = inttoptr i64 %and.i to ptr
-  %unknown_fields.i = getelementptr inbounds %"struct.google::protobuf::internal::InternalMetadata::Container", ptr %1, i64 0, i32 1
+  %unknown_fields.i = getelementptr inbounds i8, ptr %1, i64 8
   %call4 = tail call noundef ptr @_ZN6google8protobuf8internal10WireFormat37InternalSerializeUnknownFieldsToArrayERKNS0_15UnknownFieldSetEPhPNS0_2io19EpsCopyOutputStreamE(ptr noundef nonnull align 8 dereferenceable(24) %unknown_fields.i, ptr noundef %target, ptr noundef %stream)
   br label %if.end
 
@@ -266,17 +251,17 @@ declare noundef ptr @_ZN6google8protobuf8internal10WireFormat37InternalSerialize
 ; Function Attrs: mustprogress uwtable
 define void @_ZN6google8protobuf8internal14ZeroFieldsBase9MergeImplERNS0_11MessageLiteERKS3_(ptr noundef nonnull align 8 dereferenceable(16) %to_param, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %from_param) #3 align 2 {
 entry:
-  %_internal_metadata_1 = getelementptr inbounds %"class.google::protobuf::MessageLite", ptr %from_param, i64 0, i32 1
+  %_internal_metadata_1 = getelementptr inbounds i8, ptr %from_param, i64 8
   %0 = load i64, ptr %_internal_metadata_1, align 8
   %and.i6 = and i64 %0, 1
   %tobool.i7.not = icmp eq i64 %and.i6, 0
   br i1 %tobool.i7.not, label %_ZN6google8protobuf8internal16InternalMetadata9MergeFromINS0_15UnknownFieldSetEEEvRKS2_.exit, label %if.then.i.i
 
 if.then.i.i:                                      ; preds = %entry
-  %_internal_metadata_ = getelementptr inbounds %"class.google::protobuf::MessageLite", ptr %to_param, i64 0, i32 1
+  %_internal_metadata_ = getelementptr inbounds i8, ptr %to_param, i64 8
   %and.i = and i64 %0, -2
   %1 = inttoptr i64 %and.i to ptr
-  %unknown_fields.i.i = getelementptr inbounds %"struct.google::protobuf::internal::InternalMetadata::Container", ptr %1, i64 0, i32 1
+  %unknown_fields.i.i = getelementptr inbounds i8, ptr %1, i64 8
   tail call void @_ZN6google8protobuf8internal16InternalMetadata11DoMergeFromINS0_15UnknownFieldSetEEEvRKT_(ptr noundef nonnull align 8 dereferenceable(8) %_internal_metadata_, ptr noundef nonnull align 8 dereferenceable(24) %unknown_fields.i.i)
   br label %_ZN6google8protobuf8internal16InternalMetadata9MergeFromINS0_15UnknownFieldSetEEEvRKS2_.exit
 
@@ -291,7 +276,7 @@ entry:
   br i1 %cmp, label %return, label %if.end
 
 if.end:                                           ; preds = %entry
-  %_internal_metadata_ = getelementptr inbounds %"class.google::protobuf::MessageLite", ptr %to_param, i64 0, i32 1
+  %_internal_metadata_ = getelementptr inbounds i8, ptr %to_param, i64 8
   %0 = load i64, ptr %_internal_metadata_, align 8
   %and.i17 = and i64 %0, 1
   %tobool.i18.not = icmp eq i64 %and.i17, 0
@@ -302,7 +287,7 @@ if.then.i:                                        ; preds = %if.end
   br label %_ZN6google8protobuf8internal16InternalMetadata5ClearINS0_15UnknownFieldSetEEEvv.exit
 
 _ZN6google8protobuf8internal16InternalMetadata5ClearINS0_15UnknownFieldSetEEEvv.exit: ; preds = %if.then.i, %if.end
-  %_internal_metadata_2 = getelementptr inbounds %"class.google::protobuf::MessageLite", ptr %from_param, i64 0, i32 1
+  %_internal_metadata_2 = getelementptr inbounds i8, ptr %from_param, i64 8
   %1 = load i64, ptr %_internal_metadata_2, align 8
   %and.i13 = and i64 %1, 1
   %tobool.i14.not = icmp eq i64 %and.i13, 0
@@ -311,7 +296,7 @@ _ZN6google8protobuf8internal16InternalMetadata5ClearINS0_15UnknownFieldSetEEEvv.
 if.then.i.i:                                      ; preds = %_ZN6google8protobuf8internal16InternalMetadata5ClearINS0_15UnknownFieldSetEEEvv.exit
   %and.i = and i64 %1, -2
   %2 = inttoptr i64 %and.i to ptr
-  %unknown_fields.i.i = getelementptr inbounds %"struct.google::protobuf::internal::InternalMetadata::Container", ptr %2, i64 0, i32 1
+  %unknown_fields.i.i = getelementptr inbounds i8, ptr %2, i64 8
   tail call void @_ZN6google8protobuf8internal16InternalMetadata11DoMergeFromINS0_15UnknownFieldSetEEEvRKT_(ptr noundef nonnull align 8 dereferenceable(8) %_internal_metadata_, ptr noundef nonnull align 8 dereferenceable(24) %unknown_fields.i.i)
   br label %return
 
@@ -322,8 +307,8 @@ return:                                           ; preds = %_ZN6google8protobuf
 ; Function Attrs: mustprogress uwtable
 define void @_ZN6google8protobuf8internal14ZeroFieldsBase12InternalSwapEPS2_(ptr noundef nonnull align 8 dereferenceable(20) %this, ptr noundef %other) local_unnamed_addr #3 align 2 {
 entry:
-  %_internal_metadata_ = getelementptr inbounds %"class.google::protobuf::MessageLite", ptr %this, i64 0, i32 1
-  %_internal_metadata_2 = getelementptr inbounds %"class.google::protobuf::MessageLite", ptr %other, i64 0, i32 1
+  %_internal_metadata_ = getelementptr inbounds i8, ptr %this, i64 8
+  %_internal_metadata_2 = getelementptr inbounds i8, ptr %other, i64 8
   %0 = load i64, ptr %_internal_metadata_, align 8
   %and.i11 = and i64 %0, 1
   %tobool.i12.not = icmp eq i64 %and.i11, 0
@@ -341,7 +326,7 @@ if.then.i:                                        ; preds = %entry
 if.then.i.i:                                      ; preds = %lor.lhs.false.i, %if.then.i
   %and.i2 = and i64 %.pre, -2
   %1 = inttoptr i64 %and.i2 to ptr
-  %unknown_fields.i.i = getelementptr inbounds %"struct.google::protobuf::internal::InternalMetadata::Container", ptr %1, i64 0, i32 1
+  %unknown_fields.i.i = getelementptr inbounds i8, ptr %1, i64 8
   br label %_ZN6google8protobuf8internal16InternalMetadata22mutable_unknown_fieldsINS0_15UnknownFieldSetEEEPT_v.exit.i
 
 if.else.i.i:                                      ; preds = %if.then.i

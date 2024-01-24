@@ -40,7 +40,7 @@ entry:
 if.then:                                          ; preds = %entry
   %conv = trunc i32 %c to i16
   %vtable = load ptr, ptr %this, align 8
-  %vfn = getelementptr inbounds ptr, ptr %vtable, i64 3
+  %vfn = getelementptr inbounds i8, ptr %vtable, i64 24
   %0 = load ptr, ptr %vfn, align 8
   %call = tail call noundef signext i8 %0(ptr noundef nonnull align 8 dereferenceable(8) %this, i16 noundef zeroext %conv)
   br label %return
@@ -50,7 +50,7 @@ if.else:                                          ; preds = %entry
   %1 = trunc i32 %shr to i16
   %conv2 = add i16 %1, -10304
   %vtable3 = load ptr, ptr %this, align 8
-  %vfn4 = getelementptr inbounds ptr, ptr %vtable3, i64 3
+  %vfn4 = getelementptr inbounds i8, ptr %vtable3, i64 24
   %2 = load ptr, ptr %vfn4, align 8
   %call5 = tail call noundef signext i8 %2(ptr noundef nonnull align 8 dereferenceable(8) %this, i16 noundef zeroext %conv2)
   %tobool.not = icmp eq i8 %call5, 0
@@ -61,7 +61,7 @@ land.rhs:                                         ; preds = %if.else
   %4 = and i16 %3, 1023
   %conv6 = or disjoint i16 %4, -9216
   %vtable7 = load ptr, ptr %this, align 8
-  %vfn8 = getelementptr inbounds ptr, ptr %vtable7, i64 3
+  %vfn8 = getelementptr inbounds i8, ptr %vtable7, i64 24
   %5 = load ptr, ptr %vfn8, align 8
   %call9 = tail call noundef signext i8 %5(ptr noundef nonnull align 8 dereferenceable(8) %this, i16 noundef zeroext %conv6)
   %tobool10 = icmp ne i8 %call9, 0
@@ -86,9 +86,9 @@ while.cond:                                       ; preds = %entry, %while.body
   br i1 %cmp2.not, label %return, label %while.body
 
 while.body:                                       ; preds = %while.cond
-  %incdec.ptr = getelementptr inbounds i16, ptr %s.addr.0, i64 1
+  %incdec.ptr = getelementptr inbounds i8, ptr %s.addr.0, i64 2
   %vtable = load ptr, ptr %this, align 8
-  %vfn = getelementptr inbounds ptr, ptr %vtable, i64 3
+  %vfn = getelementptr inbounds i8, ptr %vtable, i64 24
   %1 = load ptr, ptr %vfn, align 8
   %call = tail call noundef signext i8 %1(ptr noundef nonnull align 8 dereferenceable(8) %this, i16 noundef zeroext %0)
   %tobool.not = icmp eq i8 %call, 0
@@ -107,14 +107,14 @@ do.body:                                          ; preds = %do.cond, %if.then5
   %s.addr.1 = phi ptr [ %s, %if.then5 ], [ %incdec.ptr6, %do.cond ]
   %2 = load i16, ptr %s.addr.1, align 2
   %vtable7 = load ptr, ptr %this, align 8
-  %vfn8 = getelementptr inbounds ptr, ptr %vtable7, i64 3
+  %vfn8 = getelementptr inbounds i8, ptr %vtable7, i64 24
   %3 = load ptr, ptr %vfn8, align 8
   %call9 = tail call noundef signext i8 %3(ptr noundef nonnull align 8 dereferenceable(8) %this, i16 noundef zeroext %2)
   %tobool10.not = icmp eq i8 %call9, 0
   br i1 %tobool10.not, label %return, label %do.cond
 
 do.cond:                                          ; preds = %do.body
-  %incdec.ptr6 = getelementptr inbounds i16, ptr %s.addr.1, i64 1
+  %incdec.ptr6 = getelementptr inbounds i8, ptr %s.addr.1, i64 2
   %cmp13 = icmp ult ptr %incdec.ptr6, %add.ptr
   br i1 %cmp13, label %do.body, label %return, !llvm.loop !6
 

@@ -217,19 +217,20 @@ if.else:                                          ; preds = %while.body
   %tobool22.not = icmp eq i32 %and, 0
   %add23 = fadd float %y.addr.058, 1.000000e+00
   %cond = select i1 %tobool22.not, float %y.addr.058, float %add23
-  %h_seg28 = getelementptr inbounds [96 x %struct.stb_easy_font_info_struct], ptr @stb_easy_font_charinfo, i64 0, i64 %idxprom, i32 1
+  %h_seg28 = getelementptr inbounds i8, ptr %arrayidx19, i64 1
   %15 = load i8, ptr %h_seg28, align 1
   %conv29 = zext i8 %15 to i32
-  %v_seg34 = getelementptr inbounds [96 x %struct.stb_easy_font_info_struct], ptr @stb_easy_font_charinfo, i64 0, i64 %idxprom, i32 2
+  %v_seg34 = getelementptr inbounds i8, ptr %arrayidx19, i64 2
   %16 = load i8, ptr %v_seg34, align 1
   %conv35 = zext i8 %16 to i32
   %add38 = add nsw i32 %conv61, -31
   %idxprom39 = sext i32 %add38 to i64
-  %h_seg41 = getelementptr inbounds [96 x %struct.stb_easy_font_info_struct], ptr @stb_easy_font_charinfo, i64 0, i64 %idxprom39, i32 1
+  %arrayidx40 = getelementptr inbounds [96 x %struct.stb_easy_font_info_struct], ptr @stb_easy_font_charinfo, i64 0, i64 %idxprom39
+  %h_seg41 = getelementptr inbounds i8, ptr %arrayidx40, i64 1
   %17 = load i8, ptr %h_seg41, align 1
   %conv42 = zext i8 %17 to i32
   %sub43 = sub nsw i32 %conv42, %conv29
-  %v_seg49 = getelementptr inbounds [96 x %struct.stb_easy_font_info_struct], ptr @stb_easy_font_charinfo, i64 0, i64 %idxprom39, i32 2
+  %v_seg49 = getelementptr inbounds i8, ptr %arrayidx40, i64 2
   %18 = load i8, ptr %v_seg49, align 1
   %conv50 = zext i8 %18 to i32
   %sub51 = sub nsw i32 %conv50, %conv35
@@ -402,7 +403,7 @@ while.end:                                        ; preds = %while.end.loopexit,
   ret i32 %offset.0.lcssa
 }
 
-; Function Attrs: nofree nosync nounwind memory(read, inaccessiblemem: none) uwtable
+; Function Attrs: nofree norecurse nosync nounwind memory(read, inaccessiblemem: none) uwtable
 define i32 @stb_easy_font_width(ptr nocapture noundef readonly %text) local_unnamed_addr #3 {
 entry:
   %0 = load float, ptr @stb_easy_font_spacing_val, align 4
@@ -448,7 +449,7 @@ while.end:                                        ; preds = %while.cond
   ret i32 %conv15
 }
 
-; Function Attrs: nofree nosync nounwind memory(read, inaccessiblemem: none) uwtable
+; Function Attrs: nofree norecurse nosync nounwind memory(read, inaccessiblemem: none) uwtable
 define i32 @stb_easy_font_height(ptr nocapture noundef readonly %text) local_unnamed_addr #3 {
 entry:
   br label %while.cond
@@ -489,7 +490,7 @@ declare float @llvm.ceil.f32(float) #4
 attributes #0 = { nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { mustprogress nofree norecurse nosync nounwind willreturn memory(write, argmem: none, inaccessiblemem: none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #2 = { nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #3 = { nofree nosync nounwind memory(read, inaccessiblemem: none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #3 = { nofree norecurse nosync nounwind memory(read, inaccessiblemem: none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #4 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
 
 !llvm.module.flags = !{!0, !1, !2, !3}

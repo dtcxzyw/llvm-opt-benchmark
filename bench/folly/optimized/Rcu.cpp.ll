@@ -9,28 +9,6 @@ target triple = "x86_64-unknown-linux-gnu"
 %"struct.folly::detail::StaticSingletonManagerWithRtti::Arg" = type { %"struct.std::atomic.4", ptr, ptr, ptr }
 %"struct.std::atomic.4" = type { %"struct.std::__atomic_base.5" }
 %"struct.std::__atomic_base.5" = type { ptr }
-%"class.folly::detail::ThreadCachedReaders" = type { %"struct.folly::relaxed_atomic", %"struct.std::atomic.0", %"class.folly::ThreadLocalPtr" }
-%"struct.folly::relaxed_atomic" = type { %"struct.folly::detail::relaxed_atomic_integral_base" }
-%"struct.folly::detail::relaxed_atomic_integral_base" = type { %"struct.folly::detail::relaxed_atomic_base" }
-%"struct.folly::detail::relaxed_atomic_base" = type { %"struct.std::atomic" }
-%"struct.std::atomic" = type { %"struct.std::__atomic_base" }
-%"struct.std::__atomic_base" = type { i64 }
-%"struct.std::atomic.0" = type { %"struct.std::__atomic_base.1" }
-%"struct.std::__atomic_base.1" = type { i32 }
-%"class.folly::ThreadLocalPtr" = type { %"class.folly::threadlocal_detail::StaticMetaBase::EntryID" }
-%"class.folly::threadlocal_detail::StaticMetaBase::EntryID" = type { %"struct.std::atomic.0" }
-%"class.folly::rcu_domain" = type { %"class.folly::detail::ThreadCachedReaders", %"struct.std::atomic", %"struct.std::atomic", %"struct.folly::detail::TurnSequencer", %"class.std::mutex", %"struct.std::atomic", %"class.folly::detail::ThreadCachedLists", ptr, [2 x %"struct.folly::detail::ThreadCachedLists::ListHead"] }
-%"struct.folly::detail::TurnSequencer" = type { %"struct.std::atomic.0" }
-%"class.std::mutex" = type { %"class.std::__mutex_base" }
-%"class.std::__mutex_base" = type { %union.pthread_mutex_t }
-%union.pthread_mutex_t = type { %struct.__pthread_mutex_s }
-%struct.__pthread_mutex_s = type { i32, i32, i32, i32, i32, i16, i16, %struct.__pthread_internal_list }
-%struct.__pthread_internal_list = type { ptr, ptr }
-%"class.folly::detail::ThreadCachedLists" = type { %"struct.folly::Synchronized", %"class.folly::ThreadLocalPtr.3", [4 x i8] }
-%"struct.folly::Synchronized" = type <{ %"struct.folly::detail::ThreadCachedLists::ListHead", %"class.folly::SharedMutexImpl", [4 x i8] }>
-%"struct.folly::detail::ThreadCachedLists::ListHead" = type { ptr, ptr }
-%"class.folly::SharedMutexImpl" = type { %"struct.std::atomic.0" }
-%"class.folly::ThreadLocalPtr.3" = type { %"class.folly::threadlocal_detail::StaticMetaBase::EntryID" }
 
 $_ZN5folly6detail5thunk4makeINS_10rcu_domainEJEEEPvDpT0_ = comdat any
 
@@ -57,13 +35,13 @@ define linkonce_odr noundef ptr @_ZN5folly6detail5thunk4makeINS_10rcu_domainEJEE
 entry:
   %call = tail call noalias noundef nonnull dereferenceable(160) ptr @_Znwm(i64 noundef 160) #7
   store i64 0, ptr %call, align 8, !tbaa !7
-  %waiting_.i.i = getelementptr inbounds %"class.folly::detail::ThreadCachedReaders", ptr %call, i64 0, i32 1
+  %waiting_.i.i = getelementptr inbounds i8, ptr %call, i64 8
   store i32 0, ptr %waiting_.i.i, align 4, !tbaa !12
-  %cs_.i.i = getelementptr inbounds %"class.folly::detail::ThreadCachedReaders", ptr %call, i64 0, i32 2
+  %cs_.i.i = getelementptr inbounds i8, ptr %call, i64 12
   store i32 -1, ptr %cs_.i.i, align 4, !tbaa !12
-  %version_.i = getelementptr inbounds %"class.folly::rcu_domain", ptr %call, i64 0, i32 1
-  %syncMutex_.i = getelementptr inbounds %"class.folly::rcu_domain", ptr %call, i64 0, i32 4
-  %lhead_.i.i = getelementptr inbounds %"class.folly::rcu_domain", ptr %call, i64 0, i32 6, i32 1
+  %version_.i = getelementptr inbounds i8, ptr %call, i64 16
+  %syncMutex_.i = getelementptr inbounds i8, ptr %call, i64 40
+  %lhead_.i.i = getelementptr inbounds i8, ptr %call, i64 112
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(20) %version_.i, i8 0, i64 20, i1 false)
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(68) %syncMutex_.i, i8 0, i64 68, i1 false)
   store i32 -1, ptr %lhead_.i.i, align 4, !tbaa !12
@@ -82,7 +60,7 @@ _ZN5folly10rcu_domainC2EPNS_8ExecutorE.exit:      ; preds = %entry
   %vbase.offset.ptr.i = getelementptr i8, ptr %vtable.i, i64 -72
   %vbase.offset.i = load i64, ptr %vbase.offset.ptr.i, align 8
   %add.ptr.i = getelementptr inbounds i8, ptr %call.i, i64 %vbase.offset.i
-  %executor_.i = getelementptr inbounds %"class.folly::rcu_domain", ptr %call, i64 0, i32 7
+  %executor_.i = getelementptr inbounds i8, ptr %call, i64 120
   store ptr %add.ptr.i, ptr %executor_.i, align 8, !tbaa !17
   %scevgep.i = getelementptr inbounds i8, ptr %call, i64 128
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %scevgep.i, i8 0, i64 32, i1 false), !tbaa !36

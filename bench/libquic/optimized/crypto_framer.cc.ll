@@ -4,6 +4,14 @@ target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:
 target triple = "x86_64-unknown-linux-gnu"
 
 %"class.std::allocator" = type { i8 }
+%"class.net::(anonymous namespace)::OneShotVisitor" = type <{ %"class.net::CryptoFramerVisitorInterface", %"class.std::unique_ptr.8", i8, [7 x i8] }>
+%"class.net::CryptoFramerVisitorInterface" = type { ptr }
+%"class.std::unique_ptr.8" = type { %"struct.std::__uniq_ptr_data.9" }
+%"struct.std::__uniq_ptr_data.9" = type { %"class.std::__uniq_ptr_impl.10" }
+%"class.std::__uniq_ptr_impl.10" = type { %"class.std::tuple.11" }
+%"class.std::tuple.11" = type { %"struct.std::_Tuple_impl.12" }
+%"struct.std::_Tuple_impl.12" = type { %"struct.std::_Head_base.15" }
+%"struct.std::_Head_base.15" = type { ptr }
 %"class.net::CryptoFramer" = type { ptr, ptr, i32, %"class.std::__cxx11::basic_string", i32, %"class.net::CryptoHandshakeMessage", %"class.std::__cxx11::basic_string", i16, %"class.std::vector", i64 }
 %"class.net::CryptoHandshakeMessage" = type { i32, %"class.std::map", i64, %"class.std::unique_ptr" }
 %"class.std::map" = type { %"class.std::_Rb_tree" }
@@ -26,20 +34,10 @@ target triple = "x86_64-unknown-linux-gnu"
 %"struct.std::_Vector_base" = type { %"struct.std::_Vector_base<std::pair<unsigned int, unsigned long>, std::allocator<std::pair<unsigned int, unsigned long>>>::_Vector_impl" }
 %"struct.std::_Vector_base<std::pair<unsigned int, unsigned long>, std::allocator<std::pair<unsigned int, unsigned long>>>::_Vector_impl" = type { %"struct.std::_Vector_base<std::pair<unsigned int, unsigned long>, std::allocator<std::pair<unsigned int, unsigned long>>>::_Vector_impl_data" }
 %"struct.std::_Vector_base<std::pair<unsigned int, unsigned long>, std::allocator<std::pair<unsigned int, unsigned long>>>::_Vector_impl_data" = type { ptr, ptr, ptr }
-%"class.net::(anonymous namespace)::OneShotVisitor" = type <{ %"class.net::CryptoFramerVisitorInterface", %"class.std::unique_ptr.8", i8, [7 x i8] }>
-%"class.net::CryptoFramerVisitorInterface" = type { ptr }
-%"class.std::unique_ptr.8" = type { %"struct.std::__uniq_ptr_data.9" }
-%"struct.std::__uniq_ptr_data.9" = type { %"class.std::__uniq_ptr_impl.10" }
-%"class.std::__uniq_ptr_impl.10" = type { %"class.std::tuple.11" }
-%"class.std::tuple.11" = type { %"struct.std::_Tuple_impl.12" }
-%"struct.std::_Tuple_impl.12" = type { %"struct.std::_Head_base.15" }
-%"struct.std::_Head_base.15" = type { ptr }
 %"class.base::BasicStringPiece" = type { ptr, i64 }
 %"class.net::QuicDataReader" = type { ptr, i64, i64 }
 %"struct.std::pair.24" = type { i32, i64 }
 %"class.net::QuicDataWriter" = type { ptr, i64, i64 }
-%"struct.std::_Rb_tree_node" = type { %"struct.std::_Rb_tree_node_base", %"struct.__gnu_cxx::__aligned_membuf" }
-%"struct.__gnu_cxx::__aligned_membuf" = type { [40 x i8] }
 %struct._Guard = type { ptr }
 
 $__clang_call_terminate = comdat any
@@ -77,16 +75,16 @@ define dso_local void @_ZN3net12CryptoFramerC2Ev(ptr noundef nonnull align 8 der
 entry:
   %ref.tmp = alloca %"class.std::allocator", align 1
   store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN3net12CryptoFramerE, i64 0, inrange i32 0, i64 2), ptr %this, align 8
-  %visitor_ = getelementptr inbounds %"class.net::CryptoFramer", ptr %this, i64 0, i32 1
+  %visitor_ = getelementptr inbounds i8, ptr %this, i64 8
   store ptr null, ptr %visitor_, align 8
-  %buffer_ = getelementptr inbounds %"class.net::CryptoFramer", ptr %this, i64 0, i32 3
+  %buffer_ = getelementptr inbounds i8, ptr %this, i64 24
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(32) %buffer_) #13
-  %message_ = getelementptr inbounds %"class.net::CryptoFramer", ptr %this, i64 0, i32 5
+  %message_ = getelementptr inbounds i8, ptr %this, i64 64
   invoke void @_ZN3net22CryptoHandshakeMessageC1Ev(ptr noundef nonnull align 8 dereferenceable(72) %message_)
           to label %invoke.cont unwind label %lpad
 
 invoke.cont:                                      ; preds = %entry
-  %error_detail_ = getelementptr inbounds %"class.net::CryptoFramer", ptr %this, i64 0, i32 6
+  %error_detail_ = getelementptr inbounds i8, ptr %this, i64 136
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp) #13
   %call.i3 = invoke noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_M_local_dataEv(ptr noundef nonnull align 8 dereferenceable(32) %error_detail_)
           to label %call.i.noexc unwind label %lpad2
@@ -107,16 +105,16 @@ lpad.i:                                           ; preds = %.noexc
 
 invoke.cont3:                                     ; preds = %.noexc
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp) #13
-  %num_entries_ = getelementptr inbounds %"class.net::CryptoFramer", ptr %this, i64 0, i32 7
+  %num_entries_ = getelementptr inbounds i8, ptr %this, i64 168
   store i16 0, ptr %num_entries_, align 8
-  %tags_and_lengths_ = getelementptr inbounds %"class.net::CryptoFramer", ptr %this, i64 0, i32 8
+  %tags_and_lengths_ = getelementptr inbounds i8, ptr %this, i64 176
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %tags_and_lengths_, i8 0, i64 32, i1 false)
   invoke void @_ZN3net22CryptoHandshakeMessage5ClearEv(ptr noundef nonnull align 8 dereferenceable(72) %message_)
           to label %.noexc4 unwind label %lpad4
 
 .noexc4:                                          ; preds = %invoke.cont3
   %1 = load ptr, ptr %tags_and_lengths_, align 8
-  %_M_finish.i.i.i = getelementptr inbounds %"class.net::CryptoFramer", ptr %this, i64 0, i32 8, i32 0, i32 0, i32 0, i32 1
+  %_M_finish.i.i.i = getelementptr inbounds i8, ptr %this, i64 184
   %2 = load ptr, ptr %_M_finish.i.i.i, align 8
   %tobool.not.i.i.i = icmp eq ptr %2, %1
   br i1 %tobool.not.i.i.i, label %_ZNSt6vectorISt4pairIjmESaIS1_EE5clearEv.exit.i, label %invoke.cont.i.i.i
@@ -126,13 +124,13 @@ invoke.cont.i.i.i:                                ; preds = %.noexc4
   br label %_ZNSt6vectorISt4pairIjmESaIS1_EE5clearEv.exit.i
 
 _ZNSt6vectorISt4pairIjmESaIS1_EE5clearEv.exit.i:  ; preds = %invoke.cont.i.i.i, %.noexc4
-  %error_.i = getelementptr inbounds %"class.net::CryptoFramer", ptr %this, i64 0, i32 2
+  %error_.i = getelementptr inbounds i8, ptr %this, i64 16
   store i32 0, ptr %error_.i, align 8
   %call.i6 = invoke noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEaSEPKc(ptr noundef nonnull align 8 dereferenceable(32) %error_detail_, ptr noundef nonnull @.str)
           to label %invoke.cont5 unwind label %lpad4
 
 invoke.cont5:                                     ; preds = %_ZNSt6vectorISt4pairIjmESaIS1_EE5clearEv.exit.i
-  %state_.i = getelementptr inbounds %"class.net::CryptoFramer", ptr %this, i64 0, i32 4
+  %state_.i = getelementptr inbounds i8, ptr %this, i64 56
   store i32 0, ptr %state_.i, align 8
   ret void
 
@@ -193,11 +191,11 @@ declare void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1)) unnam
 ; Function Attrs: mustprogress uwtable
 define dso_local void @_ZN3net12CryptoFramer5ClearEv(ptr noundef nonnull align 8 dereferenceable(208) %this) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  %message_ = getelementptr inbounds %"class.net::CryptoFramer", ptr %this, i64 0, i32 5
+  %message_ = getelementptr inbounds i8, ptr %this, i64 64
   tail call void @_ZN3net22CryptoHandshakeMessage5ClearEv(ptr noundef nonnull align 8 dereferenceable(72) %message_)
-  %tags_and_lengths_ = getelementptr inbounds %"class.net::CryptoFramer", ptr %this, i64 0, i32 8
+  %tags_and_lengths_ = getelementptr inbounds i8, ptr %this, i64 176
   %0 = load ptr, ptr %tags_and_lengths_, align 8
-  %_M_finish.i.i = getelementptr inbounds %"class.net::CryptoFramer", ptr %this, i64 0, i32 8, i32 0, i32 0, i32 0, i32 1
+  %_M_finish.i.i = getelementptr inbounds i8, ptr %this, i64 184
   %1 = load ptr, ptr %_M_finish.i.i, align 8
   %tobool.not.i.i = icmp eq ptr %1, %0
   br i1 %tobool.not.i.i, label %_ZNSt6vectorISt4pairIjmESaIS1_EE5clearEv.exit, label %invoke.cont.i.i
@@ -207,11 +205,11 @@ invoke.cont.i.i:                                  ; preds = %entry
   br label %_ZNSt6vectorISt4pairIjmESaIS1_EE5clearEv.exit
 
 _ZNSt6vectorISt4pairIjmESaIS1_EE5clearEv.exit:    ; preds = %entry, %invoke.cont.i.i
-  %error_ = getelementptr inbounds %"class.net::CryptoFramer", ptr %this, i64 0, i32 2
+  %error_ = getelementptr inbounds i8, ptr %this, i64 16
   store i32 0, ptr %error_, align 8
-  %error_detail_ = getelementptr inbounds %"class.net::CryptoFramer", ptr %this, i64 0, i32 6
+  %error_detail_ = getelementptr inbounds i8, ptr %this, i64 136
   %call = tail call noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEaSEPKc(ptr noundef nonnull align 8 dereferenceable(32) %error_detail_, ptr noundef nonnull @.str)
-  %state_ = getelementptr inbounds %"class.net::CryptoFramer", ptr %this, i64 0, i32 4
+  %state_ = getelementptr inbounds i8, ptr %this, i64 56
   store i32 0, ptr %state_, align 8
   ret void
 }
@@ -226,7 +224,7 @@ declare void @_ZN3net22CryptoHandshakeMessageD1Ev(ptr noundef nonnull align 8 de
 define dso_local void @_ZN3net12CryptoFramerD2Ev(ptr noundef nonnull align 8 dereferenceable(208) %this) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN3net12CryptoFramerE, i64 0, inrange i32 0, i64 2), ptr %this, align 8
-  %tags_and_lengths_ = getelementptr inbounds %"class.net::CryptoFramer", ptr %this, i64 0, i32 8
+  %tags_and_lengths_ = getelementptr inbounds i8, ptr %this, i64 176
   %0 = load ptr, ptr %tags_and_lengths_, align 8
   %tobool.not.i.i.i = icmp eq ptr %0, null
   br i1 %tobool.not.i.i.i, label %_ZNSt6vectorISt4pairIjmESaIS1_EED2Ev.exit, label %if.then.i.i.i
@@ -236,11 +234,11 @@ if.then.i.i.i:                                    ; preds = %entry
   br label %_ZNSt6vectorISt4pairIjmESaIS1_EED2Ev.exit
 
 _ZNSt6vectorISt4pairIjmESaIS1_EED2Ev.exit:        ; preds = %entry, %if.then.i.i.i
-  %error_detail_ = getelementptr inbounds %"class.net::CryptoFramer", ptr %this, i64 0, i32 6
+  %error_detail_ = getelementptr inbounds i8, ptr %this, i64 136
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %error_detail_) #13
-  %message_ = getelementptr inbounds %"class.net::CryptoFramer", ptr %this, i64 0, i32 5
+  %message_ = getelementptr inbounds i8, ptr %this, i64 64
   tail call void @_ZN3net22CryptoHandshakeMessageD1Ev(ptr noundef nonnull align 8 dereferenceable(72) %message_) #13
-  %buffer_ = getelementptr inbounds %"class.net::CryptoFramer", ptr %this, i64 0, i32 3
+  %buffer_ = getelementptr inbounds i8, ptr %this, i64 24
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %buffer_) #13
   ret void
 }
@@ -249,7 +247,7 @@ _ZNSt6vectorISt4pairIjmESaIS1_EED2Ev.exit:        ; preds = %entry, %if.then.i.i
 define dso_local void @_ZN3net12CryptoFramerD0Ev(ptr noundef nonnull align 8 dereferenceable(208) %this) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN3net12CryptoFramerE, i64 0, inrange i32 0, i64 2), ptr %this, align 8
-  %tags_and_lengths_.i = getelementptr inbounds %"class.net::CryptoFramer", ptr %this, i64 0, i32 8
+  %tags_and_lengths_.i = getelementptr inbounds i8, ptr %this, i64 176
   %0 = load ptr, ptr %tags_and_lengths_.i, align 8
   %tobool.not.i.i.i.i = icmp eq ptr %0, null
   br i1 %tobool.not.i.i.i.i, label %_ZN3net12CryptoFramerD2Ev.exit, label %if.then.i.i.i.i
@@ -259,11 +257,11 @@ if.then.i.i.i.i:                                  ; preds = %entry
   br label %_ZN3net12CryptoFramerD2Ev.exit
 
 _ZN3net12CryptoFramerD2Ev.exit:                   ; preds = %entry, %if.then.i.i.i.i
-  %error_detail_.i = getelementptr inbounds %"class.net::CryptoFramer", ptr %this, i64 0, i32 6
+  %error_detail_.i = getelementptr inbounds i8, ptr %this, i64 136
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %error_detail_.i) #13
-  %message_.i = getelementptr inbounds %"class.net::CryptoFramer", ptr %this, i64 0, i32 5
+  %message_.i = getelementptr inbounds i8, ptr %this, i64 64
   tail call void @_ZN3net22CryptoHandshakeMessageD1Ev(ptr noundef nonnull align 8 dereferenceable(72) %message_.i) #13
-  %buffer_.i = getelementptr inbounds %"class.net::CryptoFramer", ptr %this, i64 0, i32 3
+  %buffer_.i = getelementptr inbounds i8, ptr %this, i64 24
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %buffer_.i) #13
   tail call void @_ZdlPv(ptr noundef nonnull %this) #14
   ret void
@@ -278,17 +276,17 @@ entry:
   %visitor = alloca %"class.net::(anonymous namespace)::OneShotVisitor", align 8
   %framer = alloca %"class.net::CryptoFramer", align 8
   store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN3net12_GLOBAL__N_114OneShotVisitorE, i64 0, inrange i32 0, i64 2), ptr %visitor, align 8
-  %out_.i = getelementptr inbounds %"class.net::(anonymous namespace)::OneShotVisitor", ptr %visitor, i64 0, i32 1
+  %out_.i = getelementptr inbounds i8, ptr %visitor, i64 8
   store ptr null, ptr %out_.i, align 8
-  %error_.i = getelementptr inbounds %"class.net::(anonymous namespace)::OneShotVisitor", ptr %visitor, i64 0, i32 2
+  %error_.i = getelementptr inbounds i8, ptr %visitor, i64 16
   store i8 0, ptr %error_.i, align 8
   invoke void @_ZN3net12CryptoFramerC2Ev(ptr noundef nonnull align 8 dereferenceable(208) %framer)
           to label %invoke.cont unwind label %lpad
 
 invoke.cont:                                      ; preds = %entry
-  %visitor_.i = getelementptr inbounds %"class.net::CryptoFramer", ptr %framer, i64 0, i32 1
+  %visitor_.i = getelementptr inbounds i8, ptr %framer, i64 8
   store ptr %visitor, ptr %visitor_.i, align 8
-  %error_.i2 = getelementptr inbounds %"class.net::CryptoFramer", ptr %framer, i64 0, i32 2
+  %error_.i2 = getelementptr inbounds i8, ptr %framer, i64 16
   %0 = load i32, ptr %error_.i2, align 8
   %cmp.not.i = icmp eq i32 %0, 0
   br i1 %cmp.not.i, label %if.end5.i, label %cleanup
@@ -305,7 +303,7 @@ call6.i.noexc:                                    ; preds = %if.end5.i
 if.then10.i:                                      ; preds = %call6.i.noexc
   %1 = load ptr, ptr %visitor_.i, align 8
   %vtable.i = load ptr, ptr %1, align 8
-  %vfn.i = getelementptr inbounds ptr, ptr %vtable.i, i64 2
+  %vfn.i = getelementptr inbounds i8, ptr %vtable.i, i64 16
   %2 = load ptr, ptr %vfn.i, align 8
   invoke void %2(ptr noundef nonnull align 8 dereferenceable(8) %1, ptr noundef nonnull %framer)
           to label %cleanup unwind label %lpad1
@@ -317,7 +315,7 @@ lor.lhs.false:                                    ; preds = %call6.i.noexc
   br i1 %tobool.i.not, label %lor.lhs.false6, label %cleanup
 
 lor.lhs.false6:                                   ; preds = %lor.lhs.false
-  %buffer_.i = getelementptr inbounds %"class.net::CryptoFramer", ptr %framer, i64 0, i32 3
+  %buffer_.i = getelementptr inbounds i8, ptr %framer, i64 24
   %call.i = call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6lengthEv(ptr noundef nonnull align 8 dereferenceable(32) %buffer_.i) #13
   %tobool.not = icmp eq i64 %call.i, 0
   br i1 %tobool.not, label %if.end, label %cleanup
@@ -341,7 +339,7 @@ if.end:                                           ; preds = %lor.lhs.false6
 cleanup:                                          ; preds = %if.then10.i, %invoke.cont, %lor.lhs.false, %lor.lhs.false6, %if.end
   %retval.0 = phi ptr [ %6, %if.end ], [ null, %lor.lhs.false6 ], [ null, %lor.lhs.false ], [ null, %invoke.cont ], [ null, %if.then10.i ]
   store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN3net12CryptoFramerE, i64 0, inrange i32 0, i64 2), ptr %framer, align 8
-  %tags_and_lengths_.i = getelementptr inbounds %"class.net::CryptoFramer", ptr %framer, i64 0, i32 8
+  %tags_and_lengths_.i = getelementptr inbounds i8, ptr %framer, i64 176
   %7 = load ptr, ptr %tags_and_lengths_.i, align 8
   %tobool.not.i.i.i.i = icmp eq ptr %7, null
   br i1 %tobool.not.i.i.i.i, label %_ZN3net12CryptoFramerD2Ev.exit, label %if.then.i.i.i.i
@@ -351,11 +349,11 @@ if.then.i.i.i.i:                                  ; preds = %cleanup
   br label %_ZN3net12CryptoFramerD2Ev.exit
 
 _ZN3net12CryptoFramerD2Ev.exit:                   ; preds = %cleanup, %if.then.i.i.i.i
-  %error_detail_.i = getelementptr inbounds %"class.net::CryptoFramer", ptr %framer, i64 0, i32 6
+  %error_detail_.i = getelementptr inbounds i8, ptr %framer, i64 136
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %error_detail_.i) #13
-  %message_.i = getelementptr inbounds %"class.net::CryptoFramer", ptr %framer, i64 0, i32 5
+  %message_.i = getelementptr inbounds i8, ptr %framer, i64 64
   call void @_ZN3net22CryptoHandshakeMessageD1Ev(ptr noundef nonnull align 8 dereferenceable(72) %message_.i) #13
-  %buffer_.i6 = getelementptr inbounds %"class.net::CryptoFramer", ptr %framer, i64 0, i32 3
+  %buffer_.i6 = getelementptr inbounds i8, ptr %framer, i64 24
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %buffer_.i6) #13
   store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN3net12_GLOBAL__N_114OneShotVisitorE, i64 0, inrange i32 0, i64 2), ptr %visitor, align 8
   %8 = load ptr, ptr %out_.i, align 8
@@ -379,7 +377,7 @@ ehcleanup:                                        ; preds = %lpad1, %lpad
 ; Function Attrs: mustprogress uwtable
 define dso_local noundef zeroext i1 @_ZN3net12CryptoFramer12ProcessInputEN4base16BasicStringPieceINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEE(ptr noundef nonnull align 8 dereferenceable(208) %this, ptr %input.coerce0, i64 %input.coerce1) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 if.end:
-  %error_ = getelementptr inbounds %"class.net::CryptoFramer", ptr %this, i64 0, i32 2
+  %error_ = getelementptr inbounds i8, ptr %this, i64 16
   %0 = load i32, ptr %error_, align 8
   %cmp.not = icmp eq i32 %0, 0
   br i1 %cmp.not, label %if.end5, label %return
@@ -391,10 +389,10 @@ if.end5:                                          ; preds = %if.end
   br i1 %cmp9.not, label %return, label %if.then10
 
 if.then10:                                        ; preds = %if.end5
-  %visitor_ = getelementptr inbounds %"class.net::CryptoFramer", ptr %this, i64 0, i32 1
+  %visitor_ = getelementptr inbounds i8, ptr %this, i64 8
   %1 = load ptr, ptr %visitor_, align 8
   %vtable = load ptr, ptr %1, align 8
-  %vfn = getelementptr inbounds ptr, ptr %vtable, i64 2
+  %vfn = getelementptr inbounds i8, ptr %vtable, i64 16
   %2 = load ptr, ptr %vfn, align 8
   tail call void %2(ptr noundef nonnull align 8 dereferenceable(8) %1, ptr noundef nonnull %this)
   br label %return
@@ -411,7 +409,7 @@ declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias
 define internal void @_ZN3net12_GLOBAL__N_114OneShotVisitorD2Ev(ptr nocapture noundef nonnull align 8 dereferenceable(17) %this) unnamed_addr #3 align 2 {
 entry:
   store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN3net12_GLOBAL__N_114OneShotVisitorE, i64 0, inrange i32 0, i64 2), ptr %this, align 8
-  %out_ = getelementptr inbounds %"class.net::(anonymous namespace)::OneShotVisitor", ptr %this, i64 0, i32 1
+  %out_ = getelementptr inbounds i8, ptr %this, i64 8
   %0 = load ptr, ptr %out_, align 8
   %cmp.not.i = icmp eq ptr %0, null
   br i1 %cmp.not.i, label %_ZNSt10unique_ptrIN3net22CryptoHandshakeMessageESt14default_deleteIS1_EED2Ev.exit, label %_ZNKSt14default_deleteIN3net22CryptoHandshakeMessageEEclEPS1_.exit.i
@@ -443,16 +441,16 @@ entry:
   %ref.tmp119 = alloca %"class.std::__cxx11::basic_string", align 8
   %ref.tmp120 = alloca %"class.base::BasicStringPiece", align 8
   store ptr %input.coerce0, ptr %input, align 8
-  %0 = getelementptr inbounds { ptr, i64 }, ptr %input, i64 0, i32 1
+  %0 = getelementptr inbounds i8, ptr %input, i64 8
   store i64 %input.coerce1, ptr %0, align 8
-  %buffer_ = getelementptr inbounds %"class.net::CryptoFramer", ptr %this, i64 0, i32 3
+  %buffer_ = getelementptr inbounds i8, ptr %this, i64 24
   %call = call noundef ptr @_ZNK4base16BasicStringPieceINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE4dataEv(ptr noundef nonnull align 8 dereferenceable(16) %input)
   %call2 = call noundef i64 @_ZNK4base16BasicStringPieceINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE6lengthEv(ptr noundef nonnull align 8 dereferenceable(16) %input)
   %call3 = call noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6appendEPKcm(ptr noundef nonnull align 8 dereferenceable(32) %buffer_, ptr noundef %call, i64 noundef %call2)
   %call5 = call noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4dataEv(ptr noundef nonnull align 8 dereferenceable(32) %buffer_) #13
   %call7 = call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6lengthEv(ptr noundef nonnull align 8 dereferenceable(32) %buffer_) #13
   call void @_ZN3net14QuicDataReaderC1EPKcm(ptr noundef nonnull align 8 dereferenceable(24) %reader, ptr noundef %call5, i64 noundef %call7)
-  %state_ = getelementptr inbounds %"class.net::CryptoFramer", ptr %this, i64 0, i32 4
+  %state_ = getelementptr inbounds i8, ptr %this, i64 56
   %1 = load i32, ptr %state_, align 8
   switch i32 %1, label %sw.epilog [
     i32 0, label %sw.bb
@@ -468,7 +466,7 @@ sw.bb:                                            ; preds = %entry
 
 if.end:                                           ; preds = %sw.bb
   %call10 = call noundef zeroext i1 @_ZN3net14QuicDataReader10ReadUInt32EPj(ptr noundef nonnull align 8 dereferenceable(24) %reader, ptr noundef nonnull %message_tag)
-  %message_ = getelementptr inbounds %"class.net::CryptoFramer", ptr %this, i64 0, i32 5
+  %message_ = getelementptr inbounds i8, ptr %this, i64 64
   %2 = load i32, ptr %message_tag, align 4
   store i32 %2, ptr %message_, align 8
   store i32 1, ptr %state_, align 8
@@ -480,7 +478,7 @@ sw.bb13:                                          ; preds = %if.end, %entry
   br i1 %cmp16, label %sw.epilog, label %if.end18
 
 if.end18:                                         ; preds = %sw.bb13
-  %num_entries_ = getelementptr inbounds %"class.net::CryptoFramer", ptr %this, i64 0, i32 7
+  %num_entries_ = getelementptr inbounds i8, ptr %this, i64 168
   %call20 = call noundef zeroext i1 @_ZN3net14QuicDataReader10ReadUInt16EPt(ptr noundef nonnull align 8 dereferenceable(24) %reader, ptr noundef nonnull %num_entries_)
   %3 = load i16, ptr %num_entries_, align 8
   %cmp22 = icmp ugt i16 %3, 128
@@ -489,16 +487,16 @@ if.end18:                                         ; preds = %sw.bb13
 if.then23:                                        ; preds = %if.end18
   %conv25 = zext i16 %3 to i32
   call void (ptr, ptr, ...) @_ZN4base12StringPrintfB5cxx11EPKcz(ptr nonnull sret(%"class.std::__cxx11::basic_string") align 8 %ref.tmp, ptr noundef nonnull @.str.2, i32 noundef %conv25)
-  %error_detail_ = getelementptr inbounds %"class.net::CryptoFramer", ptr %this, i64 0, i32 6
+  %error_detail_ = getelementptr inbounds i8, ptr %this, i64 136
   %call27 = call noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEaSEOS4_(ptr noundef nonnull align 8 dereferenceable(32) %error_detail_, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp) #13
   br label %cleanup
 
 if.end28:                                         ; preds = %if.end18
   %call30 = call noundef zeroext i1 @_ZN3net14QuicDataReader10ReadUInt16EPt(ptr noundef nonnull align 8 dereferenceable(24) %reader, ptr noundef nonnull %padding)
-  %tags_and_lengths_ = getelementptr inbounds %"class.net::CryptoFramer", ptr %this, i64 0, i32 8
+  %tags_and_lengths_ = getelementptr inbounds i8, ptr %this, i64 176
   %4 = load i16, ptr %num_entries_, align 8
   %conv32 = zext i16 %4 to i64
-  %_M_end_of_storage.i.i = getelementptr inbounds %"class.net::CryptoFramer", ptr %this, i64 0, i32 8, i32 0, i32 0, i32 0, i32 2
+  %_M_end_of_storage.i.i = getelementptr inbounds i8, ptr %this, i64 192
   %5 = load ptr, ptr %_M_end_of_storage.i.i, align 8
   %6 = load ptr, ptr %tags_and_lengths_, align 8
   %sub.ptr.lhs.cast.i.i = ptrtoint ptr %5 to i64
@@ -509,7 +507,7 @@ if.end28:                                         ; preds = %if.end18
   br i1 %cmp3.i, label %_ZNSt12_Vector_baseISt4pairIjmESaIS1_EE11_M_allocateEm.exit.i, label %invoke.cont33
 
 _ZNSt12_Vector_baseISt4pairIjmESaIS1_EE11_M_allocateEm.exit.i: ; preds = %if.end28
-  %_M_finish.i.i = getelementptr inbounds %"class.net::CryptoFramer", ptr %this, i64 0, i32 8, i32 0, i32 0, i32 0, i32 1
+  %_M_finish.i.i = getelementptr inbounds i8, ptr %this, i64 184
   %7 = load ptr, ptr %_M_finish.i.i, align 8
   %sub.ptr.lhs.cast.i6.i = ptrtoint ptr %7 to i64
   %sub.ptr.sub.i8.i = sub i64 %sub.ptr.lhs.cast.i6.i, %sub.ptr.rhs.cast.i.i
@@ -522,8 +520,8 @@ for.body.i.i.i.i:                                 ; preds = %_ZNSt12_Vector_base
   %__cur.07.i.i.i.i = phi ptr [ %incdec.ptr1.i.i.i.i, %for.body.i.i.i.i ], [ %call5.i.i.i.i10, %_ZNSt12_Vector_baseISt4pairIjmESaIS1_EE11_M_allocateEm.exit.i ]
   %__first.addr.06.i.i.i.i = phi ptr [ %incdec.ptr.i.i.i.i, %for.body.i.i.i.i ], [ %6, %_ZNSt12_Vector_baseISt4pairIjmESaIS1_EE11_M_allocateEm.exit.i ]
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %__cur.07.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(16) %__first.addr.06.i.i.i.i, i64 16, i1 false), !alias.scope !6
-  %incdec.ptr.i.i.i.i = getelementptr inbounds %"struct.std::pair.24", ptr %__first.addr.06.i.i.i.i, i64 1
-  %incdec.ptr1.i.i.i.i = getelementptr inbounds %"struct.std::pair.24", ptr %__cur.07.i.i.i.i, i64 1
+  %incdec.ptr.i.i.i.i = getelementptr inbounds i8, ptr %__first.addr.06.i.i.i.i, i64 16
+  %incdec.ptr1.i.i.i.i = getelementptr inbounds i8, ptr %__cur.07.i.i.i.i, i64 16
   %cmp.not.i.i.i.i = icmp eq ptr %incdec.ptr.i.i.i.i, %7
   br i1 %cmp.not.i.i.i.i, label %_ZNSt6vectorISt4pairIjmESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit.i, label %for.body.i.i.i.i, !llvm.loop !10
 
@@ -545,13 +543,13 @@ _ZNSt12_Vector_baseISt4pairIjmESaIS1_EE13_M_deallocateEPS1_m.exit.i: ; preds = %
 
 invoke.cont33:                                    ; preds = %_ZNSt12_Vector_baseISt4pairIjmESaIS1_EE13_M_deallocateEPS1_m.exit.i, %if.end28
   store i32 2, ptr %state_, align 8
-  %values_len_ = getelementptr inbounds %"class.net::CryptoFramer", ptr %this, i64 0, i32 9
+  %values_len_ = getelementptr inbounds i8, ptr %this, i64 200
   store i64 0, ptr %values_len_, align 8
   br label %sw.bb35
 
 sw.bb35:                                          ; preds = %invoke.cont33, %entry
   %call37 = call noundef i64 @_ZNK3net14QuicDataReader14BytesRemainingEv(ptr noundef nonnull align 8 dereferenceable(24) %reader)
-  %num_entries_38 = getelementptr inbounds %"class.net::CryptoFramer", ptr %this, i64 0, i32 7
+  %num_entries_38 = getelementptr inbounds i8, ptr %this, i64 168
   %8 = load i16, ptr %num_entries_38, align 8
   %conv39 = zext i16 %8 to i64
   %mul = shl nuw nsw i64 %conv39, 3
@@ -563,9 +561,9 @@ for.cond.preheader:                               ; preds = %sw.bb35
   br i1 %cmp4533.not, label %for.end, label %for.body.lr.ph
 
 for.body.lr.ph:                                   ; preds = %for.cond.preheader
-  %tags_and_lengths_49 = getelementptr inbounds %"class.net::CryptoFramer", ptr %this, i64 0, i32 8
-  %_M_finish.i.i13 = getelementptr inbounds %"class.net::CryptoFramer", ptr %this, i64 0, i32 8, i32 0, i32 0, i32 0, i32 1
-  %_M_end_of_storage.i.i14 = getelementptr inbounds %"class.net::CryptoFramer", ptr %this, i64 0, i32 8, i32 0, i32 0, i32 0, i32 2
+  %tags_and_lengths_49 = getelementptr inbounds i8, ptr %this, i64 176
+  %_M_finish.i.i13 = getelementptr inbounds i8, ptr %this, i64 184
+  %_M_end_of_storage.i.i14 = getelementptr inbounds i8, ptr %this, i64 192
   br label %for.body
 
 for.body:                                         ; preds = %for.body.lr.ph, %invoke.cont87
@@ -579,14 +577,14 @@ land.lhs.true:                                    ; preds = %for.body
   %9 = load i32, ptr %tag, align 4
   %10 = load ptr, ptr %tags_and_lengths_49, align 8
   %11 = getelementptr %"struct.std::pair.24", ptr %10, i64 %indvars.iv
-  %add.ptr.i11 = getelementptr %"struct.std::pair.24", ptr %11, i64 -1
+  %add.ptr.i11 = getelementptr i8, ptr %11, i64 -16
   %12 = load i32, ptr %add.ptr.i11, align 8
   %cmp52.not = icmp ugt i32 %9, %12
   br i1 %cmp52.not, label %if.end70, label %if.then53
 
 if.then53:                                        ; preds = %land.lhs.true
   %cmp59 = icmp eq i32 %9, %12
-  %error_detail_63 = getelementptr inbounds %"class.net::CryptoFramer", ptr %this, i64 0, i32 6
+  %error_detail_63 = getelementptr inbounds i8, ptr %this, i64 136
   br i1 %cmp59, label %if.then60, label %if.end65
 
 if.then60:                                        ; preds = %if.then53
@@ -607,7 +605,7 @@ if.end70:                                         ; preds = %land.lhs.true, %for
 
 if.then74:                                        ; preds = %if.end70
   call void (ptr, ptr, ...) @_ZN4base12StringPrintfB5cxx11EPKcz(ptr nonnull sret(%"class.std::__cxx11::basic_string") align 8 %ref.tmp75, ptr noundef nonnull @.str.5, i32 noundef %13, i32 noundef %last_end_offset.035)
-  %error_detail_77 = getelementptr inbounds %"class.net::CryptoFramer", ptr %this, i64 0, i32 6
+  %error_detail_77 = getelementptr inbounds i8, ptr %this, i64 136
   %call78 = call noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEaSEOS4_(ptr noundef nonnull align 8 dereferenceable(32) %error_detail_77, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp75) #13
   br label %cleanup
 
@@ -625,7 +623,7 @@ if.then.i.i15:                                    ; preds = %invoke.cont85
   %ref.tmp81.sroa.324.0..sroa_idx = getelementptr inbounds i8, ptr %15, i64 8
   store i64 %conv84, ptr %ref.tmp81.sroa.324.0..sroa_idx, align 8
   %17 = load ptr, ptr %_M_finish.i.i13, align 8
-  %incdec.ptr.i.i = getelementptr inbounds %"struct.std::pair.24", ptr %17, i64 1
+  %incdec.ptr.i.i = getelementptr inbounds i8, ptr %17, i64 16
   store ptr %incdec.ptr.i.i, ptr %_M_finish.i.i13, align 8
   br label %invoke.cont87
 
@@ -669,14 +667,14 @@ for.body.i.i.i.i.i.i:                             ; preds = %_ZNSt12_Vector_base
   %__cur.07.i.i.i.i.i.i = phi ptr [ %incdec.ptr1.i.i.i.i.i.i, %for.body.i.i.i.i.i.i ], [ %cond.i10.i.i.i, %_ZNSt12_Vector_baseISt4pairIjmESaIS1_EE11_M_allocateEm.exit.i.i.i ]
   %__first.addr.06.i.i.i.i.i.i = phi ptr [ %incdec.ptr.i.i.i.i.i.i, %for.body.i.i.i.i.i.i ], [ %18, %_ZNSt12_Vector_baseISt4pairIjmESaIS1_EE11_M_allocateEm.exit.i.i.i ]
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %__cur.07.i.i.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(16) %__first.addr.06.i.i.i.i.i.i, i64 16, i1 false), !alias.scope !12
-  %incdec.ptr.i.i.i.i.i.i = getelementptr inbounds %"struct.std::pair.24", ptr %__first.addr.06.i.i.i.i.i.i, i64 1
-  %incdec.ptr1.i.i.i.i.i.i = getelementptr inbounds %"struct.std::pair.24", ptr %__cur.07.i.i.i.i.i.i, i64 1
+  %incdec.ptr.i.i.i.i.i.i = getelementptr inbounds i8, ptr %__first.addr.06.i.i.i.i.i.i, i64 16
+  %incdec.ptr1.i.i.i.i.i.i = getelementptr inbounds i8, ptr %__cur.07.i.i.i.i.i.i, i64 16
   %cmp.not.i.i.i.i.i.i = icmp eq ptr %incdec.ptr.i.i.i.i.i.i, %15
   br i1 %cmp.not.i.i.i.i.i.i, label %_ZNSt6vectorISt4pairIjmESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit19.i.i.i, label %for.body.i.i.i.i.i.i, !llvm.loop !10
 
 _ZNSt6vectorISt4pairIjmESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit19.i.i.i: ; preds = %for.body.i.i.i.i.i.i, %_ZNSt12_Vector_baseISt4pairIjmESaIS1_EE11_M_allocateEm.exit.i.i.i
   %__cur.0.lcssa.i.i.i.i.i.i = phi ptr [ %cond.i10.i.i.i, %_ZNSt12_Vector_baseISt4pairIjmESaIS1_EE11_M_allocateEm.exit.i.i.i ], [ %incdec.ptr1.i.i.i.i.i.i, %for.body.i.i.i.i.i.i ]
-  %incdec.ptr.i.i.i = getelementptr %"struct.std::pair.24", ptr %__cur.0.lcssa.i.i.i.i.i.i, i64 1
+  %incdec.ptr.i.i.i = getelementptr i8, ptr %__cur.0.lcssa.i.i.i.i.i.i, i64 16
   %tobool.not.i.i.i.i = icmp eq ptr %18, null
   br i1 %tobool.not.i.i.i.i, label %_ZNSt6vectorISt4pairIjmESaIS1_EE17_M_realloc_insertIJS1_EEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_.exit.i.i, label %if.then.i20.i.i.i
 
@@ -705,51 +703,51 @@ for.end.loopexit:                                 ; preds = %invoke.cont87
 
 for.end:                                          ; preds = %for.end.loopexit, %for.cond.preheader
   %last_end_offset.0.lcssa = phi i64 [ 0, %for.cond.preheader ], [ %23, %for.end.loopexit ]
-  %values_len_89 = getelementptr inbounds %"class.net::CryptoFramer", ptr %this, i64 0, i32 9
+  %values_len_89 = getelementptr inbounds i8, ptr %this, i64 200
   store i64 %last_end_offset.0.lcssa, ptr %values_len_89, align 8
   store i32 3, ptr %state_, align 8
   br label %sw.bb91
 
 sw.bb91:                                          ; preds = %for.end, %entry
   %call93 = call noundef i64 @_ZNK3net14QuicDataReader14BytesRemainingEv(ptr noundef nonnull align 8 dereferenceable(24) %reader)
-  %values_len_94 = getelementptr inbounds %"class.net::CryptoFramer", ptr %this, i64 0, i32 9
+  %values_len_94 = getelementptr inbounds i8, ptr %this, i64 200
   %24 = load i64, ptr %values_len_94, align 8
   %cmp95 = icmp ult i64 %call93, %24
   br i1 %cmp95, label %sw.epilog, label %if.end97
 
 if.end97:                                         ; preds = %sw.bb91
-  %tags_and_lengths_98 = getelementptr inbounds %"class.net::CryptoFramer", ptr %this, i64 0, i32 8
+  %tags_and_lengths_98 = getelementptr inbounds i8, ptr %this, i64 176
   %25 = load ptr, ptr %tags_and_lengths_98, align 8
-  %_M_finish.i = getelementptr inbounds %"class.net::CryptoFramer", ptr %this, i64 0, i32 8, i32 0, i32 0, i32 0, i32 1
+  %_M_finish.i = getelementptr inbounds i8, ptr %this, i64 184
   %26 = load ptr, ptr %_M_finish.i, align 8
   %cmp.i.not36 = icmp eq ptr %25, %26
   br i1 %cmp.i.not36, label %for.end114, label %for.body104.lr.ph
 
 for.body104.lr.ph:                                ; preds = %if.end97
-  %message_109 = getelementptr inbounds %"class.net::CryptoFramer", ptr %this, i64 0, i32 5
+  %message_109 = getelementptr inbounds i8, ptr %this, i64 64
   %agg.tmp.sroa.2.0.value.sroa_idx = getelementptr inbounds i8, ptr %value, i64 8
   br label %for.body104
 
 for.body104:                                      ; preds = %for.body104.lr.ph, %for.body104
   %__begin2.sroa.0.037 = phi ptr [ %25, %for.body104.lr.ph ], [ %incdec.ptr.i, %for.body104 ]
   call void @_ZN4base16BasicStringPieceINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEC1Ev(ptr noundef nonnull align 8 dereferenceable(16) %value)
-  %second = getelementptr inbounds %"struct.std::pair.24", ptr %__begin2.sroa.0.037, i64 0, i32 1
+  %second = getelementptr inbounds i8, ptr %__begin2.sroa.0.037, i64 8
   %27 = load i64, ptr %second, align 8
   %call108 = call noundef zeroext i1 @_ZN3net14QuicDataReader15ReadStringPieceEPN4base16BasicStringPieceINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEm(ptr noundef nonnull align 8 dereferenceable(24) %reader, ptr noundef nonnull %value, i64 noundef %27)
   %28 = load i32, ptr %__begin2.sroa.0.037, align 8
   %agg.tmp.sroa.0.0.copyload = load ptr, ptr %value, align 8
   %agg.tmp.sroa.2.0.copyload = load i64, ptr %agg.tmp.sroa.2.0.value.sroa_idx, align 8
   call void @_ZN3net22CryptoHandshakeMessage14SetStringPieceEjN4base16BasicStringPieceINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEE(ptr noundef nonnull align 8 dereferenceable(72) %message_109, i32 noundef %28, ptr %agg.tmp.sroa.0.0.copyload, i64 %agg.tmp.sroa.2.0.copyload)
-  %incdec.ptr.i = getelementptr inbounds %"struct.std::pair.24", ptr %__begin2.sroa.0.037, i64 1
+  %incdec.ptr.i = getelementptr inbounds i8, ptr %__begin2.sroa.0.037, i64 16
   %cmp.i.not = icmp eq ptr %incdec.ptr.i, %26
   br i1 %cmp.i.not, label %for.end114, label %for.body104
 
 for.end114:                                       ; preds = %for.body104, %if.end97
-  %visitor_ = getelementptr inbounds %"class.net::CryptoFramer", ptr %this, i64 0, i32 1
+  %visitor_ = getelementptr inbounds i8, ptr %this, i64 8
   %29 = load ptr, ptr %visitor_, align 8
-  %message_115 = getelementptr inbounds %"class.net::CryptoFramer", ptr %this, i64 0, i32 5
+  %message_115 = getelementptr inbounds i8, ptr %this, i64 64
   %vtable = load ptr, ptr %29, align 8
-  %vfn = getelementptr inbounds ptr, ptr %vtable, i64 3
+  %vfn = getelementptr inbounds i8, ptr %vtable, i64 24
   %30 = load ptr, ptr %vfn, align 8
   call void %30(ptr noundef nonnull align 8 dereferenceable(8) %29, ptr noundef nonnull align 8 dereferenceable(72) %message_115)
   call void @_ZN3net22CryptoHandshakeMessage5ClearEv(ptr noundef nonnull align 8 dereferenceable(72) %message_115)
@@ -763,9 +761,9 @@ invoke.cont.i.i.i:                                ; preds = %for.end114
   br label %_ZNSt6vectorISt4pairIjmESaIS1_EE5clearEv.exit.i
 
 _ZNSt6vectorISt4pairIjmESaIS1_EE5clearEv.exit.i:  ; preds = %invoke.cont.i.i.i, %for.end114
-  %error_.i = getelementptr inbounds %"class.net::CryptoFramer", ptr %this, i64 0, i32 2
+  %error_.i = getelementptr inbounds i8, ptr %this, i64 16
   store i32 0, ptr %error_.i, align 8
-  %error_detail_.i = getelementptr inbounds %"class.net::CryptoFramer", ptr %this, i64 0, i32 6
+  %error_detail_.i = getelementptr inbounds i8, ptr %this, i64 136
   %call.i19 = call noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEaSEPKc(ptr noundef nonnull align 8 dereferenceable(32) %error_detail_.i, ptr noundef nonnull @.str)
   store i32 0, ptr %state_, align 8
   br label %sw.epilog
@@ -774,7 +772,7 @@ sw.epilog:                                        ; preds = %sw.bb91, %sw.bb35, 
   %call122 = call { ptr, i64 } @_ZN3net14QuicDataReader20PeekRemainingPayloadB5cxx11Ev(ptr noundef nonnull align 8 dereferenceable(24) %reader)
   %33 = extractvalue { ptr, i64 } %call122, 0
   store ptr %33, ptr %ref.tmp120, align 8
-  %34 = getelementptr inbounds { ptr, i64 }, ptr %ref.tmp120, i64 0, i32 1
+  %34 = getelementptr inbounds i8, ptr %ref.tmp120, i64 8
   %35 = extractvalue { ptr, i64 } %call122, 1
   store i64 %35, ptr %34, align 8
   call void @_ZNK4base16BasicStringPieceINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE9as_stringEv(ptr nonnull sret(%"class.std::__cxx11::basic_string") align 8 %ref.tmp119, ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp120)
@@ -793,7 +791,7 @@ define dso_local noundef ptr @_ZN3net12CryptoFramer25ConstructHandshakeMessageER
 entry:
   %writer = alloca %"class.net::QuicDataWriter", align 8
   %end_offset = alloca i32, align 4
-  %_M_node_count.i.i = getelementptr inbounds %"class.net::CryptoHandshakeMessage", ptr %message, i64 0, i32 1, i32 0, i32 0, i32 1, i32 1
+  %_M_node_count.i.i = getelementptr inbounds i8, ptr %message, i64 48
   %0 = load i64, ptr %_M_node_count.i.i, align 8
   %call2 = tail call noundef i64 @_ZNK3net22CryptoHandshakeMessage4sizeEv(ptr noundef nonnull align 8 dereferenceable(72) %message)
   %call3 = tail call noundef i64 @_ZNK3net22CryptoHandshakeMessage12minimum_sizeEv(ptr noundef nonnull align 8 dereferenceable(72) %message)
@@ -852,9 +850,9 @@ invoke.cont26:                                    ; preds = %if.end25
 
 if.end29:                                         ; preds = %invoke.cont26
   store i32 0, ptr %end_offset, align 4
-  %_M_left.i.i = getelementptr inbounds %"class.net::CryptoHandshakeMessage", ptr %message, i64 0, i32 1, i32 0, i32 0, i32 1, i32 0, i32 2
+  %_M_left.i.i = getelementptr inbounds i8, ptr %message, i64 32
   %3 = load ptr, ptr %_M_left.i.i, align 8
-  %add.ptr.i.i = getelementptr inbounds %"class.net::CryptoHandshakeMessage", ptr %message, i64 0, i32 1, i32 0, i32 0, i32 1
+  %add.ptr.i.i = getelementptr inbounds i8, ptr %message, i64 16
   %cmp.i.not88 = icmp eq ptr %3, %add.ptr.i.i
   br i1 %cmp.i.not88, label %for.end, label %for.body.lr.ph
 
@@ -866,7 +864,7 @@ for.body:                                         ; preds = %for.body.lr.ph, %fo
   %5 = phi i32 [ 0, %for.body.lr.ph ], [ %conv63, %for.inc ]
   %need_pad_tag.190 = phi i8 [ %need_pad_value.0, %for.body.lr.ph ], [ %need_pad_tag.2, %for.inc ]
   %it.sroa.0.089 = phi ptr [ %3, %for.body.lr.ph ], [ %call.i, %for.inc ]
-  %_M_storage.i.i = getelementptr inbounds %"struct.std::_Rb_tree_node", ptr %it.sroa.0.089, i64 0, i32 1
+  %_M_storage.i.i = getelementptr inbounds i8, ptr %it.sroa.0.089, i64 32
   %6 = load i32, ptr %_M_storage.i.i, align 8
   %cmp39 = icmp ne i32 %6, 4473168
   %7 = and i8 %need_pad_tag.190, 1
@@ -909,7 +907,7 @@ invoke.cont55:                                    ; preds = %if.end52
   br i1 %call56, label %if.end58, label %_ZNKSt14default_deleteIA_cEclIcEENSt9enable_ifIXsr14is_convertibleIPA_T_PS0_EE5valueEvE4typeEPS4_.exit.i
 
 if.end58:                                         ; preds = %invoke.cont55
-  %second = getelementptr inbounds %"struct.std::_Rb_tree_node", ptr %it.sroa.0.089, i64 0, i32 1, i32 0, i64 8
+  %second = getelementptr inbounds i8, ptr %it.sroa.0.089, i64 40
   %call60 = call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6lengthEv(ptr noundef nonnull align 8 dereferenceable(32) %second) #13
   %9 = load i32, ptr %end_offset, align 4
   %10 = trunc i64 %call60 to i32
@@ -947,7 +945,7 @@ if.end75:                                         ; preds = %invoke.cont71, %for
 for.body88:                                       ; preds = %if.end75, %for.inc110
   %need_pad_value.194 = phi i8 [ %need_pad_value.2, %for.inc110 ], [ %need_pad_value.0, %if.end75 ]
   %it76.sroa.0.093 = phi ptr [ %call.i43, %for.inc110 ], [ %12, %if.end75 ]
-  %_M_storage.i.i40 = getelementptr inbounds %"struct.std::_Rb_tree_node", ptr %it76.sroa.0.093, i64 0, i32 1
+  %_M_storage.i.i40 = getelementptr inbounds i8, ptr %it76.sroa.0.093, i64 32
   %13 = load i32, ptr %_M_storage.i.i40, align 8
   %cmp91 = icmp ult i32 %13, 4473169
   %14 = and i8 %need_pad_value.194, 1
@@ -964,7 +962,7 @@ invoke.cont95:                                    ; preds = %if.then94
 
 if.end99:                                         ; preds = %invoke.cont95, %for.body88
   %need_pad_value.2 = phi i8 [ 0, %invoke.cont95 ], [ %need_pad_value.194, %for.body88 ]
-  %second101 = getelementptr inbounds %"struct.std::_Rb_tree_node", ptr %it76.sroa.0.093, i64 0, i32 1, i32 0, i64 8
+  %second101 = getelementptr inbounds i8, ptr %it76.sroa.0.093, i64 40
   %call102 = call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4dataEv(ptr noundef nonnull align 8 dereferenceable(32) %second101) #13
   %call105 = call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6lengthEv(ptr noundef nonnull align 8 dereferenceable(32) %second101) #13
   %call107 = invoke noundef zeroext i1 @_ZN3net14QuicDataWriter10WriteBytesEPKvm(ptr noundef nonnull align 8 dereferenceable(24) %writer, ptr noundef %call102, i64 noundef %call105)
@@ -1139,7 +1137,7 @@ declare void @_ZNK4base16BasicStringPieceINSt7__cxx1112basic_stringIcSt11char_tr
 define internal void @_ZN3net12_GLOBAL__N_114OneShotVisitorD0Ev(ptr noundef nonnull align 8 dereferenceable(17) %this) unnamed_addr #3 align 2 {
 entry:
   store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN3net12_GLOBAL__N_114OneShotVisitorE, i64 0, inrange i32 0, i64 2), ptr %this, align 8
-  %out_.i = getelementptr inbounds %"class.net::(anonymous namespace)::OneShotVisitor", ptr %this, i64 0, i32 1
+  %out_.i = getelementptr inbounds i8, ptr %this, i64 8
   %0 = load ptr, ptr %out_.i, align 8
   %cmp.not.i.i = icmp eq ptr %0, null
   br i1 %cmp.not.i.i, label %_ZN3net12_GLOBAL__N_114OneShotVisitorD2Ev.exit, label %_ZNKSt14default_deleteIN3net22CryptoHandshakeMessageEEclEPS1_.exit.i.i
@@ -1157,7 +1155,7 @@ _ZN3net12_GLOBAL__N_114OneShotVisitorD2Ev.exit:   ; preds = %entry, %_ZNKSt14def
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
 define internal void @_ZN3net12_GLOBAL__N_114OneShotVisitor7OnErrorEPNS_12CryptoFramerE(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(17) %this, ptr nocapture readnone %framer) unnamed_addr #7 align 2 {
 entry:
-  %error_ = getelementptr inbounds %"class.net::(anonymous namespace)::OneShotVisitor", ptr %this, i64 0, i32 2
+  %error_ = getelementptr inbounds i8, ptr %this, i64 16
   store i8 1, ptr %error_, align 8
   ret void
 }
@@ -1170,7 +1168,7 @@ entry:
           to label %invoke.cont unwind label %lpad
 
 invoke.cont:                                      ; preds = %entry
-  %out_ = getelementptr inbounds %"class.net::(anonymous namespace)::OneShotVisitor", ptr %this, i64 0, i32 1
+  %out_ = getelementptr inbounds i8, ptr %this, i64 8
   %0 = load ptr, ptr %out_, align 8
   store ptr %call, ptr %out_, align 8
   %tobool.not.i.i = icmp eq ptr %0, null

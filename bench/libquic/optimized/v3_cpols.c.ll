@@ -8,14 +8,6 @@ target triple = "x86_64-unknown-linux-gnu"
 %struct.ASN1_TEMPLATE_st = type { i64, i64, i64, ptr, ptr }
 %struct.ASN1_ADB_st = type { i64, i64, ptr, ptr, i64, ptr, ptr }
 %struct.ASN1_ADB_TABLE_st = type { i64, %struct.ASN1_TEMPLATE_st }
-%struct.POLICYINFO_st = type { ptr, ptr }
-%struct.conf_value_st = type { ptr, ptr, ptr }
-%struct.POLICYQUALINFO_st = type { ptr, %union.anon }
-%union.anon = type { ptr }
-%struct.USERNOTICE_st = type { ptr, ptr }
-%struct.asn1_string_st = type { i32, i32, ptr, i64 }
-%struct.NOTICEREF_st = type { ptr, ptr }
-%struct.X509_POLICY_DATA_st = type { i32, ptr, ptr, ptr }
 
 @CERTIFICATEPOLICIES_it = hidden constant %struct.ASN1_ITEM_st { i8 0, i64 -1, ptr @CERTIFICATEPOLICIES_item_tt, i64 0, ptr null, i64 0, ptr @.str }, align 8
 @v3_cpols = hidden local_unnamed_addr constant %struct.v3_ext_method { i32 89, i32 0, ptr @CERTIFICATEPOLICIES_it, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr @i2r_certpol, ptr @r2i_certpol, ptr null }, align 8
@@ -95,7 +87,7 @@ for.body:                                         ; preds = %for.body.lr.ph, %fo
   %0 = load ptr, ptr %call1, align 8
   %call3 = tail call i32 @i2a_ASN1_OBJECT(ptr noundef %out, ptr noundef %0) #4
   %call4 = tail call i32 @BIO_puts(ptr noundef %out, ptr noundef nonnull @.str.7) #4
-  %qualifiers = getelementptr inbounds %struct.POLICYINFO_st, ptr %call1, i64 0, i32 1
+  %qualifiers = getelementptr inbounds i8, ptr %call1, i64 8
   %1 = load ptr, ptr %qualifiers, align 8
   %tobool.not = icmp eq ptr %1, null
   br i1 %tobool.not, label %for.inc, label %if.then
@@ -143,22 +135,22 @@ for.body:                                         ; preds = %for.cond.preheader,
   %ia5org.0232 = phi i32 [ %ia5org.1, %for.inc ], [ 0, %for.cond.preheader ]
   %i.0231 = phi i64 [ %inc, %for.inc ], [ 0, %for.cond.preheader ]
   %call7 = tail call ptr @sk_value(ptr noundef nonnull %call1, i64 noundef %i.0231) #4
-  %value8 = getelementptr inbounds %struct.conf_value_st, ptr %call7, i64 0, i32 2
+  %value8 = getelementptr inbounds i8, ptr %call7, i64 16
   %0 = load ptr, ptr %value8, align 8
   %tobool.not = icmp eq ptr %0, null
   br i1 %tobool.not, label %lor.lhs.false, label %if.then10
 
 lor.lhs.false:                                    ; preds = %for.body
-  %name = getelementptr inbounds %struct.conf_value_st, ptr %call7, i64 0, i32 1
+  %name = getelementptr inbounds i8, ptr %call7, i64 8
   %1 = load ptr, ptr %name, align 8
   %tobool9.not = icmp eq ptr %1, null
   br i1 %tobool9.not, label %if.then10, label %if.end13
 
 if.then10:                                        ; preds = %lor.lhs.false, %for.body
-  %value8.le557 = getelementptr inbounds %struct.conf_value_st, ptr %call7, i64 0, i32 2
+  %value8.le557 = getelementptr inbounds i8, ptr %call7, i64 16
   tail call void @ERR_put_error(i32 noundef 20, i32 noundef 0, i32 noundef 131, ptr noundef nonnull @.str.22, i32 noundef 165) #4
   %2 = load ptr, ptr %call7, align 8
-  %name11 = getelementptr inbounds %struct.conf_value_st, ptr %call7, i64 0, i32 1
+  %name11 = getelementptr inbounds i8, ptr %call7, i64 8
   %3 = load ptr, ptr %name11, align 8
   %4 = load ptr, ptr %value8.le557, align 8
   tail call void (i32, ...) @ERR_add_error_data(i32 noundef 6, ptr noundef nonnull @.str.23, ptr noundef %2, ptr noundef nonnull @.str.24, ptr noundef %3, ptr noundef nonnull @.str.25, ptr noundef %4) #4
@@ -181,8 +173,8 @@ if.then20:                                        ; preds = %if.else
   br i1 %tobool22.not, label %if.then23, label %if.end27
 
 if.then23:                                        ; preds = %if.then20
-  %value8.le = getelementptr inbounds %struct.conf_value_st, ptr %call7, i64 0, i32 2
-  %name.le = getelementptr inbounds %struct.conf_value_st, ptr %call7, i64 0, i32 1
+  %value8.le = getelementptr inbounds i8, ptr %call7, i64 16
+  %name.le = getelementptr inbounds i8, ptr %call7, i64 8
   tail call void @ERR_put_error(i32 noundef 20, i32 noundef 0, i32 noundef 134, ptr noundef nonnull @.str.22, i32 noundef 177) #4
   %6 = load ptr, ptr %call7, align 8
   %7 = load ptr, ptr %name.le, align 8
@@ -203,27 +195,27 @@ for.cond.preheader.i:                             ; preds = %if.end27
 for.body.lr.ph.i:                                 ; preds = %for.cond.preheader.i
   %tobool41.not.i.i = icmp eq i32 %ia5org.0232, 0
   %..i.i = select i1 %tobool41.not.i.i, i32 26, i32 22
-  %qualifiers74.i = getelementptr inbounds %struct.POLICYINFO_st, ptr %call.i.i, i64 0, i32 1
+  %qualifiers74.i = getelementptr inbounds i8, ptr %call.i.i, i64 8
   br label %for.body.i
 
 for.body.i:                                       ; preds = %for.inc.i, %for.body.lr.ph.i
   %i.0131.i = phi i64 [ 0, %for.body.lr.ph.i ], [ %inc.i, %for.inc.i ]
   %call2.i = tail call ptr @sk_value(ptr noundef nonnull %call21, i64 noundef %i.0131.i) #4
-  %name.i = getelementptr inbounds %struct.conf_value_st, ptr %call2.i, i64 0, i32 1
+  %name.i = getelementptr inbounds i8, ptr %call2.i, i64 8
   %9 = load ptr, ptr %name.i, align 8
   %call3.i = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %9, ptr noundef nonnull dereferenceable(17) @.str.27) #5
   %tobool4.not.i = icmp eq i32 %call3.i, 0
   br i1 %tobool4.not.i, label %if.then5.i, label %if.else.i
 
 if.then5.i:                                       ; preds = %for.body.i
-  %value.i = getelementptr inbounds %struct.conf_value_st, ptr %call2.i, i64 0, i32 2
+  %value.i = getelementptr inbounds i8, ptr %call2.i, i64 16
   %10 = load ptr, ptr %value.i, align 8
   %call6.i = tail call ptr @OBJ_txt2obj(ptr noundef %10, i32 noundef 0) #4
   %tobool7.not.i = icmp eq ptr %call6.i, null
   br i1 %tobool7.not.i, label %if.then8.i, label %if.end11.i
 
 if.then8.i:                                       ; preds = %if.then5.i
-  %value.i.le = getelementptr inbounds %struct.conf_value_st, ptr %call2.i, i64 0, i32 2
+  %value.i.le = getelementptr inbounds i8, ptr %call2.i, i64 16
   tail call void @ERR_put_error(i32 noundef 20, i32 noundef 0, i32 noundef 129, ptr noundef nonnull @.str.22, i32 noundef 223) #4
   %11 = load ptr, ptr %call2.i, align 8
   %12 = load ptr, ptr %name.i, align 8
@@ -273,13 +265,13 @@ if.then33.i:                                      ; preds = %if.end29.i
 
 if.end34.i:                                       ; preds = %if.end29.i
   %call35.i = tail call ptr @ASN1_STRING_type_new(i32 noundef 22) #4
-  %d.i = getelementptr inbounds %struct.POLICYQUALINFO_st, ptr %call.i43.i, i64 0, i32 1
+  %d.i = getelementptr inbounds i8, ptr %call.i43.i, i64 8
   store ptr %call35.i, ptr %d.i, align 8
   %cmp37.i = icmp eq ptr %call35.i, null
   br i1 %cmp37.i, label %policy_section.exit.thread, label %if.end39.i
 
 if.end39.i:                                       ; preds = %if.end34.i
-  %value41.i = getelementptr inbounds %struct.conf_value_st, ptr %call2.i, i64 0, i32 2
+  %value41.i = getelementptr inbounds i8, ptr %call2.i, i64 16
   %16 = load ptr, ptr %value41.i, align 8
   %call43.i = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %16) #5
   %conv.i = trunc i64 %call43.i to i32
@@ -294,14 +286,14 @@ if.else48.i:                                      ; preds = %if.else.i
   br i1 %tobool51.not.i, label %if.then52.i, label %if.else85.i
 
 if.then52.i:                                      ; preds = %if.else48.i
-  %value53.i = getelementptr inbounds %struct.conf_value_st, ptr %call2.i, i64 0, i32 2
+  %value53.i = getelementptr inbounds i8, ptr %call2.i, i64 16
   %18 = load ptr, ptr %value53.i, align 8
   %19 = load i8, ptr %18, align 1
   %cmp55.not.i = icmp eq i8 %19, 64
   br i1 %cmp55.not.i, label %if.end61.i, label %if.then57.i
 
 if.then57.i:                                      ; preds = %if.then52.i
-  %value53.i.le548 = getelementptr inbounds %struct.conf_value_st, ptr %call2.i, i64 0, i32 2
+  %value53.i.le548 = getelementptr inbounds i8, ptr %call2.i, i64 16
   tail call void @ERR_put_error(i32 noundef 20, i32 noundef 0, i32 noundef 111, ptr noundef nonnull @.str.22, i32 noundef 252) #4
   %20 = load ptr, ptr %call2.i, align 8
   %21 = load ptr, ptr %name.i, align 8
@@ -316,7 +308,7 @@ if.end61.i:                                       ; preds = %if.then52.i
   br i1 %tobool64.not.i, label %if.then65.i, label %if.end69.i
 
 if.then65.i:                                      ; preds = %if.end61.i
-  %value53.i.le = getelementptr inbounds %struct.conf_value_st, ptr %call2.i, i64 0, i32 2
+  %value53.i.le = getelementptr inbounds i8, ptr %call2.i, i64 16
   tail call void @ERR_put_error(i32 noundef 20, i32 noundef 0, i32 noundef 134, ptr noundef nonnull @.str.22, i32 noundef 258) #4
   %23 = load ptr, ptr %call2.i, align 8
   %24 = load ptr, ptr %name.i, align 8
@@ -345,20 +337,20 @@ if.end4.i.i:                                      ; preds = %if.end.i.i
   br i1 %tobool6.not.i.i, label %merr.i.i, label %if.end8.i.i
 
 if.end8.i.i:                                      ; preds = %if.end4.i.i
-  %d.i.i = getelementptr inbounds %struct.POLICYQUALINFO_st, ptr %call.i.i.i, i64 0, i32 1
+  %d.i.i = getelementptr inbounds i8, ptr %call.i.i.i, i64 8
   store ptr %call.i42.i.i, ptr %d.i.i, align 8
   %call921.i.i = tail call i64 @sk_num(ptr noundef nonnull %call63.i) #4
   %cmp1022.not.i.i = icmp eq i64 %call921.i.i, 0
   br i1 %cmp1022.not.i.i, label %for.end.i.i, label %for.body.lr.ph.i.i
 
 for.body.lr.ph.i.i:                               ; preds = %if.end8.i.i
-  %exptext.i.i = getelementptr inbounds %struct.USERNOTICE_st, ptr %call.i42.i.i, i64 0, i32 1
+  %exptext.i.i = getelementptr inbounds i8, ptr %call.i42.i.i, i64 8
   br label %for.body.i.i
 
 for.body.i.i:                                     ; preds = %for.inc.i.i, %for.body.lr.ph.i.i
   %i.023.i.i = phi i64 [ 0, %for.body.lr.ph.i.i ], [ %inc.i.i, %for.inc.i.i ]
   %call11.i.i = tail call ptr @sk_value(ptr noundef nonnull %call63.i, i64 noundef %i.023.i.i) #4
-  %name.i.i = getelementptr inbounds %struct.conf_value_st, ptr %call11.i.i, i64 0, i32 1
+  %name.i.i = getelementptr inbounds i8, ptr %call11.i.i, i64 8
   %26 = load ptr, ptr %name.i.i, align 8
   %call12.i.i = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %26, ptr noundef nonnull dereferenceable(13) @.str.30) #5
   %tobool13.not.i.i = icmp eq i32 %call12.i.i, 0
@@ -371,7 +363,7 @@ if.then14.i.i:                                    ; preds = %for.body.i.i
   br i1 %cmp17.i.i, label %merr.i.i, label %if.end19.i.i
 
 if.end19.i.i:                                     ; preds = %if.then14.i.i
-  %value.i.i = getelementptr inbounds %struct.conf_value_st, ptr %call11.i.i, i64 0, i32 2
+  %value.i.i = getelementptr inbounds i8, ptr %call11.i.i, i64 16
   %27 = load ptr, ptr %value.i.i, align 8
   %call22.i.i = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %27) #5
   %conv.i.i = trunc i64 %call22.i.i to i32
@@ -401,10 +393,10 @@ if.end36.i.i:                                     ; preds = %if.then32.i.i
 if.end40.i.i:                                     ; preds = %if.end36.i.i, %if.then30.i.i
   %nref.0.i.i = phi ptr [ %call.i43.i.i, %if.end36.i.i ], [ %28, %if.then30.i.i ]
   %29 = load ptr, ptr %nref.0.i.i, align 8
-  %type45.i.i = getelementptr inbounds %struct.asn1_string_st, ptr %29, i64 0, i32 1
+  %type45.i.i = getelementptr inbounds i8, ptr %29, i64 4
   store i32 %..i.i, ptr %type45.i.i, align 4
   %30 = load ptr, ptr %nref.0.i.i, align 8
-  %value48.i.i = getelementptr inbounds %struct.conf_value_st, ptr %call11.i.i, i64 0, i32 2
+  %value48.i.i = getelementptr inbounds i8, ptr %call11.i.i, i64 16
   %31 = load ptr, ptr %value48.i.i, align 8
   %call50.i.i = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %31) #5
   %conv51.i.i = trunc i64 %call50.i.i to i32
@@ -433,7 +425,7 @@ if.end68.i.i:                                     ; preds = %if.then64.i.i
 
 if.end72.i.i:                                     ; preds = %if.end68.i.i, %if.then60.i.i
   %nref61.0.i.i = phi ptr [ %call.i44.i.i, %if.end68.i.i ], [ %32, %if.then60.i.i ]
-  %value73.i.i = getelementptr inbounds %struct.conf_value_st, ptr %call11.i.i, i64 0, i32 2
+  %value73.i.i = getelementptr inbounds i8, ptr %call11.i.i, i64 16
   %33 = load ptr, ptr %value73.i.i, align 8
   %call74.i.i = tail call ptr @X509V3_parse_list(ptr noundef %33) #4
   %tobool75.not.i.i = icmp eq ptr %call74.i.i, null
@@ -445,8 +437,8 @@ lor.lhs.false.i.i:                                ; preds = %if.end72.i.i
   br i1 %tobool77.not.i.i, label %if.then78.i.i, label %if.end81.i.i
 
 if.then78.i.i:                                    ; preds = %lor.lhs.false.i.i, %if.end72.i.i
-  %name.i.i.le = getelementptr inbounds %struct.conf_value_st, ptr %call11.i.i, i64 0, i32 1
-  %value73.i.i.le = getelementptr inbounds %struct.conf_value_st, ptr %call11.i.i, i64 0, i32 2
+  %name.i.i.le = getelementptr inbounds i8, ptr %call11.i.i, i64 8
+  %value73.i.i.le = getelementptr inbounds i8, ptr %call11.i.i, i64 16
   tail call void @ERR_put_error(i32 noundef 20, i32 noundef 0, i32 noundef 128, ptr noundef nonnull @.str.22, i32 noundef 348) #4
   %34 = load ptr, ptr %call11.i.i, align 8
   %35 = load ptr, ptr %name.i.i.le, align 8
@@ -455,7 +447,7 @@ if.then78.i.i:                                    ; preds = %lor.lhs.false.i.i, 
   br label %notice_section.exit.thread.i
 
 if.end81.i.i:                                     ; preds = %lor.lhs.false.i.i
-  %noticenos.i.i = getelementptr inbounds %struct.NOTICEREF_st, ptr %nref61.0.i.i, i64 0, i32 1
+  %noticenos.i.i = getelementptr inbounds i8, ptr %nref61.0.i.i, i64 8
   %37 = load ptr, ptr %noticenos.i.i, align 8
   %call5.i.i.i = tail call i64 @sk_num(ptr noundef nonnull %call74.i.i) #4
   %cmp6.not.i.i.i = icmp eq i64 %call5.i.i.i, 0
@@ -470,7 +462,7 @@ for.cond.i.i.i:                                   ; preds = %if.end.i.i.i
 for.body.i.i.i:                                   ; preds = %if.end81.i.i, %for.cond.i.i.i
   %i.07.i.i.i = phi i64 [ %inc.i.i.i, %for.cond.i.i.i ], [ 0, %if.end81.i.i ]
   %call1.i.i.i = tail call ptr @sk_value(ptr noundef nonnull %call74.i.i, i64 noundef %i.07.i.i.i) #4
-  %name.i.i.i = getelementptr inbounds %struct.conf_value_st, ptr %call1.i.i.i, i64 0, i32 1
+  %name.i.i.i = getelementptr inbounds i8, ptr %call1.i.i.i, i64 8
   %38 = load ptr, ptr %name.i.i.i, align 8
   %call2.i.i.i = tail call ptr @s2i_ASN1_INTEGER(ptr noundef null, ptr noundef %38) #4
   %tobool.not.i.i.i = icmp eq ptr %call2.i.i.i, null
@@ -499,11 +491,11 @@ nref_nos.exit.i.i:                                ; preds = %merr.i.i.i, %if.the
   br label %notice_section.exit.thread.i
 
 if.else86.i.i:                                    ; preds = %if.else56.i.i
-  %name.i.i.le545 = getelementptr inbounds %struct.conf_value_st, ptr %call11.i.i, i64 0, i32 1
+  %name.i.i.le545 = getelementptr inbounds i8, ptr %call11.i.i, i64 8
   tail call void @ERR_put_error(i32 noundef 20, i32 noundef 0, i32 noundef 130, ptr noundef nonnull @.str.22, i32 noundef 357) #4
   %39 = load ptr, ptr %call11.i.i, align 8
   %40 = load ptr, ptr %name.i.i.le545, align 8
-  %value89.i.i = getelementptr inbounds %struct.conf_value_st, ptr %call11.i.i, i64 0, i32 2
+  %value89.i.i = getelementptr inbounds i8, ptr %call11.i.i, i64 16
   %41 = load ptr, ptr %value89.i.i, align 8
   tail call void (i32, ...) @ERR_add_error_data(i32 noundef 6, ptr noundef nonnull @.str.23, ptr noundef %39, ptr noundef nonnull @.str.24, ptr noundef %40, ptr noundef nonnull @.str.25, ptr noundef %41) #4
   br label %notice_section.exit.thread.i
@@ -520,7 +512,7 @@ for.end.i.i:                                      ; preds = %for.inc.i.i, %if.en
   br i1 %tobool94.not.i.i, label %notice_section.exit.i, label %land.lhs.true.i.i
 
 land.lhs.true.i.i:                                ; preds = %for.end.i.i
-  %noticenos96.i.i = getelementptr inbounds %struct.NOTICEREF_st, ptr %42, i64 0, i32 1
+  %noticenos96.i.i = getelementptr inbounds i8, ptr %42, i64 8
   %43 = load ptr, ptr %noticenos96.i.i, align 8
   %tobool97.not.i.i = icmp eq ptr %43, null
   br i1 %tobool97.not.i.i, label %if.then102.i.i, label %lor.lhs.false98.i.i
@@ -564,7 +556,7 @@ if.else85.i:                                      ; preds = %if.else48.i
   tail call void @ERR_put_error(i32 noundef 20, i32 noundef 0, i32 noundef 130, ptr noundef nonnull @.str.22, i32 noundef 272) #4
   %47 = load ptr, ptr %call2.i, align 8
   %48 = load ptr, ptr %name.i, align 8
-  %value88.i = getelementptr inbounds %struct.conf_value_st, ptr %call2.i, i64 0, i32 2
+  %value88.i = getelementptr inbounds i8, ptr %call2.i, i64 16
   %49 = load ptr, ptr %value88.i, align 8
   tail call void (i32, ...) @ERR_add_error_data(i32 noundef 6, ptr noundef nonnull @.str.23, ptr noundef %47, ptr noundef nonnull @.str.24, ptr noundef %48, ptr noundef nonnull @.str.25, ptr noundef %49) #4
   br label %policy_section.exit.thread
@@ -603,8 +595,8 @@ if.else32:                                        ; preds = %if.else
   br i1 %tobool35.not, label %if.then36, label %if.end40
 
 if.then36:                                        ; preds = %if.else32
-  %value8.le555 = getelementptr inbounds %struct.conf_value_st, ptr %call7, i64 0, i32 2
-  %name.le552 = getelementptr inbounds %struct.conf_value_st, ptr %call7, i64 0, i32 1
+  %value8.le555 = getelementptr inbounds i8, ptr %call7, i64 16
+  %name.le552 = getelementptr inbounds i8, ptr %call7, i64 8
   tail call void @ERR_put_error(i32 noundef 20, i32 noundef 0, i32 noundef 129, ptr noundef nonnull @.str.22, i32 noundef 188) #4
   %51 = load ptr, ptr %call7, align 8
   %52 = load ptr, ptr %name.le552, align 8
@@ -802,7 +794,7 @@ define hidden void @X509_POLICY_NODE_print(ptr noundef %out, ptr nocapture nound
 entry:
   %0 = load ptr, ptr %node, align 8
   %call = tail call i32 (ptr, ptr, ...) @BIO_printf(ptr noundef %out, ptr noundef nonnull @.str.5, i32 noundef %indent, ptr noundef nonnull @.str.6) #4
-  %valid_policy = getelementptr inbounds %struct.X509_POLICY_DATA_st, ptr %0, i64 0, i32 1
+  %valid_policy = getelementptr inbounds i8, ptr %0, i64 8
   %1 = load ptr, ptr %valid_policy, align 8
   %call1 = tail call i32 @i2a_ASN1_OBJECT(ptr noundef %out, ptr noundef %1) #4
   %call2 = tail call i32 @BIO_puts(ptr noundef %out, ptr noundef nonnull @.str.7) #4
@@ -812,7 +804,7 @@ entry:
   %tobool.not = icmp eq i32 %and, 0
   %cond = select i1 %tobool.not, ptr @.str.10, ptr @.str.9
   %call3 = tail call i32 (ptr, ptr, ...) @BIO_printf(ptr noundef %out, ptr noundef nonnull @.str.8, i32 noundef %add, ptr noundef nonnull @.str.6, ptr noundef nonnull %cond) #4
-  %qualifier_set = getelementptr inbounds %struct.X509_POLICY_DATA_st, ptr %0, i64 0, i32 2
+  %qualifier_set = getelementptr inbounds i8, ptr %0, i64 16
   %3 = load ptr, ptr %qualifier_set, align 8
   %tobool4.not = icmp eq ptr %3, null
   br i1 %tobool4.not, label %if.else, label %if.then
@@ -857,16 +849,16 @@ for.body:                                         ; preds = %for.body.lr.ph, %fo
   ]
 
 sw.bb:                                            ; preds = %for.body
-  %d = getelementptr inbounds %struct.POLICYQUALINFO_st, ptr %call1, i64 0, i32 1
+  %d = getelementptr inbounds i8, ptr %call1, i64 8
   %1 = load ptr, ptr %d, align 8
-  %data = getelementptr inbounds %struct.asn1_string_st, ptr %1, i64 0, i32 2
+  %data = getelementptr inbounds i8, ptr %1, i64 8
   %2 = load ptr, ptr %data, align 8
   %call3 = tail call i32 (ptr, ptr, ...) @BIO_printf(ptr noundef %out, ptr noundef nonnull @.str.32, i32 noundef %indent, ptr noundef nonnull @.str.6, ptr noundef %2) #4
   br label %for.inc
 
 sw.bb4:                                           ; preds = %for.body
   %call5 = tail call i32 (ptr, ptr, ...) @BIO_printf(ptr noundef %out, ptr noundef nonnull @.str.33, i32 noundef %indent, ptr noundef nonnull @.str.6) #4
-  %d6 = getelementptr inbounds %struct.POLICYQUALINFO_st, ptr %call1, i64 0, i32 1
+  %d6 = getelementptr inbounds i8, ptr %call1, i64 8
   %3 = load ptr, ptr %d6, align 8
   %4 = load ptr, ptr %3, align 8
   %tobool.not.i = icmp eq ptr %4, null
@@ -874,10 +866,10 @@ sw.bb4:                                           ; preds = %for.body
 
 if.then.i:                                        ; preds = %sw.bb4
   %5 = load ptr, ptr %4, align 8
-  %data.i = getelementptr inbounds %struct.asn1_string_st, ptr %5, i64 0, i32 2
+  %data.i = getelementptr inbounds i8, ptr %5, i64 8
   %6 = load ptr, ptr %data.i, align 8
   %call.i = tail call i32 (ptr, ptr, ...) @BIO_printf(ptr noundef %out, ptr noundef nonnull @.str.35, i32 noundef %add, ptr noundef nonnull @.str.6, ptr noundef %6) #4
-  %noticenos.i = getelementptr inbounds %struct.NOTICEREF_st, ptr %4, i64 0, i32 1
+  %noticenos.i = getelementptr inbounds i8, ptr %4, i64 8
   %7 = load ptr, ptr %noticenos.i, align 8
   %call2.i = tail call i64 @sk_num(ptr noundef %7) #4
   %cmp.i = icmp ugt i64 %call2.i, 1
@@ -914,13 +906,13 @@ for.end.i:                                        ; preds = %if.end.i, %if.then.
   br label %if.end15.i
 
 if.end15.i:                                       ; preds = %for.end.i, %sw.bb4
-  %exptext.i = getelementptr inbounds %struct.USERNOTICE_st, ptr %3, i64 0, i32 1
+  %exptext.i = getelementptr inbounds i8, ptr %3, i64 8
   %11 = load ptr, ptr %exptext.i, align 8
   %tobool16.not.i = icmp eq ptr %11, null
   br i1 %tobool16.not.i, label %for.inc, label %if.then17.i
 
 if.then17.i:                                      ; preds = %if.end15.i
-  %data19.i = getelementptr inbounds %struct.asn1_string_st, ptr %11, i64 0, i32 2
+  %data19.i = getelementptr inbounds i8, ptr %11, i64 8
   %12 = load ptr, ptr %data19.i, align 8
   %call20.i = tail call i32 (ptr, ptr, ...) @BIO_printf(ptr noundef %out, ptr noundef nonnull @.str.39, i32 noundef %add, ptr noundef nonnull @.str.6, ptr noundef %12) #4
   br label %for.inc

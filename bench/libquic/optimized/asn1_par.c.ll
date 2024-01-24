@@ -3,8 +3,6 @@ source_filename = "bench/libquic/original/asn1_par.c.ll"
 target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:128-n8:16:32:64-S128"
 target triple = "x86_64-unknown-linux-gnu"
 
-%struct.asn1_string_st = type { i32, i32, ptr, i64 }
-
 @ASN1_tag2str.tag2str = internal unnamed_addr constant [31 x ptr] [ptr @.str, ptr @.str.1, ptr @.str.2, ptr @.str.3, ptr @.str.4, ptr @.str.5, ptr @.str.6, ptr @.str.7, ptr @.str.8, ptr @.str.9, ptr @.str.10, ptr @.str.11, ptr @.str.12, ptr @.str.13, ptr @.str.14, ptr @.str.15, ptr @.str.16, ptr @.str.17, ptr @.str.18, ptr @.str.19, ptr @.str.20, ptr @.str.21, ptr @.str.22, ptr @.str.23, ptr @.str.24, ptr @.str.25, ptr @.str.26, ptr @.str.27, ptr @.str.28, ptr @.str.29, ptr @.str.30], align 16
 @.str = private unnamed_addr constant [4 x i8] c"EOC\00", align 1
 @.str.1 = private unnamed_addr constant [8 x i8] c"BOOLEAN\00", align 1
@@ -363,7 +361,7 @@ land.lhs.true210:                                 ; preds = %if.then204
   br i1 %cmp212, label %if.then214, label %if.end474.thread160
 
 if.then214:                                       ; preds = %land.lhs.true210
-  %data = getelementptr inbounds %struct.asn1_string_st, ptr %call207, i64 0, i32 2
+  %data = getelementptr inbounds i8, ptr %call207, i64 8
   %34 = load ptr, ptr %data, align 8
   store ptr %34, ptr %opp, align 8
   %35 = load i32, ptr %call207, align 8
@@ -470,7 +468,7 @@ if.then328:                                       ; preds = %if.then321
   br i1 %cmp330, label %end, label %if.end333
 
 if.end333:                                        ; preds = %if.then328
-  %type = getelementptr inbounds %struct.asn1_string_st, ptr %call325, i64 0, i32 1
+  %type = getelementptr inbounds i8, ptr %call325, i64 4
   %46 = load i32, ptr %type, align 4
   %cmp334 = icmp eq i32 %46, 258
   br i1 %cmp334, label %if.then336, label %if.end342
@@ -486,7 +484,7 @@ if.end342:                                        ; preds = %if.then336, %if.end
   br i1 %cmp345180, label %for.body347.lr.ph, label %for.end359
 
 for.body347.lr.ph:                                ; preds = %if.end342
-  %data348 = getelementptr inbounds %struct.asn1_string_st, ptr %call325, i64 0, i32 2
+  %data348 = getelementptr inbounds i8, ptr %call325, i64 8
   br label %for.body347
 
 for.cond343:                                      ; preds = %for.body347
@@ -539,7 +537,7 @@ if.then388:                                       ; preds = %if.then380
   br i1 %cmp390, label %end, label %if.end393
 
 if.end393:                                        ; preds = %if.then388
-  %type394 = getelementptr inbounds %struct.asn1_string_st, ptr %call385, i64 0, i32 1
+  %type394 = getelementptr inbounds i8, ptr %call385, i64 4
   %53 = load i32, ptr %type394, align 4
   %cmp395 = icmp eq i32 %53, 266
   br i1 %cmp395, label %if.then397, label %if.end403
@@ -555,7 +553,7 @@ if.end403:                                        ; preds = %if.then397, %if.end
   br i1 %cmp406178, label %for.body408.lr.ph, label %for.end420
 
 for.body408.lr.ph:                                ; preds = %if.end403
-  %data409 = getelementptr inbounds %struct.asn1_string_st, ptr %call385, i64 0, i32 2
+  %data409 = getelementptr inbounds i8, ptr %call385, i64 8
   br label %for.body408
 
 for.cond404:                                      ; preds = %for.body408

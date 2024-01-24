@@ -41,7 +41,7 @@ target triple = "x86_64-unknown-linux-gnu"
 @.str.31 = private unnamed_addr constant [5 x i8] c"pkey\00", align 1
 
 ; Function Attrs: nounwind uwtable
-define dso_local i32 @setup_tests() local_unnamed_addr #0 {
+define dso_local noundef i32 @setup_tests() local_unnamed_addr #0 {
 entry:
   %call = tail call ptr @test_get_argument(i64 noundef 0) #3
   store ptr %call, ptr @pemfile, align 8
@@ -83,7 +83,7 @@ entry:
   %idxprom = sext i32 %idx to i64
   %arrayidx = getelementptr inbounds [2 x %struct.TESTDATA], ptr @b64_pem_data, i64 0, i64 %idxprom
   %0 = load ptr, ptr %arrayidx, align 16
-  %encoded5 = getelementptr inbounds [2 x %struct.TESTDATA], ptr @b64_pem_data, i64 0, i64 %idxprom, i32 1
+  %encoded5 = getelementptr inbounds i8, ptr %arrayidx, i64 8
   %1 = load ptr, ptr %encoded5, align 8
   %call6 = tail call i32 @test_ptr(ptr noundef nonnull @.str, i32 noundef 43, ptr noundef nonnull @.str.7, ptr noundef %call1) #3
   %tobool.not = icmp eq i32 %call6, 0
@@ -161,7 +161,7 @@ err:                                              ; preds = %lor.lhs.false38, %i
 declare void @add_test(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @test_invalid() #0 {
+define internal noundef i32 @test_invalid() #0 {
 entry:
   %name = alloca ptr, align 8
   %header = alloca ptr, align 8
@@ -228,7 +228,7 @@ return:                                           ; preds = %if.end, %if.then
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @test_cert_key_cert() #0 {
+define internal noundef i32 @test_cert_key_cert() #0 {
 entry:
   %0 = load ptr, ptr @pemfile, align 8
   %call = tail call ptr @load_pkey_pem(ptr noundef %0, ptr noundef null) #3

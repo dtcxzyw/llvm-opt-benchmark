@@ -9,13 +9,6 @@ target triple = "x86_64-unknown-linux-gnu"
 %"struct.absl::time_internal::cctz::time_zone::absolute_lookup" = type { %"class.absl::time_internal::cctz::detail::civil_time", i32, i8, ptr }
 %"class.absl::time_internal::cctz::detail::civil_time" = type { %"struct.absl::time_internal::cctz::detail::fields" }
 %"struct.absl::time_internal::cctz::detail::fields" = type <{ i64, i8, i8, i8, i8, i8, [3 x i8] }>
-%"class.absl::time_internal::cctz::time_zone::Impl" = type { %"class.std::__cxx11::basic_string", %"class.std::unique_ptr" }
-%"class.std::unique_ptr" = type { %"struct.std::__uniq_ptr_data" }
-%"struct.std::__uniq_ptr_data" = type { %"class.std::__uniq_ptr_impl" }
-%"class.std::__uniq_ptr_impl" = type { %"class.std::tuple" }
-%"class.std::tuple" = type { %"struct.std::_Tuple_impl" }
-%"struct.std::_Tuple_impl" = type { %"struct.std::_Head_base.1" }
-%"struct.std::_Head_base.1" = type { ptr }
 %"struct.absl::time_internal::cctz::time_zone::civil_lookup" = type { i32, %"class.std::chrono::time_point", %"class.std::chrono::time_point", %"class.std::chrono::time_point" }
 %"class.std::chrono::time_point" = type { %"class.std::chrono::duration" }
 %"class.std::chrono::duration" = type { i64 }
@@ -83,10 +76,10 @@ if.then.i:                                        ; preds = %entry
 
 _ZNK4absl13time_internal4cctz9time_zone14effective_implEv.exit: ; preds = %entry, %if.then.i
   %retval.0.i = phi ptr [ %call.i, %if.then.i ], [ %0, %entry ]
-  %zone_.i = getelementptr inbounds %"class.absl::time_internal::cctz::time_zone::Impl", ptr %retval.0.i, i64 0, i32 1
+  %zone_.i = getelementptr inbounds i8, ptr %retval.0.i, i64 32
   %1 = load ptr, ptr %zone_.i, align 8, !noalias !5
   %vtable.i = load ptr, ptr %1, align 8, !noalias !5
-  %vfn.i = getelementptr inbounds ptr, ptr %vtable.i, i64 2
+  %vfn.i = getelementptr inbounds i8, ptr %vtable.i, i64 16
   %2 = load ptr, ptr %vfn.i, align 8, !noalias !5
   tail call void %2(ptr sret(%"struct.absl::time_internal::cctz::time_zone::absolute_lookup") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(8) %1, ptr noundef nonnull align 8 dereferenceable(8) %tp)
   ret void
@@ -105,10 +98,10 @@ if.then.i:                                        ; preds = %entry
 
 _ZNK4absl13time_internal4cctz9time_zone14effective_implEv.exit: ; preds = %entry, %if.then.i
   %retval.0.i = phi ptr [ %call.i, %if.then.i ], [ %0, %entry ]
-  %zone_.i = getelementptr inbounds %"class.absl::time_internal::cctz::time_zone::Impl", ptr %retval.0.i, i64 0, i32 1
+  %zone_.i = getelementptr inbounds i8, ptr %retval.0.i, i64 32
   %1 = load ptr, ptr %zone_.i, align 8, !noalias !8
   %vtable.i = load ptr, ptr %1, align 8, !noalias !8
-  %vfn.i = getelementptr inbounds ptr, ptr %vtable.i, i64 3
+  %vfn.i = getelementptr inbounds i8, ptr %vtable.i, i64 24
   %2 = load ptr, ptr %vfn.i, align 8, !noalias !8
   tail call void %2(ptr sret(%"struct.absl::time_internal::cctz::time_zone::civil_lookup") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(8) %1, ptr noundef nonnull align 8 dereferenceable(16) %cs)
   ret void
@@ -127,10 +120,10 @@ if.then.i:                                        ; preds = %entry
 
 _ZNK4absl13time_internal4cctz9time_zone14effective_implEv.exit: ; preds = %entry, %if.then.i
   %retval.0.i = phi ptr [ %call.i, %if.then.i ], [ %0, %entry ]
-  %zone_.i = getelementptr inbounds %"class.absl::time_internal::cctz::time_zone::Impl", ptr %retval.0.i, i64 0, i32 1
+  %zone_.i = getelementptr inbounds i8, ptr %retval.0.i, i64 32
   %1 = load ptr, ptr %zone_.i, align 8
   %vtable.i = load ptr, ptr %1, align 8
-  %vfn.i = getelementptr inbounds ptr, ptr %vtable.i, i64 4
+  %vfn.i = getelementptr inbounds i8, ptr %vtable.i, i64 32
   %2 = load ptr, ptr %vfn.i, align 8
   %call2.i = tail call noundef zeroext i1 %2(ptr noundef nonnull align 8 dereferenceable(8) %1, ptr noundef nonnull align 8 dereferenceable(8) %tp, ptr noundef %trans)
   ret i1 %call2.i
@@ -149,10 +142,10 @@ if.then.i:                                        ; preds = %entry
 
 _ZNK4absl13time_internal4cctz9time_zone14effective_implEv.exit: ; preds = %entry, %if.then.i
   %retval.0.i = phi ptr [ %call.i, %if.then.i ], [ %0, %entry ]
-  %zone_.i = getelementptr inbounds %"class.absl::time_internal::cctz::time_zone::Impl", ptr %retval.0.i, i64 0, i32 1
+  %zone_.i = getelementptr inbounds i8, ptr %retval.0.i, i64 32
   %1 = load ptr, ptr %zone_.i, align 8
   %vtable.i = load ptr, ptr %1, align 8
-  %vfn.i = getelementptr inbounds ptr, ptr %vtable.i, i64 5
+  %vfn.i = getelementptr inbounds i8, ptr %vtable.i, i64 40
   %2 = load ptr, ptr %vfn.i, align 8
   %call2.i = tail call noundef zeroext i1 %2(ptr noundef nonnull align 8 dereferenceable(8) %1, ptr noundef nonnull align 8 dereferenceable(8) %tp, ptr noundef %trans)
   ret i1 %call2.i
@@ -171,10 +164,10 @@ if.then.i:                                        ; preds = %entry
 
 _ZNK4absl13time_internal4cctz9time_zone14effective_implEv.exit: ; preds = %entry, %if.then.i
   %retval.0.i = phi ptr [ %call.i, %if.then.i ], [ %0, %entry ]
-  %zone_.i = getelementptr inbounds %"class.absl::time_internal::cctz::time_zone::Impl", ptr %retval.0.i, i64 0, i32 1
+  %zone_.i = getelementptr inbounds i8, ptr %retval.0.i, i64 32
   %1 = load ptr, ptr %zone_.i, align 8, !noalias !11
   %vtable.i = load ptr, ptr %1, align 8, !noalias !11
-  %vfn.i = getelementptr inbounds ptr, ptr %vtable.i, i64 6
+  %vfn.i = getelementptr inbounds i8, ptr %vtable.i, i64 48
   %2 = load ptr, ptr %vfn.i, align 8, !noalias !11
   tail call void %2(ptr sret(%"class.std::__cxx11::basic_string") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(8) %1)
   ret void
@@ -193,10 +186,10 @@ if.then.i:                                        ; preds = %entry
 
 _ZNK4absl13time_internal4cctz9time_zone14effective_implEv.exit: ; preds = %entry, %if.then.i
   %retval.0.i = phi ptr [ %call.i, %if.then.i ], [ %0, %entry ]
-  %zone_.i = getelementptr inbounds %"class.absl::time_internal::cctz::time_zone::Impl", ptr %retval.0.i, i64 0, i32 1
+  %zone_.i = getelementptr inbounds i8, ptr %retval.0.i, i64 32
   %1 = load ptr, ptr %zone_.i, align 8, !noalias !14
   %vtable.i = load ptr, ptr %1, align 8, !noalias !14
-  %vfn.i = getelementptr inbounds ptr, ptr %vtable.i, i64 7
+  %vfn.i = getelementptr inbounds i8, ptr %vtable.i, i64 56
   %2 = load ptr, ptr %vfn.i, align 8, !noalias !14
   tail call void %2(ptr sret(%"class.std::__cxx11::basic_string") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(8) %1)
   ret void

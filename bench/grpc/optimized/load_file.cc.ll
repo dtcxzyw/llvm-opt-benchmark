@@ -67,16 +67,16 @@ invoke.cont:
 
 invoke.cont11:                                    ; preds = %invoke.cont
   store i64 21, ptr %ref.tmp6, align 8
-  %0 = getelementptr inbounds { i64, ptr }, ptr %ref.tmp6, i64 0, i32 1
+  %0 = getelementptr inbounds i8, ptr %ref.tmp6, i64 8
   store ptr @.str.1, ptr %0, align 8
   %call.i = tail call { i64, ptr } @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEcvSt17basic_string_viewIcS2_EEv(ptr noundef nonnull align 8 dereferenceable(32) %filename) #13
   %1 = extractvalue { i64, ptr } %call.i, 0
   store i64 %1, ptr %ref.tmp8, align 8
-  %2 = getelementptr inbounds { i64, ptr }, ptr %ref.tmp8, i64 0, i32 1
+  %2 = getelementptr inbounds i8, ptr %ref.tmp8, i64 8
   %3 = extractvalue { i64, ptr } %call.i, 1
   store ptr %3, ptr %2, align 8
   store i64 23, ptr %ref.tmp10, align 8
-  %4 = getelementptr inbounds { i64, ptr }, ptr %ref.tmp10, i64 0, i32 1
+  %4 = getelementptr inbounds i8, ptr %ref.tmp10, i64 8
   store ptr @.str.2, ptr %4, align 8
   %call13 = tail call ptr @__errno_location() #14
   %5 = load i32, ptr %call13, align 4
@@ -91,7 +91,7 @@ cond.true.i.i:                                    ; preds = %invoke.cont11
 invoke.cont15:                                    ; preds = %cond.true.i.i, %invoke.cont11
   %retval.sroa.0.0.i.i = phi i64 [ %call.i.i.i.i16, %cond.true.i.i ], [ 0, %invoke.cont11 ]
   store i64 %retval.sroa.0.0.i.i, ptr %ref.tmp12, align 8
-  %6 = getelementptr inbounds { i64, ptr }, ptr %ref.tmp12, i64 0, i32 1
+  %6 = getelementptr inbounds i8, ptr %ref.tmp12, i64 8
   store ptr %call14, ptr %6, align 8
   invoke void @_ZN4absl12lts_202308026StrCatB5cxx11ERKNS0_8AlphaNumES3_S3_S3_(ptr nonnull sret(%"class.std::__cxx11::basic_string") align 8 %ref.tmp5, ptr noundef nonnull align 8 dereferenceable(48) %ref.tmp6, ptr noundef nonnull align 8 dereferenceable(48) %ref.tmp8, ptr noundef nonnull align 8 dereferenceable(48) %ref.tmp10, ptr noundef nonnull align 8 dereferenceable(48) %ref.tmp12)
           to label %invoke.cont16 unwind label %lpad1
@@ -218,16 +218,16 @@ invoke.cont41:                                    ; preds = %if.then40
 
 invoke.cont51:                                    ; preds = %do.body
   store i64 21, ptr %ref.tmp46, align 8
-  %19 = getelementptr inbounds { i64, ptr }, ptr %ref.tmp46, i64 0, i32 1
+  %19 = getelementptr inbounds i8, ptr %ref.tmp46, i64 8
   store ptr @.str.1, ptr %19, align 8
   %call.i23 = tail call { i64, ptr } @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEcvSt17basic_string_viewIcS2_EEv(ptr noundef nonnull align 8 dereferenceable(32) %filename) #13
   %20 = extractvalue { i64, ptr } %call.i23, 0
   store i64 %20, ptr %ref.tmp48, align 8
-  %21 = getelementptr inbounds { i64, ptr }, ptr %ref.tmp48, i64 0, i32 1
+  %21 = getelementptr inbounds i8, ptr %ref.tmp48, i64 8
   %22 = extractvalue { i64, ptr } %call.i23, 1
   store ptr %22, ptr %21, align 8
   store i64 22, ptr %ref.tmp50, align 8
-  %23 = getelementptr inbounds { i64, ptr }, ptr %ref.tmp50, i64 0, i32 1
+  %23 = getelementptr inbounds i8, ptr %ref.tmp50, i64 8
   store ptr @.str.5, ptr %23, align 8
   %call53 = tail call ptr @__errno_location() #14
   %24 = load i32, ptr %call53, align 4
@@ -242,7 +242,7 @@ cond.true.i.i28:                                  ; preds = %invoke.cont51
 invoke.cont55:                                    ; preds = %cond.true.i.i28, %invoke.cont51
   %retval.sroa.0.0.i.i30 = phi i64 [ %call.i.i.i.i29, %cond.true.i.i28 ], [ 0, %invoke.cont51 ]
   store i64 %retval.sroa.0.0.i.i30, ptr %ref.tmp52, align 8
-  %25 = getelementptr inbounds { i64, ptr }, ptr %ref.tmp52, i64 0, i32 1
+  %25 = getelementptr inbounds i8, ptr %ref.tmp52, i64 8
   store ptr %call54, ptr %25, align 8
   invoke void @_ZN4absl12lts_202308026StrCatB5cxx11ERKNS0_8AlphaNumES3_S3_S3_(ptr nonnull sret(%"class.std::__cxx11::basic_string") align 8 %ref.tmp45, ptr noundef nonnull align 8 dereferenceable(48) %ref.tmp46, ptr noundef nonnull align 8 dereferenceable(48) %ref.tmp48, ptr noundef nonnull align 8 dereferenceable(48) %ref.tmp50, ptr noundef nonnull align 8 dereferenceable(48) %ref.tmp52)
           to label %invoke.cont56 unwind label %lpad1.thread
@@ -342,7 +342,7 @@ if.end69:                                         ; preds = %if.then68, %if.end6
           to label %invoke.cont75 unwind label %lpad1.thread
 
 invoke.cont75:                                    ; preds = %if.end69
-  %38 = getelementptr inbounds %"class.absl::lts_20230802::internal_statusor::StatusOrData", ptr %agg.result, i64 0, i32 1
+  %38 = getelementptr inbounds i8, ptr %agg.result, i64 8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %38, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp71, i64 32, i1 false)
   store i64 0, ptr %agg.result, align 8
   br label %if.then.i.i.i55

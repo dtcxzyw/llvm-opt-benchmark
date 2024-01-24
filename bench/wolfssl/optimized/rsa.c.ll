@@ -3,9 +3,6 @@ source_filename = "bench/wolfssl/original/rsa.c.ll"
 target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:128-n8:16:32:64-S128"
 target triple = "x86_64-unknown-linux-gnu"
 
-%struct.RsaKey = type { %struct.sp_int, %struct.sp_int, %struct.sp_int, %struct.sp_int, %struct.sp_int, %struct.sp_int, %struct.sp_int, %struct.sp_int, ptr, ptr, i32, i32, i32, ptr, i8 }
-%struct.sp_int = type { i32, i32, [129 x i64] }
-
 @switch.table.wc_RsaSSL_Verify_ex2 = private unnamed_addr constant [5 x i32] [i32 26, i32 4, i32 1, i32 2, i32 3], align 4
 
 ; Function Attrs: nounwind uwtable
@@ -16,26 +13,26 @@ entry:
 
 if.end:                                           ; preds = %entry
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(8368) %key, i8 0, i64 8368, i1 false)
-  %type = getelementptr inbounds %struct.RsaKey, ptr %key, i64 0, i32 10
+  %type = getelementptr inbounds i8, ptr %key, i64 8336
   store i32 -1, ptr %type, align 8
-  %heap1 = getelementptr inbounds %struct.RsaKey, ptr %key, i64 0, i32 8
+  %heap1 = getelementptr inbounds i8, ptr %key, i64 8320
   store ptr %heap, ptr %heap1, align 8
-  %data = getelementptr inbounds %struct.RsaKey, ptr %key, i64 0, i32 9
+  %data = getelementptr inbounds i8, ptr %key, i64 8328
   store ptr null, ptr %data, align 8
-  %rng = getelementptr inbounds %struct.RsaKey, ptr %key, i64 0, i32 13
+  %rng = getelementptr inbounds i8, ptr %key, i64 8352
   store ptr null, ptr %rng, align 8
-  %e = getelementptr inbounds %struct.RsaKey, ptr %key, i64 0, i32 1
+  %e = getelementptr inbounds i8, ptr %key, i64 1040
   %call = tail call i32 @sp_init_multi(ptr noundef nonnull %key, ptr noundef nonnull %e, ptr noundef null, ptr noundef null, ptr noundef null, ptr noundef null) #11
   %cmp2.not = icmp eq i32 %call, 0
   br i1 %cmp2.not, label %if.end4, label %return
 
 if.end4:                                          ; preds = %if.end
-  %d = getelementptr inbounds %struct.RsaKey, ptr %key, i64 0, i32 2
-  %p = getelementptr inbounds %struct.RsaKey, ptr %key, i64 0, i32 3
-  %q = getelementptr inbounds %struct.RsaKey, ptr %key, i64 0, i32 4
-  %dP = getelementptr inbounds %struct.RsaKey, ptr %key, i64 0, i32 5
-  %dQ = getelementptr inbounds %struct.RsaKey, ptr %key, i64 0, i32 6
-  %u = getelementptr inbounds %struct.RsaKey, ptr %key, i64 0, i32 7
+  %d = getelementptr inbounds i8, ptr %key, i64 2080
+  %p = getelementptr inbounds i8, ptr %key, i64 3120
+  %q = getelementptr inbounds i8, ptr %key, i64 4160
+  %dP = getelementptr inbounds i8, ptr %key, i64 5200
+  %dQ = getelementptr inbounds i8, ptr %key, i64 6240
+  %u = getelementptr inbounds i8, ptr %key, i64 7280
   %call5 = tail call i32 @sp_init_multi(ptr noundef nonnull %d, ptr noundef nonnull %p, ptr noundef nonnull %q, ptr noundef nonnull %dP, ptr noundef nonnull %dQ, ptr noundef nonnull %u) #11
   %cmp6.not = icmp eq i32 %call5, 0
   br i1 %cmp6.not, label %return, label %if.then7
@@ -65,24 +62,24 @@ entry:
 
 if.end.i:                                         ; preds = %entry
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(8368) %key, i8 0, i64 8368, i1 false)
-  %type.i = getelementptr inbounds %struct.RsaKey, ptr %key, i64 0, i32 10
+  %type.i = getelementptr inbounds i8, ptr %key, i64 8336
   store i32 -1, ptr %type.i, align 8
-  %heap1.i = getelementptr inbounds %struct.RsaKey, ptr %key, i64 0, i32 8
+  %heap1.i = getelementptr inbounds i8, ptr %key, i64 8320
   store ptr %heap, ptr %heap1.i, align 8
-  %rng.i = getelementptr inbounds %struct.RsaKey, ptr %key, i64 0, i32 13
+  %rng.i = getelementptr inbounds i8, ptr %key, i64 8352
   store ptr null, ptr %rng.i, align 8
-  %e.i = getelementptr inbounds %struct.RsaKey, ptr %key, i64 0, i32 1
+  %e.i = getelementptr inbounds i8, ptr %key, i64 1040
   %call.i = tail call i32 @sp_init_multi(ptr noundef nonnull %key, ptr noundef nonnull %e.i, ptr noundef null, ptr noundef null, ptr noundef null, ptr noundef null) #11
   %cmp2.not.i = icmp eq i32 %call.i, 0
   br i1 %cmp2.not.i, label %if.end4.i, label %wc_InitRsaKey_ex.exit
 
 if.end4.i:                                        ; preds = %if.end.i
-  %d.i = getelementptr inbounds %struct.RsaKey, ptr %key, i64 0, i32 2
-  %p.i = getelementptr inbounds %struct.RsaKey, ptr %key, i64 0, i32 3
-  %q.i = getelementptr inbounds %struct.RsaKey, ptr %key, i64 0, i32 4
-  %dP.i = getelementptr inbounds %struct.RsaKey, ptr %key, i64 0, i32 5
-  %dQ.i = getelementptr inbounds %struct.RsaKey, ptr %key, i64 0, i32 6
-  %u.i = getelementptr inbounds %struct.RsaKey, ptr %key, i64 0, i32 7
+  %d.i = getelementptr inbounds i8, ptr %key, i64 2080
+  %p.i = getelementptr inbounds i8, ptr %key, i64 3120
+  %q.i = getelementptr inbounds i8, ptr %key, i64 4160
+  %dP.i = getelementptr inbounds i8, ptr %key, i64 5200
+  %dQ.i = getelementptr inbounds i8, ptr %key, i64 6240
+  %u.i = getelementptr inbounds i8, ptr %key, i64 7280
   %call5.i = tail call i32 @sp_init_multi(ptr noundef nonnull %d.i, ptr noundef nonnull %p.i, ptr noundef nonnull %q.i, ptr noundef nonnull %dP.i, ptr noundef nonnull %dQ.i, ptr noundef nonnull %u.i) #11
   %cmp6.not.i = icmp eq i32 %call5.i, 0
   br i1 %cmp6.not.i, label %wc_InitRsaKey_ex.exit, label %if.then7.i
@@ -104,26 +101,26 @@ entry:
   br i1 %cmp, label %return, label %if.end
 
 if.end:                                           ; preds = %entry
-  %data.i = getelementptr inbounds %struct.RsaKey, ptr %key, i64 0, i32 9
+  %data.i = getelementptr inbounds i8, ptr %key, i64 8328
   %0 = load ptr, ptr %data.i, align 8
   %tobool1.not.i = icmp eq ptr %0, null
   br i1 %tobool1.not.i, label %wc_RsaCleanup.exit, label %if.then.i
 
 if.then.i:                                        ; preds = %if.end
-  %dataIsAlloc.i = getelementptr inbounds %struct.RsaKey, ptr %key, i64 0, i32 14
+  %dataIsAlloc.i = getelementptr inbounds i8, ptr %key, i64 8360
   %1 = load i8, ptr %dataIsAlloc.i, align 8
   %tobool2.not.i = icmp eq i8 %1, 0
   br i1 %tobool2.not.i, label %if.end13.i, label %if.then3.i
 
 if.then3.i:                                       ; preds = %if.then.i
-  %type.i = getelementptr inbounds %struct.RsaKey, ptr %key, i64 0, i32 10
+  %type.i = getelementptr inbounds i8, ptr %key, i64 8336
   %2 = load i32, ptr %type.i, align 8
   %3 = and i32 %2, -2
   %switch.i = icmp eq i32 %3, 2
   br i1 %switch.i, label %if.then6.i, label %if.end.i
 
 if.then6.i:                                       ; preds = %if.then3.i
-  %dataLen.i = getelementptr inbounds %struct.RsaKey, ptr %key, i64 0, i32 12
+  %dataLen.i = getelementptr inbounds i8, ptr %key, i64 8344
   %4 = load i32, ptr %dataLen.i, align 8
   %5 = ptrtoint ptr %0 to i64
   %6 = trunc i64 %5 to i32
@@ -157,7 +154,7 @@ while.cond9.preheader.i.i:                        ; preds = %for.body.i.i, %for.
 for.body.i.i:                                     ; preds = %for.cond.preheader.i.i, %for.body.i.i
   %w.017.i.i = phi ptr [ %incdec.ptr7.i.i, %for.body.i.i ], [ %z.0.lcssa.i.i, %for.cond.preheader.i.i ]
   %len.addr.016.i.i = phi i32 [ %sub8.i.i, %for.body.i.i ], [ %sub3.i.i, %for.cond.preheader.i.i ]
-  %incdec.ptr7.i.i = getelementptr inbounds i64, ptr %w.017.i.i, i64 1
+  %incdec.ptr7.i.i = getelementptr inbounds i8, ptr %w.017.i.i, i64 8
   store volatile i64 0, ptr %w.017.i.i, align 8
   %sub8.i.i = add i32 %len.addr.016.i.i, -8
   %cmp5.i.i = icmp ugt i32 %sub8.i.i, 7
@@ -187,20 +184,20 @@ if.end11.i:                                       ; preds = %if.then10.i, %if.en
 
 if.end13.i:                                       ; preds = %if.end11.i, %if.then.i
   store ptr null, ptr %data.i, align 8
-  %dataLen15.i = getelementptr inbounds %struct.RsaKey, ptr %key, i64 0, i32 12
+  %dataLen15.i = getelementptr inbounds i8, ptr %key, i64 8344
   store i32 0, ptr %dataLen15.i, align 8
   br label %wc_RsaCleanup.exit
 
 wc_RsaCleanup.exit:                               ; preds = %if.end, %if.end13.i
-  %type = getelementptr inbounds %struct.RsaKey, ptr %key, i64 0, i32 10
+  %type = getelementptr inbounds i8, ptr %key, i64 8336
   %9 = load i32, ptr %type, align 8
   %cmp1 = icmp eq i32 %9, 1
-  %u = getelementptr inbounds %struct.RsaKey, ptr %key, i64 0, i32 7
-  %dQ = getelementptr inbounds %struct.RsaKey, ptr %key, i64 0, i32 6
-  %dP = getelementptr inbounds %struct.RsaKey, ptr %key, i64 0, i32 5
-  %q = getelementptr inbounds %struct.RsaKey, ptr %key, i64 0, i32 4
-  %p = getelementptr inbounds %struct.RsaKey, ptr %key, i64 0, i32 3
-  %d = getelementptr inbounds %struct.RsaKey, ptr %key, i64 0, i32 2
+  %u = getelementptr inbounds i8, ptr %key, i64 7280
+  %dQ = getelementptr inbounds i8, ptr %key, i64 6240
+  %dP = getelementptr inbounds i8, ptr %key, i64 5200
+  %q = getelementptr inbounds i8, ptr %key, i64 4160
+  %p = getelementptr inbounds i8, ptr %key, i64 3120
+  %d = getelementptr inbounds i8, ptr %key, i64 2080
   br i1 %cmp1, label %if.then2, label %if.else
 
 if.then2:                                         ; preds = %wc_RsaCleanup.exit
@@ -222,7 +219,7 @@ if.else:                                          ; preds = %wc_RsaCleanup.exit
   br label %if.end9
 
 if.end9:                                          ; preds = %if.else, %if.then2
-  %e = getelementptr inbounds %struct.RsaKey, ptr %key, i64 0, i32 1
+  %e = getelementptr inbounds i8, ptr %key, i64 1040
   tail call void @sp_clear(ptr noundef nonnull %e) #11
   tail call void @sp_clear(ptr noundef nonnull %key) #11
   br label %return
@@ -788,9 +785,9 @@ for.body.i.i.i:                                   ; preds = %while.end.i.i, %for
   %tpb.sroa.0.0.i.i = phi ptr [ %incdec.ptr1.i.i.i, %for.body.i.i.i ], [ %tmp.i, %while.end.i.i ]
   %tpm.sroa.0.0.i.i = phi ptr [ %incdec.ptr.i.i.i, %for.body.i.i.i ], [ %add.ptr15.i, %while.end.i.i ]
   %i.03.i.i.i = phi i32 [ %inc.i.i.i, %for.body.i.i.i ], [ 0, %while.end.i.i ]
-  %incdec.ptr.i.i.i = getelementptr inbounds i64, ptr %tpm.sroa.0.0.i.i, i64 1
+  %incdec.ptr.i.i.i = getelementptr inbounds i8, ptr %tpm.sroa.0.0.i.i, i64 8
   %28 = load i64, ptr %tpm.sroa.0.0.i.i, align 8
-  %incdec.ptr1.i.i.i = getelementptr inbounds i64, ptr %tpb.sroa.0.0.i.i, i64 1
+  %incdec.ptr1.i.i.i = getelementptr inbounds i8, ptr %tpb.sroa.0.0.i.i, i64 8
   %29 = load i64, ptr %tpb.sroa.0.0.i.i, align 8
   %xor.i.i.i = xor i64 %29, %28
   store i64 %xor.i.i.i, ptr %tpb.sroa.0.0.i.i, align 8
@@ -878,7 +875,7 @@ while.cond9.preheader.i.i:                        ; preds = %for.body.i68.i, %fo
 for.body.i68.i:                                   ; preds = %for.cond.preheader.i.i, %for.body.i68.i
   %w.017.i.i = phi ptr [ %incdec.ptr7.i.i, %for.body.i68.i ], [ %tmp.i, %for.cond.preheader.i.i ]
   %len.addr.016.i.i = phi i32 [ %sub8.i.i, %for.body.i68.i ], [ %call.i, %for.cond.preheader.i.i ]
-  %incdec.ptr7.i.i = getelementptr inbounds i64, ptr %w.017.i.i, i64 1
+  %incdec.ptr7.i.i = getelementptr inbounds i8, ptr %w.017.i.i, i64 8
   store volatile i64 0, ptr %w.017.i.i, align 8
   %sub8.i.i = add i32 %len.addr.016.i.i, -8
   %cmp5.i.i = icmp ugt i32 %sub8.i.i, 7
@@ -932,9 +929,9 @@ for.body.i.i92.i:                                 ; preds = %while.end.i89.i, %f
   %tpb.sroa.0.0.i93.i = phi ptr [ %incdec.ptr1.i.i97.i, %for.body.i.i92.i ], [ %add.ptr30.i, %while.end.i89.i ]
   %tpm.sroa.0.0.i94.i = phi ptr [ %incdec.ptr.i.i96.i, %for.body.i.i92.i ], [ %add.ptr19.i, %while.end.i89.i ]
   %i.03.i.i95.i = phi i32 [ %inc.i.i99.i, %for.body.i.i92.i ], [ 0, %while.end.i89.i ]
-  %incdec.ptr.i.i96.i = getelementptr inbounds i64, ptr %tpm.sroa.0.0.i94.i, i64 1
+  %incdec.ptr.i.i96.i = getelementptr inbounds i8, ptr %tpm.sroa.0.0.i94.i, i64 8
   %37 = load i64, ptr %tpm.sroa.0.0.i94.i, align 8
-  %incdec.ptr1.i.i97.i = getelementptr inbounds i64, ptr %tpb.sroa.0.0.i93.i, i64 1
+  %incdec.ptr1.i.i97.i = getelementptr inbounds i8, ptr %tpb.sroa.0.0.i93.i, i64 8
   %38 = load i64, ptr %tpb.sroa.0.0.i93.i, align 8
   %xor.i.i98.i = xor i64 %38, %37
   store i64 %xor.i.i98.i, ptr %tpb.sroa.0.0.i93.i, align 8
@@ -985,7 +982,7 @@ while.cond9.preheader.i129.i:                     ; preds = %for.body.i139.i, %f
 for.body.i139.i:                                  ; preds = %for.cond.preheader.i126.i, %for.body.i139.i
   %w.017.i140.i = phi ptr [ %incdec.ptr7.i142.i, %for.body.i139.i ], [ %tmp.i, %for.cond.preheader.i126.i ]
   %len.addr.016.i141.i = phi i32 [ %sub8.i143.i, %for.body.i139.i ], [ %pkcsBlockLen, %for.cond.preheader.i126.i ]
-  %incdec.ptr7.i142.i = getelementptr inbounds i64, ptr %w.017.i140.i, i64 1
+  %incdec.ptr7.i142.i = getelementptr inbounds i8, ptr %w.017.i140.i, i64 8
   store volatile i64 0, ptr %w.017.i140.i, align 8
   %sub8.i143.i = add i32 %len.addr.016.i141.i, -8
   %cmp5.i144.i = icmp ugt i32 %sub8.i143.i, 7
@@ -1268,7 +1265,7 @@ do.end:                                           ; preds = %lor.lhs.false8
   br i1 %cmp12, label %land.lhs.true, label %wc_RsaEncryptSize.exit.i
 
 land.lhs.true:                                    ; preds = %do.end
-  %state = getelementptr inbounds %struct.RsaKey, ptr %key, i64 0, i32 11
+  %state = getelementptr inbounds i8, ptr %key, i64 8340
   %8 = load i32, ptr %state, align 4
   %cmp13 = icmp eq i32 %8, 4
   br i1 %cmp13, label %if.then14, label %wc_RsaEncryptSize.exit.i
@@ -1298,7 +1295,7 @@ if.end8.i:                                        ; preds = %if.end3.i
   br i1 %cmp9.not.i, label %if.end13.i, label %land.lhs.true.i
 
 land.lhs.true.i:                                  ; preds = %if.end8.i
-  %dp.i = getelementptr inbounds %struct.sp_int, ptr %key, i64 0, i32 2
+  %dp.i = getelementptr inbounds i8, ptr %key, i64 8
   %11 = load i64, ptr %dp.i, align 8
   %and.i = and i64 %11, 1
   %cmp11.i = icmp eq i64 %and.i, 0
@@ -1317,28 +1314,28 @@ wc_RsaFunctionSync.exit:                          ; preds = %wc_RsaEncryptSize.e
   br i1 %or.cond5, label %if.then27, label %return
 
 if.then27:                                        ; preds = %wc_RsaFunctionSync.exit
-  %state33 = getelementptr inbounds %struct.RsaKey, ptr %key, i64 0, i32 11
+  %state33 = getelementptr inbounds i8, ptr %key, i64 8340
   store i32 0, ptr %state33, align 4
-  %data.i = getelementptr inbounds %struct.RsaKey, ptr %key, i64 0, i32 9
+  %data.i = getelementptr inbounds i8, ptr %key, i64 8328
   %12 = load ptr, ptr %data.i, align 8
   %tobool1.not.i = icmp eq ptr %12, null
   br i1 %tobool1.not.i, label %return, label %if.then.i
 
 if.then.i:                                        ; preds = %if.then27
-  %dataIsAlloc.i = getelementptr inbounds %struct.RsaKey, ptr %key, i64 0, i32 14
+  %dataIsAlloc.i = getelementptr inbounds i8, ptr %key, i64 8360
   %13 = load i8, ptr %dataIsAlloc.i, align 8
   %tobool2.not.i = icmp eq i8 %13, 0
   br i1 %tobool2.not.i, label %if.end13.i26, label %if.then3.i
 
 if.then3.i:                                       ; preds = %if.then.i
-  %type.i = getelementptr inbounds %struct.RsaKey, ptr %key, i64 0, i32 10
+  %type.i = getelementptr inbounds i8, ptr %key, i64 8336
   %14 = load i32, ptr %type.i, align 8
   %15 = and i32 %14, -2
   %switch.i = icmp eq i32 %15, 2
   br i1 %switch.i, label %if.then6.i, label %if.end.i25
 
 if.then6.i:                                       ; preds = %if.then3.i
-  %dataLen.i = getelementptr inbounds %struct.RsaKey, ptr %key, i64 0, i32 12
+  %dataLen.i = getelementptr inbounds i8, ptr %key, i64 8344
   %16 = load i32, ptr %dataLen.i, align 8
   %17 = ptrtoint ptr %12 to i64
   %18 = trunc i64 %17 to i32
@@ -1372,7 +1369,7 @@ while.cond9.preheader.i.i:                        ; preds = %for.body.i.i, %for.
 for.body.i.i:                                     ; preds = %for.cond.preheader.i.i, %for.body.i.i
   %w.017.i.i = phi ptr [ %incdec.ptr7.i.i, %for.body.i.i ], [ %z.0.lcssa.i.i, %for.cond.preheader.i.i ]
   %len.addr.016.i.i = phi i32 [ %sub8.i.i, %for.body.i.i ], [ %sub3.i.i, %for.cond.preheader.i.i ]
-  %incdec.ptr7.i.i = getelementptr inbounds i64, ptr %w.017.i.i, i64 1
+  %incdec.ptr7.i.i = getelementptr inbounds i8, ptr %w.017.i.i, i64 8
   store volatile i64 0, ptr %w.017.i.i, align 8
   %sub8.i.i = add i32 %len.addr.016.i.i, -8
   %cmp5.i.i = icmp ugt i32 %sub8.i.i, 7
@@ -1402,7 +1399,7 @@ if.end11.i:                                       ; preds = %if.then10.i, %if.en
 
 if.end13.i26:                                     ; preds = %if.end11.i, %if.then.i
   store ptr null, ptr %data.i, align 8
-  %dataLen15.i = getelementptr inbounds %struct.RsaKey, ptr %key, i64 0, i32 12
+  %dataLen15.i = getelementptr inbounds i8, ptr %key, i64 8344
   store i32 0, ptr %dataLen15.i, align 8
   br label %return
 
@@ -1446,7 +1443,7 @@ if.end13:                                         ; preds = %if.end8
   br i1 %cmp14, label %return, label %if.end16
 
 if.end16:                                         ; preds = %if.end13
-  %state17 = getelementptr inbounds %struct.RsaKey, ptr %key, i64 0, i32 11
+  %state17 = getelementptr inbounds i8, ptr %key, i64 8340
   %1 = load i32, ptr %state17, align 4
   switch i32 %1, label %if.end41 [
     i32 0, label %sw.bb
@@ -1467,7 +1464,7 @@ if.end23:                                         ; preds = %sw.bb
   br label %sw.bb25
 
 sw.bb25:                                          ; preds = %if.end23, %if.end16
-  %dataLen = getelementptr inbounds %struct.RsaKey, ptr %key, i64 0, i32 12
+  %dataLen = getelementptr inbounds i8, ptr %key, i64 8344
   store i32 %outLen, ptr %dataLen, align 8
   %call.i37 = tail call fastcc i32 @wc_RsaFunction_ex(ptr noundef nonnull %out, i32 noundef %call.i, ptr noundef nonnull %out, ptr noundef nonnull %dataLen, i32 noundef %rsa_type, ptr noundef nonnull %key, ptr noundef %rng, i32 noundef 1)
   %cmp28 = icmp sgt i32 %call.i37, -1
@@ -1481,7 +1478,7 @@ if.end33:                                         ; preds = %sw.bb25
   br i1 %cmp34, label %sw.epilog, label %sw.bb37
 
 sw.bb37:                                          ; preds = %if.end33, %if.end16
-  %dataLen38 = getelementptr inbounds %struct.RsaKey, ptr %key, i64 0, i32 12
+  %dataLen38 = getelementptr inbounds i8, ptr %key, i64 8344
   %2 = load i32, ptr %dataLen38, align 8
   br label %sw.epilog
 
@@ -1493,26 +1490,26 @@ sw.epilog:                                        ; preds = %sw.bb25, %if.end33,
 if.end41:                                         ; preds = %if.end16, %sw.epilog
   %ret.042 = phi i32 [ %ret.0, %sw.epilog ], [ -192, %if.end16 ]
   store i32 0, ptr %state17, align 4
-  %data.i = getelementptr inbounds %struct.RsaKey, ptr %key, i64 0, i32 9
+  %data.i = getelementptr inbounds i8, ptr %key, i64 8328
   %3 = load ptr, ptr %data.i, align 8
   %tobool1.not.i = icmp eq ptr %3, null
   br i1 %tobool1.not.i, label %return, label %if.then.i
 
 if.then.i:                                        ; preds = %if.end41
-  %dataIsAlloc.i = getelementptr inbounds %struct.RsaKey, ptr %key, i64 0, i32 14
+  %dataIsAlloc.i = getelementptr inbounds i8, ptr %key, i64 8360
   %4 = load i8, ptr %dataIsAlloc.i, align 8
   %tobool2.not.i = icmp eq i8 %4, 0
   br i1 %tobool2.not.i, label %if.end13.i, label %if.then3.i
 
 if.then3.i:                                       ; preds = %if.then.i
-  %type.i = getelementptr inbounds %struct.RsaKey, ptr %key, i64 0, i32 10
+  %type.i = getelementptr inbounds i8, ptr %key, i64 8336
   %5 = load i32, ptr %type.i, align 8
   %6 = and i32 %5, -2
   %switch.i = icmp eq i32 %6, 2
   br i1 %switch.i, label %if.then6.i, label %if.end.i38
 
 if.then6.i:                                       ; preds = %if.then3.i
-  %dataLen.i = getelementptr inbounds %struct.RsaKey, ptr %key, i64 0, i32 12
+  %dataLen.i = getelementptr inbounds i8, ptr %key, i64 8344
   %7 = load i32, ptr %dataLen.i, align 8
   %8 = ptrtoint ptr %3 to i64
   %9 = trunc i64 %8 to i32
@@ -1546,7 +1543,7 @@ while.cond9.preheader.i.i:                        ; preds = %for.body.i.i, %for.
 for.body.i.i:                                     ; preds = %for.cond.preheader.i.i, %for.body.i.i
   %w.017.i.i = phi ptr [ %incdec.ptr7.i.i, %for.body.i.i ], [ %z.0.lcssa.i.i, %for.cond.preheader.i.i ]
   %len.addr.016.i.i = phi i32 [ %sub8.i.i, %for.body.i.i ], [ %sub3.i.i, %for.cond.preheader.i.i ]
-  %incdec.ptr7.i.i = getelementptr inbounds i64, ptr %w.017.i.i, i64 1
+  %incdec.ptr7.i.i = getelementptr inbounds i8, ptr %w.017.i.i, i64 8
   store volatile i64 0, ptr %w.017.i.i, align 8
   %sub8.i.i = add i32 %len.addr.016.i.i, -8
   %cmp5.i.i = icmp ugt i32 %sub8.i.i, 7
@@ -1576,7 +1573,7 @@ if.end11.i:                                       ; preds = %if.then10.i, %if.en
 
 if.end13.i:                                       ; preds = %if.end11.i, %if.then.i
   store ptr null, ptr %data.i, align 8
-  %dataLen15.i = getelementptr inbounds %struct.RsaKey, ptr %key, i64 0, i32 12
+  %dataLen15.i = getelementptr inbounds i8, ptr %key, i64 8344
   store i32 0, ptr %dataLen15.i, align 8
   br label %return
 
@@ -1595,7 +1592,7 @@ entry:
 ; Function Attrs: nounwind uwtable
 define i32 @wc_RsaPrivateDecryptInline(ptr noundef %in, i32 noundef %inLen, ptr noundef %out, ptr noundef %key) local_unnamed_addr #0 {
 entry:
-  %rng1 = getelementptr inbounds %struct.RsaKey, ptr %key, i64 0, i32 13
+  %rng1 = getelementptr inbounds i8, ptr %key, i64 8352
   %0 = load ptr, ptr %rng1, align 8
   %call = tail call fastcc i32 @RsaPrivateDecryptEx(ptr noundef %in, i32 noundef %inLen, ptr noundef %in, i32 noundef %inLen, ptr noundef %out, ptr noundef %key, i32 noundef 3, i8 noundef zeroext 2, i32 noundef 0, i32 noundef 0, i32 noundef 0, ptr noundef null, i32 noundef 0, i32 noundef 0, ptr noundef %0)
   ret i32 %call
@@ -1616,7 +1613,7 @@ entry:
   br i1 %or.cond2, label %return, label %if.end
 
 if.end:                                           ; preds = %entry
-  %state = getelementptr inbounds %struct.RsaKey, ptr %key, i64 0, i32 11
+  %state = getelementptr inbounds i8, ptr %key, i64 8340
   %0 = load i32, ptr %state, align 4
   switch i32 %0, label %sw.default [
     i32 0, label %sw.bb
@@ -1626,9 +1623,9 @@ if.end:                                           ; preds = %entry
   ]
 
 sw.bb:                                            ; preds = %if.end
-  %dataLen = getelementptr inbounds %struct.RsaKey, ptr %key, i64 0, i32 12
+  %dataLen = getelementptr inbounds i8, ptr %key, i64 8344
   store i32 %inLen, ptr %dataLen, align 8
-  %data = getelementptr inbounds %struct.RsaKey, ptr %key, i64 0, i32 9
+  %data = getelementptr inbounds i8, ptr %key, i64 8328
   %1 = load ptr, ptr %data, align 8
   %cmp6.not = icmp eq ptr %1, null
   br i1 %cmp6.not, label %if.end8, label %if.end99
@@ -1641,7 +1638,7 @@ if.then10:                                        ; preds = %if.end8
   %conv = zext i32 %inLen to i64
   %call = tail call ptr @wolfSSL_Malloc(i64 noundef %conv) #11
   store ptr %call, ptr %data, align 8
-  %dataIsAlloc = getelementptr inbounds %struct.RsaKey, ptr %key, i64 0, i32 14
+  %dataIsAlloc = getelementptr inbounds i8, ptr %key, i64 8360
   store i8 1, ptr %dataIsAlloc, align 8
   %cmp13 = icmp eq ptr %call, null
   br i1 %cmp13, label %if.end99, label %if.end16
@@ -1651,7 +1648,7 @@ if.end16:                                         ; preds = %if.then10
   br label %if.end21
 
 if.else:                                          ; preds = %if.end8
-  %dataIsAlloc19 = getelementptr inbounds %struct.RsaKey, ptr %key, i64 0, i32 14
+  %dataIsAlloc19 = getelementptr inbounds i8, ptr %key, i64 8360
   store i8 0, ptr %dataIsAlloc19, align 8
   store ptr %out, ptr %data, align 8
   br label %if.end21
@@ -1661,9 +1658,9 @@ if.end21:                                         ; preds = %if.else, %if.end16
   br label %sw.bb23
 
 sw.bb23:                                          ; preds = %if.end21, %if.end
-  %data24 = getelementptr inbounds %struct.RsaKey, ptr %key, i64 0, i32 9
+  %data24 = getelementptr inbounds i8, ptr %key, i64 8328
   %2 = load ptr, ptr %data24, align 8
-  %dataLen26 = getelementptr inbounds %struct.RsaKey, ptr %key, i64 0, i32 12
+  %dataLen26 = getelementptr inbounds i8, ptr %key, i64 8344
   %cmp27 = icmp ne i32 %pad_type, 1
   %conv28 = zext i1 %cmp27 to i32
   %call29 = tail call fastcc i32 @wc_RsaFunction_ex(ptr noundef %2, i32 noundef %inLen, ptr noundef %2, ptr noundef nonnull %dataLen26, i32 noundef %rsa_type, ptr noundef nonnull %key, ptr noundef %rng, i32 noundef %conv28)
@@ -1678,9 +1675,9 @@ if.end37:                                         ; preds = %sw.bb23
   br i1 %cmp38, label %sw.epilog, label %sw.bb42
 
 sw.bb42:                                          ; preds = %if.end37, %if.end
-  %data43 = getelementptr inbounds %struct.RsaKey, ptr %key, i64 0, i32 9
+  %data43 = getelementptr inbounds i8, ptr %key, i64 8328
   %3 = load ptr, ptr %data43, align 8
-  %dataLen44 = getelementptr inbounds %struct.RsaKey, ptr %key, i64 0, i32 12
+  %dataLen44 = getelementptr inbounds i8, ptr %key, i64 8344
   %4 = load i32, ptr %dataLen44, align 8
   %call45 = tail call i32 @sp_count_bits(ptr noundef nonnull %key) #11
   %call47 = call i32 @wc_RsaUnPad_ex(ptr noundef %3, i32 noundef %4, ptr noundef nonnull %pad, i8 noundef zeroext %pad_value, i32 noundef %pad_type, i32 noundef %hash, i32 noundef %mgf, ptr noundef %label, i32 noundef %labelSz, i32 noundef %saltLen, i32 noundef %call45, ptr poison)
@@ -1780,26 +1777,26 @@ sw.epilog:                                        ; preds = %sw.bb23, %if.end93,
 if.end99:                                         ; preds = %if.then10, %sw.bb, %if.end, %sw.default, %sw.epilog
   %ret.181 = phi i32 [ %ret.1, %sw.epilog ], [ -125, %if.then10 ], [ -192, %sw.bb ], [ -130, %if.end ], [ -192, %sw.default ]
   store i32 0, ptr %state, align 4
-  %data.i = getelementptr inbounds %struct.RsaKey, ptr %key, i64 0, i32 9
+  %data.i = getelementptr inbounds i8, ptr %key, i64 8328
   %16 = load ptr, ptr %data.i, align 8
   %tobool1.not.i = icmp eq ptr %16, null
   br i1 %tobool1.not.i, label %return, label %if.then.i
 
 if.then.i:                                        ; preds = %if.end99
-  %dataIsAlloc.i = getelementptr inbounds %struct.RsaKey, ptr %key, i64 0, i32 14
+  %dataIsAlloc.i = getelementptr inbounds i8, ptr %key, i64 8360
   %17 = load i8, ptr %dataIsAlloc.i, align 8
   %tobool2.not.i = icmp eq i8 %17, 0
   br i1 %tobool2.not.i, label %if.end13.i, label %if.then3.i
 
 if.then3.i:                                       ; preds = %if.then.i
-  %type.i = getelementptr inbounds %struct.RsaKey, ptr %key, i64 0, i32 10
+  %type.i = getelementptr inbounds i8, ptr %key, i64 8336
   %18 = load i32, ptr %type.i, align 8
   %19 = and i32 %18, -2
   %switch.i = icmp eq i32 %19, 2
   br i1 %switch.i, label %if.then6.i, label %if.end.i
 
 if.then6.i:                                       ; preds = %if.then3.i
-  %dataLen.i = getelementptr inbounds %struct.RsaKey, ptr %key, i64 0, i32 12
+  %dataLen.i = getelementptr inbounds i8, ptr %key, i64 8344
   %20 = load i32, ptr %dataLen.i, align 8
   %21 = ptrtoint ptr %16 to i64
   %22 = trunc i64 %21 to i32
@@ -1833,7 +1830,7 @@ while.cond9.preheader.i.i:                        ; preds = %for.body.i.i, %for.
 for.body.i.i:                                     ; preds = %for.cond.preheader.i.i, %for.body.i.i
   %w.017.i.i = phi ptr [ %incdec.ptr7.i.i, %for.body.i.i ], [ %z.0.lcssa.i.i, %for.cond.preheader.i.i ]
   %len.addr.016.i.i = phi i32 [ %sub8.i.i, %for.body.i.i ], [ %sub3.i.i, %for.cond.preheader.i.i ]
-  %incdec.ptr7.i.i = getelementptr inbounds i64, ptr %w.017.i.i, i64 1
+  %incdec.ptr7.i.i = getelementptr inbounds i8, ptr %w.017.i.i, i64 8
   store volatile i64 0, ptr %w.017.i.i, align 8
   %sub8.i.i = add i32 %len.addr.016.i.i, -8
   %cmp5.i.i = icmp ugt i32 %sub8.i.i, 7
@@ -1863,7 +1860,7 @@ if.end11.i:                                       ; preds = %if.then10.i, %if.en
 
 if.end13.i:                                       ; preds = %if.end11.i, %if.then.i
   store ptr null, ptr %data.i, align 8
-  %dataLen15.i = getelementptr inbounds %struct.RsaKey, ptr %key, i64 0, i32 12
+  %dataLen15.i = getelementptr inbounds i8, ptr %key, i64 8344
   store i32 0, ptr %dataLen15.i, align 8
   br label %return
 
@@ -1875,7 +1872,7 @@ return:                                           ; preds = %if.end13.i, %if.end
 ; Function Attrs: nounwind uwtable
 define i32 @wc_RsaPrivateDecryptInline_ex(ptr noundef %in, i32 noundef %inLen, ptr noundef %out, ptr noundef %key, i32 noundef %type, i32 noundef %hash, i32 noundef %mgf, ptr noundef %label, i32 noundef %labelSz) local_unnamed_addr #0 {
 entry:
-  %rng1 = getelementptr inbounds %struct.RsaKey, ptr %key, i64 0, i32 13
+  %rng1 = getelementptr inbounds i8, ptr %key, i64 8352
   %0 = load ptr, ptr %rng1, align 8
   %call = tail call fastcc i32 @RsaPrivateDecryptEx(ptr noundef %in, i32 noundef %inLen, ptr noundef %in, i32 noundef %inLen, ptr noundef %out, ptr noundef %key, i32 noundef 3, i8 noundef zeroext 2, i32 noundef %type, i32 noundef %hash, i32 noundef %mgf, ptr noundef %label, i32 noundef %labelSz, i32 noundef 0, ptr noundef %0)
   ret i32 %call
@@ -1884,7 +1881,7 @@ entry:
 ; Function Attrs: nounwind uwtable
 define i32 @wc_RsaPrivateDecrypt(ptr noundef %in, i32 noundef %inLen, ptr noundef %out, i32 noundef %outLen, ptr noundef %key) local_unnamed_addr #0 {
 entry:
-  %rng1 = getelementptr inbounds %struct.RsaKey, ptr %key, i64 0, i32 13
+  %rng1 = getelementptr inbounds i8, ptr %key, i64 8352
   %0 = load ptr, ptr %rng1, align 8
   %call = tail call fastcc i32 @RsaPrivateDecryptEx(ptr noundef %in, i32 noundef %inLen, ptr noundef %out, i32 noundef %outLen, ptr noundef null, ptr noundef %key, i32 noundef 3, i8 noundef zeroext 2, i32 noundef 0, i32 noundef 0, i32 noundef 0, ptr noundef null, i32 noundef 0, i32 noundef 0, ptr noundef %0)
   ret i32 %call
@@ -1893,7 +1890,7 @@ entry:
 ; Function Attrs: nounwind uwtable
 define i32 @wc_RsaPrivateDecrypt_ex(ptr noundef %in, i32 noundef %inLen, ptr noundef %out, i32 noundef %outLen, ptr noundef %key, i32 noundef %type, i32 noundef %hash, i32 noundef %mgf, ptr noundef %label, i32 noundef %labelSz) local_unnamed_addr #0 {
 entry:
-  %rng1 = getelementptr inbounds %struct.RsaKey, ptr %key, i64 0, i32 13
+  %rng1 = getelementptr inbounds i8, ptr %key, i64 8352
   %0 = load ptr, ptr %rng1, align 8
   %call = tail call fastcc i32 @RsaPrivateDecryptEx(ptr noundef %in, i32 noundef %inLen, ptr noundef %out, i32 noundef %outLen, ptr noundef null, ptr noundef %key, i32 noundef 3, i8 noundef zeroext 2, i32 noundef %type, i32 noundef %hash, i32 noundef %mgf, ptr noundef %label, i32 noundef %labelSz, i32 noundef 0, ptr noundef %0)
   ret i32 %call
@@ -1902,7 +1899,7 @@ entry:
 ; Function Attrs: nounwind uwtable
 define i32 @wc_RsaSSL_VerifyInline(ptr noundef %in, i32 noundef %inLen, ptr noundef %out, ptr noundef %key) local_unnamed_addr #0 {
 entry:
-  %rng1 = getelementptr inbounds %struct.RsaKey, ptr %key, i64 0, i32 13
+  %rng1 = getelementptr inbounds i8, ptr %key, i64 8352
   %0 = load ptr, ptr %rng1, align 8
   %call = tail call fastcc i32 @RsaPrivateDecryptEx(ptr noundef %in, i32 noundef %inLen, ptr noundef %in, i32 noundef %inLen, ptr noundef %out, ptr noundef %key, i32 noundef 1, i8 noundef zeroext 1, i32 noundef 0, i32 noundef 0, i32 noundef 0, ptr noundef null, i32 noundef 0, i32 noundef 0, ptr noundef %0)
   ret i32 %call
@@ -1915,7 +1912,7 @@ entry:
   br i1 %cmp.i.i, label %wc_RsaSSL_Verify_ex.exit, label %if.end.i.i
 
 if.end.i.i:                                       ; preds = %entry
-  %rng1.i.i = getelementptr inbounds %struct.RsaKey, ptr %key, i64 0, i32 13
+  %rng1.i.i = getelementptr inbounds i8, ptr %key, i64 8352
   %0 = load ptr, ptr %rng1.i.i, align 8
   %call2.i.i = tail call fastcc i32 @RsaPrivateDecryptEx(ptr noundef %in, i32 noundef %inLen, ptr noundef %out, i32 noundef %outLen, ptr noundef null, ptr noundef nonnull %key, i32 noundef 1, i8 noundef zeroext 1, i32 noundef 0, i32 noundef 0, i32 noundef 0, ptr noundef null, i32 noundef 0, i32 noundef -1, ptr noundef %0)
   br label %wc_RsaSSL_Verify_ex.exit
@@ -1932,7 +1929,7 @@ entry:
   br i1 %cmp.i, label %wc_RsaSSL_Verify_ex2.exit, label %if.end.i
 
 if.end.i:                                         ; preds = %entry
-  %rng1.i = getelementptr inbounds %struct.RsaKey, ptr %key, i64 0, i32 13
+  %rng1.i = getelementptr inbounds i8, ptr %key, i64 8352
   %0 = load ptr, ptr %rng1.i, align 8
   %call2.i = tail call fastcc i32 @RsaPrivateDecryptEx(ptr noundef %in, i32 noundef %inLen, ptr noundef %out, i32 noundef %outLen, ptr noundef null, ptr noundef nonnull %key, i32 noundef 1, i8 noundef zeroext 1, i32 noundef %pad_type, i32 noundef 0, i32 noundef 0, ptr noundef null, i32 noundef 0, i32 noundef -1, ptr noundef %0)
   br label %wc_RsaSSL_Verify_ex2.exit
@@ -1949,7 +1946,7 @@ entry:
   br i1 %cmp, label %return, label %if.end
 
 if.end:                                           ; preds = %entry
-  %rng1 = getelementptr inbounds %struct.RsaKey, ptr %key, i64 0, i32 13
+  %rng1 = getelementptr inbounds i8, ptr %key, i64 8352
   %0 = load ptr, ptr %rng1, align 8
   %switch.tableidx = add i32 %hash, -4
   %1 = icmp ult i32 %switch.tableidx, 5
@@ -1974,7 +1971,7 @@ return:                                           ; preds = %entry, %wc_hash2mgf
 ; Function Attrs: nounwind uwtable
 define i32 @wc_RsaPSS_VerifyInline(ptr noundef %in, i32 noundef %inLen, ptr noundef %out, i32 noundef %hash, i32 noundef %mgf, ptr noundef %key) local_unnamed_addr #0 {
 entry:
-  %rng1.i = getelementptr inbounds %struct.RsaKey, ptr %key, i64 0, i32 13
+  %rng1.i = getelementptr inbounds i8, ptr %key, i64 8352
   %0 = load ptr, ptr %rng1.i, align 8
   %call.i = tail call fastcc i32 @RsaPrivateDecryptEx(ptr noundef %in, i32 noundef %inLen, ptr noundef %in, i32 noundef %inLen, ptr noundef %out, ptr noundef %key, i32 noundef 1, i8 noundef zeroext 1, i32 noundef 2, i32 noundef %hash, i32 noundef %mgf, ptr noundef null, i32 noundef 0, i32 noundef -1, ptr noundef %0)
   ret i32 %call.i
@@ -1983,7 +1980,7 @@ entry:
 ; Function Attrs: nounwind uwtable
 define i32 @wc_RsaPSS_VerifyInline_ex(ptr noundef %in, i32 noundef %inLen, ptr noundef %out, i32 noundef %hash, i32 noundef %mgf, i32 noundef %saltLen, ptr noundef %key) local_unnamed_addr #0 {
 entry:
-  %rng1 = getelementptr inbounds %struct.RsaKey, ptr %key, i64 0, i32 13
+  %rng1 = getelementptr inbounds i8, ptr %key, i64 8352
   %0 = load ptr, ptr %rng1, align 8
   %call = tail call fastcc i32 @RsaPrivateDecryptEx(ptr noundef %in, i32 noundef %inLen, ptr noundef %in, i32 noundef %inLen, ptr noundef %out, ptr noundef %key, i32 noundef 1, i8 noundef zeroext 1, i32 noundef 2, i32 noundef %hash, i32 noundef %mgf, ptr noundef null, i32 noundef 0, i32 noundef %saltLen, ptr noundef %0)
   ret i32 %call
@@ -1992,7 +1989,7 @@ entry:
 ; Function Attrs: nounwind uwtable
 define i32 @wc_RsaPSS_Verify(ptr noundef %in, i32 noundef %inLen, ptr noundef %out, i32 noundef %outLen, i32 noundef %hash, i32 noundef %mgf, ptr noundef %key) local_unnamed_addr #0 {
 entry:
-  %rng1.i = getelementptr inbounds %struct.RsaKey, ptr %key, i64 0, i32 13
+  %rng1.i = getelementptr inbounds i8, ptr %key, i64 8352
   %0 = load ptr, ptr %rng1.i, align 8
   %call.i = tail call fastcc i32 @RsaPrivateDecryptEx(ptr noundef %in, i32 noundef %inLen, ptr noundef %out, i32 noundef %outLen, ptr noundef null, ptr noundef %key, i32 noundef 1, i8 noundef zeroext 1, i32 noundef 2, i32 noundef %hash, i32 noundef %mgf, ptr noundef null, i32 noundef 0, i32 noundef -1, ptr noundef %0)
   ret i32 %call.i
@@ -2001,7 +1998,7 @@ entry:
 ; Function Attrs: nounwind uwtable
 define i32 @wc_RsaPSS_Verify_ex(ptr noundef %in, i32 noundef %inLen, ptr noundef %out, i32 noundef %outLen, i32 noundef %hash, i32 noundef %mgf, i32 noundef %saltLen, ptr noundef %key) local_unnamed_addr #0 {
 entry:
-  %rng1 = getelementptr inbounds %struct.RsaKey, ptr %key, i64 0, i32 13
+  %rng1 = getelementptr inbounds i8, ptr %key, i64 8352
   %0 = load ptr, ptr %rng1, align 8
   %call = tail call fastcc i32 @RsaPrivateDecryptEx(ptr noundef %in, i32 noundef %inLen, ptr noundef %out, i32 noundef %outLen, ptr noundef null, ptr noundef %key, i32 noundef 1, i8 noundef zeroext 1, i32 noundef 2, i32 noundef %hash, i32 noundef %mgf, ptr noundef null, i32 noundef 0, i32 noundef %saltLen, ptr noundef %0)
   ret i32 %call
@@ -2130,7 +2127,7 @@ if.end3:                                          ; preds = %entry
   %cmp6 = icmp eq i32 %digestLen, 64
   %or.cond = and i1 %cmp6, %cmp5
   %spec.select = select i1 %or.cond, i32 62, i32 %digestLen
-  %rng1.i = getelementptr inbounds %struct.RsaKey, ptr %key, i64 0, i32 13
+  %rng1.i = getelementptr inbounds i8, ptr %key, i64 8352
   %0 = load ptr, ptr %rng1.i, align 8
   %call.i = tail call fastcc i32 @RsaPrivateDecryptEx(ptr noundef %in, i32 noundef %inLen, ptr noundef %in, i32 noundef %inLen, ptr noundef %out, ptr noundef %key, i32 noundef 1, i8 noundef zeroext 1, i32 noundef 2, i32 noundef %hash, i32 noundef %mgf, ptr noundef null, i32 noundef 0, i32 noundef %spec.select, ptr noundef %0)
   %cmp10 = icmp sgt i32 %call.i, 0
@@ -2170,7 +2167,7 @@ if.end3:                                          ; preds = %if.end
   %cmp6 = icmp eq i32 %digestLen, 64
   %or.cond = and i1 %cmp6, %cmp5
   %spec.select = select i1 %or.cond, i32 62, i32 %digestLen
-  %rng1.i = getelementptr inbounds %struct.RsaKey, ptr %key, i64 0, i32 13
+  %rng1.i = getelementptr inbounds i8, ptr %key, i64 8352
   %0 = load ptr, ptr %rng1.i, align 8
   %call.i = tail call fastcc i32 @RsaPrivateDecryptEx(ptr noundef %in, i32 noundef %inLen, ptr noundef %out, i32 noundef %outLen, ptr noundef null, ptr noundef %key, i32 noundef 1, i8 noundef zeroext 1, i32 noundef 2, i32 noundef %hash, i32 noundef %mgf, ptr noundef null, i32 noundef 0, i32 noundef %spec.select, ptr noundef %0)
   %cmp10 = icmp sgt i32 %call.i, 0
@@ -2243,7 +2240,7 @@ entry:
   br i1 %op.rdx, label %return, label %if.end
 
 if.end:                                           ; preds = %entry
-  %e8 = getelementptr inbounds %struct.RsaKey, ptr %key, i64 0, i32 1
+  %e8 = getelementptr inbounds i8, ptr %key, i64 1040
   %call = tail call i32 @sp_unsigned_bin_size(ptr noundef nonnull %e8) #11
   %7 = load i32, ptr %eSz, align 4
   %cmp9 = icmp ugt i32 %call, %7
@@ -2300,7 +2297,7 @@ entry:
   br i1 %op.rdx83, label %if.then20, label %if.end42
 
 if.then20:                                        ; preds = %entry
-  %e21 = getelementptr inbounds %struct.RsaKey, ptr %key, i64 0, i32 1
+  %e21 = getelementptr inbounds i8, ptr %key, i64 1040
   %call.i = tail call i32 @sp_unsigned_bin_size(ptr noundef nonnull %e21) #11
   %11 = load i32, ptr %eSz, align 4
   %cmp.not.i = icmp ugt i32 %call.i, %11
@@ -2325,7 +2322,7 @@ if.end4.i32:                                      ; preds = %if.end22.thread64
 
 if.then29:                                        ; preds = %if.end4.i32
   store i32 %call.i30, ptr %nSz, align 4
-  %d30 = getelementptr inbounds %struct.RsaKey, ptr %key, i64 0, i32 2
+  %d30 = getelementptr inbounds i8, ptr %key, i64 2080
   %call.i38 = tail call i32 @sp_unsigned_bin_size(ptr noundef nonnull %d30) #11
   %13 = load i32, ptr %dSz, align 4
   %cmp.not.i39 = icmp ugt i32 %call.i38, %13
@@ -2338,7 +2335,7 @@ if.end4.i40:                                      ; preds = %if.then29
 
 if.then34:                                        ; preds = %if.end4.i40
   store i32 %call.i38, ptr %dSz, align 4
-  %p35 = getelementptr inbounds %struct.RsaKey, ptr %key, i64 0, i32 3
+  %p35 = getelementptr inbounds i8, ptr %key, i64 3120
   %call.i46 = tail call i32 @sp_unsigned_bin_size(ptr noundef nonnull %p35) #11
   %14 = load i32, ptr %pSz, align 4
   %cmp.not.i47 = icmp ugt i32 %call.i46, %14
@@ -2351,7 +2348,7 @@ if.end4.i48:                                      ; preds = %if.then34
 
 if.then39:                                        ; preds = %if.end4.i48
   store i32 %call.i46, ptr %pSz, align 4
-  %q40 = getelementptr inbounds %struct.RsaKey, ptr %key, i64 0, i32 4
+  %q40 = getelementptr inbounds i8, ptr %key, i64 4160
   %call.i54 = tail call i32 @sp_unsigned_bin_size(ptr noundef nonnull %q40) #11
   %15 = load i32, ptr %qSz, align 4
   %cmp.not.i55 = icmp ugt i32 %call.i54, %15
@@ -2380,7 +2377,7 @@ entry:
   br i1 %or.cond, label %return, label %if.end
 
 if.end:                                           ; preds = %entry
-  %rng2 = getelementptr inbounds %struct.RsaKey, ptr %key, i64 0, i32 13
+  %rng2 = getelementptr inbounds i8, ptr %key, i64 8352
   store ptr %rng, ptr %rng2, align 8
   br label %return
 
@@ -2424,7 +2421,7 @@ while.cond9.preheader:                            ; preds = %for.body, %for.cond
 for.body:                                         ; preds = %for.cond.preheader, %for.body
   %w.017 = phi ptr [ %incdec.ptr7, %for.body ], [ %z.0.lcssa, %for.cond.preheader ]
   %len.addr.016 = phi i32 [ %sub8, %for.body ], [ %sub3, %for.cond.preheader ]
-  %incdec.ptr7 = getelementptr inbounds i64, ptr %w.017, i64 1
+  %incdec.ptr7 = getelementptr inbounds i8, ptr %w.017, i64 8
   store volatile i64 0, ptr %w.017, align 8
   %sub8 = add i32 %len.addr.016, -8
   %cmp5 = icmp ugt i32 %sub8, 7
@@ -2525,9 +2522,9 @@ for.body.i:                                       ; preds = %while.end, %for.bod
   %tpb.sroa.0.0 = phi ptr [ %incdec.ptr1.i, %for.body.i ], [ %buf, %while.end ]
   %tpm.sroa.0.0 = phi ptr [ %incdec.ptr.i, %for.body.i ], [ %mask, %while.end ]
   %i.03.i = phi i32 [ %inc.i, %for.body.i ], [ 0, %while.end ]
-  %incdec.ptr.i = getelementptr inbounds i64, ptr %tpm.sroa.0.0, i64 1
+  %incdec.ptr.i = getelementptr inbounds i8, ptr %tpm.sroa.0.0, i64 8
   %5 = load i64, ptr %tpm.sroa.0.0, align 8
-  %incdec.ptr1.i = getelementptr inbounds i64, ptr %tpb.sroa.0.0, i64 1
+  %incdec.ptr1.i = getelementptr inbounds i8, ptr %tpb.sroa.0.0, i64 8
   %6 = load i64, ptr %tpb.sroa.0.0, align 8
   %xor.i = xor i64 %6, %5
   store i64 %xor.i, ptr %tpb.sroa.0.0, align 8
@@ -2787,7 +2784,7 @@ if.then59:                                        ; preds = %land.lhs.true
   ]
 
 sw.bb61:                                          ; preds = %if.then59, %if.then59
-  %e = getelementptr inbounds %struct.RsaKey, ptr %key, i64 0, i32 1
+  %e = getelementptr inbounds i8, ptr %key, i64 1040
   %call63 = call i32 @sp_exptmod_nct(ptr noundef nonnull %vla, ptr noundef nonnull %e, ptr noundef nonnull %key, ptr noundef nonnull %vla) #11
   %cmp64.not = icmp eq i32 %call63, 0
   br i1 %cmp64.not, label %if.then71, label %if.end77
@@ -2851,7 +2848,7 @@ if.then123:                                       ; preds = %if.end120
   br i1 %cmp126.not, label %if.then133, label %if.end256
 
 if.then133:                                       ; preds = %if.then123
-  %e = getelementptr inbounds %struct.RsaKey, ptr %key, i64 0, i32 1
+  %e = getelementptr inbounds i8, ptr %key, i64 1040
   %call135 = call i32 @sp_exptmod_nct(ptr noundef nonnull %vla, ptr noundef nonnull %e, ptr noundef nonnull %key, ptr noundef nonnull %vla) #11
   %cmp136.not = icmp eq i32 %call135, 0
   br i1 %cmp136.not, label %if.then143, label %if.end256
@@ -2862,15 +2859,15 @@ if.then143:                                       ; preds = %if.then133
   br i1 %cmp146.not, label %land.lhs.true, label %if.end256
 
 land.lhs.true:                                    ; preds = %if.then143
-  %dQ = getelementptr inbounds %struct.RsaKey, ptr %key, i64 0, i32 6
-  %q = getelementptr inbounds %struct.RsaKey, ptr %key, i64 0, i32 4
+  %dQ = getelementptr inbounds i8, ptr %key, i64 6240
+  %q = getelementptr inbounds i8, ptr %key, i64 4160
   %call156 = call i32 @sp_exptmod(ptr noundef %tmp, ptr noundef nonnull %dQ, ptr noundef nonnull %q, ptr noundef nonnull %vla) #11
   %cmp157.not = icmp eq i32 %call156, 0
   br i1 %cmp157.not, label %land.lhs.true163, label %if.end256
 
 land.lhs.true163:                                 ; preds = %land.lhs.true
-  %dP = getelementptr inbounds %struct.RsaKey, ptr %key, i64 0, i32 5
-  %p = getelementptr inbounds %struct.RsaKey, ptr %key, i64 0, i32 3
+  %dP = getelementptr inbounds i8, ptr %key, i64 5200
+  %p = getelementptr inbounds i8, ptr %key, i64 3120
   %call164 = call i32 @sp_exptmod(ptr noundef %tmp, ptr noundef nonnull %dP, ptr noundef nonnull %p, ptr noundef %tmp) #11
   %cmp165.not = icmp eq i32 %call164, 0
   br i1 %cmp165.not, label %land.lhs.true171, label %if.end256
@@ -2881,7 +2878,7 @@ land.lhs.true171:                                 ; preds = %land.lhs.true163
   br i1 %cmp174.not, label %land.lhs.true180, label %if.end256
 
 land.lhs.true180:                                 ; preds = %land.lhs.true171
-  %u = getelementptr inbounds %struct.RsaKey, ptr %key, i64 0, i32 7
+  %u = getelementptr inbounds i8, ptr %key, i64 7280
   %call182 = call i32 @sp_mulmod(ptr noundef %tmp, ptr noundef nonnull %u, ptr noundef nonnull %p, ptr noundef %tmp) #11
   %cmp183.not = icmp eq i32 %call182, 0
   br i1 %cmp183.not, label %land.lhs.true189, label %if.end256

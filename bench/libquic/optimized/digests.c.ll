@@ -5,11 +5,6 @@ target triple = "x86_64-unknown-linux-gnu"
 
 %struct.env_md_st = type { i32, i32, i32, ptr, ptr, ptr, i32, i32 }
 %struct.nid_to_digest = type { i32, ptr, ptr, ptr }
-%struct.env_md_ctx_st = type { ptr, ptr, ptr, ptr }
-%struct.MD5_SHA1_CTX = type { %struct.md5_state_st, %struct.sha_state_st }
-%struct.md5_state_st = type { [4 x i32], i32, i32, [64 x i8], i32 }
-%struct.sha_state_st = type { %union.anon, i32, i32, [64 x i8], i32 }
-%union.anon = type { [5 x i32] }
 
 @md4_md = internal constant %struct.env_md_st { i32 257, i32 16, i32 0, ptr @md4_init, ptr @md4_update, ptr @md4_final, i32 64, i32 92 }, align 8
 @md5_md = internal constant %struct.env_md_st { i32 4, i32 16, i32 0, ptr @md5_init, ptr @md5_update, ptr @md5_final, i32 64, i32 92 }, align 8
@@ -120,7 +115,7 @@ for.body:                                         ; preds = %entry, %for.cond
   br i1 %cmp3, label %if.then, label %for.cond
 
 if.then:                                          ; preds = %for.body
-  %md_func = getelementptr inbounds [17 x %struct.nid_to_digest], ptr @nid_to_digest_mapping, i64 0, i64 %indvars.iv, i32 1
+  %md_func = getelementptr inbounds i8, ptr %arrayidx, i64 8
   %1 = load ptr, ptr %md_func, align 8
   %call = tail call ptr %1() #4
   br label %return
@@ -149,7 +144,7 @@ for.body.i:                                       ; preds = %for.cond.i, %entry
   br i1 %cmp3.i, label %if.then.i, label %for.cond.i
 
 if.then.i:                                        ; preds = %for.body.i
-  %md_func.i = getelementptr inbounds [17 x %struct.nid_to_digest], ptr @nid_to_digest_mapping, i64 0, i64 %indvars.iv.i, i32 1
+  %md_func.i = getelementptr inbounds i8, ptr %arrayidx.i, i64 8
   %1 = load ptr, ptr %md_func.i, align 8
   %call.i = tail call ptr %1() #4
   br label %EVP_get_digestbynid.exit
@@ -168,25 +163,30 @@ entry:
 
 for.body:                                         ; preds = %entry, %for.inc
   %indvars.iv = phi i64 [ 0, %entry ], [ %indvars.iv.next, %for.inc ]
-  %long_name5 = getelementptr inbounds [17 x %struct.nid_to_digest], ptr @nid_to_digest_mapping, i64 0, i64 %indvars.iv, i32 3
-  %0 = load ptr, ptr %long_name5, align 8
-  %short_name2 = getelementptr inbounds [17 x %struct.nid_to_digest], ptr @nid_to_digest_mapping, i64 0, i64 %indvars.iv, i32 2
-  %1 = load ptr, ptr %short_name2, align 16
-  %call = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %1, ptr noundef nonnull dereferenceable(1) %name) #5
+  %arrayidx = getelementptr inbounds [17 x %struct.nid_to_digest], ptr @nid_to_digest_mapping, i64 0, i64 %indvars.iv
+  %short_name2 = getelementptr inbounds i8, ptr %arrayidx, i64 16
+  %0 = load ptr, ptr %short_name2, align 16
+  %long_name5 = getelementptr inbounds i8, ptr %arrayidx, i64 24
+  %1 = load ptr, ptr %long_name5, align 8
+  %tobool.not = icmp eq ptr %0, null
+  br i1 %tobool.not, label %lor.lhs.false, label %land.lhs.true
+
+land.lhs.true:                                    ; preds = %for.body
+  %call = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %0, ptr noundef nonnull dereferenceable(1) %name) #5
   %cmp6 = icmp eq i32 %call, 0
   br i1 %cmp6, label %if.then, label %lor.lhs.false
 
-lor.lhs.false:                                    ; preds = %for.body
-  %tobool8.not = icmp eq i64 %indvars.iv, 10
+lor.lhs.false:                                    ; preds = %land.lhs.true, %for.body
+  %tobool8.not = icmp eq ptr %1, null
   br i1 %tobool8.not, label %for.inc, label %land.lhs.true9
 
 land.lhs.true9:                                   ; preds = %lor.lhs.false
-  %call10 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %0, ptr noundef nonnull dereferenceable(1) %name) #5
+  %call10 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %1, ptr noundef nonnull dereferenceable(1) %name) #5
   %cmp11 = icmp eq i32 %call10, 0
   br i1 %cmp11, label %if.then, label %for.inc
 
-if.then:                                          ; preds = %land.lhs.true9, %for.body
-  %md_func = getelementptr inbounds [17 x %struct.nid_to_digest], ptr @nid_to_digest_mapping, i64 0, i64 %indvars.iv, i32 1
+if.then:                                          ; preds = %land.lhs.true9, %land.lhs.true
+  %md_func = getelementptr inbounds i8, ptr %arrayidx, i64 8
   %2 = load ptr, ptr %md_func, align 8
   %call15 = tail call ptr %2() #4
   br label %return
@@ -207,7 +207,7 @@ declare i32 @strcmp(ptr nocapture noundef, ptr nocapture noundef) local_unnamed_
 ; Function Attrs: nounwind uwtable
 define internal void @md4_init(ptr nocapture noundef readonly %ctx) #1 {
 entry:
-  %md_data = getelementptr inbounds %struct.env_md_ctx_st, ptr %ctx, i64 0, i32 1
+  %md_data = getelementptr inbounds i8, ptr %ctx, i64 8
   %0 = load ptr, ptr %md_data, align 8
   %call = tail call i32 @MD4_Init(ptr noundef %0) #4
   ret void
@@ -216,7 +216,7 @@ entry:
 ; Function Attrs: nounwind uwtable
 define internal void @md4_update(ptr nocapture noundef readonly %ctx, ptr noundef %data, i64 noundef %count) #1 {
 entry:
-  %md_data = getelementptr inbounds %struct.env_md_ctx_st, ptr %ctx, i64 0, i32 1
+  %md_data = getelementptr inbounds i8, ptr %ctx, i64 8
   %0 = load ptr, ptr %md_data, align 8
   %call = tail call i32 @MD4_Update(ptr noundef %0, ptr noundef %data, i64 noundef %count) #4
   ret void
@@ -225,7 +225,7 @@ entry:
 ; Function Attrs: nounwind uwtable
 define internal void @md4_final(ptr nocapture noundef readonly %ctx, ptr noundef %out) #1 {
 entry:
-  %md_data = getelementptr inbounds %struct.env_md_ctx_st, ptr %ctx, i64 0, i32 1
+  %md_data = getelementptr inbounds i8, ptr %ctx, i64 8
   %0 = load ptr, ptr %md_data, align 8
   %call = tail call i32 @MD4_Final(ptr noundef %out, ptr noundef %0) #4
   ret void
@@ -240,7 +240,7 @@ declare i32 @MD4_Final(ptr noundef, ptr noundef) local_unnamed_addr #2
 ; Function Attrs: nounwind uwtable
 define internal void @md5_init(ptr nocapture noundef readonly %ctx) #1 {
 entry:
-  %md_data = getelementptr inbounds %struct.env_md_ctx_st, ptr %ctx, i64 0, i32 1
+  %md_data = getelementptr inbounds i8, ptr %ctx, i64 8
   %0 = load ptr, ptr %md_data, align 8
   %call = tail call i32 @MD5_Init(ptr noundef %0) #4
   ret void
@@ -249,7 +249,7 @@ entry:
 ; Function Attrs: nounwind uwtable
 define internal void @md5_update(ptr nocapture noundef readonly %ctx, ptr noundef %data, i64 noundef %count) #1 {
 entry:
-  %md_data = getelementptr inbounds %struct.env_md_ctx_st, ptr %ctx, i64 0, i32 1
+  %md_data = getelementptr inbounds i8, ptr %ctx, i64 8
   %0 = load ptr, ptr %md_data, align 8
   %call = tail call i32 @MD5_Update(ptr noundef %0, ptr noundef %data, i64 noundef %count) #4
   ret void
@@ -258,7 +258,7 @@ entry:
 ; Function Attrs: nounwind uwtable
 define internal void @md5_final(ptr nocapture noundef readonly %ctx, ptr noundef %out) #1 {
 entry:
-  %md_data = getelementptr inbounds %struct.env_md_ctx_st, ptr %ctx, i64 0, i32 1
+  %md_data = getelementptr inbounds i8, ptr %ctx, i64 8
   %0 = load ptr, ptr %md_data, align 8
   %call = tail call i32 @MD5_Final(ptr noundef %out, ptr noundef %0) #4
   ret void
@@ -273,7 +273,7 @@ declare i32 @MD5_Final(ptr noundef, ptr noundef) local_unnamed_addr #2
 ; Function Attrs: nounwind uwtable
 define internal void @sha1_init(ptr nocapture noundef readonly %ctx) #1 {
 entry:
-  %md_data = getelementptr inbounds %struct.env_md_ctx_st, ptr %ctx, i64 0, i32 1
+  %md_data = getelementptr inbounds i8, ptr %ctx, i64 8
   %0 = load ptr, ptr %md_data, align 8
   %call = tail call i32 @SHA1_Init(ptr noundef %0) #4
   ret void
@@ -282,7 +282,7 @@ entry:
 ; Function Attrs: nounwind uwtable
 define internal void @sha1_update(ptr nocapture noundef readonly %ctx, ptr noundef %data, i64 noundef %count) #1 {
 entry:
-  %md_data = getelementptr inbounds %struct.env_md_ctx_st, ptr %ctx, i64 0, i32 1
+  %md_data = getelementptr inbounds i8, ptr %ctx, i64 8
   %0 = load ptr, ptr %md_data, align 8
   %call = tail call i32 @SHA1_Update(ptr noundef %0, ptr noundef %data, i64 noundef %count) #4
   ret void
@@ -291,7 +291,7 @@ entry:
 ; Function Attrs: nounwind uwtable
 define internal void @sha1_final(ptr nocapture noundef readonly %ctx, ptr noundef %md) #1 {
 entry:
-  %md_data = getelementptr inbounds %struct.env_md_ctx_st, ptr %ctx, i64 0, i32 1
+  %md_data = getelementptr inbounds i8, ptr %ctx, i64 8
   %0 = load ptr, ptr %md_data, align 8
   %call = tail call i32 @SHA1_Final(ptr noundef %md, ptr noundef %0) #4
   ret void
@@ -306,7 +306,7 @@ declare i32 @SHA1_Final(ptr noundef, ptr noundef) local_unnamed_addr #2
 ; Function Attrs: nounwind uwtable
 define internal void @sha224_init(ptr nocapture noundef readonly %ctx) #1 {
 entry:
-  %md_data = getelementptr inbounds %struct.env_md_ctx_st, ptr %ctx, i64 0, i32 1
+  %md_data = getelementptr inbounds i8, ptr %ctx, i64 8
   %0 = load ptr, ptr %md_data, align 8
   %call = tail call i32 @SHA224_Init(ptr noundef %0) #4
   ret void
@@ -315,7 +315,7 @@ entry:
 ; Function Attrs: nounwind uwtable
 define internal void @sha224_update(ptr nocapture noundef readonly %ctx, ptr noundef %data, i64 noundef %count) #1 {
 entry:
-  %md_data = getelementptr inbounds %struct.env_md_ctx_st, ptr %ctx, i64 0, i32 1
+  %md_data = getelementptr inbounds i8, ptr %ctx, i64 8
   %0 = load ptr, ptr %md_data, align 8
   %call = tail call i32 @SHA224_Update(ptr noundef %0, ptr noundef %data, i64 noundef %count) #4
   ret void
@@ -324,7 +324,7 @@ entry:
 ; Function Attrs: nounwind uwtable
 define internal void @sha224_final(ptr nocapture noundef readonly %ctx, ptr noundef %md) #1 {
 entry:
-  %md_data = getelementptr inbounds %struct.env_md_ctx_st, ptr %ctx, i64 0, i32 1
+  %md_data = getelementptr inbounds i8, ptr %ctx, i64 8
   %0 = load ptr, ptr %md_data, align 8
   %call = tail call i32 @SHA224_Final(ptr noundef %md, ptr noundef %0) #4
   ret void
@@ -339,7 +339,7 @@ declare i32 @SHA224_Final(ptr noundef, ptr noundef) local_unnamed_addr #2
 ; Function Attrs: nounwind uwtable
 define internal void @sha256_init(ptr nocapture noundef readonly %ctx) #1 {
 entry:
-  %md_data = getelementptr inbounds %struct.env_md_ctx_st, ptr %ctx, i64 0, i32 1
+  %md_data = getelementptr inbounds i8, ptr %ctx, i64 8
   %0 = load ptr, ptr %md_data, align 8
   %call = tail call i32 @SHA256_Init(ptr noundef %0) #4
   ret void
@@ -348,7 +348,7 @@ entry:
 ; Function Attrs: nounwind uwtable
 define internal void @sha256_update(ptr nocapture noundef readonly %ctx, ptr noundef %data, i64 noundef %count) #1 {
 entry:
-  %md_data = getelementptr inbounds %struct.env_md_ctx_st, ptr %ctx, i64 0, i32 1
+  %md_data = getelementptr inbounds i8, ptr %ctx, i64 8
   %0 = load ptr, ptr %md_data, align 8
   %call = tail call i32 @SHA256_Update(ptr noundef %0, ptr noundef %data, i64 noundef %count) #4
   ret void
@@ -357,7 +357,7 @@ entry:
 ; Function Attrs: nounwind uwtable
 define internal void @sha256_final(ptr nocapture noundef readonly %ctx, ptr noundef %md) #1 {
 entry:
-  %md_data = getelementptr inbounds %struct.env_md_ctx_st, ptr %ctx, i64 0, i32 1
+  %md_data = getelementptr inbounds i8, ptr %ctx, i64 8
   %0 = load ptr, ptr %md_data, align 8
   %call = tail call i32 @SHA256_Final(ptr noundef %md, ptr noundef %0) #4
   ret void
@@ -372,7 +372,7 @@ declare i32 @SHA256_Final(ptr noundef, ptr noundef) local_unnamed_addr #2
 ; Function Attrs: nounwind uwtable
 define internal void @sha384_init(ptr nocapture noundef readonly %ctx) #1 {
 entry:
-  %md_data = getelementptr inbounds %struct.env_md_ctx_st, ptr %ctx, i64 0, i32 1
+  %md_data = getelementptr inbounds i8, ptr %ctx, i64 8
   %0 = load ptr, ptr %md_data, align 8
   %call = tail call i32 @SHA384_Init(ptr noundef %0) #4
   ret void
@@ -381,7 +381,7 @@ entry:
 ; Function Attrs: nounwind uwtable
 define internal void @sha384_update(ptr nocapture noundef readonly %ctx, ptr noundef %data, i64 noundef %count) #1 {
 entry:
-  %md_data = getelementptr inbounds %struct.env_md_ctx_st, ptr %ctx, i64 0, i32 1
+  %md_data = getelementptr inbounds i8, ptr %ctx, i64 8
   %0 = load ptr, ptr %md_data, align 8
   %call = tail call i32 @SHA384_Update(ptr noundef %0, ptr noundef %data, i64 noundef %count) #4
   ret void
@@ -390,7 +390,7 @@ entry:
 ; Function Attrs: nounwind uwtable
 define internal void @sha384_final(ptr nocapture noundef readonly %ctx, ptr noundef %md) #1 {
 entry:
-  %md_data = getelementptr inbounds %struct.env_md_ctx_st, ptr %ctx, i64 0, i32 1
+  %md_data = getelementptr inbounds i8, ptr %ctx, i64 8
   %0 = load ptr, ptr %md_data, align 8
   %call = tail call i32 @SHA384_Final(ptr noundef %md, ptr noundef %0) #4
   ret void
@@ -405,7 +405,7 @@ declare i32 @SHA384_Final(ptr noundef, ptr noundef) local_unnamed_addr #2
 ; Function Attrs: nounwind uwtable
 define internal void @sha512_init(ptr nocapture noundef readonly %ctx) #1 {
 entry:
-  %md_data = getelementptr inbounds %struct.env_md_ctx_st, ptr %ctx, i64 0, i32 1
+  %md_data = getelementptr inbounds i8, ptr %ctx, i64 8
   %0 = load ptr, ptr %md_data, align 8
   %call = tail call i32 @SHA512_Init(ptr noundef %0) #4
   ret void
@@ -414,7 +414,7 @@ entry:
 ; Function Attrs: nounwind uwtable
 define internal void @sha512_update(ptr nocapture noundef readonly %ctx, ptr noundef %data, i64 noundef %count) #1 {
 entry:
-  %md_data = getelementptr inbounds %struct.env_md_ctx_st, ptr %ctx, i64 0, i32 1
+  %md_data = getelementptr inbounds i8, ptr %ctx, i64 8
   %0 = load ptr, ptr %md_data, align 8
   %call = tail call i32 @SHA512_Update(ptr noundef %0, ptr noundef %data, i64 noundef %count) #4
   ret void
@@ -423,7 +423,7 @@ entry:
 ; Function Attrs: nounwind uwtable
 define internal void @sha512_final(ptr nocapture noundef readonly %ctx, ptr noundef %md) #1 {
 entry:
-  %md_data = getelementptr inbounds %struct.env_md_ctx_st, ptr %ctx, i64 0, i32 1
+  %md_data = getelementptr inbounds i8, ptr %ctx, i64 8
   %0 = load ptr, ptr %md_data, align 8
   %call = tail call i32 @SHA512_Final(ptr noundef %md, ptr noundef %0) #4
   ret void
@@ -438,14 +438,14 @@ declare i32 @SHA512_Final(ptr noundef, ptr noundef) local_unnamed_addr #2
 ; Function Attrs: nounwind uwtable
 define internal void @md5_sha1_init(ptr nocapture noundef readonly %md_ctx) #1 {
 entry:
-  %md_data = getelementptr inbounds %struct.env_md_ctx_st, ptr %md_ctx, i64 0, i32 1
+  %md_data = getelementptr inbounds i8, ptr %md_ctx, i64 8
   %0 = load ptr, ptr %md_data, align 8
   %call = tail call i32 @MD5_Init(ptr noundef %0) #4
   %tobool.not = icmp eq i32 %call, 0
   br i1 %tobool.not, label %land.end, label %land.rhs
 
 land.rhs:                                         ; preds = %entry
-  %sha1 = getelementptr inbounds %struct.MD5_SHA1_CTX, ptr %0, i64 0, i32 1
+  %sha1 = getelementptr inbounds i8, ptr %0, i64 92
   %call1 = tail call i32 @SHA1_Init(ptr noundef nonnull %sha1) #4
   br label %land.end
 
@@ -456,14 +456,14 @@ land.end:                                         ; preds = %land.rhs, %entry
 ; Function Attrs: nounwind uwtable
 define internal void @md5_sha1_update(ptr nocapture noundef readonly %md_ctx, ptr noundef %data, i64 noundef %count) #1 {
 entry:
-  %md_data = getelementptr inbounds %struct.env_md_ctx_st, ptr %md_ctx, i64 0, i32 1
+  %md_data = getelementptr inbounds i8, ptr %md_ctx, i64 8
   %0 = load ptr, ptr %md_data, align 8
   %call = tail call i32 @MD5_Update(ptr noundef %0, ptr noundef %data, i64 noundef %count) #4
   %tobool.not = icmp eq i32 %call, 0
   br i1 %tobool.not, label %land.end, label %land.rhs
 
 land.rhs:                                         ; preds = %entry
-  %sha1 = getelementptr inbounds %struct.MD5_SHA1_CTX, ptr %0, i64 0, i32 1
+  %sha1 = getelementptr inbounds i8, ptr %0, i64 92
   %call1 = tail call i32 @SHA1_Update(ptr noundef nonnull %sha1, ptr noundef %data, i64 noundef %count) #4
   br label %land.end
 
@@ -474,7 +474,7 @@ land.end:                                         ; preds = %land.rhs, %entry
 ; Function Attrs: nounwind uwtable
 define internal void @md5_sha1_final(ptr nocapture noundef readonly %md_ctx, ptr noundef %out) #1 {
 entry:
-  %md_data = getelementptr inbounds %struct.env_md_ctx_st, ptr %md_ctx, i64 0, i32 1
+  %md_data = getelementptr inbounds i8, ptr %md_ctx, i64 8
   %0 = load ptr, ptr %md_data, align 8
   %call = tail call i32 @MD5_Final(ptr noundef %out, ptr noundef %0) #4
   %tobool.not = icmp eq i32 %call, 0
@@ -482,7 +482,7 @@ entry:
 
 land.rhs:                                         ; preds = %entry
   %add.ptr = getelementptr inbounds i8, ptr %out, i64 16
-  %sha1 = getelementptr inbounds %struct.MD5_SHA1_CTX, ptr %0, i64 0, i32 1
+  %sha1 = getelementptr inbounds i8, ptr %0, i64 92
   %call1 = tail call i32 @SHA1_Final(ptr noundef nonnull %add.ptr, ptr noundef nonnull %sha1) #4
   br label %land.end
 

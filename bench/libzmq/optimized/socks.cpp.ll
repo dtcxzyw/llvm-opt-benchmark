@@ -3,27 +3,13 @@ source_filename = "bench/libzmq/original/socks.cpp.ll"
 target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:128-n8:16:32:64-S128"
 target triple = "x86_64-unknown-linux-gnu"
 
-%"struct.zmq::socks_greeting_t" = type { [255 x i8], i64 }
-%"class.zmq::socks_greeting_encoder_t" = type <{ i64, i64, [257 x i8], [7 x i8] }>
-%"class.zmq::socks_choice_decoder_t" = type { [2 x i8], i64 }
 %"struct.zmq::socks_choice_t" = type { i8 }
-%"struct.zmq::socks_basic_auth_request_t" = type { %"class.std::__cxx11::basic_string", %"class.std::__cxx11::basic_string" }
+%"struct.zmq::socks_auth_response_t" = type { i8 }
+%struct.addrinfo = type { i32, i32, i32, i32, i32, ptr, ptr, ptr }
+%"struct.zmq::socks_response_t" = type <{ i8, [7 x i8], %"class.std::__cxx11::basic_string", i16, [6 x i8] }>
 %"class.std::__cxx11::basic_string" = type { %"struct.std::__cxx11::basic_string<char>::_Alloc_hider", i64, %union.anon }
 %"struct.std::__cxx11::basic_string<char>::_Alloc_hider" = type { ptr }
 %union.anon = type { i64, [8 x i8] }
-%"class.zmq::socks_basic_auth_request_encoder_t" = type <{ i64, i64, [513 x i8], [7 x i8] }>
-%"class.zmq::socks_auth_response_decoder_t" = type { [2 x i8], i64 }
-%"struct.zmq::socks_auth_response_t" = type { i8 }
-%"struct.zmq::socks_request_t" = type <{ i8, [7 x i8], %"class.std::__cxx11::basic_string", i16, [6 x i8] }>
-%struct.addrinfo = type { i32, i32, i32, i32, i32, ptr, ptr, ptr }
-%"class.zmq::socks_request_encoder_t" = type <{ i64, i64, [262 x i8], [2 x i8] }>
-%struct.sockaddr_in = type { i16, i16, %struct.in_addr, [8 x i8] }
-%struct.in_addr = type { i32 }
-%struct.sockaddr_in6 = type { i16, i16, i32, %struct.in6_addr, i32 }
-%struct.in6_addr = type { %union.anon.0 }
-%union.anon.0 = type { [4 x i32] }
-%"struct.zmq::socks_response_t" = type <{ i8, [7 x i8], %"class.std::__cxx11::basic_string", i16, [6 x i8] }>
-%"class.zmq::socks_response_decoder_t" = type { [262 x i8], i64 }
 %"class.std::allocator" = type { i8 }
 
 @stderr = external local_unnamed_addr global ptr, align 8
@@ -55,7 +41,7 @@ target triple = "x86_64-unknown-linux-gnu"
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
 define void @_ZN3zmq16socks_greeting_tC2Eh(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(264) %this, i8 noundef zeroext %method_) unnamed_addr #0 align 2 {
 entry:
-  %num_methods = getelementptr inbounds %"struct.zmq::socks_greeting_t", ptr %this, i64 0, i32 1
+  %num_methods = getelementptr inbounds i8, ptr %this, i64 256
   store i64 1, ptr %num_methods, align 8
   store i8 %method_, ptr %this, align 8
   ret void
@@ -64,7 +50,7 @@ entry:
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
 define void @_ZN3zmq16socks_greeting_tC2EPKhh(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(264) %this, ptr nocapture noundef readonly %methods_, i8 noundef zeroext %num_methods_) unnamed_addr #1 align 2 {
 entry:
-  %num_methods = getelementptr inbounds %"struct.zmq::socks_greeting_t", ptr %this, i64 0, i32 1
+  %num_methods = getelementptr inbounds i8, ptr %this, i64 256
   %conv = zext i8 %num_methods_ to i64
   store i64 %conv, ptr %num_methods, align 8
   %cmp5.not = icmp eq i8 %num_methods_, 0
@@ -94,10 +80,10 @@ entry:
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(write, argmem: readwrite, inaccessiblemem: none) uwtable
 define void @_ZN3zmq24socks_greeting_encoder_t6encodeERKNS_16socks_greeting_tE(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(273) %this, ptr nocapture noundef nonnull readonly align 8 dereferenceable(264) %greeting_) local_unnamed_addr #2 align 2 {
 entry:
-  %_buf = getelementptr inbounds %"class.zmq::socks_greeting_encoder_t", ptr %this, i64 0, i32 2
-  %incdec.ptr = getelementptr inbounds %"class.zmq::socks_greeting_encoder_t", ptr %this, i64 0, i32 2, i64 1
+  %_buf = getelementptr inbounds i8, ptr %this, i64 16
+  %incdec.ptr = getelementptr inbounds i8, ptr %this, i64 17
   store i8 5, ptr %_buf, align 8
-  %num_methods = getelementptr inbounds %"struct.zmq::socks_greeting_t", ptr %greeting_, i64 0, i32 1
+  %num_methods = getelementptr inbounds i8, ptr %greeting_, i64 256
   %0 = load i64, ptr %num_methods, align 8
   %conv = trunc i64 %0 to i8
   store i8 %conv, ptr %incdec.ptr, align 1
@@ -106,7 +92,7 @@ entry:
   br i1 %cmp8.not, label %for.end, label %for.body.preheader
 
 for.body.preheader:                               ; preds = %entry
-  %incdec.ptr2 = getelementptr inbounds %"class.zmq::socks_greeting_encoder_t", ptr %this, i64 0, i32 2, i64 2
+  %incdec.ptr2 = getelementptr inbounds i8, ptr %this, i64 18
   br label %for.body
 
 for.body:                                         ; preds = %for.body.preheader, %for.body
@@ -130,7 +116,7 @@ for.end.loopexit:                                 ; preds = %for.body
 for.end:                                          ; preds = %for.end.loopexit, %entry
   %.lcssa = phi i64 [ 2, %entry ], [ %4, %for.end.loopexit ]
   store i64 %.lcssa, ptr %this, align 8
-  %_bytes_written = getelementptr inbounds %"class.zmq::socks_greeting_encoder_t", ptr %this, i64 0, i32 1
+  %_bytes_written = getelementptr inbounds i8, ptr %this, i64 8
   store i64 0, ptr %_bytes_written, align 8
   ret void
 }
@@ -138,8 +124,8 @@ for.end:                                          ; preds = %for.end.loopexit, %
 ; Function Attrs: mustprogress uwtable
 define noundef i32 @_ZN3zmq24socks_greeting_encoder_t6outputEi(ptr noundef nonnull align 8 dereferenceable(273) %this, i32 noundef %fd_) local_unnamed_addr #3 align 2 {
 entry:
-  %_buf = getelementptr inbounds %"class.zmq::socks_greeting_encoder_t", ptr %this, i64 0, i32 2
-  %_bytes_written = getelementptr inbounds %"class.zmq::socks_greeting_encoder_t", ptr %this, i64 0, i32 1
+  %_buf = getelementptr inbounds i8, ptr %this, i64 16
+  %_bytes_written = getelementptr inbounds i8, ptr %this, i64 8
   %0 = load i64, ptr %_bytes_written, align 8
   %add.ptr = getelementptr inbounds i8, ptr %_buf, i64 %0
   %1 = load i64, ptr %this, align 8
@@ -164,7 +150,7 @@ declare noundef i32 @_ZN3zmq9tcp_writeEiPKvm(i32 noundef, ptr noundef, i64 nound
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
 define noundef zeroext i1 @_ZNK3zmq24socks_greeting_encoder_t16has_pending_dataEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(273) %this) local_unnamed_addr #5 align 2 {
 entry:
-  %_bytes_written = getelementptr inbounds %"class.zmq::socks_greeting_encoder_t", ptr %this, i64 0, i32 1
+  %_bytes_written = getelementptr inbounds i8, ptr %this, i64 8
   %0 = load i64, ptr %_bytes_written, align 8
   %1 = load i64, ptr %this, align 8
   %cmp = icmp ult i64 %0, %1
@@ -188,7 +174,7 @@ entry:
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
 define void @_ZN3zmq22socks_choice_decoder_tC2Ev(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(16) %this) unnamed_addr #0 align 2 {
 entry:
-  %_bytes_read = getelementptr inbounds %"class.zmq::socks_choice_decoder_t", ptr %this, i64 0, i32 1
+  %_bytes_read = getelementptr inbounds i8, ptr %this, i64 8
   store i64 0, ptr %_bytes_read, align 8
   ret void
 }
@@ -196,7 +182,7 @@ entry:
 ; Function Attrs: mustprogress uwtable
 define noundef i32 @_ZN3zmq22socks_choice_decoder_t5inputEi(ptr noundef nonnull align 8 dereferenceable(16) %this, i32 noundef %fd_) local_unnamed_addr #3 align 2 {
 entry:
-  %_bytes_read = getelementptr inbounds %"class.zmq::socks_choice_decoder_t", ptr %this, i64 0, i32 1
+  %_bytes_read = getelementptr inbounds i8, ptr %this, i64 8
   %0 = load i64, ptr %_bytes_read, align 8
   %cmp = icmp ugt i64 %0, 1
   br i1 %cmp, label %if.then, label %do.end
@@ -248,7 +234,7 @@ declare noundef i32 @_ZN3zmq8tcp_readEiPvm(i32 noundef, ptr noundef, i64 noundef
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
 define noundef zeroext i1 @_ZNK3zmq22socks_choice_decoder_t13message_readyEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %this) local_unnamed_addr #5 align 2 {
 entry:
-  %_bytes_read = getelementptr inbounds %"class.zmq::socks_choice_decoder_t", ptr %this, i64 0, i32 1
+  %_bytes_read = getelementptr inbounds i8, ptr %this, i64 8
   %0 = load i64, ptr %_bytes_read, align 8
   %cmp = icmp eq i64 %0, 2
   ret i1 %cmp
@@ -258,7 +244,7 @@ entry:
 define i8 @_ZN3zmq22socks_choice_decoder_t6decodeEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %this) local_unnamed_addr #3 align 2 {
 entry:
   %retval = alloca %"struct.zmq::socks_choice_t", align 1
-  %_bytes_read.i = getelementptr inbounds %"class.zmq::socks_choice_decoder_t", ptr %this, i64 0, i32 1
+  %_bytes_read.i = getelementptr inbounds i8, ptr %this, i64 8
   %0 = load i64, ptr %_bytes_read.i, align 8
   %cmp.i = icmp eq i64 %0, 2
   br i1 %cmp.i, label %do.end, label %if.then
@@ -272,7 +258,7 @@ if.then:                                          ; preds = %entry
   br label %do.end
 
 do.end:                                           ; preds = %entry, %if.then
-  %arrayidx = getelementptr inbounds [2 x i8], ptr %this, i64 0, i64 1
+  %arrayidx = getelementptr inbounds i8, ptr %this, i64 1
   %3 = load i8, ptr %arrayidx, align 1
   call void @_ZN3zmq14socks_choice_tC1Eh(ptr noundef nonnull align 1 dereferenceable(1) %retval, i8 noundef zeroext %3)
   %4 = load i8, ptr %retval, align 1
@@ -282,7 +268,7 @@ do.end:                                           ; preds = %entry, %if.then
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
 define void @_ZN3zmq22socks_choice_decoder_t5resetEv(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(16) %this) local_unnamed_addr #0 align 2 {
 entry:
-  %_bytes_read = getelementptr inbounds %"class.zmq::socks_choice_decoder_t", ptr %this, i64 0, i32 1
+  %_bytes_read = getelementptr inbounds i8, ptr %this, i64 8
   store i64 0, ptr %_bytes_read, align 8
   ret void
 }
@@ -291,7 +277,7 @@ entry:
 define void @_ZN3zmq26socks_basic_auth_request_tC2ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES8_(ptr noundef nonnull align 8 dereferenceable(64) %this, ptr noundef nonnull align 8 dereferenceable(32) %username_, ptr noundef nonnull align 8 dereferenceable(32) %password_) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1ERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %this, ptr noundef nonnull align 8 dereferenceable(32) %username_)
-  %password = getelementptr inbounds %"struct.zmq::socks_basic_auth_request_t", ptr %this, i64 0, i32 1
+  %password = getelementptr inbounds i8, ptr %this, i64 32
   invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1ERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %password, ptr noundef nonnull align 8 dereferenceable(32) %password_)
           to label %do.body unwind label %lpad
 
@@ -361,19 +347,19 @@ entry:
 ; Function Attrs: mustprogress nounwind uwtable
 define void @_ZN3zmq34socks_basic_auth_request_encoder_t6encodeERKNS_26socks_basic_auth_request_tE(ptr noundef nonnull align 8 dereferenceable(529) %this, ptr noundef nonnull align 8 dereferenceable(64) %req_) local_unnamed_addr #8 align 2 {
 entry:
-  %_buf = getelementptr inbounds %"class.zmq::socks_basic_auth_request_encoder_t", ptr %this, i64 0, i32 2
-  %incdec.ptr = getelementptr inbounds %"class.zmq::socks_basic_auth_request_encoder_t", ptr %this, i64 0, i32 2, i64 1
+  %_buf = getelementptr inbounds i8, ptr %this, i64 16
+  %incdec.ptr = getelementptr inbounds i8, ptr %this, i64 17
   store i8 1, ptr %_buf, align 8
   %call = tail call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4sizeEv(ptr noundef nonnull align 8 dereferenceable(32) %req_) #12
   %conv = trunc i64 %call to i8
-  %incdec.ptr2 = getelementptr inbounds %"class.zmq::socks_basic_auth_request_encoder_t", ptr %this, i64 0, i32 2, i64 2
+  %incdec.ptr2 = getelementptr inbounds i8, ptr %this, i64 18
   store i8 %conv, ptr %incdec.ptr, align 1
   %call4 = tail call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5c_strEv(ptr noundef nonnull align 8 dereferenceable(32) %req_) #12
   %call6 = tail call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4sizeEv(ptr noundef nonnull align 8 dereferenceable(32) %req_) #12
   tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 2 %incdec.ptr2, ptr align 1 %call4, i64 %call6, i1 false)
   %call8 = tail call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4sizeEv(ptr noundef nonnull align 8 dereferenceable(32) %req_) #12
   %add.ptr = getelementptr inbounds i8, ptr %incdec.ptr2, i64 %call8
-  %password = getelementptr inbounds %"struct.zmq::socks_basic_auth_request_t", ptr %req_, i64 0, i32 1
+  %password = getelementptr inbounds i8, ptr %req_, i64 32
   %call9 = tail call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4sizeEv(ptr noundef nonnull align 8 dereferenceable(32) %password) #12
   %conv10 = trunc i64 %call9 to i8
   %incdec.ptr11 = getelementptr inbounds i8, ptr %add.ptr, i64 1
@@ -387,7 +373,7 @@ entry:
   %sub.ptr.rhs.cast = ptrtoint ptr %_buf to i64
   %sub.ptr.sub = sub i64 %sub.ptr.lhs.cast, %sub.ptr.rhs.cast
   store i64 %sub.ptr.sub, ptr %this, align 8
-  %_bytes_written = getelementptr inbounds %"class.zmq::socks_basic_auth_request_encoder_t", ptr %this, i64 0, i32 1
+  %_bytes_written = getelementptr inbounds i8, ptr %this, i64 8
   store i64 0, ptr %_bytes_written, align 8
   ret void
 }
@@ -401,8 +387,8 @@ declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias
 ; Function Attrs: mustprogress uwtable
 define noundef i32 @_ZN3zmq34socks_basic_auth_request_encoder_t6outputEi(ptr noundef nonnull align 8 dereferenceable(529) %this, i32 noundef %fd_) local_unnamed_addr #3 align 2 {
 entry:
-  %_buf = getelementptr inbounds %"class.zmq::socks_basic_auth_request_encoder_t", ptr %this, i64 0, i32 2
-  %_bytes_written = getelementptr inbounds %"class.zmq::socks_basic_auth_request_encoder_t", ptr %this, i64 0, i32 1
+  %_buf = getelementptr inbounds i8, ptr %this, i64 16
+  %_bytes_written = getelementptr inbounds i8, ptr %this, i64 8
   %0 = load i64, ptr %_bytes_written, align 8
   %add.ptr = getelementptr inbounds i8, ptr %_buf, i64 %0
   %1 = load i64, ptr %this, align 8
@@ -425,7 +411,7 @@ if.end:                                           ; preds = %if.then, %entry
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
 define noundef zeroext i1 @_ZNK3zmq34socks_basic_auth_request_encoder_t16has_pending_dataEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(529) %this) local_unnamed_addr #5 align 2 {
 entry:
-  %_bytes_written = getelementptr inbounds %"class.zmq::socks_basic_auth_request_encoder_t", ptr %this, i64 0, i32 1
+  %_bytes_written = getelementptr inbounds i8, ptr %this, i64 8
   %0 = load i64, ptr %_bytes_written, align 8
   %1 = load i64, ptr %this, align 8
   %cmp = icmp ult i64 %0, %1
@@ -449,7 +435,7 @@ entry:
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
 define void @_ZN3zmq29socks_auth_response_decoder_tC2Ev(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(16) %this) unnamed_addr #0 align 2 {
 entry:
-  %_bytes_read = getelementptr inbounds %"class.zmq::socks_auth_response_decoder_t", ptr %this, i64 0, i32 1
+  %_bytes_read = getelementptr inbounds i8, ptr %this, i64 8
   store i64 0, ptr %_bytes_read, align 8
   ret void
 }
@@ -457,7 +443,7 @@ entry:
 ; Function Attrs: mustprogress uwtable
 define noundef i32 @_ZN3zmq29socks_auth_response_decoder_t5inputEi(ptr noundef nonnull align 8 dereferenceable(16) %this, i32 noundef %fd_) local_unnamed_addr #3 align 2 {
 entry:
-  %_bytes_read = getelementptr inbounds %"class.zmq::socks_auth_response_decoder_t", ptr %this, i64 0, i32 1
+  %_bytes_read = getelementptr inbounds i8, ptr %this, i64 8
   %0 = load i64, ptr %_bytes_read, align 8
   %cmp = icmp ugt i64 %0, 1
   br i1 %cmp, label %if.then, label %do.end
@@ -499,7 +485,7 @@ return:                                           ; preds = %if.then7, %if.end14
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
 define noundef zeroext i1 @_ZNK3zmq29socks_auth_response_decoder_t13message_readyEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %this) local_unnamed_addr #5 align 2 {
 entry:
-  %_bytes_read = getelementptr inbounds %"class.zmq::socks_auth_response_decoder_t", ptr %this, i64 0, i32 1
+  %_bytes_read = getelementptr inbounds i8, ptr %this, i64 8
   %0 = load i64, ptr %_bytes_read, align 8
   %cmp = icmp eq i64 %0, 2
   ret i1 %cmp
@@ -509,7 +495,7 @@ entry:
 define i8 @_ZN3zmq29socks_auth_response_decoder_t6decodeEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %this) local_unnamed_addr #3 align 2 {
 entry:
   %retval = alloca %"struct.zmq::socks_auth_response_t", align 1
-  %_bytes_read.i = getelementptr inbounds %"class.zmq::socks_auth_response_decoder_t", ptr %this, i64 0, i32 1
+  %_bytes_read.i = getelementptr inbounds i8, ptr %this, i64 8
   %0 = load i64, ptr %_bytes_read.i, align 8
   %cmp.i = icmp eq i64 %0, 2
   br i1 %cmp.i, label %do.end, label %if.then
@@ -523,7 +509,7 @@ if.then:                                          ; preds = %entry
   br label %do.end
 
 do.end:                                           ; preds = %entry, %if.then
-  %arrayidx = getelementptr inbounds [2 x i8], ptr %this, i64 0, i64 1
+  %arrayidx = getelementptr inbounds i8, ptr %this, i64 1
   %3 = load i8, ptr %arrayidx, align 1
   call void @_ZN3zmq21socks_auth_response_tC1Eh(ptr noundef nonnull align 1 dereferenceable(1) %retval, i8 noundef zeroext %3)
   %4 = load i8, ptr %retval, align 1
@@ -533,7 +519,7 @@ do.end:                                           ; preds = %entry, %if.then
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
 define void @_ZN3zmq29socks_auth_response_decoder_t5resetEv(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(16) %this) local_unnamed_addr #0 align 2 {
 entry:
-  %_bytes_read = getelementptr inbounds %"class.zmq::socks_auth_response_decoder_t", ptr %this, i64 0, i32 1
+  %_bytes_read = getelementptr inbounds i8, ptr %this, i64 8
   store i64 0, ptr %_bytes_read, align 8
   ret void
 }
@@ -542,9 +528,9 @@ entry:
 define void @_ZN3zmq15socks_request_tC2EhNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEt(ptr noundef nonnull align 8 dereferenceable(42) %this, i8 noundef zeroext %command_, ptr noundef nonnull %hostname_, i16 noundef zeroext %port_) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store i8 %command_, ptr %this, align 8
-  %hostname = getelementptr inbounds %"struct.zmq::socks_request_t", ptr %this, i64 0, i32 2
+  %hostname = getelementptr inbounds i8, ptr %this, i64 8
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EOS4_(ptr noundef nonnull align 8 dereferenceable(32) %hostname, ptr noundef nonnull align 8 dereferenceable(32) %hostname_) #12
-  %port = getelementptr inbounds %"struct.zmq::socks_request_t", ptr %this, i64 0, i32 3
+  %port = getelementptr inbounds i8, ptr %this, i64 40
   store i16 %port_, ptr %port, align 8
   %call = tail call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4sizeEv(ptr noundef nonnull align 8 dereferenceable(32) %hostname) #12
   %cmp = icmp ugt i64 %call, 255
@@ -583,7 +569,7 @@ define void @_ZN3zmq23socks_request_encoder_t6encodeERKNS_15socks_request_tE(ptr
 entry:
   %hints = alloca %struct.addrinfo, align 8
   %res = alloca ptr, align 8
-  %hostname = getelementptr inbounds %"struct.zmq::socks_request_t", ptr %req_, i64 0, i32 2
+  %hostname = getelementptr inbounds i8, ptr %req_, i64 8
   %call = tail call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4sizeEv(ptr noundef nonnull align 8 dereferenceable(32) %hostname) #12
   %cmp = icmp ugt i64 %call, 255
   br i1 %cmp, label %if.then, label %do.end
@@ -597,13 +583,13 @@ if.then:                                          ; preds = %entry
   br label %do.end
 
 do.end:                                           ; preds = %entry, %if.then
-  %_buf = getelementptr inbounds %"class.zmq::socks_request_encoder_t", ptr %this, i64 0, i32 2
-  %incdec.ptr = getelementptr inbounds %"class.zmq::socks_request_encoder_t", ptr %this, i64 0, i32 2, i64 1
+  %_buf = getelementptr inbounds i8, ptr %this, i64 16
+  %incdec.ptr = getelementptr inbounds i8, ptr %this, i64 17
   store i8 5, ptr %_buf, align 8
   %2 = load i8, ptr %req_, align 8
-  %incdec.ptr4 = getelementptr inbounds %"class.zmq::socks_request_encoder_t", ptr %this, i64 0, i32 2, i64 2
+  %incdec.ptr4 = getelementptr inbounds i8, ptr %this, i64 18
   store i8 %2, ptr %incdec.ptr, align 1
-  %incdec.ptr5 = getelementptr inbounds %"class.zmq::socks_request_encoder_t", ptr %this, i64 0, i32 2, i64 3
+  %incdec.ptr5 = getelementptr inbounds i8, ptr %this, i64 19
   store i8 0, ptr %incdec.ptr4, align 2
   store ptr null, ptr %res, align 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %hints, i8 0, i64 48, i1 false)
@@ -615,7 +601,7 @@ do.end:                                           ; preds = %entry, %if.then
 
 land.lhs.true:                                    ; preds = %do.end
   %3 = load ptr, ptr %res, align 8
-  %ai_family = getelementptr inbounds %struct.addrinfo, ptr %3, i64 0, i32 1
+  %ai_family = getelementptr inbounds i8, ptr %3, i64 4
   %4 = load i32, ptr %ai_family, align 4
   switch i32 %4, label %if.end34 [
     i32 2, label %if.then11
@@ -623,32 +609,32 @@ land.lhs.true:                                    ; preds = %do.end
   ]
 
 if.then11:                                        ; preds = %land.lhs.true
-  %ai_addr = getelementptr inbounds %struct.addrinfo, ptr %3, i64 0, i32 5
+  %ai_addr = getelementptr inbounds i8, ptr %3, i64 24
   %5 = load ptr, ptr %ai_addr, align 8
-  %incdec.ptr12 = getelementptr inbounds %"class.zmq::socks_request_encoder_t", ptr %this, i64 0, i32 2, i64 4
+  %incdec.ptr12 = getelementptr inbounds i8, ptr %this, i64 20
   store i8 1, ptr %incdec.ptr5, align 1
-  %sin_addr = getelementptr inbounds %struct.sockaddr_in, ptr %5, i64 0, i32 2
+  %sin_addr = getelementptr inbounds i8, ptr %5, i64 4
   %6 = load i32, ptr %sin_addr, align 4
   store i32 %6, ptr %incdec.ptr12, align 4
-  %add.ptr = getelementptr inbounds %"class.zmq::socks_request_encoder_t", ptr %this, i64 0, i32 2, i64 8
+  %add.ptr = getelementptr inbounds i8, ptr %this, i64 24
   br label %if.then36
 
 if.then17:                                        ; preds = %land.lhs.true
-  %ai_addr18 = getelementptr inbounds %struct.addrinfo, ptr %3, i64 0, i32 5
+  %ai_addr18 = getelementptr inbounds i8, ptr %3, i64 24
   %7 = load ptr, ptr %ai_addr18, align 8
-  %incdec.ptr19 = getelementptr inbounds %"class.zmq::socks_request_encoder_t", ptr %this, i64 0, i32 2, i64 4
+  %incdec.ptr19 = getelementptr inbounds i8, ptr %this, i64 20
   store i8 4, ptr %incdec.ptr5, align 1
-  %sin6_addr = getelementptr inbounds %struct.sockaddr_in6, ptr %7, i64 0, i32 3
+  %sin6_addr = getelementptr inbounds i8, ptr %7, i64 8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %incdec.ptr19, ptr noundef nonnull align 4 dereferenceable(16) %sin6_addr, i64 16, i1 false)
-  %add.ptr20 = getelementptr inbounds %"class.zmq::socks_request_encoder_t", ptr %this, i64 0, i32 2, i64 20
+  %add.ptr20 = getelementptr inbounds i8, ptr %this, i64 36
   br label %if.then36
 
 if.end34:                                         ; preds = %land.lhs.true, %do.end
-  %incdec.ptr22 = getelementptr inbounds %"class.zmq::socks_request_encoder_t", ptr %this, i64 0, i32 2, i64 4
+  %incdec.ptr22 = getelementptr inbounds i8, ptr %this, i64 20
   store i8 3, ptr %incdec.ptr5, align 1
   %call24 = call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4sizeEv(ptr noundef nonnull align 8 dereferenceable(32) %hostname) #12
   %conv = trunc i64 %call24 to i8
-  %incdec.ptr25 = getelementptr inbounds %"class.zmq::socks_request_encoder_t", ptr %this, i64 0, i32 2, i64 5
+  %incdec.ptr25 = getelementptr inbounds i8, ptr %this, i64 21
   store i8 %conv, ptr %incdec.ptr22, align 4
   %call27 = call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5c_strEv(ptr noundef nonnull align 8 dereferenceable(32) %hostname) #12
   %call29 = call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4sizeEv(ptr noundef nonnull align 8 dereferenceable(32) %hostname) #12
@@ -669,7 +655,7 @@ if.then36:                                        ; preds = %if.end34.if.then36_
 
 if.end37:                                         ; preds = %if.then36, %if.end34
   %ptr.027 = phi ptr [ %ptr.028, %if.then36 ], [ %add.ptr32, %if.end34 ]
-  %port = getelementptr inbounds %"struct.zmq::socks_request_t", ptr %req_, i64 0, i32 3
+  %port = getelementptr inbounds i8, ptr %req_, i64 40
   %9 = load i16, ptr %port, align 8
   %10 = lshr i16 %9, 8
   %conv39 = trunc i16 %10 to i8
@@ -683,7 +669,7 @@ if.end37:                                         ; preds = %if.then36, %if.end3
   %sub.ptr.rhs.cast = ptrtoint ptr %_buf to i64
   %sub.ptr.sub = sub i64 %sub.ptr.lhs.cast, %sub.ptr.rhs.cast
   store i64 %sub.ptr.sub, ptr %this, align 8
-  %_bytes_written = getelementptr inbounds %"class.zmq::socks_request_encoder_t", ptr %this, i64 0, i32 1
+  %_bytes_written = getelementptr inbounds i8, ptr %this, i64 8
   store i64 0, ptr %_bytes_written, align 8
   ret void
 }
@@ -699,8 +685,8 @@ declare void @freeaddrinfo(ptr noundef) local_unnamed_addr #7
 ; Function Attrs: mustprogress uwtable
 define noundef i32 @_ZN3zmq23socks_request_encoder_t6outputEi(ptr noundef nonnull align 8 dereferenceable(278) %this, i32 noundef %fd_) local_unnamed_addr #3 align 2 {
 entry:
-  %_buf = getelementptr inbounds %"class.zmq::socks_request_encoder_t", ptr %this, i64 0, i32 2
-  %_bytes_written = getelementptr inbounds %"class.zmq::socks_request_encoder_t", ptr %this, i64 0, i32 1
+  %_buf = getelementptr inbounds i8, ptr %this, i64 16
+  %_bytes_written = getelementptr inbounds i8, ptr %this, i64 8
   %0 = load i64, ptr %_bytes_written, align 8
   %add.ptr = getelementptr inbounds i8, ptr %_buf, i64 %0
   %1 = load i64, ptr %this, align 8
@@ -723,7 +709,7 @@ if.end:                                           ; preds = %if.then, %entry
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
 define noundef zeroext i1 @_ZNK3zmq23socks_request_encoder_t16has_pending_dataEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(278) %this) local_unnamed_addr #5 align 2 {
 entry:
-  %_bytes_written = getelementptr inbounds %"class.zmq::socks_request_encoder_t", ptr %this, i64 0, i32 1
+  %_bytes_written = getelementptr inbounds i8, ptr %this, i64 8
   %0 = load i64, ptr %_bytes_written, align 8
   %1 = load i64, ptr %this, align 8
   %cmp = icmp ult i64 %0, %1
@@ -741,9 +727,9 @@ entry:
 define void @_ZN3zmq16socks_response_tC2EhRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEt(ptr noundef nonnull align 8 dereferenceable(42) %this, i8 noundef zeroext %response_code_, ptr noundef nonnull align 8 dereferenceable(32) %address_, i16 noundef zeroext %port_) unnamed_addr #3 align 2 {
 entry:
   store i8 %response_code_, ptr %this, align 8
-  %address = getelementptr inbounds %"struct.zmq::socks_response_t", ptr %this, i64 0, i32 2
+  %address = getelementptr inbounds i8, ptr %this, i64 8
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1ERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %address, ptr noundef nonnull align 8 dereferenceable(32) %address_)
-  %port = getelementptr inbounds %"struct.zmq::socks_response_t", ptr %this, i64 0, i32 3
+  %port = getelementptr inbounds i8, ptr %this, i64 40
   store i16 %port_, ptr %port, align 8
   ret void
 }
@@ -751,7 +737,7 @@ entry:
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
 define void @_ZN3zmq24socks_response_decoder_tC2Ev(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(272) %this) unnamed_addr #0 align 2 {
 entry:
-  %_bytes_read = getelementptr inbounds %"class.zmq::socks_response_decoder_t", ptr %this, i64 0, i32 1
+  %_bytes_read = getelementptr inbounds i8, ptr %this, i64 264
   store i64 0, ptr %_bytes_read, align 8
   ret void
 }
@@ -759,7 +745,7 @@ entry:
 ; Function Attrs: mustprogress uwtable
 define noundef i32 @_ZN3zmq24socks_response_decoder_t5inputEi(ptr noundef nonnull align 8 dereferenceable(272) %this, i32 noundef %fd_) local_unnamed_addr #3 align 2 {
 entry:
-  %_bytes_read = getelementptr inbounds %"class.zmq::socks_response_decoder_t", ptr %this, i64 0, i32 1
+  %_bytes_read = getelementptr inbounds i8, ptr %this, i64 264
   %0 = load i64, ptr %_bytes_read, align 8
   %cmp = icmp ult i64 %0, 5
   br i1 %cmp, label %if.then, label %if.else
@@ -769,7 +755,7 @@ if.then:                                          ; preds = %entry
   br label %if.end29
 
 if.else:                                          ; preds = %entry
-  %arrayidx = getelementptr inbounds [262 x i8], ptr %this, i64 0, i64 3
+  %arrayidx = getelementptr inbounds i8, ptr %this, i64 3
   %1 = load i8, ptr %arrayidx, align 1
   switch i8 %1, label %lor.rhs [
     i8 3, label %if.then17
@@ -787,7 +773,7 @@ lor.rhs:                                          ; preds = %if.else
   br label %if.end29
 
 if.then17:                                        ; preds = %if.else
-  %arrayidx19 = getelementptr inbounds [262 x i8], ptr %this, i64 0, i64 4
+  %arrayidx19 = getelementptr inbounds i8, ptr %this, i64 4
   %4 = load i8, ptr %arrayidx19, align 4
   %conv20 = sext i8 %4 to i64
   %add = add nsw i64 %conv20, 2
@@ -815,7 +801,7 @@ if.then34:                                        ; preds = %if.end29
 
 if.end43:                                         ; preds = %if.then34
   %cmp45 = icmp ugt i64 %add37, 1
-  %arrayidx48 = getelementptr inbounds [262 x i8], ptr %this, i64 0, i64 1
+  %arrayidx48 = getelementptr inbounds i8, ptr %this, i64 1
   %8 = load i8, ptr %arrayidx48, align 1
   %cmp50 = icmp sgt i8 %8, 8
   %or.cond = select i1 %cmp45, i1 %cmp50, i1 false
@@ -823,7 +809,7 @@ if.end43:                                         ; preds = %if.then34
 
 if.end53:                                         ; preds = %if.end43
   %cmp55 = icmp ult i64 %add37, 3
-  %arrayidx58 = getelementptr inbounds [262 x i8], ptr %this, i64 0, i64 2
+  %arrayidx58 = getelementptr inbounds i8, ptr %this, i64 2
   %9 = load i8, ptr %arrayidx58, align 2
   %cmp60.not = icmp eq i8 %9, 0
   %or.cond12 = select i1 %cmp55, i1 true, i1 %cmp60.not
@@ -834,7 +820,7 @@ if.end63:                                         ; preds = %if.end53
   br i1 %cmp65, label %if.then66, label %if.end80
 
 if.then66:                                        ; preds = %if.end63
-  %arrayidx69 = getelementptr inbounds [262 x i8], ptr %this, i64 0, i64 3
+  %arrayidx69 = getelementptr inbounds i8, ptr %this, i64 3
   %10 = load i8, ptr %arrayidx69, align 1
   switch i8 %10, label %return [
     i8 4, label %if.end80
@@ -853,13 +839,13 @@ return:                                           ; preds = %if.then66, %if.end5
 ; Function Attrs: mustprogress uwtable
 define noundef zeroext i1 @_ZNK3zmq24socks_response_decoder_t13message_readyEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(272) %this) local_unnamed_addr #3 align 2 {
 entry:
-  %_bytes_read = getelementptr inbounds %"class.zmq::socks_response_decoder_t", ptr %this, i64 0, i32 1
+  %_bytes_read = getelementptr inbounds i8, ptr %this, i64 264
   %0 = load i64, ptr %_bytes_read, align 8
   %cmp = icmp ult i64 %0, 4
   br i1 %cmp, label %return, label %if.end
 
 if.end:                                           ; preds = %entry
-  %arrayidx = getelementptr inbounds [262 x i8], ptr %this, i64 0, i64 3
+  %arrayidx = getelementptr inbounds i8, ptr %this, i64 3
   %1 = load i8, ptr %arrayidx, align 1
   switch i8 %1, label %lor.rhs [
     i8 3, label %if.then19
@@ -882,7 +868,7 @@ if.then13:                                        ; preds = %if.end
 
 if.then19:                                        ; preds = %if.end
   %cmp21 = icmp ne i64 %0, 4
-  %arrayidx24 = getelementptr inbounds [262 x i8], ptr %this, i64 0, i64 4
+  %arrayidx24 = getelementptr inbounds i8, ptr %this, i64 4
   %4 = load i8, ptr %arrayidx24, align 4
   %conv25 = sext i8 %4 to i64
   %add26 = add nsw i64 %conv25, 7
@@ -906,13 +892,13 @@ define void @_ZN3zmq24socks_response_decoder_t6decodeEv(ptr noalias sret(%"struc
 entry:
   %ref.tmp = alloca %"class.std::__cxx11::basic_string", align 8
   %ref.tmp4 = alloca %"class.std::allocator", align 1
-  %_bytes_read.i = getelementptr inbounds %"class.zmq::socks_response_decoder_t", ptr %this, i64 0, i32 1
+  %_bytes_read.i = getelementptr inbounds i8, ptr %this, i64 264
   %0 = load i64, ptr %_bytes_read.i, align 8
   %cmp.i = icmp ult i64 %0, 4
   br i1 %cmp.i, label %if.then, label %if.end.i
 
 if.end.i:                                         ; preds = %entry
-  %arrayidx.i = getelementptr inbounds [262 x i8], ptr %this, i64 0, i64 3
+  %arrayidx.i = getelementptr inbounds i8, ptr %this, i64 3
   %1 = load i8, ptr %arrayidx.i, align 1
   switch i8 %1, label %lor.rhs.i [
     i8 3, label %if.then19.i
@@ -935,7 +921,7 @@ if.then13.i:                                      ; preds = %if.end.i
 
 if.then19.i:                                      ; preds = %if.end.i
   %cmp21.i = icmp ne i64 %0, 4
-  %arrayidx24.i = getelementptr inbounds [262 x i8], ptr %this, i64 0, i64 4
+  %arrayidx24.i = getelementptr inbounds i8, ptr %this, i64 4
   %4 = load i8, ptr %arrayidx24.i, align 4
   %conv25.i = sext i8 %4 to i64
   %add26.i = add nsw i64 %conv25.i, 7
@@ -958,7 +944,7 @@ if.then:                                          ; preds = %entry, %if.then19.i
   br label %do.end
 
 do.end:                                           ; preds = %if.then19.i, %if.then13.i, %_ZNK3zmq24socks_response_decoder_t13message_readyEv.exit, %if.then
-  %arrayidx = getelementptr inbounds [262 x i8], ptr %this, i64 0, i64 1
+  %arrayidx = getelementptr inbounds i8, ptr %this, i64 1
   %9 = load i8, ptr %arrayidx, align 1
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp4) #12
   invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EPKcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp, ptr noundef nonnull @.str.9, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp4)
@@ -1001,7 +987,7 @@ declare void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1)) unnam
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
 define void @_ZN3zmq24socks_response_decoder_t5resetEv(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(272) %this) local_unnamed_addr #0 align 2 {
 entry:
-  %_bytes_read = getelementptr inbounds %"class.zmq::socks_response_decoder_t", ptr %this, i64 0, i32 1
+  %_bytes_read = getelementptr inbounds i8, ptr %this, i64 264
   store i64 0, ptr %_bytes_read, align 8
   ret void
 }

@@ -3,9 +3,6 @@ source_filename = "bench/curl/original/libcurl_la-dynhds.ll"
 target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:128-n8:16:32:64-S128"
 target triple = "x86_64-unknown-linux-gnu"
 
-%struct.dynhds = type { ptr, i64, i64, i64, i64, i64, i32 }
-%struct.dynhds_entry = type { ptr, ptr, i64, i64 }
-
 @Curl_cfree = external local_unnamed_addr global ptr, align 8
 @Curl_ccalloc = external local_unnamed_addr global ptr, align 8
 @.str = private unnamed_addr constant [13 x i8] c"%.*s: %.*s\0D\0A\00", align 1
@@ -13,14 +10,14 @@ target triple = "x86_64-unknown-linux-gnu"
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
 define hidden void @Curl_dynhds_init(ptr nocapture noundef writeonly %dynhds, i64 noundef %max_entries, i64 noundef %max_strs_size) local_unnamed_addr #0 {
 entry:
-  %strs_len = getelementptr inbounds %struct.dynhds, ptr %dynhds, i64 0, i32 4
+  %strs_len = getelementptr inbounds i8, ptr %dynhds, i64 32
   store i64 0, ptr %strs_len, align 8
-  %max_entries3 = getelementptr inbounds %struct.dynhds, ptr %dynhds, i64 0, i32 3
+  %max_entries3 = getelementptr inbounds i8, ptr %dynhds, i64 24
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %dynhds, i8 0, i64 24, i1 false)
   store i64 %max_entries, ptr %max_entries3, align 8
-  %max_strs_size4 = getelementptr inbounds %struct.dynhds, ptr %dynhds, i64 0, i32 5
+  %max_strs_size4 = getelementptr inbounds i8, ptr %dynhds, i64 40
   store i64 %max_strs_size, ptr %max_strs_size4, align 8
-  %opts = getelementptr inbounds %struct.dynhds, ptr %dynhds, i64 0, i32 6
+  %opts = getelementptr inbounds i8, ptr %dynhds, i64 48
   store i32 0, ptr %opts, align 8
   ret void
 }
@@ -33,7 +30,7 @@ entry:
   br i1 %tobool.not, label %do.body6, label %land.lhs.true
 
 land.lhs.true:                                    ; preds = %entry
-  %hds_len = getelementptr inbounds %struct.dynhds, ptr %dynhds, i64 0, i32 1
+  %hds_len = getelementptr inbounds i8, ptr %dynhds, i64 8
   %1 = load i64, ptr %hds_len, align 8
   %tobool1.not = icmp eq i64 %1, 0
   br i1 %tobool1.not, label %do.body6, label %for.body
@@ -58,7 +55,7 @@ do.body6:                                         ; preds = %do.body6.loopexit, 
   %6 = phi ptr [ %.pre, %do.body6.loopexit ], [ null, %entry ], [ %0, %land.lhs.true ]
   %7 = load ptr, ptr @Curl_cfree, align 8
   tail call void %7(ptr noundef %6) #9
-  %strs_len = getelementptr inbounds %struct.dynhds, ptr %dynhds, i64 0, i32 4
+  %strs_len = getelementptr inbounds i8, ptr %dynhds, i64 32
   store i64 0, ptr %strs_len, align 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %dynhds, i8 0, i64 24, i1 false)
   ret void
@@ -67,7 +64,7 @@ do.body6:                                         ; preds = %do.body6.loopexit, 
 ; Function Attrs: nounwind uwtable
 define hidden void @Curl_dynhds_reset(ptr nocapture noundef %dynhds) local_unnamed_addr #1 {
 entry:
-  %hds_len = getelementptr inbounds %struct.dynhds, ptr %dynhds, i64 0, i32 1
+  %hds_len = getelementptr inbounds i8, ptr %dynhds, i64 8
   %0 = load i64, ptr %hds_len, align 8
   %tobool.not = icmp eq i64 %0, 0
   br i1 %tobool.not, label %if.end, label %for.body
@@ -88,7 +85,7 @@ for.body:                                         ; preds = %entry, %for.body
   br i1 %cmp, label %for.body, label %if.end, !llvm.loop !6
 
 if.end:                                           ; preds = %for.body, %entry
-  %strs_len = getelementptr inbounds %struct.dynhds, ptr %dynhds, i64 0, i32 4
+  %strs_len = getelementptr inbounds i8, ptr %dynhds, i64 32
   store i64 0, ptr %strs_len, align 8
   store i64 0, ptr %hds_len, align 8
   ret void
@@ -97,7 +94,7 @@ if.end:                                           ; preds = %for.body, %entry
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
 define hidden i64 @Curl_dynhds_count(ptr nocapture noundef readonly %dynhds) local_unnamed_addr #2 {
 entry:
-  %hds_len = getelementptr inbounds %struct.dynhds, ptr %dynhds, i64 0, i32 1
+  %hds_len = getelementptr inbounds i8, ptr %dynhds, i64 8
   %0 = load i64, ptr %hds_len, align 8
   ret i64 %0
 }
@@ -105,7 +102,7 @@ entry:
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
 define hidden void @Curl_dynhds_set_opts(ptr nocapture noundef writeonly %dynhds, i32 noundef %opts) local_unnamed_addr #0 {
 entry:
-  %opts1 = getelementptr inbounds %struct.dynhds, ptr %dynhds, i64 0, i32 6
+  %opts1 = getelementptr inbounds i8, ptr %dynhds, i64 48
   store i32 %opts, ptr %opts1, align 8
   ret void
 }
@@ -113,7 +110,7 @@ entry:
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
 define hidden ptr @Curl_dynhds_getn(ptr nocapture noundef readonly %dynhds, i64 noundef %n) local_unnamed_addr #3 {
 entry:
-  %hds_len = getelementptr inbounds %struct.dynhds, ptr %dynhds, i64 0, i32 1
+  %hds_len = getelementptr inbounds i8, ptr %dynhds, i64 8
   %0 = load i64, ptr %hds_len, align 8
   %cmp = icmp ugt i64 %0, %n
   br i1 %cmp, label %cond.true, label %cond.end
@@ -132,7 +129,7 @@ cond.end:                                         ; preds = %entry, %cond.true
 ; Function Attrs: nounwind uwtable
 define hidden ptr @Curl_dynhds_get(ptr nocapture noundef readonly %dynhds, ptr noundef %name, i64 noundef %namelen) local_unnamed_addr #1 {
 entry:
-  %hds_len = getelementptr inbounds %struct.dynhds, ptr %dynhds, i64 0, i32 1
+  %hds_len = getelementptr inbounds i8, ptr %dynhds, i64 8
   %0 = load i64, ptr %hds_len, align 8
   %cmp10.not = icmp eq i64 %0, 0
   br i1 %cmp10.not, label %return, label %for.body
@@ -143,7 +140,7 @@ for.body:                                         ; preds = %entry, %for.inc
   %2 = load ptr, ptr %dynhds, align 8
   %arrayidx = getelementptr inbounds ptr, ptr %2, i64 %i.011
   %3 = load ptr, ptr %arrayidx, align 8
-  %namelen1 = getelementptr inbounds %struct.dynhds_entry, ptr %3, i64 0, i32 2
+  %namelen1 = getelementptr inbounds i8, ptr %3, i64 16
   %4 = load i64, ptr %namelen1, align 8
   %cmp2 = icmp eq i64 %4, %namelen
   br i1 %cmp2, label %land.lhs.true, label %for.inc
@@ -181,7 +178,7 @@ declare i32 @curl_strnequal(ptr noundef, ptr noundef, i64 noundef) local_unnamed
 define hidden ptr @Curl_dynhds_cget(ptr nocapture noundef readonly %dynhds, ptr noundef %name) local_unnamed_addr #1 {
 entry:
   %call = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %name) #10
-  %hds_len.i = getelementptr inbounds %struct.dynhds, ptr %dynhds, i64 0, i32 1
+  %hds_len.i = getelementptr inbounds i8, ptr %dynhds, i64 8
   %0 = load i64, ptr %hds_len.i, align 8
   %cmp10.not.i = icmp eq i64 %0, 0
   br i1 %cmp10.not.i, label %Curl_dynhds_get.exit, label %for.body.i
@@ -192,7 +189,7 @@ for.body.i:                                       ; preds = %entry, %for.inc.i
   %2 = load ptr, ptr %dynhds, align 8
   %arrayidx.i = getelementptr inbounds ptr, ptr %2, i64 %i.011.i
   %3 = load ptr, ptr %arrayidx.i, align 8
-  %namelen1.i = getelementptr inbounds %struct.dynhds_entry, ptr %3, i64 0, i32 2
+  %namelen1.i = getelementptr inbounds i8, ptr %3, i64 16
   %4 = load i64, ptr %namelen1.i, align 8
   %cmp2.i = icmp eq i64 %4, %call
   br i1 %cmp2.i, label %land.lhs.true.i, label %for.inc.i
@@ -230,29 +227,29 @@ declare i64 @strlen(ptr nocapture noundef) local_unnamed_addr #5
 ; Function Attrs: nounwind uwtable
 define hidden noundef i32 @Curl_dynhds_add(ptr nocapture noundef %dynhds, ptr nocapture noundef readonly %name, i64 noundef %namelen, ptr nocapture noundef readonly %value, i64 noundef %valuelen) local_unnamed_addr #1 {
 entry:
-  %max_entries = getelementptr inbounds %struct.dynhds, ptr %dynhds, i64 0, i32 3
+  %max_entries = getelementptr inbounds i8, ptr %dynhds, i64 24
   %0 = load i64, ptr %max_entries, align 8
   %tobool.not = icmp eq i64 %0, 0
   br i1 %tobool.not, label %if.end, label %land.lhs.true
 
 land.lhs.true:                                    ; preds = %entry
-  %hds_len = getelementptr inbounds %struct.dynhds, ptr %dynhds, i64 0, i32 1
+  %hds_len = getelementptr inbounds i8, ptr %dynhds, i64 8
   %1 = load i64, ptr %hds_len, align 8
   %cmp.not = icmp ult i64 %1, %0
   br i1 %cmp.not, label %if.end, label %return
 
 if.end:                                           ; preds = %land.lhs.true, %entry
-  %strs_len = getelementptr inbounds %struct.dynhds, ptr %dynhds, i64 0, i32 4
+  %strs_len = getelementptr inbounds i8, ptr %dynhds, i64 32
   %2 = load i64, ptr %strs_len, align 8
   %add = add i64 %valuelen, %namelen
   %add3 = add i64 %add, %2
-  %max_strs_size = getelementptr inbounds %struct.dynhds, ptr %dynhds, i64 0, i32 5
+  %max_strs_size = getelementptr inbounds i8, ptr %dynhds, i64 40
   %3 = load i64, ptr %max_strs_size, align 8
   %cmp4 = icmp ugt i64 %add3, %3
   br i1 %cmp4, label %return, label %if.end6
 
 if.end6:                                          ; preds = %if.end
-  %opts = getelementptr inbounds %struct.dynhds, ptr %dynhds, i64 0, i32 6
+  %opts = getelementptr inbounds i8, ptr %dynhds, i64 48
   %4 = load i32, ptr %opts, align 8
   %5 = load ptr, ptr @Curl_ccalloc, align 8
   %add4.i = add i64 %add, 34
@@ -264,14 +261,14 @@ if.end.i:                                         ; preds = %if.end6
   %add.ptr.i = getelementptr inbounds i8, ptr %call.i, i64 32
   store ptr %add.ptr.i, ptr %call.i, align 8
   tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %add.ptr.i, ptr align 1 %name, i64 %namelen, i1 false)
-  %namelen6.i = getelementptr inbounds %struct.dynhds_entry, ptr %call.i, i64 0, i32 2
+  %namelen6.i = getelementptr inbounds i8, ptr %call.i, i64 16
   store i64 %namelen, ptr %namelen6.i, align 8
   %6 = getelementptr i8, ptr %add.ptr.i, i64 %namelen
   %add.ptr8.i = getelementptr i8, ptr %6, i64 1
-  %value9.i = getelementptr inbounds %struct.dynhds_entry, ptr %call.i, i64 0, i32 1
+  %value9.i = getelementptr inbounds i8, ptr %call.i, i64 8
   store ptr %add.ptr8.i, ptr %value9.i, align 8
   tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %add.ptr8.i, ptr align 1 %value, i64 %valuelen, i1 false)
-  %valuelen10.i = getelementptr inbounds %struct.dynhds_entry, ptr %call.i, i64 0, i32 3
+  %valuelen10.i = getelementptr inbounds i8, ptr %call.i, i64 24
   store i64 %valuelen, ptr %valuelen10.i, align 8
   %and.i = and i32 %4, 1
   %tobool11.not.i = icmp eq i32 %and.i, 0
@@ -284,10 +281,10 @@ if.then12.i:                                      ; preds = %if.end.i
   br label %if.end9
 
 if.end9:                                          ; preds = %if.end.i, %if.then12.i
-  %hds_len10 = getelementptr inbounds %struct.dynhds, ptr %dynhds, i64 0, i32 1
+  %hds_len10 = getelementptr inbounds i8, ptr %dynhds, i64 8
   %9 = load i64, ptr %hds_len10, align 8
   %add11 = add i64 %9, 1
-  %hds_allc = getelementptr inbounds %struct.dynhds, ptr %dynhds, i64 0, i32 2
+  %hds_allc = getelementptr inbounds i8, ptr %dynhds, i64 16
   %10 = load i64, ptr %hds_allc, align 8
   %cmp12.not = icmp ult i64 %add11, %10
   br i1 %cmp12.not, label %if.end9.if.end39_crit_edge, label %if.then13
@@ -378,7 +375,7 @@ if.end:                                           ; preds = %entry
   ]
 
 if.then8:                                         ; preds = %if.end, %if.end
-  %hds_len = getelementptr inbounds %struct.dynhds, ptr %dynhds, i64 0, i32 1
+  %hds_len = getelementptr inbounds i8, ptr %dynhds, i64 8
   %1 = load i64, ptr %hds_len, align 8
   %tobool9.not = icmp eq i64 %1, 0
   br i1 %tobool9.not, label %return, label %land.rhs
@@ -401,14 +398,14 @@ while.body:                                       ; preds = %land.rhs, %land.rhs
 if.end23:                                         ; preds = %land.rhs
   %3 = load ptr, ptr %dynhds, align 8
   %4 = getelementptr ptr, ptr %3, i64 %1
-  %arrayidx25 = getelementptr ptr, ptr %4, i64 -1
+  %arrayidx25 = getelementptr i8, ptr %4, i64 -8
   %5 = load ptr, ptr %arrayidx25, align 8
-  %valuelen1.i = getelementptr inbounds %struct.dynhds_entry, ptr %5, i64 0, i32 3
+  %valuelen1.i = getelementptr inbounds i8, ptr %5, i64 24
   %6 = load i64, ptr %valuelen1.i, align 8
   %add.i = add i64 %line_len.addr.043, 1
   %add2.i = add i64 %add.i, %6
   %7 = load ptr, ptr @Curl_ccalloc, align 8
-  %namelen.i = getelementptr inbounds %struct.dynhds_entry, ptr %5, i64 0, i32 2
+  %namelen.i = getelementptr inbounds i8, ptr %5, i64 16
   %8 = load i64, ptr %namelen.i, align 8
   %add4.i = add i64 %add2.i, 34
   %add5.i = add i64 %add4.i, %8
@@ -423,13 +420,13 @@ if.end28:                                         ; preds = %if.end23
   %10 = load i64, ptr %namelen.i, align 8
   tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %add.ptr.i, ptr align 1 %9, i64 %10, i1 false)
   %11 = load i64, ptr %namelen.i, align 8
-  %namelen9.i = getelementptr inbounds %struct.dynhds_entry, ptr %call.i, i64 0, i32 2
+  %namelen9.i = getelementptr inbounds i8, ptr %call.i, i64 16
   store i64 %11, ptr %namelen9.i, align 8
   %12 = getelementptr i8, ptr %add.ptr.i, i64 %11
   %add.ptr12.i = getelementptr i8, ptr %12, i64 1
-  %value13.i = getelementptr inbounds %struct.dynhds_entry, ptr %call.i, i64 0, i32 1
+  %value13.i = getelementptr inbounds i8, ptr %call.i, i64 8
   store ptr %add.ptr12.i, ptr %value13.i, align 8
-  %value14.i = getelementptr inbounds %struct.dynhds_entry, ptr %5, i64 0, i32 1
+  %value14.i = getelementptr inbounds i8, ptr %5, i64 8
   %13 = load ptr, ptr %value14.i, align 8
   %14 = load i64, ptr %valuelen1.i, align 8
   tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %add.ptr12.i, ptr align 1 %13, i64 %14, i1 false)
@@ -438,12 +435,12 @@ if.end28:                                         ; preds = %if.end23
   store i8 32, ptr %add.ptr17.i, align 1
   %add.ptr18.i = getelementptr inbounds i8, ptr %add.ptr17.i, i64 1
   tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %add.ptr18.i, ptr nonnull align 1 %line.addr.044, i64 %line_len.addr.043, i1 false)
-  %valuelen19.i = getelementptr inbounds %struct.dynhds_entry, ptr %call.i, i64 0, i32 3
+  %valuelen19.i = getelementptr inbounds i8, ptr %call.i, i64 24
   store i64 %add2.i, ptr %valuelen19.i, align 8
   %16 = load ptr, ptr %dynhds, align 8
   %17 = load i64, ptr %hds_len, align 8
   %18 = getelementptr ptr, ptr %16, i64 %17
-  %arrayidx32 = getelementptr ptr, ptr %18, i64 -1
+  %arrayidx32 = getelementptr i8, ptr %18, i64 -8
   store ptr %call.i, ptr %arrayidx32, align 8
   %19 = load ptr, ptr @Curl_cfree, align 8
   tail call void %19(ptr noundef nonnull %5) #9
@@ -527,7 +524,7 @@ cond.end:                                         ; preds = %entry, %cond.true.s
 ; Function Attrs: nounwind uwtable
 define hidden i32 @Curl_dynhds_h1_dprint(ptr nocapture noundef readonly %dynhds, ptr noundef %dbuf) local_unnamed_addr #1 {
 entry:
-  %hds_len = getelementptr inbounds %struct.dynhds, ptr %dynhds, i64 0, i32 1
+  %hds_len = getelementptr inbounds i8, ptr %dynhds, i64 8
   %0 = load i64, ptr %hds_len, align 8
   %tobool.not = icmp eq i64 %0, 0
   br i1 %tobool.not, label %return, label %for.body
@@ -543,14 +540,14 @@ for.body:                                         ; preds = %entry, %for.cond
   %2 = load ptr, ptr %dynhds, align 8
   %arrayidx = getelementptr inbounds ptr, ptr %2, i64 %i.014
   %3 = load ptr, ptr %arrayidx, align 8
-  %namelen = getelementptr inbounds %struct.dynhds_entry, ptr %3, i64 0, i32 2
+  %namelen = getelementptr inbounds i8, ptr %3, i64 16
   %4 = load i64, ptr %namelen, align 8
   %conv = trunc i64 %4 to i32
   %5 = load ptr, ptr %3, align 8
-  %valuelen = getelementptr inbounds %struct.dynhds_entry, ptr %3, i64 0, i32 3
+  %valuelen = getelementptr inbounds i8, ptr %3, i64 24
   %6 = load i64, ptr %valuelen, align 8
   %conv6 = trunc i64 %6 to i32
-  %value = getelementptr inbounds %struct.dynhds_entry, ptr %3, i64 0, i32 1
+  %value = getelementptr inbounds i8, ptr %3, i64 8
   %7 = load ptr, ptr %value, align 8
   %call = tail call i32 (ptr, ptr, ...) @Curl_dyn_addf(ptr noundef %dbuf, ptr noundef nonnull @.str, i32 noundef %conv, ptr noundef %5, i32 noundef %conv6, ptr noundef %7) #9
   %tobool9.not = icmp eq i32 %call, 0

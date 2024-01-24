@@ -3,217 +3,17 @@ source_filename = "bench/hyperscan/original/rose_build_instructions.cpp.ll"
 target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:128-n8:16:32:64-S128"
 target triple = "x86_64-unknown-linux-gnu"
 
-%"class.ue2::RoseInstrAnchoredDelay" = type { %"class.ue2::RoseInstrBaseOneTarget", i64, i32, ptr }
-%"class.ue2::RoseInstrBaseOneTarget" = type { %"class.ue2::RoseInstrBase.24" }
-%"class.ue2::RoseInstrBase.24" = type { %"class.ue2::RoseInstruction" }
-%"class.ue2::RoseInstruction" = type { ptr }
-%struct.ROSE_STRUCT_ANCHORED_DELAY = type { i8, i64, i32, i32 }
-%"class.std::_Hashtable.79" = type { ptr, i64, %"struct.std::__detail::_Hash_node_base", i64, %"struct.std::__detail::_Prime_rehash_policy", ptr }
-%"struct.std::__detail::_Hash_node_base" = type { ptr }
-%"struct.std::__detail::_Prime_rehash_policy" = type { float, i64 }
-%"class.ue2::RoseInstrCheckLitEarly" = type { %"class.ue2::RoseInstrBaseOneTarget.96", i32, ptr }
-%"class.ue2::RoseInstrBaseOneTarget.96" = type { %"class.ue2::RoseInstrBase.97" }
-%"class.ue2::RoseInstrBase.97" = type { %"class.ue2::RoseInstruction" }
-%struct.ROSE_STRUCT_CHECK_LIT_EARLY = type { i8, i32, i32 }
-%"class.ue2::RoseInstrCheckGroups" = type { %"class.ue2::RoseInstrBaseNoTargets.98", i64 }
-%"class.ue2::RoseInstrBaseNoTargets.98" = type { %"class.ue2::RoseInstrBase.99" }
-%"class.ue2::RoseInstrBase.99" = type { %"class.ue2::RoseInstruction" }
-%struct.ROSE_STRUCT_CHECK_GROUPS = type { i8, i64 }
-%"class.ue2::RoseInstrCheckOnlyEod" = type { %"class.ue2::RoseInstrBaseOneTarget.100", ptr }
-%"class.ue2::RoseInstrBaseOneTarget.100" = type { %"class.ue2::RoseInstrBase.101" }
-%"class.ue2::RoseInstrBase.101" = type { %"class.ue2::RoseInstruction" }
-%struct.ROSE_STRUCT_CHECK_ONLY_EOD = type { i8, i32 }
-%"class.ue2::RoseInstrCheckBounds" = type { %"class.ue2::RoseInstrBaseOneTarget.102", i64, i64, ptr }
-%"class.ue2::RoseInstrBaseOneTarget.102" = type { %"class.ue2::RoseInstrBase.103" }
-%"class.ue2::RoseInstrBase.103" = type { %"class.ue2::RoseInstruction" }
-%struct.ROSE_STRUCT_CHECK_BOUNDS = type { i8, i64, i64, i32 }
-%"class.ue2::RoseInstrCheckNotHandled" = type { %"class.ue2::RoseInstrBaseOneTarget.104", i32, ptr }
-%"class.ue2::RoseInstrBaseOneTarget.104" = type { %"class.ue2::RoseInstrBase.105" }
-%"class.ue2::RoseInstrBase.105" = type { %"class.ue2::RoseInstruction" }
-%struct.ROSE_STRUCT_CHECK_NOT_HANDLED = type { i8, i32, i32 }
 %"class.std::vector.108" = type { %"struct.std::_Vector_base.109" }
 %"struct.std::_Vector_base.109" = type { %"struct.std::_Vector_base<ue2::CharReach, std::allocator<ue2::CharReach>>::_Vector_impl" }
 %"struct.std::_Vector_base<ue2::CharReach, std::allocator<ue2::CharReach>>::_Vector_impl" = type { %"struct.std::_Vector_base<ue2::CharReach, std::allocator<ue2::CharReach>>::_Vector_impl_data" }
 %"struct.std::_Vector_base<ue2::CharReach, std::allocator<ue2::CharReach>>::_Vector_impl_data" = type { ptr, ptr, ptr }
-%"class.ue2::RoseInstrCheckSingleLookaround" = type { %"class.ue2::RoseInstrBaseOneTarget.106", i8, %"class.ue2::CharReach", ptr }
-%"class.ue2::RoseInstrBaseOneTarget.106" = type { %"class.ue2::RoseInstrBase.107" }
-%"class.ue2::RoseInstrBase.107" = type { %"class.ue2::RoseInstruction" }
-%"class.ue2::CharReach" = type { %"class.ue2::bitfield" }
-%"class.ue2::bitfield" = type { %"struct.std::array" }
-%"struct.std::array" = type { [4 x i64] }
-%struct.ROSE_STRUCT_CHECK_SINGLE_LOOKAROUND = type { i8, i8, i32, i32 }
-%"class.ue2::RoseEngineBlob" = type { [8 x i8], %"struct.ue2::lookaround_info", %"class.std::unordered_map.61", %"class.std::vector" }
-%"struct.ue2::lookaround_info" = type { %"class.std::unordered_map", %"class.std::unordered_map.27", %"class.std::unordered_map.44" }
-%"class.std::unordered_map" = type { %"class.std::_Hashtable" }
-%"class.std::_Hashtable" = type { ptr, i64, %"struct.std::__detail::_Hash_node_base", i64, %"struct.std::__detail::_Prime_rehash_policy", ptr }
-%"class.std::unordered_map.27" = type { %"class.std::_Hashtable.28" }
-%"class.std::_Hashtable.28" = type { ptr, i64, %"struct.std::__detail::_Hash_node_base", i64, %"struct.std::__detail::_Prime_rehash_policy", ptr }
-%"class.std::unordered_map.44" = type { %"class.std::_Hashtable.45" }
-%"class.std::_Hashtable.45" = type { ptr, i64, %"struct.std::__detail::_Hash_node_base", i64, %"struct.std::__detail::_Prime_rehash_policy", ptr }
-%"class.std::unordered_map.61" = type { %"class.std::_Hashtable.62" }
-%"class.std::_Hashtable.62" = type { ptr, i64, %"struct.std::__detail::_Hash_node_base", i64, %"struct.std::__detail::_Prime_rehash_policy", ptr }
-%"class.std::vector" = type { %"struct.std::_Vector_base" }
-%"struct.std::_Vector_base" = type { %"struct.std::_Vector_base<char, ue2::AlignedAllocator<char, 64>>::_Vector_impl" }
-%"struct.std::_Vector_base<char, ue2::AlignedAllocator<char, 64>>::_Vector_impl" = type { %"struct.std::_Vector_base<char, ue2::AlignedAllocator<char, 64>>::_Vector_impl_data" }
-%"struct.std::_Vector_base<char, ue2::AlignedAllocator<char, 64>>::_Vector_impl_data" = type { ptr, ptr, ptr }
 %"class.std::vector.120" = type { %"struct.std::_Vector_base.121" }
 %"struct.std::_Vector_base.121" = type { %"struct.std::_Vector_base<signed char, std::allocator<signed char>>::_Vector_impl" }
 %"struct.std::_Vector_base<signed char, std::allocator<signed char>>::_Vector_impl" = type { %"struct.std::_Vector_base<signed char, std::allocator<signed char>>::_Vector_impl_data" }
 %"struct.std::_Vector_base<signed char, std::allocator<signed char>>::_Vector_impl_data" = type { ptr, ptr, ptr }
-%"class.ue2::RoseInstrCheckLookaround" = type { %"class.ue2::RoseInstrBaseOneTarget.113", %"class.std::vector.115", ptr }
-%"class.ue2::RoseInstrBaseOneTarget.113" = type { %"class.ue2::RoseInstrBase.114" }
-%"class.ue2::RoseInstrBase.114" = type { %"class.ue2::RoseInstruction" }
-%"class.std::vector.115" = type { %"struct.std::_Vector_base.116" }
-%"struct.std::_Vector_base.116" = type { %"struct.std::_Vector_base<ue2::LookEntry, std::allocator<ue2::LookEntry>>::_Vector_impl" }
-%"struct.std::_Vector_base<ue2::LookEntry, std::allocator<ue2::LookEntry>>::_Vector_impl" = type { %"struct.std::_Vector_base<ue2::LookEntry, std::allocator<ue2::LookEntry>>::_Vector_impl_data" }
-%"struct.std::_Vector_base<ue2::LookEntry, std::allocator<ue2::LookEntry>>::_Vector_impl_data" = type { ptr, ptr, ptr }
-%"struct.ue2::LookEntry" = type { i8, %"class.ue2::CharReach" }
-%struct.ROSE_STRUCT_CHECK_LOOKAROUND = type { i8, i32, i32, i32, i32 }
-%"class.ue2::RoseInstrCheckMask" = type { %"class.ue2::RoseInstrBaseOneTarget.125", i64, i64, i64, i32, ptr }
-%"class.ue2::RoseInstrBaseOneTarget.125" = type { %"class.ue2::RoseInstrBase.126" }
-%"class.ue2::RoseInstrBase.126" = type { %"class.ue2::RoseInstruction" }
-%struct.ROSE_STRUCT_CHECK_MASK = type { i8, i64, i64, i64, i32, i32 }
-%"class.ue2::RoseInstrCheckMask32" = type { %"class.ue2::RoseInstrBaseOneTarget.127", %"struct.std::array.129", %"struct.std::array.129", i32, i32, ptr }
-%"class.ue2::RoseInstrBaseOneTarget.127" = type { %"class.ue2::RoseInstrBase.128" }
-%"class.ue2::RoseInstrBase.128" = type { %"class.ue2::RoseInstruction" }
-%"struct.std::array.129" = type { [32 x i8] }
-%struct.ROSE_STRUCT_CHECK_MASK_32 = type { i8, [32 x i8], [32 x i8], i32, i32, i32 }
-%"class.ue2::RoseInstrCheckMask64" = type { %"class.ue2::RoseInstrBaseOneTarget.130", %"struct.std::array.132", %"struct.std::array.132", i64, i32, ptr }
-%"class.ue2::RoseInstrBaseOneTarget.130" = type { %"class.ue2::RoseInstrBase.131" }
-%"class.ue2::RoseInstrBase.131" = type { %"class.ue2::RoseInstruction" }
-%"struct.std::array.132" = type { [64 x i8] }
-%struct.ROSE_STRUCT_CHECK_MASK_64 = type { i8, [64 x i8], [64 x i8], i64, i32, i32 }
-%"class.ue2::RoseInstrCheckByte" = type { %"class.ue2::RoseInstrBaseOneTarget.133", i8, i8, i8, i32, ptr }
-%"class.ue2::RoseInstrBaseOneTarget.133" = type { %"class.ue2::RoseInstrBase.134" }
-%"class.ue2::RoseInstrBase.134" = type { %"class.ue2::RoseInstruction" }
-%struct.ROSE_STRUCT_CHECK_BYTE = type { i8, i8, i8, i8, i32, i32 }
-%"class.ue2::RoseInstrCheckShufti16x8" = type { %"class.ue2::RoseInstrBaseOneTarget.135", %"struct.std::array.129", %"struct.std::array.137", i32, i32, ptr }
-%"class.ue2::RoseInstrBaseOneTarget.135" = type { %"class.ue2::RoseInstrBase.136" }
-%"class.ue2::RoseInstrBase.136" = type { %"class.ue2::RoseInstruction" }
-%"struct.std::array.137" = type { [16 x i8] }
-%struct.ROSE_STRUCT_CHECK_SHUFTI_16x8 = type { i8, [32 x i8], [16 x i8], i32, i32, i32 }
-%"class.ue2::RoseInstrCheckShufti32x8" = type { %"class.ue2::RoseInstrBaseOneTarget.138", %"struct.std::array.137", %"struct.std::array.137", %"struct.std::array.129", i32, i32, ptr }
-%"class.ue2::RoseInstrBaseOneTarget.138" = type { %"class.ue2::RoseInstrBase.139" }
-%"class.ue2::RoseInstrBase.139" = type { %"class.ue2::RoseInstruction" }
-%struct.ROSE_STRUCT_CHECK_SHUFTI_32x8 = type { i8, [16 x i8], [16 x i8], [32 x i8], i32, i32, i32 }
-%"class.ue2::RoseInstrCheckShufti16x16" = type { %"class.ue2::RoseInstrBaseOneTarget.140", %"struct.std::array.129", %"struct.std::array.129", %"struct.std::array.129", i32, i32, ptr }
-%"class.ue2::RoseInstrBaseOneTarget.140" = type { %"class.ue2::RoseInstrBase.141" }
-%"class.ue2::RoseInstrBase.141" = type { %"class.ue2::RoseInstruction" }
-%struct.ROSE_STRUCT_CHECK_SHUFTI_16x16 = type { i8, [32 x i8], [32 x i8], [32 x i8], i32, i32, i32 }
-%"class.ue2::RoseInstrCheckShufti32x16" = type { %"class.ue2::RoseInstrBaseOneTarget.142", %"struct.std::array.129", %"struct.std::array.129", %"struct.std::array.129", %"struct.std::array.129", i32, i32, ptr }
-%"class.ue2::RoseInstrBaseOneTarget.142" = type { %"class.ue2::RoseInstrBase.143" }
-%"class.ue2::RoseInstrBase.143" = type { %"class.ue2::RoseInstruction" }
-%struct.ROSE_STRUCT_CHECK_SHUFTI_32x16 = type { i8, [32 x i8], [32 x i8], [32 x i8], [32 x i8], i32, i32, i32 }
-%"class.ue2::RoseInstrCheckShufti64x8" = type { %"class.ue2::RoseInstrBaseOneTarget.144", %"struct.std::array.132", %"struct.std::array.132", %"struct.std::array.132", i64, i32, ptr }
-%"class.ue2::RoseInstrBaseOneTarget.144" = type { %"class.ue2::RoseInstrBase.145" }
-%"class.ue2::RoseInstrBase.145" = type { %"class.ue2::RoseInstruction" }
-%struct.ROSE_STRUCT_CHECK_SHUFTI_64x8 = type { i8, [64 x i8], [64 x i8], [64 x i8], i64, i32, i32 }
-%"class.ue2::RoseInstrCheckShufti64x16" = type { %"class.ue2::RoseInstrBaseOneTarget.146", %"struct.std::array.132", %"struct.std::array.132", %"struct.std::array.132", %"struct.std::array.132", %"struct.std::array.132", %"struct.std::array.132", i64, i32, ptr }
-%"class.ue2::RoseInstrBaseOneTarget.146" = type { %"class.ue2::RoseInstrBase.147" }
-%"class.ue2::RoseInstrBase.147" = type { %"class.ue2::RoseInstruction" }
-%struct.ROSE_STRUCT_CHECK_SHUFTI_64x16 = type { i8, [64 x i8], [64 x i8], [64 x i8], [64 x i8], [64 x i8], [64 x i8], i64, i32, i32 }
-%"class.ue2::RoseInstrCheckInfix" = type { %"class.ue2::RoseInstrBaseOneTarget.148", i32, i32, i32, ptr }
-%"class.ue2::RoseInstrBaseOneTarget.148" = type { %"class.ue2::RoseInstrBase.149" }
-%"class.ue2::RoseInstrBase.149" = type { %"class.ue2::RoseInstruction" }
-%struct.ROSE_STRUCT_CHECK_INFIX = type { i8, i32, i32, i32, i32 }
-%"class.ue2::RoseInstrCheckPrefix" = type { %"class.ue2::RoseInstrBaseOneTarget.150", i32, i32, i32, ptr }
-%"class.ue2::RoseInstrBaseOneTarget.150" = type { %"class.ue2::RoseInstrBase.151" }
-%"class.ue2::RoseInstrBase.151" = type { %"class.ue2::RoseInstruction" }
-%struct.ROSE_STRUCT_CHECK_PREFIX = type { i8, i32, i32, i32, i32 }
-%"class.ue2::RoseInstrPushDelayed" = type { %"class.ue2::RoseInstrBaseNoTargets.152", i8, i32 }
-%"class.ue2::RoseInstrBaseNoTargets.152" = type { %"class.ue2::RoseInstrBase.153" }
-%"class.ue2::RoseInstrBase.153" = type { %"class.ue2::RoseInstruction" }
-%struct.ROSE_STRUCT_PUSH_DELAYED = type { i8, i8, i32 }
-%"class.ue2::RoseInstrSomAdjust" = type <{ %"class.ue2::RoseInstrBaseNoTargets.154", i32, [4 x i8] }>
-%"class.ue2::RoseInstrBaseNoTargets.154" = type { %"class.ue2::RoseInstrBase.155" }
-%"class.ue2::RoseInstrBase.155" = type { %"class.ue2::RoseInstruction" }
-%struct.ROSE_STRUCT_SOM_ADJUST = type { i8, i32 }
-%"class.ue2::RoseInstrSomLeftfix" = type { %"class.ue2::RoseInstrBaseNoTargets.156", i32, i32 }
-%"class.ue2::RoseInstrBaseNoTargets.156" = type { %"class.ue2::RoseInstrBase.157" }
-%"class.ue2::RoseInstrBase.157" = type { %"class.ue2::RoseInstruction" }
-%struct.ROSE_STRUCT_SOM_LEFTFIX = type { i8, i32, i32 }
-%"class.ue2::RoseInstrSomFromReport" = type { %"class.ue2::RoseInstrBaseNoTargets.158", %struct.som_operation }
-%"class.ue2::RoseInstrBaseNoTargets.158" = type { %"class.ue2::RoseInstrBase.159" }
-%"class.ue2::RoseInstrBase.159" = type { %"class.ue2::RoseInstruction" }
-%struct.som_operation = type { i8, i32, %union.anon }
-%union.anon = type { i64 }
-%struct.ROSE_STRUCT_SOM_FROM_REPORT = type { i8, %struct.som_operation }
-%"class.ue2::RoseInstrTriggerInfix" = type <{ %"class.ue2::RoseInstrBaseNoTargets.160", i8, [3 x i8], i32, i32, [4 x i8] }>
-%"class.ue2::RoseInstrBaseNoTargets.160" = type { %"class.ue2::RoseInstrBase.161" }
-%"class.ue2::RoseInstrBase.161" = type { %"class.ue2::RoseInstruction" }
-%struct.ROSE_STRUCT_TRIGGER_INFIX = type { i8, i8, i32, i32 }
-%"class.ue2::RoseInstrTriggerSuffix" = type { %"class.ue2::RoseInstrBaseNoTargets.162", i32, i32 }
-%"class.ue2::RoseInstrBaseNoTargets.162" = type { %"class.ue2::RoseInstrBase.163" }
-%"class.ue2::RoseInstrBase.163" = type { %"class.ue2::RoseInstruction" }
-%struct.ROSE_STRUCT_TRIGGER_SUFFIX = type { i8, i32, i32 }
-%"class.ue2::RoseInstrDedupe" = type { %"class.ue2::RoseInstrBaseOneTarget.164", i8, i32, i32, ptr }
-%"class.ue2::RoseInstrBaseOneTarget.164" = type { %"class.ue2::RoseInstrBase.165" }
-%"class.ue2::RoseInstrBase.165" = type { %"class.ue2::RoseInstruction" }
-%struct.ROSE_STRUCT_DEDUPE = type { i8, i8, i32, i32, i32 }
-%"class.ue2::RoseInstrDedupeSom" = type { %"class.ue2::RoseInstrBaseOneTarget.166", i8, i32, i32, ptr }
-%"class.ue2::RoseInstrBaseOneTarget.166" = type { %"class.ue2::RoseInstrBase.167" }
-%"class.ue2::RoseInstrBase.167" = type { %"class.ue2::RoseInstruction" }
-%struct.ROSE_STRUCT_DEDUPE_SOM = type { i8, i8, i32, i32, i32 }
-%"class.ue2::RoseInstrReportChain" = type { %"class.ue2::RoseInstrBaseNoTargets.168", i32, i64 }
-%"class.ue2::RoseInstrBaseNoTargets.168" = type { %"class.ue2::RoseInstrBase.169" }
-%"class.ue2::RoseInstrBase.169" = type { %"class.ue2::RoseInstruction" }
-%struct.ROSE_STRUCT_REPORT_CHAIN = type { i8, i32, i64 }
-%"class.ue2::RoseInstrReportSomInt" = type { %"class.ue2::RoseInstrBaseNoTargets.170", %struct.som_operation }
-%"class.ue2::RoseInstrBaseNoTargets.170" = type { %"class.ue2::RoseInstrBase.171" }
-%"class.ue2::RoseInstrBase.171" = type { %"class.ue2::RoseInstruction" }
-%struct.ROSE_STRUCT_REPORT_SOM_INT = type { i8, %struct.som_operation }
-%"class.ue2::RoseInstrReportSomAware" = type { %"class.ue2::RoseInstrBaseNoTargets.172", %struct.som_operation }
-%"class.ue2::RoseInstrBaseNoTargets.172" = type { %"class.ue2::RoseInstrBase.173" }
-%"class.ue2::RoseInstrBase.173" = type { %"class.ue2::RoseInstruction" }
-%struct.ROSE_STRUCT_REPORT_SOM_AWARE = type { i8, %struct.som_operation }
-%"class.ue2::RoseInstrReport" = type { %"class.ue2::RoseInstrBaseNoTargets.174", i32, i32 }
-%"class.ue2::RoseInstrBaseNoTargets.174" = type { %"class.ue2::RoseInstrBase.175" }
-%"class.ue2::RoseInstrBase.175" = type { %"class.ue2::RoseInstruction" }
-%struct.ROSE_STRUCT_REPORT = type { i8, i32, i32 }
-%"class.ue2::RoseInstrReportExhaust" = type <{ %"class.ue2::RoseInstrBaseNoTargets.176", i32, i32, i32, [4 x i8] }>
-%"class.ue2::RoseInstrBaseNoTargets.176" = type { %"class.ue2::RoseInstrBase.177" }
-%"class.ue2::RoseInstrBase.177" = type { %"class.ue2::RoseInstruction" }
-%struct.ROSE_STRUCT_REPORT_EXHAUST = type { i8, i32, i32, i32 }
-%"class.ue2::RoseInstrReportSom" = type { %"class.ue2::RoseInstrBaseNoTargets.178", i32, i32 }
-%"class.ue2::RoseInstrBaseNoTargets.178" = type { %"class.ue2::RoseInstrBase.179" }
-%"class.ue2::RoseInstrBase.179" = type { %"class.ue2::RoseInstruction" }
-%struct.ROSE_STRUCT_REPORT_SOM = type { i8, i32, i32 }
-%"class.ue2::RoseInstrReportSomExhaust" = type <{ %"class.ue2::RoseInstrBaseNoTargets.180", i32, i32, i32, [4 x i8] }>
-%"class.ue2::RoseInstrBaseNoTargets.180" = type { %"class.ue2::RoseInstrBase.181" }
-%"class.ue2::RoseInstrBase.181" = type { %"class.ue2::RoseInstruction" }
-%struct.ROSE_STRUCT_REPORT_SOM_EXHAUST = type { i8, i32, i32, i32 }
-%"class.ue2::RoseInstrDedupeAndReport" = type { %"class.ue2::RoseInstrBaseOneTarget.182", i8, i32, i32, i32, ptr }
-%"class.ue2::RoseInstrBaseOneTarget.182" = type { %"class.ue2::RoseInstrBase.183" }
-%"class.ue2::RoseInstrBase.183" = type { %"class.ue2::RoseInstruction" }
-%struct.ROSE_STRUCT_DEDUPE_AND_REPORT = type { i8, i8, i32, i32, i32, i32 }
-%"class.ue2::RoseInstrFinalReport" = type { %"class.ue2::RoseInstrBaseNoTargets.184", i32, i32 }
-%"class.ue2::RoseInstrBaseNoTargets.184" = type { %"class.ue2::RoseInstrBase.185" }
-%"class.ue2::RoseInstrBase.185" = type { %"class.ue2::RoseInstruction" }
-%struct.ROSE_STRUCT_FINAL_REPORT = type { i8, i32, i32 }
-%"class.ue2::RoseInstrCheckExhausted" = type { %"class.ue2::RoseInstrBaseOneTarget.186", i32, ptr }
-%"class.ue2::RoseInstrBaseOneTarget.186" = type { %"class.ue2::RoseInstrBase.187" }
-%"class.ue2::RoseInstrBase.187" = type { %"class.ue2::RoseInstruction" }
-%struct.ROSE_STRUCT_CHECK_EXHAUSTED = type { i8, i32, i32 }
-%"class.ue2::RoseInstrCheckMinLength" = type { %"class.ue2::RoseInstrBaseOneTarget.188", i32, i64, ptr }
-%"class.ue2::RoseInstrBaseOneTarget.188" = type { %"class.ue2::RoseInstrBase.189" }
-%"class.ue2::RoseInstrBase.189" = type { %"class.ue2::RoseInstruction" }
-%struct.ROSE_STRUCT_CHECK_MIN_LENGTH = type { i8, i32, i64, i32 }
-%"class.ue2::RoseInstrSetState" = type <{ %"class.ue2::RoseInstrBaseNoTargets.190", i32, [4 x i8] }>
-%"class.ue2::RoseInstrBaseNoTargets.190" = type { %"class.ue2::RoseInstrBase.191" }
-%"class.ue2::RoseInstrBase.191" = type { %"class.ue2::RoseInstruction" }
-%struct.ROSE_STRUCT_SET_STATE = type { i8, i32 }
-%"class.ue2::RoseInstrSetGroups" = type { %"class.ue2::RoseInstrBaseNoTargets.192", i64 }
-%"class.ue2::RoseInstrBaseNoTargets.192" = type { %"class.ue2::RoseInstrBase.193" }
-%"class.ue2::RoseInstrBase.193" = type { %"class.ue2::RoseInstruction" }
-%struct.ROSE_STRUCT_SET_GROUPS = type { i8, i64 }
-%"class.ue2::RoseInstrSquashGroups" = type { %"class.ue2::RoseInstrBaseNoTargets.194", i64 }
-%"class.ue2::RoseInstrBaseNoTargets.194" = type { %"class.ue2::RoseInstrBase.195" }
-%"class.ue2::RoseInstrBase.195" = type { %"class.ue2::RoseInstruction" }
-%struct.ROSE_STRUCT_SQUASH_GROUPS = type { i8, i64 }
-%"class.ue2::RoseInstrCheckState" = type { %"class.ue2::RoseInstrBaseOneTarget.196", i32, ptr }
-%"class.ue2::RoseInstrBaseOneTarget.196" = type { %"class.ue2::RoseInstrBase.197" }
-%"class.ue2::RoseInstrBase.197" = type { %"class.ue2::RoseInstruction" }
-%struct.ROSE_STRUCT_CHECK_STATE = type { i8, i32, i32 }
+%"class.ue2::CharReach" = type { %"class.ue2::bitfield" }
+%"class.ue2::bitfield" = type { %"struct.std::array" }
+%"struct.std::array" = type { [4 x i64] }
 %"class.std::vector.204" = type { %"struct.std::_Vector_base.205" }
 %"struct.std::_Vector_base.205" = type { %"struct.std::_Vector_base<unsigned int, std::allocator<unsigned int>>::_Vector_impl" }
 %"struct.std::_Vector_base<unsigned int, std::allocator<unsigned int>>::_Vector_impl" = type { %"struct.std::_Vector_base<unsigned int, std::allocator<unsigned int>>::_Vector_impl_data" }
@@ -222,89 +22,10 @@ target triple = "x86_64-unknown-linux-gnu"
 %"struct.std::_Vector_base.211" = type { %"struct.std::_Vector_base<mmbit_sparse_iter, std::allocator<mmbit_sparse_iter>>::_Vector_impl" }
 %"struct.std::_Vector_base<mmbit_sparse_iter, std::allocator<mmbit_sparse_iter>>::_Vector_impl" = type { %"struct.std::_Vector_base<mmbit_sparse_iter, std::allocator<mmbit_sparse_iter>>::_Vector_impl_data" }
 %"struct.std::_Vector_base<mmbit_sparse_iter, std::allocator<mmbit_sparse_iter>>::_Vector_impl_data" = type { ptr, ptr, ptr }
-%"class.ue2::RoseInstrSparseIterBegin" = type <{ %"class.ue2::RoseInstrBase.198", i32, [4 x i8], %"class.std::vector.199", ptr, i8, [3 x i8], i32, i32, [4 x i8] }>
-%"class.ue2::RoseInstrBase.198" = type { %"class.ue2::RoseInstruction" }
-%"class.std::vector.199" = type { %"struct.std::_Vector_base.200" }
-%"struct.std::_Vector_base.200" = type { %"struct.std::_Vector_base<std::pair<unsigned int, const ue2::RoseInstruction *>, std::allocator<std::pair<unsigned int, const ue2::RoseInstruction *>>>::_Vector_impl" }
-%"struct.std::_Vector_base<std::pair<unsigned int, const ue2::RoseInstruction *>, std::allocator<std::pair<unsigned int, const ue2::RoseInstruction *>>>::_Vector_impl" = type { %"struct.std::_Vector_base<std::pair<unsigned int, const ue2::RoseInstruction *>, std::allocator<std::pair<unsigned int, const ue2::RoseInstruction *>>>::_Vector_impl_data" }
-%"struct.std::_Vector_base<std::pair<unsigned int, const ue2::RoseInstruction *>, std::allocator<std::pair<unsigned int, const ue2::RoseInstruction *>>>::_Vector_impl_data" = type { ptr, ptr, ptr }
-%struct.ROSE_STRUCT_SPARSE_ITER_BEGIN = type { i8, i32, i32, i32 }
-%"struct.std::pair" = type { i32, ptr }
-%struct.mmbit_sparse_iter = type { i64, i32 }
-%"class.ue2::RoseInstrSparseIterNext" = type { %"class.ue2::RoseInstrBase.216", i32, ptr, ptr }
-%"class.ue2::RoseInstrBase.216" = type { %"class.ue2::RoseInstruction" }
-%struct.ROSE_STRUCT_SPARSE_ITER_NEXT = type { i8, i32, i32, i32, i32 }
-%"class.ue2::RoseInstrSparseIterAny" = type { %"class.ue2::RoseInstrBaseOneTarget.217", i32, %"class.std::vector.204", ptr }
-%"class.ue2::RoseInstrBaseOneTarget.217" = type { %"class.ue2::RoseInstrBase.218" }
-%"class.ue2::RoseInstrBase.218" = type { %"class.ue2::RoseInstruction" }
-%struct.ROSE_STRUCT_SPARSE_ITER_ANY = type { i8, i32, i32 }
-%"class.ue2::RoseInstrEnginesEod" = type <{ %"class.ue2::RoseInstrBaseNoTargets.219", i32, [4 x i8] }>
-%"class.ue2::RoseInstrBaseNoTargets.219" = type { %"class.ue2::RoseInstrBase.220" }
-%"class.ue2::RoseInstrBase.220" = type { %"class.ue2::RoseInstruction" }
-%struct.ROSE_STRUCT_ENGINES_EOD = type { i8, i32 }
-%"class.ue2::RoseInstrCheckLongLit" = type { %"class.ue2::RoseInstrBaseOneTarget.221", %"class.std::__cxx11::basic_string", ptr }
-%"class.ue2::RoseInstrBaseOneTarget.221" = type { %"class.ue2::RoseInstrBase.222" }
-%"class.ue2::RoseInstrBase.222" = type { %"class.ue2::RoseInstruction" }
-%"class.std::__cxx11::basic_string" = type { %"struct.std::__cxx11::basic_string<char>::_Alloc_hider", i64, %union.anon.226 }
-%"struct.std::__cxx11::basic_string<char>::_Alloc_hider" = type { ptr }
-%union.anon.226 = type { i64, [8 x i8] }
-%struct.ROSE_STRUCT_CHECK_LONG_LIT = type { i8, i32, i32, i32 }
-%"class.ue2::RoseInstrCheckLongLitNocase" = type { %"class.ue2::RoseInstrBaseOneTarget.227", %"class.std::__cxx11::basic_string", ptr }
-%"class.ue2::RoseInstrBaseOneTarget.227" = type { %"class.ue2::RoseInstrBase.228" }
-%"class.ue2::RoseInstrBase.228" = type { %"class.ue2::RoseInstruction" }
-%struct.ROSE_STRUCT_CHECK_LONG_LIT_NOCASE = type { i8, i32, i32, i32 }
-%"class.ue2::RoseInstrCheckMedLit" = type { %"class.ue2::RoseInstrBaseOneTarget.229", %"class.std::__cxx11::basic_string", ptr }
-%"class.ue2::RoseInstrBaseOneTarget.229" = type { %"class.ue2::RoseInstrBase.230" }
-%"class.ue2::RoseInstrBase.230" = type { %"class.ue2::RoseInstruction" }
-%struct.ROSE_STRUCT_CHECK_MED_LIT = type { i8, i32, i32, i32 }
-%"class.ue2::RoseInstrCheckMedLitNocase" = type { %"class.ue2::RoseInstrBaseOneTarget.231", %"class.std::__cxx11::basic_string", ptr }
-%"class.ue2::RoseInstrBaseOneTarget.231" = type { %"class.ue2::RoseInstrBase.232" }
-%"class.ue2::RoseInstrBase.232" = type { %"class.ue2::RoseInstruction" }
-%struct.ROSE_STRUCT_CHECK_MED_LIT_NOCASE = type { i8, i32, i32, i32 }
 %"class.std::vector.240" = type { %"struct.std::_Vector_base.241" }
 %"struct.std::_Vector_base.241" = type { %"struct.std::_Vector_base<std::vector<ue2::CharReach>, std::allocator<std::vector<ue2::CharReach>>>::_Vector_impl" }
 %"struct.std::_Vector_base<std::vector<ue2::CharReach>, std::allocator<std::vector<ue2::CharReach>>>::_Vector_impl" = type { %"struct.std::_Vector_base<std::vector<ue2::CharReach>, std::allocator<std::vector<ue2::CharReach>>>::_Vector_impl_data" }
 %"struct.std::_Vector_base<std::vector<ue2::CharReach>, std::allocator<std::vector<ue2::CharReach>>>::_Vector_impl_data" = type { ptr, ptr, ptr }
-%"class.ue2::RoseInstrMultipathLookaround" = type { %"class.ue2::RoseInstrBaseOneTarget.233", %"class.std::vector.235", i32, %"struct.std::array.137", ptr }
-%"class.ue2::RoseInstrBaseOneTarget.233" = type { %"class.ue2::RoseInstrBase.234" }
-%"class.ue2::RoseInstrBase.234" = type { %"class.ue2::RoseInstruction" }
-%"class.std::vector.235" = type { %"struct.std::_Vector_base.236" }
-%"struct.std::_Vector_base.236" = type { %"struct.std::_Vector_base<std::vector<ue2::LookEntry>, std::allocator<std::vector<ue2::LookEntry>>>::_Vector_impl" }
-%"struct.std::_Vector_base<std::vector<ue2::LookEntry>, std::allocator<std::vector<ue2::LookEntry>>>::_Vector_impl" = type { %"struct.std::_Vector_base<std::vector<ue2::LookEntry>, std::allocator<std::vector<ue2::LookEntry>>>::_Vector_impl_data" }
-%"struct.std::_Vector_base<std::vector<ue2::LookEntry>, std::allocator<std::vector<ue2::LookEntry>>>::_Vector_impl_data" = type { ptr, ptr, ptr }
-%struct.ROSE_STRUCT_MULTIPATH_LOOKAROUND = type { i8, i32, i32, i32, i32, [16 x i8], i32 }
-%"class.ue2::RoseInstrCheckMultipathShufti16x8" = type { %"class.ue2::RoseInstrBaseOneTarget.246", %"struct.std::array.129", %"struct.std::array.132", %"struct.std::array.132", i16, i16, i16, i32, i32, ptr }
-%"class.ue2::RoseInstrBaseOneTarget.246" = type { %"class.ue2::RoseInstrBase.247" }
-%"class.ue2::RoseInstrBase.247" = type { %"class.ue2::RoseInstruction" }
-%struct.ROSE_STRUCT_CHECK_MULTIPATH_SHUFTI_16x8 = type { i8, [32 x i8], [16 x i8], [16 x i8], i32, i32, i32, i32, i32, i32 }
-%"class.ue2::RoseInstrCheckMultipathShufti32x8" = type { %"class.ue2::RoseInstrBaseOneTarget.248", %"struct.std::array.129", %"struct.std::array.129", %"struct.std::array.132", %"struct.std::array.132", i32, i32, i32, i32, i32, ptr }
-%"class.ue2::RoseInstrBaseOneTarget.248" = type { %"class.ue2::RoseInstrBase.249" }
-%"class.ue2::RoseInstrBase.249" = type { %"class.ue2::RoseInstruction" }
-%struct.ROSE_STRUCT_CHECK_MULTIPATH_SHUFTI_32x8 = type { i8, [16 x i8], [16 x i8], [32 x i8], [32 x i8], i32, i32, i32, i32, i32, i32 }
-%"class.ue2::RoseInstrCheckMultipathShufti32x16" = type { %"class.ue2::RoseInstrBaseOneTarget.250", %"struct.std::array.129", %"struct.std::array.129", %"struct.std::array.132", %"struct.std::array.132", %"struct.std::array.132", i32, i32, i32, i32, i32, ptr }
-%"class.ue2::RoseInstrBaseOneTarget.250" = type { %"class.ue2::RoseInstrBase.251" }
-%"class.ue2::RoseInstrBase.251" = type { %"class.ue2::RoseInstruction" }
-%struct.ROSE_STRUCT_CHECK_MULTIPATH_SHUFTI_32x16 = type { i8, [32 x i8], [32 x i8], [32 x i8], [32 x i8], [32 x i8], i32, i32, i32, i32, i32, i32 }
-%"class.ue2::RoseInstrCheckMultipathShufti64" = type { %"class.ue2::RoseInstrBaseOneTarget.252", %"struct.std::array.129", %"struct.std::array.129", %"struct.std::array.132", %"struct.std::array.132", i64, i64, i64, i32, i32, ptr }
-%"class.ue2::RoseInstrBaseOneTarget.252" = type { %"class.ue2::RoseInstrBase.253" }
-%"class.ue2::RoseInstrBase.253" = type { %"class.ue2::RoseInstruction" }
-%struct.ROSE_STRUCT_CHECK_MULTIPATH_SHUFTI_64 = type { i8, [16 x i8], [16 x i8], [64 x i8], [64 x i8], i64, i64, i64, i32, i32, i32 }
-%"class.ue2::RoseInstrIncludedJump" = type <{ %"class.ue2::RoseInstrBaseNoTargets.254", i32, i8, [3 x i8] }>
-%"class.ue2::RoseInstrBaseNoTargets.254" = type { %"class.ue2::RoseInstrBase.255" }
-%"class.ue2::RoseInstrBase.255" = type { %"class.ue2::RoseInstruction" }
-%struct.ROSE_STRUCT_INCLUDED_JUMP = type { i8, i8, i32 }
-%"class.ue2::RoseInstrSetLogical" = type { %"class.ue2::RoseInstrBaseNoTargets.256", i32, i32 }
-%"class.ue2::RoseInstrBaseNoTargets.256" = type { %"class.ue2::RoseInstrBase.257" }
-%"class.ue2::RoseInstrBase.257" = type { %"class.ue2::RoseInstruction" }
-%struct.ROSE_STRUCT_SET_LOGICAL = type { i8, i32, i32 }
-%"class.ue2::RoseInstrSetCombination" = type <{ %"class.ue2::RoseInstrBaseNoTargets.258", i32, [4 x i8] }>
-%"class.ue2::RoseInstrBaseNoTargets.258" = type { %"class.ue2::RoseInstrBase.259" }
-%"class.ue2::RoseInstrBase.259" = type { %"class.ue2::RoseInstruction" }
-%struct.ROSE_STRUCT_SET_COMBINATION = type { i8, i32 }
-%"class.ue2::RoseInstrSetExhaust" = type <{ %"class.ue2::RoseInstrBaseNoTargets.260", i32, [4 x i8] }>
-%"class.ue2::RoseInstrBaseNoTargets.260" = type { %"class.ue2::RoseInstrBase.261" }
-%"class.ue2::RoseInstrBase.261" = type { %"class.ue2::RoseInstruction" }
-%struct.ROSE_STRUCT_SET_EXHAUST = type { i8, i32 }
 %"struct.std::_Hashtable<std::vector<mmbit_sparse_iter>, std::pair<const std::vector<mmbit_sparse_iter>, unsigned int>, std::allocator<std::pair<const std::vector<mmbit_sparse_iter>, unsigned int>>, std::__detail::_Select1st, std::equal_to<std::vector<mmbit_sparse_iter>>, ue2::ue2_hasher, std::__detail::_Mod_range_hashing, std::__detail::_Default_ranged_hash, std::__detail::_Prime_rehash_policy, std::__detail::_Hashtable_traits<true, false, true>>::_Scoped_node" = type { ptr, ptr }
 
 $_ZNKSt13unordered_mapIPKN3ue215RoseInstructionEjSt4hashIS3_ESt8equal_toIS3_ESaISt4pairIKS3_jEEE2atERS9_ = comdat any
@@ -2532,18 +2253,18 @@ define hidden void @_ZNK3ue222RoseInstrAnchoredDelay5writeEPvRNS_14RoseEngineBlo
 entry:
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %dest, i8 0, i64 24, i1 false)
   store i8 1, ptr %dest, align 8
-  %groups = getelementptr inbounds %"class.ue2::RoseInstrAnchoredDelay", ptr %this, i64 0, i32 1
+  %groups = getelementptr inbounds i8, ptr %this, i64 8
   %0 = load i64, ptr %groups, align 8
-  %groups2 = getelementptr inbounds %struct.ROSE_STRUCT_ANCHORED_DELAY, ptr %dest, i64 0, i32 1
+  %groups2 = getelementptr inbounds i8, ptr %dest, i64 8
   store i64 %0, ptr %groups2, align 8
-  %anch_id = getelementptr inbounds %"class.ue2::RoseInstrAnchoredDelay", ptr %this, i64 0, i32 2
+  %anch_id = getelementptr inbounds i8, ptr %this, i64 16
   %1 = load i32, ptr %anch_id, align 8
-  %anch_id3 = getelementptr inbounds %struct.ROSE_STRUCT_ANCHORED_DELAY, ptr %dest, i64 0, i32 2
+  %anch_id3 = getelementptr inbounds i8, ptr %dest, i64 16
   store i32 %1, ptr %anch_id3, align 8
-  %target = getelementptr inbounds %"class.ue2::RoseInstrAnchoredDelay", ptr %this, i64 0, i32 3
+  %target = getelementptr inbounds i8, ptr %this, i64 24
   %2 = load ptr, ptr %target, align 8
   %call = tail call fastcc noundef i32 @_ZN3ue2L9calc_jumpERKSt13unordered_mapIPKNS_15RoseInstructionEjSt4hashIS3_ESt8equal_toIS3_ESaISt4pairIKS3_jEEES3_S3_(ptr noundef nonnull align 8 dereferenceable(56) %offset_map, ptr noundef nonnull %this, ptr noundef %2)
-  %done_jump = getelementptr inbounds %struct.ROSE_STRUCT_ANCHORED_DELAY, ptr %dest, i64 0, i32 3
+  %done_jump = getelementptr inbounds i8, ptr %dest, i64 20
   store i32 %call, ptr %done_jump, align 4
   ret void
 }
@@ -2554,13 +2275,13 @@ declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #6
 ; Function Attrs: mustprogress uwtable
 define internal fastcc noundef i32 @_ZN3ue2L9calc_jumpERKSt13unordered_mapIPKNS_15RoseInstructionEjSt4hashIS3_ESt8equal_toIS3_ESaISt4pairIKS3_jEEES3_S3_(ptr nocapture noundef nonnull readonly align 8 dereferenceable(56) %offset_map, ptr noundef %from, ptr noundef %to) unnamed_addr #5 personality ptr @__gxx_personality_v0 {
 entry:
-  %_M_element_count.i.i.i.i = getelementptr inbounds %"class.std::_Hashtable.79", ptr %offset_map, i64 0, i32 3
+  %_M_element_count.i.i.i.i = getelementptr inbounds i8, ptr %offset_map, i64 24
   %0 = load i64, ptr %_M_element_count.i.i.i.i, align 8
   %cmp.not.not.i.i.i = icmp eq i64 %0, 0
   br i1 %cmp.not.not.i.i.i, label %if.then.i.i.i, label %if.end15.i.i.i
 
 if.then.i.i.i:                                    ; preds = %entry
-  %_M_before_begin.i.i.i.i.i = getelementptr inbounds %"class.std::_Hashtable.79", ptr %offset_map, i64 0, i32 2
+  %_M_before_begin.i.i.i.i.i = getelementptr inbounds i8, ptr %offset_map, i64 16
   br label %for.cond.i.i.i
 
 for.cond.i.i.i:                                   ; preds = %for.body.i.i.i, %if.then.i.i.i
@@ -2577,7 +2298,7 @@ for.body.i.i.i:                                   ; preds = %for.cond.i.i.i
 
 if.end15.i.i.i:                                   ; preds = %entry
   %2 = ptrtoint ptr %from to i64
-  %_M_bucket_count.i.i.i.i = getelementptr inbounds %"class.std::_Hashtable.79", ptr %offset_map, i64 0, i32 1
+  %_M_bucket_count.i.i.i.i = getelementptr inbounds i8, ptr %offset_map, i64 8
   %3 = load i64, ptr %_M_bucket_count.i.i.i.i, align 8
   %rem.i.i.i.i.i.i = urem i64 %2, %3
   %4 = load ptr, ptr %offset_map, align 8
@@ -2627,13 +2348,13 @@ _ZNKSt13unordered_mapIPKN3ue215RoseInstructionEjSt4hashIS3_ESt8equal_toIS3_ESaIS
   br i1 %cmp.not.not.i.i.i, label %if.then.i.i.i27, label %_ZNKSt13unordered_mapIPKN3ue215RoseInstructionEjSt4hashIS3_ESt8equal_toIS3_ESaISt4pairIKS3_jEEE2atERS9_.exit.if.end15.i.i.i7_crit_edge
 
 _ZNKSt13unordered_mapIPKN3ue215RoseInstructionEjSt4hashIS3_ESt8equal_toIS3_ESaISt4pairIKS3_jEEE2atERS9_.exit.if.end15.i.i.i7_crit_edge: ; preds = %_ZNKSt13unordered_mapIPKN3ue215RoseInstructionEjSt4hashIS3_ESt8equal_toIS3_ESaISt4pairIKS3_jEEE2atERS9_.exit
-  %_M_bucket_count.i.i.i.i8.phi.trans.insert = getelementptr inbounds %"class.std::_Hashtable.79", ptr %offset_map, i64 0, i32 1
+  %_M_bucket_count.i.i.i.i8.phi.trans.insert = getelementptr inbounds i8, ptr %offset_map, i64 8
   %.pre = load i64, ptr %_M_bucket_count.i.i.i.i8.phi.trans.insert, align 8
   %.pre57 = load ptr, ptr %offset_map, align 8
   br label %if.end15.i.i.i7
 
 if.then.i.i.i27:                                  ; preds = %_ZNKSt13unordered_mapIPKN3ue215RoseInstructionEjSt4hashIS3_ESt8equal_toIS3_ESaISt4pairIKS3_jEEE2atERS9_.exit
-  %_M_before_begin.i.i.i.i.i28 = getelementptr inbounds %"class.std::_Hashtable.79", ptr %offset_map, i64 0, i32 2
+  %_M_before_begin.i.i.i.i.i28 = getelementptr inbounds i8, ptr %offset_map, i64 16
   br label %for.cond.i.i.i29
 
 for.cond.i.i.i29:                                 ; preds = %for.body.i.i.i33, %if.then.i.i.i27
@@ -2705,14 +2426,14 @@ define hidden void @_ZNK3ue222RoseInstrCheckLitEarly5writeEPvRNS_14RoseEngineBlo
 entry:
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %dest, i8 0, i64 12, i1 false)
   store i8 2, ptr %dest, align 4
-  %min_offset = getelementptr inbounds %"class.ue2::RoseInstrCheckLitEarly", ptr %this, i64 0, i32 1
+  %min_offset = getelementptr inbounds i8, ptr %this, i64 8
   %0 = load i32, ptr %min_offset, align 8
-  %min_offset2 = getelementptr inbounds %struct.ROSE_STRUCT_CHECK_LIT_EARLY, ptr %dest, i64 0, i32 1
+  %min_offset2 = getelementptr inbounds i8, ptr %dest, i64 4
   store i32 %0, ptr %min_offset2, align 4
-  %target = getelementptr inbounds %"class.ue2::RoseInstrCheckLitEarly", ptr %this, i64 0, i32 2
+  %target = getelementptr inbounds i8, ptr %this, i64 16
   %1 = load ptr, ptr %target, align 8
   %call = tail call fastcc noundef i32 @_ZN3ue2L9calc_jumpERKSt13unordered_mapIPKNS_15RoseInstructionEjSt4hashIS3_ESt8equal_toIS3_ESaISt4pairIKS3_jEEES3_S3_(ptr noundef nonnull align 8 dereferenceable(56) %offset_map, ptr noundef nonnull %this, ptr noundef %1)
-  %fail_jump = getelementptr inbounds %struct.ROSE_STRUCT_CHECK_LIT_EARLY, ptr %dest, i64 0, i32 2
+  %fail_jump = getelementptr inbounds i8, ptr %dest, i64 8
   store i32 %call, ptr %fail_jump, align 4
   ret void
 }
@@ -2722,9 +2443,9 @@ define hidden void @_ZNK3ue220RoseInstrCheckGroups5writeEPvRNS_14RoseEngineBlobE
 entry:
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %dest, i8 0, i64 16, i1 false)
   store i8 3, ptr %dest, align 8
-  %groups = getelementptr inbounds %"class.ue2::RoseInstrCheckGroups", ptr %this, i64 0, i32 1
+  %groups = getelementptr inbounds i8, ptr %this, i64 8
   %0 = load i64, ptr %groups, align 8
-  %groups2 = getelementptr inbounds %struct.ROSE_STRUCT_CHECK_GROUPS, ptr %dest, i64 0, i32 1
+  %groups2 = getelementptr inbounds i8, ptr %dest, i64 8
   store i64 %0, ptr %groups2, align 8
   ret void
 }
@@ -2733,10 +2454,10 @@ entry:
 define hidden void @_ZNK3ue221RoseInstrCheckOnlyEod5writeEPvRNS_14RoseEngineBlobERKSt13unordered_mapIPKNS_15RoseInstructionEjSt4hashIS7_ESt8equal_toIS7_ESaISt4pairIKS7_jEEE(ptr noundef nonnull align 8 dereferenceable(16) %this, ptr nocapture noundef writeonly %dest, ptr nocapture nonnull readnone align 8 %blob, ptr nocapture noundef nonnull readonly align 8 dereferenceable(56) %offset_map) unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store i64 4, ptr %dest, align 4
-  %target = getelementptr inbounds %"class.ue2::RoseInstrCheckOnlyEod", ptr %this, i64 0, i32 1
+  %target = getelementptr inbounds i8, ptr %this, i64 8
   %0 = load ptr, ptr %target, align 8
   %call = tail call fastcc noundef i32 @_ZN3ue2L9calc_jumpERKSt13unordered_mapIPKNS_15RoseInstructionEjSt4hashIS3_ESt8equal_toIS3_ESaISt4pairIKS3_jEEES3_S3_(ptr noundef nonnull align 8 dereferenceable(56) %offset_map, ptr noundef nonnull %this, ptr noundef %0)
-  %fail_jump = getelementptr inbounds %struct.ROSE_STRUCT_CHECK_ONLY_EOD, ptr %dest, i64 0, i32 1
+  %fail_jump = getelementptr inbounds i8, ptr %dest, i64 4
   store i32 %call, ptr %fail_jump, align 4
   ret void
 }
@@ -2746,18 +2467,18 @@ define hidden void @_ZNK3ue220RoseInstrCheckBounds5writeEPvRNS_14RoseEngineBlobE
 entry:
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %dest, i8 0, i64 32, i1 false)
   store i8 5, ptr %dest, align 8
-  %min_bound = getelementptr inbounds %"class.ue2::RoseInstrCheckBounds", ptr %this, i64 0, i32 1
+  %min_bound = getelementptr inbounds i8, ptr %this, i64 8
   %0 = load i64, ptr %min_bound, align 8
-  %min_bound2 = getelementptr inbounds %struct.ROSE_STRUCT_CHECK_BOUNDS, ptr %dest, i64 0, i32 1
+  %min_bound2 = getelementptr inbounds i8, ptr %dest, i64 8
   store i64 %0, ptr %min_bound2, align 8
-  %max_bound = getelementptr inbounds %"class.ue2::RoseInstrCheckBounds", ptr %this, i64 0, i32 2
+  %max_bound = getelementptr inbounds i8, ptr %this, i64 16
   %1 = load i64, ptr %max_bound, align 8
-  %max_bound3 = getelementptr inbounds %struct.ROSE_STRUCT_CHECK_BOUNDS, ptr %dest, i64 0, i32 2
+  %max_bound3 = getelementptr inbounds i8, ptr %dest, i64 16
   store i64 %1, ptr %max_bound3, align 8
-  %target = getelementptr inbounds %"class.ue2::RoseInstrCheckBounds", ptr %this, i64 0, i32 3
+  %target = getelementptr inbounds i8, ptr %this, i64 24
   %2 = load ptr, ptr %target, align 8
   %call = tail call fastcc noundef i32 @_ZN3ue2L9calc_jumpERKSt13unordered_mapIPKNS_15RoseInstructionEjSt4hashIS3_ESt8equal_toIS3_ESaISt4pairIKS3_jEEES3_S3_(ptr noundef nonnull align 8 dereferenceable(56) %offset_map, ptr noundef nonnull %this, ptr noundef %2)
-  %fail_jump = getelementptr inbounds %struct.ROSE_STRUCT_CHECK_BOUNDS, ptr %dest, i64 0, i32 3
+  %fail_jump = getelementptr inbounds i8, ptr %dest, i64 24
   store i32 %call, ptr %fail_jump, align 8
   ret void
 }
@@ -2767,14 +2488,14 @@ define hidden void @_ZNK3ue224RoseInstrCheckNotHandled5writeEPvRNS_14RoseEngineB
 entry:
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %dest, i8 0, i64 12, i1 false)
   store i8 6, ptr %dest, align 4
-  %key = getelementptr inbounds %"class.ue2::RoseInstrCheckNotHandled", ptr %this, i64 0, i32 1
+  %key = getelementptr inbounds i8, ptr %this, i64 8
   %0 = load i32, ptr %key, align 8
-  %key2 = getelementptr inbounds %struct.ROSE_STRUCT_CHECK_NOT_HANDLED, ptr %dest, i64 0, i32 1
+  %key2 = getelementptr inbounds i8, ptr %dest, i64 4
   store i32 %0, ptr %key2, align 4
-  %target = getelementptr inbounds %"class.ue2::RoseInstrCheckNotHandled", ptr %this, i64 0, i32 2
+  %target = getelementptr inbounds i8, ptr %this, i64 16
   %1 = load ptr, ptr %target, align 8
   %call = tail call fastcc noundef i32 @_ZN3ue2L9calc_jumpERKSt13unordered_mapIPKNS_15RoseInstructionEjSt4hashIS3_ESt8equal_toIS3_ESaISt4pairIKS3_jEEES3_S3_(ptr noundef nonnull align 8 dereferenceable(56) %offset_map, ptr noundef nonnull %this, ptr noundef %1)
-  %fail_jump = getelementptr inbounds %struct.ROSE_STRUCT_CHECK_NOT_HANDLED, ptr %dest, i64 0, i32 2
+  %fail_jump = getelementptr inbounds i8, ptr %dest, i64 8
   store i32 %call, ptr %fail_jump, align 4
   ret void
 }
@@ -2785,26 +2506,26 @@ entry:
   %ref.tmp = alloca %"class.std::vector.108", align 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %dest, i8 0, i64 12, i1 false)
   store i8 7, ptr %dest, align 4
-  %offset = getelementptr inbounds %"class.ue2::RoseInstrCheckSingleLookaround", ptr %this, i64 0, i32 1
+  %offset = getelementptr inbounds i8, ptr %this, i64 8
   %0 = load i8, ptr %offset, align 8
-  %offset2 = getelementptr inbounds %struct.ROSE_STRUCT_CHECK_SINGLE_LOOKAROUND, ptr %dest, i64 0, i32 1
+  %offset2 = getelementptr inbounds i8, ptr %dest, i64 1
   store i8 %0, ptr %offset2, align 1
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %ref.tmp) #25
-  %reach = getelementptr inbounds %"class.ue2::RoseInstrCheckSingleLookaround", ptr %this, i64 0, i32 2
+  %reach = getelementptr inbounds i8, ptr %this, i64 16
   %call5.i.i.i.i5.i = tail call noalias noundef nonnull dereferenceable(32) ptr @_Znwm(i64 noundef 32) #26
   store ptr %call5.i.i.i.i5.i, ptr %ref.tmp, align 8
-  %add.ptr.i4.i = getelementptr inbounds %"class.ue2::CharReach", ptr %call5.i.i.i.i5.i, i64 1
-  %_M_end_of_storage.i.i = getelementptr inbounds %"struct.std::_Vector_base<ue2::CharReach, std::allocator<ue2::CharReach>>::_Vector_impl_data", ptr %ref.tmp, i64 0, i32 2
+  %add.ptr.i4.i = getelementptr inbounds i8, ptr %call5.i.i.i.i5.i, i64 32
+  %_M_end_of_storage.i.i = getelementptr inbounds i8, ptr %ref.tmp, i64 16
   store ptr %add.ptr.i4.i, ptr %_M_end_of_storage.i.i, align 8
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %call5.i.i.i.i5.i, ptr noundef nonnull align 8 dereferenceable(32) %reach, i64 32, i1 false)
-  %_M_finish.i.i = getelementptr inbounds %"struct.std::_Vector_base<ue2::CharReach, std::allocator<ue2::CharReach>>::_Vector_impl_data", ptr %ref.tmp, i64 0, i32 1
+  %_M_finish.i.i = getelementptr inbounds i8, ptr %ref.tmp, i64 8
   store ptr %add.ptr.i4.i, ptr %_M_finish.i.i, align 8
-  %lookaround_cache = getelementptr inbounds %"class.ue2::RoseEngineBlob", ptr %blob, i64 0, i32 1
+  %lookaround_cache = getelementptr inbounds i8, ptr %blob, i64 8
   %call = invoke noundef i32 @_ZN3ue215lookaround_info13get_offset_ofERKSt6vectorINS_9CharReachESaIS2_EERNS_14RoseEngineBlobE(ptr noundef nonnull align 8 dereferenceable(168) %lookaround_cache, ptr noundef nonnull align 8 dereferenceable(24) %ref.tmp, ptr noundef nonnull align 8 dereferenceable(256) %blob)
           to label %invoke.cont6 unwind label %lpad5
 
 invoke.cont6:                                     ; preds = %entry
-  %reach_index = getelementptr inbounds %struct.ROSE_STRUCT_CHECK_SINGLE_LOOKAROUND, ptr %dest, i64 0, i32 2
+  %reach_index = getelementptr inbounds i8, ptr %dest, i64 4
   store i32 %call, ptr %reach_index, align 4
   %1 = load ptr, ptr %ref.tmp, align 8
   %tobool.not.i.i.i20 = icmp eq ptr %1, null
@@ -2816,10 +2537,10 @@ if.then.i.i.i:                                    ; preds = %invoke.cont6
 
 _ZNSt6vectorIN3ue29CharReachESaIS1_EED2Ev.exit:   ; preds = %if.then.i.i.i, %invoke.cont6
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %ref.tmp) #25
-  %target = getelementptr inbounds %"class.ue2::RoseInstrCheckSingleLookaround", ptr %this, i64 0, i32 3
+  %target = getelementptr inbounds i8, ptr %this, i64 48
   %2 = load ptr, ptr %target, align 8
   %call10 = call fastcc noundef i32 @_ZN3ue2L9calc_jumpERKSt13unordered_mapIPKNS_15RoseInstructionEjSt4hashIS3_ESt8equal_toIS3_ESaISt4pairIKS3_jEEES3_S3_(ptr noundef nonnull align 8 dereferenceable(56) %offset_map, ptr noundef nonnull %this, ptr noundef %2)
-  %fail_jump = getelementptr inbounds %struct.ROSE_STRUCT_CHECK_SINGLE_LOOKAROUND, ptr %dest, i64 0, i32 3
+  %fail_jump = getelementptr inbounds i8, ptr %dest, i64 8
   store i32 %call10, ptr %fail_jump, align 4
   ret void
 
@@ -2857,22 +2578,22 @@ entry:
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %look_offsets, i8 0, i64 24, i1 false)
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %reaches) #25
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %reaches, i8 0, i64 24, i1 false)
-  %look = getelementptr inbounds %"class.ue2::RoseInstrCheckLookaround", ptr %this, i64 0, i32 1
+  %look = getelementptr inbounds i8, ptr %this, i64 8
   %0 = load ptr, ptr %look, align 8
-  %_M_finish.i = getelementptr inbounds %"class.ue2::RoseInstrCheckLookaround", ptr %this, i64 0, i32 1, i32 0, i32 0, i32 0, i32 1
+  %_M_finish.i = getelementptr inbounds i8, ptr %this, i64 16
   %1 = load ptr, ptr %_M_finish.i, align 8
   %cmp.i.not69 = icmp eq ptr %0, %1
   br i1 %cmp.i.not69, label %for.cond.cleanup, label %for.body.lr.ph
 
 for.body.lr.ph:                                   ; preds = %entry
-  %_M_finish.i37 = getelementptr inbounds %"struct.std::_Vector_base<signed char, std::allocator<signed char>>::_Vector_impl_data", ptr %look_offsets, i64 0, i32 1
-  %_M_end_of_storage.i = getelementptr inbounds %"struct.std::_Vector_base<signed char, std::allocator<signed char>>::_Vector_impl_data", ptr %look_offsets, i64 0, i32 2
-  %_M_finish.i39 = getelementptr inbounds %"struct.std::_Vector_base<ue2::CharReach, std::allocator<ue2::CharReach>>::_Vector_impl_data", ptr %reaches, i64 0, i32 1
-  %_M_end_of_storage.i40 = getelementptr inbounds %"struct.std::_Vector_base<ue2::CharReach, std::allocator<ue2::CharReach>>::_Vector_impl_data", ptr %reaches, i64 0, i32 2
+  %_M_finish.i37 = getelementptr inbounds i8, ptr %look_offsets, i64 8
+  %_M_end_of_storage.i = getelementptr inbounds i8, ptr %look_offsets, i64 16
+  %_M_finish.i39 = getelementptr inbounds i8, ptr %reaches, i64 8
+  %_M_end_of_storage.i40 = getelementptr inbounds i8, ptr %reaches, i64 16
   br label %for.body
 
 for.cond.cleanup:                                 ; preds = %invoke.cont6, %entry
-  %lookaround_cache = getelementptr inbounds %"class.ue2::RoseEngineBlob", ptr %blob, i64 0, i32 1
+  %lookaround_cache = getelementptr inbounds i8, ptr %blob, i64 8
   %call10 = invoke noundef i32 @_ZN3ue215lookaround_info13get_offset_ofERKSt6vectorIaSaIaEERNS_14RoseEngineBlobE(ptr noundef nonnull align 8 dereferenceable(168) %lookaround_cache, ptr noundef nonnull align 8 dereferenceable(24) %look_offsets, ptr noundef nonnull align 8 dereferenceable(256) %blob)
           to label %invoke.cont9 unwind label %lpad8
 
@@ -2955,13 +2676,13 @@ invoke.cont:                                      ; preds = %_ZNSt6vectorIaSaIaE
   %11 = phi ptr [ %2, %_ZNSt6vectorIaSaIaEE17_M_realloc_insertIJRKaEEEvN9__gnu_cxx17__normal_iteratorIPaS1_EEDpOT_.exit.i ], [ %.pre71, %if.then.i ]
   %12 = phi ptr [ %3, %_ZNSt6vectorIaSaIaEE17_M_realloc_insertIJRKaEEEvN9__gnu_cxx17__normal_iteratorIPaS1_EEDpOT_.exit.i ], [ %.pre, %if.then.i ]
   %13 = phi ptr [ %incdec.ptr.i.i, %_ZNSt6vectorIaSaIaEE17_M_realloc_insertIJRKaEEEvN9__gnu_cxx17__normal_iteratorIPaS1_EEDpOT_.exit.i ], [ %incdec.ptr.i, %if.then.i ]
-  %reach = getelementptr inbounds %"struct.ue2::LookEntry", ptr %__begin1.sroa.0.070, i64 0, i32 1
+  %reach = getelementptr inbounds i8, ptr %__begin1.sroa.0.070, i64 8
   %cmp.not.i41 = icmp eq ptr %12, %11
   br i1 %cmp.not.i41, label %if.else.i44, label %if.then.i42
 
 if.then.i42:                                      ; preds = %invoke.cont
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %12, ptr noundef nonnull align 8 dereferenceable(32) %reach, i64 32, i1 false)
-  %incdec.ptr.i43 = getelementptr inbounds %"class.ue2::CharReach", ptr %12, i64 1
+  %incdec.ptr.i43 = getelementptr inbounds i8, ptr %12, i64 32
   store ptr %incdec.ptr.i43, ptr %_M_finish.i39, align 8
   br label %invoke.cont6
 
@@ -2999,14 +2720,14 @@ for.body.i.i.i.i.i:                               ; preds = %_ZNSt12_Vector_base
   %__cur.08.i.i.i.i.i = phi ptr [ %incdec.ptr1.i.i.i.i.i, %for.body.i.i.i.i.i ], [ %cond.i31.i, %_ZNSt12_Vector_baseIN3ue29CharReachESaIS1_EE11_M_allocateEm.exit.i ]
   %__first.addr.07.i.i.i.i.i = phi ptr [ %incdec.ptr.i.i.i.i.i, %for.body.i.i.i.i.i ], [ %14, %_ZNSt12_Vector_baseIN3ue29CharReachESaIS1_EE11_M_allocateEm.exit.i ]
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %__cur.08.i.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(32) %__first.addr.07.i.i.i.i.i, i64 32, i1 false), !alias.scope !8
-  %incdec.ptr.i.i.i.i.i = getelementptr inbounds %"class.ue2::CharReach", ptr %__first.addr.07.i.i.i.i.i, i64 1
-  %incdec.ptr1.i.i.i.i.i = getelementptr inbounds %"class.ue2::CharReach", ptr %__cur.08.i.i.i.i.i, i64 1
+  %incdec.ptr.i.i.i.i.i = getelementptr inbounds i8, ptr %__first.addr.07.i.i.i.i.i, i64 32
+  %incdec.ptr1.i.i.i.i.i = getelementptr inbounds i8, ptr %__cur.08.i.i.i.i.i, i64 32
   %cmp.not.i.i.i.i.i = icmp eq ptr %incdec.ptr.i.i.i.i.i, %11
   br i1 %cmp.not.i.i.i.i.i, label %_ZNSt6vectorIN3ue29CharReachESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit40.i, label %for.body.i.i.i.i.i, !llvm.loop !12
 
 _ZNSt6vectorIN3ue29CharReachESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit40.i: ; preds = %for.body.i.i.i.i.i, %_ZNSt12_Vector_baseIN3ue29CharReachESaIS1_EE11_M_allocateEm.exit.i
   %__cur.0.lcssa.i.i.i.i.i = phi ptr [ %cond.i31.i, %_ZNSt12_Vector_baseIN3ue29CharReachESaIS1_EE11_M_allocateEm.exit.i ], [ %incdec.ptr1.i.i.i.i.i, %for.body.i.i.i.i.i ]
-  %incdec.ptr.i60 = getelementptr %"class.ue2::CharReach", ptr %__cur.0.lcssa.i.i.i.i.i, i64 1
+  %incdec.ptr.i60 = getelementptr i8, ptr %__cur.0.lcssa.i.i.i.i.i, i64 32
   %tobool.not.i.i = icmp eq ptr %14, null
   br i1 %tobool.not.i.i, label %.noexc45, label %if.then.i41.i
 
@@ -3024,7 +2745,7 @@ if.then.i41.i:                                    ; preds = %_ZNSt6vectorIN3ue29
 invoke.cont6:                                     ; preds = %.noexc45, %if.then.i42
   %16 = phi ptr [ %add.ptr19.i, %.noexc45 ], [ %11, %if.then.i42 ]
   %17 = phi ptr [ %incdec.ptr.i60, %.noexc45 ], [ %incdec.ptr.i43, %if.then.i42 ]
-  %incdec.ptr.i46 = getelementptr inbounds %"struct.ue2::LookEntry", ptr %__begin1.sroa.0.070, i64 1
+  %incdec.ptr.i46 = getelementptr inbounds i8, ptr %__begin1.sroa.0.070, i64 40
   %cmp.i.not = icmp eq ptr %incdec.ptr.i46, %1
   br i1 %cmp.i.not, label %for.cond.cleanup, label %for.body
 
@@ -3039,13 +2760,13 @@ lpad.loopexit.split-lp:                           ; preds = %if.then.i.i.i.invok
   br label %ehcleanup
 
 invoke.cont9:                                     ; preds = %for.cond.cleanup
-  %look_index = getelementptr inbounds %struct.ROSE_STRUCT_CHECK_LOOKAROUND, ptr %dest, i64 0, i32 1
+  %look_index = getelementptr inbounds i8, ptr %dest, i64 4
   store i32 %call10, ptr %look_index, align 4
   %call13 = invoke noundef i32 @_ZN3ue215lookaround_info13get_offset_ofERKSt6vectorINS_9CharReachESaIS2_EERNS_14RoseEngineBlobE(ptr noundef nonnull align 8 dereferenceable(168) %lookaround_cache, ptr noundef nonnull align 8 dereferenceable(24) %reaches, ptr noundef nonnull align 8 dereferenceable(256) %blob)
           to label %invoke.cont12 unwind label %lpad8
 
 invoke.cont12:                                    ; preds = %invoke.cont9
-  %reach_index = getelementptr inbounds %struct.ROSE_STRUCT_CHECK_LOOKAROUND, ptr %dest, i64 0, i32 2
+  %reach_index = getelementptr inbounds i8, ptr %dest, i64 8
   store i32 %call13, ptr %reach_index, align 4
   %18 = load ptr, ptr %_M_finish.i, align 8
   %19 = load ptr, ptr %look, align 8
@@ -3076,15 +2797,15 @@ lpad.i.i:                                         ; preds = %if.then.i.i
 
 invoke.cont16:                                    ; preds = %invoke.cont12
   %conv.i.i = trunc i64 %sub.ptr.div.i to i32
-  %count = getelementptr inbounds %struct.ROSE_STRUCT_CHECK_LOOKAROUND, ptr %dest, i64 0, i32 3
+  %count = getelementptr inbounds i8, ptr %dest, i64 12
   store i32 %conv.i.i, ptr %count, align 4
-  %target = getelementptr inbounds %"class.ue2::RoseInstrCheckLookaround", ptr %this, i64 0, i32 2
+  %target = getelementptr inbounds i8, ptr %this, i64 32
   %21 = load ptr, ptr %target, align 8
   %call19 = invoke fastcc noundef i32 @_ZN3ue2L9calc_jumpERKSt13unordered_mapIPKNS_15RoseInstructionEjSt4hashIS3_ESt8equal_toIS3_ESaISt4pairIKS3_jEEES3_S3_(ptr noundef nonnull align 8 dereferenceable(56) %offset_map, ptr noundef nonnull %this, ptr noundef %21)
           to label %invoke.cont18 unwind label %lpad8
 
 invoke.cont18:                                    ; preds = %invoke.cont16
-  %fail_jump = getelementptr inbounds %struct.ROSE_STRUCT_CHECK_LOOKAROUND, ptr %dest, i64 0, i32 4
+  %fail_jump = getelementptr inbounds i8, ptr %dest, i64 16
   store i32 %call19, ptr %fail_jump, align 4
   %22 = load ptr, ptr %reaches, align 8
   %tobool.not.i.i.i49 = icmp eq ptr %22, null
@@ -3145,26 +2866,26 @@ define hidden void @_ZNK3ue218RoseInstrCheckMask5writeEPvRNS_14RoseEngineBlobERK
 entry:
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %dest, i8 0, i64 40, i1 false)
   store i8 9, ptr %dest, align 8
-  %and_mask = getelementptr inbounds %"class.ue2::RoseInstrCheckMask", ptr %this, i64 0, i32 1
+  %and_mask = getelementptr inbounds i8, ptr %this, i64 8
   %0 = load i64, ptr %and_mask, align 8
-  %and_mask2 = getelementptr inbounds %struct.ROSE_STRUCT_CHECK_MASK, ptr %dest, i64 0, i32 1
+  %and_mask2 = getelementptr inbounds i8, ptr %dest, i64 8
   store i64 %0, ptr %and_mask2, align 8
-  %cmp_mask = getelementptr inbounds %"class.ue2::RoseInstrCheckMask", ptr %this, i64 0, i32 2
+  %cmp_mask = getelementptr inbounds i8, ptr %this, i64 16
   %1 = load i64, ptr %cmp_mask, align 8
-  %cmp_mask3 = getelementptr inbounds %struct.ROSE_STRUCT_CHECK_MASK, ptr %dest, i64 0, i32 2
+  %cmp_mask3 = getelementptr inbounds i8, ptr %dest, i64 16
   store i64 %1, ptr %cmp_mask3, align 8
-  %neg_mask = getelementptr inbounds %"class.ue2::RoseInstrCheckMask", ptr %this, i64 0, i32 3
+  %neg_mask = getelementptr inbounds i8, ptr %this, i64 24
   %2 = load i64, ptr %neg_mask, align 8
-  %neg_mask4 = getelementptr inbounds %struct.ROSE_STRUCT_CHECK_MASK, ptr %dest, i64 0, i32 3
+  %neg_mask4 = getelementptr inbounds i8, ptr %dest, i64 24
   store i64 %2, ptr %neg_mask4, align 8
-  %offset = getelementptr inbounds %"class.ue2::RoseInstrCheckMask", ptr %this, i64 0, i32 4
+  %offset = getelementptr inbounds i8, ptr %this, i64 32
   %3 = load i32, ptr %offset, align 8
-  %offset5 = getelementptr inbounds %struct.ROSE_STRUCT_CHECK_MASK, ptr %dest, i64 0, i32 4
+  %offset5 = getelementptr inbounds i8, ptr %dest, i64 32
   store i32 %3, ptr %offset5, align 8
-  %target = getelementptr inbounds %"class.ue2::RoseInstrCheckMask", ptr %this, i64 0, i32 5
+  %target = getelementptr inbounds i8, ptr %this, i64 40
   %4 = load ptr, ptr %target, align 8
   %call = tail call fastcc noundef i32 @_ZN3ue2L9calc_jumpERKSt13unordered_mapIPKNS_15RoseInstructionEjSt4hashIS3_ESt8equal_toIS3_ESaISt4pairIKS3_jEEES3_S3_(ptr noundef nonnull align 8 dereferenceable(56) %offset_map, ptr noundef nonnull %this, ptr noundef %4)
-  %fail_jump = getelementptr inbounds %struct.ROSE_STRUCT_CHECK_MASK, ptr %dest, i64 0, i32 5
+  %fail_jump = getelementptr inbounds i8, ptr %dest, i64 36
   store i32 %call, ptr %fail_jump, align 4
   ret void
 }
@@ -3174,24 +2895,24 @@ define hidden void @_ZNK3ue220RoseInstrCheckMask325writeEPvRNS_14RoseEngineBlobE
 entry:
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(80) %dest, i8 0, i64 80, i1 false)
   store i8 10, ptr %dest, align 4
-  %and_mask = getelementptr inbounds %"class.ue2::RoseInstrCheckMask32", ptr %this, i64 0, i32 1
-  %and_mask4 = getelementptr inbounds %struct.ROSE_STRUCT_CHECK_MASK_32, ptr %dest, i64 0, i32 1
+  %and_mask = getelementptr inbounds i8, ptr %this, i64 8
+  %and_mask4 = getelementptr inbounds i8, ptr %dest, i64 1
   tail call void @llvm.memmove.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(32) %and_mask4, ptr noundef nonnull align 8 dereferenceable(32) %and_mask, i64 32, i1 false)
-  %cmp_mask = getelementptr inbounds %"class.ue2::RoseInstrCheckMask32", ptr %this, i64 0, i32 2
-  %cmp_mask9 = getelementptr inbounds %struct.ROSE_STRUCT_CHECK_MASK_32, ptr %dest, i64 0, i32 2
+  %cmp_mask = getelementptr inbounds i8, ptr %this, i64 40
+  %cmp_mask9 = getelementptr inbounds i8, ptr %dest, i64 33
   tail call void @llvm.memmove.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(32) %cmp_mask9, ptr noundef nonnull align 8 dereferenceable(32) %cmp_mask, i64 32, i1 false)
-  %neg_mask = getelementptr inbounds %"class.ue2::RoseInstrCheckMask32", ptr %this, i64 0, i32 3
+  %neg_mask = getelementptr inbounds i8, ptr %this, i64 72
   %0 = load i32, ptr %neg_mask, align 8
-  %neg_mask12 = getelementptr inbounds %struct.ROSE_STRUCT_CHECK_MASK_32, ptr %dest, i64 0, i32 3
+  %neg_mask12 = getelementptr inbounds i8, ptr %dest, i64 68
   store i32 %0, ptr %neg_mask12, align 4
-  %offset = getelementptr inbounds %"class.ue2::RoseInstrCheckMask32", ptr %this, i64 0, i32 4
+  %offset = getelementptr inbounds i8, ptr %this, i64 76
   %1 = load i32, ptr %offset, align 4
-  %offset13 = getelementptr inbounds %struct.ROSE_STRUCT_CHECK_MASK_32, ptr %dest, i64 0, i32 4
+  %offset13 = getelementptr inbounds i8, ptr %dest, i64 72
   store i32 %1, ptr %offset13, align 4
-  %target = getelementptr inbounds %"class.ue2::RoseInstrCheckMask32", ptr %this, i64 0, i32 5
+  %target = getelementptr inbounds i8, ptr %this, i64 80
   %2 = load ptr, ptr %target, align 8
   %call14 = tail call fastcc noundef i32 @_ZN3ue2L9calc_jumpERKSt13unordered_mapIPKNS_15RoseInstructionEjSt4hashIS3_ESt8equal_toIS3_ESaISt4pairIKS3_jEEES3_S3_(ptr noundef nonnull align 8 dereferenceable(56) %offset_map, ptr noundef nonnull %this, ptr noundef %2)
-  %fail_jump = getelementptr inbounds %struct.ROSE_STRUCT_CHECK_MASK_32, ptr %dest, i64 0, i32 5
+  %fail_jump = getelementptr inbounds i8, ptr %dest, i64 76
   store i32 %call14, ptr %fail_jump, align 4
   ret void
 }
@@ -3201,24 +2922,24 @@ define hidden void @_ZNK3ue220RoseInstrCheckMask645writeEPvRNS_14RoseEngineBlobE
 entry:
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(152) %dest, i8 0, i64 152, i1 false)
   store i8 69, ptr %dest, align 8
-  %and_mask = getelementptr inbounds %"class.ue2::RoseInstrCheckMask64", ptr %this, i64 0, i32 1
-  %and_mask4 = getelementptr inbounds %struct.ROSE_STRUCT_CHECK_MASK_64, ptr %dest, i64 0, i32 1
+  %and_mask = getelementptr inbounds i8, ptr %this, i64 8
+  %and_mask4 = getelementptr inbounds i8, ptr %dest, i64 1
   tail call void @llvm.memmove.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(64) %and_mask4, ptr noundef nonnull align 8 dereferenceable(64) %and_mask, i64 64, i1 false)
-  %cmp_mask = getelementptr inbounds %"class.ue2::RoseInstrCheckMask64", ptr %this, i64 0, i32 2
-  %cmp_mask9 = getelementptr inbounds %struct.ROSE_STRUCT_CHECK_MASK_64, ptr %dest, i64 0, i32 2
+  %cmp_mask = getelementptr inbounds i8, ptr %this, i64 72
+  %cmp_mask9 = getelementptr inbounds i8, ptr %dest, i64 65
   tail call void @llvm.memmove.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(64) %cmp_mask9, ptr noundef nonnull align 8 dereferenceable(64) %cmp_mask, i64 64, i1 false)
-  %neg_mask = getelementptr inbounds %"class.ue2::RoseInstrCheckMask64", ptr %this, i64 0, i32 3
+  %neg_mask = getelementptr inbounds i8, ptr %this, i64 136
   %0 = load i64, ptr %neg_mask, align 8
-  %neg_mask12 = getelementptr inbounds %struct.ROSE_STRUCT_CHECK_MASK_64, ptr %dest, i64 0, i32 3
+  %neg_mask12 = getelementptr inbounds i8, ptr %dest, i64 136
   store i64 %0, ptr %neg_mask12, align 8
-  %offset = getelementptr inbounds %"class.ue2::RoseInstrCheckMask64", ptr %this, i64 0, i32 4
+  %offset = getelementptr inbounds i8, ptr %this, i64 144
   %1 = load i32, ptr %offset, align 8
-  %offset13 = getelementptr inbounds %struct.ROSE_STRUCT_CHECK_MASK_64, ptr %dest, i64 0, i32 4
+  %offset13 = getelementptr inbounds i8, ptr %dest, i64 144
   store i32 %1, ptr %offset13, align 8
-  %target = getelementptr inbounds %"class.ue2::RoseInstrCheckMask64", ptr %this, i64 0, i32 5
+  %target = getelementptr inbounds i8, ptr %this, i64 152
   %2 = load ptr, ptr %target, align 8
   %call14 = tail call fastcc noundef i32 @_ZN3ue2L9calc_jumpERKSt13unordered_mapIPKNS_15RoseInstructionEjSt4hashIS3_ESt8equal_toIS3_ESaISt4pairIKS3_jEEES3_S3_(ptr noundef nonnull align 8 dereferenceable(56) %offset_map, ptr noundef nonnull %this, ptr noundef %2)
-  %fail_jump = getelementptr inbounds %struct.ROSE_STRUCT_CHECK_MASK_64, ptr %dest, i64 0, i32 5
+  %fail_jump = getelementptr inbounds i8, ptr %dest, i64 148
   store i32 %call14, ptr %fail_jump, align 4
   ret void
 }
@@ -3228,26 +2949,26 @@ define hidden void @_ZNK3ue218RoseInstrCheckByte5writeEPvRNS_14RoseEngineBlobERK
 entry:
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %dest, i8 0, i64 12, i1 false)
   store i8 11, ptr %dest, align 4
-  %and_mask = getelementptr inbounds %"class.ue2::RoseInstrCheckByte", ptr %this, i64 0, i32 1
+  %and_mask = getelementptr inbounds i8, ptr %this, i64 8
   %0 = load i8, ptr %and_mask, align 8
-  %and_mask2 = getelementptr inbounds %struct.ROSE_STRUCT_CHECK_BYTE, ptr %dest, i64 0, i32 1
+  %and_mask2 = getelementptr inbounds i8, ptr %dest, i64 1
   store i8 %0, ptr %and_mask2, align 1
-  %cmp_mask = getelementptr inbounds %"class.ue2::RoseInstrCheckByte", ptr %this, i64 0, i32 2
+  %cmp_mask = getelementptr inbounds i8, ptr %this, i64 9
   %1 = load i8, ptr %cmp_mask, align 1
-  %cmp_mask3 = getelementptr inbounds %struct.ROSE_STRUCT_CHECK_BYTE, ptr %dest, i64 0, i32 2
+  %cmp_mask3 = getelementptr inbounds i8, ptr %dest, i64 2
   store i8 %1, ptr %cmp_mask3, align 2
-  %negation = getelementptr inbounds %"class.ue2::RoseInstrCheckByte", ptr %this, i64 0, i32 3
+  %negation = getelementptr inbounds i8, ptr %this, i64 10
   %2 = load i8, ptr %negation, align 2
-  %negation4 = getelementptr inbounds %struct.ROSE_STRUCT_CHECK_BYTE, ptr %dest, i64 0, i32 3
+  %negation4 = getelementptr inbounds i8, ptr %dest, i64 3
   store i8 %2, ptr %negation4, align 1
-  %offset = getelementptr inbounds %"class.ue2::RoseInstrCheckByte", ptr %this, i64 0, i32 4
+  %offset = getelementptr inbounds i8, ptr %this, i64 12
   %3 = load i32, ptr %offset, align 4
-  %offset5 = getelementptr inbounds %struct.ROSE_STRUCT_CHECK_BYTE, ptr %dest, i64 0, i32 4
+  %offset5 = getelementptr inbounds i8, ptr %dest, i64 4
   store i32 %3, ptr %offset5, align 4
-  %target = getelementptr inbounds %"class.ue2::RoseInstrCheckByte", ptr %this, i64 0, i32 5
+  %target = getelementptr inbounds i8, ptr %this, i64 16
   %4 = load ptr, ptr %target, align 8
   %call = tail call fastcc noundef i32 @_ZN3ue2L9calc_jumpERKSt13unordered_mapIPKNS_15RoseInstructionEjSt4hashIS3_ESt8equal_toIS3_ESaISt4pairIKS3_jEEES3_S3_(ptr noundef nonnull align 8 dereferenceable(56) %offset_map, ptr noundef nonnull %this, ptr noundef %4)
-  %fail_jump = getelementptr inbounds %struct.ROSE_STRUCT_CHECK_BYTE, ptr %dest, i64 0, i32 5
+  %fail_jump = getelementptr inbounds i8, ptr %dest, i64 8
   store i32 %call, ptr %fail_jump, align 4
   ret void
 }
@@ -3257,24 +2978,24 @@ define hidden void @_ZNK3ue224RoseInstrCheckShufti16x85writeEPvRNS_14RoseEngineB
 entry:
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(64) %dest, i8 0, i64 64, i1 false)
   store i8 12, ptr %dest, align 4
-  %nib_mask = getelementptr inbounds %"class.ue2::RoseInstrCheckShufti16x8", ptr %this, i64 0, i32 1
-  %nib_mask4 = getelementptr inbounds %struct.ROSE_STRUCT_CHECK_SHUFTI_16x8, ptr %dest, i64 0, i32 1
+  %nib_mask = getelementptr inbounds i8, ptr %this, i64 8
+  %nib_mask4 = getelementptr inbounds i8, ptr %dest, i64 1
   tail call void @llvm.memmove.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(32) %nib_mask4, ptr noundef nonnull align 8 dereferenceable(32) %nib_mask, i64 32, i1 false)
-  %bucket_select_mask = getelementptr inbounds %"class.ue2::RoseInstrCheckShufti16x8", ptr %this, i64 0, i32 2
-  %bucket_select_mask9 = getelementptr inbounds %struct.ROSE_STRUCT_CHECK_SHUFTI_16x8, ptr %dest, i64 0, i32 2
+  %bucket_select_mask = getelementptr inbounds i8, ptr %this, i64 40
+  %bucket_select_mask9 = getelementptr inbounds i8, ptr %dest, i64 33
   tail call void @llvm.memmove.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(16) %bucket_select_mask9, ptr noundef nonnull align 8 dereferenceable(16) %bucket_select_mask, i64 16, i1 false)
-  %neg_mask = getelementptr inbounds %"class.ue2::RoseInstrCheckShufti16x8", ptr %this, i64 0, i32 3
+  %neg_mask = getelementptr inbounds i8, ptr %this, i64 56
   %0 = load i32, ptr %neg_mask, align 8
-  %neg_mask12 = getelementptr inbounds %struct.ROSE_STRUCT_CHECK_SHUFTI_16x8, ptr %dest, i64 0, i32 3
+  %neg_mask12 = getelementptr inbounds i8, ptr %dest, i64 52
   store i32 %0, ptr %neg_mask12, align 4
-  %offset = getelementptr inbounds %"class.ue2::RoseInstrCheckShufti16x8", ptr %this, i64 0, i32 4
+  %offset = getelementptr inbounds i8, ptr %this, i64 60
   %1 = load i32, ptr %offset, align 4
-  %offset13 = getelementptr inbounds %struct.ROSE_STRUCT_CHECK_SHUFTI_16x8, ptr %dest, i64 0, i32 4
+  %offset13 = getelementptr inbounds i8, ptr %dest, i64 56
   store i32 %1, ptr %offset13, align 4
-  %target = getelementptr inbounds %"class.ue2::RoseInstrCheckShufti16x8", ptr %this, i64 0, i32 5
+  %target = getelementptr inbounds i8, ptr %this, i64 64
   %2 = load ptr, ptr %target, align 8
   %call14 = tail call fastcc noundef i32 @_ZN3ue2L9calc_jumpERKSt13unordered_mapIPKNS_15RoseInstructionEjSt4hashIS3_ESt8equal_toIS3_ESaISt4pairIKS3_jEEES3_S3_(ptr noundef nonnull align 8 dereferenceable(56) %offset_map, ptr noundef nonnull %this, ptr noundef %2)
-  %fail_jump = getelementptr inbounds %struct.ROSE_STRUCT_CHECK_SHUFTI_16x8, ptr %dest, i64 0, i32 5
+  %fail_jump = getelementptr inbounds i8, ptr %dest, i64 60
   store i32 %call14, ptr %fail_jump, align 4
   ret void
 }
@@ -3284,27 +3005,27 @@ define hidden void @_ZNK3ue224RoseInstrCheckShufti32x85writeEPvRNS_14RoseEngineB
 entry:
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(80) %dest, i8 0, i64 80, i1 false)
   store i8 13, ptr %dest, align 4
-  %hi_mask = getelementptr inbounds %"class.ue2::RoseInstrCheckShufti32x8", ptr %this, i64 0, i32 1
-  %hi_mask4 = getelementptr inbounds %struct.ROSE_STRUCT_CHECK_SHUFTI_32x8, ptr %dest, i64 0, i32 1
+  %hi_mask = getelementptr inbounds i8, ptr %this, i64 8
+  %hi_mask4 = getelementptr inbounds i8, ptr %dest, i64 1
   tail call void @llvm.memmove.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(16) %hi_mask4, ptr noundef nonnull align 8 dereferenceable(16) %hi_mask, i64 16, i1 false)
-  %lo_mask = getelementptr inbounds %"class.ue2::RoseInstrCheckShufti32x8", ptr %this, i64 0, i32 2
-  %lo_mask9 = getelementptr inbounds %struct.ROSE_STRUCT_CHECK_SHUFTI_32x8, ptr %dest, i64 0, i32 2
+  %lo_mask = getelementptr inbounds i8, ptr %this, i64 24
+  %lo_mask9 = getelementptr inbounds i8, ptr %dest, i64 17
   tail call void @llvm.memmove.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(16) %lo_mask9, ptr noundef nonnull align 8 dereferenceable(16) %lo_mask, i64 16, i1 false)
-  %bucket_select_mask = getelementptr inbounds %"class.ue2::RoseInstrCheckShufti32x8", ptr %this, i64 0, i32 3
-  %bucket_select_mask15 = getelementptr inbounds %struct.ROSE_STRUCT_CHECK_SHUFTI_32x8, ptr %dest, i64 0, i32 3
+  %bucket_select_mask = getelementptr inbounds i8, ptr %this, i64 40
+  %bucket_select_mask15 = getelementptr inbounds i8, ptr %dest, i64 33
   tail call void @llvm.memmove.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(32) %bucket_select_mask15, ptr noundef nonnull align 8 dereferenceable(32) %bucket_select_mask, i64 32, i1 false)
-  %neg_mask = getelementptr inbounds %"class.ue2::RoseInstrCheckShufti32x8", ptr %this, i64 0, i32 4
+  %neg_mask = getelementptr inbounds i8, ptr %this, i64 72
   %0 = load i32, ptr %neg_mask, align 8
-  %neg_mask18 = getelementptr inbounds %struct.ROSE_STRUCT_CHECK_SHUFTI_32x8, ptr %dest, i64 0, i32 4
+  %neg_mask18 = getelementptr inbounds i8, ptr %dest, i64 68
   store i32 %0, ptr %neg_mask18, align 4
-  %offset = getelementptr inbounds %"class.ue2::RoseInstrCheckShufti32x8", ptr %this, i64 0, i32 5
+  %offset = getelementptr inbounds i8, ptr %this, i64 76
   %1 = load i32, ptr %offset, align 4
-  %offset19 = getelementptr inbounds %struct.ROSE_STRUCT_CHECK_SHUFTI_32x8, ptr %dest, i64 0, i32 5
+  %offset19 = getelementptr inbounds i8, ptr %dest, i64 72
   store i32 %1, ptr %offset19, align 4
-  %target = getelementptr inbounds %"class.ue2::RoseInstrCheckShufti32x8", ptr %this, i64 0, i32 6
+  %target = getelementptr inbounds i8, ptr %this, i64 80
   %2 = load ptr, ptr %target, align 8
   %call20 = tail call fastcc noundef i32 @_ZN3ue2L9calc_jumpERKSt13unordered_mapIPKNS_15RoseInstructionEjSt4hashIS3_ESt8equal_toIS3_ESaISt4pairIKS3_jEEES3_S3_(ptr noundef nonnull align 8 dereferenceable(56) %offset_map, ptr noundef nonnull %this, ptr noundef %2)
-  %fail_jump = getelementptr inbounds %struct.ROSE_STRUCT_CHECK_SHUFTI_32x8, ptr %dest, i64 0, i32 6
+  %fail_jump = getelementptr inbounds i8, ptr %dest, i64 76
   store i32 %call20, ptr %fail_jump, align 4
   ret void
 }
@@ -3314,27 +3035,27 @@ define hidden void @_ZNK3ue225RoseInstrCheckShufti16x165writeEPvRNS_14RoseEngine
 entry:
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(112) %dest, i8 0, i64 112, i1 false)
   store i8 14, ptr %dest, align 4
-  %hi_mask = getelementptr inbounds %"class.ue2::RoseInstrCheckShufti16x16", ptr %this, i64 0, i32 1
-  %hi_mask4 = getelementptr inbounds %struct.ROSE_STRUCT_CHECK_SHUFTI_16x16, ptr %dest, i64 0, i32 1
+  %hi_mask = getelementptr inbounds i8, ptr %this, i64 8
+  %hi_mask4 = getelementptr inbounds i8, ptr %dest, i64 1
   tail call void @llvm.memmove.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(32) %hi_mask4, ptr noundef nonnull align 8 dereferenceable(32) %hi_mask, i64 32, i1 false)
-  %lo_mask = getelementptr inbounds %"class.ue2::RoseInstrCheckShufti16x16", ptr %this, i64 0, i32 2
-  %lo_mask9 = getelementptr inbounds %struct.ROSE_STRUCT_CHECK_SHUFTI_16x16, ptr %dest, i64 0, i32 2
+  %lo_mask = getelementptr inbounds i8, ptr %this, i64 40
+  %lo_mask9 = getelementptr inbounds i8, ptr %dest, i64 33
   tail call void @llvm.memmove.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(32) %lo_mask9, ptr noundef nonnull align 8 dereferenceable(32) %lo_mask, i64 32, i1 false)
-  %bucket_select_mask = getelementptr inbounds %"class.ue2::RoseInstrCheckShufti16x16", ptr %this, i64 0, i32 3
-  %bucket_select_mask15 = getelementptr inbounds %struct.ROSE_STRUCT_CHECK_SHUFTI_16x16, ptr %dest, i64 0, i32 3
+  %bucket_select_mask = getelementptr inbounds i8, ptr %this, i64 72
+  %bucket_select_mask15 = getelementptr inbounds i8, ptr %dest, i64 65
   tail call void @llvm.memmove.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(32) %bucket_select_mask15, ptr noundef nonnull align 8 dereferenceable(32) %bucket_select_mask, i64 32, i1 false)
-  %neg_mask = getelementptr inbounds %"class.ue2::RoseInstrCheckShufti16x16", ptr %this, i64 0, i32 4
+  %neg_mask = getelementptr inbounds i8, ptr %this, i64 104
   %0 = load i32, ptr %neg_mask, align 8
-  %neg_mask18 = getelementptr inbounds %struct.ROSE_STRUCT_CHECK_SHUFTI_16x16, ptr %dest, i64 0, i32 4
+  %neg_mask18 = getelementptr inbounds i8, ptr %dest, i64 100
   store i32 %0, ptr %neg_mask18, align 4
-  %offset = getelementptr inbounds %"class.ue2::RoseInstrCheckShufti16x16", ptr %this, i64 0, i32 5
+  %offset = getelementptr inbounds i8, ptr %this, i64 108
   %1 = load i32, ptr %offset, align 4
-  %offset19 = getelementptr inbounds %struct.ROSE_STRUCT_CHECK_SHUFTI_16x16, ptr %dest, i64 0, i32 5
+  %offset19 = getelementptr inbounds i8, ptr %dest, i64 104
   store i32 %1, ptr %offset19, align 4
-  %target = getelementptr inbounds %"class.ue2::RoseInstrCheckShufti16x16", ptr %this, i64 0, i32 6
+  %target = getelementptr inbounds i8, ptr %this, i64 112
   %2 = load ptr, ptr %target, align 8
   %call20 = tail call fastcc noundef i32 @_ZN3ue2L9calc_jumpERKSt13unordered_mapIPKNS_15RoseInstructionEjSt4hashIS3_ESt8equal_toIS3_ESaISt4pairIKS3_jEEES3_S3_(ptr noundef nonnull align 8 dereferenceable(56) %offset_map, ptr noundef nonnull %this, ptr noundef %2)
-  %fail_jump = getelementptr inbounds %struct.ROSE_STRUCT_CHECK_SHUFTI_16x16, ptr %dest, i64 0, i32 6
+  %fail_jump = getelementptr inbounds i8, ptr %dest, i64 108
   store i32 %call20, ptr %fail_jump, align 4
   ret void
 }
@@ -3344,30 +3065,30 @@ define hidden void @_ZNK3ue225RoseInstrCheckShufti32x165writeEPvRNS_14RoseEngine
 entry:
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(144) %dest, i8 0, i64 144, i1 false)
   store i8 15, ptr %dest, align 4
-  %hi_mask = getelementptr inbounds %"class.ue2::RoseInstrCheckShufti32x16", ptr %this, i64 0, i32 1
-  %hi_mask4 = getelementptr inbounds %struct.ROSE_STRUCT_CHECK_SHUFTI_32x16, ptr %dest, i64 0, i32 1
+  %hi_mask = getelementptr inbounds i8, ptr %this, i64 8
+  %hi_mask4 = getelementptr inbounds i8, ptr %dest, i64 1
   tail call void @llvm.memmove.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(32) %hi_mask4, ptr noundef nonnull align 8 dereferenceable(32) %hi_mask, i64 32, i1 false)
-  %lo_mask = getelementptr inbounds %"class.ue2::RoseInstrCheckShufti32x16", ptr %this, i64 0, i32 2
-  %lo_mask9 = getelementptr inbounds %struct.ROSE_STRUCT_CHECK_SHUFTI_32x16, ptr %dest, i64 0, i32 2
+  %lo_mask = getelementptr inbounds i8, ptr %this, i64 40
+  %lo_mask9 = getelementptr inbounds i8, ptr %dest, i64 33
   tail call void @llvm.memmove.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(32) %lo_mask9, ptr noundef nonnull align 8 dereferenceable(32) %lo_mask, i64 32, i1 false)
-  %bucket_select_mask_hi = getelementptr inbounds %"class.ue2::RoseInstrCheckShufti32x16", ptr %this, i64 0, i32 3
-  %bucket_select_mask_hi15 = getelementptr inbounds %struct.ROSE_STRUCT_CHECK_SHUFTI_32x16, ptr %dest, i64 0, i32 3
+  %bucket_select_mask_hi = getelementptr inbounds i8, ptr %this, i64 72
+  %bucket_select_mask_hi15 = getelementptr inbounds i8, ptr %dest, i64 65
   tail call void @llvm.memmove.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(32) %bucket_select_mask_hi15, ptr noundef nonnull align 8 dereferenceable(32) %bucket_select_mask_hi, i64 32, i1 false)
-  %bucket_select_mask_lo = getelementptr inbounds %"class.ue2::RoseInstrCheckShufti32x16", ptr %this, i64 0, i32 4
-  %bucket_select_mask_lo21 = getelementptr inbounds %struct.ROSE_STRUCT_CHECK_SHUFTI_32x16, ptr %dest, i64 0, i32 4
+  %bucket_select_mask_lo = getelementptr inbounds i8, ptr %this, i64 104
+  %bucket_select_mask_lo21 = getelementptr inbounds i8, ptr %dest, i64 97
   tail call void @llvm.memmove.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(32) %bucket_select_mask_lo21, ptr noundef nonnull align 8 dereferenceable(32) %bucket_select_mask_lo, i64 32, i1 false)
-  %neg_mask = getelementptr inbounds %"class.ue2::RoseInstrCheckShufti32x16", ptr %this, i64 0, i32 5
+  %neg_mask = getelementptr inbounds i8, ptr %this, i64 136
   %0 = load i32, ptr %neg_mask, align 8
-  %neg_mask24 = getelementptr inbounds %struct.ROSE_STRUCT_CHECK_SHUFTI_32x16, ptr %dest, i64 0, i32 5
+  %neg_mask24 = getelementptr inbounds i8, ptr %dest, i64 132
   store i32 %0, ptr %neg_mask24, align 4
-  %offset = getelementptr inbounds %"class.ue2::RoseInstrCheckShufti32x16", ptr %this, i64 0, i32 6
+  %offset = getelementptr inbounds i8, ptr %this, i64 140
   %1 = load i32, ptr %offset, align 4
-  %offset25 = getelementptr inbounds %struct.ROSE_STRUCT_CHECK_SHUFTI_32x16, ptr %dest, i64 0, i32 6
+  %offset25 = getelementptr inbounds i8, ptr %dest, i64 136
   store i32 %1, ptr %offset25, align 4
-  %target = getelementptr inbounds %"class.ue2::RoseInstrCheckShufti32x16", ptr %this, i64 0, i32 7
+  %target = getelementptr inbounds i8, ptr %this, i64 144
   %2 = load ptr, ptr %target, align 8
   %call26 = tail call fastcc noundef i32 @_ZN3ue2L9calc_jumpERKSt13unordered_mapIPKNS_15RoseInstructionEjSt4hashIS3_ESt8equal_toIS3_ESaISt4pairIKS3_jEEES3_S3_(ptr noundef nonnull align 8 dereferenceable(56) %offset_map, ptr noundef nonnull %this, ptr noundef %2)
-  %fail_jump = getelementptr inbounds %struct.ROSE_STRUCT_CHECK_SHUFTI_32x16, ptr %dest, i64 0, i32 7
+  %fail_jump = getelementptr inbounds i8, ptr %dest, i64 140
   store i32 %call26, ptr %fail_jump, align 4
   ret void
 }
@@ -3377,27 +3098,27 @@ define hidden void @_ZNK3ue224RoseInstrCheckShufti64x85writeEPvRNS_14RoseEngineB
 entry:
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(216) %dest, i8 0, i64 216, i1 false)
   store i8 67, ptr %dest, align 8
-  %hi_mask = getelementptr inbounds %"class.ue2::RoseInstrCheckShufti64x8", ptr %this, i64 0, i32 1
-  %hi_mask4 = getelementptr inbounds %struct.ROSE_STRUCT_CHECK_SHUFTI_64x8, ptr %dest, i64 0, i32 1
+  %hi_mask = getelementptr inbounds i8, ptr %this, i64 8
+  %hi_mask4 = getelementptr inbounds i8, ptr %dest, i64 1
   tail call void @llvm.memmove.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(64) %hi_mask4, ptr noundef nonnull align 8 dereferenceable(64) %hi_mask, i64 64, i1 false)
-  %lo_mask = getelementptr inbounds %"class.ue2::RoseInstrCheckShufti64x8", ptr %this, i64 0, i32 2
-  %lo_mask9 = getelementptr inbounds %struct.ROSE_STRUCT_CHECK_SHUFTI_64x8, ptr %dest, i64 0, i32 2
+  %lo_mask = getelementptr inbounds i8, ptr %this, i64 72
+  %lo_mask9 = getelementptr inbounds i8, ptr %dest, i64 65
   tail call void @llvm.memmove.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(64) %lo_mask9, ptr noundef nonnull align 8 dereferenceable(64) %lo_mask, i64 64, i1 false)
-  %bucket_select_mask = getelementptr inbounds %"class.ue2::RoseInstrCheckShufti64x8", ptr %this, i64 0, i32 3
-  %bucket_select_mask15 = getelementptr inbounds %struct.ROSE_STRUCT_CHECK_SHUFTI_64x8, ptr %dest, i64 0, i32 3
+  %bucket_select_mask = getelementptr inbounds i8, ptr %this, i64 136
+  %bucket_select_mask15 = getelementptr inbounds i8, ptr %dest, i64 129
   tail call void @llvm.memmove.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(64) %bucket_select_mask15, ptr noundef nonnull align 8 dereferenceable(64) %bucket_select_mask, i64 64, i1 false)
-  %neg_mask = getelementptr inbounds %"class.ue2::RoseInstrCheckShufti64x8", ptr %this, i64 0, i32 4
+  %neg_mask = getelementptr inbounds i8, ptr %this, i64 200
   %0 = load i64, ptr %neg_mask, align 8
-  %neg_mask18 = getelementptr inbounds %struct.ROSE_STRUCT_CHECK_SHUFTI_64x8, ptr %dest, i64 0, i32 4
+  %neg_mask18 = getelementptr inbounds i8, ptr %dest, i64 200
   store i64 %0, ptr %neg_mask18, align 8
-  %offset = getelementptr inbounds %"class.ue2::RoseInstrCheckShufti64x8", ptr %this, i64 0, i32 5
+  %offset = getelementptr inbounds i8, ptr %this, i64 208
   %1 = load i32, ptr %offset, align 8
-  %offset19 = getelementptr inbounds %struct.ROSE_STRUCT_CHECK_SHUFTI_64x8, ptr %dest, i64 0, i32 5
+  %offset19 = getelementptr inbounds i8, ptr %dest, i64 208
   store i32 %1, ptr %offset19, align 8
-  %target = getelementptr inbounds %"class.ue2::RoseInstrCheckShufti64x8", ptr %this, i64 0, i32 6
+  %target = getelementptr inbounds i8, ptr %this, i64 216
   %2 = load ptr, ptr %target, align 8
   %call20 = tail call fastcc noundef i32 @_ZN3ue2L9calc_jumpERKSt13unordered_mapIPKNS_15RoseInstructionEjSt4hashIS3_ESt8equal_toIS3_ESaISt4pairIKS3_jEEES3_S3_(ptr noundef nonnull align 8 dereferenceable(56) %offset_map, ptr noundef nonnull %this, ptr noundef %2)
-  %fail_jump = getelementptr inbounds %struct.ROSE_STRUCT_CHECK_SHUFTI_64x8, ptr %dest, i64 0, i32 6
+  %fail_jump = getelementptr inbounds i8, ptr %dest, i64 212
   store i32 %call20, ptr %fail_jump, align 4
   ret void
 }
@@ -3407,36 +3128,36 @@ define hidden void @_ZNK3ue225RoseInstrCheckShufti64x165writeEPvRNS_14RoseEngine
 entry:
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(408) %dest, i8 0, i64 408, i1 false)
   store i8 68, ptr %dest, align 8
-  %hi_mask_1 = getelementptr inbounds %"class.ue2::RoseInstrCheckShufti64x16", ptr %this, i64 0, i32 1
-  %hi_mask_14 = getelementptr inbounds %struct.ROSE_STRUCT_CHECK_SHUFTI_64x16, ptr %dest, i64 0, i32 1
+  %hi_mask_1 = getelementptr inbounds i8, ptr %this, i64 8
+  %hi_mask_14 = getelementptr inbounds i8, ptr %dest, i64 1
   tail call void @llvm.memmove.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(64) %hi_mask_14, ptr noundef nonnull align 8 dereferenceable(64) %hi_mask_1, i64 64, i1 false)
-  %hi_mask_2 = getelementptr inbounds %"class.ue2::RoseInstrCheckShufti64x16", ptr %this, i64 0, i32 2
-  %hi_mask_29 = getelementptr inbounds %struct.ROSE_STRUCT_CHECK_SHUFTI_64x16, ptr %dest, i64 0, i32 2
+  %hi_mask_2 = getelementptr inbounds i8, ptr %this, i64 72
+  %hi_mask_29 = getelementptr inbounds i8, ptr %dest, i64 65
   tail call void @llvm.memmove.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(64) %hi_mask_29, ptr noundef nonnull align 8 dereferenceable(64) %hi_mask_2, i64 64, i1 false)
-  %lo_mask_1 = getelementptr inbounds %"class.ue2::RoseInstrCheckShufti64x16", ptr %this, i64 0, i32 3
-  %lo_mask_115 = getelementptr inbounds %struct.ROSE_STRUCT_CHECK_SHUFTI_64x16, ptr %dest, i64 0, i32 3
+  %lo_mask_1 = getelementptr inbounds i8, ptr %this, i64 136
+  %lo_mask_115 = getelementptr inbounds i8, ptr %dest, i64 129
   tail call void @llvm.memmove.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(64) %lo_mask_115, ptr noundef nonnull align 8 dereferenceable(64) %lo_mask_1, i64 64, i1 false)
-  %lo_mask_2 = getelementptr inbounds %"class.ue2::RoseInstrCheckShufti64x16", ptr %this, i64 0, i32 4
-  %lo_mask_221 = getelementptr inbounds %struct.ROSE_STRUCT_CHECK_SHUFTI_64x16, ptr %dest, i64 0, i32 4
+  %lo_mask_2 = getelementptr inbounds i8, ptr %this, i64 200
+  %lo_mask_221 = getelementptr inbounds i8, ptr %dest, i64 193
   tail call void @llvm.memmove.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(64) %lo_mask_221, ptr noundef nonnull align 8 dereferenceable(64) %lo_mask_2, i64 64, i1 false)
-  %bucket_select_mask_hi = getelementptr inbounds %"class.ue2::RoseInstrCheckShufti64x16", ptr %this, i64 0, i32 5
-  %bucket_select_mask_hi27 = getelementptr inbounds %struct.ROSE_STRUCT_CHECK_SHUFTI_64x16, ptr %dest, i64 0, i32 5
+  %bucket_select_mask_hi = getelementptr inbounds i8, ptr %this, i64 264
+  %bucket_select_mask_hi27 = getelementptr inbounds i8, ptr %dest, i64 257
   tail call void @llvm.memmove.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(64) %bucket_select_mask_hi27, ptr noundef nonnull align 8 dereferenceable(64) %bucket_select_mask_hi, i64 64, i1 false)
-  %bucket_select_mask_lo = getelementptr inbounds %"class.ue2::RoseInstrCheckShufti64x16", ptr %this, i64 0, i32 6
-  %bucket_select_mask_lo33 = getelementptr inbounds %struct.ROSE_STRUCT_CHECK_SHUFTI_64x16, ptr %dest, i64 0, i32 6
+  %bucket_select_mask_lo = getelementptr inbounds i8, ptr %this, i64 328
+  %bucket_select_mask_lo33 = getelementptr inbounds i8, ptr %dest, i64 321
   tail call void @llvm.memmove.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(64) %bucket_select_mask_lo33, ptr noundef nonnull align 8 dereferenceable(64) %bucket_select_mask_lo, i64 64, i1 false)
-  %neg_mask = getelementptr inbounds %"class.ue2::RoseInstrCheckShufti64x16", ptr %this, i64 0, i32 7
+  %neg_mask = getelementptr inbounds i8, ptr %this, i64 392
   %0 = load i64, ptr %neg_mask, align 8
-  %neg_mask36 = getelementptr inbounds %struct.ROSE_STRUCT_CHECK_SHUFTI_64x16, ptr %dest, i64 0, i32 7
+  %neg_mask36 = getelementptr inbounds i8, ptr %dest, i64 392
   store i64 %0, ptr %neg_mask36, align 8
-  %offset = getelementptr inbounds %"class.ue2::RoseInstrCheckShufti64x16", ptr %this, i64 0, i32 8
+  %offset = getelementptr inbounds i8, ptr %this, i64 400
   %1 = load i32, ptr %offset, align 8
-  %offset37 = getelementptr inbounds %struct.ROSE_STRUCT_CHECK_SHUFTI_64x16, ptr %dest, i64 0, i32 8
+  %offset37 = getelementptr inbounds i8, ptr %dest, i64 400
   store i32 %1, ptr %offset37, align 8
-  %target = getelementptr inbounds %"class.ue2::RoseInstrCheckShufti64x16", ptr %this, i64 0, i32 9
+  %target = getelementptr inbounds i8, ptr %this, i64 408
   %2 = load ptr, ptr %target, align 8
   %call38 = tail call fastcc noundef i32 @_ZN3ue2L9calc_jumpERKSt13unordered_mapIPKNS_15RoseInstructionEjSt4hashIS3_ESt8equal_toIS3_ESaISt4pairIKS3_jEEES3_S3_(ptr noundef nonnull align 8 dereferenceable(56) %offset_map, ptr noundef nonnull %this, ptr noundef %2)
-  %fail_jump = getelementptr inbounds %struct.ROSE_STRUCT_CHECK_SHUFTI_64x16, ptr %dest, i64 0, i32 9
+  %fail_jump = getelementptr inbounds i8, ptr %dest, i64 404
   store i32 %call38, ptr %fail_jump, align 4
   ret void
 }
@@ -3446,22 +3167,22 @@ define hidden void @_ZNK3ue219RoseInstrCheckInfix5writeEPvRNS_14RoseEngineBlobER
 entry:
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(20) %dest, i8 0, i64 20, i1 false)
   store i8 16, ptr %dest, align 4
-  %queue = getelementptr inbounds %"class.ue2::RoseInstrCheckInfix", ptr %this, i64 0, i32 1
+  %queue = getelementptr inbounds i8, ptr %this, i64 8
   %0 = load i32, ptr %queue, align 8
-  %queue2 = getelementptr inbounds %struct.ROSE_STRUCT_CHECK_INFIX, ptr %dest, i64 0, i32 1
+  %queue2 = getelementptr inbounds i8, ptr %dest, i64 4
   store i32 %0, ptr %queue2, align 4
-  %lag = getelementptr inbounds %"class.ue2::RoseInstrCheckInfix", ptr %this, i64 0, i32 2
+  %lag = getelementptr inbounds i8, ptr %this, i64 12
   %1 = load i32, ptr %lag, align 4
-  %lag3 = getelementptr inbounds %struct.ROSE_STRUCT_CHECK_INFIX, ptr %dest, i64 0, i32 2
+  %lag3 = getelementptr inbounds i8, ptr %dest, i64 8
   store i32 %1, ptr %lag3, align 4
-  %report = getelementptr inbounds %"class.ue2::RoseInstrCheckInfix", ptr %this, i64 0, i32 3
+  %report = getelementptr inbounds i8, ptr %this, i64 16
   %2 = load i32, ptr %report, align 8
-  %report4 = getelementptr inbounds %struct.ROSE_STRUCT_CHECK_INFIX, ptr %dest, i64 0, i32 3
+  %report4 = getelementptr inbounds i8, ptr %dest, i64 12
   store i32 %2, ptr %report4, align 4
-  %target = getelementptr inbounds %"class.ue2::RoseInstrCheckInfix", ptr %this, i64 0, i32 4
+  %target = getelementptr inbounds i8, ptr %this, i64 24
   %3 = load ptr, ptr %target, align 8
   %call = tail call fastcc noundef i32 @_ZN3ue2L9calc_jumpERKSt13unordered_mapIPKNS_15RoseInstructionEjSt4hashIS3_ESt8equal_toIS3_ESaISt4pairIKS3_jEEES3_S3_(ptr noundef nonnull align 8 dereferenceable(56) %offset_map, ptr noundef nonnull %this, ptr noundef %3)
-  %fail_jump = getelementptr inbounds %struct.ROSE_STRUCT_CHECK_INFIX, ptr %dest, i64 0, i32 4
+  %fail_jump = getelementptr inbounds i8, ptr %dest, i64 16
   store i32 %call, ptr %fail_jump, align 4
   ret void
 }
@@ -3471,22 +3192,22 @@ define hidden void @_ZNK3ue220RoseInstrCheckPrefix5writeEPvRNS_14RoseEngineBlobE
 entry:
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(20) %dest, i8 0, i64 20, i1 false)
   store i8 17, ptr %dest, align 4
-  %queue = getelementptr inbounds %"class.ue2::RoseInstrCheckPrefix", ptr %this, i64 0, i32 1
+  %queue = getelementptr inbounds i8, ptr %this, i64 8
   %0 = load i32, ptr %queue, align 8
-  %queue2 = getelementptr inbounds %struct.ROSE_STRUCT_CHECK_PREFIX, ptr %dest, i64 0, i32 1
+  %queue2 = getelementptr inbounds i8, ptr %dest, i64 4
   store i32 %0, ptr %queue2, align 4
-  %lag = getelementptr inbounds %"class.ue2::RoseInstrCheckPrefix", ptr %this, i64 0, i32 2
+  %lag = getelementptr inbounds i8, ptr %this, i64 12
   %1 = load i32, ptr %lag, align 4
-  %lag3 = getelementptr inbounds %struct.ROSE_STRUCT_CHECK_PREFIX, ptr %dest, i64 0, i32 2
+  %lag3 = getelementptr inbounds i8, ptr %dest, i64 8
   store i32 %1, ptr %lag3, align 4
-  %report = getelementptr inbounds %"class.ue2::RoseInstrCheckPrefix", ptr %this, i64 0, i32 3
+  %report = getelementptr inbounds i8, ptr %this, i64 16
   %2 = load i32, ptr %report, align 8
-  %report4 = getelementptr inbounds %struct.ROSE_STRUCT_CHECK_PREFIX, ptr %dest, i64 0, i32 3
+  %report4 = getelementptr inbounds i8, ptr %dest, i64 12
   store i32 %2, ptr %report4, align 4
-  %target = getelementptr inbounds %"class.ue2::RoseInstrCheckPrefix", ptr %this, i64 0, i32 4
+  %target = getelementptr inbounds i8, ptr %this, i64 24
   %3 = load ptr, ptr %target, align 8
   %call = tail call fastcc noundef i32 @_ZN3ue2L9calc_jumpERKSt13unordered_mapIPKNS_15RoseInstructionEjSt4hashIS3_ESt8equal_toIS3_ESaISt4pairIKS3_jEEES3_S3_(ptr noundef nonnull align 8 dereferenceable(56) %offset_map, ptr noundef nonnull %this, ptr noundef %3)
-  %fail_jump = getelementptr inbounds %struct.ROSE_STRUCT_CHECK_PREFIX, ptr %dest, i64 0, i32 4
+  %fail_jump = getelementptr inbounds i8, ptr %dest, i64 16
   store i32 %call, ptr %fail_jump, align 4
   ret void
 }
@@ -3495,13 +3216,13 @@ entry:
 define hidden void @_ZNK3ue220RoseInstrPushDelayed5writeEPvRNS_14RoseEngineBlobERKSt13unordered_mapIPKNS_15RoseInstructionEjSt4hashIS7_ESt8equal_toIS7_ESaISt4pairIKS7_jEEE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %this, ptr nocapture noundef writeonly %dest, ptr nocapture nonnull readnone align 8 %blob, ptr nocapture nonnull readnone align 8 %offset_map) unnamed_addr #7 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store i64 18, ptr %dest, align 4
-  %delay = getelementptr inbounds %"class.ue2::RoseInstrPushDelayed", ptr %this, i64 0, i32 1
+  %delay = getelementptr inbounds i8, ptr %this, i64 8
   %0 = load i8, ptr %delay, align 8
-  %delay2 = getelementptr inbounds %struct.ROSE_STRUCT_PUSH_DELAYED, ptr %dest, i64 0, i32 1
+  %delay2 = getelementptr inbounds i8, ptr %dest, i64 1
   store i8 %0, ptr %delay2, align 1
-  %index = getelementptr inbounds %"class.ue2::RoseInstrPushDelayed", ptr %this, i64 0, i32 2
+  %index = getelementptr inbounds i8, ptr %this, i64 12
   %1 = load i32, ptr %index, align 4
-  %index3 = getelementptr inbounds %struct.ROSE_STRUCT_PUSH_DELAYED, ptr %dest, i64 0, i32 2
+  %index3 = getelementptr inbounds i8, ptr %dest, i64 4
   store i32 %1, ptr %index3, align 4
   ret void
 }
@@ -3510,9 +3231,9 @@ entry:
 define hidden void @_ZNK3ue218RoseInstrSomAdjust5writeEPvRNS_14RoseEngineBlobERKSt13unordered_mapIPKNS_15RoseInstructionEjSt4hashIS7_ESt8equal_toIS7_ESaISt4pairIKS7_jEEE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(12) %this, ptr nocapture noundef writeonly %dest, ptr nocapture nonnull readnone align 8 %blob, ptr nocapture nonnull readnone align 8 %offset_map) unnamed_addr #7 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store i64 22, ptr %dest, align 4
-  %distance = getelementptr inbounds %"class.ue2::RoseInstrSomAdjust", ptr %this, i64 0, i32 1
+  %distance = getelementptr inbounds i8, ptr %this, i64 8
   %0 = load i32, ptr %distance, align 8
-  %distance2 = getelementptr inbounds %struct.ROSE_STRUCT_SOM_ADJUST, ptr %dest, i64 0, i32 1
+  %distance2 = getelementptr inbounds i8, ptr %dest, i64 4
   store i32 %0, ptr %distance2, align 4
   ret void
 }
@@ -3522,13 +3243,13 @@ define hidden void @_ZNK3ue219RoseInstrSomLeftfix5writeEPvRNS_14RoseEngineBlobER
 entry:
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %dest, i8 0, i64 12, i1 false)
   store i8 23, ptr %dest, align 4
-  %queue = getelementptr inbounds %"class.ue2::RoseInstrSomLeftfix", ptr %this, i64 0, i32 1
+  %queue = getelementptr inbounds i8, ptr %this, i64 8
   %0 = load i32, ptr %queue, align 8
-  %queue2 = getelementptr inbounds %struct.ROSE_STRUCT_SOM_LEFTFIX, ptr %dest, i64 0, i32 1
+  %queue2 = getelementptr inbounds i8, ptr %dest, i64 4
   store i32 %0, ptr %queue2, align 4
-  %lag = getelementptr inbounds %"class.ue2::RoseInstrSomLeftfix", ptr %this, i64 0, i32 2
+  %lag = getelementptr inbounds i8, ptr %this, i64 12
   %1 = load i32, ptr %lag, align 4
-  %lag3 = getelementptr inbounds %struct.ROSE_STRUCT_SOM_LEFTFIX, ptr %dest, i64 0, i32 2
+  %lag3 = getelementptr inbounds i8, ptr %dest, i64 8
   store i32 %1, ptr %lag3, align 4
   ret void
 }
@@ -3538,8 +3259,8 @@ define hidden void @_ZNK3ue222RoseInstrSomFromReport5writeEPvRNS_14RoseEngineBlo
 entry:
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %dest, i8 0, i64 24, i1 false)
   store i8 24, ptr %dest, align 8
-  %som = getelementptr inbounds %"class.ue2::RoseInstrSomFromReport", ptr %this, i64 0, i32 1
-  %som2 = getelementptr inbounds %struct.ROSE_STRUCT_SOM_FROM_REPORT, ptr %dest, i64 0, i32 1
+  %som = getelementptr inbounds i8, ptr %this, i64 8
+  %som2 = getelementptr inbounds i8, ptr %dest, i64 8
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %som2, ptr noundef nonnull align 8 dereferenceable(16) %som, i64 16, i1 false)
   ret void
 }
@@ -3549,17 +3270,17 @@ define hidden void @_ZNK3ue221RoseInstrTriggerInfix5writeEPvRNS_14RoseEngineBlob
 entry:
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %dest, i8 0, i64 12, i1 false)
   store i8 26, ptr %dest, align 4
-  %cancel = getelementptr inbounds %"class.ue2::RoseInstrTriggerInfix", ptr %this, i64 0, i32 1
+  %cancel = getelementptr inbounds i8, ptr %this, i64 8
   %0 = load i8, ptr %cancel, align 8
-  %cancel2 = getelementptr inbounds %struct.ROSE_STRUCT_TRIGGER_INFIX, ptr %dest, i64 0, i32 1
+  %cancel2 = getelementptr inbounds i8, ptr %dest, i64 1
   store i8 %0, ptr %cancel2, align 1
-  %queue = getelementptr inbounds %"class.ue2::RoseInstrTriggerInfix", ptr %this, i64 0, i32 3
+  %queue = getelementptr inbounds i8, ptr %this, i64 12
   %1 = load i32, ptr %queue, align 4
-  %queue3 = getelementptr inbounds %struct.ROSE_STRUCT_TRIGGER_INFIX, ptr %dest, i64 0, i32 2
+  %queue3 = getelementptr inbounds i8, ptr %dest, i64 4
   store i32 %1, ptr %queue3, align 4
-  %event = getelementptr inbounds %"class.ue2::RoseInstrTriggerInfix", ptr %this, i64 0, i32 4
+  %event = getelementptr inbounds i8, ptr %this, i64 16
   %2 = load i32, ptr %event, align 8
-  %event4 = getelementptr inbounds %struct.ROSE_STRUCT_TRIGGER_INFIX, ptr %dest, i64 0, i32 3
+  %event4 = getelementptr inbounds i8, ptr %dest, i64 8
   store i32 %2, ptr %event4, align 4
   ret void
 }
@@ -3569,13 +3290,13 @@ define hidden void @_ZNK3ue222RoseInstrTriggerSuffix5writeEPvRNS_14RoseEngineBlo
 entry:
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %dest, i8 0, i64 12, i1 false)
   store i8 27, ptr %dest, align 4
-  %queue = getelementptr inbounds %"class.ue2::RoseInstrTriggerSuffix", ptr %this, i64 0, i32 1
+  %queue = getelementptr inbounds i8, ptr %this, i64 8
   %0 = load i32, ptr %queue, align 8
-  %queue2 = getelementptr inbounds %struct.ROSE_STRUCT_TRIGGER_SUFFIX, ptr %dest, i64 0, i32 1
+  %queue2 = getelementptr inbounds i8, ptr %dest, i64 4
   store i32 %0, ptr %queue2, align 4
-  %event = getelementptr inbounds %"class.ue2::RoseInstrTriggerSuffix", ptr %this, i64 0, i32 2
+  %event = getelementptr inbounds i8, ptr %this, i64 12
   %1 = load i32, ptr %event, align 4
-  %event3 = getelementptr inbounds %struct.ROSE_STRUCT_TRIGGER_SUFFIX, ptr %dest, i64 0, i32 2
+  %event3 = getelementptr inbounds i8, ptr %dest, i64 8
   store i32 %1, ptr %event3, align 4
   ret void
 }
@@ -3585,22 +3306,22 @@ define hidden void @_ZNK3ue215RoseInstrDedupe5writeEPvRNS_14RoseEngineBlobERKSt1
 entry:
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %dest, i8 0, i64 16, i1 false)
   store i8 28, ptr %dest, align 4
-  %quash_som = getelementptr inbounds %"class.ue2::RoseInstrDedupe", ptr %this, i64 0, i32 1
+  %quash_som = getelementptr inbounds i8, ptr %this, i64 8
   %0 = load i8, ptr %quash_som, align 8
-  %quash_som2 = getelementptr inbounds %struct.ROSE_STRUCT_DEDUPE, ptr %dest, i64 0, i32 1
+  %quash_som2 = getelementptr inbounds i8, ptr %dest, i64 1
   store i8 %0, ptr %quash_som2, align 1
-  %dkey = getelementptr inbounds %"class.ue2::RoseInstrDedupe", ptr %this, i64 0, i32 2
+  %dkey = getelementptr inbounds i8, ptr %this, i64 12
   %1 = load i32, ptr %dkey, align 4
-  %dkey3 = getelementptr inbounds %struct.ROSE_STRUCT_DEDUPE, ptr %dest, i64 0, i32 2
+  %dkey3 = getelementptr inbounds i8, ptr %dest, i64 4
   store i32 %1, ptr %dkey3, align 4
-  %offset_adjust = getelementptr inbounds %"class.ue2::RoseInstrDedupe", ptr %this, i64 0, i32 3
+  %offset_adjust = getelementptr inbounds i8, ptr %this, i64 16
   %2 = load i32, ptr %offset_adjust, align 8
-  %offset_adjust4 = getelementptr inbounds %struct.ROSE_STRUCT_DEDUPE, ptr %dest, i64 0, i32 3
+  %offset_adjust4 = getelementptr inbounds i8, ptr %dest, i64 8
   store i32 %2, ptr %offset_adjust4, align 4
-  %target = getelementptr inbounds %"class.ue2::RoseInstrDedupe", ptr %this, i64 0, i32 4
+  %target = getelementptr inbounds i8, ptr %this, i64 24
   %3 = load ptr, ptr %target, align 8
   %call = tail call fastcc noundef i32 @_ZN3ue2L9calc_jumpERKSt13unordered_mapIPKNS_15RoseInstructionEjSt4hashIS3_ESt8equal_toIS3_ESaISt4pairIKS3_jEEES3_S3_(ptr noundef nonnull align 8 dereferenceable(56) %offset_map, ptr noundef nonnull %this, ptr noundef %3)
-  %fail_jump = getelementptr inbounds %struct.ROSE_STRUCT_DEDUPE, ptr %dest, i64 0, i32 4
+  %fail_jump = getelementptr inbounds i8, ptr %dest, i64 12
   store i32 %call, ptr %fail_jump, align 4
   ret void
 }
@@ -3610,22 +3331,22 @@ define hidden void @_ZNK3ue218RoseInstrDedupeSom5writeEPvRNS_14RoseEngineBlobERK
 entry:
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %dest, i8 0, i64 16, i1 false)
   store i8 29, ptr %dest, align 4
-  %quash_som = getelementptr inbounds %"class.ue2::RoseInstrDedupeSom", ptr %this, i64 0, i32 1
+  %quash_som = getelementptr inbounds i8, ptr %this, i64 8
   %0 = load i8, ptr %quash_som, align 8
-  %quash_som2 = getelementptr inbounds %struct.ROSE_STRUCT_DEDUPE_SOM, ptr %dest, i64 0, i32 1
+  %quash_som2 = getelementptr inbounds i8, ptr %dest, i64 1
   store i8 %0, ptr %quash_som2, align 1
-  %dkey = getelementptr inbounds %"class.ue2::RoseInstrDedupeSom", ptr %this, i64 0, i32 2
+  %dkey = getelementptr inbounds i8, ptr %this, i64 12
   %1 = load i32, ptr %dkey, align 4
-  %dkey3 = getelementptr inbounds %struct.ROSE_STRUCT_DEDUPE_SOM, ptr %dest, i64 0, i32 2
+  %dkey3 = getelementptr inbounds i8, ptr %dest, i64 4
   store i32 %1, ptr %dkey3, align 4
-  %offset_adjust = getelementptr inbounds %"class.ue2::RoseInstrDedupeSom", ptr %this, i64 0, i32 3
+  %offset_adjust = getelementptr inbounds i8, ptr %this, i64 16
   %2 = load i32, ptr %offset_adjust, align 8
-  %offset_adjust4 = getelementptr inbounds %struct.ROSE_STRUCT_DEDUPE_SOM, ptr %dest, i64 0, i32 3
+  %offset_adjust4 = getelementptr inbounds i8, ptr %dest, i64 8
   store i32 %2, ptr %offset_adjust4, align 4
-  %target = getelementptr inbounds %"class.ue2::RoseInstrDedupeSom", ptr %this, i64 0, i32 4
+  %target = getelementptr inbounds i8, ptr %this, i64 24
   %3 = load ptr, ptr %target, align 8
   %call = tail call fastcc noundef i32 @_ZN3ue2L9calc_jumpERKSt13unordered_mapIPKNS_15RoseInstructionEjSt4hashIS3_ESt8equal_toIS3_ESaISt4pairIKS3_jEEES3_S3_(ptr noundef nonnull align 8 dereferenceable(56) %offset_map, ptr noundef nonnull %this, ptr noundef %3)
-  %fail_jump = getelementptr inbounds %struct.ROSE_STRUCT_DEDUPE_SOM, ptr %dest, i64 0, i32 4
+  %fail_jump = getelementptr inbounds i8, ptr %dest, i64 12
   store i32 %call, ptr %fail_jump, align 4
   ret void
 }
@@ -3635,13 +3356,13 @@ define hidden void @_ZNK3ue220RoseInstrReportChain5writeEPvRNS_14RoseEngineBlobE
 entry:
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %dest, i8 0, i64 16, i1 false)
   store i8 30, ptr %dest, align 8
-  %event = getelementptr inbounds %"class.ue2::RoseInstrReportChain", ptr %this, i64 0, i32 1
+  %event = getelementptr inbounds i8, ptr %this, i64 8
   %0 = load i32, ptr %event, align 8
-  %event2 = getelementptr inbounds %struct.ROSE_STRUCT_REPORT_CHAIN, ptr %dest, i64 0, i32 1
+  %event2 = getelementptr inbounds i8, ptr %dest, i64 4
   store i32 %0, ptr %event2, align 4
-  %top_squash_distance = getelementptr inbounds %"class.ue2::RoseInstrReportChain", ptr %this, i64 0, i32 2
+  %top_squash_distance = getelementptr inbounds i8, ptr %this, i64 16
   %1 = load i64, ptr %top_squash_distance, align 8
-  %top_squash_distance3 = getelementptr inbounds %struct.ROSE_STRUCT_REPORT_CHAIN, ptr %dest, i64 0, i32 2
+  %top_squash_distance3 = getelementptr inbounds i8, ptr %dest, i64 8
   store i64 %1, ptr %top_squash_distance3, align 8
   ret void
 }
@@ -3651,8 +3372,8 @@ define hidden void @_ZNK3ue221RoseInstrReportSomInt5writeEPvRNS_14RoseEngineBlob
 entry:
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %dest, i8 0, i64 24, i1 false)
   store i8 31, ptr %dest, align 8
-  %som = getelementptr inbounds %"class.ue2::RoseInstrReportSomInt", ptr %this, i64 0, i32 1
-  %som2 = getelementptr inbounds %struct.ROSE_STRUCT_REPORT_SOM_INT, ptr %dest, i64 0, i32 1
+  %som = getelementptr inbounds i8, ptr %this, i64 8
+  %som2 = getelementptr inbounds i8, ptr %dest, i64 8
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %som2, ptr noundef nonnull align 8 dereferenceable(16) %som, i64 16, i1 false)
   ret void
 }
@@ -3662,8 +3383,8 @@ define hidden void @_ZNK3ue223RoseInstrReportSomAware5writeEPvRNS_14RoseEngineBl
 entry:
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %dest, i8 0, i64 24, i1 false)
   store i8 32, ptr %dest, align 8
-  %som = getelementptr inbounds %"class.ue2::RoseInstrReportSomAware", ptr %this, i64 0, i32 1
-  %som2 = getelementptr inbounds %struct.ROSE_STRUCT_REPORT_SOM_AWARE, ptr %dest, i64 0, i32 1
+  %som = getelementptr inbounds i8, ptr %this, i64 8
+  %som2 = getelementptr inbounds i8, ptr %dest, i64 8
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %som2, ptr noundef nonnull align 8 dereferenceable(16) %som, i64 16, i1 false)
   ret void
 }
@@ -3673,13 +3394,13 @@ define hidden void @_ZNK3ue215RoseInstrReport5writeEPvRNS_14RoseEngineBlobERKSt1
 entry:
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %dest, i8 0, i64 12, i1 false)
   store i8 33, ptr %dest, align 4
-  %onmatch = getelementptr inbounds %"class.ue2::RoseInstrReport", ptr %this, i64 0, i32 1
+  %onmatch = getelementptr inbounds i8, ptr %this, i64 8
   %0 = load i32, ptr %onmatch, align 8
-  %onmatch2 = getelementptr inbounds %struct.ROSE_STRUCT_REPORT, ptr %dest, i64 0, i32 1
+  %onmatch2 = getelementptr inbounds i8, ptr %dest, i64 4
   store i32 %0, ptr %onmatch2, align 4
-  %offset_adjust = getelementptr inbounds %"class.ue2::RoseInstrReport", ptr %this, i64 0, i32 2
+  %offset_adjust = getelementptr inbounds i8, ptr %this, i64 12
   %1 = load i32, ptr %offset_adjust, align 4
-  %offset_adjust3 = getelementptr inbounds %struct.ROSE_STRUCT_REPORT, ptr %dest, i64 0, i32 2
+  %offset_adjust3 = getelementptr inbounds i8, ptr %dest, i64 8
   store i32 %1, ptr %offset_adjust3, align 4
   ret void
 }
@@ -3689,17 +3410,17 @@ define hidden void @_ZNK3ue222RoseInstrReportExhaust5writeEPvRNS_14RoseEngineBlo
 entry:
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %dest, i8 0, i64 16, i1 false)
   store i8 34, ptr %dest, align 4
-  %onmatch = getelementptr inbounds %"class.ue2::RoseInstrReportExhaust", ptr %this, i64 0, i32 1
+  %onmatch = getelementptr inbounds i8, ptr %this, i64 8
   %0 = load i32, ptr %onmatch, align 8
-  %onmatch2 = getelementptr inbounds %struct.ROSE_STRUCT_REPORT_EXHAUST, ptr %dest, i64 0, i32 1
+  %onmatch2 = getelementptr inbounds i8, ptr %dest, i64 4
   store i32 %0, ptr %onmatch2, align 4
-  %offset_adjust = getelementptr inbounds %"class.ue2::RoseInstrReportExhaust", ptr %this, i64 0, i32 2
+  %offset_adjust = getelementptr inbounds i8, ptr %this, i64 12
   %1 = load i32, ptr %offset_adjust, align 4
-  %offset_adjust3 = getelementptr inbounds %struct.ROSE_STRUCT_REPORT_EXHAUST, ptr %dest, i64 0, i32 2
+  %offset_adjust3 = getelementptr inbounds i8, ptr %dest, i64 8
   store i32 %1, ptr %offset_adjust3, align 4
-  %ekey = getelementptr inbounds %"class.ue2::RoseInstrReportExhaust", ptr %this, i64 0, i32 3
+  %ekey = getelementptr inbounds i8, ptr %this, i64 16
   %2 = load i32, ptr %ekey, align 8
-  %ekey4 = getelementptr inbounds %struct.ROSE_STRUCT_REPORT_EXHAUST, ptr %dest, i64 0, i32 3
+  %ekey4 = getelementptr inbounds i8, ptr %dest, i64 12
   store i32 %2, ptr %ekey4, align 4
   ret void
 }
@@ -3709,13 +3430,13 @@ define hidden void @_ZNK3ue218RoseInstrReportSom5writeEPvRNS_14RoseEngineBlobERK
 entry:
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %dest, i8 0, i64 12, i1 false)
   store i8 35, ptr %dest, align 4
-  %onmatch = getelementptr inbounds %"class.ue2::RoseInstrReportSom", ptr %this, i64 0, i32 1
+  %onmatch = getelementptr inbounds i8, ptr %this, i64 8
   %0 = load i32, ptr %onmatch, align 8
-  %onmatch2 = getelementptr inbounds %struct.ROSE_STRUCT_REPORT_SOM, ptr %dest, i64 0, i32 1
+  %onmatch2 = getelementptr inbounds i8, ptr %dest, i64 4
   store i32 %0, ptr %onmatch2, align 4
-  %offset_adjust = getelementptr inbounds %"class.ue2::RoseInstrReportSom", ptr %this, i64 0, i32 2
+  %offset_adjust = getelementptr inbounds i8, ptr %this, i64 12
   %1 = load i32, ptr %offset_adjust, align 4
-  %offset_adjust3 = getelementptr inbounds %struct.ROSE_STRUCT_REPORT_SOM, ptr %dest, i64 0, i32 2
+  %offset_adjust3 = getelementptr inbounds i8, ptr %dest, i64 8
   store i32 %1, ptr %offset_adjust3, align 4
   ret void
 }
@@ -3725,17 +3446,17 @@ define hidden void @_ZNK3ue225RoseInstrReportSomExhaust5writeEPvRNS_14RoseEngine
 entry:
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %dest, i8 0, i64 16, i1 false)
   store i8 36, ptr %dest, align 4
-  %onmatch = getelementptr inbounds %"class.ue2::RoseInstrReportSomExhaust", ptr %this, i64 0, i32 1
+  %onmatch = getelementptr inbounds i8, ptr %this, i64 8
   %0 = load i32, ptr %onmatch, align 8
-  %onmatch2 = getelementptr inbounds %struct.ROSE_STRUCT_REPORT_SOM_EXHAUST, ptr %dest, i64 0, i32 1
+  %onmatch2 = getelementptr inbounds i8, ptr %dest, i64 4
   store i32 %0, ptr %onmatch2, align 4
-  %offset_adjust = getelementptr inbounds %"class.ue2::RoseInstrReportSomExhaust", ptr %this, i64 0, i32 2
+  %offset_adjust = getelementptr inbounds i8, ptr %this, i64 12
   %1 = load i32, ptr %offset_adjust, align 4
-  %offset_adjust3 = getelementptr inbounds %struct.ROSE_STRUCT_REPORT_SOM_EXHAUST, ptr %dest, i64 0, i32 2
+  %offset_adjust3 = getelementptr inbounds i8, ptr %dest, i64 8
   store i32 %1, ptr %offset_adjust3, align 4
-  %ekey = getelementptr inbounds %"class.ue2::RoseInstrReportSomExhaust", ptr %this, i64 0, i32 3
+  %ekey = getelementptr inbounds i8, ptr %this, i64 16
   %2 = load i32, ptr %ekey, align 8
-  %ekey4 = getelementptr inbounds %struct.ROSE_STRUCT_REPORT_SOM_EXHAUST, ptr %dest, i64 0, i32 3
+  %ekey4 = getelementptr inbounds i8, ptr %dest, i64 12
   store i32 %2, ptr %ekey4, align 4
   ret void
 }
@@ -3745,26 +3466,26 @@ define hidden void @_ZNK3ue224RoseInstrDedupeAndReport5writeEPvRNS_14RoseEngineB
 entry:
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(20) %dest, i8 0, i64 20, i1 false)
   store i8 37, ptr %dest, align 4
-  %quash_som = getelementptr inbounds %"class.ue2::RoseInstrDedupeAndReport", ptr %this, i64 0, i32 1
+  %quash_som = getelementptr inbounds i8, ptr %this, i64 8
   %0 = load i8, ptr %quash_som, align 8
-  %quash_som2 = getelementptr inbounds %struct.ROSE_STRUCT_DEDUPE_AND_REPORT, ptr %dest, i64 0, i32 1
+  %quash_som2 = getelementptr inbounds i8, ptr %dest, i64 1
   store i8 %0, ptr %quash_som2, align 1
-  %dkey = getelementptr inbounds %"class.ue2::RoseInstrDedupeAndReport", ptr %this, i64 0, i32 2
+  %dkey = getelementptr inbounds i8, ptr %this, i64 12
   %1 = load i32, ptr %dkey, align 4
-  %dkey3 = getelementptr inbounds %struct.ROSE_STRUCT_DEDUPE_AND_REPORT, ptr %dest, i64 0, i32 2
+  %dkey3 = getelementptr inbounds i8, ptr %dest, i64 4
   store i32 %1, ptr %dkey3, align 4
-  %onmatch = getelementptr inbounds %"class.ue2::RoseInstrDedupeAndReport", ptr %this, i64 0, i32 3
+  %onmatch = getelementptr inbounds i8, ptr %this, i64 16
   %2 = load i32, ptr %onmatch, align 8
-  %onmatch4 = getelementptr inbounds %struct.ROSE_STRUCT_DEDUPE_AND_REPORT, ptr %dest, i64 0, i32 3
+  %onmatch4 = getelementptr inbounds i8, ptr %dest, i64 8
   store i32 %2, ptr %onmatch4, align 4
-  %offset_adjust = getelementptr inbounds %"class.ue2::RoseInstrDedupeAndReport", ptr %this, i64 0, i32 4
+  %offset_adjust = getelementptr inbounds i8, ptr %this, i64 20
   %3 = load i32, ptr %offset_adjust, align 4
-  %offset_adjust5 = getelementptr inbounds %struct.ROSE_STRUCT_DEDUPE_AND_REPORT, ptr %dest, i64 0, i32 4
+  %offset_adjust5 = getelementptr inbounds i8, ptr %dest, i64 12
   store i32 %3, ptr %offset_adjust5, align 4
-  %target = getelementptr inbounds %"class.ue2::RoseInstrDedupeAndReport", ptr %this, i64 0, i32 5
+  %target = getelementptr inbounds i8, ptr %this, i64 24
   %4 = load ptr, ptr %target, align 8
   %call = tail call fastcc noundef i32 @_ZN3ue2L9calc_jumpERKSt13unordered_mapIPKNS_15RoseInstructionEjSt4hashIS3_ESt8equal_toIS3_ESaISt4pairIKS3_jEEES3_S3_(ptr noundef nonnull align 8 dereferenceable(56) %offset_map, ptr noundef nonnull %this, ptr noundef %4)
-  %fail_jump = getelementptr inbounds %struct.ROSE_STRUCT_DEDUPE_AND_REPORT, ptr %dest, i64 0, i32 5
+  %fail_jump = getelementptr inbounds i8, ptr %dest, i64 16
   store i32 %call, ptr %fail_jump, align 4
   ret void
 }
@@ -3774,13 +3495,13 @@ define hidden void @_ZNK3ue220RoseInstrFinalReport5writeEPvRNS_14RoseEngineBlobE
 entry:
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %dest, i8 0, i64 12, i1 false)
   store i8 38, ptr %dest, align 4
-  %onmatch = getelementptr inbounds %"class.ue2::RoseInstrFinalReport", ptr %this, i64 0, i32 1
+  %onmatch = getelementptr inbounds i8, ptr %this, i64 8
   %0 = load i32, ptr %onmatch, align 8
-  %onmatch2 = getelementptr inbounds %struct.ROSE_STRUCT_FINAL_REPORT, ptr %dest, i64 0, i32 1
+  %onmatch2 = getelementptr inbounds i8, ptr %dest, i64 4
   store i32 %0, ptr %onmatch2, align 4
-  %offset_adjust = getelementptr inbounds %"class.ue2::RoseInstrFinalReport", ptr %this, i64 0, i32 2
+  %offset_adjust = getelementptr inbounds i8, ptr %this, i64 12
   %1 = load i32, ptr %offset_adjust, align 4
-  %offset_adjust3 = getelementptr inbounds %struct.ROSE_STRUCT_FINAL_REPORT, ptr %dest, i64 0, i32 2
+  %offset_adjust3 = getelementptr inbounds i8, ptr %dest, i64 8
   store i32 %1, ptr %offset_adjust3, align 4
   ret void
 }
@@ -3790,14 +3511,14 @@ define hidden void @_ZNK3ue223RoseInstrCheckExhausted5writeEPvRNS_14RoseEngineBl
 entry:
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %dest, i8 0, i64 12, i1 false)
   store i8 39, ptr %dest, align 4
-  %ekey = getelementptr inbounds %"class.ue2::RoseInstrCheckExhausted", ptr %this, i64 0, i32 1
+  %ekey = getelementptr inbounds i8, ptr %this, i64 8
   %0 = load i32, ptr %ekey, align 8
-  %ekey2 = getelementptr inbounds %struct.ROSE_STRUCT_CHECK_EXHAUSTED, ptr %dest, i64 0, i32 1
+  %ekey2 = getelementptr inbounds i8, ptr %dest, i64 4
   store i32 %0, ptr %ekey2, align 4
-  %target = getelementptr inbounds %"class.ue2::RoseInstrCheckExhausted", ptr %this, i64 0, i32 2
+  %target = getelementptr inbounds i8, ptr %this, i64 16
   %1 = load ptr, ptr %target, align 8
   %call = tail call fastcc noundef i32 @_ZN3ue2L9calc_jumpERKSt13unordered_mapIPKNS_15RoseInstructionEjSt4hashIS3_ESt8equal_toIS3_ESaISt4pairIKS3_jEEES3_S3_(ptr noundef nonnull align 8 dereferenceable(56) %offset_map, ptr noundef nonnull %this, ptr noundef %1)
-  %fail_jump = getelementptr inbounds %struct.ROSE_STRUCT_CHECK_EXHAUSTED, ptr %dest, i64 0, i32 2
+  %fail_jump = getelementptr inbounds i8, ptr %dest, i64 8
   store i32 %call, ptr %fail_jump, align 4
   ret void
 }
@@ -3807,18 +3528,18 @@ define hidden void @_ZNK3ue223RoseInstrCheckMinLength5writeEPvRNS_14RoseEngineBl
 entry:
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %dest, i8 0, i64 24, i1 false)
   store i8 40, ptr %dest, align 8
-  %end_adj = getelementptr inbounds %"class.ue2::RoseInstrCheckMinLength", ptr %this, i64 0, i32 1
+  %end_adj = getelementptr inbounds i8, ptr %this, i64 8
   %0 = load i32, ptr %end_adj, align 8
-  %end_adj2 = getelementptr inbounds %struct.ROSE_STRUCT_CHECK_MIN_LENGTH, ptr %dest, i64 0, i32 1
+  %end_adj2 = getelementptr inbounds i8, ptr %dest, i64 4
   store i32 %0, ptr %end_adj2, align 4
-  %min_length = getelementptr inbounds %"class.ue2::RoseInstrCheckMinLength", ptr %this, i64 0, i32 2
+  %min_length = getelementptr inbounds i8, ptr %this, i64 16
   %1 = load i64, ptr %min_length, align 8
-  %min_length3 = getelementptr inbounds %struct.ROSE_STRUCT_CHECK_MIN_LENGTH, ptr %dest, i64 0, i32 2
+  %min_length3 = getelementptr inbounds i8, ptr %dest, i64 8
   store i64 %1, ptr %min_length3, align 8
-  %target = getelementptr inbounds %"class.ue2::RoseInstrCheckMinLength", ptr %this, i64 0, i32 3
+  %target = getelementptr inbounds i8, ptr %this, i64 24
   %2 = load ptr, ptr %target, align 8
   %call = tail call fastcc noundef i32 @_ZN3ue2L9calc_jumpERKSt13unordered_mapIPKNS_15RoseInstructionEjSt4hashIS3_ESt8equal_toIS3_ESaISt4pairIKS3_jEEES3_S3_(ptr noundef nonnull align 8 dereferenceable(56) %offset_map, ptr noundef nonnull %this, ptr noundef %2)
-  %fail_jump = getelementptr inbounds %struct.ROSE_STRUCT_CHECK_MIN_LENGTH, ptr %dest, i64 0, i32 3
+  %fail_jump = getelementptr inbounds i8, ptr %dest, i64 16
   store i32 %call, ptr %fail_jump, align 8
   ret void
 }
@@ -3827,9 +3548,9 @@ entry:
 define hidden void @_ZNK3ue217RoseInstrSetState5writeEPvRNS_14RoseEngineBlobERKSt13unordered_mapIPKNS_15RoseInstructionEjSt4hashIS7_ESt8equal_toIS7_ESaISt4pairIKS7_jEEE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(12) %this, ptr nocapture noundef writeonly %dest, ptr nocapture nonnull readnone align 8 %blob, ptr nocapture nonnull readnone align 8 %offset_map) unnamed_addr #7 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store i64 41, ptr %dest, align 4
-  %index = getelementptr inbounds %"class.ue2::RoseInstrSetState", ptr %this, i64 0, i32 1
+  %index = getelementptr inbounds i8, ptr %this, i64 8
   %0 = load i32, ptr %index, align 8
-  %index2 = getelementptr inbounds %struct.ROSE_STRUCT_SET_STATE, ptr %dest, i64 0, i32 1
+  %index2 = getelementptr inbounds i8, ptr %dest, i64 4
   store i32 %0, ptr %index2, align 4
   ret void
 }
@@ -3839,9 +3560,9 @@ define hidden void @_ZNK3ue218RoseInstrSetGroups5writeEPvRNS_14RoseEngineBlobERK
 entry:
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %dest, i8 0, i64 16, i1 false)
   store i8 42, ptr %dest, align 8
-  %groups = getelementptr inbounds %"class.ue2::RoseInstrSetGroups", ptr %this, i64 0, i32 1
+  %groups = getelementptr inbounds i8, ptr %this, i64 8
   %0 = load i64, ptr %groups, align 8
-  %groups2 = getelementptr inbounds %struct.ROSE_STRUCT_SET_GROUPS, ptr %dest, i64 0, i32 1
+  %groups2 = getelementptr inbounds i8, ptr %dest, i64 8
   store i64 %0, ptr %groups2, align 8
   ret void
 }
@@ -3851,9 +3572,9 @@ define hidden void @_ZNK3ue221RoseInstrSquashGroups5writeEPvRNS_14RoseEngineBlob
 entry:
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %dest, i8 0, i64 16, i1 false)
   store i8 43, ptr %dest, align 8
-  %groups = getelementptr inbounds %"class.ue2::RoseInstrSquashGroups", ptr %this, i64 0, i32 1
+  %groups = getelementptr inbounds i8, ptr %this, i64 8
   %0 = load i64, ptr %groups, align 8
-  %groups2 = getelementptr inbounds %struct.ROSE_STRUCT_SQUASH_GROUPS, ptr %dest, i64 0, i32 1
+  %groups2 = getelementptr inbounds i8, ptr %dest, i64 8
   store i64 %0, ptr %groups2, align 8
   ret void
 }
@@ -3863,14 +3584,14 @@ define hidden void @_ZNK3ue219RoseInstrCheckState5writeEPvRNS_14RoseEngineBlobER
 entry:
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %dest, i8 0, i64 12, i1 false)
   store i8 44, ptr %dest, align 4
-  %index = getelementptr inbounds %"class.ue2::RoseInstrCheckState", ptr %this, i64 0, i32 1
+  %index = getelementptr inbounds i8, ptr %this, i64 8
   %0 = load i32, ptr %index, align 8
-  %index2 = getelementptr inbounds %struct.ROSE_STRUCT_CHECK_STATE, ptr %dest, i64 0, i32 1
+  %index2 = getelementptr inbounds i8, ptr %dest, i64 4
   store i32 %0, ptr %index2, align 4
-  %target = getelementptr inbounds %"class.ue2::RoseInstrCheckState", ptr %this, i64 0, i32 2
+  %target = getelementptr inbounds i8, ptr %this, i64 16
   %1 = load ptr, ptr %target, align 8
   %call = tail call fastcc noundef i32 @_ZN3ue2L9calc_jumpERKSt13unordered_mapIPKNS_15RoseInstructionEjSt4hashIS3_ESt8equal_toIS3_ESaISt4pairIKS3_jEEES3_S3_(ptr noundef nonnull align 8 dereferenceable(56) %offset_map, ptr noundef nonnull %this, ptr noundef %1)
-  %fail_jump = getelementptr inbounds %struct.ROSE_STRUCT_CHECK_STATE, ptr %dest, i64 0, i32 2
+  %fail_jump = getelementptr inbounds i8, ptr %dest, i64 8
   store i32 %call, ptr %fail_jump, align 4
   ret void
 }
@@ -3883,33 +3604,33 @@ entry:
   %iter = alloca %"class.std::vector.210", align 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %dest, i8 0, i64 16, i1 false)
   store i8 45, ptr %dest, align 4
-  %target = getelementptr inbounds %"class.ue2::RoseInstrSparseIterBegin", ptr %this, i64 0, i32 4
+  %target = getelementptr inbounds i8, ptr %this, i64 40
   %0 = load ptr, ptr %target, align 8
   %call = tail call fastcc noundef i32 @_ZN3ue2L9calc_jumpERKSt13unordered_mapIPKNS_15RoseInstructionEjSt4hashIS3_ESt8equal_toIS3_ESaISt4pairIKS3_jEEES3_S3_(ptr noundef nonnull align 8 dereferenceable(56) %offset_map, ptr noundef nonnull %this, ptr noundef %0)
-  %fail_jump = getelementptr inbounds %struct.ROSE_STRUCT_SPARSE_ITER_BEGIN, ptr %dest, i64 0, i32 3
+  %fail_jump = getelementptr inbounds i8, ptr %dest, i64 12
   store i32 %call, ptr %fail_jump, align 4
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %keys) #25
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %keys, i8 0, i64 24, i1 false)
-  %jump_table = getelementptr inbounds %"class.ue2::RoseInstrSparseIterBegin", ptr %this, i64 0, i32 3
+  %jump_table = getelementptr inbounds i8, ptr %this, i64 16
   %1 = load ptr, ptr %jump_table, align 8
-  %_M_finish.i = getelementptr inbounds %"class.ue2::RoseInstrSparseIterBegin", ptr %this, i64 0, i32 3, i32 0, i32 0, i32 0, i32 1
+  %_M_finish.i = getelementptr inbounds i8, ptr %this, i64 24
   %2 = load ptr, ptr %_M_finish.i, align 8
   %cmp.i.not161 = icmp eq ptr %1, %2
   br i1 %cmp.i.not161, label %for.cond.cleanup, label %for.body.lr.ph
 
 for.body.lr.ph:                                   ; preds = %entry
-  %_M_finish.i50 = getelementptr inbounds %"struct.std::_Vector_base<unsigned int, std::allocator<unsigned int>>::_Vector_impl_data", ptr %keys, i64 0, i32 1
-  %_M_end_of_storage.i = getelementptr inbounds %"struct.std::_Vector_base<unsigned int, std::allocator<unsigned int>>::_Vector_impl_data", ptr %keys, i64 0, i32 2
-  %_M_element_count.i.i.i.i = getelementptr inbounds %"class.std::_Hashtable.79", ptr %offset_map, i64 0, i32 3
-  %_M_bucket_count.i.i.i.i = getelementptr inbounds %"class.std::_Hashtable.79", ptr %offset_map, i64 0, i32 1
-  %_M_before_begin.i.i.i.i.i = getelementptr inbounds %"class.std::_Hashtable.79", ptr %offset_map, i64 0, i32 2
+  %_M_finish.i50 = getelementptr inbounds i8, ptr %keys, i64 8
+  %_M_end_of_storage.i = getelementptr inbounds i8, ptr %keys, i64 16
+  %_M_element_count.i.i.i.i = getelementptr inbounds i8, ptr %offset_map, i64 24
+  %_M_bucket_count.i.i.i.i = getelementptr inbounds i8, ptr %offset_map, i64 8
+  %_M_before_begin.i.i.i.i.i = getelementptr inbounds i8, ptr %offset_map, i64 16
   br label %for.body
 
 for.cond.cleanup:                                 ; preds = %invoke.cont9, %entry
   %jump_offsets.sroa.9.0.lcssa = phi ptr [ null, %entry ], [ %jump_offsets.sroa.9.1, %invoke.cont9 ]
   %jump_offsets.sroa.0.0.lcssa = phi ptr [ null, %entry ], [ %jump_offsets.sroa.0.1, %invoke.cont9 ]
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %iter) #25
-  %num_keys = getelementptr inbounds %"class.ue2::RoseInstrSparseIterBegin", ptr %this, i64 0, i32 1
+  %num_keys = getelementptr inbounds i8, ptr %this, i64 8
   %3 = load i32, ptr %num_keys, align 8
   invoke void @_ZN3ue222mmbBuildSparseIteratorERKSt6vectorIjSaIjEEj(ptr nonnull sret(%"class.std::vector.210") align 8 %iter, ptr noundef nonnull align 8 dereferenceable(24) %keys, i32 noundef %3)
           to label %invoke.cont12 unwind label %lpad11
@@ -3928,7 +3649,7 @@ if.then.i:                                        ; preds = %for.body
   %6 = load i32, ptr %__begin1.sroa.0.0163, align 4
   store i32 %6, ptr %4, align 4
   %7 = load ptr, ptr %_M_finish.i50, align 8
-  %incdec.ptr.i = getelementptr inbounds i32, ptr %7, i64 1
+  %incdec.ptr.i = getelementptr inbounds i8, ptr %7, i64 4
   store ptr %incdec.ptr.i, ptr %_M_finish.i50, align 8
   br label %invoke.cont
 
@@ -3975,7 +3696,7 @@ if.then.i.i.i.i.i.i:                              ; preds = %_ZNSt12_Vector_base
   br label %_ZNSt6vectorIjSaIjEE11_S_relocateEPjS2_S2_RS0_.exit39.i.i
 
 _ZNSt6vectorIjSaIjEE11_S_relocateEPjS2_S2_RS0_.exit39.i.i: ; preds = %if.then.i.i.i.i.i.i, %_ZNSt12_Vector_baseIjSaIjEE11_M_allocateEm.exit.i.i
-  %incdec.ptr.i.i = getelementptr inbounds i32, ptr %add.ptr.i.i, i64 1
+  %incdec.ptr.i.i = getelementptr inbounds i8, ptr %add.ptr.i.i, i64 4
   %tobool.not.i.i.i = icmp eq ptr %8, null
   br i1 %tobool.not.i.i.i, label %_ZNSt6vectorIjSaIjEE17_M_realloc_insertIJRKjEEEvN9__gnu_cxx17__normal_iteratorIPjS1_EEDpOT_.exit.i, label %if.then.i40.i.i
 
@@ -3991,7 +3712,7 @@ _ZNSt6vectorIjSaIjEE17_M_realloc_insertIJRKjEEEvN9__gnu_cxx17__normal_iteratorIP
   br label %invoke.cont
 
 invoke.cont:                                      ; preds = %_ZNSt6vectorIjSaIjEE17_M_realloc_insertIJRKjEEEvN9__gnu_cxx17__normal_iteratorIPjS1_EEDpOT_.exit.i, %if.then.i
-  %second = getelementptr inbounds %"struct.std::pair", ptr %__begin1.sroa.0.0163, i64 0, i32 1
+  %second = getelementptr inbounds i8, ptr %__begin1.sroa.0.0163, i64 8
   %11 = load i64, ptr %_M_element_count.i.i.i.i, align 8
   %cmp.not.not.i.i.i = icmp eq i64 %11, 0
   %12 = load ptr, ptr %second, align 8
@@ -4112,8 +3833,8 @@ invoke.cont9:                                     ; preds = %_ZNSt6vectorIjSaIjE
   %jump_offsets.sroa.14.1 = phi ptr [ %add.ptr19.i.i84, %_ZNSt6vectorIjSaIjEE17_M_realloc_insertIJRKjEEEvN9__gnu_cxx17__normal_iteratorIPjS1_EEDpOT_.exit.i83 ], [ %jump_offsets.sroa.14.0162, %if.then.i57 ]
   %add.ptr.i.i77.pn = phi ptr [ %add.ptr.i.i77, %_ZNSt6vectorIjSaIjEE17_M_realloc_insertIJRKjEEEvN9__gnu_cxx17__normal_iteratorIPjS1_EEDpOT_.exit.i83 ], [ %jump_offsets.sroa.9.0164, %if.then.i57 ]
   %jump_offsets.sroa.0.1 = phi ptr [ %cond.i31.i.i76, %_ZNSt6vectorIjSaIjEE17_M_realloc_insertIJRKjEEEvN9__gnu_cxx17__normal_iteratorIPjS1_EEDpOT_.exit.i83 ], [ %jump_offsets.sroa.0.0165, %if.then.i57 ]
-  %jump_offsets.sroa.9.1 = getelementptr inbounds i32, ptr %add.ptr.i.i77.pn, i64 1
-  %incdec.ptr.i91 = getelementptr inbounds %"struct.std::pair", ptr %__begin1.sroa.0.0163, i64 1
+  %jump_offsets.sroa.9.1 = getelementptr inbounds i8, ptr %add.ptr.i.i77.pn, i64 4
+  %incdec.ptr.i91 = getelementptr inbounds i8, ptr %__begin1.sroa.0.0163, i64 16
   %cmp.i.not = icmp eq ptr %incdec.ptr.i91, %2
   br i1 %cmp.i.not, label %for.cond.cleanup, label %for.body
 
@@ -4128,7 +3849,7 @@ lpad.loopexit.split-lp135:                        ; preds = %if.then.i.i, %if.th
   br label %ehcleanup29
 
 invoke.cont12:                                    ; preds = %for.cond.cleanup
-  %cached_iters.i = getelementptr inbounds %"class.ue2::RoseEngineBlob", ptr %blob, i64 0, i32 2
+  %cached_iters.i = getelementptr inbounds i8, ptr %blob, i64 176
   %call.i.i94 = invoke ptr @_ZNSt10_HashtableISt6vectorI17mmbit_sparse_iterSaIS1_EESt4pairIKS3_jESaIS6_ENSt8__detail10_Select1stESt8equal_toIS3_EN3ue210ue2_hasherENS8_18_Mod_range_hashingENS8_20_Default_ranged_hashENS8_20_Prime_rehash_policyENS8_17_Hashtable_traitsILb1ELb0ELb1EEEE4findERS5_(ptr noundef nonnull align 8 dereferenceable(56) %cached_iters.i, ptr noundef nonnull align 8 dereferenceable(24) %iter)
           to label %call.i.i.noexc unwind label %lpad13.loopexit.split-lp
 
@@ -4144,7 +3865,7 @@ if.then.i92:                                      ; preds = %call.i.i.noexc
 if.end.i:                                         ; preds = %call.i.i.noexc
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %offset9.i) #25
   %27 = load ptr, ptr %iter, align 8
-  %_M_finish.i.i = getelementptr inbounds %"struct.std::_Vector_base<mmbit_sparse_iter, std::allocator<mmbit_sparse_iter>>::_Vector_impl_data", ptr %iter, i64 0, i32 1
+  %_M_finish.i.i = getelementptr inbounds i8, ptr %iter, i64 8
   %28 = load ptr, ptr %_M_finish.i.i, align 8
   %cmp.i.i.i93 = icmp eq ptr %28, %27
   br i1 %cmp.i.i.i93, label %_ZN3ue214RoseEngineBlob3addIN9__gnu_cxx17__normal_iteratorIPK17mmbit_sparse_iterSt6vectorIS4_SaIS4_EEEEEEjT_RKSB_.exit.i, label %if.end.i.i
@@ -4154,7 +3875,7 @@ if.end.i.i:                                       ; preds = %if.end.i
           to label %call.i.i.i.noexc unwind label %lpad13.loopexit.split-lp
 
 call.i.i.i.noexc:                                 ; preds = %if.end.i.i
-  %b.sroa.0.018.i.i = getelementptr inbounds %struct.mmbit_sparse_iter, ptr %27, i64 1
+  %b.sroa.0.018.i.i = getelementptr inbounds i8, ptr %27, i64 16
   %cmp.i10.not19.i.i = icmp eq ptr %b.sroa.0.018.i.i, %28
   br i1 %cmp.i10.not19.i.i, label %_ZN3ue214RoseEngineBlob3addIN9__gnu_cxx17__normal_iteratorIPK17mmbit_sparse_iterSt6vectorIS4_SaIS4_EEEEEEjT_RKSB_.exit.i, label %for.body.i.i
 
@@ -4164,7 +3885,7 @@ for.body.i.i:                                     ; preds = %call.i.i.i.noexc, %
           to label %call.i11.i.i.noexc unwind label %lpad13.loopexit
 
 call.i11.i.i.noexc:                               ; preds = %for.body.i.i
-  %b.sroa.0.0.i.i = getelementptr inbounds %struct.mmbit_sparse_iter, ptr %b.sroa.0.020.i.i, i64 1
+  %b.sroa.0.0.i.i = getelementptr inbounds i8, ptr %b.sroa.0.020.i.i, i64 16
   %cmp.i10.not.i.i = icmp eq ptr %b.sroa.0.0.i.i, %28
   br i1 %cmp.i10.not.i.i, label %_ZN3ue214RoseEngineBlob3addIN9__gnu_cxx17__normal_iteratorIPK17mmbit_sparse_iterSt6vectorIS4_SaIS4_EEEEEEjT_RKSB_.exit.i, label %for.body.i.i, !llvm.loop !13
 
@@ -4181,7 +3902,7 @@ call.i.i22.i.noexc:                               ; preds = %_ZN3ue214RoseEngine
 
 invoke.cont14:                                    ; preds = %call.i.i22.i.noexc, %if.then.i92
   %retval.0.i = phi i32 [ %26, %if.then.i92 ], [ %29, %call.i.i22.i.noexc ]
-  %iter_offset = getelementptr inbounds %struct.ROSE_STRUCT_SPARSE_ITER_BEGIN, ptr %dest, i64 0, i32 1
+  %iter_offset = getelementptr inbounds i8, ptr %dest, i64 4
   store i32 %retval.0.i, ptr %iter_offset, align 4
   %cmp.i.i = icmp eq ptr %jump_offsets.sroa.9.0.lcssa, %jump_offsets.sroa.0.0.lcssa
   br i1 %cmp.i.i, label %invoke.cont22, label %if.end.i99
@@ -4191,7 +3912,7 @@ if.end.i99:                                       ; preds = %invoke.cont14
           to label %call.i.i.noexc101 unwind label %lpad21.loopexit.split-lp
 
 call.i.i.noexc101:                                ; preds = %if.end.i99
-  %b.sroa.0.018.i = getelementptr inbounds i32, ptr %jump_offsets.sroa.0.0.lcssa, i64 1
+  %b.sroa.0.018.i = getelementptr inbounds i8, ptr %jump_offsets.sroa.0.0.lcssa, i64 4
   %cmp.i10.not19.i = icmp eq ptr %b.sroa.0.018.i, %jump_offsets.sroa.9.0.lcssa
   br i1 %cmp.i10.not19.i, label %invoke.cont22, label %for.body.i
 
@@ -4201,21 +3922,21 @@ for.body.i:                                       ; preds = %call.i.i.noexc101, 
           to label %call.i11.i.noexc unwind label %lpad21.loopexit
 
 call.i11.i.noexc:                                 ; preds = %for.body.i
-  %b.sroa.0.0.i = getelementptr inbounds i32, ptr %b.sroa.0.020.i, i64 1
+  %b.sroa.0.0.i = getelementptr inbounds i8, ptr %b.sroa.0.020.i, i64 4
   %cmp.i10.not.i = icmp eq ptr %b.sroa.0.0.i, %jump_offsets.sroa.9.0.lcssa
   br i1 %cmp.i10.not.i, label %invoke.cont22, label %for.body.i, !llvm.loop !14
 
 invoke.cont22:                                    ; preds = %call.i11.i.noexc, %call.i.i.noexc101, %invoke.cont14
   %retval.0.i100 = phi i32 [ 0, %invoke.cont14 ], [ %call.i.i102, %call.i.i.noexc101 ], [ %call.i.i102, %call.i11.i.noexc ]
-  %jump_table24 = getelementptr inbounds %struct.ROSE_STRUCT_SPARSE_ITER_BEGIN, ptr %dest, i64 0, i32 2
+  %jump_table24 = getelementptr inbounds i8, ptr %dest, i64 8
   store i32 %retval.0.i100, ptr %jump_table24, align 4
-  %is_written = getelementptr inbounds %"class.ue2::RoseInstrSparseIterBegin", ptr %this, i64 0, i32 5
+  %is_written = getelementptr inbounds i8, ptr %this, i64 48
   store i8 1, ptr %is_written, align 8
   %30 = load i32, ptr %iter_offset, align 4
-  %iter_offset26 = getelementptr inbounds %"class.ue2::RoseInstrSparseIterBegin", ptr %this, i64 0, i32 7
+  %iter_offset26 = getelementptr inbounds i8, ptr %this, i64 52
   store i32 %30, ptr %iter_offset26, align 4
   %31 = load i32, ptr %jump_table24, align 4
-  %jump_table_offset = getelementptr inbounds %"class.ue2::RoseInstrSparseIterBegin", ptr %this, i64 0, i32 8
+  %jump_table_offset = getelementptr inbounds i8, ptr %this, i64 56
   store i32 %31, ptr %jump_table_offset, align 8
   %32 = load ptr, ptr %iter, align 8
   %tobool.not.i.i.i104 = icmp eq ptr %32, null
@@ -4314,13 +4035,13 @@ _ZNSt6vectorIjSaIjEED2Ev.exit119:                 ; preds = %if.then.i.i.i118, %
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr hidden noundef nonnull align 4 dereferenceable(4) ptr @_ZNKSt13unordered_mapIPKN3ue215RoseInstructionEjSt4hashIS3_ESt8equal_toIS3_ESaISt4pairIKS3_jEEE2atERS9_(ptr noundef nonnull align 8 dereferenceable(56) %this, ptr noundef nonnull align 8 dereferenceable(8) %__k) local_unnamed_addr #5 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  %_M_element_count.i.i.i = getelementptr inbounds %"class.std::_Hashtable.79", ptr %this, i64 0, i32 3
+  %_M_element_count.i.i.i = getelementptr inbounds i8, ptr %this, i64 24
   %0 = load i64, ptr %_M_element_count.i.i.i, align 8
   %cmp.not.not.i.i = icmp eq i64 %0, 0
   br i1 %cmp.not.not.i.i, label %if.then.i.i, label %if.end15.i.i
 
 if.then.i.i:                                      ; preds = %entry
-  %_M_before_begin.i.i.i.i = getelementptr inbounds %"class.std::_Hashtable.79", ptr %this, i64 0, i32 2
+  %_M_before_begin.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 16
   %1 = load ptr, ptr %__k, align 8
   br label %for.cond.i.i
 
@@ -4339,7 +4060,7 @@ for.body.i.i:                                     ; preds = %for.cond.i.i
 if.end15.i.i:                                     ; preds = %entry
   %3 = load ptr, ptr %__k, align 8
   %4 = ptrtoint ptr %3 to i64
-  %_M_bucket_count.i.i.i = getelementptr inbounds %"class.std::_Hashtable.79", ptr %this, i64 0, i32 1
+  %_M_bucket_count.i.i.i = getelementptr inbounds i8, ptr %this, i64 8
   %5 = load i64, ptr %_M_bucket_count.i.i.i, align 8
   %rem.i.i.i.i.i = urem i64 %4, %5
   %6 = load ptr, ptr %this, align 8
@@ -4390,25 +4111,25 @@ define hidden void @_ZNK3ue223RoseInstrSparseIterNext5writeEPvRNS_14RoseEngineBl
 entry:
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(20) %dest, i8 0, i64 20, i1 false)
   store i8 46, ptr %dest, align 4
-  %state = getelementptr inbounds %"class.ue2::RoseInstrSparseIterNext", ptr %this, i64 0, i32 1
+  %state = getelementptr inbounds i8, ptr %this, i64 8
   %0 = load i32, ptr %state, align 8
-  %state2 = getelementptr inbounds %struct.ROSE_STRUCT_SPARSE_ITER_NEXT, ptr %dest, i64 0, i32 3
+  %state2 = getelementptr inbounds i8, ptr %dest, i64 12
   store i32 %0, ptr %state2, align 4
-  %target = getelementptr inbounds %"class.ue2::RoseInstrSparseIterNext", ptr %this, i64 0, i32 3
+  %target = getelementptr inbounds i8, ptr %this, i64 24
   %1 = load ptr, ptr %target, align 8
   %call = tail call fastcc noundef i32 @_ZN3ue2L9calc_jumpERKSt13unordered_mapIPKNS_15RoseInstructionEjSt4hashIS3_ESt8equal_toIS3_ESaISt4pairIKS3_jEEES3_S3_(ptr noundef nonnull align 8 dereferenceable(56) %offset_map, ptr noundef nonnull %this, ptr noundef %1)
-  %fail_jump = getelementptr inbounds %struct.ROSE_STRUCT_SPARSE_ITER_NEXT, ptr %dest, i64 0, i32 4
+  %fail_jump = getelementptr inbounds i8, ptr %dest, i64 16
   store i32 %call, ptr %fail_jump, align 4
-  %begin = getelementptr inbounds %"class.ue2::RoseInstrSparseIterNext", ptr %this, i64 0, i32 2
+  %begin = getelementptr inbounds i8, ptr %this, i64 16
   %2 = load ptr, ptr %begin, align 8
-  %iter_offset = getelementptr inbounds %"class.ue2::RoseInstrSparseIterBegin", ptr %2, i64 0, i32 7
+  %iter_offset = getelementptr inbounds i8, ptr %2, i64 52
   %3 = load i32, ptr %iter_offset, align 4
-  %iter_offset3 = getelementptr inbounds %struct.ROSE_STRUCT_SPARSE_ITER_NEXT, ptr %dest, i64 0, i32 1
+  %iter_offset3 = getelementptr inbounds i8, ptr %dest, i64 4
   store i32 %3, ptr %iter_offset3, align 4
   %4 = load ptr, ptr %begin, align 8
-  %jump_table_offset = getelementptr inbounds %"class.ue2::RoseInstrSparseIterBegin", ptr %4, i64 0, i32 8
+  %jump_table_offset = getelementptr inbounds i8, ptr %4, i64 56
   %5 = load i32, ptr %jump_table_offset, align 8
-  %jump_table = getelementptr inbounds %struct.ROSE_STRUCT_SPARSE_ITER_NEXT, ptr %dest, i64 0, i32 2
+  %jump_table = getelementptr inbounds i8, ptr %dest, i64 8
   store i32 %5, ptr %jump_table, align 4
   ret void
 }
@@ -4420,17 +4141,17 @@ entry:
   %iter = alloca %"class.std::vector.210", align 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %dest, i8 0, i64 12, i1 false)
   store i8 47, ptr %dest, align 4
-  %target = getelementptr inbounds %"class.ue2::RoseInstrSparseIterAny", ptr %this, i64 0, i32 3
+  %target = getelementptr inbounds i8, ptr %this, i64 40
   %0 = load ptr, ptr %target, align 8
   %call = tail call fastcc noundef i32 @_ZN3ue2L9calc_jumpERKSt13unordered_mapIPKNS_15RoseInstructionEjSt4hashIS3_ESt8equal_toIS3_ESaISt4pairIKS3_jEEES3_S3_(ptr noundef nonnull align 8 dereferenceable(56) %offset_map, ptr noundef nonnull %this, ptr noundef %0)
-  %fail_jump = getelementptr inbounds %struct.ROSE_STRUCT_SPARSE_ITER_ANY, ptr %dest, i64 0, i32 2
+  %fail_jump = getelementptr inbounds i8, ptr %dest, i64 8
   store i32 %call, ptr %fail_jump, align 4
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %iter) #25
-  %keys = getelementptr inbounds %"class.ue2::RoseInstrSparseIterAny", ptr %this, i64 0, i32 2
-  %num_keys = getelementptr inbounds %"class.ue2::RoseInstrSparseIterAny", ptr %this, i64 0, i32 1
+  %keys = getelementptr inbounds i8, ptr %this, i64 16
+  %num_keys = getelementptr inbounds i8, ptr %this, i64 8
   %1 = load i32, ptr %num_keys, align 8
   call void @_ZN3ue222mmbBuildSparseIteratorERKSt6vectorIjSaIjEEj(ptr nonnull sret(%"class.std::vector.210") align 8 %iter, ptr noundef nonnull align 8 dereferenceable(24) %keys, i32 noundef %1)
-  %cached_iters.i = getelementptr inbounds %"class.ue2::RoseEngineBlob", ptr %blob, i64 0, i32 2
+  %cached_iters.i = getelementptr inbounds i8, ptr %blob, i64 176
   %call.i.i8 = invoke ptr @_ZNSt10_HashtableISt6vectorI17mmbit_sparse_iterSaIS1_EESt4pairIKS3_jESaIS6_ENSt8__detail10_Select1stESt8equal_toIS3_EN3ue210ue2_hasherENS8_18_Mod_range_hashingENS8_20_Default_ranged_hashENS8_20_Prime_rehash_policyENS8_17_Hashtable_traitsILb1ELb0ELb1EEEE4findERS5_(ptr noundef nonnull align 8 dereferenceable(56) %cached_iters.i, ptr noundef nonnull align 8 dereferenceable(24) %iter)
           to label %call.i.i.noexc unwind label %lpad.loopexit.split-lp
 
@@ -4446,7 +4167,7 @@ if.then.i:                                        ; preds = %call.i.i.noexc
 if.end.i:                                         ; preds = %call.i.i.noexc
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %offset9.i) #25
   %3 = load ptr, ptr %iter, align 8
-  %_M_finish.i.i = getelementptr inbounds %"struct.std::_Vector_base<mmbit_sparse_iter, std::allocator<mmbit_sparse_iter>>::_Vector_impl_data", ptr %iter, i64 0, i32 1
+  %_M_finish.i.i = getelementptr inbounds i8, ptr %iter, i64 8
   %4 = load ptr, ptr %_M_finish.i.i, align 8
   %cmp.i.i.i = icmp eq ptr %4, %3
   br i1 %cmp.i.i.i, label %_ZN3ue214RoseEngineBlob3addIN9__gnu_cxx17__normal_iteratorIPK17mmbit_sparse_iterSt6vectorIS4_SaIS4_EEEEEEjT_RKSB_.exit.i, label %if.end.i.i
@@ -4456,7 +4177,7 @@ if.end.i.i:                                       ; preds = %if.end.i
           to label %call.i.i.i.noexc unwind label %lpad.loopexit.split-lp
 
 call.i.i.i.noexc:                                 ; preds = %if.end.i.i
-  %b.sroa.0.018.i.i = getelementptr inbounds %struct.mmbit_sparse_iter, ptr %3, i64 1
+  %b.sroa.0.018.i.i = getelementptr inbounds i8, ptr %3, i64 16
   %cmp.i10.not19.i.i = icmp eq ptr %b.sroa.0.018.i.i, %4
   br i1 %cmp.i10.not19.i.i, label %_ZN3ue214RoseEngineBlob3addIN9__gnu_cxx17__normal_iteratorIPK17mmbit_sparse_iterSt6vectorIS4_SaIS4_EEEEEEjT_RKSB_.exit.i, label %for.body.i.i
 
@@ -4466,7 +4187,7 @@ for.body.i.i:                                     ; preds = %call.i.i.i.noexc, %
           to label %call.i11.i.i.noexc unwind label %lpad.loopexit
 
 call.i11.i.i.noexc:                               ; preds = %for.body.i.i
-  %b.sroa.0.0.i.i = getelementptr inbounds %struct.mmbit_sparse_iter, ptr %b.sroa.0.020.i.i, i64 1
+  %b.sroa.0.0.i.i = getelementptr inbounds i8, ptr %b.sroa.0.020.i.i, i64 16
   %cmp.i10.not.i.i = icmp eq ptr %b.sroa.0.0.i.i, %4
   br i1 %cmp.i10.not.i.i, label %_ZN3ue214RoseEngineBlob3addIN9__gnu_cxx17__normal_iteratorIPK17mmbit_sparse_iterSt6vectorIS4_SaIS4_EEEEEEjT_RKSB_.exit.i, label %for.body.i.i, !llvm.loop !13
 
@@ -4483,7 +4204,7 @@ call.i.i22.i.noexc:                               ; preds = %_ZN3ue214RoseEngine
 
 invoke.cont:                                      ; preds = %call.i.i22.i.noexc, %if.then.i
   %retval.0.i = phi i32 [ %2, %if.then.i ], [ %5, %call.i.i22.i.noexc ]
-  %iter_offset = getelementptr inbounds %struct.ROSE_STRUCT_SPARSE_ITER_ANY, ptr %dest, i64 0, i32 1
+  %iter_offset = getelementptr inbounds i8, ptr %dest, i64 4
   store i32 %retval.0.i, ptr %iter_offset, align 4
   %6 = load ptr, ptr %iter, align 8
   %tobool.not.i.i.i = icmp eq ptr %6, null
@@ -4526,9 +4247,9 @@ _ZNSt6vectorI17mmbit_sparse_iterSaIS0_EED2Ev.exit14: ; preds = %if.then.i.i.i13,
 define hidden void @_ZNK3ue219RoseInstrEnginesEod5writeEPvRNS_14RoseEngineBlobERKSt13unordered_mapIPKNS_15RoseInstructionEjSt4hashIS7_ESt8equal_toIS7_ESaISt4pairIKS7_jEEE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(12) %this, ptr nocapture noundef writeonly %dest, ptr nocapture nonnull readnone align 8 %blob, ptr nocapture nonnull readnone align 8 %offset_map) unnamed_addr #7 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store i64 48, ptr %dest, align 4
-  %iter_offset = getelementptr inbounds %"class.ue2::RoseInstrEnginesEod", ptr %this, i64 0, i32 1
+  %iter_offset = getelementptr inbounds i8, ptr %this, i64 8
   %0 = load i32, ptr %iter_offset, align 8
-  %iter_offset2 = getelementptr inbounds %struct.ROSE_STRUCT_ENGINES_EOD, ptr %dest, i64 0, i32 1
+  %iter_offset2 = getelementptr inbounds i8, ptr %dest, i64 4
   store i32 %0, ptr %iter_offset2, align 4
   ret void
 }
@@ -4538,12 +4259,12 @@ define hidden void @_ZNK3ue221RoseInstrCheckLongLit5writeEPvRNS_14RoseEngineBlob
 entry:
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %dest, i8 0, i64 16, i1 false)
   store i8 51, ptr %dest, align 4
-  %literal = getelementptr inbounds %"class.ue2::RoseInstrCheckLongLit", ptr %this, i64 0, i32 1
+  %literal = getelementptr inbounds i8, ptr %this, i64 8
   %0 = load ptr, ptr %literal, align 8
-  %_M_string_length.i = getelementptr inbounds %"class.ue2::RoseInstrCheckLongLit", ptr %this, i64 0, i32 1, i32 1
+  %_M_string_length.i = getelementptr inbounds i8, ptr %this, i64 16
   %1 = load i64, ptr %_M_string_length.i, align 8
-  %blob.i.i = getelementptr inbounds %"class.ue2::RoseEngineBlob", ptr %blob, i64 0, i32 3
-  %_M_finish.i.i.i = getelementptr inbounds %"class.ue2::RoseEngineBlob", ptr %blob, i64 0, i32 3, i32 0, i32 0, i32 0, i32 1
+  %blob.i.i = getelementptr inbounds i8, ptr %blob, i64 232
+  %_M_finish.i.i.i = getelementptr inbounds i8, ptr %blob, i64 240
   %2 = load ptr, ptr %_M_finish.i.i.i, align 8
   %3 = load ptr, ptr %blob.i.i, align 8
   %sub.ptr.lhs.cast.i.i.i = ptrtoint ptr %2 to i64
@@ -4604,7 +4325,7 @@ lpad.i.i.i:                                       ; preds = %if.then.i.i25.i
 
 _ZN3ue214RoseEngineBlob3addEPKvmm.exit:           ; preds = %_ZNSt6vectorIcN3ue216AlignedAllocatorIcLm64EEEE6resizeEm.exit.i
   %conv.i.i.i = trunc i64 %add.i to i32
-  %lit_offset = getelementptr inbounds %struct.ROSE_STRUCT_CHECK_LONG_LIT, ptr %dest, i64 0, i32 1
+  %lit_offset = getelementptr inbounds i8, ptr %dest, i64 4
   store i32 %conv.i.i.i, ptr %lit_offset, align 4
   %6 = load i64, ptr %_M_string_length.i, align 8
   %cmp.not.i.i = icmp ult i64 %6, 4294967296
@@ -4626,12 +4347,12 @@ lpad.i.i:                                         ; preds = %if.then.i.i
 
 _ZN3ue210verify_u32ImEEjT_.exit:                  ; preds = %_ZN3ue214RoseEngineBlob3addEPKvmm.exit
   %conv.i.i = trunc i64 %6 to i32
-  %lit_length = getelementptr inbounds %struct.ROSE_STRUCT_CHECK_LONG_LIT, ptr %dest, i64 0, i32 2
+  %lit_length = getelementptr inbounds i8, ptr %dest, i64 8
   store i32 %conv.i.i, ptr %lit_length, align 4
-  %target = getelementptr inbounds %"class.ue2::RoseInstrCheckLongLit", ptr %this, i64 0, i32 2
+  %target = getelementptr inbounds i8, ptr %this, i64 40
   %8 = load ptr, ptr %target, align 8
   %call8 = tail call fastcc noundef i32 @_ZN3ue2L9calc_jumpERKSt13unordered_mapIPKNS_15RoseInstructionEjSt4hashIS3_ESt8equal_toIS3_ESaISt4pairIKS3_jEEES3_S3_(ptr noundef nonnull align 8 dereferenceable(56) %offset_map, ptr noundef nonnull %this, ptr noundef %8)
-  %fail_jump = getelementptr inbounds %struct.ROSE_STRUCT_CHECK_LONG_LIT, ptr %dest, i64 0, i32 3
+  %fail_jump = getelementptr inbounds i8, ptr %dest, i64 12
   store i32 %call8, ptr %fail_jump, align 4
   ret void
 }
@@ -4639,8 +4360,8 @@ _ZN3ue210verify_u32ImEEjT_.exit:                  ; preds = %_ZN3ue214RoseEngine
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr hidden noundef i32 @_ZN3ue214RoseEngineBlob3addEPKvmm(ptr noundef nonnull align 8 dereferenceable(256) %this, ptr noundef %a, i64 noundef %len, i64 noundef %align) local_unnamed_addr #5 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  %blob.i = getelementptr inbounds %"class.ue2::RoseEngineBlob", ptr %this, i64 0, i32 3
-  %_M_finish.i.i = getelementptr inbounds %"class.ue2::RoseEngineBlob", ptr %this, i64 0, i32 3, i32 0, i32 0, i32 0, i32 1
+  %blob.i = getelementptr inbounds i8, ptr %this, i64 232
+  %_M_finish.i.i = getelementptr inbounds i8, ptr %this, i64 240
   %0 = load ptr, ptr %_M_finish.i.i, align 8
   %1 = load ptr, ptr %blob.i, align 8
   %sub.ptr.lhs.cast.i.i = ptrtoint ptr %0 to i64
@@ -4743,12 +4464,12 @@ define hidden void @_ZNK3ue227RoseInstrCheckLongLitNocase5writeEPvRNS_14RoseEngi
 entry:
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %dest, i8 0, i64 16, i1 false)
   store i8 52, ptr %dest, align 4
-  %literal = getelementptr inbounds %"class.ue2::RoseInstrCheckLongLitNocase", ptr %this, i64 0, i32 1
+  %literal = getelementptr inbounds i8, ptr %this, i64 8
   %0 = load ptr, ptr %literal, align 8
-  %_M_string_length.i = getelementptr inbounds %"class.ue2::RoseInstrCheckLongLitNocase", ptr %this, i64 0, i32 1, i32 1
+  %_M_string_length.i = getelementptr inbounds i8, ptr %this, i64 16
   %1 = load i64, ptr %_M_string_length.i, align 8
-  %blob.i.i = getelementptr inbounds %"class.ue2::RoseEngineBlob", ptr %blob, i64 0, i32 3
-  %_M_finish.i.i.i = getelementptr inbounds %"class.ue2::RoseEngineBlob", ptr %blob, i64 0, i32 3, i32 0, i32 0, i32 0, i32 1
+  %blob.i.i = getelementptr inbounds i8, ptr %blob, i64 232
+  %_M_finish.i.i.i = getelementptr inbounds i8, ptr %blob, i64 240
   %2 = load ptr, ptr %_M_finish.i.i.i, align 8
   %3 = load ptr, ptr %blob.i.i, align 8
   %sub.ptr.lhs.cast.i.i.i = ptrtoint ptr %2 to i64
@@ -4809,7 +4530,7 @@ lpad.i.i.i:                                       ; preds = %if.then.i.i25.i
 
 _ZN3ue214RoseEngineBlob3addEPKvmm.exit:           ; preds = %_ZNSt6vectorIcN3ue216AlignedAllocatorIcLm64EEEE6resizeEm.exit.i
   %conv.i.i.i = trunc i64 %add.i to i32
-  %lit_offset = getelementptr inbounds %struct.ROSE_STRUCT_CHECK_LONG_LIT_NOCASE, ptr %dest, i64 0, i32 1
+  %lit_offset = getelementptr inbounds i8, ptr %dest, i64 4
   store i32 %conv.i.i.i, ptr %lit_offset, align 4
   %6 = load i64, ptr %_M_string_length.i, align 8
   %cmp.not.i.i = icmp ult i64 %6, 4294967296
@@ -4831,12 +4552,12 @@ lpad.i.i:                                         ; preds = %if.then.i.i
 
 _ZN3ue210verify_u32ImEEjT_.exit:                  ; preds = %_ZN3ue214RoseEngineBlob3addEPKvmm.exit
   %conv.i.i = trunc i64 %6 to i32
-  %lit_length = getelementptr inbounds %struct.ROSE_STRUCT_CHECK_LONG_LIT_NOCASE, ptr %dest, i64 0, i32 2
+  %lit_length = getelementptr inbounds i8, ptr %dest, i64 8
   store i32 %conv.i.i, ptr %lit_length, align 4
-  %target = getelementptr inbounds %"class.ue2::RoseInstrCheckLongLitNocase", ptr %this, i64 0, i32 2
+  %target = getelementptr inbounds i8, ptr %this, i64 40
   %8 = load ptr, ptr %target, align 8
   %call8 = tail call fastcc noundef i32 @_ZN3ue2L9calc_jumpERKSt13unordered_mapIPKNS_15RoseInstructionEjSt4hashIS3_ESt8equal_toIS3_ESaISt4pairIKS3_jEEES3_S3_(ptr noundef nonnull align 8 dereferenceable(56) %offset_map, ptr noundef nonnull %this, ptr noundef %8)
-  %fail_jump = getelementptr inbounds %struct.ROSE_STRUCT_CHECK_LONG_LIT_NOCASE, ptr %dest, i64 0, i32 3
+  %fail_jump = getelementptr inbounds i8, ptr %dest, i64 12
   store i32 %call8, ptr %fail_jump, align 4
   ret void
 }
@@ -4846,12 +4567,12 @@ define hidden void @_ZNK3ue220RoseInstrCheckMedLit5writeEPvRNS_14RoseEngineBlobE
 entry:
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %dest, i8 0, i64 16, i1 false)
   store i8 53, ptr %dest, align 4
-  %literal = getelementptr inbounds %"class.ue2::RoseInstrCheckMedLit", ptr %this, i64 0, i32 1
+  %literal = getelementptr inbounds i8, ptr %this, i64 8
   %0 = load ptr, ptr %literal, align 8
-  %_M_string_length.i = getelementptr inbounds %"class.ue2::RoseInstrCheckMedLit", ptr %this, i64 0, i32 1, i32 1
+  %_M_string_length.i = getelementptr inbounds i8, ptr %this, i64 16
   %1 = load i64, ptr %_M_string_length.i, align 8
-  %blob.i.i = getelementptr inbounds %"class.ue2::RoseEngineBlob", ptr %blob, i64 0, i32 3
-  %_M_finish.i.i.i = getelementptr inbounds %"class.ue2::RoseEngineBlob", ptr %blob, i64 0, i32 3, i32 0, i32 0, i32 0, i32 1
+  %blob.i.i = getelementptr inbounds i8, ptr %blob, i64 232
+  %_M_finish.i.i.i = getelementptr inbounds i8, ptr %blob, i64 240
   %2 = load ptr, ptr %_M_finish.i.i.i, align 8
   %3 = load ptr, ptr %blob.i.i, align 8
   %sub.ptr.lhs.cast.i.i.i = ptrtoint ptr %2 to i64
@@ -4912,7 +4633,7 @@ lpad.i.i.i:                                       ; preds = %if.then.i.i25.i
 
 _ZN3ue214RoseEngineBlob3addEPKvmm.exit:           ; preds = %_ZNSt6vectorIcN3ue216AlignedAllocatorIcLm64EEEE6resizeEm.exit.i
   %conv.i.i.i = trunc i64 %add.i to i32
-  %lit_offset = getelementptr inbounds %struct.ROSE_STRUCT_CHECK_MED_LIT, ptr %dest, i64 0, i32 1
+  %lit_offset = getelementptr inbounds i8, ptr %dest, i64 4
   store i32 %conv.i.i.i, ptr %lit_offset, align 4
   %6 = load i64, ptr %_M_string_length.i, align 8
   %cmp.not.i.i = icmp ult i64 %6, 4294967296
@@ -4934,12 +4655,12 @@ lpad.i.i:                                         ; preds = %if.then.i.i
 
 _ZN3ue210verify_u32ImEEjT_.exit:                  ; preds = %_ZN3ue214RoseEngineBlob3addEPKvmm.exit
   %conv.i.i = trunc i64 %6 to i32
-  %lit_length = getelementptr inbounds %struct.ROSE_STRUCT_CHECK_MED_LIT, ptr %dest, i64 0, i32 2
+  %lit_length = getelementptr inbounds i8, ptr %dest, i64 8
   store i32 %conv.i.i, ptr %lit_length, align 4
-  %target = getelementptr inbounds %"class.ue2::RoseInstrCheckMedLit", ptr %this, i64 0, i32 2
+  %target = getelementptr inbounds i8, ptr %this, i64 40
   %8 = load ptr, ptr %target, align 8
   %call8 = tail call fastcc noundef i32 @_ZN3ue2L9calc_jumpERKSt13unordered_mapIPKNS_15RoseInstructionEjSt4hashIS3_ESt8equal_toIS3_ESaISt4pairIKS3_jEEES3_S3_(ptr noundef nonnull align 8 dereferenceable(56) %offset_map, ptr noundef nonnull %this, ptr noundef %8)
-  %fail_jump = getelementptr inbounds %struct.ROSE_STRUCT_CHECK_MED_LIT, ptr %dest, i64 0, i32 3
+  %fail_jump = getelementptr inbounds i8, ptr %dest, i64 12
   store i32 %call8, ptr %fail_jump, align 4
   ret void
 }
@@ -4949,12 +4670,12 @@ define hidden void @_ZNK3ue226RoseInstrCheckMedLitNocase5writeEPvRNS_14RoseEngin
 entry:
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %dest, i8 0, i64 16, i1 false)
   store i8 54, ptr %dest, align 4
-  %literal = getelementptr inbounds %"class.ue2::RoseInstrCheckMedLitNocase", ptr %this, i64 0, i32 1
+  %literal = getelementptr inbounds i8, ptr %this, i64 8
   %0 = load ptr, ptr %literal, align 8
-  %_M_string_length.i = getelementptr inbounds %"class.ue2::RoseInstrCheckMedLitNocase", ptr %this, i64 0, i32 1, i32 1
+  %_M_string_length.i = getelementptr inbounds i8, ptr %this, i64 16
   %1 = load i64, ptr %_M_string_length.i, align 8
-  %blob.i.i = getelementptr inbounds %"class.ue2::RoseEngineBlob", ptr %blob, i64 0, i32 3
-  %_M_finish.i.i.i = getelementptr inbounds %"class.ue2::RoseEngineBlob", ptr %blob, i64 0, i32 3, i32 0, i32 0, i32 0, i32 1
+  %blob.i.i = getelementptr inbounds i8, ptr %blob, i64 232
+  %_M_finish.i.i.i = getelementptr inbounds i8, ptr %blob, i64 240
   %2 = load ptr, ptr %_M_finish.i.i.i, align 8
   %3 = load ptr, ptr %blob.i.i, align 8
   %sub.ptr.lhs.cast.i.i.i = ptrtoint ptr %2 to i64
@@ -5015,7 +4736,7 @@ lpad.i.i.i:                                       ; preds = %if.then.i.i25.i
 
 _ZN3ue214RoseEngineBlob3addEPKvmm.exit:           ; preds = %_ZNSt6vectorIcN3ue216AlignedAllocatorIcLm64EEEE6resizeEm.exit.i
   %conv.i.i.i = trunc i64 %add.i to i32
-  %lit_offset = getelementptr inbounds %struct.ROSE_STRUCT_CHECK_MED_LIT_NOCASE, ptr %dest, i64 0, i32 1
+  %lit_offset = getelementptr inbounds i8, ptr %dest, i64 4
   store i32 %conv.i.i.i, ptr %lit_offset, align 4
   %6 = load i64, ptr %_M_string_length.i, align 8
   %cmp.not.i.i = icmp ult i64 %6, 4294967296
@@ -5037,12 +4758,12 @@ lpad.i.i:                                         ; preds = %if.then.i.i
 
 _ZN3ue210verify_u32ImEEjT_.exit:                  ; preds = %_ZN3ue214RoseEngineBlob3addEPKvmm.exit
   %conv.i.i = trunc i64 %6 to i32
-  %lit_length = getelementptr inbounds %struct.ROSE_STRUCT_CHECK_MED_LIT_NOCASE, ptr %dest, i64 0, i32 2
+  %lit_length = getelementptr inbounds i8, ptr %dest, i64 8
   store i32 %conv.i.i, ptr %lit_length, align 4
-  %target = getelementptr inbounds %"class.ue2::RoseInstrCheckMedLitNocase", ptr %this, i64 0, i32 2
+  %target = getelementptr inbounds i8, ptr %this, i64 40
   %8 = load ptr, ptr %target, align 8
   %call8 = tail call fastcc noundef i32 @_ZN3ue2L9calc_jumpERKSt13unordered_mapIPKNS_15RoseInstructionEjSt4hashIS3_ESt8equal_toIS3_ESaISt4pairIKS3_jEEES3_S3_(ptr noundef nonnull align 8 dereferenceable(56) %offset_map, ptr noundef nonnull %this, ptr noundef %8)
-  %fail_jump = getelementptr inbounds %struct.ROSE_STRUCT_CHECK_MED_LIT_NOCASE, ptr %dest, i64 0, i32 3
+  %fail_jump = getelementptr inbounds i8, ptr %dest, i64 12
   store i32 %call8, ptr %fail_jump, align 4
   ret void
 }
@@ -5055,25 +4776,25 @@ entry:
   %ref.tmp = alloca %"class.std::vector.108", align 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(40) %dest, i8 0, i64 40, i1 false)
   store i8 56, ptr %dest, align 4
-  %lookaround_cache = getelementptr inbounds %"class.ue2::RoseEngineBlob", ptr %blob, i64 0, i32 1
+  %lookaround_cache = getelementptr inbounds i8, ptr %blob, i64 8
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %look_offsets) #25
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %look_offsets, i8 0, i64 24, i1 false)
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %reaches) #25
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %reaches, i8 0, i64 24, i1 false)
-  %multi_look = getelementptr inbounds %"class.ue2::RoseInstrMultipathLookaround", ptr %this, i64 0, i32 1
+  %multi_look = getelementptr inbounds i8, ptr %this, i64 8
   %0 = load ptr, ptr %multi_look, align 8
-  %_M_finish.i = getelementptr inbounds %"class.ue2::RoseInstrMultipathLookaround", ptr %this, i64 0, i32 1, i32 0, i32 0, i32 0, i32 1
+  %_M_finish.i = getelementptr inbounds i8, ptr %this, i64 16
   %1 = load ptr, ptr %_M_finish.i, align 8
   %cmp.i.not117 = icmp eq ptr %0, %1
   br i1 %cmp.i.not117, label %for.cond.cleanup, label %for.body.lr.ph
 
 for.body.lr.ph:                                   ; preds = %entry
-  %_M_finish.i.i = getelementptr inbounds %"struct.std::_Vector_base<std::vector<ue2::CharReach>, std::allocator<std::vector<ue2::CharReach>>>::_Vector_impl_data", ptr %reaches, i64 0, i32 1
-  %_M_end_of_storage.i.i = getelementptr inbounds %"struct.std::_Vector_base<std::vector<ue2::CharReach>, std::allocator<std::vector<ue2::CharReach>>>::_Vector_impl_data", ptr %reaches, i64 0, i32 2
-  %_M_finish3.i.i.i.i.i.i.i.i = getelementptr inbounds %"struct.std::_Vector_base<ue2::CharReach, std::allocator<ue2::CharReach>>::_Vector_impl_data", ptr %ref.tmp, i64 0, i32 1
-  %_M_end_of_storage4.i.i.i.i.i.i.i.i = getelementptr inbounds %"struct.std::_Vector_base<ue2::CharReach, std::allocator<ue2::CharReach>>::_Vector_impl_data", ptr %ref.tmp, i64 0, i32 2
-  %_M_finish.i82 = getelementptr inbounds %"struct.std::_Vector_base<signed char, std::allocator<signed char>>::_Vector_impl_data", ptr %look_offsets, i64 0, i32 1
-  %_M_end_of_storage.i83 = getelementptr inbounds %"struct.std::_Vector_base<signed char, std::allocator<signed char>>::_Vector_impl_data", ptr %look_offsets, i64 0, i32 2
+  %_M_finish.i.i = getelementptr inbounds i8, ptr %reaches, i64 8
+  %_M_end_of_storage.i.i = getelementptr inbounds i8, ptr %reaches, i64 16
+  %_M_finish3.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %ref.tmp, i64 8
+  %_M_end_of_storage4.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %ref.tmp, i64 16
+  %_M_finish.i82 = getelementptr inbounds i8, ptr %look_offsets, i64 8
+  %_M_end_of_storage.i83 = getelementptr inbounds i8, ptr %look_offsets, i64 16
   br label %for.body
 
 for.cond.cleanup:                                 ; preds = %for.cond.cleanup12, %entry
@@ -5092,14 +4813,14 @@ for.body:                                         ; preds = %for.cond.cleanup12,
 
 invoke.cont.thread:                               ; preds = %for.body
   store ptr null, ptr %3, align 8
-  %_M_finish.i.i.i.i.i.i.i.i = getelementptr inbounds %"struct.std::_Vector_base<ue2::CharReach, std::allocator<ue2::CharReach>>::_Vector_impl_data", ptr %3, i64 0, i32 1
+  %_M_finish.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %3, i64 8
   %5 = load ptr, ptr %_M_finish3.i.i.i.i.i.i.i.i, align 8
   store ptr %5, ptr %_M_finish.i.i.i.i.i.i.i.i, align 8
-  %_M_end_of_storage.i.i.i.i.i.i.i.i = getelementptr inbounds %"struct.std::_Vector_base<ue2::CharReach, std::allocator<ue2::CharReach>>::_Vector_impl_data", ptr %3, i64 0, i32 2
+  %_M_end_of_storage.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %3, i64 16
   %6 = load ptr, ptr %_M_end_of_storage4.i.i.i.i.i.i.i.i, align 8
   store ptr %6, ptr %_M_end_of_storage.i.i.i.i.i.i.i.i, align 8
   %7 = load ptr, ptr %_M_finish.i.i, align 8
-  %incdec.ptr.i.i = getelementptr inbounds %"class.std::vector.108", ptr %7, i64 1
+  %incdec.ptr.i.i = getelementptr inbounds i8, ptr %7, i64 24
   store ptr %incdec.ptr.i.i, ptr %_M_finish.i.i, align 8
   br label %_ZNSt6vectorIN3ue29CharReachESaIS1_EED2Ev.exit
 
@@ -5119,14 +4840,14 @@ if.then.i.i.i:                                    ; preds = %invoke.cont
 _ZNSt6vectorIN3ue29CharReachESaIS1_EED2Ev.exit:   ; preds = %if.then.i.i.i, %invoke.cont, %invoke.cont.thread
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %ref.tmp) #25
   %8 = load ptr, ptr %__begin1.sroa.0.0118, align 8
-  %_M_finish.i73 = getelementptr inbounds %"struct.std::_Vector_base<ue2::LookEntry, std::allocator<ue2::LookEntry>>::_Vector_impl_data", ptr %__begin1.sroa.0.0118, i64 0, i32 1
+  %_M_finish.i73 = getelementptr inbounds i8, ptr %__begin1.sroa.0.0118, i64 8
   %9 = load ptr, ptr %_M_finish.i73, align 8
   %cmp.i74.not114 = icmp eq ptr %8, %9
   br i1 %cmp.i74.not114, label %for.cond.cleanup12, label %for.body13
 
 for.cond.cleanup12:                               ; preds = %if.end, %_ZNSt6vectorIN3ue29CharReachESaIS1_EED2Ev.exit
   %10 = phi ptr [ %2, %_ZNSt6vectorIN3ue29CharReachESaIS1_EED2Ev.exit ], [ %30, %if.end ]
-  %incdec.ptr.i = getelementptr inbounds %"class.std::vector.115", ptr %__begin1.sroa.0.0118, i64 1
+  %incdec.ptr.i = getelementptr inbounds i8, ptr %__begin1.sroa.0.0118, i64 24
   %cmp.i.not = icmp eq ptr %incdec.ptr.i, %1
   br i1 %cmp.i.not, label %for.cond.cleanup, label %for.body
 
@@ -5150,10 +4871,10 @@ for.body13:                                       ; preds = %_ZNSt6vectorIN3ue29
   %done_offset.0116 = phi i8 [ %done_offset.1, %if.end ], [ 0, %_ZNSt6vectorIN3ue29CharReachESaIS1_EED2Ev.exit ]
   %__begin2.sroa.0.0115 = phi ptr [ %incdec.ptr.i94, %if.end ], [ %8, %_ZNSt6vectorIN3ue29CharReachESaIS1_EED2Ev.exit ]
   %14 = load ptr, ptr %_M_finish.i.i, align 8
-  %reach = getelementptr inbounds %"struct.ue2::LookEntry", ptr %__begin2.sroa.0.0115, i64 0, i32 1
-  %_M_finish.i79 = getelementptr %"class.std::vector.108", ptr %14, i64 -1, i32 0, i32 0, i32 0, i32 1
+  %reach = getelementptr inbounds i8, ptr %__begin2.sroa.0.0115, i64 8
+  %_M_finish.i79 = getelementptr i8, ptr %14, i64 -16
   %15 = load ptr, ptr %_M_finish.i79, align 8
-  %_M_end_of_storage.i = getelementptr %"class.std::vector.108", ptr %14, i64 -1, i32 0, i32 0, i32 0, i32 2
+  %_M_end_of_storage.i = getelementptr i8, ptr %14, i64 -8
   %16 = load ptr, ptr %_M_end_of_storage.i, align 8
   %cmp.not.i = icmp eq ptr %15, %16
   br i1 %cmp.not.i, label %if.else.i, label %if.then.i
@@ -5161,12 +4882,12 @@ for.body13:                                       ; preds = %_ZNSt6vectorIN3ue29
 if.then.i:                                        ; preds = %for.body13
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %15, ptr noundef nonnull align 8 dereferenceable(32) %reach, i64 32, i1 false)
   %17 = load ptr, ptr %_M_finish.i79, align 8
-  %incdec.ptr.i80 = getelementptr inbounds %"class.ue2::CharReach", ptr %17, i64 1
+  %incdec.ptr.i80 = getelementptr inbounds i8, ptr %17, i64 32
   store ptr %incdec.ptr.i80, ptr %_M_finish.i79, align 8
   br label %invoke.cont17
 
 if.else.i:                                        ; preds = %for.body13
-  %add.ptr.i.i = getelementptr inbounds %"class.std::vector.108", ptr %14, i64 -1
+  %add.ptr.i.i = getelementptr inbounds i8, ptr %14, i64 -24
   %18 = load ptr, ptr %add.ptr.i.i, align 8
   %sub.ptr.lhs.cast.i.i.i = ptrtoint ptr %15 to i64
   %sub.ptr.rhs.cast.i.i.i = ptrtoint ptr %18 to i64
@@ -5207,14 +4928,14 @@ for.body.i.i.i.i.i:                               ; preds = %_ZNSt12_Vector_base
   %__cur.08.i.i.i.i.i = phi ptr [ %incdec.ptr1.i.i.i.i.i, %for.body.i.i.i.i.i ], [ %cond.i31.i, %_ZNSt12_Vector_baseIN3ue29CharReachESaIS1_EE11_M_allocateEm.exit.i ]
   %__first.addr.07.i.i.i.i.i = phi ptr [ %incdec.ptr.i.i.i.i.i, %for.body.i.i.i.i.i ], [ %18, %_ZNSt12_Vector_baseIN3ue29CharReachESaIS1_EE11_M_allocateEm.exit.i ]
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %__cur.08.i.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(32) %__first.addr.07.i.i.i.i.i, i64 32, i1 false), !alias.scope !15
-  %incdec.ptr.i.i.i.i.i = getelementptr inbounds %"class.ue2::CharReach", ptr %__first.addr.07.i.i.i.i.i, i64 1
-  %incdec.ptr1.i.i.i.i.i = getelementptr inbounds %"class.ue2::CharReach", ptr %__cur.08.i.i.i.i.i, i64 1
+  %incdec.ptr.i.i.i.i.i = getelementptr inbounds i8, ptr %__first.addr.07.i.i.i.i.i, i64 32
+  %incdec.ptr1.i.i.i.i.i = getelementptr inbounds i8, ptr %__cur.08.i.i.i.i.i, i64 32
   %cmp.not.i.i.i.i.i = icmp eq ptr %incdec.ptr.i.i.i.i.i, %15
   br i1 %cmp.not.i.i.i.i.i, label %_ZNSt6vectorIN3ue29CharReachESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit40.i, label %for.body.i.i.i.i.i, !llvm.loop !12
 
 _ZNSt6vectorIN3ue29CharReachESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit40.i: ; preds = %for.body.i.i.i.i.i, %_ZNSt12_Vector_baseIN3ue29CharReachESaIS1_EE11_M_allocateEm.exit.i
   %__cur.0.lcssa.i.i.i.i.i = phi ptr [ %cond.i31.i, %_ZNSt12_Vector_baseIN3ue29CharReachESaIS1_EE11_M_allocateEm.exit.i ], [ %incdec.ptr1.i.i.i.i.i, %for.body.i.i.i.i.i ]
-  %incdec.ptr.i17 = getelementptr %"class.ue2::CharReach", ptr %__cur.0.lcssa.i.i.i.i.i, i64 1
+  %incdec.ptr.i17 = getelementptr i8, ptr %__cur.0.lcssa.i.i.i.i.i, i64 32
   %tobool.not.i.i = icmp eq ptr %18, null
   br i1 %tobool.not.i.i, label %_ZNSt6vectorIN3ue29CharReachESaIS1_EE17_M_realloc_insertIJRKS1_EEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_.exit, label %if.then.i41.i
 
@@ -5237,15 +4958,15 @@ invoke.cont17:                                    ; preds = %_ZNSt6vectorIN3ue29
 invoke.cont19:                                    ; preds = %invoke.cont17
   %21 = load i64, ptr %reach, align 8
   %cmp3.not.i.i.i = icmp ne i64 %21, 0
-  %__begin0.0.ptr.1.i.i.i = getelementptr inbounds %"struct.ue2::LookEntry", ptr %__begin2.sroa.0.0115, i64 0, i32 1, i32 0, i32 0, i32 0, i64 1
+  %__begin0.0.ptr.1.i.i.i = getelementptr inbounds i8, ptr %__begin2.sroa.0.0115, i64 16
   %22 = load i64, ptr %__begin0.0.ptr.1.i.i.i, align 8
   %cmp3.not.1.i.i.i = icmp ne i64 %22, 0
   %or.cond.i.not.i.i = select i1 %cmp3.not.i.i.i, i1 true, i1 %cmp3.not.1.i.i.i
-  %__begin0.0.ptr.2.i.i.i = getelementptr inbounds %"struct.ue2::LookEntry", ptr %__begin2.sroa.0.0115, i64 0, i32 1, i32 0, i32 0, i32 0, i64 2
+  %__begin0.0.ptr.2.i.i.i = getelementptr inbounds i8, ptr %__begin2.sroa.0.0115, i64 24
   %23 = load i64, ptr %__begin0.0.ptr.2.i.i.i, align 8
   %cmp3.not.2.i.i.i = icmp ne i64 %23, 0
   %or.cond14.i.i.i = select i1 %or.cond.i.not.i.i, i1 true, i1 %cmp3.not.2.i.i.i
-  %__begin0.0.ptr.3.i.i.i = getelementptr inbounds %"struct.ue2::LookEntry", ptr %__begin2.sroa.0.0115, i64 0, i32 1, i32 0, i32 0, i32 0, i64 3
+  %__begin0.0.ptr.3.i.i.i = getelementptr inbounds i8, ptr %__begin2.sroa.0.0115, i64 32
   %24 = load i64, ptr %__begin0.0.ptr.3.i.i.i, align 8
   %cmp3.not.3.i.i.i = icmp ne i64 %24, 0
   %or.cond15.i.i.i = select i1 %or.cond14.i.i.i, i1 true, i1 %cmp3.not.3.i.i.i
@@ -5337,18 +5058,18 @@ lpad16.loopexit.split-lp:                         ; preds = %if.then.i.i.i91
 if.end:                                           ; preds = %_ZNSt6vectorIaSaIaEE17_M_realloc_insertIJRKaEEEvN9__gnu_cxx17__normal_iteratorIPaS1_EEDpOT_.exit.i, %if.then.i85, %invoke.cont19, %invoke.cont17
   %30 = phi ptr [ %13, %invoke.cont17 ], [ %13, %invoke.cont19 ], [ %incdec.ptr.i86, %if.then.i85 ], [ %incdec.ptr.i.i89, %_ZNSt6vectorIaSaIaEE17_M_realloc_insertIJRKaEEEvN9__gnu_cxx17__normal_iteratorIPaS1_EEDpOT_.exit.i ]
   %done_offset.1 = phi i8 [ %done_offset.0116, %invoke.cont17 ], [ %done_offset.0116, %invoke.cont19 ], [ 1, %if.then.i85 ], [ 1, %_ZNSt6vectorIaSaIaEE17_M_realloc_insertIJRKaEEEvN9__gnu_cxx17__normal_iteratorIPaS1_EEDpOT_.exit.i ]
-  %incdec.ptr.i94 = getelementptr inbounds %"struct.ue2::LookEntry", ptr %__begin2.sroa.0.0115, i64 1
+  %incdec.ptr.i94 = getelementptr inbounds i8, ptr %__begin2.sroa.0.0115, i64 40
   %cmp.i74.not = icmp eq ptr %incdec.ptr.i94, %9
   br i1 %cmp.i74.not, label %for.cond.cleanup12, label %for.body13
 
 invoke.cont30:                                    ; preds = %for.cond.cleanup
-  %look_index = getelementptr inbounds %struct.ROSE_STRUCT_MULTIPATH_LOOKAROUND, ptr %dest, i64 0, i32 1
+  %look_index = getelementptr inbounds i8, ptr %dest, i64 4
   store i32 %call31, ptr %look_index, align 4
   %call33 = invoke noundef i32 @_ZN3ue215lookaround_info13get_offset_ofERKSt6vectorIS1_INS_9CharReachESaIS2_EESaIS4_EERNS_14RoseEngineBlobE(ptr noundef nonnull align 8 dereferenceable(168) %lookaround_cache, ptr noundef nonnull align 8 dereferenceable(24) %reaches, ptr noundef nonnull align 8 dereferenceable(256) %blob)
           to label %invoke.cont32 unwind label %lpad29
 
 invoke.cont32:                                    ; preds = %invoke.cont30
-  %reach_index = getelementptr inbounds %struct.ROSE_STRUCT_MULTIPATH_LOOKAROUND, ptr %dest, i64 0, i32 2
+  %reach_index = getelementptr inbounds i8, ptr %dest, i64 8
   store i32 %call33, ptr %reach_index, align 4
   %31 = load ptr, ptr %_M_finish.i, align 8
   %32 = load ptr, ptr %multi_look, align 8
@@ -5379,25 +5100,25 @@ lpad.i.i:                                         ; preds = %if.then.i.i97
 
 invoke.cont45:                                    ; preds = %invoke.cont32
   %conv.i.i = trunc i64 %sub.ptr.div.i to i32
-  %count = getelementptr inbounds %struct.ROSE_STRUCT_MULTIPATH_LOOKAROUND, ptr %dest, i64 0, i32 3
+  %count = getelementptr inbounds i8, ptr %dest, i64 12
   store i32 %conv.i.i, ptr %count, align 4
-  %last_start = getelementptr inbounds %"class.ue2::RoseInstrMultipathLookaround", ptr %this, i64 0, i32 2
+  %last_start = getelementptr inbounds i8, ptr %this, i64 32
   %34 = load i32, ptr %last_start, align 8
-  %last_start38 = getelementptr inbounds %struct.ROSE_STRUCT_MULTIPATH_LOOKAROUND, ptr %dest, i64 0, i32 4
+  %last_start38 = getelementptr inbounds i8, ptr %dest, i64 16
   store i32 %34, ptr %last_start38, align 4
-  %start_mask = getelementptr inbounds %"class.ue2::RoseInstrMultipathLookaround", ptr %this, i64 0, i32 3
-  %start_mask44 = getelementptr inbounds %struct.ROSE_STRUCT_MULTIPATH_LOOKAROUND, ptr %dest, i64 0, i32 5
+  %start_mask = getelementptr inbounds i8, ptr %this, i64 36
+  %start_mask44 = getelementptr inbounds i8, ptr %dest, i64 20
   call void @llvm.memmove.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(16) %start_mask44, ptr noundef nonnull align 4 dereferenceable(16) %start_mask, i64 16, i1 false)
-  %target = getelementptr inbounds %"class.ue2::RoseInstrMultipathLookaround", ptr %this, i64 0, i32 4
+  %target = getelementptr inbounds i8, ptr %this, i64 56
   %35 = load ptr, ptr %target, align 8
   %call48 = invoke fastcc noundef i32 @_ZN3ue2L9calc_jumpERKSt13unordered_mapIPKNS_15RoseInstructionEjSt4hashIS3_ESt8equal_toIS3_ESaISt4pairIKS3_jEEES3_S3_(ptr noundef nonnull align 8 dereferenceable(56) %offset_map, ptr noundef nonnull %this, ptr noundef %35)
           to label %invoke.cont47 unwind label %lpad29
 
 invoke.cont47:                                    ; preds = %invoke.cont45
-  %fail_jump = getelementptr inbounds %struct.ROSE_STRUCT_MULTIPATH_LOOKAROUND, ptr %dest, i64 0, i32 6
+  %fail_jump = getelementptr inbounds i8, ptr %dest, i64 36
   store i32 %call48, ptr %fail_jump, align 4
   %36 = load ptr, ptr %reaches, align 8
-  %_M_finish.i100 = getelementptr inbounds %"struct.std::_Vector_base<std::vector<ue2::CharReach>, std::allocator<std::vector<ue2::CharReach>>>::_Vector_impl_data", ptr %reaches, i64 0, i32 1
+  %_M_finish.i100 = getelementptr inbounds i8, ptr %reaches, i64 8
   %37 = load ptr, ptr %_M_finish.i100, align 8
   %cmp.not3.i.i.i.i = icmp eq ptr %36, %37
   br i1 %cmp.not3.i.i.i.i, label %invoke.cont.i, label %for.body.i.i.i.i
@@ -5413,7 +5134,7 @@ if.then.i.i.i.i.i.i.i.i:                          ; preds = %for.body.i.i.i.i
   br label %_ZSt8_DestroyISt6vectorIN3ue29CharReachESaIS2_EEEvPT_.exit.i.i.i.i
 
 _ZSt8_DestroyISt6vectorIN3ue29CharReachESaIS2_EEEvPT_.exit.i.i.i.i: ; preds = %if.then.i.i.i.i.i.i.i.i, %for.body.i.i.i.i
-  %incdec.ptr.i.i.i.i = getelementptr inbounds %"class.std::vector.108", ptr %__first.addr.04.i.i.i.i, i64 1
+  %incdec.ptr.i.i.i.i = getelementptr inbounds i8, ptr %__first.addr.04.i.i.i.i, i64 24
   %cmp.not.i.i.i.i = icmp eq ptr %incdec.ptr.i.i.i.i, %37
   br i1 %cmp.not.i.i.i.i, label %invoke.contthread-pre-split.i, label %for.body.i.i.i.i, !llvm.loop !19
 
@@ -5475,7 +5196,7 @@ declare noundef i32 @_ZN3ue215lookaround_info13get_offset_ofERKSt6vectorIS1_INS_
 define linkonce_odr hidden void @_ZNSt6vectorIS_IN3ue29CharReachESaIS1_EESaIS3_EED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %this) unnamed_addr #3 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %0 = load ptr, ptr %this, align 8
-  %_M_finish = getelementptr inbounds %"struct.std::_Vector_base<std::vector<ue2::CharReach>, std::allocator<std::vector<ue2::CharReach>>>::_Vector_impl_data", ptr %this, i64 0, i32 1
+  %_M_finish = getelementptr inbounds i8, ptr %this, i64 8
   %1 = load ptr, ptr %_M_finish, align 8
   %cmp.not3.i.i.i = icmp eq ptr %0, %1
   br i1 %cmp.not3.i.i.i, label %invoke.cont, label %for.body.i.i.i
@@ -5491,7 +5212,7 @@ if.then.i.i.i.i.i.i.i:                            ; preds = %for.body.i.i.i
   br label %_ZSt8_DestroyISt6vectorIN3ue29CharReachESaIS2_EEEvPT_.exit.i.i.i
 
 _ZSt8_DestroyISt6vectorIN3ue29CharReachESaIS2_EEEvPT_.exit.i.i.i: ; preds = %if.then.i.i.i.i.i.i.i, %for.body.i.i.i
-  %incdec.ptr.i.i.i = getelementptr inbounds %"class.std::vector.108", ptr %__first.addr.04.i.i.i, i64 1
+  %incdec.ptr.i.i.i = getelementptr inbounds i8, ptr %__first.addr.04.i.i.i, i64 24
   %cmp.not.i.i.i = icmp eq ptr %incdec.ptr.i.i.i, %1
   br i1 %cmp.not.i.i.i, label %invoke.contthread-pre-split, label %for.body.i.i.i, !llvm.loop !19
 
@@ -5517,42 +5238,42 @@ define hidden void @_ZNK3ue233RoseInstrCheckMultipathShufti16x85writeEPvRNS_14Ro
 entry:
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(92) %dest, i8 0, i64 92, i1 false)
   store i8 57, ptr %dest, align 4
-  %nib_mask = getelementptr inbounds %"class.ue2::RoseInstrCheckMultipathShufti16x8", ptr %this, i64 0, i32 1
-  %nib_mask4 = getelementptr inbounds %struct.ROSE_STRUCT_CHECK_MULTIPATH_SHUFTI_16x8, ptr %dest, i64 0, i32 1
+  %nib_mask = getelementptr inbounds i8, ptr %this, i64 8
+  %nib_mask4 = getelementptr inbounds i8, ptr %dest, i64 1
   tail call void @llvm.memmove.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(32) %nib_mask4, ptr noundef nonnull align 8 dereferenceable(32) %nib_mask, i64 32, i1 false)
-  %bucket_select_mask = getelementptr inbounds %"class.ue2::RoseInstrCheckMultipathShufti16x8", ptr %this, i64 0, i32 2
-  %bucket_select_mask9 = getelementptr inbounds %struct.ROSE_STRUCT_CHECK_MULTIPATH_SHUFTI_16x8, ptr %dest, i64 0, i32 2
+  %bucket_select_mask = getelementptr inbounds i8, ptr %this, i64 40
+  %bucket_select_mask9 = getelementptr inbounds i8, ptr %dest, i64 33
   tail call void @llvm.memmove.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(16) %bucket_select_mask9, ptr noundef nonnull align 8 dereferenceable(16) %bucket_select_mask, i64 16, i1 false)
-  %data_select_mask = getelementptr inbounds %"class.ue2::RoseInstrCheckMultipathShufti16x8", ptr %this, i64 0, i32 3
-  %data_select_mask16 = getelementptr inbounds %struct.ROSE_STRUCT_CHECK_MULTIPATH_SHUFTI_16x8, ptr %dest, i64 0, i32 3
+  %data_select_mask = getelementptr inbounds i8, ptr %this, i64 104
+  %data_select_mask16 = getelementptr inbounds i8, ptr %dest, i64 49
   tail call void @llvm.memmove.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(16) %data_select_mask16, ptr noundef nonnull align 8 dereferenceable(16) %data_select_mask, i64 16, i1 false)
-  %hi_bits_mask = getelementptr inbounds %"class.ue2::RoseInstrCheckMultipathShufti16x8", ptr %this, i64 0, i32 4
+  %hi_bits_mask = getelementptr inbounds i8, ptr %this, i64 168
   %0 = load i16, ptr %hi_bits_mask, align 8
   %conv = zext i16 %0 to i32
-  %hi_bits_mask19 = getelementptr inbounds %struct.ROSE_STRUCT_CHECK_MULTIPATH_SHUFTI_16x8, ptr %dest, i64 0, i32 4
+  %hi_bits_mask19 = getelementptr inbounds i8, ptr %dest, i64 68
   store i32 %conv, ptr %hi_bits_mask19, align 4
-  %lo_bits_mask = getelementptr inbounds %"class.ue2::RoseInstrCheckMultipathShufti16x8", ptr %this, i64 0, i32 5
+  %lo_bits_mask = getelementptr inbounds i8, ptr %this, i64 170
   %1 = load i16, ptr %lo_bits_mask, align 2
   %conv20 = zext i16 %1 to i32
-  %lo_bits_mask21 = getelementptr inbounds %struct.ROSE_STRUCT_CHECK_MULTIPATH_SHUFTI_16x8, ptr %dest, i64 0, i32 5
+  %lo_bits_mask21 = getelementptr inbounds i8, ptr %dest, i64 72
   store i32 %conv20, ptr %lo_bits_mask21, align 4
-  %neg_mask = getelementptr inbounds %"class.ue2::RoseInstrCheckMultipathShufti16x8", ptr %this, i64 0, i32 6
+  %neg_mask = getelementptr inbounds i8, ptr %this, i64 172
   %2 = load i16, ptr %neg_mask, align 4
   %conv22 = zext i16 %2 to i32
-  %neg_mask23 = getelementptr inbounds %struct.ROSE_STRUCT_CHECK_MULTIPATH_SHUFTI_16x8, ptr %dest, i64 0, i32 6
+  %neg_mask23 = getelementptr inbounds i8, ptr %dest, i64 76
   store i32 %conv22, ptr %neg_mask23, align 4
-  %base_offset = getelementptr inbounds %"class.ue2::RoseInstrCheckMultipathShufti16x8", ptr %this, i64 0, i32 7
+  %base_offset = getelementptr inbounds i8, ptr %this, i64 176
   %3 = load i32, ptr %base_offset, align 8
-  %base_offset24 = getelementptr inbounds %struct.ROSE_STRUCT_CHECK_MULTIPATH_SHUFTI_16x8, ptr %dest, i64 0, i32 7
+  %base_offset24 = getelementptr inbounds i8, ptr %dest, i64 80
   store i32 %3, ptr %base_offset24, align 4
-  %last_start = getelementptr inbounds %"class.ue2::RoseInstrCheckMultipathShufti16x8", ptr %this, i64 0, i32 8
+  %last_start = getelementptr inbounds i8, ptr %this, i64 180
   %4 = load i32, ptr %last_start, align 4
-  %last_start25 = getelementptr inbounds %struct.ROSE_STRUCT_CHECK_MULTIPATH_SHUFTI_16x8, ptr %dest, i64 0, i32 8
+  %last_start25 = getelementptr inbounds i8, ptr %dest, i64 84
   store i32 %4, ptr %last_start25, align 4
-  %target = getelementptr inbounds %"class.ue2::RoseInstrCheckMultipathShufti16x8", ptr %this, i64 0, i32 9
+  %target = getelementptr inbounds i8, ptr %this, i64 184
   %5 = load ptr, ptr %target, align 8
   %call26 = tail call fastcc noundef i32 @_ZN3ue2L9calc_jumpERKSt13unordered_mapIPKNS_15RoseInstructionEjSt4hashIS3_ESt8equal_toIS3_ESaISt4pairIKS3_jEEES3_S3_(ptr noundef nonnull align 8 dereferenceable(56) %offset_map, ptr noundef nonnull %this, ptr noundef %5)
-  %fail_jump = getelementptr inbounds %struct.ROSE_STRUCT_CHECK_MULTIPATH_SHUFTI_16x8, ptr %dest, i64 0, i32 9
+  %fail_jump = getelementptr inbounds i8, ptr %dest, i64 88
   store i32 %call26, ptr %fail_jump, align 4
   ret void
 }
@@ -5562,42 +5283,42 @@ define hidden void @_ZNK3ue233RoseInstrCheckMultipathShufti32x85writeEPvRNS_14Ro
 entry:
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(124) %dest, i8 0, i64 124, i1 false)
   store i8 58, ptr %dest, align 4
-  %hi_mask = getelementptr inbounds %"class.ue2::RoseInstrCheckMultipathShufti32x8", ptr %this, i64 0, i32 1
-  %hi_mask4 = getelementptr inbounds %struct.ROSE_STRUCT_CHECK_MULTIPATH_SHUFTI_32x8, ptr %dest, i64 0, i32 1
+  %hi_mask = getelementptr inbounds i8, ptr %this, i64 8
+  %hi_mask4 = getelementptr inbounds i8, ptr %dest, i64 1
   tail call void @llvm.memmove.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(16) %hi_mask4, ptr noundef nonnull align 8 dereferenceable(16) %hi_mask, i64 16, i1 false)
-  %lo_mask = getelementptr inbounds %"class.ue2::RoseInstrCheckMultipathShufti32x8", ptr %this, i64 0, i32 2
-  %lo_mask10 = getelementptr inbounds %struct.ROSE_STRUCT_CHECK_MULTIPATH_SHUFTI_32x8, ptr %dest, i64 0, i32 2
+  %lo_mask = getelementptr inbounds i8, ptr %this, i64 40
+  %lo_mask10 = getelementptr inbounds i8, ptr %dest, i64 17
   tail call void @llvm.memmove.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(16) %lo_mask10, ptr noundef nonnull align 8 dereferenceable(16) %lo_mask, i64 16, i1 false)
-  %bucket_select_mask = getelementptr inbounds %"class.ue2::RoseInstrCheckMultipathShufti32x8", ptr %this, i64 0, i32 3
-  %bucket_select_mask17 = getelementptr inbounds %struct.ROSE_STRUCT_CHECK_MULTIPATH_SHUFTI_32x8, ptr %dest, i64 0, i32 3
+  %bucket_select_mask = getelementptr inbounds i8, ptr %this, i64 72
+  %bucket_select_mask17 = getelementptr inbounds i8, ptr %dest, i64 33
   tail call void @llvm.memmove.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(32) %bucket_select_mask17, ptr noundef nonnull align 8 dereferenceable(32) %bucket_select_mask, i64 32, i1 false)
-  %data_select_mask = getelementptr inbounds %"class.ue2::RoseInstrCheckMultipathShufti32x8", ptr %this, i64 0, i32 4
-  %data_select_mask24 = getelementptr inbounds %struct.ROSE_STRUCT_CHECK_MULTIPATH_SHUFTI_32x8, ptr %dest, i64 0, i32 4
+  %data_select_mask = getelementptr inbounds i8, ptr %this, i64 136
+  %data_select_mask24 = getelementptr inbounds i8, ptr %dest, i64 65
   tail call void @llvm.memmove.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(32) %data_select_mask24, ptr noundef nonnull align 8 dereferenceable(32) %data_select_mask, i64 32, i1 false)
-  %hi_bits_mask = getelementptr inbounds %"class.ue2::RoseInstrCheckMultipathShufti32x8", ptr %this, i64 0, i32 5
+  %hi_bits_mask = getelementptr inbounds i8, ptr %this, i64 200
   %0 = load i32, ptr %hi_bits_mask, align 8
-  %hi_bits_mask27 = getelementptr inbounds %struct.ROSE_STRUCT_CHECK_MULTIPATH_SHUFTI_32x8, ptr %dest, i64 0, i32 5
+  %hi_bits_mask27 = getelementptr inbounds i8, ptr %dest, i64 100
   store i32 %0, ptr %hi_bits_mask27, align 4
-  %lo_bits_mask = getelementptr inbounds %"class.ue2::RoseInstrCheckMultipathShufti32x8", ptr %this, i64 0, i32 6
+  %lo_bits_mask = getelementptr inbounds i8, ptr %this, i64 204
   %1 = load i32, ptr %lo_bits_mask, align 4
-  %lo_bits_mask28 = getelementptr inbounds %struct.ROSE_STRUCT_CHECK_MULTIPATH_SHUFTI_32x8, ptr %dest, i64 0, i32 6
+  %lo_bits_mask28 = getelementptr inbounds i8, ptr %dest, i64 104
   store i32 %1, ptr %lo_bits_mask28, align 4
-  %neg_mask = getelementptr inbounds %"class.ue2::RoseInstrCheckMultipathShufti32x8", ptr %this, i64 0, i32 7
+  %neg_mask = getelementptr inbounds i8, ptr %this, i64 208
   %2 = load i32, ptr %neg_mask, align 8
-  %neg_mask29 = getelementptr inbounds %struct.ROSE_STRUCT_CHECK_MULTIPATH_SHUFTI_32x8, ptr %dest, i64 0, i32 7
+  %neg_mask29 = getelementptr inbounds i8, ptr %dest, i64 108
   store i32 %2, ptr %neg_mask29, align 4
-  %base_offset = getelementptr inbounds %"class.ue2::RoseInstrCheckMultipathShufti32x8", ptr %this, i64 0, i32 8
+  %base_offset = getelementptr inbounds i8, ptr %this, i64 212
   %3 = load i32, ptr %base_offset, align 4
-  %base_offset30 = getelementptr inbounds %struct.ROSE_STRUCT_CHECK_MULTIPATH_SHUFTI_32x8, ptr %dest, i64 0, i32 8
+  %base_offset30 = getelementptr inbounds i8, ptr %dest, i64 112
   store i32 %3, ptr %base_offset30, align 4
-  %last_start = getelementptr inbounds %"class.ue2::RoseInstrCheckMultipathShufti32x8", ptr %this, i64 0, i32 9
+  %last_start = getelementptr inbounds i8, ptr %this, i64 216
   %4 = load i32, ptr %last_start, align 8
-  %last_start31 = getelementptr inbounds %struct.ROSE_STRUCT_CHECK_MULTIPATH_SHUFTI_32x8, ptr %dest, i64 0, i32 9
+  %last_start31 = getelementptr inbounds i8, ptr %dest, i64 116
   store i32 %4, ptr %last_start31, align 4
-  %target = getelementptr inbounds %"class.ue2::RoseInstrCheckMultipathShufti32x8", ptr %this, i64 0, i32 10
+  %target = getelementptr inbounds i8, ptr %this, i64 224
   %5 = load ptr, ptr %target, align 8
   %call32 = tail call fastcc noundef i32 @_ZN3ue2L9calc_jumpERKSt13unordered_mapIPKNS_15RoseInstructionEjSt4hashIS3_ESt8equal_toIS3_ESaISt4pairIKS3_jEEES3_S3_(ptr noundef nonnull align 8 dereferenceable(56) %offset_map, ptr noundef nonnull %this, ptr noundef %5)
-  %fail_jump = getelementptr inbounds %struct.ROSE_STRUCT_CHECK_MULTIPATH_SHUFTI_32x8, ptr %dest, i64 0, i32 10
+  %fail_jump = getelementptr inbounds i8, ptr %dest, i64 120
   store i32 %call32, ptr %fail_jump, align 4
   ret void
 }
@@ -5607,45 +5328,45 @@ define hidden void @_ZNK3ue234RoseInstrCheckMultipathShufti32x165writeEPvRNS_14R
 entry:
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(188) %dest, i8 0, i64 188, i1 false)
   store i8 59, ptr %dest, align 4
-  %hi_mask = getelementptr inbounds %"class.ue2::RoseInstrCheckMultipathShufti32x16", ptr %this, i64 0, i32 1
-  %hi_mask4 = getelementptr inbounds %struct.ROSE_STRUCT_CHECK_MULTIPATH_SHUFTI_32x16, ptr %dest, i64 0, i32 1
+  %hi_mask = getelementptr inbounds i8, ptr %this, i64 8
+  %hi_mask4 = getelementptr inbounds i8, ptr %dest, i64 1
   tail call void @llvm.memmove.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(32) %hi_mask4, ptr noundef nonnull align 8 dereferenceable(32) %hi_mask, i64 32, i1 false)
-  %lo_mask = getelementptr inbounds %"class.ue2::RoseInstrCheckMultipathShufti32x16", ptr %this, i64 0, i32 2
-  %lo_mask9 = getelementptr inbounds %struct.ROSE_STRUCT_CHECK_MULTIPATH_SHUFTI_32x16, ptr %dest, i64 0, i32 2
+  %lo_mask = getelementptr inbounds i8, ptr %this, i64 40
+  %lo_mask9 = getelementptr inbounds i8, ptr %dest, i64 33
   tail call void @llvm.memmove.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(32) %lo_mask9, ptr noundef nonnull align 8 dereferenceable(32) %lo_mask, i64 32, i1 false)
-  %bucket_select_mask_hi = getelementptr inbounds %"class.ue2::RoseInstrCheckMultipathShufti32x16", ptr %this, i64 0, i32 3
-  %bucket_select_mask_hi15 = getelementptr inbounds %struct.ROSE_STRUCT_CHECK_MULTIPATH_SHUFTI_32x16, ptr %dest, i64 0, i32 3
+  %bucket_select_mask_hi = getelementptr inbounds i8, ptr %this, i64 72
+  %bucket_select_mask_hi15 = getelementptr inbounds i8, ptr %dest, i64 65
   tail call void @llvm.memmove.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(32) %bucket_select_mask_hi15, ptr noundef nonnull align 8 dereferenceable(32) %bucket_select_mask_hi, i64 32, i1 false)
-  %bucket_select_mask_lo = getelementptr inbounds %"class.ue2::RoseInstrCheckMultipathShufti32x16", ptr %this, i64 0, i32 4
-  %bucket_select_mask_lo22 = getelementptr inbounds %struct.ROSE_STRUCT_CHECK_MULTIPATH_SHUFTI_32x16, ptr %dest, i64 0, i32 4
+  %bucket_select_mask_lo = getelementptr inbounds i8, ptr %this, i64 136
+  %bucket_select_mask_lo22 = getelementptr inbounds i8, ptr %dest, i64 97
   tail call void @llvm.memmove.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(32) %bucket_select_mask_lo22, ptr noundef nonnull align 8 dereferenceable(32) %bucket_select_mask_lo, i64 32, i1 false)
-  %data_select_mask = getelementptr inbounds %"class.ue2::RoseInstrCheckMultipathShufti32x16", ptr %this, i64 0, i32 5
-  %data_select_mask29 = getelementptr inbounds %struct.ROSE_STRUCT_CHECK_MULTIPATH_SHUFTI_32x16, ptr %dest, i64 0, i32 5
+  %data_select_mask = getelementptr inbounds i8, ptr %this, i64 200
+  %data_select_mask29 = getelementptr inbounds i8, ptr %dest, i64 129
   tail call void @llvm.memmove.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(32) %data_select_mask29, ptr noundef nonnull align 8 dereferenceable(32) %data_select_mask, i64 32, i1 false)
-  %hi_bits_mask = getelementptr inbounds %"class.ue2::RoseInstrCheckMultipathShufti32x16", ptr %this, i64 0, i32 6
+  %hi_bits_mask = getelementptr inbounds i8, ptr %this, i64 264
   %0 = load i32, ptr %hi_bits_mask, align 8
-  %hi_bits_mask32 = getelementptr inbounds %struct.ROSE_STRUCT_CHECK_MULTIPATH_SHUFTI_32x16, ptr %dest, i64 0, i32 6
+  %hi_bits_mask32 = getelementptr inbounds i8, ptr %dest, i64 164
   store i32 %0, ptr %hi_bits_mask32, align 4
-  %lo_bits_mask = getelementptr inbounds %"class.ue2::RoseInstrCheckMultipathShufti32x16", ptr %this, i64 0, i32 7
+  %lo_bits_mask = getelementptr inbounds i8, ptr %this, i64 268
   %1 = load i32, ptr %lo_bits_mask, align 4
-  %lo_bits_mask33 = getelementptr inbounds %struct.ROSE_STRUCT_CHECK_MULTIPATH_SHUFTI_32x16, ptr %dest, i64 0, i32 7
+  %lo_bits_mask33 = getelementptr inbounds i8, ptr %dest, i64 168
   store i32 %1, ptr %lo_bits_mask33, align 4
-  %neg_mask = getelementptr inbounds %"class.ue2::RoseInstrCheckMultipathShufti32x16", ptr %this, i64 0, i32 8
+  %neg_mask = getelementptr inbounds i8, ptr %this, i64 272
   %2 = load i32, ptr %neg_mask, align 8
-  %neg_mask34 = getelementptr inbounds %struct.ROSE_STRUCT_CHECK_MULTIPATH_SHUFTI_32x16, ptr %dest, i64 0, i32 8
+  %neg_mask34 = getelementptr inbounds i8, ptr %dest, i64 172
   store i32 %2, ptr %neg_mask34, align 4
-  %base_offset = getelementptr inbounds %"class.ue2::RoseInstrCheckMultipathShufti32x16", ptr %this, i64 0, i32 9
+  %base_offset = getelementptr inbounds i8, ptr %this, i64 276
   %3 = load i32, ptr %base_offset, align 4
-  %base_offset35 = getelementptr inbounds %struct.ROSE_STRUCT_CHECK_MULTIPATH_SHUFTI_32x16, ptr %dest, i64 0, i32 9
+  %base_offset35 = getelementptr inbounds i8, ptr %dest, i64 176
   store i32 %3, ptr %base_offset35, align 4
-  %last_start = getelementptr inbounds %"class.ue2::RoseInstrCheckMultipathShufti32x16", ptr %this, i64 0, i32 10
+  %last_start = getelementptr inbounds i8, ptr %this, i64 280
   %4 = load i32, ptr %last_start, align 8
-  %last_start36 = getelementptr inbounds %struct.ROSE_STRUCT_CHECK_MULTIPATH_SHUFTI_32x16, ptr %dest, i64 0, i32 10
+  %last_start36 = getelementptr inbounds i8, ptr %dest, i64 180
   store i32 %4, ptr %last_start36, align 4
-  %target = getelementptr inbounds %"class.ue2::RoseInstrCheckMultipathShufti32x16", ptr %this, i64 0, i32 11
+  %target = getelementptr inbounds i8, ptr %this, i64 288
   %5 = load ptr, ptr %target, align 8
   %call37 = tail call fastcc noundef i32 @_ZN3ue2L9calc_jumpERKSt13unordered_mapIPKNS_15RoseInstructionEjSt4hashIS3_ESt8equal_toIS3_ESaISt4pairIKS3_jEEES3_S3_(ptr noundef nonnull align 8 dereferenceable(56) %offset_map, ptr noundef nonnull %this, ptr noundef %5)
-  %fail_jump = getelementptr inbounds %struct.ROSE_STRUCT_CHECK_MULTIPATH_SHUFTI_32x16, ptr %dest, i64 0, i32 11
+  %fail_jump = getelementptr inbounds i8, ptr %dest, i64 184
   store i32 %call37, ptr %fail_jump, align 4
   ret void
 }
@@ -5655,42 +5376,42 @@ define hidden void @_ZNK3ue231RoseInstrCheckMultipathShufti645writeEPvRNS_14Rose
 entry:
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(208) %dest, i8 0, i64 208, i1 false)
   store i8 60, ptr %dest, align 8
-  %hi_mask = getelementptr inbounds %"class.ue2::RoseInstrCheckMultipathShufti64", ptr %this, i64 0, i32 1
-  %hi_mask4 = getelementptr inbounds %struct.ROSE_STRUCT_CHECK_MULTIPATH_SHUFTI_64, ptr %dest, i64 0, i32 1
+  %hi_mask = getelementptr inbounds i8, ptr %this, i64 8
+  %hi_mask4 = getelementptr inbounds i8, ptr %dest, i64 1
   tail call void @llvm.memmove.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(16) %hi_mask4, ptr noundef nonnull align 8 dereferenceable(16) %hi_mask, i64 16, i1 false)
-  %lo_mask = getelementptr inbounds %"class.ue2::RoseInstrCheckMultipathShufti64", ptr %this, i64 0, i32 2
-  %lo_mask10 = getelementptr inbounds %struct.ROSE_STRUCT_CHECK_MULTIPATH_SHUFTI_64, ptr %dest, i64 0, i32 2
+  %lo_mask = getelementptr inbounds i8, ptr %this, i64 40
+  %lo_mask10 = getelementptr inbounds i8, ptr %dest, i64 17
   tail call void @llvm.memmove.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(16) %lo_mask10, ptr noundef nonnull align 8 dereferenceable(16) %lo_mask, i64 16, i1 false)
-  %bucket_select_mask = getelementptr inbounds %"class.ue2::RoseInstrCheckMultipathShufti64", ptr %this, i64 0, i32 3
-  %bucket_select_mask16 = getelementptr inbounds %struct.ROSE_STRUCT_CHECK_MULTIPATH_SHUFTI_64, ptr %dest, i64 0, i32 3
+  %bucket_select_mask = getelementptr inbounds i8, ptr %this, i64 72
+  %bucket_select_mask16 = getelementptr inbounds i8, ptr %dest, i64 33
   tail call void @llvm.memmove.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(64) %bucket_select_mask16, ptr noundef nonnull align 8 dereferenceable(64) %bucket_select_mask, i64 64, i1 false)
-  %data_select_mask = getelementptr inbounds %"class.ue2::RoseInstrCheckMultipathShufti64", ptr %this, i64 0, i32 4
-  %data_select_mask22 = getelementptr inbounds %struct.ROSE_STRUCT_CHECK_MULTIPATH_SHUFTI_64, ptr %dest, i64 0, i32 4
+  %data_select_mask = getelementptr inbounds i8, ptr %this, i64 136
+  %data_select_mask22 = getelementptr inbounds i8, ptr %dest, i64 97
   tail call void @llvm.memmove.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(64) %data_select_mask22, ptr noundef nonnull align 8 dereferenceable(64) %data_select_mask, i64 64, i1 false)
-  %hi_bits_mask = getelementptr inbounds %"class.ue2::RoseInstrCheckMultipathShufti64", ptr %this, i64 0, i32 5
+  %hi_bits_mask = getelementptr inbounds i8, ptr %this, i64 200
   %0 = load i64, ptr %hi_bits_mask, align 8
-  %hi_bits_mask25 = getelementptr inbounds %struct.ROSE_STRUCT_CHECK_MULTIPATH_SHUFTI_64, ptr %dest, i64 0, i32 5
+  %hi_bits_mask25 = getelementptr inbounds i8, ptr %dest, i64 168
   store i64 %0, ptr %hi_bits_mask25, align 8
-  %lo_bits_mask = getelementptr inbounds %"class.ue2::RoseInstrCheckMultipathShufti64", ptr %this, i64 0, i32 6
+  %lo_bits_mask = getelementptr inbounds i8, ptr %this, i64 208
   %1 = load i64, ptr %lo_bits_mask, align 8
-  %lo_bits_mask26 = getelementptr inbounds %struct.ROSE_STRUCT_CHECK_MULTIPATH_SHUFTI_64, ptr %dest, i64 0, i32 6
+  %lo_bits_mask26 = getelementptr inbounds i8, ptr %dest, i64 176
   store i64 %1, ptr %lo_bits_mask26, align 8
-  %neg_mask = getelementptr inbounds %"class.ue2::RoseInstrCheckMultipathShufti64", ptr %this, i64 0, i32 7
+  %neg_mask = getelementptr inbounds i8, ptr %this, i64 216
   %2 = load i64, ptr %neg_mask, align 8
-  %neg_mask27 = getelementptr inbounds %struct.ROSE_STRUCT_CHECK_MULTIPATH_SHUFTI_64, ptr %dest, i64 0, i32 7
+  %neg_mask27 = getelementptr inbounds i8, ptr %dest, i64 184
   store i64 %2, ptr %neg_mask27, align 8
-  %base_offset = getelementptr inbounds %"class.ue2::RoseInstrCheckMultipathShufti64", ptr %this, i64 0, i32 8
+  %base_offset = getelementptr inbounds i8, ptr %this, i64 224
   %3 = load i32, ptr %base_offset, align 8
-  %base_offset28 = getelementptr inbounds %struct.ROSE_STRUCT_CHECK_MULTIPATH_SHUFTI_64, ptr %dest, i64 0, i32 8
+  %base_offset28 = getelementptr inbounds i8, ptr %dest, i64 192
   store i32 %3, ptr %base_offset28, align 8
-  %last_start = getelementptr inbounds %"class.ue2::RoseInstrCheckMultipathShufti64", ptr %this, i64 0, i32 9
+  %last_start = getelementptr inbounds i8, ptr %this, i64 228
   %4 = load i32, ptr %last_start, align 4
-  %last_start29 = getelementptr inbounds %struct.ROSE_STRUCT_CHECK_MULTIPATH_SHUFTI_64, ptr %dest, i64 0, i32 9
+  %last_start29 = getelementptr inbounds i8, ptr %dest, i64 196
   store i32 %4, ptr %last_start29, align 4
-  %target = getelementptr inbounds %"class.ue2::RoseInstrCheckMultipathShufti64", ptr %this, i64 0, i32 10
+  %target = getelementptr inbounds i8, ptr %this, i64 232
   %5 = load ptr, ptr %target, align 8
   %call30 = tail call fastcc noundef i32 @_ZN3ue2L9calc_jumpERKSt13unordered_mapIPKNS_15RoseInstructionEjSt4hashIS3_ESt8equal_toIS3_ESaISt4pairIKS3_jEEES3_S3_(ptr noundef nonnull align 8 dereferenceable(56) %offset_map, ptr noundef nonnull %this, ptr noundef %5)
-  %fail_jump = getelementptr inbounds %struct.ROSE_STRUCT_CHECK_MULTIPATH_SHUFTI_64, ptr %dest, i64 0, i32 10
+  %fail_jump = getelementptr inbounds i8, ptr %dest, i64 200
   store i32 %call30, ptr %fail_jump, align 8
   ret void
 }
@@ -5699,13 +5420,13 @@ entry:
 define hidden void @_ZNK3ue221RoseInstrIncludedJump5writeEPvRNS_14RoseEngineBlobERKSt13unordered_mapIPKNS_15RoseInstructionEjSt4hashIS7_ESt8equal_toIS7_ESaISt4pairIKS7_jEEE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(13) %this, ptr nocapture noundef writeonly %dest, ptr nocapture nonnull readnone align 8 %blob, ptr nocapture nonnull readnone align 8 %offset_map) unnamed_addr #7 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store i64 61, ptr %dest, align 4
-  %child_offset = getelementptr inbounds %"class.ue2::RoseInstrIncludedJump", ptr %this, i64 0, i32 1
+  %child_offset = getelementptr inbounds i8, ptr %this, i64 8
   %0 = load i32, ptr %child_offset, align 8
-  %child_offset2 = getelementptr inbounds %struct.ROSE_STRUCT_INCLUDED_JUMP, ptr %dest, i64 0, i32 2
+  %child_offset2 = getelementptr inbounds i8, ptr %dest, i64 4
   store i32 %0, ptr %child_offset2, align 4
-  %squash = getelementptr inbounds %"class.ue2::RoseInstrIncludedJump", ptr %this, i64 0, i32 2
+  %squash = getelementptr inbounds i8, ptr %this, i64 12
   %1 = load i8, ptr %squash, align 4
-  %squash3 = getelementptr inbounds %struct.ROSE_STRUCT_INCLUDED_JUMP, ptr %dest, i64 0, i32 1
+  %squash3 = getelementptr inbounds i8, ptr %dest, i64 1
   store i8 %1, ptr %squash3, align 1
   ret void
 }
@@ -5715,13 +5436,13 @@ define hidden void @_ZNK3ue219RoseInstrSetLogical5writeEPvRNS_14RoseEngineBlobER
 entry:
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %dest, i8 0, i64 12, i1 false)
   store i8 62, ptr %dest, align 4
-  %lkey = getelementptr inbounds %"class.ue2::RoseInstrSetLogical", ptr %this, i64 0, i32 1
+  %lkey = getelementptr inbounds i8, ptr %this, i64 8
   %0 = load i32, ptr %lkey, align 8
-  %lkey2 = getelementptr inbounds %struct.ROSE_STRUCT_SET_LOGICAL, ptr %dest, i64 0, i32 1
+  %lkey2 = getelementptr inbounds i8, ptr %dest, i64 4
   store i32 %0, ptr %lkey2, align 4
-  %offset_adjust = getelementptr inbounds %"class.ue2::RoseInstrSetLogical", ptr %this, i64 0, i32 2
+  %offset_adjust = getelementptr inbounds i8, ptr %this, i64 12
   %1 = load i32, ptr %offset_adjust, align 4
-  %offset_adjust3 = getelementptr inbounds %struct.ROSE_STRUCT_SET_LOGICAL, ptr %dest, i64 0, i32 2
+  %offset_adjust3 = getelementptr inbounds i8, ptr %dest, i64 8
   store i32 %1, ptr %offset_adjust3, align 4
   ret void
 }
@@ -5730,9 +5451,9 @@ entry:
 define hidden void @_ZNK3ue223RoseInstrSetCombination5writeEPvRNS_14RoseEngineBlobERKSt13unordered_mapIPKNS_15RoseInstructionEjSt4hashIS7_ESt8equal_toIS7_ESaISt4pairIKS7_jEEE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(12) %this, ptr nocapture noundef writeonly %dest, ptr nocapture nonnull readnone align 8 %blob, ptr nocapture nonnull readnone align 8 %offset_map) unnamed_addr #7 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store i64 63, ptr %dest, align 4
-  %ckey = getelementptr inbounds %"class.ue2::RoseInstrSetCombination", ptr %this, i64 0, i32 1
+  %ckey = getelementptr inbounds i8, ptr %this, i64 8
   %0 = load i32, ptr %ckey, align 8
-  %ckey2 = getelementptr inbounds %struct.ROSE_STRUCT_SET_COMBINATION, ptr %dest, i64 0, i32 1
+  %ckey2 = getelementptr inbounds i8, ptr %dest, i64 4
   store i32 %0, ptr %ckey2, align 4
   ret void
 }
@@ -5741,9 +5462,9 @@ entry:
 define hidden void @_ZNK3ue219RoseInstrSetExhaust5writeEPvRNS_14RoseEngineBlobERKSt13unordered_mapIPKNS_15RoseInstructionEjSt4hashIS7_ESt8equal_toIS7_ESaISt4pairIKS7_jEEE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(12) %this, ptr nocapture noundef writeonly %dest, ptr nocapture nonnull readnone align 8 %blob, ptr nocapture nonnull readnone align 8 %offset_map) unnamed_addr #7 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store i64 65, ptr %dest, align 4
-  %ekey = getelementptr inbounds %"class.ue2::RoseInstrSetExhaust", ptr %this, i64 0, i32 1
+  %ekey = getelementptr inbounds i8, ptr %this, i64 8
   %0 = load i32, ptr %ekey, align 8
-  %ekey2 = getelementptr inbounds %struct.ROSE_STRUCT_SET_EXHAUST, ptr %dest, i64 0, i32 1
+  %ekey2 = getelementptr inbounds i8, ptr %dest, i64 4
   store i32 %0, ptr %ekey2, align 4
   ret void
 }
@@ -5766,8 +5487,8 @@ entry:
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr hidden noundef i64 @_ZNK3ue222RoseInstrAnchoredDelay4hashEv(ptr noundef nonnull align 8 dereferenceable(32) %this) unnamed_addr #5 comdat align 2 {
 entry:
-  %groups = getelementptr inbounds %"class.ue2::RoseInstrAnchoredDelay", ptr %this, i64 0, i32 1
-  %anch_id = getelementptr inbounds %"class.ue2::RoseInstrAnchoredDelay", ptr %this, i64 0, i32 2
+  %groups = getelementptr inbounds i8, ptr %this, i64 8
+  %anch_id = getelementptr inbounds i8, ptr %this, i64 16
   %0 = load i64, ptr %groups, align 8
   %mul.i.i.i.i.i.i = mul i64 %0, 814605021516865831
   %xor.i.i.i.i.i.i = xor i64 %mul.i.i.i.i.i.i, 4385686506911481104
@@ -5790,7 +5511,7 @@ entry:
 define linkonce_odr hidden void @_ZN3ue222RoseInstrBaseOneTargetIL19RoseInstructionCode1E26ROSE_STRUCT_ANCHORED_DELAYNS_22RoseInstrAnchoredDelayEE13update_targetEPKNS_15RoseInstructionES7_(ptr noundef nonnull align 8 dereferenceable(8) %this, ptr noundef %old_target, ptr noundef %new_target) unnamed_addr #3 comdat align 2 {
 entry:
   %0 = tail call ptr @__dynamic_cast(ptr nonnull %this, ptr nonnull @_ZTIN3ue222RoseInstrBaseOneTargetIL19RoseInstructionCode1E26ROSE_STRUCT_ANCHORED_DELAYNS_22RoseInstrAnchoredDelayEEE, ptr nonnull @_ZTIN3ue222RoseInstrAnchoredDelayE, i64 0) #25
-  %target = getelementptr inbounds %"class.ue2::RoseInstrAnchoredDelay", ptr %0, i64 0, i32 3
+  %target = getelementptr inbounds i8, ptr %0, i64 24
   %1 = load ptr, ptr %target, align 8
   %cmp = icmp eq ptr %1, %old_target
   br i1 %cmp, label %if.then, label %if.end
@@ -5836,7 +5557,7 @@ entry:
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr hidden noundef i64 @_ZNK3ue222RoseInstrCheckLitEarly4hashEv(ptr noundef nonnull align 8 dereferenceable(24) %this) unnamed_addr #5 comdat align 2 {
 entry:
-  %min_offset = getelementptr inbounds %"class.ue2::RoseInstrCheckLitEarly", ptr %this, i64 0, i32 1
+  %min_offset = getelementptr inbounds i8, ptr %this, i64 8
   %0 = load i32, ptr %min_offset, align 8
   %conv.i.i.i.i.i.i = zext i32 %0 to i64
   %mul.i.i.i2.i.i = mul i64 %conv.i.i.i.i.i.i, 814605021516865831
@@ -5855,7 +5576,7 @@ entry:
 define linkonce_odr hidden void @_ZN3ue222RoseInstrBaseOneTargetIL19RoseInstructionCode2E27ROSE_STRUCT_CHECK_LIT_EARLYNS_22RoseInstrCheckLitEarlyEE13update_targetEPKNS_15RoseInstructionES7_(ptr noundef nonnull align 8 dereferenceable(8) %this, ptr noundef %old_target, ptr noundef %new_target) unnamed_addr #3 comdat align 2 {
 entry:
   %0 = tail call ptr @__dynamic_cast(ptr nonnull %this, ptr nonnull @_ZTIN3ue222RoseInstrBaseOneTargetIL19RoseInstructionCode2E27ROSE_STRUCT_CHECK_LIT_EARLYNS_22RoseInstrCheckLitEarlyEEE, ptr nonnull @_ZTIN3ue222RoseInstrCheckLitEarlyE, i64 0) #25
-  %target = getelementptr inbounds %"class.ue2::RoseInstrCheckLitEarly", ptr %0, i64 0, i32 2
+  %target = getelementptr inbounds i8, ptr %0, i64 16
   %1 = load ptr, ptr %target, align 8
   %cmp = icmp eq ptr %1, %old_target
   br i1 %cmp, label %if.then, label %if.end
@@ -5901,7 +5622,7 @@ entry:
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr hidden noundef i64 @_ZNK3ue220RoseInstrCheckGroups4hashEv(ptr noundef nonnull align 8 dereferenceable(16) %this) unnamed_addr #5 comdat align 2 {
 entry:
-  %groups = getelementptr inbounds %"class.ue2::RoseInstrCheckGroups", ptr %this, i64 0, i32 1
+  %groups = getelementptr inbounds i8, ptr %this, i64 8
   %0 = load i64, ptr %groups, align 8
   %mul.i.i.i2.i.i = mul i64 %0, 814605021516865831
   %xor.i.i.i3.i.i = xor i64 %mul.i.i.i2.i.i, 6014896549945212766
@@ -5930,9 +5651,9 @@ entry:
 
 dynamic_cast.notnull2:                            ; preds = %entry
   %1 = tail call ptr @__dynamic_cast(ptr nonnull %this, ptr nonnull @_ZTIN3ue213RoseInstrBaseIL19RoseInstructionCode3E24ROSE_STRUCT_CHECK_GROUPSNS_20RoseInstrCheckGroupsEEE, ptr nonnull @_ZTIN3ue220RoseInstrCheckGroupsE, i64 0) #25
-  %groups.i = getelementptr inbounds %"class.ue2::RoseInstrCheckGroups", ptr %1, i64 0, i32 1
+  %groups.i = getelementptr inbounds i8, ptr %1, i64 8
   %2 = load i64, ptr %groups.i, align 8
-  %groups3.i = getelementptr inbounds %"class.ue2::RoseInstrCheckGroups", ptr %0, i64 0, i32 1
+  %groups3.i = getelementptr inbounds i8, ptr %0, i64 8
   %3 = load i64, ptr %groups3.i, align 8
   %cmp.i = icmp eq i64 %2, %3
   br label %cleanup
@@ -5971,7 +5692,7 @@ entry:
 define linkonce_odr hidden void @_ZN3ue222RoseInstrBaseOneTargetIL19RoseInstructionCode4E26ROSE_STRUCT_CHECK_ONLY_EODNS_21RoseInstrCheckOnlyEodEE13update_targetEPKNS_15RoseInstructionES7_(ptr noundef nonnull align 8 dereferenceable(8) %this, ptr noundef %old_target, ptr noundef %new_target) unnamed_addr #3 comdat align 2 {
 entry:
   %0 = tail call ptr @__dynamic_cast(ptr nonnull %this, ptr nonnull @_ZTIN3ue222RoseInstrBaseOneTargetIL19RoseInstructionCode4E26ROSE_STRUCT_CHECK_ONLY_EODNS_21RoseInstrCheckOnlyEodEEE, ptr nonnull @_ZTIN3ue221RoseInstrCheckOnlyEodE, i64 0) #25
-  %target = getelementptr inbounds %"class.ue2::RoseInstrCheckOnlyEod", ptr %0, i64 0, i32 1
+  %target = getelementptr inbounds i8, ptr %0, i64 8
   %1 = load ptr, ptr %target, align 8
   %cmp = icmp eq ptr %1, %old_target
   br i1 %cmp, label %if.then, label %if.end
@@ -6017,8 +5738,8 @@ entry:
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr hidden noundef i64 @_ZNK3ue220RoseInstrCheckBounds4hashEv(ptr noundef nonnull align 8 dereferenceable(32) %this) unnamed_addr #5 comdat align 2 {
 entry:
-  %min_bound = getelementptr inbounds %"class.ue2::RoseInstrCheckBounds", ptr %this, i64 0, i32 1
-  %max_bound = getelementptr inbounds %"class.ue2::RoseInstrCheckBounds", ptr %this, i64 0, i32 2
+  %min_bound = getelementptr inbounds i8, ptr %this, i64 8
+  %max_bound = getelementptr inbounds i8, ptr %this, i64 16
   %0 = load i64, ptr %min_bound, align 8
   %mul.i.i.i.i.i.i = mul i64 %0, 814605021516865831
   %xor.i.i.i.i.i.i = xor i64 %mul.i.i.i.i.i.i, 7644106592978944428
@@ -6040,7 +5761,7 @@ entry:
 define linkonce_odr hidden void @_ZN3ue222RoseInstrBaseOneTargetIL19RoseInstructionCode5E24ROSE_STRUCT_CHECK_BOUNDSNS_20RoseInstrCheckBoundsEE13update_targetEPKNS_15RoseInstructionES7_(ptr noundef nonnull align 8 dereferenceable(8) %this, ptr noundef %old_target, ptr noundef %new_target) unnamed_addr #3 comdat align 2 {
 entry:
   %0 = tail call ptr @__dynamic_cast(ptr nonnull %this, ptr nonnull @_ZTIN3ue222RoseInstrBaseOneTargetIL19RoseInstructionCode5E24ROSE_STRUCT_CHECK_BOUNDSNS_20RoseInstrCheckBoundsEEE, ptr nonnull @_ZTIN3ue220RoseInstrCheckBoundsE, i64 0) #25
-  %target = getelementptr inbounds %"class.ue2::RoseInstrCheckBounds", ptr %0, i64 0, i32 3
+  %target = getelementptr inbounds i8, ptr %0, i64 24
   %1 = load ptr, ptr %target, align 8
   %cmp = icmp eq ptr %1, %old_target
   br i1 %cmp, label %if.then, label %if.end
@@ -6086,7 +5807,7 @@ entry:
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr hidden noundef i64 @_ZNK3ue224RoseInstrCheckNotHandled4hashEv(ptr noundef nonnull align 8 dereferenceable(24) %this) unnamed_addr #5 comdat align 2 {
 entry:
-  %key = getelementptr inbounds %"class.ue2::RoseInstrCheckNotHandled", ptr %this, i64 0, i32 1
+  %key = getelementptr inbounds i8, ptr %this, i64 8
   %0 = load i32, ptr %key, align 8
   %conv.i.i.i.i.i.i = zext i32 %0 to i64
   %mul.i.i.i2.i.i = mul i64 %conv.i.i.i.i.i.i, 814605021516865831
@@ -6105,7 +5826,7 @@ entry:
 define linkonce_odr hidden void @_ZN3ue222RoseInstrBaseOneTargetIL19RoseInstructionCode6E29ROSE_STRUCT_CHECK_NOT_HANDLEDNS_24RoseInstrCheckNotHandledEE13update_targetEPKNS_15RoseInstructionES7_(ptr noundef nonnull align 8 dereferenceable(8) %this, ptr noundef %old_target, ptr noundef %new_target) unnamed_addr #3 comdat align 2 {
 entry:
   %0 = tail call ptr @__dynamic_cast(ptr nonnull %this, ptr nonnull @_ZTIN3ue222RoseInstrBaseOneTargetIL19RoseInstructionCode6E29ROSE_STRUCT_CHECK_NOT_HANDLEDNS_24RoseInstrCheckNotHandledEEE, ptr nonnull @_ZTIN3ue224RoseInstrCheckNotHandledE, i64 0) #25
-  %target = getelementptr inbounds %"class.ue2::RoseInstrCheckNotHandled", ptr %0, i64 0, i32 2
+  %target = getelementptr inbounds i8, ptr %0, i64 16
   %1 = load ptr, ptr %target, align 8
   %cmp = icmp eq ptr %1, %old_target
   br i1 %cmp, label %if.then, label %if.end
@@ -6151,8 +5872,8 @@ entry:
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr hidden noundef i64 @_ZNK3ue230RoseInstrCheckSingleLookaround4hashEv(ptr noundef nonnull align 8 dereferenceable(56) %this) unnamed_addr #5 comdat align 2 {
 entry:
-  %offset = getelementptr inbounds %"class.ue2::RoseInstrCheckSingleLookaround", ptr %this, i64 0, i32 1
-  %reach = getelementptr inbounds %"class.ue2::RoseInstrCheckSingleLookaround", ptr %this, i64 0, i32 2
+  %offset = getelementptr inbounds i8, ptr %this, i64 8
+  %reach = getelementptr inbounds i8, ptr %this, i64 16
   %0 = load i8, ptr %offset, align 8
   %conv.i.i.i.i.i4.i.i = sext i8 %0 to i64
   %mul.i.i.i.i.i.i = mul i64 %conv.i.i.i.i.i4.i.i, 814605021516865831
@@ -6161,17 +5882,17 @@ entry:
   %1 = load i64, ptr %reach, align 8
   %mul.i.i.i.i.i.i.i.i.i.i.i = mul i64 %1, 814605021516865831
   %add.i.i.i.i.i.i.i.i.i.i.i = add i64 %mul.i.i.i.i.i.i.i.i.i.i.i, 3571081485394615273
-  %__begin0.0.ptr.1.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds %"class.ue2::RoseInstrCheckSingleLookaround", ptr %this, i64 0, i32 2, i32 0, i32 0, i32 0, i64 1
+  %__begin0.0.ptr.1.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 24
   %2 = load i64, ptr %__begin0.0.ptr.1.i.i.i.i.i.i.i.i.i.i, align 8
   %mul.i.1.i.i.i.i.i.i.i.i.i.i = mul i64 %2, 814605021516865831
   %xor.i.1.i.i.i.i.i.i.i.i.i.i = xor i64 %mul.i.1.i.i.i.i.i.i.i.i.i.i, %add.i.i.i.i.i.i.i.i.i.i.i
   %add.i.1.i.i.i.i.i.i.i.i.i.i = add i64 %xor.i.1.i.i.i.i.i.i.i.i.i.i, 3571081485394615273
-  %__begin0.0.ptr.2.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds %"class.ue2::RoseInstrCheckSingleLookaround", ptr %this, i64 0, i32 2, i32 0, i32 0, i32 0, i64 2
+  %__begin0.0.ptr.2.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 32
   %3 = load i64, ptr %__begin0.0.ptr.2.i.i.i.i.i.i.i.i.i.i, align 8
   %mul.i.2.i.i.i.i.i.i.i.i.i.i = mul i64 %3, 814605021516865831
   %xor.i.2.i.i.i.i.i.i.i.i.i.i = xor i64 %add.i.1.i.i.i.i.i.i.i.i.i.i, %mul.i.2.i.i.i.i.i.i.i.i.i.i
   %add.i.2.i.i.i.i.i.i.i.i.i.i = add i64 %xor.i.2.i.i.i.i.i.i.i.i.i.i, 3571081485394615273
-  %__begin0.0.ptr.3.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds %"class.ue2::RoseInstrCheckSingleLookaround", ptr %this, i64 0, i32 2, i32 0, i32 0, i32 0, i64 3
+  %__begin0.0.ptr.3.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 40
   %4 = load i64, ptr %__begin0.0.ptr.3.i.i.i.i.i.i.i.i.i.i, align 8
   %mul.i.3.i.i.i.i.i.i.i.i.i.i = mul i64 %4, 814605021516865831
   %xor.i.3.i.i.i.i.i.i.i.i.i.i = xor i64 %add.i.2.i.i.i.i.i.i.i.i.i.i, %mul.i.3.i.i.i.i.i.i.i.i.i.i
@@ -6192,7 +5913,7 @@ entry:
 define linkonce_odr hidden void @_ZN3ue222RoseInstrBaseOneTargetIL19RoseInstructionCode7E35ROSE_STRUCT_CHECK_SINGLE_LOOKAROUNDNS_30RoseInstrCheckSingleLookaroundEE13update_targetEPKNS_15RoseInstructionES7_(ptr noundef nonnull align 8 dereferenceable(8) %this, ptr noundef %old_target, ptr noundef %new_target) unnamed_addr #3 comdat align 2 {
 entry:
   %0 = tail call ptr @__dynamic_cast(ptr nonnull %this, ptr nonnull @_ZTIN3ue222RoseInstrBaseOneTargetIL19RoseInstructionCode7E35ROSE_STRUCT_CHECK_SINGLE_LOOKAROUNDNS_30RoseInstrCheckSingleLookaroundEEE, ptr nonnull @_ZTIN3ue230RoseInstrCheckSingleLookaroundE, i64 0) #25
-  %target = getelementptr inbounds %"class.ue2::RoseInstrCheckSingleLookaround", ptr %0, i64 0, i32 3
+  %target = getelementptr inbounds i8, ptr %0, i64 48
   %1 = load ptr, ptr %target, align 8
   %cmp = icmp eq ptr %1, %old_target
   br i1 %cmp, label %if.then, label %if.end
@@ -6226,7 +5947,7 @@ cleanup:                                          ; preds = %dynamic_cast.notnul
 define linkonce_odr hidden void @_ZN3ue224RoseInstrCheckLookaroundD2Ev(ptr noundef nonnull align 8 dereferenceable(40) %this) unnamed_addr #11 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store ptr getelementptr inbounds ({ [10 x ptr] }, ptr @_ZTVN3ue224RoseInstrCheckLookaroundE, i64 0, inrange i32 0, i64 2), ptr %this, align 8
-  %look = getelementptr inbounds %"class.ue2::RoseInstrCheckLookaround", ptr %this, i64 0, i32 1
+  %look = getelementptr inbounds i8, ptr %this, i64 8
   %0 = load ptr, ptr %look, align 8
   %tobool.not.i.i.i = icmp eq ptr %0, null
   br i1 %tobool.not.i.i.i, label %_ZNSt6vectorIN3ue29LookEntryESaIS1_EED2Ev.exit, label %if.then.i.i.i
@@ -6243,7 +5964,7 @@ _ZNSt6vectorIN3ue29LookEntryESaIS1_EED2Ev.exit:   ; preds = %if.then.i.i.i, %ent
 define linkonce_odr hidden void @_ZN3ue224RoseInstrCheckLookaroundD0Ev(ptr noundef nonnull align 8 dereferenceable(40) %this) unnamed_addr #11 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store ptr getelementptr inbounds ({ [10 x ptr] }, ptr @_ZTVN3ue224RoseInstrCheckLookaroundE, i64 0, inrange i32 0, i64 2), ptr %this, align 8
-  %look.i = getelementptr inbounds %"class.ue2::RoseInstrCheckLookaround", ptr %this, i64 0, i32 1
+  %look.i = getelementptr inbounds i8, ptr %this, i64 8
   %0 = load ptr, ptr %look.i, align 8
   %tobool.not.i.i.i.i = icmp eq ptr %0, null
   br i1 %tobool.not.i.i.i.i, label %_ZN3ue224RoseInstrCheckLookaroundD2Ev.exit, label %if.then.i.i.i.i
@@ -6266,9 +5987,9 @@ entry:
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr hidden noundef i64 @_ZNK3ue224RoseInstrCheckLookaround4hashEv(ptr noundef nonnull align 8 dereferenceable(40) %this) unnamed_addr #5 comdat align 2 {
 entry:
-  %look = getelementptr inbounds %"class.ue2::RoseInstrCheckLookaround", ptr %this, i64 0, i32 1
+  %look = getelementptr inbounds i8, ptr %this, i64 8
   %0 = load ptr, ptr %look, align 8
-  %_M_finish.i.i.i.i.i.i = getelementptr inbounds %"class.ue2::RoseInstrCheckLookaround", ptr %this, i64 0, i32 1, i32 0, i32 0, i32 0, i32 1
+  %_M_finish.i.i.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 16
   %1 = load ptr, ptr %_M_finish.i.i.i.i.i.i, align 8
   %cmp.i.not12.i.i.i.i.i = icmp eq ptr %0, %1
   br i1 %cmp.i.not12.i.i.i.i.i, label %_ZN3ue28hash_allIJRK19RoseInstructionCodeRKSt6vectorINS_9LookEntryESaIS5_EEEEEmDpOT_.exit, label %for.body.i.i.i.i.i
@@ -6276,7 +5997,7 @@ entry:
 for.body.i.i.i.i.i:                               ; preds = %entry, %for.body.i.i.i.i.i
   %v.014.i.i.i.i.i = phi i64 [ %add.i.i.i.i.i.i, %for.body.i.i.i.i.i ], [ 0, %entry ]
   %__begin0.sroa.0.013.i.i.i.i.i = phi ptr [ %incdec.ptr.i.i.i.i.i.i, %for.body.i.i.i.i.i ], [ %0, %entry ]
-  %reach.i.i.i.i.i.i.i = getelementptr inbounds %"struct.ue2::LookEntry", ptr %__begin0.sroa.0.013.i.i.i.i.i, i64 0, i32 1
+  %reach.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %__begin0.sroa.0.013.i.i.i.i.i, i64 8
   %2 = load i8, ptr %__begin0.sroa.0.013.i.i.i.i.i, align 1
   %conv.i.i.i.i.i.i.i.i.i.i.i.i.i = sext i8 %2 to i64
   %mul.i.i.i.i.i.i.i.i.i.i.i.i = mul i64 %conv.i.i.i.i.i.i.i.i.i.i.i.i.i, 814605021516865831
@@ -6284,17 +6005,17 @@ for.body.i.i.i.i.i:                               ; preds = %entry, %for.body.i.
   %3 = load i64, ptr %reach.i.i.i.i.i.i.i, align 8
   %mul.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i = mul i64 %3, 814605021516865831
   %add.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i = add i64 %mul.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i, 3571081485394615273
-  %__begin0.0.ptr.1.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds %"struct.ue2::LookEntry", ptr %__begin0.sroa.0.013.i.i.i.i.i, i64 0, i32 1, i32 0, i32 0, i32 0, i64 1
+  %__begin0.0.ptr.1.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %__begin0.sroa.0.013.i.i.i.i.i, i64 16
   %4 = load i64, ptr %__begin0.0.ptr.1.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i, align 8
   %mul.i.1.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i = mul i64 %4, 814605021516865831
   %xor.i.1.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i = xor i64 %mul.i.1.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i, %add.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i
   %add.i.1.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i = add i64 %xor.i.1.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i, 3571081485394615273
-  %__begin0.0.ptr.2.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds %"struct.ue2::LookEntry", ptr %__begin0.sroa.0.013.i.i.i.i.i, i64 0, i32 1, i32 0, i32 0, i32 0, i64 2
+  %__begin0.0.ptr.2.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %__begin0.sroa.0.013.i.i.i.i.i, i64 24
   %5 = load i64, ptr %__begin0.0.ptr.2.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i, align 8
   %mul.i.2.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i = mul i64 %5, 814605021516865831
   %xor.i.2.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i = xor i64 %add.i.1.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i, %mul.i.2.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i
   %add.i.2.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i = add i64 %xor.i.2.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i, 3571081485394615273
-  %__begin0.0.ptr.3.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds %"struct.ue2::LookEntry", ptr %__begin0.sroa.0.013.i.i.i.i.i, i64 0, i32 1, i32 0, i32 0, i32 0, i64 3
+  %__begin0.0.ptr.3.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %__begin0.sroa.0.013.i.i.i.i.i, i64 32
   %6 = load i64, ptr %__begin0.0.ptr.3.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i, align 8
   %mul.i.3.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i = mul i64 %6, 814605021516865831
   %xor.i.3.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i = xor i64 %add.i.2.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i, %mul.i.3.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i
@@ -6305,7 +6026,7 @@ for.body.i.i.i.i.i:                               ; preds = %entry, %for.body.i.
   %mul.i.i.i.i.i.i = add i64 %8, -1791322829183465089
   %xor.i.i.i.i.i.i = xor i64 %mul.i.i.i.i.i.i, %v.014.i.i.i.i.i
   %add.i.i.i.i.i.i = add i64 %xor.i.i.i.i.i.i, 3571081485394615273
-  %incdec.ptr.i.i.i.i.i.i = getelementptr inbounds %"struct.ue2::LookEntry", ptr %__begin0.sroa.0.013.i.i.i.i.i, i64 1
+  %incdec.ptr.i.i.i.i.i.i = getelementptr inbounds i8, ptr %__begin0.sroa.0.013.i.i.i.i.i, i64 40
   %cmp.i.not.i.i.i.i.i = icmp eq ptr %incdec.ptr.i.i.i.i.i.i, %1
   br i1 %cmp.i.not.i.i.i.i.i, label %_ZNK3ue211hash_detail8ue2_hashISt6vectorINS_9LookEntryESaIS3_EEvEclERKS5_.exit.loopexit.i.i.i.i, label %for.body.i.i.i.i.i
 
@@ -6330,7 +6051,7 @@ entry:
 define linkonce_odr hidden void @_ZN3ue222RoseInstrBaseOneTargetIL19RoseInstructionCode8E28ROSE_STRUCT_CHECK_LOOKAROUNDNS_24RoseInstrCheckLookaroundEE13update_targetEPKNS_15RoseInstructionES7_(ptr noundef nonnull align 8 dereferenceable(8) %this, ptr noundef %old_target, ptr noundef %new_target) unnamed_addr #3 comdat align 2 {
 entry:
   %0 = tail call ptr @__dynamic_cast(ptr nonnull %this, ptr nonnull @_ZTIN3ue222RoseInstrBaseOneTargetIL19RoseInstructionCode8E28ROSE_STRUCT_CHECK_LOOKAROUNDNS_24RoseInstrCheckLookaroundEEE, ptr nonnull @_ZTIN3ue224RoseInstrCheckLookaroundE, i64 0) #25
-  %target = getelementptr inbounds %"class.ue2::RoseInstrCheckLookaround", ptr %0, i64 0, i32 2
+  %target = getelementptr inbounds i8, ptr %0, i64 32
   %1 = load ptr, ptr %target, align 8
   %cmp = icmp eq ptr %1, %old_target
   br i1 %cmp, label %if.then, label %if.end
@@ -6376,10 +6097,10 @@ entry:
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr hidden noundef i64 @_ZNK3ue218RoseInstrCheckMask4hashEv(ptr noundef nonnull align 8 dereferenceable(48) %this) unnamed_addr #5 comdat align 2 {
 entry:
-  %and_mask = getelementptr inbounds %"class.ue2::RoseInstrCheckMask", ptr %this, i64 0, i32 1
-  %cmp_mask = getelementptr inbounds %"class.ue2::RoseInstrCheckMask", ptr %this, i64 0, i32 2
-  %neg_mask = getelementptr inbounds %"class.ue2::RoseInstrCheckMask", ptr %this, i64 0, i32 3
-  %offset = getelementptr inbounds %"class.ue2::RoseInstrCheckMask", ptr %this, i64 0, i32 4
+  %and_mask = getelementptr inbounds i8, ptr %this, i64 8
+  %cmp_mask = getelementptr inbounds i8, ptr %this, i64 16
+  %neg_mask = getelementptr inbounds i8, ptr %this, i64 24
+  %offset = getelementptr inbounds i8, ptr %this, i64 32
   %0 = load i64, ptr %and_mask, align 8
   %mul.i.i.i.i.i.i = mul i64 %0, 814605021516865831
   %xor.i.i.i.i.i.i = xor i64 %mul.i.i.i.i.i.i, -7544217394663143864
@@ -6410,7 +6131,7 @@ entry:
 define linkonce_odr hidden void @_ZN3ue222RoseInstrBaseOneTargetIL19RoseInstructionCode9E22ROSE_STRUCT_CHECK_MASKNS_18RoseInstrCheckMaskEE13update_targetEPKNS_15RoseInstructionES7_(ptr noundef nonnull align 8 dereferenceable(8) %this, ptr noundef %old_target, ptr noundef %new_target) unnamed_addr #3 comdat align 2 {
 entry:
   %0 = tail call ptr @__dynamic_cast(ptr nonnull %this, ptr nonnull @_ZTIN3ue222RoseInstrBaseOneTargetIL19RoseInstructionCode9E22ROSE_STRUCT_CHECK_MASKNS_18RoseInstrCheckMaskEEE, ptr nonnull @_ZTIN3ue218RoseInstrCheckMaskE, i64 0) #25
-  %target = getelementptr inbounds %"class.ue2::RoseInstrCheckMask", ptr %0, i64 0, i32 5
+  %target = getelementptr inbounds i8, ptr %0, i64 40
   %1 = load ptr, ptr %target, align 8
   %cmp = icmp eq ptr %1, %old_target
   br i1 %cmp, label %if.then, label %if.end
@@ -6456,7 +6177,7 @@ entry:
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr hidden noundef i64 @_ZNK3ue220RoseInstrCheckMask324hashEv(ptr noundef nonnull align 8 dereferenceable(88) %this) unnamed_addr #5 comdat align 2 {
 entry:
-  %and_mask = getelementptr inbounds %"class.ue2::RoseInstrCheckMask32", ptr %this, i64 0, i32 1
+  %and_mask = getelementptr inbounds i8, ptr %this, i64 8
   br label %for.body.i.i.i.i.i.i
 
 for.body.i.i.i.i.i.i:                             ; preds = %for.body.i.i.i.i.i.i, %entry
@@ -6494,7 +6215,7 @@ for.body.i.i.i.i.i.i:                             ; preds = %for.body.i.i.i.i.i.
   br i1 %cmp.not.i.i.i.i.i.i.3, label %for.body.i.i.i.i.i.i.i.preheader, label %for.body.i.i.i.i.i.i
 
 for.body.i.i.i.i.i.i.i.preheader:                 ; preds = %for.body.i.i.i.i.i.i
-  %cmp_mask = getelementptr inbounds %"class.ue2::RoseInstrCheckMask32", ptr %this, i64 0, i32 2
+  %cmp_mask = getelementptr inbounds i8, ptr %this, i64 40
   br label %for.body.i.i.i.i.i.i.i
 
 for.body.i.i.i.i.i.i.i:                           ; preds = %for.body.i.i.i.i.i.i.i, %for.body.i.i.i.i.i.i.i.preheader
@@ -6532,8 +6253,8 @@ for.body.i.i.i.i.i.i.i:                           ; preds = %for.body.i.i.i.i.i.
   br i1 %cmp.not.i.i.i.i.i.i.i.3, label %_ZN3ue28hash_allIJRK19RoseInstructionCodeRKSt5arrayIhLm32EES7_RKjRKiEEEmDpOT_.exit, label %for.body.i.i.i.i.i.i.i
 
 _ZN3ue28hash_allIJRK19RoseInstructionCodeRKSt5arrayIhLm32EES7_RKjRKiEEEmDpOT_.exit: ; preds = %for.body.i.i.i.i.i.i.i
-  %offset = getelementptr inbounds %"class.ue2::RoseInstrCheckMask32", ptr %this, i64 0, i32 4
-  %neg_mask = getelementptr inbounds %"class.ue2::RoseInstrCheckMask32", ptr %this, i64 0, i32 3
+  %offset = getelementptr inbounds i8, ptr %this, i64 76
+  %neg_mask = getelementptr inbounds i8, ptr %this, i64 72
   %mul.i.i.i.i.i.i = mul i64 %add.i.i.i.i.i.i.i.3, 814605021516865831
   %xor.i.i.i.i.i.i = xor i64 %mul.i.i.i.i.i.i, -6729612373146278033
   %add.i.i.i.i.i.i = add i64 %xor.i.i.i.i.i.i, 3571081485394615273
@@ -6563,7 +6284,7 @@ entry:
 define linkonce_odr hidden void @_ZN3ue222RoseInstrBaseOneTargetIL19RoseInstructionCode10E25ROSE_STRUCT_CHECK_MASK_32NS_20RoseInstrCheckMask32EE13update_targetEPKNS_15RoseInstructionES7_(ptr noundef nonnull align 8 dereferenceable(8) %this, ptr noundef %old_target, ptr noundef %new_target) unnamed_addr #3 comdat align 2 {
 entry:
   %0 = tail call ptr @__dynamic_cast(ptr nonnull %this, ptr nonnull @_ZTIN3ue222RoseInstrBaseOneTargetIL19RoseInstructionCode10E25ROSE_STRUCT_CHECK_MASK_32NS_20RoseInstrCheckMask32EEE, ptr nonnull @_ZTIN3ue220RoseInstrCheckMask32E, i64 0) #25
-  %target = getelementptr inbounds %"class.ue2::RoseInstrCheckMask32", ptr %0, i64 0, i32 5
+  %target = getelementptr inbounds i8, ptr %0, i64 80
   %1 = load ptr, ptr %target, align 8
   %cmp = icmp eq ptr %1, %old_target
   br i1 %cmp, label %if.then, label %if.end
@@ -6609,7 +6330,7 @@ entry:
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr hidden noundef i64 @_ZNK3ue220RoseInstrCheckMask644hashEv(ptr noundef nonnull align 8 dereferenceable(160) %this) unnamed_addr #5 comdat align 2 {
 entry:
-  %and_mask = getelementptr inbounds %"class.ue2::RoseInstrCheckMask64", ptr %this, i64 0, i32 1
+  %and_mask = getelementptr inbounds i8, ptr %this, i64 8
   br label %for.body.i.i.i.i.i.i
 
 for.body.i.i.i.i.i.i:                             ; preds = %for.body.i.i.i.i.i.i, %entry
@@ -6647,7 +6368,7 @@ for.body.i.i.i.i.i.i:                             ; preds = %for.body.i.i.i.i.i.
   br i1 %cmp.not.i.i.i.i.i.i.3, label %for.body.i.i.i.i.i.i.i.preheader, label %for.body.i.i.i.i.i.i
 
 for.body.i.i.i.i.i.i.i.preheader:                 ; preds = %for.body.i.i.i.i.i.i
-  %cmp_mask = getelementptr inbounds %"class.ue2::RoseInstrCheckMask64", ptr %this, i64 0, i32 2
+  %cmp_mask = getelementptr inbounds i8, ptr %this, i64 72
   br label %for.body.i.i.i.i.i.i.i
 
 for.body.i.i.i.i.i.i.i:                           ; preds = %for.body.i.i.i.i.i.i.i, %for.body.i.i.i.i.i.i.i.preheader
@@ -6685,8 +6406,8 @@ for.body.i.i.i.i.i.i.i:                           ; preds = %for.body.i.i.i.i.i.
   br i1 %cmp.not.i.i.i.i.i.i.i.3, label %_ZN3ue28hash_allIJRK19RoseInstructionCodeRKSt5arrayIhLm64EES7_RKyRKiEEEmDpOT_.exit, label %for.body.i.i.i.i.i.i.i
 
 _ZN3ue28hash_allIJRK19RoseInstructionCodeRKSt5arrayIhLm64EES7_RKyRKiEEEmDpOT_.exit: ; preds = %for.body.i.i.i.i.i.i.i
-  %offset = getelementptr inbounds %"class.ue2::RoseInstrCheckMask64", ptr %this, i64 0, i32 4
-  %neg_mask = getelementptr inbounds %"class.ue2::RoseInstrCheckMask64", ptr %this, i64 0, i32 3
+  %offset = getelementptr inbounds i8, ptr %this, i64 144
+  %neg_mask = getelementptr inbounds i8, ptr %this, i64 136
   %mul.i.i.i.i.i.i = mul i64 %add.i.i.i.i.i.i.i.3, 814605021516865831
   %xor.i.i.i.i.i.i = xor i64 %mul.i.i.i.i.i.i, 4438595748929702764
   %add.i.i.i.i.i.i = add i64 %xor.i.i.i.i.i.i, 3571081485394615273
@@ -6715,7 +6436,7 @@ entry:
 define linkonce_odr hidden void @_ZN3ue222RoseInstrBaseOneTargetIL19RoseInstructionCode69E25ROSE_STRUCT_CHECK_MASK_64NS_20RoseInstrCheckMask64EE13update_targetEPKNS_15RoseInstructionES7_(ptr noundef nonnull align 8 dereferenceable(8) %this, ptr noundef %old_target, ptr noundef %new_target) unnamed_addr #3 comdat align 2 {
 entry:
   %0 = tail call ptr @__dynamic_cast(ptr nonnull %this, ptr nonnull @_ZTIN3ue222RoseInstrBaseOneTargetIL19RoseInstructionCode69E25ROSE_STRUCT_CHECK_MASK_64NS_20RoseInstrCheckMask64EEE, ptr nonnull @_ZTIN3ue220RoseInstrCheckMask64E, i64 0) #25
-  %target = getelementptr inbounds %"class.ue2::RoseInstrCheckMask64", ptr %0, i64 0, i32 5
+  %target = getelementptr inbounds i8, ptr %0, i64 152
   %1 = load ptr, ptr %target, align 8
   %cmp = icmp eq ptr %1, %old_target
   br i1 %cmp, label %if.then, label %if.end
@@ -6761,10 +6482,10 @@ entry:
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr hidden noundef i64 @_ZNK3ue218RoseInstrCheckByte4hashEv(ptr noundef nonnull align 8 dereferenceable(24) %this) unnamed_addr #5 comdat align 2 {
 entry:
-  %and_mask = getelementptr inbounds %"class.ue2::RoseInstrCheckByte", ptr %this, i64 0, i32 1
-  %cmp_mask = getelementptr inbounds %"class.ue2::RoseInstrCheckByte", ptr %this, i64 0, i32 2
-  %negation = getelementptr inbounds %"class.ue2::RoseInstrCheckByte", ptr %this, i64 0, i32 3
-  %offset = getelementptr inbounds %"class.ue2::RoseInstrCheckByte", ptr %this, i64 0, i32 4
+  %and_mask = getelementptr inbounds i8, ptr %this, i64 8
+  %cmp_mask = getelementptr inbounds i8, ptr %this, i64 9
+  %negation = getelementptr inbounds i8, ptr %this, i64 10
+  %offset = getelementptr inbounds i8, ptr %this, i64 12
   %0 = load i8, ptr %and_mask, align 8
   %conv.i.i.i.i.i8.i.i = zext i8 %0 to i64
   %mul.i.i.i.i.i.i = mul i64 %conv.i.i.i.i.i8.i.i, 814605021516865831
@@ -6798,7 +6519,7 @@ entry:
 define linkonce_odr hidden void @_ZN3ue222RoseInstrBaseOneTargetIL19RoseInstructionCode11E22ROSE_STRUCT_CHECK_BYTENS_18RoseInstrCheckByteEE13update_targetEPKNS_15RoseInstructionES7_(ptr noundef nonnull align 8 dereferenceable(8) %this, ptr noundef %old_target, ptr noundef %new_target) unnamed_addr #3 comdat align 2 {
 entry:
   %0 = tail call ptr @__dynamic_cast(ptr nonnull %this, ptr nonnull @_ZTIN3ue222RoseInstrBaseOneTargetIL19RoseInstructionCode11E22ROSE_STRUCT_CHECK_BYTENS_18RoseInstrCheckByteEEE, ptr nonnull @_ZTIN3ue218RoseInstrCheckByteE, i64 0) #25
-  %target = getelementptr inbounds %"class.ue2::RoseInstrCheckByte", ptr %0, i64 0, i32 5
+  %target = getelementptr inbounds i8, ptr %0, i64 16
   %1 = load ptr, ptr %target, align 8
   %cmp = icmp eq ptr %1, %old_target
   br i1 %cmp, label %if.then, label %if.end
@@ -6844,10 +6565,10 @@ entry:
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr hidden noundef i64 @_ZNK3ue224RoseInstrCheckShufti16x84hashEv(ptr noundef nonnull align 8 dereferenceable(72) %this) unnamed_addr #5 comdat align 2 {
 entry:
-  %nib_mask = getelementptr inbounds %"class.ue2::RoseInstrCheckShufti16x8", ptr %this, i64 0, i32 1
-  %bucket_select_mask = getelementptr inbounds %"class.ue2::RoseInstrCheckShufti16x8", ptr %this, i64 0, i32 2
-  %neg_mask = getelementptr inbounds %"class.ue2::RoseInstrCheckShufti16x8", ptr %this, i64 0, i32 3
-  %offset = getelementptr inbounds %"class.ue2::RoseInstrCheckShufti16x8", ptr %this, i64 0, i32 4
+  %nib_mask = getelementptr inbounds i8, ptr %this, i64 8
+  %bucket_select_mask = getelementptr inbounds i8, ptr %this, i64 40
+  %neg_mask = getelementptr inbounds i8, ptr %this, i64 56
+  %offset = getelementptr inbounds i8, ptr %this, i64 60
   %call = tail call noundef i64 @_ZN3ue28hash_allIJRK19RoseInstructionCodeRKSt5arrayIhLm32EERKS4_IhLm16EERKjRKiEEEmDpOT_(ptr noundef nonnull align 4 dereferenceable(4) @_ZN3ue213RoseInstrBaseIL19RoseInstructionCode12E29ROSE_STRUCT_CHECK_SHUFTI_16x8NS_24RoseInstrCheckShufti16x8EE6opcodeE, ptr noundef nonnull align 1 dereferenceable(32) %nib_mask, ptr noundef nonnull align 1 dereferenceable(16) %bucket_select_mask, ptr noundef nonnull align 4 dereferenceable(4) %neg_mask, ptr noundef nonnull align 4 dereferenceable(4) %offset)
   ret i64 %call
 }
@@ -6862,7 +6583,7 @@ entry:
 define linkonce_odr hidden void @_ZN3ue222RoseInstrBaseOneTargetIL19RoseInstructionCode12E29ROSE_STRUCT_CHECK_SHUFTI_16x8NS_24RoseInstrCheckShufti16x8EE13update_targetEPKNS_15RoseInstructionES7_(ptr noundef nonnull align 8 dereferenceable(8) %this, ptr noundef %old_target, ptr noundef %new_target) unnamed_addr #3 comdat align 2 {
 entry:
   %0 = tail call ptr @__dynamic_cast(ptr nonnull %this, ptr nonnull @_ZTIN3ue222RoseInstrBaseOneTargetIL19RoseInstructionCode12E29ROSE_STRUCT_CHECK_SHUFTI_16x8NS_24RoseInstrCheckShufti16x8EEE, ptr nonnull @_ZTIN3ue224RoseInstrCheckShufti16x8E, i64 0) #25
-  %target = getelementptr inbounds %"class.ue2::RoseInstrCheckShufti16x8", ptr %0, i64 0, i32 5
+  %target = getelementptr inbounds i8, ptr %0, i64 64
   %1 = load ptr, ptr %target, align 8
   %cmp = icmp eq ptr %1, %old_target
   br i1 %cmp, label %if.then, label %if.end
@@ -6909,101 +6630,101 @@ entry:
 define linkonce_odr hidden noundef i64 @_ZNK3ue224RoseInstrCheckShufti32x84hashEv(ptr noundef nonnull align 8 dereferenceable(88) %this) unnamed_addr #5 comdat align 2 {
 entry:
   %v.i = alloca i64, align 8
-  %hi_mask = getelementptr inbounds %"class.ue2::RoseInstrCheckShufti32x8", ptr %this, i64 0, i32 1
-  %lo_mask = getelementptr inbounds %"class.ue2::RoseInstrCheckShufti32x8", ptr %this, i64 0, i32 2
-  %bucket_select_mask = getelementptr inbounds %"class.ue2::RoseInstrCheckShufti32x8", ptr %this, i64 0, i32 3
-  %neg_mask = getelementptr inbounds %"class.ue2::RoseInstrCheckShufti32x8", ptr %this, i64 0, i32 4
-  %offset = getelementptr inbounds %"class.ue2::RoseInstrCheckShufti32x8", ptr %this, i64 0, i32 5
+  %hi_mask = getelementptr inbounds i8, ptr %this, i64 8
+  %lo_mask = getelementptr inbounds i8, ptr %this, i64 24
+  %bucket_select_mask = getelementptr inbounds i8, ptr %this, i64 40
+  %neg_mask = getelementptr inbounds i8, ptr %this, i64 72
+  %offset = getelementptr inbounds i8, ptr %this, i64 76
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %v.i) #25
   %0 = load i8, ptr %hi_mask, align 8
   %conv.i.i.i.i.i.i.i = zext i8 %0 to i64
   %mul.i.i.i.i.i.i = mul i64 %conv.i.i.i.i.i.i.i, 814605021516865831
   %add.i.i.i.i.i.i = add i64 %mul.i.i.i.i.i.i, 3571081485394615273
-  %__begin0.0.ptr.1.i.i.i.i.i = getelementptr inbounds %"class.ue2::RoseInstrCheckShufti32x8", ptr %this, i64 0, i32 1, i32 0, i64 1
+  %__begin0.0.ptr.1.i.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 9
   %1 = load i8, ptr %__begin0.0.ptr.1.i.i.i.i.i, align 1
   %conv.i.i.1.i.i.i.i.i = zext i8 %1 to i64
   %mul.i.1.i.i.i.i.i = mul i64 %conv.i.i.1.i.i.i.i.i, 814605021516865831
   %xor.i.1.i.i.i.i.i = xor i64 %mul.i.1.i.i.i.i.i, %add.i.i.i.i.i.i
   %add.i.1.i.i.i.i.i = add i64 %xor.i.1.i.i.i.i.i, 3571081485394615273
-  %__begin0.0.ptr.2.i.i.i.i.i = getelementptr inbounds %"class.ue2::RoseInstrCheckShufti32x8", ptr %this, i64 0, i32 1, i32 0, i64 2
+  %__begin0.0.ptr.2.i.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 10
   %2 = load i8, ptr %__begin0.0.ptr.2.i.i.i.i.i, align 2
   %conv.i.i.2.i.i.i.i.i = zext i8 %2 to i64
   %mul.i.2.i.i.i.i.i = mul i64 %conv.i.i.2.i.i.i.i.i, 814605021516865831
   %xor.i.2.i.i.i.i.i = xor i64 %add.i.1.i.i.i.i.i, %mul.i.2.i.i.i.i.i
   %add.i.2.i.i.i.i.i = add i64 %xor.i.2.i.i.i.i.i, 3571081485394615273
-  %__begin0.0.ptr.3.i.i.i.i.i = getelementptr inbounds %"class.ue2::RoseInstrCheckShufti32x8", ptr %this, i64 0, i32 1, i32 0, i64 3
+  %__begin0.0.ptr.3.i.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 11
   %3 = load i8, ptr %__begin0.0.ptr.3.i.i.i.i.i, align 1
   %conv.i.i.3.i.i.i.i.i = zext i8 %3 to i64
   %mul.i.3.i.i.i.i.i = mul i64 %conv.i.i.3.i.i.i.i.i, 814605021516865831
   %xor.i.3.i.i.i.i.i = xor i64 %add.i.2.i.i.i.i.i, %mul.i.3.i.i.i.i.i
   %add.i.3.i.i.i.i.i = add i64 %xor.i.3.i.i.i.i.i, 3571081485394615273
-  %__begin0.0.ptr.4.i.i.i.i.i = getelementptr inbounds %"class.ue2::RoseInstrCheckShufti32x8", ptr %this, i64 0, i32 1, i32 0, i64 4
+  %__begin0.0.ptr.4.i.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 12
   %4 = load i8, ptr %__begin0.0.ptr.4.i.i.i.i.i, align 4
   %conv.i.i.4.i.i.i.i.i = zext i8 %4 to i64
   %mul.i.4.i.i.i.i.i = mul i64 %conv.i.i.4.i.i.i.i.i, 814605021516865831
   %xor.i.4.i.i.i.i.i = xor i64 %add.i.3.i.i.i.i.i, %mul.i.4.i.i.i.i.i
   %add.i.4.i.i.i.i.i = add i64 %xor.i.4.i.i.i.i.i, 3571081485394615273
-  %__begin0.0.ptr.5.i.i.i.i.i = getelementptr inbounds %"class.ue2::RoseInstrCheckShufti32x8", ptr %this, i64 0, i32 1, i32 0, i64 5
+  %__begin0.0.ptr.5.i.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 13
   %5 = load i8, ptr %__begin0.0.ptr.5.i.i.i.i.i, align 1
   %conv.i.i.5.i.i.i.i.i = zext i8 %5 to i64
   %mul.i.5.i.i.i.i.i = mul i64 %conv.i.i.5.i.i.i.i.i, 814605021516865831
   %xor.i.5.i.i.i.i.i = xor i64 %add.i.4.i.i.i.i.i, %mul.i.5.i.i.i.i.i
   %add.i.5.i.i.i.i.i = add i64 %xor.i.5.i.i.i.i.i, 3571081485394615273
-  %__begin0.0.ptr.6.i.i.i.i.i = getelementptr inbounds %"class.ue2::RoseInstrCheckShufti32x8", ptr %this, i64 0, i32 1, i32 0, i64 6
+  %__begin0.0.ptr.6.i.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 14
   %6 = load i8, ptr %__begin0.0.ptr.6.i.i.i.i.i, align 2
   %conv.i.i.6.i.i.i.i.i = zext i8 %6 to i64
   %mul.i.6.i.i.i.i.i = mul i64 %conv.i.i.6.i.i.i.i.i, 814605021516865831
   %xor.i.6.i.i.i.i.i = xor i64 %add.i.5.i.i.i.i.i, %mul.i.6.i.i.i.i.i
   %add.i.6.i.i.i.i.i = add i64 %xor.i.6.i.i.i.i.i, 3571081485394615273
-  %__begin0.0.ptr.7.i.i.i.i.i = getelementptr inbounds %"class.ue2::RoseInstrCheckShufti32x8", ptr %this, i64 0, i32 1, i32 0, i64 7
+  %__begin0.0.ptr.7.i.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 15
   %7 = load i8, ptr %__begin0.0.ptr.7.i.i.i.i.i, align 1
   %conv.i.i.7.i.i.i.i.i = zext i8 %7 to i64
   %mul.i.7.i.i.i.i.i = mul i64 %conv.i.i.7.i.i.i.i.i, 814605021516865831
   %xor.i.7.i.i.i.i.i = xor i64 %add.i.6.i.i.i.i.i, %mul.i.7.i.i.i.i.i
   %add.i.7.i.i.i.i.i = add i64 %xor.i.7.i.i.i.i.i, 3571081485394615273
-  %__begin0.0.ptr.8.i.i.i.i.i = getelementptr inbounds %"class.ue2::RoseInstrCheckShufti32x8", ptr %this, i64 0, i32 1, i32 0, i64 8
+  %__begin0.0.ptr.8.i.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 16
   %8 = load i8, ptr %__begin0.0.ptr.8.i.i.i.i.i, align 8
   %conv.i.i.8.i.i.i.i.i = zext i8 %8 to i64
   %mul.i.8.i.i.i.i.i = mul i64 %conv.i.i.8.i.i.i.i.i, 814605021516865831
   %xor.i.8.i.i.i.i.i = xor i64 %add.i.7.i.i.i.i.i, %mul.i.8.i.i.i.i.i
   %add.i.8.i.i.i.i.i = add i64 %xor.i.8.i.i.i.i.i, 3571081485394615273
-  %__begin0.0.ptr.9.i.i.i.i.i = getelementptr inbounds %"class.ue2::RoseInstrCheckShufti32x8", ptr %this, i64 0, i32 1, i32 0, i64 9
+  %__begin0.0.ptr.9.i.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 17
   %9 = load i8, ptr %__begin0.0.ptr.9.i.i.i.i.i, align 1
   %conv.i.i.9.i.i.i.i.i = zext i8 %9 to i64
   %mul.i.9.i.i.i.i.i = mul i64 %conv.i.i.9.i.i.i.i.i, 814605021516865831
   %xor.i.9.i.i.i.i.i = xor i64 %add.i.8.i.i.i.i.i, %mul.i.9.i.i.i.i.i
   %add.i.9.i.i.i.i.i = add i64 %xor.i.9.i.i.i.i.i, 3571081485394615273
-  %__begin0.0.ptr.10.i.i.i.i.i = getelementptr inbounds %"class.ue2::RoseInstrCheckShufti32x8", ptr %this, i64 0, i32 1, i32 0, i64 10
+  %__begin0.0.ptr.10.i.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 18
   %10 = load i8, ptr %__begin0.0.ptr.10.i.i.i.i.i, align 2
   %conv.i.i.10.i.i.i.i.i = zext i8 %10 to i64
   %mul.i.10.i.i.i.i.i = mul i64 %conv.i.i.10.i.i.i.i.i, 814605021516865831
   %xor.i.10.i.i.i.i.i = xor i64 %add.i.9.i.i.i.i.i, %mul.i.10.i.i.i.i.i
   %add.i.10.i.i.i.i.i = add i64 %xor.i.10.i.i.i.i.i, 3571081485394615273
-  %__begin0.0.ptr.11.i.i.i.i.i = getelementptr inbounds %"class.ue2::RoseInstrCheckShufti32x8", ptr %this, i64 0, i32 1, i32 0, i64 11
+  %__begin0.0.ptr.11.i.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 19
   %11 = load i8, ptr %__begin0.0.ptr.11.i.i.i.i.i, align 1
   %conv.i.i.11.i.i.i.i.i = zext i8 %11 to i64
   %mul.i.11.i.i.i.i.i = mul i64 %conv.i.i.11.i.i.i.i.i, 814605021516865831
   %xor.i.11.i.i.i.i.i = xor i64 %add.i.10.i.i.i.i.i, %mul.i.11.i.i.i.i.i
   %add.i.11.i.i.i.i.i = add i64 %xor.i.11.i.i.i.i.i, 3571081485394615273
-  %__begin0.0.ptr.12.i.i.i.i.i = getelementptr inbounds %"class.ue2::RoseInstrCheckShufti32x8", ptr %this, i64 0, i32 1, i32 0, i64 12
+  %__begin0.0.ptr.12.i.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 20
   %12 = load i8, ptr %__begin0.0.ptr.12.i.i.i.i.i, align 4
   %conv.i.i.12.i.i.i.i.i = zext i8 %12 to i64
   %mul.i.12.i.i.i.i.i = mul i64 %conv.i.i.12.i.i.i.i.i, 814605021516865831
   %xor.i.12.i.i.i.i.i = xor i64 %add.i.11.i.i.i.i.i, %mul.i.12.i.i.i.i.i
   %add.i.12.i.i.i.i.i = add i64 %xor.i.12.i.i.i.i.i, 3571081485394615273
-  %__begin0.0.ptr.13.i.i.i.i.i = getelementptr inbounds %"class.ue2::RoseInstrCheckShufti32x8", ptr %this, i64 0, i32 1, i32 0, i64 13
+  %__begin0.0.ptr.13.i.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 21
   %13 = load i8, ptr %__begin0.0.ptr.13.i.i.i.i.i, align 1
   %conv.i.i.13.i.i.i.i.i = zext i8 %13 to i64
   %mul.i.13.i.i.i.i.i = mul i64 %conv.i.i.13.i.i.i.i.i, 814605021516865831
   %xor.i.13.i.i.i.i.i = xor i64 %add.i.12.i.i.i.i.i, %mul.i.13.i.i.i.i.i
   %add.i.13.i.i.i.i.i = add i64 %xor.i.13.i.i.i.i.i, 3571081485394615273
-  %__begin0.0.ptr.14.i.i.i.i.i = getelementptr inbounds %"class.ue2::RoseInstrCheckShufti32x8", ptr %this, i64 0, i32 1, i32 0, i64 14
+  %__begin0.0.ptr.14.i.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 22
   %14 = load i8, ptr %__begin0.0.ptr.14.i.i.i.i.i, align 2
   %conv.i.i.14.i.i.i.i.i = zext i8 %14 to i64
   %mul.i.14.i.i.i.i.i = mul i64 %conv.i.i.14.i.i.i.i.i, 814605021516865831
   %xor.i.14.i.i.i.i.i = xor i64 %add.i.13.i.i.i.i.i, %mul.i.14.i.i.i.i.i
   %add.i.14.i.i.i.i.i = add i64 %xor.i.14.i.i.i.i.i, 3571081485394615273
-  %__begin0.0.ptr.15.i.i.i.i.i = getelementptr inbounds %"class.ue2::RoseInstrCheckShufti32x8", ptr %this, i64 0, i32 1, i32 0, i64 15
+  %__begin0.0.ptr.15.i.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 23
   %15 = load i8, ptr %__begin0.0.ptr.15.i.i.i.i.i, align 1
   %conv.i.i.15.i.i.i.i.i = zext i8 %15 to i64
   %mul.i.15.i.i.i.i.i = mul i64 %conv.i.i.15.i.i.i.i.i, 814605021516865831
@@ -7029,7 +6750,7 @@ entry:
 define linkonce_odr hidden void @_ZN3ue222RoseInstrBaseOneTargetIL19RoseInstructionCode13E29ROSE_STRUCT_CHECK_SHUFTI_32x8NS_24RoseInstrCheckShufti32x8EE13update_targetEPKNS_15RoseInstructionES7_(ptr noundef nonnull align 8 dereferenceable(8) %this, ptr noundef %old_target, ptr noundef %new_target) unnamed_addr #3 comdat align 2 {
 entry:
   %0 = tail call ptr @__dynamic_cast(ptr nonnull %this, ptr nonnull @_ZTIN3ue222RoseInstrBaseOneTargetIL19RoseInstructionCode13E29ROSE_STRUCT_CHECK_SHUFTI_32x8NS_24RoseInstrCheckShufti32x8EEE, ptr nonnull @_ZTIN3ue224RoseInstrCheckShufti32x8E, i64 0) #25
-  %target = getelementptr inbounds %"class.ue2::RoseInstrCheckShufti32x8", ptr %0, i64 0, i32 6
+  %target = getelementptr inbounds i8, ptr %0, i64 80
   %1 = load ptr, ptr %target, align 8
   %cmp = icmp eq ptr %1, %old_target
   br i1 %cmp, label %if.then, label %if.end
@@ -7075,7 +6796,7 @@ entry:
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr hidden noundef i64 @_ZNK3ue225RoseInstrCheckShufti16x164hashEv(ptr noundef nonnull align 8 dereferenceable(120) %this) unnamed_addr #5 comdat align 2 {
 entry:
-  %hi_mask = getelementptr inbounds %"class.ue2::RoseInstrCheckShufti16x16", ptr %this, i64 0, i32 1
+  %hi_mask = getelementptr inbounds i8, ptr %this, i64 8
   br label %for.body.i.i.i.i.i.i
 
 for.body.i.i.i.i.i.i:                             ; preds = %for.body.i.i.i.i.i.i, %entry
@@ -7113,7 +6834,7 @@ for.body.i.i.i.i.i.i:                             ; preds = %for.body.i.i.i.i.i.
   br i1 %cmp.not.i.i.i.i.i.i.3, label %for.body.i.i.i.i.i.i.i.preheader, label %for.body.i.i.i.i.i.i
 
 for.body.i.i.i.i.i.i.i.preheader:                 ; preds = %for.body.i.i.i.i.i.i
-  %lo_mask = getelementptr inbounds %"class.ue2::RoseInstrCheckShufti16x16", ptr %this, i64 0, i32 2
+  %lo_mask = getelementptr inbounds i8, ptr %this, i64 40
   br label %for.body.i.i.i.i.i.i.i
 
 for.body.i.i.i.i.i.i.i:                           ; preds = %for.body.i.i.i.i.i.i.i.preheader, %for.body.i.i.i.i.i.i.i
@@ -7151,7 +6872,7 @@ for.body.i.i.i.i.i.i.i:                           ; preds = %for.body.i.i.i.i.i.
   br i1 %cmp.not.i.i.i.i.i.i.i.3, label %for.body.i.i.i.i.i.i.i.i.preheader, label %for.body.i.i.i.i.i.i.i
 
 for.body.i.i.i.i.i.i.i.i.preheader:               ; preds = %for.body.i.i.i.i.i.i.i
-  %bucket_select_mask = getelementptr inbounds %"class.ue2::RoseInstrCheckShufti16x16", ptr %this, i64 0, i32 3
+  %bucket_select_mask = getelementptr inbounds i8, ptr %this, i64 72
   br label %for.body.i.i.i.i.i.i.i.i
 
 for.body.i.i.i.i.i.i.i.i:                         ; preds = %for.body.i.i.i.i.i.i.i.i, %for.body.i.i.i.i.i.i.i.i.preheader
@@ -7189,8 +6910,8 @@ for.body.i.i.i.i.i.i.i.i:                         ; preds = %for.body.i.i.i.i.i.
   br i1 %cmp.not.i.i.i.i.i.i.i.i.3, label %_ZN3ue28hash_allIJRK19RoseInstructionCodeRKSt5arrayIhLm32EES7_S7_RKjRKiEEEmDpOT_.exit, label %for.body.i.i.i.i.i.i.i.i
 
 _ZN3ue28hash_allIJRK19RoseInstructionCodeRKSt5arrayIhLm32EES7_S7_RKjRKiEEEmDpOT_.exit: ; preds = %for.body.i.i.i.i.i.i.i.i
-  %offset = getelementptr inbounds %"class.ue2::RoseInstrCheckShufti16x16", ptr %this, i64 0, i32 5
-  %neg_mask = getelementptr inbounds %"class.ue2::RoseInstrCheckShufti16x16", ptr %this, i64 0, i32 4
+  %offset = getelementptr inbounds i8, ptr %this, i64 108
+  %neg_mask = getelementptr inbounds i8, ptr %this, i64 104
   %mul.i.i.i.i8.i.i.i = mul i64 %add.i.i.i.i.i.i.i.i.3, 814605021516865831
   %mul.i.i.i.i.i.i = mul i64 %add.i.i.i.i.i.i.i.3, 814605021516865831
   %xor.i.i.i.i.i.i = xor i64 %mul.i.i.i.i.i.i, -3471192287078814709
@@ -7223,7 +6944,7 @@ entry:
 define linkonce_odr hidden void @_ZN3ue222RoseInstrBaseOneTargetIL19RoseInstructionCode14E30ROSE_STRUCT_CHECK_SHUFTI_16x16NS_25RoseInstrCheckShufti16x16EE13update_targetEPKNS_15RoseInstructionES7_(ptr noundef nonnull align 8 dereferenceable(8) %this, ptr noundef %old_target, ptr noundef %new_target) unnamed_addr #3 comdat align 2 {
 entry:
   %0 = tail call ptr @__dynamic_cast(ptr nonnull %this, ptr nonnull @_ZTIN3ue222RoseInstrBaseOneTargetIL19RoseInstructionCode14E30ROSE_STRUCT_CHECK_SHUFTI_16x16NS_25RoseInstrCheckShufti16x16EEE, ptr nonnull @_ZTIN3ue225RoseInstrCheckShufti16x16E, i64 0) #25
-  %target = getelementptr inbounds %"class.ue2::RoseInstrCheckShufti16x16", ptr %0, i64 0, i32 6
+  %target = getelementptr inbounds i8, ptr %0, i64 112
   %1 = load ptr, ptr %target, align 8
   %cmp = icmp eq ptr %1, %old_target
   br i1 %cmp, label %if.then, label %if.end
@@ -7269,7 +6990,7 @@ entry:
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr hidden noundef i64 @_ZNK3ue225RoseInstrCheckShufti32x164hashEv(ptr noundef nonnull align 8 dereferenceable(152) %this) unnamed_addr #5 comdat align 2 {
 entry:
-  %hi_mask = getelementptr inbounds %"class.ue2::RoseInstrCheckShufti32x16", ptr %this, i64 0, i32 1
+  %hi_mask = getelementptr inbounds i8, ptr %this, i64 8
   br label %for.body.i.i.i.i.i.i
 
 for.body.i.i.i.i.i.i:                             ; preds = %for.body.i.i.i.i.i.i, %entry
@@ -7307,7 +7028,7 @@ for.body.i.i.i.i.i.i:                             ; preds = %for.body.i.i.i.i.i.
   br i1 %cmp.not.i.i.i.i.i.i.3, label %for.body.i.i.i.i.i.i.i.preheader, label %for.body.i.i.i.i.i.i
 
 for.body.i.i.i.i.i.i.i.preheader:                 ; preds = %for.body.i.i.i.i.i.i
-  %lo_mask = getelementptr inbounds %"class.ue2::RoseInstrCheckShufti32x16", ptr %this, i64 0, i32 2
+  %lo_mask = getelementptr inbounds i8, ptr %this, i64 40
   br label %for.body.i.i.i.i.i.i.i
 
 for.body.i.i.i.i.i.i.i:                           ; preds = %for.body.i.i.i.i.i.i.i, %for.body.i.i.i.i.i.i.i.preheader
@@ -7345,7 +7066,7 @@ for.body.i.i.i.i.i.i.i:                           ; preds = %for.body.i.i.i.i.i.
   br i1 %cmp.not.i.i.i.i.i.i.i.3, label %for.body.i.i.i.i.i.i.i.i.preheader, label %for.body.i.i.i.i.i.i.i
 
 for.body.i.i.i.i.i.i.i.i.preheader:               ; preds = %for.body.i.i.i.i.i.i.i
-  %bucket_select_mask_hi = getelementptr inbounds %"class.ue2::RoseInstrCheckShufti32x16", ptr %this, i64 0, i32 3
+  %bucket_select_mask_hi = getelementptr inbounds i8, ptr %this, i64 72
   br label %for.body.i.i.i.i.i.i.i.i
 
 for.body.i.i.i.i.i.i.i.i:                         ; preds = %for.body.i.i.i.i.i.i.i.i.preheader, %for.body.i.i.i.i.i.i.i.i
@@ -7383,7 +7104,7 @@ for.body.i.i.i.i.i.i.i.i:                         ; preds = %for.body.i.i.i.i.i.
   br i1 %cmp.not.i.i.i.i.i.i.i.i.3, label %for.body.i.i.i.i.i.i.i.i.i.preheader, label %for.body.i.i.i.i.i.i.i.i
 
 for.body.i.i.i.i.i.i.i.i.i.preheader:             ; preds = %for.body.i.i.i.i.i.i.i.i
-  %bucket_select_mask_lo = getelementptr inbounds %"class.ue2::RoseInstrCheckShufti32x16", ptr %this, i64 0, i32 4
+  %bucket_select_mask_lo = getelementptr inbounds i8, ptr %this, i64 104
   br label %for.body.i.i.i.i.i.i.i.i.i
 
 for.body.i.i.i.i.i.i.i.i.i:                       ; preds = %for.body.i.i.i.i.i.i.i.i.i, %for.body.i.i.i.i.i.i.i.i.i.preheader
@@ -7421,8 +7142,8 @@ for.body.i.i.i.i.i.i.i.i.i:                       ; preds = %for.body.i.i.i.i.i.
   br i1 %cmp.not.i.i.i.i.i.i.i.i.i.3, label %_ZN3ue28hash_allIJRK19RoseInstructionCodeRKSt5arrayIhLm32EES7_S7_S7_RKjRKiEEEmDpOT_.exit, label %for.body.i.i.i.i.i.i.i.i.i
 
 _ZN3ue28hash_allIJRK19RoseInstructionCodeRKSt5arrayIhLm32EES7_S7_S7_RKjRKiEEEmDpOT_.exit: ; preds = %for.body.i.i.i.i.i.i.i.i.i
-  %offset = getelementptr inbounds %"class.ue2::RoseInstrCheckShufti32x16", ptr %this, i64 0, i32 6
-  %neg_mask = getelementptr inbounds %"class.ue2::RoseInstrCheckShufti32x16", ptr %this, i64 0, i32 5
+  %offset = getelementptr inbounds i8, ptr %this, i64 140
+  %neg_mask = getelementptr inbounds i8, ptr %this, i64 136
   %mul.i.i.i.i8.i.i.i.i = mul i64 %add.i.i.i.i.i.i.i.i.i.3, 814605021516865831
   %mul.i.i.i.i10.i.i.i = mul i64 %add.i.i.i.i.i.i.i.i.3, 814605021516865831
   %mul.i.i.i.i.i.i = mul i64 %add.i.i.i.i.i.i.i.3, 814605021516865831
@@ -7458,7 +7179,7 @@ entry:
 define linkonce_odr hidden void @_ZN3ue222RoseInstrBaseOneTargetIL19RoseInstructionCode15E30ROSE_STRUCT_CHECK_SHUFTI_32x16NS_25RoseInstrCheckShufti32x16EE13update_targetEPKNS_15RoseInstructionES7_(ptr noundef nonnull align 8 dereferenceable(8) %this, ptr noundef %old_target, ptr noundef %new_target) unnamed_addr #3 comdat align 2 {
 entry:
   %0 = tail call ptr @__dynamic_cast(ptr nonnull %this, ptr nonnull @_ZTIN3ue222RoseInstrBaseOneTargetIL19RoseInstructionCode15E30ROSE_STRUCT_CHECK_SHUFTI_32x16NS_25RoseInstrCheckShufti32x16EEE, ptr nonnull @_ZTIN3ue225RoseInstrCheckShufti32x16E, i64 0) #25
-  %target = getelementptr inbounds %"class.ue2::RoseInstrCheckShufti32x16", ptr %0, i64 0, i32 7
+  %target = getelementptr inbounds i8, ptr %0, i64 144
   %1 = load ptr, ptr %target, align 8
   %cmp = icmp eq ptr %1, %old_target
   br i1 %cmp, label %if.then, label %if.end
@@ -7504,7 +7225,7 @@ entry:
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr hidden noundef i64 @_ZNK3ue224RoseInstrCheckShufti64x84hashEv(ptr noundef nonnull align 8 dereferenceable(224) %this) unnamed_addr #5 comdat align 2 {
 entry:
-  %hi_mask = getelementptr inbounds %"class.ue2::RoseInstrCheckShufti64x8", ptr %this, i64 0, i32 1
+  %hi_mask = getelementptr inbounds i8, ptr %this, i64 8
   br label %for.body.i.i.i.i.i.i
 
 for.body.i.i.i.i.i.i:                             ; preds = %for.body.i.i.i.i.i.i, %entry
@@ -7542,7 +7263,7 @@ for.body.i.i.i.i.i.i:                             ; preds = %for.body.i.i.i.i.i.
   br i1 %cmp.not.i.i.i.i.i.i.3, label %for.body.i.i.i.i.i.i.i.preheader, label %for.body.i.i.i.i.i.i
 
 for.body.i.i.i.i.i.i.i.preheader:                 ; preds = %for.body.i.i.i.i.i.i
-  %lo_mask = getelementptr inbounds %"class.ue2::RoseInstrCheckShufti64x8", ptr %this, i64 0, i32 2
+  %lo_mask = getelementptr inbounds i8, ptr %this, i64 72
   br label %for.body.i.i.i.i.i.i.i
 
 for.body.i.i.i.i.i.i.i:                           ; preds = %for.body.i.i.i.i.i.i.i.preheader, %for.body.i.i.i.i.i.i.i
@@ -7580,7 +7301,7 @@ for.body.i.i.i.i.i.i.i:                           ; preds = %for.body.i.i.i.i.i.
   br i1 %cmp.not.i.i.i.i.i.i.i.3, label %for.body.i.i.i.i.i.i.i.i.preheader, label %for.body.i.i.i.i.i.i.i
 
 for.body.i.i.i.i.i.i.i.i.preheader:               ; preds = %for.body.i.i.i.i.i.i.i
-  %bucket_select_mask = getelementptr inbounds %"class.ue2::RoseInstrCheckShufti64x8", ptr %this, i64 0, i32 3
+  %bucket_select_mask = getelementptr inbounds i8, ptr %this, i64 136
   br label %for.body.i.i.i.i.i.i.i.i
 
 for.body.i.i.i.i.i.i.i.i:                         ; preds = %for.body.i.i.i.i.i.i.i.i, %for.body.i.i.i.i.i.i.i.i.preheader
@@ -7618,8 +7339,8 @@ for.body.i.i.i.i.i.i.i.i:                         ; preds = %for.body.i.i.i.i.i.
   br i1 %cmp.not.i.i.i.i.i.i.i.i.3, label %_ZN3ue28hash_allIJRK19RoseInstructionCodeRKSt5arrayIhLm64EES7_S7_RKyRKiEEEmDpOT_.exit, label %for.body.i.i.i.i.i.i.i.i
 
 _ZN3ue28hash_allIJRK19RoseInstructionCodeRKSt5arrayIhLm64EES7_S7_RKyRKiEEEmDpOT_.exit: ; preds = %for.body.i.i.i.i.i.i.i.i
-  %offset = getelementptr inbounds %"class.ue2::RoseInstrCheckShufti64x8", ptr %this, i64 0, i32 5
-  %neg_mask = getelementptr inbounds %"class.ue2::RoseInstrCheckShufti64x8", ptr %this, i64 0, i32 4
+  %offset = getelementptr inbounds i8, ptr %this, i64 208
+  %neg_mask = getelementptr inbounds i8, ptr %this, i64 200
   %mul.i.i.i.i8.i.i.i = mul i64 %add.i.i.i.i.i.i.i.i.3, 814605021516865831
   %mul.i.i.i.i.i.i = mul i64 %add.i.i.i.i.i.i.i.3, 814605021516865831
   %xor.i.i.i.i.i.i = xor i64 %mul.i.i.i.i.i.i, 2809385705895971102
@@ -7651,7 +7372,7 @@ entry:
 define linkonce_odr hidden void @_ZN3ue222RoseInstrBaseOneTargetIL19RoseInstructionCode67E29ROSE_STRUCT_CHECK_SHUFTI_64x8NS_24RoseInstrCheckShufti64x8EE13update_targetEPKNS_15RoseInstructionES7_(ptr noundef nonnull align 8 dereferenceable(8) %this, ptr noundef %old_target, ptr noundef %new_target) unnamed_addr #3 comdat align 2 {
 entry:
   %0 = tail call ptr @__dynamic_cast(ptr nonnull %this, ptr nonnull @_ZTIN3ue222RoseInstrBaseOneTargetIL19RoseInstructionCode67E29ROSE_STRUCT_CHECK_SHUFTI_64x8NS_24RoseInstrCheckShufti64x8EEE, ptr nonnull @_ZTIN3ue224RoseInstrCheckShufti64x8E, i64 0) #25
-  %target = getelementptr inbounds %"class.ue2::RoseInstrCheckShufti64x8", ptr %0, i64 0, i32 6
+  %target = getelementptr inbounds i8, ptr %0, i64 216
   %1 = load ptr, ptr %target, align 8
   %cmp = icmp eq ptr %1, %old_target
   br i1 %cmp, label %if.then, label %if.end
@@ -7697,14 +7418,14 @@ entry:
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr hidden noundef i64 @_ZNK3ue225RoseInstrCheckShufti64x164hashEv(ptr noundef nonnull align 8 dereferenceable(416) %this) unnamed_addr #5 comdat align 2 {
 entry:
-  %hi_mask_1 = getelementptr inbounds %"class.ue2::RoseInstrCheckShufti64x16", ptr %this, i64 0, i32 1
-  %hi_mask_2 = getelementptr inbounds %"class.ue2::RoseInstrCheckShufti64x16", ptr %this, i64 0, i32 2
-  %lo_mask_1 = getelementptr inbounds %"class.ue2::RoseInstrCheckShufti64x16", ptr %this, i64 0, i32 3
-  %lo_mask_2 = getelementptr inbounds %"class.ue2::RoseInstrCheckShufti64x16", ptr %this, i64 0, i32 4
-  %bucket_select_mask_hi = getelementptr inbounds %"class.ue2::RoseInstrCheckShufti64x16", ptr %this, i64 0, i32 5
-  %bucket_select_mask_lo = getelementptr inbounds %"class.ue2::RoseInstrCheckShufti64x16", ptr %this, i64 0, i32 6
-  %neg_mask = getelementptr inbounds %"class.ue2::RoseInstrCheckShufti64x16", ptr %this, i64 0, i32 7
-  %offset = getelementptr inbounds %"class.ue2::RoseInstrCheckShufti64x16", ptr %this, i64 0, i32 8
+  %hi_mask_1 = getelementptr inbounds i8, ptr %this, i64 8
+  %hi_mask_2 = getelementptr inbounds i8, ptr %this, i64 72
+  %lo_mask_1 = getelementptr inbounds i8, ptr %this, i64 136
+  %lo_mask_2 = getelementptr inbounds i8, ptr %this, i64 200
+  %bucket_select_mask_hi = getelementptr inbounds i8, ptr %this, i64 264
+  %bucket_select_mask_lo = getelementptr inbounds i8, ptr %this, i64 328
+  %neg_mask = getelementptr inbounds i8, ptr %this, i64 392
+  %offset = getelementptr inbounds i8, ptr %this, i64 400
   %call = tail call noundef i64 @_ZN3ue28hash_allIJRK19RoseInstructionCodeRKSt5arrayIhLm64EES7_S7_S7_S7_S7_RKyRKiEEEmDpOT_(ptr noundef nonnull align 4 dereferenceable(4) @_ZN3ue213RoseInstrBaseIL19RoseInstructionCode68E30ROSE_STRUCT_CHECK_SHUFTI_64x16NS_25RoseInstrCheckShufti64x16EE6opcodeE, ptr noundef nonnull align 1 dereferenceable(64) %hi_mask_1, ptr noundef nonnull align 1 dereferenceable(64) %hi_mask_2, ptr noundef nonnull align 1 dereferenceable(64) %lo_mask_1, ptr noundef nonnull align 1 dereferenceable(64) %lo_mask_2, ptr noundef nonnull align 1 dereferenceable(64) %bucket_select_mask_hi, ptr noundef nonnull align 1 dereferenceable(64) %bucket_select_mask_lo, ptr noundef nonnull align 8 dereferenceable(8) %neg_mask, ptr noundef nonnull align 4 dereferenceable(4) %offset)
   ret i64 %call
 }
@@ -7719,7 +7440,7 @@ entry:
 define linkonce_odr hidden void @_ZN3ue222RoseInstrBaseOneTargetIL19RoseInstructionCode68E30ROSE_STRUCT_CHECK_SHUFTI_64x16NS_25RoseInstrCheckShufti64x16EE13update_targetEPKNS_15RoseInstructionES7_(ptr noundef nonnull align 8 dereferenceable(8) %this, ptr noundef %old_target, ptr noundef %new_target) unnamed_addr #3 comdat align 2 {
 entry:
   %0 = tail call ptr @__dynamic_cast(ptr nonnull %this, ptr nonnull @_ZTIN3ue222RoseInstrBaseOneTargetIL19RoseInstructionCode68E30ROSE_STRUCT_CHECK_SHUFTI_64x16NS_25RoseInstrCheckShufti64x16EEE, ptr nonnull @_ZTIN3ue225RoseInstrCheckShufti64x16E, i64 0) #25
-  %target = getelementptr inbounds %"class.ue2::RoseInstrCheckShufti64x16", ptr %0, i64 0, i32 9
+  %target = getelementptr inbounds i8, ptr %0, i64 408
   %1 = load ptr, ptr %target, align 8
   %cmp = icmp eq ptr %1, %old_target
   br i1 %cmp, label %if.then, label %if.end
@@ -7765,9 +7486,9 @@ entry:
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr hidden noundef i64 @_ZNK3ue219RoseInstrCheckInfix4hashEv(ptr noundef nonnull align 8 dereferenceable(32) %this) unnamed_addr #5 comdat align 2 {
 entry:
-  %queue = getelementptr inbounds %"class.ue2::RoseInstrCheckInfix", ptr %this, i64 0, i32 1
-  %lag = getelementptr inbounds %"class.ue2::RoseInstrCheckInfix", ptr %this, i64 0, i32 2
-  %report = getelementptr inbounds %"class.ue2::RoseInstrCheckInfix", ptr %this, i64 0, i32 3
+  %queue = getelementptr inbounds i8, ptr %this, i64 8
+  %lag = getelementptr inbounds i8, ptr %this, i64 12
+  %report = getelementptr inbounds i8, ptr %this, i64 16
   %0 = load i32, ptr %queue, align 8
   %conv.i.i.i.i.i6.i.i = zext i32 %0 to i64
   %mul.i.i.i.i.i.i = mul i64 %conv.i.i.i.i.i6.i.i, 814605021516865831
@@ -7796,7 +7517,7 @@ entry:
 define linkonce_odr hidden void @_ZN3ue222RoseInstrBaseOneTargetIL19RoseInstructionCode16E23ROSE_STRUCT_CHECK_INFIXNS_19RoseInstrCheckInfixEE13update_targetEPKNS_15RoseInstructionES7_(ptr noundef nonnull align 8 dereferenceable(8) %this, ptr noundef %old_target, ptr noundef %new_target) unnamed_addr #3 comdat align 2 {
 entry:
   %0 = tail call ptr @__dynamic_cast(ptr nonnull %this, ptr nonnull @_ZTIN3ue222RoseInstrBaseOneTargetIL19RoseInstructionCode16E23ROSE_STRUCT_CHECK_INFIXNS_19RoseInstrCheckInfixEEE, ptr nonnull @_ZTIN3ue219RoseInstrCheckInfixE, i64 0) #25
-  %target = getelementptr inbounds %"class.ue2::RoseInstrCheckInfix", ptr %0, i64 0, i32 4
+  %target = getelementptr inbounds i8, ptr %0, i64 24
   %1 = load ptr, ptr %target, align 8
   %cmp = icmp eq ptr %1, %old_target
   br i1 %cmp, label %if.then, label %if.end
@@ -7842,9 +7563,9 @@ entry:
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr hidden noundef i64 @_ZNK3ue220RoseInstrCheckPrefix4hashEv(ptr noundef nonnull align 8 dereferenceable(32) %this) unnamed_addr #5 comdat align 2 {
 entry:
-  %queue = getelementptr inbounds %"class.ue2::RoseInstrCheckPrefix", ptr %this, i64 0, i32 1
-  %lag = getelementptr inbounds %"class.ue2::RoseInstrCheckPrefix", ptr %this, i64 0, i32 2
-  %report = getelementptr inbounds %"class.ue2::RoseInstrCheckPrefix", ptr %this, i64 0, i32 3
+  %queue = getelementptr inbounds i8, ptr %this, i64 8
+  %lag = getelementptr inbounds i8, ptr %this, i64 12
+  %report = getelementptr inbounds i8, ptr %this, i64 16
   %0 = load i32, ptr %queue, align 8
   %conv.i.i.i.i.i6.i.i = zext i32 %0 to i64
   %mul.i.i.i.i.i.i = mul i64 %conv.i.i.i.i.i6.i.i, 814605021516865831
@@ -7873,7 +7594,7 @@ entry:
 define linkonce_odr hidden void @_ZN3ue222RoseInstrBaseOneTargetIL19RoseInstructionCode17E24ROSE_STRUCT_CHECK_PREFIXNS_20RoseInstrCheckPrefixEE13update_targetEPKNS_15RoseInstructionES7_(ptr noundef nonnull align 8 dereferenceable(8) %this, ptr noundef %old_target, ptr noundef %new_target) unnamed_addr #3 comdat align 2 {
 entry:
   %0 = tail call ptr @__dynamic_cast(ptr nonnull %this, ptr nonnull @_ZTIN3ue222RoseInstrBaseOneTargetIL19RoseInstructionCode17E24ROSE_STRUCT_CHECK_PREFIXNS_20RoseInstrCheckPrefixEEE, ptr nonnull @_ZTIN3ue220RoseInstrCheckPrefixE, i64 0) #25
-  %target = getelementptr inbounds %"class.ue2::RoseInstrCheckPrefix", ptr %0, i64 0, i32 4
+  %target = getelementptr inbounds i8, ptr %0, i64 24
   %1 = load ptr, ptr %target, align 8
   %cmp = icmp eq ptr %1, %old_target
   br i1 %cmp, label %if.then, label %if.end
@@ -7919,8 +7640,8 @@ entry:
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr hidden noundef i64 @_ZNK3ue220RoseInstrPushDelayed4hashEv(ptr noundef nonnull align 8 dereferenceable(16) %this) unnamed_addr #5 comdat align 2 {
 entry:
-  %delay = getelementptr inbounds %"class.ue2::RoseInstrPushDelayed", ptr %this, i64 0, i32 1
-  %index = getelementptr inbounds %"class.ue2::RoseInstrPushDelayed", ptr %this, i64 0, i32 2
+  %delay = getelementptr inbounds i8, ptr %this, i64 8
+  %index = getelementptr inbounds i8, ptr %this, i64 12
   %0 = load i8, ptr %delay, align 8
   %conv.i.i.i.i.i4.i.i = zext i8 %0 to i64
   %mul.i.i.i.i.i.i = mul i64 %conv.i.i.i.i.i4.i.i, 814605021516865831
@@ -7955,14 +7676,14 @@ entry:
 
 dynamic_cast.notnull2:                            ; preds = %entry
   %1 = tail call ptr @__dynamic_cast(ptr nonnull %this, ptr nonnull @_ZTIN3ue213RoseInstrBaseIL19RoseInstructionCode18E24ROSE_STRUCT_PUSH_DELAYEDNS_20RoseInstrPushDelayedEEE, ptr nonnull @_ZTIN3ue220RoseInstrPushDelayedE, i64 0) #25
-  %delay.i = getelementptr inbounds %"class.ue2::RoseInstrPushDelayed", ptr %1, i64 0, i32 1
+  %delay.i = getelementptr inbounds i8, ptr %1, i64 8
   %2 = load i8, ptr %delay.i, align 8
-  %delay3.i = getelementptr inbounds %"class.ue2::RoseInstrPushDelayed", ptr %0, i64 0, i32 1
+  %delay3.i = getelementptr inbounds i8, ptr %0, i64 8
   %3 = load i8, ptr %delay3.i, align 8
   %cmp.i = icmp eq i8 %2, %3
-  %index.i = getelementptr inbounds %"class.ue2::RoseInstrPushDelayed", ptr %1, i64 0, i32 2
+  %index.i = getelementptr inbounds i8, ptr %1, i64 12
   %4 = load i32, ptr %index.i, align 4
-  %index5.i = getelementptr inbounds %"class.ue2::RoseInstrPushDelayed", ptr %0, i64 0, i32 2
+  %index5.i = getelementptr inbounds i8, ptr %0, i64 12
   %5 = load i32, ptr %index5.i, align 4
   %cmp6.i = icmp eq i32 %4, %5
   %6 = select i1 %cmp.i, i1 %cmp6.i, i1 false
@@ -7989,7 +7710,7 @@ entry:
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr hidden noundef i64 @_ZNK3ue218RoseInstrSomAdjust4hashEv(ptr noundef nonnull align 8 dereferenceable(12) %this) unnamed_addr #5 comdat align 2 {
 entry:
-  %distance = getelementptr inbounds %"class.ue2::RoseInstrSomAdjust", ptr %this, i64 0, i32 1
+  %distance = getelementptr inbounds i8, ptr %this, i64 8
   %0 = load i32, ptr %distance, align 8
   %conv.i.i.i.i.i.i = zext i32 %0 to i64
   %mul.i.i.i2.i.i = mul i64 %conv.i.i.i.i.i.i, 814605021516865831
@@ -8019,9 +7740,9 @@ entry:
 
 dynamic_cast.notnull2:                            ; preds = %entry
   %1 = tail call ptr @__dynamic_cast(ptr nonnull %this, ptr nonnull @_ZTIN3ue213RoseInstrBaseIL19RoseInstructionCode22E22ROSE_STRUCT_SOM_ADJUSTNS_18RoseInstrSomAdjustEEE, ptr nonnull @_ZTIN3ue218RoseInstrSomAdjustE, i64 0) #25
-  %distance.i = getelementptr inbounds %"class.ue2::RoseInstrSomAdjust", ptr %1, i64 0, i32 1
+  %distance.i = getelementptr inbounds i8, ptr %1, i64 8
   %2 = load i32, ptr %distance.i, align 8
-  %distance3.i = getelementptr inbounds %"class.ue2::RoseInstrSomAdjust", ptr %0, i64 0, i32 1
+  %distance3.i = getelementptr inbounds i8, ptr %0, i64 8
   %3 = load i32, ptr %distance3.i, align 8
   %cmp.i = icmp eq i32 %2, %3
   br label %cleanup
@@ -8047,8 +7768,8 @@ entry:
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr hidden noundef i64 @_ZNK3ue219RoseInstrSomLeftfix4hashEv(ptr noundef nonnull align 8 dereferenceable(16) %this) unnamed_addr #5 comdat align 2 {
 entry:
-  %queue = getelementptr inbounds %"class.ue2::RoseInstrSomLeftfix", ptr %this, i64 0, i32 1
-  %lag = getelementptr inbounds %"class.ue2::RoseInstrSomLeftfix", ptr %this, i64 0, i32 2
+  %queue = getelementptr inbounds i8, ptr %this, i64 8
+  %lag = getelementptr inbounds i8, ptr %this, i64 12
   %0 = load i32, ptr %queue, align 8
   %conv.i.i.i.i.i4.i.i = zext i32 %0 to i64
   %mul.i.i.i.i.i.i = mul i64 %conv.i.i.i.i.i4.i.i, 814605021516865831
@@ -8083,8 +7804,8 @@ entry:
 
 dynamic_cast.notnull2:                            ; preds = %entry
   %1 = tail call ptr @__dynamic_cast(ptr nonnull %this, ptr nonnull @_ZTIN3ue213RoseInstrBaseIL19RoseInstructionCode23E23ROSE_STRUCT_SOM_LEFTFIXNS_19RoseInstrSomLeftfixEEE, ptr nonnull @_ZTIN3ue219RoseInstrSomLeftfixE, i64 0) #25
-  %queue.i = getelementptr inbounds %"class.ue2::RoseInstrSomLeftfix", ptr %1, i64 0, i32 1
-  %queue3.i = getelementptr inbounds %"class.ue2::RoseInstrSomLeftfix", ptr %0, i64 0, i32 1
+  %queue.i = getelementptr inbounds i8, ptr %1, i64 8
+  %queue3.i = getelementptr inbounds i8, ptr %0, i64 8
   %2 = load <2 x i32>, ptr %queue.i, align 8
   %3 = load <2 x i32>, ptr %queue3.i, align 8
   %4 = icmp eq <2 x i32> %2, %3
@@ -8114,8 +7835,8 @@ entry:
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr hidden noundef i64 @_ZNK3ue222RoseInstrSomFromReport4hashEv(ptr noundef nonnull align 8 dereferenceable(24) %this) unnamed_addr #5 comdat align 2 {
 entry:
-  %som = getelementptr inbounds %"class.ue2::RoseInstrSomFromReport", ptr %this, i64 0, i32 1
-  %onmatch = getelementptr inbounds %"class.ue2::RoseInstrSomFromReport", ptr %this, i64 0, i32 1, i32 1
+  %som = getelementptr inbounds i8, ptr %this, i64 8
+  %onmatch = getelementptr inbounds i8, ptr %this, i64 12
   %0 = load i8, ptr %som, align 8
   %conv.i.i.i.i.i4.i.i = zext i8 %0 to i64
   %mul.i.i.i.i.i.i = mul i64 %conv.i.i.i.i.i4.i.i, 814605021516865831
@@ -8150,8 +7871,8 @@ entry:
 
 dynamic_cast.notnull2:                            ; preds = %entry
   %1 = tail call ptr @__dynamic_cast(ptr nonnull %this, ptr nonnull @_ZTIN3ue213RoseInstrBaseIL19RoseInstructionCode24E27ROSE_STRUCT_SOM_FROM_REPORTNS_22RoseInstrSomFromReportEEE, ptr nonnull @_ZTIN3ue222RoseInstrSomFromReportE, i64 0) #25
-  %som.i = getelementptr inbounds %"class.ue2::RoseInstrSomFromReport", ptr %1, i64 0, i32 1
-  %som3.i = getelementptr inbounds %"class.ue2::RoseInstrSomFromReport", ptr %0, i64 0, i32 1
+  %som.i = getelementptr inbounds i8, ptr %1, i64 8
+  %som3.i = getelementptr inbounds i8, ptr %0, i64 8
   %bcmp.i = tail call i32 @bcmp(ptr noundef nonnull dereferenceable(16) %som.i, ptr noundef nonnull dereferenceable(16) %som3.i, i64 16)
   %cmp.i = icmp eq i32 %bcmp.i, 0
   br label %cleanup
@@ -8177,9 +7898,9 @@ entry:
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr hidden noundef i64 @_ZNK3ue221RoseInstrTriggerInfix4hashEv(ptr noundef nonnull align 8 dereferenceable(20) %this) unnamed_addr #5 comdat align 2 {
 entry:
-  %cancel = getelementptr inbounds %"class.ue2::RoseInstrTriggerInfix", ptr %this, i64 0, i32 1
-  %queue = getelementptr inbounds %"class.ue2::RoseInstrTriggerInfix", ptr %this, i64 0, i32 3
-  %event = getelementptr inbounds %"class.ue2::RoseInstrTriggerInfix", ptr %this, i64 0, i32 4
+  %cancel = getelementptr inbounds i8, ptr %this, i64 8
+  %queue = getelementptr inbounds i8, ptr %this, i64 12
+  %event = getelementptr inbounds i8, ptr %this, i64 16
   %0 = load i8, ptr %cancel, align 8
   %conv.i.i.i.i.i6.i.i = zext i8 %0 to i64
   %mul.i.i.i.i.i.i = mul i64 %conv.i.i.i.i.i6.i.i, 814605021516865831
@@ -8219,25 +7940,25 @@ entry:
 
 dynamic_cast.notnull2:                            ; preds = %entry
   %1 = tail call ptr @__dynamic_cast(ptr nonnull %this, ptr nonnull @_ZTIN3ue213RoseInstrBaseIL19RoseInstructionCode26E25ROSE_STRUCT_TRIGGER_INFIXNS_21RoseInstrTriggerInfixEEE, ptr nonnull @_ZTIN3ue221RoseInstrTriggerInfixE, i64 0) #25
-  %cancel.i = getelementptr inbounds %"class.ue2::RoseInstrTriggerInfix", ptr %1, i64 0, i32 1
+  %cancel.i = getelementptr inbounds i8, ptr %1, i64 8
   %2 = load i8, ptr %cancel.i, align 8
-  %cancel3.i = getelementptr inbounds %"class.ue2::RoseInstrTriggerInfix", ptr %0, i64 0, i32 1
+  %cancel3.i = getelementptr inbounds i8, ptr %0, i64 8
   %3 = load i8, ptr %cancel3.i, align 8
   %cmp.i = icmp eq i8 %2, %3
   br i1 %cmp.i, label %land.lhs.true.i, label %cleanup
 
 land.lhs.true.i:                                  ; preds = %dynamic_cast.notnull2
-  %queue.i = getelementptr inbounds %"class.ue2::RoseInstrTriggerInfix", ptr %1, i64 0, i32 3
+  %queue.i = getelementptr inbounds i8, ptr %1, i64 12
   %4 = load i32, ptr %queue.i, align 4
-  %queue5.i = getelementptr inbounds %"class.ue2::RoseInstrTriggerInfix", ptr %0, i64 0, i32 3
+  %queue5.i = getelementptr inbounds i8, ptr %0, i64 12
   %5 = load i32, ptr %queue5.i, align 4
   %cmp6.i = icmp eq i32 %4, %5
   br i1 %cmp6.i, label %land.rhs.i, label %cleanup
 
 land.rhs.i:                                       ; preds = %land.lhs.true.i
-  %event.i = getelementptr inbounds %"class.ue2::RoseInstrTriggerInfix", ptr %1, i64 0, i32 4
+  %event.i = getelementptr inbounds i8, ptr %1, i64 16
   %6 = load i32, ptr %event.i, align 8
-  %event7.i = getelementptr inbounds %"class.ue2::RoseInstrTriggerInfix", ptr %0, i64 0, i32 4
+  %event7.i = getelementptr inbounds i8, ptr %0, i64 16
   %7 = load i32, ptr %event7.i, align 8
   %cmp8.i = icmp eq i32 %6, %7
   br label %cleanup
@@ -8263,8 +7984,8 @@ entry:
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr hidden noundef i64 @_ZNK3ue222RoseInstrTriggerSuffix4hashEv(ptr noundef nonnull align 8 dereferenceable(16) %this) unnamed_addr #5 comdat align 2 {
 entry:
-  %queue = getelementptr inbounds %"class.ue2::RoseInstrTriggerSuffix", ptr %this, i64 0, i32 1
-  %event = getelementptr inbounds %"class.ue2::RoseInstrTriggerSuffix", ptr %this, i64 0, i32 2
+  %queue = getelementptr inbounds i8, ptr %this, i64 8
+  %event = getelementptr inbounds i8, ptr %this, i64 12
   %0 = load i32, ptr %queue, align 8
   %conv.i.i.i.i.i4.i.i = zext i32 %0 to i64
   %mul.i.i.i.i.i.i = mul i64 %conv.i.i.i.i.i4.i.i, 814605021516865831
@@ -8299,8 +8020,8 @@ entry:
 
 dynamic_cast.notnull2:                            ; preds = %entry
   %1 = tail call ptr @__dynamic_cast(ptr nonnull %this, ptr nonnull @_ZTIN3ue213RoseInstrBaseIL19RoseInstructionCode27E26ROSE_STRUCT_TRIGGER_SUFFIXNS_22RoseInstrTriggerSuffixEEE, ptr nonnull @_ZTIN3ue222RoseInstrTriggerSuffixE, i64 0) #25
-  %queue.i = getelementptr inbounds %"class.ue2::RoseInstrTriggerSuffix", ptr %1, i64 0, i32 1
-  %queue3.i = getelementptr inbounds %"class.ue2::RoseInstrTriggerSuffix", ptr %0, i64 0, i32 1
+  %queue.i = getelementptr inbounds i8, ptr %1, i64 8
+  %queue3.i = getelementptr inbounds i8, ptr %0, i64 8
   %2 = load <2 x i32>, ptr %queue.i, align 8
   %3 = load <2 x i32>, ptr %queue3.i, align 8
   %4 = icmp eq <2 x i32> %2, %3
@@ -8330,9 +8051,9 @@ entry:
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr hidden noundef i64 @_ZNK3ue215RoseInstrDedupe4hashEv(ptr noundef nonnull align 8 dereferenceable(32) %this) unnamed_addr #5 comdat align 2 {
 entry:
-  %quash_som = getelementptr inbounds %"class.ue2::RoseInstrDedupe", ptr %this, i64 0, i32 1
-  %dkey = getelementptr inbounds %"class.ue2::RoseInstrDedupe", ptr %this, i64 0, i32 2
-  %offset_adjust = getelementptr inbounds %"class.ue2::RoseInstrDedupe", ptr %this, i64 0, i32 3
+  %quash_som = getelementptr inbounds i8, ptr %this, i64 8
+  %dkey = getelementptr inbounds i8, ptr %this, i64 12
+  %offset_adjust = getelementptr inbounds i8, ptr %this, i64 16
   %0 = load i8, ptr %quash_som, align 8
   %conv.i.i.i.i.i6.i.i = zext i8 %0 to i64
   %mul.i.i.i.i.i.i = mul i64 %conv.i.i.i.i.i6.i.i, 814605021516865831
@@ -8361,7 +8082,7 @@ entry:
 define linkonce_odr hidden void @_ZN3ue222RoseInstrBaseOneTargetIL19RoseInstructionCode28E18ROSE_STRUCT_DEDUPENS_15RoseInstrDedupeEE13update_targetEPKNS_15RoseInstructionES7_(ptr noundef nonnull align 8 dereferenceable(8) %this, ptr noundef %old_target, ptr noundef %new_target) unnamed_addr #3 comdat align 2 {
 entry:
   %0 = tail call ptr @__dynamic_cast(ptr nonnull %this, ptr nonnull @_ZTIN3ue222RoseInstrBaseOneTargetIL19RoseInstructionCode28E18ROSE_STRUCT_DEDUPENS_15RoseInstrDedupeEEE, ptr nonnull @_ZTIN3ue215RoseInstrDedupeE, i64 0) #25
-  %target = getelementptr inbounds %"class.ue2::RoseInstrDedupe", ptr %0, i64 0, i32 4
+  %target = getelementptr inbounds i8, ptr %0, i64 24
   %1 = load ptr, ptr %target, align 8
   %cmp = icmp eq ptr %1, %old_target
   br i1 %cmp, label %if.then, label %if.end
@@ -8407,9 +8128,9 @@ entry:
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr hidden noundef i64 @_ZNK3ue218RoseInstrDedupeSom4hashEv(ptr noundef nonnull align 8 dereferenceable(32) %this) unnamed_addr #5 comdat align 2 {
 entry:
-  %quash_som = getelementptr inbounds %"class.ue2::RoseInstrDedupeSom", ptr %this, i64 0, i32 1
-  %dkey = getelementptr inbounds %"class.ue2::RoseInstrDedupeSom", ptr %this, i64 0, i32 2
-  %offset_adjust = getelementptr inbounds %"class.ue2::RoseInstrDedupeSom", ptr %this, i64 0, i32 3
+  %quash_som = getelementptr inbounds i8, ptr %this, i64 8
+  %dkey = getelementptr inbounds i8, ptr %this, i64 12
+  %offset_adjust = getelementptr inbounds i8, ptr %this, i64 16
   %0 = load i8, ptr %quash_som, align 8
   %conv.i.i.i.i.i6.i.i = zext i8 %0 to i64
   %mul.i.i.i.i.i.i = mul i64 %conv.i.i.i.i.i6.i.i, 814605021516865831
@@ -8438,7 +8159,7 @@ entry:
 define linkonce_odr hidden void @_ZN3ue222RoseInstrBaseOneTargetIL19RoseInstructionCode29E22ROSE_STRUCT_DEDUPE_SOMNS_18RoseInstrDedupeSomEE13update_targetEPKNS_15RoseInstructionES7_(ptr noundef nonnull align 8 dereferenceable(8) %this, ptr noundef %old_target, ptr noundef %new_target) unnamed_addr #3 comdat align 2 {
 entry:
   %0 = tail call ptr @__dynamic_cast(ptr nonnull %this, ptr nonnull @_ZTIN3ue222RoseInstrBaseOneTargetIL19RoseInstructionCode29E22ROSE_STRUCT_DEDUPE_SOMNS_18RoseInstrDedupeSomEEE, ptr nonnull @_ZTIN3ue218RoseInstrDedupeSomE, i64 0) #25
-  %target = getelementptr inbounds %"class.ue2::RoseInstrDedupeSom", ptr %0, i64 0, i32 4
+  %target = getelementptr inbounds i8, ptr %0, i64 24
   %1 = load ptr, ptr %target, align 8
   %cmp = icmp eq ptr %1, %old_target
   br i1 %cmp, label %if.then, label %if.end
@@ -8484,8 +8205,8 @@ entry:
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr hidden noundef i64 @_ZNK3ue220RoseInstrReportChain4hashEv(ptr noundef nonnull align 8 dereferenceable(24) %this) unnamed_addr #5 comdat align 2 {
 entry:
-  %event = getelementptr inbounds %"class.ue2::RoseInstrReportChain", ptr %this, i64 0, i32 1
-  %top_squash_distance = getelementptr inbounds %"class.ue2::RoseInstrReportChain", ptr %this, i64 0, i32 2
+  %event = getelementptr inbounds i8, ptr %this, i64 8
+  %top_squash_distance = getelementptr inbounds i8, ptr %this, i64 16
   %0 = load i32, ptr %event, align 8
   %conv.i.i.i.i.i4.i.i = zext i32 %0 to i64
   %mul.i.i.i.i.i.i = mul i64 %conv.i.i.i.i.i4.i.i, 814605021516865831
@@ -8519,14 +8240,14 @@ entry:
 
 dynamic_cast.notnull2:                            ; preds = %entry
   %1 = tail call ptr @__dynamic_cast(ptr nonnull %this, ptr nonnull @_ZTIN3ue213RoseInstrBaseIL19RoseInstructionCode30E24ROSE_STRUCT_REPORT_CHAINNS_20RoseInstrReportChainEEE, ptr nonnull @_ZTIN3ue220RoseInstrReportChainE, i64 0) #25
-  %event.i = getelementptr inbounds %"class.ue2::RoseInstrReportChain", ptr %1, i64 0, i32 1
+  %event.i = getelementptr inbounds i8, ptr %1, i64 8
   %2 = load i32, ptr %event.i, align 8
-  %event3.i = getelementptr inbounds %"class.ue2::RoseInstrReportChain", ptr %0, i64 0, i32 1
+  %event3.i = getelementptr inbounds i8, ptr %0, i64 8
   %3 = load i32, ptr %event3.i, align 8
   %cmp.i = icmp eq i32 %2, %3
-  %top_squash_distance.i = getelementptr inbounds %"class.ue2::RoseInstrReportChain", ptr %1, i64 0, i32 2
+  %top_squash_distance.i = getelementptr inbounds i8, ptr %1, i64 16
   %4 = load i64, ptr %top_squash_distance.i, align 8
-  %top_squash_distance4.i = getelementptr inbounds %"class.ue2::RoseInstrReportChain", ptr %0, i64 0, i32 2
+  %top_squash_distance4.i = getelementptr inbounds i8, ptr %0, i64 16
   %5 = load i64, ptr %top_squash_distance4.i, align 8
   %cmp5.i = icmp eq i64 %4, %5
   %6 = select i1 %cmp.i, i1 %cmp5.i, i1 false
@@ -8553,8 +8274,8 @@ entry:
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr hidden noundef i64 @_ZNK3ue221RoseInstrReportSomInt4hashEv(ptr noundef nonnull align 8 dereferenceable(24) %this) unnamed_addr #5 comdat align 2 {
 entry:
-  %som = getelementptr inbounds %"class.ue2::RoseInstrReportSomInt", ptr %this, i64 0, i32 1
-  %onmatch = getelementptr inbounds %"class.ue2::RoseInstrReportSomInt", ptr %this, i64 0, i32 1, i32 1
+  %som = getelementptr inbounds i8, ptr %this, i64 8
+  %onmatch = getelementptr inbounds i8, ptr %this, i64 12
   %0 = load i8, ptr %som, align 8
   %conv.i.i.i.i.i4.i.i = zext i8 %0 to i64
   %mul.i.i.i.i.i.i = mul i64 %conv.i.i.i.i.i4.i.i, 814605021516865831
@@ -8589,8 +8310,8 @@ entry:
 
 dynamic_cast.notnull2:                            ; preds = %entry
   %1 = tail call ptr @__dynamic_cast(ptr nonnull %this, ptr nonnull @_ZTIN3ue213RoseInstrBaseIL19RoseInstructionCode31E26ROSE_STRUCT_REPORT_SOM_INTNS_21RoseInstrReportSomIntEEE, ptr nonnull @_ZTIN3ue221RoseInstrReportSomIntE, i64 0) #25
-  %som.i = getelementptr inbounds %"class.ue2::RoseInstrReportSomInt", ptr %1, i64 0, i32 1
-  %som3.i = getelementptr inbounds %"class.ue2::RoseInstrReportSomInt", ptr %0, i64 0, i32 1
+  %som.i = getelementptr inbounds i8, ptr %1, i64 8
+  %som3.i = getelementptr inbounds i8, ptr %0, i64 8
   %bcmp.i = tail call i32 @bcmp(ptr noundef nonnull dereferenceable(16) %som.i, ptr noundef nonnull dereferenceable(16) %som3.i, i64 16)
   %cmp.i = icmp eq i32 %bcmp.i, 0
   br label %cleanup
@@ -8616,8 +8337,8 @@ entry:
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr hidden noundef i64 @_ZNK3ue223RoseInstrReportSomAware4hashEv(ptr noundef nonnull align 8 dereferenceable(24) %this) unnamed_addr #5 comdat align 2 {
 entry:
-  %som = getelementptr inbounds %"class.ue2::RoseInstrReportSomAware", ptr %this, i64 0, i32 1
-  %onmatch = getelementptr inbounds %"class.ue2::RoseInstrReportSomAware", ptr %this, i64 0, i32 1, i32 1
+  %som = getelementptr inbounds i8, ptr %this, i64 8
+  %onmatch = getelementptr inbounds i8, ptr %this, i64 12
   %0 = load i8, ptr %som, align 8
   %conv.i.i.i.i.i4.i.i = zext i8 %0 to i64
   %mul.i.i.i.i.i.i = mul i64 %conv.i.i.i.i.i4.i.i, 814605021516865831
@@ -8652,8 +8373,8 @@ entry:
 
 dynamic_cast.notnull2:                            ; preds = %entry
   %1 = tail call ptr @__dynamic_cast(ptr nonnull %this, ptr nonnull @_ZTIN3ue213RoseInstrBaseIL19RoseInstructionCode32E28ROSE_STRUCT_REPORT_SOM_AWARENS_23RoseInstrReportSomAwareEEE, ptr nonnull @_ZTIN3ue223RoseInstrReportSomAwareE, i64 0) #25
-  %som.i = getelementptr inbounds %"class.ue2::RoseInstrReportSomAware", ptr %1, i64 0, i32 1
-  %som3.i = getelementptr inbounds %"class.ue2::RoseInstrReportSomAware", ptr %0, i64 0, i32 1
+  %som.i = getelementptr inbounds i8, ptr %1, i64 8
+  %som3.i = getelementptr inbounds i8, ptr %0, i64 8
   %bcmp.i = tail call i32 @bcmp(ptr noundef nonnull dereferenceable(16) %som.i, ptr noundef nonnull dereferenceable(16) %som3.i, i64 16)
   %cmp.i = icmp eq i32 %bcmp.i, 0
   br label %cleanup
@@ -8679,8 +8400,8 @@ entry:
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr hidden noundef i64 @_ZNK3ue215RoseInstrReport4hashEv(ptr noundef nonnull align 8 dereferenceable(16) %this) unnamed_addr #5 comdat align 2 {
 entry:
-  %onmatch = getelementptr inbounds %"class.ue2::RoseInstrReport", ptr %this, i64 0, i32 1
-  %offset_adjust = getelementptr inbounds %"class.ue2::RoseInstrReport", ptr %this, i64 0, i32 2
+  %onmatch = getelementptr inbounds i8, ptr %this, i64 8
+  %offset_adjust = getelementptr inbounds i8, ptr %this, i64 12
   %0 = load i32, ptr %onmatch, align 8
   %conv.i.i.i.i.i4.i.i = zext i32 %0 to i64
   %mul.i.i.i.i.i.i = mul i64 %conv.i.i.i.i.i4.i.i, 814605021516865831
@@ -8715,8 +8436,8 @@ entry:
 
 dynamic_cast.notnull2:                            ; preds = %entry
   %1 = tail call ptr @__dynamic_cast(ptr nonnull %this, ptr nonnull @_ZTIN3ue213RoseInstrBaseIL19RoseInstructionCode33E18ROSE_STRUCT_REPORTNS_15RoseInstrReportEEE, ptr nonnull @_ZTIN3ue215RoseInstrReportE, i64 0) #25
-  %onmatch.i = getelementptr inbounds %"class.ue2::RoseInstrReport", ptr %1, i64 0, i32 1
-  %onmatch3.i = getelementptr inbounds %"class.ue2::RoseInstrReport", ptr %0, i64 0, i32 1
+  %onmatch.i = getelementptr inbounds i8, ptr %1, i64 8
+  %onmatch3.i = getelementptr inbounds i8, ptr %0, i64 8
   %2 = load <2 x i32>, ptr %onmatch.i, align 8
   %3 = load <2 x i32>, ptr %onmatch3.i, align 8
   %4 = icmp eq <2 x i32> %2, %3
@@ -8746,9 +8467,9 @@ entry:
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr hidden noundef i64 @_ZNK3ue222RoseInstrReportExhaust4hashEv(ptr noundef nonnull align 8 dereferenceable(20) %this) unnamed_addr #5 comdat align 2 {
 entry:
-  %onmatch = getelementptr inbounds %"class.ue2::RoseInstrReportExhaust", ptr %this, i64 0, i32 1
-  %offset_adjust = getelementptr inbounds %"class.ue2::RoseInstrReportExhaust", ptr %this, i64 0, i32 2
-  %ekey = getelementptr inbounds %"class.ue2::RoseInstrReportExhaust", ptr %this, i64 0, i32 3
+  %onmatch = getelementptr inbounds i8, ptr %this, i64 8
+  %offset_adjust = getelementptr inbounds i8, ptr %this, i64 12
+  %ekey = getelementptr inbounds i8, ptr %this, i64 16
   %0 = load i32, ptr %onmatch, align 8
   %conv.i.i.i.i.i6.i.i = zext i32 %0 to i64
   %mul.i.i.i.i.i.i = mul i64 %conv.i.i.i.i.i6.i.i, 814605021516865831
@@ -8788,25 +8509,25 @@ entry:
 
 dynamic_cast.notnull2:                            ; preds = %entry
   %1 = tail call ptr @__dynamic_cast(ptr nonnull %this, ptr nonnull @_ZTIN3ue213RoseInstrBaseIL19RoseInstructionCode34E26ROSE_STRUCT_REPORT_EXHAUSTNS_22RoseInstrReportExhaustEEE, ptr nonnull @_ZTIN3ue222RoseInstrReportExhaustE, i64 0) #25
-  %onmatch.i = getelementptr inbounds %"class.ue2::RoseInstrReportExhaust", ptr %1, i64 0, i32 1
+  %onmatch.i = getelementptr inbounds i8, ptr %1, i64 8
   %2 = load i32, ptr %onmatch.i, align 8
-  %onmatch3.i = getelementptr inbounds %"class.ue2::RoseInstrReportExhaust", ptr %0, i64 0, i32 1
+  %onmatch3.i = getelementptr inbounds i8, ptr %0, i64 8
   %3 = load i32, ptr %onmatch3.i, align 8
   %cmp.i = icmp eq i32 %2, %3
   br i1 %cmp.i, label %land.lhs.true.i, label %cleanup
 
 land.lhs.true.i:                                  ; preds = %dynamic_cast.notnull2
-  %offset_adjust.i = getelementptr inbounds %"class.ue2::RoseInstrReportExhaust", ptr %1, i64 0, i32 2
+  %offset_adjust.i = getelementptr inbounds i8, ptr %1, i64 12
   %4 = load i32, ptr %offset_adjust.i, align 4
-  %offset_adjust4.i = getelementptr inbounds %"class.ue2::RoseInstrReportExhaust", ptr %0, i64 0, i32 2
+  %offset_adjust4.i = getelementptr inbounds i8, ptr %0, i64 12
   %5 = load i32, ptr %offset_adjust4.i, align 4
   %cmp5.i = icmp eq i32 %4, %5
   br i1 %cmp5.i, label %land.rhs.i, label %cleanup
 
 land.rhs.i:                                       ; preds = %land.lhs.true.i
-  %ekey.i = getelementptr inbounds %"class.ue2::RoseInstrReportExhaust", ptr %1, i64 0, i32 3
+  %ekey.i = getelementptr inbounds i8, ptr %1, i64 16
   %6 = load i32, ptr %ekey.i, align 8
-  %ekey6.i = getelementptr inbounds %"class.ue2::RoseInstrReportExhaust", ptr %0, i64 0, i32 3
+  %ekey6.i = getelementptr inbounds i8, ptr %0, i64 16
   %7 = load i32, ptr %ekey6.i, align 8
   %cmp7.i = icmp eq i32 %6, %7
   br label %cleanup
@@ -8832,8 +8553,8 @@ entry:
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr hidden noundef i64 @_ZNK3ue218RoseInstrReportSom4hashEv(ptr noundef nonnull align 8 dereferenceable(16) %this) unnamed_addr #5 comdat align 2 {
 entry:
-  %onmatch = getelementptr inbounds %"class.ue2::RoseInstrReportSom", ptr %this, i64 0, i32 1
-  %offset_adjust = getelementptr inbounds %"class.ue2::RoseInstrReportSom", ptr %this, i64 0, i32 2
+  %onmatch = getelementptr inbounds i8, ptr %this, i64 8
+  %offset_adjust = getelementptr inbounds i8, ptr %this, i64 12
   %0 = load i32, ptr %onmatch, align 8
   %conv.i.i.i.i.i4.i.i = zext i32 %0 to i64
   %mul.i.i.i.i.i.i = mul i64 %conv.i.i.i.i.i4.i.i, 814605021516865831
@@ -8868,8 +8589,8 @@ entry:
 
 dynamic_cast.notnull2:                            ; preds = %entry
   %1 = tail call ptr @__dynamic_cast(ptr nonnull %this, ptr nonnull @_ZTIN3ue213RoseInstrBaseIL19RoseInstructionCode35E22ROSE_STRUCT_REPORT_SOMNS_18RoseInstrReportSomEEE, ptr nonnull @_ZTIN3ue218RoseInstrReportSomE, i64 0) #25
-  %onmatch.i = getelementptr inbounds %"class.ue2::RoseInstrReportSom", ptr %1, i64 0, i32 1
-  %onmatch3.i = getelementptr inbounds %"class.ue2::RoseInstrReportSom", ptr %0, i64 0, i32 1
+  %onmatch.i = getelementptr inbounds i8, ptr %1, i64 8
+  %onmatch3.i = getelementptr inbounds i8, ptr %0, i64 8
   %2 = load <2 x i32>, ptr %onmatch.i, align 8
   %3 = load <2 x i32>, ptr %onmatch3.i, align 8
   %4 = icmp eq <2 x i32> %2, %3
@@ -8899,9 +8620,9 @@ entry:
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr hidden noundef i64 @_ZNK3ue225RoseInstrReportSomExhaust4hashEv(ptr noundef nonnull align 8 dereferenceable(20) %this) unnamed_addr #5 comdat align 2 {
 entry:
-  %onmatch = getelementptr inbounds %"class.ue2::RoseInstrReportSomExhaust", ptr %this, i64 0, i32 1
-  %offset_adjust = getelementptr inbounds %"class.ue2::RoseInstrReportSomExhaust", ptr %this, i64 0, i32 2
-  %ekey = getelementptr inbounds %"class.ue2::RoseInstrReportSomExhaust", ptr %this, i64 0, i32 3
+  %onmatch = getelementptr inbounds i8, ptr %this, i64 8
+  %offset_adjust = getelementptr inbounds i8, ptr %this, i64 12
+  %ekey = getelementptr inbounds i8, ptr %this, i64 16
   %0 = load i32, ptr %onmatch, align 8
   %conv.i.i.i.i.i6.i.i = zext i32 %0 to i64
   %mul.i.i.i.i.i.i = mul i64 %conv.i.i.i.i.i6.i.i, 814605021516865831
@@ -8941,25 +8662,25 @@ entry:
 
 dynamic_cast.notnull2:                            ; preds = %entry
   %1 = tail call ptr @__dynamic_cast(ptr nonnull %this, ptr nonnull @_ZTIN3ue213RoseInstrBaseIL19RoseInstructionCode36E30ROSE_STRUCT_REPORT_SOM_EXHAUSTNS_25RoseInstrReportSomExhaustEEE, ptr nonnull @_ZTIN3ue225RoseInstrReportSomExhaustE, i64 0) #25
-  %onmatch.i = getelementptr inbounds %"class.ue2::RoseInstrReportSomExhaust", ptr %1, i64 0, i32 1
+  %onmatch.i = getelementptr inbounds i8, ptr %1, i64 8
   %2 = load i32, ptr %onmatch.i, align 8
-  %onmatch3.i = getelementptr inbounds %"class.ue2::RoseInstrReportSomExhaust", ptr %0, i64 0, i32 1
+  %onmatch3.i = getelementptr inbounds i8, ptr %0, i64 8
   %3 = load i32, ptr %onmatch3.i, align 8
   %cmp.i = icmp eq i32 %2, %3
   br i1 %cmp.i, label %land.lhs.true.i, label %cleanup
 
 land.lhs.true.i:                                  ; preds = %dynamic_cast.notnull2
-  %offset_adjust.i = getelementptr inbounds %"class.ue2::RoseInstrReportSomExhaust", ptr %1, i64 0, i32 2
+  %offset_adjust.i = getelementptr inbounds i8, ptr %1, i64 12
   %4 = load i32, ptr %offset_adjust.i, align 4
-  %offset_adjust4.i = getelementptr inbounds %"class.ue2::RoseInstrReportSomExhaust", ptr %0, i64 0, i32 2
+  %offset_adjust4.i = getelementptr inbounds i8, ptr %0, i64 12
   %5 = load i32, ptr %offset_adjust4.i, align 4
   %cmp5.i = icmp eq i32 %4, %5
   br i1 %cmp5.i, label %land.rhs.i, label %cleanup
 
 land.rhs.i:                                       ; preds = %land.lhs.true.i
-  %ekey.i = getelementptr inbounds %"class.ue2::RoseInstrReportSomExhaust", ptr %1, i64 0, i32 3
+  %ekey.i = getelementptr inbounds i8, ptr %1, i64 16
   %6 = load i32, ptr %ekey.i, align 8
-  %ekey6.i = getelementptr inbounds %"class.ue2::RoseInstrReportSomExhaust", ptr %0, i64 0, i32 3
+  %ekey6.i = getelementptr inbounds i8, ptr %0, i64 16
   %7 = load i32, ptr %ekey6.i, align 8
   %cmp7.i = icmp eq i32 %6, %7
   br label %cleanup
@@ -8985,10 +8706,10 @@ entry:
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr hidden noundef i64 @_ZNK3ue224RoseInstrDedupeAndReport4hashEv(ptr noundef nonnull align 8 dereferenceable(32) %this) unnamed_addr #5 comdat align 2 {
 entry:
-  %quash_som = getelementptr inbounds %"class.ue2::RoseInstrDedupeAndReport", ptr %this, i64 0, i32 1
-  %dkey = getelementptr inbounds %"class.ue2::RoseInstrDedupeAndReport", ptr %this, i64 0, i32 2
-  %onmatch = getelementptr inbounds %"class.ue2::RoseInstrDedupeAndReport", ptr %this, i64 0, i32 3
-  %offset_adjust = getelementptr inbounds %"class.ue2::RoseInstrDedupeAndReport", ptr %this, i64 0, i32 4
+  %quash_som = getelementptr inbounds i8, ptr %this, i64 8
+  %dkey = getelementptr inbounds i8, ptr %this, i64 12
+  %onmatch = getelementptr inbounds i8, ptr %this, i64 16
+  %offset_adjust = getelementptr inbounds i8, ptr %this, i64 20
   %0 = load i8, ptr %quash_som, align 8
   %conv.i.i.i.i.i8.i.i = zext i8 %0 to i64
   %mul.i.i.i.i.i.i = mul i64 %conv.i.i.i.i.i8.i.i, 814605021516865831
@@ -9022,7 +8743,7 @@ entry:
 define linkonce_odr hidden void @_ZN3ue222RoseInstrBaseOneTargetIL19RoseInstructionCode37E29ROSE_STRUCT_DEDUPE_AND_REPORTNS_24RoseInstrDedupeAndReportEE13update_targetEPKNS_15RoseInstructionES7_(ptr noundef nonnull align 8 dereferenceable(8) %this, ptr noundef %old_target, ptr noundef %new_target) unnamed_addr #3 comdat align 2 {
 entry:
   %0 = tail call ptr @__dynamic_cast(ptr nonnull %this, ptr nonnull @_ZTIN3ue222RoseInstrBaseOneTargetIL19RoseInstructionCode37E29ROSE_STRUCT_DEDUPE_AND_REPORTNS_24RoseInstrDedupeAndReportEEE, ptr nonnull @_ZTIN3ue224RoseInstrDedupeAndReportE, i64 0) #25
-  %target = getelementptr inbounds %"class.ue2::RoseInstrDedupeAndReport", ptr %0, i64 0, i32 5
+  %target = getelementptr inbounds i8, ptr %0, i64 24
   %1 = load ptr, ptr %target, align 8
   %cmp = icmp eq ptr %1, %old_target
   br i1 %cmp, label %if.then, label %if.end
@@ -9068,8 +8789,8 @@ entry:
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr hidden noundef i64 @_ZNK3ue220RoseInstrFinalReport4hashEv(ptr noundef nonnull align 8 dereferenceable(16) %this) unnamed_addr #5 comdat align 2 {
 entry:
-  %onmatch = getelementptr inbounds %"class.ue2::RoseInstrFinalReport", ptr %this, i64 0, i32 1
-  %offset_adjust = getelementptr inbounds %"class.ue2::RoseInstrFinalReport", ptr %this, i64 0, i32 2
+  %onmatch = getelementptr inbounds i8, ptr %this, i64 8
+  %offset_adjust = getelementptr inbounds i8, ptr %this, i64 12
   %0 = load i32, ptr %onmatch, align 8
   %conv.i.i.i.i.i4.i.i = zext i32 %0 to i64
   %mul.i.i.i.i.i.i = mul i64 %conv.i.i.i.i.i4.i.i, 814605021516865831
@@ -9104,8 +8825,8 @@ entry:
 
 dynamic_cast.notnull2:                            ; preds = %entry
   %1 = tail call ptr @__dynamic_cast(ptr nonnull %this, ptr nonnull @_ZTIN3ue213RoseInstrBaseIL19RoseInstructionCode38E24ROSE_STRUCT_FINAL_REPORTNS_20RoseInstrFinalReportEEE, ptr nonnull @_ZTIN3ue220RoseInstrFinalReportE, i64 0) #25
-  %onmatch.i = getelementptr inbounds %"class.ue2::RoseInstrFinalReport", ptr %1, i64 0, i32 1
-  %onmatch3.i = getelementptr inbounds %"class.ue2::RoseInstrFinalReport", ptr %0, i64 0, i32 1
+  %onmatch.i = getelementptr inbounds i8, ptr %1, i64 8
+  %onmatch3.i = getelementptr inbounds i8, ptr %0, i64 8
   %2 = load <2 x i32>, ptr %onmatch.i, align 8
   %3 = load <2 x i32>, ptr %onmatch3.i, align 8
   %4 = icmp eq <2 x i32> %2, %3
@@ -9135,7 +8856,7 @@ entry:
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr hidden noundef i64 @_ZNK3ue223RoseInstrCheckExhausted4hashEv(ptr noundef nonnull align 8 dereferenceable(24) %this) unnamed_addr #5 comdat align 2 {
 entry:
-  %ekey = getelementptr inbounds %"class.ue2::RoseInstrCheckExhausted", ptr %this, i64 0, i32 1
+  %ekey = getelementptr inbounds i8, ptr %this, i64 8
   %0 = load i32, ptr %ekey, align 8
   %conv.i.i.i.i.i.i = zext i32 %0 to i64
   %mul.i.i.i2.i.i = mul i64 %conv.i.i.i.i.i.i, 814605021516865831
@@ -9154,7 +8875,7 @@ entry:
 define linkonce_odr hidden void @_ZN3ue222RoseInstrBaseOneTargetIL19RoseInstructionCode39E27ROSE_STRUCT_CHECK_EXHAUSTEDNS_23RoseInstrCheckExhaustedEE13update_targetEPKNS_15RoseInstructionES7_(ptr noundef nonnull align 8 dereferenceable(8) %this, ptr noundef %old_target, ptr noundef %new_target) unnamed_addr #3 comdat align 2 {
 entry:
   %0 = tail call ptr @__dynamic_cast(ptr nonnull %this, ptr nonnull @_ZTIN3ue222RoseInstrBaseOneTargetIL19RoseInstructionCode39E27ROSE_STRUCT_CHECK_EXHAUSTEDNS_23RoseInstrCheckExhaustedEEE, ptr nonnull @_ZTIN3ue223RoseInstrCheckExhaustedE, i64 0) #25
-  %target = getelementptr inbounds %"class.ue2::RoseInstrCheckExhausted", ptr %0, i64 0, i32 2
+  %target = getelementptr inbounds i8, ptr %0, i64 16
   %1 = load ptr, ptr %target, align 8
   %cmp = icmp eq ptr %1, %old_target
   br i1 %cmp, label %if.then, label %if.end
@@ -9200,8 +8921,8 @@ entry:
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr hidden noundef i64 @_ZNK3ue223RoseInstrCheckMinLength4hashEv(ptr noundef nonnull align 8 dereferenceable(32) %this) unnamed_addr #5 comdat align 2 {
 entry:
-  %end_adj = getelementptr inbounds %"class.ue2::RoseInstrCheckMinLength", ptr %this, i64 0, i32 1
-  %min_length = getelementptr inbounds %"class.ue2::RoseInstrCheckMinLength", ptr %this, i64 0, i32 2
+  %end_adj = getelementptr inbounds i8, ptr %this, i64 8
+  %min_length = getelementptr inbounds i8, ptr %this, i64 16
   %0 = load i32, ptr %end_adj, align 8
   %conv.i.i.i.i.i4.i.i = sext i32 %0 to i64
   %mul.i.i.i.i.i.i = mul i64 %conv.i.i.i.i.i4.i.i, 814605021516865831
@@ -9224,7 +8945,7 @@ entry:
 define linkonce_odr hidden void @_ZN3ue222RoseInstrBaseOneTargetIL19RoseInstructionCode40E28ROSE_STRUCT_CHECK_MIN_LENGTHNS_23RoseInstrCheckMinLengthEE13update_targetEPKNS_15RoseInstructionES7_(ptr noundef nonnull align 8 dereferenceable(8) %this, ptr noundef %old_target, ptr noundef %new_target) unnamed_addr #3 comdat align 2 {
 entry:
   %0 = tail call ptr @__dynamic_cast(ptr nonnull %this, ptr nonnull @_ZTIN3ue222RoseInstrBaseOneTargetIL19RoseInstructionCode40E28ROSE_STRUCT_CHECK_MIN_LENGTHNS_23RoseInstrCheckMinLengthEEE, ptr nonnull @_ZTIN3ue223RoseInstrCheckMinLengthE, i64 0) #25
-  %target = getelementptr inbounds %"class.ue2::RoseInstrCheckMinLength", ptr %0, i64 0, i32 3
+  %target = getelementptr inbounds i8, ptr %0, i64 24
   %1 = load ptr, ptr %target, align 8
   %cmp = icmp eq ptr %1, %old_target
   br i1 %cmp, label %if.then, label %if.end
@@ -9270,7 +8991,7 @@ entry:
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr hidden noundef i64 @_ZNK3ue217RoseInstrSetState4hashEv(ptr noundef nonnull align 8 dereferenceable(12) %this) unnamed_addr #5 comdat align 2 {
 entry:
-  %index = getelementptr inbounds %"class.ue2::RoseInstrSetState", ptr %this, i64 0, i32 1
+  %index = getelementptr inbounds i8, ptr %this, i64 8
   %0 = load i32, ptr %index, align 8
   %conv.i.i.i.i.i.i = zext i32 %0 to i64
   %mul.i.i.i2.i.i = mul i64 %conv.i.i.i.i.i.i, 814605021516865831
@@ -9300,9 +9021,9 @@ entry:
 
 dynamic_cast.notnull2:                            ; preds = %entry
   %1 = tail call ptr @__dynamic_cast(ptr nonnull %this, ptr nonnull @_ZTIN3ue213RoseInstrBaseIL19RoseInstructionCode41E21ROSE_STRUCT_SET_STATENS_17RoseInstrSetStateEEE, ptr nonnull @_ZTIN3ue217RoseInstrSetStateE, i64 0) #25
-  %index.i = getelementptr inbounds %"class.ue2::RoseInstrSetState", ptr %1, i64 0, i32 1
+  %index.i = getelementptr inbounds i8, ptr %1, i64 8
   %2 = load i32, ptr %index.i, align 8
-  %index3.i = getelementptr inbounds %"class.ue2::RoseInstrSetState", ptr %0, i64 0, i32 1
+  %index3.i = getelementptr inbounds i8, ptr %0, i64 8
   %3 = load i32, ptr %index3.i, align 8
   %cmp.i = icmp eq i32 %2, %3
   br label %cleanup
@@ -9328,7 +9049,7 @@ entry:
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr hidden noundef i64 @_ZNK3ue218RoseInstrSetGroups4hashEv(ptr noundef nonnull align 8 dereferenceable(16) %this) unnamed_addr #5 comdat align 2 {
 entry:
-  %groups = getelementptr inbounds %"class.ue2::RoseInstrSetGroups", ptr %this, i64 0, i32 1
+  %groups = getelementptr inbounds i8, ptr %this, i64 8
   %0 = load i64, ptr %groups, align 8
   %mul.i.i.i2.i.i = mul i64 %0, 814605021516865831
   %xor.i.i.i3.i.i = xor i64 %mul.i.i.i2.i.i, 891004241683876943
@@ -9357,9 +9078,9 @@ entry:
 
 dynamic_cast.notnull2:                            ; preds = %entry
   %1 = tail call ptr @__dynamic_cast(ptr nonnull %this, ptr nonnull @_ZTIN3ue213RoseInstrBaseIL19RoseInstructionCode42E22ROSE_STRUCT_SET_GROUPSNS_18RoseInstrSetGroupsEEE, ptr nonnull @_ZTIN3ue218RoseInstrSetGroupsE, i64 0) #25
-  %groups.i = getelementptr inbounds %"class.ue2::RoseInstrSetGroups", ptr %1, i64 0, i32 1
+  %groups.i = getelementptr inbounds i8, ptr %1, i64 8
   %2 = load i64, ptr %groups.i, align 8
-  %groups3.i = getelementptr inbounds %"class.ue2::RoseInstrSetGroups", ptr %0, i64 0, i32 1
+  %groups3.i = getelementptr inbounds i8, ptr %0, i64 8
   %3 = load i64, ptr %groups3.i, align 8
   %cmp.i = icmp eq i64 %2, %3
   br label %cleanup
@@ -9385,7 +9106,7 @@ entry:
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr hidden noundef i64 @_ZNK3ue221RoseInstrSquashGroups4hashEv(ptr noundef nonnull align 8 dereferenceable(16) %this) unnamed_addr #5 comdat align 2 {
 entry:
-  %groups = getelementptr inbounds %"class.ue2::RoseInstrSquashGroups", ptr %this, i64 0, i32 1
+  %groups = getelementptr inbounds i8, ptr %this, i64 8
   %0 = load i64, ptr %groups, align 8
   %mul.i.i.i2.i.i = mul i64 %0, 814605021516865831
   %xor.i.i.i3.i.i = xor i64 %mul.i.i.i2.i.i, 1705609263200742774
@@ -9414,9 +9135,9 @@ entry:
 
 dynamic_cast.notnull2:                            ; preds = %entry
   %1 = tail call ptr @__dynamic_cast(ptr nonnull %this, ptr nonnull @_ZTIN3ue213RoseInstrBaseIL19RoseInstructionCode43E25ROSE_STRUCT_SQUASH_GROUPSNS_21RoseInstrSquashGroupsEEE, ptr nonnull @_ZTIN3ue221RoseInstrSquashGroupsE, i64 0) #25
-  %groups.i = getelementptr inbounds %"class.ue2::RoseInstrSquashGroups", ptr %1, i64 0, i32 1
+  %groups.i = getelementptr inbounds i8, ptr %1, i64 8
   %2 = load i64, ptr %groups.i, align 8
-  %groups3.i = getelementptr inbounds %"class.ue2::RoseInstrSquashGroups", ptr %0, i64 0, i32 1
+  %groups3.i = getelementptr inbounds i8, ptr %0, i64 8
   %3 = load i64, ptr %groups3.i, align 8
   %cmp.i = icmp eq i64 %2, %3
   br label %cleanup
@@ -9442,7 +9163,7 @@ entry:
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr hidden noundef i64 @_ZNK3ue219RoseInstrCheckState4hashEv(ptr noundef nonnull align 8 dereferenceable(24) %this) unnamed_addr #5 comdat align 2 {
 entry:
-  %index = getelementptr inbounds %"class.ue2::RoseInstrCheckState", ptr %this, i64 0, i32 1
+  %index = getelementptr inbounds i8, ptr %this, i64 8
   %0 = load i32, ptr %index, align 8
   %conv.i.i.i.i.i.i = zext i32 %0 to i64
   %mul.i.i.i2.i.i = mul i64 %conv.i.i.i.i.i.i, 814605021516865831
@@ -9461,7 +9182,7 @@ entry:
 define linkonce_odr hidden void @_ZN3ue222RoseInstrBaseOneTargetIL19RoseInstructionCode44E23ROSE_STRUCT_CHECK_STATENS_19RoseInstrCheckStateEE13update_targetEPKNS_15RoseInstructionES7_(ptr noundef nonnull align 8 dereferenceable(8) %this, ptr noundef %old_target, ptr noundef %new_target) unnamed_addr #3 comdat align 2 {
 entry:
   %0 = tail call ptr @__dynamic_cast(ptr nonnull %this, ptr nonnull @_ZTIN3ue222RoseInstrBaseOneTargetIL19RoseInstructionCode44E23ROSE_STRUCT_CHECK_STATENS_19RoseInstrCheckStateEEE, ptr nonnull @_ZTIN3ue219RoseInstrCheckStateE, i64 0) #25
-  %target = getelementptr inbounds %"class.ue2::RoseInstrCheckState", ptr %0, i64 0, i32 2
+  %target = getelementptr inbounds i8, ptr %0, i64 16
   %1 = load ptr, ptr %target, align 8
   %cmp = icmp eq ptr %1, %old_target
   br i1 %cmp, label %if.then, label %if.end
@@ -9495,7 +9216,7 @@ cleanup:                                          ; preds = %dynamic_cast.notnul
 define linkonce_odr hidden void @_ZN3ue224RoseInstrSparseIterBeginD2Ev(ptr noundef nonnull align 8 dereferenceable(60) %this) unnamed_addr #11 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store ptr getelementptr inbounds ({ [10 x ptr] }, ptr @_ZTVN3ue224RoseInstrSparseIterBeginE, i64 0, inrange i32 0, i64 2), ptr %this, align 8
-  %jump_table = getelementptr inbounds %"class.ue2::RoseInstrSparseIterBegin", ptr %this, i64 0, i32 3
+  %jump_table = getelementptr inbounds i8, ptr %this, i64 16
   %0 = load ptr, ptr %jump_table, align 8
   %tobool.not.i.i.i = icmp eq ptr %0, null
   br i1 %tobool.not.i.i.i, label %_ZNSt6vectorISt4pairIjPKN3ue215RoseInstructionEESaIS5_EED2Ev.exit, label %if.then.i.i.i
@@ -9512,7 +9233,7 @@ _ZNSt6vectorISt4pairIjPKN3ue215RoseInstructionEESaIS5_EED2Ev.exit: ; preds = %if
 define linkonce_odr hidden void @_ZN3ue224RoseInstrSparseIterBeginD0Ev(ptr noundef nonnull align 8 dereferenceable(60) %this) unnamed_addr #11 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store ptr getelementptr inbounds ({ [10 x ptr] }, ptr @_ZTVN3ue224RoseInstrSparseIterBeginE, i64 0, inrange i32 0, i64 2), ptr %this, align 8
-  %jump_table.i = getelementptr inbounds %"class.ue2::RoseInstrSparseIterBegin", ptr %this, i64 0, i32 3
+  %jump_table.i = getelementptr inbounds i8, ptr %this, i64 16
   %0 = load ptr, ptr %jump_table.i, align 8
   %tobool.not.i.i.i.i = icmp eq ptr %0, null
   br i1 %tobool.not.i.i.i.i, label %_ZN3ue224RoseInstrSparseIterBeginD2Ev.exit, label %if.then.i.i.i.i
@@ -9535,14 +9256,14 @@ entry:
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr hidden noundef i64 @_ZNK3ue224RoseInstrSparseIterBegin4hashEv(ptr noundef nonnull align 8 dereferenceable(60) %this) unnamed_addr #5 comdat align 2 {
 entry:
-  %num_keys = getelementptr inbounds %"class.ue2::RoseInstrSparseIterBegin", ptr %this, i64 0, i32 1
+  %num_keys = getelementptr inbounds i8, ptr %this, i64 8
   %0 = load i32, ptr %num_keys, align 8
   %conv.i.i.i.i.i.i = zext i32 %0 to i64
   %mul.i.i.i2.i.i = mul i64 %conv.i.i.i.i.i.i, 814605021516865831
   %xor.i.i.i3.i.i = xor i64 %mul.i.i.i2.i.i, 3334819306234474436
-  %jump_table = getelementptr inbounds %"class.ue2::RoseInstrSparseIterBegin", ptr %this, i64 0, i32 3
+  %jump_table = getelementptr inbounds i8, ptr %this, i64 16
   %1 = load ptr, ptr %jump_table, align 8, !noalias !20
-  %_M_finish.i.i.i.i.i.i = getelementptr inbounds %"class.ue2::RoseInstrSparseIterBegin", ptr %this, i64 0, i32 3, i32 0, i32 0, i32 0, i32 1
+  %_M_finish.i.i.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 24
   %2 = load ptr, ptr %_M_finish.i.i.i.i.i.i, align 8, !noalias !20
   %v.018 = add i64 %xor.i.i.i3.i.i, 3571081485394615273
   %cmp.i.i.i.i.not19 = icmp eq ptr %1, %2
@@ -9559,7 +9280,7 @@ for.body:                                         ; preds = %entry, %for.body
   %conv.i.i.i = zext i32 %3 to i64
   %mul.i.i = mul i64 %conv.i.i.i, 814605021516865831
   %xor.i.i = xor i64 %mul.i.i, %v.021
-  %incdec.ptr.i.i.i.i = getelementptr inbounds %"struct.std::pair", ptr %__begin2.sroa.0.020, i64 1
+  %incdec.ptr.i.i.i.i = getelementptr inbounds i8, ptr %__begin2.sroa.0.020, i64 16
   %v.0 = add i64 %xor.i.i, 3571081485394615273
   %cmp.i.i.i.i.not = icmp eq ptr %incdec.ptr.i.i.i.i, %2
   br i1 %cmp.i.i.i.i.not, label %for.cond.cleanup, label %for.body
@@ -9574,7 +9295,7 @@ entry:
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN3ue224RoseInstrSparseIterBegin13update_targetEPKNS_15RoseInstructionES3_(ptr noundef nonnull align 8 dereferenceable(60) %this, ptr noundef %old_target, ptr noundef %new_target) unnamed_addr #3 comdat align 2 {
 entry:
-  %target = getelementptr inbounds %"class.ue2::RoseInstrSparseIterBegin", ptr %this, i64 0, i32 4
+  %target = getelementptr inbounds i8, ptr %this, i64 40
   %0 = load ptr, ptr %target, align 8
   %cmp = icmp eq ptr %0, %old_target
   br i1 %cmp, label %if.then, label %if.end
@@ -9584,9 +9305,9 @@ if.then:                                          ; preds = %entry
   br label %if.end
 
 if.end:                                           ; preds = %if.then, %entry
-  %jump_table = getelementptr inbounds %"class.ue2::RoseInstrSparseIterBegin", ptr %this, i64 0, i32 3
+  %jump_table = getelementptr inbounds i8, ptr %this, i64 16
   %1 = load ptr, ptr %jump_table, align 8
-  %_M_finish.i = getelementptr inbounds %"class.ue2::RoseInstrSparseIterBegin", ptr %this, i64 0, i32 3, i32 0, i32 0, i32 0, i32 1
+  %_M_finish.i = getelementptr inbounds i8, ptr %this, i64 24
   %2 = load ptr, ptr %_M_finish.i, align 8
   %cmp.i.not18 = icmp eq ptr %1, %2
   br i1 %cmp.i.not18, label %for.cond.cleanup, label %for.body
@@ -9596,7 +9317,7 @@ for.cond.cleanup:                                 ; preds = %if.end10, %if.end
 
 for.body:                                         ; preds = %if.end, %if.end10
   %__begin2.sroa.0.019 = phi ptr [ %incdec.ptr.i, %if.end10 ], [ %1, %if.end ]
-  %second = getelementptr inbounds %"struct.std::pair", ptr %__begin2.sroa.0.019, i64 0, i32 1
+  %second = getelementptr inbounds i8, ptr %__begin2.sroa.0.019, i64 8
   %3 = load ptr, ptr %second, align 8
   %cmp7 = icmp eq ptr %3, %old_target
   br i1 %cmp7, label %if.then8, label %if.end10
@@ -9606,7 +9327,7 @@ if.then8:                                         ; preds = %for.body
   br label %if.end10
 
 if.end10:                                         ; preds = %if.then8, %for.body
-  %incdec.ptr.i = getelementptr inbounds %"struct.std::pair", ptr %__begin2.sroa.0.019, i64 1
+  %incdec.ptr.i = getelementptr inbounds i8, ptr %__begin2.sroa.0.019, i64 16
   %cmp.i.not = icmp eq ptr %incdec.ptr.i, %2
   br i1 %cmp.i.not, label %for.cond.cleanup, label %for.body
 }
@@ -9644,7 +9365,7 @@ entry:
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr hidden noundef i64 @_ZNK3ue223RoseInstrSparseIterNext4hashEv(ptr noundef nonnull align 8 dereferenceable(32) %this) unnamed_addr #5 comdat align 2 {
 entry:
-  %state = getelementptr inbounds %"class.ue2::RoseInstrSparseIterNext", ptr %this, i64 0, i32 1
+  %state = getelementptr inbounds i8, ptr %this, i64 8
   %0 = load i32, ptr %state, align 8
   %conv.i.i.i.i.i.i = zext i32 %0 to i64
   %mul.i.i.i2.i.i = mul i64 %conv.i.i.i.i.i.i, 814605021516865831
@@ -9662,7 +9383,7 @@ entry:
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN3ue223RoseInstrSparseIterNext13update_targetEPKNS_15RoseInstructionES3_(ptr noundef nonnull align 8 dereferenceable(32) %this, ptr noundef %old_target, ptr noundef %new_target) unnamed_addr #3 comdat align 2 {
 entry:
-  %target = getelementptr inbounds %"class.ue2::RoseInstrSparseIterNext", ptr %this, i64 0, i32 3
+  %target = getelementptr inbounds i8, ptr %this, i64 24
   %0 = load ptr, ptr %target, align 8
   %cmp = icmp eq ptr %0, %old_target
   br i1 %cmp, label %if.then, label %if.end
@@ -9672,7 +9393,7 @@ if.then:                                          ; preds = %entry
   br label %if.end
 
 if.end:                                           ; preds = %if.then, %entry
-  %begin = getelementptr inbounds %"class.ue2::RoseInstrSparseIterNext", ptr %this, i64 0, i32 2
+  %begin = getelementptr inbounds i8, ptr %this, i64 16
   %1 = load ptr, ptr %begin, align 8
   %cmp3 = icmp eq ptr %1, %old_target
   br i1 %cmp3, label %if.then4, label %if.end6
@@ -9706,7 +9427,7 @@ cleanup:                                          ; preds = %dynamic_cast.notnul
 define linkonce_odr hidden void @_ZN3ue222RoseInstrSparseIterAnyD2Ev(ptr noundef nonnull align 8 dereferenceable(48) %this) unnamed_addr #11 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store ptr getelementptr inbounds ({ [10 x ptr] }, ptr @_ZTVN3ue222RoseInstrSparseIterAnyE, i64 0, inrange i32 0, i64 2), ptr %this, align 8
-  %keys = getelementptr inbounds %"class.ue2::RoseInstrSparseIterAny", ptr %this, i64 0, i32 2
+  %keys = getelementptr inbounds i8, ptr %this, i64 16
   %0 = load ptr, ptr %keys, align 8
   %tobool.not.i.i.i = icmp eq ptr %0, null
   br i1 %tobool.not.i.i.i, label %_ZNSt6vectorIjSaIjEED2Ev.exit, label %if.then.i.i.i
@@ -9723,7 +9444,7 @@ _ZNSt6vectorIjSaIjEED2Ev.exit:                    ; preds = %if.then.i.i.i, %ent
 define linkonce_odr hidden void @_ZN3ue222RoseInstrSparseIterAnyD0Ev(ptr noundef nonnull align 8 dereferenceable(48) %this) unnamed_addr #11 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store ptr getelementptr inbounds ({ [10 x ptr] }, ptr @_ZTVN3ue222RoseInstrSparseIterAnyE, i64 0, inrange i32 0, i64 2), ptr %this, align 8
-  %keys.i = getelementptr inbounds %"class.ue2::RoseInstrSparseIterAny", ptr %this, i64 0, i32 2
+  %keys.i = getelementptr inbounds i8, ptr %this, i64 16
   %0 = load ptr, ptr %keys.i, align 8
   %tobool.not.i.i.i.i = icmp eq ptr %0, null
   br i1 %tobool.not.i.i.i.i, label %_ZN3ue222RoseInstrSparseIterAnyD2Ev.exit, label %if.then.i.i.i.i
@@ -9746,11 +9467,11 @@ entry:
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr hidden noundef i64 @_ZNK3ue222RoseInstrSparseIterAny4hashEv(ptr noundef nonnull align 8 dereferenceable(48) %this) unnamed_addr #5 comdat align 2 {
 entry:
-  %num_keys = getelementptr inbounds %"class.ue2::RoseInstrSparseIterAny", ptr %this, i64 0, i32 1
-  %keys = getelementptr inbounds %"class.ue2::RoseInstrSparseIterAny", ptr %this, i64 0, i32 2
+  %num_keys = getelementptr inbounds i8, ptr %this, i64 8
+  %keys = getelementptr inbounds i8, ptr %this, i64 16
   %0 = load i32, ptr %num_keys, align 8
   %1 = load ptr, ptr %keys, align 8
-  %_M_finish.i.i.i.i.i.i.i = getelementptr inbounds %"class.ue2::RoseInstrSparseIterAny", ptr %this, i64 0, i32 2, i32 0, i32 0, i32 0, i32 1
+  %_M_finish.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 24
   %2 = load ptr, ptr %_M_finish.i.i.i.i.i.i.i, align 8
   %cmp.i.not12.i.i.i.i.i.i = icmp eq ptr %1, %2
   br i1 %cmp.i.not12.i.i.i.i.i.i, label %_ZN3ue28hash_allIJRK19RoseInstructionCodeRKjRKSt6vectorIjSaIjEEEEEmDpOT_.exit, label %for.body.i.i.i.i.i.i
@@ -9763,7 +9484,7 @@ for.body.i.i.i.i.i.i:                             ; preds = %entry, %for.body.i.
   %mul.i.i.i.i.i.i.i = mul i64 %conv.i.i.i.i.i.i.i.i, 814605021516865831
   %xor.i.i.i.i.i.i.i = xor i64 %mul.i.i.i.i.i.i.i, %v.014.i.i.i.i.i.i
   %add.i.i.i.i.i.i.i = add i64 %xor.i.i.i.i.i.i.i, 3571081485394615273
-  %incdec.ptr.i.i.i.i.i.i.i = getelementptr inbounds i32, ptr %__begin0.sroa.0.013.i.i.i.i.i.i, i64 1
+  %incdec.ptr.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %__begin0.sroa.0.013.i.i.i.i.i.i, i64 4
   %cmp.i.not.i.i.i.i.i.i = icmp eq ptr %incdec.ptr.i.i.i.i.i.i.i, %2
   br i1 %cmp.i.not.i.i.i.i.i.i, label %_ZNK3ue211hash_detail8ue2_hashISt6vectorIjSaIjEEvEclERKS4_.exit.loopexit.i.i.i.i.i, label %for.body.i.i.i.i.i.i
 
@@ -9792,7 +9513,7 @@ entry:
 define linkonce_odr hidden void @_ZN3ue222RoseInstrBaseOneTargetIL19RoseInstructionCode47E27ROSE_STRUCT_SPARSE_ITER_ANYNS_22RoseInstrSparseIterAnyEE13update_targetEPKNS_15RoseInstructionES7_(ptr noundef nonnull align 8 dereferenceable(8) %this, ptr noundef %old_target, ptr noundef %new_target) unnamed_addr #3 comdat align 2 {
 entry:
   %0 = tail call ptr @__dynamic_cast(ptr nonnull %this, ptr nonnull @_ZTIN3ue222RoseInstrBaseOneTargetIL19RoseInstructionCode47E27ROSE_STRUCT_SPARSE_ITER_ANYNS_22RoseInstrSparseIterAnyEEE, ptr nonnull @_ZTIN3ue222RoseInstrSparseIterAnyE, i64 0) #25
-  %target = getelementptr inbounds %"class.ue2::RoseInstrSparseIterAny", ptr %0, i64 0, i32 3
+  %target = getelementptr inbounds i8, ptr %0, i64 40
   %1 = load ptr, ptr %target, align 8
   %cmp = icmp eq ptr %1, %old_target
   br i1 %cmp, label %if.then, label %if.end
@@ -9838,7 +9559,7 @@ entry:
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr hidden noundef i64 @_ZNK3ue219RoseInstrEnginesEod4hashEv(ptr noundef nonnull align 8 dereferenceable(12) %this) unnamed_addr #5 comdat align 2 {
 entry:
-  %iter_offset = getelementptr inbounds %"class.ue2::RoseInstrEnginesEod", ptr %this, i64 0, i32 1
+  %iter_offset = getelementptr inbounds i8, ptr %this, i64 8
   %0 = load i32, ptr %iter_offset, align 8
   %conv.i.i.i.i.i.i = zext i32 %0 to i64
   %mul.i.i.i2.i.i = mul i64 %conv.i.i.i.i.i.i, 814605021516865831
@@ -9868,9 +9589,9 @@ entry:
 
 dynamic_cast.notnull2:                            ; preds = %entry
   %1 = tail call ptr @__dynamic_cast(ptr nonnull %this, ptr nonnull @_ZTIN3ue213RoseInstrBaseIL19RoseInstructionCode48E23ROSE_STRUCT_ENGINES_EODNS_19RoseInstrEnginesEodEEE, ptr nonnull @_ZTIN3ue219RoseInstrEnginesEodE, i64 0) #25
-  %iter_offset.i = getelementptr inbounds %"class.ue2::RoseInstrEnginesEod", ptr %1, i64 0, i32 1
+  %iter_offset.i = getelementptr inbounds i8, ptr %1, i64 8
   %2 = load i32, ptr %iter_offset.i, align 8
-  %iter_offset3.i = getelementptr inbounds %"class.ue2::RoseInstrEnginesEod", ptr %0, i64 0, i32 1
+  %iter_offset3.i = getelementptr inbounds i8, ptr %0, i64 8
   %3 = load i32, ptr %iter_offset3.i, align 8
   %cmp.i = icmp eq i32 %2, %3
   br label %cleanup
@@ -9884,14 +9605,14 @@ cleanup:                                          ; preds = %dynamic_cast.notnul
 define linkonce_odr hidden void @_ZN3ue221RoseInstrCheckLongLitD2Ev(ptr noundef nonnull align 8 dereferenceable(48) %this) unnamed_addr #11 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store ptr getelementptr inbounds ({ [10 x ptr] }, ptr @_ZTVN3ue221RoseInstrCheckLongLitE, i64 0, inrange i32 0, i64 2), ptr %this, align 8
-  %literal = getelementptr inbounds %"class.ue2::RoseInstrCheckLongLit", ptr %this, i64 0, i32 1
+  %literal = getelementptr inbounds i8, ptr %this, i64 8
   %0 = load ptr, ptr %literal, align 8
-  %1 = getelementptr inbounds %"class.ue2::RoseInstrCheckLongLit", ptr %this, i64 0, i32 1, i32 2
+  %1 = getelementptr inbounds i8, ptr %this, i64 24
   %cmp.i.i.i = icmp eq ptr %0, %1
   br i1 %cmp.i.i.i, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i, label %if.then.i.i
 
 _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i: ; preds = %entry
-  %_M_string_length.i.i.i = getelementptr inbounds %"class.ue2::RoseInstrCheckLongLit", ptr %this, i64 0, i32 1, i32 1
+  %_M_string_length.i.i.i = getelementptr inbounds i8, ptr %this, i64 16
   %2 = load i64, ptr %_M_string_length.i.i.i, align 8
   %cmp3.i.i.i = icmp ult i64 %2, 16
   tail call void @llvm.assume(i1 %cmp3.i.i.i)
@@ -9909,14 +9630,14 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit: ; preds = %if.th
 define linkonce_odr hidden void @_ZN3ue221RoseInstrCheckLongLitD0Ev(ptr noundef nonnull align 8 dereferenceable(48) %this) unnamed_addr #11 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store ptr getelementptr inbounds ({ [10 x ptr] }, ptr @_ZTVN3ue221RoseInstrCheckLongLitE, i64 0, inrange i32 0, i64 2), ptr %this, align 8
-  %literal.i = getelementptr inbounds %"class.ue2::RoseInstrCheckLongLit", ptr %this, i64 0, i32 1
+  %literal.i = getelementptr inbounds i8, ptr %this, i64 8
   %0 = load ptr, ptr %literal.i, align 8
-  %1 = getelementptr inbounds %"class.ue2::RoseInstrCheckLongLit", ptr %this, i64 0, i32 1, i32 2
+  %1 = getelementptr inbounds i8, ptr %this, i64 24
   %cmp.i.i.i.i = icmp eq ptr %0, %1
   br i1 %cmp.i.i.i.i, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i.i, label %if.then.i.i.i
 
 _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i.i: ; preds = %entry
-  %_M_string_length.i.i.i.i = getelementptr inbounds %"class.ue2::RoseInstrCheckLongLit", ptr %this, i64 0, i32 1, i32 1
+  %_M_string_length.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 16
   %2 = load i64, ptr %_M_string_length.i.i.i.i, align 8
   %cmp3.i.i.i.i = icmp ult i64 %2, 16
   tail call void @llvm.assume(i1 %cmp3.i.i.i.i)
@@ -9940,9 +9661,9 @@ entry:
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr hidden noundef i64 @_ZNK3ue221RoseInstrCheckLongLit4hashEv(ptr noundef nonnull align 8 dereferenceable(48) %this) unnamed_addr #5 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  %literal = getelementptr inbounds %"class.ue2::RoseInstrCheckLongLit", ptr %this, i64 0, i32 1
+  %literal = getelementptr inbounds i8, ptr %this, i64 8
   %0 = load ptr, ptr %literal, align 8
-  %_M_string_length.i.i.i.i.i.i.i = getelementptr inbounds %"class.ue2::RoseInstrCheckLongLit", ptr %this, i64 0, i32 1, i32 1
+  %_M_string_length.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 16
   %1 = load i64, ptr %_M_string_length.i.i.i.i.i.i.i, align 8
   %call.i5.i.i.i.i.i.i = invoke noundef i64 @_ZSt11_Hash_bytesPKvmm(ptr noundef %0, i64 noundef %1, i64 noundef 3339675911)
           to label %_ZN3ue28hash_allIJRK19RoseInstructionCodeRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEEmDpOT_.exit unwind label %terminate.lpad.i.i.i.i.i.i
@@ -9971,7 +9692,7 @@ entry:
 define linkonce_odr hidden void @_ZN3ue222RoseInstrBaseOneTargetIL19RoseInstructionCode51E26ROSE_STRUCT_CHECK_LONG_LITNS_21RoseInstrCheckLongLitEE13update_targetEPKNS_15RoseInstructionES7_(ptr noundef nonnull align 8 dereferenceable(8) %this, ptr noundef %old_target, ptr noundef %new_target) unnamed_addr #3 comdat align 2 {
 entry:
   %0 = tail call ptr @__dynamic_cast(ptr nonnull %this, ptr nonnull @_ZTIN3ue222RoseInstrBaseOneTargetIL19RoseInstructionCode51E26ROSE_STRUCT_CHECK_LONG_LITNS_21RoseInstrCheckLongLitEEE, ptr nonnull @_ZTIN3ue221RoseInstrCheckLongLitE, i64 0) #25
-  %target = getelementptr inbounds %"class.ue2::RoseInstrCheckLongLit", ptr %0, i64 0, i32 2
+  %target = getelementptr inbounds i8, ptr %0, i64 40
   %1 = load ptr, ptr %target, align 8
   %cmp = icmp eq ptr %1, %old_target
   br i1 %cmp, label %if.then, label %if.end
@@ -10005,14 +9726,14 @@ cleanup:                                          ; preds = %dynamic_cast.notnul
 define linkonce_odr hidden void @_ZN3ue227RoseInstrCheckLongLitNocaseD2Ev(ptr noundef nonnull align 8 dereferenceable(48) %this) unnamed_addr #11 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store ptr getelementptr inbounds ({ [10 x ptr] }, ptr @_ZTVN3ue227RoseInstrCheckLongLitNocaseE, i64 0, inrange i32 0, i64 2), ptr %this, align 8
-  %literal = getelementptr inbounds %"class.ue2::RoseInstrCheckLongLitNocase", ptr %this, i64 0, i32 1
+  %literal = getelementptr inbounds i8, ptr %this, i64 8
   %0 = load ptr, ptr %literal, align 8
-  %1 = getelementptr inbounds %"class.ue2::RoseInstrCheckLongLitNocase", ptr %this, i64 0, i32 1, i32 2
+  %1 = getelementptr inbounds i8, ptr %this, i64 24
   %cmp.i.i.i = icmp eq ptr %0, %1
   br i1 %cmp.i.i.i, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i, label %if.then.i.i
 
 _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i: ; preds = %entry
-  %_M_string_length.i.i.i = getelementptr inbounds %"class.ue2::RoseInstrCheckLongLitNocase", ptr %this, i64 0, i32 1, i32 1
+  %_M_string_length.i.i.i = getelementptr inbounds i8, ptr %this, i64 16
   %2 = load i64, ptr %_M_string_length.i.i.i, align 8
   %cmp3.i.i.i = icmp ult i64 %2, 16
   tail call void @llvm.assume(i1 %cmp3.i.i.i)
@@ -10030,14 +9751,14 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit: ; preds = %if.th
 define linkonce_odr hidden void @_ZN3ue227RoseInstrCheckLongLitNocaseD0Ev(ptr noundef nonnull align 8 dereferenceable(48) %this) unnamed_addr #11 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store ptr getelementptr inbounds ({ [10 x ptr] }, ptr @_ZTVN3ue227RoseInstrCheckLongLitNocaseE, i64 0, inrange i32 0, i64 2), ptr %this, align 8
-  %literal.i = getelementptr inbounds %"class.ue2::RoseInstrCheckLongLitNocase", ptr %this, i64 0, i32 1
+  %literal.i = getelementptr inbounds i8, ptr %this, i64 8
   %0 = load ptr, ptr %literal.i, align 8
-  %1 = getelementptr inbounds %"class.ue2::RoseInstrCheckLongLitNocase", ptr %this, i64 0, i32 1, i32 2
+  %1 = getelementptr inbounds i8, ptr %this, i64 24
   %cmp.i.i.i.i = icmp eq ptr %0, %1
   br i1 %cmp.i.i.i.i, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i.i, label %if.then.i.i.i
 
 _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i.i: ; preds = %entry
-  %_M_string_length.i.i.i.i = getelementptr inbounds %"class.ue2::RoseInstrCheckLongLitNocase", ptr %this, i64 0, i32 1, i32 1
+  %_M_string_length.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 16
   %2 = load i64, ptr %_M_string_length.i.i.i.i, align 8
   %cmp3.i.i.i.i = icmp ult i64 %2, 16
   tail call void @llvm.assume(i1 %cmp3.i.i.i.i)
@@ -10061,9 +9782,9 @@ entry:
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr hidden noundef i64 @_ZNK3ue227RoseInstrCheckLongLitNocase4hashEv(ptr noundef nonnull align 8 dereferenceable(48) %this) unnamed_addr #5 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  %literal = getelementptr inbounds %"class.ue2::RoseInstrCheckLongLitNocase", ptr %this, i64 0, i32 1
+  %literal = getelementptr inbounds i8, ptr %this, i64 8
   %0 = load ptr, ptr %literal, align 8
-  %_M_string_length.i.i.i.i.i.i.i = getelementptr inbounds %"class.ue2::RoseInstrCheckLongLitNocase", ptr %this, i64 0, i32 1, i32 1
+  %_M_string_length.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 16
   %1 = load i64, ptr %_M_string_length.i.i.i.i.i.i.i, align 8
   %call.i5.i.i.i.i.i.i = invoke noundef i64 @_ZSt11_Hash_bytesPKvmm(ptr noundef %0, i64 noundef %1, i64 noundef 3339675911)
           to label %_ZN3ue28hash_allIJRK19RoseInstructionCodeRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEEmDpOT_.exit unwind label %terminate.lpad.i.i.i.i.i.i
@@ -10092,7 +9813,7 @@ entry:
 define linkonce_odr hidden void @_ZN3ue222RoseInstrBaseOneTargetIL19RoseInstructionCode52E33ROSE_STRUCT_CHECK_LONG_LIT_NOCASENS_27RoseInstrCheckLongLitNocaseEE13update_targetEPKNS_15RoseInstructionES7_(ptr noundef nonnull align 8 dereferenceable(8) %this, ptr noundef %old_target, ptr noundef %new_target) unnamed_addr #3 comdat align 2 {
 entry:
   %0 = tail call ptr @__dynamic_cast(ptr nonnull %this, ptr nonnull @_ZTIN3ue222RoseInstrBaseOneTargetIL19RoseInstructionCode52E33ROSE_STRUCT_CHECK_LONG_LIT_NOCASENS_27RoseInstrCheckLongLitNocaseEEE, ptr nonnull @_ZTIN3ue227RoseInstrCheckLongLitNocaseE, i64 0) #25
-  %target = getelementptr inbounds %"class.ue2::RoseInstrCheckLongLitNocase", ptr %0, i64 0, i32 2
+  %target = getelementptr inbounds i8, ptr %0, i64 40
   %1 = load ptr, ptr %target, align 8
   %cmp = icmp eq ptr %1, %old_target
   br i1 %cmp, label %if.then, label %if.end
@@ -10126,14 +9847,14 @@ cleanup:                                          ; preds = %dynamic_cast.notnul
 define linkonce_odr hidden void @_ZN3ue220RoseInstrCheckMedLitD2Ev(ptr noundef nonnull align 8 dereferenceable(48) %this) unnamed_addr #11 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store ptr getelementptr inbounds ({ [10 x ptr] }, ptr @_ZTVN3ue220RoseInstrCheckMedLitE, i64 0, inrange i32 0, i64 2), ptr %this, align 8
-  %literal = getelementptr inbounds %"class.ue2::RoseInstrCheckMedLit", ptr %this, i64 0, i32 1
+  %literal = getelementptr inbounds i8, ptr %this, i64 8
   %0 = load ptr, ptr %literal, align 8
-  %1 = getelementptr inbounds %"class.ue2::RoseInstrCheckMedLit", ptr %this, i64 0, i32 1, i32 2
+  %1 = getelementptr inbounds i8, ptr %this, i64 24
   %cmp.i.i.i = icmp eq ptr %0, %1
   br i1 %cmp.i.i.i, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i, label %if.then.i.i
 
 _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i: ; preds = %entry
-  %_M_string_length.i.i.i = getelementptr inbounds %"class.ue2::RoseInstrCheckMedLit", ptr %this, i64 0, i32 1, i32 1
+  %_M_string_length.i.i.i = getelementptr inbounds i8, ptr %this, i64 16
   %2 = load i64, ptr %_M_string_length.i.i.i, align 8
   %cmp3.i.i.i = icmp ult i64 %2, 16
   tail call void @llvm.assume(i1 %cmp3.i.i.i)
@@ -10151,14 +9872,14 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit: ; preds = %if.th
 define linkonce_odr hidden void @_ZN3ue220RoseInstrCheckMedLitD0Ev(ptr noundef nonnull align 8 dereferenceable(48) %this) unnamed_addr #11 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store ptr getelementptr inbounds ({ [10 x ptr] }, ptr @_ZTVN3ue220RoseInstrCheckMedLitE, i64 0, inrange i32 0, i64 2), ptr %this, align 8
-  %literal.i = getelementptr inbounds %"class.ue2::RoseInstrCheckMedLit", ptr %this, i64 0, i32 1
+  %literal.i = getelementptr inbounds i8, ptr %this, i64 8
   %0 = load ptr, ptr %literal.i, align 8
-  %1 = getelementptr inbounds %"class.ue2::RoseInstrCheckMedLit", ptr %this, i64 0, i32 1, i32 2
+  %1 = getelementptr inbounds i8, ptr %this, i64 24
   %cmp.i.i.i.i = icmp eq ptr %0, %1
   br i1 %cmp.i.i.i.i, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i.i, label %if.then.i.i.i
 
 _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i.i: ; preds = %entry
-  %_M_string_length.i.i.i.i = getelementptr inbounds %"class.ue2::RoseInstrCheckMedLit", ptr %this, i64 0, i32 1, i32 1
+  %_M_string_length.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 16
   %2 = load i64, ptr %_M_string_length.i.i.i.i, align 8
   %cmp3.i.i.i.i = icmp ult i64 %2, 16
   tail call void @llvm.assume(i1 %cmp3.i.i.i.i)
@@ -10182,9 +9903,9 @@ entry:
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr hidden noundef i64 @_ZNK3ue220RoseInstrCheckMedLit4hashEv(ptr noundef nonnull align 8 dereferenceable(48) %this) unnamed_addr #5 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  %literal = getelementptr inbounds %"class.ue2::RoseInstrCheckMedLit", ptr %this, i64 0, i32 1
+  %literal = getelementptr inbounds i8, ptr %this, i64 8
   %0 = load ptr, ptr %literal, align 8
-  %_M_string_length.i.i.i.i.i.i.i = getelementptr inbounds %"class.ue2::RoseInstrCheckMedLit", ptr %this, i64 0, i32 1, i32 1
+  %_M_string_length.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 16
   %1 = load i64, ptr %_M_string_length.i.i.i.i.i.i.i, align 8
   %call.i5.i.i.i.i.i.i = invoke noundef i64 @_ZSt11_Hash_bytesPKvmm(ptr noundef %0, i64 noundef %1, i64 noundef 3339675911)
           to label %_ZN3ue28hash_allIJRK19RoseInstructionCodeRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEEmDpOT_.exit unwind label %terminate.lpad.i.i.i.i.i.i
@@ -10213,7 +9934,7 @@ entry:
 define linkonce_odr hidden void @_ZN3ue222RoseInstrBaseOneTargetIL19RoseInstructionCode53E25ROSE_STRUCT_CHECK_MED_LITNS_20RoseInstrCheckMedLitEE13update_targetEPKNS_15RoseInstructionES7_(ptr noundef nonnull align 8 dereferenceable(8) %this, ptr noundef %old_target, ptr noundef %new_target) unnamed_addr #3 comdat align 2 {
 entry:
   %0 = tail call ptr @__dynamic_cast(ptr nonnull %this, ptr nonnull @_ZTIN3ue222RoseInstrBaseOneTargetIL19RoseInstructionCode53E25ROSE_STRUCT_CHECK_MED_LITNS_20RoseInstrCheckMedLitEEE, ptr nonnull @_ZTIN3ue220RoseInstrCheckMedLitE, i64 0) #25
-  %target = getelementptr inbounds %"class.ue2::RoseInstrCheckMedLit", ptr %0, i64 0, i32 2
+  %target = getelementptr inbounds i8, ptr %0, i64 40
   %1 = load ptr, ptr %target, align 8
   %cmp = icmp eq ptr %1, %old_target
   br i1 %cmp, label %if.then, label %if.end
@@ -10247,14 +9968,14 @@ cleanup:                                          ; preds = %dynamic_cast.notnul
 define linkonce_odr hidden void @_ZN3ue226RoseInstrCheckMedLitNocaseD2Ev(ptr noundef nonnull align 8 dereferenceable(48) %this) unnamed_addr #11 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store ptr getelementptr inbounds ({ [10 x ptr] }, ptr @_ZTVN3ue226RoseInstrCheckMedLitNocaseE, i64 0, inrange i32 0, i64 2), ptr %this, align 8
-  %literal = getelementptr inbounds %"class.ue2::RoseInstrCheckMedLitNocase", ptr %this, i64 0, i32 1
+  %literal = getelementptr inbounds i8, ptr %this, i64 8
   %0 = load ptr, ptr %literal, align 8
-  %1 = getelementptr inbounds %"class.ue2::RoseInstrCheckMedLitNocase", ptr %this, i64 0, i32 1, i32 2
+  %1 = getelementptr inbounds i8, ptr %this, i64 24
   %cmp.i.i.i = icmp eq ptr %0, %1
   br i1 %cmp.i.i.i, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i, label %if.then.i.i
 
 _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i: ; preds = %entry
-  %_M_string_length.i.i.i = getelementptr inbounds %"class.ue2::RoseInstrCheckMedLitNocase", ptr %this, i64 0, i32 1, i32 1
+  %_M_string_length.i.i.i = getelementptr inbounds i8, ptr %this, i64 16
   %2 = load i64, ptr %_M_string_length.i.i.i, align 8
   %cmp3.i.i.i = icmp ult i64 %2, 16
   tail call void @llvm.assume(i1 %cmp3.i.i.i)
@@ -10272,14 +9993,14 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit: ; preds = %if.th
 define linkonce_odr hidden void @_ZN3ue226RoseInstrCheckMedLitNocaseD0Ev(ptr noundef nonnull align 8 dereferenceable(48) %this) unnamed_addr #11 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store ptr getelementptr inbounds ({ [10 x ptr] }, ptr @_ZTVN3ue226RoseInstrCheckMedLitNocaseE, i64 0, inrange i32 0, i64 2), ptr %this, align 8
-  %literal.i = getelementptr inbounds %"class.ue2::RoseInstrCheckMedLitNocase", ptr %this, i64 0, i32 1
+  %literal.i = getelementptr inbounds i8, ptr %this, i64 8
   %0 = load ptr, ptr %literal.i, align 8
-  %1 = getelementptr inbounds %"class.ue2::RoseInstrCheckMedLitNocase", ptr %this, i64 0, i32 1, i32 2
+  %1 = getelementptr inbounds i8, ptr %this, i64 24
   %cmp.i.i.i.i = icmp eq ptr %0, %1
   br i1 %cmp.i.i.i.i, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i.i, label %if.then.i.i.i
 
 _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i.i: ; preds = %entry
-  %_M_string_length.i.i.i.i = getelementptr inbounds %"class.ue2::RoseInstrCheckMedLitNocase", ptr %this, i64 0, i32 1, i32 1
+  %_M_string_length.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 16
   %2 = load i64, ptr %_M_string_length.i.i.i.i, align 8
   %cmp3.i.i.i.i = icmp ult i64 %2, 16
   tail call void @llvm.assume(i1 %cmp3.i.i.i.i)
@@ -10303,9 +10024,9 @@ entry:
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr hidden noundef i64 @_ZNK3ue226RoseInstrCheckMedLitNocase4hashEv(ptr noundef nonnull align 8 dereferenceable(48) %this) unnamed_addr #5 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  %literal = getelementptr inbounds %"class.ue2::RoseInstrCheckMedLitNocase", ptr %this, i64 0, i32 1
+  %literal = getelementptr inbounds i8, ptr %this, i64 8
   %0 = load ptr, ptr %literal, align 8
-  %_M_string_length.i.i.i.i.i.i.i = getelementptr inbounds %"class.ue2::RoseInstrCheckMedLitNocase", ptr %this, i64 0, i32 1, i32 1
+  %_M_string_length.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 16
   %1 = load i64, ptr %_M_string_length.i.i.i.i.i.i.i, align 8
   %call.i5.i.i.i.i.i.i = invoke noundef i64 @_ZSt11_Hash_bytesPKvmm(ptr noundef %0, i64 noundef %1, i64 noundef 3339675911)
           to label %_ZN3ue28hash_allIJRK19RoseInstructionCodeRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEEmDpOT_.exit unwind label %terminate.lpad.i.i.i.i.i.i
@@ -10334,7 +10055,7 @@ entry:
 define linkonce_odr hidden void @_ZN3ue222RoseInstrBaseOneTargetIL19RoseInstructionCode54E32ROSE_STRUCT_CHECK_MED_LIT_NOCASENS_26RoseInstrCheckMedLitNocaseEE13update_targetEPKNS_15RoseInstructionES7_(ptr noundef nonnull align 8 dereferenceable(8) %this, ptr noundef %old_target, ptr noundef %new_target) unnamed_addr #3 comdat align 2 {
 entry:
   %0 = tail call ptr @__dynamic_cast(ptr nonnull %this, ptr nonnull @_ZTIN3ue222RoseInstrBaseOneTargetIL19RoseInstructionCode54E32ROSE_STRUCT_CHECK_MED_LIT_NOCASENS_26RoseInstrCheckMedLitNocaseEEE, ptr nonnull @_ZTIN3ue226RoseInstrCheckMedLitNocaseE, i64 0) #25
-  %target = getelementptr inbounds %"class.ue2::RoseInstrCheckMedLitNocase", ptr %0, i64 0, i32 2
+  %target = getelementptr inbounds i8, ptr %0, i64 40
   %1 = load ptr, ptr %target, align 8
   %cmp = icmp eq ptr %1, %old_target
   br i1 %cmp, label %if.then, label %if.end
@@ -10368,9 +10089,9 @@ cleanup:                                          ; preds = %dynamic_cast.notnul
 define linkonce_odr hidden void @_ZN3ue228RoseInstrMultipathLookaroundD2Ev(ptr noundef nonnull align 8 dereferenceable(64) %this) unnamed_addr #11 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store ptr getelementptr inbounds ({ [10 x ptr] }, ptr @_ZTVN3ue228RoseInstrMultipathLookaroundE, i64 0, inrange i32 0, i64 2), ptr %this, align 8
-  %multi_look = getelementptr inbounds %"class.ue2::RoseInstrMultipathLookaround", ptr %this, i64 0, i32 1
+  %multi_look = getelementptr inbounds i8, ptr %this, i64 8
   %0 = load ptr, ptr %multi_look, align 8
-  %_M_finish.i = getelementptr inbounds %"class.ue2::RoseInstrMultipathLookaround", ptr %this, i64 0, i32 1, i32 0, i32 0, i32 0, i32 1
+  %_M_finish.i = getelementptr inbounds i8, ptr %this, i64 16
   %1 = load ptr, ptr %_M_finish.i, align 8
   %cmp.not3.i.i.i.i = icmp eq ptr %0, %1
   br i1 %cmp.not3.i.i.i.i, label %invoke.cont.i, label %for.body.i.i.i.i
@@ -10386,7 +10107,7 @@ if.then.i.i.i.i.i.i.i.i:                          ; preds = %for.body.i.i.i.i
   br label %_ZSt8_DestroyISt6vectorIN3ue29LookEntryESaIS2_EEEvPT_.exit.i.i.i.i
 
 _ZSt8_DestroyISt6vectorIN3ue29LookEntryESaIS2_EEEvPT_.exit.i.i.i.i: ; preds = %if.then.i.i.i.i.i.i.i.i, %for.body.i.i.i.i
-  %incdec.ptr.i.i.i.i = getelementptr inbounds %"class.std::vector.115", ptr %__first.addr.04.i.i.i.i, i64 1
+  %incdec.ptr.i.i.i.i = getelementptr inbounds i8, ptr %__first.addr.04.i.i.i.i, i64 24
   %cmp.not.i.i.i.i = icmp eq ptr %incdec.ptr.i.i.i.i, %1
   br i1 %cmp.not.i.i.i.i, label %invoke.contthread-pre-split.i, label %for.body.i.i.i.i, !llvm.loop !25
 
@@ -10411,9 +10132,9 @@ _ZNSt6vectorIS_IN3ue29LookEntryESaIS1_EESaIS3_EED2Ev.exit: ; preds = %if.then.i.
 define linkonce_odr hidden void @_ZN3ue228RoseInstrMultipathLookaroundD0Ev(ptr noundef nonnull align 8 dereferenceable(64) %this) unnamed_addr #11 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store ptr getelementptr inbounds ({ [10 x ptr] }, ptr @_ZTVN3ue228RoseInstrMultipathLookaroundE, i64 0, inrange i32 0, i64 2), ptr %this, align 8
-  %multi_look.i = getelementptr inbounds %"class.ue2::RoseInstrMultipathLookaround", ptr %this, i64 0, i32 1
+  %multi_look.i = getelementptr inbounds i8, ptr %this, i64 8
   %0 = load ptr, ptr %multi_look.i, align 8
-  %_M_finish.i.i = getelementptr inbounds %"class.ue2::RoseInstrMultipathLookaround", ptr %this, i64 0, i32 1, i32 0, i32 0, i32 0, i32 1
+  %_M_finish.i.i = getelementptr inbounds i8, ptr %this, i64 16
   %1 = load ptr, ptr %_M_finish.i.i, align 8
   %cmp.not3.i.i.i.i.i = icmp eq ptr %0, %1
   br i1 %cmp.not3.i.i.i.i.i, label %invoke.cont.i.i, label %for.body.i.i.i.i.i
@@ -10429,7 +10150,7 @@ if.then.i.i.i.i.i.i.i.i.i:                        ; preds = %for.body.i.i.i.i.i
   br label %_ZSt8_DestroyISt6vectorIN3ue29LookEntryESaIS2_EEEvPT_.exit.i.i.i.i.i
 
 _ZSt8_DestroyISt6vectorIN3ue29LookEntryESaIS2_EEEvPT_.exit.i.i.i.i.i: ; preds = %if.then.i.i.i.i.i.i.i.i.i, %for.body.i.i.i.i.i
-  %incdec.ptr.i.i.i.i.i = getelementptr inbounds %"class.std::vector.115", ptr %__first.addr.04.i.i.i.i.i, i64 1
+  %incdec.ptr.i.i.i.i.i = getelementptr inbounds i8, ptr %__first.addr.04.i.i.i.i.i, i64 24
   %cmp.not.i.i.i.i.i = icmp eq ptr %incdec.ptr.i.i.i.i.i, %1
   br i1 %cmp.not.i.i.i.i.i, label %invoke.contthread-pre-split.i.i, label %for.body.i.i.i.i.i, !llvm.loop !25
 
@@ -10461,9 +10182,9 @@ entry:
 define linkonce_odr hidden noundef i64 @_ZNK3ue228RoseInstrMultipathLookaround4hashEv(ptr noundef nonnull align 8 dereferenceable(64) %this) unnamed_addr #5 comdat align 2 {
 entry:
   %v.i = alloca i64, align 8
-  %multi_look = getelementptr inbounds %"class.ue2::RoseInstrMultipathLookaround", ptr %this, i64 0, i32 1
-  %last_start = getelementptr inbounds %"class.ue2::RoseInstrMultipathLookaround", ptr %this, i64 0, i32 2
-  %start_mask = getelementptr inbounds %"class.ue2::RoseInstrMultipathLookaround", ptr %this, i64 0, i32 3
+  %multi_look = getelementptr inbounds i8, ptr %this, i64 8
+  %last_start = getelementptr inbounds i8, ptr %this, i64 32
+  %start_mask = getelementptr inbounds i8, ptr %this, i64 36
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %v.i) #25
   store i64 -6151269530789553039, ptr %v.i, align 8
   call void @_ZN3ue211hash_detail10hash_buildISt6vectorIS2_INS_9LookEntryESaIS3_EESaIS5_EEJRKiRKSt5arrayIhLm16EEEEEvRmRKT_DpOT0_(ptr noundef nonnull align 8 dereferenceable(8) %v.i, ptr noundef nonnull align 8 dereferenceable(24) %multi_look, ptr noundef nonnull align 4 dereferenceable(4) %last_start, ptr noundef nonnull align 1 dereferenceable(16) %start_mask)
@@ -10482,7 +10203,7 @@ entry:
 define linkonce_odr hidden void @_ZN3ue222RoseInstrBaseOneTargetIL19RoseInstructionCode56E32ROSE_STRUCT_MULTIPATH_LOOKAROUNDNS_28RoseInstrMultipathLookaroundEE13update_targetEPKNS_15RoseInstructionES7_(ptr noundef nonnull align 8 dereferenceable(8) %this, ptr noundef %old_target, ptr noundef %new_target) unnamed_addr #3 comdat align 2 {
 entry:
   %0 = tail call ptr @__dynamic_cast(ptr nonnull %this, ptr nonnull @_ZTIN3ue222RoseInstrBaseOneTargetIL19RoseInstructionCode56E32ROSE_STRUCT_MULTIPATH_LOOKAROUNDNS_28RoseInstrMultipathLookaroundEEE, ptr nonnull @_ZTIN3ue228RoseInstrMultipathLookaroundE, i64 0) #25
-  %target = getelementptr inbounds %"class.ue2::RoseInstrMultipathLookaround", ptr %0, i64 0, i32 4
+  %target = getelementptr inbounds i8, ptr %0, i64 56
   %1 = load ptr, ptr %target, align 8
   %cmp = icmp eq ptr %1, %old_target
   br i1 %cmp, label %if.then, label %if.end
@@ -10528,7 +10249,7 @@ entry:
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr hidden noundef i64 @_ZNK3ue233RoseInstrCheckMultipathShufti16x84hashEv(ptr noundef nonnull align 8 dereferenceable(192) %this) unnamed_addr #5 comdat align 2 {
 entry:
-  %nib_mask = getelementptr inbounds %"class.ue2::RoseInstrCheckMultipathShufti16x8", ptr %this, i64 0, i32 1
+  %nib_mask = getelementptr inbounds i8, ptr %this, i64 8
   br label %for.body.i.i.i.i.i.i
 
 for.body.i.i.i.i.i.i:                             ; preds = %for.body.i.i.i.i.i.i, %entry
@@ -10566,7 +10287,7 @@ for.body.i.i.i.i.i.i:                             ; preds = %for.body.i.i.i.i.i.
   br i1 %cmp.not.i.i.i.i.i.i.3, label %for.body.i.i.i.i.i.i.i.preheader, label %for.body.i.i.i.i.i.i
 
 for.body.i.i.i.i.i.i.i.preheader:                 ; preds = %for.body.i.i.i.i.i.i
-  %bucket_select_mask = getelementptr inbounds %"class.ue2::RoseInstrCheckMultipathShufti16x8", ptr %this, i64 0, i32 2
+  %bucket_select_mask = getelementptr inbounds i8, ptr %this, i64 40
   br label %for.body.i.i.i.i.i.i.i
 
 for.body.i.i.i.i.i.i.i:                           ; preds = %for.body.i.i.i.i.i.i.i.preheader, %for.body.i.i.i.i.i.i.i
@@ -10604,7 +10325,7 @@ for.body.i.i.i.i.i.i.i:                           ; preds = %for.body.i.i.i.i.i.
   br i1 %cmp.not.i.i.i.i.i.i.i.3, label %for.body.i.i.i.i.i.i.i.i.preheader, label %for.body.i.i.i.i.i.i.i
 
 for.body.i.i.i.i.i.i.i.i.preheader:               ; preds = %for.body.i.i.i.i.i.i.i
-  %data_select_mask = getelementptr inbounds %"class.ue2::RoseInstrCheckMultipathShufti16x8", ptr %this, i64 0, i32 3
+  %data_select_mask = getelementptr inbounds i8, ptr %this, i64 104
   br label %for.body.i.i.i.i.i.i.i.i
 
 for.body.i.i.i.i.i.i.i.i:                         ; preds = %for.body.i.i.i.i.i.i.i.i, %for.body.i.i.i.i.i.i.i.i.preheader
@@ -10642,11 +10363,11 @@ for.body.i.i.i.i.i.i.i.i:                         ; preds = %for.body.i.i.i.i.i.
   br i1 %cmp.not.i.i.i.i.i.i.i.i.3, label %_ZN3ue28hash_allIJRK19RoseInstructionCodeRKSt5arrayIhLm32EERKS4_IhLm64EESA_RKtSC_SC_RKiSE_EEEmDpOT_.exit, label %for.body.i.i.i.i.i.i.i.i
 
 _ZN3ue28hash_allIJRK19RoseInstructionCodeRKSt5arrayIhLm32EERKS4_IhLm64EESA_RKtSC_SC_RKiSE_EEEmDpOT_.exit: ; preds = %for.body.i.i.i.i.i.i.i.i
-  %last_start = getelementptr inbounds %"class.ue2::RoseInstrCheckMultipathShufti16x8", ptr %this, i64 0, i32 8
-  %base_offset = getelementptr inbounds %"class.ue2::RoseInstrCheckMultipathShufti16x8", ptr %this, i64 0, i32 7
-  %neg_mask = getelementptr inbounds %"class.ue2::RoseInstrCheckMultipathShufti16x8", ptr %this, i64 0, i32 6
-  %lo_bits_mask = getelementptr inbounds %"class.ue2::RoseInstrCheckMultipathShufti16x8", ptr %this, i64 0, i32 5
-  %hi_bits_mask = getelementptr inbounds %"class.ue2::RoseInstrCheckMultipathShufti16x8", ptr %this, i64 0, i32 4
+  %last_start = getelementptr inbounds i8, ptr %this, i64 180
+  %base_offset = getelementptr inbounds i8, ptr %this, i64 176
+  %neg_mask = getelementptr inbounds i8, ptr %this, i64 172
+  %lo_bits_mask = getelementptr inbounds i8, ptr %this, i64 170
+  %hi_bits_mask = getelementptr inbounds i8, ptr %this, i64 168
   %mul.i.i.i.i14.i.i.i = mul i64 %add.i.i.i.i.i.i.i.i.3, 814605021516865831
   %mul.i.i.i.i.i.i = mul i64 %add.i.i.i.i.i.i.i.3, 814605021516865831
   %xor.i.i.i.i.i.i = xor i64 %mul.i.i.i.i.i.i, -5336664509272687208
@@ -10694,7 +10415,7 @@ entry:
 define linkonce_odr hidden void @_ZN3ue222RoseInstrBaseOneTargetIL19RoseInstructionCode57E39ROSE_STRUCT_CHECK_MULTIPATH_SHUFTI_16x8NS_33RoseInstrCheckMultipathShufti16x8EE13update_targetEPKNS_15RoseInstructionES7_(ptr noundef nonnull align 8 dereferenceable(8) %this, ptr noundef %old_target, ptr noundef %new_target) unnamed_addr #3 comdat align 2 {
 entry:
   %0 = tail call ptr @__dynamic_cast(ptr nonnull %this, ptr nonnull @_ZTIN3ue222RoseInstrBaseOneTargetIL19RoseInstructionCode57E39ROSE_STRUCT_CHECK_MULTIPATH_SHUFTI_16x8NS_33RoseInstrCheckMultipathShufti16x8EEE, ptr nonnull @_ZTIN3ue233RoseInstrCheckMultipathShufti16x8E, i64 0) #25
-  %target = getelementptr inbounds %"class.ue2::RoseInstrCheckMultipathShufti16x8", ptr %0, i64 0, i32 9
+  %target = getelementptr inbounds i8, ptr %0, i64 184
   %1 = load ptr, ptr %target, align 8
   %cmp = icmp eq ptr %1, %old_target
   br i1 %cmp, label %if.then, label %if.end
@@ -10740,15 +10461,15 @@ entry:
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr hidden noundef i64 @_ZNK3ue233RoseInstrCheckMultipathShufti32x84hashEv(ptr noundef nonnull align 8 dereferenceable(232) %this) unnamed_addr #5 comdat align 2 {
 entry:
-  %hi_mask = getelementptr inbounds %"class.ue2::RoseInstrCheckMultipathShufti32x8", ptr %this, i64 0, i32 1
-  %lo_mask = getelementptr inbounds %"class.ue2::RoseInstrCheckMultipathShufti32x8", ptr %this, i64 0, i32 2
-  %bucket_select_mask = getelementptr inbounds %"class.ue2::RoseInstrCheckMultipathShufti32x8", ptr %this, i64 0, i32 3
-  %data_select_mask = getelementptr inbounds %"class.ue2::RoseInstrCheckMultipathShufti32x8", ptr %this, i64 0, i32 4
-  %hi_bits_mask = getelementptr inbounds %"class.ue2::RoseInstrCheckMultipathShufti32x8", ptr %this, i64 0, i32 5
-  %lo_bits_mask = getelementptr inbounds %"class.ue2::RoseInstrCheckMultipathShufti32x8", ptr %this, i64 0, i32 6
-  %neg_mask = getelementptr inbounds %"class.ue2::RoseInstrCheckMultipathShufti32x8", ptr %this, i64 0, i32 7
-  %base_offset = getelementptr inbounds %"class.ue2::RoseInstrCheckMultipathShufti32x8", ptr %this, i64 0, i32 8
-  %last_start = getelementptr inbounds %"class.ue2::RoseInstrCheckMultipathShufti32x8", ptr %this, i64 0, i32 9
+  %hi_mask = getelementptr inbounds i8, ptr %this, i64 8
+  %lo_mask = getelementptr inbounds i8, ptr %this, i64 40
+  %bucket_select_mask = getelementptr inbounds i8, ptr %this, i64 72
+  %data_select_mask = getelementptr inbounds i8, ptr %this, i64 136
+  %hi_bits_mask = getelementptr inbounds i8, ptr %this, i64 200
+  %lo_bits_mask = getelementptr inbounds i8, ptr %this, i64 204
+  %neg_mask = getelementptr inbounds i8, ptr %this, i64 208
+  %base_offset = getelementptr inbounds i8, ptr %this, i64 212
+  %last_start = getelementptr inbounds i8, ptr %this, i64 216
   %call = tail call noundef i64 @_ZN3ue28hash_allIJRK19RoseInstructionCodeRKSt5arrayIhLm32EES7_RKS4_IhLm64EESA_RKjSC_SC_RKiSE_EEEmDpOT_(ptr noundef nonnull align 4 dereferenceable(4) @_ZN3ue213RoseInstrBaseIL19RoseInstructionCode58E39ROSE_STRUCT_CHECK_MULTIPATH_SHUFTI_32x8NS_33RoseInstrCheckMultipathShufti32x8EE6opcodeE, ptr noundef nonnull align 1 dereferenceable(32) %hi_mask, ptr noundef nonnull align 1 dereferenceable(32) %lo_mask, ptr noundef nonnull align 1 dereferenceable(64) %bucket_select_mask, ptr noundef nonnull align 1 dereferenceable(64) %data_select_mask, ptr noundef nonnull align 4 dereferenceable(4) %hi_bits_mask, ptr noundef nonnull align 4 dereferenceable(4) %lo_bits_mask, ptr noundef nonnull align 4 dereferenceable(4) %neg_mask, ptr noundef nonnull align 4 dereferenceable(4) %base_offset, ptr noundef nonnull align 4 dereferenceable(4) %last_start)
   ret i64 %call
 }
@@ -10763,7 +10484,7 @@ entry:
 define linkonce_odr hidden void @_ZN3ue222RoseInstrBaseOneTargetIL19RoseInstructionCode58E39ROSE_STRUCT_CHECK_MULTIPATH_SHUFTI_32x8NS_33RoseInstrCheckMultipathShufti32x8EE13update_targetEPKNS_15RoseInstructionES7_(ptr noundef nonnull align 8 dereferenceable(8) %this, ptr noundef %old_target, ptr noundef %new_target) unnamed_addr #3 comdat align 2 {
 entry:
   %0 = tail call ptr @__dynamic_cast(ptr nonnull %this, ptr nonnull @_ZTIN3ue222RoseInstrBaseOneTargetIL19RoseInstructionCode58E39ROSE_STRUCT_CHECK_MULTIPATH_SHUFTI_32x8NS_33RoseInstrCheckMultipathShufti32x8EEE, ptr nonnull @_ZTIN3ue233RoseInstrCheckMultipathShufti32x8E, i64 0) #25
-  %target = getelementptr inbounds %"class.ue2::RoseInstrCheckMultipathShufti32x8", ptr %0, i64 0, i32 10
+  %target = getelementptr inbounds i8, ptr %0, i64 224
   %1 = load ptr, ptr %target, align 8
   %cmp = icmp eq ptr %1, %old_target
   br i1 %cmp, label %if.then, label %if.end
@@ -10809,16 +10530,16 @@ entry:
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr hidden noundef i64 @_ZNK3ue234RoseInstrCheckMultipathShufti32x164hashEv(ptr noundef nonnull align 8 dereferenceable(296) %this) unnamed_addr #5 comdat align 2 {
 entry:
-  %hi_mask = getelementptr inbounds %"class.ue2::RoseInstrCheckMultipathShufti32x16", ptr %this, i64 0, i32 1
-  %lo_mask = getelementptr inbounds %"class.ue2::RoseInstrCheckMultipathShufti32x16", ptr %this, i64 0, i32 2
-  %bucket_select_mask_hi = getelementptr inbounds %"class.ue2::RoseInstrCheckMultipathShufti32x16", ptr %this, i64 0, i32 3
-  %bucket_select_mask_lo = getelementptr inbounds %"class.ue2::RoseInstrCheckMultipathShufti32x16", ptr %this, i64 0, i32 4
-  %data_select_mask = getelementptr inbounds %"class.ue2::RoseInstrCheckMultipathShufti32x16", ptr %this, i64 0, i32 5
-  %hi_bits_mask = getelementptr inbounds %"class.ue2::RoseInstrCheckMultipathShufti32x16", ptr %this, i64 0, i32 6
-  %lo_bits_mask = getelementptr inbounds %"class.ue2::RoseInstrCheckMultipathShufti32x16", ptr %this, i64 0, i32 7
-  %neg_mask = getelementptr inbounds %"class.ue2::RoseInstrCheckMultipathShufti32x16", ptr %this, i64 0, i32 8
-  %base_offset = getelementptr inbounds %"class.ue2::RoseInstrCheckMultipathShufti32x16", ptr %this, i64 0, i32 9
-  %last_start = getelementptr inbounds %"class.ue2::RoseInstrCheckMultipathShufti32x16", ptr %this, i64 0, i32 10
+  %hi_mask = getelementptr inbounds i8, ptr %this, i64 8
+  %lo_mask = getelementptr inbounds i8, ptr %this, i64 40
+  %bucket_select_mask_hi = getelementptr inbounds i8, ptr %this, i64 72
+  %bucket_select_mask_lo = getelementptr inbounds i8, ptr %this, i64 136
+  %data_select_mask = getelementptr inbounds i8, ptr %this, i64 200
+  %hi_bits_mask = getelementptr inbounds i8, ptr %this, i64 264
+  %lo_bits_mask = getelementptr inbounds i8, ptr %this, i64 268
+  %neg_mask = getelementptr inbounds i8, ptr %this, i64 272
+  %base_offset = getelementptr inbounds i8, ptr %this, i64 276
+  %last_start = getelementptr inbounds i8, ptr %this, i64 280
   %call = tail call noundef i64 @_ZN3ue28hash_allIJRK19RoseInstructionCodeRKSt5arrayIhLm32EES7_RKS4_IhLm64EESA_SA_RKjSC_SC_RKiSE_EEEmDpOT_(ptr noundef nonnull align 4 dereferenceable(4) @_ZN3ue213RoseInstrBaseIL19RoseInstructionCode59E40ROSE_STRUCT_CHECK_MULTIPATH_SHUFTI_32x16NS_34RoseInstrCheckMultipathShufti32x16EE6opcodeE, ptr noundef nonnull align 1 dereferenceable(32) %hi_mask, ptr noundef nonnull align 1 dereferenceable(32) %lo_mask, ptr noundef nonnull align 1 dereferenceable(64) %bucket_select_mask_hi, ptr noundef nonnull align 1 dereferenceable(64) %bucket_select_mask_lo, ptr noundef nonnull align 1 dereferenceable(64) %data_select_mask, ptr noundef nonnull align 4 dereferenceable(4) %hi_bits_mask, ptr noundef nonnull align 4 dereferenceable(4) %lo_bits_mask, ptr noundef nonnull align 4 dereferenceable(4) %neg_mask, ptr noundef nonnull align 4 dereferenceable(4) %base_offset, ptr noundef nonnull align 4 dereferenceable(4) %last_start)
   ret i64 %call
 }
@@ -10833,7 +10554,7 @@ entry:
 define linkonce_odr hidden void @_ZN3ue222RoseInstrBaseOneTargetIL19RoseInstructionCode59E40ROSE_STRUCT_CHECK_MULTIPATH_SHUFTI_32x16NS_34RoseInstrCheckMultipathShufti32x16EE13update_targetEPKNS_15RoseInstructionES7_(ptr noundef nonnull align 8 dereferenceable(8) %this, ptr noundef %old_target, ptr noundef %new_target) unnamed_addr #3 comdat align 2 {
 entry:
   %0 = tail call ptr @__dynamic_cast(ptr nonnull %this, ptr nonnull @_ZTIN3ue222RoseInstrBaseOneTargetIL19RoseInstructionCode59E40ROSE_STRUCT_CHECK_MULTIPATH_SHUFTI_32x16NS_34RoseInstrCheckMultipathShufti32x16EEE, ptr nonnull @_ZTIN3ue234RoseInstrCheckMultipathShufti32x16E, i64 0) #25
-  %target = getelementptr inbounds %"class.ue2::RoseInstrCheckMultipathShufti32x16", ptr %0, i64 0, i32 11
+  %target = getelementptr inbounds i8, ptr %0, i64 288
   %1 = load ptr, ptr %target, align 8
   %cmp = icmp eq ptr %1, %old_target
   br i1 %cmp, label %if.then, label %if.end
@@ -10879,15 +10600,15 @@ entry:
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr hidden noundef i64 @_ZNK3ue231RoseInstrCheckMultipathShufti644hashEv(ptr noundef nonnull align 8 dereferenceable(240) %this) unnamed_addr #5 comdat align 2 {
 entry:
-  %hi_mask = getelementptr inbounds %"class.ue2::RoseInstrCheckMultipathShufti64", ptr %this, i64 0, i32 1
-  %lo_mask = getelementptr inbounds %"class.ue2::RoseInstrCheckMultipathShufti64", ptr %this, i64 0, i32 2
-  %bucket_select_mask = getelementptr inbounds %"class.ue2::RoseInstrCheckMultipathShufti64", ptr %this, i64 0, i32 3
-  %data_select_mask = getelementptr inbounds %"class.ue2::RoseInstrCheckMultipathShufti64", ptr %this, i64 0, i32 4
-  %hi_bits_mask = getelementptr inbounds %"class.ue2::RoseInstrCheckMultipathShufti64", ptr %this, i64 0, i32 5
-  %lo_bits_mask = getelementptr inbounds %"class.ue2::RoseInstrCheckMultipathShufti64", ptr %this, i64 0, i32 6
-  %neg_mask = getelementptr inbounds %"class.ue2::RoseInstrCheckMultipathShufti64", ptr %this, i64 0, i32 7
-  %base_offset = getelementptr inbounds %"class.ue2::RoseInstrCheckMultipathShufti64", ptr %this, i64 0, i32 8
-  %last_start = getelementptr inbounds %"class.ue2::RoseInstrCheckMultipathShufti64", ptr %this, i64 0, i32 9
+  %hi_mask = getelementptr inbounds i8, ptr %this, i64 8
+  %lo_mask = getelementptr inbounds i8, ptr %this, i64 40
+  %bucket_select_mask = getelementptr inbounds i8, ptr %this, i64 72
+  %data_select_mask = getelementptr inbounds i8, ptr %this, i64 136
+  %hi_bits_mask = getelementptr inbounds i8, ptr %this, i64 200
+  %lo_bits_mask = getelementptr inbounds i8, ptr %this, i64 208
+  %neg_mask = getelementptr inbounds i8, ptr %this, i64 216
+  %base_offset = getelementptr inbounds i8, ptr %this, i64 224
+  %last_start = getelementptr inbounds i8, ptr %this, i64 228
   %call = tail call noundef i64 @_ZN3ue28hash_allIJRK19RoseInstructionCodeRKSt5arrayIhLm32EES7_RKS4_IhLm64EESA_RKySC_SC_RKiSE_EEEmDpOT_(ptr noundef nonnull align 4 dereferenceable(4) @_ZN3ue213RoseInstrBaseIL19RoseInstructionCode60E37ROSE_STRUCT_CHECK_MULTIPATH_SHUFTI_64NS_31RoseInstrCheckMultipathShufti64EE6opcodeE, ptr noundef nonnull align 1 dereferenceable(32) %hi_mask, ptr noundef nonnull align 1 dereferenceable(32) %lo_mask, ptr noundef nonnull align 1 dereferenceable(64) %bucket_select_mask, ptr noundef nonnull align 1 dereferenceable(64) %data_select_mask, ptr noundef nonnull align 8 dereferenceable(8) %hi_bits_mask, ptr noundef nonnull align 8 dereferenceable(8) %lo_bits_mask, ptr noundef nonnull align 8 dereferenceable(8) %neg_mask, ptr noundef nonnull align 4 dereferenceable(4) %base_offset, ptr noundef nonnull align 4 dereferenceable(4) %last_start)
   ret i64 %call
 }
@@ -10902,7 +10623,7 @@ entry:
 define linkonce_odr hidden void @_ZN3ue222RoseInstrBaseOneTargetIL19RoseInstructionCode60E37ROSE_STRUCT_CHECK_MULTIPATH_SHUFTI_64NS_31RoseInstrCheckMultipathShufti64EE13update_targetEPKNS_15RoseInstructionES7_(ptr noundef nonnull align 8 dereferenceable(8) %this, ptr noundef %old_target, ptr noundef %new_target) unnamed_addr #3 comdat align 2 {
 entry:
   %0 = tail call ptr @__dynamic_cast(ptr nonnull %this, ptr nonnull @_ZTIN3ue222RoseInstrBaseOneTargetIL19RoseInstructionCode60E37ROSE_STRUCT_CHECK_MULTIPATH_SHUFTI_64NS_31RoseInstrCheckMultipathShufti64EEE, ptr nonnull @_ZTIN3ue231RoseInstrCheckMultipathShufti64E, i64 0) #25
-  %target = getelementptr inbounds %"class.ue2::RoseInstrCheckMultipathShufti64", ptr %0, i64 0, i32 10
+  %target = getelementptr inbounds i8, ptr %0, i64 232
   %1 = load ptr, ptr %target, align 8
   %cmp = icmp eq ptr %1, %old_target
   br i1 %cmp, label %if.then, label %if.end
@@ -10948,8 +10669,8 @@ entry:
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr hidden noundef i64 @_ZNK3ue221RoseInstrIncludedJump4hashEv(ptr noundef nonnull align 8 dereferenceable(13) %this) unnamed_addr #5 comdat align 2 {
 entry:
-  %child_offset = getelementptr inbounds %"class.ue2::RoseInstrIncludedJump", ptr %this, i64 0, i32 1
-  %squash = getelementptr inbounds %"class.ue2::RoseInstrIncludedJump", ptr %this, i64 0, i32 2
+  %child_offset = getelementptr inbounds i8, ptr %this, i64 8
+  %squash = getelementptr inbounds i8, ptr %this, i64 12
   %0 = load i32, ptr %child_offset, align 8
   %conv.i.i.i.i.i.i.i = zext i32 %0 to i64
   %mul.i.i.i.i.i.i = mul i64 %conv.i.i.i.i.i.i.i, 814605021516865831
@@ -10984,14 +10705,14 @@ entry:
 
 dynamic_cast.notnull2:                            ; preds = %entry
   %1 = tail call ptr @__dynamic_cast(ptr nonnull %this, ptr nonnull @_ZTIN3ue213RoseInstrBaseIL19RoseInstructionCode61E25ROSE_STRUCT_INCLUDED_JUMPNS_21RoseInstrIncludedJumpEEE, ptr nonnull @_ZTIN3ue221RoseInstrIncludedJumpE, i64 0) #25
-  %child_offset.i = getelementptr inbounds %"class.ue2::RoseInstrIncludedJump", ptr %1, i64 0, i32 1
+  %child_offset.i = getelementptr inbounds i8, ptr %1, i64 8
   %2 = load i32, ptr %child_offset.i, align 8
-  %child_offset3.i = getelementptr inbounds %"class.ue2::RoseInstrIncludedJump", ptr %0, i64 0, i32 1
+  %child_offset3.i = getelementptr inbounds i8, ptr %0, i64 8
   %3 = load i32, ptr %child_offset3.i, align 8
   %cmp.i = icmp eq i32 %2, %3
-  %squash.i = getelementptr inbounds %"class.ue2::RoseInstrIncludedJump", ptr %1, i64 0, i32 2
+  %squash.i = getelementptr inbounds i8, ptr %1, i64 12
   %4 = load i8, ptr %squash.i, align 4
-  %squash4.i = getelementptr inbounds %"class.ue2::RoseInstrIncludedJump", ptr %0, i64 0, i32 2
+  %squash4.i = getelementptr inbounds i8, ptr %0, i64 12
   %5 = load i8, ptr %squash4.i, align 4
   %cmp6.i = icmp eq i8 %4, %5
   %6 = select i1 %cmp.i, i1 %cmp6.i, i1 false
@@ -11018,8 +10739,8 @@ entry:
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr hidden noundef i64 @_ZNK3ue219RoseInstrSetLogical4hashEv(ptr noundef nonnull align 8 dereferenceable(16) %this) unnamed_addr #5 comdat align 2 {
 entry:
-  %lkey = getelementptr inbounds %"class.ue2::RoseInstrSetLogical", ptr %this, i64 0, i32 1
-  %offset_adjust = getelementptr inbounds %"class.ue2::RoseInstrSetLogical", ptr %this, i64 0, i32 2
+  %lkey = getelementptr inbounds i8, ptr %this, i64 8
+  %offset_adjust = getelementptr inbounds i8, ptr %this, i64 12
   %0 = load i32, ptr %lkey, align 8
   %conv.i.i.i.i.i4.i.i = zext i32 %0 to i64
   %mul.i.i.i.i.i.i = mul i64 %conv.i.i.i.i.i4.i.i, 814605021516865831
@@ -11054,8 +10775,8 @@ entry:
 
 dynamic_cast.notnull2:                            ; preds = %entry
   %1 = tail call ptr @__dynamic_cast(ptr nonnull %this, ptr nonnull @_ZTIN3ue213RoseInstrBaseIL19RoseInstructionCode62E23ROSE_STRUCT_SET_LOGICALNS_19RoseInstrSetLogicalEEE, ptr nonnull @_ZTIN3ue219RoseInstrSetLogicalE, i64 0) #25
-  %lkey.i = getelementptr inbounds %"class.ue2::RoseInstrSetLogical", ptr %1, i64 0, i32 1
-  %lkey3.i = getelementptr inbounds %"class.ue2::RoseInstrSetLogical", ptr %0, i64 0, i32 1
+  %lkey.i = getelementptr inbounds i8, ptr %1, i64 8
+  %lkey3.i = getelementptr inbounds i8, ptr %0, i64 8
   %2 = load <2 x i32>, ptr %lkey.i, align 8
   %3 = load <2 x i32>, ptr %lkey3.i, align 8
   %4 = icmp eq <2 x i32> %2, %3
@@ -11085,7 +10806,7 @@ entry:
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr hidden noundef i64 @_ZNK3ue223RoseInstrSetCombination4hashEv(ptr noundef nonnull align 8 dereferenceable(12) %this) unnamed_addr #5 comdat align 2 {
 entry:
-  %ckey = getelementptr inbounds %"class.ue2::RoseInstrSetCombination", ptr %this, i64 0, i32 1
+  %ckey = getelementptr inbounds i8, ptr %this, i64 8
   %0 = load i32, ptr %ckey, align 8
   %conv.i.i.i.i.i.i = zext i32 %0 to i64
   %mul.i.i.i2.i.i = mul i64 %conv.i.i.i.i.i.i, 814605021516865831
@@ -11115,9 +10836,9 @@ entry:
 
 dynamic_cast.notnull2:                            ; preds = %entry
   %1 = tail call ptr @__dynamic_cast(ptr nonnull %this, ptr nonnull @_ZTIN3ue213RoseInstrBaseIL19RoseInstructionCode63E27ROSE_STRUCT_SET_COMBINATIONNS_23RoseInstrSetCombinationEEE, ptr nonnull @_ZTIN3ue223RoseInstrSetCombinationE, i64 0) #25
-  %ckey.i = getelementptr inbounds %"class.ue2::RoseInstrSetCombination", ptr %1, i64 0, i32 1
+  %ckey.i = getelementptr inbounds i8, ptr %1, i64 8
   %2 = load i32, ptr %ckey.i, align 8
-  %ckey3.i = getelementptr inbounds %"class.ue2::RoseInstrSetCombination", ptr %0, i64 0, i32 1
+  %ckey3.i = getelementptr inbounds i8, ptr %0, i64 8
   %3 = load i32, ptr %ckey3.i, align 8
   %cmp.i = icmp eq i32 %2, %3
   br label %cleanup
@@ -11149,7 +10870,7 @@ entry:
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr hidden noundef i64 @_ZNK3ue219RoseInstrSetExhaust4hashEv(ptr noundef nonnull align 8 dereferenceable(12) %this) unnamed_addr #5 comdat align 2 {
 entry:
-  %ekey = getelementptr inbounds %"class.ue2::RoseInstrSetExhaust", ptr %this, i64 0, i32 1
+  %ekey = getelementptr inbounds i8, ptr %this, i64 8
   %0 = load i32, ptr %ekey, align 8
   %conv.i.i.i.i.i.i = zext i32 %0 to i64
   %mul.i.i.i2.i.i = mul i64 %conv.i.i.i.i.i.i, 814605021516865831
@@ -11179,9 +10900,9 @@ entry:
 
 dynamic_cast.notnull2:                            ; preds = %entry
   %1 = tail call ptr @__dynamic_cast(ptr nonnull %this, ptr nonnull @_ZTIN3ue213RoseInstrBaseIL19RoseInstructionCode65E23ROSE_STRUCT_SET_EXHAUSTNS_19RoseInstrSetExhaustEEE, ptr nonnull @_ZTIN3ue219RoseInstrSetExhaustE, i64 0) #25
-  %ekey.i = getelementptr inbounds %"class.ue2::RoseInstrSetExhaust", ptr %1, i64 0, i32 1
+  %ekey.i = getelementptr inbounds i8, ptr %1, i64 8
   %2 = load i32, ptr %ekey.i, align 8
-  %ekey3.i = getelementptr inbounds %"class.ue2::RoseInstrSetExhaust", ptr %0, i64 0, i32 1
+  %ekey3.i = getelementptr inbounds i8, ptr %0, i64 8
   %3 = load i32, ptr %ekey3.i, align 8
   %cmp.i = icmp eq i32 %2, %3
   br label %cleanup
@@ -11662,19 +11383,19 @@ entry:
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr hidden ptr @_ZNSt10_HashtableISt6vectorI17mmbit_sparse_iterSaIS1_EESt4pairIKS3_jESaIS6_ENSt8__detail10_Select1stESt8equal_toIS3_EN3ue210ue2_hasherENS8_18_Mod_range_hashingENS8_20_Default_ranged_hashENS8_20_Prime_rehash_policyENS8_17_Hashtable_traitsILb1ELb0ELb1EEEE4findERS5_(ptr noundef nonnull align 8 dereferenceable(56) %this, ptr noundef nonnull align 8 dereferenceable(24) %__k) local_unnamed_addr #5 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  %_M_element_count.i = getelementptr inbounds %"class.std::_Hashtable.62", ptr %this, i64 0, i32 3
+  %_M_element_count.i = getelementptr inbounds i8, ptr %this, i64 24
   %0 = load i64, ptr %_M_element_count.i, align 8
   %cmp.not.not = icmp eq i64 %0, 0
   br i1 %cmp.not.not, label %if.then, label %if.end15
 
 if.then:                                          ; preds = %entry
-  %_M_before_begin.i.i = getelementptr inbounds %"class.std::_Hashtable.62", ptr %this, i64 0, i32 2
+  %_M_before_begin.i.i = getelementptr inbounds i8, ptr %this, i64 16
   %retval.sroa.0.035 = load ptr, ptr %_M_before_begin.i.i, align 8
   %cmp.i.not36 = icmp eq ptr %retval.sroa.0.035, null
   br i1 %cmp.i.not36, label %return, label %for.body.lr.ph
 
 for.body.lr.ph:                                   ; preds = %if.then
-  %_M_finish.i.i.i.i = getelementptr inbounds %"struct.std::_Vector_base<mmbit_sparse_iter, std::allocator<mmbit_sparse_iter>>::_Vector_impl_data", ptr %__k, i64 0, i32 1
+  %_M_finish.i.i.i.i = getelementptr inbounds i8, ptr %__k, i64 8
   %1 = load ptr, ptr %_M_finish.i.i.i.i, align 8
   %2 = load ptr, ptr %__k, align 8
   %sub.ptr.lhs.cast.i.i.i.i = ptrtoint ptr %1 to i64
@@ -11719,17 +11440,17 @@ for.body.i.i.i.i.i.i.i:                           ; preds = %for.body, %for.inc.
   %7 = load i64, ptr %__first1.addr.06.i.i.i.i.i.i.i, align 8
   %8 = load i64, ptr %__first2.addr.07.i.i.i.i.i.i.i, align 8
   %cmp.i.i.i.i.i.i.i.i = icmp eq i64 %7, %8
-  %val.i.i.i.i.i.i.i.i = getelementptr inbounds %struct.mmbit_sparse_iter, ptr %__first1.addr.06.i.i.i.i.i.i.i, i64 0, i32 1
+  %val.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %__first1.addr.06.i.i.i.i.i.i.i, i64 8
   %9 = load i32, ptr %val.i.i.i.i.i.i.i.i, align 8
-  %val2.i.i.i.i.i.i.i.i = getelementptr inbounds %struct.mmbit_sparse_iter, ptr %__first2.addr.07.i.i.i.i.i.i.i, i64 0, i32 1
+  %val2.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %__first2.addr.07.i.i.i.i.i.i.i, i64 8
   %10 = load i32, ptr %val2.i.i.i.i.i.i.i.i, align 8
   %cmp3.i.i.i.i.i.i.i.i = icmp eq i32 %9, %10
   %11 = select i1 %cmp.i.i.i.i.i.i.i.i, i1 %cmp3.i.i.i.i.i.i.i.i, i1 false
   br i1 %11, label %for.inc.i.i.i.i.i.i.i, label %for.inc
 
 for.inc.i.i.i.i.i.i.i:                            ; preds = %for.body.i.i.i.i.i.i.i
-  %incdec.ptr.i.i.i.i.i.i.i = getelementptr inbounds %struct.mmbit_sparse_iter, ptr %__first1.addr.06.i.i.i.i.i.i.i, i64 1
-  %incdec.ptr1.i.i.i.i.i.i.i = getelementptr inbounds %struct.mmbit_sparse_iter, ptr %__first2.addr.07.i.i.i.i.i.i.i, i64 1
+  %incdec.ptr.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %__first1.addr.06.i.i.i.i.i.i.i, i64 16
+  %incdec.ptr1.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %__first2.addr.07.i.i.i.i.i.i.i, i64 16
   %cmp.not.i.i.i.i.i.i.i = icmp eq ptr %incdec.ptr.i.i.i.i.i.i.i, %1
   br i1 %cmp.not.i.i.i.i.i.i.i, label %return, label %for.body.i.i.i.i.i.i.i, !llvm.loop !27
 
@@ -11740,7 +11461,7 @@ for.inc:                                          ; preds = %for.body.i.i.i.i.i.
 
 if.end15:                                         ; preds = %entry
   %12 = load ptr, ptr %__k, align 8
-  %_M_finish.i.i.i.i24 = getelementptr inbounds %"struct.std::_Vector_base<mmbit_sparse_iter, std::allocator<mmbit_sparse_iter>>::_Vector_impl_data", ptr %__k, i64 0, i32 1
+  %_M_finish.i.i.i.i24 = getelementptr inbounds i8, ptr %__k, i64 8
   %13 = load ptr, ptr %_M_finish.i.i.i.i24, align 8
   %cmp.i.not12.i.i.i = icmp eq ptr %12, %13
   br i1 %cmp.i.not12.i.i.i, label %_ZNKSt8__detail15_Hash_code_baseISt6vectorI17mmbit_sparse_iterSaIS2_EESt4pairIKS4_jENS_10_Select1stEN3ue210ue2_hasherENS_18_Mod_range_hashingENS_20_Default_ranged_hashELb1EE12_M_hash_codeERS6_.exit, label %for.body.i.i.i
@@ -11748,7 +11469,7 @@ if.end15:                                         ; preds = %entry
 for.body.i.i.i:                                   ; preds = %if.end15, %for.body.i.i.i
   %v.014.i.i.i = phi i64 [ %add.i.i.i.i, %for.body.i.i.i ], [ 0, %if.end15 ]
   %__begin0.sroa.0.013.i.i.i = phi ptr [ %incdec.ptr.i.i.i.i, %for.body.i.i.i ], [ %12, %if.end15 ]
-  %val.i.i.i.i.i = getelementptr inbounds %struct.mmbit_sparse_iter, ptr %__begin0.sroa.0.013.i.i.i, i64 0, i32 1
+  %val.i.i.i.i.i = getelementptr inbounds i8, ptr %__begin0.sroa.0.013.i.i.i, i64 8
   %14 = load i64, ptr %__begin0.sroa.0.013.i.i.i, align 8
   %mul.i.i.i.i.i.i.i.i.i.i = mul i64 %14, 814605021516865831
   %add.i.i.i.i.i.i.i.i.i.i = add i64 %mul.i.i.i.i.i.i.i.i.i.i, 3571081485394615273
@@ -11760,13 +11481,13 @@ for.body.i.i.i:                                   ; preds = %if.end15, %for.body
   %mul.i.i.i.i = add i64 %16, -1791322829183465089
   %xor.i.i.i.i = xor i64 %mul.i.i.i.i, %v.014.i.i.i
   %add.i.i.i.i = add i64 %xor.i.i.i.i, 3571081485394615273
-  %incdec.ptr.i.i.i.i = getelementptr inbounds %struct.mmbit_sparse_iter, ptr %__begin0.sroa.0.013.i.i.i, i64 1
+  %incdec.ptr.i.i.i.i = getelementptr inbounds i8, ptr %__begin0.sroa.0.013.i.i.i, i64 16
   %cmp.i.not.i.i.i = icmp eq ptr %incdec.ptr.i.i.i.i, %13
   br i1 %cmp.i.not.i.i.i, label %_ZNKSt8__detail15_Hash_code_baseISt6vectorI17mmbit_sparse_iterSaIS2_EESt4pairIKS4_jENS_10_Select1stEN3ue210ue2_hasherENS_18_Mod_range_hashingENS_20_Default_ranged_hashELb1EE12_M_hash_codeERS6_.exit, label %for.body.i.i.i
 
 _ZNKSt8__detail15_Hash_code_baseISt6vectorI17mmbit_sparse_iterSaIS2_EESt4pairIKS4_jENS_10_Select1stEN3ue210ue2_hasherENS_18_Mod_range_hashingENS_20_Default_ranged_hashELb1EE12_M_hash_codeERS6_.exit: ; preds = %for.body.i.i.i, %if.end15
   %v.0.lcssa.i.i.i = phi i64 [ 0, %if.end15 ], [ %add.i.i.i.i, %for.body.i.i.i ]
-  %_M_bucket_count.i = getelementptr inbounds %"class.std::_Hashtable.62", ptr %this, i64 0, i32 1
+  %_M_bucket_count.i = getelementptr inbounds i8, ptr %this, i64 8
   %17 = load i64, ptr %_M_bucket_count.i, align 8
   %rem.i.i.i = urem i64 %v.0.lcssa.i.i.i, %17
   %18 = load ptr, ptr %this, align 8
@@ -11836,17 +11557,17 @@ for.body.i.i.i.i.i.i.i.i.i.i:                     ; preds = %land.rhs.i.i.i25, %
   %31 = load i64, ptr %__first1.addr.06.i.i.i.i.i.i.i.i.i.i, align 8
   %32 = load i64, ptr %__first2.addr.07.i.i.i.i.i.i.i.i.i.i, align 8
   %cmp.i.i.i.i.i.i.i.i.i.i.i = icmp eq i64 %31, %32
-  %val.i.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds %struct.mmbit_sparse_iter, ptr %__first1.addr.06.i.i.i.i.i.i.i.i.i.i, i64 0, i32 1
+  %val.i.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %__first1.addr.06.i.i.i.i.i.i.i.i.i.i, i64 8
   %33 = load i32, ptr %val.i.i.i.i.i.i.i.i.i.i.i, align 8
-  %val2.i.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds %struct.mmbit_sparse_iter, ptr %__first2.addr.07.i.i.i.i.i.i.i.i.i.i, i64 0, i32 1
+  %val2.i.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %__first2.addr.07.i.i.i.i.i.i.i.i.i.i, i64 8
   %34 = load i32, ptr %val2.i.i.i.i.i.i.i.i.i.i.i, align 8
   %cmp3.i.i.i.i.i.i.i.i.i.i.i = icmp eq i32 %33, %34
   %35 = select i1 %cmp.i.i.i.i.i.i.i.i.i.i.i, i1 %cmp3.i.i.i.i.i.i.i.i.i.i.i, i1 false
   br i1 %35, label %for.inc.i.i.i.i.i.i.i.i.i.i, label %if.end3.i.i
 
 for.inc.i.i.i.i.i.i.i.i.i.i:                      ; preds = %for.body.i.i.i.i.i.i.i.i.i.i
-  %incdec.ptr.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds %struct.mmbit_sparse_iter, ptr %__first1.addr.06.i.i.i.i.i.i.i.i.i.i, i64 1
-  %incdec.ptr1.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds %struct.mmbit_sparse_iter, ptr %__first2.addr.07.i.i.i.i.i.i.i.i.i.i, i64 1
+  %incdec.ptr.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %__first1.addr.06.i.i.i.i.i.i.i.i.i.i, i64 16
+  %incdec.ptr1.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %__first2.addr.07.i.i.i.i.i.i.i.i.i.i, i64 16
   %cmp.not.i.i.i.i.i.i.i.i.i.i = icmp eq ptr %incdec.ptr.i.i.i.i.i.i.i.i.i.i, %13
   br i1 %cmp.not.i.i.i.i.i.i.i.i.i.i, label %return, label %for.body.i.i.i.i.i.i.i.i.i.i, !llvm.loop !27
 
@@ -11884,11 +11605,11 @@ entry:
   %__node = alloca %"struct.std::_Hashtable<std::vector<mmbit_sparse_iter>, std::pair<const std::vector<mmbit_sparse_iter>, unsigned int>, std::allocator<std::pair<const std::vector<mmbit_sparse_iter>, unsigned int>>, std::__detail::_Select1st, std::equal_to<std::vector<mmbit_sparse_iter>>, ue2::ue2_hasher, std::__detail::_Mod_range_hashing, std::__detail::_Default_ranged_hash, std::__detail::_Prime_rehash_policy, std::__detail::_Hashtable_traits<true, false, true>>::_Scoped_node", align 8
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %__node) #25
   store ptr %this, ptr %__node, align 8
-  %_M_node.i = getelementptr inbounds %"struct.std::_Hashtable<std::vector<mmbit_sparse_iter>, std::pair<const std::vector<mmbit_sparse_iter>, unsigned int>, std::allocator<std::pair<const std::vector<mmbit_sparse_iter>, unsigned int>>, std::__detail::_Select1st, std::equal_to<std::vector<mmbit_sparse_iter>>, ue2::ue2_hasher, std::__detail::_Mod_range_hashing, std::__detail::_Default_ranged_hash, std::__detail::_Prime_rehash_policy, std::__detail::_Hashtable_traits<true, false, true>>::_Scoped_node", ptr %__node, i64 0, i32 1
+  %_M_node.i = getelementptr inbounds i8, ptr %__node, i64 8
   %call.i = tail call noundef ptr @_ZNSt8__detail16_Hashtable_allocISaINS_10_Hash_nodeISt4pairIKSt6vectorI17mmbit_sparse_iterSaIS4_EEjELb1EEEEE16_M_allocate_nodeIJRS7_RjEEEPS9_DpOT_(ptr noundef nonnull align 1 dereferenceable(1) %this, ptr noundef nonnull align 8 dereferenceable(24) %__args, ptr noundef nonnull align 4 dereferenceable(4) %__args1)
   store ptr %call.i, ptr %_M_node.i, align 8
   %add.ptr = getelementptr inbounds i8, ptr %call.i, i64 8
-  %_M_element_count.i = getelementptr inbounds %"class.std::_Hashtable.62", ptr %this, i64 0, i32 3
+  %_M_element_count.i = getelementptr inbounds i8, ptr %this, i64 24
   %0 = load i64, ptr %_M_element_count.i, align 8
   %cmp.not.not = icmp eq i64 %0, 0
   br i1 %cmp.not.not, label %if.then, label %entry.if.end21_crit_edge
@@ -11898,7 +11619,7 @@ entry.if.end21_crit_edge:                         ; preds = %entry
   br label %if.end21
 
 if.then:                                          ; preds = %entry
-  %_M_before_begin.i.i = getelementptr inbounds %"class.std::_Hashtable.62", ptr %this, i64 0, i32 2
+  %_M_before_begin.i.i = getelementptr inbounds i8, ptr %this, i64 16
   %__it.sroa.0.0108 = load ptr, ptr %_M_before_begin.i.i, align 8
   %cmp.i.not109 = icmp eq ptr %__it.sroa.0.0108, null
   %.pre117 = load ptr, ptr %add.ptr, align 8
@@ -11949,17 +11670,17 @@ for.body.i.i.i.i.i.i.i:                           ; preds = %for.body, %for.inc.
   %6 = load i64, ptr %__first1.addr.06.i.i.i.i.i.i.i, align 8
   %7 = load i64, ptr %__first2.addr.07.i.i.i.i.i.i.i, align 8
   %cmp.i.i.i.i.i.i.i.i = icmp eq i64 %6, %7
-  %val.i.i.i.i.i.i.i.i = getelementptr inbounds %struct.mmbit_sparse_iter, ptr %__first1.addr.06.i.i.i.i.i.i.i, i64 0, i32 1
+  %val.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %__first1.addr.06.i.i.i.i.i.i.i, i64 8
   %8 = load i32, ptr %val.i.i.i.i.i.i.i.i, align 8
-  %val2.i.i.i.i.i.i.i.i = getelementptr inbounds %struct.mmbit_sparse_iter, ptr %__first2.addr.07.i.i.i.i.i.i.i, i64 0, i32 1
+  %val2.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %__first2.addr.07.i.i.i.i.i.i.i, i64 8
   %9 = load i32, ptr %val2.i.i.i.i.i.i.i.i, align 8
   %cmp3.i.i.i.i.i.i.i.i = icmp eq i32 %8, %9
   %10 = select i1 %cmp.i.i.i.i.i.i.i.i, i1 %cmp3.i.i.i.i.i.i.i.i, i1 false
   br i1 %10, label %for.inc.i.i.i.i.i.i.i, label %for.inc
 
 for.inc.i.i.i.i.i.i.i:                            ; preds = %for.body.i.i.i.i.i.i.i
-  %incdec.ptr.i.i.i.i.i.i.i = getelementptr inbounds %struct.mmbit_sparse_iter, ptr %__first1.addr.06.i.i.i.i.i.i.i, i64 1
-  %incdec.ptr1.i.i.i.i.i.i.i = getelementptr inbounds %struct.mmbit_sparse_iter, ptr %__first2.addr.07.i.i.i.i.i.i.i, i64 1
+  %incdec.ptr.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %__first1.addr.06.i.i.i.i.i.i.i, i64 16
+  %incdec.ptr1.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %__first2.addr.07.i.i.i.i.i.i.i, i64 16
   %cmp.not.i.i.i.i.i.i.i = icmp eq ptr %incdec.ptr.i.i.i.i.i.i.i, %1
   br i1 %cmp.not.i.i.i.i.i.i.i, label %cleanup64, label %for.body.i.i.i.i.i.i.i, !llvm.loop !27
 
@@ -11978,7 +11699,7 @@ if.end21:                                         ; preds = %for.inc, %for.inc.u
 for.body.i.i.i:                                   ; preds = %if.end21, %for.body.i.i.i
   %v.014.i.i.i = phi i64 [ %add.i.i.i.i, %for.body.i.i.i ], [ 0, %if.end21 ]
   %__begin0.sroa.0.013.i.i.i = phi ptr [ %incdec.ptr.i.i.i.i, %for.body.i.i.i ], [ %11, %if.end21 ]
-  %val.i.i.i.i.i = getelementptr inbounds %struct.mmbit_sparse_iter, ptr %__begin0.sroa.0.013.i.i.i, i64 0, i32 1
+  %val.i.i.i.i.i = getelementptr inbounds i8, ptr %__begin0.sroa.0.013.i.i.i, i64 8
   %13 = load i64, ptr %__begin0.sroa.0.013.i.i.i, align 8
   %mul.i.i.i.i.i.i.i.i.i.i = mul i64 %13, 814605021516865831
   %add.i.i.i.i.i.i.i.i.i.i = add i64 %mul.i.i.i.i.i.i.i.i.i.i, 3571081485394615273
@@ -11990,13 +11711,13 @@ for.body.i.i.i:                                   ; preds = %if.end21, %for.body
   %mul.i.i.i.i = add i64 %15, -1791322829183465089
   %xor.i.i.i.i = xor i64 %mul.i.i.i.i, %v.014.i.i.i
   %add.i.i.i.i = add i64 %xor.i.i.i.i, 3571081485394615273
-  %incdec.ptr.i.i.i.i = getelementptr inbounds %struct.mmbit_sparse_iter, ptr %__begin0.sroa.0.013.i.i.i, i64 1
+  %incdec.ptr.i.i.i.i = getelementptr inbounds i8, ptr %__begin0.sroa.0.013.i.i.i, i64 16
   %cmp.i.not.i.i.i = icmp eq ptr %incdec.ptr.i.i.i.i, %12
   br i1 %cmp.i.not.i.i.i, label %invoke.cont26, label %for.body.i.i.i
 
 invoke.cont26:                                    ; preds = %for.body.i.i.i, %if.end21
   %v.0.lcssa.i.i.i = phi i64 [ 0, %if.end21 ], [ %add.i.i.i.i, %for.body.i.i.i ]
-  %_M_bucket_count.i = getelementptr inbounds %"class.std::_Hashtable.62", ptr %this, i64 0, i32 1
+  %_M_bucket_count.i = getelementptr inbounds i8, ptr %this, i64 8
   %16 = load i64, ptr %_M_bucket_count.i, align 8
   %rem.i.i.i = urem i64 %v.0.lcssa.i.i.i, %16
   br i1 %cmp.not.not, label %if.end46, label %if.then31
@@ -12069,17 +11790,17 @@ for.body.i.i.i.i.i.i.i.i.i.i:                     ; preds = %land.rhs.i.i.i84, %
   %30 = load i64, ptr %__first1.addr.06.i.i.i.i.i.i.i.i.i.i, align 8
   %31 = load i64, ptr %__first2.addr.07.i.i.i.i.i.i.i.i.i.i, align 8
   %cmp.i.i.i.i.i.i.i.i.i.i.i = icmp eq i64 %30, %31
-  %val.i.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds %struct.mmbit_sparse_iter, ptr %__first1.addr.06.i.i.i.i.i.i.i.i.i.i, i64 0, i32 1
+  %val.i.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %__first1.addr.06.i.i.i.i.i.i.i.i.i.i, i64 8
   %32 = load i32, ptr %val.i.i.i.i.i.i.i.i.i.i.i, align 8
-  %val2.i.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds %struct.mmbit_sparse_iter, ptr %__first2.addr.07.i.i.i.i.i.i.i.i.i.i, i64 0, i32 1
+  %val2.i.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %__first2.addr.07.i.i.i.i.i.i.i.i.i.i, i64 8
   %33 = load i32, ptr %val2.i.i.i.i.i.i.i.i.i.i.i, align 8
   %cmp3.i.i.i.i.i.i.i.i.i.i.i = icmp eq i32 %32, %33
   %34 = select i1 %cmp.i.i.i.i.i.i.i.i.i.i.i, i1 %cmp3.i.i.i.i.i.i.i.i.i.i.i, i1 false
   br i1 %34, label %for.inc.i.i.i.i.i.i.i.i.i.i, label %if.end3.i.i
 
 for.inc.i.i.i.i.i.i.i.i.i.i:                      ; preds = %for.body.i.i.i.i.i.i.i.i.i.i
-  %incdec.ptr.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds %struct.mmbit_sparse_iter, ptr %__first1.addr.06.i.i.i.i.i.i.i.i.i.i, i64 1
-  %incdec.ptr1.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds %struct.mmbit_sparse_iter, ptr %__first2.addr.07.i.i.i.i.i.i.i.i.i.i, i64 1
+  %incdec.ptr.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %__first1.addr.06.i.i.i.i.i.i.i.i.i.i, i64 16
+  %incdec.ptr1.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %__first2.addr.07.i.i.i.i.i.i.i.i.i.i, i64 16
   %cmp.not.i.i.i.i.i.i.i.i.i.i = icmp eq ptr %incdec.ptr.i.i.i.i.i.i.i.i.i.i, %12
   br i1 %cmp.not.i.i.i.i.i.i.i.i.i.i, label %invoke.cont33, label %for.body.i.i.i.i.i.i.i.i.i.i, !llvm.loop !27
 
@@ -12140,12 +11861,12 @@ _ZNSt10_HashtableISt6vectorI17mmbit_sparse_iterSaIS1_EESt4pairIKS3_jESaIS6_ENSt8
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr hidden ptr @_ZNSt10_HashtableISt6vectorI17mmbit_sparse_iterSaIS1_EESt4pairIKS3_jESaIS6_ENSt8__detail10_Select1stESt8equal_toIS3_EN3ue210ue2_hasherENS8_18_Mod_range_hashingENS8_20_Default_ranged_hashENS8_20_Prime_rehash_policyENS8_17_Hashtable_traitsILb1ELb0ELb1EEEE21_M_insert_unique_nodeEmmPNS8_10_Hash_nodeIS6_Lb1EEEm(ptr noundef nonnull align 8 dereferenceable(56) %this, i64 noundef %__bkt, i64 noundef %__code, ptr noundef %__node, i64 noundef %__n_elt) local_unnamed_addr #5 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  %_M_rehash_policy = getelementptr inbounds %"class.std::_Hashtable.62", ptr %this, i64 0, i32 4
-  %_M_next_resize.i = getelementptr inbounds %"class.std::_Hashtable.62", ptr %this, i64 0, i32 4, i32 1
+  %_M_rehash_policy = getelementptr inbounds i8, ptr %this, i64 32
+  %_M_next_resize.i = getelementptr inbounds i8, ptr %this, i64 40
   %0 = load i64, ptr %_M_next_resize.i, align 8
-  %_M_bucket_count = getelementptr inbounds %"class.std::_Hashtable.62", ptr %this, i64 0, i32 1
+  %_M_bucket_count = getelementptr inbounds i8, ptr %this, i64 8
   %1 = load i64, ptr %_M_bucket_count, align 8
-  %_M_element_count = getelementptr inbounds %"class.std::_Hashtable.62", ptr %this, i64 0, i32 3
+  %_M_element_count = getelementptr inbounds i8, ptr %this, i64 24
   %2 = load i64, ptr %_M_element_count, align 8
   %call3 = tail call { i8, i64 } @_ZNKSt8__detail20_Prime_rehash_policy14_M_need_rehashEmmm(ptr noundef nonnull align 8 dereferenceable(16) %_M_rehash_policy, i64 noundef %1, i64 noundef %2, i64 noundef %__n_elt)
   %3 = extractvalue { i8, i64 } %call3, 0
@@ -12211,7 +11932,7 @@ if.then.i:                                        ; preds = %if.end
   br label %_ZNSt10_HashtableISt6vectorI17mmbit_sparse_iterSaIS1_EESt4pairIKS3_jESaIS6_ENSt8__detail10_Select1stESt8equal_toIS3_EN3ue210ue2_hasherENS8_18_Mod_range_hashingENS8_20_Default_ranged_hashENS8_20_Prime_rehash_policyENS8_17_Hashtable_traitsILb1ELb0ELb1EEEE22_M_insert_bucket_beginEmPNS8_10_Hash_nodeIS6_Lb1EEE.exit
 
 if.else.i:                                        ; preds = %if.end
-  %_M_before_begin.i = getelementptr inbounds %"class.std::_Hashtable.62", ptr %this, i64 0, i32 2
+  %_M_before_begin.i = getelementptr inbounds i8, ptr %this, i64 16
   %18 = load ptr, ptr %_M_before_begin.i, align 8
   store ptr %18, ptr %__node, align 8
   store ptr %__node, ptr %_M_before_begin.i, align 8
@@ -12245,7 +11966,7 @@ _ZNSt10_HashtableISt6vectorI17mmbit_sparse_iterSaIS1_EESt4pairIKS3_jESaIS6_ENSt8
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZNSt10_HashtableISt6vectorI17mmbit_sparse_iterSaIS1_EESt4pairIKS3_jESaIS6_ENSt8__detail10_Select1stESt8equal_toIS3_EN3ue210ue2_hasherENS8_18_Mod_range_hashingENS8_20_Default_ranged_hashENS8_20_Prime_rehash_policyENS8_17_Hashtable_traitsILb1ELb0ELb1EEEE12_Scoped_nodeD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %this) unnamed_addr #3 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  %_M_node = getelementptr inbounds %"struct.std::_Hashtable<std::vector<mmbit_sparse_iter>, std::pair<const std::vector<mmbit_sparse_iter>, unsigned int>, std::allocator<std::pair<const std::vector<mmbit_sparse_iter>, unsigned int>>, std::__detail::_Select1st, std::equal_to<std::vector<mmbit_sparse_iter>>, ue2::ue2_hasher, std::__detail::_Mod_range_hashing, std::__detail::_Default_ranged_hash, std::__detail::_Prime_rehash_policy, std::__detail::_Hashtable_traits<true, false, true>>::_Scoped_node", ptr %this, i64 0, i32 1
+  %_M_node = getelementptr inbounds i8, ptr %this, i64 8
   %0 = load ptr, ptr %_M_node, align 8
   %tobool.not = icmp eq ptr %0, null
   br i1 %tobool.not, label %if.end, label %if.then
@@ -12274,7 +11995,7 @@ invoke.cont:
   %call5.i.i = tail call noalias noundef nonnull dereferenceable(48) ptr @_Znwm(i64 noundef 48) #26
   store ptr null, ptr %call5.i.i, align 8
   %add.ptr = getelementptr inbounds i8, ptr %call5.i.i, i64 8
-  %_M_finish.i.i.i.i.i = getelementptr inbounds %"struct.std::_Vector_base<mmbit_sparse_iter, std::allocator<mmbit_sparse_iter>>::_Vector_impl_data", ptr %__args, i64 0, i32 1
+  %_M_finish.i.i.i.i.i = getelementptr inbounds i8, ptr %__args, i64 8
   %0 = load ptr, ptr %_M_finish.i.i.i.i.i, align 8
   %1 = load ptr, ptr %__args, align 8
   %sub.ptr.lhs.cast.i.i.i.i.i = ptrtoint ptr %0 to i64
@@ -12380,7 +12101,7 @@ entry:
   br i1 %cmp.i, label %if.then.i, label %if.end.i, !prof !30
 
 if.then.i:                                        ; preds = %entry
-  %_M_single_bucket.i = getelementptr inbounds %"class.std::_Hashtable.62", ptr %this, i64 0, i32 5
+  %_M_single_bucket.i = getelementptr inbounds i8, ptr %this, i64 48
   store ptr null, ptr %_M_single_bucket.i, align 8
   br label %_ZNSt10_HashtableISt6vectorI17mmbit_sparse_iterSaIS1_EESt4pairIKS3_jESaIS6_ENSt8__detail10_Select1stESt8equal_toIS3_EN3ue210ue2_hasherENS8_18_Mod_range_hashingENS8_20_Default_ranged_hashENS8_20_Prime_rehash_policyENS8_17_Hashtable_traitsILb1ELb0ELb1EEEE19_M_allocate_bucketsEm.exit
 
@@ -12408,7 +12129,7 @@ _ZNSt8__detail16_Hashtable_allocISaINS_10_Hash_nodeISt4pairIKSt6vectorI17mmbit_s
 
 _ZNSt10_HashtableISt6vectorI17mmbit_sparse_iterSaIS1_EESt4pairIKS3_jESaIS6_ENSt8__detail10_Select1stESt8equal_toIS3_EN3ue210ue2_hasherENS8_18_Mod_range_hashingENS8_20_Default_ranged_hashENS8_20_Prime_rehash_policyENS8_17_Hashtable_traitsILb1ELb0ELb1EEEE19_M_allocate_bucketsEm.exit: ; preds = %_ZNSt8__detail16_Hashtable_allocISaINS_10_Hash_nodeISt4pairIKSt6vectorI17mmbit_sparse_iterSaIS4_EEjELb1EEEEE19_M_allocate_bucketsEm.exit.i, %if.then.i
   %retval.0.i = phi ptr [ %_M_single_bucket.i, %if.then.i ], [ %call5.i.i8.i.i, %_ZNSt8__detail16_Hashtable_allocISaINS_10_Hash_nodeISt4pairIKSt6vectorI17mmbit_sparse_iterSaIS4_EEjELb1EEEEE19_M_allocate_bucketsEm.exit.i ]
-  %_M_before_begin.i = getelementptr inbounds %"class.std::_Hashtable.62", ptr %this, i64 0, i32 2
+  %_M_before_begin.i = getelementptr inbounds i8, ptr %this, i64 16
   %0 = load ptr, ptr %_M_before_begin.i, align 8
   store ptr null, ptr %_M_before_begin.i, align 8
   %tobool.not42 = icmp eq ptr %0, null
@@ -12458,7 +12179,7 @@ if.end22:                                         ; preds = %if.end22.sink.split
 
 while.end:                                        ; preds = %if.end22, %_ZNSt10_HashtableISt6vectorI17mmbit_sparse_iterSaIS1_EESt4pairIKS3_jESaIS6_ENSt8__detail10_Select1stESt8equal_toIS3_EN3ue210ue2_hasherENS8_18_Mod_range_hashingENS8_20_Default_ranged_hashENS8_20_Prime_rehash_policyENS8_17_Hashtable_traitsILb1ELb0ELb1EEEE19_M_allocate_bucketsEm.exit
   %8 = load ptr, ptr %this, align 8
-  %_M_single_bucket.i.i.i = getelementptr inbounds %"class.std::_Hashtable.62", ptr %this, i64 0, i32 5
+  %_M_single_bucket.i.i.i = getelementptr inbounds i8, ptr %this, i64 48
   %cmp.i.i.i = icmp eq ptr %_M_single_bucket.i.i.i, %8
   br i1 %cmp.i.i.i, label %_ZNSt10_HashtableISt6vectorI17mmbit_sparse_iterSaIS1_EESt4pairIKS3_jESaIS6_ENSt8__detail10_Select1stESt8equal_toIS3_EN3ue210ue2_hasherENS8_18_Mod_range_hashingENS8_20_Default_ranged_hashENS8_20_Prime_rehash_policyENS8_17_Hashtable_traitsILb1ELb0ELb1EEEE21_M_deallocate_bucketsEv.exit, label %if.end.i.i
 
@@ -12467,7 +12188,7 @@ if.end.i.i:                                       ; preds = %while.end
   br label %_ZNSt10_HashtableISt6vectorI17mmbit_sparse_iterSaIS1_EESt4pairIKS3_jESaIS6_ENSt8__detail10_Select1stESt8equal_toIS3_EN3ue210ue2_hasherENS8_18_Mod_range_hashingENS8_20_Default_ranged_hashENS8_20_Prime_rehash_policyENS8_17_Hashtable_traitsILb1ELb0ELb1EEEE21_M_deallocate_bucketsEv.exit
 
 _ZNSt10_HashtableISt6vectorI17mmbit_sparse_iterSaIS1_EESt4pairIKS3_jESaIS6_ENSt8__detail10_Select1stESt8equal_toIS3_EN3ue210ue2_hasherENS8_18_Mod_range_hashingENS8_20_Default_ranged_hashENS8_20_Prime_rehash_policyENS8_17_Hashtable_traitsILb1ELb0ELb1EEEE21_M_deallocate_bucketsEv.exit: ; preds = %if.end.i.i, %while.end
-  %_M_bucket_count = getelementptr inbounds %"class.std::_Hashtable.62", ptr %this, i64 0, i32 1
+  %_M_bucket_count = getelementptr inbounds i8, ptr %this, i64 8
   store i64 %__bkt_count, ptr %_M_bucket_count, align 8
   store ptr %retval.0.i, ptr %this, align 8
   ret void
@@ -12480,13 +12201,13 @@ entry:
   br i1 %cmp.not, label %if.end43, label %if.then
 
 if.then:                                          ; preds = %entry
-  %_M_finish.i = getelementptr inbounds %"struct.std::_Vector_base<char, ue2::AlignedAllocator<char, 64>>::_Vector_impl_data", ptr %this, i64 0, i32 1
+  %_M_finish.i = getelementptr inbounds i8, ptr %this, i64 8
   %0 = load ptr, ptr %_M_finish.i, align 8
   %1 = load ptr, ptr %this, align 8
   %sub.ptr.lhs.cast.i = ptrtoint ptr %0 to i64
   %sub.ptr.rhs.cast.i = ptrtoint ptr %1 to i64
   %sub.ptr.sub.i = sub i64 %sub.ptr.lhs.cast.i, %sub.ptr.rhs.cast.i
-  %_M_end_of_storage = getelementptr inbounds %"struct.std::_Vector_base<char, ue2::AlignedAllocator<char, 64>>::_Vector_impl_data", ptr %this, i64 0, i32 2
+  %_M_end_of_storage = getelementptr inbounds i8, ptr %this, i64 16
   %2 = load ptr, ptr %_M_end_of_storage, align 8
   %sub.ptr.lhs.cast = ptrtoint ptr %2 to i64
   %sub.ptr.sub = sub i64 %sub.ptr.lhs.cast, %sub.ptr.lhs.cast.i
@@ -13217,7 +12938,7 @@ declare noundef i64 @_ZSt11_Hash_bytesPKvmm(ptr noundef, i64 noundef, i64 nounde
 define linkonce_odr hidden void @_ZN3ue211hash_detail10hash_buildISt6vectorIS2_INS_9LookEntryESaIS3_EESaIS5_EEJRKiRKSt5arrayIhLm16EEEEEvRmRKT_DpOT0_(ptr noundef nonnull align 8 dereferenceable(8) %v, ptr noundef nonnull align 8 dereferenceable(24) %obj, ptr noundef nonnull align 4 dereferenceable(4) %args, ptr noundef nonnull align 1 dereferenceable(16) %args1) local_unnamed_addr #5 comdat {
 entry:
   %0 = load ptr, ptr %obj, align 8
-  %_M_finish.i.i.i.i = getelementptr inbounds %"struct.std::_Vector_base<std::vector<ue2::LookEntry>, std::allocator<std::vector<ue2::LookEntry>>>::_Vector_impl_data", ptr %obj, i64 0, i32 1
+  %_M_finish.i.i.i.i = getelementptr inbounds i8, ptr %obj, i64 8
   %1 = load ptr, ptr %_M_finish.i.i.i.i, align 8
   %cmp.i.not12.i.i.i = icmp eq ptr %0, %1
   br i1 %cmp.i.not12.i.i.i, label %_ZN3ue211hash_detail10hash_buildISt6vectorIS2_INS_9LookEntryESaIS3_EESaIS5_EEEEvRmRKT_.exit, label %for.body.i.i.i
@@ -13226,7 +12947,7 @@ for.body.i.i.i:                                   ; preds = %entry, %_ZNK3ue211h
   %v.014.i.i.i = phi i64 [ %add.i.i.i.i, %_ZNK3ue211hash_detail8ue2_hashISt6vectorINS_9LookEntryESaIS3_EEvEclERKS5_.exit.i.i.i ], [ 0, %entry ]
   %__begin0.sroa.0.013.i.i.i = phi ptr [ %incdec.ptr.i.i.i.i, %_ZNK3ue211hash_detail8ue2_hashISt6vectorINS_9LookEntryESaIS3_EEvEclERKS5_.exit.i.i.i ], [ %0, %entry ]
   %2 = load ptr, ptr %__begin0.sroa.0.013.i.i.i, align 8
-  %_M_finish.i.i.i.i.i = getelementptr inbounds %"struct.std::_Vector_base<ue2::LookEntry, std::allocator<ue2::LookEntry>>::_Vector_impl_data", ptr %__begin0.sroa.0.013.i.i.i, i64 0, i32 1
+  %_M_finish.i.i.i.i.i = getelementptr inbounds i8, ptr %__begin0.sroa.0.013.i.i.i, i64 8
   %3 = load ptr, ptr %_M_finish.i.i.i.i.i, align 8
   %cmp.i.not12.i.i.i.i = icmp eq ptr %2, %3
   br i1 %cmp.i.not12.i.i.i.i, label %_ZNK3ue211hash_detail8ue2_hashISt6vectorINS_9LookEntryESaIS3_EEvEclERKS5_.exit.i.i.i, label %for.body.i.i.i.i
@@ -13234,7 +12955,7 @@ for.body.i.i.i:                                   ; preds = %entry, %_ZNK3ue211h
 for.body.i.i.i.i:                                 ; preds = %for.body.i.i.i, %for.body.i.i.i.i
   %v.014.i.i.i.i = phi i64 [ %add.i.i.i.i.i, %for.body.i.i.i.i ], [ 0, %for.body.i.i.i ]
   %__begin0.sroa.0.013.i.i.i.i = phi ptr [ %incdec.ptr.i.i.i.i.i, %for.body.i.i.i.i ], [ %2, %for.body.i.i.i ]
-  %reach.i.i.i.i.i.i = getelementptr inbounds %"struct.ue2::LookEntry", ptr %__begin0.sroa.0.013.i.i.i.i, i64 0, i32 1
+  %reach.i.i.i.i.i.i = getelementptr inbounds i8, ptr %__begin0.sroa.0.013.i.i.i.i, i64 8
   %4 = load i8, ptr %__begin0.sroa.0.013.i.i.i.i, align 1
   %conv.i.i.i.i.i.i.i.i.i.i.i.i = sext i8 %4 to i64
   %mul.i.i.i.i.i.i.i.i.i.i.i = mul i64 %conv.i.i.i.i.i.i.i.i.i.i.i.i, 814605021516865831
@@ -13242,17 +12963,17 @@ for.body.i.i.i.i:                                 ; preds = %for.body.i.i.i, %fo
   %5 = load i64, ptr %reach.i.i.i.i.i.i, align 8
   %mul.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i = mul i64 %5, 814605021516865831
   %add.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i = add i64 %mul.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i, 3571081485394615273
-  %__begin0.0.ptr.1.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds %"struct.ue2::LookEntry", ptr %__begin0.sroa.0.013.i.i.i.i, i64 0, i32 1, i32 0, i32 0, i32 0, i64 1
+  %__begin0.0.ptr.1.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %__begin0.sroa.0.013.i.i.i.i, i64 16
   %6 = load i64, ptr %__begin0.0.ptr.1.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i, align 8
   %mul.i.1.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i = mul i64 %6, 814605021516865831
   %xor.i.1.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i = xor i64 %mul.i.1.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i, %add.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i
   %add.i.1.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i = add i64 %xor.i.1.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i, 3571081485394615273
-  %__begin0.0.ptr.2.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds %"struct.ue2::LookEntry", ptr %__begin0.sroa.0.013.i.i.i.i, i64 0, i32 1, i32 0, i32 0, i32 0, i64 2
+  %__begin0.0.ptr.2.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %__begin0.sroa.0.013.i.i.i.i, i64 24
   %7 = load i64, ptr %__begin0.0.ptr.2.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i, align 8
   %mul.i.2.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i = mul i64 %7, 814605021516865831
   %xor.i.2.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i = xor i64 %add.i.1.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i, %mul.i.2.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i
   %add.i.2.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i = add i64 %xor.i.2.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i, 3571081485394615273
-  %__begin0.0.ptr.3.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds %"struct.ue2::LookEntry", ptr %__begin0.sroa.0.013.i.i.i.i, i64 0, i32 1, i32 0, i32 0, i32 0, i64 3
+  %__begin0.0.ptr.3.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %__begin0.sroa.0.013.i.i.i.i, i64 32
   %8 = load i64, ptr %__begin0.0.ptr.3.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i, align 8
   %mul.i.3.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i = mul i64 %8, 814605021516865831
   %xor.i.3.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i = xor i64 %add.i.2.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i, %mul.i.3.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i
@@ -13263,7 +12984,7 @@ for.body.i.i.i.i:                                 ; preds = %for.body.i.i.i, %fo
   %mul.i.i.i.i.i = add i64 %10, -1791322829183465089
   %xor.i.i.i.i.i = xor i64 %mul.i.i.i.i.i, %v.014.i.i.i.i
   %add.i.i.i.i.i = add i64 %xor.i.i.i.i.i, 3571081485394615273
-  %incdec.ptr.i.i.i.i.i = getelementptr inbounds %"struct.ue2::LookEntry", ptr %__begin0.sroa.0.013.i.i.i.i, i64 1
+  %incdec.ptr.i.i.i.i.i = getelementptr inbounds i8, ptr %__begin0.sroa.0.013.i.i.i.i, i64 40
   %cmp.i.not.i.i.i.i = icmp eq ptr %incdec.ptr.i.i.i.i.i, %3
   br i1 %cmp.i.not.i.i.i.i, label %_ZNK3ue211hash_detail8ue2_hashISt6vectorINS_9LookEntryESaIS3_EEvEclERKS5_.exit.i.i.i, label %for.body.i.i.i.i
 
@@ -13272,7 +12993,7 @@ _ZNK3ue211hash_detail8ue2_hashISt6vectorINS_9LookEntryESaIS3_EEvEclERKS5_.exit.i
   %mul.i.i.i.i = mul i64 %v.0.lcssa.i.i.i.i, 814605021516865831
   %xor.i.i.i.i = xor i64 %mul.i.i.i.i, %v.014.i.i.i
   %add.i.i.i.i = add i64 %xor.i.i.i.i, 3571081485394615273
-  %incdec.ptr.i.i.i.i = getelementptr inbounds %"class.std::vector.115", ptr %__begin0.sroa.0.013.i.i.i, i64 1
+  %incdec.ptr.i.i.i.i = getelementptr inbounds i8, ptr %__begin0.sroa.0.013.i.i.i, i64 24
   %cmp.i.not.i.i.i = icmp eq ptr %incdec.ptr.i.i.i.i, %1
   br i1 %cmp.i.not.i.i.i, label %_ZNK3ue211hash_detail8ue2_hashISt6vectorIS2_INS_9LookEntryESaIS3_EESaIS5_EEvEclERKS7_.exit.loopexit.i.i, label %for.body.i.i.i
 
@@ -13998,7 +13719,7 @@ declare void @_ZSt20__throw_out_of_rangePKc(ptr noundef) local_unnamed_addr #13
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr hidden void @_ZNSt6vectorIS_IN3ue29CharReachESaIS1_EESaIS3_EE17_M_realloc_insertIJS3_EEEvN9__gnu_cxx17__normal_iteratorIPS3_S5_EEDpOT_(ptr noundef nonnull align 8 dereferenceable(24) %this, ptr %__position.coerce, ptr noundef nonnull align 8 dereferenceable(24) %__args) local_unnamed_addr #5 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  %_M_finish.i.i = getelementptr inbounds %"struct.std::_Vector_base<std::vector<ue2::CharReach>, std::allocator<std::vector<ue2::CharReach>>>::_Vector_impl_data", ptr %this, i64 0, i32 1
+  %_M_finish.i.i = getelementptr inbounds i8, ptr %this, i64 8
   %0 = load ptr, ptr %_M_finish.i.i, align 8
   %1 = load ptr, ptr %this, align 8
   %sub.ptr.lhs.cast.i.i = ptrtoint ptr %0 to i64
@@ -14034,8 +13755,8 @@ _ZNSt12_Vector_baseISt6vectorIN3ue29CharReachESaIS2_EESaIS4_EE11_M_allocateEm.ex
   %add.ptr = getelementptr inbounds %"class.std::vector.108", ptr %cond.i31, i64 %sub.ptr.div.i
   %3 = load <2 x ptr>, ptr %__args, align 8
   store <2 x ptr> %3, ptr %add.ptr, align 8
-  %_M_end_of_storage.i.i.i.i.i.i = getelementptr inbounds %"struct.std::_Vector_base<ue2::CharReach, std::allocator<ue2::CharReach>>::_Vector_impl_data", ptr %add.ptr, i64 0, i32 2
-  %_M_end_of_storage4.i.i.i.i.i.i = getelementptr inbounds %"struct.std::_Vector_base<ue2::CharReach, std::allocator<ue2::CharReach>>::_Vector_impl_data", ptr %__args, i64 0, i32 2
+  %_M_end_of_storage.i.i.i.i.i.i = getelementptr inbounds i8, ptr %add.ptr, i64 16
+  %_M_end_of_storage4.i.i.i.i.i.i = getelementptr inbounds i8, ptr %__args, i64 16
   %4 = load ptr, ptr %_M_end_of_storage4.i.i.i.i.i.i, align 8
   store ptr %4, ptr %_M_end_of_storage.i.i.i.i.i.i, align 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %__args, i8 0, i64 24, i1 false)
@@ -14049,19 +13770,19 @@ for.body.i.i.i.i:                                 ; preds = %_ZNSt12_Vector_base
   tail call void @llvm.experimental.noalias.scope.decl(metadata !45)
   %5 = load <2 x ptr>, ptr %__first.addr.07.i.i.i.i, align 8, !alias.scope !45, !noalias !42
   store <2 x ptr> %5, ptr %__cur.08.i.i.i.i, align 8, !alias.scope !42, !noalias !45
-  %_M_end_of_storage.i.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds %"struct.std::_Vector_base<ue2::CharReach, std::allocator<ue2::CharReach>>::_Vector_impl_data", ptr %__cur.08.i.i.i.i, i64 0, i32 2
-  %_M_end_of_storage4.i.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds %"struct.std::_Vector_base<ue2::CharReach, std::allocator<ue2::CharReach>>::_Vector_impl_data", ptr %__first.addr.07.i.i.i.i, i64 0, i32 2
+  %_M_end_of_storage.i.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %__cur.08.i.i.i.i, i64 16
+  %_M_end_of_storage4.i.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %__first.addr.07.i.i.i.i, i64 16
   %6 = load ptr, ptr %_M_end_of_storage4.i.i.i.i.i.i.i.i.i.i.i, align 8, !alias.scope !45, !noalias !42
   store ptr %6, ptr %_M_end_of_storage.i.i.i.i.i.i.i.i.i.i.i, align 8, !alias.scope !42, !noalias !45
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %__first.addr.07.i.i.i.i, i8 0, i64 24, i1 false), !alias.scope !45, !noalias !42
-  %incdec.ptr.i.i.i.i = getelementptr inbounds %"class.std::vector.108", ptr %__first.addr.07.i.i.i.i, i64 1
-  %incdec.ptr1.i.i.i.i = getelementptr inbounds %"class.std::vector.108", ptr %__cur.08.i.i.i.i, i64 1
+  %incdec.ptr.i.i.i.i = getelementptr inbounds i8, ptr %__first.addr.07.i.i.i.i, i64 24
+  %incdec.ptr1.i.i.i.i = getelementptr inbounds i8, ptr %__cur.08.i.i.i.i, i64 24
   %cmp.not.i.i.i.i = icmp eq ptr %incdec.ptr.i.i.i.i, %__position.coerce
   br i1 %cmp.not.i.i.i.i, label %_ZNSt6vectorIS_IN3ue29CharReachESaIS1_EESaIS3_EE11_S_relocateEPS3_S6_S6_RS4_.exit, label %for.body.i.i.i.i, !llvm.loop !47
 
 _ZNSt6vectorIS_IN3ue29CharReachESaIS1_EESaIS3_EE11_S_relocateEPS3_S6_S6_RS4_.exit: ; preds = %for.body.i.i.i.i, %_ZNSt12_Vector_baseISt6vectorIN3ue29CharReachESaIS2_EESaIS4_EE11_M_allocateEm.exit
   %__cur.0.lcssa.i.i.i.i = phi ptr [ %cond.i31, %_ZNSt12_Vector_baseISt6vectorIN3ue29CharReachESaIS2_EESaIS4_EE11_M_allocateEm.exit ], [ %incdec.ptr1.i.i.i.i, %for.body.i.i.i.i ]
-  %incdec.ptr = getelementptr inbounds %"class.std::vector.108", ptr %__cur.0.lcssa.i.i.i.i, i64 1
+  %incdec.ptr = getelementptr inbounds i8, ptr %__cur.0.lcssa.i.i.i.i, i64 24
   %cmp.not6.i.i.i.i32 = icmp eq ptr %0, %__position.coerce
   br i1 %cmp.not6.i.i.i.i32, label %_ZNSt6vectorIS_IN3ue29CharReachESaIS1_EESaIS3_EE11_S_relocateEPS3_S6_S6_RS4_.exit44, label %for.body.i.i.i.i33
 
@@ -14072,13 +13793,13 @@ for.body.i.i.i.i33:                               ; preds = %_ZNSt6vectorIS_IN3u
   tail call void @llvm.experimental.noalias.scope.decl(metadata !51)
   %7 = load <2 x ptr>, ptr %__first.addr.07.i.i.i.i35, align 8, !alias.scope !51, !noalias !48
   store <2 x ptr> %7, ptr %__cur.08.i.i.i.i34, align 8, !alias.scope !48, !noalias !51
-  %_M_end_of_storage.i.i.i.i.i.i.i.i.i.i.i38 = getelementptr inbounds %"struct.std::_Vector_base<ue2::CharReach, std::allocator<ue2::CharReach>>::_Vector_impl_data", ptr %__cur.08.i.i.i.i34, i64 0, i32 2
-  %_M_end_of_storage4.i.i.i.i.i.i.i.i.i.i.i39 = getelementptr inbounds %"struct.std::_Vector_base<ue2::CharReach, std::allocator<ue2::CharReach>>::_Vector_impl_data", ptr %__first.addr.07.i.i.i.i35, i64 0, i32 2
+  %_M_end_of_storage.i.i.i.i.i.i.i.i.i.i.i38 = getelementptr inbounds i8, ptr %__cur.08.i.i.i.i34, i64 16
+  %_M_end_of_storage4.i.i.i.i.i.i.i.i.i.i.i39 = getelementptr inbounds i8, ptr %__first.addr.07.i.i.i.i35, i64 16
   %8 = load ptr, ptr %_M_end_of_storage4.i.i.i.i.i.i.i.i.i.i.i39, align 8, !alias.scope !51, !noalias !48
   store ptr %8, ptr %_M_end_of_storage.i.i.i.i.i.i.i.i.i.i.i38, align 8, !alias.scope !48, !noalias !51
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %__first.addr.07.i.i.i.i35, i8 0, i64 24, i1 false), !alias.scope !51, !noalias !48
-  %incdec.ptr.i.i.i.i40 = getelementptr inbounds %"class.std::vector.108", ptr %__first.addr.07.i.i.i.i35, i64 1
-  %incdec.ptr1.i.i.i.i41 = getelementptr inbounds %"class.std::vector.108", ptr %__cur.08.i.i.i.i34, i64 1
+  %incdec.ptr.i.i.i.i40 = getelementptr inbounds i8, ptr %__first.addr.07.i.i.i.i35, i64 24
+  %incdec.ptr1.i.i.i.i41 = getelementptr inbounds i8, ptr %__cur.08.i.i.i.i34, i64 24
   %cmp.not.i.i.i.i42 = icmp eq ptr %incdec.ptr.i.i.i.i40, %0
   br i1 %cmp.not.i.i.i.i42, label %_ZNSt6vectorIS_IN3ue29CharReachESaIS1_EESaIS3_EE11_S_relocateEPS3_S6_S6_RS4_.exit44, label %for.body.i.i.i.i33, !llvm.loop !47
 
@@ -14092,7 +13813,7 @@ if.then.i45:                                      ; preds = %_ZNSt6vectorIS_IN3u
   br label %_ZNSt12_Vector_baseISt6vectorIN3ue29CharReachESaIS2_EESaIS4_EE13_M_deallocateEPS4_m.exit
 
 _ZNSt12_Vector_baseISt6vectorIN3ue29CharReachESaIS2_EESaIS4_EE13_M_deallocateEPS4_m.exit: ; preds = %if.then.i45, %_ZNSt6vectorIS_IN3ue29CharReachESaIS1_EESaIS3_EE11_S_relocateEPS3_S6_S6_RS4_.exit44
-  %_M_end_of_storage = getelementptr inbounds %"struct.std::_Vector_base<std::vector<ue2::CharReach>, std::allocator<std::vector<ue2::CharReach>>>::_Vector_impl_data", ptr %this, i64 0, i32 2
+  %_M_end_of_storage = getelementptr inbounds i8, ptr %this, i64 16
   store ptr %cond.i31, ptr %this, align 8
   store ptr %__cur.0.lcssa.i.i.i.i43, ptr %_M_finish.i.i, align 8
   %add.ptr19 = getelementptr inbounds %"class.std::vector.108", ptr %cond.i31, i64 %cond.i
@@ -14106,30 +13827,30 @@ declare ptr @__dynamic_cast(ptr, ptr, ptr, i64) local_unnamed_addr #16
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr hidden noundef zeroext i1 @_ZNK3ue222RoseInstrAnchoredDelay8equiv_toERKS0_RKSt13unordered_mapIPKNS_15RoseInstructionEjSt4hashIS6_ESt8equal_toIS6_ESaISt4pairIKS6_jEEESH_(ptr noundef nonnull align 8 dereferenceable(32) %this, ptr noundef nonnull align 8 dereferenceable(32) %ri, ptr noundef nonnull align 8 dereferenceable(56) %offsets, ptr noundef nonnull align 8 dereferenceable(56) %other_offsets) local_unnamed_addr #5 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  %groups = getelementptr inbounds %"class.ue2::RoseInstrAnchoredDelay", ptr %this, i64 0, i32 1
+  %groups = getelementptr inbounds i8, ptr %this, i64 8
   %0 = load i64, ptr %groups, align 8
-  %groups2 = getelementptr inbounds %"class.ue2::RoseInstrAnchoredDelay", ptr %ri, i64 0, i32 1
+  %groups2 = getelementptr inbounds i8, ptr %ri, i64 8
   %1 = load i64, ptr %groups2, align 8
   %cmp = icmp eq i64 %0, %1
   br i1 %cmp, label %land.lhs.true, label %land.end
 
 land.lhs.true:                                    ; preds = %entry
-  %anch_id = getelementptr inbounds %"class.ue2::RoseInstrAnchoredDelay", ptr %this, i64 0, i32 2
+  %anch_id = getelementptr inbounds i8, ptr %this, i64 16
   %2 = load i32, ptr %anch_id, align 8
-  %anch_id3 = getelementptr inbounds %"class.ue2::RoseInstrAnchoredDelay", ptr %ri, i64 0, i32 2
+  %anch_id3 = getelementptr inbounds i8, ptr %ri, i64 16
   %3 = load i32, ptr %anch_id3, align 8
   %cmp4 = icmp eq i32 %2, %3
   br i1 %cmp4, label %land.rhs, label %land.end
 
 land.rhs:                                         ; preds = %land.lhs.true
-  %target = getelementptr inbounds %"class.ue2::RoseInstrAnchoredDelay", ptr %this, i64 0, i32 3
-  %_M_element_count.i.i.i.i = getelementptr inbounds %"class.std::_Hashtable.79", ptr %offsets, i64 0, i32 3
+  %target = getelementptr inbounds i8, ptr %this, i64 24
+  %_M_element_count.i.i.i.i = getelementptr inbounds i8, ptr %offsets, i64 24
   %4 = load i64, ptr %_M_element_count.i.i.i.i, align 8
   %cmp.not.not.i.i.i = icmp eq i64 %4, 0
   br i1 %cmp.not.not.i.i.i, label %if.then.i.i.i, label %if.end15.i.i.i
 
 if.then.i.i.i:                                    ; preds = %land.rhs
-  %_M_before_begin.i.i.i.i.i = getelementptr inbounds %"class.std::_Hashtable.79", ptr %offsets, i64 0, i32 2
+  %_M_before_begin.i.i.i.i.i = getelementptr inbounds i8, ptr %offsets, i64 16
   %5 = load ptr, ptr %target, align 8
   br label %for.cond.i.i.i
 
@@ -14148,7 +13869,7 @@ for.body.i.i.i:                                   ; preds = %for.cond.i.i.i
 if.end15.i.i.i:                                   ; preds = %land.rhs
   %7 = load ptr, ptr %target, align 8
   %8 = ptrtoint ptr %7 to i64
-  %_M_bucket_count.i.i.i.i = getelementptr inbounds %"class.std::_Hashtable.79", ptr %offsets, i64 0, i32 1
+  %_M_bucket_count.i.i.i.i = getelementptr inbounds i8, ptr %offsets, i64 8
   %9 = load i64, ptr %_M_bucket_count.i.i.i.i, align 8
   %rem.i.i.i.i.i.i = urem i64 %8, %9
   %10 = load ptr, ptr %offsets, align 8
@@ -14190,14 +13911,14 @@ _ZNKSt13unordered_mapIPKN3ue215RoseInstructionEjSt4hashIS3_ESt8equal_toIS3_ESaIS
   %retval.sroa.0.1.i.i.i = phi ptr [ %12, %if.end.i.i.i.i.i ], [ %retval.sroa.0.0.i.i.i, %for.body.i.i.i ], [ %14, %for.cond.i.i.i.i.i ]
   %second.i.i = getelementptr inbounds i8, ptr %retval.sroa.0.1.i.i.i, i64 16
   %17 = load i32, ptr %second.i.i, align 4
-  %target5 = getelementptr inbounds %"class.ue2::RoseInstrAnchoredDelay", ptr %ri, i64 0, i32 3
-  %_M_element_count.i.i.i.i10 = getelementptr inbounds %"class.std::_Hashtable.79", ptr %other_offsets, i64 0, i32 3
+  %target5 = getelementptr inbounds i8, ptr %ri, i64 24
+  %_M_element_count.i.i.i.i10 = getelementptr inbounds i8, ptr %other_offsets, i64 24
   %18 = load i64, ptr %_M_element_count.i.i.i.i10, align 8
   %cmp.not.not.i.i.i11 = icmp eq i64 %18, 0
   br i1 %cmp.not.not.i.i.i11, label %if.then.i.i.i32, label %if.end15.i.i.i12
 
 if.then.i.i.i32:                                  ; preds = %_ZNKSt13unordered_mapIPKN3ue215RoseInstructionEjSt4hashIS3_ESt8equal_toIS3_ESaISt4pairIKS3_jEEE2atERS9_.exit
-  %_M_before_begin.i.i.i.i.i33 = getelementptr inbounds %"class.std::_Hashtable.79", ptr %other_offsets, i64 0, i32 2
+  %_M_before_begin.i.i.i.i.i33 = getelementptr inbounds i8, ptr %other_offsets, i64 16
   %19 = load ptr, ptr %target5, align 8
   br label %for.cond.i.i.i34
 
@@ -14216,7 +13937,7 @@ for.body.i.i.i38:                                 ; preds = %for.cond.i.i.i34
 if.end15.i.i.i12:                                 ; preds = %_ZNKSt13unordered_mapIPKN3ue215RoseInstructionEjSt4hashIS3_ESt8equal_toIS3_ESaISt4pairIKS3_jEEE2atERS9_.exit
   %21 = load ptr, ptr %target5, align 8
   %22 = ptrtoint ptr %21 to i64
-  %_M_bucket_count.i.i.i.i13 = getelementptr inbounds %"class.std::_Hashtable.79", ptr %other_offsets, i64 0, i32 1
+  %_M_bucket_count.i.i.i.i13 = getelementptr inbounds i8, ptr %other_offsets, i64 8
   %23 = load i64, ptr %_M_bucket_count.i.i.i.i13, align 8
   %rem.i.i.i.i.i.i14 = urem i64 %22, %23
   %24 = load ptr, ptr %other_offsets, align 8
@@ -14269,22 +13990,22 @@ land.end:                                         ; preds = %_ZNKSt13unordered_m
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr hidden noundef zeroext i1 @_ZNK3ue222RoseInstrCheckLitEarly8equiv_toERKS0_RKSt13unordered_mapIPKNS_15RoseInstructionEjSt4hashIS6_ESt8equal_toIS6_ESaISt4pairIKS6_jEEESH_(ptr noundef nonnull align 8 dereferenceable(24) %this, ptr noundef nonnull align 8 dereferenceable(24) %ri, ptr noundef nonnull align 8 dereferenceable(56) %offsets, ptr noundef nonnull align 8 dereferenceable(56) %other_offsets) local_unnamed_addr #5 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  %min_offset = getelementptr inbounds %"class.ue2::RoseInstrCheckLitEarly", ptr %this, i64 0, i32 1
+  %min_offset = getelementptr inbounds i8, ptr %this, i64 8
   %0 = load i32, ptr %min_offset, align 8
-  %min_offset2 = getelementptr inbounds %"class.ue2::RoseInstrCheckLitEarly", ptr %ri, i64 0, i32 1
+  %min_offset2 = getelementptr inbounds i8, ptr %ri, i64 8
   %1 = load i32, ptr %min_offset2, align 8
   %cmp = icmp eq i32 %0, %1
   br i1 %cmp, label %land.rhs, label %land.end
 
 land.rhs:                                         ; preds = %entry
-  %target = getelementptr inbounds %"class.ue2::RoseInstrCheckLitEarly", ptr %this, i64 0, i32 2
-  %_M_element_count.i.i.i.i = getelementptr inbounds %"class.std::_Hashtable.79", ptr %offsets, i64 0, i32 3
+  %target = getelementptr inbounds i8, ptr %this, i64 16
+  %_M_element_count.i.i.i.i = getelementptr inbounds i8, ptr %offsets, i64 24
   %2 = load i64, ptr %_M_element_count.i.i.i.i, align 8
   %cmp.not.not.i.i.i = icmp eq i64 %2, 0
   br i1 %cmp.not.not.i.i.i, label %if.then.i.i.i, label %if.end15.i.i.i
 
 if.then.i.i.i:                                    ; preds = %land.rhs
-  %_M_before_begin.i.i.i.i.i = getelementptr inbounds %"class.std::_Hashtable.79", ptr %offsets, i64 0, i32 2
+  %_M_before_begin.i.i.i.i.i = getelementptr inbounds i8, ptr %offsets, i64 16
   %3 = load ptr, ptr %target, align 8
   br label %for.cond.i.i.i
 
@@ -14303,7 +14024,7 @@ for.body.i.i.i:                                   ; preds = %for.cond.i.i.i
 if.end15.i.i.i:                                   ; preds = %land.rhs
   %5 = load ptr, ptr %target, align 8
   %6 = ptrtoint ptr %5 to i64
-  %_M_bucket_count.i.i.i.i = getelementptr inbounds %"class.std::_Hashtable.79", ptr %offsets, i64 0, i32 1
+  %_M_bucket_count.i.i.i.i = getelementptr inbounds i8, ptr %offsets, i64 8
   %7 = load i64, ptr %_M_bucket_count.i.i.i.i, align 8
   %rem.i.i.i.i.i.i = urem i64 %6, %7
   %8 = load ptr, ptr %offsets, align 8
@@ -14345,14 +14066,14 @@ _ZNKSt13unordered_mapIPKN3ue215RoseInstructionEjSt4hashIS3_ESt8equal_toIS3_ESaIS
   %retval.sroa.0.1.i.i.i = phi ptr [ %10, %if.end.i.i.i.i.i ], [ %retval.sroa.0.0.i.i.i, %for.body.i.i.i ], [ %12, %for.cond.i.i.i.i.i ]
   %second.i.i = getelementptr inbounds i8, ptr %retval.sroa.0.1.i.i.i, i64 16
   %15 = load i32, ptr %second.i.i, align 4
-  %target3 = getelementptr inbounds %"class.ue2::RoseInstrCheckLitEarly", ptr %ri, i64 0, i32 2
-  %_M_element_count.i.i.i.i7 = getelementptr inbounds %"class.std::_Hashtable.79", ptr %other_offsets, i64 0, i32 3
+  %target3 = getelementptr inbounds i8, ptr %ri, i64 16
+  %_M_element_count.i.i.i.i7 = getelementptr inbounds i8, ptr %other_offsets, i64 24
   %16 = load i64, ptr %_M_element_count.i.i.i.i7, align 8
   %cmp.not.not.i.i.i8 = icmp eq i64 %16, 0
   br i1 %cmp.not.not.i.i.i8, label %if.then.i.i.i29, label %if.end15.i.i.i9
 
 if.then.i.i.i29:                                  ; preds = %_ZNKSt13unordered_mapIPKN3ue215RoseInstructionEjSt4hashIS3_ESt8equal_toIS3_ESaISt4pairIKS3_jEEE2atERS9_.exit
-  %_M_before_begin.i.i.i.i.i30 = getelementptr inbounds %"class.std::_Hashtable.79", ptr %other_offsets, i64 0, i32 2
+  %_M_before_begin.i.i.i.i.i30 = getelementptr inbounds i8, ptr %other_offsets, i64 16
   %17 = load ptr, ptr %target3, align 8
   br label %for.cond.i.i.i31
 
@@ -14371,7 +14092,7 @@ for.body.i.i.i35:                                 ; preds = %for.cond.i.i.i31
 if.end15.i.i.i9:                                  ; preds = %_ZNKSt13unordered_mapIPKN3ue215RoseInstructionEjSt4hashIS3_ESt8equal_toIS3_ESaISt4pairIKS3_jEEE2atERS9_.exit
   %19 = load ptr, ptr %target3, align 8
   %20 = ptrtoint ptr %19 to i64
-  %_M_bucket_count.i.i.i.i10 = getelementptr inbounds %"class.std::_Hashtable.79", ptr %other_offsets, i64 0, i32 1
+  %_M_bucket_count.i.i.i.i10 = getelementptr inbounds i8, ptr %other_offsets, i64 8
   %21 = load i64, ptr %_M_bucket_count.i.i.i.i10, align 8
   %rem.i.i.i.i.i.i11 = urem i64 %20, %21
   %22 = load ptr, ptr %other_offsets, align 8
@@ -14424,14 +14145,14 @@ land.end:                                         ; preds = %_ZNKSt13unordered_m
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr hidden noundef zeroext i1 @_ZNK3ue221RoseInstrCheckOnlyEod8equiv_toERKS0_RKSt13unordered_mapIPKNS_15RoseInstructionEjSt4hashIS6_ESt8equal_toIS6_ESaISt4pairIKS6_jEEESH_(ptr noundef nonnull align 8 dereferenceable(16) %this, ptr noundef nonnull align 8 dereferenceable(16) %ri, ptr noundef nonnull align 8 dereferenceable(56) %offsets, ptr noundef nonnull align 8 dereferenceable(56) %other_offsets) local_unnamed_addr #5 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  %target = getelementptr inbounds %"class.ue2::RoseInstrCheckOnlyEod", ptr %this, i64 0, i32 1
-  %_M_element_count.i.i.i.i = getelementptr inbounds %"class.std::_Hashtable.79", ptr %offsets, i64 0, i32 3
+  %target = getelementptr inbounds i8, ptr %this, i64 8
+  %_M_element_count.i.i.i.i = getelementptr inbounds i8, ptr %offsets, i64 24
   %0 = load i64, ptr %_M_element_count.i.i.i.i, align 8
   %cmp.not.not.i.i.i = icmp eq i64 %0, 0
   br i1 %cmp.not.not.i.i.i, label %if.then.i.i.i, label %if.end15.i.i.i
 
 if.then.i.i.i:                                    ; preds = %entry
-  %_M_before_begin.i.i.i.i.i = getelementptr inbounds %"class.std::_Hashtable.79", ptr %offsets, i64 0, i32 2
+  %_M_before_begin.i.i.i.i.i = getelementptr inbounds i8, ptr %offsets, i64 16
   %1 = load ptr, ptr %target, align 8
   br label %for.cond.i.i.i
 
@@ -14450,7 +14171,7 @@ for.body.i.i.i:                                   ; preds = %for.cond.i.i.i
 if.end15.i.i.i:                                   ; preds = %entry
   %3 = load ptr, ptr %target, align 8
   %4 = ptrtoint ptr %3 to i64
-  %_M_bucket_count.i.i.i.i = getelementptr inbounds %"class.std::_Hashtable.79", ptr %offsets, i64 0, i32 1
+  %_M_bucket_count.i.i.i.i = getelementptr inbounds i8, ptr %offsets, i64 8
   %5 = load i64, ptr %_M_bucket_count.i.i.i.i, align 8
   %rem.i.i.i.i.i.i = urem i64 %4, %5
   %6 = load ptr, ptr %offsets, align 8
@@ -14492,14 +14213,14 @@ _ZNKSt13unordered_mapIPKN3ue215RoseInstructionEjSt4hashIS3_ESt8equal_toIS3_ESaIS
   %retval.sroa.0.1.i.i.i = phi ptr [ %8, %if.end.i.i.i.i.i ], [ %retval.sroa.0.0.i.i.i, %for.body.i.i.i ], [ %10, %for.cond.i.i.i.i.i ]
   %second.i.i = getelementptr inbounds i8, ptr %retval.sroa.0.1.i.i.i, i64 16
   %13 = load i32, ptr %second.i.i, align 4
-  %target2 = getelementptr inbounds %"class.ue2::RoseInstrCheckOnlyEod", ptr %ri, i64 0, i32 1
-  %_M_element_count.i.i.i.i4 = getelementptr inbounds %"class.std::_Hashtable.79", ptr %other_offsets, i64 0, i32 3
+  %target2 = getelementptr inbounds i8, ptr %ri, i64 8
+  %_M_element_count.i.i.i.i4 = getelementptr inbounds i8, ptr %other_offsets, i64 24
   %14 = load i64, ptr %_M_element_count.i.i.i.i4, align 8
   %cmp.not.not.i.i.i5 = icmp eq i64 %14, 0
   br i1 %cmp.not.not.i.i.i5, label %if.then.i.i.i26, label %if.end15.i.i.i6
 
 if.then.i.i.i26:                                  ; preds = %_ZNKSt13unordered_mapIPKN3ue215RoseInstructionEjSt4hashIS3_ESt8equal_toIS3_ESaISt4pairIKS3_jEEE2atERS9_.exit
-  %_M_before_begin.i.i.i.i.i27 = getelementptr inbounds %"class.std::_Hashtable.79", ptr %other_offsets, i64 0, i32 2
+  %_M_before_begin.i.i.i.i.i27 = getelementptr inbounds i8, ptr %other_offsets, i64 16
   %15 = load ptr, ptr %target2, align 8
   br label %for.cond.i.i.i28
 
@@ -14518,7 +14239,7 @@ for.body.i.i.i32:                                 ; preds = %for.cond.i.i.i28
 if.end15.i.i.i6:                                  ; preds = %_ZNKSt13unordered_mapIPKN3ue215RoseInstructionEjSt4hashIS3_ESt8equal_toIS3_ESaISt4pairIKS3_jEEE2atERS9_.exit
   %17 = load ptr, ptr %target2, align 8
   %18 = ptrtoint ptr %17 to i64
-  %_M_bucket_count.i.i.i.i7 = getelementptr inbounds %"class.std::_Hashtable.79", ptr %other_offsets, i64 0, i32 1
+  %_M_bucket_count.i.i.i.i7 = getelementptr inbounds i8, ptr %other_offsets, i64 8
   %19 = load i64, ptr %_M_bucket_count.i.i.i.i7, align 8
   %rem.i.i.i.i.i.i8 = urem i64 %18, %19
   %20 = load ptr, ptr %other_offsets, align 8
@@ -14567,30 +14288,30 @@ _ZNKSt13unordered_mapIPKN3ue215RoseInstructionEjSt4hashIS3_ESt8equal_toIS3_ESaIS
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr hidden noundef zeroext i1 @_ZNK3ue220RoseInstrCheckBounds8equiv_toERKS0_RKSt13unordered_mapIPKNS_15RoseInstructionEjSt4hashIS6_ESt8equal_toIS6_ESaISt4pairIKS6_jEEESH_(ptr noundef nonnull align 8 dereferenceable(32) %this, ptr noundef nonnull align 8 dereferenceable(32) %ri, ptr noundef nonnull align 8 dereferenceable(56) %offsets, ptr noundef nonnull align 8 dereferenceable(56) %other_offsets) local_unnamed_addr #5 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  %min_bound = getelementptr inbounds %"class.ue2::RoseInstrCheckBounds", ptr %this, i64 0, i32 1
+  %min_bound = getelementptr inbounds i8, ptr %this, i64 8
   %0 = load i64, ptr %min_bound, align 8
-  %min_bound2 = getelementptr inbounds %"class.ue2::RoseInstrCheckBounds", ptr %ri, i64 0, i32 1
+  %min_bound2 = getelementptr inbounds i8, ptr %ri, i64 8
   %1 = load i64, ptr %min_bound2, align 8
   %cmp = icmp eq i64 %0, %1
   br i1 %cmp, label %land.lhs.true, label %land.end
 
 land.lhs.true:                                    ; preds = %entry
-  %max_bound = getelementptr inbounds %"class.ue2::RoseInstrCheckBounds", ptr %this, i64 0, i32 2
+  %max_bound = getelementptr inbounds i8, ptr %this, i64 16
   %2 = load i64, ptr %max_bound, align 8
-  %max_bound3 = getelementptr inbounds %"class.ue2::RoseInstrCheckBounds", ptr %ri, i64 0, i32 2
+  %max_bound3 = getelementptr inbounds i8, ptr %ri, i64 16
   %3 = load i64, ptr %max_bound3, align 8
   %cmp4 = icmp eq i64 %2, %3
   br i1 %cmp4, label %land.rhs, label %land.end
 
 land.rhs:                                         ; preds = %land.lhs.true
-  %target = getelementptr inbounds %"class.ue2::RoseInstrCheckBounds", ptr %this, i64 0, i32 3
-  %_M_element_count.i.i.i.i = getelementptr inbounds %"class.std::_Hashtable.79", ptr %offsets, i64 0, i32 3
+  %target = getelementptr inbounds i8, ptr %this, i64 24
+  %_M_element_count.i.i.i.i = getelementptr inbounds i8, ptr %offsets, i64 24
   %4 = load i64, ptr %_M_element_count.i.i.i.i, align 8
   %cmp.not.not.i.i.i = icmp eq i64 %4, 0
   br i1 %cmp.not.not.i.i.i, label %if.then.i.i.i, label %if.end15.i.i.i
 
 if.then.i.i.i:                                    ; preds = %land.rhs
-  %_M_before_begin.i.i.i.i.i = getelementptr inbounds %"class.std::_Hashtable.79", ptr %offsets, i64 0, i32 2
+  %_M_before_begin.i.i.i.i.i = getelementptr inbounds i8, ptr %offsets, i64 16
   %5 = load ptr, ptr %target, align 8
   br label %for.cond.i.i.i
 
@@ -14609,7 +14330,7 @@ for.body.i.i.i:                                   ; preds = %for.cond.i.i.i
 if.end15.i.i.i:                                   ; preds = %land.rhs
   %7 = load ptr, ptr %target, align 8
   %8 = ptrtoint ptr %7 to i64
-  %_M_bucket_count.i.i.i.i = getelementptr inbounds %"class.std::_Hashtable.79", ptr %offsets, i64 0, i32 1
+  %_M_bucket_count.i.i.i.i = getelementptr inbounds i8, ptr %offsets, i64 8
   %9 = load i64, ptr %_M_bucket_count.i.i.i.i, align 8
   %rem.i.i.i.i.i.i = urem i64 %8, %9
   %10 = load ptr, ptr %offsets, align 8
@@ -14651,14 +14372,14 @@ _ZNKSt13unordered_mapIPKN3ue215RoseInstructionEjSt4hashIS3_ESt8equal_toIS3_ESaIS
   %retval.sroa.0.1.i.i.i = phi ptr [ %12, %if.end.i.i.i.i.i ], [ %retval.sroa.0.0.i.i.i, %for.body.i.i.i ], [ %14, %for.cond.i.i.i.i.i ]
   %second.i.i = getelementptr inbounds i8, ptr %retval.sroa.0.1.i.i.i, i64 16
   %17 = load i32, ptr %second.i.i, align 4
-  %target5 = getelementptr inbounds %"class.ue2::RoseInstrCheckBounds", ptr %ri, i64 0, i32 3
-  %_M_element_count.i.i.i.i10 = getelementptr inbounds %"class.std::_Hashtable.79", ptr %other_offsets, i64 0, i32 3
+  %target5 = getelementptr inbounds i8, ptr %ri, i64 24
+  %_M_element_count.i.i.i.i10 = getelementptr inbounds i8, ptr %other_offsets, i64 24
   %18 = load i64, ptr %_M_element_count.i.i.i.i10, align 8
   %cmp.not.not.i.i.i11 = icmp eq i64 %18, 0
   br i1 %cmp.not.not.i.i.i11, label %if.then.i.i.i32, label %if.end15.i.i.i12
 
 if.then.i.i.i32:                                  ; preds = %_ZNKSt13unordered_mapIPKN3ue215RoseInstructionEjSt4hashIS3_ESt8equal_toIS3_ESaISt4pairIKS3_jEEE2atERS9_.exit
-  %_M_before_begin.i.i.i.i.i33 = getelementptr inbounds %"class.std::_Hashtable.79", ptr %other_offsets, i64 0, i32 2
+  %_M_before_begin.i.i.i.i.i33 = getelementptr inbounds i8, ptr %other_offsets, i64 16
   %19 = load ptr, ptr %target5, align 8
   br label %for.cond.i.i.i34
 
@@ -14677,7 +14398,7 @@ for.body.i.i.i38:                                 ; preds = %for.cond.i.i.i34
 if.end15.i.i.i12:                                 ; preds = %_ZNKSt13unordered_mapIPKN3ue215RoseInstructionEjSt4hashIS3_ESt8equal_toIS3_ESaISt4pairIKS3_jEEE2atERS9_.exit
   %21 = load ptr, ptr %target5, align 8
   %22 = ptrtoint ptr %21 to i64
-  %_M_bucket_count.i.i.i.i13 = getelementptr inbounds %"class.std::_Hashtable.79", ptr %other_offsets, i64 0, i32 1
+  %_M_bucket_count.i.i.i.i13 = getelementptr inbounds i8, ptr %other_offsets, i64 8
   %23 = load i64, ptr %_M_bucket_count.i.i.i.i13, align 8
   %rem.i.i.i.i.i.i14 = urem i64 %22, %23
   %24 = load ptr, ptr %other_offsets, align 8
@@ -14730,22 +14451,22 @@ land.end:                                         ; preds = %_ZNKSt13unordered_m
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr hidden noundef zeroext i1 @_ZNK3ue224RoseInstrCheckNotHandled8equiv_toERKS0_RKSt13unordered_mapIPKNS_15RoseInstructionEjSt4hashIS6_ESt8equal_toIS6_ESaISt4pairIKS6_jEEESH_(ptr noundef nonnull align 8 dereferenceable(24) %this, ptr noundef nonnull align 8 dereferenceable(24) %ri, ptr noundef nonnull align 8 dereferenceable(56) %offsets, ptr noundef nonnull align 8 dereferenceable(56) %other_offsets) local_unnamed_addr #5 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  %key = getelementptr inbounds %"class.ue2::RoseInstrCheckNotHandled", ptr %this, i64 0, i32 1
+  %key = getelementptr inbounds i8, ptr %this, i64 8
   %0 = load i32, ptr %key, align 8
-  %key2 = getelementptr inbounds %"class.ue2::RoseInstrCheckNotHandled", ptr %ri, i64 0, i32 1
+  %key2 = getelementptr inbounds i8, ptr %ri, i64 8
   %1 = load i32, ptr %key2, align 8
   %cmp = icmp eq i32 %0, %1
   br i1 %cmp, label %land.rhs, label %land.end
 
 land.rhs:                                         ; preds = %entry
-  %target = getelementptr inbounds %"class.ue2::RoseInstrCheckNotHandled", ptr %this, i64 0, i32 2
-  %_M_element_count.i.i.i.i = getelementptr inbounds %"class.std::_Hashtable.79", ptr %offsets, i64 0, i32 3
+  %target = getelementptr inbounds i8, ptr %this, i64 16
+  %_M_element_count.i.i.i.i = getelementptr inbounds i8, ptr %offsets, i64 24
   %2 = load i64, ptr %_M_element_count.i.i.i.i, align 8
   %cmp.not.not.i.i.i = icmp eq i64 %2, 0
   br i1 %cmp.not.not.i.i.i, label %if.then.i.i.i, label %if.end15.i.i.i
 
 if.then.i.i.i:                                    ; preds = %land.rhs
-  %_M_before_begin.i.i.i.i.i = getelementptr inbounds %"class.std::_Hashtable.79", ptr %offsets, i64 0, i32 2
+  %_M_before_begin.i.i.i.i.i = getelementptr inbounds i8, ptr %offsets, i64 16
   %3 = load ptr, ptr %target, align 8
   br label %for.cond.i.i.i
 
@@ -14764,7 +14485,7 @@ for.body.i.i.i:                                   ; preds = %for.cond.i.i.i
 if.end15.i.i.i:                                   ; preds = %land.rhs
   %5 = load ptr, ptr %target, align 8
   %6 = ptrtoint ptr %5 to i64
-  %_M_bucket_count.i.i.i.i = getelementptr inbounds %"class.std::_Hashtable.79", ptr %offsets, i64 0, i32 1
+  %_M_bucket_count.i.i.i.i = getelementptr inbounds i8, ptr %offsets, i64 8
   %7 = load i64, ptr %_M_bucket_count.i.i.i.i, align 8
   %rem.i.i.i.i.i.i = urem i64 %6, %7
   %8 = load ptr, ptr %offsets, align 8
@@ -14806,14 +14527,14 @@ _ZNKSt13unordered_mapIPKN3ue215RoseInstructionEjSt4hashIS3_ESt8equal_toIS3_ESaIS
   %retval.sroa.0.1.i.i.i = phi ptr [ %10, %if.end.i.i.i.i.i ], [ %retval.sroa.0.0.i.i.i, %for.body.i.i.i ], [ %12, %for.cond.i.i.i.i.i ]
   %second.i.i = getelementptr inbounds i8, ptr %retval.sroa.0.1.i.i.i, i64 16
   %15 = load i32, ptr %second.i.i, align 4
-  %target3 = getelementptr inbounds %"class.ue2::RoseInstrCheckNotHandled", ptr %ri, i64 0, i32 2
-  %_M_element_count.i.i.i.i7 = getelementptr inbounds %"class.std::_Hashtable.79", ptr %other_offsets, i64 0, i32 3
+  %target3 = getelementptr inbounds i8, ptr %ri, i64 16
+  %_M_element_count.i.i.i.i7 = getelementptr inbounds i8, ptr %other_offsets, i64 24
   %16 = load i64, ptr %_M_element_count.i.i.i.i7, align 8
   %cmp.not.not.i.i.i8 = icmp eq i64 %16, 0
   br i1 %cmp.not.not.i.i.i8, label %if.then.i.i.i29, label %if.end15.i.i.i9
 
 if.then.i.i.i29:                                  ; preds = %_ZNKSt13unordered_mapIPKN3ue215RoseInstructionEjSt4hashIS3_ESt8equal_toIS3_ESaISt4pairIKS3_jEEE2atERS9_.exit
-  %_M_before_begin.i.i.i.i.i30 = getelementptr inbounds %"class.std::_Hashtable.79", ptr %other_offsets, i64 0, i32 2
+  %_M_before_begin.i.i.i.i.i30 = getelementptr inbounds i8, ptr %other_offsets, i64 16
   %17 = load ptr, ptr %target3, align 8
   br label %for.cond.i.i.i31
 
@@ -14832,7 +14553,7 @@ for.body.i.i.i35:                                 ; preds = %for.cond.i.i.i31
 if.end15.i.i.i9:                                  ; preds = %_ZNKSt13unordered_mapIPKN3ue215RoseInstructionEjSt4hashIS3_ESt8equal_toIS3_ESaISt4pairIKS3_jEEE2atERS9_.exit
   %19 = load ptr, ptr %target3, align 8
   %20 = ptrtoint ptr %19 to i64
-  %_M_bucket_count.i.i.i.i10 = getelementptr inbounds %"class.std::_Hashtable.79", ptr %other_offsets, i64 0, i32 1
+  %_M_bucket_count.i.i.i.i10 = getelementptr inbounds i8, ptr %other_offsets, i64 8
   %21 = load i64, ptr %_M_bucket_count.i.i.i.i10, align 8
   %rem.i.i.i.i.i.i11 = urem i64 %20, %21
   %22 = load ptr, ptr %other_offsets, align 8
@@ -14885,29 +14606,29 @@ land.end:                                         ; preds = %_ZNKSt13unordered_m
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr hidden noundef zeroext i1 @_ZNK3ue230RoseInstrCheckSingleLookaround8equiv_toERKS0_RKSt13unordered_mapIPKNS_15RoseInstructionEjSt4hashIS6_ESt8equal_toIS6_ESaISt4pairIKS6_jEEESH_(ptr noundef nonnull align 8 dereferenceable(56) %this, ptr noundef nonnull align 8 dereferenceable(56) %ri, ptr noundef nonnull align 8 dereferenceable(56) %offsets, ptr noundef nonnull align 8 dereferenceable(56) %other_offsets) local_unnamed_addr #5 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  %offset = getelementptr inbounds %"class.ue2::RoseInstrCheckSingleLookaround", ptr %this, i64 0, i32 1
+  %offset = getelementptr inbounds i8, ptr %this, i64 8
   %0 = load i8, ptr %offset, align 8
-  %offset2 = getelementptr inbounds %"class.ue2::RoseInstrCheckSingleLookaround", ptr %ri, i64 0, i32 1
+  %offset2 = getelementptr inbounds i8, ptr %ri, i64 8
   %1 = load i8, ptr %offset2, align 8
   %cmp = icmp eq i8 %0, %1
   br i1 %cmp, label %land.lhs.true, label %land.end
 
 land.lhs.true:                                    ; preds = %entry
-  %reach = getelementptr inbounds %"class.ue2::RoseInstrCheckSingleLookaround", ptr %this, i64 0, i32 2
-  %reach4 = getelementptr inbounds %"class.ue2::RoseInstrCheckSingleLookaround", ptr %ri, i64 0, i32 2
+  %reach = getelementptr inbounds i8, ptr %this, i64 16
+  %reach4 = getelementptr inbounds i8, ptr %ri, i64 16
   %bcmp.i.i.i.i.i.i.i = tail call i32 @bcmp(ptr noundef nonnull dereferenceable(32) %reach, ptr noundef nonnull dereferenceable(32) %reach4, i64 32)
   %tobool1.not.i.i.i.i.i.i.i = icmp eq i32 %bcmp.i.i.i.i.i.i.i, 0
   br i1 %tobool1.not.i.i.i.i.i.i.i, label %land.rhs, label %land.end
 
 land.rhs:                                         ; preds = %land.lhs.true
-  %target = getelementptr inbounds %"class.ue2::RoseInstrCheckSingleLookaround", ptr %this, i64 0, i32 3
-  %_M_element_count.i.i.i.i = getelementptr inbounds %"class.std::_Hashtable.79", ptr %offsets, i64 0, i32 3
+  %target = getelementptr inbounds i8, ptr %this, i64 48
+  %_M_element_count.i.i.i.i = getelementptr inbounds i8, ptr %offsets, i64 24
   %2 = load i64, ptr %_M_element_count.i.i.i.i, align 8
   %cmp.not.not.i.i.i = icmp eq i64 %2, 0
   br i1 %cmp.not.not.i.i.i, label %if.then.i.i.i, label %if.end15.i.i.i
 
 if.then.i.i.i:                                    ; preds = %land.rhs
-  %_M_before_begin.i.i.i.i.i = getelementptr inbounds %"class.std::_Hashtable.79", ptr %offsets, i64 0, i32 2
+  %_M_before_begin.i.i.i.i.i = getelementptr inbounds i8, ptr %offsets, i64 16
   %3 = load ptr, ptr %target, align 8
   br label %for.cond.i.i.i
 
@@ -14926,7 +14647,7 @@ for.body.i.i.i:                                   ; preds = %for.cond.i.i.i
 if.end15.i.i.i:                                   ; preds = %land.rhs
   %5 = load ptr, ptr %target, align 8
   %6 = ptrtoint ptr %5 to i64
-  %_M_bucket_count.i.i.i.i = getelementptr inbounds %"class.std::_Hashtable.79", ptr %offsets, i64 0, i32 1
+  %_M_bucket_count.i.i.i.i = getelementptr inbounds i8, ptr %offsets, i64 8
   %7 = load i64, ptr %_M_bucket_count.i.i.i.i, align 8
   %rem.i.i.i.i.i.i = urem i64 %6, %7
   %8 = load ptr, ptr %offsets, align 8
@@ -14968,14 +14689,14 @@ _ZNKSt13unordered_mapIPKN3ue215RoseInstructionEjSt4hashIS3_ESt8equal_toIS3_ESaIS
   %retval.sroa.0.1.i.i.i = phi ptr [ %10, %if.end.i.i.i.i.i ], [ %retval.sroa.0.0.i.i.i, %for.body.i.i.i ], [ %12, %for.cond.i.i.i.i.i ]
   %second.i.i = getelementptr inbounds i8, ptr %retval.sroa.0.1.i.i.i, i64 16
   %15 = load i32, ptr %second.i.i, align 4
-  %target6 = getelementptr inbounds %"class.ue2::RoseInstrCheckSingleLookaround", ptr %ri, i64 0, i32 3
-  %_M_element_count.i.i.i.i11 = getelementptr inbounds %"class.std::_Hashtable.79", ptr %other_offsets, i64 0, i32 3
+  %target6 = getelementptr inbounds i8, ptr %ri, i64 48
+  %_M_element_count.i.i.i.i11 = getelementptr inbounds i8, ptr %other_offsets, i64 24
   %16 = load i64, ptr %_M_element_count.i.i.i.i11, align 8
   %cmp.not.not.i.i.i12 = icmp eq i64 %16, 0
   br i1 %cmp.not.not.i.i.i12, label %if.then.i.i.i33, label %if.end15.i.i.i13
 
 if.then.i.i.i33:                                  ; preds = %_ZNKSt13unordered_mapIPKN3ue215RoseInstructionEjSt4hashIS3_ESt8equal_toIS3_ESaISt4pairIKS3_jEEE2atERS9_.exit
-  %_M_before_begin.i.i.i.i.i34 = getelementptr inbounds %"class.std::_Hashtable.79", ptr %other_offsets, i64 0, i32 2
+  %_M_before_begin.i.i.i.i.i34 = getelementptr inbounds i8, ptr %other_offsets, i64 16
   %17 = load ptr, ptr %target6, align 8
   br label %for.cond.i.i.i35
 
@@ -14994,7 +14715,7 @@ for.body.i.i.i39:                                 ; preds = %for.cond.i.i.i35
 if.end15.i.i.i13:                                 ; preds = %_ZNKSt13unordered_mapIPKN3ue215RoseInstructionEjSt4hashIS3_ESt8equal_toIS3_ESaISt4pairIKS3_jEEE2atERS9_.exit
   %19 = load ptr, ptr %target6, align 8
   %20 = ptrtoint ptr %19 to i64
-  %_M_bucket_count.i.i.i.i14 = getelementptr inbounds %"class.std::_Hashtable.79", ptr %other_offsets, i64 0, i32 1
+  %_M_bucket_count.i.i.i.i14 = getelementptr inbounds i8, ptr %other_offsets, i64 8
   %21 = load i64, ptr %_M_bucket_count.i.i.i.i14, align 8
   %rem.i.i.i.i.i.i15 = urem i64 %20, %21
   %22 = load ptr, ptr %other_offsets, align 8
@@ -15047,15 +14768,15 @@ land.end:                                         ; preds = %_ZNKSt13unordered_m
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr hidden noundef zeroext i1 @_ZNK3ue224RoseInstrCheckLookaround8equiv_toERKS0_RKSt13unordered_mapIPKNS_15RoseInstructionEjSt4hashIS6_ESt8equal_toIS6_ESaISt4pairIKS6_jEEESH_(ptr noundef nonnull align 8 dereferenceable(40) %this, ptr noundef nonnull align 8 dereferenceable(40) %ri, ptr noundef nonnull align 8 dereferenceable(56) %offsets, ptr noundef nonnull align 8 dereferenceable(56) %other_offsets) local_unnamed_addr #5 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  %look = getelementptr inbounds %"class.ue2::RoseInstrCheckLookaround", ptr %this, i64 0, i32 1
-  %look2 = getelementptr inbounds %"class.ue2::RoseInstrCheckLookaround", ptr %ri, i64 0, i32 1
-  %_M_finish.i.i = getelementptr inbounds %"class.ue2::RoseInstrCheckLookaround", ptr %this, i64 0, i32 1, i32 0, i32 0, i32 0, i32 1
+  %look = getelementptr inbounds i8, ptr %this, i64 8
+  %look2 = getelementptr inbounds i8, ptr %ri, i64 8
+  %_M_finish.i.i = getelementptr inbounds i8, ptr %this, i64 16
   %0 = load ptr, ptr %_M_finish.i.i, align 8
   %1 = load ptr, ptr %look, align 8
   %sub.ptr.lhs.cast.i.i = ptrtoint ptr %0 to i64
   %sub.ptr.rhs.cast.i.i = ptrtoint ptr %1 to i64
   %sub.ptr.sub.i.i = sub i64 %sub.ptr.lhs.cast.i.i, %sub.ptr.rhs.cast.i.i
-  %_M_finish.i16.i = getelementptr inbounds %"class.ue2::RoseInstrCheckLookaround", ptr %ri, i64 0, i32 1, i32 0, i32 0, i32 0, i32 1
+  %_M_finish.i16.i = getelementptr inbounds i8, ptr %ri, i64 16
   %2 = load ptr, ptr %_M_finish.i16.i, align 8
   %3 = load ptr, ptr %look2, align 8
   %sub.ptr.lhs.cast.i17.i = ptrtoint ptr %2 to i64
@@ -15077,27 +14798,27 @@ for.body.i.i.i.i.i:                               ; preds = %land.rhs.i, %for.in
   br i1 %cmp.i.i.i.i.i.i, label %_ZNK3ue29LookEntryeqERKS0_.exit.i.i.i.i.i, label %land.end
 
 _ZNK3ue29LookEntryeqERKS0_.exit.i.i.i.i.i:        ; preds = %for.body.i.i.i.i.i
-  %reach.i.i.i.i.i.i = getelementptr inbounds %"struct.ue2::LookEntry", ptr %__first1.addr.06.i.i.i.i.i, i64 0, i32 1
-  %reach4.i.i.i.i.i.i = getelementptr inbounds %"struct.ue2::LookEntry", ptr %__first2.addr.07.i.i.i.i.i, i64 0, i32 1
+  %reach.i.i.i.i.i.i = getelementptr inbounds i8, ptr %__first1.addr.06.i.i.i.i.i, i64 8
+  %reach4.i.i.i.i.i.i = getelementptr inbounds i8, ptr %__first2.addr.07.i.i.i.i.i, i64 8
   %bcmp.i.i.i.i.i.i.i.i.i.i.i.i.i = tail call i32 @bcmp(ptr noundef nonnull dereferenceable(32) %reach.i.i.i.i.i.i, ptr noundef nonnull dereferenceable(32) %reach4.i.i.i.i.i.i, i64 32)
   %tobool1.not.i.i.i.i.i.i.i.i.i.i.i.i.i = icmp eq i32 %bcmp.i.i.i.i.i.i.i.i.i.i.i.i.i, 0
   br i1 %tobool1.not.i.i.i.i.i.i.i.i.i.i.i.i.i, label %for.inc.i.i.i.i.i, label %land.end
 
 for.inc.i.i.i.i.i:                                ; preds = %_ZNK3ue29LookEntryeqERKS0_.exit.i.i.i.i.i
-  %incdec.ptr.i.i.i.i.i = getelementptr inbounds %"struct.ue2::LookEntry", ptr %__first1.addr.06.i.i.i.i.i, i64 1
-  %incdec.ptr1.i.i.i.i.i = getelementptr inbounds %"struct.ue2::LookEntry", ptr %__first2.addr.07.i.i.i.i.i, i64 1
+  %incdec.ptr.i.i.i.i.i = getelementptr inbounds i8, ptr %__first1.addr.06.i.i.i.i.i, i64 40
+  %incdec.ptr1.i.i.i.i.i = getelementptr inbounds i8, ptr %__first2.addr.07.i.i.i.i.i, i64 40
   %cmp.not.i.i.i.i.i = icmp eq ptr %incdec.ptr.i.i.i.i.i, %0
   br i1 %cmp.not.i.i.i.i.i, label %land.rhs, label %for.body.i.i.i.i.i, !llvm.loop !53
 
 land.rhs:                                         ; preds = %for.inc.i.i.i.i.i, %land.rhs.i
-  %target = getelementptr inbounds %"class.ue2::RoseInstrCheckLookaround", ptr %this, i64 0, i32 2
-  %_M_element_count.i.i.i.i = getelementptr inbounds %"class.std::_Hashtable.79", ptr %offsets, i64 0, i32 3
+  %target = getelementptr inbounds i8, ptr %this, i64 32
+  %_M_element_count.i.i.i.i = getelementptr inbounds i8, ptr %offsets, i64 24
   %6 = load i64, ptr %_M_element_count.i.i.i.i, align 8
   %cmp.not.not.i.i.i = icmp eq i64 %6, 0
   br i1 %cmp.not.not.i.i.i, label %if.then.i.i.i, label %if.end15.i.i.i
 
 if.then.i.i.i:                                    ; preds = %land.rhs
-  %_M_before_begin.i.i.i.i.i = getelementptr inbounds %"class.std::_Hashtable.79", ptr %offsets, i64 0, i32 2
+  %_M_before_begin.i.i.i.i.i = getelementptr inbounds i8, ptr %offsets, i64 16
   %7 = load ptr, ptr %target, align 8
   br label %for.cond.i.i.i
 
@@ -15116,7 +14837,7 @@ for.body.i.i.i:                                   ; preds = %for.cond.i.i.i
 if.end15.i.i.i:                                   ; preds = %land.rhs
   %9 = load ptr, ptr %target, align 8
   %10 = ptrtoint ptr %9 to i64
-  %_M_bucket_count.i.i.i.i = getelementptr inbounds %"class.std::_Hashtable.79", ptr %offsets, i64 0, i32 1
+  %_M_bucket_count.i.i.i.i = getelementptr inbounds i8, ptr %offsets, i64 8
   %11 = load i64, ptr %_M_bucket_count.i.i.i.i, align 8
   %rem.i.i.i.i.i.i = urem i64 %10, %11
   %12 = load ptr, ptr %offsets, align 8
@@ -15158,14 +14879,14 @@ _ZNKSt13unordered_mapIPKN3ue215RoseInstructionEjSt4hashIS3_ESt8equal_toIS3_ESaIS
   %retval.sroa.0.1.i.i.i = phi ptr [ %14, %if.end.i.i.i.i.i ], [ %retval.sroa.0.0.i.i.i, %for.body.i.i.i ], [ %16, %for.cond.i.i.i.i.i ]
   %second.i.i = getelementptr inbounds i8, ptr %retval.sroa.0.1.i.i.i, i64 16
   %19 = load i32, ptr %second.i.i, align 4
-  %target4 = getelementptr inbounds %"class.ue2::RoseInstrCheckLookaround", ptr %ri, i64 0, i32 2
-  %_M_element_count.i.i.i.i8 = getelementptr inbounds %"class.std::_Hashtable.79", ptr %other_offsets, i64 0, i32 3
+  %target4 = getelementptr inbounds i8, ptr %ri, i64 32
+  %_M_element_count.i.i.i.i8 = getelementptr inbounds i8, ptr %other_offsets, i64 24
   %20 = load i64, ptr %_M_element_count.i.i.i.i8, align 8
   %cmp.not.not.i.i.i9 = icmp eq i64 %20, 0
   br i1 %cmp.not.not.i.i.i9, label %if.then.i.i.i30, label %if.end15.i.i.i10
 
 if.then.i.i.i30:                                  ; preds = %_ZNKSt13unordered_mapIPKN3ue215RoseInstructionEjSt4hashIS3_ESt8equal_toIS3_ESaISt4pairIKS3_jEEE2atERS9_.exit
-  %_M_before_begin.i.i.i.i.i31 = getelementptr inbounds %"class.std::_Hashtable.79", ptr %other_offsets, i64 0, i32 2
+  %_M_before_begin.i.i.i.i.i31 = getelementptr inbounds i8, ptr %other_offsets, i64 16
   %21 = load ptr, ptr %target4, align 8
   br label %for.cond.i.i.i32
 
@@ -15184,7 +14905,7 @@ for.body.i.i.i36:                                 ; preds = %for.cond.i.i.i32
 if.end15.i.i.i10:                                 ; preds = %_ZNKSt13unordered_mapIPKN3ue215RoseInstructionEjSt4hashIS3_ESt8equal_toIS3_ESaISt4pairIKS3_jEEE2atERS9_.exit
   %23 = load ptr, ptr %target4, align 8
   %24 = ptrtoint ptr %23 to i64
-  %_M_bucket_count.i.i.i.i11 = getelementptr inbounds %"class.std::_Hashtable.79", ptr %other_offsets, i64 0, i32 1
+  %_M_bucket_count.i.i.i.i11 = getelementptr inbounds i8, ptr %other_offsets, i64 8
   %25 = load i64, ptr %_M_bucket_count.i.i.i.i11, align 8
   %rem.i.i.i.i.i.i12 = urem i64 %24, %25
   %26 = load ptr, ptr %other_offsets, align 8
@@ -15237,46 +14958,46 @@ land.end:                                         ; preds = %_ZNK3ue29LookEntrye
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr hidden noundef zeroext i1 @_ZNK3ue218RoseInstrCheckMask8equiv_toERKS0_RKSt13unordered_mapIPKNS_15RoseInstructionEjSt4hashIS6_ESt8equal_toIS6_ESaISt4pairIKS6_jEEESH_(ptr noundef nonnull align 8 dereferenceable(48) %this, ptr noundef nonnull align 8 dereferenceable(48) %ri, ptr noundef nonnull align 8 dereferenceable(56) %offsets, ptr noundef nonnull align 8 dereferenceable(56) %other_offsets) local_unnamed_addr #5 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  %and_mask = getelementptr inbounds %"class.ue2::RoseInstrCheckMask", ptr %this, i64 0, i32 1
+  %and_mask = getelementptr inbounds i8, ptr %this, i64 8
   %0 = load i64, ptr %and_mask, align 8
-  %and_mask2 = getelementptr inbounds %"class.ue2::RoseInstrCheckMask", ptr %ri, i64 0, i32 1
+  %and_mask2 = getelementptr inbounds i8, ptr %ri, i64 8
   %1 = load i64, ptr %and_mask2, align 8
   %cmp = icmp eq i64 %0, %1
   br i1 %cmp, label %land.lhs.true, label %land.end
 
 land.lhs.true:                                    ; preds = %entry
-  %cmp_mask = getelementptr inbounds %"class.ue2::RoseInstrCheckMask", ptr %this, i64 0, i32 2
+  %cmp_mask = getelementptr inbounds i8, ptr %this, i64 16
   %2 = load i64, ptr %cmp_mask, align 8
-  %cmp_mask3 = getelementptr inbounds %"class.ue2::RoseInstrCheckMask", ptr %ri, i64 0, i32 2
+  %cmp_mask3 = getelementptr inbounds i8, ptr %ri, i64 16
   %3 = load i64, ptr %cmp_mask3, align 8
   %cmp4 = icmp eq i64 %2, %3
   br i1 %cmp4, label %land.lhs.true5, label %land.end
 
 land.lhs.true5:                                   ; preds = %land.lhs.true
-  %neg_mask = getelementptr inbounds %"class.ue2::RoseInstrCheckMask", ptr %this, i64 0, i32 3
+  %neg_mask = getelementptr inbounds i8, ptr %this, i64 24
   %4 = load i64, ptr %neg_mask, align 8
-  %neg_mask6 = getelementptr inbounds %"class.ue2::RoseInstrCheckMask", ptr %ri, i64 0, i32 3
+  %neg_mask6 = getelementptr inbounds i8, ptr %ri, i64 24
   %5 = load i64, ptr %neg_mask6, align 8
   %cmp7 = icmp eq i64 %4, %5
   br i1 %cmp7, label %land.lhs.true8, label %land.end
 
 land.lhs.true8:                                   ; preds = %land.lhs.true5
-  %offset = getelementptr inbounds %"class.ue2::RoseInstrCheckMask", ptr %this, i64 0, i32 4
+  %offset = getelementptr inbounds i8, ptr %this, i64 32
   %6 = load i32, ptr %offset, align 8
-  %offset9 = getelementptr inbounds %"class.ue2::RoseInstrCheckMask", ptr %ri, i64 0, i32 4
+  %offset9 = getelementptr inbounds i8, ptr %ri, i64 32
   %7 = load i32, ptr %offset9, align 8
   %cmp10 = icmp eq i32 %6, %7
   br i1 %cmp10, label %land.rhs, label %land.end
 
 land.rhs:                                         ; preds = %land.lhs.true8
-  %target = getelementptr inbounds %"class.ue2::RoseInstrCheckMask", ptr %this, i64 0, i32 5
-  %_M_element_count.i.i.i.i = getelementptr inbounds %"class.std::_Hashtable.79", ptr %offsets, i64 0, i32 3
+  %target = getelementptr inbounds i8, ptr %this, i64 40
+  %_M_element_count.i.i.i.i = getelementptr inbounds i8, ptr %offsets, i64 24
   %8 = load i64, ptr %_M_element_count.i.i.i.i, align 8
   %cmp.not.not.i.i.i = icmp eq i64 %8, 0
   br i1 %cmp.not.not.i.i.i, label %if.then.i.i.i, label %if.end15.i.i.i
 
 if.then.i.i.i:                                    ; preds = %land.rhs
-  %_M_before_begin.i.i.i.i.i = getelementptr inbounds %"class.std::_Hashtable.79", ptr %offsets, i64 0, i32 2
+  %_M_before_begin.i.i.i.i.i = getelementptr inbounds i8, ptr %offsets, i64 16
   %9 = load ptr, ptr %target, align 8
   br label %for.cond.i.i.i
 
@@ -15295,7 +15016,7 @@ for.body.i.i.i:                                   ; preds = %for.cond.i.i.i
 if.end15.i.i.i:                                   ; preds = %land.rhs
   %11 = load ptr, ptr %target, align 8
   %12 = ptrtoint ptr %11 to i64
-  %_M_bucket_count.i.i.i.i = getelementptr inbounds %"class.std::_Hashtable.79", ptr %offsets, i64 0, i32 1
+  %_M_bucket_count.i.i.i.i = getelementptr inbounds i8, ptr %offsets, i64 8
   %13 = load i64, ptr %_M_bucket_count.i.i.i.i, align 8
   %rem.i.i.i.i.i.i = urem i64 %12, %13
   %14 = load ptr, ptr %offsets, align 8
@@ -15337,14 +15058,14 @@ _ZNKSt13unordered_mapIPKN3ue215RoseInstructionEjSt4hashIS3_ESt8equal_toIS3_ESaIS
   %retval.sroa.0.1.i.i.i = phi ptr [ %16, %if.end.i.i.i.i.i ], [ %retval.sroa.0.0.i.i.i, %for.body.i.i.i ], [ %18, %for.cond.i.i.i.i.i ]
   %second.i.i = getelementptr inbounds i8, ptr %retval.sroa.0.1.i.i.i, i64 16
   %21 = load i32, ptr %second.i.i, align 4
-  %target11 = getelementptr inbounds %"class.ue2::RoseInstrCheckMask", ptr %ri, i64 0, i32 5
-  %_M_element_count.i.i.i.i18 = getelementptr inbounds %"class.std::_Hashtable.79", ptr %other_offsets, i64 0, i32 3
+  %target11 = getelementptr inbounds i8, ptr %ri, i64 40
+  %_M_element_count.i.i.i.i18 = getelementptr inbounds i8, ptr %other_offsets, i64 24
   %22 = load i64, ptr %_M_element_count.i.i.i.i18, align 8
   %cmp.not.not.i.i.i19 = icmp eq i64 %22, 0
   br i1 %cmp.not.not.i.i.i19, label %if.then.i.i.i40, label %if.end15.i.i.i20
 
 if.then.i.i.i40:                                  ; preds = %_ZNKSt13unordered_mapIPKN3ue215RoseInstructionEjSt4hashIS3_ESt8equal_toIS3_ESaISt4pairIKS3_jEEE2atERS9_.exit
-  %_M_before_begin.i.i.i.i.i41 = getelementptr inbounds %"class.std::_Hashtable.79", ptr %other_offsets, i64 0, i32 2
+  %_M_before_begin.i.i.i.i.i41 = getelementptr inbounds i8, ptr %other_offsets, i64 16
   %23 = load ptr, ptr %target11, align 8
   br label %for.cond.i.i.i42
 
@@ -15363,7 +15084,7 @@ for.body.i.i.i46:                                 ; preds = %for.cond.i.i.i42
 if.end15.i.i.i20:                                 ; preds = %_ZNKSt13unordered_mapIPKN3ue215RoseInstructionEjSt4hashIS3_ESt8equal_toIS3_ESaISt4pairIKS3_jEEE2atERS9_.exit
   %25 = load ptr, ptr %target11, align 8
   %26 = ptrtoint ptr %25 to i64
-  %_M_bucket_count.i.i.i.i21 = getelementptr inbounds %"class.std::_Hashtable.79", ptr %other_offsets, i64 0, i32 1
+  %_M_bucket_count.i.i.i.i21 = getelementptr inbounds i8, ptr %other_offsets, i64 8
   %27 = load i64, ptr %_M_bucket_count.i.i.i.i21, align 8
   %rem.i.i.i.i.i.i22 = urem i64 %26, %27
   %28 = load ptr, ptr %other_offsets, align 8
@@ -15416,44 +15137,44 @@ land.end:                                         ; preds = %_ZNKSt13unordered_m
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr hidden noundef zeroext i1 @_ZNK3ue220RoseInstrCheckMask328equiv_toERKS0_RKSt13unordered_mapIPKNS_15RoseInstructionEjSt4hashIS6_ESt8equal_toIS6_ESaISt4pairIKS6_jEEESH_(ptr noundef nonnull align 8 dereferenceable(88) %this, ptr noundef nonnull align 8 dereferenceable(88) %ri, ptr noundef nonnull align 8 dereferenceable(56) %offsets, ptr noundef nonnull align 8 dereferenceable(56) %other_offsets) local_unnamed_addr #5 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  %and_mask = getelementptr inbounds %"class.ue2::RoseInstrCheckMask32", ptr %this, i64 0, i32 1
-  %and_mask2 = getelementptr inbounds %"class.ue2::RoseInstrCheckMask32", ptr %ri, i64 0, i32 1
+  %and_mask = getelementptr inbounds i8, ptr %this, i64 8
+  %and_mask2 = getelementptr inbounds i8, ptr %ri, i64 8
   %bcmp.i.i.i.i.i = tail call i32 @bcmp(ptr noundef nonnull dereferenceable(32) %and_mask, ptr noundef nonnull dereferenceable(32) %and_mask2, i64 32)
   %tobool1.not.i.i.i.i.i = icmp eq i32 %bcmp.i.i.i.i.i, 0
   br i1 %tobool1.not.i.i.i.i.i, label %land.lhs.true, label %land.end
 
 land.lhs.true:                                    ; preds = %entry
-  %cmp_mask = getelementptr inbounds %"class.ue2::RoseInstrCheckMask32", ptr %this, i64 0, i32 2
-  %cmp_mask3 = getelementptr inbounds %"class.ue2::RoseInstrCheckMask32", ptr %ri, i64 0, i32 2
+  %cmp_mask = getelementptr inbounds i8, ptr %this, i64 40
+  %cmp_mask3 = getelementptr inbounds i8, ptr %ri, i64 40
   %bcmp.i.i.i.i.i18 = tail call i32 @bcmp(ptr noundef nonnull dereferenceable(32) %cmp_mask, ptr noundef nonnull dereferenceable(32) %cmp_mask3, i64 32)
   %tobool1.not.i.i.i.i.i19 = icmp eq i32 %bcmp.i.i.i.i.i18, 0
   br i1 %tobool1.not.i.i.i.i.i19, label %land.lhs.true5, label %land.end
 
 land.lhs.true5:                                   ; preds = %land.lhs.true
-  %neg_mask = getelementptr inbounds %"class.ue2::RoseInstrCheckMask32", ptr %this, i64 0, i32 3
+  %neg_mask = getelementptr inbounds i8, ptr %this, i64 72
   %0 = load i32, ptr %neg_mask, align 8
-  %neg_mask6 = getelementptr inbounds %"class.ue2::RoseInstrCheckMask32", ptr %ri, i64 0, i32 3
+  %neg_mask6 = getelementptr inbounds i8, ptr %ri, i64 72
   %1 = load i32, ptr %neg_mask6, align 8
   %cmp = icmp eq i32 %0, %1
   br i1 %cmp, label %land.lhs.true7, label %land.end
 
 land.lhs.true7:                                   ; preds = %land.lhs.true5
-  %offset = getelementptr inbounds %"class.ue2::RoseInstrCheckMask32", ptr %this, i64 0, i32 4
+  %offset = getelementptr inbounds i8, ptr %this, i64 76
   %2 = load i32, ptr %offset, align 4
-  %offset8 = getelementptr inbounds %"class.ue2::RoseInstrCheckMask32", ptr %ri, i64 0, i32 4
+  %offset8 = getelementptr inbounds i8, ptr %ri, i64 76
   %3 = load i32, ptr %offset8, align 4
   %cmp9 = icmp eq i32 %2, %3
   br i1 %cmp9, label %land.rhs, label %land.end
 
 land.rhs:                                         ; preds = %land.lhs.true7
-  %target = getelementptr inbounds %"class.ue2::RoseInstrCheckMask32", ptr %this, i64 0, i32 5
-  %_M_element_count.i.i.i.i = getelementptr inbounds %"class.std::_Hashtable.79", ptr %offsets, i64 0, i32 3
+  %target = getelementptr inbounds i8, ptr %this, i64 80
+  %_M_element_count.i.i.i.i = getelementptr inbounds i8, ptr %offsets, i64 24
   %4 = load i64, ptr %_M_element_count.i.i.i.i, align 8
   %cmp.not.not.i.i.i = icmp eq i64 %4, 0
   br i1 %cmp.not.not.i.i.i, label %if.then.i.i.i, label %if.end15.i.i.i
 
 if.then.i.i.i:                                    ; preds = %land.rhs
-  %_M_before_begin.i.i.i.i.i = getelementptr inbounds %"class.std::_Hashtable.79", ptr %offsets, i64 0, i32 2
+  %_M_before_begin.i.i.i.i.i = getelementptr inbounds i8, ptr %offsets, i64 16
   %5 = load ptr, ptr %target, align 8
   br label %for.cond.i.i.i
 
@@ -15472,7 +15193,7 @@ for.body.i.i.i:                                   ; preds = %for.cond.i.i.i
 if.end15.i.i.i:                                   ; preds = %land.rhs
   %7 = load ptr, ptr %target, align 8
   %8 = ptrtoint ptr %7 to i64
-  %_M_bucket_count.i.i.i.i = getelementptr inbounds %"class.std::_Hashtable.79", ptr %offsets, i64 0, i32 1
+  %_M_bucket_count.i.i.i.i = getelementptr inbounds i8, ptr %offsets, i64 8
   %9 = load i64, ptr %_M_bucket_count.i.i.i.i, align 8
   %rem.i.i.i.i.i.i = urem i64 %8, %9
   %10 = load ptr, ptr %offsets, align 8
@@ -15514,14 +15235,14 @@ _ZNKSt13unordered_mapIPKN3ue215RoseInstructionEjSt4hashIS3_ESt8equal_toIS3_ESaIS
   %retval.sroa.0.1.i.i.i = phi ptr [ %12, %if.end.i.i.i.i.i ], [ %retval.sroa.0.0.i.i.i, %for.body.i.i.i ], [ %14, %for.cond.i.i.i.i.i ]
   %second.i.i = getelementptr inbounds i8, ptr %retval.sroa.0.1.i.i.i, i64 16
   %17 = load i32, ptr %second.i.i, align 4
-  %target11 = getelementptr inbounds %"class.ue2::RoseInstrCheckMask32", ptr %ri, i64 0, i32 5
-  %_M_element_count.i.i.i.i20 = getelementptr inbounds %"class.std::_Hashtable.79", ptr %other_offsets, i64 0, i32 3
+  %target11 = getelementptr inbounds i8, ptr %ri, i64 80
+  %_M_element_count.i.i.i.i20 = getelementptr inbounds i8, ptr %other_offsets, i64 24
   %18 = load i64, ptr %_M_element_count.i.i.i.i20, align 8
   %cmp.not.not.i.i.i21 = icmp eq i64 %18, 0
   br i1 %cmp.not.not.i.i.i21, label %if.then.i.i.i42, label %if.end15.i.i.i22
 
 if.then.i.i.i42:                                  ; preds = %_ZNKSt13unordered_mapIPKN3ue215RoseInstructionEjSt4hashIS3_ESt8equal_toIS3_ESaISt4pairIKS3_jEEE2atERS9_.exit
-  %_M_before_begin.i.i.i.i.i43 = getelementptr inbounds %"class.std::_Hashtable.79", ptr %other_offsets, i64 0, i32 2
+  %_M_before_begin.i.i.i.i.i43 = getelementptr inbounds i8, ptr %other_offsets, i64 16
   %19 = load ptr, ptr %target11, align 8
   br label %for.cond.i.i.i44
 
@@ -15540,7 +15261,7 @@ for.body.i.i.i48:                                 ; preds = %for.cond.i.i.i44
 if.end15.i.i.i22:                                 ; preds = %_ZNKSt13unordered_mapIPKN3ue215RoseInstructionEjSt4hashIS3_ESt8equal_toIS3_ESaISt4pairIKS3_jEEE2atERS9_.exit
   %21 = load ptr, ptr %target11, align 8
   %22 = ptrtoint ptr %21 to i64
-  %_M_bucket_count.i.i.i.i23 = getelementptr inbounds %"class.std::_Hashtable.79", ptr %other_offsets, i64 0, i32 1
+  %_M_bucket_count.i.i.i.i23 = getelementptr inbounds i8, ptr %other_offsets, i64 8
   %23 = load i64, ptr %_M_bucket_count.i.i.i.i23, align 8
   %rem.i.i.i.i.i.i24 = urem i64 %22, %23
   %24 = load ptr, ptr %other_offsets, align 8
@@ -15593,44 +15314,44 @@ land.end:                                         ; preds = %_ZNKSt13unordered_m
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr hidden noundef zeroext i1 @_ZNK3ue220RoseInstrCheckMask648equiv_toERKS0_RKSt13unordered_mapIPKNS_15RoseInstructionEjSt4hashIS6_ESt8equal_toIS6_ESaISt4pairIKS6_jEEESH_(ptr noundef nonnull align 8 dereferenceable(160) %this, ptr noundef nonnull align 8 dereferenceable(160) %ri, ptr noundef nonnull align 8 dereferenceable(56) %offsets, ptr noundef nonnull align 8 dereferenceable(56) %other_offsets) local_unnamed_addr #5 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  %and_mask = getelementptr inbounds %"class.ue2::RoseInstrCheckMask64", ptr %this, i64 0, i32 1
-  %and_mask2 = getelementptr inbounds %"class.ue2::RoseInstrCheckMask64", ptr %ri, i64 0, i32 1
+  %and_mask = getelementptr inbounds i8, ptr %this, i64 8
+  %and_mask2 = getelementptr inbounds i8, ptr %ri, i64 8
   %bcmp.i.i.i.i.i = tail call i32 @bcmp(ptr noundef nonnull dereferenceable(64) %and_mask, ptr noundef nonnull dereferenceable(64) %and_mask2, i64 64)
   %tobool1.not.i.i.i.i.i = icmp eq i32 %bcmp.i.i.i.i.i, 0
   br i1 %tobool1.not.i.i.i.i.i, label %land.lhs.true, label %land.end
 
 land.lhs.true:                                    ; preds = %entry
-  %cmp_mask = getelementptr inbounds %"class.ue2::RoseInstrCheckMask64", ptr %this, i64 0, i32 2
-  %cmp_mask3 = getelementptr inbounds %"class.ue2::RoseInstrCheckMask64", ptr %ri, i64 0, i32 2
+  %cmp_mask = getelementptr inbounds i8, ptr %this, i64 72
+  %cmp_mask3 = getelementptr inbounds i8, ptr %ri, i64 72
   %bcmp.i.i.i.i.i18 = tail call i32 @bcmp(ptr noundef nonnull dereferenceable(64) %cmp_mask, ptr noundef nonnull dereferenceable(64) %cmp_mask3, i64 64)
   %tobool1.not.i.i.i.i.i19 = icmp eq i32 %bcmp.i.i.i.i.i18, 0
   br i1 %tobool1.not.i.i.i.i.i19, label %land.lhs.true5, label %land.end
 
 land.lhs.true5:                                   ; preds = %land.lhs.true
-  %neg_mask = getelementptr inbounds %"class.ue2::RoseInstrCheckMask64", ptr %this, i64 0, i32 3
+  %neg_mask = getelementptr inbounds i8, ptr %this, i64 136
   %0 = load i64, ptr %neg_mask, align 8
-  %neg_mask6 = getelementptr inbounds %"class.ue2::RoseInstrCheckMask64", ptr %ri, i64 0, i32 3
+  %neg_mask6 = getelementptr inbounds i8, ptr %ri, i64 136
   %1 = load i64, ptr %neg_mask6, align 8
   %cmp = icmp eq i64 %0, %1
   br i1 %cmp, label %land.lhs.true7, label %land.end
 
 land.lhs.true7:                                   ; preds = %land.lhs.true5
-  %offset = getelementptr inbounds %"class.ue2::RoseInstrCheckMask64", ptr %this, i64 0, i32 4
+  %offset = getelementptr inbounds i8, ptr %this, i64 144
   %2 = load i32, ptr %offset, align 8
-  %offset8 = getelementptr inbounds %"class.ue2::RoseInstrCheckMask64", ptr %ri, i64 0, i32 4
+  %offset8 = getelementptr inbounds i8, ptr %ri, i64 144
   %3 = load i32, ptr %offset8, align 8
   %cmp9 = icmp eq i32 %2, %3
   br i1 %cmp9, label %land.rhs, label %land.end
 
 land.rhs:                                         ; preds = %land.lhs.true7
-  %target = getelementptr inbounds %"class.ue2::RoseInstrCheckMask64", ptr %this, i64 0, i32 5
-  %_M_element_count.i.i.i.i = getelementptr inbounds %"class.std::_Hashtable.79", ptr %offsets, i64 0, i32 3
+  %target = getelementptr inbounds i8, ptr %this, i64 152
+  %_M_element_count.i.i.i.i = getelementptr inbounds i8, ptr %offsets, i64 24
   %4 = load i64, ptr %_M_element_count.i.i.i.i, align 8
   %cmp.not.not.i.i.i = icmp eq i64 %4, 0
   br i1 %cmp.not.not.i.i.i, label %if.then.i.i.i, label %if.end15.i.i.i
 
 if.then.i.i.i:                                    ; preds = %land.rhs
-  %_M_before_begin.i.i.i.i.i = getelementptr inbounds %"class.std::_Hashtable.79", ptr %offsets, i64 0, i32 2
+  %_M_before_begin.i.i.i.i.i = getelementptr inbounds i8, ptr %offsets, i64 16
   %5 = load ptr, ptr %target, align 8
   br label %for.cond.i.i.i
 
@@ -15649,7 +15370,7 @@ for.body.i.i.i:                                   ; preds = %for.cond.i.i.i
 if.end15.i.i.i:                                   ; preds = %land.rhs
   %7 = load ptr, ptr %target, align 8
   %8 = ptrtoint ptr %7 to i64
-  %_M_bucket_count.i.i.i.i = getelementptr inbounds %"class.std::_Hashtable.79", ptr %offsets, i64 0, i32 1
+  %_M_bucket_count.i.i.i.i = getelementptr inbounds i8, ptr %offsets, i64 8
   %9 = load i64, ptr %_M_bucket_count.i.i.i.i, align 8
   %rem.i.i.i.i.i.i = urem i64 %8, %9
   %10 = load ptr, ptr %offsets, align 8
@@ -15691,14 +15412,14 @@ _ZNKSt13unordered_mapIPKN3ue215RoseInstructionEjSt4hashIS3_ESt8equal_toIS3_ESaIS
   %retval.sroa.0.1.i.i.i = phi ptr [ %12, %if.end.i.i.i.i.i ], [ %retval.sroa.0.0.i.i.i, %for.body.i.i.i ], [ %14, %for.cond.i.i.i.i.i ]
   %second.i.i = getelementptr inbounds i8, ptr %retval.sroa.0.1.i.i.i, i64 16
   %17 = load i32, ptr %second.i.i, align 4
-  %target11 = getelementptr inbounds %"class.ue2::RoseInstrCheckMask64", ptr %ri, i64 0, i32 5
-  %_M_element_count.i.i.i.i20 = getelementptr inbounds %"class.std::_Hashtable.79", ptr %other_offsets, i64 0, i32 3
+  %target11 = getelementptr inbounds i8, ptr %ri, i64 152
+  %_M_element_count.i.i.i.i20 = getelementptr inbounds i8, ptr %other_offsets, i64 24
   %18 = load i64, ptr %_M_element_count.i.i.i.i20, align 8
   %cmp.not.not.i.i.i21 = icmp eq i64 %18, 0
   br i1 %cmp.not.not.i.i.i21, label %if.then.i.i.i42, label %if.end15.i.i.i22
 
 if.then.i.i.i42:                                  ; preds = %_ZNKSt13unordered_mapIPKN3ue215RoseInstructionEjSt4hashIS3_ESt8equal_toIS3_ESaISt4pairIKS3_jEEE2atERS9_.exit
-  %_M_before_begin.i.i.i.i.i43 = getelementptr inbounds %"class.std::_Hashtable.79", ptr %other_offsets, i64 0, i32 2
+  %_M_before_begin.i.i.i.i.i43 = getelementptr inbounds i8, ptr %other_offsets, i64 16
   %19 = load ptr, ptr %target11, align 8
   br label %for.cond.i.i.i44
 
@@ -15717,7 +15438,7 @@ for.body.i.i.i48:                                 ; preds = %for.cond.i.i.i44
 if.end15.i.i.i22:                                 ; preds = %_ZNKSt13unordered_mapIPKN3ue215RoseInstructionEjSt4hashIS3_ESt8equal_toIS3_ESaISt4pairIKS3_jEEE2atERS9_.exit
   %21 = load ptr, ptr %target11, align 8
   %22 = ptrtoint ptr %21 to i64
-  %_M_bucket_count.i.i.i.i23 = getelementptr inbounds %"class.std::_Hashtable.79", ptr %other_offsets, i64 0, i32 1
+  %_M_bucket_count.i.i.i.i23 = getelementptr inbounds i8, ptr %other_offsets, i64 8
   %23 = load i64, ptr %_M_bucket_count.i.i.i.i23, align 8
   %rem.i.i.i.i.i.i24 = urem i64 %22, %23
   %24 = load ptr, ptr %other_offsets, align 8
@@ -15770,46 +15491,46 @@ land.end:                                         ; preds = %_ZNKSt13unordered_m
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr hidden noundef zeroext i1 @_ZNK3ue218RoseInstrCheckByte8equiv_toERKS0_RKSt13unordered_mapIPKNS_15RoseInstructionEjSt4hashIS6_ESt8equal_toIS6_ESaISt4pairIKS6_jEEESH_(ptr noundef nonnull align 8 dereferenceable(24) %this, ptr noundef nonnull align 8 dereferenceable(24) %ri, ptr noundef nonnull align 8 dereferenceable(56) %offsets, ptr noundef nonnull align 8 dereferenceable(56) %other_offsets) local_unnamed_addr #5 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  %and_mask = getelementptr inbounds %"class.ue2::RoseInstrCheckByte", ptr %this, i64 0, i32 1
+  %and_mask = getelementptr inbounds i8, ptr %this, i64 8
   %0 = load i8, ptr %and_mask, align 8
-  %and_mask2 = getelementptr inbounds %"class.ue2::RoseInstrCheckByte", ptr %ri, i64 0, i32 1
+  %and_mask2 = getelementptr inbounds i8, ptr %ri, i64 8
   %1 = load i8, ptr %and_mask2, align 8
   %cmp = icmp eq i8 %0, %1
   br i1 %cmp, label %land.lhs.true, label %land.end
 
 land.lhs.true:                                    ; preds = %entry
-  %cmp_mask = getelementptr inbounds %"class.ue2::RoseInstrCheckByte", ptr %this, i64 0, i32 2
+  %cmp_mask = getelementptr inbounds i8, ptr %this, i64 9
   %2 = load i8, ptr %cmp_mask, align 1
-  %cmp_mask5 = getelementptr inbounds %"class.ue2::RoseInstrCheckByte", ptr %ri, i64 0, i32 2
+  %cmp_mask5 = getelementptr inbounds i8, ptr %ri, i64 9
   %3 = load i8, ptr %cmp_mask5, align 1
   %cmp7 = icmp eq i8 %2, %3
   br i1 %cmp7, label %land.lhs.true8, label %land.end
 
 land.lhs.true8:                                   ; preds = %land.lhs.true
-  %negation = getelementptr inbounds %"class.ue2::RoseInstrCheckByte", ptr %this, i64 0, i32 3
+  %negation = getelementptr inbounds i8, ptr %this, i64 10
   %4 = load i8, ptr %negation, align 2
-  %negation10 = getelementptr inbounds %"class.ue2::RoseInstrCheckByte", ptr %ri, i64 0, i32 3
+  %negation10 = getelementptr inbounds i8, ptr %ri, i64 10
   %5 = load i8, ptr %negation10, align 2
   %cmp12 = icmp eq i8 %4, %5
   br i1 %cmp12, label %land.lhs.true13, label %land.end
 
 land.lhs.true13:                                  ; preds = %land.lhs.true8
-  %offset = getelementptr inbounds %"class.ue2::RoseInstrCheckByte", ptr %this, i64 0, i32 4
+  %offset = getelementptr inbounds i8, ptr %this, i64 12
   %6 = load i32, ptr %offset, align 4
-  %offset14 = getelementptr inbounds %"class.ue2::RoseInstrCheckByte", ptr %ri, i64 0, i32 4
+  %offset14 = getelementptr inbounds i8, ptr %ri, i64 12
   %7 = load i32, ptr %offset14, align 4
   %cmp15 = icmp eq i32 %6, %7
   br i1 %cmp15, label %land.rhs, label %land.end
 
 land.rhs:                                         ; preds = %land.lhs.true13
-  %target = getelementptr inbounds %"class.ue2::RoseInstrCheckByte", ptr %this, i64 0, i32 5
-  %_M_element_count.i.i.i.i = getelementptr inbounds %"class.std::_Hashtable.79", ptr %offsets, i64 0, i32 3
+  %target = getelementptr inbounds i8, ptr %this, i64 16
+  %_M_element_count.i.i.i.i = getelementptr inbounds i8, ptr %offsets, i64 24
   %8 = load i64, ptr %_M_element_count.i.i.i.i, align 8
   %cmp.not.not.i.i.i = icmp eq i64 %8, 0
   br i1 %cmp.not.not.i.i.i, label %if.then.i.i.i, label %if.end15.i.i.i
 
 if.then.i.i.i:                                    ; preds = %land.rhs
-  %_M_before_begin.i.i.i.i.i = getelementptr inbounds %"class.std::_Hashtable.79", ptr %offsets, i64 0, i32 2
+  %_M_before_begin.i.i.i.i.i = getelementptr inbounds i8, ptr %offsets, i64 16
   %9 = load ptr, ptr %target, align 8
   br label %for.cond.i.i.i
 
@@ -15828,7 +15549,7 @@ for.body.i.i.i:                                   ; preds = %for.cond.i.i.i
 if.end15.i.i.i:                                   ; preds = %land.rhs
   %11 = load ptr, ptr %target, align 8
   %12 = ptrtoint ptr %11 to i64
-  %_M_bucket_count.i.i.i.i = getelementptr inbounds %"class.std::_Hashtable.79", ptr %offsets, i64 0, i32 1
+  %_M_bucket_count.i.i.i.i = getelementptr inbounds i8, ptr %offsets, i64 8
   %13 = load i64, ptr %_M_bucket_count.i.i.i.i, align 8
   %rem.i.i.i.i.i.i = urem i64 %12, %13
   %14 = load ptr, ptr %offsets, align 8
@@ -15870,14 +15591,14 @@ _ZNKSt13unordered_mapIPKN3ue215RoseInstructionEjSt4hashIS3_ESt8equal_toIS3_ESaIS
   %retval.sroa.0.1.i.i.i = phi ptr [ %16, %if.end.i.i.i.i.i ], [ %retval.sroa.0.0.i.i.i, %for.body.i.i.i ], [ %18, %for.cond.i.i.i.i.i ]
   %second.i.i = getelementptr inbounds i8, ptr %retval.sroa.0.1.i.i.i, i64 16
   %21 = load i32, ptr %second.i.i, align 4
-  %target16 = getelementptr inbounds %"class.ue2::RoseInstrCheckByte", ptr %ri, i64 0, i32 5
-  %_M_element_count.i.i.i.i23 = getelementptr inbounds %"class.std::_Hashtable.79", ptr %other_offsets, i64 0, i32 3
+  %target16 = getelementptr inbounds i8, ptr %ri, i64 16
+  %_M_element_count.i.i.i.i23 = getelementptr inbounds i8, ptr %other_offsets, i64 24
   %22 = load i64, ptr %_M_element_count.i.i.i.i23, align 8
   %cmp.not.not.i.i.i24 = icmp eq i64 %22, 0
   br i1 %cmp.not.not.i.i.i24, label %if.then.i.i.i45, label %if.end15.i.i.i25
 
 if.then.i.i.i45:                                  ; preds = %_ZNKSt13unordered_mapIPKN3ue215RoseInstructionEjSt4hashIS3_ESt8equal_toIS3_ESaISt4pairIKS3_jEEE2atERS9_.exit
-  %_M_before_begin.i.i.i.i.i46 = getelementptr inbounds %"class.std::_Hashtable.79", ptr %other_offsets, i64 0, i32 2
+  %_M_before_begin.i.i.i.i.i46 = getelementptr inbounds i8, ptr %other_offsets, i64 16
   %23 = load ptr, ptr %target16, align 8
   br label %for.cond.i.i.i47
 
@@ -15896,7 +15617,7 @@ for.body.i.i.i51:                                 ; preds = %for.cond.i.i.i47
 if.end15.i.i.i25:                                 ; preds = %_ZNKSt13unordered_mapIPKN3ue215RoseInstructionEjSt4hashIS3_ESt8equal_toIS3_ESaISt4pairIKS3_jEEE2atERS9_.exit
   %25 = load ptr, ptr %target16, align 8
   %26 = ptrtoint ptr %25 to i64
-  %_M_bucket_count.i.i.i.i26 = getelementptr inbounds %"class.std::_Hashtable.79", ptr %other_offsets, i64 0, i32 1
+  %_M_bucket_count.i.i.i.i26 = getelementptr inbounds i8, ptr %other_offsets, i64 8
   %27 = load i64, ptr %_M_bucket_count.i.i.i.i26, align 8
   %rem.i.i.i.i.i.i27 = urem i64 %26, %27
   %28 = load ptr, ptr %other_offsets, align 8
@@ -15949,44 +15670,44 @@ land.end:                                         ; preds = %_ZNKSt13unordered_m
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr hidden noundef zeroext i1 @_ZNK3ue224RoseInstrCheckShufti16x88equiv_toERKS0_RKSt13unordered_mapIPKNS_15RoseInstructionEjSt4hashIS6_ESt8equal_toIS6_ESaISt4pairIKS6_jEEESH_(ptr noundef nonnull align 8 dereferenceable(72) %this, ptr noundef nonnull align 8 dereferenceable(72) %ri, ptr noundef nonnull align 8 dereferenceable(56) %offsets, ptr noundef nonnull align 8 dereferenceable(56) %other_offsets) local_unnamed_addr #5 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  %nib_mask = getelementptr inbounds %"class.ue2::RoseInstrCheckShufti16x8", ptr %this, i64 0, i32 1
-  %nib_mask2 = getelementptr inbounds %"class.ue2::RoseInstrCheckShufti16x8", ptr %ri, i64 0, i32 1
+  %nib_mask = getelementptr inbounds i8, ptr %this, i64 8
+  %nib_mask2 = getelementptr inbounds i8, ptr %ri, i64 8
   %bcmp.i.i.i.i.i = tail call i32 @bcmp(ptr noundef nonnull dereferenceable(32) %nib_mask, ptr noundef nonnull dereferenceable(32) %nib_mask2, i64 32)
   %tobool1.not.i.i.i.i.i = icmp eq i32 %bcmp.i.i.i.i.i, 0
   br i1 %tobool1.not.i.i.i.i.i, label %land.lhs.true, label %land.end
 
 land.lhs.true:                                    ; preds = %entry
-  %bucket_select_mask = getelementptr inbounds %"class.ue2::RoseInstrCheckShufti16x8", ptr %this, i64 0, i32 2
-  %bucket_select_mask3 = getelementptr inbounds %"class.ue2::RoseInstrCheckShufti16x8", ptr %ri, i64 0, i32 2
+  %bucket_select_mask = getelementptr inbounds i8, ptr %this, i64 40
+  %bucket_select_mask3 = getelementptr inbounds i8, ptr %ri, i64 40
   %bcmp.i.i.i.i.i18 = tail call i32 @bcmp(ptr noundef nonnull dereferenceable(16) %bucket_select_mask, ptr noundef nonnull dereferenceable(16) %bucket_select_mask3, i64 16)
   %tobool1.not.i.i.i.i.i19 = icmp eq i32 %bcmp.i.i.i.i.i18, 0
   br i1 %tobool1.not.i.i.i.i.i19, label %land.lhs.true5, label %land.end
 
 land.lhs.true5:                                   ; preds = %land.lhs.true
-  %neg_mask = getelementptr inbounds %"class.ue2::RoseInstrCheckShufti16x8", ptr %this, i64 0, i32 3
+  %neg_mask = getelementptr inbounds i8, ptr %this, i64 56
   %0 = load i32, ptr %neg_mask, align 8
-  %neg_mask6 = getelementptr inbounds %"class.ue2::RoseInstrCheckShufti16x8", ptr %ri, i64 0, i32 3
+  %neg_mask6 = getelementptr inbounds i8, ptr %ri, i64 56
   %1 = load i32, ptr %neg_mask6, align 8
   %cmp = icmp eq i32 %0, %1
   br i1 %cmp, label %land.lhs.true7, label %land.end
 
 land.lhs.true7:                                   ; preds = %land.lhs.true5
-  %offset = getelementptr inbounds %"class.ue2::RoseInstrCheckShufti16x8", ptr %this, i64 0, i32 4
+  %offset = getelementptr inbounds i8, ptr %this, i64 60
   %2 = load i32, ptr %offset, align 4
-  %offset8 = getelementptr inbounds %"class.ue2::RoseInstrCheckShufti16x8", ptr %ri, i64 0, i32 4
+  %offset8 = getelementptr inbounds i8, ptr %ri, i64 60
   %3 = load i32, ptr %offset8, align 4
   %cmp9 = icmp eq i32 %2, %3
   br i1 %cmp9, label %land.rhs, label %land.end
 
 land.rhs:                                         ; preds = %land.lhs.true7
-  %target = getelementptr inbounds %"class.ue2::RoseInstrCheckShufti16x8", ptr %this, i64 0, i32 5
-  %_M_element_count.i.i.i.i = getelementptr inbounds %"class.std::_Hashtable.79", ptr %offsets, i64 0, i32 3
+  %target = getelementptr inbounds i8, ptr %this, i64 64
+  %_M_element_count.i.i.i.i = getelementptr inbounds i8, ptr %offsets, i64 24
   %4 = load i64, ptr %_M_element_count.i.i.i.i, align 8
   %cmp.not.not.i.i.i = icmp eq i64 %4, 0
   br i1 %cmp.not.not.i.i.i, label %if.then.i.i.i, label %if.end15.i.i.i
 
 if.then.i.i.i:                                    ; preds = %land.rhs
-  %_M_before_begin.i.i.i.i.i = getelementptr inbounds %"class.std::_Hashtable.79", ptr %offsets, i64 0, i32 2
+  %_M_before_begin.i.i.i.i.i = getelementptr inbounds i8, ptr %offsets, i64 16
   %5 = load ptr, ptr %target, align 8
   br label %for.cond.i.i.i
 
@@ -16005,7 +15726,7 @@ for.body.i.i.i:                                   ; preds = %for.cond.i.i.i
 if.end15.i.i.i:                                   ; preds = %land.rhs
   %7 = load ptr, ptr %target, align 8
   %8 = ptrtoint ptr %7 to i64
-  %_M_bucket_count.i.i.i.i = getelementptr inbounds %"class.std::_Hashtable.79", ptr %offsets, i64 0, i32 1
+  %_M_bucket_count.i.i.i.i = getelementptr inbounds i8, ptr %offsets, i64 8
   %9 = load i64, ptr %_M_bucket_count.i.i.i.i, align 8
   %rem.i.i.i.i.i.i = urem i64 %8, %9
   %10 = load ptr, ptr %offsets, align 8
@@ -16047,14 +15768,14 @@ _ZNKSt13unordered_mapIPKN3ue215RoseInstructionEjSt4hashIS3_ESt8equal_toIS3_ESaIS
   %retval.sroa.0.1.i.i.i = phi ptr [ %12, %if.end.i.i.i.i.i ], [ %retval.sroa.0.0.i.i.i, %for.body.i.i.i ], [ %14, %for.cond.i.i.i.i.i ]
   %second.i.i = getelementptr inbounds i8, ptr %retval.sroa.0.1.i.i.i, i64 16
   %17 = load i32, ptr %second.i.i, align 4
-  %target11 = getelementptr inbounds %"class.ue2::RoseInstrCheckShufti16x8", ptr %ri, i64 0, i32 5
-  %_M_element_count.i.i.i.i20 = getelementptr inbounds %"class.std::_Hashtable.79", ptr %other_offsets, i64 0, i32 3
+  %target11 = getelementptr inbounds i8, ptr %ri, i64 64
+  %_M_element_count.i.i.i.i20 = getelementptr inbounds i8, ptr %other_offsets, i64 24
   %18 = load i64, ptr %_M_element_count.i.i.i.i20, align 8
   %cmp.not.not.i.i.i21 = icmp eq i64 %18, 0
   br i1 %cmp.not.not.i.i.i21, label %if.then.i.i.i42, label %if.end15.i.i.i22
 
 if.then.i.i.i42:                                  ; preds = %_ZNKSt13unordered_mapIPKN3ue215RoseInstructionEjSt4hashIS3_ESt8equal_toIS3_ESaISt4pairIKS3_jEEE2atERS9_.exit
-  %_M_before_begin.i.i.i.i.i43 = getelementptr inbounds %"class.std::_Hashtable.79", ptr %other_offsets, i64 0, i32 2
+  %_M_before_begin.i.i.i.i.i43 = getelementptr inbounds i8, ptr %other_offsets, i64 16
   %19 = load ptr, ptr %target11, align 8
   br label %for.cond.i.i.i44
 
@@ -16073,7 +15794,7 @@ for.body.i.i.i48:                                 ; preds = %for.cond.i.i.i44
 if.end15.i.i.i22:                                 ; preds = %_ZNKSt13unordered_mapIPKN3ue215RoseInstructionEjSt4hashIS3_ESt8equal_toIS3_ESaISt4pairIKS3_jEEE2atERS9_.exit
   %21 = load ptr, ptr %target11, align 8
   %22 = ptrtoint ptr %21 to i64
-  %_M_bucket_count.i.i.i.i23 = getelementptr inbounds %"class.std::_Hashtable.79", ptr %other_offsets, i64 0, i32 1
+  %_M_bucket_count.i.i.i.i23 = getelementptr inbounds i8, ptr %other_offsets, i64 8
   %23 = load i64, ptr %_M_bucket_count.i.i.i.i23, align 8
   %rem.i.i.i.i.i.i24 = urem i64 %22, %23
   %24 = load ptr, ptr %other_offsets, align 8
@@ -16126,51 +15847,51 @@ land.end:                                         ; preds = %_ZNKSt13unordered_m
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr hidden noundef zeroext i1 @_ZNK3ue224RoseInstrCheckShufti32x88equiv_toERKS0_RKSt13unordered_mapIPKNS_15RoseInstructionEjSt4hashIS6_ESt8equal_toIS6_ESaISt4pairIKS6_jEEESH_(ptr noundef nonnull align 8 dereferenceable(88) %this, ptr noundef nonnull align 8 dereferenceable(88) %ri, ptr noundef nonnull align 8 dereferenceable(56) %offsets, ptr noundef nonnull align 8 dereferenceable(56) %other_offsets) local_unnamed_addr #5 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  %hi_mask = getelementptr inbounds %"class.ue2::RoseInstrCheckShufti32x8", ptr %this, i64 0, i32 1
-  %hi_mask2 = getelementptr inbounds %"class.ue2::RoseInstrCheckShufti32x8", ptr %ri, i64 0, i32 1
+  %hi_mask = getelementptr inbounds i8, ptr %this, i64 8
+  %hi_mask2 = getelementptr inbounds i8, ptr %ri, i64 8
   %bcmp.i.i.i.i.i = tail call i32 @bcmp(ptr noundef nonnull dereferenceable(16) %hi_mask, ptr noundef nonnull dereferenceable(16) %hi_mask2, i64 16)
   %tobool1.not.i.i.i.i.i = icmp eq i32 %bcmp.i.i.i.i.i, 0
   br i1 %tobool1.not.i.i.i.i.i, label %land.lhs.true, label %land.end
 
 land.lhs.true:                                    ; preds = %entry
-  %lo_mask = getelementptr inbounds %"class.ue2::RoseInstrCheckShufti32x8", ptr %this, i64 0, i32 2
-  %lo_mask3 = getelementptr inbounds %"class.ue2::RoseInstrCheckShufti32x8", ptr %ri, i64 0, i32 2
+  %lo_mask = getelementptr inbounds i8, ptr %this, i64 24
+  %lo_mask3 = getelementptr inbounds i8, ptr %ri, i64 24
   %bcmp.i.i.i.i.i22 = tail call i32 @bcmp(ptr noundef nonnull dereferenceable(16) %lo_mask, ptr noundef nonnull dereferenceable(16) %lo_mask3, i64 16)
   %tobool1.not.i.i.i.i.i23 = icmp eq i32 %bcmp.i.i.i.i.i22, 0
   br i1 %tobool1.not.i.i.i.i.i23, label %land.lhs.true5, label %land.end
 
 land.lhs.true5:                                   ; preds = %land.lhs.true
-  %bucket_select_mask = getelementptr inbounds %"class.ue2::RoseInstrCheckShufti32x8", ptr %this, i64 0, i32 3
-  %bucket_select_mask6 = getelementptr inbounds %"class.ue2::RoseInstrCheckShufti32x8", ptr %ri, i64 0, i32 3
+  %bucket_select_mask = getelementptr inbounds i8, ptr %this, i64 40
+  %bucket_select_mask6 = getelementptr inbounds i8, ptr %ri, i64 40
   %bcmp.i.i.i.i.i24 = tail call i32 @bcmp(ptr noundef nonnull dereferenceable(32) %bucket_select_mask, ptr noundef nonnull dereferenceable(32) %bucket_select_mask6, i64 32)
   %tobool1.not.i.i.i.i.i25 = icmp eq i32 %bcmp.i.i.i.i.i24, 0
   br i1 %tobool1.not.i.i.i.i.i25, label %land.lhs.true8, label %land.end
 
 land.lhs.true8:                                   ; preds = %land.lhs.true5
-  %neg_mask = getelementptr inbounds %"class.ue2::RoseInstrCheckShufti32x8", ptr %this, i64 0, i32 4
+  %neg_mask = getelementptr inbounds i8, ptr %this, i64 72
   %0 = load i32, ptr %neg_mask, align 8
-  %neg_mask9 = getelementptr inbounds %"class.ue2::RoseInstrCheckShufti32x8", ptr %ri, i64 0, i32 4
+  %neg_mask9 = getelementptr inbounds i8, ptr %ri, i64 72
   %1 = load i32, ptr %neg_mask9, align 8
   %cmp = icmp eq i32 %0, %1
   br i1 %cmp, label %land.lhs.true10, label %land.end
 
 land.lhs.true10:                                  ; preds = %land.lhs.true8
-  %offset = getelementptr inbounds %"class.ue2::RoseInstrCheckShufti32x8", ptr %this, i64 0, i32 5
+  %offset = getelementptr inbounds i8, ptr %this, i64 76
   %2 = load i32, ptr %offset, align 4
-  %offset11 = getelementptr inbounds %"class.ue2::RoseInstrCheckShufti32x8", ptr %ri, i64 0, i32 5
+  %offset11 = getelementptr inbounds i8, ptr %ri, i64 76
   %3 = load i32, ptr %offset11, align 4
   %cmp12 = icmp eq i32 %2, %3
   br i1 %cmp12, label %land.rhs, label %land.end
 
 land.rhs:                                         ; preds = %land.lhs.true10
-  %target = getelementptr inbounds %"class.ue2::RoseInstrCheckShufti32x8", ptr %this, i64 0, i32 6
-  %_M_element_count.i.i.i.i = getelementptr inbounds %"class.std::_Hashtable.79", ptr %offsets, i64 0, i32 3
+  %target = getelementptr inbounds i8, ptr %this, i64 80
+  %_M_element_count.i.i.i.i = getelementptr inbounds i8, ptr %offsets, i64 24
   %4 = load i64, ptr %_M_element_count.i.i.i.i, align 8
   %cmp.not.not.i.i.i = icmp eq i64 %4, 0
   br i1 %cmp.not.not.i.i.i, label %if.then.i.i.i, label %if.end15.i.i.i
 
 if.then.i.i.i:                                    ; preds = %land.rhs
-  %_M_before_begin.i.i.i.i.i = getelementptr inbounds %"class.std::_Hashtable.79", ptr %offsets, i64 0, i32 2
+  %_M_before_begin.i.i.i.i.i = getelementptr inbounds i8, ptr %offsets, i64 16
   %5 = load ptr, ptr %target, align 8
   br label %for.cond.i.i.i
 
@@ -16189,7 +15910,7 @@ for.body.i.i.i:                                   ; preds = %for.cond.i.i.i
 if.end15.i.i.i:                                   ; preds = %land.rhs
   %7 = load ptr, ptr %target, align 8
   %8 = ptrtoint ptr %7 to i64
-  %_M_bucket_count.i.i.i.i = getelementptr inbounds %"class.std::_Hashtable.79", ptr %offsets, i64 0, i32 1
+  %_M_bucket_count.i.i.i.i = getelementptr inbounds i8, ptr %offsets, i64 8
   %9 = load i64, ptr %_M_bucket_count.i.i.i.i, align 8
   %rem.i.i.i.i.i.i = urem i64 %8, %9
   %10 = load ptr, ptr %offsets, align 8
@@ -16231,14 +15952,14 @@ _ZNKSt13unordered_mapIPKN3ue215RoseInstructionEjSt4hashIS3_ESt8equal_toIS3_ESaIS
   %retval.sroa.0.1.i.i.i = phi ptr [ %12, %if.end.i.i.i.i.i ], [ %retval.sroa.0.0.i.i.i, %for.body.i.i.i ], [ %14, %for.cond.i.i.i.i.i ]
   %second.i.i = getelementptr inbounds i8, ptr %retval.sroa.0.1.i.i.i, i64 16
   %17 = load i32, ptr %second.i.i, align 4
-  %target14 = getelementptr inbounds %"class.ue2::RoseInstrCheckShufti32x8", ptr %ri, i64 0, i32 6
-  %_M_element_count.i.i.i.i26 = getelementptr inbounds %"class.std::_Hashtable.79", ptr %other_offsets, i64 0, i32 3
+  %target14 = getelementptr inbounds i8, ptr %ri, i64 80
+  %_M_element_count.i.i.i.i26 = getelementptr inbounds i8, ptr %other_offsets, i64 24
   %18 = load i64, ptr %_M_element_count.i.i.i.i26, align 8
   %cmp.not.not.i.i.i27 = icmp eq i64 %18, 0
   br i1 %cmp.not.not.i.i.i27, label %if.then.i.i.i48, label %if.end15.i.i.i28
 
 if.then.i.i.i48:                                  ; preds = %_ZNKSt13unordered_mapIPKN3ue215RoseInstructionEjSt4hashIS3_ESt8equal_toIS3_ESaISt4pairIKS3_jEEE2atERS9_.exit
-  %_M_before_begin.i.i.i.i.i49 = getelementptr inbounds %"class.std::_Hashtable.79", ptr %other_offsets, i64 0, i32 2
+  %_M_before_begin.i.i.i.i.i49 = getelementptr inbounds i8, ptr %other_offsets, i64 16
   %19 = load ptr, ptr %target14, align 8
   br label %for.cond.i.i.i50
 
@@ -16257,7 +15978,7 @@ for.body.i.i.i54:                                 ; preds = %for.cond.i.i.i50
 if.end15.i.i.i28:                                 ; preds = %_ZNKSt13unordered_mapIPKN3ue215RoseInstructionEjSt4hashIS3_ESt8equal_toIS3_ESaISt4pairIKS3_jEEE2atERS9_.exit
   %21 = load ptr, ptr %target14, align 8
   %22 = ptrtoint ptr %21 to i64
-  %_M_bucket_count.i.i.i.i29 = getelementptr inbounds %"class.std::_Hashtable.79", ptr %other_offsets, i64 0, i32 1
+  %_M_bucket_count.i.i.i.i29 = getelementptr inbounds i8, ptr %other_offsets, i64 8
   %23 = load i64, ptr %_M_bucket_count.i.i.i.i29, align 8
   %rem.i.i.i.i.i.i30 = urem i64 %22, %23
   %24 = load ptr, ptr %other_offsets, align 8
@@ -16310,51 +16031,51 @@ land.end:                                         ; preds = %_ZNKSt13unordered_m
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr hidden noundef zeroext i1 @_ZNK3ue225RoseInstrCheckShufti16x168equiv_toERKS0_RKSt13unordered_mapIPKNS_15RoseInstructionEjSt4hashIS6_ESt8equal_toIS6_ESaISt4pairIKS6_jEEESH_(ptr noundef nonnull align 8 dereferenceable(120) %this, ptr noundef nonnull align 8 dereferenceable(120) %ri, ptr noundef nonnull align 8 dereferenceable(56) %offsets, ptr noundef nonnull align 8 dereferenceable(56) %other_offsets) local_unnamed_addr #5 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  %hi_mask = getelementptr inbounds %"class.ue2::RoseInstrCheckShufti16x16", ptr %this, i64 0, i32 1
-  %hi_mask2 = getelementptr inbounds %"class.ue2::RoseInstrCheckShufti16x16", ptr %ri, i64 0, i32 1
+  %hi_mask = getelementptr inbounds i8, ptr %this, i64 8
+  %hi_mask2 = getelementptr inbounds i8, ptr %ri, i64 8
   %bcmp.i.i.i.i.i = tail call i32 @bcmp(ptr noundef nonnull dereferenceable(32) %hi_mask, ptr noundef nonnull dereferenceable(32) %hi_mask2, i64 32)
   %tobool1.not.i.i.i.i.i = icmp eq i32 %bcmp.i.i.i.i.i, 0
   br i1 %tobool1.not.i.i.i.i.i, label %land.lhs.true, label %land.end
 
 land.lhs.true:                                    ; preds = %entry
-  %lo_mask = getelementptr inbounds %"class.ue2::RoseInstrCheckShufti16x16", ptr %this, i64 0, i32 2
-  %lo_mask3 = getelementptr inbounds %"class.ue2::RoseInstrCheckShufti16x16", ptr %ri, i64 0, i32 2
+  %lo_mask = getelementptr inbounds i8, ptr %this, i64 40
+  %lo_mask3 = getelementptr inbounds i8, ptr %ri, i64 40
   %bcmp.i.i.i.i.i22 = tail call i32 @bcmp(ptr noundef nonnull dereferenceable(32) %lo_mask, ptr noundef nonnull dereferenceable(32) %lo_mask3, i64 32)
   %tobool1.not.i.i.i.i.i23 = icmp eq i32 %bcmp.i.i.i.i.i22, 0
   br i1 %tobool1.not.i.i.i.i.i23, label %land.lhs.true5, label %land.end
 
 land.lhs.true5:                                   ; preds = %land.lhs.true
-  %bucket_select_mask = getelementptr inbounds %"class.ue2::RoseInstrCheckShufti16x16", ptr %this, i64 0, i32 3
-  %bucket_select_mask6 = getelementptr inbounds %"class.ue2::RoseInstrCheckShufti16x16", ptr %ri, i64 0, i32 3
+  %bucket_select_mask = getelementptr inbounds i8, ptr %this, i64 72
+  %bucket_select_mask6 = getelementptr inbounds i8, ptr %ri, i64 72
   %bcmp.i.i.i.i.i24 = tail call i32 @bcmp(ptr noundef nonnull dereferenceable(32) %bucket_select_mask, ptr noundef nonnull dereferenceable(32) %bucket_select_mask6, i64 32)
   %tobool1.not.i.i.i.i.i25 = icmp eq i32 %bcmp.i.i.i.i.i24, 0
   br i1 %tobool1.not.i.i.i.i.i25, label %land.lhs.true8, label %land.end
 
 land.lhs.true8:                                   ; preds = %land.lhs.true5
-  %neg_mask = getelementptr inbounds %"class.ue2::RoseInstrCheckShufti16x16", ptr %this, i64 0, i32 4
+  %neg_mask = getelementptr inbounds i8, ptr %this, i64 104
   %0 = load i32, ptr %neg_mask, align 8
-  %neg_mask9 = getelementptr inbounds %"class.ue2::RoseInstrCheckShufti16x16", ptr %ri, i64 0, i32 4
+  %neg_mask9 = getelementptr inbounds i8, ptr %ri, i64 104
   %1 = load i32, ptr %neg_mask9, align 8
   %cmp = icmp eq i32 %0, %1
   br i1 %cmp, label %land.lhs.true10, label %land.end
 
 land.lhs.true10:                                  ; preds = %land.lhs.true8
-  %offset = getelementptr inbounds %"class.ue2::RoseInstrCheckShufti16x16", ptr %this, i64 0, i32 5
+  %offset = getelementptr inbounds i8, ptr %this, i64 108
   %2 = load i32, ptr %offset, align 4
-  %offset11 = getelementptr inbounds %"class.ue2::RoseInstrCheckShufti16x16", ptr %ri, i64 0, i32 5
+  %offset11 = getelementptr inbounds i8, ptr %ri, i64 108
   %3 = load i32, ptr %offset11, align 4
   %cmp12 = icmp eq i32 %2, %3
   br i1 %cmp12, label %land.rhs, label %land.end
 
 land.rhs:                                         ; preds = %land.lhs.true10
-  %target = getelementptr inbounds %"class.ue2::RoseInstrCheckShufti16x16", ptr %this, i64 0, i32 6
-  %_M_element_count.i.i.i.i = getelementptr inbounds %"class.std::_Hashtable.79", ptr %offsets, i64 0, i32 3
+  %target = getelementptr inbounds i8, ptr %this, i64 112
+  %_M_element_count.i.i.i.i = getelementptr inbounds i8, ptr %offsets, i64 24
   %4 = load i64, ptr %_M_element_count.i.i.i.i, align 8
   %cmp.not.not.i.i.i = icmp eq i64 %4, 0
   br i1 %cmp.not.not.i.i.i, label %if.then.i.i.i, label %if.end15.i.i.i
 
 if.then.i.i.i:                                    ; preds = %land.rhs
-  %_M_before_begin.i.i.i.i.i = getelementptr inbounds %"class.std::_Hashtable.79", ptr %offsets, i64 0, i32 2
+  %_M_before_begin.i.i.i.i.i = getelementptr inbounds i8, ptr %offsets, i64 16
   %5 = load ptr, ptr %target, align 8
   br label %for.cond.i.i.i
 
@@ -16373,7 +16094,7 @@ for.body.i.i.i:                                   ; preds = %for.cond.i.i.i
 if.end15.i.i.i:                                   ; preds = %land.rhs
   %7 = load ptr, ptr %target, align 8
   %8 = ptrtoint ptr %7 to i64
-  %_M_bucket_count.i.i.i.i = getelementptr inbounds %"class.std::_Hashtable.79", ptr %offsets, i64 0, i32 1
+  %_M_bucket_count.i.i.i.i = getelementptr inbounds i8, ptr %offsets, i64 8
   %9 = load i64, ptr %_M_bucket_count.i.i.i.i, align 8
   %rem.i.i.i.i.i.i = urem i64 %8, %9
   %10 = load ptr, ptr %offsets, align 8
@@ -16415,14 +16136,14 @@ _ZNKSt13unordered_mapIPKN3ue215RoseInstructionEjSt4hashIS3_ESt8equal_toIS3_ESaIS
   %retval.sroa.0.1.i.i.i = phi ptr [ %12, %if.end.i.i.i.i.i ], [ %retval.sroa.0.0.i.i.i, %for.body.i.i.i ], [ %14, %for.cond.i.i.i.i.i ]
   %second.i.i = getelementptr inbounds i8, ptr %retval.sroa.0.1.i.i.i, i64 16
   %17 = load i32, ptr %second.i.i, align 4
-  %target14 = getelementptr inbounds %"class.ue2::RoseInstrCheckShufti16x16", ptr %ri, i64 0, i32 6
-  %_M_element_count.i.i.i.i26 = getelementptr inbounds %"class.std::_Hashtable.79", ptr %other_offsets, i64 0, i32 3
+  %target14 = getelementptr inbounds i8, ptr %ri, i64 112
+  %_M_element_count.i.i.i.i26 = getelementptr inbounds i8, ptr %other_offsets, i64 24
   %18 = load i64, ptr %_M_element_count.i.i.i.i26, align 8
   %cmp.not.not.i.i.i27 = icmp eq i64 %18, 0
   br i1 %cmp.not.not.i.i.i27, label %if.then.i.i.i48, label %if.end15.i.i.i28
 
 if.then.i.i.i48:                                  ; preds = %_ZNKSt13unordered_mapIPKN3ue215RoseInstructionEjSt4hashIS3_ESt8equal_toIS3_ESaISt4pairIKS3_jEEE2atERS9_.exit
-  %_M_before_begin.i.i.i.i.i49 = getelementptr inbounds %"class.std::_Hashtable.79", ptr %other_offsets, i64 0, i32 2
+  %_M_before_begin.i.i.i.i.i49 = getelementptr inbounds i8, ptr %other_offsets, i64 16
   %19 = load ptr, ptr %target14, align 8
   br label %for.cond.i.i.i50
 
@@ -16441,7 +16162,7 @@ for.body.i.i.i54:                                 ; preds = %for.cond.i.i.i50
 if.end15.i.i.i28:                                 ; preds = %_ZNKSt13unordered_mapIPKN3ue215RoseInstructionEjSt4hashIS3_ESt8equal_toIS3_ESaISt4pairIKS3_jEEE2atERS9_.exit
   %21 = load ptr, ptr %target14, align 8
   %22 = ptrtoint ptr %21 to i64
-  %_M_bucket_count.i.i.i.i29 = getelementptr inbounds %"class.std::_Hashtable.79", ptr %other_offsets, i64 0, i32 1
+  %_M_bucket_count.i.i.i.i29 = getelementptr inbounds i8, ptr %other_offsets, i64 8
   %23 = load i64, ptr %_M_bucket_count.i.i.i.i29, align 8
   %rem.i.i.i.i.i.i30 = urem i64 %22, %23
   %24 = load ptr, ptr %other_offsets, align 8
@@ -16494,54 +16215,54 @@ land.end:                                         ; preds = %_ZNKSt13unordered_m
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr hidden noundef zeroext i1 @_ZNK3ue225RoseInstrCheckShufti32x168equiv_toERKS0_RKSt13unordered_mapIPKNS_15RoseInstructionEjSt4hashIS6_ESt8equal_toIS6_ESaISt4pairIKS6_jEEESH_(ptr noundef nonnull align 8 dereferenceable(152) %this, ptr noundef nonnull align 8 dereferenceable(152) %ri, ptr noundef nonnull align 8 dereferenceable(56) %offsets, ptr noundef nonnull align 8 dereferenceable(56) %other_offsets) local_unnamed_addr #5 comdat align 2 {
 entry:
-  %hi_mask = getelementptr inbounds %"class.ue2::RoseInstrCheckShufti32x16", ptr %this, i64 0, i32 1
-  %hi_mask2 = getelementptr inbounds %"class.ue2::RoseInstrCheckShufti32x16", ptr %ri, i64 0, i32 1
+  %hi_mask = getelementptr inbounds i8, ptr %this, i64 8
+  %hi_mask2 = getelementptr inbounds i8, ptr %ri, i64 8
   %bcmp.i.i.i.i.i = tail call i32 @bcmp(ptr noundef nonnull dereferenceable(32) %hi_mask, ptr noundef nonnull dereferenceable(32) %hi_mask2, i64 32)
   %tobool1.not.i.i.i.i.i = icmp eq i32 %bcmp.i.i.i.i.i, 0
   br i1 %tobool1.not.i.i.i.i.i, label %land.lhs.true, label %land.end
 
 land.lhs.true:                                    ; preds = %entry
-  %lo_mask = getelementptr inbounds %"class.ue2::RoseInstrCheckShufti32x16", ptr %this, i64 0, i32 2
-  %lo_mask3 = getelementptr inbounds %"class.ue2::RoseInstrCheckShufti32x16", ptr %ri, i64 0, i32 2
+  %lo_mask = getelementptr inbounds i8, ptr %this, i64 40
+  %lo_mask3 = getelementptr inbounds i8, ptr %ri, i64 40
   %bcmp.i.i.i.i.i26 = tail call i32 @bcmp(ptr noundef nonnull dereferenceable(32) %lo_mask, ptr noundef nonnull dereferenceable(32) %lo_mask3, i64 32)
   %tobool1.not.i.i.i.i.i27 = icmp eq i32 %bcmp.i.i.i.i.i26, 0
   br i1 %tobool1.not.i.i.i.i.i27, label %land.lhs.true5, label %land.end
 
 land.lhs.true5:                                   ; preds = %land.lhs.true
-  %bucket_select_mask_hi = getelementptr inbounds %"class.ue2::RoseInstrCheckShufti32x16", ptr %this, i64 0, i32 3
-  %bucket_select_mask_hi6 = getelementptr inbounds %"class.ue2::RoseInstrCheckShufti32x16", ptr %ri, i64 0, i32 3
+  %bucket_select_mask_hi = getelementptr inbounds i8, ptr %this, i64 72
+  %bucket_select_mask_hi6 = getelementptr inbounds i8, ptr %ri, i64 72
   %bcmp.i.i.i.i.i28 = tail call i32 @bcmp(ptr noundef nonnull dereferenceable(32) %bucket_select_mask_hi, ptr noundef nonnull dereferenceable(32) %bucket_select_mask_hi6, i64 32)
   %tobool1.not.i.i.i.i.i29 = icmp eq i32 %bcmp.i.i.i.i.i28, 0
   br i1 %tobool1.not.i.i.i.i.i29, label %land.lhs.true8, label %land.end
 
 land.lhs.true8:                                   ; preds = %land.lhs.true5
-  %bucket_select_mask_lo = getelementptr inbounds %"class.ue2::RoseInstrCheckShufti32x16", ptr %this, i64 0, i32 4
-  %bucket_select_mask_lo9 = getelementptr inbounds %"class.ue2::RoseInstrCheckShufti32x16", ptr %ri, i64 0, i32 4
+  %bucket_select_mask_lo = getelementptr inbounds i8, ptr %this, i64 104
+  %bucket_select_mask_lo9 = getelementptr inbounds i8, ptr %ri, i64 104
   %bcmp.i.i.i.i.i30 = tail call i32 @bcmp(ptr noundef nonnull dereferenceable(32) %bucket_select_mask_lo, ptr noundef nonnull dereferenceable(32) %bucket_select_mask_lo9, i64 32)
   %tobool1.not.i.i.i.i.i31 = icmp eq i32 %bcmp.i.i.i.i.i30, 0
   br i1 %tobool1.not.i.i.i.i.i31, label %land.lhs.true11, label %land.end
 
 land.lhs.true11:                                  ; preds = %land.lhs.true8
-  %neg_mask = getelementptr inbounds %"class.ue2::RoseInstrCheckShufti32x16", ptr %this, i64 0, i32 5
+  %neg_mask = getelementptr inbounds i8, ptr %this, i64 136
   %0 = load i32, ptr %neg_mask, align 8
-  %neg_mask12 = getelementptr inbounds %"class.ue2::RoseInstrCheckShufti32x16", ptr %ri, i64 0, i32 5
+  %neg_mask12 = getelementptr inbounds i8, ptr %ri, i64 136
   %1 = load i32, ptr %neg_mask12, align 8
   %cmp = icmp eq i32 %0, %1
   br i1 %cmp, label %land.lhs.true13, label %land.end
 
 land.lhs.true13:                                  ; preds = %land.lhs.true11
-  %offset = getelementptr inbounds %"class.ue2::RoseInstrCheckShufti32x16", ptr %this, i64 0, i32 6
+  %offset = getelementptr inbounds i8, ptr %this, i64 140
   %2 = load i32, ptr %offset, align 4
-  %offset14 = getelementptr inbounds %"class.ue2::RoseInstrCheckShufti32x16", ptr %ri, i64 0, i32 6
+  %offset14 = getelementptr inbounds i8, ptr %ri, i64 140
   %3 = load i32, ptr %offset14, align 4
   %cmp15 = icmp eq i32 %2, %3
   br i1 %cmp15, label %land.rhs, label %land.end
 
 land.rhs:                                         ; preds = %land.lhs.true13
-  %target = getelementptr inbounds %"class.ue2::RoseInstrCheckShufti32x16", ptr %this, i64 0, i32 7
+  %target = getelementptr inbounds i8, ptr %this, i64 144
   %call16 = tail call noundef nonnull align 4 dereferenceable(4) ptr @_ZNKSt13unordered_mapIPKN3ue215RoseInstructionEjSt4hashIS3_ESt8equal_toIS3_ESaISt4pairIKS3_jEEE2atERS9_(ptr noundef nonnull align 8 dereferenceable(56) %offsets, ptr noundef nonnull align 8 dereferenceable(8) %target)
   %4 = load i32, ptr %call16, align 4
-  %target17 = getelementptr inbounds %"class.ue2::RoseInstrCheckShufti32x16", ptr %ri, i64 0, i32 7
+  %target17 = getelementptr inbounds i8, ptr %ri, i64 144
   %call18 = tail call noundef nonnull align 4 dereferenceable(4) ptr @_ZNKSt13unordered_mapIPKN3ue215RoseInstructionEjSt4hashIS3_ESt8equal_toIS3_ESaISt4pairIKS3_jEEE2atERS9_(ptr noundef nonnull align 8 dereferenceable(56) %other_offsets, ptr noundef nonnull align 8 dereferenceable(8) %target17)
   %5 = load i32, ptr %call18, align 4
   %cmp19 = icmp eq i32 %4, %5
@@ -16555,51 +16276,51 @@ land.end:                                         ; preds = %land.rhs, %land.lhs
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr hidden noundef zeroext i1 @_ZNK3ue224RoseInstrCheckShufti64x88equiv_toERKS0_RKSt13unordered_mapIPKNS_15RoseInstructionEjSt4hashIS6_ESt8equal_toIS6_ESaISt4pairIKS6_jEEESH_(ptr noundef nonnull align 8 dereferenceable(224) %this, ptr noundef nonnull align 8 dereferenceable(224) %ri, ptr noundef nonnull align 8 dereferenceable(56) %offsets, ptr noundef nonnull align 8 dereferenceable(56) %other_offsets) local_unnamed_addr #5 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  %hi_mask = getelementptr inbounds %"class.ue2::RoseInstrCheckShufti64x8", ptr %this, i64 0, i32 1
-  %hi_mask2 = getelementptr inbounds %"class.ue2::RoseInstrCheckShufti64x8", ptr %ri, i64 0, i32 1
+  %hi_mask = getelementptr inbounds i8, ptr %this, i64 8
+  %hi_mask2 = getelementptr inbounds i8, ptr %ri, i64 8
   %bcmp.i.i.i.i.i = tail call i32 @bcmp(ptr noundef nonnull dereferenceable(64) %hi_mask, ptr noundef nonnull dereferenceable(64) %hi_mask2, i64 64)
   %tobool1.not.i.i.i.i.i = icmp eq i32 %bcmp.i.i.i.i.i, 0
   br i1 %tobool1.not.i.i.i.i.i, label %land.lhs.true, label %land.end
 
 land.lhs.true:                                    ; preds = %entry
-  %lo_mask = getelementptr inbounds %"class.ue2::RoseInstrCheckShufti64x8", ptr %this, i64 0, i32 2
-  %lo_mask3 = getelementptr inbounds %"class.ue2::RoseInstrCheckShufti64x8", ptr %ri, i64 0, i32 2
+  %lo_mask = getelementptr inbounds i8, ptr %this, i64 72
+  %lo_mask3 = getelementptr inbounds i8, ptr %ri, i64 72
   %bcmp.i.i.i.i.i22 = tail call i32 @bcmp(ptr noundef nonnull dereferenceable(64) %lo_mask, ptr noundef nonnull dereferenceable(64) %lo_mask3, i64 64)
   %tobool1.not.i.i.i.i.i23 = icmp eq i32 %bcmp.i.i.i.i.i22, 0
   br i1 %tobool1.not.i.i.i.i.i23, label %land.lhs.true5, label %land.end
 
 land.lhs.true5:                                   ; preds = %land.lhs.true
-  %bucket_select_mask = getelementptr inbounds %"class.ue2::RoseInstrCheckShufti64x8", ptr %this, i64 0, i32 3
-  %bucket_select_mask6 = getelementptr inbounds %"class.ue2::RoseInstrCheckShufti64x8", ptr %ri, i64 0, i32 3
+  %bucket_select_mask = getelementptr inbounds i8, ptr %this, i64 136
+  %bucket_select_mask6 = getelementptr inbounds i8, ptr %ri, i64 136
   %bcmp.i.i.i.i.i24 = tail call i32 @bcmp(ptr noundef nonnull dereferenceable(64) %bucket_select_mask, ptr noundef nonnull dereferenceable(64) %bucket_select_mask6, i64 64)
   %tobool1.not.i.i.i.i.i25 = icmp eq i32 %bcmp.i.i.i.i.i24, 0
   br i1 %tobool1.not.i.i.i.i.i25, label %land.lhs.true8, label %land.end
 
 land.lhs.true8:                                   ; preds = %land.lhs.true5
-  %neg_mask = getelementptr inbounds %"class.ue2::RoseInstrCheckShufti64x8", ptr %this, i64 0, i32 4
+  %neg_mask = getelementptr inbounds i8, ptr %this, i64 200
   %0 = load i64, ptr %neg_mask, align 8
-  %neg_mask9 = getelementptr inbounds %"class.ue2::RoseInstrCheckShufti64x8", ptr %ri, i64 0, i32 4
+  %neg_mask9 = getelementptr inbounds i8, ptr %ri, i64 200
   %1 = load i64, ptr %neg_mask9, align 8
   %cmp = icmp eq i64 %0, %1
   br i1 %cmp, label %land.lhs.true10, label %land.end
 
 land.lhs.true10:                                  ; preds = %land.lhs.true8
-  %offset = getelementptr inbounds %"class.ue2::RoseInstrCheckShufti64x8", ptr %this, i64 0, i32 5
+  %offset = getelementptr inbounds i8, ptr %this, i64 208
   %2 = load i32, ptr %offset, align 8
-  %offset11 = getelementptr inbounds %"class.ue2::RoseInstrCheckShufti64x8", ptr %ri, i64 0, i32 5
+  %offset11 = getelementptr inbounds i8, ptr %ri, i64 208
   %3 = load i32, ptr %offset11, align 8
   %cmp12 = icmp eq i32 %2, %3
   br i1 %cmp12, label %land.rhs, label %land.end
 
 land.rhs:                                         ; preds = %land.lhs.true10
-  %target = getelementptr inbounds %"class.ue2::RoseInstrCheckShufti64x8", ptr %this, i64 0, i32 6
-  %_M_element_count.i.i.i.i = getelementptr inbounds %"class.std::_Hashtable.79", ptr %offsets, i64 0, i32 3
+  %target = getelementptr inbounds i8, ptr %this, i64 216
+  %_M_element_count.i.i.i.i = getelementptr inbounds i8, ptr %offsets, i64 24
   %4 = load i64, ptr %_M_element_count.i.i.i.i, align 8
   %cmp.not.not.i.i.i = icmp eq i64 %4, 0
   br i1 %cmp.not.not.i.i.i, label %if.then.i.i.i, label %if.end15.i.i.i
 
 if.then.i.i.i:                                    ; preds = %land.rhs
-  %_M_before_begin.i.i.i.i.i = getelementptr inbounds %"class.std::_Hashtable.79", ptr %offsets, i64 0, i32 2
+  %_M_before_begin.i.i.i.i.i = getelementptr inbounds i8, ptr %offsets, i64 16
   %5 = load ptr, ptr %target, align 8
   br label %for.cond.i.i.i
 
@@ -16618,7 +16339,7 @@ for.body.i.i.i:                                   ; preds = %for.cond.i.i.i
 if.end15.i.i.i:                                   ; preds = %land.rhs
   %7 = load ptr, ptr %target, align 8
   %8 = ptrtoint ptr %7 to i64
-  %_M_bucket_count.i.i.i.i = getelementptr inbounds %"class.std::_Hashtable.79", ptr %offsets, i64 0, i32 1
+  %_M_bucket_count.i.i.i.i = getelementptr inbounds i8, ptr %offsets, i64 8
   %9 = load i64, ptr %_M_bucket_count.i.i.i.i, align 8
   %rem.i.i.i.i.i.i = urem i64 %8, %9
   %10 = load ptr, ptr %offsets, align 8
@@ -16660,14 +16381,14 @@ _ZNKSt13unordered_mapIPKN3ue215RoseInstructionEjSt4hashIS3_ESt8equal_toIS3_ESaIS
   %retval.sroa.0.1.i.i.i = phi ptr [ %12, %if.end.i.i.i.i.i ], [ %retval.sroa.0.0.i.i.i, %for.body.i.i.i ], [ %14, %for.cond.i.i.i.i.i ]
   %second.i.i = getelementptr inbounds i8, ptr %retval.sroa.0.1.i.i.i, i64 16
   %17 = load i32, ptr %second.i.i, align 4
-  %target14 = getelementptr inbounds %"class.ue2::RoseInstrCheckShufti64x8", ptr %ri, i64 0, i32 6
-  %_M_element_count.i.i.i.i26 = getelementptr inbounds %"class.std::_Hashtable.79", ptr %other_offsets, i64 0, i32 3
+  %target14 = getelementptr inbounds i8, ptr %ri, i64 216
+  %_M_element_count.i.i.i.i26 = getelementptr inbounds i8, ptr %other_offsets, i64 24
   %18 = load i64, ptr %_M_element_count.i.i.i.i26, align 8
   %cmp.not.not.i.i.i27 = icmp eq i64 %18, 0
   br i1 %cmp.not.not.i.i.i27, label %if.then.i.i.i48, label %if.end15.i.i.i28
 
 if.then.i.i.i48:                                  ; preds = %_ZNKSt13unordered_mapIPKN3ue215RoseInstructionEjSt4hashIS3_ESt8equal_toIS3_ESaISt4pairIKS3_jEEE2atERS9_.exit
-  %_M_before_begin.i.i.i.i.i49 = getelementptr inbounds %"class.std::_Hashtable.79", ptr %other_offsets, i64 0, i32 2
+  %_M_before_begin.i.i.i.i.i49 = getelementptr inbounds i8, ptr %other_offsets, i64 16
   %19 = load ptr, ptr %target14, align 8
   br label %for.cond.i.i.i50
 
@@ -16686,7 +16407,7 @@ for.body.i.i.i54:                                 ; preds = %for.cond.i.i.i50
 if.end15.i.i.i28:                                 ; preds = %_ZNKSt13unordered_mapIPKN3ue215RoseInstructionEjSt4hashIS3_ESt8equal_toIS3_ESaISt4pairIKS3_jEEE2atERS9_.exit
   %21 = load ptr, ptr %target14, align 8
   %22 = ptrtoint ptr %21 to i64
-  %_M_bucket_count.i.i.i.i29 = getelementptr inbounds %"class.std::_Hashtable.79", ptr %other_offsets, i64 0, i32 1
+  %_M_bucket_count.i.i.i.i29 = getelementptr inbounds i8, ptr %other_offsets, i64 8
   %23 = load i64, ptr %_M_bucket_count.i.i.i.i29, align 8
   %rem.i.i.i.i.i.i30 = urem i64 %22, %23
   %24 = load ptr, ptr %other_offsets, align 8
@@ -16739,68 +16460,68 @@ land.end:                                         ; preds = %_ZNKSt13unordered_m
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr hidden noundef zeroext i1 @_ZNK3ue225RoseInstrCheckShufti64x168equiv_toERKS0_RKSt13unordered_mapIPKNS_15RoseInstructionEjSt4hashIS6_ESt8equal_toIS6_ESaISt4pairIKS6_jEEESH_(ptr noundef nonnull align 8 dereferenceable(416) %this, ptr noundef nonnull align 8 dereferenceable(416) %ri, ptr noundef nonnull align 8 dereferenceable(56) %offsets, ptr noundef nonnull align 8 dereferenceable(56) %other_offsets) local_unnamed_addr #5 comdat align 2 {
 entry:
-  %hi_mask_1 = getelementptr inbounds %"class.ue2::RoseInstrCheckShufti64x16", ptr %this, i64 0, i32 1
-  %hi_mask_12 = getelementptr inbounds %"class.ue2::RoseInstrCheckShufti64x16", ptr %ri, i64 0, i32 1
+  %hi_mask_1 = getelementptr inbounds i8, ptr %this, i64 8
+  %hi_mask_12 = getelementptr inbounds i8, ptr %ri, i64 8
   %bcmp.i.i.i.i.i = tail call i32 @bcmp(ptr noundef nonnull dereferenceable(64) %hi_mask_1, ptr noundef nonnull dereferenceable(64) %hi_mask_12, i64 64)
   %tobool1.not.i.i.i.i.i = icmp eq i32 %bcmp.i.i.i.i.i, 0
   br i1 %tobool1.not.i.i.i.i.i, label %land.lhs.true, label %land.end
 
 land.lhs.true:                                    ; preds = %entry
-  %hi_mask_2 = getelementptr inbounds %"class.ue2::RoseInstrCheckShufti64x16", ptr %this, i64 0, i32 2
-  %hi_mask_23 = getelementptr inbounds %"class.ue2::RoseInstrCheckShufti64x16", ptr %ri, i64 0, i32 2
+  %hi_mask_2 = getelementptr inbounds i8, ptr %this, i64 72
+  %hi_mask_23 = getelementptr inbounds i8, ptr %ri, i64 72
   %bcmp.i.i.i.i.i34 = tail call i32 @bcmp(ptr noundef nonnull dereferenceable(64) %hi_mask_2, ptr noundef nonnull dereferenceable(64) %hi_mask_23, i64 64)
   %tobool1.not.i.i.i.i.i35 = icmp eq i32 %bcmp.i.i.i.i.i34, 0
   br i1 %tobool1.not.i.i.i.i.i35, label %land.lhs.true5, label %land.end
 
 land.lhs.true5:                                   ; preds = %land.lhs.true
-  %lo_mask_1 = getelementptr inbounds %"class.ue2::RoseInstrCheckShufti64x16", ptr %this, i64 0, i32 3
-  %lo_mask_16 = getelementptr inbounds %"class.ue2::RoseInstrCheckShufti64x16", ptr %ri, i64 0, i32 3
+  %lo_mask_1 = getelementptr inbounds i8, ptr %this, i64 136
+  %lo_mask_16 = getelementptr inbounds i8, ptr %ri, i64 136
   %bcmp.i.i.i.i.i36 = tail call i32 @bcmp(ptr noundef nonnull dereferenceable(64) %lo_mask_1, ptr noundef nonnull dereferenceable(64) %lo_mask_16, i64 64)
   %tobool1.not.i.i.i.i.i37 = icmp eq i32 %bcmp.i.i.i.i.i36, 0
   br i1 %tobool1.not.i.i.i.i.i37, label %land.lhs.true8, label %land.end
 
 land.lhs.true8:                                   ; preds = %land.lhs.true5
-  %lo_mask_2 = getelementptr inbounds %"class.ue2::RoseInstrCheckShufti64x16", ptr %this, i64 0, i32 4
-  %lo_mask_29 = getelementptr inbounds %"class.ue2::RoseInstrCheckShufti64x16", ptr %ri, i64 0, i32 4
+  %lo_mask_2 = getelementptr inbounds i8, ptr %this, i64 200
+  %lo_mask_29 = getelementptr inbounds i8, ptr %ri, i64 200
   %bcmp.i.i.i.i.i38 = tail call i32 @bcmp(ptr noundef nonnull dereferenceable(64) %lo_mask_2, ptr noundef nonnull dereferenceable(64) %lo_mask_29, i64 64)
   %tobool1.not.i.i.i.i.i39 = icmp eq i32 %bcmp.i.i.i.i.i38, 0
   br i1 %tobool1.not.i.i.i.i.i39, label %land.lhs.true11, label %land.end
 
 land.lhs.true11:                                  ; preds = %land.lhs.true8
-  %bucket_select_mask_hi = getelementptr inbounds %"class.ue2::RoseInstrCheckShufti64x16", ptr %this, i64 0, i32 5
-  %bucket_select_mask_hi12 = getelementptr inbounds %"class.ue2::RoseInstrCheckShufti64x16", ptr %ri, i64 0, i32 5
+  %bucket_select_mask_hi = getelementptr inbounds i8, ptr %this, i64 264
+  %bucket_select_mask_hi12 = getelementptr inbounds i8, ptr %ri, i64 264
   %bcmp.i.i.i.i.i40 = tail call i32 @bcmp(ptr noundef nonnull dereferenceable(64) %bucket_select_mask_hi, ptr noundef nonnull dereferenceable(64) %bucket_select_mask_hi12, i64 64)
   %tobool1.not.i.i.i.i.i41 = icmp eq i32 %bcmp.i.i.i.i.i40, 0
   br i1 %tobool1.not.i.i.i.i.i41, label %land.lhs.true14, label %land.end
 
 land.lhs.true14:                                  ; preds = %land.lhs.true11
-  %bucket_select_mask_lo = getelementptr inbounds %"class.ue2::RoseInstrCheckShufti64x16", ptr %this, i64 0, i32 6
-  %bucket_select_mask_lo15 = getelementptr inbounds %"class.ue2::RoseInstrCheckShufti64x16", ptr %ri, i64 0, i32 6
+  %bucket_select_mask_lo = getelementptr inbounds i8, ptr %this, i64 328
+  %bucket_select_mask_lo15 = getelementptr inbounds i8, ptr %ri, i64 328
   %bcmp.i.i.i.i.i42 = tail call i32 @bcmp(ptr noundef nonnull dereferenceable(64) %bucket_select_mask_lo, ptr noundef nonnull dereferenceable(64) %bucket_select_mask_lo15, i64 64)
   %tobool1.not.i.i.i.i.i43 = icmp eq i32 %bcmp.i.i.i.i.i42, 0
   br i1 %tobool1.not.i.i.i.i.i43, label %land.lhs.true17, label %land.end
 
 land.lhs.true17:                                  ; preds = %land.lhs.true14
-  %neg_mask = getelementptr inbounds %"class.ue2::RoseInstrCheckShufti64x16", ptr %this, i64 0, i32 7
+  %neg_mask = getelementptr inbounds i8, ptr %this, i64 392
   %0 = load i64, ptr %neg_mask, align 8
-  %neg_mask18 = getelementptr inbounds %"class.ue2::RoseInstrCheckShufti64x16", ptr %ri, i64 0, i32 7
+  %neg_mask18 = getelementptr inbounds i8, ptr %ri, i64 392
   %1 = load i64, ptr %neg_mask18, align 8
   %cmp = icmp eq i64 %0, %1
   br i1 %cmp, label %land.lhs.true19, label %land.end
 
 land.lhs.true19:                                  ; preds = %land.lhs.true17
-  %offset = getelementptr inbounds %"class.ue2::RoseInstrCheckShufti64x16", ptr %this, i64 0, i32 8
+  %offset = getelementptr inbounds i8, ptr %this, i64 400
   %2 = load i32, ptr %offset, align 8
-  %offset20 = getelementptr inbounds %"class.ue2::RoseInstrCheckShufti64x16", ptr %ri, i64 0, i32 8
+  %offset20 = getelementptr inbounds i8, ptr %ri, i64 400
   %3 = load i32, ptr %offset20, align 8
   %cmp21 = icmp eq i32 %2, %3
   br i1 %cmp21, label %land.rhs, label %land.end
 
 land.rhs:                                         ; preds = %land.lhs.true19
-  %target = getelementptr inbounds %"class.ue2::RoseInstrCheckShufti64x16", ptr %this, i64 0, i32 9
+  %target = getelementptr inbounds i8, ptr %this, i64 408
   %call22 = tail call noundef nonnull align 4 dereferenceable(4) ptr @_ZNKSt13unordered_mapIPKN3ue215RoseInstructionEjSt4hashIS3_ESt8equal_toIS3_ESaISt4pairIKS3_jEEE2atERS9_(ptr noundef nonnull align 8 dereferenceable(56) %offsets, ptr noundef nonnull align 8 dereferenceable(8) %target)
   %4 = load i32, ptr %call22, align 4
-  %target23 = getelementptr inbounds %"class.ue2::RoseInstrCheckShufti64x16", ptr %ri, i64 0, i32 9
+  %target23 = getelementptr inbounds i8, ptr %ri, i64 408
   %call24 = tail call noundef nonnull align 4 dereferenceable(4) ptr @_ZNKSt13unordered_mapIPKN3ue215RoseInstructionEjSt4hashIS3_ESt8equal_toIS3_ESaISt4pairIKS3_jEEE2atERS9_(ptr noundef nonnull align 8 dereferenceable(56) %other_offsets, ptr noundef nonnull align 8 dereferenceable(8) %target23)
   %5 = load i32, ptr %call24, align 4
   %cmp25 = icmp eq i32 %4, %5
@@ -16814,38 +16535,38 @@ land.end:                                         ; preds = %land.rhs, %land.lhs
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr hidden noundef zeroext i1 @_ZNK3ue219RoseInstrCheckInfix8equiv_toERKS0_RKSt13unordered_mapIPKNS_15RoseInstructionEjSt4hashIS6_ESt8equal_toIS6_ESaISt4pairIKS6_jEEESH_(ptr noundef nonnull align 8 dereferenceable(32) %this, ptr noundef nonnull align 8 dereferenceable(32) %ri, ptr noundef nonnull align 8 dereferenceable(56) %offsets, ptr noundef nonnull align 8 dereferenceable(56) %other_offsets) local_unnamed_addr #5 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  %queue = getelementptr inbounds %"class.ue2::RoseInstrCheckInfix", ptr %this, i64 0, i32 1
+  %queue = getelementptr inbounds i8, ptr %this, i64 8
   %0 = load i32, ptr %queue, align 8
-  %queue2 = getelementptr inbounds %"class.ue2::RoseInstrCheckInfix", ptr %ri, i64 0, i32 1
+  %queue2 = getelementptr inbounds i8, ptr %ri, i64 8
   %1 = load i32, ptr %queue2, align 8
   %cmp = icmp eq i32 %0, %1
   br i1 %cmp, label %land.lhs.true, label %land.end
 
 land.lhs.true:                                    ; preds = %entry
-  %lag = getelementptr inbounds %"class.ue2::RoseInstrCheckInfix", ptr %this, i64 0, i32 2
+  %lag = getelementptr inbounds i8, ptr %this, i64 12
   %2 = load i32, ptr %lag, align 4
-  %lag3 = getelementptr inbounds %"class.ue2::RoseInstrCheckInfix", ptr %ri, i64 0, i32 2
+  %lag3 = getelementptr inbounds i8, ptr %ri, i64 12
   %3 = load i32, ptr %lag3, align 4
   %cmp4 = icmp eq i32 %2, %3
   br i1 %cmp4, label %land.lhs.true5, label %land.end
 
 land.lhs.true5:                                   ; preds = %land.lhs.true
-  %report = getelementptr inbounds %"class.ue2::RoseInstrCheckInfix", ptr %this, i64 0, i32 3
+  %report = getelementptr inbounds i8, ptr %this, i64 16
   %4 = load i32, ptr %report, align 8
-  %report6 = getelementptr inbounds %"class.ue2::RoseInstrCheckInfix", ptr %ri, i64 0, i32 3
+  %report6 = getelementptr inbounds i8, ptr %ri, i64 16
   %5 = load i32, ptr %report6, align 8
   %cmp7 = icmp eq i32 %4, %5
   br i1 %cmp7, label %land.rhs, label %land.end
 
 land.rhs:                                         ; preds = %land.lhs.true5
-  %target = getelementptr inbounds %"class.ue2::RoseInstrCheckInfix", ptr %this, i64 0, i32 4
-  %_M_element_count.i.i.i.i = getelementptr inbounds %"class.std::_Hashtable.79", ptr %offsets, i64 0, i32 3
+  %target = getelementptr inbounds i8, ptr %this, i64 24
+  %_M_element_count.i.i.i.i = getelementptr inbounds i8, ptr %offsets, i64 24
   %6 = load i64, ptr %_M_element_count.i.i.i.i, align 8
   %cmp.not.not.i.i.i = icmp eq i64 %6, 0
   br i1 %cmp.not.not.i.i.i, label %if.then.i.i.i, label %if.end15.i.i.i
 
 if.then.i.i.i:                                    ; preds = %land.rhs
-  %_M_before_begin.i.i.i.i.i = getelementptr inbounds %"class.std::_Hashtable.79", ptr %offsets, i64 0, i32 2
+  %_M_before_begin.i.i.i.i.i = getelementptr inbounds i8, ptr %offsets, i64 16
   %7 = load ptr, ptr %target, align 8
   br label %for.cond.i.i.i
 
@@ -16864,7 +16585,7 @@ for.body.i.i.i:                                   ; preds = %for.cond.i.i.i
 if.end15.i.i.i:                                   ; preds = %land.rhs
   %9 = load ptr, ptr %target, align 8
   %10 = ptrtoint ptr %9 to i64
-  %_M_bucket_count.i.i.i.i = getelementptr inbounds %"class.std::_Hashtable.79", ptr %offsets, i64 0, i32 1
+  %_M_bucket_count.i.i.i.i = getelementptr inbounds i8, ptr %offsets, i64 8
   %11 = load i64, ptr %_M_bucket_count.i.i.i.i, align 8
   %rem.i.i.i.i.i.i = urem i64 %10, %11
   %12 = load ptr, ptr %offsets, align 8
@@ -16906,14 +16627,14 @@ _ZNKSt13unordered_mapIPKN3ue215RoseInstructionEjSt4hashIS3_ESt8equal_toIS3_ESaIS
   %retval.sroa.0.1.i.i.i = phi ptr [ %14, %if.end.i.i.i.i.i ], [ %retval.sroa.0.0.i.i.i, %for.body.i.i.i ], [ %16, %for.cond.i.i.i.i.i ]
   %second.i.i = getelementptr inbounds i8, ptr %retval.sroa.0.1.i.i.i, i64 16
   %19 = load i32, ptr %second.i.i, align 4
-  %target8 = getelementptr inbounds %"class.ue2::RoseInstrCheckInfix", ptr %ri, i64 0, i32 4
-  %_M_element_count.i.i.i.i14 = getelementptr inbounds %"class.std::_Hashtable.79", ptr %other_offsets, i64 0, i32 3
+  %target8 = getelementptr inbounds i8, ptr %ri, i64 24
+  %_M_element_count.i.i.i.i14 = getelementptr inbounds i8, ptr %other_offsets, i64 24
   %20 = load i64, ptr %_M_element_count.i.i.i.i14, align 8
   %cmp.not.not.i.i.i15 = icmp eq i64 %20, 0
   br i1 %cmp.not.not.i.i.i15, label %if.then.i.i.i36, label %if.end15.i.i.i16
 
 if.then.i.i.i36:                                  ; preds = %_ZNKSt13unordered_mapIPKN3ue215RoseInstructionEjSt4hashIS3_ESt8equal_toIS3_ESaISt4pairIKS3_jEEE2atERS9_.exit
-  %_M_before_begin.i.i.i.i.i37 = getelementptr inbounds %"class.std::_Hashtable.79", ptr %other_offsets, i64 0, i32 2
+  %_M_before_begin.i.i.i.i.i37 = getelementptr inbounds i8, ptr %other_offsets, i64 16
   %21 = load ptr, ptr %target8, align 8
   br label %for.cond.i.i.i38
 
@@ -16932,7 +16653,7 @@ for.body.i.i.i42:                                 ; preds = %for.cond.i.i.i38
 if.end15.i.i.i16:                                 ; preds = %_ZNKSt13unordered_mapIPKN3ue215RoseInstructionEjSt4hashIS3_ESt8equal_toIS3_ESaISt4pairIKS3_jEEE2atERS9_.exit
   %23 = load ptr, ptr %target8, align 8
   %24 = ptrtoint ptr %23 to i64
-  %_M_bucket_count.i.i.i.i17 = getelementptr inbounds %"class.std::_Hashtable.79", ptr %other_offsets, i64 0, i32 1
+  %_M_bucket_count.i.i.i.i17 = getelementptr inbounds i8, ptr %other_offsets, i64 8
   %25 = load i64, ptr %_M_bucket_count.i.i.i.i17, align 8
   %rem.i.i.i.i.i.i18 = urem i64 %24, %25
   %26 = load ptr, ptr %other_offsets, align 8
@@ -16985,38 +16706,38 @@ land.end:                                         ; preds = %_ZNKSt13unordered_m
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr hidden noundef zeroext i1 @_ZNK3ue220RoseInstrCheckPrefix8equiv_toERKS0_RKSt13unordered_mapIPKNS_15RoseInstructionEjSt4hashIS6_ESt8equal_toIS6_ESaISt4pairIKS6_jEEESH_(ptr noundef nonnull align 8 dereferenceable(32) %this, ptr noundef nonnull align 8 dereferenceable(32) %ri, ptr noundef nonnull align 8 dereferenceable(56) %offsets, ptr noundef nonnull align 8 dereferenceable(56) %other_offsets) local_unnamed_addr #5 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  %queue = getelementptr inbounds %"class.ue2::RoseInstrCheckPrefix", ptr %this, i64 0, i32 1
+  %queue = getelementptr inbounds i8, ptr %this, i64 8
   %0 = load i32, ptr %queue, align 8
-  %queue2 = getelementptr inbounds %"class.ue2::RoseInstrCheckPrefix", ptr %ri, i64 0, i32 1
+  %queue2 = getelementptr inbounds i8, ptr %ri, i64 8
   %1 = load i32, ptr %queue2, align 8
   %cmp = icmp eq i32 %0, %1
   br i1 %cmp, label %land.lhs.true, label %land.end
 
 land.lhs.true:                                    ; preds = %entry
-  %lag = getelementptr inbounds %"class.ue2::RoseInstrCheckPrefix", ptr %this, i64 0, i32 2
+  %lag = getelementptr inbounds i8, ptr %this, i64 12
   %2 = load i32, ptr %lag, align 4
-  %lag3 = getelementptr inbounds %"class.ue2::RoseInstrCheckPrefix", ptr %ri, i64 0, i32 2
+  %lag3 = getelementptr inbounds i8, ptr %ri, i64 12
   %3 = load i32, ptr %lag3, align 4
   %cmp4 = icmp eq i32 %2, %3
   br i1 %cmp4, label %land.lhs.true5, label %land.end
 
 land.lhs.true5:                                   ; preds = %land.lhs.true
-  %report = getelementptr inbounds %"class.ue2::RoseInstrCheckPrefix", ptr %this, i64 0, i32 3
+  %report = getelementptr inbounds i8, ptr %this, i64 16
   %4 = load i32, ptr %report, align 8
-  %report6 = getelementptr inbounds %"class.ue2::RoseInstrCheckPrefix", ptr %ri, i64 0, i32 3
+  %report6 = getelementptr inbounds i8, ptr %ri, i64 16
   %5 = load i32, ptr %report6, align 8
   %cmp7 = icmp eq i32 %4, %5
   br i1 %cmp7, label %land.rhs, label %land.end
 
 land.rhs:                                         ; preds = %land.lhs.true5
-  %target = getelementptr inbounds %"class.ue2::RoseInstrCheckPrefix", ptr %this, i64 0, i32 4
-  %_M_element_count.i.i.i.i = getelementptr inbounds %"class.std::_Hashtable.79", ptr %offsets, i64 0, i32 3
+  %target = getelementptr inbounds i8, ptr %this, i64 24
+  %_M_element_count.i.i.i.i = getelementptr inbounds i8, ptr %offsets, i64 24
   %6 = load i64, ptr %_M_element_count.i.i.i.i, align 8
   %cmp.not.not.i.i.i = icmp eq i64 %6, 0
   br i1 %cmp.not.not.i.i.i, label %if.then.i.i.i, label %if.end15.i.i.i
 
 if.then.i.i.i:                                    ; preds = %land.rhs
-  %_M_before_begin.i.i.i.i.i = getelementptr inbounds %"class.std::_Hashtable.79", ptr %offsets, i64 0, i32 2
+  %_M_before_begin.i.i.i.i.i = getelementptr inbounds i8, ptr %offsets, i64 16
   %7 = load ptr, ptr %target, align 8
   br label %for.cond.i.i.i
 
@@ -17035,7 +16756,7 @@ for.body.i.i.i:                                   ; preds = %for.cond.i.i.i
 if.end15.i.i.i:                                   ; preds = %land.rhs
   %9 = load ptr, ptr %target, align 8
   %10 = ptrtoint ptr %9 to i64
-  %_M_bucket_count.i.i.i.i = getelementptr inbounds %"class.std::_Hashtable.79", ptr %offsets, i64 0, i32 1
+  %_M_bucket_count.i.i.i.i = getelementptr inbounds i8, ptr %offsets, i64 8
   %11 = load i64, ptr %_M_bucket_count.i.i.i.i, align 8
   %rem.i.i.i.i.i.i = urem i64 %10, %11
   %12 = load ptr, ptr %offsets, align 8
@@ -17077,14 +16798,14 @@ _ZNKSt13unordered_mapIPKN3ue215RoseInstructionEjSt4hashIS3_ESt8equal_toIS3_ESaIS
   %retval.sroa.0.1.i.i.i = phi ptr [ %14, %if.end.i.i.i.i.i ], [ %retval.sroa.0.0.i.i.i, %for.body.i.i.i ], [ %16, %for.cond.i.i.i.i.i ]
   %second.i.i = getelementptr inbounds i8, ptr %retval.sroa.0.1.i.i.i, i64 16
   %19 = load i32, ptr %second.i.i, align 4
-  %target8 = getelementptr inbounds %"class.ue2::RoseInstrCheckPrefix", ptr %ri, i64 0, i32 4
-  %_M_element_count.i.i.i.i14 = getelementptr inbounds %"class.std::_Hashtable.79", ptr %other_offsets, i64 0, i32 3
+  %target8 = getelementptr inbounds i8, ptr %ri, i64 24
+  %_M_element_count.i.i.i.i14 = getelementptr inbounds i8, ptr %other_offsets, i64 24
   %20 = load i64, ptr %_M_element_count.i.i.i.i14, align 8
   %cmp.not.not.i.i.i15 = icmp eq i64 %20, 0
   br i1 %cmp.not.not.i.i.i15, label %if.then.i.i.i36, label %if.end15.i.i.i16
 
 if.then.i.i.i36:                                  ; preds = %_ZNKSt13unordered_mapIPKN3ue215RoseInstructionEjSt4hashIS3_ESt8equal_toIS3_ESaISt4pairIKS3_jEEE2atERS9_.exit
-  %_M_before_begin.i.i.i.i.i37 = getelementptr inbounds %"class.std::_Hashtable.79", ptr %other_offsets, i64 0, i32 2
+  %_M_before_begin.i.i.i.i.i37 = getelementptr inbounds i8, ptr %other_offsets, i64 16
   %21 = load ptr, ptr %target8, align 8
   br label %for.cond.i.i.i38
 
@@ -17103,7 +16824,7 @@ for.body.i.i.i42:                                 ; preds = %for.cond.i.i.i38
 if.end15.i.i.i16:                                 ; preds = %_ZNKSt13unordered_mapIPKN3ue215RoseInstructionEjSt4hashIS3_ESt8equal_toIS3_ESaISt4pairIKS3_jEEE2atERS9_.exit
   %23 = load ptr, ptr %target8, align 8
   %24 = ptrtoint ptr %23 to i64
-  %_M_bucket_count.i.i.i.i17 = getelementptr inbounds %"class.std::_Hashtable.79", ptr %other_offsets, i64 0, i32 1
+  %_M_bucket_count.i.i.i.i17 = getelementptr inbounds i8, ptr %other_offsets, i64 8
   %25 = load i64, ptr %_M_bucket_count.i.i.i.i17, align 8
   %rem.i.i.i.i.i.i18 = urem i64 %24, %25
   %26 = load ptr, ptr %other_offsets, align 8
@@ -17156,38 +16877,38 @@ land.end:                                         ; preds = %_ZNKSt13unordered_m
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr hidden noundef zeroext i1 @_ZNK3ue215RoseInstrDedupe8equiv_toERKS0_RKSt13unordered_mapIPKNS_15RoseInstructionEjSt4hashIS6_ESt8equal_toIS6_ESaISt4pairIKS6_jEEESH_(ptr noundef nonnull align 8 dereferenceable(32) %this, ptr noundef nonnull align 8 dereferenceable(32) %ri, ptr noundef nonnull align 8 dereferenceable(56) %offsets, ptr noundef nonnull align 8 dereferenceable(56) %other_offsets) local_unnamed_addr #5 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  %quash_som = getelementptr inbounds %"class.ue2::RoseInstrDedupe", ptr %this, i64 0, i32 1
+  %quash_som = getelementptr inbounds i8, ptr %this, i64 8
   %0 = load i8, ptr %quash_som, align 8
-  %quash_som2 = getelementptr inbounds %"class.ue2::RoseInstrDedupe", ptr %ri, i64 0, i32 1
+  %quash_som2 = getelementptr inbounds i8, ptr %ri, i64 8
   %1 = load i8, ptr %quash_som2, align 8
   %cmp = icmp eq i8 %0, %1
   br i1 %cmp, label %land.lhs.true, label %land.end
 
 land.lhs.true:                                    ; preds = %entry
-  %dkey = getelementptr inbounds %"class.ue2::RoseInstrDedupe", ptr %this, i64 0, i32 2
+  %dkey = getelementptr inbounds i8, ptr %this, i64 12
   %2 = load i32, ptr %dkey, align 4
-  %dkey4 = getelementptr inbounds %"class.ue2::RoseInstrDedupe", ptr %ri, i64 0, i32 2
+  %dkey4 = getelementptr inbounds i8, ptr %ri, i64 12
   %3 = load i32, ptr %dkey4, align 4
   %cmp5 = icmp eq i32 %2, %3
   br i1 %cmp5, label %land.lhs.true6, label %land.end
 
 land.lhs.true6:                                   ; preds = %land.lhs.true
-  %offset_adjust = getelementptr inbounds %"class.ue2::RoseInstrDedupe", ptr %this, i64 0, i32 3
+  %offset_adjust = getelementptr inbounds i8, ptr %this, i64 16
   %4 = load i32, ptr %offset_adjust, align 8
-  %offset_adjust7 = getelementptr inbounds %"class.ue2::RoseInstrDedupe", ptr %ri, i64 0, i32 3
+  %offset_adjust7 = getelementptr inbounds i8, ptr %ri, i64 16
   %5 = load i32, ptr %offset_adjust7, align 8
   %cmp8 = icmp eq i32 %4, %5
   br i1 %cmp8, label %land.rhs, label %land.end
 
 land.rhs:                                         ; preds = %land.lhs.true6
-  %target = getelementptr inbounds %"class.ue2::RoseInstrDedupe", ptr %this, i64 0, i32 4
-  %_M_element_count.i.i.i.i = getelementptr inbounds %"class.std::_Hashtable.79", ptr %offsets, i64 0, i32 3
+  %target = getelementptr inbounds i8, ptr %this, i64 24
+  %_M_element_count.i.i.i.i = getelementptr inbounds i8, ptr %offsets, i64 24
   %6 = load i64, ptr %_M_element_count.i.i.i.i, align 8
   %cmp.not.not.i.i.i = icmp eq i64 %6, 0
   br i1 %cmp.not.not.i.i.i, label %if.then.i.i.i, label %if.end15.i.i.i
 
 if.then.i.i.i:                                    ; preds = %land.rhs
-  %_M_before_begin.i.i.i.i.i = getelementptr inbounds %"class.std::_Hashtable.79", ptr %offsets, i64 0, i32 2
+  %_M_before_begin.i.i.i.i.i = getelementptr inbounds i8, ptr %offsets, i64 16
   %7 = load ptr, ptr %target, align 8
   br label %for.cond.i.i.i
 
@@ -17206,7 +16927,7 @@ for.body.i.i.i:                                   ; preds = %for.cond.i.i.i
 if.end15.i.i.i:                                   ; preds = %land.rhs
   %9 = load ptr, ptr %target, align 8
   %10 = ptrtoint ptr %9 to i64
-  %_M_bucket_count.i.i.i.i = getelementptr inbounds %"class.std::_Hashtable.79", ptr %offsets, i64 0, i32 1
+  %_M_bucket_count.i.i.i.i = getelementptr inbounds i8, ptr %offsets, i64 8
   %11 = load i64, ptr %_M_bucket_count.i.i.i.i, align 8
   %rem.i.i.i.i.i.i = urem i64 %10, %11
   %12 = load ptr, ptr %offsets, align 8
@@ -17248,14 +16969,14 @@ _ZNKSt13unordered_mapIPKN3ue215RoseInstructionEjSt4hashIS3_ESt8equal_toIS3_ESaIS
   %retval.sroa.0.1.i.i.i = phi ptr [ %14, %if.end.i.i.i.i.i ], [ %retval.sroa.0.0.i.i.i, %for.body.i.i.i ], [ %16, %for.cond.i.i.i.i.i ]
   %second.i.i = getelementptr inbounds i8, ptr %retval.sroa.0.1.i.i.i, i64 16
   %19 = load i32, ptr %second.i.i, align 4
-  %target9 = getelementptr inbounds %"class.ue2::RoseInstrDedupe", ptr %ri, i64 0, i32 4
-  %_M_element_count.i.i.i.i15 = getelementptr inbounds %"class.std::_Hashtable.79", ptr %other_offsets, i64 0, i32 3
+  %target9 = getelementptr inbounds i8, ptr %ri, i64 24
+  %_M_element_count.i.i.i.i15 = getelementptr inbounds i8, ptr %other_offsets, i64 24
   %20 = load i64, ptr %_M_element_count.i.i.i.i15, align 8
   %cmp.not.not.i.i.i16 = icmp eq i64 %20, 0
   br i1 %cmp.not.not.i.i.i16, label %if.then.i.i.i37, label %if.end15.i.i.i17
 
 if.then.i.i.i37:                                  ; preds = %_ZNKSt13unordered_mapIPKN3ue215RoseInstructionEjSt4hashIS3_ESt8equal_toIS3_ESaISt4pairIKS3_jEEE2atERS9_.exit
-  %_M_before_begin.i.i.i.i.i38 = getelementptr inbounds %"class.std::_Hashtable.79", ptr %other_offsets, i64 0, i32 2
+  %_M_before_begin.i.i.i.i.i38 = getelementptr inbounds i8, ptr %other_offsets, i64 16
   %21 = load ptr, ptr %target9, align 8
   br label %for.cond.i.i.i39
 
@@ -17274,7 +16995,7 @@ for.body.i.i.i43:                                 ; preds = %for.cond.i.i.i39
 if.end15.i.i.i17:                                 ; preds = %_ZNKSt13unordered_mapIPKN3ue215RoseInstructionEjSt4hashIS3_ESt8equal_toIS3_ESaISt4pairIKS3_jEEE2atERS9_.exit
   %23 = load ptr, ptr %target9, align 8
   %24 = ptrtoint ptr %23 to i64
-  %_M_bucket_count.i.i.i.i18 = getelementptr inbounds %"class.std::_Hashtable.79", ptr %other_offsets, i64 0, i32 1
+  %_M_bucket_count.i.i.i.i18 = getelementptr inbounds i8, ptr %other_offsets, i64 8
   %25 = load i64, ptr %_M_bucket_count.i.i.i.i18, align 8
   %rem.i.i.i.i.i.i19 = urem i64 %24, %25
   %26 = load ptr, ptr %other_offsets, align 8
@@ -17327,38 +17048,38 @@ land.end:                                         ; preds = %_ZNKSt13unordered_m
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr hidden noundef zeroext i1 @_ZNK3ue218RoseInstrDedupeSom8equiv_toERKS0_RKSt13unordered_mapIPKNS_15RoseInstructionEjSt4hashIS6_ESt8equal_toIS6_ESaISt4pairIKS6_jEEESH_(ptr noundef nonnull align 8 dereferenceable(32) %this, ptr noundef nonnull align 8 dereferenceable(32) %ri, ptr noundef nonnull align 8 dereferenceable(56) %offsets, ptr noundef nonnull align 8 dereferenceable(56) %other_offsets) local_unnamed_addr #5 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  %quash_som = getelementptr inbounds %"class.ue2::RoseInstrDedupeSom", ptr %this, i64 0, i32 1
+  %quash_som = getelementptr inbounds i8, ptr %this, i64 8
   %0 = load i8, ptr %quash_som, align 8
-  %quash_som2 = getelementptr inbounds %"class.ue2::RoseInstrDedupeSom", ptr %ri, i64 0, i32 1
+  %quash_som2 = getelementptr inbounds i8, ptr %ri, i64 8
   %1 = load i8, ptr %quash_som2, align 8
   %cmp = icmp eq i8 %0, %1
   br i1 %cmp, label %land.lhs.true, label %land.end
 
 land.lhs.true:                                    ; preds = %entry
-  %dkey = getelementptr inbounds %"class.ue2::RoseInstrDedupeSom", ptr %this, i64 0, i32 2
+  %dkey = getelementptr inbounds i8, ptr %this, i64 12
   %2 = load i32, ptr %dkey, align 4
-  %dkey4 = getelementptr inbounds %"class.ue2::RoseInstrDedupeSom", ptr %ri, i64 0, i32 2
+  %dkey4 = getelementptr inbounds i8, ptr %ri, i64 12
   %3 = load i32, ptr %dkey4, align 4
   %cmp5 = icmp eq i32 %2, %3
   br i1 %cmp5, label %land.lhs.true6, label %land.end
 
 land.lhs.true6:                                   ; preds = %land.lhs.true
-  %offset_adjust = getelementptr inbounds %"class.ue2::RoseInstrDedupeSom", ptr %this, i64 0, i32 3
+  %offset_adjust = getelementptr inbounds i8, ptr %this, i64 16
   %4 = load i32, ptr %offset_adjust, align 8
-  %offset_adjust7 = getelementptr inbounds %"class.ue2::RoseInstrDedupeSom", ptr %ri, i64 0, i32 3
+  %offset_adjust7 = getelementptr inbounds i8, ptr %ri, i64 16
   %5 = load i32, ptr %offset_adjust7, align 8
   %cmp8 = icmp eq i32 %4, %5
   br i1 %cmp8, label %land.rhs, label %land.end
 
 land.rhs:                                         ; preds = %land.lhs.true6
-  %target = getelementptr inbounds %"class.ue2::RoseInstrDedupeSom", ptr %this, i64 0, i32 4
-  %_M_element_count.i.i.i.i = getelementptr inbounds %"class.std::_Hashtable.79", ptr %offsets, i64 0, i32 3
+  %target = getelementptr inbounds i8, ptr %this, i64 24
+  %_M_element_count.i.i.i.i = getelementptr inbounds i8, ptr %offsets, i64 24
   %6 = load i64, ptr %_M_element_count.i.i.i.i, align 8
   %cmp.not.not.i.i.i = icmp eq i64 %6, 0
   br i1 %cmp.not.not.i.i.i, label %if.then.i.i.i, label %if.end15.i.i.i
 
 if.then.i.i.i:                                    ; preds = %land.rhs
-  %_M_before_begin.i.i.i.i.i = getelementptr inbounds %"class.std::_Hashtable.79", ptr %offsets, i64 0, i32 2
+  %_M_before_begin.i.i.i.i.i = getelementptr inbounds i8, ptr %offsets, i64 16
   %7 = load ptr, ptr %target, align 8
   br label %for.cond.i.i.i
 
@@ -17377,7 +17098,7 @@ for.body.i.i.i:                                   ; preds = %for.cond.i.i.i
 if.end15.i.i.i:                                   ; preds = %land.rhs
   %9 = load ptr, ptr %target, align 8
   %10 = ptrtoint ptr %9 to i64
-  %_M_bucket_count.i.i.i.i = getelementptr inbounds %"class.std::_Hashtable.79", ptr %offsets, i64 0, i32 1
+  %_M_bucket_count.i.i.i.i = getelementptr inbounds i8, ptr %offsets, i64 8
   %11 = load i64, ptr %_M_bucket_count.i.i.i.i, align 8
   %rem.i.i.i.i.i.i = urem i64 %10, %11
   %12 = load ptr, ptr %offsets, align 8
@@ -17419,14 +17140,14 @@ _ZNKSt13unordered_mapIPKN3ue215RoseInstructionEjSt4hashIS3_ESt8equal_toIS3_ESaIS
   %retval.sroa.0.1.i.i.i = phi ptr [ %14, %if.end.i.i.i.i.i ], [ %retval.sroa.0.0.i.i.i, %for.body.i.i.i ], [ %16, %for.cond.i.i.i.i.i ]
   %second.i.i = getelementptr inbounds i8, ptr %retval.sroa.0.1.i.i.i, i64 16
   %19 = load i32, ptr %second.i.i, align 4
-  %target9 = getelementptr inbounds %"class.ue2::RoseInstrDedupeSom", ptr %ri, i64 0, i32 4
-  %_M_element_count.i.i.i.i15 = getelementptr inbounds %"class.std::_Hashtable.79", ptr %other_offsets, i64 0, i32 3
+  %target9 = getelementptr inbounds i8, ptr %ri, i64 24
+  %_M_element_count.i.i.i.i15 = getelementptr inbounds i8, ptr %other_offsets, i64 24
   %20 = load i64, ptr %_M_element_count.i.i.i.i15, align 8
   %cmp.not.not.i.i.i16 = icmp eq i64 %20, 0
   br i1 %cmp.not.not.i.i.i16, label %if.then.i.i.i37, label %if.end15.i.i.i17
 
 if.then.i.i.i37:                                  ; preds = %_ZNKSt13unordered_mapIPKN3ue215RoseInstructionEjSt4hashIS3_ESt8equal_toIS3_ESaISt4pairIKS3_jEEE2atERS9_.exit
-  %_M_before_begin.i.i.i.i.i38 = getelementptr inbounds %"class.std::_Hashtable.79", ptr %other_offsets, i64 0, i32 2
+  %_M_before_begin.i.i.i.i.i38 = getelementptr inbounds i8, ptr %other_offsets, i64 16
   %21 = load ptr, ptr %target9, align 8
   br label %for.cond.i.i.i39
 
@@ -17445,7 +17166,7 @@ for.body.i.i.i43:                                 ; preds = %for.cond.i.i.i39
 if.end15.i.i.i17:                                 ; preds = %_ZNKSt13unordered_mapIPKN3ue215RoseInstructionEjSt4hashIS3_ESt8equal_toIS3_ESaISt4pairIKS3_jEEE2atERS9_.exit
   %23 = load ptr, ptr %target9, align 8
   %24 = ptrtoint ptr %23 to i64
-  %_M_bucket_count.i.i.i.i18 = getelementptr inbounds %"class.std::_Hashtable.79", ptr %other_offsets, i64 0, i32 1
+  %_M_bucket_count.i.i.i.i18 = getelementptr inbounds i8, ptr %other_offsets, i64 8
   %25 = load i64, ptr %_M_bucket_count.i.i.i.i18, align 8
   %rem.i.i.i.i.i.i19 = urem i64 %24, %25
   %26 = load ptr, ptr %other_offsets, align 8
@@ -17498,46 +17219,46 @@ land.end:                                         ; preds = %_ZNKSt13unordered_m
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr hidden noundef zeroext i1 @_ZNK3ue224RoseInstrDedupeAndReport8equiv_toERKS0_RKSt13unordered_mapIPKNS_15RoseInstructionEjSt4hashIS6_ESt8equal_toIS6_ESaISt4pairIKS6_jEEESH_(ptr noundef nonnull align 8 dereferenceable(32) %this, ptr noundef nonnull align 8 dereferenceable(32) %ri, ptr noundef nonnull align 8 dereferenceable(56) %offsets, ptr noundef nonnull align 8 dereferenceable(56) %other_offsets) local_unnamed_addr #5 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  %quash_som = getelementptr inbounds %"class.ue2::RoseInstrDedupeAndReport", ptr %this, i64 0, i32 1
+  %quash_som = getelementptr inbounds i8, ptr %this, i64 8
   %0 = load i8, ptr %quash_som, align 8
-  %quash_som2 = getelementptr inbounds %"class.ue2::RoseInstrDedupeAndReport", ptr %ri, i64 0, i32 1
+  %quash_som2 = getelementptr inbounds i8, ptr %ri, i64 8
   %1 = load i8, ptr %quash_som2, align 8
   %cmp = icmp eq i8 %0, %1
   br i1 %cmp, label %land.lhs.true, label %land.end
 
 land.lhs.true:                                    ; preds = %entry
-  %dkey = getelementptr inbounds %"class.ue2::RoseInstrDedupeAndReport", ptr %this, i64 0, i32 2
+  %dkey = getelementptr inbounds i8, ptr %this, i64 12
   %2 = load i32, ptr %dkey, align 4
-  %dkey4 = getelementptr inbounds %"class.ue2::RoseInstrDedupeAndReport", ptr %ri, i64 0, i32 2
+  %dkey4 = getelementptr inbounds i8, ptr %ri, i64 12
   %3 = load i32, ptr %dkey4, align 4
   %cmp5 = icmp eq i32 %2, %3
   br i1 %cmp5, label %land.lhs.true6, label %land.end
 
 land.lhs.true6:                                   ; preds = %land.lhs.true
-  %onmatch = getelementptr inbounds %"class.ue2::RoseInstrDedupeAndReport", ptr %this, i64 0, i32 3
+  %onmatch = getelementptr inbounds i8, ptr %this, i64 16
   %4 = load i32, ptr %onmatch, align 8
-  %onmatch7 = getelementptr inbounds %"class.ue2::RoseInstrDedupeAndReport", ptr %ri, i64 0, i32 3
+  %onmatch7 = getelementptr inbounds i8, ptr %ri, i64 16
   %5 = load i32, ptr %onmatch7, align 8
   %cmp8 = icmp eq i32 %4, %5
   br i1 %cmp8, label %land.lhs.true9, label %land.end
 
 land.lhs.true9:                                   ; preds = %land.lhs.true6
-  %offset_adjust = getelementptr inbounds %"class.ue2::RoseInstrDedupeAndReport", ptr %this, i64 0, i32 4
+  %offset_adjust = getelementptr inbounds i8, ptr %this, i64 20
   %6 = load i32, ptr %offset_adjust, align 4
-  %offset_adjust10 = getelementptr inbounds %"class.ue2::RoseInstrDedupeAndReport", ptr %ri, i64 0, i32 4
+  %offset_adjust10 = getelementptr inbounds i8, ptr %ri, i64 20
   %7 = load i32, ptr %offset_adjust10, align 4
   %cmp11 = icmp eq i32 %6, %7
   br i1 %cmp11, label %land.rhs, label %land.end
 
 land.rhs:                                         ; preds = %land.lhs.true9
-  %target = getelementptr inbounds %"class.ue2::RoseInstrDedupeAndReport", ptr %this, i64 0, i32 5
-  %_M_element_count.i.i.i.i = getelementptr inbounds %"class.std::_Hashtable.79", ptr %offsets, i64 0, i32 3
+  %target = getelementptr inbounds i8, ptr %this, i64 24
+  %_M_element_count.i.i.i.i = getelementptr inbounds i8, ptr %offsets, i64 24
   %8 = load i64, ptr %_M_element_count.i.i.i.i, align 8
   %cmp.not.not.i.i.i = icmp eq i64 %8, 0
   br i1 %cmp.not.not.i.i.i, label %if.then.i.i.i, label %if.end15.i.i.i
 
 if.then.i.i.i:                                    ; preds = %land.rhs
-  %_M_before_begin.i.i.i.i.i = getelementptr inbounds %"class.std::_Hashtable.79", ptr %offsets, i64 0, i32 2
+  %_M_before_begin.i.i.i.i.i = getelementptr inbounds i8, ptr %offsets, i64 16
   %9 = load ptr, ptr %target, align 8
   br label %for.cond.i.i.i
 
@@ -17556,7 +17277,7 @@ for.body.i.i.i:                                   ; preds = %for.cond.i.i.i
 if.end15.i.i.i:                                   ; preds = %land.rhs
   %11 = load ptr, ptr %target, align 8
   %12 = ptrtoint ptr %11 to i64
-  %_M_bucket_count.i.i.i.i = getelementptr inbounds %"class.std::_Hashtable.79", ptr %offsets, i64 0, i32 1
+  %_M_bucket_count.i.i.i.i = getelementptr inbounds i8, ptr %offsets, i64 8
   %13 = load i64, ptr %_M_bucket_count.i.i.i.i, align 8
   %rem.i.i.i.i.i.i = urem i64 %12, %13
   %14 = load ptr, ptr %offsets, align 8
@@ -17598,14 +17319,14 @@ _ZNKSt13unordered_mapIPKN3ue215RoseInstructionEjSt4hashIS3_ESt8equal_toIS3_ESaIS
   %retval.sroa.0.1.i.i.i = phi ptr [ %16, %if.end.i.i.i.i.i ], [ %retval.sroa.0.0.i.i.i, %for.body.i.i.i ], [ %18, %for.cond.i.i.i.i.i ]
   %second.i.i = getelementptr inbounds i8, ptr %retval.sroa.0.1.i.i.i, i64 16
   %21 = load i32, ptr %second.i.i, align 4
-  %target12 = getelementptr inbounds %"class.ue2::RoseInstrDedupeAndReport", ptr %ri, i64 0, i32 5
-  %_M_element_count.i.i.i.i19 = getelementptr inbounds %"class.std::_Hashtable.79", ptr %other_offsets, i64 0, i32 3
+  %target12 = getelementptr inbounds i8, ptr %ri, i64 24
+  %_M_element_count.i.i.i.i19 = getelementptr inbounds i8, ptr %other_offsets, i64 24
   %22 = load i64, ptr %_M_element_count.i.i.i.i19, align 8
   %cmp.not.not.i.i.i20 = icmp eq i64 %22, 0
   br i1 %cmp.not.not.i.i.i20, label %if.then.i.i.i41, label %if.end15.i.i.i21
 
 if.then.i.i.i41:                                  ; preds = %_ZNKSt13unordered_mapIPKN3ue215RoseInstructionEjSt4hashIS3_ESt8equal_toIS3_ESaISt4pairIKS3_jEEE2atERS9_.exit
-  %_M_before_begin.i.i.i.i.i42 = getelementptr inbounds %"class.std::_Hashtable.79", ptr %other_offsets, i64 0, i32 2
+  %_M_before_begin.i.i.i.i.i42 = getelementptr inbounds i8, ptr %other_offsets, i64 16
   %23 = load ptr, ptr %target12, align 8
   br label %for.cond.i.i.i43
 
@@ -17624,7 +17345,7 @@ for.body.i.i.i47:                                 ; preds = %for.cond.i.i.i43
 if.end15.i.i.i21:                                 ; preds = %_ZNKSt13unordered_mapIPKN3ue215RoseInstructionEjSt4hashIS3_ESt8equal_toIS3_ESaISt4pairIKS3_jEEE2atERS9_.exit
   %25 = load ptr, ptr %target12, align 8
   %26 = ptrtoint ptr %25 to i64
-  %_M_bucket_count.i.i.i.i22 = getelementptr inbounds %"class.std::_Hashtable.79", ptr %other_offsets, i64 0, i32 1
+  %_M_bucket_count.i.i.i.i22 = getelementptr inbounds i8, ptr %other_offsets, i64 8
   %27 = load i64, ptr %_M_bucket_count.i.i.i.i22, align 8
   %rem.i.i.i.i.i.i23 = urem i64 %26, %27
   %28 = load ptr, ptr %other_offsets, align 8
@@ -17677,22 +17398,22 @@ land.end:                                         ; preds = %_ZNKSt13unordered_m
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr hidden noundef zeroext i1 @_ZNK3ue223RoseInstrCheckExhausted8equiv_toERKS0_RKSt13unordered_mapIPKNS_15RoseInstructionEjSt4hashIS6_ESt8equal_toIS6_ESaISt4pairIKS6_jEEESH_(ptr noundef nonnull align 8 dereferenceable(24) %this, ptr noundef nonnull align 8 dereferenceable(24) %ri, ptr noundef nonnull align 8 dereferenceable(56) %offsets, ptr noundef nonnull align 8 dereferenceable(56) %other_offsets) local_unnamed_addr #5 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  %ekey = getelementptr inbounds %"class.ue2::RoseInstrCheckExhausted", ptr %this, i64 0, i32 1
+  %ekey = getelementptr inbounds i8, ptr %this, i64 8
   %0 = load i32, ptr %ekey, align 8
-  %ekey2 = getelementptr inbounds %"class.ue2::RoseInstrCheckExhausted", ptr %ri, i64 0, i32 1
+  %ekey2 = getelementptr inbounds i8, ptr %ri, i64 8
   %1 = load i32, ptr %ekey2, align 8
   %cmp = icmp eq i32 %0, %1
   br i1 %cmp, label %land.rhs, label %land.end
 
 land.rhs:                                         ; preds = %entry
-  %target = getelementptr inbounds %"class.ue2::RoseInstrCheckExhausted", ptr %this, i64 0, i32 2
-  %_M_element_count.i.i.i.i = getelementptr inbounds %"class.std::_Hashtable.79", ptr %offsets, i64 0, i32 3
+  %target = getelementptr inbounds i8, ptr %this, i64 16
+  %_M_element_count.i.i.i.i = getelementptr inbounds i8, ptr %offsets, i64 24
   %2 = load i64, ptr %_M_element_count.i.i.i.i, align 8
   %cmp.not.not.i.i.i = icmp eq i64 %2, 0
   br i1 %cmp.not.not.i.i.i, label %if.then.i.i.i, label %if.end15.i.i.i
 
 if.then.i.i.i:                                    ; preds = %land.rhs
-  %_M_before_begin.i.i.i.i.i = getelementptr inbounds %"class.std::_Hashtable.79", ptr %offsets, i64 0, i32 2
+  %_M_before_begin.i.i.i.i.i = getelementptr inbounds i8, ptr %offsets, i64 16
   %3 = load ptr, ptr %target, align 8
   br label %for.cond.i.i.i
 
@@ -17711,7 +17432,7 @@ for.body.i.i.i:                                   ; preds = %for.cond.i.i.i
 if.end15.i.i.i:                                   ; preds = %land.rhs
   %5 = load ptr, ptr %target, align 8
   %6 = ptrtoint ptr %5 to i64
-  %_M_bucket_count.i.i.i.i = getelementptr inbounds %"class.std::_Hashtable.79", ptr %offsets, i64 0, i32 1
+  %_M_bucket_count.i.i.i.i = getelementptr inbounds i8, ptr %offsets, i64 8
   %7 = load i64, ptr %_M_bucket_count.i.i.i.i, align 8
   %rem.i.i.i.i.i.i = urem i64 %6, %7
   %8 = load ptr, ptr %offsets, align 8
@@ -17753,14 +17474,14 @@ _ZNKSt13unordered_mapIPKN3ue215RoseInstructionEjSt4hashIS3_ESt8equal_toIS3_ESaIS
   %retval.sroa.0.1.i.i.i = phi ptr [ %10, %if.end.i.i.i.i.i ], [ %retval.sroa.0.0.i.i.i, %for.body.i.i.i ], [ %12, %for.cond.i.i.i.i.i ]
   %second.i.i = getelementptr inbounds i8, ptr %retval.sroa.0.1.i.i.i, i64 16
   %15 = load i32, ptr %second.i.i, align 4
-  %target3 = getelementptr inbounds %"class.ue2::RoseInstrCheckExhausted", ptr %ri, i64 0, i32 2
-  %_M_element_count.i.i.i.i7 = getelementptr inbounds %"class.std::_Hashtable.79", ptr %other_offsets, i64 0, i32 3
+  %target3 = getelementptr inbounds i8, ptr %ri, i64 16
+  %_M_element_count.i.i.i.i7 = getelementptr inbounds i8, ptr %other_offsets, i64 24
   %16 = load i64, ptr %_M_element_count.i.i.i.i7, align 8
   %cmp.not.not.i.i.i8 = icmp eq i64 %16, 0
   br i1 %cmp.not.not.i.i.i8, label %if.then.i.i.i29, label %if.end15.i.i.i9
 
 if.then.i.i.i29:                                  ; preds = %_ZNKSt13unordered_mapIPKN3ue215RoseInstructionEjSt4hashIS3_ESt8equal_toIS3_ESaISt4pairIKS3_jEEE2atERS9_.exit
-  %_M_before_begin.i.i.i.i.i30 = getelementptr inbounds %"class.std::_Hashtable.79", ptr %other_offsets, i64 0, i32 2
+  %_M_before_begin.i.i.i.i.i30 = getelementptr inbounds i8, ptr %other_offsets, i64 16
   %17 = load ptr, ptr %target3, align 8
   br label %for.cond.i.i.i31
 
@@ -17779,7 +17500,7 @@ for.body.i.i.i35:                                 ; preds = %for.cond.i.i.i31
 if.end15.i.i.i9:                                  ; preds = %_ZNKSt13unordered_mapIPKN3ue215RoseInstructionEjSt4hashIS3_ESt8equal_toIS3_ESaISt4pairIKS3_jEEE2atERS9_.exit
   %19 = load ptr, ptr %target3, align 8
   %20 = ptrtoint ptr %19 to i64
-  %_M_bucket_count.i.i.i.i10 = getelementptr inbounds %"class.std::_Hashtable.79", ptr %other_offsets, i64 0, i32 1
+  %_M_bucket_count.i.i.i.i10 = getelementptr inbounds i8, ptr %other_offsets, i64 8
   %21 = load i64, ptr %_M_bucket_count.i.i.i.i10, align 8
   %rem.i.i.i.i.i.i11 = urem i64 %20, %21
   %22 = load ptr, ptr %other_offsets, align 8
@@ -17832,30 +17553,30 @@ land.end:                                         ; preds = %_ZNKSt13unordered_m
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr hidden noundef zeroext i1 @_ZNK3ue223RoseInstrCheckMinLength8equiv_toERKS0_RKSt13unordered_mapIPKNS_15RoseInstructionEjSt4hashIS6_ESt8equal_toIS6_ESaISt4pairIKS6_jEEESH_(ptr noundef nonnull align 8 dereferenceable(32) %this, ptr noundef nonnull align 8 dereferenceable(32) %ri, ptr noundef nonnull align 8 dereferenceable(56) %offsets, ptr noundef nonnull align 8 dereferenceable(56) %other_offsets) local_unnamed_addr #5 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  %end_adj = getelementptr inbounds %"class.ue2::RoseInstrCheckMinLength", ptr %this, i64 0, i32 1
+  %end_adj = getelementptr inbounds i8, ptr %this, i64 8
   %0 = load i32, ptr %end_adj, align 8
-  %end_adj2 = getelementptr inbounds %"class.ue2::RoseInstrCheckMinLength", ptr %ri, i64 0, i32 1
+  %end_adj2 = getelementptr inbounds i8, ptr %ri, i64 8
   %1 = load i32, ptr %end_adj2, align 8
   %cmp = icmp eq i32 %0, %1
   br i1 %cmp, label %land.lhs.true, label %land.end
 
 land.lhs.true:                                    ; preds = %entry
-  %min_length = getelementptr inbounds %"class.ue2::RoseInstrCheckMinLength", ptr %this, i64 0, i32 2
+  %min_length = getelementptr inbounds i8, ptr %this, i64 16
   %2 = load i64, ptr %min_length, align 8
-  %min_length3 = getelementptr inbounds %"class.ue2::RoseInstrCheckMinLength", ptr %ri, i64 0, i32 2
+  %min_length3 = getelementptr inbounds i8, ptr %ri, i64 16
   %3 = load i64, ptr %min_length3, align 8
   %cmp4 = icmp eq i64 %2, %3
   br i1 %cmp4, label %land.rhs, label %land.end
 
 land.rhs:                                         ; preds = %land.lhs.true
-  %target = getelementptr inbounds %"class.ue2::RoseInstrCheckMinLength", ptr %this, i64 0, i32 3
-  %_M_element_count.i.i.i.i = getelementptr inbounds %"class.std::_Hashtable.79", ptr %offsets, i64 0, i32 3
+  %target = getelementptr inbounds i8, ptr %this, i64 24
+  %_M_element_count.i.i.i.i = getelementptr inbounds i8, ptr %offsets, i64 24
   %4 = load i64, ptr %_M_element_count.i.i.i.i, align 8
   %cmp.not.not.i.i.i = icmp eq i64 %4, 0
   br i1 %cmp.not.not.i.i.i, label %if.then.i.i.i, label %if.end15.i.i.i
 
 if.then.i.i.i:                                    ; preds = %land.rhs
-  %_M_before_begin.i.i.i.i.i = getelementptr inbounds %"class.std::_Hashtable.79", ptr %offsets, i64 0, i32 2
+  %_M_before_begin.i.i.i.i.i = getelementptr inbounds i8, ptr %offsets, i64 16
   %5 = load ptr, ptr %target, align 8
   br label %for.cond.i.i.i
 
@@ -17874,7 +17595,7 @@ for.body.i.i.i:                                   ; preds = %for.cond.i.i.i
 if.end15.i.i.i:                                   ; preds = %land.rhs
   %7 = load ptr, ptr %target, align 8
   %8 = ptrtoint ptr %7 to i64
-  %_M_bucket_count.i.i.i.i = getelementptr inbounds %"class.std::_Hashtable.79", ptr %offsets, i64 0, i32 1
+  %_M_bucket_count.i.i.i.i = getelementptr inbounds i8, ptr %offsets, i64 8
   %9 = load i64, ptr %_M_bucket_count.i.i.i.i, align 8
   %rem.i.i.i.i.i.i = urem i64 %8, %9
   %10 = load ptr, ptr %offsets, align 8
@@ -17916,14 +17637,14 @@ _ZNKSt13unordered_mapIPKN3ue215RoseInstructionEjSt4hashIS3_ESt8equal_toIS3_ESaIS
   %retval.sroa.0.1.i.i.i = phi ptr [ %12, %if.end.i.i.i.i.i ], [ %retval.sroa.0.0.i.i.i, %for.body.i.i.i ], [ %14, %for.cond.i.i.i.i.i ]
   %second.i.i = getelementptr inbounds i8, ptr %retval.sroa.0.1.i.i.i, i64 16
   %17 = load i32, ptr %second.i.i, align 4
-  %target5 = getelementptr inbounds %"class.ue2::RoseInstrCheckMinLength", ptr %ri, i64 0, i32 3
-  %_M_element_count.i.i.i.i10 = getelementptr inbounds %"class.std::_Hashtable.79", ptr %other_offsets, i64 0, i32 3
+  %target5 = getelementptr inbounds i8, ptr %ri, i64 24
+  %_M_element_count.i.i.i.i10 = getelementptr inbounds i8, ptr %other_offsets, i64 24
   %18 = load i64, ptr %_M_element_count.i.i.i.i10, align 8
   %cmp.not.not.i.i.i11 = icmp eq i64 %18, 0
   br i1 %cmp.not.not.i.i.i11, label %if.then.i.i.i32, label %if.end15.i.i.i12
 
 if.then.i.i.i32:                                  ; preds = %_ZNKSt13unordered_mapIPKN3ue215RoseInstructionEjSt4hashIS3_ESt8equal_toIS3_ESaISt4pairIKS3_jEEE2atERS9_.exit
-  %_M_before_begin.i.i.i.i.i33 = getelementptr inbounds %"class.std::_Hashtable.79", ptr %other_offsets, i64 0, i32 2
+  %_M_before_begin.i.i.i.i.i33 = getelementptr inbounds i8, ptr %other_offsets, i64 16
   %19 = load ptr, ptr %target5, align 8
   br label %for.cond.i.i.i34
 
@@ -17942,7 +17663,7 @@ for.body.i.i.i38:                                 ; preds = %for.cond.i.i.i34
 if.end15.i.i.i12:                                 ; preds = %_ZNKSt13unordered_mapIPKN3ue215RoseInstructionEjSt4hashIS3_ESt8equal_toIS3_ESaISt4pairIKS3_jEEE2atERS9_.exit
   %21 = load ptr, ptr %target5, align 8
   %22 = ptrtoint ptr %21 to i64
-  %_M_bucket_count.i.i.i.i13 = getelementptr inbounds %"class.std::_Hashtable.79", ptr %other_offsets, i64 0, i32 1
+  %_M_bucket_count.i.i.i.i13 = getelementptr inbounds i8, ptr %other_offsets, i64 8
   %23 = load i64, ptr %_M_bucket_count.i.i.i.i13, align 8
   %rem.i.i.i.i.i.i14 = urem i64 %22, %23
   %24 = load ptr, ptr %other_offsets, align 8
@@ -17995,22 +17716,22 @@ land.end:                                         ; preds = %_ZNKSt13unordered_m
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr hidden noundef zeroext i1 @_ZNK3ue219RoseInstrCheckState8equiv_toERKS0_RKSt13unordered_mapIPKNS_15RoseInstructionEjSt4hashIS6_ESt8equal_toIS6_ESaISt4pairIKS6_jEEESH_(ptr noundef nonnull align 8 dereferenceable(24) %this, ptr noundef nonnull align 8 dereferenceable(24) %ri, ptr noundef nonnull align 8 dereferenceable(56) %offsets, ptr noundef nonnull align 8 dereferenceable(56) %other_offsets) local_unnamed_addr #5 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  %index = getelementptr inbounds %"class.ue2::RoseInstrCheckState", ptr %this, i64 0, i32 1
+  %index = getelementptr inbounds i8, ptr %this, i64 8
   %0 = load i32, ptr %index, align 8
-  %index2 = getelementptr inbounds %"class.ue2::RoseInstrCheckState", ptr %ri, i64 0, i32 1
+  %index2 = getelementptr inbounds i8, ptr %ri, i64 8
   %1 = load i32, ptr %index2, align 8
   %cmp = icmp eq i32 %0, %1
   br i1 %cmp, label %land.rhs, label %land.end
 
 land.rhs:                                         ; preds = %entry
-  %target = getelementptr inbounds %"class.ue2::RoseInstrCheckState", ptr %this, i64 0, i32 2
-  %_M_element_count.i.i.i.i = getelementptr inbounds %"class.std::_Hashtable.79", ptr %offsets, i64 0, i32 3
+  %target = getelementptr inbounds i8, ptr %this, i64 16
+  %_M_element_count.i.i.i.i = getelementptr inbounds i8, ptr %offsets, i64 24
   %2 = load i64, ptr %_M_element_count.i.i.i.i, align 8
   %cmp.not.not.i.i.i = icmp eq i64 %2, 0
   br i1 %cmp.not.not.i.i.i, label %if.then.i.i.i, label %if.end15.i.i.i
 
 if.then.i.i.i:                                    ; preds = %land.rhs
-  %_M_before_begin.i.i.i.i.i = getelementptr inbounds %"class.std::_Hashtable.79", ptr %offsets, i64 0, i32 2
+  %_M_before_begin.i.i.i.i.i = getelementptr inbounds i8, ptr %offsets, i64 16
   %3 = load ptr, ptr %target, align 8
   br label %for.cond.i.i.i
 
@@ -18029,7 +17750,7 @@ for.body.i.i.i:                                   ; preds = %for.cond.i.i.i
 if.end15.i.i.i:                                   ; preds = %land.rhs
   %5 = load ptr, ptr %target, align 8
   %6 = ptrtoint ptr %5 to i64
-  %_M_bucket_count.i.i.i.i = getelementptr inbounds %"class.std::_Hashtable.79", ptr %offsets, i64 0, i32 1
+  %_M_bucket_count.i.i.i.i = getelementptr inbounds i8, ptr %offsets, i64 8
   %7 = load i64, ptr %_M_bucket_count.i.i.i.i, align 8
   %rem.i.i.i.i.i.i = urem i64 %6, %7
   %8 = load ptr, ptr %offsets, align 8
@@ -18071,14 +17792,14 @@ _ZNKSt13unordered_mapIPKN3ue215RoseInstructionEjSt4hashIS3_ESt8equal_toIS3_ESaIS
   %retval.sroa.0.1.i.i.i = phi ptr [ %10, %if.end.i.i.i.i.i ], [ %retval.sroa.0.0.i.i.i, %for.body.i.i.i ], [ %12, %for.cond.i.i.i.i.i ]
   %second.i.i = getelementptr inbounds i8, ptr %retval.sroa.0.1.i.i.i, i64 16
   %15 = load i32, ptr %second.i.i, align 4
-  %target3 = getelementptr inbounds %"class.ue2::RoseInstrCheckState", ptr %ri, i64 0, i32 2
-  %_M_element_count.i.i.i.i7 = getelementptr inbounds %"class.std::_Hashtable.79", ptr %other_offsets, i64 0, i32 3
+  %target3 = getelementptr inbounds i8, ptr %ri, i64 16
+  %_M_element_count.i.i.i.i7 = getelementptr inbounds i8, ptr %other_offsets, i64 24
   %16 = load i64, ptr %_M_element_count.i.i.i.i7, align 8
   %cmp.not.not.i.i.i8 = icmp eq i64 %16, 0
   br i1 %cmp.not.not.i.i.i8, label %if.then.i.i.i29, label %if.end15.i.i.i9
 
 if.then.i.i.i29:                                  ; preds = %_ZNKSt13unordered_mapIPKN3ue215RoseInstructionEjSt4hashIS3_ESt8equal_toIS3_ESaISt4pairIKS3_jEEE2atERS9_.exit
-  %_M_before_begin.i.i.i.i.i30 = getelementptr inbounds %"class.std::_Hashtable.79", ptr %other_offsets, i64 0, i32 2
+  %_M_before_begin.i.i.i.i.i30 = getelementptr inbounds i8, ptr %other_offsets, i64 16
   %17 = load ptr, ptr %target3, align 8
   br label %for.cond.i.i.i31
 
@@ -18097,7 +17818,7 @@ for.body.i.i.i35:                                 ; preds = %for.cond.i.i.i31
 if.end15.i.i.i9:                                  ; preds = %_ZNKSt13unordered_mapIPKN3ue215RoseInstructionEjSt4hashIS3_ESt8equal_toIS3_ESaISt4pairIKS3_jEEE2atERS9_.exit
   %19 = load ptr, ptr %target3, align 8
   %20 = ptrtoint ptr %19 to i64
-  %_M_bucket_count.i.i.i.i10 = getelementptr inbounds %"class.std::_Hashtable.79", ptr %other_offsets, i64 0, i32 1
+  %_M_bucket_count.i.i.i.i10 = getelementptr inbounds i8, ptr %other_offsets, i64 8
   %21 = load i64, ptr %_M_bucket_count.i.i.i.i10, align 8
   %rem.i.i.i.i.i.i11 = urem i64 %20, %21
   %22 = load ptr, ptr %other_offsets, align 8
@@ -18150,22 +17871,22 @@ land.end:                                         ; preds = %_ZNKSt13unordered_m
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr hidden noundef zeroext i1 @_ZNK3ue224RoseInstrSparseIterBegin8equiv_toERKS0_RKSt13unordered_mapIPKNS_15RoseInstructionEjSt4hashIS6_ESt8equal_toIS6_ESaISt4pairIKS6_jEEESH_(ptr noundef nonnull align 8 dereferenceable(60) %this, ptr noundef nonnull align 8 dereferenceable(60) %ri, ptr noundef nonnull align 8 dereferenceable(56) %offsets, ptr noundef nonnull align 8 dereferenceable(56) %other_offsets) local_unnamed_addr #5 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  %iter_offset = getelementptr inbounds %"class.ue2::RoseInstrSparseIterBegin", ptr %this, i64 0, i32 7
+  %iter_offset = getelementptr inbounds i8, ptr %this, i64 52
   %0 = load i32, ptr %iter_offset, align 4
-  %iter_offset2 = getelementptr inbounds %"class.ue2::RoseInstrSparseIterBegin", ptr %ri, i64 0, i32 7
+  %iter_offset2 = getelementptr inbounds i8, ptr %ri, i64 52
   %1 = load i32, ptr %iter_offset2, align 4
   %cmp.not = icmp eq i32 %0, %1
   br i1 %cmp.not, label %lor.lhs.false, label %return
 
 lor.lhs.false:                                    ; preds = %entry
-  %target = getelementptr inbounds %"class.ue2::RoseInstrSparseIterBegin", ptr %this, i64 0, i32 4
-  %_M_element_count.i.i.i.i = getelementptr inbounds %"class.std::_Hashtable.79", ptr %offsets, i64 0, i32 3
+  %target = getelementptr inbounds i8, ptr %this, i64 40
+  %_M_element_count.i.i.i.i = getelementptr inbounds i8, ptr %offsets, i64 24
   %2 = load i64, ptr %_M_element_count.i.i.i.i, align 8
   %cmp.not.not.i.i.i = icmp eq i64 %2, 0
   br i1 %cmp.not.not.i.i.i, label %if.then.i.i.i, label %if.end15.i.i.i
 
 if.then.i.i.i:                                    ; preds = %lor.lhs.false
-  %_M_before_begin.i.i.i.i.i = getelementptr inbounds %"class.std::_Hashtable.79", ptr %offsets, i64 0, i32 2
+  %_M_before_begin.i.i.i.i.i = getelementptr inbounds i8, ptr %offsets, i64 16
   %3 = load ptr, ptr %target, align 8
   br label %for.cond.i.i.i
 
@@ -18184,7 +17905,7 @@ for.body.i.i.i:                                   ; preds = %for.cond.i.i.i
 if.end15.i.i.i:                                   ; preds = %lor.lhs.false
   %5 = load ptr, ptr %target, align 8
   %6 = ptrtoint ptr %5 to i64
-  %_M_bucket_count.i.i.i.i = getelementptr inbounds %"class.std::_Hashtable.79", ptr %offsets, i64 0, i32 1
+  %_M_bucket_count.i.i.i.i = getelementptr inbounds i8, ptr %offsets, i64 8
   %7 = load i64, ptr %_M_bucket_count.i.i.i.i, align 8
   %rem.i.i.i.i.i.i = urem i64 %6, %7
   %8 = load ptr, ptr %offsets, align 8
@@ -18226,14 +17947,14 @@ _ZNKSt13unordered_mapIPKN3ue215RoseInstructionEjSt4hashIS3_ESt8equal_toIS3_ESaIS
   %retval.sroa.0.1.i.i.i = phi ptr [ %10, %if.end.i.i.i.i.i ], [ %retval.sroa.0.0.i.i.i, %for.body.i.i.i ], [ %12, %for.cond.i.i.i.i.i ]
   %second.i.i = getelementptr inbounds i8, ptr %retval.sroa.0.1.i.i.i, i64 16
   %15 = load i32, ptr %second.i.i, align 4
-  %target3 = getelementptr inbounds %"class.ue2::RoseInstrSparseIterBegin", ptr %ri, i64 0, i32 4
-  %_M_element_count.i.i.i.i43 = getelementptr inbounds %"class.std::_Hashtable.79", ptr %other_offsets, i64 0, i32 3
+  %target3 = getelementptr inbounds i8, ptr %ri, i64 40
+  %_M_element_count.i.i.i.i43 = getelementptr inbounds i8, ptr %other_offsets, i64 24
   %16 = load i64, ptr %_M_element_count.i.i.i.i43, align 8
   %cmp.not.not.i.i.i44 = icmp eq i64 %16, 0
   br i1 %cmp.not.not.i.i.i44, label %if.then.i.i.i65, label %if.end15.i.i.i45
 
 if.then.i.i.i65:                                  ; preds = %_ZNKSt13unordered_mapIPKN3ue215RoseInstructionEjSt4hashIS3_ESt8equal_toIS3_ESaISt4pairIKS3_jEEE2atERS9_.exit
-  %_M_before_begin.i.i.i.i.i66 = getelementptr inbounds %"class.std::_Hashtable.79", ptr %other_offsets, i64 0, i32 2
+  %_M_before_begin.i.i.i.i.i66 = getelementptr inbounds i8, ptr %other_offsets, i64 16
   %17 = load ptr, ptr %target3, align 8
   br label %for.cond.i.i.i67
 
@@ -18252,7 +17973,7 @@ for.body.i.i.i71:                                 ; preds = %for.cond.i.i.i67
 if.end15.i.i.i45:                                 ; preds = %_ZNKSt13unordered_mapIPKN3ue215RoseInstructionEjSt4hashIS3_ESt8equal_toIS3_ESaISt4pairIKS3_jEEE2atERS9_.exit
   %19 = load ptr, ptr %target3, align 8
   %20 = ptrtoint ptr %19 to i64
-  %_M_bucket_count.i.i.i.i46 = getelementptr inbounds %"class.std::_Hashtable.79", ptr %other_offsets, i64 0, i32 1
+  %_M_bucket_count.i.i.i.i46 = getelementptr inbounds i8, ptr %other_offsets, i64 8
   %21 = load i64, ptr %_M_bucket_count.i.i.i.i46, align 8
   %rem.i.i.i.i.i.i47 = urem i64 %20, %21
   %22 = load ptr, ptr %other_offsets, align 8
@@ -18298,15 +18019,15 @@ _ZNKSt13unordered_mapIPKN3ue215RoseInstructionEjSt4hashIS3_ESt8equal_toIS3_ESaIS
   br i1 %cmp5.not, label %if.end, label %return
 
 if.end:                                           ; preds = %_ZNKSt13unordered_mapIPKN3ue215RoseInstructionEjSt4hashIS3_ESt8equal_toIS3_ESaISt4pairIKS3_jEEE2atERS9_.exit74
-  %jump_table = getelementptr inbounds %"class.ue2::RoseInstrSparseIterBegin", ptr %this, i64 0, i32 3
-  %_M_finish.i = getelementptr inbounds %"class.ue2::RoseInstrSparseIterBegin", ptr %this, i64 0, i32 3, i32 0, i32 0, i32 0, i32 1
+  %jump_table = getelementptr inbounds i8, ptr %this, i64 16
+  %_M_finish.i = getelementptr inbounds i8, ptr %this, i64 24
   %30 = load ptr, ptr %_M_finish.i, align 8
   %31 = load ptr, ptr %jump_table, align 8
   %sub.ptr.lhs.cast.i = ptrtoint ptr %30 to i64
   %sub.ptr.rhs.cast.i = ptrtoint ptr %31 to i64
   %sub.ptr.sub.i = sub i64 %sub.ptr.lhs.cast.i, %sub.ptr.rhs.cast.i
-  %jump_table7 = getelementptr inbounds %"class.ue2::RoseInstrSparseIterBegin", ptr %ri, i64 0, i32 3
-  %_M_finish.i75 = getelementptr inbounds %"class.ue2::RoseInstrSparseIterBegin", ptr %ri, i64 0, i32 3, i32 0, i32 0, i32 0, i32 1
+  %jump_table7 = getelementptr inbounds i8, ptr %ri, i64 16
+  %_M_finish.i75 = getelementptr inbounds i8, ptr %ri, i64 24
   %32 = load ptr, ptr %_M_finish.i75, align 8
   %33 = load ptr, ptr %jump_table7, align 8
   %sub.ptr.lhs.cast.i76 = ptrtoint ptr %32 to i64
@@ -18320,14 +18041,14 @@ for.cond.preheader:                               ; preds = %if.end
   br i1 %cmp.i.not175, label %return, label %for.body.lr.ph
 
 for.body.lr.ph:                                   ; preds = %for.cond.preheader
-  %_M_bucket_count.i.i.i.i84 = getelementptr inbounds %"class.std::_Hashtable.79", ptr %offsets, i64 0, i32 1
+  %_M_bucket_count.i.i.i.i84 = getelementptr inbounds i8, ptr %offsets, i64 8
   %34 = load i64, ptr %_M_bucket_count.i.i.i.i84, align 8
   %35 = load ptr, ptr %offsets, align 8
-  %_M_before_begin.i.i.i.i.i104 = getelementptr inbounds %"class.std::_Hashtable.79", ptr %offsets, i64 0, i32 2
-  %_M_bucket_count.i.i.i.i116 = getelementptr inbounds %"class.std::_Hashtable.79", ptr %other_offsets, i64 0, i32 1
+  %_M_before_begin.i.i.i.i.i104 = getelementptr inbounds i8, ptr %offsets, i64 16
+  %_M_bucket_count.i.i.i.i116 = getelementptr inbounds i8, ptr %other_offsets, i64 8
   %36 = load i64, ptr %_M_bucket_count.i.i.i.i116, align 8
   %37 = load ptr, ptr %other_offsets, align 8
-  %_M_before_begin.i.i.i.i.i136 = getelementptr inbounds %"class.std::_Hashtable.79", ptr %other_offsets, i64 0, i32 2
+  %_M_before_begin.i.i.i.i.i136 = getelementptr inbounds i8, ptr %other_offsets, i64 16
   br label %for.body
 
 for.body:                                         ; preds = %for.inc, %for.body.lr.ph
@@ -18339,7 +18060,7 @@ for.body:                                         ; preds = %for.inc, %for.body.
   br i1 %cmp24.not, label %if.end26, label %return
 
 if.end26:                                         ; preds = %for.body
-  %second = getelementptr inbounds %"struct.std::pair", ptr %it1.sroa.0.0177, i64 0, i32 1
+  %second = getelementptr inbounds i8, ptr %it1.sroa.0.0177, i64 8
   %40 = load ptr, ptr %second, align 8
   br i1 %cmp.not.not.i.i.i, label %for.cond.i.i.i105, label %if.end15.i.i.i83
 
@@ -18396,7 +18117,7 @@ _ZNKSt13unordered_mapIPKN3ue215RoseInstructionEjSt4hashIS3_ESt8equal_toIS3_ESaIS
   %retval.sroa.0.1.i.i.i101 = phi ptr [ %44, %if.end.i.i.i.i.i88 ], [ %retval.sroa.0.0.i.i.i107, %for.body.i.i.i109 ], [ %46, %for.cond.i.i.i.i.i99 ]
   %second.i.i102 = getelementptr inbounds i8, ptr %retval.sroa.0.1.i.i.i101, i64 16
   %49 = load i32, ptr %second.i.i102, align 4
-  %second30 = getelementptr inbounds %"struct.std::pair", ptr %it2.sroa.0.0176, i64 0, i32 1
+  %second30 = getelementptr inbounds i8, ptr %it2.sroa.0.0176, i64 8
   %50 = load ptr, ptr %second30, align 8
   br i1 %cmp.not.not.i.i.i44, label %for.cond.i.i.i137, label %if.end15.i.i.i115
 
@@ -18457,8 +18178,8 @@ _ZNKSt13unordered_mapIPKN3ue215RoseInstructionEjSt4hashIS3_ESt8equal_toIS3_ESaIS
   br i1 %cmp32.not, label %for.inc, label %return
 
 for.inc:                                          ; preds = %_ZNKSt13unordered_mapIPKN3ue215RoseInstructionEjSt4hashIS3_ESt8equal_toIS3_ESaISt4pairIKS3_jEEE2atERS9_.exit144
-  %incdec.ptr.i = getelementptr inbounds %"struct.std::pair", ptr %it1.sroa.0.0177, i64 1
-  %incdec.ptr.i145 = getelementptr inbounds %"struct.std::pair", ptr %it2.sroa.0.0176, i64 1
+  %incdec.ptr.i = getelementptr inbounds i8, ptr %it1.sroa.0.0177, i64 16
+  %incdec.ptr.i145 = getelementptr inbounds i8, ptr %it2.sroa.0.0176, i64 16
   %cmp.i.not = icmp eq ptr %incdec.ptr.i, %30
   br i1 %cmp.i.not, label %return, label %for.body, !llvm.loop !54
 
@@ -18470,23 +18191,23 @@ return:                                           ; preds = %for.inc, %_ZNKSt13u
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr hidden noundef zeroext i1 @_ZNK3ue223RoseInstrSparseIterNext8equiv_toERKS0_RKSt13unordered_mapIPKNS_15RoseInstructionEjSt4hashIS6_ESt8equal_toIS6_ESaISt4pairIKS6_jEEESH_(ptr noundef nonnull align 8 dereferenceable(32) %this, ptr noundef nonnull align 8 dereferenceable(32) %ri, ptr noundef nonnull align 8 dereferenceable(56) %offsets, ptr noundef nonnull align 8 dereferenceable(56) %other_offsets) local_unnamed_addr #5 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  %state = getelementptr inbounds %"class.ue2::RoseInstrSparseIterNext", ptr %this, i64 0, i32 1
+  %state = getelementptr inbounds i8, ptr %this, i64 8
   %0 = load i32, ptr %state, align 8
-  %state2 = getelementptr inbounds %"class.ue2::RoseInstrSparseIterNext", ptr %ri, i64 0, i32 1
+  %state2 = getelementptr inbounds i8, ptr %ri, i64 8
   %1 = load i32, ptr %state2, align 8
   %cmp = icmp eq i32 %0, %1
   br i1 %cmp, label %land.lhs.true, label %land.end
 
 land.lhs.true:                                    ; preds = %entry
-  %begin = getelementptr inbounds %"class.ue2::RoseInstrSparseIterNext", ptr %this, i64 0, i32 2
+  %begin = getelementptr inbounds i8, ptr %this, i64 16
   %2 = load ptr, ptr %begin, align 8
-  %_M_element_count.i.i.i.i = getelementptr inbounds %"class.std::_Hashtable.79", ptr %offsets, i64 0, i32 3
+  %_M_element_count.i.i.i.i = getelementptr inbounds i8, ptr %offsets, i64 24
   %3 = load i64, ptr %_M_element_count.i.i.i.i, align 8
   %cmp.not.not.i.i.i = icmp eq i64 %3, 0
   br i1 %cmp.not.not.i.i.i, label %if.then.i.i.i, label %if.end15.i.i.i
 
 if.then.i.i.i:                                    ; preds = %land.lhs.true
-  %_M_before_begin.i.i.i.i.i = getelementptr inbounds %"class.std::_Hashtable.79", ptr %offsets, i64 0, i32 2
+  %_M_before_begin.i.i.i.i.i = getelementptr inbounds i8, ptr %offsets, i64 16
   br label %for.cond.i.i.i
 
 for.cond.i.i.i:                                   ; preds = %for.body.i.i.i, %if.then.i.i.i
@@ -18503,7 +18224,7 @@ for.body.i.i.i:                                   ; preds = %for.cond.i.i.i
 
 if.end15.i.i.i:                                   ; preds = %land.lhs.true
   %5 = ptrtoint ptr %2 to i64
-  %_M_bucket_count.i.i.i.i = getelementptr inbounds %"class.std::_Hashtable.79", ptr %offsets, i64 0, i32 1
+  %_M_bucket_count.i.i.i.i = getelementptr inbounds i8, ptr %offsets, i64 8
   %6 = load i64, ptr %_M_bucket_count.i.i.i.i, align 8
   %rem.i.i.i.i.i.i = urem i64 %5, %6
   %7 = load ptr, ptr %offsets, align 8
@@ -18545,15 +18266,15 @@ _ZNKSt13unordered_mapIPKN3ue215RoseInstructionEjSt4hashIS3_ESt8equal_toIS3_ESaIS
   %retval.sroa.0.1.i.i.i = phi ptr [ %9, %if.end.i.i.i.i.i ], [ %retval.sroa.0.0.i.i.i, %for.body.i.i.i ], [ %11, %for.cond.i.i.i.i.i ]
   %second.i.i = getelementptr inbounds i8, ptr %retval.sroa.0.1.i.i.i, i64 16
   %14 = load i32, ptr %second.i.i, align 4
-  %begin4 = getelementptr inbounds %"class.ue2::RoseInstrSparseIterNext", ptr %ri, i64 0, i32 2
+  %begin4 = getelementptr inbounds i8, ptr %ri, i64 16
   %15 = load ptr, ptr %begin4, align 8
-  %_M_element_count.i.i.i.i15 = getelementptr inbounds %"class.std::_Hashtable.79", ptr %other_offsets, i64 0, i32 3
+  %_M_element_count.i.i.i.i15 = getelementptr inbounds i8, ptr %other_offsets, i64 24
   %16 = load i64, ptr %_M_element_count.i.i.i.i15, align 8
   %cmp.not.not.i.i.i16 = icmp eq i64 %16, 0
   br i1 %cmp.not.not.i.i.i16, label %if.then.i.i.i37, label %if.end15.i.i.i17
 
 if.then.i.i.i37:                                  ; preds = %_ZNKSt13unordered_mapIPKN3ue215RoseInstructionEjSt4hashIS3_ESt8equal_toIS3_ESaISt4pairIKS3_jEEE2atERS9_.exit
-  %_M_before_begin.i.i.i.i.i38 = getelementptr inbounds %"class.std::_Hashtable.79", ptr %other_offsets, i64 0, i32 2
+  %_M_before_begin.i.i.i.i.i38 = getelementptr inbounds i8, ptr %other_offsets, i64 16
   br label %for.cond.i.i.i39
 
 for.cond.i.i.i39:                                 ; preds = %for.body.i.i.i43, %if.then.i.i.i37
@@ -18570,7 +18291,7 @@ for.body.i.i.i43:                                 ; preds = %for.cond.i.i.i39
 
 if.end15.i.i.i17:                                 ; preds = %_ZNKSt13unordered_mapIPKN3ue215RoseInstructionEjSt4hashIS3_ESt8equal_toIS3_ESaISt4pairIKS3_jEEE2atERS9_.exit
   %18 = ptrtoint ptr %15 to i64
-  %_M_bucket_count.i.i.i.i18 = getelementptr inbounds %"class.std::_Hashtable.79", ptr %other_offsets, i64 0, i32 1
+  %_M_bucket_count.i.i.i.i18 = getelementptr inbounds i8, ptr %other_offsets, i64 8
   %19 = load i64, ptr %_M_bucket_count.i.i.i.i18, align 8
   %rem.i.i.i.i.i.i19 = urem i64 %18, %19
   %20 = load ptr, ptr %other_offsets, align 8
@@ -18616,11 +18337,11 @@ _ZNKSt13unordered_mapIPKN3ue215RoseInstructionEjSt4hashIS3_ESt8equal_toIS3_ESaIS
   br i1 %cmp6, label %land.rhs, label %land.end
 
 land.rhs:                                         ; preds = %_ZNKSt13unordered_mapIPKN3ue215RoseInstructionEjSt4hashIS3_ESt8equal_toIS3_ESaISt4pairIKS3_jEEE2atERS9_.exit46
-  %target = getelementptr inbounds %"class.ue2::RoseInstrSparseIterNext", ptr %this, i64 0, i32 3
+  %target = getelementptr inbounds i8, ptr %this, i64 24
   br i1 %cmp.not.not.i.i.i, label %if.then.i.i.i69, label %if.end15.i.i.i49
 
 if.then.i.i.i69:                                  ; preds = %land.rhs
-  %_M_before_begin.i.i.i.i.i70 = getelementptr inbounds %"class.std::_Hashtable.79", ptr %offsets, i64 0, i32 2
+  %_M_before_begin.i.i.i.i.i70 = getelementptr inbounds i8, ptr %offsets, i64 16
   %28 = load ptr, ptr %target, align 8
   br label %for.cond.i.i.i71
 
@@ -18639,7 +18360,7 @@ for.body.i.i.i75:                                 ; preds = %for.cond.i.i.i71
 if.end15.i.i.i49:                                 ; preds = %land.rhs
   %30 = load ptr, ptr %target, align 8
   %31 = ptrtoint ptr %30 to i64
-  %_M_bucket_count.i.i.i.i50 = getelementptr inbounds %"class.std::_Hashtable.79", ptr %offsets, i64 0, i32 1
+  %_M_bucket_count.i.i.i.i50 = getelementptr inbounds i8, ptr %offsets, i64 8
   %32 = load i64, ptr %_M_bucket_count.i.i.i.i50, align 8
   %rem.i.i.i.i.i.i51 = urem i64 %31, %32
   %33 = load ptr, ptr %offsets, align 8
@@ -18681,11 +18402,11 @@ _ZNKSt13unordered_mapIPKN3ue215RoseInstructionEjSt4hashIS3_ESt8equal_toIS3_ESaIS
   %retval.sroa.0.1.i.i.i67 = phi ptr [ %35, %if.end.i.i.i.i.i54 ], [ %retval.sroa.0.0.i.i.i73, %for.body.i.i.i75 ], [ %37, %for.cond.i.i.i.i.i65 ]
   %second.i.i68 = getelementptr inbounds i8, ptr %retval.sroa.0.1.i.i.i67, i64 16
   %40 = load i32, ptr %second.i.i68, align 4
-  %target8 = getelementptr inbounds %"class.ue2::RoseInstrSparseIterNext", ptr %ri, i64 0, i32 3
+  %target8 = getelementptr inbounds i8, ptr %ri, i64 24
   br i1 %cmp.not.not.i.i.i16, label %if.then.i.i.i101, label %if.end15.i.i.i81
 
 if.then.i.i.i101:                                 ; preds = %_ZNKSt13unordered_mapIPKN3ue215RoseInstructionEjSt4hashIS3_ESt8equal_toIS3_ESaISt4pairIKS3_jEEE2atERS9_.exit78
-  %_M_before_begin.i.i.i.i.i102 = getelementptr inbounds %"class.std::_Hashtable.79", ptr %other_offsets, i64 0, i32 2
+  %_M_before_begin.i.i.i.i.i102 = getelementptr inbounds i8, ptr %other_offsets, i64 16
   %41 = load ptr, ptr %target8, align 8
   br label %for.cond.i.i.i103
 
@@ -18704,7 +18425,7 @@ for.body.i.i.i107:                                ; preds = %for.cond.i.i.i103
 if.end15.i.i.i81:                                 ; preds = %_ZNKSt13unordered_mapIPKN3ue215RoseInstructionEjSt4hashIS3_ESt8equal_toIS3_ESaISt4pairIKS3_jEEE2atERS9_.exit78
   %43 = load ptr, ptr %target8, align 8
   %44 = ptrtoint ptr %43 to i64
-  %_M_bucket_count.i.i.i.i82 = getelementptr inbounds %"class.std::_Hashtable.79", ptr %other_offsets, i64 0, i32 1
+  %_M_bucket_count.i.i.i.i82 = getelementptr inbounds i8, ptr %other_offsets, i64 8
   %45 = load i64, ptr %_M_bucket_count.i.i.i.i82, align 8
   %rem.i.i.i.i.i.i83 = urem i64 %44, %45
   %46 = load ptr, ptr %other_offsets, align 8
@@ -18757,23 +18478,23 @@ land.end:                                         ; preds = %_ZNKSt13unordered_m
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr hidden noundef zeroext i1 @_ZNK3ue222RoseInstrSparseIterAny8equiv_toERKS0_RKSt13unordered_mapIPKNS_15RoseInstructionEjSt4hashIS6_ESt8equal_toIS6_ESaISt4pairIKS6_jEEESH_(ptr noundef nonnull align 8 dereferenceable(48) %this, ptr noundef nonnull align 8 dereferenceable(48) %ri, ptr noundef nonnull align 8 dereferenceable(56) %offsets, ptr noundef nonnull align 8 dereferenceable(56) %other_offsets) local_unnamed_addr #5 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  %num_keys = getelementptr inbounds %"class.ue2::RoseInstrSparseIterAny", ptr %this, i64 0, i32 1
+  %num_keys = getelementptr inbounds i8, ptr %this, i64 8
   %0 = load i32, ptr %num_keys, align 8
-  %num_keys2 = getelementptr inbounds %"class.ue2::RoseInstrSparseIterAny", ptr %ri, i64 0, i32 1
+  %num_keys2 = getelementptr inbounds i8, ptr %ri, i64 8
   %1 = load i32, ptr %num_keys2, align 8
   %cmp = icmp eq i32 %0, %1
   br i1 %cmp, label %land.lhs.true, label %land.end
 
 land.lhs.true:                                    ; preds = %entry
-  %keys = getelementptr inbounds %"class.ue2::RoseInstrSparseIterAny", ptr %this, i64 0, i32 2
-  %keys3 = getelementptr inbounds %"class.ue2::RoseInstrSparseIterAny", ptr %ri, i64 0, i32 2
-  %_M_finish.i.i = getelementptr inbounds %"class.ue2::RoseInstrSparseIterAny", ptr %this, i64 0, i32 2, i32 0, i32 0, i32 0, i32 1
+  %keys = getelementptr inbounds i8, ptr %this, i64 16
+  %keys3 = getelementptr inbounds i8, ptr %ri, i64 16
+  %_M_finish.i.i = getelementptr inbounds i8, ptr %this, i64 24
   %2 = load ptr, ptr %_M_finish.i.i, align 8
   %3 = load ptr, ptr %keys, align 8
   %sub.ptr.lhs.cast.i.i = ptrtoint ptr %2 to i64
   %sub.ptr.rhs.cast.i.i = ptrtoint ptr %3 to i64
   %sub.ptr.sub.i.i = sub i64 %sub.ptr.lhs.cast.i.i, %sub.ptr.rhs.cast.i.i
-  %_M_finish.i16.i = getelementptr inbounds %"class.ue2::RoseInstrSparseIterAny", ptr %ri, i64 0, i32 2, i32 0, i32 0, i32 0, i32 1
+  %_M_finish.i16.i = getelementptr inbounds i8, ptr %ri, i64 24
   %4 = load ptr, ptr %_M_finish.i16.i, align 8
   %5 = load ptr, ptr %keys3, align 8
   %sub.ptr.lhs.cast.i17.i = ptrtoint ptr %4 to i64
@@ -18792,14 +18513,14 @@ _ZSteqIjSaIjEEbRKSt6vectorIT_T0_ES6_.exit:        ; preds = %land.rhs.i
   br i1 %tobool1.not.i.i.i.i.i, label %land.rhs, label %land.end
 
 land.rhs:                                         ; preds = %_ZSteqIjSaIjEEbRKSt6vectorIT_T0_ES6_.exit, %land.rhs.i
-  %target = getelementptr inbounds %"class.ue2::RoseInstrSparseIterAny", ptr %this, i64 0, i32 3
-  %_M_element_count.i.i.i.i = getelementptr inbounds %"class.std::_Hashtable.79", ptr %offsets, i64 0, i32 3
+  %target = getelementptr inbounds i8, ptr %this, i64 40
+  %_M_element_count.i.i.i.i = getelementptr inbounds i8, ptr %offsets, i64 24
   %6 = load i64, ptr %_M_element_count.i.i.i.i, align 8
   %cmp.not.not.i.i.i = icmp eq i64 %6, 0
   br i1 %cmp.not.not.i.i.i, label %if.then.i.i.i, label %if.end15.i.i.i
 
 if.then.i.i.i:                                    ; preds = %land.rhs
-  %_M_before_begin.i.i.i.i.i = getelementptr inbounds %"class.std::_Hashtable.79", ptr %offsets, i64 0, i32 2
+  %_M_before_begin.i.i.i.i.i = getelementptr inbounds i8, ptr %offsets, i64 16
   %7 = load ptr, ptr %target, align 8
   br label %for.cond.i.i.i
 
@@ -18818,7 +18539,7 @@ for.body.i.i.i:                                   ; preds = %for.cond.i.i.i
 if.end15.i.i.i:                                   ; preds = %land.rhs
   %9 = load ptr, ptr %target, align 8
   %10 = ptrtoint ptr %9 to i64
-  %_M_bucket_count.i.i.i.i = getelementptr inbounds %"class.std::_Hashtable.79", ptr %offsets, i64 0, i32 1
+  %_M_bucket_count.i.i.i.i = getelementptr inbounds i8, ptr %offsets, i64 8
   %11 = load i64, ptr %_M_bucket_count.i.i.i.i, align 8
   %rem.i.i.i.i.i.i = urem i64 %10, %11
   %12 = load ptr, ptr %offsets, align 8
@@ -18860,14 +18581,14 @@ _ZNKSt13unordered_mapIPKN3ue215RoseInstructionEjSt4hashIS3_ESt8equal_toIS3_ESaIS
   %retval.sroa.0.1.i.i.i = phi ptr [ %14, %if.end.i.i.i.i.i ], [ %retval.sroa.0.0.i.i.i, %for.body.i.i.i ], [ %16, %for.cond.i.i.i.i.i ]
   %second.i.i = getelementptr inbounds i8, ptr %retval.sroa.0.1.i.i.i, i64 16
   %19 = load i32, ptr %second.i.i, align 4
-  %target5 = getelementptr inbounds %"class.ue2::RoseInstrSparseIterAny", ptr %ri, i64 0, i32 3
-  %_M_element_count.i.i.i.i10 = getelementptr inbounds %"class.std::_Hashtable.79", ptr %other_offsets, i64 0, i32 3
+  %target5 = getelementptr inbounds i8, ptr %ri, i64 40
+  %_M_element_count.i.i.i.i10 = getelementptr inbounds i8, ptr %other_offsets, i64 24
   %20 = load i64, ptr %_M_element_count.i.i.i.i10, align 8
   %cmp.not.not.i.i.i11 = icmp eq i64 %20, 0
   br i1 %cmp.not.not.i.i.i11, label %if.then.i.i.i32, label %if.end15.i.i.i12
 
 if.then.i.i.i32:                                  ; preds = %_ZNKSt13unordered_mapIPKN3ue215RoseInstructionEjSt4hashIS3_ESt8equal_toIS3_ESaISt4pairIKS3_jEEE2atERS9_.exit
-  %_M_before_begin.i.i.i.i.i33 = getelementptr inbounds %"class.std::_Hashtable.79", ptr %other_offsets, i64 0, i32 2
+  %_M_before_begin.i.i.i.i.i33 = getelementptr inbounds i8, ptr %other_offsets, i64 16
   %21 = load ptr, ptr %target5, align 8
   br label %for.cond.i.i.i34
 
@@ -18886,7 +18607,7 @@ for.body.i.i.i38:                                 ; preds = %for.cond.i.i.i34
 if.end15.i.i.i12:                                 ; preds = %_ZNKSt13unordered_mapIPKN3ue215RoseInstructionEjSt4hashIS3_ESt8equal_toIS3_ESaISt4pairIKS3_jEEE2atERS9_.exit
   %23 = load ptr, ptr %target5, align 8
   %24 = ptrtoint ptr %23 to i64
-  %_M_bucket_count.i.i.i.i13 = getelementptr inbounds %"class.std::_Hashtable.79", ptr %other_offsets, i64 0, i32 1
+  %_M_bucket_count.i.i.i.i13 = getelementptr inbounds i8, ptr %other_offsets, i64 8
   %25 = load i64, ptr %_M_bucket_count.i.i.i.i13, align 8
   %rem.i.i.i.i.i.i14 = urem i64 %24, %25
   %26 = load ptr, ptr %other_offsets, align 8
@@ -18939,11 +18660,11 @@ land.end:                                         ; preds = %_ZNKSt13unordered_m
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr hidden noundef zeroext i1 @_ZNK3ue221RoseInstrCheckLongLit8equiv_toERKS0_RKSt13unordered_mapIPKNS_15RoseInstructionEjSt4hashIS6_ESt8equal_toIS6_ESaISt4pairIKS6_jEEESH_(ptr noundef nonnull align 8 dereferenceable(48) %this, ptr noundef nonnull align 8 dereferenceable(48) %ri, ptr noundef nonnull align 8 dereferenceable(56) %offsets, ptr noundef nonnull align 8 dereferenceable(56) %other_offsets) local_unnamed_addr #5 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  %literal = getelementptr inbounds %"class.ue2::RoseInstrCheckLongLit", ptr %this, i64 0, i32 1
-  %literal2 = getelementptr inbounds %"class.ue2::RoseInstrCheckLongLit", ptr %ri, i64 0, i32 1
-  %_M_string_length.i.i = getelementptr inbounds %"class.ue2::RoseInstrCheckLongLit", ptr %this, i64 0, i32 1, i32 1
+  %literal = getelementptr inbounds i8, ptr %this, i64 8
+  %literal2 = getelementptr inbounds i8, ptr %ri, i64 8
+  %_M_string_length.i.i = getelementptr inbounds i8, ptr %this, i64 16
   %0 = load i64, ptr %_M_string_length.i.i, align 8
-  %_M_string_length.i9.i = getelementptr inbounds %"class.ue2::RoseInstrCheckLongLit", ptr %ri, i64 0, i32 1, i32 1
+  %_M_string_length.i9.i = getelementptr inbounds i8, ptr %ri, i64 16
   %1 = load i64, ptr %_M_string_length.i9.i, align 8
   %cmp.i = icmp eq i64 %0, %1
   br i1 %cmp.i, label %land.rhs.i, label %land.end
@@ -18960,14 +18681,14 @@ _ZSteqIcEN9__gnu_cxx11__enable_ifIXsr9__is_charIT_EE7__valueEbE6__typeERKNSt7__c
   br i1 %4, label %land.rhs, label %land.end
 
 land.rhs:                                         ; preds = %_ZSteqIcEN9__gnu_cxx11__enable_ifIXsr9__is_charIT_EE7__valueEbE6__typeERKNSt7__cxx1112basic_stringIS2_St11char_traitsIS2_ESaIS2_EEESC_.exit, %land.rhs.i
-  %target = getelementptr inbounds %"class.ue2::RoseInstrCheckLongLit", ptr %this, i64 0, i32 2
-  %_M_element_count.i.i.i.i = getelementptr inbounds %"class.std::_Hashtable.79", ptr %offsets, i64 0, i32 3
+  %target = getelementptr inbounds i8, ptr %this, i64 40
+  %_M_element_count.i.i.i.i = getelementptr inbounds i8, ptr %offsets, i64 24
   %5 = load i64, ptr %_M_element_count.i.i.i.i, align 8
   %cmp.not.not.i.i.i = icmp eq i64 %5, 0
   br i1 %cmp.not.not.i.i.i, label %if.then.i.i.i, label %if.end15.i.i.i
 
 if.then.i.i.i:                                    ; preds = %land.rhs
-  %_M_before_begin.i.i.i.i.i = getelementptr inbounds %"class.std::_Hashtable.79", ptr %offsets, i64 0, i32 2
+  %_M_before_begin.i.i.i.i.i = getelementptr inbounds i8, ptr %offsets, i64 16
   %6 = load ptr, ptr %target, align 8
   br label %for.cond.i.i.i
 
@@ -18986,7 +18707,7 @@ for.body.i.i.i:                                   ; preds = %for.cond.i.i.i
 if.end15.i.i.i:                                   ; preds = %land.rhs
   %8 = load ptr, ptr %target, align 8
   %9 = ptrtoint ptr %8 to i64
-  %_M_bucket_count.i.i.i.i = getelementptr inbounds %"class.std::_Hashtable.79", ptr %offsets, i64 0, i32 1
+  %_M_bucket_count.i.i.i.i = getelementptr inbounds i8, ptr %offsets, i64 8
   %10 = load i64, ptr %_M_bucket_count.i.i.i.i, align 8
   %rem.i.i.i.i.i.i = urem i64 %9, %10
   %11 = load ptr, ptr %offsets, align 8
@@ -19028,14 +18749,14 @@ _ZNKSt13unordered_mapIPKN3ue215RoseInstructionEjSt4hashIS3_ESt8equal_toIS3_ESaIS
   %retval.sroa.0.1.i.i.i = phi ptr [ %13, %if.end.i.i.i.i.i ], [ %retval.sroa.0.0.i.i.i, %for.body.i.i.i ], [ %15, %for.cond.i.i.i.i.i ]
   %second.i.i = getelementptr inbounds i8, ptr %retval.sroa.0.1.i.i.i, i64 16
   %18 = load i32, ptr %second.i.i, align 4
-  %target4 = getelementptr inbounds %"class.ue2::RoseInstrCheckLongLit", ptr %ri, i64 0, i32 2
-  %_M_element_count.i.i.i.i7 = getelementptr inbounds %"class.std::_Hashtable.79", ptr %other_offsets, i64 0, i32 3
+  %target4 = getelementptr inbounds i8, ptr %ri, i64 40
+  %_M_element_count.i.i.i.i7 = getelementptr inbounds i8, ptr %other_offsets, i64 24
   %19 = load i64, ptr %_M_element_count.i.i.i.i7, align 8
   %cmp.not.not.i.i.i8 = icmp eq i64 %19, 0
   br i1 %cmp.not.not.i.i.i8, label %if.then.i.i.i29, label %if.end15.i.i.i9
 
 if.then.i.i.i29:                                  ; preds = %_ZNKSt13unordered_mapIPKN3ue215RoseInstructionEjSt4hashIS3_ESt8equal_toIS3_ESaISt4pairIKS3_jEEE2atERS9_.exit
-  %_M_before_begin.i.i.i.i.i30 = getelementptr inbounds %"class.std::_Hashtable.79", ptr %other_offsets, i64 0, i32 2
+  %_M_before_begin.i.i.i.i.i30 = getelementptr inbounds i8, ptr %other_offsets, i64 16
   %20 = load ptr, ptr %target4, align 8
   br label %for.cond.i.i.i31
 
@@ -19054,7 +18775,7 @@ for.body.i.i.i35:                                 ; preds = %for.cond.i.i.i31
 if.end15.i.i.i9:                                  ; preds = %_ZNKSt13unordered_mapIPKN3ue215RoseInstructionEjSt4hashIS3_ESt8equal_toIS3_ESaISt4pairIKS3_jEEE2atERS9_.exit
   %22 = load ptr, ptr %target4, align 8
   %23 = ptrtoint ptr %22 to i64
-  %_M_bucket_count.i.i.i.i10 = getelementptr inbounds %"class.std::_Hashtable.79", ptr %other_offsets, i64 0, i32 1
+  %_M_bucket_count.i.i.i.i10 = getelementptr inbounds i8, ptr %other_offsets, i64 8
   %24 = load i64, ptr %_M_bucket_count.i.i.i.i10, align 8
   %rem.i.i.i.i.i.i11 = urem i64 %23, %24
   %25 = load ptr, ptr %other_offsets, align 8
@@ -19107,11 +18828,11 @@ land.end:                                         ; preds = %_ZNKSt13unordered_m
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr hidden noundef zeroext i1 @_ZNK3ue227RoseInstrCheckLongLitNocase8equiv_toERKS0_RKSt13unordered_mapIPKNS_15RoseInstructionEjSt4hashIS6_ESt8equal_toIS6_ESaISt4pairIKS6_jEEESH_(ptr noundef nonnull align 8 dereferenceable(48) %this, ptr noundef nonnull align 8 dereferenceable(48) %ri, ptr noundef nonnull align 8 dereferenceable(56) %offsets, ptr noundef nonnull align 8 dereferenceable(56) %other_offsets) local_unnamed_addr #5 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  %literal = getelementptr inbounds %"class.ue2::RoseInstrCheckLongLitNocase", ptr %this, i64 0, i32 1
-  %literal2 = getelementptr inbounds %"class.ue2::RoseInstrCheckLongLitNocase", ptr %ri, i64 0, i32 1
-  %_M_string_length.i.i = getelementptr inbounds %"class.ue2::RoseInstrCheckLongLitNocase", ptr %this, i64 0, i32 1, i32 1
+  %literal = getelementptr inbounds i8, ptr %this, i64 8
+  %literal2 = getelementptr inbounds i8, ptr %ri, i64 8
+  %_M_string_length.i.i = getelementptr inbounds i8, ptr %this, i64 16
   %0 = load i64, ptr %_M_string_length.i.i, align 8
-  %_M_string_length.i9.i = getelementptr inbounds %"class.ue2::RoseInstrCheckLongLitNocase", ptr %ri, i64 0, i32 1, i32 1
+  %_M_string_length.i9.i = getelementptr inbounds i8, ptr %ri, i64 16
   %1 = load i64, ptr %_M_string_length.i9.i, align 8
   %cmp.i = icmp eq i64 %0, %1
   br i1 %cmp.i, label %land.rhs.i, label %land.end
@@ -19128,14 +18849,14 @@ _ZSteqIcEN9__gnu_cxx11__enable_ifIXsr9__is_charIT_EE7__valueEbE6__typeERKNSt7__c
   br i1 %4, label %land.rhs, label %land.end
 
 land.rhs:                                         ; preds = %_ZSteqIcEN9__gnu_cxx11__enable_ifIXsr9__is_charIT_EE7__valueEbE6__typeERKNSt7__cxx1112basic_stringIS2_St11char_traitsIS2_ESaIS2_EEESC_.exit, %land.rhs.i
-  %target = getelementptr inbounds %"class.ue2::RoseInstrCheckLongLitNocase", ptr %this, i64 0, i32 2
-  %_M_element_count.i.i.i.i = getelementptr inbounds %"class.std::_Hashtable.79", ptr %offsets, i64 0, i32 3
+  %target = getelementptr inbounds i8, ptr %this, i64 40
+  %_M_element_count.i.i.i.i = getelementptr inbounds i8, ptr %offsets, i64 24
   %5 = load i64, ptr %_M_element_count.i.i.i.i, align 8
   %cmp.not.not.i.i.i = icmp eq i64 %5, 0
   br i1 %cmp.not.not.i.i.i, label %if.then.i.i.i, label %if.end15.i.i.i
 
 if.then.i.i.i:                                    ; preds = %land.rhs
-  %_M_before_begin.i.i.i.i.i = getelementptr inbounds %"class.std::_Hashtable.79", ptr %offsets, i64 0, i32 2
+  %_M_before_begin.i.i.i.i.i = getelementptr inbounds i8, ptr %offsets, i64 16
   %6 = load ptr, ptr %target, align 8
   br label %for.cond.i.i.i
 
@@ -19154,7 +18875,7 @@ for.body.i.i.i:                                   ; preds = %for.cond.i.i.i
 if.end15.i.i.i:                                   ; preds = %land.rhs
   %8 = load ptr, ptr %target, align 8
   %9 = ptrtoint ptr %8 to i64
-  %_M_bucket_count.i.i.i.i = getelementptr inbounds %"class.std::_Hashtable.79", ptr %offsets, i64 0, i32 1
+  %_M_bucket_count.i.i.i.i = getelementptr inbounds i8, ptr %offsets, i64 8
   %10 = load i64, ptr %_M_bucket_count.i.i.i.i, align 8
   %rem.i.i.i.i.i.i = urem i64 %9, %10
   %11 = load ptr, ptr %offsets, align 8
@@ -19196,14 +18917,14 @@ _ZNKSt13unordered_mapIPKN3ue215RoseInstructionEjSt4hashIS3_ESt8equal_toIS3_ESaIS
   %retval.sroa.0.1.i.i.i = phi ptr [ %13, %if.end.i.i.i.i.i ], [ %retval.sroa.0.0.i.i.i, %for.body.i.i.i ], [ %15, %for.cond.i.i.i.i.i ]
   %second.i.i = getelementptr inbounds i8, ptr %retval.sroa.0.1.i.i.i, i64 16
   %18 = load i32, ptr %second.i.i, align 4
-  %target4 = getelementptr inbounds %"class.ue2::RoseInstrCheckLongLitNocase", ptr %ri, i64 0, i32 2
-  %_M_element_count.i.i.i.i7 = getelementptr inbounds %"class.std::_Hashtable.79", ptr %other_offsets, i64 0, i32 3
+  %target4 = getelementptr inbounds i8, ptr %ri, i64 40
+  %_M_element_count.i.i.i.i7 = getelementptr inbounds i8, ptr %other_offsets, i64 24
   %19 = load i64, ptr %_M_element_count.i.i.i.i7, align 8
   %cmp.not.not.i.i.i8 = icmp eq i64 %19, 0
   br i1 %cmp.not.not.i.i.i8, label %if.then.i.i.i29, label %if.end15.i.i.i9
 
 if.then.i.i.i29:                                  ; preds = %_ZNKSt13unordered_mapIPKN3ue215RoseInstructionEjSt4hashIS3_ESt8equal_toIS3_ESaISt4pairIKS3_jEEE2atERS9_.exit
-  %_M_before_begin.i.i.i.i.i30 = getelementptr inbounds %"class.std::_Hashtable.79", ptr %other_offsets, i64 0, i32 2
+  %_M_before_begin.i.i.i.i.i30 = getelementptr inbounds i8, ptr %other_offsets, i64 16
   %20 = load ptr, ptr %target4, align 8
   br label %for.cond.i.i.i31
 
@@ -19222,7 +18943,7 @@ for.body.i.i.i35:                                 ; preds = %for.cond.i.i.i31
 if.end15.i.i.i9:                                  ; preds = %_ZNKSt13unordered_mapIPKN3ue215RoseInstructionEjSt4hashIS3_ESt8equal_toIS3_ESaISt4pairIKS3_jEEE2atERS9_.exit
   %22 = load ptr, ptr %target4, align 8
   %23 = ptrtoint ptr %22 to i64
-  %_M_bucket_count.i.i.i.i10 = getelementptr inbounds %"class.std::_Hashtable.79", ptr %other_offsets, i64 0, i32 1
+  %_M_bucket_count.i.i.i.i10 = getelementptr inbounds i8, ptr %other_offsets, i64 8
   %24 = load i64, ptr %_M_bucket_count.i.i.i.i10, align 8
   %rem.i.i.i.i.i.i11 = urem i64 %23, %24
   %25 = load ptr, ptr %other_offsets, align 8
@@ -19275,11 +18996,11 @@ land.end:                                         ; preds = %_ZNKSt13unordered_m
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr hidden noundef zeroext i1 @_ZNK3ue220RoseInstrCheckMedLit8equiv_toERKS0_RKSt13unordered_mapIPKNS_15RoseInstructionEjSt4hashIS6_ESt8equal_toIS6_ESaISt4pairIKS6_jEEESH_(ptr noundef nonnull align 8 dereferenceable(48) %this, ptr noundef nonnull align 8 dereferenceable(48) %ri, ptr noundef nonnull align 8 dereferenceable(56) %offsets, ptr noundef nonnull align 8 dereferenceable(56) %other_offsets) local_unnamed_addr #5 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  %literal = getelementptr inbounds %"class.ue2::RoseInstrCheckMedLit", ptr %this, i64 0, i32 1
-  %literal2 = getelementptr inbounds %"class.ue2::RoseInstrCheckMedLit", ptr %ri, i64 0, i32 1
-  %_M_string_length.i.i = getelementptr inbounds %"class.ue2::RoseInstrCheckMedLit", ptr %this, i64 0, i32 1, i32 1
+  %literal = getelementptr inbounds i8, ptr %this, i64 8
+  %literal2 = getelementptr inbounds i8, ptr %ri, i64 8
+  %_M_string_length.i.i = getelementptr inbounds i8, ptr %this, i64 16
   %0 = load i64, ptr %_M_string_length.i.i, align 8
-  %_M_string_length.i9.i = getelementptr inbounds %"class.ue2::RoseInstrCheckMedLit", ptr %ri, i64 0, i32 1, i32 1
+  %_M_string_length.i9.i = getelementptr inbounds i8, ptr %ri, i64 16
   %1 = load i64, ptr %_M_string_length.i9.i, align 8
   %cmp.i = icmp eq i64 %0, %1
   br i1 %cmp.i, label %land.rhs.i, label %land.end
@@ -19296,14 +19017,14 @@ _ZSteqIcEN9__gnu_cxx11__enable_ifIXsr9__is_charIT_EE7__valueEbE6__typeERKNSt7__c
   br i1 %4, label %land.rhs, label %land.end
 
 land.rhs:                                         ; preds = %_ZSteqIcEN9__gnu_cxx11__enable_ifIXsr9__is_charIT_EE7__valueEbE6__typeERKNSt7__cxx1112basic_stringIS2_St11char_traitsIS2_ESaIS2_EEESC_.exit, %land.rhs.i
-  %target = getelementptr inbounds %"class.ue2::RoseInstrCheckMedLit", ptr %this, i64 0, i32 2
-  %_M_element_count.i.i.i.i = getelementptr inbounds %"class.std::_Hashtable.79", ptr %offsets, i64 0, i32 3
+  %target = getelementptr inbounds i8, ptr %this, i64 40
+  %_M_element_count.i.i.i.i = getelementptr inbounds i8, ptr %offsets, i64 24
   %5 = load i64, ptr %_M_element_count.i.i.i.i, align 8
   %cmp.not.not.i.i.i = icmp eq i64 %5, 0
   br i1 %cmp.not.not.i.i.i, label %if.then.i.i.i, label %if.end15.i.i.i
 
 if.then.i.i.i:                                    ; preds = %land.rhs
-  %_M_before_begin.i.i.i.i.i = getelementptr inbounds %"class.std::_Hashtable.79", ptr %offsets, i64 0, i32 2
+  %_M_before_begin.i.i.i.i.i = getelementptr inbounds i8, ptr %offsets, i64 16
   %6 = load ptr, ptr %target, align 8
   br label %for.cond.i.i.i
 
@@ -19322,7 +19043,7 @@ for.body.i.i.i:                                   ; preds = %for.cond.i.i.i
 if.end15.i.i.i:                                   ; preds = %land.rhs
   %8 = load ptr, ptr %target, align 8
   %9 = ptrtoint ptr %8 to i64
-  %_M_bucket_count.i.i.i.i = getelementptr inbounds %"class.std::_Hashtable.79", ptr %offsets, i64 0, i32 1
+  %_M_bucket_count.i.i.i.i = getelementptr inbounds i8, ptr %offsets, i64 8
   %10 = load i64, ptr %_M_bucket_count.i.i.i.i, align 8
   %rem.i.i.i.i.i.i = urem i64 %9, %10
   %11 = load ptr, ptr %offsets, align 8
@@ -19364,14 +19085,14 @@ _ZNKSt13unordered_mapIPKN3ue215RoseInstructionEjSt4hashIS3_ESt8equal_toIS3_ESaIS
   %retval.sroa.0.1.i.i.i = phi ptr [ %13, %if.end.i.i.i.i.i ], [ %retval.sroa.0.0.i.i.i, %for.body.i.i.i ], [ %15, %for.cond.i.i.i.i.i ]
   %second.i.i = getelementptr inbounds i8, ptr %retval.sroa.0.1.i.i.i, i64 16
   %18 = load i32, ptr %second.i.i, align 4
-  %target4 = getelementptr inbounds %"class.ue2::RoseInstrCheckMedLit", ptr %ri, i64 0, i32 2
-  %_M_element_count.i.i.i.i7 = getelementptr inbounds %"class.std::_Hashtable.79", ptr %other_offsets, i64 0, i32 3
+  %target4 = getelementptr inbounds i8, ptr %ri, i64 40
+  %_M_element_count.i.i.i.i7 = getelementptr inbounds i8, ptr %other_offsets, i64 24
   %19 = load i64, ptr %_M_element_count.i.i.i.i7, align 8
   %cmp.not.not.i.i.i8 = icmp eq i64 %19, 0
   br i1 %cmp.not.not.i.i.i8, label %if.then.i.i.i29, label %if.end15.i.i.i9
 
 if.then.i.i.i29:                                  ; preds = %_ZNKSt13unordered_mapIPKN3ue215RoseInstructionEjSt4hashIS3_ESt8equal_toIS3_ESaISt4pairIKS3_jEEE2atERS9_.exit
-  %_M_before_begin.i.i.i.i.i30 = getelementptr inbounds %"class.std::_Hashtable.79", ptr %other_offsets, i64 0, i32 2
+  %_M_before_begin.i.i.i.i.i30 = getelementptr inbounds i8, ptr %other_offsets, i64 16
   %20 = load ptr, ptr %target4, align 8
   br label %for.cond.i.i.i31
 
@@ -19390,7 +19111,7 @@ for.body.i.i.i35:                                 ; preds = %for.cond.i.i.i31
 if.end15.i.i.i9:                                  ; preds = %_ZNKSt13unordered_mapIPKN3ue215RoseInstructionEjSt4hashIS3_ESt8equal_toIS3_ESaISt4pairIKS3_jEEE2atERS9_.exit
   %22 = load ptr, ptr %target4, align 8
   %23 = ptrtoint ptr %22 to i64
-  %_M_bucket_count.i.i.i.i10 = getelementptr inbounds %"class.std::_Hashtable.79", ptr %other_offsets, i64 0, i32 1
+  %_M_bucket_count.i.i.i.i10 = getelementptr inbounds i8, ptr %other_offsets, i64 8
   %24 = load i64, ptr %_M_bucket_count.i.i.i.i10, align 8
   %rem.i.i.i.i.i.i11 = urem i64 %23, %24
   %25 = load ptr, ptr %other_offsets, align 8
@@ -19443,11 +19164,11 @@ land.end:                                         ; preds = %_ZNKSt13unordered_m
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr hidden noundef zeroext i1 @_ZNK3ue226RoseInstrCheckMedLitNocase8equiv_toERKS0_RKSt13unordered_mapIPKNS_15RoseInstructionEjSt4hashIS6_ESt8equal_toIS6_ESaISt4pairIKS6_jEEESH_(ptr noundef nonnull align 8 dereferenceable(48) %this, ptr noundef nonnull align 8 dereferenceable(48) %ri, ptr noundef nonnull align 8 dereferenceable(56) %offsets, ptr noundef nonnull align 8 dereferenceable(56) %other_offsets) local_unnamed_addr #5 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  %literal = getelementptr inbounds %"class.ue2::RoseInstrCheckMedLitNocase", ptr %this, i64 0, i32 1
-  %literal2 = getelementptr inbounds %"class.ue2::RoseInstrCheckMedLitNocase", ptr %ri, i64 0, i32 1
-  %_M_string_length.i.i = getelementptr inbounds %"class.ue2::RoseInstrCheckMedLitNocase", ptr %this, i64 0, i32 1, i32 1
+  %literal = getelementptr inbounds i8, ptr %this, i64 8
+  %literal2 = getelementptr inbounds i8, ptr %ri, i64 8
+  %_M_string_length.i.i = getelementptr inbounds i8, ptr %this, i64 16
   %0 = load i64, ptr %_M_string_length.i.i, align 8
-  %_M_string_length.i9.i = getelementptr inbounds %"class.ue2::RoseInstrCheckMedLitNocase", ptr %ri, i64 0, i32 1, i32 1
+  %_M_string_length.i9.i = getelementptr inbounds i8, ptr %ri, i64 16
   %1 = load i64, ptr %_M_string_length.i9.i, align 8
   %cmp.i = icmp eq i64 %0, %1
   br i1 %cmp.i, label %land.rhs.i, label %land.end
@@ -19464,14 +19185,14 @@ _ZSteqIcEN9__gnu_cxx11__enable_ifIXsr9__is_charIT_EE7__valueEbE6__typeERKNSt7__c
   br i1 %4, label %land.rhs, label %land.end
 
 land.rhs:                                         ; preds = %_ZSteqIcEN9__gnu_cxx11__enable_ifIXsr9__is_charIT_EE7__valueEbE6__typeERKNSt7__cxx1112basic_stringIS2_St11char_traitsIS2_ESaIS2_EEESC_.exit, %land.rhs.i
-  %target = getelementptr inbounds %"class.ue2::RoseInstrCheckMedLitNocase", ptr %this, i64 0, i32 2
-  %_M_element_count.i.i.i.i = getelementptr inbounds %"class.std::_Hashtable.79", ptr %offsets, i64 0, i32 3
+  %target = getelementptr inbounds i8, ptr %this, i64 40
+  %_M_element_count.i.i.i.i = getelementptr inbounds i8, ptr %offsets, i64 24
   %5 = load i64, ptr %_M_element_count.i.i.i.i, align 8
   %cmp.not.not.i.i.i = icmp eq i64 %5, 0
   br i1 %cmp.not.not.i.i.i, label %if.then.i.i.i, label %if.end15.i.i.i
 
 if.then.i.i.i:                                    ; preds = %land.rhs
-  %_M_before_begin.i.i.i.i.i = getelementptr inbounds %"class.std::_Hashtable.79", ptr %offsets, i64 0, i32 2
+  %_M_before_begin.i.i.i.i.i = getelementptr inbounds i8, ptr %offsets, i64 16
   %6 = load ptr, ptr %target, align 8
   br label %for.cond.i.i.i
 
@@ -19490,7 +19211,7 @@ for.body.i.i.i:                                   ; preds = %for.cond.i.i.i
 if.end15.i.i.i:                                   ; preds = %land.rhs
   %8 = load ptr, ptr %target, align 8
   %9 = ptrtoint ptr %8 to i64
-  %_M_bucket_count.i.i.i.i = getelementptr inbounds %"class.std::_Hashtable.79", ptr %offsets, i64 0, i32 1
+  %_M_bucket_count.i.i.i.i = getelementptr inbounds i8, ptr %offsets, i64 8
   %10 = load i64, ptr %_M_bucket_count.i.i.i.i, align 8
   %rem.i.i.i.i.i.i = urem i64 %9, %10
   %11 = load ptr, ptr %offsets, align 8
@@ -19532,14 +19253,14 @@ _ZNKSt13unordered_mapIPKN3ue215RoseInstructionEjSt4hashIS3_ESt8equal_toIS3_ESaIS
   %retval.sroa.0.1.i.i.i = phi ptr [ %13, %if.end.i.i.i.i.i ], [ %retval.sroa.0.0.i.i.i, %for.body.i.i.i ], [ %15, %for.cond.i.i.i.i.i ]
   %second.i.i = getelementptr inbounds i8, ptr %retval.sroa.0.1.i.i.i, i64 16
   %18 = load i32, ptr %second.i.i, align 4
-  %target4 = getelementptr inbounds %"class.ue2::RoseInstrCheckMedLitNocase", ptr %ri, i64 0, i32 2
-  %_M_element_count.i.i.i.i7 = getelementptr inbounds %"class.std::_Hashtable.79", ptr %other_offsets, i64 0, i32 3
+  %target4 = getelementptr inbounds i8, ptr %ri, i64 40
+  %_M_element_count.i.i.i.i7 = getelementptr inbounds i8, ptr %other_offsets, i64 24
   %19 = load i64, ptr %_M_element_count.i.i.i.i7, align 8
   %cmp.not.not.i.i.i8 = icmp eq i64 %19, 0
   br i1 %cmp.not.not.i.i.i8, label %if.then.i.i.i29, label %if.end15.i.i.i9
 
 if.then.i.i.i29:                                  ; preds = %_ZNKSt13unordered_mapIPKN3ue215RoseInstructionEjSt4hashIS3_ESt8equal_toIS3_ESaISt4pairIKS3_jEEE2atERS9_.exit
-  %_M_before_begin.i.i.i.i.i30 = getelementptr inbounds %"class.std::_Hashtable.79", ptr %other_offsets, i64 0, i32 2
+  %_M_before_begin.i.i.i.i.i30 = getelementptr inbounds i8, ptr %other_offsets, i64 16
   %20 = load ptr, ptr %target4, align 8
   br label %for.cond.i.i.i31
 
@@ -19558,7 +19279,7 @@ for.body.i.i.i35:                                 ; preds = %for.cond.i.i.i31
 if.end15.i.i.i9:                                  ; preds = %_ZNKSt13unordered_mapIPKN3ue215RoseInstructionEjSt4hashIS3_ESt8equal_toIS3_ESaISt4pairIKS3_jEEE2atERS9_.exit
   %22 = load ptr, ptr %target4, align 8
   %23 = ptrtoint ptr %22 to i64
-  %_M_bucket_count.i.i.i.i10 = getelementptr inbounds %"class.std::_Hashtable.79", ptr %other_offsets, i64 0, i32 1
+  %_M_bucket_count.i.i.i.i10 = getelementptr inbounds i8, ptr %other_offsets, i64 8
   %24 = load i64, ptr %_M_bucket_count.i.i.i.i10, align 8
   %rem.i.i.i.i.i.i11 = urem i64 %23, %24
   %25 = load ptr, ptr %other_offsets, align 8
@@ -19611,15 +19332,15 @@ land.end:                                         ; preds = %_ZNKSt13unordered_m
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr hidden noundef zeroext i1 @_ZNK3ue228RoseInstrMultipathLookaround8equiv_toERKS0_RKSt13unordered_mapIPKNS_15RoseInstructionEjSt4hashIS6_ESt8equal_toIS6_ESaISt4pairIKS6_jEEESH_(ptr noundef nonnull align 8 dereferenceable(64) %this, ptr noundef nonnull align 8 dereferenceable(64) %ri, ptr noundef nonnull align 8 dereferenceable(56) %offsets, ptr noundef nonnull align 8 dereferenceable(56) %other_offsets) local_unnamed_addr #5 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  %multi_look = getelementptr inbounds %"class.ue2::RoseInstrMultipathLookaround", ptr %this, i64 0, i32 1
-  %multi_look2 = getelementptr inbounds %"class.ue2::RoseInstrMultipathLookaround", ptr %ri, i64 0, i32 1
-  %_M_finish.i.i = getelementptr inbounds %"class.ue2::RoseInstrMultipathLookaround", ptr %this, i64 0, i32 1, i32 0, i32 0, i32 0, i32 1
+  %multi_look = getelementptr inbounds i8, ptr %this, i64 8
+  %multi_look2 = getelementptr inbounds i8, ptr %ri, i64 8
+  %_M_finish.i.i = getelementptr inbounds i8, ptr %this, i64 16
   %0 = load ptr, ptr %_M_finish.i.i, align 8
   %1 = load ptr, ptr %multi_look, align 8
   %sub.ptr.lhs.cast.i.i = ptrtoint ptr %0 to i64
   %sub.ptr.rhs.cast.i.i = ptrtoint ptr %1 to i64
   %sub.ptr.sub.i.i = sub i64 %sub.ptr.lhs.cast.i.i, %sub.ptr.rhs.cast.i.i
-  %_M_finish.i16.i = getelementptr inbounds %"class.ue2::RoseInstrMultipathLookaround", ptr %ri, i64 0, i32 1, i32 0, i32 0, i32 0, i32 1
+  %_M_finish.i16.i = getelementptr inbounds i8, ptr %ri, i64 16
   %2 = load ptr, ptr %_M_finish.i16.i, align 8
   %3 = load ptr, ptr %multi_look2, align 8
   %sub.ptr.lhs.cast.i17.i = ptrtoint ptr %2 to i64
@@ -19635,13 +19356,13 @@ land.rhs.i:                                       ; preds = %entry
 for.body.i.i.i.i.i:                               ; preds = %land.rhs.i, %for.inc.i.i.i.i.i
   %__first2.addr.010.i.i.i.i.i = phi ptr [ %incdec.ptr1.i.i.i.i.i, %for.inc.i.i.i.i.i ], [ %3, %land.rhs.i ]
   %__first1.addr.09.i.i.i.i.i = phi ptr [ %incdec.ptr.i.i.i.i.i, %for.inc.i.i.i.i.i ], [ %1, %land.rhs.i ]
-  %_M_finish.i.i.i.i.i.i.i = getelementptr inbounds %"struct.std::_Vector_base<ue2::LookEntry, std::allocator<ue2::LookEntry>>::_Vector_impl_data", ptr %__first1.addr.09.i.i.i.i.i, i64 0, i32 1
+  %_M_finish.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %__first1.addr.09.i.i.i.i.i, i64 8
   %4 = load ptr, ptr %_M_finish.i.i.i.i.i.i.i, align 8
   %5 = load ptr, ptr %__first1.addr.09.i.i.i.i.i, align 8
   %sub.ptr.lhs.cast.i.i.i.i.i.i.i = ptrtoint ptr %4 to i64
   %sub.ptr.rhs.cast.i.i.i.i.i.i.i = ptrtoint ptr %5 to i64
   %sub.ptr.sub.i.i.i.i.i.i.i = sub i64 %sub.ptr.lhs.cast.i.i.i.i.i.i.i, %sub.ptr.rhs.cast.i.i.i.i.i.i.i
-  %_M_finish.i16.i.i.i.i.i.i = getelementptr inbounds %"struct.std::_Vector_base<ue2::LookEntry, std::allocator<ue2::LookEntry>>::_Vector_impl_data", ptr %__first2.addr.010.i.i.i.i.i, i64 0, i32 1
+  %_M_finish.i16.i.i.i.i.i.i = getelementptr inbounds i8, ptr %__first2.addr.010.i.i.i.i.i, i64 8
   %6 = load ptr, ptr %_M_finish.i16.i.i.i.i.i.i, align 8
   %7 = load ptr, ptr %__first2.addr.010.i.i.i.i.i, align 8
   %sub.ptr.lhs.cast.i17.i.i.i.i.i.i = ptrtoint ptr %6 to i64
@@ -19663,48 +19384,48 @@ for.body.i.i.i.i.i.i.i.i.i.i:                     ; preds = %land.rhs.i.i.i.i.i.
   br i1 %cmp.i.i.i.i.i.i.i.i.i.i.i, label %_ZNK3ue29LookEntryeqERKS0_.exit.i.i.i.i.i.i.i.i.i.i, label %land.end
 
 _ZNK3ue29LookEntryeqERKS0_.exit.i.i.i.i.i.i.i.i.i.i: ; preds = %for.body.i.i.i.i.i.i.i.i.i.i
-  %reach.i.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds %"struct.ue2::LookEntry", ptr %__first1.addr.06.i.i.i.i.i.i.i.i.i.i, i64 0, i32 1
-  %reach4.i.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds %"struct.ue2::LookEntry", ptr %__first2.addr.07.i.i.i.i.i.i.i.i.i.i, i64 0, i32 1
+  %reach.i.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %__first1.addr.06.i.i.i.i.i.i.i.i.i.i, i64 8
+  %reach4.i.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %__first2.addr.07.i.i.i.i.i.i.i.i.i.i, i64 8
   %bcmp.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i = tail call i32 @bcmp(ptr noundef nonnull dereferenceable(32) %reach.i.i.i.i.i.i.i.i.i.i.i, ptr noundef nonnull dereferenceable(32) %reach4.i.i.i.i.i.i.i.i.i.i.i, i64 32)
   %tobool1.not.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i = icmp eq i32 %bcmp.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i, 0
   br i1 %tobool1.not.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i, label %for.inc.i.i.i.i.i.i.i.i.i.i, label %land.end
 
 for.inc.i.i.i.i.i.i.i.i.i.i:                      ; preds = %_ZNK3ue29LookEntryeqERKS0_.exit.i.i.i.i.i.i.i.i.i.i
-  %incdec.ptr.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds %"struct.ue2::LookEntry", ptr %__first1.addr.06.i.i.i.i.i.i.i.i.i.i, i64 1
-  %incdec.ptr1.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds %"struct.ue2::LookEntry", ptr %__first2.addr.07.i.i.i.i.i.i.i.i.i.i, i64 1
+  %incdec.ptr.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %__first1.addr.06.i.i.i.i.i.i.i.i.i.i, i64 40
+  %incdec.ptr1.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %__first2.addr.07.i.i.i.i.i.i.i.i.i.i, i64 40
   %cmp.not.i.i.i.i.i.i.i.i.i.i = icmp eq ptr %incdec.ptr.i.i.i.i.i.i.i.i.i.i, %4
   br i1 %cmp.not.i.i.i.i.i.i.i.i.i.i, label %for.inc.i.i.i.i.i, label %for.body.i.i.i.i.i.i.i.i.i.i, !llvm.loop !53
 
 for.inc.i.i.i.i.i:                                ; preds = %for.inc.i.i.i.i.i.i.i.i.i.i, %land.rhs.i.i.i.i.i.i
-  %incdec.ptr.i.i.i.i.i = getelementptr inbounds %"class.std::vector.115", ptr %__first1.addr.09.i.i.i.i.i, i64 1
-  %incdec.ptr1.i.i.i.i.i = getelementptr inbounds %"class.std::vector.115", ptr %__first2.addr.010.i.i.i.i.i, i64 1
+  %incdec.ptr.i.i.i.i.i = getelementptr inbounds i8, ptr %__first1.addr.09.i.i.i.i.i, i64 24
+  %incdec.ptr1.i.i.i.i.i = getelementptr inbounds i8, ptr %__first2.addr.010.i.i.i.i.i, i64 24
   %cmp.not.i.i.i.i.i = icmp eq ptr %incdec.ptr.i.i.i.i.i, %0
   br i1 %cmp.not.i.i.i.i.i, label %land.lhs.true, label %for.body.i.i.i.i.i, !llvm.loop !55
 
 land.lhs.true:                                    ; preds = %for.inc.i.i.i.i.i, %land.rhs.i
-  %last_start = getelementptr inbounds %"class.ue2::RoseInstrMultipathLookaround", ptr %this, i64 0, i32 2
+  %last_start = getelementptr inbounds i8, ptr %this, i64 32
   %10 = load i32, ptr %last_start, align 8
-  %last_start3 = getelementptr inbounds %"class.ue2::RoseInstrMultipathLookaround", ptr %ri, i64 0, i32 2
+  %last_start3 = getelementptr inbounds i8, ptr %ri, i64 32
   %11 = load i32, ptr %last_start3, align 8
   %cmp = icmp eq i32 %10, %11
   br i1 %cmp, label %land.lhs.true4, label %land.end
 
 land.lhs.true4:                                   ; preds = %land.lhs.true
-  %start_mask = getelementptr inbounds %"class.ue2::RoseInstrMultipathLookaround", ptr %this, i64 0, i32 3
-  %start_mask5 = getelementptr inbounds %"class.ue2::RoseInstrMultipathLookaround", ptr %ri, i64 0, i32 3
+  %start_mask = getelementptr inbounds i8, ptr %this, i64 36
+  %start_mask5 = getelementptr inbounds i8, ptr %ri, i64 36
   %bcmp.i.i.i.i.i = tail call i32 @bcmp(ptr noundef nonnull dereferenceable(16) %start_mask, ptr noundef nonnull dereferenceable(16) %start_mask5, i64 16)
   %tobool1.not.i.i.i.i.i = icmp eq i32 %bcmp.i.i.i.i.i, 0
   br i1 %tobool1.not.i.i.i.i.i, label %land.rhs, label %land.end
 
 land.rhs:                                         ; preds = %land.lhs.true4
-  %target = getelementptr inbounds %"class.ue2::RoseInstrMultipathLookaround", ptr %this, i64 0, i32 4
-  %_M_element_count.i.i.i.i = getelementptr inbounds %"class.std::_Hashtable.79", ptr %offsets, i64 0, i32 3
+  %target = getelementptr inbounds i8, ptr %this, i64 56
+  %_M_element_count.i.i.i.i = getelementptr inbounds i8, ptr %offsets, i64 24
   %12 = load i64, ptr %_M_element_count.i.i.i.i, align 8
   %cmp.not.not.i.i.i = icmp eq i64 %12, 0
   br i1 %cmp.not.not.i.i.i, label %if.then.i.i.i, label %if.end15.i.i.i
 
 if.then.i.i.i:                                    ; preds = %land.rhs
-  %_M_before_begin.i.i.i.i.i = getelementptr inbounds %"class.std::_Hashtable.79", ptr %offsets, i64 0, i32 2
+  %_M_before_begin.i.i.i.i.i = getelementptr inbounds i8, ptr %offsets, i64 16
   %13 = load ptr, ptr %target, align 8
   br label %for.cond.i.i.i
 
@@ -19723,7 +19444,7 @@ for.body.i.i.i:                                   ; preds = %for.cond.i.i.i
 if.end15.i.i.i:                                   ; preds = %land.rhs
   %15 = load ptr, ptr %target, align 8
   %16 = ptrtoint ptr %15 to i64
-  %_M_bucket_count.i.i.i.i = getelementptr inbounds %"class.std::_Hashtable.79", ptr %offsets, i64 0, i32 1
+  %_M_bucket_count.i.i.i.i = getelementptr inbounds i8, ptr %offsets, i64 8
   %17 = load i64, ptr %_M_bucket_count.i.i.i.i, align 8
   %rem.i.i.i.i.i.i = urem i64 %16, %17
   %18 = load ptr, ptr %offsets, align 8
@@ -19765,14 +19486,14 @@ _ZNKSt13unordered_mapIPKN3ue215RoseInstructionEjSt4hashIS3_ESt8equal_toIS3_ESaIS
   %retval.sroa.0.1.i.i.i = phi ptr [ %20, %if.end.i.i.i.i.i ], [ %retval.sroa.0.0.i.i.i, %for.body.i.i.i ], [ %22, %for.cond.i.i.i.i.i ]
   %second.i.i = getelementptr inbounds i8, ptr %retval.sroa.0.1.i.i.i, i64 16
   %25 = load i32, ptr %second.i.i, align 4
-  %target8 = getelementptr inbounds %"class.ue2::RoseInstrMultipathLookaround", ptr %ri, i64 0, i32 4
-  %_M_element_count.i.i.i.i15 = getelementptr inbounds %"class.std::_Hashtable.79", ptr %other_offsets, i64 0, i32 3
+  %target8 = getelementptr inbounds i8, ptr %ri, i64 56
+  %_M_element_count.i.i.i.i15 = getelementptr inbounds i8, ptr %other_offsets, i64 24
   %26 = load i64, ptr %_M_element_count.i.i.i.i15, align 8
   %cmp.not.not.i.i.i16 = icmp eq i64 %26, 0
   br i1 %cmp.not.not.i.i.i16, label %if.then.i.i.i37, label %if.end15.i.i.i17
 
 if.then.i.i.i37:                                  ; preds = %_ZNKSt13unordered_mapIPKN3ue215RoseInstructionEjSt4hashIS3_ESt8equal_toIS3_ESaISt4pairIKS3_jEEE2atERS9_.exit
-  %_M_before_begin.i.i.i.i.i38 = getelementptr inbounds %"class.std::_Hashtable.79", ptr %other_offsets, i64 0, i32 2
+  %_M_before_begin.i.i.i.i.i38 = getelementptr inbounds i8, ptr %other_offsets, i64 16
   %27 = load ptr, ptr %target8, align 8
   br label %for.cond.i.i.i39
 
@@ -19791,7 +19512,7 @@ for.body.i.i.i43:                                 ; preds = %for.cond.i.i.i39
 if.end15.i.i.i17:                                 ; preds = %_ZNKSt13unordered_mapIPKN3ue215RoseInstructionEjSt4hashIS3_ESt8equal_toIS3_ESaISt4pairIKS3_jEEE2atERS9_.exit
   %29 = load ptr, ptr %target8, align 8
   %30 = ptrtoint ptr %29 to i64
-  %_M_bucket_count.i.i.i.i18 = getelementptr inbounds %"class.std::_Hashtable.79", ptr %other_offsets, i64 0, i32 1
+  %_M_bucket_count.i.i.i.i18 = getelementptr inbounds i8, ptr %other_offsets, i64 8
   %31 = load i64, ptr %_M_bucket_count.i.i.i.i18, align 8
   %rem.i.i.i.i.i.i19 = urem i64 %30, %31
   %32 = load ptr, ptr %other_offsets, align 8
@@ -19844,71 +19565,71 @@ land.end:                                         ; preds = %for.body.i.i.i.i.i,
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr hidden noundef zeroext i1 @_ZNK3ue233RoseInstrCheckMultipathShufti16x88equiv_toERKS0_RKSt13unordered_mapIPKNS_15RoseInstructionEjSt4hashIS6_ESt8equal_toIS6_ESaISt4pairIKS6_jEEESH_(ptr noundef nonnull align 8 dereferenceable(192) %this, ptr noundef nonnull align 8 dereferenceable(192) %ri, ptr noundef nonnull align 8 dereferenceable(56) %offsets, ptr noundef nonnull align 8 dereferenceable(56) %other_offsets) local_unnamed_addr #5 comdat align 2 {
 entry:
-  %nib_mask = getelementptr inbounds %"class.ue2::RoseInstrCheckMultipathShufti16x8", ptr %this, i64 0, i32 1
-  %nib_mask2 = getelementptr inbounds %"class.ue2::RoseInstrCheckMultipathShufti16x8", ptr %ri, i64 0, i32 1
+  %nib_mask = getelementptr inbounds i8, ptr %this, i64 8
+  %nib_mask2 = getelementptr inbounds i8, ptr %ri, i64 8
   %bcmp.i.i.i.i.i = tail call i32 @bcmp(ptr noundef nonnull dereferenceable(32) %nib_mask, ptr noundef nonnull dereferenceable(32) %nib_mask2, i64 32)
   %tobool1.not.i.i.i.i.i = icmp eq i32 %bcmp.i.i.i.i.i, 0
   br i1 %tobool1.not.i.i.i.i.i, label %land.lhs.true, label %land.end
 
 land.lhs.true:                                    ; preds = %entry
-  %bucket_select_mask = getelementptr inbounds %"class.ue2::RoseInstrCheckMultipathShufti16x8", ptr %this, i64 0, i32 2
-  %bucket_select_mask3 = getelementptr inbounds %"class.ue2::RoseInstrCheckMultipathShufti16x8", ptr %ri, i64 0, i32 2
+  %bucket_select_mask = getelementptr inbounds i8, ptr %this, i64 40
+  %bucket_select_mask3 = getelementptr inbounds i8, ptr %ri, i64 40
   %bcmp.i.i.i.i.i39 = tail call i32 @bcmp(ptr noundef nonnull dereferenceable(64) %bucket_select_mask, ptr noundef nonnull dereferenceable(64) %bucket_select_mask3, i64 64)
   %tobool1.not.i.i.i.i.i40 = icmp eq i32 %bcmp.i.i.i.i.i39, 0
   br i1 %tobool1.not.i.i.i.i.i40, label %land.lhs.true5, label %land.end
 
 land.lhs.true5:                                   ; preds = %land.lhs.true
-  %data_select_mask = getelementptr inbounds %"class.ue2::RoseInstrCheckMultipathShufti16x8", ptr %this, i64 0, i32 3
-  %data_select_mask6 = getelementptr inbounds %"class.ue2::RoseInstrCheckMultipathShufti16x8", ptr %ri, i64 0, i32 3
+  %data_select_mask = getelementptr inbounds i8, ptr %this, i64 104
+  %data_select_mask6 = getelementptr inbounds i8, ptr %ri, i64 104
   %bcmp.i.i.i.i.i41 = tail call i32 @bcmp(ptr noundef nonnull dereferenceable(64) %data_select_mask, ptr noundef nonnull dereferenceable(64) %data_select_mask6, i64 64)
   %tobool1.not.i.i.i.i.i42 = icmp eq i32 %bcmp.i.i.i.i.i41, 0
   br i1 %tobool1.not.i.i.i.i.i42, label %land.lhs.true8, label %land.end
 
 land.lhs.true8:                                   ; preds = %land.lhs.true5
-  %hi_bits_mask = getelementptr inbounds %"class.ue2::RoseInstrCheckMultipathShufti16x8", ptr %this, i64 0, i32 4
+  %hi_bits_mask = getelementptr inbounds i8, ptr %this, i64 168
   %0 = load i16, ptr %hi_bits_mask, align 8
-  %hi_bits_mask9 = getelementptr inbounds %"class.ue2::RoseInstrCheckMultipathShufti16x8", ptr %ri, i64 0, i32 4
+  %hi_bits_mask9 = getelementptr inbounds i8, ptr %ri, i64 168
   %1 = load i16, ptr %hi_bits_mask9, align 8
   %cmp = icmp eq i16 %0, %1
   br i1 %cmp, label %land.lhs.true11, label %land.end
 
 land.lhs.true11:                                  ; preds = %land.lhs.true8
-  %lo_bits_mask = getelementptr inbounds %"class.ue2::RoseInstrCheckMultipathShufti16x8", ptr %this, i64 0, i32 5
+  %lo_bits_mask = getelementptr inbounds i8, ptr %this, i64 170
   %2 = load i16, ptr %lo_bits_mask, align 2
-  %lo_bits_mask13 = getelementptr inbounds %"class.ue2::RoseInstrCheckMultipathShufti16x8", ptr %ri, i64 0, i32 5
+  %lo_bits_mask13 = getelementptr inbounds i8, ptr %ri, i64 170
   %3 = load i16, ptr %lo_bits_mask13, align 2
   %cmp15 = icmp eq i16 %2, %3
   br i1 %cmp15, label %land.lhs.true16, label %land.end
 
 land.lhs.true16:                                  ; preds = %land.lhs.true11
-  %neg_mask = getelementptr inbounds %"class.ue2::RoseInstrCheckMultipathShufti16x8", ptr %this, i64 0, i32 6
+  %neg_mask = getelementptr inbounds i8, ptr %this, i64 172
   %4 = load i16, ptr %neg_mask, align 4
-  %neg_mask18 = getelementptr inbounds %"class.ue2::RoseInstrCheckMultipathShufti16x8", ptr %ri, i64 0, i32 6
+  %neg_mask18 = getelementptr inbounds i8, ptr %ri, i64 172
   %5 = load i16, ptr %neg_mask18, align 4
   %cmp20 = icmp eq i16 %4, %5
   br i1 %cmp20, label %land.lhs.true21, label %land.end
 
 land.lhs.true21:                                  ; preds = %land.lhs.true16
-  %base_offset = getelementptr inbounds %"class.ue2::RoseInstrCheckMultipathShufti16x8", ptr %this, i64 0, i32 7
+  %base_offset = getelementptr inbounds i8, ptr %this, i64 176
   %6 = load i32, ptr %base_offset, align 8
-  %base_offset22 = getelementptr inbounds %"class.ue2::RoseInstrCheckMultipathShufti16x8", ptr %ri, i64 0, i32 7
+  %base_offset22 = getelementptr inbounds i8, ptr %ri, i64 176
   %7 = load i32, ptr %base_offset22, align 8
   %cmp23 = icmp eq i32 %6, %7
   br i1 %cmp23, label %land.lhs.true24, label %land.end
 
 land.lhs.true24:                                  ; preds = %land.lhs.true21
-  %last_start = getelementptr inbounds %"class.ue2::RoseInstrCheckMultipathShufti16x8", ptr %this, i64 0, i32 8
+  %last_start = getelementptr inbounds i8, ptr %this, i64 180
   %8 = load i32, ptr %last_start, align 4
-  %last_start25 = getelementptr inbounds %"class.ue2::RoseInstrCheckMultipathShufti16x8", ptr %ri, i64 0, i32 8
+  %last_start25 = getelementptr inbounds i8, ptr %ri, i64 180
   %9 = load i32, ptr %last_start25, align 4
   %cmp26 = icmp eq i32 %8, %9
   br i1 %cmp26, label %land.rhs, label %land.end
 
 land.rhs:                                         ; preds = %land.lhs.true24
-  %target = getelementptr inbounds %"class.ue2::RoseInstrCheckMultipathShufti16x8", ptr %this, i64 0, i32 9
+  %target = getelementptr inbounds i8, ptr %this, i64 184
   %call27 = tail call noundef nonnull align 4 dereferenceable(4) ptr @_ZNKSt13unordered_mapIPKN3ue215RoseInstructionEjSt4hashIS3_ESt8equal_toIS3_ESaISt4pairIKS3_jEEE2atERS9_(ptr noundef nonnull align 8 dereferenceable(56) %offsets, ptr noundef nonnull align 8 dereferenceable(8) %target)
   %10 = load i32, ptr %call27, align 4
-  %target28 = getelementptr inbounds %"class.ue2::RoseInstrCheckMultipathShufti16x8", ptr %ri, i64 0, i32 9
+  %target28 = getelementptr inbounds i8, ptr %ri, i64 184
   %call29 = tail call noundef nonnull align 4 dereferenceable(4) ptr @_ZNKSt13unordered_mapIPKN3ue215RoseInstructionEjSt4hashIS3_ESt8equal_toIS3_ESaISt4pairIKS3_jEEE2atERS9_(ptr noundef nonnull align 8 dereferenceable(56) %other_offsets, ptr noundef nonnull align 8 dereferenceable(8) %target28)
   %11 = load i32, ptr %call29, align 4
   %cmp30 = icmp eq i32 %10, %11
@@ -19922,78 +19643,78 @@ land.end:                                         ; preds = %land.rhs, %land.lhs
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr hidden noundef zeroext i1 @_ZNK3ue233RoseInstrCheckMultipathShufti32x88equiv_toERKS0_RKSt13unordered_mapIPKNS_15RoseInstructionEjSt4hashIS6_ESt8equal_toIS6_ESaISt4pairIKS6_jEEESH_(ptr noundef nonnull align 8 dereferenceable(232) %this, ptr noundef nonnull align 8 dereferenceable(232) %ri, ptr noundef nonnull align 8 dereferenceable(56) %offsets, ptr noundef nonnull align 8 dereferenceable(56) %other_offsets) local_unnamed_addr #5 comdat align 2 {
 entry:
-  %hi_mask = getelementptr inbounds %"class.ue2::RoseInstrCheckMultipathShufti32x8", ptr %this, i64 0, i32 1
-  %hi_mask2 = getelementptr inbounds %"class.ue2::RoseInstrCheckMultipathShufti32x8", ptr %ri, i64 0, i32 1
+  %hi_mask = getelementptr inbounds i8, ptr %this, i64 8
+  %hi_mask2 = getelementptr inbounds i8, ptr %ri, i64 8
   %bcmp.i.i.i.i.i = tail call i32 @bcmp(ptr noundef nonnull dereferenceable(32) %hi_mask, ptr noundef nonnull dereferenceable(32) %hi_mask2, i64 32)
   %tobool1.not.i.i.i.i.i = icmp eq i32 %bcmp.i.i.i.i.i, 0
   br i1 %tobool1.not.i.i.i.i.i, label %land.lhs.true, label %land.end
 
 land.lhs.true:                                    ; preds = %entry
-  %lo_mask = getelementptr inbounds %"class.ue2::RoseInstrCheckMultipathShufti32x8", ptr %this, i64 0, i32 2
-  %lo_mask3 = getelementptr inbounds %"class.ue2::RoseInstrCheckMultipathShufti32x8", ptr %ri, i64 0, i32 2
+  %lo_mask = getelementptr inbounds i8, ptr %this, i64 40
+  %lo_mask3 = getelementptr inbounds i8, ptr %ri, i64 40
   %bcmp.i.i.i.i.i38 = tail call i32 @bcmp(ptr noundef nonnull dereferenceable(32) %lo_mask, ptr noundef nonnull dereferenceable(32) %lo_mask3, i64 32)
   %tobool1.not.i.i.i.i.i39 = icmp eq i32 %bcmp.i.i.i.i.i38, 0
   br i1 %tobool1.not.i.i.i.i.i39, label %land.lhs.true5, label %land.end
 
 land.lhs.true5:                                   ; preds = %land.lhs.true
-  %bucket_select_mask = getelementptr inbounds %"class.ue2::RoseInstrCheckMultipathShufti32x8", ptr %this, i64 0, i32 3
-  %bucket_select_mask6 = getelementptr inbounds %"class.ue2::RoseInstrCheckMultipathShufti32x8", ptr %ri, i64 0, i32 3
+  %bucket_select_mask = getelementptr inbounds i8, ptr %this, i64 72
+  %bucket_select_mask6 = getelementptr inbounds i8, ptr %ri, i64 72
   %bcmp.i.i.i.i.i40 = tail call i32 @bcmp(ptr noundef nonnull dereferenceable(64) %bucket_select_mask, ptr noundef nonnull dereferenceable(64) %bucket_select_mask6, i64 64)
   %tobool1.not.i.i.i.i.i41 = icmp eq i32 %bcmp.i.i.i.i.i40, 0
   br i1 %tobool1.not.i.i.i.i.i41, label %land.lhs.true8, label %land.end
 
 land.lhs.true8:                                   ; preds = %land.lhs.true5
-  %data_select_mask = getelementptr inbounds %"class.ue2::RoseInstrCheckMultipathShufti32x8", ptr %this, i64 0, i32 4
-  %data_select_mask9 = getelementptr inbounds %"class.ue2::RoseInstrCheckMultipathShufti32x8", ptr %ri, i64 0, i32 4
+  %data_select_mask = getelementptr inbounds i8, ptr %this, i64 136
+  %data_select_mask9 = getelementptr inbounds i8, ptr %ri, i64 136
   %bcmp.i.i.i.i.i42 = tail call i32 @bcmp(ptr noundef nonnull dereferenceable(64) %data_select_mask, ptr noundef nonnull dereferenceable(64) %data_select_mask9, i64 64)
   %tobool1.not.i.i.i.i.i43 = icmp eq i32 %bcmp.i.i.i.i.i42, 0
   br i1 %tobool1.not.i.i.i.i.i43, label %land.lhs.true11, label %land.end
 
 land.lhs.true11:                                  ; preds = %land.lhs.true8
-  %hi_bits_mask = getelementptr inbounds %"class.ue2::RoseInstrCheckMultipathShufti32x8", ptr %this, i64 0, i32 5
+  %hi_bits_mask = getelementptr inbounds i8, ptr %this, i64 200
   %0 = load i32, ptr %hi_bits_mask, align 8
-  %hi_bits_mask12 = getelementptr inbounds %"class.ue2::RoseInstrCheckMultipathShufti32x8", ptr %ri, i64 0, i32 5
+  %hi_bits_mask12 = getelementptr inbounds i8, ptr %ri, i64 200
   %1 = load i32, ptr %hi_bits_mask12, align 8
   %cmp = icmp eq i32 %0, %1
   br i1 %cmp, label %land.lhs.true13, label %land.end
 
 land.lhs.true13:                                  ; preds = %land.lhs.true11
-  %lo_bits_mask = getelementptr inbounds %"class.ue2::RoseInstrCheckMultipathShufti32x8", ptr %this, i64 0, i32 6
+  %lo_bits_mask = getelementptr inbounds i8, ptr %this, i64 204
   %2 = load i32, ptr %lo_bits_mask, align 4
-  %lo_bits_mask14 = getelementptr inbounds %"class.ue2::RoseInstrCheckMultipathShufti32x8", ptr %ri, i64 0, i32 6
+  %lo_bits_mask14 = getelementptr inbounds i8, ptr %ri, i64 204
   %3 = load i32, ptr %lo_bits_mask14, align 4
   %cmp15 = icmp eq i32 %2, %3
   br i1 %cmp15, label %land.lhs.true16, label %land.end
 
 land.lhs.true16:                                  ; preds = %land.lhs.true13
-  %neg_mask = getelementptr inbounds %"class.ue2::RoseInstrCheckMultipathShufti32x8", ptr %this, i64 0, i32 7
+  %neg_mask = getelementptr inbounds i8, ptr %this, i64 208
   %4 = load i32, ptr %neg_mask, align 8
-  %neg_mask17 = getelementptr inbounds %"class.ue2::RoseInstrCheckMultipathShufti32x8", ptr %ri, i64 0, i32 7
+  %neg_mask17 = getelementptr inbounds i8, ptr %ri, i64 208
   %5 = load i32, ptr %neg_mask17, align 8
   %cmp18 = icmp eq i32 %4, %5
   br i1 %cmp18, label %land.lhs.true19, label %land.end
 
 land.lhs.true19:                                  ; preds = %land.lhs.true16
-  %base_offset = getelementptr inbounds %"class.ue2::RoseInstrCheckMultipathShufti32x8", ptr %this, i64 0, i32 8
+  %base_offset = getelementptr inbounds i8, ptr %this, i64 212
   %6 = load i32, ptr %base_offset, align 4
-  %base_offset20 = getelementptr inbounds %"class.ue2::RoseInstrCheckMultipathShufti32x8", ptr %ri, i64 0, i32 8
+  %base_offset20 = getelementptr inbounds i8, ptr %ri, i64 212
   %7 = load i32, ptr %base_offset20, align 4
   %cmp21 = icmp eq i32 %6, %7
   br i1 %cmp21, label %land.lhs.true22, label %land.end
 
 land.lhs.true22:                                  ; preds = %land.lhs.true19
-  %last_start = getelementptr inbounds %"class.ue2::RoseInstrCheckMultipathShufti32x8", ptr %this, i64 0, i32 9
+  %last_start = getelementptr inbounds i8, ptr %this, i64 216
   %8 = load i32, ptr %last_start, align 8
-  %last_start23 = getelementptr inbounds %"class.ue2::RoseInstrCheckMultipathShufti32x8", ptr %ri, i64 0, i32 9
+  %last_start23 = getelementptr inbounds i8, ptr %ri, i64 216
   %9 = load i32, ptr %last_start23, align 8
   %cmp24 = icmp eq i32 %8, %9
   br i1 %cmp24, label %land.rhs, label %land.end
 
 land.rhs:                                         ; preds = %land.lhs.true22
-  %target = getelementptr inbounds %"class.ue2::RoseInstrCheckMultipathShufti32x8", ptr %this, i64 0, i32 10
+  %target = getelementptr inbounds i8, ptr %this, i64 224
   %call25 = tail call noundef nonnull align 4 dereferenceable(4) ptr @_ZNKSt13unordered_mapIPKN3ue215RoseInstructionEjSt4hashIS3_ESt8equal_toIS3_ESaISt4pairIKS3_jEEE2atERS9_(ptr noundef nonnull align 8 dereferenceable(56) %offsets, ptr noundef nonnull align 8 dereferenceable(8) %target)
   %10 = load i32, ptr %call25, align 4
-  %target26 = getelementptr inbounds %"class.ue2::RoseInstrCheckMultipathShufti32x8", ptr %ri, i64 0, i32 10
+  %target26 = getelementptr inbounds i8, ptr %ri, i64 224
   %call27 = tail call noundef nonnull align 4 dereferenceable(4) ptr @_ZNKSt13unordered_mapIPKN3ue215RoseInstructionEjSt4hashIS3_ESt8equal_toIS3_ESaISt4pairIKS3_jEEE2atERS9_(ptr noundef nonnull align 8 dereferenceable(56) %other_offsets, ptr noundef nonnull align 8 dereferenceable(8) %target26)
   %11 = load i32, ptr %call27, align 4
   %cmp28 = icmp eq i32 %10, %11
@@ -20007,85 +19728,85 @@ land.end:                                         ; preds = %land.rhs, %land.lhs
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr hidden noundef zeroext i1 @_ZNK3ue234RoseInstrCheckMultipathShufti32x168equiv_toERKS0_RKSt13unordered_mapIPKNS_15RoseInstructionEjSt4hashIS6_ESt8equal_toIS6_ESaISt4pairIKS6_jEEESH_(ptr noundef nonnull align 8 dereferenceable(296) %this, ptr noundef nonnull align 8 dereferenceable(296) %ri, ptr noundef nonnull align 8 dereferenceable(56) %offsets, ptr noundef nonnull align 8 dereferenceable(56) %other_offsets) local_unnamed_addr #5 comdat align 2 {
 entry:
-  %hi_mask = getelementptr inbounds %"class.ue2::RoseInstrCheckMultipathShufti32x16", ptr %this, i64 0, i32 1
-  %hi_mask2 = getelementptr inbounds %"class.ue2::RoseInstrCheckMultipathShufti32x16", ptr %ri, i64 0, i32 1
+  %hi_mask = getelementptr inbounds i8, ptr %this, i64 8
+  %hi_mask2 = getelementptr inbounds i8, ptr %ri, i64 8
   %bcmp.i.i.i.i.i = tail call i32 @bcmp(ptr noundef nonnull dereferenceable(32) %hi_mask, ptr noundef nonnull dereferenceable(32) %hi_mask2, i64 32)
   %tobool1.not.i.i.i.i.i = icmp eq i32 %bcmp.i.i.i.i.i, 0
   br i1 %tobool1.not.i.i.i.i.i, label %land.lhs.true, label %land.end
 
 land.lhs.true:                                    ; preds = %entry
-  %lo_mask = getelementptr inbounds %"class.ue2::RoseInstrCheckMultipathShufti32x16", ptr %this, i64 0, i32 2
-  %lo_mask3 = getelementptr inbounds %"class.ue2::RoseInstrCheckMultipathShufti32x16", ptr %ri, i64 0, i32 2
+  %lo_mask = getelementptr inbounds i8, ptr %this, i64 40
+  %lo_mask3 = getelementptr inbounds i8, ptr %ri, i64 40
   %bcmp.i.i.i.i.i42 = tail call i32 @bcmp(ptr noundef nonnull dereferenceable(32) %lo_mask, ptr noundef nonnull dereferenceable(32) %lo_mask3, i64 32)
   %tobool1.not.i.i.i.i.i43 = icmp eq i32 %bcmp.i.i.i.i.i42, 0
   br i1 %tobool1.not.i.i.i.i.i43, label %land.lhs.true5, label %land.end
 
 land.lhs.true5:                                   ; preds = %land.lhs.true
-  %bucket_select_mask_hi = getelementptr inbounds %"class.ue2::RoseInstrCheckMultipathShufti32x16", ptr %this, i64 0, i32 3
-  %bucket_select_mask_hi6 = getelementptr inbounds %"class.ue2::RoseInstrCheckMultipathShufti32x16", ptr %ri, i64 0, i32 3
+  %bucket_select_mask_hi = getelementptr inbounds i8, ptr %this, i64 72
+  %bucket_select_mask_hi6 = getelementptr inbounds i8, ptr %ri, i64 72
   %bcmp.i.i.i.i.i44 = tail call i32 @bcmp(ptr noundef nonnull dereferenceable(64) %bucket_select_mask_hi, ptr noundef nonnull dereferenceable(64) %bucket_select_mask_hi6, i64 64)
   %tobool1.not.i.i.i.i.i45 = icmp eq i32 %bcmp.i.i.i.i.i44, 0
   br i1 %tobool1.not.i.i.i.i.i45, label %land.lhs.true8, label %land.end
 
 land.lhs.true8:                                   ; preds = %land.lhs.true5
-  %bucket_select_mask_lo = getelementptr inbounds %"class.ue2::RoseInstrCheckMultipathShufti32x16", ptr %this, i64 0, i32 4
-  %bucket_select_mask_lo9 = getelementptr inbounds %"class.ue2::RoseInstrCheckMultipathShufti32x16", ptr %ri, i64 0, i32 4
+  %bucket_select_mask_lo = getelementptr inbounds i8, ptr %this, i64 136
+  %bucket_select_mask_lo9 = getelementptr inbounds i8, ptr %ri, i64 136
   %bcmp.i.i.i.i.i46 = tail call i32 @bcmp(ptr noundef nonnull dereferenceable(64) %bucket_select_mask_lo, ptr noundef nonnull dereferenceable(64) %bucket_select_mask_lo9, i64 64)
   %tobool1.not.i.i.i.i.i47 = icmp eq i32 %bcmp.i.i.i.i.i46, 0
   br i1 %tobool1.not.i.i.i.i.i47, label %land.lhs.true11, label %land.end
 
 land.lhs.true11:                                  ; preds = %land.lhs.true8
-  %data_select_mask = getelementptr inbounds %"class.ue2::RoseInstrCheckMultipathShufti32x16", ptr %this, i64 0, i32 5
-  %data_select_mask12 = getelementptr inbounds %"class.ue2::RoseInstrCheckMultipathShufti32x16", ptr %ri, i64 0, i32 5
+  %data_select_mask = getelementptr inbounds i8, ptr %this, i64 200
+  %data_select_mask12 = getelementptr inbounds i8, ptr %ri, i64 200
   %bcmp.i.i.i.i.i48 = tail call i32 @bcmp(ptr noundef nonnull dereferenceable(64) %data_select_mask, ptr noundef nonnull dereferenceable(64) %data_select_mask12, i64 64)
   %tobool1.not.i.i.i.i.i49 = icmp eq i32 %bcmp.i.i.i.i.i48, 0
   br i1 %tobool1.not.i.i.i.i.i49, label %land.lhs.true14, label %land.end
 
 land.lhs.true14:                                  ; preds = %land.lhs.true11
-  %hi_bits_mask = getelementptr inbounds %"class.ue2::RoseInstrCheckMultipathShufti32x16", ptr %this, i64 0, i32 6
+  %hi_bits_mask = getelementptr inbounds i8, ptr %this, i64 264
   %0 = load i32, ptr %hi_bits_mask, align 8
-  %hi_bits_mask15 = getelementptr inbounds %"class.ue2::RoseInstrCheckMultipathShufti32x16", ptr %ri, i64 0, i32 6
+  %hi_bits_mask15 = getelementptr inbounds i8, ptr %ri, i64 264
   %1 = load i32, ptr %hi_bits_mask15, align 8
   %cmp = icmp eq i32 %0, %1
   br i1 %cmp, label %land.lhs.true16, label %land.end
 
 land.lhs.true16:                                  ; preds = %land.lhs.true14
-  %lo_bits_mask = getelementptr inbounds %"class.ue2::RoseInstrCheckMultipathShufti32x16", ptr %this, i64 0, i32 7
+  %lo_bits_mask = getelementptr inbounds i8, ptr %this, i64 268
   %2 = load i32, ptr %lo_bits_mask, align 4
-  %lo_bits_mask17 = getelementptr inbounds %"class.ue2::RoseInstrCheckMultipathShufti32x16", ptr %ri, i64 0, i32 7
+  %lo_bits_mask17 = getelementptr inbounds i8, ptr %ri, i64 268
   %3 = load i32, ptr %lo_bits_mask17, align 4
   %cmp18 = icmp eq i32 %2, %3
   br i1 %cmp18, label %land.lhs.true19, label %land.end
 
 land.lhs.true19:                                  ; preds = %land.lhs.true16
-  %neg_mask = getelementptr inbounds %"class.ue2::RoseInstrCheckMultipathShufti32x16", ptr %this, i64 0, i32 8
+  %neg_mask = getelementptr inbounds i8, ptr %this, i64 272
   %4 = load i32, ptr %neg_mask, align 8
-  %neg_mask20 = getelementptr inbounds %"class.ue2::RoseInstrCheckMultipathShufti32x16", ptr %ri, i64 0, i32 8
+  %neg_mask20 = getelementptr inbounds i8, ptr %ri, i64 272
   %5 = load i32, ptr %neg_mask20, align 8
   %cmp21 = icmp eq i32 %4, %5
   br i1 %cmp21, label %land.lhs.true22, label %land.end
 
 land.lhs.true22:                                  ; preds = %land.lhs.true19
-  %base_offset = getelementptr inbounds %"class.ue2::RoseInstrCheckMultipathShufti32x16", ptr %this, i64 0, i32 9
+  %base_offset = getelementptr inbounds i8, ptr %this, i64 276
   %6 = load i32, ptr %base_offset, align 4
-  %base_offset23 = getelementptr inbounds %"class.ue2::RoseInstrCheckMultipathShufti32x16", ptr %ri, i64 0, i32 9
+  %base_offset23 = getelementptr inbounds i8, ptr %ri, i64 276
   %7 = load i32, ptr %base_offset23, align 4
   %cmp24 = icmp eq i32 %6, %7
   br i1 %cmp24, label %land.lhs.true25, label %land.end
 
 land.lhs.true25:                                  ; preds = %land.lhs.true22
-  %last_start = getelementptr inbounds %"class.ue2::RoseInstrCheckMultipathShufti32x16", ptr %this, i64 0, i32 10
+  %last_start = getelementptr inbounds i8, ptr %this, i64 280
   %8 = load i32, ptr %last_start, align 8
-  %last_start26 = getelementptr inbounds %"class.ue2::RoseInstrCheckMultipathShufti32x16", ptr %ri, i64 0, i32 10
+  %last_start26 = getelementptr inbounds i8, ptr %ri, i64 280
   %9 = load i32, ptr %last_start26, align 8
   %cmp27 = icmp eq i32 %8, %9
   br i1 %cmp27, label %land.rhs, label %land.end
 
 land.rhs:                                         ; preds = %land.lhs.true25
-  %target = getelementptr inbounds %"class.ue2::RoseInstrCheckMultipathShufti32x16", ptr %this, i64 0, i32 11
+  %target = getelementptr inbounds i8, ptr %this, i64 288
   %call28 = tail call noundef nonnull align 4 dereferenceable(4) ptr @_ZNKSt13unordered_mapIPKN3ue215RoseInstructionEjSt4hashIS3_ESt8equal_toIS3_ESaISt4pairIKS3_jEEE2atERS9_(ptr noundef nonnull align 8 dereferenceable(56) %offsets, ptr noundef nonnull align 8 dereferenceable(8) %target)
   %10 = load i32, ptr %call28, align 4
-  %target29 = getelementptr inbounds %"class.ue2::RoseInstrCheckMultipathShufti32x16", ptr %ri, i64 0, i32 11
+  %target29 = getelementptr inbounds i8, ptr %ri, i64 288
   %call30 = tail call noundef nonnull align 4 dereferenceable(4) ptr @_ZNKSt13unordered_mapIPKN3ue215RoseInstructionEjSt4hashIS3_ESt8equal_toIS3_ESaISt4pairIKS3_jEEE2atERS9_(ptr noundef nonnull align 8 dereferenceable(56) %other_offsets, ptr noundef nonnull align 8 dereferenceable(8) %target29)
   %11 = load i32, ptr %call30, align 4
   %cmp31 = icmp eq i32 %10, %11
@@ -20099,78 +19820,78 @@ land.end:                                         ; preds = %land.rhs, %land.lhs
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr hidden noundef zeroext i1 @_ZNK3ue231RoseInstrCheckMultipathShufti648equiv_toERKS0_RKSt13unordered_mapIPKNS_15RoseInstructionEjSt4hashIS6_ESt8equal_toIS6_ESaISt4pairIKS6_jEEESH_(ptr noundef nonnull align 8 dereferenceable(240) %this, ptr noundef nonnull align 8 dereferenceable(240) %ri, ptr noundef nonnull align 8 dereferenceable(56) %offsets, ptr noundef nonnull align 8 dereferenceable(56) %other_offsets) local_unnamed_addr #5 comdat align 2 {
 entry:
-  %hi_mask = getelementptr inbounds %"class.ue2::RoseInstrCheckMultipathShufti64", ptr %this, i64 0, i32 1
-  %hi_mask2 = getelementptr inbounds %"class.ue2::RoseInstrCheckMultipathShufti64", ptr %ri, i64 0, i32 1
+  %hi_mask = getelementptr inbounds i8, ptr %this, i64 8
+  %hi_mask2 = getelementptr inbounds i8, ptr %ri, i64 8
   %bcmp.i.i.i.i.i = tail call i32 @bcmp(ptr noundef nonnull dereferenceable(32) %hi_mask, ptr noundef nonnull dereferenceable(32) %hi_mask2, i64 32)
   %tobool1.not.i.i.i.i.i = icmp eq i32 %bcmp.i.i.i.i.i, 0
   br i1 %tobool1.not.i.i.i.i.i, label %land.lhs.true, label %land.end
 
 land.lhs.true:                                    ; preds = %entry
-  %lo_mask = getelementptr inbounds %"class.ue2::RoseInstrCheckMultipathShufti64", ptr %this, i64 0, i32 2
-  %lo_mask3 = getelementptr inbounds %"class.ue2::RoseInstrCheckMultipathShufti64", ptr %ri, i64 0, i32 2
+  %lo_mask = getelementptr inbounds i8, ptr %this, i64 40
+  %lo_mask3 = getelementptr inbounds i8, ptr %ri, i64 40
   %bcmp.i.i.i.i.i38 = tail call i32 @bcmp(ptr noundef nonnull dereferenceable(32) %lo_mask, ptr noundef nonnull dereferenceable(32) %lo_mask3, i64 32)
   %tobool1.not.i.i.i.i.i39 = icmp eq i32 %bcmp.i.i.i.i.i38, 0
   br i1 %tobool1.not.i.i.i.i.i39, label %land.lhs.true5, label %land.end
 
 land.lhs.true5:                                   ; preds = %land.lhs.true
-  %bucket_select_mask = getelementptr inbounds %"class.ue2::RoseInstrCheckMultipathShufti64", ptr %this, i64 0, i32 3
-  %bucket_select_mask6 = getelementptr inbounds %"class.ue2::RoseInstrCheckMultipathShufti64", ptr %ri, i64 0, i32 3
+  %bucket_select_mask = getelementptr inbounds i8, ptr %this, i64 72
+  %bucket_select_mask6 = getelementptr inbounds i8, ptr %ri, i64 72
   %bcmp.i.i.i.i.i40 = tail call i32 @bcmp(ptr noundef nonnull dereferenceable(64) %bucket_select_mask, ptr noundef nonnull dereferenceable(64) %bucket_select_mask6, i64 64)
   %tobool1.not.i.i.i.i.i41 = icmp eq i32 %bcmp.i.i.i.i.i40, 0
   br i1 %tobool1.not.i.i.i.i.i41, label %land.lhs.true8, label %land.end
 
 land.lhs.true8:                                   ; preds = %land.lhs.true5
-  %data_select_mask = getelementptr inbounds %"class.ue2::RoseInstrCheckMultipathShufti64", ptr %this, i64 0, i32 4
-  %data_select_mask9 = getelementptr inbounds %"class.ue2::RoseInstrCheckMultipathShufti64", ptr %ri, i64 0, i32 4
+  %data_select_mask = getelementptr inbounds i8, ptr %this, i64 136
+  %data_select_mask9 = getelementptr inbounds i8, ptr %ri, i64 136
   %bcmp.i.i.i.i.i42 = tail call i32 @bcmp(ptr noundef nonnull dereferenceable(64) %data_select_mask, ptr noundef nonnull dereferenceable(64) %data_select_mask9, i64 64)
   %tobool1.not.i.i.i.i.i43 = icmp eq i32 %bcmp.i.i.i.i.i42, 0
   br i1 %tobool1.not.i.i.i.i.i43, label %land.lhs.true11, label %land.end
 
 land.lhs.true11:                                  ; preds = %land.lhs.true8
-  %hi_bits_mask = getelementptr inbounds %"class.ue2::RoseInstrCheckMultipathShufti64", ptr %this, i64 0, i32 5
+  %hi_bits_mask = getelementptr inbounds i8, ptr %this, i64 200
   %0 = load i64, ptr %hi_bits_mask, align 8
-  %hi_bits_mask12 = getelementptr inbounds %"class.ue2::RoseInstrCheckMultipathShufti64", ptr %ri, i64 0, i32 5
+  %hi_bits_mask12 = getelementptr inbounds i8, ptr %ri, i64 200
   %1 = load i64, ptr %hi_bits_mask12, align 8
   %cmp = icmp eq i64 %0, %1
   br i1 %cmp, label %land.lhs.true13, label %land.end
 
 land.lhs.true13:                                  ; preds = %land.lhs.true11
-  %lo_bits_mask = getelementptr inbounds %"class.ue2::RoseInstrCheckMultipathShufti64", ptr %this, i64 0, i32 6
+  %lo_bits_mask = getelementptr inbounds i8, ptr %this, i64 208
   %2 = load i64, ptr %lo_bits_mask, align 8
-  %lo_bits_mask14 = getelementptr inbounds %"class.ue2::RoseInstrCheckMultipathShufti64", ptr %ri, i64 0, i32 6
+  %lo_bits_mask14 = getelementptr inbounds i8, ptr %ri, i64 208
   %3 = load i64, ptr %lo_bits_mask14, align 8
   %cmp15 = icmp eq i64 %2, %3
   br i1 %cmp15, label %land.lhs.true16, label %land.end
 
 land.lhs.true16:                                  ; preds = %land.lhs.true13
-  %neg_mask = getelementptr inbounds %"class.ue2::RoseInstrCheckMultipathShufti64", ptr %this, i64 0, i32 7
+  %neg_mask = getelementptr inbounds i8, ptr %this, i64 216
   %4 = load i64, ptr %neg_mask, align 8
-  %neg_mask17 = getelementptr inbounds %"class.ue2::RoseInstrCheckMultipathShufti64", ptr %ri, i64 0, i32 7
+  %neg_mask17 = getelementptr inbounds i8, ptr %ri, i64 216
   %5 = load i64, ptr %neg_mask17, align 8
   %cmp18 = icmp eq i64 %4, %5
   br i1 %cmp18, label %land.lhs.true19, label %land.end
 
 land.lhs.true19:                                  ; preds = %land.lhs.true16
-  %base_offset = getelementptr inbounds %"class.ue2::RoseInstrCheckMultipathShufti64", ptr %this, i64 0, i32 8
+  %base_offset = getelementptr inbounds i8, ptr %this, i64 224
   %6 = load i32, ptr %base_offset, align 8
-  %base_offset20 = getelementptr inbounds %"class.ue2::RoseInstrCheckMultipathShufti64", ptr %ri, i64 0, i32 8
+  %base_offset20 = getelementptr inbounds i8, ptr %ri, i64 224
   %7 = load i32, ptr %base_offset20, align 8
   %cmp21 = icmp eq i32 %6, %7
   br i1 %cmp21, label %land.lhs.true22, label %land.end
 
 land.lhs.true22:                                  ; preds = %land.lhs.true19
-  %last_start = getelementptr inbounds %"class.ue2::RoseInstrCheckMultipathShufti64", ptr %this, i64 0, i32 9
+  %last_start = getelementptr inbounds i8, ptr %this, i64 228
   %8 = load i32, ptr %last_start, align 4
-  %last_start23 = getelementptr inbounds %"class.ue2::RoseInstrCheckMultipathShufti64", ptr %ri, i64 0, i32 9
+  %last_start23 = getelementptr inbounds i8, ptr %ri, i64 228
   %9 = load i32, ptr %last_start23, align 4
   %cmp24 = icmp eq i32 %8, %9
   br i1 %cmp24, label %land.rhs, label %land.end
 
 land.rhs:                                         ; preds = %land.lhs.true22
-  %target = getelementptr inbounds %"class.ue2::RoseInstrCheckMultipathShufti64", ptr %this, i64 0, i32 10
+  %target = getelementptr inbounds i8, ptr %this, i64 232
   %call25 = tail call noundef nonnull align 4 dereferenceable(4) ptr @_ZNKSt13unordered_mapIPKN3ue215RoseInstructionEjSt4hashIS3_ESt8equal_toIS3_ESaISt4pairIKS3_jEEE2atERS9_(ptr noundef nonnull align 8 dereferenceable(56) %offsets, ptr noundef nonnull align 8 dereferenceable(8) %target)
   %10 = load i32, ptr %call25, align 4
-  %target26 = getelementptr inbounds %"class.ue2::RoseInstrCheckMultipathShufti64", ptr %ri, i64 0, i32 10
+  %target26 = getelementptr inbounds i8, ptr %ri, i64 232
   %call27 = tail call noundef nonnull align 4 dereferenceable(4) ptr @_ZNKSt13unordered_mapIPKN3ue215RoseInstructionEjSt4hashIS3_ESt8equal_toIS3_ESaISt4pairIKS3_jEEE2atERS9_(ptr noundef nonnull align 8 dereferenceable(56) %other_offsets, ptr noundef nonnull align 8 dereferenceable(8) %target26)
   %11 = load i32, ptr %call27, align 4
   %cmp28 = icmp eq i32 %10, %11

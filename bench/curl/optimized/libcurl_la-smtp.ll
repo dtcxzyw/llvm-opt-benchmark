@@ -5,49 +5,7 @@ target triple = "x86_64-unknown-linux-gnu"
 
 %struct.Curl_handler = type { ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, i32, i32, i32, i32 }
 %struct.SASLproto = type { ptr, ptr, ptr, ptr, ptr, i64, i32, i32, i16, i16 }
-%struct.connectdata = type { %struct.Curl_llist_element, ptr, ptr, i64, ptr, ptr, %struct.hostname, ptr, ptr, %struct.hostname, %struct.proxy_info, %struct.proxy_info, [46 x i8], ptr, ptr, ptr, ptr, ptr, %struct.curltime, %struct.curltime, %struct.curltime, [2 x i32], [2 x ptr], [2 x ptr], [2 x ptr], %struct.ssl_primary_config, %struct.ssl_primary_config, %struct.ConnectBits, ptr, ptr, %struct.curltime, i32, i32, %struct.Curl_llist, ptr, ptr, i32, i32, %struct.ntlmdata, %struct.ntlmdata, %union.anon.1, ptr, ptr, ptr, i16, i32, i32, i32, i32, i32, i16, i16, i8, i8, i8, i8, i8, i8, i8 }
-%struct.Curl_llist_element = type { ptr, ptr, ptr }
 %struct.hostname = type { ptr, ptr, ptr, ptr }
-%struct.proxy_info = type { %struct.hostname, i32, i8, ptr, ptr }
-%struct.ssl_primary_config = type { ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, i8, i32, i8, i8 }
-%struct.ConnectBits = type { i32 }
-%struct.curltime = type { i64, i32 }
-%struct.Curl_llist = type { ptr, ptr, ptr, i64 }
-%struct.ntlmdata = type { i32, [8 x i8], i32, ptr }
-%union.anon.1 = type { %struct.ftp_conn }
-%struct.ftp_conn = type { %struct.pingpong, ptr, ptr, ptr, ptr, ptr, ptr, ptr, i8, i64, ptr, i64, i32, i32, i32, i32, i32, i16, i8, i8, i8, i8, i8 }
-%struct.pingpong = type { ptr, i64, i64, ptr, i8, ptr, i64, i64, %struct.curltime, i64, %struct.dynbuf, ptr, ptr }
-%struct.dynbuf = type { ptr, i64, i64, i64 }
-%struct.Curl_easy = type { i32, i64, ptr, ptr, ptr, %struct.Curl_llist_element, %struct.Curl_llist_element, i32, i32, %struct.Curl_message, %struct.easy_pollset, %struct.Names, ptr, ptr, ptr, ptr, %struct.SingleRequest, %struct.UserDefined, ptr, ptr, ptr, %struct.Progress, %struct.UrlState, ptr, %struct.PureInfo, %struct.curl_tlssessioninfo }
-%struct.Curl_message = type { %struct.Curl_llist_element, %struct.CURLMsg }
-%struct.CURLMsg = type { i32, ptr, %union.anon }
-%union.anon = type { ptr }
-%struct.easy_pollset = type { [5 x i32], i32, [5 x i8] }
-%struct.Names = type { ptr, i32 }
-%struct.SingleRequest = type <{ i64, i64, i64, i64, i64, %struct.curltime, i32, i32, i32, i32, i64, i32, i32, %struct.curltime, i32, i32, ptr, i64, i64, ptr, ptr, i64, ptr, %union.anon.0, ptr, [2 x i8], i8, i16, [3 x i8] }>
-%union.anon.0 = type { ptr }
-%struct.UserDefined = type <{ ptr, ptr, ptr, ptr, ptr, ptr, i16, [6 x i8], i64, i64, i64, ptr, ptr, i64, i16, i16, [4 x i8], ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, i32, i32, i32, i32, i64, i64, i64, i64, i64, i64, i64, i64, i64, ptr, ptr, %struct.curl_mimepart, ptr, ptr, ptr, i64, i8, i8, i8, [5 x i8], %struct.ssl_config_data, %struct.ssl_config_data, ptr, i16, i8, i8, [4 x i8], %struct.ssl_general_config, i32, i32, i32, [4 x i8], ptr, ptr, i8, [7 x i8], i64, i8, i8, i8, i8, i32, ptr, ptr, ptr, i8, i8, [2 x i8], i32, [80 x ptr], [8 x ptr], i32, i32, i32, [4 x i8], ptr, i32, [4 x i8], ptr, ptr, ptr, ptr, ptr, i8, [3 x i8], i32, i32, [4 x i8], i64, ptr, ptr, i64, ptr, ptr, ptr, ptr, ptr, i8, [7 x i8], ptr, i8, [3 x i8], i32, i8, i8, i56, [6 x i8] }>
-%struct.curl_mimepart = type { ptr, ptr, i32, i32, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, i64, %struct.mime_state, ptr, %struct.mime_encoder_state, i64 }
-%struct.mime_state = type { i32, ptr, i64 }
-%struct.mime_encoder_state = type { i64, i64, i64, [256 x i8] }
-%struct.ssl_config_data = type { %struct.ssl_primary_config, i64, ptr, ptr, ptr, ptr, ptr, ptr, ptr, i8 }
-%struct.ssl_general_config = type { i64, i32 }
-%struct.Progress = type { i64, i64, i64, i64, i64, i64, i32, i32, i64, i64, i64, i64, i64, i64, i64, i64, i64, i64, %struct.curltime, %struct.curltime, %struct.curltime, %struct.curltime, %struct.curltime, i64, %struct.curltime, i64, [6 x i64], [6 x %struct.curltime], i32, i8 }
-%struct.UrlState = type { ptr, %struct.curltime, i64, i64, %struct.dynbuf, ptr, ptr, ptr, i64, ptr, i32, i32, i32, ptr, i64, [3 x %struct.tempbuf], i32, i32, ptr, i64, i32, ptr, %struct.digestdata, %struct.digestdata, %struct.auth, %struct.auth, %struct.Curl_async, ptr, %struct.curltime, %struct.Curl_tree, %struct.Curl_llist, [15 x %struct.time_node], ptr, i8, i64, ptr, i64, i64, i64, i64, [32 x i8], i64, ptr, ptr, ptr, %struct.urlpieces, ptr, ptr, ptr, ptr, ptr, i64, %struct.dynbuf, %struct.Curl_llist, [2 x %struct.curl_header], ptr, i32, ptr, %struct.dynamically_allocated_data, i8, i8, i8, i8, i24 }
-%struct.tempbuf = type { %struct.dynbuf, i32, i8 }
-%struct.digestdata = type { ptr, ptr, ptr, ptr, ptr, ptr, i32, i8, i8 }
-%struct.auth = type { i64, i64, i64, i8 }
-%struct.Curl_async = type { ptr, ptr, ptr, ptr, i32, i32, i8 }
-%struct.Curl_tree = type { ptr, ptr, ptr, ptr, %struct.curltime, ptr }
-%struct.time_node = type { %struct.Curl_llist_element, %struct.curltime, i32 }
-%struct.urlpieces = type { ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr }
-%struct.curl_header = type { ptr, ptr, i64, i64, i32, ptr }
-%struct.dynamically_allocated_data = type { ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr }
-%struct.PureInfo = type { i32, i32, i32, i64, i64, i64, i64, i64, ptr, ptr, i64, i32, [46 x i8], i32, i32, [46 x i8], i32, ptr, i32, %struct.curl_certinfo, i32, i8 }
-%struct.curl_certinfo = type { i32, ptr }
-%struct.curl_tlssessioninfo = type { i32, ptr }
-%struct.SMTP = type { i32, ptr, ptr, i32, i64, i8 }
-%struct.curl_slist = type { ptr, ptr }
 
 @.str = private unnamed_addr constant [5 x i8] c"SMTP\00", align 1
 @Curl_handler_smtp = hidden local_unnamed_addr constant %struct.Curl_handler { ptr @.str, ptr @smtp_setup_connection, ptr @smtp_do, ptr @smtp_done, ptr null, ptr @smtp_connect, ptr @smtp_multi_statemach, ptr @smtp_doing, ptr @smtp_getsock, ptr @smtp_getsock, ptr null, ptr null, ptr @smtp_disconnect, ptr null, ptr null, ptr null, i32 25, i32 65536, i32 65536, i32 1092 }, align 8
@@ -110,13 +68,13 @@ target triple = "x86_64-unknown-linux-gnu"
 ; Function Attrs: nounwind uwtable
 define internal i32 @smtp_setup_connection(ptr nocapture noundef writeonly %data, ptr nocapture noundef %conn) #0 {
 entry:
-  %bits = getelementptr inbounds %struct.connectdata, ptr %conn, i64 0, i32 27
+  %bits = getelementptr inbounds i8, ptr %conn, i64 704
   %bf.load = load i32, ptr %bits, align 8
   %bf.clear = and i32 %bf.load, -268435457
   store i32 %bf.clear, ptr %bits, align 8
   %0 = load ptr, ptr @Curl_ccalloc, align 8
   %call.i = tail call ptr %0(i64 noundef 1, i64 noundef 48) #8
-  %p.i = getelementptr inbounds %struct.Curl_easy, ptr %data, i64 0, i32 16, i32 23
+  %p.i = getelementptr inbounds i8, ptr %data, i64 392
   store ptr %call.i, ptr %p.i, align 8
   %tobool.not.i = icmp eq ptr %call.i, null
   %spec.select.i = select i1 %tobool.not.i, i32 27, i32 0
@@ -130,29 +88,29 @@ entry:
   %host.i.i.i = alloca %struct.hostname, align 8
   %host39.i.i.i = alloca %struct.hostname, align 8
   store i8 0, ptr %done, align 1
-  %arrayidx.i = getelementptr inbounds %struct.Curl_easy, ptr %data, i64 0, i32 17, i32 93, i64 6
+  %arrayidx.i = getelementptr inbounds i8, ptr %data, i64 1864
   %0 = load ptr, ptr %arrayidx.i, align 8
   %tobool.not.i = icmp eq ptr %0, null
   br i1 %tobool.not.i, label %if.end, label %smtp_parse_custom_request.exit
 
 smtp_parse_custom_request.exit:                   ; preds = %entry
-  %p.i = getelementptr inbounds %struct.Curl_easy, ptr %data, i64 0, i32 16, i32 23
+  %p.i = getelementptr inbounds i8, ptr %data, i64 392
   %1 = load ptr, ptr %p.i, align 8
-  %custom1.i = getelementptr inbounds %struct.SMTP, ptr %1, i64 0, i32 1
+  %custom1.i = getelementptr inbounds i8, ptr %1, i64 8
   %call.i = tail call i32 @Curl_urldecode(ptr noundef nonnull %0, i64 noundef 0, ptr noundef nonnull %custom1.i, ptr noundef null, i32 noundef 3) #8
   %tobool.not = icmp eq i32 %call.i, 0
   br i1 %tobool.not, label %if.end, label %return
 
 if.end:                                           ; preds = %entry, %smtp_parse_custom_request.exit
-  %req.i = getelementptr inbounds %struct.Curl_easy, ptr %data, i64 0, i32 16
+  %req.i = getelementptr inbounds i8, ptr %data, i64 224
   store i64 -1, ptr %req.i, align 8
   tail call void @Curl_pgrsSetUploadCounter(ptr noundef nonnull %data, i64 noundef 0) #8
   %call.i5 = tail call i32 @Curl_pgrsSetDownloadCounter(ptr noundef nonnull %data, i64 noundef 0) #8
   tail call void @Curl_pgrsSetUploadSize(ptr noundef nonnull %data, i64 noundef -1) #8
   tail call void @Curl_pgrsSetDownloadSize(ptr noundef nonnull %data, i64 noundef -1) #8
-  %p.i.i = getelementptr inbounds %struct.Curl_easy, ptr %data, i64 0, i32 16, i32 23
+  %p.i.i = getelementptr inbounds i8, ptr %data, i64 392
   %2 = load ptr, ptr %p.i.i, align 8
-  %no_body.i.i = getelementptr inbounds %struct.Curl_easy, ptr %data, i64 0, i32 16, i32 27
+  %no_body.i.i = getelementptr inbounds i8, ptr %data, i64 411
   %bf.load.i.i = load i16, ptr %no_body.i.i, align 1
   %3 = and i16 %bf.load.i.i, 4096
   %tobool.not.i.i = icmp eq i16 %3, 0
@@ -164,27 +122,27 @@ if.then.i.i:                                      ; preds = %if.end
 
 if.end.i.i:                                       ; preds = %if.then.i.i, %if.end
   store i8 0, ptr %done, align 1
-  %mail_rcpt.i.i = getelementptr inbounds %struct.Curl_easy, ptr %data, i64 0, i32 17, i32 123
+  %mail_rcpt.i.i = getelementptr inbounds i8, ptr %data, i64 2688
   %4 = load ptr, ptr %mail_rcpt.i.i, align 8
-  %rcpt.i.i = getelementptr inbounds %struct.SMTP, ptr %2, i64 0, i32 2
+  %rcpt.i.i = getelementptr inbounds i8, ptr %2, i64 16
   store ptr %4, ptr %rcpt.i.i, align 8
-  %rcpt_had_ok.i.i = getelementptr inbounds %struct.SMTP, ptr %2, i64 0, i32 5
+  %rcpt_had_ok.i.i = getelementptr inbounds i8, ptr %2, i64 40
   %bf.load2.i.i = load i8, ptr %rcpt_had_ok.i.i, align 8
-  %rcpt_last_error.i.i = getelementptr inbounds %struct.SMTP, ptr %2, i64 0, i32 3
+  %rcpt_last_error.i.i = getelementptr inbounds i8, ptr %2, i64 24
   store i32 0, ptr %rcpt_last_error.i.i, align 8
   %bf.clear5.i.i = and i8 %bf.load2.i.i, -4
   %bf.set6.i.i = or disjoint i8 %bf.clear5.i.i, 2
   store i8 %bf.set6.i.i, ptr %rcpt_had_ok.i.i, align 8
-  %eob.i.i = getelementptr inbounds %struct.SMTP, ptr %2, i64 0, i32 4
+  %eob.i.i = getelementptr inbounds i8, ptr %2, i64 32
   store i64 2, ptr %eob.i.i, align 8
-  %upload.i.i = getelementptr inbounds %struct.Curl_easy, ptr %data, i64 0, i32 22, i32 63
+  %upload.i.i = getelementptr inbounds i8, ptr %data, i64 5044
   %bf.load7.i.i = load i32, ptr %upload.i.i, align 4
   %5 = and i32 %bf.load7.i.i, 1048576
   %tobool10.not.i.i = icmp eq i32 %5, 0
   br i1 %tobool10.not.i.i, label %lor.lhs.false.i.i, label %land.lhs.true.i.i
 
 lor.lhs.false.i.i:                                ; preds = %if.end.i.i
-  %kind.i.i = getelementptr inbounds %struct.Curl_easy, ptr %data, i64 0, i32 17, i32 55, i32 2
+  %kind.i.i = getelementptr inbounds i8, ptr %data, i64 832
   %6 = load i32, ptr %kind.i.i, align 8
   %tobool12.not.i.i = icmp eq i32 %6, 0
   br i1 %tobool12.not.i.i, label %if.else.i.i, label %land.lhs.true.i.i
@@ -197,9 +155,9 @@ land.lhs.true.i.i:                                ; preds = %lor.lhs.false.i.i, 
 if.then16.i.i:                                    ; preds = %land.lhs.true.i.i
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %host.i.i.i)
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %host39.i.i.i)
-  %conn1.i.i.i = getelementptr inbounds %struct.Curl_easy, ptr %data, i64 0, i32 4
+  %conn1.i.i.i = getelementptr inbounds i8, ptr %data, i64 32
   %8 = load ptr, ptr %conn1.i.i.i, align 8
-  %arrayidx.i.i.i = getelementptr inbounds %struct.Curl_easy, ptr %data, i64 0, i32 17, i32 93, i64 58
+  %arrayidx.i.i.i = getelementptr inbounds i8, ptr %data, i64 2280
   %9 = load ptr, ptr %arrayidx.i.i.i, align 8
   %tobool.not.i.i.i = icmp eq ptr %9, null
   br i1 %tobool.not.i.i.i, label %if.else18.i.i.i, label %if.then.i.i.i
@@ -233,7 +191,7 @@ if.then9.i.i.i.i:                                 ; preds = %if.then4.i.i.i.i
 
 if.end13.i.i.i.i:                                 ; preds = %if.then9.i.i.i.i, %if.then4.i.i.i.i, %if.end.i.i.i.i
   %strchr.i.i.i.i = tail call ptr @strchr(ptr noundef nonnull dereferenceable(1) %call.i.i.i.i, i32 64)
-  %name.i.i.i.i = getelementptr inbounds %struct.hostname, ptr %host.i.i.i, i64 0, i32 2
+  %name.i.i.i.i = getelementptr inbounds i8, ptr %host.i.i.i, i64 16
   store ptr %strchr.i.i.i.i, ptr %name.i.i.i.i, align 8
   %tobool16.not.i.i.i.i = icmp eq ptr %strchr.i.i.i.i, null
   br i1 %tobool16.not.i.i.i.i, label %if.end.i.i.i, label %if.then17.i.i.i.i
@@ -247,14 +205,14 @@ if.then17.i.i.i.i:                                ; preds = %if.end13.i.i.i.i
   br label %if.end.i.i.i
 
 if.end.i.i.i:                                     ; preds = %if.then17.i.i.i.i, %if.end13.i.i.i.i
-  %utf8_supported.i.i.i = getelementptr inbounds %struct.connectdata, ptr %8, i64 0, i32 40, i32 0, i32 7
+  %utf8_supported.i.i.i = getelementptr inbounds i8, ptr %8, i64 1040
   %bf.load.i.i.i = load i8, ptr %utf8_supported.i.i.i, align 8
   %15 = and i8 %bf.load.i.i.i, 8
   %tobool7.not.i.i.i = icmp eq i8 %15, 0
   br i1 %tobool7.not.i.i.i, label %land.end.i.i.i, label %land.rhs.i.i.i
 
 land.rhs.i.i.i:                                   ; preds = %if.end.i.i.i
-  %encalloc.i.i.i = getelementptr inbounds %struct.hostname, ptr %host.i.i.i, i64 0, i32 1
+  %encalloc.i.i.i = getelementptr inbounds i8, ptr %host.i.i.i, i64 8
   %16 = load ptr, ptr %encalloc.i.i.i, align 8
   %tobool8.not.i.i.i = icmp eq ptr %16, null
   br i1 %tobool8.not.i.i.i, label %lor.lhs.false.i.i.i, label %land.end.i.i.i
@@ -303,7 +261,7 @@ if.end20.i.i.i:                                   ; preds = %if.else18.i.i.i, %i
   br i1 %tobool21.not.i.i.i, label %smtp_perform_mail.exit.i.i, label %if.end23.i.i.i
 
 if.end23.i.i.i:                                   ; preds = %if.end20.i.i.i
-  %arrayidx26.i.i.i = getelementptr inbounds %struct.Curl_easy, ptr %data, i64 0, i32 17, i32 93, i64 59
+  %arrayidx26.i.i.i = getelementptr inbounds i8, ptr %data, i64 2288
   %22 = load ptr, ptr %arrayidx26.i.i.i, align 8
   %tobool27.not.i.i.i = icmp eq ptr %22, null
   br i1 %tobool27.not.i.i.i, label %if.end80.i.i.i, label %land.lhs.true.i.i.i
@@ -348,7 +306,7 @@ if.then9.i83.i.i.i:                               ; preds = %if.then4.i71.i.i.i
 
 if.end13.i74.i.i.i:                               ; preds = %if.then9.i83.i.i.i, %if.then4.i71.i.i.i, %if.end.i68.i.i.i
   %strchr.i75.i.i.i = call ptr @strchr(ptr noundef nonnull dereferenceable(1) %call.i66.i.i.i, i32 64)
-  %name.i76.i.i.i = getelementptr inbounds %struct.hostname, ptr %host39.i.i.i, i64 0, i32 2
+  %name.i76.i.i.i = getelementptr inbounds i8, ptr %host39.i.i.i, i64 16
   store ptr %strchr.i75.i.i.i, ptr %name.i76.i.i.i, align 8
   %tobool16.not.i77.i.i.i = icmp eq ptr %strchr.i75.i.i.i, null
   br i1 %tobool16.not.i77.i.i.i, label %if.end46.i.i.i, label %if.then17.i78.i.i.i
@@ -371,14 +329,14 @@ if.end46.i.i.i:                                   ; preds = %if.then17.i78.i.i.i
   br i1 %tobool47.not.i.i.i, label %land.lhs.true48.i.i.i, label %if.end65.i.i.i
 
 land.lhs.true48.i.i.i:                            ; preds = %if.end46.i.i.i
-  %utf8_supported50.i.i.i = getelementptr inbounds %struct.connectdata, ptr %8, i64 0, i32 40, i32 0, i32 7
+  %utf8_supported50.i.i.i = getelementptr inbounds i8, ptr %8, i64 1040
   %bf.load51.i.i.i = load i8, ptr %utf8_supported50.i.i.i, align 8
   %31 = and i8 %bf.load51.i.i.i, 8
   %tobool55.not.i.i.i = icmp eq i8 %31, 0
   br i1 %tobool55.not.i.i.i, label %if.end65.i.i.i, label %land.lhs.true56.i.i.i
 
 land.lhs.true56.i.i.i:                            ; preds = %land.lhs.true48.i.i.i
-  %encalloc57.i.i.i = getelementptr inbounds %struct.hostname, ptr %host39.i.i.i, i64 0, i32 1
+  %encalloc57.i.i.i = getelementptr inbounds i8, ptr %host39.i.i.i, i64 8
   %32 = load ptr, ptr %encalloc57.i.i.i, align 8
   %tobool58.not.i.i.i = icmp eq ptr %32, null
   br i1 %tobool58.not.i.i.i, label %lor.lhs.false59.i.i.i, label %if.then64.i.i.i
@@ -435,18 +393,18 @@ if.then78.i.i.i:                                  ; preds = %if.end76.i.i.i
 if.end80.i.i.i:                                   ; preds = %if.end76.i.i.i, %land.lhs.true.i.i.i, %if.end23.i.i.i
   %auth.2.i.i.i = phi ptr [ %auth.1.i.i.i, %if.end76.i.i.i ], [ null, %land.lhs.true.i.i.i ], [ null, %if.end23.i.i.i ]
   %utf8.3.i.i.i = phi i8 [ %utf8.2.i.i.i, %if.end76.i.i.i ], [ %utf8.0.i.i.i, %land.lhs.true.i.i.i ], [ %utf8.0.i.i.i, %if.end23.i.i.i ]
-  %mimepost.i.i.i = getelementptr inbounds %struct.Curl_easy, ptr %data, i64 0, i32 17, i32 55
-  %kind.i.i.i = getelementptr inbounds %struct.Curl_easy, ptr %data, i64 0, i32 17, i32 55, i32 2
+  %mimepost.i.i.i = getelementptr inbounds i8, ptr %data, i64 816
+  %kind.i.i.i = getelementptr inbounds i8, ptr %data, i64 832
   %38 = load i32, ptr %kind.i.i.i, align 8
   %cmp82.not.i.i.i = icmp eq i32 %38, 0
   br i1 %cmp82.not.i.i.i, label %if.end120.i.i.i, label %if.then84.i.i.i
 
 if.then84.i.i.i:                                  ; preds = %if.end80.i.i.i
-  %flags.i.i.i = getelementptr inbounds %struct.Curl_easy, ptr %data, i64 0, i32 17, i32 55, i32 3
+  %flags.i.i.i = getelementptr inbounds i8, ptr %data, i64 836
   %39 = load i32, ptr %flags.i.i.i, align 4
   %and.i.i.i = and i32 %39, -3
   store i32 %and.i.i.i, ptr %flags.i.i.i, align 4
-  %headers.i.i.i = getelementptr inbounds %struct.Curl_easy, ptr %data, i64 0, i32 17, i32 53
+  %headers.i.i.i = getelementptr inbounds i8, ptr %data, i64 800
   %40 = load ptr, ptr %headers.i.i.i, align 8
   %call90.i.i.i = call i32 @curl_mime_headers(ptr noundef nonnull %mimepost.i.i.i, ptr noundef %40, i32 noundef 0) #8
   %call93.i.i.i = call i32 @Curl_mime_prepare_headers(ptr noundef nonnull %data, ptr noundef nonnull %mimepost.i.i.i, ptr noundef null, ptr noundef null, i32 noundef 0) #8
@@ -459,7 +417,7 @@ if.then95.i.i.i:                                  ; preds = %if.then84.i.i.i
   br i1 %tobool97.not.i.i.i, label %if.end103.i.i.i, label %if.end109.i.i.i
 
 if.end103.i.i.i:                                  ; preds = %if.then95.i.i.i
-  %curlheaders.i.i.i = getelementptr inbounds %struct.Curl_easy, ptr %data, i64 0, i32 17, i32 55, i32 10
+  %curlheaders.i.i.i = getelementptr inbounds i8, ptr %data, i64 888
   %call101.i.i.i = call i32 (ptr, ptr, ...) @Curl_mime_add_header(ptr noundef nonnull %curlheaders.i.i.i, ptr noundef nonnull @.str.44) #8
   %tobool104.not.i.i.i = icmp eq i32 %call101.i.i.i, 0
   br i1 %tobool104.not.i.i.i, label %if.end109.i.i.i, label %if.then111.i.i.i
@@ -479,24 +437,24 @@ if.then111.i.i.i:                                 ; preds = %if.end109.i.i.i, %i
 
 if.end112.i.i.i:                                  ; preds = %if.end109.i.i.i
   %call115.i.i.i = call i64 @Curl_mime_size(ptr noundef nonnull %mimepost.i.i.i) #8
-  %infilesize.i.i.i = getelementptr inbounds %struct.Curl_easy, ptr %data, i64 0, i32 22, i32 41
+  %infilesize.i.i.i = getelementptr inbounds i8, ptr %data, i64 4600
   store i64 %call115.i.i.i, ptr %infilesize.i.i.i, align 8
-  %fread_func.i.i.i = getelementptr inbounds %struct.Curl_easy, ptr %data, i64 0, i32 22, i32 42
+  %fread_func.i.i.i = getelementptr inbounds i8, ptr %data, i64 4608
   store ptr @Curl_mime_read, ptr %fread_func.i.i.i, align 8
-  %in.i.i.i = getelementptr inbounds %struct.Curl_easy, ptr %data, i64 0, i32 22, i32 43
+  %in.i.i.i = getelementptr inbounds i8, ptr %data, i64 4616
   store ptr %mimepost.i.i.i, ptr %in.i.i.i, align 8
   br label %if.end120.i.i.i
 
 if.end120.i.i.i:                                  ; preds = %if.end112.i.i.i, %if.end80.i.i.i
-  %proto121.i.i.i = getelementptr inbounds %struct.connectdata, ptr %8, i64 0, i32 40
-  %size_supported.i.i.i = getelementptr inbounds %struct.connectdata, ptr %8, i64 0, i32 40, i32 0, i32 7
+  %proto121.i.i.i = getelementptr inbounds i8, ptr %8, i64 856
+  %size_supported.i.i.i = getelementptr inbounds i8, ptr %8, i64 1040
   %bf.load122.i.i.i = load i8, ptr %size_supported.i.i.i, align 8
   %43 = and i8 %bf.load122.i.i.i, 4
   %tobool126.not.i.i.i = icmp eq i8 %43, 0
   br i1 %tobool126.not.i.i.i, label %if.end139.i.i.i, label %land.lhs.true127.i.i.i
 
 land.lhs.true127.i.i.i:                           ; preds = %if.end120.i.i.i
-  %infilesize129.i.i.i = getelementptr inbounds %struct.Curl_easy, ptr %data, i64 0, i32 22, i32 41
+  %infilesize129.i.i.i = getelementptr inbounds i8, ptr %data, i64 4600
   %44 = load i64, ptr %infilesize129.i.i.i, align 8
   %cmp130.i.i.i = icmp sgt i64 %44, 0
   br i1 %cmp130.i.i.i, label %if.then132.i.i.i, label %if.end139.i.i.i
@@ -528,7 +486,7 @@ if.end139.i.i.i:                                  ; preds = %if.then132.if.end13
 
 if.then149.i.i.i:                                 ; preds = %if.end139.i.i.i
   %48 = load ptr, ptr %p.i.i, align 8
-  %rcpt150.i.i.i = getelementptr inbounds %struct.SMTP, ptr %48, i64 0, i32 2
+  %rcpt150.i.i.i = getelementptr inbounds i8, ptr %48, i64 16
   %rcpt.0107.i.i.i = load ptr, ptr %rcpt150.i.i.i, align 8
   %tobool151108.not.i.i.i = icmp eq ptr %rcpt.0107.i.i.i, null
   br i1 %tobool151108.not.i.i.i, label %if.end160.i.i.i, label %while.body.i.i.i
@@ -539,7 +497,7 @@ while.body.i.i.i:                                 ; preds = %if.then149.i.i.i, %
   %49 = load ptr, ptr %rcpt.0110.i.i.i, align 8
   %call157.i.i.i = call zeroext i1 @Curl_is_ASCII_name(ptr noundef %49) #8
   %spec.select.i.i.i = select i1 %call157.i.i.i, i8 %utf8.4109.i.i.i, i8 1
-  %next.i.i.i = getelementptr inbounds %struct.curl_slist, ptr %rcpt.0110.i.i.i, i64 0, i32 1
+  %next.i.i.i = getelementptr inbounds i8, ptr %rcpt.0110.i.i.i, i64 8
   %rcpt.0.i.i.i = load ptr, ptr %next.i.i.i, align 8
   %tobool151.i.i.i = icmp ne ptr %rcpt.0.i.i.i, null
   %50 = and i8 %spec.select.i.i.i, 1
@@ -570,7 +528,7 @@ if.end160.i.i.i:                                  ; preds = %while.body.i.i.i, %
 
 if.then177.i.i.i:                                 ; preds = %if.end160.i.i.i
   %data.val.i.i.i = load ptr, ptr %conn1.i.i.i, align 8
-  %state.i.i.i.i = getelementptr inbounds %struct.connectdata, ptr %data.val.i.i.i, i64 0, i32 40, i32 0, i32 5
+  %state.i.i.i.i = getelementptr inbounds i8, ptr %data.val.i.i.i, i64 1024
   store i32 8, ptr %state.i.i.i.i, align 8
   br label %smtp_perform_mail.exit.i.i
 
@@ -591,19 +549,19 @@ if.end18.i.i:                                     ; preds = %if.else.i.i, %smtp_
 
 if.end21.i.i:                                     ; preds = %if.end18.i.i
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %ssldone3.i.i.i)
-  %conn1.i19.i.i = getelementptr inbounds %struct.Curl_easy, ptr %data, i64 0, i32 4
+  %conn1.i19.i.i = getelementptr inbounds i8, ptr %data, i64 32
   %56 = load ptr, ptr %conn1.i19.i.i, align 8
-  %proto.i.i.i = getelementptr inbounds %struct.connectdata, ptr %56, i64 0, i32 40
-  %handler.i.i.i = getelementptr inbounds %struct.connectdata, ptr %56, i64 0, i32 28
+  %proto.i.i.i = getelementptr inbounds i8, ptr %56, i64 856
+  %handler.i.i.i = getelementptr inbounds i8, ptr %56, i64 712
   %57 = load ptr, ptr %handler.i.i.i, align 8
-  %flags.i20.i.i = getelementptr inbounds %struct.Curl_handler, ptr %57, i64 0, i32 19
+  %flags.i20.i.i = getelementptr inbounds i8, ptr %57, i64 140
   %58 = load i32, ptr %flags.i20.i.i, align 4
   %and.i21.i.i = and i32 %58, 1
   %tobool.not.i22.i.i = icmp eq i32 %and.i21.i.i, 0
   br i1 %tobool.not.i22.i.i, label %if.end15.i.i.i, label %land.lhs.true.i23.i.i
 
 land.lhs.true.i23.i.i:                            ; preds = %if.end21.i.i
-  %ssldone.i.i.i = getelementptr inbounds %struct.connectdata, ptr %56, i64 0, i32 40, i32 0, i32 7
+  %ssldone.i.i.i = getelementptr inbounds i8, ptr %56, i64 1040
   %bf.load.i24.i.i = load i8, ptr %ssldone.i.i.i, align 8
   %bf.clear.i.i.i = and i8 %bf.load.i24.i.i, 1
   %tobool2.not.i.i.i = icmp eq i8 %bf.clear.i.i.i, 0
@@ -625,7 +583,7 @@ if.then.i28.i.i:                                  ; preds = %land.lhs.true.i23.i
 
 if.end15.i.i.i:                                   ; preds = %if.then.i28.i.i, %land.lhs.true.i23.i.i, %if.end21.i.i
   %call16.i25.i.i = call i32 @Curl_pp_statemach(ptr noundef nonnull %data, ptr noundef nonnull %proto.i.i.i, i1 noundef zeroext false, i1 noundef zeroext false) #8
-  %state.i.i.i = getelementptr inbounds %struct.connectdata, ptr %56, i64 0, i32 40, i32 0, i32 5
+  %state.i.i.i = getelementptr inbounds i8, ptr %56, i64 1024
   %61 = load i32, ptr %state.i.i.i, align 8
   %cmp.i.i.i = icmp eq i32 %61, 0
   %frombool.i26.i.i = zext i1 %cmp.i.i.i to i8
@@ -665,16 +623,16 @@ return:                                           ; preds = %if.then.i10.i, %if.
 define internal i32 @smtp_done(ptr noundef %data, i32 noundef %status, i1 zeroext %premature) #0 {
 entry:
   %bytes_written = alloca i64, align 8
-  %conn1 = getelementptr inbounds %struct.Curl_easy, ptr %data, i64 0, i32 4
+  %conn1 = getelementptr inbounds i8, ptr %data, i64 32
   %0 = load ptr, ptr %conn1, align 8
-  %p = getelementptr inbounds %struct.Curl_easy, ptr %data, i64 0, i32 16, i32 23
+  %p = getelementptr inbounds i8, ptr %data, i64 392
   %1 = load ptr, ptr %p, align 8
   %tobool3.not = icmp eq ptr %1, null
   br i1 %tobool3.not, label %return, label %do.body
 
 do.body:                                          ; preds = %entry
   %2 = load ptr, ptr @Curl_cfree, align 8
-  %custom = getelementptr inbounds %struct.SMTP, ptr %1, i64 0, i32 1
+  %custom = getelementptr inbounds i8, ptr %1, i64 8
   %3 = load ptr, ptr %custom, align 8
   tail call void %2(ptr noundef %3) #8
   store ptr null, ptr %custom, align 8
@@ -686,39 +644,39 @@ if.then6:                                         ; preds = %do.body
   br label %if.end39
 
 if.else:                                          ; preds = %do.body
-  %connect_only = getelementptr inbounds %struct.Curl_easy, ptr %data, i64 0, i32 17, i32 128
+  %connect_only = getelementptr inbounds i8, ptr %data, i64 2705
   %4 = load i8, ptr %connect_only, align 1
   %tobool7.not = icmp eq i8 %4, 0
   br i1 %tobool7.not, label %land.lhs.true, label %if.end39
 
 land.lhs.true:                                    ; preds = %if.else
-  %mail_rcpt = getelementptr inbounds %struct.Curl_easy, ptr %data, i64 0, i32 17, i32 123
+  %mail_rcpt = getelementptr inbounds i8, ptr %data, i64 2688
   %5 = load ptr, ptr %mail_rcpt, align 8
   %tobool9.not = icmp eq ptr %5, null
   br i1 %tobool9.not, label %if.end39, label %land.lhs.true10
 
 land.lhs.true10:                                  ; preds = %land.lhs.true
-  %upload = getelementptr inbounds %struct.Curl_easy, ptr %data, i64 0, i32 22, i32 63
+  %upload = getelementptr inbounds i8, ptr %data, i64 5044
   %bf.load = load i32, ptr %upload, align 4
   %6 = and i32 %bf.load, 1048576
   %tobool11.not = icmp eq i32 %6, 0
   br i1 %tobool11.not, label %lor.lhs.false, label %if.then14
 
 lor.lhs.false:                                    ; preds = %land.lhs.true10
-  %kind = getelementptr inbounds %struct.Curl_easy, ptr %data, i64 0, i32 17, i32 55, i32 2
+  %kind = getelementptr inbounds i8, ptr %data, i64 832
   %7 = load i32, ptr %kind, align 8
   %tobool13.not = icmp eq i32 %7, 0
   br i1 %tobool13.not, label %if.end39, label %if.then14
 
 if.then14:                                        ; preds = %lor.lhs.false, %land.lhs.true10
-  %trailing_crlf = getelementptr inbounds %struct.SMTP, ptr %1, i64 0, i32 5
+  %trailing_crlf = getelementptr inbounds i8, ptr %1, i64 40
   %bf.load15 = load i8, ptr %trailing_crlf, align 8
   %8 = and i8 %bf.load15, 2
   %tobool18.not = icmp eq i8 %8, 0
   br i1 %tobool18.not, label %lor.lhs.false19, label %if.end25
 
 lor.lhs.false19:                                  ; preds = %if.then14
-  %infilesize = getelementptr inbounds %struct.Curl_easy, ptr %data, i64 0, i32 22, i32 41
+  %infilesize = getelementptr inbounds i8, ptr %data, i64 4600
   %9 = load i64, ptr %infilesize, align 8
   %tobool21.not = icmp eq i64 %9, 0
   %spec.select = select i1 %tobool21.not, ptr getelementptr inbounds ([6 x i8], ptr @.str.3, i64 0, i64 2), ptr @.str.3
@@ -734,7 +692,7 @@ if.end25:                                         ; preds = %lor.lhs.false19, %i
   br i1 %tobool26.not, label %return, label %if.end28
 
 if.end28:                                         ; preds = %if.end25
-  %writesockfd = getelementptr inbounds %struct.connectdata, ptr %0, i64 0, i32 32
+  %writesockfd = getelementptr inbounds i8, ptr %0, i64 748
   %11 = load i32, ptr %writesockfd, align 4
   %call29 = call i32 @Curl_write(ptr noundef nonnull %data, i32 noundef %11, ptr noundef nonnull %call24, i64 noundef %len.0, ptr noundef nonnull %bytes_written) #8
   %tobool30.not = icmp eq i32 %call29, 0
@@ -751,22 +709,22 @@ if.end32:                                         ; preds = %if.end28
   br i1 %cmp.not, label %if.else34, label %if.then33
 
 if.then33:                                        ; preds = %if.end32
-  %sendthis = getelementptr inbounds %struct.connectdata, ptr %0, i64 0, i32 40, i32 0, i32 0, i32 5
+  %sendthis = getelementptr inbounds i8, ptr %0, i64 896
   store ptr %call24, ptr %sendthis, align 8
-  %sendsize = getelementptr inbounds %struct.connectdata, ptr %0, i64 0, i32 40, i32 0, i32 0, i32 7
+  %sendsize = getelementptr inbounds i8, ptr %0, i64 912
   store i64 %len.0, ptr %sendsize, align 8
   %sub = sub nsw i64 %len.0, %13
-  %sendleft = getelementptr inbounds %struct.connectdata, ptr %0, i64 0, i32 40, i32 0, i32 0, i32 6
+  %sendleft = getelementptr inbounds i8, ptr %0, i64 904
   store i64 %sub, ptr %sendleft, align 8
   br label %if.end36
 
 if.else34:                                        ; preds = %if.end32
-  %response = getelementptr inbounds %struct.connectdata, ptr %0, i64 0, i32 40, i32 0, i32 0, i32 8
+  %response = getelementptr inbounds i8, ptr %0, i64 920
   %call35 = call { i64, i32 } @Curl_now() #8
   %14 = extractvalue { i64, i32 } %call35, 0
   %15 = extractvalue { i64, i32 } %call35, 1
   store i64 %14, ptr %response, align 8
-  %tmp.sroa.2.0.response.sroa_idx = getelementptr inbounds %struct.connectdata, ptr %0, i64 0, i32 40, i32 0, i32 0, i32 8, i32 1
+  %tmp.sroa.2.0.response.sroa_idx = getelementptr inbounds i8, ptr %0, i64 928
   store i32 %15, ptr %tmp.sroa.2.0.response.sroa_idx, align 8
   %16 = load ptr, ptr @Curl_cfree, align 8
   call void %16(ptr noundef nonnull %call24) #8
@@ -774,7 +732,7 @@ if.else34:                                        ; preds = %if.end32
 
 if.end36:                                         ; preds = %if.else34, %if.then33
   %data.val = load ptr, ptr %conn1, align 8
-  %state.i = getelementptr inbounds %struct.connectdata, ptr %data.val, i64 0, i32 40, i32 0, i32 5
+  %state.i = getelementptr inbounds i8, ptr %data.val, i64 1024
   store i32 11, ptr %state.i, align 8
   %call37 = call fastcc i32 @smtp_block_statemach(ptr noundef nonnull %data, ptr noundef nonnull %0, i1 noundef zeroext false)
   br label %if.end39
@@ -794,22 +752,22 @@ define internal i32 @smtp_connect(ptr noundef %data, ptr nocapture noundef write
 entry:
   %ssldone3.i = alloca i8, align 1
   %localhost.i = alloca [1025 x i8], align 16
-  %conn1 = getelementptr inbounds %struct.Curl_easy, ptr %data, i64 0, i32 4
+  %conn1 = getelementptr inbounds i8, ptr %data, i64 32
   %0 = load ptr, ptr %conn1, align 8
-  %proto = getelementptr inbounds %struct.connectdata, ptr %0, i64 0, i32 40
+  %proto = getelementptr inbounds i8, ptr %0, i64 856
   store i8 0, ptr %done, align 1
   tail call void @Curl_conncontrol(ptr noundef %0, i32 noundef 0) #8
-  %response_time = getelementptr inbounds %struct.connectdata, ptr %0, i64 0, i32 40, i32 0, i32 0, i32 9
+  %response_time = getelementptr inbounds i8, ptr %0, i64 936
   store i64 120000, ptr %response_time, align 8
-  %statemachine = getelementptr inbounds %struct.connectdata, ptr %0, i64 0, i32 40, i32 0, i32 0, i32 11
+  %statemachine = getelementptr inbounds i8, ptr %0, i64 976
   store ptr @smtp_statemachine, ptr %statemachine, align 8
-  %endofresp = getelementptr inbounds %struct.connectdata, ptr %0, i64 0, i32 40, i32 0, i32 0, i32 12
+  %endofresp = getelementptr inbounds i8, ptr %0, i64 984
   store ptr @smtp_endofresp, ptr %endofresp, align 8
-  %sasl = getelementptr inbounds %struct.connectdata, ptr %0, i64 0, i32 40, i32 0, i32 1
+  %sasl = getelementptr inbounds i8, ptr %0, i64 992
   tail call void @Curl_sasl_init(ptr noundef nonnull %sasl, ptr noundef %data, ptr noundef nonnull @saslsmtp) #8
   tail call void @Curl_pp_setup(ptr noundef nonnull %proto) #8
   tail call void @Curl_pp_init(ptr noundef %data, ptr noundef nonnull %proto) #8
-  %options.i = getelementptr inbounds %struct.connectdata, ptr %0, i64 0, i32 15
+  %options.i = getelementptr inbounds i8, ptr %0, i64 320
   %1 = load ptr, ptr %options.i, align 8
   %tobool116.not.i = icmp eq ptr %1, null
   br i1 %tobool116.not.i, label %if.end, label %land.rhs.i
@@ -885,7 +843,7 @@ if.then.i:                                        ; preds = %if.end
 
 smtp_parse_url_path.exit:                         ; preds = %if.end, %if.then.i
   %path.0.i = phi ptr [ %arrayidx.i, %if.end ], [ %localhost..str.39.i, %if.then.i ]
-  %domain.i = getelementptr inbounds %struct.connectdata, ptr %data.val18, i64 0, i32 40, i32 0, i32 6
+  %domain.i = getelementptr inbounds i8, ptr %data.val18, i64 1032
   %call7.i = call i32 @Curl_urldecode(ptr noundef nonnull %path.0.i, i64 noundef 0, ptr noundef nonnull %domain.i, ptr noundef null, i32 noundef 3) #8
   call void @llvm.lifetime.end.p0(i64 1025, ptr nonnull %localhost.i)
   %tobool4.not = icmp eq i32 %call7.i, 0
@@ -893,21 +851,21 @@ smtp_parse_url_path.exit:                         ; preds = %if.end, %if.then.i
 
 if.end6:                                          ; preds = %smtp_parse_url_path.exit
   %data.val = load ptr, ptr %conn1, align 8
-  %state.i = getelementptr inbounds %struct.connectdata, ptr %data.val, i64 0, i32 40, i32 0, i32 5
+  %state.i = getelementptr inbounds i8, ptr %data.val, i64 1024
   store i32 1, ptr %state.i, align 8
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %ssldone3.i)
   %8 = load ptr, ptr %conn1, align 8
-  %proto.i = getelementptr inbounds %struct.connectdata, ptr %8, i64 0, i32 40
-  %handler.i = getelementptr inbounds %struct.connectdata, ptr %8, i64 0, i32 28
+  %proto.i = getelementptr inbounds i8, ptr %8, i64 856
+  %handler.i = getelementptr inbounds i8, ptr %8, i64 712
   %9 = load ptr, ptr %handler.i, align 8
-  %flags.i = getelementptr inbounds %struct.Curl_handler, ptr %9, i64 0, i32 19
+  %flags.i = getelementptr inbounds i8, ptr %9, i64 140
   %10 = load i32, ptr %flags.i, align 4
   %and.i = and i32 %10, 1
   %tobool.not.i21 = icmp eq i32 %and.i, 0
   br i1 %tobool.not.i21, label %if.end15.i, label %land.lhs.true.i
 
 land.lhs.true.i:                                  ; preds = %if.end6
-  %ssldone.i = getelementptr inbounds %struct.connectdata, ptr %8, i64 0, i32 40, i32 0, i32 7
+  %ssldone.i = getelementptr inbounds i8, ptr %8, i64 1040
   %bf.load.i = load i8, ptr %ssldone.i, align 8
   %bf.clear.i = and i8 %bf.load.i, 1
   %tobool2.not.i22 = icmp eq i8 %bf.clear.i, 0
@@ -929,7 +887,7 @@ if.then.i24:                                      ; preds = %land.lhs.true.i
 
 if.end15.i:                                       ; preds = %if.then.i24, %land.lhs.true.i, %if.end6
   %call16.i = call i32 @Curl_pp_statemach(ptr noundef nonnull %data, ptr noundef nonnull %proto.i, i1 noundef zeroext false, i1 noundef zeroext false) #8
-  %state.i23 = getelementptr inbounds %struct.connectdata, ptr %8, i64 0, i32 40, i32 0, i32 5
+  %state.i23 = getelementptr inbounds i8, ptr %8, i64 1024
   %13 = load i32, ptr %state.i23, align 8
   %cmp.i = icmp eq i32 %13, 0
   %frombool.i = zext i1 %cmp.i to i8
@@ -950,19 +908,19 @@ return:                                           ; preds = %if.end.i, %while.en
 define internal i32 @smtp_multi_statemach(ptr noundef %data, ptr nocapture noundef writeonly %done) #0 {
 entry:
   %ssldone3 = alloca i8, align 1
-  %conn1 = getelementptr inbounds %struct.Curl_easy, ptr %data, i64 0, i32 4
+  %conn1 = getelementptr inbounds i8, ptr %data, i64 32
   %0 = load ptr, ptr %conn1, align 8
-  %proto = getelementptr inbounds %struct.connectdata, ptr %0, i64 0, i32 40
-  %handler = getelementptr inbounds %struct.connectdata, ptr %0, i64 0, i32 28
+  %proto = getelementptr inbounds i8, ptr %0, i64 856
+  %handler = getelementptr inbounds i8, ptr %0, i64 712
   %1 = load ptr, ptr %handler, align 8
-  %flags = getelementptr inbounds %struct.Curl_handler, ptr %1, i64 0, i32 19
+  %flags = getelementptr inbounds i8, ptr %1, i64 140
   %2 = load i32, ptr %flags, align 4
   %and = and i32 %2, 1
   %tobool.not = icmp eq i32 %and, 0
   br i1 %tobool.not, label %if.end15, label %land.lhs.true
 
 land.lhs.true:                                    ; preds = %entry
-  %ssldone = getelementptr inbounds %struct.connectdata, ptr %0, i64 0, i32 40, i32 0, i32 7
+  %ssldone = getelementptr inbounds i8, ptr %0, i64 1040
   %bf.load = load i8, ptr %ssldone, align 8
   %bf.clear = and i8 %bf.load, 1
   %tobool2.not = icmp eq i8 %bf.clear, 0
@@ -984,7 +942,7 @@ if.then:                                          ; preds = %land.lhs.true
 
 if.end15:                                         ; preds = %if.then, %land.lhs.true, %entry
   %call16 = call i32 @Curl_pp_statemach(ptr noundef nonnull %data, ptr noundef nonnull %proto, i1 noundef zeroext false, i1 noundef zeroext false) #8
-  %state = getelementptr inbounds %struct.connectdata, ptr %0, i64 0, i32 40, i32 0, i32 5
+  %state = getelementptr inbounds i8, ptr %0, i64 1024
   %5 = load i32, ptr %state, align 8
   %cmp = icmp eq i32 %5, 0
   %frombool = zext i1 %cmp to i8
@@ -1001,19 +959,19 @@ define internal i32 @smtp_doing(ptr noundef %data, ptr nocapture noundef %dophas
 entry:
   %ssldone3.i = alloca i8, align 1
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %ssldone3.i)
-  %conn1.i = getelementptr inbounds %struct.Curl_easy, ptr %data, i64 0, i32 4
+  %conn1.i = getelementptr inbounds i8, ptr %data, i64 32
   %0 = load ptr, ptr %conn1.i, align 8
-  %proto.i = getelementptr inbounds %struct.connectdata, ptr %0, i64 0, i32 40
-  %handler.i = getelementptr inbounds %struct.connectdata, ptr %0, i64 0, i32 28
+  %proto.i = getelementptr inbounds i8, ptr %0, i64 856
+  %handler.i = getelementptr inbounds i8, ptr %0, i64 712
   %1 = load ptr, ptr %handler.i, align 8
-  %flags.i = getelementptr inbounds %struct.Curl_handler, ptr %1, i64 0, i32 19
+  %flags.i = getelementptr inbounds i8, ptr %1, i64 140
   %2 = load i32, ptr %flags.i, align 4
   %and.i = and i32 %2, 1
   %tobool.not.i = icmp eq i32 %and.i, 0
   br i1 %tobool.not.i, label %if.end15.i, label %land.lhs.true.i
 
 land.lhs.true.i:                                  ; preds = %entry
-  %ssldone.i = getelementptr inbounds %struct.connectdata, ptr %0, i64 0, i32 40, i32 0, i32 7
+  %ssldone.i = getelementptr inbounds i8, ptr %0, i64 1040
   %bf.load.i = load i8, ptr %ssldone.i, align 8
   %bf.clear.i = and i8 %bf.load.i, 1
   %tobool2.not.i = icmp eq i8 %bf.clear.i, 0
@@ -1035,7 +993,7 @@ if.then.i:                                        ; preds = %land.lhs.true.i
 
 if.end15.i:                                       ; preds = %if.then.i, %land.lhs.true.i, %entry
   %call16.i = call i32 @Curl_pp_statemach(ptr noundef nonnull %data, ptr noundef nonnull %proto.i, i1 noundef zeroext false, i1 noundef zeroext false) #8
-  %state.i = getelementptr inbounds %struct.connectdata, ptr %0, i64 0, i32 40, i32 0, i32 5
+  %state.i = getelementptr inbounds i8, ptr %0, i64 1024
   %5 = load i32, ptr %state.i, align 8
   %cmp.i = icmp eq i32 %5, 0
   %frombool.i = zext i1 %cmp.i to i8
@@ -1055,7 +1013,7 @@ if.else:                                          ; preds = %smtp_multi_statemac
   br i1 %tobool1.not, label %if.end6, label %if.then2
 
 if.then2:                                         ; preds = %if.else
-  %p.i = getelementptr inbounds %struct.Curl_easy, ptr %data, i64 0, i32 16, i32 23
+  %p.i = getelementptr inbounds i8, ptr %data, i64 392
   %8 = load ptr, ptr %p.i, align 8
   %9 = load i32, ptr %8, align 8
   %cmp.not.i = icmp eq i32 %9, 0
@@ -1072,7 +1030,7 @@ if.end6:                                          ; preds = %if.then.i4, %if.the
 ; Function Attrs: nounwind uwtable
 define internal i32 @smtp_getsock(ptr noundef %data, ptr noundef %conn, ptr noundef %socks) #0 {
 entry:
-  %proto = getelementptr inbounds %struct.connectdata, ptr %conn, i64 0, i32 40
+  %proto = getelementptr inbounds i8, ptr %conn, i64 856
   %call = tail call i32 @Curl_pp_getsock(ptr noundef %data, ptr noundef nonnull %proto, ptr noundef %socks) #8
   ret i32 %call
 }
@@ -1083,14 +1041,14 @@ entry:
   br i1 %dead_connection, label %if.end5, label %land.lhs.true
 
 land.lhs.true:                                    ; preds = %entry
-  %bits = getelementptr inbounds %struct.connectdata, ptr %conn, i64 0, i32 27
+  %bits = getelementptr inbounds i8, ptr %conn, i64 704
   %bf.load = load i32, ptr %bits, align 8
   %0 = and i32 %bf.load, 16384
   %tobool1.not = icmp eq i32 %0, 0
   br i1 %tobool1.not, label %if.end5, label %if.then
 
 if.then:                                          ; preds = %land.lhs.true
-  %proto.i = getelementptr inbounds %struct.connectdata, ptr %conn, i64 0, i32 40
+  %proto.i = getelementptr inbounds i8, ptr %conn, i64 856
   %call.i = tail call i32 (ptr, ptr, ptr, ...) @Curl_pp_sendf(ptr noundef %data, ptr noundef nonnull %proto.i, ptr noundef nonnull @.str.15, ptr noundef nonnull @.str.49) #8
   %tobool.not.i = icmp eq i32 %call.i, 0
   br i1 %tobool.not.i, label %if.then3, label %if.end5
@@ -1098,9 +1056,9 @@ if.then:                                          ; preds = %land.lhs.true
 if.then3:                                         ; preds = %if.then
   %1 = getelementptr i8, ptr %data, i64 32
   %data.val.i = load ptr, ptr %1, align 8
-  %state.i.i = getelementptr inbounds %struct.connectdata, ptr %data.val.i, i64 0, i32 40, i32 0, i32 5
+  %state.i.i = getelementptr inbounds i8, ptr %data.val.i, i64 1024
   store i32 12, ptr %state.i.i, align 8
-  %state.i = getelementptr inbounds %struct.connectdata, ptr %conn, i64 0, i32 40, i32 0, i32 5
+  %state.i = getelementptr inbounds i8, ptr %conn, i64 1024
   %2 = load i32, ptr %state.i, align 8
   %cmp3.not.i = icmp eq i32 %2, 0
   br i1 %cmp3.not.i, label %if.end5, label %while.body.i
@@ -1114,13 +1072,13 @@ while.body.i:                                     ; preds = %if.then3, %while.bo
   br i1 %4, label %while.body.i, label %if.end5, !llvm.loop !9
 
 if.end5:                                          ; preds = %while.body.i, %if.then3, %if.then, %land.lhs.true, %entry
-  %proto = getelementptr inbounds %struct.connectdata, ptr %conn, i64 0, i32 40
+  %proto = getelementptr inbounds i8, ptr %conn, i64 856
   %call6 = tail call i32 @Curl_pp_disconnect(ptr noundef nonnull %proto) #8
   %authused = getelementptr inbounds i8, ptr %conn, i64 1020
   %5 = load i16, ptr %authused, align 4
   tail call void @Curl_sasl_cleanup(ptr noundef %conn, i16 noundef zeroext %5) #8
   %6 = load ptr, ptr @Curl_cfree, align 8
-  %domain = getelementptr inbounds %struct.connectdata, ptr %conn, i64 0, i32 40, i32 0, i32 6
+  %domain = getelementptr inbounds i8, ptr %conn, i64 1032
   %7 = load ptr, ptr %domain, align 8
   tail call void %6(ptr noundef %7) #8
   store ptr null, ptr %domain, align 8
@@ -1130,15 +1088,15 @@ if.end5:                                          ; preds = %while.body.i, %if.t
 ; Function Attrs: nounwind uwtable
 define hidden noundef i32 @Curl_smtp_escape_eob(ptr noundef %data, i64 noundef %nread, i64 noundef %offset) local_unnamed_addr #0 {
 entry:
-  %p = getelementptr inbounds %struct.Curl_easy, ptr %data, i64 0, i32 16, i32 23
+  %p = getelementptr inbounds i8, ptr %data, i64 392
   %0 = load ptr, ptr %p, align 8
-  %scratch1 = getelementptr inbounds %struct.Curl_easy, ptr %data, i64 0, i32 22, i32 18
+  %scratch1 = getelementptr inbounds i8, ptr %data, i64 3416
   %1 = load ptr, ptr %scratch1, align 8
   %tobool.not = icmp eq ptr %1, null
   br i1 %tobool.not, label %if.then, label %lor.lhs.false
 
 lor.lhs.false:                                    ; preds = %entry
-  %crlf = getelementptr inbounds %struct.Curl_easy, ptr %data, i64 0, i32 17, i32 129
+  %crlf = getelementptr inbounds i8, ptr %data, i64 2706
   %bf.load = load i64, ptr %crlf, align 2
   %2 = and i64 %bf.load, 32
   %tobool2.not = icmp eq i64 %2, 0
@@ -1146,7 +1104,7 @@ lor.lhs.false:                                    ; preds = %entry
 
 if.then:                                          ; preds = %lor.lhs.false, %entry
   %3 = load ptr, ptr @Curl_cmalloc, align 8
-  %upload_buffer_size = getelementptr inbounds %struct.Curl_easy, ptr %data, i64 0, i32 17, i32 74
+  %upload_buffer_size = getelementptr inbounds i8, ptr %data, i64 1736
   %4 = load i32, ptr %upload_buffer_size, align 8
   %mul = shl i32 %4, 1
   %conv = zext i32 %mul to i64
@@ -1162,13 +1120,13 @@ do.end:                                           ; preds = %if.then, %lor.lhs.f
   %scratch.0 = phi ptr [ %call, %if.then ], [ %1, %lor.lhs.false ]
   %newscratch.0 = phi ptr [ %call, %if.then ], [ null, %lor.lhs.false ]
   %oldscratch.0 = phi ptr [ %1, %if.then ], [ null, %lor.lhs.false ]
-  %eob = getelementptr inbounds %struct.SMTP, ptr %0, i64 0, i32 4
+  %eob = getelementptr inbounds i8, ptr %0, i64 32
   %5 = load i64, ptr %eob, align 8
   %tobool7.not = icmp eq i64 %offset, 0
   br i1 %tobool7.not, label %if.end10, label %if.then8
 
 if.then8:                                         ; preds = %do.end
-  %upload_fromhere = getelementptr inbounds %struct.Curl_easy, ptr %data, i64 0, i32 16, i32 22
+  %upload_fromhere = getelementptr inbounds i8, ptr %data, i64 384
   %6 = load ptr, ptr %upload_fromhere, align 8
   tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %scratch.0, ptr align 1 %6, i64 %offset, i1 false)
   br label %if.end10
@@ -1179,8 +1137,8 @@ if.end10:                                         ; preds = %if.then8, %do.end
   br i1 %cmp67, label %for.body.lr.ph, label %for.end
 
 for.body.lr.ph:                                   ; preds = %if.end10
-  %upload_fromhere15 = getelementptr inbounds %struct.Curl_easy, ptr %data, i64 0, i32 16, i32 22
-  %trailing_crlf58 = getelementptr inbounds %struct.SMTP, ptr %0, i64 0, i32 5
+  %upload_fromhere15 = getelementptr inbounds i8, ptr %data, i64 384
+  %trailing_crlf58 = getelementptr inbounds i8, ptr %0, i64 40
   br label %for.body
 
 for.body:                                         ; preds = %for.body.lr.ph, %for.inc
@@ -1300,12 +1258,12 @@ if.end97:                                         ; preds = %if.then89, %for.end
   br i1 %cmp98.not, label %if.else106, label %if.then100
 
 if.then100:                                       ; preds = %if.end97
-  %upload_fromhere102 = getelementptr inbounds %struct.Curl_easy, ptr %data, i64 0, i32 16, i32 22
+  %upload_fromhere102 = getelementptr inbounds i8, ptr %data, i64 384
   store ptr %scratch.0, ptr %upload_fromhere102, align 8
   store ptr %scratch.0, ptr %scratch1, align 8
   %19 = load ptr, ptr @Curl_cfree, align 8
   tail call void %19(ptr noundef %oldscratch.0) #8
-  %upload_present = getelementptr inbounds %struct.Curl_easy, ptr %data, i64 0, i32 16, i32 21
+  %upload_present = getelementptr inbounds i8, ptr %data, i64 376
   store i64 %si.3, ptr %upload_present, align 8
   br label %return
 
@@ -1341,11 +1299,11 @@ entry:
   %llen.i = alloca i64, align 8
   %smtpcode = alloca i32, align 4
   %nread = alloca i64, align 8
-  %sock1 = getelementptr inbounds %struct.connectdata, ptr %conn, i64 0, i32 21
+  %sock1 = getelementptr inbounds i8, ptr %conn, i64 392
   %0 = load i32, ptr %sock1, align 8
-  %proto = getelementptr inbounds %struct.connectdata, ptr %conn, i64 0, i32 40
+  %proto = getelementptr inbounds i8, ptr %conn, i64 856
   store i64 0, ptr %nread, align 8
-  %state = getelementptr inbounds %struct.connectdata, ptr %conn, i64 0, i32 40, i32 0, i32 5
+  %state = getelementptr inbounds i8, ptr %conn, i64 1024
   %1 = load i32, ptr %state, align 8
   %cmp = icmp eq i32 %1, 5
   br i1 %cmp, label %if.then, label %if.end
@@ -1355,25 +1313,25 @@ if.then:                                          ; preds = %entry
   br label %return
 
 if.end:                                           ; preds = %entry
-  %sendleft = getelementptr inbounds %struct.connectdata, ptr %conn, i64 0, i32 40, i32 0, i32 0, i32 6
+  %sendleft = getelementptr inbounds i8, ptr %conn, i64 904
   %2 = load i64, ptr %sendleft, align 8
   %tobool.not = icmp eq i64 %2, 0
   br i1 %tobool.not, label %do.body.preheader, label %if.then3
 
 do.body.preheader:                                ; preds = %if.end
-  %info = getelementptr inbounds %struct.Curl_easy, ptr %data, i64 0, i32 24
+  %info = getelementptr inbounds i8, ptr %data, i64 5056
   %3 = getelementptr i8, ptr %data, i64 32
-  %infilesize.i = getelementptr inbounds %struct.Curl_easy, ptr %data, i64 0, i32 22, i32 41
-  %p.i117 = getelementptr inbounds %struct.Curl_easy, ptr %data, i64 0, i32 16, i32 23
-  %mail_rcpt_allowfails.i = getelementptr inbounds %struct.Curl_easy, ptr %data, i64 0, i32 17, i32 124
-  %buffer.i97 = getelementptr inbounds %struct.Curl_easy, ptr %data, i64 0, i32 22, i32 6
-  %no_body.i = getelementptr inbounds %struct.Curl_easy, ptr %data, i64 0, i32 16, i32 27
-  %use_ssl.i62 = getelementptr inbounds %struct.Curl_easy, ptr %data, i64 0, i32 17, i32 127
-  %verbose.i.i83 = getelementptr inbounds %struct.Curl_easy, ptr %data, i64 0, i32 17, i32 129
-  %auth_supported.i = getelementptr inbounds %struct.connectdata, ptr %conn, i64 0, i32 40, i32 0, i32 7
-  %authmechs.i = getelementptr inbounds %struct.connectdata, ptr %conn, i64 0, i32 40, i32 0, i32 4
+  %infilesize.i = getelementptr inbounds i8, ptr %data, i64 4600
+  %p.i117 = getelementptr inbounds i8, ptr %data, i64 392
+  %mail_rcpt_allowfails.i = getelementptr inbounds i8, ptr %data, i64 2696
+  %buffer.i97 = getelementptr inbounds i8, ptr %data, i64 3224
+  %no_body.i = getelementptr inbounds i8, ptr %data, i64 411
+  %use_ssl.i62 = getelementptr inbounds i8, ptr %data, i64 2704
+  %verbose.i.i83 = getelementptr inbounds i8, ptr %data, i64 2706
+  %auth_supported.i = getelementptr inbounds i8, ptr %conn, i64 1040
+  %authmechs.i = getelementptr inbounds i8, ptr %conn, i64 1016
   %authused.i.i47 = getelementptr inbounds i8, ptr %conn, i64 1020
-  %domain.i.i48 = getelementptr inbounds %struct.connectdata, ptr %conn, i64 0, i32 40, i32 0, i32 6
+  %domain.i.i48 = getelementptr inbounds i8, ptr %conn, i64 1032
   br label %do.body
 
 if.then3:                                         ; preds = %if.end
@@ -1427,16 +1385,16 @@ if.then.i:                                        ; preds = %sw.bb
 
 if.else.i:                                        ; preds = %sw.bb
   %7 = load ptr, ptr %3, align 8
-  %proto.i.i = getelementptr inbounds %struct.connectdata, ptr %7, i64 0, i32 40
-  %authmechs.i.i = getelementptr inbounds %struct.connectdata, ptr %7, i64 0, i32 40, i32 0, i32 4
+  %proto.i.i = getelementptr inbounds i8, ptr %7, i64 856
+  %authmechs.i.i = getelementptr inbounds i8, ptr %7, i64 1016
   store i16 0, ptr %authmechs.i.i, align 8
   %authused.i.i = getelementptr inbounds i8, ptr %7, i64 1020
   store i16 0, ptr %authused.i.i, align 4
-  %tls_supported.i.i = getelementptr inbounds %struct.connectdata, ptr %7, i64 0, i32 40, i32 0, i32 7
+  %tls_supported.i.i = getelementptr inbounds i8, ptr %7, i64 1040
   %bf.load.i.i = load i8, ptr %tls_supported.i.i, align 8
   %bf.clear4.i.i = and i8 %bf.load.i.i, -19
   store i8 %bf.clear4.i.i, ptr %tls_supported.i.i, align 8
-  %domain.i.i = getelementptr inbounds %struct.connectdata, ptr %7, i64 0, i32 40, i32 0, i32 6
+  %domain.i.i = getelementptr inbounds i8, ptr %7, i64 1032
   %8 = load ptr, ptr %domain.i.i, align 8
   %call.i.i = call i32 (ptr, ptr, ptr, ...) @Curl_pp_sendf(ptr noundef %data, ptr noundef nonnull %proto.i.i, ptr noundef nonnull @.str.5, ptr noundef %8) #8
   %tobool.not.i.i = icmp eq i32 %call.i.i, 0
@@ -1469,7 +1427,7 @@ if.then6.i:                                       ; preds = %lor.lhs.false.i, %i
 
 if.then.i.i51:                                    ; preds = %if.then6.i
   %data.val.i.i52 = load ptr, ptr %3, align 8
-  %state.i.i.i53 = getelementptr inbounds %struct.connectdata, ptr %data.val.i.i52, i64 0, i32 40, i32 0, i32 5
+  %state.i.i.i53 = getelementptr inbounds i8, ptr %data.val.i.i52, i64 1024
   store i32 3, ptr %state.i.i.i53, align 8
   br label %smtp_state_ehlo_resp.exit
 
@@ -1623,7 +1581,7 @@ if.then122.i:                                     ; preds = %if.then117.i
 
 if.then.i69.i:                                    ; preds = %if.then122.i
   %data.val.i70.i = load ptr, ptr %3, align 8
-  %state.i.i71.i = getelementptr inbounds %struct.connectdata, ptr %data.val.i70.i, i64 0, i32 40, i32 0, i32 5
+  %state.i.i71.i = getelementptr inbounds i8, ptr %data.val.i70.i, i64 1024
   store i32 4, ptr %state.i.i71.i, align 8
   br label %smtp_state_ehlo_resp.exit
 
@@ -1643,14 +1601,14 @@ if.else132.i:                                     ; preds = %if.else124.i
 if.else135.i:                                     ; preds = %land.lhs.true115.i, %if.then110.i
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %progress.i.i)
   %20 = load ptr, ptr %3, align 8
-  %auth_supported.i.i = getelementptr inbounds %struct.connectdata, ptr %20, i64 0, i32 40, i32 0, i32 7
+  %auth_supported.i.i = getelementptr inbounds i8, ptr %20, i64 1040
   %bf.load.i.i43 = load i8, ptr %auth_supported.i.i, align 8
   %21 = and i8 %bf.load.i.i43, 16
   %tobool.not.i72.i = icmp eq i8 %21, 0
   br i1 %tobool.not.i72.i, label %if.then.i74.i, label %lor.lhs.false.i.i
 
 lor.lhs.false.i.i:                                ; preds = %if.else135.i
-  %sasl.i.i = getelementptr inbounds %struct.connectdata, ptr %20, i64 0, i32 40, i32 0, i32 1
+  %sasl.i.i = getelementptr inbounds i8, ptr %20, i64 992
   %call.i73.i = call zeroext i1 @Curl_sasl_can_authenticate(ptr noundef nonnull %sasl.i.i, ptr noundef nonnull %data) #8
   br i1 %call.i73.i, label %if.end.i.i, label %lor.lhs.false.if.then_crit_edge.i.i
 
@@ -1660,7 +1618,7 @@ lor.lhs.false.if.then_crit_edge.i.i:              ; preds = %lor.lhs.false.i.i
 
 if.then.i74.i:                                    ; preds = %lor.lhs.false.if.then_crit_edge.i.i, %if.else135.i
   %data.val12.i.i = phi ptr [ %data.val12.pre.i.i, %lor.lhs.false.if.then_crit_edge.i.i ], [ %20, %if.else135.i ]
-  %state.i.i75.i = getelementptr inbounds %struct.connectdata, ptr %data.val12.i.i, i64 0, i32 40, i32 0, i32 5
+  %state.i.i75.i = getelementptr inbounds i8, ptr %data.val12.i.i, i64 1024
   store i32 0, ptr %state.i.i75.i, align 8
   br label %smtp_perform_authentication.exit.i
 
@@ -1676,7 +1634,7 @@ if.then5.i.i:                                     ; preds = %if.end.i.i
 
 if.then6.i.i:                                     ; preds = %if.then5.i.i
   %data.val.i76.i = load ptr, ptr %3, align 8
-  %state.i13.i.i = getelementptr inbounds %struct.connectdata, ptr %data.val.i76.i, i64 0, i32 40, i32 0, i32 5
+  %state.i13.i.i = getelementptr inbounds i8, ptr %data.val.i76.i, i64 1024
   store i32 6, ptr %state.i13.i.i, align 8
   br label %smtp_perform_authentication.exit.i
 
@@ -1715,7 +1673,7 @@ if.then.i56:                                      ; preds = %sw.bb24
 
 sw.bb27:                                          ; preds = %if.end17
   %24 = load ptr, ptr %3, align 8
-  %cache_size.i = getelementptr inbounds %struct.connectdata, ptr %24, i64 0, i32 40, i32 0, i32 0, i32 1
+  %cache_size.i = getelementptr inbounds i8, ptr %24, i64 864
   %25 = load i64, ptr %cache_size.i, align 8
   %tobool.not.i60 = icmp eq i64 %25, 0
   br i1 %tobool.not.i60, label %if.end.i, label %return
@@ -1735,14 +1693,14 @@ if.then4.i:                                       ; preds = %if.then1.i
 
 if.else.i63:                                      ; preds = %if.then1.i
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %progress.i.i59)
-  %auth_supported.i.i64 = getelementptr inbounds %struct.connectdata, ptr %24, i64 0, i32 40, i32 0, i32 7
+  %auth_supported.i.i64 = getelementptr inbounds i8, ptr %24, i64 1040
   %bf.load.i.i65 = load i8, ptr %auth_supported.i.i64, align 8
   %27 = and i8 %bf.load.i.i65, 16
   %tobool.not.i.i66 = icmp eq i8 %27, 0
   br i1 %tobool.not.i.i66, label %if.then.i.i72, label %lor.lhs.false.i.i67
 
 lor.lhs.false.i.i67:                              ; preds = %if.else.i63
-  %sasl.i.i68 = getelementptr inbounds %struct.connectdata, ptr %24, i64 0, i32 40, i32 0, i32 1
+  %sasl.i.i68 = getelementptr inbounds i8, ptr %24, i64 992
   %call.i.i69 = call zeroext i1 @Curl_sasl_can_authenticate(ptr noundef nonnull %sasl.i.i68, ptr noundef nonnull %data) #8
   br i1 %call.i.i69, label %if.end.i.i77, label %lor.lhs.false.if.then_crit_edge.i.i70
 
@@ -1752,7 +1710,7 @@ lor.lhs.false.if.then_crit_edge.i.i70:            ; preds = %lor.lhs.false.i.i67
 
 if.then.i.i72:                                    ; preds = %lor.lhs.false.if.then_crit_edge.i.i70, %if.else.i63
   %data.val12.i.i73 = phi ptr [ %data.val12.pre.i.i71, %lor.lhs.false.if.then_crit_edge.i.i70 ], [ %24, %if.else.i63 ]
-  %state.i.i.i74 = getelementptr inbounds %struct.connectdata, ptr %data.val12.i.i73, i64 0, i32 40, i32 0, i32 5
+  %state.i.i.i74 = getelementptr inbounds i8, ptr %data.val12.i.i73, i64 1024
   store i32 0, ptr %state.i.i.i74, align 8
   br label %smtp_perform_authentication.exit.i75
 
@@ -1768,7 +1726,7 @@ if.then5.i.i80:                                   ; preds = %if.end.i.i77
 
 if.then6.i.i87:                                   ; preds = %if.then5.i.i80
   %data.val.i.i88 = load ptr, ptr %3, align 8
-  %state.i13.i.i89 = getelementptr inbounds %struct.connectdata, ptr %data.val.i.i88, i64 0, i32 40, i32 0, i32 5
+  %state.i13.i.i89 = getelementptr inbounds i8, ptr %data.val.i.i88, i64 1024
   store i32 6, ptr %state.i13.i.i89, align 8
   br label %smtp_perform_authentication.exit.i75
 
@@ -1794,7 +1752,7 @@ if.else6.i:                                       ; preds = %if.end.i
 sw.bb30:                                          ; preds = %if.end17
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %progress.i)
   %30 = load ptr, ptr %3, align 8
-  %sasl.i = getelementptr inbounds %struct.connectdata, ptr %30, i64 0, i32 40, i32 0, i32 1
+  %sasl.i = getelementptr inbounds i8, ptr %30, i64 992
   %call.i90 = call i32 @Curl_sasl_continue(ptr noundef nonnull %sasl.i, ptr noundef %data, i32 noundef %5, ptr noundef nonnull %progress.i) #8
   %tobool.not.i91 = icmp eq i32 %call.i90, 0
   br i1 %tobool.not.i91, label %if.then.i94, label %smtp_state_auth_resp.exit
@@ -1808,7 +1766,7 @@ if.then.i94:                                      ; preds = %sw.bb30
 
 sw.bb.i:                                          ; preds = %if.then.i94
   %data.val.i95 = load ptr, ptr %3, align 8
-  %state.i.i96 = getelementptr inbounds %struct.connectdata, ptr %data.val.i95, i64 0, i32 40, i32 0, i32 5
+  %state.i.i96 = getelementptr inbounds i8, ptr %data.val.i95, i64 1024
   store i32 0, ptr %state.i.i96, align 8
   br label %smtp_state_auth_resp.exit
 
@@ -1825,7 +1783,7 @@ sw.bb33:                                          ; preds = %if.end17
   %32 = load ptr, ptr %p.i117, align 8
   %33 = load ptr, ptr %buffer.i97, align 8
   %call.i98 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %33) #9
-  %rcpt.i = getelementptr inbounds %struct.SMTP, ptr %32, i64 0, i32 2
+  %rcpt.i = getelementptr inbounds i8, ptr %32, i64 16
   %34 = load ptr, ptr %rcpt.i, align 8
   %tobool.not.i99 = icmp ne ptr %34, null
   %35 = add i32 %5, -300
@@ -1874,7 +1832,7 @@ if.then18.i:                                      ; preds = %if.end.i104
   br i1 %tobool20.not.i, label %if.else30.i, label %if.then21.i
 
 if.then21.i:                                      ; preds = %if.then18.i
-  %next.i = getelementptr inbounds %struct.curl_slist, ptr %38, i64 0, i32 1
+  %next.i = getelementptr inbounds i8, ptr %38, i64 8
   %39 = load ptr, ptr %next.i, align 8
   store ptr %39, ptr %rcpt.i, align 8
   %tobool25.not.i = icmp eq ptr %39, null
@@ -1886,13 +1844,13 @@ if.then26.i:                                      ; preds = %if.then21.i
 
 if.else28.i:                                      ; preds = %if.then21.i
   %data.val26.i = load ptr, ptr %3, align 8
-  %state.i.i106 = getelementptr inbounds %struct.connectdata, ptr %data.val26.i, i64 0, i32 40, i32 0, i32 5
+  %state.i.i106 = getelementptr inbounds i8, ptr %data.val26.i, i64 1024
   store i32 0, ptr %state.i.i106, align 8
   br label %do.cond
 
 if.else30.i:                                      ; preds = %if.then18.i
   %data.val.i107 = load ptr, ptr %3, align 8
-  %state.i27.i = getelementptr inbounds %struct.connectdata, ptr %data.val.i107, i64 0, i32 40, i32 0, i32 5
+  %state.i27.i = getelementptr inbounds i8, ptr %data.val.i107, i64 1024
   store i32 0, ptr %state.i27.i, align 8
   br label %do.cond
 
@@ -1919,12 +1877,12 @@ if.then.i120:                                     ; preds = %sw.bb39
   %bf.load.i121 = load i8, ptr %mail_rcpt_allowfails.i, align 8
   %bf.clear.i = and i8 %bf.load.i121, 1
   %tobool2.not.i = icmp eq i8 %bf.clear.i, 0
-  %rcpt_last_error.i = getelementptr inbounds %struct.SMTP, ptr %40, i64 0, i32 3
+  %rcpt_last_error.i = getelementptr inbounds i8, ptr %40, i64 24
   store i32 %5, ptr %rcpt_last_error.i, align 8
   br i1 %tobool2.not.i, label %if.end11.i, label %if.then13.i
 
 if.else.i129:                                     ; preds = %sw.bb39
-  %rcpt_had_ok.i = getelementptr inbounds %struct.SMTP, ptr %40, i64 0, i32 5
+  %rcpt_had_ok.i = getelementptr inbounds i8, ptr %40, i64 40
   %bf.load9.i = load i8, ptr %rcpt_had_ok.i, align 8
   %bf.set.i = or i8 %bf.load9.i, 1
   store i8 %bf.set.i, ptr %rcpt_had_ok.i, align 8
@@ -1935,9 +1893,9 @@ if.end11.i:                                       ; preds = %if.then.i120
   br label %return
 
 if.then13.i:                                      ; preds = %if.else.i129, %if.then.i120
-  %rcpt.i122 = getelementptr inbounds %struct.SMTP, ptr %40, i64 0, i32 2
+  %rcpt.i122 = getelementptr inbounds i8, ptr %40, i64 16
   %41 = load ptr, ptr %rcpt.i122, align 8
-  %next.i123 = getelementptr inbounds %struct.curl_slist, ptr %41, i64 0, i32 1
+  %next.i123 = getelementptr inbounds i8, ptr %41, i64 8
   %42 = load ptr, ptr %next.i123, align 8
   store ptr %42, ptr %rcpt.i122, align 8
   %tobool16.not.i = icmp eq ptr %42, null
@@ -1948,14 +1906,14 @@ if.then17.i:                                      ; preds = %if.then13.i
   br label %do.cond
 
 if.else18.i:                                      ; preds = %if.then13.i
-  %rcpt_had_ok19.i = getelementptr inbounds %struct.SMTP, ptr %40, i64 0, i32 5
+  %rcpt_had_ok19.i = getelementptr inbounds i8, ptr %40, i64 40
   %bf.load20.i = load i8, ptr %rcpt_had_ok19.i, align 8
   %bf.clear21.i = and i8 %bf.load20.i, 1
   %tobool23.not.i = icmp eq i8 %bf.clear21.i, 0
   br i1 %tobool23.not.i, label %if.then24.i, label %if.else26.i
 
 if.then24.i:                                      ; preds = %if.else18.i
-  %rcpt_last_error25.i = getelementptr inbounds %struct.SMTP, ptr %40, i64 0, i32 3
+  %rcpt_last_error25.i = getelementptr inbounds i8, ptr %40, i64 24
   %43 = load i32, ptr %rcpt_last_error25.i, align 8
   call void (ptr, ptr, ...) @Curl_failf(ptr noundef nonnull %data, ptr noundef nonnull @.str.31, i32 noundef %43) #8
   br label %return
@@ -1982,7 +1940,7 @@ if.else.i134:                                     ; preds = %sw.bb42
 sw.bb45:                                          ; preds = %if.end17
   %data.val40 = load ptr, ptr %3, align 8
   %cmp.not.i137 = icmp eq i32 %5, 250
-  %state.i.i138 = getelementptr inbounds %struct.connectdata, ptr %data.val40, i64 0, i32 40, i32 0, i32 5
+  %state.i.i138 = getelementptr inbounds i8, ptr %data.val40, i64 1024
   store i32 0, ptr %state.i.i138, align 8
   br i1 %cmp.not.i137, label %land.lhs.true50, label %return
 
@@ -1994,7 +1952,7 @@ do.cond:                                          ; preds = %if.then17.i, %if.el
 land.lhs.true50.sink.split:                       ; preds = %if.end17, %if.else26.i, %sw.bb24, %if.else.i, %if.else.i134
   %.sink = phi i32 [ 0, %if.else.i134 ], [ 2, %if.else.i ], [ 0, %sw.bb24 ], [ 10, %if.else26.i ], [ 0, %if.end17 ]
   %data.val.i135 = load ptr, ptr %3, align 8
-  %state.i.i136 = getelementptr inbounds %struct.connectdata, ptr %data.val.i135, i64 0, i32 40, i32 0, i32 5
+  %state.i.i136 = getelementptr inbounds i8, ptr %data.val.i135, i64 1024
   store i32 %.sink, ptr %state.i.i136, align 8
   br label %land.lhs.true50
 
@@ -2064,7 +2022,7 @@ if.else:                                          ; preds = %if.end
   br i1 %cmp47, label %land.lhs.true49, label %return
 
 land.lhs.true49:                                  ; preds = %if.else
-  %state = getelementptr inbounds %struct.connectdata, ptr %conn, i64 0, i32 40, i32 0, i32 5
+  %state = getelementptr inbounds i8, ptr %conn, i64 1024
   %9 = load i32, ptr %state, align 8
   switch i32 %9, label %return [
     i32 2, label %return.sink.split
@@ -2091,7 +2049,7 @@ declare void @Curl_pp_init(ptr noundef, ptr noundef) local_unnamed_addr #1
 define internal fastcc i32 @smtp_perform_upgrade_tls(ptr noundef %data) unnamed_addr #0 {
 entry:
   %ssldone = alloca i8, align 1
-  %conn1 = getelementptr inbounds %struct.Curl_easy, ptr %data, i64 0, i32 4
+  %conn1 = getelementptr inbounds i8, ptr %data, i64 32
   %0 = load ptr, ptr %conn1, align 8
   store i8 0, ptr %ssldone, align 1
   %call = tail call zeroext i1 @Curl_conn_is_ssl(ptr noundef %0, i32 noundef 0) #8
@@ -2110,19 +2068,19 @@ if.end4:                                          ; preds = %if.then, %entry
 if.then7:                                         ; preds = %if.end4
   %1 = load i8, ptr %ssldone, align 1
   %2 = and i8 %1, 1
-  %ssldone9 = getelementptr inbounds %struct.connectdata, ptr %0, i64 0, i32 40, i32 0, i32 7
+  %ssldone9 = getelementptr inbounds i8, ptr %0, i64 1040
   %bf.load = load i8, ptr %ssldone9, align 8
   %bf.clear = and i8 %bf.load, -2
   %bf.set = or disjoint i8 %bf.clear, %2
   store i8 %bf.set, ptr %ssldone9, align 8
-  %state = getelementptr inbounds %struct.connectdata, ptr %0, i64 0, i32 40, i32 0, i32 5
+  %state = getelementptr inbounds i8, ptr %0, i64 1024
   %3 = load i32, ptr %state, align 8
   %cmp.not = icmp eq i32 %3, 5
   br i1 %cmp.not, label %if.end12, label %if.then11
 
 if.then11:                                        ; preds = %if.then7
   %data.val = load ptr, ptr %conn1, align 8
-  %state.i = getelementptr inbounds %struct.connectdata, ptr %data.val, i64 0, i32 40, i32 0, i32 5
+  %state.i = getelementptr inbounds i8, ptr %data.val, i64 1024
   store i32 5, ptr %state.i, align 8
   %bf.load14.pre = load i8, ptr %ssldone9, align 8
   %4 = and i8 %bf.load14.pre, 1
@@ -2134,23 +2092,23 @@ if.end12:                                         ; preds = %if.then11, %if.then
   br i1 %tobool16.not, label %out, label %if.then17
 
 if.then17:                                        ; preds = %if.end12
-  %handler.i = getelementptr inbounds %struct.connectdata, ptr %0, i64 0, i32 28
+  %handler.i = getelementptr inbounds i8, ptr %0, i64 712
   store ptr @Curl_handler_smtps, ptr %handler.i, align 8
-  %bits.i = getelementptr inbounds %struct.connectdata, ptr %0, i64 0, i32 27
+  %bits.i = getelementptr inbounds i8, ptr %0, i64 704
   %bf.load.i = load i32, ptr %bits.i, align 8
   %bf.set.i = or i32 %bf.load.i, 268435456
   store i32 %bf.set.i, ptr %bits.i, align 8
   %5 = load ptr, ptr %conn1, align 8
-  %proto.i = getelementptr inbounds %struct.connectdata, ptr %5, i64 0, i32 40
-  %authmechs.i = getelementptr inbounds %struct.connectdata, ptr %5, i64 0, i32 40, i32 0, i32 4
+  %proto.i = getelementptr inbounds i8, ptr %5, i64 856
+  %authmechs.i = getelementptr inbounds i8, ptr %5, i64 1016
   store i16 0, ptr %authmechs.i, align 8
   %authused.i = getelementptr inbounds i8, ptr %5, i64 1020
   store i16 0, ptr %authused.i, align 4
-  %tls_supported.i = getelementptr inbounds %struct.connectdata, ptr %5, i64 0, i32 40, i32 0, i32 7
+  %tls_supported.i = getelementptr inbounds i8, ptr %5, i64 1040
   %bf.load.i12 = load i8, ptr %tls_supported.i, align 8
   %bf.clear4.i = and i8 %bf.load.i12, -19
   store i8 %bf.clear4.i, ptr %tls_supported.i, align 8
-  %domain.i = getelementptr inbounds %struct.connectdata, ptr %5, i64 0, i32 40, i32 0, i32 6
+  %domain.i = getelementptr inbounds i8, ptr %5, i64 1032
   %6 = load ptr, ptr %domain.i, align 8
   %call.i = call i32 (ptr, ptr, ptr, ...) @Curl_pp_sendf(ptr noundef nonnull %data, ptr noundef nonnull %proto.i, ptr noundef nonnull @.str.5, ptr noundef %6) #8
   %tobool.not.i = icmp eq i32 %call.i, 0
@@ -2158,7 +2116,7 @@ if.then17:                                        ; preds = %if.end12
 
 if.then.i:                                        ; preds = %if.then17
   %data.val.i = load ptr, ptr %conn1, align 8
-  %state.i.i = getelementptr inbounds %struct.connectdata, ptr %data.val.i, i64 0, i32 40, i32 0, i32 5
+  %state.i.i = getelementptr inbounds i8, ptr %data.val.i, i64 1024
   store i32 2, ptr %state.i.i, align 8
   br label %out
 
@@ -2188,16 +2146,16 @@ declare zeroext i16 @Curl_sasl_decode_mech(ptr noundef, i64 noundef, ptr noundef
 define internal fastcc i32 @smtp_perform_authentication(ptr noundef %data) unnamed_addr #0 {
 entry:
   %progress = alloca i32, align 4
-  %conn1 = getelementptr inbounds %struct.Curl_easy, ptr %data, i64 0, i32 4
+  %conn1 = getelementptr inbounds i8, ptr %data, i64 32
   %0 = load ptr, ptr %conn1, align 8
-  %auth_supported = getelementptr inbounds %struct.connectdata, ptr %0, i64 0, i32 40, i32 0, i32 7
+  %auth_supported = getelementptr inbounds i8, ptr %0, i64 1040
   %bf.load = load i8, ptr %auth_supported, align 8
   %1 = and i8 %bf.load, 16
   %tobool.not = icmp eq i8 %1, 0
   br i1 %tobool.not, label %if.then, label %lor.lhs.false
 
 lor.lhs.false:                                    ; preds = %entry
-  %sasl = getelementptr inbounds %struct.connectdata, ptr %0, i64 0, i32 40, i32 0, i32 1
+  %sasl = getelementptr inbounds i8, ptr %0, i64 992
   %call = tail call zeroext i1 @Curl_sasl_can_authenticate(ptr noundef nonnull %sasl, ptr noundef nonnull %data) #8
   br i1 %call, label %if.end, label %lor.lhs.false.if.then_crit_edge
 
@@ -2207,7 +2165,7 @@ lor.lhs.false.if.then_crit_edge:                  ; preds = %lor.lhs.false
 
 if.then:                                          ; preds = %lor.lhs.false.if.then_crit_edge, %entry
   %data.val12 = phi ptr [ %data.val12.pre, %lor.lhs.false.if.then_crit_edge ], [ %0, %entry ]
-  %state.i = getelementptr inbounds %struct.connectdata, ptr %data.val12, i64 0, i32 40, i32 0, i32 5
+  %state.i = getelementptr inbounds i8, ptr %data.val12, i64 1024
   store i32 0, ptr %state.i, align 8
   br label %return
 
@@ -2223,12 +2181,12 @@ if.then5:                                         ; preds = %if.end
 
 if.then6:                                         ; preds = %if.then5
   %data.val = load ptr, ptr %conn1, align 8
-  %state.i13 = getelementptr inbounds %struct.connectdata, ptr %data.val, i64 0, i32 40, i32 0, i32 5
+  %state.i13 = getelementptr inbounds i8, ptr %data.val, i64 1024
   store i32 6, ptr %state.i13, align 8
   br label %return
 
 land.lhs.true:                                    ; preds = %if.then5
-  %verbose = getelementptr inbounds %struct.Curl_easy, ptr %data, i64 0, i32 17, i32 129
+  %verbose = getelementptr inbounds i8, ptr %data, i64 2706
   %bf.load8 = load i64, ptr %verbose, align 2
   %3 = and i64 %bf.load8, 536870912
   %tobool12.not = icmp eq i64 %3, 0
@@ -2257,17 +2215,17 @@ declare i32 @Curl_client_write(ptr noundef, i32 noundef, ptr noundef, i64 nounde
 define internal fastcc i32 @smtp_perform_command(ptr noundef %data) unnamed_addr #0 {
 entry:
   %host = alloca %struct.hostname, align 8
-  %conn1 = getelementptr inbounds %struct.Curl_easy, ptr %data, i64 0, i32 4
+  %conn1 = getelementptr inbounds i8, ptr %data, i64 32
   %0 = load ptr, ptr %conn1, align 8
-  %p = getelementptr inbounds %struct.Curl_easy, ptr %data, i64 0, i32 16, i32 23
+  %p = getelementptr inbounds i8, ptr %data, i64 392
   %1 = load ptr, ptr %p, align 8
-  %rcpt = getelementptr inbounds %struct.SMTP, ptr %1, i64 0, i32 2
+  %rcpt = getelementptr inbounds i8, ptr %1, i64 16
   %2 = load ptr, ptr %rcpt, align 8
   %tobool.not = icmp eq ptr %2, null
   br i1 %tobool.not, label %if.else48, label %if.then
 
 if.then:                                          ; preds = %entry
-  %custom = getelementptr inbounds %struct.SMTP, ptr %1, i64 0, i32 1
+  %custom = getelementptr inbounds i8, ptr %1, i64 8
   %3 = load ptr, ptr %custom, align 8
   %tobool2.not = icmp eq ptr %3, null
   br i1 %tobool2.not, label %if.then5, label %lor.lhs.false
@@ -2307,7 +2265,7 @@ if.then9.i:                                       ; preds = %if.then4.i
 
 if.end13.i:                                       ; preds = %if.then9.i, %if.then4.i, %if.end.i
   %strchr.i = tail call ptr @strchr(ptr noundef nonnull dereferenceable(1) %call.i, i32 64)
-  %name.i = getelementptr inbounds %struct.hostname, ptr %host, i64 0, i32 2
+  %name.i = getelementptr inbounds i8, ptr %host, i64 16
   store ptr %strchr.i, ptr %name.i, align 8
   %tobool16.not.i = icmp eq ptr %strchr.i, null
   br i1 %tobool16.not.i, label %if.end, label %if.then17.i
@@ -2320,15 +2278,15 @@ if.then17.i:                                      ; preds = %if.end13.i
   br label %if.end
 
 if.end:                                           ; preds = %if.then17.i, %if.end13.i
-  %proto = getelementptr inbounds %struct.connectdata, ptr %0, i64 0, i32 40
-  %utf8_supported = getelementptr inbounds %struct.connectdata, ptr %0, i64 0, i32 40, i32 0, i32 7
+  %proto = getelementptr inbounds i8, ptr %0, i64 856
+  %utf8_supported = getelementptr inbounds i8, ptr %0, i64 1040
   %bf.load = load i8, ptr %utf8_supported, align 8
   %10 = and i8 %bf.load, 8
   %tobool10.not = icmp eq i8 %10, 0
   br i1 %tobool10.not, label %land.end, label %land.rhs
 
 land.rhs:                                         ; preds = %if.end
-  %encalloc = getelementptr inbounds %struct.hostname, ptr %host, i64 0, i32 1
+  %encalloc = getelementptr inbounds i8, ptr %host, i64 8
   %11 = load ptr, ptr %encalloc, align 8
   %tobool11.not = icmp eq ptr %11, null
   br i1 %tobool11.not, label %lor.lhs.false12, label %land.end
@@ -2356,8 +2314,8 @@ land.end:                                         ; preds = %land.rhs, %lor.lhs.
   br label %if.end62
 
 if.else:                                          ; preds = %lor.lhs.false
-  %proto25 = getelementptr inbounds %struct.connectdata, ptr %0, i64 0, i32 40
-  %utf8_supported26 = getelementptr inbounds %struct.connectdata, ptr %0, i64 0, i32 40, i32 0, i32 7
+  %proto25 = getelementptr inbounds i8, ptr %0, i64 856
+  %utf8_supported26 = getelementptr inbounds i8, ptr %0, i64 1040
   %bf.load27 = load i8, ptr %utf8_supported26, align 8
   %16 = and i8 %bf.load27, 8
   %tobool31.not = icmp eq i8 %16, 0
@@ -2376,8 +2334,8 @@ land.end37:                                       ; preds = %land.rhs32, %if.els
   br label %if.end62
 
 if.else48:                                        ; preds = %entry
-  %proto49 = getelementptr inbounds %struct.connectdata, ptr %0, i64 0, i32 40
-  %custom51 = getelementptr inbounds %struct.SMTP, ptr %1, i64 0, i32 1
+  %proto49 = getelementptr inbounds i8, ptr %0, i64 856
+  %custom51 = getelementptr inbounds i8, ptr %1, i64 8
   %19 = load ptr, ptr %custom51, align 8
   %tobool52.not = icmp eq ptr %19, null
   br i1 %tobool52.not, label %cond.end59, label %land.lhs.true
@@ -2400,7 +2358,7 @@ if.end62:                                         ; preds = %land.end, %land.end
 
 if.then64:                                        ; preds = %if.end62
   %data.val = load ptr, ptr %conn1, align 8
-  %state.i = getelementptr inbounds %struct.connectdata, ptr %data.val, i64 0, i32 40, i32 0, i32 5
+  %state.i = getelementptr inbounds i8, ptr %data.val, i64 1024
   store i32 7, ptr %state.i, align 8
   br label %return
 
@@ -2425,12 +2383,12 @@ declare i32 @Curl_idnconvert_hostname(ptr noundef) local_unnamed_addr #1
 define internal fastcc i32 @smtp_perform_rcpt_to(ptr noundef %data) unnamed_addr #0 {
 entry:
   %host = alloca %struct.hostname, align 8
-  %conn1 = getelementptr inbounds %struct.Curl_easy, ptr %data, i64 0, i32 4
+  %conn1 = getelementptr inbounds i8, ptr %data, i64 32
   %0 = load ptr, ptr %conn1, align 8
-  %p = getelementptr inbounds %struct.Curl_easy, ptr %data, i64 0, i32 16, i32 23
+  %p = getelementptr inbounds i8, ptr %data, i64 392
   %1 = load ptr, ptr %p, align 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %host, i8 0, i64 32, i1 false)
-  %rcpt = getelementptr inbounds %struct.SMTP, ptr %1, i64 0, i32 2
+  %rcpt = getelementptr inbounds i8, ptr %1, i64 16
   %2 = load ptr, ptr %rcpt, align 8
   %3 = load ptr, ptr %2, align 8
   %4 = load ptr, ptr @Curl_cstrdup, align 8
@@ -2460,7 +2418,7 @@ if.then9.i:                                       ; preds = %if.then4.i
 
 if.end13.i:                                       ; preds = %if.then9.i, %if.then4.i, %if.end.i
   %strchr.i = tail call ptr @strchr(ptr noundef nonnull dereferenceable(1) %call.i, i32 64)
-  %name.i = getelementptr inbounds %struct.hostname, ptr %host, i64 0, i32 2
+  %name.i = getelementptr inbounds i8, ptr %host, i64 16
   store ptr %strchr.i, ptr %name.i, align 8
   %tobool16.not.i = icmp eq ptr %strchr.i, null
   br i1 %tobool16.not.i, label %if.else, label %if.end
@@ -2475,12 +2433,12 @@ if.end:                                           ; preds = %if.end13.i
   br i1 %tobool3.not, label %if.else, label %if.then4
 
 if.then4:                                         ; preds = %if.end
-  %proto = getelementptr inbounds %struct.connectdata, ptr %0, i64 0, i32 40
+  %proto = getelementptr inbounds i8, ptr %0, i64 856
   %call6 = call i32 (ptr, ptr, ptr, ...) @Curl_pp_sendf(ptr noundef nonnull %data, ptr noundef nonnull %proto, ptr noundef nonnull @.str.28, ptr noundef nonnull %call.i, ptr noundef nonnull %.pre) #8
   br label %if.end10
 
 if.else:                                          ; preds = %if.end13.i, %if.end
-  %proto7 = getelementptr inbounds %struct.connectdata, ptr %0, i64 0, i32 40
+  %proto7 = getelementptr inbounds i8, ptr %0, i64 856
   %call9 = call i32 (ptr, ptr, ptr, ...) @Curl_pp_sendf(ptr noundef nonnull %data, ptr noundef nonnull %proto7, ptr noundef nonnull @.str.29, ptr noundef nonnull %call.i) #8
   br label %if.end10
 
@@ -2494,7 +2452,7 @@ if.end10:                                         ; preds = %if.else, %if.then4
 
 if.then12:                                        ; preds = %if.end10
   %data.val = load ptr, ptr %conn1, align 8
-  %state.i = getelementptr inbounds %struct.connectdata, ptr %data.val, i64 0, i32 40, i32 0, i32 5
+  %state.i = getelementptr inbounds i8, ptr %data.val, i64 1024
   store i32 9, ptr %state.i, align 8
   br label %return
 
@@ -2515,9 +2473,9 @@ declare i64 @strtol(ptr noundef readonly, ptr nocapture noundef, i32 noundef) lo
 ; Function Attrs: nounwind uwtable
 define internal i32 @smtp_perform_auth(ptr noundef %data, ptr noundef %mech, ptr noundef %initresp) #0 {
 entry:
-  %conn = getelementptr inbounds %struct.Curl_easy, ptr %data, i64 0, i32 4
+  %conn = getelementptr inbounds i8, ptr %data, i64 32
   %0 = load ptr, ptr %conn, align 8
-  %proto = getelementptr inbounds %struct.connectdata, ptr %0, i64 0, i32 40
+  %proto = getelementptr inbounds i8, ptr %0, i64 856
   %call = tail call ptr @Curl_bufref_ptr(ptr noundef %initresp) #8
   %tobool.not = icmp eq ptr %call, null
   br i1 %tobool.not, label %if.else, label %if.then
@@ -2538,9 +2496,9 @@ if.end:                                           ; preds = %if.else, %if.then
 ; Function Attrs: nounwind uwtable
 define internal i32 @smtp_continue_auth(ptr noundef %data, ptr nocapture readnone %mech, ptr noundef %resp) #0 {
 entry:
-  %conn = getelementptr inbounds %struct.Curl_easy, ptr %data, i64 0, i32 4
+  %conn = getelementptr inbounds i8, ptr %data, i64 32
   %0 = load ptr, ptr %conn, align 8
-  %proto = getelementptr inbounds %struct.connectdata, ptr %0, i64 0, i32 40
+  %proto = getelementptr inbounds i8, ptr %0, i64 856
   %call = tail call ptr @Curl_bufref_ptr(ptr noundef %resp) #8
   %call1 = tail call i32 (ptr, ptr, ptr, ...) @Curl_pp_sendf(ptr noundef %data, ptr noundef nonnull %proto, ptr noundef nonnull @.str.15, ptr noundef %call) #8
   ret i32 %call1
@@ -2549,9 +2507,9 @@ entry:
 ; Function Attrs: nounwind uwtable
 define internal i32 @smtp_cancel_auth(ptr noundef %data, ptr nocapture readnone %mech) #0 {
 entry:
-  %conn = getelementptr inbounds %struct.Curl_easy, ptr %data, i64 0, i32 4
+  %conn = getelementptr inbounds i8, ptr %data, i64 32
   %0 = load ptr, ptr %conn, align 8
-  %proto = getelementptr inbounds %struct.connectdata, ptr %0, i64 0, i32 40
+  %proto = getelementptr inbounds i8, ptr %0, i64 856
   %call = tail call i32 (ptr, ptr, ptr, ...) @Curl_pp_sendf(ptr noundef %data, ptr noundef nonnull %proto, ptr noundef nonnull @.str.37) #8
   ret i32 %call
 }
@@ -2559,7 +2517,7 @@ entry:
 ; Function Attrs: nounwind uwtable
 define internal noundef i32 @smtp_get_message(ptr nocapture noundef readonly %data, ptr noundef %out) #0 {
 entry:
-  %buffer = getelementptr inbounds %struct.Curl_easy, ptr %data, i64 0, i32 22, i32 6
+  %buffer = getelementptr inbounds i8, ptr %data, i64 3224
   %0 = load ptr, ptr %buffer, align 8
   %call = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %0) #9
   %cmp = icmp ugt i64 %call, 4
@@ -2638,8 +2596,8 @@ declare { i64, i32 } @Curl_now() local_unnamed_addr #1
 ; Function Attrs: nounwind uwtable
 define internal fastcc i32 @smtp_block_statemach(ptr noundef %data, ptr noundef %conn, i1 noundef zeroext %disconnecting) unnamed_addr #0 {
 entry:
-  %proto = getelementptr inbounds %struct.connectdata, ptr %conn, i64 0, i32 40
-  %state = getelementptr inbounds %struct.connectdata, ptr %conn, i64 0, i32 40, i32 0, i32 5
+  %proto = getelementptr inbounds i8, ptr %conn, i64 856
+  %state = getelementptr inbounds i8, ptr %conn, i64 1024
   %0 = load i32, ptr %state, align 8
   %cmp3.not = icmp eq i32 %0, 0
   br i1 %cmp3.not, label %while.end, label %while.body

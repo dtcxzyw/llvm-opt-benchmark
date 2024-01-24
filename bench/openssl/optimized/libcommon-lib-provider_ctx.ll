@@ -3,8 +3,6 @@ source_filename = "bench/openssl/original/libcommon-lib-provider_ctx.ll"
 target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:128-n8:16:32:64-S128"
 target triple = "x86_64-unknown-linux-gnu"
 
-%struct.prov_ctx_st = type { ptr, ptr, ptr }
-
 @.str = private unnamed_addr constant [43 x i8] c"../openssl/providers/common/provider_ctx.c\00", align 1
 
 ; Function Attrs: nounwind uwtable
@@ -32,7 +30,7 @@ entry:
   br i1 %cmp.not, label %if.end, label %if.then
 
 if.then:                                          ; preds = %entry
-  %libctx1 = getelementptr inbounds %struct.prov_ctx_st, ptr %ctx, i64 0, i32 1
+  %libctx1 = getelementptr inbounds i8, ptr %ctx, i64 8
   store ptr %libctx, ptr %libctx1, align 8
   br label %if.end
 
@@ -61,7 +59,7 @@ entry:
   br i1 %cmp.not, label %if.end, label %if.then
 
 if.then:                                          ; preds = %entry
-  %corebiometh1 = getelementptr inbounds %struct.prov_ctx_st, ptr %ctx, i64 0, i32 2
+  %corebiometh1 = getelementptr inbounds i8, ptr %ctx, i64 16
   store ptr %corebiometh, ptr %corebiometh1, align 8
   br label %if.end
 
@@ -76,7 +74,7 @@ entry:
   br i1 %cmp, label %return, label %if.end
 
 if.end:                                           ; preds = %entry
-  %libctx = getelementptr inbounds %struct.prov_ctx_st, ptr %ctx, i64 0, i32 1
+  %libctx = getelementptr inbounds i8, ptr %ctx, i64 8
   %0 = load ptr, ptr %libctx, align 8
   br label %return
 
@@ -107,7 +105,7 @@ entry:
   br i1 %cmp, label %return, label %if.end
 
 if.end:                                           ; preds = %entry
-  %corebiometh = getelementptr inbounds %struct.prov_ctx_st, ptr %ctx, i64 0, i32 2
+  %corebiometh = getelementptr inbounds i8, ptr %ctx, i64 16
   %0 = load ptr, ptr %corebiometh, align 8
   br label %return
 

@@ -7,11 +7,6 @@ target triple = "x86_64-unknown-linux-gnu"
 %union.pthread_mutex_t = type { %struct.__pthread_mutex_s }
 %struct.__pthread_mutex_s = type { i32, i32, i32, i32, i32, i16, i16, %struct.__pthread_internal_list }
 %struct.__pthread_internal_list = type { ptr, ptr }
-%struct.tr2tls_thread_ctx = type { ptr, ptr, i64, i64, i32, %struct.tr2_timer_block, %struct.tr2_counter_block, i8 }
-%struct.tr2_timer_block = type { [2 x %struct.tr2_timer] }
-%struct.tr2_timer = type { i64, i64, i64, i64, i64, i32 }
-%struct.tr2_counter_block = type { [5 x %struct.tr2_counter] }
-%struct.tr2_counter = type { i64 }
 
 @tr2tls_us_start_process = internal unnamed_addr global i64 0, align 8
 @strbuf_slopbuf = external global [0 x i8], align 1
@@ -54,12 +49,12 @@ entry:
   %buf = alloca %struct.strbuf, align 8
   %call = tail call ptr @xcalloc(i64 noundef 1, i64 noundef 184) #9
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %buf, ptr noundef nonnull align 8 dereferenceable(24) @__const.tr2tls_create_self.buf, i64 24, i1 false)
-  %alloc = getelementptr inbounds %struct.tr2tls_thread_ctx, ptr %call, i64 0, i32 2
+  %alloc = getelementptr inbounds i8, ptr %call, i64 16
   store i64 100, ptr %alloc, align 8
   %call2 = tail call ptr @xcalloc(i64 noundef 100, i64 noundef 8) #9
-  %array_us_start = getelementptr inbounds %struct.tr2tls_thread_ctx, ptr %call, i64 0, i32 1
+  %array_us_start = getelementptr inbounds i8, ptr %call, i64 8
   store ptr %call2, ptr %array_us_start, align 8
-  %nr_open_regions = getelementptr inbounds %struct.tr2tls_thread_ctx, ptr %call, i64 0, i32 3
+  %nr_open_regions = getelementptr inbounds i8, ptr %call, i64 24
   %0 = load i64, ptr %nr_open_regions, align 8
   %inc = add i64 %0, 1
   store i64 %inc, ptr %nr_open_regions, align 8
@@ -70,7 +65,7 @@ entry:
   %add.i = add nsw i32 %1, 1
   store i32 %add.i, ptr @tr2_next_thread_id, align 4
   %call1.i = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull @tr2tls_mutex) #9
-  %thread_id = getelementptr inbounds %struct.tr2tls_thread_ctx, ptr %call, i64 0, i32 4
+  %thread_id = getelementptr inbounds i8, ptr %call, i64 32
   store i32 %1, ptr %thread_id, align 8
   call void @strbuf_init(ptr noundef nonnull %buf, i64 noundef 0) #9
   %2 = load i32, ptr %thread_id, align 8
@@ -84,7 +79,7 @@ if.then:                                          ; preds = %entry
 if.end:                                           ; preds = %if.then, %entry
   %call.i11 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %thread_base_name) #10
   call void @strbuf_add(ptr noundef nonnull %buf, ptr noundef %thread_base_name, i64 noundef %call.i11) #9
-  %len = getelementptr inbounds %struct.strbuf, ptr %buf, i64 0, i32 1
+  %len = getelementptr inbounds i8, ptr %buf, i64 8
   %3 = load i64, ptr %len, align 8
   %cmp = icmp ugt i64 %3, 24
   br i1 %cmp, label %if.then7, label %if.end8
@@ -100,7 +95,7 @@ if.then.i:                                        ; preds = %if.then7
 
 if.end.i:                                         ; preds = %if.then7
   store i64 24, ptr %len, align 8
-  %buf.i = getelementptr inbounds %struct.strbuf, ptr %buf, i64 0, i32 2
+  %buf.i = getelementptr inbounds i8, ptr %buf, i64 16
   %6 = load ptr, ptr %buf.i, align 8
   %cmp3.not.i = icmp eq ptr %6, @strbuf_slopbuf
   br i1 %cmp3.not.i, label %if.end8, label %if.then4.i
@@ -196,7 +191,7 @@ tr2tls_get_self.exit:                             ; preds = %entry, %if.then.i
   %call1 = tail call i32 @pthread_setspecific(i32 noundef %1, ptr noundef null) #9
   %2 = load ptr, ptr %ctx.0.i, align 8
   tail call void @free(ptr noundef %2) #9
-  %array_us_start = getelementptr inbounds %struct.tr2tls_thread_ctx, ptr %ctx.0.i, i64 0, i32 1
+  %array_us_start = getelementptr inbounds i8, ptr %ctx.0.i, i64 8
   %3 = load ptr, ptr %array_us_start, align 8
   tail call void @free(ptr noundef %3) #9
   tail call void @free(ptr noundef %ctx.0.i) #9
@@ -222,16 +217,16 @@ if.then.i:                                        ; preds = %entry
 
 tr2tls_get_self.exit:                             ; preds = %entry, %if.then.i
   %ctx.0.i = phi ptr [ %call.i, %entry ], [ %call2.i, %if.then.i ]
-  %nr_open_regions = getelementptr inbounds %struct.tr2tls_thread_ctx, ptr %ctx.0.i, i64 0, i32 3
+  %nr_open_regions = getelementptr inbounds i8, ptr %ctx.0.i, i64 24
   %1 = load i64, ptr %nr_open_regions, align 8
   %add = add i64 %1, 1
-  %alloc = getelementptr inbounds %struct.tr2tls_thread_ctx, ptr %ctx.0.i, i64 0, i32 2
+  %alloc = getelementptr inbounds i8, ptr %ctx.0.i, i64 16
   %2 = load i64, ptr %alloc, align 8
   %cmp = icmp ugt i64 %add, %2
   br i1 %cmp, label %if.then, label %tr2tls_get_self.exit.do.end_crit_edge
 
 tr2tls_get_self.exit.do.end_crit_edge:            ; preds = %tr2tls_get_self.exit
-  %array_us_start20.phi.trans.insert = getelementptr inbounds %struct.tr2tls_thread_ctx, ptr %ctx.0.i, i64 0, i32 1
+  %array_us_start20.phi.trans.insert = getelementptr inbounds i8, ptr %ctx.0.i, i64 8
   %.pre = load ptr, ptr %array_us_start20.phi.trans.insert, align 8
   br label %do.end
 
@@ -249,7 +244,7 @@ if.then.i14:                                      ; preds = %if.then
   unreachable
 
 st_mult.exit:                                     ; preds = %if.then
-  %array_us_start = getelementptr inbounds %struct.tr2tls_thread_ctx, ptr %ctx.0.i, i64 0, i32 1
+  %array_us_start = getelementptr inbounds i8, ptr %ctx.0.i, i64 8
   %4 = load ptr, ptr %array_us_start, align 8
   %mul.i = shl nuw i64 %add.div13, 3
   %call17 = tail call ptr @xrealloc(ptr noundef %4, i64 noundef %mul.i) #9
@@ -286,7 +281,7 @@ if.then.i:                                        ; preds = %entry
 
 tr2tls_get_self.exit:                             ; preds = %entry, %if.then.i
   %ctx.0.i = phi ptr [ %call.i, %entry ], [ %call2.i, %if.then.i ]
-  %nr_open_regions = getelementptr inbounds %struct.tr2tls_thread_ctx, ptr %ctx.0.i, i64 0, i32 3
+  %nr_open_regions = getelementptr inbounds i8, ptr %ctx.0.i, i64 24
   %1 = load i64, ptr %nr_open_regions, align 8
   %tobool.not = icmp eq i64 %1, 0
   br i1 %tobool.not, label %if.then, label %if.end
@@ -321,7 +316,7 @@ if.then.i:                                        ; preds = %entry
 
 tr2tls_get_self.exit:                             ; preds = %entry, %if.then.i
   %ctx.0.i = phi ptr [ %call.i, %entry ], [ %call2.i, %if.then.i ]
-  %nr_open_regions = getelementptr inbounds %struct.tr2tls_thread_ctx, ptr %ctx.0.i, i64 0, i32 3
+  %nr_open_regions = getelementptr inbounds i8, ptr %ctx.0.i, i64 24
   %1 = load i64, ptr %nr_open_regions, align 8
   %cmp3 = icmp ugt i64 %1, 1
   br i1 %cmp3, label %while.body, label %while.end
@@ -340,7 +335,7 @@ if.then.i.i:                                      ; preds = %while.body
 
 tr2tls_get_self.exit.i:                           ; preds = %if.then.i.i, %while.body
   %ctx.0.i.i = phi ptr [ %call.i.i, %while.body ], [ %call2.i.i, %if.then.i.i ]
-  %nr_open_regions.i = getelementptr inbounds %struct.tr2tls_thread_ctx, ptr %ctx.0.i.i, i64 0, i32 3
+  %nr_open_regions.i = getelementptr inbounds i8, ptr %ctx.0.i.i, i64 24
   %3 = load i64, ptr %nr_open_regions.i, align 8
   %tobool.not.i1 = icmp eq i64 %3, 0
   br i1 %tobool.not.i1, label %if.then.i2, label %tr2tls_pop_self.exit
@@ -377,16 +372,16 @@ if.then.i:                                        ; preds = %entry
 
 tr2tls_get_self.exit:                             ; preds = %entry, %if.then.i
   %ctx.0.i = phi ptr [ %call.i, %entry ], [ %call2.i, %if.then.i ]
-  %nr_open_regions = getelementptr inbounds %struct.tr2tls_thread_ctx, ptr %ctx.0.i, i64 0, i32 3
+  %nr_open_regions = getelementptr inbounds i8, ptr %ctx.0.i, i64 24
   %1 = load i64, ptr %nr_open_regions, align 8
   %tobool.not = icmp eq i64 %1, 0
   br i1 %tobool.not, label %return, label %if.end
 
 if.end:                                           ; preds = %tr2tls_get_self.exit
-  %array_us_start = getelementptr inbounds %struct.tr2tls_thread_ctx, ptr %ctx.0.i, i64 0, i32 1
+  %array_us_start = getelementptr inbounds i8, ptr %ctx.0.i, i64 8
   %2 = load ptr, ptr %array_us_start, align 8
   %3 = getelementptr i64, ptr %2, i64 %1
-  %arrayidx = getelementptr i64, ptr %3, i64 -1
+  %arrayidx = getelementptr i8, ptr %3, i64 -8
   %4 = load i64, ptr %arrayidx, align 8
   %sub2 = sub i64 %us, %4
   br label %return

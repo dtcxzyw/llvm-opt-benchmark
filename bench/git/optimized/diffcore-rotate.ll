@@ -4,12 +4,6 @@ target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:
 target triple = "x86_64-unknown-linux-gnu"
 
 %struct.diff_queue_struct = type { ptr, i32, i32 }
-%struct.diff_options = type { ptr, ptr, i32, i32, ptr, i32, ptr, i64, i64, ptr, ptr, ptr, ptr, i64, %struct.diff_flags, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, ptr, i32, ptr, i32, i32, ptr, i64, i64, i32, i32, i32, i32, ptr, i32, i32, ptr, i32, i32, ptr, ptr, i32, [3 x i8], %struct.pathspec, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, i32, ptr, i32, i32, ptr, ptr, i32 }
-%struct.diff_flags = type { i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32 }
-%struct.pathspec = type { i32, i8, i32, i32, ptr }
-%struct.diff_filepair = type { ptr, ptr, i16, i8, i8 }
-%struct.diff_filespec = type { %struct.object_id, ptr, ptr, ptr, i64, i32, i32, i16, i16, ptr }
-%struct.object_id = type { [32 x i8], i32 }
 
 @diff_queued_diff = external local_unnamed_addr global %struct.diff_queue_struct, align 8
 @.str = private unnamed_addr constant [30 x i8] c"No such path '%s' in the diff\00", align 1
@@ -28,15 +22,15 @@ for.cond.preheader:                               ; preds = %entry
   br i1 %cmp28, label %for.body.lr.ph, label %for.cond.preheader.if.then13_crit_edge
 
 for.cond.preheader.if.then13_crit_edge:           ; preds = %for.cond.preheader
-  %rotate_to_strict14.phi.trans.insert = getelementptr inbounds %struct.diff_options, ptr %opt, i64 0, i32 3
+  %rotate_to_strict14.phi.trans.insert = getelementptr inbounds i8, ptr %opt, i64 20
   %.pre = load i32, ptr %rotate_to_strict14.phi.trans.insert, align 4
   br label %if.then13
 
 for.body.lr.ph:                                   ; preds = %for.cond.preheader
-  %rotate_to3 = getelementptr inbounds %struct.diff_options, ptr %opt, i64 0, i32 1
+  %rotate_to3 = getelementptr inbounds i8, ptr %opt, i64 8
   %1 = load ptr, ptr %rotate_to3, align 8
   %2 = load ptr, ptr @diff_queued_diff, align 8
-  %rotate_to_strict = getelementptr inbounds %struct.diff_options, ptr %opt, i64 0, i32 3
+  %rotate_to_strict = getelementptr inbounds i8, ptr %opt, i64 20
   %wide.trip.count = zext nneg i32 %0 to i64
   br label %for.body
 
@@ -45,9 +39,9 @@ for.body:                                         ; preds = %for.body.lr.ph, %fo
   %indvars.iv = phi i64 [ 0, %for.body.lr.ph ], [ %indvars.iv.next, %for.inc ]
   %arrayidx = getelementptr inbounds ptr, ptr %2, i64 %indvars.iv
   %3 = load ptr, ptr %arrayidx, align 8
-  %two = getelementptr inbounds %struct.diff_filepair, ptr %3, i64 0, i32 1
+  %two = getelementptr inbounds i8, ptr %3, i64 8
   %4 = load ptr, ptr %two, align 8
-  %path = getelementptr inbounds %struct.diff_filespec, ptr %4, i64 0, i32 1
+  %path = getelementptr inbounds i8, ptr %4, i64 40
   %5 = load ptr, ptr %path, align 8
   %call = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %1, ptr noundef nonnull dereferenceable(1) %5) #8
   %tobool4.not = icmp eq i32 %call, 0
@@ -73,7 +67,7 @@ if.then13:                                        ; preds = %for.inc, %for.cond.
 
 if.then16:                                        ; preds = %if.then13
   %call17 = tail call fastcc ptr @_()
-  %rotate_to18 = getelementptr inbounds %struct.diff_options, ptr %opt, i64 0, i32 1
+  %rotate_to18 = getelementptr inbounds i8, ptr %opt, i64 8
   %8 = load ptr, ptr %rotate_to18, align 8
   tail call void (ptr, ...) @die(ptr noundef %call17, ptr noundef %8) #9
   unreachable
@@ -89,7 +83,7 @@ for.cond33.preheader:                             ; preds = %for.body26, %do.bod
   br i1 %cmp3432.not, label %for.end47, label %for.body35.lr.ph
 
 for.body35.lr.ph:                                 ; preds = %for.cond33.preheader
-  %skip_instead_of_rotate = getelementptr inbounds %struct.diff_options, ptr %opt, i64 0, i32 2
+  %skip_instead_of_rotate = getelementptr inbounds i8, ptr %opt, i64 16
   %wide.trip.count46 = zext nneg i32 %indvars.iv43 to i64
   br label %for.body35
 

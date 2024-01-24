@@ -11,11 +11,6 @@ target triple = "x86_64-unknown-linux-gnu"
 %"class.google::LogMessage" = type { ptr, ptr, %"struct.google::LogMessageTime" }
 %"struct.google::LogMessageTime" = type { %struct.tm, i64, i32, i64 }
 %struct.tm = type { i32, i32, i32, i32, i32, i32, i32, i32, i32, i64, ptr }
-%"class.proxygen::HTTPParallelCodec" = type <{ %"class.proxygen::HTTPCodec", i8, [7 x i8], i64, i64, ptr, i64, i64, %"class.std::__cxx11::basic_string", i32, [4 x i8] }>
-%"class.proxygen::HTTPCodec" = type { ptr }
-%"class.std::__cxx11::basic_string" = type { %"struct.std::__cxx11::basic_string<char>::_Alloc_hider", i64, %union.anon }
-%"struct.std::__cxx11::basic_string<char>::_Alloc_hider" = type { ptr }
-%union.anon = type { i64, [8 x i8] }
 %"class.std::unique_ptr" = type { %"struct.std::__uniq_ptr_data" }
 %"struct.std::__uniq_ptr_data" = type { %"class.std::__uniq_ptr_impl" }
 %"class.std::__uniq_ptr_impl" = type { %"class.std::tuple" }
@@ -141,17 +136,17 @@ define void @_ZN8proxygen17HTTPParallelCodecC2ENS_18TransportDirectionE(ptr noun
 entry:
   %ref.tmp = alloca %"class.google::LogMessageFatal", align 8
   store ptr getelementptr inbounds ({ [56 x ptr] }, ptr @_ZTVN8proxygen17HTTPParallelCodecE, i64 0, inrange i32 0, i64 2), ptr %this, align 8
-  %transportDirection_ = getelementptr inbounds %"class.proxygen::HTTPParallelCodec", ptr %this, i64 0, i32 1
+  %transportDirection_ = getelementptr inbounds i8, ptr %this, i64 8
   store i8 %direction, ptr %transportDirection_, align 8
-  %lastStreamID_ = getelementptr inbounds %"class.proxygen::HTTPParallelCodec", ptr %this, i64 0, i32 4
-  %ingressGoawayAck_ = getelementptr inbounds %"class.proxygen::HTTPParallelCodec", ptr %this, i64 0, i32 6
+  %lastStreamID_ = getelementptr inbounds i8, ptr %this, i64 24
+  %ingressGoawayAck_ = getelementptr inbounds i8, ptr %this, i64 40
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %lastStreamID_, i8 0, i64 16, i1 false)
   store i64 4294967295, ptr %ingressGoawayAck_, align 8
-  %egressGoawayAck_ = getelementptr inbounds %"class.proxygen::HTTPParallelCodec", ptr %this, i64 0, i32 7
+  %egressGoawayAck_ = getelementptr inbounds i8, ptr %this, i64 48
   store i64 4294967295, ptr %egressGoawayAck_, align 8
-  %goawayErrorMessage_ = getelementptr inbounds %"class.proxygen::HTTPParallelCodec", ptr %this, i64 0, i32 8
+  %goawayErrorMessage_ = getelementptr inbounds i8, ptr %this, i64 56
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(32) %goawayErrorMessage_) #12
-  %sessionClosing_ = getelementptr inbounds %"class.proxygen::HTTPParallelCodec", ptr %this, i64 0, i32 9
+  %sessionClosing_ = getelementptr inbounds i8, ptr %this, i64 88
   store i32 0, ptr %sessionClosing_, align 8
   %0 = load i8, ptr %transportDirection_, align 8
   switch i8 %0, label %sw.default [
@@ -192,7 +187,7 @@ lpad7:                                            ; preds = %invoke.cont8, %invo
 
 sw.epilog:                                        ; preds = %entry, %sw.bb5
   %.sink = phi i64 [ 1, %sw.bb5 ], [ 2, %entry ]
-  %nextEgressStreamID_6 = getelementptr inbounds %"class.proxygen::HTTPParallelCodec", ptr %this, i64 0, i32 3
+  %nextEgressStreamID_6 = getelementptr inbounds i8, ptr %this, i64 16
   store i64 %.sink, ptr %nextEgressStreamID_6, align 8
   ret void
 }
@@ -217,7 +212,7 @@ declare void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noun
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
 define noundef i64 @_ZN8proxygen17HTTPParallelCodec12createStreamEv(ptr nocapture noundef nonnull align 8 dereferenceable(92) %this) unnamed_addr #5 align 2 {
 entry:
-  %nextEgressStreamID_ = getelementptr inbounds %"class.proxygen::HTTPParallelCodec", ptr %this, i64 0, i32 3
+  %nextEgressStreamID_ = getelementptr inbounds i8, ptr %this, i64 16
   %0 = load i64, ptr %nextEgressStreamID_, align 8
   %add = add i64 %0, 2
   store i64 %add, ptr %nextEgressStreamID_, align 8
@@ -227,7 +222,7 @@ entry:
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
 define noundef zeroext i1 @_ZNK8proxygen17HTTPParallelCodec16isWaitingToDrainEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(92) %this) unnamed_addr #6 align 2 {
 entry:
-  %sessionClosing_ = getelementptr inbounds %"class.proxygen::HTTPParallelCodec", ptr %this, i64 0, i32 9
+  %sessionClosing_ = getelementptr inbounds i8, ptr %this, i64 88
   %0 = load i32, ptr %sessionClosing_, align 8
   %1 = and i32 %0, -3
   %spec.select = icmp eq i32 %1, 0
@@ -237,36 +232,36 @@ entry:
 ; Function Attrs: mustprogress uwtable
 define noundef zeroext i1 @_ZNK8proxygen17HTTPParallelCodec10isReusableEv(ptr noundef nonnull align 8 dereferenceable(92) %this) unnamed_addr #3 align 2 {
 entry:
-  %sessionClosing_ = getelementptr inbounds %"class.proxygen::HTTPParallelCodec", ptr %this, i64 0, i32 9
+  %sessionClosing_ = getelementptr inbounds i8, ptr %this, i64 88
   %0 = load i32, ptr %sessionClosing_, align 8
   %switch = icmp ult i32 %0, 2
   br i1 %switch, label %land.lhs.true6, label %lor.lhs.false4
 
 lor.lhs.false4:                                   ; preds = %entry
-  %transportDirection_ = getelementptr inbounds %"class.proxygen::HTTPParallelCodec", ptr %this, i64 0, i32 1
+  %transportDirection_ = getelementptr inbounds i8, ptr %this, i64 8
   %1 = load i8, ptr %transportDirection_, align 8
   %cmp5 = icmp eq i8 %1, 0
   br i1 %cmp5, label %land.lhs.true, label %land.end
 
 land.lhs.true:                                    ; preds = %lor.lhs.false4
   %vtable = load ptr, ptr %this, align 8
-  %vfn = getelementptr inbounds ptr, ptr %vtable, i64 17
+  %vfn = getelementptr inbounds i8, ptr %vtable, i64 136
   %2 = load ptr, ptr %vfn, align 8
   %call = tail call noundef zeroext i1 %2(ptr noundef nonnull align 8 dereferenceable(92) %this)
-  %ingressGoawayAck_ = getelementptr inbounds %"class.proxygen::HTTPParallelCodec", ptr %this, i64 0, i32 6
+  %ingressGoawayAck_ = getelementptr inbounds i8, ptr %this, i64 40
   %3 = load i64, ptr %ingressGoawayAck_, align 8
   %cmp8 = icmp eq i64 %3, 4294967295
   %or.cond = select i1 %call, i1 %cmp8, i1 false
   br i1 %or.cond, label %land.rhs, label %land.end
 
 land.lhs.true6:                                   ; preds = %entry
-  %ingressGoawayAck_.old = getelementptr inbounds %"class.proxygen::HTTPParallelCodec", ptr %this, i64 0, i32 6
+  %ingressGoawayAck_.old = getelementptr inbounds i8, ptr %this, i64 40
   %.old = load i64, ptr %ingressGoawayAck_.old, align 8
   %cmp8.old = icmp eq i64 %.old, 4294967295
   br i1 %cmp8.old, label %land.rhs, label %land.end
 
 land.rhs:                                         ; preds = %land.lhs.true, %land.lhs.true6
-  %nextEgressStreamID_ = getelementptr inbounds %"class.proxygen::HTTPParallelCodec", ptr %this, i64 0, i32 3
+  %nextEgressStreamID_ = getelementptr inbounds i8, ptr %this, i64 16
   %4 = load i64, ptr %nextEgressStreamID_, align 8
   %cmp11 = icmp ult i64 %4, 2147483646
   br label %land.end
@@ -280,7 +275,7 @@ land.end:                                         ; preds = %land.rhs, %land.lhs
 define void @_ZN8proxygen17HTTPParallelCodec23enableDoubleGoawayDrainEv(ptr nocapture noundef nonnull align 8 dereferenceable(92) %this) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp7 = alloca %"class.google::LogMessage", align 8
-  %sessionClosing_ = getelementptr inbounds %"class.proxygen::HTTPParallelCodec", ptr %this, i64 0, i32 9
+  %sessionClosing_ = getelementptr inbounds i8, ptr %this, i64 88
   %0 = load i32, ptr %sessionClosing_, align 8
   %cmp = icmp eq i32 %0, 0
   br i1 %cmp, label %if.then, label %if.else
@@ -336,13 +331,13 @@ declare void @_ZN6google10LogMessageD1Ev(ptr noundef nonnull align 8 dereference
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
 define noundef zeroext i1 @_ZN8proxygen17HTTPParallelCodec23onIngressUpgradeMessageERKNS_11HTTPMessageE(ptr nocapture noundef nonnull align 8 dereferenceable(92) %this, ptr nocapture nonnull readnone align 8 %0) unnamed_addr #5 align 2 {
 entry:
-  %transportDirection_ = getelementptr inbounds %"class.proxygen::HTTPParallelCodec", ptr %this, i64 0, i32 1
+  %transportDirection_ = getelementptr inbounds i8, ptr %this, i64 8
   %1 = load i8, ptr %transportDirection_, align 8
   %cmp = icmp eq i8 %1, 0
   br i1 %cmp, label %if.then, label %if.end
 
 if.then:                                          ; preds = %entry
-  %lastStreamID_ = getelementptr inbounds %"class.proxygen::HTTPParallelCodec", ptr %this, i64 0, i32 4
+  %lastStreamID_ = getelementptr inbounds i8, ptr %this, i64 24
   store i64 1, ptr %lastStreamID_, align 8
   br label %if.end
 
@@ -354,7 +349,7 @@ if.end:                                           ; preds = %if.then, %entry
 define linkonce_odr void @_ZN8proxygen17HTTPParallelCodecD2Ev(ptr noundef nonnull align 8 dereferenceable(92) %this) unnamed_addr #7 comdat align 2 {
 entry:
   store ptr getelementptr inbounds ({ [56 x ptr] }, ptr @_ZTVN8proxygen17HTTPParallelCodecE, i64 0, inrange i32 0, i64 2), ptr %this, align 8
-  %goawayErrorMessage_ = getelementptr inbounds %"class.proxygen::HTTPParallelCodec", ptr %this, i64 0, i32 8
+  %goawayErrorMessage_ = getelementptr inbounds i8, ptr %this, i64 56
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %goawayErrorMessage_) #12
   ret void
 }
@@ -393,7 +388,7 @@ declare void @__cxa_pure_virtual() unnamed_addr
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr noundef zeroext i8 @_ZNK8proxygen17HTTPParallelCodec21getTransportDirectionEv(ptr noundef nonnull align 8 dereferenceable(92) %this) unnamed_addr #7 comdat align 2 {
 entry:
-  %transportDirection_ = getelementptr inbounds %"class.proxygen::HTTPParallelCodec", ptr %this, i64 0, i32 1
+  %transportDirection_ = getelementptr inbounds i8, ptr %this, i64 8
   %0 = load i8, ptr %transportDirection_, align 8
   ret i8 %0
 }
@@ -413,7 +408,7 @@ entry:
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZN8proxygen17HTTPParallelCodec11setCallbackEPNS_9HTTPCodec8CallbackE(ptr noundef nonnull align 8 dereferenceable(92) %this, ptr noundef %callback) unnamed_addr #7 comdat align 2 {
 entry:
-  %callback_ = getelementptr inbounds %"class.proxygen::HTTPParallelCodec", ptr %this, i64 0, i32 5
+  %callback_ = getelementptr inbounds i8, ptr %this, i64 32
   store ptr %callback, ptr %callback_, align 8
   ret void
 }
@@ -510,14 +505,14 @@ define linkonce_odr noundef i64 @_ZN8proxygen9HTTPCodec23generateImmediateGoaway
 entry:
   %agg.tmp = alloca %"class.std::unique_ptr", align 8
   %vtable = load ptr, ptr %this, align 8
-  %vfn = getelementptr inbounds ptr, ptr %vtable, i64 49
+  %vfn = getelementptr inbounds i8, ptr %vtable, i64 392
   %0 = load ptr, ptr %vfn, align 8
   %call = tail call noundef i64 %0(ptr noundef nonnull align 8 dereferenceable(8) %this)
   %1 = load i64, ptr %debugData, align 8
   store i64 %1, ptr %agg.tmp, align 8
   store ptr null, ptr %debugData, align 8
   %vtable2 = load ptr, ptr %this, align 8
-  %vfn3 = getelementptr inbounds ptr, ptr %vtable2, i64 33
+  %vfn3 = getelementptr inbounds i8, ptr %vtable2, i64 264
   %2 = load ptr, ptr %vfn3, align 8
   %call4 = invoke noundef i64 %2(ptr noundef nonnull align 8 dereferenceable(8) %this, ptr noundef nonnull align 8 dereferenceable(72) %writeBuf, i64 noundef %call, i8 noundef zeroext %code, ptr noundef nonnull %agg.tmp)
           to label %invoke.cont unwind label %lpad
@@ -623,7 +618,7 @@ entry:
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr noundef i64 @_ZNK8proxygen17HTTPParallelCodec23getLastIncomingStreamIDEv(ptr noundef nonnull align 8 dereferenceable(92) %this) unnamed_addr #7 comdat align 2 {
 entry:
-  %lastStreamID_ = getelementptr inbounds %"class.proxygen::HTTPParallelCodec", ptr %this, i64 0, i32 4
+  %lastStreamID_ = getelementptr inbounds i8, ptr %this, i64 24
   %0 = load i64, ptr %lastStreamID_, align 8
   ret i64 %0
 }

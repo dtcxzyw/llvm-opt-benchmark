@@ -18,7 +18,7 @@ define noundef zeroext i1 @_ZN4core3fmt5Write10write_char17h1375d19369f8a53eE(pt
   br i1 %9, label %10, label %"_ZN80_$LT$std..io..Write..write_fmt..Adapter$LT$T$GT$$u20$as$u20$core..fmt..Write$GT$9write_str17hbbf99f8b5b27c13aE.exit"
 
 10:                                               ; preds = %2
-  %11 = getelementptr inbounds { ptr, ptr }, ptr %0, i64 0, i32 1
+  %11 = getelementptr inbounds i8, ptr %0, i64 8
   invoke void @"_ZN4core3ptr81drop_in_place$LT$core..result..Result$LT$$LP$$RP$$C$std..io..error..Error$GT$$GT$17he8d5e4a5d97137cfE"(ptr nonnull align 8 %11)
           to label %14 unwind label %12
 
@@ -56,7 +56,7 @@ define noundef zeroext i1 @"_ZN80_$LT$std..io..Write..write_fmt..Adapter$LT$T$GT
   br i1 %6, label %7, label %9
 
 7:                                                ; preds = %3
-  %8 = getelementptr inbounds { ptr, ptr }, ptr %0, i64 0, i32 1
+  %8 = getelementptr inbounds i8, ptr %0, i64 8
   invoke void @"_ZN4core3ptr81drop_in_place$LT$core..result..Result$LT$$LP$$RP$$C$std..io..error..Error$GT$$GT$17he8d5e4a5d97137cfE"(ptr nonnull align 8 %8)
           to label %12 unwind label %10
 

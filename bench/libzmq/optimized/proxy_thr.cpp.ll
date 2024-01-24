@@ -71,7 +71,7 @@ define dso_local void @_Z15terminate_proxyPK15proxy_hwm_cfg_t(ptr nocapture noun
 entry:
   %0 = load ptr, ptr %cfg, align 8
   %call = tail call ptr @zmq_socket(ptr noundef %0, i32 noundef 3)
-  %control_endpoint = getelementptr inbounds %struct.proxy_hwm_cfg_t, ptr %cfg, i64 0, i32 4
+  %control_endpoint = getelementptr inbounds i8, ptr %cfg, i64 80
   %1 = load ptr, ptr %control_endpoint, align 8
   %call1 = tail call i32 @zmq_connect(ptr noundef %call, ptr noundef %1)
   %call2 = tail call i32 @zmq_send(ptr noundef %call, ptr noundef nonnull @.str.4, i64 noundef 9, i32 noundef 0)
@@ -102,12 +102,12 @@ if.then:                                          ; preds = %entry
   br label %return
 
 if.end:                                           ; preds = %entry
-  %arrayidx = getelementptr inbounds ptr, ptr %argv, i64 1
+  %arrayidx = getelementptr inbounds i8, ptr %argv, i64 8
   %0 = load ptr, ptr %arrayidx, align 8
   %call1 = tail call i32 @atoi(ptr nocapture noundef %0) #10
   %conv = sext i32 %call1 to i64
   store i64 %conv, ptr @_ZL12message_size, align 8
-  %arrayidx2 = getelementptr inbounds ptr, ptr %argv, i64 2
+  %arrayidx2 = getelementptr inbounds i8, ptr %argv, i64 16
   %1 = load ptr, ptr %arrayidx2, align 8
   %call3 = tail call i32 @atoi(ptr nocapture noundef %1) #10
   %conv4 = sext i32 %call3 to i64
@@ -236,11 +236,12 @@ entry:
   %0 = load ptr, ptr %pvoid, align 8
   %call = tail call ptr @zmq_socket(ptr noundef %0, i32 noundef 10)
   tail call fastcc void @_ZL7set_hwmPv(ptr noundef %call)
+  %frontend_endpoint = getelementptr inbounds i8, ptr %pvoid, i64 16
   br label %for.body
 
 for.body:                                         ; preds = %entry, %for.inc
   %indvars.iv = phi i64 [ 0, %entry ], [ %indvars.iv.next, %for.inc ]
-  %arrayidx = getelementptr inbounds %struct.proxy_hwm_cfg_t, ptr %pvoid, i64 0, i32 2, i64 %indvars.iv
+  %arrayidx = getelementptr inbounds [4 x ptr], ptr %frontend_endpoint, i64 0, i64 %indvars.iv
   %1 = load ptr, ptr %arrayidx, align 8
   %cmp1.not = icmp eq ptr %1, null
   br i1 %cmp1.not, label %for.inc, label %if.then
@@ -260,11 +261,12 @@ for.end:                                          ; preds = %for.inc
   store i32 1, ptr %optval, align 4
   %call5 = call i32 @zmq_setsockopt(ptr noundef %call4, i32 noundef 69, ptr noundef nonnull %optval, i64 noundef 4)
   call fastcc void @_ZL7set_hwmPv(ptr noundef %call4)
+  %backend_endpoint = getelementptr inbounds i8, ptr %pvoid, i64 48
   br label %for.body12
 
 for.body12:                                       ; preds = %for.end, %for.inc22
   %indvars.iv25 = phi i64 [ 0, %for.end ], [ %indvars.iv.next26, %for.inc22 ]
-  %arrayidx15 = getelementptr inbounds %struct.proxy_hwm_cfg_t, ptr %pvoid, i64 0, i32 3, i64 %indvars.iv25
+  %arrayidx15 = getelementptr inbounds [4 x ptr], ptr %backend_endpoint, i64 0, i64 %indvars.iv25
   %3 = load ptr, ptr %arrayidx15, align 8
   %cmp16.not = icmp eq ptr %3, null
   br i1 %cmp16.not, label %for.inc22, label %if.then17
@@ -281,7 +283,7 @@ for.inc22:                                        ; preds = %for.body12, %if.the
 for.end24:                                        ; preds = %for.inc22
   %4 = load ptr, ptr %pvoid, align 8
   %call26 = call ptr @zmq_socket(ptr noundef %4, i32 noundef 4)
-  %control_endpoint = getelementptr inbounds %struct.proxy_hwm_cfg_t, ptr %pvoid, i64 0, i32 4
+  %control_endpoint = getelementptr inbounds i8, ptr %pvoid, i64 80
   %5 = load ptr, ptr %control_endpoint, align 8
   %call27 = call i32 @zmq_bind(ptr noundef %call26, ptr noundef %5)
   %call30 = call i32 @zmq_proxy_steerable(ptr noundef %call, ptr noundef %call4, ptr noundef null, ptr noundef %call26)
@@ -295,7 +297,7 @@ for.end24:                                        ; preds = %for.inc22
 define internal void @_ZL22subscriber_thread_mainPv(ptr nocapture noundef readonly %pvoid) #0 {
 entry:
   %msg = alloca %struct.zmq_msg_t, align 8
-  %thread_idx = getelementptr inbounds %struct.proxy_hwm_cfg_t, ptr %pvoid, i64 0, i32 1
+  %thread_idx = getelementptr inbounds i8, ptr %pvoid, i64 8
   %0 = load i32, ptr %thread_idx, align 8
   %1 = load ptr, ptr %pvoid, align 8
   %call = tail call ptr @zmq_socket(ptr noundef %1, i32 noundef 2)
@@ -313,8 +315,9 @@ if.then.i:                                        ; preds = %entry
   unreachable
 
 _Z40test_assert_success_message_errno_helperiPKcS0_.exit: ; preds = %entry
+  %backend_endpoint = getelementptr inbounds i8, ptr %pvoid, i64 48
   %idxprom = sext i32 %0 to i64
-  %arrayidx = getelementptr inbounds %struct.proxy_hwm_cfg_t, ptr %pvoid, i64 0, i32 3, i64 %idxprom
+  %arrayidx = getelementptr inbounds [4 x ptr], ptr %backend_endpoint, i64 0, i64 %idxprom
   %2 = load ptr, ptr %arrayidx, align 8
   %call3 = tail call i32 @zmq_connect(ptr noundef %call, ptr noundef %2)
   %cmp.i8 = icmp eq i32 %call3, -1
@@ -372,7 +375,7 @@ entry:
   %buffer = alloca [32 x i8], align 16
   %msg_orig = alloca %struct.zmq_msg_t, align 8
   %msg = alloca %struct.zmq_msg_t, align 8
-  %thread_idx = getelementptr inbounds %struct.proxy_hwm_cfg_t, ptr %pvoid, i64 0, i32 1
+  %thread_idx = getelementptr inbounds i8, ptr %pvoid, i64 8
   %0 = load i32, ptr %thread_idx, align 8
   %1 = load ptr, ptr %pvoid, align 8
   %call = tail call ptr @zmq_socket(ptr noundef %1, i32 noundef 9)
@@ -405,8 +408,9 @@ if.then.i13:                                      ; preds = %_Z40test_assert_suc
   unreachable
 
 _Z40test_assert_success_message_errno_helperiPKcS0_.exit18: ; preds = %_Z40test_assert_success_message_errno_helperiPKcS0_.exit
+  %frontend_endpoint = getelementptr inbounds i8, ptr %pvoid, i64 16
   %idxprom = sext i32 %0 to i64
-  %arrayidx = getelementptr inbounds %struct.proxy_hwm_cfg_t, ptr %pvoid, i64 0, i32 2, i64 %idxprom
+  %arrayidx = getelementptr inbounds [4 x ptr], ptr %frontend_endpoint, i64 0, i64 %idxprom
   %2 = load ptr, ptr %arrayidx, align 8
   %call5 = call i32 @zmq_connect(ptr noundef %call, ptr noundef %2)
   %cmp.i19 = icmp eq i32 %call5, -1

@@ -3,11 +3,7 @@ source_filename = "bench/libquic/original/ctx.c.ll"
 target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:128-n8:16:32:64-S128"
 target triple = "x86_64-unknown-linux-gnu"
 
-%struct.bignum_ctx = type { %struct.bignum_pool, %struct.bignum_ctx_stack, i32, i32, i32 }
-%struct.bignum_pool = type { ptr, ptr, ptr, i32, i32 }
-%struct.bignum_ctx_stack = type { ptr, i32, i32 }
 %struct.bignum_st = type { ptr, i32, i32, i32, i32 }
-%struct.bignum_pool_item = type { [16 x %struct.bignum_st], ptr, ptr }
 
 @.str = private unnamed_addr constant [119 x i8] c"generated/home/dtcxzyw/WorkSpace/Projects/compilers/llvm-opt-benchmark/bench/libquic/libquic/boringssl/crypto/bn/ctx.c\00", align 1
 
@@ -42,7 +38,7 @@ entry:
   br i1 %cmp, label %return, label %if.end
 
 if.end:                                           ; preds = %entry
-  %stack = getelementptr inbounds %struct.bignum_ctx, ptr %ctx, i64 0, i32 1
+  %stack = getelementptr inbounds i8, ptr %ctx, i64 32
   %stack.val = load ptr, ptr %stack, align 8
   tail call void @free(ptr noundef %stack.val) #8
   %.pr.i = load ptr, ptr %ctx, align 8
@@ -50,7 +46,7 @@ if.end:                                           ; preds = %entry
   br i1 %tobool.not11.i, label %BN_POOL_finish.exit, label %while.cond2.preheader.lr.ph.i
 
 while.cond2.preheader.lr.ph.i:                    ; preds = %if.end
-  %current.i = getelementptr inbounds %struct.bignum_pool, ptr %ctx, i64 0, i32 1
+  %current.i = getelementptr inbounds i8, ptr %ctx, i64 8
   br label %while.body3.i
 
 while.body3.i:                                    ; preds = %while.body3.i.backedge, %while.cond2.preheader.lr.ph.i
@@ -65,7 +61,7 @@ if.then.i:                                        ; preds = %while.body3.i
   br label %if.end.i
 
 if.end.i:                                         ; preds = %if.then.i, %while.body3.i
-  %incdec.ptr.i = getelementptr inbounds %struct.bignum_st, ptr %bn.09.i, i64 1
+  %incdec.ptr.i = getelementptr inbounds i8, ptr %bn.09.i, i64 24
   %inc.i = add nuw nsw i32 %inc10.i, 1
   %exitcond.not.i = icmp eq i32 %inc.i, 17
   br i1 %exitcond.not.i, label %while.end.i, label %while.body3.i.backedge
@@ -77,7 +73,7 @@ while.body3.i.backedge:                           ; preds = %if.end.i, %while.en
 
 while.end.i:                                      ; preds = %if.end.i
   %1 = load ptr, ptr %ctx, align 8
-  %next.i = getelementptr inbounds %struct.bignum_pool_item, ptr %1, i64 0, i32 2
+  %next.i = getelementptr inbounds i8, ptr %1, i64 392
   %2 = load ptr, ptr %next.i, align 8
   store ptr %2, ptr %current.i, align 8
   tail call void @free(ptr noundef %1) #8
@@ -100,13 +96,13 @@ declare void @free(ptr allocptr nocapture noundef) local_unnamed_addr #3
 ; Function Attrs: nounwind uwtable
 define hidden void @BN_CTX_start(ptr nocapture noundef %ctx) local_unnamed_addr #0 {
 entry:
-  %err_stack = getelementptr inbounds %struct.bignum_ctx, ptr %ctx, i64 0, i32 3
+  %err_stack = getelementptr inbounds i8, ptr %ctx, i64 52
   %0 = load i32, ptr %err_stack, align 4
   %tobool.not = icmp eq i32 %0, 0
   br i1 %tobool.not, label %lor.lhs.false, label %if.then
 
 lor.lhs.false:                                    ; preds = %entry
-  %too_many = getelementptr inbounds %struct.bignum_ctx, ptr %ctx, i64 0, i32 4
+  %too_many = getelementptr inbounds i8, ptr %ctx, i64 56
   %1 = load i32, ptr %too_many, align 8
   %tobool1.not = icmp eq i32 %1, 0
   br i1 %tobool1.not, label %if.else, label %if.then
@@ -117,12 +113,12 @@ if.then:                                          ; preds = %lor.lhs.false, %ent
   br label %if.end7
 
 if.else:                                          ; preds = %lor.lhs.false
-  %stack = getelementptr inbounds %struct.bignum_ctx, ptr %ctx, i64 0, i32 1
-  %used = getelementptr inbounds %struct.bignum_ctx, ptr %ctx, i64 0, i32 2
+  %stack = getelementptr inbounds i8, ptr %ctx, i64 32
+  %used = getelementptr inbounds i8, ptr %ctx, i64 48
   %2 = load i32, ptr %used, align 8
-  %depth.i = getelementptr inbounds %struct.bignum_ctx, ptr %ctx, i64 0, i32 1, i32 1
+  %depth.i = getelementptr inbounds i8, ptr %ctx, i64 40
   %3 = load i32, ptr %depth.i, align 8
-  %size.i = getelementptr inbounds %struct.bignum_ctx, ptr %ctx, i64 0, i32 1, i32 2
+  %size.i = getelementptr inbounds i8, ptr %ctx, i64 44
   %4 = load i32, ptr %size.i, align 4
   %cmp.i = icmp eq i32 %3, %4
   br i1 %cmp.i, label %if.then.i, label %entry.if.end16_crit_edge.i
@@ -183,21 +179,21 @@ if.end7:                                          ; preds = %BN_STACK_push.exit,
 ; Function Attrs: nounwind uwtable
 define hidden noundef ptr @BN_CTX_get(ptr nocapture noundef %ctx) local_unnamed_addr #0 {
 entry:
-  %err_stack = getelementptr inbounds %struct.bignum_ctx, ptr %ctx, i64 0, i32 3
+  %err_stack = getelementptr inbounds i8, ptr %ctx, i64 52
   %0 = load i32, ptr %err_stack, align 4
   %tobool.not = icmp eq i32 %0, 0
   br i1 %tobool.not, label %lor.lhs.false, label %return
 
 lor.lhs.false:                                    ; preds = %entry
-  %too_many = getelementptr inbounds %struct.bignum_ctx, ptr %ctx, i64 0, i32 4
+  %too_many = getelementptr inbounds i8, ptr %ctx, i64 56
   %1 = load i32, ptr %too_many, align 8
   %tobool1.not = icmp eq i32 %1, 0
   br i1 %tobool1.not, label %if.end, label %return
 
 if.end:                                           ; preds = %lor.lhs.false
-  %used.i = getelementptr inbounds %struct.bignum_pool, ptr %ctx, i64 0, i32 3
+  %used.i = getelementptr inbounds i8, ptr %ctx, i64 24
   %2 = load i32, ptr %used.i, align 8
-  %size.i = getelementptr inbounds %struct.bignum_pool, ptr %ctx, i64 0, i32 4
+  %size.i = getelementptr inbounds i8, ptr %ctx, i64 28
   %3 = load i32, ptr %size.i, align 4
   %cmp.i = icmp eq i32 %2, %3
   br i1 %cmp.i, label %if.then.i, label %if.end17.i
@@ -211,25 +207,25 @@ while.body.i:                                     ; preds = %if.then.i, %while.b
   %loop.029.i = phi i32 [ %inc.i, %while.body.i ], [ 0, %if.then.i ]
   %bn.028.i = phi ptr [ %incdec.ptr.i, %while.body.i ], [ %call.i, %if.then.i ]
   %inc.i = add nuw nsw i32 %loop.029.i, 1
-  %incdec.ptr.i = getelementptr inbounds %struct.bignum_st, ptr %bn.028.i, i64 1
+  %incdec.ptr.i = getelementptr inbounds i8, ptr %bn.028.i, i64 24
   tail call void @BN_init(ptr noundef nonnull %bn.028.i) #8
   %exitcond.not.i = icmp eq i32 %inc.i, 16
   br i1 %exitcond.not.i, label %BN_POOL_get.exit.thread9, label %while.body.i, !llvm.loop !9
 
 BN_POOL_get.exit.thread9:                         ; preds = %while.body.i
-  %tail.i = getelementptr inbounds %struct.bignum_pool, ptr %ctx, i64 0, i32 2
+  %tail.i = getelementptr inbounds i8, ptr %ctx, i64 16
   %4 = load ptr, ptr %tail.i, align 8
-  %prev.i = getelementptr inbounds %struct.bignum_pool_item, ptr %call.i, i64 0, i32 1
+  %prev.i = getelementptr inbounds i8, ptr %call.i, i64 384
   store ptr %4, ptr %prev.i, align 8
-  %next.i = getelementptr inbounds %struct.bignum_pool_item, ptr %call.i, i64 0, i32 2
+  %next.i = getelementptr inbounds i8, ptr %call.i, i64 392
   store ptr null, ptr %next.i, align 8
   %5 = load ptr, ptr %ctx, align 8
   %tobool3.not.i = icmp eq ptr %5, null
-  %next8.i = getelementptr inbounds %struct.bignum_pool_item, ptr %4, i64 0, i32 2
+  %next8.i = getelementptr inbounds i8, ptr %4, i64 392
   %next8.sink.i = select i1 %tobool3.not.i, ptr %ctx, ptr %next8.i
   store ptr %call.i, ptr %next8.sink.i, align 8
   store ptr %call.i, ptr %tail.i, align 8
-  %6 = getelementptr inbounds %struct.bignum_pool, ptr %ctx, i64 0, i32 1
+  %6 = getelementptr inbounds i8, ptr %ctx, i64 8
   store ptr %call.i, ptr %6, align 8
   %7 = load <2 x i32>, ptr %used.i, align 8
   %8 = add <2 x i32> %7, <i32 1, i32 16>
@@ -242,14 +238,14 @@ if.end17.i:                                       ; preds = %if.end
 
 if.then20.i:                                      ; preds = %if.end17.i
   %9 = load ptr, ptr %ctx, align 8
-  %current22.i = getelementptr inbounds %struct.bignum_pool, ptr %ctx, i64 0, i32 1
+  %current22.i = getelementptr inbounds i8, ptr %ctx, i64 8
   store ptr %9, ptr %current22.i, align 8
   br label %BN_POOL_get.exit
 
 if.else23.i:                                      ; preds = %if.end17.i
   %rem.i = and i32 %2, 15
   %cmp25.i = icmp eq i32 %rem.i, 0
-  %current27.i = getelementptr inbounds %struct.bignum_pool, ptr %ctx, i64 0, i32 1
+  %current27.i = getelementptr inbounds i8, ptr %ctx, i64 8
   %10 = load ptr, ptr %current27.i, align 8
   br i1 %cmp25.i, label %if.then26.i, label %if.else23.if.end31_crit_edge.i
 
@@ -258,7 +254,7 @@ if.else23.if.end31_crit_edge.i:                   ; preds = %if.else23.i
   br label %BN_POOL_get.exit
 
 if.then26.i:                                      ; preds = %if.else23.i
-  %next28.i = getelementptr inbounds %struct.bignum_pool_item, ptr %10, i64 0, i32 2
+  %next28.i = getelementptr inbounds i8, ptr %10, i64 392
   %12 = load ptr, ptr %next28.i, align 8
   store ptr %12, ptr %current27.i, align 8
   br label %BN_POOL_get.exit
@@ -280,7 +276,7 @@ if.then2:                                         ; preds = %if.then.i, %BN_POOL
 if.end4:                                          ; preds = %BN_POOL_get.exit.thread9, %BN_POOL_get.exit
   %retval.0.i12 = phi ptr [ %call.i, %BN_POOL_get.exit.thread9 ], [ %add.ptr.i, %BN_POOL_get.exit ]
   tail call void @BN_zero(ptr noundef nonnull %retval.0.i12) #8
-  %used = getelementptr inbounds %struct.bignum_ctx, ptr %ctx, i64 0, i32 2
+  %used = getelementptr inbounds i8, ptr %ctx, i64 48
   %14 = load i32, ptr %used, align 8
   %inc = add i32 %14, 1
   store i32 %inc, ptr %used, align 8
@@ -296,7 +292,7 @@ declare void @BN_zero(ptr noundef) local_unnamed_addr #2
 ; Function Attrs: nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
 define hidden void @BN_CTX_end(ptr nocapture noundef %ctx) local_unnamed_addr #4 {
 entry:
-  %err_stack = getelementptr inbounds %struct.bignum_ctx, ptr %ctx, i64 0, i32 3
+  %err_stack = getelementptr inbounds i8, ptr %ctx, i64 52
   %0 = load i32, ptr %err_stack, align 4
   %tobool.not = icmp eq i32 %0, 0
   br i1 %tobool.not, label %if.else, label %if.then
@@ -307,23 +303,23 @@ if.then:                                          ; preds = %entry
   br label %if.end5
 
 if.else:                                          ; preds = %entry
-  %stack = getelementptr inbounds %struct.bignum_ctx, ptr %ctx, i64 0, i32 1
+  %stack = getelementptr inbounds i8, ptr %ctx, i64 32
   %1 = load ptr, ptr %stack, align 8
-  %depth.i = getelementptr inbounds %struct.bignum_ctx, ptr %ctx, i64 0, i32 1, i32 1
+  %depth.i = getelementptr inbounds i8, ptr %ctx, i64 40
   %2 = load i32, ptr %depth.i, align 8
   %dec.i = add i32 %2, -1
   store i32 %dec.i, ptr %depth.i, align 8
   %idxprom.i = zext i32 %dec.i to i64
   %arrayidx.i = getelementptr inbounds i32, ptr %1, i64 %idxprom.i
   %3 = load i32, ptr %arrayidx.i, align 4
-  %used = getelementptr inbounds %struct.bignum_ctx, ptr %ctx, i64 0, i32 2
+  %used = getelementptr inbounds i8, ptr %ctx, i64 48
   %4 = load i32, ptr %used, align 8
   %cmp = icmp ult i32 %3, %4
   br i1 %cmp, label %if.then2, label %if.end
 
 if.then2:                                         ; preds = %if.else
   %sub = sub i32 %4, %3
-  %used.i = getelementptr inbounds %struct.bignum_pool, ptr %ctx, i64 0, i32 3
+  %used.i = getelementptr inbounds i8, ptr %ctx, i64 24
   %5 = load i32, ptr %used.i, align 8
   %sub2.i = sub i32 %5, %sub
   store i32 %sub2.i, ptr %used.i, align 8
@@ -333,7 +329,7 @@ if.then2:                                         ; preds = %if.else
 while.body.lr.ph.i:                               ; preds = %if.then2
   %sub.i = add i32 %5, 15
   %rem.i = and i32 %sub.i, 15
-  %current.i = getelementptr inbounds %struct.bignum_pool, ptr %ctx, i64 0, i32 1
+  %current.i = getelementptr inbounds i8, ptr %ctx, i64 8
   br label %while.body.i
 
 while.body.i:                                     ; preds = %if.end.i, %while.body.lr.ph.i
@@ -345,7 +341,7 @@ while.body.i:                                     ; preds = %if.end.i, %while.bo
 
 if.then.i:                                        ; preds = %while.body.i
   %6 = load ptr, ptr %current.i, align 8
-  %prev.i = getelementptr inbounds %struct.bignum_pool_item, ptr %6, i64 0, i32 1
+  %prev.i = getelementptr inbounds i8, ptr %6, i64 384
   %7 = load ptr, ptr %prev.i, align 8
   store ptr %7, ptr %current.i, align 8
   br label %if.end.i
@@ -361,7 +357,7 @@ if.end.i:                                         ; preds = %if.else.i, %if.then
 
 if.end:                                           ; preds = %if.end.i, %if.then2, %if.else
   store i32 %3, ptr %used, align 8
-  %too_many = getelementptr inbounds %struct.bignum_ctx, ptr %ctx, i64 0, i32 4
+  %too_many = getelementptr inbounds i8, ptr %ctx, i64 56
   store i32 0, ptr %too_many, align 8
   br label %if.end5
 

@@ -1182,12 +1182,12 @@ do.end702:                                        ; preds = %delete.end698, %del
 
 if.end706:                                        ; preds = %do.end675, %if.end493
   %nevents.0 = phi i32 [ 4, %do.end675 ], [ 3, %if.end493 ]
-  %recv.i = getelementptr inbounds %struct.stats_endpoint, ptr %stats, i64 0, i32 1
-  %arrayinit.element13.i = getelementptr inbounds i64, ptr %stat_vals.i, i64 2
-  %arrayinit.element20.i = getelementptr inbounds i64, ptr %stat_vals.i, i64 4
-  %backend.i = getelementptr inbounds %struct.stats_proxy, ptr %stats, i64 0, i32 1
-  %recv21.i = getelementptr inbounds %struct.stats_proxy, ptr %stats, i64 0, i32 1, i32 1
-  %arrayinit.element27.i = getelementptr inbounds i64, ptr %stat_vals.i, i64 6
+  %recv.i = getelementptr inbounds i8, ptr %stats, i64 16
+  %arrayinit.element13.i = getelementptr inbounds i8, ptr %stat_vals.i, i64 16
+  %arrayinit.element20.i = getelementptr inbounds i8, ptr %stat_vals.i, i64 32
+  %backend.i = getelementptr inbounds i8, ptr %stats, i64 32
+  %recv21.i = getelementptr inbounds i8, ptr %stats, i64 48
+  %arrayinit.element27.i = getelementptr inbounds i8, ptr %stat_vals.i, i64 48
   br label %while.body
 
 while.body:                                       ; preds = %if.end706, %if.end997
@@ -1293,7 +1293,7 @@ if.else833.us:                                    ; preds = %for.body.us
   br i1 %cmp837.us, label %if.then838.us, label %for.inc.us
 
 if.then838.us:                                    ; preds = %if.else833.us
-  %events841.us = getelementptr inbounds [4 x %struct.zmq_poller_event_t], ptr %events, i64 0, i64 %indvars.iv405, i32 3
+  %events841.us = getelementptr inbounds i8, ptr %arrayidx818.us, i64 24
   %26 = load i16, ptr %events841.us, align 8
   %27 = trunc i16 %26 to i8
   %frombool845.us = and i8 %27, 1
@@ -1302,7 +1302,7 @@ if.then838.us:                                    ; preds = %if.else833.us
   br label %for.inc.us
 
 if.then821.us:                                    ; preds = %for.body.us
-  %events824.us = getelementptr inbounds [4 x %struct.zmq_poller_event_t], ptr %events, i64 0, i64 %indvars.iv405, i32 3
+  %events824.us = getelementptr inbounds i8, ptr %arrayidx818.us, i64 24
   %29 = load i16, ptr %events824.us, align 8
   %30 = trunc i16 %29 to i8
   %frombool.us = and i8 %30, 1
@@ -1524,7 +1524,7 @@ if.end816:                                        ; preds = %for.body
   br i1 %cmp820, label %if.then821, label %if.else833
 
 if.then821:                                       ; preds = %if.end816
-  %events824 = getelementptr inbounds [4 x %struct.zmq_poller_event_t], ptr %events, i64 0, i64 %indvars.iv, i32 3
+  %events824 = getelementptr inbounds i8, ptr %arrayidx, i64 24
   %35 = load i16, ptr %events824, align 8
   %36 = trunc i16 %35 to i8
   %frombool = and i8 %36, 1
@@ -1537,7 +1537,7 @@ if.else833:                                       ; preds = %if.end816
   br i1 %cmp837, label %if.then838, label %for.inc
 
 if.then838:                                       ; preds = %if.else833
-  %events841 = getelementptr inbounds [4 x %struct.zmq_poller_event_t], ptr %events, i64 0, i64 %indvars.iv, i32 3
+  %events841 = getelementptr inbounds i8, ptr %arrayidx, i64 24
   %38 = load i16, ptr %events841, align 8
   %39 = trunc i16 %38 to i8
   %frombool845 = and i8 %39, 1

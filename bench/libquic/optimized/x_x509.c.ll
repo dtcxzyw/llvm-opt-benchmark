@@ -10,10 +10,6 @@ target triple = "x86_64-unknown-linux-gnu"
 %struct.CRYPTO_STATIC_MUTEX = type { %union.pthread_rwlock_t }
 %union.pthread_rwlock_t = type { %struct.__pthread_rwlock_arch_t }
 %struct.__pthread_rwlock_arch_t = type { i32, i32, i32, i32, i32, i32, i32, i32, i8, [7 x i8], i64, i32 }
-%struct.x509_st = type { ptr, ptr, ptr, i32, i32, ptr, %struct.crypto_ex_data_st, i64, i64, i64, i64, i64, i64, ptr, ptr, ptr, ptr, ptr, ptr, [20 x i8], ptr }
-%struct.crypto_ex_data_st = type { ptr }
-%struct.x509_cinf_st = type { ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, %struct.ASN1_ENCODING_st }
-%struct.ASN1_ENCODING_st = type { ptr, i64, i32 }
 
 @X509_CINF_seq_tt = internal constant [10 x %struct.ASN1_TEMPLATE_st] [%struct.ASN1_TEMPLATE_st { i64 145, i64 0, i64 0, ptr @.str.2, ptr @ASN1_INTEGER_it }, %struct.ASN1_TEMPLATE_st { i64 0, i64 0, i64 8, ptr @.str.3, ptr @ASN1_INTEGER_it }, %struct.ASN1_TEMPLATE_st { i64 0, i64 0, i64 16, ptr @.str.4, ptr @X509_ALGOR_it }, %struct.ASN1_TEMPLATE_st { i64 0, i64 0, i64 24, ptr @.str.5, ptr @X509_NAME_it }, %struct.ASN1_TEMPLATE_st { i64 0, i64 0, i64 32, ptr @.str.6, ptr @X509_VAL_it }, %struct.ASN1_TEMPLATE_st { i64 0, i64 0, i64 40, ptr @.str.7, ptr @X509_NAME_it }, %struct.ASN1_TEMPLATE_st { i64 0, i64 0, i64 48, ptr @.str.8, ptr @X509_PUBKEY_it }, %struct.ASN1_TEMPLATE_st { i64 137, i64 1, i64 56, ptr @.str.9, ptr @ASN1_BIT_STRING_it }, %struct.ASN1_TEMPLATE_st { i64 137, i64 2, i64 64, ptr @.str.10, ptr @ASN1_BIT_STRING_it }, %struct.ASN1_TEMPLATE_st { i64 149, i64 3, i64 72, ptr @.str.11, ptr @X509_EXTENSION_it }], align 16
 @X509_CINF_aux = internal constant %struct.ASN1_AUX_st { ptr null, i32 2, i32 0, ptr null, i32 80 }, align 8
@@ -120,7 +116,7 @@ declare ptr @ASN1_item_dup(ptr noundef, ptr noundef) local_unnamed_addr #1
 ; Function Attrs: nounwind uwtable
 define hidden noundef ptr @X509_up_ref(ptr noundef returned %x) local_unnamed_addr #0 {
 entry:
-  %references = getelementptr inbounds %struct.x509_st, ptr %x, i64 0, i32 4
+  %references = getelementptr inbounds i8, ptr %x, i64 28
   tail call void @CRYPTO_refcount_inc(ptr noundef nonnull %references) #5
   ret ptr %x
 }
@@ -143,7 +139,7 @@ declare i32 @CRYPTO_get_ex_new_index(ptr noundef, ptr noundef, i64 noundef, ptr 
 ; Function Attrs: nounwind uwtable
 define hidden i32 @X509_set_ex_data(ptr noundef %r, i32 noundef %idx, ptr noundef %arg) local_unnamed_addr #0 {
 entry:
-  %ex_data = getelementptr inbounds %struct.x509_st, ptr %r, i64 0, i32 6
+  %ex_data = getelementptr inbounds i8, ptr %r, i64 40
   %call = tail call i32 @CRYPTO_set_ex_data(ptr noundef nonnull %ex_data, i32 noundef %idx, ptr noundef %arg) #5
   ret i32 %call
 }
@@ -153,7 +149,7 @@ declare i32 @CRYPTO_set_ex_data(ptr noundef, i32 noundef, ptr noundef) local_unn
 ; Function Attrs: nounwind uwtable
 define hidden ptr @X509_get_ex_data(ptr noundef %r, i32 noundef %idx) local_unnamed_addr #0 {
 entry:
-  %ex_data = getelementptr inbounds %struct.x509_st, ptr %r, i64 0, i32 6
+  %ex_data = getelementptr inbounds i8, ptr %r, i64 40
   %call = tail call ptr @CRYPTO_get_ex_data(ptr noundef nonnull %ex_data, i32 noundef %idx) #5
   ret ptr %call
 }
@@ -199,7 +195,7 @@ if.end3:                                          ; preds = %if.end
   br i1 %cmp4, label %land.lhs.true, label %if.end8
 
 land.lhs.true:                                    ; preds = %if.end3
-  %aux = getelementptr inbounds %struct.x509_st, ptr %phi.call, i64 0, i32 20
+  %aux = getelementptr inbounds i8, ptr %phi.call, i64 168
   %call5 = call ptr @d2i_X509_CERT_AUX(ptr noundef nonnull %aux, ptr noundef nonnull %q, i64 noundef %sub) #5
   %tobool6.not = icmp eq ptr %call5, null
   br i1 %tobool6.not, label %err, label %land.lhs.true.if.end8_crit_edge
@@ -242,7 +238,7 @@ entry:
   br i1 %or.cond, label %return, label %if.end
 
 if.end:                                           ; preds = %entry
-  %aux = getelementptr inbounds %struct.x509_st, ptr %a, i64 0, i32 20
+  %aux = getelementptr inbounds i8, ptr %a, i64 168
   %1 = load ptr, ptr %aux, align 8
   %call2 = tail call i32 @i2d_X509_CERT_AUX(ptr noundef %1, ptr noundef nonnull %pp) #5
   %cmp3 = icmp slt i32 %call2, 0
@@ -270,7 +266,7 @@ entry:
   br i1 %tobool.not, label %if.end, label %if.then
 
 if.then:                                          ; preds = %entry
-  %signature = getelementptr inbounds %struct.x509_st, ptr %x, i64 0, i32 2
+  %signature = getelementptr inbounds i8, ptr %x, i64 16
   %0 = load ptr, ptr %signature, align 8
   store ptr %0, ptr %psig, align 8
   br label %if.end
@@ -280,7 +276,7 @@ if.end:                                           ; preds = %if.then, %entry
   br i1 %tobool1.not, label %if.end3, label %if.then2
 
 if.then2:                                         ; preds = %if.end
-  %sig_alg = getelementptr inbounds %struct.x509_st, ptr %x, i64 0, i32 1
+  %sig_alg = getelementptr inbounds i8, ptr %x, i64 8
   %1 = load ptr, ptr %sig_alg, align 8
   store ptr %1, ptr %palg, align 8
   br label %if.end3
@@ -292,7 +288,7 @@ if.end3:                                          ; preds = %if.then2, %if.end
 ; Function Attrs: nounwind uwtable
 define hidden i32 @X509_get_signature_nid(ptr nocapture noundef readonly %x) local_unnamed_addr #0 {
 entry:
-  %sig_alg = getelementptr inbounds %struct.x509_st, ptr %x, i64 0, i32 1
+  %sig_alg = getelementptr inbounds i8, ptr %x, i64 8
   %0 = load ptr, ptr %sig_alg, align 8
   %1 = load ptr, ptr %0, align 8
   %call = tail call i32 @OBJ_obj2nid(ptr noundef %1) #5
@@ -312,26 +308,26 @@ entry:
   ]
 
 sw.bb:                                            ; preds = %entry
-  %valid = getelementptr inbounds %struct.x509_st, ptr %0, i64 0, i32 3
+  %valid = getelementptr inbounds i8, ptr %0, i64 24
   store i32 0, ptr %valid, align 8
-  %name = getelementptr inbounds %struct.x509_st, ptr %0, i64 0, i32 5
+  %name = getelementptr inbounds i8, ptr %0, i64 32
   store ptr null, ptr %name, align 8
-  %ex_flags = getelementptr inbounds %struct.x509_st, ptr %0, i64 0, i32 9
+  %ex_flags = getelementptr inbounds i8, ptr %0, i64 64
   store i64 0, ptr %ex_flags, align 8
-  %ex_pathlen = getelementptr inbounds %struct.x509_st, ptr %0, i64 0, i32 7
+  %ex_pathlen = getelementptr inbounds i8, ptr %0, i64 48
   store i64 -1, ptr %ex_pathlen, align 8
-  %skid = getelementptr inbounds %struct.x509_st, ptr %0, i64 0, i32 13
-  %aux = getelementptr inbounds %struct.x509_st, ptr %0, i64 0, i32 20
+  %skid = getelementptr inbounds i8, ptr %0, i64 96
+  %aux = getelementptr inbounds i8, ptr %0, i64 168
   store ptr null, ptr %aux, align 8
-  %crldp = getelementptr inbounds %struct.x509_st, ptr %0, i64 0, i32 16
+  %crldp = getelementptr inbounds i8, ptr %0, i64 120
   store ptr null, ptr %crldp, align 8
-  %ex_data = getelementptr inbounds %struct.x509_st, ptr %0, i64 0, i32 6
+  %ex_data = getelementptr inbounds i8, ptr %0, i64 40
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %skid, i8 0, i64 16, i1 false)
   tail call void @CRYPTO_new_ex_data(ptr noundef nonnull %ex_data) #5
   br label %sw.epilog
 
 sw.bb1:                                           ; preds = %entry
-  %name2 = getelementptr inbounds %struct.x509_st, ptr %0, i64 0, i32 5
+  %name2 = getelementptr inbounds i8, ptr %0, i64 32
   %1 = load ptr, ptr %name2, align 8
   %cmp.not = icmp eq ptr %1, null
   br i1 %cmp.not, label %if.end, label %if.then
@@ -342,37 +338,37 @@ if.then:                                          ; preds = %sw.bb1
 
 if.end:                                           ; preds = %if.then, %sw.bb1
   %2 = load ptr, ptr %0, align 8
-  %subject = getelementptr inbounds %struct.x509_cinf_st, ptr %2, i64 0, i32 5
+  %subject = getelementptr inbounds i8, ptr %2, i64 40
   %3 = load ptr, ptr %subject, align 8
   %call = tail call ptr @X509_NAME_oneline(ptr noundef %3, ptr noundef null, i32 noundef 0) #5
   store ptr %call, ptr %name2, align 8
   br label %sw.epilog
 
 sw.bb5:                                           ; preds = %entry
-  %ex_data6 = getelementptr inbounds %struct.x509_st, ptr %0, i64 0, i32 6
+  %ex_data6 = getelementptr inbounds i8, ptr %0, i64 40
   tail call void @CRYPTO_free_ex_data(ptr noundef nonnull @g_ex_data_class, ptr noundef %0, ptr noundef nonnull %ex_data6) #5
-  %aux7 = getelementptr inbounds %struct.x509_st, ptr %0, i64 0, i32 20
+  %aux7 = getelementptr inbounds i8, ptr %0, i64 168
   %4 = load ptr, ptr %aux7, align 8
   tail call void @X509_CERT_AUX_free(ptr noundef %4) #5
-  %skid8 = getelementptr inbounds %struct.x509_st, ptr %0, i64 0, i32 13
+  %skid8 = getelementptr inbounds i8, ptr %0, i64 96
   %5 = load ptr, ptr %skid8, align 8
   tail call void @ASN1_OCTET_STRING_free(ptr noundef %5) #5
-  %akid9 = getelementptr inbounds %struct.x509_st, ptr %0, i64 0, i32 14
+  %akid9 = getelementptr inbounds i8, ptr %0, i64 104
   %6 = load ptr, ptr %akid9, align 8
   tail call void @AUTHORITY_KEYID_free(ptr noundef %6) #5
-  %crldp10 = getelementptr inbounds %struct.x509_st, ptr %0, i64 0, i32 16
+  %crldp10 = getelementptr inbounds i8, ptr %0, i64 120
   %7 = load ptr, ptr %crldp10, align 8
   tail call void @CRL_DIST_POINTS_free(ptr noundef %7) #5
-  %policy_cache = getelementptr inbounds %struct.x509_st, ptr %0, i64 0, i32 15
+  %policy_cache = getelementptr inbounds i8, ptr %0, i64 112
   %8 = load ptr, ptr %policy_cache, align 8
   tail call void @policy_cache_free(ptr noundef %8) #5
-  %altname = getelementptr inbounds %struct.x509_st, ptr %0, i64 0, i32 17
+  %altname = getelementptr inbounds i8, ptr %0, i64 128
   %9 = load ptr, ptr %altname, align 8
   tail call void @GENERAL_NAMES_free(ptr noundef %9) #5
-  %nc = getelementptr inbounds %struct.x509_st, ptr %0, i64 0, i32 18
+  %nc = getelementptr inbounds i8, ptr %0, i64 136
   %10 = load ptr, ptr %nc, align 8
   tail call void @NAME_CONSTRAINTS_free(ptr noundef %10) #5
-  %name11 = getelementptr inbounds %struct.x509_st, ptr %0, i64 0, i32 5
+  %name11 = getelementptr inbounds i8, ptr %0, i64 32
   %11 = load ptr, ptr %name11, align 8
   %cmp12.not = icmp eq ptr %11, null
   br i1 %cmp12.not, label %sw.epilog, label %if.then13

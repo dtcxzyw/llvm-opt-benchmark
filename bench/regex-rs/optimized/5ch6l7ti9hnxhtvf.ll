@@ -125,9 +125,9 @@ define { i8, i8 } @_ZN4core4iter6traits8iterator8Iterator8try_fold17h6eb6b34ffaf
 ; Function Attrs: inlinehint mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: write) uwtable
 define void @_ZN4core4iter6traits8iterator8Iterator9enumerate17h34c7ba0a7a1f50bbE(ptr nocapture writeonly sret({ { ptr, i64 }, i64 }) align 8 %0, ptr align 1 %1, i64 %2) unnamed_addr #3 {
   store ptr %1, ptr %0, align 8
-  %4 = getelementptr inbounds { ptr, i64 }, ptr %0, i64 0, i32 1
+  %4 = getelementptr inbounds i8, ptr %0, i64 8
   store i64 %2, ptr %4, align 8
-  %5 = getelementptr inbounds { { ptr, i64 }, i64 }, ptr %0, i64 0, i32 1
+  %5 = getelementptr inbounds i8, ptr %0, i64 16
   store i64 0, ptr %5, align 8
   ret void
 }
@@ -246,14 +246,14 @@ define void @_ZN14regex_automata4util8alphabet11ByteClasses15representatives17hc
   br i1 %39, label %45, label %40
 
 40:                                               ; preds = %38
-  %41 = getelementptr inbounds { { i64, i64 }, ptr, i64, { i8, i8 }, [6 x i8] }, ptr %0, i64 0, i32 1
+  %41 = getelementptr inbounds i8, ptr %0, i64 16
   store ptr %1, ptr %41, align 8
-  %42 = getelementptr inbounds { { i64, i64 }, ptr, i64, { i8, i8 }, [6 x i8] }, ptr %0, i64 0, i32 2
+  %42 = getelementptr inbounds i8, ptr %0, i64 24
   store i64 %24, ptr %42, align 8
   store i64 %.sroa.02.0, ptr %0, align 8
-  %43 = getelementptr inbounds { i64, i64 }, ptr %0, i64 0, i32 1
+  %43 = getelementptr inbounds i8, ptr %0, i64 8
   store i64 %.sroa.4.0, ptr %43, align 8
-  %44 = getelementptr inbounds { { i64, i64 }, ptr, i64, { i8, i8 }, [6 x i8] }, ptr %0, i64 0, i32 3
+  %44 = getelementptr inbounds i8, ptr %0, i64 32
   store i8 0, ptr %44, align 8
   ret void
 
@@ -342,14 +342,14 @@ define void @_ZN14regex_automata4util8alphabet11ByteClasses15representatives17hf
   br i1 %38, label %44, label %39
 
 39:                                               ; preds = %37
-  %40 = getelementptr inbounds { { i64, i64 }, ptr, i64, { i8, i8 }, [6 x i8] }, ptr %0, i64 0, i32 1
+  %40 = getelementptr inbounds i8, ptr %0, i64 16
   store ptr %1, ptr %40, align 8
-  %41 = getelementptr inbounds { { i64, i64 }, ptr, i64, { i8, i8 }, [6 x i8] }, ptr %0, i64 0, i32 2
+  %41 = getelementptr inbounds i8, ptr %0, i64 24
   store i64 %23, ptr %41, align 8
   store i64 %.sroa.02.0, ptr %0, align 8
-  %42 = getelementptr inbounds { i64, i64 }, ptr %0, i64 0, i32 1
+  %42 = getelementptr inbounds i8, ptr %0, i64 8
   store i64 %.sroa.4.0, ptr %42, align 8
-  %43 = getelementptr inbounds { { i64, i64 }, ptr, i64, { i8, i8 }, [6 x i8] }, ptr %0, i64 0, i32 3
+  %43 = getelementptr inbounds i8, ptr %0, i64 32
   store i8 0, ptr %43, align 8
   ret void
 

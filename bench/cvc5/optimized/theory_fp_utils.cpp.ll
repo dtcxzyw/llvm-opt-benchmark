@@ -43,7 +43,7 @@ entry:
           to label %invoke.cont unwind label %lpad
 
 invoke.cont:                                      ; preds = %entry
-  %d_sig_size.i = getelementptr inbounds %"class.cvc5::internal::FloatingPointSize", ptr %fps, i64 0, i32 1
+  %d_sig_size.i = getelementptr inbounds i8, ptr %fps, i64 4
   %1 = load i32, ptr %d_sig_size.i, align 4
   invoke void @_ZNK4cvc58internal7Integer3powEj(ptr nonnull sret(%"class.cvc5::internal::Integer") align 8 %ref.tmp2, ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp3, i32 noundef %1)
           to label %invoke.cont7 unwind label %lpad4

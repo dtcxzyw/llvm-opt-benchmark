@@ -3,7 +3,6 @@ source_filename = "bench/wolfssl/original/chacha.c.ll"
 target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:128-n8:16:32:64-S128"
 target triple = "x86_64-unknown-linux-gnu"
 
-%struct.ChaCha = type { [16 x i32], i32 }
 %union.anon = type { i64, [56 x i8] }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
@@ -17,14 +16,14 @@ entry:
 if.end:                                           ; preds = %entry
   %temp.sroa.3.0..sroa_idx = getelementptr inbounds i8, ptr %inIv, i64 8
   %temp.sroa.3.0.copyload = load i32, ptr %temp.sroa.3.0..sroa_idx, align 1
-  %left = getelementptr inbounds %struct.ChaCha, ptr %ctx, i64 0, i32 1
-  %arrayidx = getelementptr inbounds [16 x i32], ptr %ctx, i64 0, i64 12
-  %arrayidx4 = getelementptr inbounds [16 x i32], ptr %ctx, i64 0, i64 13
+  %left = getelementptr inbounds i8, ptr %ctx, i64 64
+  %arrayidx = getelementptr inbounds i8, ptr %ctx, i64 48
+  %arrayidx4 = getelementptr inbounds i8, ptr %ctx, i64 52
   %0 = load <2 x i32>, ptr %inIv, align 1
   store i32 0, ptr %left, align 4
   store i32 %counter, ptr %arrayidx, align 4
   store <2 x i32> %0, ptr %arrayidx4, align 4
-  %arrayidx10 = getelementptr inbounds [16 x i32], ptr %ctx, i64 0, i64 15
+  %arrayidx10 = getelementptr inbounds i8, ptr %ctx, i64 60
   store i32 %temp.sroa.3.0.copyload, ptr %arrayidx10, align 4
   br label %return
 
@@ -52,48 +51,48 @@ if.end:                                           ; preds = %entry
 
 if.end5:                                          ; preds = %if.end, %if.end
   %0 = load i32, ptr %key, align 4
-  %arrayidx6 = getelementptr inbounds [16 x i32], ptr %ctx, i64 0, i64 4
+  %arrayidx6 = getelementptr inbounds i8, ptr %ctx, i64 16
   store i32 %0, ptr %arrayidx6, align 4
   %add.ptr7 = getelementptr inbounds i8, ptr %key, i64 4
   %1 = load i32, ptr %add.ptr7, align 4
-  %arrayidx10 = getelementptr inbounds [16 x i32], ptr %ctx, i64 0, i64 5
+  %arrayidx10 = getelementptr inbounds i8, ptr %ctx, i64 20
   store i32 %1, ptr %arrayidx10, align 4
   %add.ptr11 = getelementptr inbounds i8, ptr %key, i64 8
   %2 = load i32, ptr %add.ptr11, align 4
-  %arrayidx14 = getelementptr inbounds [16 x i32], ptr %ctx, i64 0, i64 6
+  %arrayidx14 = getelementptr inbounds i8, ptr %ctx, i64 24
   store i32 %2, ptr %arrayidx14, align 4
   %add.ptr15 = getelementptr inbounds i8, ptr %key, i64 12
   %3 = load i32, ptr %add.ptr15, align 4
-  %arrayidx18 = getelementptr inbounds [16 x i32], ptr %ctx, i64 0, i64 7
+  %arrayidx18 = getelementptr inbounds i8, ptr %ctx, i64 28
   store i32 %3, ptr %arrayidx18, align 4
   %cmp19 = icmp eq i32 %keySz, 32
   %k.0.idx = select i1 %cmp19, i64 16, i64 0
   %k.0 = getelementptr inbounds i8, ptr %key, i64 %k.0.idx
   %4 = load i32, ptr %k.0, align 4
-  %arrayidx26 = getelementptr inbounds [16 x i32], ptr %ctx, i64 0, i64 8
+  %arrayidx26 = getelementptr inbounds i8, ptr %ctx, i64 32
   store i32 %4, ptr %arrayidx26, align 4
   %add.ptr27 = getelementptr inbounds i8, ptr %k.0, i64 4
   %5 = load i32, ptr %add.ptr27, align 4
-  %arrayidx30 = getelementptr inbounds [16 x i32], ptr %ctx, i64 0, i64 9
+  %arrayidx30 = getelementptr inbounds i8, ptr %ctx, i64 36
   store i32 %5, ptr %arrayidx30, align 4
   %add.ptr31 = getelementptr inbounds i8, ptr %k.0, i64 8
   %6 = load i32, ptr %add.ptr31, align 4
-  %arrayidx34 = getelementptr inbounds [16 x i32], ptr %ctx, i64 0, i64 10
+  %arrayidx34 = getelementptr inbounds i8, ptr %ctx, i64 40
   store i32 %6, ptr %arrayidx34, align 4
   %add.ptr35 = getelementptr inbounds i8, ptr %k.0, i64 12
   %7 = load i32, ptr %add.ptr35, align 4
-  %arrayidx38 = getelementptr inbounds [16 x i32], ptr %ctx, i64 0, i64 11
+  %arrayidx38 = getelementptr inbounds i8, ptr %ctx, i64 44
   store i32 %7, ptr %arrayidx38, align 4
   store i32 1634760805, ptr %ctx, align 4
   %8 = select i1 %cmp19, i32 857760878, i32 824206446
-  %arrayidx44 = getelementptr inbounds [16 x i32], ptr %ctx, i64 0, i64 1
+  %arrayidx44 = getelementptr inbounds i8, ptr %ctx, i64 4
   store i32 %8, ptr %arrayidx44, align 4
   %9 = select i1 %cmp19, i32 2036477234, i32 2036477238
-  %arrayidx47 = getelementptr inbounds [16 x i32], ptr %ctx, i64 0, i64 2
+  %arrayidx47 = getelementptr inbounds i8, ptr %ctx, i64 8
   store i32 %9, ptr %arrayidx47, align 4
-  %arrayidx50 = getelementptr inbounds [16 x i32], ptr %ctx, i64 0, i64 3
+  %arrayidx50 = getelementptr inbounds i8, ptr %ctx, i64 12
   store i32 1797285236, ptr %arrayidx50, align 4
-  %left = getelementptr inbounds %struct.ChaCha, ptr %ctx, i64 0, i32 1
+  %left = getelementptr inbounds i8, ptr %ctx, i64 64
   store i32 0, ptr %left, align 4
   br label %return
 
@@ -119,7 +118,7 @@ if.end:                                           ; preds = %entry
   br i1 %cmp.not.i, label %wc_Chacha_encrypt_bytes.exit, label %land.lhs.true.i
 
 land.lhs.true.i:                                  ; preds = %if.end
-  %left.i = getelementptr inbounds %struct.ChaCha, ptr %ctx, i64 0, i32 1
+  %left.i = getelementptr inbounds i8, ptr %ctx, i64 64
   %0 = load i32, ptr %left.i, align 4
   %cmp1.not.i = icmp eq i32 %0, 0
   br i1 %cmp1.not.i, label %if.end19.i, label %if.then.i
@@ -180,12 +179,12 @@ for.body.i.i.i:                                   ; preds = %while.end.i.i, %for
   %tpb.sroa.0.0.i.i = phi ptr [ %incdec.ptr.i.i.i, %for.body.i.i.i ], [ %b.0.lcssa.i.i, %while.end.i.i ]
   %tpm.sroa.0.0.i.i = phi ptr [ %incdec.ptr1.i.i.i, %for.body.i.i.i ], [ %m.0.lcssa.i.i, %while.end.i.i ]
   %i.03.i.i.i = phi i32 [ %inc.i.i.i, %for.body.i.i.i ], [ 0, %while.end.i.i ]
-  %incdec.ptr.i.i.i = getelementptr inbounds i64, ptr %tpb.sroa.0.0.i.i, i64 1
+  %incdec.ptr.i.i.i = getelementptr inbounds i8, ptr %tpb.sroa.0.0.i.i, i64 8
   %8 = load i64, ptr %tpb.sroa.0.0.i.i, align 8
-  %incdec.ptr1.i.i.i = getelementptr inbounds i64, ptr %tpm.sroa.0.0.i.i, i64 1
+  %incdec.ptr1.i.i.i = getelementptr inbounds i8, ptr %tpm.sroa.0.0.i.i, i64 8
   %9 = load i64, ptr %tpm.sroa.0.0.i.i, align 8
   %xor.i.i.i = xor i64 %9, %8
-  %incdec.ptr2.i.i.i = getelementptr inbounds i64, ptr %tpo.sroa.0.0.i.i, i64 1
+  %incdec.ptr2.i.i.i = getelementptr inbounds i8, ptr %tpo.sroa.0.0.i.i, i64 8
   store i64 %xor.i.i.i, ptr %tpo.sroa.0.0.i.i, align 8
   %inc.i.i.i = add nuw nsw i32 %i.03.i.i.i, 1
   %exitcond.not.i.i.i = icmp eq i32 %inc.i.i.i, %div20.i.i
@@ -228,7 +227,7 @@ xorbufout.exit.i:                                 ; preds = %for.body.i.i, %if.e
   br i1 %cmp9.i, label %if.then10.i, label %if.end.i
 
 if.then10.i:                                      ; preds = %xorbufout.exit.i
-  %arrayidx.i = getelementptr inbounds [16 x i32], ptr %ctx, i64 0, i64 12
+  %arrayidx.i = getelementptr inbounds i8, ptr %ctx, i64 48
   %13 = load i32, ptr %arrayidx.i, align 4
   %add.i = add i32 %13, 1
   store i32 %add.i, ptr %arrayidx.i, align 4
@@ -251,7 +250,7 @@ if.end19.i:                                       ; preds = %if.end.i, %land.lhs
 while.body.lr.ph.i:                               ; preds = %if.end19.i
   %m.addr.0.i5 = ptrtoint ptr %m.addr.0.i to i64
   %c.addr.0192.i = ptrtoint ptr %c.addr.0.i to i64
-  %arrayidx25.i = getelementptr inbounds [16 x i32], ptr %ctx, i64 0, i64 12
+  %arrayidx25.i = getelementptr inbounds i8, ptr %ctx, i64 48
   %14 = and i64 %c.addr.0192.i, 7
   %cmp627.i55.not.i = icmp eq i64 %14, 0
   %15 = and i64 %m.addr.0.i5, 7
@@ -311,12 +310,12 @@ for.body.i.i63.i:                                 ; preds = %for.body.i.i63.i, %
   %tpb.sroa.0.0.i65.i = phi ptr [ %incdec.ptr.i.i68.i, %for.body.i.i63.i ], [ %b.0.lcssa.i59206.i, %for.body.i.i63.preheader.i ]
   %tpm.sroa.0.0.i66.i = phi ptr [ %incdec.ptr1.i.i69.i, %for.body.i.i63.i ], [ %m.0.lcssa.i60207.i, %for.body.i.i63.preheader.i ]
   %i.03.i.i67.i = phi i32 [ %inc.i.i72.i, %for.body.i.i63.i ], [ 0, %for.body.i.i63.preheader.i ]
-  %incdec.ptr.i.i68.i = getelementptr inbounds i64, ptr %tpb.sroa.0.0.i65.i, i64 1
+  %incdec.ptr.i.i68.i = getelementptr inbounds i8, ptr %tpb.sroa.0.0.i65.i, i64 8
   %24 = load i64, ptr %tpb.sroa.0.0.i65.i, align 8
-  %incdec.ptr1.i.i69.i = getelementptr inbounds i64, ptr %tpm.sroa.0.0.i66.i, i64 1
+  %incdec.ptr1.i.i69.i = getelementptr inbounds i8, ptr %tpm.sroa.0.0.i66.i, i64 8
   %25 = load i64, ptr %tpm.sroa.0.0.i66.i, align 8
   %xor.i.i70.i = xor i64 %25, %24
-  %incdec.ptr2.i.i71.i = getelementptr inbounds i64, ptr %tpo.sroa.0.0.i64.i, i64 1
+  %incdec.ptr2.i.i71.i = getelementptr inbounds i8, ptr %tpo.sroa.0.0.i64.i, i64 8
   store i64 %xor.i.i70.i, ptr %tpo.sroa.0.0.i64.i, align 8
   %inc.i.i72.i = add nuw nsw i32 %i.03.i.i67.i, 1
   %exitcond.not.i.i73.i = icmp eq i32 %inc.i.i72.i, %div20.i61208.i
@@ -414,12 +413,12 @@ for.body.i.i125.i:                                ; preds = %while.end.i118.i, %
   %tpb.sroa.0.0.i127.i = phi ptr [ %incdec.ptr.i.i130.i, %for.body.i.i125.i ], [ %b.0.lcssa.i121.i, %while.end.i118.i ]
   %tpm.sroa.0.0.i128.i = phi ptr [ %incdec.ptr1.i.i131.i, %for.body.i.i125.i ], [ %m.0.lcssa.i122.i, %while.end.i118.i ]
   %i.03.i.i129.i = phi i32 [ %inc.i.i134.i, %for.body.i.i125.i ], [ 0, %while.end.i118.i ]
-  %incdec.ptr.i.i130.i = getelementptr inbounds i64, ptr %tpb.sroa.0.0.i127.i, i64 1
+  %incdec.ptr.i.i130.i = getelementptr inbounds i8, ptr %tpb.sroa.0.0.i127.i, i64 8
   %36 = load i64, ptr %tpb.sroa.0.0.i127.i, align 8
-  %incdec.ptr1.i.i131.i = getelementptr inbounds i64, ptr %tpm.sroa.0.0.i128.i, i64 1
+  %incdec.ptr1.i.i131.i = getelementptr inbounds i8, ptr %tpm.sroa.0.0.i128.i, i64 8
   %37 = load i64, ptr %tpm.sroa.0.0.i128.i, align 8
   %xor.i.i132.i = xor i64 %37, %36
-  %incdec.ptr2.i.i133.i = getelementptr inbounds i64, ptr %tpo.sroa.0.0.i126.i, i64 1
+  %incdec.ptr2.i.i133.i = getelementptr inbounds i8, ptr %tpo.sroa.0.0.i126.i, i64 8
   store i64 %xor.i.i132.i, ptr %tpo.sroa.0.0.i126.i, align 8
   %inc.i.i134.i = add nuw nsw i32 %i.03.i.i129.i, 1
   %exitcond.not.i.i135.i = icmp eq i32 %inc.i.i134.i, %div20.i123.i
@@ -472,7 +471,7 @@ return:                                           ; preds = %entry, %wc_Chacha_e
 define void @wc_Chacha_purge_current_block(ptr noundef %ctx) local_unnamed_addr #2 {
 entry:
   %scratch = alloca [64 x i8], align 16
-  %left = getelementptr inbounds %struct.ChaCha, ptr %ctx, i64 0, i32 1
+  %left = getelementptr inbounds i8, ptr %ctx, i64 64
   %0 = load i32, ptr %left, align 4
   %cmp.not = icmp eq i32 %0, 0
   br i1 %cmp.not, label %if.end, label %if.then
@@ -494,21 +493,21 @@ declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #3
 define internal fastcc void @wc_Chacha_wordtobyte(ptr nocapture noundef %x, ptr nocapture noundef readonly %state) unnamed_addr #4 {
 entry:
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(64) %x, ptr noundef nonnull align 4 dereferenceable(64) %state, i64 64, i1 false)
-  %arrayidx1 = getelementptr inbounds i32, ptr %x, i64 4
-  %arrayidx3 = getelementptr inbounds i32, ptr %x, i64 12
-  %arrayidx6 = getelementptr inbounds i32, ptr %x, i64 8
-  %arrayidx36 = getelementptr inbounds i32, ptr %x, i64 1
-  %arrayidx37 = getelementptr inbounds i32, ptr %x, i64 5
-  %arrayidx41 = getelementptr inbounds i32, ptr %x, i64 13
-  %arrayidx46 = getelementptr inbounds i32, ptr %x, i64 9
-  %arrayidx76 = getelementptr inbounds i32, ptr %x, i64 2
-  %arrayidx77 = getelementptr inbounds i32, ptr %x, i64 6
-  %arrayidx81 = getelementptr inbounds i32, ptr %x, i64 14
-  %arrayidx86 = getelementptr inbounds i32, ptr %x, i64 10
-  %arrayidx116 = getelementptr inbounds i32, ptr %x, i64 3
-  %arrayidx117 = getelementptr inbounds i32, ptr %x, i64 7
-  %arrayidx121 = getelementptr inbounds i32, ptr %x, i64 15
-  %arrayidx126 = getelementptr inbounds i32, ptr %x, i64 11
+  %arrayidx1 = getelementptr inbounds i8, ptr %x, i64 16
+  %arrayidx3 = getelementptr inbounds i8, ptr %x, i64 48
+  %arrayidx6 = getelementptr inbounds i8, ptr %x, i64 32
+  %arrayidx36 = getelementptr inbounds i8, ptr %x, i64 4
+  %arrayidx37 = getelementptr inbounds i8, ptr %x, i64 20
+  %arrayidx41 = getelementptr inbounds i8, ptr %x, i64 52
+  %arrayidx46 = getelementptr inbounds i8, ptr %x, i64 36
+  %arrayidx76 = getelementptr inbounds i8, ptr %x, i64 8
+  %arrayidx77 = getelementptr inbounds i8, ptr %x, i64 24
+  %arrayidx81 = getelementptr inbounds i8, ptr %x, i64 56
+  %arrayidx86 = getelementptr inbounds i8, ptr %x, i64 40
+  %arrayidx116 = getelementptr inbounds i8, ptr %x, i64 12
+  %arrayidx117 = getelementptr inbounds i8, ptr %x, i64 28
+  %arrayidx121 = getelementptr inbounds i8, ptr %x, i64 60
+  %arrayidx126 = getelementptr inbounds i8, ptr %x, i64 44
   %x.promoted = load i32, ptr %x, align 4
   %arrayidx1.promoted = load i32, ptr %arrayidx1, align 4
   %arrayidx3.promoted = load i32, ptr %arrayidx3, align 4
@@ -547,28 +546,28 @@ for.cond316.preheader:                            ; preds = %for.body
   br label %for.body318
 
 for.body:                                         ; preds = %entry, %for.body
-  %i.0327 = phi i32 [ 20, %entry ], [ %sub, %for.body ]
-  %add178295326 = phi i32 [ %x.promoted, %entry ], [ %add178, %for.body ]
-  %or.i294296325 = phi i32 [ %arrayidx1.promoted, %entry ], [ %or.i294, %for.body ]
-  %or.i267297324 = phi i32 [ %arrayidx3.promoted, %entry ], [ %or.i267, %for.body ]
-  %add268298323 = phi i32 [ %arrayidx6.promoted, %entry ], [ %add268, %for.body ]
-  %add218299322 = phi i32 [ %arrayidx36.promoted, %entry ], [ %add218, %for.body ]
-  %or.i258300321 = phi i32 [ %arrayidx37.promoted, %entry ], [ %or.i258, %for.body ]
-  %or.i279301320 = phi i32 [ %arrayidx41.promoted, %entry ], [ %or.i279, %for.body ]
-  %add308302319 = phi i32 [ %arrayidx46.promoted, %entry ], [ %add308, %for.body ]
-  %add258303318 = phi i32 [ %arrayidx76.promoted, %entry ], [ %add258, %for.body ]
-  %or.i270304317 = phi i32 [ %arrayidx77.promoted, %entry ], [ %or.i270, %for.body ]
-  %or.i291305316 = phi i32 [ %arrayidx81.promoted, %entry ], [ %or.i291, %for.body ]
-  %add188306315 = phi i32 [ %arrayidx86.promoted, %entry ], [ %add188, %for.body ]
-  %add298307314 = phi i32 [ %arrayidx116.promoted, %entry ], [ %add298, %for.body ]
-  %or.i282308313 = phi i32 [ %arrayidx117.promoted, %entry ], [ %or.i282, %for.body ]
-  %or.i255309312 = phi i32 [ %arrayidx121.promoted, %entry ], [ %or.i255, %for.body ]
-  %add228310311 = phi i32 [ %arrayidx126.promoted, %entry ], [ %add228, %for.body ]
-  %add = add i32 %or.i294296325, %add178295326
-  %xor = xor i32 %or.i267297324, %add
+  %i.0311 = phi i32 [ 20, %entry ], [ %sub, %for.body ]
+  %add178295310 = phi i32 [ %x.promoted, %entry ], [ %add178, %for.body ]
+  %0 = phi i32 [ %arrayidx1.promoted, %entry ], [ %or.i294, %for.body ]
+  %1 = phi i32 [ %arrayidx3.promoted, %entry ], [ %or.i267, %for.body ]
+  %2 = phi i32 [ %arrayidx6.promoted, %entry ], [ %add268, %for.body ]
+  %3 = phi i32 [ %arrayidx36.promoted, %entry ], [ %add218, %for.body ]
+  %4 = phi i32 [ %arrayidx37.promoted, %entry ], [ %or.i258, %for.body ]
+  %5 = phi i32 [ %arrayidx41.promoted, %entry ], [ %or.i279, %for.body ]
+  %6 = phi i32 [ %arrayidx46.promoted, %entry ], [ %add308, %for.body ]
+  %7 = phi i32 [ %arrayidx76.promoted, %entry ], [ %add258, %for.body ]
+  %8 = phi i32 [ %arrayidx77.promoted, %entry ], [ %or.i270, %for.body ]
+  %9 = phi i32 [ %arrayidx81.promoted, %entry ], [ %or.i291, %for.body ]
+  %10 = phi i32 [ %arrayidx86.promoted, %entry ], [ %add188, %for.body ]
+  %11 = phi i32 [ %arrayidx116.promoted, %entry ], [ %add298, %for.body ]
+  %12 = phi i32 [ %arrayidx117.promoted, %entry ], [ %or.i282, %for.body ]
+  %13 = phi i32 [ %arrayidx121.promoted, %entry ], [ %or.i255, %for.body ]
+  %14 = phi i32 [ %arrayidx126.promoted, %entry ], [ %add228, %for.body ]
+  %add = add i32 %0, %add178295310
+  %xor = xor i32 %1, %add
   %or.i = tail call i32 @llvm.fshl.i32(i32 %xor, i32 %xor, i32 16)
-  %add8 = add i32 %add268298323, %or.i
-  %xor13 = xor i32 %add8, %or.i294296325
+  %add8 = add i32 %2, %or.i
+  %xor13 = xor i32 %add8, %0
   %or.i204 = tail call i32 @llvm.fshl.i32(i32 %xor13, i32 %xor13, i32 12)
   %add18 = add i32 %or.i204, %add
   %xor23 = xor i32 %add18, %or.i
@@ -576,11 +575,11 @@ for.body:                                         ; preds = %entry, %for.body
   %add28 = add i32 %or.i207, %add8
   %xor33 = xor i32 %add28, %or.i204
   %or.i210 = tail call i32 @llvm.fshl.i32(i32 %xor33, i32 %xor33, i32 7)
-  %add38 = add i32 %or.i258300321, %add218299322
-  %xor43 = xor i32 %or.i279301320, %add38
+  %add38 = add i32 %4, %3
+  %xor43 = xor i32 %5, %add38
   %or.i213 = tail call i32 @llvm.fshl.i32(i32 %xor43, i32 %xor43, i32 16)
-  %add48 = add i32 %add308302319, %or.i213
-  %xor53 = xor i32 %add48, %or.i258300321
+  %add48 = add i32 %6, %or.i213
+  %xor53 = xor i32 %add48, %4
   %or.i216 = tail call i32 @llvm.fshl.i32(i32 %xor53, i32 %xor53, i32 12)
   %add58 = add i32 %or.i216, %add38
   %xor63 = xor i32 %add58, %or.i213
@@ -588,11 +587,11 @@ for.body:                                         ; preds = %entry, %for.body
   %add68 = add i32 %or.i219, %add48
   %xor73 = xor i32 %add68, %or.i216
   %or.i222 = tail call i32 @llvm.fshl.i32(i32 %xor73, i32 %xor73, i32 7)
-  %add78 = add i32 %or.i270304317, %add258303318
-  %xor83 = xor i32 %or.i291305316, %add78
+  %add78 = add i32 %8, %7
+  %xor83 = xor i32 %9, %add78
   %or.i225 = tail call i32 @llvm.fshl.i32(i32 %xor83, i32 %xor83, i32 16)
-  %add88 = add i32 %add188306315, %or.i225
-  %xor93 = xor i32 %add88, %or.i270304317
+  %add88 = add i32 %10, %or.i225
+  %xor93 = xor i32 %add88, %8
   %or.i228 = tail call i32 @llvm.fshl.i32(i32 %xor93, i32 %xor93, i32 12)
   %add98 = add i32 %or.i228, %add78
   %xor103 = xor i32 %add98, %or.i225
@@ -600,11 +599,11 @@ for.body:                                         ; preds = %entry, %for.body
   %add108 = add i32 %or.i231, %add88
   %xor113 = xor i32 %add108, %or.i228
   %or.i234 = tail call i32 @llvm.fshl.i32(i32 %xor113, i32 %xor113, i32 7)
-  %add118 = add i32 %or.i282308313, %add298307314
-  %xor123 = xor i32 %or.i255309312, %add118
+  %add118 = add i32 %12, %11
+  %xor123 = xor i32 %13, %add118
   %or.i237 = tail call i32 @llvm.fshl.i32(i32 %xor123, i32 %xor123, i32 16)
-  %add128 = add i32 %add228310311, %or.i237
-  %xor133 = xor i32 %add128, %or.i282308313
+  %add128 = add i32 %14, %or.i237
+  %xor133 = xor i32 %add128, %12
   %or.i240 = tail call i32 @llvm.fshl.i32(i32 %xor133, i32 %xor133, i32 12)
   %add138 = add i32 %or.i240, %add118
   %xor143 = xor i32 %add138, %or.i237
@@ -660,17 +659,17 @@ for.body:                                         ; preds = %entry, %for.body
   %add308 = add i32 %or.i291, %add288
   %xor313 = xor i32 %add308, %or.i288
   %or.i294 = tail call i32 @llvm.fshl.i32(i32 %xor313, i32 %xor313, i32 7)
-  %sub = add nsw i32 %i.0327, -2
+  %sub = add nsw i32 %i.0311, -2
   %cmp.not = icmp eq i32 %sub, 0
   br i1 %cmp.not, label %for.cond316.preheader, label %for.body, !llvm.loop !10
 
 for.body318:                                      ; preds = %for.cond316.preheader, %for.body318
   %indvars.iv = phi i64 [ 0, %for.cond316.preheader ], [ %indvars.iv.next, %for.body318 ]
   %arrayidx319 = getelementptr inbounds i32, ptr %x, i64 %indvars.iv
-  %0 = load i32, ptr %arrayidx319, align 4
+  %15 = load i32, ptr %arrayidx319, align 4
   %arrayidx321 = getelementptr inbounds i32, ptr %state, i64 %indvars.iv
-  %1 = load i32, ptr %arrayidx321, align 4
-  %add322 = add i32 %1, %0
+  %16 = load i32, ptr %arrayidx321, align 4
+  %add322 = add i32 %16, %15
   store i32 %add322, ptr %arrayidx319, align 4
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 16

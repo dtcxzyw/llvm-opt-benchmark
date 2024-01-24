@@ -26,7 +26,7 @@ while.body:                                       ; preds = %entry, %while.body
   %incdec.ptr = getelementptr inbounds i8, ptr %cs.addr.05, i64 1
   %0 = load i8, ptr %cs.addr.05, align 1
   %conv = zext i8 %0 to i16
-  %incdec.ptr1 = getelementptr inbounds i16, ptr %us.addr.04, i64 1
+  %incdec.ptr1 = getelementptr inbounds i8, ptr %us.addr.04, i64 2
   store i16 %conv, ptr %us.addr.04, align 2
   %dec = add nsw i32 %length.addr.03, -1
   %cmp = icmp ugt i32 %length.addr.03, 1
@@ -46,7 +46,7 @@ while.body:                                       ; preds = %entry, %if.end
   %length.addr.08 = phi i32 [ %dec, %if.end ], [ %length, %entry ]
   %cs.addr.07 = phi ptr [ %incdec.ptr7, %if.end ], [ %cs, %entry ]
   %us.addr.06 = phi ptr [ %incdec.ptr, %if.end ], [ %us, %entry ]
-  %incdec.ptr = getelementptr inbounds i16, ptr %us.addr.06, i64 1
+  %incdec.ptr = getelementptr inbounds i8, ptr %us.addr.06, i64 2
   %0 = load i16, ptr %us.addr.06, align 2
   %cmp1 = icmp ult i16 %0, 128
   br i1 %cmp1, label %land.lhs.true, label %if.then
@@ -80,7 +80,7 @@ while.end:                                        ; preds = %if.end, %entry
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define signext i8 @uprv_isInvariantString_75(ptr nocapture noundef readonly %s, i32 noundef %length) local_unnamed_addr #1 {
+define noundef signext i8 @uprv_isInvariantString_75(ptr nocapture noundef readonly %s, i32 noundef %length) local_unnamed_addr #1 {
 entry:
   br label %for.cond
 
@@ -137,7 +137,7 @@ return:                                           ; preds = %if.then, %if.else, 
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define signext i8 @uprv_isInvariantUString_75(ptr nocapture noundef readonly %s, i32 noundef %length) local_unnamed_addr #1 {
+define noundef signext i8 @uprv_isInvariantUString_75(ptr nocapture noundef readonly %s, i32 noundef %length) local_unnamed_addr #1 {
 entry:
   br label %for.cond
 
@@ -169,7 +169,7 @@ if.end7:                                          ; preds = %if.then, %if.end5
 
 land.lhs.true:                                    ; preds = %if.end7
   %conv8 = zext nneg i16 %c.0 to i32
-  %s.addr.1 = getelementptr inbounds i16, ptr %s.addr.0, i64 1
+  %s.addr.1 = getelementptr inbounds i8, ptr %s.addr.0, i64 2
   %shr = lshr i32 %conv8, 5
   %idxprom = zext nneg i32 %shr to i64
   %arrayidx = getelementptr inbounds [4 x i32], ptr @_ZL14invariantChars, i64 0, i64 %idxprom
@@ -186,7 +186,7 @@ return:                                           ; preds = %if.then, %if.else, 
 }
 
 ; Function Attrs: mustprogress uwtable
-define i32 @uprv_ebcdicFromAscii_75(ptr noundef %ds, ptr noundef readonly %inData, i32 noundef %length, ptr noundef writeonly %outData, ptr noundef %pErrorCode) local_unnamed_addr #2 {
+define noundef i32 @uprv_ebcdicFromAscii_75(ptr noundef %ds, ptr noundef readonly %inData, i32 noundef %length, ptr noundef writeonly %outData, ptr noundef %pErrorCode) local_unnamed_addr #2 {
 entry:
   %cmp = icmp eq ptr %pErrorCode, null
   br i1 %cmp, label %return, label %lor.lhs.false
@@ -263,7 +263,7 @@ return:                                           ; preds = %if.end19, %return.s
 declare void @udata_printError_75(ptr noundef, ptr noundef, ...) local_unnamed_addr #3
 
 ; Function Attrs: mustprogress uwtable
-define i32 @uprv_copyAscii_75(ptr noundef %ds, ptr noundef readonly %inData, i32 noundef %length, ptr noundef writeonly %outData, ptr noundef %pErrorCode) local_unnamed_addr #2 {
+define noundef i32 @uprv_copyAscii_75(ptr noundef %ds, ptr noundef readonly %inData, i32 noundef %length, ptr noundef writeonly %outData, ptr noundef %pErrorCode) local_unnamed_addr #2 {
 entry:
   %cmp = icmp eq ptr %pErrorCode, null
   br i1 %cmp, label %return, label %lor.lhs.false
@@ -345,7 +345,7 @@ return:                                           ; preds = %while.cond.preheade
 declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #4
 
 ; Function Attrs: mustprogress uwtable
-define i32 @uprv_asciiFromEbcdic_75(ptr noundef %ds, ptr noundef readonly %inData, i32 noundef %length, ptr noundef writeonly %outData, ptr noundef %pErrorCode) local_unnamed_addr #2 {
+define noundef i32 @uprv_asciiFromEbcdic_75(ptr noundef %ds, ptr noundef readonly %inData, i32 noundef %length, ptr noundef writeonly %outData, ptr noundef %pErrorCode) local_unnamed_addr #2 {
 entry:
   %cmp = icmp eq ptr %pErrorCode, null
   br i1 %cmp, label %return, label %lor.lhs.false
@@ -425,7 +425,7 @@ return:                                           ; preds = %if.end27, %return.s
 }
 
 ; Function Attrs: mustprogress uwtable
-define i32 @uprv_copyEbcdic_75(ptr noundef %ds, ptr noundef readonly %inData, i32 noundef %length, ptr noundef writeonly %outData, ptr noundef %pErrorCode) local_unnamed_addr #2 {
+define noundef i32 @uprv_copyEbcdic_75(ptr noundef %ds, ptr noundef readonly %inData, i32 noundef %length, ptr noundef writeonly %outData, ptr noundef %pErrorCode) local_unnamed_addr #2 {
 entry:
   %cmp = icmp eq ptr %pErrorCode, null
   br i1 %cmp, label %return, label %lor.lhs.false
@@ -595,7 +595,7 @@ if.else:                                          ; preds = %land.lhs.true, %whi
 
 if.end23:                                         ; preds = %land.lhs.true, %if.else
   %c1.0 = phi i32 [ -1, %if.else ], [ %conv15, %land.lhs.true ]
-  %incdec.ptr24 = getelementptr inbounds i16, ptr %localString.addr.025, i64 1
+  %incdec.ptr24 = getelementptr inbounds i8, ptr %localString.addr.025, i64 2
   %2 = load i16, ptr %localString.addr.025, align 2
   %cmp26 = icmp ult i16 %2, 128
   br i1 %cmp26, label %land.lhs.true27, label %if.then35
@@ -709,7 +709,7 @@ if.else27:                                        ; preds = %land.lhs.true21, %i
 
 if.end29:                                         ; preds = %while.body, %if.else27, %land.lhs.true21
   %c1.0 = phi i32 [ %conv18, %land.lhs.true21 ], [ -1, %if.else27 ], [ 0, %while.body ]
-  %incdec.ptr30 = getelementptr inbounds i16, ptr %localString.addr.027, i64 1
+  %incdec.ptr30 = getelementptr inbounds i8, ptr %localString.addr.027, i64 2
   %3 = load i16, ptr %localString.addr.027, align 2
   %cmp32 = icmp ult i16 %3, 128
   br i1 %cmp32, label %land.lhs.true33, label %if.then41
@@ -855,7 +855,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define ptr @uprv_aestrncpy_75(ptr noundef returned writeonly %dst, ptr nocapture noundef readonly %src, i32 noundef %n) local_unnamed_addr #8 {
+define noundef ptr @uprv_aestrncpy_75(ptr noundef returned writeonly %dst, ptr nocapture noundef readonly %src, i32 noundef %n) local_unnamed_addr #8 {
 entry:
   %cmp = icmp eq i32 %n, -1
   br i1 %cmp, label %if.then, label %if.end
@@ -908,7 +908,7 @@ while.end8:                                       ; preds = %while.body5.prehead
 }
 
 ; Function Attrs: mustprogress nofree nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define ptr @uprv_eastrncpy_75(ptr noundef returned writeonly %dst, ptr nocapture noundef readonly %src, i32 noundef %n) local_unnamed_addr #8 {
+define noundef ptr @uprv_eastrncpy_75(ptr noundef returned writeonly %dst, ptr nocapture noundef readonly %src, i32 noundef %n) local_unnamed_addr #8 {
 entry:
   %cmp = icmp eq i32 %n, -1
   br i1 %cmp, label %if.then, label %if.end

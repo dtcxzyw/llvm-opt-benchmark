@@ -6,13 +6,6 @@ target triple = "x86_64-unknown-linux-gnu"
 %struct.ASN1_ITEM_st = type { i8, i64, ptr, i64, ptr, i64, ptr }
 %struct.ASN1_TEMPLATE_st = type { i64, i64, i64, ptr, ptr }
 %struct.ASN1_AUX_st = type { ptr, i32, i32, i32, ptr, i32, ptr }
-%struct.rsa_st = type { i32, ptr, i32, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, %struct.rsa_pss_params_30_st, ptr, ptr, %struct.crypto_ex_data_st, %struct.CRYPTO_REF_COUNT, i32, ptr, ptr, ptr, ptr, ptr, ptr, i32 }
-%struct.rsa_pss_params_30_st = type { i32, %struct.anon, i32, i32 }
-%struct.anon = type { i32, i32 }
-%struct.crypto_ex_data_st = type { ptr, ptr }
-%struct.CRYPTO_REF_COUNT = type { i32 }
-%struct.rsa_pss_params_st = type { ptr, ptr, ptr, ptr, ptr }
-%struct.rsa_oaep_params_st = type { ptr, ptr, ptr, ptr }
 
 @RSA_PRIME_INFO_it.local_it = internal constant %struct.ASN1_ITEM_st { i8 1, i64 16, ptr @RSA_PRIME_INFO_seq_tt, i64 3, ptr null, i64 40, ptr @.str }, align 8
 @RSA_PRIME_INFO_seq_tt = internal constant [3 x %struct.ASN1_TEMPLATE_st] [%struct.ASN1_TEMPLATE_st { i64 0, i64 0, i64 0, ptr @.str.5, ptr @CBIGNUM_it }, %struct.ASN1_TEMPLATE_st { i64 0, i64 0, i64 8, ptr @.str.6, ptr @CBIGNUM_it }, %struct.ASN1_TEMPLATE_st { i64 0, i64 0, i64 16, ptr @.str.7, ptr @CBIGNUM_it }], align 16
@@ -54,25 +47,25 @@ target triple = "x86_64-unknown-linux-gnu"
 @.str.23 = private unnamed_addr constant [12 x i8] c"pSourceFunc\00", align 1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define nonnull ptr @RSA_PRIME_INFO_it() #0 {
+define noundef nonnull ptr @RSA_PRIME_INFO_it() #0 {
 entry:
   ret ptr @RSA_PRIME_INFO_it.local_it
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define nonnull ptr @RSAPrivateKey_it() local_unnamed_addr #0 {
+define noundef nonnull ptr @RSAPrivateKey_it() local_unnamed_addr #0 {
 entry:
   ret ptr @RSAPrivateKey_it.local_it
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define nonnull ptr @RSAPublicKey_it() local_unnamed_addr #0 {
+define noundef nonnull ptr @RSAPublicKey_it() local_unnamed_addr #0 {
 entry:
   ret ptr @RSAPublicKey_it.local_it
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define nonnull ptr @RSA_PSS_PARAMS_it() local_unnamed_addr #0 {
+define noundef nonnull ptr @RSA_PSS_PARAMS_it() local_unnamed_addr #0 {
 entry:
   ret ptr @RSA_PSS_PARAMS_it.local_it
 }
@@ -123,7 +116,7 @@ entry:
 declare ptr @ASN1_item_dup(ptr noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define nonnull ptr @RSA_OAEP_PARAMS_it() local_unnamed_addr #0 {
+define noundef nonnull ptr @RSA_OAEP_PARAMS_it() local_unnamed_addr #0 {
 entry:
   ret ptr @RSA_OAEP_PARAMS_it.local_it
 }
@@ -228,7 +221,7 @@ if.then4:                                         ; preds = %entry
 
 if.then7:                                         ; preds = %entry
   %1 = load ptr, ptr %pval, align 8
-  %version = getelementptr inbounds %struct.rsa_st, ptr %1, i64 0, i32 2
+  %version = getelementptr inbounds i8, ptr %1, i64 16
   %2 = load i32, ptr %version, align 8
   %cmp8.not = icmp eq i32 %2, 1
   br i1 %cmp8.not, label %if.end10, label %return
@@ -255,14 +248,14 @@ declare ptr @X509_ALGOR_it() #2
 declare ptr @ASN1_INTEGER_it() #2
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @rsa_pss_cb(i32 noundef %operation, ptr nocapture noundef readonly %pval, ptr nocapture readnone %it, ptr nocapture readnone %exarg) #1 {
+define internal noundef i32 @rsa_pss_cb(i32 noundef %operation, ptr nocapture noundef readonly %pval, ptr nocapture readnone %it, ptr nocapture readnone %exarg) #1 {
 entry:
   %cmp = icmp eq i32 %operation, 2
   br i1 %cmp, label %if.then, label %if.end
 
 if.then:                                          ; preds = %entry
   %0 = load ptr, ptr %pval, align 8
-  %maskHash = getelementptr inbounds %struct.rsa_pss_params_st, ptr %0, i64 0, i32 4
+  %maskHash = getelementptr inbounds i8, ptr %0, i64 32
   %1 = load ptr, ptr %maskHash, align 8
   tail call void @X509_ALGOR_free(ptr noundef %1) #3
   br label %if.end
@@ -274,14 +267,14 @@ if.end:                                           ; preds = %if.then, %entry
 declare void @X509_ALGOR_free(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @rsa_oaep_cb(i32 noundef %operation, ptr nocapture noundef readonly %pval, ptr nocapture readnone %it, ptr nocapture readnone %exarg) #1 {
+define internal noundef i32 @rsa_oaep_cb(i32 noundef %operation, ptr nocapture noundef readonly %pval, ptr nocapture readnone %it, ptr nocapture readnone %exarg) #1 {
 entry:
   %cmp = icmp eq i32 %operation, 2
   br i1 %cmp, label %if.then, label %if.end
 
 if.then:                                          ; preds = %entry
   %0 = load ptr, ptr %pval, align 8
-  %maskHash = getelementptr inbounds %struct.rsa_oaep_params_st, ptr %0, i64 0, i32 3
+  %maskHash = getelementptr inbounds i8, ptr %0, i64 24
   %1 = load ptr, ptr %maskHash, align 8
   tail call void @X509_ALGOR_free(ptr noundef %1) #3
   br label %if.end

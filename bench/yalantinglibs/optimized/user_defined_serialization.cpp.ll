@@ -4,7 +4,6 @@ target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:
 target triple = "x86_64-unknown-linux-gnu"
 
 %"struct.struct_pack::string_literal" = type { [26 x i8] }
-%"struct.my_name_space::array2D" = type { i32, i32, ptr }
 %"struct.struct_pack::detail::memory_reader" = type { ptr, ptr }
 %"class.struct_pack::detail::unpacker" = type <{ i64, ptr, i8, [7 x i8] }>
 %"class.tl::expected" = type { %"struct.tl::detail::expected_move_assign_base.base", [7 x i8] }
@@ -23,7 +22,7 @@ target triple = "x86_64-unknown-linux-gnu"
 %"struct.std::_Vector_base.1" = type { %"struct.std::_Vector_base<char, std::allocator<char>>::_Vector_impl" }
 %"struct.std::_Vector_base<char, std::allocator<char>>::_Vector_impl" = type { %"struct.std::_Vector_base<char, std::allocator<char>>::_Vector_impl_data" }
 %"struct.std::_Vector_base<char, std::allocator<char>>::_Vector_impl_data" = type { ptr, ptr, ptr }
-%"struct.tl::detail::expected_storage_base" = type <{ %union.anon, i8, [7 x i8] }>
+%"struct.my_name_space::array2D" = type { i32, i32, ptr }
 
 $_ZN2tl8expectedISt6vectorIN13my_name_space7array2DESaIS3_EEN11struct_pack4errcEED2Ev = comdat any
 
@@ -52,7 +51,7 @@ define dso_local noundef i64 @_ZN13my_name_space18sp_get_needed_sizeERKNS_7array
 entry:
   %0 = load i32, ptr %ar, align 8
   %conv = zext i32 %0 to i64
-  %y = getelementptr inbounds %"struct.my_name_space::array2D", ptr %ar, i64 0, i32 1
+  %y = getelementptr inbounds i8, ptr %ar, i64 4
   %1 = load i32, ptr %y, align 4
   %conv3 = zext i32 %1 to i64
   %mul4 = shl nuw nsw i64 %conv, 2
@@ -76,12 +75,12 @@ if.else.i9:
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %ar, i8 0, i64 24, i1 false)
   store i32 11, ptr %ref.tmp, align 4
   store i32 22, ptr %ref.tmp1, align 4
-  %_M_finish.i = getelementptr inbounds %"struct.std::_Vector_base<my_name_space::array2D, std::allocator<my_name_space::array2D>>::_Vector_impl_data", ptr %ar, i64 0, i32 1
+  %_M_finish.i = getelementptr inbounds i8, ptr %ar, i64 8
   invoke void @_ZNSt6vectorIN13my_name_space7array2DESaIS1_EE17_M_realloc_insertIJiiEEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_(ptr noundef nonnull align 8 dereferenceable(24) %ar, ptr null, ptr noundef nonnull align 4 dereferenceable(4) %ref.tmp, ptr noundef nonnull align 4 dereferenceable(4) %ref.tmp1)
           to label %invoke.cont unwind label %lpad
 
 invoke.cont:                                      ; preds = %if.else.i9
-  %_M_end_of_storage.i = getelementptr inbounds %"struct.std::_Vector_base<my_name_space::array2D, std::allocator<my_name_space::array2D>>::_Vector_impl_data", ptr %ar, i64 0, i32 2
+  %_M_end_of_storage.i = getelementptr inbounds i8, ptr %ar, i64 16
   %.pre = load ptr, ptr %_M_finish.i, align 8
   %.pre126 = load ptr, ptr %_M_end_of_storage.i, align 8
   store i32 114, ptr %ref.tmp2, align 4
@@ -91,13 +90,13 @@ invoke.cont:                                      ; preds = %if.else.i9
 
 if.then.i14:                                      ; preds = %invoke.cont
   store i32 114, ptr %.pre, align 8
-  %y3.i.i.i.i15 = getelementptr inbounds %"struct.my_name_space::array2D", ptr %.pre, i64 0, i32 1
+  %y3.i.i.i.i15 = getelementptr inbounds i8, ptr %.pre, i64 4
   store i32 514, ptr %y3.i.i.i.i15, align 4
   %call.i.i.i.i19 = call noalias dereferenceable_or_null(234384) ptr @calloc(i64 noundef 58596, i64 noundef 4) #15
-  %p.i.i.i.i20 = getelementptr inbounds %"struct.my_name_space::array2D", ptr %.pre, i64 0, i32 2
+  %p.i.i.i.i20 = getelementptr inbounds i8, ptr %.pre, i64 8
   store ptr %call.i.i.i.i19, ptr %p.i.i.i.i20, align 8
   %0 = load ptr, ptr %_M_finish.i, align 8
-  %incdec.ptr.i21 = getelementptr inbounds %"struct.my_name_space::array2D", ptr %0, i64 1
+  %incdec.ptr.i21 = getelementptr inbounds i8, ptr %0, i64 16
   store ptr %incdec.ptr.i21, ptr %_M_finish.i, align 8
   br label %invoke.cont4
 
@@ -107,27 +106,27 @@ if.else.i23:                                      ; preds = %invoke.cont
 
 invoke.cont4:                                     ; preds = %if.else.i23, %if.then.i14
   %1 = load ptr, ptr %ar, align 8
-  %p.i = getelementptr inbounds %"struct.my_name_space::array2D", ptr %1, i64 0, i32 2
+  %p.i = getelementptr inbounds i8, ptr %1, i64 8
   %2 = load ptr, ptr %p.i, align 8
-  %y.i = getelementptr inbounds %"struct.my_name_space::array2D", ptr %1, i64 0, i32 1
+  %y.i = getelementptr inbounds i8, ptr %1, i64 4
   %3 = load i32, ptr %y.i, align 4
   %conv.i = zext i32 %3 to i64
   %4 = getelementptr float, ptr %2, i64 %conv.i
-  %arrayidx.i = getelementptr float, ptr %4, i64 6
+  %arrayidx.i = getelementptr i8, ptr %4, i64 24
   store float 0x40091EB860000000, ptr %arrayidx.i, align 4
   %5 = load ptr, ptr %ar, align 8
-  %p.i28 = getelementptr inbounds %"struct.my_name_space::array2D", ptr %5, i64 1, i32 2
+  %p.i28 = getelementptr inbounds i8, ptr %5, i64 24
   %6 = load ptr, ptr %p.i28, align 8
-  %y.i29 = getelementptr inbounds %"struct.my_name_space::array2D", ptr %5, i64 1, i32 1
+  %y.i29 = getelementptr inbounds i8, ptr %5, i64 20
   %7 = load i32, ptr %y.i29, align 4
   %conv.i30 = zext i32 %7 to i64
   %mul.i31 = mul nuw nsw i64 %conv.i30, 87
   %8 = getelementptr float, ptr %6, i64 %mul.i31
-  %arrayidx.i32 = getelementptr float, ptr %8, i64 111
+  %arrayidx.i32 = getelementptr i8, ptr %8, i64 444
   store float 0x4005AE1480000000, ptr %arrayidx.i32, align 4
   call void @_ZNSaIcEC2Ev(ptr noundef nonnull align 1 dereferenceable(1) %buffer) #16
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %buffer, i8 0, i64 24, i1 false)
-  %_M_finish.i33 = getelementptr inbounds %"struct.std::_Vector_base<char, std::allocator<char>>::_Vector_impl_data", ptr %buffer, i64 0, i32 1
+  %_M_finish.i33 = getelementptr inbounds i8, ptr %buffer, i64 8
   %9 = load ptr, ptr %_M_finish.i, align 8
   %10 = load ptr, ptr %ar, align 8
   %cmp.i10.i = icmp eq ptr %10, %9
@@ -138,14 +137,14 @@ for.body.i:                                       ; preds = %invoke.cont4, %for.
   %__begin0.sroa.0.011.i = phi ptr [ %incdec.ptr.i.i, %for.body.i ], [ %10, %invoke.cont4 ]
   %11 = load i32, ptr %__begin0.sroa.0.011.i, align 8, !noalias !5
   %conv.i.i.i = zext i32 %11 to i64
-  %y.i.i.i = getelementptr inbounds %"struct.my_name_space::array2D", ptr %__begin0.sroa.0.011.i, i64 0, i32 1
+  %y.i.i.i = getelementptr inbounds i8, ptr %__begin0.sroa.0.011.i, i64 4
   %12 = load i32, ptr %y.i.i.i, align 4, !noalias !5
   %conv3.i.i.i = zext i32 %12 to i64
   %mul4.i.i.i = shl nuw nsw i64 %conv.i.i.i, 2
   %mul.i.i.i.i = mul i64 %mul4.i.i.i, %conv3.i.i.i
   %add.i.i.i = add i64 %ret.sroa.0.012.i, 8
   %add.i.i = add i64 %add.i.i.i, %mul.i.i.i.i
-  %incdec.ptr.i.i = getelementptr inbounds %"struct.my_name_space::array2D", ptr %__begin0.sroa.0.011.i, i64 1
+  %incdec.ptr.i.i = getelementptr inbounds i8, ptr %__begin0.sroa.0.011.i, i64 16
   %cmp.i.i = icmp eq ptr %incdec.ptr.i.i, %9
   br i1 %cmp.i.i, label %.noexc40, label %for.body.i
 
@@ -193,7 +192,7 @@ if.then.i.i:                                      ; preds = %_ZN11struct_pack6de
   unreachable
 
 if.end.i.i:                                       ; preds = %_ZN11struct_pack6detail26get_serialize_runtime_infoILm0EJSt6vectorIN13my_name_space7array2DESaIS4_EEEEENS_21serialize_buffer_sizeEDpRKT0_.exit
-  %_M_end_of_storage.i.i.i = getelementptr inbounds %"struct.std::_Vector_base<char, std::allocator<char>>::_Vector_impl_data", ptr %buffer, i64 0, i32 2
+  %_M_end_of_storage.i.i.i = getelementptr inbounds i8, ptr %buffer, i64 16
   %cmp3.i.i.not = icmp eq i64 %add.i, 0
   br i1 %cmp3.i.i.not, label %.noexc34, label %_ZNSt12_Vector_baseIcSaIcEE11_M_allocateEm.exit.i.i
 
@@ -231,7 +230,7 @@ for.body.i.i:                                     ; preds = %for.body.i.i.prehea
   %14 = load i32, ptr %__begin0.sroa.0.08.i.i, align 8
   store i32 %14, ptr %real_writer.i.sroa.0.0, align 1
   %add.ptr.i.i13.i.i.i.i = getelementptr inbounds i8, ptr %real_writer.i.sroa.0.0, i64 4
-  %y.i.i.i.i = getelementptr inbounds %"struct.my_name_space::array2D", ptr %__begin0.sroa.0.08.i.i, i64 0, i32 1
+  %y.i.i.i.i = getelementptr inbounds i8, ptr %__begin0.sroa.0.08.i.i, i64 4
   %15 = load i32, ptr %y.i.i.i.i, align 4
   store i32 %15, ptr %add.ptr.i.i13.i.i.i.i, align 1
   %add.ptr.i.i.i.i.i.i = getelementptr inbounds i8, ptr %real_writer.i.sroa.0.0, i64 8
@@ -243,11 +242,11 @@ for.body.i.i:                                     ; preds = %for.body.i.i.prehea
   %mul.i.i.i.i.i = mul i64 %mul4.i.i.i.i, %conv3.i.i.i.i
   %cmp.i.i.i.i.i = icmp ult i64 %mul.i.i.i.i.i, 9223372036854775807
   call void @llvm.assume(i1 %cmp.i.i.i.i.i)
-  %p.i.i.i.i45 = getelementptr inbounds %"struct.my_name_space::array2D", ptr %__begin0.sroa.0.08.i.i, i64 0, i32 2
+  %p.i.i.i.i45 = getelementptr inbounds i8, ptr %__begin0.sroa.0.08.i.i, i64 8
   %18 = load ptr, ptr %p.i.i.i.i45, align 8
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %add.ptr.i.i.i.i.i.i, ptr align 1 %18, i64 %mul.i.i.i.i.i, i1 false)
   %add.ptr.i.i22.i.i.i.i = getelementptr inbounds i8, ptr %add.ptr.i.i.i.i.i.i, i64 %mul.i.i.i.i.i
-  %incdec.ptr.i.i.i = getelementptr inbounds %"struct.my_name_space::array2D", ptr %__begin0.sroa.0.08.i.i, i64 1
+  %incdec.ptr.i.i.i = getelementptr inbounds i8, ptr %__begin0.sroa.0.08.i.i, i64 16
   %cmp.i.i.i = icmp eq ptr %incdec.ptr.i.i.i, %9
   br i1 %cmp.i.i.i, label %invoke.cont.i23, label %for.body.i.i
 
@@ -256,7 +255,7 @@ sw.bb1.i:                                         ; preds = %.noexc34
   store i8 %retval.i.sroa.10.1, ptr %add.ptr.i.i, align 1
   %add.ptr.i.i24.i = getelementptr inbounds i8, ptr %13, i64 5
   %19 = lshr exact i8 %retval.i.sroa.10.1, 3
-  switch i8 %19, label %entry.unreachabledefault.i.i [
+  switch i8 %19, label %sw.default.i.i [
     i8 1, label %sw.bb.i.i
     i8 2, label %sw.bb5.i.i
     i8 3, label %sw.bb7.i.i
@@ -276,42 +275,42 @@ sw.bb7.i.i:                                       ; preds = %sw.bb1.i
   store i64 %sub.ptr.div.i.i, ptr %add.ptr.i.i24.i, align 1
   br label %sw.epilog.i.i
 
-entry.unreachabledefault.i.i:                     ; preds = %sw.bb1.i
+sw.default.i.i:                                   ; preds = %sw.bb1.i
   unreachable
 
 sw.epilog.i.i:                                    ; preds = %sw.bb7.i.i, %sw.bb5.i.i, %sw.bb.i.i
   %.sink19.i.i = phi i64 [ 8, %sw.bb7.i.i ], [ 4, %sw.bb5.i.i ], [ 2, %sw.bb.i.i ]
-  br i1 %cmp.i10.i, label %invoke.cont.i23, label %for.body.i13.i.preheader
+  br i1 %cmp.i10.i, label %invoke.cont.i23, label %for.body.i12.i.preheader
 
-for.body.i13.i.preheader:                         ; preds = %sw.epilog.i.i
+for.body.i12.i.preheader:                         ; preds = %sw.epilog.i.i
   %add.ptr.i.i30.i.i = getelementptr inbounds i8, ptr %add.ptr.i.i24.i, i64 %.sink19.i.i
-  br label %for.body.i13.i
+  br label %for.body.i12.i
 
-for.body.i13.i:                                   ; preds = %for.body.i13.i.preheader, %for.body.i13.i
-  %real_writer.i.sroa.0.1 = phi ptr [ %add.ptr.i.i22.i.i.i23.i, %for.body.i13.i ], [ %add.ptr.i.i30.i.i, %for.body.i13.i.preheader ]
-  %__begin0.sroa.0.018.i.i = phi ptr [ %incdec.ptr.i.i24.i, %for.body.i13.i ], [ %10, %for.body.i13.i.preheader ]
+for.body.i12.i:                                   ; preds = %for.body.i12.i.preheader, %for.body.i12.i
+  %real_writer.i.sroa.0.1 = phi ptr [ %add.ptr.i.i22.i.i.i22.i, %for.body.i12.i ], [ %add.ptr.i.i30.i.i, %for.body.i12.i.preheader ]
+  %__begin0.sroa.0.018.i.i = phi ptr [ %incdec.ptr.i.i23.i, %for.body.i12.i ], [ %10, %for.body.i12.i.preheader ]
   %20 = load i32, ptr %__begin0.sroa.0.018.i.i, align 8
   store i32 %20, ptr %real_writer.i.sroa.0.1, align 1
-  %add.ptr.i.i13.i.i.i14.i = getelementptr inbounds i8, ptr %real_writer.i.sroa.0.1, i64 4
-  %y.i.i.i15.i = getelementptr inbounds %"struct.my_name_space::array2D", ptr %__begin0.sroa.0.018.i.i, i64 0, i32 1
-  %21 = load i32, ptr %y.i.i.i15.i, align 4
-  store i32 %21, ptr %add.ptr.i.i13.i.i.i14.i, align 1
-  %add.ptr.i.i.i.i.i16.i = getelementptr inbounds i8, ptr %real_writer.i.sroa.0.1, i64 8
+  %add.ptr.i.i13.i.i.i13.i = getelementptr inbounds i8, ptr %real_writer.i.sroa.0.1, i64 4
+  %y.i.i.i14.i = getelementptr inbounds i8, ptr %__begin0.sroa.0.018.i.i, i64 4
+  %21 = load i32, ptr %y.i.i.i14.i, align 4
+  store i32 %21, ptr %add.ptr.i.i13.i.i.i13.i, align 1
+  %add.ptr.i.i.i.i.i15.i = getelementptr inbounds i8, ptr %real_writer.i.sroa.0.1, i64 8
   %22 = load i32, ptr %__begin0.sroa.0.018.i.i, align 8
-  %conv.i.i.i17.i = zext i32 %22 to i64
-  %23 = load i32, ptr %y.i.i.i15.i, align 4
-  %conv3.i.i.i18.i = zext i32 %23 to i64
-  %mul4.i.i.i19.i = shl nuw nsw i64 %conv.i.i.i17.i, 2
-  %mul.i.i.i.i20.i = mul i64 %mul4.i.i.i19.i, %conv3.i.i.i18.i
-  %cmp.i.i.i.i21.i = icmp ult i64 %mul.i.i.i.i20.i, 9223372036854775807
-  call void @llvm.assume(i1 %cmp.i.i.i.i21.i)
-  %p.i.i.i22.i = getelementptr inbounds %"struct.my_name_space::array2D", ptr %__begin0.sroa.0.018.i.i, i64 0, i32 2
-  %24 = load ptr, ptr %p.i.i.i22.i, align 8
-  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %add.ptr.i.i.i.i.i16.i, ptr align 1 %24, i64 %mul.i.i.i.i20.i, i1 false)
-  %add.ptr.i.i22.i.i.i23.i = getelementptr inbounds i8, ptr %add.ptr.i.i.i.i.i16.i, i64 %mul.i.i.i.i20.i
-  %incdec.ptr.i.i24.i = getelementptr inbounds %"struct.my_name_space::array2D", ptr %__begin0.sroa.0.018.i.i, i64 1
-  %cmp.i.i25.i = icmp eq ptr %incdec.ptr.i.i24.i, %9
-  br i1 %cmp.i.i25.i, label %invoke.cont.i23, label %for.body.i13.i
+  %conv.i.i.i16.i = zext i32 %22 to i64
+  %23 = load i32, ptr %y.i.i.i14.i, align 4
+  %conv3.i.i.i17.i = zext i32 %23 to i64
+  %mul4.i.i.i18.i = shl nuw nsw i64 %conv.i.i.i16.i, 2
+  %mul.i.i.i.i19.i = mul i64 %mul4.i.i.i18.i, %conv3.i.i.i17.i
+  %cmp.i.i.i.i20.i = icmp ult i64 %mul.i.i.i.i19.i, 9223372036854775807
+  call void @llvm.assume(i1 %cmp.i.i.i.i20.i)
+  %p.i.i.i21.i = getelementptr inbounds i8, ptr %__begin0.sroa.0.018.i.i, i64 8
+  %24 = load ptr, ptr %p.i.i.i21.i, align 8
+  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %add.ptr.i.i.i.i.i15.i, ptr align 1 %24, i64 %mul.i.i.i.i19.i, i1 false)
+  %add.ptr.i.i22.i.i.i22.i = getelementptr inbounds i8, ptr %add.ptr.i.i.i.i.i15.i, i64 %mul.i.i.i.i19.i
+  %incdec.ptr.i.i23.i = getelementptr inbounds i8, ptr %__begin0.sroa.0.018.i.i, i64 16
+  %cmp.i.i24.i = icmp eq ptr %incdec.ptr.i.i23.i, %9
+  br i1 %cmp.i.i24.i, label %invoke.cont.i23, label %for.body.i12.i
 
 lpad.i:                                           ; preds = %_ZNSt12_Vector_baseIcSaIcEE11_M_allocateEm.exit.i.i, %if.then.i.i
   %25 = landingpad { ptr, i32 }
@@ -319,8 +318,8 @@ lpad.i:                                           ; preds = %_ZNSt12_Vector_base
   call void @_ZNSt6vectorIcSaIcEED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %buffer) #16
   br label %ehcleanup
 
-invoke.cont.i23:                                  ; preds = %for.body.i13.i, %for.body.i.i, %sw.bb.i, %sw.epilog.i.i
-  %m_has_val.i.i.i.i.i.i.i = getelementptr inbounds %"struct.tl::detail::expected_storage_base", ptr %ret.i, i64 0, i32 1
+invoke.cont.i23:                                  ; preds = %for.body.i12.i, %for.body.i.i, %sw.bb.i, %sw.epilog.i.i
+  %m_has_val.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %ret.i, i64 24
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %ret.i, i8 0, i64 24, i1 false)
   store i8 1, ptr %m_has_val.i.i.i.i.i.i.i, align 8
   %26 = load ptr, ptr %buffer, align 8
@@ -330,9 +329,9 @@ invoke.cont.i23:                                  ; preds = %for.body.i13.i, %fo
   %sub.ptr.sub.i52 = sub i64 %sub.ptr.lhs.cast.i50, %sub.ptr.rhs.cast.i51
   %add.ptr.i = getelementptr inbounds i8, ptr %26, i64 %sub.ptr.sub.i52
   store ptr %26, ptr %reader.i, align 8
-  %end2.i = getelementptr inbounds %"struct.struct_pack::detail::memory_reader", ptr %reader.i, i64 0, i32 1
+  %end2.i = getelementptr inbounds i8, ptr %reader.i, i64 8
   store ptr %add.ptr.i, ptr %end2.i, align 8
-  %reader_.i = getelementptr inbounds %"class.struct_pack::detail::unpacker", ptr %in.i, i64 0, i32 1
+  %reader_.i = getelementptr inbounds i8, ptr %in.i, i64 8
   store ptr %reader.i, ptr %reader_.i, align 8
   %call3.i28 = invoke noundef i32 @_ZN11struct_pack6detail8unpackerINS0_13memory_readerELm0EE11deserializeISt6vectorIN13my_name_space7array2DESaIS7_EEJEEENS_4errcERT_DpRT0_(ptr noundef nonnull align 8 dereferenceable(17) %in.i, ptr noundef nonnull align 8 dereferenceable(24) %ret.i)
           to label %invoke.cont1.i unwind label %lpad.i19.body
@@ -353,17 +352,17 @@ if.then.i59:                                      ; preds = %if.then.i
 
 if.else.i55:                                      ; preds = %if.then.i
   %29 = load ptr, ptr %ret.i, align 8
-  %_M_finish.i.i.i56 = getelementptr inbounds %"struct.std::_Vector_base<my_name_space::array2D, std::allocator<my_name_space::array2D>>::_Vector_impl_data", ptr %ret.i, i64 0, i32 1
+  %_M_finish.i.i.i56 = getelementptr inbounds i8, ptr %ret.i, i64 8
   %30 = load ptr, ptr %_M_finish.i.i.i56, align 8
   %cmp.not3.i.i.i.i.i.i = icmp eq ptr %29, %30
   br i1 %cmp.not3.i.i.i.i.i.i, label %invoke.cont.i.i.i, label %for.body.i.i.i.i.i.i
 
 for.body.i.i.i.i.i.i:                             ; preds = %if.else.i55, %for.body.i.i.i.i.i.i
   %__first.addr.04.i.i.i.i.i.i = phi ptr [ %incdec.ptr.i.i.i.i.i.i, %for.body.i.i.i.i.i.i ], [ %29, %if.else.i55 ]
-  %p.i.i.i.i.i.i.i.i.i = getelementptr inbounds %"struct.my_name_space::array2D", ptr %__first.addr.04.i.i.i.i.i.i, i64 0, i32 2
+  %p.i.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %__first.addr.04.i.i.i.i.i.i, i64 8
   %31 = load ptr, ptr %p.i.i.i.i.i.i.i.i.i, align 8
   call void @free(ptr noundef %31) #16
-  %incdec.ptr.i.i.i.i.i.i = getelementptr inbounds %"struct.my_name_space::array2D", ptr %__first.addr.04.i.i.i.i.i.i, i64 1
+  %incdec.ptr.i.i.i.i.i.i = getelementptr inbounds i8, ptr %__first.addr.04.i.i.i.i.i.i, i64 16
   %cmp.not.i.i.i.i.i.i = icmp eq ptr %incdec.ptr.i.i.i.i.i.i, %30
   br i1 %cmp.not.i.i.i.i.i.i, label %invoke.contthread-pre-split.i.i.i, label %for.body.i.i.i.i.i.i, !llvm.loop !10
 
@@ -399,7 +398,7 @@ _ZN11struct_pack11deserializeIJSt6vectorIN13my_name_space7array2DESaIS3_EEETkNS_
 
 if.then.i.i.i.i.i.i.i64:                          ; preds = %_ZN11struct_pack11deserializeIJSt6vectorIN13my_name_space7array2DESaIS3_EEETkNS_6detail16deserialize_viewES1_IcSaIcEEEEDaRKT0_.exit
   %35 = load ptr, ptr %ret.i, align 8
-  %_M_finish3.i.i.i.i.i.i.i.i.i = getelementptr inbounds %"struct.std::_Vector_base<my_name_space::array2D, std::allocator<my_name_space::array2D>>::_Vector_impl_data", ptr %ret.i, i64 0, i32 1
+  %_M_finish3.i.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %ret.i, i64 8
   %36 = load ptr, ptr %_M_finish3.i.i.i.i.i.i.i.i.i, align 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %ret.i, i8 0, i64 24, i1 false)
   %cmp.not3.i.i.i.i.i.i.i.i.i.i.i66 = icmp eq ptr %35, %36
@@ -407,10 +406,10 @@ if.then.i.i.i.i.i.i.i64:                          ; preds = %_ZN11struct_pack11d
 
 for.body.i.i.i.i.i.i.i.i.i.i.i67:                 ; preds = %if.then.i.i.i.i.i.i.i64, %for.body.i.i.i.i.i.i.i.i.i.i.i67
   %__first.addr.04.i.i.i.i.i.i.i.i.i.i.i68 = phi ptr [ %incdec.ptr.i.i.i.i.i.i.i.i.i.i.i70, %for.body.i.i.i.i.i.i.i.i.i.i.i67 ], [ %35, %if.then.i.i.i.i.i.i.i64 ]
-  %p.i.i.i.i.i.i.i.i.i.i.i.i.i.i69 = getelementptr inbounds %"struct.my_name_space::array2D", ptr %__first.addr.04.i.i.i.i.i.i.i.i.i.i.i68, i64 0, i32 2
+  %p.i.i.i.i.i.i.i.i.i.i.i.i.i.i69 = getelementptr inbounds i8, ptr %__first.addr.04.i.i.i.i.i.i.i.i.i.i.i68, i64 8
   %37 = load ptr, ptr %p.i.i.i.i.i.i.i.i.i.i.i.i.i.i69, align 8
   call void @free(ptr noundef %37) #16
-  %incdec.ptr.i.i.i.i.i.i.i.i.i.i.i70 = getelementptr inbounds %"struct.my_name_space::array2D", ptr %__first.addr.04.i.i.i.i.i.i.i.i.i.i.i68, i64 1
+  %incdec.ptr.i.i.i.i.i.i.i.i.i.i.i70 = getelementptr inbounds i8, ptr %__first.addr.04.i.i.i.i.i.i.i.i.i.i.i68, i64 16
   %cmp.not.i.i.i.i.i.i.i.i.i.i.i71 = icmp eq ptr %incdec.ptr.i.i.i.i.i.i.i.i.i.i.i70, %36
   br i1 %cmp.not.i.i.i.i.i.i.i.i.i.i.i71, label %invoke.cont.i.i.i.i.i.i.i.i74, label %for.body.i.i.i.i.i.i.i.i.i.i.i67, !llvm.loop !10
 
@@ -440,10 +439,10 @@ _ZNSt6vectorIcSaIcEED2Ev.exit:                    ; preds = %_ZN2tl8expectedISt6
 
 for.body.i.i.i.i:                                 ; preds = %_ZNSt6vectorIcSaIcEED2Ev.exit, %for.body.i.i.i.i
   %__first.addr.04.i.i.i.i = phi ptr [ %incdec.ptr.i.i.i.i, %for.body.i.i.i.i ], [ %39, %_ZNSt6vectorIcSaIcEED2Ev.exit ]
-  %p.i.i.i.i.i.i.i = getelementptr inbounds %"struct.my_name_space::array2D", ptr %__first.addr.04.i.i.i.i, i64 0, i32 2
+  %p.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %__first.addr.04.i.i.i.i, i64 8
   %41 = load ptr, ptr %p.i.i.i.i.i.i.i, align 8
   call void @free(ptr noundef %41) #16
-  %incdec.ptr.i.i.i.i = getelementptr inbounds %"struct.my_name_space::array2D", ptr %__first.addr.04.i.i.i.i, i64 1
+  %incdec.ptr.i.i.i.i = getelementptr inbounds i8, ptr %__first.addr.04.i.i.i.i, i64 16
   %cmp.not.i.i.i.i = icmp eq ptr %incdec.ptr.i.i.i.i, %40
   br i1 %cmp.not.i.i.i.i, label %invoke.contthread-pre-split.i, label %for.body.i.i.i.i, !llvm.loop !10
 
@@ -479,7 +478,7 @@ declare i32 @__gxx_personality_v0(...)
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr dso_local void @_ZN2tl8expectedISt6vectorIN13my_name_space7array2DESaIS3_EEN11struct_pack4errcEED2Ev(ptr noundef nonnull align 8 dereferenceable(25) %this) unnamed_addr #2 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  %m_has_val.i.i.i.i.i.i = getelementptr inbounds %"struct.tl::detail::expected_storage_base", ptr %this, i64 0, i32 1
+  %m_has_val.i.i.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 24
   %0 = load i8, ptr %m_has_val.i.i.i.i.i.i, align 8
   %1 = and i8 %0, 1
   %tobool.not.i.i.i.i.i.i = icmp eq i8 %1, 0
@@ -487,17 +486,17 @@ entry:
 
 if.then.i.i.i.i.i.i:                              ; preds = %entry
   %2 = load ptr, ptr %this, align 8
-  %_M_finish.i.i.i.i.i.i.i = getelementptr inbounds %"struct.std::_Vector_base<my_name_space::array2D, std::allocator<my_name_space::array2D>>::_Vector_impl_data", ptr %this, i64 0, i32 1
+  %_M_finish.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 8
   %3 = load ptr, ptr %_M_finish.i.i.i.i.i.i.i, align 8
   %cmp.not3.i.i.i.i.i.i.i.i.i.i = icmp eq ptr %2, %3
   br i1 %cmp.not3.i.i.i.i.i.i.i.i.i.i, label %invoke.cont.i.i.i.i.i.i.i, label %for.body.i.i.i.i.i.i.i.i.i.i
 
 for.body.i.i.i.i.i.i.i.i.i.i:                     ; preds = %if.then.i.i.i.i.i.i, %for.body.i.i.i.i.i.i.i.i.i.i
   %__first.addr.04.i.i.i.i.i.i.i.i.i.i = phi ptr [ %incdec.ptr.i.i.i.i.i.i.i.i.i.i, %for.body.i.i.i.i.i.i.i.i.i.i ], [ %2, %if.then.i.i.i.i.i.i ]
-  %p.i.i.i.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds %"struct.my_name_space::array2D", ptr %__first.addr.04.i.i.i.i.i.i.i.i.i.i, i64 0, i32 2
+  %p.i.i.i.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %__first.addr.04.i.i.i.i.i.i.i.i.i.i, i64 8
   %4 = load ptr, ptr %p.i.i.i.i.i.i.i.i.i.i.i.i.i, align 8
   tail call void @free(ptr noundef %4) #16
-  %incdec.ptr.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds %"struct.my_name_space::array2D", ptr %__first.addr.04.i.i.i.i.i.i.i.i.i.i, i64 1
+  %incdec.ptr.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %__first.addr.04.i.i.i.i.i.i.i.i.i.i, i64 16
   %cmp.not.i.i.i.i.i.i.i.i.i.i = icmp eq ptr %incdec.ptr.i.i.i.i.i.i.i.i.i.i, %3
   br i1 %cmp.not.i.i.i.i.i.i.i.i.i.i, label %invoke.contthread-pre-split.i.i.i.i.i.i.i, label %for.body.i.i.i.i.i.i.i.i.i.i, !llvm.loop !10
 
@@ -538,17 +537,17 @@ _ZNSt12_Vector_baseIcSaIcEED2Ev.exit:             ; preds = %invoke.cont, %if.th
 define linkonce_odr dso_local void @_ZNSt6vectorIN13my_name_space7array2DESaIS1_EED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %this) unnamed_addr #2 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %0 = load ptr, ptr %this, align 8
-  %_M_finish = getelementptr inbounds %"struct.std::_Vector_base<my_name_space::array2D, std::allocator<my_name_space::array2D>>::_Vector_impl_data", ptr %this, i64 0, i32 1
+  %_M_finish = getelementptr inbounds i8, ptr %this, i64 8
   %1 = load ptr, ptr %_M_finish, align 8
   %cmp.not3.i.i.i = icmp eq ptr %0, %1
   br i1 %cmp.not3.i.i.i, label %invoke.cont, label %for.body.i.i.i
 
 for.body.i.i.i:                                   ; preds = %entry, %for.body.i.i.i
   %__first.addr.04.i.i.i = phi ptr [ %incdec.ptr.i.i.i, %for.body.i.i.i ], [ %0, %entry ]
-  %p.i.i.i.i.i.i = getelementptr inbounds %"struct.my_name_space::array2D", ptr %__first.addr.04.i.i.i, i64 0, i32 2
+  %p.i.i.i.i.i.i = getelementptr inbounds i8, ptr %__first.addr.04.i.i.i, i64 8
   %2 = load ptr, ptr %p.i.i.i.i.i.i, align 8
   tail call void @free(ptr noundef %2) #16
-  %incdec.ptr.i.i.i = getelementptr inbounds %"struct.my_name_space::array2D", ptr %__first.addr.04.i.i.i, i64 1
+  %incdec.ptr.i.i.i = getelementptr inbounds i8, ptr %__first.addr.04.i.i.i, i64 16
   %cmp.not.i.i.i = icmp eq ptr %incdec.ptr.i.i.i, %1
   br i1 %cmp.not.i.i.i, label %invoke.contthread-pre-split, label %for.body.i.i.i, !llvm.loop !10
 
@@ -572,7 +571,7 @@ _ZNSt12_Vector_baseIN13my_name_space7array2DESaIS1_EED2Ev.exit: ; preds = %invok
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr dso_local void @_ZNSt6vectorIN13my_name_space7array2DESaIS1_EE17_M_realloc_insertIJiiEEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_(ptr noundef nonnull align 8 dereferenceable(24) %this, ptr %__position.coerce, ptr noundef nonnull align 4 dereferenceable(4) %__args, ptr noundef nonnull align 4 dereferenceable(4) %__args1) local_unnamed_addr #1 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  %_M_finish.i.i = getelementptr inbounds %"struct.std::_Vector_base<my_name_space::array2D, std::allocator<my_name_space::array2D>>::_Vector_impl_data", ptr %this, i64 0, i32 1
+  %_M_finish.i.i = getelementptr inbounds i8, ptr %this, i64 8
   %0 = load ptr, ptr %_M_finish.i.i, align 8
   %1 = load ptr, ptr %this, align 8
   %sub.ptr.lhs.cast.i.i = ptrtoint ptr %0 to i64
@@ -595,47 +594,53 @@ _ZNKSt6vectorIN13my_name_space7array2DESaIS1_EE12_M_check_lenEmPKc.exit: ; preds
   %sub.ptr.lhs.cast.i = ptrtoint ptr %__position.coerce to i64
   %sub.ptr.sub.i = sub i64 %sub.ptr.lhs.cast.i, %sub.ptr.rhs.cast.i.i
   %sub.ptr.div.i = ashr exact i64 %sub.ptr.sub.i, 4
-  %cmp.not.i = icmp ne i64 %cond.i, 0
-  tail call void @llvm.assume(i1 %cmp.not.i)
+  %cmp.not.i = icmp eq i64 %cond.i, 0
+  br i1 %cmp.not.i, label %invoke.cont, label %cond.true.i
+
+cond.true.i:                                      ; preds = %_ZNKSt6vectorIN13my_name_space7array2DESaIS1_EE12_M_check_lenEmPKc.exit
   %mul.i.i.i = shl nuw nsw i64 %cond.i, 4
   %call5.i.i.i = tail call noalias noundef nonnull ptr @_Znwm(i64 noundef %mul.i.i.i) #18
-  %add.ptr = getelementptr inbounds i8, ptr %call5.i.i.i, i64 %sub.ptr.sub.i
+  br label %invoke.cont
+
+invoke.cont:                                      ; preds = %cond.true.i, %_ZNKSt6vectorIN13my_name_space7array2DESaIS1_EE12_M_check_lenEmPKc.exit
+  %cond.i19 = phi ptr [ %call5.i.i.i, %cond.true.i ], [ null, %_ZNKSt6vectorIN13my_name_space7array2DESaIS1_EE12_M_check_lenEmPKc.exit ]
+  %add.ptr = getelementptr inbounds %"struct.my_name_space::array2D", ptr %cond.i19, i64 %sub.ptr.div.i
   %3 = load i32, ptr %__args, align 4
   %4 = load i32, ptr %__args1, align 4
   store i32 %3, ptr %add.ptr, align 8
-  %y3.i.i.i = getelementptr inbounds %"struct.my_name_space::array2D", ptr %call5.i.i.i, i64 %sub.ptr.div.i, i32 1
+  %y3.i.i.i = getelementptr inbounds i8, ptr %add.ptr, i64 4
   store i32 %4, ptr %y3.i.i.i, align 4
   %conv.i.i.i = zext i32 %3 to i64
   %conv4.i.i.i = zext i32 %4 to i64
   %mul5.i.i.i = mul nuw i64 %conv4.i.i.i, %conv.i.i.i
   %call.i.i.i = tail call noalias ptr @calloc(i64 noundef %mul5.i.i.i, i64 noundef 4) #15
-  %p.i.i.i = getelementptr inbounds %"struct.my_name_space::array2D", ptr %call5.i.i.i, i64 %sub.ptr.div.i, i32 2
+  %p.i.i.i = getelementptr inbounds i8, ptr %add.ptr, i64 8
   store ptr %call.i.i.i, ptr %p.i.i.i, align 8
   %cmp.i7.i.i.i.i.i = icmp eq ptr %1, %__position.coerce
   br i1 %cmp.i7.i.i.i.i.i, label %invoke.cont12, label %for.inc.i.i.i.i.i
 
-for.inc.i.i.i.i.i:                                ; preds = %_ZNKSt6vectorIN13my_name_space7array2DESaIS1_EE12_M_check_lenEmPKc.exit, %for.inc.i.i.i.i.i
-  %__cur.09.i.i.i.i.i = phi ptr [ %incdec.ptr.i.i.i.i.i, %for.inc.i.i.i.i.i ], [ %call5.i.i.i, %_ZNKSt6vectorIN13my_name_space7array2DESaIS1_EE12_M_check_lenEmPKc.exit ]
-  %__first.sroa.0.08.i.i.i.i.i = phi ptr [ %incdec.ptr.i.i.i.i.i.i, %for.inc.i.i.i.i.i ], [ %1, %_ZNKSt6vectorIN13my_name_space7array2DESaIS1_EE12_M_check_lenEmPKc.exit ]
+for.inc.i.i.i.i.i:                                ; preds = %invoke.cont, %for.inc.i.i.i.i.i
+  %__cur.09.i.i.i.i.i = phi ptr [ %incdec.ptr.i.i.i.i.i, %for.inc.i.i.i.i.i ], [ %cond.i19, %invoke.cont ]
+  %__first.sroa.0.08.i.i.i.i.i = phi ptr [ %incdec.ptr.i.i.i.i.i.i, %for.inc.i.i.i.i.i ], [ %1, %invoke.cont ]
   %5 = load i32, ptr %__first.sroa.0.08.i.i.i.i.i, align 8
   store i32 %5, ptr %__cur.09.i.i.i.i.i, align 8
-  %y.i.i.i.i.i.i.i = getelementptr inbounds %"struct.my_name_space::array2D", ptr %__cur.09.i.i.i.i.i, i64 0, i32 1
-  %y3.i.i.i.i.i.i.i = getelementptr inbounds %"struct.my_name_space::array2D", ptr %__first.sroa.0.08.i.i.i.i.i, i64 0, i32 1
+  %y.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %__cur.09.i.i.i.i.i, i64 4
+  %y3.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %__first.sroa.0.08.i.i.i.i.i, i64 4
   %6 = load i32, ptr %y3.i.i.i.i.i.i.i, align 4
   store i32 %6, ptr %y.i.i.i.i.i.i.i, align 4
-  %p.i.i.i.i.i.i.i = getelementptr inbounds %"struct.my_name_space::array2D", ptr %__cur.09.i.i.i.i.i, i64 0, i32 2
-  %p4.i.i.i.i.i.i.i = getelementptr inbounds %"struct.my_name_space::array2D", ptr %__first.sroa.0.08.i.i.i.i.i, i64 0, i32 2
+  %p.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %__cur.09.i.i.i.i.i, i64 8
+  %p4.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %__first.sroa.0.08.i.i.i.i.i, i64 8
   %7 = load ptr, ptr %p4.i.i.i.i.i.i.i, align 8
   store ptr %7, ptr %p.i.i.i.i.i.i.i, align 8
   store ptr null, ptr %p4.i.i.i.i.i.i.i, align 8
-  %incdec.ptr.i.i.i.i.i.i = getelementptr inbounds %"struct.my_name_space::array2D", ptr %__first.sroa.0.08.i.i.i.i.i, i64 1
-  %incdec.ptr.i.i.i.i.i = getelementptr inbounds %"struct.my_name_space::array2D", ptr %__cur.09.i.i.i.i.i, i64 1
+  %incdec.ptr.i.i.i.i.i.i = getelementptr inbounds i8, ptr %__first.sroa.0.08.i.i.i.i.i, i64 16
+  %incdec.ptr.i.i.i.i.i = getelementptr inbounds i8, ptr %__cur.09.i.i.i.i.i, i64 16
   %cmp.i.i.i.i.i.i = icmp eq ptr %incdec.ptr.i.i.i.i.i.i, %__position.coerce
   br i1 %cmp.i.i.i.i.i.i, label %invoke.cont12, label %for.inc.i.i.i.i.i, !llvm.loop !12
 
-invoke.cont12:                                    ; preds = %for.inc.i.i.i.i.i, %_ZNKSt6vectorIN13my_name_space7array2DESaIS1_EE12_M_check_lenEmPKc.exit
-  %__cur.0.lcssa.i.i.i.i.i = phi ptr [ %call5.i.i.i, %_ZNKSt6vectorIN13my_name_space7array2DESaIS1_EE12_M_check_lenEmPKc.exit ], [ %incdec.ptr.i.i.i.i.i, %for.inc.i.i.i.i.i ]
-  %incdec.ptr = getelementptr inbounds %"struct.my_name_space::array2D", ptr %__cur.0.lcssa.i.i.i.i.i, i64 1
+invoke.cont12:                                    ; preds = %for.inc.i.i.i.i.i, %invoke.cont
+  %__cur.0.lcssa.i.i.i.i.i = phi ptr [ %cond.i19, %invoke.cont ], [ %incdec.ptr.i.i.i.i.i, %for.inc.i.i.i.i.i ]
+  %incdec.ptr = getelementptr inbounds i8, ptr %__cur.0.lcssa.i.i.i.i.i, i64 16
   %cmp.i7.i.i.i.i.i20 = icmp eq ptr %0, %__position.coerce
   br i1 %cmp.i7.i.i.i.i.i20, label %invoke.cont16, label %for.inc.i.i.i.i.i21
 
@@ -644,17 +649,17 @@ for.inc.i.i.i.i.i21:                              ; preds = %invoke.cont12, %for
   %__first.sroa.0.08.i.i.i.i.i23 = phi ptr [ %incdec.ptr.i.i.i.i.i.i28, %for.inc.i.i.i.i.i21 ], [ %__position.coerce, %invoke.cont12 ]
   %8 = load i32, ptr %__first.sroa.0.08.i.i.i.i.i23, align 8
   store i32 %8, ptr %__cur.09.i.i.i.i.i22, align 8
-  %y.i.i.i.i.i.i.i24 = getelementptr inbounds %"struct.my_name_space::array2D", ptr %__cur.09.i.i.i.i.i22, i64 0, i32 1
-  %y3.i.i.i.i.i.i.i25 = getelementptr inbounds %"struct.my_name_space::array2D", ptr %__first.sroa.0.08.i.i.i.i.i23, i64 0, i32 1
+  %y.i.i.i.i.i.i.i24 = getelementptr inbounds i8, ptr %__cur.09.i.i.i.i.i22, i64 4
+  %y3.i.i.i.i.i.i.i25 = getelementptr inbounds i8, ptr %__first.sroa.0.08.i.i.i.i.i23, i64 4
   %9 = load i32, ptr %y3.i.i.i.i.i.i.i25, align 4
   store i32 %9, ptr %y.i.i.i.i.i.i.i24, align 4
-  %p.i.i.i.i.i.i.i26 = getelementptr inbounds %"struct.my_name_space::array2D", ptr %__cur.09.i.i.i.i.i22, i64 0, i32 2
-  %p4.i.i.i.i.i.i.i27 = getelementptr inbounds %"struct.my_name_space::array2D", ptr %__first.sroa.0.08.i.i.i.i.i23, i64 0, i32 2
+  %p.i.i.i.i.i.i.i26 = getelementptr inbounds i8, ptr %__cur.09.i.i.i.i.i22, i64 8
+  %p4.i.i.i.i.i.i.i27 = getelementptr inbounds i8, ptr %__first.sroa.0.08.i.i.i.i.i23, i64 8
   %10 = load ptr, ptr %p4.i.i.i.i.i.i.i27, align 8
   store ptr %10, ptr %p.i.i.i.i.i.i.i26, align 8
   store ptr null, ptr %p4.i.i.i.i.i.i.i27, align 8
-  %incdec.ptr.i.i.i.i.i.i28 = getelementptr inbounds %"struct.my_name_space::array2D", ptr %__first.sroa.0.08.i.i.i.i.i23, i64 1
-  %incdec.ptr.i.i.i.i.i29 = getelementptr inbounds %"struct.my_name_space::array2D", ptr %__cur.09.i.i.i.i.i22, i64 1
+  %incdec.ptr.i.i.i.i.i.i28 = getelementptr inbounds i8, ptr %__first.sroa.0.08.i.i.i.i.i23, i64 16
+  %incdec.ptr.i.i.i.i.i29 = getelementptr inbounds i8, ptr %__cur.09.i.i.i.i.i22, i64 16
   %cmp.i.i.i.i.i.i30 = icmp eq ptr %incdec.ptr.i.i.i.i.i.i28, %0
   br i1 %cmp.i.i.i.i.i.i30, label %invoke.cont16, label %for.inc.i.i.i.i.i21, !llvm.loop !12
 
@@ -665,10 +670,10 @@ invoke.cont16:                                    ; preds = %for.inc.i.i.i.i.i21
 
 for.body.i.i.i:                                   ; preds = %invoke.cont16, %for.body.i.i.i
   %__first.addr.04.i.i.i = phi ptr [ %incdec.ptr.i.i.i, %for.body.i.i.i ], [ %1, %invoke.cont16 ]
-  %p.i.i.i.i.i.i = getelementptr inbounds %"struct.my_name_space::array2D", ptr %__first.addr.04.i.i.i, i64 0, i32 2
+  %p.i.i.i.i.i.i = getelementptr inbounds i8, ptr %__first.addr.04.i.i.i, i64 8
   %11 = load ptr, ptr %p.i.i.i.i.i.i, align 8
   tail call void @free(ptr noundef %11) #16
-  %incdec.ptr.i.i.i = getelementptr inbounds %"struct.my_name_space::array2D", ptr %__first.addr.04.i.i.i, i64 1
+  %incdec.ptr.i.i.i = getelementptr inbounds i8, ptr %__first.addr.04.i.i.i, i64 16
   %cmp.not.i.i.i = icmp eq ptr %incdec.ptr.i.i.i, %0
   br i1 %cmp.not.i.i.i, label %_ZSt8_DestroyIPN13my_name_space7array2DES1_EvT_S3_RSaIT0_E.exit, label %for.body.i.i.i, !llvm.loop !10
 
@@ -681,10 +686,10 @@ if.then.i33:                                      ; preds = %_ZSt8_DestroyIPN13m
   br label %_ZNSt12_Vector_baseIN13my_name_space7array2DESaIS1_EE13_M_deallocateEPS1_m.exit
 
 _ZNSt12_Vector_baseIN13my_name_space7array2DESaIS1_EE13_M_deallocateEPS1_m.exit: ; preds = %_ZSt8_DestroyIPN13my_name_space7array2DES1_EvT_S3_RSaIT0_E.exit, %if.then.i33
-  %_M_end_of_storage = getelementptr inbounds %"struct.std::_Vector_base<my_name_space::array2D, std::allocator<my_name_space::array2D>>::_Vector_impl_data", ptr %this, i64 0, i32 2
-  store ptr %call5.i.i.i, ptr %this, align 8
+  %_M_end_of_storage = getelementptr inbounds i8, ptr %this, i64 16
+  store ptr %cond.i19, ptr %this, align 8
   store ptr %__cur.0.lcssa.i.i.i.i.i31, ptr %_M_finish.i.i, align 8
-  %add.ptr31 = getelementptr inbounds %"struct.my_name_space::array2D", ptr %call5.i.i.i, i64 %cond.i
+  %add.ptr31 = getelementptr inbounds %"struct.my_name_space::array2D", ptr %cond.i19, i64 %cond.i
   store ptr %add.ptr31, ptr %_M_end_of_storage, align 8
   ret void
 }
@@ -713,9 +718,9 @@ declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #9
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr dso_local noundef i32 @_ZN11struct_pack6detail8unpackerINS0_13memory_readerELm0EE11deserializeISt6vectorIN13my_name_space7array2DESaIS7_EEJEEENS_4errcERT_DpRT0_(ptr noundef nonnull align 8 dereferenceable(17) %this, ptr noundef nonnull align 8 dereferenceable(24) %t) local_unnamed_addr #1 comdat align 2 {
 entry:
-  %reader_.i = getelementptr inbounds %"class.struct_pack::detail::unpacker", ptr %this, i64 0, i32 1
+  %reader_.i = getelementptr inbounds i8, ptr %this, i64 8
   %0 = load ptr, ptr %reader_.i, align 8
-  %end.i = getelementptr inbounds %"struct.struct_pack::detail::memory_reader", ptr %0, i64 0, i32 1
+  %end.i = getelementptr inbounds i8, ptr %0, i64 8
   %1 = load ptr, ptr %end.i, align 8
   %2 = load ptr, ptr %0, align 8
   %sub.ptr.lhs.cast.i = ptrtoint ptr %1 to i64
@@ -738,13 +743,13 @@ if.end6.i:                                        ; preds = %if.end.i
   br i1 %cmp7.i, label %if.end.thread, label %if.end9.i
 
 if.end.thread:                                    ; preds = %if.end6.i
-  %size_type_.i = getelementptr inbounds %"class.struct_pack::detail::unpacker", ptr %this, i64 0, i32 2
+  %size_type_.i = getelementptr inbounds i8, ptr %this, i64 16
   store i8 0, ptr %size_type_.i, align 8
   br label %sw.bb
 
 if.end9.i:                                        ; preds = %if.end6.i
   %3 = load ptr, ptr %reader_.i, align 8
-  %end.i26 = getelementptr inbounds %"struct.struct_pack::detail::memory_reader", ptr %3, i64 0, i32 1
+  %end.i26 = getelementptr inbounds i8, ptr %3, i64 8
   %4 = load ptr, ptr %end.i26, align 8
   %5 = load ptr, ptr %3, align 8
   %cmp.i30.not = icmp eq ptr %4, %5
@@ -755,7 +760,7 @@ if.end15.i:                                       ; preds = %if.end9.i
   %add.ptr.i32 = getelementptr inbounds i8, ptr %5, i64 1
   store ptr %add.ptr.i32, ptr %3, align 8
   %6 = and i8 %metainfo.i.0.copyload, 3
-  switch i8 %6, label %if.then16.i.unreachabledefault [
+  switch i8 %6, label %default.unreachable113 [
     i8 0, label %if.end23.i
     i8 1, label %sw.bb.i
     i8 2, label %sw.bb2.i
@@ -764,7 +769,7 @@ if.end15.i:                                       ; preds = %if.end9.i
 
 sw.bb.i:                                          ; preds = %if.end15.i
   %7 = load ptr, ptr %reader_.i, align 8
-  %end.i37 = getelementptr inbounds %"struct.struct_pack::detail::memory_reader", ptr %7, i64 0, i32 1
+  %end.i37 = getelementptr inbounds i8, ptr %7, i64 8
   %8 = load ptr, ptr %end.i37, align 8
   %9 = load ptr, ptr %7, align 8
   %sub.ptr.lhs.cast.i38 = ptrtoint ptr %8 to i64
@@ -780,7 +785,7 @@ if.then.i35:                                      ; preds = %sw.bb.i
 
 sw.bb2.i:                                         ; preds = %if.end15.i
   %10 = load ptr, ptr %reader_.i, align 8
-  %end.i46 = getelementptr inbounds %"struct.struct_pack::detail::memory_reader", ptr %10, i64 0, i32 1
+  %end.i46 = getelementptr inbounds i8, ptr %10, i64 8
   %11 = load ptr, ptr %end.i46, align 8
   %12 = load ptr, ptr %10, align 8
   %sub.ptr.lhs.cast.i47 = ptrtoint ptr %11 to i64
@@ -796,7 +801,7 @@ if.then5.i:                                       ; preds = %sw.bb2.i
 
 sw.bb8.i:                                         ; preds = %if.end15.i
   %13 = load ptr, ptr %reader_.i, align 8
-  %end.i55 = getelementptr inbounds %"struct.struct_pack::detail::memory_reader", ptr %13, i64 0, i32 1
+  %end.i55 = getelementptr inbounds i8, ptr %13, i64 8
   %14 = load ptr, ptr %end.i55, align 8
   %15 = load ptr, ptr %13, align 8
   %sub.ptr.lhs.cast.i56 = ptrtoint ptr %14 to i64
@@ -810,7 +815,7 @@ if.then11.i:                                      ; preds = %sw.bb8.i
   store ptr %add.ptr.i61, ptr %13, align 8
   br label %if.end23.i
 
-if.then16.i.unreachabledefault:                   ; preds = %if.end15.i
+default.unreachable113:                           ; preds = %if.end15.i
   unreachable
 
 if.end23.i:                                       ; preds = %if.end15.i, %if.then.i35, %if.then5.i, %if.then11.i
@@ -820,7 +825,7 @@ if.end23.i:                                       ; preds = %if.end15.i, %if.the
 
 if.then27.i:                                      ; preds = %if.end23.i
   %17 = load ptr, ptr %reader_.i, align 8
-  %end.i67 = getelementptr inbounds %"struct.struct_pack::detail::memory_reader", ptr %17, i64 0, i32 1
+  %end.i67 = getelementptr inbounds i8, ptr %17, i64 8
   %18 = load ptr, ptr %end.i67, align 8
   %19 = load ptr, ptr %17, align 8
   %sub.ptr.lhs.cast.i68 = ptrtoint ptr %18 to i64
@@ -843,7 +848,7 @@ if.end.i43:                                       ; preds = %_ZN11struct_pack6de
 if.end:                                           ; preds = %if.end23.i, %if.end.i43
   %20 = lshr i8 %metainfo.i.0.copyload, 3
   %21 = and i8 %20, 3
-  %size_type_37.i = getelementptr inbounds %"class.struct_pack::detail::unpacker", ptr %this, i64 0, i32 2
+  %size_type_37.i = getelementptr inbounds i8, ptr %this, i64 16
   store i8 %21, ptr %size_type_37.i, align 8
   %22 = icmp eq i8 %21, 0
   br i1 %22, label %sw.bb, label %sw.bb6
@@ -864,9 +869,9 @@ return:                                           ; preds = %if.end.i43, %if.the
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr dso_local noundef i32 @_ZN11struct_pack6detail8unpackerINS0_13memory_readerELm0EE15deserialize_oneILm1ELm18446744073709551615ELb1ELm0ESt6vectorIN13my_name_space7array2DESaIS7_EEEENS_4errcERT3_(ptr noundef nonnull align 8 dereferenceable(17) %this, ptr noundef nonnull align 8 dereferenceable(24) %item) local_unnamed_addr #1 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  %reader_ = getelementptr inbounds %"class.struct_pack::detail::unpacker", ptr %this, i64 0, i32 1
+  %reader_ = getelementptr inbounds i8, ptr %this, i64 8
   %0 = load ptr, ptr %reader_, align 8
-  %end.i = getelementptr inbounds %"struct.struct_pack::detail::memory_reader", ptr %0, i64 0, i32 1
+  %end.i = getelementptr inbounds i8, ptr %0, i64 8
   %1 = load ptr, ptr %end.i, align 8
   %2 = load ptr, ptr %0, align 8
   %cmp.i.not = icmp eq ptr %1, %2
@@ -882,17 +887,17 @@ if.end:                                           ; preds = %entry
 
 if.end3:                                          ; preds = %if.end
   %3 = load ptr, ptr %item, align 8
-  %_M_finish.i.i = getelementptr inbounds %"struct.std::_Vector_base<my_name_space::array2D, std::allocator<my_name_space::array2D>>::_Vector_impl_data", ptr %item, i64 0, i32 1
+  %_M_finish.i.i = getelementptr inbounds i8, ptr %item, i64 8
   %4 = load ptr, ptr %_M_finish.i.i, align 8
   %tobool.not.i.i = icmp eq ptr %4, %3
   br i1 %tobool.not.i.i, label %_ZNSt6vectorIN13my_name_space7array2DESaIS1_EE5clearEv.exit, label %for.body.i.i.i.i.i
 
 for.body.i.i.i.i.i:                               ; preds = %if.end3, %for.body.i.i.i.i.i
   %__first.addr.04.i.i.i.i.i = phi ptr [ %incdec.ptr.i.i.i.i.i, %for.body.i.i.i.i.i ], [ %3, %if.end3 ]
-  %p.i.i.i.i.i.i.i.i = getelementptr inbounds %"struct.my_name_space::array2D", ptr %__first.addr.04.i.i.i.i.i, i64 0, i32 2
+  %p.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %__first.addr.04.i.i.i.i.i, i64 8
   %5 = load ptr, ptr %p.i.i.i.i.i.i.i.i, align 8
   tail call void @free(ptr noundef %5) #16
-  %incdec.ptr.i.i.i.i.i = getelementptr inbounds %"struct.my_name_space::array2D", ptr %__first.addr.04.i.i.i.i.i, i64 1
+  %incdec.ptr.i.i.i.i.i = getelementptr inbounds i8, ptr %__first.addr.04.i.i.i.i.i, i64 16
   %cmp.not.i.i.i.i.i = icmp eq ptr %incdec.ptr.i.i.i.i.i, %4
   br i1 %cmp.not.i.i.i.i.i, label %invoke.cont.i.i, label %for.body.i.i.i.i.i, !llvm.loop !10
 
@@ -902,7 +907,7 @@ invoke.cont.i.i:                                  ; preds = %for.body.i.i.i.i.i
 
 _ZNSt6vectorIN13my_name_space7array2DESaIS1_EE5clearEv.exit: ; preds = %if.end3, %invoke.cont.i.i
   tail call void @_ZNSt6vectorIN13my_name_space7array2DESaIS1_EE7reserveEm(ptr noundef nonnull align 8 dereferenceable(24) %item, i64 noundef %size.0.insert.ext)
-  %_M_end_of_storage.i = getelementptr inbounds %"struct.std::_Vector_base<my_name_space::array2D, std::allocator<my_name_space::array2D>>::_Vector_impl_data", ptr %item, i64 0, i32 2
+  %_M_end_of_storage.i = getelementptr inbounds i8, ptr %item, i64 16
   %umax = tail call i64 @llvm.umax.i64(i64 %size.0.insert.ext, i64 1)
   br label %for.body
 
@@ -916,7 +921,7 @@ for.body:                                         ; preds = %_ZNSt6vectorIN13my_
 if.then.i:                                        ; preds = %for.body
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %6, i8 0, i64 16, i1 false)
   %8 = load ptr, ptr %_M_finish.i.i, align 8
-  %incdec.ptr.i = getelementptr inbounds %"struct.my_name_space::array2D", ptr %8, i64 1
+  %incdec.ptr.i = getelementptr inbounds i8, ptr %8, i64 16
   store ptr %incdec.ptr.i, ptr %_M_finish.i.i, align 8
   br label %_ZNSt6vectorIN13my_name_space7array2DESaIS1_EE12emplace_backIJEEERS1_DpOT_.exit
 
@@ -927,9 +932,9 @@ if.else.i:                                        ; preds = %for.body
 
 _ZNSt6vectorIN13my_name_space7array2DESaIS1_EE12emplace_backIJEEERS1_DpOT_.exit: ; preds = %if.then.i, %if.else.i
   %9 = phi ptr [ %incdec.ptr.i, %if.then.i ], [ %.pre, %if.else.i ]
-  %add.ptr.i.i = getelementptr inbounds %"struct.my_name_space::array2D", ptr %9, i64 -1
+  %add.ptr.i.i = getelementptr inbounds i8, ptr %9, i64 -16
   %10 = load ptr, ptr %reader_, align 8
-  %end.i.i.i = getelementptr inbounds %"struct.struct_pack::detail::memory_reader", ptr %10, i64 0, i32 1
+  %end.i.i.i = getelementptr inbounds i8, ptr %10, i64 8
   %11 = load ptr, ptr %end.i.i.i, align 8
   %12 = load ptr, ptr %10, align 8
   %sub.ptr.lhs.cast.i.i.i = ptrtoint ptr %11 to i64
@@ -952,7 +957,7 @@ if.end.i.i:                                       ; preds = %_ZNSt6vectorIN13my_
   br i1 %cmp.i20.i.i, label %if.end5.i.i, label %for.inc
 
 if.end5.i.i:                                      ; preds = %if.end.i.i
-  %y.i.i = getelementptr %"struct.my_name_space::array2D", ptr %9, i64 -1, i32 1
+  %y.i.i = getelementptr inbounds i8, ptr %9, i64 -12
   %16 = load i32, ptr %add.ptr.i.i.i11, align 1
   store i32 %16, ptr %y.i.i, align 4
   %17 = load ptr, ptr %10, align 8
@@ -973,7 +978,7 @@ if.end5.i.i:                                      ; preds = %if.end.i.i
 
 if.end13.i.i:                                     ; preds = %if.end5.i.i
   %call14.i.i = tail call noalias ptr @malloc(i64 noundef %mul10.i.i) #20
-  %p.i.i = getelementptr %"struct.my_name_space::array2D", ptr %9, i64 -1, i32 2
+  %p.i.i = getelementptr inbounds i8, ptr %9, i64 -8
   store ptr %call14.i.i, ptr %p.i.i, align 8
   %21 = load ptr, ptr %end.i.i.i, align 8
   %22 = load ptr, ptr %10, align 8
@@ -1014,7 +1019,7 @@ if.then:                                          ; preds = %entry
   unreachable
 
 if.end:                                           ; preds = %entry
-  %_M_end_of_storage.i = getelementptr inbounds %"struct.std::_Vector_base<my_name_space::array2D, std::allocator<my_name_space::array2D>>::_Vector_impl_data", ptr %this, i64 0, i32 2
+  %_M_end_of_storage.i = getelementptr inbounds i8, ptr %this, i64 16
   %0 = load ptr, ptr %_M_end_of_storage.i, align 8
   %1 = load ptr, ptr %this, align 8
   %sub.ptr.lhs.cast.i = ptrtoint ptr %0 to i64
@@ -1025,7 +1030,7 @@ if.end:                                           ; preds = %entry
   br i1 %cmp3, label %_ZNSt12_Vector_baseIN13my_name_space7array2DESaIS1_EE11_M_allocateEm.exit.i, label %if.end33
 
 _ZNSt12_Vector_baseIN13my_name_space7array2DESaIS1_EE11_M_allocateEm.exit.i: ; preds = %if.end
-  %_M_finish.i = getelementptr inbounds %"struct.std::_Vector_base<my_name_space::array2D, std::allocator<my_name_space::array2D>>::_Vector_impl_data", ptr %this, i64 0, i32 1
+  %_M_finish.i = getelementptr inbounds i8, ptr %this, i64 8
   %2 = load ptr, ptr %_M_finish.i, align 8
   %sub.ptr.lhs.cast.i5 = ptrtoint ptr %2 to i64
   %sub.ptr.sub.i7 = sub i64 %sub.ptr.lhs.cast.i5, %sub.ptr.rhs.cast.i
@@ -1039,17 +1044,17 @@ for.inc.i.i.i.i.i:                                ; preds = %_ZNSt12_Vector_base
   %__first.sroa.0.08.i.i.i.i.i = phi ptr [ %incdec.ptr.i.i.i.i.i.i, %for.inc.i.i.i.i.i ], [ %1, %_ZNSt12_Vector_baseIN13my_name_space7array2DESaIS1_EE11_M_allocateEm.exit.i ]
   %3 = load i32, ptr %__first.sroa.0.08.i.i.i.i.i, align 8
   store i32 %3, ptr %__cur.09.i.i.i.i.i, align 8
-  %y.i.i.i.i.i.i.i = getelementptr inbounds %"struct.my_name_space::array2D", ptr %__cur.09.i.i.i.i.i, i64 0, i32 1
-  %y3.i.i.i.i.i.i.i = getelementptr inbounds %"struct.my_name_space::array2D", ptr %__first.sroa.0.08.i.i.i.i.i, i64 0, i32 1
+  %y.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %__cur.09.i.i.i.i.i, i64 4
+  %y3.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %__first.sroa.0.08.i.i.i.i.i, i64 4
   %4 = load i32, ptr %y3.i.i.i.i.i.i.i, align 4
   store i32 %4, ptr %y.i.i.i.i.i.i.i, align 4
-  %p.i.i.i.i.i.i.i = getelementptr inbounds %"struct.my_name_space::array2D", ptr %__cur.09.i.i.i.i.i, i64 0, i32 2
-  %p4.i.i.i.i.i.i.i = getelementptr inbounds %"struct.my_name_space::array2D", ptr %__first.sroa.0.08.i.i.i.i.i, i64 0, i32 2
+  %p.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %__cur.09.i.i.i.i.i, i64 8
+  %p4.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %__first.sroa.0.08.i.i.i.i.i, i64 8
   %5 = load ptr, ptr %p4.i.i.i.i.i.i.i, align 8
   store ptr %5, ptr %p.i.i.i.i.i.i.i, align 8
   store ptr null, ptr %p4.i.i.i.i.i.i.i, align 8
-  %incdec.ptr.i.i.i.i.i.i = getelementptr inbounds %"struct.my_name_space::array2D", ptr %__first.sroa.0.08.i.i.i.i.i, i64 1
-  %incdec.ptr.i.i.i.i.i = getelementptr inbounds %"struct.my_name_space::array2D", ptr %__cur.09.i.i.i.i.i, i64 1
+  %incdec.ptr.i.i.i.i.i.i = getelementptr inbounds i8, ptr %__first.sroa.0.08.i.i.i.i.i, i64 16
+  %incdec.ptr.i.i.i.i.i = getelementptr inbounds i8, ptr %__cur.09.i.i.i.i.i, i64 16
   %cmp.i.i.i.i.i.i = icmp eq ptr %incdec.ptr.i.i.i.i.i.i, %2
   br i1 %cmp.i.i.i.i.i.i, label %_ZNSt6vectorIN13my_name_space7array2DESaIS1_EE20_M_allocate_and_copyISt13move_iteratorIPS1_EEES6_mT_S8_.exit, label %for.inc.i.i.i.i.i, !llvm.loop !12
 
@@ -1061,10 +1066,10 @@ _ZNSt6vectorIN13my_name_space7array2DESaIS1_EE20_M_allocate_and_copyISt13move_it
 
 for.body.i.i.i:                                   ; preds = %_ZNSt6vectorIN13my_name_space7array2DESaIS1_EE20_M_allocate_and_copyISt13move_iteratorIPS1_EEES6_mT_S8_.exit, %for.body.i.i.i
   %__first.addr.04.i.i.i = phi ptr [ %incdec.ptr.i.i.i, %for.body.i.i.i ], [ %.pre, %_ZNSt6vectorIN13my_name_space7array2DESaIS1_EE20_M_allocate_and_copyISt13move_iteratorIPS1_EEES6_mT_S8_.exit ]
-  %p.i.i.i.i.i.i = getelementptr inbounds %"struct.my_name_space::array2D", ptr %__first.addr.04.i.i.i, i64 0, i32 2
+  %p.i.i.i.i.i.i = getelementptr inbounds i8, ptr %__first.addr.04.i.i.i, i64 8
   %6 = load ptr, ptr %p.i.i.i.i.i.i, align 8
   tail call void @free(ptr noundef %6) #16
-  %incdec.ptr.i.i.i = getelementptr inbounds %"struct.my_name_space::array2D", ptr %__first.addr.04.i.i.i, i64 1
+  %incdec.ptr.i.i.i = getelementptr inbounds i8, ptr %__first.addr.04.i.i.i, i64 16
   %cmp.not.i.i.i = icmp eq ptr %incdec.ptr.i.i.i, %.pre9
   br i1 %cmp.not.i.i.i, label %_ZSt8_DestroyIPN13my_name_space7array2DES1_EvT_S3_RSaIT0_E.exitthread-pre-split, label %for.body.i.i.i, !llvm.loop !10
 
@@ -1096,7 +1101,7 @@ if.end33:                                         ; preds = %_ZNSt12_Vector_base
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr dso_local void @_ZNSt6vectorIN13my_name_space7array2DESaIS1_EE17_M_realloc_insertIJEEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_(ptr noundef nonnull align 8 dereferenceable(24) %this, ptr %__position.coerce) local_unnamed_addr #1 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  %_M_finish.i.i = getelementptr inbounds %"struct.std::_Vector_base<my_name_space::array2D, std::allocator<my_name_space::array2D>>::_Vector_impl_data", ptr %this, i64 0, i32 1
+  %_M_finish.i.i = getelementptr inbounds i8, ptr %this, i64 8
   %0 = load ptr, ptr %_M_finish.i.i, align 8
   %1 = load ptr, ptr %this, align 8
   %sub.ptr.lhs.cast.i.i = ptrtoint ptr %0 to i64
@@ -1139,23 +1144,23 @@ for.inc.i.i.i.i.i:                                ; preds = %invoke.cont, %for.i
   %__first.sroa.0.08.i.i.i.i.i = phi ptr [ %incdec.ptr.i.i.i.i.i.i, %for.inc.i.i.i.i.i ], [ %1, %invoke.cont ]
   %3 = load i32, ptr %__first.sroa.0.08.i.i.i.i.i, align 8
   store i32 %3, ptr %__cur.09.i.i.i.i.i, align 8
-  %y.i.i.i.i.i.i.i = getelementptr inbounds %"struct.my_name_space::array2D", ptr %__cur.09.i.i.i.i.i, i64 0, i32 1
-  %y3.i.i.i.i.i.i.i = getelementptr inbounds %"struct.my_name_space::array2D", ptr %__first.sroa.0.08.i.i.i.i.i, i64 0, i32 1
+  %y.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %__cur.09.i.i.i.i.i, i64 4
+  %y3.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %__first.sroa.0.08.i.i.i.i.i, i64 4
   %4 = load i32, ptr %y3.i.i.i.i.i.i.i, align 4
   store i32 %4, ptr %y.i.i.i.i.i.i.i, align 4
-  %p.i.i.i.i.i.i.i = getelementptr inbounds %"struct.my_name_space::array2D", ptr %__cur.09.i.i.i.i.i, i64 0, i32 2
-  %p4.i.i.i.i.i.i.i = getelementptr inbounds %"struct.my_name_space::array2D", ptr %__first.sroa.0.08.i.i.i.i.i, i64 0, i32 2
+  %p.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %__cur.09.i.i.i.i.i, i64 8
+  %p4.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %__first.sroa.0.08.i.i.i.i.i, i64 8
   %5 = load ptr, ptr %p4.i.i.i.i.i.i.i, align 8
   store ptr %5, ptr %p.i.i.i.i.i.i.i, align 8
   store ptr null, ptr %p4.i.i.i.i.i.i.i, align 8
-  %incdec.ptr.i.i.i.i.i.i = getelementptr inbounds %"struct.my_name_space::array2D", ptr %__first.sroa.0.08.i.i.i.i.i, i64 1
-  %incdec.ptr.i.i.i.i.i = getelementptr inbounds %"struct.my_name_space::array2D", ptr %__cur.09.i.i.i.i.i, i64 1
+  %incdec.ptr.i.i.i.i.i.i = getelementptr inbounds i8, ptr %__first.sroa.0.08.i.i.i.i.i, i64 16
+  %incdec.ptr.i.i.i.i.i = getelementptr inbounds i8, ptr %__cur.09.i.i.i.i.i, i64 16
   %cmp.i.i.i.i.i.i = icmp eq ptr %incdec.ptr.i.i.i.i.i.i, %__position.coerce
   br i1 %cmp.i.i.i.i.i.i, label %invoke.cont10, label %for.inc.i.i.i.i.i, !llvm.loop !12
 
 invoke.cont10:                                    ; preds = %for.inc.i.i.i.i.i, %invoke.cont
   %__cur.0.lcssa.i.i.i.i.i = phi ptr [ %cond.i19, %invoke.cont ], [ %incdec.ptr.i.i.i.i.i, %for.inc.i.i.i.i.i ]
-  %incdec.ptr = getelementptr inbounds %"struct.my_name_space::array2D", ptr %__cur.0.lcssa.i.i.i.i.i, i64 1
+  %incdec.ptr = getelementptr inbounds i8, ptr %__cur.0.lcssa.i.i.i.i.i, i64 16
   %cmp.i7.i.i.i.i.i20 = icmp eq ptr %0, %__position.coerce
   br i1 %cmp.i7.i.i.i.i.i20, label %invoke.cont14, label %for.inc.i.i.i.i.i21
 
@@ -1164,17 +1169,17 @@ for.inc.i.i.i.i.i21:                              ; preds = %invoke.cont10, %for
   %__first.sroa.0.08.i.i.i.i.i23 = phi ptr [ %incdec.ptr.i.i.i.i.i.i28, %for.inc.i.i.i.i.i21 ], [ %__position.coerce, %invoke.cont10 ]
   %6 = load i32, ptr %__first.sroa.0.08.i.i.i.i.i23, align 8
   store i32 %6, ptr %__cur.09.i.i.i.i.i22, align 8
-  %y.i.i.i.i.i.i.i24 = getelementptr inbounds %"struct.my_name_space::array2D", ptr %__cur.09.i.i.i.i.i22, i64 0, i32 1
-  %y3.i.i.i.i.i.i.i25 = getelementptr inbounds %"struct.my_name_space::array2D", ptr %__first.sroa.0.08.i.i.i.i.i23, i64 0, i32 1
+  %y.i.i.i.i.i.i.i24 = getelementptr inbounds i8, ptr %__cur.09.i.i.i.i.i22, i64 4
+  %y3.i.i.i.i.i.i.i25 = getelementptr inbounds i8, ptr %__first.sroa.0.08.i.i.i.i.i23, i64 4
   %7 = load i32, ptr %y3.i.i.i.i.i.i.i25, align 4
   store i32 %7, ptr %y.i.i.i.i.i.i.i24, align 4
-  %p.i.i.i.i.i.i.i26 = getelementptr inbounds %"struct.my_name_space::array2D", ptr %__cur.09.i.i.i.i.i22, i64 0, i32 2
-  %p4.i.i.i.i.i.i.i27 = getelementptr inbounds %"struct.my_name_space::array2D", ptr %__first.sroa.0.08.i.i.i.i.i23, i64 0, i32 2
+  %p.i.i.i.i.i.i.i26 = getelementptr inbounds i8, ptr %__cur.09.i.i.i.i.i22, i64 8
+  %p4.i.i.i.i.i.i.i27 = getelementptr inbounds i8, ptr %__first.sroa.0.08.i.i.i.i.i23, i64 8
   %8 = load ptr, ptr %p4.i.i.i.i.i.i.i27, align 8
   store ptr %8, ptr %p.i.i.i.i.i.i.i26, align 8
   store ptr null, ptr %p4.i.i.i.i.i.i.i27, align 8
-  %incdec.ptr.i.i.i.i.i.i28 = getelementptr inbounds %"struct.my_name_space::array2D", ptr %__first.sroa.0.08.i.i.i.i.i23, i64 1
-  %incdec.ptr.i.i.i.i.i29 = getelementptr inbounds %"struct.my_name_space::array2D", ptr %__cur.09.i.i.i.i.i22, i64 1
+  %incdec.ptr.i.i.i.i.i.i28 = getelementptr inbounds i8, ptr %__first.sroa.0.08.i.i.i.i.i23, i64 16
+  %incdec.ptr.i.i.i.i.i29 = getelementptr inbounds i8, ptr %__cur.09.i.i.i.i.i22, i64 16
   %cmp.i.i.i.i.i.i30 = icmp eq ptr %incdec.ptr.i.i.i.i.i.i28, %0
   br i1 %cmp.i.i.i.i.i.i30, label %invoke.cont14, label %for.inc.i.i.i.i.i21, !llvm.loop !12
 
@@ -1185,10 +1190,10 @@ invoke.cont14:                                    ; preds = %for.inc.i.i.i.i.i21
 
 for.body.i.i.i:                                   ; preds = %invoke.cont14, %for.body.i.i.i
   %__first.addr.04.i.i.i = phi ptr [ %incdec.ptr.i.i.i, %for.body.i.i.i ], [ %1, %invoke.cont14 ]
-  %p.i.i.i.i.i.i = getelementptr inbounds %"struct.my_name_space::array2D", ptr %__first.addr.04.i.i.i, i64 0, i32 2
+  %p.i.i.i.i.i.i = getelementptr inbounds i8, ptr %__first.addr.04.i.i.i, i64 8
   %9 = load ptr, ptr %p.i.i.i.i.i.i, align 8
   tail call void @free(ptr noundef %9) #16
-  %incdec.ptr.i.i.i = getelementptr inbounds %"struct.my_name_space::array2D", ptr %__first.addr.04.i.i.i, i64 1
+  %incdec.ptr.i.i.i = getelementptr inbounds i8, ptr %__first.addr.04.i.i.i, i64 16
   %cmp.not.i.i.i = icmp eq ptr %incdec.ptr.i.i.i, %0
   br i1 %cmp.not.i.i.i, label %_ZSt8_DestroyIPN13my_name_space7array2DES1_EvT_S3_RSaIT0_E.exit, label %for.body.i.i.i, !llvm.loop !10
 
@@ -1201,7 +1206,7 @@ if.then.i33:                                      ; preds = %_ZSt8_DestroyIPN13m
   br label %_ZNSt12_Vector_baseIN13my_name_space7array2DESaIS1_EE13_M_deallocateEPS1_m.exit
 
 _ZNSt12_Vector_baseIN13my_name_space7array2DESaIS1_EE13_M_deallocateEPS1_m.exit: ; preds = %_ZSt8_DestroyIPN13my_name_space7array2DES1_EvT_S3_RSaIT0_E.exit, %if.then.i33
-  %_M_end_of_storage = getelementptr inbounds %"struct.std::_Vector_base<my_name_space::array2D, std::allocator<my_name_space::array2D>>::_Vector_impl_data", ptr %this, i64 0, i32 2
+  %_M_end_of_storage = getelementptr inbounds i8, ptr %this, i64 16
   store ptr %cond.i19, ptr %this, align 8
   store ptr %__cur.0.lcssa.i.i.i.i.i31, ptr %_M_finish.i.i, align 8
   %add.ptr29 = getelementptr inbounds %"struct.my_name_space::array2D", ptr %cond.i19, i64 %cond.i
@@ -1215,11 +1220,11 @@ declare noalias noundef ptr @malloc(i64 noundef) local_unnamed_addr #10
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr dso_local noundef i32 @_ZN11struct_pack6detail8unpackerINS0_13memory_readerELm0EE15deserialize_oneILm2ELm18446744073709551615ELb1ELm0ESt6vectorIN13my_name_space7array2DESaIS7_EEEENS_4errcERT3_(ptr noundef nonnull align 8 dereferenceable(17) %this, ptr noundef nonnull align 8 dereferenceable(24) %item) local_unnamed_addr #1 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  %size_type_ = getelementptr inbounds %"class.struct_pack::detail::unpacker", ptr %this, i64 0, i32 2
+  %size_type_ = getelementptr inbounds i8, ptr %this, i64 16
   %0 = load i8, ptr %size_type_, align 8
-  %reader_ = getelementptr inbounds %"class.struct_pack::detail::unpacker", ptr %this, i64 0, i32 1
+  %reader_ = getelementptr inbounds i8, ptr %this, i64 8
   %1 = load ptr, ptr %reader_, align 8
-  %end.i = getelementptr inbounds %"struct.struct_pack::detail::memory_reader", ptr %1, i64 0, i32 1
+  %end.i = getelementptr inbounds i8, ptr %1, i64 8
   %2 = load ptr, ptr %end.i, align 8
   %3 = load ptr, ptr %1, align 8
   %sub.ptr.lhs.cast.i = ptrtoint ptr %2 to i64
@@ -1270,17 +1275,17 @@ sw.epilog:                                        ; preds = %_ZN11struct_pack6de
 
 if.end13:                                         ; preds = %sw.epilog
   %4 = load ptr, ptr %item, align 8
-  %_M_finish.i.i = getelementptr inbounds %"struct.std::_Vector_base<my_name_space::array2D, std::allocator<my_name_space::array2D>>::_Vector_impl_data", ptr %item, i64 0, i32 1
+  %_M_finish.i.i = getelementptr inbounds i8, ptr %item, i64 8
   %5 = load ptr, ptr %_M_finish.i.i, align 8
   %tobool.not.i.i = icmp eq ptr %5, %4
   br i1 %tobool.not.i.i, label %_ZNSt6vectorIN13my_name_space7array2DESaIS1_EE5clearEv.exit, label %for.body.i.i.i.i.i
 
 for.body.i.i.i.i.i:                               ; preds = %if.end13, %for.body.i.i.i.i.i
   %__first.addr.04.i.i.i.i.i = phi ptr [ %incdec.ptr.i.i.i.i.i, %for.body.i.i.i.i.i ], [ %4, %if.end13 ]
-  %p.i.i.i.i.i.i.i.i = getelementptr inbounds %"struct.my_name_space::array2D", ptr %__first.addr.04.i.i.i.i.i, i64 0, i32 2
+  %p.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %__first.addr.04.i.i.i.i.i, i64 8
   %6 = load ptr, ptr %p.i.i.i.i.i.i.i.i, align 8
   tail call void @free(ptr noundef %6) #16
-  %incdec.ptr.i.i.i.i.i = getelementptr inbounds %"struct.my_name_space::array2D", ptr %__first.addr.04.i.i.i.i.i, i64 1
+  %incdec.ptr.i.i.i.i.i = getelementptr inbounds i8, ptr %__first.addr.04.i.i.i.i.i, i64 16
   %cmp.not.i.i.i.i.i = icmp eq ptr %incdec.ptr.i.i.i.i.i, %5
   br i1 %cmp.not.i.i.i.i.i, label %invoke.cont.i.i, label %for.body.i.i.i.i.i, !llvm.loop !10
 
@@ -1291,8 +1296,8 @@ invoke.cont.i.i:                                  ; preds = %for.body.i.i.i.i.i
 _ZNSt6vectorIN13my_name_space7array2DESaIS1_EE5clearEv.exit: ; preds = %if.end13, %invoke.cont.i.i
   %.sroa.speculated = tail call i64 @llvm.umin.i64(i64 %size.3, i64 65536)
   tail call void @_ZNSt6vectorIN13my_name_space7array2DESaIS1_EE7reserveEm(ptr noundef nonnull align 8 dereferenceable(24) %item, i64 noundef %.sroa.speculated)
-  %_M_end_of_storage.i = getelementptr inbounds %"struct.std::_Vector_base<my_name_space::array2D, std::allocator<my_name_space::array2D>>::_Vector_impl_data", ptr %item, i64 0, i32 2
-  %reader_.i = getelementptr inbounds %"class.struct_pack::detail::unpacker", ptr %this, i64 0, i32 1
+  %_M_end_of_storage.i = getelementptr inbounds i8, ptr %item, i64 16
+  %reader_.i = getelementptr inbounds i8, ptr %this, i64 8
   %umax = tail call i64 @llvm.umax.i64(i64 %size.3, i64 1)
   br label %for.body
 
@@ -1306,7 +1311,7 @@ for.body:                                         ; preds = %_ZNSt6vectorIN13my_
 if.then.i:                                        ; preds = %for.body
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %7, i8 0, i64 16, i1 false)
   %9 = load ptr, ptr %_M_finish.i.i, align 8
-  %incdec.ptr.i = getelementptr inbounds %"struct.my_name_space::array2D", ptr %9, i64 1
+  %incdec.ptr.i = getelementptr inbounds i8, ptr %9, i64 16
   store ptr %incdec.ptr.i, ptr %_M_finish.i.i, align 8
   br label %_ZNSt6vectorIN13my_name_space7array2DESaIS1_EE12emplace_backIJEEERS1_DpOT_.exit
 
@@ -1317,9 +1322,9 @@ if.else.i:                                        ; preds = %for.body
 
 _ZNSt6vectorIN13my_name_space7array2DESaIS1_EE12emplace_backIJEEERS1_DpOT_.exit: ; preds = %if.then.i, %if.else.i
   %10 = phi ptr [ %incdec.ptr.i, %if.then.i ], [ %.pre, %if.else.i ]
-  %add.ptr.i.i = getelementptr inbounds %"struct.my_name_space::array2D", ptr %10, i64 -1
+  %add.ptr.i.i = getelementptr inbounds i8, ptr %10, i64 -16
   %11 = load ptr, ptr %reader_.i, align 8
-  %end.i.i.i = getelementptr inbounds %"struct.struct_pack::detail::memory_reader", ptr %11, i64 0, i32 1
+  %end.i.i.i = getelementptr inbounds i8, ptr %11, i64 8
   %12 = load ptr, ptr %end.i.i.i, align 8
   %13 = load ptr, ptr %11, align 8
   %sub.ptr.lhs.cast.i.i.i = ptrtoint ptr %12 to i64
@@ -1342,7 +1347,7 @@ if.end.i.i:                                       ; preds = %_ZNSt6vectorIN13my_
   br i1 %cmp.i20.i.i, label %if.end5.i.i, label %for.inc
 
 if.end5.i.i:                                      ; preds = %if.end.i.i
-  %y.i.i = getelementptr %"struct.my_name_space::array2D", ptr %10, i64 -1, i32 1
+  %y.i.i = getelementptr inbounds i8, ptr %10, i64 -12
   %17 = load i32, ptr %add.ptr.i.i.i27, align 1
   store i32 %17, ptr %y.i.i, align 4
   %18 = load ptr, ptr %11, align 8
@@ -1363,7 +1368,7 @@ if.end5.i.i:                                      ; preds = %if.end.i.i
 
 if.end13.i.i:                                     ; preds = %if.end5.i.i
   %call14.i.i = tail call noalias ptr @malloc(i64 noundef %mul10.i.i) #20
-  %p.i.i = getelementptr %"struct.my_name_space::array2D", ptr %10, i64 -1, i32 2
+  %p.i.i = getelementptr inbounds i8, ptr %10, i64 -8
   store ptr %call14.i.i, ptr %p.i.i, align 8
   %22 = load ptr, ptr %end.i.i.i, align 8
   %23 = load ptr, ptr %11, align 8

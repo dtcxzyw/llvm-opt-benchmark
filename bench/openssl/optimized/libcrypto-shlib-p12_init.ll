@@ -3,11 +3,6 @@ source_filename = "bench/openssl/original/libcrypto-shlib-p12_init.ll"
 target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:128-n8:16:32:64-S128"
 target triple = "x86_64-unknown-linux-gnu"
 
-%struct.PKCS12_st = type { ptr, ptr, ptr }
-%struct.pkcs7_st = type { ptr, i64, i32, i32, ptr, %union.anon, %struct.PKCS7_CTX_st }
-%union.anon = type { ptr }
-%struct.PKCS7_CTX_st = type { ptr, ptr }
-
 @.str = private unnamed_addr constant [36 x i8] c"../openssl/crypto/pkcs12/p12_init.c\00", align 1
 @__func__.PKCS12_init_ex = private unnamed_addr constant [15 x i8] c"PKCS12_init_ex\00", align 1
 
@@ -32,9 +27,9 @@ if.end:                                           ; preds = %entry
 
 if.end3:                                          ; preds = %if.end
   %call4 = tail call ptr @OBJ_nid2obj(i32 noundef %mode) #3
-  %authsafes = getelementptr inbounds %struct.PKCS12_st, ptr %call, i64 0, i32 2
+  %authsafes = getelementptr inbounds i8, ptr %call, i64 16
   %1 = load ptr, ptr %authsafes, align 8
-  %type = getelementptr inbounds %struct.pkcs7_st, ptr %1, i64 0, i32 4
+  %type = getelementptr inbounds i8, ptr %1, i64 24
   store ptr %call4, ptr %type, align 8
   %2 = load ptr, ptr %authsafes, align 8
   tail call void @ossl_pkcs7_set0_libctx(ptr noundef %2, ptr noundef %ctx) #3
@@ -50,7 +45,7 @@ if.end10:                                         ; preds = %if.end3
 sw.bb:                                            ; preds = %if.end10
   %call11 = tail call ptr @ASN1_OCTET_STRING_new() #3
   %4 = load ptr, ptr %authsafes, align 8
-  %d = getelementptr inbounds %struct.pkcs7_st, ptr %4, i64 0, i32 5
+  %d = getelementptr inbounds i8, ptr %4, i64 32
   store ptr %call11, ptr %d, align 8
   %cmp13 = icmp eq ptr %call11, null
   br i1 %cmp13, label %err.sink.split, label %return
@@ -106,10 +101,10 @@ entry:
   br i1 %cmp, label %return, label %lor.lhs.false
 
 lor.lhs.false:                                    ; preds = %entry
-  %authsafes = getelementptr inbounds %struct.PKCS12_st, ptr %p12, i64 0, i32 2
+  %authsafes = getelementptr inbounds i8, ptr %p12, i64 16
   %0 = load ptr, ptr %authsafes, align 8
   %cmp1 = icmp eq ptr %0, null
-  %ctx = getelementptr inbounds %struct.pkcs7_st, ptr %0, i64 0, i32 6
+  %ctx = getelementptr inbounds i8, ptr %0, i64 40
   %spec.select = select i1 %cmp1, ptr null, ptr %ctx
   br label %return
 

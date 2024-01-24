@@ -50,12 +50,6 @@ target triple = "x86_64-unknown-linux-gnu"
 %"class.std::shared_ptr" = type { %"class.std::__shared_ptr" }
 %"class.std::__shared_ptr" = type { ptr, %"class.std::__shared_count" }
 %"class.std::__shared_count" = type { ptr }
-%"class.std::_Sp_counted_base" = type { ptr, i32, i32 }
-%"class.std::_Sp_counted_ptr_inplace" = type <{ %"class.std::_Sp_counted_base", %"class.std::_Sp_counted_ptr_inplace<const int, std::allocator<void>, __gnu_cxx::_S_atomic>::_Impl", [4 x i8] }>
-%"class.std::_Sp_counted_ptr_inplace<const int, std::allocator<void>, __gnu_cxx::_S_atomic>::_Impl" = type { %"struct.__gnu_cxx::__aligned_buffer.50" }
-%"struct.__gnu_cxx::__aligned_buffer.50" = type { %"union.std::aligned_storage<4, 4>::type" }
-%"union.std::aligned_storage<4, 4>::type" = type { [4 x i8] }
-%"class.std::type_info" = type { ptr, ptr }
 %"class.absl::FixedArray.55" = type { %"class.absl::FixedArray<testing::ThrowingValue<testing::TypeSpec::kNoThrowMove>, 25>::Storage" }
 %"class.absl::FixedArray<testing::ThrowingValue<testing::TypeSpec::kNoThrowMove>, 25>::Storage" = type { %"class.absl::FixedArray<testing::ThrowingValue<testing::TypeSpec::kNoThrowMove>, 25>::NonEmptyInlinedStorage", %"class.absl::container_internal::CompressedTuple.56", ptr }
 %"class.absl::FixedArray<testing::ThrowingValue<testing::TypeSpec::kNoThrowMove>, 25>::NonEmptyInlinedStorage" = type { [100 x i8] }
@@ -778,8 +772,8 @@ invoke.cont6:                                     ; preds = %invoke.cont3
           to label %invoke.cont8 unwind label %lpad7
 
 invoke.cont8:                                     ; preds = %invoke.cont6
-  %data_.i.i = getelementptr inbounds %"class.absl::FixedArray<testing::ThrowingValue<testing::TypeSpec::kEverythingThrows>, 25>::Storage", ptr %large, i64 0, i32 2
-  %size_alloc_.i.i.i = getelementptr inbounds %"class.absl::FixedArray<testing::ThrowingValue<testing::TypeSpec::kEverythingThrows>, 25>::Storage", ptr %large, i64 0, i32 1
+  %data_.i.i = getelementptr inbounds i8, ptr %large, i64 112
+  %size_alloc_.i.i.i = getelementptr inbounds i8, ptr %large, i64 104
   %0 = load i64, ptr %size_alloc_.i.i.i, align 8
   %cmp.not9.i = icmp eq i64 %0, 0
   br i1 %cmp.not9.i, label %_ZN4absl10FixedArrayIN7testing13ThrowingValueILNS1_8TypeSpecE0EEELm25ESaIS4_EED2Ev.exit, label %invoke.cont5.i.preheader
@@ -801,7 +795,7 @@ terminate.lpad.i.i.i.i.i:                         ; preds = %invoke.cont5.i
   unreachable
 
 _ZNSt16allocator_traitsISaIN7testing13ThrowingValueILNS0_8TypeSpecE0EEEEE7destroyIS3_EEvRS4_PT_.exit.i: ; preds = %invoke.cont5.i
-  %incdec.ptr.i = getelementptr inbounds %"class.testing::ThrowingValue", ptr %cur.010.i, i64 1
+  %incdec.ptr.i = getelementptr inbounds i8, ptr %cur.010.i, i64 4
   %4 = load ptr, ptr %data_.i.i, align 8
   %5 = load i64, ptr %size_alloc_.i.i.i, align 8
   %add.ptr.i.i = getelementptr inbounds %"class.testing::ThrowingValue", ptr %4, i64 %5
@@ -817,8 +811,8 @@ invoke.cont11.i.i:                                ; preds = %for.end.i
   br label %_ZN4absl10FixedArrayIN7testing13ThrowingValueILNS1_8TypeSpecE0EEELm25ESaIS4_EED2Ev.exit
 
 _ZN4absl10FixedArrayIN7testing13ThrowingValueILNS1_8TypeSpecE0EEELm25ESaIS4_EED2Ev.exit: ; preds = %invoke.cont8, %for.end.i, %invoke.cont11.i.i
-  %data_.i.i3 = getelementptr inbounds %"class.absl::FixedArray<testing::ThrowingValue<testing::TypeSpec::kEverythingThrows>, 25>::Storage", ptr %small, i64 0, i32 2
-  %size_alloc_.i.i.i4 = getelementptr inbounds %"class.absl::FixedArray<testing::ThrowingValue<testing::TypeSpec::kEverythingThrows>, 25>::Storage", ptr %small, i64 0, i32 1
+  %data_.i.i3 = getelementptr inbounds i8, ptr %small, i64 112
+  %size_alloc_.i.i.i4 = getelementptr inbounds i8, ptr %small, i64 104
   %7 = load i64, ptr %size_alloc_.i.i.i4, align 8
   %cmp.not9.i5 = icmp eq i64 %7, 0
   br i1 %cmp.not9.i5, label %_ZN4absl10FixedArrayIN7testing13ThrowingValueILNS1_8TypeSpecE0EEELm25ESaIS4_EED2Ev.exit15, label %invoke.cont5.i6.preheader
@@ -840,7 +834,7 @@ terminate.lpad.i.i.i.i.i8:                        ; preds = %invoke.cont5.i6
   unreachable
 
 _ZNSt16allocator_traitsISaIN7testing13ThrowingValueILNS0_8TypeSpecE0EEEEE7destroyIS3_EEvRS4_PT_.exit.i9: ; preds = %invoke.cont5.i6
-  %incdec.ptr.i10 = getelementptr inbounds %"class.testing::ThrowingValue", ptr %cur.010.i7, i64 1
+  %incdec.ptr.i10 = getelementptr inbounds i8, ptr %cur.010.i7, i64 4
   %11 = load ptr, ptr %data_.i.i3, align 8
   %12 = load i64, ptr %size_alloc_.i.i.i4, align 8
   %add.ptr.i.i11 = getelementptr inbounds %"class.testing::ThrowingValue", ptr %11, i64 %12
@@ -892,7 +886,7 @@ declare void @_ZN7testing4TestD2Ev(ptr noundef nonnull align 8 dereferenceable(1
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr dso_local void @_ZN4absl10FixedArrayIN7testing13ThrowingValueILNS1_8TypeSpecE0EEELm25ESaIS4_EEC2EmRKS5_(ptr noundef nonnull align 8 dereferenceable(120) %this, i64 noundef %n, ptr noundef nonnull align 1 dereferenceable(1) %a) unnamed_addr #3 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  %size_alloc_.i = getelementptr inbounds %"class.absl::FixedArray<testing::ThrowingValue<testing::TypeSpec::kEverythingThrows>, 25>::Storage", ptr %this, i64 0, i32 1
+  %size_alloc_.i = getelementptr inbounds i8, ptr %this, i64 104
   store i64 %n, ptr %size_alloc_.i, align 8
   %cmp.i.i.i = icmp ult i64 %n, 26
   br i1 %cmp.i.i.i, label %invoke.cont7, label %if.else.i.i
@@ -916,12 +910,12 @@ if.end.i.i.i.i:                                   ; preds = %if.then.i.i.i.i
 invoke.cont7.thread:                              ; preds = %if.else.i.i
   %mul.i.i.i.i = shl nuw nsw i64 %n, 2
   %call5.i.i.i2.i = tail call noalias noundef nonnull ptr @_Znwm(i64 noundef %mul.i.i.i.i) #20
-  %data_.i8 = getelementptr inbounds %"class.absl::FixedArray<testing::ThrowingValue<testing::TypeSpec::kEverythingThrows>, 25>::Storage", ptr %this, i64 0, i32 2
+  %data_.i8 = getelementptr inbounds i8, ptr %this, i64 112
   store ptr %call5.i.i.i2.i, ptr %data_.i8, align 8
   br label %for.body.i.preheader
 
 invoke.cont7:                                     ; preds = %entry
-  %data_.i = getelementptr inbounds %"class.absl::FixedArray<testing::ThrowingValue<testing::TypeSpec::kEverythingThrows>, 25>::Storage", ptr %this, i64 0, i32 2
+  %data_.i = getelementptr inbounds i8, ptr %this, i64 112
   store ptr %this, ptr %data_.i, align 8
   %cmp.not9.i = icmp eq i64 %n, 0
   br i1 %cmp.not9.i, label %invoke.cont9, label %for.body.i.preheader
@@ -950,7 +944,7 @@ while.cond.i:                                     ; preds = %while.body.i, %lpad
   br i1 %cmp1.not.i, label %do.body.i, label %while.body.i
 
 while.body.i:                                     ; preds = %while.cond.i
-  %incdec.ptr.i = getelementptr inbounds %"class.testing::ThrowingValue", ptr %cur.1.i, i64 -1
+  %incdec.ptr.i = getelementptr inbounds i8, ptr %cur.1.i, i64 -4
   invoke void @_ZN7testing19exceptions_internal18ConstructorTracker16ObjectDestructedEPv(ptr noundef nonnull %incdec.ptr.i)
           to label %while.cond.i unwind label %terminate.lpad.i.i.i.i.i, !llvm.loop !7
 
@@ -972,7 +966,7 @@ lpad2.i:                                          ; preds = %do.body.i
           to label %lpad.body unwind label %terminate.lpad.i
 
 for.inc.i:                                        ; preds = %for.body.i
-  %incdec.ptr4.i = getelementptr inbounds %"class.testing::ThrowingValue", ptr %cur.010.i, i64 1
+  %incdec.ptr4.i = getelementptr inbounds i8, ptr %cur.010.i, i64 4
   %cmp.not.i = icmp eq ptr %incdec.ptr4.i, %add.ptr.i13
   br i1 %cmp.not.i, label %invoke.cont9, label %for.body.i, !llvm.loop !8
 
@@ -1009,14 +1003,14 @@ entry:
   %ref.tmp.i = alloca %"class.std::allocator.16", align 1
   %ct = alloca %"class.testing::exceptions_internal::ConstructorTracker", align 8
   %temp = alloca %"class.absl::FixedArray", align 8
-  %_M_single_bucket.i.i.i = getelementptr inbounds %"class.std::_Hashtable", ptr %ct, i64 0, i32 5
-  %_M_bucket_count.i.i.i = getelementptr inbounds %"class.std::_Hashtable", ptr %ct, i64 0, i32 1
-  %_M_before_begin.i.i.i = getelementptr inbounds %"class.std::_Hashtable", ptr %ct, i64 0, i32 2
-  %_M_rehash_policy.i.i.i = getelementptr inbounds %"class.std::_Hashtable", ptr %ct, i64 0, i32 4
-  %_M_next_resize.i.i.i.i = getelementptr inbounds %"class.std::_Hashtable", ptr %ct, i64 0, i32 4, i32 1
-  %countdown_.i = getelementptr inbounds %"class.testing::exceptions_internal::ConstructorTracker", ptr %ct, i64 0, i32 1
-  %data_.i.i.i.i.i = getelementptr inbounds %"class.absl::FixedArray<testing::ThrowingValue<testing::TypeSpec::kEverythingThrows>, 25>::Storage", ptr %args, i64 0, i32 2
-  %size_alloc_.i.i.i.i.i = getelementptr inbounds %"class.absl::FixedArray<testing::ThrowingValue<testing::TypeSpec::kEverythingThrows>, 25>::Storage", ptr %args, i64 0, i32 1
+  %_M_single_bucket.i.i.i = getelementptr inbounds i8, ptr %ct, i64 48
+  %_M_bucket_count.i.i.i = getelementptr inbounds i8, ptr %ct, i64 8
+  %_M_before_begin.i.i.i = getelementptr inbounds i8, ptr %ct, i64 16
+  %_M_rehash_policy.i.i.i = getelementptr inbounds i8, ptr %ct, i64 32
+  %_M_next_resize.i.i.i.i = getelementptr inbounds i8, ptr %ct, i64 40
+  %countdown_.i = getelementptr inbounds i8, ptr %ct, i64 56
+  %data_.i.i.i.i.i = getelementptr inbounds i8, ptr %args, i64 112
+  %size_alloc_.i.i.i.i.i = getelementptr inbounds i8, ptr %args, i64 104
   br label %for.cond
 
 for.cond:                                         ; preds = %for.inc, %entry
@@ -1038,8 +1032,8 @@ for.cond:                                         ; preds = %for.inc, %entry
 
 invoke.cont4:                                     ; preds = %for.cond
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %ref.tmp.i)
-  %data_.i.i = getelementptr inbounds %"class.absl::FixedArray<testing::ThrowingValue<testing::TypeSpec::kEverythingThrows>, 25>::Storage", ptr %temp, i64 0, i32 2
-  %size_alloc_.i.i.i = getelementptr inbounds %"class.absl::FixedArray<testing::ThrowingValue<testing::TypeSpec::kEverythingThrows>, 25>::Storage", ptr %temp, i64 0, i32 1
+  %data_.i.i = getelementptr inbounds i8, ptr %temp, i64 112
+  %size_alloc_.i.i.i = getelementptr inbounds i8, ptr %temp, i64 104
   %2 = load i64, ptr %size_alloc_.i.i.i, align 8
   %cmp.not9.i = icmp eq i64 %2, 0
   br i1 %cmp.not9.i, label %for.end, label %invoke.cont5.i.preheader
@@ -1061,7 +1055,7 @@ terminate.lpad.i.i.i.i.i:                         ; preds = %invoke.cont5.i
   unreachable
 
 _ZNSt16allocator_traitsISaIN7testing13ThrowingValueILNS0_8TypeSpecE0EEEEE7destroyIS3_EEvRS4_PT_.exit.i: ; preds = %invoke.cont5.i
-  %incdec.ptr.i = getelementptr inbounds %"class.testing::ThrowingValue", ptr %cur.010.i, i64 1
+  %incdec.ptr.i = getelementptr inbounds i8, ptr %cur.010.i, i64 4
   %6 = load ptr, ptr %data_.i.i, align 8
   %7 = load i64, ptr %size_alloc_.i.i.i, align 8
   %add.ptr.i.i = getelementptr inbounds %"class.testing::ThrowingValue", ptr %6, i64 %7
@@ -1116,8 +1110,8 @@ for.end:                                          ; preds = %invoke.cont4, %for.
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr dso_local void @_ZN4absl10FixedArrayIN7testing13ThrowingValueILNS1_8TypeSpecE0EEELm25ESaIS4_EED2Ev(ptr noundef nonnull align 8 dereferenceable(120) %this) unnamed_addr #7 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  %data_.i = getelementptr inbounds %"class.absl::FixedArray<testing::ThrowingValue<testing::TypeSpec::kEverythingThrows>, 25>::Storage", ptr %this, i64 0, i32 2
-  %size_alloc_.i.i = getelementptr inbounds %"class.absl::FixedArray<testing::ThrowingValue<testing::TypeSpec::kEverythingThrows>, 25>::Storage", ptr %this, i64 0, i32 1
+  %data_.i = getelementptr inbounds i8, ptr %this, i64 112
+  %size_alloc_.i.i = getelementptr inbounds i8, ptr %this, i64 104
   %0 = load i64, ptr %size_alloc_.i.i, align 8
   %cmp.not9 = icmp eq i64 %0, 0
   br i1 %cmp.not9, label %_ZN4absl10FixedArrayIN7testing13ThrowingValueILNS1_8TypeSpecE0EEELm25ESaIS4_EE7StorageD2Ev.exit, label %invoke.cont5.preheader
@@ -1139,7 +1133,7 @@ terminate.lpad.i.i.i.i:                           ; preds = %invoke.cont5
   unreachable
 
 _ZNSt16allocator_traitsISaIN7testing13ThrowingValueILNS0_8TypeSpecE0EEEEE7destroyIS3_EEvRS4_PT_.exit: ; preds = %invoke.cont5
-  %incdec.ptr = getelementptr inbounds %"class.testing::ThrowingValue", ptr %cur.010, i64 1
+  %incdec.ptr = getelementptr inbounds i8, ptr %cur.010, i64 4
   %4 = load ptr, ptr %data_.i, align 8
   %5 = load i64, ptr %size_alloc_.i.i, align 8
   %add.ptr.i = getelementptr inbounds %"class.testing::ThrowingValue", ptr %4, i64 %5
@@ -1234,7 +1228,7 @@ invoke.cont4:
   %ref.tmp5 = alloca %"class.absl::AlphaNum", align 8
   call void @_ZN7testing19exceptions_internal13GetSpecStringB5cxx11ENS_8TypeSpecE(ptr nonnull sret(%"class.std::__cxx11::basic_string") align 8 %ref.tmp2, i32 noundef 0)
   %call.i = call { i64, ptr } @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEcvSt17basic_string_viewIcS2_EEv(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp2) #18
-  %digits_.i = getelementptr inbounds %"class.absl::AlphaNum", ptr %ref.tmp5, i64 0, i32 1
+  %digits_.i = getelementptr inbounds i8, ptr %ref.tmp5, i64 16
   %call.i23 = invoke noundef ptr @_ZN4absl16numbers_internal15FastIntToBufferEiPc(i32 noundef %dummy, ptr noundef nonnull %digits_.i)
           to label %invoke.cont8 unwind label %lpad
 
@@ -1245,27 +1239,27 @@ invoke.cont8:                                     ; preds = %invoke.cont4
   %sub.ptr.rhs.cast.i = ptrtoint ptr %digits_.i to i64
   %sub.ptr.sub.i = sub i64 %sub.ptr.lhs.cast.i, %sub.ptr.rhs.cast.i
   store i64 %sub.ptr.sub.i, ptr %ref.tmp5, align 8
-  %_M_str.i.i = getelementptr inbounds %"class.std::basic_string_view", ptr %ref.tmp5, i64 0, i32 1
+  %_M_str.i.i = getelementptr inbounds i8, ptr %ref.tmp5, i64 8
   store ptr %digits_.i, ptr %_M_str.i.i, align 8
   call void @llvm.lifetime.start.p0(i64 80, ptr nonnull %ref.tmp.i)
   store i64 14, ptr %ref.tmp.i, align 8, !noalias !10
-  %2 = getelementptr inbounds { i64, ptr }, ptr %ref.tmp.i, i64 0, i32 1
+  %2 = getelementptr inbounds i8, ptr %ref.tmp.i, i64 8
   store ptr @.str.30, ptr %2, align 8, !noalias !10
-  %arrayinit.element.i = getelementptr inbounds %"class.std::basic_string_view", ptr %ref.tmp.i, i64 1
+  %arrayinit.element.i = getelementptr inbounds i8, ptr %ref.tmp.i, i64 16
   store i64 %1, ptr %arrayinit.element.i, align 8, !noalias !10
-  %3 = getelementptr inbounds %"class.std::basic_string_view", ptr %ref.tmp.i, i64 1, i32 1
+  %3 = getelementptr inbounds i8, ptr %ref.tmp.i, i64 24
   store ptr %0, ptr %3, align 8, !noalias !10
-  %arrayinit.element2.i = getelementptr inbounds %"class.std::basic_string_view", ptr %ref.tmp.i, i64 2
+  %arrayinit.element2.i = getelementptr inbounds i8, ptr %ref.tmp.i, i64 32
   store i64 2, ptr %arrayinit.element2.i, align 8, !noalias !10
-  %4 = getelementptr inbounds %"class.std::basic_string_view", ptr %ref.tmp.i, i64 2, i32 1
+  %4 = getelementptr inbounds i8, ptr %ref.tmp.i, i64 40
   store ptr @.str.31, ptr %4, align 8, !noalias !10
-  %arrayinit.element4.i = getelementptr inbounds %"class.std::basic_string_view", ptr %ref.tmp.i, i64 3
+  %arrayinit.element4.i = getelementptr inbounds i8, ptr %ref.tmp.i, i64 48
   store i64 %sub.ptr.sub.i, ptr %arrayinit.element4.i, align 8, !noalias !10
-  %5 = getelementptr inbounds %"class.std::basic_string_view", ptr %ref.tmp.i, i64 3, i32 1
+  %5 = getelementptr inbounds i8, ptr %ref.tmp.i, i64 56
   store ptr %digits_.i, ptr %5, align 8, !noalias !10
-  %arrayinit.element6.i = getelementptr inbounds %"class.std::basic_string_view", ptr %ref.tmp.i, i64 4
+  %arrayinit.element6.i = getelementptr inbounds i8, ptr %ref.tmp.i, i64 64
   store i64 1, ptr %arrayinit.element6.i, align 8, !noalias !10
-  %6 = getelementptr inbounds %"class.std::basic_string_view", ptr %ref.tmp.i, i64 4, i32 1
+  %6 = getelementptr inbounds i8, ptr %ref.tmp.i, i64 72
   store ptr @.str.32, ptr %6, align 8, !noalias !10
   invoke void @_ZN4absl16strings_internal9CatPiecesB5cxx11ESt16initializer_listISt17basic_string_viewIcSt11char_traitsIcEEE(ptr sret(%"class.std::__cxx11::basic_string") align 8 %agg.result, ptr nonnull %ref.tmp.i, i64 5)
           to label %invoke.cont9 unwind label %lpad
@@ -1318,13 +1312,13 @@ if.then2:                                         ; preds = %if.end
   call void @_ZN7testing7MessageC1Ev(ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp)
   %3 = load ptr, ptr %address.addr, align 8
   %4 = load ptr, ptr @_ZN7testing19exceptions_internal18ConstructorTracker25current_tracker_instance_E, align 8
-  %countdown_ = getelementptr inbounds %"class.testing::exceptions_internal::ConstructorTracker", ptr %4, i64 0, i32 1
+  %countdown_ = getelementptr inbounds i8, ptr %4, i64 56
   %5 = load i32, ptr %countdown_, align 8
   invoke void @_ZStplIcSt11char_traitsIcESaIcEENSt7__cxx1112basic_stringIT_T0_T1_EEPKS5_RKS8_(ptr nonnull sret(%"class.std::__cxx11::basic_string") align 8 %ref.tmp5, ptr noundef nonnull @.str.33, ptr noundef nonnull align 8 dereferenceable(32) %description)
           to label %invoke.cont unwind label %lpad
 
 invoke.cont:                                      ; preds = %if.then2
-  %description4 = getelementptr inbounds %"struct.testing::exceptions_internal::TrackedAddress", ptr %call.i, i64 0, i32 1
+  %description4 = getelementptr inbounds i8, ptr %call.i, i64 8
   invoke void @_ZN7testing19exceptions_internal18ConstructorTracker12ErrorMessageEPvRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEiSA_(ptr nonnull sret(%"class.std::__cxx11::basic_string") align 8 %ref.tmp3, ptr noundef %3, ptr noundef nonnull align 8 dereferenceable(32) %description4, i32 noundef %5, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp5)
           to label %invoke.cont7 unwind label %lpad6
 
@@ -1352,7 +1346,7 @@ invoke.cont14:                                    ; preds = %invoke.cont12
 
 _ZNKSt14default_deleteINSt7__cxx1118basic_stringstreamIcSt11char_traitsIcESaIcEEEEclEPS5_.exit.i.i: ; preds = %invoke.cont14
   %vtable.i.i.i = load ptr, ptr %7, align 8
-  %vfn.i.i.i = getelementptr inbounds ptr, ptr %vtable.i.i.i, i64 1
+  %vfn.i.i.i = getelementptr inbounds i8, ptr %vtable.i.i.i, i64 8
   %8 = load ptr, ptr %vfn.i.i.i, align 8
   call void %8(ptr noundef nonnull align 8 dereferenceable(128) %7) #18
   br label %_ZN7testing7MessageD2Ev.exit
@@ -1400,7 +1394,7 @@ ehcleanup16:                                      ; preds = %ehcleanup15, %lpad
 
 _ZNKSt14default_deleteINSt7__cxx1118basic_stringstreamIcSt11char_traitsIcESaIcEEEEclEPS5_.exit.i.i8: ; preds = %ehcleanup16
   %vtable.i.i.i9 = load ptr, ptr %13, align 8
-  %vfn.i.i.i10 = getelementptr inbounds ptr, ptr %vtable.i.i.i9, i64 1
+  %vfn.i.i.i10 = getelementptr inbounds i8, ptr %vtable.i.i.i9, i64 8
   %14 = load ptr, ptr %vfn.i.i.i10, align 8
   call void %14(ptr noundef nonnull align 8 dereferenceable(128) %13) #18
   br label %_ZN7testing7MessageD2Ev.exit11
@@ -1410,12 +1404,12 @@ _ZN7testing7MessageD2Ev.exit11:                   ; preds = %ehcleanup16, %_ZNKS
 
 if.end17:                                         ; preds = %_ZN7testing7MessageD2Ev.exit, %if.end
   store i8 1, ptr %ref.tmp18, align 8
-  %description20 = getelementptr inbounds %"struct.testing::exceptions_internal::TrackedAddress", ptr %ref.tmp18, i64 0, i32 1
+  %description20 = getelementptr inbounds i8, ptr %ref.tmp18, i64 8
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EOS4_(ptr noundef nonnull align 8 dereferenceable(32) %description20, ptr noundef nonnull align 8 dereferenceable(32) %description) #18
   %15 = load i8, ptr %ref.tmp18, align 8
   %16 = and i8 %15, 1
   store i8 %16, ptr %call.i, align 8
-  %description.i = getelementptr inbounds %"struct.testing::exceptions_internal::TrackedAddress", ptr %call.i, i64 0, i32 1
+  %description.i = getelementptr inbounds i8, ptr %call.i, i64 8
   %call.i12 = call noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEaSEOS4_(ptr noundef nonnull align 8 dereferenceable(32) %description.i, ptr noundef nonnull align 8 dereferenceable(32) %description20) #18
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %description20) #18
   br label %return
@@ -1435,13 +1429,13 @@ entry:
   %args.i.i = alloca [4 x %"class.std::basic_string_view"], align 16
   %ref.tmp = alloca %"class.absl::substitute_internal::Arg", align 8
   %ref.tmp3 = alloca %"class.absl::substitute_internal::Arg", align 8
-  %scratch_.i = getelementptr inbounds %"class.absl::substitute_internal::Arg", ptr %ref.tmp, i64 0, i32 1
+  %scratch_.i = getelementptr inbounds i8, ptr %ref.tmp, i64 16
   %call.i = call noundef ptr @_ZN4absl16numbers_internal15FastIntToBufferEiPc(i32 noundef %countdown, ptr noundef nonnull %scratch_.i)
   %sub.ptr.lhs.cast.i = ptrtoint ptr %call.i to i64
   %sub.ptr.rhs.cast.i = ptrtoint ptr %scratch_.i to i64
   %sub.ptr.sub.i = sub i64 %sub.ptr.lhs.cast.i, %sub.ptr.rhs.cast.i
   store i64 %sub.ptr.sub.i, ptr %ref.tmp, align 8
-  %_M_str.i.i = getelementptr inbounds %"class.std::basic_string_view", ptr %ref.tmp, i64 0, i32 1
+  %_M_str.i.i = getelementptr inbounds i8, ptr %ref.tmp, i64 8
   store ptr %scratch_.i, ptr %_M_str.i.i, align 8
   %call.i1 = call { i64, ptr } @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEcvSt17basic_string_viewIcS2_EEv(ptr noundef nonnull align 8 dereferenceable(32) %error_description) #18
   %0 = extractvalue { i64, ptr } %call.i1, 0
@@ -1455,22 +1449,22 @@ entry:
   %retval.sroa.0.0.copyload.i.i.i = load i64, ptr %ref.tmp, align 8, !noalias !13
   %retval.sroa.2.0.copyload.i.i.i = load ptr, ptr %_M_str.i.i, align 8, !noalias !13
   store i64 %retval.sroa.0.0.copyload.i.i.i, ptr %args.i.i, align 16, !noalias !13
-  %4 = getelementptr inbounds { i64, ptr }, ptr %args.i.i, i64 0, i32 1
+  %4 = getelementptr inbounds i8, ptr %args.i.i, i64 8
   store ptr %retval.sroa.2.0.copyload.i.i.i, ptr %4, align 8, !noalias !13
-  %arrayinit.element.i.i = getelementptr inbounds %"class.std::basic_string_view", ptr %args.i.i, i64 1
+  %arrayinit.element.i.i = getelementptr inbounds i8, ptr %args.i.i, i64 16
   store i64 %0, ptr %arrayinit.element.i.i, align 16, !noalias !13
-  %5 = getelementptr inbounds %"class.std::basic_string_view", ptr %args.i.i, i64 1, i32 1
+  %5 = getelementptr inbounds i8, ptr %args.i.i, i64 24
   store ptr %1, ptr %5, align 8, !noalias !13
-  %arrayinit.element2.i.i = getelementptr inbounds %"class.std::basic_string_view", ptr %args.i.i, i64 2
+  %arrayinit.element2.i.i = getelementptr inbounds i8, ptr %args.i.i, i64 32
   store i64 %2, ptr %arrayinit.element2.i.i, align 16, !noalias !13
-  %6 = getelementptr inbounds %"class.std::basic_string_view", ptr %args.i.i, i64 2, i32 1
+  %6 = getelementptr inbounds i8, ptr %args.i.i, i64 40
   store ptr %3, ptr %6, align 8, !noalias !13
-  %arrayinit.element4.i.i = getelementptr inbounds %"class.std::basic_string_view", ptr %args.i.i, i64 3
+  %arrayinit.element4.i.i = getelementptr inbounds i8, ptr %args.i.i, i64 48
   %retval.sroa.0.0.copyload.i11.i.i = load i64, ptr %ref.tmp3, align 8, !noalias !13
   %retval.sroa.2.0.piece_.sroa_idx.i12.i.i = getelementptr inbounds i8, ptr %ref.tmp3, i64 8
   %retval.sroa.2.0.copyload.i13.i.i = load ptr, ptr %retval.sroa.2.0.piece_.sroa_idx.i12.i.i, align 8, !noalias !13
   store i64 %retval.sroa.0.0.copyload.i11.i.i, ptr %arrayinit.element4.i.i, align 16, !noalias !13
-  %7 = getelementptr inbounds %"class.std::basic_string_view", ptr %args.i.i, i64 3, i32 1
+  %7 = getelementptr inbounds i8, ptr %args.i.i, i64 56
   store ptr %retval.sroa.2.0.copyload.i13.i.i, ptr %7, align 8, !noalias !13
   invoke void @_ZN4absl19substitute_internal24SubstituteAndAppendArrayEPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt17basic_string_viewIcS4_EPKS9_m(ptr noundef nonnull %agg.result, i64 86, ptr nonnull @.str.36, ptr noundef nonnull %args.i.i, i64 noundef 4)
           to label %_ZN4absl10SubstituteB5cxx11ESt17basic_string_viewIcSt11char_traitsIcEERKNS_19substitute_internal3ArgES7_S7_S7_.exit unwind label %lpad.i
@@ -1533,7 +1527,7 @@ entry:
   %__node5 = alloca %"struct.std::_Hashtable<void *, std::pair<void *const, testing::exceptions_internal::TrackedAddress>, std::allocator<std::pair<void *const, testing::exceptions_internal::TrackedAddress>>, std::__detail::_Select1st, std::equal_to<void *>, std::hash<void *>, std::__detail::_Mod_range_hashing, std::__detail::_Default_ranged_hash, std::__detail::_Prime_rehash_policy, std::__detail::_Hashtable_traits<false, false, true>>::_Scoped_node", align 8
   %0 = load ptr, ptr %__k, align 8
   %1 = ptrtoint ptr %0 to i64
-  %_M_bucket_count.i = getelementptr inbounds %"class.std::_Hashtable", ptr %this, i64 0, i32 1
+  %_M_bucket_count.i = getelementptr inbounds i8, ptr %this, i64 8
   %2 = load i64, ptr %_M_bucket_count.i, align 8
   %rem.i.i.i = urem i64 %1, %2
   %3 = load ptr, ptr %this, align 8
@@ -1569,7 +1563,7 @@ lor.lhs.false.i.i:                                ; preds = %if.end3.i.i
 
 if.end:                                           ; preds = %lor.lhs.false.i.i, %if.end3.i.i, %entry
   store ptr %this, ptr %__node5, align 8
-  %_M_node.i = getelementptr inbounds %"struct.std::_Hashtable<void *, std::pair<void *const, testing::exceptions_internal::TrackedAddress>, std::allocator<std::pair<void *const, testing::exceptions_internal::TrackedAddress>>, std::__detail::_Select1st, std::equal_to<void *>, std::hash<void *>, std::__detail::_Mod_range_hashing, std::__detail::_Default_ranged_hash, std::__detail::_Prime_rehash_policy, std::__detail::_Hashtable_traits<false, false, true>>::_Scoped_node", ptr %__node5, i64 0, i32 1
+  %_M_node.i = getelementptr inbounds i8, ptr %__node5, i64 8
   %call5.i.i.i.i = tail call noalias noundef nonnull dereferenceable(56) ptr @_Znwm(i64 noundef 56) #20
   store ptr null, ptr %call5.i.i.i.i, align 8
   %add.ptr.i.i = getelementptr inbounds i8, ptr %call5.i.i.i.i, i64 8
@@ -1597,12 +1591,12 @@ return:                                           ; preds = %for.cond.i.i, %if.e
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr dso_local ptr @_ZNSt10_HashtableIPvSt4pairIKS0_N7testing19exceptions_internal14TrackedAddressEESaIS6_ENSt8__detail10_Select1stESt8equal_toIS0_ESt4hashIS0_ENS8_18_Mod_range_hashingENS8_20_Default_ranged_hashENS8_20_Prime_rehash_policyENS8_17_Hashtable_traitsILb0ELb0ELb1EEEE21_M_insert_unique_nodeEmmPNS8_10_Hash_nodeIS6_Lb0EEEm(ptr noundef nonnull align 8 dereferenceable(56) %this, i64 noundef %__bkt, i64 noundef %__code, ptr noundef %__node, i64 noundef %__n_elt) local_unnamed_addr #3 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  %_M_rehash_policy = getelementptr inbounds %"class.std::_Hashtable", ptr %this, i64 0, i32 4
-  %_M_next_resize.i = getelementptr inbounds %"class.std::_Hashtable", ptr %this, i64 0, i32 4, i32 1
+  %_M_rehash_policy = getelementptr inbounds i8, ptr %this, i64 32
+  %_M_next_resize.i = getelementptr inbounds i8, ptr %this, i64 40
   %0 = load i64, ptr %_M_next_resize.i, align 8
-  %_M_bucket_count = getelementptr inbounds %"class.std::_Hashtable", ptr %this, i64 0, i32 1
+  %_M_bucket_count = getelementptr inbounds i8, ptr %this, i64 8
   %1 = load i64, ptr %_M_bucket_count, align 8
-  %_M_element_count = getelementptr inbounds %"class.std::_Hashtable", ptr %this, i64 0, i32 3
+  %_M_element_count = getelementptr inbounds i8, ptr %this, i64 24
   %2 = load i64, ptr %_M_element_count, align 8
   %call3 = tail call { i8, i64 } @_ZNKSt8__detail20_Prime_rehash_policy14_M_need_rehashEmmm(ptr noundef nonnull align 8 dereferenceable(16) %_M_rehash_policy, i64 noundef %1, i64 noundef %2, i64 noundef %__n_elt)
   %3 = extractvalue { i8, i64 } %call3, 0
@@ -1666,7 +1660,7 @@ if.then.i:                                        ; preds = %if.end
   br label %_ZNSt10_HashtableIPvSt4pairIKS0_N7testing19exceptions_internal14TrackedAddressEESaIS6_ENSt8__detail10_Select1stESt8equal_toIS0_ESt4hashIS0_ENS8_18_Mod_range_hashingENS8_20_Default_ranged_hashENS8_20_Prime_rehash_policyENS8_17_Hashtable_traitsILb0ELb0ELb1EEEE22_M_insert_bucket_beginEmPNS8_10_Hash_nodeIS6_Lb0EEE.exit
 
 if.else.i:                                        ; preds = %if.end
-  %_M_before_begin.i = getelementptr inbounds %"class.std::_Hashtable", ptr %this, i64 0, i32 2
+  %_M_before_begin.i = getelementptr inbounds i8, ptr %this, i64 16
   %18 = load ptr, ptr %_M_before_begin.i, align 8
   store ptr %18, ptr %__node, align 8
   store ptr %__node, ptr %_M_before_begin.i, align 8
@@ -1701,7 +1695,7 @@ _ZNSt10_HashtableIPvSt4pairIKS0_N7testing19exceptions_internal14TrackedAddressEE
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr dso_local void @_ZNSt10_HashtableIPvSt4pairIKS0_N7testing19exceptions_internal14TrackedAddressEESaIS6_ENSt8__detail10_Select1stESt8equal_toIS0_ESt4hashIS0_ENS8_18_Mod_range_hashingENS8_20_Default_ranged_hashENS8_20_Prime_rehash_policyENS8_17_Hashtable_traitsILb0ELb0ELb1EEEE12_Scoped_nodeD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %this) unnamed_addr #7 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  %_M_node = getelementptr inbounds %"struct.std::_Hashtable<void *, std::pair<void *const, testing::exceptions_internal::TrackedAddress>, std::allocator<std::pair<void *const, testing::exceptions_internal::TrackedAddress>>, std::__detail::_Select1st, std::equal_to<void *>, std::hash<void *>, std::__detail::_Mod_range_hashing, std::__detail::_Default_ranged_hash, std::__detail::_Prime_rehash_policy, std::__detail::_Hashtable_traits<false, false, true>>::_Scoped_node", ptr %this, i64 0, i32 1
+  %_M_node = getelementptr inbounds i8, ptr %this, i64 8
   %0 = load ptr, ptr %_M_node, align 8
   %tobool.not = icmp eq ptr %0, null
   br i1 %tobool.not, label %if.end, label %if.then
@@ -1731,7 +1725,7 @@ entry:
   br i1 %cmp.i, label %if.then.i, label %if.end.i
 
 if.then.i:                                        ; preds = %entry
-  %_M_single_bucket.i = getelementptr inbounds %"class.std::_Hashtable", ptr %this, i64 0, i32 5
+  %_M_single_bucket.i = getelementptr inbounds i8, ptr %this, i64 48
   store ptr null, ptr %_M_single_bucket.i, align 8
   br label %_ZNSt10_HashtableIPvSt4pairIKS0_N7testing19exceptions_internal14TrackedAddressEESaIS6_ENSt8__detail10_Select1stESt8equal_toIS0_ESt4hashIS0_ENS8_18_Mod_range_hashingENS8_20_Default_ranged_hashENS8_20_Prime_rehash_policyENS8_17_Hashtable_traitsILb0ELb0ELb1EEEE19_M_allocate_bucketsEm.exit
 
@@ -1759,7 +1753,7 @@ _ZNSt8__detail16_Hashtable_allocISaINS_10_Hash_nodeISt4pairIKPvN7testing19except
 
 _ZNSt10_HashtableIPvSt4pairIKS0_N7testing19exceptions_internal14TrackedAddressEESaIS6_ENSt8__detail10_Select1stESt8equal_toIS0_ESt4hashIS0_ENS8_18_Mod_range_hashingENS8_20_Default_ranged_hashENS8_20_Prime_rehash_policyENS8_17_Hashtable_traitsILb0ELb0ELb1EEEE19_M_allocate_bucketsEm.exit: ; preds = %if.then.i, %_ZNSt8__detail16_Hashtable_allocISaINS_10_Hash_nodeISt4pairIKPvN7testing19exceptions_internal14TrackedAddressEELb0EEEEE19_M_allocate_bucketsEm.exit.i
   %retval.0.i = phi ptr [ %_M_single_bucket.i, %if.then.i ], [ %call5.i.i4.i.i, %_ZNSt8__detail16_Hashtable_allocISaINS_10_Hash_nodeISt4pairIKPvN7testing19exceptions_internal14TrackedAddressEELb0EEEEE19_M_allocate_bucketsEm.exit.i ]
-  %_M_before_begin.i = getelementptr inbounds %"class.std::_Hashtable", ptr %this, i64 0, i32 2
+  %_M_before_begin.i = getelementptr inbounds i8, ptr %this, i64 16
   %0 = load ptr, ptr %_M_before_begin.i, align 8
   store ptr null, ptr %_M_before_begin.i, align 8
   %tobool.not20 = icmp eq ptr %0, null
@@ -1810,7 +1804,7 @@ if.end22:                                         ; preds = %if.end22.sink.split
 
 while.end:                                        ; preds = %if.end22, %_ZNSt10_HashtableIPvSt4pairIKS0_N7testing19exceptions_internal14TrackedAddressEESaIS6_ENSt8__detail10_Select1stESt8equal_toIS0_ESt4hashIS0_ENS8_18_Mod_range_hashingENS8_20_Default_ranged_hashENS8_20_Prime_rehash_policyENS8_17_Hashtable_traitsILb0ELb0ELb1EEEE19_M_allocate_bucketsEm.exit
   %9 = load ptr, ptr %this, align 8
-  %_M_single_bucket.i.i.i = getelementptr inbounds %"class.std::_Hashtable", ptr %this, i64 0, i32 5
+  %_M_single_bucket.i.i.i = getelementptr inbounds i8, ptr %this, i64 48
   %cmp.i.i.i = icmp eq ptr %_M_single_bucket.i.i.i, %9
   br i1 %cmp.i.i.i, label %_ZNSt10_HashtableIPvSt4pairIKS0_N7testing19exceptions_internal14TrackedAddressEESaIS6_ENSt8__detail10_Select1stESt8equal_toIS0_ESt4hashIS0_ENS8_18_Mod_range_hashingENS8_20_Default_ranged_hashENS8_20_Prime_rehash_policyENS8_17_Hashtable_traitsILb0ELb0ELb1EEEE21_M_deallocate_bucketsEv.exit, label %if.end.i.i
 
@@ -1819,7 +1813,7 @@ if.end.i.i:                                       ; preds = %while.end
   br label %_ZNSt10_HashtableIPvSt4pairIKS0_N7testing19exceptions_internal14TrackedAddressEESaIS6_ENSt8__detail10_Select1stESt8equal_toIS0_ESt4hashIS0_ENS8_18_Mod_range_hashingENS8_20_Default_ranged_hashENS8_20_Prime_rehash_policyENS8_17_Hashtable_traitsILb0ELb0ELb1EEEE21_M_deallocate_bucketsEv.exit
 
 _ZNSt10_HashtableIPvSt4pairIKS0_N7testing19exceptions_internal14TrackedAddressEESaIS6_ENSt8__detail10_Select1stESt8equal_toIS0_ESt4hashIS0_ENS8_18_Mod_range_hashingENS8_20_Default_ranged_hashENS8_20_Prime_rehash_policyENS8_17_Hashtable_traitsILb0ELb0ELb1EEEE21_M_deallocate_bucketsEv.exit: ; preds = %while.end, %if.end.i.i
-  %_M_bucket_count = getelementptr inbounds %"class.std::_Hashtable", ptr %this, i64 0, i32 1
+  %_M_bucket_count = getelementptr inbounds i8, ptr %this, i64 8
   store i64 %__bkt_count, ptr %_M_bucket_count, align 8
   store ptr %retval.0.i, ptr %this, align 8
   ret void
@@ -1868,13 +1862,13 @@ entry:
   br i1 %cmp.i.not, label %return, label %if.end
 
 if.end:                                           ; preds = %entry
-  %_M_element_count.i.i.i = getelementptr inbounds %"class.std::_Hashtable", ptr %0, i64 0, i32 3
+  %_M_element_count.i.i.i = getelementptr inbounds i8, ptr %0, i64 24
   %1 = load i64, ptr %_M_element_count.i.i.i, align 8
   %cmp.not.not.i.i = icmp eq i64 %1, 0
   br i1 %cmp.not.not.i.i, label %if.then.i.i, label %if.end15.i.i
 
 if.then.i.i:                                      ; preds = %if.end
-  %_M_before_begin.i.i.i.i = getelementptr inbounds %"class.std::_Hashtable", ptr %0, i64 0, i32 2
+  %_M_before_begin.i.i.i.i = getelementptr inbounds i8, ptr %0, i64 16
   br label %for.cond.i.i
 
 for.cond.i.i:                                     ; preds = %for.body.i.i, %if.then.i.i
@@ -1891,7 +1885,7 @@ for.body.i.i:                                     ; preds = %for.cond.i.i
 
 if.end15.i.i:                                     ; preds = %if.end
   %3 = ptrtoint ptr %address to i64
-  %_M_bucket_count.i.i.i = getelementptr inbounds %"class.std::_Hashtable", ptr %0, i64 0, i32 1
+  %_M_bucket_count.i.i.i = getelementptr inbounds i8, ptr %0, i64 8
   %4 = load i64, ptr %_M_bucket_count.i.i.i, align 8
   %rem.i.i.i.i.i = urem i64 %3, %4
   %5 = load ptr, ptr %0, align 8
@@ -1936,7 +1930,7 @@ if.end9:                                          ; preds = %for.cond.i.i.i.i, %
 if.then11:                                        ; preds = %if.end9
   call void @_ZN7testing7MessageC1Ev(ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp12)
   %14 = load ptr, ptr @_ZN7testing19exceptions_internal18ConstructorTracker25current_tracker_instance_E, align 8
-  %countdown_ = getelementptr inbounds %"class.testing::exceptions_internal::ConstructorTracker", ptr %14, i64 0, i32 1
+  %countdown_ = getelementptr inbounds i8, ptr %14, i64 56
   %15 = load i32, ptr %countdown_, align 8
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp15) #18
   %call.i8 = invoke noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_M_local_dataEv(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp14)
@@ -1986,7 +1980,7 @@ invoke.cont24:                                    ; preds = %invoke.cont22
 
 _ZNKSt14default_deleteINSt7__cxx1118basic_stringstreamIcSt11char_traitsIcESaIcEEEEclEPS5_.exit.i.i: ; preds = %invoke.cont24
   %vtable.i.i.i = load ptr, ptr %18, align 8
-  %vfn.i.i.i = getelementptr inbounds ptr, ptr %vtable.i.i.i, i64 1
+  %vfn.i.i.i = getelementptr inbounds i8, ptr %vtable.i.i.i, i64 8
   %19 = load ptr, ptr %vfn.i.i.i, align 8
   call void %19(ptr noundef nonnull align 8 dereferenceable(128) %18) #18
   br label %if.end28
@@ -2031,7 +2025,7 @@ ehcleanup26:                                      ; preds = %lpad, %lpad.i, %ehc
 
 _ZNKSt14default_deleteINSt7__cxx1118basic_stringstreamIcSt11char_traitsIcESaIcEEEEclEPS5_.exit.i.i12: ; preds = %ehcleanup26
   %vtable.i.i.i13 = load ptr, ptr %24, align 8
-  %vfn.i.i.i14 = getelementptr inbounds ptr, ptr %vtable.i.i.i13, i64 1
+  %vfn.i.i.i14 = getelementptr inbounds i8, ptr %vtable.i.i.i13, i64 8
   %25 = load ptr, ptr %vfn.i.i.i14, align 8
   call void %25(ptr noundef nonnull align 8 dereferenceable(128) %24) #18
   br label %_ZN7testing7MessageD2Ev.exit15
@@ -2059,13 +2053,13 @@ entry:
   %ref.tmp10 = alloca %"class.std::allocator", align 1
   %ref.tmp15 = alloca %"class.testing::internal::AssertHelper", align 8
   store ptr null, ptr @_ZN7testing19exceptions_internal18ConstructorTracker25current_tracker_instance_E, align 8
-  %_M_before_begin.i.i.i = getelementptr inbounds %"class.std::_Hashtable", ptr %this, i64 0, i32 2
+  %_M_before_begin.i.i.i = getelementptr inbounds i8, ptr %this, i64 16
   %__begin2.sroa.0.010 = load ptr, ptr %_M_before_begin.i.i.i, align 8
   %cmp.i.not11 = icmp eq ptr %__begin2.sroa.0.010, null
   br i1 %cmp.i.not11, label %_ZNSt10_HashtableIPvSt4pairIKS0_N7testing19exceptions_internal14TrackedAddressEESaIS6_ENSt8__detail10_Select1stESt8equal_toIS0_ESt4hashIS0_ENS8_18_Mod_range_hashingENS8_20_Default_ranged_hashENS8_20_Prime_rehash_policyENS8_17_Hashtable_traitsILb0ELb0ELb1EEEE5clearEv.exit.i.i, label %for.body.lr.ph
 
 for.body.lr.ph:                                   ; preds = %entry
-  %countdown_ = getelementptr inbounds %"class.testing::exceptions_internal::ConstructorTracker", ptr %this, i64 0, i32 1
+  %countdown_ = getelementptr inbounds i8, ptr %this, i64 56
   br label %for.body
 
 for.body:                                         ; preds = %for.body.lr.ph, %for.inc
@@ -2132,7 +2126,7 @@ invoke.cont17:                                    ; preds = %invoke.cont16
 
 _ZNKSt14default_deleteINSt7__cxx1118basic_stringstreamIcSt11char_traitsIcESaIcEEEEclEPS5_.exit.i.i: ; preds = %invoke.cont17
   %vtable.i.i.i = load ptr, ptr %6, align 8
-  %vfn.i.i.i = getelementptr inbounds ptr, ptr %vtable.i.i.i, i64 1
+  %vfn.i.i.i = getelementptr inbounds i8, ptr %vtable.i.i.i, i64 8
   %7 = load ptr, ptr %vfn.i.i.i, align 8
   call void %7(ptr noundef nonnull align 8 dereferenceable(128) %6) #18
   br label %_ZN7testing7MessageD2Ev.exit
@@ -2162,13 +2156,13 @@ while.body.i.i.i.i:                               ; preds = %for.end, %while.bod
 
 _ZNSt10_HashtableIPvSt4pairIKS0_N7testing19exceptions_internal14TrackedAddressEESaIS6_ENSt8__detail10_Select1stESt8equal_toIS0_ESt4hashIS0_ENS8_18_Mod_range_hashingENS8_20_Default_ranged_hashENS8_20_Prime_rehash_policyENS8_17_Hashtable_traitsILb0ELb0ELb1EEEE5clearEv.exit.i.i: ; preds = %while.body.i.i.i.i, %entry, %for.end
   %9 = load ptr, ptr %this, align 8
-  %_M_bucket_count.i.i.i = getelementptr inbounds %"class.std::_Hashtable", ptr %this, i64 0, i32 1
+  %_M_bucket_count.i.i.i = getelementptr inbounds i8, ptr %this, i64 8
   %10 = load i64, ptr %_M_bucket_count.i.i.i, align 8
   %mul.i.i.i = shl i64 %10, 3
   call void @llvm.memset.p0.i64(ptr align 8 %9, i8 0, i64 %mul.i.i.i, i1 false)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %_M_before_begin.i.i.i, i8 0, i64 16, i1 false)
   %11 = load ptr, ptr %this, align 8
-  %_M_single_bucket.i.i.i.i.i = getelementptr inbounds %"class.std::_Hashtable", ptr %this, i64 0, i32 5
+  %_M_single_bucket.i.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 48
   %cmp.i.i.i.i.i = icmp eq ptr %_M_single_bucket.i.i.i.i.i, %11
   br i1 %cmp.i.i.i.i.i, label %_ZNSt13unordered_mapIPvN7testing19exceptions_internal14TrackedAddressESt4hashIS0_ESt8equal_toIS0_ESaISt4pairIKS0_S3_EEED2Ev.exit, label %if.end.i.i.i.i
 
@@ -2198,7 +2192,7 @@ entry:
   %sub.ptr.rhs.cast.i.i = ptrtoint ptr %first to i64
   %sub.ptr.sub.i.i = sub i64 %sub.ptr.lhs.cast.i.i, %sub.ptr.rhs.cast.i.i
   %sub.ptr.div.i.i = ashr exact i64 %sub.ptr.sub.i.i, 2
-  %size_alloc_.i = getelementptr inbounds %"class.absl::FixedArray<testing::ThrowingValue<testing::TypeSpec::kEverythingThrows>, 25>::Storage", ptr %this, i64 0, i32 1
+  %size_alloc_.i = getelementptr inbounds i8, ptr %this, i64 104
   store i64 %sub.ptr.div.i.i, ptr %size_alloc_.i, align 8
   %cmp.i.i.i = icmp ult i64 %sub.ptr.div.i.i, 26
   br i1 %cmp.i.i.i, label %invoke.cont, label %if.else.i.i
@@ -2217,7 +2211,7 @@ _ZNSt16allocator_traitsISaIN7testing13ThrowingValueILNS0_8TypeSpecE0EEEEE8alloca
 
 invoke.cont:                                      ; preds = %_ZNSt16allocator_traitsISaIN7testing13ThrowingValueILNS0_8TypeSpecE0EEEEE8allocateERS4_m.exit.i.i, %entry
   %retval.0.i.i = phi ptr [ %this, %entry ], [ %call5.i.i.i2.i, %_ZNSt16allocator_traitsISaIN7testing13ThrowingValueILNS0_8TypeSpecE0EEEEE8allocateERS4_m.exit.i.i ]
-  %data_.i = getelementptr inbounds %"class.absl::FixedArray<testing::ThrowingValue<testing::TypeSpec::kEverythingThrows>, 25>::Storage", ptr %this, i64 0, i32 2
+  %data_.i = getelementptr inbounds i8, ptr %this, i64 112
   store ptr %retval.0.i.i, ptr %data_.i, align 8
   %cmp.not10.i = icmp eq ptr %first, %last
   br i1 %cmp.not10.i, label %invoke.cont6, label %for.body.i
@@ -2241,7 +2235,7 @@ while.cond.i:                                     ; preds = %while.body.i, %lpad
   br i1 %cmp1.not.i, label %do.body.i, label %while.body.i
 
 while.body.i:                                     ; preds = %while.cond.i
-  %incdec.ptr.i = getelementptr inbounds %"class.testing::ThrowingValue", ptr %cur.1.i, i64 -1
+  %incdec.ptr.i = getelementptr inbounds i8, ptr %cur.1.i, i64 -4
   invoke void @_ZN7testing19exceptions_internal18ConstructorTracker16ObjectDestructedEPv(ptr noundef nonnull %incdec.ptr.i)
           to label %while.cond.i unwind label %terminate.lpad.i.i.i.i.i, !llvm.loop !20
 
@@ -2263,8 +2257,8 @@ lpad2.i:                                          ; preds = %do.body.i
           to label %lpad.body unwind label %terminate.lpad.i
 
 for.inc.i:                                        ; preds = %for.body.i
-  %incdec.ptr4.i = getelementptr inbounds %"class.testing::ThrowingValue", ptr %cur.012.i, i64 1
-  %incdec.ptr5.i = getelementptr inbounds %"class.testing::ThrowingValue", ptr %first.addr.011.i, i64 1
+  %incdec.ptr4.i = getelementptr inbounds i8, ptr %cur.012.i, i64 4
+  %incdec.ptr5.i = getelementptr inbounds i8, ptr %first.addr.011.i, i64 4
   %cmp.not.i = icmp eq ptr %incdec.ptr5.i, %last
   br i1 %cmp.not.i, label %invoke.cont6, label %for.body.i, !llvm.loop !21
 
@@ -2398,9 +2392,9 @@ entry:
   %large = alloca %"class.absl::FixedArray.42", align 8
   %ref.tmp4 = alloca %"class.testing::ThrowingAllocator", align 8
   call void @_ZN7testing17ThrowingAllocatorINS_13ThrowingValueILNS_8TypeSpecE0EEELNS_9AllocSpecE0EEC2Ev(ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp)
-  %size_alloc_.i.i = getelementptr inbounds %"class.absl::FixedArray<testing::ThrowingValue<testing::TypeSpec::kEverythingThrows>, 25, testing::ThrowingAllocator<testing::ThrowingValue<testing::TypeSpec::kEverythingThrows>, testing::AllocSpec::kEverythingThrows>>::Storage", ptr %small, i64 0, i32 1
+  %size_alloc_.i.i = getelementptr inbounds i8, ptr %small, i64 104
   store i64 12, ptr %size_alloc_.i.i, align 8
-  %0 = getelementptr inbounds %"class.absl::FixedArray<testing::ThrowingValue<testing::TypeSpec::kEverythingThrows>, 25, testing::ThrowingAllocator<testing::ThrowingValue<testing::TypeSpec::kEverythingThrows>, testing::AllocSpec::kEverythingThrows>>::Storage", ptr %small, i64 0, i32 1, i32 0, i32 1
+  %0 = getelementptr inbounds i8, ptr %small, i64 112
   call void @_ZN7testing17ThrowingAllocatorINS_13ThrowingValueILNS_8TypeSpecE0EEELNS_9AllocSpecE0EEC2ERKS5_(ptr noundef nonnull align 8 dereferenceable(16) %0, ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp) #18
   %1 = load i64, ptr %size_alloc_.i.i, align 8
   %cmp.i.i.i.i = icmp ult i64 %1, 26
@@ -2428,7 +2422,7 @@ lpad.i.i:                                         ; preds = %.noexc.i.i, %if.els
 invoke.cont7.i:                                   ; preds = %.noexc.i.invoke.cont7_crit_edge.i, %entry
   %3 = phi i64 [ %1, %entry ], [ %.pre.i, %.noexc.i.invoke.cont7_crit_edge.i ]
   %retval.0.i.i.i = phi ptr [ %small, %entry ], [ %call.i.i.i1.i.i, %.noexc.i.invoke.cont7_crit_edge.i ]
-  %data_.i.i = getelementptr inbounds %"class.absl::FixedArray<testing::ThrowingValue<testing::TypeSpec::kEverythingThrows>, 25, testing::ThrowingAllocator<testing::ThrowingValue<testing::TypeSpec::kEverythingThrows>, testing::AllocSpec::kEverythingThrows>>::Storage", ptr %small, i64 0, i32 2
+  %data_.i.i = getelementptr inbounds i8, ptr %small, i64 128
   store ptr %retval.0.i.i.i, ptr %data_.i.i, align 8
   %add.ptr.i.i = getelementptr inbounds %"class.testing::ThrowingValue", ptr %retval.0.i.i.i, i64 %3
   invoke void @_ZN4absl15memory_internal14ConstructRangeIN7testing17ThrowingAllocatorINS2_13ThrowingValueILNS2_8TypeSpecE0EEELNS2_9AllocSpecE0EEEPS6_JEEEvRT_T0_SC_DpRKT1_(ptr noundef nonnull align 8 dereferenceable(16) %0, ptr noundef nonnull %retval.0.i.i.i, ptr noundef nonnull %add.ptr.i.i)
@@ -2441,13 +2435,13 @@ lpad.i:                                           ; preds = %invoke.cont7.i
   br label %lpad.body
 
 invoke.cont:                                      ; preds = %invoke.cont7.i
-  %_M_refcount.i.i.i = getelementptr inbounds %"class.std::__shared_ptr", ptr %ref.tmp, i64 0, i32 1
+  %_M_refcount.i.i.i = getelementptr inbounds i8, ptr %ref.tmp, i64 8
   %5 = load ptr, ptr %_M_refcount.i.i.i, align 8
   %cmp.not.i.i.i.i = icmp eq ptr %5, null
   br i1 %cmp.not.i.i.i.i, label %_ZNSt10shared_ptrIKiED2Ev.exit.i, label %if.then.i.i.i.i
 
 if.then.i.i.i.i:                                  ; preds = %invoke.cont
-  %_M_use_count.i.i.i.i.i = getelementptr inbounds %"class.std::_Sp_counted_base", ptr %5, i64 0, i32 1
+  %_M_use_count.i.i.i.i.i = getelementptr inbounds i8, ptr %5, i64 8
   %6 = load atomic i64, ptr %_M_use_count.i.i.i.i.i acquire, align 8
   %cmp.i.i.i.i.i = icmp eq i64 %6, 4294967297
   %7 = trunc i64 %6 to i32
@@ -2455,10 +2449,10 @@ if.then.i.i.i.i:                                  ; preds = %invoke.cont
 
 if.then.i.i.i.i.i:                                ; preds = %if.then.i.i.i.i
   store i32 0, ptr %_M_use_count.i.i.i.i.i, align 8
-  %_M_weak_count.i.i.i.i.i = getelementptr inbounds %"class.std::_Sp_counted_base", ptr %5, i64 0, i32 2
+  %_M_weak_count.i.i.i.i.i = getelementptr inbounds i8, ptr %5, i64 12
   store i32 0, ptr %_M_weak_count.i.i.i.i.i, align 4
   %vtable.i.i.i.i.i = load ptr, ptr %5, align 8
-  %vfn.i.i.i.i.i = getelementptr inbounds ptr, ptr %vtable.i.i.i.i.i, i64 2
+  %vfn.i.i.i.i.i = getelementptr inbounds i8, ptr %vtable.i.i.i.i.i, i64 16
   %8 = load ptr, ptr %vfn.i.i.i.i.i, align 8
   call void %8(ptr noundef nonnull align 8 dereferenceable(16) %5) #18
   br label %if.end8.sink.split.i.i.i.i.i
@@ -2484,10 +2478,10 @@ _ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i: ; preds = %if.els
 
 if.then7.i.i.i.i.i:                               ; preds = %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i
   %vtable.i.i.i.i.i.i.i = load ptr, ptr %5, align 8
-  %vfn.i.i.i.i.i.i.i = getelementptr inbounds ptr, ptr %vtable.i.i.i.i.i.i.i, i64 2
+  %vfn.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %vtable.i.i.i.i.i.i.i, i64 16
   %11 = load ptr, ptr %vfn.i.i.i.i.i.i.i, align 8
   call void %11(ptr noundef nonnull align 8 dereferenceable(16) %5) #18
-  %_M_weak_count.i.i.i.i.i.i.i = getelementptr inbounds %"class.std::_Sp_counted_base", ptr %5, i64 0, i32 2
+  %_M_weak_count.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %5, i64 12
   %12 = load i8, ptr @__libc_single_threaded, align 1
   %tobool.i.not.i.i.i.i.i.i.i = icmp eq i8 %12, 0
   br i1 %tobool.i.not.i.i.i.i.i.i.i, label %if.else.i.i.i.i.i.i.i.i, label %if.then.i.i.i.i.i.i.i.i
@@ -2509,7 +2503,7 @@ _ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i.i: ; preds = %if
 
 if.end8.sink.split.i.i.i.i.i:                     ; preds = %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i.i, %if.then.i.i.i.i.i
   %vtable2.i.i.i.i.i.i.i = load ptr, ptr %5, align 8
-  %vfn3.i.i.i.i.i.i.i = getelementptr inbounds ptr, ptr %vtable2.i.i.i.i.i.i.i, i64 3
+  %vfn3.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %vtable2.i.i.i.i.i.i.i, i64 24
   %15 = load ptr, ptr %vfn3.i.i.i.i.i.i.i, align 8
   call void %15(ptr noundef nonnull align 8 dereferenceable(16) %5) #18
   br label %_ZNSt10shared_ptrIKiED2Ev.exit.i
@@ -2534,9 +2528,9 @@ invoke.cont3:                                     ; preds = %_ZN7testing17Throwi
           to label %invoke.cont5 unwind label %lpad2
 
 invoke.cont5:                                     ; preds = %invoke.cont3
-  %size_alloc_.i.i3 = getelementptr inbounds %"class.absl::FixedArray<testing::ThrowingValue<testing::TypeSpec::kEverythingThrows>, 25, testing::ThrowingAllocator<testing::ThrowingValue<testing::TypeSpec::kEverythingThrows>, testing::AllocSpec::kEverythingThrows>>::Storage", ptr %large, i64 0, i32 1
+  %size_alloc_.i.i3 = getelementptr inbounds i8, ptr %large, i64 104
   store i64 50, ptr %size_alloc_.i.i3, align 8
-  %18 = getelementptr inbounds %"class.absl::FixedArray<testing::ThrowingValue<testing::TypeSpec::kEverythingThrows>, 25, testing::ThrowingAllocator<testing::ThrowingValue<testing::TypeSpec::kEverythingThrows>, testing::AllocSpec::kEverythingThrows>>::Storage", ptr %large, i64 0, i32 1, i32 0, i32 1
+  %18 = getelementptr inbounds i8, ptr %large, i64 112
   call void @_ZN7testing17ThrowingAllocatorINS_13ThrowingValueILNS_8TypeSpecE0EEELNS_9AllocSpecE0EEC2ERKS5_(ptr noundef nonnull align 8 dereferenceable(16) %18, ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp4) #18
   %19 = load i64, ptr %size_alloc_.i.i3, align 8
   %cmp.i.i.i.i4 = icmp ult i64 %19, 26
@@ -2564,7 +2558,7 @@ lpad.i.i6:                                        ; preds = %.noexc.i.i9, %if.el
 invoke.cont7.i14:                                 ; preds = %.noexc.i.invoke.cont7_crit_edge.i12, %invoke.cont5
   %21 = phi i64 [ %19, %invoke.cont5 ], [ %.pre.i13, %.noexc.i.invoke.cont7_crit_edge.i12 ]
   %retval.0.i.i.i15 = phi ptr [ %large, %invoke.cont5 ], [ %call.i.i.i1.i.i11, %.noexc.i.invoke.cont7_crit_edge.i12 ]
-  %data_.i.i16 = getelementptr inbounds %"class.absl::FixedArray<testing::ThrowingValue<testing::TypeSpec::kEverythingThrows>, 25, testing::ThrowingAllocator<testing::ThrowingValue<testing::TypeSpec::kEverythingThrows>, testing::AllocSpec::kEverythingThrows>>::Storage", ptr %large, i64 0, i32 2
+  %data_.i.i16 = getelementptr inbounds i8, ptr %large, i64 128
   store ptr %retval.0.i.i.i15, ptr %data_.i.i16, align 8
   %add.ptr.i.i17 = getelementptr inbounds %"class.testing::ThrowingValue", ptr %retval.0.i.i.i15, i64 %21
   invoke void @_ZN4absl15memory_internal14ConstructRangeIN7testing17ThrowingAllocatorINS2_13ThrowingValueILNS2_8TypeSpecE0EEELNS2_9AllocSpecE0EEEPS6_JEEEvRT_T0_SC_DpRKT1_(ptr noundef nonnull align 8 dereferenceable(16) %18, ptr noundef nonnull %retval.0.i.i.i15, ptr noundef nonnull %add.ptr.i.i17)
@@ -2577,13 +2571,13 @@ lpad.i18:                                         ; preds = %invoke.cont7.i14
   br label %lpad6.body
 
 invoke.cont7:                                     ; preds = %invoke.cont7.i14
-  %_M_refcount.i.i.i21 = getelementptr inbounds %"class.std::__shared_ptr", ptr %ref.tmp4, i64 0, i32 1
+  %_M_refcount.i.i.i21 = getelementptr inbounds i8, ptr %ref.tmp4, i64 8
   %23 = load ptr, ptr %_M_refcount.i.i.i21, align 8
   %cmp.not.i.i.i.i22 = icmp eq ptr %23, null
   br i1 %cmp.not.i.i.i.i22, label %_ZNSt10shared_ptrIKiED2Ev.exit.i33, label %if.then.i.i.i.i23
 
 if.then.i.i.i.i23:                                ; preds = %invoke.cont7
-  %_M_use_count.i.i.i.i.i24 = getelementptr inbounds %"class.std::_Sp_counted_base", ptr %23, i64 0, i32 1
+  %_M_use_count.i.i.i.i.i24 = getelementptr inbounds i8, ptr %23, i64 8
   %24 = load atomic i64, ptr %_M_use_count.i.i.i.i.i24 acquire, align 8
   %cmp.i.i.i.i.i25 = icmp eq i64 %24, 4294967297
   %25 = trunc i64 %24 to i32
@@ -2591,10 +2585,10 @@ if.then.i.i.i.i23:                                ; preds = %invoke.cont7
 
 if.then.i.i.i.i.i50:                              ; preds = %if.then.i.i.i.i23
   store i32 0, ptr %_M_use_count.i.i.i.i.i24, align 8
-  %_M_weak_count.i.i.i.i.i51 = getelementptr inbounds %"class.std::_Sp_counted_base", ptr %23, i64 0, i32 2
+  %_M_weak_count.i.i.i.i.i51 = getelementptr inbounds i8, ptr %23, i64 12
   store i32 0, ptr %_M_weak_count.i.i.i.i.i51, align 4
   %vtable.i.i.i.i.i52 = load ptr, ptr %23, align 8
-  %vfn.i.i.i.i.i53 = getelementptr inbounds ptr, ptr %vtable.i.i.i.i.i52, i64 2
+  %vfn.i.i.i.i.i53 = getelementptr inbounds i8, ptr %vtable.i.i.i.i.i52, i64 16
   %26 = load ptr, ptr %vfn.i.i.i.i.i53, align 8
   call void %26(ptr noundef nonnull align 8 dereferenceable(16) %23) #18
   br label %if.end8.sink.split.i.i.i.i.i45
@@ -2620,10 +2614,10 @@ _ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i30: ; preds = %if.e
 
 if.then7.i.i.i.i.i35:                             ; preds = %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i30
   %vtable.i.i.i.i.i.i.i36 = load ptr, ptr %23, align 8
-  %vfn.i.i.i.i.i.i.i37 = getelementptr inbounds ptr, ptr %vtable.i.i.i.i.i.i.i36, i64 2
+  %vfn.i.i.i.i.i.i.i37 = getelementptr inbounds i8, ptr %vtable.i.i.i.i.i.i.i36, i64 16
   %29 = load ptr, ptr %vfn.i.i.i.i.i.i.i37, align 8
   call void %29(ptr noundef nonnull align 8 dereferenceable(16) %23) #18
-  %_M_weak_count.i.i.i.i.i.i.i38 = getelementptr inbounds %"class.std::_Sp_counted_base", ptr %23, i64 0, i32 2
+  %_M_weak_count.i.i.i.i.i.i.i38 = getelementptr inbounds i8, ptr %23, i64 12
   %30 = load i8, ptr @__libc_single_threaded, align 1
   %tobool.i.not.i.i.i.i.i.i.i39 = icmp eq i8 %30, 0
   br i1 %tobool.i.not.i.i.i.i.i.i.i39, label %if.else.i.i.i.i.i.i.i.i48, label %if.then.i.i.i.i.i.i.i.i40
@@ -2645,7 +2639,7 @@ _ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i.i42: ; preds = %
 
 if.end8.sink.split.i.i.i.i.i45:                   ; preds = %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i.i42, %if.then.i.i.i.i.i50
   %vtable2.i.i.i.i.i.i.i46 = load ptr, ptr %23, align 8
-  %vfn3.i.i.i.i.i.i.i47 = getelementptr inbounds ptr, ptr %vtable2.i.i.i.i.i.i.i46, i64 3
+  %vfn3.i.i.i.i.i.i.i47 = getelementptr inbounds i8, ptr %vtable2.i.i.i.i.i.i.i46, i64 24
   %33 = load ptr, ptr %vfn3.i.i.i.i.i.i.i47, align 8
   call void %33(ptr noundef nonnull align 8 dereferenceable(16) %23) #18
   br label %_ZNSt10shared_ptrIKiED2Ev.exit.i33
@@ -2697,7 +2691,7 @@ terminate.lpad.i.i.i.i.i.i:                       ; preds = %_ZN7testing17Throwi
   unreachable
 
 _ZNSt16allocator_traitsIN7testing17ThrowingAllocatorINS0_13ThrowingValueILNS0_8TypeSpecE0EEELNS0_9AllocSpecE0EEEE7destroyIS4_EEvRS6_PT_.exit.i: ; preds = %_ZN7testing17ThrowingAllocatorINS_13ThrowingValueILNS_8TypeSpecE0EEELNS_9AllocSpecE0EE9ReadStateEv.exit.i.i.i.i
-  %incdec.ptr.i = getelementptr inbounds %"class.testing::ThrowingValue", ptr %cur.05.i, i64 1
+  %incdec.ptr.i = getelementptr inbounds i8, ptr %cur.05.i, i64 4
   %42 = load ptr, ptr %data_.i.i16, align 8
   %43 = load i64, ptr %size_alloc_.i.i3, align 8
   %add.ptr.i.i57 = getelementptr inbounds %"class.testing::ThrowingValue", ptr %42, i64 %43
@@ -2737,7 +2731,7 @@ terminate.lpad.i.i.i.i.i.i68:                     ; preds = %_ZN7testing17Throwi
   unreachable
 
 _ZNSt16allocator_traitsIN7testing17ThrowingAllocatorINS0_13ThrowingValueILNS0_8TypeSpecE0EEELNS0_9AllocSpecE0EEEE7destroyIS4_EEvRS6_PT_.exit.i69: ; preds = %_ZN7testing17ThrowingAllocatorINS_13ThrowingValueILNS_8TypeSpecE0EEELNS_9AllocSpecE0EE9ReadStateEv.exit.i.i.i.i67
-  %incdec.ptr.i70 = getelementptr inbounds %"class.testing::ThrowingValue", ptr %cur.05.i65, i64 1
+  %incdec.ptr.i70 = getelementptr inbounds i8, ptr %cur.05.i65, i64 4
   %50 = load ptr, ptr %data_.i.i, align 8
   %51 = load i64, ptr %size_alloc_.i.i, align 8
   %add.ptr.i.i71 = getelementptr inbounds %"class.testing::ThrowingValue", ptr %50, i64 %51
@@ -2814,22 +2808,22 @@ invoke.cont4:                                     ; preds = %invoke.cont
           to label %invoke.cont6 unwind label %lpad3
 
 invoke.cont6:                                     ; preds = %invoke.cont4
-  %_M_use_count.i.i.i.i.i.i = getelementptr inbounds %"class.std::_Sp_counted_base", ptr %call5.i.i.i2.i.i.i.i2, i64 0, i32 1
+  %_M_use_count.i.i.i.i.i.i = getelementptr inbounds i8, ptr %call5.i.i.i2.i.i.i.i2, i64 8
   store i32 1, ptr %_M_use_count.i.i.i.i.i.i, align 8, !noalias !23
-  %_M_weak_count.i.i.i.i.i.i = getelementptr inbounds %"class.std::_Sp_counted_base", ptr %call5.i.i.i2.i.i.i.i2, i64 0, i32 2
+  %_M_weak_count.i.i.i.i.i.i = getelementptr inbounds i8, ptr %call5.i.i.i2.i.i.i.i2, i64 12
   store i32 1, ptr %_M_weak_count.i.i.i.i.i.i, align 4, !noalias !23
   store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIKiSaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 0, inrange i32 0, i64 2), ptr %call5.i.i.i2.i.i.i.i2, align 8, !noalias !23
-  %_M_impl.i.i.i.i.i.i = getelementptr inbounds %"class.std::_Sp_counted_ptr_inplace", ptr %call5.i.i.i2.i.i.i.i2, i64 0, i32 1
+  %_M_impl.i.i.i.i.i.i = getelementptr inbounds i8, ptr %call5.i.i.i2.i.i.i.i2, i64 16
   store i32 %2, ptr %_M_impl.i.i.i.i.i.i, align 4, !noalias !23
   store ptr %_M_impl.i.i.i.i.i.i, ptr %this, align 8
-  %_M_refcount3.i.i.i = getelementptr inbounds %"class.std::__shared_ptr", ptr %this, i64 0, i32 1
+  %_M_refcount3.i.i.i = getelementptr inbounds i8, ptr %this, i64 8
   %3 = load ptr, ptr %_M_refcount3.i.i.i, align 8
   store ptr %call5.i.i.i2.i.i.i.i2, ptr %_M_refcount3.i.i.i, align 8
   %cmp.not.i.i.i.i = icmp eq ptr %3, null
   br i1 %cmp.not.i.i.i.i, label %_ZNSt10shared_ptrIKiED2Ev.exit, label %if.then.i.i.i.i
 
 if.then.i.i.i.i:                                  ; preds = %invoke.cont6
-  %_M_use_count.i.i.i.i.i = getelementptr inbounds %"class.std::_Sp_counted_base", ptr %3, i64 0, i32 1
+  %_M_use_count.i.i.i.i.i = getelementptr inbounds i8, ptr %3, i64 8
   %4 = load atomic i64, ptr %_M_use_count.i.i.i.i.i acquire, align 8
   %cmp.i.i.i.i.i = icmp eq i64 %4, 4294967297
   %5 = trunc i64 %4 to i32
@@ -2837,10 +2831,10 @@ if.then.i.i.i.i:                                  ; preds = %invoke.cont6
 
 if.then.i.i.i.i.i:                                ; preds = %if.then.i.i.i.i
   store i32 0, ptr %_M_use_count.i.i.i.i.i, align 8
-  %_M_weak_count.i.i.i.i.i = getelementptr inbounds %"class.std::_Sp_counted_base", ptr %3, i64 0, i32 2
+  %_M_weak_count.i.i.i.i.i = getelementptr inbounds i8, ptr %3, i64 12
   store i32 0, ptr %_M_weak_count.i.i.i.i.i, align 4
   %vtable.i.i.i.i.i = load ptr, ptr %3, align 8
-  %vfn.i.i.i.i.i = getelementptr inbounds ptr, ptr %vtable.i.i.i.i.i, i64 2
+  %vfn.i.i.i.i.i = getelementptr inbounds i8, ptr %vtable.i.i.i.i.i, i64 16
   %6 = load ptr, ptr %vfn.i.i.i.i.i, align 8
   call void %6(ptr noundef nonnull align 8 dereferenceable(16) %3) #18
   br label %if.end8.sink.split.i.i.i.i.i
@@ -2866,10 +2860,10 @@ _ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i: ; preds = %if.els
 
 if.then7.i.i.i.i.i:                               ; preds = %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i
   %vtable.i.i.i.i.i.i.i = load ptr, ptr %3, align 8
-  %vfn.i.i.i.i.i.i.i = getelementptr inbounds ptr, ptr %vtable.i.i.i.i.i.i.i, i64 2
+  %vfn.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %vtable.i.i.i.i.i.i.i, i64 16
   %9 = load ptr, ptr %vfn.i.i.i.i.i.i.i, align 8
   call void %9(ptr noundef nonnull align 8 dereferenceable(16) %3) #18
-  %_M_weak_count.i.i.i.i.i.i.i = getelementptr inbounds %"class.std::_Sp_counted_base", ptr %3, i64 0, i32 2
+  %_M_weak_count.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %3, i64 12
   %10 = load i8, ptr @__libc_single_threaded, align 1
   %tobool.i.not.i.i.i.i.i.i.i = icmp eq i8 %10, 0
   br i1 %tobool.i.not.i.i.i.i.i.i.i, label %if.else.i.i.i.i.i.i.i.i, label %if.then.i.i.i.i.i.i.i.i
@@ -2891,7 +2885,7 @@ _ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i.i: ; preds = %if
 
 if.end8.sink.split.i.i.i.i.i:                     ; preds = %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i.i, %if.then.i.i.i.i.i
   %vtable2.i.i.i.i.i.i.i = load ptr, ptr %3, align 8
-  %vfn3.i.i.i.i.i.i.i = getelementptr inbounds ptr, ptr %vtable2.i.i.i.i.i.i.i, i64 3
+  %vfn3.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %vtable2.i.i.i.i.i.i.i, i64 24
   %13 = load ptr, ptr %vfn3.i.i.i.i.i.i.i, align 8
   call void %13(ptr noundef nonnull align 8 dereferenceable(16) %3) #18
   br label %_ZNSt10shared_ptrIKiED2Ev.exit
@@ -2921,13 +2915,13 @@ eh.resume:                                        ; preds = %lpad3, %lpad.i
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr dso_local void @_ZN7testing17ThrowingAllocatorINS_13ThrowingValueILNS_8TypeSpecE0EEELNS_9AllocSpecE0EED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %this) unnamed_addr #7 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  %_M_refcount.i.i = getelementptr inbounds %"class.std::__shared_ptr", ptr %this, i64 0, i32 1
+  %_M_refcount.i.i = getelementptr inbounds i8, ptr %this, i64 8
   %0 = load ptr, ptr %_M_refcount.i.i, align 8
   %cmp.not.i.i.i = icmp eq ptr %0, null
   br i1 %cmp.not.i.i.i, label %_ZNSt10shared_ptrIKiED2Ev.exit, label %if.then.i.i.i
 
 if.then.i.i.i:                                    ; preds = %entry
-  %_M_use_count.i.i.i.i = getelementptr inbounds %"class.std::_Sp_counted_base", ptr %0, i64 0, i32 1
+  %_M_use_count.i.i.i.i = getelementptr inbounds i8, ptr %0, i64 8
   %1 = load atomic i64, ptr %_M_use_count.i.i.i.i acquire, align 8
   %cmp.i.i.i.i = icmp eq i64 %1, 4294967297
   %2 = trunc i64 %1 to i32
@@ -2935,10 +2929,10 @@ if.then.i.i.i:                                    ; preds = %entry
 
 if.then.i.i.i.i:                                  ; preds = %if.then.i.i.i
   store i32 0, ptr %_M_use_count.i.i.i.i, align 8
-  %_M_weak_count.i.i.i.i = getelementptr inbounds %"class.std::_Sp_counted_base", ptr %0, i64 0, i32 2
+  %_M_weak_count.i.i.i.i = getelementptr inbounds i8, ptr %0, i64 12
   store i32 0, ptr %_M_weak_count.i.i.i.i, align 4
   %vtable.i.i.i.i = load ptr, ptr %0, align 8
-  %vfn.i.i.i.i = getelementptr inbounds ptr, ptr %vtable.i.i.i.i, i64 2
+  %vfn.i.i.i.i = getelementptr inbounds i8, ptr %vtable.i.i.i.i, i64 16
   %3 = load ptr, ptr %vfn.i.i.i.i, align 8
   tail call void %3(ptr noundef nonnull align 8 dereferenceable(16) %0) #18
   br label %if.end8.sink.split.i.i.i.i
@@ -2964,10 +2958,10 @@ _ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i: ; preds = %if.else.
 
 if.then7.i.i.i.i:                                 ; preds = %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i
   %vtable.i.i.i.i.i.i = load ptr, ptr %0, align 8
-  %vfn.i.i.i.i.i.i = getelementptr inbounds ptr, ptr %vtable.i.i.i.i.i.i, i64 2
+  %vfn.i.i.i.i.i.i = getelementptr inbounds i8, ptr %vtable.i.i.i.i.i.i, i64 16
   %6 = load ptr, ptr %vfn.i.i.i.i.i.i, align 8
   tail call void %6(ptr noundef nonnull align 8 dereferenceable(16) %0) #18
-  %_M_weak_count.i.i.i.i.i.i = getelementptr inbounds %"class.std::_Sp_counted_base", ptr %0, i64 0, i32 2
+  %_M_weak_count.i.i.i.i.i.i = getelementptr inbounds i8, ptr %0, i64 12
   %7 = load i8, ptr @__libc_single_threaded, align 1
   %tobool.i.not.i.i.i.i.i.i = icmp eq i8 %7, 0
   br i1 %tobool.i.not.i.i.i.i.i.i, label %if.else.i.i.i.i.i.i.i, label %if.then.i.i.i.i.i.i.i
@@ -2989,7 +2983,7 @@ _ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i: ; preds = %if.e
 
 if.end8.sink.split.i.i.i.i:                       ; preds = %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i, %if.then.i.i.i.i
   %vtable2.i.i.i.i.i.i = load ptr, ptr %0, align 8
-  %vfn3.i.i.i.i.i.i = getelementptr inbounds ptr, ptr %vtable2.i.i.i.i.i.i, i64 3
+  %vfn3.i.i.i.i.i.i = getelementptr inbounds i8, ptr %vtable2.i.i.i.i.i.i, i64 24
   %10 = load ptr, ptr %vfn3.i.i.i.i.i.i, align 8
   tail call void %10(ptr noundef nonnull align 8 dereferenceable(16) %0) #18
   br label %_ZNSt10shared_ptrIKiED2Ev.exit
@@ -3014,12 +3008,12 @@ define linkonce_odr dso_local void @_ZN7testing16TestThrowingCtorIN4absl10FixedA
 entry:
   %ct = alloca %"class.testing::exceptions_internal::ConstructorTracker", align 8
   %temp = alloca %"class.absl::FixedArray.42", align 8
-  %_M_single_bucket.i.i.i = getelementptr inbounds %"class.std::_Hashtable", ptr %ct, i64 0, i32 5
-  %_M_bucket_count.i.i.i = getelementptr inbounds %"class.std::_Hashtable", ptr %ct, i64 0, i32 1
-  %_M_before_begin.i.i.i = getelementptr inbounds %"class.std::_Hashtable", ptr %ct, i64 0, i32 2
-  %_M_rehash_policy.i.i.i = getelementptr inbounds %"class.std::_Hashtable", ptr %ct, i64 0, i32 4
-  %_M_next_resize.i.i.i.i = getelementptr inbounds %"class.std::_Hashtable", ptr %ct, i64 0, i32 4, i32 1
-  %countdown_.i = getelementptr inbounds %"class.testing::exceptions_internal::ConstructorTracker", ptr %ct, i64 0, i32 1
+  %_M_single_bucket.i.i.i = getelementptr inbounds i8, ptr %ct, i64 48
+  %_M_bucket_count.i.i.i = getelementptr inbounds i8, ptr %ct, i64 8
+  %_M_before_begin.i.i.i = getelementptr inbounds i8, ptr %ct, i64 16
+  %_M_rehash_policy.i.i.i = getelementptr inbounds i8, ptr %ct, i64 32
+  %_M_next_resize.i.i.i.i = getelementptr inbounds i8, ptr %ct, i64 40
+  %countdown_.i = getelementptr inbounds i8, ptr %ct, i64 56
   br label %for.cond
 
 for.cond:                                         ; preds = %for.inc, %entry
@@ -3036,15 +3030,15 @@ for.cond:                                         ; preds = %for.inc, %entry
           to label %invoke.cont2 unwind label %lpad1
 
 invoke.cont2:                                     ; preds = %for.cond
-  %data_.i.i = getelementptr inbounds %"class.absl::FixedArray<testing::ThrowingValue<testing::TypeSpec::kEverythingThrows>, 25, testing::ThrowingAllocator<testing::ThrowingValue<testing::TypeSpec::kEverythingThrows>, testing::AllocSpec::kEverythingThrows>>::Storage", ptr %temp, i64 0, i32 2
-  %size_alloc_.i.i.i = getelementptr inbounds %"class.absl::FixedArray<testing::ThrowingValue<testing::TypeSpec::kEverythingThrows>, 25, testing::ThrowingAllocator<testing::ThrowingValue<testing::TypeSpec::kEverythingThrows>, testing::AllocSpec::kEverythingThrows>>::Storage", ptr %temp, i64 0, i32 1
+  %data_.i.i = getelementptr inbounds i8, ptr %temp, i64 128
+  %size_alloc_.i.i.i = getelementptr inbounds i8, ptr %temp, i64 104
   %0 = load i64, ptr %size_alloc_.i.i.i, align 8
   %cmp.not4.i = icmp eq i64 %0, 0
   br i1 %cmp.not4.i, label %for.end, label %invoke.cont5.lr.ph.i
 
 invoke.cont5.lr.ph.i:                             ; preds = %invoke.cont2
   %1 = load ptr, ptr %data_.i.i, align 8
-  %add.ptr.i.i.i = getelementptr inbounds %"class.absl::FixedArray<testing::ThrowingValue<testing::TypeSpec::kEverythingThrows>, 25, testing::ThrowingAllocator<testing::ThrowingValue<testing::TypeSpec::kEverythingThrows>, testing::AllocSpec::kEverythingThrows>>::Storage", ptr %temp, i64 0, i32 1, i32 0, i32 1
+  %add.ptr.i.i.i = getelementptr inbounds i8, ptr %temp, i64 112
   br label %invoke.cont5.i
 
 invoke.cont5.i:                                   ; preds = %_ZNSt16allocator_traitsIN7testing17ThrowingAllocatorINS0_13ThrowingValueILNS0_8TypeSpecE0EEELNS0_9AllocSpecE0EEEE7destroyIS4_EEvRS6_PT_.exit.i, %invoke.cont5.lr.ph.i
@@ -3070,7 +3064,7 @@ terminate.lpad.i.i.i.i.i.i:                       ; preds = %_ZN7testing17Throwi
   unreachable
 
 _ZNSt16allocator_traitsIN7testing17ThrowingAllocatorINS0_13ThrowingValueILNS0_8TypeSpecE0EEELNS0_9AllocSpecE0EEEE7destroyIS4_EEvRS6_PT_.exit.i: ; preds = %_ZN7testing17ThrowingAllocatorINS_13ThrowingValueILNS_8TypeSpecE0EEELNS_9AllocSpecE0EE9ReadStateEv.exit.i.i.i.i
-  %incdec.ptr.i = getelementptr inbounds %"class.testing::ThrowingValue", ptr %cur.05.i, i64 1
+  %incdec.ptr.i = getelementptr inbounds i8, ptr %cur.05.i, i64 4
   %6 = load ptr, ptr %data_.i.i, align 8
   %7 = load i64, ptr %size_alloc_.i.i.i, align 8
   %add.ptr.i.i = getelementptr inbounds %"class.testing::ThrowingValue", ptr %6, i64 %7
@@ -3118,15 +3112,15 @@ for.end:                                          ; preds = %_ZNSt16allocator_tr
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr dso_local void @_ZN4absl10FixedArrayIN7testing13ThrowingValueILNS1_8TypeSpecE0EEELm25ENS1_17ThrowingAllocatorIS4_LNS1_9AllocSpecE0EEEED2Ev(ptr noundef nonnull align 8 dereferenceable(136) %this) unnamed_addr #7 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  %data_.i = getelementptr inbounds %"class.absl::FixedArray<testing::ThrowingValue<testing::TypeSpec::kEverythingThrows>, 25, testing::ThrowingAllocator<testing::ThrowingValue<testing::TypeSpec::kEverythingThrows>, testing::AllocSpec::kEverythingThrows>>::Storage", ptr %this, i64 0, i32 2
-  %size_alloc_.i.i = getelementptr inbounds %"class.absl::FixedArray<testing::ThrowingValue<testing::TypeSpec::kEverythingThrows>, 25, testing::ThrowingAllocator<testing::ThrowingValue<testing::TypeSpec::kEverythingThrows>, testing::AllocSpec::kEverythingThrows>>::Storage", ptr %this, i64 0, i32 1
+  %data_.i = getelementptr inbounds i8, ptr %this, i64 128
+  %size_alloc_.i.i = getelementptr inbounds i8, ptr %this, i64 104
   %0 = load i64, ptr %size_alloc_.i.i, align 8
   %cmp.not4 = icmp eq i64 %0, 0
   br i1 %cmp.not4, label %for.end, label %invoke.cont5.lr.ph
 
 invoke.cont5.lr.ph:                               ; preds = %entry
   %1 = load ptr, ptr %data_.i, align 8
-  %add.ptr.i.i = getelementptr inbounds %"class.absl::FixedArray<testing::ThrowingValue<testing::TypeSpec::kEverythingThrows>, 25, testing::ThrowingAllocator<testing::ThrowingValue<testing::TypeSpec::kEverythingThrows>, testing::AllocSpec::kEverythingThrows>>::Storage", ptr %this, i64 0, i32 1, i32 0, i32 1
+  %add.ptr.i.i = getelementptr inbounds i8, ptr %this, i64 112
   br label %invoke.cont5
 
 invoke.cont5:                                     ; preds = %invoke.cont5.lr.ph, %_ZNSt16allocator_traitsIN7testing17ThrowingAllocatorINS0_13ThrowingValueILNS0_8TypeSpecE0EEELNS0_9AllocSpecE0EEEE7destroyIS4_EEvRS6_PT_.exit
@@ -3152,7 +3146,7 @@ terminate.lpad.i.i.i.i.i:                         ; preds = %_ZN7testing17Throwi
   unreachable
 
 _ZNSt16allocator_traitsIN7testing17ThrowingAllocatorINS0_13ThrowingValueILNS0_8TypeSpecE0EEELNS0_9AllocSpecE0EEEE7destroyIS4_EEvRS6_PT_.exit: ; preds = %_ZN7testing17ThrowingAllocatorINS_13ThrowingValueILNS_8TypeSpecE0EEELNS_9AllocSpecE0EE9ReadStateEv.exit.i.i.i
-  %incdec.ptr = getelementptr inbounds %"class.testing::ThrowingValue", ptr %cur.05, i64 1
+  %incdec.ptr = getelementptr inbounds i8, ptr %cur.05, i64 4
   %6 = load ptr, ptr %data_.i, align 8
   %7 = load i64, ptr %size_alloc_.i.i, align 8
   %add.ptr.i = getelementptr inbounds %"class.testing::ThrowingValue", ptr %6, i64 %7
@@ -3172,7 +3166,7 @@ invoke.cont4:
   %ref.tmp5 = alloca %"class.absl::AlphaNum", align 8
   call void @_ZN7testing19exceptions_internal13GetSpecStringB5cxx11ENS_9AllocSpecE(ptr nonnull sret(%"class.std::__cxx11::basic_string") align 8 %ref.tmp2, i32 noundef 0)
   %call.i = call { i64, ptr } @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEcvSt17basic_string_viewIcS2_EEv(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp2) #18
-  %digits_.i = getelementptr inbounds %"class.absl::AlphaNum", ptr %ref.tmp5, i64 0, i32 1
+  %digits_.i = getelementptr inbounds i8, ptr %ref.tmp5, i64 16
   %call.i23 = invoke noundef ptr @_ZN4absl16numbers_internal15FastIntToBufferEiPc(i32 noundef %dummy, ptr noundef nonnull %digits_.i)
           to label %invoke.cont8 unwind label %lpad
 
@@ -3183,27 +3177,27 @@ invoke.cont8:                                     ; preds = %invoke.cont4
   %sub.ptr.rhs.cast.i = ptrtoint ptr %digits_.i to i64
   %sub.ptr.sub.i = sub i64 %sub.ptr.lhs.cast.i, %sub.ptr.rhs.cast.i
   store i64 %sub.ptr.sub.i, ptr %ref.tmp5, align 8
-  %_M_str.i.i = getelementptr inbounds %"class.std::basic_string_view", ptr %ref.tmp5, i64 0, i32 1
+  %_M_str.i.i = getelementptr inbounds i8, ptr %ref.tmp5, i64 8
   store ptr %digits_.i, ptr %_M_str.i.i, align 8
   call void @llvm.lifetime.start.p0(i64 80, ptr nonnull %ref.tmp.i)
   store i64 18, ptr %ref.tmp.i, align 8, !noalias !27
-  %2 = getelementptr inbounds { i64, ptr }, ptr %ref.tmp.i, i64 0, i32 1
+  %2 = getelementptr inbounds i8, ptr %ref.tmp.i, i64 8
   store ptr @.str.39, ptr %2, align 8, !noalias !27
-  %arrayinit.element.i = getelementptr inbounds %"class.std::basic_string_view", ptr %ref.tmp.i, i64 1
+  %arrayinit.element.i = getelementptr inbounds i8, ptr %ref.tmp.i, i64 16
   store i64 %1, ptr %arrayinit.element.i, align 8, !noalias !27
-  %3 = getelementptr inbounds %"class.std::basic_string_view", ptr %ref.tmp.i, i64 1, i32 1
+  %3 = getelementptr inbounds i8, ptr %ref.tmp.i, i64 24
   store ptr %0, ptr %3, align 8, !noalias !27
-  %arrayinit.element2.i = getelementptr inbounds %"class.std::basic_string_view", ptr %ref.tmp.i, i64 2
+  %arrayinit.element2.i = getelementptr inbounds i8, ptr %ref.tmp.i, i64 32
   store i64 2, ptr %arrayinit.element2.i, align 8, !noalias !27
-  %4 = getelementptr inbounds %"class.std::basic_string_view", ptr %ref.tmp.i, i64 2, i32 1
+  %4 = getelementptr inbounds i8, ptr %ref.tmp.i, i64 40
   store ptr @.str.31, ptr %4, align 8, !noalias !27
-  %arrayinit.element4.i = getelementptr inbounds %"class.std::basic_string_view", ptr %ref.tmp.i, i64 3
+  %arrayinit.element4.i = getelementptr inbounds i8, ptr %ref.tmp.i, i64 48
   store i64 %sub.ptr.sub.i, ptr %arrayinit.element4.i, align 8, !noalias !27
-  %5 = getelementptr inbounds %"class.std::basic_string_view", ptr %ref.tmp.i, i64 3, i32 1
+  %5 = getelementptr inbounds i8, ptr %ref.tmp.i, i64 56
   store ptr %digits_.i, ptr %5, align 8, !noalias !27
-  %arrayinit.element6.i = getelementptr inbounds %"class.std::basic_string_view", ptr %ref.tmp.i, i64 4
+  %arrayinit.element6.i = getelementptr inbounds i8, ptr %ref.tmp.i, i64 64
   store i64 1, ptr %arrayinit.element6.i, align 8, !noalias !27
-  %6 = getelementptr inbounds %"class.std::basic_string_view", ptr %ref.tmp.i, i64 4, i32 1
+  %6 = getelementptr inbounds i8, ptr %ref.tmp.i, i64 72
   store ptr @.str.32, ptr %6, align 8, !noalias !27
   invoke void @_ZN4absl16strings_internal9CatPiecesB5cxx11ESt16initializer_listISt17basic_string_viewIcSt11char_traitsIcEEE(ptr sret(%"class.std::__cxx11::basic_string") align 8 %agg.result, ptr nonnull %ref.tmp.i, i64 5)
           to label %invoke.cont9 unwind label %lpad
@@ -3223,13 +3217,13 @@ lpad:                                             ; preds = %invoke.cont8, %invo
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr dso_local void @_ZNSt10shared_ptrIKiED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %this) unnamed_addr #7 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  %_M_refcount.i = getelementptr inbounds %"class.std::__shared_ptr", ptr %this, i64 0, i32 1
+  %_M_refcount.i = getelementptr inbounds i8, ptr %this, i64 8
   %0 = load ptr, ptr %_M_refcount.i, align 8
   %cmp.not.i.i = icmp eq ptr %0, null
   br i1 %cmp.not.i.i, label %_ZNSt12__shared_ptrIKiLN9__gnu_cxx12_Lock_policyE2EED2Ev.exit, label %if.then.i.i
 
 if.then.i.i:                                      ; preds = %entry
-  %_M_use_count.i.i.i = getelementptr inbounds %"class.std::_Sp_counted_base", ptr %0, i64 0, i32 1
+  %_M_use_count.i.i.i = getelementptr inbounds i8, ptr %0, i64 8
   %1 = load atomic i64, ptr %_M_use_count.i.i.i acquire, align 8
   %cmp.i.i.i = icmp eq i64 %1, 4294967297
   %2 = trunc i64 %1 to i32
@@ -3237,10 +3231,10 @@ if.then.i.i:                                      ; preds = %entry
 
 if.then.i.i.i:                                    ; preds = %if.then.i.i
   store i32 0, ptr %_M_use_count.i.i.i, align 8
-  %_M_weak_count.i.i.i = getelementptr inbounds %"class.std::_Sp_counted_base", ptr %0, i64 0, i32 2
+  %_M_weak_count.i.i.i = getelementptr inbounds i8, ptr %0, i64 12
   store i32 0, ptr %_M_weak_count.i.i.i, align 4
   %vtable.i.i.i = load ptr, ptr %0, align 8
-  %vfn.i.i.i = getelementptr inbounds ptr, ptr %vtable.i.i.i, i64 2
+  %vfn.i.i.i = getelementptr inbounds i8, ptr %vtable.i.i.i, i64 16
   %3 = load ptr, ptr %vfn.i.i.i, align 8
   tail call void %3(ptr noundef nonnull align 8 dereferenceable(16) %0) #18
   br label %if.end8.sink.split.i.i.i
@@ -3266,10 +3260,10 @@ _ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i: ; preds = %if.else.i.
 
 if.then7.i.i.i:                                   ; preds = %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i
   %vtable.i.i.i.i.i = load ptr, ptr %0, align 8
-  %vfn.i.i.i.i.i = getelementptr inbounds ptr, ptr %vtable.i.i.i.i.i, i64 2
+  %vfn.i.i.i.i.i = getelementptr inbounds i8, ptr %vtable.i.i.i.i.i, i64 16
   %6 = load ptr, ptr %vfn.i.i.i.i.i, align 8
   tail call void %6(ptr noundef nonnull align 8 dereferenceable(16) %0) #18
-  %_M_weak_count.i.i.i.i.i = getelementptr inbounds %"class.std::_Sp_counted_base", ptr %0, i64 0, i32 2
+  %_M_weak_count.i.i.i.i.i = getelementptr inbounds i8, ptr %0, i64 12
   %7 = load i8, ptr @__libc_single_threaded, align 1
   %tobool.i.not.i.i.i.i.i = icmp eq i8 %7, 0
   br i1 %tobool.i.not.i.i.i.i.i, label %if.else.i.i.i.i.i.i, label %if.then.i.i.i.i.i.i
@@ -3291,7 +3285,7 @@ _ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i: ; preds = %if.els
 
 if.end8.sink.split.i.i.i:                         ; preds = %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i, %if.then.i.i.i
   %vtable2.i.i.i.i.i = load ptr, ptr %0, align 8
-  %vfn3.i.i.i.i.i = getelementptr inbounds ptr, ptr %vtable2.i.i.i.i.i, i64 3
+  %vfn3.i.i.i.i.i = getelementptr inbounds i8, ptr %vtable2.i.i.i.i.i, i64 24
   %10 = load ptr, ptr %vfn3.i.i.i.i.i, align 8
   tail call void %10(ptr noundef nonnull align 8 dereferenceable(16) %0) #18
   br label %_ZNSt12__shared_ptrIKiLN9__gnu_cxx12_Lock_policyE2EED2Ev.exit
@@ -3331,12 +3325,12 @@ _ZNSt15__allocated_ptrISaISt23_Sp_counted_ptr_inplaceIKiSaIvELN9__gnu_cxx12_Lock
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr dso_local noundef ptr @_ZNSt23_Sp_counted_ptr_inplaceIKiSaIvELN9__gnu_cxx12_Lock_policyE2EE14_M_get_deleterERKSt9type_info(ptr noundef nonnull align 8 dereferenceable(24) %this, ptr noundef nonnull align 8 dereferenceable(16) %__ti) unnamed_addr #7 comdat align 2 {
 entry:
-  %_M_impl.i = getelementptr inbounds %"class.std::_Sp_counted_ptr_inplace", ptr %this, i64 0, i32 1
+  %_M_impl.i = getelementptr inbounds i8, ptr %this, i64 16
   %cmp = icmp eq ptr %__ti, @_ZZNSt19_Sp_make_shared_tag5_S_tiEvE5__tag
   br i1 %cmp, label %return, label %lor.lhs.false
 
 lor.lhs.false:                                    ; preds = %entry
-  %__name.i = getelementptr inbounds %"class.std::type_info", ptr %__ti, i64 0, i32 1
+  %__name.i = getelementptr inbounds i8, ptr %__ti, i64 8
   %0 = load ptr, ptr %__name.i, align 8
   %cmp.i = icmp eq ptr %0, @_ZTSSt19_Sp_make_shared_tag
   br i1 %cmp.i, label %_ZNKSt9type_infoeqERKS_.exit.thread, label %if.end.i
@@ -3401,7 +3395,7 @@ if.then.i.i.i.i:                                  ; preds = %while.body
   unreachable
 
 _ZN7testing17ThrowingAllocatorINS_13ThrowingValueILNS_8TypeSpecE0EEELNS_9AllocSpecE0EE9ReadStateEv.exit.i.i.i: ; preds = %while.body
-  %incdec.ptr = getelementptr inbounds %"class.testing::ThrowingValue", ptr %cur.1, i64 -1
+  %incdec.ptr = getelementptr inbounds i8, ptr %cur.1, i64 -4
   invoke void @_ZN7testing19exceptions_internal18ConstructorTracker16ObjectDestructedEPv(ptr noundef nonnull %incdec.ptr)
           to label %while.cond unwind label %terminate.lpad.i.i.i.i.i, !llvm.loop !30
 
@@ -3423,7 +3417,7 @@ lpad2:                                            ; preds = %do.body
           to label %eh.resume unwind label %terminate.lpad
 
 for.inc:                                          ; preds = %.noexc
-  %incdec.ptr4 = getelementptr inbounds %"class.testing::ThrowingValue", ptr %cur.011, i64 1
+  %incdec.ptr4 = getelementptr inbounds i8, ptr %cur.011, i64 4
   %cmp.not = icmp eq ptr %incdec.ptr4, %last
   br i1 %cmp.not, label %for.end, label %for.body, !llvm.loop !31
 
@@ -3447,13 +3441,13 @@ unreachable:                                      ; preds = %do.body
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr dso_local void @_ZN4absl10FixedArrayIN7testing13ThrowingValueILNS1_8TypeSpecE0EEELm25ENS1_17ThrowingAllocatorIS4_LNS1_9AllocSpecE0EEEE7StorageD2Ev(ptr noundef nonnull align 8 dereferenceable(136) %this) unnamed_addr #7 comdat align 2 personality ptr @__gxx_personality_v0 {
 invoke.cont:
-  %size_alloc_.i = getelementptr inbounds %"class.absl::FixedArray<testing::ThrowingValue<testing::TypeSpec::kEverythingThrows>, 25, testing::ThrowingAllocator<testing::ThrowingValue<testing::TypeSpec::kEverythingThrows>, testing::AllocSpec::kEverythingThrows>>::Storage", ptr %this, i64 0, i32 1
+  %size_alloc_.i = getelementptr inbounds i8, ptr %this, i64 104
   %0 = load i64, ptr %size_alloc_.i, align 8
   %cmp.i = icmp ult i64 %0, 26
   br i1 %cmp.i, label %if.end, label %invoke.cont11
 
 invoke.cont11:                                    ; preds = %invoke.cont
-  %add.ptr.i.i = getelementptr inbounds %"class.absl::FixedArray<testing::ThrowingValue<testing::TypeSpec::kEverythingThrows>, 25, testing::ThrowingAllocator<testing::ThrowingValue<testing::TypeSpec::kEverythingThrows>, testing::AllocSpec::kEverythingThrows>>::Storage", ptr %this, i64 0, i32 1, i32 0, i32 1
+  %add.ptr.i.i = getelementptr inbounds i8, ptr %this, i64 112
   %1 = load ptr, ptr %add.ptr.i.i, align 8
   %2 = load i32, ptr %1, align 4
   %cmp.i.i.i = icmp slt i32 %2, 0
@@ -3464,20 +3458,20 @@ if.then.i.i.i:                                    ; preds = %invoke.cont11
   unreachable
 
 _ZNSt16allocator_traitsIN7testing17ThrowingAllocatorINS0_13ThrowingValueILNS0_8TypeSpecE0EEELNS0_9AllocSpecE0EEEE10deallocateERS6_PS4_m.exit: ; preds = %invoke.cont11
-  %data_.i = getelementptr inbounds %"class.absl::FixedArray<testing::ThrowingValue<testing::TypeSpec::kEverythingThrows>, 25, testing::ThrowingAllocator<testing::ThrowingValue<testing::TypeSpec::kEverythingThrows>, testing::AllocSpec::kEverythingThrows>>::Storage", ptr %this, i64 0, i32 2
+  %data_.i = getelementptr inbounds i8, ptr %this, i64 128
   %3 = load ptr, ptr %data_.i, align 8
   tail call void @_ZdlPv(ptr noundef %3) #18
   br label %if.end
 
 if.end:                                           ; preds = %invoke.cont, %_ZNSt16allocator_traitsIN7testing17ThrowingAllocatorINS0_13ThrowingValueILNS0_8TypeSpecE0EEELNS0_9AllocSpecE0EEEE10deallocateERS6_PS4_m.exit
-  %4 = getelementptr inbounds %"class.absl::FixedArray<testing::ThrowingValue<testing::TypeSpec::kEverythingThrows>, 25, testing::ThrowingAllocator<testing::ThrowingValue<testing::TypeSpec::kEverythingThrows>, testing::AllocSpec::kEverythingThrows>>::Storage", ptr %this, i64 0, i32 1, i32 0, i32 1
-  %_M_refcount.i.i.i.i.i.i = getelementptr inbounds %"class.absl::FixedArray<testing::ThrowingValue<testing::TypeSpec::kEverythingThrows>, 25, testing::ThrowingAllocator<testing::ThrowingValue<testing::TypeSpec::kEverythingThrows>, testing::AllocSpec::kEverythingThrows>>::Storage", ptr %this, i64 0, i32 1, i32 0, i32 1, i32 0, i32 0, i32 0, i32 1
+  %4 = getelementptr inbounds i8, ptr %this, i64 112
+  %_M_refcount.i.i.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 120
   %5 = load ptr, ptr %_M_refcount.i.i.i.i.i.i, align 8
   %cmp.not.i.i.i.i.i.i.i = icmp eq ptr %5, null
   br i1 %cmp.not.i.i.i.i.i.i.i, label %_ZNSt10shared_ptrIKiED2Ev.exit.i.i.i.i, label %if.then.i.i.i.i.i.i.i
 
 if.then.i.i.i.i.i.i.i:                            ; preds = %if.end
-  %_M_use_count.i.i.i.i.i.i.i.i = getelementptr inbounds %"class.std::_Sp_counted_base", ptr %5, i64 0, i32 1
+  %_M_use_count.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %5, i64 8
   %6 = load atomic i64, ptr %_M_use_count.i.i.i.i.i.i.i.i acquire, align 8
   %cmp.i.i.i.i.i.i.i.i = icmp eq i64 %6, 4294967297
   %7 = trunc i64 %6 to i32
@@ -3485,10 +3479,10 @@ if.then.i.i.i.i.i.i.i:                            ; preds = %if.end
 
 if.then.i.i.i.i.i.i.i.i:                          ; preds = %if.then.i.i.i.i.i.i.i
   store i32 0, ptr %_M_use_count.i.i.i.i.i.i.i.i, align 8
-  %_M_weak_count.i.i.i.i.i.i.i.i = getelementptr inbounds %"class.std::_Sp_counted_base", ptr %5, i64 0, i32 2
+  %_M_weak_count.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %5, i64 12
   store i32 0, ptr %_M_weak_count.i.i.i.i.i.i.i.i, align 4
   %vtable.i.i.i.i.i.i.i.i = load ptr, ptr %5, align 8
-  %vfn.i.i.i.i.i.i.i.i = getelementptr inbounds ptr, ptr %vtable.i.i.i.i.i.i.i.i, i64 2
+  %vfn.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %vtable.i.i.i.i.i.i.i.i, i64 16
   %8 = load ptr, ptr %vfn.i.i.i.i.i.i.i.i, align 8
   tail call void %8(ptr noundef nonnull align 8 dereferenceable(16) %5) #18
   br label %if.end8.sink.split.i.i.i.i.i.i.i.i
@@ -3514,10 +3508,10 @@ _ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i.i.i: ; preds = %
 
 if.then7.i.i.i.i.i.i.i.i:                         ; preds = %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i.i.i
   %vtable.i.i.i.i.i.i.i.i.i.i = load ptr, ptr %5, align 8
-  %vfn.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds ptr, ptr %vtable.i.i.i.i.i.i.i.i.i.i, i64 2
+  %vfn.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %vtable.i.i.i.i.i.i.i.i.i.i, i64 16
   %11 = load ptr, ptr %vfn.i.i.i.i.i.i.i.i.i.i, align 8
   tail call void %11(ptr noundef nonnull align 8 dereferenceable(16) %5) #18
-  %_M_weak_count.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds %"class.std::_Sp_counted_base", ptr %5, i64 0, i32 2
+  %_M_weak_count.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %5, i64 12
   %12 = load i8, ptr @__libc_single_threaded, align 1
   %tobool.i.not.i.i.i.i.i.i.i.i.i.i = icmp eq i8 %12, 0
   br i1 %tobool.i.not.i.i.i.i.i.i.i.i.i.i, label %if.else.i.i.i.i.i.i.i.i.i.i.i, label %if.then.i.i.i.i.i.i.i.i.i.i.i
@@ -3539,7 +3533,7 @@ _ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i.i.i.i.i: ; preds
 
 if.end8.sink.split.i.i.i.i.i.i.i.i:               ; preds = %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i.i.i.i.i, %if.then.i.i.i.i.i.i.i.i
   %vtable2.i.i.i.i.i.i.i.i.i.i = load ptr, ptr %5, align 8
-  %vfn3.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds ptr, ptr %vtable2.i.i.i.i.i.i.i.i.i.i, i64 3
+  %vfn3.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %vtable2.i.i.i.i.i.i.i.i.i.i, i64 24
   %15 = load ptr, ptr %vfn3.i.i.i.i.i.i.i.i.i.i, align 8
   tail call void %15(ptr noundef nonnull align 8 dereferenceable(16) %5) #18
   br label %_ZNSt10shared_ptrIKiED2Ev.exit.i.i.i.i
@@ -3569,7 +3563,7 @@ entry:
   br i1 %cmp.not.i.i.i.i.i.i, label %_ZNSt10shared_ptrIKiED2Ev.exit.i.i.i, label %if.then.i.i.i.i.i.i
 
 if.then.i.i.i.i.i.i:                              ; preds = %entry
-  %_M_use_count.i.i.i.i.i.i.i = getelementptr inbounds %"class.std::_Sp_counted_base", ptr %1, i64 0, i32 1
+  %_M_use_count.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %1, i64 8
   %2 = load atomic i64, ptr %_M_use_count.i.i.i.i.i.i.i acquire, align 8
   %cmp.i.i.i.i.i.i.i = icmp eq i64 %2, 4294967297
   %3 = trunc i64 %2 to i32
@@ -3577,10 +3571,10 @@ if.then.i.i.i.i.i.i:                              ; preds = %entry
 
 if.then.i.i.i.i.i.i.i:                            ; preds = %if.then.i.i.i.i.i.i
   store i32 0, ptr %_M_use_count.i.i.i.i.i.i.i, align 8
-  %_M_weak_count.i.i.i.i.i.i.i = getelementptr inbounds %"class.std::_Sp_counted_base", ptr %1, i64 0, i32 2
+  %_M_weak_count.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %1, i64 12
   store i32 0, ptr %_M_weak_count.i.i.i.i.i.i.i, align 4
   %vtable.i.i.i.i.i.i.i = load ptr, ptr %1, align 8
-  %vfn.i.i.i.i.i.i.i = getelementptr inbounds ptr, ptr %vtable.i.i.i.i.i.i.i, i64 2
+  %vfn.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %vtable.i.i.i.i.i.i.i, i64 16
   %4 = load ptr, ptr %vfn.i.i.i.i.i.i.i, align 8
   tail call void %4(ptr noundef nonnull align 8 dereferenceable(16) %1) #18
   br label %if.end8.sink.split.i.i.i.i.i.i.i
@@ -3606,10 +3600,10 @@ _ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i.i: ; preds = %if
 
 if.then7.i.i.i.i.i.i.i:                           ; preds = %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i.i
   %vtable.i.i.i.i.i.i.i.i.i = load ptr, ptr %1, align 8
-  %vfn.i.i.i.i.i.i.i.i.i = getelementptr inbounds ptr, ptr %vtable.i.i.i.i.i.i.i.i.i, i64 2
+  %vfn.i.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %vtable.i.i.i.i.i.i.i.i.i, i64 16
   %7 = load ptr, ptr %vfn.i.i.i.i.i.i.i.i.i, align 8
   tail call void %7(ptr noundef nonnull align 8 dereferenceable(16) %1) #18
-  %_M_weak_count.i.i.i.i.i.i.i.i.i = getelementptr inbounds %"class.std::_Sp_counted_base", ptr %1, i64 0, i32 2
+  %_M_weak_count.i.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %1, i64 12
   %8 = load i8, ptr @__libc_single_threaded, align 1
   %tobool.i.not.i.i.i.i.i.i.i.i.i = icmp eq i8 %8, 0
   br i1 %tobool.i.not.i.i.i.i.i.i.i.i.i, label %if.else.i.i.i.i.i.i.i.i.i.i, label %if.then.i.i.i.i.i.i.i.i.i.i
@@ -3631,7 +3625,7 @@ _ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i.i.i.i: ; preds =
 
 if.end8.sink.split.i.i.i.i.i.i.i:                 ; preds = %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i.i.i.i, %if.then.i.i.i.i.i.i.i
   %vtable2.i.i.i.i.i.i.i.i.i = load ptr, ptr %1, align 8
-  %vfn3.i.i.i.i.i.i.i.i.i = getelementptr inbounds ptr, ptr %vtable2.i.i.i.i.i.i.i.i.i, i64 3
+  %vfn3.i.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %vtable2.i.i.i.i.i.i.i.i.i, i64 24
   %11 = load ptr, ptr %vfn3.i.i.i.i.i.i.i.i.i, align 8
   tail call void %11(ptr noundef nonnull align 8 dereferenceable(16) %1) #18
   br label %_ZNSt10shared_ptrIKiED2Ev.exit.i.i.i
@@ -3679,15 +3673,15 @@ invoke.cont4:                                     ; preds = %invoke.cont3
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %agg.tmp) #18
   %3 = load ptr, ptr %other, align 8
   store ptr %3, ptr %this, align 8
-  %_M_refcount.i.i = getelementptr inbounds %"class.std::__shared_ptr", ptr %this, i64 0, i32 1
-  %_M_refcount3.i.i = getelementptr inbounds %"class.std::__shared_ptr", ptr %other, i64 0, i32 1
+  %_M_refcount.i.i = getelementptr inbounds i8, ptr %this, i64 8
+  %_M_refcount3.i.i = getelementptr inbounds i8, ptr %other, i64 8
   %4 = load ptr, ptr %_M_refcount3.i.i, align 8
   store ptr %4, ptr %_M_refcount.i.i, align 8
   %cmp.not.i.i.i = icmp eq ptr %4, null
   br i1 %cmp.not.i.i.i, label %_ZNSt10shared_ptrIKiEC2ERKS1_.exit, label %if.then.i.i.i
 
 if.then.i.i.i:                                    ; preds = %invoke.cont4
-  %_M_use_count.i.i.i.i = getelementptr inbounds %"class.std::_Sp_counted_base", ptr %4, i64 0, i32 1
+  %_M_use_count.i.i.i.i = getelementptr inbounds i8, ptr %4, i64 8
   %5 = load i8, ptr @__libc_single_threaded, align 1
   %tobool.i.i.not.i.i.i.i = icmp eq i8 %5, 0
   br i1 %tobool.i.i.not.i.i.i.i, label %if.else.i.i.i.i.i, label %if.then.i.i.i.i.i
@@ -3725,24 +3719,24 @@ entry:
   %ref.tmp3 = alloca %"class.absl::substitute_internal::Arg", align 8
   %0 = load ptr, ptr %this, align 8
   %1 = load i32, ptr %0, align 4
-  %scratch_.i = getelementptr inbounds %"class.absl::substitute_internal::Arg", ptr %ref.tmp3, i64 0, i32 1
+  %scratch_.i = getelementptr inbounds i8, ptr %ref.tmp3, i64 16
   %call.i = call noundef ptr @_ZN4absl16numbers_internal15FastIntToBufferEiPc(i32 noundef %1, ptr noundef nonnull %scratch_.i)
   %sub.ptr.lhs.cast.i = ptrtoint ptr %call.i to i64
   %sub.ptr.rhs.cast.i = ptrtoint ptr %scratch_.i to i64
   %sub.ptr.sub.i = sub i64 %sub.ptr.lhs.cast.i, %sub.ptr.rhs.cast.i
   store i64 %sub.ptr.sub.i, ptr %ref.tmp3, align 8
-  %_M_str.i.i = getelementptr inbounds %"class.std::basic_string_view", ptr %ref.tmp3, i64 0, i32 1
+  %_M_str.i.i = getelementptr inbounds i8, ptr %ref.tmp3, i64 8
   store ptr %scratch_.i, ptr %_M_str.i.i, align 8
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp) #18
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %args.i.i), !noalias !32
   %retval.sroa.0.0.copyload.i.i.i = load i64, ptr %ref.tmp3, align 8, !noalias !32
   %retval.sroa.2.0.copyload.i.i.i = load ptr, ptr %_M_str.i.i, align 8, !noalias !32
   store i64 %retval.sroa.0.0.copyload.i.i.i, ptr %args.i.i, align 16, !noalias !32
-  %2 = getelementptr inbounds { i64, ptr }, ptr %args.i.i, i64 0, i32 1
+  %2 = getelementptr inbounds i8, ptr %args.i.i, i64 8
   store ptr %retval.sroa.2.0.copyload.i.i.i, ptr %2, align 8, !noalias !32
-  %arrayinit.element.i.i = getelementptr inbounds %"class.std::basic_string_view", ptr %args.i.i, i64 1
+  %arrayinit.element.i.i = getelementptr inbounds i8, ptr %args.i.i, i64 16
   store i64 %msg.coerce0, ptr %arrayinit.element.i.i, align 16, !noalias !32
-  %3 = getelementptr inbounds %"class.std::basic_string_view", ptr %args.i.i, i64 1, i32 1
+  %3 = getelementptr inbounds i8, ptr %args.i.i, i64 24
   store ptr %msg.coerce1, ptr %3, align 8, !noalias !32
   invoke void @_ZN4absl19substitute_internal24SubstituteAndAppendArrayEPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt17basic_string_viewIcS4_EPKS9_m(ptr noundef nonnull %ref.tmp, i64 29, ptr nonnull @.str.40, ptr noundef nonnull %args.i.i, i64 noundef 2)
           to label %_ZN4absl10SubstituteB5cxx11ESt17basic_string_viewIcSt11char_traitsIcEERKNS_19substitute_internal3ArgES7_.exit unwind label %lpad.i
@@ -3782,19 +3776,19 @@ declare void @abort() local_unnamed_addr #13
 define linkonce_odr dso_local void @_ZN4absl10FixedArrayIN7testing13ThrowingValueILNS1_8TypeSpecE0EEELm25ENS1_17ThrowingAllocatorIS4_LNS1_9AllocSpecE0EEEEC2ERKS8_(ptr noundef nonnull align 8 dereferenceable(136) %this, ptr noundef nonnull align 8 dereferenceable(136) %other) unnamed_addr #3 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp = alloca %"class.testing::ThrowingAllocator", align 8
-  %add.ptr.i.i = getelementptr inbounds %"class.absl::FixedArray<testing::ThrowingValue<testing::TypeSpec::kEverythingThrows>, 25, testing::ThrowingAllocator<testing::ThrowingValue<testing::TypeSpec::kEverythingThrows>, testing::AllocSpec::kEverythingThrows>>::Storage", ptr %other, i64 0, i32 1, i32 0, i32 1
+  %add.ptr.i.i = getelementptr inbounds i8, ptr %other, i64 112
   call void @_ZN7testing17ThrowingAllocatorINS_13ThrowingValueILNS_8TypeSpecE0EEELNS_9AllocSpecE0EEC2ERKS5_(ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp, ptr noundef nonnull align 8 dereferenceable(16) %add.ptr.i.i) #18
   invoke void @_ZN4absl10FixedArrayIN7testing13ThrowingValueILNS1_8TypeSpecE0EEELm25ENS1_17ThrowingAllocatorIS4_LNS1_9AllocSpecE0EEEEC2ERKS8_RKS7_(ptr noundef nonnull align 8 dereferenceable(136) %this, ptr noundef nonnull align 8 dereferenceable(136) %other, ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp)
           to label %invoke.cont unwind label %lpad
 
 invoke.cont:                                      ; preds = %entry
-  %_M_refcount.i.i.i = getelementptr inbounds %"class.std::__shared_ptr", ptr %ref.tmp, i64 0, i32 1
+  %_M_refcount.i.i.i = getelementptr inbounds i8, ptr %ref.tmp, i64 8
   %0 = load ptr, ptr %_M_refcount.i.i.i, align 8
   %cmp.not.i.i.i.i = icmp eq ptr %0, null
   br i1 %cmp.not.i.i.i.i, label %_ZNSt10shared_ptrIKiED2Ev.exit.i, label %if.then.i.i.i.i
 
 if.then.i.i.i.i:                                  ; preds = %invoke.cont
-  %_M_use_count.i.i.i.i.i = getelementptr inbounds %"class.std::_Sp_counted_base", ptr %0, i64 0, i32 1
+  %_M_use_count.i.i.i.i.i = getelementptr inbounds i8, ptr %0, i64 8
   %1 = load atomic i64, ptr %_M_use_count.i.i.i.i.i acquire, align 8
   %cmp.i.i.i.i.i = icmp eq i64 %1, 4294967297
   %2 = trunc i64 %1 to i32
@@ -3802,10 +3796,10 @@ if.then.i.i.i.i:                                  ; preds = %invoke.cont
 
 if.then.i.i.i.i.i:                                ; preds = %if.then.i.i.i.i
   store i32 0, ptr %_M_use_count.i.i.i.i.i, align 8
-  %_M_weak_count.i.i.i.i.i = getelementptr inbounds %"class.std::_Sp_counted_base", ptr %0, i64 0, i32 2
+  %_M_weak_count.i.i.i.i.i = getelementptr inbounds i8, ptr %0, i64 12
   store i32 0, ptr %_M_weak_count.i.i.i.i.i, align 4
   %vtable.i.i.i.i.i = load ptr, ptr %0, align 8
-  %vfn.i.i.i.i.i = getelementptr inbounds ptr, ptr %vtable.i.i.i.i.i, i64 2
+  %vfn.i.i.i.i.i = getelementptr inbounds i8, ptr %vtable.i.i.i.i.i, i64 16
   %3 = load ptr, ptr %vfn.i.i.i.i.i, align 8
   call void %3(ptr noundef nonnull align 8 dereferenceable(16) %0) #18
   br label %if.end8.sink.split.i.i.i.i.i
@@ -3831,10 +3825,10 @@ _ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i: ; preds = %if.els
 
 if.then7.i.i.i.i.i:                               ; preds = %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i
   %vtable.i.i.i.i.i.i.i = load ptr, ptr %0, align 8
-  %vfn.i.i.i.i.i.i.i = getelementptr inbounds ptr, ptr %vtable.i.i.i.i.i.i.i, i64 2
+  %vfn.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %vtable.i.i.i.i.i.i.i, i64 16
   %6 = load ptr, ptr %vfn.i.i.i.i.i.i.i, align 8
   call void %6(ptr noundef nonnull align 8 dereferenceable(16) %0) #18
-  %_M_weak_count.i.i.i.i.i.i.i = getelementptr inbounds %"class.std::_Sp_counted_base", ptr %0, i64 0, i32 2
+  %_M_weak_count.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %0, i64 12
   %7 = load i8, ptr @__libc_single_threaded, align 1
   %tobool.i.not.i.i.i.i.i.i.i = icmp eq i8 %7, 0
   br i1 %tobool.i.not.i.i.i.i.i.i.i, label %if.else.i.i.i.i.i.i.i.i, label %if.then.i.i.i.i.i.i.i.i
@@ -3856,7 +3850,7 @@ _ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i.i: ; preds = %if
 
 if.end8.sink.split.i.i.i.i.i:                     ; preds = %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i.i, %if.then.i.i.i.i.i
   %vtable2.i.i.i.i.i.i.i = load ptr, ptr %0, align 8
-  %vfn3.i.i.i.i.i.i.i = getelementptr inbounds ptr, ptr %vtable2.i.i.i.i.i.i.i, i64 3
+  %vfn3.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %vtable2.i.i.i.i.i.i.i, i64 24
   %10 = load ptr, ptr %vfn3.i.i.i.i.i.i.i, align 8
   call void %10(ptr noundef nonnull align 8 dereferenceable(16) %0) #18
   br label %_ZNSt10shared_ptrIKiED2Ev.exit.i
@@ -3885,14 +3879,14 @@ lpad:                                             ; preds = %entry
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr dso_local void @_ZN4absl10FixedArrayIN7testing13ThrowingValueILNS1_8TypeSpecE0EEELm25ENS1_17ThrowingAllocatorIS4_LNS1_9AllocSpecE0EEEEC2ERKS8_RKS7_(ptr noundef nonnull align 8 dereferenceable(136) %this, ptr noundef nonnull align 8 dereferenceable(136) %other, ptr noundef nonnull align 8 dereferenceable(16) %a) unnamed_addr #3 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  %data_.i.i.i = getelementptr inbounds %"class.absl::FixedArray<testing::ThrowingValue<testing::TypeSpec::kEverythingThrows>, 25, testing::ThrowingAllocator<testing::ThrowingValue<testing::TypeSpec::kEverythingThrows>, testing::AllocSpec::kEverythingThrows>>::Storage", ptr %other, i64 0, i32 2
+  %data_.i.i.i = getelementptr inbounds i8, ptr %other, i64 128
   %0 = load ptr, ptr %data_.i.i.i, align 8
-  %size_alloc_.i.i.i = getelementptr inbounds %"class.absl::FixedArray<testing::ThrowingValue<testing::TypeSpec::kEverythingThrows>, 25, testing::ThrowingAllocator<testing::ThrowingValue<testing::TypeSpec::kEverythingThrows>, testing::AllocSpec::kEverythingThrows>>::Storage", ptr %other, i64 0, i32 1
+  %size_alloc_.i.i.i = getelementptr inbounds i8, ptr %other, i64 104
   %1 = load i64, ptr %size_alloc_.i.i.i, align 8
   %add.ptr.i = getelementptr inbounds %"class.testing::ThrowingValue", ptr %0, i64 %1
-  %size_alloc_.i.i = getelementptr inbounds %"class.absl::FixedArray<testing::ThrowingValue<testing::TypeSpec::kEverythingThrows>, 25, testing::ThrowingAllocator<testing::ThrowingValue<testing::TypeSpec::kEverythingThrows>, testing::AllocSpec::kEverythingThrows>>::Storage", ptr %this, i64 0, i32 1
+  %size_alloc_.i.i = getelementptr inbounds i8, ptr %this, i64 104
   store i64 %1, ptr %size_alloc_.i.i, align 8
-  %2 = getelementptr inbounds %"class.absl::FixedArray<testing::ThrowingValue<testing::TypeSpec::kEverythingThrows>, 25, testing::ThrowingAllocator<testing::ThrowingValue<testing::TypeSpec::kEverythingThrows>, testing::AllocSpec::kEverythingThrows>>::Storage", ptr %this, i64 0, i32 1, i32 0, i32 1
+  %2 = getelementptr inbounds i8, ptr %this, i64 112
   tail call void @_ZN7testing17ThrowingAllocatorINS_13ThrowingValueILNS_8TypeSpecE0EEELNS_9AllocSpecE0EEC2ERKS5_(ptr noundef nonnull align 8 dereferenceable(16) %2, ptr noundef nonnull align 8 dereferenceable(16) %a) #18
   %3 = load i64, ptr %size_alloc_.i.i, align 8
   %cmp.i.i.i.i = icmp ult i64 %3, 26
@@ -3919,7 +3913,7 @@ lpad.i.i:                                         ; preds = %.noexc.i.i, %if.els
 
 invoke.cont.i:                                    ; preds = %.noexc.i.i, %entry
   %retval.0.i.i.i = phi ptr [ %this, %entry ], [ %call.i.i.i1.i.i, %.noexc.i.i ]
-  %data_.i.i = getelementptr inbounds %"class.absl::FixedArray<testing::ThrowingValue<testing::TypeSpec::kEverythingThrows>, 25, testing::ThrowingAllocator<testing::ThrowingValue<testing::TypeSpec::kEverythingThrows>, testing::AllocSpec::kEverythingThrows>>::Storage", ptr %this, i64 0, i32 2
+  %data_.i.i = getelementptr inbounds i8, ptr %this, i64 128
   store ptr %retval.0.i.i.i, ptr %data_.i.i, align 8
   invoke void @_ZN4absl15memory_internal9CopyRangeIN7testing17ThrowingAllocatorINS2_13ThrowingValueILNS2_8TypeSpecE0EEELNS2_9AllocSpecE0EEEPS6_PKS6_EEvRT_T0_T1_SF_(ptr noundef nonnull align 8 dereferenceable(16) %2, ptr noundef nonnull %retval.0.i.i.i, ptr noundef %0, ptr noundef %add.ptr.i)
           to label %_ZN4absl10FixedArrayIN7testing13ThrowingValueILNS1_8TypeSpecE0EEELm25ENS1_17ThrowingAllocatorIS4_LNS1_9AllocSpecE0EEEEC2IPKS4_TnPNSt9enable_ifIXsr3std14is_convertibleINSt15iterator_traitsIT_E17iterator_categoryESt20forward_iterator_tagEE5valueEvE4typeELPv0EEESE_SE_RKS7_.exit unwind label %lpad.i
@@ -3973,7 +3967,7 @@ if.then.i.i.i.i:                                  ; preds = %while.body
   unreachable
 
 _ZN7testing17ThrowingAllocatorINS_13ThrowingValueILNS_8TypeSpecE0EEELNS_9AllocSpecE0EE9ReadStateEv.exit.i.i.i: ; preds = %while.body
-  %incdec.ptr = getelementptr inbounds %"class.testing::ThrowingValue", ptr %cur.1, i64 -1
+  %incdec.ptr = getelementptr inbounds i8, ptr %cur.1, i64 -4
   invoke void @_ZN7testing19exceptions_internal18ConstructorTracker16ObjectDestructedEPv(ptr noundef nonnull %incdec.ptr)
           to label %while.cond unwind label %terminate.lpad.i.i.i.i.i, !llvm.loop !35
 
@@ -3995,8 +3989,8 @@ lpad2:                                            ; preds = %do.body
           to label %eh.resume unwind label %terminate.lpad
 
 for.inc:                                          ; preds = %.noexc
-  %incdec.ptr4 = getelementptr inbounds %"class.testing::ThrowingValue", ptr %cur.013, i64 1
-  %incdec.ptr5 = getelementptr inbounds %"class.testing::ThrowingValue", ptr %first.addr.012, i64 1
+  %incdec.ptr4 = getelementptr inbounds i8, ptr %cur.013, i64 4
+  %incdec.ptr5 = getelementptr inbounds i8, ptr %first.addr.012, i64 4
   %cmp.not = icmp eq ptr %incdec.ptr5, %last
   br i1 %cmp.not, label %for.end, label %for.body, !llvm.loop !36
 
@@ -4079,8 +4073,8 @@ entry:
           to label %invoke.cont4 unwind label %lpad3
 
 invoke.cont4:                                     ; preds = %entry
-  %data_.i.i = getelementptr inbounds %"class.absl::FixedArray<testing::ThrowingValue<testing::TypeSpec::kEverythingThrows>, 25>::Storage", ptr %ref.tmp, i64 0, i32 2
-  %size_alloc_.i.i.i = getelementptr inbounds %"class.absl::FixedArray<testing::ThrowingValue<testing::TypeSpec::kEverythingThrows>, 25>::Storage", ptr %ref.tmp, i64 0, i32 1
+  %data_.i.i = getelementptr inbounds i8, ptr %ref.tmp, i64 112
+  %size_alloc_.i.i.i = getelementptr inbounds i8, ptr %ref.tmp, i64 104
   %0 = load i64, ptr %size_alloc_.i.i.i, align 8
   %cmp.not9.i = icmp eq i64 %0, 0
   br i1 %cmp.not9.i, label %_ZN4absl10FixedArrayIN7testing13ThrowingValueILNS1_8TypeSpecE0EEELm25ESaIS4_EED2Ev.exit, label %invoke.cont5.i.preheader
@@ -4102,7 +4096,7 @@ terminate.lpad.i.i.i.i.i:                         ; preds = %invoke.cont5.i
   unreachable
 
 _ZNSt16allocator_traitsISaIN7testing13ThrowingValueILNS0_8TypeSpecE0EEEEE7destroyIS3_EEvRS4_PT_.exit.i: ; preds = %invoke.cont5.i
-  %incdec.ptr.i = getelementptr inbounds %"class.testing::ThrowingValue", ptr %cur.010.i, i64 1
+  %incdec.ptr.i = getelementptr inbounds i8, ptr %cur.010.i, i64 4
   %4 = load ptr, ptr %data_.i.i, align 8
   %5 = load i64, ptr %size_alloc_.i.i.i, align 8
   %add.ptr.i.i = getelementptr inbounds %"class.testing::ThrowingValue", ptr %4, i64 %5
@@ -4123,8 +4117,8 @@ _ZN4absl10FixedArrayIN7testing13ThrowingValueILNS1_8TypeSpecE0EEELm25ESaIS4_EED2
           to label %invoke.cont10 unwind label %lpad9
 
 invoke.cont10:                                    ; preds = %_ZN4absl10FixedArrayIN7testing13ThrowingValueILNS1_8TypeSpecE0EEELm25ESaIS4_EED2Ev.exit
-  %data_.i.i9 = getelementptr inbounds %"class.absl::FixedArray<testing::ThrowingValue<testing::TypeSpec::kEverythingThrows>, 25>::Storage", ptr %ref.tmp5, i64 0, i32 2
-  %size_alloc_.i.i.i10 = getelementptr inbounds %"class.absl::FixedArray<testing::ThrowingValue<testing::TypeSpec::kEverythingThrows>, 25>::Storage", ptr %ref.tmp5, i64 0, i32 1
+  %data_.i.i9 = getelementptr inbounds i8, ptr %ref.tmp5, i64 112
+  %size_alloc_.i.i.i10 = getelementptr inbounds i8, ptr %ref.tmp5, i64 104
   %7 = load i64, ptr %size_alloc_.i.i.i10, align 8
   %cmp.not9.i11 = icmp eq i64 %7, 0
   br i1 %cmp.not9.i11, label %_ZN4absl10FixedArrayIN7testing13ThrowingValueILNS1_8TypeSpecE0EEELm25ESaIS4_EED2Ev.exit21, label %invoke.cont5.i12.preheader
@@ -4146,7 +4140,7 @@ terminate.lpad.i.i.i.i.i14:                       ; preds = %invoke.cont5.i12
   unreachable
 
 _ZNSt16allocator_traitsISaIN7testing13ThrowingValueILNS0_8TypeSpecE0EEEEE7destroyIS3_EEvRS4_PT_.exit.i15: ; preds = %invoke.cont5.i12
-  %incdec.ptr.i16 = getelementptr inbounds %"class.testing::ThrowingValue", ptr %cur.010.i13, i64 1
+  %incdec.ptr.i16 = getelementptr inbounds i8, ptr %cur.010.i13, i64 4
   %11 = load ptr, ptr %data_.i.i9, align 8
   %12 = load i64, ptr %size_alloc_.i.i.i10, align 8
   %add.ptr.i.i17 = getelementptr inbounds %"class.testing::ThrowingValue", ptr %11, i64 %12
@@ -4167,8 +4161,8 @@ _ZN4absl10FixedArrayIN7testing13ThrowingValueILNS1_8TypeSpecE0EEELm25ESaIS4_EED2
           to label %invoke.cont18 unwind label %lpad17
 
 invoke.cont18:                                    ; preds = %_ZN4absl10FixedArrayIN7testing13ThrowingValueILNS1_8TypeSpecE0EEELm25ESaIS4_EED2Ev.exit21
-  %data_.i.i22 = getelementptr inbounds %"class.absl::FixedArray<testing::ThrowingValue<testing::TypeSpec::kNoThrowMove>, 25>::Storage", ptr %ref.tmp13, i64 0, i32 2
-  %size_alloc_.i.i.i23 = getelementptr inbounds %"class.absl::FixedArray<testing::ThrowingValue<testing::TypeSpec::kNoThrowMove>, 25>::Storage", ptr %ref.tmp13, i64 0, i32 1
+  %data_.i.i22 = getelementptr inbounds i8, ptr %ref.tmp13, i64 112
+  %size_alloc_.i.i.i23 = getelementptr inbounds i8, ptr %ref.tmp13, i64 104
   %14 = load i64, ptr %size_alloc_.i.i.i23, align 8
   %cmp.not9.i24 = icmp eq i64 %14, 0
   br i1 %cmp.not9.i24, label %_ZN4absl10FixedArrayIN7testing13ThrowingValueILNS1_8TypeSpecE2EEELm25ESaIS4_EED2Ev.exit, label %invoke.cont5.i25.preheader
@@ -4190,7 +4184,7 @@ terminate.lpad.i.i.i.i.i27:                       ; preds = %invoke.cont5.i25
   unreachable
 
 _ZNSt16allocator_traitsISaIN7testing13ThrowingValueILNS0_8TypeSpecE2EEEEE7destroyIS3_EEvRS4_PT_.exit.i: ; preds = %invoke.cont5.i25
-  %incdec.ptr.i28 = getelementptr inbounds %"class.testing::ThrowingValue.67", ptr %cur.010.i26, i64 1
+  %incdec.ptr.i28 = getelementptr inbounds i8, ptr %cur.010.i26, i64 4
   %18 = load ptr, ptr %data_.i.i22, align 8
   %19 = load i64, ptr %size_alloc_.i.i.i23, align 8
   %add.ptr.i.i29 = getelementptr inbounds %"class.testing::ThrowingValue.67", ptr %18, i64 %19
@@ -4211,8 +4205,8 @@ _ZN4absl10FixedArrayIN7testing13ThrowingValueILNS1_8TypeSpecE2EEELm25ESaIS4_EED2
           to label %invoke.cont26 unwind label %lpad25
 
 invoke.cont26:                                    ; preds = %_ZN4absl10FixedArrayIN7testing13ThrowingValueILNS1_8TypeSpecE2EEELm25ESaIS4_EED2Ev.exit
-  %data_.i.i32 = getelementptr inbounds %"class.absl::FixedArray<testing::ThrowingValue<testing::TypeSpec::kNoThrowMove>, 25>::Storage", ptr %ref.tmp21, i64 0, i32 2
-  %size_alloc_.i.i.i33 = getelementptr inbounds %"class.absl::FixedArray<testing::ThrowingValue<testing::TypeSpec::kNoThrowMove>, 25>::Storage", ptr %ref.tmp21, i64 0, i32 1
+  %data_.i.i32 = getelementptr inbounds i8, ptr %ref.tmp21, i64 112
+  %size_alloc_.i.i.i33 = getelementptr inbounds i8, ptr %ref.tmp21, i64 104
   %21 = load i64, ptr %size_alloc_.i.i.i33, align 8
   %cmp.not9.i34 = icmp eq i64 %21, 0
   br i1 %cmp.not9.i34, label %_ZN4absl10FixedArrayIN7testing13ThrowingValueILNS1_8TypeSpecE2EEELm25ESaIS4_EED2Ev.exit44, label %invoke.cont5.i35.preheader
@@ -4234,7 +4228,7 @@ terminate.lpad.i.i.i.i.i37:                       ; preds = %invoke.cont5.i35
   unreachable
 
 _ZNSt16allocator_traitsISaIN7testing13ThrowingValueILNS0_8TypeSpecE2EEEEE7destroyIS3_EEvRS4_PT_.exit.i38: ; preds = %invoke.cont5.i35
-  %incdec.ptr.i39 = getelementptr inbounds %"class.testing::ThrowingValue.67", ptr %cur.010.i36, i64 1
+  %incdec.ptr.i39 = getelementptr inbounds i8, ptr %cur.010.i36, i64 4
   %25 = load ptr, ptr %data_.i.i32, align 8
   %26 = load i64, ptr %size_alloc_.i.i.i33, align 8
   %add.ptr.i.i40 = getelementptr inbounds %"class.testing::ThrowingValue.67", ptr %25, i64 %26
@@ -4286,14 +4280,14 @@ define linkonce_odr dso_local void @_ZN7testing16TestThrowingCtorIN4absl10FixedA
 entry:
   %ct = alloca %"class.testing::exceptions_internal::ConstructorTracker", align 8
   %temp = alloca %"class.absl::FixedArray", align 8
-  %_M_single_bucket.i.i.i = getelementptr inbounds %"class.std::_Hashtable", ptr %ct, i64 0, i32 5
-  %_M_bucket_count.i.i.i = getelementptr inbounds %"class.std::_Hashtable", ptr %ct, i64 0, i32 1
-  %_M_before_begin.i.i.i = getelementptr inbounds %"class.std::_Hashtable", ptr %ct, i64 0, i32 2
-  %_M_rehash_policy.i.i.i = getelementptr inbounds %"class.std::_Hashtable", ptr %ct, i64 0, i32 4
-  %_M_next_resize.i.i.i.i = getelementptr inbounds %"class.std::_Hashtable", ptr %ct, i64 0, i32 4, i32 1
-  %countdown_.i = getelementptr inbounds %"class.testing::exceptions_internal::ConstructorTracker", ptr %ct, i64 0, i32 1
-  %size_alloc_.i.i = getelementptr inbounds %"class.absl::FixedArray<testing::ThrowingValue<testing::TypeSpec::kEverythingThrows>, 25>::Storage", ptr %args, i64 0, i32 1
-  %data_.i.i.i.i.i = getelementptr inbounds %"class.absl::FixedArray<testing::ThrowingValue<testing::TypeSpec::kEverythingThrows>, 25>::Storage", ptr %args, i64 0, i32 2
+  %_M_single_bucket.i.i.i = getelementptr inbounds i8, ptr %ct, i64 48
+  %_M_bucket_count.i.i.i = getelementptr inbounds i8, ptr %ct, i64 8
+  %_M_before_begin.i.i.i = getelementptr inbounds i8, ptr %ct, i64 16
+  %_M_rehash_policy.i.i.i = getelementptr inbounds i8, ptr %ct, i64 32
+  %_M_next_resize.i.i.i.i = getelementptr inbounds i8, ptr %ct, i64 40
+  %countdown_.i = getelementptr inbounds i8, ptr %ct, i64 56
+  %size_alloc_.i.i = getelementptr inbounds i8, ptr %args, i64 104
+  %data_.i.i.i.i.i = getelementptr inbounds i8, ptr %args, i64 112
   br label %for.cond
 
 for.cond:                                         ; preds = %for.inc, %entry
@@ -4313,8 +4307,8 @@ for.cond:                                         ; preds = %for.inc, %entry
           to label %invoke.cont2 unwind label %lpad1
 
 invoke.cont2:                                     ; preds = %for.cond
-  %data_.i.i = getelementptr inbounds %"class.absl::FixedArray<testing::ThrowingValue<testing::TypeSpec::kEverythingThrows>, 25>::Storage", ptr %temp, i64 0, i32 2
-  %size_alloc_.i.i.i = getelementptr inbounds %"class.absl::FixedArray<testing::ThrowingValue<testing::TypeSpec::kEverythingThrows>, 25>::Storage", ptr %temp, i64 0, i32 1
+  %data_.i.i = getelementptr inbounds i8, ptr %temp, i64 112
+  %size_alloc_.i.i.i = getelementptr inbounds i8, ptr %temp, i64 104
   %2 = load i64, ptr %size_alloc_.i.i.i, align 8
   %cmp.not9.i = icmp eq i64 %2, 0
   br i1 %cmp.not9.i, label %for.end, label %invoke.cont5.i.preheader
@@ -4336,7 +4330,7 @@ terminate.lpad.i.i.i.i.i:                         ; preds = %invoke.cont5.i
   unreachable
 
 _ZNSt16allocator_traitsISaIN7testing13ThrowingValueILNS0_8TypeSpecE0EEEEE7destroyIS3_EEvRS4_PT_.exit.i: ; preds = %invoke.cont5.i
-  %incdec.ptr.i = getelementptr inbounds %"class.testing::ThrowingValue", ptr %cur.010.i, i64 1
+  %incdec.ptr.i = getelementptr inbounds i8, ptr %cur.010.i, i64 4
   %6 = load ptr, ptr %data_.i.i, align 8
   %7 = load i64, ptr %size_alloc_.i.i.i, align 8
   %add.ptr.i.i = getelementptr inbounds %"class.testing::ThrowingValue", ptr %6, i64 %7
@@ -4398,15 +4392,15 @@ entry:
   %agg.tmp.i = alloca %"class.std::__cxx11::basic_string", align 8
   %ct = alloca %"class.testing::exceptions_internal::ConstructorTracker", align 8
   %temp = alloca %"class.absl::FixedArray.55", align 8
-  %_M_single_bucket.i.i.i = getelementptr inbounds %"class.std::_Hashtable", ptr %ct, i64 0, i32 5
-  %_M_bucket_count.i.i.i = getelementptr inbounds %"class.std::_Hashtable", ptr %ct, i64 0, i32 1
-  %_M_before_begin.i.i.i = getelementptr inbounds %"class.std::_Hashtable", ptr %ct, i64 0, i32 2
-  %_M_rehash_policy.i.i.i = getelementptr inbounds %"class.std::_Hashtable", ptr %ct, i64 0, i32 4
-  %_M_next_resize.i.i.i.i = getelementptr inbounds %"class.std::_Hashtable", ptr %ct, i64 0, i32 4, i32 1
-  %countdown_.i = getelementptr inbounds %"class.testing::exceptions_internal::ConstructorTracker", ptr %ct, i64 0, i32 1
-  %data_.i.i.i.i.i = getelementptr inbounds %"class.absl::FixedArray<testing::ThrowingValue<testing::TypeSpec::kNoThrowMove>, 25>::Storage", ptr %args, i64 0, i32 2
-  %size_alloc_.i.i.i.i.i = getelementptr inbounds %"class.absl::FixedArray<testing::ThrowingValue<testing::TypeSpec::kNoThrowMove>, 25>::Storage", ptr %args, i64 0, i32 1
-  %size_alloc_.i.i.i.i = getelementptr inbounds %"class.absl::FixedArray<testing::ThrowingValue<testing::TypeSpec::kNoThrowMove>, 25>::Storage", ptr %temp, i64 0, i32 1
+  %_M_single_bucket.i.i.i = getelementptr inbounds i8, ptr %ct, i64 48
+  %_M_bucket_count.i.i.i = getelementptr inbounds i8, ptr %ct, i64 8
+  %_M_before_begin.i.i.i = getelementptr inbounds i8, ptr %ct, i64 16
+  %_M_rehash_policy.i.i.i = getelementptr inbounds i8, ptr %ct, i64 32
+  %_M_next_resize.i.i.i.i = getelementptr inbounds i8, ptr %ct, i64 40
+  %countdown_.i = getelementptr inbounds i8, ptr %ct, i64 56
+  %data_.i.i.i.i.i = getelementptr inbounds i8, ptr %args, i64 112
+  %size_alloc_.i.i.i.i.i = getelementptr inbounds i8, ptr %args, i64 104
+  %size_alloc_.i.i.i.i = getelementptr inbounds i8, ptr %temp, i64 104
   store ptr %_M_single_bucket.i.i.i, ptr %ct, align 8
   store i64 1, ptr %_M_bucket_count.i.i.i, align 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %_M_before_begin.i.i.i, i8 0, i64 16, i1 false)
@@ -4441,7 +4435,7 @@ invoke.cont.i.thread.i.i:                         ; preds = %if.else.i.i.i.i.i
 
 call5.i.i.i2.i.i.i.i.noexc:                       ; preds = %invoke.cont.i.thread.i.i
   %add.ptr.i.i.i.le = getelementptr inbounds %"class.testing::ThrowingValue.67", ptr %3, i64 %2
-  %data_.i.i5.i.i = getelementptr inbounds %"class.absl::FixedArray<testing::ThrowingValue<testing::TypeSpec::kNoThrowMove>, 25>::Storage", ptr %temp, i64 0, i32 2
+  %data_.i.i5.i.i = getelementptr inbounds i8, ptr %temp, i64 112
   store ptr %call5.i.i.i2.i.i.i.i4, ptr %data_.i.i5.i.i, align 8
   br label %for.body.i.i.preheader.i.i
 
@@ -4449,7 +4443,7 @@ invoke.cont.i.i.i:                                ; preds = %for.inc, %entry
   %.lcssa37 = phi i64 [ %1, %entry ], [ %30, %for.inc ]
   %.lcssa36 = phi ptr [ %0, %entry ], [ %29, %for.inc ]
   %add.ptr.i.i.i.le35 = getelementptr inbounds %"class.testing::ThrowingValue.67", ptr %.lcssa36, i64 %.lcssa37
-  %data_.i.i.i.i = getelementptr inbounds %"class.absl::FixedArray<testing::ThrowingValue<testing::TypeSpec::kNoThrowMove>, 25>::Storage", ptr %temp, i64 0, i32 2
+  %data_.i.i.i.i = getelementptr inbounds i8, ptr %temp, i64 112
   store ptr %temp, ptr %data_.i.i.i.i, align 8
   %cmp.i.i.not4.i.i.i.i = icmp eq i64 %.lcssa37, 0
   br i1 %cmp.i.i.not4.i.i.i.i, label %for.end, label %for.body.i.i.preheader.i.i
@@ -4458,18 +4452,18 @@ for.body.i.i.preheader.i.i:                       ; preds = %invoke.cont.i.i.i, 
   %4 = phi ptr [ %3, %call5.i.i.i2.i.i.i.i.noexc ], [ %.lcssa36, %invoke.cont.i.i.i ]
   %add.ptr.i.i.i19 = phi ptr [ %add.ptr.i.i.i.le, %call5.i.i.i2.i.i.i.i.noexc ], [ %add.ptr.i.i.i.le35, %invoke.cont.i.i.i ]
   %retval.0.i.i.i7.i.i = phi ptr [ %call5.i.i.i2.i.i.i.i4, %call5.i.i.i2.i.i.i.i.noexc ], [ %temp, %invoke.cont.i.i.i ]
-  %digits_.i.i = getelementptr inbounds %"class.absl::AlphaNum", ptr %ref.tmp5.i, i64 0, i32 1
+  %digits_.i.i = getelementptr inbounds i8, ptr %ref.tmp5.i, i64 16
   %sub.ptr.rhs.cast.i.i = ptrtoint ptr %digits_.i.i to i64
-  %_M_str.i.i.i = getelementptr inbounds %"class.std::basic_string_view", ptr %ref.tmp5.i, i64 0, i32 1
-  %5 = getelementptr inbounds { i64, ptr }, ptr %ref.tmp.i.i, i64 0, i32 1
-  %arrayinit.element.i.i = getelementptr inbounds %"class.std::basic_string_view", ptr %ref.tmp.i.i, i64 1
-  %6 = getelementptr inbounds %"class.std::basic_string_view", ptr %ref.tmp.i.i, i64 1, i32 1
-  %arrayinit.element2.i.i = getelementptr inbounds %"class.std::basic_string_view", ptr %ref.tmp.i.i, i64 2
-  %7 = getelementptr inbounds %"class.std::basic_string_view", ptr %ref.tmp.i.i, i64 2, i32 1
-  %arrayinit.element4.i.i = getelementptr inbounds %"class.std::basic_string_view", ptr %ref.tmp.i.i, i64 3
-  %8 = getelementptr inbounds %"class.std::basic_string_view", ptr %ref.tmp.i.i, i64 3, i32 1
-  %arrayinit.element6.i.i = getelementptr inbounds %"class.std::basic_string_view", ptr %ref.tmp.i.i, i64 4
-  %9 = getelementptr inbounds %"class.std::basic_string_view", ptr %ref.tmp.i.i, i64 4, i32 1
+  %_M_str.i.i.i = getelementptr inbounds i8, ptr %ref.tmp5.i, i64 8
+  %5 = getelementptr inbounds i8, ptr %ref.tmp.i.i, i64 8
+  %arrayinit.element.i.i = getelementptr inbounds i8, ptr %ref.tmp.i.i, i64 16
+  %6 = getelementptr inbounds i8, ptr %ref.tmp.i.i, i64 24
+  %arrayinit.element2.i.i = getelementptr inbounds i8, ptr %ref.tmp.i.i, i64 32
+  %7 = getelementptr inbounds i8, ptr %ref.tmp.i.i, i64 40
+  %arrayinit.element4.i.i = getelementptr inbounds i8, ptr %ref.tmp.i.i, i64 48
+  %8 = getelementptr inbounds i8, ptr %ref.tmp.i.i, i64 56
+  %arrayinit.element6.i.i = getelementptr inbounds i8, ptr %ref.tmp.i.i, i64 64
+  %9 = getelementptr inbounds i8, ptr %ref.tmp.i.i, i64 72
   br label %for.body.i.i.i.i
 
 for.body.i.i.i.i:                                 ; preds = %_ZN7testing13ThrowingValueILNS_8TypeSpecE2EEC2EOS2_.exit, %for.body.i.i.preheader.i.i
@@ -4548,19 +4542,19 @@ _ZN7testing13ThrowingValueILNS_8TypeSpecE2EEC2EOS2_.exit: ; preds = %invoke.cont
   %17 = load i32, ptr %first.sroa.0.05.i.i.i.i, align 4
   store i32 %17, ptr %cur.06.i.i.i.i, align 4
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %agg.tmp.i)
-  %incdec.ptr5.i.i.i.i = getelementptr inbounds %"class.testing::ThrowingValue.67", ptr %cur.06.i.i.i.i, i64 1
-  %incdec.ptr.i.i.i.i.i = getelementptr inbounds %"class.testing::ThrowingValue.67", ptr %first.sroa.0.05.i.i.i.i, i64 1
+  %incdec.ptr5.i.i.i.i = getelementptr inbounds i8, ptr %cur.06.i.i.i.i, i64 4
+  %incdec.ptr.i.i.i.i.i = getelementptr inbounds i8, ptr %first.sroa.0.05.i.i.i.i, i64 4
   %cmp.i.i.not.i.i.i.i = icmp eq ptr %incdec.ptr.i.i.i.i.i, %add.ptr.i.i.i19
   br i1 %cmp.i.i.not.i.i.i.i, label %invoke.cont2, label %for.body.i.i.i.i, !llvm.loop !45
 
 invoke.cont2:                                     ; preds = %_ZN7testing13ThrowingValueILNS_8TypeSpecE2EEC2EOS2_.exit
   %.pre61 = load i64, ptr %size_alloc_.i.i.i.i, align 8
   %18 = icmp eq i64 %.pre61, 0
-  %data_.i.i = getelementptr inbounds %"class.absl::FixedArray<testing::ThrowingValue<testing::TypeSpec::kNoThrowMove>, 25>::Storage", ptr %temp, i64 0, i32 2
+  %data_.i.i = getelementptr inbounds i8, ptr %temp, i64 112
   br i1 %18, label %for.end, label %invoke.cont5.i.preheader
 
 invoke.cont5.i.preheader:                         ; preds = %invoke.cont2
-  %data_.i.i.phi.trans.insert = getelementptr inbounds %"class.absl::FixedArray<testing::ThrowingValue<testing::TypeSpec::kNoThrowMove>, 25>::Storage", ptr %temp, i64 0, i32 2
+  %data_.i.i.phi.trans.insert = getelementptr inbounds i8, ptr %temp, i64 112
   %.pre = load ptr, ptr %data_.i.i.phi.trans.insert, align 8
   br label %invoke.cont5.i
 
@@ -4577,7 +4571,7 @@ terminate.lpad.i.i.i.i.i:                         ; preds = %invoke.cont5.i
   unreachable
 
 _ZNSt16allocator_traitsISaIN7testing13ThrowingValueILNS0_8TypeSpecE2EEEEE7destroyIS3_EEvRS4_PT_.exit.i: ; preds = %invoke.cont5.i
-  %incdec.ptr.i = getelementptr inbounds %"class.testing::ThrowingValue.67", ptr %cur.010.i, i64 1
+  %incdec.ptr.i = getelementptr inbounds i8, ptr %cur.010.i, i64 4
   %21 = load ptr, ptr %data_.i.i, align 8
   %22 = load i64, ptr %size_alloc_.i.i.i.i, align 8
   %add.ptr.i.i = getelementptr inbounds %"class.testing::ThrowingValue.67", ptr %21, i64 %22
@@ -4644,7 +4638,7 @@ for.end:                                          ; preds = %invoke.cont.i.i.i, 
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr dso_local void @_ZN4absl10FixedArrayIN7testing13ThrowingValueILNS1_8TypeSpecE2EEELm25ESaIS4_EEC2EmRKS5_(ptr noundef nonnull align 8 dereferenceable(120) %this, i64 noundef %n, ptr noundef nonnull align 1 dereferenceable(1) %a) unnamed_addr #3 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  %size_alloc_.i = getelementptr inbounds %"class.absl::FixedArray<testing::ThrowingValue<testing::TypeSpec::kNoThrowMove>, 25>::Storage", ptr %this, i64 0, i32 1
+  %size_alloc_.i = getelementptr inbounds i8, ptr %this, i64 104
   store i64 %n, ptr %size_alloc_.i, align 8
   %cmp.i.i.i = icmp ult i64 %n, 26
   br i1 %cmp.i.i.i, label %invoke.cont6, label %if.else.i.i
@@ -4668,12 +4662,12 @@ if.end.i.i.i.i:                                   ; preds = %if.then.i.i.i.i
 invoke.cont6.thread:                              ; preds = %if.else.i.i
   %mul.i.i.i.i = shl nuw nsw i64 %n, 2
   %call5.i.i.i2.i = tail call noalias noundef nonnull ptr @_Znwm(i64 noundef %mul.i.i.i.i) #20
-  %data_.i8 = getelementptr inbounds %"class.absl::FixedArray<testing::ThrowingValue<testing::TypeSpec::kNoThrowMove>, 25>::Storage", ptr %this, i64 0, i32 2
+  %data_.i8 = getelementptr inbounds i8, ptr %this, i64 112
   store ptr %call5.i.i.i2.i, ptr %data_.i8, align 8
   br label %for.body.i.preheader
 
 invoke.cont6:                                     ; preds = %entry
-  %data_.i = getelementptr inbounds %"class.absl::FixedArray<testing::ThrowingValue<testing::TypeSpec::kNoThrowMove>, 25>::Storage", ptr %this, i64 0, i32 2
+  %data_.i = getelementptr inbounds i8, ptr %this, i64 112
   store ptr %this, ptr %data_.i, align 8
   %cmp.not9.i = icmp eq i64 %n, 0
   br i1 %cmp.not9.i, label %invoke.cont8, label %for.body.i.preheader
@@ -4702,7 +4696,7 @@ while.cond.i:                                     ; preds = %while.body.i, %lpad
   br i1 %cmp1.not.i, label %do.body.i, label %while.body.i
 
 while.body.i:                                     ; preds = %while.cond.i
-  %incdec.ptr.i = getelementptr inbounds %"class.testing::ThrowingValue.67", ptr %cur.1.i, i64 -1
+  %incdec.ptr.i = getelementptr inbounds i8, ptr %cur.1.i, i64 -4
   invoke void @_ZN7testing19exceptions_internal18ConstructorTracker16ObjectDestructedEPv(ptr noundef nonnull %incdec.ptr.i)
           to label %while.cond.i unwind label %terminate.lpad.i.i.i.i.i, !llvm.loop !47
 
@@ -4724,7 +4718,7 @@ lpad2.i:                                          ; preds = %do.body.i
           to label %lpad.body unwind label %terminate.lpad.i
 
 for.inc.i:                                        ; preds = %for.body.i
-  %incdec.ptr4.i = getelementptr inbounds %"class.testing::ThrowingValue.67", ptr %cur.010.i, i64 1
+  %incdec.ptr4.i = getelementptr inbounds i8, ptr %cur.010.i, i64 4
   %cmp.not.i = icmp eq ptr %incdec.ptr4.i, %add.ptr.i13
   br i1 %cmp.not.i, label %invoke.cont8, label %for.body.i, !llvm.loop !48
 
@@ -4758,8 +4752,8 @@ _ZN4absl10FixedArrayIN7testing13ThrowingValueILNS1_8TypeSpecE2EEELm25ESaIS4_EE7S
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr dso_local void @_ZN4absl10FixedArrayIN7testing13ThrowingValueILNS1_8TypeSpecE2EEELm25ESaIS4_EED2Ev(ptr noundef nonnull align 8 dereferenceable(120) %this) unnamed_addr #7 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  %data_.i = getelementptr inbounds %"class.absl::FixedArray<testing::ThrowingValue<testing::TypeSpec::kNoThrowMove>, 25>::Storage", ptr %this, i64 0, i32 2
-  %size_alloc_.i.i = getelementptr inbounds %"class.absl::FixedArray<testing::ThrowingValue<testing::TypeSpec::kNoThrowMove>, 25>::Storage", ptr %this, i64 0, i32 1
+  %data_.i = getelementptr inbounds i8, ptr %this, i64 112
+  %size_alloc_.i.i = getelementptr inbounds i8, ptr %this, i64 104
   %0 = load i64, ptr %size_alloc_.i.i, align 8
   %cmp.not9 = icmp eq i64 %0, 0
   br i1 %cmp.not9, label %_ZN4absl10FixedArrayIN7testing13ThrowingValueILNS1_8TypeSpecE2EEELm25ESaIS4_EE7StorageD2Ev.exit, label %invoke.cont5.preheader
@@ -4781,7 +4775,7 @@ terminate.lpad.i.i.i.i:                           ; preds = %invoke.cont5
   unreachable
 
 _ZNSt16allocator_traitsISaIN7testing13ThrowingValueILNS0_8TypeSpecE2EEEEE7destroyIS3_EEvRS4_PT_.exit: ; preds = %invoke.cont5
-  %incdec.ptr = getelementptr inbounds %"class.testing::ThrowingValue.67", ptr %cur.010, i64 1
+  %incdec.ptr = getelementptr inbounds i8, ptr %cur.010, i64 4
   %4 = load ptr, ptr %data_.i, align 8
   %5 = load i64, ptr %size_alloc_.i.i, align 8
   %add.ptr.i = getelementptr inbounds %"class.testing::ThrowingValue.67", ptr %4, i64 %5
@@ -4807,7 +4801,7 @@ entry:
   %sub.ptr.rhs.cast.i.i.i = ptrtoint ptr %first.coerce to i64
   %sub.ptr.sub.i.i.i = sub i64 %sub.ptr.lhs.cast.i.i.i, %sub.ptr.rhs.cast.i.i.i
   %sub.ptr.div.i.i.i = ashr exact i64 %sub.ptr.sub.i.i.i, 2
-  %size_alloc_.i = getelementptr inbounds %"class.absl::FixedArray<testing::ThrowingValue<testing::TypeSpec::kEverythingThrows>, 25>::Storage", ptr %this, i64 0, i32 1
+  %size_alloc_.i = getelementptr inbounds i8, ptr %this, i64 104
   store i64 %sub.ptr.div.i.i.i, ptr %size_alloc_.i, align 8
   %cmp.i.i.i = icmp ult i64 %sub.ptr.div.i.i.i, 26
   br i1 %cmp.i.i.i, label %invoke.cont, label %if.else.i.i
@@ -4826,7 +4820,7 @@ _ZNSt16allocator_traitsISaIN7testing13ThrowingValueILNS0_8TypeSpecE0EEEEE8alloca
 
 invoke.cont:                                      ; preds = %_ZNSt16allocator_traitsISaIN7testing13ThrowingValueILNS0_8TypeSpecE0EEEEE8allocateERS4_m.exit.i.i, %entry
   %retval.0.i.i = phi ptr [ %this, %entry ], [ %call5.i.i.i2.i, %_ZNSt16allocator_traitsISaIN7testing13ThrowingValueILNS0_8TypeSpecE0EEEEE8allocateERS4_m.exit.i.i ]
-  %data_.i = getelementptr inbounds %"class.absl::FixedArray<testing::ThrowingValue<testing::TypeSpec::kEverythingThrows>, 25>::Storage", ptr %this, i64 0, i32 2
+  %data_.i = getelementptr inbounds i8, ptr %this, i64 112
   store ptr %retval.0.i.i, ptr %data_.i, align 8
   %cmp.i.i.not10.i = icmp eq ptr %first.coerce, %last.coerce
   br i1 %cmp.i.i.not10.i, label %invoke.cont14, label %for.body.i
@@ -4850,7 +4844,7 @@ while.cond.i:                                     ; preds = %while.body.i, %lpad
   br i1 %cmp.not.i, label %do.body.i, label %while.body.i
 
 while.body.i:                                     ; preds = %while.cond.i
-  %incdec.ptr.i = getelementptr inbounds %"class.testing::ThrowingValue", ptr %cur.1.i, i64 -1
+  %incdec.ptr.i = getelementptr inbounds i8, ptr %cur.1.i, i64 -4
   invoke void @_ZN7testing19exceptions_internal18ConstructorTracker16ObjectDestructedEPv(ptr noundef nonnull %incdec.ptr.i)
           to label %while.cond.i unwind label %terminate.lpad.i.i.i.i.i, !llvm.loop !49
 
@@ -4872,8 +4866,8 @@ lpad4.i:                                          ; preds = %do.body.i
           to label %lpad.body unwind label %terminate.lpad.i
 
 for.inc.i:                                        ; preds = %for.body.i
-  %incdec.ptr6.i = getelementptr inbounds %"class.testing::ThrowingValue", ptr %cur.012.i, i64 1
-  %incdec.ptr.i.i = getelementptr inbounds %"class.testing::ThrowingValue", ptr %first.sroa.0.011.i, i64 1
+  %incdec.ptr6.i = getelementptr inbounds i8, ptr %cur.012.i, i64 4
+  %incdec.ptr.i.i = getelementptr inbounds i8, ptr %first.sroa.0.011.i, i64 4
   %cmp.i.i.not.i = icmp eq ptr %incdec.ptr.i.i, %last.coerce
   br i1 %cmp.i.i.not.i, label %invoke.cont14, label %for.body.i, !llvm.loop !50
 
@@ -5002,7 +4996,7 @@ invoke.cont4:
   %ref.tmp5 = alloca %"class.absl::AlphaNum", align 8
   call void @_ZN7testing19exceptions_internal13GetSpecStringB5cxx11ENS_8TypeSpecE(ptr nonnull sret(%"class.std::__cxx11::basic_string") align 8 %ref.tmp2, i32 noundef 2)
   %call.i = call { i64, ptr } @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEcvSt17basic_string_viewIcS2_EEv(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp2) #18
-  %digits_.i = getelementptr inbounds %"class.absl::AlphaNum", ptr %ref.tmp5, i64 0, i32 1
+  %digits_.i = getelementptr inbounds i8, ptr %ref.tmp5, i64 16
   %call.i23 = invoke noundef ptr @_ZN4absl16numbers_internal15FastIntToBufferEiPc(i32 noundef %dummy, ptr noundef nonnull %digits_.i)
           to label %invoke.cont8 unwind label %lpad
 
@@ -5013,27 +5007,27 @@ invoke.cont8:                                     ; preds = %invoke.cont4
   %sub.ptr.rhs.cast.i = ptrtoint ptr %digits_.i to i64
   %sub.ptr.sub.i = sub i64 %sub.ptr.lhs.cast.i, %sub.ptr.rhs.cast.i
   store i64 %sub.ptr.sub.i, ptr %ref.tmp5, align 8
-  %_M_str.i.i = getelementptr inbounds %"class.std::basic_string_view", ptr %ref.tmp5, i64 0, i32 1
+  %_M_str.i.i = getelementptr inbounds i8, ptr %ref.tmp5, i64 8
   store ptr %digits_.i, ptr %_M_str.i.i, align 8
   call void @llvm.lifetime.start.p0(i64 80, ptr nonnull %ref.tmp.i)
   store i64 14, ptr %ref.tmp.i, align 8, !noalias !51
-  %2 = getelementptr inbounds { i64, ptr }, ptr %ref.tmp.i, i64 0, i32 1
+  %2 = getelementptr inbounds i8, ptr %ref.tmp.i, i64 8
   store ptr @.str.30, ptr %2, align 8, !noalias !51
-  %arrayinit.element.i = getelementptr inbounds %"class.std::basic_string_view", ptr %ref.tmp.i, i64 1
+  %arrayinit.element.i = getelementptr inbounds i8, ptr %ref.tmp.i, i64 16
   store i64 %1, ptr %arrayinit.element.i, align 8, !noalias !51
-  %3 = getelementptr inbounds %"class.std::basic_string_view", ptr %ref.tmp.i, i64 1, i32 1
+  %3 = getelementptr inbounds i8, ptr %ref.tmp.i, i64 24
   store ptr %0, ptr %3, align 8, !noalias !51
-  %arrayinit.element2.i = getelementptr inbounds %"class.std::basic_string_view", ptr %ref.tmp.i, i64 2
+  %arrayinit.element2.i = getelementptr inbounds i8, ptr %ref.tmp.i, i64 32
   store i64 2, ptr %arrayinit.element2.i, align 8, !noalias !51
-  %4 = getelementptr inbounds %"class.std::basic_string_view", ptr %ref.tmp.i, i64 2, i32 1
+  %4 = getelementptr inbounds i8, ptr %ref.tmp.i, i64 40
   store ptr @.str.31, ptr %4, align 8, !noalias !51
-  %arrayinit.element4.i = getelementptr inbounds %"class.std::basic_string_view", ptr %ref.tmp.i, i64 3
+  %arrayinit.element4.i = getelementptr inbounds i8, ptr %ref.tmp.i, i64 48
   store i64 %sub.ptr.sub.i, ptr %arrayinit.element4.i, align 8, !noalias !51
-  %5 = getelementptr inbounds %"class.std::basic_string_view", ptr %ref.tmp.i, i64 3, i32 1
+  %5 = getelementptr inbounds i8, ptr %ref.tmp.i, i64 56
   store ptr %digits_.i, ptr %5, align 8, !noalias !51
-  %arrayinit.element6.i = getelementptr inbounds %"class.std::basic_string_view", ptr %ref.tmp.i, i64 4
+  %arrayinit.element6.i = getelementptr inbounds i8, ptr %ref.tmp.i, i64 64
   store i64 1, ptr %arrayinit.element6.i, align 8, !noalias !51
-  %6 = getelementptr inbounds %"class.std::basic_string_view", ptr %ref.tmp.i, i64 4, i32 1
+  %6 = getelementptr inbounds i8, ptr %ref.tmp.i, i64 72
   store ptr @.str.32, ptr %6, align 8, !noalias !51
   invoke void @_ZN4absl16strings_internal9CatPiecesB5cxx11ESt16initializer_listISt17basic_string_viewIcSt11char_traitsIcEEE(ptr sret(%"class.std::__cxx11::basic_string") align 8 %agg.result, ptr nonnull %ref.tmp.i, i64 5)
           to label %invoke.cont9 unwind label %lpad
@@ -5155,9 +5149,9 @@ entry:
   %ref.tmp21 = alloca %"class.absl::FixedArray.68", align 8
   %ref.tmp22 = alloca %"class.testing::ThrowingAllocator.72", align 8
   call void @_ZN7testing17ThrowingAllocatorINS_13ThrowingValueILNS_8TypeSpecE0EEELNS_9AllocSpecE0EEC2Ev(ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp2)
-  %size_alloc_.i.i = getelementptr inbounds %"class.absl::FixedArray<testing::ThrowingValue<testing::TypeSpec::kEverythingThrows>, 25, testing::ThrowingAllocator<testing::ThrowingValue<testing::TypeSpec::kEverythingThrows>, testing::AllocSpec::kEverythingThrows>>::Storage", ptr %ref.tmp, i64 0, i32 1
+  %size_alloc_.i.i = getelementptr inbounds i8, ptr %ref.tmp, i64 104
   store i64 12, ptr %size_alloc_.i.i, align 8
-  %0 = getelementptr inbounds %"class.absl::FixedArray<testing::ThrowingValue<testing::TypeSpec::kEverythingThrows>, 25, testing::ThrowingAllocator<testing::ThrowingValue<testing::TypeSpec::kEverythingThrows>, testing::AllocSpec::kEverythingThrows>>::Storage", ptr %ref.tmp, i64 0, i32 1, i32 0, i32 1
+  %0 = getelementptr inbounds i8, ptr %ref.tmp, i64 112
   call void @_ZN7testing17ThrowingAllocatorINS_13ThrowingValueILNS_8TypeSpecE0EEELNS_9AllocSpecE0EEC2ERKS5_(ptr noundef nonnull align 8 dereferenceable(16) %0, ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp2) #18
   %1 = load i64, ptr %size_alloc_.i.i, align 8
   %cmp.i.i.i.i = icmp ult i64 %1, 26
@@ -5185,7 +5179,7 @@ lpad.i.i:                                         ; preds = %.noexc.i.i, %if.els
 invoke.cont7.i:                                   ; preds = %.noexc.i.invoke.cont7_crit_edge.i, %entry
   %3 = phi i64 [ %1, %entry ], [ %.pre.i, %.noexc.i.invoke.cont7_crit_edge.i ]
   %retval.0.i.i.i = phi ptr [ %ref.tmp, %entry ], [ %call.i.i.i1.i.i, %.noexc.i.invoke.cont7_crit_edge.i ]
-  %data_.i.i = getelementptr inbounds %"class.absl::FixedArray<testing::ThrowingValue<testing::TypeSpec::kEverythingThrows>, 25, testing::ThrowingAllocator<testing::ThrowingValue<testing::TypeSpec::kEverythingThrows>, testing::AllocSpec::kEverythingThrows>>::Storage", ptr %ref.tmp, i64 0, i32 2
+  %data_.i.i = getelementptr inbounds i8, ptr %ref.tmp, i64 128
   store ptr %retval.0.i.i.i, ptr %data_.i.i, align 8
   %add.ptr.i.i = getelementptr inbounds %"class.testing::ThrowingValue", ptr %retval.0.i.i.i, i64 %3
   invoke void @_ZN4absl15memory_internal14ConstructRangeIN7testing17ThrowingAllocatorINS2_13ThrowingValueILNS2_8TypeSpecE0EEELNS2_9AllocSpecE0EEEPS6_JEEEvRT_T0_SC_DpRKT1_(ptr noundef nonnull align 8 dereferenceable(16) %0, ptr noundef nonnull %retval.0.i.i.i, ptr noundef nonnull %add.ptr.i.i)
@@ -5233,7 +5227,7 @@ terminate.lpad.i.i.i.i.i.i:                       ; preds = %_ZN7testing17Throwi
   unreachable
 
 _ZNSt16allocator_traitsIN7testing17ThrowingAllocatorINS0_13ThrowingValueILNS0_8TypeSpecE0EEELNS0_9AllocSpecE0EEEE7destroyIS4_EEvRS6_PT_.exit.i: ; preds = %_ZN7testing17ThrowingAllocatorINS_13ThrowingValueILNS_8TypeSpecE0EEELNS_9AllocSpecE0EE9ReadStateEv.exit.i.i.i.i
-  %incdec.ptr.i = getelementptr inbounds %"class.testing::ThrowingValue", ptr %cur.05.i, i64 1
+  %incdec.ptr.i = getelementptr inbounds i8, ptr %cur.05.i, i64 4
   %11 = load ptr, ptr %data_.i.i, align 8
   %12 = load i64, ptr %size_alloc_.i.i, align 8
   %add.ptr.i.i10 = getelementptr inbounds %"class.testing::ThrowingValue", ptr %11, i64 %12
@@ -5242,13 +5236,13 @@ _ZNSt16allocator_traitsIN7testing17ThrowingAllocatorINS0_13ThrowingValueILNS0_8T
 
 _ZN4absl10FixedArrayIN7testing13ThrowingValueILNS1_8TypeSpecE0EEELm25ENS1_17ThrowingAllocatorIS4_LNS1_9AllocSpecE0EEEED2Ev.exit: ; preds = %_ZNSt16allocator_traitsIN7testing17ThrowingAllocatorINS0_13ThrowingValueILNS0_8TypeSpecE0EEELNS0_9AllocSpecE0EEEE7destroyIS4_EEvRS6_PT_.exit.i, %invoke.cont4
   call void @_ZN4absl10FixedArrayIN7testing13ThrowingValueILNS1_8TypeSpecE0EEELm25ENS1_17ThrowingAllocatorIS4_LNS1_9AllocSpecE0EEEE7StorageD2Ev(ptr noundef nonnull align 8 dereferenceable(136) %ref.tmp) #18
-  %_M_refcount.i.i.i = getelementptr inbounds %"class.std::__shared_ptr", ptr %ref.tmp2, i64 0, i32 1
+  %_M_refcount.i.i.i = getelementptr inbounds i8, ptr %ref.tmp2, i64 8
   %13 = load ptr, ptr %_M_refcount.i.i.i, align 8
   %cmp.not.i.i.i.i = icmp eq ptr %13, null
   br i1 %cmp.not.i.i.i.i, label %_ZNSt10shared_ptrIKiED2Ev.exit.i, label %if.then.i.i.i.i
 
 if.then.i.i.i.i:                                  ; preds = %_ZN4absl10FixedArrayIN7testing13ThrowingValueILNS1_8TypeSpecE0EEELm25ENS1_17ThrowingAllocatorIS4_LNS1_9AllocSpecE0EEEED2Ev.exit
-  %_M_use_count.i.i.i.i.i = getelementptr inbounds %"class.std::_Sp_counted_base", ptr %13, i64 0, i32 1
+  %_M_use_count.i.i.i.i.i = getelementptr inbounds i8, ptr %13, i64 8
   %14 = load atomic i64, ptr %_M_use_count.i.i.i.i.i acquire, align 8
   %cmp.i.i.i.i.i11 = icmp eq i64 %14, 4294967297
   %15 = trunc i64 %14 to i32
@@ -5256,10 +5250,10 @@ if.then.i.i.i.i:                                  ; preds = %_ZN4absl10FixedArra
 
 if.then.i.i.i.i.i12:                              ; preds = %if.then.i.i.i.i
   store i32 0, ptr %_M_use_count.i.i.i.i.i, align 8
-  %_M_weak_count.i.i.i.i.i = getelementptr inbounds %"class.std::_Sp_counted_base", ptr %13, i64 0, i32 2
+  %_M_weak_count.i.i.i.i.i = getelementptr inbounds i8, ptr %13, i64 12
   store i32 0, ptr %_M_weak_count.i.i.i.i.i, align 4
   %vtable.i.i.i.i.i = load ptr, ptr %13, align 8
-  %vfn.i.i.i.i.i = getelementptr inbounds ptr, ptr %vtable.i.i.i.i.i, i64 2
+  %vfn.i.i.i.i.i = getelementptr inbounds i8, ptr %vtable.i.i.i.i.i, i64 16
   %16 = load ptr, ptr %vfn.i.i.i.i.i, align 8
   call void %16(ptr noundef nonnull align 8 dereferenceable(16) %13) #18
   br label %if.end8.sink.split.i.i.i.i.i
@@ -5285,10 +5279,10 @@ _ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i: ; preds = %if.els
 
 if.then7.i.i.i.i.i:                               ; preds = %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i
   %vtable.i.i.i.i.i.i.i = load ptr, ptr %13, align 8
-  %vfn.i.i.i.i.i.i.i = getelementptr inbounds ptr, ptr %vtable.i.i.i.i.i.i.i, i64 2
+  %vfn.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %vtable.i.i.i.i.i.i.i, i64 16
   %19 = load ptr, ptr %vfn.i.i.i.i.i.i.i, align 8
   call void %19(ptr noundef nonnull align 8 dereferenceable(16) %13) #18
-  %_M_weak_count.i.i.i.i.i.i.i = getelementptr inbounds %"class.std::_Sp_counted_base", ptr %13, i64 0, i32 2
+  %_M_weak_count.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %13, i64 12
   %20 = load i8, ptr @__libc_single_threaded, align 1
   %tobool.i.not.i.i.i.i.i.i.i = icmp eq i8 %20, 0
   br i1 %tobool.i.not.i.i.i.i.i.i.i, label %if.else.i.i.i.i.i.i.i.i, label %if.then.i.i.i.i.i.i.i.i
@@ -5310,7 +5304,7 @@ _ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i.i: ; preds = %if
 
 if.end8.sink.split.i.i.i.i.i:                     ; preds = %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i.i, %if.then.i.i.i.i.i12
   %vtable2.i.i.i.i.i.i.i = load ptr, ptr %13, align 8
-  %vfn3.i.i.i.i.i.i.i = getelementptr inbounds ptr, ptr %vtable2.i.i.i.i.i.i.i, i64 3
+  %vfn3.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %vtable2.i.i.i.i.i.i.i, i64 24
   %23 = load ptr, ptr %vfn3.i.i.i.i.i.i.i, align 8
   call void %23(ptr noundef nonnull align 8 dereferenceable(16) %13) #18
   br label %_ZNSt10shared_ptrIKiED2Ev.exit.i
@@ -5328,9 +5322,9 @@ terminate.lpad.i.i:                               ; preds = %_ZNSt10shared_ptrIK
 
 _ZN7testing17ThrowingAllocatorINS_13ThrowingValueILNS_8TypeSpecE0EEELNS_9AllocSpecE0EED2Ev.exit: ; preds = %_ZNSt10shared_ptrIKiED2Ev.exit.i
   call void @_ZN7testing17ThrowingAllocatorINS_13ThrowingValueILNS_8TypeSpecE0EEELNS_9AllocSpecE0EEC2Ev(ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp6)
-  %size_alloc_.i.i13 = getelementptr inbounds %"class.absl::FixedArray<testing::ThrowingValue<testing::TypeSpec::kEverythingThrows>, 25, testing::ThrowingAllocator<testing::ThrowingValue<testing::TypeSpec::kEverythingThrows>, testing::AllocSpec::kEverythingThrows>>::Storage", ptr %ref.tmp5, i64 0, i32 1
+  %size_alloc_.i.i13 = getelementptr inbounds i8, ptr %ref.tmp5, i64 104
   store i64 50, ptr %size_alloc_.i.i13, align 8
-  %26 = getelementptr inbounds %"class.absl::FixedArray<testing::ThrowingValue<testing::TypeSpec::kEverythingThrows>, 25, testing::ThrowingAllocator<testing::ThrowingValue<testing::TypeSpec::kEverythingThrows>, testing::AllocSpec::kEverythingThrows>>::Storage", ptr %ref.tmp5, i64 0, i32 1, i32 0, i32 1
+  %26 = getelementptr inbounds i8, ptr %ref.tmp5, i64 112
   call void @_ZN7testing17ThrowingAllocatorINS_13ThrowingValueILNS_8TypeSpecE0EEELNS_9AllocSpecE0EEC2ERKS5_(ptr noundef nonnull align 8 dereferenceable(16) %26, ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp6) #18
   %27 = load i64, ptr %size_alloc_.i.i13, align 8
   %cmp.i.i.i.i14 = icmp ult i64 %27, 26
@@ -5358,7 +5352,7 @@ lpad.i.i16:                                       ; preds = %.noexc.i.i19, %if.e
 invoke.cont7.i24:                                 ; preds = %.noexc.i.invoke.cont7_crit_edge.i22, %_ZN7testing17ThrowingAllocatorINS_13ThrowingValueILNS_8TypeSpecE0EEELNS_9AllocSpecE0EED2Ev.exit
   %29 = phi i64 [ %27, %_ZN7testing17ThrowingAllocatorINS_13ThrowingValueILNS_8TypeSpecE0EEELNS_9AllocSpecE0EED2Ev.exit ], [ %.pre.i23, %.noexc.i.invoke.cont7_crit_edge.i22 ]
   %retval.0.i.i.i25 = phi ptr [ %ref.tmp5, %_ZN7testing17ThrowingAllocatorINS_13ThrowingValueILNS_8TypeSpecE0EEELNS_9AllocSpecE0EED2Ev.exit ], [ %call.i.i.i1.i.i21, %.noexc.i.invoke.cont7_crit_edge.i22 ]
-  %data_.i.i26 = getelementptr inbounds %"class.absl::FixedArray<testing::ThrowingValue<testing::TypeSpec::kEverythingThrows>, 25, testing::ThrowingAllocator<testing::ThrowingValue<testing::TypeSpec::kEverythingThrows>, testing::AllocSpec::kEverythingThrows>>::Storage", ptr %ref.tmp5, i64 0, i32 2
+  %data_.i.i26 = getelementptr inbounds i8, ptr %ref.tmp5, i64 128
   store ptr %retval.0.i.i.i25, ptr %data_.i.i26, align 8
   %add.ptr.i.i27 = getelementptr inbounds %"class.testing::ThrowingValue", ptr %retval.0.i.i.i25, i64 %29
   invoke void @_ZN4absl15memory_internal14ConstructRangeIN7testing17ThrowingAllocatorINS2_13ThrowingValueILNS2_8TypeSpecE0EEELNS2_9AllocSpecE0EEEPS6_JEEEvRT_T0_SC_DpRKT1_(ptr noundef nonnull align 8 dereferenceable(16) %26, ptr noundef nonnull %retval.0.i.i.i25, ptr noundef nonnull %add.ptr.i.i27)
@@ -5406,7 +5400,7 @@ terminate.lpad.i.i.i.i.i.i40:                     ; preds = %_ZN7testing17Throwi
   unreachable
 
 _ZNSt16allocator_traitsIN7testing17ThrowingAllocatorINS0_13ThrowingValueILNS0_8TypeSpecE0EEELNS0_9AllocSpecE0EEEE7destroyIS4_EEvRS6_PT_.exit.i41: ; preds = %_ZN7testing17ThrowingAllocatorINS_13ThrowingValueILNS_8TypeSpecE0EEELNS_9AllocSpecE0EE9ReadStateEv.exit.i.i.i.i39
-  %incdec.ptr.i42 = getelementptr inbounds %"class.testing::ThrowingValue", ptr %cur.05.i37, i64 1
+  %incdec.ptr.i42 = getelementptr inbounds i8, ptr %cur.05.i37, i64 4
   %37 = load ptr, ptr %data_.i.i26, align 8
   %38 = load i64, ptr %size_alloc_.i.i13, align 8
   %add.ptr.i.i43 = getelementptr inbounds %"class.testing::ThrowingValue", ptr %37, i64 %38
@@ -5415,13 +5409,13 @@ _ZNSt16allocator_traitsIN7testing17ThrowingAllocatorINS0_13ThrowingValueILNS0_8T
 
 _ZN4absl10FixedArrayIN7testing13ThrowingValueILNS1_8TypeSpecE0EEELm25ENS1_17ThrowingAllocatorIS4_LNS1_9AllocSpecE0EEEED2Ev.exit46: ; preds = %_ZNSt16allocator_traitsIN7testing17ThrowingAllocatorINS0_13ThrowingValueILNS0_8TypeSpecE0EEELNS0_9AllocSpecE0EEEE7destroyIS4_EEvRS6_PT_.exit.i41, %invoke.cont10
   call void @_ZN4absl10FixedArrayIN7testing13ThrowingValueILNS1_8TypeSpecE0EEELm25ENS1_17ThrowingAllocatorIS4_LNS1_9AllocSpecE0EEEE7StorageD2Ev(ptr noundef nonnull align 8 dereferenceable(136) %ref.tmp5) #18
-  %_M_refcount.i.i.i47 = getelementptr inbounds %"class.std::__shared_ptr", ptr %ref.tmp6, i64 0, i32 1
+  %_M_refcount.i.i.i47 = getelementptr inbounds i8, ptr %ref.tmp6, i64 8
   %39 = load ptr, ptr %_M_refcount.i.i.i47, align 8
   %cmp.not.i.i.i.i48 = icmp eq ptr %39, null
   br i1 %cmp.not.i.i.i.i48, label %_ZNSt10shared_ptrIKiED2Ev.exit.i59, label %if.then.i.i.i.i49
 
 if.then.i.i.i.i49:                                ; preds = %_ZN4absl10FixedArrayIN7testing13ThrowingValueILNS1_8TypeSpecE0EEELm25ENS1_17ThrowingAllocatorIS4_LNS1_9AllocSpecE0EEEED2Ev.exit46
-  %_M_use_count.i.i.i.i.i50 = getelementptr inbounds %"class.std::_Sp_counted_base", ptr %39, i64 0, i32 1
+  %_M_use_count.i.i.i.i.i50 = getelementptr inbounds i8, ptr %39, i64 8
   %40 = load atomic i64, ptr %_M_use_count.i.i.i.i.i50 acquire, align 8
   %cmp.i.i.i.i.i51 = icmp eq i64 %40, 4294967297
   %41 = trunc i64 %40 to i32
@@ -5429,10 +5423,10 @@ if.then.i.i.i.i49:                                ; preds = %_ZN4absl10FixedArra
 
 if.then.i.i.i.i.i76:                              ; preds = %if.then.i.i.i.i49
   store i32 0, ptr %_M_use_count.i.i.i.i.i50, align 8
-  %_M_weak_count.i.i.i.i.i77 = getelementptr inbounds %"class.std::_Sp_counted_base", ptr %39, i64 0, i32 2
+  %_M_weak_count.i.i.i.i.i77 = getelementptr inbounds i8, ptr %39, i64 12
   store i32 0, ptr %_M_weak_count.i.i.i.i.i77, align 4
   %vtable.i.i.i.i.i78 = load ptr, ptr %39, align 8
-  %vfn.i.i.i.i.i79 = getelementptr inbounds ptr, ptr %vtable.i.i.i.i.i78, i64 2
+  %vfn.i.i.i.i.i79 = getelementptr inbounds i8, ptr %vtable.i.i.i.i.i78, i64 16
   %42 = load ptr, ptr %vfn.i.i.i.i.i79, align 8
   call void %42(ptr noundef nonnull align 8 dereferenceable(16) %39) #18
   br label %if.end8.sink.split.i.i.i.i.i71
@@ -5458,10 +5452,10 @@ _ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i56: ; preds = %if.e
 
 if.then7.i.i.i.i.i61:                             ; preds = %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i56
   %vtable.i.i.i.i.i.i.i62 = load ptr, ptr %39, align 8
-  %vfn.i.i.i.i.i.i.i63 = getelementptr inbounds ptr, ptr %vtable.i.i.i.i.i.i.i62, i64 2
+  %vfn.i.i.i.i.i.i.i63 = getelementptr inbounds i8, ptr %vtable.i.i.i.i.i.i.i62, i64 16
   %45 = load ptr, ptr %vfn.i.i.i.i.i.i.i63, align 8
   call void %45(ptr noundef nonnull align 8 dereferenceable(16) %39) #18
-  %_M_weak_count.i.i.i.i.i.i.i64 = getelementptr inbounds %"class.std::_Sp_counted_base", ptr %39, i64 0, i32 2
+  %_M_weak_count.i.i.i.i.i.i.i64 = getelementptr inbounds i8, ptr %39, i64 12
   %46 = load i8, ptr @__libc_single_threaded, align 1
   %tobool.i.not.i.i.i.i.i.i.i65 = icmp eq i8 %46, 0
   br i1 %tobool.i.not.i.i.i.i.i.i.i65, label %if.else.i.i.i.i.i.i.i.i74, label %if.then.i.i.i.i.i.i.i.i66
@@ -5483,7 +5477,7 @@ _ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i.i68: ; preds = %
 
 if.end8.sink.split.i.i.i.i.i71:                   ; preds = %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i.i68, %if.then.i.i.i.i.i76
   %vtable2.i.i.i.i.i.i.i72 = load ptr, ptr %39, align 8
-  %vfn3.i.i.i.i.i.i.i73 = getelementptr inbounds ptr, ptr %vtable2.i.i.i.i.i.i.i72, i64 3
+  %vfn3.i.i.i.i.i.i.i73 = getelementptr inbounds i8, ptr %vtable2.i.i.i.i.i.i.i72, i64 24
   %49 = load ptr, ptr %vfn3.i.i.i.i.i.i.i73, align 8
   call void %49(ptr noundef nonnull align 8 dereferenceable(16) %39) #18
   br label %_ZNSt10shared_ptrIKiED2Ev.exit.i59
@@ -5501,9 +5495,9 @@ terminate.lpad.i.i60:                             ; preds = %_ZNSt10shared_ptrIK
 
 _ZN7testing17ThrowingAllocatorINS_13ThrowingValueILNS_8TypeSpecE0EEELNS_9AllocSpecE0EED2Ev.exit80: ; preds = %_ZNSt10shared_ptrIKiED2Ev.exit.i59
   call void @_ZN7testing17ThrowingAllocatorINS_13ThrowingValueILNS_8TypeSpecE2EEELNS_9AllocSpecE0EEC2Ev(ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp14)
-  %size_alloc_.i.i81 = getelementptr inbounds %"class.absl::FixedArray<testing::ThrowingValue<testing::TypeSpec::kNoThrowMove>, 25, testing::ThrowingAllocator<testing::ThrowingValue<testing::TypeSpec::kNoThrowMove>, testing::AllocSpec::kEverythingThrows>>::Storage", ptr %ref.tmp13, i64 0, i32 1
+  %size_alloc_.i.i81 = getelementptr inbounds i8, ptr %ref.tmp13, i64 104
   store i64 12, ptr %size_alloc_.i.i81, align 8
-  %52 = getelementptr inbounds %"class.absl::FixedArray<testing::ThrowingValue<testing::TypeSpec::kNoThrowMove>, 25, testing::ThrowingAllocator<testing::ThrowingValue<testing::TypeSpec::kNoThrowMove>, testing::AllocSpec::kEverythingThrows>>::Storage", ptr %ref.tmp13, i64 0, i32 1, i32 0, i32 1
+  %52 = getelementptr inbounds i8, ptr %ref.tmp13, i64 112
   call void @_ZN7testing17ThrowingAllocatorINS_13ThrowingValueILNS_8TypeSpecE2EEELNS_9AllocSpecE0EEC2ERKS5_(ptr noundef nonnull align 8 dereferenceable(16) %52, ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp14) #18
   %53 = load i64, ptr %size_alloc_.i.i81, align 8
   %cmp.i.i.i.i82 = icmp ult i64 %53, 26
@@ -5531,7 +5525,7 @@ lpad.i.i84:                                       ; preds = %.noexc.i.i87, %if.e
 invoke.cont6.i:                                   ; preds = %.noexc.i.invoke.cont6_crit_edge.i, %_ZN7testing17ThrowingAllocatorINS_13ThrowingValueILNS_8TypeSpecE0EEELNS_9AllocSpecE0EED2Ev.exit80
   %55 = phi i64 [ %53, %_ZN7testing17ThrowingAllocatorINS_13ThrowingValueILNS_8TypeSpecE0EEELNS_9AllocSpecE0EED2Ev.exit80 ], [ %.pre.i90, %.noexc.i.invoke.cont6_crit_edge.i ]
   %retval.0.i.i.i91 = phi ptr [ %ref.tmp13, %_ZN7testing17ThrowingAllocatorINS_13ThrowingValueILNS_8TypeSpecE0EEELNS_9AllocSpecE0EED2Ev.exit80 ], [ %call.i.i.i1.i.i89, %.noexc.i.invoke.cont6_crit_edge.i ]
-  %data_.i.i92 = getelementptr inbounds %"class.absl::FixedArray<testing::ThrowingValue<testing::TypeSpec::kNoThrowMove>, 25, testing::ThrowingAllocator<testing::ThrowingValue<testing::TypeSpec::kNoThrowMove>, testing::AllocSpec::kEverythingThrows>>::Storage", ptr %ref.tmp13, i64 0, i32 2
+  %data_.i.i92 = getelementptr inbounds i8, ptr %ref.tmp13, i64 128
   store ptr %retval.0.i.i.i91, ptr %data_.i.i92, align 8
   %add.ptr.i.i93 = getelementptr inbounds %"class.testing::ThrowingValue.67", ptr %retval.0.i.i.i91, i64 %55
   invoke void @_ZN4absl15memory_internal14ConstructRangeIN7testing17ThrowingAllocatorINS2_13ThrowingValueILNS2_8TypeSpecE2EEELNS2_9AllocSpecE0EEEPS6_JEEEvRT_T0_SC_DpRKT1_(ptr noundef nonnull align 8 dereferenceable(16) %52, ptr noundef nonnull %retval.0.i.i.i91, ptr noundef nonnull %add.ptr.i.i93)
@@ -5579,7 +5573,7 @@ terminate.lpad.i.i.i.i.i.i104:                    ; preds = %_ZN7testing17Throwi
   unreachable
 
 _ZNSt16allocator_traitsIN7testing17ThrowingAllocatorINS0_13ThrowingValueILNS0_8TypeSpecE2EEELNS0_9AllocSpecE0EEEE7destroyIS4_EEvRS6_PT_.exit.i: ; preds = %_ZN7testing17ThrowingAllocatorINS_13ThrowingValueILNS_8TypeSpecE2EEELNS_9AllocSpecE0EE9ReadStateEv.exit.i.i.i.i
-  %incdec.ptr.i105 = getelementptr inbounds %"class.testing::ThrowingValue.67", ptr %cur.05.i102, i64 1
+  %incdec.ptr.i105 = getelementptr inbounds i8, ptr %cur.05.i102, i64 4
   %63 = load ptr, ptr %data_.i.i92, align 8
   %64 = load i64, ptr %size_alloc_.i.i81, align 8
   %add.ptr.i.i106 = getelementptr inbounds %"class.testing::ThrowingValue.67", ptr %63, i64 %64
@@ -5588,13 +5582,13 @@ _ZNSt16allocator_traitsIN7testing17ThrowingAllocatorINS0_13ThrowingValueILNS0_8T
 
 _ZN4absl10FixedArrayIN7testing13ThrowingValueILNS1_8TypeSpecE2EEELm25ENS1_17ThrowingAllocatorIS4_LNS1_9AllocSpecE0EEEED2Ev.exit: ; preds = %_ZNSt16allocator_traitsIN7testing17ThrowingAllocatorINS0_13ThrowingValueILNS0_8TypeSpecE2EEELNS0_9AllocSpecE0EEEE7destroyIS4_EEvRS6_PT_.exit.i, %invoke.cont18
   call void @_ZN4absl10FixedArrayIN7testing13ThrowingValueILNS1_8TypeSpecE2EEELm25ENS1_17ThrowingAllocatorIS4_LNS1_9AllocSpecE0EEEE7StorageD2Ev(ptr noundef nonnull align 8 dereferenceable(136) %ref.tmp13) #18
-  %_M_refcount.i.i.i109 = getelementptr inbounds %"class.std::__shared_ptr", ptr %ref.tmp14, i64 0, i32 1
+  %_M_refcount.i.i.i109 = getelementptr inbounds i8, ptr %ref.tmp14, i64 8
   %65 = load ptr, ptr %_M_refcount.i.i.i109, align 8
   %cmp.not.i.i.i.i110 = icmp eq ptr %65, null
   br i1 %cmp.not.i.i.i.i110, label %_ZNSt10shared_ptrIKiED2Ev.exit.i121, label %if.then.i.i.i.i111
 
 if.then.i.i.i.i111:                               ; preds = %_ZN4absl10FixedArrayIN7testing13ThrowingValueILNS1_8TypeSpecE2EEELm25ENS1_17ThrowingAllocatorIS4_LNS1_9AllocSpecE0EEEED2Ev.exit
-  %_M_use_count.i.i.i.i.i112 = getelementptr inbounds %"class.std::_Sp_counted_base", ptr %65, i64 0, i32 1
+  %_M_use_count.i.i.i.i.i112 = getelementptr inbounds i8, ptr %65, i64 8
   %66 = load atomic i64, ptr %_M_use_count.i.i.i.i.i112 acquire, align 8
   %cmp.i.i.i.i.i113 = icmp eq i64 %66, 4294967297
   %67 = trunc i64 %66 to i32
@@ -5602,10 +5596,10 @@ if.then.i.i.i.i111:                               ; preds = %_ZN4absl10FixedArra
 
 if.then.i.i.i.i.i138:                             ; preds = %if.then.i.i.i.i111
   store i32 0, ptr %_M_use_count.i.i.i.i.i112, align 8
-  %_M_weak_count.i.i.i.i.i139 = getelementptr inbounds %"class.std::_Sp_counted_base", ptr %65, i64 0, i32 2
+  %_M_weak_count.i.i.i.i.i139 = getelementptr inbounds i8, ptr %65, i64 12
   store i32 0, ptr %_M_weak_count.i.i.i.i.i139, align 4
   %vtable.i.i.i.i.i140 = load ptr, ptr %65, align 8
-  %vfn.i.i.i.i.i141 = getelementptr inbounds ptr, ptr %vtable.i.i.i.i.i140, i64 2
+  %vfn.i.i.i.i.i141 = getelementptr inbounds i8, ptr %vtable.i.i.i.i.i140, i64 16
   %68 = load ptr, ptr %vfn.i.i.i.i.i141, align 8
   call void %68(ptr noundef nonnull align 8 dereferenceable(16) %65) #18
   br label %if.end8.sink.split.i.i.i.i.i133
@@ -5631,10 +5625,10 @@ _ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i118: ; preds = %if.
 
 if.then7.i.i.i.i.i123:                            ; preds = %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i118
   %vtable.i.i.i.i.i.i.i124 = load ptr, ptr %65, align 8
-  %vfn.i.i.i.i.i.i.i125 = getelementptr inbounds ptr, ptr %vtable.i.i.i.i.i.i.i124, i64 2
+  %vfn.i.i.i.i.i.i.i125 = getelementptr inbounds i8, ptr %vtable.i.i.i.i.i.i.i124, i64 16
   %71 = load ptr, ptr %vfn.i.i.i.i.i.i.i125, align 8
   call void %71(ptr noundef nonnull align 8 dereferenceable(16) %65) #18
-  %_M_weak_count.i.i.i.i.i.i.i126 = getelementptr inbounds %"class.std::_Sp_counted_base", ptr %65, i64 0, i32 2
+  %_M_weak_count.i.i.i.i.i.i.i126 = getelementptr inbounds i8, ptr %65, i64 12
   %72 = load i8, ptr @__libc_single_threaded, align 1
   %tobool.i.not.i.i.i.i.i.i.i127 = icmp eq i8 %72, 0
   br i1 %tobool.i.not.i.i.i.i.i.i.i127, label %if.else.i.i.i.i.i.i.i.i136, label %if.then.i.i.i.i.i.i.i.i128
@@ -5656,7 +5650,7 @@ _ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i.i130: ; preds = 
 
 if.end8.sink.split.i.i.i.i.i133:                  ; preds = %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i.i130, %if.then.i.i.i.i.i138
   %vtable2.i.i.i.i.i.i.i134 = load ptr, ptr %65, align 8
-  %vfn3.i.i.i.i.i.i.i135 = getelementptr inbounds ptr, ptr %vtable2.i.i.i.i.i.i.i134, i64 3
+  %vfn3.i.i.i.i.i.i.i135 = getelementptr inbounds i8, ptr %vtable2.i.i.i.i.i.i.i134, i64 24
   %75 = load ptr, ptr %vfn3.i.i.i.i.i.i.i135, align 8
   call void %75(ptr noundef nonnull align 8 dereferenceable(16) %65) #18
   br label %_ZNSt10shared_ptrIKiED2Ev.exit.i121
@@ -5674,9 +5668,9 @@ terminate.lpad.i.i122:                            ; preds = %_ZNSt10shared_ptrIK
 
 _ZN7testing17ThrowingAllocatorINS_13ThrowingValueILNS_8TypeSpecE2EEELNS_9AllocSpecE0EED2Ev.exit: ; preds = %_ZNSt10shared_ptrIKiED2Ev.exit.i121
   call void @_ZN7testing17ThrowingAllocatorINS_13ThrowingValueILNS_8TypeSpecE2EEELNS_9AllocSpecE0EEC2Ev(ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp22)
-  %size_alloc_.i.i142 = getelementptr inbounds %"class.absl::FixedArray<testing::ThrowingValue<testing::TypeSpec::kNoThrowMove>, 25, testing::ThrowingAllocator<testing::ThrowingValue<testing::TypeSpec::kNoThrowMove>, testing::AllocSpec::kEverythingThrows>>::Storage", ptr %ref.tmp21, i64 0, i32 1
+  %size_alloc_.i.i142 = getelementptr inbounds i8, ptr %ref.tmp21, i64 104
   store i64 50, ptr %size_alloc_.i.i142, align 8
-  %78 = getelementptr inbounds %"class.absl::FixedArray<testing::ThrowingValue<testing::TypeSpec::kNoThrowMove>, 25, testing::ThrowingAllocator<testing::ThrowingValue<testing::TypeSpec::kNoThrowMove>, testing::AllocSpec::kEverythingThrows>>::Storage", ptr %ref.tmp21, i64 0, i32 1, i32 0, i32 1
+  %78 = getelementptr inbounds i8, ptr %ref.tmp21, i64 112
   call void @_ZN7testing17ThrowingAllocatorINS_13ThrowingValueILNS_8TypeSpecE2EEELNS_9AllocSpecE0EEC2ERKS5_(ptr noundef nonnull align 8 dereferenceable(16) %78, ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp22) #18
   %79 = load i64, ptr %size_alloc_.i.i142, align 8
   %cmp.i.i.i.i143 = icmp ult i64 %79, 26
@@ -5704,7 +5698,7 @@ lpad.i.i145:                                      ; preds = %.noexc.i.i148, %if.
 invoke.cont6.i153:                                ; preds = %.noexc.i.invoke.cont6_crit_edge.i151, %_ZN7testing17ThrowingAllocatorINS_13ThrowingValueILNS_8TypeSpecE2EEELNS_9AllocSpecE0EED2Ev.exit
   %81 = phi i64 [ %79, %_ZN7testing17ThrowingAllocatorINS_13ThrowingValueILNS_8TypeSpecE2EEELNS_9AllocSpecE0EED2Ev.exit ], [ %.pre.i152, %.noexc.i.invoke.cont6_crit_edge.i151 ]
   %retval.0.i.i.i154 = phi ptr [ %ref.tmp21, %_ZN7testing17ThrowingAllocatorINS_13ThrowingValueILNS_8TypeSpecE2EEELNS_9AllocSpecE0EED2Ev.exit ], [ %call.i.i.i1.i.i150, %.noexc.i.invoke.cont6_crit_edge.i151 ]
-  %data_.i.i155 = getelementptr inbounds %"class.absl::FixedArray<testing::ThrowingValue<testing::TypeSpec::kNoThrowMove>, 25, testing::ThrowingAllocator<testing::ThrowingValue<testing::TypeSpec::kNoThrowMove>, testing::AllocSpec::kEverythingThrows>>::Storage", ptr %ref.tmp21, i64 0, i32 2
+  %data_.i.i155 = getelementptr inbounds i8, ptr %ref.tmp21, i64 128
   store ptr %retval.0.i.i.i154, ptr %data_.i.i155, align 8
   %add.ptr.i.i156 = getelementptr inbounds %"class.testing::ThrowingValue.67", ptr %retval.0.i.i.i154, i64 %81
   invoke void @_ZN4absl15memory_internal14ConstructRangeIN7testing17ThrowingAllocatorINS2_13ThrowingValueILNS2_8TypeSpecE2EEELNS2_9AllocSpecE0EEEPS6_JEEEvRT_T0_SC_DpRKT1_(ptr noundef nonnull align 8 dereferenceable(16) %78, ptr noundef nonnull %retval.0.i.i.i154, ptr noundef nonnull %add.ptr.i.i156)
@@ -5752,7 +5746,7 @@ terminate.lpad.i.i.i.i.i.i169:                    ; preds = %_ZN7testing17Throwi
   unreachable
 
 _ZNSt16allocator_traitsIN7testing17ThrowingAllocatorINS0_13ThrowingValueILNS0_8TypeSpecE2EEELNS0_9AllocSpecE0EEEE7destroyIS4_EEvRS6_PT_.exit.i170: ; preds = %_ZN7testing17ThrowingAllocatorINS_13ThrowingValueILNS_8TypeSpecE2EEELNS_9AllocSpecE0EE9ReadStateEv.exit.i.i.i.i168
-  %incdec.ptr.i171 = getelementptr inbounds %"class.testing::ThrowingValue.67", ptr %cur.05.i166, i64 1
+  %incdec.ptr.i171 = getelementptr inbounds i8, ptr %cur.05.i166, i64 4
   %89 = load ptr, ptr %data_.i.i155, align 8
   %90 = load i64, ptr %size_alloc_.i.i142, align 8
   %add.ptr.i.i172 = getelementptr inbounds %"class.testing::ThrowingValue.67", ptr %89, i64 %90
@@ -5761,13 +5755,13 @@ _ZNSt16allocator_traitsIN7testing17ThrowingAllocatorINS0_13ThrowingValueILNS0_8T
 
 _ZN4absl10FixedArrayIN7testing13ThrowingValueILNS1_8TypeSpecE2EEELm25ENS1_17ThrowingAllocatorIS4_LNS1_9AllocSpecE0EEEED2Ev.exit175: ; preds = %_ZNSt16allocator_traitsIN7testing17ThrowingAllocatorINS0_13ThrowingValueILNS0_8TypeSpecE2EEELNS0_9AllocSpecE0EEEE7destroyIS4_EEvRS6_PT_.exit.i170, %invoke.cont26
   call void @_ZN4absl10FixedArrayIN7testing13ThrowingValueILNS1_8TypeSpecE2EEELm25ENS1_17ThrowingAllocatorIS4_LNS1_9AllocSpecE0EEEE7StorageD2Ev(ptr noundef nonnull align 8 dereferenceable(136) %ref.tmp21) #18
-  %_M_refcount.i.i.i176 = getelementptr inbounds %"class.std::__shared_ptr", ptr %ref.tmp22, i64 0, i32 1
+  %_M_refcount.i.i.i176 = getelementptr inbounds i8, ptr %ref.tmp22, i64 8
   %91 = load ptr, ptr %_M_refcount.i.i.i176, align 8
   %cmp.not.i.i.i.i177 = icmp eq ptr %91, null
   br i1 %cmp.not.i.i.i.i177, label %_ZNSt10shared_ptrIKiED2Ev.exit.i188, label %if.then.i.i.i.i178
 
 if.then.i.i.i.i178:                               ; preds = %_ZN4absl10FixedArrayIN7testing13ThrowingValueILNS1_8TypeSpecE2EEELm25ENS1_17ThrowingAllocatorIS4_LNS1_9AllocSpecE0EEEED2Ev.exit175
-  %_M_use_count.i.i.i.i.i179 = getelementptr inbounds %"class.std::_Sp_counted_base", ptr %91, i64 0, i32 1
+  %_M_use_count.i.i.i.i.i179 = getelementptr inbounds i8, ptr %91, i64 8
   %92 = load atomic i64, ptr %_M_use_count.i.i.i.i.i179 acquire, align 8
   %cmp.i.i.i.i.i180 = icmp eq i64 %92, 4294967297
   %93 = trunc i64 %92 to i32
@@ -5775,10 +5769,10 @@ if.then.i.i.i.i178:                               ; preds = %_ZN4absl10FixedArra
 
 if.then.i.i.i.i.i205:                             ; preds = %if.then.i.i.i.i178
   store i32 0, ptr %_M_use_count.i.i.i.i.i179, align 8
-  %_M_weak_count.i.i.i.i.i206 = getelementptr inbounds %"class.std::_Sp_counted_base", ptr %91, i64 0, i32 2
+  %_M_weak_count.i.i.i.i.i206 = getelementptr inbounds i8, ptr %91, i64 12
   store i32 0, ptr %_M_weak_count.i.i.i.i.i206, align 4
   %vtable.i.i.i.i.i207 = load ptr, ptr %91, align 8
-  %vfn.i.i.i.i.i208 = getelementptr inbounds ptr, ptr %vtable.i.i.i.i.i207, i64 2
+  %vfn.i.i.i.i.i208 = getelementptr inbounds i8, ptr %vtable.i.i.i.i.i207, i64 16
   %94 = load ptr, ptr %vfn.i.i.i.i.i208, align 8
   call void %94(ptr noundef nonnull align 8 dereferenceable(16) %91) #18
   br label %if.end8.sink.split.i.i.i.i.i200
@@ -5804,10 +5798,10 @@ _ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i185: ; preds = %if.
 
 if.then7.i.i.i.i.i190:                            ; preds = %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i185
   %vtable.i.i.i.i.i.i.i191 = load ptr, ptr %91, align 8
-  %vfn.i.i.i.i.i.i.i192 = getelementptr inbounds ptr, ptr %vtable.i.i.i.i.i.i.i191, i64 2
+  %vfn.i.i.i.i.i.i.i192 = getelementptr inbounds i8, ptr %vtable.i.i.i.i.i.i.i191, i64 16
   %97 = load ptr, ptr %vfn.i.i.i.i.i.i.i192, align 8
   call void %97(ptr noundef nonnull align 8 dereferenceable(16) %91) #18
-  %_M_weak_count.i.i.i.i.i.i.i193 = getelementptr inbounds %"class.std::_Sp_counted_base", ptr %91, i64 0, i32 2
+  %_M_weak_count.i.i.i.i.i.i.i193 = getelementptr inbounds i8, ptr %91, i64 12
   %98 = load i8, ptr @__libc_single_threaded, align 1
   %tobool.i.not.i.i.i.i.i.i.i194 = icmp eq i8 %98, 0
   br i1 %tobool.i.not.i.i.i.i.i.i.i194, label %if.else.i.i.i.i.i.i.i.i203, label %if.then.i.i.i.i.i.i.i.i195
@@ -5829,7 +5823,7 @@ _ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i.i197: ; preds = 
 
 if.end8.sink.split.i.i.i.i.i200:                  ; preds = %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i.i197, %if.then.i.i.i.i.i205
   %vtable2.i.i.i.i.i.i.i201 = load ptr, ptr %91, align 8
-  %vfn3.i.i.i.i.i.i.i202 = getelementptr inbounds ptr, ptr %vtable2.i.i.i.i.i.i.i201, i64 3
+  %vfn3.i.i.i.i.i.i.i202 = getelementptr inbounds i8, ptr %vtable2.i.i.i.i.i.i.i201, i64 24
   %101 = load ptr, ptr %vfn3.i.i.i.i.i.i.i202, align 8
   call void %101(ptr noundef nonnull align 8 dereferenceable(16) %91) #18
   br label %_ZNSt10shared_ptrIKiED2Ev.exit.i188
@@ -5902,13 +5896,13 @@ define linkonce_odr dso_local void @_ZN7testing16TestThrowingCtorIN4absl10FixedA
 entry:
   %ct = alloca %"class.testing::exceptions_internal::ConstructorTracker", align 8
   %temp = alloca %"class.absl::FixedArray.42", align 8
-  %_M_single_bucket.i.i.i = getelementptr inbounds %"class.std::_Hashtable", ptr %ct, i64 0, i32 5
-  %_M_bucket_count.i.i.i = getelementptr inbounds %"class.std::_Hashtable", ptr %ct, i64 0, i32 1
-  %_M_before_begin.i.i.i = getelementptr inbounds %"class.std::_Hashtable", ptr %ct, i64 0, i32 2
-  %_M_rehash_policy.i.i.i = getelementptr inbounds %"class.std::_Hashtable", ptr %ct, i64 0, i32 4
-  %_M_next_resize.i.i.i.i = getelementptr inbounds %"class.std::_Hashtable", ptr %ct, i64 0, i32 4, i32 1
-  %countdown_.i = getelementptr inbounds %"class.testing::exceptions_internal::ConstructorTracker", ptr %ct, i64 0, i32 1
-  %add.ptr.i.i.i = getelementptr inbounds %"class.absl::FixedArray<testing::ThrowingValue<testing::TypeSpec::kEverythingThrows>, 25, testing::ThrowingAllocator<testing::ThrowingValue<testing::TypeSpec::kEverythingThrows>, testing::AllocSpec::kEverythingThrows>>::Storage", ptr %args, i64 0, i32 1, i32 0, i32 1
+  %_M_single_bucket.i.i.i = getelementptr inbounds i8, ptr %ct, i64 48
+  %_M_bucket_count.i.i.i = getelementptr inbounds i8, ptr %ct, i64 8
+  %_M_before_begin.i.i.i = getelementptr inbounds i8, ptr %ct, i64 16
+  %_M_rehash_policy.i.i.i = getelementptr inbounds i8, ptr %ct, i64 32
+  %_M_next_resize.i.i.i.i = getelementptr inbounds i8, ptr %ct, i64 40
+  %countdown_.i = getelementptr inbounds i8, ptr %ct, i64 56
+  %add.ptr.i.i.i = getelementptr inbounds i8, ptr %args, i64 112
   br label %for.cond
 
 for.cond:                                         ; preds = %for.inc, %entry
@@ -5925,15 +5919,15 @@ for.cond:                                         ; preds = %for.inc, %entry
           to label %invoke.cont2 unwind label %lpad1
 
 invoke.cont2:                                     ; preds = %for.cond
-  %data_.i.i = getelementptr inbounds %"class.absl::FixedArray<testing::ThrowingValue<testing::TypeSpec::kEverythingThrows>, 25, testing::ThrowingAllocator<testing::ThrowingValue<testing::TypeSpec::kEverythingThrows>, testing::AllocSpec::kEverythingThrows>>::Storage", ptr %temp, i64 0, i32 2
-  %size_alloc_.i.i.i = getelementptr inbounds %"class.absl::FixedArray<testing::ThrowingValue<testing::TypeSpec::kEverythingThrows>, 25, testing::ThrowingAllocator<testing::ThrowingValue<testing::TypeSpec::kEverythingThrows>, testing::AllocSpec::kEverythingThrows>>::Storage", ptr %temp, i64 0, i32 1
+  %data_.i.i = getelementptr inbounds i8, ptr %temp, i64 128
+  %size_alloc_.i.i.i = getelementptr inbounds i8, ptr %temp, i64 104
   %0 = load i64, ptr %size_alloc_.i.i.i, align 8
   %cmp.not4.i = icmp eq i64 %0, 0
   br i1 %cmp.not4.i, label %for.end, label %invoke.cont5.lr.ph.i
 
 invoke.cont5.lr.ph.i:                             ; preds = %invoke.cont2
   %1 = load ptr, ptr %data_.i.i, align 8
-  %add.ptr.i.i.i4 = getelementptr inbounds %"class.absl::FixedArray<testing::ThrowingValue<testing::TypeSpec::kEverythingThrows>, 25, testing::ThrowingAllocator<testing::ThrowingValue<testing::TypeSpec::kEverythingThrows>, testing::AllocSpec::kEverythingThrows>>::Storage", ptr %temp, i64 0, i32 1, i32 0, i32 1
+  %add.ptr.i.i.i4 = getelementptr inbounds i8, ptr %temp, i64 112
   br label %invoke.cont5.i
 
 invoke.cont5.i:                                   ; preds = %_ZNSt16allocator_traitsIN7testing17ThrowingAllocatorINS0_13ThrowingValueILNS0_8TypeSpecE0EEELNS0_9AllocSpecE0EEEE7destroyIS4_EEvRS6_PT_.exit.i, %invoke.cont5.lr.ph.i
@@ -5959,7 +5953,7 @@ terminate.lpad.i.i.i.i.i.i:                       ; preds = %_ZN7testing17Throwi
   unreachable
 
 _ZNSt16allocator_traitsIN7testing17ThrowingAllocatorINS0_13ThrowingValueILNS0_8TypeSpecE0EEELNS0_9AllocSpecE0EEEE7destroyIS4_EEvRS6_PT_.exit.i: ; preds = %_ZN7testing17ThrowingAllocatorINS_13ThrowingValueILNS_8TypeSpecE0EEELNS_9AllocSpecE0EE9ReadStateEv.exit.i.i.i.i
-  %incdec.ptr.i = getelementptr inbounds %"class.testing::ThrowingValue", ptr %cur.05.i, i64 1
+  %incdec.ptr.i = getelementptr inbounds i8, ptr %cur.05.i, i64 4
   %6 = load ptr, ptr %data_.i.i, align 8
   %7 = load i64, ptr %size_alloc_.i.i.i, align 8
   %add.ptr.i.i = getelementptr inbounds %"class.testing::ThrowingValue", ptr %6, i64 %7
@@ -6009,13 +6003,13 @@ define linkonce_odr dso_local void @_ZN7testing16TestThrowingCtorIN4absl10FixedA
 entry:
   %ct = alloca %"class.testing::exceptions_internal::ConstructorTracker", align 8
   %temp = alloca %"class.absl::FixedArray.68", align 8
-  %_M_single_bucket.i.i.i = getelementptr inbounds %"class.std::_Hashtable", ptr %ct, i64 0, i32 5
-  %_M_bucket_count.i.i.i = getelementptr inbounds %"class.std::_Hashtable", ptr %ct, i64 0, i32 1
-  %_M_before_begin.i.i.i = getelementptr inbounds %"class.std::_Hashtable", ptr %ct, i64 0, i32 2
-  %_M_rehash_policy.i.i.i = getelementptr inbounds %"class.std::_Hashtable", ptr %ct, i64 0, i32 4
-  %_M_next_resize.i.i.i.i = getelementptr inbounds %"class.std::_Hashtable", ptr %ct, i64 0, i32 4, i32 1
-  %countdown_.i = getelementptr inbounds %"class.testing::exceptions_internal::ConstructorTracker", ptr %ct, i64 0, i32 1
-  %add.ptr.i.i.i = getelementptr inbounds %"class.absl::FixedArray<testing::ThrowingValue<testing::TypeSpec::kNoThrowMove>, 25, testing::ThrowingAllocator<testing::ThrowingValue<testing::TypeSpec::kNoThrowMove>, testing::AllocSpec::kEverythingThrows>>::Storage", ptr %args, i64 0, i32 1, i32 0, i32 1
+  %_M_single_bucket.i.i.i = getelementptr inbounds i8, ptr %ct, i64 48
+  %_M_bucket_count.i.i.i = getelementptr inbounds i8, ptr %ct, i64 8
+  %_M_before_begin.i.i.i = getelementptr inbounds i8, ptr %ct, i64 16
+  %_M_rehash_policy.i.i.i = getelementptr inbounds i8, ptr %ct, i64 32
+  %_M_next_resize.i.i.i.i = getelementptr inbounds i8, ptr %ct, i64 40
+  %countdown_.i = getelementptr inbounds i8, ptr %ct, i64 56
+  %add.ptr.i.i.i = getelementptr inbounds i8, ptr %args, i64 112
   br label %for.cond
 
 for.cond:                                         ; preds = %for.inc, %entry
@@ -6032,15 +6026,15 @@ for.cond:                                         ; preds = %for.inc, %entry
           to label %invoke.cont2 unwind label %lpad1
 
 invoke.cont2:                                     ; preds = %for.cond
-  %data_.i.i = getelementptr inbounds %"class.absl::FixedArray<testing::ThrowingValue<testing::TypeSpec::kNoThrowMove>, 25, testing::ThrowingAllocator<testing::ThrowingValue<testing::TypeSpec::kNoThrowMove>, testing::AllocSpec::kEverythingThrows>>::Storage", ptr %temp, i64 0, i32 2
-  %size_alloc_.i.i.i = getelementptr inbounds %"class.absl::FixedArray<testing::ThrowingValue<testing::TypeSpec::kNoThrowMove>, 25, testing::ThrowingAllocator<testing::ThrowingValue<testing::TypeSpec::kNoThrowMove>, testing::AllocSpec::kEverythingThrows>>::Storage", ptr %temp, i64 0, i32 1
+  %data_.i.i = getelementptr inbounds i8, ptr %temp, i64 128
+  %size_alloc_.i.i.i = getelementptr inbounds i8, ptr %temp, i64 104
   %0 = load i64, ptr %size_alloc_.i.i.i, align 8
   %cmp.not4.i = icmp eq i64 %0, 0
   br i1 %cmp.not4.i, label %for.end, label %invoke.cont5.lr.ph.i
 
 invoke.cont5.lr.ph.i:                             ; preds = %invoke.cont2
   %1 = load ptr, ptr %data_.i.i, align 8
-  %add.ptr.i.i.i4 = getelementptr inbounds %"class.absl::FixedArray<testing::ThrowingValue<testing::TypeSpec::kNoThrowMove>, 25, testing::ThrowingAllocator<testing::ThrowingValue<testing::TypeSpec::kNoThrowMove>, testing::AllocSpec::kEverythingThrows>>::Storage", ptr %temp, i64 0, i32 1, i32 0, i32 1
+  %add.ptr.i.i.i4 = getelementptr inbounds i8, ptr %temp, i64 112
   br label %invoke.cont5.i
 
 invoke.cont5.i:                                   ; preds = %_ZNSt16allocator_traitsIN7testing17ThrowingAllocatorINS0_13ThrowingValueILNS0_8TypeSpecE2EEELNS0_9AllocSpecE0EEEE7destroyIS4_EEvRS6_PT_.exit.i, %invoke.cont5.lr.ph.i
@@ -6066,7 +6060,7 @@ terminate.lpad.i.i.i.i.i.i:                       ; preds = %_ZN7testing17Throwi
   unreachable
 
 _ZNSt16allocator_traitsIN7testing17ThrowingAllocatorINS0_13ThrowingValueILNS0_8TypeSpecE2EEELNS0_9AllocSpecE0EEEE7destroyIS4_EEvRS6_PT_.exit.i: ; preds = %_ZN7testing17ThrowingAllocatorINS_13ThrowingValueILNS_8TypeSpecE2EEELNS_9AllocSpecE0EE9ReadStateEv.exit.i.i.i.i
-  %incdec.ptr.i = getelementptr inbounds %"class.testing::ThrowingValue.67", ptr %cur.05.i, i64 1
+  %incdec.ptr.i = getelementptr inbounds i8, ptr %cur.05.i, i64 4
   %6 = load ptr, ptr %data_.i.i, align 8
   %7 = load i64, ptr %size_alloc_.i.i.i, align 8
   %add.ptr.i.i = getelementptr inbounds %"class.testing::ThrowingValue.67", ptr %6, i64 %7
@@ -6146,22 +6140,22 @@ invoke.cont4:                                     ; preds = %invoke.cont
           to label %invoke.cont6 unwind label %lpad3
 
 invoke.cont6:                                     ; preds = %invoke.cont4
-  %_M_use_count.i.i.i.i.i.i = getelementptr inbounds %"class.std::_Sp_counted_base", ptr %call5.i.i.i2.i.i.i.i2, i64 0, i32 1
+  %_M_use_count.i.i.i.i.i.i = getelementptr inbounds i8, ptr %call5.i.i.i2.i.i.i.i2, i64 8
   store i32 1, ptr %_M_use_count.i.i.i.i.i.i, align 8, !noalias !57
-  %_M_weak_count.i.i.i.i.i.i = getelementptr inbounds %"class.std::_Sp_counted_base", ptr %call5.i.i.i2.i.i.i.i2, i64 0, i32 2
+  %_M_weak_count.i.i.i.i.i.i = getelementptr inbounds i8, ptr %call5.i.i.i2.i.i.i.i2, i64 12
   store i32 1, ptr %_M_weak_count.i.i.i.i.i.i, align 4, !noalias !57
   store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIKiSaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 0, inrange i32 0, i64 2), ptr %call5.i.i.i2.i.i.i.i2, align 8, !noalias !57
-  %_M_impl.i.i.i.i.i.i = getelementptr inbounds %"class.std::_Sp_counted_ptr_inplace", ptr %call5.i.i.i2.i.i.i.i2, i64 0, i32 1
+  %_M_impl.i.i.i.i.i.i = getelementptr inbounds i8, ptr %call5.i.i.i2.i.i.i.i2, i64 16
   store i32 %2, ptr %_M_impl.i.i.i.i.i.i, align 4, !noalias !57
   store ptr %_M_impl.i.i.i.i.i.i, ptr %this, align 8
-  %_M_refcount3.i.i.i = getelementptr inbounds %"class.std::__shared_ptr", ptr %this, i64 0, i32 1
+  %_M_refcount3.i.i.i = getelementptr inbounds i8, ptr %this, i64 8
   %3 = load ptr, ptr %_M_refcount3.i.i.i, align 8
   store ptr %call5.i.i.i2.i.i.i.i2, ptr %_M_refcount3.i.i.i, align 8
   %cmp.not.i.i.i.i = icmp eq ptr %3, null
   br i1 %cmp.not.i.i.i.i, label %_ZNSt10shared_ptrIKiED2Ev.exit, label %if.then.i.i.i.i
 
 if.then.i.i.i.i:                                  ; preds = %invoke.cont6
-  %_M_use_count.i.i.i.i.i = getelementptr inbounds %"class.std::_Sp_counted_base", ptr %3, i64 0, i32 1
+  %_M_use_count.i.i.i.i.i = getelementptr inbounds i8, ptr %3, i64 8
   %4 = load atomic i64, ptr %_M_use_count.i.i.i.i.i acquire, align 8
   %cmp.i.i.i.i.i = icmp eq i64 %4, 4294967297
   %5 = trunc i64 %4 to i32
@@ -6169,10 +6163,10 @@ if.then.i.i.i.i:                                  ; preds = %invoke.cont6
 
 if.then.i.i.i.i.i:                                ; preds = %if.then.i.i.i.i
   store i32 0, ptr %_M_use_count.i.i.i.i.i, align 8
-  %_M_weak_count.i.i.i.i.i = getelementptr inbounds %"class.std::_Sp_counted_base", ptr %3, i64 0, i32 2
+  %_M_weak_count.i.i.i.i.i = getelementptr inbounds i8, ptr %3, i64 12
   store i32 0, ptr %_M_weak_count.i.i.i.i.i, align 4
   %vtable.i.i.i.i.i = load ptr, ptr %3, align 8
-  %vfn.i.i.i.i.i = getelementptr inbounds ptr, ptr %vtable.i.i.i.i.i, i64 2
+  %vfn.i.i.i.i.i = getelementptr inbounds i8, ptr %vtable.i.i.i.i.i, i64 16
   %6 = load ptr, ptr %vfn.i.i.i.i.i, align 8
   call void %6(ptr noundef nonnull align 8 dereferenceable(16) %3) #18
   br label %if.end8.sink.split.i.i.i.i.i
@@ -6198,10 +6192,10 @@ _ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i: ; preds = %if.els
 
 if.then7.i.i.i.i.i:                               ; preds = %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i
   %vtable.i.i.i.i.i.i.i = load ptr, ptr %3, align 8
-  %vfn.i.i.i.i.i.i.i = getelementptr inbounds ptr, ptr %vtable.i.i.i.i.i.i.i, i64 2
+  %vfn.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %vtable.i.i.i.i.i.i.i, i64 16
   %9 = load ptr, ptr %vfn.i.i.i.i.i.i.i, align 8
   call void %9(ptr noundef nonnull align 8 dereferenceable(16) %3) #18
-  %_M_weak_count.i.i.i.i.i.i.i = getelementptr inbounds %"class.std::_Sp_counted_base", ptr %3, i64 0, i32 2
+  %_M_weak_count.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %3, i64 12
   %10 = load i8, ptr @__libc_single_threaded, align 1
   %tobool.i.not.i.i.i.i.i.i.i = icmp eq i8 %10, 0
   br i1 %tobool.i.not.i.i.i.i.i.i.i, label %if.else.i.i.i.i.i.i.i.i, label %if.then.i.i.i.i.i.i.i.i
@@ -6223,7 +6217,7 @@ _ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i.i: ; preds = %if
 
 if.end8.sink.split.i.i.i.i.i:                     ; preds = %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i.i, %if.then.i.i.i.i.i
   %vtable2.i.i.i.i.i.i.i = load ptr, ptr %3, align 8
-  %vfn3.i.i.i.i.i.i.i = getelementptr inbounds ptr, ptr %vtable2.i.i.i.i.i.i.i, i64 3
+  %vfn3.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %vtable2.i.i.i.i.i.i.i, i64 24
   %13 = load ptr, ptr %vfn3.i.i.i.i.i.i.i, align 8
   call void %13(ptr noundef nonnull align 8 dereferenceable(16) %3) #18
   br label %_ZNSt10shared_ptrIKiED2Ev.exit
@@ -6253,15 +6247,15 @@ eh.resume:                                        ; preds = %lpad3, %lpad.i
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr dso_local void @_ZN4absl10FixedArrayIN7testing13ThrowingValueILNS1_8TypeSpecE2EEELm25ENS1_17ThrowingAllocatorIS4_LNS1_9AllocSpecE0EEEED2Ev(ptr noundef nonnull align 8 dereferenceable(136) %this) unnamed_addr #7 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  %data_.i = getelementptr inbounds %"class.absl::FixedArray<testing::ThrowingValue<testing::TypeSpec::kNoThrowMove>, 25, testing::ThrowingAllocator<testing::ThrowingValue<testing::TypeSpec::kNoThrowMove>, testing::AllocSpec::kEverythingThrows>>::Storage", ptr %this, i64 0, i32 2
-  %size_alloc_.i.i = getelementptr inbounds %"class.absl::FixedArray<testing::ThrowingValue<testing::TypeSpec::kNoThrowMove>, 25, testing::ThrowingAllocator<testing::ThrowingValue<testing::TypeSpec::kNoThrowMove>, testing::AllocSpec::kEverythingThrows>>::Storage", ptr %this, i64 0, i32 1
+  %data_.i = getelementptr inbounds i8, ptr %this, i64 128
+  %size_alloc_.i.i = getelementptr inbounds i8, ptr %this, i64 104
   %0 = load i64, ptr %size_alloc_.i.i, align 8
   %cmp.not4 = icmp eq i64 %0, 0
   br i1 %cmp.not4, label %for.end, label %invoke.cont5.lr.ph
 
 invoke.cont5.lr.ph:                               ; preds = %entry
   %1 = load ptr, ptr %data_.i, align 8
-  %add.ptr.i.i = getelementptr inbounds %"class.absl::FixedArray<testing::ThrowingValue<testing::TypeSpec::kNoThrowMove>, 25, testing::ThrowingAllocator<testing::ThrowingValue<testing::TypeSpec::kNoThrowMove>, testing::AllocSpec::kEverythingThrows>>::Storage", ptr %this, i64 0, i32 1, i32 0, i32 1
+  %add.ptr.i.i = getelementptr inbounds i8, ptr %this, i64 112
   br label %invoke.cont5
 
 invoke.cont5:                                     ; preds = %invoke.cont5.lr.ph, %_ZNSt16allocator_traitsIN7testing17ThrowingAllocatorINS0_13ThrowingValueILNS0_8TypeSpecE2EEELNS0_9AllocSpecE0EEEE7destroyIS4_EEvRS6_PT_.exit
@@ -6287,7 +6281,7 @@ terminate.lpad.i.i.i.i.i:                         ; preds = %_ZN7testing17Throwi
   unreachable
 
 _ZNSt16allocator_traitsIN7testing17ThrowingAllocatorINS0_13ThrowingValueILNS0_8TypeSpecE2EEELNS0_9AllocSpecE0EEEE7destroyIS4_EEvRS6_PT_.exit: ; preds = %_ZN7testing17ThrowingAllocatorINS_13ThrowingValueILNS_8TypeSpecE2EEELNS_9AllocSpecE0EE9ReadStateEv.exit.i.i.i
-  %incdec.ptr = getelementptr inbounds %"class.testing::ThrowingValue.67", ptr %cur.05, i64 1
+  %incdec.ptr = getelementptr inbounds i8, ptr %cur.05, i64 4
   %6 = load ptr, ptr %data_.i, align 8
   %7 = load i64, ptr %size_alloc_.i.i, align 8
   %add.ptr.i = getelementptr inbounds %"class.testing::ThrowingValue.67", ptr %6, i64 %7
@@ -6302,13 +6296,13 @@ for.end:                                          ; preds = %_ZNSt16allocator_tr
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr dso_local void @_ZN7testing17ThrowingAllocatorINS_13ThrowingValueILNS_8TypeSpecE2EEELNS_9AllocSpecE0EED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %this) unnamed_addr #7 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  %_M_refcount.i.i = getelementptr inbounds %"class.std::__shared_ptr", ptr %this, i64 0, i32 1
+  %_M_refcount.i.i = getelementptr inbounds i8, ptr %this, i64 8
   %0 = load ptr, ptr %_M_refcount.i.i, align 8
   %cmp.not.i.i.i = icmp eq ptr %0, null
   br i1 %cmp.not.i.i.i, label %_ZNSt10shared_ptrIKiED2Ev.exit, label %if.then.i.i.i
 
 if.then.i.i.i:                                    ; preds = %entry
-  %_M_use_count.i.i.i.i = getelementptr inbounds %"class.std::_Sp_counted_base", ptr %0, i64 0, i32 1
+  %_M_use_count.i.i.i.i = getelementptr inbounds i8, ptr %0, i64 8
   %1 = load atomic i64, ptr %_M_use_count.i.i.i.i acquire, align 8
   %cmp.i.i.i.i = icmp eq i64 %1, 4294967297
   %2 = trunc i64 %1 to i32
@@ -6316,10 +6310,10 @@ if.then.i.i.i:                                    ; preds = %entry
 
 if.then.i.i.i.i:                                  ; preds = %if.then.i.i.i
   store i32 0, ptr %_M_use_count.i.i.i.i, align 8
-  %_M_weak_count.i.i.i.i = getelementptr inbounds %"class.std::_Sp_counted_base", ptr %0, i64 0, i32 2
+  %_M_weak_count.i.i.i.i = getelementptr inbounds i8, ptr %0, i64 12
   store i32 0, ptr %_M_weak_count.i.i.i.i, align 4
   %vtable.i.i.i.i = load ptr, ptr %0, align 8
-  %vfn.i.i.i.i = getelementptr inbounds ptr, ptr %vtable.i.i.i.i, i64 2
+  %vfn.i.i.i.i = getelementptr inbounds i8, ptr %vtable.i.i.i.i, i64 16
   %3 = load ptr, ptr %vfn.i.i.i.i, align 8
   tail call void %3(ptr noundef nonnull align 8 dereferenceable(16) %0) #18
   br label %if.end8.sink.split.i.i.i.i
@@ -6345,10 +6339,10 @@ _ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i: ; preds = %if.else.
 
 if.then7.i.i.i.i:                                 ; preds = %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i
   %vtable.i.i.i.i.i.i = load ptr, ptr %0, align 8
-  %vfn.i.i.i.i.i.i = getelementptr inbounds ptr, ptr %vtable.i.i.i.i.i.i, i64 2
+  %vfn.i.i.i.i.i.i = getelementptr inbounds i8, ptr %vtable.i.i.i.i.i.i, i64 16
   %6 = load ptr, ptr %vfn.i.i.i.i.i.i, align 8
   tail call void %6(ptr noundef nonnull align 8 dereferenceable(16) %0) #18
-  %_M_weak_count.i.i.i.i.i.i = getelementptr inbounds %"class.std::_Sp_counted_base", ptr %0, i64 0, i32 2
+  %_M_weak_count.i.i.i.i.i.i = getelementptr inbounds i8, ptr %0, i64 12
   %7 = load i8, ptr @__libc_single_threaded, align 1
   %tobool.i.not.i.i.i.i.i.i = icmp eq i8 %7, 0
   br i1 %tobool.i.not.i.i.i.i.i.i, label %if.else.i.i.i.i.i.i.i, label %if.then.i.i.i.i.i.i.i
@@ -6370,7 +6364,7 @@ _ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i: ; preds = %if.e
 
 if.end8.sink.split.i.i.i.i:                       ; preds = %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i, %if.then.i.i.i.i
   %vtable2.i.i.i.i.i.i = load ptr, ptr %0, align 8
-  %vfn3.i.i.i.i.i.i = getelementptr inbounds ptr, ptr %vtable2.i.i.i.i.i.i, i64 3
+  %vfn3.i.i.i.i.i.i = getelementptr inbounds i8, ptr %vtable2.i.i.i.i.i.i, i64 24
   %10 = load ptr, ptr %vfn3.i.i.i.i.i.i, align 8
   tail call void %10(ptr noundef nonnull align 8 dereferenceable(16) %0) #18
   br label %_ZNSt10shared_ptrIKiED2Ev.exit
@@ -6393,14 +6387,14 @@ _ZN7testing19exceptions_internal13TrackedObjectD2Ev.exit: ; preds = %_ZNSt10shar
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr dso_local void @_ZN4absl10FixedArrayIN7testing13ThrowingValueILNS1_8TypeSpecE0EEELm25ENS1_17ThrowingAllocatorIS4_LNS1_9AllocSpecE0EEEEC2EOS8_RKS7_(ptr noundef nonnull align 8 dereferenceable(136) %this, ptr noundef nonnull align 8 dereferenceable(136) %other, ptr noundef nonnull align 8 dereferenceable(16) %a) unnamed_addr #3 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  %data_.i.i.i = getelementptr inbounds %"class.absl::FixedArray<testing::ThrowingValue<testing::TypeSpec::kEverythingThrows>, 25, testing::ThrowingAllocator<testing::ThrowingValue<testing::TypeSpec::kEverythingThrows>, testing::AllocSpec::kEverythingThrows>>::Storage", ptr %other, i64 0, i32 2
+  %data_.i.i.i = getelementptr inbounds i8, ptr %other, i64 128
   %0 = load ptr, ptr %data_.i.i.i, align 8
-  %size_alloc_.i.i.i = getelementptr inbounds %"class.absl::FixedArray<testing::ThrowingValue<testing::TypeSpec::kEverythingThrows>, 25, testing::ThrowingAllocator<testing::ThrowingValue<testing::TypeSpec::kEverythingThrows>, testing::AllocSpec::kEverythingThrows>>::Storage", ptr %other, i64 0, i32 1
+  %size_alloc_.i.i.i = getelementptr inbounds i8, ptr %other, i64 104
   %1 = load i64, ptr %size_alloc_.i.i.i, align 8
   %add.ptr.i = getelementptr inbounds %"class.testing::ThrowingValue", ptr %0, i64 %1
-  %size_alloc_.i.i = getelementptr inbounds %"class.absl::FixedArray<testing::ThrowingValue<testing::TypeSpec::kEverythingThrows>, 25, testing::ThrowingAllocator<testing::ThrowingValue<testing::TypeSpec::kEverythingThrows>, testing::AllocSpec::kEverythingThrows>>::Storage", ptr %this, i64 0, i32 1
+  %size_alloc_.i.i = getelementptr inbounds i8, ptr %this, i64 104
   store i64 %1, ptr %size_alloc_.i.i, align 8
-  %2 = getelementptr inbounds %"class.absl::FixedArray<testing::ThrowingValue<testing::TypeSpec::kEverythingThrows>, 25, testing::ThrowingAllocator<testing::ThrowingValue<testing::TypeSpec::kEverythingThrows>, testing::AllocSpec::kEverythingThrows>>::Storage", ptr %this, i64 0, i32 1, i32 0, i32 1
+  %2 = getelementptr inbounds i8, ptr %this, i64 112
   tail call void @_ZN7testing17ThrowingAllocatorINS_13ThrowingValueILNS_8TypeSpecE0EEELNS_9AllocSpecE0EEC2ERKS5_(ptr noundef nonnull align 8 dereferenceable(16) %2, ptr noundef nonnull align 8 dereferenceable(16) %a) #18
   %3 = load i64, ptr %size_alloc_.i.i, align 8
   %cmp.i.i.i.i = icmp ult i64 %3, 26
@@ -6427,7 +6421,7 @@ lpad.i.i:                                         ; preds = %.noexc.i.i, %if.els
 
 invoke.cont.i:                                    ; preds = %.noexc.i.i, %entry
   %retval.0.i.i.i = phi ptr [ %this, %entry ], [ %call.i.i.i1.i.i, %.noexc.i.i ]
-  %data_.i.i = getelementptr inbounds %"class.absl::FixedArray<testing::ThrowingValue<testing::TypeSpec::kEverythingThrows>, 25, testing::ThrowingAllocator<testing::ThrowingValue<testing::TypeSpec::kEverythingThrows>, testing::AllocSpec::kEverythingThrows>>::Storage", ptr %this, i64 0, i32 2
+  %data_.i.i = getelementptr inbounds i8, ptr %this, i64 128
   store ptr %retval.0.i.i.i, ptr %data_.i.i, align 8
   invoke void @_ZN4absl15memory_internal9CopyRangeIN7testing17ThrowingAllocatorINS2_13ThrowingValueILNS2_8TypeSpecE0EEELNS2_9AllocSpecE0EEEPS6_St13move_iteratorIS9_EEEvRT_T0_T1_SF_(ptr noundef nonnull align 8 dereferenceable(16) %2, ptr noundef nonnull %retval.0.i.i.i, ptr %0, ptr %add.ptr.i)
           to label %_ZN4absl10FixedArrayIN7testing13ThrowingValueILNS1_8TypeSpecE0EEELm25ENS1_17ThrowingAllocatorIS4_LNS1_9AllocSpecE0EEEEC2ISt13move_iteratorIPS4_ETnPNSt9enable_ifIXsr3std14is_convertibleINSt15iterator_traitsIT_E17iterator_categoryESt20forward_iterator_tagEE5valueEvE4typeELPv0EEESF_SF_RKS7_.exit unwind label %lpad.i
@@ -6481,7 +6475,7 @@ if.then.i.i.i.i:                                  ; preds = %while.body
   unreachable
 
 _ZN7testing17ThrowingAllocatorINS_13ThrowingValueILNS_8TypeSpecE0EEELNS_9AllocSpecE0EE9ReadStateEv.exit.i.i.i: ; preds = %while.body
-  %incdec.ptr = getelementptr inbounds %"class.testing::ThrowingValue", ptr %cur.1, i64 -1
+  %incdec.ptr = getelementptr inbounds i8, ptr %cur.1, i64 -4
   invoke void @_ZN7testing19exceptions_internal18ConstructorTracker16ObjectDestructedEPv(ptr noundef nonnull %incdec.ptr)
           to label %while.cond unwind label %terminate.lpad.i.i.i.i.i, !llvm.loop !60
 
@@ -6503,8 +6497,8 @@ lpad3:                                            ; preds = %do.body
           to label %eh.resume unwind label %terminate.lpad
 
 for.inc:                                          ; preds = %.noexc
-  %incdec.ptr5 = getelementptr inbounds %"class.testing::ThrowingValue", ptr %cur.013, i64 1
-  %incdec.ptr.i = getelementptr inbounds %"class.testing::ThrowingValue", ptr %first.sroa.0.012, i64 1
+  %incdec.ptr5 = getelementptr inbounds i8, ptr %cur.013, i64 4
+  %incdec.ptr.i = getelementptr inbounds i8, ptr %first.sroa.0.012, i64 4
   %cmp.i.i.not = icmp eq ptr %incdec.ptr.i, %last.coerce
   br i1 %cmp.i.i.not, label %for.end, label %for.body, !llvm.loop !61
 
@@ -6528,14 +6522,14 @@ unreachable:                                      ; preds = %do.body
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr dso_local void @_ZN4absl10FixedArrayIN7testing13ThrowingValueILNS1_8TypeSpecE2EEELm25ENS1_17ThrowingAllocatorIS4_LNS1_9AllocSpecE0EEEEC2EOS8_RKS7_(ptr noundef nonnull align 8 dereferenceable(136) %this, ptr noundef nonnull align 8 dereferenceable(136) %other, ptr noundef nonnull align 8 dereferenceable(16) %a) unnamed_addr #3 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  %data_.i.i.i = getelementptr inbounds %"class.absl::FixedArray<testing::ThrowingValue<testing::TypeSpec::kNoThrowMove>, 25, testing::ThrowingAllocator<testing::ThrowingValue<testing::TypeSpec::kNoThrowMove>, testing::AllocSpec::kEverythingThrows>>::Storage", ptr %other, i64 0, i32 2
+  %data_.i.i.i = getelementptr inbounds i8, ptr %other, i64 128
   %0 = load ptr, ptr %data_.i.i.i, align 8
-  %size_alloc_.i.i.i = getelementptr inbounds %"class.absl::FixedArray<testing::ThrowingValue<testing::TypeSpec::kNoThrowMove>, 25, testing::ThrowingAllocator<testing::ThrowingValue<testing::TypeSpec::kNoThrowMove>, testing::AllocSpec::kEverythingThrows>>::Storage", ptr %other, i64 0, i32 1
+  %size_alloc_.i.i.i = getelementptr inbounds i8, ptr %other, i64 104
   %1 = load i64, ptr %size_alloc_.i.i.i, align 8
   %add.ptr.i = getelementptr inbounds %"class.testing::ThrowingValue.67", ptr %0, i64 %1
-  %size_alloc_.i.i = getelementptr inbounds %"class.absl::FixedArray<testing::ThrowingValue<testing::TypeSpec::kNoThrowMove>, 25, testing::ThrowingAllocator<testing::ThrowingValue<testing::TypeSpec::kNoThrowMove>, testing::AllocSpec::kEverythingThrows>>::Storage", ptr %this, i64 0, i32 1
+  %size_alloc_.i.i = getelementptr inbounds i8, ptr %this, i64 104
   store i64 %1, ptr %size_alloc_.i.i, align 8
-  %2 = getelementptr inbounds %"class.absl::FixedArray<testing::ThrowingValue<testing::TypeSpec::kNoThrowMove>, 25, testing::ThrowingAllocator<testing::ThrowingValue<testing::TypeSpec::kNoThrowMove>, testing::AllocSpec::kEverythingThrows>>::Storage", ptr %this, i64 0, i32 1, i32 0, i32 1
+  %2 = getelementptr inbounds i8, ptr %this, i64 112
   tail call void @_ZN7testing17ThrowingAllocatorINS_13ThrowingValueILNS_8TypeSpecE2EEELNS_9AllocSpecE0EEC2ERKS5_(ptr noundef nonnull align 8 dereferenceable(16) %2, ptr noundef nonnull align 8 dereferenceable(16) %a) #18
   %3 = load i64, ptr %size_alloc_.i.i, align 8
   %cmp.i.i.i.i = icmp ult i64 %3, 26
@@ -6562,7 +6556,7 @@ lpad.i.i:                                         ; preds = %.noexc.i.i, %if.els
 
 invoke.cont.i:                                    ; preds = %.noexc.i.i, %entry
   %retval.0.i.i.i = phi ptr [ %this, %entry ], [ %call.i.i.i1.i.i, %.noexc.i.i ]
-  %data_.i.i = getelementptr inbounds %"class.absl::FixedArray<testing::ThrowingValue<testing::TypeSpec::kNoThrowMove>, 25, testing::ThrowingAllocator<testing::ThrowingValue<testing::TypeSpec::kNoThrowMove>, testing::AllocSpec::kEverythingThrows>>::Storage", ptr %this, i64 0, i32 2
+  %data_.i.i = getelementptr inbounds i8, ptr %this, i64 128
   store ptr %retval.0.i.i.i, ptr %data_.i.i, align 8
   invoke void @_ZN4absl15memory_internal9CopyRangeIN7testing17ThrowingAllocatorINS2_13ThrowingValueILNS2_8TypeSpecE2EEELNS2_9AllocSpecE0EEEPS6_St13move_iteratorIS9_EEEvRT_T0_T1_SF_(ptr noundef nonnull align 8 dereferenceable(16) %2, ptr noundef nonnull %retval.0.i.i.i, ptr %0, ptr %add.ptr.i)
           to label %_ZN4absl10FixedArrayIN7testing13ThrowingValueILNS1_8TypeSpecE2EEELm25ENS1_17ThrowingAllocatorIS4_LNS1_9AllocSpecE0EEEEC2ISt13move_iteratorIPS4_ETnPNSt9enable_ifIXsr3std14is_convertibleINSt15iterator_traitsIT_E17iterator_categoryESt20forward_iterator_tagEE5valueEvE4typeELPv0EEESF_SF_RKS7_.exit unwind label %lpad.i
@@ -6612,7 +6606,7 @@ if.then.i.i.i.i:                                  ; preds = %while.body
   unreachable
 
 _ZN7testing17ThrowingAllocatorINS_13ThrowingValueILNS_8TypeSpecE2EEELNS_9AllocSpecE0EE9ReadStateEv.exit.i.i.i: ; preds = %while.body
-  %incdec.ptr = getelementptr inbounds %"class.testing::ThrowingValue.67", ptr %cur.1, i64 -1
+  %incdec.ptr = getelementptr inbounds i8, ptr %cur.1, i64 -4
   invoke void @_ZN7testing19exceptions_internal18ConstructorTracker16ObjectDestructedEPv(ptr noundef nonnull %incdec.ptr)
           to label %while.cond unwind label %terminate.lpad.i.i.i.i.i, !llvm.loop !62
 
@@ -6635,8 +6629,8 @@ lpad3:                                            ; preds = %do.body
 
 for.inc:                                          ; preds = %for.body
   tail call void @_ZN7testing13ThrowingValueILNS_8TypeSpecE2EEC2EOS2_(ptr noundef nonnull align 4 dereferenceable(4) %cur.012, ptr noundef nonnull align 4 dereferenceable(4) %first.sroa.0.011) #18
-  %incdec.ptr5 = getelementptr inbounds %"class.testing::ThrowingValue.67", ptr %cur.012, i64 1
-  %incdec.ptr.i = getelementptr inbounds %"class.testing::ThrowingValue.67", ptr %first.sroa.0.011, i64 1
+  %incdec.ptr5 = getelementptr inbounds i8, ptr %cur.012, i64 4
+  %incdec.ptr.i = getelementptr inbounds i8, ptr %first.sroa.0.011, i64 4
   %cmp.i.i.not = icmp eq ptr %incdec.ptr.i, %last.coerce
   br i1 %cmp.i.i.not, label %for.end, label %for.body, !llvm.loop !63
 
@@ -6660,13 +6654,13 @@ unreachable:                                      ; preds = %do.body
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr dso_local void @_ZN4absl10FixedArrayIN7testing13ThrowingValueILNS1_8TypeSpecE2EEELm25ENS1_17ThrowingAllocatorIS4_LNS1_9AllocSpecE0EEEE7StorageD2Ev(ptr noundef nonnull align 8 dereferenceable(136) %this) unnamed_addr #7 comdat align 2 personality ptr @__gxx_personality_v0 {
 invoke.cont:
-  %size_alloc_.i = getelementptr inbounds %"class.absl::FixedArray<testing::ThrowingValue<testing::TypeSpec::kNoThrowMove>, 25, testing::ThrowingAllocator<testing::ThrowingValue<testing::TypeSpec::kNoThrowMove>, testing::AllocSpec::kEverythingThrows>>::Storage", ptr %this, i64 0, i32 1
+  %size_alloc_.i = getelementptr inbounds i8, ptr %this, i64 104
   %0 = load i64, ptr %size_alloc_.i, align 8
   %cmp.i = icmp ult i64 %0, 26
   br i1 %cmp.i, label %if.end, label %invoke.cont10
 
 invoke.cont10:                                    ; preds = %invoke.cont
-  %add.ptr.i.i = getelementptr inbounds %"class.absl::FixedArray<testing::ThrowingValue<testing::TypeSpec::kNoThrowMove>, 25, testing::ThrowingAllocator<testing::ThrowingValue<testing::TypeSpec::kNoThrowMove>, testing::AllocSpec::kEverythingThrows>>::Storage", ptr %this, i64 0, i32 1, i32 0, i32 1
+  %add.ptr.i.i = getelementptr inbounds i8, ptr %this, i64 112
   %1 = load ptr, ptr %add.ptr.i.i, align 8
   %2 = load i32, ptr %1, align 4
   %cmp.i.i.i = icmp slt i32 %2, 0
@@ -6677,20 +6671,20 @@ if.then.i.i.i:                                    ; preds = %invoke.cont10
   unreachable
 
 _ZNSt16allocator_traitsIN7testing17ThrowingAllocatorINS0_13ThrowingValueILNS0_8TypeSpecE2EEELNS0_9AllocSpecE0EEEE10deallocateERS6_PS4_m.exit: ; preds = %invoke.cont10
-  %data_.i = getelementptr inbounds %"class.absl::FixedArray<testing::ThrowingValue<testing::TypeSpec::kNoThrowMove>, 25, testing::ThrowingAllocator<testing::ThrowingValue<testing::TypeSpec::kNoThrowMove>, testing::AllocSpec::kEverythingThrows>>::Storage", ptr %this, i64 0, i32 2
+  %data_.i = getelementptr inbounds i8, ptr %this, i64 128
   %3 = load ptr, ptr %data_.i, align 8
   tail call void @_ZdlPv(ptr noundef %3) #18
   br label %if.end
 
 if.end:                                           ; preds = %invoke.cont, %_ZNSt16allocator_traitsIN7testing17ThrowingAllocatorINS0_13ThrowingValueILNS0_8TypeSpecE2EEELNS0_9AllocSpecE0EEEE10deallocateERS6_PS4_m.exit
-  %4 = getelementptr inbounds %"class.absl::FixedArray<testing::ThrowingValue<testing::TypeSpec::kNoThrowMove>, 25, testing::ThrowingAllocator<testing::ThrowingValue<testing::TypeSpec::kNoThrowMove>, testing::AllocSpec::kEverythingThrows>>::Storage", ptr %this, i64 0, i32 1, i32 0, i32 1
-  %_M_refcount.i.i.i.i.i.i = getelementptr inbounds %"class.absl::FixedArray<testing::ThrowingValue<testing::TypeSpec::kNoThrowMove>, 25, testing::ThrowingAllocator<testing::ThrowingValue<testing::TypeSpec::kNoThrowMove>, testing::AllocSpec::kEverythingThrows>>::Storage", ptr %this, i64 0, i32 1, i32 0, i32 1, i32 0, i32 0, i32 0, i32 1
+  %4 = getelementptr inbounds i8, ptr %this, i64 112
+  %_M_refcount.i.i.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 120
   %5 = load ptr, ptr %_M_refcount.i.i.i.i.i.i, align 8
   %cmp.not.i.i.i.i.i.i.i = icmp eq ptr %5, null
   br i1 %cmp.not.i.i.i.i.i.i.i, label %_ZNSt10shared_ptrIKiED2Ev.exit.i.i.i.i, label %if.then.i.i.i.i.i.i.i
 
 if.then.i.i.i.i.i.i.i:                            ; preds = %if.end
-  %_M_use_count.i.i.i.i.i.i.i.i = getelementptr inbounds %"class.std::_Sp_counted_base", ptr %5, i64 0, i32 1
+  %_M_use_count.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %5, i64 8
   %6 = load atomic i64, ptr %_M_use_count.i.i.i.i.i.i.i.i acquire, align 8
   %cmp.i.i.i.i.i.i.i.i = icmp eq i64 %6, 4294967297
   %7 = trunc i64 %6 to i32
@@ -6698,10 +6692,10 @@ if.then.i.i.i.i.i.i.i:                            ; preds = %if.end
 
 if.then.i.i.i.i.i.i.i.i:                          ; preds = %if.then.i.i.i.i.i.i.i
   store i32 0, ptr %_M_use_count.i.i.i.i.i.i.i.i, align 8
-  %_M_weak_count.i.i.i.i.i.i.i.i = getelementptr inbounds %"class.std::_Sp_counted_base", ptr %5, i64 0, i32 2
+  %_M_weak_count.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %5, i64 12
   store i32 0, ptr %_M_weak_count.i.i.i.i.i.i.i.i, align 4
   %vtable.i.i.i.i.i.i.i.i = load ptr, ptr %5, align 8
-  %vfn.i.i.i.i.i.i.i.i = getelementptr inbounds ptr, ptr %vtable.i.i.i.i.i.i.i.i, i64 2
+  %vfn.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %vtable.i.i.i.i.i.i.i.i, i64 16
   %8 = load ptr, ptr %vfn.i.i.i.i.i.i.i.i, align 8
   tail call void %8(ptr noundef nonnull align 8 dereferenceable(16) %5) #18
   br label %if.end8.sink.split.i.i.i.i.i.i.i.i
@@ -6727,10 +6721,10 @@ _ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i.i.i: ; preds = %
 
 if.then7.i.i.i.i.i.i.i.i:                         ; preds = %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i.i.i
   %vtable.i.i.i.i.i.i.i.i.i.i = load ptr, ptr %5, align 8
-  %vfn.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds ptr, ptr %vtable.i.i.i.i.i.i.i.i.i.i, i64 2
+  %vfn.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %vtable.i.i.i.i.i.i.i.i.i.i, i64 16
   %11 = load ptr, ptr %vfn.i.i.i.i.i.i.i.i.i.i, align 8
   tail call void %11(ptr noundef nonnull align 8 dereferenceable(16) %5) #18
-  %_M_weak_count.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds %"class.std::_Sp_counted_base", ptr %5, i64 0, i32 2
+  %_M_weak_count.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %5, i64 12
   %12 = load i8, ptr @__libc_single_threaded, align 1
   %tobool.i.not.i.i.i.i.i.i.i.i.i.i = icmp eq i8 %12, 0
   br i1 %tobool.i.not.i.i.i.i.i.i.i.i.i.i, label %if.else.i.i.i.i.i.i.i.i.i.i.i, label %if.then.i.i.i.i.i.i.i.i.i.i.i
@@ -6752,7 +6746,7 @@ _ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i.i.i.i.i: ; preds
 
 if.end8.sink.split.i.i.i.i.i.i.i.i:               ; preds = %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i.i.i.i.i, %if.then.i.i.i.i.i.i.i.i
   %vtable2.i.i.i.i.i.i.i.i.i.i = load ptr, ptr %5, align 8
-  %vfn3.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds ptr, ptr %vtable2.i.i.i.i.i.i.i.i.i.i, i64 3
+  %vfn3.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %vtable2.i.i.i.i.i.i.i.i.i.i, i64 24
   %15 = load ptr, ptr %vfn3.i.i.i.i.i.i.i.i.i.i, align 8
   tail call void %15(ptr noundef nonnull align 8 dereferenceable(16) %5) #18
   br label %_ZNSt10shared_ptrIKiED2Ev.exit.i.i.i.i
@@ -6782,7 +6776,7 @@ entry:
   br i1 %cmp.not.i.i.i.i.i.i, label %_ZNSt10shared_ptrIKiED2Ev.exit.i.i.i, label %if.then.i.i.i.i.i.i
 
 if.then.i.i.i.i.i.i:                              ; preds = %entry
-  %_M_use_count.i.i.i.i.i.i.i = getelementptr inbounds %"class.std::_Sp_counted_base", ptr %1, i64 0, i32 1
+  %_M_use_count.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %1, i64 8
   %2 = load atomic i64, ptr %_M_use_count.i.i.i.i.i.i.i acquire, align 8
   %cmp.i.i.i.i.i.i.i = icmp eq i64 %2, 4294967297
   %3 = trunc i64 %2 to i32
@@ -6790,10 +6784,10 @@ if.then.i.i.i.i.i.i:                              ; preds = %entry
 
 if.then.i.i.i.i.i.i.i:                            ; preds = %if.then.i.i.i.i.i.i
   store i32 0, ptr %_M_use_count.i.i.i.i.i.i.i, align 8
-  %_M_weak_count.i.i.i.i.i.i.i = getelementptr inbounds %"class.std::_Sp_counted_base", ptr %1, i64 0, i32 2
+  %_M_weak_count.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %1, i64 12
   store i32 0, ptr %_M_weak_count.i.i.i.i.i.i.i, align 4
   %vtable.i.i.i.i.i.i.i = load ptr, ptr %1, align 8
-  %vfn.i.i.i.i.i.i.i = getelementptr inbounds ptr, ptr %vtable.i.i.i.i.i.i.i, i64 2
+  %vfn.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %vtable.i.i.i.i.i.i.i, i64 16
   %4 = load ptr, ptr %vfn.i.i.i.i.i.i.i, align 8
   tail call void %4(ptr noundef nonnull align 8 dereferenceable(16) %1) #18
   br label %if.end8.sink.split.i.i.i.i.i.i.i
@@ -6819,10 +6813,10 @@ _ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i.i: ; preds = %if
 
 if.then7.i.i.i.i.i.i.i:                           ; preds = %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i.i
   %vtable.i.i.i.i.i.i.i.i.i = load ptr, ptr %1, align 8
-  %vfn.i.i.i.i.i.i.i.i.i = getelementptr inbounds ptr, ptr %vtable.i.i.i.i.i.i.i.i.i, i64 2
+  %vfn.i.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %vtable.i.i.i.i.i.i.i.i.i, i64 16
   %7 = load ptr, ptr %vfn.i.i.i.i.i.i.i.i.i, align 8
   tail call void %7(ptr noundef nonnull align 8 dereferenceable(16) %1) #18
-  %_M_weak_count.i.i.i.i.i.i.i.i.i = getelementptr inbounds %"class.std::_Sp_counted_base", ptr %1, i64 0, i32 2
+  %_M_weak_count.i.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %1, i64 12
   %8 = load i8, ptr @__libc_single_threaded, align 1
   %tobool.i.not.i.i.i.i.i.i.i.i.i = icmp eq i8 %8, 0
   br i1 %tobool.i.not.i.i.i.i.i.i.i.i.i, label %if.else.i.i.i.i.i.i.i.i.i.i, label %if.then.i.i.i.i.i.i.i.i.i.i
@@ -6844,7 +6838,7 @@ _ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i.i.i.i: ; preds =
 
 if.end8.sink.split.i.i.i.i.i.i.i:                 ; preds = %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i.i.i.i, %if.then.i.i.i.i.i.i.i
   %vtable2.i.i.i.i.i.i.i.i.i = load ptr, ptr %1, align 8
-  %vfn3.i.i.i.i.i.i.i.i.i = getelementptr inbounds ptr, ptr %vtable2.i.i.i.i.i.i.i.i.i, i64 3
+  %vfn3.i.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %vtable2.i.i.i.i.i.i.i.i.i, i64 24
   %11 = load ptr, ptr %vfn3.i.i.i.i.i.i.i.i.i, align 8
   tail call void %11(ptr noundef nonnull align 8 dereferenceable(16) %1) #18
   br label %_ZNSt10shared_ptrIKiED2Ev.exit.i.i.i
@@ -6892,15 +6886,15 @@ invoke.cont4:                                     ; preds = %invoke.cont3
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %agg.tmp) #18
   %3 = load ptr, ptr %other, align 8
   store ptr %3, ptr %this, align 8
-  %_M_refcount.i.i = getelementptr inbounds %"class.std::__shared_ptr", ptr %this, i64 0, i32 1
-  %_M_refcount3.i.i = getelementptr inbounds %"class.std::__shared_ptr", ptr %other, i64 0, i32 1
+  %_M_refcount.i.i = getelementptr inbounds i8, ptr %this, i64 8
+  %_M_refcount3.i.i = getelementptr inbounds i8, ptr %other, i64 8
   %4 = load ptr, ptr %_M_refcount3.i.i, align 8
   store ptr %4, ptr %_M_refcount.i.i, align 8
   %cmp.not.i.i.i = icmp eq ptr %4, null
   br i1 %cmp.not.i.i.i, label %_ZNSt10shared_ptrIKiEC2ERKS1_.exit, label %if.then.i.i.i
 
 if.then.i.i.i:                                    ; preds = %invoke.cont4
-  %_M_use_count.i.i.i.i = getelementptr inbounds %"class.std::_Sp_counted_base", ptr %4, i64 0, i32 1
+  %_M_use_count.i.i.i.i = getelementptr inbounds i8, ptr %4, i64 8
   %5 = load i8, ptr @__libc_single_threaded, align 1
   %tobool.i.i.not.i.i.i.i = icmp eq i8 %5, 0
   br i1 %tobool.i.i.not.i.i.i.i, label %if.else.i.i.i.i.i, label %if.then.i.i.i.i.i
@@ -6938,7 +6932,7 @@ invoke.cont4:
   %ref.tmp5 = alloca %"class.absl::AlphaNum", align 8
   call void @_ZN7testing19exceptions_internal13GetSpecStringB5cxx11ENS_9AllocSpecE(ptr nonnull sret(%"class.std::__cxx11::basic_string") align 8 %ref.tmp2, i32 noundef 0)
   %call.i = call { i64, ptr } @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEcvSt17basic_string_viewIcS2_EEv(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp2) #18
-  %digits_.i = getelementptr inbounds %"class.absl::AlphaNum", ptr %ref.tmp5, i64 0, i32 1
+  %digits_.i = getelementptr inbounds i8, ptr %ref.tmp5, i64 16
   %call.i23 = invoke noundef ptr @_ZN4absl16numbers_internal15FastIntToBufferEiPc(i32 noundef %dummy, ptr noundef nonnull %digits_.i)
           to label %invoke.cont8 unwind label %lpad
 
@@ -6949,27 +6943,27 @@ invoke.cont8:                                     ; preds = %invoke.cont4
   %sub.ptr.rhs.cast.i = ptrtoint ptr %digits_.i to i64
   %sub.ptr.sub.i = sub i64 %sub.ptr.lhs.cast.i, %sub.ptr.rhs.cast.i
   store i64 %sub.ptr.sub.i, ptr %ref.tmp5, align 8
-  %_M_str.i.i = getelementptr inbounds %"class.std::basic_string_view", ptr %ref.tmp5, i64 0, i32 1
+  %_M_str.i.i = getelementptr inbounds i8, ptr %ref.tmp5, i64 8
   store ptr %digits_.i, ptr %_M_str.i.i, align 8
   call void @llvm.lifetime.start.p0(i64 80, ptr nonnull %ref.tmp.i)
   store i64 18, ptr %ref.tmp.i, align 8, !noalias !64
-  %2 = getelementptr inbounds { i64, ptr }, ptr %ref.tmp.i, i64 0, i32 1
+  %2 = getelementptr inbounds i8, ptr %ref.tmp.i, i64 8
   store ptr @.str.39, ptr %2, align 8, !noalias !64
-  %arrayinit.element.i = getelementptr inbounds %"class.std::basic_string_view", ptr %ref.tmp.i, i64 1
+  %arrayinit.element.i = getelementptr inbounds i8, ptr %ref.tmp.i, i64 16
   store i64 %1, ptr %arrayinit.element.i, align 8, !noalias !64
-  %3 = getelementptr inbounds %"class.std::basic_string_view", ptr %ref.tmp.i, i64 1, i32 1
+  %3 = getelementptr inbounds i8, ptr %ref.tmp.i, i64 24
   store ptr %0, ptr %3, align 8, !noalias !64
-  %arrayinit.element2.i = getelementptr inbounds %"class.std::basic_string_view", ptr %ref.tmp.i, i64 2
+  %arrayinit.element2.i = getelementptr inbounds i8, ptr %ref.tmp.i, i64 32
   store i64 2, ptr %arrayinit.element2.i, align 8, !noalias !64
-  %4 = getelementptr inbounds %"class.std::basic_string_view", ptr %ref.tmp.i, i64 2, i32 1
+  %4 = getelementptr inbounds i8, ptr %ref.tmp.i, i64 40
   store ptr @.str.31, ptr %4, align 8, !noalias !64
-  %arrayinit.element4.i = getelementptr inbounds %"class.std::basic_string_view", ptr %ref.tmp.i, i64 3
+  %arrayinit.element4.i = getelementptr inbounds i8, ptr %ref.tmp.i, i64 48
   store i64 %sub.ptr.sub.i, ptr %arrayinit.element4.i, align 8, !noalias !64
-  %5 = getelementptr inbounds %"class.std::basic_string_view", ptr %ref.tmp.i, i64 3, i32 1
+  %5 = getelementptr inbounds i8, ptr %ref.tmp.i, i64 56
   store ptr %digits_.i, ptr %5, align 8, !noalias !64
-  %arrayinit.element6.i = getelementptr inbounds %"class.std::basic_string_view", ptr %ref.tmp.i, i64 4
+  %arrayinit.element6.i = getelementptr inbounds i8, ptr %ref.tmp.i, i64 64
   store i64 1, ptr %arrayinit.element6.i, align 8, !noalias !64
-  %6 = getelementptr inbounds %"class.std::basic_string_view", ptr %ref.tmp.i, i64 4, i32 1
+  %6 = getelementptr inbounds i8, ptr %ref.tmp.i, i64 72
   store ptr @.str.32, ptr %6, align 8, !noalias !64
   invoke void @_ZN4absl16strings_internal9CatPiecesB5cxx11ESt16initializer_listISt17basic_string_viewIcSt11char_traitsIcEEE(ptr sret(%"class.std::__cxx11::basic_string") align 8 %agg.result, ptr nonnull %ref.tmp.i, i64 5)
           to label %invoke.cont9 unwind label %lpad
@@ -6994,24 +6988,24 @@ entry:
   %ref.tmp3 = alloca %"class.absl::substitute_internal::Arg", align 8
   %0 = load ptr, ptr %this, align 8
   %1 = load i32, ptr %0, align 4
-  %scratch_.i = getelementptr inbounds %"class.absl::substitute_internal::Arg", ptr %ref.tmp3, i64 0, i32 1
+  %scratch_.i = getelementptr inbounds i8, ptr %ref.tmp3, i64 16
   %call.i = call noundef ptr @_ZN4absl16numbers_internal15FastIntToBufferEiPc(i32 noundef %1, ptr noundef nonnull %scratch_.i)
   %sub.ptr.lhs.cast.i = ptrtoint ptr %call.i to i64
   %sub.ptr.rhs.cast.i = ptrtoint ptr %scratch_.i to i64
   %sub.ptr.sub.i = sub i64 %sub.ptr.lhs.cast.i, %sub.ptr.rhs.cast.i
   store i64 %sub.ptr.sub.i, ptr %ref.tmp3, align 8
-  %_M_str.i.i = getelementptr inbounds %"class.std::basic_string_view", ptr %ref.tmp3, i64 0, i32 1
+  %_M_str.i.i = getelementptr inbounds i8, ptr %ref.tmp3, i64 8
   store ptr %scratch_.i, ptr %_M_str.i.i, align 8
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp) #18
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %args.i.i), !noalias !67
   %retval.sroa.0.0.copyload.i.i.i = load i64, ptr %ref.tmp3, align 8, !noalias !67
   %retval.sroa.2.0.copyload.i.i.i = load ptr, ptr %_M_str.i.i, align 8, !noalias !67
   store i64 %retval.sroa.0.0.copyload.i.i.i, ptr %args.i.i, align 16, !noalias !67
-  %2 = getelementptr inbounds { i64, ptr }, ptr %args.i.i, i64 0, i32 1
+  %2 = getelementptr inbounds i8, ptr %args.i.i, i64 8
   store ptr %retval.sroa.2.0.copyload.i.i.i, ptr %2, align 8, !noalias !67
-  %arrayinit.element.i.i = getelementptr inbounds %"class.std::basic_string_view", ptr %args.i.i, i64 1
+  %arrayinit.element.i.i = getelementptr inbounds i8, ptr %args.i.i, i64 16
   store i64 %msg.coerce0, ptr %arrayinit.element.i.i, align 16, !noalias !67
-  %3 = getelementptr inbounds %"class.std::basic_string_view", ptr %args.i.i, i64 1, i32 1
+  %3 = getelementptr inbounds i8, ptr %args.i.i, i64 24
   store ptr %msg.coerce1, ptr %3, align 8, !noalias !67
   invoke void @_ZN4absl19substitute_internal24SubstituteAndAppendArrayEPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt17basic_string_viewIcS4_EPKS9_m(ptr noundef nonnull %ref.tmp, i64 29, ptr nonnull @.str.40, ptr noundef nonnull %args.i.i, i64 noundef 2)
           to label %_ZN4absl10SubstituteB5cxx11ESt17basic_string_viewIcSt11char_traitsIcEERKNS_19substitute_internal3ArgES7_.exit unwind label %lpad.i
@@ -7082,7 +7076,7 @@ if.then.i.i.i.i:                                  ; preds = %while.body
   unreachable
 
 _ZN7testing17ThrowingAllocatorINS_13ThrowingValueILNS_8TypeSpecE2EEELNS_9AllocSpecE0EE9ReadStateEv.exit.i.i.i: ; preds = %while.body
-  %incdec.ptr = getelementptr inbounds %"class.testing::ThrowingValue.67", ptr %cur.1, i64 -1
+  %incdec.ptr = getelementptr inbounds i8, ptr %cur.1, i64 -4
   invoke void @_ZN7testing19exceptions_internal18ConstructorTracker16ObjectDestructedEPv(ptr noundef nonnull %incdec.ptr)
           to label %while.cond unwind label %terminate.lpad.i.i.i.i.i, !llvm.loop !70
 
@@ -7104,7 +7098,7 @@ lpad2:                                            ; preds = %do.body
           to label %eh.resume unwind label %terminate.lpad
 
 for.inc:                                          ; preds = %.noexc
-  %incdec.ptr4 = getelementptr inbounds %"class.testing::ThrowingValue.67", ptr %cur.011, i64 1
+  %incdec.ptr4 = getelementptr inbounds i8, ptr %cur.011, i64 4
   %cmp.not = icmp eq ptr %incdec.ptr4, %last
   br i1 %cmp.not, label %for.end, label %for.body, !llvm.loop !71
 
@@ -7185,12 +7179,12 @@ entry:
   %ct = alloca %"class.testing::exceptions_internal::ConstructorTracker", align 8
   %temp = alloca %"class.absl::FixedArray", align 8
   %ref.tmp = alloca %"class.std::allocator.16", align 1
-  %_M_single_bucket.i.i.i = getelementptr inbounds %"class.std::_Hashtable", ptr %ct, i64 0, i32 5
-  %_M_bucket_count.i.i.i = getelementptr inbounds %"class.std::_Hashtable", ptr %ct, i64 0, i32 1
-  %_M_before_begin.i.i.i = getelementptr inbounds %"class.std::_Hashtable", ptr %ct, i64 0, i32 2
-  %_M_rehash_policy.i.i.i = getelementptr inbounds %"class.std::_Hashtable", ptr %ct, i64 0, i32 4
-  %_M_next_resize.i.i.i.i = getelementptr inbounds %"class.std::_Hashtable", ptr %ct, i64 0, i32 4, i32 1
-  %countdown_.i = getelementptr inbounds %"class.testing::exceptions_internal::ConstructorTracker", ptr %ct, i64 0, i32 1
+  %_M_single_bucket.i.i.i = getelementptr inbounds i8, ptr %ct, i64 48
+  %_M_bucket_count.i.i.i = getelementptr inbounds i8, ptr %ct, i64 8
+  %_M_before_begin.i.i.i = getelementptr inbounds i8, ptr %ct, i64 16
+  %_M_rehash_policy.i.i.i = getelementptr inbounds i8, ptr %ct, i64 32
+  %_M_next_resize.i.i.i.i = getelementptr inbounds i8, ptr %ct, i64 40
+  %countdown_.i = getelementptr inbounds i8, ptr %ct, i64 56
   br label %for.cond
 
 for.cond:                                         ; preds = %for.inc, %entry
@@ -7208,8 +7202,8 @@ for.cond:                                         ; preds = %for.inc, %entry
           to label %invoke.cont2 unwind label %lpad1
 
 invoke.cont2:                                     ; preds = %for.cond
-  %data_.i.i = getelementptr inbounds %"class.absl::FixedArray<testing::ThrowingValue<testing::TypeSpec::kEverythingThrows>, 25>::Storage", ptr %temp, i64 0, i32 2
-  %size_alloc_.i.i.i = getelementptr inbounds %"class.absl::FixedArray<testing::ThrowingValue<testing::TypeSpec::kEverythingThrows>, 25>::Storage", ptr %temp, i64 0, i32 1
+  %data_.i.i = getelementptr inbounds i8, ptr %temp, i64 112
+  %size_alloc_.i.i.i = getelementptr inbounds i8, ptr %temp, i64 104
   %1 = load i64, ptr %size_alloc_.i.i.i, align 8
   %cmp.not9.i = icmp eq i64 %1, 0
   br i1 %cmp.not9.i, label %for.end, label %invoke.cont5.i.preheader
@@ -7231,7 +7225,7 @@ terminate.lpad.i.i.i.i.i:                         ; preds = %invoke.cont5.i
   unreachable
 
 _ZNSt16allocator_traitsISaIN7testing13ThrowingValueILNS0_8TypeSpecE0EEEEE7destroyIS3_EEvRS4_PT_.exit.i: ; preds = %invoke.cont5.i
-  %incdec.ptr.i = getelementptr inbounds %"class.testing::ThrowingValue", ptr %cur.010.i, i64 1
+  %incdec.ptr.i = getelementptr inbounds i8, ptr %cur.010.i, i64 4
   %5 = load ptr, ptr %data_.i.i, align 8
   %6 = load i64, ptr %size_alloc_.i.i.i, align 8
   %add.ptr.i.i = getelementptr inbounds %"class.testing::ThrowingValue", ptr %5, i64 %6
@@ -7343,15 +7337,15 @@ entry:
   %ct = alloca %"class.testing::exceptions_internal::ConstructorTracker", align 8
   %temp = alloca %"class.absl::FixedArray.42", align 8
   %ref.tmp = alloca %"class.testing::ThrowingAllocator", align 8
-  %_M_single_bucket.i.i.i = getelementptr inbounds %"class.std::_Hashtable", ptr %ct, i64 0, i32 5
-  %_M_bucket_count.i.i.i = getelementptr inbounds %"class.std::_Hashtable", ptr %ct, i64 0, i32 1
-  %_M_before_begin.i.i.i = getelementptr inbounds %"class.std::_Hashtable", ptr %ct, i64 0, i32 2
-  %_M_rehash_policy.i.i.i = getelementptr inbounds %"class.std::_Hashtable", ptr %ct, i64 0, i32 4
-  %_M_next_resize.i.i.i.i = getelementptr inbounds %"class.std::_Hashtable", ptr %ct, i64 0, i32 4, i32 1
-  %countdown_.i = getelementptr inbounds %"class.testing::exceptions_internal::ConstructorTracker", ptr %ct, i64 0, i32 1
-  %size_alloc_.i.i = getelementptr inbounds %"class.absl::FixedArray<testing::ThrowingValue<testing::TypeSpec::kEverythingThrows>, 25, testing::ThrowingAllocator<testing::ThrowingValue<testing::TypeSpec::kEverythingThrows>, testing::AllocSpec::kEverythingThrows>>::Storage", ptr %temp, i64 0, i32 1
-  %0 = getelementptr inbounds %"class.absl::FixedArray<testing::ThrowingValue<testing::TypeSpec::kEverythingThrows>, 25, testing::ThrowingAllocator<testing::ThrowingValue<testing::TypeSpec::kEverythingThrows>, testing::AllocSpec::kEverythingThrows>>::Storage", ptr %temp, i64 0, i32 1, i32 0, i32 1
-  %data_.i.i = getelementptr inbounds %"class.absl::FixedArray<testing::ThrowingValue<testing::TypeSpec::kEverythingThrows>, 25, testing::ThrowingAllocator<testing::ThrowingValue<testing::TypeSpec::kEverythingThrows>, testing::AllocSpec::kEverythingThrows>>::Storage", ptr %temp, i64 0, i32 2
+  %_M_single_bucket.i.i.i = getelementptr inbounds i8, ptr %ct, i64 48
+  %_M_bucket_count.i.i.i = getelementptr inbounds i8, ptr %ct, i64 8
+  %_M_before_begin.i.i.i = getelementptr inbounds i8, ptr %ct, i64 16
+  %_M_rehash_policy.i.i.i = getelementptr inbounds i8, ptr %ct, i64 32
+  %_M_next_resize.i.i.i.i = getelementptr inbounds i8, ptr %ct, i64 40
+  %countdown_.i = getelementptr inbounds i8, ptr %ct, i64 56
+  %size_alloc_.i.i = getelementptr inbounds i8, ptr %temp, i64 104
+  %0 = getelementptr inbounds i8, ptr %temp, i64 112
+  %data_.i.i = getelementptr inbounds i8, ptr %temp, i64 128
   br label %for.cond
 
 for.cond:                                         ; preds = %for.inc, %entry
@@ -7411,13 +7405,13 @@ lpad.i:                                           ; preds = %invoke.cont7.i
   br label %lpad3.body
 
 invoke.cont4:                                     ; preds = %invoke.cont7.i
-  %_M_refcount.i.i.i = getelementptr inbounds %"class.std::__shared_ptr", ptr %ref.tmp, i64 0, i32 1
+  %_M_refcount.i.i.i = getelementptr inbounds i8, ptr %ref.tmp, i64 8
   %6 = load ptr, ptr %_M_refcount.i.i.i, align 8
   %cmp.not.i.i.i.i = icmp eq ptr %6, null
   br i1 %cmp.not.i.i.i.i, label %_ZNSt10shared_ptrIKiED2Ev.exit.i, label %if.then.i.i.i.i
 
 if.then.i.i.i.i:                                  ; preds = %invoke.cont4
-  %_M_use_count.i.i.i.i.i = getelementptr inbounds %"class.std::_Sp_counted_base", ptr %6, i64 0, i32 1
+  %_M_use_count.i.i.i.i.i = getelementptr inbounds i8, ptr %6, i64 8
   %7 = load atomic i64, ptr %_M_use_count.i.i.i.i.i acquire, align 8
   %cmp.i.i.i.i.i = icmp eq i64 %7, 4294967297
   %8 = trunc i64 %7 to i32
@@ -7425,10 +7419,10 @@ if.then.i.i.i.i:                                  ; preds = %invoke.cont4
 
 if.then.i.i.i.i.i:                                ; preds = %if.then.i.i.i.i
   store i32 0, ptr %_M_use_count.i.i.i.i.i, align 8
-  %_M_weak_count.i.i.i.i.i = getelementptr inbounds %"class.std::_Sp_counted_base", ptr %6, i64 0, i32 2
+  %_M_weak_count.i.i.i.i.i = getelementptr inbounds i8, ptr %6, i64 12
   store i32 0, ptr %_M_weak_count.i.i.i.i.i, align 4
   %vtable.i.i.i.i.i = load ptr, ptr %6, align 8
-  %vfn.i.i.i.i.i = getelementptr inbounds ptr, ptr %vtable.i.i.i.i.i, i64 2
+  %vfn.i.i.i.i.i = getelementptr inbounds i8, ptr %vtable.i.i.i.i.i, i64 16
   %9 = load ptr, ptr %vfn.i.i.i.i.i, align 8
   call void %9(ptr noundef nonnull align 8 dereferenceable(16) %6) #18
   br label %if.end8.sink.split.i.i.i.i.i
@@ -7454,10 +7448,10 @@ _ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i: ; preds = %if.els
 
 if.then7.i.i.i.i.i:                               ; preds = %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i
   %vtable.i.i.i.i.i.i.i = load ptr, ptr %6, align 8
-  %vfn.i.i.i.i.i.i.i = getelementptr inbounds ptr, ptr %vtable.i.i.i.i.i.i.i, i64 2
+  %vfn.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %vtable.i.i.i.i.i.i.i, i64 16
   %12 = load ptr, ptr %vfn.i.i.i.i.i.i.i, align 8
   call void %12(ptr noundef nonnull align 8 dereferenceable(16) %6) #18
-  %_M_weak_count.i.i.i.i.i.i.i = getelementptr inbounds %"class.std::_Sp_counted_base", ptr %6, i64 0, i32 2
+  %_M_weak_count.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %6, i64 12
   %13 = load i8, ptr @__libc_single_threaded, align 1
   %tobool.i.not.i.i.i.i.i.i.i = icmp eq i8 %13, 0
   br i1 %tobool.i.not.i.i.i.i.i.i.i, label %if.else.i.i.i.i.i.i.i.i, label %if.then.i.i.i.i.i.i.i.i
@@ -7479,7 +7473,7 @@ _ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i.i: ; preds = %if
 
 if.end8.sink.split.i.i.i.i.i:                     ; preds = %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i.i, %if.then.i.i.i.i.i
   %vtable2.i.i.i.i.i.i.i = load ptr, ptr %6, align 8
-  %vfn3.i.i.i.i.i.i.i = getelementptr inbounds ptr, ptr %vtable2.i.i.i.i.i.i.i, i64 3
+  %vfn3.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %vtable2.i.i.i.i.i.i.i, i64 24
   %16 = load ptr, ptr %vfn3.i.i.i.i.i.i.i, align 8
   call void %16(ptr noundef nonnull align 8 dereferenceable(16) %6) #18
   br label %_ZNSt10shared_ptrIKiED2Ev.exit.i
@@ -7527,7 +7521,7 @@ terminate.lpad.i.i.i.i.i.i:                       ; preds = %_ZN7testing17Throwi
   unreachable
 
 _ZNSt16allocator_traitsIN7testing17ThrowingAllocatorINS0_13ThrowingValueILNS0_8TypeSpecE0EEELNS0_9AllocSpecE0EEEE7destroyIS4_EEvRS6_PT_.exit.i: ; preds = %_ZN7testing17ThrowingAllocatorINS_13ThrowingValueILNS_8TypeSpecE0EEELNS_9AllocSpecE0EE9ReadStateEv.exit.i.i.i.i
-  %incdec.ptr.i = getelementptr inbounds %"class.testing::ThrowingValue", ptr %cur.05.i, i64 1
+  %incdec.ptr.i = getelementptr inbounds i8, ptr %cur.05.i, i64 4
   %25 = load ptr, ptr %data_.i.i, align 8
   %26 = load i64, ptr %size_alloc_.i.i, align 8
   %add.ptr.i.i7 = getelementptr inbounds %"class.testing::ThrowingValue", ptr %25, i64 %26
@@ -7703,12 +7697,12 @@ entry:
   %ct = alloca %"class.testing::exceptions_internal::ConstructorTracker", align 8
   %temp = alloca %"class.absl::FixedArray", align 8
   %ref.tmp = alloca %"class.std::allocator.16", align 1
-  %_M_single_bucket.i.i.i = getelementptr inbounds %"class.std::_Hashtable", ptr %ct, i64 0, i32 5
-  %_M_bucket_count.i.i.i = getelementptr inbounds %"class.std::_Hashtable", ptr %ct, i64 0, i32 1
-  %_M_before_begin.i.i.i = getelementptr inbounds %"class.std::_Hashtable", ptr %ct, i64 0, i32 2
-  %_M_rehash_policy.i.i.i = getelementptr inbounds %"class.std::_Hashtable", ptr %ct, i64 0, i32 4
-  %_M_next_resize.i.i.i.i = getelementptr inbounds %"class.std::_Hashtable", ptr %ct, i64 0, i32 4, i32 1
-  %countdown_.i = getelementptr inbounds %"class.testing::exceptions_internal::ConstructorTracker", ptr %ct, i64 0, i32 1
+  %_M_single_bucket.i.i.i = getelementptr inbounds i8, ptr %ct, i64 48
+  %_M_bucket_count.i.i.i = getelementptr inbounds i8, ptr %ct, i64 8
+  %_M_before_begin.i.i.i = getelementptr inbounds i8, ptr %ct, i64 16
+  %_M_rehash_policy.i.i.i = getelementptr inbounds i8, ptr %ct, i64 32
+  %_M_next_resize.i.i.i.i = getelementptr inbounds i8, ptr %ct, i64 40
+  %countdown_.i = getelementptr inbounds i8, ptr %ct, i64 56
   br label %for.cond
 
 for.cond:                                         ; preds = %for.inc, %entry
@@ -7726,8 +7720,8 @@ for.cond:                                         ; preds = %for.inc, %entry
           to label %invoke.cont4 unwind label %lpad3
 
 invoke.cont4:                                     ; preds = %for.cond
-  %data_.i.i = getelementptr inbounds %"class.absl::FixedArray<testing::ThrowingValue<testing::TypeSpec::kEverythingThrows>, 25>::Storage", ptr %temp, i64 0, i32 2
-  %size_alloc_.i.i.i = getelementptr inbounds %"class.absl::FixedArray<testing::ThrowingValue<testing::TypeSpec::kEverythingThrows>, 25>::Storage", ptr %temp, i64 0, i32 1
+  %data_.i.i = getelementptr inbounds i8, ptr %temp, i64 112
+  %size_alloc_.i.i.i = getelementptr inbounds i8, ptr %temp, i64 104
   %1 = load i64, ptr %size_alloc_.i.i.i, align 8
   %cmp.not9.i = icmp eq i64 %1, 0
   br i1 %cmp.not9.i, label %for.end, label %invoke.cont5.i.preheader
@@ -7749,7 +7743,7 @@ terminate.lpad.i.i.i.i.i:                         ; preds = %invoke.cont5.i
   unreachable
 
 _ZNSt16allocator_traitsISaIN7testing13ThrowingValueILNS0_8TypeSpecE0EEEEE7destroyIS3_EEvRS4_PT_.exit.i: ; preds = %invoke.cont5.i
-  %incdec.ptr.i = getelementptr inbounds %"class.testing::ThrowingValue", ptr %cur.010.i, i64 1
+  %incdec.ptr.i = getelementptr inbounds i8, ptr %cur.010.i, i64 4
   %5 = load ptr, ptr %data_.i.i, align 8
   %6 = load i64, ptr %size_alloc_.i.i.i, align 8
   %add.ptr.i.i = getelementptr inbounds %"class.testing::ThrowingValue", ptr %5, i64 %6
@@ -7804,7 +7798,7 @@ for.end:                                          ; preds = %invoke.cont4, %for.
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr dso_local void @_ZN4absl10FixedArrayIN7testing13ThrowingValueILNS1_8TypeSpecE0EEELm25ESaIS4_EEC2EmRKS4_RKS5_(ptr noundef nonnull align 8 dereferenceable(120) %this, i64 noundef %n, ptr noundef nonnull align 4 dereferenceable(4) %val, ptr noundef nonnull align 1 dereferenceable(1) %a) unnamed_addr #3 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  %size_alloc_.i = getelementptr inbounds %"class.absl::FixedArray<testing::ThrowingValue<testing::TypeSpec::kEverythingThrows>, 25>::Storage", ptr %this, i64 0, i32 1
+  %size_alloc_.i = getelementptr inbounds i8, ptr %this, i64 104
   store i64 %n, ptr %size_alloc_.i, align 8
   %cmp.i.i.i = icmp ult i64 %n, 26
   br i1 %cmp.i.i.i, label %invoke.cont6, label %if.else.i.i
@@ -7828,12 +7822,12 @@ if.end.i.i.i.i:                                   ; preds = %if.then.i.i.i.i
 invoke.cont6.thread:                              ; preds = %if.else.i.i
   %mul.i.i.i.i = shl nuw nsw i64 %n, 2
   %call5.i.i.i2.i = tail call noalias noundef nonnull ptr @_Znwm(i64 noundef %mul.i.i.i.i) #20
-  %data_.i8 = getelementptr inbounds %"class.absl::FixedArray<testing::ThrowingValue<testing::TypeSpec::kEverythingThrows>, 25>::Storage", ptr %this, i64 0, i32 2
+  %data_.i8 = getelementptr inbounds i8, ptr %this, i64 112
   store ptr %call5.i.i.i2.i, ptr %data_.i8, align 8
   br label %for.body.i.preheader
 
 invoke.cont6:                                     ; preds = %entry
-  %data_.i = getelementptr inbounds %"class.absl::FixedArray<testing::ThrowingValue<testing::TypeSpec::kEverythingThrows>, 25>::Storage", ptr %this, i64 0, i32 2
+  %data_.i = getelementptr inbounds i8, ptr %this, i64 112
   store ptr %this, ptr %data_.i, align 8
   %cmp.not9.i = icmp eq i64 %n, 0
   br i1 %cmp.not9.i, label %invoke.cont8, label %for.body.i.preheader
@@ -7862,7 +7856,7 @@ while.cond.i:                                     ; preds = %while.body.i, %lpad
   br i1 %cmp1.not.i, label %do.body.i, label %while.body.i
 
 while.body.i:                                     ; preds = %while.cond.i
-  %incdec.ptr.i = getelementptr inbounds %"class.testing::ThrowingValue", ptr %cur.1.i, i64 -1
+  %incdec.ptr.i = getelementptr inbounds i8, ptr %cur.1.i, i64 -4
   invoke void @_ZN7testing19exceptions_internal18ConstructorTracker16ObjectDestructedEPv(ptr noundef nonnull %incdec.ptr.i)
           to label %while.cond.i unwind label %terminate.lpad.i.i.i.i.i, !llvm.loop !75
 
@@ -7884,7 +7878,7 @@ lpad2.i:                                          ; preds = %do.body.i
           to label %lpad.body unwind label %terminate.lpad.i
 
 for.inc.i:                                        ; preds = %for.body.i
-  %incdec.ptr4.i = getelementptr inbounds %"class.testing::ThrowingValue", ptr %cur.010.i, i64 1
+  %incdec.ptr4.i = getelementptr inbounds i8, ptr %cur.010.i, i64 4
   %cmp.not.i = icmp eq ptr %incdec.ptr4.i, %add.ptr.i13
   br i1 %cmp.not.i, label %invoke.cont8, label %for.body.i, !llvm.loop !76
 
@@ -8037,15 +8031,15 @@ entry:
   %ct = alloca %"class.testing::exceptions_internal::ConstructorTracker", align 8
   %temp = alloca %"class.absl::FixedArray.42", align 8
   %ref.tmp = alloca %"class.testing::ThrowingAllocator", align 8
-  %_M_single_bucket.i.i.i = getelementptr inbounds %"class.std::_Hashtable", ptr %ct, i64 0, i32 5
-  %_M_bucket_count.i.i.i = getelementptr inbounds %"class.std::_Hashtable", ptr %ct, i64 0, i32 1
-  %_M_before_begin.i.i.i = getelementptr inbounds %"class.std::_Hashtable", ptr %ct, i64 0, i32 2
-  %_M_rehash_policy.i.i.i = getelementptr inbounds %"class.std::_Hashtable", ptr %ct, i64 0, i32 4
-  %_M_next_resize.i.i.i.i = getelementptr inbounds %"class.std::_Hashtable", ptr %ct, i64 0, i32 4, i32 1
-  %countdown_.i = getelementptr inbounds %"class.testing::exceptions_internal::ConstructorTracker", ptr %ct, i64 0, i32 1
-  %size_alloc_.i.i = getelementptr inbounds %"class.absl::FixedArray<testing::ThrowingValue<testing::TypeSpec::kEverythingThrows>, 25, testing::ThrowingAllocator<testing::ThrowingValue<testing::TypeSpec::kEverythingThrows>, testing::AllocSpec::kEverythingThrows>>::Storage", ptr %temp, i64 0, i32 1
-  %0 = getelementptr inbounds %"class.absl::FixedArray<testing::ThrowingValue<testing::TypeSpec::kEverythingThrows>, 25, testing::ThrowingAllocator<testing::ThrowingValue<testing::TypeSpec::kEverythingThrows>, testing::AllocSpec::kEverythingThrows>>::Storage", ptr %temp, i64 0, i32 1, i32 0, i32 1
-  %data_.i.i = getelementptr inbounds %"class.absl::FixedArray<testing::ThrowingValue<testing::TypeSpec::kEverythingThrows>, 25, testing::ThrowingAllocator<testing::ThrowingValue<testing::TypeSpec::kEverythingThrows>, testing::AllocSpec::kEverythingThrows>>::Storage", ptr %temp, i64 0, i32 2
+  %_M_single_bucket.i.i.i = getelementptr inbounds i8, ptr %ct, i64 48
+  %_M_bucket_count.i.i.i = getelementptr inbounds i8, ptr %ct, i64 8
+  %_M_before_begin.i.i.i = getelementptr inbounds i8, ptr %ct, i64 16
+  %_M_rehash_policy.i.i.i = getelementptr inbounds i8, ptr %ct, i64 32
+  %_M_next_resize.i.i.i.i = getelementptr inbounds i8, ptr %ct, i64 40
+  %countdown_.i = getelementptr inbounds i8, ptr %ct, i64 56
+  %size_alloc_.i.i = getelementptr inbounds i8, ptr %temp, i64 104
+  %0 = getelementptr inbounds i8, ptr %temp, i64 112
+  %data_.i.i = getelementptr inbounds i8, ptr %temp, i64 128
   br label %for.cond
 
 for.cond:                                         ; preds = %for.inc, %entry
@@ -8105,13 +8099,13 @@ lpad.i:                                           ; preds = %invoke.cont6.i
   br label %lpad5.body
 
 invoke.cont6:                                     ; preds = %invoke.cont6.i
-  %_M_refcount.i.i.i = getelementptr inbounds %"class.std::__shared_ptr", ptr %ref.tmp, i64 0, i32 1
+  %_M_refcount.i.i.i = getelementptr inbounds i8, ptr %ref.tmp, i64 8
   %6 = load ptr, ptr %_M_refcount.i.i.i, align 8
   %cmp.not.i.i.i.i = icmp eq ptr %6, null
   br i1 %cmp.not.i.i.i.i, label %_ZNSt10shared_ptrIKiED2Ev.exit.i, label %if.then.i.i.i.i
 
 if.then.i.i.i.i:                                  ; preds = %invoke.cont6
-  %_M_use_count.i.i.i.i.i = getelementptr inbounds %"class.std::_Sp_counted_base", ptr %6, i64 0, i32 1
+  %_M_use_count.i.i.i.i.i = getelementptr inbounds i8, ptr %6, i64 8
   %7 = load atomic i64, ptr %_M_use_count.i.i.i.i.i acquire, align 8
   %cmp.i.i.i.i.i = icmp eq i64 %7, 4294967297
   %8 = trunc i64 %7 to i32
@@ -8119,10 +8113,10 @@ if.then.i.i.i.i:                                  ; preds = %invoke.cont6
 
 if.then.i.i.i.i.i:                                ; preds = %if.then.i.i.i.i
   store i32 0, ptr %_M_use_count.i.i.i.i.i, align 8
-  %_M_weak_count.i.i.i.i.i = getelementptr inbounds %"class.std::_Sp_counted_base", ptr %6, i64 0, i32 2
+  %_M_weak_count.i.i.i.i.i = getelementptr inbounds i8, ptr %6, i64 12
   store i32 0, ptr %_M_weak_count.i.i.i.i.i, align 4
   %vtable.i.i.i.i.i = load ptr, ptr %6, align 8
-  %vfn.i.i.i.i.i = getelementptr inbounds ptr, ptr %vtable.i.i.i.i.i, i64 2
+  %vfn.i.i.i.i.i = getelementptr inbounds i8, ptr %vtable.i.i.i.i.i, i64 16
   %9 = load ptr, ptr %vfn.i.i.i.i.i, align 8
   call void %9(ptr noundef nonnull align 8 dereferenceable(16) %6) #18
   br label %if.end8.sink.split.i.i.i.i.i
@@ -8148,10 +8142,10 @@ _ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i: ; preds = %if.els
 
 if.then7.i.i.i.i.i:                               ; preds = %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i
   %vtable.i.i.i.i.i.i.i = load ptr, ptr %6, align 8
-  %vfn.i.i.i.i.i.i.i = getelementptr inbounds ptr, ptr %vtable.i.i.i.i.i.i.i, i64 2
+  %vfn.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %vtable.i.i.i.i.i.i.i, i64 16
   %12 = load ptr, ptr %vfn.i.i.i.i.i.i.i, align 8
   call void %12(ptr noundef nonnull align 8 dereferenceable(16) %6) #18
-  %_M_weak_count.i.i.i.i.i.i.i = getelementptr inbounds %"class.std::_Sp_counted_base", ptr %6, i64 0, i32 2
+  %_M_weak_count.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %6, i64 12
   %13 = load i8, ptr @__libc_single_threaded, align 1
   %tobool.i.not.i.i.i.i.i.i.i = icmp eq i8 %13, 0
   br i1 %tobool.i.not.i.i.i.i.i.i.i, label %if.else.i.i.i.i.i.i.i.i, label %if.then.i.i.i.i.i.i.i.i
@@ -8173,7 +8167,7 @@ _ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i.i: ; preds = %if
 
 if.end8.sink.split.i.i.i.i.i:                     ; preds = %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i.i, %if.then.i.i.i.i.i
   %vtable2.i.i.i.i.i.i.i = load ptr, ptr %6, align 8
-  %vfn3.i.i.i.i.i.i.i = getelementptr inbounds ptr, ptr %vtable2.i.i.i.i.i.i.i, i64 3
+  %vfn3.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %vtable2.i.i.i.i.i.i.i, i64 24
   %16 = load ptr, ptr %vfn3.i.i.i.i.i.i.i, align 8
   call void %16(ptr noundef nonnull align 8 dereferenceable(16) %6) #18
   br label %_ZNSt10shared_ptrIKiED2Ev.exit.i
@@ -8221,7 +8215,7 @@ terminate.lpad.i.i.i.i.i.i:                       ; preds = %_ZN7testing17Throwi
   unreachable
 
 _ZNSt16allocator_traitsIN7testing17ThrowingAllocatorINS0_13ThrowingValueILNS0_8TypeSpecE0EEELNS0_9AllocSpecE0EEEE7destroyIS4_EEvRS6_PT_.exit.i: ; preds = %_ZN7testing17ThrowingAllocatorINS_13ThrowingValueILNS_8TypeSpecE0EEELNS_9AllocSpecE0EE9ReadStateEv.exit.i.i.i.i
-  %incdec.ptr.i = getelementptr inbounds %"class.testing::ThrowingValue", ptr %cur.05.i, i64 1
+  %incdec.ptr.i = getelementptr inbounds i8, ptr %cur.05.i, i64 4
   %25 = load ptr, ptr %data_.i.i, align 8
   %26 = load i64, ptr %size_alloc_.i.i, align 8
   %add.ptr.i.i7 = getelementptr inbounds %"class.testing::ThrowingValue", ptr %25, i64 %26
@@ -8313,7 +8307,7 @@ if.then.i.i.i.i:                                  ; preds = %while.body
   unreachable
 
 _ZN7testing17ThrowingAllocatorINS_13ThrowingValueILNS_8TypeSpecE0EEELNS_9AllocSpecE0EE9ReadStateEv.exit.i.i.i: ; preds = %while.body
-  %incdec.ptr = getelementptr inbounds %"class.testing::ThrowingValue", ptr %cur.1, i64 -1
+  %incdec.ptr = getelementptr inbounds i8, ptr %cur.1, i64 -4
   invoke void @_ZN7testing19exceptions_internal18ConstructorTracker16ObjectDestructedEPv(ptr noundef nonnull %incdec.ptr)
           to label %while.cond unwind label %terminate.lpad.i.i.i.i.i, !llvm.loop !78
 
@@ -8335,7 +8329,7 @@ lpad2:                                            ; preds = %do.body
           to label %eh.resume unwind label %terminate.lpad
 
 for.inc:                                          ; preds = %.noexc
-  %incdec.ptr4 = getelementptr inbounds %"class.testing::ThrowingValue", ptr %cur.011, i64 1
+  %incdec.ptr4 = getelementptr inbounds i8, ptr %cur.011, i64 4
   %cmp.not = icmp eq ptr %incdec.ptr4, %last
   br i1 %cmp.not, label %for.end, label %for.body, !llvm.loop !79
 
@@ -8414,10 +8408,10 @@ entry:
   %ref.tmp12 = alloca ptr, align 8
   %ref.tmp16 = alloca ptr, align 8
   call void @_ZN4absl10FixedArrayIN7testing13ThrowingValueILNS1_8TypeSpecE0EEELm25ESaIS4_EEC2EmRKS5_(ptr noundef nonnull align 8 dereferenceable(120) %small, i64 noundef 12, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp)
-  %data_.i.i.i = getelementptr inbounds %"class.absl::FixedArray<testing::ThrowingValue<testing::TypeSpec::kEverythingThrows>, 25>::Storage", ptr %small, i64 0, i32 2
+  %data_.i.i.i = getelementptr inbounds i8, ptr %small, i64 112
   %0 = load ptr, ptr %data_.i.i.i, align 8
   store ptr %0, ptr %ref.tmp2, align 8
-  %size_alloc_.i.i.i = getelementptr inbounds %"class.absl::FixedArray<testing::ThrowingValue<testing::TypeSpec::kEverythingThrows>, 25>::Storage", ptr %small, i64 0, i32 1
+  %size_alloc_.i.i.i = getelementptr inbounds i8, ptr %small, i64 104
   %1 = load i64, ptr %size_alloc_.i.i.i, align 8
   %add.ptr.i = getelementptr inbounds %"class.testing::ThrowingValue", ptr %0, i64 %1
   store ptr %add.ptr.i, ptr %ref.tmp5, align 8
@@ -8429,10 +8423,10 @@ invoke.cont8:                                     ; preds = %entry
           to label %invoke.cont17 unwind label %lpad10
 
 invoke.cont17:                                    ; preds = %invoke.cont8
-  %data_.i.i.i4 = getelementptr inbounds %"class.absl::FixedArray<testing::ThrowingValue<testing::TypeSpec::kEverythingThrows>, 25>::Storage", ptr %large, i64 0, i32 2
+  %data_.i.i.i4 = getelementptr inbounds i8, ptr %large, i64 112
   %2 = load ptr, ptr %data_.i.i.i4, align 8
   store ptr %2, ptr %ref.tmp12, align 8
-  %size_alloc_.i.i.i6 = getelementptr inbounds %"class.absl::FixedArray<testing::ThrowingValue<testing::TypeSpec::kEverythingThrows>, 25>::Storage", ptr %large, i64 0, i32 1
+  %size_alloc_.i.i.i6 = getelementptr inbounds i8, ptr %large, i64 104
   %3 = load i64, ptr %size_alloc_.i.i.i6, align 8
   %add.ptr.i7 = getelementptr inbounds %"class.testing::ThrowingValue", ptr %2, i64 %3
   store ptr %add.ptr.i7, ptr %ref.tmp16, align 8
@@ -8461,7 +8455,7 @@ terminate.lpad.i.i.i.i.i:                         ; preds = %invoke.cont5.i
   unreachable
 
 _ZNSt16allocator_traitsISaIN7testing13ThrowingValueILNS0_8TypeSpecE0EEEEE7destroyIS3_EEvRS4_PT_.exit.i: ; preds = %invoke.cont5.i
-  %incdec.ptr.i = getelementptr inbounds %"class.testing::ThrowingValue", ptr %cur.010.i, i64 1
+  %incdec.ptr.i = getelementptr inbounds i8, ptr %cur.010.i, i64 4
   %8 = load ptr, ptr %data_.i.i.i4, align 8
   %9 = load i64, ptr %size_alloc_.i.i.i6, align 8
   %add.ptr.i.i = getelementptr inbounds %"class.testing::ThrowingValue", ptr %8, i64 %9
@@ -8498,7 +8492,7 @@ terminate.lpad.i.i.i.i.i14:                       ; preds = %invoke.cont5.i12
   unreachable
 
 _ZNSt16allocator_traitsISaIN7testing13ThrowingValueILNS0_8TypeSpecE0EEEEE7destroyIS3_EEvRS4_PT_.exit.i15: ; preds = %invoke.cont5.i12
-  %incdec.ptr.i16 = getelementptr inbounds %"class.testing::ThrowingValue", ptr %cur.010.i13, i64 1
+  %incdec.ptr.i16 = getelementptr inbounds i8, ptr %cur.010.i13, i64 4
   %15 = load ptr, ptr %data_.i.i.i, align 8
   %16 = load i64, ptr %size_alloc_.i.i.i, align 8
   %add.ptr.i.i17 = getelementptr inbounds %"class.testing::ThrowingValue", ptr %15, i64 %16
@@ -8544,12 +8538,12 @@ entry:
   %ct = alloca %"class.testing::exceptions_internal::ConstructorTracker", align 8
   %temp = alloca %"class.absl::FixedArray", align 8
   %ref.tmp = alloca %"class.std::allocator.16", align 1
-  %_M_single_bucket.i.i.i = getelementptr inbounds %"class.std::_Hashtable", ptr %ct, i64 0, i32 5
-  %_M_bucket_count.i.i.i = getelementptr inbounds %"class.std::_Hashtable", ptr %ct, i64 0, i32 1
-  %_M_before_begin.i.i.i = getelementptr inbounds %"class.std::_Hashtable", ptr %ct, i64 0, i32 2
-  %_M_rehash_policy.i.i.i = getelementptr inbounds %"class.std::_Hashtable", ptr %ct, i64 0, i32 4
-  %_M_next_resize.i.i.i.i = getelementptr inbounds %"class.std::_Hashtable", ptr %ct, i64 0, i32 4, i32 1
-  %countdown_.i = getelementptr inbounds %"class.testing::exceptions_internal::ConstructorTracker", ptr %ct, i64 0, i32 1
+  %_M_single_bucket.i.i.i = getelementptr inbounds i8, ptr %ct, i64 48
+  %_M_bucket_count.i.i.i = getelementptr inbounds i8, ptr %ct, i64 8
+  %_M_before_begin.i.i.i = getelementptr inbounds i8, ptr %ct, i64 16
+  %_M_rehash_policy.i.i.i = getelementptr inbounds i8, ptr %ct, i64 32
+  %_M_next_resize.i.i.i.i = getelementptr inbounds i8, ptr %ct, i64 40
+  %countdown_.i = getelementptr inbounds i8, ptr %ct, i64 56
   br label %for.cond
 
 for.cond:                                         ; preds = %for.inc, %entry
@@ -8568,8 +8562,8 @@ for.cond:                                         ; preds = %for.inc, %entry
           to label %invoke.cont4 unwind label %lpad3
 
 invoke.cont4:                                     ; preds = %for.cond
-  %data_.i.i = getelementptr inbounds %"class.absl::FixedArray<testing::ThrowingValue<testing::TypeSpec::kEverythingThrows>, 25>::Storage", ptr %temp, i64 0, i32 2
-  %size_alloc_.i.i.i = getelementptr inbounds %"class.absl::FixedArray<testing::ThrowingValue<testing::TypeSpec::kEverythingThrows>, 25>::Storage", ptr %temp, i64 0, i32 1
+  %data_.i.i = getelementptr inbounds i8, ptr %temp, i64 112
+  %size_alloc_.i.i.i = getelementptr inbounds i8, ptr %temp, i64 104
   %2 = load i64, ptr %size_alloc_.i.i.i, align 8
   %cmp.not9.i = icmp eq i64 %2, 0
   br i1 %cmp.not9.i, label %for.end, label %invoke.cont5.i.preheader
@@ -8591,7 +8585,7 @@ terminate.lpad.i.i.i.i.i:                         ; preds = %invoke.cont5.i
   unreachable
 
 _ZNSt16allocator_traitsISaIN7testing13ThrowingValueILNS0_8TypeSpecE0EEEEE7destroyIS3_EEvRS4_PT_.exit.i: ; preds = %invoke.cont5.i
-  %incdec.ptr.i = getelementptr inbounds %"class.testing::ThrowingValue", ptr %cur.010.i, i64 1
+  %incdec.ptr.i = getelementptr inbounds i8, ptr %cur.010.i, i64 4
   %6 = load ptr, ptr %data_.i.i, align 8
   %7 = load i64, ptr %size_alloc_.i.i.i, align 8
   %add.ptr.i.i = getelementptr inbounds %"class.testing::ThrowingValue", ptr %6, i64 %7
@@ -8650,7 +8644,7 @@ entry:
   %sub.ptr.rhs.cast.i.i = ptrtoint ptr %first to i64
   %sub.ptr.sub.i.i = sub i64 %sub.ptr.lhs.cast.i.i, %sub.ptr.rhs.cast.i.i
   %sub.ptr.div.i.i = ashr exact i64 %sub.ptr.sub.i.i, 2
-  %size_alloc_.i = getelementptr inbounds %"class.absl::FixedArray<testing::ThrowingValue<testing::TypeSpec::kEverythingThrows>, 25>::Storage", ptr %this, i64 0, i32 1
+  %size_alloc_.i = getelementptr inbounds i8, ptr %this, i64 104
   store i64 %sub.ptr.div.i.i, ptr %size_alloc_.i, align 8
   %cmp.i.i.i = icmp ult i64 %sub.ptr.div.i.i, 26
   br i1 %cmp.i.i.i, label %invoke.cont, label %if.else.i.i
@@ -8669,7 +8663,7 @@ _ZNSt16allocator_traitsISaIN7testing13ThrowingValueILNS0_8TypeSpecE0EEEEE8alloca
 
 invoke.cont:                                      ; preds = %_ZNSt16allocator_traitsISaIN7testing13ThrowingValueILNS0_8TypeSpecE0EEEEE8allocateERS4_m.exit.i.i, %entry
   %retval.0.i.i = phi ptr [ %this, %entry ], [ %call5.i.i.i2.i, %_ZNSt16allocator_traitsISaIN7testing13ThrowingValueILNS0_8TypeSpecE0EEEEE8allocateERS4_m.exit.i.i ]
-  %data_.i = getelementptr inbounds %"class.absl::FixedArray<testing::ThrowingValue<testing::TypeSpec::kEverythingThrows>, 25>::Storage", ptr %this, i64 0, i32 2
+  %data_.i = getelementptr inbounds i8, ptr %this, i64 112
   store ptr %retval.0.i.i, ptr %data_.i, align 8
   %cmp.not10.i = icmp eq ptr %first, %last
   br i1 %cmp.not10.i, label %invoke.cont6, label %for.body.i
@@ -8693,7 +8687,7 @@ while.cond.i:                                     ; preds = %while.body.i, %lpad
   br i1 %cmp1.not.i, label %do.body.i, label %while.body.i
 
 while.body.i:                                     ; preds = %while.cond.i
-  %incdec.ptr.i = getelementptr inbounds %"class.testing::ThrowingValue", ptr %cur.1.i, i64 -1
+  %incdec.ptr.i = getelementptr inbounds i8, ptr %cur.1.i, i64 -4
   invoke void @_ZN7testing19exceptions_internal18ConstructorTracker16ObjectDestructedEPv(ptr noundef nonnull %incdec.ptr.i)
           to label %while.cond.i unwind label %terminate.lpad.i.i.i.i.i, !llvm.loop !81
 
@@ -8715,8 +8709,8 @@ lpad2.i:                                          ; preds = %do.body.i
           to label %lpad.body unwind label %terminate.lpad.i
 
 for.inc.i:                                        ; preds = %for.body.i
-  %incdec.ptr4.i = getelementptr inbounds %"class.testing::ThrowingValue", ptr %cur.012.i, i64 1
-  %incdec.ptr5.i = getelementptr inbounds %"class.testing::ThrowingValue", ptr %first.addr.011.i, i64 1
+  %incdec.ptr4.i = getelementptr inbounds i8, ptr %cur.012.i, i64 4
+  %incdec.ptr5.i = getelementptr inbounds i8, ptr %first.addr.011.i, i64 4
   %cmp.not.i = icmp eq ptr %incdec.ptr5.i, %last
   br i1 %cmp.not.i, label %invoke.cont6, label %for.body.i, !llvm.loop !82
 
@@ -8805,9 +8799,9 @@ entry:
   %ref.tmp13 = alloca ptr, align 8
   %ref.tmp17 = alloca ptr, align 8
   call void @_ZN7testing17ThrowingAllocatorINS_13ThrowingValueILNS_8TypeSpecE0EEELNS_9AllocSpecE0EEC2Ev(ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp)
-  %size_alloc_.i.i = getelementptr inbounds %"class.absl::FixedArray<testing::ThrowingValue<testing::TypeSpec::kEverythingThrows>, 25, testing::ThrowingAllocator<testing::ThrowingValue<testing::TypeSpec::kEverythingThrows>, testing::AllocSpec::kEverythingThrows>>::Storage", ptr %small, i64 0, i32 1
+  %size_alloc_.i.i = getelementptr inbounds i8, ptr %small, i64 104
   store i64 12, ptr %size_alloc_.i.i, align 8
-  %0 = getelementptr inbounds %"class.absl::FixedArray<testing::ThrowingValue<testing::TypeSpec::kEverythingThrows>, 25, testing::ThrowingAllocator<testing::ThrowingValue<testing::TypeSpec::kEverythingThrows>, testing::AllocSpec::kEverythingThrows>>::Storage", ptr %small, i64 0, i32 1, i32 0, i32 1
+  %0 = getelementptr inbounds i8, ptr %small, i64 112
   call void @_ZN7testing17ThrowingAllocatorINS_13ThrowingValueILNS_8TypeSpecE0EEELNS_9AllocSpecE0EEC2ERKS5_(ptr noundef nonnull align 8 dereferenceable(16) %0, ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp) #18
   %1 = load i64, ptr %size_alloc_.i.i, align 8
   %cmp.i.i.i.i = icmp ult i64 %1, 26
@@ -8835,7 +8829,7 @@ lpad.i.i:                                         ; preds = %.noexc.i.i, %if.els
 invoke.cont7.i:                                   ; preds = %.noexc.i.invoke.cont7_crit_edge.i, %entry
   %3 = phi i64 [ %1, %entry ], [ %.pre.i, %.noexc.i.invoke.cont7_crit_edge.i ]
   %retval.0.i.i.i = phi ptr [ %small, %entry ], [ %call.i.i.i1.i.i, %.noexc.i.invoke.cont7_crit_edge.i ]
-  %data_.i.i = getelementptr inbounds %"class.absl::FixedArray<testing::ThrowingValue<testing::TypeSpec::kEverythingThrows>, 25, testing::ThrowingAllocator<testing::ThrowingValue<testing::TypeSpec::kEverythingThrows>, testing::AllocSpec::kEverythingThrows>>::Storage", ptr %small, i64 0, i32 2
+  %data_.i.i = getelementptr inbounds i8, ptr %small, i64 128
   store ptr %retval.0.i.i.i, ptr %data_.i.i, align 8
   %add.ptr.i.i = getelementptr inbounds %"class.testing::ThrowingValue", ptr %retval.0.i.i.i, i64 %3
   invoke void @_ZN4absl15memory_internal14ConstructRangeIN7testing17ThrowingAllocatorINS2_13ThrowingValueILNS2_8TypeSpecE0EEELNS2_9AllocSpecE0EEEPS6_JEEEvRT_T0_SC_DpRKT1_(ptr noundef nonnull align 8 dereferenceable(16) %0, ptr noundef nonnull %retval.0.i.i.i, ptr noundef nonnull %add.ptr.i.i)
@@ -8848,13 +8842,13 @@ lpad.i:                                           ; preds = %invoke.cont7.i
   br label %lpad.body
 
 invoke.cont:                                      ; preds = %invoke.cont7.i
-  %_M_refcount.i.i.i = getelementptr inbounds %"class.std::__shared_ptr", ptr %ref.tmp, i64 0, i32 1
+  %_M_refcount.i.i.i = getelementptr inbounds i8, ptr %ref.tmp, i64 8
   %5 = load ptr, ptr %_M_refcount.i.i.i, align 8
   %cmp.not.i.i.i.i = icmp eq ptr %5, null
   br i1 %cmp.not.i.i.i.i, label %_ZNSt10shared_ptrIKiED2Ev.exit.i, label %if.then.i.i.i.i
 
 if.then.i.i.i.i:                                  ; preds = %invoke.cont
-  %_M_use_count.i.i.i.i.i = getelementptr inbounds %"class.std::_Sp_counted_base", ptr %5, i64 0, i32 1
+  %_M_use_count.i.i.i.i.i = getelementptr inbounds i8, ptr %5, i64 8
   %6 = load atomic i64, ptr %_M_use_count.i.i.i.i.i acquire, align 8
   %cmp.i.i.i.i.i = icmp eq i64 %6, 4294967297
   %7 = trunc i64 %6 to i32
@@ -8862,10 +8856,10 @@ if.then.i.i.i.i:                                  ; preds = %invoke.cont
 
 if.then.i.i.i.i.i:                                ; preds = %if.then.i.i.i.i
   store i32 0, ptr %_M_use_count.i.i.i.i.i, align 8
-  %_M_weak_count.i.i.i.i.i = getelementptr inbounds %"class.std::_Sp_counted_base", ptr %5, i64 0, i32 2
+  %_M_weak_count.i.i.i.i.i = getelementptr inbounds i8, ptr %5, i64 12
   store i32 0, ptr %_M_weak_count.i.i.i.i.i, align 4
   %vtable.i.i.i.i.i = load ptr, ptr %5, align 8
-  %vfn.i.i.i.i.i = getelementptr inbounds ptr, ptr %vtable.i.i.i.i.i, i64 2
+  %vfn.i.i.i.i.i = getelementptr inbounds i8, ptr %vtable.i.i.i.i.i, i64 16
   %8 = load ptr, ptr %vfn.i.i.i.i.i, align 8
   call void %8(ptr noundef nonnull align 8 dereferenceable(16) %5) #18
   br label %if.end8.sink.split.i.i.i.i.i
@@ -8891,10 +8885,10 @@ _ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i: ; preds = %if.els
 
 if.then7.i.i.i.i.i:                               ; preds = %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i
   %vtable.i.i.i.i.i.i.i = load ptr, ptr %5, align 8
-  %vfn.i.i.i.i.i.i.i = getelementptr inbounds ptr, ptr %vtable.i.i.i.i.i.i.i, i64 2
+  %vfn.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %vtable.i.i.i.i.i.i.i, i64 16
   %11 = load ptr, ptr %vfn.i.i.i.i.i.i.i, align 8
   call void %11(ptr noundef nonnull align 8 dereferenceable(16) %5) #18
-  %_M_weak_count.i.i.i.i.i.i.i = getelementptr inbounds %"class.std::_Sp_counted_base", ptr %5, i64 0, i32 2
+  %_M_weak_count.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %5, i64 12
   %12 = load i8, ptr @__libc_single_threaded, align 1
   %tobool.i.not.i.i.i.i.i.i.i = icmp eq i8 %12, 0
   br i1 %tobool.i.not.i.i.i.i.i.i.i, label %if.else.i.i.i.i.i.i.i.i, label %if.then.i.i.i.i.i.i.i.i
@@ -8916,7 +8910,7 @@ _ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i.i: ; preds = %if
 
 if.end8.sink.split.i.i.i.i.i:                     ; preds = %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i.i, %if.then.i.i.i.i.i
   %vtable2.i.i.i.i.i.i.i = load ptr, ptr %5, align 8
-  %vfn3.i.i.i.i.i.i.i = getelementptr inbounds ptr, ptr %vtable2.i.i.i.i.i.i.i, i64 3
+  %vfn3.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %vtable2.i.i.i.i.i.i.i, i64 24
   %15 = load ptr, ptr %vfn3.i.i.i.i.i.i.i, align 8
   call void %15(ptr noundef nonnull align 8 dereferenceable(16) %5) #18
   br label %_ZNSt10shared_ptrIKiED2Ev.exit.i
@@ -8946,9 +8940,9 @@ invoke.cont8:                                     ; preds = %invoke.cont6
           to label %invoke.cont10 unwind label %lpad3
 
 invoke.cont10:                                    ; preds = %invoke.cont8
-  %size_alloc_.i.i4 = getelementptr inbounds %"class.absl::FixedArray<testing::ThrowingValue<testing::TypeSpec::kEverythingThrows>, 25, testing::ThrowingAllocator<testing::ThrowingValue<testing::TypeSpec::kEverythingThrows>, testing::AllocSpec::kEverythingThrows>>::Storage", ptr %large, i64 0, i32 1
+  %size_alloc_.i.i4 = getelementptr inbounds i8, ptr %large, i64 104
   store i64 50, ptr %size_alloc_.i.i4, align 8
-  %20 = getelementptr inbounds %"class.absl::FixedArray<testing::ThrowingValue<testing::TypeSpec::kEverythingThrows>, 25, testing::ThrowingAllocator<testing::ThrowingValue<testing::TypeSpec::kEverythingThrows>, testing::AllocSpec::kEverythingThrows>>::Storage", ptr %large, i64 0, i32 1, i32 0, i32 1
+  %20 = getelementptr inbounds i8, ptr %large, i64 112
   call void @_ZN7testing17ThrowingAllocatorINS_13ThrowingValueILNS_8TypeSpecE0EEELNS_9AllocSpecE0EEC2ERKS5_(ptr noundef nonnull align 8 dereferenceable(16) %20, ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp9) #18
   %21 = load i64, ptr %size_alloc_.i.i4, align 8
   %cmp.i.i.i.i5 = icmp ult i64 %21, 26
@@ -8976,7 +8970,7 @@ lpad.i.i7:                                        ; preds = %.noexc.i.i10, %if.e
 invoke.cont7.i15:                                 ; preds = %.noexc.i.invoke.cont7_crit_edge.i13, %invoke.cont10
   %23 = phi i64 [ %21, %invoke.cont10 ], [ %.pre.i14, %.noexc.i.invoke.cont7_crit_edge.i13 ]
   %retval.0.i.i.i16 = phi ptr [ %large, %invoke.cont10 ], [ %call.i.i.i1.i.i12, %.noexc.i.invoke.cont7_crit_edge.i13 ]
-  %data_.i.i17 = getelementptr inbounds %"class.absl::FixedArray<testing::ThrowingValue<testing::TypeSpec::kEverythingThrows>, 25, testing::ThrowingAllocator<testing::ThrowingValue<testing::TypeSpec::kEverythingThrows>, testing::AllocSpec::kEverythingThrows>>::Storage", ptr %large, i64 0, i32 2
+  %data_.i.i17 = getelementptr inbounds i8, ptr %large, i64 128
   store ptr %retval.0.i.i.i16, ptr %data_.i.i17, align 8
   %add.ptr.i.i18 = getelementptr inbounds %"class.testing::ThrowingValue", ptr %retval.0.i.i.i16, i64 %23
   invoke void @_ZN4absl15memory_internal14ConstructRangeIN7testing17ThrowingAllocatorINS2_13ThrowingValueILNS2_8TypeSpecE0EEELNS2_9AllocSpecE0EEEPS6_JEEEvRT_T0_SC_DpRKT1_(ptr noundef nonnull align 8 dereferenceable(16) %20, ptr noundef nonnull %retval.0.i.i.i16, ptr noundef nonnull %add.ptr.i.i18)
@@ -8989,13 +8983,13 @@ lpad.i19:                                         ; preds = %invoke.cont7.i15
   br label %lpad11.body
 
 invoke.cont12:                                    ; preds = %invoke.cont7.i15
-  %_M_refcount.i.i.i22 = getelementptr inbounds %"class.std::__shared_ptr", ptr %ref.tmp9, i64 0, i32 1
+  %_M_refcount.i.i.i22 = getelementptr inbounds i8, ptr %ref.tmp9, i64 8
   %25 = load ptr, ptr %_M_refcount.i.i.i22, align 8
   %cmp.not.i.i.i.i23 = icmp eq ptr %25, null
   br i1 %cmp.not.i.i.i.i23, label %_ZNSt10shared_ptrIKiED2Ev.exit.i34, label %if.then.i.i.i.i24
 
 if.then.i.i.i.i24:                                ; preds = %invoke.cont12
-  %_M_use_count.i.i.i.i.i25 = getelementptr inbounds %"class.std::_Sp_counted_base", ptr %25, i64 0, i32 1
+  %_M_use_count.i.i.i.i.i25 = getelementptr inbounds i8, ptr %25, i64 8
   %26 = load atomic i64, ptr %_M_use_count.i.i.i.i.i25 acquire, align 8
   %cmp.i.i.i.i.i26 = icmp eq i64 %26, 4294967297
   %27 = trunc i64 %26 to i32
@@ -9003,10 +8997,10 @@ if.then.i.i.i.i24:                                ; preds = %invoke.cont12
 
 if.then.i.i.i.i.i51:                              ; preds = %if.then.i.i.i.i24
   store i32 0, ptr %_M_use_count.i.i.i.i.i25, align 8
-  %_M_weak_count.i.i.i.i.i52 = getelementptr inbounds %"class.std::_Sp_counted_base", ptr %25, i64 0, i32 2
+  %_M_weak_count.i.i.i.i.i52 = getelementptr inbounds i8, ptr %25, i64 12
   store i32 0, ptr %_M_weak_count.i.i.i.i.i52, align 4
   %vtable.i.i.i.i.i53 = load ptr, ptr %25, align 8
-  %vfn.i.i.i.i.i54 = getelementptr inbounds ptr, ptr %vtable.i.i.i.i.i53, i64 2
+  %vfn.i.i.i.i.i54 = getelementptr inbounds i8, ptr %vtable.i.i.i.i.i53, i64 16
   %28 = load ptr, ptr %vfn.i.i.i.i.i54, align 8
   call void %28(ptr noundef nonnull align 8 dereferenceable(16) %25) #18
   br label %if.end8.sink.split.i.i.i.i.i46
@@ -9032,10 +9026,10 @@ _ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i31: ; preds = %if.e
 
 if.then7.i.i.i.i.i36:                             ; preds = %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i31
   %vtable.i.i.i.i.i.i.i37 = load ptr, ptr %25, align 8
-  %vfn.i.i.i.i.i.i.i38 = getelementptr inbounds ptr, ptr %vtable.i.i.i.i.i.i.i37, i64 2
+  %vfn.i.i.i.i.i.i.i38 = getelementptr inbounds i8, ptr %vtable.i.i.i.i.i.i.i37, i64 16
   %31 = load ptr, ptr %vfn.i.i.i.i.i.i.i38, align 8
   call void %31(ptr noundef nonnull align 8 dereferenceable(16) %25) #18
-  %_M_weak_count.i.i.i.i.i.i.i39 = getelementptr inbounds %"class.std::_Sp_counted_base", ptr %25, i64 0, i32 2
+  %_M_weak_count.i.i.i.i.i.i.i39 = getelementptr inbounds i8, ptr %25, i64 12
   %32 = load i8, ptr @__libc_single_threaded, align 1
   %tobool.i.not.i.i.i.i.i.i.i40 = icmp eq i8 %32, 0
   br i1 %tobool.i.not.i.i.i.i.i.i.i40, label %if.else.i.i.i.i.i.i.i.i49, label %if.then.i.i.i.i.i.i.i.i41
@@ -9057,7 +9051,7 @@ _ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i.i43: ; preds = %
 
 if.end8.sink.split.i.i.i.i.i46:                   ; preds = %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i.i43, %if.then.i.i.i.i.i51
   %vtable2.i.i.i.i.i.i.i47 = load ptr, ptr %25, align 8
-  %vfn3.i.i.i.i.i.i.i48 = getelementptr inbounds ptr, ptr %vtable2.i.i.i.i.i.i.i47, i64 3
+  %vfn3.i.i.i.i.i.i.i48 = getelementptr inbounds i8, ptr %vtable2.i.i.i.i.i.i.i47, i64 24
   %35 = load ptr, ptr %vfn3.i.i.i.i.i.i.i48, align 8
   call void %35(ptr noundef nonnull align 8 dereferenceable(16) %25) #18
   br label %_ZNSt10shared_ptrIKiED2Ev.exit.i34
@@ -9114,7 +9108,7 @@ terminate.lpad.i.i.i.i.i.i:                       ; preds = %_ZN7testing17Throwi
   unreachable
 
 _ZNSt16allocator_traitsIN7testing17ThrowingAllocatorINS0_13ThrowingValueILNS0_8TypeSpecE0EEELNS0_9AllocSpecE0EEEE7destroyIS4_EEvRS6_PT_.exit.i: ; preds = %_ZN7testing17ThrowingAllocatorINS_13ThrowingValueILNS_8TypeSpecE0EEELNS_9AllocSpecE0EE9ReadStateEv.exit.i.i.i.i
-  %incdec.ptr.i = getelementptr inbounds %"class.testing::ThrowingValue", ptr %cur.05.i, i64 1
+  %incdec.ptr.i = getelementptr inbounds i8, ptr %cur.05.i, i64 4
   %46 = load ptr, ptr %data_.i.i17, align 8
   %47 = load i64, ptr %size_alloc_.i.i4, align 8
   %add.ptr.i.i63 = getelementptr inbounds %"class.testing::ThrowingValue", ptr %46, i64 %47
@@ -9154,7 +9148,7 @@ terminate.lpad.i.i.i.i.i.i74:                     ; preds = %_ZN7testing17Throwi
   unreachable
 
 _ZNSt16allocator_traitsIN7testing17ThrowingAllocatorINS0_13ThrowingValueILNS0_8TypeSpecE0EEELNS0_9AllocSpecE0EEEE7destroyIS4_EEvRS6_PT_.exit.i75: ; preds = %_ZN7testing17ThrowingAllocatorINS_13ThrowingValueILNS_8TypeSpecE0EEELNS_9AllocSpecE0EE9ReadStateEv.exit.i.i.i.i73
-  %incdec.ptr.i76 = getelementptr inbounds %"class.testing::ThrowingValue", ptr %cur.05.i71, i64 1
+  %incdec.ptr.i76 = getelementptr inbounds i8, ptr %cur.05.i71, i64 4
   %54 = load ptr, ptr %data_.i.i, align 8
   %55 = load i64, ptr %size_alloc_.i.i, align 8
   %add.ptr.i.i77 = getelementptr inbounds %"class.testing::ThrowingValue", ptr %54, i64 %55
@@ -9202,15 +9196,15 @@ entry:
   %ct = alloca %"class.testing::exceptions_internal::ConstructorTracker", align 8
   %temp = alloca %"class.absl::FixedArray.42", align 8
   %ref.tmp = alloca %"class.testing::ThrowingAllocator", align 8
-  %_M_single_bucket.i.i.i = getelementptr inbounds %"class.std::_Hashtable", ptr %ct, i64 0, i32 5
-  %_M_bucket_count.i.i.i = getelementptr inbounds %"class.std::_Hashtable", ptr %ct, i64 0, i32 1
-  %_M_before_begin.i.i.i = getelementptr inbounds %"class.std::_Hashtable", ptr %ct, i64 0, i32 2
-  %_M_rehash_policy.i.i.i = getelementptr inbounds %"class.std::_Hashtable", ptr %ct, i64 0, i32 4
-  %_M_next_resize.i.i.i.i = getelementptr inbounds %"class.std::_Hashtable", ptr %ct, i64 0, i32 4, i32 1
-  %countdown_.i = getelementptr inbounds %"class.testing::exceptions_internal::ConstructorTracker", ptr %ct, i64 0, i32 1
-  %size_alloc_.i.i = getelementptr inbounds %"class.absl::FixedArray<testing::ThrowingValue<testing::TypeSpec::kEverythingThrows>, 25, testing::ThrowingAllocator<testing::ThrowingValue<testing::TypeSpec::kEverythingThrows>, testing::AllocSpec::kEverythingThrows>>::Storage", ptr %temp, i64 0, i32 1
-  %0 = getelementptr inbounds %"class.absl::FixedArray<testing::ThrowingValue<testing::TypeSpec::kEverythingThrows>, 25, testing::ThrowingAllocator<testing::ThrowingValue<testing::TypeSpec::kEverythingThrows>, testing::AllocSpec::kEverythingThrows>>::Storage", ptr %temp, i64 0, i32 1, i32 0, i32 1
-  %data_.i.i = getelementptr inbounds %"class.absl::FixedArray<testing::ThrowingValue<testing::TypeSpec::kEverythingThrows>, 25, testing::ThrowingAllocator<testing::ThrowingValue<testing::TypeSpec::kEverythingThrows>, testing::AllocSpec::kEverythingThrows>>::Storage", ptr %temp, i64 0, i32 2
+  %_M_single_bucket.i.i.i = getelementptr inbounds i8, ptr %ct, i64 48
+  %_M_bucket_count.i.i.i = getelementptr inbounds i8, ptr %ct, i64 8
+  %_M_before_begin.i.i.i = getelementptr inbounds i8, ptr %ct, i64 16
+  %_M_rehash_policy.i.i.i = getelementptr inbounds i8, ptr %ct, i64 32
+  %_M_next_resize.i.i.i.i = getelementptr inbounds i8, ptr %ct, i64 40
+  %countdown_.i = getelementptr inbounds i8, ptr %ct, i64 56
+  %size_alloc_.i.i = getelementptr inbounds i8, ptr %temp, i64 104
+  %0 = getelementptr inbounds i8, ptr %temp, i64 112
+  %data_.i.i = getelementptr inbounds i8, ptr %temp, i64 128
   br label %for.cond
 
 for.cond:                                         ; preds = %for.inc, %entry
@@ -9269,13 +9263,13 @@ lpad.i:                                           ; preds = %invoke.cont.i
   br label %lpad5.body
 
 invoke.cont6:                                     ; preds = %invoke.cont.i
-  %_M_refcount.i.i.i = getelementptr inbounds %"class.std::__shared_ptr", ptr %ref.tmp, i64 0, i32 1
+  %_M_refcount.i.i.i = getelementptr inbounds i8, ptr %ref.tmp, i64 8
   %6 = load ptr, ptr %_M_refcount.i.i.i, align 8
   %cmp.not.i.i.i.i = icmp eq ptr %6, null
   br i1 %cmp.not.i.i.i.i, label %_ZNSt10shared_ptrIKiED2Ev.exit.i, label %if.then.i.i.i.i
 
 if.then.i.i.i.i:                                  ; preds = %invoke.cont6
-  %_M_use_count.i.i.i.i.i = getelementptr inbounds %"class.std::_Sp_counted_base", ptr %6, i64 0, i32 1
+  %_M_use_count.i.i.i.i.i = getelementptr inbounds i8, ptr %6, i64 8
   %7 = load atomic i64, ptr %_M_use_count.i.i.i.i.i acquire, align 8
   %cmp.i.i.i.i.i = icmp eq i64 %7, 4294967297
   %8 = trunc i64 %7 to i32
@@ -9283,10 +9277,10 @@ if.then.i.i.i.i:                                  ; preds = %invoke.cont6
 
 if.then.i.i.i.i.i:                                ; preds = %if.then.i.i.i.i
   store i32 0, ptr %_M_use_count.i.i.i.i.i, align 8
-  %_M_weak_count.i.i.i.i.i = getelementptr inbounds %"class.std::_Sp_counted_base", ptr %6, i64 0, i32 2
+  %_M_weak_count.i.i.i.i.i = getelementptr inbounds i8, ptr %6, i64 12
   store i32 0, ptr %_M_weak_count.i.i.i.i.i, align 4
   %vtable.i.i.i.i.i = load ptr, ptr %6, align 8
-  %vfn.i.i.i.i.i = getelementptr inbounds ptr, ptr %vtable.i.i.i.i.i, i64 2
+  %vfn.i.i.i.i.i = getelementptr inbounds i8, ptr %vtable.i.i.i.i.i, i64 16
   %9 = load ptr, ptr %vfn.i.i.i.i.i, align 8
   call void %9(ptr noundef nonnull align 8 dereferenceable(16) %6) #18
   br label %if.end8.sink.split.i.i.i.i.i
@@ -9312,10 +9306,10 @@ _ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i: ; preds = %if.els
 
 if.then7.i.i.i.i.i:                               ; preds = %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i
   %vtable.i.i.i.i.i.i.i = load ptr, ptr %6, align 8
-  %vfn.i.i.i.i.i.i.i = getelementptr inbounds ptr, ptr %vtable.i.i.i.i.i.i.i, i64 2
+  %vfn.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %vtable.i.i.i.i.i.i.i, i64 16
   %12 = load ptr, ptr %vfn.i.i.i.i.i.i.i, align 8
   call void %12(ptr noundef nonnull align 8 dereferenceable(16) %6) #18
-  %_M_weak_count.i.i.i.i.i.i.i = getelementptr inbounds %"class.std::_Sp_counted_base", ptr %6, i64 0, i32 2
+  %_M_weak_count.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %6, i64 12
   %13 = load i8, ptr @__libc_single_threaded, align 1
   %tobool.i.not.i.i.i.i.i.i.i = icmp eq i8 %13, 0
   br i1 %tobool.i.not.i.i.i.i.i.i.i, label %if.else.i.i.i.i.i.i.i.i, label %if.then.i.i.i.i.i.i.i.i
@@ -9337,7 +9331,7 @@ _ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i.i: ; preds = %if
 
 if.end8.sink.split.i.i.i.i.i:                     ; preds = %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i.i, %if.then.i.i.i.i.i
   %vtable2.i.i.i.i.i.i.i = load ptr, ptr %6, align 8
-  %vfn3.i.i.i.i.i.i.i = getelementptr inbounds ptr, ptr %vtable2.i.i.i.i.i.i.i, i64 3
+  %vfn3.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %vtable2.i.i.i.i.i.i.i, i64 24
   %16 = load ptr, ptr %vfn3.i.i.i.i.i.i.i, align 8
   call void %16(ptr noundef nonnull align 8 dereferenceable(16) %6) #18
   br label %_ZNSt10shared_ptrIKiED2Ev.exit.i
@@ -9385,7 +9379,7 @@ terminate.lpad.i.i.i.i.i.i:                       ; preds = %_ZN7testing17Throwi
   unreachable
 
 _ZNSt16allocator_traitsIN7testing17ThrowingAllocatorINS0_13ThrowingValueILNS0_8TypeSpecE0EEELNS0_9AllocSpecE0EEEE7destroyIS4_EEvRS6_PT_.exit.i: ; preds = %_ZN7testing17ThrowingAllocatorINS_13ThrowingValueILNS_8TypeSpecE0EEELNS_9AllocSpecE0EE9ReadStateEv.exit.i.i.i.i
-  %incdec.ptr.i = getelementptr inbounds %"class.testing::ThrowingValue", ptr %cur.05.i, i64 1
+  %incdec.ptr.i = getelementptr inbounds i8, ptr %cur.05.i, i64 4
   %25 = load ptr, ptr %data_.i.i, align 8
   %26 = load i64, ptr %size_alloc_.i.i, align 8
   %add.ptr.i.i = getelementptr inbounds %"class.testing::ThrowingValue", ptr %25, i64 %26
@@ -9478,7 +9472,7 @@ if.then.i.i.i.i:                                  ; preds = %while.body
   unreachable
 
 _ZN7testing17ThrowingAllocatorINS_13ThrowingValueILNS_8TypeSpecE0EEELNS_9AllocSpecE0EE9ReadStateEv.exit.i.i.i: ; preds = %while.body
-  %incdec.ptr = getelementptr inbounds %"class.testing::ThrowingValue", ptr %cur.1, i64 -1
+  %incdec.ptr = getelementptr inbounds i8, ptr %cur.1, i64 -4
   invoke void @_ZN7testing19exceptions_internal18ConstructorTracker16ObjectDestructedEPv(ptr noundef nonnull %incdec.ptr)
           to label %while.cond unwind label %terminate.lpad.i.i.i.i.i, !llvm.loop !84
 
@@ -9500,8 +9494,8 @@ lpad2:                                            ; preds = %do.body
           to label %eh.resume unwind label %terminate.lpad
 
 for.inc:                                          ; preds = %.noexc
-  %incdec.ptr4 = getelementptr inbounds %"class.testing::ThrowingValue", ptr %cur.013, i64 1
-  %incdec.ptr5 = getelementptr inbounds %"class.testing::ThrowingValue", ptr %first.addr.012, i64 1
+  %incdec.ptr4 = getelementptr inbounds i8, ptr %cur.013, i64 4
+  %incdec.ptr5 = getelementptr inbounds i8, ptr %first.addr.012, i64 4
   %cmp.not = icmp eq ptr %incdec.ptr5, %last
   br i1 %cmp.not, label %for.end, label %for.body, !llvm.loop !85
 
@@ -9579,24 +9573,24 @@ entry:
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp, i8 0, i64 16, i1 false)
   call void @_ZN7testing16TestThrowingCtorIN4absl10FixedArrayINS_13ThrowingValueILNS_8TypeSpecE0EEELm3ESaIS5_EEEJSt16initializer_listIS5_EEEEvDpOT0_(ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp)
   call void @_ZN7testing13ThrowingValueILNS_8TypeSpecE0EEC2Ev(ptr noundef nonnull align 4 dereferenceable(4) %ref.tmp3)
-  %arrayinit.element = getelementptr inbounds %"class.testing::ThrowingValue", ptr %ref.tmp3, i64 1
+  %arrayinit.element = getelementptr inbounds i8, ptr %ref.tmp3, i64 4
   invoke void @_ZN7testing13ThrowingValueILNS_8TypeSpecE0EEC2Ev(ptr noundef nonnull align 4 dereferenceable(4) %arrayinit.element)
           to label %invoke.cont4 unwind label %lpad
 
 invoke.cont4:                                     ; preds = %entry
   store ptr %ref.tmp3, ptr %ref.tmp2, align 8
-  %_M_len = getelementptr inbounds %"class.std::initializer_list.89", ptr %ref.tmp2, i64 0, i32 1
+  %_M_len = getelementptr inbounds i8, ptr %ref.tmp2, i64 8
   store i64 2, ptr %_M_len, align 8
   invoke void @_ZN7testing16TestThrowingCtorIN4absl10FixedArrayINS_13ThrowingValueILNS_8TypeSpecE0EEELm3ESaIS5_EEEJSt16initializer_listIS5_EEEEvDpOT0_(ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp2)
           to label %invoke.cont7 unwind label %lpad6
 
 invoke.cont7:                                     ; preds = %invoke.cont4
-  %0 = getelementptr inbounds %"class.testing::ThrowingValue", ptr %ref.tmp3, i64 2
+  %0 = getelementptr inbounds i8, ptr %ref.tmp3, i64 8
   br label %arraydestroy.body8
 
 arraydestroy.body8:                               ; preds = %_ZN7testing13ThrowingValueILNS_8TypeSpecE0EED2Ev.exit, %invoke.cont7
   %arraydestroy.elementPast9 = phi ptr [ %0, %invoke.cont7 ], [ %arraydestroy.element10, %_ZN7testing13ThrowingValueILNS_8TypeSpecE0EED2Ev.exit ]
-  %arraydestroy.element10 = getelementptr inbounds %"class.testing::ThrowingValue", ptr %arraydestroy.elementPast9, i64 -1
+  %arraydestroy.element10 = getelementptr inbounds i8, ptr %arraydestroy.elementPast9, i64 -4
   invoke void @_ZN7testing19exceptions_internal18ConstructorTracker16ObjectDestructedEPv(ptr noundef nonnull %arraydestroy.element10)
           to label %_ZN7testing13ThrowingValueILNS_8TypeSpecE0EED2Ev.exit unwind label %terminate.lpad.i.i
 
@@ -9613,39 +9607,39 @@ _ZN7testing13ThrowingValueILNS_8TypeSpecE0EED2Ev.exit: ; preds = %arraydestroy.b
 
 arraydestroy.done12:                              ; preds = %_ZN7testing13ThrowingValueILNS_8TypeSpecE0EED2Ev.exit
   call void @_ZN7testing13ThrowingValueILNS_8TypeSpecE0EEC2Ev(ptr noundef nonnull align 4 dereferenceable(4) %ref.tmp20)
-  %arrayinit.element25 = getelementptr inbounds %"class.testing::ThrowingValue", ptr %ref.tmp20, i64 1
+  %arrayinit.element25 = getelementptr inbounds i8, ptr %ref.tmp20, i64 4
   invoke void @_ZN7testing13ThrowingValueILNS_8TypeSpecE0EEC2Ev(ptr noundef nonnull align 4 dereferenceable(4) %arrayinit.element25)
           to label %invoke.cont26 unwind label %lpad23
 
 invoke.cont26:                                    ; preds = %arraydestroy.done12
-  %arrayinit.element27 = getelementptr inbounds %"class.testing::ThrowingValue", ptr %ref.tmp20, i64 2
+  %arrayinit.element27 = getelementptr inbounds i8, ptr %ref.tmp20, i64 8
   invoke void @_ZN7testing13ThrowingValueILNS_8TypeSpecE0EEC2Ev(ptr noundef nonnull align 4 dereferenceable(4) %arrayinit.element27)
           to label %invoke.cont28 unwind label %lpad23
 
 invoke.cont28:                                    ; preds = %invoke.cont26
-  %arrayinit.element29 = getelementptr inbounds %"class.testing::ThrowingValue", ptr %ref.tmp20, i64 3
+  %arrayinit.element29 = getelementptr inbounds i8, ptr %ref.tmp20, i64 12
   invoke void @_ZN7testing13ThrowingValueILNS_8TypeSpecE0EEC2Ev(ptr noundef nonnull align 4 dereferenceable(4) %arrayinit.element29)
           to label %invoke.cont30 unwind label %lpad23
 
 invoke.cont30:                                    ; preds = %invoke.cont28
-  %arrayinit.element31 = getelementptr inbounds %"class.testing::ThrowingValue", ptr %ref.tmp20, i64 4
+  %arrayinit.element31 = getelementptr inbounds i8, ptr %ref.tmp20, i64 16
   invoke void @_ZN7testing13ThrowingValueILNS_8TypeSpecE0EEC2Ev(ptr noundef nonnull align 4 dereferenceable(4) %arrayinit.element31)
           to label %invoke.cont32 unwind label %lpad23
 
 invoke.cont32:                                    ; preds = %invoke.cont30
   store ptr %ref.tmp20, ptr %ref.tmp19, align 8
-  %_M_len41 = getelementptr inbounds %"class.std::initializer_list.89", ptr %ref.tmp19, i64 0, i32 1
+  %_M_len41 = getelementptr inbounds i8, ptr %ref.tmp19, i64 8
   store i64 5, ptr %_M_len41, align 8
   invoke void @_ZN7testing16TestThrowingCtorIN4absl10FixedArrayINS_13ThrowingValueILNS_8TypeSpecE0EEELm3ESaIS5_EEEJSt16initializer_listIS5_EEEEvDpOT0_(ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp19)
           to label %invoke.cont43 unwind label %lpad42
 
 invoke.cont43:                                    ; preds = %invoke.cont32
-  %3 = getelementptr inbounds %"class.testing::ThrowingValue", ptr %ref.tmp20, i64 5
+  %3 = getelementptr inbounds i8, ptr %ref.tmp20, i64 20
   br label %arraydestroy.body45
 
 arraydestroy.body45:                              ; preds = %_ZN7testing13ThrowingValueILNS_8TypeSpecE0EED2Ev.exit3, %invoke.cont43
   %arraydestroy.elementPast46 = phi ptr [ %3, %invoke.cont43 ], [ %arraydestroy.element47, %_ZN7testing13ThrowingValueILNS_8TypeSpecE0EED2Ev.exit3 ]
-  %arraydestroy.element47 = getelementptr inbounds %"class.testing::ThrowingValue", ptr %arraydestroy.elementPast46, i64 -1
+  %arraydestroy.element47 = getelementptr inbounds i8, ptr %arraydestroy.elementPast46, i64 -4
   invoke void @_ZN7testing19exceptions_internal18ConstructorTracker16ObjectDestructedEPv(ptr noundef nonnull %arraydestroy.element47)
           to label %_ZN7testing13ThrowingValueILNS_8TypeSpecE0EED2Ev.exit3 unwind label %terminate.lpad.i.i2
 
@@ -9679,12 +9673,12 @@ terminate.lpad.i.i4:                              ; preds = %lpad
 lpad6:                                            ; preds = %invoke.cont4
   %9 = landingpad { ptr, i32 }
           cleanup
-  %10 = getelementptr inbounds %"class.testing::ThrowingValue", ptr %ref.tmp3, i64 2
+  %10 = getelementptr inbounds i8, ptr %ref.tmp3, i64 8
   br label %arraydestroy.body14
 
 arraydestroy.body14:                              ; preds = %_ZN7testing13ThrowingValueILNS_8TypeSpecE0EED2Ev.exit7, %lpad6
   %arraydestroy.elementPast15 = phi ptr [ %10, %lpad6 ], [ %arraydestroy.element16, %_ZN7testing13ThrowingValueILNS_8TypeSpecE0EED2Ev.exit7 ]
-  %arraydestroy.element16 = getelementptr inbounds %"class.testing::ThrowingValue", ptr %arraydestroy.elementPast15, i64 -1
+  %arraydestroy.element16 = getelementptr inbounds i8, ptr %arraydestroy.elementPast15, i64 -4
   invoke void @_ZN7testing19exceptions_internal18ConstructorTracker16ObjectDestructedEPv(ptr noundef nonnull %arraydestroy.element16)
           to label %_ZN7testing13ThrowingValueILNS_8TypeSpecE0EED2Ev.exit7 unwind label %terminate.lpad.i.i6
 
@@ -9707,7 +9701,7 @@ lpad23:                                           ; preds = %invoke.cont30, %inv
 
 arraydestroy.body34:                              ; preds = %lpad23, %_ZN7testing13ThrowingValueILNS_8TypeSpecE0EED2Ev.exit9
   %arraydestroy.elementPast35 = phi ptr [ %arrayinit.endOfInit22.0, %lpad23 ], [ %arraydestroy.element36, %_ZN7testing13ThrowingValueILNS_8TypeSpecE0EED2Ev.exit9 ]
-  %arraydestroy.element36 = getelementptr inbounds %"class.testing::ThrowingValue", ptr %arraydestroy.elementPast35, i64 -1
+  %arraydestroy.element36 = getelementptr inbounds i8, ptr %arraydestroy.elementPast35, i64 -4
   invoke void @_ZN7testing19exceptions_internal18ConstructorTracker16ObjectDestructedEPv(ptr noundef nonnull %arraydestroy.element36)
           to label %_ZN7testing13ThrowingValueILNS_8TypeSpecE0EED2Ev.exit9 unwind label %terminate.lpad.i.i8
 
@@ -9725,12 +9719,12 @@ _ZN7testing13ThrowingValueILNS_8TypeSpecE0EED2Ev.exit9: ; preds = %arraydestroy.
 lpad42:                                           ; preds = %invoke.cont32
   %16 = landingpad { ptr, i32 }
           cleanup
-  %17 = getelementptr inbounds %"class.testing::ThrowingValue", ptr %ref.tmp20, i64 5
+  %17 = getelementptr inbounds i8, ptr %ref.tmp20, i64 20
   br label %arraydestroy.body51
 
 arraydestroy.body51:                              ; preds = %_ZN7testing13ThrowingValueILNS_8TypeSpecE0EED2Ev.exit11, %lpad42
   %arraydestroy.elementPast52 = phi ptr [ %17, %lpad42 ], [ %arraydestroy.element53, %_ZN7testing13ThrowingValueILNS_8TypeSpecE0EED2Ev.exit11 ]
-  %arraydestroy.element53 = getelementptr inbounds %"class.testing::ThrowingValue", ptr %arraydestroy.elementPast52, i64 -1
+  %arraydestroy.element53 = getelementptr inbounds i8, ptr %arraydestroy.elementPast52, i64 -4
   invoke void @_ZN7testing19exceptions_internal18ConstructorTracker16ObjectDestructedEPv(ptr noundef nonnull %arraydestroy.element53)
           to label %_ZN7testing13ThrowingValueILNS_8TypeSpecE0EED2Ev.exit11 unwind label %terminate.lpad.i.i10
 
@@ -9756,12 +9750,12 @@ entry:
   %ct = alloca %"class.testing::exceptions_internal::ConstructorTracker", align 8
   %temp = alloca %"class.absl::FixedArray.92", align 8
   %ref.tmp = alloca %"class.std::allocator.16", align 1
-  %_M_single_bucket.i.i.i = getelementptr inbounds %"class.std::_Hashtable", ptr %ct, i64 0, i32 5
-  %_M_bucket_count.i.i.i = getelementptr inbounds %"class.std::_Hashtable", ptr %ct, i64 0, i32 1
-  %_M_before_begin.i.i.i = getelementptr inbounds %"class.std::_Hashtable", ptr %ct, i64 0, i32 2
-  %_M_rehash_policy.i.i.i = getelementptr inbounds %"class.std::_Hashtable", ptr %ct, i64 0, i32 4
-  %_M_next_resize.i.i.i.i = getelementptr inbounds %"class.std::_Hashtable", ptr %ct, i64 0, i32 4, i32 1
-  %countdown_.i = getelementptr inbounds %"class.testing::exceptions_internal::ConstructorTracker", ptr %ct, i64 0, i32 1
+  %_M_single_bucket.i.i.i = getelementptr inbounds i8, ptr %ct, i64 48
+  %_M_bucket_count.i.i.i = getelementptr inbounds i8, ptr %ct, i64 8
+  %_M_before_begin.i.i.i = getelementptr inbounds i8, ptr %ct, i64 16
+  %_M_rehash_policy.i.i.i = getelementptr inbounds i8, ptr %ct, i64 32
+  %_M_next_resize.i.i.i.i = getelementptr inbounds i8, ptr %ct, i64 40
+  %countdown_.i = getelementptr inbounds i8, ptr %ct, i64 56
   %agg.tmp.sroa.2.0..sroa_idx = getelementptr inbounds i8, ptr %args, i64 8
   br label %for.cond
 
@@ -9782,8 +9776,8 @@ for.cond:                                         ; preds = %for.inc, %entry
           to label %invoke.cont2 unwind label %lpad1
 
 invoke.cont2:                                     ; preds = %for.cond
-  %data_.i.i = getelementptr inbounds %"class.absl::FixedArray<testing::ThrowingValue<testing::TypeSpec::kEverythingThrows>, 3>::Storage", ptr %temp, i64 0, i32 2
-  %size_alloc_.i.i.i = getelementptr inbounds %"class.absl::FixedArray<testing::ThrowingValue<testing::TypeSpec::kEverythingThrows>, 3>::Storage", ptr %temp, i64 0, i32 1
+  %data_.i.i = getelementptr inbounds i8, ptr %temp, i64 24
+  %size_alloc_.i.i.i = getelementptr inbounds i8, ptr %temp, i64 16
   %0 = load i64, ptr %size_alloc_.i.i.i, align 8
   %cmp.not9.i = icmp eq i64 %0, 0
   br i1 %cmp.not9.i, label %for.end, label %invoke.cont5.i.preheader
@@ -9805,7 +9799,7 @@ terminate.lpad.i.i.i.i.i:                         ; preds = %invoke.cont5.i
   unreachable
 
 _ZNSt16allocator_traitsISaIN7testing13ThrowingValueILNS0_8TypeSpecE0EEEEE7destroyIS3_EEvRS4_PT_.exit.i: ; preds = %invoke.cont5.i
-  %incdec.ptr.i = getelementptr inbounds %"class.testing::ThrowingValue", ptr %cur.010.i, i64 1
+  %incdec.ptr.i = getelementptr inbounds i8, ptr %cur.010.i, i64 4
   %4 = load ptr, ptr %data_.i.i, align 8
   %5 = load i64, ptr %size_alloc_.i.i.i, align 8
   %add.ptr.i.i4 = getelementptr inbounds %"class.testing::ThrowingValue", ptr %4, i64 %5
@@ -9864,7 +9858,7 @@ entry:
   %sub.ptr.rhs.cast.i.i = ptrtoint ptr %first to i64
   %sub.ptr.sub.i.i = sub i64 %sub.ptr.lhs.cast.i.i, %sub.ptr.rhs.cast.i.i
   %sub.ptr.div.i.i = ashr exact i64 %sub.ptr.sub.i.i, 2
-  %size_alloc_.i = getelementptr inbounds %"class.absl::FixedArray<testing::ThrowingValue<testing::TypeSpec::kEverythingThrows>, 3>::Storage", ptr %this, i64 0, i32 1
+  %size_alloc_.i = getelementptr inbounds i8, ptr %this, i64 16
   store i64 %sub.ptr.div.i.i, ptr %size_alloc_.i, align 8
   %cmp.i.i.i = icmp ult i64 %sub.ptr.div.i.i, 4
   br i1 %cmp.i.i.i, label %invoke.cont, label %if.else.i.i
@@ -9883,7 +9877,7 @@ _ZNSt16allocator_traitsISaIN7testing13ThrowingValueILNS0_8TypeSpecE0EEEEE8alloca
 
 invoke.cont:                                      ; preds = %_ZNSt16allocator_traitsISaIN7testing13ThrowingValueILNS0_8TypeSpecE0EEEEE8allocateERS4_m.exit.i.i, %entry
   %retval.0.i.i = phi ptr [ %this, %entry ], [ %call5.i.i.i2.i, %_ZNSt16allocator_traitsISaIN7testing13ThrowingValueILNS0_8TypeSpecE0EEEEE8allocateERS4_m.exit.i.i ]
-  %data_.i = getelementptr inbounds %"class.absl::FixedArray<testing::ThrowingValue<testing::TypeSpec::kEverythingThrows>, 3>::Storage", ptr %this, i64 0, i32 2
+  %data_.i = getelementptr inbounds i8, ptr %this, i64 24
   store ptr %retval.0.i.i, ptr %data_.i, align 8
   %cmp.not10.i = icmp eq ptr %first, %last
   br i1 %cmp.not10.i, label %invoke.cont7, label %for.body.i
@@ -9907,7 +9901,7 @@ while.cond.i:                                     ; preds = %while.body.i, %lpad
   br i1 %cmp1.not.i, label %do.body.i, label %while.body.i
 
 while.body.i:                                     ; preds = %while.cond.i
-  %incdec.ptr.i = getelementptr inbounds %"class.testing::ThrowingValue", ptr %cur.1.i, i64 -1
+  %incdec.ptr.i = getelementptr inbounds i8, ptr %cur.1.i, i64 -4
   invoke void @_ZN7testing19exceptions_internal18ConstructorTracker16ObjectDestructedEPv(ptr noundef nonnull %incdec.ptr.i)
           to label %while.cond.i unwind label %terminate.lpad.i.i.i.i.i, !llvm.loop !20
 
@@ -9929,8 +9923,8 @@ lpad2.i:                                          ; preds = %do.body.i
           to label %lpad.body unwind label %terminate.lpad.i
 
 for.inc.i:                                        ; preds = %for.body.i
-  %incdec.ptr4.i = getelementptr inbounds %"class.testing::ThrowingValue", ptr %cur.012.i, i64 1
-  %incdec.ptr5.i = getelementptr inbounds %"class.testing::ThrowingValue", ptr %first.addr.011.i, i64 1
+  %incdec.ptr4.i = getelementptr inbounds i8, ptr %cur.012.i, i64 4
+  %incdec.ptr5.i = getelementptr inbounds i8, ptr %first.addr.011.i, i64 4
   %cmp.not.i = icmp eq ptr %incdec.ptr5.i, %last
   br i1 %cmp.not.i, label %invoke.cont7, label %for.body.i, !llvm.loop !21
 
@@ -10018,24 +10012,24 @@ entry:
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp, i8 0, i64 16, i1 false)
   call void @_ZN7testing16TestThrowingCtorIN4absl10FixedArrayINS_13ThrowingValueILNS_8TypeSpecE0EEELm3ENS_17ThrowingAllocatorIS5_LNS_9AllocSpecE0EEEEEJSt16initializer_listIS5_EEEEvDpOT0_(ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp)
   call void @_ZN7testing13ThrowingValueILNS_8TypeSpecE0EEC2Ev(ptr noundef nonnull align 4 dereferenceable(4) %ref.tmp3)
-  %arrayinit.element = getelementptr inbounds %"class.testing::ThrowingValue", ptr %ref.tmp3, i64 1
+  %arrayinit.element = getelementptr inbounds i8, ptr %ref.tmp3, i64 4
   invoke void @_ZN7testing13ThrowingValueILNS_8TypeSpecE0EEC2Ev(ptr noundef nonnull align 4 dereferenceable(4) %arrayinit.element)
           to label %invoke.cont4 unwind label %lpad
 
 invoke.cont4:                                     ; preds = %entry
   store ptr %ref.tmp3, ptr %ref.tmp2, align 8
-  %_M_len = getelementptr inbounds %"class.std::initializer_list.89", ptr %ref.tmp2, i64 0, i32 1
+  %_M_len = getelementptr inbounds i8, ptr %ref.tmp2, i64 8
   store i64 2, ptr %_M_len, align 8
   invoke void @_ZN7testing16TestThrowingCtorIN4absl10FixedArrayINS_13ThrowingValueILNS_8TypeSpecE0EEELm3ENS_17ThrowingAllocatorIS5_LNS_9AllocSpecE0EEEEEJSt16initializer_listIS5_EEEEvDpOT0_(ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp2)
           to label %invoke.cont7 unwind label %lpad6
 
 invoke.cont7:                                     ; preds = %invoke.cont4
-  %0 = getelementptr inbounds %"class.testing::ThrowingValue", ptr %ref.tmp3, i64 2
+  %0 = getelementptr inbounds i8, ptr %ref.tmp3, i64 8
   br label %arraydestroy.body8
 
 arraydestroy.body8:                               ; preds = %_ZN7testing13ThrowingValueILNS_8TypeSpecE0EED2Ev.exit, %invoke.cont7
   %arraydestroy.elementPast9 = phi ptr [ %0, %invoke.cont7 ], [ %arraydestroy.element10, %_ZN7testing13ThrowingValueILNS_8TypeSpecE0EED2Ev.exit ]
-  %arraydestroy.element10 = getelementptr inbounds %"class.testing::ThrowingValue", ptr %arraydestroy.elementPast9, i64 -1
+  %arraydestroy.element10 = getelementptr inbounds i8, ptr %arraydestroy.elementPast9, i64 -4
   invoke void @_ZN7testing19exceptions_internal18ConstructorTracker16ObjectDestructedEPv(ptr noundef nonnull %arraydestroy.element10)
           to label %_ZN7testing13ThrowingValueILNS_8TypeSpecE0EED2Ev.exit unwind label %terminate.lpad.i.i
 
@@ -10052,39 +10046,39 @@ _ZN7testing13ThrowingValueILNS_8TypeSpecE0EED2Ev.exit: ; preds = %arraydestroy.b
 
 arraydestroy.done12:                              ; preds = %_ZN7testing13ThrowingValueILNS_8TypeSpecE0EED2Ev.exit
   call void @_ZN7testing13ThrowingValueILNS_8TypeSpecE0EEC2Ev(ptr noundef nonnull align 4 dereferenceable(4) %ref.tmp20)
-  %arrayinit.element25 = getelementptr inbounds %"class.testing::ThrowingValue", ptr %ref.tmp20, i64 1
+  %arrayinit.element25 = getelementptr inbounds i8, ptr %ref.tmp20, i64 4
   invoke void @_ZN7testing13ThrowingValueILNS_8TypeSpecE0EEC2Ev(ptr noundef nonnull align 4 dereferenceable(4) %arrayinit.element25)
           to label %invoke.cont26 unwind label %lpad23
 
 invoke.cont26:                                    ; preds = %arraydestroy.done12
-  %arrayinit.element27 = getelementptr inbounds %"class.testing::ThrowingValue", ptr %ref.tmp20, i64 2
+  %arrayinit.element27 = getelementptr inbounds i8, ptr %ref.tmp20, i64 8
   invoke void @_ZN7testing13ThrowingValueILNS_8TypeSpecE0EEC2Ev(ptr noundef nonnull align 4 dereferenceable(4) %arrayinit.element27)
           to label %invoke.cont28 unwind label %lpad23
 
 invoke.cont28:                                    ; preds = %invoke.cont26
-  %arrayinit.element29 = getelementptr inbounds %"class.testing::ThrowingValue", ptr %ref.tmp20, i64 3
+  %arrayinit.element29 = getelementptr inbounds i8, ptr %ref.tmp20, i64 12
   invoke void @_ZN7testing13ThrowingValueILNS_8TypeSpecE0EEC2Ev(ptr noundef nonnull align 4 dereferenceable(4) %arrayinit.element29)
           to label %invoke.cont30 unwind label %lpad23
 
 invoke.cont30:                                    ; preds = %invoke.cont28
-  %arrayinit.element31 = getelementptr inbounds %"class.testing::ThrowingValue", ptr %ref.tmp20, i64 4
+  %arrayinit.element31 = getelementptr inbounds i8, ptr %ref.tmp20, i64 16
   invoke void @_ZN7testing13ThrowingValueILNS_8TypeSpecE0EEC2Ev(ptr noundef nonnull align 4 dereferenceable(4) %arrayinit.element31)
           to label %invoke.cont32 unwind label %lpad23
 
 invoke.cont32:                                    ; preds = %invoke.cont30
   store ptr %ref.tmp20, ptr %ref.tmp19, align 8
-  %_M_len41 = getelementptr inbounds %"class.std::initializer_list.89", ptr %ref.tmp19, i64 0, i32 1
+  %_M_len41 = getelementptr inbounds i8, ptr %ref.tmp19, i64 8
   store i64 5, ptr %_M_len41, align 8
   invoke void @_ZN7testing16TestThrowingCtorIN4absl10FixedArrayINS_13ThrowingValueILNS_8TypeSpecE0EEELm3ENS_17ThrowingAllocatorIS5_LNS_9AllocSpecE0EEEEEJSt16initializer_listIS5_EEEEvDpOT0_(ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp19)
           to label %invoke.cont43 unwind label %lpad42
 
 invoke.cont43:                                    ; preds = %invoke.cont32
-  %3 = getelementptr inbounds %"class.testing::ThrowingValue", ptr %ref.tmp20, i64 5
+  %3 = getelementptr inbounds i8, ptr %ref.tmp20, i64 20
   br label %arraydestroy.body45
 
 arraydestroy.body45:                              ; preds = %_ZN7testing13ThrowingValueILNS_8TypeSpecE0EED2Ev.exit3, %invoke.cont43
   %arraydestroy.elementPast46 = phi ptr [ %3, %invoke.cont43 ], [ %arraydestroy.element47, %_ZN7testing13ThrowingValueILNS_8TypeSpecE0EED2Ev.exit3 ]
-  %arraydestroy.element47 = getelementptr inbounds %"class.testing::ThrowingValue", ptr %arraydestroy.elementPast46, i64 -1
+  %arraydestroy.element47 = getelementptr inbounds i8, ptr %arraydestroy.elementPast46, i64 -4
   invoke void @_ZN7testing19exceptions_internal18ConstructorTracker16ObjectDestructedEPv(ptr noundef nonnull %arraydestroy.element47)
           to label %_ZN7testing13ThrowingValueILNS_8TypeSpecE0EED2Ev.exit3 unwind label %terminate.lpad.i.i2
 
@@ -10118,12 +10112,12 @@ terminate.lpad.i.i4:                              ; preds = %lpad
 lpad6:                                            ; preds = %invoke.cont4
   %9 = landingpad { ptr, i32 }
           cleanup
-  %10 = getelementptr inbounds %"class.testing::ThrowingValue", ptr %ref.tmp3, i64 2
+  %10 = getelementptr inbounds i8, ptr %ref.tmp3, i64 8
   br label %arraydestroy.body14
 
 arraydestroy.body14:                              ; preds = %_ZN7testing13ThrowingValueILNS_8TypeSpecE0EED2Ev.exit7, %lpad6
   %arraydestroy.elementPast15 = phi ptr [ %10, %lpad6 ], [ %arraydestroy.element16, %_ZN7testing13ThrowingValueILNS_8TypeSpecE0EED2Ev.exit7 ]
-  %arraydestroy.element16 = getelementptr inbounds %"class.testing::ThrowingValue", ptr %arraydestroy.elementPast15, i64 -1
+  %arraydestroy.element16 = getelementptr inbounds i8, ptr %arraydestroy.elementPast15, i64 -4
   invoke void @_ZN7testing19exceptions_internal18ConstructorTracker16ObjectDestructedEPv(ptr noundef nonnull %arraydestroy.element16)
           to label %_ZN7testing13ThrowingValueILNS_8TypeSpecE0EED2Ev.exit7 unwind label %terminate.lpad.i.i6
 
@@ -10146,7 +10140,7 @@ lpad23:                                           ; preds = %invoke.cont30, %inv
 
 arraydestroy.body34:                              ; preds = %lpad23, %_ZN7testing13ThrowingValueILNS_8TypeSpecE0EED2Ev.exit9
   %arraydestroy.elementPast35 = phi ptr [ %arrayinit.endOfInit22.0, %lpad23 ], [ %arraydestroy.element36, %_ZN7testing13ThrowingValueILNS_8TypeSpecE0EED2Ev.exit9 ]
-  %arraydestroy.element36 = getelementptr inbounds %"class.testing::ThrowingValue", ptr %arraydestroy.elementPast35, i64 -1
+  %arraydestroy.element36 = getelementptr inbounds i8, ptr %arraydestroy.elementPast35, i64 -4
   invoke void @_ZN7testing19exceptions_internal18ConstructorTracker16ObjectDestructedEPv(ptr noundef nonnull %arraydestroy.element36)
           to label %_ZN7testing13ThrowingValueILNS_8TypeSpecE0EED2Ev.exit9 unwind label %terminate.lpad.i.i8
 
@@ -10164,12 +10158,12 @@ _ZN7testing13ThrowingValueILNS_8TypeSpecE0EED2Ev.exit9: ; preds = %arraydestroy.
 lpad42:                                           ; preds = %invoke.cont32
   %16 = landingpad { ptr, i32 }
           cleanup
-  %17 = getelementptr inbounds %"class.testing::ThrowingValue", ptr %ref.tmp20, i64 5
+  %17 = getelementptr inbounds i8, ptr %ref.tmp20, i64 20
   br label %arraydestroy.body51
 
 arraydestroy.body51:                              ; preds = %_ZN7testing13ThrowingValueILNS_8TypeSpecE0EED2Ev.exit11, %lpad42
   %arraydestroy.elementPast52 = phi ptr [ %17, %lpad42 ], [ %arraydestroy.element53, %_ZN7testing13ThrowingValueILNS_8TypeSpecE0EED2Ev.exit11 ]
-  %arraydestroy.element53 = getelementptr inbounds %"class.testing::ThrowingValue", ptr %arraydestroy.elementPast52, i64 -1
+  %arraydestroy.element53 = getelementptr inbounds i8, ptr %arraydestroy.elementPast52, i64 -4
   invoke void @_ZN7testing19exceptions_internal18ConstructorTracker16ObjectDestructedEPv(ptr noundef nonnull %arraydestroy.element53)
           to label %_ZN7testing13ThrowingValueILNS_8TypeSpecE0EED2Ev.exit11 unwind label %terminate.lpad.i.i10
 
@@ -10195,16 +10189,16 @@ entry:
   %ct = alloca %"class.testing::exceptions_internal::ConstructorTracker", align 8
   %temp = alloca %"class.absl::FixedArray.95", align 8
   %ref.tmp = alloca %"class.testing::ThrowingAllocator", align 8
-  %_M_single_bucket.i.i.i = getelementptr inbounds %"class.std::_Hashtable", ptr %ct, i64 0, i32 5
-  %_M_bucket_count.i.i.i = getelementptr inbounds %"class.std::_Hashtable", ptr %ct, i64 0, i32 1
-  %_M_before_begin.i.i.i = getelementptr inbounds %"class.std::_Hashtable", ptr %ct, i64 0, i32 2
-  %_M_rehash_policy.i.i.i = getelementptr inbounds %"class.std::_Hashtable", ptr %ct, i64 0, i32 4
-  %_M_next_resize.i.i.i.i = getelementptr inbounds %"class.std::_Hashtable", ptr %ct, i64 0, i32 4, i32 1
-  %countdown_.i = getelementptr inbounds %"class.testing::exceptions_internal::ConstructorTracker", ptr %ct, i64 0, i32 1
+  %_M_single_bucket.i.i.i = getelementptr inbounds i8, ptr %ct, i64 48
+  %_M_bucket_count.i.i.i = getelementptr inbounds i8, ptr %ct, i64 8
+  %_M_before_begin.i.i.i = getelementptr inbounds i8, ptr %ct, i64 16
+  %_M_rehash_policy.i.i.i = getelementptr inbounds i8, ptr %ct, i64 32
+  %_M_next_resize.i.i.i.i = getelementptr inbounds i8, ptr %ct, i64 40
+  %countdown_.i = getelementptr inbounds i8, ptr %ct, i64 56
   %agg.tmp.sroa.2.0..sroa_idx = getelementptr inbounds i8, ptr %args, i64 8
-  %size_alloc_.i.i.i = getelementptr inbounds %"class.absl::FixedArray<testing::ThrowingValue<testing::TypeSpec::kEverythingThrows>, 3, testing::ThrowingAllocator<testing::ThrowingValue<testing::TypeSpec::kEverythingThrows>, testing::AllocSpec::kEverythingThrows>>::Storage", ptr %temp, i64 0, i32 1
-  %0 = getelementptr inbounds %"class.absl::FixedArray<testing::ThrowingValue<testing::TypeSpec::kEverythingThrows>, 3, testing::ThrowingAllocator<testing::ThrowingValue<testing::TypeSpec::kEverythingThrows>, testing::AllocSpec::kEverythingThrows>>::Storage", ptr %temp, i64 0, i32 1, i32 0, i32 1
-  %data_.i.i.i = getelementptr inbounds %"class.absl::FixedArray<testing::ThrowingValue<testing::TypeSpec::kEverythingThrows>, 3, testing::ThrowingAllocator<testing::ThrowingValue<testing::TypeSpec::kEverythingThrows>, testing::AllocSpec::kEverythingThrows>>::Storage", ptr %temp, i64 0, i32 2
+  %size_alloc_.i.i.i = getelementptr inbounds i8, ptr %temp, i64 16
+  %0 = getelementptr inbounds i8, ptr %temp, i64 24
+  %data_.i.i.i = getelementptr inbounds i8, ptr %temp, i64 40
   br label %for.cond
 
 for.cond:                                         ; preds = %for.inc, %entry
@@ -10260,13 +10254,13 @@ lpad.i.i:                                         ; preds = %invoke.cont.i.i
   br label %lpad3.body
 
 invoke.cont4:                                     ; preds = %invoke.cont.i.i
-  %_M_refcount.i.i.i = getelementptr inbounds %"class.std::__shared_ptr", ptr %ref.tmp, i64 0, i32 1
+  %_M_refcount.i.i.i = getelementptr inbounds i8, ptr %ref.tmp, i64 8
   %4 = load ptr, ptr %_M_refcount.i.i.i, align 8
   %cmp.not.i.i.i.i = icmp eq ptr %4, null
   br i1 %cmp.not.i.i.i.i, label %_ZNSt10shared_ptrIKiED2Ev.exit.i, label %if.then.i.i.i.i
 
 if.then.i.i.i.i:                                  ; preds = %invoke.cont4
-  %_M_use_count.i.i.i.i.i = getelementptr inbounds %"class.std::_Sp_counted_base", ptr %4, i64 0, i32 1
+  %_M_use_count.i.i.i.i.i = getelementptr inbounds i8, ptr %4, i64 8
   %5 = load atomic i64, ptr %_M_use_count.i.i.i.i.i acquire, align 8
   %cmp.i.i.i.i.i5 = icmp eq i64 %5, 4294967297
   %6 = trunc i64 %5 to i32
@@ -10274,10 +10268,10 @@ if.then.i.i.i.i:                                  ; preds = %invoke.cont4
 
 if.then.i.i.i.i.i:                                ; preds = %if.then.i.i.i.i
   store i32 0, ptr %_M_use_count.i.i.i.i.i, align 8
-  %_M_weak_count.i.i.i.i.i = getelementptr inbounds %"class.std::_Sp_counted_base", ptr %4, i64 0, i32 2
+  %_M_weak_count.i.i.i.i.i = getelementptr inbounds i8, ptr %4, i64 12
   store i32 0, ptr %_M_weak_count.i.i.i.i.i, align 4
   %vtable.i.i.i.i.i = load ptr, ptr %4, align 8
-  %vfn.i.i.i.i.i = getelementptr inbounds ptr, ptr %vtable.i.i.i.i.i, i64 2
+  %vfn.i.i.i.i.i = getelementptr inbounds i8, ptr %vtable.i.i.i.i.i, i64 16
   %7 = load ptr, ptr %vfn.i.i.i.i.i, align 8
   call void %7(ptr noundef nonnull align 8 dereferenceable(16) %4) #18
   br label %if.end8.sink.split.i.i.i.i.i
@@ -10303,10 +10297,10 @@ _ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i: ; preds = %if.els
 
 if.then7.i.i.i.i.i:                               ; preds = %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i
   %vtable.i.i.i.i.i.i.i = load ptr, ptr %4, align 8
-  %vfn.i.i.i.i.i.i.i = getelementptr inbounds ptr, ptr %vtable.i.i.i.i.i.i.i, i64 2
+  %vfn.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %vtable.i.i.i.i.i.i.i, i64 16
   %10 = load ptr, ptr %vfn.i.i.i.i.i.i.i, align 8
   call void %10(ptr noundef nonnull align 8 dereferenceable(16) %4) #18
-  %_M_weak_count.i.i.i.i.i.i.i = getelementptr inbounds %"class.std::_Sp_counted_base", ptr %4, i64 0, i32 2
+  %_M_weak_count.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %4, i64 12
   %11 = load i8, ptr @__libc_single_threaded, align 1
   %tobool.i.not.i.i.i.i.i.i.i = icmp eq i8 %11, 0
   br i1 %tobool.i.not.i.i.i.i.i.i.i, label %if.else.i.i.i.i.i.i.i.i, label %if.then.i.i.i.i.i.i.i.i
@@ -10328,7 +10322,7 @@ _ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i.i: ; preds = %if
 
 if.end8.sink.split.i.i.i.i.i:                     ; preds = %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i.i, %if.then.i.i.i.i.i
   %vtable2.i.i.i.i.i.i.i = load ptr, ptr %4, align 8
-  %vfn3.i.i.i.i.i.i.i = getelementptr inbounds ptr, ptr %vtable2.i.i.i.i.i.i.i, i64 3
+  %vfn3.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %vtable2.i.i.i.i.i.i.i, i64 24
   %14 = load ptr, ptr %vfn3.i.i.i.i.i.i.i, align 8
   call void %14(ptr noundef nonnull align 8 dereferenceable(16) %4) #18
   br label %_ZNSt10shared_ptrIKiED2Ev.exit.i
@@ -10376,7 +10370,7 @@ terminate.lpad.i.i.i.i.i.i:                       ; preds = %_ZN7testing17Throwi
   unreachable
 
 _ZNSt16allocator_traitsIN7testing17ThrowingAllocatorINS0_13ThrowingValueILNS0_8TypeSpecE0EEELNS0_9AllocSpecE0EEEE7destroyIS4_EEvRS6_PT_.exit.i: ; preds = %_ZN7testing17ThrowingAllocatorINS_13ThrowingValueILNS_8TypeSpecE0EEELNS_9AllocSpecE0EE9ReadStateEv.exit.i.i.i.i
-  %incdec.ptr.i = getelementptr inbounds %"class.testing::ThrowingValue", ptr %cur.05.i, i64 1
+  %incdec.ptr.i = getelementptr inbounds i8, ptr %cur.05.i, i64 4
   %23 = load ptr, ptr %data_.i.i.i, align 8
   %24 = load i64, ptr %size_alloc_.i.i.i, align 8
   %add.ptr.i.i8 = getelementptr inbounds %"class.testing::ThrowingValue", ptr %23, i64 %24
@@ -10433,13 +10427,13 @@ for.end:                                          ; preds = %_ZNSt16allocator_tr
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr dso_local void @_ZN4absl10FixedArrayIN7testing13ThrowingValueILNS1_8TypeSpecE0EEELm3ENS1_17ThrowingAllocatorIS4_LNS1_9AllocSpecE0EEEE7StorageD2Ev(ptr noundef nonnull align 8 dereferenceable(48) %this) unnamed_addr #7 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  %size_alloc_.i = getelementptr inbounds %"class.absl::FixedArray<testing::ThrowingValue<testing::TypeSpec::kEverythingThrows>, 3, testing::ThrowingAllocator<testing::ThrowingValue<testing::TypeSpec::kEverythingThrows>, testing::AllocSpec::kEverythingThrows>>::Storage", ptr %this, i64 0, i32 1
+  %size_alloc_.i = getelementptr inbounds i8, ptr %this, i64 16
   %0 = load i64, ptr %size_alloc_.i, align 8
   %cmp.i = icmp ult i64 %0, 4
   br i1 %cmp.i, label %if.end, label %invoke.cont4
 
 invoke.cont4:                                     ; preds = %entry
-  %add.ptr.i.i = getelementptr inbounds %"class.absl::FixedArray<testing::ThrowingValue<testing::TypeSpec::kEverythingThrows>, 3, testing::ThrowingAllocator<testing::ThrowingValue<testing::TypeSpec::kEverythingThrows>, testing::AllocSpec::kEverythingThrows>>::Storage", ptr %this, i64 0, i32 1, i32 0, i32 1
+  %add.ptr.i.i = getelementptr inbounds i8, ptr %this, i64 24
   %1 = load ptr, ptr %add.ptr.i.i, align 8
   %2 = load i32, ptr %1, align 4
   %cmp.i.i.i = icmp slt i32 %2, 0
@@ -10450,20 +10444,20 @@ if.then.i.i.i:                                    ; preds = %invoke.cont4
   unreachable
 
 _ZNSt16allocator_traitsIN7testing17ThrowingAllocatorINS0_13ThrowingValueILNS0_8TypeSpecE0EEELNS0_9AllocSpecE0EEEE10deallocateERS6_PS4_m.exit: ; preds = %invoke.cont4
-  %data_.i = getelementptr inbounds %"class.absl::FixedArray<testing::ThrowingValue<testing::TypeSpec::kEverythingThrows>, 3, testing::ThrowingAllocator<testing::ThrowingValue<testing::TypeSpec::kEverythingThrows>, testing::AllocSpec::kEverythingThrows>>::Storage", ptr %this, i64 0, i32 2
+  %data_.i = getelementptr inbounds i8, ptr %this, i64 40
   %3 = load ptr, ptr %data_.i, align 8
   tail call void @_ZdlPv(ptr noundef %3) #18
   br label %if.end
 
 if.end:                                           ; preds = %entry, %_ZNSt16allocator_traitsIN7testing17ThrowingAllocatorINS0_13ThrowingValueILNS0_8TypeSpecE0EEELNS0_9AllocSpecE0EEEE10deallocateERS6_PS4_m.exit
-  %4 = getelementptr inbounds %"class.absl::FixedArray<testing::ThrowingValue<testing::TypeSpec::kEverythingThrows>, 3, testing::ThrowingAllocator<testing::ThrowingValue<testing::TypeSpec::kEverythingThrows>, testing::AllocSpec::kEverythingThrows>>::Storage", ptr %this, i64 0, i32 1, i32 0, i32 1
-  %_M_refcount.i.i.i.i.i.i = getelementptr inbounds %"class.absl::FixedArray<testing::ThrowingValue<testing::TypeSpec::kEverythingThrows>, 3, testing::ThrowingAllocator<testing::ThrowingValue<testing::TypeSpec::kEverythingThrows>, testing::AllocSpec::kEverythingThrows>>::Storage", ptr %this, i64 0, i32 1, i32 0, i32 1, i32 0, i32 0, i32 0, i32 1
+  %4 = getelementptr inbounds i8, ptr %this, i64 24
+  %_M_refcount.i.i.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 32
   %5 = load ptr, ptr %_M_refcount.i.i.i.i.i.i, align 8
   %cmp.not.i.i.i.i.i.i.i = icmp eq ptr %5, null
   br i1 %cmp.not.i.i.i.i.i.i.i, label %_ZNSt10shared_ptrIKiED2Ev.exit.i.i.i.i, label %if.then.i.i.i.i.i.i.i
 
 if.then.i.i.i.i.i.i.i:                            ; preds = %if.end
-  %_M_use_count.i.i.i.i.i.i.i.i = getelementptr inbounds %"class.std::_Sp_counted_base", ptr %5, i64 0, i32 1
+  %_M_use_count.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %5, i64 8
   %6 = load atomic i64, ptr %_M_use_count.i.i.i.i.i.i.i.i acquire, align 8
   %cmp.i.i.i.i.i.i.i.i = icmp eq i64 %6, 4294967297
   %7 = trunc i64 %6 to i32
@@ -10471,10 +10465,10 @@ if.then.i.i.i.i.i.i.i:                            ; preds = %if.end
 
 if.then.i.i.i.i.i.i.i.i:                          ; preds = %if.then.i.i.i.i.i.i.i
   store i32 0, ptr %_M_use_count.i.i.i.i.i.i.i.i, align 8
-  %_M_weak_count.i.i.i.i.i.i.i.i = getelementptr inbounds %"class.std::_Sp_counted_base", ptr %5, i64 0, i32 2
+  %_M_weak_count.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %5, i64 12
   store i32 0, ptr %_M_weak_count.i.i.i.i.i.i.i.i, align 4
   %vtable.i.i.i.i.i.i.i.i = load ptr, ptr %5, align 8
-  %vfn.i.i.i.i.i.i.i.i = getelementptr inbounds ptr, ptr %vtable.i.i.i.i.i.i.i.i, i64 2
+  %vfn.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %vtable.i.i.i.i.i.i.i.i, i64 16
   %8 = load ptr, ptr %vfn.i.i.i.i.i.i.i.i, align 8
   tail call void %8(ptr noundef nonnull align 8 dereferenceable(16) %5) #18
   br label %if.end8.sink.split.i.i.i.i.i.i.i.i
@@ -10500,10 +10494,10 @@ _ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i.i.i: ; preds = %
 
 if.then7.i.i.i.i.i.i.i.i:                         ; preds = %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i.i.i
   %vtable.i.i.i.i.i.i.i.i.i.i = load ptr, ptr %5, align 8
-  %vfn.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds ptr, ptr %vtable.i.i.i.i.i.i.i.i.i.i, i64 2
+  %vfn.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %vtable.i.i.i.i.i.i.i.i.i.i, i64 16
   %11 = load ptr, ptr %vfn.i.i.i.i.i.i.i.i.i.i, align 8
   tail call void %11(ptr noundef nonnull align 8 dereferenceable(16) %5) #18
-  %_M_weak_count.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds %"class.std::_Sp_counted_base", ptr %5, i64 0, i32 2
+  %_M_weak_count.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %5, i64 12
   %12 = load i8, ptr @__libc_single_threaded, align 1
   %tobool.i.not.i.i.i.i.i.i.i.i.i.i = icmp eq i8 %12, 0
   br i1 %tobool.i.not.i.i.i.i.i.i.i.i.i.i, label %if.else.i.i.i.i.i.i.i.i.i.i.i, label %if.then.i.i.i.i.i.i.i.i.i.i.i
@@ -10525,7 +10519,7 @@ _ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i.i.i.i.i: ; preds
 
 if.end8.sink.split.i.i.i.i.i.i.i.i:               ; preds = %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i.i.i.i.i, %if.then.i.i.i.i.i.i.i.i
   %vtable2.i.i.i.i.i.i.i.i.i.i = load ptr, ptr %5, align 8
-  %vfn3.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds ptr, ptr %vtable2.i.i.i.i.i.i.i.i.i.i, i64 3
+  %vfn3.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %vtable2.i.i.i.i.i.i.i.i.i.i, i64 24
   %15 = load ptr, ptr %vfn3.i.i.i.i.i.i.i.i.i.i, align 8
   tail call void %15(ptr noundef nonnull align 8 dereferenceable(16) %5) #18
   br label %_ZNSt10shared_ptrIKiED2Ev.exit.i.i.i.i
@@ -10612,7 +10606,7 @@ entry:
   %ref.tmp53 = alloca %"class.testing::internal::AssertHelper", align 8
   %ref.tmp54 = alloca %"class.std::__cxx11::basic_string", align 8
   tail call void @_ZN7testing25MakeExceptionSafetyTesterEv()
-  %contracts_.i.i17 = getelementptr inbounds %"class.testing::exceptions_internal::ExceptionSafetyTestBuilder", ptr %test_fill, i64 0, i32 2
+  %contracts_.i.i17 = getelementptr inbounds i8, ptr %test_fill, i64 8
   store i64 ptrtoint (ptr @_ZN4absl12_GLOBAL__N_110ReadMemoryINS_10FixedArrayIN7testing13ThrowingValueILNS3_8TypeSpecE0EEELm25ESaIS6_EEEEENS3_15AssertionResultEPT_ to i64), ptr %contracts_.i.i17, align 8, !alias.scope !90
   call void @_ZN7testing13ThrowingValueILNS_8TypeSpecE0EEC2Ei(ptr noundef nonnull align 4 dereferenceable(4) %ref.tmp6, i32 noundef 5)
   invoke void @_ZN4absl10FixedArrayIN7testing13ThrowingValueILNS1_8TypeSpecE0EEELm25ESaIS4_EEC2EmRKS4_RKS5_(ptr noundef nonnull align 8 dereferenceable(120) %ref.tmp5, i64 noundef 12, ptr noundef nonnull align 4 dereferenceable(4) %ref.tmp6, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp7)
@@ -10631,8 +10625,8 @@ invoke.cont9:                                     ; preds = %invoke.cont
           to label %invoke.cont11 unwind label %lpad10
 
 invoke.cont11:                                    ; preds = %invoke.cont9
-  %data_.i.i.i.i = getelementptr inbounds %"class.absl::FixedArray<testing::ThrowingValue<testing::TypeSpec::kEverythingThrows>, 25>::Storage", ptr %ref.tmp4, i64 0, i32 2
-  %size_alloc_.i.i.i.i.i = getelementptr inbounds %"class.absl::FixedArray<testing::ThrowingValue<testing::TypeSpec::kEverythingThrows>, 25>::Storage", ptr %ref.tmp4, i64 0, i32 1
+  %data_.i.i.i.i = getelementptr inbounds i8, ptr %ref.tmp4, i64 112
+  %size_alloc_.i.i.i.i.i = getelementptr inbounds i8, ptr %ref.tmp4, i64 104
   %2 = load i64, ptr %size_alloc_.i.i.i.i.i, align 8
   %cmp.not9.i.i.i = icmp eq i64 %2, 0
   br i1 %cmp.not9.i.i.i, label %"_ZN7testing19exceptions_internal26ExceptionSafetyTestBuilderINS0_14DefaultFactoryIN4absl10FixedArrayINS_13ThrowingValueILNS_8TypeSpecE0EEELm25ESaIS7_EEEEEZNS3_12_GLOBAL__N_135FixedArrayExceptionSafety_Fill_Test8TestBodyEvE3$_0JPFNS_15AssertionResultEPS9_EEED2Ev.exit", label %invoke.cont5.i.preheader.i.i
@@ -10654,7 +10648,7 @@ terminate.lpad.i.i.i.i.i.i.i:                     ; preds = %invoke.cont5.i.i.i
   unreachable
 
 _ZNSt16allocator_traitsISaIN7testing13ThrowingValueILNS0_8TypeSpecE0EEEEE7destroyIS3_EEvRS4_PT_.exit.i.i.i: ; preds = %invoke.cont5.i.i.i
-  %incdec.ptr.i.i.i = getelementptr inbounds %"class.testing::ThrowingValue", ptr %cur.010.i.i.i, i64 1
+  %incdec.ptr.i.i.i = getelementptr inbounds i8, ptr %cur.010.i.i.i, i64 4
   %6 = load ptr, ptr %data_.i.i.i.i, align 8
   %7 = load i64, ptr %size_alloc_.i.i.i.i.i, align 8
   %add.ptr.i.i.i.i = getelementptr inbounds %"class.testing::ThrowingValue", ptr %6, i64 %7
@@ -10691,7 +10685,7 @@ terminate.lpad.i.i.i.i.i:                         ; preds = %invoke.cont5.i
   unreachable
 
 _ZNSt16allocator_traitsISaIN7testing13ThrowingValueILNS0_8TypeSpecE0EEEEE7destroyIS3_EEvRS4_PT_.exit.i: ; preds = %invoke.cont5.i
-  %incdec.ptr.i = getelementptr inbounds %"class.testing::ThrowingValue", ptr %cur.010.i, i64 1
+  %incdec.ptr.i = getelementptr inbounds i8, ptr %cur.010.i, i64 4
   %13 = load ptr, ptr %1, align 8
   %14 = load i64, ptr %0, align 8
   %add.ptr.i.i = getelementptr inbounds %"class.testing::ThrowingValue", ptr %13, i64 %14
@@ -10787,7 +10781,7 @@ invoke.cont26:                                    ; preds = %invoke.cont24
 
 _ZNKSt14default_deleteINSt7__cxx1118basic_stringstreamIcSt11char_traitsIcESaIcEEEEclEPS5_.exit.i.i: ; preds = %invoke.cont26
   %vtable.i.i.i = load ptr, ptr %26, align 8
-  %vfn.i.i.i = getelementptr inbounds ptr, ptr %vtable.i.i.i, i64 1
+  %vfn.i.i.i = getelementptr inbounds i8, ptr %vtable.i.i.i, i64 8
   %27 = load ptr, ptr %vfn.i.i.i, align 8
   call void %27(ptr noundef nonnull align 8 dereferenceable(128) %26) #18
   br label %_ZN7testing7MessageD2Ev.exit
@@ -10825,7 +10819,7 @@ ehcleanup29:                                      ; preds = %ehcleanup28, %lpad2
 
 _ZNKSt14default_deleteINSt7__cxx1118basic_stringstreamIcSt11char_traitsIcESaIcEEEEclEPS5_.exit.i.i21: ; preds = %ehcleanup29
   %vtable.i.i.i22 = load ptr, ptr %31, align 8
-  %vfn.i.i.i23 = getelementptr inbounds ptr, ptr %vtable.i.i.i22, i64 1
+  %vfn.i.i.i23 = getelementptr inbounds i8, ptr %vtable.i.i.i22, i64 8
   %32 = load ptr, ptr %vfn.i.i.i23, align 8
   call void %32(ptr noundef nonnull align 8 dereferenceable(128) %31) #18
   br label %_ZN7testing7MessageD2Ev.exit24
@@ -10835,7 +10829,7 @@ _ZN7testing7MessageD2Ev.exit24:                   ; preds = %ehcleanup29, %_ZNKS
   br label %eh.resume.sink.split
 
 if.end:                                           ; preds = %_ZN7testing13ThrowingValueILNS_8TypeSpecE0EED2Ev.exit, %_ZN7testing7MessageD2Ev.exit
-  %message_.i = getelementptr inbounds %"class.testing::AssertionResult", ptr %gtest_ar_, i64 0, i32 1
+  %message_.i = getelementptr inbounds i8, ptr %gtest_ar_, i64 8
   %33 = load ptr, ptr %message_.i, align 8
   %cmp.not.i.i25 = icmp eq ptr %33, null
   br i1 %cmp.not.i.i25, label %_ZN7testing15AssertionResultD2Ev.exit, label %_ZNKSt14default_deleteINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclEPS5_.exit.i.i
@@ -10864,8 +10858,8 @@ invoke.cont39:                                    ; preds = %invoke.cont37
           to label %invoke.cont41 unwind label %lpad40
 
 invoke.cont41:                                    ; preds = %invoke.cont39
-  %data_.i.i.i.i26 = getelementptr inbounds %"class.absl::FixedArray<testing::ThrowingValue<testing::TypeSpec::kEverythingThrows>, 25>::Storage", ptr %ref.tmp32, i64 0, i32 2
-  %size_alloc_.i.i.i.i.i27 = getelementptr inbounds %"class.absl::FixedArray<testing::ThrowingValue<testing::TypeSpec::kEverythingThrows>, 25>::Storage", ptr %ref.tmp32, i64 0, i32 1
+  %data_.i.i.i.i26 = getelementptr inbounds i8, ptr %ref.tmp32, i64 112
+  %size_alloc_.i.i.i.i.i27 = getelementptr inbounds i8, ptr %ref.tmp32, i64 104
   %36 = load i64, ptr %size_alloc_.i.i.i.i.i27, align 8
   %cmp.not9.i.i.i28 = icmp eq i64 %36, 0
   br i1 %cmp.not9.i.i.i28, label %"_ZN7testing19exceptions_internal26ExceptionSafetyTestBuilderINS0_14DefaultFactoryIN4absl10FixedArrayINS_13ThrowingValueILNS_8TypeSpecE0EEELm25ESaIS7_EEEEEZNS3_12_GLOBAL__N_135FixedArrayExceptionSafety_Fill_Test8TestBodyEvE3$_0JPFNS_15AssertionResultEPS9_EEED2Ev.exit39", label %invoke.cont5.i.preheader.i.i29
@@ -10887,7 +10881,7 @@ terminate.lpad.i.i.i.i.i.i.i32:                   ; preds = %invoke.cont5.i.i.i3
   unreachable
 
 _ZNSt16allocator_traitsISaIN7testing13ThrowingValueILNS0_8TypeSpecE0EEEEE7destroyIS3_EEvRS4_PT_.exit.i.i.i33: ; preds = %invoke.cont5.i.i.i30
-  %incdec.ptr.i.i.i34 = getelementptr inbounds %"class.testing::ThrowingValue", ptr %cur.010.i.i.i31, i64 1
+  %incdec.ptr.i.i.i34 = getelementptr inbounds i8, ptr %cur.010.i.i.i31, i64 4
   %40 = load ptr, ptr %data_.i.i.i.i26, align 8
   %41 = load i64, ptr %size_alloc_.i.i.i.i.i27, align 8
   %add.ptr.i.i.i.i35 = getelementptr inbounds %"class.testing::ThrowingValue", ptr %40, i64 %41
@@ -10924,7 +10918,7 @@ terminate.lpad.i.i.i.i.i45:                       ; preds = %invoke.cont5.i43
   unreachable
 
 _ZNSt16allocator_traitsISaIN7testing13ThrowingValueILNS0_8TypeSpecE0EEEEE7destroyIS3_EEvRS4_PT_.exit.i46: ; preds = %invoke.cont5.i43
-  %incdec.ptr.i47 = getelementptr inbounds %"class.testing::ThrowingValue", ptr %cur.010.i44, i64 1
+  %incdec.ptr.i47 = getelementptr inbounds i8, ptr %cur.010.i44, i64 4
   %47 = load ptr, ptr %35, align 8
   %48 = load i64, ptr %34, align 8
   %add.ptr.i.i48 = getelementptr inbounds %"class.testing::ThrowingValue", ptr %47, i64 %48
@@ -11020,7 +11014,7 @@ invoke.cont61:                                    ; preds = %invoke.cont59
 
 _ZNKSt14default_deleteINSt7__cxx1118basic_stringstreamIcSt11char_traitsIcESaIcEEEEclEPS5_.exit.i.i59: ; preds = %invoke.cont61
   %vtable.i.i.i60 = load ptr, ptr %60, align 8
-  %vfn.i.i.i61 = getelementptr inbounds ptr, ptr %vtable.i.i.i60, i64 1
+  %vfn.i.i.i61 = getelementptr inbounds i8, ptr %vtable.i.i.i60, i64 8
   %61 = load ptr, ptr %vfn.i.i.i61, align 8
   call void %61(ptr noundef nonnull align 8 dereferenceable(128) %60) #18
   br label %_ZN7testing7MessageD2Ev.exit62
@@ -11058,7 +11052,7 @@ ehcleanup64:                                      ; preds = %ehcleanup63, %lpad5
 
 _ZNKSt14default_deleteINSt7__cxx1118basic_stringstreamIcSt11char_traitsIcESaIcEEEEclEPS5_.exit.i.i64: ; preds = %ehcleanup64
   %vtable.i.i.i65 = load ptr, ptr %65, align 8
-  %vfn.i.i.i66 = getelementptr inbounds ptr, ptr %vtable.i.i.i65, i64 1
+  %vfn.i.i.i66 = getelementptr inbounds i8, ptr %vtable.i.i.i65, i64 8
   %66 = load ptr, ptr %vfn.i.i.i66, align 8
   call void %66(ptr noundef nonnull align 8 dereferenceable(128) %65) #18
   br label %_ZN7testing7MessageD2Ev.exit67
@@ -11068,7 +11062,7 @@ _ZN7testing7MessageD2Ev.exit67:                   ; preds = %ehcleanup64, %_ZNKS
   br label %eh.resume.sink.split
 
 if.end65:                                         ; preds = %_ZN7testing13ThrowingValueILNS_8TypeSpecE0EED2Ev.exit54, %_ZN7testing7MessageD2Ev.exit62
-  %message_.i68 = getelementptr inbounds %"class.testing::AssertionResult", ptr %gtest_ar_31, i64 0, i32 1
+  %message_.i68 = getelementptr inbounds i8, ptr %gtest_ar_31, i64 8
   %67 = load ptr, ptr %message_.i68, align 8
   %cmp.not.i.i69 = icmp eq ptr %67, null
   br i1 %cmp.not.i.i69, label %_ZN7testing15AssertionResultD2Ev.exit71, label %_ZNKSt14default_deleteINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclEPS5_.exit.i.i70
@@ -11101,9 +11095,9 @@ entry:
   %ref.tmp.i5 = alloca %"class.testing::Message", align 8
   %ref.tmp.i = alloca %"class.testing::Message", align 8
   %ref.tmp = alloca %"class.testing::AssertionResult", align 8
-  %data_.i.i.i = getelementptr inbounds %"class.absl::FixedArray<testing::ThrowingValue<testing::TypeSpec::kEverythingThrows>, 25>::Storage", ptr %fixed_arr, i64 0, i32 2
+  %data_.i.i.i = getelementptr inbounds i8, ptr %fixed_arr, i64 112
   %0 = load ptr, ptr %data_.i.i.i, align 8
-  %size_alloc_.i.i.i = getelementptr inbounds %"class.absl::FixedArray<testing::ThrowingValue<testing::TypeSpec::kEverythingThrows>, 25>::Storage", ptr %fixed_arr, i64 0, i32 1
+  %size_alloc_.i.i.i = getelementptr inbounds i8, ptr %fixed_arr, i64 104
   %1 = load i64, ptr %size_alloc_.i.i.i, align 8
   %add.ptr.i = getelementptr inbounds %"class.testing::ThrowingValue", ptr %0, i64 %1
   %cmp.not42 = icmp eq i64 %1, 0
@@ -11114,7 +11108,7 @@ for.body:                                         ; preds = %entry, %for.body
   %sum.043 = phi i32 [ %add, %for.body ], [ 0, %entry ]
   %2 = load i32, ptr %__begin0.044, align 4
   %add = add nsw i32 %2, %sum.043
-  %incdec.ptr = getelementptr inbounds %"class.testing::ThrowingValue", ptr %__begin0.044, i64 1
+  %incdec.ptr = getelementptr inbounds i8, ptr %__begin0.044, i64 4
   %cmp.not = icmp eq ptr %incdec.ptr, %add.ptr.i
   br i1 %cmp.not, label %for.end, label %for.body
 
@@ -11142,7 +11136,7 @@ invoke.cont2.i:                                   ; preds = %invoke.cont.i
 
 _ZNKSt14default_deleteINSt7__cxx1118basic_stringstreamIcSt11char_traitsIcESaIcEEEEclEPS5_.exit.i.i.i: ; preds = %invoke.cont2.i
   %vtable.i.i.i.i = load ptr, ptr %4, align 8
-  %vfn.i.i.i.i = getelementptr inbounds ptr, ptr %vtable.i.i.i.i, i64 1
+  %vfn.i.i.i.i = getelementptr inbounds i8, ptr %vtable.i.i.i.i, i64 8
   %5 = load ptr, ptr %vfn.i.i.i.i, align 8
   call void %5(ptr noundef nonnull align 8 dereferenceable(128) %4) #18
   br label %invoke.cont
@@ -11156,7 +11150,7 @@ lpad.i:                                           ; preds = %invoke.cont.i, %.no
 
 _ZNKSt14default_deleteINSt7__cxx1118basic_stringstreamIcSt11char_traitsIcESaIcEEEEclEPS5_.exit.i.i3.i: ; preds = %lpad.i
   %vtable.i.i.i4.i = load ptr, ptr %7, align 8
-  %vfn.i.i.i5.i = getelementptr inbounds ptr, ptr %vtable.i.i.i4.i, i64 1
+  %vfn.i.i.i5.i = getelementptr inbounds i8, ptr %vtable.i.i.i4.i, i64 8
   %8 = load ptr, ptr %vfn.i.i.i5.i, align 8
   call void %8(ptr noundef nonnull align 8 dereferenceable(128) %7) #18
   br label %lpad.body
@@ -11184,7 +11178,7 @@ invoke.cont2.i15:                                 ; preds = %invoke.cont.i14
 
 _ZNKSt14default_deleteINSt7__cxx1118basic_stringstreamIcSt11char_traitsIcESaIcEEEEclEPS5_.exit.i.i.i17: ; preds = %invoke.cont2.i15
   %vtable.i.i.i.i18 = load ptr, ptr %10, align 8
-  %vfn.i.i.i.i19 = getelementptr inbounds ptr, ptr %vtable.i.i.i.i18, i64 1
+  %vfn.i.i.i.i19 = getelementptr inbounds i8, ptr %vtable.i.i.i.i18, i64 8
   %11 = load ptr, ptr %vfn.i.i.i.i19, align 8
   call void %11(ptr noundef nonnull align 8 dereferenceable(128) %10) #18
   br label %invoke.cont4
@@ -11198,7 +11192,7 @@ lpad.i8:                                          ; preds = %invoke.cont.i14, %.
 
 _ZNKSt14default_deleteINSt7__cxx1118basic_stringstreamIcSt11char_traitsIcESaIcEEEEclEPS5_.exit.i.i3.i10: ; preds = %lpad.i8
   %vtable.i.i.i4.i11 = load ptr, ptr %13, align 8
-  %vfn.i.i.i5.i12 = getelementptr inbounds ptr, ptr %vtable.i.i.i4.i11, i64 1
+  %vfn.i.i.i5.i12 = getelementptr inbounds i8, ptr %vtable.i.i.i4.i11, i64 8
   %14 = load ptr, ptr %vfn.i.i.i5.i12, align 8
   call void %14(ptr noundef nonnull align 8 dereferenceable(128) %13) #18
   br label %lpad.body
@@ -11226,7 +11220,7 @@ invoke.cont2.i33:                                 ; preds = %invoke.cont.i32
 
 _ZNKSt14default_deleteINSt7__cxx1118basic_stringstreamIcSt11char_traitsIcESaIcEEEEclEPS5_.exit.i.i.i35: ; preds = %invoke.cont2.i33
   %vtable.i.i.i.i36 = load ptr, ptr %16, align 8
-  %vfn.i.i.i.i37 = getelementptr inbounds ptr, ptr %vtable.i.i.i.i36, i64 1
+  %vfn.i.i.i.i37 = getelementptr inbounds i8, ptr %vtable.i.i.i.i36, i64 8
   %17 = load ptr, ptr %vfn.i.i.i.i37, align 8
   call void %17(ptr noundef nonnull align 8 dereferenceable(128) %16) #18
   br label %invoke.cont6
@@ -11240,7 +11234,7 @@ lpad.i26:                                         ; preds = %invoke.cont.i32, %.
 
 _ZNKSt14default_deleteINSt7__cxx1118basic_stringstreamIcSt11char_traitsIcESaIcEEEEclEPS5_.exit.i.i3.i28: ; preds = %lpad.i26
   %vtable.i.i.i4.i29 = load ptr, ptr %19, align 8
-  %vfn.i.i.i5.i30 = getelementptr inbounds ptr, ptr %vtable.i.i.i4.i29, i64 1
+  %vfn.i.i.i5.i30 = getelementptr inbounds i8, ptr %vtable.i.i.i4.i29, i64 8
   %20 = load ptr, ptr %vfn.i.i.i5.i30, align 8
   call void %20(ptr noundef nonnull align 8 dereferenceable(128) %19) #18
   br label %lpad.body
@@ -11251,7 +11245,7 @@ invoke.cont6:                                     ; preds = %_ZNKSt14default_del
           to label %invoke.cont8 unwind label %lpad
 
 invoke.cont8:                                     ; preds = %invoke.cont6
-  %message_.i = getelementptr inbounds %"class.testing::AssertionResult", ptr %ref.tmp, i64 0, i32 1
+  %message_.i = getelementptr inbounds i8, ptr %ref.tmp, i64 8
   %21 = load ptr, ptr %message_.i, align 8
   %cmp.not.i.i = icmp eq ptr %21, null
   br i1 %cmp.not.i.i, label %_ZN7testing15AssertionResultD2Ev.exit, label %_ZNKSt14default_deleteINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclEPS5_.exit.i.i
@@ -11296,9 +11290,9 @@ entry:
           to label %invoke.cont unwind label %lpad
 
 invoke.cont:                                      ; preds = %entry
-  %contracts_.i = getelementptr inbounds %"class.testing::exceptions_internal::ExceptionSafetyTestBuilder", ptr %this, i64 0, i32 2
+  %contracts_.i = getelementptr inbounds i8, ptr %this, i64 8
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %ref.tmp.i.i.i.i), !noalias !93
-  %contracts_.i.i = getelementptr inbounds %"class.testing::exceptions_internal::ExceptionSafetyTestBuilder.109", ptr %agg.result, i64 0, i32 2
+  %contracts_.i.i = getelementptr inbounds i8, ptr %agg.result, i64 128
   %2 = load i64, ptr %contracts_.i, align 8, !noalias !93
   store i64 %2, ptr %contracts_.i.i, align 8, !alias.scope !93
   %3 = load i64, ptr %0, align 8
@@ -11322,7 +11316,7 @@ terminate.lpad.i.i.i.i.i.i:                       ; preds = %invoke.cont5.i.i
   unreachable
 
 _ZNSt16allocator_traitsISaIN7testing13ThrowingValueILNS0_8TypeSpecE0EEEEE7destroyIS3_EEvRS4_PT_.exit.i.i: ; preds = %invoke.cont5.i.i
-  %incdec.ptr.i.i = getelementptr inbounds %"class.testing::ThrowingValue", ptr %cur.010.i.i, i64 1
+  %incdec.ptr.i.i = getelementptr inbounds i8, ptr %cur.010.i.i, i64 4
   %7 = load ptr, ptr %1, align 8
   %8 = load i64, ptr %0, align 8
   %add.ptr.i.i.i = getelementptr inbounds %"class.testing::ThrowingValue", ptr %7, i64 %8
@@ -11404,13 +11398,13 @@ entry:
   call void @llvm.lifetime.start.p0(i64 88, ptr nonnull %ref.tmp.i.i), !noalias !96
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %ref.tmp3.i.i), !noalias !96
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %ref.tmp4.i.i), !noalias !96
-  %_M_manager.i.i.i.i = getelementptr inbounds %"class.std::_Function_base", ptr %ref.tmp3.i.i, i64 0, i32 1
+  %_M_manager.i.i.i.i = getelementptr inbounds i8, ptr %ref.tmp3.i.i, i64 16
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp3.i.i, i8 0, i64 32, i1 false), !noalias !99
   %call.i.i2.i.i.i = tail call noalias noundef nonnull dereferenceable(120) ptr @_Znwm(i64 noundef 120) #20, !noalias !99
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %ref.tmp.i.i.i.i.i.i.i), !noalias !99
-  %data_.i.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds %"class.absl::FixedArray<testing::ThrowingValue<testing::TypeSpec::kEverythingThrows>, 25>::Storage", ptr %this, i64 0, i32 2
+  %data_.i.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 112
   %0 = load ptr, ptr %data_.i.i.i.i.i.i.i.i.i.i.i, align 8, !noalias !99
-  %size_alloc_.i.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds %"class.absl::FixedArray<testing::ThrowingValue<testing::TypeSpec::kEverythingThrows>, 25>::Storage", ptr %this, i64 0, i32 1
+  %size_alloc_.i.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 104
   %1 = load i64, ptr %size_alloc_.i.i.i.i.i.i.i.i.i.i.i, align 8, !noalias !99
   %add.ptr.i.i.i.i.i.i.i.i.i = getelementptr inbounds %"class.testing::ThrowingValue", ptr %0, i64 %1
   invoke void @_ZN4absl10FixedArrayIN7testing13ThrowingValueILNS1_8TypeSpecE0EEELm25ESaIS4_EEC2IPKS4_TnPNSt9enable_ifIXsr3std14is_convertibleINSt15iterator_traitsIT_E17iterator_categoryESt20forward_iterator_tagEE5valueEvE4typeELPv0EEESC_SC_RKS5_(ptr noundef nonnull align 8 dereferenceable(120) %call.i.i2.i.i.i, ptr noundef %0, ptr noundef %add.ptr.i.i.i.i.i.i.i.i.i, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i.i.i.i.i.i.i)
@@ -11440,17 +11434,17 @@ common.resume.i.i:                                ; preds = %if.then.i.i25.i.i, 
   resume { ptr, i32 } %common.resume.op.i.i
 
 _ZNSt8functionIFSt10unique_ptrIN4absl10FixedArrayIN7testing13ThrowingValueILNS3_8TypeSpecE0EEELm25ESaIS6_EEESt14default_deleteIS8_EEvEEC2IRKNS3_19exceptions_internal14DefaultFactoryIS8_EEvEEOT_.exit.i.i: ; preds = %entry
-  %_M_invoker.i.i.i = getelementptr inbounds %"class.std::function", ptr %ref.tmp3.i.i, i64 0, i32 1
+  %_M_invoker.i.i.i = getelementptr inbounds i8, ptr %ref.tmp3.i.i, i64 24
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %ref.tmp.i.i.i.i.i.i.i), !noalias !99
   store ptr %call.i.i2.i.i.i, ptr %ref.tmp3.i.i, align 8, !noalias !99
   store ptr @_ZNSt17_Function_handlerIFSt10unique_ptrIN4absl10FixedArrayIN7testing13ThrowingValueILNS3_8TypeSpecE0EEELm25ESaIS6_EEESt14default_deleteIS8_EEvENS3_19exceptions_internal14DefaultFactoryIS8_EEE9_M_invokeERKSt9_Any_data, ptr %_M_invoker.i.i.i, align 8, !noalias !99
   store ptr @_ZNSt17_Function_handlerIFSt10unique_ptrIN4absl10FixedArrayIN7testing13ThrowingValueILNS3_8TypeSpecE0EEELm25ESaIS6_EEESt14default_deleteIS8_EEvENS3_19exceptions_internal14DefaultFactoryIS8_EEE10_M_managerERSt9_Any_dataRKSH_St18_Manager_operation, ptr %_M_manager.i.i.i.i, align 8, !noalias !99
-  %_M_manager.i.i2.i.i = getelementptr inbounds %"class.std::_Function_base", ptr %ref.tmp4.i.i, i64 0, i32 1
-  %_M_invoker.i3.i.i = getelementptr inbounds %"class.std::function.112", ptr %ref.tmp4.i.i, i64 0, i32 1
+  %_M_manager.i.i2.i.i = getelementptr inbounds i8, ptr %ref.tmp4.i.i, i64 16
+  %_M_invoker.i3.i.i = getelementptr inbounds i8, ptr %ref.tmp4.i.i, i64 24
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp4.i.i, i8 0, i64 16, i1 false), !noalias !99
   store ptr @"_ZNSt17_Function_handlerIFvPN4absl10FixedArrayIN7testing13ThrowingValueILNS2_8TypeSpecE0EEELm25ESaIS5_EEEEZNS0_12_GLOBAL__N_135FixedArrayExceptionSafety_Fill_Test8TestBodyEvE3$_0E9_M_invokeERKSt9_Any_dataOS8_", ptr %_M_invoker.i3.i.i, align 8, !noalias !99
   store ptr @"_ZNSt17_Function_handlerIFvPN4absl10FixedArrayIN7testing13ThrowingValueILNS2_8TypeSpecE0EEELm25ESaIS5_EEEEZNS0_12_GLOBAL__N_135FixedArrayExceptionSafety_Fill_Test8TestBodyEvE3$_0E10_M_managerERSt9_Any_dataRKSE_St18_Manager_operation", ptr %_M_manager.i.i2.i.i, align 8, !noalias !99
-  %contracts_.i.i = getelementptr inbounds %"class.testing::exceptions_internal::ExceptionSafetyTestBuilder.109", ptr %this, i64 0, i32 2
+  %contracts_.i.i = getelementptr inbounds i8, ptr %this, i64 128
   invoke void @_ZN7testing19exceptions_internal19ExceptionSafetyTestIN4absl10FixedArrayINS_13ThrowingValueILNS_8TypeSpecE0EEELm25ESaIS6_EEEEC2IJPFNS_15AssertionResultEPS8_EEEERKSt8functionIFSt10unique_ptrIS8_St14default_deleteIS8_EEvEERKSF_IFvSC_EEDpRKT_(ptr noundef nonnull align 8 dereferenceable(88) %ref.tmp.i.i, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp3.i.i, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp4.i.i, ptr noundef nonnull align 8 dereferenceable(8) %contracts_.i.i)
           to label %invoke.cont.i.i unwind label %lpad.i.i, !noalias !99
 
@@ -11545,8 +11539,8 @@ terminate.lpad.i.i27.i.i:                         ; preds = %if.then.i.i25.i.i
 ; Function Attrs: mustprogress nounwind uwtable
 define internal fastcc void @"_ZN7testing19exceptions_internal26ExceptionSafetyTestBuilderINS0_14DefaultFactoryIN4absl10FixedArrayINS_13ThrowingValueILNS_8TypeSpecE0EEELm25ESaIS7_EEEEEZNS3_12_GLOBAL__N_135FixedArrayExceptionSafety_Fill_Test8TestBodyEvE3$_0JPFNS_15AssertionResultEPS9_EEED2Ev"(ptr nocapture noundef nonnull readonly align 8 dereferenceable(136) %this) unnamed_addr #7 align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  %data_.i.i.i = getelementptr inbounds %"class.absl::FixedArray<testing::ThrowingValue<testing::TypeSpec::kEverythingThrows>, 25>::Storage", ptr %this, i64 0, i32 2
-  %size_alloc_.i.i.i.i = getelementptr inbounds %"class.absl::FixedArray<testing::ThrowingValue<testing::TypeSpec::kEverythingThrows>, 25>::Storage", ptr %this, i64 0, i32 1
+  %data_.i.i.i = getelementptr inbounds i8, ptr %this, i64 112
+  %size_alloc_.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 104
   %0 = load i64, ptr %size_alloc_.i.i.i.i, align 8
   %cmp.not9.i.i = icmp eq i64 %0, 0
   br i1 %cmp.not9.i.i, label %_ZN7testing19exceptions_internal14DefaultFactoryIN4absl10FixedArrayINS_13ThrowingValueILNS_8TypeSpecE0EEELm25ESaIS6_EEEED2Ev.exit, label %invoke.cont5.i.preheader.i
@@ -11568,7 +11562,7 @@ terminate.lpad.i.i.i.i.i.i:                       ; preds = %invoke.cont5.i.i
   unreachable
 
 _ZNSt16allocator_traitsISaIN7testing13ThrowingValueILNS0_8TypeSpecE0EEEEE7destroyIS3_EEvRS4_PT_.exit.i.i: ; preds = %invoke.cont5.i.i
-  %incdec.ptr.i.i = getelementptr inbounds %"class.testing::ThrowingValue", ptr %cur.010.i.i, i64 1
+  %incdec.ptr.i.i = getelementptr inbounds i8, ptr %cur.010.i.i, i64 4
   %4 = load ptr, ptr %data_.i.i.i, align 8
   %5 = load i64, ptr %size_alloc_.i.i.i.i, align 8
   %add.ptr.i.i.i = getelementptr inbounds %"class.testing::ThrowingValue", ptr %4, i64 %5
@@ -11595,7 +11589,7 @@ declare noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5c_st
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr dso_local void @_ZN7testing15AssertionResultD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %this) unnamed_addr #7 comdat align 2 {
 entry:
-  %message_ = getelementptr inbounds %"class.testing::AssertionResult", ptr %this, i64 0, i32 1
+  %message_ = getelementptr inbounds i8, ptr %this, i64 8
   %0 = load ptr, ptr %message_, align 8
   %cmp.not.i = icmp eq ptr %0, null
   br i1 %cmp.not.i, label %_ZNSt10unique_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt14default_deleteIS5_EED2Ev.exit, label %_ZNKSt14default_deleteINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclEPS5_.exit.i
@@ -11618,7 +11612,7 @@ declare void @_ZN7testing15AssertionResultC1ERKS0_(ptr noundef nonnull align 8 d
 define linkonce_odr dso_local void @_ZN7testing15AssertionResult13AppendMessageERKNS_7MessageE(ptr noundef nonnull align 8 dereferenceable(16) %this, ptr noundef nonnull align 8 dereferenceable(8) %a_message) local_unnamed_addr #3 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp6 = alloca %"class.std::__cxx11::basic_string", align 8
-  %message_ = getelementptr inbounds %"class.testing::AssertionResult", ptr %this, i64 0, i32 1
+  %message_ = getelementptr inbounds i8, ptr %this, i64 8
   %0 = load ptr, ptr %message_, align 8
   %cmp.i.not.i = icmp eq ptr %0, null
   br i1 %cmp.i.not.i, label %if.then, label %if.end
@@ -11666,8 +11660,8 @@ declare noundef nonnull align 8 dereferenceable(8) ptr @_ZNSolsEi(ptr noundef no
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr dso_local void @_ZN7testing19exceptions_internal14DefaultFactoryIN4absl10FixedArrayINS_13ThrowingValueILNS_8TypeSpecE0EEELm25ESaIS6_EEEED2Ev(ptr noundef nonnull align 8 dereferenceable(120) %this) unnamed_addr #7 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  %data_.i.i = getelementptr inbounds %"class.absl::FixedArray<testing::ThrowingValue<testing::TypeSpec::kEverythingThrows>, 25>::Storage", ptr %this, i64 0, i32 2
-  %size_alloc_.i.i.i = getelementptr inbounds %"class.absl::FixedArray<testing::ThrowingValue<testing::TypeSpec::kEverythingThrows>, 25>::Storage", ptr %this, i64 0, i32 1
+  %data_.i.i = getelementptr inbounds i8, ptr %this, i64 112
+  %size_alloc_.i.i.i = getelementptr inbounds i8, ptr %this, i64 104
   %0 = load i64, ptr %size_alloc_.i.i.i, align 8
   %cmp.not9.i = icmp eq i64 %0, 0
   br i1 %cmp.not9.i, label %_ZN4absl10FixedArrayIN7testing13ThrowingValueILNS1_8TypeSpecE0EEELm25ESaIS4_EED2Ev.exit, label %invoke.cont5.i.preheader
@@ -11689,7 +11683,7 @@ terminate.lpad.i.i.i.i.i:                         ; preds = %invoke.cont5.i
   unreachable
 
 _ZNSt16allocator_traitsISaIN7testing13ThrowingValueILNS0_8TypeSpecE0EEEEE7destroyIS3_EEvRS4_PT_.exit.i: ; preds = %invoke.cont5.i
-  %incdec.ptr.i = getelementptr inbounds %"class.testing::ThrowingValue", ptr %cur.010.i, i64 1
+  %incdec.ptr.i = getelementptr inbounds i8, ptr %cur.010.i, i64 4
   %4 = load ptr, ptr %data_.i.i, align 8
   %5 = load i64, ptr %size_alloc_.i.i.i, align 8
   %add.ptr.i.i = getelementptr inbounds %"class.testing::ThrowingValue", ptr %4, i64 %5
@@ -11712,9 +11706,9 @@ _ZN4absl10FixedArrayIN7testing13ThrowingValueILNS1_8TypeSpecE0EEELm25ESaIS4_EED2
 define linkonce_odr dso_local void @_ZN7testing19exceptions_internal19ExceptionSafetyTestIN4absl10FixedArrayINS_13ThrowingValueILNS_8TypeSpecE0EEELm25ESaIS6_EEEEC2IJPFNS_15AssertionResultEPS8_EEEERKSt8functionIFSt10unique_ptrIS8_St14default_deleteIS8_EEvEERKSF_IFvSC_EEDpRKT_(ptr noundef nonnull align 8 dereferenceable(88) %this, ptr noundef nonnull align 8 dereferenceable(32) %f, ptr noundef nonnull align 8 dereferenceable(32) %op, ptr noundef nonnull align 8 dereferenceable(8) %contracts) unnamed_addr #3 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp = alloca [1 x %"class.std::function.129"], align 8
-  %_M_manager.i.i = getelementptr inbounds %"class.std::_Function_base", ptr %this, i64 0, i32 1
-  %_M_invoker.i = getelementptr inbounds %"class.std::function", ptr %this, i64 0, i32 1
-  %_M_manager.i.i.i = getelementptr inbounds %"class.std::_Function_base", ptr %f, i64 0, i32 1
+  %_M_manager.i.i = getelementptr inbounds i8, ptr %this, i64 16
+  %_M_invoker.i = getelementptr inbounds i8, ptr %this, i64 24
+  %_M_manager.i.i.i = getelementptr inbounds i8, ptr %f, i64 16
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %this, i8 0, i64 32, i1 false)
   %0 = load ptr, ptr %_M_manager.i.i.i, align 8
   %tobool.not.i.i.not.i = icmp eq ptr %0, null
@@ -11725,7 +11719,7 @@ if.then.i:                                        ; preds = %entry
           to label %invoke.cont.i unwind label %lpad.i
 
 invoke.cont.i:                                    ; preds = %if.then.i
-  %_M_invoker4.i = getelementptr inbounds %"class.std::function", ptr %f, i64 0, i32 1
+  %_M_invoker4.i = getelementptr inbounds i8, ptr %f, i64 24
   %1 = load ptr, ptr %_M_invoker4.i, align 8
   store ptr %1, ptr %_M_invoker.i, align 8
   %2 = load ptr, ptr %_M_manager.i.i.i, align 8
@@ -11755,10 +11749,10 @@ common.resume:                                    ; preds = %if.then.i.i41, %ehc
   resume { ptr, i32 } %common.resume.op
 
 _ZNSt8functionIFSt10unique_ptrIN4absl10FixedArrayIN7testing13ThrowingValueILNS3_8TypeSpecE0EEELm25ESaIS6_EEESt14default_deleteIS8_EEvEEC2ERKSD_.exit: ; preds = %entry, %invoke.cont.i
-  %operation_ = getelementptr inbounds %"class.testing::exceptions_internal::ExceptionSafetyTest", ptr %this, i64 0, i32 1
-  %_M_manager.i.i2 = getelementptr inbounds %"class.testing::exceptions_internal::ExceptionSafetyTest", ptr %this, i64 0, i32 1, i32 0, i32 1
-  %_M_invoker.i3 = getelementptr inbounds %"class.testing::exceptions_internal::ExceptionSafetyTest", ptr %this, i64 0, i32 1, i32 1
-  %_M_manager.i.i.i4 = getelementptr inbounds %"class.std::_Function_base", ptr %op, i64 0, i32 1
+  %operation_ = getelementptr inbounds i8, ptr %this, i64 32
+  %_M_manager.i.i2 = getelementptr inbounds i8, ptr %this, i64 48
+  %_M_invoker.i3 = getelementptr inbounds i8, ptr %this, i64 56
+  %_M_manager.i.i.i4 = getelementptr inbounds i8, ptr %op, i64 16
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %operation_, i8 0, i64 32, i1 false)
   %7 = load ptr, ptr %_M_manager.i.i.i4, align 8
   %tobool.not.i.i.not.i5 = icmp eq ptr %7, null
@@ -11769,7 +11763,7 @@ if.then.i6:                                       ; preds = %_ZNSt8functionIFSt1
           to label %invoke.cont.i14 unwind label %lpad.i8
 
 invoke.cont.i14:                                  ; preds = %if.then.i6
-  %_M_invoker4.i15 = getelementptr inbounds %"class.std::function.112", ptr %op, i64 0, i32 1
+  %_M_invoker4.i15 = getelementptr inbounds i8, ptr %op, i64 24
   %8 = load ptr, ptr %_M_invoker4.i15, align 8
   store ptr %8, ptr %_M_invoker.i3, align 8
   %9 = load ptr, ptr %_M_manager.i.i.i4, align 8
@@ -11795,11 +11789,11 @@ terminate.lpad.i.i12:                             ; preds = %if.then.i.i10
   unreachable
 
 invoke.cont:                                      ; preds = %invoke.cont.i14, %_ZNSt8functionIFSt10unique_ptrIN4absl10FixedArrayIN7testing13ThrowingValueILNS3_8TypeSpecE0EEELm25ESaIS6_EEESt14default_deleteIS8_EEvEEC2ERKSD_.exit
-  %contracts_ = getelementptr inbounds %"class.testing::exceptions_internal::ExceptionSafetyTest", ptr %this, i64 0, i32 2
+  %contracts_ = getelementptr inbounds i8, ptr %this, i64 64
   tail call void @llvm.experimental.noalias.scope.decl(metadata !105)
   %14 = load ptr, ptr %contracts, align 8, !noalias !105
-  %_M_manager.i.i.i16 = getelementptr inbounds %"class.std::_Function_base", ptr %ref.tmp, i64 0, i32 1
-  %_M_invoker.i.i = getelementptr inbounds %"class.std::function.129", ptr %ref.tmp, i64 0, i32 1
+  %_M_manager.i.i.i16 = getelementptr inbounds i8, ptr %ref.tmp, i64 16
+  %_M_invoker.i.i = getelementptr inbounds i8, ptr %ref.tmp, i64 24
   %15 = getelementptr inbounds i8, ptr %ref.tmp, i64 8
   store i64 0, ptr %15, align 8, !alias.scope !105
   %16 = ptrtoint ptr %14 to i64
@@ -11811,10 +11805,10 @@ invoke.cont:                                      ; preds = %invoke.cont.i14, %_
           to label %_ZNSt12_Vector_baseISt8functionIFN7testing15AssertionResultEPN4absl10FixedArrayINS1_13ThrowingValueILNS1_8TypeSpecE0EEELm25ESaIS7_EEEEESaISC_EE11_M_allocateEm.exit.i.i unwind label %lpad.i17
 
 _ZNSt12_Vector_baseISt8functionIFN7testing15AssertionResultEPN4absl10FixedArrayINS1_13ThrowingValueILNS1_8TypeSpecE0EEELm25ESaIS7_EEEEESaISC_EE11_M_allocateEm.exit.i.i: ; preds = %invoke.cont
-  %add.ptr.i.i = getelementptr inbounds %"class.std::function.129", ptr %ref.tmp, i64 1
+  %add.ptr.i.i = getelementptr inbounds i8, ptr %ref.tmp, i64 32
   store ptr %call5.i.i.i.i2.i, ptr %contracts_, align 8
-  %add.ptr.i1.i = getelementptr inbounds %"class.std::function.129", ptr %call5.i.i.i.i2.i, i64 1
-  %_M_end_of_storage.i.i = getelementptr inbounds %"class.testing::exceptions_internal::ExceptionSafetyTest", ptr %this, i64 0, i32 2, i32 0, i32 0, i32 0, i32 2
+  %add.ptr.i1.i = getelementptr inbounds i8, ptr %call5.i.i.i.i2.i, i64 32
+  %_M_end_of_storage.i.i = getelementptr inbounds i8, ptr %this, i64 80
   store ptr %add.ptr.i1.i, ptr %_M_end_of_storage.i.i, align 8
   %call.i.i.i.i3.i = invoke noundef ptr @_ZSt16__do_uninit_copyIPKSt8functionIFN7testing15AssertionResultEPN4absl10FixedArrayINS1_13ThrowingValueILNS1_8TypeSpecE0EEELm25ESaIS7_EEEEEPSC_ET0_T_SH_SG_(ptr noundef nonnull %ref.tmp, ptr noundef nonnull %add.ptr.i.i, ptr noundef nonnull %call5.i.i.i.i2.i)
           to label %invoke.cont7 unwind label %lpad.i17
@@ -11831,9 +11825,9 @@ if.then.i.i4.i:                                   ; preds = %lpad.i17
   br label %lpad6.body
 
 invoke.cont7:                                     ; preds = %_ZNSt12_Vector_baseISt8functionIFN7testing15AssertionResultEPN4absl10FixedArrayINS1_13ThrowingValueILNS1_8TypeSpecE0EEELm25ESaIS7_EEEEESaISC_EE11_M_allocateEm.exit.i.i
-  %_M_finish.i.i = getelementptr inbounds %"class.testing::exceptions_internal::ExceptionSafetyTest", ptr %this, i64 0, i32 2, i32 0, i32 0, i32 0, i32 1
+  %_M_finish.i.i = getelementptr inbounds i8, ptr %this, i64 72
   store ptr %call.i.i.i.i3.i, ptr %_M_finish.i.i, align 8
-  %_M_manager.i.i20 = getelementptr inbounds %"class.std::function.129", ptr %ref.tmp, i64 0, i32 0, i32 1
+  %_M_manager.i.i20 = getelementptr inbounds i8, ptr %ref.tmp, i64 16
   %19 = load ptr, ptr %_M_manager.i.i20, align 8
   %tobool.not.i.i21 = icmp eq ptr %19, null
   br i1 %tobool.not.i.i21, label %_ZNSt8functionIFN7testing15AssertionResultEPN4absl10FixedArrayINS0_13ThrowingValueILNS0_8TypeSpecE0EEELm25ESaIS6_EEEEED2Ev.exit, label %if.then.i.i22
@@ -11853,7 +11847,7 @@ _ZNSt8functionIFN7testing15AssertionResultEPN4absl10FixedArrayINS0_13ThrowingVal
   ret void
 
 lpad6.body:                                       ; preds = %lpad.i17, %if.then.i.i4.i
-  %_M_manager.i.i26 = getelementptr inbounds %"class.std::function.129", ptr %ref.tmp, i64 0, i32 0, i32 1
+  %_M_manager.i.i26 = getelementptr inbounds i8, ptr %ref.tmp, i64 16
   %22 = load ptr, ptr %_M_manager.i.i26, align 8
   %tobool.not.i.i27 = icmp eq ptr %22, null
   br i1 %tobool.not.i.i27, label %_ZNSt8functionIFN7testing15AssertionResultEPN4absl10FixedArrayINS0_13ThrowingValueILNS0_8TypeSpecE0EEELm25ESaIS6_EEEEED2Ev.exit32, label %if.then.i.i28
@@ -11914,19 +11908,19 @@ entry:
   %ref.tmp11 = alloca %"class.testing::AssertionResult", align 8
   %ref.tmp20 = alloca %"class.testing::AssertionResult", align 8
   %ref.tmp22 = alloca ptr, align 8
-  %_M_single_bucket.i.i.i = getelementptr inbounds %"class.std::_Hashtable", ptr %ct, i64 0, i32 5
-  %_M_bucket_count.i.i.i = getelementptr inbounds %"class.std::_Hashtable", ptr %ct, i64 0, i32 1
-  %_M_before_begin.i.i.i = getelementptr inbounds %"class.std::_Hashtable", ptr %ct, i64 0, i32 2
-  %_M_rehash_policy.i.i.i = getelementptr inbounds %"class.std::_Hashtable", ptr %ct, i64 0, i32 4
-  %_M_next_resize.i.i.i.i = getelementptr inbounds %"class.std::_Hashtable", ptr %ct, i64 0, i32 4, i32 1
-  %countdown_.i = getelementptr inbounds %"class.testing::exceptions_internal::ConstructorTracker", ptr %ct, i64 0, i32 1
-  %contracts_ = getelementptr inbounds %"class.testing::exceptions_internal::ExceptionSafetyTest", ptr %this, i64 0, i32 2
-  %_M_finish.i = getelementptr inbounds %"class.testing::exceptions_internal::ExceptionSafetyTest", ptr %this, i64 0, i32 2, i32 0, i32 0, i32 0, i32 1
-  %_M_manager.i.i = getelementptr inbounds %"class.std::_Function_base", ptr %this, i64 0, i32 1
-  %_M_invoker.i = getelementptr inbounds %"class.std::function", ptr %this, i64 0, i32 1
-  %_M_manager.i.i10 = getelementptr inbounds %"class.testing::exceptions_internal::ExceptionSafetyTest", ptr %this, i64 0, i32 1, i32 0, i32 1
-  %operation_ = getelementptr inbounds %"class.testing::exceptions_internal::ExceptionSafetyTest", ptr %this, i64 0, i32 1
-  %_M_invoker.i13 = getelementptr inbounds %"class.testing::exceptions_internal::ExceptionSafetyTest", ptr %this, i64 0, i32 1, i32 1
+  %_M_single_bucket.i.i.i = getelementptr inbounds i8, ptr %ct, i64 48
+  %_M_bucket_count.i.i.i = getelementptr inbounds i8, ptr %ct, i64 8
+  %_M_before_begin.i.i.i = getelementptr inbounds i8, ptr %ct, i64 16
+  %_M_rehash_policy.i.i.i = getelementptr inbounds i8, ptr %ct, i64 32
+  %_M_next_resize.i.i.i.i = getelementptr inbounds i8, ptr %ct, i64 40
+  %countdown_.i = getelementptr inbounds i8, ptr %ct, i64 56
+  %contracts_ = getelementptr inbounds i8, ptr %this, i64 64
+  %_M_finish.i = getelementptr inbounds i8, ptr %this, i64 72
+  %_M_manager.i.i = getelementptr inbounds i8, ptr %this, i64 16
+  %_M_invoker.i = getelementptr inbounds i8, ptr %this, i64 24
+  %_M_manager.i.i10 = getelementptr inbounds i8, ptr %this, i64 48
+  %operation_ = getelementptr inbounds i8, ptr %this, i64 32
+  %_M_invoker.i13 = getelementptr inbounds i8, ptr %this, i64 56
   br label %for.cond
 
 for.cond:                                         ; preds = %for.inc44, %entry
@@ -11944,7 +11938,7 @@ for.cond:                                         ; preds = %for.inc44, %entry
   br i1 %cmp.i.not58, label %for.inc44, label %for.body
 
 for.cond4:                                        ; preds = %_ZNSt10unique_ptrIN4absl10FixedArrayIN7testing13ThrowingValueILNS2_8TypeSpecE0EEELm25ESaIS5_EEESt14default_deleteIS7_EED2Ev.exit
-  %incdec.ptr.i = getelementptr inbounds %"class.std::function.129", ptr %__begin0.sroa.0.059, i64 1
+  %incdec.ptr.i = getelementptr inbounds i8, ptr %__begin0.sroa.0.059, i64 32
   %cmp.i.not = icmp eq ptr %incdec.ptr.i, %1
   br i1 %cmp.i.not, label %for.inc44, label %for.body
 
@@ -12024,7 +12018,7 @@ catch:                                            ; preds = %lpad8
   %14 = load ptr, ptr %t_ptr, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %__args.addr.i17)
   store ptr %14, ptr %__args.addr.i17, align 8, !noalias !111
-  %_M_manager.i.i18 = getelementptr inbounds %"class.std::_Function_base", ptr %__begin0.sroa.0.059, i64 0, i32 1
+  %_M_manager.i.i18 = getelementptr inbounds i8, ptr %__begin0.sroa.0.059, i64 16
   %15 = load ptr, ptr %_M_manager.i.i18, align 8, !noalias !111
   %tobool.not.i.i19 = icmp eq ptr %15, null
   br i1 %tobool.not.i.i19, label %if.then.i22, label %if.end.i20
@@ -12037,7 +12031,7 @@ if.then.i22:                                      ; preds = %catch
   unreachable
 
 if.end.i20:                                       ; preds = %catch
-  %_M_invoker.i21 = getelementptr inbounds %"class.std::function.129", ptr %__begin0.sroa.0.059, i64 0, i32 1
+  %_M_invoker.i21 = getelementptr inbounds i8, ptr %__begin0.sroa.0.059, i64 24
   %16 = load ptr, ptr %_M_invoker.i21, align 8, !noalias !111
   invoke void %16(ptr nonnull sret(%"class.testing::AssertionResult") align 8 %ref.tmp11, ptr noundef nonnull align 8 dereferenceable(16) %__begin0.sroa.0.059, ptr noundef nonnull align 8 dereferenceable(8) %__args.addr.i17)
           to label %invoke.cont14 unwind label %lpad13.loopexit
@@ -12061,7 +12055,7 @@ if.then:                                          ; preds = %invoke.cont16
 
 invoke.cont21:                                    ; preds = %if.then
   %vtable = load ptr, ptr %13, align 8
-  %vfn = getelementptr inbounds ptr, ptr %vtable, i64 2
+  %vfn = getelementptr inbounds i8, ptr %vtable, i64 16
   %19 = load ptr, ptr %vfn, align 8
   %call23 = call noundef ptr %19(ptr noundef nonnull align 8 dereferenceable(40) %13) #18
   store ptr %call23, ptr %ref.tmp22, align 8
@@ -12114,8 +12108,8 @@ cleanup35:                                        ; preds = %cleanup, %invoke.co
   br i1 %cmp.not.i, label %_ZNSt10unique_ptrIN4absl10FixedArrayIN7testing13ThrowingValueILNS2_8TypeSpecE0EEELm25ESaIS5_EEESt14default_deleteIS7_EED2Ev.exit, label %delete.notnull.i.i
 
 delete.notnull.i.i:                               ; preds = %cleanup35
-  %data_.i.i.i.i = getelementptr inbounds %"class.absl::FixedArray<testing::ThrowingValue<testing::TypeSpec::kEverythingThrows>, 25>::Storage", ptr %22, i64 0, i32 2
-  %size_alloc_.i.i.i.i.i = getelementptr inbounds %"class.absl::FixedArray<testing::ThrowingValue<testing::TypeSpec::kEverythingThrows>, 25>::Storage", ptr %22, i64 0, i32 1
+  %data_.i.i.i.i = getelementptr inbounds i8, ptr %22, i64 112
+  %size_alloc_.i.i.i.i.i = getelementptr inbounds i8, ptr %22, i64 104
   %23 = load i64, ptr %size_alloc_.i.i.i.i.i, align 8
   %cmp.not9.i.i.i = icmp eq i64 %23, 0
   br i1 %cmp.not9.i.i.i, label %_ZNKSt14default_deleteIN4absl10FixedArrayIN7testing13ThrowingValueILNS2_8TypeSpecE0EEELm25ESaIS5_EEEEclEPS7_.exit.i, label %invoke.cont5.i.preheader.i.i
@@ -12137,7 +12131,7 @@ terminate.lpad.i.i.i.i.i.i.i:                     ; preds = %invoke.cont5.i.i.i
   unreachable
 
 _ZNSt16allocator_traitsISaIN7testing13ThrowingValueILNS0_8TypeSpecE0EEEEE7destroyIS3_EEvRS4_PT_.exit.i.i.i: ; preds = %invoke.cont5.i.i.i
-  %incdec.ptr.i.i.i = getelementptr inbounds %"class.testing::ThrowingValue", ptr %cur.010.i.i.i, i64 1
+  %incdec.ptr.i.i.i = getelementptr inbounds i8, ptr %cur.010.i.i.i, i64 4
   %27 = load ptr, ptr %data_.i.i.i.i, align 8
   %28 = load i64, ptr %size_alloc_.i.i.i.i.i, align 8
   %add.ptr.i.i.i.i = getelementptr inbounds %"class.testing::ThrowingValue", ptr %27, i64 %28
@@ -12209,16 +12203,16 @@ terminate.lpad:                                   ; preds = %ehcleanup33
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr dso_local void @_ZN7testing19exceptions_internal19ExceptionSafetyTestIN4absl10FixedArrayINS_13ThrowingValueILNS_8TypeSpecE0EEELm25ESaIS6_EEEED2Ev(ptr noundef nonnull align 8 dereferenceable(88) %this) unnamed_addr #7 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  %contracts_ = getelementptr inbounds %"class.testing::exceptions_internal::ExceptionSafetyTest", ptr %this, i64 0, i32 2
+  %contracts_ = getelementptr inbounds i8, ptr %this, i64 64
   %0 = load ptr, ptr %contracts_, align 8
-  %_M_finish.i = getelementptr inbounds %"class.testing::exceptions_internal::ExceptionSafetyTest", ptr %this, i64 0, i32 2, i32 0, i32 0, i32 0, i32 1
+  %_M_finish.i = getelementptr inbounds i8, ptr %this, i64 72
   %1 = load ptr, ptr %_M_finish.i, align 8
   %cmp.not3.i.i.i.i = icmp eq ptr %0, %1
   br i1 %cmp.not3.i.i.i.i, label %invoke.cont.i, label %for.body.i.i.i.i
 
 for.body.i.i.i.i:                                 ; preds = %entry, %_ZSt8_DestroyISt8functionIFN7testing15AssertionResultEPN4absl10FixedArrayINS1_13ThrowingValueILNS1_8TypeSpecE0EEELm25ESaIS7_EEEEEEvPT_.exit.i.i.i.i
   %__first.addr.04.i.i.i.i = phi ptr [ %incdec.ptr.i.i.i.i, %_ZSt8_DestroyISt8functionIFN7testing15AssertionResultEPN4absl10FixedArrayINS1_13ThrowingValueILNS1_8TypeSpecE0EEELm25ESaIS7_EEEEEEvPT_.exit.i.i.i.i ], [ %0, %entry ]
-  %_M_manager.i.i.i.i.i.i.i = getelementptr inbounds %"class.std::_Function_base", ptr %__first.addr.04.i.i.i.i, i64 0, i32 1
+  %_M_manager.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %__first.addr.04.i.i.i.i, i64 16
   %2 = load ptr, ptr %_M_manager.i.i.i.i.i.i.i, align 8
   %tobool.not.i.i.i.i.i.i.i = icmp eq ptr %2, null
   br i1 %tobool.not.i.i.i.i.i.i.i, label %_ZSt8_DestroyISt8functionIFN7testing15AssertionResultEPN4absl10FixedArrayINS1_13ThrowingValueILNS1_8TypeSpecE0EEELm25ESaIS7_EEEEEEvPT_.exit.i.i.i.i, label %if.then.i.i.i.i.i.i.i
@@ -12235,7 +12229,7 @@ terminate.lpad.i.i.i.i.i.i.i:                     ; preds = %if.then.i.i.i.i.i.i
   unreachable
 
 _ZSt8_DestroyISt8functionIFN7testing15AssertionResultEPN4absl10FixedArrayINS1_13ThrowingValueILNS1_8TypeSpecE0EEELm25ESaIS7_EEEEEEvPT_.exit.i.i.i.i: ; preds = %if.then.i.i.i.i.i.i.i, %for.body.i.i.i.i
-  %incdec.ptr.i.i.i.i = getelementptr inbounds %"class.std::function.129", ptr %__first.addr.04.i.i.i.i, i64 1
+  %incdec.ptr.i.i.i.i = getelementptr inbounds i8, ptr %__first.addr.04.i.i.i.i, i64 32
   %cmp.not.i.i.i.i = icmp eq ptr %incdec.ptr.i.i.i.i, %1
   br i1 %cmp.not.i.i.i.i, label %invoke.contthread-pre-split.i, label %for.body.i.i.i.i, !llvm.loop !115
 
@@ -12253,13 +12247,13 @@ if.then.i.i.i:                                    ; preds = %invoke.cont.i
   br label %_ZNSt6vectorISt8functionIFN7testing15AssertionResultEPN4absl10FixedArrayINS1_13ThrowingValueILNS1_8TypeSpecE0EEELm25ESaIS7_EEEEESaISC_EED2Ev.exit
 
 _ZNSt6vectorISt8functionIFN7testing15AssertionResultEPN4absl10FixedArrayINS1_13ThrowingValueILNS1_8TypeSpecE0EEELm25ESaIS7_EEEEESaISC_EED2Ev.exit: ; preds = %invoke.cont.i, %if.then.i.i.i
-  %_M_manager.i.i = getelementptr inbounds %"class.testing::exceptions_internal::ExceptionSafetyTest", ptr %this, i64 0, i32 1, i32 0, i32 1
+  %_M_manager.i.i = getelementptr inbounds i8, ptr %this, i64 48
   %6 = load ptr, ptr %_M_manager.i.i, align 8
   %tobool.not.i.i = icmp eq ptr %6, null
   br i1 %tobool.not.i.i, label %_ZNSt8functionIFvPN4absl10FixedArrayIN7testing13ThrowingValueILNS2_8TypeSpecE0EEELm25ESaIS5_EEEEED2Ev.exit, label %if.then.i.i
 
 if.then.i.i:                                      ; preds = %_ZNSt6vectorISt8functionIFN7testing15AssertionResultEPN4absl10FixedArrayINS1_13ThrowingValueILNS1_8TypeSpecE0EEELm25ESaIS7_EEEEESaISC_EED2Ev.exit
-  %operation_ = getelementptr inbounds %"class.testing::exceptions_internal::ExceptionSafetyTest", ptr %this, i64 0, i32 1
+  %operation_ = getelementptr inbounds i8, ptr %this, i64 32
   %call.i.i = invoke noundef zeroext i1 %6(ptr noundef nonnull align 8 dereferenceable(16) %operation_, ptr noundef nonnull align 8 dereferenceable(16) %operation_, i32 noundef 3)
           to label %_ZNSt8functionIFvPN4absl10FixedArrayIN7testing13ThrowingValueILNS2_8TypeSpecE0EEELm25ESaIS5_EEEEED2Ev.exit unwind label %terminate.lpad.i.i
 
@@ -12271,7 +12265,7 @@ terminate.lpad.i.i:                               ; preds = %if.then.i.i
   unreachable
 
 _ZNSt8functionIFvPN4absl10FixedArrayIN7testing13ThrowingValueILNS2_8TypeSpecE0EEELm25ESaIS5_EEEEED2Ev.exit: ; preds = %_ZNSt6vectorISt8functionIFN7testing15AssertionResultEPN4absl10FixedArrayINS1_13ThrowingValueILNS1_8TypeSpecE0EEELm25ESaIS7_EEEEESaISC_EED2Ev.exit, %if.then.i.i
-  %_M_manager.i.i1 = getelementptr inbounds %"class.std::_Function_base", ptr %this, i64 0, i32 1
+  %_M_manager.i.i1 = getelementptr inbounds i8, ptr %this, i64 16
   %9 = load ptr, ptr %_M_manager.i.i1, align 8
   %tobool.not.i.i2 = icmp eq ptr %9, null
   br i1 %tobool.not.i.i2, label %_ZNSt8functionIFSt10unique_ptrIN4absl10FixedArrayIN7testing13ThrowingValueILNS3_8TypeSpecE0EEELm25ESaIS6_EEESt14default_deleteIS8_EEvEED2Ev.exit, label %if.then.i.i3
@@ -12302,9 +12296,9 @@ entry:
   tail call void @llvm.experimental.noalias.scope.decl(metadata !125)
   %call.i.i.i.i = tail call noalias noundef nonnull dereferenceable(120) ptr @_Znwm(i64 noundef 120) #20, !noalias !128
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %ref.tmp.i.i.i.i.i), !noalias !128
-  %data_.i.i.i.i.i.i.i.i.i = getelementptr inbounds %"class.absl::FixedArray<testing::ThrowingValue<testing::TypeSpec::kEverythingThrows>, 25>::Storage", ptr %0, i64 0, i32 2
+  %data_.i.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %0, i64 112
   %1 = load ptr, ptr %data_.i.i.i.i.i.i.i.i.i, align 8, !noalias !128
-  %size_alloc_.i.i.i.i.i.i.i.i.i = getelementptr inbounds %"class.absl::FixedArray<testing::ThrowingValue<testing::TypeSpec::kEverythingThrows>, 25>::Storage", ptr %0, i64 0, i32 1
+  %size_alloc_.i.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %0, i64 104
   %2 = load i64, ptr %size_alloc_.i.i.i.i.i.i.i.i.i, align 8, !noalias !128
   %add.ptr.i.i.i.i.i.i.i = getelementptr inbounds %"class.testing::ThrowingValue", ptr %1, i64 %2
   invoke void @_ZN4absl10FixedArrayIN7testing13ThrowingValueILNS1_8TypeSpecE0EEELm25ESaIS4_EEC2IPKS4_TnPNSt9enable_ifIXsr3std14is_convertibleINSt15iterator_traitsIT_E17iterator_categoryESt20forward_iterator_tagEE5valueEvE4typeELPv0EEESC_SC_RKS5_(ptr noundef nonnull align 8 dereferenceable(120) %call.i.i.i.i, ptr noundef %1, ptr noundef %add.ptr.i.i.i.i.i.i.i, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i.i.i.i.i)
@@ -12371,9 +12365,9 @@ sw.bb4:                                           ; preds = %entry
   %1 = load ptr, ptr %__source, align 8
   %call.i.i = tail call noalias noundef nonnull dereferenceable(120) ptr @_Znwm(i64 noundef 120) #20
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %ref.tmp.i.i.i.i)
-  %data_.i.i.i.i.i.i.i.i = getelementptr inbounds %"class.absl::FixedArray<testing::ThrowingValue<testing::TypeSpec::kEverythingThrows>, 25>::Storage", ptr %1, i64 0, i32 2
+  %data_.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %1, i64 112
   %2 = load ptr, ptr %data_.i.i.i.i.i.i.i.i, align 8
-  %size_alloc_.i.i.i.i.i.i.i.i = getelementptr inbounds %"class.absl::FixedArray<testing::ThrowingValue<testing::TypeSpec::kEverythingThrows>, 25>::Storage", ptr %1, i64 0, i32 1
+  %size_alloc_.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %1, i64 104
   %3 = load i64, ptr %size_alloc_.i.i.i.i.i.i.i.i, align 8
   %add.ptr.i.i.i.i.i.i = getelementptr inbounds %"class.testing::ThrowingValue", ptr %2, i64 %3
   invoke void @_ZN4absl10FixedArrayIN7testing13ThrowingValueILNS1_8TypeSpecE0EEELm25ESaIS4_EEC2IPKS4_TnPNSt9enable_ifIXsr3std14is_convertibleINSt15iterator_traitsIT_E17iterator_categoryESt20forward_iterator_tagEE5valueEvE4typeELPv0EEESC_SC_RKS5_(ptr noundef nonnull align 8 dereferenceable(120) %call.i.i, ptr noundef %2, ptr noundef %add.ptr.i.i.i.i.i.i, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i.i.i.i)
@@ -12396,8 +12390,8 @@ sw.bb6:                                           ; preds = %entry
   br i1 %isnull.i, label %sw.epilog, label %delete.notnull.i
 
 delete.notnull.i:                                 ; preds = %sw.bb6
-  %data_.i.i.i.i = getelementptr inbounds %"class.absl::FixedArray<testing::ThrowingValue<testing::TypeSpec::kEverythingThrows>, 25>::Storage", ptr %5, i64 0, i32 2
-  %size_alloc_.i.i.i.i.i = getelementptr inbounds %"class.absl::FixedArray<testing::ThrowingValue<testing::TypeSpec::kEverythingThrows>, 25>::Storage", ptr %5, i64 0, i32 1
+  %data_.i.i.i.i = getelementptr inbounds i8, ptr %5, i64 112
+  %size_alloc_.i.i.i.i.i = getelementptr inbounds i8, ptr %5, i64 104
   %6 = load i64, ptr %size_alloc_.i.i.i.i.i, align 8
   %cmp.not9.i.i.i = icmp eq i64 %6, 0
   br i1 %cmp.not9.i.i.i, label %_ZN7testing19exceptions_internal14DefaultFactoryIN4absl10FixedArrayINS_13ThrowingValueILNS_8TypeSpecE0EEELm25ESaIS6_EEEED2Ev.exit.i, label %invoke.cont5.i.preheader.i.i
@@ -12419,7 +12413,7 @@ terminate.lpad.i.i.i.i.i.i.i:                     ; preds = %invoke.cont5.i.i.i
   unreachable
 
 _ZNSt16allocator_traitsISaIN7testing13ThrowingValueILNS0_8TypeSpecE0EEEEE7destroyIS3_EEvRS4_PT_.exit.i.i.i: ; preds = %invoke.cont5.i.i.i
-  %incdec.ptr.i.i.i = getelementptr inbounds %"class.testing::ThrowingValue", ptr %cur.010.i.i.i, i64 1
+  %incdec.ptr.i.i.i = getelementptr inbounds i8, ptr %cur.010.i.i.i, i64 4
   %10 = load ptr, ptr %data_.i.i.i.i, align 8
   %11 = load i64, ptr %size_alloc_.i.i.i.i.i, align 8
   %add.ptr.i.i.i.i = getelementptr inbounds %"class.testing::ThrowingValue", ptr %10, i64 %11
@@ -12483,9 +12477,9 @@ _ZN7testing13ThrowingValueILNS_8TypeSpecE0EEC2EiNS_19exceptions_internal10NoThro
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %agg.tmp.i.i.i.i) #18
   store i32 10, ptr %thrower.i.i.i, align 4
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %agg.tmp.i.i.i.i)
-  %data_.i.i.i.i.i.i.i = getelementptr inbounds %"class.absl::FixedArray<testing::ThrowingValue<testing::TypeSpec::kEverythingThrows>, 25>::Storage", ptr %__args.val, i64 0, i32 2
+  %data_.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %__args.val, i64 112
   %3 = load ptr, ptr %data_.i.i.i.i.i.i.i, align 8
-  %size_alloc_.i.i.i.i.i.i.i = getelementptr inbounds %"class.absl::FixedArray<testing::ThrowingValue<testing::TypeSpec::kEverythingThrows>, 25>::Storage", ptr %__args.val, i64 0, i32 1
+  %size_alloc_.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %__args.val, i64 104
   %4 = load i64, ptr %size_alloc_.i.i.i.i.i.i.i, align 8
   %add.ptr.i.i.i.i.i = getelementptr inbounds %"class.testing::ThrowingValue", ptr %3, i64 %4
   %cmp.not3.i.i.i.i.i.i.i = icmp eq i64 %4, 0
@@ -12500,7 +12494,7 @@ for.body.i.i.i.i.i.i.i:                           ; preds = %_ZN7testing13Throwi
 .noexc.i.i.i:                                     ; preds = %for.body.i.i.i.i.i.i.i
   %5 = load i32, ptr %thrower.i.i.i, align 4
   store i32 %5, ptr %__first.addr.04.i.i.i.i.i.i.i, align 4
-  %incdec.ptr.i.i.i.i.i.i.i = getelementptr inbounds %"class.testing::ThrowingValue", ptr %__first.addr.04.i.i.i.i.i.i.i, i64 1
+  %incdec.ptr.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %__first.addr.04.i.i.i.i.i.i.i, i64 4
   %cmp.not.i.i.i.i.i.i.i = icmp eq ptr %incdec.ptr.i.i.i.i.i.i.i, %add.ptr.i.i.i.i.i
   br i1 %cmp.not.i.i.i.i.i.i.i, label %invoke.cont.i.i.i, label %for.body.i.i.i.i.i.i.i, !llvm.loop !129
 
@@ -12600,9 +12594,9 @@ entry:
 for.body:                                         ; preds = %entry, %for.inc
   %__cur.010 = phi ptr [ %incdec.ptr1, %for.inc ], [ %__result, %entry ]
   %__first.addr.09 = phi ptr [ %incdec.ptr, %for.inc ], [ %__first, %entry ]
-  %_M_manager.i.i.i = getelementptr inbounds %"class.std::_Function_base", ptr %__cur.010, i64 0, i32 1
-  %_M_invoker.i.i = getelementptr inbounds %"class.std::function.129", ptr %__cur.010, i64 0, i32 1
-  %_M_manager.i.i.i.i = getelementptr inbounds %"class.std::_Function_base", ptr %__first.addr.09, i64 0, i32 1
+  %_M_manager.i.i.i = getelementptr inbounds i8, ptr %__cur.010, i64 16
+  %_M_invoker.i.i = getelementptr inbounds i8, ptr %__cur.010, i64 24
+  %_M_manager.i.i.i.i = getelementptr inbounds i8, ptr %__first.addr.09, i64 16
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %__cur.010, i8 0, i64 32, i1 false)
   %0 = load ptr, ptr %_M_manager.i.i.i.i, align 8
   %tobool.not.i.i.not.i.i = icmp eq ptr %0, null
@@ -12613,7 +12607,7 @@ if.then.i.i:                                      ; preds = %for.body
           to label %invoke.cont.i.i unwind label %lpad.i.i
 
 invoke.cont.i.i:                                  ; preds = %if.then.i.i
-  %_M_invoker4.i.i = getelementptr inbounds %"class.std::function.129", ptr %__first.addr.09, i64 0, i32 1
+  %_M_invoker4.i.i = getelementptr inbounds i8, ptr %__first.addr.09, i64 24
   %1 = load ptr, ptr %_M_invoker4.i.i, align 8
   store ptr %1, ptr %_M_invoker.i.i, align 8
   %2 = load ptr, ptr %_M_manager.i.i.i.i, align 8
@@ -12639,8 +12633,8 @@ terminate.lpad.i.i.i:                             ; preds = %if.then.i.i.i
   unreachable
 
 for.inc:                                          ; preds = %invoke.cont.i.i, %for.body
-  %incdec.ptr = getelementptr inbounds %"class.std::function.129", ptr %__first.addr.09, i64 1
-  %incdec.ptr1 = getelementptr inbounds %"class.std::function.129", ptr %__cur.010, i64 1
+  %incdec.ptr = getelementptr inbounds i8, ptr %__first.addr.09, i64 32
+  %incdec.ptr1 = getelementptr inbounds i8, ptr %__cur.010, i64 32
   %cmp.not = icmp eq ptr %incdec.ptr, %__last
   br i1 %cmp.not, label %for.end, label %for.body, !llvm.loop !138
 
@@ -12686,7 +12680,7 @@ entry:
 
 for.body.i:                                       ; preds = %entry, %_ZSt8_DestroyISt8functionIFN7testing15AssertionResultEPN4absl10FixedArrayINS1_13ThrowingValueILNS1_8TypeSpecE0EEELm25ESaIS7_EEEEEEvPT_.exit.i
   %__first.addr.04.i = phi ptr [ %incdec.ptr.i, %_ZSt8_DestroyISt8functionIFN7testing15AssertionResultEPN4absl10FixedArrayINS1_13ThrowingValueILNS1_8TypeSpecE0EEELm25ESaIS7_EEEEEEvPT_.exit.i ], [ %__first, %entry ]
-  %_M_manager.i.i.i.i = getelementptr inbounds %"class.std::_Function_base", ptr %__first.addr.04.i, i64 0, i32 1
+  %_M_manager.i.i.i.i = getelementptr inbounds i8, ptr %__first.addr.04.i, i64 16
   %0 = load ptr, ptr %_M_manager.i.i.i.i, align 8
   %tobool.not.i.i.i.i = icmp eq ptr %0, null
   br i1 %tobool.not.i.i.i.i, label %_ZSt8_DestroyISt8functionIFN7testing15AssertionResultEPN4absl10FixedArrayINS1_13ThrowingValueILNS1_8TypeSpecE0EEELm25ESaIS7_EEEEEEvPT_.exit.i, label %if.then.i.i.i.i
@@ -12703,7 +12697,7 @@ terminate.lpad.i.i.i.i:                           ; preds = %if.then.i.i.i.i
   unreachable
 
 _ZSt8_DestroyISt8functionIFN7testing15AssertionResultEPN4absl10FixedArrayINS1_13ThrowingValueILNS1_8TypeSpecE0EEELm25ESaIS7_EEEEEEvPT_.exit.i: ; preds = %if.then.i.i.i.i, %for.body.i
-  %incdec.ptr.i = getelementptr inbounds %"class.std::function.129", ptr %__first.addr.04.i, i64 1
+  %incdec.ptr.i = getelementptr inbounds i8, ptr %__first.addr.04.i, i64 32
   %cmp.not.i = icmp eq ptr %incdec.ptr.i, %__last
   br i1 %cmp.not.i, label %_ZNSt12_Destroy_auxILb0EE9__destroyIPSt8functionIFN7testing15AssertionResultEPN4absl10FixedArrayINS3_13ThrowingValueILNS3_8TypeSpecE0EEELm25ESaIS9_EEEEEEEvT_SG_.exit, label %for.body.i, !llvm.loop !115
 
@@ -12739,7 +12733,7 @@ invoke.cont2:                                     ; preds = %invoke.cont
 
 _ZNKSt14default_deleteINSt7__cxx1118basic_stringstreamIcSt11char_traitsIcESaIcEEEEclEPS5_.exit.i.i: ; preds = %invoke.cont2
   %vtable.i.i.i = load ptr, ptr %2, align 8
-  %vfn.i.i.i = getelementptr inbounds ptr, ptr %vtable.i.i.i, i64 1
+  %vfn.i.i.i = getelementptr inbounds i8, ptr %vtable.i.i.i, i64 8
   %3 = load ptr, ptr %vfn.i.i.i, align 8
   call void %3(ptr noundef nonnull align 8 dereferenceable(128) %2) #18
   br label %_ZN7testing7MessageD2Ev.exit
@@ -12756,7 +12750,7 @@ lpad:                                             ; preds = %entry, %invoke.cont
 
 _ZNKSt14default_deleteINSt7__cxx1118basic_stringstreamIcSt11char_traitsIcESaIcEEEEclEPS5_.exit.i.i3: ; preds = %lpad
   %vtable.i.i.i4 = load ptr, ptr %5, align 8
-  %vfn.i.i.i5 = getelementptr inbounds ptr, ptr %vtable.i.i.i4, i64 1
+  %vfn.i.i.i5 = getelementptr inbounds i8, ptr %vtable.i.i.i4, i64 8
   %6 = load ptr, ptr %vfn.i.i.i5, align 8
   call void %6(ptr noundef nonnull align 8 dereferenceable(128) %5) #18
   br label %_ZN7testing7MessageD2Ev.exit6
@@ -12786,7 +12780,7 @@ invoke.cont2:                                     ; preds = %invoke.cont
 
 _ZNKSt14default_deleteINSt7__cxx1118basic_stringstreamIcSt11char_traitsIcESaIcEEEEclEPS5_.exit.i.i: ; preds = %invoke.cont2
   %vtable.i.i.i = load ptr, ptr %1, align 8
-  %vfn.i.i.i = getelementptr inbounds ptr, ptr %vtable.i.i.i, i64 1
+  %vfn.i.i.i = getelementptr inbounds i8, ptr %vtable.i.i.i, i64 8
   %2 = load ptr, ptr %vfn.i.i.i, align 8
   call void %2(ptr noundef nonnull align 8 dereferenceable(128) %1) #18
   br label %_ZN7testing7MessageD2Ev.exit
@@ -12803,7 +12797,7 @@ lpad:                                             ; preds = %entry, %invoke.cont
 
 _ZNKSt14default_deleteINSt7__cxx1118basic_stringstreamIcSt11char_traitsIcESaIcEEEEclEPS5_.exit.i.i3: ; preds = %lpad
   %vtable.i.i.i4 = load ptr, ptr %4, align 8
-  %vfn.i.i.i5 = getelementptr inbounds ptr, ptr %vtable.i.i.i4, i64 1
+  %vfn.i.i.i5 = getelementptr inbounds i8, ptr %vtable.i.i.i4, i64 8
   %5 = load ptr, ptr %vfn.i.i.i5, align 8
   call void %5(ptr noundef nonnull align 8 dereferenceable(128) %4) #18
   br label %_ZN7testing7MessageD2Ev.exit6
@@ -12820,8 +12814,8 @@ entry:
   br i1 %cmp.not, label %if.end, label %delete.notnull.i
 
 delete.notnull.i:                                 ; preds = %entry
-  %data_.i.i.i = getelementptr inbounds %"class.absl::FixedArray<testing::ThrowingValue<testing::TypeSpec::kEverythingThrows>, 25>::Storage", ptr %0, i64 0, i32 2
-  %size_alloc_.i.i.i.i = getelementptr inbounds %"class.absl::FixedArray<testing::ThrowingValue<testing::TypeSpec::kEverythingThrows>, 25>::Storage", ptr %0, i64 0, i32 1
+  %data_.i.i.i = getelementptr inbounds i8, ptr %0, i64 112
+  %size_alloc_.i.i.i.i = getelementptr inbounds i8, ptr %0, i64 104
   %1 = load i64, ptr %size_alloc_.i.i.i.i, align 8
   %cmp.not9.i.i = icmp eq i64 %1, 0
   br i1 %cmp.not9.i.i, label %_ZNKSt14default_deleteIN4absl10FixedArrayIN7testing13ThrowingValueILNS2_8TypeSpecE0EEELm25ESaIS5_EEEEclEPS7_.exit, label %invoke.cont5.i.preheader.i
@@ -12843,7 +12837,7 @@ terminate.lpad.i.i.i.i.i.i:                       ; preds = %invoke.cont5.i.i
   unreachable
 
 _ZNSt16allocator_traitsISaIN7testing13ThrowingValueILNS0_8TypeSpecE0EEEEE7destroyIS3_EEvRS4_PT_.exit.i.i: ; preds = %invoke.cont5.i.i
-  %incdec.ptr.i.i = getelementptr inbounds %"class.testing::ThrowingValue", ptr %cur.010.i.i, i64 1
+  %incdec.ptr.i.i = getelementptr inbounds i8, ptr %cur.010.i.i, i64 4
   %5 = load ptr, ptr %data_.i.i.i, align 8
   %6 = load i64, ptr %size_alloc_.i.i.i.i, align 8
   %add.ptr.i.i.i = getelementptr inbounds %"class.testing::ThrowingValue", ptr %5, i64 %6
@@ -12937,16 +12931,16 @@ entry:
   %ref.tmp55 = alloca %"class.testing::internal::AssertHelper", align 8
   %ref.tmp56 = alloca %"class.std::__cxx11::basic_string", align 8
   tail call void @_ZN7testing25MakeExceptionSafetyTesterEv()
-  %contracts_.i.i17 = getelementptr inbounds %"class.testing::exceptions_internal::ExceptionSafetyTestBuilder.133", ptr %test_fill, i64 0, i32 2
+  %contracts_.i.i17 = getelementptr inbounds i8, ptr %test_fill, i64 8
   store i64 ptrtoint (ptr @_ZN4absl12_GLOBAL__N_110ReadMemoryINS_10FixedArrayIN7testing13ThrowingValueILNS3_8TypeSpecE0EEELm25ENS3_17ThrowingAllocatorIS6_LNS3_9AllocSpecE0EEEEEEENS3_15AssertionResultEPT_ to i64), ptr %contracts_.i.i17, align 8, !alias.scope !139
   call void @_ZN7testing13ThrowingValueILNS_8TypeSpecE0EEC2Ei(ptr noundef nonnull align 4 dereferenceable(4) %ref.tmp6, i32 noundef 5)
   invoke void @_ZN7testing17ThrowingAllocatorINS_13ThrowingValueILNS_8TypeSpecE0EEELNS_9AllocSpecE0EEC2Ev(ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp7)
           to label %invoke.cont unwind label %lpad
 
 invoke.cont:                                      ; preds = %entry
-  %size_alloc_.i.i = getelementptr inbounds %"class.absl::FixedArray<testing::ThrowingValue<testing::TypeSpec::kEverythingThrows>, 25, testing::ThrowingAllocator<testing::ThrowingValue<testing::TypeSpec::kEverythingThrows>, testing::AllocSpec::kEverythingThrows>>::Storage", ptr %ref.tmp5, i64 0, i32 1
+  %size_alloc_.i.i = getelementptr inbounds i8, ptr %ref.tmp5, i64 104
   store i64 12, ptr %size_alloc_.i.i, align 8
-  %0 = getelementptr inbounds %"class.absl::FixedArray<testing::ThrowingValue<testing::TypeSpec::kEverythingThrows>, 25, testing::ThrowingAllocator<testing::ThrowingValue<testing::TypeSpec::kEverythingThrows>, testing::AllocSpec::kEverythingThrows>>::Storage", ptr %ref.tmp5, i64 0, i32 1, i32 0, i32 1
+  %0 = getelementptr inbounds i8, ptr %ref.tmp5, i64 112
   call void @_ZN7testing17ThrowingAllocatorINS_13ThrowingValueILNS_8TypeSpecE0EEELNS_9AllocSpecE0EEC2ERKS5_(ptr noundef nonnull align 8 dereferenceable(16) %0, ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp7) #18
   %1 = load i64, ptr %size_alloc_.i.i, align 8
   %cmp.i.i.i.i = icmp ult i64 %1, 26
@@ -12974,7 +12968,7 @@ lpad.i.i:                                         ; preds = %.noexc.i.i, %if.els
 invoke.cont6.i:                                   ; preds = %.noexc.i.invoke.cont6_crit_edge.i, %invoke.cont
   %3 = phi i64 [ %1, %invoke.cont ], [ %.pre.i, %.noexc.i.invoke.cont6_crit_edge.i ]
   %retval.0.i.i.i = phi ptr [ %ref.tmp5, %invoke.cont ], [ %call.i.i.i1.i.i, %.noexc.i.invoke.cont6_crit_edge.i ]
-  %data_.i.i = getelementptr inbounds %"class.absl::FixedArray<testing::ThrowingValue<testing::TypeSpec::kEverythingThrows>, 25, testing::ThrowingAllocator<testing::ThrowingValue<testing::TypeSpec::kEverythingThrows>, testing::AllocSpec::kEverythingThrows>>::Storage", ptr %ref.tmp5, i64 0, i32 2
+  %data_.i.i = getelementptr inbounds i8, ptr %ref.tmp5, i64 128
   store ptr %retval.0.i.i.i, ptr %data_.i.i, align 8
   %add.ptr.i.i = getelementptr inbounds %"class.testing::ThrowingValue", ptr %retval.0.i.i.i, i64 %3
   invoke void @_ZN4absl15memory_internal14ConstructRangeIN7testing17ThrowingAllocatorINS2_13ThrowingValueILNS2_8TypeSpecE0EEELNS2_9AllocSpecE0EEEPS6_JS6_EEEvRT_T0_SC_DpRKT1_(ptr noundef nonnull align 8 dereferenceable(16) %0, ptr noundef nonnull %retval.0.i.i.i, ptr noundef nonnull %add.ptr.i.i, ptr noundef nonnull align 4 dereferenceable(4) %ref.tmp6)
@@ -12995,15 +12989,15 @@ invoke.cont11:                                    ; preds = %invoke.cont9
           to label %invoke.cont13 unwind label %lpad12
 
 invoke.cont13:                                    ; preds = %invoke.cont11
-  %data_.i.i.i.i = getelementptr inbounds %"class.absl::FixedArray<testing::ThrowingValue<testing::TypeSpec::kEverythingThrows>, 25, testing::ThrowingAllocator<testing::ThrowingValue<testing::TypeSpec::kEverythingThrows>, testing::AllocSpec::kEverythingThrows>>::Storage", ptr %ref.tmp4, i64 0, i32 2
-  %size_alloc_.i.i.i.i.i = getelementptr inbounds %"class.absl::FixedArray<testing::ThrowingValue<testing::TypeSpec::kEverythingThrows>, 25, testing::ThrowingAllocator<testing::ThrowingValue<testing::TypeSpec::kEverythingThrows>, testing::AllocSpec::kEverythingThrows>>::Storage", ptr %ref.tmp4, i64 0, i32 1
+  %data_.i.i.i.i = getelementptr inbounds i8, ptr %ref.tmp4, i64 128
+  %size_alloc_.i.i.i.i.i = getelementptr inbounds i8, ptr %ref.tmp4, i64 104
   %5 = load i64, ptr %size_alloc_.i.i.i.i.i, align 8
   %cmp.not4.i.i.i = icmp eq i64 %5, 0
   br i1 %cmp.not4.i.i.i, label %"_ZN7testing19exceptions_internal26ExceptionSafetyTestBuilderINS0_14DefaultFactoryIN4absl10FixedArrayINS_13ThrowingValueILNS_8TypeSpecE0EEELm25ENS_17ThrowingAllocatorIS7_LNS_9AllocSpecE0EEEEEEEZNS3_12_GLOBAL__N_144FixedArrayExceptionSafety_FillWithAlloc_Test8TestBodyEvE3$_0JPFNS_15AssertionResultEPSB_EEED2Ev.exit", label %invoke.cont5.lr.ph.i.i.i
 
 invoke.cont5.lr.ph.i.i.i:                         ; preds = %invoke.cont13
   %6 = load ptr, ptr %data_.i.i.i.i, align 8
-  %add.ptr.i.i.i.i.i = getelementptr inbounds %"class.absl::FixedArray<testing::ThrowingValue<testing::TypeSpec::kEverythingThrows>, 25, testing::ThrowingAllocator<testing::ThrowingValue<testing::TypeSpec::kEverythingThrows>, testing::AllocSpec::kEverythingThrows>>::Storage", ptr %ref.tmp4, i64 0, i32 1, i32 0, i32 1
+  %add.ptr.i.i.i.i.i = getelementptr inbounds i8, ptr %ref.tmp4, i64 112
   br label %invoke.cont5.i.i.i
 
 invoke.cont5.i.i.i:                               ; preds = %_ZNSt16allocator_traitsIN7testing17ThrowingAllocatorINS0_13ThrowingValueILNS0_8TypeSpecE0EEELNS0_9AllocSpecE0EEEE7destroyIS4_EEvRS6_PT_.exit.i.i.i, %invoke.cont5.lr.ph.i.i.i
@@ -13029,7 +13023,7 @@ terminate.lpad.i.i.i.i.i.i.i.i:                   ; preds = %_ZN7testing17Throwi
   unreachable
 
 _ZNSt16allocator_traitsIN7testing17ThrowingAllocatorINS0_13ThrowingValueILNS0_8TypeSpecE0EEELNS0_9AllocSpecE0EEEE7destroyIS4_EEvRS6_PT_.exit.i.i.i: ; preds = %_ZN7testing17ThrowingAllocatorINS_13ThrowingValueILNS_8TypeSpecE0EEELNS_9AllocSpecE0EE9ReadStateEv.exit.i.i.i.i.i.i
-  %incdec.ptr.i.i.i = getelementptr inbounds %"class.testing::ThrowingValue", ptr %cur.05.i.i.i, i64 1
+  %incdec.ptr.i.i.i = getelementptr inbounds i8, ptr %cur.05.i.i.i, i64 4
   %11 = load ptr, ptr %data_.i.i.i.i, align 8
   %12 = load i64, ptr %size_alloc_.i.i.i.i.i, align 8
   %add.ptr.i.i.i.i = getelementptr inbounds %"class.testing::ThrowingValue", ptr %11, i64 %12
@@ -13069,7 +13063,7 @@ terminate.lpad.i.i.i.i.i.i:                       ; preds = %_ZN7testing17Throwi
   unreachable
 
 _ZNSt16allocator_traitsIN7testing17ThrowingAllocatorINS0_13ThrowingValueILNS0_8TypeSpecE0EEELNS0_9AllocSpecE0EEEE7destroyIS4_EEvRS6_PT_.exit.i: ; preds = %_ZN7testing17ThrowingAllocatorINS_13ThrowingValueILNS_8TypeSpecE0EEELNS_9AllocSpecE0EE9ReadStateEv.exit.i.i.i.i
-  %incdec.ptr.i = getelementptr inbounds %"class.testing::ThrowingValue", ptr %cur.05.i, i64 1
+  %incdec.ptr.i = getelementptr inbounds i8, ptr %cur.05.i, i64 4
   %19 = load ptr, ptr %data_.i.i, align 8
   %20 = load i64, ptr %size_alloc_.i.i, align 8
   %add.ptr.i.i19 = getelementptr inbounds %"class.testing::ThrowingValue", ptr %19, i64 %20
@@ -13078,13 +13072,13 @@ _ZNSt16allocator_traitsIN7testing17ThrowingAllocatorINS0_13ThrowingValueILNS0_8T
 
 _ZN4absl10FixedArrayIN7testing13ThrowingValueILNS1_8TypeSpecE0EEELm25ENS1_17ThrowingAllocatorIS4_LNS1_9AllocSpecE0EEEED2Ev.exit: ; preds = %_ZNSt16allocator_traitsIN7testing17ThrowingAllocatorINS0_13ThrowingValueILNS0_8TypeSpecE0EEELNS0_9AllocSpecE0EEEE7destroyIS4_EEvRS6_PT_.exit.i, %"_ZN7testing19exceptions_internal26ExceptionSafetyTestBuilderINS0_14DefaultFactoryIN4absl10FixedArrayINS_13ThrowingValueILNS_8TypeSpecE0EEELm25ENS_17ThrowingAllocatorIS7_LNS_9AllocSpecE0EEEEEEEZNS3_12_GLOBAL__N_144FixedArrayExceptionSafety_FillWithAlloc_Test8TestBodyEvE3$_0JPFNS_15AssertionResultEPSB_EEED2Ev.exit"
   call void @_ZN4absl10FixedArrayIN7testing13ThrowingValueILNS1_8TypeSpecE0EEELm25ENS1_17ThrowingAllocatorIS4_LNS1_9AllocSpecE0EEEE7StorageD2Ev(ptr noundef nonnull align 8 dereferenceable(136) %ref.tmp5) #18
-  %_M_refcount.i.i.i = getelementptr inbounds %"class.std::__shared_ptr", ptr %ref.tmp7, i64 0, i32 1
+  %_M_refcount.i.i.i = getelementptr inbounds i8, ptr %ref.tmp7, i64 8
   %21 = load ptr, ptr %_M_refcount.i.i.i, align 8
   %cmp.not.i.i.i.i = icmp eq ptr %21, null
   br i1 %cmp.not.i.i.i.i, label %_ZNSt10shared_ptrIKiED2Ev.exit.i, label %if.then.i.i.i.i
 
 if.then.i.i.i.i:                                  ; preds = %_ZN4absl10FixedArrayIN7testing13ThrowingValueILNS1_8TypeSpecE0EEELm25ENS1_17ThrowingAllocatorIS4_LNS1_9AllocSpecE0EEEED2Ev.exit
-  %_M_use_count.i.i.i.i.i = getelementptr inbounds %"class.std::_Sp_counted_base", ptr %21, i64 0, i32 1
+  %_M_use_count.i.i.i.i.i = getelementptr inbounds i8, ptr %21, i64 8
   %22 = load atomic i64, ptr %_M_use_count.i.i.i.i.i acquire, align 8
   %cmp.i.i.i.i.i20 = icmp eq i64 %22, 4294967297
   %23 = trunc i64 %22 to i32
@@ -13092,10 +13086,10 @@ if.then.i.i.i.i:                                  ; preds = %_ZN4absl10FixedArra
 
 if.then.i.i.i.i.i22:                              ; preds = %if.then.i.i.i.i
   store i32 0, ptr %_M_use_count.i.i.i.i.i, align 8
-  %_M_weak_count.i.i.i.i.i = getelementptr inbounds %"class.std::_Sp_counted_base", ptr %21, i64 0, i32 2
+  %_M_weak_count.i.i.i.i.i = getelementptr inbounds i8, ptr %21, i64 12
   store i32 0, ptr %_M_weak_count.i.i.i.i.i, align 4
   %vtable.i.i.i.i.i = load ptr, ptr %21, align 8
-  %vfn.i.i.i.i.i = getelementptr inbounds ptr, ptr %vtable.i.i.i.i.i, i64 2
+  %vfn.i.i.i.i.i = getelementptr inbounds i8, ptr %vtable.i.i.i.i.i, i64 16
   %24 = load ptr, ptr %vfn.i.i.i.i.i, align 8
   call void %24(ptr noundef nonnull align 8 dereferenceable(16) %21) #18
   br label %if.end8.sink.split.i.i.i.i.i
@@ -13121,10 +13115,10 @@ _ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i: ; preds = %if.els
 
 if.then7.i.i.i.i.i:                               ; preds = %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i
   %vtable.i.i.i.i.i.i.i = load ptr, ptr %21, align 8
-  %vfn.i.i.i.i.i.i.i = getelementptr inbounds ptr, ptr %vtable.i.i.i.i.i.i.i, i64 2
+  %vfn.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %vtable.i.i.i.i.i.i.i, i64 16
   %27 = load ptr, ptr %vfn.i.i.i.i.i.i.i, align 8
   call void %27(ptr noundef nonnull align 8 dereferenceable(16) %21) #18
-  %_M_weak_count.i.i.i.i.i.i.i = getelementptr inbounds %"class.std::_Sp_counted_base", ptr %21, i64 0, i32 2
+  %_M_weak_count.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %21, i64 12
   %28 = load i8, ptr @__libc_single_threaded, align 1
   %tobool.i.not.i.i.i.i.i.i.i = icmp eq i8 %28, 0
   br i1 %tobool.i.not.i.i.i.i.i.i.i, label %if.else.i.i.i.i.i.i.i.i, label %if.then.i.i.i.i.i.i.i.i
@@ -13146,7 +13140,7 @@ _ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i.i: ; preds = %if
 
 if.end8.sink.split.i.i.i.i.i:                     ; preds = %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i.i, %if.then.i.i.i.i.i22
   %vtable2.i.i.i.i.i.i.i = load ptr, ptr %21, align 8
-  %vfn3.i.i.i.i.i.i.i = getelementptr inbounds ptr, ptr %vtable2.i.i.i.i.i.i.i, i64 3
+  %vfn3.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %vtable2.i.i.i.i.i.i.i, i64 24
   %31 = load ptr, ptr %vfn3.i.i.i.i.i.i.i, align 8
   call void %31(ptr noundef nonnull align 8 dereferenceable(16) %21) #18
   br label %_ZNSt10shared_ptrIKiED2Ev.exit.i
@@ -13243,7 +13237,7 @@ invoke.cont27:                                    ; preds = %invoke.cont25
 
 _ZNKSt14default_deleteINSt7__cxx1118basic_stringstreamIcSt11char_traitsIcESaIcEEEEclEPS5_.exit.i.i: ; preds = %invoke.cont27
   %vtable.i.i.i = load ptr, ptr %43, align 8
-  %vfn.i.i.i = getelementptr inbounds ptr, ptr %vtable.i.i.i, i64 1
+  %vfn.i.i.i = getelementptr inbounds i8, ptr %vtable.i.i.i, i64 8
   %44 = load ptr, ptr %vfn.i.i.i, align 8
   call void %44(ptr noundef nonnull align 8 dereferenceable(128) %43) #18
   br label %_ZN7testing7MessageD2Ev.exit
@@ -13286,7 +13280,7 @@ ehcleanup30:                                      ; preds = %ehcleanup29, %lpad2
 
 _ZNKSt14default_deleteINSt7__cxx1118basic_stringstreamIcSt11char_traitsIcESaIcEEEEclEPS5_.exit.i.i27: ; preds = %ehcleanup30
   %vtable.i.i.i28 = load ptr, ptr %49, align 8
-  %vfn.i.i.i29 = getelementptr inbounds ptr, ptr %vtable.i.i.i28, i64 1
+  %vfn.i.i.i29 = getelementptr inbounds i8, ptr %vtable.i.i.i28, i64 8
   %50 = load ptr, ptr %vfn.i.i.i29, align 8
   call void %50(ptr noundef nonnull align 8 dereferenceable(128) %49) #18
   br label %_ZN7testing7MessageD2Ev.exit30
@@ -13296,7 +13290,7 @@ _ZN7testing7MessageD2Ev.exit30:                   ; preds = %ehcleanup30, %_ZNKS
   br label %eh.resume.sink.split
 
 if.end:                                           ; preds = %_ZN7testing13ThrowingValueILNS_8TypeSpecE0EED2Ev.exit, %_ZN7testing7MessageD2Ev.exit
-  %message_.i = getelementptr inbounds %"class.testing::AssertionResult", ptr %gtest_ar_, i64 0, i32 1
+  %message_.i = getelementptr inbounds i8, ptr %gtest_ar_, i64 8
   %51 = load ptr, ptr %message_.i, align 8
   %cmp.not.i.i31 = icmp eq ptr %51, null
   br i1 %cmp.not.i.i31, label %_ZN7testing15AssertionResultD2Ev.exit, label %_ZNKSt14default_deleteINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclEPS5_.exit.i.i
@@ -13313,9 +13307,9 @@ _ZN7testing15AssertionResultD2Ev.exit:            ; preds = %if.end, %_ZNKSt14de
           to label %invoke.cont38 unwind label %lpad37
 
 invoke.cont38:                                    ; preds = %_ZN7testing15AssertionResultD2Ev.exit
-  %size_alloc_.i.i32 = getelementptr inbounds %"class.absl::FixedArray<testing::ThrowingValue<testing::TypeSpec::kEverythingThrows>, 25, testing::ThrowingAllocator<testing::ThrowingValue<testing::TypeSpec::kEverythingThrows>, testing::AllocSpec::kEverythingThrows>>::Storage", ptr %ref.tmp34, i64 0, i32 1
+  %size_alloc_.i.i32 = getelementptr inbounds i8, ptr %ref.tmp34, i64 104
   store i64 50, ptr %size_alloc_.i.i32, align 8
-  %52 = getelementptr inbounds %"class.absl::FixedArray<testing::ThrowingValue<testing::TypeSpec::kEverythingThrows>, 25, testing::ThrowingAllocator<testing::ThrowingValue<testing::TypeSpec::kEverythingThrows>, testing::AllocSpec::kEverythingThrows>>::Storage", ptr %ref.tmp34, i64 0, i32 1, i32 0, i32 1
+  %52 = getelementptr inbounds i8, ptr %ref.tmp34, i64 112
   call void @_ZN7testing17ThrowingAllocatorINS_13ThrowingValueILNS_8TypeSpecE0EEELNS_9AllocSpecE0EEC2ERKS5_(ptr noundef nonnull align 8 dereferenceable(16) %52, ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp36) #18
   %53 = load i64, ptr %size_alloc_.i.i32, align 8
   %cmp.i.i.i.i33 = icmp ult i64 %53, 26
@@ -13343,7 +13337,7 @@ lpad.i.i35:                                       ; preds = %.noexc.i.i38, %if.e
 invoke.cont6.i43:                                 ; preds = %.noexc.i.invoke.cont6_crit_edge.i41, %invoke.cont38
   %55 = phi i64 [ %53, %invoke.cont38 ], [ %.pre.i42, %.noexc.i.invoke.cont6_crit_edge.i41 ]
   %retval.0.i.i.i44 = phi ptr [ %ref.tmp34, %invoke.cont38 ], [ %call.i.i.i1.i.i40, %.noexc.i.invoke.cont6_crit_edge.i41 ]
-  %data_.i.i45 = getelementptr inbounds %"class.absl::FixedArray<testing::ThrowingValue<testing::TypeSpec::kEverythingThrows>, 25, testing::ThrowingAllocator<testing::ThrowingValue<testing::TypeSpec::kEverythingThrows>, testing::AllocSpec::kEverythingThrows>>::Storage", ptr %ref.tmp34, i64 0, i32 2
+  %data_.i.i45 = getelementptr inbounds i8, ptr %ref.tmp34, i64 128
   store ptr %retval.0.i.i.i44, ptr %data_.i.i45, align 8
   %add.ptr.i.i46 = getelementptr inbounds %"class.testing::ThrowingValue", ptr %retval.0.i.i.i44, i64 %55
   invoke void @_ZN4absl15memory_internal14ConstructRangeIN7testing17ThrowingAllocatorINS2_13ThrowingValueILNS2_8TypeSpecE0EEELNS2_9AllocSpecE0EEEPS6_JS6_EEEvRT_T0_SC_DpRKT1_(ptr noundef nonnull align 8 dereferenceable(16) %52, ptr noundef nonnull %retval.0.i.i.i44, ptr noundef nonnull %add.ptr.i.i46, ptr noundef nonnull align 4 dereferenceable(4) %ref.tmp35)
@@ -13364,15 +13358,15 @@ invoke.cont42:                                    ; preds = %invoke.cont40
           to label %invoke.cont44 unwind label %lpad43
 
 invoke.cont44:                                    ; preds = %invoke.cont42
-  %data_.i.i.i.i50 = getelementptr inbounds %"class.absl::FixedArray<testing::ThrowingValue<testing::TypeSpec::kEverythingThrows>, 25, testing::ThrowingAllocator<testing::ThrowingValue<testing::TypeSpec::kEverythingThrows>, testing::AllocSpec::kEverythingThrows>>::Storage", ptr %ref.tmp33, i64 0, i32 2
-  %size_alloc_.i.i.i.i.i51 = getelementptr inbounds %"class.absl::FixedArray<testing::ThrowingValue<testing::TypeSpec::kEverythingThrows>, 25, testing::ThrowingAllocator<testing::ThrowingValue<testing::TypeSpec::kEverythingThrows>, testing::AllocSpec::kEverythingThrows>>::Storage", ptr %ref.tmp33, i64 0, i32 1
+  %data_.i.i.i.i50 = getelementptr inbounds i8, ptr %ref.tmp33, i64 128
+  %size_alloc_.i.i.i.i.i51 = getelementptr inbounds i8, ptr %ref.tmp33, i64 104
   %57 = load i64, ptr %size_alloc_.i.i.i.i.i51, align 8
   %cmp.not4.i.i.i52 = icmp eq i64 %57, 0
   br i1 %cmp.not4.i.i.i52, label %"_ZN7testing19exceptions_internal26ExceptionSafetyTestBuilderINS0_14DefaultFactoryIN4absl10FixedArrayINS_13ThrowingValueILNS_8TypeSpecE0EEELm25ENS_17ThrowingAllocatorIS7_LNS_9AllocSpecE0EEEEEEEZNS3_12_GLOBAL__N_144FixedArrayExceptionSafety_FillWithAlloc_Test8TestBodyEvE3$_0JPFNS_15AssertionResultEPSB_EEED2Ev.exit65", label %invoke.cont5.lr.ph.i.i.i53
 
 invoke.cont5.lr.ph.i.i.i53:                       ; preds = %invoke.cont44
   %58 = load ptr, ptr %data_.i.i.i.i50, align 8
-  %add.ptr.i.i.i.i.i54 = getelementptr inbounds %"class.absl::FixedArray<testing::ThrowingValue<testing::TypeSpec::kEverythingThrows>, 25, testing::ThrowingAllocator<testing::ThrowingValue<testing::TypeSpec::kEverythingThrows>, testing::AllocSpec::kEverythingThrows>>::Storage", ptr %ref.tmp33, i64 0, i32 1, i32 0, i32 1
+  %add.ptr.i.i.i.i.i54 = getelementptr inbounds i8, ptr %ref.tmp33, i64 112
   br label %invoke.cont5.i.i.i55
 
 invoke.cont5.i.i.i55:                             ; preds = %_ZNSt16allocator_traitsIN7testing17ThrowingAllocatorINS0_13ThrowingValueILNS0_8TypeSpecE0EEELNS0_9AllocSpecE0EEEE7destroyIS4_EEvRS6_PT_.exit.i.i.i60, %invoke.cont5.lr.ph.i.i.i53
@@ -13398,7 +13392,7 @@ terminate.lpad.i.i.i.i.i.i.i.i59:                 ; preds = %_ZN7testing17Throwi
   unreachable
 
 _ZNSt16allocator_traitsIN7testing17ThrowingAllocatorINS0_13ThrowingValueILNS0_8TypeSpecE0EEELNS0_9AllocSpecE0EEEE7destroyIS4_EEvRS6_PT_.exit.i.i.i60: ; preds = %_ZN7testing17ThrowingAllocatorINS_13ThrowingValueILNS_8TypeSpecE0EEELNS_9AllocSpecE0EE9ReadStateEv.exit.i.i.i.i.i.i58
-  %incdec.ptr.i.i.i61 = getelementptr inbounds %"class.testing::ThrowingValue", ptr %cur.05.i.i.i56, i64 1
+  %incdec.ptr.i.i.i61 = getelementptr inbounds i8, ptr %cur.05.i.i.i56, i64 4
   %63 = load ptr, ptr %data_.i.i.i.i50, align 8
   %64 = load i64, ptr %size_alloc_.i.i.i.i.i51, align 8
   %add.ptr.i.i.i.i62 = getelementptr inbounds %"class.testing::ThrowingValue", ptr %63, i64 %64
@@ -13438,7 +13432,7 @@ terminate.lpad.i.i.i.i.i.i75:                     ; preds = %_ZN7testing17Throwi
   unreachable
 
 _ZNSt16allocator_traitsIN7testing17ThrowingAllocatorINS0_13ThrowingValueILNS0_8TypeSpecE0EEELNS0_9AllocSpecE0EEEE7destroyIS4_EEvRS6_PT_.exit.i76: ; preds = %_ZN7testing17ThrowingAllocatorINS_13ThrowingValueILNS_8TypeSpecE0EEELNS_9AllocSpecE0EE9ReadStateEv.exit.i.i.i.i74
-  %incdec.ptr.i77 = getelementptr inbounds %"class.testing::ThrowingValue", ptr %cur.05.i72, i64 1
+  %incdec.ptr.i77 = getelementptr inbounds i8, ptr %cur.05.i72, i64 4
   %71 = load ptr, ptr %data_.i.i45, align 8
   %72 = load i64, ptr %size_alloc_.i.i32, align 8
   %add.ptr.i.i78 = getelementptr inbounds %"class.testing::ThrowingValue", ptr %71, i64 %72
@@ -13447,13 +13441,13 @@ _ZNSt16allocator_traitsIN7testing17ThrowingAllocatorINS0_13ThrowingValueILNS0_8T
 
 _ZN4absl10FixedArrayIN7testing13ThrowingValueILNS1_8TypeSpecE0EEELm25ENS1_17ThrowingAllocatorIS4_LNS1_9AllocSpecE0EEEED2Ev.exit81: ; preds = %_ZNSt16allocator_traitsIN7testing17ThrowingAllocatorINS0_13ThrowingValueILNS0_8TypeSpecE0EEELNS0_9AllocSpecE0EEEE7destroyIS4_EEvRS6_PT_.exit.i76, %"_ZN7testing19exceptions_internal26ExceptionSafetyTestBuilderINS0_14DefaultFactoryIN4absl10FixedArrayINS_13ThrowingValueILNS_8TypeSpecE0EEELm25ENS_17ThrowingAllocatorIS7_LNS_9AllocSpecE0EEEEEEEZNS3_12_GLOBAL__N_144FixedArrayExceptionSafety_FillWithAlloc_Test8TestBodyEvE3$_0JPFNS_15AssertionResultEPSB_EEED2Ev.exit65"
   call void @_ZN4absl10FixedArrayIN7testing13ThrowingValueILNS1_8TypeSpecE0EEELm25ENS1_17ThrowingAllocatorIS4_LNS1_9AllocSpecE0EEEE7StorageD2Ev(ptr noundef nonnull align 8 dereferenceable(136) %ref.tmp34) #18
-  %_M_refcount.i.i.i82 = getelementptr inbounds %"class.std::__shared_ptr", ptr %ref.tmp36, i64 0, i32 1
+  %_M_refcount.i.i.i82 = getelementptr inbounds i8, ptr %ref.tmp36, i64 8
   %73 = load ptr, ptr %_M_refcount.i.i.i82, align 8
   %cmp.not.i.i.i.i83 = icmp eq ptr %73, null
   br i1 %cmp.not.i.i.i.i83, label %_ZNSt10shared_ptrIKiED2Ev.exit.i94, label %if.then.i.i.i.i84
 
 if.then.i.i.i.i84:                                ; preds = %_ZN4absl10FixedArrayIN7testing13ThrowingValueILNS1_8TypeSpecE0EEELm25ENS1_17ThrowingAllocatorIS4_LNS1_9AllocSpecE0EEEED2Ev.exit81
-  %_M_use_count.i.i.i.i.i85 = getelementptr inbounds %"class.std::_Sp_counted_base", ptr %73, i64 0, i32 1
+  %_M_use_count.i.i.i.i.i85 = getelementptr inbounds i8, ptr %73, i64 8
   %74 = load atomic i64, ptr %_M_use_count.i.i.i.i.i85 acquire, align 8
   %cmp.i.i.i.i.i86 = icmp eq i64 %74, 4294967297
   %75 = trunc i64 %74 to i32
@@ -13461,10 +13455,10 @@ if.then.i.i.i.i84:                                ; preds = %_ZN4absl10FixedArra
 
 if.then.i.i.i.i.i111:                             ; preds = %if.then.i.i.i.i84
   store i32 0, ptr %_M_use_count.i.i.i.i.i85, align 8
-  %_M_weak_count.i.i.i.i.i112 = getelementptr inbounds %"class.std::_Sp_counted_base", ptr %73, i64 0, i32 2
+  %_M_weak_count.i.i.i.i.i112 = getelementptr inbounds i8, ptr %73, i64 12
   store i32 0, ptr %_M_weak_count.i.i.i.i.i112, align 4
   %vtable.i.i.i.i.i113 = load ptr, ptr %73, align 8
-  %vfn.i.i.i.i.i114 = getelementptr inbounds ptr, ptr %vtable.i.i.i.i.i113, i64 2
+  %vfn.i.i.i.i.i114 = getelementptr inbounds i8, ptr %vtable.i.i.i.i.i113, i64 16
   %76 = load ptr, ptr %vfn.i.i.i.i.i114, align 8
   call void %76(ptr noundef nonnull align 8 dereferenceable(16) %73) #18
   br label %if.end8.sink.split.i.i.i.i.i106
@@ -13490,10 +13484,10 @@ _ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i91: ; preds = %if.e
 
 if.then7.i.i.i.i.i96:                             ; preds = %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i91
   %vtable.i.i.i.i.i.i.i97 = load ptr, ptr %73, align 8
-  %vfn.i.i.i.i.i.i.i98 = getelementptr inbounds ptr, ptr %vtable.i.i.i.i.i.i.i97, i64 2
+  %vfn.i.i.i.i.i.i.i98 = getelementptr inbounds i8, ptr %vtable.i.i.i.i.i.i.i97, i64 16
   %79 = load ptr, ptr %vfn.i.i.i.i.i.i.i98, align 8
   call void %79(ptr noundef nonnull align 8 dereferenceable(16) %73) #18
-  %_M_weak_count.i.i.i.i.i.i.i99 = getelementptr inbounds %"class.std::_Sp_counted_base", ptr %73, i64 0, i32 2
+  %_M_weak_count.i.i.i.i.i.i.i99 = getelementptr inbounds i8, ptr %73, i64 12
   %80 = load i8, ptr @__libc_single_threaded, align 1
   %tobool.i.not.i.i.i.i.i.i.i100 = icmp eq i8 %80, 0
   br i1 %tobool.i.not.i.i.i.i.i.i.i100, label %if.else.i.i.i.i.i.i.i.i109, label %if.then.i.i.i.i.i.i.i.i101
@@ -13515,7 +13509,7 @@ _ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i.i103: ; preds = 
 
 if.end8.sink.split.i.i.i.i.i106:                  ; preds = %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i.i103, %if.then.i.i.i.i.i111
   %vtable2.i.i.i.i.i.i.i107 = load ptr, ptr %73, align 8
-  %vfn3.i.i.i.i.i.i.i108 = getelementptr inbounds ptr, ptr %vtable2.i.i.i.i.i.i.i107, i64 3
+  %vfn3.i.i.i.i.i.i.i108 = getelementptr inbounds i8, ptr %vtable2.i.i.i.i.i.i.i107, i64 24
   %83 = load ptr, ptr %vfn3.i.i.i.i.i.i.i108, align 8
   call void %83(ptr noundef nonnull align 8 dereferenceable(16) %73) #18
   br label %_ZNSt10shared_ptrIKiED2Ev.exit.i94
@@ -13612,7 +13606,7 @@ invoke.cont63:                                    ; preds = %invoke.cont61
 
 _ZNKSt14default_deleteINSt7__cxx1118basic_stringstreamIcSt11char_traitsIcESaIcEEEEclEPS5_.exit.i.i122: ; preds = %invoke.cont63
   %vtable.i.i.i123 = load ptr, ptr %95, align 8
-  %vfn.i.i.i124 = getelementptr inbounds ptr, ptr %vtable.i.i.i123, i64 1
+  %vfn.i.i.i124 = getelementptr inbounds i8, ptr %vtable.i.i.i123, i64 8
   %96 = load ptr, ptr %vfn.i.i.i124, align 8
   call void %96(ptr noundef nonnull align 8 dereferenceable(128) %95) #18
   br label %_ZN7testing7MessageD2Ev.exit125
@@ -13655,7 +13649,7 @@ ehcleanup66:                                      ; preds = %ehcleanup65, %lpad5
 
 _ZNKSt14default_deleteINSt7__cxx1118basic_stringstreamIcSt11char_traitsIcESaIcEEEEclEPS5_.exit.i.i127: ; preds = %ehcleanup66
   %vtable.i.i.i128 = load ptr, ptr %101, align 8
-  %vfn.i.i.i129 = getelementptr inbounds ptr, ptr %vtable.i.i.i128, i64 1
+  %vfn.i.i.i129 = getelementptr inbounds i8, ptr %vtable.i.i.i128, i64 8
   %102 = load ptr, ptr %vfn.i.i.i129, align 8
   call void %102(ptr noundef nonnull align 8 dereferenceable(128) %101) #18
   br label %_ZN7testing7MessageD2Ev.exit130
@@ -13665,7 +13659,7 @@ _ZN7testing7MessageD2Ev.exit130:                  ; preds = %ehcleanup66, %_ZNKS
   br label %eh.resume.sink.split
 
 if.end67:                                         ; preds = %_ZN7testing13ThrowingValueILNS_8TypeSpecE0EED2Ev.exit117, %_ZN7testing7MessageD2Ev.exit125
-  %message_.i131 = getelementptr inbounds %"class.testing::AssertionResult", ptr %gtest_ar_32, i64 0, i32 1
+  %message_.i131 = getelementptr inbounds i8, ptr %gtest_ar_32, i64 8
   %103 = load ptr, ptr %message_.i131, align 8
   %cmp.not.i.i132 = icmp eq ptr %103, null
   br i1 %cmp.not.i.i132, label %_ZN7testing15AssertionResultD2Ev.exit134, label %_ZNKSt14default_deleteINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclEPS5_.exit.i.i133
@@ -13696,9 +13690,9 @@ entry:
   %ref.tmp.i5 = alloca %"class.testing::Message", align 8
   %ref.tmp.i = alloca %"class.testing::Message", align 8
   %ref.tmp = alloca %"class.testing::AssertionResult", align 8
-  %data_.i.i.i = getelementptr inbounds %"class.absl::FixedArray<testing::ThrowingValue<testing::TypeSpec::kEverythingThrows>, 25, testing::ThrowingAllocator<testing::ThrowingValue<testing::TypeSpec::kEverythingThrows>, testing::AllocSpec::kEverythingThrows>>::Storage", ptr %fixed_arr, i64 0, i32 2
+  %data_.i.i.i = getelementptr inbounds i8, ptr %fixed_arr, i64 128
   %0 = load ptr, ptr %data_.i.i.i, align 8
-  %size_alloc_.i.i.i = getelementptr inbounds %"class.absl::FixedArray<testing::ThrowingValue<testing::TypeSpec::kEverythingThrows>, 25, testing::ThrowingAllocator<testing::ThrowingValue<testing::TypeSpec::kEverythingThrows>, testing::AllocSpec::kEverythingThrows>>::Storage", ptr %fixed_arr, i64 0, i32 1
+  %size_alloc_.i.i.i = getelementptr inbounds i8, ptr %fixed_arr, i64 104
   %1 = load i64, ptr %size_alloc_.i.i.i, align 8
   %add.ptr.i = getelementptr inbounds %"class.testing::ThrowingValue", ptr %0, i64 %1
   %cmp.not42 = icmp eq i64 %1, 0
@@ -13709,7 +13703,7 @@ for.body:                                         ; preds = %entry, %for.body
   %sum.043 = phi i32 [ %add, %for.body ], [ 0, %entry ]
   %2 = load i32, ptr %__begin0.044, align 4
   %add = add nsw i32 %2, %sum.043
-  %incdec.ptr = getelementptr inbounds %"class.testing::ThrowingValue", ptr %__begin0.044, i64 1
+  %incdec.ptr = getelementptr inbounds i8, ptr %__begin0.044, i64 4
   %cmp.not = icmp eq ptr %incdec.ptr, %add.ptr.i
   br i1 %cmp.not, label %for.end, label %for.body
 
@@ -13737,7 +13731,7 @@ invoke.cont2.i:                                   ; preds = %invoke.cont.i
 
 _ZNKSt14default_deleteINSt7__cxx1118basic_stringstreamIcSt11char_traitsIcESaIcEEEEclEPS5_.exit.i.i.i: ; preds = %invoke.cont2.i
   %vtable.i.i.i.i = load ptr, ptr %4, align 8
-  %vfn.i.i.i.i = getelementptr inbounds ptr, ptr %vtable.i.i.i.i, i64 1
+  %vfn.i.i.i.i = getelementptr inbounds i8, ptr %vtable.i.i.i.i, i64 8
   %5 = load ptr, ptr %vfn.i.i.i.i, align 8
   call void %5(ptr noundef nonnull align 8 dereferenceable(128) %4) #18
   br label %invoke.cont
@@ -13751,7 +13745,7 @@ lpad.i:                                           ; preds = %invoke.cont.i, %.no
 
 _ZNKSt14default_deleteINSt7__cxx1118basic_stringstreamIcSt11char_traitsIcESaIcEEEEclEPS5_.exit.i.i3.i: ; preds = %lpad.i
   %vtable.i.i.i4.i = load ptr, ptr %7, align 8
-  %vfn.i.i.i5.i = getelementptr inbounds ptr, ptr %vtable.i.i.i4.i, i64 1
+  %vfn.i.i.i5.i = getelementptr inbounds i8, ptr %vtable.i.i.i4.i, i64 8
   %8 = load ptr, ptr %vfn.i.i.i5.i, align 8
   call void %8(ptr noundef nonnull align 8 dereferenceable(128) %7) #18
   br label %lpad.body
@@ -13779,7 +13773,7 @@ invoke.cont2.i15:                                 ; preds = %invoke.cont.i14
 
 _ZNKSt14default_deleteINSt7__cxx1118basic_stringstreamIcSt11char_traitsIcESaIcEEEEclEPS5_.exit.i.i.i17: ; preds = %invoke.cont2.i15
   %vtable.i.i.i.i18 = load ptr, ptr %10, align 8
-  %vfn.i.i.i.i19 = getelementptr inbounds ptr, ptr %vtable.i.i.i.i18, i64 1
+  %vfn.i.i.i.i19 = getelementptr inbounds i8, ptr %vtable.i.i.i.i18, i64 8
   %11 = load ptr, ptr %vfn.i.i.i.i19, align 8
   call void %11(ptr noundef nonnull align 8 dereferenceable(128) %10) #18
   br label %invoke.cont4
@@ -13793,7 +13787,7 @@ lpad.i8:                                          ; preds = %invoke.cont.i14, %.
 
 _ZNKSt14default_deleteINSt7__cxx1118basic_stringstreamIcSt11char_traitsIcESaIcEEEEclEPS5_.exit.i.i3.i10: ; preds = %lpad.i8
   %vtable.i.i.i4.i11 = load ptr, ptr %13, align 8
-  %vfn.i.i.i5.i12 = getelementptr inbounds ptr, ptr %vtable.i.i.i4.i11, i64 1
+  %vfn.i.i.i5.i12 = getelementptr inbounds i8, ptr %vtable.i.i.i4.i11, i64 8
   %14 = load ptr, ptr %vfn.i.i.i5.i12, align 8
   call void %14(ptr noundef nonnull align 8 dereferenceable(128) %13) #18
   br label %lpad.body
@@ -13821,7 +13815,7 @@ invoke.cont2.i33:                                 ; preds = %invoke.cont.i32
 
 _ZNKSt14default_deleteINSt7__cxx1118basic_stringstreamIcSt11char_traitsIcESaIcEEEEclEPS5_.exit.i.i.i35: ; preds = %invoke.cont2.i33
   %vtable.i.i.i.i36 = load ptr, ptr %16, align 8
-  %vfn.i.i.i.i37 = getelementptr inbounds ptr, ptr %vtable.i.i.i.i36, i64 1
+  %vfn.i.i.i.i37 = getelementptr inbounds i8, ptr %vtable.i.i.i.i36, i64 8
   %17 = load ptr, ptr %vfn.i.i.i.i37, align 8
   call void %17(ptr noundef nonnull align 8 dereferenceable(128) %16) #18
   br label %invoke.cont6
@@ -13835,7 +13829,7 @@ lpad.i26:                                         ; preds = %invoke.cont.i32, %.
 
 _ZNKSt14default_deleteINSt7__cxx1118basic_stringstreamIcSt11char_traitsIcESaIcEEEEclEPS5_.exit.i.i3.i28: ; preds = %lpad.i26
   %vtable.i.i.i4.i29 = load ptr, ptr %19, align 8
-  %vfn.i.i.i5.i30 = getelementptr inbounds ptr, ptr %vtable.i.i.i4.i29, i64 1
+  %vfn.i.i.i5.i30 = getelementptr inbounds i8, ptr %vtable.i.i.i4.i29, i64 8
   %20 = load ptr, ptr %vfn.i.i.i5.i30, align 8
   call void %20(ptr noundef nonnull align 8 dereferenceable(128) %19) #18
   br label %lpad.body
@@ -13846,7 +13840,7 @@ invoke.cont6:                                     ; preds = %_ZNKSt14default_del
           to label %invoke.cont8 unwind label %lpad
 
 invoke.cont8:                                     ; preds = %invoke.cont6
-  %message_.i = getelementptr inbounds %"class.testing::AssertionResult", ptr %ref.tmp, i64 0, i32 1
+  %message_.i = getelementptr inbounds i8, ptr %ref.tmp, i64 8
   %21 = load ptr, ptr %message_.i, align 8
   %cmp.not.i.i = icmp eq ptr %21, null
   br i1 %cmp.not.i.i, label %_ZN7testing15AssertionResultD2Ev.exit, label %_ZNKSt14default_deleteINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclEPS5_.exit.i.i
@@ -13880,19 +13874,19 @@ entry:
           to label %invoke.cont unwind label %lpad
 
 invoke.cont:                                      ; preds = %entry
-  %contracts_.i = getelementptr inbounds %"class.testing::exceptions_internal::ExceptionSafetyTestBuilder.133", ptr %this, i64 0, i32 2
-  %contracts_.i.i = getelementptr inbounds %"class.testing::exceptions_internal::ExceptionSafetyTestBuilder.140", ptr %agg.result, i64 0, i32 2
+  %contracts_.i = getelementptr inbounds i8, ptr %this, i64 8
+  %contracts_.i.i = getelementptr inbounds i8, ptr %agg.result, i64 144
   %0 = load i64, ptr %contracts_.i, align 8, !noalias !142
   store i64 %0, ptr %contracts_.i.i, align 8, !alias.scope !142
-  %data_.i.i.i = getelementptr inbounds %"class.absl::FixedArray<testing::ThrowingValue<testing::TypeSpec::kEverythingThrows>, 25, testing::ThrowingAllocator<testing::ThrowingValue<testing::TypeSpec::kEverythingThrows>, testing::AllocSpec::kEverythingThrows>>::Storage", ptr %ref.tmp, i64 0, i32 2
-  %size_alloc_.i.i.i.i = getelementptr inbounds %"class.absl::FixedArray<testing::ThrowingValue<testing::TypeSpec::kEverythingThrows>, 25, testing::ThrowingAllocator<testing::ThrowingValue<testing::TypeSpec::kEverythingThrows>, testing::AllocSpec::kEverythingThrows>>::Storage", ptr %ref.tmp, i64 0, i32 1
+  %data_.i.i.i = getelementptr inbounds i8, ptr %ref.tmp, i64 128
+  %size_alloc_.i.i.i.i = getelementptr inbounds i8, ptr %ref.tmp, i64 104
   %1 = load i64, ptr %size_alloc_.i.i.i.i, align 8
   %cmp.not4.i.i = icmp eq i64 %1, 0
   br i1 %cmp.not4.i.i, label %_ZN7testing19exceptions_internal14DefaultFactoryIN4absl10FixedArrayINS_13ThrowingValueILNS_8TypeSpecE0EEELm25ENS_17ThrowingAllocatorIS6_LNS_9AllocSpecE0EEEEEED2Ev.exit, label %invoke.cont5.lr.ph.i.i
 
 invoke.cont5.lr.ph.i.i:                           ; preds = %invoke.cont
   %2 = load ptr, ptr %data_.i.i.i, align 8
-  %add.ptr.i.i.i.i = getelementptr inbounds %"class.absl::FixedArray<testing::ThrowingValue<testing::TypeSpec::kEverythingThrows>, 25, testing::ThrowingAllocator<testing::ThrowingValue<testing::TypeSpec::kEverythingThrows>, testing::AllocSpec::kEverythingThrows>>::Storage", ptr %ref.tmp, i64 0, i32 1, i32 0, i32 1
+  %add.ptr.i.i.i.i = getelementptr inbounds i8, ptr %ref.tmp, i64 112
   br label %invoke.cont5.i.i
 
 invoke.cont5.i.i:                                 ; preds = %_ZNSt16allocator_traitsIN7testing17ThrowingAllocatorINS0_13ThrowingValueILNS0_8TypeSpecE0EEELNS0_9AllocSpecE0EEEE7destroyIS4_EEvRS6_PT_.exit.i.i, %invoke.cont5.lr.ph.i.i
@@ -13918,7 +13912,7 @@ terminate.lpad.i.i.i.i.i.i.i:                     ; preds = %_ZN7testing17Throwi
   unreachable
 
 _ZNSt16allocator_traitsIN7testing17ThrowingAllocatorINS0_13ThrowingValueILNS0_8TypeSpecE0EEELNS0_9AllocSpecE0EEEE7destroyIS4_EEvRS6_PT_.exit.i.i: ; preds = %_ZN7testing17ThrowingAllocatorINS_13ThrowingValueILNS_8TypeSpecE0EEELNS_9AllocSpecE0EE9ReadStateEv.exit.i.i.i.i.i
-  %incdec.ptr.i.i = getelementptr inbounds %"class.testing::ThrowingValue", ptr %cur.05.i.i, i64 1
+  %incdec.ptr.i.i = getelementptr inbounds i8, ptr %cur.05.i.i, i64 4
   %7 = load ptr, ptr %data_.i.i.i, align 8
   %8 = load i64, ptr %size_alloc_.i.i.i.i, align 8
   %add.ptr.i.i.i = getelementptr inbounds %"class.testing::ThrowingValue", ptr %7, i64 %8
@@ -13945,7 +13939,7 @@ entry:
   call void @llvm.lifetime.start.p0(i64 88, ptr nonnull %ref.tmp.i.i), !noalias !145
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %ref.tmp3.i.i), !noalias !145
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %ref.tmp4.i.i), !noalias !145
-  %_M_manager.i.i.i.i = getelementptr inbounds %"class.std::_Function_base", ptr %ref.tmp3.i.i, i64 0, i32 1
+  %_M_manager.i.i.i.i = getelementptr inbounds i8, ptr %ref.tmp3.i.i, i64 16
   %0 = getelementptr inbounds i8, ptr %ref.tmp3.i.i, i64 8
   store i64 0, ptr %0, align 8, !noalias !148
   %call.i.i2.i.i.i = tail call noalias noundef nonnull dereferenceable(136) ptr @_Znwm(i64 noundef 136) #20, !noalias !148
@@ -13963,16 +13957,16 @@ common.resume.i.i:                                ; preds = %if.then.i.i25.i.i, 
   resume { ptr, i32 } %common.resume.op.i.i
 
 _ZNSt8functionIFSt10unique_ptrIN4absl10FixedArrayIN7testing13ThrowingValueILNS3_8TypeSpecE0EEELm25ENS3_17ThrowingAllocatorIS6_LNS3_9AllocSpecE0EEEEESt14default_deleteISA_EEvEEC2IRKNS3_19exceptions_internal14DefaultFactoryISA_EEvEEOT_.exit.i.i: ; preds = %entry
-  %_M_invoker.i.i.i = getelementptr inbounds %"class.std::function.143", ptr %ref.tmp3.i.i, i64 0, i32 1
+  %_M_invoker.i.i.i = getelementptr inbounds i8, ptr %ref.tmp3.i.i, i64 24
   store ptr %call.i.i2.i.i.i, ptr %ref.tmp3.i.i, align 8, !noalias !148
   store ptr @_ZNSt17_Function_handlerIFSt10unique_ptrIN4absl10FixedArrayIN7testing13ThrowingValueILNS3_8TypeSpecE0EEELm25ENS3_17ThrowingAllocatorIS6_LNS3_9AllocSpecE0EEEEESt14default_deleteISA_EEvENS3_19exceptions_internal14DefaultFactoryISA_EEE9_M_invokeERKSt9_Any_data, ptr %_M_invoker.i.i.i, align 8, !noalias !148
   store ptr @_ZNSt17_Function_handlerIFSt10unique_ptrIN4absl10FixedArrayIN7testing13ThrowingValueILNS3_8TypeSpecE0EEELm25ENS3_17ThrowingAllocatorIS6_LNS3_9AllocSpecE0EEEEESt14default_deleteISA_EEvENS3_19exceptions_internal14DefaultFactoryISA_EEE10_M_managerERSt9_Any_dataRKSJ_St18_Manager_operation, ptr %_M_manager.i.i.i.i, align 8, !noalias !148
-  %_M_manager.i.i2.i.i = getelementptr inbounds %"class.std::_Function_base", ptr %ref.tmp4.i.i, i64 0, i32 1
-  %_M_invoker.i3.i.i = getelementptr inbounds %"class.std::function.145", ptr %ref.tmp4.i.i, i64 0, i32 1
+  %_M_manager.i.i2.i.i = getelementptr inbounds i8, ptr %ref.tmp4.i.i, i64 16
+  %_M_invoker.i3.i.i = getelementptr inbounds i8, ptr %ref.tmp4.i.i, i64 24
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp4.i.i, i8 0, i64 16, i1 false), !noalias !148
   store ptr @"_ZNSt17_Function_handlerIFvPN4absl10FixedArrayIN7testing13ThrowingValueILNS2_8TypeSpecE0EEELm25ENS2_17ThrowingAllocatorIS5_LNS2_9AllocSpecE0EEEEEEZNS0_12_GLOBAL__N_144FixedArrayExceptionSafety_FillWithAlloc_Test8TestBodyEvE3$_0E9_M_invokeERKSt9_Any_dataOSA_", ptr %_M_invoker.i3.i.i, align 8, !noalias !148
   store ptr @"_ZNSt17_Function_handlerIFvPN4absl10FixedArrayIN7testing13ThrowingValueILNS2_8TypeSpecE0EEELm25ENS2_17ThrowingAllocatorIS5_LNS2_9AllocSpecE0EEEEEEZNS0_12_GLOBAL__N_144FixedArrayExceptionSafety_FillWithAlloc_Test8TestBodyEvE3$_0E10_M_managerERSt9_Any_dataRKSG_St18_Manager_operation", ptr %_M_manager.i.i2.i.i, align 8, !noalias !148
-  %contracts_.i.i = getelementptr inbounds %"class.testing::exceptions_internal::ExceptionSafetyTestBuilder.140", ptr %this, i64 0, i32 2
+  %contracts_.i.i = getelementptr inbounds i8, ptr %this, i64 144
   invoke void @_ZN7testing19exceptions_internal19ExceptionSafetyTestIN4absl10FixedArrayINS_13ThrowingValueILNS_8TypeSpecE0EEELm25ENS_17ThrowingAllocatorIS6_LNS_9AllocSpecE0EEEEEEC2IJPFNS_15AssertionResultEPSA_EEEERKSt8functionIFSt10unique_ptrISA_St14default_deleteISA_EEvEERKSH_IFvSE_EEDpRKT_(ptr noundef nonnull align 8 dereferenceable(88) %ref.tmp.i.i, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp3.i.i, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp4.i.i, ptr noundef nonnull align 8 dereferenceable(8) %contracts_.i.i)
           to label %invoke.cont.i.i unwind label %lpad.i.i, !noalias !148
 
@@ -14067,15 +14061,15 @@ terminate.lpad.i.i27.i.i:                         ; preds = %if.then.i.i25.i.i
 ; Function Attrs: mustprogress nounwind uwtable
 define internal fastcc void @"_ZN7testing19exceptions_internal26ExceptionSafetyTestBuilderINS0_14DefaultFactoryIN4absl10FixedArrayINS_13ThrowingValueILNS_8TypeSpecE0EEELm25ENS_17ThrowingAllocatorIS7_LNS_9AllocSpecE0EEEEEEEZNS3_12_GLOBAL__N_144FixedArrayExceptionSafety_FillWithAlloc_Test8TestBodyEvE3$_0JPFNS_15AssertionResultEPSB_EEED2Ev"(ptr noundef nonnull align 8 dereferenceable(152) %this) unnamed_addr #7 align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  %data_.i.i.i = getelementptr inbounds %"class.absl::FixedArray<testing::ThrowingValue<testing::TypeSpec::kEverythingThrows>, 25, testing::ThrowingAllocator<testing::ThrowingValue<testing::TypeSpec::kEverythingThrows>, testing::AllocSpec::kEverythingThrows>>::Storage", ptr %this, i64 0, i32 2
-  %size_alloc_.i.i.i.i = getelementptr inbounds %"class.absl::FixedArray<testing::ThrowingValue<testing::TypeSpec::kEverythingThrows>, 25, testing::ThrowingAllocator<testing::ThrowingValue<testing::TypeSpec::kEverythingThrows>, testing::AllocSpec::kEverythingThrows>>::Storage", ptr %this, i64 0, i32 1
+  %data_.i.i.i = getelementptr inbounds i8, ptr %this, i64 128
+  %size_alloc_.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 104
   %0 = load i64, ptr %size_alloc_.i.i.i.i, align 8
   %cmp.not4.i.i = icmp eq i64 %0, 0
   br i1 %cmp.not4.i.i, label %_ZN7testing19exceptions_internal14DefaultFactoryIN4absl10FixedArrayINS_13ThrowingValueILNS_8TypeSpecE0EEELm25ENS_17ThrowingAllocatorIS6_LNS_9AllocSpecE0EEEEEED2Ev.exit, label %invoke.cont5.lr.ph.i.i
 
 invoke.cont5.lr.ph.i.i:                           ; preds = %entry
   %1 = load ptr, ptr %data_.i.i.i, align 8
-  %add.ptr.i.i.i.i = getelementptr inbounds %"class.absl::FixedArray<testing::ThrowingValue<testing::TypeSpec::kEverythingThrows>, 25, testing::ThrowingAllocator<testing::ThrowingValue<testing::TypeSpec::kEverythingThrows>, testing::AllocSpec::kEverythingThrows>>::Storage", ptr %this, i64 0, i32 1, i32 0, i32 1
+  %add.ptr.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 112
   br label %invoke.cont5.i.i
 
 invoke.cont5.i.i:                                 ; preds = %_ZNSt16allocator_traitsIN7testing17ThrowingAllocatorINS0_13ThrowingValueILNS0_8TypeSpecE0EEELNS0_9AllocSpecE0EEEE7destroyIS4_EEvRS6_PT_.exit.i.i, %invoke.cont5.lr.ph.i.i
@@ -14101,7 +14095,7 @@ terminate.lpad.i.i.i.i.i.i.i:                     ; preds = %_ZN7testing17Throwi
   unreachable
 
 _ZNSt16allocator_traitsIN7testing17ThrowingAllocatorINS0_13ThrowingValueILNS0_8TypeSpecE0EEELNS0_9AllocSpecE0EEEE7destroyIS4_EEvRS6_PT_.exit.i.i: ; preds = %_ZN7testing17ThrowingAllocatorINS_13ThrowingValueILNS_8TypeSpecE0EEELNS_9AllocSpecE0EE9ReadStateEv.exit.i.i.i.i.i
-  %incdec.ptr.i.i = getelementptr inbounds %"class.testing::ThrowingValue", ptr %cur.05.i.i, i64 1
+  %incdec.ptr.i.i = getelementptr inbounds i8, ptr %cur.05.i.i, i64 4
   %6 = load ptr, ptr %data_.i.i.i, align 8
   %7 = load i64, ptr %size_alloc_.i.i.i.i, align 8
   %add.ptr.i.i.i = getelementptr inbounds %"class.testing::ThrowingValue", ptr %6, i64 %7
@@ -14116,15 +14110,15 @@ _ZN7testing19exceptions_internal14DefaultFactoryIN4absl10FixedArrayINS_13Throwin
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr dso_local void @_ZN7testing19exceptions_internal14DefaultFactoryIN4absl10FixedArrayINS_13ThrowingValueILNS_8TypeSpecE0EEELm25ENS_17ThrowingAllocatorIS6_LNS_9AllocSpecE0EEEEEED2Ev(ptr noundef nonnull align 8 dereferenceable(136) %this) unnamed_addr #7 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  %data_.i.i = getelementptr inbounds %"class.absl::FixedArray<testing::ThrowingValue<testing::TypeSpec::kEverythingThrows>, 25, testing::ThrowingAllocator<testing::ThrowingValue<testing::TypeSpec::kEverythingThrows>, testing::AllocSpec::kEverythingThrows>>::Storage", ptr %this, i64 0, i32 2
-  %size_alloc_.i.i.i = getelementptr inbounds %"class.absl::FixedArray<testing::ThrowingValue<testing::TypeSpec::kEverythingThrows>, 25, testing::ThrowingAllocator<testing::ThrowingValue<testing::TypeSpec::kEverythingThrows>, testing::AllocSpec::kEverythingThrows>>::Storage", ptr %this, i64 0, i32 1
+  %data_.i.i = getelementptr inbounds i8, ptr %this, i64 128
+  %size_alloc_.i.i.i = getelementptr inbounds i8, ptr %this, i64 104
   %0 = load i64, ptr %size_alloc_.i.i.i, align 8
   %cmp.not4.i = icmp eq i64 %0, 0
   br i1 %cmp.not4.i, label %_ZN4absl10FixedArrayIN7testing13ThrowingValueILNS1_8TypeSpecE0EEELm25ENS1_17ThrowingAllocatorIS4_LNS1_9AllocSpecE0EEEED2Ev.exit, label %invoke.cont5.lr.ph.i
 
 invoke.cont5.lr.ph.i:                             ; preds = %entry
   %1 = load ptr, ptr %data_.i.i, align 8
-  %add.ptr.i.i.i = getelementptr inbounds %"class.absl::FixedArray<testing::ThrowingValue<testing::TypeSpec::kEverythingThrows>, 25, testing::ThrowingAllocator<testing::ThrowingValue<testing::TypeSpec::kEverythingThrows>, testing::AllocSpec::kEverythingThrows>>::Storage", ptr %this, i64 0, i32 1, i32 0, i32 1
+  %add.ptr.i.i.i = getelementptr inbounds i8, ptr %this, i64 112
   br label %invoke.cont5.i
 
 invoke.cont5.i:                                   ; preds = %_ZNSt16allocator_traitsIN7testing17ThrowingAllocatorINS0_13ThrowingValueILNS0_8TypeSpecE0EEELNS0_9AllocSpecE0EEEE7destroyIS4_EEvRS6_PT_.exit.i, %invoke.cont5.lr.ph.i
@@ -14150,7 +14144,7 @@ terminate.lpad.i.i.i.i.i.i:                       ; preds = %_ZN7testing17Throwi
   unreachable
 
 _ZNSt16allocator_traitsIN7testing17ThrowingAllocatorINS0_13ThrowingValueILNS0_8TypeSpecE0EEELNS0_9AllocSpecE0EEEE7destroyIS4_EEvRS6_PT_.exit.i: ; preds = %_ZN7testing17ThrowingAllocatorINS_13ThrowingValueILNS_8TypeSpecE0EEELNS_9AllocSpecE0EE9ReadStateEv.exit.i.i.i.i
-  %incdec.ptr.i = getelementptr inbounds %"class.testing::ThrowingValue", ptr %cur.05.i, i64 1
+  %incdec.ptr.i = getelementptr inbounds i8, ptr %cur.05.i, i64 4
   %6 = load ptr, ptr %data_.i.i, align 8
   %7 = load i64, ptr %size_alloc_.i.i.i, align 8
   %add.ptr.i.i = getelementptr inbounds %"class.testing::ThrowingValue", ptr %6, i64 %7
@@ -14166,9 +14160,9 @@ _ZN4absl10FixedArrayIN7testing13ThrowingValueILNS1_8TypeSpecE0EEELm25ENS1_17Thro
 define linkonce_odr dso_local void @_ZN7testing19exceptions_internal19ExceptionSafetyTestIN4absl10FixedArrayINS_13ThrowingValueILNS_8TypeSpecE0EEELm25ENS_17ThrowingAllocatorIS6_LNS_9AllocSpecE0EEEEEEC2IJPFNS_15AssertionResultEPSA_EEEERKSt8functionIFSt10unique_ptrISA_St14default_deleteISA_EEvEERKSH_IFvSE_EEDpRKT_(ptr noundef nonnull align 8 dereferenceable(88) %this, ptr noundef nonnull align 8 dereferenceable(32) %f, ptr noundef nonnull align 8 dereferenceable(32) %op, ptr noundef nonnull align 8 dereferenceable(8) %contracts) unnamed_addr #3 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp = alloca [1 x %"class.std::function.164"], align 8
-  %_M_manager.i.i = getelementptr inbounds %"class.std::_Function_base", ptr %this, i64 0, i32 1
-  %_M_invoker.i = getelementptr inbounds %"class.std::function.143", ptr %this, i64 0, i32 1
-  %_M_manager.i.i.i = getelementptr inbounds %"class.std::_Function_base", ptr %f, i64 0, i32 1
+  %_M_manager.i.i = getelementptr inbounds i8, ptr %this, i64 16
+  %_M_invoker.i = getelementptr inbounds i8, ptr %this, i64 24
+  %_M_manager.i.i.i = getelementptr inbounds i8, ptr %f, i64 16
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %this, i8 0, i64 32, i1 false)
   %0 = load ptr, ptr %_M_manager.i.i.i, align 8
   %tobool.not.i.i.not.i = icmp eq ptr %0, null
@@ -14179,7 +14173,7 @@ if.then.i:                                        ; preds = %entry
           to label %invoke.cont.i unwind label %lpad.i
 
 invoke.cont.i:                                    ; preds = %if.then.i
-  %_M_invoker4.i = getelementptr inbounds %"class.std::function.143", ptr %f, i64 0, i32 1
+  %_M_invoker4.i = getelementptr inbounds i8, ptr %f, i64 24
   %1 = load ptr, ptr %_M_invoker4.i, align 8
   store ptr %1, ptr %_M_invoker.i, align 8
   %2 = load ptr, ptr %_M_manager.i.i.i, align 8
@@ -14209,10 +14203,10 @@ common.resume:                                    ; preds = %if.then.i.i41, %ehc
   resume { ptr, i32 } %common.resume.op
 
 _ZNSt8functionIFSt10unique_ptrIN4absl10FixedArrayIN7testing13ThrowingValueILNS3_8TypeSpecE0EEELm25ENS3_17ThrowingAllocatorIS6_LNS3_9AllocSpecE0EEEEESt14default_deleteISA_EEvEEC2ERKSF_.exit: ; preds = %entry, %invoke.cont.i
-  %operation_ = getelementptr inbounds %"class.testing::exceptions_internal::ExceptionSafetyTest.142", ptr %this, i64 0, i32 1
-  %_M_manager.i.i2 = getelementptr inbounds %"class.testing::exceptions_internal::ExceptionSafetyTest.142", ptr %this, i64 0, i32 1, i32 0, i32 1
-  %_M_invoker.i3 = getelementptr inbounds %"class.testing::exceptions_internal::ExceptionSafetyTest.142", ptr %this, i64 0, i32 1, i32 1
-  %_M_manager.i.i.i4 = getelementptr inbounds %"class.std::_Function_base", ptr %op, i64 0, i32 1
+  %operation_ = getelementptr inbounds i8, ptr %this, i64 32
+  %_M_manager.i.i2 = getelementptr inbounds i8, ptr %this, i64 48
+  %_M_invoker.i3 = getelementptr inbounds i8, ptr %this, i64 56
+  %_M_manager.i.i.i4 = getelementptr inbounds i8, ptr %op, i64 16
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %operation_, i8 0, i64 32, i1 false)
   %7 = load ptr, ptr %_M_manager.i.i.i4, align 8
   %tobool.not.i.i.not.i5 = icmp eq ptr %7, null
@@ -14223,7 +14217,7 @@ if.then.i6:                                       ; preds = %_ZNSt8functionIFSt1
           to label %invoke.cont.i14 unwind label %lpad.i8
 
 invoke.cont.i14:                                  ; preds = %if.then.i6
-  %_M_invoker4.i15 = getelementptr inbounds %"class.std::function.145", ptr %op, i64 0, i32 1
+  %_M_invoker4.i15 = getelementptr inbounds i8, ptr %op, i64 24
   %8 = load ptr, ptr %_M_invoker4.i15, align 8
   store ptr %8, ptr %_M_invoker.i3, align 8
   %9 = load ptr, ptr %_M_manager.i.i.i4, align 8
@@ -14249,11 +14243,11 @@ terminate.lpad.i.i12:                             ; preds = %if.then.i.i10
   unreachable
 
 invoke.cont:                                      ; preds = %invoke.cont.i14, %_ZNSt8functionIFSt10unique_ptrIN4absl10FixedArrayIN7testing13ThrowingValueILNS3_8TypeSpecE0EEELm25ENS3_17ThrowingAllocatorIS6_LNS3_9AllocSpecE0EEEEESt14default_deleteISA_EEvEEC2ERKSF_.exit
-  %contracts_ = getelementptr inbounds %"class.testing::exceptions_internal::ExceptionSafetyTest.142", ptr %this, i64 0, i32 2
+  %contracts_ = getelementptr inbounds i8, ptr %this, i64 64
   tail call void @llvm.experimental.noalias.scope.decl(metadata !151)
   %14 = load ptr, ptr %contracts, align 8, !noalias !151
-  %_M_manager.i.i.i16 = getelementptr inbounds %"class.std::_Function_base", ptr %ref.tmp, i64 0, i32 1
-  %_M_invoker.i.i = getelementptr inbounds %"class.std::function.164", ptr %ref.tmp, i64 0, i32 1
+  %_M_manager.i.i.i16 = getelementptr inbounds i8, ptr %ref.tmp, i64 16
+  %_M_invoker.i.i = getelementptr inbounds i8, ptr %ref.tmp, i64 24
   %15 = getelementptr inbounds i8, ptr %ref.tmp, i64 8
   store i64 0, ptr %15, align 8, !alias.scope !151
   %16 = ptrtoint ptr %14 to i64
@@ -14265,10 +14259,10 @@ invoke.cont:                                      ; preds = %invoke.cont.i14, %_
           to label %_ZNSt12_Vector_baseISt8functionIFN7testing15AssertionResultEPN4absl10FixedArrayINS1_13ThrowingValueILNS1_8TypeSpecE0EEELm25ENS1_17ThrowingAllocatorIS7_LNS1_9AllocSpecE0EEEEEEESaISE_EE11_M_allocateEm.exit.i.i unwind label %lpad.i17
 
 _ZNSt12_Vector_baseISt8functionIFN7testing15AssertionResultEPN4absl10FixedArrayINS1_13ThrowingValueILNS1_8TypeSpecE0EEELm25ENS1_17ThrowingAllocatorIS7_LNS1_9AllocSpecE0EEEEEEESaISE_EE11_M_allocateEm.exit.i.i: ; preds = %invoke.cont
-  %add.ptr.i.i = getelementptr inbounds %"class.std::function.164", ptr %ref.tmp, i64 1
+  %add.ptr.i.i = getelementptr inbounds i8, ptr %ref.tmp, i64 32
   store ptr %call5.i.i.i.i2.i, ptr %contracts_, align 8
-  %add.ptr.i1.i = getelementptr inbounds %"class.std::function.164", ptr %call5.i.i.i.i2.i, i64 1
-  %_M_end_of_storage.i.i = getelementptr inbounds %"class.testing::exceptions_internal::ExceptionSafetyTest.142", ptr %this, i64 0, i32 2, i32 0, i32 0, i32 0, i32 2
+  %add.ptr.i1.i = getelementptr inbounds i8, ptr %call5.i.i.i.i2.i, i64 32
+  %_M_end_of_storage.i.i = getelementptr inbounds i8, ptr %this, i64 80
   store ptr %add.ptr.i1.i, ptr %_M_end_of_storage.i.i, align 8
   %call.i.i.i.i3.i = invoke noundef ptr @_ZSt16__do_uninit_copyIPKSt8functionIFN7testing15AssertionResultEPN4absl10FixedArrayINS1_13ThrowingValueILNS1_8TypeSpecE0EEELm25ENS1_17ThrowingAllocatorIS7_LNS1_9AllocSpecE0EEEEEEEPSE_ET0_T_SJ_SI_(ptr noundef nonnull %ref.tmp, ptr noundef nonnull %add.ptr.i.i, ptr noundef nonnull %call5.i.i.i.i2.i)
           to label %invoke.cont7 unwind label %lpad.i17
@@ -14285,9 +14279,9 @@ if.then.i.i4.i:                                   ; preds = %lpad.i17
   br label %lpad6.body
 
 invoke.cont7:                                     ; preds = %_ZNSt12_Vector_baseISt8functionIFN7testing15AssertionResultEPN4absl10FixedArrayINS1_13ThrowingValueILNS1_8TypeSpecE0EEELm25ENS1_17ThrowingAllocatorIS7_LNS1_9AllocSpecE0EEEEEEESaISE_EE11_M_allocateEm.exit.i.i
-  %_M_finish.i.i = getelementptr inbounds %"class.testing::exceptions_internal::ExceptionSafetyTest.142", ptr %this, i64 0, i32 2, i32 0, i32 0, i32 0, i32 1
+  %_M_finish.i.i = getelementptr inbounds i8, ptr %this, i64 72
   store ptr %call.i.i.i.i3.i, ptr %_M_finish.i.i, align 8
-  %_M_manager.i.i20 = getelementptr inbounds %"class.std::function.164", ptr %ref.tmp, i64 0, i32 0, i32 1
+  %_M_manager.i.i20 = getelementptr inbounds i8, ptr %ref.tmp, i64 16
   %19 = load ptr, ptr %_M_manager.i.i20, align 8
   %tobool.not.i.i21 = icmp eq ptr %19, null
   br i1 %tobool.not.i.i21, label %_ZNSt8functionIFN7testing15AssertionResultEPN4absl10FixedArrayINS0_13ThrowingValueILNS0_8TypeSpecE0EEELm25ENS0_17ThrowingAllocatorIS6_LNS0_9AllocSpecE0EEEEEEED2Ev.exit, label %if.then.i.i22
@@ -14307,7 +14301,7 @@ _ZNSt8functionIFN7testing15AssertionResultEPN4absl10FixedArrayINS0_13ThrowingVal
   ret void
 
 lpad6.body:                                       ; preds = %lpad.i17, %if.then.i.i4.i
-  %_M_manager.i.i26 = getelementptr inbounds %"class.std::function.164", ptr %ref.tmp, i64 0, i32 0, i32 1
+  %_M_manager.i.i26 = getelementptr inbounds i8, ptr %ref.tmp, i64 16
   %22 = load ptr, ptr %_M_manager.i.i26, align 8
   %tobool.not.i.i27 = icmp eq ptr %22, null
   br i1 %tobool.not.i.i27, label %_ZNSt8functionIFN7testing15AssertionResultEPN4absl10FixedArrayINS0_13ThrowingValueILNS0_8TypeSpecE0EEELm25ENS0_17ThrowingAllocatorIS6_LNS0_9AllocSpecE0EEEEEEED2Ev.exit32, label %if.then.i.i28
@@ -14368,19 +14362,19 @@ entry:
   %ref.tmp11 = alloca %"class.testing::AssertionResult", align 8
   %ref.tmp18 = alloca %"class.testing::AssertionResult", align 8
   %ref.tmp20 = alloca ptr, align 8
-  %_M_single_bucket.i.i.i = getelementptr inbounds %"class.std::_Hashtable", ptr %ct, i64 0, i32 5
-  %_M_bucket_count.i.i.i = getelementptr inbounds %"class.std::_Hashtable", ptr %ct, i64 0, i32 1
-  %_M_before_begin.i.i.i = getelementptr inbounds %"class.std::_Hashtable", ptr %ct, i64 0, i32 2
-  %_M_rehash_policy.i.i.i = getelementptr inbounds %"class.std::_Hashtable", ptr %ct, i64 0, i32 4
-  %_M_next_resize.i.i.i.i = getelementptr inbounds %"class.std::_Hashtable", ptr %ct, i64 0, i32 4, i32 1
-  %countdown_.i = getelementptr inbounds %"class.testing::exceptions_internal::ConstructorTracker", ptr %ct, i64 0, i32 1
-  %contracts_ = getelementptr inbounds %"class.testing::exceptions_internal::ExceptionSafetyTest.142", ptr %this, i64 0, i32 2
-  %_M_finish.i = getelementptr inbounds %"class.testing::exceptions_internal::ExceptionSafetyTest.142", ptr %this, i64 0, i32 2, i32 0, i32 0, i32 0, i32 1
-  %_M_manager.i.i = getelementptr inbounds %"class.std::_Function_base", ptr %this, i64 0, i32 1
-  %_M_invoker.i = getelementptr inbounds %"class.std::function.143", ptr %this, i64 0, i32 1
-  %_M_manager.i.i10 = getelementptr inbounds %"class.testing::exceptions_internal::ExceptionSafetyTest.142", ptr %this, i64 0, i32 1, i32 0, i32 1
-  %operation_ = getelementptr inbounds %"class.testing::exceptions_internal::ExceptionSafetyTest.142", ptr %this, i64 0, i32 1
-  %_M_invoker.i13 = getelementptr inbounds %"class.testing::exceptions_internal::ExceptionSafetyTest.142", ptr %this, i64 0, i32 1, i32 1
+  %_M_single_bucket.i.i.i = getelementptr inbounds i8, ptr %ct, i64 48
+  %_M_bucket_count.i.i.i = getelementptr inbounds i8, ptr %ct, i64 8
+  %_M_before_begin.i.i.i = getelementptr inbounds i8, ptr %ct, i64 16
+  %_M_rehash_policy.i.i.i = getelementptr inbounds i8, ptr %ct, i64 32
+  %_M_next_resize.i.i.i.i = getelementptr inbounds i8, ptr %ct, i64 40
+  %countdown_.i = getelementptr inbounds i8, ptr %ct, i64 56
+  %contracts_ = getelementptr inbounds i8, ptr %this, i64 64
+  %_M_finish.i = getelementptr inbounds i8, ptr %this, i64 72
+  %_M_manager.i.i = getelementptr inbounds i8, ptr %this, i64 16
+  %_M_invoker.i = getelementptr inbounds i8, ptr %this, i64 24
+  %_M_manager.i.i10 = getelementptr inbounds i8, ptr %this, i64 48
+  %operation_ = getelementptr inbounds i8, ptr %this, i64 32
+  %_M_invoker.i13 = getelementptr inbounds i8, ptr %this, i64 56
   br label %for.cond
 
 for.cond:                                         ; preds = %for.inc40, %entry
@@ -14398,7 +14392,7 @@ for.cond:                                         ; preds = %for.inc40, %entry
   br i1 %cmp.i.not62, label %for.inc40, label %for.body
 
 for.cond4:                                        ; preds = %_ZNSt10unique_ptrIN4absl10FixedArrayIN7testing13ThrowingValueILNS2_8TypeSpecE0EEELm25ENS2_17ThrowingAllocatorIS5_LNS2_9AllocSpecE0EEEEESt14default_deleteIS9_EED2Ev.exit
-  %incdec.ptr.i = getelementptr inbounds %"class.std::function.164", ptr %__begin0.sroa.0.063, i64 1
+  %incdec.ptr.i = getelementptr inbounds i8, ptr %__begin0.sroa.0.063, i64 32
   %cmp.i.not = icmp eq ptr %incdec.ptr.i, %1
   br i1 %cmp.i.not, label %for.inc40, label %for.body
 
@@ -14478,7 +14472,7 @@ catch:                                            ; preds = %lpad8
   %14 = load ptr, ptr %t_ptr, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %__args.addr.i17)
   store ptr %14, ptr %__args.addr.i17, align 8, !noalias !157
-  %_M_manager.i.i18 = getelementptr inbounds %"class.std::_Function_base", ptr %__begin0.sroa.0.063, i64 0, i32 1
+  %_M_manager.i.i18 = getelementptr inbounds i8, ptr %__begin0.sroa.0.063, i64 16
   %15 = load ptr, ptr %_M_manager.i.i18, align 8, !noalias !157
   %tobool.not.i.i19 = icmp eq ptr %15, null
   br i1 %tobool.not.i.i19, label %if.then.i22, label %if.end.i20
@@ -14491,7 +14485,7 @@ if.then.i22:                                      ; preds = %catch
   unreachable
 
 if.end.i20:                                       ; preds = %catch
-  %_M_invoker.i21 = getelementptr inbounds %"class.std::function.164", ptr %__begin0.sroa.0.063, i64 0, i32 1
+  %_M_invoker.i21 = getelementptr inbounds i8, ptr %__begin0.sroa.0.063, i64 24
   %16 = load ptr, ptr %_M_invoker.i21, align 8, !noalias !157
   invoke void %16(ptr nonnull sret(%"class.testing::AssertionResult") align 8 %ref.tmp11, ptr noundef nonnull align 8 dereferenceable(16) %__begin0.sroa.0.063, ptr noundef nonnull align 8 dereferenceable(8) %__args.addr.i17)
           to label %invoke.cont14 unwind label %lpad13.loopexit
@@ -14515,7 +14509,7 @@ if.then:                                          ; preds = %invoke.cont16
 
 invoke.cont19:                                    ; preds = %if.then
   %vtable = load ptr, ptr %13, align 8
-  %vfn = getelementptr inbounds ptr, ptr %vtable, i64 2
+  %vfn = getelementptr inbounds i8, ptr %vtable, i64 16
   %19 = load ptr, ptr %vfn, align 8
   %call21 = call noundef ptr %19(ptr noundef nonnull align 8 dereferenceable(40) %13) #18
   store ptr %call21, ptr %ref.tmp20, align 8
@@ -14568,15 +14562,15 @@ cleanup31:                                        ; preds = %cleanup, %invoke.co
   br i1 %cmp.not.i, label %_ZNSt10unique_ptrIN4absl10FixedArrayIN7testing13ThrowingValueILNS2_8TypeSpecE0EEELm25ENS2_17ThrowingAllocatorIS5_LNS2_9AllocSpecE0EEEEESt14default_deleteIS9_EED2Ev.exit, label %delete.notnull.i.i
 
 delete.notnull.i.i:                               ; preds = %cleanup31
-  %data_.i.i.i.i = getelementptr inbounds %"class.absl::FixedArray<testing::ThrowingValue<testing::TypeSpec::kEverythingThrows>, 25, testing::ThrowingAllocator<testing::ThrowingValue<testing::TypeSpec::kEverythingThrows>, testing::AllocSpec::kEverythingThrows>>::Storage", ptr %22, i64 0, i32 2
-  %size_alloc_.i.i.i.i.i = getelementptr inbounds %"class.absl::FixedArray<testing::ThrowingValue<testing::TypeSpec::kEverythingThrows>, 25, testing::ThrowingAllocator<testing::ThrowingValue<testing::TypeSpec::kEverythingThrows>, testing::AllocSpec::kEverythingThrows>>::Storage", ptr %22, i64 0, i32 1
+  %data_.i.i.i.i = getelementptr inbounds i8, ptr %22, i64 128
+  %size_alloc_.i.i.i.i.i = getelementptr inbounds i8, ptr %22, i64 104
   %23 = load i64, ptr %size_alloc_.i.i.i.i.i, align 8
   %cmp.not4.i.i.i = icmp eq i64 %23, 0
   br i1 %cmp.not4.i.i.i, label %if.end.i26, label %invoke.cont5.lr.ph.i.i.i
 
 invoke.cont5.lr.ph.i.i.i:                         ; preds = %delete.notnull.i.i
   %24 = load ptr, ptr %data_.i.i.i.i, align 8
-  %add.ptr.i.i.i.i.i = getelementptr inbounds %"class.absl::FixedArray<testing::ThrowingValue<testing::TypeSpec::kEverythingThrows>, 25, testing::ThrowingAllocator<testing::ThrowingValue<testing::TypeSpec::kEverythingThrows>, testing::AllocSpec::kEverythingThrows>>::Storage", ptr %22, i64 0, i32 1, i32 0, i32 1
+  %add.ptr.i.i.i.i.i = getelementptr inbounds i8, ptr %22, i64 112
   br label %invoke.cont5.i.i.i
 
 invoke.cont5.i.i.i:                               ; preds = %_ZNSt16allocator_traitsIN7testing17ThrowingAllocatorINS0_13ThrowingValueILNS0_8TypeSpecE0EEELNS0_9AllocSpecE0EEEE7destroyIS4_EEvRS6_PT_.exit.i.i.i, %invoke.cont5.lr.ph.i.i.i
@@ -14602,7 +14596,7 @@ terminate.lpad.i.i.i.i.i.i.i.i:                   ; preds = %_ZN7testing17Throwi
   unreachable
 
 _ZNSt16allocator_traitsIN7testing17ThrowingAllocatorINS0_13ThrowingValueILNS0_8TypeSpecE0EEELNS0_9AllocSpecE0EEEE7destroyIS4_EEvRS6_PT_.exit.i.i.i: ; preds = %_ZN7testing17ThrowingAllocatorINS_13ThrowingValueILNS_8TypeSpecE0EEELNS_9AllocSpecE0EE9ReadStateEv.exit.i.i.i.i.i.i
-  %incdec.ptr.i.i.i = getelementptr inbounds %"class.testing::ThrowingValue", ptr %cur.05.i.i.i, i64 1
+  %incdec.ptr.i.i.i = getelementptr inbounds i8, ptr %cur.05.i.i.i, i64 4
   %29 = load ptr, ptr %data_.i.i.i.i, align 8
   %30 = load i64, ptr %size_alloc_.i.i.i.i.i, align 8
   %add.ptr.i.i.i.i = getelementptr inbounds %"class.testing::ThrowingValue", ptr %29, i64 %30
@@ -14628,14 +14622,14 @@ _ZNSt16allocator_traitsIN7testing17ThrowingAllocatorINS0_13ThrowingValueILNS0_8T
   br label %if.end.i26
 
 if.end.i26:                                       ; preds = %delete.notnull.i.i, %_ZNSt16allocator_traitsIN7testing17ThrowingAllocatorINS0_13ThrowingValueILNS0_8TypeSpecE0EEELNS0_9AllocSpecE0EEEE10deallocateERS6_PS4_m.exit.i, %_ZNKSt14default_deleteIN4absl10FixedArrayIN7testing13ThrowingValueILNS2_8TypeSpecE0EEELm25ENS2_17ThrowingAllocatorIS5_LNS2_9AllocSpecE0EEEEEEclEPS9_.exit.i
-  %33 = getelementptr inbounds %"class.absl::FixedArray<testing::ThrowingValue<testing::TypeSpec::kEverythingThrows>, 25, testing::ThrowingAllocator<testing::ThrowingValue<testing::TypeSpec::kEverythingThrows>, testing::AllocSpec::kEverythingThrows>>::Storage", ptr %22, i64 0, i32 1, i32 0, i32 1
-  %_M_refcount.i.i.i.i.i.i.i = getelementptr inbounds %"class.absl::FixedArray<testing::ThrowingValue<testing::TypeSpec::kEverythingThrows>, 25, testing::ThrowingAllocator<testing::ThrowingValue<testing::TypeSpec::kEverythingThrows>, testing::AllocSpec::kEverythingThrows>>::Storage", ptr %22, i64 0, i32 1, i32 0, i32 1, i32 0, i32 0, i32 0, i32 1
+  %33 = getelementptr inbounds i8, ptr %22, i64 112
+  %_M_refcount.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %22, i64 120
   %34 = load ptr, ptr %_M_refcount.i.i.i.i.i.i.i, align 8
   %cmp.not.i.i.i.i.i.i.i.i = icmp eq ptr %34, null
   br i1 %cmp.not.i.i.i.i.i.i.i.i, label %_ZNSt10shared_ptrIKiED2Ev.exit.i.i.i.i.i, label %if.then.i.i.i.i.i.i.i.i
 
 if.then.i.i.i.i.i.i.i.i:                          ; preds = %if.end.i26
-  %_M_use_count.i.i.i.i.i.i.i.i.i = getelementptr inbounds %"class.std::_Sp_counted_base", ptr %34, i64 0, i32 1
+  %_M_use_count.i.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %34, i64 8
   %35 = load atomic i64, ptr %_M_use_count.i.i.i.i.i.i.i.i.i acquire, align 8
   %cmp.i.i.i.i.i.i.i.i.i = icmp eq i64 %35, 4294967297
   %36 = trunc i64 %35 to i32
@@ -14643,10 +14637,10 @@ if.then.i.i.i.i.i.i.i.i:                          ; preds = %if.end.i26
 
 if.then.i.i.i.i.i.i.i.i.i:                        ; preds = %if.then.i.i.i.i.i.i.i.i
   store i32 0, ptr %_M_use_count.i.i.i.i.i.i.i.i.i, align 8
-  %_M_weak_count.i.i.i.i.i.i.i.i.i = getelementptr inbounds %"class.std::_Sp_counted_base", ptr %34, i64 0, i32 2
+  %_M_weak_count.i.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %34, i64 12
   store i32 0, ptr %_M_weak_count.i.i.i.i.i.i.i.i.i, align 4
   %vtable.i.i.i.i.i.i.i.i.i = load ptr, ptr %34, align 8
-  %vfn.i.i.i.i.i.i.i.i.i = getelementptr inbounds ptr, ptr %vtable.i.i.i.i.i.i.i.i.i, i64 2
+  %vfn.i.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %vtable.i.i.i.i.i.i.i.i.i, i64 16
   %37 = load ptr, ptr %vfn.i.i.i.i.i.i.i.i.i, align 8
   call void %37(ptr noundef nonnull align 8 dereferenceable(16) %34) #18
   br label %if.end8.sink.split.i.i.i.i.i.i.i.i.i
@@ -14672,10 +14666,10 @@ _ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i.i.i.i: ; preds =
 
 if.then7.i.i.i.i.i.i.i.i.i:                       ; preds = %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i.i.i.i
   %vtable.i.i.i.i.i.i.i.i.i.i.i = load ptr, ptr %34, align 8
-  %vfn.i.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds ptr, ptr %vtable.i.i.i.i.i.i.i.i.i.i.i, i64 2
+  %vfn.i.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %vtable.i.i.i.i.i.i.i.i.i.i.i, i64 16
   %40 = load ptr, ptr %vfn.i.i.i.i.i.i.i.i.i.i.i, align 8
   call void %40(ptr noundef nonnull align 8 dereferenceable(16) %34) #18
-  %_M_weak_count.i.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds %"class.std::_Sp_counted_base", ptr %34, i64 0, i32 2
+  %_M_weak_count.i.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %34, i64 12
   %41 = load i8, ptr @__libc_single_threaded, align 1
   %tobool.i.not.i.i.i.i.i.i.i.i.i.i.i = icmp eq i8 %41, 0
   br i1 %tobool.i.not.i.i.i.i.i.i.i.i.i.i.i, label %if.else.i.i.i.i.i.i.i.i.i.i.i.i, label %if.then.i.i.i.i.i.i.i.i.i.i.i.i
@@ -14697,7 +14691,7 @@ _ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i.i.i.i.i.i: ; pre
 
 if.end8.sink.split.i.i.i.i.i.i.i.i.i:             ; preds = %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i.i.i.i.i.i, %if.then.i.i.i.i.i.i.i.i.i
   %vtable2.i.i.i.i.i.i.i.i.i.i.i = load ptr, ptr %34, align 8
-  %vfn3.i.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds ptr, ptr %vtable2.i.i.i.i.i.i.i.i.i.i.i, i64 3
+  %vfn3.i.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %vtable2.i.i.i.i.i.i.i.i.i.i.i, i64 24
   %44 = load ptr, ptr %vfn3.i.i.i.i.i.i.i.i.i.i.i, align 8
   call void %44(ptr noundef nonnull align 8 dereferenceable(16) %34) #18
   br label %_ZNSt10shared_ptrIKiED2Ev.exit.i.i.i.i.i
@@ -14770,16 +14764,16 @@ terminate.lpad:                                   ; preds = %ehcleanup
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr dso_local void @_ZN7testing19exceptions_internal19ExceptionSafetyTestIN4absl10FixedArrayINS_13ThrowingValueILNS_8TypeSpecE0EEELm25ENS_17ThrowingAllocatorIS6_LNS_9AllocSpecE0EEEEEED2Ev(ptr noundef nonnull align 8 dereferenceable(88) %this) unnamed_addr #7 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  %contracts_ = getelementptr inbounds %"class.testing::exceptions_internal::ExceptionSafetyTest.142", ptr %this, i64 0, i32 2
+  %contracts_ = getelementptr inbounds i8, ptr %this, i64 64
   %0 = load ptr, ptr %contracts_, align 8
-  %_M_finish.i = getelementptr inbounds %"class.testing::exceptions_internal::ExceptionSafetyTest.142", ptr %this, i64 0, i32 2, i32 0, i32 0, i32 0, i32 1
+  %_M_finish.i = getelementptr inbounds i8, ptr %this, i64 72
   %1 = load ptr, ptr %_M_finish.i, align 8
   %cmp.not3.i.i.i.i = icmp eq ptr %0, %1
   br i1 %cmp.not3.i.i.i.i, label %invoke.cont.i, label %for.body.i.i.i.i
 
 for.body.i.i.i.i:                                 ; preds = %entry, %_ZSt8_DestroyISt8functionIFN7testing15AssertionResultEPN4absl10FixedArrayINS1_13ThrowingValueILNS1_8TypeSpecE0EEELm25ENS1_17ThrowingAllocatorIS7_LNS1_9AllocSpecE0EEEEEEEEvPT_.exit.i.i.i.i
   %__first.addr.04.i.i.i.i = phi ptr [ %incdec.ptr.i.i.i.i, %_ZSt8_DestroyISt8functionIFN7testing15AssertionResultEPN4absl10FixedArrayINS1_13ThrowingValueILNS1_8TypeSpecE0EEELm25ENS1_17ThrowingAllocatorIS7_LNS1_9AllocSpecE0EEEEEEEEvPT_.exit.i.i.i.i ], [ %0, %entry ]
-  %_M_manager.i.i.i.i.i.i.i = getelementptr inbounds %"class.std::_Function_base", ptr %__first.addr.04.i.i.i.i, i64 0, i32 1
+  %_M_manager.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %__first.addr.04.i.i.i.i, i64 16
   %2 = load ptr, ptr %_M_manager.i.i.i.i.i.i.i, align 8
   %tobool.not.i.i.i.i.i.i.i = icmp eq ptr %2, null
   br i1 %tobool.not.i.i.i.i.i.i.i, label %_ZSt8_DestroyISt8functionIFN7testing15AssertionResultEPN4absl10FixedArrayINS1_13ThrowingValueILNS1_8TypeSpecE0EEELm25ENS1_17ThrowingAllocatorIS7_LNS1_9AllocSpecE0EEEEEEEEvPT_.exit.i.i.i.i, label %if.then.i.i.i.i.i.i.i
@@ -14796,7 +14790,7 @@ terminate.lpad.i.i.i.i.i.i.i:                     ; preds = %if.then.i.i.i.i.i.i
   unreachable
 
 _ZSt8_DestroyISt8functionIFN7testing15AssertionResultEPN4absl10FixedArrayINS1_13ThrowingValueILNS1_8TypeSpecE0EEELm25ENS1_17ThrowingAllocatorIS7_LNS1_9AllocSpecE0EEEEEEEEvPT_.exit.i.i.i.i: ; preds = %if.then.i.i.i.i.i.i.i, %for.body.i.i.i.i
-  %incdec.ptr.i.i.i.i = getelementptr inbounds %"class.std::function.164", ptr %__first.addr.04.i.i.i.i, i64 1
+  %incdec.ptr.i.i.i.i = getelementptr inbounds i8, ptr %__first.addr.04.i.i.i.i, i64 32
   %cmp.not.i.i.i.i = icmp eq ptr %incdec.ptr.i.i.i.i, %1
   br i1 %cmp.not.i.i.i.i, label %invoke.contthread-pre-split.i, label %for.body.i.i.i.i, !llvm.loop !161
 
@@ -14814,13 +14808,13 @@ if.then.i.i.i:                                    ; preds = %invoke.cont.i
   br label %_ZNSt6vectorISt8functionIFN7testing15AssertionResultEPN4absl10FixedArrayINS1_13ThrowingValueILNS1_8TypeSpecE0EEELm25ENS1_17ThrowingAllocatorIS7_LNS1_9AllocSpecE0EEEEEEESaISE_EED2Ev.exit
 
 _ZNSt6vectorISt8functionIFN7testing15AssertionResultEPN4absl10FixedArrayINS1_13ThrowingValueILNS1_8TypeSpecE0EEELm25ENS1_17ThrowingAllocatorIS7_LNS1_9AllocSpecE0EEEEEEESaISE_EED2Ev.exit: ; preds = %invoke.cont.i, %if.then.i.i.i
-  %_M_manager.i.i = getelementptr inbounds %"class.testing::exceptions_internal::ExceptionSafetyTest.142", ptr %this, i64 0, i32 1, i32 0, i32 1
+  %_M_manager.i.i = getelementptr inbounds i8, ptr %this, i64 48
   %6 = load ptr, ptr %_M_manager.i.i, align 8
   %tobool.not.i.i = icmp eq ptr %6, null
   br i1 %tobool.not.i.i, label %_ZNSt8functionIFvPN4absl10FixedArrayIN7testing13ThrowingValueILNS2_8TypeSpecE0EEELm25ENS2_17ThrowingAllocatorIS5_LNS2_9AllocSpecE0EEEEEEED2Ev.exit, label %if.then.i.i
 
 if.then.i.i:                                      ; preds = %_ZNSt6vectorISt8functionIFN7testing15AssertionResultEPN4absl10FixedArrayINS1_13ThrowingValueILNS1_8TypeSpecE0EEELm25ENS1_17ThrowingAllocatorIS7_LNS1_9AllocSpecE0EEEEEEESaISE_EED2Ev.exit
-  %operation_ = getelementptr inbounds %"class.testing::exceptions_internal::ExceptionSafetyTest.142", ptr %this, i64 0, i32 1
+  %operation_ = getelementptr inbounds i8, ptr %this, i64 32
   %call.i.i = invoke noundef zeroext i1 %6(ptr noundef nonnull align 8 dereferenceable(16) %operation_, ptr noundef nonnull align 8 dereferenceable(16) %operation_, i32 noundef 3)
           to label %_ZNSt8functionIFvPN4absl10FixedArrayIN7testing13ThrowingValueILNS2_8TypeSpecE0EEELm25ENS2_17ThrowingAllocatorIS5_LNS2_9AllocSpecE0EEEEEEED2Ev.exit unwind label %terminate.lpad.i.i
 
@@ -14832,7 +14826,7 @@ terminate.lpad.i.i:                               ; preds = %if.then.i.i
   unreachable
 
 _ZNSt8functionIFvPN4absl10FixedArrayIN7testing13ThrowingValueILNS2_8TypeSpecE0EEELm25ENS2_17ThrowingAllocatorIS5_LNS2_9AllocSpecE0EEEEEEED2Ev.exit: ; preds = %_ZNSt6vectorISt8functionIFN7testing15AssertionResultEPN4absl10FixedArrayINS1_13ThrowingValueILNS1_8TypeSpecE0EEELm25ENS1_17ThrowingAllocatorIS7_LNS1_9AllocSpecE0EEEEEEESaISE_EED2Ev.exit, %if.then.i.i
-  %_M_manager.i.i1 = getelementptr inbounds %"class.std::_Function_base", ptr %this, i64 0, i32 1
+  %_M_manager.i.i1 = getelementptr inbounds i8, ptr %this, i64 16
   %9 = load ptr, ptr %_M_manager.i.i1, align 8
   %tobool.not.i.i2 = icmp eq ptr %9, null
   br i1 %tobool.not.i.i2, label %_ZNSt8functionIFSt10unique_ptrIN4absl10FixedArrayIN7testing13ThrowingValueILNS3_8TypeSpecE0EEELm25ENS3_17ThrowingAllocatorIS6_LNS3_9AllocSpecE0EEEEESt14default_deleteISA_EEvEED2Ev.exit, label %if.then.i.i3
@@ -14941,15 +14935,15 @@ sw.bb6:                                           ; preds = %entry
   br i1 %isnull.i, label %sw.epilog, label %delete.notnull.i
 
 delete.notnull.i:                                 ; preds = %sw.bb6
-  %data_.i.i.i.i = getelementptr inbounds %"class.absl::FixedArray<testing::ThrowingValue<testing::TypeSpec::kEverythingThrows>, 25, testing::ThrowingAllocator<testing::ThrowingValue<testing::TypeSpec::kEverythingThrows>, testing::AllocSpec::kEverythingThrows>>::Storage", ptr %3, i64 0, i32 2
-  %size_alloc_.i.i.i.i.i = getelementptr inbounds %"class.absl::FixedArray<testing::ThrowingValue<testing::TypeSpec::kEverythingThrows>, 25, testing::ThrowingAllocator<testing::ThrowingValue<testing::TypeSpec::kEverythingThrows>, testing::AllocSpec::kEverythingThrows>>::Storage", ptr %3, i64 0, i32 1
+  %data_.i.i.i.i = getelementptr inbounds i8, ptr %3, i64 128
+  %size_alloc_.i.i.i.i.i = getelementptr inbounds i8, ptr %3, i64 104
   %4 = load i64, ptr %size_alloc_.i.i.i.i.i, align 8
   %cmp.not4.i.i.i = icmp eq i64 %4, 0
   br i1 %cmp.not4.i.i.i, label %_ZN7testing19exceptions_internal14DefaultFactoryIN4absl10FixedArrayINS_13ThrowingValueILNS_8TypeSpecE0EEELm25ENS_17ThrowingAllocatorIS6_LNS_9AllocSpecE0EEEEEED2Ev.exit.i, label %invoke.cont5.lr.ph.i.i.i
 
 invoke.cont5.lr.ph.i.i.i:                         ; preds = %delete.notnull.i
   %5 = load ptr, ptr %data_.i.i.i.i, align 8
-  %add.ptr.i.i.i.i.i = getelementptr inbounds %"class.absl::FixedArray<testing::ThrowingValue<testing::TypeSpec::kEverythingThrows>, 25, testing::ThrowingAllocator<testing::ThrowingValue<testing::TypeSpec::kEverythingThrows>, testing::AllocSpec::kEverythingThrows>>::Storage", ptr %3, i64 0, i32 1, i32 0, i32 1
+  %add.ptr.i.i.i.i.i = getelementptr inbounds i8, ptr %3, i64 112
   br label %invoke.cont5.i.i.i
 
 invoke.cont5.i.i.i:                               ; preds = %_ZNSt16allocator_traitsIN7testing17ThrowingAllocatorINS0_13ThrowingValueILNS0_8TypeSpecE0EEELNS0_9AllocSpecE0EEEE7destroyIS4_EEvRS6_PT_.exit.i.i.i, %invoke.cont5.lr.ph.i.i.i
@@ -14975,7 +14969,7 @@ terminate.lpad.i.i.i.i.i.i.i.i:                   ; preds = %_ZN7testing17Throwi
   unreachable
 
 _ZNSt16allocator_traitsIN7testing17ThrowingAllocatorINS0_13ThrowingValueILNS0_8TypeSpecE0EEELNS0_9AllocSpecE0EEEE7destroyIS4_EEvRS6_PT_.exit.i.i.i: ; preds = %_ZN7testing17ThrowingAllocatorINS_13ThrowingValueILNS_8TypeSpecE0EEELNS_9AllocSpecE0EE9ReadStateEv.exit.i.i.i.i.i.i
-  %incdec.ptr.i.i.i = getelementptr inbounds %"class.testing::ThrowingValue", ptr %cur.05.i.i.i, i64 1
+  %incdec.ptr.i.i.i = getelementptr inbounds i8, ptr %cur.05.i.i.i, i64 4
   %10 = load ptr, ptr %data_.i.i.i.i, align 8
   %11 = load i64, ptr %size_alloc_.i.i.i.i.i, align 8
   %add.ptr.i.i.i.i = getelementptr inbounds %"class.testing::ThrowingValue", ptr %10, i64 %11
@@ -15032,9 +15026,9 @@ _ZN7testing13ThrowingValueILNS_8TypeSpecE0EEC2EiNS_19exceptions_internal10NoThro
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %agg.tmp.i.i.i.i) #18
   store i32 10, ptr %thrower.i.i.i, align 4
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %agg.tmp.i.i.i.i)
-  %data_.i.i.i.i.i.i.i = getelementptr inbounds %"class.absl::FixedArray<testing::ThrowingValue<testing::TypeSpec::kEverythingThrows>, 25, testing::ThrowingAllocator<testing::ThrowingValue<testing::TypeSpec::kEverythingThrows>, testing::AllocSpec::kEverythingThrows>>::Storage", ptr %__args.val, i64 0, i32 2
+  %data_.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %__args.val, i64 128
   %3 = load ptr, ptr %data_.i.i.i.i.i.i.i, align 8
-  %size_alloc_.i.i.i.i.i.i.i = getelementptr inbounds %"class.absl::FixedArray<testing::ThrowingValue<testing::TypeSpec::kEverythingThrows>, 25, testing::ThrowingAllocator<testing::ThrowingValue<testing::TypeSpec::kEverythingThrows>, testing::AllocSpec::kEverythingThrows>>::Storage", ptr %__args.val, i64 0, i32 1
+  %size_alloc_.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %__args.val, i64 104
   %4 = load i64, ptr %size_alloc_.i.i.i.i.i.i.i, align 8
   %add.ptr.i.i.i.i.i = getelementptr inbounds %"class.testing::ThrowingValue", ptr %3, i64 %4
   %cmp.not3.i.i.i.i.i.i.i = icmp eq i64 %4, 0
@@ -15049,7 +15043,7 @@ for.body.i.i.i.i.i.i.i:                           ; preds = %_ZN7testing13Throwi
 .noexc.i.i.i:                                     ; preds = %for.body.i.i.i.i.i.i.i
   %5 = load i32, ptr %thrower.i.i.i, align 4
   store i32 %5, ptr %__first.addr.04.i.i.i.i.i.i.i, align 4
-  %incdec.ptr.i.i.i.i.i.i.i = getelementptr inbounds %"class.testing::ThrowingValue", ptr %__first.addr.04.i.i.i.i.i.i.i, i64 1
+  %incdec.ptr.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %__first.addr.04.i.i.i.i.i.i.i, i64 4
   %cmp.not.i.i.i.i.i.i.i = icmp eq ptr %incdec.ptr.i.i.i.i.i.i.i, %add.ptr.i.i.i.i.i
   br i1 %cmp.not.i.i.i.i.i.i.i, label %invoke.cont.i.i.i, label %for.body.i.i.i.i.i.i.i, !llvm.loop !129
 
@@ -15149,9 +15143,9 @@ entry:
 for.body:                                         ; preds = %entry, %for.inc
   %__cur.010 = phi ptr [ %incdec.ptr1, %for.inc ], [ %__result, %entry ]
   %__first.addr.09 = phi ptr [ %incdec.ptr, %for.inc ], [ %__first, %entry ]
-  %_M_manager.i.i.i = getelementptr inbounds %"class.std::_Function_base", ptr %__cur.010, i64 0, i32 1
-  %_M_invoker.i.i = getelementptr inbounds %"class.std::function.164", ptr %__cur.010, i64 0, i32 1
-  %_M_manager.i.i.i.i = getelementptr inbounds %"class.std::_Function_base", ptr %__first.addr.09, i64 0, i32 1
+  %_M_manager.i.i.i = getelementptr inbounds i8, ptr %__cur.010, i64 16
+  %_M_invoker.i.i = getelementptr inbounds i8, ptr %__cur.010, i64 24
+  %_M_manager.i.i.i.i = getelementptr inbounds i8, ptr %__first.addr.09, i64 16
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %__cur.010, i8 0, i64 32, i1 false)
   %0 = load ptr, ptr %_M_manager.i.i.i.i, align 8
   %tobool.not.i.i.not.i.i = icmp eq ptr %0, null
@@ -15162,7 +15156,7 @@ if.then.i.i:                                      ; preds = %for.body
           to label %invoke.cont.i.i unwind label %lpad.i.i
 
 invoke.cont.i.i:                                  ; preds = %if.then.i.i
-  %_M_invoker4.i.i = getelementptr inbounds %"class.std::function.164", ptr %__first.addr.09, i64 0, i32 1
+  %_M_invoker4.i.i = getelementptr inbounds i8, ptr %__first.addr.09, i64 24
   %1 = load ptr, ptr %_M_invoker4.i.i, align 8
   store ptr %1, ptr %_M_invoker.i.i, align 8
   %2 = load ptr, ptr %_M_manager.i.i.i.i, align 8
@@ -15188,8 +15182,8 @@ terminate.lpad.i.i.i:                             ; preds = %if.then.i.i.i
   unreachable
 
 for.inc:                                          ; preds = %invoke.cont.i.i, %for.body
-  %incdec.ptr = getelementptr inbounds %"class.std::function.164", ptr %__first.addr.09, i64 1
-  %incdec.ptr1 = getelementptr inbounds %"class.std::function.164", ptr %__cur.010, i64 1
+  %incdec.ptr = getelementptr inbounds i8, ptr %__first.addr.09, i64 32
+  %incdec.ptr1 = getelementptr inbounds i8, ptr %__cur.010, i64 32
   %cmp.not = icmp eq ptr %incdec.ptr, %__last
   br i1 %cmp.not, label %for.end, label %for.body, !llvm.loop !183
 
@@ -15235,7 +15229,7 @@ entry:
 
 for.body.i:                                       ; preds = %entry, %_ZSt8_DestroyISt8functionIFN7testing15AssertionResultEPN4absl10FixedArrayINS1_13ThrowingValueILNS1_8TypeSpecE0EEELm25ENS1_17ThrowingAllocatorIS7_LNS1_9AllocSpecE0EEEEEEEEvPT_.exit.i
   %__first.addr.04.i = phi ptr [ %incdec.ptr.i, %_ZSt8_DestroyISt8functionIFN7testing15AssertionResultEPN4absl10FixedArrayINS1_13ThrowingValueILNS1_8TypeSpecE0EEELm25ENS1_17ThrowingAllocatorIS7_LNS1_9AllocSpecE0EEEEEEEEvPT_.exit.i ], [ %__first, %entry ]
-  %_M_manager.i.i.i.i = getelementptr inbounds %"class.std::_Function_base", ptr %__first.addr.04.i, i64 0, i32 1
+  %_M_manager.i.i.i.i = getelementptr inbounds i8, ptr %__first.addr.04.i, i64 16
   %0 = load ptr, ptr %_M_manager.i.i.i.i, align 8
   %tobool.not.i.i.i.i = icmp eq ptr %0, null
   br i1 %tobool.not.i.i.i.i, label %_ZSt8_DestroyISt8functionIFN7testing15AssertionResultEPN4absl10FixedArrayINS1_13ThrowingValueILNS1_8TypeSpecE0EEELm25ENS1_17ThrowingAllocatorIS7_LNS1_9AllocSpecE0EEEEEEEEvPT_.exit.i, label %if.then.i.i.i.i
@@ -15252,7 +15246,7 @@ terminate.lpad.i.i.i.i:                           ; preds = %if.then.i.i.i.i
   unreachable
 
 _ZSt8_DestroyISt8functionIFN7testing15AssertionResultEPN4absl10FixedArrayINS1_13ThrowingValueILNS1_8TypeSpecE0EEELm25ENS1_17ThrowingAllocatorIS7_LNS1_9AllocSpecE0EEEEEEEEvPT_.exit.i: ; preds = %if.then.i.i.i.i, %for.body.i
-  %incdec.ptr.i = getelementptr inbounds %"class.std::function.164", ptr %__first.addr.04.i, i64 1
+  %incdec.ptr.i = getelementptr inbounds i8, ptr %__first.addr.04.i, i64 32
   %cmp.not.i = icmp eq ptr %incdec.ptr.i, %__last
   br i1 %cmp.not.i, label %_ZNSt12_Destroy_auxILb0EE9__destroyIPSt8functionIFN7testing15AssertionResultEPN4absl10FixedArrayINS3_13ThrowingValueILNS3_8TypeSpecE0EEELm25ENS3_17ThrowingAllocatorIS9_LNS3_9AllocSpecE0EEEEEEEEEvT_SI_.exit, label %for.body.i, !llvm.loop !161
 
@@ -15268,15 +15262,15 @@ entry:
   br i1 %cmp.not, label %if.end, label %delete.notnull.i
 
 delete.notnull.i:                                 ; preds = %entry
-  %data_.i.i.i = getelementptr inbounds %"class.absl::FixedArray<testing::ThrowingValue<testing::TypeSpec::kEverythingThrows>, 25, testing::ThrowingAllocator<testing::ThrowingValue<testing::TypeSpec::kEverythingThrows>, testing::AllocSpec::kEverythingThrows>>::Storage", ptr %0, i64 0, i32 2
-  %size_alloc_.i.i.i.i = getelementptr inbounds %"class.absl::FixedArray<testing::ThrowingValue<testing::TypeSpec::kEverythingThrows>, 25, testing::ThrowingAllocator<testing::ThrowingValue<testing::TypeSpec::kEverythingThrows>, testing::AllocSpec::kEverythingThrows>>::Storage", ptr %0, i64 0, i32 1
+  %data_.i.i.i = getelementptr inbounds i8, ptr %0, i64 128
+  %size_alloc_.i.i.i.i = getelementptr inbounds i8, ptr %0, i64 104
   %1 = load i64, ptr %size_alloc_.i.i.i.i, align 8
   %cmp.not4.i.i = icmp eq i64 %1, 0
   br i1 %cmp.not4.i.i, label %_ZNKSt14default_deleteIN4absl10FixedArrayIN7testing13ThrowingValueILNS2_8TypeSpecE0EEELm25ENS2_17ThrowingAllocatorIS5_LNS2_9AllocSpecE0EEEEEEclEPS9_.exit, label %invoke.cont5.lr.ph.i.i
 
 invoke.cont5.lr.ph.i.i:                           ; preds = %delete.notnull.i
   %2 = load ptr, ptr %data_.i.i.i, align 8
-  %add.ptr.i.i.i.i = getelementptr inbounds %"class.absl::FixedArray<testing::ThrowingValue<testing::TypeSpec::kEverythingThrows>, 25, testing::ThrowingAllocator<testing::ThrowingValue<testing::TypeSpec::kEverythingThrows>, testing::AllocSpec::kEverythingThrows>>::Storage", ptr %0, i64 0, i32 1, i32 0, i32 1
+  %add.ptr.i.i.i.i = getelementptr inbounds i8, ptr %0, i64 112
   br label %invoke.cont5.i.i
 
 invoke.cont5.i.i:                                 ; preds = %_ZNSt16allocator_traitsIN7testing17ThrowingAllocatorINS0_13ThrowingValueILNS0_8TypeSpecE0EEELNS0_9AllocSpecE0EEEE7destroyIS4_EEvRS6_PT_.exit.i.i, %invoke.cont5.lr.ph.i.i
@@ -15302,7 +15296,7 @@ terminate.lpad.i.i.i.i.i.i.i:                     ; preds = %_ZN7testing17Throwi
   unreachable
 
 _ZNSt16allocator_traitsIN7testing17ThrowingAllocatorINS0_13ThrowingValueILNS0_8TypeSpecE0EEELNS0_9AllocSpecE0EEEE7destroyIS4_EEvRS6_PT_.exit.i.i: ; preds = %_ZN7testing17ThrowingAllocatorINS_13ThrowingValueILNS_8TypeSpecE0EEELNS_9AllocSpecE0EE9ReadStateEv.exit.i.i.i.i.i
-  %incdec.ptr.i.i = getelementptr inbounds %"class.testing::ThrowingValue", ptr %cur.05.i.i, i64 1
+  %incdec.ptr.i.i = getelementptr inbounds i8, ptr %cur.05.i.i, i64 4
   %7 = load ptr, ptr %data_.i.i.i, align 8
   %8 = load i64, ptr %size_alloc_.i.i.i.i, align 8
   %add.ptr.i.i.i = getelementptr inbounds %"class.testing::ThrowingValue", ptr %7, i64 %8
@@ -15495,7 +15489,7 @@ invoke.cont.i:                                    ; preds = %.noexc.i
           to label %invoke.cont3.i unwind label %lpad2.i
 
 invoke.cont3.i:                                   ; preds = %invoke.cont.i
-  %line.i.i = getelementptr inbounds %"struct.testing::internal::CodeLocation", ptr %agg.tmp.i, i64 0, i32 1
+  %line.i.i = getelementptr inbounds i8, ptr %agg.tmp.i, i64 32
   store i32 54, ptr %line.i.i, align 8
   %call.i = invoke noundef ptr @_ZN7testing8internal13GetTestTypeIdEv()
           to label %invoke.cont5.i unwind label %lpad4.i
@@ -15578,7 +15572,7 @@ invoke.cont.i10:                                  ; preds = %.noexc.i8
           to label %invoke.cont3.i13 unwind label %lpad2.i11
 
 invoke.cont3.i13:                                 ; preds = %invoke.cont.i10
-  %line.i.i14 = getelementptr inbounds %"struct.testing::internal::CodeLocation", ptr %agg.tmp.i1, i64 0, i32 1
+  %line.i.i14 = getelementptr inbounds i8, ptr %agg.tmp.i1, i64 32
   store i32 62, ptr %line.i.i14, align 8
   %call.i15 = invoke noundef ptr @_ZN7testing8internal13GetTestTypeIdEv()
           to label %invoke.cont5.i17 unwind label %lpad4.i16
@@ -15655,7 +15649,7 @@ invoke.cont.i34:                                  ; preds = %.noexc.i32
           to label %invoke.cont3.i38 unwind label %lpad2.i35
 
 invoke.cont3.i38:                                 ; preds = %invoke.cont.i34
-  %line.i.i39 = getelementptr inbounds %"struct.testing::internal::CodeLocation", ptr %agg.tmp.i24, i64 0, i32 1
+  %line.i.i39 = getelementptr inbounds i8, ptr %agg.tmp.i24, i64 32
   store i32 70, ptr %line.i.i39, align 8
   %call.i40 = invoke noundef ptr @_ZN7testing8internal13GetTestTypeIdEv()
           to label %invoke.cont5.i42 unwind label %lpad4.i41
@@ -15732,7 +15726,7 @@ invoke.cont.i60:                                  ; preds = %.noexc.i58
           to label %invoke.cont3.i64 unwind label %lpad2.i61
 
 invoke.cont3.i64:                                 ; preds = %invoke.cont.i60
-  %line.i.i65 = getelementptr inbounds %"struct.testing::internal::CodeLocation", ptr %agg.tmp.i50, i64 0, i32 1
+  %line.i.i65 = getelementptr inbounds i8, ptr %agg.tmp.i50, i64 32
   store i32 79, ptr %line.i.i65, align 8
   %call.i66 = invoke noundef ptr @_ZN7testing8internal13GetTestTypeIdEv()
           to label %invoke.cont5.i68 unwind label %lpad4.i67
@@ -15809,7 +15803,7 @@ invoke.cont.i86:                                  ; preds = %.noexc.i84
           to label %invoke.cont3.i90 unwind label %lpad2.i87
 
 invoke.cont3.i90:                                 ; preds = %invoke.cont.i86
-  %line.i.i91 = getelementptr inbounds %"struct.testing::internal::CodeLocation", ptr %agg.tmp.i76, i64 0, i32 1
+  %line.i.i91 = getelementptr inbounds i8, ptr %agg.tmp.i76, i64 32
   store i32 88, ptr %line.i.i91, align 8
   %call.i92 = invoke noundef ptr @_ZN7testing8internal13GetTestTypeIdEv()
           to label %invoke.cont5.i94 unwind label %lpad4.i93
@@ -15886,7 +15880,7 @@ invoke.cont.i112:                                 ; preds = %.noexc.i110
           to label %invoke.cont3.i116 unwind label %lpad2.i113
 
 invoke.cont3.i116:                                ; preds = %invoke.cont.i112
-  %line.i.i117 = getelementptr inbounds %"struct.testing::internal::CodeLocation", ptr %agg.tmp.i102, i64 0, i32 1
+  %line.i.i117 = getelementptr inbounds i8, ptr %agg.tmp.i102, i64 32
   store i32 93, ptr %line.i.i117, align 8
   %call.i118 = invoke noundef ptr @_ZN7testing8internal13GetTestTypeIdEv()
           to label %invoke.cont5.i120 unwind label %lpad4.i119
@@ -15963,7 +15957,7 @@ invoke.cont.i138:                                 ; preds = %.noexc.i136
           to label %invoke.cont3.i142 unwind label %lpad2.i139
 
 invoke.cont3.i142:                                ; preds = %invoke.cont.i138
-  %line.i.i143 = getelementptr inbounds %"struct.testing::internal::CodeLocation", ptr %agg.tmp.i128, i64 0, i32 1
+  %line.i.i143 = getelementptr inbounds i8, ptr %agg.tmp.i128, i64 32
   store i32 98, ptr %line.i.i143, align 8
   %call.i144 = invoke noundef ptr @_ZN7testing8internal13GetTestTypeIdEv()
           to label %invoke.cont5.i146 unwind label %lpad4.i145
@@ -16040,7 +16034,7 @@ invoke.cont.i164:                                 ; preds = %.noexc.i162
           to label %invoke.cont3.i168 unwind label %lpad2.i165
 
 invoke.cont3.i168:                                ; preds = %invoke.cont.i164
-  %line.i.i169 = getelementptr inbounds %"struct.testing::internal::CodeLocation", ptr %agg.tmp.i154, i64 0, i32 1
+  %line.i.i169 = getelementptr inbounds i8, ptr %agg.tmp.i154, i64 32
   store i32 103, ptr %line.i.i169, align 8
   %call.i170 = invoke noundef ptr @_ZN7testing8internal13GetTestTypeIdEv()
           to label %invoke.cont5.i172 unwind label %lpad4.i171
@@ -16117,7 +16111,7 @@ invoke.cont.i190:                                 ; preds = %.noexc.i188
           to label %invoke.cont3.i194 unwind label %lpad2.i191
 
 invoke.cont3.i194:                                ; preds = %invoke.cont.i190
-  %line.i.i195 = getelementptr inbounds %"struct.testing::internal::CodeLocation", ptr %agg.tmp.i180, i64 0, i32 1
+  %line.i.i195 = getelementptr inbounds i8, ptr %agg.tmp.i180, i64 32
   store i32 108, ptr %line.i.i195, align 8
   %call.i196 = invoke noundef ptr @_ZN7testing8internal13GetTestTypeIdEv()
           to label %invoke.cont5.i198 unwind label %lpad4.i197
@@ -16194,7 +16188,7 @@ invoke.cont.i216:                                 ; preds = %.noexc.i214
           to label %invoke.cont3.i220 unwind label %lpad2.i217
 
 invoke.cont3.i220:                                ; preds = %invoke.cont.i216
-  %line.i.i221 = getelementptr inbounds %"struct.testing::internal::CodeLocation", ptr %agg.tmp.i206, i64 0, i32 1
+  %line.i.i221 = getelementptr inbounds i8, ptr %agg.tmp.i206, i64 32
   store i32 116, ptr %line.i.i221, align 8
   %call.i222 = invoke noundef ptr @_ZN7testing8internal13GetTestTypeIdEv()
           to label %invoke.cont5.i224 unwind label %lpad4.i223
@@ -16271,7 +16265,7 @@ invoke.cont.i242:                                 ; preds = %.noexc.i240
           to label %invoke.cont3.i246 unwind label %lpad2.i243
 
 invoke.cont3.i246:                                ; preds = %invoke.cont.i242
-  %line.i.i247 = getelementptr inbounds %"struct.testing::internal::CodeLocation", ptr %agg.tmp.i232, i64 0, i32 1
+  %line.i.i247 = getelementptr inbounds i8, ptr %agg.tmp.i232, i64 32
   store i32 124, ptr %line.i.i247, align 8
   %call.i248 = invoke noundef ptr @_ZN7testing8internal13GetTestTypeIdEv()
           to label %invoke.cont5.i250 unwind label %lpad4.i249
@@ -16348,7 +16342,7 @@ invoke.cont.i268:                                 ; preds = %.noexc.i266
           to label %invoke.cont3.i272 unwind label %lpad2.i269
 
 invoke.cont3.i272:                                ; preds = %invoke.cont.i268
-  %line.i.i273 = getelementptr inbounds %"struct.testing::internal::CodeLocation", ptr %agg.tmp.i258, i64 0, i32 1
+  %line.i.i273 = getelementptr inbounds i8, ptr %agg.tmp.i258, i64 32
   store i32 137, ptr %line.i.i273, align 8
   %call.i274 = invoke noundef ptr @_ZN7testing8internal13GetTestTypeIdEv()
           to label %invoke.cont5.i276 unwind label %lpad4.i275
@@ -16425,7 +16419,7 @@ invoke.cont.i294:                                 ; preds = %.noexc.i292
           to label %invoke.cont3.i298 unwind label %lpad2.i295
 
 invoke.cont3.i298:                                ; preds = %invoke.cont.i294
-  %line.i.i299 = getelementptr inbounds %"struct.testing::internal::CodeLocation", ptr %agg.tmp.i284, i64 0, i32 1
+  %line.i.i299 = getelementptr inbounds i8, ptr %agg.tmp.i284, i64 32
   store i32 160, ptr %line.i.i299, align 8
   %call.i300 = invoke noundef ptr @_ZN7testing8internal13GetTestTypeIdEv()
           to label %invoke.cont5.i302 unwind label %lpad4.i301
@@ -16502,7 +16496,7 @@ invoke.cont.i320:                                 ; preds = %.noexc.i318
           to label %invoke.cont3.i324 unwind label %lpad2.i321
 
 invoke.cont3.i324:                                ; preds = %invoke.cont.i320
-  %line.i.i325 = getelementptr inbounds %"struct.testing::internal::CodeLocation", ptr %agg.tmp.i310, i64 0, i32 1
+  %line.i.i325 = getelementptr inbounds i8, ptr %agg.tmp.i310, i64 32
   store i32 177, ptr %line.i.i325, align 8
   %call.i326 = invoke noundef ptr @_ZN7testing8internal13GetTestTypeIdEv()
           to label %invoke.cont5.i328 unwind label %lpad4.i327

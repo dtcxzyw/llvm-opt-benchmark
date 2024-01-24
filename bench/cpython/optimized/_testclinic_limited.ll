@@ -32,7 +32,7 @@ entry:
 declare ptr @PyModule_Create2(ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define internal nonnull ptr @test_empty_function(ptr nocapture readnone %module, ptr nocapture readnone %_unused_ignored) #2 {
+define internal noundef nonnull ptr @test_empty_function(ptr nocapture readnone %module, ptr nocapture readnone %_unused_ignored) #2 {
 entry:
   ret ptr @_Py_NoneStruct
 }
@@ -87,7 +87,7 @@ land.lhs.true:                                    ; preds = %if.end
   br i1 %tobool.not, label %if.end5, label %exit
 
 if.end5:                                          ; preds = %land.lhs.true, %if.end
-  %arrayidx6 = getelementptr ptr, ptr %args, i64 1
+  %arrayidx6 = getelementptr i8, ptr %args, i64 8
   %2 = load ptr, ptr %arrayidx6, align 8
   %call7 = tail call i32 @PyLong_AsInt(ptr noundef %2) #3
   %cmp8 = icmp eq i32 %call7, -1

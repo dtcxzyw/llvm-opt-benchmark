@@ -4,7 +4,6 @@ target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:
 target triple = "x86_64-unknown-linux-gnu"
 
 %"class.std::ios_base::Init" = type { i8 }
-%"class.nlsat::clause" = type { i32, i32, i32, i32, ptr, [0 x %"class.sat::literal"] }
 %"class.sat::literal" = type { i32 }
 
 @_ZStL8__ioinit = internal global %"class.std::ios_base::Init" zeroinitializer, align 1
@@ -25,28 +24,29 @@ declare i32 @__cxa_atexit(ptr, ptr, ptr) local_unnamed_addr #2
 define hidden void @_ZN5nlsat6clauseC2EjjPKN3sat7literalEbPv(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(24) %this, i32 noundef %id, i32 noundef %sz, ptr nocapture noundef readonly %lits, i1 noundef zeroext %learned, ptr noundef %as) unnamed_addr #3 align 2 {
 entry:
   store i32 %id, ptr %this, align 8
-  %m_size = getelementptr inbounds %"class.nlsat::clause", ptr %this, i64 0, i32 1
+  %m_size = getelementptr inbounds i8, ptr %this, i64 4
   store i32 %sz, ptr %m_size, align 4
-  %m_capacity = getelementptr inbounds %"class.nlsat::clause", ptr %this, i64 0, i32 2
+  %m_capacity = getelementptr inbounds i8, ptr %this, i64 8
   %bf.value = and i32 %sz, 2147483647
   %bf.shl = select i1 %learned, i32 -2147483648, i32 0
   %bf.set5 = or disjoint i32 %bf.shl, %bf.value
   store i32 %bf.set5, ptr %m_capacity, align 8
-  %m_activity = getelementptr inbounds %"class.nlsat::clause", ptr %this, i64 0, i32 3
+  %m_activity = getelementptr inbounds i8, ptr %this, i64 12
   store i32 0, ptr %m_activity, align 4
-  %m_assumptions = getelementptr inbounds %"class.nlsat::clause", ptr %this, i64 0, i32 4
+  %m_assumptions = getelementptr inbounds i8, ptr %this, i64 16
   store ptr %as, ptr %m_assumptions, align 8
   %cmp6.not = icmp eq i32 %sz, 0
-  br i1 %cmp6.not, label %for.end, label %for.body.preheader
+  br i1 %cmp6.not, label %for.end, label %for.body.lr.ph
 
-for.body.preheader:                               ; preds = %entry
+for.body.lr.ph:                                   ; preds = %entry
+  %m_lits = getelementptr inbounds i8, ptr %this, i64 24
   %wide.trip.count = zext i32 %sz to i64
   br label %for.body
 
-for.body:                                         ; preds = %for.body.preheader, %for.body
-  %indvars.iv = phi i64 [ 0, %for.body.preheader ], [ %indvars.iv.next, %for.body ]
+for.body:                                         ; preds = %for.body.lr.ph, %for.body
+  %indvars.iv = phi i64 [ 0, %for.body.lr.ph ], [ %indvars.iv.next, %for.body ]
   %arrayidx = getelementptr inbounds %"class.sat::literal", ptr %lits, i64 %indvars.iv
-  %arrayidx7 = getelementptr inbounds %"class.nlsat::clause", ptr %this, i64 0, i32 5, i64 %indvars.iv
+  %arrayidx7 = getelementptr inbounds [0 x %"class.sat::literal"], ptr %m_lits, i64 0, i64 %indvars.iv
   %0 = load i32, ptr %arrayidx, align 4
   store i32 %0, ptr %arrayidx7, align 4
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
@@ -60,26 +60,26 @@ for.end:                                          ; preds = %for.body, %entry
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
 define hidden noundef zeroext i1 @_ZNK5nlsat6clause8containsEN3sat7literalE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %this, i32 %l.coerce) local_unnamed_addr #4 align 2 {
 entry:
-  %m_size = getelementptr inbounds %"class.nlsat::clause", ptr %this, i64 0, i32 1
+  %m_lits = getelementptr inbounds i8, ptr %this, i64 24
+  %m_size = getelementptr inbounds i8, ptr %this, i64 4
   %0 = load i32, ptr %m_size, align 4
   %cmp3.not = icmp eq i32 %0, 0
   br i1 %cmp3.not, label %return, label %for.body.preheader
 
 for.body.preheader:                               ; preds = %entry
   %1 = zext i32 %0 to i64
-  %arrayidx7 = getelementptr inbounds %"class.nlsat::clause", ptr %this, i64 0, i32 5, i64 0
-  %2 = load i32, ptr %arrayidx7, align 8
-  %cmp.i8 = icmp eq i32 %2, %l.coerce
-  br i1 %cmp.i8, label %return, label %for.cond
+  %2 = load i32, ptr %m_lits, align 8
+  %cmp.i7 = icmp eq i32 %2, %l.coerce
+  br i1 %cmp.i7, label %return, label %for.cond
 
 for.cond:                                         ; preds = %for.body.preheader, %for.body
-  %indvars.iv9 = phi i64 [ %indvars.iv.next, %for.body ], [ 0, %for.body.preheader ]
-  %indvars.iv.next = add nuw nsw i64 %indvars.iv9, 1
+  %indvars.iv8 = phi i64 [ %indvars.iv.next, %for.body ], [ 0, %for.body.preheader ]
+  %indvars.iv.next = add nuw nsw i64 %indvars.iv8, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %1
   br i1 %exitcond.not, label %return.loopexit, label %for.body, !llvm.loop !6
 
 for.body:                                         ; preds = %for.cond
-  %arrayidx = getelementptr inbounds %"class.nlsat::clause", ptr %this, i64 0, i32 5, i64 %indvars.iv.next
+  %arrayidx = getelementptr inbounds [0 x %"class.sat::literal"], ptr %m_lits, i64 0, i64 %indvars.iv.next
   %3 = load i32, ptr %arrayidx, align 4
   %cmp.i = icmp eq i32 %3, %l.coerce
   br i1 %cmp.i, label %return.loopexit, label %for.cond, !llvm.loop !6
@@ -96,27 +96,27 @@ return:                                           ; preds = %return.loopexit, %f
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
 define hidden noundef zeroext i1 @_ZNK5nlsat6clause8containsEj(ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %this, i32 noundef %v) local_unnamed_addr #4 align 2 {
 entry:
-  %m_size = getelementptr inbounds %"class.nlsat::clause", ptr %this, i64 0, i32 1
+  %m_lits = getelementptr inbounds i8, ptr %this, i64 24
+  %m_size = getelementptr inbounds i8, ptr %this, i64 4
   %0 = load i32, ptr %m_size, align 4
   %cmp3.not = icmp eq i32 %0, 0
   br i1 %cmp3.not, label %return, label %for.body.preheader
 
 for.body.preheader:                               ; preds = %entry
   %1 = zext i32 %0 to i64
-  %arrayidx7 = getelementptr inbounds %"class.nlsat::clause", ptr %this, i64 0, i32 5, i64 0
-  %2 = load i32, ptr %arrayidx7, align 8
-  %shr.i8 = lshr i32 %2, 1
-  %cmp29 = icmp eq i32 %shr.i8, %v
-  br i1 %cmp29, label %return, label %for.cond
+  %2 = load i32, ptr %m_lits, align 8
+  %shr.i7 = lshr i32 %2, 1
+  %cmp28 = icmp eq i32 %shr.i7, %v
+  br i1 %cmp28, label %return, label %for.cond
 
 for.cond:                                         ; preds = %for.body.preheader, %for.body
-  %indvars.iv10 = phi i64 [ %indvars.iv.next, %for.body ], [ 0, %for.body.preheader ]
-  %indvars.iv.next = add nuw nsw i64 %indvars.iv10, 1
+  %indvars.iv9 = phi i64 [ %indvars.iv.next, %for.body ], [ 0, %for.body.preheader ]
+  %indvars.iv.next = add nuw nsw i64 %indvars.iv9, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %1
   br i1 %exitcond.not, label %return.loopexit, label %for.body, !llvm.loop !7
 
 for.body:                                         ; preds = %for.cond
-  %arrayidx = getelementptr inbounds %"class.nlsat::clause", ptr %this, i64 0, i32 5, i64 %indvars.iv.next
+  %arrayidx = getelementptr inbounds [0 x %"class.sat::literal"], ptr %m_lits, i64 0, i64 %indvars.iv.next
   %3 = load i32, ptr %arrayidx, align 4
   %shr.i = lshr i32 %3, 1
   %cmp2 = icmp eq i32 %shr.i, %v

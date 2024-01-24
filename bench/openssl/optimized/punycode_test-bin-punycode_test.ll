@@ -6,7 +6,6 @@ target triple = "x86_64-unknown-linux-gnu"
 %struct.bad_decode_test = type { i64, [20 x i8] }
 %struct.puny_test = type { [50 x i32], ptr }
 %struct.wpacket_st = type { ptr, ptr, i64, i64, i64, ptr, i8 }
-%struct.buf_mem_st = type { i64, ptr, i64, i64 }
 
 @.str = private unnamed_addr constant [14 x i8] c"test_punycode\00", align 1
 @.str.1 = private unnamed_addr constant [21 x i8] c"test_dotted_overflow\00", align 1
@@ -73,7 +72,7 @@ target triple = "x86_64-unknown-linux-gnu"
 @bad_decode_tests = internal constant <{ %struct.bad_decode_test, %struct.bad_decode_test, %struct.bad_decode_test, { i64, <{ i8, i8, i8, i8, i8, i8, [14 x i8] }> }, %struct.bad_decode_test }> <{ %struct.bad_decode_test { i64 20, [20 x i8] c"xn--e-*\00\00\00\00\00\00\00\00\00\00\00\00\00" }, %struct.bad_decode_test { i64 10, [20 x i8] c"xn--e-999\00\00\00\00\00\00\00\00\00\00\00" }, %struct.bad_decode_test { i64 20, [20 x i8] c"xn--e-999999999\00\00\00\00\00" }, { i64, <{ i8, i8, i8, i8, i8, i8, [14 x i8] }> } { i64 20, <{ i8, i8, i8, i8, i8, i8, [14 x i8] }> <{ i8 120, i8 110, i8 45, i8 45, i8 -128, i8 45, [14 x i8] zeroinitializer }> }, %struct.bad_decode_test { i64 20, [20 x i8] c"xn--e-Oy65t\00\00\00\00\00\00\00\00\00" } }>, align 16
 
 ; Function Attrs: nounwind uwtable
-define dso_local i32 @setup_tests() local_unnamed_addr #0 {
+define dso_local noundef i32 @setup_tests() local_unnamed_addr #0 {
 entry:
   tail call void @add_all_tests(ptr noundef nonnull @.str, ptr noundef nonnull @test_punycode, i32 noundef 20, i32 noundef 1) #5
   tail call void @add_test(ptr noundef nonnull @.str.1, ptr noundef nonnull @test_dotted_overflow) #5
@@ -93,7 +92,7 @@ entry:
   %idx.ext = sext i32 %n to i64
   %add.ptr = getelementptr inbounds %struct.puny_test, ptr @puny_cases, i64 %idx.ext
   store i32 50, ptr %bsize, align 4
-  %encoded = getelementptr inbounds %struct.puny_test, ptr @puny_cases, i64 %idx.ext, i32 1
+  %encoded = getelementptr inbounds i8, ptr %add.ptr, i64 200
   %0 = load ptr, ptr %encoded, align 8
   %call = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %0) #6
   %call2 = call i32 @ossl_punycode_decode(ptr noundef %0, i64 noundef %call, ptr noundef nonnull %buffer, ptr noundef nonnull %bsize) #5
@@ -199,7 +198,7 @@ if.end36:                                         ; preds = %if.end31
   %1 = load i64, ptr %call, align 8
   %sub = add i64 %1, -1
   call void @llvm.memset.p0.i64(ptr align 1 %call32, i8 127, i64 %sub, i1 false)
-  %data = getelementptr inbounds %struct.buf_mem_st, ptr %call, i64 0, i32 1
+  %data = getelementptr inbounds i8, ptr %call, i64 8
   %2 = load ptr, ptr %data, align 8
   %call38 = call i32 @ossl_a2ulabel(ptr noundef %2, ptr noundef %call32, i64 noundef 22) #5
   %call39 = call i32 @test_int_le(ptr noundef nonnull @.str.5, i32 noundef 269, ptr noundef nonnull @.str.37, ptr noundef nonnull @.str.38, i32 noundef %call38, i32 noundef 0) #5
@@ -301,7 +300,7 @@ return:                                           ; preds = %if.end26, %if.end20
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @test_puny_overrun() #0 {
+define internal noundef i32 @test_puny_overrun() #0 {
 entry:
   %buf = alloca [8 x i32], align 16
   %bsize = alloca i32, align 4
@@ -336,7 +335,7 @@ entry:
   %out = alloca [20 x i8], align 16
   %idxprom = sext i32 %tst to i64
   %arrayidx = getelementptr inbounds [5 x %struct.bad_decode_test], ptr @bad_decode_tests, i64 0, i64 %idxprom
-  %input = getelementptr inbounds [5 x %struct.bad_decode_test], ptr @bad_decode_tests, i64 0, i64 %idxprom, i32 1
+  %input = getelementptr inbounds i8, ptr %arrayidx, i64 8
   %0 = load i64, ptr %arrayidx, align 16
   %call = call i32 @ossl_a2ulabel(ptr noundef nonnull %input, ptr noundef nonnull %out, i64 noundef %0) #5
   %call4 = call i32 @test_int_eq(ptr noundef nonnull @.str.5, i32 noundef 187, ptr noundef nonnull @.str.61, ptr noundef nonnull @.str.57, i32 noundef %call, i32 noundef -1) #5

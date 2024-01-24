@@ -6,7 +6,6 @@ target triple = "x86_64-unknown-linux-gnu"
 %struct.CRYPTO_STATIC_MUTEX = type { %union.pthread_rwlock_t }
 %union.pthread_rwlock_t = type { %struct.__pthread_rwlock_arch_t }
 %struct.__pthread_rwlock_arch_t = type { i32, i32, i32, i32, i32, i32, i32, i32, i8, [7 x i8], i64, i32 }
-%struct.rand_buffer = type { i64, [4096 x i8] }
 
 @requested_lock = internal global %struct.CRYPTO_STATIC_MUTEX zeroinitializer, align 8
 @urandom_fd_requested = internal unnamed_addr global i32 -2, align 4
@@ -207,7 +206,7 @@ if.then4:                                         ; preds = %if.end4.i, %if.then
   br i1 %cmp26.i, label %while.body.lr.ph.i, label %read_from_buffer.exit
 
 while.body.lr.ph.i:                               ; preds = %if.then4
-  %rand.i = getelementptr inbounds %struct.rand_buffer, ptr %retval.0.i, i64 0, i32 1
+  %rand.i = getelementptr inbounds i8, ptr %retval.0.i, i64 8
   br label %while.body.i
 
 while.body.i:                                     ; preds = %if.end.i6, %while.body.lr.ph.i
@@ -215,7 +214,7 @@ while.body.i:                                     ; preds = %if.end.i6, %while.b
   %remaining.029.i = phi i64 [ %sub.i, %while.body.lr.ph.i ], [ 4096, %if.end.i6 ]
   %requested.addr.028.i = phi i64 [ %requested, %while.body.lr.ph.i ], [ %sub3.i, %if.end.i6 ]
   %out.addr.027.i = phi ptr [ %out, %while.body.lr.ph.i ], [ %add.ptr.i, %if.end.i6 ]
-  %arrayidx.i = getelementptr inbounds %struct.rand_buffer, ptr %retval.0.i, i64 0, i32 1, i64 %2
+  %arrayidx.i = getelementptr inbounds [4096 x i8], ptr %rand.i, i64 0, i64 %2
   tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %out.addr.027.i, ptr nonnull align 1 %arrayidx.i, i64 %remaining.029.i, i1 false)
   %3 = load i64, ptr %retval.0.i, align 8
   %add.i = add i64 %3, %remaining.029.i
@@ -264,7 +263,8 @@ read_from_buffer.exit:                            ; preds = %if.end.i6, %if.then
   %6 = phi i64 [ %1, %if.then4 ], [ 0, %if.end.i6 ]
   %out.addr.0.lcssa.i = phi ptr [ %out, %if.then4 ], [ %add.ptr.i, %if.end.i6 ]
   %requested.addr.0.lcssa.i = phi i64 [ %requested, %if.then4 ], [ %sub3.i, %if.end.i6 ]
-  %arrayidx8.i = getelementptr inbounds %struct.rand_buffer, ptr %retval.0.i, i64 0, i32 1, i64 %6
+  %rand6.i = getelementptr inbounds i8, ptr %retval.0.i, i64 8
+  %arrayidx8.i = getelementptr inbounds [4096 x i8], ptr %rand6.i, i64 0, i64 %6
   tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %out.addr.0.lcssa.i, ptr nonnull align 1 %arrayidx8.i, i64 %requested.addr.0.lcssa.i, i1 false)
   %7 = load i64, ptr %retval.0.i, align 8
   %add10.i = add i64 %7, %requested.addr.0.lcssa.i

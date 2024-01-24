@@ -4,8 +4,6 @@ target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:
 target triple = "x86_64-unknown-linux-gnu"
 
 %struct.evp_aead_st = type { i8, i8, i8, i8, ptr, ptr, ptr, ptr, ptr, ptr, ptr }
-%struct.aead_chacha20_poly1305_ctx = type { [32 x i8], i8 }
-%struct.evp_aead_ctx_st = type { ptr, ptr }
 
 @aead_chacha20_poly1305 = internal constant %struct.evp_aead_st { i8 32, i8 12, i8 16, i8 16, ptr @aead_chacha20_poly1305_init, ptr null, ptr @aead_chacha20_poly1305_cleanup, ptr @aead_chacha20_poly1305_seal, ptr @aead_chacha20_poly1305_open, ptr null, ptr null }, align 8
 @aead_chacha20_poly1305_old = internal constant %struct.evp_aead_st { i8 32, i8 8, i8 16, i8 16, ptr @aead_chacha20_poly1305_init, ptr null, ptr @aead_chacha20_poly1305_cleanup, ptr @aead_chacha20_poly1305_old_seal, ptr @aead_chacha20_poly1305_old_open, ptr null, ptr null }, align 8
@@ -48,9 +46,9 @@ if.end6:                                          ; preds = %if.end3
 if.end9:                                          ; preds = %if.end6
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(32) %call, ptr noundef nonnull align 1 dereferenceable(32) %key, i64 32, i1 false)
   %conv = trunc i64 %spec.store.select to i8
-  %tag_len11 = getelementptr inbounds %struct.aead_chacha20_poly1305_ctx, ptr %call, i64 0, i32 1
+  %tag_len11 = getelementptr inbounds i8, ptr %call, i64 32
   store i8 %conv, ptr %tag_len11, align 1
-  %aead_state = getelementptr inbounds %struct.evp_aead_ctx_st, ptr %ctx, i64 0, i32 1
+  %aead_state = getelementptr inbounds i8, ptr %ctx, i64 8
   store ptr %call, ptr %aead_state, align 8
   br label %return
 
@@ -62,7 +60,7 @@ return:                                           ; preds = %if.end6, %if.end3, 
 ; Function Attrs: nounwind uwtable
 define internal void @aead_chacha20_poly1305_cleanup(ptr nocapture noundef readonly %ctx) #1 {
 entry:
-  %aead_state = getelementptr inbounds %struct.evp_aead_ctx_st, ptr %ctx, i64 0, i32 1
+  %aead_state = getelementptr inbounds i8, ptr %ctx, i64 8
   %0 = load ptr, ptr %aead_state, align 8
   tail call void @OPENSSL_cleanse(ptr noundef %0, i64 noundef 32) #8
   tail call void @free(ptr noundef %0) #8
@@ -138,7 +136,7 @@ if.then:                                          ; preds = %entry
   br label %return
 
 if.end:                                           ; preds = %entry
-  %tag_len = getelementptr inbounds %struct.aead_chacha20_poly1305_ctx, ptr %ctx.8.val, i64 0, i32 1
+  %tag_len = getelementptr inbounds i8, ptr %ctx.8.val, i64 32
   %0 = load i8, ptr %tag_len, align 1
   %conv = zext i8 %0 to i64
   %add = add nuw nsw i64 %conv, %in_len
@@ -256,7 +254,7 @@ entry:
   %poly1305_key.i = alloca [32 x i8], align 16
   %ctx.i = alloca [512 x i8], align 16
   %tag = alloca [16 x i8], align 16
-  %tag_len = getelementptr inbounds %struct.aead_chacha20_poly1305_ctx, ptr %ctx.8.val, i64 0, i32 1
+  %tag_len = getelementptr inbounds i8, ptr %ctx.8.val, i64 32
   %0 = load i8, ptr %tag_len, align 1
   %conv = zext i8 %0 to i64
   %cmp = icmp ugt i64 %conv, %in_len

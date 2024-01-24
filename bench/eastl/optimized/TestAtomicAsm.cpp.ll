@@ -4,7 +4,6 @@ target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:
 target triple = "x86_64-unknown-linux-gnu"
 
 %struct.UserType128 = type { i32, i32, i32, i32 }
-%struct.ReadDependsStruct = type { i32, i32 }
 %"struct.eastl::atomic.13" = type { %"struct.eastl::internal::atomic_base_width.14" }
 %"struct.eastl::internal::atomic_base_width.14" = type { %"struct.eastl::internal::atomic_size_aligned.15" }
 %"struct.eastl::internal::atomic_size_aligned.15" = type { %struct.UserType128 }
@@ -23,6 +22,7 @@ target triple = "x86_64-unknown-linux-gnu"
 %"struct.eastl::internal::atomic_integral_base" = type { %"struct.eastl::internal::atomic_base_width.6" }
 %"struct.eastl::internal::atomic_base_width.6" = type { %"struct.eastl::internal::atomic_size_aligned.7" }
 %"struct.eastl::internal::atomic_size_aligned.7" = type { i32 }
+%struct.ReadDependsStruct = type { i32, i32 }
 %struct.ReadDependsIntrusive = type { i32, i32, ptr, i32, i32 }
 
 @gAtomicPtr = dso_local global { ptr } zeroinitializer, align 8
@@ -34,7 +34,7 @@ define dso_local noundef i32 @_Z27TestAtomicReadDependsStructv() local_unnamed_a
 entry:
   %0 = load volatile ptr, ptr @gAtomicPtr, align 8
   %1 = load i32, ptr %0, align 4
-  %b2 = getelementptr inbounds %struct.ReadDependsStruct, ptr %0, i64 0, i32 1
+  %b2 = getelementptr inbounds i8, ptr %0, i64 4
   %2 = load i32, ptr %b2, align 4
   %add = add nsw i32 %2, %1
   ret i32 %add
@@ -1035,7 +1035,7 @@ _ZL24TestAtomic128StoreOrdersv.exit:              ; preds = %do.body.i.i19.i
   %12 = call { i64, i64 } asm sideeffect "lock; cmpxchg16b $2", "={ax},={dx},=*m,{bx},{cx},{ax},{dx},*m,~{memory},~{cc},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i128) %atomic.i.i22, i64 0, i64 0, i64 0, i64 0, ptr nonnull elementtype(i128) %atomic.i.i22) #5, !srcloc !15
   %13 = extractvalue { i64, i64 } %12, 0
   store i64 %13, ptr %load.i.i23, align 8
-  %14 = getelementptr inbounds { i64, i64 }, ptr %load.i.i23, i64 0, i32 1
+  %14 = getelementptr inbounds i8, ptr %load.i.i23, i64 8
   %15 = extractvalue { i64, i64 } %12, 1
   store i64 %15, ptr %14, align 8
   call void asm sideeffect "", "r,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull %load.i.i23) #5, !srcloc !5
@@ -1047,7 +1047,7 @@ _ZL24TestAtomic128StoreOrdersv.exit:              ; preds = %do.body.i.i19.i
   %16 = call { i64, i64 } asm sideeffect "lock; cmpxchg16b $2", "={ax},={dx},=*m,{bx},{cx},{ax},{dx},*m,~{memory},~{cc},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i128) %atomic.i1.i20, i64 0, i64 0, i64 0, i64 0, ptr nonnull elementtype(i128) %atomic.i1.i20) #5, !srcloc !16
   %17 = extractvalue { i64, i64 } %16, 0
   store i64 %17, ptr %load.i2.i21, align 8
-  %18 = getelementptr inbounds { i64, i64 }, ptr %load.i2.i21, i64 0, i32 1
+  %18 = getelementptr inbounds i8, ptr %load.i2.i21, i64 8
   %19 = extractvalue { i64, i64 } %16, 1
   store i64 %19, ptr %18, align 8
   call void asm sideeffect "", "r,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull %load.i2.i21) #5, !srcloc !5
@@ -1059,7 +1059,7 @@ _ZL24TestAtomic128StoreOrdersv.exit:              ; preds = %do.body.i.i19.i
   %20 = call { i64, i64 } asm sideeffect "lock; cmpxchg16b $2", "={ax},={dx},=*m,{bx},{cx},{ax},{dx},*m,~{memory},~{cc},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i128) %atomic.i3.i19, i64 0, i64 0, i64 0, i64 0, ptr nonnull elementtype(i128) %atomic.i3.i19) #5, !srcloc !17
   %21 = extractvalue { i64, i64 } %20, 0
   store i64 %21, ptr %load.i4.i, align 8
-  %22 = getelementptr inbounds { i64, i64 }, ptr %load.i4.i, i64 0, i32 1
+  %22 = getelementptr inbounds i8, ptr %load.i4.i, i64 8
   %23 = extractvalue { i64, i64 } %20, 1
   store i64 %23, ptr %22, align 8
   call void asm sideeffect "", "r,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull %load.i4.i) #5, !srcloc !5
@@ -1071,7 +1071,7 @@ _ZL24TestAtomic128StoreOrdersv.exit:              ; preds = %do.body.i.i19.i
   %24 = call { i64, i64 } asm sideeffect "lock; cmpxchg16b $2", "={ax},={dx},=*m,{bx},{cx},{ax},{dx},*m,~{memory},~{cc},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i128) %atomic.i5.i, i64 0, i64 0, i64 0, i64 0, ptr nonnull elementtype(i128) %atomic.i5.i) #5, !srcloc !18
   %25 = extractvalue { i64, i64 } %24, 0
   store i64 %25, ptr %load.i6.i, align 8
-  %26 = getelementptr inbounds { i64, i64 }, ptr %load.i6.i, i64 0, i32 1
+  %26 = getelementptr inbounds i8, ptr %load.i6.i, i64 8
   %27 = extractvalue { i64, i64 } %24, 1
   store i64 %27, ptr %26, align 8
   call void asm sideeffect "", "r,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull %load.i6.i) #5, !srcloc !5
@@ -1193,7 +1193,7 @@ do.body.i.i.i45:                                  ; preds = %do.body.i.i.i45, %_
 _ZL28TestAtomic128ExchangeRelaxedv.exit.i:        ; preds = %do.body.i.i.i45
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %cmpxchgRet.i.i.i42)
   store i64 %asmresult.i.i.i46, ptr %exchange.i.i44, align 8
-  %43 = getelementptr inbounds { i64, i64 }, ptr %exchange.i.i44, i64 0, i32 1
+  %43 = getelementptr inbounds i8, ptr %exchange.i.i44, i64 8
   store i64 %asmresult18.i.i.i47, ptr %43, align 8
   call void asm sideeffect "", "r,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull %exchange.i.i44) #5, !srcloc !5
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %atomic.i.i43)
@@ -1218,7 +1218,7 @@ do.body.i.i4.i:                                   ; preds = %do.body.i.i4.i, %_Z
 _ZL28TestAtomic128ExchangeAcquirev.exit.i:        ; preds = %do.body.i.i4.i
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %cmpxchgRet.i.i1.i40)
   store i64 %asmresult.i.i7.i, ptr %exchange.i3.i, align 8
-  %47 = getelementptr inbounds { i64, i64 }, ptr %exchange.i3.i, i64 0, i32 1
+  %47 = getelementptr inbounds i8, ptr %exchange.i3.i, i64 8
   store i64 %asmresult18.i.i8.i, ptr %47, align 8
   call void asm sideeffect "", "r,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull %exchange.i3.i) #5, !srcloc !5
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %atomic.i2.i41)
@@ -1243,7 +1243,7 @@ do.body.i.i13.i:                                  ; preds = %do.body.i.i13.i, %_
 _ZL28TestAtomic128ExchangeReleasev.exit.i:        ; preds = %do.body.i.i13.i
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %cmpxchgRet.i.i10.i)
   store i64 %asmresult.i.i16.i, ptr %exchange.i12.i, align 8
-  %51 = getelementptr inbounds { i64, i64 }, ptr %exchange.i12.i, i64 0, i32 1
+  %51 = getelementptr inbounds i8, ptr %exchange.i12.i, i64 8
   store i64 %asmresult18.i.i17.i, ptr %51, align 8
   call void asm sideeffect "", "r,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull %exchange.i12.i) #5, !srcloc !5
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %atomic.i11.i)
@@ -1268,7 +1268,7 @@ do.body.i.i22.i:                                  ; preds = %do.body.i.i22.i, %_
 _ZL27TestAtomic128ExchangeAcqRelv.exit.i:         ; preds = %do.body.i.i22.i
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %cmpxchgRet.i.i19.i)
   store i64 %asmresult.i.i25.i, ptr %exchange.i21.i, align 8
-  %55 = getelementptr inbounds { i64, i64 }, ptr %exchange.i21.i, i64 0, i32 1
+  %55 = getelementptr inbounds i8, ptr %exchange.i21.i, i64 8
   store i64 %asmresult18.i.i26.i, ptr %55, align 8
   call void asm sideeffect "", "r,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull %exchange.i21.i) #5, !srcloc !5
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %atomic.i20.i)
@@ -1293,7 +1293,7 @@ do.body.i.i31.i:                                  ; preds = %do.body.i.i31.i, %_
 _ZL27TestAtomic128ExchangeSeqCstv.exit.i:         ; preds = %do.body.i.i31.i
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %cmpxchgRet.i.i28.i)
   store i64 %asmresult.i.i34.i, ptr %exchange.i30.i, align 8
-  %59 = getelementptr inbounds { i64, i64 }, ptr %exchange.i30.i, i64 0, i32 1
+  %59 = getelementptr inbounds i8, ptr %exchange.i30.i, i64 8
   store i64 %asmresult18.i.i35.i, ptr %59, align 8
   call void asm sideeffect "", "r,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull %exchange.i30.i) #5, !srcloc !5
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %atomic.i29.i)
@@ -1318,7 +1318,7 @@ do.body.i.i40.i:                                  ; preds = %do.body.i.i40.i, %_
 _ZL27TestAtomic128ExchangeOrdersv.exit:           ; preds = %do.body.i.i40.i
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %cmpxchgRet.i.i37.i)
   store i64 %asmresult.i.i43.i, ptr %exchange.i39.i, align 8
-  %63 = getelementptr inbounds { i64, i64 }, ptr %exchange.i39.i, i64 0, i32 1
+  %63 = getelementptr inbounds i8, ptr %exchange.i39.i, i64 8
   store i64 %asmresult18.i.i44.i, ptr %63, align 8
   call void asm sideeffect "", "r,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull %exchange.i39.i) #5, !srcloc !5
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %atomic.i38.i)
@@ -1345,7 +1345,7 @@ _ZL27TestAtomic128ExchangeOrdersv.exit:           ; preds = %do.body.i.i40.i
   %64 = call { i64, i64 } asm sideeffect "lock; cmpxchg16b $2", "={ax},={dx},=*m,{bx},{cx},{ax},{dx},*m,~{memory},~{cc},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i128) %atomic.i, i64 0, i64 0, i64 0, i64 0, ptr nonnull elementtype(i128) %atomic.i) #5, !srcloc !17
   %65 = extractvalue { i64, i64 } %64, 0
   store i64 %65, ptr %load.i52, align 8
-  %66 = getelementptr inbounds { i64, i64 }, ptr %load.i52, i64 0, i32 1
+  %66 = getelementptr inbounds i8, ptr %load.i52, i64 8
   %67 = extractvalue { i64, i64 } %64, 1
   store i64 %67, ptr %66, align 8
   call void asm sideeffect "", "r,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull %load.i52) #5, !srcloc !5
@@ -5697,19 +5697,19 @@ _ZL34TestAtomic128OperatorXorAssignmentv.exit:    ; preds = %do.body.i.i.i1205
   store atomic volatile i64 %759, ptr @gAtomicPtr release, align 8
   %760 = load volatile ptr, ptr @gAtomicPtr, align 8
   %761 = load i32, ptr %760, align 4
-  %b2.i = getelementptr inbounds %struct.ReadDependsStruct, ptr %760, i64 0, i32 1
+  %b2.i = getelementptr inbounds i8, ptr %760, i64 4
   %762 = load i32, ptr %b2.i, align 4
   %add.i = add nsw i32 %762, %761
   store i32 %add.i, ptr %ret, align 4
   call void asm sideeffect "", "r,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull %ret) #5, !srcloc !5
   store i32 3, ptr %rdi, align 8
-  %b = getelementptr inbounds %struct.ReadDependsIntrusive, ptr %rdi, i64 0, i32 1
+  %b = getelementptr inbounds i8, ptr %rdi, i64 4
   store i32 2, ptr %b, align 4
-  %next = getelementptr inbounds %struct.ReadDependsIntrusive, ptr %rdi, i64 0, i32 2
+  %next = getelementptr inbounds i8, ptr %rdi, i64 8
   store ptr %rdi, ptr %next, align 8
-  %c = getelementptr inbounds %struct.ReadDependsIntrusive, ptr %rdi, i64 0, i32 3
+  %c = getelementptr inbounds i8, ptr %rdi, i64 16
   store i32 1, ptr %c, align 8
-  %d = getelementptr inbounds %struct.ReadDependsIntrusive, ptr %rdi, i64 0, i32 4
+  %d = getelementptr inbounds i8, ptr %rdi, i64 20
   store i32 0, ptr %d, align 4
   %763 = ptrtoint ptr %next to i64
   store atomic volatile i64 %763, ptr @gListHead release, align 8
@@ -5767,7 +5767,7 @@ _ZL34TestAtomic128OperatorXorAssignmentv.exit:    ; preds = %do.body.i.i.i1205
   %769 = call { i64, i64 } asm sideeffect "lock; cmpxchg16b $2", "={ax},={dx},=*m,{bx},{cx},{ax},{dx},*m,~{memory},~{cc},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i128) %atomic.i1224, i64 0, i64 0, i64 0, i64 0, ptr nonnull elementtype(i128) %atomic.i1224) #5, !srcloc !15
   %770 = extractvalue { i64, i64 } %769, 0
   store i64 %770, ptr %ret1.i1225, align 8
-  %771 = getelementptr inbounds { i64, i64 }, ptr %ret1.i1225, i64 0, i32 1
+  %771 = getelementptr inbounds i8, ptr %ret1.i1225, i64 8
   %772 = extractvalue { i64, i64 } %769, 1
   store i64 %772, ptr %771, align 8
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %cmpxchgRet.i.i)
@@ -5793,13 +5793,13 @@ _ZN5eastl8internal17atomic_base_widthI11UserType128Lj16EE5storeES2_NS0_22memory_
   %777 = call { i64, i64 } asm sideeffect "lock; cmpxchg16b $2", "={ax},={dx},=*m,{bx},{cx},{ax},{dx},*m,~{memory},~{cc},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i128) %atomic.i1224, i64 0, i64 0, i64 0, i64 0, ptr nonnull elementtype(i128) %atomic.i1224) #5, !srcloc !15
   %778 = extractvalue { i64, i64 } %777, 0
   store i64 %778, ptr %ret2.i1226, align 8
-  %779 = getelementptr inbounds { i64, i64 }, ptr %ret2.i1226, i64 0, i32 1
+  %779 = getelementptr inbounds i8, ptr %ret2.i1226, i64 8
   %780 = extractvalue { i64, i64 } %777, 1
   store i64 %780, ptr %779, align 8
   %781 = call { i64, i64 } asm sideeffect "lock; cmpxchg16b $2", "={ax},={dx},=*m,{bx},{cx},{ax},{dx},*m,~{memory},~{cc},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i128) %atomic.i1224, i64 0, i64 0, i64 0, i64 0, ptr nonnull elementtype(i128) %atomic.i1224) #5, !srcloc !15
   %782 = extractvalue { i64, i64 } %781, 0
   store i64 %782, ptr %ret3.i1227, align 8
-  %783 = getelementptr inbounds { i64, i64 }, ptr %ret3.i1227, i64 0, i32 1
+  %783 = getelementptr inbounds i8, ptr %ret3.i1227, i64 8
   %784 = extractvalue { i64, i64 } %781, 1
   store i64 %784, ptr %783, align 8
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %cmpxchgRet.i1.i)

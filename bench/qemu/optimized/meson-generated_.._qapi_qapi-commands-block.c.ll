@@ -127,7 +127,7 @@ if.then8.i.i:                                     ; preds = %if.then.i.i
   %call9.i.i = call i32 @gettimeofday(ptr noundef nonnull %_now.i.i, ptr noundef null) #5
   %call10.i.i = tail call i32 @qemu_get_thread_id() #5
   %8 = load i64, ptr %_now.i.i, align 8
-  %tv_usec.i.i = getelementptr inbounds %struct.timeval, ptr %_now.i.i, i64 0, i32 1
+  %tv_usec.i.i = getelementptr inbounds i8, ptr %_now.i.i, i64 8
   %9 = load i64, ptr %tv_usec.i.i, align 8
   tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.1, i32 noundef %call10.i.i, i64 noundef %8, i64 noundef %9, ptr noundef %2) #5
   br label %glib_autoptr_cleanup_GString.exit
@@ -173,7 +173,7 @@ if.then8.i.i26:                                   ; preds = %if.then.i.i24
   %call9.i.i27 = call i32 @gettimeofday(ptr noundef nonnull %_now.i.i17, ptr noundef null) #5
   %call10.i.i28 = call i32 @qemu_get_thread_id() #5
   %16 = load i64, ptr %_now.i.i17, align 8
-  %tv_usec.i.i29 = getelementptr inbounds %struct.timeval, ptr %_now.i.i17, i64 0, i32 1
+  %tv_usec.i.i29 = getelementptr inbounds i8, ptr %_now.i.i17, i64 8
   %17 = load i64, ptr %tv_usec.i.i29, align 8
   call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.3, i32 noundef %call10.i.i28, i64 noundef %16, i64 noundef %17, ptr noundef %call28, i32 noundef 0) #5
   br label %trace_qmp_exit_query_pr_managers.exit
@@ -240,7 +240,7 @@ if.then8.i.i40:                                   ; preds = %if.then.i.i38
   %call9.i.i41 = call i32 @gettimeofday(ptr noundef nonnull %_now.i.i31, ptr noundef null) #5
   %call10.i.i42 = call i32 @qemu_get_thread_id() #5
   %28 = load i64, ptr %_now.i.i31, align 8
-  %tv_usec.i.i43 = getelementptr inbounds %struct.timeval, ptr %_now.i.i31, i64 0, i32 1
+  %tv_usec.i.i43 = getelementptr inbounds i8, ptr %_now.i.i31, i64 8
   %29 = load i64, ptr %tv_usec.i.i43, align 8
   call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.3, i32 noundef %call10.i.i42, i64 noundef %28, i64 noundef %29, ptr noundef %22, i32 noundef 1) #5
   br label %glib_autoptr_cleanup_GString.exit49
@@ -341,7 +341,7 @@ if.then8.i.i:                                     ; preds = %if.then.i.i
   %call9.i.i = call i32 @gettimeofday(ptr noundef nonnull %_now.i.i, ptr noundef null) #5
   %call10.i.i = call i32 @qemu_get_thread_id() #5
   %8 = load i64, ptr %_now.i.i, align 8
-  %tv_usec.i.i = getelementptr inbounds %struct.timeval, ptr %_now.i.i, i64 0, i32 1
+  %tv_usec.i.i = getelementptr inbounds i8, ptr %_now.i.i, i64 8
   %9 = load i64, ptr %tv_usec.i.i, align 8
   call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.6, i32 noundef %call10.i.i, i64 noundef %8, i64 noundef %9, ptr noundef %2) #5
   br label %glib_autoptr_cleanup_GString.exit
@@ -357,13 +357,13 @@ glib_autoptr_cleanup_GString.exit:                ; preds = %if.then15, %land.lh
 
 if.end27:                                         ; preds = %glib_autoptr_cleanup_GString.exit, %if.end9
   %10 = load ptr, ptr %arg, align 8
-  %id = getelementptr inbounds %struct.q_obj_eject_arg, ptr %arg, i64 0, i32 1
+  %id = getelementptr inbounds i8, ptr %arg, i64 8
   %11 = load ptr, ptr %id, align 8
-  %has_force = getelementptr inbounds %struct.q_obj_eject_arg, ptr %arg, i64 0, i32 2
+  %has_force = getelementptr inbounds i8, ptr %arg, i64 16
   %12 = load i8, ptr %has_force, align 8
   %13 = and i8 %12, 1
   %tobool28 = icmp ne i8 %13, 0
-  %force = getelementptr inbounds %struct.q_obj_eject_arg, ptr %arg, i64 0, i32 3
+  %force = getelementptr inbounds i8, ptr %arg, i64 17
   %14 = load i8, ptr %force, align 1
   %15 = and i8 %14, 1
   %tobool29 = icmp ne i8 %15, 0
@@ -398,7 +398,7 @@ if.then8.i.i26:                                   ; preds = %if.then.i.i24
   %call9.i.i27 = call i32 @gettimeofday(ptr noundef nonnull %_now.i.i17, ptr noundef null) #5
   %call10.i.i28 = call i32 @qemu_get_thread_id() #5
   %22 = load i64, ptr %_now.i.i17, align 8
-  %tv_usec.i.i29 = getelementptr inbounds %struct.timeval, ptr %_now.i.i17, i64 0, i32 1
+  %tv_usec.i.i29 = getelementptr inbounds i8, ptr %_now.i.i17, i64 8
   %23 = load i64, ptr %tv_usec.i.i29, align 8
   call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.8, i32 noundef %call10.i.i28, i64 noundef %22, i64 noundef %23, ptr noundef %call32, i32 noundef 0) #5
   br label %trace_qmp_exit_eject.exit
@@ -438,7 +438,7 @@ if.then8.i.i40:                                   ; preds = %if.then.i.i38
   %call9.i.i41 = call i32 @gettimeofday(ptr noundef nonnull %_now.i.i31, ptr noundef null) #5
   %call10.i.i42 = call i32 @qemu_get_thread_id() #5
   %30 = load i64, ptr %_now.i.i31, align 8
-  %tv_usec.i.i43 = getelementptr inbounds %struct.timeval, ptr %_now.i.i31, i64 0, i32 1
+  %tv_usec.i.i43 = getelementptr inbounds i8, ptr %_now.i.i31, i64 8
   %31 = load i64, ptr %tv_usec.i.i43, align 8
   call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.8, i32 noundef %call10.i.i42, i64 noundef %30, i64 noundef %31, ptr noundef nonnull @.str, i32 noundef 1) #5
   br label %trace_qmp_exit_eject.exit45
@@ -530,7 +530,7 @@ if.then8.i.i:                                     ; preds = %if.then.i.i
   %call9.i.i = call i32 @gettimeofday(ptr noundef nonnull %_now.i.i, ptr noundef null) #5
   %call10.i.i = call i32 @qemu_get_thread_id() #5
   %8 = load i64, ptr %_now.i.i, align 8
-  %tv_usec.i.i = getelementptr inbounds %struct.timeval, ptr %_now.i.i, i64 0, i32 1
+  %tv_usec.i.i = getelementptr inbounds i8, ptr %_now.i.i, i64 8
   %9 = load i64, ptr %tv_usec.i.i, align 8
   call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.10, i32 noundef %call10.i.i, i64 noundef %8, i64 noundef %9, ptr noundef %2) #5
   br label %glib_autoptr_cleanup_GString.exit
@@ -546,13 +546,13 @@ glib_autoptr_cleanup_GString.exit:                ; preds = %if.then15, %land.lh
 
 if.end27:                                         ; preds = %glib_autoptr_cleanup_GString.exit, %if.end9
   %10 = load ptr, ptr %arg, align 8
-  %id = getelementptr inbounds %struct.q_obj_blockdev_open_tray_arg, ptr %arg, i64 0, i32 1
+  %id = getelementptr inbounds i8, ptr %arg, i64 8
   %11 = load ptr, ptr %id, align 8
-  %has_force = getelementptr inbounds %struct.q_obj_blockdev_open_tray_arg, ptr %arg, i64 0, i32 2
+  %has_force = getelementptr inbounds i8, ptr %arg, i64 16
   %12 = load i8, ptr %has_force, align 8
   %13 = and i8 %12, 1
   %tobool28 = icmp ne i8 %13, 0
-  %force = getelementptr inbounds %struct.q_obj_blockdev_open_tray_arg, ptr %arg, i64 0, i32 3
+  %force = getelementptr inbounds i8, ptr %arg, i64 17
   %14 = load i8, ptr %force, align 1
   %15 = and i8 %14, 1
   %tobool29 = icmp ne i8 %15, 0
@@ -587,7 +587,7 @@ if.then8.i.i26:                                   ; preds = %if.then.i.i24
   %call9.i.i27 = call i32 @gettimeofday(ptr noundef nonnull %_now.i.i17, ptr noundef null) #5
   %call10.i.i28 = call i32 @qemu_get_thread_id() #5
   %22 = load i64, ptr %_now.i.i17, align 8
-  %tv_usec.i.i29 = getelementptr inbounds %struct.timeval, ptr %_now.i.i17, i64 0, i32 1
+  %tv_usec.i.i29 = getelementptr inbounds i8, ptr %_now.i.i17, i64 8
   %23 = load i64, ptr %tv_usec.i.i29, align 8
   call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.12, i32 noundef %call10.i.i28, i64 noundef %22, i64 noundef %23, ptr noundef %call32, i32 noundef 0) #5
   br label %trace_qmp_exit_blockdev_open_tray.exit
@@ -627,7 +627,7 @@ if.then8.i.i40:                                   ; preds = %if.then.i.i38
   %call9.i.i41 = call i32 @gettimeofday(ptr noundef nonnull %_now.i.i31, ptr noundef null) #5
   %call10.i.i42 = call i32 @qemu_get_thread_id() #5
   %30 = load i64, ptr %_now.i.i31, align 8
-  %tv_usec.i.i43 = getelementptr inbounds %struct.timeval, ptr %_now.i.i31, i64 0, i32 1
+  %tv_usec.i.i43 = getelementptr inbounds i8, ptr %_now.i.i31, i64 8
   %31 = load i64, ptr %tv_usec.i.i43, align 8
   call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.12, i32 noundef %call10.i.i42, i64 noundef %30, i64 noundef %31, ptr noundef nonnull @.str, i32 noundef 1) #5
   br label %trace_qmp_exit_blockdev_open_tray.exit45
@@ -716,7 +716,7 @@ if.then8.i.i:                                     ; preds = %if.then.i.i
   %call9.i.i = call i32 @gettimeofday(ptr noundef nonnull %_now.i.i, ptr noundef null) #5
   %call10.i.i = call i32 @qemu_get_thread_id() #5
   %8 = load i64, ptr %_now.i.i, align 8
-  %tv_usec.i.i = getelementptr inbounds %struct.timeval, ptr %_now.i.i, i64 0, i32 1
+  %tv_usec.i.i = getelementptr inbounds i8, ptr %_now.i.i, i64 8
   %9 = load i64, ptr %tv_usec.i.i, align 8
   call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.14, i32 noundef %call10.i.i, i64 noundef %8, i64 noundef %9, ptr noundef %2) #5
   br label %glib_autoptr_cleanup_GString.exit
@@ -732,7 +732,7 @@ glib_autoptr_cleanup_GString.exit:                ; preds = %if.then15, %land.lh
 
 if.end27:                                         ; preds = %glib_autoptr_cleanup_GString.exit, %if.end9
   %10 = load ptr, ptr %arg, align 8
-  %id = getelementptr inbounds %struct.q_obj_blockdev_close_tray_arg, ptr %arg, i64 0, i32 1
+  %id = getelementptr inbounds i8, ptr %arg, i64 8
   %11 = load ptr, ptr %id, align 8
   call void @qmp_blockdev_close_tray(ptr noundef %10, ptr noundef %11, ptr noundef nonnull %err) #5
   %12 = load ptr, ptr %err, align 8
@@ -765,7 +765,7 @@ if.then8.i.i26:                                   ; preds = %if.then.i.i24
   %call9.i.i27 = call i32 @gettimeofday(ptr noundef nonnull %_now.i.i17, ptr noundef null) #5
   %call10.i.i28 = call i32 @qemu_get_thread_id() #5
   %18 = load i64, ptr %_now.i.i17, align 8
-  %tv_usec.i.i29 = getelementptr inbounds %struct.timeval, ptr %_now.i.i17, i64 0, i32 1
+  %tv_usec.i.i29 = getelementptr inbounds i8, ptr %_now.i.i17, i64 8
   %19 = load i64, ptr %tv_usec.i.i29, align 8
   call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.16, i32 noundef %call10.i.i28, i64 noundef %18, i64 noundef %19, ptr noundef %call30, i32 noundef 0) #5
   br label %trace_qmp_exit_blockdev_close_tray.exit
@@ -805,7 +805,7 @@ if.then8.i.i40:                                   ; preds = %if.then.i.i38
   %call9.i.i41 = call i32 @gettimeofday(ptr noundef nonnull %_now.i.i31, ptr noundef null) #5
   %call10.i.i42 = call i32 @qemu_get_thread_id() #5
   %26 = load i64, ptr %_now.i.i31, align 8
-  %tv_usec.i.i43 = getelementptr inbounds %struct.timeval, ptr %_now.i.i31, i64 0, i32 1
+  %tv_usec.i.i43 = getelementptr inbounds i8, ptr %_now.i.i31, i64 8
   %27 = load i64, ptr %tv_usec.i.i43, align 8
   call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.16, i32 noundef %call10.i.i42, i64 noundef %26, i64 noundef %27, ptr noundef nonnull @.str, i32 noundef 1) #5
   br label %trace_qmp_exit_blockdev_close_tray.exit45
@@ -894,7 +894,7 @@ if.then8.i.i:                                     ; preds = %if.then.i.i
   %call9.i.i = call i32 @gettimeofday(ptr noundef nonnull %_now.i.i, ptr noundef null) #5
   %call10.i.i = call i32 @qemu_get_thread_id() #5
   %8 = load i64, ptr %_now.i.i, align 8
-  %tv_usec.i.i = getelementptr inbounds %struct.timeval, ptr %_now.i.i, i64 0, i32 1
+  %tv_usec.i.i = getelementptr inbounds i8, ptr %_now.i.i, i64 8
   %9 = load i64, ptr %tv_usec.i.i, align 8
   call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.18, i32 noundef %call10.i.i, i64 noundef %8, i64 noundef %9, ptr noundef %2) #5
   br label %glib_autoptr_cleanup_GString.exit
@@ -941,7 +941,7 @@ if.then8.i.i26:                                   ; preds = %if.then.i.i24
   %call9.i.i27 = call i32 @gettimeofday(ptr noundef nonnull %_now.i.i17, ptr noundef null) #5
   %call10.i.i28 = call i32 @qemu_get_thread_id() #5
   %17 = load i64, ptr %_now.i.i17, align 8
-  %tv_usec.i.i29 = getelementptr inbounds %struct.timeval, ptr %_now.i.i17, i64 0, i32 1
+  %tv_usec.i.i29 = getelementptr inbounds i8, ptr %_now.i.i17, i64 8
   %18 = load i64, ptr %tv_usec.i.i29, align 8
   call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.20, i32 noundef %call10.i.i28, i64 noundef %17, i64 noundef %18, ptr noundef %call30, i32 noundef 0) #5
   br label %trace_qmp_exit_blockdev_remove_medium.exit
@@ -981,7 +981,7 @@ if.then8.i.i40:                                   ; preds = %if.then.i.i38
   %call9.i.i41 = call i32 @gettimeofday(ptr noundef nonnull %_now.i.i31, ptr noundef null) #5
   %call10.i.i42 = call i32 @qemu_get_thread_id() #5
   %25 = load i64, ptr %_now.i.i31, align 8
-  %tv_usec.i.i43 = getelementptr inbounds %struct.timeval, ptr %_now.i.i31, i64 0, i32 1
+  %tv_usec.i.i43 = getelementptr inbounds i8, ptr %_now.i.i31, i64 8
   %26 = load i64, ptr %tv_usec.i.i43, align 8
   call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.20, i32 noundef %call10.i.i42, i64 noundef %25, i64 noundef %26, ptr noundef nonnull @.str, i32 noundef 1) #5
   br label %trace_qmp_exit_blockdev_remove_medium.exit45
@@ -1070,7 +1070,7 @@ if.then8.i.i:                                     ; preds = %if.then.i.i
   %call9.i.i = call i32 @gettimeofday(ptr noundef nonnull %_now.i.i, ptr noundef null) #5
   %call10.i.i = call i32 @qemu_get_thread_id() #5
   %8 = load i64, ptr %_now.i.i, align 8
-  %tv_usec.i.i = getelementptr inbounds %struct.timeval, ptr %_now.i.i, i64 0, i32 1
+  %tv_usec.i.i = getelementptr inbounds i8, ptr %_now.i.i, i64 8
   %9 = load i64, ptr %tv_usec.i.i, align 8
   call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.22, i32 noundef %call10.i.i, i64 noundef %8, i64 noundef %9, ptr noundef %2) #5
   br label %glib_autoptr_cleanup_GString.exit
@@ -1086,7 +1086,7 @@ glib_autoptr_cleanup_GString.exit:                ; preds = %if.then15, %land.lh
 
 if.end27:                                         ; preds = %glib_autoptr_cleanup_GString.exit, %if.end9
   %10 = load ptr, ptr %arg, align 8
-  %node_name = getelementptr inbounds %struct.q_obj_blockdev_insert_medium_arg, ptr %arg, i64 0, i32 1
+  %node_name = getelementptr inbounds i8, ptr %arg, i64 8
   %11 = load ptr, ptr %node_name, align 8
   call void @qmp_blockdev_insert_medium(ptr noundef %10, ptr noundef %11, ptr noundef nonnull %err) #5
   %12 = load ptr, ptr %err, align 8
@@ -1119,7 +1119,7 @@ if.then8.i.i26:                                   ; preds = %if.then.i.i24
   %call9.i.i27 = call i32 @gettimeofday(ptr noundef nonnull %_now.i.i17, ptr noundef null) #5
   %call10.i.i28 = call i32 @qemu_get_thread_id() #5
   %18 = load i64, ptr %_now.i.i17, align 8
-  %tv_usec.i.i29 = getelementptr inbounds %struct.timeval, ptr %_now.i.i17, i64 0, i32 1
+  %tv_usec.i.i29 = getelementptr inbounds i8, ptr %_now.i.i17, i64 8
   %19 = load i64, ptr %tv_usec.i.i29, align 8
   call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.24, i32 noundef %call10.i.i28, i64 noundef %18, i64 noundef %19, ptr noundef %call30, i32 noundef 0) #5
   br label %trace_qmp_exit_blockdev_insert_medium.exit
@@ -1159,7 +1159,7 @@ if.then8.i.i40:                                   ; preds = %if.then.i.i38
   %call9.i.i41 = call i32 @gettimeofday(ptr noundef nonnull %_now.i.i31, ptr noundef null) #5
   %call10.i.i42 = call i32 @qemu_get_thread_id() #5
   %26 = load i64, ptr %_now.i.i31, align 8
-  %tv_usec.i.i43 = getelementptr inbounds %struct.timeval, ptr %_now.i.i31, i64 0, i32 1
+  %tv_usec.i.i43 = getelementptr inbounds i8, ptr %_now.i.i31, i64 8
   %27 = load i64, ptr %tv_usec.i.i43, align 8
   call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.24, i32 noundef %call10.i.i42, i64 noundef %26, i64 noundef %27, ptr noundef nonnull @.str, i32 noundef 1) #5
   br label %trace_qmp_exit_blockdev_insert_medium.exit45
@@ -1248,7 +1248,7 @@ if.then8.i.i:                                     ; preds = %if.then.i.i
   %call9.i.i = call i32 @gettimeofday(ptr noundef nonnull %_now.i.i, ptr noundef null) #5
   %call10.i.i = call i32 @qemu_get_thread_id() #5
   %8 = load i64, ptr %_now.i.i, align 8
-  %tv_usec.i.i = getelementptr inbounds %struct.timeval, ptr %_now.i.i, i64 0, i32 1
+  %tv_usec.i.i = getelementptr inbounds i8, ptr %_now.i.i, i64 8
   %9 = load i64, ptr %tv_usec.i.i, align 8
   call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.26, i32 noundef %call10.i.i, i64 noundef %8, i64 noundef %9, ptr noundef %2) #5
   br label %glib_autoptr_cleanup_GString.exit
@@ -1264,25 +1264,25 @@ glib_autoptr_cleanup_GString.exit:                ; preds = %if.then15, %land.lh
 
 if.end27:                                         ; preds = %glib_autoptr_cleanup_GString.exit, %if.end9
   %10 = load ptr, ptr %arg, align 8
-  %id = getelementptr inbounds %struct.q_obj_blockdev_change_medium_arg, ptr %arg, i64 0, i32 1
+  %id = getelementptr inbounds i8, ptr %arg, i64 8
   %11 = load ptr, ptr %id, align 8
-  %filename = getelementptr inbounds %struct.q_obj_blockdev_change_medium_arg, ptr %arg, i64 0, i32 2
+  %filename = getelementptr inbounds i8, ptr %arg, i64 16
   %12 = load ptr, ptr %filename, align 8
-  %format = getelementptr inbounds %struct.q_obj_blockdev_change_medium_arg, ptr %arg, i64 0, i32 3
+  %format = getelementptr inbounds i8, ptr %arg, i64 24
   %13 = load ptr, ptr %format, align 8
-  %has_force = getelementptr inbounds %struct.q_obj_blockdev_change_medium_arg, ptr %arg, i64 0, i32 4
+  %has_force = getelementptr inbounds i8, ptr %arg, i64 32
   %14 = load i8, ptr %has_force, align 8
   %15 = and i8 %14, 1
   %tobool28 = icmp ne i8 %15, 0
-  %force = getelementptr inbounds %struct.q_obj_blockdev_change_medium_arg, ptr %arg, i64 0, i32 5
+  %force = getelementptr inbounds i8, ptr %arg, i64 33
   %16 = load i8, ptr %force, align 1
   %17 = and i8 %16, 1
   %tobool29 = icmp ne i8 %17, 0
-  %has_read_only_mode = getelementptr inbounds %struct.q_obj_blockdev_change_medium_arg, ptr %arg, i64 0, i32 6
+  %has_read_only_mode = getelementptr inbounds i8, ptr %arg, i64 34
   %18 = load i8, ptr %has_read_only_mode, align 2
   %19 = and i8 %18, 1
   %tobool30 = icmp ne i8 %19, 0
-  %read_only_mode = getelementptr inbounds %struct.q_obj_blockdev_change_medium_arg, ptr %arg, i64 0, i32 7
+  %read_only_mode = getelementptr inbounds i8, ptr %arg, i64 36
   %20 = load i32, ptr %read_only_mode, align 4
   call void @qmp_blockdev_change_medium(ptr noundef %10, ptr noundef %11, ptr noundef %12, ptr noundef %13, i1 noundef zeroext %tobool28, i1 noundef zeroext %tobool29, i1 noundef zeroext %tobool30, i32 noundef %20, ptr noundef nonnull %err) #5
   %21 = load ptr, ptr %err, align 8
@@ -1315,7 +1315,7 @@ if.then8.i.i26:                                   ; preds = %if.then.i.i24
   %call9.i.i27 = call i32 @gettimeofday(ptr noundef nonnull %_now.i.i17, ptr noundef null) #5
   %call10.i.i28 = call i32 @qemu_get_thread_id() #5
   %27 = load i64, ptr %_now.i.i17, align 8
-  %tv_usec.i.i29 = getelementptr inbounds %struct.timeval, ptr %_now.i.i17, i64 0, i32 1
+  %tv_usec.i.i29 = getelementptr inbounds i8, ptr %_now.i.i17, i64 8
   %28 = load i64, ptr %tv_usec.i.i29, align 8
   call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.28, i32 noundef %call10.i.i28, i64 noundef %27, i64 noundef %28, ptr noundef %call33, i32 noundef 0) #5
   br label %trace_qmp_exit_blockdev_change_medium.exit
@@ -1355,7 +1355,7 @@ if.then8.i.i40:                                   ; preds = %if.then.i.i38
   %call9.i.i41 = call i32 @gettimeofday(ptr noundef nonnull %_now.i.i31, ptr noundef null) #5
   %call10.i.i42 = call i32 @qemu_get_thread_id() #5
   %35 = load i64, ptr %_now.i.i31, align 8
-  %tv_usec.i.i43 = getelementptr inbounds %struct.timeval, ptr %_now.i.i31, i64 0, i32 1
+  %tv_usec.i.i43 = getelementptr inbounds i8, ptr %_now.i.i31, i64 8
   %36 = load i64, ptr %tv_usec.i.i43, align 8
   call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.28, i32 noundef %call10.i.i42, i64 noundef %35, i64 noundef %36, ptr noundef nonnull @.str, i32 noundef 1) #5
   br label %trace_qmp_exit_blockdev_change_medium.exit45
@@ -1444,7 +1444,7 @@ if.then8.i.i:                                     ; preds = %if.then.i.i
   %call9.i.i = call i32 @gettimeofday(ptr noundef nonnull %_now.i.i, ptr noundef null) #5
   %call10.i.i = call i32 @qemu_get_thread_id() #5
   %8 = load i64, ptr %_now.i.i, align 8
-  %tv_usec.i.i = getelementptr inbounds %struct.timeval, ptr %_now.i.i, i64 0, i32 1
+  %tv_usec.i.i = getelementptr inbounds i8, ptr %_now.i.i, i64 8
   %9 = load i64, ptr %tv_usec.i.i, align 8
   call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.30, i32 noundef %call10.i.i, i64 noundef %8, i64 noundef %9, ptr noundef %2) #5
   br label %glib_autoptr_cleanup_GString.exit
@@ -1490,7 +1490,7 @@ if.then8.i.i26:                                   ; preds = %if.then.i.i24
   %call9.i.i27 = call i32 @gettimeofday(ptr noundef nonnull %_now.i.i17, ptr noundef null) #5
   %call10.i.i28 = call i32 @qemu_get_thread_id() #5
   %16 = load i64, ptr %_now.i.i17, align 8
-  %tv_usec.i.i29 = getelementptr inbounds %struct.timeval, ptr %_now.i.i17, i64 0, i32 1
+  %tv_usec.i.i29 = getelementptr inbounds i8, ptr %_now.i.i17, i64 8
   %17 = load i64, ptr %tv_usec.i.i29, align 8
   call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.32, i32 noundef %call10.i.i28, i64 noundef %16, i64 noundef %17, ptr noundef %call30, i32 noundef 0) #5
   br label %trace_qmp_exit_block_set_io_throttle.exit
@@ -1530,7 +1530,7 @@ if.then8.i.i40:                                   ; preds = %if.then.i.i38
   %call9.i.i41 = call i32 @gettimeofday(ptr noundef nonnull %_now.i.i31, ptr noundef null) #5
   %call10.i.i42 = call i32 @qemu_get_thread_id() #5
   %24 = load i64, ptr %_now.i.i31, align 8
-  %tv_usec.i.i43 = getelementptr inbounds %struct.timeval, ptr %_now.i.i31, i64 0, i32 1
+  %tv_usec.i.i43 = getelementptr inbounds i8, ptr %_now.i.i31, i64 8
   %25 = load i64, ptr %tv_usec.i.i43, align 8
   call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.32, i32 noundef %call10.i.i42, i64 noundef %24, i64 noundef %25, ptr noundef nonnull @.str, i32 noundef 1) #5
   br label %trace_qmp_exit_block_set_io_throttle.exit45
@@ -1619,7 +1619,7 @@ if.then8.i.i:                                     ; preds = %if.then.i.i
   %call9.i.i = call i32 @gettimeofday(ptr noundef nonnull %_now.i.i, ptr noundef null) #5
   %call10.i.i = call i32 @qemu_get_thread_id() #5
   %8 = load i64, ptr %_now.i.i, align 8
-  %tv_usec.i.i = getelementptr inbounds %struct.timeval, ptr %_now.i.i, i64 0, i32 1
+  %tv_usec.i.i = getelementptr inbounds i8, ptr %_now.i.i, i64 8
   %9 = load i64, ptr %tv_usec.i.i, align 8
   call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.34, i32 noundef %call10.i.i, i64 noundef %8, i64 noundef %9, ptr noundef %2) #5
   br label %glib_autoptr_cleanup_GString.exit
@@ -1635,35 +1635,35 @@ glib_autoptr_cleanup_GString.exit:                ; preds = %if.then15, %land.lh
 
 if.end27:                                         ; preds = %glib_autoptr_cleanup_GString.exit, %if.end9
   %10 = load ptr, ptr %arg, align 8
-  %has_boundaries = getelementptr inbounds %struct.q_obj_block_latency_histogram_set_arg, ptr %arg, i64 0, i32 1
+  %has_boundaries = getelementptr inbounds i8, ptr %arg, i64 8
   %11 = load i8, ptr %has_boundaries, align 8
   %12 = and i8 %11, 1
   %tobool28 = icmp ne i8 %12, 0
-  %boundaries = getelementptr inbounds %struct.q_obj_block_latency_histogram_set_arg, ptr %arg, i64 0, i32 2
+  %boundaries = getelementptr inbounds i8, ptr %arg, i64 16
   %13 = load ptr, ptr %boundaries, align 8
-  %has_boundaries_read = getelementptr inbounds %struct.q_obj_block_latency_histogram_set_arg, ptr %arg, i64 0, i32 3
+  %has_boundaries_read = getelementptr inbounds i8, ptr %arg, i64 24
   %14 = load i8, ptr %has_boundaries_read, align 8
   %15 = and i8 %14, 1
   %tobool29 = icmp ne i8 %15, 0
-  %boundaries_read = getelementptr inbounds %struct.q_obj_block_latency_histogram_set_arg, ptr %arg, i64 0, i32 4
+  %boundaries_read = getelementptr inbounds i8, ptr %arg, i64 32
   %16 = load ptr, ptr %boundaries_read, align 8
-  %has_boundaries_write = getelementptr inbounds %struct.q_obj_block_latency_histogram_set_arg, ptr %arg, i64 0, i32 5
+  %has_boundaries_write = getelementptr inbounds i8, ptr %arg, i64 40
   %17 = load i8, ptr %has_boundaries_write, align 8
   %18 = and i8 %17, 1
   %tobool30 = icmp ne i8 %18, 0
-  %boundaries_write = getelementptr inbounds %struct.q_obj_block_latency_histogram_set_arg, ptr %arg, i64 0, i32 6
+  %boundaries_write = getelementptr inbounds i8, ptr %arg, i64 48
   %19 = load ptr, ptr %boundaries_write, align 8
-  %has_boundaries_zap = getelementptr inbounds %struct.q_obj_block_latency_histogram_set_arg, ptr %arg, i64 0, i32 7
+  %has_boundaries_zap = getelementptr inbounds i8, ptr %arg, i64 56
   %20 = load i8, ptr %has_boundaries_zap, align 8
   %21 = and i8 %20, 1
   %tobool31 = icmp ne i8 %21, 0
-  %boundaries_zap = getelementptr inbounds %struct.q_obj_block_latency_histogram_set_arg, ptr %arg, i64 0, i32 8
+  %boundaries_zap = getelementptr inbounds i8, ptr %arg, i64 64
   %22 = load ptr, ptr %boundaries_zap, align 8
-  %has_boundaries_flush = getelementptr inbounds %struct.q_obj_block_latency_histogram_set_arg, ptr %arg, i64 0, i32 9
+  %has_boundaries_flush = getelementptr inbounds i8, ptr %arg, i64 72
   %23 = load i8, ptr %has_boundaries_flush, align 8
   %24 = and i8 %23, 1
   %tobool32 = icmp ne i8 %24, 0
-  %boundaries_flush = getelementptr inbounds %struct.q_obj_block_latency_histogram_set_arg, ptr %arg, i64 0, i32 10
+  %boundaries_flush = getelementptr inbounds i8, ptr %arg, i64 80
   %25 = load ptr, ptr %boundaries_flush, align 8
   call void @qmp_block_latency_histogram_set(ptr noundef %10, i1 noundef zeroext %tobool28, ptr noundef %13, i1 noundef zeroext %tobool29, ptr noundef %16, i1 noundef zeroext %tobool30, ptr noundef %19, i1 noundef zeroext %tobool31, ptr noundef %22, i1 noundef zeroext %tobool32, ptr noundef %25, ptr noundef nonnull %err) #5
   %26 = load ptr, ptr %err, align 8
@@ -1696,7 +1696,7 @@ if.then8.i.i26:                                   ; preds = %if.then.i.i24
   %call9.i.i27 = call i32 @gettimeofday(ptr noundef nonnull %_now.i.i17, ptr noundef null) #5
   %call10.i.i28 = call i32 @qemu_get_thread_id() #5
   %32 = load i64, ptr %_now.i.i17, align 8
-  %tv_usec.i.i29 = getelementptr inbounds %struct.timeval, ptr %_now.i.i17, i64 0, i32 1
+  %tv_usec.i.i29 = getelementptr inbounds i8, ptr %_now.i.i17, i64 8
   %33 = load i64, ptr %tv_usec.i.i29, align 8
   call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.36, i32 noundef %call10.i.i28, i64 noundef %32, i64 noundef %33, ptr noundef %call35, i32 noundef 0) #5
   br label %trace_qmp_exit_block_latency_histogram_set.exit
@@ -1736,7 +1736,7 @@ if.then8.i.i40:                                   ; preds = %if.then.i.i38
   %call9.i.i41 = call i32 @gettimeofday(ptr noundef nonnull %_now.i.i31, ptr noundef null) #5
   %call10.i.i42 = call i32 @qemu_get_thread_id() #5
   %40 = load i64, ptr %_now.i.i31, align 8
-  %tv_usec.i.i43 = getelementptr inbounds %struct.timeval, ptr %_now.i.i31, i64 0, i32 1
+  %tv_usec.i.i43 = getelementptr inbounds i8, ptr %_now.i.i31, i64 8
   %41 = load i64, ptr %tv_usec.i.i43, align 8
   call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.36, i32 noundef %call10.i.i42, i64 noundef %40, i64 noundef %41, ptr noundef nonnull @.str, i32 noundef 1) #5
   br label %trace_qmp_exit_block_latency_histogram_set.exit45
